@@ -1,74 +1,168 @@
-# yeomin1024-ytb
+# yeomin1024-ytb — 0명 채널을 위한 YouTube 주제 분석 + 영상 제작 지시사항
 
-## 📊 `youtube_topic_analyzer.py` — 0명 채널을 위한 YouTube 주제 분석기 (내 PC 실행용)
+주제(기본: 주식)에서 **어떤 영상이 구독자 수와 무관하게 터지는지** 분석하고, 그 결과를 근거로 **대본·제목·썸네일·모션그래픽 영상**을 만드는 저장소입니다.
+연구·교육용입니다. 투자 조언이 아닙니다.
 
-'주식'(또는 원하는 주제)에서 **어떤 키워드·제목·포맷·길이의 영상이 구독자 수와 무관하게 터지는지** 분석하고,
-결과를 PC의 `output/<PROJECT_FOLDER>/<RESULT_FOLDER>/` 와 이 저장소의 `<PROJECT_FOLDER>/<RESULT_FOLDER>/` (기본 `stock/result/`)에 저장합니다.
-Windows · macOS · Linux 에서 동작합니다.
+## 폴더 구조
 
-### 처음 한 번 (준비)
+```
+youtube_topic_analyzer.py   ← 분석 코드 (모든 주제 공통)
+run_analyzer.ps1            ← Windows: 분석 코드를 wget으로 받아 실행
+run_analyzer.sh             ← macOS/Linux: 분석 코드를 wget으로 받아 실행
+requirements.txt
+tools/srt_tool.py           ← 대본 TXT → SRT 자막 생성·검사 (모든 주제 공통)
+guides/                     ← 영상 제작 공통 지시사항 (모든 주제) — guides/README.md 부터 읽기
+  title_guide.md · script_guide.md · thumbnail_guide.md · video_guide.md · archive/
+video/                      ← (영상 만들 때 생성) Remotion 프로젝트, 모든 주제가 같이 씀
+stock/                      ← 주제 폴더: 주식
+  analyzer_config.toml      ← 분석 설정 (검색 키워드·관련어 등) — 여기만 고치면 됨
+  result/                   ← 분석 결과 (분석기가 GitHub에 올림)
+  guides/                   ← 주식 전용 규칙 + data_insights.md(분석 결과 요약 = 지시사항 근거)
+  titles/                   ← 제목 피드백 시트
+  source/<영상ID>/          ← 영상별 대본 TXT·SRT·README·titles.md·thumbnails/
+  out/<영상ID>/             ← (영상 만들 때 생성) 스토리보드·완성 영상·썸네일
+```
+다른 주제는 `stock/`과 같은 모양의 폴더(예: `realestate/`)를 만들어 씁니다 → [새 주제 시작하기](guides/README.md#새-주제-시작하기-예-부동산)
+
+---
+
+## 1. 분석기 실행
+
+### 방법 A — wget으로 받아서 실행 (새 폴더에서, 저장소를 받을 필요 없음)
+
+**Windows (PowerShell)** — 작업할 빈 폴더에서:
+```powershell
+wget https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/run_analyzer.ps1 -OutFile run_analyzer.ps1
+powershell -ExecutionPolicy Bypass -File .\run_analyzer.ps1
+```
+- `wget`은 Windows PowerShell 5.1(윈도우 기본)에 들어 있는 명령입니다.
+- PowerShell 7을 쓰면 첫 줄 대신 `curl.exe -L -o run_analyzer.ps1 https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/run_analyzer.ps1`을 쓰세요.
+
+**macOS / Linux:**
+```bash
+wget -O run_analyzer.sh https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/run_analyzer.sh
+bash run_analyzer.sh
+```
+
+실행기가 하는 일:
+1. `youtube_topic_analyzer.py`를 매번 최신으로 받는다.
+2. `stock/analyzer_config.toml`은 **없을 때만** 받는다. 내가 고친 설정을 덮어쓰지 않는다.
+3. `.venv` 가상환경을 만들고 실행한다. 필요한 패키지는 분석기가 자동 설치한다.
+
+| 하고 싶은 것 | Windows | macOS / Linux |
+|---|---|---|
+| 다른 주제 | `.\run_analyzer.ps1 -Folder realestate -Topic 부동산` | `bash run_analyzer.sh --folder realestate --topic 부동산` |
+| 설정 파일도 최신으로 (기존은 `.bak`) | `-UpdateConfig` | `--update-config` |
+| main에 합치기 전 브랜치에서 받기 | `-Branch claude/dreamy-brown-r105x4` | `--branch claude/dreamy-brown-r105x4` |
+| 분석기 옵션 전달 | `.\run_analyzer.ps1 --no-push --cases 3` | `bash run_analyzer.sh -- --no-push --cases 3` |
+
+### 방법 B — 저장소를 받아서 실행
 1. **Python 3.10 이상** 설치 — Windows는 [python.org](https://www.python.org/downloads/) 설치 화면에서 **"Add python.exe to PATH"** 체크
 2. **Git** 설치 (GitHub에 결과 올릴 때 필요) — https://git-scm.com/downloads
-3. 이 저장소를 내려받기: `git clone https://github.com/yeomin1024/yeomin1024-ytb.git` (또는 `youtube_topic_analyzer.py` 파일만 받아도 됨)
-4. 그 폴더에서 터미널(Windows: PowerShell) 열고 가상환경 만들기:
+3. `git clone https://github.com/yeomin1024/yeomin1024-ytb.git` → 그 폴더에서:
    ```
    python -m venv .venv
-   .venv\Scripts\activate          # Windows
-   source .venv/bin/activate       # macOS / Linux
+   .venv\Scripts\activate          # Windows   (macOS/Linux: source .venv/bin/activate)
+   python youtube_topic_analyzer.py                                     # stock/analyzer_config.toml 로 실행
    ```
 
-### 실행
-```
-python youtube_topic_analyzer.py
-```
-- **처음 실행**하면 같은 폴더에 `.env` 파일이 생기고 필요한 패키지가 자동 설치됩니다(수 분).
-  `.env` 를 메모장으로 열어 아래 값을 넣고 저장한 뒤 **다시 실행**하세요. (`.env` 는 `.gitignore` 에 등록되어 GitHub에 올라가지 않습니다)
+### 처음 실행할 때
+- 같은 폴더에 `.env` 파일이 생깁니다. 메모장으로 열어 아래 값을 넣고 저장한 뒤 **다시 실행**하세요.
+- `.env`는 `.gitignore`에 등록되어 GitHub에 올라가지 않습니다.
   ```
   YOUTUBE_API_KEY=AIza...        # 필수 — Google Cloud Console에서 YouTube Data API v3 사용 설정 후 API 키 발급
   GITHUB_TOKEN=github_pat_...    # 권장 — Fine-grained 토큰, 이 저장소 Contents: Read and write (없으면 PC에만 저장)
   ```
-- 전체 실행 시간: 보통 10~30분 (성공사례 영상 수·길이에 따라). 같은 날 다시 실행하면 API 응답이 캐시되어 쿼터를 거의 쓰지 않습니다.
+- 전체 실행 시간은 보통 10~30분입니다. 같은 날 다시 실행하면 API 응답이 캐시되어 쿼터를 거의 쓰지 않습니다.
+
+### ⚙️ 설정 파일 — `stock/analyzer_config.toml`
+검색 키워드처럼 **주제마다 바뀌는 값은 코드가 아니라 이 파일**에 있습니다. 메모장으로 열어 값만 고치면 됩니다.
+
+| 구역 | 내용 |
+|---|---|
+| `[topic]` | 주제(`TOPIC`), 저장 폴더(`PROJECT_FOLDER`) |
+| `[keywords]` · `[KEYWORD_GROUPS]` | 키워드 모드, **카테고리별 검색어** (기본 9개 카테고리·90개) |
+| `[relevance]` | 주제 관련성 필터 — 무관한 영상(예: 홈쇼핑 방송 사고) 제외용 관련어 |
+| `[ads]` | 광고로 조회수를 산 것으로 의심되는 영상 제외 기준 |
+| `[advanced]` | (선택) 분석 기간·쿼터 예산·성공 기준 등 — `#`을 지우고 고치면 적용 |
+
+- 우선순위: 코드 기본값 < 설정 파일 < 명령줄 옵션
+- 오타·형식 오류는 실행 전에 알려 줍니다. 예: `QUOTA_BUDGTE(→ QUOTA_BUDGET?)`, "QUOTA_BUDGET: 숫자여야 함"
+- 키워드 1개 = 검색 1회(100유닛)입니다.
+  - 하루 한도는 10,000유닛이고, 프로젝트별 **일일 검색 횟수 한도**('Search Queries per day')도 있습니다.
+  - 한도를 넘는 키워드는 **다음 날(한국시간 오후 4~5시 리셋 이후) 다시 실행하면 이어서 수집**합니다. 이미 받은 검색은 7일간 쿼터 0으로 재사용합니다.
+  - 같은 날 여러 번 돌리면 검색 한도가 먼저 찹니다.
 
 ### 자주 쓰는 옵션
 ```
-python youtube_topic_analyzer.py --topic 부동산 --folder realestate   # 다른 주제 → 다른 폴더에 저장
-python youtube_topic_analyzer.py --no-push                            # GitHub 푸시 없이 PC에만
-python youtube_topic_analyzer.py --cases 3 --no-video                 # 성공사례 3개, 영상 파일 없이(대본·썸네일만)
-python youtube_topic_analyzer.py --push-only                          # 분석 없이, PC에 있는 결과만 GitHub에 푸시
-python youtube_topic_analyzer.py --help                               # 전체 옵션
+python youtube_topic_analyzer.py --config stock/analyzer_config.toml       # 설정 파일 지정
+python youtube_topic_analyzer.py --topic 부동산 --folder realestate --init-config   # 새 주제 설정 파일 만들기
+python youtube_topic_analyzer.py --no-push                                 # GitHub 푸시 없이 PC에만
+python youtube_topic_analyzer.py --cases 3 --no-video                      # 성공사례 3개, 영상 파일 없이(대본·썸네일만)
+python youtube_topic_analyzer.py --push-only                               # 분석 없이, PC에 있는 결과만 GitHub에 푸시
+python youtube_topic_analyzer.py --help                                    # 전체 옵션
 ```
-그 밖의 설정(분석 기간, 성공 기준, 쿼터 예산 등)은 `youtube_topic_analyzer.py` 맨 위 **[설정 2]** 영역에서 바꿀 수 있습니다.
 
-### 🔎 검색 키워드 (카테고리별)
-`[설정 2]` 의 **`KEYWORD_GROUPS`** 에 카테고리별 검색어가 들어 있습니다 (기본: 투자 실패 사연·노후자금·가족 갈등·리딩방 피해·투자 방식 실패·폭락·교훈·판결/뉴스·사연 포맷 — 9개 카테고리 90개). 자유롭게 추가·삭제하세요.
-- 키워드 1개 = 검색 1회(100유닛). 하루 한도(10,000유닛, 그리고 프로젝트별 **일일 검색 횟수 한도** 'Search Queries per day')를 넘는 키워드는 **다음 날(한국시간 오후 4~5시 리셋 이후) 다시 실행하면 이어서 수집**합니다 (이미 받은 검색은 7일간 쿼터 0으로 재사용). 같은 날 여러 번 돌리면 검색 한도가 먼저 찹니다.
-- 리포트에 **카테고리(소재)별 기회** 표가 생겨, 어떤 사연 유형이 유리한지 비교할 수 있습니다.
-- `KEYWORD_MODE = "autocomplete"` 로 바꾸면 예전처럼 주제어 자동완성으로 키워드를 자동 발굴합니다 (`"both"` = 둘 다).
-- 검색 결과에 섞여 나오는 **주제와 무관한 영상**(예: 홈쇼핑 방송 사고)은 `RELEVANCE_TERMS` 기준으로 걸러서 분석·성공사례에서 제외합니다.
-- **광고로 조회수를 산 것으로 의심되는 영상**(조회수는 많은데 좋아요·댓글이 거의 없음)도 성과 분석·성공사례에서 제외합니다 (`AD_SUSPECT_*` 설정).
-
-### 결과물
+### 결과물 (`<주제폴더>/result/`)
 | 위치 | 내용 |
 |---|---|
-| `README.md` (결과 폴더) | 분석 리포트 — 추천 영상 아이디어, 첫 10개 업로드 플랜, 키워드 기회점수, 제목 패턴, 포맷/길이, 타이밍, 채널 규모, 시청자 질문 |
+| `README.md` | 분석 리포트 — 추천 영상 아이디어, 첫 10개 업로드 플랜, 키워드·카테고리 기회점수, 제목 패턴, 포맷/길이, 타이밍, 채널 규모, 시청자 질문 |
 | `analysis.xlsx`, `data/*.csv` | 모든 분석 표 |
 | `charts/*.png` | 차트 12종 |
-| `success_cases/NN_.../` | 성공사례별 `transcript.txt`(대본), `video.mp4`, `thumbnail.jpg`, `metadata.json`, `comments.csv` |
+| `success_cases/NN_.../` | 성공사례별 `transcript.txt`(대본), `thumbnail.jpg`, `metadata.json`, `comments.csv` (영상 파일은 PC에만) |
 | `run_info.json`, `run_log.txt` | 설정·쿼터·소요시간·데이터 기간 등 재현 정보와 전체 로그 |
 
-### 문제 해결
-- **`Sign in to confirm you're not a bot`**: 가정용 인터넷에서는 드뭅니다. VPN을 끄고 다시 실행하거나, 시크릿 창에서 YouTube 로그인 → `youtube.com/robots.txt` 이동 → 확장 프로그램 *Get cookies.txt LOCALLY* 로 `cookies.txt` 저장 → 시크릿 창 닫기 → **스크립트와 같은 폴더에 `cookies.txt`** 를 두고 다시 실행 (자동 인식). 또는 설정 `COOKIES_FROM_BROWSER = "firefox"`.
-- **`Permission to yeomin1024/yeomin1024-ytb.git denied`** (푸시 거부): 토큰은 맞지만 **쓰기 권한이 없는** 상태입니다.
-  - Fine-grained 토큰(`github_pat_…`): GitHub → Settings → Developer settings → Personal access tokens → Fine-grained tokens → 해당 토큰 → **Edit** →
-    ① Repository access 에 `yeomin1024-ytb` 포함 ② Repository permissions → **Contents: Read and write** → Update (토큰 값은 그대로 사용 가능)
-  - Classic 토큰(`ghp_…`): **repo** 범위 체크 → Update token
-  - 고친 뒤 분석을 다시 돌릴 필요 없이 **`python youtube_topic_analyzer.py --push-only`** 로 PC에 있는 결과만 올리면 됩니다.
-  - 스크립트가 시작할 때 쓰기 권한을 미리 확인해서 알려주고, 분석이 도는 동안 `.env` 를 고쳐 저장하면 푸시 직전에 다시 읽습니다.
-- **`429 RATE_LIMIT_EXCEEDED ... 'Search Queries per day'`**: 오늘 검색 횟수 한도에 도달한 것입니다. 스크립트가 바로 검색을 멈추고 남은 키워드를 이월합니다 → 한국시간 오후 4~5시 이후 같은 설정으로 다시 실행하세요. 한도 확인: Google Cloud Console → API 및 서비스 → YouTube Data API v3 → 할당량.
-- **GitHub 푸시가 건너뛰어짐**: `.env` 의 `GITHUB_TOKEN` 과 Git 설치 여부 확인 (결과는 PC에 그대로 있음).
-- **패키지 설치 실패**: 가상환경(.venv)을 켠 상태인지 확인 후 `python -m pip install -r requirements.txt`.
+분석 결과를 지시사항에 쓸 수 있게 요약한 파일은 `<주제폴더>/guides/data_insights.md`입니다 (주식: [stock/guides/data_insights.md](stock/guides/data_insights.md)).
 
-### 주의
-- 연구/교육용 분석 도구입니다. 투자 조언이 아닙니다.
-- 이 저장소가 **public**이면 타인 영상 파일은 GitHub에 올리지 않고 **PC에만 원본 화질로** 저장합니다 (저작권). private으로 바꾸면 영상도 GitHub에 함께 올라가며, 이때는 GitHub 용량 제한 때문에 49MB 이하로 재인코딩합니다.
-- 변경 내역은 [`CHANGELOG.md`](CHANGELOG.md) 참고.
+### 문제 해결
+- **`Sign in to confirm you're not a bot`:** 가정용 인터넷에서는 드뭅니다.
+  - VPN을 끄고 다시 실행하세요.
+  - 또는 쿠키를 쓰세요: 시크릿 창에서 YouTube 로그인 → `youtube.com/robots.txt` 이동 → 확장 프로그램 *Get cookies.txt LOCALLY*로 `cookies.txt` 저장 → 시크릿 창 닫기 → **스크립트와 같은 폴더에 `cookies.txt`**를 두고 다시 실행 (자동 인식).
+  - 또는 설정 `COOKIES_FROM_BROWSER = "firefox"`.
+- **`Permission to yeomin1024/yeomin1024-ytb.git denied`** (푸시 거부): 토큰은 맞지만 **쓰기 권한이 없는** 상태입니다.
+  - Fine-grained 토큰(`github_pat_…`): GitHub → Settings → Developer settings → Personal access tokens → Fine-grained tokens → 해당 토큰 → **Edit**
+    ① Repository access에 `yeomin1024-ytb` 포함 ② Repository permissions → **Contents: Read and write** → Update (토큰 값은 그대로 사용 가능)
+  - Classic 토큰(`ghp_…`): **repo** 범위 체크 → Update token
+  - 고친 뒤 분석을 다시 돌릴 필요 없이 **`python youtube_topic_analyzer.py --push-only`**로 PC에 있는 결과만 올리면 됩니다.
+- **`429 RATE_LIMIT_EXCEEDED ... 'Search Queries per day'`:** 오늘 검색 횟수 한도에 도달한 것입니다.
+  - 스크립트가 바로 검색을 멈추고 남은 키워드를 이월합니다 → 한국시간 오후 4~5시 이후 같은 설정으로 다시 실행하세요.
+  - 한도 확인: Google Cloud Console → API 및 서비스 → YouTube Data API v3 → 할당량
+- **`[CONFIG] ❌ 설정 파일 형식 오류`:** 메시지의 줄·칸 번호를 확인하세요. 글자는 `"따옴표"` 안에, 목록은 `["가", "나"]`처럼 씁니다.
+- **GitHub 푸시가 건너뛰어짐:** `.env`의 `GITHUB_TOKEN`과 Git 설치 여부를 확인하세요 (결과는 PC에 그대로 있음).
+- **패키지 설치 실패:** 가상환경(.venv)을 켠 상태인지 확인 후 `python -m pip install -r requirements.txt`.
+- **PowerShell에서 "스크립트를 실행할 수 없습니다":** `powershell -ExecutionPolicy Bypass -File .\run_analyzer.ps1`처럼 실행하세요.
+
+---
+
+## 2. 영상 만들기
+
+[`guides/README.md`](guides/README.md)에 작업 순서가 있습니다. 요약하면 이 순서입니다.
+1. 주제 고르기
+2. 제목 후보
+3. 대본 TXT·SRT (`tools/srt_tool.py`)
+4. 영상별 제목 3개 (`titles.md`)
+5. 썸네일 프롬프트 3개 (`thumbnails/`)
+6. 내레이션 녹음
+7. 장면 구성표 → 스토리보드 → **승인** → 렌더 (Remotion, Claude Code)
+8. 썸네일 렌더
+9. 업로드 후 "테스트 및 비교" 결과 기록
+
+| 영상 | 상태 | 위치 |
+|---|---|---|
+| 몰빵 `molppang-2026-10` | 제작 완료 | `stock/source/molppang-2026-10/` (SRT) |
+| 물타기 `multagi-2026-10` | 대본 v1.2 · 제목 3개 · 썸네일 프롬프트 3개 준비, 제목 선택·녹음 대기 | `stock/source/multagi-2026-10/` |
+
+자막 파일 검사·생성:
+```
+python tools/srt_tool.py check stock/source/multagi-2026-10/multagi-2026-10.txt stock/source/multagi-2026-10/multagi-2026-10.srt
+python tools/srt_tool.py build <대본.txt> <새.srt> --reuse <기존.srt>   # 고친 문장만 새로 계산, 나머지는 기존 줄바꿈·길이 유지
+```
+
+---
+
+## 주의
+- 연구/교육용 분석 도구이고, 영상은 투자 교육 콘텐츠입니다. 특정 종목의 매수·매도를 권유하지 않습니다.
+- 이 저장소가 **public**이면 타인 영상 파일은 GitHub에 올리지 않고 **PC에만 원본 화질로** 저장합니다 (저작권).
+  - private으로 바꾸면 영상도 GitHub에 함께 올라갑니다. 이때는 GitHub 용량 제한 때문에 49MB 이하로 재인코딩합니다.
+- 렌더한 완성 영상(`*/out/**/*.mp4`)은 용량 때문에 git에 올리지 않습니다 (`.gitignore`).
+- 변경 내역: 분석 코드는 [`CHANGELOG.md`](CHANGELOG.md), 지시사항은 각 파일 아래 "변경 이력" 표에 있습니다.

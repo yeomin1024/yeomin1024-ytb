@@ -34,9 +34,17 @@ python youtube_topic_analyzer.py
 python youtube_topic_analyzer.py --topic 부동산 --folder realestate   # 다른 주제 → 다른 폴더에 저장
 python youtube_topic_analyzer.py --no-push                            # GitHub 푸시 없이 PC에만
 python youtube_topic_analyzer.py --cases 3 --no-video                 # 성공사례 3개, 영상 파일 없이(대본·썸네일만)
+python youtube_topic_analyzer.py --push-only                          # 분석 없이, PC에 있는 결과만 GitHub에 푸시
 python youtube_topic_analyzer.py --help                               # 전체 옵션
 ```
 그 밖의 설정(분석 기간, 성공 기준, 쿼터 예산 등)은 `youtube_topic_analyzer.py` 맨 위 **[설정 2]** 영역에서 바꿀 수 있습니다.
+
+### 🔎 검색 키워드 (카테고리별)
+`[설정 2]` 의 **`KEYWORD_GROUPS`** 에 카테고리별 검색어가 들어 있습니다 (기본: 투자 실패 사연·노후자금·가족 갈등·리딩방 피해·투자 방식 실패·폭락·교훈·판결/뉴스·사연 포맷 — 9개 카테고리 90개). 자유롭게 추가·삭제하세요.
+- 키워드 1개 = 검색 1회(100유닛). 하루 한도(10,000)를 넘는 키워드는 **다음 날 다시 실행하면 이어서 수집**합니다 (이미 받은 검색은 7일간 쿼터 0으로 재사용).
+- 리포트에 **카테고리(소재)별 기회** 표가 생겨, 어떤 사연 유형이 유리한지 비교할 수 있습니다.
+- `KEYWORD_MODE = "autocomplete"` 로 바꾸면 예전처럼 주제어 자동완성으로 키워드를 자동 발굴합니다 (`"both"` = 둘 다).
+- 검색 결과에 섞여 나오는 **주제와 무관한 영상**(예: 홈쇼핑 방송 사고)은 `RELEVANCE_TERMS` 기준으로 걸러서 분석·성공사례에서 제외합니다.
 
 ### 결과물
 | 위치 | 내용 |
@@ -49,6 +57,12 @@ python youtube_topic_analyzer.py --help                               # 전체 �
 
 ### 문제 해결
 - **`Sign in to confirm you're not a bot`**: 가정용 인터넷에서는 드뭅니다. VPN을 끄고 다시 실행하거나, 시크릿 창에서 YouTube 로그인 → `youtube.com/robots.txt` 이동 → 확장 프로그램 *Get cookies.txt LOCALLY* 로 `cookies.txt` 저장 → 시크릿 창 닫기 → **스크립트와 같은 폴더에 `cookies.txt`** 를 두고 다시 실행 (자동 인식). 또는 설정 `COOKIES_FROM_BROWSER = "firefox"`.
+- **`Permission to yeomin1024/yeomin1024-ytb.git denied`** (푸시 거부): 토큰은 맞지만 **쓰기 권한이 없는** 상태입니다.
+  - Fine-grained 토큰(`github_pat_…`): GitHub → Settings → Developer settings → Personal access tokens → Fine-grained tokens → 해당 토큰 → **Edit** →
+    ① Repository access 에 `yeomin1024-ytb` 포함 ② Repository permissions → **Contents: Read and write** → Update (토큰 값은 그대로 사용 가능)
+  - Classic 토큰(`ghp_…`): **repo** 범위 체크 → Update token
+  - 고친 뒤 분석을 다시 돌릴 필요 없이 **`python youtube_topic_analyzer.py --push-only`** 로 PC에 있는 결과만 올리면 됩니다.
+  - 스크립트가 시작할 때 쓰기 권한을 미리 확인해서 알려주고, 분석이 도는 동안 `.env` 를 고쳐 저장하면 푸시 직전에 다시 읽습니다.
 - **GitHub 푸시가 건너뛰어짐**: `.env` 의 `GITHUB_TOKEN` 과 Git 설치 여부 확인 (결과는 PC에 그대로 있음).
 - **패키지 설치 실패**: 가상환경(.venv)을 켠 상태인지 확인 후 `python -m pip install -r requirements.txt`.
 

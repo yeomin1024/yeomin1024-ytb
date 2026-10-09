@@ -1,0 +1,3 @@
+video.mp4 (1.2MB) 은 GitHub에 올리지 않았습니다. 사유: public_repo_video_policy
+- public_repo_video_policy: 공개 저장소에 타인 영상 업로드 방지 (저장소를 private으로 바꾸면 자동 업로드)
+- 영상 위치: 분석을 실행한 PC의 C:\Users\yunyc\Downloads\ytb-anal\yeomin1024-ytb\output\stock\result\success_cases\03_주식으로_성공한_부자들의_어마어마한_핵심_노하우_iacwbUHyqv4\video.mp4

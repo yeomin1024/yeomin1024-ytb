@@ -1,0 +1,331 @@
+{
+  "notebook_version": "v2.1.0",
+  "run_id": "20261009_204204",
+  "started_at_utc": "2026-10-09T11:42:04.661737+00:00",
+  "finished_at_utc": "2026-10-09T11:57:09.133431+00:00",
+  "config": {
+    "TOPIC": "주식",
+    "PROJECT_FOLDER": "stock",
+    "RESULT_FOLDER": "result",
+    "GITHUB_REPO": "yeomin1024/yeomin1024-ytb",
+    "GITHUB_BRANCH": "main",
+    "EXTRA_KEYWORDS": [],
+    "EXCLUDE_KEYWORDS": [],
+    "KEYWORD_MODE": "curated",
+    "KEYWORD_GROUPS": {
+      "1. 실제 투자 실패·손실 사연": [
+        "주식 투자 실패 실제 사례",
+        "주식으로 전재산 잃은 사연",
+        "주식으로 퇴직금 잃은 사연",
+        "주식 빚투 실패 사례",
+        "주식 신용거래 실패 사연",
+        "주식 물타기 실패 사례",
+        "주식 몰빵 실패 사연",
+        "주식 손절 못해서 손실 본 사연",
+        "주식 장기투자 실패 사례",
+        "주식 투자 후회 사연"
+      ],
+      "2. 50·60대와 노후자금": [
+        "50대 주식 투자 실패",
+        "60대 주식 투자 실패",
+        "은퇴 후 주식 투자 실패",
+        "노후자금 주식으로 잃은 사연",
+        "퇴직금 주식투자 실제 사례",
+        "연금 주식투자 실패 사례",
+        "노후 파산 주식 투자",
+        "은퇴자 빚투 실제 사례",
+        "시니어 주식 투자 실패",
+        "노후 주식 투자 후회"
+      ],
+      "3. 가족 갈등": [
+        "남편 몰래 주식 투자 사연",
+        "아내 몰래 주식 투자 실패",
+        "부부 주식 투자 갈등",
+        "주식으로 이혼한 실제 사례",
+        "자녀 돈으로 주식 투자한 부모",
+        "부모 재산 주식으로 잃은 사연",
+        "가족 돈 주식으로 잃은 사례",
+        "주식 손실 숨긴 남편",
+        "주식 손실 숨긴 아내",
+        "주식 투자 가족 파탄 사례"
+      ],
+      "4. 사기·추천방 피해": [
+        "주식 리딩방 피해 사례",
+        "무료 주식 리딩방 사기",
+        "주식 전문가 사칭 피해 사례",
+        "주식 유튜버 추천 손실 사례",
+        "주식 단톡방 사기 사례",
+        "고수익 주식 투자 사기",
+        "미등록 투자자문 피해 사례",
+        "노인 주식 리딩방 피해",
+        "퇴직금 리딩방 사기",
+        "주식 자동매매 사기 사례"
+      ],
+      "5. 특정 투자 방식 실패": [
+        "테마주 투자 실패 사례",
+        "급등주 투자 실패 사연",
+        "작전주 피해 실제 사례",
+        "상장폐지 주식 피해 사례",
+        "관리종목 투자 실패",
+        "동전주 투자 실패 사례",
+        "레버리지 투자 실패 사연",
+        "인버스 투자 실패 사례",
+        "미국 주식 투자 실패 사연",
+        "해외주식으로 돈 잃은 사례"
+      ],
+      "6. 큰 하락과 공포": [
+        "주식 폭락 전재산 손실",
+        "주가 폭락 실제 투자자 사연",
+        "반대매매 실제 사례",
+        "주식 깡통 계좌 사연",
+        "하한가 투자 피해 사례",
+        "상장폐지 전재산 손실",
+        "주식 손실 회복하려다 더 잃은 사연",
+        "주식 중독 실제 사례",
+        "빚내서 주식한 사람의 결말",
+        "대출받아 주식 투자 실패"
+      ],
+      "7. 교훈과 예방": [
+        "주식 투자자가 가장 후회하는 것",
+        "주식 초보가 돈 잃는 이유",
+        "은퇴 후 주식 투자 주의사항",
+        "50대 주식 투자 주의사항",
+        "60대 주식 투자 주의사항",
+        "주식 리딩방 사기 예방법",
+        "노후자금 투자 실수",
+        "퇴직금 투자하면 안 되는 이유",
+        "주식 손실 실제 경험담",
+        "주식 실패에서 얻은 교훈"
+      ],
+      "8. 실제 사건·판결·뉴스": [
+        "주식 투자 사기 실제 사건",
+        "주식 리딩방 법원 판결",
+        "주식 손실 이혼 판결",
+        "배우자 몰래 주식 판결",
+        "주식 투자금 반환 소송",
+        "투자 권유 손해배상 판결",
+        "미공개정보 주식 사건",
+        "주가조작 피해자 실제 사례",
+        "노후자금 투자사기 뉴스",
+        "퇴직금 투자 실패 뉴스"
+      ],
+      "9. 사연·썰·다큐 포맷": [
+        "주식 실패 사연 라디오",
+        "주식 망한 썰",
+        "주식 실화 사연",
+        "주식으로 망한 사람 인터뷰",
+        "개미 투자자 실패 다큐",
+        "주식 사연 읽어주는",
+        "주식 손실 고백",
+        "주식 폐인 일상",
+        "주식 투자 실패 다큐멘터리",
+        "주식 실패 후 재기 사연"
+      ]
+    },
+    "AUTOCOMPLETE_TOP_N": 10,
+    "RELEVANCE_TERMS": [
+      "주식",
+      "주가",
+      "증시",
+      "증권",
+      "코스피",
+      "코스닥",
+      "나스닥",
+      "테마주",
+      "급등주",
+      "작전주",
+      "동전주",
+      "우량주",
+      "배당주",
+      "리딩방",
+      "반대매매",
+      "빚투",
+      "신용거래",
+      "공매도",
+      "하한가",
+      "상한가",
+      "주가조작",
+      "미공개정보",
+      "투자자문",
+      "증권사",
+      "미국주식",
+      "해외주식",
+      "선물옵션",
+      "상장폐지",
+      "상폐",
+      "깡통계좌",
+      "ETF"
+    ],
+    "RELEVANCE_WEAK_TERMS": [
+      "종목",
+      "개미",
+      "상장",
+      "물타기",
+      "손절",
+      "익절",
+      "매수",
+      "매도",
+      "주주",
+      "레버리지",
+      "인버스",
+      "깡통",
+      "투자",
+      "재테크",
+      "노후자금",
+      "퇴직금"
+    ],
+    "RELEVANCE_EXCLUDE": [
+      "주식회사",
+      "(주)",
+      "㈜"
+    ],
+    "MAX_CASES_PER_CATEGORY": 2,
+    "SEARCH_CACHE_TTL_HOURS": 168,
+    "BASELINE_CACHE_TTL_HOURS": 72,
+    "REGION_CODE": "KR",
+    "LANGUAGE": "ko",
+    "ANALYSIS_DAYS": 365,
+    "MAX_SEARCH_KEYWORDS": 150,
+    "SEARCH_ORDERS": [
+      "relevance"
+    ],
+    "RELEVANCE_USE_DATE_FILTER": false,
+    "PAGES_PER_QUERY": 1,
+    "QUOTA_BUDGET": 9000,
+    "AUTOCOMPLETE_EXPAND": true,
+    "AUTOCOMPLETE_DEPTH2_N": 15,
+    "REQUIRE_TOPIC_IN_KEYWORD": true,
+    "MATURE_AGE_DAYS": 14,
+    "BASELINE_UPLOADS": 50,
+    "BASELINE_MIN_N": 5,
+    "MAX_BASELINE_CHANNELS": 700,
+    "OUTLIER_MIN": 3.0,
+    "MIN_SUCCESS_VIEWS": 10000,
+    "SMALL_CHANNEL_MAX_SUBS": 10000,
+    "BIG_CHANNEL_MIN_SUBS": 100000,
+    "SERP_TOP_N": 20,
+    "FRESH_DAYS": 90,
+    "SHORTS_HTTP_CHECK": true,
+    "FETCH_COMMENTS_TOP_N": 30,
+    "SUCCESS_CASE_COUNT": 8,
+    "SUCCESS_SMALL_CHANNEL_SHARE": 0.5,
+    "SUCCESS_LONGFORM_SHARE": 0.5,
+    "MAX_CASES_PER_CHANNEL": 1,
+    "DOWNLOAD_VIDEOS": true,
+    "VIDEO_MAX_HEIGHT": 480,
+    "VIDEO_MAX_MB": 49,
+    "ALLOW_VIDEO_UPLOAD_TO_PUBLIC_REPO": false,
+    "USE_WHISPER_FALLBACK": true,
+    "WHISPER_MODEL": "small",
+    "WHISPER_CPU_MAX_MINUTES": 15,
+    "YTDLP_COOKIES_FILE": "",
+    "COOKIES_FROM_BROWSER": "",
+    "YTDLP_CLIENT_FALLBACK": true,
+    "YTDLP_MAX_BOT_BLOCKS": 2,
+    "PUSH_TO_GITHUB": true,
+    "CLEAN_OLD_RESULTS": true,
+    "OUTPUT_DIR": "output",
+    "OPEN_RESULT_FOLDER": true,
+    "MAKE_RESULT_ZIP": false,
+    "AUTO_INSTALL_PACKAGES": true,
+    "UPDATE_YTDLP_DAILY": true,
+    "CACHE_TTL_HOURS": 24,
+    "RANDOM_SEED": 42,
+    "LOG_LEVEL": "INFO",
+    "RUN_SELF_TEST": true
+  },
+  "youtube_api": {
+    "quota_used": 8533,
+    "quota_budget": 9000,
+    "calls": {
+      "search": 74,
+      "videos": 600,
+      "channels": 13,
+      "playlistItems": 491,
+      "commentThreads": 29
+    },
+    "cache_hits": {
+      "playlistItems": 131,
+      "commentThreads": 1
+    },
+    "errors": {
+      "search:429:RATE_LIMIT_EXCEEDED": 34
+    }
+  },
+  "cache": {
+    "hits": {
+      "autocomplete": 3,
+      "yt_api": 132,
+      "is_short": 7
+    },
+    "misses": {
+      "autocomplete": 256,
+      "yt_api": 1207,
+      "is_short": 151
+    }
+  },
+  "timings_sec": {
+    "SELFTEST": 1.6,
+    "KEYWORD": 4.46,
+    "COLLECT": 87.0,
+    "FEATURE": 13.8,
+    "ANALYSIS": 13.63,
+    "CHART": 5.09,
+    "SUCCESS": 775.18
+  },
+  "notes": [
+    "[COLLECT] 오늘 쿼터 예산을 넘는 키워드는 다음 실행으로 이월 (내일 다시 실행하면 이미 받은 검색은 쿼터 0으로 재사용) deferred=16 examples=[주식으로 이혼한 실제 사례(3. 가족 갈등),미등록 투자자문 피해 사례(4. 사기·추천방 피해),관리종목 투자 실패(5. 특정 투자 방식 실패),상장폐지 전재산 손실(6. 큰 하락과 공포),퇴직금 투자하면 안 되는 이유(7. 교훈과 예방)] hint=\"같은 설정으로 내일 다시 실행하세요 — 검색 결과는 SEARCH_CACHE_TTL_HOURS 동안 보관됩니다\""
+  ],
+  "data_ranges": {
+    "videos_total": 1151,
+    "perf_videos": 431,
+    "perf_published_min": "2025-10-11 12:56:29+00:00",
+    "perf_published_max": "2026-09-21 12:35:59+00:00",
+    "collected_at": "2026-10-09 11:43:38.960735+00:00"
+  },
+  "scoring": {
+    "keyword_weights": {
+      "demand_vpd": 0.25,
+      "ac_score": 0.15,
+      "small_win_share": 0.2,
+      "median_outlier": 0.1,
+      "fresh_share": 0.05,
+      "low_competition": 0.15,
+      "content_gap": 0.1
+    },
+    "success_case_weights": {
+      "outlier": 0.4,
+      "views": 0.35,
+      "views_per_sub": 0.25
+    }
+  },
+  "keywords": {
+    "searched": 40,
+    "deferred": [
+      "주식으로 이혼한 실제 사례",
+      "미등록 투자자문 피해 사례",
+      "관리종목 투자 실패",
+      "상장폐지 전재산 손실",
+      "퇴직금 투자하면 안 되는 이유",
+      "주가조작 피해자 실제 사례",
+      "개미 투자자 실패 다큐",
+      "주식으로 퇴직금 잃은 사연",
+      "은퇴자 빚투 실제 사례",
+      "자녀 돈으로 주식 투자한 부모",
+      "퇴직금 리딩방 사기",
+      "해외주식으로 돈 잃은 사례",
+      "빚내서 주식한 사람의 결말",
+      "주식 실패에서 얻은 교훈",
+      "노후자금 투자사기 뉴스",
+      "주식 실화 사연"
+    ],
+    "offtopic_excluded": 177
+  },
+  "environment": {
+    "python": "3.13.5",
+    "pandas": "2.2.3",
+    "numpy": "2.1.1",
+    "os": "Windows-10-10.0.19045-SP0"
+  },
+  "disclaimer": "연구·교육용 분석 결과이며 투자 조언이 아닙니다."
+}

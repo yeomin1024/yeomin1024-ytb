@@ -11,3 +11,11 @@ output/
 venv/
 __pycache__/
 *.pyc
+# 영상 제작 (Remotion) — 렌더 결과 영상은 용량이 커서 올리지 않음 (썸네일·스토리보드 이미지는 올림)
+node_modules/
+**/out/**/*.mp4
+**/out/**/*.mov
+video/.remotion/
+# 실행기(run_analyzer)가 받는 중인 임시 파일·설정 백업
+*.download
+*.toml.bak

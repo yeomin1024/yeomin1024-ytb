@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v2.2.0 — 2026-10-09 — 검색 일일 횟수 한도 대응·광고 집행 의심 영상 제외·소재별 제목 예시·영상 업로드 안 하면 재인코딩 생략
+# VERSION: v2.3.0 — 2026-10-09 — 주제별 설정(키워드·관련어 등)을 설정 파일(<주제폴더>/analyzer_config.toml)로 분리, --config / --init-config 추가
 r"""
 YouTube 주제 분석기 — 구독자 0명 채널이 조회수를 가장 잘 받을 영상 찾기
 (연구·교육용 분석 도구입니다. 투자 조언이 아니며, 통계는 상관관계일 뿐 인과관계를 보장하지 않습니다.)
@@ -15,9 +15,15 @@ YouTube 주제 분석기 — 구독자 0명 채널이 조회수를 가장 잘 �
      → 처음 실행하면 같은 폴더에 .env 파일이 생깁니다. 메모장으로 열어 키를 넣고 저장한 뒤 다시 실행하세요.
      → 필요한 패키지는 자동으로 설치됩니다 (AUTO_INSTALL_PACKAGES).
 
+[설정 파일] 주제별로 바뀌는 값(검색 키워드·관련어 등)은 코드가 아니라 설정 파일에 있습니다.
+  stock/analyzer_config.toml  ← 주식 주제. 메모장으로 열어 키워드를 고치면 됩니다.
+  우선순위: 아래 [설정 2] 기본값 < 설정 파일 < 명령줄 옵션
+
 [실행 예]
-  python youtube_topic_analyzer.py                                  # 아래 [설정] 그대로 실행
-  python youtube_topic_analyzer.py --topic 부동산 --folder realestate # 주제·저장 폴더만 바꿔서 실행
+  python youtube_topic_analyzer.py                                       # stock/analyzer_config.toml 로 실행
+  python youtube_topic_analyzer.py --config stock/analyzer_config.toml   # 설정 파일 직접 지정
+  python youtube_topic_analyzer.py --topic 부동산 --folder realestate --init-config  # 새 주제 설정 파일 만들기
+  python youtube_topic_analyzer.py --folder realestate                   # realestate/analyzer_config.toml 로 실행
   python youtube_topic_analyzer.py --no-push --cases 3              # GitHub 푸시 없이, 성공사례 3개만
   python youtube_topic_analyzer.py --help                           # 전체 옵션
 
@@ -36,80 +42,34 @@ YouTube 주제 분석기 — 구독자 0명 채널이 조회수를 가장 잘 �
 ENV_FILE = ".env"
 
 # =====================================================================================================
-# [설정 2] ⚙️ 분석 설정 — 필요하면 값만 바꾸세요 (명령줄 옵션 --topic, --folder 등이 있으면 그 값이 우선)
+# [설정 2] ⚙️ 분석 설정 기본값 — 주제별 값은 설정 파일(<PROJECT_FOLDER>/analyzer_config.toml)에서 바꾸세요
+#   설정 파일에 같은 이름으로 적으면 그 값이 우선합니다 (명령줄 옵션 --topic, --folder 등이 있으면 그 값이 최우선).
+#   설정 파일이 없으면 아래 기본값(주제어 자동완성으로 키워드 자동 발굴)으로 실행하고, 설정 파일 틀을 만들어 줍니다.
 # =====================================================================================================
+CONFIG_FILE_NAME = "analyzer_config.toml"    # 주제 폴더 안의 설정 파일 이름
+
 # ---- 주제 & 저장 위치 ----
-TOPIC = "주식"                               # 분석 주제 (다른 주제로 변경 가능)
-PROJECT_FOLDER = "stock"                     # 결과 상위 폴더 (PC·GitHub에 없으면 자동 생성)
+TOPIC = "주식"                               # 분석 주제 (설정 파일·--topic 으로 변경)
+PROJECT_FOLDER = "stock"                     # 결과 상위 폴더 (PC·GitHub에 없으면 자동 생성) — 설정 파일도 이 폴더에서 찾음
 RESULT_FOLDER = "result"                     # 결과 하위 폴더 → <PROJECT_FOLDER>/<RESULT_FOLDER>/
 GITHUB_REPO = "yeomin1024/yeomin1024-ytb"    # 결과를 푸시할 저장소
 GITHUB_BRANCH = "main"                       # 푸시할 브랜치 (없으면 생성)
 OUTPUT_DIR = "output"                        # PC 결과 저장 위치 (이 스크립트 폴더 기준 상대경로 또는 절대경로)
 
-# ---- 🔎 검색 키워드 ----
-# KEYWORD_MODE: "curated" = 아래 KEYWORD_GROUPS 사용 / "autocomplete" = 주제어 자동완성으로 자동 발굴 / "both" = 둘 다
-KEYWORD_MODE = "curated"
-# 카테고리별 검색어 (자유롭게 추가·삭제). 카테고리 이름은 리포트의 '카테고리별 기회' 표에 그대로 쓰입니다.
-# 💡 키워드 1개 = 검색 1회(100유닛). 하루 예산을 넘는 키워드는 다음 날 실행 때 이어서 수집됩니다 (검색 결과 7일 캐시).
-KEYWORD_GROUPS = {
-    "1. 실제 투자 실패·손실 사연": [
-        "주식 투자 실패 실제 사례", "주식으로 전재산 잃은 사연", "주식으로 퇴직금 잃은 사연", "주식 빚투 실패 사례",
-        "주식 신용거래 실패 사연", "주식 물타기 실패 사례", "주식 몰빵 실패 사연", "주식 손절 못해서 손실 본 사연",
-        "주식 장기투자 실패 사례", "주식 투자 후회 사연",
-    ],
-    "2. 50·60대와 노후자금": [
-        "50대 주식 투자 실패", "60대 주식 투자 실패", "은퇴 후 주식 투자 실패", "노후자금 주식으로 잃은 사연",
-        "퇴직금 주식투자 실제 사례", "연금 주식투자 실패 사례", "노후 파산 주식 투자", "은퇴자 빚투 실제 사례",
-        "시니어 주식 투자 실패", "노후 주식 투자 후회",
-    ],
-    "3. 가족 갈등": [
-        "남편 몰래 주식 투자 사연", "아내 몰래 주식 투자 실패", "부부 주식 투자 갈등", "주식으로 이혼한 실제 사례",
-        "자녀 돈으로 주식 투자한 부모", "부모 재산 주식으로 잃은 사연", "가족 돈 주식으로 잃은 사례", "주식 손실 숨긴 남편",
-        "주식 손실 숨긴 아내", "주식 투자 가족 파탄 사례",
-    ],
-    "4. 사기·추천방 피해": [
-        "주식 리딩방 피해 사례", "무료 주식 리딩방 사기", "주식 전문가 사칭 피해 사례", "주식 유튜버 추천 손실 사례",
-        "주식 단톡방 사기 사례", "고수익 주식 투자 사기", "미등록 투자자문 피해 사례", "노인 주식 리딩방 피해",
-        "퇴직금 리딩방 사기", "주식 자동매매 사기 사례",
-    ],
-    "5. 특정 투자 방식 실패": [
-        "테마주 투자 실패 사례", "급등주 투자 실패 사연", "작전주 피해 실제 사례", "상장폐지 주식 피해 사례",
-        "관리종목 투자 실패", "동전주 투자 실패 사례", "레버리지 투자 실패 사연", "인버스 투자 실패 사례",
-        "미국 주식 투자 실패 사연", "해외주식으로 돈 잃은 사례",
-    ],
-    "6. 큰 하락과 공포": [
-        "주식 폭락 전재산 손실", "주가 폭락 실제 투자자 사연", "반대매매 실제 사례", "주식 깡통 계좌 사연",
-        "하한가 투자 피해 사례", "상장폐지 전재산 손실", "주식 손실 회복하려다 더 잃은 사연", "주식 중독 실제 사례",
-        "빚내서 주식한 사람의 결말", "대출받아 주식 투자 실패",
-    ],
-    "7. 교훈과 예방": [
-        "주식 투자자가 가장 후회하는 것", "주식 초보가 돈 잃는 이유", "은퇴 후 주식 투자 주의사항", "50대 주식 투자 주의사항",
-        "60대 주식 투자 주의사항", "주식 리딩방 사기 예방법", "노후자금 투자 실수", "퇴직금 투자하면 안 되는 이유",
-        "주식 손실 실제 경험담", "주식 실패에서 얻은 교훈",
-    ],
-    "8. 실제 사건·판결·뉴스": [
-        "주식 투자 사기 실제 사건", "주식 리딩방 법원 판결", "주식 손실 이혼 판결", "배우자 몰래 주식 판결",
-        "주식 투자금 반환 소송", "투자 권유 손해배상 판결", "미공개정보 주식 사건", "주가조작 피해자 실제 사례",
-        "노후자금 투자사기 뉴스", "퇴직금 투자 실패 뉴스",
-    ],
-    "9. 사연·썰·다큐 포맷": [   # 같은 소재를 '어떤 형식'으로 찾는지 — 사연 채널이 실제로 쓰는 표현
-        "주식 실패 사연 라디오", "주식 망한 썰", "주식 실화 사연", "주식으로 망한 사람 인터뷰", "개미 투자자 실패 다큐",
-        "주식 사연 읽어주는", "주식 손실 고백", "주식 폐인 일상", "주식 투자 실패 다큐멘터리", "주식 실패 후 재기 사연",
-    ],
-}
-EXTRA_KEYWORDS = []     # 카테고리 없이 추가할 키워드 (리포트에는 '기타'로 표시)
-EXCLUDE_KEYWORDS = []   # (autocomplete 모드) 자동완성에서 제외할 단어(특정 채널명 등). 예: ["주식단테"]
-AUTOCOMPLETE_TOP_N = 10 # (both 모드) 자동완성 상위 몇 개를 '자동완성 상위' 카테고리로 추가할지
+# ---- 🔎 검색 키워드 (주제별 값은 설정 파일에) ----
+# KEYWORD_MODE: "curated" = KEYWORD_GROUPS 사용 / "autocomplete" = 주제어 자동완성으로 자동 발굴 / "both" = 둘 다
+KEYWORD_MODE = "autocomplete"   # 설정 파일이 없을 때의 기본값 — 어떤 주제든 동작
+KEYWORD_GROUPS = {}             # {"카테고리 이름": ["검색어", ...]} — 설정 파일의 [KEYWORD_GROUPS] 표
+EXTRA_KEYWORDS = []             # 카테고리 없이 추가할 키워드 (리포트에는 '기타'로 표시)
+EXCLUDE_KEYWORDS = []           # (autocomplete 모드) 자동완성에서 제외할 단어(특정 채널명 등)
+AUTOCOMPLETE_TOP_N = 10         # (both 모드) 자동완성 상위 몇 개를 '자동완성 상위' 카테고리로 추가할지
 
-# ---- 🎯 주제 관련성 필터 — 검색 결과에 섞여 나오는 무관한 영상(예: 홈쇼핑 방송 사고)을 분석·성공사례에서 제외 ----
-# 판정: ① 제목이나 태그에 '강한 관련어'가 있음  ② 또는 제목에 '약한 관련어' + (설명란에 강한 관련어 또는 제목에 약한 관련어 2개)
+# ---- 🎯 주제 관련성 필터 (주제별 값은 설정 파일에) ----
+# 판정: ① 제목이나 태그에 '강한 관련어'  ② 또는 제목에 '약한 관련어' + (설명란에 강한 관련어 또는 제목에 약한 관련어 2개)
 #       ③ 또는 설명란에 강한 관련어가 2번 이상  → 하나라도 만족하면 주제 관련 영상
-RELEVANCE_TERMS = ["주식", "주가", "증시", "증권", "코스피", "코스닥", "나스닥", "테마주", "급등주", "작전주", "동전주",
-                   "우량주", "배당주", "리딩방", "반대매매", "빚투", "신용거래", "공매도", "하한가", "상한가", "주가조작",
-                   "미공개정보", "투자자문", "증권사", "미국주식", "해외주식", "선물옵션", "상장폐지", "상폐", "깡통계좌", "ETF"]
-RELEVANCE_WEAK_TERMS = ["종목", "개미", "상장", "물타기", "손절", "익절", "매수", "매도", "주주", "레버리지", "인버스",
-                        "깡통", "투자", "재테크", "노후자금", "퇴직금"]   # 다른 뜻으로도 쓰여서 혼자서는 인정 안 함
-RELEVANCE_EXCLUDE = ["주식회사", "(주)", "㈜"]   # 관련어처럼 보이지만 무관한 표현 (먼저 지운 뒤 판정)
+RELEVANCE_TERMS = []             # 강한 관련어. 비어 있으면 TOPIC 한 단어만 사용
+RELEVANCE_WEAK_TERMS = []        # 약한 관련어 (다른 뜻으로도 쓰여서 혼자서는 인정 안 함)
+RELEVANCE_EXCLUDE = []           # 관련어처럼 보이지만 무관한 표현 (먼저 지운 뒤 판정). 예: 주식 → ["주식회사", "(주)"]
 
 # ---- 수집 범위 ----
 REGION_CODE = "KR"              # 검색 지역
@@ -183,7 +143,7 @@ RUN_SELF_TEST = True            # 시작 시 오프라인 자가진단 (2~3초)
 # =====================================================================================================
 # 이하 코드는 수정할 필요가 없습니다.
 # =====================================================================================================
-# VERSION: v2.0.0 — 2026-10-09 — 실행 준비: 콘솔 UTF-8, Python 버전 확인, 패키지 자동 설치, yt-dlp 일일 업데이트 (표준 라이브러리만 사용)
+# VERSION: v2.3.0 — 2026-10-09 — Python 3.10이면 설정 파일용 tomli 자동 설치 (v2.0.0: 콘솔 UTF-8·버전 확인·패키지 자동 설치·yt-dlp 일일 업데이트)
 import importlib.util as _ilu
 import os as _os
 import subprocess as _sp
@@ -200,6 +160,8 @@ REQUIRED_PACKAGES = [  # (import 이름, pip 이름)
     ("imageio_ffmpeg", "imageio-ffmpeg"),                  # ffmpeg 바이너리 (따로 설치 불필요)
     ("deno", "deno"),                                      # yt-dlp가 YouTube에서 요구하는 JavaScript 런타임
 ]
+if _sys.version_info < (3, 11):                            # 설정 파일(TOML) 읽기 — 3.11부터는 표준 라이브러리 tomllib
+    REQUIRED_PACKAGES.append(("tomli", "tomli>=2.0"))
 OPTIONAL_PACKAGES = [("faster_whisper", "faster-whisper")]   # USE_WHISPER_FALLBACK=True 일 때만
 
 
@@ -286,7 +248,7 @@ if __name__ == "__main__":
 # =====================================================================================================
 # 🧰 [모듈] 공통 유틸 (로깅·캐시·타이머·경로)
 # =====================================================================================================
-# VERSION: v2.2.0 — 2026-10-09 — 광고 의심 필터 설정 키 등록 (v2.1.0: 항목별 캐시 유효시간; v2.0.0: PC 경로·Windows 안전 삭제·cookies.txt)
+# VERSION: v2.3.0 — 2026-10-09 — 설정 파일(TOML) 읽기·검증·틀 생성 추가 (v2.2.0: 광고 의심 필터 키; v2.1.0: 항목별 캐시; v2.0.0: PC 경로·Windows 처리)
 import os, sys, re, glob, json, time, math, html, stat, base64, random, shutil, hashlib, logging, platform, tempfile, threading, subprocess, unicodedata
 import datetime as dt
 from pathlib import Path
@@ -299,7 +261,7 @@ import numpy as np
 import pandas as pd
 import requests
 
-NOTEBOOK_VERSION = "v2.2.0"
+NOTEBOOK_VERSION = "v2.3.0"
 KST = dt.timezone(dt.timedelta(hours=9))
 UTC = dt.timezone.utc
 IS_WINDOWS = os.name == "nt"
@@ -496,6 +458,153 @@ def collect_config(namespace):
     if missing:
         raise RuntimeError(f"설정 변수가 없습니다: {missing} → 스크립트 상단 [설정] 영역을 확인하세요.")
     return {k: namespace[k] for k in CONFIG_KEYS}
+
+
+# ----------------------------------------------------------------------------- 설정 파일 (TOML)
+CONFIG_SCRIPT_ONLY = {"AUTO_INSTALL_PACKAGES", "UPDATE_YTDLP_DAILY"}   # 설정 파일을 읽기 전(패키지 설치 단계)에 쓰이므로 파일로는 못 바꿈
+
+
+def _toml_module():
+    try:
+        import tomllib                      # Python 3.11+
+    except ModuleNotFoundError:             # Python 3.10 → tomli (자동 설치 대상)
+        import tomli as tomllib
+    return tomllib
+
+
+def flatten_config(data):
+    """[섹션] 아래의 '설정 이름 = 값'을 한 단계로 펼침. KEYWORD_GROUPS처럼 값 자체가 표(table)인 설정은 그대로 둠."""
+    flat, dup = {}, []
+    for k, v in data.items():
+        if k in CONFIG_KEYS or not isinstance(v, dict):
+            items = [(k, v)]
+        else:                               # 섹션 (topic, keywords, relevance, advanced …)
+            items = list(v.items())
+        for k2, v2 in items:
+            if k2 in flat:
+                dup.append(k2)
+            flat[k2] = v2
+    return flat, dup
+
+
+def _type_ok(default, value):
+    if isinstance(default, bool):
+        return isinstance(value, bool)
+    if isinstance(default, (int, float)):
+        return isinstance(value, (int, float)) and not isinstance(value, bool)
+    if isinstance(default, str):
+        return isinstance(value, str)
+    if isinstance(default, (list, tuple)):
+        return isinstance(value, list)
+    if isinstance(default, dict):
+        return isinstance(value, dict)
+    return True
+
+
+def apply_config_file(cfg, path):
+    """설정 파일 값을 cfg에 덮어씀. 반환: {changed: {키: (기본값, 파일값)}, unknown: [...], ignored: [...]}.
+    형식이 틀린 값은 실행 전에 멈추고 어느 줄을 고쳐야 하는지 알려 줌 (조용히 무시하지 않음)."""
+    import difflib
+    try:
+        with open(path, "rb") as f:
+            data = _toml_module().load(f)
+    except Exception as e:      # TOMLDecodeError: 줄·칸 번호 포함
+        raise ValueError(f"설정 파일 형식 오류: {path} → {e} "
+                         "(글자는 \"따옴표\" 안에, 목록은 [\"가\", \"나\"] 처럼 쓰고 저장했는지 확인)") from None
+    flat, dup = flatten_config(data)
+    changed, unknown, ignored, bad = {}, [], [], []
+    for k, v in flat.items():
+        if k in CONFIG_SCRIPT_ONLY:
+            ignored.append(k)
+            continue
+        if k not in cfg:
+            hint = difflib.get_close_matches(k, list(cfg), n=1)
+            unknown.append(f"{k}(→ {hint[0]}?)" if hint else k)
+            continue
+        d = cfg[k]
+        if not _type_ok(d, v):
+            bad.append(f"{k}: '{type(d).__name__}' 형식이어야 하는데 '{type(v).__name__}' 값이 들어 있음")
+            continue
+        if isinstance(d, float) and isinstance(v, int):
+            v = float(v)
+        if isinstance(d, int) and not isinstance(d, bool) and isinstance(v, float):
+            if not v.is_integer():
+                bad.append(f"{k}: 정수여야 함 (현재 {v})")
+                continue
+            v = int(v)
+        if k == "KEYWORD_GROUPS":
+            wrong = [c for c, kws in v.items() if not isinstance(kws, list) or not all(isinstance(x, str) for x in kws)]
+            if wrong:
+                bad.append(f"KEYWORD_GROUPS: 카테고리 {wrong} 의 값은 [\"검색어\", ...] 목록이어야 함")
+                continue
+        if v != d:
+            changed[k] = (d, v)
+        cfg[k] = v
+    if bad:
+        raise ValueError(f"설정 파일 값 오류: {path} → " + " / ".join(bad))
+    if dup:
+        unknown.append(f"중복 지정: {sorted(set(dup))} (마지막 값 사용)")
+    return {"changed": changed, "unknown": unknown, "ignored": ignored}
+
+
+def _toml_value(v):
+    if isinstance(v, bool):
+        return "true" if v else "false"
+    if isinstance(v, (int, float)):
+        return repr(v)
+    if isinstance(v, str):
+        return json.dumps(v, ensure_ascii=False)     # JSON 문자열 이스케이프 = TOML 기본 문자열과 호환
+    if isinstance(v, (list, tuple)):
+        return "[" + ", ".join(_toml_value(x) for x in v) + "]"
+    raise TypeError(type(v).__name__)
+
+
+def config_template(topic, folder, cfg):
+    """새 주제용 설정 파일 틀 (주제어 자동완성 모드로 바로 실행 가능 → 결과를 보고 KEYWORD_GROUPS 를 채우면 됨)."""
+    return f"""# YouTube 주제 분석기 설정 파일 — 주제: {topic} ({folder})
+# 자동으로 만든 틀입니다 ({NOTEBOOK_VERSION}). 메모장으로 열어 값만 고치고 저장하세요. '#' 뒤는 설명입니다.
+# 실행: python youtube_topic_analyzer.py --config {folder}/{CONFIG_FILE_NAME}
+# 여기 없는 설정은 youtube_topic_analyzer.py 위쪽 [설정 2]의 기본값을 씁니다 (같은 이름으로 적으면 덮어씀).
+# 예시 설정 파일: stock/{CONFIG_FILE_NAME}
+
+[topic]
+TOPIC = {_toml_value(topic)}
+PROJECT_FOLDER = {_toml_value(folder)}
+RESULT_FOLDER = {_toml_value(cfg["RESULT_FOLDER"])}
+
+[github]
+GITHUB_REPO = {_toml_value(cfg["GITHUB_REPO"])}
+GITHUB_BRANCH = {_toml_value(cfg["GITHUB_BRANCH"])}
+
+[search]
+REGION_CODE = {_toml_value(cfg["REGION_CODE"])}
+LANGUAGE = {_toml_value(cfg["LANGUAGE"])}
+
+[keywords]
+# "autocomplete" = 주제어 자동완성으로 키워드 자동 발굴 (처음엔 이걸로 한 번 돌려 보세요)
+# "curated" = 아래 KEYWORD_GROUPS 에 직접 적은 검색어만 / "both" = 둘 다
+KEYWORD_MODE = "autocomplete"
+EXTRA_KEYWORDS = []
+EXCLUDE_KEYWORDS = []
+
+# 카테고리별 검색어 — 예: "1. 실패 사연" = ["{topic} 실패 사례", "{topic} 후회"]
+[KEYWORD_GROUPS]
+
+[relevance]
+RELEVANCE_TERMS = [{_toml_value(topic)}]   # 강한 관련어 (제목·태그에 있으면 주제 관련 영상)
+RELEVANCE_WEAK_TERMS = []                    # 약한 관련어 (혼자서는 인정 안 함)
+RELEVANCE_EXCLUDE = []                       # 관련어처럼 보이지만 무관한 표현 (먼저 지운 뒤 판정)
+"""
+
+
+def resolve_config_path(config_arg, folder):
+    """--config 가 있으면 그 경로, 없으면 <스크립트 폴더>/<PROJECT_FOLDER>/analyzer_config.toml."""
+    if config_arg:
+        p = Path(config_arg).expanduser()
+        if not p.is_absolute():         # 현재 폴더 기준 → 없으면 스크립트 폴더 기준
+            p = Path.cwd() / p if (Path.cwd() / p).exists() or not (BASE_DIR / p).exists() else BASE_DIR / p
+        return p.resolve(), True
+    return (BASE_DIR / sanitize_folder(folder, "PROJECT_FOLDER") / CONFIG_FILE_NAME), False
 
 
 def sanitize_folder(name, label):
@@ -1000,7 +1109,7 @@ def flatten_channel(item):
 # =====================================================================================================
 # 🧰 [모듈] Stage 1 — 키워드 발굴
 # =====================================================================================================
-# VERSION: v2.1.0 — 2026-10-09 — 카테고리별 검색어(KEYWORD_GROUPS) + 키워드별 자동완성 수요점수 + 카테고리 순환 우선순위 (Stage 1 키워드)
+# VERSION: v2.3.0 — 2026-10-09 — 자동완성 모드에서 수요 점수 열 형식 고정(pandas 3 오류 수정) (v2.1.0: 카테고리별 검색어·수요점수·순환 우선순위) (Stage 1 키워드)
 HANGUL_CHOSEONG = list("ㄱㄴㄷㄹㅁㅂㅅㅇㅈㅊㅋㅌㅍㅎ")
 HANGUL_SYLLABLES = list("가나다라마바사아자차카타파하")
 ALPHABET = list("abcdefghijklmnopqrstuvwxyz")
@@ -1241,8 +1350,10 @@ def stage1_keyword_discovery(ctx):
         acs = ac_agg.set_index("norm")["ac_score"]
         m = plan["source"] == "autocomplete"
         plan.loc[m, "ac_score"] = plan.loc[m, "norm"].map(acs)
-    plan["ac_score"] = plan["ac_score"].fillna(0.0)
-    plan["ac_suggestions"] = plan["ac_suggestions"].fillna(0).astype(int)
+    # 빈 표와 merge 하면 object 형식이 될 수 있음(자동완성 모드) → 숫자로 고정 (pandas 3에서 nlargest 오류 방지)
+    plan["ac_score"] = pd.to_numeric(plan["ac_score"], errors="coerce").fillna(0.0).astype(float)
+    plan["ac_suggestions"] = pd.to_numeric(plan["ac_suggestions"], errors="coerce").fillna(0).astype(int)
+    plan["ac_depth"] = pd.to_numeric(plan["ac_depth"], errors="coerce")
     plan = round_robin_priority(plan)
     plan = plan.head(int(cfg["MAX_SEARCH_KEYWORDS"]))
     log("KEYWORD", "키워드 수요 점수(자동완성)", keywords=len(plan), elapsed_sec=round(time.perf_counter() - t0, 1),
@@ -3011,7 +3122,7 @@ def stage6_success_cases(ctx):
 # =====================================================================================================
 # 🧰 [모듈] Stage 7 — 리포트
 # =====================================================================================================
-# VERSION: v2.2.0 — 2026-10-09 — 키워드 성격(사연·사기피해·일반)별 제목 예시, 이월 사유·광고 의심 제외 현황 표시 (v2.1.0: 카테고리별 기회·무관 영상 제외 현황) (Stage 7 리포트)
+# VERSION: v2.3.0 — 2026-10-09 — 사용한 설정 파일 표시 (v2.2.0: 성격별 제목 예시·이월 사유·광고 의심; v2.1.0: 카테고리별 기회) (Stage 7 리포트)
 # 데이터에서 효과가 확인된 제목 요소 → 제목 템플릿 (참고용 예시. 과장·수익 보장 표현은 피하세요)
 TITLE_TEMPLATES = {
     "has_number":       ["{kw} 초보가 꼭 알아야 할 {n}가지", "{kw} 핵심 {n}가지만 기억하세요"],
@@ -3269,6 +3380,10 @@ def write_report(ctx):
     big_sr = perf.loc[perf["is_big_channel"], "is_success"].mean()
     ft = res["format"].set_index("fmt") if not res["format"].empty else pd.DataFrame()
     L.append("## 0. 한눈에 보기 (TL;DR)\n")
+    ci = d.get("config_info") or {}
+    if ci:
+        L.append(f"- ⚙️ **설정 파일**: `{md_escape(ci.get('file', '-'))}`" + (" (없어서 새로 만든 틀 — 주제어 자동완성 모드)" if ci.get("created")
+                 else "" if ci.get("found") else " (없음 — 코드 기본값)"))
     L.append(f"- **분석 데이터**: 영상 {len(v):,}개 수집 → 성과 분석 {len(perf):,}개 "
              f"(업로드 {str(perf['published_at'].min())[:10]} ~ {str(perf['published_at'].max())[:10]}, 업로드 후 {cfg['MATURE_AGE_DAYS']}일 이상 경과), "
              f"채널 {v['channel_id'].nunique():,}개, 검색 키워드 {d['search_df']['keyword'].nunique()}개"
@@ -3549,7 +3664,7 @@ def write_run_info(ctx):
     perf = d.get("perf", pd.DataFrame())
     info = {
         "notebook_version": NOTEBOOK_VERSION, "run_id": ctx.run_id, "started_at_utc": ctx.started_at.isoformat(),
-        "finished_at_utc": dt.datetime.now(UTC).isoformat(), "config": ctx.cfg,
+        "finished_at_utc": dt.datetime.now(UTC).isoformat(), "config_file": d.get("config_info"), "config": ctx.cfg,
         "youtube_api": ctx.yt.summary() if ctx.yt else None,
         "cache": {"hits": dict(ctx.cache.hits), "misses": dict(ctx.cache.misses)},
         "timings_sec": ctx.timings, "notes": ctx.notes,
@@ -3868,7 +3983,7 @@ def stage8_finish(ctx):
 # =====================================================================================================
 # 🧰 [모듈] 자가진단(오프라인 테스트)
 # =====================================================================================================
-# VERSION: v2.2.0 — 2026-10-09 — 일일 한도 판정·한도 도달 시 이월·광고 의심 판정·키워드 성격별 제목 테스트 추가, 모의 다운로드 로그 숨김 (v2.1.0: 관련성 필터·쿼터 계획·토큰 권한 테스트)
+# VERSION: v2.3.0 — 2026-10-09 — 설정 파일 읽기·검증 테스트 추가, 관련성 테스트를 사용자 주제 설정과 분리 (v2.2.0: 일일 한도·광고 의심·성격별 제목; v2.1.0: 관련성·쿼터 계획·토큰 권한)
 def make_synthetic_dataset(seed=7, n_channels=40, per_channel=12):
     """알려진 패턴을 심은 가짜 데이터: '숫자 포함 제목'은 조회수 3배, 소규모 채널 일부도 터짐."""
     rng = np.random.default_rng(seed)
@@ -3919,7 +4034,13 @@ def _quiet_logs():
         LOGGER.setLevel(prev)
 
 
+# 자가진단의 가짜 데이터는 '주식' 제목으로 만들어져 있으므로, 주제 관련 값은 사용자 설정과 상관없이 고정한다
+SELFTEST_TOPIC_CFG = {"TOPIC": "주식", "RELEVANCE_TERMS": ["주식", "코스피", "리딩방"], "RELEVANCE_WEAK_TERMS": ["개미", "투자", "퇴직금"],
+                      "RELEVANCE_EXCLUDE": ["주식회사", "(주)"], "KEYWORD_MODE": "curated", "KEYWORD_GROUPS": {}}
+
+
 def run_self_test(cfg):
+    cfg = {**cfg, **SELFTEST_TOPIC_CFG}
     t0 = time.perf_counter()
     results = []
 
@@ -4036,7 +4157,7 @@ def run_self_test(cfg):
                   "개미 투자자의 눈물", "퇴직금 날린 이야기"],
         "tags": [["홈쇼핑"], [], ["주식", "사연"], ["곤충"], [], []],
         "description": ["제공: 주식회사 OO홈쇼핑 (주)", "", "", "개미 생태 관찰", "코스피 폭락에 개미들이", "주식 계좌 주식 손실 이야기"]})
-    on, why = topic_relevance(rel_df, cfg)
+    on, why = topic_relevance(rel_df, cfg)      # cfg 의 주제 값은 SELFTEST_TOPIC_CFG 로 고정됨
     check("주제 관련성 필터", on.tolist() == [False, True, True, False, True, True], result=list(zip(on.tolist(), why.tolist())))
 
     # 키워드 수요 점수: 실제 자동완성 응답 예시 기반 ('주식 빚투 실패'까지 인식 → depth 0.75)
@@ -4124,6 +4245,33 @@ def run_self_test(cfg):
     check("키워드 성격별 제목 템플릿", intents == ["story", "scam", "general"] and len(st) == 3
           and not any(("수익 내는" in t) or ("수수료" in t) for t in st), intents=intents, titles=st)
 
+
+    # 설정 파일: [섹션] 펼치기·KEYWORD_GROUPS 표·정수→실수 변환·오타 감지·형식 오류 차단·새 주제 틀
+    tdir = Path(tempfile.mkdtemp(prefix="yt_cfg_test_"))
+    try:
+        good = tdir / "good.toml"
+        good.write_text('[topic]\nTOPIC = "부동산"\n[KEYWORD_GROUPS]\n"1. 사연" = ["전세 사기 사연", "갭투자 실패"]\n'
+                        '[advanced]\nOUTLIER_MIN = 4\nQUOTA_BUDGTE = 1\n', "utf-8")
+        tc = {**cfg}
+        r = apply_config_file(tc, good)
+        bad = tdir / "bad.toml"
+        bad.write_text('[advanced]\nQUOTA_BUDGET = "많이"\n', "utf-8")
+        try:
+            apply_config_file({**cfg}, bad)
+            bad_blocked = False
+        except ValueError:
+            bad_blocked = True
+        tmpl = tdir / "tmpl.toml"
+        tmpl.write_text(config_template("부동산", "realestate", cfg), "utf-8")
+        tc2 = {**cfg}
+        apply_config_file(tc2, tmpl)
+    finally:
+        rmtree_force(tdir)
+    check("설정 파일 읽기·검증", tc["TOPIC"] == "부동산" and tc["KEYWORD_GROUPS"] == {"1. 사연": ["전세 사기 사연", "갭투자 실패"]}
+          and tc["OUTLIER_MIN"] == 4.0 and isinstance(tc["OUTLIER_MIN"], float) and any("QUOTA_BUDGTE" in u for u in r["unknown"])
+          and bad_blocked and tc2["PROJECT_FOLDER"] == "realestate" and tc2["KEYWORD_MODE"] == "autocomplete",
+          unknown=r["unknown"], bad_blocked=bad_blocked)
+
     passed = sum(ok for _, ok in results)
     log("SELFTEST", "자가진단 완료", passed=f"{passed}/{len(results)}", elapsed_sec=round(time.perf_counter() - t0, 2))
     if passed != len(results):
@@ -4132,7 +4280,7 @@ def run_self_test(cfg):
 
 
 # =====================================================================================================
-# VERSION: v2.2.0 — 2026-10-09 — 실행부: 영상 GitHub 업로드 여부 사전 판정 (v2.1.0: 쓰기권한 사전확인·--push-only·토큰 재확인; v2.0.0: .env·명령줄·단계 실행)
+# VERSION: v2.3.0 — 2026-10-09 — 실행부: 설정 파일(--config, --init-config) 적용 (v2.2.0: 영상 업로드 여부 사전 판정; v2.1.0: 쓰기권한 사전확인·--push-only; v2.0.0: .env·명령줄)
 # =====================================================================================================
 import argparse
 
@@ -4180,7 +4328,10 @@ def load_keys(require_youtube=True):
 
 def parse_args(argv=None):
     p = argparse.ArgumentParser(description="YouTube 주제 분석기 — 0명 채널이 조회수를 가장 잘 받을 영상 찾기")
-    p.add_argument("--topic", help=f"분석 주제 (기본: {TOPIC})")
+    p.add_argument("--config", help=f"설정 파일 경로 (기본: <스크립트 폴더>/<--folder 또는 {PROJECT_FOLDER}>/{CONFIG_FILE_NAME})")
+    p.add_argument("--init-config", action="store_true",
+                   help="설정 파일 틀만 만들고 종료 (새 주제 시작용. 예: --topic 부동산 --folder realestate --init-config)")
+    p.add_argument("--topic", help=f"분석 주제 (기본: 설정 파일 또는 {TOPIC})")
     p.add_argument("--folder", help=f"결과 상위 폴더 PROJECT_FOLDER (기본: {PROJECT_FOLDER})")
     p.add_argument("--result-folder", help=f"결과 하위 폴더 RESULT_FOLDER (기본: {RESULT_FOLDER})")
     p.add_argument("--keywords", type=int, help=f"검색 키워드 수 (기본: {MAX_SEARCH_KEYWORDS})")
@@ -4231,6 +4382,54 @@ def push_only(cfg, keys):
     return 0 if res.get("pushed") or res.get("reason") == "no_changes" else 1
 
 
+def load_config(args, create_missing=True):
+    """기본값 → 설정 파일 → 명령줄 옵션 순서로 설정을 만든다. 반환: (cfg, 설정 파일 정보, 명령줄 변경 내역)."""
+    cfg = collect_config(globals())
+    folder = args.folder or cfg["PROJECT_FOLDER"]
+    path, explicit = resolve_config_path(args.config, folder)
+    try:                        # 리포트·로그에는 스크립트 폴더 기준 상대경로만 (PC 사용자 이름 노출 방지)
+        shown = path.resolve().relative_to(BASE_DIR.resolve()).as_posix()
+    except ValueError:
+        shown = path.name
+    info = {"file": shown, "found": path.exists(), "created": False, "changed": {}, "unknown": [], "ignored": []}
+    if path.exists():
+        res = apply_config_file(cfg, path)
+        info.update(res)
+        print(f"[CONFIG] 설정 파일 적용: {path} (바뀐 설정 {len(res['changed'])}개)")
+    elif explicit:
+        print(f"[CONFIG] ❌ 설정 파일이 없습니다: {path}\n"
+              f"[CONFIG]    경로를 확인하거나, 새로 만들려면: python {Path(__file__).name} --topic <주제> --folder <폴더> --init-config")
+        sys.exit(1)
+    elif create_missing:
+        topic = (args.topic or cfg["TOPIC"]).strip()
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(config_template(topic, sanitize_folder(folder, "PROJECT_FOLDER"), cfg), "utf-8")
+        info.update(apply_config_file(cfg, path), created=True)
+        print(f"[CONFIG] 📝 설정 파일이 없어서 틀을 만들었습니다: {path}\n"
+              f"[CONFIG]    이번에는 주제어 자동완성으로 키워드를 찾아 분석합니다. 다음부터는 이 파일에 검색어를 넣어 쓰세요.")
+    else:
+        print(f"[CONFIG] 설정 파일 없음 → 코드 기본값 사용: {path}")
+    changes = apply_cli(cfg, args)
+    return cfg, info, changes
+
+
+def init_config_only(args):
+    """--init-config: 설정 파일 틀만 만들고 끝냄 (이미 있으면 덮어쓰지 않음)."""
+    cfg = collect_config(globals())
+    folder = sanitize_folder(args.folder or cfg["PROJECT_FOLDER"], "PROJECT_FOLDER")
+    path, _ = resolve_config_path(args.config, folder)
+    if path.exists():
+        print(f"[CONFIG] 이미 있습니다 (덮어쓰지 않음): {path}")
+        return 0
+    topic = (args.topic or cfg["TOPIC"]).strip()
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(config_template(topic, folder, cfg), "utf-8")
+    print(f"[CONFIG] 📝 설정 파일을 만들었습니다: {path}\n"
+          f"[CONFIG]    메모장으로 열어 KEYWORD_GROUPS(검색어)·RELEVANCE_TERMS(관련어)를 채운 뒤 실행하세요:\n"
+          f"[CONFIG]    python {Path(__file__).name} --config {path}")
+    return 0
+
+
 def apply_cli(cfg, args):
     """명령줄 옵션으로 설정 덮어쓰기 — 바뀐 값은 로그에 남김."""
     changes = {}
@@ -4251,15 +4450,33 @@ def apply_cli(cfg, args):
 
 def main(argv=None):
     args = parse_args(argv)
-    if args.push_only:
-        keys = load_keys(require_youtube=False)
-        cfg = collect_config(globals())
-        apply_cli(cfg, args)
-        return push_only(cfg, keys)
-    keys = load_keys()
-    cfg = collect_config(globals())
-    changes = apply_cli(cfg, args)
+    try:
+        if args.init_config:
+            return init_config_only(args)
+        if args.push_only:
+            keys = load_keys(require_youtube=False)
+            cfg, _, _ = load_config(args, create_missing=False)
+            return push_only(cfg, keys)
+        keys = load_keys()
+        cfg, cfg_info, changes = load_config(args)
+    except ValueError as e:         # 설정 파일 형식·값 오류 → 분석 전에 멈춤
+        print(f"[CONFIG] ❌ {e}")
+        return 1
     ctx = init_run(cfg, keys["YOUTUBE_API_KEY"], keys["GITHUB_TOKEN"])
+    ctx.data["config_info"] = {k: (v if k != "changed" else sorted(v)) for k, v in cfg_info.items()}
+    groups = ctx.cfg["KEYWORD_GROUPS"] or {}
+    log("INIT", "설정 파일", file=cfg_info["file"], found=cfg_info["found"], created=cfg_info["created"],
+        changed_keys=sorted(cfg_info["changed"]), keyword_mode=ctx.cfg["KEYWORD_MODE"],
+        keyword_groups=f"{len(groups)}개 카테고리·{sum(len(v) for v in groups.values())}개 키워드")
+    if cfg_info["created"]:
+        ctx.note("INIT", "설정 파일이 없어 틀을 만들고 주제어 자동완성 모드로 실행했습니다 → 다음부터는 설정 파일에 검색어를 넣어 쓰세요",
+                 file=cfg_info["file"])
+    elif not cfg_info["found"]:
+        ctx.note("INIT", "설정 파일 없이 코드 기본값으로 실행했습니다", file=cfg_info["file"])
+    if cfg_info["unknown"]:
+        ctx.note("INIT", "설정 파일에 모르는 설정 이름이 있어 무시했습니다 (오타 확인)", level="WARNING", keys=cfg_info["unknown"])
+    if cfg_info["ignored"]:
+        ctx.note("INIT", "이 설정은 설정 파일로는 바꿀 수 없습니다 (스크립트 [설정 2] 또는 --skip-install 사용)", keys=cfg_info["ignored"])
     if changes:
         log("INIT", "명령줄 옵션으로 변경된 설정", **{k: f"{a} → {b}" for k, (a, b) in changes.items()})
     if ctx.cfg["TOPIC"] != "주식" and ctx.cfg["PROJECT_FOLDER"] == "stock":

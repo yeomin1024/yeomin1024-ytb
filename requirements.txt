@@ -12,5 +12,6 @@ youtube-transcript-api>=1.2
 kiwipiepy
 imageio-ffmpeg
 deno
+tomli>=2.0; python_version < "3.11"   # 설정 파일(TOML) 읽기 — 3.11+는 표준 라이브러리
 # 선택: 자막 없는 영상 음성인식 (USE_WHISPER_FALLBACK=True)
 faster-whisper

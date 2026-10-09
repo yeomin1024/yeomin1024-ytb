@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v2.1.0 — 2026-10-09 — 카테고리별 검색어(KEYWORD_GROUPS)·주제 관련성 필터·GitHub 쓰기권한 사전확인/--push-only 추가
+# VERSION: v2.2.0 — 2026-10-09 — 검색 일일 횟수 한도 대응·광고 집행 의심 영상 제외·소재별 제목 예시·영상 업로드 안 하면 재인코딩 생략
 r"""
 YouTube 주제 분석기 — 구독자 0명 채널이 조회수를 가장 잘 받을 영상 찾기
 (연구·교육용 분석 도구입니다. 투자 조언이 아니며, 통계는 상관관계일 뿐 인과관계를 보장하지 않습니다.)
@@ -131,6 +131,11 @@ BASELINE_MIN_N = 5              # 채널 기준선 최소 표본
 MAX_BASELINE_CHANNELS = 700     # 기준선을 계산할 최대 채널 수 (채널당 약 2유닛)
 OUTLIER_MIN = 3.0               # 채널 중앙값 대비 N배 이상 → 아웃라이어(성공)
 MIN_SUCCESS_VIEWS = 10_000      # 성공으로 인정할 최소 조회수
+# 광고(유료 홍보)로 조회수를 산 것으로 의심되는 영상은 성과 분석·성공사례에서 제외 — 조회수는 많은데 반응(좋아요·댓글)이 거의 없음
+AD_SUSPECT_FILTER = True
+AD_SUSPECT_MIN_VIEWS = 50_000           # 이 조회수 이상인 영상만 검사
+AD_SUSPECT_MAX_LIKE_RATE = 0.0025       # 좋아요/조회수 < 0.25%   (2026-10 주식 데이터 중앙값 ≈1%)
+AD_SUSPECT_MAX_COMMENT_RATE = 0.00005   # 댓글/조회수 < 0.05/1,000 (중앙값 ≈1.2/1,000) — 두 조건 모두 만족해야 제외
 SMALL_CHANNEL_MAX_SUBS = 10_000 # 소규모 채널 기준 (구독자 수 미만)
 BIG_CHANNEL_MIN_SUBS = 100_000  # 대형 채널 기준
 SERP_TOP_N = 20                 # 키워드 경쟁도 계산에 쓰는 검색 상위 N개
@@ -281,7 +286,7 @@ if __name__ == "__main__":
 # =====================================================================================================
 # 🧰 [모듈] 공통 유틸 (로깅·캐시·타이머·경로)
 # =====================================================================================================
-# VERSION: v2.1.0 — 2026-10-09 — 캐시 유효시간을 항목별로 지정 가능, 새 설정 키 등록 (v2.0.0: PC 경로·Windows 안전 삭제·cookies.txt)
+# VERSION: v2.2.0 — 2026-10-09 — 광고 의심 필터 설정 키 등록 (v2.1.0: 항목별 캐시 유효시간; v2.0.0: PC 경로·Windows 안전 삭제·cookies.txt)
 import os, sys, re, glob, json, time, math, html, stat, base64, random, shutil, hashlib, logging, platform, tempfile, threading, subprocess, unicodedata
 import datetime as dt
 from pathlib import Path
@@ -294,7 +299,7 @@ import numpy as np
 import pandas as pd
 import requests
 
-NOTEBOOK_VERSION = "v2.1.0"
+NOTEBOOK_VERSION = "v2.2.0"
 KST = dt.timezone(dt.timedelta(hours=9))
 UTC = dt.timezone.utc
 IS_WINDOWS = os.name == "nt"
@@ -472,6 +477,7 @@ CONFIG_KEYS = [
     "REGION_CODE", "LANGUAGE", "ANALYSIS_DAYS", "MAX_SEARCH_KEYWORDS", "SEARCH_ORDERS", "RELEVANCE_USE_DATE_FILTER",
     "PAGES_PER_QUERY", "QUOTA_BUDGET", "AUTOCOMPLETE_EXPAND", "AUTOCOMPLETE_DEPTH2_N", "REQUIRE_TOPIC_IN_KEYWORD",
     "MATURE_AGE_DAYS", "BASELINE_UPLOADS", "BASELINE_MIN_N", "MAX_BASELINE_CHANNELS", "OUTLIER_MIN", "MIN_SUCCESS_VIEWS",
+    "AD_SUSPECT_FILTER", "AD_SUSPECT_MIN_VIEWS", "AD_SUSPECT_MAX_LIKE_RATE", "AD_SUSPECT_MAX_COMMENT_RATE",
     "SMALL_CHANNEL_MAX_SUBS", "BIG_CHANNEL_MIN_SUBS", "SERP_TOP_N", "FRESH_DAYS", "SHORTS_HTTP_CHECK",
     "FETCH_COMMENTS_TOP_N", "SUCCESS_CASE_COUNT", "SUCCESS_SMALL_CHANNEL_SHARE", "SUCCESS_LONGFORM_SHARE",
     "MAX_CASES_PER_CHANNEL", "DOWNLOAD_VIDEOS", "VIDEO_MAX_HEIGHT", "VIDEO_MAX_MB", "ALLOW_VIDEO_UPLOAD_TO_PUBLIC_REPO",
@@ -746,9 +752,11 @@ def http_get(session, url, stage, retries=3, timeout=20, **kw):
 # =====================================================================================================
 # 🧰 [모듈] YouTube Data API 클라이언트
 # =====================================================================================================
-# VERSION: v2.1.0 — 2026-10-09 — 항목별 캐시 기간(검색 7일·업로드목록 3일), 검색 캐시 여부 확인 (YouTube Data API 클라이언트 + 쿼터 추적)
+# VERSION: v2.2.0 — 2026-10-09 — 'Search Queries per day' 등 일일 횟수 한도(429)를 쿼터 소진으로 인식해 즉시 중단·거부된 요청은 쿼터 미차감 (v2.1.0: 항목별 캐시 기간) (YouTube Data API 클라이언트 + 쿼터 추적)
 class QuotaExceededError(RuntimeError):
-    pass
+    def __init__(self, message, kind="budget"):
+        self.kind = kind            # budget=스크립트 예산 도달 / daily_units=일일 유닛 소진 / daily_requests=일일 요청 횟수 한도
+        super().__init__(message)
 
 
 class YouTubeAPIError(RuntimeError):
@@ -767,10 +775,23 @@ _API_HINTS = {
     "ipRefererBlocked": "API 키의 IP/리퍼러 제한을 해제하거나 내 PC의 공인 IP를 허용하세요.",
     "forbidden": "접근 권한이 없습니다 (비공개 영상/채널 등).",
     "quotaExceeded": "일일 쿼터 소진 → 한국시간 오후 4~5시(태평양 자정) 리셋 후 재실행. 캐시 덕분에 이미 받은 데이터는 다시 쿼터를 쓰지 않습니다.",
+    "dailyRequests": "일일 요청 횟수 한도(예: 'Search Queries per day') 도달 → 한국시간 오후 4~5시(태평양 자정) 리셋 후 같은 설정으로 다시 실행하면 "
+                     "이미 받은 검색은 캐시로 재사용하고 나머지만 이어서 수집합니다. 한도 확인: Google Cloud Console → API 및 서비스 → "
+                     "YouTube Data API v3 → 할당량 및 시스템 한도",
 }
 _FATAL_REASONS = {"keyInvalid", "API_KEY_INVALID", "accessNotConfigured", "SERVICE_DISABLED", "API_KEY_SERVICE_BLOCKED", "ipRefererBlocked"}
 _QUOTA_REASONS = {"quotaExceeded", "dailyLimitExceeded"}
-_RETRY_REASONS = {"rateLimitExceeded", "userRateLimitExceeded", "backendError", "internalError"}
+_RETRY_REASONS = {"rateLimitExceeded", "userRateLimitExceeded", "RATE_LIMIT_EXCEEDED", "backendError", "internalError"}  # 분당 제한 등 일시적
+# 429 RATE_LIMIT_EXCEEDED 라도 메시지가 '…per day' 면 분당 제한이 아니라 일일 한도 → 재시도·다음 요청 모두 무의미
+_DAILY_LIMIT_RX = re.compile(r"per\s+day|daily", re.I)
+
+
+def is_daily_limit(status, reason, message):
+    """일일 한도 초과 응답인지 판정 (재시도하면 안 되는 오류)."""
+    if reason in _QUOTA_REASONS:
+        return True
+    return (status in (403, 429) and reason in {"RATE_LIMIT_EXCEEDED", "rateLimitExceeded", "userRateLimitExceeded"}
+            and bool(_DAILY_LIMIT_RX.search(message or "")))
 
 
 class YouTubeClient:
@@ -853,9 +874,12 @@ class YouTubeClient:
             reason, message = self._parse_error(r)
             with self._lock:
                 self.errors[f"{endpoint}:{r.status_code}:{reason}"] += 1
-            if reason in _QUOTA_REASONS:
-                log("API", "❌ YouTube 일일 쿼터 소진", level="ERROR", endpoint=endpoint, hint=_API_HINTS["quotaExceeded"])
-                raise QuotaExceededError(message)
+            if is_daily_limit(r.status_code, reason, message):
+                self._refund(cost)          # 한도 초과로 거부된 요청은 실행되지 않음 → 예산 추적에서 제외
+                kind = "daily_units" if reason in _QUOTA_REASONS else "daily_requests"
+                log("API", "❌ YouTube 일일 한도 도달", level="ERROR", endpoint=endpoint, status=r.status_code, reason=reason,
+                    limit=kind, message=message[:160], hint=_API_HINTS["quotaExceeded" if kind == "daily_units" else "dailyRequests"])
+                raise QuotaExceededError(message, kind=kind)
             if reason in _RETRY_REASONS or r.status_code >= 500:
                 last = f"{r.status_code}:{reason}"
                 log("API", "일시 오류 → 재시도", level="WARNING", endpoint=endpoint, attempt=attempt, reason=reason)
@@ -1242,7 +1266,7 @@ def stage1_keyword_discovery(ctx):
 # =====================================================================================================
 # 🧰 [모듈] Stage 2 — 데이터 수집
 # =====================================================================================================
-# VERSION: v2.1.0 — 2026-10-09 — 캐시 인식 쿼터 계획(이미 받은 검색은 0유닛)·하루 예산 초과분은 다음 실행으로 이월, 카테고리 기록 (Stage 2 수집)
+# VERSION: v2.2.0 — 2026-10-09 — 일일 한도(검색 횟수 등)에 걸리면 즉시 검색 중단·남은 키워드를 이월 목록에 기록 (v2.1.0: 캐시 인식 쿼터 계획·이월) (Stage 2 수집)
 def _window_start(ctx):
     day0 = ctx.started_at.replace(hour=0, minute=0, second=0, microsecond=0)  # 날짜 단위로 고정 → 같은 날 재실행 시 캐시 적중
     return (day0 - dt.timedelta(days=ctx.cfg["ANALYSIS_DAYS"])).strftime("%Y-%m-%dT%H:%M:%SZ")
@@ -1283,6 +1307,7 @@ def plan_quota(ctx, keywords):
                  deferred=len(deferred), examples=[f"{k}({cat.get(k, '-')})" for k in deferred[:5]],
                  hint="같은 설정으로 내일 다시 실행하세요 — 검색 결과는 SEARCH_CACHE_TTL_HOURS 동안 보관됩니다")
     ctx.data["deferred_keywords"] = deferred
+    ctx.data["deferred_reason"] = {k: "budget" for k in deferred}
     return selected
 
 
@@ -1290,16 +1315,32 @@ def collect_search(ctx, keywords):
     cfg, yt = ctx.cfg, ctx.yt
     window_start = _window_start(ctx)
     cat = ctx.data.get("keyword_category", {})
-    rows, stop = [], False
+    deferred = ctx.data.setdefault("deferred_keywords", [])
+    reasons = ctx.data.setdefault("deferred_reason", {})
+
+    def defer(k, why):
+        if k not in reasons:
+            deferred.append(k)
+        reasons[k] = why
+
+    def all_cached(k):
+        return all(yt.search_is_cached(k, o, _published_after(ctx, o), cfg["REGION_CODE"], cfg["LANGUAGE"]) for o in cfg["SEARCH_ORDERS"])
+
+    rows, stop_kind, n_after_stop = [], None, 0
     for i, kw in enumerate(keywords, 1):
+        if stop_kind and not all_cached(kw):     # 한도 도달 후에는 캐시에 있는 검색만 사용 (새 요청은 모두 같은 오류)
+            defer(kw, stop_kind)
+            continue
         counts = {}
         for order in cfg["SEARCH_ORDERS"]:
             pa = _published_after(ctx, order)
             try:
                 items, total = yt.search(kw, order, pa, cfg["PAGES_PER_QUERY"], cfg["REGION_CODE"], cfg["LANGUAGE"])
             except QuotaExceededError as e:
-                ctx.note("COLLECT", "쿼터 소진/예산 도달 → 검색 중단 (수집된 데이터로 계속)", keyword=kw, error=str(e)[:150])
-                stop = True
+                stop_kind = stop_kind or e.kind
+                n_after_stop = i
+                if not counts:
+                    defer(kw, e.kind)
                 break
             except YouTubeAPIError as e:
                 if e.fatal:
@@ -1312,15 +1353,20 @@ def collect_search(ctx, keywords):
                              "video_id": it["video_id"], "channel_id": it["channel_id"], "total_results": total,
                              "published_after": pa})
         log("COLLECT", f"검색 {i}/{len(keywords)}", keyword=kw, results=counts, quota_used=yt.used)
-        if stop:
-            break
+    if stop_kind:
+        label = {"daily_requests": "YouTube 일일 검색 횟수 한도 도달", "daily_units": "YouTube 일일 쿼터 소진"}.get(stop_kind, "쿼터 예산 도달")
+        limited = [k for k in deferred if reasons.get(k) == stop_kind]
+        ctx.note("COLLECT", f"{label} → 새 검색 중단, 캐시에 있는 검색만 사용 (수집된 데이터로 계속)", stopped_at=f"{n_after_stop}/{len(keywords)}",
+                 deferred_by_limit=len(limited), deferred_total=len(deferred), examples=limited[:5],
+                 hint="한국시간 오후 4~5시(태평양 자정) 이후 같은 설정으로 다시 실행하면 받은 검색은 캐시(쿼터 0)로 재사용하고 이월된 키워드만 이어서 수집")
     search_df = pd.DataFrame(rows, columns=["keyword", "category", "order", "rank", "video_id", "channel_id", "total_results",
                                             "published_after"])
     if search_df.empty:
-        raise RuntimeError("검색 결과가 0건입니다 → API 키/쿼터/키워드를 확인하세요.")
+        raise RuntimeError("검색 결과가 0건입니다 → " + ("오늘 YouTube 검색 한도에 이미 도달했습니다. 한국시간 오후 4~5시(태평양 자정) 이후 다시 실행하세요."
+                                                    if stop_kind else "API 키/쿼터/키워드를 확인하세요."))
     log("COLLECT", "검색 결과 요약", rows=len(search_df), unique_videos=search_df.video_id.nunique(),
         unique_channels=search_df.channel_id.nunique(), dup_ratio=1 - search_df.video_id.nunique() / len(search_df),
-        window_start=window_start)
+        searched_keywords=search_df.keyword.nunique(), deferred_keywords=len(deferred), window_start=window_start)
     return search_df
 
 
@@ -1397,7 +1443,7 @@ def stage2_collect(ctx, keywords):
 # =====================================================================================================
 # 🧰 [모듈] Stage 3 — 검증·피처·아웃라이어
 # =====================================================================================================
-# VERSION: v2.1.0 — 2026-10-09 — 주제 관련성 필터(무관 영상 제외)·키워드 카테고리 태깅 추가 (Stage 3 검증·피처·아웃라이어)
+# VERSION: v2.2.0 — 2026-10-09 — 광고(유료 홍보) 의심 영상을 성과 분석·성공 판정에서 제외 (v2.1.0: 주제 관련성 필터·카테고리 태깅) (Stage 3 검증·피처·아웃라이어)
 # 제목 후킹 단어 그룹 (주제와 무관한 범용 표현 — 필요하면 수정/추가)
 HOOK_WORD_GROUPS = {
     "hook_urgency":   ["지금", "당장", "긴급", "속보", "오늘", "마지막", "곧", "서둘"],
@@ -1612,18 +1658,42 @@ def build_video_frame(ctx):
                  off_topic_share=round(len(off) / len(v), 2))
     ctx.data["offtopic"] = off
     v["is_success"] = v["is_success"] & v["on_topic"]            # 무관한 영상은 성공으로 치지 않음
+
+    # ---- 광고(유료 홍보) 의심: 조회수는 많은데 좋아요·댓글이 거의 없음 → 자연 유입 성과가 아니므로 성과 분석에서 제외 ----
+    v["ad_suspect"] = flag_ad_suspects(v, cfg)
+    ads = v[v["valid_perf"] & v["on_topic"] & v["ad_suspect"]]
+    if len(ads):
+        top = ads.sort_values("views", ascending=False).head(5)
+        log("FEATURE", "광고 집행 의심 영상 제외", n=len(ads), success_removed=int(ads["is_success"].sum()),
+            rule=f"views>={cfg['AD_SUSPECT_MIN_VIEWS']} & like_rate<{cfg['AD_SUSPECT_MAX_LIKE_RATE']} "
+                 f"& comment_rate<{cfg['AD_SUSPECT_MAX_COMMENT_RATE']}",
+            examples=[f"{t[:28]}(조회 {int(vw):,}·좋아요 {lr:.2%}·댓글 {c:.0f})"
+                      for t, vw, lr, c in zip(top["title"], top["views"], top["like_rate"], top["comments"])])
+    ctx.data["ad_suspects"] = ads
+    v["is_success"] = v["is_success"] & ~v["ad_suspect"]
     v["small_success"] = v["is_success"] & v["is_small_channel"]
 
-    perf = v[v["valid_perf"] & v["is_mature"] & v["in_window"] & v["on_topic"]].copy()
+    perf = v[v["valid_perf"] & v["is_mature"] & v["in_window"] & v["on_topic"] & ~v["ad_suspect"]].copy()
     ctx.data["videos"], ctx.data["perf"] = v, perf
     log("FEATURE", "성과 분석 대상 확정 (분석 분할)", all_videos=len(v), perf_videos=len(perf),
-        rule=f"valid & on_topic & age>={cfg['MATURE_AGE_DAYS']}d & age<={cfg['ANALYSIS_DAYS']}d",
+        rule=f"valid & on_topic & not ad_suspect & age>={cfg['MATURE_AGE_DAYS']}d & age<={cfg['ANALYSIS_DAYS']}d",
         perf_published_min=str(perf["published_at"].min())[:10], perf_published_max=str(perf["published_at"].max())[:10],
         recent_unmatured=int((v["valid_perf"] & ~v["is_mature"]).sum()), out_of_window=int((v["valid_perf"] & ~v["in_window"]).sum()))
     log("FEATURE", "성공(아웃라이어) 판정", success=int(perf["is_success"].sum()),
         success_rate=float(perf["is_success"].mean()) if len(perf) else np.nan,
         small_channel_success=int(perf["small_success"].sum()), rule=f"views>={cfg['MIN_SUCCESS_VIEWS']} & outlier>={cfg['OUTLIER_MIN']}")
     return v
+
+
+def flag_ad_suspects(v, cfg):
+    """광고(유료 홍보)로 조회수를 산 것으로 의심되는 영상.
+    인피드 광고 조회는 공개 조회수에 합산되지만 시청자 반응은 거의 없음 → 좋아요율·댓글률이 '둘 다' 극단적으로 낮은 고조회수 영상.
+    좋아요/댓글이 숨김(NaN)이면 판단 불가 → 제외하지 않음 (보수적)."""
+    if not cfg.get("AD_SUSPECT_FILTER", True):
+        return pd.Series(False, index=v.index)
+    return ((v["views"] >= cfg["AD_SUSPECT_MIN_VIEWS"])
+            & (v["like_rate"] < cfg["AD_SUSPECT_MAX_LIKE_RATE"])
+            & (v["comment_rate"] < cfg["AD_SUSPECT_MAX_COMMENT_RATE"])).fillna(False).astype(bool)
 
 
 def compute_outlier_scores(v, ctx):
@@ -1687,7 +1757,7 @@ def stage3_features(ctx):
 # =====================================================================================================
 # 🧰 [모듈] Stage 4 — 분석
 # =====================================================================================================
-# VERSION: v2.1.0 — 2026-10-09 — 키워드 지표를 '주제 관련 영상'만으로 계산, 콘텐츠 공백(content_gap) 지표·카테고리별 요약 추가, 기회점수 가중치 조정 (Stage 4 분석)
+# VERSION: v2.2.0 — 2026-10-09 — 키워드별 성과·참고 영상에서 광고 의심 영상 제외 (v2.1.0: 주제 관련 영상만으로 지표 계산·콘텐츠 공백·카테고리 요약) (Stage 4 분석)
 # 키워드 기회점수 가중치 (합=1.0). 각 지표를 키워드 간 백분위(0~1)로 바꾼 뒤 가중합 → 0~100점
 # v2.1.0 변경: median_outlier 0.15→0.10, fresh_share 0.10→0.05, content_gap 0.10 신규 (합계 1.0 유지)
 KEYWORD_SCORE_WEIGHTS = {
@@ -1745,7 +1815,7 @@ def analyze_keywords(ctx):
     cfg, d = ctx.cfg, ctx.data
     v = d["videos"].set_index("video_id")
     cols = ["views", "views_per_day", "subscribers", "age_days", "outlier_score", "is_success", "is_small_channel",
-            "fmt", "is_mature", "in_window", "valid_perf", "title", "channel_title", "duration_sec", "on_topic"]
+            "fmt", "is_mature", "in_window", "valid_perf", "title", "channel_title", "duration_sec", "on_topic", "ad_suspect"]
     s = d["search_df"].join(v[cols], on="video_id", rsuffix="_v")
     cat = d.get("keyword_category", {})
     s = s[s["valid_perf"].fillna(False).astype(bool)]
@@ -1755,7 +1825,7 @@ def analyze_keywords(ctx):
         rel_all = g[(g["order"] == "relevance") & (g["rank"] <= cfg["SERP_TOP_N"])]
         rel = rel_all[rel_all["on_topic"].astype(bool)]            # 수요·경쟁은 주제 관련 영상만으로 계산
         uniq = g[g["on_topic"].astype(bool)].drop_duplicates("video_id")
-        perfv = uniq[uniq["is_mature"] & uniq["in_window"]]
+        perfv = uniq[uniq["is_mature"] & uniq["in_window"] & ~uniq["ad_suspect"].astype(bool)]   # 성과는 자연 유입 영상만
         fmt_perf = perfv.groupby("fmt")["outlier_score"].agg(["median", "size"])
         fmt_perf = fmt_perf[fmt_perf["size"] >= 5]
         best = perfv.sort_values("outlier_score", ascending=False)
@@ -2029,7 +2099,7 @@ def stage4_analysis(ctx):
     res["correlations"] = cc.corr(method="spearman")["outlier_score"].drop("outlier_score").rename("spearman_vs_log_outlier").reset_index()
     log("ANALYSIS", "스피어만 상관 (vs log 아웃라이어)", **{r["index"]: r["spearman_vs_log_outlier"] for _, r in res["correlations"].iterrows()})
 
-    res["recent_hot"] = (v[v["valid_perf"] & ~v["is_mature"] & v["on_topic"]].sort_values("views_per_day", ascending=False).head(20))
+    res["recent_hot"] = (v[v["valid_perf"] & ~v["is_mature"] & v["on_topic"] & ~v["ad_suspect"]].sort_values("views_per_day", ascending=False).head(20))
     res["new_channel_wins"] = (perf[perf["is_success"] & (perf["channel_age_days"] <= 365)]
                                .sort_values("outlier_score", ascending=False).head(20))
     succ_small = perf[perf["small_success"]]
@@ -2334,7 +2404,7 @@ def stage5_charts(ctx):
 # =====================================================================================================
 # 🧰 [모듈] Stage 6 — 성공사례(대본·영상)
 # =====================================================================================================
-# VERSION: v2.1.0 — 2026-10-09 — 성공사례: 주제 관련 영상만·카테고리당 최대 개수, yt-dlp 일시 오류 재시도 (v2.0.0: PC용 쿠키·Windows 처리) (Stage 6 성공사례)
+# VERSION: v2.2.0 — 2026-10-09 — 영상을 GitHub에 올리지 않으면 용량 재인코딩 생략(원본 화질·시간 절약), 최저 비트레이트에서 같은 재인코딩 반복 방지 (v2.1.0: 주제 관련 영상만·카테고리 제한·일시 오류 재시도) (Stage 6 성공사례)
 VIDEO_EXTS = {".mp4", ".mkv", ".webm", ".mov", ".m4a", ".mp3", ".opus"}
 SUCCESS_SCORE_WEIGHTS = {"outlier": 0.40, "views": 0.35, "views_per_sub": 0.25}
 
@@ -2604,11 +2674,16 @@ def ensure_max_size(path, max_mb, duration_sec):
                            capture_output=True, text=True, encoding="utf-8", errors="replace")
         return _finish("remux") if r.returncode == 0 and out.exists() else (path, "original", size)
     dur = max(media_duration(path) or float(duration_sec or 0), 1.0)
-    factor = 1.0
+    factor, prev_kbps = 1.0, None
     for attempt in (1, 2):
         total_kbps = max_mb * 8000 * 0.92 / dur * factor
         a_kbps = 64 if total_kbps > 400 else 48
         v_kbps = max(int(total_kbps - a_kbps), 60)
+        if v_kbps == prev_kbps:     # 이미 최저 비트레이트 → 다시 해도 같은 결과 (v2.1.0에서 4분 낭비)
+            log("DOWNLOAD", "최저 비트레이트로도 용량 초과 → 재인코딩 중단 (영상이 너무 김)", level="WARNING",
+                max_mb=max_mb, duration_min=round(dur / 60, 1), v_kbps=v_kbps)
+            break
+        prev_kbps = v_kbps
         height = 480 if v_kbps >= 500 else (360 if v_kbps >= 220 else 240)
         cmd = [ff, "-y", "-loglevel", "error", "-i", str(path), "-c:v", "libx264", "-preset", "veryfast",
                "-b:v", f"{v_kbps}k", "-maxrate", f"{int(v_kbps * 1.2)}k", "-bufsize", f"{v_kbps * 2}k",
@@ -2833,7 +2908,9 @@ def process_success_case(ctx, row, idx, comments):
     if cfg["DOWNLOAD_VIDEOS"]:
         try:
             p = ytdlp_download(vid, case_dir, cfg)
-            p, how, mb = ensure_max_size(p, cfg["VIDEO_MAX_MB"], row["duration_sec"])
+            # GitHub 파일 용량 제한 때문에 줄이는 것 → 영상을 올리지 않는 게 확실하면(공개 저장소·푸시 안 함) 원본 화질 유지
+            limit = float("inf") if ctx.data.get("videos_go_to_github") is False else cfg["VIDEO_MAX_MB"]
+            p, how, mb = ensure_max_size(p, limit, row["duration_sec"])
             media = p
             status.update(video=how, video_file=p.name, video_mb=round(mb, 1))
         except BotCheckError as e:
@@ -2897,6 +2974,10 @@ def process_success_case(ctx, row, idx, comments):
 
 def stage6_success_cases(ctx):
     cfg, d = ctx.cfg, ctx.data
+    if cfg["DOWNLOAD_VIDEOS"]:
+        go = d.get("videos_go_to_github")
+        log("SUCCESS", "영상 용량 조정 정책", videos_go_to_github={True: "예", False: "아니오", None: "확인 불가"}[go],
+            reencode_over_mb=("생략 (원본 화질 유지 — GitHub에 영상을 올리지 않음)" if go is False else cfg["VIDEO_MAX_MB"]))
     sel = select_success_cases(d["perf"], cfg)
     d["success_cases"] = sel
     rmtree_force(ctx.out_dir / "success_cases")   # 재실행 시 이전 결과 정리
@@ -2930,7 +3011,7 @@ def stage6_success_cases(ctx):
 # =====================================================================================================
 # 🧰 [모듈] Stage 7 — 리포트
 # =====================================================================================================
-# VERSION: v2.1.0 — 2026-10-09 — 카테고리별 기회·주제 무관 영상 제외 현황·이월 키워드 표시 (v2.0.0: PC 환경 표기) (Stage 7 리포트)
+# VERSION: v2.2.0 — 2026-10-09 — 키워드 성격(사연·사기피해·일반)별 제목 예시, 이월 사유·광고 의심 제외 현황 표시 (v2.1.0: 카테고리별 기회·무관 영상 제외 현황) (Stage 7 리포트)
 # 데이터에서 효과가 확인된 제목 요소 → 제목 템플릿 (참고용 예시. 과장·수익 보장 표현은 피하세요)
 TITLE_TEMPLATES = {
     "has_number":       ["{kw} 초보가 꼭 알아야 할 {n}가지", "{kw} 핵심 {n}가지만 기억하세요"],
@@ -2949,6 +3030,70 @@ TITLE_TEMPLATES = {
     "hook_list":        ["{kw} TOP {n} 순위 정리", "{kw} 추천 BEST {n}"],
     "hook_story":       ["{kw} 직접 해본 솔직 후기", "{kw} 1년 해보고 깨달은 것"],
 }
+# 키워드 성격별 제목 템플릿 — '실패·손실 사연' 키워드에 "수익 내는 방법" 같은 일반 템플릿이 붙지 않도록 분리
+# (실제 사연이 아니면 '재구성' 등으로 밝히세요. 특정 종목 추천·수익 보장 표현 금지)
+INTENT_RX = {   # 위에서부터 먼저 맞는 것
+    "scam":  r"사기|리딩|사칭|단톡|자동매매|미등록|주가조작|투자자문",
+    "story": r"실패|손실|잃|망한|망하|사연|후회|고백|썰|폭락|깡통|반대매매|빚투|빚내|대출|파산|중독|이혼|몰래|갈등|하한가|상장폐지|"
+             r"교훈|주의사항|실수|안 되는|피해|판결|소송|결말|폐인|재기|다큐|인터뷰",
+}
+INTENT_LABELS = {"story": "실패·손실 사연", "scam": "사기·피해", "general": "일반 정보"}
+TITLE_TEMPLATES_BY_INTENT = {
+    "story": {
+        "has_number":       ["{kw} — 돌아간다면 절대 안 할 {n}가지", "[{kw}] 공통적으로 저지른 실수 {n}가지"],
+        "has_question":     ["{kw}, 왜 멈추지 못했을까?", "{kw} — 어디서부터 잘못됐을까?"],
+        "has_exclaim":      ["{kw} — 이 신호를 놓치지 마세요!"],
+        "has_bracket":      ["[실제 사연] {kw} — 무엇이 문제였나", "[재구성] {kw}, 그날 계좌에 생긴 일"],
+        "has_year":         ["{year} {kw} — 사례로 본 공통점"],
+        "has_money_or_pct": ["3억이 3천만 원 되기까지 — {kw}", "-70%에서 깨달은 것 — {kw}"],
+        "has_ellipsis":     ["{kw}… 결국 남은 건 빚이었습니다"],
+        "has_quote":        ["\"조금만 더 버티면…\" {kw}"],
+        "hook_urgency":     ["지금 같은 장에서 {kw}가 늘어나는 이유"],
+        "hook_fear":        ["{kw}, 이 신호가 보이면 이미 늦었습니다", "{kw} — 같은 실수 {n}가지"],
+        "hook_greed":       ["수익 30%에서 멈추지 못한 대가 — {kw}", "크게 벌고 전부 잃는 패턴 — {kw}"],
+        "hook_curiosity":   ["{kw}의 진짜 원인 (차트가 아니었습니다)", "{kw} 결국 이렇게 끝납니다"],
+        "hook_beginner":    ["{kw} — 처음 시작할 때 이것만 알았어도", "{kw}, 시작하기 전에 꼭 보세요"],
+        "hook_list":        ["{kw} 유형 TOP {n}"],
+        "hook_story":       ["{kw} — 직접 겪고 깨달은 것", "{kw}, 1년의 기록"],
+    },
+    "scam": {
+        "has_number":       ["{kw} — 이 말이 나오면 의심해야 할 {n}가지", "[{kw}] 피해자들이 공통으로 들은 말 {n}가지"],
+        "has_question":     ["{kw}, 왜 똑똑한 사람도 당할까?", "{kw} — 돈은 돌려받을 수 있을까?"],
+        "has_bracket":      ["[피해 사례] {kw} — 처음엔 수익이 났습니다", "[재구성] {kw}, 단톡방에서 생긴 일"],
+        "has_money_or_pct": ["'월 30% 수익 보장'의 실체 — {kw}", "5천만 원이 사라지기까지 — {kw}"],
+        "hook_greed":       ["처음엔 수익이 났습니다 — {kw}", "'수익 보장'의 실체 — {kw}"],
+        "hook_fear":        ["{kw}, 이 신호가 보이면 바로 나오세요", "{kw} — 신고 전에 반드시 할 {n}가지"],
+        "hook_curiosity":   ["{kw}의 실체 (구조를 알면 안 당합니다)"],
+        "hook_beginner":    ["{kw}, 처음엔 이렇게 시작됩니다"],
+    },
+}
+
+
+def keyword_intent(kw, category=""):
+    """키워드(+카테고리) 성격: story(실패·손실 사연) / scam(사기·피해) / general."""
+    text = f"{kw} {category or ''}"
+    for name, rx in INTENT_RX.items():
+        if re.search(rx, text):
+            return name
+    return "general"
+
+
+def make_titles(kw, intent, feats, i, year):
+    """데이터에서 효과가 확인된 제목 요소(feats) 순서대로, 키워드 성격에 맞는 템플릿 3개."""
+    n = [3, 5, 7][i % 3]
+    table = TITLE_TEMPLATES_BY_INTENT.get(intent, {})
+    order = feats[(i % len(feats)):] + feats[:(i % len(feats))] if feats else []
+    out = []
+    for j, f in enumerate(order + [f for f in (table or TITLE_TEMPLATES) if f not in order]):   # 효과 요소 우선, 모자라면 같은 성격의 다른 템플릿
+        opts = table.get(f) or (TITLE_TEMPLATES.get(f) if intent == "general" else None)
+        if opts:
+            t = opts[(i + j) % len(opts)].format(kw=kw, n=n, year=year)
+            if t not in out:
+                out.append(t)
+        if len(out) >= 3:
+            break
+    return out
+DEFER_LABELS = {"budget": "쿼터 예산 초과", "daily_requests": "YouTube 일일 검색 횟수 한도", "daily_units": "YouTube 일일 쿼터 소진"}
 KW_LABELS = {"demand_vpd": "수요", "ac_score": "자동완성", "small_win_share": "소규모채널 진입", "median_outlier": "아웃라이어",
              "fresh_share": "신선도", "low_competition": "경쟁(역)", "content_gap": "콘텐츠 공백"}
 DEFAULT_TEMPLATE_FEATURES = ["hook_beginner", "has_number", "has_question"]
@@ -3002,22 +3147,24 @@ def build_recommendations(ctx):
                 if len(dur_rel) else [])
     v = d["videos"].set_index("video_id")
     recs, used = [], set()
+    intents = Counter()
     for i, r in enumerate(res["keywords"].dropna(subset=["opportunity"]).head(8).itertuples()):
         kw = r.keyword
-        n = [3, 5, 7][i % 3]
-        titles = [TITLE_TEMPLATES[f][(i + j) % len(TITLE_TEMPLATES[f])].format(kw=kw, n=n, year=year)
-                  for j, f in enumerate(feats[(i % len(feats)):] + feats[:(i % len(feats))])][:3]
+        intent = keyword_intent(kw, getattr(r, "category", ""))
+        intents[intent] += 1
+        titles = make_titles(kw, intent, feats, i, year)
         fmt = r.best_format or overall_best_fmt
         # 참고 영상: 다른 아이디어와 겹치지 않게 2개 + 소규모 채널 성공 예시 1개(있으면)
         refs = [vid for vid in r.example_ids if vid in v.index and vid not in used][:2]
         small = [vid for vid in r.small_example_ids if vid in v.index and vid not in used and vid not in refs][:1]
         refs = refs + small if small else [vid for vid in r.example_ids if vid in v.index and vid not in used][:3]
         used.update(refs)
-        recs.append({"rank": i + 1, "keyword": kw, "opportunity": r.opportunity, "format": fmt, "durations": best_dur,
+        recs.append({"rank": i + 1, "keyword": kw, "intent": intent, "opportunity": r.opportunity, "format": fmt, "durations": best_dur,
                      "titles": titles, "refs": refs, "demand_vpd": r.demand_vpd, "small_win_share": r.small_win_share,
                      "fresh_share": r.fresh_share, "competition_subs": r.competition_subs, "median_outlier": r.median_outlier,
                      "n_success": r.n_success, "shorts_share_serp": r.shorts_share_serp})
-    log("REPORT", "추천 아이디어 생성", n=len(recs), template_features=feats, source=feat_src, best_format=overall_best_fmt, best_durations=best_dur)
+    log("REPORT", "추천 아이디어 생성", n=len(recs), template_features=feats, source=feat_src, intents=dict(intents),
+        best_format=overall_best_fmt, best_durations=best_dur, sample_title=recs[0]["titles"][0] if recs else None)
     return recs, feats, feat_src, overall_best_fmt, best_dur
 
 
@@ -3052,7 +3199,8 @@ def write_tables(ctx):
     vcols = ["video_id", "title", "channel_title", "channel_id", "published_at", "fmt", "duration_sec", "views", "likes", "comments",
              "subscribers", "channel_size", "age_days", "views_per_day", "views_per_sub", "outlier_score", "baseline_views",
              "baseline_kind", "is_success", "is_small_channel", "is_mature", "in_window", "like_rate", "comment_rate",
-             "weekday_label", "publish_hour", "title_len", "uploads_per_week", "tags", "video_url"]
+             "weekday_label", "publish_hour", "title_len", "uploads_per_week", "on_topic", "topic_reason", "ad_suspect", "category",
+             "found_by", "tags", "video_url"]
     tables = {
         "videos": d["videos"][[c for c in vcols if c in d["videos"].columns]].sort_values("outlier_score", ascending=False),
         "keyword_opportunity": res["keywords"],
@@ -3127,8 +3275,14 @@ def write_report(ctx):
              f"({d['search_df']['category'].nunique() if 'category' in d['search_df'] else 1}개 카테고리), "
              f"주제 무관 영상 {len(d.get('offtopic', [])):,}개 제외")
     if d.get("deferred_keywords"):
-        L.append(f"- ⏭️ **이월된 키워드 {len(d['deferred_keywords'])}개**: 오늘 쿼터 예산을 넘어 다음 실행으로 넘김 → 내일 같은 설정으로 다시 실행하면 "
+        why = Counter(d.get("deferred_reason", {}).get(k, "budget") for k in d["deferred_keywords"])
+        why_txt = ", ".join(f"{DEFER_LABELS.get(k, k)} {n}개" for k, n in why.items())
+        L.append(f"- ⏭️ **이월된 키워드 {len(d['deferred_keywords'])}개** ({why_txt}): 한국시간 오후 4~5시(태평양 자정, 한도 리셋) 이후 같은 설정으로 다시 실행하면 "
                  "이미 받은 검색은 쿼터 0으로 재사용하고 나머지를 이어서 수집합니다")
+    ads = d.get("ad_suspects", pd.DataFrame())
+    if len(ads):
+        L.append(f"- 📢 **광고 집행 의심 영상 {len(ads)}개 제외**: 조회수는 많은데 좋아요·댓글이 거의 없는 영상(유료 홍보로 조회수를 산 것으로 추정) → "
+                 "자연 유입으로 재현할 수 없으므로 성과 분석·성공사례에서 뺐습니다 (목록: 2장 하단)")
     L.append(f"- **성공(아웃라이어) 기준**: 조회수 {fmt_int(cfg['MIN_SUCCESS_VIEWS'])}회 이상 **그리고** 같은 채널 최근 영상 중앙값의 {cfg['OUTLIER_MIN']:.0f}배 이상 "
              f"→ {int(perf['is_success'].sum()):,}개 ({fmt_pct(perf['is_success'].mean())})")
     cats = res.get("categories", pd.DataFrame())
@@ -3160,10 +3314,11 @@ def write_report(ctx):
 
     # ---- 1. 추천 아이디어
     L.append("## 1. 🎬 추천 영상 아이디어 (데이터 기반)\n")
-    L.append(f"제목 예시는 이번 데이터에서 효과가 확인된 제목 요소({', '.join(FEATURE_LABELS.get(f, f) for f in feats)}; {feat_src})를 조합한 **템플릿 예시**입니다. "
+    L.append(f"제목 예시는 이번 데이터에서 효과가 확인된 제목 요소({', '.join(FEATURE_LABELS.get(f, f) for f in feats)}; {feat_src})를 "
+             "키워드 성격(실패·손실 사연 / 사기·피해 / 일반 정보)에 맞춰 조합한 **템플릿 예시**입니다. "
              "그대로 쓰기보다 참고 영상의 실제 제목·썸네일·도입부(대본)를 함께 보고 다듬으세요.\n")
     for r in recs:
-        L.append(f"### {r['rank']}. `{md_escape(r['keyword'])}` — 기회점수 **{r['opportunity']:.0f}**/100\n")
+        L.append(f"### {r['rank']}. `{md_escape(r['keyword'])}` — 기회점수 **{r['opportunity']:.0f}**/100 · {INTENT_LABELS.get(r['intent'], '')}\n")
         L.append(f"- 근거: 검색 상위 {cfg['SERP_TOP_N']}개 영상 일평균 조회수 중앙값 **{fmt_compact(r['demand_vpd'])}회**, "
                  f"소규모 채널 진입 성공 비율 **{fmt_pct(r['small_win_share'])}**, 최근 {cfg['FRESH_DAYS']}일 영상 비율 {fmt_pct(r['fresh_share'])}, "
                  f"경쟁 채널 구독자 중앙값 {fmt_compact(r['competition_subs'])}명, 아웃라이어 배수 중앙값 {fmt_num(r['median_outlier'], 2)}배, 성공 영상 {r['n_success']}개")
@@ -3175,7 +3330,8 @@ def write_report(ctx):
             for vid in r["refs"]:
                 x = vv.loc[vid]
                 L.append(f"  - {link(x['title'], vid)} — 조회수 {fmt_compact(x['views'])}, 구독자 {fmt_compact(x['subscribers'])}, "
-                         f"채널 평균의 {fmt_num(x['outlier_score'], 1)}배, {fmt_name.get(x['fmt'], x['fmt'])}")
+                         + (f"채널 평균의 {fmt_num(x['outlier_score'], 1)}배" if pd.notna(x['outlier_score']) else "채널 평균 비교 불가(기준선 부족)")
+                         + f", {fmt_name.get(x['fmt'], x['fmt'])}")
         L.append("")
     if plan:
         L.append("### 🗓️ 첫 10개 영상 업로드 플랜 (제안)\n")
@@ -3224,8 +3380,17 @@ def write_report(ctx):
                        "ac_matched_prefix": lambda x: md_escape(x) if isinstance(x, str) and x else "-",
                        "category": lambda x: md_escape(str(x)) if isinstance(x, str) else "-"}, 120) + "\n</details>\n")
     if d.get("deferred_keywords"):
+        reasons = d.get("deferred_reason", {})
         L.append("<details><summary>⏭️ 이번 실행에서 이월된 키워드 (다음 실행에서 수집)</summary>\n\n"
-                 + ", ".join(f"`{md_escape(k)}`" for k in d["deferred_keywords"]) + "\n</details>\n")
+                 + ", ".join(f"`{md_escape(k)}`({DEFER_LABELS.get(reasons.get(k, 'budget'), '-')})" for k in d["deferred_keywords"]) + "\n</details>\n")
+    if len(ads):
+        a = ads.sort_values("views", ascending=False)
+        L.append(f"<details><summary>📢 광고 집행 의심으로 제외한 영상 {len(ads)}개 (조회수 대비 좋아요·댓글이 극히 적음)</summary>\n\n"
+                 + md_table(a.assign(t=[link(t, i) for t, i in zip(a["title"], a["video_id"])]),
+                            ["t", "channel_title", "subscribers", "views", "like_rate", "comments"],
+                            ["영상", "채널", "구독자", "조회수", "좋아요율", "댓글 수"],
+                            {"t": lambda x: x, "subscribers": fmt_compact, "views": fmt_compact, "like_rate": lambda x: fmt_pct(x, 2),
+                             "comments": fmt_int}, 20) + "\n</details>\n")
     off = d.get("offtopic", pd.DataFrame())
     if len(off):
         L.append(f"<details><summary>🎯 주제와 무관해서 제외한 영상 {len(off)}개 (조회수 상위 15개 — 전체는 data/excluded_offtopic.csv)</summary>\n\n"
@@ -3415,7 +3580,7 @@ def stage7_report(ctx):
 # =====================================================================================================
 # 🧰 [모듈] Stage 8 — GitHub 푸시 + 결과 정리
 # =====================================================================================================
-# VERSION: v2.1.0 — 2026-10-09 — 토큰 쓰기권한 사전확인(분석 전)·토큰 종류별 해결 안내·푸시 직전 .env 재확인 (v2.0.0: PC용 git 처리) (Stage 8)
+# VERSION: v2.2.0 — 2026-10-09 — 영상 업로드 여부(저장소 공개 여부)를 분석 전에 판정 (v2.1.0: 토큰 쓰기권한 사전확인·토큰 종류별 안내·.env 재확인) (Stage 8)
 GITHUB_MAX_FILE_MB = 95      # GitHub는 100MB 초과 파일을 거부
 
 
@@ -3521,6 +3686,24 @@ def check_push_access(repo, token):
     else:
         res.update(ok=None, reason=f"확인 불가 (HTTP {r.status_code}) — 푸시 때 다시 시도")
     return res
+
+
+def videos_go_to_github(cfg, token):
+    """성공사례 영상 파일이 GitHub에 올라갈지 분석 전에 판정 → True/False, 확인 불가면 None.
+    (공개 저장소는 저작권 때문에 영상을 올리지 않음 → 그럴 땐 GitHub 용량 제한용 재인코딩도 필요 없음)"""
+    if not (cfg["PUSH_TO_GITHUB"] and token and shutil.which("git")):
+        return False, "푸시 안 함 (PUSH_TO_GITHUB/토큰/Git 없음)"
+    try:
+        r = github_api(f"/repos/{cfg['GITHUB_REPO'].strip()}", token)
+    except requests.RequestException as e:
+        return None, f"저장소 정보 확인 실패: {type(e).__name__}"
+    if r.status_code != 200:
+        return None, f"저장소 정보 확인 불가 (HTTP {r.status_code})"
+    if r.json().get("private"):
+        return True, "비공개 저장소"
+    if cfg["ALLOW_VIDEO_UPLOAD_TO_PUBLIC_REPO"]:
+        return True, "공개 저장소 + ALLOW_VIDEO_UPLOAD_TO_PUBLIC_REPO=True"
+    return False, "공개 저장소 (타인 영상은 PC에만 저장)"
 
 
 def reload_github_token(current):
@@ -3685,7 +3868,7 @@ def stage8_finish(ctx):
 # =====================================================================================================
 # 🧰 [모듈] 자가진단(오프라인 테스트)
 # =====================================================================================================
-# VERSION: v2.1.0 — 2026-10-09 — 관련성 필터·카테고리 순환·캐시 인식 쿼터·토큰 쓰기권한 확인 테스트 추가
+# VERSION: v2.2.0 — 2026-10-09 — 일일 한도 판정·한도 도달 시 이월·광고 의심 판정·키워드 성격별 제목 테스트 추가, 모의 다운로드 로그 숨김 (v2.1.0: 관련성 필터·쿼터 계획·토큰 권한 테스트)
 def make_synthetic_dataset(seed=7, n_channels=40, per_channel=12):
     """알려진 패턴을 심은 가짜 데이터: '숫자 포함 제목'은 조회수 3배, 소규모 채널 일부도 터짐."""
     rng = np.random.default_rng(seed)
@@ -3723,6 +3906,17 @@ def make_synthetic_dataset(seed=7, n_channels=40, per_channel=12):
     ac = pd.DataFrame({"norm": ["주식", "주식초보", "주식전망"], "keyword": ["주식", "주식 초보", "주식 전망"],
                        "ac_score": [3.0, 2.0, 1.0], "ac_hits": [10, 5, 3], "best_rank": [0, 1, 2], "contains_topic": True, "ac_rank": [1, 2, 3]})
     return pd.DataFrame(vids), pd.DataFrame(chans), pd.DataFrame(base), pd.DataFrame(search), ac, now
+
+
+@contextmanager
+def _quiet_logs():
+    """모의(가짜) 다운로드·수집 테스트가 남기는 경고 로그를 숨김 → 실제 실행 로그와 헷갈리지 않게."""
+    prev = LOGGER.level
+    LOGGER.setLevel(logging.CRITICAL)
+    try:
+        yield
+    finally:
+        LOGGER.setLevel(prev)
 
 
 def run_self_test(cfg):
@@ -3806,13 +4000,15 @@ def run_self_test(cfg):
         DL_STATE.update(client=None, bot_streak=0, bot_total=0, disabled=False, client_hits=Counter(), cookiefile="", proxy="",
                         last_blocked=None)
         bcfg = {**cfg, "YTDLP_CLIENT_FALLBACK": True, "YTDLP_MAX_BOT_BLOCKS": 2}
-        r1 = run_ytdlp(bcfg, {}, lambda y: y.go(), "t1")
+        with _quiet_logs():
+            r1 = run_ytdlp(bcfg, {}, lambda y: y.go(), "t1")
         remembered = DL_STATE["client"]
         _FakeYDL.mode = "all_blocked"
         errs = []
         for vid in ("t2", "t2", "t3", "t4"):        # t2 두 번(영상+자막) = 영상 1개로 집계
             try:
-                run_ytdlp(bcfg, {}, lambda y: y.go(), vid)
+                with _quiet_logs():
+                    run_ytdlp(bcfg, {}, lambda y: y.go(), vid)
             except BotCheckError as e:
                 errs.append(str(e)[:20])
         check("봇 확인: 클라이언트 재시도 + 연속 차단 시 중단", r1 == "ok" and remembered == ("tv",) and len(errs) == 4
@@ -3822,7 +4018,8 @@ def run_self_test(cfg):
         saved_waits, TRANSIENT_WAITS = TRANSIENT_WAITS, (0.01, 0.01)
         DL_STATE.update(client=None, bot_streak=0, bot_total=0, disabled=False, last_blocked=None)
         _FakeYDL.mode, _FakeYDL.calls = "flaky", 0
-        r2 = run_ytdlp(bcfg, {}, lambda y: y.go(), "t5")
+        with _quiet_logs():
+            r2 = run_ytdlp(bcfg, {}, lambda y: y.go(), "t5")
         TRANSIENT_WAITS = saved_waits
         check("일시 오류 자동 재시도", r2 == "ok" and _FakeYDL.calls == 2, calls=_FakeYDL.calls)
     finally:
@@ -3886,6 +4083,47 @@ def run_self_test(cfg):
         globals()["github_api"], requests.get = g_api, g_get
     check("GitHub 토큰 쓰기 권한 확인", r403["ok"] is False and "Contents" in r403["hint"] and r200["ok"] is True
           and rscope["ok"] is False and "repo" in rscope["hint"], r403=r403["reason"], scope=rscope["reason"])
+
+    # 일일 한도 판정: 'Search Queries per day'(429)는 일일 한도 → 즉시 중단, 분당 제한은 재시도 대상
+    day_msg = "Quota exceeded for quota metric 'Search Queries' and limit 'Search Queries per day' of service 'youtube.googleapis.com'"
+    min_msg = "Quota exceeded for quota metric 'Queries' and limit 'Queries per minute'"
+    check("일일 한도 판정 (검색 횟수/유닛/분당 구분)", is_daily_limit(429, "RATE_LIMIT_EXCEEDED", day_msg)
+          and is_daily_limit(403, "quotaExceeded", "") and not is_daily_limit(429, "RATE_LIMIT_EXCEEDED", min_msg))
+
+    # 한도 도달 후: 새 검색은 중단·이월, 캐시에 있는 검색은 계속 사용
+    class _YT:
+        used, n = 0, 0
+
+        def search_is_cached(self, q, *a, **k):
+            return q == "k5"
+
+        def search(self, q, *a, **k):
+            if q != "k5":
+                self.n += 1
+                if self.n > 2:
+                    raise QuotaExceededError(day_msg, kind="daily_requests")
+            return [{"video_id": f"{q}v", "channel_id": "c"}], 1
+    lctx = RunContext(cfg={**qcfg}, run_id="selftest", started_at=dt.datetime.now(UTC), work_dir=Path("."), out_dir=Path("."),
+                      cache=qctx.cache)
+    lctx.yt = _YT()
+    with _quiet_logs():
+        lsdf = collect_search(lctx, ["k1", "k2", "k3", "k4", "k5"])
+    check("한도 도달 시 검색 중단·이월 (캐시 검색은 계속)", sorted(lsdf["keyword"].unique()) == ["k1", "k2", "k5"]
+          and lctx.data["deferred_keywords"] == ["k3", "k4"] and set(lctx.data["deferred_reason"].values()) == {"daily_requests"},
+          searched=sorted(lsdf["keyword"].unique()), deferred=lctx.data["deferred_keywords"])
+
+    # 광고 집행 의심: 고조회수 + 좋아요·댓글 둘 다 극히 적음 → 제외 / 조회수 적음·좋아요 숨김은 판단 보류
+    adf = pd.DataFrame({"views": [2_741_984, 125_366, 30_000, 500_000],
+                        "like_rate": [0.00156, 0.0155, 0.001, np.nan], "comment_rate": [1e-6, 0.0014, 0.0, 0.0]})
+    ad = flag_ad_suspects(adf, cfg).tolist()
+    check("광고 집행 의심 판정", ad == [True, False, False, False], result=ad)
+
+    # 키워드 성격별 제목: 실패 사연 키워드에 '수익 내는 방법'·'수수료' 같은 일반 템플릿이 붙지 않음
+    intents = [keyword_intent(k) for k in ("주식 폭락 전재산 손실", "주식 자동매매 사기 사례", "주식 초보 공부")]
+    st = make_titles("주식 폭락 전재산 손실", "story", ["hook_greed", "has_money_or_pct", "has_bracket"], 0, 2026)
+    check("키워드 성격별 제목 템플릿", intents == ["story", "scam", "general"] and len(st) == 3
+          and not any(("수익 내는" in t) or ("수수료" in t) for t in st), intents=intents, titles=st)
+
     passed = sum(ok for _, ok in results)
     log("SELFTEST", "자가진단 완료", passed=f"{passed}/{len(results)}", elapsed_sec=round(time.perf_counter() - t0, 2))
     if passed != len(results):
@@ -3894,7 +4132,7 @@ def run_self_test(cfg):
 
 
 # =====================================================================================================
-# VERSION: v2.1.0 — 2026-10-09 — 실행부: GitHub 쓰기권한 사전확인, --push-only, 푸시 직전 토큰 재확인 (v2.0.0: .env·명령줄·단계 실행)
+# VERSION: v2.2.0 — 2026-10-09 — 실행부: 영상 GitHub 업로드 여부 사전 판정 (v2.1.0: 쓰기권한 사전확인·--push-only·토큰 재확인; v2.0.0: .env·명령줄·단계 실행)
 # =====================================================================================================
 import argparse
 
@@ -4035,6 +4273,10 @@ def main(argv=None):
         if chk["ok"] is False:
             log("INIT", "⚠️ 지금 토큰으로는 GitHub에 올릴 수 없습니다 — 분석은 계속 진행합니다. 분석이 끝나기 전에 아래대로 고치고 "
                         ".env 를 저장하면 푸시 직전에 다시 읽습니다", level="WARNING", fix=chk["hint"])
+    if ctx.cfg["DOWNLOAD_VIDEOS"]:
+        go, why = videos_go_to_github(ctx.cfg, keys["GITHUB_TOKEN"])
+        ctx.data["videos_go_to_github"] = go
+        log("INIT", "성공사례 영상 GitHub 업로드 예정 여부", value=go, reason=why)
     try:
         if ctx.cfg["RUN_SELF_TEST"]:
             with stage_timer(ctx, "SELFTEST"):

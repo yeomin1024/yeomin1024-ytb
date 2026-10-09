@@ -21,8 +21,17 @@ stock/                      ← 주제 폴더: 주식
   titles/                   ← 제목 피드백 시트
   source/<영상ID>/          ← 영상별 대본 TXT·SRT·README·titles.md·thumbnails/·upload.md
   out/<영상ID>/             ← 장면 구성표·스토리보드 (완성 영상 mp4는 git에 올리지 않음)
+selfdev/ · health/ · space/ · story/ · lifetips/   ← 다른 주제 폴더 (지금은 분석 설정 파일 analyzer_config.toml만 있음)
 ```
-다른 주제는 `stock/`과 같은 모양의 폴더(예: `realestate/`)를 만들어 씁니다 → [새 주제 시작하기](guides/README.md#새-주제-시작하기-예-부동산)
+| 폴더 | 주제 | 실행 |
+|---|---|---|
+| `selfdev/` | 자기계발 | `python youtube_topic_analyzer.py --config selfdev/analyzer_config.toml` |
+| `health/` | 건강 | `python youtube_topic_analyzer.py --config health/analyzer_config.toml` |
+| `space/` | 우주 | `python youtube_topic_analyzer.py --config space/analyzer_config.toml` |
+| `story/` | 사연을 통한 교훈 | `python youtube_topic_analyzer.py --config story/analyzer_config.toml` |
+| `lifetips/` | 생활꿀팁 | `python youtube_topic_analyzer.py --config lifetips/analyzer_config.toml` |
+
+다른 주제도 `stock/`과 같은 모양의 폴더(예: `realestate/`)를 만들어 씁니다 → [새 주제 시작하기](guides/README.md#새-주제-시작하기-예-부동산)
 
 ---
 

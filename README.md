@@ -16,9 +16,19 @@
    | `YOUTUBE_API_KEY` | YouTube Data API v3 키 |
    | `GITHUB_TOKEN` | GitHub Fine-grained 토큰 (이 저장소, Contents: Read and write) |
    | `YTDLP_COOKIES` *(선택)* | 봇 확인 오류 시 cookies.txt (`base64 -w0 cookies.txt` 결과 권장) |
+   | `YTDLP_PROXY` *(선택)* | 주거용 프록시 URL (`http://user:pass@host:port`) |
 4. **블록 2 ⚙️** 에서 `TOPIC`(주제), `PROJECT_FOLDER`(결과 상위 폴더, 없으면 자동 생성) 지정
 5. **Run All** — 결과를 Kaggle에도 보관하려면 **Save Version → Save & Run All**
 6. *(선택)* *Accelerator → GPU T4* — 자막 없는 영상의 음성인식(Whisper)이 빨라집니다
+
+### 🤖 `Sign in to confirm you're not a bot` 오류 해결
+Kaggle(구글 클라우드 IP)은 YouTube 봇 확인에 자주 걸립니다. **로그인 쿠키**를 넣으면 대부분 해결됩니다.
+1. 크롬/엣지 **시크릿 창**에서 YouTube 로그인 (**보조 구글 계정** 권장)
+2. 같은 탭에서 `https://www.youtube.com/robots.txt` 이동 → 확장 프로그램 **Get cookies.txt LOCALLY** 로 `cookies.txt` 저장 → **시크릿 창 바로 닫기**
+3. Kaggle: *Create → New Dataset* 으로 `cookies.txt` 업로드(**Private**) → 노트북 **Add Input** 으로 연결 (자동 인식)
+   또는 Secret `YTDLP_COOKIES` 에 base64 값 등록 + Attach
+4. **Stage 6 셀만 다시 실행** → Stage 7·8 실행
+5. 그래도 막히면 결과의 `success_cases/download_on_pc.py` 를 **내 PC**에서 실행 (`pip install -U "yt-dlp[default]" deno imageio-ffmpeg` → `python download_on_pc.py`)
 
 ### 결과물
 | 위치 | 내용 |

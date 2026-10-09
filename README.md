@@ -10,17 +10,17 @@ youtube_topic_analyzer.py   ← 분석 코드 (모든 주제 공통)
 run_analyzer.ps1            ← Windows: 분석 코드를 wget으로 받아 실행
 run_analyzer.sh             ← macOS/Linux: 분석 코드를 wget으로 받아 실행
 requirements.txt
-tools/srt_tool.py           ← 대본 TXT → SRT 자막 생성·검사 (모든 주제 공통)
+tools/srt_tool.py           ← 대본 TXT → SRT 자막 생성·검사, 영상용·업로드용 변환 (모든 주제 공통)
 guides/                     ← 영상 제작 공통 지시사항 (모든 주제) — guides/README.md 부터 읽기
-  title_guide.md · script_guide.md · thumbnail_guide.md · video_guide.md · archive/
-video/                      ← (영상 만들 때 생성) Remotion 프로젝트, 모든 주제가 같이 씀
+  title_guide.md · script_guide.md · thumbnail_guide.md · video_guide.md · upload_guide.md · archive/
+video/                      ← Remotion 프로젝트, 모든 주제가 같이 씀 — video/README.md (PC에 Node.js 필요)
 stock/                      ← 주제 폴더: 주식
   analyzer_config.toml      ← 분석 설정 (검색 키워드·관련어 등) — 여기만 고치면 됨
   result/                   ← 분석 결과 (분석기가 GitHub에 올림)
   guides/                   ← 주식 전용 규칙 + data_insights.md(분석 결과 요약 = 지시사항 근거)
   titles/                   ← 제목 피드백 시트
-  source/<영상ID>/          ← 영상별 대본 TXT·SRT·README·titles.md·thumbnails/
-  out/<영상ID>/             ← (영상 만들 때 생성) 스토리보드·완성 영상·썸네일
+  source/<영상ID>/          ← 영상별 대본 TXT·SRT·README·titles.md·thumbnails/·upload.md
+  out/<영상ID>/             ← 장면 구성표·스토리보드 (완성 영상 mp4는 git에 올리지 않음)
 ```
 다른 주제는 `stock/`과 같은 모양의 폴더(예: `realestate/`)를 만들어 씁니다 → [새 주제 시작하기](guides/README.md#새-주제-시작하기-예-부동산)
 
@@ -144,18 +144,21 @@ python youtube_topic_analyzer.py --help                                    # 전
 5. 썸네일 프롬프트 3개 (`thumbnails/`)
 6. 내레이션 녹음
 7. 장면 구성표 → 스토리보드 → **승인** → 렌더 (Remotion, Claude Code)
-8. 썸네일 렌더
-9. 업로드 후 "테스트 및 비교" 결과 기록
+8. 썸네일: 프롬프트로 이미지 AI에서 만들기
+9. 업로드 시트(`upload.md`: 설명란·챕터·태그·고정 댓글) → 업로드
+10. 업로드 후 "테스트 및 비교"·시청 지속 결과 기록
 
 | 영상 | 상태 | 위치 |
 |---|---|---|
 | 몰빵 `molppang-2026-10` | 제작 완료 | `stock/source/molppang-2026-10/` (SRT) |
-| 물타기 `multagi-2026-10` | 대본 v1.2 · 제목 3개 · 썸네일 프롬프트 3개 준비, 제목 선택·녹음 대기 | `stock/source/multagi-2026-10/` |
+| 물타기 `multagi-2026-10` | 대본 v1.3 · 제목 T1 채택 · 썸네일 프롬프트 3개 · 업로드 시트 · **영상 1차 완성(무음, 8분 29초)** — 내레이션 녹음 대기 | `stock/source/multagi-2026-10/`, `stock/out/multagi-2026-10/` |
 
 자막 파일 검사·생성:
 ```
 python tools/srt_tool.py check stock/source/multagi-2026-10/multagi-2026-10.txt stock/source/multagi-2026-10/multagi-2026-10.srt
 python tools/srt_tool.py build <대본.txt> <새.srt> --reuse <기존.srt>   # 고친 문장만 새로 계산, 나머지는 기존 줄바꿈·길이 유지
+python tools/srt_tool.py remotion <대본.txt> <자막.srt> video/src/episodes/<영상ID>/subtitles.ts   # 영상용 자막·고지 카드 데이터
+python tools/srt_tool.py upload <대본.txt> <자막.srt> <업로드용.srt> --chapters "1=…;15=…"         # 업로드용 자막 + 챕터 시간
 ```
 
 ---

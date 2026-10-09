@@ -1,6 +1,6 @@
 # 사연형 설명 영상 — 모션그래픽 영상 제작 지시사항 (Claude Code용, 공통)
 
-버전: v3.1 — 2026-10-09 — 주제 공통 위치(`guides/`)로 이동, 주제 폴더 경로 규칙, 재구성 사연 캡션(1-11), 썸네일 렌더 단계 추가
+버전: v3.2 — 2026-10-09 — 첫 영상(multagi-2026-10) 제작 반영: 로컬 폰트, plan.ts·스토리보드 스크립트, 자막·고지 카드 자동 변환 명령 (v3.1: 주제 공통 위치로 이동, 재구성 사연 캡션)
 
 이 지시사항은 대본·주제가 바뀌어도 그대로 쓴다. 영상마다 달라지는 것(데이터 시트, 장면 구성표)은 Claude Code가 대본을 읽고 이 문서의 규칙에 따라 직접 만든다.
 주제 전용 규칙(`<주제폴더>/guides/script_rules.md` 등)에 영상 관련 규칙이 있으면 함께 따른다. (예: 주식의 재구성 사연 문구, 색의 의미)
@@ -25,7 +25,7 @@ SRT나 TXT가 여러 개면 어떤 파일을 쓸지 먼저 묻는다.
 1. `scene_plan.md` — 장면 구성표 (5번 규칙으로 작성)
 2. `storyboard/` — 장면별 샘플 이미지와 확인용 페이지 (**전체 렌더 전에 반드시 먼저 보여 준다**)
 3. `final_1080p.mp4` — 1920×1080, 30fps (사용자 승인 후 렌더. 용량이 커서 git에 올리지 않음 — `.gitignore`)
-4. `thumbnails/thumbnail_1.png` ~ `_3.png` — 썸네일 3장 (`guides/thumbnail_guide.md`, 6번 작업 순서 8)
+4. (선택) `thumbnails/thumbnail_1.png` ~ `_3.png` — 썸네일은 보통 사용자가 이미지 AI로 만든다 (`guides/thumbnail_guide.md`)
 
 `<영상ID>`는 SRT 파일명을 영문 소문자·하이픈으로 바꾼 것으로 한다. (예: `molppang-2026-10`)
 
@@ -63,10 +63,13 @@ SRT나 TXT가 여러 개면 어떤 파일을 쓸지 먼저 묻는다.
   ```
   video/src/design/        ← 색·폰트·크기·모션 상수 (모든 영상 공통)
   video/src/components/    ← 공통 컴포넌트 (모든 영상 공통, 3-5의 패턴)
-  video/src/episodes/<영상ID>/subtitles.ts   ← SRT 파싱 결과
+  video/src/episodes/<영상ID>/subtitles.ts   ← SRT 파싱 결과 (python tools/srt_tool.py remotion 으로 생성, 직접 고치지 않음)
   video/src/episodes/<영상ID>/facts.ts       ← 데이터 시트
-  video/src/episodes/<영상ID>/scenes/S01.tsx …
-  video/src/episodes/<영상ID>/Episode.tsx
+  video/src/episodes/<영상ID>/plan.ts        ← 장면 구성표 데이터 (자막 범위·배경·전환·연출·연결 근거) → scene_plan.md 자동 생성
+  video/src/episodes/<영상ID>/scenes/*.tsx   ← 장면 구현 (S01.tsx처럼 장면마다, 또는 story.tsx처럼 파트마다 묶어도 됨)
+  video/src/episodes/<영상ID>/Episode.tsx    ← plan.ts의 장면 id와 장면 컴포넌트 연결
+  video/scripts/storyboard.mjs              ← scene_plan.md + 스토리보드 still·index.html 생성 (모든 영상 공통)
+  video/scripts/get-fonts.mjs               ← 한글 폰트 파일 받기 (npm install 때 자동 실행)
   video/src/episodes/<영상ID>/thumbnails/Thumb1.tsx …  ← 썸네일 3장 (Still, 1280×720)
   video/src/Root.tsx       ← 영상마다 컴포지션 하나 + 썸네일 Still 3개 등록 (ID = 영상ID, 영상ID-thumb-1 …)
   ```
@@ -74,7 +77,9 @@ SRT나 TXT가 여러 개면 어떤 파일을 쓸지 먼저 묻는다.
   - 새 영상은 `episodes/`에 새 폴더만 만들고, 공통 폴더는 그대로 재사용한다.
   - 공통 컴포넌트를 고칠 때는 이전 영상의 컴포지션이 깨지지 않게 한다.
 - **컴포지션:** 1920×1080, 30fps. 길이 = SRT 마지막 자막 끝 + 화면 고지 카드 길이 합 + 여유 1초.
-- **폰트:** `@remotion/google-fonts`로 Noto Sans KR(500, 700, 900)과 Noto Serif KR(700, 900)을 로드한다. 숫자는 `tabular-nums`.
+- **폰트:** Noto Sans KR(500, 700, 900)과 Noto Serif KR(700, 900)을 `video/public/fonts/`의 로컬 파일로 로드한다 (`src/design/fonts.ts`). 숫자는 `tabular-nums`.
+  - 파일은 `npm install` 때 `scripts/get-fonts.mjs`가 Google Fonts에서 받는다. 없으면 `npm run fonts`. (폰트 파일은 git에 올리지 않음)
+  - `@remotion/google-fonts`를 쓰지 않는 이유: 한글은 굵기마다 조각 파일이 많아 렌더 때마다 네트워크로 받느라 느리고, 프록시·인증서 환경에서 실패할 수 있다.
 - **타이밍:** 장면의 시작과 끝은 SRT 자막 번호로 계산한다. 초를 하드코딩하지 않는다.
 - **화면 고지 카드 (`[장면]`)**
   - TXT에서 `[장면]` 줄 바로 뒤의 문장들(다음 파트 라벨 전까지)이 카드 문구다. 문구는 그대로 쓴다.
@@ -86,6 +91,7 @@ SRT나 TXT가 여러 개면 어떤 파일을 쓸지 먼저 묻는다.
   - 3-5의 공통 컴포넌트를 먼저 만들고 장면마다 재사용한다. 장면마다 새로 그리지 않는다.
   - 전체 렌더 전에 스토리보드로 검수해서, 전체 렌더를 여러 번 하지 않는다.
 - **렌더 명령 (`video/` 폴더에서):** `npx remotion render <영상ID> ../<주제폴더>/out/<영상ID>/final_1080p.mp4 --codec=h264 --crf=18`
+  - 특정 브라우저를 써야 하면 환경변수 `REMOTION_BROWSER=<chrome 경로>` (`remotion.config.ts`가 읽음). 보통은 필요 없다.
 - 수정할 때마다 `video/CHANGELOG.md`에 날짜, 영상ID, 바뀐 장면이나 공통 컴포넌트를 기록한다.
 
 ---
@@ -198,17 +204,18 @@ SRT나 TXT가 여러 개면 어떤 파일을 쓸지 먼저 묻는다.
 
 1. **입력 확인:** `<주제폴더>/source/<영상ID>/`에 SRT·TXT가 각각 하나인지 확인한다. 없거나 여러 개면 멈추고 묻는다. 그 폴더의 `README.md`(검산·출처)와 주제 규칙도 읽는다.
 2. **프로젝트 준비:** `./video`가 없으면 만들고, 있으면 재사용한다. Agent Skills를 확인한다. 영상ID를 정한다.
-3. **자막 파싱:** `subtitles.ts`를 만들고, 화면 고지 카드의 위치와 길이를 계산한다. 자막 개수, 고지 카드 수, 전체 길이를 콘솔에 출력한다.
-4. **계획 작성:** `facts.ts`(4번)와 `scene_plan.md`(5번)를 쓴다.
+3. **자막 파싱:** `python tools/srt_tool.py remotion <TXT> <SRT> video/src/episodes/<영상ID>/subtitles.ts` — 화면 고지 카드의 위치와 길이를 계산하고 자막 개수, 고지 카드 수, 전체 길이를 출력한다.
+4. **계획 작성:** `facts.ts`(4번)와 `plan.ts`(5번 표의 내용)를 쓴다. `scene_plan.md`는 6번 스크립트가 `plan.ts`로 만든다.
 5. **구현:** 필요한 공통 컴포넌트를 만들거나 재사용하고, 장면을 구현한다.
 6. **스토리보드를 만들고 여기서 멈춘다.**
-   - 장면마다 모든 요소가 다 나온 시점(장면 끝 10프레임 전)의 still을 `out/<영상ID>/storyboard/S01.png`처럼 렌더한다. 한 장면 안에서 그림이 크게 바뀌면 자막 단위로 1장씩 더 만든다. (`S25-66.png`처럼)
+   - 장면마다 모든 요소가 다 나온 시점(장면 끝 10프레임 전)의 still을 `out/<영상ID>/storyboard/S01.jpg`처럼 렌더한다. 한 장면 안에서 그림이 크게 바뀌면 자막 단위로 1장씩 더 만든다. (`S25-66.jpg`처럼 — `plan.ts`의 `shots`)
    - `out/<영상ID>/storyboard/index.html`을 만든다. 장면마다 이미지, 장면 번호, 자막 번호, 자막 원문, 연결 근거를 카드로 보여 준다.
+   - 명령 (`video/` 폴더에서): `node scripts/storyboard.mjs <영상ID> ../<주제폴더>/out/<영상ID>` — `scene_plan.md`, still(960×540 JPG, `--full`이면 1920×1080), `index.html`을 한 번에 만든다. 고친 장면만 다시: `--only S05,S13`
    - 보여 주기 전에 still을 직접 열어 7번 검수표를 통과시킨다.
    - 그다음 index.html 경로, `scene_plan.md` 경로, 장면별 한 줄 요약, 4번의 숫자 이상 여부를 보고하고, **사용자의 승인이나 수정 지시를 기다린다. 승인 전에는 전체 렌더를 하지 않는다.**
 7. **수정:** 사용자가 고칠 장면을 말하면 그 장면만 고치고, 그 장면의 still만 다시 만들어 보여 준다.
-8. **렌더:** 승인되면 `final_1080p.mp4`를 렌더한다. 이어서 `<주제폴더>/source/<영상ID>/thumbnails/thumbnail_1.md` ~ `_3.md`의 [A] 지시대로 썸네일 3장을 Still로 렌더하고 `guides/thumbnail_guide.md` 7번 검수표를 통과시킨다.
-9. **결과 보고:** 출력 경로, 영상 길이, 렌더에 걸린 시간, 썸네일 3장 경로, 사용자가 채워야 할 값을 알린다.
+8. **렌더:** 승인되면 `final_1080p.mp4`를 렌더한다. 썸네일은 사용자가 프롬프트 파일(`thumbnails/thumbnail_1.md` ~ `_3.md`)로 이미지 AI에서 만든다. Remotion `Still` 렌더는 사용자가 요청할 때만 한다 (`guides/thumbnail_guide.md` 5번).
+9. **결과 보고:** 출력 경로, 영상 길이, 렌더에 걸린 시간, 썸네일 프롬프트 3개 경로, 사용자가 채워야 할 값을 알린다. 그다음 `guides/upload_guide.md`로 업로드 시트를 만든다.
 
 ---
 
@@ -229,6 +236,7 @@ SRT나 TXT가 여러 개면 어떤 파일을 쓸지 먼저 묻는다.
 
 | 버전 | 날짜 | 변경 내용 | 변경 위치 |
 |---|---|---|---|
+| v3.2 | 2026-10-09 | 첫 영상 multagi-2026-10 제작에서 정한 것 반영: 폰트를 로컬 파일(`scripts/get-fonts.mjs`)로, `plan.ts`(장면 구성표 데이터)·`scripts/storyboard.mjs`(scene_plan.md·still·index.html 자동 생성), `srt_tool.py remotion`으로 자막 파싱, 장면 파일을 파트별로 묶어도 됨, 결과 보고 뒤 업로드 지시사항 | 2, 6 |
 | v3.1 | 2026-10-09 | 사용자 지시로 주제 공통 위치 `guides/video_guide.md`로 이동(이전: 저장소 최상위 `video_guide.md`). 입력·출력 경로를 `<주제폴더>/source/<영상ID>/`·`<주제폴더>/out/<영상ID>/`로, Remotion 프로젝트를 저장소 최상위 `video/`로 명시. 1-11 재구성 사연 캡션(주식 대본 README·제목 지시사항 8번 요구를 영상 규칙으로 옮김), 썸네일 Still 등록·렌더(작업 순서 8), 영상ID 충돌 규칙, Remotion 라이선스 메모, 3-1 색 의미는 주제 규칙에서 바꿀 수 있음 | 0, 1, 2, 3-1, 6 |
 | v3.0 | 2026-10-06 | 범용 지시사항으로 개정. 영상 전용 데이터 시트·장면표를 빼고 "데이터 시트 만드는 법"(4번), "장면 구성표 만드는 법"(5번), 시각화 패턴 표(3-5)를 추가. 영상별 폴더 구조(episodes)와 공통 컴포넌트 재사용, 화면 고지 카드 위치·길이 자동 계산, 매수 권유 연출 금지, 패턴 일관성 검수 추가. 이전 영상 장면 4개를 품질 기준 예시로 남김 | 전체 |
 | v2.0 | 2026-10-06 | 몰빵 영상 대본 기준 개정 (30장면, 스토리보드 승인, 장면 적합성, 렌더 속도 규칙) | 전체 |

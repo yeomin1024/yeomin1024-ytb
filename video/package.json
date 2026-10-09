@@ -1,0 +1,25 @@
+{
+  "name": "ytb-video",
+  "version": "1.0.0",
+  "private": true,
+  "description": "사연형 설명 영상 — Remotion 모션그래픽 (guides/video_guide.md)",
+  "scripts": {
+    "studio": "remotion studio",
+    "render": "remotion render",
+    "still": "remotion still",
+    "typecheck": "tsc --noEmit",
+    "postinstall": "node scripts/get-fonts.mjs",
+    "fonts": "node scripts/get-fonts.mjs"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.534",
+    "@remotion/google-fonts": "4.0.534",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "remotion": "4.0.534"
+  },
+  "devDependencies": {
+    "@types/react": "18.3.12",
+    "typescript": "5.6.3"
+  }
+}

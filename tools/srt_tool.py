@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-10-09 — 대본 TXT → SRT 자막 생성·검사 (대본 지시사항 guides/script_guide.md 5-1·5-2 규칙)
+# VERSION: v1.2 — 2026-10-09 — upload 명령 추가: 고지 카드만큼 민 업로드용 SRT + 자막 번호로 YouTube 챕터 시간 계산 (v1.1: remotion 내보내기, v1.0: TXT → SRT 생성·검사)
 r"""
 대본 TXT로 SRT 자막을 만들거나, TXT와 SRT가 지시사항대로 맞는지 검사합니다. (표준 라이브러리만 사용)
 
   python tools/srt_tool.py check stock/source/multagi-2026-10/multagi-2026-10.txt stock/source/multagi-2026-10/multagi-2026-10.srt
   python tools/srt_tool.py build <대본.txt> <새.srt> --reuse <기존.srt>
+  python tools/srt_tool.py remotion <대본.txt> <자막.srt> video/src/episodes/<영상ID>/subtitles.ts   # 영상 지시사항 6-3
+  python tools/srt_tool.py upload <대본.txt> <자막.srt> <업로드용.srt> --chapters "1=사연;15=왜 물타기를 할까"   # 업로드 지시사항
 
 build 규칙 (guides/script_guide.md 5-2)
   - 자막 1개 = 대본 1문장(한 줄). 파트 라벨(-사연 파트 등), [장면] 줄과 그 뒤 카드 문구(다음 라벨 전까지)는 뺌
@@ -14,6 +16,9 @@ build 규칙 (guides/script_guide.md 5-2)
   - 22자(공백 포함) 이하는 1줄, 넘으면 쉼표·절 경계(~고, ~서, ~면, ~니까, ~며, ~지만, ~는데)를 우선해 2줄
   - 자막 사이 빈 시간 없음, 0초부터 시작
 check: 문장 수·순서 일치, 50자 초과 문장, 줄 수 규칙, 빈 시간, 총 길이를 출력하고 문제가 있으면 종료 코드 1
+upload: 영상에는 고지 카드가 끼어 있어 카드 뒤 자막이 카드 길이만큼 늦게 나온다. 그만큼 민 SRT를 저장하고,
+        --chapters 의 "자막번호=챕터 제목"을 영상 시간(M:SS, 내림)으로 바꿔 출력한다.
+        YouTube 챕터 규칙 검사: 첫 챕터 0:00, 3개 이상, 각 10초 이상, 시간 순서
 """
 import argparse
 import re
@@ -215,6 +220,106 @@ def check(txt, srt):
     return 0 if not problems else 1
 
 
+def parse_cards(path):
+    """[장면] 카드: 제목(같은 줄 '[장면]' 뒤), 문구(다음 라벨 전까지의 줄), 바로 앞 자막 문장 번호."""
+    cards, n, cur = [], 0, None
+    for raw in Path(path).read_text("utf-8-sig").splitlines():
+        line = raw.strip()
+        if not line:
+            continue
+        if line.startswith("-"):
+            cur = None
+            continue
+        if line.startswith("[장면]"):
+            cur = {"after": n, "title": line[len("[장면]"):].strip(), "lines": []}
+            cards.append(cur)
+            continue
+        if cur is not None:
+            cur["lines"].append(line)
+        else:
+            n += 1
+    for c in cards:      # 카드 길이 = 문구 글자 수 ÷ 7 + 1초 (최소 4, 최대 8) — guides/video_guide.md 2번
+        chars = len("".join(c["lines"]).replace(" ", ""))
+        c["seconds"] = round(min(8.0, max(4.0, chars / 7 + 1)), 3)
+        c["chars"] = chars
+    return cards
+
+
+def export_remotion(txt, srt, out):
+    import json
+    subs, cards = parse_srt(srt), parse_cards(txt)
+    if [s["text"] for s in subs] != parse_txt(txt):
+        raise SystemExit("[SRT] ❌ 대본과 자막이 다릅니다 → 먼저 check 로 확인")
+    total = subs[-1]["end"] + sum(c["seconds"] for c in cards) + 1.0
+    data = {
+        "subtitles": [{"n": i, "start": round(s["start"], 3), "end": round(s["end"], 3), "lines": s["lines"]}
+                      for i, s in enumerate(subs, 1)],
+        "cards": [{"afterSub": c["after"], "title": c["title"], "lines": c["lines"], "seconds": c["seconds"]} for c in cards],
+        "totalSeconds": round(total, 3),
+    }
+    body = ("// 자동 생성 — python tools/srt_tool.py remotion (직접 고치지 말고 대본·SRT를 고친 뒤 다시 생성)\n"
+            "// 타이밍은 SRT 기준(초). 고지 카드 뒤 자막은 카드 길이만큼 뒤로 밀림 (timeline.ts)\n"
+            f"export const SRC = {json.dumps(data, ensure_ascii=False, indent=1)} as const;\n")
+    Path(out).parent.mkdir(parents=True, exist_ok=True)
+    Path(out).write_text(body, "utf-8")
+    print(f"[SRT] 영상용 저장 {out}: 자막 {len(subs)}개, 고지 카드 {len(cards)}개 "
+          + ", ".join(f"(자막 {c['after']} 뒤, {c['chars']}자 → {c['seconds']}초)" for c in cards)
+          + f", 전체 길이 {_ts(total)} (마지막 자막 끝 + 카드 + 여유 1초)")
+
+
+def video_times(txt, srt):
+    """영상 시간축: 카드 뒤 자막을 카드 길이만큼 민 (start, end) 목록과 전체 길이 (export_remotion·timeline.ts와 같은 계산)"""
+    subs, cards = parse_srt(srt), parse_cards(txt)
+    if [s["text"] for s in subs] != parse_txt(txt):
+        raise SystemExit("[SRT] ❌ 대본과 자막이 다릅니다 → 먼저 check 로 확인")
+    shift, out = 0.0, []
+    for i, s in enumerate(subs, 1):
+        out.append({**s, "n": i, "vstart": s["start"] + shift, "vend": s["end"] + shift})
+        shift += sum(c["seconds"] for c in cards if c["after"] == i)
+    total = subs[-1]["end"] + sum(c["seconds"] for c in cards) + 1.0
+    return out, cards, total
+
+
+def _mmss(t):
+    t = int(t)  # 챕터 시간은 내림 (자막보다 늦게 시작하지 않게)
+    return f"{t // 3600}:{t % 3600 // 60:02d}:{t % 60:02d}" if t >= 3600 else f"{t // 60}:{t % 60:02d}"
+
+
+def export_upload(txt, srt, out, chapters=None):
+    subs, cards, total = video_times(txt, srt)
+    blocks = [f"{s['n']}\n{_ts(s['vstart'])} --> {_ts(s['vend'])}\n" + "\n".join(s["lines"]) for s in subs]
+    Path(out).write_text("\n\n".join(blocks) + "\n", "utf-8")
+    print(f"[SRT] 업로드용 저장 {out}: 자막 {len(subs)}개, 고지 카드 {len(cards)}개만큼 밀림 "
+          + ", ".join(f"(자막 {c['after']} 뒤 +{c['seconds']}초)" for c in cards) + f", 영상 길이 {_ts(total)}")
+    if not chapters:
+        return 0
+    by_n = {s["n"]: s for s in subs}
+    rows = []
+    for part in [p for p in chapters.split(";") if p.strip()]:
+        n, title = part.split("=", 1)
+        s = by_n.get(int(n))
+        if s is None:
+            raise SystemExit(f"[CHAPTER] ❌ 자막 {n} 없음")
+        rows.append((0.0 if int(n) == 1 else s["vstart"], int(n), title.strip()))
+    problems = []
+    if rows[0][0] != 0.0:
+        problems.append("첫 챕터는 자막 1(0:00)이어야 함")
+    if len(rows) < 3:
+        problems.append("챕터는 3개 이상이어야 함")
+    for (t0, n0, a), (t1, n1, b) in zip(rows, rows[1:] + [(total, None, "끝")]):
+        if int(t1) - int(t0) < 10:
+            problems.append(f"'{a}' 챕터가 10초 미만 ({int(t1) - int(t0)}초)")
+        if t1 < t0:
+            problems.append(f"'{b}' 시간이 앞 챕터보다 빠름")
+    print("[CHAPTER] 설명란에 붙여 넣기:")
+    for t, n, title in rows:
+        print(f"{_mmss(t)} {title}")
+    for p in problems:
+        print("  ❌", p)
+    print("[CHAPTER] ✅ YouTube 챕터 규칙 통과" if not problems else f"[CHAPTER] 문제 {len(problems)}개")
+    return 0 if not problems else 1
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description="대본 TXT → SRT 자막 생성·검사")
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -225,7 +330,21 @@ def main(argv=None):
     c = sub.add_parser("check", help="TXT와 SRT가 규칙대로 맞는지 검사")
     c.add_argument("txt")
     c.add_argument("srt")
+    r = sub.add_parser("remotion", help="영상용 자막·고지 카드 데이터(subtitles.ts) 내보내기")
+    r.add_argument("txt")
+    r.add_argument("srt")
+    r.add_argument("out")
+    u = sub.add_parser("upload", help="업로드용 SRT(고지 카드만큼 밈) 저장 + 챕터 시간 계산")
+    u.add_argument("txt")
+    u.add_argument("srt")
+    u.add_argument("out")
+    u.add_argument("--chapters", help='"자막번호=제목;자막번호=제목" (첫 항목은 1=...)')
     a = ap.parse_args(argv)
+    if a.cmd == "upload":
+        return export_upload(a.txt, a.srt, a.out, a.chapters)
+    if a.cmd == "remotion":
+        export_remotion(a.txt, a.srt, a.out)
+        return 0
     if a.cmd == "build":
         build(a.txt, a.out, a.reuse)
         return 0

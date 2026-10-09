@@ -19,3 +19,4 @@ video/.remotion/
 # 실행기(run_analyzer)가 받는 중인 임시 파일·설정 백업
 *.download
 *.toml.bak
+video/public/fonts/

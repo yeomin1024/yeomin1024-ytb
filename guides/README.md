@@ -11,6 +11,7 @@
 | `script_guide.md` | 대본(사연→진행자→고지→문제 분석→올바른 방법→마무리), SRT 자막 | `stock/guides/script_rules.md` |
 | `thumbnail_guide.md` | 영상별 썸네일 시안 3개의 프롬프트 파일, Remotion Still 렌더 | `stock/guides/thumbnail_rules.md` |
 | `video_guide.md` | Remotion 모션그래픽 영상 (장면 구성표 → 스토리보드 승인 → 렌더) | `stock/guides/script_rules.md` (재구성 문구 등) |
+| `upload_guide.md` | 업로드 시트: 설명란·챕터·태그·고정 댓글·업로드 설정 | `stock/guides/upload_rules.md` |
 | `archive/` | 지금은 쓰지 않는 옛 지시사항 | — |
 
 모든 지시사항이 근거로 쓰는 분석 결과는 `<주제폴더>/guides/data_insights.md`에 있다. 원본 데이터는 `<주제폴더>/result/`(분석기 `youtube_topic_analyzer.py` 결과)다.
@@ -27,8 +28,9 @@
 | 5 | 썸네일 프롬프트 3개 | `thumbnail_guide.md` | `source/<영상ID>/thumbnails/thumbnail_1~3.md` |
 | 6 | 내레이션 녹음(`narration.mp3`)·배경음악(`bgm.mp3`) 넣기 | `video_guide.md` 0번 | `source/<영상ID>/` |
 | 7 | 장면 구성표 → 스토리보드 → **사용자 승인** → 렌더 | `video_guide.md` | `out/<영상ID>/` |
-| 8 | 썸네일 3장 렌더 | `thumbnail_guide.md` 5번 | `out/<영상ID>/thumbnails/` |
-| 9 | 업로드 후 "테스트 및 비교" 결과 기록 | `title_guide.md` 11번, `thumbnail_guide.md` 8번 | `titles.md`, `thumbnails/*.md` 결과 칸 |
+| 8 | 썸네일 3장: 사용자가 프롬프트로 이미지 AI에서 만들기 | `thumbnail_guide.md` 5번 | (선택) `out/<영상ID>/thumbnails/` |
+| 9 | 업로드 시트 (설명란·챕터·태그·고정 댓글) + 업로드용 SRT | `upload_guide.md` | `source/<영상ID>/upload.md`, `<영상ID>.upload.srt` |
+| 10 | 업로드 후 "테스트 및 비교"·시청 지속 결과 기록 | `upload_guide.md` 7번, `title_guide.md` 11번, `thumbnail_guide.md` 8번 | `upload.md`, `titles.md`, `thumbnails/*.md` 결과 칸 |
 
 Claude Code에 시킬 때 예시:
 > `guides/README.md`와 `stock/guides/`를 읽고, `stock/source/multagi-2026-10/` 대본으로 `guides/video_guide.md` 순서대로 영상을 만들어 줘. 스토리보드에서 멈춰.

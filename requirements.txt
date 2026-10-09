@@ -1,0 +1,16 @@
+# youtube_topic_analyzer.py 의존성 — 스크립트가 자동 설치하지만, 직접 설치하려면:
+#   python -m pip install -r requirements.txt
+numpy
+pandas
+requests
+matplotlib
+scikit-learn
+scipy
+openpyxl
+yt-dlp[default]
+youtube-transcript-api>=1.2
+kiwipiepy
+imageio-ffmpeg
+deno
+# 선택: 자막 없는 영상 음성인식 (USE_WHISPER_FALLBACK=True)
+faster-whisper

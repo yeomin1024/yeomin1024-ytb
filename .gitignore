@@ -1,0 +1,13 @@
+# 비밀 정보 — 절대 커밋하지 않음
+.env
+cookies*.txt
+
+# 실행 산출물 (결과는 스크립트가 GitHub의 <PROJECT_FOLDER>/<RESULT_FOLDER>로 따로 푸시함)
+output/
+.yt_work/
+
+# 파이썬 환경
+.venv/
+venv/
+__pycache__/
+*.pyc

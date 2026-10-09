@@ -1,0 +1,223 @@
+[INIT] [2026-10-09 20:42:05] [INFO] 실행 시작 version=v2.1.0 run_id=20261009_204204 os=Windows-10-10.0.19045-SP0 out_dir=C:\Users\yunyc\Downloads\ytb-anal\yeomin1024-ytb\output\stock\result work_dir=C:\Users\yunyc\Downloads\ytb-anal\yeomin1024-ytb\.yt_work python=3.13.5 pandas=2.2.3 numpy=2.1.1 ffmpeg=C:\Users\yunyc\anaconda3\Lib\site-packages\imageio_ffmpeg\binaries\ffmpeg-win-x86_64-v7.1.exe git="C:\Program Files\Git\ucrt64\bin\git.EXE"
+[INIT] [2026-10-09 20:42:05] [INFO] 설정 TOPIC=주식 PROJECT_FOLDER=stock RESULT_FOLDER=result GITHUB_REPO=yeomin1024/yeomin1024-ytb GITHUB_BRANCH=main EXTRA_KEYWORDS=[] EXCLUDE_KEYWORDS=[] KEYWORD_MODE=curated KEYWORD_GROUPS={"1. 실제 투자 실패·손실 사연": ["주식 투자 실패 실제 사례", "주식으로 전재산 잃은 사연", "주식으로 퇴직금 잃은 사연", "주식 빚투 실패 사례", "주식 신용거래 실패 사연", "주식 물타기 실패 사례", "주식 몰빵 실패 사연", "주식 손절 못해서 손실 본 사연", "주식 장기투자 실패 사례", "주식 투자 후회 사연"], "2. 50·60대와 노후자금": ["50대 주식 투자 실패", "60대 주식 투자 실패", "은퇴 후 주식 투자 실패", "노후자금 주식으로 잃은 사연", "퇴직금 주식투자 실제 사례",  AUTOCOMPLETE_TOP_N=10 RELEVANCE_TERMS=[주식,주가,증시,증권,코스피,코스닥,나스닥,테마주,급등주,작전주,동전주,우량주,…(+19)] RELEVANCE_WEAK_TERMS=[종목,개미,상장,물타기,손절,익절,매수,매도,주주,레버리지,인버스,깡통,…(+4)] RELEVANCE_EXCLUDE=[주식회사,(주),㈜] MAX_CASES_PER_CATEGORY=2 SEARCH_CACHE_TTL_HOURS=168 BASELINE_CACHE_TTL_HOURS=72 REGION_CODE=KR LANGUAGE=ko ANALYSIS_DAYS=365 MAX_SEARCH_KEYWORDS=150 SEARCH_ORDERS=[relevance] RELEVANCE_USE_DATE_FILTER=False PAGES_PER_QUERY=1 QUOTA_BUDGET=9000 AUTOCOMPLETE_EXPAND=True AUTOCOMPLETE_DEPTH2_N=15 REQUIRE_TOPIC_IN_KEYWORD=True MATURE_AGE_DAYS=14 BASELINE_UPLOADS=50 BASELINE_MIN_N=5 MAX_BASELINE_CHANNELS=700 OUTLIER_MIN=3 MIN_SUCCESS_VIEWS=10000 SMALL_CHANNEL_MAX_SUBS=10000 BIG_CHANNEL_MIN_SUBS=100000 SERP_TOP_N=20 FRESH_DAYS=90 SHORTS_HTTP_CHECK=True FETCH_COMMENTS_TOP_N=30 SUCCESS_CASE_COUNT=8 SUCCESS_SMALL_CHANNEL_SHARE=0.5 SUCCESS_LONGFORM_SHARE=0.5 MAX_CASES_PER_CHANNEL=1 DOWNLOAD_VIDEOS=True VIDEO_MAX_HEIGHT=480 VIDEO_MAX_MB=49 ALLOW_VIDEO_UPLOAD_TO_PUBLIC_REPO=False USE_WHISPER_FALLBACK=True WHISPER_MODEL=small WHISPER_CPU_MAX_MINUTES=15 YTDLP_COOKIES_FILE="" COOKIES_FROM_BROWSER="" YTDLP_CLIENT_FALLBACK=True YTDLP_MAX_BOT_BLOCKS=2 PUSH_TO_GITHUB=True CLEAN_OLD_RESULTS=True OUTPUT_DIR=output OPEN_RESULT_FOLDER=True MAKE_RESULT_ZIP=False AUTO_INSTALL_PACKAGES=True UPDATE_YTDLP_DAILY=True CACHE_TTL_HOURS=24 RANDOM_SEED=42 LOG_LEVEL=INFO RUN_SELF_TEST=True
+[INIT] [2026-10-09 20:42:05] [INFO] 재현성 시드 고정 random_seed=42
+[INIT] [2026-10-09 20:42:05] [INFO] GitHub 토큰 쓰기 권한 사전 확인 ok=False status=403 token_type=fine-grained reason="토큰에 이 저장소 쓰기(push) 권한이 없음" expires=None
+[INIT] [2026-10-09 20:42:05] [WARNING] ⚠️ 지금 토큰으로는 GitHub에 올릴 수 없습니다 — 분석은 계속 진행합니다. 분석이 끝나기 전에 아래대로 고치고 .env 를 저장하면 푸시 직전에 다시 읽습니다 fix="GitHub → Settings → Developer settings → Personal access tokens → Fine-grained tokens → 이 토큰 → Edit → ① Repository access: 'Only select repositories'에 yeomin1024/yeomin1024-ytb 추가(또는 All repositories)…"
+[SELFTEST] [2026-10-09 20:42:05] [INFO] ▶ 시작
+[SELFTEST] [2026-10-09 20:42:05] [INFO] ✅ ISO8601 길이 파싱 parsed=[3723.0,45.0,86400.0,0.0,nan,0.0]
+[SELFTEST] [2026-10-09 20:42:05] [INFO] ✅ 자동완성 파싱 (JSON/JSONP)
+[SELFTEST] [2026-10-09 20:42:05] [INFO] ✅ VTT 자막 파싱 + 롤링 중복 제거 texts=[안녕하세요,오늘은 주식,이야기입니다]
+[SELFTEST] [2026-10-09 20:42:05] [INFO] ✅ 다중비교 보정(BH-FDR) q=[0.03,0.04,0.04,nan]
+[SELFTEST] [2026-10-09 20:42:05] [INFO] ✅ 키워드 정규화/폴더 검증
+[SELFTEST] [2026-10-09 20:42:07] [INFO] ✅ 아웃라이어: 숫자 제목(심어둔 3배 효과) 탐지 lift=3.017
+[SELFTEST] [2026-10-09 20:42:07] [INFO] ✅ 아웃라이어: 기준선 leave-one-out ok_ratio=1
+[SELFTEST] [2026-10-09 20:42:07] [INFO] ✅ 포맷 분류 (≤60초=쇼츠)
+[SELFTEST] [2026-10-09 20:42:07] [INFO] ✅ 키워드 기회점수 0~100 scores=[82.5,60.0,42.5]
+[SELFTEST] [2026-10-09 20:42:07] [INFO] ✅ 성공사례: 채널당 1개 + 개수 n=6
+[SELFTEST] [2026-10-09 20:42:07] [INFO] ✅ 쿠키 점검(로그인 쿠키·만료 탐지) info={"cookie_lines": 3, "youtube_google_cookies": 3, "auth_cookies": ["LOGIN_INFO", "__Secure-3PSID"], "expired_auth": ["LOGIN_INFO"]}
+[DOWNLOAD] [2026-10-09 20:42:07] [INFO] yt-dlp 클라이언트 선택 video_id=t1 client=tv after_bot_check=[default,tv_simply]
+[DOWNLOAD] [2026-10-09 20:42:07] [WARNING] YouTube 봇 확인 차단 (모든 클라이언트 실패) video_id=t2 clients=[tv,default,tv_simply,web_embedded,mweb] cookies=False proxy=False streak=1
+[DOWNLOAD] [2026-10-09 20:42:07] [WARNING] YouTube 봇 확인 차단 (모든 클라이언트 실패) video_id=t2 clients=[tv,default,tv_simply,web_embedded,mweb] cookies=False proxy=False streak=1
+[DOWNLOAD] [2026-10-09 20:42:07] [WARNING] YouTube 봇 확인 차단 (모든 클라이언트 실패) video_id=t3 clients=[tv,default,tv_simply,web_embedded,mweb] cookies=False proxy=False streak=2
+[DOWNLOAD] [2026-10-09 20:42:07] [ERROR] ❌ 봇 확인 차단이 연속 발생 → 이번 실행의 yt-dlp 다운로드 중단 fix="(1) VPN을 끄고 잠시 후 다시 실행 (2) 쿠키 사용: 시크릿 창에서 YouTube 로그인 → youtube.com/robots.txt 이동 → 'Get cookies.txt LOCALLY' 확장으로 cookies.txt 저장 → 시크릿 창 닫기 → 이 스크립트 폴더에 cookies.txt 두기 (또는 설정 COOKIES_FROM_BROWSER='fi…"
+[SELFTEST] [2026-10-09 20:42:07] [INFO] ✅ 봇 확인: 클라이언트 재시도 + 연속 차단 시 중단 remembered=[tv] bot_total=2
+[DOWNLOAD] [2026-10-09 20:42:07] [INFO] 일시 오류 → 재시도 video_id=t5 client=default wait_sec=0.01 error="ERROR: [youtube] x: Failed to extract any player response"
+[DOWNLOAD] [2026-10-09 20:42:07] [INFO] yt-dlp 클라이언트 선택 video_id=t5 client=default after_bot_check=None
+[SELFTEST] [2026-10-09 20:42:07] [INFO] ✅ 일시 오류 자동 재시도 calls=2
+[SELFTEST] [2026-10-09 20:42:07] [INFO] ✅ 주제 관련성 필터 result=[(False, 'off_topic'),(True, 'title'),(True, 'tags'),(False, 'off_topic'),(True, 'weak+context'),(True, 'description')]
+[SELFTEST] [2026-10-09 20:42:07] [INFO] ✅ 키워드 수요 점수(자동완성 깊이) d1={"ac_score": 0.413, "ac_depth": 0.75, "ac_matched_prefix": "주식 빚투 실패", "ac_suggestions": 1} d2={"ac_score": 0.0, "ac_depth": 0.0, "ac_matched_prefix": "", "ac_suggestions": 0}
+[SELFTEST] [2026-10-09 20:42:07] [INFO] ✅ 카테고리 순환 우선순위 order=[a2,b1,a1,a3]
+[SELFTEST] [2026-10-09 20:42:07] [INFO] ✅ 캐시 인식 쿼터 계획 (캐시 0유닛·초과분 이월) selected=[k1,k2,k4] deferred=[k3,k5]
+[SELFTEST] [2026-10-09 20:42:07] [INFO] ✅ GitHub 토큰 쓰기 권한 확인 r403="토큰에 이 저장소 쓰기(push) 권한이 없음" scope="classic 토큰에 repo/public_repo 범위가 없음 (현재: ['gist', 'read:user'])"
+[SELFTEST] [2026-10-09 20:42:07] [INFO] 자가진단 완료 passed=18/18 elapsed_sec=1.59
+[SELFTEST] [2026-10-09 20:42:07] [INFO] ■ 완료 elapsed_sec=1.6
+[KEYWORD] [2026-10-09 20:42:07] [INFO] ▶ 시작
+[KEYWORD] [2026-10-09 20:42:11] [INFO] 자동완성 수요 조회 keywords=90 queries=259 failed=0
+[KEYWORD] [2026-10-09 20:42:11] [INFO] 키워드 수요 점수(자동완성) keywords=90 elapsed_sec=4.4 no_demand=26 top5=[주식 손실 고백:0.667,미국 주식 투자 실패 사연:0.6,주식 망한 썰:0.55,주식 물타기 실패 사례:0.5,주식 손실 숨긴 남편:0.5]
+[KEYWORD] [2026-10-09 20:42:11] [INFO] 카테고리별 키워드 mode=curated 1. 실제 투자 실패·손실 사연="10개(수요평균 0.38)" 2. 50·60대와 노후자금="10개(수요평균 0.25)" 3. 가족 갈등="10개(수요평균 0.25)" 4. 사기·추천방 피해="10개(수요평균 0.31)" 5. 특정 투자 방식 실패="10개(수요평균 0.24)" 6. 큰 하락과 공포="10개(수요평균 0.25)" 7. 교훈과 예방="10개(수요평균 0.28)" 8. 실제 사건·판결·뉴스="10개(수요평균 0.24)" 9. 사연·썰·다큐 포맷="10개(수요평균 0.40)"
+[KEYWORD] [2026-10-09 20:42:11] [INFO] ■ 완료 elapsed_sec=4.46
+[COLLECT] [2026-10-09 20:42:11] [INFO] ▶ 시작
+[COLLECT] [2026-10-09 20:42:11] [INFO] 쿼터 계획 keywords=90 cached_free=0 new_search_cost=7400 reserve=1537 budget=9000 already_used=0 selected=74 deferred=16
+[COLLECT] [2026-10-09 20:42:11] [WARNING] 오늘 쿼터 예산을 넘는 키워드는 다음 실행으로 이월 (내일 다시 실행하면 이미 받은 검색은 쿼터 0으로 재사용) deferred=16 examples=[주식으로 이혼한 실제 사례(3. 가족 갈등),미등록 투자자문 피해 사례(4. 사기·추천방 피해),관리종목 투자 실패(5. 특정 투자 방식 실패),상장폐지 전재산 손실(6. 큰 하락과 공포),퇴직금 투자하면 안 되는 이유(7. 교훈과 예방)] hint="같은 설정으로 내일 다시 실행하세요 — 검색 결과는 SEARCH_CACHE_TTL_HOURS 동안 보관됩니다"
+[COLLECT] [2026-10-09 20:42:12] [INFO] 검색 1/74 keyword="주식 물타기 실패 사례" results={"relevance": 47} quota_used=100
+[COLLECT] [2026-10-09 20:42:12] [INFO] 검색 2/74 keyword="은퇴 후 주식 투자 실패" results={"relevance": 48} quota_used=200
+[COLLECT] [2026-10-09 20:42:13] [INFO] 검색 3/74 keyword="주식 손실 숨긴 남편" results={"relevance": 50} quota_used=300
+[COLLECT] [2026-10-09 20:42:13] [INFO] 검색 4/74 keyword="주식 자동매매 사기 사례" results={"relevance": 50} quota_used=400
+[COLLECT] [2026-10-09 20:42:14] [INFO] 검색 5/74 keyword="미국 주식 투자 실패 사연" results={"relevance": 46} quota_used=500
+[COLLECT] [2026-10-09 20:42:14] [INFO] 검색 6/74 keyword="주식 폭락 전재산 손실" results={"relevance": 50} quota_used=600
+[COLLECT] [2026-10-09 20:42:15] [INFO] 검색 7/74 keyword="주식 손실 실제 경험담" results={"relevance": 47} quota_used=700
+[COLLECT] [2026-10-09 20:42:15] [INFO] 검색 8/74 keyword="주식 리딩방 법원 판결" results={"relevance": 50} quota_used=800
+[COLLECT] [2026-10-09 20:42:15] [INFO] 검색 9/74 keyword="주식 손실 고백" results={"relevance": 47} quota_used=900
+[COLLECT] [2026-10-09 20:42:16] [INFO] 검색 10/74 keyword="주식 장기투자 실패 사례" results={"relevance": 46} quota_used=1000
+[COLLECT] [2026-10-09 20:42:16] [INFO] 검색 11/74 keyword="50대 주식 투자 실패" results={"relevance": 48} quota_used=1100
+[COLLECT] [2026-10-09 20:42:17] [INFO] 검색 12/74 keyword="주식 손실 숨긴 아내" results={"relevance": 50} quota_used=1200
+[COLLECT] [2026-10-09 20:42:17] [INFO] 검색 13/74 keyword="무료 주식 리딩방 사기" results={"relevance": 50} quota_used=1300
+[COLLECT] [2026-10-09 20:42:17] [INFO] 검색 14/74 keyword="레버리지 투자 실패 사연" results={"relevance": 43} quota_used=1400
+[COLLECT] [2026-10-09 20:42:18] [INFO] 검색 15/74 keyword="주식 중독 실제 사례" results={"relevance": 45} quota_used=1500
+[COLLECT] [2026-10-09 20:42:18] [INFO] 검색 16/74 keyword="은퇴 후 주식 투자 주의사항" results={"relevance": 48} quota_used=1600
+[COLLECT] [2026-10-09 20:42:19] [INFO] 검색 17/74 keyword="주식 손실 이혼 판결" results={"relevance": 46} quota_used=1700
+[COLLECT] [2026-10-09 20:42:19] [INFO] 검색 18/74 keyword="주식 망한 썰" results={"relevance": 48} quota_used=1800
+[COLLECT] [2026-10-09 20:42:20] [INFO] 검색 19/74 keyword="주식 투자 후회 사연" results={"relevance": 46} quota_used=1900
+[COLLECT] [2026-10-09 20:42:20] [INFO] 검색 20/74 keyword="60대 주식 투자 실패" results={"relevance": 45} quota_used=2000
+[COLLECT] [2026-10-09 20:42:21] [INFO] 검색 21/74 keyword="부부 주식 투자 갈등" results={"relevance": 48} quota_used=2100
+[COLLECT] [2026-10-09 20:42:21] [INFO] 검색 22/74 keyword="주식 리딩방 피해 사례" results={"relevance": 50} quota_used=2200
+[COLLECT] [2026-10-09 20:42:21] [WARNING] 검색 실패 (건너뜀) keyword="인버스 투자 실패 사례" order=relevance error="search HTTP 429 reason=RATE_LIMIT_EXCEEDED message=Quota exceeded for quota metric 'Search Queries' and limit 'Search Queries per day' of service 'youtube.googleapis.com' for consumer 'project_number:"
+[COLLECT] [2026-10-09 20:42:21] [INFO] 검색 23/74 keyword="인버스 투자 실패 사례" results={} quota_used=2300
+[COLLECT] [2026-10-09 20:42:21] [WARNING] 검색 실패 (건너뜀) keyword="주식 깡통 계좌 사연" order=relevance error="search HTTP 429 reason=RATE_LIMIT_EXCEEDED message=Quota exceeded for quota metric 'Search Queries' and limit 'Search Queries per day' of service 'youtube.googleapis.com' for consumer 'project_number:"
+[COLLECT] [2026-10-09 20:42:21] [INFO] 검색 24/74 keyword="주식 깡통 계좌 사연" results={} quota_used=2400
+[COLLECT] [2026-10-09 20:42:21] [WARNING] 검색 실패 (건너뜀) keyword="50대 주식 투자 주의사항" order=relevance error="search HTTP 429 reason=RATE_LIMIT_EXCEEDED message=Quota exceeded for quota metric 'Search Queries' and limit 'Search Queries per day' of service 'youtube.googleapis.com' for consumer 'project_number:"
+[COLLECT] [2026-10-09 20:42:21] [INFO] 검색 25/74 keyword="50대 주식 투자 주의사항" results={} quota_used=2500
+[COLLECT] [2026-10-09 20:42:21] [WARNING] 검색 실패 (건너뜀) keyword="퇴직금 투자 실패 뉴스" order=relevance error="search HTTP 429 reason=RATE_LIMIT_EXCEEDED message=Quota exceeded for quota metric 'Search Queries' and limit 'Search Queries per day' of service 'youtube.googleapis.com' for consumer 'project_number:"
+[COLLECT] [2026-10-09 20:42:21] [INFO] 검색 26/74 keyword="퇴직금 투자 실패 뉴스" results={} quota_used=2600
+[COLLECT] [2026-10-09 20:42:22] [INFO] 검색 27/74 keyword="주식 투자 실패 다큐멘터리" results={"relevance": 50} quota_used=2700
+[COLLECT] [2026-10-09 20:42:22] [INFO] 검색 28/74 keyword="주식으로 전재산 잃은 사연" results={"relevance": 50} quota_used=2800
+[COLLECT] [2026-10-09 20:42:23] [INFO] 검색 29/74 keyword="노후 주식 투자 후회" results={"relevance": 44} quota_used=2900
+[COLLECT] [2026-10-09 20:42:23] [WARNING] 검색 실패 (건너뜀) keyword="가족 돈 주식으로 잃은 사례" order=relevance error="search HTTP 429 reason=RATE_LIMIT_EXCEEDED message=Quota exceeded for quota metric 'Search Queries' and limit 'Search Queries per day' of service 'youtube.googleapis.com' for consumer 'project_number:"
+[COLLECT] [2026-10-09 20:42:23] [INFO] 검색 30/74 keyword="가족 돈 주식으로 잃은 사례" results={} quota_used=3000
+[COLLECT] [2026-10-09 20:42:23] [INFO] 검색 31/74 keyword="주식 단톡방 사기 사례" results={"relevance": 41} quota_used=3100
+[COLLECT] [2026-10-09 20:42:24] [INFO] 검색 32/74 keyword="상장폐지 주식 피해 사례" results={"relevance": 50} quota_used=3200
+[COLLECT] [2026-10-09 20:42:24] [INFO] 검색 33/74 keyword="주가 폭락 실제 투자자 사연" results={"relevance": 45} quota_used=3300
+[COLLECT] [2026-10-09 20:42:24] [INFO] 검색 34/74 keyword="60대 주식 투자 주의사항" results={"relevance": 46} quota_used=3400
+[COLLECT] [2026-10-09 20:42:25] [INFO] 검색 35/74 keyword="주식 투자 사기 실제 사건" results={"relevance": 50} quota_used=3500
+[COLLECT] [2026-10-09 20:42:25] [INFO] 검색 36/74 keyword="주식으로 망한 사람 인터뷰" results={"relevance": 48} quota_used=3600
+[COLLECT] [2026-10-09 20:42:25] [WARNING] 검색 실패 (건너뜀) keyword="주식 빚투 실패 사례" order=relevance error="search HTTP 429 reason=RATE_LIMIT_EXCEEDED message=Quota exceeded for quota metric 'Search Queries' and limit 'Search Queries per day' of service 'youtube.googleapis.com' for consumer 'project_number:"
+[COLLECT] [2026-10-09 20:42:25] [INFO] 검색 37/74 keyword="주식 빚투 실패 사례" results={} quota_used=3700
+[COLLECT] [2026-10-09 20:42:26] [WARNING] 검색 실패 (건너뜀) keyword="퇴직금 주식투자 실제 사례" order=relevance error="search HTTP 429 reason=RATE_LIMIT_EXCEEDED message=Quota exceeded for quota metric 'Search Queries' and limit 'Search Queries per day' of service 'youtube.googleapis.com' for consumer 'project_number:"
+[COLLECT] [2026-10-09 20:42:26] [INFO] 검색 38/74 keyword="퇴직금 주식투자 실제 사례" results={} quota_used=3800
+[COLLECT] [2026-10-09 20:42:26] [WARNING] 검색 실패 (건너뜀) keyword="주식 투자 가족 파탄 사례" order=relevance error="search HTTP 429 reason=RATE_LIMIT_EXCEEDED message=Quota exceeded for quota metric 'Search Queries' and limit 'Search Queries per day' of service 'youtube.googleapis.com' for consumer 'project_number:"
+[COLLECT] [2026-10-09 20:42:26] [INFO] 검색 39/74 keyword="주식 투자 가족 파탄 사례" results={} quota_used=3900
+[COLLECT] [2026-10-09 20:42:26] [INFO] 검색 40/74 keyword="주식 전문가 사칭 피해 사례" results={"relevance": 50} quota_used=4000
+[COLLECT] [2026-10-09 20:42:26] [WARNING] 검색 실패 (건너뜀) keyword="급등주 투자 실패 사연" order=relevance error="search HTTP 429 reason=RATE_LIMIT_EXCEEDED message=Quota exceeded for quota metric 'Search Queries' and limit 'Search Queries per day' of service 'youtube.googleapis.com' for consumer 'project_number:"
+[COLLECT] [2026-10-09 20:42:26] [INFO] 검색 41/74 keyword="급등주 투자 실패 사연" results={} quota_used=4100
+[COLLECT] [2026-10-09 20:42:26] [INFO] 검색 42/74 keyword="주식 손실 회복하려다 더 잃은 사연" results={"relevance": 25} quota_used=4200
+[COLLECT] [2026-10-09 20:42:27] [WARNING] 검색 실패 (건너뜀) keyword="주식 리딩방 사기 예방법" order=relevance error="search HTTP 429 reason=RATE_LIMIT_EXCEEDED message=Quota exceeded for quota metric 'Search Queries' and limit 'Search Queries per day' of service 'youtube.googleapis.com' for consumer 'project_number:"
+[COLLECT] [2026-10-09 20:42:27] [INFO] 검색 43/74 keyword="주식 리딩방 사기 예방법" results={} quota_used=4300
+[COLLECT] [2026-10-09 20:42:27] [WARNING] 검색 실패 (건너뜀) keyword="주식 투자금 반환 소송" order=relevance error="search HTTP 429 reason=RATE_LIMIT_EXCEEDED message=Quota exceeded for quota metric 'Search Queries' and limit 'Search Queries per day' of service 'youtube.googleapis.com' for consumer 'project_number:"
+[COLLECT] [2026-10-09 20:42:27] [INFO] 검색 44/74 keyword="주식 투자금 반환 소송" results={} quota_used=4400
+[COLLECT] [2026-10-09 20:42:27] [INFO] 검색 45/74 keyword="주식 사연 읽어주는" results={"relevance": 43} quota_used=4500
+[COLLECT] [2026-10-09 20:42:27] [WARNING] 검색 실패 (건너뜀) keyword="주식 신용거래 실패 사연" order=relevance error="search HTTP 429 reason=RATE_LIMIT_EXCEEDED message=Quota exceeded for quota metric 'Search Queries' and limit 'Search Queries per day' of service 'youtube.googleapis.com' for consumer 'project_number:"
+[COLLECT] [2026-10-09 20:42:27] [INFO] 검색 46/74 keyword="주식 신용거래 실패 사연" results={} quota_used=4600
+[COLLECT] [2026-10-09 20:42:27] [WARNING] 검색 실패 (건너뜀) keyword="연금 주식투자 실패 사례" order=relevance error="search HTTP 429 reason=RATE_LIMIT_EXCEEDED message=Quota exceeded for quota metric 'Search Queries' and limit 'Search Queries per day' of service 'youtube.googleapis.com' for consumer 'project_number:"
+[COLLECT] [2026-10-09 20:42:27] [INFO] 검색 47/74 keyword="연금 주식투자 실패 사례" results={} quota_used=4700
+[COLLECT] [2026-10-09 20:42:27] [WARNING] 검색 실패 (건너뜀) keyword="부모 재산 주식으로 잃은 사연" order=relevance error="search HTTP 429 reason=RATE_LIMIT_EXCEEDED message=Quota exceeded for quota metric 'Search Queries' and limit 'Search Queries per day' of service 'youtube.googleapis.com' for consumer 'project_number:"
+[COLLECT] [2026-10-09 20:42:27] [INFO] 검색 48/74 keyword="부모 재산 주식으로 잃은 사연" results={} quota_used=4800
+[COLLECT] [2026-10-09 20:42:27] [WARNING] 검색 실패 (건너뜀) keyword="주식 유튜버 추천 손실 사례" order=relevance error="search HTTP 429 reason=RATE_LIMIT_EXCEEDED message=Quota exceeded for quota metric 'Search Queries' and limit 'Search Queries per day' of service 'youtube.googleapis.com' for consumer 'project_number:"
+[COLLECT] [2026-10-09 20:42:27] [INFO] 검색 49/74 keyword="주식 유튜버 추천 손실 사례" results={} quota_used=4900
+[COLLECT] [2026-10-09 20:42:28] [WARNING] 검색 실패 (건너뜀) keyword="동전주 투자 실패 사례" order=relevance error="search HTTP 429 reason=RATE_LIMIT_EXCEEDED message=Quota exceeded for quota metric 'Search Queries' and limit 'Search Queries per day' of service 'youtube.googleapis.com' for consumer 'project_number:"
+[COLLECT] [2026-10-09 20:42:28] [INFO] 검색 50/74 keyword="동전주 투자 실패 사례" results={} quota_used=5000
+[COLLECT] [2026-10-09 20:42:28] [WARNING] 검색 실패 (건너뜀) keyword="대출받아 주식 투자 실패" order=relevance error="search HTTP 429 reason=RATE_LIMIT_EXCEEDED message=Quota exceeded for quota metric 'Search Queries' and limit 'Search Queries per day' of service 'youtube.googleapis.com' for consumer 'project_number:"
+[COLLECT] [2026-10-09 20:42:28] [INFO] 검색 51/74 keyword="대출받아 주식 투자 실패" results={} quota_used=5100
+[COLLECT] [2026-10-09 20:42:28] [WARNING] 검색 실패 (건너뜀) keyword="노후자금 투자 실수" order=relevance error="search HTTP 429 reason=RATE_LIMIT_EXCEEDED message=Quota exceeded for quota metric 'Search Queries' and limit 'Search Queries per day' of service 'youtube.googleapis.com' for consumer 'project_number:"
+[COLLECT] [2026-10-09 20:42:28] [INFO] 검색 52/74 keyword="노후자금 투자 실수" results={} quota_used=5200
+[COLLECT] [2026-10-09 20:42:28] [WARNING] 검색 실패 (건너뜀) keyword="투자 권유 손해배상 판결" order=relevance error="search HTTP 429 reason=RATE_LIMIT_EXCEEDED message=Quota exceeded for quota metric 'Search Queries' and limit 'Search Queries per day' of service 'youtube.googleapis.com' for consumer 'project_number:"
+[COLLECT] [2026-10-09 20:42:28] [INFO] 검색 53/74 keyword="투자 권유 손해배상 판결" results={} quota_used=5300
+[COLLECT] [2026-10-09 20:42:28] [INFO] 검색 54/74 keyword="주식 실패 사연 라디오" results={"relevance": 50} quota_used=5400
+[COLLECT] [2026-10-09 20:42:28] [WARNING] 검색 실패 (건너뜀) keyword="주식 투자 실패 실제 사례" order=relevance error="search HTTP 429 reason=RATE_LIMIT_EXCEEDED message=Quota exceeded for quota metric 'Search Queries' and limit 'Search Queries per day' of service 'youtube.googleapis.com' for consumer 'project_number:"
+[COLLECT] [2026-10-09 20:42:28] [INFO] 검색 55/74 keyword="주식 투자 실패 실제 사례" results={} quota_used=5500
+[COLLECT] [2026-10-09 20:42:28] [WARNING] 검색 실패 (건너뜀) keyword="시니어 주식 투자 실패" order=relevance error="search HTTP 429 reason=RATE_LIMIT_EXCEEDED message=Quota exceeded for quota metric 'Search Queries' and limit 'Search Queries per day' of service 'youtube.googleapis.com' for consumer 'project_number:"
+[COLLECT] [2026-10-09 20:42:28] [INFO] 검색 56/74 keyword="시니어 주식 투자 실패" results={} quota_used=5600
+[COLLECT] [2026-10-09 20:42:29] [INFO] 검색 57/74 keyword="남편 몰래 주식 투자 사연" results={"relevance": 50} quota_used=5700
+[COLLECT] [2026-10-09 20:42:29] [WARNING] 검색 실패 (건너뜀) keyword="노인 주식 리딩방 피해" order=relevance error="search HTTP 429 reason=RATE_LIMIT_EXCEEDED message=Quota exceeded for quota metric 'Search Queries' and limit 'Search Queries per day' of service 'youtube.googleapis.com' for consumer 'project_number:"
+[COLLECT] [2026-10-09 20:42:29] [INFO] 검색 58/74 keyword="노인 주식 리딩방 피해" results={} quota_used=5800
+[COLLECT] [2026-10-09 20:42:29] [INFO] 검색 59/74 keyword="테마주 투자 실패 사례" results={"relevance": 48} quota_used=5900
+[COLLECT] [2026-10-09 20:42:29] [WARNING] 검색 실패 (건너뜀) keyword="반대매매 실제 사례" order=relevance error="search HTTP 429 reason=RATE_LIMIT_EXCEEDED message=Quota exceeded for quota metric 'Search Queries' and limit 'Search Queries per day' of service 'youtube.googleapis.com' for consumer 'project_number:"
+[COLLECT] [2026-10-09 20:42:29] [INFO] 검색 60/74 keyword="반대매매 실제 사례" results={} quota_used=6000
+[COLLECT] [2026-10-09 20:42:29] [WARNING] 검색 실패 (건너뜀) keyword="주식 초보가 돈 잃는 이유" order=relevance error="search HTTP 429 reason=RATE_LIMIT_EXCEEDED message=Quota exceeded for quota metric 'Search Queries' and limit 'Search Queries per day' of service 'youtube.googleapis.com' for consumer 'project_number:"
+[COLLECT] [2026-10-09 20:42:29] [INFO] 검색 61/74 keyword="주식 초보가 돈 잃는 이유" results={} quota_used=6100
+[COLLECT] [2026-10-09 20:42:29] [WARNING] 검색 실패 (건너뜀) keyword="배우자 몰래 주식 판결" order=relevance error="search HTTP 429 reason=RATE_LIMIT_EXCEEDED message=Quota exceeded for quota metric 'Search Queries' and limit 'Search Queries per day' of service 'youtube.googleapis.com' for consumer 'project_number:"
+[COLLECT] [2026-10-09 20:42:29] [INFO] 검색 62/74 keyword="배우자 몰래 주식 판결" results={} quota_used=6200
+[COLLECT] [2026-10-09 20:42:30] [WARNING] 검색 실패 (건너뜀) keyword="주식 폐인 일상" order=relevance error="search HTTP 429 reason=RATE_LIMIT_EXCEEDED message=Quota exceeded for quota metric 'Search Queries' and limit 'Search Queries per day' of service 'youtube.googleapis.com' for consumer 'project_number:"
+[COLLECT] [2026-10-09 20:42:30] [INFO] 검색 63/74 keyword="주식 폐인 일상" results={} quota_used=6300
+[COLLECT] [2026-10-09 20:42:30] [WARNING] 검색 실패 (건너뜀) keyword="주식 몰빵 실패 사연" order=relevance error="search HTTP 429 reason=RATE_LIMIT_EXCEEDED message=Quota exceeded for quota metric 'Search Queries' and limit 'Search Queries per day' of service 'youtube.googleapis.com' for consumer 'project_number:"
+[COLLECT] [2026-10-09 20:42:30] [INFO] 검색 64/74 keyword="주식 몰빵 실패 사연" results={} quota_used=6400
+[COLLECT] [2026-10-09 20:42:30] [WARNING] 검색 실패 (건너뜀) keyword="노후자금 주식으로 잃은 사연" order=relevance error="search HTTP 429 reason=RATE_LIMIT_EXCEEDED message=Quota exceeded for quota metric 'Search Queries' and limit 'Search Queries per day' of service 'youtube.googleapis.com' for consumer 'project_number:"
+[COLLECT] [2026-10-09 20:42:30] [INFO] 검색 65/74 keyword="노후자금 주식으로 잃은 사연" results={} quota_used=6500
+[COLLECT] [2026-10-09 20:42:30] [WARNING] 검색 실패 (건너뜀) keyword="아내 몰래 주식 투자 실패" order=relevance error="search HTTP 429 reason=RATE_LIMIT_EXCEEDED message=Quota exceeded for quota metric 'Search Queries' and limit 'Search Queries per day' of service 'youtube.googleapis.com' for consumer 'project_number:"
+[COLLECT] [2026-10-09 20:42:30] [INFO] 검색 66/74 keyword="아내 몰래 주식 투자 실패" results={} quota_used=6600
+[COLLECT] [2026-10-09 20:42:30] [INFO] 검색 67/74 keyword="고수익 주식 투자 사기" results={"relevance": 50} quota_used=6700
+[COLLECT] [2026-10-09 20:42:31] [INFO] 검색 68/74 keyword="작전주 피해 실제 사례" results={"relevance": 50} quota_used=6800
+[COLLECT] [2026-10-09 20:42:31] [WARNING] 검색 실패 (건너뜀) keyword="하한가 투자 피해 사례" order=relevance error="search HTTP 429 reason=RATE_LIMIT_EXCEEDED message=Quota exceeded for quota metric 'Search Queries' and limit 'Search Queries per day' of service 'youtube.googleapis.com' for consumer 'project_number:"
+[COLLECT] [2026-10-09 20:42:31] [INFO] 검색 69/74 keyword="하한가 투자 피해 사례" results={} quota_used=6900
+[COLLECT] [2026-10-09 20:42:31] [INFO] 검색 70/74 keyword="주식 투자자가 가장 후회하는 것" results={"relevance": 46} quota_used=7000
+[COLLECT] [2026-10-09 20:42:31] [WARNING] 검색 실패 (건너뜀) keyword="미공개정보 주식 사건" order=relevance error="search HTTP 429 reason=RATE_LIMIT_EXCEEDED message=Quota exceeded for quota metric 'Search Queries' and limit 'Search Queries per day' of service 'youtube.googleapis.com' for consumer 'project_number:"
+[COLLECT] [2026-10-09 20:42:31] [INFO] 검색 71/74 keyword="미공개정보 주식 사건" results={} quota_used=7100
+[COLLECT] [2026-10-09 20:42:31] [WARNING] 검색 실패 (건너뜀) keyword="주식 실패 후 재기 사연" order=relevance error="search HTTP 429 reason=RATE_LIMIT_EXCEEDED message=Quota exceeded for quota metric 'Search Queries' and limit 'Search Queries per day' of service 'youtube.googleapis.com' for consumer 'project_number:"
+[COLLECT] [2026-10-09 20:42:31] [INFO] 검색 72/74 keyword="주식 실패 후 재기 사연" results={} quota_used=7200
+[COLLECT] [2026-10-09 20:42:32] [WARNING] 검색 실패 (건너뜀) keyword="주식 손절 못해서 손실 본 사연" order=relevance error="search HTTP 429 reason=RATE_LIMIT_EXCEEDED message=Quota exceeded for quota metric 'Search Queries' and limit 'Search Queries per day' of service 'youtube.googleapis.com' for consumer 'project_number:"
+[COLLECT] [2026-10-09 20:42:32] [INFO] 검색 73/74 keyword="주식 손절 못해서 손실 본 사연" results={} quota_used=7300
+[COLLECT] [2026-10-09 20:42:32] [WARNING] 검색 실패 (건너뜀) keyword="노후 파산 주식 투자" order=relevance error="search HTTP 429 reason=RATE_LIMIT_EXCEEDED message=Quota exceeded for quota metric 'Search Queries' and limit 'Search Queries per day' of service 'youtube.googleapis.com' for consumer 'project_number:"
+[COLLECT] [2026-10-09 20:42:32] [INFO] 검색 74/74 keyword="노후 파산 주식 투자" results={} quota_used=7400
+[COLLECT] [2026-10-09 20:42:32] [INFO] 검색 결과 요약 rows=1884 unique_videos=1151 unique_channels=622 dup_ratio=0.3891 window_start=2025-10-09T00:00:00Z
+[COLLECT] [2026-10-09 20:42:33] [INFO] 영상 상세 수집 requested=1151 received=1151 missing=0 note="missing=삭제/비공개 영상" quota_used=7424
+[COLLECT] [2026-10-09 20:42:40] [INFO] 채널 상세 수집 channels=622 hidden_subs=0 quota_used=7437
+[COLLECT] [2026-10-09 20:43:38] [INFO] 채널 기준선 수집 channels=622 baseline_videos=29026 fetched_new=28775 quota_used=8504
+[COLLECT] [2026-10-09 20:43:38] [INFO] API 사용 요약 quota_used=8504 quota_budget=9000 calls={"search": 74, "videos": 600, "channels": 13, "playlistItems": 491} cache_hits={"playlistItems": 131} errors={"search:429:RATE_LIMIT_EXCEEDED": 34}
+[COLLECT] [2026-10-09 20:43:38] [INFO] ■ 완료 elapsed_sec=87
+[FEATURE] [2026-10-09 20:43:38] [INFO] ▶ 시작
+[VALIDATE] [2026-10-09 20:43:38] [INFO] 데이터 검증 결과 rows_in=1151 rows_out=1151 valid_perf=1151 duplicated_video_id=0 views_missing=0 views_negative=0 likes_gt_views=0 published_missing=0 published_in_future=0 live_or_upcoming=0 duration_missing_or_zero=0 channel_info_missing=0 subscribers_hidden=0 likes_hidden=11
+[VALIDATE] [2026-10-09 20:43:38] [INFO] 업로드일 범위 min=2011-03-22 max=2026-10-09
+[FEATURE] [2026-10-09 20:43:52] [INFO] 포맷 분류 method={"duration<=60": 449, "http_check": 158} counts={"long": 632, "shorts": 499, "live": 20}
+[FEATURE] [2026-10-09 20:43:52] [INFO] 아웃라이어 배수 계산 baseline_videos=20443 kinds={"same_format": 774, "all_formats": 50, "insufficient": 327} median_outlier=4.016 p90_outlier=105.2
+[FEATURE] [2026-10-09 20:43:52] [INFO] 주제 관련성 필터 on_topic=974 off_topic=177 reasons={"title": 793, "off_topic": 177, "tags": 104, "description": 63, "weak+context": 14} off_topic_examples=[98% 폭락에 매수했더니…1시간 뒤 "손 떨려" 황당 (주가 폭락 실제 투자자 사연),허지웅이 항암치료를 하면서 느낀 점 #shorts #아(주식 손실 숨긴 남편),5분만에 전재산을 잃을 수 있는 비트코인(주식 폭락 전재산 손실),S&P500 딱 이만큼만 사두세요 "은퇴 후 평생 놀고(은퇴 후 주식 투자 주의사항),아들의 코인빚에 아버지가 향한곳(60대 주식 투자 실패)]
+[FEATURE] [2026-10-09 20:43:52] [INFO] 성과 분석 대상 확정 (분석 분할) all_videos=1151 perf_videos=431 rule="valid & on_topic & age>=14d & age<=365d" perf_published_min=2025-10-11 perf_published_max=2026-09-21 recent_unmatured=28 out_of_window=652
+[FEATURE] [2026-10-09 20:43:52] [INFO] 성공(아웃라이어) 판정 success=95 success_rate=0.2204 small_channel_success=22 rule="views>=10000 & outlier>=3.0"
+[FEATURE] [2026-10-09 20:43:52] [INFO] ■ 완료 elapsed_sec=13.8
+[ANALYSIS] [2026-10-09 20:43:52] [INFO] ▶ 시작
+[ANALYSIS] [2026-10-09 20:43:53] [INFO] 키워드 기회점수 keywords=40 navigational_excluded=1 weights={"demand_vpd": 0.25, "ac_score": 0.15, "small_win_share": 0.2, "median_outlier": 0.1, "fresh_share": 0.05, "low_competition": 0.15, "content_gap": 0.1} imputed_neutral={"demand_vpd": 0, "ac_score": 0, "small_win_share": 0, "median_outlier": 0, "fresh_share": 0, "low_competition": 0, "content_gap": 0} top5=[주식 자동매매 사기 사례:68.3,주식 폭락 전재산 손실:68.1,주식 투자자가 가장 후회하는 것:68.1,50대 주식 투자 실패:67.2,주식 물타기 실패 사례:66.2]
+[ANALYSIS] [2026-10-09 20:43:53] [INFO] 카테고리별 기회 (중앙값 기준) 7. 교훈과 예방="62점·최고 주식 투자자가 가장 후회하는 것" 1. 실제 투자 실패·손실 사연="61점·최고 주식 물타기 실패 사례" 6. 큰 하락과 공포="61점·최고 주식 폭락 전재산 손실" 2. 50·60대와 노후자금="60점·최고 50대 주식 투자 실패" 9. 사연·썰·다큐 포맷="52점·최고 주식으로 망한 사람 인터뷰" 3. 가족 갈등="45점·최고 부부 주식 투자 갈등" 8. 실제 사건·판결·뉴스="44점·최고 주식 투자 사기 실제 사건" 5. 특정 투자 방식 실패="40점·최고 레버리지 투자 실패 사연" 4. 사기·추천방 피해="39점·최고 주식 자동매매 사기 사례"
+[ANALYSIS] [2026-10-09 20:43:53] [INFO] 제목 피처 효과 (전체, lift 상위) top=[수익/욕망(급등·수익·부자):2.05x(q=0.167),금액·% 표기:1.66x(q=0.143),괄호/대괄호:1.34x(q=0.721),영문 대문자 단어:1.33x(q=0.808),숫자 포함:1.32x(q=0.147)] correction="Benjamini-Hochberg FDR"
+[ANALYSIS] [2026-10-09 20:43:57] [INFO] 제목 토큰화 tokenizer=kiwipiepy titles=431 elapsed_sec=2.58
+[ANALYSIS] [2026-10-09 20:43:58] [INFO] 제목 클러스터링 n_docs=418 vocab=192 silhouette={"3": 0.05, "4": 0.064, "5": 0.081, "6": 0.092, "7": 0.085, "8": 0.108, "9": 0.104, "10": 0.114, "11": 0.107, "12": 0.102} best_k=10 seed=42
+[ANALYSIS] [2026-10-09 20:43:58] [INFO] 스피어만 상관 (vs log 아웃라이어) like_rate=-0.1026 comment_rate=0.04127 title_len=0.001087 duration_sec=0.02765 subscribers=0.1507 channel_age_days=-0.07868 uploads_per_week=-0.03374
+[ANALYSIS] [2026-10-09 20:44:06] [INFO] 댓글 수집 videos=30 comments=2145 questions=331 failures={} quota_used=8533
+[ANALYSIS] [2026-10-09 20:44:06] [INFO] 그룹 성과: format rows=[live:n=7,sr=28.6%,long:n=260,sr=21.9%,shorts:n=164,sr=22.0%]
+[ANALYSIS] [2026-10-09 20:44:06] [INFO] 그룹 성과: duration rows=[1~3분:n=31,sr=0.0%,3~5분:n=13,sr=7.7%,5~8분:n=24,sr=20.8%,8~12분:n=50,sr=32.0%,12~20분:n=59,sr=25.4%,20~30분:n=32,sr=31.2%,30~60분:n=41,sr=22.0%,60분+:n=10,sr=10.0%]
+[ANALYSIS] [2026-10-09 20:44:06] [INFO] 그룹 성과: channel_size rows=[1천 미만:n=73,sr=4.1%,1천~1만:n=65,sr=29.2%,1만~10만:n=131,sr=32.1%,10만~100만:n=71,sr=38.0%,100만+:n=91,sr=4.4%]
+[ANALYSIS] [2026-10-09 20:44:06] [INFO] ■ 완료 elapsed_sec=13.63
+[CHART] [2026-10-09 20:44:06] [INFO] ▶ 시작
+[CHART] [2026-10-09 20:44:06] [INFO] 한글 폰트 font="Malgun Gothic" path=C:/Windows/Fonts/malgun.ttf
+[CHART] [2026-10-09 20:44:06] [INFO] 저장 file=01_keyword_opportunity.png
+[CHART] [2026-10-09 20:44:07] [INFO] 저장 file=02_demand_vs_competition.png
+[CHART] [2026-10-09 20:44:08] [INFO] 저장 file=03_views_vs_subscribers.png
+[CHART] [2026-10-09 20:44:08] [INFO] 저장 file=04_format_performance.png
+[CHART] [2026-10-09 20:44:09] [INFO] 저장 file=05_duration_performance.png
+[CHART] [2026-10-09 20:44:09] [INFO] 저장 file=06_title_feature_lift.png
+[CHART] [2026-10-09 20:44:09] [INFO] 저장 file=07_publish_timing_heatmap.png
+[CHART] [2026-10-09 20:44:10] [INFO] 저장 file=08_channel_size_performance.png
+[CHART] [2026-10-09 20:44:10] [INFO] 저장 file=09_success_tokens.png
+[CHART] [2026-10-09 20:44:10] [INFO] 저장 file=10_subtopic_clusters.png
+[CHART] [2026-10-09 20:44:11] [INFO] 저장 file=11_title_length.png
+[CHART] [2026-10-09 20:44:11] [INFO] 저장 file=12_category_opportunity.png
+[CHART] [2026-10-09 20:44:11] [INFO] 차트 생성 요약 n=12 files=[01_keyword_opportunity.png,02_demand_vs_competition.png,03_views_vs_subscribers.png,04_format_performance.png,05_duration_performance.png,06_title_feature_lift.png,07_publish_timing_heatmap.png,08_channel_size_performance.png,09_success_tokens.png,10_subtopic_clusters.png,11_title_length.png,12_category_opportunity.png]
+[CHART] [2026-10-09 20:44:11] [INFO] ■ 완료 elapsed_sec=5.09
+[AUTH] [2026-10-09 20:44:11] [INFO] 다운로드 인증 준비 cookies=none proxy=False
+[SUCCESS] [2026-10-09 20:44:11] [INFO] ▶ 시작
+[SUCCESS] [2026-10-09 20:44:11] [INFO] 성공사례 선정 n=8 candidates=160 strong=95 weights={"outlier": 0.4, "views": 0.35, "views_per_sub": 0.25} small_channel=4 longform=4 channels=8 categories={"4. 사기·추천방 피해": 1, "3. 가족 갈등": 1, "1. 실제 투자 실패·손실 사연": 2, "6. 큰 하락과 공포": 1, "2. 50·60대와 노후자금": 1, "5. 특정 투자 방식 실패": 1, "7. 교훈과 예방": 1}
+[DOWNLOAD] [2026-10-09 20:44:16] [INFO] yt-dlp 클라이언트 선택 video_id=s0HnYY8sK94 client=default after_bot_check=None
+[SUCCESS] [2026-10-09 20:44:18] [INFO] 사례 01 처리 video_id=s0HnYY8sK94 thumbnail=ok video=original video_mb=0.9 transcript=youtube_transcript_api elapsed_sec=6.5
+[SUCCESS] [2026-10-09 20:44:23] [INFO] 사례 02 처리 video_id=-vPbgWEJg_g thumbnail=ok video=original video_mb=0.7 transcript=youtube_transcript_api elapsed_sec=5.2
+[SUCCESS] [2026-10-09 20:44:27] [INFO] 사례 03 처리 video_id=iacwbUHyqv4 thumbnail=ok video=original video_mb=1.2 transcript=youtube_transcript_api elapsed_sec=4.2
+[SUCCESS] [2026-10-09 20:44:33] [INFO] 사례 04 처리 video_id=UQU-1yRyzCg thumbnail=ok video=original video_mb=1.8 transcript=youtube_transcript_api elapsed_sec=5.8
+[SUCCESS] [2026-10-09 20:44:44] [INFO] 사례 05 처리 video_id=Z_ul2wo7NHs thumbnail=ok video=original video_mb=29.8 transcript=youtube_transcript_api elapsed_sec=11.3
+[DOWNLOAD] [2026-10-09 20:47:27] [INFO] 영상 용량 조정(재인코딩) attempt=1 before_mb=91.9 after_mb=47.2 v_kbps=107 height=240 elapsed_sec=148.7
+[SUCCESS] [2026-10-09 20:47:29] [INFO] 사례 06 처리 video_id=7FrJ3wuJDaY thumbnail=ok video=transcoded video_mb=47.2 transcript=youtube_transcript_api elapsed_sec=164.6
+[DOWNLOAD] [2026-10-09 20:51:31] [INFO] 영상 용량 조정(재인코딩) attempt=1 before_mb=114.3 after_mb=57.2 v_kbps=60 height=240 elapsed_sec=224
+[DOWNLOAD] [2026-10-09 20:55:32] [INFO] 영상 용량 조정(재인코딩) attempt=2 before_mb=114.3 after_mb=57.2 v_kbps=60 height=240 elapsed_sec=241.4
+[SUCCESS] [2026-10-09 20:55:33] [INFO] 사례 07 처리 video_id=8_YxWzVTbro thumbnail=ok video=too_large video_mb=114.3 transcript=youtube_transcript_api elapsed_sec=484.7
+[DOWNLOAD] [2026-10-09 20:57:05] [INFO] 영상 용량 조정(재인코딩) attempt=1 before_mb=50.5 after_mb=45.7 v_kbps=264 height=360 elapsed_sec=82
+[SUCCESS] [2026-10-09 20:57:06] [INFO] 사례 08 처리 video_id=e3EY2JJMgDw thumbnail=ok video=transcoded video_mb=45.7 transcript=youtube_transcript_api elapsed_sec=92.8
+[SUCCESS] [2026-10-09 20:57:06] [INFO] 성공사례 처리 요약 cases=8 video_ok=7 transcript_ok=8 transcript_sources={"youtube_transcript_api": 8}
+[SUCCESS] [2026-10-09 20:57:06] [INFO] yt-dlp 클라이언트 사용 현황 hits={"default": 8} bot_blocked=0 stopped=False
+[SUCCESS] [2026-10-09 20:57:06] [INFO] ■ 완료 elapsed_sec=775.2
+[REPORT] [2026-10-09 20:57:06] [INFO] ▶ 시작
+[REPORT] [2026-10-09 20:57:09] [INFO] 엑셀 저장 file=analysis.xlsx sheets=[videos,keyword_opportunity,category_opportunity,keyword_plan,autocomplete_keywords,excluded_offtopic,title_features,title_tokens,title_length,format,duration,weekday,…(+11)]
+[REPORT] [2026-10-09 20:57:09] [INFO] CSV 저장 dir=data/ files=23
+[REPORT] [2026-10-09 20:57:09] [INFO] 추천 아이디어 생성 n=8 template_features=[hook_greed,has_money_or_pct,has_bracket,has_number] source="데이터 기반 (lift≥1.1)" best_format=long best_durations=[8~12분,20~30분]
+[REPORT] [2026-10-09 20:57:09] [INFO] 리포트 저장 file=README.md lines=204 recommendations=8
+[REPORT] [2026-10-09 20:57:09] [INFO] run_info.json 저장
+[REPORT] [2026-10-09 20:57:09] [INFO] 출력 요약 files=95 total_mb=247.3 out_dir=C:\Users\yunyc\Downloads\ytb-anal\yeomin1024-ytb\output\stock\result
+[REPORT] [2026-10-09 20:57:09] [INFO] ■ 완료 elapsed_sec=2.49
+[GITHUB] [2026-10-09 20:57:09] [INFO] ▶ 시작
+[GITHUB] [2026-10-09 20:57:09] [INFO] 토큰 쓰기 권한 확인 ok=True status=200 token_type=fine-grained reason="쓰기 권한 확인됨" expires=None
+[GITHUB] [2026-10-09 20:57:10] [INFO] 저장소 확인 repo=yeomin1024/yeomin1024-ytb branch=main private=False default_branch=main allow_videos=False
+[GITHUB] [2026-10-09 20:57:10] [WARNING] 공개(public) 저장소 → 성공사례 영상 파일은 GitHub에 올리지 않음 (대본·썸네일·메타데이터는 업로드) hint="저장소를 private으로 변경하면 영상도 함께 업로드됩니다" videos_kept_in=C:\Users\yunyc\Downloads\ytb-anal\yeomin1024-ytb\output\stock\result

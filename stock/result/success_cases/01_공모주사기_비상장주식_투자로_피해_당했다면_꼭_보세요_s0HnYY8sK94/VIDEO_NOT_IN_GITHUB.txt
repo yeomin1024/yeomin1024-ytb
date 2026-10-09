@@ -1,0 +1,3 @@
+video.mp4 (0.9MB) 은 GitHub에 올리지 않았습니다. 사유: public_repo_video_policy
+- public_repo_video_policy: 공개 저장소에 타인 영상 업로드 방지 (저장소를 private으로 바꾸면 자동 업로드)
+- 영상 위치: 분석을 실행한 PC의 C:\Users\yunyc\Downloads\ytb-anal\yeomin1024-ytb\output\stock\result\success_cases\01_공모주사기_비상장주식_투자로_피해_당했다면_꼭_보세요_s0HnYY8sK94\video.mp4

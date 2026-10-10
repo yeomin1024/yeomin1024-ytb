@@ -14,6 +14,9 @@ export type PlanRow = {
   shots?: number[]; // 장면 끝 말고도 still을 찍을 문장 번호 (그 문장 끝 10프레임 전)
 };
 
+/** 사연 파트 마지막 문장 (재구성 사연 캡션 범위, scripts/storyboard.mjs) */
+export const STORY_LAST = 14;
+
 export const PLAN_ROWS: PlanRow[] = [
   {id: "S01", subs: [1, 3], bg: "cream",
     does: "1: 뉴스 카드(2025년 4월 · 유나이티드헬스 주가) → -22% 카운트다운(파랑) / 2: '미국 최대 건강보험사' / (뒷줄) 의료비 ↑ → 실적 전망 ↓ / 3: 흐름도 퇴장, 생각 말풍선",

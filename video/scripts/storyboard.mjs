@@ -1,3 +1,4 @@
+// VERSION: v1.1 — 2026-10-10 — 사연 파트 범위를 plan.ts의 STORY_LAST로 (v1.0: 물타기 1–14 고정)
 // 스토리보드 + 장면 구성표 생성 (guides/video_guide.md 5·6번)
 //   node scripts/storyboard.mjs <영상ID> <출력폴더> [--only S05,S13] [--full]
 //   예) node scripts/storyboard.mjs multagi-2026-10 ../stock/out/multagi-2026-10
@@ -34,7 +35,7 @@ const tmp = path.join(root, ".remotion", `plan-${id}.mjs`);
 fs.mkdirSync(path.dirname(tmp), {recursive: true});
 await build({
   stdin: {
-    contents: `export {PLAN_ROWS} from "./src/episodes/${id}/plan"; export {SRC} from "./src/episodes/${id}/subtitles"; export {makeTimeline} from "./src/components/timeline"; export {FPS} from "./src/design/tokens";`,
+    contents: `export * as PLANMOD from "./src/episodes/${id}/plan"; export {SRC} from "./src/episodes/${id}/subtitles"; export {makeTimeline} from "./src/components/timeline"; export {FPS} from "./src/design/tokens";`,
     resolveDir: root,
     loader: "ts",
   },
@@ -44,7 +45,9 @@ await build({
   outfile: tmp,
   logLevel: "warning",
 });
-const {PLAN_ROWS, SRC, makeTimeline, FPS} = await import(pathToFileURL(tmp).href + `?t=${Date.now()}`);
+const {PLANMOD, SRC, makeTimeline, FPS} = await import(pathToFileURL(tmp).href + `?t=${Date.now()}`);
+const PLAN_ROWS = PLANMOD.PLAN_ROWS;
+const STORY_LAST = PLANMOD.STORY_LAST ?? 14;   // 사연 파트 마지막 문장 (plan.ts에서 export, 없으면 14 — 물타기)
 const tl = makeTimeline(SRC, FPS);
 const subText = new Map();          // 문장 번호 → 문장 (앞줄·뒷줄을 이어 붙임)
 for (const s of tl.subs) subText.set(s.n, subText.has(s.n) ? `${subText.get(s.n)} / ${s.text}` : s.text);
@@ -70,7 +73,7 @@ md += `자동 생성 — \`video/scripts/storyboard.mjs\` (원본 데이터: \`v
 md += `- 장면 ${rows.length}개, 문장 ${nSent} / 자막 ${tl.subs.length} (앞줄·뒷줄로 나뉜 문장 ${nSplit}개), 고지 카드 ${tl.cards.length}개, 전체 ${tc(tl.total)} (${tl.total}프레임, ${FPS}fps)\n`;
 md += `- 번호는 모두 대본 문장 번호(TXT 줄 순서)다. SRT 번호와 다르다. "(뒷줄)" 표시 요소는 그 문장의 뒷줄 자막과 함께 나온다\n`;
 for (const c of tl.cards) md += `- 고지 카드 "${c.title}": 문장 ${c.afterSentence} 뒤 SRT 공백 ${tc(c.from)}–${tc(c.to)} (${((c.to - c.from) / FPS).toFixed(1)}초, 자막을 코드에서 밀지 않음)\n`;
-md += `- 사연 파트(문장 1–14) 동안 왼쪽 위에 "실제 주가 흐름을 바탕으로 재구성한 사연" 캡션 (1-11)\n`;
+md += `- 사연 파트(문장 1–${STORY_LAST}) 동안 왼쪽 위에 "실제 주가 흐름을 바탕으로 재구성한 사연" 캡션 (1-11)\n`;
 md += `- 전환: 배경이 바뀌는 곳과 새 항목 시작은 찢어진 종이 와이프(W), 나머지는 컷\n\n`;
 md += `| 장면 | 문장 | 시간 | 배경 | 연출 (자막 번호별) | 화면 텍스트 | 패턴 | 연결 근거 |\n|---|---|---|---|---|---|---|---|\n`;
 for (const r of rows) {

@@ -117,8 +117,10 @@ def text_px(text, px=SUB_FONT_PX):
     return units * px / _WT["units_per_em"]
 
 
-_CLAUSE_END = re.compile(r"(,|고|서|면|니까|니|며|지만|는데|듯이|자|자마자|해도|어도|아도|려고|도록)$")   # 절 경계
-_PARTICLE_END = re.compile(r"(은|는|이|가|을|를|에|에서|으로|로|도|만|까지|와|과)$")                  # 어절 끝 조사
+_CLAUSE_END = re.compile(r"(,|고|고도|서|면|니까|니|며|지만|는데|는데도|듯이|자|자마자|해도|어도|아도|려고|도록)$")   # 절 경계
+_PARTICLE_END = re.compile(r"(은|는|이|가|을|를|에|에서|으로|로|도|만|까지)$")                        # 어절 끝 조사 (와·과는 "A와 / B"처럼 짝이 갈려서 뺌)
+_ADJ_SHORT = {"많은", "좋은", "작은", "큰", "높은", "낮은", "같은", "다른", "오랜", "어린", "젊은", "늦은", "빠른", "긴", "짧은", "적은", "나쁜", "새"}
+_AFTER_NUM = {"이상", "이하", "미만", "정도", "가까이", "넘게", "이내", "사이", "사이인", "전후", "만에", "동안", "안에", "뒤", "후"}
 _NO_END_WORDS = {"제", "내", "그", "이", "저", "한", "두", "세", "네", "몇", "새", "왜", "더", "안", "못", "잘", "꼭", "다", "좀", "또"}
 
 
@@ -147,12 +149,20 @@ def split_px(text):
             score += 100
         if words[i] in {"한", "할", "난", "된", "될", "온", "간", "산", "본", "준", "탄"}:
             score += 30
-        if len(last) <= 2 and last.endswith(("은", "운", "던")):
-            score += 10
+        if last in _ADJ_SHORT:
+            score += 10             # '많은 / 분들이'처럼 짧은 꾸밈말 뒤는 피함
+        if last.endswith(("와", "과")) and len(last) >= 2:
+            score += 6              # '진단과 / 치료로'처럼 짝을 가르지 않음
         if re.search(r"[\d천만억]$", last) and re.match(r"^(원|달러|일|월|년|배|명|개|번|살|분|초|주|달|퍼센트|%)", words[i]):
-            score += 100
+            score += 100            # 숫자와 단위는 한 줄에
         if re.search(r"\d+(월|년)$", last) and re.match(r"^\d", words[i]):
-            score += 100
+            score += 100            # 날짜는 한 줄에
+        if re.search(r"\d\S*(에서|부터|~)$", last) and re.match(r"^\d", words[i]):
+            score += 100            # 범위는 한 줄에 (100에서 / 125 X)
+        if re.search(r"\d", last) and words[i].rstrip(",.") in _AFTER_NUM:
+            score += 100            # 숫자 뒤 '이상·미만·정도·동안'은 한 줄에 (60세 / 이상 X)
+        if re.match(r"^[\d-]", words[i]) and not (last.endswith(",") or _CLAUSE_END.search(last) or _PARTICLE_END.search(last)):
+            score += 15             # 수량은 앞 명사와 한 줄에 (전단계 / 3,234명 X)
         if best is None or score < best[0]:
             best = (score, [a, b])
     if best is None:

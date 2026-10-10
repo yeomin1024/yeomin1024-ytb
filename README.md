@@ -21,7 +21,7 @@ stock/                      ← 주제 폴더: 주식
   titles/                   ← 제목 피드백 시트
   source/<영상ID>/          ← 영상별 대본 TXT·SRT·README·titles.md·thumbnails/·upload.md
   out/<영상ID>/             ← 장면 구성표·스토리보드 (완성 영상 mp4는 git에 올리지 않음)
-selfdev/ · health/ · space/ · story/ · lifetips/   ← 다른 주제 폴더 (지금은 분석 설정 파일 analyzer_config.toml만 있음)
+selfdev/ · health/ · space/ · story/ · lifetips/   ← 다른 주제 폴더 (health·story는 규칙·첫 대본까지, 나머지는 분석 설정만)
 ```
 | 폴더 | 주제 | 실행 |
 |---|---|---|
@@ -159,15 +159,20 @@ python youtube_topic_analyzer.py --help                                    # 전
 
 | 영상 | 상태 | 위치 |
 |---|---|---|
-| 몰빵 `molppang-2026-10` | 제작 완료 | `stock/source/molppang-2026-10/` (SRT) |
-| 물타기 `multagi-2026-10` | 대본 v1.3 · 제목 T1 채택 · 썸네일 프롬프트 3개 · 업로드 시트 · **영상 1차 완성(무음, 8분 29초)** — 내레이션 녹음 대기 | `stock/source/multagi-2026-10/`, `stock/out/multagi-2026-10/` |
+| 몰빵 `molppang-2026-10` | 제작 완료 · v2.0 대본(엔론 삭제, 문장 91 / 자막 117) | `stock/source/molppang-2026-10/` |
+| 물타기 `multagi-2026-10` | 대본 v1.3 (문장 91 / 자막 110) · 제목 T1 채택 · 썸네일 프롬프트 3개 · 업로드 시트 · 영상 1차 완성(무음) — 내레이션 녹음 대기 | `stock/source/multagi-2026-10/`, `stock/out/multagi-2026-10/` |
+| 건강: 당뇨 전단계 `prediabetes-2026-10` | 대본 (문장 86 / 자막 103) · 제목 T1 채택 · 썸네일 프롬프트 3개 · 업로드 시트 — 영상 제작 전 | `health/source/prediabetes-2026-10/` |
+| 사연: 돈 빌려준 사연 `lend-money-2026-10` | 대본·제목·썸네일·업로드 시트 — 영상 제작 전 | `story/source/lend-money-2026-10/` |
 
 자막 파일 검사·생성:
 ```
 python tools/srt_tool.py check stock/source/multagi-2026-10/multagi-2026-10.txt stock/source/multagi-2026-10/multagi-2026-10.srt
 python tools/srt_tool.py build <대본.txt> <새.srt> --reuse <기존.srt>   # 고친 문장만 새로 계산, 나머지는 기존 줄바꿈·길이 유지
-python tools/srt_tool.py remotion <대본.txt> <자막.srt> video/src/episodes/<영상ID>/subtitles.ts   # 영상용 자막·고지 카드 데이터
-python tools/srt_tool.py upload <대본.txt> <자막.srt> <업로드용.srt> --chapters "1=…;15=…"         # 업로드용 자막 + 챕터 시간
+python tools/srt_tool.py check <대본.txt> <자막.srt> --expect 91/117      # 문장 / 자막 / SRT–TXT 일치 / 고지 공백
+python tools/srt_tool.py measure <대본.txt>                                # 문장별 자막 폭(1432px)과 앞줄·뒷줄
+python tools/srt_tool.py remotion <대본.txt> <자막.srt> video/src/episodes/<영상ID>/subtitles.ts   # 영상용 데이터 (문장 번호 기준)
+python tools/srt_tool.py upload <대본.txt> <자막.srt> --chapters "1=…;15=…"   # 챕터 시간 (SRT는 그대로 업로드)
+# 녹음 후 (video/ 에서): npm run align-audio -- <주제폴더> <영상ID>   ← 오디오는 고치지 않고 SRT를 맞춤
 ```
 
 ---

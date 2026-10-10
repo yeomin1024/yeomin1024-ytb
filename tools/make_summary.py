@@ -1,15 +1,18 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.2 — 2026-10-10 — 대본 파트 라벨 판정을 srt_tool.is_label과 같게 ('-숫자'로 시작하는 문장) (v1.1: 예약 공개 시각 표시; v1.0: 영상별 summary.md, --thumb-todo, 표준 라이브러리만)
+# VERSION: v1.3 — 2026-10-10 — 사용자 지시: 요약에서 스토리보드 빼기 (상태 줄·4번 절 삭제, 영상 코드 상태로 대체),
+#          내레이션 역할(사연자·진행자, voices/*.json) 표시, 오디오가 지금 대본으로 만든 것인지(tts_narration.json) 표시
+#          (v1.2: 파트 라벨 판정을 srt_tool.is_label과 같게; v1.1: 예약 공개 시각 표시; v1.0: 영상별 summary.md, --thumb-todo, 표준 라이브러리만)
 r"""
-영상 하나의 결과물을 한 문서로 모읍니다: 상태 → 제목 3개 → 썸네일 3개 → 업로드 정보 → 스토리보드 → 대본.
+영상 하나의 결과물을 한 문서로 모읍니다: 상태 → 제목 3개 → 썸네일 3개 → 업로드 정보 → 대본(파트마다 사연자·진행자 표시).
+스토리보드는 넣지 않는다 (사용자 지시 2026-10-10).
 
   python tools/make_summary.py stock bittu-2026-10      # → stock/source/bittu-2026-10/summary.md
   python tools/make_summary.py --all                    # 모든 주제 폴더의 source/<영상ID>/ (upload.md가 있는 것)
   python tools/make_summary.py --thumb-todo stock       # 이미지가 아직 없는 썸네일의 [A] 프롬프트 모음 → stock/thumbnail_todo.md
 
-읽는 파일: source/<영상ID>/{titles.md, thumbnails/thumbnail_1~3.md·이미지, upload.md, <영상ID>.txt·.srt, README.md, youtube.json, narration.*}
-          out/<영상ID>/{scene_plan.md, storyboard/*.jpg, final_1080p.mp4}
+읽는 파일: source/<영상ID>/{titles.md, thumbnails/thumbnail_1~3.md·이미지, upload.md, <영상ID>.txt·.srt, README.md, youtube.json,
+          narration.*, tts_narration.json}, out/<영상ID>/final_1080p.mp4, voices/*.json, video/src/episodes/<영상ID>/
 원본 파일을 고치지 않는다. 내용을 바꾸려면 원본을 고치고 다시 실행한다.
 """
 import argparse
@@ -24,6 +27,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 import srt_tool  # noqa: E402  (문장 파싱·SRT 묶음 재사용)
 
 AUDIO_EXTS = (".mp3", ".wav", ".m4a")
+VOICES_DIR = ROOT / "voices"     # 내레이션 역할 설정 (tools/tts_narration.py 와 같은 파일·같은 규칙)
 IMG_EXTS = (".png", ".jpg", ".jpeg", ".webp")
 
 
@@ -44,8 +48,48 @@ def mmss(t):
     return f"{int(t // 60)}:{int(t % 60):02d}"
 
 
-def script_block(txt_path):
-    """대본을 파트별로, 문장 번호를 붙여 보여 준다 (번호 = 대본 문장 번호)."""
+def voice_roles():
+    """voices/*.json → [(역할, 이름, 파트 낱말)]. 낱말이 맞는 역할이 먼저, 없으면 "*" 역할 (tts_narration.role_of 와 같은 규칙)."""
+    roles = []
+    for p in sorted(VOICES_DIR.glob("*.json")):
+        try:
+            d = json.loads(p.read_text("utf-8-sig"))
+        except json.JSONDecodeError:
+            continue
+        roles.append((p.stem, d.get("name", p.stem), d.get("parts", ["*"])))
+    return sorted(roles, key=lambda r: ("*" in r[2], r[0]))
+
+
+def role_name(label, roles):
+    for _, name, parts in roles:
+        if any(k != "*" and k in label for k in parts):
+            return name
+    return next((name for _, name, parts in roles if "*" in parts), "")
+
+
+def role_ranges(txt_path, roles):
+    """역할별 문장 범위 → '사연자 1–16 · 진행자 17–88'."""
+    spans, n, label, in_card = {}, 0, "", False
+    for raw in txt_path.read_text("utf-8").splitlines():
+        line = raw.strip()
+        if not line:
+            in_card = False
+            continue
+        if srt_tool.is_label(line):
+            label, in_card = line.lstrip("-").strip(), False
+            continue
+        if line.startswith("[장면]"):
+            in_card = True
+            continue
+        if in_card:
+            continue
+        n += 1
+        spans.setdefault(role_name(label, roles), []).append(n)
+    return " · ".join(f"{k} {v[0]}–{v[-1]}" if v[-1] - v[0] + 1 == len(v) else f"{k} {len(v)}문장" for k, v in spans.items())
+
+
+def script_block(txt_path, roles=()):
+    """대본을 파트별로, 문장 번호를 붙여 보여 준다 (번호 = 대본 문장 번호). 파트 제목 옆에 읽는 역할(사연자·진행자)."""
     out, n, in_card = [], 0, False
     for raw in txt_path.read_text("utf-8").splitlines():
         line = raw.strip()
@@ -53,7 +97,9 @@ def script_block(txt_path):
             in_card = False
             continue
         if srt_tool.is_label(line):
-            out.append(f"\n**{line.lstrip('-').strip()}**\n")
+            label = line.lstrip('-').strip()
+            who = role_name(label, roles) if roles else ""
+            out.append(f"\n**{label}**" + (f" — 🎙 {who}" if who else "") + "\n")
             in_card = False
             continue
         if line.startswith("[장면]"):
@@ -95,34 +141,6 @@ def thumb_section(src, vid, adopted_n):
     return "\n".join(rows)
 
 
-def storyboard_section(out_dir, vid):
-    sb = out_dir / "storyboard"
-    plan = out_dir / "scene_plan.md"
-    if not sb.exists() or not any(sb.glob("*.jpg")):
-        return ("아직 없음 → 3단계에서 영상 코드(`video/src/episodes/" + vid + "/`)를 만들고 "
-                "`node scripts/storyboard.mjs " + vid + " ../<주제폴더>/out/" + vid + "`로 still을 렌더하면 여기에 붙는다.\n")
-    scenes = {}
-    if plan.exists():
-        for line in plan.read_text("utf-8").splitlines():
-            m = re.match(r"^\|\s*(S\d+)[^|]*\|\s*([^|]+)\|\s*([^|]+)\|\s*[^|]+\|\s*([^|]+)\|", line)
-            if m:
-                does = re.sub(r"\s+", " ", m.group(4)).strip()
-                scenes[m.group(1)] = (m.group(2).strip(), m.group(3).strip(), does[:90] + ("…" if len(does) > 90 else ""))
-    imgs = sorted(p for p in sb.glob("S*.jpg") if re.fullmatch(r"S\d+\.jpg", p.name))   # 장면당 대표 1장
-    cells = []
-    for p in imgs:
-        sid = p.stem
-        sent, time_, does = scenes.get(sid, ("", "", ""))
-        rel = f"../../out/{vid}/storyboard/{p.name}"
-        cells.append(f"<img src=\"{rel}\" width=\"100%\"><br><b>{sid}</b> 문장 {sent} · {time_}<br><sub>{does}</sub>")
-    rows = ["| | | |", "|---|---|---|"]
-    for i in range(0, len(cells), 3):
-        chunk = cells[i:i + 3] + [""] * (3 - len(cells[i:i + 3]))
-        rows.append("| " + " | ".join(c.replace("|", "\\|") for c in chunk) + " |")
-    extra = f"\n\n전체 장면 구성표: `out/{vid}/scene_plan.md` · 모든 still: `out/{vid}/storyboard/index.html`\n" if plan.exists() else ""
-    return f"장면 {len(cells)}개 (장면마다 마지막 문장 끝 직전 still)\n\n" + "\n".join(rows) + extra
-
-
 def build(topic, vid):
     src = ROOT / topic / "source" / vid
     out_dir = ROOT / topic / "out" / vid
@@ -137,7 +155,16 @@ def build(topic, vid):
     length = mmss(groups[-1]["end"]) if groups else "?"
     audio = next((p for p in (src / f"narration{e}" for e in AUDIO_EXTS) if p.exists()), None)
     yt = json.loads((src / "youtube.json").read_text("utf-8")) if (src / "youtube.json").exists() else None
-    stills = len(list((out_dir / "storyboard").glob("*.jpg"))) if (out_dir / "storyboard").exists() else 0
+    roles = voice_roles()
+    meta_p = src / "tts_narration.json"
+    tts = json.loads(meta_p.read_text("utf-8")) if meta_p.exists() else None
+    if audio and tts:   # 오디오가 지금 대본으로 만든 것인지 (문장 글 비교 — tts_narration.py check 와 같은 뜻)
+        old = [i["text"] for i in tts.get("items", [])]
+        diff = [i + 1 for i in range(max(len(old), len(sents))) if i >= len(old) or i >= len(sents) or old[i] != sents[i]]
+        audio_note = " · 지금 대본과 같음" if not diff else f" · ⚠️ 옛 대본으로 만든 오디오 (바뀐 문장 {diff[0]}번 등 {len(diff)}개) → Kaggle에서 다시"
+    else:
+        audio_note = " · 대본과 같은지 정보 없음(직접 녹음)" if audio else ""
+    has_code = (ROOT / "video" / "src" / "episodes" / vid).is_dir()
     imgs = [i for i in (1, 2, 3) if any((src / "thumbnails" / f"thumbnail_{i}{e}").exists() for e in IMG_EXTS)]
     adopted = re.search(r"\[x\]\s*\*\*(T\d)[^\n]*?\*\*\s*(.+?)\s*`", titles_md)
     pair = re.search(r"\[x\].*짝 썸네일:\s*thumbnail_(\d)", titles_md)
@@ -151,8 +178,10 @@ def build(topic, vid):
         ("제목 3개", f"✅ 채택 {adopted.group(1)}" if adopted else ("✅" if titles_md else "❌ 없음")),
         ("썸네일", f"프롬프트 3개 ✅ · 이미지 {len(imgs)}/3" + (" (이미지 AI로 만들어 `thumbnails/thumbnail_N.png`에 저장)" if len(imgs) < 3 else "")),
         ("업로드 시트", "✅ 설명란·태그·고정 댓글·챕터" if upload_md else "❌ 없음"),
-        ("스토리보드", f"✅ still {stills}장" if stills else "⏳ 영상 코드 제작 전"),
-        ("오디오", f"✅ {audio.name}" if audio else f"⏳ 없음 → `source/{vid}/narration.mp3`(또는 .wav·.m4a)를 올리면 4단계 시작"),
+        ("내레이션 역할", (role_ranges(txt, roles) + " (`voices/*.json`)") if roles and txt.exists() else "voices/ 없음"),
+        ("오디오", f"✅ {audio.name}{audio_note}" if audio else
+         f"⏳ 없음 → Kaggle에서 `tts_narration.py all`로 만들어 `source/{vid}/narration.mp3`에 올리면 영상 제작 시작"),
+        ("영상 코드", f"✅ `video/src/episodes/{vid}/`" if has_code else "⏳ 오디오가 생기면 Claude가 만든다 (승인 없이 바로 렌더)"),
         ("렌더", "✅ final_1080p.mp4" if rendered else "⏳ 오디오 뒤"),
         ("유튜브", (f"✅ 비공개 업로드 [{yt['videoId']}]({yt['studio']}) ({yt['uploadedAt'][:10]})"
                    + (f" · 예약 공개 {kst(yt['publishAt'])} (한국 시간)" if yt.get("publishAt") else "")) if yt
@@ -174,15 +203,21 @@ def build(topic, vid):
     pin = section_code(upload_md, "고정 댓글")
     md += ["## 3. 업로드 정보 (`upload.md`)", ""]
     md += ["**설명란**", "", "```", desc or "(없음)", "```", "", f"**태그**: {tags or '(없음)'}", "", "**고정 댓글**", "", "```", pin or "(없음)", "```", ""]
-    md += ["## 4. 스토리보드", "", storyboard_section(out_dir, vid), ""]
-    md += ["## 5. 대본 (번호 = 대본 문장 번호)", "", script_block(txt) if txt.exists() else "(없음)", ""]
-    md += ["## 6. 검산·출처", "", "사연 검산표와 모든 숫자의 출처: [`README.md`](README.md)", ""]
+    md += ["## 4. 대본 (번호 = 대본 문장 번호, 🎙 = 읽는 목소리)", "", script_block(txt, roles) if txt.exists() else "(없음)", ""]
+    md += ["## 5. 검산·출처", "", "사연 검산표와 모든 숫자의 출처: [`README.md`](README.md)", ""]
     path = src / "summary.md"
     path.write_text("\n".join(md), "utf-8")
     print(f"[SUMMARY] [{dt.datetime.now(dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')}] video={vid} "
-          f"file={path.relative_to(ROOT)} sentences={len(sents)} subtitles={len(subs)} stills={stills} "
+          f"file={path.relative_to(ROOT)} sentences={len(sents)} subtitles={len(subs)} episode_code={'있음' if has_code else '없음'} "
           f"thumb_images={len(imgs)} audio={'있음' if audio else '없음'} youtube={'있음' if yt else '없음'}")
     return path
+
+
+def on_hold(topic):
+    """주제 README 앞부분에 '⏸ … 보류'가 있으면 보류 주제 (사용자 지시 2026-10-10, tts_narration.topic_on_hold 와 같은 규칙)."""
+    p = ROOT / topic / "README.md"
+    head = p.read_text("utf-8").splitlines()[:30] if p.exists() else []
+    return any("⏸" in ln and "보류" in ln for ln in head)
 
 
 def thumb_todo(topic):
@@ -221,13 +256,16 @@ def main(argv=None):
     ap = argparse.ArgumentParser(description="영상별 한눈에 보기 문서(summary.md) 만들기")
     ap.add_argument("topic", nargs="?")
     ap.add_argument("video_id", nargs="?")
-    ap.add_argument("--all", action="store_true", help="upload.md가 있는 모든 영상")
+    ap.add_argument("--all", action="store_true", help="upload.md가 있는 모든 영상 (보류 주제 제외)")
     ap.add_argument("--thumb-todo", metavar="주제폴더", help="이미지가 없는 썸네일 프롬프트 모음 만들기")
     a = ap.parse_args(argv)
     if a.thumb_todo:
         thumb_todo(a.thumb_todo)
     elif a.all:
         for up in sorted(ROOT.glob("*/source/*/upload.md")):
+            if on_hold(up.parts[-4]):
+                print(f"[SUMMARY] skip video={up.parts[-2]} reason=주제_보류(⏸ README)")
+                continue
             build(up.parts[-4], up.parts[-2])
     elif a.topic and a.video_id:
         build(a.topic, a.video_id)

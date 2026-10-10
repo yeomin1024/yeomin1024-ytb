@@ -11,7 +11,8 @@ run_analyzer.ps1            ← Windows: 분석 코드를 wget으로 받아 실�
 run_analyzer.sh             ← macOS/Linux: 분석 코드를 wget으로 받아 실행
 requirements.txt
 tools/srt_tool.py           ← 대본 TXT → SRT 자막 생성·검사, 영상용·업로드용 변환 (모든 주제 공통)
-tools/tts_narration.py      ← 대본 TXT → 내레이션 narration.mp3 (Qwen3-TTS, Kaggle GPU) — guides/tts_guide.md
+tools/tts_narration.py      ← 대본 TXT → 내레이션 narration.mp3 (Qwen3-TTS, Kaggle GPU). 사연자·진행자 두 목소리, 대본 전부 한 번에(all) — guides/tts_guide.md
+voices/                     ← 내레이션 목소리 설정: storyteller.json(사연자) · host.json(진행자)
 guides/                     ← 영상 제작 공통 지시사항 (모든 주제) — guides/README.md 부터 읽기
   title_guide.md · script_guide.md · thumbnail_guide.md · video_guide.md · upload_guide.md · archive/
 video/                      ← Remotion 프로젝트, 모든 주제가 같이 씀 — video/README.md (PC에 Node.js 필요)
@@ -21,7 +22,7 @@ stock/                      ← 주제 폴더: 주식
   guides/                   ← 주식 전용 규칙 + data_insights.md(분석 결과 요약 = 지시사항 근거)
   titles/                   ← 제목 피드백 시트
   source/<영상ID>/          ← 영상별 대본 TXT·SRT·README·titles.md·thumbnails/·upload.md
-  out/<영상ID>/             ← 장면 구성표·스토리보드 (완성 영상 mp4는 git에 올리지 않음)
+  out/<영상ID>/             ← 완성 영상 자리 (mp4는 git에 올리지 않음). 스토리보드는 만들지 않음
 selfdev/ · health/ · space/ · story/ · lifetips/   ← 다른 주제 폴더 (health는 규칙·첫 대본, story는 규칙 초안 — 둘 다 분석 결과 전까지 보류. 나머지는 분석 설정만)
 ```
 | 폴더 | 주제 | 실행 |
@@ -153,9 +154,10 @@ python youtube_topic_analyzer.py --help                                    # 전
 전체 순서는 [`guides/pipeline.md`](guides/pipeline.md)에 있습니다 (Claude Code가 이 순서로 진행). 요약:
 1. **분석** — 결과가 없으면 분석기 실행 (클라우드: `bash tools/run_analysis.sh <주제폴더>`, 키 `YOUTUBE_API_KEY`)
 2. **지시사항·주제** — 분석 결과로 주제 규칙을 만들거나 고치고, 주제 후보를 고른다
-3. **영상마다** — 대본 TXT·SRT, 제목 3개, 썸네일 **프롬프트** 3개, 업로드 시트, 영상 코드·스토리보드(승인) → 요약 문서 `summary.md`
-4. **오디오가 생기면** (`<주제폴더>/source/<영상ID>/narration.mp3`, Kaggle에서 오픈소스 음성 AI로 만들기: [`guides/tts_guide.md`](guides/tts_guide.md)) — SRT 맞춤 → 렌더 → 유튜브 **비공개** 업로드, 한 번에 최대 3개 (`bash tools/publish.sh`)
-5. 그 뒤 스튜디오에서: 테스트 및 비교(썸네일 3개)·자동 더빙 확인·공개 전환 → 결과 기록
+3. **영상마다** — 대본 TXT·SRT(사례는 되도록 최신), 제목 3개, 썸네일 **프롬프트** 3개, 업로드 시트 → 요약 문서 `summary.md` (스토리보드 없음)
+4. **오디오 만들기 (Kaggle)** — `python tools/tts_narration.py all`: 대본을 모두 읽어 사연자·진행자 목소리(`voices/`)로 → zip 하나 → GitHub에 올림 ([`guides/tts_guide.md`](guides/tts_guide.md))
+5. **오디오가 생기면** (`<주제폴더>/source/<영상ID>/narration.mp3`) — 영상 코드가 없으면 Claude가 만들고(승인 없음) → SRT 맞춤 → 렌더 → 유튜브 **비공개** 업로드 + 1시간 뒤 예약 공개, 한 번에 최대 3개 (`bash tools/publish.sh`)
+6. 그 뒤 스튜디오에서: 테스트 및 비교(썸네일 3개)·자동 더빙 확인·공개 전환 → 결과 기록
 
 처음 한 번 할 일(키 4개 넣기, 채널 인증)은 [`guides/pipeline.md`](guides/pipeline.md) "처음 한 번 할 일"에 있습니다.
 

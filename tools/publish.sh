@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
-# VERSION: v1.1 — 2026-10-10 — 렌더 완료 1시간 뒤 예약 공개 (사용자 지시), --publish-delay·--no-schedule
+# VERSION: v1.2 — 2026-10-10 — 사용자 지시: 스토리보드 단계 삭제(오디오가 생기면 바로 영상), 옛 대본으로 만든 오디오는 건너뜀
+#          (tts_narration.py check), 영상 코드가 없으면 Claude가 만든 뒤 다시 (승인 대기 없음)
+# (v1.1: 렌더 완료 1시간 뒤 예약 공개, --publish-delay·--no-schedule)
 # (v1.0: 4단계 자동 진행 — 오디오가 생긴 영상 → SRT 맞춤 → 스토리보드·렌더 → 유튜브 비공개 업로드 → 요약 문서)
 # ------------------------------------------------------------------------------------------------
 #  사용법 (저장소 최상위에서):
@@ -11,15 +13,17 @@
 #  대상 조건 (영상마다):
 #    ① <주제폴더>/source/<영상ID>/narration.mp3 · .wav · .m4a 가 있다      ← 사용자가 올리는 오디오
 #    ② source/<영상ID>/youtube.json 이 없다 (아직 안 올림)
-#    ③ 영상 코드 video/src/episodes/<영상ID>/ 가 있고 video/src/Root.tsx 에 등록돼 있다 (3단계 스토리보드까지 끝남)
+#    ③ 오디오가 지금 대본으로 만든 것이다 (tts_narration.json 이 있으면 tools/tts_narration.py check 로 확인)
+#    ④ 영상 코드 video/src/episodes/<영상ID>/ 가 있고 video/src/Root.tsx 에 등록돼 있다
+#       (없으면 건너뜀 → Claude가 영상 코드를 만들고 자체 점검한 뒤 다시 실행. 사용자 승인을 기다리지 않는다)
 #  진행 (영상마다, 실패하면 그 영상만 멈추고 다음 영상으로):
 #    1. npm run align-audio   — 오디오는 고치지 않고 SRT·subtitles.ts 를 오디오에 맞춤 (고지 카드 자리 3.5초 쉼 필요)
-#    2. 타입 검사 → 스토리보드 다시 렌더 (시간이 바뀌었으므로)
+#    2. 타입 검사
 #    3. 완성 영상 렌더 → <주제폴더>/out/<영상ID>/final_1080p.mp4 (ffprobe로 길이·오디오 확인)
 #    4. tools/youtube_upload.py — 비공개 업로드 + 예약 공개(렌더 완료 + 1시간), 제목·설명란(챕터 재계산)·태그·자막·채택 썸네일 1개 → youtube.json
 #       (키가 없으면 업로드만 건너뜀)
 #    5. tools/make_summary.py — 요약 문서 갱신
-#  끝나면 Claude가 바뀐 파일(SRT, subtitles.ts, youtube.json, summary.md, 스토리보드)을 main에 커밋·푸시한다. mp4는 올리지 않음.
+#  끝나면 Claude가 바뀐 파일(SRT, subtitles.ts, youtube.json, summary.md)을 main에 커밋·푸시한다. mp4는 올리지 않음.
 # ------------------------------------------------------------------------------------------------
 set -uo pipefail
 cd "$(dirname "$0")/.."
@@ -46,8 +50,16 @@ for src in "$ROOT"/*/source/*/; do
   audio=""; for e in mp3 wav m4a; do [ -f "$src/narration.$e" ] && audio="$src/narration.$e" && break; done
   [ -z "$audio" ] && continue
   if [ -f "$src/youtube.json" ]; then log "skip video=$vid reason=이미_업로드(youtube.json)"; continue; fi
+  if [ -f "$src/tts_narration.json" ]; then   # 오디오가 지금 대본으로 만든 것인지 (옛 대본이면 문장이 어긋남)
+    chk="$(python3 tools/tts_narration.py check "$topic" "$vid" 2>&1)"; rc=$?
+    if [ $rc -eq 1 ] && echo "$chk" | grep -q "ok=False"; then
+      log "skip video=$vid reason=옛_대본으로_만든_오디오 $(echo "$chk" | grep -o 'changed=[^ ]*') → Kaggle에서 tts_narration.py all 다시"; continue
+    elif [ $rc -ne 0 ]; then
+      log "warn video=$vid reason=오디오_대본_확인_실패(rc=$rc) → align-audio 의 문장 수 검사로 진행"
+    fi
+  fi
   if [ ! -d "video/src/episodes/$vid" ] || ! grep -q "id=\"$vid\"" video/src/Root.tsx; then
-    log "skip video=$vid reason=영상_코드_없음 → 3단계(영상 코드·스토리보드)를 먼저 만들어야 함"; continue
+    log "skip video=$vid reason=영상_코드_없음 → Claude가 영상 코드를 만들고 자체 점검한 뒤 다시 실행 (승인 대기 없음)"; continue
   fi
   CANDIDATES+=("$topic/$vid")
 done
@@ -71,7 +83,6 @@ for item in "${CANDIDATES[@]}"; do
 
   (cd video && node scripts/align-audio.mjs "$topic" "$vid") || { fail align-audio "고지 카드 자리 3.5초 쉼·문장 수를 확인 (오디오는 고치지 않음)"; continue; }
   (cd video && npx tsc --noEmit) || { fail typecheck "영상 코드 오류"; continue; }
-  (cd video && node scripts/storyboard.mjs "$vid" "../$out") || { fail storyboard "스토리보드 렌더 실패"; continue; }
   mkdir -p "$out"
   (cd video && npx remotion render "$vid" "../$out/final_1080p.mp4" --codec=h264 --crf=18 "${BROWSER_ARG[@]}") \
     || { fail render "렌더 실패"; continue; }

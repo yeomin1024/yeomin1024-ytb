@@ -1,0 +1,24 @@
+{
+  "_설명": "사연자 목소리 설정 — 대본에서 파트 라벨에 '사연'이 든 문장(1인칭 고백)을 읽는다. tools/tts_narration.py v1.1 이 읽는다. 사용법: guides/tts_guide.md 5번",
+  "_버전": "v1.0 — 2026-10-10 — 최초 작성 (tts_narration v1.0 의 사연 말투를 그대로 옮김)",
+  "_항목": {
+    "parts": "이 역할이 읽는 파트 — 파트 라벨에 이 낱말이 들어 있으면 사연자",
+    "speaker": "Qwen3-TTS CustomVoice 화자. 한국어가 모국어인 화자는 Sohee 하나 (다른 화자는 외국인 억양이 섞일 수 있음)",
+    "preset": "비워 두면 instruct 를 쓴다. sample 에서 고른 말투 글자(A 담담한 후회, B 울먹임, C 억울함, D 한국어 지시)를 넣으면 그 말투",
+    "instruct": "말투 지시 — 음색이 아니라 감정·속도·쉼·억양을 쓴다. 끝의 'Keep every word clear' 는 발음이 뭉개지지 않게",
+    "part_instruct": "이 역할 안에서 파트별로 다른 말투 {파트 낱말: 지시} — 비우면 모두 instruct",
+    "seed": "기본 시드 (문장마다 글 내용으로 정해진 만큼 더한다). 바꾸면 모든 문장을 새로 만든다",
+    "gap": "이 역할의 문장 사이 쉼(초). 0.2 이상 — align-audio 가 이 쉼으로 문장 경계를 찾는다",
+    "generation": "생성 설정 {temperature, top_p, top_k, repetition_penalty} — 비우면 모델 기본값"
+  },
+  "role": "storyteller",
+  "name": "사연자",
+  "parts": ["사연"],
+  "speaker": "Sohee",
+  "preset": "",
+  "instruct": "Speak like someone confessing a painful stock-market loss: regretful and aggrieved, a low voice that trembles slightly, slow pace, a soft sigh before key phrases, bitter self-blame as if holding back tears. Keep every word clear.",
+  "part_instruct": {},
+  "seed": 1234,
+  "gap": 0.45,
+  "generation": {}
+}

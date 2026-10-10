@@ -1,0 +1,19 @@
+{
+  "_설명": "진행자 목소리 설정 — 사연 파트를 뺀 나머지 모든 파트(진행자·문제 분석·올바른 방법·마무리)를 읽는다. tools/tts_narration.py v1.1 이 읽는다. 사용법: guides/tts_guide.md 5번",
+  "_버전": "v1.0 — 2026-10-10 — 최초 작성 (tts_narration v1.0 의 진행·설명·마무리 말투를 그대로 옮김)",
+  "_항목": "각 항목 뜻은 voices/storyteller.json 의 _항목 과 같다. parts 의 \"*\" 는 다른 역할이 맡지 않은 모든 파트",
+  "role": "host",
+  "name": "진행자",
+  "parts": ["*"],
+  "speaker": "Sohee",
+  "preset": "",
+  "instruct": "A calm, trustworthy narrator of an investment-education channel. Warm and empathetic, steady medium pace, clear articulation, no exaggeration.",
+  "part_instruct": {
+    "분석": "A clear, composed documentary narrator explaining data. Confident and steady, medium pace, numbers pronounced distinctly, light emphasis on key figures.",
+    "방법": "A clear, composed documentary narrator explaining data. Confident and steady, medium pace, numbers pronounced distinctly, light emphasis on key figures.",
+    "마무리": "A warm, gentle narrator closing the episode. Kind and encouraging, slightly slower, a soft smile in the voice."
+  },
+  "seed": 1234,
+  "gap": 0.45,
+  "generation": {}
+}

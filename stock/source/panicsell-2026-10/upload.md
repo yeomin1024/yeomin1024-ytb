@@ -1,9 +1,9 @@
 # panicsell-2026-10 업로드 시트
 
-버전: v1.0 — 2026-10-10 — 최초 작성 (`guides/upload_guide.md` v1.1, `stock/guides/upload_rules.md` v1.0)
-기준 파일: 대본 `panicsell-2026-10.txt` v1.0 · SRT 문장 92 / 자막 109 (고지 공백 8초가 SRT 안에 있음) · 영상 `stock/out/panicsell-2026-10/final_1080p.mp4` (**아직 없음** — 영상 제작 전)
+버전: v1.1 — 2026-10-10 — 대본 v1.1(문장 80~85 최신 사례로 교체)에 맞춰 자막 수·정리 챕터 시간(8:01 → 8:09)·출처·태그 갱신 (v1.0: 최초 작성 (`guides/upload_guide.md` v1.1, `stock/guides/upload_rules.md` v1.0)
+기준 파일: 대본 `panicsell-2026-10.txt` v1.1 · SRT 문장 92 / 자막 111 (고지 공백 8초가 SRT 안에 있음) · 영상 `stock/out/panicsell-2026-10/final_1080p.mp4` (**아직 없음** — 영상 제작 전)
 
-> ⚠️ 영상은 아직 만들지 않았다. 아래 챕터 시간은 SRT 추정 타이밍(초당 5.2음절, 전체 8분 20초) 기준이다.
+> ⚠️ 영상은 아직 만들지 않았다. 아래 챕터 시간은 SRT 추정 타이밍(초당 5.2음절, 전체 8분 28초, 대본 v1.1) 기준이다.
 > 내레이션을 녹음하면 `video/`에서 `npm run align-audio -- stock panicsell-2026-10`으로 SRT를 오디오에 맞춘다 (오디오는 고치지 않음). 그 뒤 영상을 만들고 3번 명령으로 챕터를 다시 계산한다.
 
 ## 1. 제목 (`titles.md` T1, 63자)
@@ -37,7 +37,7 @@
 6:03 기준 셋째: 팔아도 정해 둔 만큼만
 6:32 기준 넷째: 다시 살 날짜와 금액 정하기
 7:05 기준 다섯째: 계좌는 정해 둔 날에만
-8:01 정리
+8:09 정리
 
 ■ 사연에 대해
 이 영상의 사연은 실제 주가 흐름(삼성전자, 2026년 2~4월)을 바탕으로 재구성한 이야기입니다. 사연 속 인물과 금액은 이해를 돕기 위한 예시입니다.
@@ -52,7 +52,7 @@
 - J.P. Morgan Guide to Retirement 2026: https://am.jpmorgan.com/content/dam/jpm-am-aem/global/en/insights/retirement-insights/guide-to-retirement-us.pdf
 - MIT 패닉셀 연구 (Elkind 외, 2022): https://dspace.mit.edu/handle/1721.1/141712
 - Morningstar Mind the Gap 2025: https://www.morningstar.com/content/cs-assets/v3/assets/blt9415ea4cc4157833/blt2c5c4d9171638c42/689b424311f3880edc4b4813/US_Mind_the_Gap_2025.pdf
-- Thaler 외 (1997), The Effect of Myopia and Loss Aversion on Risk Taking: https://faculty.chicagobooth.edu/-/media/faculty/richard-thaler/assets/files/the-effect-of-myopia-and-loss-aversion-on-risk-taking-an-experimental-test.pdf
+- 자본시장연구원 (2021), 코로나19 국면의 개인투자자: 투자행태와 투자성과: https://www.kcmi.re.kr/report/report_view?report_no=1243
 
 ■ 투자 유의 사항
 이 영상은 투자 교육과 정보 제공을 위한 것이며, 특정 종목의 매수나 매도를 권유하지 않습니다.
@@ -73,7 +73,7 @@ python tools/srt_tool.py upload stock/source/panicsell-2026-10/panicsell-2026-10
 ## 4. 태그 (15개)
 
 ```
-패닉셀, 하락장, 주식 폭락, 코스피 폭락, 서킷브레이커, 주식 손실, 주식, 주식 투자, 주식 초보, 주식 공부, 국내 주식, 삼성전자, 장기 투자, 투자 심리, 리처드 탈러
+패닉셀, 하락장, 주식 폭락, 코스피 폭락, 서킷브레이커, 주식 손실, 주식, 주식 투자, 주식 초보, 주식 공부, 국내 주식, 삼성전자, 장기 투자, 투자 심리, 개인투자자
 ```
 
 ## 5. 고정 댓글

@@ -9,7 +9,9 @@
     "still": "remotion still",
     "typecheck": "tsc --noEmit",
     "postinstall": "node scripts/get-fonts.mjs",
-    "fonts": "node scripts/get-fonts.mjs"
+    "fonts": "node scripts/get-fonts.mjs",
+    "align-audio": "node scripts/align-audio.mjs",
+    "storyboard": "node scripts/storyboard.mjs"
   },
   "dependencies": {
     "@remotion/cli": "4.0.534",

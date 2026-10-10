@@ -1,10 +1,10 @@
-// multagi-2026-10 — 기준 없는 물타기 (자막 91개 + 고지 카드 1개)
+// multagi-2026-10 — 기준 없는 물타기 (문장 91 / 자막 110 + 고지 카드 1개, 번호는 대본 문장 번호)
 // 장면 구성표: stock/out/multagi-2026-10/scene_plan.md · 데이터 시트: ./facts.ts
 // ※ 투자 교육용 영상. 특정 종목의 매수·매도 권유가 아님.
 import React from "react";
-import {AbsoluteFill, Sequence} from "remotion";
+import {AbsoluteFill, Html5Audio, Sequence, staticFile} from "remotion";
 import {Bg, C, FPS} from "../../design/tokens";
-import {makeTimeline, sceneTime} from "../../components/timeline";
+import {Src, makeTimeline, sceneTime} from "../../components/timeline";
 import {Scene, WIPE} from "../../components/ui";
 import {DisclaimerCard, ReconCaption, Subtitles} from "../../components/overlays";
 import {SRC} from "./subtitles";
@@ -15,7 +15,8 @@ import {S07, S08, S09, S10} from "./scenes/host";
 import {S11, S12, S13, S14, S15, S16, S17, S18, S19, S20, S21, S22} from "./scenes/problems";
 import {S23, S24, S25, S26, S27, S28, S29, S30, S31} from "./scenes/methods";
 
-export const tl = makeTimeline(SRC, FPS);
+const SOURCE: Src = SRC;
+export const tl = makeTimeline(SOURCE, FPS);
 
 // 장면 구성(자막 범위·배경·전환·연출 설명)은 plan.ts, 여기서는 장면 컴포넌트만 연결한다
 const SCENES: Record<string, SceneC> = {
@@ -51,10 +52,11 @@ export const Episode: React.FC = () => (
       );
     })}
     {tl.cards.map((c) => (
-      <Sequence key={`card-${c.afterSub}`} name="고지 카드" from={c.from} durationInFrames={c.to - c.from}>
+      <Sequence key={`card-${c.afterSentence}`} name="고지 카드" from={c.from} durationInFrames={c.to - c.from}>
         <DisclaimerCard card={c} />
       </Sequence>
     ))}
+    {SOURCE.audio ? <Html5Audio src={staticFile(SOURCE.audio.file)} /> : null}
     <ReconCaption text={RECON} from={tl.s(1)} to={tl.e(14)} />
     <Subtitles subs={tl.subs} bgAt={bgAt} />
   </AbsoluteFill>

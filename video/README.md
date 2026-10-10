@@ -14,7 +14,10 @@
 | 미리보기 (브라우저) | `npm run studio` |
 | 타입 검사 | `npm run typecheck` |
 | 장면 구성표 + 스토리보드 | `node scripts/storyboard.mjs multagi-2026-10 ../stock/out/multagi-2026-10` (고친 장면만: `--only S05,S13`) |
+| 내레이션에 SRT 맞추기 | `npm run align-audio -- stock multagi-2026-10` (오디오: `stock/source/<영상ID>/narration.mp3·wav·m4a` 또는 `--audio <파일>`) — 오디오는 고치지 않음 |
 | 완성 영상 렌더 | `npx remotion render multagi-2026-10 ../stock/out/multagi-2026-10/final_1080p.mp4 --codec=h264 --crf=18` |
 
 - 자막·고지 카드 데이터는 대본에서 만든다 (저장소 최상위에서): `python tools/srt_tool.py remotion <TXT> <SRT> video/src/episodes/<영상ID>/subtitles.ts`
-- 내레이션(`narration.mp3`)을 넣는 기능은 아직 없다. 녹음 파일이 생기면 SRT 타이밍을 맞춘 뒤 `Episode.tsx`에 오디오를 추가한다 (고지 카드 지점에서 오디오를 나눠야 함 — video_guide 2번).
+- 번호는 모두 **대본 문장 번호**다 (SRT 번호 아님). 긴 문장은 앞줄·뒷줄 자막 2개 → 뒷줄 내용 그림은 `t.b(n)`.
+- 고지 카드는 SRT 안의 공백(3.5초 이상)에 들어간다. 코드에서 자막·오디오를 밀지 않는다 (SRT = 영상 시간).
+- `npm run align-audio`는 오디오를 `public/audio/<영상ID>.<확장자>`로 복사하고(원본 그대로, git 제외) `subtitles.ts`에 넣는다 → 영상 길이 = max(마지막 자막 + 1초, 오디오 길이).

@@ -23,13 +23,13 @@
 | 0 | (선택) 분석 다시 돌리기 → `data_insights.md` 갱신 | 저장소 `README.md`의 분석기 사용법 | `result/`, `guides/data_insights.md` |
 | 1 | 주제 고르기 | `title_guide.md` 0번 | (대화) |
 | 2 | 제목 후보 → 사용자 선택 | `title_guide.md` 7·10번 | `titles/title_candidates_<날짜>.md` |
-| 3 | 대본 TXT·SRT·README | `script_guide.md` | `source/<영상ID>/` |
+| 3 | 대본 TXT·SRT·README — SRT 검사: 문장 / 자막 / SRT–TXT 일치 / 고지 공백 | `script_guide.md` 5-2 | `source/<영상ID>/` |
 | 4 | 영상별 제목 3개 | `title_guide.md` 11번 | `source/<영상ID>/titles.md` |
 | 5 | 썸네일 프롬프트 3개 | `thumbnail_guide.md` | `source/<영상ID>/thumbnails/thumbnail_1~3.md` |
-| 6 | 내레이션 녹음(`narration.mp3`)·배경음악(`bgm.mp3`) 넣기 | `video_guide.md` 0번 | `source/<영상ID>/` |
+| 6 | 내레이션 녹음(`narration.mp3`, 고지 카드 자리 3.5초 이상 쉼)·배경음악(`bgm.mp3`) 넣기 → `npm run align-audio`로 SRT 맞춤 (오디오는 고치지 않음) | `video_guide.md` 2번 | `source/<영상ID>/` |
 | 7 | 장면 구성표 → 스토리보드 → **사용자 승인** → 렌더 | `video_guide.md` | `out/<영상ID>/` |
 | 8 | 썸네일 3장: 사용자가 프롬프트로 이미지 AI에서 만들기 | `thumbnail_guide.md` 5번 | (선택) `out/<영상ID>/thumbnails/` |
-| 9 | 업로드 시트 (설명란·챕터·태그·고정 댓글) + 업로드용 SRT | `upload_guide.md` | `source/<영상ID>/upload.md`, `<영상ID>.upload.srt` |
+| 9 | 업로드 시트 (설명란·챕터·태그·고정 댓글). 자막은 SRT 그대로 업로드 | `upload_guide.md` | `source/<영상ID>/upload.md` |
 | 10 | 업로드 후 "테스트 및 비교"·시청 지속 결과 기록 | `upload_guide.md` 7번, `title_guide.md` 11번, `thumbnail_guide.md` 8번 | `upload.md`, `titles.md`, `thumbnails/*.md` 결과 칸 |
 
 Claude Code에 시킬 때 예시:

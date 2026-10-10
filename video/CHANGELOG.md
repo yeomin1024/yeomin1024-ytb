@@ -1,5 +1,13 @@
 # video/ 변경 이력 (guides/video_guide.md 2번 규칙)
 
+## 2026-10-10 — 공통 v1.1 · multagi-2026-10 (사용자 지시: 문장 번호·자막 한 줄·고지 공백·align-audio)
+- `components/timeline.ts`: SRT 번호 → **대본 문장 번호** 기준. 문장마다 앞줄·뒷줄(parts), `t.b(n)` = 뒷줄 자막 시작. 고지 카드를 코드에서 밀던 계산 삭제 → SRT 안의 공백(cards.start~end)에 카드
+- `components/overlays.tsx`: 자막 늘 한 줄 (띠 좌우 여백 34px → 글자 폭 1432px)
+- `scripts/align-audio.mjs` (신규, `npm run align-audio`): ffmpeg 쉼 찾기 + 동적 계획법으로 SRT를 내레이션에 맞춤 (오디오는 고치지 않음, 고지 공백 3.5초 확인, 옛 SRT 백업, check·내보내기까지). 가짜 내레이션 시험: 문장 시작 오차 평균 0.002초·최대 0.10초(91문장 2회), 뒷줄 시작 오차 평균 0.09~0.12초, 카드 쉼이 짧으면 멈춤
+- `scripts/storyboard.mjs`: 문장 번호 기준 표기, `npm run storyboard`
+- `episodes/multagi-2026-10/Episode.tsx`: 내레이션이 있으면 `Html5Audio`로 넣음 (subtitles.ts의 audio)
+- multagi-2026-10 뒷줄 내용 동기화: 문장 2·11·20·28·32·33·41·51·52·54·68·72·79·81·82·84·86·87·88의 뒷줄 내용 요소를 `b(n)`으로 옮김. 문장 84 앞줄의 "관세 충격"이 문장 83에 먼저 나오던 것도 고침. 뒷줄 자막 시작 3프레임 전 still로 확인(문장 32·79·87)
+
 ## 2026-10-09 — multagi-2026-10 (첫 영상) · 공통 프로젝트 v1.0
 - 프로젝트 생성: Remotion 4.0.534, React 18.3.1, TypeScript 5.6.3, 1920×1080 30fps
 - 공통 `src/design/`: `tokens.ts`(색·크기·모션 상수, video_guide 3-1~3-4), `fonts.ts`(로컬 한글 폰트 로드 + delayRender)

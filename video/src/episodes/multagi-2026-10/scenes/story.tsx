@@ -20,10 +20,10 @@ const CARD_X = 140;
 const CARD_Y = 170;
 const RIGHT_X = 1250;
 
-// S01 자막 1–3: 뉴스 카드(-22%) → 의료비↑·실적 전망↓ → 생각 말풍선
+// S01 문장 1–3: 뉴스 카드(-22%) → 의료비↑·실적 전망↓(문장 2 뒷줄) → 생각 말풍선
 export const S01: SceneC = ({t}) => {
   const f = useCurrentFrame();
-  const {a} = t;
+  const {a, b} = t;
   const d = count(f, a(1, 0.55), 0, -F.drop1.v);
   return (
     <>
@@ -39,15 +39,15 @@ export const S01: SceneC = ({t}) => {
       </Box>
       <Box x={1140} y={240} w={640}>
         <div style={{display: "flex", flexDirection: "column", alignItems: "center", gap: 18}}>
-          <div style={vis(f, a(2, 0.3), a(3))}>
+          <div style={vis(f, b(2), a(3))}>
             <Chip variant="outline" size={52}>
               의료비 ↑
             </Chip>
           </div>
           <div style={{opacity: fadeOut(f, a(3))}}>
-            <Arrow dir="down" len={110} at={a(2, 0.45)} />
+            <Arrow dir="down" len={110} at={b(2, 0.25)} />
           </div>
-          <div style={vis(f, a(2, 0.6), a(3))}>
+          <div style={vis(f, b(2, 0.45), a(3))}>
             <Chip variant="outline" size={52}>
               실적 전망 <span style={{color: C.loss}}>↓</span>
             </Chip>
@@ -65,7 +65,7 @@ export const S01: SceneC = ({t}) => {
   );
 };
 
-// S02 자막 4–5: 계좌 카드 (8,000만 원 중 5,000만 원 매수) → 일주일 만에 -200만 원
+// S02 문장 4–5: 계좌 카드 (8,000만 원 중 5,000만 원 매수) → 일주일 만에 -200만 원
 export const S02: SceneC = ({t}) => {
   const f = useCurrentFrame();
   const {a} = t;
@@ -88,7 +88,7 @@ export const S02: SceneC = ({t}) => {
   );
 };
 
-// S03 자막 6–8: 같은 계좌 카드에 물타기 ①② (+1,500만 원씩) → 평단 ↓ + "조금만 반등해도 본전"
+// S03 문장 6–8: 같은 계좌 카드에 물타기 ①② (+1,500만 원씩) → 평단 ↓ + "조금만 반등해도 본전"
 export const S03: SceneC = ({t}) => {
   const f = useCurrentFrame();
   const {a} = t;
@@ -136,7 +136,7 @@ export const S03: SceneC = ({t}) => {
   );
 };
 
-// S04 자막 9: 개념도 — 기대한 반등(점선)은 오지 않고 선이 계속 내려감
+// S04 문장 9: 개념도 — 기대한 반등(점선)은 오지 않고 선이 계속 내려감
 export const S04: SceneC = ({t}) => {
   const {a} = t;
   const fall: [number, number][] = [
@@ -182,10 +182,10 @@ export const S04: SceneC = ({t}) => {
   );
 };
 
-// S05 자막 10–12 (네이비): 같은 계좌 카드 -200만 → -2,000만 원 + 흔들림, 뉴스 카드(전망 철회·CEO 사임, 약 -18%)
+// S05 문장 10–12 (네이비): 같은 계좌 카드 -200만 → -2,000만 원 + 흔들림, 뉴스 카드(전망 철회·CEO 사임, 약 -18%)
 export const S05: SceneC = ({t}) => {
   const f = useCurrentFrame();
-  const {a} = t;
+  const {a, b} = t;
   const hit = a(10, 0.6);
   const pnl = count(f, hit, F.pnlWeek.v, F.pnlCrash.v, 24);
   const d = count(f, a(12, 0.35), 0, -F.drop2.v);
@@ -215,7 +215,7 @@ export const S05: SceneC = ({t}) => {
               <>
                 실적 전망 철회
                 <br />
-                CEO 사임
+                <span style={{opacity: enter(f, b(11))}}>CEO 사임</span>
               </>
             }
           >
@@ -232,7 +232,7 @@ export const S05: SceneC = ({t}) => {
   );
 };
 
-// S06 자막 13–14 (네이비): 물타기 +3,000만 원 → 손실 ↑ / 물타기 버튼이 눌림
+// S06 문장 13–14 (네이비): 물타기 +3,000만 원 → 손실 ↑ / 물타기 버튼이 눌림
 export const S06: SceneC = ({t}) => {
   const f = useCurrentFrame();
   const {a} = t;

@@ -21,7 +21,7 @@ const T02 = "떨어진 가격 ≠ 싼 가격";
 const T03 = "손실 종목을 너무 오래 붙잡는다";
 const T04 = "만회하려는 물타기, 멈추기 어렵다";
 
-// S11 자막 24–25: "01" → 사연 계좌 카드(간단형)에 물타기 3,000만 원이 더해짐
+// S11 문장 24–25: "01" → 사연 계좌 카드(간단형)에 물타기 3,000만 원이 더해짐
 export const S11: SceneC = ({t}) => {
   const f = useCurrentFrame();
   const {a} = t;
@@ -57,7 +57,7 @@ export const S11: SceneC = ({t}) => {
   );
 };
 
-// S12 자막 26–27: 화면 분할 — 평단 428→415달러(약 -3%) vs 걸린 돈 5,000만→8,000만 원(+60%)
+// S12 문장 26–27: 화면 분할 — 평단 428→415달러(약 -3%) vs 걸린 돈 5,000만→8,000만 원(+60%)
 export const S12: SceneC = ({t}) => {
   const f = useCurrentFrame();
   const {a} = t;
@@ -100,10 +100,10 @@ export const S12: SceneC = ({t}) => {
   );
 };
 
-// S13 자막 28–29: 폭락한 날 손실 막대 (물타기 함 -2,000만 vs 안 함) 차이 600만 원+ → 같은 종목에 쌓이는 돈
+// S13 문장 28–29: 폭락한 날 손실 막대 (물타기 함 -2,000만 vs 안 함) 차이 600만 원+ → 같은 종목에 쌓이는 돈
 export const S13: SceneC = ({t}) => {
   const f = useCurrentFrame();
-  const {a} = t;
+  const {a, b} = t;
   const out = a(29);
   const baseY = 715;
   const maxH = 310;
@@ -111,7 +111,7 @@ export const S13: SceneC = ({t}) => {
   const topL = baseY - maxH;
   const topR = baseY - maxH * hR;
   const bx = 1390;
-  const bp = prog(f, a(28, 0.65), 12);
+  const bp = prog(f, b(28), 12);
   return (
     <>
       <NumberTitle no="01" at={STATIC} title={T01} />
@@ -137,9 +137,9 @@ export const S13: SceneC = ({t}) => {
         <div style={{position: "absolute", left: 760, top: topL - 3, width: (bx - 760) * bp, borderTop: `5px dashed ${C.loss}`}} />
         <div style={{position: "absolute", left: bx - 3, top: topL, width: 6, height: (topR - topL) * bp, background: C.loss}} />
         <Box x={bx + 30} y={(topL + topR) / 2 - 36}>
-          <div style={vis(f, a(28, 0.7))}>
+          <div style={vis(f, b(28, 0.1))}>
             <Label size={48} weight={900}>
-              <Hi at={a(28, 0.8)} until={out}>
+              <Hi at={b(28, 0.3)} until={out}>
                 {F.extraLoss.v}만 원 넘게 ↑
               </Hi>
             </Label>
@@ -174,7 +174,7 @@ export const S13: SceneC = ({t}) => {
   );
 };
 
-// S14 자막 30–31: "02" → 떨어지는 선(개념도)과 "이유?"
+// S14 문장 30–31: "02" → 떨어지는 선(개념도)과 "이유?"
 export const S14: SceneC = ({t}) => {
   const f = useCurrentFrame();
   const {a} = t;
@@ -243,14 +243,14 @@ const CaseCard: React.FC<{x: number; date: string; pct: number; approx?: boolean
   );
 };
 
-// S15 자막 32–36: 사례 카드 3장 — 4월 17일 -22% / 5월 13일 약 -18% / 5월 15일 약 -11% + 메디케어 사기 혐의
+// S15 문장 32–36: 사례 카드 3장 — 4월 17일 -22% / 5월 13일 약 -18% / 5월 15일 약 -11% + 메디케어 사기 혐의
 export const S15: SceneC = ({t}) => {
   const f = useCurrentFrame();
-  const {a} = t;
+  const {a, b} = t;
   return (
     <>
       <NumberTitle no="02" at={STATIC} title={T02} />
-      <CaseCard x={140} date={F.d1.v} pct={F.drop1.v} cause="실적 전망 하향" at={a(32)} causeAt={a(32, 0.25)} pctAt={a(32, 0.6)} />
+      <CaseCard x={140} date={F.d1.v} pct={F.drop1.v} cause="실적 전망 하향" at={a(32)} causeAt={b(32)} pctAt={b(32, 0.45)} />
       <CaseCard
         x={700}
         date={F.d2.v}
@@ -265,7 +265,7 @@ export const S15: SceneC = ({t}) => {
         }
         at={a(33)}
         causeAt={a(33, 0.25)}
-        pctAt={a(33, 0.65)}
+        pctAt={b(33, 0.1)}
       />
       <CaseCard x={1260} date={F.d3.v} pct={F.drop3.v} approx cause="법무부 수사 보도" at={a(34)} pctAt={a(34, 0.35)} causeAt={a(35)} />
       <div style={{position: "absolute", right: 140, top: 690, ...vis(f, a(36))}}>
@@ -277,7 +277,7 @@ export const S15: SceneC = ({t}) => {
   );
 };
 
-// S16 자막 37–39: 실제 주가 흐름 585달러 → 274달러(절반 아래) → 2026년 10월 376달러, 평단 415달러 점선
+// S16 문장 37–39: 실제 주가 흐름 585달러 → 274달러(절반 아래) → 2026년 10월 376달러, 평단 415달러 점선
 const yv = (v: number) => 720 - (v - 250) * 1.2;
 const CRASH: P[] = [
   [220, yv(585.04)], // 4/16
@@ -337,10 +337,10 @@ export const S16: SceneC = ({t}) => {
   );
 };
 
-// S17 자막 40–42: "03" → 연구 카드 (테런스 오딘 교수 · 계좌 1만 개 · 1987년부터 7년)
+// S17 문장 40–42: "03" → 연구 카드 (테런스 오딘 교수 · 계좌 1만 개 · 1987년부터 7년)
 export const S17: SceneC = ({t}) => {
   const f = useCurrentFrame();
-  const {a} = t;
+  const {a, b} = t;
   return (
     <>
       <NumberTitle
@@ -358,7 +358,7 @@ export const S17: SceneC = ({t}) => {
             <Label size={44}>
               {F.odean.v} 교수 · {F.odeanOrg.v}
             </Label>
-            <div style={{display: "flex", alignItems: "baseline", gap: 24, marginTop: 18, opacity: enter(f, a(41, 0.6))}}>
+            <div style={{display: "flex", alignItems: "baseline", gap: 24, marginTop: 18, opacity: enter(f, b(41))}}>
               <Label size={56} weight={700}>
                 개인 투자자 계좌
               </Label>
@@ -376,7 +376,7 @@ export const S17: SceneC = ({t}) => {
   );
 };
 
-// S18 자막 43–45: 파는 비율 (손실 종목 vs 수익 종목 1.5배) → 그 뒤 1년 수익률 차이 3.4%p (개념도)
+// S18 문장 43–45: 파는 비율 (손실 종목 vs 수익 종목 1.5배) → 그 뒤 1년 수익률 차이 3.4%p (개념도)
 export const S18: SceneC = ({t}) => {
   const f = useCurrentFrame();
   const {a} = t;
@@ -442,7 +442,7 @@ export const S18: SceneC = ({t}) => {
   );
 };
 
-// S19 자막 46–47: 천칭 저울 — "본전 기다림"이 "수익"보다 무거움 → 물타기 돈이 더 얹혀 더 기울어짐
+// S19 문장 46–47: 천칭 저울 — "본전 기다림"이 "수익"보다 무거움 → 물타기 돈이 더 얹혀 더 기울어짐
 export const S19: SceneC = ({t}) => {
   const f = useCurrentFrame();
   const {a} = t;
@@ -474,7 +474,7 @@ export const S19: SceneC = ({t}) => {
   );
 };
 
-// S20 자막 48–51 (네이비): "04" → 1995 베어링스 은행 붕괴 → 1762~1995 233년 → 닉 리슨, 손실 날 때마다 베팅 ↑ (개념도)
+// S20 문장 48–51 (네이비): "04" → 1995 베어링스 은행 붕괴 → 1762~1995 233년 → 닉 리슨, 손실 날 때마다 베팅 ↑ (개념도)
 const BETS = [70, 120, 190, 270];
 const BetBars: React.FC<{at: number[]; extra?: {h: number; at: number}}> = ({at, extra}) => {
   const f = useCurrentFrame();
@@ -491,8 +491,8 @@ const BetBars: React.FC<{at: number[]; extra?: {h: number; at: number}}> = ({at,
 };
 export const S20: SceneC = ({t}) => {
   const f = useCurrentFrame();
-  const {a} = t;
-  const bet0 = a(51, 0.45);
+  const {a, b} = t;
+  const bet0 = b(51);
   return (
     <>
       <NumberTitle no="04" at={a(48)} title={T04} />
@@ -527,10 +527,10 @@ export const S20: SceneC = ({t}) => {
   );
 };
 
-// S21 자막 52–55 (네이비): 1995년 1월 고베 대지진 → 손절 안 함 → 반등에 더 크게 → -8억 2,700만 파운드, 1파운드에 매각 → 본전 생각
+// S21 문장 52–55 (네이비): 1995년 1월 고베 대지진 → 손절 안 함 → 반등에 더 크게 → -8억 2,700만 파운드, 1파운드에 매각 → 본전 생각
 export const S21: SceneC = ({t}) => {
   const f = useCurrentFrame();
-  const {a} = t;
+  const {a, b} = t;
   const out = a(54);
   const loss = count(f, a(54, 0.1), 0, -F.baringsLoss.v, 28);
   return (
@@ -539,9 +539,9 @@ export const S21: SceneC = ({t}) => {
       <div style={{position: "absolute", inset: 0, opacity: fadeOut(f, out)}}>
         <Box x={140} y={290}>
           <div style={vis(f, a(52))}>
-            <NewsCard date={`${F.baringsYear.v}년 1월`} title="일본 고베 대지진" sub="→ 일본 주가 급락" width={860}>
-              <div style={{display: "flex", alignItems: "center", gap: 16, marginTop: 22, opacity: enter(f, a(52, 0.75))}}>
-                <Mark kind="cross" at={a(52, 0.75)} size={56} color={C.ink} />
+            <NewsCard date={`${F.baringsYear.v}년 1월`} title="일본 고베 대지진" sub={<span style={{opacity: enter(f, b(52))}}>→ 일본 주가 급락</span>} width={860}>
+              <div style={{display: "flex", alignItems: "center", gap: 16, marginTop: 22, opacity: enter(f, b(52, 0.5))}}>
+                <Mark kind="cross" at={b(52, 0.5)} size={56} color={C.ink} />
                 <Label size={44}>손절 안 함</Label>
               </div>
             </NewsCard>
@@ -560,7 +560,7 @@ export const S21: SceneC = ({t}) => {
         </div>
       </Box>
       <Box x={960} y={510} w={1200} center>
-        <div style={vis(f, a(54, 0.65))}>
+        <div style={vis(f, b(54))}>
           <Chip size={46}>은행은 단돈 {F.soldFor.v}에 매각</Chip>
         </div>
       </Box>
@@ -575,7 +575,7 @@ export const S21: SceneC = ({t}) => {
   );
 };
 
-// S22 자막 56–58: 갈림길(개념도) — 통한 경우(위, 빨강) / 결과는 미리 모름(?) → "물타기·손절, 어떤 기준으로?"
+// S22 문장 56–58: 갈림길(개념도) — 통한 경우(위, 빨강) / 결과는 미리 모름(?) → "물타기·손절, 어떤 기준으로?"
 export const S22: SceneC = ({t}) => {
   const f = useCurrentFrame();
   const {a} = t;

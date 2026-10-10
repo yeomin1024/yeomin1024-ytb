@@ -13,8 +13,8 @@
 | `guides/upload_rules.md` | 주식 업로드 규칙: 설명란 필수 고지·출처, 태그 묶음, 스팸 차단 단어 |
 | `titles/` | 제목 피드백 시트 (1차 50개 — 표시 완료, 2차 36개 — 표시 전) |
 | `source/used_content.md` | 이전 대본과의 중복 방지 목록 |
-| `source/molppang-2026-10/` | 몰빵 영상 SRT (제작 완료) |
-| `source/multagi-2026-10/` | 물타기 영상: 대본 v1.3 TXT·SRT, README(검산·출처), `titles.md`(제목 3개, T1 채택), `thumbnails/`(썸네일 프롬프트 3개), `upload.md`(업로드 시트), `.upload.srt`(업로드용 자막) |
+| `source/molppang-2026-10/` | 몰빵 영상 v2.0: 엔론 5문장 삭제한 대본 TXT·SRT(문장 91 / 자막 117, 문장 18 뒤 고지 공백), README(옛→새 번호 대응표) |
+| `source/multagi-2026-10/` | 물타기 영상: 대본 v1.3 TXT·SRT, README(검산·출처), `titles.md`(제목 3개, T1 채택), `thumbnails/`(썸네일 프롬프트 3개), `upload.md`(업로드 시트). SRT: 문장 91 / 자막 110 |
 | `out/multagi-2026-10/` | 물타기 영상 `scene_plan.md`(장면 구성표), `storyboard/`(장면 still 44장 + `index.html`). 완성 영상 `final_1080p.mp4`는 용량 때문에 git에 올리지 않음 |
 
 ## 분석 다시 돌리기

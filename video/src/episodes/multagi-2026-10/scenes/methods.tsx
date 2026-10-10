@@ -13,13 +13,14 @@ import {SceneC} from "./story";
 
 const STATIC = -60;
 const T4 = "손절 가격을 미리 정하고 지키기";
-const T5 = (at?: number) => (
+// 문장 81은 앞줄(세 가지가 모두 맞을 때만)·뒷줄(정해 둔 금액 안에서)로 나뉜다 → 뒷줄 문구는 back 투명도로
+const T5 = (at?: number, back = 1) => (
   <>
-    {at === undefined ? "세 가지" : <Hi at={at}>세 가지</Hi>}가 맞을 때만, 정한 금액 안에서
+    {at === undefined ? "세 가지" : <Hi at={at}>세 가지</Hi>}가 맞을 때만,<span style={{opacity: back}}> 정한 금액 안에서</span>
   </>
 );
 
-// S23 자막 59–63: "첫째" → 메모 카드 2장: 사연자의 이유(✗ 판단 못 함) vs 실적이 좋아질 것(✓ 기준) → 5월 13일 이유 깨짐
+// S23 문장 59–63: "첫째" → 메모 카드 2장: 사연자의 이유(✗ 판단 못 함) vs 실적이 좋아질 것(✓ 기준) → 5월 13일 이유 깨짐
 export const S23: SceneC = ({t}) => {
   const f = useCurrentFrame();
   const {a} = t;
@@ -115,7 +116,7 @@ const Panel: React.FC<{x: number; y: number; title: React.ReactNode; at: number;
 };
 const flat = (y: number, wob: number[]): P[] => wob.map((w, i) => [i * (680 / (wob.length - 1)), y + w]);
 
-// S24 자막 64–67: "둘째" → 패널 2개: 그 회사만 떨어짐(왼쪽) vs 시장 전체가 함께(오른쪽) → 4월 17일 → 4월 23일 엿새 뒤 → 물타기 ✗
+// S24 문장 64–67: "둘째" → 패널 2개: 그 회사만 떨어짐(왼쪽) vs 시장 전체가 함께(오른쪽) → 4월 17일 → 4월 23일 엿새 뒤 → 물타기 ✗
 export const S24: SceneC = ({t}) => {
   const f = useCurrentFrame();
   const {a} = t;
@@ -179,13 +180,13 @@ export const S24: SceneC = ({t}) => {
   );
 };
 
-// S25 자막 68–72: "셋째" → 5월 9일 381달러 / 평단 424달러(취소선, 앞날과 무관) / 처음 본다면 1,500만 원 새로? → 산다면 그때만 물타기
+// S25 문장 68–72: "셋째" → 5월 9일 381달러 / 평단 424달러(취소선, 앞날과 무관) / 처음 본다면 1,500만 원 새로? → 산다면 그때만 물타기
 export const S25: SceneC = ({t}) => {
   const f = useCurrentFrame();
-  const {a} = t;
+  const {a, b} = t;
   return (
     <>
-      <NumberTitle no="셋째" at={a(68)} title="평단은 잊고, 지금 가격으로" />
+      <NumberTitle no="셋째" at={a(68)} title={<>평단은 잊고,<span style={{opacity: enter(f, b(68))}}> 지금 가격으로</span></>} />
       <Box x={140} y={280}>
         <div style={vis(f, a(69))}>
           <Chip size={40}>{F.lastAddDay.v} 주가</Chip>
@@ -212,10 +213,10 @@ export const S25: SceneC = ({t}) => {
             <Label size={46}>
               처음 본다면, {F.p381.v}달러에 {won(F.add2.v)}을 새로 넣을까?
             </Label>
-            <div style={{display: "flex", alignItems: "center", gap: 12, ...vis(f, a(72, 0.6))}}>
-              <Mark kind="check" at={a(72, 0.65)} size={54} color={C.ink} />
+            <div style={{display: "flex", alignItems: "center", gap: 12, ...vis(f, b(72))}}>
+              <Mark kind="check" at={b(72, 0.1)} size={54} color={C.ink} />
               <Label size={46} weight={900}>
-                <Hi at={a(72, 0.75)}>산다 → 그때만</Hi>
+                <Hi at={b(72, 0.3)}>산다 → 그때만</Hi>
               </Label>
             </div>
           </Card>
@@ -232,7 +233,7 @@ export const S25: SceneC = ({t}) => {
   );
 };
 
-// S26 자막 73–76: "넷째" → 처음 산 가격 428달러 / -10% 손절 가격 385달러 → 실제 주가가 5월 9일 그 아래로
+// S26 문장 73–76: "넷째" → 처음 산 가격 428달러 / -10% 손절 가격 385달러 → 실제 주가가 5월 9일 그 아래로
 const yp = (v: number) => 360 + (428 - v) * (240 / 43); // 428 → 360, 385 → 600
 export const S26: SceneC = ({t}) => {
   const f = useCurrentFrame();
@@ -283,14 +284,14 @@ export const S26: SceneC = ({t}) => {
   );
 };
 
-// S27 자막 77–80: 기준대로 팔았다면 -500만 원에서 멈춤 → 5월 9일 = 마지막 물타기 날 → 분할(기준 없음 -2,000만 vs 기준 있음 -500만) → 휴대폰 자동 매도
+// S27 문장 77–80: 기준대로 팔았다면 -500만 원에서 멈춤 → 5월 9일 = 마지막 물타기 날 → 분할(기준 없음 -2,000만 vs 기준 있음 -500만) → 휴대폰 자동 매도
 export const S27: SceneC = ({t}) => {
   const f = useCurrentFrame();
-  const {a} = t;
+  const {a, b} = t;
   const sp = a(79);
   const ph = a(80);
-  const lossL = count(f, a(79, 0.25), 0, F.pnlCrash.v);
-  const lossR = count(f, a(79, 0.25), 0, F.stopLoss.v);
+  const lossL = count(f, b(79, 0.15), 0, F.pnlCrash.v);
+  const lossR = count(f, a(79, 0.2), 0, F.stopLoss.v);
   return (
     <>
       <NumberTitle no="넷째" at={STATIC} title={T4} />
@@ -315,7 +316,7 @@ export const S27: SceneC = ({t}) => {
       <div style={{position: "absolute", inset: 0, opacity: enter(f, sp) * fadeOut(f, ph)}}>
         <div style={{position: "absolute", left: 958, top: 290, width: 4, height: 420, background: C.gray}} />
         <Box x={140} y={320} w={780} center={false}>
-          <div style={{textAlign: "center", width: 780}}>
+          <div style={{textAlign: "center", width: 780, opacity: enter(f, b(79))}}>
             <Label size={50}>기준 없음</Label>
             <Big size={150} color={C.loss} style={{marginTop: 20}}>
               {won(lossL)}
@@ -325,7 +326,7 @@ export const S27: SceneC = ({t}) => {
         <Box x={1000} y={320}>
           <div style={{textAlign: "center", width: 780}}>
             <Label size={50}>
-              <Hi at={a(79, 0.7)} until={ph}>
+              <Hi at={a(79, 0.3)} until={ph}>
                 기준 있음
               </Hi>
             </Label>
@@ -358,12 +359,13 @@ export const S27: SceneC = ({t}) => {
   );
 };
 
-// S28 자막 81–82: "다섯째" → 체크리스트 3개 (산 이유 그대로 / 시장 전체가 함께 하락 / 지금 가격에서 새로 사도 됨)
+// S28 문장 81–82: "다섯째" → 체크리스트 3개 (산 이유 그대로 / 시장 전체가 함께 하락 / 지금 가격에서 새로 사도 됨)
 export const S28: SceneC = ({t}) => {
-  const {a} = t;
+  const f = useCurrentFrame();
+  const {a, b} = t;
   return (
     <>
-      <NumberTitle no="다섯째" at={a(81)} title={T5(a(81, 0.35))} />
+      <NumberTitle no="다섯째" at={a(81)} title={T5(a(81, 0.35), enter(f, b(81)))} />
       <Box x={330} y={320}>
         <div style={{display: "flex", flexDirection: "column", gap: 54}}>
           <CheckRow at={a(82, 0.02)} checkAt={a(82, 0.2)} size={56}>
@@ -372,7 +374,7 @@ export const S28: SceneC = ({t}) => {
           <CheckRow at={a(82, 0.3)} checkAt={a(82, 0.55)} size={56}>
             시장 전체가 함께 빠짐
           </CheckRow>
-          <CheckRow at={a(82, 0.62)} checkAt={a(82, 0.88)} size={56}>
+          <CheckRow at={b(82)} checkAt={b(82, 0.6)} size={56}>
             지금 가격에서 새로 사도 됨
           </CheckRow>
         </div>
@@ -381,10 +383,10 @@ export const S28: SceneC = ({t}) => {
   );
 };
 
-// S29 자막 83–86: S24와 같은 패널 — S&P 500(시장 전체): 2월 고점 → 4월 초 -19% 가까이 → 6월 말 사상 최고치 / 유나이티드헬스(회사 문제): 회복 못 함
+// S29 문장 83–86: S24와 같은 패널 — S&P 500(시장 전체): 2월 고점 → 4월 초 -19% 가까이 → 6월 말 사상 최고치 / 유나이티드헬스(회사 문제): 회복 못 함
 export const S29: SceneC = ({t}) => {
   const f = useCurrentFrame();
-  const {a} = t;
+  const {a, b} = t;
   const rAt = a(83);
   const spxDown: P[] = [
     [20, 30],
@@ -409,13 +411,13 @@ export const S29: SceneC = ({t}) => {
     <>
       <NumberTitle no="다섯째" at={STATIC} title={T5()} />
       <Panel x={1020} y={280} at={rAt} title={<>S&amp;P 500 · 시장 전체</>} h={440} series={[
-        {pts: spxDown, color: C.loss, at: a(84, 0.2)},
+        {pts: spxDown, color: C.loss, at: b(84)},
         {pts: spxUp, color: C.gain, at: a(85, 0.1), dur: 30},
       ]}>
-        <div style={{position: "absolute", left: 200, top: 104, ...vis(f, a(84, 0.25))}}>
+        <div style={{position: "absolute", left: 200, top: 104, ...vis(f, b(84))}}>
           <Caption2>2월 고점</Caption2>
         </div>
-        <div style={{position: "absolute", left: 40 + 260 - 20, top: 110 + 200 + 26, ...vis(f, a(84, 0.6))}}>
+        <div style={{position: "absolute", left: 40 + 260 - 20, top: 110 + 200 + 26, ...vis(f, b(84, 0.45))}}>
           <Label size={40} weight={900} color={C.loss}>
             -{F.spxDrop.v}% 가까이
           </Label>
@@ -428,13 +430,16 @@ export const S29: SceneC = ({t}) => {
       </Panel>
       <Box x={1020} y={740}>
         <div style={vis(f, a(83, 0.4))}>
-          <Chip size={36}>{F.spxWhen.v} · 관세 충격</Chip>
+          <Chip size={36}>
+            {F.spxWhen.v}
+            <span style={{opacity: enter(f, a(84, 0.4))}}> · 관세 충격</span>
+          </Chip>
         </div>
       </Box>
       <Panel x={140} y={280} at={a(86)} title={<>{F.company.v} · 회사 문제</>} h={440} series={[{pts: unh, color: C.loss, at: a(86, 0.15), dur: 30}]}>
-        <div style={{position: "absolute", right: 34, top: 110 + 205 + 30, ...vis(f, a(86, 0.65))}}>
+        <div style={{position: "absolute", right: 34, top: 110 + 205 + 30, ...vis(f, b(86))}}>
           <Label size={40} weight={900}>
-            <Hi at={a(86, 0.75)}>회복 못 함</Hi>
+            <Hi at={b(86, 0.2)}>회복 못 함</Hi>
           </Label>
         </div>
       </Panel>
@@ -450,14 +455,14 @@ const Caption2: React.FC<{children: React.ReactNode}> = ({children}) => (
   </Label>
 );
 
-// S30 자막 87: 예시 금액 — 처음 5,000만 원 + 물타기 1,500만 원 한 번까지 (한도 선)
+// S30 문장 87: 예시 금액 — 처음 5,000만 원 + 물타기 1,500만 원 한 번까지 (한도 선)
 export const S30: SceneC = ({t}) => {
   const f = useCurrentFrame();
-  const {a} = t;
+  const {a, b} = t;
   const total = F.limitFirst.v + F.limitAdd.v;
   const W = 1300;
   const first = count(f, a(87, 0.15), 0, F.limitFirst.v, 22);
-  const add = count(f, a(87, 0.6), 0, F.limitAdd.v, 18);
+  const add = count(f, b(87), 0, F.limitAdd.v, 18);
   const limitX = 300 + W;
   return (
     <>
@@ -479,25 +484,25 @@ export const S30: SceneC = ({t}) => {
           <Label size={44}>처음 {won(F.limitFirst.v)}</Label>
         </div>
       </Box>
-      <div style={{position: "absolute", right: 1920 - limitX, top: 510, textAlign: "right", ...vis(f, a(87, 0.6))}}>
+      <div style={{position: "absolute", right: 1920 - limitX, top: 510, textAlign: "right", ...vis(f, b(87))}}>
         <Label size={44}>물타기 {won(F.limitAdd.v, true)}</Label>
       </div>
-      <div style={{position: "absolute", left: limitX + 6, top: 350, height: 260, borderLeft: `6px dashed ${C.ink}`, opacity: enter(f, a(87, 0.75))}} />
-      <div style={{position: "absolute", left: limitX - 260, top: 620, width: 520, textAlign: "center", ...vis(f, a(87, 0.8))}}>
+      <div style={{position: "absolute", left: limitX + 6, top: 350, height: 260, borderLeft: `6px dashed ${C.ink}`, opacity: enter(f, b(87, 0.4))}} />
+      <div style={{position: "absolute", left: limitX - 260, top: 620, width: 520, textAlign: "center", ...vis(f, b(87, 0.5))}}>
         <Label size={50} weight={900}>
-          <Hi at={a(87, 0.85)}>한 번까지</Hi>
+          <Hi at={b(87, 0.6)}>한 번까지</Hi>
         </Label>
       </div>
     </>
   );
 };
 
-// S31 자막 88–91: 두 열 요약 (위험한 이유 4 / 물타기·손절 기준 5) → 휴대폰 체크 (산 이유, 손절 가격) → 성공 투자
+// S31 문장 88–91: 두 열 요약 (위험한 이유 4 / 물타기·손절 기준 5) → 휴대폰 체크 (산 이유, 손절 가격) → 성공 투자
 const RISKS = ["평단 조금 ↓, 걸린 돈 크게 ↑", "떨어진 가격 ≠ 싼 가격", "손실 종목을 오래 붙잡음", "만회하려다 못 멈춤"];
 const RULES = ["산 이유를 한 줄로", "떨어진 이유부터 확인", "평단 잊고 지금 가격으로", "손절 가격 미리 정하기", "세 가지 + 정한 금액 안에서"];
 export const S31: SceneC = ({t}) => {
   const f = useCurrentFrame();
-  const {a} = t;
+  const {a, b} = t;
   const out = a(89);
   const end = t.dur - 20;
   const col = (title: string, items: string[], x: number, at0: number, numbered: (i: number) => string) => (
@@ -524,7 +529,7 @@ export const S31: SceneC = ({t}) => {
     <>
       <div style={{position: "absolute", inset: 0, opacity: fadeOut(f, out)}}>
         {col("위험한 이유", RISKS, 140, a(88, 0.05), (i) => `0${i + 1}`)}
-        {col("물타기·손절 기준", RULES, 1000, a(88, 0.5), (i) => KO[i])}
+        {col("물타기·손절 기준", RULES, 1000, b(88), (i) => KO[i])}
       </div>
       <div style={{position: "absolute", inset: 0, opacity: fadeOut(f, a(90))}}>
         <Box x={745} y={180}>

@@ -5,7 +5,8 @@ import {Bg, C, M, SANS, SERIF, SIZE} from "../design/tokens";
 import {enter, prog} from "./anim";
 import {Card, Sub} from "./timeline";
 
-/** 자막: 하단 중앙, 아래 72px, 최대 1500px, 46px 700. 자막 사이 빈 화면 없음 → 띠는 유지하고 글자만 4프레임 페이드 */
+/** 자막: 하단 중앙, 아래 72px, 띠 최대 1500px(글자 폭 1432px + 좌우 34px), 46px 700, 늘 한 줄.
+ *  자막 사이 빈 화면 없음 → 띠는 유지하고 글자만 4프레임 페이드. 고지 카드 공백(SRT 안)에서는 자막이 없다 */
 export const Subtitles: React.FC<{subs: Sub[]; bgAt: (frame: number) => Bg}> = ({subs, bgAt}) => {
   const f = useCurrentFrame();
   const i = subs.findIndex((s) => f >= s.from && f < s.to);
@@ -27,7 +28,7 @@ export const Subtitles: React.FC<{subs: Sub[]; bgAt: (frame: number) => Bg}> = (
       <div
         style={{
           maxWidth: 1500,
-          padding: "14px 40px",
+          padding: "14px 34px",
           borderRadius: 12,
           background: band,
           opacity: bandO,
@@ -39,13 +40,7 @@ export const Subtitles: React.FC<{subs: Sub[]; bgAt: (frame: number) => Bg}> = (
           textAlign: "center",
         }}
       >
-        <div style={{opacity: textO}}>
-          {s.lines.map((l, k) => (
-            <div key={k} style={{whiteSpace: "nowrap"}}>
-              {l}
-            </div>
-          ))}
-        </div>
+        <div style={{opacity: textO, whiteSpace: "nowrap"}}>{s.text}</div>
       </div>
     </AbsoluteFill>
   );
@@ -61,7 +56,7 @@ export const ReconCaption: React.FC<{text: string; from: number; to: number}> = 
   );
 };
 
-/** 화면 고지 카드 (노랑 띠): TXT [장면] 문구 그대로, 한 줄씩 순서대로 */
+/** 화면 고지 카드 (노랑 띠): TXT [장면] 문구 그대로, 한 줄씩 순서대로. 길이 = SRT 안의 고지 공백 */
 export const DisclaimerCard: React.FC<{card: Card}> = ({card}) => {
   const f = useCurrentFrame(); // Sequence 안: 0부터
   const len = card.to - card.from;

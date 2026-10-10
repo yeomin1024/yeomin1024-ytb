@@ -20,3 +20,5 @@ video/.remotion/
 *.download
 *.toml.bak
 video/public/fonts/
+video/public/audio/
+*.srt.bak-*

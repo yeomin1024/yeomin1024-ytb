@@ -10,7 +10,7 @@ import {Layer, Line} from "../../../components/charts";
 import {F} from "../facts";
 import {SceneC} from "./story";
 
-// S07 자막 15–18: 계속 떨어지는 선 → 생각 말풍선 3개 (자막 하나에 하나)
+// S07 문장 15–18: 계속 떨어지는 선 → 생각 말풍선 3개 (자막 하나에 하나)
 export const S07: SceneC = ({t}) => {
   const {a} = t;
   return (
@@ -49,7 +49,7 @@ export const S07: SceneC = ({t}) => {
   );
 };
 
-// S08 자막 19: 손실 인정 싫음 → 기준 없는 물타기
+// S08 문장 19: 손실 인정 싫음 → 기준 없는 물타기
 export const S08: SceneC = ({t}) => {
   const f = useCurrentFrame();
   const {a} = t;
@@ -78,27 +78,27 @@ export const S08: SceneC = ({t}) => {
   );
 };
 
-// S09 자막 20–22: 2025년 5월 서학개미 순매수 4,800억 원+ → 그달 1위 → 형광펜
+// S09 문장 20–22: 2025년 5월 서학개미 → (뒷줄) 이 종목 4,800억 원 넘게 순매수 → 그달 1위 → 형광펜
 export const S09: SceneC = ({t}) => {
   const f = useCurrentFrame();
-  const {a} = t;
-  const v = count(f, a(20, 0.6), 0, F.netBuy.v as number, 28);
+  const {a, b} = t;
+  const v = count(f, b(20, 0.3), 0, F.netBuy.v as number, 28);
   return (
     <>
       <Box x={960} y={170} w={1400} center>
         <div style={vis(f, a(20))}>
           <Chip size={44}>
-            {F.netBuyMonth.v} · 서학개미 순매수
+            {F.netBuyMonth.v} · 서학개미<span style={{opacity: enter(f, b(20, 0.6))}}> 순매수</span>
           </Chip>
         </div>
       </Box>
       <Box x={960} y={290} w={1400} center>
-        <div style={vis(f, a(20, 0.35))}>
+        <div style={vis(f, b(20))}>
           <Label size={56}>{F.company.v}</Label>
         </div>
       </Box>
       <Box x={960} y={380} w={1600} center>
-        <div style={{opacity: enter(f, a(20, 0.6)), display: "flex", justifyContent: "center", alignItems: "baseline", gap: 20}}>
+        <div style={{opacity: enter(f, b(20, 0.3)), display: "flex", justifyContent: "center", alignItems: "baseline", gap: 20}}>
           <Big size={200}>
             <Hi at={a(22, 0.1)}>{num(v)}억 원</Hi>
           </Big>
@@ -116,7 +116,7 @@ export const S09: SceneC = ({t}) => {
   );
 };
 
-// S10 자막 23: "기준 없는 물타기, 왜 위험할까?" + 하나씩 볼 번호 4개
+// S10 문장 23: "기준 없는 물타기, 왜 위험할까?" + 하나씩 볼 번호 4개
 export const S10: SceneC = ({t}) => {
   const f = useCurrentFrame();
   const {a} = t;

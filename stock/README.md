@@ -13,13 +13,13 @@
 | `guides/upload_rules.md` | 주식 업로드 규칙: 설명란 필수 고지·출처, 태그 묶음, 스팸 차단 단어 |
 | `titles/` | 제목 피드백 시트 (1차 50개 — 표시 완료, 2차 36개 — 표시 전) |
 | `source/used_content.md` | 이전 대본과의 중복 방지 목록 |
-| `source/molppang-2026-10/` | 몰빵 영상 v2.0: 엔론 5문장 삭제한 대본 TXT·SRT(문장 91 / 자막 117, 문장 18 뒤 고지 공백), README(옛→새 번호 대응표) |
-| `source/multagi-2026-10/` | 물타기 영상: 대본 v1.3 TXT·SRT, README(검산·출처), `titles.md`(제목 3개, T1 채택), `thumbnails/`(썸네일 프롬프트 3개), `upload.md`(업로드 시트). SRT: 문장 91 / 자막 110 |
-| `source/bittu-2026-10/` | 빚투 영상: 대본 v1.1 TXT·SRT(문장 88 / 자막 105), README(검산·출처), `titles.md`(T1 채택), `thumbnails/`(3개), `upload.md`. 사연: SK하이닉스 2026년 5~7월, 신용 → 반대매매. 영상 코드·스토리보드 `out/bittu-2026-10/` — 내레이션 대기 |
-| `source/panicsell-2026-10/` | 패닉셀 영상: 대본 v1.0 TXT·SRT(문장 92 / 자막 109), README(검산·출처), `titles.md`(T1 채택), `thumbnails/`(3개), `upload.md`. 사연: 삼성전자 2026년 3월 폭락 날 전량 매도 → 7주 뒤 +30%. 영상 코드·스토리보드 `out/panicsell-2026-10/` — 내레이션 대기 |
-| `source/<영상ID>/summary.md` | 영상별 한눈에 보기 (자동 생성: `python tools/make_summary.py`) — 상태·제목·썸네일 프롬프트·설명란·스토리보드·대본 |
+| `source/molppang-2026-10/` | 몰빵 영상 v2.1: 대본 TXT·SRT(문장 91 / 자막 116, 문장 18 뒤 고지 공백), 문장 40~47을 최신 사례로 교체(v2.1), README(최신 사례 출처·옛→새 번호 대응표) |
+| `source/multagi-2026-10/` | 물타기 영상: 대본 v1.4 TXT·SRT(문장 91 / 자막 107, 문제 03·04를 최신 사례로), README(검산·출처), `titles.md`(제목 3개, T1 채택), `thumbnails/`(썸네일 프롬프트 3개), `upload.md`(업로드 시트) |
+| `source/bittu-2026-10/` | 빚투 영상: 대본 v1.1 TXT·SRT(문장 88 / 자막 105), README(검산·출처), `titles.md`(T1 채택), `thumbnails/`(3개), `upload.md`. 사연: SK하이닉스 2026년 5~7월, 신용 → 반대매매. 영상 코드 `video/src/episodes/bittu-2026-10/` — 내레이션 대기 |
+| `source/panicsell-2026-10/` | 패닉셀 영상: 대본 v1.1 TXT·SRT(문장 92 / 자막 111, 문장 80~85를 최신 사례로), README(검산·출처), `titles.md`(T1 채택), `thumbnails/`(3개), `upload.md`. 사연: 삼성전자 2026년 3월 폭락 날 전량 매도 → 7주 뒤 +30%. 영상 코드 `video/src/episodes/panicsell-2026-10/` — 내레이션 대기 |
+| `source/<영상ID>/summary.md` | 영상별 한눈에 보기 (자동 생성: `python tools/make_summary.py`) — 상태·제목·썸네일 프롬프트·설명란·대본(🎙 사연자·진행자). 스토리보드는 넣지 않음 |
 | `thumbnail_todo.md` | 이미지가 아직 없는 썸네일의 프롬프트 모음 (자동 생성: `python tools/make_summary.py --thumb-todo stock`) |
-| `out/multagi-2026-10/` | 물타기 영상 `scene_plan.md`(장면 구성표), `storyboard/`(장면 still 44장 + `index.html`). 완성 영상 `final_1080p.mp4`는 용량 때문에 git에 올리지 않음 |
+| `out/<영상ID>/` | 완성 영상 `final_1080p.mp4` 자리 (용량 때문에 git에 올리지 않음). 스토리보드는 만들지 않음 (사용자 지시 2026-10-10) |
 
 ## 분석 다시 돌리기
 ```

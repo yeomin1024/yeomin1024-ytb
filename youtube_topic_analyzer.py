@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v2.3.0 — 2026-10-09 — 주제별 설정(키워드·관련어 등)을 설정 파일(<주제폴더>/analyzer_config.toml)로 분리, --config / --init-config 추가
+# VERSION: v2.3.1 — 2026-10-10 — .env 파일이 없어도 환경변수 YOUTUBE_API_KEY로 실행 (클라우드 실행용) (v2.3.0: 설정 파일 분리, --config / --init-config)
 r"""
 YouTube 주제 분석기 — 구독자 0명 채널이 조회수를 가장 잘 받을 영상 찾기
 (연구·교육용 분석 도구입니다. 투자 조언이 아니며, 통계는 상관관계일 뿐 인과관계를 보장하지 않습니다.)
@@ -4280,7 +4280,7 @@ def run_self_test(cfg):
 
 
 # =====================================================================================================
-# VERSION: v2.3.0 — 2026-10-09 — 실행부: 설정 파일(--config, --init-config) 적용 (v2.2.0: 영상 업로드 여부 사전 판정; v2.1.0: 쓰기권한 사전확인·--push-only; v2.0.0: .env·명령줄)
+# VERSION: v2.3.1 — 2026-10-10 — 실행부: .env 없이 환경변수 키로 실행(클라우드) (v2.3.0: 설정 파일 --config·--init-config; v2.2.0: 영상 업로드 여부 사전 판정; v2.1.0: 쓰기권한 사전확인·--push-only; v2.0.0: .env·명령줄)
 # =====================================================================================================
 import argparse
 
@@ -4301,14 +4301,21 @@ def _mask(v):
 
 
 def load_keys(require_youtube=True):
-    """키 우선순위: .env 파일 → 환경변수. .env가 없으면 템플릿을 만들고 종료."""
+    """키 우선순위: .env 파일 → 환경변수.
+    .env가 없을 때: 환경변수에 YOUTUBE_API_KEY가 있으면(클라우드 실행) 파일 없이 진행하고, 없으면 템플릿을 만들고 종료."""
     env_path = BASE_DIR / ENV_FILE
     if not env_path.exists():
-        env_path.write_text(ENV_TEMPLATE, "utf-8")
-        print(f"[KEYS] 📝 키 파일을 만들었습니다: {env_path}\n"
-              f"[KEYS]    메모장 등으로 열어 YOUTUBE_API_KEY(필수), GITHUB_TOKEN(권장)을 입력·저장한 뒤 다시 실행하세요.")
-        sys.exit(1)
-    vals = load_env_file(env_path)
+        if os.environ.get("YOUTUBE_API_KEY", "").strip() or not require_youtube:
+            print(f"[KEYS] .env 없음 → 환경변수에서 키를 읽습니다 (클라우드 실행)")
+            vals = {}
+        else:
+            env_path.write_text(ENV_TEMPLATE, "utf-8")
+            print(f"[KEYS] 📝 키 파일을 만들었습니다: {env_path}\n"
+                  f"[KEYS]    메모장 등으로 열어 YOUTUBE_API_KEY(필수), GITHUB_TOKEN(권장)을 입력·저장한 뒤 다시 실행하세요.\n"
+                  f"[KEYS]    (클라우드에서는 .env 대신 환경변수 YOUTUBE_API_KEY를 설정하세요)")
+            sys.exit(1)
+    else:
+        vals = load_env_file(env_path)
     keys = {}
     for k in ("YOUTUBE_API_KEY", "GITHUB_TOKEN", "YTDLP_PROXY"):
         v, src = vals.get(k, ""), ".env"

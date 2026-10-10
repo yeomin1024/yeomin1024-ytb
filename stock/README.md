@@ -15,6 +15,8 @@
 | `source/used_content.md` | 이전 대본과의 중복 방지 목록 |
 | `source/molppang-2026-10/` | 몰빵 영상 v2.0: 엔론 5문장 삭제한 대본 TXT·SRT(문장 91 / 자막 117, 문장 18 뒤 고지 공백), README(옛→새 번호 대응표) |
 | `source/multagi-2026-10/` | 물타기 영상: 대본 v1.3 TXT·SRT, README(검산·출처), `titles.md`(제목 3개, T1 채택), `thumbnails/`(썸네일 프롬프트 3개), `upload.md`(업로드 시트). SRT: 문장 91 / 자막 110 |
+| `source/bittu-2026-10/` | 빚투 영상: 대본 v1.0 TXT·SRT(문장 87 / 자막 104), README(검산·출처), `titles.md`(T1 채택), `thumbnails/`(3개), `upload.md`. 사연: SK하이닉스 2026년 5~7월, 신용 → 반대매매. 영상 제작 전 |
+| `source/panicsell-2026-10/` | 패닉셀 영상: 대본 v1.0 TXT·SRT(문장 92 / 자막 109), README(검산·출처), `titles.md`(T1 채택), `thumbnails/`(3개), `upload.md`. 사연: 삼성전자 2026년 3월 폭락 날 전량 매도 → 7주 뒤 +30%. 영상 제작 전 |
 | `out/multagi-2026-10/` | 물타기 영상 `scene_plan.md`(장면 구성표), `storyboard/`(장면 still 44장 + `index.html`). 완성 영상 `final_1080p.mp4`는 용량 때문에 git에 올리지 않음 |
 
 ## 분석 다시 돌리기

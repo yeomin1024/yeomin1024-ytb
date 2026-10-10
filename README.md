@@ -21,7 +21,7 @@ stock/                      ← 주제 폴더: 주식
   titles/                   ← 제목 피드백 시트
   source/<영상ID>/          ← 영상별 대본 TXT·SRT·README·titles.md·thumbnails/·upload.md
   out/<영상ID>/             ← 장면 구성표·스토리보드 (완성 영상 mp4는 git에 올리지 않음)
-selfdev/ · health/ · space/ · story/ · lifetips/   ← 다른 주제 폴더 (health·story는 규칙·첫 대본까지, 나머지는 분석 설정만)
+selfdev/ · health/ · space/ · story/ · lifetips/   ← 다른 주제 폴더 (health는 규칙·첫 대본, story는 규칙 초안 — 둘 다 분석 결과 전까지 보류. 나머지는 분석 설정만)
 ```
 | 폴더 | 주제 | 실행 |
 |---|---|---|
@@ -161,8 +161,10 @@ python youtube_topic_analyzer.py --help                                    # 전
 |---|---|---|
 | 몰빵 `molppang-2026-10` | 제작 완료 · v2.0 대본(엔론 삭제, 문장 91 / 자막 117) | `stock/source/molppang-2026-10/` |
 | 물타기 `multagi-2026-10` | 대본 v1.3 (문장 91 / 자막 110) · 제목 T1 채택 · 썸네일 프롬프트 3개 · 업로드 시트 · 영상 1차 완성(무음) — 내레이션 녹음 대기 | `stock/source/multagi-2026-10/`, `stock/out/multagi-2026-10/` |
-| 건강: 당뇨 전단계 `prediabetes-2026-10` | 대본 (문장 86 / 자막 103) · 제목 T1 채택 · 썸네일 프롬프트 3개 · 업로드 시트 — 영상 제작 전 | `health/source/prediabetes-2026-10/` |
-| 사연: 돈 빌려준 사연 `lend-money-2026-10` | 대본·제목·썸네일·업로드 시트 — 영상 제작 전 | `story/source/lend-money-2026-10/` |
+| 빚투 `bittu-2026-10` | 대본 v1.0 (문장 87 / 자막 104, 문장 27 뒤 고지 공백) · 제목 T1 채택 · 썸네일 프롬프트 3개 · 업로드 시트 — 영상 제작 전 | `stock/source/bittu-2026-10/` |
+| 패닉셀 `panicsell-2026-10` | 대본 v1.0 (문장 92 / 자막 109, 문장 26 뒤 고지 공백) · 제목 T1 채택 · 썸네일 프롬프트 3개 · 업로드 시트 — 영상 제작 전 | `stock/source/panicsell-2026-10/` |
+| 건강: 당뇨 전단계 `prediabetes-2026-10` | ⏸ 보류 — 사용자 지시(2026-10-10): 분석 결과가 없는 주제는 아직 진행하지 않음. 대본 (문장 86 / 자막 103)·제목·썸네일·업로드 시트는 만들어 둔 상태 | `health/source/prediabetes-2026-10/` |
+| 사연 주제 | ⏸ 보류 — 같은 이유. 주제 규칙 초안(`story/guides/`)만 있음, 대본 없음 | `story/` |
 
 자막 파일 검사·생성:
 ```

@@ -1,5 +1,15 @@
 # video/ 변경 이력 (guides/video_guide.md 2번 규칙)
 
+## 2026-10-10 — bittu-2026-10 · panicsell-2026-10 (새 영상 2개) · 공통 v1.2
+- 새 영상 `src/episodes/bittu-2026-10/` (빚투·반대매매): 30장면, 문장 88 / 자막 105, 8:20.2. `local.tsx`에 빚 계좌 카드(내 돈·빌린 돈), 담보 막대(140% 선), 날짜 칸 등. 스토리보드 51장
+- 새 영상 `src/episodes/panicsell-2026-10/` (하락장 패닉셀): 31장면, 문장 92 / 자막 109, 8:21. `local.tsx`에 계좌 카드, 10×10 와플, 공포 게이지(개념도), 달력 등. 스토리보드 53장. 검수 뒤 S05 하락 구간 선을 회색 → 파랑(하락 색)으로
+- `Root.tsx`: 두 컴포지션 등록
+- `components/ui.tsx` `Strike`: 그어지기 전(p = 0)에 12px 조각이 먼저 보이던 버그 수정
+- `components/charts.tsx` `Bars`: 바닥선이 막대보다 먼저 보이던 것 → 첫 막대와 함께 등장
+- `scripts/storyboard.mjs` v1.1: 재구성 사연 캡션 범위를 `plan.ts`의 `STORY_LAST`로 (물타기 14, 새 영상 16)
+- `scripts/align-audio.mjs` v1.1: '-숫자'로 시작하는 대본 줄을 파트 라벨로 보지 않음 (`tools/srt_tool.py` v1.4와 같은 규칙)
+- 검수: 두 영상 모든 still을 video_guide 7번 검수표로 확인, 나뉜 문장(각 17개)의 뒷줄 요소가 뒷줄 자막 3프레임 전에 보이지 않음 확인, `tsc --noEmit` 통과(물타기 포함)
+
 ## 2026-10-10 — 공통 v1.1 · multagi-2026-10 (사용자 지시: 문장 번호·자막 한 줄·고지 공백·align-audio)
 - `components/timeline.ts`: SRT 번호 → **대본 문장 번호** 기준. 문장마다 앞줄·뒷줄(parts), `t.b(n)` = 뒷줄 자막 시작. 고지 카드를 코드에서 밀던 계산 삭제 → SRT 안의 공백(cards.start~end)에 카드
 - `components/overlays.tsx`: 자막 늘 한 줄 (띠 좌우 여백 34px → 글자 폭 1432px)

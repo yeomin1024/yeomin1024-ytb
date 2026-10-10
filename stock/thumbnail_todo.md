@@ -1,6 +1,6 @@
 # stock 썸네일 만들 목록 (이미지 없는 것)
 
-자동 생성 — `python tools/make_summary.py --thumb-todo stock` (2026-10-10 07:08)
+자동 생성 — `python tools/make_summary.py --thumb-todo stock` (2026-10-10 08:37)
 
 1. [A] 프롬프트를 이미지 AI에 넣는다. 한글이 틀리면 [B]로 만들고 문구표대로 글자를 얹는다.
 2. 이미지를 아래 '저장 위치'로 GitHub에 올린다 (크기는 업로드 때 1280×720으로 자동 변환).

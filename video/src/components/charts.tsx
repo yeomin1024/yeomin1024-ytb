@@ -104,9 +104,10 @@ export type BarItem = {h: number; color: string; label: React.ReactNode; top?: R
 export const Bars: React.FC<{items: BarItem[]; x: number; baseY: number; maxH: number; barW?: number; gap?: number}> = ({items, x, baseY, maxH, barW = 220, gap = 200}) => {
   const f = useCurrentFrame();
   const fg = useFg();
+  const first = Math.min(...items.map((it) => it.at));   // 바닥선도 첫 막대와 함께 등장 (예전에는 처음부터 보였음)
   return (
     <>
-      <div style={{position: "absolute", left: x - 40, top: baseY, width: items.length * barW + (items.length - 1) * gap + 80, height: 6, background: fg}} />
+      <div style={{position: "absolute", left: x - 40, top: baseY, width: items.length * barW + (items.length - 1) * gap + 80, height: 6, background: fg, opacity: enter(f, first)}} />
       {items.map((it, i) => {
         const h = maxH * it.h * prog(f, it.at, 22);
         const left = x + i * (barW + gap);

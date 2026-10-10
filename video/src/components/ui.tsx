@@ -194,7 +194,8 @@ export const Strike: React.FC<{at: number; color?: string; children: React.React
   return (
     <span style={{position: "relative", display: "inline-block"}}>
       {children}
-      <span style={{position: "absolute", left: -6, top: "52%", height: 7, width: `calc(${p * 100}% + 12px)`, background: color ?? fg, borderRadius: 4}} />
+      {/* p = 0(그어지기 전)에는 아무것도 보이지 않게 — 예전에는 12px 조각이 먼저 보였음 */}
+      <span style={{position: "absolute", left: -6, top: "52%", height: 7, width: p > 0 ? `calc(${p * 100}% + 12px)` : 0, background: color ?? fg, borderRadius: 4}} />
     </span>
   );
 };

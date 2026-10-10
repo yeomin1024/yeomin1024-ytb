@@ -258,7 +258,7 @@ export const S05: SceneC = ({t}) => {
         <Label size={40}>처음 산 가격</Label>
       </HRule>
       <Layer>
-        <Line pts={PATH} at={a(12)} dur={14} color={C.gray} width={7} />
+        <Line pts={PATH} at={a(12)} dur={14} color={C.loss} width={7} />
         <Line pts={[sold, UP1]} at={a(12, 0.35)} dur={14} color={C.gain} />
         <Line pts={[UP1, END]} at={a(13, 0.1)} dashed width={6} />
         <Dot p={sold} at={a(12, 0.1)} color={C.inkOnNavy} />

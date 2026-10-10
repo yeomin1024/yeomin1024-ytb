@@ -1,4 +1,4 @@
-// panicsell-2026-10 — 하락장 패닉셀 (문장 92 / 자막 109 + 고지 카드 1개, 번호는 대본 문장 번호)
+// panicsell-2026-10 — 하락장 패닉셀 (문장 92 / 자막 111 + 고지 카드 1개, 번호는 대본 문장 번호)
 // 장면 구성표: stock/out/panicsell-2026-10/scene_plan.md · 데이터 시트: ./facts.ts
 // ※ 투자 교육용 영상. 특정 종목의 매수·매도 권유가 아님.
 import React from "react";

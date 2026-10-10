@@ -5,11 +5,11 @@ import {C} from "../../../design/tokens";
 import {count, enter, prog} from "../../../components/anim";
 import {num, won} from "../../../components/fmt";
 import {Arrow, Big, Box, Card, Chip, CornerNote, Headline, Hi, Label, Mark, fadeOut, vis} from "../../../components/ui";
-import {NumberTitle} from "../../../components/cards";
+import {Bubble, NumberTitle} from "../../../components/cards";
 import {Dot, HRule, Layer, Line, P} from "../../../components/charts";
 import {CheckRow, Phone} from "../../../components/objects";
 import {F, PRICE} from "../facts";
-import {DateTag, DayTile, HATCH, Lock, MonthCal, MyAccount, PauseIcon, SplitBar, StrikeAt} from "../local";
+import {DateTag, DayTile, HATCH, Lock, MiniPhone, MonthCal, MyAccount, PauseIcon, StrikeAt} from "../local";
 import {SceneC, Tail} from "./story";
 
 const STATIC = -60;
@@ -441,107 +441,183 @@ export const S27: SceneC = ({t}) => {
   );
 };
 
-// ── S28 문장 79–82: "다섯째" → 노벨 경제학상 리처드 탈러 교수 등 · (뒷줄) 1997년 실험 → 대학생, 가상의 주식|채권 나눠 넣기 → 결과를 보여 주는 횟수만 다르게 (매달 / 1년에 한 번) ──
-export const S28: SceneC = ({t}) => {
+// ── S28·S29 공통: 두 열 막대 (왼쪽 신규 투자자 = 나쁜 쪽, 오른쪽 기존 투자자) — 0선 아래에 열 이름, 막대는 0선 위(+)·아래(-) ──
+const GX = [520, 1000]; // 열 가운데 x
+const G_BASE = 640; // 0선 y
+const G_BW = 240;
+const PANEL_X = 1240; // 오른쪽 설명 칸
+const GroupHeads: React.FC<{atL: number; atR: number}> = ({atL, atR}) => {
   const f = useCurrentFrame();
-  const {a, b} = t;
-  const share = interpolate(f, [a(81, 0.3), a(81, 0.55), a(81, 0.8), a(82)], [0.5, 0.64, 0.42, 0.55], {extrapolateLeft: "clamp", extrapolateRight: "clamp"});
   return (
     <>
-      <NumberTitle no="다섯째" at={a(79)} title={M5} />
-      <Box x={140} y={262}>
-        <div style={vis(f, a(80))}>
-          <Card style={{width: 1640, boxSizing: "border-box", padding: "20px 44px", display: "flex", alignItems: "center", gap: 24}}>
-            <Chip variant="outline" size={36}>
-              노벨 경제학상
-            </Chip>
-            <Label size={56} weight={900}>
-              {F.thaler.v}
-            </Label>
-            <div style={vis(f, b(80))}>
-              <Chip size={38}>{F.thalerYear.v}년 실험</Chip>
-            </div>
-          </Card>
+      <div style={{position: "absolute", left: GX[0] - G_BW / 2 - 60, top: G_BASE, width: GX[1] - GX[0] + G_BW + 120, height: 6, background: C.ink, opacity: enter(f, atL)}} />
+      <Box x={GX[0]} y={G_BASE + 40} w={440} center>
+        <div style={vis(f, atL)}>
+          <Label size={44} weight={900}>
+            신규 투자자
+          </Label>
+          <Label size={32} weight={500} color={C.gray}>
+            처음 계좌를 연
+          </Label>
         </div>
       </Box>
-      <Box x={140} y={420}>
-        <div style={vis(f, a(81))}>
-          <Label size={44}>{F.students.v} · 가상의 돈을 나눠 넣기</Label>
-        </div>
-      </Box>
-      <Box x={140} y={488}>
-        <SplitBar w={1640} h={90} share={share} at={a(81, 0.15)} />
-      </Box>
-      <Box x={140} y={640}>
-        <div style={{display: "flex", alignItems: "center", gap: 24, ...vis(f, a(82))}}>
-          <Label size={44}>결과 보기</Label>
-          <Chip size={40}>매달</Chip>
-          <div style={{display: "flex", gap: 8}}>
-            {Array.from({length: 12}).map((_, i) => (
-              <div key={i} style={{width: 30, height: 40, borderRadius: 6, background: C.ink, opacity: enter(f, a(82, 0.15) + i * 2)}} />
-            ))}
-          </div>
-        </div>
-      </Box>
-      <Box x={1180} y={640}>
-        <div style={{display: "flex", alignItems: "center", gap: 24, ...vis(f, a(82, 0.4))}}>
-          <Chip variant="outline" size={40}>
-            1년에 한 번
-          </Chip>
-          <div style={{width: 30, height: 40, borderRadius: 6, background: C.ink}} />
+      <Box x={GX[1]} y={G_BASE + 40} w={440} center>
+        <div style={vis(f, atR)}>
+          <Label size={44} weight={900}>
+            기존 투자자
+          </Label>
         </div>
       </Box>
     </>
   );
 };
+/** 0선에서 위(px > 0)·아래(px < 0)로 자라는 막대 (i = 0 신규 / 1 기존) */
+const GBar: React.FC<{i: number; px: number; color: string; at: number; dur?: number}> = ({i, px, color, at, dur = 22}) => {
+  const f = useCurrentFrame();
+  const h = Math.abs(px) * prog(f, at, dur);
+  const up = px >= 0;
+  return <div style={{position: "absolute", left: GX[i] - G_BW / 2, top: up ? G_BASE - h : G_BASE + 6, width: G_BW, height: h, background: color, borderRadius: up ? "10px 10px 0 0" : "0 0 10px 10px"}} />;
+};
 
-// ── S29 문장 83–85: 화면 분할 — 매달 본 학생 주식 41% (왼쪽) / 1년에 한 번 본 학생 70% 가까이 (오른쪽) → 자주 볼수록 겁, 가장 적게 벎 ──
+// ── S28 문장 79–82: "다섯째" → 자본시장연구원 · 2021년 분석 → 2020년 3월 코로나 폭락 → 10월 · (뒷줄) 개인투자자 20만 명 → 처음 계좌를 연 신규 투자자 / (뒷줄) 기존 투자자보다 두 배 가까이 자주 사고팖 ──
+export const S28: SceneC = ({t}) => {
+  const f = useCurrentFrame();
+  const {a, b} = t;
+  const out = a(82);
+  const grow = b(82, 0.1);
+  const maxH = 280;
+  const hOld = maxH * (F.turnoverOld.v / F.turnoverNew.v); // 막대 비율만 (출처 수치, 숫자 표시 안 함)
+  const ref = prog(f, b(82, 0.45), 12);
+  return (
+    <>
+      <NumberTitle no="다섯째" at={a(79)} title={M5} />
+      <div style={{position: "absolute", inset: 0, opacity: fadeOut(f, out)}}>
+        <Box x={140} y={262}>
+          <div style={vis(f, a(80))}>
+            <Card style={{width: 1640, boxSizing: "border-box", padding: "34px 52px"}}>
+              <div style={{display: "flex", alignItems: "center", gap: 26}}>
+                <Label size={56} weight={900}>
+                  {F.kcmi.v}
+                </Label>
+                <div style={vis(f, a(80, 0.35))}>
+                  <Chip size={40}>{F.kcmiYear.v} 분석</Chip>
+                </div>
+              </div>
+              <div style={{marginTop: 22, ...vis(f, a(81))}}>
+                <Chip variant="outline" size={40}>
+                  {F.kcmiPeriod.v}
+                </Chip>
+              </div>
+              <div style={{display: "flex", alignItems: "baseline", gap: 30, marginTop: 10, opacity: enter(f, b(81))}}>
+                <Label size={56}>개인투자자</Label>
+                <Big size={170}>{F.kcmiInvestors.v}</Big>
+              </div>
+            </Card>
+          </div>
+        </Box>
+      </div>
+      {/* 82: 두 열 — 신규(앞줄) / (뒷줄) 기존, 얼마나 자주 사고팔았나 막대 */}
+      <GroupHeads atL={out} atR={b(82)} />
+      <GBar i={0} px={maxH} color={C.ink} at={grow} />
+      <GBar i={1} px={hOld} color={C.gray} at={grow} />
+      {/* 기존 막대 높이 점선 → 신규 막대는 그 두 배 가까이 */}
+      <div style={{position: "absolute", left: GX[0] - G_BW / 2, top: G_BASE - hOld - 3, width: (GX[1] - GX[0]) * ref, borderTop: `6px dashed ${C.gray}`, opacity: ref > 0 ? 1 : 0}} />
+      <Box x={GX[0]} y={G_BASE - maxH - 92} w={600} center>
+        <div style={vis(f, b(82, 0.4))}>
+          <Label size={56} weight={900}>
+            <Hi at={b(82, 0.55)}>{F.tradeTwice.v}</Hi>
+          </Label>
+        </div>
+      </Box>
+      <Box x={PANEL_X} y={330}>
+        <div style={vis(f, b(82))}>
+          <Label size={44} color={C.gray}>
+            얼마나 자주 사고팔았나
+          </Label>
+        </div>
+      </Box>
+      <CornerNote at={b(82)}>출처: {F.kcmi.v}</CornerNote>
+    </>
+  );
+};
+
+// ── S29 문장 83–85: S28의 두 열 — 수수료·세금 뺀 수익률 기존 +15% / (뒷줄) 신규 -1.2% → 자주 사고팔수록 시장보다 덜 벎(각 집단 안에서) → 계좌를 열 때마다 "팔까? / 살까?" ──
+const PHONE_X = [330, 690, 1050, 1410];
+const ASK = ["팔까?", "살까?", "팔까?", "살까?"];
 export const S29: SceneC = ({t}) => {
   const f = useCurrentFrame();
-  const {a} = t;
-  const vL = count(f, a(83, 0.4), 0, F.monthlyStock.v);
-  const vR = count(f, a(84, 0.35), 0, F.yearlyStock.v);
+  const {a, b} = t;
+  const out = a(85);
+  const k = 16; // 수익률 1%당 막대 높이(px)
+  const atR = a(83, 0.4);
+  const atL = b(83, 0.15);
+  const vR = count(f, atR, 0, F.retOld.v);
+  const vL = count(f, atL, 0, F.retNew.v, 20);
   return (
     <>
       <NumberTitle no="다섯째" at={STATIC} title={M5} />
-      <div style={{position: "absolute", left: 958, top: 280, width: 4, height: 500, background: C.gray, opacity: enter(f, a(84))}} />
-      <Box x={140} y={280}>
-        <div style={vis(f, a(83))}>
-          <Chip size={42}>매달 본 학생</Chip>
-        </div>
-        <div style={{display: "flex", alignItems: "baseline", gap: 18, marginTop: 14, opacity: enter(f, a(83, 0.4))}}>
-          <Label size={48}>주식</Label>
-          <Big size={160}>{num(vL)}%</Big>
-        </div>
-        <div style={{marginTop: 18}}>
-          <SplitBar w={720} share={(F.monthlyStock.v / 100) * prog(f, a(83, 0.4), 24)} at={a(83, 0.4)} />
-        </div>
-        <div style={{marginTop: 26, ...vis(f, a(85))}}>
-          <Label size={40} color={C.gray}>
-            자주 볼수록 → 손실도 자주 보임 → 겁
-          </Label>
-        </div>
-        <div style={{marginTop: 8, ...vis(f, a(85, 0.6))}}>
-          <Label size={56} weight={900}>
-            <Hi at={a(85, 0.7)}>가장 적게 벎</Hi>
-          </Label>
+      <div style={{position: "absolute", inset: 0, opacity: fadeOut(f, out)}}>
+        <GroupHeads atL={STATIC} atR={STATIC} />
+        <GBar i={1} px={F.retOld.v * k} color={C.gain} at={atR} />
+        <GBar i={0} px={F.retNew.v * k} color={C.loss} at={atL} dur={12} />
+        <Box x={GX[1]} y={G_BASE - F.retOld.v * k - 136} w={500} center>
+          <div style={{opacity: enter(f, atR)}}>
+            <Big size={110} color={C.gain}>
+              +{num(vR)}%
+            </Big>
+          </div>
+        </Box>
+        {/* 막대가 짧아서 값은 0선 위에 둔다 */}
+        <Box x={GX[0]} y={G_BASE - 136} w={500} center>
+          <div style={{opacity: enter(f, atL)}}>
+            <Big size={110} color={C.loss}>
+              {num(vL, 1)}%
+            </Big>
+          </div>
+        </Box>
+        <Box x={PANEL_X} y={330}>
+          <div style={vis(f, a(83))}>
+            <Label size={44} color={C.gray}>
+              수수료·세금 뺀 수익률
+            </Label>
+          </div>
+          <div style={{marginTop: 40, ...vis(f, a(84))}}>
+            <Label size={52}>자주 사고팔수록</Label>
+          </div>
+          <div style={vis(f, a(84, 0.3))}>
+            <Label size={64} weight={900}>
+              시장보다 <Hi at={a(84, 0.55)}>덜 벎</Hi>
+            </Label>
+          </div>
+          <div style={{marginTop: 14, ...vis(f, a(84, 0.5))}}>
+            <Chip variant="gray" size={34}>
+              기존·신규 각각
+            </Chip>
+          </div>
+        </Box>
+        <CornerNote at={STATIC}>출처: {F.kcmi.v}</CornerNote>
+      </div>
+      {/* 85: 계좌를 열 때마다 사고팔고 싶은 마음 (진행자 해석, 숫자 없음) */}
+      <Box x={960} y={248} w={1400} center>
+        <div style={vis(f, out)}>
+          <Label size={44}>계좌를 열 때마다</Label>
         </div>
       </Box>
-      <Box x={1020} y={280}>
-        <div style={vis(f, a(84))}>
-          <Chip variant="outline" size={42}>
-            1년에 한 번 본 학생
-          </Chip>
-        </div>
-        <div style={{display: "flex", alignItems: "baseline", gap: 18, marginTop: 14, opacity: enter(f, a(84, 0.35))}}>
-          <Label size={48}>주식</Label>
-          <Big size={160}>{num(vR)}%</Big>
-          <Label size={48}>가까이</Label>
-        </div>
-        <div style={{marginTop: 18}}>
-          <SplitBar w={720} share={(F.yearlyStock.v / 100) * prog(f, a(84, 0.35), 24)} at={a(84, 0.35)} />
-        </div>
-      </Box>
+      {PHONE_X.map((x, i) => {
+        const at = a(85, 0.06 + i * 0.15);
+        return (
+          <React.Fragment key={x}>
+            <Box x={x} y={530}>
+              <MiniPhone at={at} w={170} />
+            </Box>
+            <Box x={x - 20} y={334}>
+              <Bubble at={at + 8} size={40} style={{whiteSpace: "nowrap"}}>
+                {ASK[i]}
+              </Bubble>
+            </Box>
+          </React.Fragment>
+        );
+      })}
     </>
   );
 };

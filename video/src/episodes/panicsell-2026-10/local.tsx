@@ -1,5 +1,5 @@
 // panicsell-2026-10 전용 시각 요소 — 사연 계좌 카드, 일시정지 표시(서킷브레이커), 공포 게이지, 10×10 와플, 점 한 줄,
-// 날짜 칸·달력, 주식|채권 나눔 막대, 과녁, 자물쇠, 작은 계좌 아이콘 (guides/video_guide.md 3-5, 맞는 패턴이 없을 때 단순 도형)
+// 날짜 칸·달력, 과녁, 자물쇠, 작은 계좌 아이콘, 작은 휴대폰 (guides/video_guide.md 3-5, 맞는 패턴이 없을 때 단순 도형)
 import React from "react";
 import {useCurrentFrame} from "remotion";
 import {C, SANS, SERIF} from "../../design/tokens";
@@ -220,25 +220,6 @@ export const MonthCal: React.FC<{
   );
 };
 
-// ── 주식 | 채권 나눔 막대 ──
-export const SplitBar: React.FC<{w: number; h?: number; share: number; at: number; labels?: boolean}> = ({w, h = 80, share, at, labels = true}) => {
-  const f = useCurrentFrame();
-  const o = enter(f, at);
-  const sw = w * share;
-  const txt: React.CSSProperties = {position: "absolute", top: 0, height: h - 8, display: "flex", alignItems: "center", fontFamily: SANS, fontWeight: 700, fontSize: 34, whiteSpace: "nowrap"};
-  return (
-    <div style={{position: "relative", width: w, height: h, border: `4px solid ${C.ink}`, borderRadius: 12, overflow: "hidden", background: "#D9D2C4", boxSizing: "border-box", opacity: o}}>
-      <div style={{position: "absolute", left: 0, top: 0, bottom: 0, width: sw, background: C.ink}} />
-      {labels ? (
-        <>
-          <div style={{...txt, left: 20, color: C.light, opacity: sw > 140 ? 1 : 0}}>주식</div>
-          <div style={{...txt, right: 20, color: C.ink, opacity: w - sw > 140 ? 1 : 0}}>채권</div>
-        </>
-      ) : null}
-    </div>
-  );
-};
-
 // ── 과녁 (맞혀야 하는 날) ──
 export const Target: React.FC<{size?: number; at: number}> = ({size = 170, at}) => {
   const f = useCurrentFrame();
@@ -276,6 +257,22 @@ export const MiniAccount: React.FC<{at: number; dark?: boolean; w?: number}> = (
       <div style={{width: "55%", height: 8, borderRadius: 4, background: ink}} />
       <div style={{width: "80%", height: 18, borderRadius: 4, background: C.loss, opacity: dark ? 1 : 0.55}} />
       <div style={{width: "100%", height: 12, borderRadius: 4, background: ink, opacity: 0.5}} />
+    </div>
+  );
+};
+
+// ── 작은 휴대폰 (계좌를 연 순간 — 화면이 켜지고 "내 계좌"와 S02 계좌 카드와 같은 무늬의 막대) ──
+export const MiniPhone: React.FC<{at: number; w?: number}> = ({at, w = 190}) => {
+  const f = useCurrentFrame();
+  const k = enter(f, at);
+  const on = prog(f, at + 6, 8);
+  return (
+    <div style={{position: "relative", width: w, height: w * 1.55, boxSizing: "border-box", border: `8px solid ${C.ink}`, borderRadius: 30, background: on > 0 ? C.light : "#D9D2C4", padding: "40px 16px 0", opacity: k, transform: `translateY(${(1 - k) * 20}px)`}}>
+      <div style={{position: "absolute", top: 12, left: "50%", width: 54, height: 10, marginLeft: -27, borderRadius: 5, background: C.ink}} />
+      <div style={{opacity: on}}>
+        <Label size={30}>내 계좌</Label>
+        <div style={{marginTop: 18, height: 34, borderRadius: 8, border: `4px solid ${C.ink}`, background: C.ink, boxSizing: "border-box"}} />
+      </div>
     </div>
   );
 };

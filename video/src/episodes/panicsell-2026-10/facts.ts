@@ -1,9 +1,10 @@
 // 데이터 시트 — guides/video_guide.md 4번. 화면 숫자는 여기 값만 쓴다.
 // 구분: 대본 = SRT에 나온 값 / 계산 = 대본 숫자 또는 README 검산표로 계산한 값(식 포함) / 예시 = 대본의 예시 규칙
+//       출처 = 대본 문장의 근거 자료(README 출처 표)에만 있는 값 — 막대 길이 비율에만 쓰고 화면에 숫자로 표시하지 않는다
 // 검산·출처: stock/source/panicsell-2026-10/README.md (번호는 대본 문장 번호)
 // ※ 투자 교육용. 특정 종목의 매수·매도 권유가 아님.
 
-export type Kind = "대본" | "계산" | "예시";
+export type Kind = "대본" | "계산" | "예시" | "출처";
 export type Fact = {v: number | string; sub: number[]; kind: Kind; note?: string};
 
 export const F = {
@@ -100,11 +101,18 @@ export const F = {
   rebuyAvg: {v: "18만 8천 원", sub: [75], kind: "대본", note: "'정도' (평균 187,524원)"},
   rebuyPnl: {v: -190, sub: [76], kind: "대본", note: "만 원 '정도' (README 검산 -191)"},
   rebuyBetter: {v: 600, sub: [77], kind: "대본", note: "만 원 '넘게' (818 - 191 = 627)"},
-  thaler: {v: "리처드 탈러 교수 등", sub: [80], kind: "대본", note: "노벨 경제학상. Thaler, Tversky, Kahneman & Schwartz (1997)"},
-  thalerYear: {v: 1997, sub: [80], kind: "대본"},
-  students: {v: "대학생", sub: [81], kind: "대본"},
-  monthlyStock: {v: 41, sub: [83], kind: "대본", note: "%, 매달 본 학생 (40.9%)"},
-  yearlyStock: {v: 70, sub: [84], kind: "대본", note: "%, '70% 가까이' 1년에 한 번 본 학생 (69.6%)"},
+  // 자본시장연구원 (김민기·김준석, 이슈보고서 21-11 「코로나19 국면의 개인투자자: 투자행태와 투자성과」, 2021-06-14)
+  kcmi: {v: "자본시장연구원", sub: [80], kind: "대본"},
+  kcmiYear: {v: "2021년", sub: [80], kind: "대본", note: "발표 2021-06-14"},
+  kcmiPeriod: {v: "2020년 3월 코로나 폭락 → 10월", sub: [81], kind: "대본", note: "2020년 3~10월 거래내역 (8개월)"},
+  kcmiInvestors: {v: "20만 명", sub: [81], kind: "대본", note: "4개 대형 증권사 개인투자자 204,004명 (신규 60,446명, 약 30%)"},
+  tradeTwice: {v: "두 배 가까이", sub: [82], kind: "대본", note: "신규 투자자의 거래회전율이 기존 투자자의 '두 배 가까이' (보고서 p.12)"},
+  turnoverOld: {v: 6.5, sub: [82], kind: "출처", note: "%, 기존 투자자 일간 거래회전율 (세미나 수치, 서울신문 2021-04-13). 막대 길이 비율에만 사용(숫자 표시 안 함)"},
+  turnoverNew: {v: 12.2, sub: [82], kind: "출처", note: "%, 신규 투자자 일간 거래회전율 (12.2 ÷ 6.5 = 1.88배). 막대 길이 비율에만 사용(숫자 표시 안 함)"},
+  retOld: {v: 15, sub: [83], kind: "대본", note: "%, 기존 투자자 거래세·수수료 뺀 수익률 15.0% (차감 전 18.8%, 2020년 3~10월)"},
+  retNew: {v: -1.2, sub: [83], kind: "대본", note: "%, 신규 투자자 거래세·수수료 뺀 수익률 (차감 전 5.9%)"},
+  // 문장 84 '자주 사고판 투자자일수록 시장보다 덜 벎' = 기존·신규 각 집단 안에서 회전율이 높을수록 초과수익률이 낮음 (p.16). -1.2%의 원인을 잦은 매매 하나로 그리지 않는다
+  // 문장 85는 진행자 해석 (숫자 없음)
   lastFri: {v: "매달 마지막 금요일", sub: [86], kind: "예시"},
   check1Day: {v: "3월 27일", sub: [87], kind: "대본", note: "3월 마지막 금요일"},
   check1: {v: -670, sub: [87], kind: "대본", note: "만 원 (4,000 × (180,100 ÷ 216,500 - 1) = -672)"},

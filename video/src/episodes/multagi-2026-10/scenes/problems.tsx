@@ -3,12 +3,12 @@ import React from "react";
 import {interpolate, useCurrentFrame} from "remotion";
 import {C, SERIF} from "../../../design/tokens";
 import {count, enter, prog} from "../../../components/anim";
-import {eokMan, num, won} from "../../../components/fmt";
+import {num, won} from "../../../components/fmt";
 import {Big, Box, Caption, Card, Chip, CornerNote, Headline, Hi, Label, Mark, fadeOut, vis} from "../../../components/ui";
-import {AccountCard, NewsCard, NumberTitle} from "../../../components/cards";
-import {Bars, Dot, HRule, Layer, Line, P, PtLabel, YearLine} from "../../../components/charts";
+import {AccountCard, NumberTitle} from "../../../components/cards";
+import {Bars, Dot, HRule, Layer, Line, P, PtLabel} from "../../../components/charts";
 import {Balance, Stack, Weight} from "../../../components/objects";
-import {F} from "../facts";
+import {F, KAKAO} from "../facts";
 import {SceneC} from "./story";
 
 const ADD = "#5A5751"; // S03 계좌 카드의 물타기 조각 색과 같음
@@ -337,10 +337,37 @@ export const S16: SceneC = ({t}) => {
   );
 };
 
-// S17 문장 40–42: "03" → 연구 카드 (테런스 오딘 교수 · 계좌 1만 개 · 1987년부터 7년)
+// S17 문장 40–43: "03" → 연구 카드 (자본시장연구원 · 2020년 · 개인 투자자 약 20만 명) → 산 다음 날 판 비율: 수익 난 종목 41% / 손실 난 종목 22%, 78%는 그대로 보유
+const HOLD = "repeating-linear-gradient(135deg, transparent 0 12px, rgba(154,150,142,0.38) 12px 16px)"; // 판 비율 막대의 나머지 = 들고 있음 (빗금)
+const SELL_X = 520;
+const SELL_W = 1200;
+const SellRow: React.FC<{y: number; label: string; pct: number; color: string; at: number; fillAt: number; hold?: React.ReactNode}> = ({y, label, pct, color, at, fillAt, hold}) => {
+  const f = useCurrentFrame();
+  const w = SELL_W * (pct / 100) * prog(f, fillAt, 18);
+  return (
+    <>
+      <Box x={140} y={y + 24}>
+        <div style={vis(f, at)}>
+          <Label size={48} weight={900}>
+            {label}
+          </Label>
+        </div>
+      </Box>
+      <div style={{position: "absolute", left: SELL_X, top: y, width: SELL_W, height: 110, border: `4px solid ${C.ink}`, borderRadius: 14, overflow: "hidden", background: HOLD, boxSizing: "border-box", opacity: enter(f, at)}}>
+        <div style={{position: "absolute", left: 0, top: 0, bottom: 0, width: w, background: color, display: "flex", alignItems: "center", justifyContent: "center"}}>
+          <Label size={52} weight={900} color="#FFFFFF" style={{whiteSpace: "nowrap", opacity: enter(f, fillAt + 8)}}>
+            {pct}% 팖
+          </Label>
+        </div>
+        {hold ? <div style={{position: "absolute", left: SELL_W * (pct / 100), right: 0, top: 0, bottom: 0, display: "flex", alignItems: "center", justifyContent: "center"}}>{hold}</div> : null}
+      </div>
+    </>
+  );
+};
 export const S17: SceneC = ({t}) => {
   const f = useCurrentFrame();
-  const {a, b} = t;
+  const {a} = t;
+  const out = a(42);
   return (
     <>
       <NumberTitle
@@ -348,96 +375,131 @@ export const S17: SceneC = ({t}) => {
         at={a(40)}
         title={
           <>
-            손실 종목을 <Hi at={a(40, 0.6)}>너무 오래</Hi> 붙잡는다
+            손실 종목을{" "}
+            <Hi at={a(40, 0.6)} until={a(43)}>
+              너무 오래
+            </Hi>{" "}
+            붙잡는다
           </>
         }
       />
-      <Box x={360} y={300}>
-        <div style={vis(f, a(41))}>
-          <Card style={{width: 1200, padding: "40px 56px"}}>
-            <Label size={44}>
-              {F.odean.v} 교수 · {F.odeanOrg.v}
-            </Label>
-            <div style={{display: "flex", alignItems: "baseline", gap: 24, marginTop: 18, opacity: enter(f, b(41))}}>
-              <Label size={56} weight={700}>
-                개인 투자자 계좌
-              </Label>
-              <Big size={170}>{F.accounts.v}</Big>
-            </div>
-            <div style={{marginTop: 26, ...vis(f, a(42))}}>
-              <Chip size={42}>
-                {F.odeanFrom.v}년부터 · {F.odeanYears.v}년 거래 기록
-              </Chip>
-            </div>
-          </Card>
+      <div style={{position: "absolute", inset: 0, opacity: fadeOut(f, out)}}>
+        <Box x={140} y={290}>
+          <div style={vis(f, a(41))}>
+            <Card style={{width: 1640, boxSizing: "border-box", padding: "34px 52px"}}>
+              <div style={{display: "flex", alignItems: "center", gap: 26}}>
+                <Label size={56} weight={900}>
+                  {F.kcmi.v}
+                </Label>
+                <div style={vis(f, a(41, 0.3))}>
+                  <Chip size={40}>{F.kcmiYear.v} 거래</Chip>
+                </div>
+              </div>
+              <div style={{display: "flex", alignItems: "baseline", gap: 30, marginTop: 10, opacity: enter(f, a(41, 0.5))}}>
+                <Label size={56}>개인 투자자 약</Label>
+                <Big size={170}>{F.kcmiInvestors.v}</Big>
+              </div>
+            </Card>
+          </div>
+        </Box>
+      </div>
+      {/* 42–43: 산 다음 날 판 비율 (막대 = 그날 수익·손실 난 종목 전체, 빗금 = 들고 있음) */}
+      <Box x={SELL_X} y={290}>
+        <div style={{display: "flex", alignItems: "center", gap: 18, ...vis(f, out)}}>
+          <Chip size={40}>{F.dayAfter.v}</Chip>
+          <Label size={44}>판 비율</Label>
         </div>
       </Box>
+      <SellRow y={410} label="수익 난 종목" pct={F.sellWin.v} color={C.gain} at={out} fillAt={a(42, 0.45)} />
+      <SellRow
+        y={590}
+        label="손실 난 종목"
+        pct={F.sellLoss.v}
+        color={C.loss}
+        at={a(43)}
+        fillAt={a(43, 0.12)}
+        hold={
+          <div style={vis(f, a(43, 0.5))}>
+            <Label size={52} weight={900}>
+              <Hi at={a(43, 0.65)}>
+                {F.holdLoss.v}% 그대로 보유
+              </Hi>
+            </Label>
+          </div>
+        }
+      />
+      <CornerNote at={out}>출처: {F.kcmi.v}</CornerNote>
     </>
   );
 };
 
-// S18 문장 43–45: 파는 비율 (손실 종목 vs 수익 종목 1.5배) → 그 뒤 1년 수익률 차이 3.4%p (개념도)
+// S18 문장 44–45: 들고 있던 종목 평균 수익률 — 이 습관이 가장 강한 투자자 (뒷줄) 평균 -9.8% / 손실 종목부터 정리한 투자자 평균 +4.9% (왼쪽 나쁜 쪽)
 export const S18: SceneC = ({t}) => {
   const f = useCurrentFrame();
-  const {a} = t;
-  const sw = a(44);
-  const baseY = 690;
-  const maxH = 360;
-  const hL = 0.45;
-  const hR = 0.8;
-  const topL = baseY - maxH * hL;
-  const topR = baseY - maxH * hR;
-  const bx = 1400;
-  const bp = prog(f, a(45, 0.5), 12);
+  const {a, b} = t;
+  const Z = 480; // 0선 y
+  const k = 16; // 수익률 1%당 막대 길이(px)
+  const XL = 620;
+  const XR = 1300;
+  const BW = 240;
+  const atL = b(44, 0.1);
+  const atR = a(45, 0.4);
+  const hL = Math.abs(F.dispoAvg.v) * k * prog(f, atL, 20);
+  const hR = F.lossFirstAvg.v * k * prog(f, atR, 18);
+  const vL = count(f, atL, 0, F.dispoAvg.v, 20);
+  const vR = count(f, atR, 0, F.lossFirstAvg.v, 18);
   return (
     <>
       <NumberTitle no="03" at={STATIC} title={T03} />
-      <div style={{position: "absolute", inset: 0, opacity: fadeOut(f, sw)}}>
-        <Box x={960} y={250} w={800} center>
+      <Box x={140} y={262}>
+        <div style={vis(f, b(44))}>
           <Label size={44} color={C.gray}>
-            파는 비율
+            들고 있던 종목 평균 수익률
           </Label>
-        </Box>
-        <Bars
-          x={560}
-          baseY={baseY}
-          maxH={maxH}
-          barW={260}
-          gap={280}
-          items={[
-            {h: 0.55, color: C.loss, label: "손실 난 종목", at: a(43, 0.45)},
-            {h: 0.55 * F.sellRatio.v, color: C.gain, label: "수익 난 종목", at: a(43, 0.05), top: <Label size={64} weight={900}><Hi at={a(43, 0.8)} until={sw}>{F.sellRatio.v}배</Hi></Label>},
-          ]}
-        />
-      </div>
-      <div style={{position: "absolute", inset: 0, opacity: enter(f, sw)}}>
-        <Box x={960} y={250} w={800} center>
-          <Label size={44} color={C.gray}>
-            그 뒤 1년 수익률
+        </div>
+      </Box>
+      <div style={{position: "absolute", left: XL - BW / 2 - 80, top: Z, width: XR - XL + BW + 160, height: 6, background: C.ink, opacity: enter(f, a(44))}} />
+      {/* 왼쪽: 이 습관이 가장 강한 투자자 — 막대가 0선 아래로 */}
+      <Box x={XL} y={Z - 124} w={560} center>
+        <div style={vis(f, a(44))}>
+          <Label size={44} weight={900}>
+            이 습관이 가장 강한
           </Label>
-        </Box>
-        <Bars
-          x={560}
-          baseY={baseY}
-          maxH={maxH}
-          barW={260}
-          gap={280}
-          items={[
-            {h: hL, color: C.loss, label: "붙잡은 손실 종목", at: a(45)},
-            {h: hR, color: C.gain, label: "판 수익 종목", at: sw + 6},
-          ]}
-        />
-        <div style={{position: "absolute", left: 820, top: topL - 3, width: (bx - 820) * bp, borderTop: `5px dashed ${C.ink}`}} />
-        <div style={{position: "absolute", left: bx - 3, top: topR, width: 6, height: (topL - topR) * bp, background: C.ink}} />
-        <Box x={bx + 30} y={(topL + topR) / 2 - 36}>
-          <div style={vis(f, a(45, 0.55))}>
-            <Label size={52} weight={900}>
-              <Hi at={a(45, 0.65)}>{F.gap.v}%p 더 높음</Hi>
-            </Label>
-          </div>
-        </Box>
-        <CornerNote at={sw}>개념도 · 출처: {F.odean.v} 교수 연구</CornerNote>
-      </div>
+          <Label size={44} weight={900}>
+            투자자
+          </Label>
+        </div>
+      </Box>
+      <div style={{position: "absolute", left: XL - BW / 2, top: Z + 6, width: BW, height: hL, background: C.loss, borderRadius: "0 0 10px 10px"}} />
+      <Box x={XL} y={Z + 6 + Math.abs(F.dispoAvg.v) * k + 14} w={560} center>
+        <div style={{display: "flex", alignItems: "baseline", justifyContent: "center", gap: 14, opacity: enter(f, atL)}}>
+          <Label size={40}>평균</Label>
+          <Big size={100} color={C.loss}>
+            {num(vL, 1)}%
+          </Big>
+        </div>
+      </Box>
+      {/* 오른쪽: 손실 종목부터 정리한 투자자 — 막대가 0선 위로 */}
+      <div style={{position: "absolute", left: XR - BW / 2, top: Z - hR, width: BW, height: hR, background: C.gain, borderRadius: "10px 10px 0 0"}} />
+      <Box x={XR} y={Z - F.lossFirstAvg.v * k - 114} w={560} center>
+        <div style={{display: "flex", alignItems: "baseline", justifyContent: "center", gap: 14, opacity: enter(f, atR)}}>
+          <Label size={40}>평균</Label>
+          <Big size={100} color={C.gain}>
+            +{num(vR, 1)}%
+          </Big>
+        </div>
+      </Box>
+      <Box x={XR} y={Z + 30} w={560} center>
+        <div style={vis(f, a(45))}>
+          <Label size={44} weight={900}>
+            손실 종목부터
+          </Label>
+          <Label size={44} weight={900}>
+            정리한 투자자
+          </Label>
+        </div>
+      </Box>
+      <CornerNote at={STATIC}>출처: {F.kcmi.v}</CornerNote>
     </>
   );
 };
@@ -474,103 +536,176 @@ export const S19: SceneC = ({t}) => {
   );
 };
 
-// S20 문장 48–51 (네이비): "04" → 1995 베어링스 은행 붕괴 → 1762~1995 233년 → 닉 리슨, 손실 날 때마다 베팅 ↑ (개념도)
-const BETS = [70, 120, 190, 270];
-const BetBars: React.FC<{at: number[]; extra?: {h: number; at: number}}> = ({at, extra}) => {
+// S20·S21 공통 (네이비): 카카오 실제 종가 선 (날짜 간격은 실제와 다름, 숫자는 대본 값만) + 아래 개인 매수 막대 (그 기간 아래에)
+const ky = (v: number) => 400 + (KAKAO.peak - v) * (280 / (KAKAO.peak - KAKAO.now));
+const K0: P = [300, ky(KAKAO.peak)]; // 2021-06-23 고점
+const K1: P = [520, ky(KAKAO.w0)]; // 2021-09-03
+const K2: P = [600, ky(KAKAO.w1)]; // 2021-09-10 (일주일 뒤)
+const K3: P = [760, ky(KAKAO.y21)]; // 2021-12-30
+const K4: P = [1100, ky(KAKAO.y22)]; // 2022-12-29
+const K5: P = [1580, ky(KAKAO.now)]; // 2026-10-08
+const BUY_BASE = 800;
+const BUY_MAX = 80; // 2022년 2조 2,870억 원 = 80px (출처 수치 비율, 숫자 표시 안 함)
+const BUY_BG = "rgba(247,243,234,0.6)";
+const BuyBar: React.FC<{x0: number; x1: number; eok: number; at: number; labelAt: number; strong?: number; children: React.ReactNode}> = ({x0, x1, eok, at, labelAt, strong = 0, children}) => {
   const f = useCurrentFrame();
-  const list = [...BETS.map((h, i) => ({h, at: at[i]})), ...(extra ? [extra] : [])];
+  const full = (eok / F.buy2022Eok.v) * BUY_MAX;
+  const h = full * prog(f, at, 16);
   return (
     <>
-      {list.map((b, i) => {
-        const h = b.h * prog(f, b.at, 14);
-        return <div key={i} style={{position: "absolute", left: 1120 + i * 135, top: 740 - h, width: 100, height: h, background: i === 4 ? C.inkOnNavy : "rgba(247,243,234,0.6)", borderRadius: "8px 8px 0 0"}} />;
-      })}
-      <div style={{position: "absolute", left: 1090, top: 740, width: list.length * 135 + 30, height: 6, background: C.inkOnNavy, opacity: enter(f, at[0])}} />
+      <div style={{position: "absolute", left: x0, top: BUY_BASE - h, width: x1 - x0, height: h, background: strong > 0 ? `rgba(247,243,234,${0.6 + 0.4 * strong})` : BUY_BG, borderRadius: "8px 8px 0 0"}} />
+      <div style={{position: "absolute", left: x0 - 40, top: BUY_BASE, width: x1 - x0 + 80, height: 6, background: C.inkOnNavy, opacity: enter(f, at)}} />
+      <Box x={(x0 + x1) / 2} y={BUY_BASE - full - 60} w={560} center>
+        <div style={vis(f, labelAt)}>
+          <Label size={36}>{children}</Label>
+        </div>
+      </Box>
     </>
   );
 };
-export const S20: SceneC = ({t}) => {
+/** 고점 (문장 49) — S20·S21 같은 자리 */
+const PeakLabel: React.FC<{at: number}> = ({at}) => (
+  <PtLabel p={K0} at={at} anchor="top">
+    <Label size={36} weight={500}>
+      {F.kakao.v} · {F.peakMonth.v}
+    </Label>
+    <Label size={60} weight={900}>
+      {F.peak.v}
+    </Label>
+  </PtLabel>
+);
+/** 그해 9월 빅테크 규제, 일주일 만에 -17% 가까이 (문장 50) */
+const WeekLabel: React.FC<{at: number; numAt: number; until?: number}> = ({at, numAt, until}) => {
   const f = useCurrentFrame();
-  const {a, b} = t;
-  const bet0 = b(51);
+  return (
+    <Box x={650} y={300}>
+      <div style={vis(f, at, until)}>
+        <Chip variant="outline" size={36}>
+          {F.regMonth.v} · {F.regNews.v}
+        </Chip>
+      </div>
+      <div style={{marginTop: 14, ...vis(f, numAt, until)}}>
+        <Label size={52} weight={900} color={C.loss}>
+          일주일 만에 -{F.weekDrop.v}% 가까이
+        </Label>
+      </div>
+    </Box>
+  );
+};
+
+// S20 문장 48–51 (네이비): "04" → 카카오 2021년 6월 16만 9,500원 → 9월 빅테크 규제, 일주일 만에 -17% 가까이 → 그 한 주 개인 1조 원 넘게 매수
+export const S20: SceneC = ({t}) => {
+  const {a} = t;
   return (
     <>
       <NumberTitle no="04" at={a(48)} title={T04} />
-      <Box x={140} y={290}>
-        <div style={vis(f, a(49))}>
-          <NewsCard date={`${F.baringsYear.v}년`} title="영국 베어링스 은행 붕괴" width={820} />
-        </div>
-      </Box>
-      <div style={{opacity: fadeOut(f, a(51))}}>
-        <YearLine x0={1100} x1={1700} y={430} from={`${F.baringsFounded.v}년`} to={`${F.baringsYear.v}년`} at={a(50)} mid={<Big size={100}>{F.baringsAge.v}년</Big>} />
-      </div>
-      <Box x={140} y={560}>
-        <div style={vis(f, a(51))}>
-          <Label size={40} weight={500}>
-            싱가포르 지점 · {F.leesonAge.v}살 트레이더
-          </Label>
-          <Label size={64} weight={900}>
-            닉 리슨
-          </Label>
-        </div>
-      </Box>
-      <Box x={1120} y={340}>
-        <div style={vis(f, bet0)}>
-          <Label size={40}>손실 날 때마다 베팅 ↑</Label>
-        </div>
-      </Box>
-      <BetBars at={BETS.map((_, i) => bet0 + i * 8)} />
-      <CornerNote at={bet0} y={770}>
-        개념도
-      </CornerNote>
+      <Layer>
+        <Line pts={[K0, K1, K2]} at={a(50, 0.1)} dur={22} color={C.loss} />
+        <Dot p={K0} at={a(49, 0.1)} color={C.inkOnNavy} />
+        <Dot p={K2} at={a(50, 0.35)} color={C.loss} />
+      </Layer>
+      <PeakLabel at={a(49, 0.1)} />
+      <WeekLabel at={a(50, 0.15)} numAt={a(50, 0.5)} />
+      <BuyBar x0={K1[0]} x1={K2[0]} eok={F.buyWeekEok.v} at={a(51, 0.4)} labelAt={a(51, 0.5)}>
+        개인 {F.buyWeek.v} 넘게 매수
+      </BuyBar>
+      <CornerNote at={a(49)}>실제 주가 흐름 · 날짜 간격은 실제와 다름</CornerNote>
     </>
   );
 };
 
-// S21 문장 52–55 (네이비): 1995년 1월 고베 대지진 → 손절 안 함 → 반등에 더 크게 → -8억 2,700만 파운드, 1파운드에 매각 → 본전 생각
+// S21 문장 52–55 (네이비): 2022년 반 토막 · 개인 2조 원 넘게 더 매수 → 소액주주 15만 명 가까이 늘어 206만 명 → 2026년 10월 3만 2천 원대, 고점의 5분의 1도 안 됨 → 더 사들인 만큼 손실도 함께
 export const S21: SceneC = ({t}) => {
   const f = useCurrentFrame();
-  const {a, b} = t;
-  const out = a(54);
-  const loss = count(f, a(54, 0.1), 0, -F.baringsLoss.v, 28);
+  const {a} = t;
+  const grow = prog(f, a(53, 0.45), 16);
+  const HW = 240; // 소액주주 막대 최대 폭
+  const strong = prog(f, a(55, 0.2), 12);
   return (
     <>
       <NumberTitle no="04" at={STATIC} title={T04} />
-      <div style={{position: "absolute", inset: 0, opacity: fadeOut(f, out)}}>
-        <Box x={140} y={290}>
-          <div style={vis(f, a(52))}>
-            <NewsCard date={`${F.baringsYear.v}년 1월`} title="일본 고베 대지진" sub={<span style={{opacity: enter(f, b(52))}}>→ 일본 주가 급락</span>} width={860}>
-              <div style={{display: "flex", alignItems: "center", gap: 16, marginTop: 22, opacity: enter(f, b(52, 0.5))}}>
-                <Mark kind="cross" at={b(52, 0.5)} size={56} color={C.ink} />
-                <Label size={44}>손절 안 함</Label>
+      <Layer>
+        <Line pts={[K0, K1, K2]} at={STATIC} color={C.loss} />
+        <Line pts={[K2, K3, K4]} at={a(52, 0.05)} dur={24} color={C.loss} />
+        <Line pts={[K4, K5]} at={a(54, 0.1)} dashed width={6} />
+        <Dot p={K0} at={STATIC} color={C.inkOnNavy} />
+        <Dot p={K2} at={STATIC} color={C.loss} />
+        <Dot p={K4} at={a(52, 0.4)} color={C.loss} />
+        <Dot p={K5} at={a(54, 0.3)} color={C.loss} />
+      </Layer>
+      <PeakLabel at={STATIC} />
+      <WeekLabel at={STATIC} numAt={STATIC} until={a(52)} />
+      <BuyBar x0={K1[0]} x1={K2[0]} eok={F.buyWeekEok.v} at={STATIC} labelAt={STATIC} strong={strong}>
+        개인 {F.buyWeek.v} 넘게 매수
+      </BuyBar>
+      {/* 52: 2022년 반 토막 + 그해 개인 2조 원 넘게 더 매수 */}
+      <PtLabel p={K4} at={a(52, 0.4)} until={a(53)} anchor="right">
+        <Label size={48} weight={900} color={C.loss}>
+          {F.halfYear.v} 반 토막
+        </Label>
+      </PtLabel>
+      <BuyBar x0={K3[0]} x1={K4[0]} eok={F.buy2022Eok.v} at={a(52, 0.5)} labelAt={a(52, 0.6)} strong={strong}>
+        개인 {F.buy2022.v} 넘게 더 매수
+      </BuyBar>
+      {/* 53: 그해 소액주주 15만 명 가까이 늘어 206만 명 (막대 비율 191.8 : 206.7만 명) */}
+      <Box x={1160} y={262}>
+        <div style={vis(f, a(53), a(54))}>
+          <Card style={{width: 640, boxSizing: "border-box", padding: "26px 36px"}}>
+            <Label size={40} weight={900}>
+              {F.kakao.v} 소액주주
+            </Label>
+            {[
+              {y: "2021년 말", w: HW * (F.holders21.v / F.holders22.v), v: null},
+              {y: `${F.halfYear.v} 말`, w: HW * (F.holders21.v / F.holders22.v) + HW * (1 - F.holders21.v / F.holders22.v) * grow, v: F.holders.v},
+            ].map((r) => (
+              <div key={r.y} style={{display: "flex", alignItems: "center", gap: 14, marginTop: 14}}>
+                <Label size={32} weight={500} color={C.gray} style={{width: 150, flex: "none"}}>
+                  {r.y}
+                </Label>
+                <div style={{width: r.w, height: 40, background: C.ink, borderRadius: 8, flex: "none"}} />
+                {r.v ? (
+                  <Label size={38} weight={900} style={{opacity: enter(f, a(53, 0.6)), whiteSpace: "nowrap"}}>
+                    {r.v}
+                  </Label>
+                ) : null}
               </div>
-            </NewsCard>
-          </div>
-        </Box>
-        <Box x={1120} y={250}>
-          <div style={vis(f, a(53, 0.3))}>
-            <Label size={40}>반등에 더 크게</Label>
-          </div>
-        </Box>
-        <BetBars at={BETS.map(() => STATIC)} extra={{h: 380, at: a(53, 0.3)}} />
-      </div>
-      <Box x={960} y={290} w={1700} center>
-        <div style={{...vis(f, out), display: "inline-block", background: C.loss, color: "#FFFFFF", borderRadius: 18, padding: "18px 44px"}}>
-          <Big size={140}>{eokMan(loss)} 파운드</Big>
+            ))}
+            <div style={{marginTop: 16, ...vis(f, a(53, 0.3))}}>
+              <Label size={48} weight={900}>
+                <Hi at={a(53, 0.45)}>+{F.holdersUp.v} 가까이</Hi>
+              </Label>
+            </div>
+          </Card>
         </div>
       </Box>
-      <Box x={960} y={510} w={1200} center>
-        <div style={vis(f, b(54))}>
-          <Chip size={46}>은행은 단돈 {F.soldFor.v}에 매각</Chip>
+      {/* 54: 2026년 10월 3만 2천 원대, 고점의 5분의 1도 안 됨 */}
+      <PtLabel p={K5} at={a(54, 0.3)} anchor="top">
+        <Label size={36} weight={500}>
+          {F.now.v}
+        </Label>
+        <Label size={60} weight={900} color={C.loss}>
+          {F.kakaoNow.v}
+        </Label>
+        <Label size={40} style={{marginTop: 4}}>
+          <Hi at={a(54, 0.65)} until={a(55)}>
+            고점의 {F.fifth.v}도 안 됨
+          </Hi>
+        </Label>
+      </PtLabel>
+      {/* 55: 떨어질수록 더 사들인 만큼 손실도 함께 (매수 막대가 밝아짐) */}
+      <Box x={1160} y={290}>
+        <div style={vis(f, a(55, 0.1))}>
+          <Label size={52} weight={900}>
+            떨어질수록 더 사들인 만큼
+          </Label>
+        </div>
+        <div style={{marginTop: 6, ...vis(f, a(55, 0.35))}}>
+          <Label size={60} weight={900}>
+            <Hi at={a(55, 0.5)}>손실도 함께 ↑</Hi>
+          </Label>
         </div>
       </Box>
-      <Box x={960} y={640} w={1500} center>
-        <div style={vis(f, a(55, 0.3))}>
-          <Headline size={72}>
-            <Hi at={a(55, 0.5)}>본전 생각</Hi> 앞에서 못 멈춤
-          </Headline>
-        </div>
-      </Box>
+      <CornerNote at={STATIC}>실제 주가 흐름 · 날짜 간격은 실제와 다름</CornerNote>
     </>
   );
 };

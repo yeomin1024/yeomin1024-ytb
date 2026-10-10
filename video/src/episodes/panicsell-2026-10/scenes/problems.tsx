@@ -107,7 +107,9 @@ export const S10: SceneC = ({t}) => {
         head={
           <>
             <DateTag>{F.covidYear.v} 코로나</DateTag>
-            <Label size={40}>코스피</Label>
+            <Label size={40} style={{opacity: enter(f, a(31))}}>
+              코스피
+            </Label>
           </>
         }
         down={{pct: PRICE.kDrop2020, day: F.covidDay.v, val: `-${F.covidDrop.v}% 넘게`, at: a(31, 0.05), valAt: a(31, 0.25)}}
@@ -432,7 +434,7 @@ export const S16: SceneC = ({t}) => {
         }
       />
       <Box x={360} y={268}>
-        <div style={vis(f, a(45))}>
+        <div style={vis(f, a(46))}>
           <Chip size={38}>코스피</Chip>
         </div>
       </Box>
@@ -570,17 +572,19 @@ export const S18: SceneC = ({t}) => {
           </Card>
         </div>
       </Box>
-      <Bars
-        x={260}
-        baseY={baseY}
-        maxH={maxH}
-        barW={220}
-        gap={200}
-        items={[
-          {h: hI, color: LIGHT_GAIN, at: b(52), label: "투자자가 번 돈", top: <Label size={54} weight={900} color={C.gain}>연 {F.investorRet.v.toFixed(1)}%</Label>},
-          {h: hF, color: C.gain, at: a(52, 0.1), label: "펀드 자체", top: <Label size={54} weight={900} color={C.gain}>연 {F.fundRet.v}%</Label>},
-        ]}
-      />
+      <div style={{position: "absolute", inset: 0, opacity: enter(f, a(52))}}>
+        <Bars
+          x={260}
+          baseY={baseY}
+          maxH={maxH}
+          barW={220}
+          gap={200}
+          items={[
+            {h: hI, color: LIGHT_GAIN, at: b(52), label: "투자자가 번 돈", top: <Label size={54} weight={900} color={C.gain}>연 {F.investorRet.v.toFixed(1)}%</Label>},
+            {h: hF, color: C.gain, at: a(52, 0.1), label: "펀드 자체", top: <Label size={54} weight={900} color={C.gain}>연 {F.fundRet.v}%</Label>},
+          ]}
+        />
+      </div>
       {/* 53: 차이 1.2%p */}
       <div style={{position: "absolute", left: 480, top: topI - 3, width: (bx - 480) * bp, borderTop: `5px dashed ${C.ink}`}} />
       <div style={{position: "absolute", left: 900, top: topF - 3, width: (bx - 900) * bp, borderTop: `5px dashed ${C.ink}`}} />

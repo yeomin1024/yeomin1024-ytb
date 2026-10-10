@@ -37,6 +37,10 @@ selfdev/ · health/ · space/ · story/ · lifetips/   ← 다른 주제 폴더 
 
 ## 1. 분석기 실행
 
+### 클라우드(Claude Code)에서 — 키만 넣으면 Claude가 실행
+- 클라우드 환경 설정에 `YOUTUBE_API_KEY`를 넣으면(`guides/pipeline.md` "처음 한 번 할 일" A·E) `.env` 없이 돌아갑니다 (분석기 v2.3.1).
+- Claude에게 "stock 분석 돌려줘"라고 하면 `bash tools/run_analysis.sh stock`으로 실행하고 결과를 `stock/result/`에 넣어 main에 올립니다 (성공사례 영상 파일은 받지 않음).
+
 ### 방법 A — wget으로 받아서 실행 (새 폴더에서, 저장소를 받을 필요 없음)
 
 **Windows (PowerShell)** — 작업할 빈 폴더에서:
@@ -145,17 +149,14 @@ python youtube_topic_analyzer.py --help                                    # 전
 
 ## 2. 영상 만들기
 
-[`guides/README.md`](guides/README.md)에 작업 순서가 있습니다. 요약하면 이 순서입니다.
-1. 주제 고르기
-2. 제목 후보
-3. 대본 TXT·SRT (`tools/srt_tool.py`)
-4. 영상별 제목 3개 (`titles.md`)
-5. 썸네일 프롬프트 3개 (`thumbnails/`)
-6. 내레이션 녹음
-7. 장면 구성표 → 스토리보드 → **승인** → 렌더 (Remotion, Claude Code)
-8. 썸네일: 프롬프트로 이미지 AI에서 만들기
-9. 업로드 시트(`upload.md`: 설명란·챕터·태그·고정 댓글) → 업로드
-10. 업로드 후 "테스트 및 비교"·시청 지속 결과 기록
+전체 순서는 [`guides/pipeline.md`](guides/pipeline.md)에 있습니다 (Claude Code가 이 순서로 진행). 요약:
+1. **분석** — 결과가 없으면 분석기 실행 (클라우드: `bash tools/run_analysis.sh <주제폴더>`, 키 `YOUTUBE_API_KEY`)
+2. **지시사항·주제** — 분석 결과로 주제 규칙을 만들거나 고치고, 주제 후보를 고른다
+3. **영상마다** — 대본 TXT·SRT, 제목 3개, 썸네일 **프롬프트** 3개, 업로드 시트, 영상 코드·스토리보드(승인) → 요약 문서 `summary.md`
+4. **오디오가 생기면** (`<주제폴더>/source/<영상ID>/narration.mp3`) — SRT 맞춤 → 렌더 → 유튜브 **비공개** 업로드, 한 번에 최대 3개 (`bash tools/publish.sh`)
+5. 그 뒤 스튜디오에서: 테스트 및 비교(썸네일 3개)·자동 더빙 확인·공개 전환 → 결과 기록
+
+처음 한 번 할 일(키 4개 넣기, 채널 인증)은 [`guides/pipeline.md`](guides/pipeline.md) "처음 한 번 할 일"에 있습니다.
 
 | 영상 | 상태 | 위치 |
 |---|---|---|
@@ -175,6 +176,18 @@ python tools/srt_tool.py measure <대본.txt>                                # �
 python tools/srt_tool.py remotion <대본.txt> <자막.srt> video/src/episodes/<영상ID>/subtitles.ts   # 영상용 데이터 (문장 번호 기준)
 python tools/srt_tool.py upload <대본.txt> <자막.srt> --chapters "1=…;15=…"   # 챕터 시간 (SRT는 그대로 업로드)
 # 녹음 후 (video/ 에서): npm run align-audio -- <주제폴더> <영상ID>   ← 오디오는 고치지 않고 SRT를 맞춤
+```
+
+자동 진행 도구 (저장소 최상위에서):
+```
+bash tools/run_analysis.sh stock                      # 1단계: 클라우드에서 분석 (환경변수 YOUTUBE_API_KEY)
+python tools/make_summary.py --all                    # 3-5: 영상별 요약 문서 summary.md
+python tools/make_summary.py --thumb-todo stock       # 이미지가 없는 썸네일 프롬프트 모음 → stock/thumbnail_todo.md
+bash tools/publish.sh --dry-run                       # 4단계 대상 확인 (오디오 있음·아직 안 올림·영상 코드 있음)
+bash tools/publish.sh                                 # 4단계: SRT 맞춤 → 렌더 → 비공개 업로드 (최대 3개)
+python tools/youtube_upload.py stock <영상ID> --dry-run   # 업로드할 값만 확인
+python tools/youtube_upload.py --check-auth           # 업로드 키 확인 (채널 이름)
+python tools/youtube_auth.py --client-id … --client-secret …   # (내 PC에서 한 번) 업로드용 리프레시 토큰 발급
 ```
 
 ---

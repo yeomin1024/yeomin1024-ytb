@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-10-10 — 완성 영상을 유튜브에 비공개로 업로드 (제목·설명란·태그·카테고리·자막·썸네일 1개), 표준 라이브러리만
+# VERSION: v1.1 — 2026-10-10 — 썸네일은 사용자가 이미지 AI로 만든 파일(source/<영상ID>/thumbnails/)을 읽고 1280×720·2MB 이하 JPG로 맞춤, 채택 제목의 짝 썸네일 사용
+#          (v1.0: 비공개 업로드 — 제목·설명란·태그·카테고리·자막·썸네일 1개, 표준 라이브러리만)
 r"""
 업로드 시트(upload.md)대로 완성 영상을 유튜브에 **비공개**로 올립니다. (guides/pipeline.md 4단계, guides/upload_guide.md 9번)
 
@@ -15,7 +16,8 @@ r"""
   source/<영상ID>/upload.md          1번 제목 · 2번 설명란 · 3번 챕터 명령(--chapters) · 4번 태그 (각 섹션의 첫 코드 블록)
   source/<영상ID>/<영상ID>.txt·.srt  챕터를 지금 SRT(= 영상 시간)로 다시 계산해 설명란 "■ 챕터"를 바꿔 넣음
   out/<영상ID>/final_1080p.mp4       올릴 영상
-  out/<영상ID>/thumbnails/thumbnail_1.png (또는 .jpg)   기본 썸네일 (채택 제목의 짝). 2MB 이하
+  source/<영상ID>/thumbnails/thumbnail_N.png·jpg·webp   이미지 AI로 만든 썸네일 (N = titles.md 채택 제목의 짝, 기본 1)
+                                    → 1280×720이 아니거나 2MB를 넘으면 ffmpeg로 가운데 기준 16:9 자르기·JPG 변환해 올림
 
 API로 할 수 없는 것 (스튜디오에서 직접): 썸네일 "테스트 및 비교"(3개), 최종 화면, 공개 전환.
   ⚠️ Google 감사를 받지 않은 API 프로젝트로 올린 영상은 비공개로 잠긴다 → guides/pipeline.md "업로드 주의"
@@ -220,6 +222,45 @@ def check_auth():
     log("AUTH", status="ok", channel=items[0]["snippet"]["title"], channel_id=items[0]["id"])
 
 
+def paired_thumbnail(topic, vid):
+    """titles.md에서 채택([x]) 제목의 '짝 썸네일: thumbnail_N' → N (없으면 1)."""
+    p = ROOT / topic / "source" / vid / "titles.md"
+    if p.exists():
+        for line in p.read_text("utf-8").splitlines():
+            m = re.search(r"\[x\].*짝 썸네일:\s*thumbnail_(\d)", line)
+            if m:
+                return int(m.group(1))
+    return 1
+
+
+def find_thumbnail(topic, vid, n):
+    for folder in (ROOT / topic / "source" / vid / "thumbnails", ROOT / topic / "out" / vid / "thumbnails"):
+        for ext in (".png", ".jpg", ".jpeg", ".webp"):
+            p = folder / f"thumbnail_{n}{ext}"
+            if p.exists():
+                return p
+    return None
+
+
+def prepare_thumbnail(img, out_dir):
+    """유튜브 규격(1280×720, 2MB 이하)이 아니면 가운데 기준 16:9로 잘라 JPG로 만든다. 원본은 그대로 둔다."""
+    probe = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=width,height",
+                            "-of", "csv=p=0:s=x", str(img)], capture_output=True, text=True)
+    dims = probe.stdout.strip()
+    if dims == "1280x720" and img.stat().st_size <= THUMB_MAX and img.suffix.lower() in (".png", ".jpg", ".jpeg"):
+        log("THUMBNAIL", file=img.name, size=dims, action="그대로")
+        return img
+    out_dir.mkdir(parents=True, exist_ok=True)
+    out = out_dir / f"{img.stem}_upload.jpg"
+    for q in (3, 5, 8):
+        subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(img), "-vf",
+                        "scale=1280:720:force_original_aspect_ratio=increase,crop=1280:720", "-q:v", str(q), str(out)], check=True)
+        if out.stat().st_size <= THUMB_MAX:
+            break
+    log("THUMBNAIL", file=img.name, size=dims or "?", action=f"1280x720 JPG로 변환 → {out.name} ({out.stat().st_size / 1e6:.2f}MB)")
+    return out
+
+
 def sha256(path):
     h = hashlib.sha256()
     with path.open("rb") as f:
@@ -239,7 +280,9 @@ def run(topic, vid, dry_run=False, privacy="private", force=False, no_captions=F
         return st
     video_path = Path(video) if video else out / "final_1080p.mp4"
     srt_path = src / f"{vid}.srt"
-    thumbs = [p for p in (out / "thumbnails" / "thumbnail_1.png", out / "thumbnails" / "thumbnail_1.jpg") if p.exists()]
+    thumb_n = paired_thumbnail(topic, vid)
+    thumb_src = find_thumbnail(topic, vid, thumb_n)
+    thumbs = [prepare_thumbnail(thumb_src, out / "thumbnails")] if thumb_src else []
     meta = read_sheet(topic, vid)
     meta["description"], chapter_lines = recompute_chapters(topic, vid, meta["description"], meta["chapter_spec"])
     problems = validate(meta)
@@ -247,11 +290,11 @@ def run(topic, vid, dry_run=False, privacy="private", force=False, no_captions=F
         tags=len(meta["tags"]), tags_chars=tags_length(meta["tags"]))
     log("FILES", video_file=f"{video_path.relative_to(ROOT) if video_path.is_relative_to(ROOT) else video_path}"
         f"({'있음' if video_path.exists() else '없음'})", srt="있음" if srt_path.exists() else "없음",
-        thumbnail=thumbs[0].name if thumbs else "없음")
+        thumbnail=thumbs[0].name if thumbs else f"없음(thumbnail_{thumb_n} — 이미지 AI로 만든 파일을 source/{vid}/thumbnails/ 에)")
     if not video_path.exists():
         problems.append(f"영상 파일 없음: {video_path} → 먼저 렌더 (guides/pipeline.md 4단계)")
     if thumbs and thumbs[0].stat().st_size > THUMB_MAX:
-        problems.append(f"썸네일 {thumbs[0].stat().st_size / 1e6:.1f}MB > 2MB → JPG로 다시 저장")
+        problems.append(f"썸네일 {thumbs[0].stat().st_size / 1e6:.1f}MB > 2MB (변환 후에도) → 이미지를 다시 저장")
     for p in problems:
         log("CHECK", problem=p)
     if dry_run:
@@ -269,7 +312,9 @@ def run(topic, vid, dry_run=False, privacy="private", force=False, no_captions=F
               "studio": f"https://studio.youtube.com/video/{video_id}/edit", "privacy": privacy,
               "uploadedAt": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
               "title": meta["title"], "videoFile": str(video_path.name), "videoSha256": sha256(video_path),
-              "chapters": chapter_lines, "captions": None, "thumbnail": None, "warnings": []}
+              "chapters": chapter_lines, "captions": None, "thumbnail": None, "warnings": [],
+              "studioTodo": ["공개 전 스튜디오에서 확인: 자동 더빙(언어), 최종 화면",
+                             "공개(또는 일부 공개)로 바꾼 뒤 '테스트 및 비교'에 썸네일 3개 등록 — 비공개 영상은 테스트 불가"]}
     if not no_captions and srt_path.exists():
         try:
             result["captions"] = upload_captions(token, video_id, srt_path)

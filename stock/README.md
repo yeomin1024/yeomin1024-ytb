@@ -17,6 +17,8 @@
 | `source/multagi-2026-10/` | 물타기 영상: 대본 v1.3 TXT·SRT, README(검산·출처), `titles.md`(제목 3개, T1 채택), `thumbnails/`(썸네일 프롬프트 3개), `upload.md`(업로드 시트). SRT: 문장 91 / 자막 110 |
 | `source/bittu-2026-10/` | 빚투 영상: 대본 v1.0 TXT·SRT(문장 87 / 자막 104), README(검산·출처), `titles.md`(T1 채택), `thumbnails/`(3개), `upload.md`. 사연: SK하이닉스 2026년 5~7월, 신용 → 반대매매. 영상 제작 전 |
 | `source/panicsell-2026-10/` | 패닉셀 영상: 대본 v1.0 TXT·SRT(문장 92 / 자막 109), README(검산·출처), `titles.md`(T1 채택), `thumbnails/`(3개), `upload.md`. 사연: 삼성전자 2026년 3월 폭락 날 전량 매도 → 7주 뒤 +30%. 영상 제작 전 |
+| `source/<영상ID>/summary.md` | 영상별 한눈에 보기 (자동 생성: `python tools/make_summary.py`) — 상태·제목·썸네일 프롬프트·설명란·스토리보드·대본 |
+| `thumbnail_todo.md` | 이미지가 아직 없는 썸네일의 프롬프트 모음 (자동 생성: `python tools/make_summary.py --thumb-todo stock`) |
 | `out/multagi-2026-10/` | 물타기 영상 `scene_plan.md`(장면 구성표), `storyboard/`(장면 still 44장 + `index.html`). 완성 영상 `final_1080p.mp4`는 용량 때문에 git에 올리지 않음 |
 
 ## 분석 다시 돌리기

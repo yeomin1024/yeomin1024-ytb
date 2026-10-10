@@ -1,5 +1,29 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-10 — 전체 진행 순서(pipeline)와 자동화 도구 · 분석기 v2.3.1
+
+### 왜 바꿨나 (사용자 지시)
+1. 분석 결과가 없으면 분석기를 돌리고 → 결과로 지시사항·주제 탐색 → 제목 3개·썸네일 프롬프트 3개·업로드 정보·대본 → 영상별 요약 문서 → 오디오가 생기면 렌더·유튜브 비공개 업로드(최대 3개, 제목·썸네일 등록)
+2. 썸네일은 프롬프트 파일만 만든다 (이미지는 다른 이미지 AI가 만든다)
+3. 앞으로 main에 바로 올린다 (`CLAUDE.md`)
+
+| 영역 | 함수/파일 | 변경 내용 |
+|---|---|---|
+| 분석기 | `youtube_topic_analyzer.py` v2.3.1 `load_keys` | `.env`가 없어도 환경변수 `YOUTUBE_API_KEY`가 있으면 실행 (클라우드). 없으면 예전처럼 템플릿 생성·종료 |
+| 도구 | `tools/run_analysis.sh` v1.0 (신규) | 클라우드 분석: `--no-push --no-video --no-open` → `output/<주제>/result` → `<주제>/result` 복사 (영상·음성 제외) |
+| 도구 | `tools/youtube_auth.py` v1.0 (신규) | 사용자 PC에서 한 번: OAuth(PKCE·루프백)로 업로드용 리프레시 토큰 발급 |
+| 도구 | `tools/youtube_upload.py` v1.1 (신규) | upload.md 기준 비공개 업로드(이어 올리기), 챕터를 지금 SRT로 재계산, 한국어 자막, 채택 제목의 짝 썸네일 1개(1280×720·2MB 이하 JPG로 자동 변환), `youtube.json` 기록, `--dry-run`·`--check-auth` |
+| 도구 | `tools/make_summary.py` v1.0 (신규) | 영상별 `summary.md`(상태·제목 3개·썸네일 프롬프트·설명란·태그·고정 댓글·스토리보드·대본), `--thumb-todo`로 이미지 없는 썸네일 프롬프트 모음 |
+| 도구 | `tools/publish.sh` v1.0 (신규) | 4단계: 오디오(`narration.*`)가 있고 아직 안 올린 영상 → align-audio → 타입 검사 → 스토리보드 → 렌더(길이·오디오 확인) → 업로드 → 요약 문서, 최대 3개 |
+| 지시사항 | `guides/pipeline.md` v1.0 (신규), `guides/README.md` v1.1, `upload_guide.md` v1.2(9번 API 업로드), `thumbnail_guide.md` v1.2(프롬프트만), `video_guide.md` v3.4(8·9번), `script_guide.md` v2.2(5-4), 저장소 `README.md`, `CLAUDE.md` | 전체 순서·키 설정·Claude에게 하는 말 예시, 비공개 잠금·테스트 및 비교 제약 |
+
+### 검증
+- `load_keys`: .env 없음 + 환경변수 키 → 계속 진행(.env 안 만듦) / .env 없음 + 키 없음 → 템플릿 생성·종료
+- `run_analysis.sh`: 가짜 분석 결과로 복사 확인 (mp4 제외)
+- `youtube_upload.py`: 실제 시트 3개 `--dry-run` 통과(챕터 12개 재계산, 태그 93~113자). 로컬 가짜 API로 전 과정: 20MB 이어 올리기, 자막 110개, 1536×1024 PNG → 1280×720 JPG 변환·등록, `youtube.json`, 재실행 시 건너뜀
+- `publish.sh --dry-run`: 오디오 없음 → 대상 0 / 가짜 오디오 → 물타기 대상, 빚투는 "영상 코드 없음"으로 제외. 렌더 명령은 30프레임으로 확인
+- 실제 유튜브 업로드는 키가 아직 없어 하지 못함
+
 ## 2026-10-09 — 새 주제 설정 파일 5개 (분석기 코드는 v2.3.0 그대로)
 
 | 폴더 | 주제 | 내용 |

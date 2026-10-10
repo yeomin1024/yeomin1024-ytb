@@ -13,7 +13,7 @@
 | `titles.md` | 제목 3개 (제목 지시사항 11번) |
 | `thumbnails/thumbnail_1.md` ~ `_3.md` | 썸네일 시안 3개의 이미지 AI 프롬프트 |
 | `upload.md` | 업로드 시트: 제목·설명란·챕터·태그·고정 댓글·업로드 설정 |
-| `video/src/episodes/bittu-2026-10/` | 영상 코드 (30장면) — 장면 구성표 `stock/out/bittu-2026-10/scene_plan.md`, 스토리보드 `stock/out/bittu-2026-10/storyboard/index.html`. 완성 영상은 내레이션(`narration.mp3`)이 생기면 `bash tools/publish.sh` |
+| `video/src/episodes/bittu-2026-10/` | 영상 코드 (30장면, 장면 구성은 `plan.ts`). 스토리보드는 만들지 않는다(사용자 지시 2026-10-10). 내레이션(`narration.mp3`)이 생기면 `bash tools/publish.sh`가 승인 없이 렌더·비공개 업로드 |
 
 ## 주제 선택 근거
 

@@ -1,6 +1,6 @@
 # bittu-2026-10 한눈에 보기
 
-자동 생성 — `python tools/make_summary.py stock bittu-2026-10` (2026-10-10 14:42). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
+자동 생성 — `python tools/make_summary.py stock bittu-2026-10` (2026-10-10 14:56). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
 
 > **신용까지 써서 번 1,500만원이 반대매매 한 번에 -2,500만원이 됐습니다. 빚투한 사람들의 최악의 결말**
 

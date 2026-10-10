@@ -1,6 +1,6 @@
 # multagi-2026-10 한눈에 보기
 
-자동 생성 — `python tools/make_summary.py stock multagi-2026-10` (2026-10-10 14:42). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
+자동 생성 — `python tools/make_summary.py stock multagi-2026-10` (2026-10-10 14:56). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
 
 > **평단 낮추면 된다는 말만 믿고 물타서 -200만원이 -2천만원이 됐습니다. 손절 기준 없이 버틴 사람들의 공통점**
 

@@ -13,7 +13,7 @@
 |---|---|
 | 미리보기 (브라우저) | `npm run studio` |
 | 타입 검사 | `npm run typecheck` |
-| 장면 구성표 + 스토리보드 | `node scripts/storyboard.mjs multagi-2026-10 ../stock/out/multagi-2026-10` (고친 장면만: `--only S05,S13`) |
+| 점검용 still (저장소 밖 임시 폴더, 커밋하지 않음 — 스토리보드 문서는 만들지 않음, 사용자 지시 2026-10-10) | `node scripts/storyboard.mjs multagi-2026-10 /tmp/qa-multagi` (고친 장면만: `--only S05,S13`) |
 | 내레이션에 SRT 맞추기 | `npm run align-audio -- stock multagi-2026-10` (오디오: `stock/source/<영상ID>/narration.mp3·wav·m4a` 또는 `--audio <파일>`) — 오디오는 고치지 않음 |
 | 완성 영상 렌더 | `npx remotion render multagi-2026-10 ../stock/out/multagi-2026-10/final_1080p.mp4 --codec=h264 --crf=18` |
 

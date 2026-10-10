@@ -64,7 +64,7 @@ SRT나 TXT가 여러 개면 어떤 파일을 쓸지 먼저 묻는다.
   video/src/components/    ← 공통 컴포넌트 (모든 영상 공통, 3-5의 패턴)
   video/src/episodes/<영상ID>/subtitles.ts   ← SRT 파싱 결과 (python tools/srt_tool.py remotion 으로 생성, 직접 고치지 않음)
   video/src/episodes/<영상ID>/facts.ts       ← 데이터 시트
-  video/src/episodes/<영상ID>/plan.ts        ← 장면 구성표 데이터 (자막 범위·배경·전환·연출·연결 근거) → scene_plan.md 자동 생성
+  video/src/episodes/<영상ID>/plan.ts        ← 장면 구성표 데이터 (자막 범위·배경·전환·연출·연결 근거) (장면 구성표는 이 파일이다. scene_plan.md 문서는 만들지 않음)
   video/src/episodes/<영상ID>/scenes/*.tsx   ← 장면 구현 (S01.tsx처럼 장면마다, 또는 story.tsx처럼 파트마다 묶어도 됨)
   video/src/episodes/<영상ID>/Episode.tsx    ← plan.ts의 장면 id와 장면 컴포넌트 연결
   video/scripts/storyboard.mjs              ← 점검용 still 렌더 (모든 영상 공통). 결과 폴더는 저장소 밖 임시 폴더로 준다
@@ -182,7 +182,7 @@ SRT나 TXT가 여러 개면 어떤 파일을 쓸지 먼저 묻는다.
 
 ---
 
-## 5. 장면 구성표 만들기 (`scene_plan.md`)
+## 5. 장면 구성표 만들기 (`plan.ts`)
 
 ### 5-1. 장면 나누기
 - 파트 라벨과 내용 전환(새 사례, 새 항목, 새 주장)을 기준으로 나눈다.

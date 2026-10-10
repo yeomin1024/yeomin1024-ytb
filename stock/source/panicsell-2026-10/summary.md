@@ -1,6 +1,6 @@
 # panicsell-2026-10 한눈에 보기
 
-자동 생성 — `python tools/make_summary.py stock panicsell-2026-10` (2026-10-10 07:10). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
+자동 생성 — `python tools/make_summary.py stock panicsell-2026-10` (2026-10-10 08:00). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
 
 > **하락장이 무서워 -800만원에 다 팔았는데 그 뒤 +30% 반등했습니다. 패닉셀한 사람들이 마지막에 꼭 하는 후회**
 
@@ -15,7 +15,7 @@
 | 스토리보드 | ⏳ 영상 코드 제작 전 |
 | 오디오 | ⏳ 없음 → `source/panicsell-2026-10/narration.mp3`(또는 .wav·.m4a)를 올리면 4단계 시작 |
 | 렌더 | ⏳ 오디오 뒤 |
-| 유튜브 | ⏳ 렌더 뒤 비공개 업로드 |
+| 유튜브 | ⏳ 렌더 뒤 비공개 업로드 + 렌더 완료 1시간 뒤 예약 공개 |
 
 ## 1. 제목 3개 (`titles.md`)
 

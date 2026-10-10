@@ -1,6 +1,6 @@
 # multagi-2026-10 한눈에 보기
 
-자동 생성 — `python tools/make_summary.py stock multagi-2026-10` (2026-10-10 07:10). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
+자동 생성 — `python tools/make_summary.py stock multagi-2026-10` (2026-10-10 08:00). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
 
 > **평단 낮추면 된다는 말만 믿고 물타서 -200만원이 -2천만원이 됐습니다. 손절 기준 없이 버틴 사람들의 공통점**
 
@@ -15,7 +15,7 @@
 | 스토리보드 | ✅ still 44장 |
 | 오디오 | ⏳ 없음 → `source/multagi-2026-10/narration.mp3`(또는 .wav·.m4a)를 올리면 4단계 시작 |
 | 렌더 | ✅ final_1080p.mp4 |
-| 유튜브 | ⏳ 렌더 뒤 비공개 업로드 |
+| 유튜브 | ⏳ 렌더 뒤 비공개 업로드 + 렌더 완료 1시간 뒤 예약 공개 |
 
 ## 1. 제목 3개 (`titles.md`)
 

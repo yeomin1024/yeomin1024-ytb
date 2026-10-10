@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.1 — 2026-10-10 — 썸네일은 사용자가 이미지 AI로 만든 파일(source/<영상ID>/thumbnails/)을 읽고 1280×720·2MB 이하 JPG로 맞춤, 채택 제목의 짝 썸네일 사용
-#          (v1.0: 비공개 업로드 — 제목·설명란·태그·카테고리·자막·썸네일 1개, 표준 라이브러리만)
+# VERSION: v1.2 — 2026-10-10 — 예약 공개(--publish-at: 비공개로 올리고 지정 시각에 자동 공개, 사용자 지시 '렌더 완료 1시간 뒤')
+#          (v1.1: 사용자가 만든 썸네일 이미지를 1280×720·2MB 이하로 맞춤, 채택 제목의 짝 썸네일; v1.0: 비공개 업로드 — 제목·설명란·태그·카테고리·자막·썸네일 1개, 표준 라이브러리만)
 r"""
 업로드 시트(upload.md)대로 완성 영상을 유튜브에 **비공개**로 올립니다. (guides/pipeline.md 4단계, guides/upload_guide.md 9번)
 
   python tools/youtube_upload.py stock bittu-2026-10 --dry-run     # 올리지 않고 읽은 값·파일·규칙만 확인
   python tools/youtube_upload.py stock bittu-2026-10               # 비공개 업로드 → source/<영상ID>/youtube.json 기록
   python tools/youtube_upload.py --check-auth                      # 키로 채널 이름만 확인 (업로드 안 함)
+  python tools/youtube_upload.py stock bittu-2026-10 --publish-at +1h                  # 비공개 업로드 + 1시간 뒤 예약 공개
+  python tools/youtube_upload.py stock bittu-2026-10 --publish-at 2026-10-11T09:00:00Z  # 지정 시각(UTC) 예약 공개
 
 필요한 환경변수 (클라우드 환경 설정 — 값은 출력·커밋하지 않음):
   YOUTUBE_CLIENT_ID, YOUTUBE_CLIENT_SECRET, YOUTUBE_REFRESH_TOKEN   ← tools/youtube_auth.py 로 한 번 발급
@@ -19,7 +21,8 @@ r"""
   source/<영상ID>/thumbnails/thumbnail_N.png·jpg·webp   이미지 AI로 만든 썸네일 (N = titles.md 채택 제목의 짝, 기본 1)
                                     → 1280×720이 아니거나 2MB를 넘으면 ffmpeg로 가운데 기준 16:9 자르기·JPG 변환해 올림
 
-API로 할 수 없는 것 (스튜디오에서 직접): 썸네일 "테스트 및 비교"(3개), 최종 화면, 공개 전환.
+API로 할 수 없는 것 (스튜디오에서 직접): 썸네일 "테스트 및 비교"(3개), 최종 화면.
+예약 공개: status.privacyStatus=private + status.publishAt — 그 시각에 유튜브가 공개로 바꾼다 (구독자 알림도 그때).
   ⚠️ Google 감사를 받지 않은 API 프로젝트로 올린 영상은 비공개로 잠긴다 → guides/pipeline.md "업로드 주의"
 """
 import argparse
@@ -165,10 +168,32 @@ def request(method, url, token, data=None, headers=None, retries=4):
             raise
 
 
-def upload_video(token, path, meta, privacy):
+def parse_publish_at(value, now=None):
+    """'+1h' · '+90m' · ISO 8601(UTC 'Z' 또는 +09:00 등) → UTC ISO 문자열. 지금보다 5분 이상 뒤여야 한다."""
+    if not value:
+        return None
+    now = now or dt.datetime.now(dt.timezone.utc)
+    m = re.fullmatch(r"\+(\d+(?:\.\d+)?)([hm])", value.strip())
+    if m:
+        delta = dt.timedelta(hours=float(m.group(1))) if m.group(2) == "h" else dt.timedelta(minutes=float(m.group(1)))
+        when = now + delta
+    else:
+        when = dt.datetime.fromisoformat(value.strip().replace("Z", "+00:00"))
+        if when.tzinfo is None:
+            raise SystemExit(f"[SCHEDULE] ❌ 시간대가 없습니다: {value} → 끝에 Z(UTC) 또는 +09:00(한국)을 붙이세요")
+    when = when.astimezone(dt.timezone.utc).replace(microsecond=0)
+    if when < now + dt.timedelta(minutes=5):
+        raise SystemExit(f"[SCHEDULE] ❌ 예약 시각 {when.isoformat()}이 지금보다 5분 이상 뒤가 아닙니다")
+    return when.strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
+def upload_video(token, path, meta, privacy, publish_at=None):
+    status = {"privacyStatus": privacy, "selfDeclaredMadeForKids": False, "embeddable": True}
+    if publish_at:                                   # 예약 공개는 반드시 private + publishAt
+        status.update(privacyStatus="private", publishAt=publish_at)
     body = {"snippet": {"title": meta["title"], "description": meta["description"], "tags": meta["tags"],
                         "categoryId": CATEGORY_EDUCATION, "defaultLanguage": "ko", "defaultAudioLanguage": "ko"},
-            "status": {"privacyStatus": privacy, "selfDeclaredMadeForKids": False, "embeddable": True}}
+            "status": status}
     size = path.stat().st_size
     status, headers, _ = request("POST", f"{UPLOAD_API}/videos?uploadType=resumable&part=snippet,status", token,
                                  data=json.dumps(body).encode(),
@@ -270,7 +295,8 @@ def sha256(path):
 
 
 # ----------------------------------------------------------------------------- 실행
-def run(topic, vid, dry_run=False, privacy="private", force=False, no_captions=False, no_thumbnail=False, video=None):
+def run(topic, vid, dry_run=False, privacy="private", force=False, no_captions=False, no_thumbnail=False, video=None,
+        publish_at=None):
     src = ROOT / topic / "source" / vid
     out = ROOT / topic / "out" / vid
     state_path = src / "youtube.json"
@@ -297,6 +323,11 @@ def run(topic, vid, dry_run=False, privacy="private", force=False, no_captions=F
         problems.append(f"썸네일 {thumbs[0].stat().st_size / 1e6:.1f}MB > 2MB (변환 후에도) → 이미지를 다시 저장")
     for p in problems:
         log("CHECK", problem=p)
+    kst = dt.timezone(dt.timedelta(hours=9))
+    if publish_at:
+        log("SCHEDULE", publish_at_utc=publish_at,
+            publish_at_kst=dt.datetime.fromisoformat(publish_at.replace("Z", "+00:00")).astimezone(kst).strftime("%Y-%m-%d %H:%M"),
+            note="비공개로 올리고 이 시각에 자동 공개 (감사 전 API 프로젝트는 비공개 잠금이라 공개되지 않을 수 있음)")
     if dry_run:
         print(f"\n제목: {meta['title']}\n태그: {', '.join(meta['tags'])}\n--- 설명란 ---\n{meta['description']}\n---")
         log("DRY-RUN", result="문제 없음" if not problems else f"문제 {len(problems)}개", uploaded="안 함")
@@ -305,16 +336,17 @@ def run(topic, vid, dry_run=False, privacy="private", force=False, no_captions=F
         raise SystemExit(f"[CHECK] ❌ 문제 {len(problems)}개 → 고친 뒤 다시 실행 (업로드 안 함)")
 
     token = access_token()
-    log("UPLOAD", video=vid, privacy=privacy, size_mb=f"{video_path.stat().st_size / 1e6:.1f}")
-    video_id = upload_video(token, video_path, meta, privacy)
+    log("UPLOAD", video=vid, privacy="private(예약 공개)" if publish_at else privacy, size_mb=f"{video_path.stat().st_size / 1e6:.1f}")
+    video_id = upload_video(token, video_path, meta, privacy, publish_at)
     log("UPLOAD", status="ok", youtube_id=video_id, url=f"https://youtu.be/{video_id}")
     result = {"videoId": video_id, "url": f"https://youtu.be/{video_id}",
-              "studio": f"https://studio.youtube.com/video/{video_id}/edit", "privacy": privacy,
+              "studio": f"https://studio.youtube.com/video/{video_id}/edit", "privacy": "private" if publish_at else privacy,
+              "publishAt": publish_at,
               "uploadedAt": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
               "title": meta["title"], "videoFile": str(video_path.name), "videoSha256": sha256(video_path),
               "chapters": chapter_lines, "captions": None, "thumbnail": None, "warnings": [],
-              "studioTodo": ["공개 전 스튜디오에서 확인: 자동 더빙(언어), 최종 화면",
-                             "공개(또는 일부 공개)로 바꾼 뒤 '테스트 및 비교'에 썸네일 3개 등록 — 비공개 영상은 테스트 불가"]}
+              "studioTodo": ["공개 전(예약 시각 전) 스튜디오에서 확인: 영상·자막·썸네일, 자동 더빙(언어), 최종 화면",
+                             "공개된 뒤 '테스트 및 비교'에 썸네일 3개 등록 — 비공개 영상은 테스트 불가"]}
     if not no_captions and srt_path.exists():
         try:
             result["captions"] = upload_captions(token, video_id, srt_path)
@@ -347,6 +379,7 @@ def main(argv=None):
     ap.add_argument("--video", help="영상 파일 경로 (기본: <주제>/out/<영상ID>/final_1080p.mp4)")
     ap.add_argument("--no-captions", action="store_true")
     ap.add_argument("--no-thumbnail", action="store_true")
+    ap.add_argument("--publish-at", help="예약 공개 시각: '+1h'·'+90m' 또는 ISO 8601 (예: 2026-10-11T18:00:00+09:00). 비공개로 올리고 그 시각에 공개")
     a = ap.parse_args(argv)
     if a.check_auth:
         return check_auth()
@@ -354,7 +387,7 @@ def main(argv=None):
         ap.error("주제 폴더와 영상 ID가 필요합니다 (예: stock bittu-2026-10)")
     if a.privacy != "private":
         log("WARN", privacy=a.privacy, note="지시사항 기본은 비공개(private)")
-    run(a.topic, a.video_id, a.dry_run, a.privacy, a.force, a.no_captions, a.no_thumbnail, a.video)
+    run(a.topic, a.video_id, a.dry_run, a.privacy, a.force, a.no_captions, a.no_thumbnail, a.video, parse_publish_at(a.publish_at))
 
 
 if __name__ == "__main__":

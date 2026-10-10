@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-10-10 — 영상별 한눈에 보기 문서(summary.md) 자동 생성 (guides/pipeline.md 3-5단계), 이미지가 없는 썸네일 프롬프트 모음(--thumb-todo), 표준 라이브러리만
+# VERSION: v1.1 — 2026-10-10 — 상태 표에 예약 공개 시각(한국 시간) (v1.0: 영상별 summary.md 자동 생성, --thumb-todo, 표준 라이브러리만)
 r"""
 영상 하나의 결과물을 한 문서로 모읍니다: 상태 → 제목 3개 → 썸네일 3개 → 업로드 정보 → 스토리보드 → 대본.
 
@@ -33,6 +33,11 @@ def section_code(md, word):
         return None
     c = re.search(r"```[^\n]*\n(.*?)\n```", m.group(1), re.S)
     return c.group(1) if c else None
+
+
+def kst(iso):
+    t = dt.datetime.fromisoformat(iso.replace("Z", "+00:00")).astimezone(dt.timezone(dt.timedelta(hours=9)))
+    return t.strftime("%Y-%m-%d %H:%M")
 
 
 def mmss(t):
@@ -149,7 +154,9 @@ def build(topic, vid):
         ("스토리보드", f"✅ still {stills}장" if stills else "⏳ 영상 코드 제작 전"),
         ("오디오", f"✅ {audio.name}" if audio else f"⏳ 없음 → `source/{vid}/narration.mp3`(또는 .wav·.m4a)를 올리면 4단계 시작"),
         ("렌더", "✅ final_1080p.mp4" if rendered else "⏳ 오디오 뒤"),
-        ("유튜브", f"✅ 비공개 업로드 [{yt['videoId']}]({yt['studio']}) ({yt['uploadedAt'][:10]})" if yt else "⏳ 렌더 뒤 비공개 업로드"),
+        ("유튜브", (f"✅ 비공개 업로드 [{yt['videoId']}]({yt['studio']}) ({yt['uploadedAt'][:10]})"
+                   + (f" · 예약 공개 {kst(yt['publishAt'])} (한국 시간)" if yt.get("publishAt") else "")) if yt
+         else "⏳ 렌더 뒤 비공개 업로드 + 렌더 완료 1시간 뒤 예약 공개"),
     ]
 
     md = [f"# {vid} 한눈에 보기", "",

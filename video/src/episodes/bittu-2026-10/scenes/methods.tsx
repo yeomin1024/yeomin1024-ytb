@@ -411,7 +411,7 @@ export const S27: SceneC = ({t}) => {
       <div style={{position: "absolute", left: 958, top: 300, width: 4, height: 370, background: C.gray, opacity: enter(f, cmp)}} />
       <CompareSide x={140} at={cmp} title="실제 사연" value={F.loss.v} own={F.left.v} />
       <CompareSide x={1000} at={cmp + 6} title="빚부터 갚았다면" value={F.loss350.v} own={F.remain731.v} note="정도" />
-      <Box x={960} y={690} w={1600} center>
+      <Box x={960} y={706} w={1600} center>
         <div style={vis(f, a(78, 0.5))}>
           <Label size={64} weight={900}>
             <Hi at={a(78, 0.62)}>{F.gap2000.v}</Hi> 차이

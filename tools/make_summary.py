@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.1 — 2026-10-10 — 상태 표에 예약 공개 시각(한국 시간) (v1.0: 영상별 summary.md 자동 생성, --thumb-todo, 표준 라이브러리만)
+# VERSION: v1.2 — 2026-10-10 — 대본 파트 라벨 판정을 srt_tool.is_label과 같게 ('-숫자'로 시작하는 문장) (v1.1: 예약 공개 시각 표시; v1.0: 영상별 summary.md, --thumb-todo, 표준 라이브러리만)
 r"""
 영상 하나의 결과물을 한 문서로 모읍니다: 상태 → 제목 3개 → 썸네일 3개 → 업로드 정보 → 스토리보드 → 대본.
 
@@ -52,7 +52,7 @@ def script_block(txt_path):
         if not line:
             in_card = False
             continue
-        if line.startswith("-") and "파트" in line or line in ("-마무리",):
+        if srt_tool.is_label(line):
             out.append(f"\n**{line.lstrip('-').strip()}**\n")
             in_card = False
             continue

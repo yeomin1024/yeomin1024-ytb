@@ -1,4 +1,4 @@
-// VERSION: v1.0 — 2026-10-10 — 내레이션 오디오에 SRT 타이밍 맞추기 (오디오는 고치지 않음)
+// VERSION: v1.1 — 2026-10-10 — 파트 라벨 판정을 srt_tool.is_label과 같게: '-숫자'로 시작하는 줄은 문장 (v1.0: 내레이션 오디오에 SRT 타이밍 맞추기, 오디오는 고치지 않음)
 // 사용 (video/ 폴더에서):
 //   npm run align-audio -- <주제폴더> <영상ID>                예) npm run align-audio -- stock molppang-2026-10
 //   옵션: --audio <파일>  --noise -35  --min-pause 0.12  --dry-run  --srt-out <파일>  --no-export
@@ -64,7 +64,7 @@ const cards = [];
 let inCard = false;
 for (const l of lines) {
   if (!l) continue;
-  if (l.startsWith("-")) {
+  if (l.startsWith("-") && !/^-\s*[\d.,]/.test(l)) {   // 파트 라벨 ('-2,500만 원…'처럼 '-숫자'면 문장)
     inCard = false;
     continue;
   }

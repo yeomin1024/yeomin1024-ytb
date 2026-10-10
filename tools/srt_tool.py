@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.3 — 2026-10-10 — 자막 한 줄 규칙(46px 폭 1432px), 긴 문장은 앞줄·뒷줄 자막 2개, 고지 공백을 SRT 안에, 문장 번호 기준 내보내기
+# VERSION: v1.4 — 2026-10-10 — 파트 라벨 판정 수정: '-숫자'(음수 금액)로 시작하는 줄은 문장 (예: '-2,500만 원과 …'가 라벨로 빠지던 문제)
+#          (v1.3: 자막 한 줄 1432px, 앞줄·뒷줄 자막, 고지 공백 SRT 안, 문장 번호 기준 내보내기)
 #          (v1.2: upload 챕터, v1.1: remotion 내보내기, v1.0: TXT → SRT 생성·검사)
 r"""
 대본 TXT로 SRT 자막을 만들거나, TXT와 SRT가 지시사항대로 맞는지 검사합니다. (표준 라이브러리만 사용)
@@ -171,6 +172,11 @@ def split_px(text):
 
 
 # ----------------------------------------------------------------------------- 대본·SRT 읽기
+def is_label(line):
+    """파트 라벨(-사연 파트, -마무리 등). '-2,500만 원…'처럼 '-' 뒤가 숫자면 음수 금액으로 시작하는 문장이다."""
+    return line.startswith("-") and not re.match(r"-\s*[\d.,]", line)
+
+
 def parse_txt(path):
     """대본에서 자막이 될 문장만 (라벨·[장면]·카드 문구·빈 줄 제외). 이 순서가 '문장 번호'다."""
     out, in_card = [], False
@@ -178,7 +184,7 @@ def parse_txt(path):
         line = raw.strip()
         if not line:
             continue
-        if line.startswith("-"):
+        if is_label(line):
             in_card = False
             continue
         if line.startswith("[장면]"):
@@ -196,7 +202,7 @@ def parse_cards(path):
         line = raw.strip()
         if not line:
             continue
-        if line.startswith("-"):
+        if is_label(line):
             cur = None
             continue
         if line.startswith("[장면]"):

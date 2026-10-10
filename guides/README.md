@@ -1,6 +1,6 @@
 # 공통 지시사항 — 모든 주제에 쓰는 영상 제작 규칙
 
-버전: v1.1 — 2026-10-10 — 사용자 지시: 전체 진행 순서를 `pipeline.md`로 (분석 → 지시사항·주제 → 제목·썸네일 프롬프트·업로드 시트·대본·스토리보드 → 요약 문서 → 오디오가 생기면 렌더·비공개 업로드)
+버전: v1.2 — 2026-10-10 — 사용자 지시: 내레이션은 Kaggle에서 오픈소스 음성 AI로 (`tts_guide.md`) (v1.1: 전체 진행 순서를 `pipeline.md`로 (분석 → 지시사항·주제 → 제목·썸네일 프롬프트·업로드 시트·대본·스토리보드 → 요약 문서 → 오디오가 생기면 렌더·비공개 업로드))
 
 이 폴더(`guides/`)는 **주제와 상관없이** 쓰는 지시사항이다. 주제마다 다른 내용(시청자, 금액 기준, 고지 문구, 근거 자료, 피드백 사례)은 각 주제 폴더의 `guides/`에 있다.
 **주제 규칙이 공통 규칙과 다르면 주제 규칙을 따른다.**
@@ -15,6 +15,7 @@
 | `thumbnail_guide.md` | 영상별 썸네일 시안 3개의 프롬프트 파일, Remotion Still 렌더 | `stock/guides/thumbnail_rules.md` |
 | `video_guide.md` | Remotion 모션그래픽 영상 (장면 구성표 → 스토리보드 승인 → 렌더) | `stock/guides/script_rules.md` (재구성 문구 등) |
 | `upload_guide.md` | 업로드 시트: 설명란·챕터·태그·고정 댓글·업로드 설정 | `stock/guides/upload_rules.md` |
+| `tts_guide.md` | 내레이션 만들기: Kaggle GPU에서 Qwen3-TTS(오픈소스) → `narration.mp3`, 사연 말투 시험(억울·후회 A~D) | — |
 | `archive/` | 지금은 쓰지 않는 옛 지시사항 | — |
 
 모든 지시사항이 근거로 쓰는 분석 결과는 `<주제폴더>/guides/data_insights.md`에 있다. 원본 데이터는 `<주제폴더>/result/`(분석기 `youtube_topic_analyzer.py` 결과)다.
@@ -31,7 +32,7 @@
 | 3 ④ | 업로드 시트 (제목·설명란·챕터 명령·태그·고정 댓글) | `upload_guide.md` | `source/<영상ID>/upload.md` |
 | 3 ⑤ | 영상 코드 → 장면 구성표 → 스토리보드 → **사용자 승인** | `video_guide.md` 6번 1~7 | `video/src/episodes/<영상ID>/`, `out/<영상ID>/storyboard/` |
 | 3-5 | 영상별 요약 문서 | `python tools/make_summary.py <주제폴더> <영상ID>` | `source/<영상ID>/summary.md` |
-| 4 | 오디오 `source/<영상ID>/narration.mp3`가 생기면 → SRT 맞춤 → 렌더 → 유튜브 **비공개** 업로드 (최대 3개) | `bash tools/publish.sh`, `upload_guide.md` 9번 | `out/<영상ID>/final_1080p.mp4`, `source/<영상ID>/youtube.json` |
+| 4 | 오디오 `source/<영상ID>/narration.mp3`(Kaggle에서 `tools/tts_narration.py`, `tts_guide.md`)가 생기면 → SRT 맞춤 → 렌더 → 유튜브 **비공개** 업로드 (최대 3개) | `bash tools/publish.sh`, `upload_guide.md` 9번 | `out/<영상ID>/final_1080p.mp4`, `source/<영상ID>/youtube.json` |
 | 그 뒤 | 스튜디오에서 테스트 및 비교(썸네일 3개)·자동 더빙 확인·공개 전환 → 결과 기록 | `upload_guide.md` 7번 | `upload.md`·`titles.md`·`thumbnails/*.md` 결과 칸 |
 
 Claude Code에 시킬 때 예시는 `pipeline.md` 마지막 표에 있다.
@@ -53,5 +54,6 @@ Claude Code에 시킬 때 예시는 `pipeline.md` 마지막 표에 있다.
 
 | 버전 | 날짜 | 변경 내용 |
 |---|---|---|
+| v1.2 | 2026-10-10 | 사용자 지시: `tts_guide.md` 추가 (Kaggle에서 오픈소스 음성 AI로 내레이션), 순서 표 4단계에 오디오 만드는 법 |
 | v1.1 | 2026-10-10 | 사용자 지시: `pipeline.md` 추가, 순서 표를 1~4단계(분석·주제·제작·요약·자동 업로드)로 바꿈, 썸네일은 프롬프트만 |
 | v1.0 | 2026-10-09 | 최초 작성: 공통·주제 규칙 분리, 작업 순서 표 |

@@ -1,5 +1,29 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-10 — 내레이션 만들기: 오픈소스 음성 AI(Qwen3-TTS)를 Kaggle에서 (tts_narration v1.0)
+
+### 왜 바꿨나 (사용자 지시)
+1. edge-tts는 너무 어색하다 → 오픈소스 음성 AI로 자연스럽게
+2. Kaggle에서 돌아가는 코드로
+3. 사연은 주식 손실로 억울하고 후회하는 톤으로
+
+| 영역 | 함수/파일 | 변경 내용 |
+|---|---|---|
+| 도구 | `tools/tts_narration.py` v1.0 (신규) | Qwen3-TTS 1.7B CustomVoice(Apache-2.0, 한국어 화자 Sohee) + 파트별 말투 지시(`STYLES`: 사연=억울·후회, 진행자·분석·마무리=차분한 설명). `sample`(말투 A~D 비교) / `build`(대본 → `narration.mp3` + `report.md`) |
+| 도구 | 같은 파일 `read_script` | 문장·카드 판정은 `srt_tool.parse_txt`·`parse_cards`를 그대로 씀(결과가 다르면 멈춤) |
+| 도구 | 같은 파일 `make_sentence`, `check` | 문장마다 검사(말 속도 2.5~8음절/초, 문장 안 무음 1.8초 이하, NaN·빈 소리) → 시드를 바꿔 최대 3번, 통과 못 하면 가장 나은 것 + "귀로 확인" 표시. 문장 파일 캐시(글·말투·화자·설정이 같으면 재사용), `--redo`는 새 시드 |
+| 도구 | 같은 파일 `cmd_build` 잇기 | 문장 사이 0.45초·파트 1.0초 무음, 고지 카드 자리 4~8초(`parse_cards` 길이, 최소 3.5초 규칙), 첫 문장 앞 0.3초. 볼륨은 전체 이득 하나(RMS −18dBFS, 최고점 −1dBFS) |
+| 도구 | 같은 파일 `tts_text` | TTS 입력만 `-800만` → "마이너스 800만", `+55만` → "플러스 55만" (대본·자막은 그대로), 선택 사전 `tts_lexicon.tsv` |
+| 도구 | 같은 파일 `QwenEngine` | T4(연산 능력 7.5)는 float32 기본(bfloat16 장치 없음, float16은 NaN 위험), A100 등은 bfloat16. GPU 2개 나눠 만들기 `--shard 0/2·1/2` + `--assemble-only` |
+| 지시사항 | `guides/tts_guide.md` v1.0 (신규), `guides/pipeline.md` v1.2, `guides/README.md` v1.2, 저장소 `README.md` | Kaggle 셀 4개(설치 → 말투 시험 → 전체 → 듣기·내려받기), 도구 규칙, 말투 바꾸는 법 |
+
+### 검증
+- 모델 API: `qwen-tts` 0.1.1 패키지 소스로 확인 — `Qwen3TTSModel.from_pretrained`, `generate_custom_voice(text, speaker, language, instruct, **generate kwargs)`, 출력 24kHz(24000 ÷ 1920 = 초당 12.5 프레임), 0.6B는 instruct 무시
+- 이 작업 환경에서는 Hugging Face 접속이 막혀(403) **실제 모델 음성은 만들지 못함** → Kaggle에서 사용자가 `sample` 실행 필요
+- `--fake`(가짜 소리)로 패닉셀 대본 전체: 문장 92개, 9분 23초 mp3 11.3MB. `npm run align-audio`(임시 SRT로)가 고지 카드 쉼 7.97초를 찾고 자막 109개를 맞춤, `srt_tool check` ✅. 문장 92개 시작 시각이 도구 기록과 최대 0.11초 차이
+- 캐시: 두 번째 실행은 생성 0개 / `--redo 12,15`는 그 2문장만 새 시드(시도 2) / `--shard 0/2·1/2` 46개씩 → `--assemble-only` 92개 / `--story-style B`는 사연 문장만 다시
+- 검사·재시도: 1회차 너무 김+무음 2.9초 → 2회차 NaN → 3회차 통과 / 3번 모두 너무 빠름 → 3회차를 쓰고 `report.md` "귀로 확인할 문장"에 표시 / 생성 오류 1번 → 2회차 통과
+
 ## 2026-10-10 — 전체 진행 순서(pipeline)와 자동화 도구 · 분석기 v2.3.1
 
 ### 왜 바꿨나 (사용자 지시)

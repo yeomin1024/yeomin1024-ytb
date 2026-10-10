@@ -1,6 +1,6 @@
 # 내레이션 만들기 — 오픈소스 음성 AI(Qwen3-TTS)를 Kaggle에서 (모든 주제 공통)
 
-버전: v1.0 — 2026-10-10 — 사용자 지시: edge-tts는 어색하다 → 오픈소스 음성 AI로 자연스럽게, Kaggle에서 돌아가게, 사연은 주식 손실로 억울하고 후회하는 톤
+버전: v1.1 — 2026-10-10 — 셀에 도구 파일 내용을 붙여 넣으면 안 된다는 주의, 한 셀로 시험하기 (v1.0: 사용자 지시: edge-tts는 어색하다 → 오픈소스 음성 AI로 자연스럽게, Kaggle에서 돌아가게, 사연은 주식 손실로 억울하고 후회하는 톤)
 
 도구: `tools/tts_narration.py` · 결과: `narration.mp3` → `<주제폴더>/source/<영상ID>/narration.mp3` 로 올리면 4단계(`guides/pipeline.md`)가 이어진다.
 
@@ -25,6 +25,19 @@ edge-tts와 다른 점: 문장 뜻을 읽고 억양·쉼을 스스로 정한다.
 3. GPU 사용 시간은 주당 한도가 있다(계정 화면에 남은 시간이 나온다). 세션이 끝나면 `/kaggle/working`이 지워지므로 **만든 mp3는 바로 내려받는다.**
 
 ## 3. 노트북 셀
+
+> ⚠️ `tools/tts_narration.py`의 **내용을 셀에 붙여 넣지 않는다.** 길어서 붙여 넣다 잘리면 `_IncompleteInputError: incomplete input`이 나고,
+> 잘리지 않아도 저장소의 다른 파일(`tools/srt_tool.py`)이 있어야 돌아간다. 셀에는 아래 명령만 넣는다 (`!python tools/tts_narration.py ...`).
+
+**한 셀로 바로 시험** (아래 셀 1·2를 합친 것):
+```
+!pip install -q -U qwen-tts
+!test -d /kaggle/working/yeomin1024-ytb || git clone -q --depth 1 https://github.com/yeomin1024/yeomin1024-ytb.git /kaggle/working/yeomin1024-ytb
+!cd /kaggle/working/yeomin1024-ytb && git pull -q && python tools/tts_narration.py sample
+from IPython.display import Audio, display
+for v in "ABCD":
+    print(v); display(Audio(f"/kaggle/working/tts_out/sample/sample_{v}.mp3"))
+```
 
 셀 1 — 설치·저장소 받기 (세션마다 한 번, 몇 분)
 ```
@@ -105,4 +118,5 @@ FileLink("tts_out/panicsell-2026-10/narration.mp3")
 
 | 버전 | 날짜 | 변경 내용 |
 |---|---|---|
+| v1.1 | 2026-10-10 | 3번: 도구 파일 내용을 셀에 붙여 넣지 말 것(`_IncompleteInputError`), 한 셀로 시험하기 |
 | v1.0 | 2026-10-10 | 최초 작성: Qwen3-TTS 1.7B CustomVoice(Sohee), Kaggle 셀 4개, 억울·후회 말투 A~D, 도구 규칙(쉼·고지 카드·검사·볼륨) |

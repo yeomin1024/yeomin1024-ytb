@@ -15,7 +15,7 @@
 | 도구 | 같은 파일 `cmd_build` 잇기 | 문장 사이 0.45초·파트 1.0초 무음, 고지 카드 자리 4~8초(`parse_cards` 길이, 최소 3.5초 규칙), 첫 문장 앞 0.3초. 볼륨은 전체 이득 하나(RMS −18dBFS, 최고점 −1dBFS) |
 | 도구 | 같은 파일 `tts_text` | TTS 입력만 `-800만` → "마이너스 800만", `+55만` → "플러스 55만" (대본·자막은 그대로), 선택 사전 `tts_lexicon.tsv` |
 | 도구 | 같은 파일 `QwenEngine` | T4(연산 능력 7.5)는 float32 기본(bfloat16 장치 없음, float16은 NaN 위험), A100 등은 bfloat16. GPU 2개 나눠 만들기 `--shard 0/2·1/2` + `--assemble-only` |
-| 지시사항 | `guides/tts_guide.md` v1.0 (신규), `guides/pipeline.md` v1.2, `guides/README.md` v1.2, 저장소 `README.md` | Kaggle 셀 4개(설치 → 말투 시험 → 전체 → 듣기·내려받기), 도구 규칙, 말투 바꾸는 법 |
+| 지시사항 | `guides/tts_guide.md` v1.1 (신규, v1.1: 셀에 도구 파일을 붙여 넣지 말 것·한 셀 시험),  `guides/pipeline.md` v1.2, `guides/README.md` v1.2, 저장소 `README.md` | Kaggle 셀 4개(설치 → 말투 시험 → 전체 → 듣기·내려받기), 도구 규칙, 말투 바꾸는 법 |
 
 ### 검증
 - 모델 API: `qwen-tts` 0.1.1 패키지 소스로 확인 — `Qwen3TTSModel.from_pretrained`, `generate_custom_voice(text, speaker, language, instruct, **generate kwargs)`, 출력 24kHz(24000 ÷ 1920 = 초당 12.5 프레임), 0.6B는 instruct 무시

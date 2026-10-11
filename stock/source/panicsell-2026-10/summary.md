@@ -1,6 +1,6 @@
 # panicsell-2026-10 한눈에 보기
 
-자동 생성 — `python tools/make_summary.py stock panicsell-2026-10` (2026-10-10 14:56). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
+자동 생성 — `python tools/make_summary.py stock panicsell-2026-10` (2026-10-11 02:20). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
 
 > **하락장이 무서워 -800만원에 다 팔았는데 그 뒤 +30% 반등했습니다. 패닉셀한 사람들이 마지막에 꼭 하는 후회**
 
@@ -13,7 +13,7 @@
 | 썸네일 | 프롬프트 3개 ✅ · 이미지 0/3 (이미지 AI로 만들어 `thumbnails/thumbnail_N.png`에 저장) |
 | 업로드 시트 | ✅ 설명란·태그·고정 댓글·챕터 |
 | 내레이션 역할 | 사연자 1–16 · 진행자 17–92 (`voices/*.json`) |
-| 오디오 | ⏳ 없음 → Kaggle에서 `tts_narration.py all`로 만들어 `source/panicsell-2026-10/narration.mp3`에 올리면 영상 제작 시작 |
+| 오디오 | ⏳ 없음 → Kaggle 셀 하나(`tts_narration.py all --push`)가 `source/panicsell-2026-10/narration.mp3`로 올리면 영상 제작 시작 |
 | 영상 코드 | ✅ `video/src/episodes/panicsell-2026-10/` |
 | 렌더 | ⏳ 오디오 뒤 |
 | 유튜브 | ⏳ 렌더 뒤 비공개 업로드 + 렌더 완료 1시간 뒤 예약 공개 |

@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# VERSION: v1.2 — 2026-10-10 — 사용자 지시: 스토리보드 단계 삭제(오디오가 생기면 바로 영상), 옛 대본으로 만든 오디오는 건너뜀
+# VERSION: v1.2.1 — 2026-10-11 — 주석: 오디오는 Kaggle(tts_narration.py all --push)이 대본 폴더마다 올림 (동작 변경 없음)
+# (v1.2: 사용자 지시: 스토리보드 단계 삭제(오디오가 생기면 바로 영상), 옛 대본으로 만든 오디오는 건너뜀
 #          (tts_narration.py check), 영상 코드가 없으면 Claude가 만든 뒤 다시 (승인 대기 없음)
 # (v1.1: 렌더 완료 1시간 뒤 예약 공개, --publish-delay·--no-schedule)
 # (v1.0: 4단계 자동 진행 — 오디오가 생긴 영상 → SRT 맞춤 → 스토리보드·렌더 → 유튜브 비공개 업로드 → 요약 문서)
@@ -11,7 +12,7 @@
 #          --publish-delay 1h (기본: 렌더가 끝난 시각 + 1시간에 예약 공개) · --no-schedule (예약 없이 비공개로만)
 #
 #  대상 조건 (영상마다):
-#    ① <주제폴더>/source/<영상ID>/narration.mp3 · .wav · .m4a 가 있다      ← 사용자가 올리는 오디오
+#    ① <주제폴더>/source/<영상ID>/narration.mp3 · .wav · .m4a 가 있다      ← Kaggle(tts_narration.py all --push)이 대본 폴더마다 올리는 오디오
 #    ② source/<영상ID>/youtube.json 이 없다 (아직 안 올림)
 #    ③ 오디오가 지금 대본으로 만든 것이다 (tts_narration.json 이 있으면 tools/tts_narration.py check 로 확인)
 #    ④ 영상 코드 video/src/episodes/<영상ID>/ 가 있고 video/src/Root.tsx 에 등록돼 있다

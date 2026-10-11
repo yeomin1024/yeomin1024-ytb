@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.3 — 2026-10-10 — 사용자 지시: 요약에서 스토리보드 빼기 (상태 줄·4번 절 삭제, 영상 코드 상태로 대체),
+# VERSION: v1.3.1 — 2026-10-11 — 오디오 없음 안내 문구: Kaggle 셀 하나(all --push)가 대본 폴더에 올림 (사용자 지시)
+#          (v1.3: 사용자 지시: 요약에서 스토리보드 빼기 (상태 줄·4번 절 삭제, 영상 코드 상태로 대체),
 #          내레이션 역할(사연자·진행자, voices/*.json) 표시, 오디오가 지금 대본으로 만든 것인지(tts_narration.json) 표시
 #          (v1.2: 파트 라벨 판정을 srt_tool.is_label과 같게; v1.1: 예약 공개 시각 표시; v1.0: 영상별 summary.md, --thumb-todo, 표준 라이브러리만)
 r"""
@@ -180,7 +181,7 @@ def build(topic, vid):
         ("업로드 시트", "✅ 설명란·태그·고정 댓글·챕터" if upload_md else "❌ 없음"),
         ("내레이션 역할", (role_ranges(txt, roles) + " (`voices/*.json`)") if roles and txt.exists() else "voices/ 없음"),
         ("오디오", f"✅ {audio.name}{audio_note}" if audio else
-         f"⏳ 없음 → Kaggle에서 `tts_narration.py all`로 만들어 `source/{vid}/narration.mp3`에 올리면 영상 제작 시작"),
+         f"⏳ 없음 → Kaggle 셀 하나(`tts_narration.py all --push`)가 `source/{vid}/narration.mp3`로 올리면 영상 제작 시작"),
         ("영상 코드", f"✅ `video/src/episodes/{vid}/`" if has_code else "⏳ 오디오가 생기면 Claude가 만든다 (승인 없이 바로 렌더)"),
         ("렌더", "✅ final_1080p.mp4" if rendered else "⏳ 오디오 뒤"),
         ("유튜브", (f"✅ 비공개 업로드 [{yt['videoId']}]({yt['studio']}) ({yt['uploadedAt'][:10]})"

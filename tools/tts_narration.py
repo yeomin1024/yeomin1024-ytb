@@ -1,40 +1,44 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.1 — 2026-10-10 — 사용자 지시: 사연자·진행자 역할을 나누고 역할마다 목소리 설정 파일(voices/storyteller.json·host.json),
-#          역할별 문장 파일·트랙을 정해진 경로에, all: 저장소의 대본을 모두 읽어 오디오가 없는 영상을 한 번에, pack: 저장소 경로 그대로 zip,
-#          check: 저장소 오디오가 지금 대본으로 만든 것인지 확인 (tts_narration.json). --out-dir 은 이제 결과 최상위 폴더
-#          (v1.0: 최초 작성 — Qwen3-TTS(Apache-2.0)로 대본 TXT → narration.mp3, 파트별 말투 지시, Kaggle GPU(T4) 기준)
+# VERSION: v1.2 — 2026-10-11 — 사용자 지시: 오디오는 고르지 않고 하나로(말투 시험 sample·preset·--story-style 삭제, 역할만 이은 트랙 삭제 →
+#          영상마다 narration.mp3 하나), 결과 파일을 GitHub에 올리기(--push: 영상이 끝날 때마다 대본 폴더 <주제>/source/<영상ID>/ 에
+#          narration.mp3·tts_narration.json·tts_report.md 를 main에 커밋·푸시, 토큰은 Kaggle Secrets GITHUB_TOKEN 에서만 읽음)
+#          (v1.1: 사연자·진행자 역할별 목소리 설정 voices/*.json, all·pack·check / v1.0: 최초 작성 — Qwen3-TTS 로 대본 TXT → narration.mp3)
 r"""
 대본 TXT로 내레이션 오디오를 만듭니다. Kaggle 노트북(GPU T4)에서 돌리는 것을 기준으로 썼습니다. 사용법: guides/tts_guide.md
 
-  python tools/tts_narration.py all                                    # 저장소의 대본을 모두 읽어 오디오가 없는 영상 전부 → zip 하나
+  python tools/tts_narration.py all --push                             # 저장소의 대본을 모두 읽어 오디오가 없는 영상 전부 → 영상마다 GitHub에 올림
   python tools/tts_narration.py all --dry-run                          # 무엇을 만들지 목록만 (모델 안 불러옴)
-  python tools/tts_narration.py all --gpu 0 --split 0/2                # GPU 2개: 영상을 나눠 0/2 와 1/2 를 동시에, 끝나면 pack
-  python tools/tts_narration.py pack                                   # 만든 오디오를 저장소 경로 그대로 zip 하나로
-  python tools/tts_narration.py build stock panicsell-2026-10          # 영상 하나
-  python tools/tts_narration.py build stock panicsell-2026-10 --redo 12,15     # 12·15번 문장만 새 시드로 다시
-  python tools/tts_narration.py build stock panicsell-2026-10 --assemble-only  # 만들어 둔 문장 파일로 잇기만
+  python tools/tts_narration.py all --push --gpu 0 --split 0/2         # GPU 2개: 영상을 나눠 0/2 와 1/2 를 동시에 (올리기는 차례로)
+  python tools/tts_narration.py build stock panicsell-2026-10 --push   # 영상 하나
+  python tools/tts_narration.py build stock panicsell-2026-10 --redo 12,15 --push   # 12·15번 문장만 새 시드로 다시
+  python tools/tts_narration.py push                                   # 만들어 두고 못 올린 결과를 GitHub에 올리기
   python tools/tts_narration.py check stock panicsell-2026-10          # 저장소의 narration 이 지금 대본으로 만든 것인지
-  python tools/tts_narration.py sample                                 # 사연 말투 시험: A·B·C·D × 시험 문장 5개
-  python tools/tts_narration.py sample --roles --episode stock/bittu-2026-10   # 사연자·진행자 설정 목소리를 대본 문장으로 시험
-  (어느 명령이든 --fake: 모델 없이 가짜 소리로 전 과정 확인)
+  python tools/tts_narration.py pack                                   # (올리기가 안 될 때만) 결과를 저장소 경로 그대로 zip 하나로
+  (어느 명령이든 --fake: 모델 없이 가짜 소리로 전 과정 확인 — 가짜 소리는 github.com 에 올리지 않는다)
 
 모델: Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice — 한국어 화자 Sohee, 말투를 글로 지시(instruct). 라이선스 Apache-2.0(상업 이용 가능).
   ※ 0.6B 모델은 말투 지시를 무시한다(qwen-tts 패키지가 instruct=None 으로 바꿈). 말투를 쓰려면 1.7B.
 
-역할 (사용자 지시 2026-10-10)
+역할 (사용자 지시 2026-10-10) — 말투는 설정 파일 하나로 정해져 있고 고르지 않는다 (사용자 지시 2026-10-11)
   - 사연자(storyteller): 파트 라벨에 '사연'이 든 문장 — 1인칭 고백. 설정 voices/storyteller.json
   - 진행자(host): 나머지 모든 파트(진행자·문제 분석·올바른 방법·마무리). 설정 voices/host.json
   - 설정은 voices/<역할>.json → <주제>/voices/<역할>.json → <주제>/source/<영상ID>/voices/<역할>.json 순서로 덮어쓴다.
 
-결과 경로 (OUT = /kaggle/working/tts_out, Kaggle 밖에서는 output/tts)
-  OUT/upload/<주제>/source/<영상ID>/narration.mp3       ← 영상에 쓰는 오디오. 저장소의 같은 경로에 올린다
-  OUT/upload/<주제>/source/<영상ID>/tts_narration.json  ← 문장별 역할·시작·끝, 대본 해시(check 용), 목소리 설정
-  OUT/<영상ID>/storyteller/S001.wav …  OUT/<영상ID>/storyteller.mp3   ← 사연자 문장 파일·사연자만 이은 트랙
-  OUT/<영상ID>/host/S017.wav …         OUT/<영상ID>/host.mp3          ← 진행자 문장 파일·진행자만 이은 트랙
-  OUT/<영상ID>/report.md · OUT/<영상ID>/cache/ (문장 캐시)  ·  OUT/narration_upload.zip (pack: upload/ 를 묶음)
+결과 (영상마다 오디오 하나)
+  저장소 <주제>/source/<영상ID>/narration.mp3      ← 영상에 쓰는 오디오 (--push 가 대본 폴더에 각각 올린다)
+  저장소 <주제>/source/<영상ID>/tts_narration.json ← 문장별 역할·시작·끝, 대본 해시(check 용), 목소리 설정
+  저장소 <주제>/source/<영상ID>/tts_report.md      ← 문장별 길이·속도·귀로 확인할 문장
+  작업 폴더 OUT(= /kaggle/working/tts_out, Kaggle 밖에서는 output/tts): OUT/upload/… (위 세 파일, 올리기 전 원본),
+           OUT/<영상ID>/storyteller/S###.wav · OUT/<영상ID>/host/S###.wav (역할별 문장 파일), OUT/<영상ID>/cache/
 
-규칙 (guides/tts_guide.md 4번, guides/video_guide.md 2번 "내레이션")
+GitHub 올리기 (--push)
+  - 토큰: 환경 변수 GITHUB_TOKEN, 없으면 Kaggle Secrets 의 GITHUB_TOKEN. 값은 로그·파일·명령줄·원격 주소에 남기지 않는다(GIT_ASKPASS).
+  - 시작할 때 토큰으로 push 권한을 먼저 확인한다(git push --dry-run, 실제로 올리지 않음). 안 되면 만들기 전에 멈춘다.
+  - 영상 하나가 끝날 때마다 그 영상의 세 파일만 git add → 커밋 → pull --rebase → push (최대 4번 다시). 다른 파일은 올리지 않는다.
+  - GPU 2개(--split)로 동시에 돌려도 git 작업은 잠금 파일로 하나씩 한다.
+
+규칙 (guides/tts_guide.md 5번, guides/video_guide.md 2번 "내레이션")
   - 문장 = tools/srt_tool.py parse_txt 와 같은 순서(파트 라벨·[장면]·카드 문구 제외). 오디오 문장 = 대본 문장.
   - 문장 사이 쉼 = 역할 설정의 gap(기본 0.45초, 디지털 무음), 파트가 바뀌면 1.0초. align-audio(무음 −35dB·0.12초 이상)가 이 쉼으로 문장 경계를 찾는다.
   - 고지 카드 자리([장면] 바로 앞 문장 뒤): srt_tool.parse_cards 의 길이(문구 글자 수 ÷ 7 + 1초, 4~8초). 최소 3.5초 규칙보다 길다.
@@ -49,10 +53,12 @@ import importlib.util
 import json
 import logging
 import math
+import os
 import re
 import shutil
 import subprocess
 import sys
+import tempfile
 import time
 import wave
 import zipfile
@@ -66,7 +72,7 @@ ROOT = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 import srt_tool  # noqa: E402  (문장·카드 판정을 자막 도구와 똑같이 쓰기 위해)
 
-VERSION = "v1.1"
+VERSION = "v1.2"
 CACHE_VERSION = 1            # 생성 방식이 바뀌면 올린다 → 문장 파일을 모두 다시 만든다 (v1.1은 v1.0 캐시와 같은 키)
 DEFAULT_MODEL = "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice"
 FRAME_HZ = 12.5              # Qwen3-TTS-Tokenizer-12Hz: 24000Hz ÷ 1920 = 초당 12.5 프레임 (max_new_tokens 계산)
@@ -82,44 +88,17 @@ RATE_REF = 4.8               # 검사를 모두 통과한 시도가 없을 때 �
 MIN_GAP = 0.2                # 역할 설정 gap 하한 — align-audio 가 문장 경계로 보는 무음(0.12초)보다 넉넉하게
 
 VOICES_DIR = ROOT / "voices"           # 역할별 목소리 설정 (파일 이름 = 역할 = 결과 폴더 이름)
-VOICE_KEYS = {"role", "name", "parts", "speaker", "preset", "instruct", "part_instruct", "seed", "gap", "generation"}
+VOICE_KEYS = {"role", "name", "parts", "speaker", "instruct", "part_instruct", "seed", "gap", "generation"}
 GEN_KEYS = {"temperature", "top_p", "top_k", "repetition_penalty"}
-STORY_ROLE = "storyteller"             # --story-style / --story-instruct 가 바꾸는 역할
+STORY_ROLE = "storyteller"             # 사연자 역할 (영상 코드 plan.ts 의 STORY_LAST 와 비교)
 AUDIO_EXTS = ("mp3", "wav", "m4a")     # align-audio.mjs·publish.sh 가 찾는 narration 확장자
 META_NAME = "tts_narration.json"       # narration 옆에 두는 메타 (check 가 읽음). 'narration.*' 와 겹치지 않는 이름
-ZIP_NAME = "narration_upload.zip"
-
-# sample: 같은 문장을 말투 4가지로 만들어 귀로 고른다. 고른 말투는 voices/storyteller.json 의 "preset" 에 글자 하나로 넣는다.
-SAMPLE_STYLES = {
-    "A": ("담담한 후회",
-          "Quietly regretful and subdued, as if replaying a costly mistake over and over. "
-          "Low voice, slow pace, soft sighs, resigned self-blame. Keep every word clear."),
-    "B": ("울먹임",
-          "On the verge of tears after losing money in stocks: voice choked up and trembling, "
-          "short pauses as if swallowing sobs, deep regret. Keep every word clear."),
-    "C": ("억울함",
-          "Aggrieved and frustrated at the unfairness of a stock loss: a bitter, tense voice that rises on the unfair parts "
-          "and sinks into regret at the end of each sentence. Keep every word clear."),
-    "D": ("한국어 지시",
-          "주식으로 큰돈을 잃고 억울하고 후회하는 목소리로 말해 주세요. 낮고 살짝 떨리는 목소리, 느린 속도, "
-          "중요한 말 앞에서 작은 한숨. 울음을 참는 듯하지만 단어는 또렷하게."),
-}
-SAMPLE_LINES = [
-    "그날 아침까지만 해도 저는 괜찮을 줄 알았어요.",
-    "4천만 원을 넣은 계좌가 하루 만에 -800만 원이 됐어요.",
-    "남들은 다 번다는데 왜 저만 이렇게 됐는지, 억울해서 잠이 안 오더라고요.",
-    "조금만 더 버텼으면 됐는데, 결국 제일 쌀 때 다 팔아 버렸어요.",
-    "그 돈이 어떤 돈인데요… 다 제 탓이죠.",
-]
-# sample --roles 의 내장 시험 문장 (파트 라벨, 문장) — 진행자 설정의 파트별 말투(part_instruct)까지 들어 보게
-ROLE_SAMPLE_LINES = [
-    ("사연 파트", "그날 아침까지만 해도 저는 괜찮을 줄 알았어요."),
-    ("사연 파트", "4천만 원을 넣은 계좌가 하루 만에 -800만 원이 됐어요."),
-    ("진행자 파트", "주가가 쭉쭉 오를 때면 많은 분들이 이런 생각을 하죠."),
-    ("문제 분석 파트", "이 금리로 3천만 원을 1년 빌리면 이자만 280만 원이 넘습니다."),
-    ("올바른 방법 설명 파트", "첫째, 빌리기 전에 반대매매가 되는 가격부터 계산하는 것입니다."),
-    ("마무리", "성공 투자 하셨으면 좋겠습니다."),
-]
+ZIP_NAME = "narration_upload.zip"     # pack: 올리기가 안 될 때만 쓰는 zip
+REPORT_NAME = "tts_report.md"          # narration 옆에 두는 보고 (문장별 길이·속도·귀로 확인할 문장)
+REPO_FILES = ("narration.mp3", META_NAME, REPORT_NAME)   # --push 가 대본 폴더에 올리는 파일 (이것만)
+TOKEN_ENV = "GITHUB_TOKEN"             # 환경 변수·Kaggle Secrets 이름. 값은 어디에도 출력하지 않는다
+GIT_NAME, GIT_EMAIL = "tts_narration (Kaggle)", "tts-narration@users.noreply.github.com"
+PUSH_TRIES = 4
 
 LOG = logging.getLogger("tts")
 
@@ -252,7 +231,7 @@ def load_voices(topic=None, vid=None, args=None):
                     continue
                 cfg[k] = {**cfg.get(k, {}), **v} if k in ("part_instruct", "generation") and isinstance(v, dict) else v
             files.append(rel(q))
-        cfg = {"name": role, "parts": ["*"], "speaker": "Sohee", "preset": "", "instruct": "", "part_instruct": {},
+        cfg = {"name": role, "parts": ["*"], "speaker": "Sohee", "instruct": "", "part_instruct": {},
                "seed": 1234, "gap": 0.45, "generation": {}, **cfg, "role": role, "files": files}
         voices[role] = cfg
     # 명령줄 덮어쓰기 (설정 파일을 고치지 않고 시험할 때) — 바꾼 것은 로그에 남긴다
@@ -263,29 +242,10 @@ def load_voices(topic=None, vid=None, args=None):
                 if val is not None and v[key] != val:
                     log("VOICE", role=role, key=key, file_value=v[key], cli_value=val, note="명령줄 값이 설정 파일보다 우선")
                     v[key] = val
-        story_style, story_instruct = getattr(args, "story_style", None), getattr(args, "story_instruct", None)
-        if story_style or story_instruct:
-            if STORY_ROLE not in voices:
-                die("VOICE", f"{STORY_ROLE} 역할 설정이 없음", "voices/storyteller.json 확인")
-            v = voices[STORY_ROLE]
-            if story_instruct:
-                v["preset"], v["instruct"] = "", story_instruct
-            else:
-                v["preset"] = story_style.strip().upper()
-            v["part_instruct"] = {}
-            log("VOICE", role=STORY_ROLE, cli_preset=v["preset"] or "-", cli_instruct=story_instruct or "-",
-                note="명령줄 --story-style/--story-instruct 가 설정 파일보다 우선")
     for role, v in voices.items():
-        preset = str(v.get("preset") or "").strip().upper()
-        if preset:
-            if preset not in SAMPLE_STYLES:
-                die("VOICE", f"없는 preset: {preset}", f"{','.join(SAMPLE_STYLES)} 중 하나 또는 빈 값(\"\")", role=role)
-            v["preset"], v["instruct"] = preset, SAMPLE_STYLES[preset][1]
-            v["style_name"] = f"{v['name']} — {SAMPLE_STYLES[preset][0]} (sample {preset})"
-        else:
-            v["style_name"] = v["name"]
+        v["style_name"] = v["name"]
         if not str(v["instruct"]).strip():
-            die("VOICE", "말투 지시(instruct)가 비어 있음", "voices/<역할>.json 의 instruct 또는 preset 채우기", role=role)
+            die("VOICE", "말투 지시(instruct)가 비어 있음", "voices/<역할>.json 의 instruct 채우기", role=role)
         if not isinstance(v["parts"], list) or not v["parts"]:
             die("VOICE", "parts 는 파트 라벨 낱말 목록이어야 함 (예: [\"사연\"] 또는 [\"*\"])", "voices/<역할>.json 확인", role=role)
         bad = sorted(set(v["generation"]) - GEN_KEYS)
@@ -336,7 +296,7 @@ def plan_items(vid, rows, voices, lex):
     for role, v in voices.items():
         mine = [it for it in items if it["role"] == role]
         log("ROLE", video=vid, role=role, name=v["name"], sentences=len(mine), range=ranges([it["n"] for it in mine]) or "-",
-            syllables=sum(it["syl"] for it in mine), speaker=v["speaker"], preset=v["preset"] or "-", seed=v["seed"], gap_s=v["gap"],
+            syllables=sum(it["syl"] for it in mine), speaker=v["speaker"], seed=v["seed"], gap_s=v["gap"],
             parts=" / ".join(dict.fromkeys(it["part"] for it in mine)) or "-", files=",".join(v["files"]))
     for style, ins in dict.fromkeys((it["style"], it["spec"]["instruct"]) for it in items):
         log("STYLE", video=vid, style=style, instruct=ins)
@@ -666,7 +626,7 @@ def episode_paths(root, topic, vid):
     up = root / "upload" / topic / "source" / vid
     work = root / vid
     return {"upload": up, "narration": up / "narration.mp3", "meta": up / META_NAME,
-            "work": work, "cache": work / "cache", "report": work / "report.md"}
+            "work": work, "cache": work / "cache", "report": up / REPORT_NAME}
 
 
 def repo_audio(topic, vid):
@@ -676,7 +636,7 @@ def repo_audio(topic, vid):
 
 # ----------------------------------------------------------------------------- 영상 하나 (build·all 이 함께 씀)
 def build_episode(engine, topic, vid, args, root, txt=None):
-    """대본 → 역할별 문장 → 역할별 파일·트랙 + narration.mp3 + tts_narration.json. → 결과 dict."""
+    """대본 → 역할별 문장 → narration.mp3 하나 + tts_narration.json + tts_report.md (+ 작업 폴더에 역할별 문장 파일). → 결과 dict."""
     src = ROOT / topic / "source" / vid
     txt = Path(txt) if txt else src / f"{vid}.txt"
     if not txt.is_file():
@@ -766,7 +726,7 @@ def build_episode(engine, topic, vid, args, root, txt=None):
         gaps=" ".join(f"{k2}={v}" for k2, v in gap_kinds.items()), part_gap_s=args.part_gap)
     out = export(y, sr, P["narration"], keep_wav=args.keep_wav)
 
-    # 역할별 정해진 경로: OUT/<영상ID>/<역할>/S###.wav (볼륨 맞춘 문장) + OUT/<영상ID>/<역할>.mp3 (그 역할만 이은 트랙)
+    # 역할별 정해진 경로(작업 폴더): OUT/<영상ID>/<역할>/S###.wav — 볼륨 맞춘 문장 파일. 결과 오디오는 narration.mp3 하나뿐이다
     role_out = {}
     for role in voices:
         mine = [i for i, it in enumerate(items) if it["role"] == role]
@@ -777,23 +737,17 @@ def build_episode(engine, topic, vid, args, root, txt=None):
         if not mine:
             continue
         rdir.mkdir(parents=True, exist_ok=True)
-        track = [silence(args.lead_in, sr)]
-        for j, i in enumerate(mine):
+        for i in mine:
             write_wav(rdir / f"S{items[i]['n']:03d}.wav", clips[i], sr)
-            track.append(clips[i])
-            nxt = mine[j + 1] if j + 1 < len(mine) else None
-            track.append(silence(args.tail if nxt is None else (gaps[items[i]["n"]] if nxt == i + 1 else args.part_gap), sr))
-        role_mp3 = export(np.concatenate(track), sr, P["work"] / f"{role}.mp3")
-        role_out[role] = {"dir": str(rdir), "track": str(role_mp3), "sentences": len(mine),
-                          "range": ranges([items[i]["n"] for i in mine])}
+        role_out[role] = {"dir": str(rdir), "sentences": len(mine), "range": ranges([items[i]["n"] for i in mine])}
         log("ROLE", video=vid, role=role, name=voices[role]["name"], files=f"{rdir}/S###.wav", count=len(mine),
-            track=role_mp3, range=role_out[role]["range"])
+            range=role_out[role]["range"])
 
     meta = {"tool": f"tts_narration.py {VERSION}", "created": datetime.now().isoformat(timespec="seconds"),
             "topic": topic, "id": vid, "script": rel(txt), "script_sha1": script_sha(rows, cards),
             "sentences": len(items), "seconds": round(total, 2), "engine": engine.describe(items[0]["spec"]) if engine else
             {k: metas[items[0]["n"]].get(k) for k in ("engine", "model", "language", "dtype")},
-            "voices": {r: {k: v[k] for k in ("name", "parts", "speaker", "preset", "instruct", "part_instruct", "seed", "gap",
+            "voices": {r: {k: v[k] for k in ("name", "parts", "speaker", "instruct", "part_instruct", "seed", "gap",
                                                 "generation", "files")} for r, v in voices.items()},
             "gaps": {"lead_in": args.lead_in, "part": args.part_gap, "tail": args.tail,
                      "cards": [{"after": c["after"], "seconds": c["seconds"]} for c in cards]},
@@ -804,6 +758,8 @@ def build_episode(engine, topic, vid, args, root, txt=None):
     write_report(P["report"], topic, vid, args, items, metas, timing, cards, total, voices, role_out, out)
     flagged = [it["n"] for it in items if not metas[it["n"]]["ok"] or metas[it["n"]]["warns"]]
     log("SUMMARY", video=vid, out=out, meta=P["meta"], minutes=total / 60, flagged=ranges(flagged) or "-", report=P["report"])
+    if Path(out).suffix != ".mp3":
+        die("EXPORT", "mp3 를 만들지 못함 (WAV만 있음)", "ffmpeg 확인: pip install imageio-ffmpeg 후 --assemble-only", video=vid)
     return {"video": vid, "topic": topic, "status": "made", "sentences": len(items), "minutes": total / 60,
             "flagged": flagged, "out": str(out)}
 
@@ -815,12 +771,12 @@ def write_report(path, topic, vid, args, items, metas, timing, cards, total_s, v
              f"- 모델: {m0.get('model')} · {m0.get('dtype')}",
              f"- 길이 {mmss(total_s)} · 문장 {len(items)}개 · 파트 쉼 {args.part_gap}초 · 고지 카드 "
              + (", ".join(f"문장 {c['after']} 뒤 {c['seconds']}초" for c in cards) or "없음"),
-             f"- 영상용 오디오: `{out}` → 저장소 `{topic}/source/{vid}/{Path(out).name}` (옆의 `{META_NAME}` 도 같이)", "",
-             "## 역할 (목소리 설정)", "", "| 역할 | 문장 | 화자 | 문장 쉼 | 시드 | 설정 파일 | 결과 경로 |", "|---|---|---|---|---|---|---|"]
+             f"- 결과 오디오(하나): 저장소 `{topic}/source/{vid}/narration.mp3` (옆에 `{META_NAME}`, 이 보고 `{REPORT_NAME}`)", "",
+             "## 역할 (목소리 설정)", "", "| 역할 | 문장 | 화자 | 문장 쉼 | 시드 | 설정 파일 | 문장 파일 (Kaggle 작업 폴더) |", "|---|---|---|---|---|---|---|"]
     for role, v in voices.items():
         ro = role_out.get(role, {})
         lines.append(f"| {v['name']} (`{role}`) | {ro.get('range', '-')} ({ro.get('sentences', 0)}개) | {v['speaker']} | {v['gap']}초 | "
-                     f"{v['seed']} | {', '.join(f'`{f}`' for f in v['files'])} | `{ro.get('dir', '-')}/S###.wav`, `{ro.get('track', '-')}` |")
+                     f"{v['seed']} | {', '.join(f'`{f}`' for f in v['files'])} | `{ro.get('dir', '-')}/S###.wav` |")
     lines += ["", "## 말투 지시", ""]
     for style, ins in dict.fromkeys((it["style"], it["spec"]["instruct"]) for it in items):
         lines.append(f"- **{style}**: {ins}")
@@ -834,19 +790,24 @@ def write_report(path, topic, vid, args, items, metas, timing, cards, total_s, v
     lines += ["", "## 귀로 확인할 문장", ""]
     lines += [f"- {it['n']}번 ({mmss(timing[it['n']][0])}, {voices[it['role']]['name']}): {it['text']} — "
               f"{'; '.join(metas[it['n']]['issues'] + metas[it['n']]['warns'])}" for it in bad] or ["- 없음 (그래도 사연 파트는 한 번 들어 보기)"]
-    lines += ["", "다시 만들기: `python tools/tts_narration.py build <주제> <영상ID> --redo 12,15` (새 시드로 그 문장만)", ""]
+    lines += ["", "다시 만들기: `python tools/tts_narration.py build <주제> <영상ID> --redo 12,15 --push` (새 시드로 그 문장만, 같은 Kaggle 세션 안에서)", ""]
     Path(path).write_text("\n".join(lines), "utf-8")
 
 
 # ----------------------------------------------------------------------------- 명령: build (영상 하나)
 def cmd_build(args):
     root = out_root(args)
+    token = push_preflight(args)
     voices = load_voices(args.topic, args.id, args)
     engine = None if args.assemble_only else make_engine(args, {v["speaker"] for v in voices.values()})
     res = build_episode(engine, args.topic, args.id, args, root, txt=args.txt)
-    if res["status"] == "made":
-        log("NEXT", note=f"영상 하나만 올릴 때: {res['out']} 를 저장소 {args.topic}/source/{args.id}/narration.mp3 로 "
-                         f"(옆의 {META_NAME} 도 같이). 여러 개면: pack → {ZIP_NAME}")
+    if res["status"] != "made":
+        return
+    if args.push:
+        if not push_results(root, [(args.topic, args.id)], token, args):
+            raise SystemExit(1)
+    else:
+        log("NEXT", note=f"올리려면 같은 명령에 --push (또는 python tools/tts_narration.py push) → 저장소 {args.topic}/source/{args.id}/")
 
 
 # ----------------------------------------------------------------------------- 명령: all (저장소의 대본 전부)
@@ -921,9 +882,18 @@ def cmd_all(args):
     log("PLAN", scripts=len(plan), make=len(todo), this_process=len(mine), split=args.split, max=args.max or "-",
         out=root, list=",".join(p["video"] for p in mine) or "-",
         est_audio_min=sum(p["est_min"] for p in mine))
-    if args.dry_run or not mine:
-        if not mine:
-            log("PLAN", note="만들 영상 없음 (오디오가 없고 보류·업로드가 아닌 대본이 없음)")
+    done = [p for i, p in enumerate([p for p in plan if p["action"] == "done"]) if i % K == k]
+    if args.dry_run:
+        return
+    token = push_preflight(args)
+    pushed_ok = True
+    if args.push and done:   # 이번 결과 폴더에 만들어 두고 아직 저장소에 없는 영상 → 다시 만들지 않고 올리기만
+        log("PUSH", note="만들어 두고 못 올린 영상부터 올림", list=",".join(p["video"] for p in done))
+        pushed_ok = push_results(root, [(p["topic"], p["video"]) for p in done], token, args)
+    if not mine:
+        log("PLAN", note="만들 영상 없음 (오디오가 없고 보류·업로드가 아닌 대본이 없음)")
+        if not pushed_ok:
+            raise SystemExit(1)
         return
     speakers = set()
     for p in mine:
@@ -933,7 +903,15 @@ def cmd_all(args):
     for i, p in enumerate(mine, 1):
         log("BATCH", n=i, of=len(mine), video=p["video"], topic=p["topic"], elapsed_min=(time.time() - t0) / 60)
         try:
-            results.append(build_episode(engine, p["topic"], p["video"], args, root))
+            res = build_episode(engine, p["topic"], p["video"], args, root)
+            if args.push:   # 영상 하나가 끝날 때마다 바로 올린다 (세션이 끊겨도 끝난 영상은 저장소에 남게)
+                try:
+                    res["pushed"] = push_results(root, [(p["topic"], p["video"])], token, args)
+                except Exception as e:   # 올리기 오류는 오디오 실패가 아니다 — 결과는 OUT/upload 에 남아 push 로 다시 올린다
+                    res["pushed"] = False
+                    log("PUSH", logging.ERROR, video=p["video"], error=_redact(f"{type(e).__name__}: {str(e)[:200]}", token),
+                        hint="python tools/tts_narration.py push")
+            results.append(res)
         except SystemExit:
             results.append({"video": p["video"], "topic": p["topic"], "status": "failed"})
             log("BATCH", logging.ERROR, video=p["video"], note="이 영상만 멈춤 — 위 [ERROR] 로그 확인, 다음 영상 계속")
@@ -943,14 +921,23 @@ def cmd_all(args):
                 hint="런타임 재시작 후 같은 명령 (만든 문장은 cache 에 남아 이어서 만든다)")
     for r in results:
         log("BATCH", video=r["video"], status=r["status"], minutes=r.get("minutes", 0.0),
-            flagged=ranges(r.get("flagged", [])) or "-", out=r.get("out", "-"))
+            flagged=ranges(r.get("flagged", [])) or "-", pushed=r.get("pushed", "-"), out=r.get("out", "-"))
     failed = [r["video"] for r in results if r["status"] != "made"]
-    log("BATCH", done=len(results) - len(failed), failed=",".join(failed) or "-", total_min=(time.time() - t0) / 60)
-    if K == 1 and not args.no_pack:
+    not_pushed = [r["video"] for r in results if r["status"] == "made" and args.push and not r.get("pushed")]
+    log("BATCH", done=len(results) - len(failed), failed=",".join(failed) or "-", not_pushed=",".join(not_pushed) or "-",
+        total_min=(time.time() - t0) / 60)
+    if args.push:
+        if not not_pushed and not failed and pushed_ok:
+            log("NEXT", note="영상마다 대본 폴더에 올라감 → Claude에게 '오디오 올렸어'")
+        elif not not_pushed and pushed_ok:
+            log("NEXT", logging.WARNING, note="만든 영상은 올라감. 실패한 영상은 위 [ERROR] 확인 뒤 같은 명령을 다시")
+        else:
+            log("NEXT", logging.WARNING, note="못 올린 영상: 토큰을 확인하고 python tools/tts_narration.py push (안 되면 pack 으로 zip)")
+    elif K == 1 and not args.no_pack:
         pack(root)
     else:
-        log("NEXT", note=f"다른 조각(--split)도 끝나면: python tools/tts_narration.py pack  → {ZIP_NAME}")
-    if failed:
+        log("NEXT", note="다른 조각(--split)도 끝나면 python tools/tts_narration.py push (또는 pack)")
+    if failed or not_pushed or not pushed_ok:
         raise SystemExit(1)
 
 
@@ -968,13 +955,197 @@ def pack(root):
     for p in files:
         log("PACK", file=p.relative_to(up).as_posix(), mb=p.stat().st_size / 1e6)
     log("PACK", zip=zp, files=len(files), mb=zp.stat().st_size / 1e6)
-    log("NEXT", note=f"{ZIP_NAME} 내려받기 → 압축 풀기 → GitHub 저장소 첫 화면 Add file → Upload files 에 안의 폴더(stock 등)를 "
-                     "그대로 끌어 놓기 → Commit → Claude에게 '오디오 올렸어'")
+    log("NEXT", note=f"(--push 가 안 될 때만) {ZIP_NAME} 내려받기 → 압축 풀기 → GitHub 저장소 Add file → Upload files 에 "
+                     "안의 폴더(stock 등)를 그대로 끌어 놓기 → Commit → Claude에게 '오디오 올렸어'")
     return zp
 
 
 def cmd_pack(args):
     pack(out_root(args))
+
+
+
+# ----------------------------------------------------------------------------- GitHub 올리기 (--push, push)
+def get_token():
+    """GitHub 토큰: 환경 변수 GITHUB_TOKEN → 없으면 Kaggle Secrets 의 GITHUB_TOKEN. 값은 어디에도 출력하지 않는다."""
+    tok, src = os.environ.get(TOKEN_ENV, "").strip(), "env"
+    if not tok:
+        try:
+            from kaggle_secrets import UserSecretsClient   # Kaggle 노트북 안에서만 있음
+            tok, src = (UserSecretsClient().get_secret(TOKEN_ENV) or "").strip(), "kaggle_secrets"
+        except Exception as e:   # 패키지 없음·비밀값 없음·노트북에 연결 안 됨 — 메시지에 값은 없다
+            log("PUSH", logging.DEBUG, kaggle_secrets=type(e).__name__)
+            tok = ""
+    return tok, src
+
+
+def _redact(text, token):
+    return text.replace(token, "***") if token else text
+
+
+class Git:
+    """저장소(ROOT)에서 git 실행. 토큰은 GIT_ASKPASS 스크립트가 환경 변수에서 읽어 넘긴다 — 명령줄·원격 주소·설정 파일에 남지 않는다."""
+
+    def __init__(self, token):
+        self.token = token
+        self.tmp = Path(tempfile.mkdtemp(prefix="tts_git_"))
+        self.env = {**os.environ, "GIT_TERMINAL_PROMPT": "0"}
+        if token:
+            ask = self.tmp / "askpass.sh"
+            ask.write_text('#!/bin/sh\ncase "$1" in\n  Username*) echo x-access-token ;;\n  *) printf "%s\\n" "$TTS_GIT_TOKEN" ;;\nesac\n')
+            ask.chmod(0o700)
+            self.env.update(GIT_ASKPASS=str(ask), TTS_GIT_TOKEN=token)
+
+    def run(self, *argv, timeout=900):
+        cmd = ["git", "-C", str(ROOT), "-c", "credential.helper=", "-c", f"user.name={GIT_NAME}", "-c", f"user.email={GIT_EMAIL}", *argv]
+        try:
+            r = subprocess.run(cmd, capture_output=True, text=True, env=self.env, timeout=timeout)
+        except subprocess.TimeoutExpired:
+            return 124, f"시간 초과 {timeout}초"
+        return r.returncode, _redact((r.stdout + r.stderr).strip(), self.token)
+
+    def close(self):
+        shutil.rmtree(self.tmp, ignore_errors=True)
+
+
+def remote_url(g):
+    rc, url = g.run("remote", "get-url", "origin")
+    return url if rc == 0 else ""
+
+
+def push_preflight(args):
+    """--push 면 만들기 전에: 토큰이 있는지, 그 토큰으로 push 할 수 있는지 확인한다. 안 되면 GPU 시간을 쓰기 전에 멈춘다."""
+    if not getattr(args, "push", False):
+        return ""
+    if not (ROOT / ".git").exists():
+        die("PUSH", "저장소가 git clone 이 아님", "Kaggle 셀 1에서 git clone 한 폴더에서 실행", root=ROOT)
+    token, src = get_token()
+    g = Git(token)
+    try:
+        url = remote_url(g)
+        if "@" in url.split("://")[-1].split("/")[0]:
+            die("PUSH", "원격 주소에 계정 정보가 들어 있음", "git remote set-url origin https://github.com/yeomin1024/yeomin1024-ytb.git")
+        github = "github.com" in url
+        if getattr(args, "fake", False) and github:
+            die("PUSH", "가짜 소리(--fake)는 GitHub에 올리지 않음", "--push 를 빼거나 시험용 저장소에서")
+        if github and not token:
+            die("PUSH", f"GitHub 토큰 없음 ({TOKEN_ENV})",
+                "Kaggle 오른쪽 Add-ons → Secrets → GITHUB_TOKEN 추가 후 이 노트북에 연결(체크) — guides/tts_guide.md 2번. "
+                "토큰을 셀·채팅에 붙여 넣지 않는다")
+        # 권한만 본다: 없는 브랜치 이름으로 dry-run (main 이 앞서 있어도 fast-forward 문제로 실패하지 않게). 실제로 만들지는 않는다
+        rc, out = g.run("push", "--dry-run", "origin", "HEAD:refs/heads/tts-push-check", timeout=120)
+        if rc != 0:
+            die("PUSH", f"push 권한 확인 실패: {' '.join(out.split())[:300]}",
+                "토큰 만료·저장소 선택·Contents 읽기/쓰기 권한 확인 (guides/tts_guide.md 2번)", remote=url)
+        log("PUSH", remote=url, token="있음(값은 표시하지 않음)" if token else "없음(로컬 원격)", token_source=src if token else "-",
+            check="push --dry-run 통과")
+    finally:
+        g.close()
+    return token
+
+
+def _lock():
+    """GPU 2개(--split)로 두 프로세스가 동시에 올려도 git 작업이 겹치지 않게 잠근다 (Linux·macOS)."""
+    try:
+        import fcntl
+    except ImportError:
+        return None
+    f = open(ROOT / ".git" / "tts_push.lock", "w")
+    fcntl.flock(f, fcntl.LOCK_EX)
+    return f
+
+
+def push_results(root, entries, token, args):
+    """영상마다 결과 세 파일을 대본 폴더 <주제>/source/<영상ID>/ 에 복사 → 그 파일만 커밋 → pull --rebase → push. → 성공 여부."""
+    lock = _lock()
+    g = Git(token)
+    try:
+        paths, vids = [], []
+        for topic, vid in entries:
+            P = episode_paths(root, topic, vid)
+            dst = ROOT / topic / "source" / vid
+            if not (dst / f"{vid}.txt").is_file():
+                log("PUSH", logging.WARNING, video=vid, note="저장소에 이 영상의 대본 폴더가 없음 — 건너뜀", dst=rel(dst))
+                continue
+            if not P["narration"].is_file() or not P["meta"].is_file():
+                log("PUSH", logging.WARNING, video=vid, note="narration.mp3·메타 없음 — 건너뜀", src=P["upload"])
+                continue
+            new = json.loads(P["meta"].read_text("utf-8"))
+            rows, cards = read_script(dst / f"{vid}.txt")
+            if new.get("script_sha1") != script_sha(rows, cards):   # 지금 대본과 다른 옛 결과는 올리지 않는다
+                log("PUSH", logging.WARNING, video=vid, note="이 결과는 옛 대본으로 만든 것 — 올리지 않음 (all 로 다시 만들기)")
+                continue
+            old_p = dst / META_NAME
+            old = json.loads(old_p.read_text("utf-8")) if old_p.is_file() else {}
+            if old.get("script_sha1") == new.get("script_sha1") and old.get("created", "") > new.get("created", ""):
+                log("PUSH", logging.WARNING, video=vid, note="저장소에 더 나중에 만든 결과가 있음 — 덮어쓰지 않음",
+                    repo_created=old.get("created"), this_created=new.get("created"))
+                continue
+            for name in REPO_FILES:
+                if (P["upload"] / name).is_file():
+                    shutil.copy2(P["upload"] / name, dst / name)
+                    paths.append(rel(dst / name))
+            for e in AUDIO_EXTS:   # 다른 확장자의 옛 내레이션이 있으면 지운다 (align-audio 가 mp3 를 먼저 쓰지만 헷갈리지 않게)
+                old = dst / f"narration.{e}"
+                if e != "mp3" and old.is_file():
+                    rc, _ = g.run("rm", "-q", "--cached", "--ignore-unmatch", "--", rel(old))
+                    old.unlink()
+                    log("PUSH", video=vid, removed=rel(old), note="옛 내레이션 (다른 확장자)")
+                    paths.append(rel(old))
+            vids.append(vid)
+            log("PUSH", video=vid, files=",".join(n for n in REPO_FILES if (P["upload"] / n).is_file()), dst=rel(dst),
+                mb=P["narration"].stat().st_size / 1e6)
+        if not vids:
+            return False
+        rc, out = g.run("add", "-A", "--", *paths)
+        if rc != 0:
+            log("PUSH", logging.ERROR, step="add", error=" ".join(out.split())[:300])
+            return False
+        rc, _ = g.run("diff", "--cached", "--quiet", "--", *paths)
+        if rc == 0:   # 새로 커밋할 것은 없다 — 전에 커밋만 하고 못 올린 것이 있을 수 있으니 아래 push 는 그대로 한다
+            log("PUSH", videos=",".join(vids), note="새로 커밋할 변경 없음 — 못 올린 커밋이 있으면 올림")
+        else:
+            msg = (f"내레이션: {', '.join(vids)} (tts_narration {VERSION}, Kaggle)\n\n"
+                   f"자동 생성 — 대본 폴더마다 narration.mp3 · {META_NAME} · {REPORT_NAME}. 연구·교육용, 투자 권유 아님.")
+            rc, out = g.run("commit", "-q", "-m", msg, "--", *paths)
+            if rc != 0:
+                log("PUSH", logging.ERROR, step="commit", error=" ".join(out.split())[:300])
+                return False
+        _, head = g.run("rev-parse", "--short", "HEAD")
+        for attempt in range(1, PUSH_TRIES + 1):
+            rc, out = g.run("pull", "-q", "--rebase", "--autostash", "origin", "main")
+            if rc != 0:
+                g.run("rebase", "--abort")
+                log("PUSH", logging.WARNING, step="pull", attempt=attempt, error=" ".join(out.split())[:300])
+            else:
+                rc, out = g.run("push", "-q", "origin", "HEAD:main")
+                if rc == 0:
+                    _, head = g.run("rev-parse", "--short", "HEAD")
+                    log("PUSH", videos=",".join(vids), commit=head, branch="main", ok=True,
+                        note="대본 폴더마다 올라감: " + ", ".join(f"{t}/source/{v}/" for t, v in entries if v in vids))
+                    return True
+                log("PUSH", logging.WARNING, step="push", attempt=attempt, error=" ".join(out.split())[:300])
+            time.sleep(2 ** attempt)
+        log("PUSH", logging.ERROR, videos=",".join(vids), ok=False, commit=head,
+            hint="커밋은 이 Kaggle 저장소에 남아 있음 → 잠시 뒤 python tools/tts_narration.py push, 안 되면 pack 으로 zip")
+        return False
+    finally:
+        g.close()
+        if lock:
+            lock.close()
+
+
+def cmd_push(args):
+    """OUT/upload/ 에 만들어 둔 결과를 대본 폴더마다 올린다 (all·build 의 --push 가 실패했을 때, --split 뒤)."""
+    root = out_root(args)
+    args.push = True
+    token = push_preflight(args)
+    entries = sorted({(p.parents[1].name, p.name) for p in (root / "upload").glob("*/source/*") if (p / "narration.mp3").is_file()})
+    if not entries:
+        log("PUSH", logging.WARNING, note="올릴 결과 없음", dir=root / "upload")
+        return
+    if not push_results(root, entries, token, args):
+        raise SystemExit(1)
 
 
 # ----------------------------------------------------------------------------- 명령: check (저장소 오디오 ↔ 지금 대본)
@@ -1005,70 +1176,6 @@ def cmd_check(args):
     raise SystemExit(1)
 
 
-# ----------------------------------------------------------------------------- 명령: sample
-def cmd_sample(args):
-    root = out_root(args)
-    topic = vid = None
-    rows = []
-    if args.episode:
-        topic, vid = args.episode.strip("/").split("/", 1)
-        txt = ROOT / topic / "source" / vid / f"{vid}.txt"
-        if not txt.is_file():
-            die("INPUT", "대본 TXT 없음", "--episode 주제폴더/영상ID 확인", path=txt)
-        rows, _ = read_script(txt)
-    voices = load_voices(topic, vid, args)
-    work = root / "sample"
-    cache = work / "cache"
-    cache.mkdir(parents=True, exist_ok=True)
-    engine = make_engine(args, {v["speaker"] for v in voices.values()})
-    jobs = []   # (이름, 표시 이름, [(문장, spec)])
-    if args.roles:   # 역할 설정 그대로: 역할마다 대본(또는 내장) 문장으로 한 파일씩
-        src_rows = rows or [(t, p) for p, t in ROLE_SAMPLE_LINES]
-        picks = parse_nums(args.lines) if args.lines else None
-        for role, v in voices.items():
-            mine = [(n, t, p) for n, (t, p) in enumerate(src_rows, 1) if role_of(p, voices) == role and (not picks or n in picks)]
-            if rows and not picks:   # 사연자는 사연 끝 4문장(감정이 가장 짙은 곳), 나머지는 파트마다 첫 문장
-                mine = mine[-4:] if role == STORY_ROLE else [m for i, m in enumerate(mine) if i == 0 or mine[i - 1][2] != m[2]]
-            if mine:
-                jobs.append((role, v["name"], [(t, spec_of(v, instruct_for(v, p)[0])) for _, t, p in mine]))
-                log("INPUT", role=role, name=v["name"], lines=",".join(str(n) for n, _, _ in mine))
-    else:            # 사연 말투 A~D (+ 직접 지시 X) — 화자·시드는 사연자 설정
-        sv = voices.get(STORY_ROLE) or next(iter(voices.values()))
-        if rows:
-            nums = parse_nums(args.lines) if args.lines else \
-                [n for n, (_, p) in enumerate(rows, 1) if role_of(p, voices) == STORY_ROLE][-6:]
-            lines = [rows[n - 1][0] for n in nums if 1 <= n <= len(rows)]
-            log("INPUT", episode=args.episode, lines=",".join(map(str, nums)))
-        else:
-            lines = list(SAMPLE_LINES)
-            log("INPUT", source="내장 시험 문장", lines=len(lines))
-        variants = {v: SAMPLE_STYLES[v] for v in parse_variants(args.styles)}
-        if args.instruct:
-            variants["X"] = ("직접 지시", args.instruct)
-        for v, (name, instruct) in variants.items():
-            jobs.append((v, name, [(t, dict(spec_of(sv, instruct))) for t in lines]))
-    outs = []
-    for key, name, pairs in jobs:
-        clips, sr, rates = [], None, []
-        for i, (text, spec) in enumerate(pairs, 1):
-            log("STYLE", sample=key, name=name, n=i, instruct=spec["instruct"], level=logging.DEBUG)
-            m = make_sentence(engine, cache, f"{key}{i:02d}", tts_text(text, []), spec, srt_tool.syllables(text), args, role=key)
-            x, sr = read_wav(m["wav"])
-            clips.append(x)
-            rates.append(m["rate"])
-        g = 10 ** (gain_for(clips, sr) / 20)
-        pieces = [silence(args.lead_in, sr)]
-        for x in clips:
-            pieces += [x * g, silence(0.45, sr)]
-        out = export(np.concatenate(pieces), sr, work / f"sample_{key}.mp3", keep_wav=args.keep_wav)
-        log("SAMPLE", sample=key, name=name, out=out, sentences=len(pairs), mean_rate=float(np.mean(rates)))
-        outs.append(out)
-    log("NEXT", note="노트북 셀에서 듣기: from IPython.display import Audio, display; "
-                     + "; ".join(f"display(Audio('{o}'))" for o in outs))
-    if not args.roles:
-        log("NEXT", note="고른 말투를 voices/storyteller.json 의 \"preset\" 에 글자 하나로 (Claude에게 '사연자 말투 B로')")
-
-
 # ----------------------------------------------------------------------------- 공통
 def parse_nums(s):
     out = []
@@ -1080,21 +1187,13 @@ def parse_nums(s):
     return out
 
 
-def parse_variants(s):
-    vs = [v.strip().upper() for v in s.split(",") if v.strip()]
-    bad = [v for v in vs if v not in SAMPLE_STYLES]
-    if bad:
-        die("STYLE", f"없는 말투: {','.join(bad)}", f"--styles 를 {','.join(SAMPLE_STYLES)} 중에서")
-    return vs
-
-
 def check_split(s, name):
     if not re.fullmatch(r"\d+/\d+", s) or not 0 <= int(s.split("/")[0]) < int(s.split("/")[1]):
         die("START", f"{name} 형식 오류: {s}", "예: 0/2, 1/2")
 
 
 def main():
-    ap = argparse.ArgumentParser(description="대본 TXT → 내레이션 (Qwen3-TTS, Kaggle GPU) — 사연자·진행자 역할별 목소리")
+    ap = argparse.ArgumentParser(description="대본 TXT → 내레이션 하나 (Qwen3-TTS, Kaggle GPU, 사연자·진행자 목소리) → 대본 폴더에 GitHub 올리기")
     sub = ap.add_subparsers(dest="cmd", required=True)
     common = argparse.ArgumentParser(add_help=False)
     common.add_argument("--model", default=DEFAULT_MODEL)
@@ -1122,10 +1221,10 @@ def main():
     bopt.add_argument("--lexicon", default=None, help="읽는 소리 사전 TSV 추가 (기본: <주제>/tts_lexicon.tsv, source/<영상ID>/tts_lexicon.tsv)")
     bopt.add_argument("--part-gap", type=float, default=1.0, help="파트가 바뀔 때 쉼(초)")
     bopt.add_argument("--tail", type=float, default=0.8, help="마지막 문장 뒤 쉼(초)")
-    bopt.add_argument("--story-style", default=None, help="사연자 말투를 sample 의 A·B·C·D 중 하나로 (설정 파일보다 우선)")
-    bopt.add_argument("--story-instruct", default=None, help="사연자 말투 지시를 직접 쓰기 (설정 파일보다 우선)")
+    bopt.add_argument("--push", action="store_true",
+                      help="영상이 끝날 때마다 결과(narration.mp3·tts_narration.json·tts_report.md)를 대본 폴더에 GitHub main 으로 올리기 (토큰: GITHUB_TOKEN)")
 
-    b = sub.add_parser("build", parents=[common, bopt], help="영상 하나 → narration.mp3 + 역할별 파일")
+    b = sub.add_parser("build", parents=[common, bopt], help="영상 하나 → narration.mp3 (--push 로 대본 폴더에 올림)")
     b.add_argument("topic")
     b.add_argument("id")
     b.add_argument("--txt", default=None, help="대본 TXT 직접 지정")
@@ -1140,24 +1239,17 @@ def main():
     a.add_argument("--force", action="store_true", help="저장소에 지금 대본과 같은 오디오가 있어도 다시 만들기")
     a.add_argument("--keep-stale", action="store_true", help="옛 대본으로 만든 오디오를 다시 만들지 않기 (기본: 다시 만듦)")
     a.add_argument("--max", type=int, default=0, help="이번에 만들 최대 영상 수 (0 = 전부)")
-    a.add_argument("--split", default="0/1", help="GPU 2개로 영상을 나눠: --gpu 0 --split 0/2 와 --gpu 1 --split 1/2 를 동시에, 끝나면 pack")
+    a.add_argument("--split", default="0/1", help="GPU 2개로 영상을 나눠: --gpu 0 --split 0/2 와 --gpu 1 --split 1/2 를 동시에 (--push 는 차례로 올림)")
     a.add_argument("--dry-run", action="store_true", help="무엇을 만들지 목록만 (모델 안 불러옴)")
-    a.add_argument("--no-pack", action="store_true", help="끝나고 zip 만들지 않기")
+    a.add_argument("--no-pack", action="store_true", help="--push 없이 돌릴 때 끝나고 zip 만들지 않기")
 
-    sub.add_parser("pack", parents=[common], help=f"OUT/upload/ → {ZIP_NAME} (저장소 경로 그대로)")
+    sub.add_parser("push", parents=[common], help="만들어 둔 결과를 대본 폴더마다 GitHub main 에 올리기")
+    sub.add_parser("pack", parents=[common], help=f"(올리기가 안 될 때만) OUT/upload/ → {ZIP_NAME}")
 
     c = sub.add_parser("check", parents=[common], help="저장소의 narration 이 지금 대본으로 만든 것인지 (tts_narration.json)")
     c.add_argument("topic")
     c.add_argument("id")
 
-    s = sub.add_parser("sample", parents=[common], help="말투 시험 (사연 A·B·C·D, 또는 --roles 로 역할 설정 그대로)")
-    s.add_argument("--episode", default=None, help="주제폴더/영상ID — 그 대본 문장으로 시험")
-    s.add_argument("--lines", default=None, help="대본 문장 번호 (예: 11-16)")
-    s.add_argument("--styles", default="A,B,C,D", help="시험할 사연 말투")
-    s.add_argument("--instruct", default=None, help="직접 쓴 말투 지시를 X로 추가")
-    s.add_argument("--roles", action="store_true", help="voices/*.json 설정 그대로 역할마다 한 파일 (sample_storyteller.mp3, sample_host.mp3)")
-    s.add_argument("--story-style", default=None, help=argparse.SUPPRESS)
-    s.add_argument("--story-instruct", default=None, help=argparse.SUPPRESS)
     args = ap.parse_args()
     logging.basicConfig(level=getattr(logging, args.log_level), format="%(message)s", stream=sys.stdout)
     log("START", tool=f"tts_narration.py {VERSION}", cmd=args.cmd, out=out_root(args), note="연구·교육용 — 투자 권유 아님")
@@ -1169,12 +1261,12 @@ def main():
     elif args.cmd == "all":
         check_split(args.split, "--split")
         cmd_all(args)
+    elif args.cmd == "push":
+        cmd_push(args)
     elif args.cmd == "pack":
         cmd_pack(args)
-    elif args.cmd == "check":
-        cmd_check(args)
     else:
-        cmd_sample(args)
+        cmd_check(args)
 
 
 if __name__ == "__main__":

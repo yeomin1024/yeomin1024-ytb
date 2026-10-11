@@ -1,6 +1,6 @@
 # 전체 진행 순서 — 분석부터 비공개 업로드까지 (모든 주제 공통)
 
-버전: v1.3 — 2026-10-10 — 사용자 지시: 스토리보드를 만들지 않고 요약에서도 뺀다 / 오디오가 생기면 승인 없이 바로 영상(영상 코드가 없으면 Claude가 만든다) / 내레이션은 사연자·진행자 목소리 설정 파일로 나눠 대본 전부를 한 번에(`tts_narration.py all`) / 사례는 되도록 최신 (v1.2: 내레이션은 Kaggle의 Qwen3-TTS, v1.1: 렌더가 끝나면 1시간 뒤 예약 공개, v1.0: 분석 → 지시사항·주제 → 제작 → 요약 문서 → 오디오가 생기면 렌더·비공개 업로드, 최대 3개)
+버전: v1.4 — 2026-10-11 — 사용자 지시: 오디오는 고르지 않고 영상마다 하나, 결과 파일은 Kaggle에서 대본 폴더마다 GitHub에 자동으로 올린다 (3-6) (v1.3: 스토리보드를 만들지 않고 요약에서도 뺀다 / 오디오가 생기면 승인 없이 바로 영상(영상 코드가 없으면 Claude가 만든다) / 내레이션은 사연자·진행자 목소리 설정 파일로 나눠 대본 전부를 한 번에(`tts_narration.py all`) / 사례는 되도록 최신 (v1.2: 내레이션은 Kaggle의 Qwen3-TTS, v1.1: 렌더가 끝나면 1시간 뒤 예약 공개, v1.0: 분석 → 지시사항·주제 → 제작 → 요약 문서 → 오디오가 생기면 렌더·비공개 업로드, 최대 3개)
 
 Claude Code는 이 순서대로 진행한다. 단계마다 자세한 규칙은 각 지시사항 파일에 있다 (`guides/README.md` 표).
 ※ 투자·건강 등 주제별 고지 규칙은 각 주제 규칙을 따른다. 주식 영상은 투자 교육용이며 투자 권유가 아니다.
@@ -11,7 +11,7 @@ Claude Code는 이 순서대로 진행한다. 단계마다 자세한 규칙은 �
 | 2 | 분석 결과로 지시사항 만들기·고치기 → 주제 탐색 | `data_insights.md` 9번, `title_guide.md` 0번 | `guides/*.md`, 주제 후보 |
 | 3 | 주제마다 제목 3개 · 썸네일 프롬프트 3개 · 업로드 시트 · 대본(TXT·SRT) | `title_guide.md` 11번, `thumbnail_guide.md`, `upload_guide.md`, `script_guide.md` | `source/<영상ID>/` |
 | 3-5 | 영상별 요약 문서 (한눈에 보기, **스토리보드 없음**) | `python tools/make_summary.py <주제폴더> <영상ID>` | `source/<영상ID>/summary.md` |
-| 3-6 | 내레이션 (사용자가 Kaggle에서): 대본 전부를 읽어 사연자·진행자 목소리로 → zip 하나 → GitHub에 올림 | `python tools/tts_narration.py all` (`tts_guide.md`) | `source/<영상ID>/narration.mp3`, `tts_narration.json` |
+| 3-6 | 내레이션 (사용자가 Kaggle에서 셀 하나): 대본 전부를 읽어 사연자·진행자 목소리로 영상마다 오디오 하나 → 대본 폴더마다 GitHub에 자동으로 올림 | `python tools/tts_narration.py all --push` (`tts_guide.md`) | `source/<영상ID>/narration.mp3`, `tts_narration.json` |
 | 4 | 오디오 파일이 생기면 → (영상 코드가 없으면 Claude가 만든다, **승인 없이**) → SRT 맞춤 → 렌더 → 유튜브 **비공개** 업로드 + **렌더 완료 1시간 뒤 예약 공개** (한 번에 최대 3개) | `video_guide.md` 6번, `bash tools/publish.sh` | `video/src/episodes/<영상ID>/`, `out/<영상ID>/final_1080p.mp4`, `source/<영상ID>/youtube.json` |
 
 모든 결과물은 **main에 바로 커밋·푸시**한다 (`CLAUDE.md`). 완성 영상 mp4는 용량 때문에 올리지 않는다.
@@ -58,7 +58,7 @@ Claude Code는 이 순서대로 진행한다. 단계마다 자세한 규칙은 �
 - 이전 영상과 겹치지 않게 `source/used_content.md`를 먼저 읽고, 다 쓰면 추가한다.
 - **사례·연구는 되도록 최신으로 쓴다** (사용자 지시 2026-10-10: "1900년도는 너무 옛날"). 2020년대를 먼저, 없으면 2010년대까지. 1900년대 사건·1900년대 자료로 한 연구는 쓰지 않는다 (`script_guide.md` 0-1의 7번, 주식 `stock/guides/script_rules.md` 3-7).
 - **영상 코드·스토리보드는 3단계에서 만들지 않는다** (사용자 지시 2026-10-10). 영상 코드는 오디오가 생긴 뒤 4단계에서 Claude가 만들고, 스토리보드 문서·승인 단계는 없다.
-- 대본이 바뀌면 SRT·제목·썸네일 문구·업로드 시트·영상 코드(있으면)를 같이 고친다. 이미 만든 오디오는 옛 대본이 되므로 Kaggle에서 `all`을 다시 돌리면 그 영상만 다시 만든다 (3-6).
+- 대본이 바뀌면 SRT·제목·썸네일 문구·업로드 시트·영상 코드(있으면)를 같이 고친다. 이미 만든 오디오는 옛 대본이 되므로 Kaggle 셀을 다시 실행하면 그 영상만 다시 만들어 올린다 (3-6).
 
 ### 3-5. 영상별 요약 문서 (`summary.md`)
 
@@ -73,29 +73,29 @@ python tools/make_summary.py --all                   # upload.md가 있는 모�
 
 ### 3-6. 내레이션 만들기 (사용자, Kaggle GPU) — `guides/tts_guide.md`
 
-- 대본에서 **사연자**(파트 라벨에 '사연'이 든 문장)와 **진행자**(나머지 모든 파트)를 나눠, 역할마다 목소리 설정 파일로 읽는다.
+- **Kaggle 셀 하나**(`tts_guide.md` 3번)를 실행하면 끝이다. 고르는 단계(말투 시험·선택)는 없다 (사용자 지시 2026-10-11).
+- 대본에서 **사연자**(파트 라벨에 '사연'이 든 문장)와 **진행자**(나머지 모든 파트)를 나눠, 역할마다 정해진 목소리 설정으로 읽는다.
   - `voices/storyteller.json` — 사연자: 주식 손실로 억울하고 후회하는 1인칭 고백
   - `voices/host.json` — 진행자: 차분한 설명 (분석·방법·마무리 파트는 `part_instruct`로 조금씩 다르게)
-  - 주제·영상마다 바꾸려면 `<주제폴더>/voices/<역할>.json`, `<주제폴더>/source/<영상ID>/voices/<역할>.json`에 바꿀 항목만 쓴다.
-- `python tools/tts_narration.py all` — 저장소의 대본(`<주제폴더>/source/<영상ID>/<영상ID>.txt`)을 **모두 읽어** 오디오가 없는 영상을 한 번에 만든다.
+- `python tools/tts_narration.py all --push` — 저장소의 대본(`<주제폴더>/source/<영상ID>/<영상ID>.txt`)을 **모두 읽어** 오디오가 없는 영상을 한 번에 만든다.
   - 건너뜀: 보류 주제(⏸), 이미 업로드한 영상(`youtube.json`), 지금 대본으로 만든 오디오가 이미 있는 영상
   - 다시 만듦: 옛 대본으로 만든 오디오 (`tts_narration.json`의 대본 해시가 다름)
-- 정해진 결과 경로 (`/kaggle/working/tts_out/`):
-  - `upload/<주제폴더>/source/<영상ID>/narration.mp3` + `tts_narration.json` — 저장소와 같은 경로 → `narration_upload.zip` 하나로 묶임
-  - `<영상ID>/storyteller/S###.wav`·`storyteller.mp3`, `<영상ID>/host/S###.wav`·`host.mp3` — 역할별 문장 파일·트랙 (확인용, 올리지 않음)
-- 사용자가 zip을 풀어 GitHub 저장소 첫 화면 **Add file → Upload files**에 안의 폴더(`stock` 등)를 끌어 놓고 main에 커밋 → Claude에게 "오디오 올렸어".
+- **결과는 영상마다 오디오 하나**(`narration.mp3`)이고, 영상 하나가 끝날 때마다 **그 영상의 대본 폴더** `<주제폴더>/source/<영상ID>/`에 main으로 자동 커밋·푸시된다 (사용자 지시 2026-10-11).
+  - 올라가는 파일: `narration.mp3`, `tts_narration.json`(문장별 시작·끝·대본 해시), `tts_report.md`(귀로 확인할 문장) — 이것만
+  - GitHub 토큰은 Kaggle Secrets `GITHUB_TOKEN`에만 둔다 (`tts_guide.md` 2-2, 이 저장소만·Contents 읽기/쓰기). 채팅·셀·파일에 붙여 넣지 않는다.
+- 끝나면 사용자가 Claude에게 "오디오 올렸어" → 4단계.
 
 ## 4단계 — 오디오가 생기면 렌더·비공개 업로드
 
 **오디오 경로:** `<주제폴더>/source/<영상ID>/narration.mp3` (또는 `.wav`, `.m4a`)
-- **만드는 법:** 위 3-6 (Kaggle GPU에서 `tools/tts_narration.py all`, 사연자·진행자 목소리 설정 파일). 직접 녹음해도 된다.
+- **만드는 법:** 위 3-6 (Kaggle 셀 하나 → 대본 폴더마다 자동으로 올라감). 직접 녹음해서 그 경로에 올려도 된다.
 - 내레이션은 대본 TXT와 같은 문장이어야 한다. 고지 카드 자리(`[장면]` 바로 앞 문장 뒤)에서 **3.5초 이상** 쉰다.
 - mp3·m4a를 권한다. wav는 크다 (GitHub 웹 업로드는 파일당 25MB까지).
 - 저장소가 공개라서 올린 오디오는 누구나 들을 수 있다.
 
 **진행:** 사용자가 "오디오 올렸어" / "4단계 진행해"라고 하면 Claude가 실행한다. **사용자 승인을 기다리지 않는다** (사용자 지시 2026-10-10: "오디오 만들어지면 그냥 영상 만들어").
 ```
-git pull origin main          # 사용자가 웹에서 올린 오디오 받기
+git pull origin main          # Kaggle이 올린 오디오(narration.mp3·tts_narration.json·tts_report.md) 받기
 bash tools/publish.sh --dry-run    # 대상 확인: 영상 코드가 없는 영상, 옛 대본으로 만든 오디오는 건너뜀으로 나온다
 python tools/tts_narration.py check <주제폴더> <영상ID>   # 오디오가 지금 대본으로 만든 것인지 (publish.sh 도 확인)
 bash tools/publish.sh          # 오디오가 있고 아직 안 올린 영상 → 최대 3개
@@ -195,16 +195,17 @@ bash tools/publish.sh          # 오디오가 있고 아직 안 올린 영상 �
 |---|---|
 | 1~2단계 | "stock 분석 돌리고 지시사항이랑 주제 후보 갱신해줘" / "health 분석부터 해줘" |
 | 3단계 (주제 2개) | "분석 결과 보고 새 주제 2개 골라서 3단계까지 해줘" |
-| 오디오 만들기 | "Kaggle 오디오 명령 알려줘" → `tts_guide.md` 3번 셀 / "사연자 말투 B로 바꿔줘" → `voices/storyteller.json`의 `preset` |
+| 오디오 만들기 | "Kaggle 오디오 명령 알려줘" → `tts_guide.md` 3번 셀 하나 (말투는 고르지 않음. 바꿔야 할 때만 "사연자 목소리를 더 담담하게" → `voices/storyteller.json`) |
 | 요약 문서 | "요약 문서 다시 만들어줘" |
 | 썸네일 프롬프트 모아 보기 | "썸네일 프롬프트 모아줘" → 이미지가 아직 없는 썸네일의 [A] 프롬프트를 한 파일로 모은다 (`<주제폴더>/thumbnail_todo.md`) |
-| 4단계 | "오디오 올렸어" → 영상 코드가 없으면 만들고, 렌더·비공개 업로드까지 (승인 없이) |
+| 4단계 | "오디오 올렸어" (Kaggle이 대본 폴더에 올린 뒤) → 영상 코드가 없으면 만들고, 렌더·비공개 업로드까지 (승인 없이) |
 | 키 확인 | "유튜브 키 확인해줘" |
 
 ## 변경 이력
 
 | 버전 | 날짜 | 변경 내용 |
 |---|---|---|
+| v1.4 | 2026-10-11 | 사용자 지시: 3-6 오디오는 고르지 않고 영상마다 하나(말투 시험·선택 삭제), 결과 파일은 Kaggle에서 `all --push`로 대본 폴더마다 main에 자동 커밋·푸시(zip·웹 업로드 삭제), 토큰은 Kaggle Secrets |
 | v1.3 | 2026-10-10 | 사용자 지시: ① 스토리보드 만들지 않음·요약에서 뺌, 3단계 ⑤(영상 코드·스토리보드 승인) 삭제 ② 오디오가 생기면 승인 없이 바로 영상 — 영상 코드가 없으면 4단계 0번에서 Claude가 만들고 자체 점검 ③ 3-6 내레이션: 사연자·진행자 목소리 설정 파일(`voices/`), 대본 전부 한 번에(`tts_narration.py all`), 정해진 결과 경로·zip ④ 사례는 되도록 최신 (3단계 규칙) ⑤ 옛 대본으로 만든 오디오는 publish.sh가 건너뜀 |
 | v1.2 | 2026-10-10 | 사용자 지시: 4단계 오디오 만드는 법 — Kaggle에서 `tools/tts_narration.py` (`tts_guide.md`) |
 | v1.1 | 2026-10-10 | 사용자 지시: 4단계 업로드에 예약 공개(렌더 완료 + 1시간) 추가, 예약 멈추는 법 |

@@ -8,7 +8,7 @@
 ## 작업 지시사항
 - **전체 진행 순서(분석 → 주제 → 제작 → 요약 문서 → 내레이션(Kaggle) → 오디오가 생기면 렌더·비공개 업로드): `guides/pipeline.md`**
 - 스토리보드는 만들지 않는다. 요약 문서에도 넣지 않는다. 오디오가 생기면 승인을 기다리지 않고 바로 영상을 만든다 (영상 코드가 없으면 Claude가 만들고 still로 스스로 점검). (사용자 지시 2026-10-10)
-- 내레이션은 사연자·진행자 두 목소리다. 목소리 설정은 `voices/storyteller.json`·`voices/host.json`, 실행은 `tools/tts_narration.py all` (`guides/tts_guide.md`).
+- 내레이션은 사연자·진행자 두 목소리로 읽어 영상마다 오디오 하나(`narration.mp3`)로 만든다. 말투는 고르지 않는다 (설정 `voices/storyteller.json`·`voices/host.json`). Kaggle 셀 하나(`tools/tts_narration.py all --push`)가 결과를 **대본 폴더마다** `<주제폴더>/source/<영상ID>/`에 main으로 올린다 (`guides/tts_guide.md`). (사용자 지시 2026-10-11)
 - 대본의 사례·연구는 되도록 최신으로 쓴다 (2020년대 먼저, 1900년대 사건·자료는 쓰지 않음). (사용자 지시 2026-10-10)
 - 지시사항 목록: `guides/README.md`
 - 썸네일은 프롬프트 파일만 만든다. 이미지는 사용자가 이미지 AI로 만든다 (코드로 렌더하지 않음).

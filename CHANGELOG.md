@@ -1,5 +1,28 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-11 — 오디오는 하나로(고르지 않음), 결과는 Kaggle에서 대본 폴더마다 GitHub에 자동으로 (tts_narration v1.2)
+
+### 왜 바꿨나 (사용자 지시)
+1. 오디오를 고르지 말고 그냥 하나로
+2. 결과 파일을 GitHub에 올리도록 — 오디오는 대본별 폴더에 각각
+
+| 영역 | 함수/파일 | 변경 내용 |
+|---|---|---|
+| 도구 | `tools/tts_narration.py` v1.2 — `cmd_sample`, `SAMPLE_STYLES`, `preset`, `--story-style/--story-instruct` 삭제 | 말투 시험·선택 단계 없음. 역할마다 설정 파일의 말투 하나 |
+| 도구 | 같은 파일 `build_episode` | 역할만 이은 트랙(`storyteller.mp3`·`host.mp3`) 삭제 → 결과 오디오는 영상마다 `narration.mp3` 하나. 보고서는 `tts_report.md`로 결과 옆에. mp3를 못 만들면 멈춤 |
+| 도구 | 같은 파일 `get_token`, `Git`, `push_preflight`, `push_results`, `cmd_push` (신규), `all/build --push`, `push` 명령 | 영상 하나가 끝날 때마다 결과 3개(`narration.mp3`·`tts_narration.json`·`tts_report.md`)를 **그 영상의 대본 폴더** `<주제>/source/<영상ID>/`에 복사 → 그 파일만 커밋 → `pull --rebase --autostash` → `push origin HEAD:main` (최대 4번, 2·4·8·16초 간격). 토큰은 환경 변수 또는 Kaggle Secrets `GITHUB_TOKEN`, `GIT_ASKPASS`로만 넘김(로그·명령줄·원격 주소·설정에 없음, 출력은 가림). 시작 전 `push --dry-run`(없는 브랜치 이름)으로 권한 확인 → 안 되면 GPU 쓰기 전에 멈춤. 두 프로세스(`--split`)는 잠금 파일로 차례로. 안전장치: 옛 대본 결과·저장소의 더 나중 결과는 안 올림, 가짜 소리는 github.com에 안 올림, 다른 확장자 옛 내레이션은 지움 |
+| 설정 | `voices/storyteller.json`·`host.json` v1.1 | `preset` 삭제 |
+| 지시사항 | `guides/tts_guide.md` v1.3, `guides/pipeline.md` v1.4, `guides/README.md` v1.4, `CLAUDE.md`, `README.md`, `tools/make_summary.py` v1.3.1(문구), `tools/publish.sh` v1.2.1(주석) | Kaggle 셀 하나, GitHub 토큰 만들기(이 저장소만·Contents 읽기/쓰기·Kaggle Secrets), 문제가 생겼을 때 표, zip·웹 업로드는 마지막 수단 |
+
+### 검증 (가짜 소리, 로컬 시험용 원격 저장소 — 실제 GitHub에는 올리지 않음)
+- 전후 비교 (빚투, `--fake`): v1.1 mp3 내보내기 3개(narration + 역할 트랙 2) 18.2초 → v1.2 1개 8.2초. 문장 시각·역할(사연자 1–16 / 진행자 17–88)·쉼 구성은 v1.1과 같음
+- `all --push`: 빚투·패닉셀 영상마다 커밋 1개, 각 커밋에 그 대본 폴더의 3파일만 → 원격이 앞서 있어도 rebase 후 push 성공. 다시 실행하면 둘 다 has_audio로 건너뜀, `check` ok=True, `publish.sh --dry-run` 후보 2개
+- 거부(pre-receive) → 4번 다시 시도 후 ok=False·종료 1 → 원격이 받아 주자 `push`가 남아 있던 커밋을 올림
+- `--split 0/2·1/2` 동시 실행 → 두 영상 모두 올라감(잠금)
+- 얕은 clone(`--depth 1`, Kaggle 셀과 같음)이 원격보다 뒤처져 있어도 올라감
+- 가드: 가짜 소리 + github.com 원격 → 멈춤 / 토큰 없음 → 모델을 불러오기 전에 멈춤 / 옛 대본 결과 → 안 올림 / 저장소에 더 나중 결과 → 안 덮어씀 / 로그에 토큰 문자열 0회
+- 실제 모델 음성·실제 GitHub 올리기는 Kaggle에서 처음 실행
+
 ## 2026-10-10 — 사연자·진행자 두 목소리, 대본 전부 한 번에 오디오, 스토리보드 삭제, 사례는 최신으로 (tts_narration v1.1)
 
 ### 왜 바꿨나 (사용자 지시)

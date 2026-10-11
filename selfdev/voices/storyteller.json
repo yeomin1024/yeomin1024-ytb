@@ -1,0 +1,5 @@
+{
+  "_설명": "자기계발 사연자 말투 — voices/storyteller.json 위에 덮어쓴다(instruct만). 화자는 공통과 같은 Sohee. tools/tts_narration.py v1.3 load_voices",
+  "_버전": "v1.0 — 2026-10-11 — 최초 작성: 공통 instruct가 주식 손실 고백이라 자기계발(유행하는 방법을 잘못 따라 했다가 시간·잠·노력을 잃은 후회)에 맞게",
+  "instruct": "Speak like a tired office worker in her thirties confessing how she followed a popular self-improvement trend the wrong way and lost her sleep, time and effort: regretful and quietly aggrieved at herself, a low, slightly weary voice, slow pace, a brief hopeful lift when recalling the early success, a short pause before each number of days or hours, a soft sigh at the moment it all fell apart, gentle self-blame without melodrama. Keep every word clear."
+}

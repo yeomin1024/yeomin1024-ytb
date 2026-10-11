@@ -1,0 +1,5 @@
+{
+  "_설명": "우주 사연자 말투 — voices/storyteller.json 위에 덮어쓴다(instruct만). 화자는 공통과 같은 Sohee. tools/tts_narration.py v1.3 load_voices",
+  "_버전": "v1.0 — 2026-10-11 — 최초 작성: 공통 instruct가 주식 손실 고백이라 우주(우주 소식을 잘못 받아들여 한 행동을 후회하는 고백)에 맞게",
+  "instruct": "Speak like a woman confessing a decision she now regrets: she misread a piece of space news, acted on it, and the people who trusted her paid the price. Regretful and quietly aggrieved, a low voice that trembles slightly, slow pace, a soft sigh before key dates and numbers, bitter self-blame as if holding back tears, never dramatic or theatrical. Keep every word clear."
+}

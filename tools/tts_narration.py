@@ -1,30 +1,32 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.2.1 — 2026-10-11 — Kaggle 사본에서 실행 권한(파일 모드)만 바뀐 파일 때문에 git pull 이 멈추던 문제: git 실행에 core.fileMode=false,
-#          올리기 전에 사본의 다른 변경 파일을 알림(커밋하지 않음). Kaggle 셀은 git pull 대신 main 과 똑같이 맞춤(fetch + reset --hard)
-# (v1.2: 2026-10-11 — 사용자 지시: 오디오는 고르지 않고 하나로(말투 시험 sample·preset·--story-style 삭제, 역할만 이은 트랙 삭제 →
-#          영상마다 narration.mp3 하나), 결과 파일을 GitHub에 올리기(--push: 영상이 끝날 때마다 대본 폴더 <주제>/source/<영상ID>/ 에
-#          narration.mp3·tts_narration.json·tts_report.md 를 main에 커밋·푸시, 토큰은 Kaggle Secrets GITHUB_TOKEN 에서만 읽음)
-#          (v1.1: 사연자·진행자 역할별 목소리 설정 voices/*.json, all·pack·check / v1.0: 최초 작성 — Qwen3-TTS 로 대본 TXT → narration.mp3)
+# VERSION: v1.3 — 2026-10-11 — 사용자 지시: 진행자 목소리는 중저음 남성(귀에 잘 들어오고 신뢰감 있게), 대본마다 달라지지 않게 →
+#          진행자는 저장소에 고정한 기준 목소리(voices/ref/host.wav)를 Base 모델로 복제. 기준 목소리는 없을 때 한 번만 VoiceDesign 으로
+#          만들어(목소리 높이 85~150Hz·속도·무음 검사) main 에 올린다. 문장마다 목소리 높이가 기준 ±30% 밖이면 다시 만든다.
+#          host.json lock(주제·영상 덮어쓰기 무시), 목소리 정체(voice_ids)가 바뀐 오디오는 옛 것으로 보고 다시 만든다. voice 명령
+#          (v1.2.1: Kaggle 사본 git 파일 모드 / v1.2: 오디오 하나·GitHub 대본 폴더에 올리기 / v1.1: 역할별 목소리 설정 / v1.0: 최초 작성)
 r"""
 대본 TXT로 내레이션 오디오를 만듭니다. Kaggle 노트북(GPU T4)에서 돌리는 것을 기준으로 썼습니다. 사용법: guides/tts_guide.md
 
   python tools/tts_narration.py all --push                             # 저장소의 대본을 모두 읽어 오디오가 없는 영상 전부 → 영상마다 GitHub에 올림
   python tools/tts_narration.py all --dry-run                          # 무엇을 만들지 목록만 (모델 안 불러옴)
-  python tools/tts_narration.py all --push --gpu 0 --split 0/2         # GPU 2개: 영상을 나눠 0/2 와 1/2 를 동시에 (올리기는 차례로)
   python tools/tts_narration.py build stock panicsell-2026-10 --push   # 영상 하나
   python tools/tts_narration.py build stock panicsell-2026-10 --redo 12,15 --push   # 12·15번 문장만 새 시드로 다시
   python tools/tts_narration.py push                                   # 만들어 두고 못 올린 결과를 GitHub에 올리기
-  python tools/tts_narration.py check stock panicsell-2026-10          # 저장소의 narration 이 지금 대본으로 만든 것인지
+  python tools/tts_narration.py check stock panicsell-2026-10          # 저장소의 narration 이 지금 대본·목소리로 만든 것인지
+  python tools/tts_narration.py voice                                  # 진행자 기준 목소리 정보 (없으면 만들기, --push 로 올림)
   python tools/tts_narration.py pack                                   # (올리기가 안 될 때만) 결과를 저장소 경로 그대로 zip 하나로
   (어느 명령이든 --fake: 모델 없이 가짜 소리로 전 과정 확인 — 가짜 소리는 github.com 에 올리지 않는다)
 
-모델: Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice — 한국어 화자 Sohee, 말투를 글로 지시(instruct). 라이선스 Apache-2.0(상업 이용 가능).
-  ※ 0.6B 모델은 말투 지시를 무시한다(qwen-tts 패키지가 instruct=None 으로 바꿈). 말투를 쓰려면 1.7B.
+모델 (모두 Qwen3-TTS 1.7B, Apache-2.0 — 상업 이용 가능)
+  - 사연자: CustomVoice — 한국어 화자 Sohee + 말투 지시(instruct). ※ 0.6B 는 말투 지시를 무시한다
+  - 진행자: Base — 저장소의 기준 목소리 voices/ref/host.wav 를 복제 (모든 대본·세션에서 같은 목소리)
+  - 기준 목소리가 없을 때 한 번만: VoiceDesign — voices/host.json 의 design(중저음 남성 묘사)으로 만들어 main 에 올림
+  - GPU 둘(T4 x2)이면 사연자 모델은 GPU 0, 진행자 모델은 GPU 1. 하나면 한 번에 한 모델만 올린다
 
 역할 (사용자 지시 2026-10-10) — 말투는 설정 파일 하나로 정해져 있고 고르지 않는다 (사용자 지시 2026-10-11)
   - 사연자(storyteller): 파트 라벨에 '사연'이 든 문장 — 1인칭 고백. 설정 voices/storyteller.json
-  - 진행자(host): 나머지 모든 파트(진행자·문제 분석·올바른 방법·마무리). 설정 voices/host.json
+  - 진행자(host): 나머지 모든 파트(진행자·문제 분석·올바른 방법·마무리). 설정 voices/host.json — 중저음 남성, lock(덮어쓰기 없음)
   - 설정은 voices/<역할>.json → <주제>/voices/<역할>.json → <주제>/source/<영상ID>/voices/<역할>.json 순서로 덮어쓴다.
 
 결과 (영상마다 오디오 하나)
@@ -74,9 +76,14 @@ ROOT = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 import srt_tool  # noqa: E402  (문장·카드 판정을 자막 도구와 똑같이 쓰기 위해)
 
-VERSION = "v1.2.1"
+VERSION = "v1.3"
 CACHE_VERSION = 1            # 생성 방식이 바뀌면 올린다 → 문장 파일을 모두 다시 만든다 (v1.1은 v1.0 캐시와 같은 키)
-DEFAULT_MODEL = "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice"
+DEFAULT_MODEL = "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice"     # 사연자 (화자 + 말투 지시)
+DEFAULT_CLONE_MODEL = "Qwen/Qwen3-TTS-12Hz-1.7B-Base"       # 진행자 (기준 목소리 복제)
+DEFAULT_DESIGN_MODEL = "Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign"   # 진행자 기준 목소리를 처음 한 번 만들 때
+F0_TOL = 0.30                # 진행자 문장의 목소리 높이가 기준 목소리에서 ±30% 넘게 벗어나면 다시 (대본마다 같은 목소리)
+DESIGN_RATE = (3.8, 6.0)     # 기준 목소리: 귀에 잘 들어오는 말 속도(음절/초)
+DESIGN_MAX_SIL = 1.0         # 기준 목소리: 문장 안 무음 한도(초)
 FRAME_HZ = 12.5              # Qwen3-TTS-Tokenizer-12Hz: 24000Hz ÷ 1920 = 초당 12.5 프레임 (max_new_tokens 계산)
 CARD_GAP_MIN = srt_tool.CARD_GAP_MIN   # 3.5초 — align-audio.mjs 와 같은 값
 MIN_RATE, MAX_RATE = 2.5, 8.0  # 문장 말 속도(읽는 음절/초) 허용 범위. 성공 영상 4.2~5.5 (stock/guides/data_insights.md 2번)
@@ -90,7 +97,9 @@ RATE_REF = 4.8               # 검사를 모두 통과한 시도가 없을 때 �
 MIN_GAP = 0.2                # 역할 설정 gap 하한 — align-audio 가 문장 경계로 보는 무음(0.12초)보다 넉넉하게
 
 VOICES_DIR = ROOT / "voices"           # 역할별 목소리 설정 (파일 이름 = 역할 = 결과 폴더 이름)
-VOICE_KEYS = {"role", "name", "parts", "speaker", "instruct", "part_instruct", "seed", "gap", "generation"}
+VOICE_KEYS = {"role", "name", "parts", "engine", "lock", "speaker", "instruct", "part_instruct", "seed", "gap", "generation",
+              "ref_audio", "ref_meta", "design", "f0_tolerance"}
+ENGINES = ("custom_voice", "clone")
 GEN_KEYS = {"temperature", "top_p", "top_k", "repetition_penalty"}
 STORY_ROLE = "storyteller"             # 사연자 역할 (영상 코드 plan.ts 의 STORY_LAST 와 비교)
 AUDIO_EXTS = ("mp3", "wav", "m4a")     # align-audio.mjs·publish.sh 가 찾는 narration 확장자
@@ -203,10 +212,10 @@ def tts_text(text, lexicon):
 
 
 # ----------------------------------------------------------------------------- 목소리 설정 (역할)
-def load_voices(topic=None, vid=None, args=None):
+def load_voices(topic=None, vid=None, args=None, quiet=False):
     """역할별 목소리 설정 → {역할: 설정}. voices/<역할>.json 을 주제·영상 폴더의 같은 이름 파일이 차례로 덮어쓴다.
     part_instruct·generation 은 항목 단위로 합친다. '_' 로 시작하는 항목(설명)은 무시한다."""
-    base = sorted(VOICES_DIR.glob("*.json"))
+    base = sorted(VOICES_DIR.glob("*.json"))   # 역할 설정만 (기준 목소리는 voices/ref/ 하위 폴더라 섞이지 않음)
     if not base:
         die("VOICE", "목소리 설정 파일 없음", "저장소를 git pull 했는지 (voices/storyteller.json·host.json)", dir=rel(VOICES_DIR))
     voices = {}
@@ -214,7 +223,8 @@ def load_voices(topic=None, vid=None, args=None):
         role = p.stem
         cfg, files = {}, []
         layers = [p]
-        if topic:
+        locked = bool(json.loads(p.read_text("utf-8-sig")).get("lock")) if p.is_file() else False
+        if topic and not locked:   # lock: 주제·영상 폴더의 덮어쓰기를 받지 않는다 (진행자 목소리는 모든 대본에서 같게)
             layers.append(ROOT / topic / "voices" / p.name)
             if vid:
                 layers.append(ROOT / topic / "source" / vid / "voices" / p.name)
@@ -226,15 +236,21 @@ def load_voices(topic=None, vid=None, args=None):
             except json.JSONDecodeError as e:
                 die("VOICE", f"설정 파일 JSON 오류: {e}", "쉼표·따옴표·괄호 확인 (마지막 항목 뒤에는 쉼표 없음)", file=rel(q))
             unknown = sorted(k for k in d if k not in VOICE_KEYS and not k.startswith("_"))
-            if unknown:
+            if unknown and not quiet:
                 log("VOICE", logging.WARNING, file=rel(q), unknown=",".join(unknown), note="모르는 항목은 무시")
             for k, v in d.items():
                 if k.startswith("_") or k not in VOICE_KEYS:
                     continue
                 cfg[k] = {**cfg.get(k, {}), **v} if k in ("part_instruct", "generation") and isinstance(v, dict) else v
             files.append(rel(q))
-        cfg = {"name": role, "parts": ["*"], "speaker": "Sohee", "instruct": "", "part_instruct": {},
-               "seed": 1234, "gap": 0.45, "generation": {}, **cfg, "role": role, "files": files}
+        if locked and topic:
+            ignored = [rel(q) for q in (ROOT / topic / "voices" / p.name, ROOT / topic / "source" / (vid or "-") / "voices" / p.name)
+                       if q.is_file()]
+            if ignored and not quiet:
+                log("VOICE", logging.WARNING, role=role, ignored=",".join(ignored), note="lock: 이 역할은 모든 대본에서 같은 목소리 — 덮어쓰기 무시")
+        cfg = {"name": role, "parts": ["*"], "engine": "custom_voice", "lock": False, "speaker": "Sohee", "instruct": "",
+               "part_instruct": {}, "seed": 1234, "gap": 0.45, "generation": {}, "f0_tolerance": F0_TOL,
+               **cfg, "role": role, "files": files}
         voices[role] = cfg
     # 명령줄 덮어쓰기 (설정 파일을 고치지 않고 시험할 때) — 바꾼 것은 로그에 남긴다
     if args is not None:
@@ -242,11 +258,33 @@ def load_voices(topic=None, vid=None, args=None):
             for key, val in (("speaker", getattr(args, "speaker", None)), ("seed", getattr(args, "seed", None)),
                              ("gap", getattr(args, "gap", None))):
                 if val is not None and v[key] != val:
+                    if v["lock"]:
+                        log("VOICE", logging.WARNING, role=role, key=key, cli_value=val, note="lock 역할이라 명령줄 값 무시")
+                        continue
                     log("VOICE", role=role, key=key, file_value=v[key], cli_value=val, note="명령줄 값이 설정 파일보다 우선")
                     v[key] = val
     for role, v in voices.items():
         v["style_name"] = v["name"]
-        if not str(v["instruct"]).strip():
+        if v["engine"] not in ENGINES:
+            die("VOICE", f"없는 engine: {v['engine']}", f"{' 또는 '.join(ENGINES)}", role=role)
+        if v["engine"] == "clone":
+            if not v.get("ref_audio") or not v.get("ref_meta"):
+                die("VOICE", "clone 은 ref_audio·ref_meta 가 필요", "예: voices/ref/host.wav, voices/ref/host.json", role=role)
+            d = v.get("design") or {}
+            if not (ROOT / v["ref_audio"]).is_file() and not (d.get("instruct") and d.get("text")):
+                die("VOICE", "기준 목소리 파일도, 만들 설명(design.instruct·text)도 없음", "voices/<역할>.json 의 design 채우기", role=role)
+            if v["part_instruct"]:
+                log("VOICE", logging.WARNING, role=role, note="clone 은 말투 지시를 받지 않음 — part_instruct 무시 (기준 목소리의 말투 그대로)")
+                v["part_instruct"] = {}
+            v["style_name"] = f"{v['name']} — 기준 목소리 복제"
+            if args is not None and getattr(args, "fake", False) and origin_is_github():
+                # 가짜 소리로 만든 기준 목소리는 진짜 저장소의 voices/ref/ 에 절대 두지 않는다 → 작업 폴더에
+                fake_dir = out_root(args) / "fake_ref"
+                v["ref_audio"], v["ref_meta"] = str(fake_dir / f"{role}.wav"), str(fake_dir / f"{role}.json")
+                if not quiet:
+                    log("VOICE", logging.WARNING, role=role, reference=v["ref_audio"], note="--fake: 기준 목소리를 작업 폴더에 (저장소에 넣지 않음)")
+            attach_reference(v)
+        elif not str(v["instruct"]).strip():
             die("VOICE", "말투 지시(instruct)가 비어 있음", "voices/<역할>.json 의 instruct 채우기", role=role)
         if not isinstance(v["parts"], list) or not v["parts"]:
             die("VOICE", "parts 는 파트 라벨 낱말 목록이어야 함 (예: [\"사연\"] 또는 [\"*\"])", "voices/<역할>.json 확인", role=role)
@@ -265,6 +303,57 @@ def load_voices(topic=None, vid=None, args=None):
     return voices
 
 
+def attach_reference(v):
+    """clone 역할: 저장소의 기준 목소리(wav)와 메타(json)를 읽어 붙인다. 파일이 바뀌었으면(해시 다름) 멈춘다."""
+    ref, meta = ROOT / v["ref_audio"], ROOT / v["ref_meta"]
+    v["ref_sha"] = v["ref_f0"] = v["ref_text"] = None
+    if not (ref.is_file() and meta.is_file()):
+        return
+    m = json.loads(meta.read_text("utf-8"))
+    actual = hashlib.sha1(ref.read_bytes()).hexdigest()[:16]
+    if m.get("sha1") != actual:
+        die("VOICE", f"기준 목소리 파일의 해시가 메타와 다름 ({actual} ≠ {m.get('sha1')})",
+            "기준 목소리를 손으로 바꾸지 않는다. 다시 만들려면: python tools/tts_narration.py voice --force --push", file=rel(ref))
+    v["ref_sha"], v["ref_f0"], v["ref_text"] = actual, float(m["f0_hz"]), m["text"]
+
+
+_ORIGIN_GITHUB = None
+
+
+def origin_is_github():
+    """저장소 원격이 github.com 인가 (한 번만 확인). --fake 결과가 진짜 저장소에 섞이지 않게 쓴다."""
+    global _ORIGIN_GITHUB
+    if _ORIGIN_GITHUB is None:
+        r = subprocess.run(["git", "-C", str(ROOT), "remote", "get-url", "origin"], capture_output=True, text=True)
+        _ORIGIN_GITHUB = r.returncode == 0 and "github.com" in r.stdout
+    return _ORIGIN_GITHUB
+
+
+def voice_ids(voices, engine):
+    """역할마다 '목소리 정체' 해시 — 이것이 바뀌면 이미 만든 오디오는 다른 목소리다 (대본마다 같은 목소리를 지키려고 다시 만든다)."""
+    out = {}
+    for role, v in voices.items():
+        if v["engine"] == "clone":
+            ident = {"engine": "clone", "model": engine_ids(engine)["clone"], "ref": v.get("ref_sha"), "seed": v["seed"],
+                     "generation": v["generation"]}
+        else:
+            ident = {"engine": "custom_voice", "model": engine_ids(engine)["custom_voice"], "speaker": v["speaker"],
+                     "instruct": v["instruct"], "part_instruct": v["part_instruct"], "seed": v["seed"], "generation": v["generation"]}
+        out[role] = sha(ident)
+    return out
+
+
+def engine_ids(engine):
+    """모델 이름 (엔진이 없으면 명령줄 기본값 — check·all --dry-run 은 모델을 불러오지 않는다)."""
+    if engine is not None:
+        return engine.ids
+    a = getattr(engine_ids, "args", None)
+    if a is not None and a.fake:
+        return {k: "fake" for k in MODEL_KINDS}
+    return {"custom_voice": getattr(a, "model", DEFAULT_MODEL), "clone": getattr(a, "clone_model", DEFAULT_CLONE_MODEL),
+            "design": getattr(a, "design_model", DEFAULT_DESIGN_MODEL)}
+
+
 def role_of(part, voices):
     """파트 라벨 → 역할. 낱말이 맞는 역할이 먼저, 없으면 "*" 역할(진행자)."""
     for role, v in voices.items():
@@ -274,7 +363,9 @@ def role_of(part, voices):
 
 
 def instruct_for(voice, part):
-    """역할 안에서 파트별 말투(part_instruct)가 있으면 그것, 없으면 역할 기본 말투. → (지시, 말투 이름)"""
+    """역할 안에서 파트별 말투(part_instruct)가 있으면 그것, 없으면 역할 기본 말투. → (지시, 말투 이름). clone 은 지시 없음."""
+    if voice["engine"] == "clone":
+        return "", voice["style_name"]
     for k, ins in voice["part_instruct"].items():
         if k in part:
             return ins, f"{voice['name']} · {k}"
@@ -283,8 +374,12 @@ def instruct_for(voice, part):
 
 def spec_of(voice, instruct):
     """문장 하나를 만들 때 쓰는 목소리 값. 캐시 키·메타에 그대로 들어간다."""
-    return {"speaker": voice["speaker"], "instruct": instruct, "gen": dict(voice["generation"]),
-            "seed": voice["seed"], "gap": float(voice["gap"])}
+    spec = {"engine": voice["engine"], "speaker": voice["speaker"] if voice["engine"] != "clone" else "-", "instruct": instruct,
+            "gen": dict(voice["generation"]), "seed": voice["seed"], "gap": float(voice["gap"])}
+    if voice["engine"] == "clone":
+        spec.update(ref_audio=voice["ref_audio"], ref_sha=voice["ref_sha"], ref_f0=voice["ref_f0"], ref_text=voice["ref_text"],
+                    f0_tol=float(voice["f0_tolerance"]))
+    return spec
 
 
 def plan_items(vid, rows, voices, lex):
@@ -298,7 +393,8 @@ def plan_items(vid, rows, voices, lex):
     for role, v in voices.items():
         mine = [it for it in items if it["role"] == role]
         log("ROLE", video=vid, role=role, name=v["name"], sentences=len(mine), range=ranges([it["n"] for it in mine]) or "-",
-            syllables=sum(it["syl"] for it in mine), speaker=v["speaker"], seed=v["seed"], gap_s=v["gap"],
+            syllables=sum(it["syl"] for it in mine), engine=v["engine"], speaker=v["speaker"] if v["engine"] != "clone" else "-",
+            ref=f"{v['ref_audio']} f0={v['ref_f0']}Hz sha={v['ref_sha']}" if v["engine"] == "clone" else "-", lock=v["lock"], seed=v["seed"], gap_s=v["gap"],
             parts=" / ".join(dict.fromkeys(it["part"] for it in mine)) or "-", files=",".join(v["files"]))
     for style, ins in dict.fromkeys((it["style"], it["spec"]["instruct"]) for it in items):
         log("STYLE", video=vid, style=style, instruct=ins)
@@ -388,68 +484,110 @@ def read_wav(path):
     return np.frombuffer(data, dtype="<i2").astype(np.float32) / 32767.0, sr
 
 
-# ----------------------------------------------------------------------------- 엔진
-class QwenEngine:
-    """Qwen3-TTS CustomVoice. 모델 하나를 영상·역할이 함께 쓰고, 문장마다 화자·말투 지시를 넘긴다."""
+# ----------------------------------------------------------------------------- 엔진 (모델 세 가지를 필요할 때 불러온다)
+MODEL_KINDS = ("custom_voice", "clone", "design")
 
-    def __init__(self, args, speakers):
+
+class QwenPool:
+    """Qwen3-TTS 모델 묶음.
+      custom_voice — CustomVoice (사연자: 화자 Sohee + 말투 지시)
+      clone        — Base (진행자: 저장소의 기준 목소리 voices/ref/host.wav 를 복제해 모든 대본에서 같은 목소리)
+      design       — VoiceDesign (기준 목소리가 없을 때 한 번만: 글로 묘사한 목소리 → voices/ref/host.wav)
+    GPU 가 둘이면 custom_voice 는 --gpu, clone·design 은 다른 GPU. 하나면 한 번에 한 모델만 올린다(바꿀 때 내림)."""
+
+    def __init__(self, args):
         try:
             import torch
-            from qwen_tts import Qwen3TTSModel
+            import qwen_tts  # noqa: F401  (설치 확인)
         except ImportError as e:
             die("MODEL", f"패키지 없음: {e}", "Kaggle 셀에서 먼저: !pip install -q -U qwen-tts")
-        self.torch = torch
-        self.language, self.model_id = args.language, args.model
-        device = args.device or (f"cuda:{args.gpu}" if torch.cuda.is_available() else "cpu")
-        if device.startswith("cuda") and not torch.cuda.is_available():
-            die("MODEL", "GPU가 없음", "Kaggle 오른쪽 설정 → Accelerator → 'GPU T4 x2', Internet 켜기")
+        self.torch, self.args, self.language = torch, args, args.language
+        self.ids = {"custom_voice": args.model, "clone": args.clone_model, "design": args.design_model}
+        n = torch.cuda.device_count() if torch.cuda.is_available() else 0
+        if args.device:
+            dev = {k: args.device for k in MODEL_KINDS}
+        elif n == 0:
+            log("MODEL", logging.WARNING, device="cpu", note="GPU가 없음 — CPU는 문장 하나에 몇 분 걸림. Kaggle: Accelerator 'GPU T4 x2'")
+            dev = {k: "cpu" for k in MODEL_KINDS}
+        else:
+            g0 = args.gpu % n
+            g1 = (g0 + 1) % n if n >= 2 else g0
+            dev = {"custom_voice": f"cuda:{g0}", "clone": f"cuda:{g1}", "design": f"cuda:{g1}"}
+        self.devices, self.single = dev, len(set(dev.values())) == 1 and dev["custom_voice"] != "cpu"
+        self.dtypes = {k: self._dtype_name(d) for k, d in dev.items()}
+        self.models, self.prompts = {}, {}
+        self.gen = {k: v for k, v in {"temperature": args.temperature, "top_p": args.top_p, "top_k": args.top_k,
+                                      "repetition_penalty": args.repetition_penalty}.items() if v is not None}
+        log("MODEL", gpus=n, devices=" ".join(f"{k}={v}" for k, v in dev.items()), dtypes=" ".join(f"{k}={v}" for k, v in self.dtypes.items()),
+            note="GPU 하나: 모델을 바꿔 가며 올림" if self.single else "역할별 모델을 서로 다른 GPU에")
+
+    def _dtype_name(self, device):
+        torch = self.torch
         cap = torch.cuda.get_device_capability(device) if device.startswith("cuda") else (0, 0)
-        gpu = torch.cuda.get_device_name(device) if device.startswith("cuda") else "CPU"
-        if device == "cpu":
-            log("MODEL", logging.WARNING, device="cpu", note="CPU는 문장 하나에 몇 분 걸림 — GPU 권장")
-        elif cap < (7, 0):
-            log("MODEL", logging.WARNING, gpu=gpu, capability=f"{cap[0]}.{cap[1]}",
-                note="P100 등 옛 GPU는 최신 PyTorch가 지원하지 않을 수 있음 → 'GPU T4 x2' 권장")
-        # T4(7.5)는 bfloat16 연산 장치가 없고 float16은 값이 넘쳐 NaN이 날 수 있다 → 기본 float32 (1.7B ≈ 7GB, T4 16GB에 들어감)
-        dtype_name = ("bfloat16" if cap >= (8, 0) else "float32") if args.dtype == "auto" else args.dtype
-        dtype = getattr(torch, dtype_name)
+        # T4(7.5)는 bfloat16 연산 장치가 없고 float16은 값이 넘쳐 NaN이 날 수 있다 → 기본 float32 (1.7B ≈ 7GB, T4 16GB에 하나씩)
+        return ("bfloat16" if cap >= (8, 0) else "float32") if self.args.dtype == "auto" else self.args.dtype
+
+    def unload(self, kind):
+        if kind in self.models:
+            del self.models[kind]
+            self.prompts = {k: v for k, v in self.prompts.items() if k[0] != kind}
+            import gc
+            gc.collect()
+            if self.torch.cuda.is_available():
+                self.torch.cuda.empty_cache()
+            log("MODEL", unloaded=kind)
+
+    def get(self, kind):
+        if kind in self.models:
+            return self.models[kind]
+        if self.single:   # GPU 하나: 메모리를 넘지 않게 다른 모델을 내린다
+            for other in list(self.models):
+                self.unload(other)
+        torch, args = self.torch, self.args
+        from qwen_tts import Qwen3TTSModel
+        device, dtype_name, model_id = self.devices[kind], self.dtypes[kind], self.ids[kind]
+        cap = torch.cuda.get_device_capability(device) if device.startswith("cuda") else (0, 0)
+        if device.startswith("cuda") and cap < (7, 0):
+            log("MODEL", logging.WARNING, capability=f"{cap[0]}.{cap[1]}", note="P100 등 옛 GPU는 최신 PyTorch가 지원하지 않을 수 있음 → 'GPU T4 x2'")
         attn = args.attn
         if attn == "auto":
             attn = ("flash_attention_2" if cap >= (8, 0) and dtype_name != "float32" and importlib.util.find_spec("flash_attn")
                     else "sdpa")
-        log("MODEL", model=self.model_id, device=device, gpu=gpu, dtype=dtype_name, attn=attn)
+        gpu = torch.cuda.get_device_name(device) if device.startswith("cuda") else "CPU"
+        log("MODEL", kind=kind, model=model_id, device=device, gpu=gpu, dtype=dtype_name, attn=attn)
         t0 = time.time()
         try:
-            self.model = Qwen3TTSModel.from_pretrained(self.model_id, device_map=device, dtype=dtype, attn_implementation=attn)
+            m = Qwen3TTSModel.from_pretrained(model_id, device_map=device, dtype=getattr(torch, dtype_name), attn_implementation=attn)
         except Exception as e:  # 다운로드·메모리·버전 문제를 한 곳에서 안내
-            die("MODEL", f"모델을 불러오지 못함: {type(e).__name__}: {e}",
+            die("MODEL", f"모델을 불러오지 못함 ({kind}): {type(e).__name__}: {e}",
                 "Kaggle 설정에서 Internet 켜기(휴대폰 인증 필요) / GPU 메모리 부족이면 런타임 재시작 / --attn sdpa 로 다시")
-        self.dtype_name, self.device = dtype_name, device
         mem = torch.cuda.memory_allocated(device) / 1e9 if device.startswith("cuda") else 0.0
-        log("MODEL", loaded_s=time.time() - t0, gpu_mem_gb=mem, gen_defaults=json.dumps(self.model.generate_defaults, ensure_ascii=False))
-        spk = self.model.get_supported_speakers() or []
-        langs = self.model.get_supported_languages() or []
-        log("MODEL", speakers=",".join(spk), languages=",".join(langs))
+        langs = m.get_supported_languages() or []
+        log("MODEL", kind=kind, loaded_s=time.time() - t0, gpu_mem_gb=mem, languages=",".join(langs))
+        if langs and self.language.lower() not in [x.lower() for x in langs]:
+            die("MODEL", f"없는 언어: {self.language}", f"--language 를 이 중에서: {', '.join(langs)}")
+        if kind == "custom_voice":
+            log("MODEL", speakers=",".join(m.get_supported_speakers() or []))
+            if "0.6B" in model_id:
+                log("MODEL", logging.WARNING, note="0.6B 모델은 말투 지시(instruct)를 무시함 — 감정 표현은 1.7B")
+        self.models[kind] = m
+        return m
+
+    def check_speakers(self, speakers):
+        spk = self.get("custom_voice").get_supported_speakers() or []
         for s in sorted(speakers):
             if spk and s.lower() not in [x.lower() for x in spk]:
                 die("MODEL", f"없는 화자: {s}", f"voices/<역할>.json 의 speaker 를 이 중에서: {', '.join(spk)}")
-        if langs and self.language.lower() not in [x.lower() for x in langs]:
-            die("MODEL", f"없는 언어: {self.language}", f"--language 를 이 중에서: {', '.join(langs)}")
-        if "0.6B" in self.model_id:
-            log("MODEL", logging.WARNING, note="0.6B 모델은 말투 지시(instruct)를 무시함 — 감정 표현은 1.7B")
-        self.gen = {k: v for k, v in {"temperature": args.temperature, "top_p": args.top_p, "top_k": args.top_k,
-                                      "repetition_penalty": args.repetition_penalty}.items() if v is not None}
 
-    def synth(self, text, spec, seed, max_new_tokens):
-        """→ (소리 float32, 표본율) 또는 생성 오류면 None."""
+    def _seed(self, seed):
+        self.torch.manual_seed(seed)
+        if self.torch.cuda.is_available():
+            self.torch.cuda.manual_seed_all(seed)
+
+    def _call(self, fn):
         torch = self.torch
-        torch.manual_seed(seed)
-        if torch.cuda.is_available():
-            torch.cuda.manual_seed_all(seed)
         try:
-            wavs, sr = self.model.generate_custom_voice(
-                text=text, speaker=spec["speaker"], language=self.language, instruct=spec["instruct"] or None,
-                max_new_tokens=max_new_tokens, **{**self.gen, **spec["gen"]})
+            wavs, sr = fn()
         except torch.cuda.OutOfMemoryError as e:
             torch.cuda.empty_cache()
             log("TTS", logging.ERROR, error=f"GPU 메모리 부족: {e}", hint="런타임 재시작 후 다시 (만든 문장은 cache에 남아 있음)")
@@ -460,23 +598,55 @@ class QwenEngine:
             return None
         return np.asarray(wavs[0], dtype=np.float32).reshape(-1), int(sr)
 
+    def synth(self, text, spec, seed, max_new_tokens):
+        """→ (소리 float32, 표본율) 또는 생성 오류면 None."""
+        gen = {**self.gen, **spec["gen"]}
+        if spec["engine"] == "clone":
+            m = self.get("clone")
+            pk = ("clone", spec["ref_sha"])
+            if pk not in self.prompts:   # 기준 목소리 → 복제 프롬프트 (ICL: 기준 소리 + 기준 문장). 한 번만 만든다
+                x, sr = read_wav(ROOT / spec["ref_audio"])
+                self.prompts[pk] = m.create_voice_clone_prompt(ref_audio=(x, sr), ref_text=spec["ref_text"], x_vector_only_mode=False)
+                log("MODEL", clone_prompt="만듦", ref=spec["ref_audio"], ref_sha=spec["ref_sha"])
+            self._seed(seed)
+            return self._call(lambda: m.generate_voice_clone(text=text, language=self.language, voice_clone_prompt=self.prompts[pk],
+                                                             max_new_tokens=max_new_tokens, **gen))
+        m = self.get("custom_voice")
+        self._seed(seed)
+        return self._call(lambda: m.generate_custom_voice(text=text, speaker=spec["speaker"], language=self.language,
+                                                          instruct=spec["instruct"] or None, max_new_tokens=max_new_tokens, **gen))
+
+    def design(self, text, instruct, seed, max_new_tokens):
+        m = self.get("design")
+        self._seed(seed)
+        return self._call(lambda: m.generate_voice_design(text=text, instruct=instruct, language=self.language,
+                                                          max_new_tokens=max_new_tokens, **self.gen))
+
     def describe(self, spec):
+        if spec["engine"] == "clone":
+            return {"engine": "qwen3-tts-clone", "model": self.ids["clone"], "ref": spec["ref_sha"], "mode": "icl",
+                    "language": self.language, "dtype": self.dtypes["clone"], "gen": {**self.gen, **spec["gen"]}}
         # v1.0 과 같은 모양 → 화자 Sohee·생성 설정 기본이면 v1.0 에서 만든 문장 캐시를 그대로 쓴다
-        return {"engine": "qwen3-tts", "model": self.model_id, "speaker": spec["speaker"], "language": self.language,
-                "dtype": self.dtype_name, "gen": {**self.gen, **spec["gen"]}}
+        return {"engine": "qwen3-tts", "model": self.ids["custom_voice"], "speaker": spec["speaker"], "language": self.language,
+                "dtype": self.dtypes["custom_voice"], "gen": {**self.gen, **spec["gen"]}}
 
 
 class FakeEngine:
     """테스트용: 모델 없이 문장 길이에 맞는 가짜 소리(읽는 음절 ÷ 4.8초, 쉼표마다 0.25초 쉼, 앞뒤 무음).
-    역할을 귀로 구분할 수 있게 말투 지시마다 음 높이를 다르게 한다."""
+    사연자는 말투 지시마다 음 높이가 다르고, 진행자(복제)는 기준 목소리 높이, 목소리 만들기(design)는 시드마다 높이가 다르다."""
 
-    def __init__(self, args, speakers=()):
-        self.sr = 24000
-        log("MODEL", engine="fake", note="가짜 소리 — 역할 나누기·잇기·쉼·내보내기·align-audio 확인용")
+    def __init__(self, args):
+        self.sr, self.ids = 24000, {k: "fake" for k in MODEL_KINDS}
+        log("MODEL", engine="fake", note="가짜 소리 — 역할 나누기·잇기·쉼·내보내기·목소리 높이 검사·align-audio 확인용")
 
-    def synth(self, text, spec, seed, max_new_tokens):
+    def check_speakers(self, speakers):
+        return None
+
+    def unload(self, kind):
+        return None
+
+    def _tone(self, text, hz, seed):
         rng = np.random.default_rng(seed)
-        hz = 150 + int(hashlib.sha1(spec["instruct"].encode("utf-8")).hexdigest()[:4], 16) % 120
         out = [silence(0.15, self.sr)]
         chunks = [c for c in re.split(r"[,，]", text) if c.strip()]
         for i, ch in enumerate(chunks):
@@ -488,12 +658,48 @@ class FakeEngine:
         out.append(silence(0.3, self.sr))
         return np.concatenate(out), self.sr
 
+    def synth(self, text, spec, seed, max_new_tokens):
+        if spec["engine"] == "clone":
+            return self._tone(text, spec["ref_f0"] * (1 + 0.04 * np.sin(seed)), seed)
+        return self._tone(text, 150 + int(hashlib.sha1(spec["instruct"].encode("utf-8")).hexdigest()[:4], 16) % 120, seed)
+
+    def design(self, text, instruct, seed, max_new_tokens):
+        return self._tone(text, 70 + (seed * 53) % 130, seed)   # 70~199Hz — 범위 밖 시드로 다시 시도하는 길도 시험
+
     def describe(self, spec):
+        if spec["engine"] == "clone":
+            return {"engine": "fake-clone", "model": "fake", "ref": spec["ref_sha"], "language": "-", "dtype": "-", "gen": {}}
         return {"engine": "fake", "model": "fake", "speaker": spec["speaker"], "language": "-", "dtype": "-", "gen": {}}
 
 
-def make_engine(args, speakers):
-    return FakeEngine(args, speakers) if args.fake else QwenEngine(args, speakers)
+def make_engine(args):
+    return FakeEngine(args) if args.fake else QwenPool(args)
+
+
+# ----------------------------------------------------------------------------- 목소리 높이 (진행자 남성 중저음 확인)
+def f0_median(x, sr, fmin=60.0, fmax=400.0):
+    """말소리의 기본 주파수(목소리 높이) 중간값(Hz). 40ms 구간 자기상관(FFT), 소리가 큰 구간·주기가 뚜렷한 구간만. 못 재면 0."""
+    frame, hop = int(0.04 * sr), int(0.02 * sr)
+    n = (len(x) - frame) // hop
+    if n <= 0:
+        return 0.0
+    starts = hop * np.arange(n)
+    if n > 800:   # 긴 소리는 고르게 800구간만 (속도)
+        starts = starts[np.linspace(0, n - 1, 800).astype(int)]
+    fr = x[starts[:, None] + np.arange(frame)[None, :]].astype(np.float64) * np.hanning(frame)
+    energy = np.mean(fr * fr, axis=1)
+    loud = energy > max(10 ** (SIL_DB / 10), np.percentile(energy, 40))
+    fr = fr[loud]
+    if not len(fr):
+        return 0.0
+    nfft = 1 << (2 * frame - 1).bit_length()
+    spec = np.fft.rfft(fr, nfft, axis=1)
+    ac = np.fft.irfft(spec * np.conj(spec), nfft, axis=1)[:, :frame]
+    lo, hi = int(sr / fmax), min(int(sr / fmin), frame - 1)
+    seg = ac[:, lo:hi]
+    lag = lo + np.argmax(seg, axis=1)
+    clear = seg.max(axis=1) / (ac[:, 0] + 1e-12) > 0.3
+    return float(np.median(sr / lag[clear])) if clear.any() else 0.0
 
 
 # ----------------------------------------------------------------------------- 문장 하나 만들기 (캐시·검사·다시)
@@ -528,10 +734,17 @@ def make_sentence(engine, cache_dir, label, text, spec, syl, args, redo=False, r
         nonfinite = not np.isfinite(x).all()
         x = trim(np.nan_to_num(x, nan=0.0, posinf=0.0, neginf=0.0), sr)
         ok, issues, warns, m = check(x, sr, syl, nonfinite)
+        m["f0"] = f0_median(x, sr) if x.size else 0.0
+        f0_dev = 0.0
+        if spec["engine"] == "clone" and syl >= SHORT_SYL and spec.get("ref_f0"):   # 진행자: 기준 목소리 높이와 같은가
+            f0_dev = abs(m["f0"] / spec["ref_f0"] - 1) if m["f0"] else 1.0
+            if f0_dev > spec["f0_tol"]:
+                issues.append(f"목소리 높이 {m['f0']:.0f}Hz (기준 {spec['ref_f0']:.0f}Hz ±{spec['f0_tol']:.0%})")
+                ok = False
         log("TTS", level=logging.INFO if ok else logging.WARNING, item=label, role=role, attempt=attempt, seed=seed, syl=syl,
-            dur=m["dur"], rate=m["rate"], inner_sil=m["inner_sil"], gen_s=gen_s, rtf=gen_s / max(m["dur"], 1e-6),
+            dur=m["dur"], rate=m["rate"], inner_sil=m["inner_sil"], f0=m["f0"], gen_s=gen_s, rtf=gen_s / max(m["dur"], 1e-6),
             ok=ok, issues=";".join(issues) or "-", warns=";".join(warns) or "-")
-        score = (0 if ok else 1, abs(math.log(max(m["rate"], 1e-3) / RATE_REF)) + max(0.0, m["inner_sil"] - MAX_INNER_SIL))
+        score = (0 if ok else 1, abs(math.log(max(m["rate"], 1e-3) / RATE_REF)) + max(0.0, m["inner_sil"] - MAX_INNER_SIL) + f0_dev)
         if best is None or score < best[0]:
             best = (score, x, sr, attempt, seed, ok, issues, warns, m, gen_s)
         if ok:
@@ -551,17 +764,13 @@ def make_sentence(engine, cache_dir, label, text, spec, syl, args, redo=False, r
     return dict(meta, wav=str(wav_p), cached=False)
 
 
-def load_cache_index(cache, args):
-    """--assemble-only: 모델을 불러오지 않고 cache 메타로 문장 파일을 찾는다. 같은 글·말투·화자·기본 시드·모델 중 가장 최근 것."""
-    model = "fake" if args.fake else args.model
-    idx, files = {}, sorted(cache.glob("*.json"), key=lambda q: q.stat().st_mtime)
-    for p in files:
-        m = json.loads(p.read_text("utf-8"))
-        wav = p.with_suffix(".wav")
-        if m.get("model") == model and wav.is_file():
-            idx[(m["text"], m["instruct"], m.get("speaker"), m.get("base_seed"))] = dict(m, wav=str(wav), cached=True)
-    log("CACHE", files=len(files), usable=len(idx), model=model)
-    return idx
+def cached_sentence(engine, cache_dir, text, spec):
+    """--assemble-only: 모델을 쓰지 않고 캐시 키로 문장 파일을 찾는다 (없으면 None)."""
+    key = cache_key(engine, text, spec)
+    wav_p, meta_p = cache_dir / f"{key}.wav", cache_dir / f"{key}.json"
+    if wav_p.is_file() and meta_p.is_file():
+        return dict(json.loads(meta_p.read_text("utf-8")), wav=str(wav_p), cached=True)
+    return None
 
 
 # ----------------------------------------------------------------------------- 잇기·볼륨·내보내기
@@ -656,6 +865,10 @@ def build_episode(engine, topic, vid, args, root, txt=None):
         if c["seconds"] < CARD_GAP_MIN:
             die("INPUT", f"고지 카드 쉼 {c['seconds']}초 < {CARD_GAP_MIN}초", "srt_tool.parse_cards 규칙 확인", after=c["after"])
         log("INPUT", video=vid, card_after_sentence=c["after"], card_title=c["title"], gap_s=c["seconds"])
+    for role, v in voices.items():
+        if v["engine"] == "clone" and not v.get("ref_sha"):
+            die("VOICE", f"{role} 기준 목소리 없음 ({v['ref_audio']})", "all·build 가 먼저 만든다 — 또는 python tools/tts_narration.py voice --push",
+                video=vid)
     items = plan_items(vid, rows, voices, lex)
     changed = [it["n"] for it in items if it["tts"] != it["text"]]
     log("INPUT", video=vid, tts_text_changed=",".join(map(str, changed)) or "-", note="부호 금액·사전 바꿈 (대본·자막은 그대로)")
@@ -664,7 +877,9 @@ def build_episode(engine, topic, vid, args, root, txt=None):
     redo = parse_nums(getattr(args, "redo", ""))
     targets = [it for it in items if (it["n"] - 1) % K == k]
     metas = {}
-    if engine is not None:
+    if not getattr(args, "assemble_only", False):
+        # 엔진별로 모아서 만든다 (GPU 하나면 모델을 한 번만 바꿔 올리게: 사연자 → 진행자)
+        targets = sorted(targets, key=lambda it: (it["spec"]["engine"] != "custom_voice", it["n"]))
         t_start, done_syl, todo_syl = time.time(), 0, sum(it["syl"] for it in targets)
         for it in targets:
             m = make_sentence(engine, P["cache"], f"S{it['n']:03d}", it["tts"], it["spec"], it["syl"], args,
@@ -679,10 +894,9 @@ def build_episode(engine, topic, vid, args, root, txt=None):
             log("SHARD", video=vid, shard=args.shard, made=len(targets), note="다른 조각도 끝나면 --assemble-only 로 잇기")
             return {"video": vid, "topic": topic, "status": "shard", "sentences": len(items)}
     else:   # --assemble-only
-        index = load_cache_index(P["cache"], args)
         missing = []
         for it in items:
-            hit = index.get((it["tts"], it["spec"]["instruct"], it["spec"]["speaker"], it["spec"]["seed"]))
+            hit = cached_sentence(engine, P["cache"], it["tts"], it["spec"])
             if hit:
                 metas[it["n"]] = hit
             else:
@@ -749,8 +963,9 @@ def build_episode(engine, topic, vid, args, root, txt=None):
             "topic": topic, "id": vid, "script": rel(txt), "script_sha1": script_sha(rows, cards),
             "sentences": len(items), "seconds": round(total, 2), "engine": engine.describe(items[0]["spec"]) if engine else
             {k: metas[items[0]["n"]].get(k) for k in ("engine", "model", "language", "dtype")},
-            "voices": {r: {k: v[k] for k in ("name", "parts", "speaker", "instruct", "part_instruct", "seed", "gap",
-                                                "generation", "files")} for r, v in voices.items()},
+            "voices": {r: {k: v.get(k) for k in ("name", "parts", "engine", "lock", "speaker", "instruct", "part_instruct", "seed",
+                                                    "gap", "generation", "ref_audio", "ref_sha", "ref_f0", "files")} for r, v in voices.items()},
+            "voice_ids": voice_ids(voices, engine),
             "gaps": {"lead_in": args.lead_in, "part": args.part_gap, "tail": args.tail,
                      "cards": [{"after": c["after"], "seconds": c["seconds"]} for c in cards]},
             "items": [{"n": it["n"], "role": it["role"], "part": it["part"], "text": it["text"],
@@ -782,12 +997,16 @@ def write_report(path, topic, vid, args, items, metas, timing, cards, total_s, v
     lines += ["", "## 말투 지시", ""]
     for style, ins in dict.fromkeys((it["style"], it["spec"]["instruct"]) for it in items):
         lines.append(f"- **{style}**: {ins}")
-    lines += ["", "## 문장", "", "| 번호 | 역할 | 파트 | 시작 | 길이(초) | 음절/초 | 시도 | 확인 |", "|---|---|---|---|---|---|---|---|"]
+    for role, v in voices.items():
+        if v["engine"] == "clone":
+            lines.append(f"- **{v['name']} 기준 목소리**: `{v['ref_audio']}` (높이 {v['ref_f0']:.0f}Hz, 해시 {v['ref_sha']}) — "
+                         f"모든 대본에서 같은 파일을 복제. 문장 높이가 ±{v['f0_tolerance']:.0%} 넘게 벗어나면 다시 만듦")
+    lines += ["", "## 문장", "", "| 번호 | 역할 | 파트 | 시작 | 길이(초) | 음절/초 | 높이(Hz) | 시도 | 확인 |", "|---|---|---|---|---|---|---|---|---|"]
     for it in items:
         m = metas[it["n"]]
         flag = "; ".join(m["issues"] + m["warns"]) or "✅"
         lines.append(f"| {it['n']} | {voices[it['role']]['name']} | {it['part']} | {mmss(timing[it['n']][0])} | {m['dur']:.2f} | "
-                     f"{m['rate']:.1f} | {m['attempt']} | {flag} |")
+                     f"{m['rate']:.1f} | {m.get('f0', 0):.0f} | {m['attempt']} | {flag} |")
     bad = [it for it in items if not metas[it["n"]]["ok"] or metas[it["n"]]["warns"]]
     lines += ["", "## 귀로 확인할 문장", ""]
     lines += [f"- {it['n']}번 ({mmss(timing[it['n']][0])}, {voices[it['role']]['name']}): {it['text']} — "
@@ -801,7 +1020,10 @@ def cmd_build(args):
     root = out_root(args)
     token = push_preflight(args)
     voices = load_voices(args.topic, args.id, args)
-    engine = None if args.assemble_only else make_engine(args, {v["speaker"] for v in voices.values()})
+    engine = make_engine(args)
+    if not args.assemble_only:
+        ensure_reference(engine, voices, args, token)
+        engine.check_speakers({v["speaker"] for v in voices.values() if v["engine"] == "custom_voice"})
     res = build_episode(engine, args.topic, args.id, args, root, txt=args.txt)
     if res["status"] != "made":
         return
@@ -836,7 +1058,17 @@ def repo_status(topic, vid, rows, cards):
     meta = json.loads(meta_p.read_text("utf-8"))
     if meta.get("script_sha1") != script_sha(rows, cards):
         return "stale", f"{audio.name} 이 옛 대본으로 만든 것 (바뀐 문장: check 명령)"
-    return "has_audio", f"{audio.name} 있음 (지금 대본과 같음)"
+    bad = voice_mismatch(meta, topic, vid)
+    if bad:
+        return "stale", f"{audio.name} 이 다른 목소리로 만든 것 ({','.join(bad)}) — 모든 대본을 같은 목소리로"
+    return "has_audio", f"{audio.name} 있음 (지금 대본·목소리와 같음)"
+
+
+def voice_mismatch(meta, topic, vid):
+    """메타의 목소리 정체와 지금 설정이 다른 역할 목록 (v1.2 이하 메타는 목소리 정체가 없어 모두 다름)."""
+    now = voice_ids(load_voices(topic, vid, quiet=True), None)
+    old = meta.get("voice_ids") or {}
+    return [r for r in now if old.get(r) != now[r]]
 
 
 def discover(args, root):
@@ -852,8 +1084,10 @@ def discover(args, root):
         st, note = repo_status(topic, vid, rows, cards)
         hold = topic_on_hold(topic)
         P = episode_paths(root, topic, vid)
-        made = P["meta"].is_file() and P["narration"].is_file() and \
-            json.loads(P["meta"].read_text("utf-8")).get("script_sha1") == script_sha(rows, cards)
+        made = False
+        if P["meta"].is_file() and P["narration"].is_file():
+            om = json.loads(P["meta"].read_text("utf-8"))
+            made = om.get("script_sha1") == script_sha(rows, cards) and not voice_mismatch(om, topic, vid)
         if hold and not args.include_hold:
             action, why = "skip", "주제 보류(⏸ README) — --include-hold 로 포함"
         elif st == "uploaded":
@@ -878,6 +1112,9 @@ def discover(args, root):
 def cmd_all(args):
     root = out_root(args)
     k, K = (int(v) for v in args.split.split("/"))
+    if K > 1 and any(v["engine"] == "clone" for v in load_voices(quiet=True).values()):
+        die("START", "--split 은 쓰지 않음 (진행자 복제 모델이 있으면 한 프로세스가 GPU 2개를 나눠 씀: 사연자 GPU 0, 진행자 GPU 1)",
+            "--split 없이 실행")
     plan = discover(args, root)
     todo = [p for p in plan if p["action"] == "make"]
     mine = [p for i, p in enumerate(todo) if i % K == k][: args.max or None]
@@ -885,6 +1122,10 @@ def cmd_all(args):
         out=root, list=",".join(p["video"] for p in mine) or "-",
         est_audio_min=sum(p["est_min"] for p in mine))
     done = [p for i, p in enumerate([p for p in plan if p["action"] == "done"]) if i % K == k]
+    for role, v in load_voices(quiet=True).items():
+        if v["engine"] == "clone":
+            log("PLAN", role=role, reference=v["ref_audio"] if v["ref_sha"] else "없음",
+                note=f"모든 대본이 이 기준 목소리 (높이 {v['ref_f0']}Hz)" if v["ref_sha"] else "처음 실행 때 한 번 만들어(VoiceDesign) voices/ref/ 에 올린 뒤 모든 대본이 복제")
     if args.dry_run:
         return
     token = push_preflight(args)
@@ -897,10 +1138,14 @@ def cmd_all(args):
         if not pushed_ok:
             raise SystemExit(1)
         return
-    speakers = set()
+    speakers, any_voices = set(), None
     for p in mine:
-        speakers |= {v["speaker"] for v in load_voices(p["topic"], p["video"], args).values()}
-    engine = make_engine(args, speakers)
+        vv = load_voices(p["topic"], p["video"], args, quiet=True)
+        any_voices = any_voices or vv
+        speakers |= {v["speaker"] for v in vv.values() if v["engine"] == "custom_voice"}
+    engine = make_engine(args)
+    ensure_reference(engine, any_voices, args, token)   # 진행자 기준 목소리 (없으면 한 번 만들어 저장소에 올림)
+    engine.check_speakers(speakers)
     results, t0 = [], time.time()
     for i, p in enumerate(mine, 1):
         log("BATCH", n=i, of=len(mine), video=p["video"], topic=p["topic"], elapsed_min=(time.time() - t0) / 60)
@@ -1105,42 +1350,139 @@ def push_results(root, entries, token, args):
                 mb=P["narration"].stat().st_size / 1e6)
         if not vids:
             return False
-        rc, out = g.run("add", "-A", "--", *paths)
-        if rc != 0:
-            log("PUSH", logging.ERROR, step="add", error=" ".join(out.split())[:300])
-            return False
-        rc, _ = g.run("diff", "--cached", "--quiet", "--", *paths)
-        if rc == 0:   # 새로 커밋할 것은 없다 — 전에 커밋만 하고 못 올린 것이 있을 수 있으니 아래 push 는 그대로 한다
-            log("PUSH", videos=",".join(vids), note="새로 커밋할 변경 없음 — 못 올린 커밋이 있으면 올림")
-        else:
-            msg = (f"내레이션: {', '.join(vids)} (tts_narration {VERSION}, Kaggle)\n\n"
-                   f"자동 생성 — 대본 폴더마다 narration.mp3 · {META_NAME} · {REPORT_NAME}. 연구·교육용, 투자 권유 아님.")
-            rc, out = g.run("commit", "-q", "-m", msg, "--", *paths)
-            if rc != 0:
-                log("PUSH", logging.ERROR, step="commit", error=" ".join(out.split())[:300])
-                return False
-        _, head = g.run("rev-parse", "--short", "HEAD")
-        for attempt in range(1, PUSH_TRIES + 1):
-            rc, out = g.run("pull", "-q", "--rebase", "--autostash", "origin", "main")
-            if rc != 0:
-                g.run("rebase", "--abort")
-                log("PUSH", logging.WARNING, step="pull", attempt=attempt, error=" ".join(out.split())[:300])
-            else:
-                rc, out = g.run("push", "-q", "origin", "HEAD:main")
-                if rc == 0:
-                    _, head = g.run("rev-parse", "--short", "HEAD")
-                    log("PUSH", videos=",".join(vids), commit=head, branch="main", ok=True,
-                        note="대본 폴더마다 올라감: " + ", ".join(f"{t}/source/{v}/" for t, v in entries if v in vids))
-                    return True
-                log("PUSH", logging.WARNING, step="push", attempt=attempt, error=" ".join(out.split())[:300])
-            time.sleep(2 ** attempt)
-        log("PUSH", logging.ERROR, videos=",".join(vids), ok=False, commit=head,
-            hint="커밋은 이 Kaggle 저장소에 남아 있음 → 잠시 뒤 python tools/tts_narration.py push, 안 되면 pack 으로 zip")
-        return False
+        msg = (f"내레이션: {', '.join(vids)} (tts_narration {VERSION}, Kaggle)\n\n"
+               f"자동 생성 — 대본 폴더마다 narration.mp3 · {META_NAME} · {REPORT_NAME}. 연구·교육용, 투자 권유 아님.")
+        return commit_and_push(g, paths, msg, ",".join(vids),
+                               "대본 폴더마다 올라감: " + ", ".join(f"{t}/source/{v}/" for t, v in entries if v in vids))
     finally:
         g.close()
         if lock:
             lock.close()
+
+
+def commit_and_push(g, paths, msg, label, ok_note):
+    """paths 만 커밋 → pull --rebase → push origin HEAD:main (최대 PUSH_TRIES 번). → 성공 여부."""
+    rc, out = g.run("add", "-A", "--", *paths)
+    if rc != 0:
+        log("PUSH", logging.ERROR, step="add", error=" ".join(out.split())[:300])
+        return False
+    rc, _ = g.run("diff", "--cached", "--quiet", "--", *paths)
+    if rc == 0:   # 새로 커밋할 것은 없다 — 전에 커밋만 하고 못 올린 것이 있을 수 있으니 아래 push 는 그대로 한다
+        log("PUSH", items=label, note="새로 커밋할 변경 없음 — 못 올린 커밋이 있으면 올림")
+    else:
+        rc, out = g.run("commit", "-q", "-m", msg, "--", *paths)
+        if rc != 0:
+            log("PUSH", logging.ERROR, step="commit", error=" ".join(out.split())[:300])
+            return False
+    _, head = g.run("rev-parse", "--short", "HEAD")
+    for attempt in range(1, PUSH_TRIES + 1):
+        rc, out = g.run("pull", "-q", "--rebase", "--autostash", "origin", "main")
+        if rc != 0:
+            g.run("rebase", "--abort")
+            log("PUSH", logging.WARNING, step="pull", attempt=attempt, error=" ".join(out.split())[:300])
+        else:
+            rc, out = g.run("push", "-q", "origin", "HEAD:main")
+            if rc == 0:
+                _, head = g.run("rev-parse", "--short", "HEAD")
+                log("PUSH", items=label, commit=head, branch="main", ok=True, note=ok_note)
+                return True
+            log("PUSH", logging.WARNING, step="push", attempt=attempt, error=" ".join(out.split())[:300])
+        time.sleep(2 ** attempt)
+    log("PUSH", logging.ERROR, items=label, ok=False, commit=head,
+        hint="커밋은 이 Kaggle 저장소에 남아 있음 → 잠시 뒤 python tools/tts_narration.py push, 안 되면 pack 으로 zip")
+    return False
+
+
+# ----------------------------------------------------------------------------- 진행자 기준 목소리 (처음 한 번)
+def ensure_reference(engine, voices, args, token, force=False):
+    """clone 역할의 기준 목소리가 저장소에 없으면(또는 force) VoiceDesign 으로 한 번 만들어 voices/ 에 저장하고 main 에 올린다.
+    시드를 바꿔 몇 번 만들고, 목소리 높이(남성 중저음 범위)·말 속도·무음 검사를 통과한 것 중 가장 알맞은 것을 고른다.
+    이 파일이 저장소에 있으면 어느 대본·어느 세션이든 같은 파일을 복제하므로 진행자 목소리가 달라지지 않는다."""
+    for role, v in (voices or {}).items():
+        if v["engine"] != "clone":
+            continue
+        ref, meta_p = ROOT / v["ref_audio"], ROOT / v["ref_meta"]
+        if ref.is_file() and meta_p.is_file() and not force:
+            log("VOICE", role=role, reference=v["ref_audio"], f0_hz=v["ref_f0"], sha=v["ref_sha"], note="저장소의 기준 목소리를 씀 (모든 대본 같은 목소리)")
+            continue
+        d = v.get("design") or {}
+        lo, hi = d.get("f0_range", [85, 150])
+        center = float(d.get("f0_target", (lo + hi) / 2))   # 중저음 쪽으로 (기본 110Hz)
+        text, instruct, seed0, tries = d["text"], d["instruct"], int(d.get("seed", 2026)), int(d.get("tries", 6))
+        syl = srt_tool.syllables(text)
+        max_new = int(FRAME_HZ * max(syl, 4) / 2.0) + 50
+        log("VOICE", role=role, step="기준 목소리 만들기", model=engine.ids["design"], tries=tries, f0_range=f"{lo}-{hi}Hz",
+            instruct=instruct, text=text)
+        cands = []
+        for i in range(tries):
+            seed = seed0 + i
+            res = engine.design(text, instruct, seed, max_new)
+            if res is None:
+                continue
+            x, sr = res
+            x = trim(np.nan_to_num(x, nan=0.0, posinf=0.0, neginf=0.0), sr)
+            ok, issues, warns, m = check(x, sr, syl, False)
+            f0 = f0_median(x, sr) if x.size else 0.0
+            if not lo <= f0 <= hi:
+                issues.append(f"높이 {f0:.0f}Hz (남성 중저음 {lo}~{hi}Hz 아님)")
+            if not DESIGN_RATE[0] <= m["rate"] <= DESIGN_RATE[1]:
+                issues.append(f"속도 {m['rate']:.1f}음절/초 ({DESIGN_RATE[0]}~{DESIGN_RATE[1]})")
+            if m["inner_sil"] > DESIGN_MAX_SIL:
+                issues.append(f"문장 안 무음 {m['inner_sil']:.1f}초")
+            log("VOICE", role=role, attempt=i + 1, seed=seed, f0_hz=f0, rate=m["rate"], dur=m["dur"], inner_sil=m["inner_sil"],
+                ok=not issues, issues=";".join(issues) or "-")
+            in_range = lo <= f0 <= hi
+            score = (0 if not issues else 1, abs(f0 - center) / center + abs(math.log(max(m["rate"], 1e-3) / RATE_REF)))
+            cands.append((score, in_range, seed, x, sr, f0, m, issues))
+        good = [c for c in cands if c[1]]
+        if not good:   # 남성 중저음 범위가 하나도 없으면 만들지 않는다 (엉뚱한 목소리로 고정되지 않게)
+            die("VOICE", f"{tries}번 모두 목소리 높이가 {lo}~{hi}Hz 밖", "voices/host.json 의 design.seed 를 바꾸거나 tries 를 늘려 다시",
+                f0s=",".join(f"{c[5]:.0f}" for c in cands) or "-")
+        score, _, seed, x, sr, f0, m, issues = min(good, key=lambda c: c[0])
+        if issues:
+            log("VOICE", logging.WARNING, role=role, chosen_seed=seed, issues=";".join(issues), note="모든 검사를 통과한 시도가 없어 높이가 맞는 것 중 가장 나은 것")
+        ref.parent.mkdir(parents=True, exist_ok=True)
+        write_wav(ref, x, sr)
+        meta = {"role": role, "text": text, "instruct": instruct, "language": args.language, "model": engine.ids["design"],
+                "seed": seed, "f0_hz": round(f0, 1), "dur": round(m["dur"], 2), "rate": round(m["rate"], 2), "sr": sr,
+                "sha1": hashlib.sha1(ref.read_bytes()).hexdigest()[:16], "created": datetime.now().isoformat(timespec="seconds"),
+                "tool": f"tts_narration.py {VERSION}",
+                "_설명": "진행자 기준 목소리 — 모든 대본의 진행자 문장이 이 소리를 복제한다. 손으로 바꾸지 않는다 (바꾸면 해시 검사에서 멈춤)."}
+        meta_p.write_text(json.dumps(meta, ensure_ascii=False, indent=1) + "\n", "utf-8")
+        engine.unload("design")
+        attach_reference(v)
+        log("VOICE", role=role, reference=rel(ref), f0_hz=f0, seed=seed, sha=v["ref_sha"], note="기준 목소리 만듦")
+        if getattr(args, "push", False):
+            g = Git(token)
+            lock = _lock()
+            try:
+                ok = commit_and_push(g, [rel(ref), rel(meta_p)],
+                                     f"진행자 기준 목소리 만듦: 남성 중저음 {f0:.0f}Hz (tts_narration {VERSION}, Kaggle VoiceDesign)\n\n"
+                                     "모든 대본의 진행자 문장이 이 파일을 복제한다 (대본마다 같은 목소리).", rel(ref), "voices/ 에 올라감")
+            finally:
+                g.close()
+                if lock:
+                    lock.close()
+            if not ok:   # 저장소에 없으면 다음 세션이 다른 목소리를 만들게 되므로, 올라가기 전에는 오디오를 만들지 않는다
+                die("VOICE", "기준 목소리를 저장소에 올리지 못함", "토큰·네트워크 확인 후 같은 셀을 다시 (기준 목소리는 이 사본에 있음)")
+        else:
+            log("VOICE", logging.WARNING, note="--push 가 없어 기준 목소리가 이 사본에만 있음 — 저장소에 올려야 다음에도 같은 목소리")
+
+
+def cmd_voice(args):
+    """진행자 기준 목소리: 있으면 정보만, 없거나 --force 면 만들고(--push 면 올림)."""
+    token = push_preflight(args)
+    voices = load_voices(args=args)
+    clones = {r: v for r, v in voices.items() if v["engine"] == "clone"}
+    if not clones:
+        log("VOICE", note="clone 역할 없음 — 기준 목소리가 필요 없음")
+        return
+    have = all((ROOT / v["ref_audio"]).is_file() for v in clones.values())
+    if have and not args.force:
+        for r, v in clones.items():
+            log("VOICE", role=r, reference=v["ref_audio"], f0_hz=v["ref_f0"], sha=v["ref_sha"], note="이미 있음 — 모든 대본이 이 목소리")
+        return
+    ensure_reference(make_engine(args), voices, args, token, force=args.force)
 
 
 def cmd_push(args):
@@ -1174,6 +1516,11 @@ def cmd_check(args):
     meta = json.loads(meta_p.read_text("utf-8"))
     now = script_sha(rows, cards)
     if meta.get("script_sha1") == now:
+        bad = voice_mismatch(meta, args.topic, args.id)
+        if bad:
+            log("CHECK", logging.WARNING, video=args.id, audio=rel(audio), ok=False, changed="목소리:" + ",".join(bad),
+                hint="목소리 설정·기준 목소리가 바뀜 → Kaggle 셀을 다시 실행하면 지금 목소리로 다시 만든다 (모든 대본 같은 목소리)")
+            raise SystemExit(1)
         log("CHECK", video=args.id, audio=rel(audio), ok=True, sentences=len(rows), made=meta.get("created"), tool=meta.get("tool"))
         return
     old = [(i["text"], i["part"]) for i in meta.get("items", [])]
@@ -1204,7 +1551,9 @@ def main():
     ap = argparse.ArgumentParser(description="대본 TXT → 내레이션 하나 (Qwen3-TTS, Kaggle GPU, 사연자·진행자 목소리) → 대본 폴더에 GitHub 올리기")
     sub = ap.add_subparsers(dest="cmd", required=True)
     common = argparse.ArgumentParser(add_help=False)
-    common.add_argument("--model", default=DEFAULT_MODEL)
+    common.add_argument("--model", default=DEFAULT_MODEL, help="사연자 모델 (CustomVoice)")
+    common.add_argument("--clone-model", default=DEFAULT_CLONE_MODEL, help="진행자 모델 (Base, 기준 목소리 복제)")
+    common.add_argument("--design-model", default=DEFAULT_DESIGN_MODEL, help="진행자 기준 목소리를 처음 만들 때 (VoiceDesign)")
     common.add_argument("--speaker", default=None, help="모든 역할의 화자를 이것으로 (기본: voices/*.json 의 speaker, 한국어 Sohee)")
     common.add_argument("--language", default="Korean")
     common.add_argument("--gpu", type=int, default=0, help="GPU 번호 (Kaggle T4 x2: 0 또는 1)")
@@ -1252,6 +1601,9 @@ def main():
     a.add_argument("--no-pack", action="store_true", help="--push 없이 돌릴 때 끝나고 zip 만들지 않기")
 
     sub.add_parser("push", parents=[common], help="만들어 둔 결과를 대본 폴더마다 GitHub main 에 올리기")
+    vo = sub.add_parser("voice", parents=[common], help="진행자 기준 목소리 확인·만들기 (없을 때만. --force 는 다시 만들기 — 모든 영상 목소리가 바뀜)")
+    vo.add_argument("--force", action="store_true", help="이미 있어도 다시 만들기 (그 뒤 all 이 모든 영상을 새 목소리로 다시 만든다)")
+    vo.add_argument("--push", action="store_true", help="만든 기준 목소리를 voices/ 에 올리기")
     sub.add_parser("pack", parents=[common], help=f"(올리기가 안 될 때만) OUT/upload/ → {ZIP_NAME}")
 
     c = sub.add_parser("check", parents=[common], help="저장소의 narration 이 지금 대본으로 만든 것인지 (tts_narration.json)")
@@ -1260,6 +1612,7 @@ def main():
 
     args = ap.parse_args()
     logging.basicConfig(level=getattr(logging, args.log_level), format="%(message)s", stream=sys.stdout)
+    engine_ids.args = args   # 모델을 불러오지 않는 명령(check·dry-run)도 목소리 정체를 같은 모델 이름으로 계산
     log("START", tool=f"tts_narration.py {VERSION}", cmd=args.cmd, out=out_root(args), note="연구·교육용 — 투자 권유 아님")
     if args.lead_in > 2.0:
         die("START", "--lead-in 은 2초 이하", "srt_tool 규칙: 첫 자막 앞 여백 2초 이내")
@@ -1271,6 +1624,8 @@ def main():
         cmd_all(args)
     elif args.cmd == "push":
         cmd_push(args)
+    elif args.cmd == "voice":
+        cmd_voice(args)
     elif args.cmd == "pack":
         cmd_pack(args)
     else:

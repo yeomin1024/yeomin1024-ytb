@@ -1,6 +1,6 @@
 {
-  "_설명": "사연자 목소리 설정 — 대본에서 파트 라벨에 '사연'이 든 문장(1인칭 고백)을 읽는다. tools/tts_narration.py v1.2 가 읽는다. 사용법: guides/tts_guide.md 6번",
-  "_버전": "v1.1 — 2026-10-11 — 사용자 지시: 말투는 고르지 않고 이 설정 하나로 (preset 삭제). (v1.0: 최초 작성 (tts_narration v1.0 의 사연 말투를 그대로 옮김))",
+  "_설명": "사연자 목소리 설정 — 대본에서 파트 라벨에 '사연'이 든 문장(1인칭 고백)을 읽는다. tools/tts_narration.py v1.3 이 읽는다. 사용법: guides/tts_guide.md 6번",
+  "_버전": "v1.2 — 2026-10-11 — engine custom_voice 를 적어 둠 (진행자는 clone 으로 바뀜, 사연자는 그대로 Sohee) (v1.1: preset 삭제, v1.0: 최초 작성)",
   "_항목": {
     "parts": "이 역할이 읽는 파트 — 파트 라벨에 이 낱말이 들어 있으면 사연자",
     "speaker": "Qwen3-TTS CustomVoice 화자. 한국어가 모국어인 화자는 Sohee 하나 (다른 화자는 외국인 억양이 섞일 수 있음)",
@@ -8,13 +8,15 @@
     "part_instruct": "이 역할 안에서 파트별로 다른 말투 {파트 낱말: 지시} — 비우면 모두 instruct",
     "seed": "기본 시드 (문장마다 글 내용으로 정해진 만큼 더한다). 바꾸면 모든 문장을 새로 만든다",
     "gap": "이 역할의 문장 사이 쉼(초). 0.2 이상 — align-audio 가 이 쉼으로 문장 경계를 찾는다",
-    "generation": "생성 설정 {temperature, top_p, top_k, repetition_penalty} — 비우면 모델 기본값"
+    "generation": "생성 설정 {temperature, top_p, top_k, repetition_penalty} — 비우면 모델 기본값",
+    "engine": "custom_voice = 화자(speaker) + 말투 지시(instruct)로 읽는다 (Qwen3-TTS CustomVoice)"
   },
   "role": "storyteller",
   "name": "사연자",
   "parts": [
     "사연"
   ],
+  "engine": "custom_voice",
   "speaker": "Sohee",
   "instruct": "Speak like someone confessing a painful stock-market loss: regretful and aggrieved, a low voice that trembles slightly, slow pace, a soft sigh before key phrases, bitter self-blame as if holding back tears. Keep every word clear.",
   "part_instruct": {},

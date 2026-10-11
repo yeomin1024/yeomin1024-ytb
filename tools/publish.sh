@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# VERSION: v1.2.1 — 2026-10-11 — 주석: 오디오는 Kaggle(tts_narration.py all --push)이 대본 폴더마다 올림 (동작 변경 없음)
+# VERSION: v1.2.2 — 2026-10-11 — 옛 대본뿐 아니라 다른 목소리(진행자 기준 목소리가 바뀜)로 만든 오디오도 건너뜀 표시 (tts_narration check v1.3)
+# (v1.2.1: 주석: 오디오는 Kaggle(tts_narration.py all --push)이 대본 폴더마다 올림)
 # (v1.2: 사용자 지시: 스토리보드 단계 삭제(오디오가 생기면 바로 영상), 옛 대본으로 만든 오디오는 건너뜀
 #          (tts_narration.py check), 영상 코드가 없으면 Claude가 만든 뒤 다시 (승인 대기 없음)
 # (v1.1: 렌더 완료 1시간 뒤 예약 공개, --publish-delay·--no-schedule)
@@ -54,7 +55,7 @@ for src in "$ROOT"/*/source/*/; do
   if [ -f "$src/tts_narration.json" ]; then   # 오디오가 지금 대본으로 만든 것인지 (옛 대본이면 문장이 어긋남)
     chk="$(python3 tools/tts_narration.py check "$topic" "$vid" 2>&1)"; rc=$?
     if [ $rc -eq 1 ] && echo "$chk" | grep -q "ok=False"; then
-      log "skip video=$vid reason=옛_대본으로_만든_오디오 $(echo "$chk" | grep -o 'changed=[^ ]*') → Kaggle에서 tts_narration.py all 다시"; continue
+      log "skip video=$vid reason=옛_대본·목소리로_만든_오디오 $(echo "$chk" | grep -o 'changed=[^ ]*') → Kaggle 셀을 다시 실행 (지금 대본·목소리로 다시 만들어 올림)"; continue
     elif [ $rc -ne 0 ]; then
       log "warn video=$vid reason=오디오_대본_확인_실패(rc=$rc) → align-audio 의 문장 수 검사로 진행"
     fi

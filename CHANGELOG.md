@@ -1,5 +1,29 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-11 — 진행자는 중저음 남성, 모든 대본에서 같은 목소리 (tts_narration v1.3)
+
+### 왜 바꿨나 (사용자 지시)
+- 진행자 목소리는 중저음의 남성이지만 적당히 귀에 쏙쏙 들어오고 신뢰도 높은 목소리로, 그리고 대본마다 달라지면 안 된다
+- 문제: 지금 모델(CustomVoice)의 한국어 원어민 화자는 여성 Sohee 하나뿐 (남성 화자는 외국인 억양). 패키지 소스(`qwen-tts` 0.1.1)로 확인한 방법: VoiceDesign `generate_voice_design(text, instruct, language)` → Base `create_voice_clone_prompt(ref_audio=(wav, sr), ref_text)` + `generate_voice_clone(..., voice_clone_prompt)`
+
+| 영역 | 함수/파일 | 변경 내용 |
+|---|---|---|
+| 도구 | `tools/tts_narration.py` v1.3 `QwenPool` (QwenEngine 대체) | 모델 세 가지를 필요할 때 불러옴: 사연자 CustomVoice(GPU 0), 진행자 Base 복제(GPU 1), 기준 목소리 만들기 VoiceDesign(한 번만, 끝나면 내림). GPU 하나면 번갈아 올림. 복제 프롬프트는 기준 목소리마다 한 번 |
+| 도구 | 같은 파일 `ensure_reference`, `voice` 명령 | `voices/ref/host.wav`가 없으면 `voices/host.json`의 design 묘사로 시드 6개 만들어 검사(목소리 높이 85~150Hz, 110Hz에 가깝게, 속도 3.8~6.0음절/초, 무음 1초 이하) → 고른 것을 `voices/ref/host.wav`·`host.json`(해시 포함)로 저장하고 main에 올림. 범위 밖뿐이면 멈춤, 못 올리면 오디오를 만들지 않음 |
+| 도구 | 같은 파일 `f0_median`(신규), `make_sentence` | 목소리 높이(기본 주파수) 측정: 40ms 구간 FFT 자기상관, 큰 소리·주기가 뚜렷한 구간 중간값. 진행자 문장이 기준 ±30% 밖이면 다시(최대 3번), 보고서에 문장마다 높이 |
+| 도구 | 같은 파일 `load_voices`(lock·engine·clone 검사), `attach_reference`(해시 검사), `voice_ids`, `voice_mismatch`, `repo_status`, `cmd_check` | 진행자 `lock`: 주제·영상 덮어쓰기·명령줄 값 무시. 오디오마다 목소리 정체(모델·기준 목소리 해시·설정)를 남기고, 바뀌면 "다른 목소리"로 다시 만듦 (v1.2 이하 오디오도 다시). `--split`은 복제 모델이 있으면 막음(한 프로세스가 GPU 2개) |
+| 설정 | `voices/host.json` v2.0, `voices/storyteller.json` v1.2 | 진행자: engine clone, lock, design(30대 후반 남성, 따뜻한 중저음 바리톤, 뉴스 앵커·다큐 내레이터처럼 신뢰감, 또렷한 발음, 숫자에 힘, 보통 속도 / 기준 문장 49음절 약 10초). 사연자: engine custom_voice(그대로 Sohee) |
+| 도구 | `tools/publish.sh` v1.2.2 | 건너뜀 표시: 옛 대본·목소리로 만든 오디오 |
+| 지시사항 | `guides/tts_guide.md` v1.4(1번 모델 표, 4-1), `guides/pipeline.md` v1.5, `guides/README.md` v1.5, `CLAUDE.md`, `README.md` | 진행자 목소리 규칙과 바꾸는 법 |
+
+### 검증 (가짜 소리, 로컬 시험용 원격 저장소)
+- 높이 측정: 110Hz 톱니파 → 110.1Hz, 120Hz+잡음 → 120.0, 220Hz → 220.2, 무음 → 0. 9초 소리 한 번 약 26ms
+- 첫 실행: 기준 목소리 시도 6번(198·123·175·99·152·76Hz) → 범위 안 3개 중 110Hz에 가까운 99Hz 선택 → `voices/ref/host.wav` 커밋·푸시 → 빚투·패닉셀 진행자 문장 모두 같은 기준(해시 같음), 문장 높이 97~105Hz
+- 다시 실행: 둘 다 "지금 대본·목소리와 같음"으로 건너뜀 / 주제 폴더에 진행자 덮어쓰기 파일 → lock으로 무시, check ok
+- 기준 목소리를 바꿈(design 시드 변경 + `voice --force --push`) → 두 영상 `check` ok=False "목소리:host", `publish.sh`가 건너뜀 → `all --push`가 둘 다 새 목소리로 다시 만들어 올림(두 영상 기준 해시 같음)
+- `--split` 막음, `--assemble-only` 캐시로 잇기 정상
+- 실제 남성 목소리는 Kaggle 첫 실행에서 만들어짐 (이 환경은 모델을 받을 수 없음)
+
 ## 2026-10-11 — Kaggle 셀 `git pull` 오류 해결 (tts_narration v1.2.1, tts_guide v1.3.1)
 
 - 증상: `error: Your local changes to the following files would be overwritten by merge: tools/publish.sh`

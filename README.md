@@ -12,7 +12,7 @@ run_analyzer.sh             ← macOS/Linux: 분석 코드를 wget으로 받아 
 requirements.txt
 tools/srt_tool.py           ← 대본 TXT → SRT 자막 생성·검사, 영상용·업로드용 변환 (모든 주제 공통)
 tools/tts_narration.py      ← 대본 TXT → 내레이션 narration.mp3 하나 (Qwen3-TTS, Kaggle GPU). 사연자·진행자 두 목소리, 대본 전부 한 번에, 대본 폴더마다 GitHub에 자동으로(all --push) — guides/tts_guide.md
-voices/                     ← 내레이션 목소리 설정: storyteller.json(사연자) · host.json(진행자)
+voices/                     ← 내레이션 목소리 설정: storyteller.json(사연자, 여성) · host.json(진행자, 중저음 남성) · ref/host.wav(진행자 기준 목소리 — 모든 대본이 복제)
 guides/                     ← 영상 제작 공통 지시사항 (모든 주제) — guides/README.md 부터 읽기
   title_guide.md · script_guide.md · thumbnail_guide.md · video_guide.md · upload_guide.md · archive/
 video/                      ← Remotion 프로젝트, 모든 주제가 같이 씀 — video/README.md (PC에 Node.js 필요)

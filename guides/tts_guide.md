@@ -1,8 +1,8 @@
 # 내레이션 만들기 — 오픈소스 음성 AI(Qwen3-TTS)를 Kaggle에서 (모든 주제 공통)
 
-버전: v1.3.1 — 2026-10-11 — 셀이 `git pull` 대신 Kaggle 사본을 main과 똑같이 맞춤 (`Your local changes ... would be overwritten by merge` 오류 해결) (v1.3: 사용자 지시: 오디오는 고르지 않고 하나로(말투 시험·선택 단계 삭제, 영상마다 `narration.mp3` 하나), 결과 파일은 GitHub의 대본 폴더마다 자동으로 올린다(`--push`), Kaggle 셀 하나 (v1.2: 사연자·진행자 목소리 설정 파일, 대본 전부 한 번에 `all`; v1.1: 셀에 도구 파일을 붙여 넣지 말 것; v1.0: 사용자 지시: edge-tts는 어색하다 → 오픈소스 음성 AI로, Kaggle에서, 사연은 억울하고 후회하는 톤)
+버전: v1.4 — 2026-10-11 — 사용자 지시: 진행자 목소리는 중저음 남성(귀에 쏙쏙 들어오고 신뢰감 있게), 대본마다 달라지면 안 됨 → 기준 목소리 하나를 저장소에 고정하고 모든 대본이 복제 (1번, 4-1번) (v1.3.1: 셀이 `git pull` 대신 Kaggle 사본을 main과 똑같이 맞춤 (`Your local changes ... would be overwritten by merge` 오류 해결) (v1.3: 사용자 지시: 오디오는 고르지 않고 하나로(말투 시험·선택 단계 삭제, 영상마다 `narration.mp3` 하나), 결과 파일은 GitHub의 대본 폴더마다 자동으로 올린다(`--push`), Kaggle 셀 하나 (v1.2: 사연자·진행자 목소리 설정 파일, 대본 전부 한 번에 `all`; v1.1: 셀에 도구 파일을 붙여 넣지 말 것; v1.0: 사용자 지시: edge-tts는 어색하다 → 오픈소스 음성 AI로, Kaggle에서, 사연은 억울하고 후회하는 톤))
 
-도구: `tools/tts_narration.py` v1.2 · 목소리 설정: `voices/storyteller.json`(사연자), `voices/host.json`(진행자)
+도구: `tools/tts_narration.py` v1.3 · 목소리 설정: `voices/storyteller.json`(사연자, 여성 Sohee), `voices/host.json`(진행자, 중저음 남성) · 진행자 기준 목소리: `voices/ref/host.wav`
 결과: 영상마다 오디오 **하나** — `<주제폴더>/source/<영상ID>/narration.mp3`가 **대본 폴더마다 각각** GitHub main에 자동으로 올라가고, 4단계(`guides/pipeline.md`)가 이어진다.
 ※ 연구·교육용 도구다. 주식 영상 내용은 투자 권유가 아니다.
 
@@ -10,11 +10,19 @@
 
 | 항목 | 내용 |
 |---|---|
-| 모델 | `Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice` (Alibaba Qwen, 2026-01 공개) |
+| 모델 | Qwen3-TTS 1.7B 세 가지 (Alibaba Qwen, 2026-01 공개, 같은 `qwen-tts` 패키지) — 아래 표 |
 | 라이선스 | Apache-2.0 — 상업 이용 가능 (수익 창출 채널에 써도 됨) |
-| 한국어 | 지원 10개 언어 중 하나. 한국어가 모국어인 화자 **Sohee**(따뜻한 여성, 감정 표현이 풍부함) |
-| 말투 | `instruct`에 글로 지시 (예: "후회하고 억울한 목소리로, 낮게 떨리며 천천히"). 음색은 그대로, 감정·속도·억양이 바뀐다 |
+| 한국어 | 지원 10개 언어 중 하나. 기본 화자 중 한국어가 모국어인 화자는 **Sohee**(여성) 하나뿐 — 그래서 남성 진행자는 목소리를 글로 묘사해 만든다 |
 | 주의 | **0.6B 모델은 말투 지시를 무시한다** (패키지 코드가 지시를 지움). 감정을 넣으려면 1.7B |
+
+| 역할 | 모델 | 하는 일 |
+|---|---|---|
+| 사연자 | `Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice` | 화자 Sohee + 말투 지시(억울·후회 고백) |
+| 진행자 | `Qwen/Qwen3-TTS-12Hz-1.7B-Base` | 저장소의 **기준 목소리** `voices/ref/host.wav`를 복제해 읽는다 → 모든 대본·모든 세션에서 같은 남성 목소리 |
+| (처음 한 번) | `Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign` | 기준 목소리가 없을 때만: `voices/host.json`의 묘사(30대 후반 남성, 따뜻한 중저음 바리톤, 뉴스 앵커·다큐 내레이터처럼 신뢰감, 또렷한 발음, 숫자에 힘을 주는 보통 속도)로 만든다 |
+
+- GPU가 둘(T4 x2)이면 사연자 모델은 GPU 0, 진행자 모델은 GPU 1에 올린다. 하나면 번갈아 올린다(느려짐).
+- 처음 실행은 모델 세 개를 받느라 시간이 더 걸린다 (그 뒤 세션도 Kaggle이 새로 받는다).
 
 edge-tts와 다른 점: 문장 뜻을 읽고 억양·쉼을 스스로 정한다. 같은 문장도 시드마다 조금씩 다르게 읽으므로 이상한 문장만 다시 만들 수 있다 (3번 `--redo`). 말투는 설정 파일 하나로 정해져 있고, 시험해 보고 고르는 단계는 없다.
 
@@ -83,15 +91,28 @@ os.environ["GITHUB_TOKEN"] = UserSecretsClient().get_secret("GITHUB_TOKEN")
 
 ## 4. 사연자·진행자와 결과 경로
 
+### 4-1. 진행자 목소리는 모든 대본에서 같다 (사용자 지시 2026-10-11)
+1. **기준 목소리 한 번 만들기:** 저장소에 `voices/ref/host.wav`가 없으면 셀이 처음 실행될 때 VoiceDesign으로 만든다. 시드를 바꿔 6번 만들고 검사해서 하나를 고른다. 사람이 고르지 않는다.
+   - 목소리 높이(기본 주파수)가 **남성 중저음 85~150Hz** 안 — 여러 개면 **110Hz**에 가장 가까운 것
+   - 말 속도 3.8~6.0음절/초(귀에 잘 들어오게), 문장 안 무음 1초 이하
+   - 6번 모두 높이가 범위 밖이면 만들지 않고 멈춘다 (엉뚱한 목소리로 고정되지 않게)
+2. **저장소에 고정:** 고른 소리와 정보를 `voices/ref/host.wav`·`voices/ref/host.json`(만든 문장·묘사·시드·높이·해시)으로 main에 올린다. 올리지 못하면 오디오를 만들지 않는다 — 다음 세션이 다른 목소리를 만들지 않게.
+3. **모든 대본이 복제:** 진행자 문장은 전부 이 파일을 복제해 읽는다. 문장마다 목소리 높이를 재서 기준에서 **±30%** 넘게 벗어나면 시드를 바꿔 다시 만든다. 보고서 `tts_report.md`에 문장마다 높이(Hz)가 나온다.
+4. **덮어쓰기 없음:** `voices/host.json`의 `"lock": true` — 주제·영상 폴더의 설정 파일이나 명령줄 값이 진행자를 바꾸지 못한다.
+5. **목소리가 바뀌면 다시:** 오디오마다 `tts_narration.json`에 목소리 정체(설정·기준 목소리 해시)를 남긴다. 기준 목소리나 목소리 설정이 바뀌면 이미 올린 오디오는 "다른 목소리"로 보고 다음 실행이 다시 만든다 (`publish.sh`도 그 오디오로 영상을 만들지 않는다). 그래서 모든 영상의 진행자가 같은 목소리로 맞춰진다.
+- 기준 목소리를 일부러 바꿀 때만 (Claude가): `python tools/tts_narration.py voice --force --push` → 그 뒤 셀을 실행하면 모든 영상이 새 목소리로 다시 만들어진다.
+
+### 4-2. 결과 경로
+
 | 역할 | 읽는 문장 | 설정 파일 | 문장 파일 (Kaggle 작업 폴더, 올리지 않음) |
 |---|---|---|---|
 | 사연자 `storyteller` | 파트 라벨에 '사연'이 든 문장 (1인칭 고백) | `voices/storyteller.json` | `/kaggle/working/tts_out/<영상ID>/storyteller/S001.wav` … |
-| 진행자 `host` | 나머지 모든 파트 (진행자·문제 분석·올바른 방법·마무리) | `voices/host.json` | `/kaggle/working/tts_out/<영상ID>/host/S017.wav` … |
+| 진행자 `host` (중저음 남성, 기준 목소리 복제) | 나머지 모든 파트 (진행자·문제 분석·올바른 방법·마무리) | `voices/host.json` + `voices/ref/host.wav` | `/kaggle/working/tts_out/<영상ID>/host/S017.wav` … |
 
 - **결과는 영상마다 오디오 하나:** 두 역할을 대본 순서대로 이은 `narration.mp3`. 저장소의 **그 영상 대본 폴더** `<주제폴더>/source/<영상ID>/`에 올라간다 (예: `stock/source/bittu-2026-10/narration.mp3`).
 - 문장 파일 번호 = 대본 문장 번호 (자막 도구 `srt_tool.py`와 같은 번호). 볼륨은 영상 전체에 맞춘 뒤의 소리다.
 - 올리기 안전장치: 지금 대본과 다른 옛 결과, 저장소에 이미 있는 더 나중 결과는 올리지 않는다. 그 영상의 결과 3개 말고 다른 파일은 커밋하지 않는다. 가짜 소리(`--fake`)는 github.com에 올리지 않는다.
-- `python tools/tts_narration.py check <주제폴더> <영상ID>`: 저장소 오디오가 지금 대본으로 만든 것인지 (`publish.sh`도 확인한다).
+- `python tools/tts_narration.py check <주제폴더> <영상ID>`: 저장소 오디오가 지금 대본·지금 목소리로 만든 것인지 (`publish.sh`도 확인한다).
 - 영상 코드의 사연 끝 번호(`plan.ts`의 `STORY_LAST`)와 사연자 마지막 문장 번호가 다르면 로그에 `[ROLE] … ok=False`가 나온다.
 
 ## 5. 도구가 지키는 규칙
@@ -117,25 +138,31 @@ os.environ["GITHUB_TOKEN"] = UserSecretsClient().get_secret("GITHUB_TOKEN")
 
 ## 6. 목소리 설정 파일 (바꿀 때만 — 평소에는 손대지 않는다)
 
-말투는 고르지 않는다. 바꿔야 하면 Claude에게 "사연자 목소리를 더 담담하게"처럼 말하면 설정 파일을 고쳐 main에 올린다. `voices/<역할>.json` 항목:
+말투는 고르지 않는다. 바꿔야 하면 Claude에게 "사연자 목소리를 더 담담하게"처럼 말하면 설정 파일을 고쳐 main에 올린다. 진행자 목소리를 바꾸면 모든 영상의 오디오가 다시 만들어진다 (4-1의 5). `voices/<역할>.json` 항목:
 
 | 항목 | 뜻 | 기본값 |
 |---|---|---|
 | `parts` | 이 역할이 읽는 파트 라벨 낱말. `"*"`는 다른 역할이 맡지 않은 모든 파트 (한 역할만) | 사연자 `["사연"]`, 진행자 `["*"]` |
-| `speaker` | 화자. 한국어가 모국어인 화자는 **Sohee** 하나 (다른 화자는 외국인 억양이 섞일 수 있음) | `Sohee` |
-| `instruct` | 말투 지시. 음색보다 **감정·속도·쉼·억양**을 쓴다. 끝에 "Keep every word clear"(단어는 또렷하게) | 사연자: 억울·후회 고백 / 진행자: 차분한 진행 |
-| `part_instruct` | 역할 안에서 파트별 말투 `{파트 낱말: 지시}`. 비우면 모두 `instruct` | 진행자: 분석·방법 = 또렷한 설명, 마무리 = 따뜻한 인사 |
+| `engine` | `custom_voice`(화자 + 말투 지시) 또는 `clone`(기준 목소리 복제) | 사연자 `custom_voice`, 진행자 `clone` |
+| `lock` | `true`면 주제·영상 덮어쓰기와 명령줄 값을 받지 않음 | 진행자 `true` |
+| `speaker` | (custom_voice) 화자. 한국어가 모국어인 화자는 **Sohee** 하나 | 사연자 `Sohee` |
+| `ref_audio`·`ref_meta` | (clone) 기준 목소리 파일 — 손으로 바꾸지 않는다 (해시 검사에서 멈춤) | `voices/ref/host.wav`·`.json` |
+| `design` | (clone) 기준 목소리를 만들 때만: `instruct`(목소리 묘사), `text`(읽을 문장), `seed`, `tries`(6), `f0_range`([85, 150]Hz), `f0_target`(110Hz) | 중저음 남성 뉴스 앵커·다큐 내레이터 |
+| `f0_tolerance` | (clone) 문장 목소리 높이가 기준에서 벗어나도 되는 비율 | 0.3 |
+| `instruct` | (custom_voice) 말투 지시. 음색보다 **감정·속도·쉼·억양**을 쓴다. 끝에 "Keep every word clear" | 사연자: 억울·후회 고백 |
+| `part_instruct` | (custom_voice) 역할 안에서 파트별 말투 `{파트 낱말: 지시}`. clone은 말투 지시를 받지 않아 무시 | 비어 있음 |
 | `seed` | 기본 시드. 바꾸면 그 역할의 문장을 모두 새로 만든다 | 1234 |
 | `gap` | 그 역할의 문장 사이 쉼(초), 0.2 이상 | 0.45 |
 | `generation` | 생성 설정 `{temperature, top_p, top_k, repetition_penalty}` | 모델 기본값 |
 
-- 주제·영상마다 다르게: 바꿀 항목만 담은 같은 이름의 파일을 `<주제폴더>/voices/` 또는 `<주제폴더>/source/<영상ID>/voices/`에 둔다 (영상 > 주제 > 기본 순서로 덮어씀, 로그 `[ROLE] … files=`).
+- 주제·영상마다 다르게 (사연자만 — 진행자는 lock): 바꿀 항목만 담은 같은 이름의 파일을 `<주제폴더>/voices/` 또는 `<주제폴더>/source/<영상ID>/voices/`에 둔다 (영상 > 주제 > 기본 순서로 덮어씀, 로그 `[ROLE] … files=`).
 - 설정을 바꾸면 파일 안 `_버전`에 남긴다. 0.6B 모델은 말투 지시를 무시한다 (기본 1.7B).
 
 ## 변경 이력
 
 | 버전 | 날짜 | 변경 내용 |
 |---|---|---|
+| v1.4 | 2026-10-11 | 사용자 지시: 진행자는 중저음 남성(귀에 쏙쏙 들어오고 신뢰감 있게), 대본마다 달라지면 안 됨 — 기준 목소리를 처음 한 번 VoiceDesign으로 만들어(남성 중저음 85~150Hz·속도·무음 검사, 사람이 고르지 않음) `voices/ref/host.wav`로 고정하고 모든 대본이 Base 모델로 복제. 문장마다 높이 ±30% 검사, lock, 목소리가 바뀐 오디오는 다시 만듦. 1번 모델 표, 4-1 |
 | v1.3.1 | 2026-10-11 | 셀 넷째 줄: `git pull` → `git config core.fileMode false && git fetch origin main && git reset --hard origin/main` (사본에서 실행 권한만 바뀐 `tools/publish.sh` 때문에 pull이 멈춘 오류), 문제 표에 이 오류 추가 |
 | v1.3 | 2026-10-11 | 사용자 지시: 오디오는 고르지 않고 하나로 — 말투 시험(sample A~D)·`preset`·역할만 이은 트랙 삭제, 영상마다 `narration.mp3` 하나. 결과를 GitHub에 올리기 — `all --push`가 영상마다 대본 폴더에 `narration.mp3`·`tts_narration.json`·`tts_report.md`를 main에 커밋·푸시(2-2 토큰은 Kaggle Secrets만). 노트북 셀 하나(3번), 문제가 생겼을 때 표, 올리기 안전장치(4번) |
 | v1.2 | 2026-10-10 | 사용자 지시: 사연자·진행자 역할과 목소리 설정 파일(`voices/storyteller.json`·`host.json`, 주제·영상별 덮어쓰기), 역할별 문장 파일·트랙의 정해진 경로(4번), 대본이 있는 영상을 모두 읽어 한 번에(`all`, 보류·업로드·옛 대본 처리), `pack`(zip)·`check`, Kaggle 셀 4개와 GitHub 웹 올리기 순서(3번), 목소리 바꾸기(6번) |

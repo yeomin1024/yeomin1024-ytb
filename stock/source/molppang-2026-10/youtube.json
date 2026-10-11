@@ -1,0 +1,35 @@
+{
+  "videoId": "ZyFe-J6kEc0",
+  "url": "https://youtu.be/ZyFe-J6kEc0",
+  "studio": "https://studio.youtube.com/video/ZyFe-J6kEc0/edit",
+  "privacy": "private",
+  "publishAt": "2026-10-11T12:00:00Z",
+  "containsSyntheticMedia": true,
+  "uploadedAt": "2026-10-11T10:06:43+00:00",
+  "title": "한 종목에만 몰빵해서 얻은 천만원 수익이 -2천만원이 됐습니다. 한 종목 올인한 사람들의 최악의 결말",
+  "videoFile": "final_1080p.mp4",
+  "videoSha256": "04a8717d102355e2c9a7b0151b62052f7542fe8f5e56b85ea6b3136616d67c78",
+  "chapters": [
+    "0:00 사연: 전 재산 몰빵, 천만 원 수익이 -2천만 원",
+    "1:05 왜 한 종목에 몰빵할까",
+    "1:41 문제 01 몰빵 종목이 하락하면 대처할 방법이 없다",
+    "3:04 문제 02 버티는 것도 답이 아니다",
+    "3:27 문제 03 큰 수익을 낼 확률 자체가 낮다",
+    "4:24 문제 04 몰빵은 판단력까지 무너뜨린다",
+    "5:02 방법 첫째: 한 종목 비중의 상한 정하기",
+    "5:35 방법 둘째: 종목만 말고 업종도 나누기",
+    "6:10 방법 셋째: 어렵다면 지수 ETF를 기본으로",
+    "6:39 방법 넷째: 한 번에 다 사지 말고 현금 남기기",
+    "7:02 방법 다섯째: 수익 나면 비중부터 확인",
+    "7:32 정리"
+  ],
+  "captions": null,
+  "thumbnail": "thumbnail_1.png",
+  "warnings": [
+    "자막 실패: HTTP 403 https://www.googleapis.com/upload/youtube/v3/captions: {\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\",\n    \"details\": [\n      {\n        \"@type\": \"type.googleapis.com/google.rpc.ErrorInfo\",\n        \"reason\": \"ACCESS_TOKEN_SCOPE_INSUFFICIENT\",\n        \"domain\": \"googleapis.com\",\n        \"metadata\": {\n          \"se"
+  ],
+  "studioTodo": [
+    "공개 전(예약 시각 전) 스튜디오에서 확인: 영상·자막·썸네일, 자동 더빙(언어), 최종 화면",
+    "공개된 뒤 '테스트 및 비교'에 썸네일 3개 등록 — 비공개 영상은 테스트 불가"
+  ]
+}

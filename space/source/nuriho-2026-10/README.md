@@ -14,6 +14,7 @@
 | `thumbnails/thumbnail_1.md` ~ `_3.md` | 썸네일 이미지 AI 프롬프트 3개 (숫자 반전 / 인물·감정 / 대비) |
 | `upload.md` | 업로드 시트 (설명란·챕터 13개·태그 15개·고정 댓글) |
 | `summary.md` | 요약 문서 (`python3 tools/make_summary.py space nuriho-2026-10`로 자동 생성) |
+| `tts_lexicon.tsv` | 읽는 소리 사전: `H3` → "에이치쓰리" (TTS에만 쓰고 대본·자막은 그대로, `guides/tts_guide.md`) |
 
 검사: `python3 tools/srt_tool.py check space/source/nuriho-2026-10/nuriho-2026-10.txt space/source/nuriho-2026-10/nuriho-2026-10.srt --expect 127/147`
 → `문장 127 / 자막 147 (나뉜 문장 20개) / SRT–TXT 일치 ✅ / 고지 공백 문장 28 뒤 8.0초 ✅ / 끝 00:11:52,212` · `✅ 이상 없음`

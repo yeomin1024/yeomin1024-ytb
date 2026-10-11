@@ -1,6 +1,6 @@
 # bittu-2026-10 한눈에 보기
 
-자동 생성 — `python tools/make_summary.py stock bittu-2026-10` (2026-10-11 08:41). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
+자동 생성 — `python tools/make_summary.py stock bittu-2026-10` (2026-10-11 09:53). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
 
 > **신용까지 써서 번 1,500만원이 반대매매 한 번에 -2,500만원이 됐습니다. 빚투한 사람들의 최악의 결말**
 
@@ -10,13 +10,13 @@
 |---|---|
 | 대본·SRT | ✅ 문장 88 / 자막 105, 길이 7:37 (오디오에 맞춤) |
 | 제목 3개 | ✅ 채택 T1 |
-| 썸네일 | 프롬프트 3개 ✅ · 이미지 0/3 (이미지 AI로 만들어 `thumbnails/thumbnail_N.png`에 저장) |
+| 썸네일 | 프롬프트 3개 ✅ · 이미지 3/3 |
 | 업로드 시트 | ✅ 설명란·태그·고정 댓글·챕터 |
 | 내레이션 역할 | 사연자 1–16 · 진행자 17–88 (`voices/*.json`) |
 | 오디오 | ✅ narration.mp3 · 지금 대본과 같음 |
 | 영상 코드 | ✅ `video/src/episodes/bittu-2026-10/` |
 | 렌더 | ✅ final_1080p.mp4 |
-| 유튜브 | ⏳ 렌더 뒤 비공개 업로드 + 렌더 완료 1시간 뒤 예약 공개 |
+| 유튜브 | ✅ 비공개 업로드 [u1fGSD4KPZI](https://studio.youtube.com/video/u1fGSD4KPZI/edit) (2026-10-11) · 예약 공개 2026-10-11 21:00 (한국 시간) |
 
 ## 1. 제목 3개 (`titles.md`)
 
@@ -30,7 +30,7 @@
 
 ### 썸네일 1 ✅ 기본(채택 제목의 짝) — 숫자 반전 (계좌 카드)
 
-🖼️ 이미지 없음 → 이미지 AI에 `thumbnails/thumbnail_1.md`의 [A] 프롬프트를 넣어 만든 뒤 `thumbnails/thumbnail_1.png`로 저장
+![thumbnail_1](thumbnails/thumbnail_1.png)
 
 - 가설: 수익이 손실로 뒤집힌 **계좌 숫자 반전**과 결정적 장면 한 단어("반대매매", 하단 2줄의 노랑)가 가장 클릭을 부른다
 
@@ -65,7 +65,7 @@ Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold
 
 ### 썸네일 2 — 인물·감정 장면 (담보 부족 문자)
 
-🖼️ 이미지 없음 → 이미지 AI에 `thumbnails/thumbnail_2.md`의 [A] 프롬프트를 넣어 만든 뒤 `thumbnails/thumbnail_2.png`로 저장
+![thumbnail_2](thumbnails/thumbnail_2.png)
 
 - 가설: 담보 부족 문자를 받은 순간의 **사람 표정**이 숫자 카드보다 감정을 더 끈다 (성공 썸네일 24개 중 약 20개가 얼굴)
 
@@ -103,7 +103,7 @@ Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold
 
 ### 썸네일 3 — 검은 배경 제목형 (채택 제목 문구)
 
-🖼️ 이미지 없음 → 이미지 AI에 `thumbnails/thumbnail_3.md`의 [A] 프롬프트를 넣어 만든 뒤 `thumbnails/thumbnail_3.png`로 저장
+![thumbnail_3](thumbnails/thumbnail_3.png)
 
 - 가설: 그림 없이 **글자만으로** 클릭을 부르는지 — 사진 썸네일 사이에서 검은 화면에 큰 제목 문구가 오히려 눈에 띈다
 

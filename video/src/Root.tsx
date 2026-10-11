@@ -6,6 +6,7 @@ import {FPS, H, W} from "./design/tokens";
 import {DURATION as MULTAGI_DURATION, Episode as Multagi} from "./episodes/multagi-2026-10/Episode";
 import {DURATION as BITTU_DURATION, Episode as Bittu} from "./episodes/bittu-2026-10/Episode";
 import {DURATION as PANICSELL_DURATION, Episode as Panicsell} from "./episodes/panicsell-2026-10/Episode";
+import {DURATION as MOLPPANG_DURATION, Episode as Molppang} from "./episodes/molppang-2026-10/Episode";
 
 loadFonts();
 
@@ -14,5 +15,6 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="multagi-2026-10" component={Multagi} durationInFrames={MULTAGI_DURATION} fps={FPS} width={W} height={H} />
     <Composition id="bittu-2026-10" component={Bittu} durationInFrames={BITTU_DURATION} fps={FPS} width={W} height={H} />
     <Composition id="panicsell-2026-10" component={Panicsell} durationInFrames={PANICSELL_DURATION} fps={FPS} width={W} height={H} />
+    <Composition id="molppang-2026-10" component={Molppang} durationInFrames={MOLPPANG_DURATION} fps={FPS} width={W} height={H} />
   </>
 );

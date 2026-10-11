@@ -1,0 +1,38 @@
+{
+  "video_id": "xvsPFAEslus",
+  "title": "\"죽기 전에 가장 후회하는 것 1위: 니체와 쇼펜하우어가 말하는 후회 없는 인생법\"",
+  "channel_title": "지혜의숲과나무",
+  "channel_id": "UCnD86jSUbdNP4MoNWsjKW_Q",
+  "published_at": "2026-04-06T21:00:55+00:00",
+  "views": 291619,
+  "likes": 3440.0,
+  "comments": 292.0,
+  "subscribers": 2320,
+  "duration_sec": 181.0,
+  "fmt": "long",
+  "outlier_score": 1436.5467980295566,
+  "baseline_views": 203.0,
+  "baseline_kind": "same_format",
+  "views_per_day": 1557.3189548460432,
+  "views_per_sub": 125.69784482758621,
+  "like_rate": 0.011796213552614884,
+  "comment_rate": 0.0010013064992335891,
+  "case_score": 93.2,
+  "selection_reason": "소규모 채널 쿼터",
+  "tags": [],
+  "description": "\"나중에 행복해지겠다는 말은 세상에서 가장 잔인한 거짓말입니다.\"\n배달원은 이미 엘리베이터를 탔습니다. 그가 문 앞에 서기 전, 당신의 삶을 찬란하게 낭비하십시오.\n\n미래를 위해 오늘을 참고 계신가요?\n아끼다 똥 된다는 말, 우리 인생에도 똑같이 적용됩니다.\n위대한 철학자 니체, 쇼펜하우어, 에피쿠로스가 입을 모아 말했던 '진짜 내 삶'을 사는 법.\n오늘 이 영상을 다 보고 나면, 여러분이 처박아두었던 비싼 그릇을 꺼내고 가장 맛있는 음식을 먹게 될 것입니다.\n\n[타임라인]\n00:00 죽음이라는 불청객은 예고 없이 옵니다\n01:15 첫 번째: 지금 당장 써버려야 할 행복 (니체의 충고)\n02:40 두 번째: 남들의 시선이라는 쓰레기통 비우기 (쇼펜하우어의 일갈)\n04:10 세 번째: 표현하지 않은 진심은 유효기간 지난 쿠폰일 뿐\n05:35 네 번째: 실패해도 상관없는 자유 (마르쿠스 아우렐리우스)\n07:00 완벽주의라는 감옥에서 탈출하는 법\n08:20 당신의 삶을 찬란하게 낭비하라\n\n#동기부여 #인생조언 #철학 #니체 #쇼펜하우어 #메멘토모리 #갓생 #자존감 #자기계발 #심리학",
+  "video_url": "https://www.youtube.com/watch?v=xvsPFAEslus",
+  "download_status": {
+    "video_id": "xvsPFAEslus",
+    "case_dir": "success_cases/03_죽기_전에_가장_후회하는_것_1위_니체와_쇼펜하우어가_xvsPFAEslus",
+    "thumbnail": "failed",
+    "video": "skipped(DOWNLOAD_VIDEOS=False)",
+    "transcript": "failed",
+    "transcript_errors": {
+      "api": "ProxyError: HTTPSConnectionPool(host='www.youtube.com', port=443): Max retries exceeded with url: /watch?v=xvsPFAEslus (Caused by ProxyError('Unable to connect to",
+      "ytdlp": "DownloadError: ERROR: [youtube] xvsPFAEslus: Unable to download API page: ('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')) (caused ",
+      "whisper": "DownloadError: ERROR: [youtube] xvsPFAEslus: Unable to download API page: ('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')) (caused "
+    },
+    "comments": 100
+  }
+}

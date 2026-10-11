@@ -1,0 +1,38 @@
+{
+  "video_id": "IByasey8HYk",
+  "title": "마그네슘 영양제 조합법 #마그네슘 #영양제조합 #영양제추천 #약사추천",
+  "channel_title": "띱약사의 비밀 약방",
+  "channel_id": "UC2QAyB5oeNBjJPv-_mHVP-A",
+  "published_at": "2025-10-17T03:00:22+00:00",
+  "views": 66064,
+  "likes": 252.0,
+  "comments": 8.0,
+  "subscribers": 1360,
+  "duration_sec": 21.0,
+  "fmt": "shorts",
+  "outlier_score": 35.797344892982935,
+  "baseline_views": 1845.5,
+  "baseline_kind": "same_format",
+  "views_per_day": 184.01894967221256,
+  "views_per_sub": 48.576470588235296,
+  "like_rate": 0.0038144829256478567,
+  "comment_rate": 0.0001210946960523129,
+  "case_score": 81.1,
+  "selection_reason": "소규모 채널 쿼터",
+  "tags": [],
+  "description": "💊마그네슘, 함께 먹으면 더 좋은 조합 7가지!\n\n마그네슘도 좋지만, 다른 영양소와 함께 먹으면 효과가 몇 배로 좋아집니다. \n약사가 알려드리는 황금 조합입니다.\n\n✔️면역력이 약하다면\n→ 마그네슘 + 비타민D + 아연\n(서로 도와서 면역 방패막을 만들어줍니다)\n\n✔️만날 피곤하고 무기력하다면  \n→ 마그네슘 + 비타민B군\n(에너지 생산 공장이 제대로 돌아갑니다)\n\n✔️스트레스로 잠 못 잔다면\n→ 마그네슘 + 테아닌 + 아슈와간다\n(마음도 편하고 깊은 잠까지 가능합니다)\n\n✔️30대 이후 잠이 얕아졌다면\n→ 마그네슘 + 멜라토닌  \n(자연스러운 수면 리듬을 회복해줍니다)\n\n✔️장-뇌 축\n→ 마그네슘 + 유산균\n(제2의 뇌 깨우기)\n\n✔️손발 저림, 부종이 있다면\n→ 마그네슘 + 피크노제놀\n(혈액순환이 확실히 달라집니다)\n\n✔️온몸이 아프고 염증이 있다면\n→ 마그네슘 + 커큐민 + 오메가3\n(염증을 잡는 3총사 조합입니다)\n\n각자 몸 상태에 맞는 조합 선택이 중요합니다.\n\n#마그네슘 #영양제조합  #건강정보 #약사추천",
+  "video_url": "https://www.youtube.com/watch?v=IByasey8HYk",
+  "download_status": {
+    "video_id": "IByasey8HYk",
+    "case_dir": "success_cases/05_마그네슘_영양제_조합법_마그네슘_영양제조합_영양제추천_IByasey8HYk",
+    "thumbnail": "failed",
+    "video": "skipped(DOWNLOAD_VIDEOS=False)",
+    "transcript": "failed",
+    "transcript_errors": {
+      "api": "ProxyError: HTTPSConnectionPool(host='www.youtube.com', port=443): Max retries exceeded with url: /watch?v=IByasey8HYk (Caused by ProxyError('Unable to connect to",
+      "ytdlp": "DownloadError: ERROR: [youtube] IByasey8HYk: Unable to download API page: ('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')) (caused ",
+      "whisper": "DownloadError: ERROR: [youtube] IByasey8HYk: Unable to download API page: ('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')) (caused "
+    },
+    "comments": 8
+  }
+}

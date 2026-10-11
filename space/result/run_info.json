@@ -1,0 +1,318 @@
+{
+  "notebook_version": "v2.3.0",
+  "run_id": "20261011_120612",
+  "started_at_utc": "2026-10-11T03:06:12.243036+00:00",
+  "finished_at_utc": "2026-10-11T03:11:35.036533+00:00",
+  "config_file": {
+    "file": "space/analyzer_config.toml",
+    "found": true,
+    "created": false,
+    "changed": [
+      "EXCLUDE_KEYWORDS",
+      "KEYWORD_GROUPS",
+      "KEYWORD_MODE",
+      "PROJECT_FOLDER",
+      "RELEVANCE_EXCLUDE",
+      "RELEVANCE_TERMS",
+      "RELEVANCE_WEAK_TERMS",
+      "TOPIC"
+    ],
+    "unknown": [],
+    "ignored": []
+  },
+  "config": {
+    "TOPIC": "우주",
+    "PROJECT_FOLDER": "space",
+    "RESULT_FOLDER": "result",
+    "GITHUB_REPO": "yeomin1024/yeomin1024-ytb",
+    "GITHUB_BRANCH": "main",
+    "EXTRA_KEYWORDS": [],
+    "EXCLUDE_KEYWORDS": [
+      "우주소녀",
+      "우주를 줄게",
+      "우주하마",
+      "우주떡집",
+      "우주메리미",
+      "노래",
+      "게임",
+      "제라스",
+      "노틸러스",
+      "케넨",
+      "코르키",
+      "피즈",
+      "티모",
+      "이무진",
+      "아이브",
+      "윤하",
+      "다이슨",
+      "관련주",
+      "주가",
+      "공모주",
+      "상장",
+      "이준석",
+      "시트콤",
+      "쉘든",
+      "동요",
+      "주니토니"
+    ],
+    "KEYWORD_MODE": "curated",
+    "KEYWORD_GROUPS": {
+      "1. 우주 사고·실화": [
+        "챌린저호 폭발사고",
+        "챌린저호 원인",
+        "컬럼비아호 폭발사고",
+        "아폴로 13호 사고",
+        "아폴로 13호 귀환",
+        "우주비행사 사망",
+        "우주인 사고",
+        "우주 비행 사고"
+      ],
+      "2. 미스터리·외계 생명체": [
+        "우주 미스터리 다큐",
+        "우주 미스터리 사건",
+        "우주 미스터리 모음",
+        "화성 탐사선이 포착한 수상한 흔적",
+        "외계 생명체 존재 가능성",
+        "외계 생명체 징후 발견",
+        "페르미 역설",
+        "우주 공포증"
+      ],
+      "3. 우주의 크기·끝·탄생": [
+        "우주의 끝은 어디일까",
+        "우주의 크기 비교",
+        "우주의 크기 체감",
+        "우주 탄생 과정",
+        "우주 탄생 이전",
+        "우주의 나이와 크기",
+        "블랙홀 생성 원리",
+        "블랙홀 빨려들어가면"
+      ],
+      "4. 탐사·우주망원경": [
+        "보이저1호 위치",
+        "보이저호 근황",
+        "제임스웹 우주망원경",
+        "화성 탐사 로버",
+        "우주 탐사의 역사",
+        "국제우주정거장 생활",
+        "달 착륙 과정",
+        "화성 이주 가능성"
+      ],
+      "5. 뉴스·위험 (누리호·소행성·우주 쓰레기)": [
+        "누리호 발사",
+        "누리호 해외반응",
+        "소행성 충돌 확률",
+        "소행성 충돌 2032",
+        "우주 쓰레기 추락",
+        "우주 쓰레기 문제",
+        "태양계 행성 크기 비교",
+        "태양계 행성 실제 모습"
+      ],
+      "6. 다큐·수면용 포맷": [
+        "우주 다큐멘터리",
+        "우주 다큐 수면",
+        "우주 다큐멘터리 더빙",
+        "신비한 우주 이야기",
+        "우주 신비 소름썰",
+        "우주 다큐 최신",
+        "아폴로 11호 달 착륙 영상",
+        "달 착륙 미공개 영상"
+      ]
+    },
+    "AUTOCOMPLETE_TOP_N": 10,
+    "RELEVANCE_TERMS": [
+      "우주",
+      "블랙홀",
+      "태양계",
+      "행성",
+      "소행성",
+      "혜성",
+      "천문",
+      "천체",
+      "외계",
+      "우주비행사",
+      "우주인",
+      "우주선",
+      "제임스웹",
+      "허블",
+      "보이저",
+      "아폴로",
+      "챌린저호",
+      "컬럼비아호",
+      "누리호",
+      "달 착륙",
+      "광년",
+      "중성자별",
+      "초신성",
+      "은하수",
+      "페르미 역설",
+      "화성 탐사",
+      "화성 이주",
+      "NASA"
+    ],
+    "RELEVANCE_WEAK_TERMS": [
+      "화성",
+      "로켓",
+      "나사",
+      "스페이스X",
+      "빅뱅",
+      "은하",
+      "성운",
+      "망원경",
+      "탐사",
+      "다큐",
+      "미스터리",
+      "지구"
+    ],
+    "RELEVANCE_EXCLUDE": [
+      "우주소녀",
+      "우주를 줄게",
+      "우주하마",
+      "우주 하마",
+      "우주떡집",
+      "우주메리미",
+      "소우주",
+      "우주최강",
+      "우주 최강",
+      "우주대스타",
+      "우주 대스타",
+      "로켓배송",
+      "보이저스 오브 네라",
+      "보이저엑스",
+      "화성시"
+    ],
+    "MAX_CASES_PER_CATEGORY": 2,
+    "SEARCH_CACHE_TTL_HOURS": 168,
+    "BASELINE_CACHE_TTL_HOURS": 72,
+    "REGION_CODE": "KR",
+    "LANGUAGE": "ko",
+    "ANALYSIS_DAYS": 365,
+    "MAX_SEARCH_KEYWORDS": 13,
+    "SEARCH_ORDERS": [
+      "relevance"
+    ],
+    "RELEVANCE_USE_DATE_FILTER": false,
+    "PAGES_PER_QUERY": 1,
+    "QUOTA_BUDGET": 9000,
+    "AUTOCOMPLETE_EXPAND": true,
+    "AUTOCOMPLETE_DEPTH2_N": 15,
+    "REQUIRE_TOPIC_IN_KEYWORD": true,
+    "MATURE_AGE_DAYS": 14,
+    "BASELINE_UPLOADS": 50,
+    "BASELINE_MIN_N": 5,
+    "MAX_BASELINE_CHANNELS": 700,
+    "OUTLIER_MIN": 3.0,
+    "MIN_SUCCESS_VIEWS": 10000,
+    "AD_SUSPECT_FILTER": true,
+    "AD_SUSPECT_MIN_VIEWS": 50000,
+    "AD_SUSPECT_MAX_LIKE_RATE": 0.0025,
+    "AD_SUSPECT_MAX_COMMENT_RATE": 5e-05,
+    "SMALL_CHANNEL_MAX_SUBS": 10000,
+    "BIG_CHANNEL_MIN_SUBS": 100000,
+    "SERP_TOP_N": 20,
+    "FRESH_DAYS": 90,
+    "SHORTS_HTTP_CHECK": true,
+    "FETCH_COMMENTS_TOP_N": 30,
+    "SUCCESS_CASE_COUNT": 8,
+    "SUCCESS_SMALL_CHANNEL_SHARE": 0.5,
+    "SUCCESS_LONGFORM_SHARE": 0.5,
+    "MAX_CASES_PER_CHANNEL": 1,
+    "DOWNLOAD_VIDEOS": false,
+    "VIDEO_MAX_HEIGHT": 480,
+    "VIDEO_MAX_MB": 49,
+    "ALLOW_VIDEO_UPLOAD_TO_PUBLIC_REPO": false,
+    "USE_WHISPER_FALLBACK": true,
+    "WHISPER_MODEL": "small",
+    "WHISPER_CPU_MAX_MINUTES": 15,
+    "YTDLP_COOKIES_FILE": "",
+    "COOKIES_FROM_BROWSER": "",
+    "YTDLP_CLIENT_FALLBACK": true,
+    "YTDLP_MAX_BOT_BLOCKS": 2,
+    "PUSH_TO_GITHUB": false,
+    "CLEAN_OLD_RESULTS": true,
+    "OUTPUT_DIR": "output",
+    "OPEN_RESULT_FOLDER": false,
+    "MAKE_RESULT_ZIP": false,
+    "AUTO_INSTALL_PACKAGES": true,
+    "UPDATE_YTDLP_DAILY": true,
+    "CACHE_TTL_HOURS": 24,
+    "RANDOM_SEED": 42,
+    "LOG_LEVEL": "INFO",
+    "RUN_SELF_TEST": true
+  },
+  "youtube_api": {
+    "quota_used": 1782,
+    "quota_budget": 9000,
+    "calls": {
+      "search": 13,
+      "videos": 213,
+      "channels": 5,
+      "playlistItems": 234,
+      "commentThreads": 30
+    },
+    "cache_hits": {
+      "playlistItems": 7
+    },
+    "errors": {
+      "commentThreads:403:commentsDisabled": 1
+    }
+  },
+  "cache": {
+    "hits": {
+      "yt_api": 7
+    },
+    "misses": {
+      "autocomplete": 78,
+      "yt_api": 495,
+      "is_short": 66
+    }
+  },
+  "timings_sec": {
+    "SELFTEST": 1.72,
+    "KEYWORD": 190.39,
+    "COLLECT": 30.49,
+    "FEATURE": 2.07,
+    "ANALYSIS": 17.43,
+    "CHART": 4.09,
+    "SUCCESS": 75.16
+  },
+  "notes": [
+    "[INIT] ⚠️ 위험/비용 관련 설정이 기본값과 다릅니다 key=DOWNLOAD_VIDEOS default=True current=False",
+    "[KEYWORD] 일부 자동완성(수요 점수) 요청 실패 → 해당 접두어는 수요 0으로 계산 n_failed=78",
+    "[SUCCESS] 모든 대본 수집 실패 — YouTube 차단(봇 확인) 또는 네트워크 문제일 수 있음 hint=\"VPN 끄기 / cookies.txt를 스크립트 폴더에 두고 다시 실행\""
+  ],
+  "data_ranges": {
+    "videos_total": 466,
+    "perf_videos": 160,
+    "perf_published_min": "2025-10-11 10:48:00+00:00",
+    "perf_published_max": "2026-09-26 07:52:59+00:00",
+    "collected_at": "2026-10-11 03:09:54.844882+00:00"
+  },
+  "scoring": {
+    "keyword_weights": {
+      "demand_vpd": 0.25,
+      "ac_score": 0.15,
+      "small_win_share": 0.2,
+      "median_outlier": 0.1,
+      "fresh_share": 0.05,
+      "low_competition": 0.15,
+      "content_gap": 0.1
+    },
+    "success_case_weights": {
+      "outlier": 0.4,
+      "views": 0.35,
+      "views_per_sub": 0.25
+    }
+  },
+  "keywords": {
+    "searched": 13,
+    "deferred": [],
+    "offtopic_excluded": 11
+  },
+  "environment": {
+    "python": "3.13.16",
+    "pandas": "3.0.6",
+    "numpy": "2.5.4",
+    "os": "Linux-6.18.44-fc-v114-x86_64-with-glibc2.39"
+  },
+  "disclaimer": "연구·교육용 분석 결과이며 투자 조언이 아닙니다."
+}

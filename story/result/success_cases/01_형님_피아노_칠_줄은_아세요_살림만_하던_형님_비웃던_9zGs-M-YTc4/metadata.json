@@ -1,0 +1,52 @@
+{
+  "video_id": "9zGs-M-YTc4",
+  "title": "\"형님 피아노 칠 줄은 아세요?\" 살림만 하던 형님 비웃던 음대 나온 동서는 1분 뒤..ㅣ노후사연ㅣ감동사연ㅣ사연라디오ㅣ오디오북",
+  "channel_title": "굿밤이야기",
+  "channel_id": "UCL_UGajTXHpw8uMo4RnJDYQ",
+  "published_at": "2026-09-19T01:06:01+00:00",
+  "views": 1012644,
+  "likes": 39824.0,
+  "comments": 69.0,
+  "subscribers": 16000,
+  "duration_sec": 87.0,
+  "fmt": "long",
+  "outlier_score": 71.82891190239751,
+  "baseline_views": 14098.0,
+  "baseline_kind": "all_formats",
+  "views_per_day": 45848.231411542045,
+  "views_per_sub": 63.29025,
+  "like_rate": 0.0393267525408732,
+  "comment_rate": 6.81384573453257e-05,
+  "case_score": 94.6,
+  "selection_reason": "종합점수 상위",
+  "tags": [
+    "감동사연",
+    "노후사연",
+    "시니어사연",
+    "인생사연",
+    "부모자식",
+    "오디오북",
+    "오디오드라마",
+    "소설읽어주는여자",
+    "이야기들려주는여자",
+    "잠잘때듣는이야기",
+    "사연라이도",
+    "이야기",
+    "사연"
+  ],
+  "description": "대장간 손이라 놀림받던 큰며느리, 음악회 무대에서 드러난 스무 해의 비밀\n\n스무 해 넘게 이 집 부엌만 지켜 온 큰며느리 정원. 온 식구가 굳은살 박인 그녀의 손을 '대장간 손'이라 부르며 웃을 때, 정작 그 손이 무엇을 숨기고 있는지 아는 사람은 없었습니다. 음대를 나온 동서의 화려한 아카데미, 그 개원 음악회 무대 위에서 조카 하율이 무너지던 순간, 정원은 스무 해 동안 닫아 두었던 건반 앞에 다시 앉습니다. 살림만 하던 이 여자는 대체 누구였으며, 어째서 그토록 오랜 세월 자신의 재능을 감추고 살아야 했던 것일까요.\n\n진짜 실력은 요란하게 드러나는 것이 아니라, 묵묵히 견뎌 온 세월 속에 조용히 익어 갑니다.\n묵묵히 자리를 지켜 온 이들의 감춰진 가치를 돌아보게 하고자 이 이야기를 만들었습니다.\n\n▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n⚠️이 영상은 직접 기획·집필하여 제작한 창작 오디오 드라마이며, 음성 낭독 등 일부 과정에 AI 기술을 활용했습니다.\n묵묵히 견뎌 온 삶에도 저마다의 빛나는 재능과 존엄이 깃들어 있다는 교육적 가치를 전하기 위해 제작되었습니다.\n▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n\n#노후사연 #오디오북 #부모자식 #감동재회 #인생사연 #시니어사연 #라디오드라마 #가족이야기 #감동사연 #오디오드라마 #사연라디오 #눈물나는이야기 #잠잘때듣는이야기 #인생사연",
+  "video_url": "https://www.youtube.com/watch?v=9zGs-M-YTc4",
+  "download_status": {
+    "video_id": "9zGs-M-YTc4",
+    "case_dir": "success_cases/01_형님_피아노_칠_줄은_아세요_살림만_하던_형님_비웃던_9zGs-M-YTc4",
+    "thumbnail": "failed",
+    "video": "skipped(DOWNLOAD_VIDEOS=False)",
+    "transcript": "failed",
+    "transcript_errors": {
+      "api": "ProxyError: HTTPSConnectionPool(host='www.youtube.com', port=443): Max retries exceeded with url: /watch?v=9zGs-M-YTc4 (Caused by ProxyError('Unable to connect to",
+      "ytdlp": "DownloadError: ERROR: [youtube] 9zGs-M-YTc4: Unable to download API page: ('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')) (caused ",
+      "whisper": "DownloadError: ERROR: [youtube] 9zGs-M-YTc4: Unable to download API page: ('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')) (caused "
+    },
+    "comments": 48
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "video_id": "QPKar_hPyjU",
+  "title": "20대 때 돈 버는 것보다 더 중요한 것",
+  "channel_title": "마업",
+  "channel_id": "UCy0jb39ZzweA65OctrIUlmg",
+  "published_at": "2025-10-12T10:16:33+00:00",
+  "views": 602815,
+  "likes": 8959.0,
+  "comments": 190.0,
+  "subscribers": 80800.0,
+  "duration_sec": 39.0,
+  "fmt": "shorts",
+  "outlier_score": 27.50695870408396,
+  "baseline_views": 21915.0,
+  "baseline_kind": "same_format",
+  "views_per_day": 1657.432108651769,
+  "views_per_sub": 7.460581683168317,
+  "like_rate": 0.014861939400977082,
+  "comment_rate": 0.00031518791005532377,
+  "case_score": 85.8,
+  "selection_reason": "종합점수 상위",
+  "tags": [
+    "동기부여",
+    "자기계발",
+    "마인드셋",
+    "인생",
+    "명언",
+    "인생조언",
+    "20대",
+    "정승제"
+  ],
+  "description": "조금씩 조금씩 성장하는\n마인드 셋! 마인드 업!\n\n동기부여 받고\n성공하고 싶다면\n@mind_upp  구독!\n\n출처 : 정승제\n\n#마인드셋 #자기계발 #동기부여 #명언 #인생",
+  "video_url": "https://www.youtube.com/watch?v=QPKar_hPyjU",
+  "download_status": {
+    "video_id": "QPKar_hPyjU",
+    "case_dir": "success_cases/06_20대_때_돈_버는_것보다_더_중요한_것_QPKar_hPyjU",
+    "thumbnail": "failed",
+    "video": "skipped(DOWNLOAD_VIDEOS=False)",
+    "transcript": "failed",
+    "transcript_errors": {
+      "api": "ProxyError: HTTPSConnectionPool(host='www.youtube.com', port=443): Max retries exceeded with url: /watch?v=QPKar_hPyjU (Caused by ProxyError('Unable to connect to",
+      "ytdlp": "DownloadError: ERROR: [youtube] QPKar_hPyjU: Unable to download API page: ('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')) (caused ",
+      "whisper": "DownloadError: ERROR: [youtube] QPKar_hPyjU: Unable to download API page: ('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')) (caused "
+    },
+    "comments": 94
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "video_id": "oGEJ5R--1ko",
+  "title": "(실화사연) 고급식당 상견례서 “건물도 없죠?” 비웃던 시어머니… 아빠가 파혼 선언하자 식당주인 한마디에 얼어붙었다",
+  "channel_title": "시월드 사이다",
+  "channel_id": "UCnKBBJ7eJJLk-eRehXT3L7Q",
+  "published_at": "2026-09-08T22:00:16+00:00",
+  "views": 527483,
+  "likes": 2993.0,
+  "comments": 156.0,
+  "subscribers": 4310,
+  "duration_sec": 2978.0,
+  "fmt": "long",
+  "outlier_score": 36.11413117896755,
+  "baseline_views": 14606.0,
+  "baseline_kind": "same_format",
+  "views_per_day": 16373.392604467075,
+  "views_per_sub": 122.38584686774942,
+  "like_rate": 0.005674116511811755,
+  "comment_rate": 0.0002957441282467871,
+  "case_score": 91.6,
+  "selection_reason": "소규모 채널 쿼터",
+  "tags": [],
+  "description": "몇 달 동안 예비 시어머니는 결혼을 걱정해 주는 척했지만, 사실은 우리 집안에 돈이 얼마나 있는지 조용히 떠보고 있었습니다. 제가 근무하는 은행에 예고도 없이 찾아와 사적인 질문을 쏟아내고, 지점장과 따로 이야기를 나누는가 하면, 제 부모님이 자기 아들과 결혼시키기엔 형편이 부족하다는 식으로 계속 비꼬기까지 했죠. 그러다 마침내 양가 상견례 날, 그분은 더 이상 본심을 숨기지 않았습니다. 하지만 그때까지만 해도 몰랐습니다. 불과 몇 분 뒤, 바로 그 식당에서 한 사람이 다가와 던진 한마디가 그녀의 모든 자랑을 순식간에 웃음거리로 만들어 버릴 줄은요.",
+  "video_url": "https://www.youtube.com/watch?v=oGEJ5R--1ko",
+  "download_status": {
+    "video_id": "oGEJ5R--1ko",
+    "case_dir": "success_cases/05_실화사연_고급식당_상견례서_건물도_없죠_비웃던_시어머니_oGEJ5R--1ko",
+    "thumbnail": "failed",
+    "video": "skipped(DOWNLOAD_VIDEOS=False)",
+    "transcript": "failed",
+    "transcript_errors": {
+      "api": "ProxyError: HTTPSConnectionPool(host='www.youtube.com', port=443): Max retries exceeded with url: /watch?v=oGEJ5R--1ko (Caused by ProxyError('Unable to connect to",
+      "ytdlp": "DownloadError: ERROR: [youtube] oGEJ5R--1ko: Unable to download API page: ('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')) (caused ",
+      "whisper": "DownloadError: ERROR: [youtube] oGEJ5R--1ko: Unable to download API page: ('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')) (caused "
+    },
+    "comments": 78
+  }
+}

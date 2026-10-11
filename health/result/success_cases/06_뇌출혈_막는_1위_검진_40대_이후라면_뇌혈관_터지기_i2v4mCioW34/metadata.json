@@ -1,0 +1,53 @@
+{
+  "video_id": "i2v4mCioW34",
+  "title": "뇌출혈 막는 1위 검진 “40대 이후라면 뇌혈관 터지기 전 꼭 확인하세요” (서울대병원 이승훈 교수) #뇌졸중 #뇌출혈 #건강검진 #검진 #이승훈교수 #mra #shorts",
+  "channel_title": "건강의 신",
+  "channel_id": "UCtTzA9_TTSWnVNxsN4GiLgA",
+  "published_at": "2026-05-26T09:03:31+00:00",
+  "views": 2962849,
+  "likes": 44700.0,
+  "comments": 448.0,
+  "subscribers": 488000,
+  "duration_sec": 59.0,
+  "fmt": "shorts",
+  "outlier_score": 3.9044192160454374,
+  "baseline_views": 758845.0,
+  "baseline_kind": "same_format",
+  "views_per_day": 21508.211509575187,
+  "views_per_sub": 6.071411885245902,
+  "like_rate": 0.015086830277209537,
+  "comment_rate": 0.00015120581575368844,
+  "case_score": 81.0,
+  "selection_reason": "종합점수 상위",
+  "tags": [
+    "뇌출혈",
+    "뇌졸중",
+    "지주막하출혈",
+    "검진",
+    "뇌혈관검진",
+    "mra",
+    "건강검진",
+    "뇌혈관검사",
+    "뇌졸중예방",
+    "뇌출혈예방",
+    "건강의신",
+    "서울대병원신경과",
+    "이승훈교수",
+    "서울대병원이승훈교수"
+  ],
+  "description": "자세한 내용은 좌측 하단 ▷제목 표시 클릭! '건강의 신' 본편 영상을 참고하세요\n서울대병원 뇌졸중 명의 이승훈 교수가\n확실한 뇌졸중 예방 방법을 시원하게 알려드립니다\n\n\n#뇌출혈 #뇌졸중 #지주막하출혈 #검진 #건강검진 #brainbleed #mra #뇌혈관검사 #뇌졸중예방 #건강의신 #서울대병원신경과 #이승훈교수 #서울대병원이승훈교수",
+  "video_url": "https://www.youtube.com/watch?v=i2v4mCioW34",
+  "download_status": {
+    "video_id": "i2v4mCioW34",
+    "case_dir": "success_cases/06_뇌출혈_막는_1위_검진_40대_이후라면_뇌혈관_터지기_i2v4mCioW34",
+    "thumbnail": "failed",
+    "video": "skipped(DOWNLOAD_VIDEOS=False)",
+    "transcript": "failed",
+    "transcript_errors": {
+      "api": "ProxyError: HTTPSConnectionPool(host='www.youtube.com', port=443): Max retries exceeded with url: /watch?v=i2v4mCioW34 (Caused by ProxyError('Unable to connect to",
+      "ytdlp": "DownloadError: ERROR: [youtube] i2v4mCioW34: Unable to download API page: ('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')) (caused ",
+      "whisper": "DownloadError: ERROR: [youtube] i2v4mCioW34: Unable to download API page: ('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')) (caused "
+    },
+    "comments": 100
+  }
+}

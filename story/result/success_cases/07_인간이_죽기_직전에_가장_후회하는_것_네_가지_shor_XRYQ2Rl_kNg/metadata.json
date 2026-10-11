@@ -1,0 +1,38 @@
+{
+  "video_id": "XRYQ2Rl_kNg",
+  "title": "인간이 죽기 직전에 가장 후회하는 것 네 가지 #shorts #명언 #인간관계 #철학 #지혜 #행복 #니체 #쇼펜하우어 #좋은글귀 #처세 #조언 #동기부여 #인생",
+  "channel_title": "인간혐오",
+  "channel_id": "UCsHxjs9f2OuW-Cwy5bwLz0A",
+  "published_at": "2026-08-05T09:00:37+00:00",
+  "views": 1232357,
+  "likes": 24984.0,
+  "comments": 183.0,
+  "subscribers": 38400,
+  "duration_sec": 73.0,
+  "fmt": "shorts",
+  "outlier_score": 33.85735675920711,
+  "baseline_views": 36398.5,
+  "baseline_kind": "same_format",
+  "views_per_day": 18460.261525116366,
+  "views_per_sub": 32.09263020833333,
+  "like_rate": 0.02027334611642568,
+  "comment_rate": 0.00014849593096805553,
+  "case_score": 91.6,
+  "selection_reason": "종합점수 상위",
+  "tags": [],
+  "description": "",
+  "video_url": "https://www.youtube.com/watch?v=XRYQ2Rl_kNg",
+  "download_status": {
+    "video_id": "XRYQ2Rl_kNg",
+    "case_dir": "success_cases/07_인간이_죽기_직전에_가장_후회하는_것_네_가지_shor_XRYQ2Rl_kNg",
+    "thumbnail": "failed",
+    "video": "skipped(DOWNLOAD_VIDEOS=False)",
+    "transcript": "failed",
+    "transcript_errors": {
+      "api": "ProxyError: HTTPSConnectionPool(host='www.youtube.com', port=443): Max retries exceeded with url: /watch?v=XRYQ2Rl_kNg (Caused by ProxyError('Unable to connect to",
+      "ytdlp": "DownloadError: ERROR: [youtube] XRYQ2Rl_kNg: Unable to download API page: ('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')) (caused ",
+      "whisper": "DownloadError: ERROR: [youtube] XRYQ2Rl_kNg: Unable to download API page: ('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')) (caused "
+    },
+    "comments": 100
+  }
+}

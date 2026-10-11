@@ -1,0 +1,292 @@
+{
+  "notebook_version": "v2.3.0",
+  "run_id": "20261011_120652",
+  "started_at_utc": "2026-10-11T03:06:52.903405+00:00",
+  "finished_at_utc": "2026-10-11T03:12:49.055668+00:00",
+  "config_file": {
+    "file": "story/analyzer_config.toml",
+    "found": true,
+    "created": false,
+    "changed": [
+      "EXCLUDE_KEYWORDS",
+      "KEYWORD_GROUPS",
+      "KEYWORD_MODE",
+      "PROJECT_FOLDER",
+      "RELEVANCE_EXCLUDE",
+      "RELEVANCE_TERMS",
+      "RELEVANCE_WEAK_TERMS",
+      "TOPIC"
+    ],
+    "unknown": [],
+    "ignored": []
+  },
+  "config": {
+    "TOPIC": "사연",
+    "PROJECT_FOLDER": "story",
+    "RESULT_FOLDER": "result",
+    "GITHUB_REPO": "yeomin1024/yeomin1024-ytb",
+    "GITHUB_BRANCH": "main",
+    "EXTRA_KEYWORDS": [],
+    "EXCLUDE_KEYWORDS": [
+      "사연튜브",
+      "사연극장",
+      "사연툰",
+      "썰그",
+      "썰툰",
+      "썰티비",
+      "썰이모",
+      "코인 대박",
+      "야릇한",
+      "외도",
+      "노래",
+      "타로",
+      "브금"
+    ],
+    "KEYWORD_MODE": "curated",
+    "KEYWORD_GROUPS": {
+      "1. 가족 갈등 (고부·형제·황혼)": [
+        "시어머니 며느리 갈등 사연",
+        "고부갈등 사연",
+        "시아버지 며느리 사연",
+        "시니어 사연 며느리",
+        "형제간 재산 다툼",
+        "유산상속 분쟁",
+        "황혼 이혼 이유",
+        "황혼 이혼 후 삶"
+      ],
+      "2. 돈·배신·결혼 후회": [
+        "돈 빌려주고 못받을때",
+        "돈 빌려주고 이자",
+        "떼인 돈 받기",
+        "친구 배신 썰",
+        "사이다 이혼 사연",
+        "결혼 후회하는 이유",
+        "결혼 후회 비용",
+        "결혼 후회하는 남자"
+      ],
+      "3. 인생 후회·교훈": [
+        "죽기 전에 후회하는 것들",
+        "나이들면 후회하는 것들",
+        "80세가 되고 후회하는 것들",
+        "노년에 후회하는 것",
+        "인생에서 가장 후회하는 것",
+        "인생 교훈 지혜",
+        "인생 교훈 명언",
+        "인생 조언 모음"
+      ],
+      "4. 인간관계 교훈": [
+        "인간관계 정리하는 방법",
+        "인간관계 정리되는 시기",
+        "인간관계 정리 신호",
+        "인간관계 정리의 법칙",
+        "인간관계 경계",
+        "인간관계 해결",
+        "사람 보는 눈 기르기",
+        "친구 배신감"
+      ],
+      "5. 사연 포맷 (라디오·낭독·오디오북)": [
+        "사연 라디오",
+        "시니어 사연 라디오",
+        "사연 낭독",
+        "시니어 오디오북 사연",
+        "실화 사연 모음",
+        "감동 실화 사연",
+        "반전 실화 사연",
+        "오늘의 사연 실화"
+      ],
+      "6. 사이다·참교육·감동": [
+        "사이다 사연 모음",
+        "사이다 참교육 사연",
+        "시어머니 사이다 사연",
+        "시댁 사이다 사연",
+        "감동 사연 모음",
+        "해외 감동 사연",
+        "시니어 감동 사연",
+        "사연툰 시어머니"
+      ]
+    },
+    "AUTOCOMPLETE_TOP_N": 10,
+    "RELEVANCE_TERMS": [
+      "사연",
+      "실화",
+      "교훈",
+      "썰",
+      "시어머니",
+      "며느리",
+      "시댁",
+      "고부갈등",
+      "참교육",
+      "황혼 이혼",
+      "황혼이혼",
+      "오디오북",
+      "인생 조언",
+      "인간관계",
+      "후회하는 것",
+      "돈 빌려주",
+      "떼인 돈",
+      "사람 보는 눈"
+    ],
+    "RELEVANCE_WEAK_TERMS": [
+      "후회",
+      "배신",
+      "이혼",
+      "갈등",
+      "사이다",
+      "감동",
+      "라디오",
+      "인생",
+      "유산",
+      "상속",
+      "재산",
+      "보증",
+      "결혼",
+      "자식",
+      "형제",
+      "친구",
+      "노년",
+      "시니어",
+      "낭독"
+    ],
+    "RELEVANCE_EXCLUDE": [
+      "썰매",
+      "썰기",
+      "썰어",
+      "채썰",
+      "썰물",
+      "썰렁",
+      "사이다 식초"
+    ],
+    "MAX_CASES_PER_CATEGORY": 2,
+    "SEARCH_CACHE_TTL_HOURS": 168,
+    "BASELINE_CACHE_TTL_HOURS": 72,
+    "REGION_CODE": "KR",
+    "LANGUAGE": "ko",
+    "ANALYSIS_DAYS": 365,
+    "MAX_SEARCH_KEYWORDS": 13,
+    "SEARCH_ORDERS": [
+      "relevance"
+    ],
+    "RELEVANCE_USE_DATE_FILTER": false,
+    "PAGES_PER_QUERY": 1,
+    "QUOTA_BUDGET": 9000,
+    "AUTOCOMPLETE_EXPAND": true,
+    "AUTOCOMPLETE_DEPTH2_N": 15,
+    "REQUIRE_TOPIC_IN_KEYWORD": true,
+    "MATURE_AGE_DAYS": 14,
+    "BASELINE_UPLOADS": 50,
+    "BASELINE_MIN_N": 5,
+    "MAX_BASELINE_CHANNELS": 700,
+    "OUTLIER_MIN": 3.0,
+    "MIN_SUCCESS_VIEWS": 10000,
+    "AD_SUSPECT_FILTER": true,
+    "AD_SUSPECT_MIN_VIEWS": 50000,
+    "AD_SUSPECT_MAX_LIKE_RATE": 0.0025,
+    "AD_SUSPECT_MAX_COMMENT_RATE": 5e-05,
+    "SMALL_CHANNEL_MAX_SUBS": 10000,
+    "BIG_CHANNEL_MIN_SUBS": 100000,
+    "SERP_TOP_N": 20,
+    "FRESH_DAYS": 90,
+    "SHORTS_HTTP_CHECK": true,
+    "FETCH_COMMENTS_TOP_N": 30,
+    "SUCCESS_CASE_COUNT": 8,
+    "SUCCESS_SMALL_CHANNEL_SHARE": 0.5,
+    "SUCCESS_LONGFORM_SHARE": 0.5,
+    "MAX_CASES_PER_CHANNEL": 1,
+    "DOWNLOAD_VIDEOS": false,
+    "VIDEO_MAX_HEIGHT": 480,
+    "VIDEO_MAX_MB": 49,
+    "ALLOW_VIDEO_UPLOAD_TO_PUBLIC_REPO": false,
+    "USE_WHISPER_FALLBACK": true,
+    "WHISPER_MODEL": "small",
+    "WHISPER_CPU_MAX_MINUTES": 15,
+    "YTDLP_COOKIES_FILE": "",
+    "COOKIES_FROM_BROWSER": "",
+    "YTDLP_CLIENT_FALLBACK": true,
+    "YTDLP_MAX_BOT_BLOCKS": 2,
+    "PUSH_TO_GITHUB": false,
+    "CLEAN_OLD_RESULTS": true,
+    "OUTPUT_DIR": "output",
+    "OPEN_RESULT_FOLDER": false,
+    "MAKE_RESULT_ZIP": false,
+    "AUTO_INSTALL_PACKAGES": true,
+    "UPDATE_YTDLP_DAILY": true,
+    "CACHE_TTL_HOURS": 24,
+    "RANDOM_SEED": 42,
+    "LOG_LEVEL": "INFO",
+    "RUN_SELF_TEST": true
+  },
+  "youtube_api": {
+    "quota_used": 1990,
+    "quota_budget": 9000,
+    "calls": {
+      "search": 13,
+      "videos": 336,
+      "channels": 8,
+      "playlistItems": 316,
+      "commentThreads": 30
+    },
+    "cache_hits": {
+      "playlistItems": 35
+    },
+    "errors": {}
+  },
+  "cache": {
+    "hits": {
+      "yt_api": 35
+    },
+    "misses": {
+      "autocomplete": 89,
+      "yt_api": 703,
+      "is_short": 102
+    }
+  },
+  "timings_sec": {
+    "SELFTEST": 1.65,
+    "KEYWORD": 218.89,
+    "COLLECT": 33.26,
+    "FEATURE": 2.89,
+    "ANALYSIS": 15.74,
+    "CHART": 4.06,
+    "SUCCESS": 78.5
+  },
+  "notes": [
+    "[INIT] ⚠️ 위험/비용 관련 설정이 기본값과 다릅니다 key=DOWNLOAD_VIDEOS default=True current=False",
+    "[KEYWORD] 일부 자동완성(수요 점수) 요청 실패 → 해당 접두어는 수요 0으로 계산 n_failed=89",
+    "[SUCCESS] 모든 대본 수집 실패 — YouTube 차단(봇 확인) 또는 네트워크 문제일 수 있음 hint=\"VPN 끄기 / cookies.txt를 스크립트 폴더에 두고 다시 실행\""
+  ],
+  "data_ranges": {
+    "videos_total": 554,
+    "perf_videos": 240,
+    "perf_published_min": "2025-10-11 12:03:42+00:00",
+    "perf_published_max": "2026-09-26 11:00:38+00:00",
+    "collected_at": "2026-10-11 03:11:06.705724+00:00"
+  },
+  "scoring": {
+    "keyword_weights": {
+      "demand_vpd": 0.25,
+      "ac_score": 0.15,
+      "small_win_share": 0.2,
+      "median_outlier": 0.1,
+      "fresh_share": 0.05,
+      "low_competition": 0.15,
+      "content_gap": 0.1
+    },
+    "success_case_weights": {
+      "outlier": 0.4,
+      "views": 0.35,
+      "views_per_sub": 0.25
+    }
+  },
+  "keywords": {
+    "searched": 13,
+    "deferred": [],
+    "offtopic_excluded": 91
+  },
+  "environment": {
+    "python": "3.13.16",
+    "pandas": "3.0.6",
+    "numpy": "2.5.4",
+    "os": "Linux-6.18.44-fc-v114-x86_64-with-glibc2.39"
+  },
+  "disclaimer": "연구·교육용 분석 결과이며 투자 조언이 아닙니다."
+}

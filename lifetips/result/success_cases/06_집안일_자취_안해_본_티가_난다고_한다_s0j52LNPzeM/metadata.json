@@ -1,0 +1,38 @@
+{
+  "video_id": "s0j52LNPzeM",
+  "title": "집안일(자취) 안해 본 티가 난다고 한다...",
+  "channel_title": "꽁주부",
+  "channel_id": "UCyWJ1DEvSLg6Xprj2ZzQEmQ",
+  "published_at": "2025-10-23T12:11:28+00:00",
+  "views": 5551601,
+  "likes": 63989.0,
+  "comments": 2199,
+  "subscribers": 369000,
+  "duration_sec": 47.0,
+  "fmt": "shorts",
+  "outlier_score": 26.954426169812464,
+  "baseline_views": 205962.5,
+  "baseline_kind": "same_format",
+  "views_per_day": 15743.63866316671,
+  "views_per_sub": 15.0449891598916,
+  "like_rate": 0.011526224597192774,
+  "comment_rate": 0.0003961019532923926,
+  "case_score": 78.0,
+  "selection_reason": "종합점수 상위",
+  "tags": [],
+  "description": "",
+  "video_url": "https://www.youtube.com/watch?v=s0j52LNPzeM",
+  "download_status": {
+    "video_id": "s0j52LNPzeM",
+    "case_dir": "success_cases/06_집안일_자취_안해_본_티가_난다고_한다_s0j52LNPzeM",
+    "thumbnail": "failed",
+    "video": "skipped(DOWNLOAD_VIDEOS=False)",
+    "transcript": "failed",
+    "transcript_errors": {
+      "api": "ProxyError: HTTPSConnectionPool(host='www.youtube.com', port=443): Max retries exceeded with url: /watch?v=s0j52LNPzeM (Caused by ProxyError('Unable to connect to",
+      "ytdlp": "DownloadError: ERROR: [youtube] s0j52LNPzeM: Unable to download API page: ('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')) (caused ",
+      "whisper": "DownloadError: ERROR: [youtube] s0j52LNPzeM: Unable to download API page: ('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')) (caused "
+    },
+    "comments": 100
+  }
+}

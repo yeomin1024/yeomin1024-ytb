@@ -1,0 +1,46 @@
+{
+  "video_id": "C884yB5MF_U",
+  "title": "NASA의 거짓말을 '얼음물 한 컵'으로 밝혀낸 아저씨",
+  "channel_title": "얼레벌레",
+  "channel_id": "UCMxKQgHzWuk4OeOL_TCVJ4w",
+  "published_at": "2026-02-28T09:00:18+00:00",
+  "views": 1904784,
+  "likes": 7353.0,
+  "comments": 304,
+  "subscribers": 23800,
+  "duration_sec": 30.0,
+  "fmt": "shorts",
+  "outlier_score": 63.44627273332889,
+  "baseline_views": 30022.0,
+  "baseline_kind": "same_format",
+  "views_per_day": 8474.871715158073,
+  "views_per_sub": 80.03294117647059,
+  "like_rate": 0.0038602802207494393,
+  "comment_rate": 0.00015959814866147552,
+  "case_score": 92.3,
+  "selection_reason": "종합점수 상위",
+  "tags": [
+    "NASA",
+    "챌린저호",
+    "노벨물리학상",
+    "미스테리",
+    "우주선",
+    "위인",
+    "리처드파인만"
+  ],
+  "description": "1986년 1월 28일 미국 케네디 우주센터에서\n우주왕복선 챌린저호가 발사된 지 약 73초 만에\n공중분해 되는 대참사가 발생했는데,\n(당시 고도 약 14.6km 지점)\n\n당시 기온은 영하2도로 발사 역사상 가장 추웠지만,\nNASA는 정치적 홍보 차질을 우려해\n현장 엔지니어의 경고를 무시하고 발사를 강행했으며\n\n사고 직후 구성된 대통령 직속 조사위원회에서\nNASA는 '불가항력적인 사고였음'을 주장하며\n조직적인 은폐와 책임 회피를 시도했지만\n\n위원회에 합류한 '리처드 파인만'이\n숨겨진 데이터 조작 정황을 포착하자마자\n\n반박 불가능한 물리적 증거를 보여주기 위해\n생중계 중이던 청문회 현장에서\n직접 얼음물 한 컵을 준비해 실험을 감행했는데,\n\n찬물 속에 70초간 담가두었던 고무 링을 꺼내\n집게로 눌렀을 때 탄성을 잃어 복구되지 않는 장면은\n사고 원인을 증명하는 결정적 물증이 되었고,\n\n이후 그는 보고서에 수록된 독립 조사 결과를 통해\nNASA가 '스스로를 기만했다'고 일갈하며,\n\n\"자연은 결코 속일 수 없다\"라는 명언을 남기고\n역사적인 일침을 남기고 조사를 마쳤는데,\n\n거대 권력의 오만함이 불러온 이 참사는\n공학 윤리와 조직의 투명성의 중요성을 보여주는\n가장 비극적이고도 명확한 기록으로 남아 있습니다.\n\n📖 『What Do You Care What Other People Think?』 리처드 파인만의 자서전으로, 챌린저호 참사 조사 과정의 비화와 NASA의 내부 갈등을 상세히 기록하고 있습니다.",
+  "video_url": "https://www.youtube.com/watch?v=C884yB5MF_U",
+  "download_status": {
+    "video_id": "C884yB5MF_U",
+    "case_dir": "success_cases/03_NASA의_거짓말을_얼음물_한_컵_으로_밝혀낸_아저씨_C884yB5MF_U",
+    "thumbnail": "failed",
+    "video": "skipped(DOWNLOAD_VIDEOS=False)",
+    "transcript": "failed",
+    "transcript_errors": {
+      "api": "ProxyError: HTTPSConnectionPool(host='www.youtube.com', port=443): Max retries exceeded with url: /watch?v=C884yB5MF_U (Caused by ProxyError('Unable to connect to",
+      "ytdlp": "DownloadError: ERROR: [youtube] C884yB5MF_U: Unable to download API page: ('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')) (caused ",
+      "whisper": "DownloadError: ERROR: [youtube] C884yB5MF_U: Unable to download API page: ('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')) (caused "
+    },
+    "comments": 100
+  }
+}

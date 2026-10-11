@@ -1,0 +1,38 @@
+{
+  "video_id": "dIPKbczbJTg",
+  "title": "광고X! 전문가들이 인정하는 속눈썹 영양제 BEST5 (진짜 효과 비교)",
+  "channel_title": "속눈썹 사업학교ㅣ비올리즈",
+  "channel_id": "UCiQT-eKaH_xJndfpXQIpJqQ",
+  "published_at": "2025-11-05T05:08:41+00:00",
+  "views": 16731,
+  "likes": 82.0,
+  "comments": 13.0,
+  "subscribers": 1420,
+  "duration_sec": 386.0,
+  "fmt": "long",
+  "outlier_score": 24.389212827988338,
+  "baseline_views": 686.0,
+  "baseline_kind": "same_format",
+  "views_per_day": 49.22078181442927,
+  "views_per_sub": 11.782394366197183,
+  "like_rate": 0.004901081824158747,
+  "comment_rate": 0.000777000777000777,
+  "case_score": 62.6,
+  "selection_reason": "소규모 채널 쿼터",
+  "tags": [],
+  "description": "안녕하세요, 비올리즈(Bealiz) 입니다 💗\n이번 영상은 [비올리즈 리얼리뷰]\n광고 0%, 진짜 사용 후기 기반으로 만든\n“속눈썹 영양제 BEST5” 입니다!\n\n속눈썹 시술 고객님들이 가장 많이 물어보시는 질문,\n\n“영양제 뭐 써야 해요?”\n“원장님은 뭐 쓰세요?”\n“효과 있는 게 있긴 한가요?”\n\n비올리즈가 직접 써보고 테스트한 결과를\n성분, 제형, 흡수력, 영양효과 기준으로 솔직하게 정리했습니다.\n\n이번 영상에서는 👇\n\n실제 사용감 & 흡수력 & 속눈썹 컨디션 비교 후\n비올리즈가 다시 쓰는 진짜 제품 TOP5\n\n속눈썹 관리의 핵심은\n💡 “시술력 + 홈케어” 입니다.\n\n좋은 영양제를 꾸준히 사용하는 것만으로도\n속눈썹의 두께감, 유지력, 윤기, 성장 속도가 확실히 달라집니다.\n우리 모두 건강한 홈케어와 함께\n건강한 시술로 예쁜 눈매를 만들어보아요~♥\n\n👉 도움이 되셨다면 구독과 좋아요 눌러주시고,  \n궁금한 점은 댓글로 남겨주세요.  \n👉 비올리즈 인스타 : https://www.instagram.com/bealiz__\n\n#속눈썹영양제 #속눈썹펌 #속눈썹연장 #비올리즈\n\n4. 타임 스탬프\n00:00 오프닝\n00:56 속눈썹 영양제란?\n01:29 언제 사용하는게 좋을까요?\n02:16 정말 효과가 있나요?\n02:45 속눈썹영양제 BEST5\n05:40 클로징\n\n#속눈썹 영양제 #비올리즈 #리얼리뷰 #속눈썹영양제추천 #속눈썹펌",
+  "video_url": "https://www.youtube.com/watch?v=dIPKbczbJTg",
+  "download_status": {
+    "video_id": "dIPKbczbJTg",
+    "case_dir": "success_cases/07_광고X_전문가들이_인정하는_속눈썹_영양제_BEST5_진_dIPKbczbJTg",
+    "thumbnail": "failed",
+    "video": "skipped(DOWNLOAD_VIDEOS=False)",
+    "transcript": "failed",
+    "transcript_errors": {
+      "api": "ProxyError: HTTPSConnectionPool(host='www.youtube.com', port=443): Max retries exceeded with url: /watch?v=dIPKbczbJTg (Caused by ProxyError('Unable to connect to",
+      "ytdlp": "DownloadError: ERROR: [youtube] dIPKbczbJTg: Unable to download API page: ('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')) (caused ",
+      "whisper": "DownloadError: ERROR: [youtube] dIPKbczbJTg: Unable to download API page: ('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')) (caused "
+    },
+    "comments": 8
+  }
+}

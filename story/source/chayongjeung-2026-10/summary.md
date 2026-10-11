@@ -1,6 +1,6 @@
 # chayongjeung-2026-10 한눈에 보기
 
-자동 생성 — `python tools/make_summary.py story chayongjeung-2026-10` (2026-10-11 04:03). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
+자동 생성 — `python tools/make_summary.py story chayongjeung-2026-10` (2026-10-11 07:49). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
 
 > **친구라서 차용증 없이 빌려준 3천만 원, 돌려받은 건 90만 원이었습니다. 정 때문에 돈 빌려준 사람들의 공통점**
 

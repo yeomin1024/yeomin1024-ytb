@@ -1,6 +1,6 @@
 # myeoneuri-2026-10 한눈에 보기
 
-자동 생성 — `python tools/make_summary.py story myeoneuri-2026-10` (2026-10-11 07:39). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
+자동 생성 — `python tools/make_summary.py story myeoneuri-2026-10` (2026-10-11 07:49). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
 
 > **아버님 말씀만 믿고 8년을 모셨는데 며느리 몫은 0원이었습니다. 시부모 간병한 며느리들이 모르는 불편한 진실**
 

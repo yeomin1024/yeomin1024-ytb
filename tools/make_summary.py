@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.3.1 — 2026-10-11 — 오디오 없음 안내 문구: Kaggle 셀 하나(all --push)가 대본 폴더에 올림 (사용자 지시)
+# VERSION: v1.3.2 — 2026-10-11 — 상태표 썸네일 줄: 프롬프트 파일 개수를 실제로 셈 (없는데 '3개 ✅'로 나오던 오류)
+#          (v1.3.1: 오디오 없음 안내 문구: Kaggle 셀 하나(all --push)가 대본 폴더에 올림)
 #          (v1.3: 사용자 지시: 요약에서 스토리보드 빼기 (상태 줄·4번 절 삭제, 영상 코드 상태로 대체),
 #          내레이션 역할(사연자·진행자, voices/*.json) 표시, 오디오가 지금 대본으로 만든 것인지(tts_narration.json) 표시
 #          (v1.2: 파트 라벨 판정을 srt_tool.is_label과 같게; v1.1: 예약 공개 시각 표시; v1.0: 영상별 summary.md, --thumb-todo, 표준 라이브러리만)
@@ -167,6 +168,7 @@ def build(topic, vid):
         audio_note = " · 대본과 같은지 정보 없음(직접 녹음)" if audio else ""
     has_code = (ROOT / "video" / "src" / "episodes" / vid).is_dir()
     imgs = [i for i in (1, 2, 3) if any((src / "thumbnails" / f"thumbnail_{i}{e}").exists() for e in IMG_EXTS)]
+    prompts = [i for i in (1, 2, 3) if (src / "thumbnails" / f"thumbnail_{i}.md").exists()]
     adopted = re.search(r"\[x\]\s*\*\*(T\d)[^\n]*?\*\*\s*(.+?)\s*`", titles_md)
     pair = re.search(r"\[x\].*짝 썸네일:\s*thumbnail_(\d)", titles_md)
     adopted_n = int(pair.group(1)) if pair else 1
@@ -177,7 +179,8 @@ def build(topic, vid):
                     f"({'오디오에 맞춤' if audio and (src / f'{vid}.srt').stat().st_mtime >= audio.stat().st_mtime else 'SRT 추정'})"
          if not problems else f"⚠️ {problems[0]}"),
         ("제목 3개", f"✅ 채택 {adopted.group(1)}" if adopted else ("✅" if titles_md else "❌ 없음")),
-        ("썸네일", f"프롬프트 3개 ✅ · 이미지 {len(imgs)}/3" + (" (이미지 AI로 만들어 `thumbnails/thumbnail_N.png`에 저장)" if len(imgs) < 3 else "")),
+        ("썸네일", (f"프롬프트 3개 ✅ · 이미지 {len(imgs)}/3" + (" (이미지 AI로 만들어 `thumbnails/thumbnail_N.png`에 저장)" if len(imgs) < 3 else ""))
+         if len(prompts) == 3 else f"❌ 프롬프트 {len(prompts)}/3 (`thumbnails/thumbnail_N.md`)"),
         ("업로드 시트", "✅ 설명란·태그·고정 댓글·챕터" if upload_md else "❌ 없음"),
         ("내레이션 역할", (role_ranges(txt, roles) + " (`voices/*.json`)") if roles and txt.exists() else "voices/ 없음"),
         ("오디오", f"✅ {audio.name}{audio_note}" if audio else

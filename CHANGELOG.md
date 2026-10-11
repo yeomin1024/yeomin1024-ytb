@@ -1,5 +1,16 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-11 — Kaggle 내레이션으로 영상 4개 렌더 + 요약 상태표 오류 수정 (make_summary v1.3.2)
+
+### 왜 바꿨나 (사용자 지시: "오디오 만들어졌는지 확인하고 잘됐으면 영상 만들어")
+- 4개 영상(bittu·multagi·panicsell·molppang)의 `narration.mp3` 확인: `tts_narration.py check` 모두 ok, 보고서상 다시 할 문장 0, 진행자 목소리 높이 135~138Hz로 영상마다 같음
+- 자막은 align-audio v1.2(`tts_narration.json`의 문장 시각)로 맞춘 뒤 렌더. 몰빵은 영상 코드가 없어서 새로 만듦 (`video/CHANGELOG.md`)
+
+| 영역 | 함수/파일 | 변경 내용 |
+|---|---|---|
+| 도구 | `tools/make_summary.py` v1.3.2 `build` 상태표 | 썸네일 줄이 프롬프트 파일이 없어도 "프롬프트 3개 ✅"로 나오던 오류 → `thumbnails/thumbnail_N.md` 개수를 세서 3개가 아니면 "❌ 프롬프트 n/3". 다른 영상 3개는 결과 같음(생성 시각 줄만 다름) |
+| 산출물 | `stock/source/molppang-2026-10/summary.md` (신규) | 몰빵 요약: 제목·썸네일 프롬프트·업로드 시트가 아직 없다고 표시 (업로드 전에 필요) |
+| 렌더(커밋 안 함) | `stock/out/<영상ID>/final_1080p.mp4` | bittu 7:38, multagi 7:53, panicsell 7:45, molppang 7:57. 통합 음량 약 -20 LUFS. 유튜브 키가 없어 업로드는 건너뜀 |
 ## 2026-10-11 — 주식 밖 5개 주제: 분석 → 주제 규칙 → 영상 3개씩 패키지(오디오 전까지)
 
 ### 왜 (사용자 지시)
@@ -32,6 +43,7 @@
 ### 다음
 - 사용자: Kaggle 셀 하나(`python tools/tts_narration.py all --push`, `guides/tts_guide.md` 3번) → 15개 오디오가 대본 폴더마다 main에 올라감 → "오디오 올렸어" → 4단계(영상 코드·렌더·비공개 업로드, 한 번에 최대 3개)
 - 썸네일 이미지는 사용자가 각 `thumbnails/thumbnail_N.md`의 [A] 프롬프트로 이미지 AI에서
+
 
 ## 2026-10-11 — 진행자는 중저음 남성, 모든 대본에서 같은 목소리 (tts_narration v1.3)
 

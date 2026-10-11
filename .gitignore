@@ -22,3 +22,5 @@ video/.remotion/
 video/public/fonts/
 video/public/audio/
 *.srt.bak-*
+# Claude Code 임시 작업 공간 (에이전트 worktree) — 커밋하지 않음
+.claude/worktrees/

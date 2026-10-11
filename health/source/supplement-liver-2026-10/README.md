@@ -9,17 +9,17 @@
 | 파일 | 내용 |
 |---|---|
 | `supplement-liver-2026-10.txt` | 대본 v1.0 — **문장 119**. 파트 라벨 `-사연 파트` · `-진행자 파트` · `[장면] 의학적 진단이 아닙니다`(영양제 영상용 3번 줄) · `-문제 분석 파트`(5개) · `-올바른 방법 설명 파트`(6개 + 먹어도 되는 기준) · `-마무리` |
-| `supplement-liver-2026-10.srt` | **문장 119 / 자막 160** (1432px 넘는 41문장은 앞줄·뒷줄), **문장 29 뒤 고지 공백 8.0초**, 끝 **11:46.9** (추정치, 목표 10~12분) |
+| `supplement-liver-2026-10.srt` | **문장 119 / 자막 161** (1432px 넘는 42문장은 앞줄·뒷줄), **문장 29 뒤 고지 공백 8.0초**, 끝 **11:47.7** (추정치, 목표 10~12분) |
 | `titles.md` | 제목 3개 (T1 채택) |
 | `thumbnails/thumbnail_1.md` ~ `_3.md` | 썸네일 이미지 AI 프롬프트 3개 (숫자 반전 / 인물 / 대비) |
 | `upload.md` | 업로드 시트 (설명란·챕터 14개·태그·고정 댓글·설정) |
 | `summary.md` | 요약 문서 (`tools/make_summary.py` 자동 생성) |
 
-검사: `python3 tools/srt_tool.py check health/source/supplement-liver-2026-10/supplement-liver-2026-10.txt health/source/supplement-liver-2026-10/supplement-liver-2026-10.srt --expect 119/160`
-→ `문장 119 / 자막 160 (나뉜 문장 41개) / SRT–TXT 일치 ✅ / 고지 공백 문장 29 뒤 8.0초 ✅ / 끝 00:11:46,904` · `✅ 이상 없음` (50자 넘는 문장 없음)
+검사: `python3 tools/srt_tool.py check health/source/supplement-liver-2026-10/supplement-liver-2026-10.txt health/source/supplement-liver-2026-10/supplement-liver-2026-10.srt --expect 119/161`
+→ `문장 119 / 자막 161 (나뉜 문장 42개) / SRT–TXT 일치 ✅ / 고지 공백 문장 29 뒤 8.0초 ✅ / 끝 00:11:47,673` · `✅ 이상 없음` (50자 넘는 문장 없음)
 녹음 후: `video/`에서 `npm run align-audio -- health supplement-liver-2026-10` (오디오는 고치지 않음, 문장 29 뒤 3.5초 이상 쉼)
 
-- 도입: 문장 1(0:00) "2년 전 … 간수치는 24" — 시점·검사·숫자 / 문장 8(0:34) "2년 만에 9가지, 하루 14알" / 문장 11(**0:50**) "간수치는 89, 기준인 35를 두 배 넘게" — 제목이 약속한 장면이 1분 안
+- 도입: 문장 1(0:00) "2년 전 … 간수치는 24" — 시점·검사·숫자 / 문장 8(0:35) "2년 만에 9가지, 하루 14알" / 문장 11(**0:51**) "간수치는 89, 기준인 35를 두 배 넘게" — 제목이 약속한 장면이 1분 안
 - 파트 라벨의 '사연'은 `-사연 파트`에만 있다 (문장 1~17 사연자 목소리, 18~119 진행자)
 
 ## 주제를 고른 이유 (`health/guides/data_insights.md` v1.0, 분석 실행 20261011_120552)
@@ -142,7 +142,7 @@
 
 ```markdown
 ## 2. 영양제·간수치 — `supplement-liver-2026-10`
-대본: `source/supplement-liver-2026-10/supplement-liver-2026-10.txt` v1.0 (문장 119 / 자막 160)
+대본: `source/supplement-liver-2026-10/supplement-liver-2026-10.txt` v1.0 (문장 119 / 자막 161)
 
 | 구분 | 쓴 내용 |
 |---|---|

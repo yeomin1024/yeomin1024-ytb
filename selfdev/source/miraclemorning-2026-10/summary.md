@@ -1,6 +1,6 @@
 # miraclemorning-2026-10 한눈에 보기
 
-자동 생성 — `python tools/make_summary.py selfdev miraclemorning-2026-10` (2026-10-11 04:00). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
+자동 생성 — `python tools/make_summary.py selfdev miraclemorning-2026-10` (2026-10-11 07:49). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
 
 > **하루 2시간 벌겠다고 새벽 5시에 일어났다가 잠 200시간을 잃었습니다. 미라클모닝 따라 한 사람들의 불편한 진실**
 
@@ -200,7 +200,7 @@ Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold
 
 **진행자 파트** — 🎙 진행자
 
-19. 새해나 월초가 되면 많은 분들이 이런 생각을 하죠.
+19. 시간에 쫓기다 보면 많은 분들이 이런 생각을 하죠.
 20. 남들보다 두 시간만 먼저 일어나면 인생이 달라질 거야.
 21. 모자란 잠은 주말에 몰아서 자면 되잖아.
 22. 성공한 사람들은 다 새벽에 일어난다던데.

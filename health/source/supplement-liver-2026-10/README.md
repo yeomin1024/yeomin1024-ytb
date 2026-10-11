@@ -14,6 +14,7 @@
 | `thumbnails/thumbnail_1.md` ~ `_3.md` | 썸네일 이미지 AI 프롬프트 3개 (숫자 반전 / 인물 / 대비) |
 | `upload.md` | 업로드 시트 (설명란·챕터 14개·태그·고정 댓글·설정) |
 | `summary.md` | 요약 문서 (`tools/make_summary.py` 자동 생성) |
+| `tts_lexicon.tsv` | 읽는 소리 사전: AST·ALT·비타민 D·비타민 A·QR 코드 (TTS에만 쓰고 대본·자막은 그대로, `guides/tts_guide.md`). 단위 kg·범위 물결표는 주제 공통 `health/tts_lexicon.tsv` |
 
 검사: `python3 tools/srt_tool.py check health/source/supplement-liver-2026-10/supplement-liver-2026-10.txt health/source/supplement-liver-2026-10/supplement-liver-2026-10.srt --expect 119/161`
 → `문장 119 / 자막 161 (나뉜 문장 42개) / SRT–TXT 일치 ✅ / 고지 공백 문장 29 뒤 8.0초 ✅ / 끝 00:11:47,673` · `✅ 이상 없음` (50자 넘는 문장 없음)

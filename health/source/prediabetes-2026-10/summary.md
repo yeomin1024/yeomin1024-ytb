@@ -1,6 +1,6 @@
 # prediabetes-2026-10 한눈에 보기
 
-자동 생성 — `python tools/make_summary.py health prediabetes-2026-10` (2026-10-11 03:55). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
+자동 생성 — `python tools/make_summary.py health prediabetes-2026-10` (2026-10-11 07:53). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
 
 > **공복혈당 108 '경계'라 괜찮다고 넘겼다가 3년 만에 당뇨가 됐습니다. 검진 결과지 대충 본 사람들의 공통점**
 

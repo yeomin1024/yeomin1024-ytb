@@ -1,6 +1,6 @@
 # 내레이션 만들기 — 오픈소스 음성 AI(Qwen3-TTS)를 Kaggle에서 (모든 주제 공통)
 
-버전: v1.3 — 2026-10-11 — 사용자 지시: 오디오는 고르지 않고 하나로(말투 시험·선택 단계 삭제, 영상마다 `narration.mp3` 하나), 결과 파일은 GitHub의 대본 폴더마다 자동으로 올린다(`--push`), Kaggle 셀 하나 (v1.2: 사연자·진행자 목소리 설정 파일, 대본 전부 한 번에 `all`; v1.1: 셀에 도구 파일을 붙여 넣지 말 것; v1.0: 사용자 지시: edge-tts는 어색하다 → 오픈소스 음성 AI로, Kaggle에서, 사연은 억울하고 후회하는 톤)
+버전: v1.3.1 — 2026-10-11 — 셀이 `git pull` 대신 Kaggle 사본을 main과 똑같이 맞춤 (`Your local changes ... would be overwritten by merge` 오류 해결) (v1.3: 사용자 지시: 오디오는 고르지 않고 하나로(말투 시험·선택 단계 삭제, 영상마다 `narration.mp3` 하나), 결과 파일은 GitHub의 대본 폴더마다 자동으로 올린다(`--push`), Kaggle 셀 하나 (v1.2: 사연자·진행자 목소리 설정 파일, 대본 전부 한 번에 `all`; v1.1: 셀에 도구 파일을 붙여 넣지 말 것; v1.0: 사용자 지시: edge-tts는 어색하다 → 오픈소스 음성 AI로, Kaggle에서, 사연은 억울하고 후회하는 톤)
 
 도구: `tools/tts_narration.py` v1.2 · 목소리 설정: `voices/storyteller.json`(사연자), `voices/host.json`(진행자)
 결과: 영상마다 오디오 **하나** — `<주제폴더>/source/<영상ID>/narration.mp3`가 **대본 폴더마다 각각** GitHub main에 자동으로 올라가고, 4단계(`guides/pipeline.md`)가 이어진다.
@@ -50,11 +50,13 @@ import os
 os.environ["GITHUB_TOKEN"] = UserSecretsClient().get_secret("GITHUB_TOKEN")
 !pip install -q -U qwen-tts
 !test -d /kaggle/working/yeomin1024-ytb || git clone -q --depth 1 https://github.com/yeomin1024/yeomin1024-ytb.git /kaggle/working/yeomin1024-ytb
-!cd /kaggle/working/yeomin1024-ytb && git pull -q && python tools/tts_narration.py all --push
+!cd /kaggle/working/yeomin1024-ytb && git config core.fileMode false && git fetch -q origin main && git reset -q --hard origin/main && python tools/tts_narration.py all --push
 ```
+- 넷째 줄 뒤쪽은 Kaggle의 저장소 사본을 main과 **똑같이** 맞춘다 (`git pull` 대신). 이 사본은 도구를 돌리는 용도라 고쳐 쓰지 않는다. 사본에서 실행 권한만 바뀐 파일이 있으면 `git pull`이 `Your local changes to the following files would be overwritten by merge`로 멈췄다.
+- 올리기가 실패해 사본에만 남은 커밋은 이 줄로 지워져도 괜찮다 — 결과는 `/kaggle/working/tts_out/upload/`에 있어 다음 실행이 다시 올린다.
 
 하는 일:
-1. 저장소를 받고(이미 있으면 최신으로), 대본(`<주제폴더>/source/<영상ID>/<영상ID>.txt`)을 **모두 읽어** 오디오가 없는 영상을 고른다. 로그 `[PLAN] video=… action=make|skip`
+1. 저장소를 받고(이미 있으면 main과 똑같이 맞추고), 대본(`<주제폴더>/source/<영상ID>/<영상ID>.txt`)을 **모두 읽어** 오디오가 없는 영상을 고른다. 로그 `[PLAN] video=… action=make|skip`
    - 건너뜀: 보류 주제(README에 ⏸), 이미 업로드한 영상(`youtube.json`), 지금 대본으로 만든 오디오가 이미 저장소에 있는 영상
    - 다시 만듦: 저장소의 오디오가 옛 대본으로 만든 것일 때 (Claude가 대본을 고친 뒤)
 2. 영상마다 사연자·진행자 목소리로 문장을 만들어 **오디오 하나**(`narration.mp3`)로 잇는다.
@@ -72,6 +74,7 @@ os.environ["GITHUB_TOKEN"] = UserSecretsClient().get_secret("GITHUB_TOKEN")
 
 | 상황 | 셀 |
 |---|---|
+| `error: Your local changes to the following files would be overwritten by merge` (옛 셀의 `git pull`) | 위 셀을 그대로 다시 실행 (넷째 줄이 사본을 main과 맞춘다). 셀을 못 바꾸면: `!cd /kaggle/working/yeomin1024-ytb && git config core.fileMode false && git fetch -q origin main && git reset -q --hard origin/main` |
 | 올리기만 실패 (`[PUSH] … ok=False`) | `!cd /kaggle/working/yeomin1024-ytb && python tools/tts_narration.py push` |
 | 토큰 오류로 멈춤 (`GitHub 토큰 없음`, `push 권한 확인 실패`) | 2-2를 다시 확인(만료·저장소 선택·Contents 쓰기, 노트북 연결 체크) → 셀 다시 실행 |
 | 이상한 문장만 다시 (새 시드, 같은 세션 안에서) | `!cd /kaggle/working/yeomin1024-ytb && python tools/tts_narration.py build stock panicsell-2026-10 --redo 12,15 --push` |
@@ -133,6 +136,7 @@ os.environ["GITHUB_TOKEN"] = UserSecretsClient().get_secret("GITHUB_TOKEN")
 
 | 버전 | 날짜 | 변경 내용 |
 |---|---|---|
+| v1.3.1 | 2026-10-11 | 셀 넷째 줄: `git pull` → `git config core.fileMode false && git fetch origin main && git reset --hard origin/main` (사본에서 실행 권한만 바뀐 `tools/publish.sh` 때문에 pull이 멈춘 오류), 문제 표에 이 오류 추가 |
 | v1.3 | 2026-10-11 | 사용자 지시: 오디오는 고르지 않고 하나로 — 말투 시험(sample A~D)·`preset`·역할만 이은 트랙 삭제, 영상마다 `narration.mp3` 하나. 결과를 GitHub에 올리기 — `all --push`가 영상마다 대본 폴더에 `narration.mp3`·`tts_narration.json`·`tts_report.md`를 main에 커밋·푸시(2-2 토큰은 Kaggle Secrets만). 노트북 셀 하나(3번), 문제가 생겼을 때 표, 올리기 안전장치(4번) |
 | v1.2 | 2026-10-10 | 사용자 지시: 사연자·진행자 역할과 목소리 설정 파일(`voices/storyteller.json`·`host.json`, 주제·영상별 덮어쓰기), 역할별 문장 파일·트랙의 정해진 경로(4번), 대본이 있는 영상을 모두 읽어 한 번에(`all`, 보류·업로드·옛 대본 처리), `pack`(zip)·`check`, Kaggle 셀 4개와 GitHub 웹 올리기 순서(3번), 목소리 바꾸기(6번) |
 | v1.1 | 2026-10-10 | 3번: 도구 파일 내용을 셀에 붙여 넣지 말 것(`_IncompleteInputError`), 한 셀로 시험하기 |

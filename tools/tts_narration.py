@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.2 — 2026-10-11 — 사용자 지시: 오디오는 고르지 않고 하나로(말투 시험 sample·preset·--story-style 삭제, 역할만 이은 트랙 삭제 →
+# VERSION: v1.2.1 — 2026-10-11 — Kaggle 사본에서 실행 권한(파일 모드)만 바뀐 파일 때문에 git pull 이 멈추던 문제: git 실행에 core.fileMode=false,
+#          올리기 전에 사본의 다른 변경 파일을 알림(커밋하지 않음). Kaggle 셀은 git pull 대신 main 과 똑같이 맞춤(fetch + reset --hard)
+# (v1.2: 2026-10-11 — 사용자 지시: 오디오는 고르지 않고 하나로(말투 시험 sample·preset·--story-style 삭제, 역할만 이은 트랙 삭제 →
 #          영상마다 narration.mp3 하나), 결과 파일을 GitHub에 올리기(--push: 영상이 끝날 때마다 대본 폴더 <주제>/source/<영상ID>/ 에
 #          narration.mp3·tts_narration.json·tts_report.md 를 main에 커밋·푸시, 토큰은 Kaggle Secrets GITHUB_TOKEN 에서만 읽음)
 #          (v1.1: 사연자·진행자 역할별 목소리 설정 voices/*.json, all·pack·check / v1.0: 최초 작성 — Qwen3-TTS 로 대본 TXT → narration.mp3)
@@ -72,7 +74,7 @@ ROOT = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 import srt_tool  # noqa: E402  (문장·카드 판정을 자막 도구와 똑같이 쓰기 위해)
 
-VERSION = "v1.2"
+VERSION = "v1.2.1"
 CACHE_VERSION = 1            # 생성 방식이 바뀌면 올린다 → 문장 파일을 모두 다시 만든다 (v1.1은 v1.0 캐시와 같은 키)
 DEFAULT_MODEL = "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice"
 FRAME_HZ = 12.5              # Qwen3-TTS-Tokenizer-12Hz: 24000Hz ÷ 1920 = 초당 12.5 프레임 (max_new_tokens 계산)
@@ -997,7 +999,9 @@ class Git:
             self.env.update(GIT_ASKPASS=str(ask), TTS_GIT_TOKEN=token)
 
     def run(self, *argv, timeout=900):
-        cmd = ["git", "-C", str(ROOT), "-c", "credential.helper=", "-c", f"user.name={GIT_NAME}", "-c", f"user.email={GIT_EMAIL}", *argv]
+        # core.fileMode=false: Kaggle 등에서 실행 권한(파일 모드)만 달라진 파일을 변경으로 보지 않게 (pull --rebase 가 멈추지 않게)
+        cmd = ["git", "-C", str(ROOT), "-c", "credential.helper=", "-c", "core.fileMode=false",
+               "-c", f"user.name={GIT_NAME}", "-c", f"user.email={GIT_EMAIL}", *argv]
         try:
             r = subprocess.run(cmd, capture_output=True, text=True, env=self.env, timeout=timeout)
         except subprocess.TimeoutExpired:
@@ -1039,6 +1043,10 @@ def push_preflight(args):
                 "토큰 만료·저장소 선택·Contents 읽기/쓰기 권한 확인 (guides/tts_guide.md 2번)", remote=url)
         log("PUSH", remote=url, token="있음(값은 표시하지 않음)" if token else "없음(로컬 원격)", token_source=src if token else "-",
             check="push --dry-run 통과")
+        rc, dirty = g.run("status", "--porcelain", "--untracked-files=no")
+        if rc == 0 and dirty.strip():   # 이 사본에서 바뀐 다른 파일 — 올리지 않는다 (결과 3개만 커밋)
+            log("PUSH", logging.WARNING, local_changes=" ".join(ln[3:] for ln in dirty.splitlines())[:300],
+                note="이 사본의 다른 변경은 커밋하지 않음. 사본을 main 과 맞추려면: git fetch origin main && git reset --hard origin/main")
     finally:
         g.close()
     return token

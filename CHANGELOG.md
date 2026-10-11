@@ -1,5 +1,13 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-11 — Kaggle 셀 `git pull` 오류 해결 (tts_narration v1.2.1, tts_guide v1.3.1)
+
+- 증상: `error: Your local changes to the following files would be overwritten by merge: tools/publish.sh`
+- 원인: Kaggle의 저장소 사본에서 `tools/publish.sh`의 실행 권한(파일 모드 100755)만 바뀐 상태 → main의 같은 파일이 바뀌자(v1.2.1 주석) `git pull`이 합치지 못하고 멈춤. 같은 상황을 재현해 확인(실행 권한을 뺀 사본 + 한 커밋 뒤 → pull 이 같은 오류)
+- 셀: `git pull` → `git config core.fileMode false && git fetch -q origin main && git reset -q --hard origin/main` (사본을 main과 똑같이). 재현한 사본에서 깨끗하게 최신(43c7e9c)으로 맞춰짐
+- `tools/tts_narration.py` v1.2.1 `Git.run`: 모든 git 실행에 `core.fileMode=false`. `push_preflight`: 사본의 다른 변경 파일을 경고로 알림(커밋하지 않음)
+- 올리기가 실패해 사본에만 남은 커밋이 reset으로 지워져도 결과는 `tts_out/upload/`에 남아 다음 `all --push`가 다시 올림 (시험으로 확인)
+
 ## 2026-10-11 — 오디오는 하나로(고르지 않음), 결과는 Kaggle에서 대본 폴더마다 GitHub에 자동으로 (tts_narration v1.2)
 
 ### 왜 바꿨나 (사용자 지시)

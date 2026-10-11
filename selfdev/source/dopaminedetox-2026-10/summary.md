@@ -1,6 +1,6 @@
 # dopaminedetox-2026-10 한눈에 보기
 
-자동 생성 — `python tools/make_summary.py selfdev dopaminedetox-2026-10` (2026-10-11 07:48). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
+자동 생성 — `python tools/make_summary.py selfdev dopaminedetox-2026-10` (2026-10-11 08:41). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
 
 > **도파민 디톡스 한다고 주말 48시간 폰을 끊었는데 월요일에만 9시간을 봤습니다. 숏폼 끊으려던 사람들의 최악의 결말**
 
@@ -22,7 +22,7 @@
 
 - [x] **T1. (채택)** 도파민 디톡스 한다고 주말 48시간 폰을 끊었는데 월요일에만 9시간을 봤습니다. 숏폼 끊으려던 사람들의 최악의 결말 `행동 · 48시간→9시간 · 최악의 결말` 64자 — 짝 썸네일: thumbnail_1 (숫자 반전)
 - [ ] **T2.** 48시간만 참으면 리셋된다길래 버텼는데 월요일에 9시간을 봤습니다. 도파민 디톡스한 사람들이 마지막에 꼭 하는 후회 `속마음 · 48시간→9시간 · 마지막에 꼭 하는 후회` 64자 — 짝 썸네일: thumbnail_2 (인물·감정)
-- [ ] **T3.** (짧은 변형) 폰 끊은 주말 48시간, 월요일엔 9시간. 도파민 디톡스의 불편한 진실 `장면 · 48시간→9시간 · 불편한 진실` 39자 — 짝 썸네일: thumbnail_3 (대비)
+- [ ] **T3.** (짧은 변형) 폰 끊은 주말 48시간, 월요일엔 9시간. 도파민 디톡스의 불편한 진실 `장면 · 48시간→9시간 · 불편한 진실` 39자 — 짝 썸네일: thumbnail_3 (검은 배경 제목형 — 채택 제목 문구)
 
 ## 2. 썸네일 3개 (`thumbnails/`)
 
@@ -32,13 +32,13 @@
 
 🖼️ 이미지 없음 → 이미지 AI에 `thumbnails/thumbnail_1.md`의 [A] 프롬프트를 넣어 만든 뒤 `thumbnails/thumbnail_1.png`로 저장
 
-- 가설: 서랍에 넣은 휴대폰 "48시간 끊고"가 **"월요일 9시간"**으로 뒤집히는 숫자 반전이 가장 빨리 읽히고 클릭을 부른다
+- 가설: 서랍에 넣은 휴대폰(주말 48시간 끊음)이 **"9시간"**으로 뒤집히는 숫자 반전이 가장 빨리 읽히고 클릭을 부른다
 
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 시작 | 48시간 끊고 | 흰색 | 파랑 #2D6CDF 상자 |
-| 결과 1 | 월요일 | 잉크 #1E1E1E | 노랑 #FFD400 상자 (유일한 강조) |
-| 결과 2 | 9시간 | 빨강 #E63B2E (잃은 것), 흰 테두리 | 가장 큰 글자 |
+| 핵심 숫자 | 9시간 | 빨강 #E63B2E (잃은 것), 흰 테두리 | 위쪽에서 가장 큰 글자 |
+| 하단 1줄 (12자) | 주말 48시간 폰 끊고 | 흰색 + 두꺼운 검정 외곽선 | "48시간"만 노랑 #FFD400 (처음 목표 숫자) |
+| 하단 2줄 (12자) | 월요일에만 9시간 봤다 | 흰색 + 두꺼운 검정 외곽선 | — (빨강은 위쪽 "9시간"에 이미 있음) |
 
 <details><summary>[A] 완성형 프롬프트</summary>
 
@@ -46,14 +46,12 @@
 YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at small size.
 Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, blue #2D6CDF (what was hoped for), red #E63B2E (what was lost).
 Bottom-right corner kept empty (video length badge).
-Clean semi-flat illustration on a plain dark navy (#14213D) background. On the left 40% of the frame, a half-open wooden
-desk drawer seen from the front, with one smartphone lying face-down inside, screen off. Above the drawer, a solid blue
-(#2D6CDF) rounded box with white bold text "48시간 끊고". In the center, a thick white arrow pointing right. On the right
-50% of the frame, one upright smartphone with its screen on; the screen shows only five or six plain flat vertical bars
-with no labels, no numbers, no icons and no app interface, and the last bar is red (#E63B2E) and much taller than the
-others. Next to the phone, a solid bright yellow (#FFD400) box with black bold text "월요일", and directly below it the
-huge red (#E63B2E) bold text "9시간" with a thin white outline, the largest element in the image. No people, no brain
-images, no app logos, no real phone operating system screens. Keep all text and both phones inside the central 16:9 area.
+Clean semi-flat illustration on a plain dark navy (#14213D) background.
+Upper 60% of the frame: on the left 35%, a half-open wooden desk drawer seen from the front, with one smartphone lying face-down inside, screen off. In the center, a thick white arrow pointing right. On the right half, one upright smartphone with its screen on; the screen shows only five or six plain flat vertical bars with no labels, no numbers, no icons and no app interface, and the last bar is red (#E63B2E) and much taller than the others. Right next to the phone, the huge red (#E63B2E) bold text "9시간" with a thin white outline, the largest text in the image.
+Bottom title: in the lower third, over a dark band that fades upward from the bottom edge, two lines of huge heavy bold Korean text, left-aligned near the left edge, white with a thick black outline:
+line 1 "주말 48시간 폰 끊고", line 2 "월요일에만 9시간 봤다". The word "48시간" is bright yellow #FFD400. The second line ends well before the bottom-right corner.
+Keep all other picture elements in the upper 60% so they never cover the bottom title.
+No people, no brain images, no app logos, no real phone operating system screens. Keep all text and both phones inside the central 16:9 area.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 </details>
@@ -66,8 +64,10 @@ Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold
 
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 감정 | 리셋은 없었다 | 잉크 #1E1E1E | 노랑 #FFD400 상자 (글자 전체 높이, 유일한 강조) |
-| 결과 | 월요일 9시간 | 흰색 | 빨강 #E63B2E 상자 (잃은 것), "9시간"을 가장 크게 |
+| 펀치 문구 | 리셋은 없었다 | 잉크 #1E1E1E | 노랑 #FFD400 상자 (글자 전체 높이, 노랑 상자 1곳) |
+| 핵심 숫자 | 9시간 | 흰색 | 빨강 #E63B2E 상자 (잃은 것), 가장 큰 글자 |
+| 하단 1줄 (10자) | 48시간을 버텼는데 | 흰색 + 두꺼운 검정 외곽선 | "48시간"만 노랑 #FFD400 글자 (처음 목표 숫자) |
+| 하단 2줄 (12자) | 월요일에 9시간을 봤다 | 흰색 + 두꺼운 검정 외곽선 | — (빨강은 위쪽 상자에 이미 있음) |
 
 <details><summary>[A] 완성형 프롬프트</summary>
 
@@ -75,45 +75,39 @@ Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold
 YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at small size.
 Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, blue #2D6CDF (what was hoped for), red #E63B2E (what was lost).
 Bottom-right corner kept empty (video length badge).
-Realistic photo style. A dark bedroom at night, overall dark navy tone. On the left 45% of the frame, a fictional Korean
-woman in her early 30s, an office worker still wearing a plain office blouse after work, lying on her side in bed and
-holding a smartphone close to her face. The phone's cold blue-white light illuminates her face. Her expression is tired,
-drained and regretful, not crying, not panicked. The phone shows only its back or a soft blank glow, no app interface, no
-text. Fictional person, not resembling any real or famous person, natural Korean features. On the right side, a solid
-bright yellow (#FFD400) box with black bold text "리셋은 없었다". Below it, a solid red (#E63B2E) box with white bold text
-"월요일 9시간", where "9시간" is the largest text in the image. No brain images, no hospital, no pills, no logos.
-Keep the face and all text inside the central 16:9 area.
+Realistic photo style. A dark bedroom at night, overall dark navy tone.
+Upper 60% of the frame: on the left 45%, a fictional Korean woman in her early 30s, an office worker still wearing a plain office blouse after work, lying on her side in bed and holding a smartphone close to her face. The phone's cold blue-white light illuminates her face. Her expression is tired, drained and regretful, not crying, not panicked. The phone shows only its back or a soft blank glow, no app interface, no text. Her face and the phone stay in the upper 60% of the frame.
+Fictional person, not resembling any real or famous person, natural Korean features.
+On the upper right, a solid bright yellow (#FFD400) box covering the full letter height with black bold text "리셋은 없었다". Below it, a solid red (#E63B2E) box with the huge white bold text "9시간", the largest text in the image.
+Bottom title: in the lower third, over a dark band that fades upward from the bottom edge, two lines of huge heavy bold Korean text, left-aligned near the left edge, white with a thick black outline:
+line 1 "48시간을 버텼는데", line 2 "월요일에 9시간을 봤다". The word "48시간" is bright yellow #FFD400. The second line ends well before the bottom-right corner.
+Keep all other picture elements in the upper 60% so they never cover the bottom title.
+No brain images, no hospital, no pills, no logos. Keep the face and all text inside the central 16:9 area.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 </details>
 
-### 썸네일 3 — 대비 (일요일 밤 '리셋 완료' vs 월요일 출근길 9시간)
+### 썸네일 3 — 검은 배경 제목형 (채택 제목 문구)
 
 🖼️ 이미지 없음 → 이미지 AI에 `thumbnails/thumbnail_3.md`의 [A] 프롬프트를 넣어 만든 뒤 `thumbnails/thumbnail_3.png`로 저장
 
-- 가설: 왼쪽 기대(다이어리의 "리셋 완료")와 오른쪽 결과(월요일 출근길의 "9시간")를 한 화면에 나란히 두면, 문제 분석 첫 메시지("리셋은 일어나지 않는다")가 한눈에 읽힌다
+- 가설: 그림 없이 **검은 배경의 채택 제목 문구(글자)만으로** 클릭을 부르는지 — 사진 썸네일 사이에서 오히려 눈에 띄는지
 
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 기대 (왼쪽) | 리셋 완료 | 잉크 #1E1E1E 손글씨 느낌의 굵은 글자 | 아래에 노랑 #FFD400 형광펜 줄 (유일한 강조) |
-| 결과 (오른쪽) | 9시간 | 빨강 #E63B2E (잃은 것), 흰 테두리 | 가장 큰 글자 |
+| 1줄 (11자) | 도파민 디톡스 한다고 | 흰색 #FFFFFF | — |
+| 2줄 (10자) | 주말 48시간 폰을 | 흰색 #FFFFFF | "48시간"만 노랑 #FFD400 (처음 목표 숫자) |
+| 3줄 (10자) | 끊었는데 월요일에만 | 흰색 #FFFFFF | — |
+| 4줄 (9자) | 9시간을 봤습니다 | 흰색 #FFFFFF | "9시간"만 빨강 #E63B2E (잃은 것) |
 
 <details><summary>[A] 완성형 프롬프트</summary>
 
 ```
-YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at small size.
-Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, blue #2D6CDF (what was hoped for), red #E63B2E (what was lost).
+YouTube thumbnail, 16:9 (1280x720). Plain solid pure black background (#000000) and nothing else: no people, no objects, no shapes, no gradients, no texture, no effects.
+Only huge heavy bold Korean typography, centered, about 85% of the frame width, 4 lines with tight line spacing:
+line 1 "도파민 디톡스 한다고", line 2 "주말 48시간 폰을", line 3 "끊었는데 월요일에만", line 4 "9시간을 봤습니다".
+All text pure white (#FFFFFF) except "48시간" in bright yellow (#FFD400) and "9시간" in red (#E63B2E). No outlines, shadows or glow.
 Bottom-right corner kept empty (video length badge).
-Split-screen image divided vertically in the middle by a thin white line.
-LEFT HALF, warm cream (#F2EBDD) lamplight, Sunday night: a desk with an open paper diary; on the page, the large bold
-hand-lettered black Korean text "리셋 완료" with one check mark, and a bright yellow (#FFD400) highlighter stroke under the
-text. Beside the diary, a half-read book with a blank cover and a pair of clean sneakers. No phone visible.
-RIGHT HALF, cool dark navy (#14213D) tone, Monday morning: inside a commuter subway car, the back view of a fictional
-Korean woman in her early 30s in office clothes, standing and holding a hand strap, looking down at a smartphone held
-close, the phone giving off a soft glow with no visible interface. Her face is not visible. No route maps, no ads, no
-signs, no text anywhere in the subway. In the upper part of the right half, the huge red (#E63B2E) bold text "9시간" with
-a thin white outline, the largest element in the image. Fictional person, not resembling any real or famous person.
-No brain images, no logos. Keep all text inside the central 16:9 area.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 </details>

@@ -13,7 +13,7 @@
 | `guides/upload_rules.md` | 주식 업로드 규칙: 설명란 필수 고지·출처, 태그 묶음, 스팸 차단 단어 |
 | `titles/` | 제목 피드백 시트 (1차 50개 — 표시 완료, 2차 36개 — 표시 전) |
 | `source/used_content.md` | 이전 대본과의 중복 방지 목록 |
-| `source/molppang-2026-10/` | 몰빵 영상 v2.1: 대본 TXT·SRT(문장 91 / 자막 116, 문장 18 뒤 고지 공백), 문장 40~47을 최신 사례로 교체(v2.1), README(최신 사례 출처·옛→새 번호 대응표) |
+| `source/molppang-2026-10/` | 몰빵 영상 v2.1: 대본 TXT·SRT(문장 91 / 자막 116, 문장 18 뒤 고지 공백, 내레이션에 맞춤), 문장 40~47을 최신 사례로 교체(v2.1), README(최신 사례 출처·옛→새 번호 대응표), `titles.md`(제목 3개, T1 채택 = 기준 제목), `thumbnails/`(썸네일 프롬프트 3개 — 하단 제목 2줄, thumbnail_3 검은 배경 제목형), `upload.md`(업로드 시트, 챕터는 오디오 시간). 사연: 몽고디비 2026년 9월 CEO 이적 소식. 영상 코드 `video/src/episodes/molppang-2026-10/` — 렌더 완료(7:57) |
 | `source/multagi-2026-10/` | 물타기 영상: 대본 v1.4 TXT·SRT(문장 91 / 자막 107, 문제 03·04를 최신 사례로), README(검산·출처), `titles.md`(제목 3개, T1 채택), `thumbnails/`(썸네일 프롬프트 3개), `upload.md`(업로드 시트) |
 | `source/bittu-2026-10/` | 빚투 영상: 대본 v1.1 TXT·SRT(문장 88 / 자막 105), README(검산·출처), `titles.md`(T1 채택), `thumbnails/`(3개), `upload.md`. 사연: SK하이닉스 2026년 5~7월, 신용 → 반대매매. 영상 코드 `video/src/episodes/bittu-2026-10/` — 내레이션 대기 |
 | `source/panicsell-2026-10/` | 패닉셀 영상: 대본 v1.1 TXT·SRT(문장 92 / 자막 111, 문장 80~85를 최신 사례로), README(검산·출처), `titles.md`(T1 채택), `thumbnails/`(3개), `upload.md`. 사연: 삼성전자 2026년 3월 폭락 날 전량 매도 → 7주 뒤 +30%. 영상 코드 `video/src/episodes/panicsell-2026-10/` — 내레이션 대기 |

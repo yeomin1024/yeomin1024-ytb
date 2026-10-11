@@ -1,6 +1,6 @@
 # nuriho-2026-10 한눈에 보기
 
-자동 생성 — `python tools/make_summary.py space nuriho-2026-10` (2026-10-11 07:46). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
+자동 생성 — `python tools/make_summary.py space nuriho-2026-10` (2026-10-11 08:41). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
 
 > **46초 모자란 실패에 아들 꿈을 말렸는데 누리호는 4번 연속 성공했습니다. 첫 실패만 본 사람들의 공통점**
 
@@ -22,7 +22,7 @@
 
 - [x] **T1. (채택)** 46초 모자란 실패에 아들 꿈을 말렸는데 누리호는 4번 연속 성공했습니다. 첫 실패만 본 사람들의 공통점 `장면 · 횟수 반전(실패 1번 → 4번 연속 성공) · 공통점` 58자 — 짝 썸네일: thumbnail_1 (숫자 반전)
 - [ ] **T2.** 우리나라는 안 된다며 아들 꿈을 말렸는데 누리호가 4번 연속 성공했습니다. 실패만 본 부모의 불편한 진실 `속마음 · 횟수 반전 · 불편한 진실` 58자 — 짝 썸네일: thumbnail_2 (인물·감정 장면)
-- [ ] **T3.** (짧은 변형) 누리호 실패 뉴스에 아들 꿈을 말렸습니다. 결국 4번 연속 성공한 진짜 이유 `계기 · 횟수 반전 · 결국/진짜 이유(호기심형)` 43자 — 짝 썸네일: thumbnail_3 (실패 1번 / 성공 4번 대비)
+- [ ] **T3.** (짧은 변형) 누리호 실패 뉴스에 아들 꿈을 말렸습니다. 결국 4번 연속 성공한 진짜 이유 `계기 · 횟수 반전 · 결국/진짜 이유(호기심형)` 43자 — 짝 썸네일: thumbnail_3 (검은 배경 제목형 — 채택 제목 문구)
 
 ## 2. 썸네일 3개 (`thumbnails/`)
 
@@ -36,8 +36,10 @@
 
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 시작 | 46초 | 빨강 #E63B2E (네이비 위, 흰 외곽선) | 노랑 #FFD400 화살표 하나 (유일한 강조) |
-| 결과 | 4번 연속 성공 | 흰색 (파랑 #2D6CDF 상자) | 가장 큰 글자 |
+| 위쪽 핵심 숫자 | 46초 | 빨강 #E63B2E (네이비 위, 흰 외곽선) | 가장 큰 글자 |
+| 위쪽 펀치 | 모자란 실패 | 흰색 #FFFFFF (네이비 위, 검정 외곽선) | — |
+| 하단 1줄 | 아들 꿈을 말렸는데 | 흰색 + 검정 외곽선 | — |
+| 하단 2줄 | 누리호는 4번 연속 성공 | 흰색 + 검정 외곽선 | "4번 연속" 노랑 #FFD400 (실제 결과) |
 
 <details><summary>[A] 완성형 프롬프트</summary>
 
@@ -46,13 +48,16 @@ YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at s
 Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, fact/success blue #2D6CDF, failure red #E63B2E.
 Bottom-right corner kept empty (video length badge).
 Clean flat illustrated style (clearly an illustration, not a photo). Dark navy (#14213D) space background with a few small
-faint stars. On the left 30% of the frame, a generic plain three-stage rocket silhouette rising upward with an ordinary
-orange flame, no flags, no letters, no logos, no explosion. On the right side, top: the huge text "46초" in bold red
-(#E63B2E) letters with a thin white outline, followed by one short bright yellow (#FFD400) arrow pointing right. Middle
-right: a horizontal row of five equal square tiles - the first tile solid red with a white X shape, the other four tiles
-solid blue (#2D6CDF) with white check-mark shapes (drawn as simple shapes). Lower right: a wide solid blue (#2D6CDF)
-rounded box containing the large white bold text "4번 연속 성공", the biggest text block. Keep all text and the rocket
-inside the central 16:9 safe area. Minimal, nothing decorative, no people.
+faint stars. Everything in this paragraph stays in the upper 60% of the frame: on the left quarter, a small generic plain
+three-stage rocket silhouette rising upward with an ordinary orange flame, no flags, no letters, no logos, no explosion.
+On the upper right, the huge text "46초" in bold red (#E63B2E) letters with a thin white outline, the biggest text in the
+image, and directly below it the smaller white bold text "모자란 실패" with a black outline. Next to them, one short white
+arrow pointing right toward a horizontal row of five equal square tiles - the first tile solid red with a white X shape,
+the other four tiles solid blue (#2D6CDF) with white check-mark shapes (drawn as simple shapes). No people.
+Bottom title: in the lower third, over a dark band that fades upward from the bottom edge, two lines of huge heavy bold Korean text, left-aligned near the left edge, white with a thick black outline:
+line 1 "아들 꿈을 말렸는데", line 2 "누리호는 4번 연속 성공". The word "4번 연속" is bright yellow #FFD400. The second line ends well before the bottom-right corner.
+Keep all other picture elements in the upper 60% so they never cover the bottom title.
+Keep all text inside the central 16:9 safe area. Minimal, nothing decorative.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 </details>
@@ -65,8 +70,9 @@ Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold
 
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 1줄 | 46초에 | 흰색 (네이비 반투명 띠 위) | — |
-| 2줄 | 꺾은 꿈 | 검정 #1E1E1E | 노랑 상자 #FFD400 (유일한 강조, 글자 전체 높이) |
+| 위쪽 핵심 숫자·펀치 | 4번 연속 성공 | 흰색 (파랑 #2D6CDF 상자) | 가장 큰 글자 |
+| 하단 1줄 | 우리나라는 안 된다며 | 흰색 + 검정 외곽선 | "안 된다며" 빨강 #E63B2E (틀린 말, 유일한 강조) |
+| 하단 2줄 | 아들 꿈을 말렸는데 | 흰색 + 검정 외곽선 | — |
 
 <details><summary>[A] 완성형 프롬프트</summary>
 
@@ -74,44 +80,45 @@ Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold
 YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at small size.
 Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, fact/success blue #2D6CDF, failure red #E63B2E.
 Bottom-right corner kept empty (video length badge).
-Realistic photo style, soft daylight living room with muted navy and cream tones. On the left 45% of the frame, a fictional
-Korean woman around 50 years old, office-worker look (simple knit top), sitting on a sofa and looking down at a smartphone
-in her hands with a regretful, deflated, quietly guilty expression (not crying, not scared). The phone screen shows only a
-simple drawing of a rocket rising and one small blue check-mark shape, no app interface, no logos, no text. In the soft
-background behind her, a blurred silhouette of a college-age young man standing by the window with his back turned.
-Fictional people, not resembling any real or famous person, natural Korean features. On the right side, the white bold
-text "46초에" on a translucent dark navy band, and directly below it a solid bright yellow (#FFD400) box covering the full
-letter height with the large black bold text "꺾은 꿈". Keep the face and all text inside the central 16:9 safe area.
-No spacesuits, no flags, no logos, no explosion.
+Realistic photo style, soft daylight living room with muted navy and cream tones. Everything in this paragraph stays in
+the upper 60% of the frame: on the left 45%, a fictional Korean woman around 50 years old, office-worker look (simple
+knit top), shown from the chest up, sitting on a sofa and looking down at a smartphone in her hands with a regretful,
+deflated, quietly guilty expression (not crying, not scared). The phone screen shows only a simple drawing of a rocket
+rising and one small blue check-mark shape, no app interface, no logos, no text. In the soft background behind her, a
+blurred silhouette of a college-age young man standing by the window with his back turned. Fictional people, not
+resembling any real or famous person, natural Korean features. On the upper right, a solid blue (#2D6CDF) rounded box with
+the huge white bold text "4번 연속 성공", the largest text in the image.
+Bottom title: in the lower third, over a dark band that fades upward from the bottom edge, two lines of huge heavy bold Korean text, left-aligned near the left edge, white with a thick black outline:
+line 1 "우리나라는 안 된다며", line 2 "아들 꿈을 말렸는데". The words "안 된다며" are red #E63B2E. The second line ends well before the bottom-right corner.
+Keep all other picture elements in the upper 60% so they never cover the bottom title.
+Keep the face and all text inside the central 16:9 safe area. No spacesuits, no flags, no logos, no explosion.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 </details>
 
-### 썸네일 3 — 대비 (2021 실패 1번 / 2026 성공 4번)
+### 썸네일 3 — 검은 배경 제목형 (채택 제목 문구)
 
 🖼️ 이미지 없음 → 이미지 AI에 `thumbnails/thumbnail_3.md`의 [A] 프롬프트를 넣어 만든 뒤 `thumbnails/thumbnail_3.png`로 저장
 
-- 가설: 첫 뉴스가 준 인상(실패 1번)과 실제 기록(성공 4번)을 **좌우로 나란히** 보여 주면, "내가 아는 건 왼쪽뿐"이라는 궁금증이 생긴다
+- 가설: 그림 없이 검은 배경에 채택 제목 앞 문장만 크게 넣은 **글자만으로** 클릭을 부르는지 (사진·일러스트 썸네일 사이에서 눈에 띄는지)
 
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 왼쪽 | 실패 1번 | 흰색 (빨강 #E63B2E 상자) | — |
-| 오른쪽 | 성공 4번 | 흰색 (파랑 #2D6CDF 상자) | 노랑 #FFD400 화살표 하나 (유일한 강조) |
+| 1줄 | 46초 모자란 실패에 | 흰색 #FFFFFF | "실패" 빨강 #E63B2E |
+| 2줄 | 아들 꿈을 말렸는데 | 흰색 #FFFFFF | — |
+| 3줄 | 누리호는 | 흰색 #FFFFFF | — |
+| 4줄 | 4번 연속 성공했습니다 | 흰색 #FFFFFF | "4번 연속 성공" 노랑 #FFD400 |
+
+- 이어 붙이면 "46초 모자란 실패에 아들 꿈을 말렸는데 누리호는 4번 연속 성공했습니다" = 채택 제목 앞 문장 (마침표만 뺌)
 
 <details><summary>[A] 완성형 프롬프트</summary>
 
 ```
-YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at small size.
-Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, fact/success blue #2D6CDF, failure red #E63B2E.
+YouTube thumbnail, 16:9 (1280x720). Plain solid pure black background (#000000) and nothing else: no people, no objects, no shapes, no gradients, no texture, no effects.
+Only huge heavy bold Korean typography, centered, about 85% of the frame width, 4 lines with tight line spacing:
+line 1 "46초 모자란 실패에", line 2 "아들 꿈을 말렸는데", line 3 "누리호는", line 4 "4번 연속 성공했습니다".
+All text pure white (#FFFFFF) except "4번 연속 성공" in bright yellow (#FFD400) and "실패" in red (#E63B2E). No outlines, shadows or glow.
 Bottom-right corner kept empty (video length badge).
-Clean illustrated style (clearly an illustration, not a photo). The frame is split vertically into two equal halves by a
-thin white line. LEFT half: dark navy (#14213D) sky high above the clouds, the small upper stage of a generic plain rocket
-whose engine flame is fading out and shrinking (no explosion, no debris), slightly reddish tint. At the top-left, a solid
-red (#E63B2E) box with the large white bold text "실패 1번". RIGHT half: Earth's curved horizon below and several small
-generic satellites being released one after another into orbit, calm blue tint. At the top-right, a solid blue (#2D6CDF)
-box with the large white bold text "성공 4번". One bright yellow (#FFD400) arrow on the center line pointing from left to
-right. No flags, no letters or logos on the rocket or satellites, no people, no spacesuits. Keep all text inside the
-central 16:9 safe area.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 </details>

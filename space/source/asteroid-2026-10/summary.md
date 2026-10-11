@@ -1,6 +1,6 @@
 # asteroid-2026-10 한눈에 보기
 
-자동 생성 — `python tools/make_summary.py space asteroid-2026-10` (2026-10-11 07:46). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
+자동 생성 — `python tools/make_summary.py space asteroid-2026-10` (2026-10-11 08:41). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
 
 > **충돌 확률 3.1%에 생존 배낭부터 샀는데 엿새 뒤 0.004%였습니다. 소행성 뉴스에 놀란 사람들의 공통점**
 
@@ -22,7 +22,7 @@
 
 - [x] **T1. (채택)** 충돌 확률 3.1%에 생존 배낭부터 샀는데 엿새 뒤 0.004%였습니다. 소행성 뉴스에 놀란 사람들의 공통점 `계기 · 확률 반전 · 공통점` 60자 — 짝 썸네일: thumbnail_1 (확률 게이지 반전)
 - [ ] **T2.** 딸 걱정에 짐부터 쌌는데 충돌 확률은 엿새 뒤 0.004%가 됐습니다. 소행성에 겁먹은 사람들의 불편한 진실 `속마음 · 확률 반전 · 불편한 진실` 60자 — 짝 썸네일: thumbnail_2 (인물·감정)
-- [ ] **T3.** (짧은 변형) 짐을 다 싸고 나니 확률은 0.004%였습니다. 결국 3.1%가 뒤집힌 진짜 이유 `장면 · 확률 반전 · 진짜 이유(호기심)` 45자 — 짝 썸네일: thumbnail_3 (쇼츠 대 실제 대비)
+- [ ] **T3.** (짧은 변형) 짐을 다 싸고 나니 확률은 0.004%였습니다. 결국 3.1%가 뒤집힌 진짜 이유 `장면 · 확률 반전 · 진짜 이유(호기심)` 45자 — 짝 썸네일: thumbnail_3 (검은 배경 제목형 — 채택 제목 문구)
 
 ## 2. 썸네일 3개 (`thumbnails/`)
 
@@ -36,9 +36,10 @@
 
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 시작 | 3.1% | 빨강 #E63B2E | — |
-| 라벨 | 엿새 뒤 | 잉크 #1E1E1E | 노랑 형광 띠 #FFD400 (글자 전체 높이, 유일한 강조) |
-| 결과 | 0.004% | 흰색 (파랑 #2D6CDF 상자 위) | 가장 큰 글자 |
+| 위쪽 펀치 | 엿새 뒤 | 잉크 #1E1E1E | 노랑 형광 띠 #FFD400 (글자 전체 높이, 유일한 노랑 상자) |
+| 위쪽 핵심 숫자 | 0.004% | 흰색 (파랑 #2D6CDF 상자 위) | 가장 큰 글자 |
+| 하단 1줄 | 충돌 확률 3.1%에 | 흰색 + 검정 외곽선 | "3.1%" 빨강 #E63B2E (처음 겁준 숫자) |
+| 하단 2줄 | 생존 배낭부터 샀는데 | 흰색 + 검정 외곽선 | — |
 
 <details><summary>[A] 완성형 프롬프트</summary>
 
@@ -47,14 +48,17 @@ YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at s
 Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, fact blue #2D6CDF, risk red #E63B2E.
 Bottom-right corner kept empty (video length badge).
 Clean flat illustration style, clearly a graphic and not a photo. Dark navy (#14213D) space background with a few sparse
-small stars. Far away in the upper right, one small plain grey asteroid drifting alone (no Earth, no Moon, no impact,
-no fire, no explosion). In the center-left, a large simple semicircle probability gauge drawn as a flat graphic: the left
-end of the arc is red (#E63B2E), the right end is blue (#2D6CDF), and a white needle has swung all the way to the blue
-end with a faint motion trail. Next to the red end of the gauge, the text "3.1%" in red bold letters, medium size.
-Below the gauge, the short label "엿새 뒤" in ink-black bold letters on a solid bright yellow (#FFD400) highlighter band
-the full height of the letters. Across the lower part of the frame, a wide solid blue (#2D6CDF) rounded box with the
-huge white bold text "0.004%", the largest element in the image. No people, no logos, no agency names, no mission
-patches. Keep all text and the gauge inside the central 16:9 safe area.
+small stars. Everything in this paragraph stays in the upper 60% of the frame: far away in the upper right, one small plain
+grey asteroid drifting alone (no Earth, no Moon, no impact, no fire, no explosion). On the left, a simple semicircle
+probability gauge drawn as a flat graphic: the left end of the arc is red (#E63B2E), the right end is blue (#2D6CDF), and a
+white needle has swung all the way to the blue end with a faint motion trail. To the right of the gauge, the short label
+"엿새 뒤" in ink-black bold letters on a solid bright yellow (#FFD400) highlighter band the full height of the letters, and
+below it a wide solid blue (#2D6CDF) rounded box with the huge white bold text "0.004%", the largest text in the image.
+No people, no logos, no agency names, no mission patches.
+Bottom title: in the lower third, over a dark band that fades upward from the bottom edge, two lines of huge heavy bold Korean text, left-aligned near the left edge, white with a thick black outline:
+line 1 "충돌 확률 3.1%에", line 2 "생존 배낭부터 샀는데". The word "3.1%" is red #E63B2E. The second line ends well before the bottom-right corner.
+Keep all other picture elements in the upper 60% so they never cover the bottom title.
+Keep all text and the gauge inside the central 16:9 safe area.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 </details>
@@ -63,12 +67,13 @@ Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold
 
 🖼️ 이미지 없음 → 이미지 AI에 `thumbnails/thumbnail_2.md`의 [A] 프롬프트를 넣어 만든 뒤 `thumbnails/thumbnail_2.png`로 저장
 
-- 가설: 생존 배낭 앞에서 휴대폰을 보는 **사람의 허탈한 표정**과 쓴 돈이 숫자 카드보다 감정을 더 끈다
+- 가설: 딸 걱정에 짐을 다 싼 뒤 휴대폰을 보는 **사람의 허탈한 표정**이 숫자 카드보다 감정을 더 끈다
 
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 행동 | 150만 원 썼는데 | 빨강 #E63B2E (외곽선 흰색) | "150만 원" 아래 노랑 #FFD400 밑줄 (유일한 강조) |
-| 결과 | 0.004% | 흰 글자 (파랑 #2D6CDF 상자) | 가장 큰 글자 |
+| 위쪽 핵심 숫자 | 0.004% | 흰 글자 (파랑 #2D6CDF 상자) | 가장 큰 글자 |
+| 하단 1줄 | 딸 걱정에 짐부터 쌌는데 | 흰색 + 검정 외곽선 | — |
+| 하단 2줄 | 엿새 뒤 확률이 떨어졌다 | 흰색 + 검정 외곽선 | "엿새 뒤" 노랑 #FFD400 (유일한 강조) |
 
 <details><summary>[A] 완성형 프롬프트</summary>
 
@@ -76,47 +81,46 @@ Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold
 YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at small size.
 Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, fact blue #2D6CDF, risk red #E63B2E.
 Bottom-right corner kept empty (video length badge).
-Realistic photo style. Softly blurred bright Korean apartment living room in warm cream tones. On the left 40% of the
-frame, a fictional Korean woman around 40, office-worker casual look (plain knit sweater), sitting on the floor and
-looking down at her smartphone with a deflated, sheepish, regretful expression, a small tired half-smile, not crying,
-not scared. Beside her: a few opened cardboard delivery boxes and two fully packed plain backpacks, with no brand names,
-no labels and no printed text on anything. The phone screen faces away or is blurred, no app interface visible.
-Fictional person, not resembling any real or famous person, natural Korean features.
-On the right side, the bold headline text "150만 원 썼는데" in red (#E63B2E) letters with a thin white outline, with one
-thin bright yellow (#FFD400) underline under "150만 원" only. Below it, a wide solid blue (#2D6CDF) rounded box containing
-the huge white bold text "0.004%", the largest element. Keep face and text inside the central 16:9 safe area.
-No space suit, no astronaut, no asteroid impact, no fire.
+Realistic photo style. Softly blurred bright Korean apartment living room in warm cream tones. Everything in this
+paragraph stays in the upper 60% of the frame: on the left 55%, a fictional Korean woman around 40, office-worker casual
+look (plain knit sweater), shown from the chest up, sitting on the floor and looking down at her smartphone with a
+deflated, sheepish, regretful expression, a small tired half-smile, not crying, not scared. Beside her: a few opened
+cardboard delivery boxes and two fully packed plain backpacks, with no brand names, no labels and no printed text on
+anything. The phone screen faces away or is blurred, no app interface visible. Fictional person, not resembling any real
+or famous person, natural Korean features. On the upper right, a wide solid blue (#2D6CDF) rounded box containing the
+huge white bold text "0.004%", the largest text in the image.
+Bottom title: in the lower third, over a dark band that fades upward from the bottom edge, two lines of huge heavy bold Korean text, left-aligned near the left edge, white with a thick black outline:
+line 1 "딸 걱정에 짐부터 쌌는데", line 2 "엿새 뒤 확률이 떨어졌다". The word "엿새 뒤" is bright yellow #FFD400. The second line ends well before the bottom-right corner.
+Keep all other picture elements in the upper 60% so they never cover the bottom title.
+Keep face and text inside the central 16:9 safe area. No space suit, no astronaut, no asteroid impact, no fire.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 </details>
 
-### 썸네일 3 — 대비 (쇼츠 속 숫자 / 실제 발표)
+### 썸네일 3 — 검은 배경 제목형 (채택 제목 문구)
 
 🖼️ 이미지 없음 → 이미지 AI에 `thumbnails/thumbnail_3.md`의 [A] 프롬프트를 넣어 만든 뒤 `thumbnails/thumbnail_3.png`로 저장
 
-- 가설: "역대 최고"라는 쇼츠 문구와 실제 결과를 **나란히 대비**하면 '나도 그 쇼츠 봤는데' 하는 공감이 생겨 클릭을 부른다
+- 가설: 그림 없이 검은 배경에 채택 제목 앞 문장만 크게 넣은 **글자만으로** 클릭을 부르는지 (사진·일러스트 썸네일 사이에서 눈에 띄는지)
 
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 왼쪽 (쇼츠) | 역대 최고 3.1% | 흰 글자 (빨강 #E63B2E 휴대폰 화면) | — |
-| 오른쪽 위 | 엿새 뒤 | 흰 글자 (파랑 카드) | — |
-| 오른쪽 결과 | 0.004% | 흰 글자 (파랑 카드) | 가장 큰 글자 |
-| 가운데 | (글자 없음) 화살표 | 노랑 #FFD400 | 유일한 강조 |
+| 1줄 | 충돌 확률 3.1%에 | 흰색 #FFFFFF | "3.1%" 빨강 #E63B2E |
+| 2줄 | 생존 배낭부터 샀는데 | 흰색 #FFFFFF | — |
+| 3줄 | 엿새 뒤 | 흰색 #FFFFFF | — |
+| 4줄 | 0.004%였습니다 | 흰색 #FFFFFF | "0.004%" 노랑 #FFD400 |
+
+- 이어 붙이면 "충돌 확률 3.1%에 생존 배낭부터 샀는데 엿새 뒤 0.004%였습니다" = 채택 제목 앞 문장 (마침표만 뺌)
+- "엿새 뒤 0.004%였습니다"(15자)는 한 줄 14자를 넘어 "엿새 뒤"와 "0.004%였습니다"를 두 줄로 나눴다
 
 <details><summary>[A] 완성형 프롬프트</summary>
 
 ```
-YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at small size.
-Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, fact blue #2D6CDF, risk red #E63B2E.
+YouTube thumbnail, 16:9 (1280x720). Plain solid pure black background (#000000) and nothing else: no people, no objects, no shapes, no gradients, no texture, no effects.
+Only huge heavy bold Korean typography, centered, about 85% of the frame width, 4 lines with tight line spacing:
+line 1 "충돌 확률 3.1%에", line 2 "생존 배낭부터 샀는데", line 3 "엿새 뒤", line 4 "0.004%였습니다".
+All text pure white (#FFFFFF) except "0.004%" in bright yellow (#FFD400) and "3.1%" in red (#E63B2E). No outlines, shadows or glow.
 Bottom-right corner kept empty (video length badge).
-Clean flat editorial illustration, clearly a graphic and not a photo. The frame is split vertically into two halves.
-Left half: dark navy (#14213D) space background with a few sparse stars and one small plain grey asteroid in the top-left
-corner (no Earth, no impact, no explosion). In the middle of the left half, a simple upright smartphone silhouette whose
-screen is solid red (#E63B2E) showing only the white bold text "역대 최고 3.1%" (no app interface, no platform logo, no
-icons, no buttons). Right half: a large solid blue (#2D6CDF) card filling the half, with the small white bold text
-"엿새 뒤" at the top and below it the huge white bold text "0.004%", the largest element in the image.
-On the dividing line between the halves, one thick bright yellow (#FFD400) arrow pointing from left to right.
-No people, no logos, no agency names. Keep all text inside the central 16:9 safe area.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 </details>

@@ -1,6 +1,6 @@
 # voyager-2026-10 한눈에 보기
 
-자동 생성 — `python tools/make_summary.py space voyager-2026-10` (2026-10-11 07:46). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
+자동 생성 — `python tools/make_summary.py space voyager-2026-10` (2026-10-11 08:41). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
 
 > **보이저 1호는 끝났다고 가르쳤는데 아직 살아서 빛으로 하루 거리에 닿습니다. 낚시 영상 믿은 사람들의 공통점**
 
@@ -22,7 +22,7 @@
 
 - [x] **T1. (채택)** 보이저 1호는 끝났다고 가르쳤는데 아직 살아서 빛으로 하루 거리에 닿습니다. 낚시 영상 믿은 사람들의 공통점 `행동 · 판정 반전(끝났다 → 빛으로 하루 거리) · 공통점` 60자 — 짝 썸네일: thumbnail_1 (끝났다 → 빛으로 하루)
 - [ ] **T2.** 쇼츠만 믿고 보이저 1호는 끝났다고 했는데 다섯 달 만에 살아났습니다. 제목에 속은 사람들의 불편한 진실 `계기 · 시간 반전(고장 → 다섯 달 만에 복구) · 불편한 진실` 58자 — 짝 썸네일: thumbnail_2 (인물·감정 장면)
-- [ ] **T3.** (짧은 변형) 다섯 달 만에 살아난 보이저 1호. 끝났다던 영상이 틀린 진짜 이유 `장면 · 시간 반전 · 진짜 이유(호기심형)` 37자 — 짝 썸네일: thumbnail_3 (끝났다 / 지금도 신호 대비)
+- [ ] **T3.** (짧은 변형) 다섯 달 만에 살아난 보이저 1호. 끝났다던 영상이 틀린 진짜 이유 `장면 · 시간 반전 · 진짜 이유(호기심형)` 37자 — 짝 썸네일: thumbnail_3 (검은 배경 제목형 — 채택 제목 문구)
 
 ## 2. 썸네일 3개 (`thumbnails/`)
 
@@ -36,9 +36,10 @@
 
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 지운 말 | 끝났다 | 빨강 #E63B2E (네이비 위, 흰 외곽선), 빨강 가로줄로 지움 | — |
-| 결과 | 빛으로 하루 거리 | 흰색 (파랑 #2D6CDF 상자) | 가장 큰 글자 |
-| (그림) | 신호선 가운데 노랑 띠 | 노랑 #FFD400 | 유일한 노랑 강조 (글자 없음) |
+| 위쪽 핵심 숫자·펀치 | 빛으로 하루 거리 | 흰색 (파랑 #2D6CDF 상자) | 가장 큰 글자 |
+| (그림) | 신호선 가운데 노랑 띠 | 노랑 #FFD400 | 글자 없음 |
+| 하단 1줄 | 끝났다고 가르쳤는데 | 흰색 + 검정 외곽선 | "끝났다고" 빨강 #E63B2E (틀린 말) |
+| 하단 2줄 | 보이저는 아직 살아 있다 | 흰색 + 검정 외곽선 | — |
 
 <details><summary>[A] 완성형 프롬프트</summary>
 
@@ -47,12 +48,15 @@ YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at s
 Palette: dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, fact blue #2D6CDF, wrong-information red #E63B2E, cream #F2EBDD.
 Bottom-right corner kept empty (video length badge).
 Clean flat illustrated style (clearly an illustration, not a photo). Dark navy (#14213D) deep-space background with only a
-few small faint stars. Lower left: a small simple blue Earth. Upper right: a small generic space probe illustration with
-a large dish antenna and thin booms, intact, no logos, no letters, no flags. A thin glowing dotted wave line connects the
-Earth and the probe across the frame, with one short bright yellow (#FFD400) band in the middle of the line. Upper center:
-the Korean word "끝났다" in bold red (#E63B2E) letters with a thin white outline, crossed out by one thick red horizontal
-strike line. Lower center: a wide solid blue (#2D6CDF) rounded box with the huge white bold text "빛으로 하루 거리", the
-largest element in the image. Keep all text inside the central 16:9 safe area. Minimal, nothing decorative, no people.
+few small faint stars. Everything in this paragraph stays in the upper 60% of the frame: on the left, a small simple blue
+Earth; on the upper right, a small generic space probe illustration with a large dish antenna and thin booms, intact, no
+logos, no letters, no flags. A thin glowing dotted wave line connects the Earth and the probe, with one short bright
+yellow (#FFD400) band in the middle of the line. In the center, a wide solid blue (#2D6CDF) rounded box with the huge
+white bold text "빛으로 하루 거리", the largest text in the image. No people.
+Bottom title: in the lower third, over a dark band that fades upward from the bottom edge, two lines of huge heavy bold Korean text, left-aligned near the left edge, white with a thick black outline:
+line 1 "끝났다고 가르쳤는데", line 2 "보이저는 아직 살아 있다". The word "끝났다고" is red #E63B2E. The second line ends well before the bottom-right corner.
+Keep all other picture elements in the upper 60% so they never cover the bottom title.
+Keep all text inside the central 16:9 safe area. Minimal, nothing decorative.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 </details>
@@ -65,8 +69,9 @@ Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold
 
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 기대 | 끝났다더니 | 흰색 (빨강 #E63B2E 상자) | — |
-| 결과 | 다섯 달 만에 복구 | 흰색 (파랑 #2D6CDF 상자) | 가장 큰 글자, 노랑 #FFD400 세로 띠 하나 (유일한 강조) |
+| 위쪽 핵심 숫자·펀치 | 다섯 달 만에 복구 | 흰색 (파랑 #2D6CDF 상자) | 가장 큰 글자, 상자 왼쪽 노랑 #FFD400 세로 띠 하나 |
+| 하단 1줄 | 쇼츠만 믿고 끝났다던 | 흰색 + 검정 외곽선 | "끝났다던" 빨강 #E63B2E (틀린 말) |
+| 하단 2줄 | 보이저 1호가 살아났다 | 흰색 + 검정 외곽선 | — |
 
 <details><summary>[A] 완성형 프롬프트</summary>
 
@@ -75,47 +80,46 @@ YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at s
 Palette: dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, fact blue #2D6CDF, wrong-information red #E63B2E, cream #F2EBDD.
 Bottom-right corner kept empty (video length badge).
 A small private-academy classroom in Korea with slightly dim lighting and a dark green chalkboard behind; on the chalkboard
-only a simple chalk drawing of a space probe with a dish antenna, no writing. On the left 60% of the frame: a fictional
-Korean woman in her mid-thirties, a science tutor in a casual shirt, shown from the chest up, looking at a smartphone held
-out toward her with a surprised, embarrassed expression (wide eyes, slightly open mouth, not crying). At the bottom center
-only a student's hand is visible holding the smartphone; the phone screen is a plain blue screen with a tiny simple probe
-icon, no news layout, no logos, no text. Upper right: a small solid red (#E63B2E) box with white bold text "끝났다더니".
-Middle right: a large solid blue (#2D6CDF) box with the big white bold text "다섯 달 만에 복구", the largest text block,
-with one thin bright yellow (#FFD400) vertical stripe on its left edge. Keep the face and all text inside the central 16:9
-safe area.
+only a simple chalk drawing of a space probe with a dish antenna, no writing. Everything in this paragraph stays in the
+upper 60% of the frame: on the left 55%, a fictional Korean woman in her mid-thirties, a science tutor in a casual shirt,
+shown from the chest up, looking at a smartphone held out toward her with a surprised, embarrassed expression (wide eyes,
+slightly open mouth, not crying). In front of her only a student's hand is visible holding the smartphone; the phone
+screen is a plain blue screen with a tiny simple probe icon, no news layout, no logos, no text. Upper right: a large solid
+blue (#2D6CDF) box with the big white bold text "다섯 달 만에 복구", the largest text in the image, with one thin bright
+yellow (#FFD400) vertical stripe on its left edge.
+Bottom title: in the lower third, over a dark band that fades upward from the bottom edge, two lines of huge heavy bold Korean text, left-aligned near the left edge, white with a thick black outline:
+line 1 "쇼츠만 믿고 끝났다던", line 2 "보이저 1호가 살아났다". The word "끝났다던" is red #E63B2E. The second line ends well before the bottom-right corner.
+Keep all other picture elements in the upper 60% so they never cover the bottom title.
+Keep the face and all text inside the central 16:9 safe area.
 fictional person, not resembling any real or famous person, natural Korean features, realistic photo style.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 </details>
 
-### 썸네일 3 — 대비 (끝났다는 쇼츠 / 지금도 신호)
+### 썸네일 3 — 검은 배경 제목형 (채택 제목 문구)
 
 🖼️ 이미지 없음 → 이미지 AI에 `thumbnails/thumbnail_3.md`의 [A] 프롬프트를 넣어 만든 뒤 `thumbnails/thumbnail_3.png`로 저장
 
-- 가설: 쇼츠가 준 인상('끝났다')과 실제 기록('지금도 신호', 11월 18일)을 좌우로 맞세운 대비가 가장 클릭을 부른다
+- 가설: 그림 없이 검은 배경에 채택 제목 앞 문장만 크게 넣은 **글자만으로** 클릭을 부르는지 (사진·일러스트 썸네일 사이에서 눈에 띄는지)
 
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 왼쪽 (쇼츠 인상) | 끝났다 | 흰색 (빨강 #E63B2E 상자) | — |
-| 오른쪽 (실제 기록) | 지금도 신호 | 흰색 (파랑 #2D6CDF 상자) | 가장 큰 글자 |
-| 오른쪽 아래 | 11월 18일 | 흰색 (네이비 위) | — |
-| (그림) | 가운데 화살표 | 노랑 #FFD400 | 유일한 노랑 강조 |
+| 1줄 | 보이저 1호는 끝났다고 | 흰색 #FFFFFF | "끝났다고" 빨강 #E63B2E |
+| 2줄 | 가르쳤는데 아직 살아서 | 흰색 #FFFFFF | — |
+| 3줄 | 빛으로 하루 거리에 | 흰색 #FFFFFF | "빛으로 하루 거리" 노랑 #FFD400 |
+| 4줄 | 닿습니다 | 흰색 #FFFFFF | — |
+
+- 이어 붙이면 "보이저 1호는 끝났다고 가르쳤는데 아직 살아서 빛으로 하루 거리에 닿습니다" = 채택 제목 앞 문장 (마침표만 뺌)
+- "빛으로 하루 거리에 닿습니다"(15자)는 한 줄 14자를 넘어 "닿습니다"를 4줄로 내렸다. 반전 덩어리 "빛으로 하루 거리"는 한 줄에 있다
 
 <details><summary>[A] 완성형 프롬프트</summary>
 
 ```
-YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at small size.
-Palette: dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, fact blue #2D6CDF, wrong-information red #E63B2E, cream #F2EBDD.
+YouTube thumbnail, 16:9 (1280x720). Plain solid pure black background (#000000) and nothing else: no people, no objects, no shapes, no gradients, no texture, no effects.
+Only huge heavy bold Korean typography, centered, about 85% of the frame width, 4 lines with tight line spacing:
+line 1 "보이저 1호는 끝났다고", line 2 "가르쳤는데 아직 살아서", line 3 "빛으로 하루 거리에", line 4 "닿습니다".
+All text pure white (#FFFFFF) except "빛으로 하루 거리" in bright yellow (#FFD400) and "끝났다고" in red (#E63B2E). No outlines, shadows or glow.
 Bottom-right corner kept empty (video length badge).
-Clean flat illustrated style (clearly an illustration, not a photo). The frame is split vertically into two halves.
-Left half: a red-tinted panel with a thick red (#E63B2E) border containing one simple tall smartphone screen that looks
-like a dark generic short-video screen, with no app name, no buttons, no logos, no channel name; in its center the big
-white bold text "끝났다" on a solid red box. Right half: dark navy (#14213D) deep space with a few faint stars and a small
-generic space probe illustration with a dish antenna (intact, no logos, no letters, no flags) sending a thin glowing
-dotted signal line toward the left; below it a wide solid blue (#2D6CDF) rounded box with the large white bold text
-"지금도 신호", the largest text block, and under that box the smaller white bold text "11월 18일". On the dividing line
-in the center, one bright yellow (#FFD400) arrow pointing from left to right. Keep all text inside the central 16:9 safe
-area. Minimal, nothing decorative, no people.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 </details>

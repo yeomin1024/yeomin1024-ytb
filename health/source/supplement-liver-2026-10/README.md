@@ -11,7 +11,7 @@
 | `supplement-liver-2026-10.txt` | 대본 v1.0 — **문장 119**. 파트 라벨 `-사연 파트` · `-진행자 파트` · `[장면] 의학적 진단이 아닙니다`(영양제 영상용 3번 줄) · `-문제 분석 파트`(5개) · `-올바른 방법 설명 파트`(6개 + 먹어도 되는 기준) · `-마무리` |
 | `supplement-liver-2026-10.srt` | **문장 119 / 자막 161** (1432px 넘는 42문장은 앞줄·뒷줄), **문장 29 뒤 고지 공백 8.0초**, 끝 **11:47.7** (추정치, 목표 10~12분) |
 | `titles.md` | 제목 3개 (T1 채택) |
-| `thumbnails/thumbnail_1.md` ~ `_3.md` | 썸네일 이미지 AI 프롬프트 3개 (숫자 반전 / 인물 / 대비) |
+| `thumbnails/thumbnail_1.md` ~ `_3.md` | 썸네일 이미지 AI 프롬프트 3개 (숫자 반전 / 인물·감정 / 검은 배경 제목형 — 3개 모두 하단 제목 2줄, thumbnail_guide v1.3) |
 | `upload.md` | 업로드 시트 (설명란·챕터 14개·태그·고정 댓글·설정) |
 | `summary.md` | 요약 문서 (`tools/make_summary.py` 자동 생성) |
 | `tts_lexicon.tsv` | 읽는 소리 사전: AST·ALT·비타민 D·비타민 A·QR 코드 (TTS에만 쓰고 대본·자막은 그대로, `guides/tts_guide.md`). 단위 kg·범위 물결표는 주제 공통 `health/tts_lexicon.tsv` |

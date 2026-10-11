@@ -1,6 +1,6 @@
 # washer-2026-10 한눈에 보기
 
-자동 생성 — `python tools/make_summary.py lifetips washer-2026-10` (2026-10-11 07:47). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
+자동 생성 — `python tools/make_summary.py lifetips washer-2026-10` (2026-10-11 08:41). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
 
 > **업체비 12만원 아끼려고 세탁기를 직접 분해했다가 수리비 21만원이 나왔습니다. 설명서 없이 뜯은 사람들의 공통점**
 
@@ -22,7 +22,7 @@
 
 - [x] **T1. (채택)** 업체비 12만원 아끼려고 세탁기를 직접 분해했다가 수리비 21만원이 나왔습니다. 설명서 없이 뜯은 사람들의 공통점 `행동 · 아끼려던 돈→나간 돈 · 공통점` 63자 — 짝 썸네일: thumbnail_1 (영수증 숫자 반전)
 - [ ] **T2.** 30분이면 된다는 영상만 믿고 통돌이를 뜯었다가 수리비 21만원을 냈습니다. 세탁기 셀프 분해한 사람들의 불편한 진실 `계기(속마음) · 쉬움→대가 · 불편한 진실` 65자 — 짝 썸네일: thumbnail_2 (인물·나사 몇 개)
-- [ ] **T3.** (짧은 변형) 세탁기 청소 방법 따라 하다 수리비 21만원, 마지막에 꼭 하는 후회 `검색어형 · 수리비 21만원 · 마지막에 꼭 하는 후회` 38자 — 짝 썸네일: thumbnail_3 (30분 vs 21만 원 대비)
+- [ ] **T3.** (짧은 변형) 세탁기 청소 방법 따라 하다 수리비 21만원, 마지막에 꼭 하는 후회 `검색어형 · 수리비 21만원 · 마지막에 꼭 하는 후회` 38자 — 짝 썸네일: thumbnail_3 (검은 배경 제목형 — 채택 제목 문구)
 
 ## 2. 썸네일 3개 (`thumbnails/`)
 
@@ -36,8 +36,13 @@
 
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 1 | 12만 원 아끼려다 | "12만 원" 파랑 #2D6CDF / "아끼려다" 잉크 #1E1E1E | "아끼려다"에 노랑 형광펜 #FFD400 (유일한 강조) |
-| 2 | 수리비 21만 원 | 흰색 (빨강 #E63B2E 상자 위) | 가장 큰 글자 |
+| 위쪽 펀치 (영수증 위) | 12만 원 아끼려다 | "12만 원" 파랑 #2D6CDF / "아끼려다" 잉크 #1E1E1E | "아끼려다"에 노랑 형광펜 #FFD400 (글자 전체 높이) |
+| 위쪽 핵심 숫자 | 21만 원 | 흰색 (빨강 #E63B2E 상자 위) | 가장 큰 글자 |
+| 하단 1줄 | 세탁기 직접 분해했다가 | 흰색 #FFFFFF + 두꺼운 검정 외곽선 | — |
+| 하단 2줄 | 수리비 21만 원 | 흰색 #FFFFFF + 두꺼운 검정 외곽선 | "21만 원"만 빨강 #E63B2E (더 나간 돈) |
+
+- 길이: 펀치 10자 · 하단 1줄 12자 · 하단 2줄 9자 (2줄 합 21자)
+- 강조 합 3곳: 노랑 형광펜 "아끼려다" · 빨강 상자 "21만 원" · 하단 빨강 "21만 원"
 
 <details><summary>[A] 완성형 프롬프트</summary>
 
@@ -45,17 +50,21 @@
 YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at small size.
 Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, saved-money blue #2D6CDF, loss red #E63B2E.
 Bottom-right corner kept empty (video length badge).
-Clean flat editorial graphic on a cream paper background (#F2EBDD) with subtle paper grain. In the center, a tall plain
-white paper receipt with a torn zigzag bottom edge, slightly tilted, filling most of the frame height (a generic receipt,
-NOT any real company's service form: no logo, no company name, no barcode, no QR code, no table lines).
+Upper 60% of the frame: clean flat editorial graphic on a cream paper background (#F2EBDD) with subtle paper grain.
+In the upper center, a plain white paper receipt with a torn zigzag bottom edge, slightly tilted, scaled down so it
+fits entirely inside the upper 60% of the frame (a generic receipt, NOT any real company's service form: no logo,
+no company name, no barcode, no QR code, no table lines).
 Top part of the receipt: the text "12만 원" in large blue (#2D6CDF) bold letters, followed on the same line by the word
-"아끼려다" in black bold letters over a bright yellow (#FFD400) highlighter stripe.
-Below it, one thick red (#E63B2E) arrow pointing down.
-The lower half of the receipt is a wide solid red (#E63B2E) rounded box with the huge white bold text "수리비 21만 원",
-the largest element in the image, about a quarter of the frame height.
+"아끼려다" in black bold letters over a bright yellow (#FFD400) highlighter box covering the full letter height.
+Below it, one thick ink-black arrow pointing down.
+The lower part of the receipt is a wide solid red (#E63B2E) rounded box with the huge white bold text "21만 원",
+the largest text in the image, about a quarter of the frame height.
 Optionally, behind the receipt, a soft out-of-focus top of a plain generic white top-loading washing machine with no
-brand, no logo and no buttons layout from a real product. No people, no hands, no tools. Keep all text inside the
-central 16:9 safe area. Minimal, nothing decorative.
+brand, no logo and no button layout from a real product. No people, no hands, no tools.
+Bottom title: in the lower third, over a dark band that fades upward from the bottom edge, two lines of huge heavy bold Korean text, left-aligned near the left edge, white with a thick black outline:
+line 1 "세탁기 직접 분해했다가", line 2 "수리비 21만 원". The word "21만 원" in line 2 is red #E63B2E. The second line ends well before the bottom-right corner.
+Keep all other picture elements in the upper 60% so they never cover the bottom title.
+Keep all text inside the central 16:9 safe area. Minimal, nothing decorative.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 </details>
@@ -68,8 +77,13 @@ Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold
 
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 1 | 드라이버 하나면 된다더니 | 검정 #1E1E1E | 노랑 상자 #FFD400 (유일한 강조, 글자 전체 높이) |
-| 2 | 21만 원 | 흰색 (빨강 #E63B2E 상자) | 가장 큰 글자 |
+| 위쪽 펀치 | 30분이면 된다더니 | 검정 #1E1E1E | 노랑 상자 #FFD400 (글자 전체 높이, 노랑은 이곳만) |
+| 위쪽 핵심 숫자 | 21만 원 | 흰색 (빨강 #E63B2E 상자) | 가장 큰 글자 |
+| 하단 1줄 | 영상만 믿고 뜯었다가 | 흰색 #FFFFFF + 두꺼운 검정 외곽선 | — |
+| 하단 2줄 | 통돌이 수리비 21만 원 | 흰색 #FFFFFF + 두꺼운 검정 외곽선 | "21만 원"만 빨강 #E63B2E (더 나간 돈) |
+
+- 길이: 펀치 10자 · 하단 1줄 11자 · 하단 2줄 13자 (2줄 합 24자)
+- 강조 합 3곳: 노랑 상자 "30분이면 된다더니" · 빨강 상자 "21만 원" · 하단 빨강 "21만 원"
 
 <details><summary>[A] 완성형 프롬프트</summary>
 
@@ -78,47 +92,47 @@ YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at s
 Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, saved-money blue #2D6CDF, loss red #E63B2E.
 Bottom-right corner kept empty (video length badge).
 Realistic photo style, bright small Korean apartment utility room with cream and white tones, soft daylight.
-On the left 45% of the frame, a fictional Korean woman in her late 30s wearing simple comfortable homewear, looking down
-at her open palm that holds three or four small silver screws, with a puzzled, regretful, slightly deflated expression
-(no crying, no fear). Fictional person, not resembling any real or famous person, natural Korean features.
+On the left 45% of the frame, in the upper 60% of the image, a fictional Korean woman in her late 30s wearing simple
+comfortable homewear, shown from the chest up, looking down at her open palm that holds three or four small silver screws,
+with a puzzled, regretful, slightly deflated expression (no crying, no fear).
+Fictional person, not resembling any real or famous person, natural Korean features.
 Behind her, a plain generic white top-loading washing machine with its lid open, fully assembled and intact
 (no brand, no logo, no copied button layout of any real product). No tools in use, no cables, no water, no mess.
-On the right side, a solid bright yellow (#FFD400) box with the black bold text "드라이버 하나면 된다더니", and below it
-a wide solid red (#E63B2E) rounded box with the huge white bold text "21만 원", the largest element.
+In the upper right, a solid bright yellow (#FFD400) box with the black bold text "30분이면 된다더니", and below it
+a wide solid red (#E63B2E) rounded box with the huge white bold text "21만 원", the largest text in the image.
+Bottom title: in the lower third, over a dark band that fades upward from the bottom edge, two lines of huge heavy bold Korean text, left-aligned near the left edge, white with a thick black outline:
+line 1 "영상만 믿고 뜯었다가", line 2 "통돌이 수리비 21만 원". The word "21만 원" in line 2 is red #E63B2E. The second line ends well before the bottom-right corner.
+Keep all other picture elements in the upper 60% so they never cover the bottom title.
 Keep the face and all text inside the central 16:9 safe area.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 </details>
 
-### 썸네일 3 — 대비 (꿀팁이 약속한 30분 vs 수리비)
+### 썸네일 3 — 검은 배경 제목형 (채택 제목 문구)
 
 🖼️ 이미지 없음 → 이미지 AI에 `thumbnails/thumbnail_3.md`의 [A] 프롬프트를 넣어 만든 뒤 `thumbnails/thumbnail_3.png`로 저장
 
-- 가설: 꿀팁이 약속한 **쉬움("혼자서 30분")과 결과(21만 원)를 나란히** 놓으면, 같은 꿀팁을 본 시청자가 "내 얘기다"를 가장 빨리 느낀다
+- 가설: 그림 없이 검은 배경에 채택 제목 문구만 크게 넣은 썸네일이 **글자만으로** 클릭을 부르는지 (사진 썸네일 사이에서 오히려 눈에 띄는지)
 
-| 줄 | 문구 | 색 | 강조 |
+| 줄 | 문구 | 글자 수 | 색 |
 |---|---|---|---|
-| 왼쪽 | 혼자서 30분 | 파랑 #2D6CDF (크림 배경 위) | — |
-| 오른쪽 | 21만 원 | 흰색 (빨강 #E63B2E 상자) | 가장 큰 글자 |
-| 가운데 | (글자 없음) 노랑 화살표 → | 노랑 #FFD400 | 유일한 강조 |
+| 1 | 업체비 12만원 아끼려고 | 13 | 흰색 #FFFFFF, **"12만원"만 노랑 #FFD400** (아끼려던 돈) |
+| 2 | 세탁기를 직접 분해했다가 | 13 | 흰색 #FFFFFF |
+| 3 | 수리비 21만원이 | 9 | 흰색 #FFFFFF, **"21만원"만 빨강 #E63B2E** (더 나간 돈) |
+| 4 | 나왔습니다 | 5 | 흰색 #FFFFFF |
+
+- 4줄을 띄어쓰기 하나로 이으면 "업체비 12만원 아끼려고 세탁기를 직접 분해했다가 수리비 21만원이 나왔습니다" = 채택 제목 앞 문장 (끝 "." 제외)
+- 강조 2곳 (노랑 "12만원" · 빨강 "21만원") — 3곳 이하. 파랑 글자는 쓰지 않는다 (검정 위에서 안 읽힘)
+- 이 문장은 4줄에 한 줄 14자 이내로 나뉜다. 3줄로는 마지막 줄이 "수리비 21만원이 나왔습니다"(15자)가 되어 4줄로 했다. "수리비 21만원이"는 한 줄에 둔다
 
 <details><summary>[A] 완성형 프롬프트</summary>
 
 ```
-YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at small size.
-Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, saved-money blue #2D6CDF, loss red #E63B2E.
+YouTube thumbnail, 16:9 (1280x720). Plain solid pure black background (#000000) and nothing else: no people, no objects, no shapes, no gradients, no texture, no effects.
+Only huge heavy bold Korean typography, centered, about 85% of the frame width, 4 lines with tight line spacing:
+line 1 "업체비 12만원 아끼려고", line 2 "세탁기를 직접 분해했다가", line 3 "수리비 21만원이", line 4 "나왔습니다".
+All text pure white (#FFFFFF) except "12만원" in bright yellow (#FFD400) and "21만원" in red (#E63B2E). No outlines, shadows or glow.
 Bottom-right corner kept empty (video length badge).
-Split-screen comparison divided vertically in the middle by a thin white line.
-LEFT half: bright cream (#F2EBDD) background, a top-down view into the clean shiny stainless inner drum of a plain
-generic top-loading washing machine, a few water droplets, fresh and bright. Above it, the large blue (#2D6CDF) bold
-text "혼자서 30분".
-RIGHT half: dark navy (#14213D) background, a plain generic white top-loading washing machine standing with its lid
-closed, looking switched off and stopped, dim lighting, intact (not broken apart, no parts, no water, no smoke).
-Above it, in the upper part of the right half, a solid red (#E63B2E) rounded box with the huge white bold text "21만 원",
-the largest element in the image.
-On the dividing line in the center, one small bright yellow (#FFD400) arrow pointing from left to right.
-Washing machines have no brand, no logo and no copied button layout of any real product. No people, no tools.
-Keep all text inside the central 16:9 safe area; leave the bottom-right corner empty.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 </details>

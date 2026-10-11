@@ -1,56 +1,58 @@
-# panicsell-2026-10 썸네일 3 — 대비 (판 날 vs 7주 뒤)
+# panicsell-2026-10 썸네일 3 — 검은 배경 제목형 (채택 제목 문구)
 
-버전: v1.0 — 2026-10-10 — 최초 작성 (`guides/thumbnail_guide.md` v1.1, `stock/guides/thumbnail_rules.md` v1.1), 대본 v1.0 기준
+버전: v2.0 — 2026-10-11 — 사용자 지시: 검은 배경에 채택 제목 문구 그대로 (대비 축 대신) — `guides/thumbnail_guide.md` v1.3 4-1, `stock/guides/thumbnail_rules.md` v1.2, 대본 v1.1 기준 (v1.0: 2026-10-10 최초 작성 — 대비 "판 날 vs 7주 뒤", 이번에 전부 교체)
 
 | 항목 | 값 |
 |---|---|
-| 시험하는 가설 | "판 날"과 "7주 뒤"를 나란히 놓은 **시간 대비**가, 폭락장에 다 팔고 싶었던 사람에게 가장 와닿는다 (문제 분석 세 번째 "바닥은 지나고 나서야 보인다") |
-| 짝 제목 | `titles.md` T3 (짧은 변형) "폭락한 날 -800만원에 다 팔았더니 7주 뒤 +30%였습니다 …" — T1(채택)과도 어울림 |
-| 숫자 근거 | 문장 9 "-800만 원이 넘어" (0:39) · 문장 13 "7주 뒤에는 제가 판 가격보다 30% 넘게" (0:59) → 1분 안 |
+| 시험하는 가설 | 그림 없이 **글자만으로** 클릭을 부르는지 — 사진 썸네일 사이에서 검은 화면에 큰 제목 문구가 오히려 눈에 띈다 |
+| 짝 제목 | `titles.md` **T1 (채택)** "하락장이 무서워 -800만원에 다 팔았는데 그 뒤 +30% 반등했습니다. 패닉셀한 사람들이 마지막에 꼭 하는 후회" — 글자가 곧 채택 제목 앞 문장 |
+| 숫자 근거 | 문장 9 "-800만 원이 넘어" (0:40) · 문장 11 "장 마감 직전 모두 팔았어요" (0:50) · 문장 13 "판 가격보다 30% 넘게" (1:01) — 오디오에 맞춘 SRT 기준. ※ "+30%"는 1분을 1초 넘는다 (오디오를 맞추기 전 SRT로는 0:58). 채택 제목의 숫자라 그대로 둔다 |
 
 ## 화면 구성
-- 세로로 찢어진 종이 경계로 화면을 나눈다. 왼쪽 45%는 다크 네이비, 오른쪽 55%는 크림.
-- 왼쪽 (판 날): "판 날" (흰 글자) + 그 아래 크게 꺾여 내려가는 파랑 선 + 파랑 상자 안 "-800만 원" (흰 글자)
-- 오른쪽 (7주 뒤): "7주 뒤" (노랑 상자 + 검정 글자) + 그 아래 크게 올라가는 빨강 선 + "+30%" (빨강, 가장 큰 글자)
-- 인물 없음 · 오른쪽 아래 구석은 비움
+- 순수 검정 #000000 배경 하나. 인물·소품·도형·무늬·그라데이션 없음
+- 채택 제목 앞 문장을 **글자 그대로** 4줄로, 가운데 정렬, 화면 폭의 85%(약 1090px) 안
+  - 제목 끝 마침표 "."만 뺐다. 뒤 문장("패닉셀한 사람들이 마지막에 꼭 하는 후회")은 넣지 않는다 (크게 넣어야 읽히기 때문).
+  - "-800만원 … +30%"는 한 줄(14자)에 못 들어간다 → 판 금액(2줄)과 판 뒤 숫자(3줄)를 나눴다.
+  - "그 뒤 +30% 반등했습니다"는 15자라 한 줄에 못 넣는다 → "그 뒤 +30%"(3줄)와 "반등했습니다"(4줄)로 나눴다 (어절 단위).
+- 오른쪽 아래 220×70 구석은 비움
 
 ## 문구 (그대로 사용)
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 왼쪽 | 판 날 | 흰색 #F7F3EA | — |
-| 왼쪽 숫자 | -800만 원 | 흰색 (파랑 #2D6CDF 상자, 흰 테두리) | — |
-| 오른쪽 | 7주 뒤 | 검정 (노랑 상자 위) | 노랑 상자 #FFD400 (유일한 강조) |
-| 오른쪽 숫자 | +30% | 빨강 #E63B2E | 가장 큰 글자 |
+| 1줄 | 하락장이 무서워 | 흰색 #FFFFFF | — (8자) |
+| 2줄 | -800만원에 다 팔았는데 | "-800만원" 노랑 #FFD400, "다 팔았는데" 빨강 #E63B2E, "에" 흰색 | 손실 금액 = 노랑, 손실을 부른 행동 = 빨강 (14자) |
+| 3줄 | 그 뒤 +30% | "+30%" 빨강 #E63B2E, "그 뒤" 흰색 | 상승 = 빨강 (8자) |
+| 4줄 | 반등했습니다 | 흰색 #FFFFFF | — (6자) |
+
+- 강조 3곳: 노랑 "-800만원"(손실), 빨강 "다 팔았는데"(행동 단어 1곳 — `stock/guides/thumbnail_rules.md` 2번의 예), 빨강 "+30%"(상승). 손실 숫자는 빨강으로 쓰지 않는다.
+- 4줄을 이으면 채택 제목 앞 문장과 같다: "하락장이 무서워 -800만원에 다 팔았는데 그 뒤 +30% 반등했습니다"
 
 ## [A] 완성형 프롬프트 (이미지 AI에 그대로 붙여 넣기)
 ```
-YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at small size.
-Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, loss blue #2D6CDF, gain red #E63B2E.
+YouTube thumbnail, 16:9 (1280x720). Plain solid pure black background (#000000) and nothing else: no people, no objects, no shapes, no gradients, no texture, no effects.
+Only huge heavy bold Korean typography, centered, about 85% of the frame width, 4 lines with tight line spacing:
+line 1 "하락장이 무서워", line 2 "-800만원에 다 팔았는데", line 3 "그 뒤 +30%", line 4 "반등했습니다".
+All text pure white (#FFFFFF) except "-800만원" in bright yellow (#FFD400) and "다 팔았는데" and "+30%" in red (#E63B2E). No outlines, shadows or glow.
 Bottom-right corner kept empty (video length badge).
-Flat editorial paper-collage graphic. The frame is split by a vertical torn-paper edge slightly left of center.
-Left side (45%, dark navy #14213D): the off-white bold text "판 날" at the top, below it a thick blue (#2D6CDF) line
-plunging sharply downward, and under it a solid blue rounded box with a thin white border containing the white bold text
-"-800만 원". Right side (55%, cream #F2EBDD): the black bold text "7주 뒤" on a solid bright yellow (#FFD400) box at the
-top, below it a thick red (#E63B2E) line rising steeply, ending at the huge red bold text "+30%", the largest element,
-placed in the upper-middle of the right side. No people, no faces, no logos. Minimal, nothing decorative.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 
-## [B] 글자 없는 프롬프트 (한글이 틀릴 때 — 글자는 편집에서 "문구" 표대로 얹기)
-```
-YouTube thumbnail background, 16:9 (1280x720), bold high-contrast composition.
-Palette: cream #F2EBDD, dark navy #14213D, highlight yellow #FFD400, loss blue #2D6CDF, gain red #E63B2E.
-Flat editorial paper-collage graphic split by a vertical torn-paper edge slightly left of center. Left (dark navy): empty
-space at the top for a word, a thick blue line plunging sharply downward, and an empty solid blue rounded box with thin
-white border below it. Right (cream): an empty bright yellow box at the top and a thick red line rising steeply, with empty
-space at its tip for a number. No people. Bottom-right corner empty.
-Absolutely no text, letters, numbers, logos or watermarks. Leave clean empty space where the headline will be added later.
-```
+## [B] 편집 프로그램으로 직접 (이미지 AI 없이)
+- 캔바·미리캔버스·포토샵 등에서 만든다. 이미지 AI가 한글을 틀리게 그릴 때 이쪽이 더 빠르다.
+- 캔버스: 1280×720, 배경 #000000 한 가지 (그림·도형·그라데이션 없음)
+- 글꼴: Noto Sans KR Black (또는 Pretendard Black)
+  - 글자 크기 105px (한글 높이 약 100px), 줄 간격 1.15, 가운데 정렬
+  - Noto Sans KR Black 105px에서 가장 긴 줄 "-800만원에 다 팔았는데"가 약 1,055px → 화면 폭 85%(1,090px) 안
+- 색: "문구" 표대로 — 기본 흰색 #FFFFFF, "-800만원" 노랑 #FFD400, "다 팔았는데"·"+30%" 빨강 #E63B2E. 외곽선·그림자·광택 없음
+- 4줄 묶음을 화면 세로 가운데에 둔다. 오른쪽 아래 220×70px는 비운다 (영상 길이 표시).
+- 저장: `thumbnails/thumbnail_3.png`
 
 ## 검수
-- [ ] "판 날" · "-800만 원" · "7주 뒤" · "+30%"가 한 글자도 틀리지 않음
-- [ ] 선은 개념도라 눈금·축 숫자 없음 · 하락 선은 파랑, 상승 선은 빨강 · 노랑 강조 1곳 · 종목명 없음
-- [ ] 320px 축소본에서 "+30%"와 두 선의 방향이 바로 읽힘
+- [ ] 4줄을 이으면 채택 제목 앞 문장과 **한 글자도 다르지 않음** ("-800만원"·"+30%" 표기, 띄어쓰기까지 제목과 같음) · 마침표·뒤 문장 없음
+- [ ] 줄마다 14자 이내 (8·14·8·6자), 어절 중간에서 줄을 바꾸지 않음
+- [ ] 강조 3곳 (노랑 "-800만원" = 손실, 빨강 "다 팔았는데" = 행동, 빨강 "+30%" = 상승) · 3곳 이하 · 손실 숫자에 빨강 없음
+- [ ] 배경은 검정 #000000 하나뿐 (인물·도형·그라데이션·외곽선·그림자·로고 없음) · 종목명 없음
+- [ ] 320px 축소본에서 4줄 모두 읽힘
 - [ ] 오른쪽 아래 비어 있음 · 1280×720, 2MB 이하
 
 ## 결과 (업로드 후)

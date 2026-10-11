@@ -1,6 +1,6 @@
 # prediabetes-2026-10 한눈에 보기
 
-자동 생성 — `python tools/make_summary.py health prediabetes-2026-10` (2026-10-11 07:53). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
+자동 생성 — `python tools/make_summary.py health prediabetes-2026-10` (2026-10-11 08:41). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
 
 > **공복혈당 108 '경계'라 괜찮다고 넘겼다가 3년 만에 당뇨가 됐습니다. 검진 결과지 대충 본 사람들의 공통점**
 
@@ -22,7 +22,7 @@
 
 - [x] **T1. (채택)** 공복혈당 108 '경계'라 괜찮다고 넘겼다가 3년 만에 당뇨가 됐습니다. 검진 결과지 대충 본 사람들의 공통점 `속마음 · 경계→당뇨 · 공통점` 61자 — 짝 썸네일: thumbnail_1
 - [ ] **T2.** 아픈 데 없다며 넘긴 공복혈당 108이 3년 만에 131이 됐습니다. 당뇨 전단계 무시한 사람들의 후회 `증상 없음 · 108→131 · 후회("마지막에 꼭 하는 후회"를 줄여 씀)` 57자 — 짝 썸네일: thumbnail_2
-- [ ] **T3.** (짧은 변형) 공복혈당 108을 3년 무시했더니 131, 당뇨가 됐습니다. 당뇨 전단계의 불편한 진실 `행동 · 108→131 · 불편한 진실` 48자 — 짝 썸네일: thumbnail_3
+- [ ] **T3.** (짧은 변형) 공복혈당 108을 3년 무시했더니 131, 당뇨가 됐습니다. 당뇨 전단계의 불편한 진실 `행동 · 108→131 · 불편한 진실` 48자 — 짝 썸네일: thumbnail_3 (검은 배경 제목형 — 채택 제목 문구)
 
 ## 2. 썸네일 3개 (`thumbnails/`)
 
@@ -36,11 +36,15 @@
 
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 처음 | 108 | 잉크 #1E1E1E | 중간 크기 |
-| 판정 | 경계 | 검정 글자 | 노랑 #FFD400 상자 (글자 전체 높이) |
-| 기간 | 3년 | 잉크 | 작게, 화살표 위 |
-| 결과 | 131 | 빨강 #E63B2E | 가장 큰 글자 |
-| 판정 | 당뇨 | 흰 글자 | 빨강 상자 |
+| 펀치 (위 가운데) | 공복혈당 | 잉크 #1E1E1E | 노랑 #FFD400 상자 (글자 전체 높이, 유일한 노랑) |
+| 처음 숫자 | 108 | 잉크 #1E1E1E | 중간 크기, 왼쪽 뒤 카드 |
+| 결과 숫자 | 131 | 빨강 #E63B2E | 가장 큰 글자, 오른쪽 앞 카드 |
+| 하단 1줄 | '경계'라 넘겼다가 | 흰색 #FFFFFF + 두꺼운 검정 외곽선 | 없음 |
+| 하단 2줄 | 3년 만에 당뇨가 됐다 | 흰색 #FFFFFF + 두꺼운 검정 외곽선 | "당뇨"만 빨강 #E63B2E (나빠진 결과) |
+
+- 하단 2줄 = 채택 제목 앞 문장 "공복혈당 108 '경계'라 괜찮다고 넘겼다가 3년 만에 당뇨가 됐습니다"를 줄인 것 (제목 단어를 그대로 씀). 1줄 10자 · 2줄 12자, 합 22자 (띄어쓰기 포함)
+- 펀치 "공복혈당"(4자)은 하단 2줄에 없는 말이다. 108 → 131 숫자는 그림 쪽에만 있다
+- 강조 합 3곳: 노랑 상자 "공복혈당", 빨강 "131", 빨강 "당뇨". 파랑 글자 없음
 
 <details><summary>[A] 완성형 프롬프트</summary>
 
@@ -48,12 +52,15 @@
 YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at small size.
 Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, loss blue #2D6CDF, gain red #E63B2E.
 Bottom-right corner kept empty (video length badge).
-Clean flat illustration on a cream background. Two simple white medical checkup result sheets overlap in the center,
-with no logos, no institution names, no barcodes, no personal data, no small print. On the smaller sheet at the back left,
-the number "108" in black, next to a solid bright yellow (#FFD400) box with black text "경계". A thick black arrow points
-from left to right, with the small black text "3년" above the arrow. On the larger sheet in front on the right, the huge
-red (#E63B2E) number "131" as the largest element, with a solid red box below it containing white bold text "당뇨".
-No people, no needles, no blood, no hospital scenes.
+Upper 60% of the frame: clean flat illustration on a cream (#F2EBDD) background. At the top center, a solid bright yellow
+(#FFD400) box with the black bold text "공복혈당". Below it, two simple white medical checkup result cards overlap in the
+center, with no logos, no institution names, no barcodes, no personal data and no small print. On the smaller card at the
+back left, the black number "108" in medium size. A thick black arrow points from the left card to the right card, with
+nothing written on or above the arrow. On the larger card in front on the right, the huge red (#E63B2E) number "131", the
+largest element in the image (about 25% of the image height). No people, no needles, no blood, no hospital scenes.
+Bottom title: in the lower third, over a dark band that fades upward from the bottom edge, two lines of huge heavy bold Korean text, left-aligned near the left edge, white with a thick black outline:
+line 1 "'경계'라 넘겼다가", line 2 "3년 만에 당뇨가 됐다". The word "당뇨" is red #E63B2E. The second line ends well before the bottom-right corner.
+Keep all other picture elements in the upper 60% so they never cover the bottom title.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 </details>
@@ -66,8 +73,13 @@ Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold
 
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 속마음 | 멀쩡했는데 | 잉크 #1E1E1E | 노랑 #FFD400 상자 (글자 전체 높이) |
-| 결과 | 131 | 흰 글자 (빨강 #E63B2E 상자) | 가장 큰 글자 |
+| 펀치 + 결과 숫자 (오른쪽 위) | 공복혈당 131 | 흰 글자 (빨강 #E63B2E 상자) | "131"을 가장 크게 |
+| 하단 1줄 | 아픈 데 없다며 넘긴 | 흰색 #FFFFFF + 두꺼운 검정 외곽선 | 없음 |
+| 하단 2줄 | 108이 3년 만에 131 | 흰색 #FFFFFF + 두꺼운 검정 외곽선 | "108"만 노랑 #FFD400 (처음 숫자) |
+
+- 하단 2줄 = 짝 제목 T2 앞 문장 "아픈 데 없다며 넘긴 공복혈당 108이 3년 만에 131이 됐습니다"를 줄인 것 (제목 단어를 그대로 씀, "공복혈당"은 그림 쪽 상자에). 1줄 11자 · 2줄 14자, 합 25자 (띄어쓰기 포함)
+- 펀치 "공복혈당"(4자)은 하단 2줄에 없는 말이다. 131은 위아래 모두 나온다 (숫자 반복은 허용)
+- 강조 합 2곳: 빨강 상자 "공복혈당 131", 노랑 "108". 노랑 상자 없음, 파랑 글자 없음
 
 <details><summary>[A] 완성형 프롬프트</summary>
 
@@ -76,39 +88,45 @@ YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at s
 Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, loss blue #2D6CDF, gain red #E63B2E.
 Bottom-right corner kept empty (video length badge).
 Realistic photo style. Softly blurred bright office background in warm cream tones. On the left 40% of the frame, a
-fictional Korean man in his early 50s, office-worker look (white shirt, loosened tie), holding a single health checkup
-result sheet with both hands, the sheet facing away or blurred so no text is readable, surprised and worried expression
-looking at the paper. Fictional person, not resembling any real or famous person, natural Korean features. Not a doctor,
-no white coat, no hospital, no needles. On the right side, large bold headline text "멀쩡했는데" in ink black on a solid bright
-yellow (#FFD400) box. Below it, a wide solid red (#E63B2E) rounded box containing
-the huge white bold number "131", the largest element. No crying, no extreme fear.
+fictional Korean man in his early 50s, office-worker look (white shirt, loosened tie), shown from the waist up, holding a
+single health checkup result sheet with both hands at chest height, the sheet facing away or blurred so no text is
+readable, surprised and worried expression looking at the paper. His face, hands and the sheet are all in the upper 60%
+of the frame. Fictional person, not resembling any real or famous person, natural Korean features. Not a doctor, no white
+coat, no hospital, no needles. On the upper right side, a wide solid red (#E63B2E) rounded box containing the white bold
+text "공복혈당 131", with the number "131" much larger than the word, the largest text in the image. No crying, no extreme fear.
+Bottom title: in the lower third, over a dark band that fades upward from the bottom edge, two lines of huge heavy bold Korean text, left-aligned near the left edge, white with a thick black outline:
+line 1 "아픈 데 없다며 넘긴", line 2 "108이 3년 만에 131". The word "108" is bright yellow #FFD400. The second line ends well before the bottom-right corner.
+Keep all other picture elements in the upper 60% so they never cover the bottom title.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 </details>
 
-### 썸네일 3 — 대비 (기대 vs 결과)
+### 썸네일 3 — 검은 배경 제목형 (채택 제목 문구)
 
 🖼️ 이미지 없음 → 이미지 AI에 `thumbnails/thumbnail_3.md`의 [A] 프롬프트를 넣어 만든 뒤 `thumbnails/thumbnail_3.png`로 저장
 
-- 가설: "괜찮겠지"라는 기대와 결과를 나란히 놓으면 공감이 빠르다
+- 가설: 그림 없이 검은 배경에 채택 제목 앞 문장만 크게 넣은 **글자만으로** 클릭을 부르는지 (사진 썸네일 사이에서 오히려 눈에 띄는지)
 
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 왼쪽 숫자 | 108 | 잉크 | 큼 |
-| 왼쪽 말 | 괜찮겠지 | 검정 글자 | 노랑 상자 |
-| 오른쪽 숫자 | 131 | 흰 글자 (빨강 상자) | 가장 큼 |
-| 오른쪽 말 | 당뇨 | 흰 글자 #F7F3EA | 중간 |
+| 1줄 | 공복혈당 108 | 흰색 #FFFFFF | 없음 |
+| 2줄 | '경계'라 괜찮다고 | 흰색 #FFFFFF | "'경계'"(작은따옴표 포함)만 노랑 #FFD400 — 믿었던 말 |
+| 3줄 | 넘겼다가 3년 만에 | 흰색 #FFFFFF | 없음 |
+| 4줄 | 당뇨가 됐습니다 | 흰색 #FFFFFF | "당뇨"만 빨강 #E63B2E — 나빠진 결과 |
+
+- 줄 길이 8자 · 10자 · 10자 · 8자 (띄어쓰기 포함, 모두 14자 이내). 어절 사이에서만 줄을 바꿨다
+- 이어 붙이면 채택 제목 앞 문장과 한 글자도 다르지 않다: "공복혈당 108 '경계'라 괜찮다고 넘겼다가 3년 만에 당뇨가 됐습니다". 뒤 문장("검진 결과지 대충 본 사람들의 공통점")은 넣지 않는다
+- 숫자 덩어리 "공복혈당 108"과 결과 "당뇨가 됐습니다"가 각각 한 줄에 온다
+- 강조 합 2곳 (3곳 이하). 파랑 글자 없음 (검정 위 파랑 금지)
 
 <details><summary>[A] 완성형 프롬프트</summary>
 
 ```
-YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at small size.
-Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, loss blue #2D6CDF, gain red #E63B2E.
+YouTube thumbnail, 16:9 (1280x720). Plain solid pure black background (#000000) and nothing else: no people, no objects, no shapes, no gradients, no texture, no effects.
+Only huge heavy bold Korean typography, centered, about 85% of the frame width, 4 lines with tight line spacing:
+line 1 "공복혈당 108", line 2 "'경계'라 괜찮다고", line 3 "넘겼다가 3년 만에", line 4 "당뇨가 됐습니다".
+All text pure white (#FFFFFF) except "'경계'" in bright yellow (#FFD400) and "당뇨" in red (#E63B2E). No outlines, shadows or glow.
 Bottom-right corner kept empty (video length badge).
-Flat graphic design split vertically in two halves with a torn-paper edge in the middle. Left half: cream background with
-the large ink-black number "108" and below it the Korean word "괜찮겠지" in black on a solid bright yellow (#FFD400) box.
-Right half: dark navy (#14213D) background with a solid red (#E63B2E) rounded box containing the huge white bold number
-"131", the largest element, and below it the Korean word "당뇨" in off-white. No people, no medical scenes, no logos.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 </details>

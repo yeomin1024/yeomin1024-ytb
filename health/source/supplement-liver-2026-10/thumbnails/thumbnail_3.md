@@ -1,59 +1,55 @@
-# supplement-liver-2026-10 썸네일 3 — 대비 (영양제 9가지 vs 간수치 89)
+# supplement-liver-2026-10 썸네일 3 — 검은 배경 제목형 (채택 제목 문구)
 
-버전: v1.0 — 2026-10-11 — 최초 작성 (`guides/thumbnail_guide.md` v1.2, `health/guides/thumbnail_rules.md` v1.1 2·5번), 대본 supplement-liver-2026-10.txt v1.0 기준
+버전: v2.0 — 2026-10-11 — 사용자 지시: 검은 배경에 채택 제목 문구 그대로 (대비 축 대신) (`guides/thumbnail_guide.md` v1.3 4-1, `health/guides/thumbnail_rules.md` v1.2 2번), 대본 supplement-liver-2026-10.txt v1.0 기준 (v1.0: 2026-10-11 최초 작성 — 대비 축: 왼쪽 영양제 통 9개·"9가지", 오른쪽 "간수치"·"89")
 
 | 항목 | 값 |
 |---|---|
-| 시험하는 가설 | 왼쪽에 줄지어 선 **영양제 통 9개**(믿었던 것)와 오른쪽 **빨간 89**(결과)를 나란히 놓으면 "많이 먹은 게 문제였구나"가 한눈에 읽힌다 |
-| 짝 제목 | `titles.md` T3 (짧은 변형) "영양제를 하루 14알씩 먹다 간수치 24가 89가 됐습니다 …" — T1과도 어울림 |
-| 숫자 근거 | 문장 8 "2년 만에 9가지, 하루 14알" (0:35) · 문장 11 "간수치는 89" (0:51) → 모두 1분 안 |
+| 시험하는 가설 | 그림 없이 검은 배경에 채택 제목 앞 문장만 크게 넣은 **글자만으로** 클릭을 부르는지 (사진 썸네일 사이에서 오히려 눈에 띄는지) |
+| 짝 제목 | `titles.md` T1 (채택) "몸에 좋다길래 영양제를 9가지로 늘렸다가 간수치 24가 89가 됐습니다. 영양제 겹쳐 먹는 사람들의 공통점" — 글자가 곧 채택 제목 앞 문장. T2·T3과도 어울림 (세 제목 모두 24→89) |
+| 숫자 근거 | 문장 1 "2년 전 … 간수치는 24" (0:00) · 문장 5 "몸에 좋다는 영양제를 보면 하나씩" (0:18) · 문장 8 "2년 만에 9가지, 하루 14알" (0:35) · 문장 11 "간수치는 89" (0:51) → 모두 1분 안 |
 
 ## 화면 구성
-- 세로로 찢어진 종이 경계로 화면을 나눈다. 왼쪽 50%는 크림, 오른쪽 50%는 다크 네이비.
-- 왼쪽: 라벨·글자·로고 없는 흰 통 **9개**를 3개씩 3줄로 가지런히 (모두 같은 단순한 모양, 잉크 외곽선). 위에 잉크 글자 **"9가지"**
-- 오른쪽: 작은 흰 글자 **"간수치"**, 그 아래 빨강 **"89"** — 화면에서 가장 큰 요소
-- 인물 없음 · 간 그림 없음 · 오른쪽 아래 구석은 비움
+- 1280×720 전체가 순수 검정 #000000 한 가지. 인물·소품·도형·무늬·그라데이션 없음
+- 채택 제목 앞 문장을 **글자 그대로** 4줄로, 가운데 정렬, 화면 폭의 85% 안. 글자 높이 약 100px, 줄 간격 1.15 (4줄 묶음 높이 약 460px, 화면 세로 가운데)
+- 강조 2곳: "몸에 좋다길래" 노랑 (믿었던 말), "89" 빨강 (높아진 결과 숫자). 나머지는 흰색
+- 외곽선·그림자·네온 없음. 오른쪽 아래 구석(약 220×70)은 비움
 
-## 문구 (그대로 사용)
+## 문구 (그대로 사용 — 채택 제목 앞 문장, 끝 "." 없음)
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 왼쪽 | 9가지 | 잉크 #1E1E1E | 노랑 #FFD400 상자 (유일한 노랑) |
-| 오른쪽 위 | 간수치 | 흰색 #F7F3EA | 작게 |
-| 오른쪽 | 89 | 빨강 #E63B2E (흰 테두리) | 가장 큰 글자 |
+| 1줄 | 몸에 좋다길래 | 노랑 #FFD400 (줄 전체) | 믿었던 말 |
+| 2줄 | 영양제를 9가지로 | 흰색 #FFFFFF | 없음 |
+| 3줄 | 늘렸다가 간수치 | 흰색 #FFFFFF | 없음 |
+| 4줄 | 24가 89가 됐습니다 | 흰색 #FFFFFF | "89"만 빨강 #E63B2E — 나빠진(높아진) 결과 숫자 |
 
-전체 8자. 짝 제목 T3("하루 14알")에 없는 "9가지"를 보탠다.
+- 줄 길이 7자 · 9자 · 8자 · 12자 (띄어쓰기 포함, 모두 14자 이내). 어절 사이에서만 줄을 바꿨다
+- 이어 붙이면 채택 제목 앞 문장과 한 글자도 다르지 않다: "몸에 좋다길래 영양제를 9가지로 늘렸다가 간수치 24가 89가 됐습니다". 뒤 문장("영양제 겹쳐 먹는 사람들의 공통점")은 넣지 않는다
+- 숫자 반전 "24가 89가 됐습니다"가 한 줄에 온다 (마지막 줄, 가장 긴 줄)
+- 강조 합 2곳 (3곳 이하). 파랑 글자 없음 (검정 위 파랑 금지)
 
 ## [A] 완성형 프롬프트 (이미지 AI에 그대로 붙여 넣기)
 ```
-YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at small size.
-Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, loss blue #2D6CDF, gain red #E63B2E.
+YouTube thumbnail, 16:9 (1280x720). Plain solid pure black background (#000000) and nothing else: no people, no objects, no shapes, no gradients, no texture, no effects.
+Only huge heavy bold Korean typography, centered, about 85% of the frame width, 4 lines with tight line spacing:
+line 1 "몸에 좋다길래", line 2 "영양제를 9가지로", line 3 "늘렸다가 간수치", line 4 "24가 89가 됐습니다".
+All text pure white (#FFFFFF) except "몸에 좋다길래" in bright yellow (#FFD400) and "89" in red (#E63B2E). No outlines, shadows or glow.
 Bottom-right corner kept empty (video length badge).
-Flat editorial paper-collage graphic. The frame is split by a vertical torn-paper edge in the middle.
-Left half (cream #F2EBDD): exactly nine identical plain white supplement bottles drawn with thin ink outlines, arranged
-neatly in three rows of three, with absolutely no labels, no text, no logos and no brand-like colors. Above the bottles,
-the black bold text "9가지" on a solid bright yellow (#FFD400) box. Right half (dark navy #14213D): the small off-white
-bold word "간수치" near the top, and below it the huge red (#E63B2E) number "89" with a thin white outline, the largest
-element in the image (about 30% of the image height). No people, no faces, no organs, no pills spilling.
-Minimal, nothing decorative.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 
-## [B] 글자 없는 프롬프트 (한글이 틀릴 때 — 글자는 편집에서 "문구" 표대로 얹기)
-```
-YouTube thumbnail background, 16:9 (1280x720), bold high-contrast composition.
-Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400.
-Flat editorial paper-collage graphic split by a vertical torn-paper edge in the middle. Left half (cream): nine identical
-plain white unlabeled supplement bottles with thin ink outlines in three rows of three, and an empty solid yellow box
-above them. Right half (dark navy): large calm empty space for a big number and a small word above it. No people,
-no organs. Bottom-right corner empty.
-Absolutely no text, letters, numbers, logos or watermarks. Leave clean empty space where the headline will be added later.
-```
+## [B] 편집 프로그램으로 직접 (이미지 AI 없이)
+- 캔버스 1280×720, 배경 #000000 한 가지 (그림·도형·그라데이션 없음)
+- 글꼴 Noto Sans KR Black (또는 Pretendard Black), 글자 높이 약 100px, 줄 간격 1.15, 가운데 정렬. 4줄 묶음을 화면 가운데에, 폭 85%(약 1088px) 안
+- "문구" 표대로 4줄을 입력하고 색을 칠한다: 기본 흰색 #FFFFFF, 1줄 "몸에 좋다길래" 노랑 #FFD400, 4줄의 "89" 빨강 #E63B2E. 외곽선·그림자·네온 없음
+- 오른쪽 아래 220×70 구석은 비움 (글자가 닿지 않게)
+- PNG 또는 JPG로 내보내기, 2MB 이하
 
 ## 검수
-- [ ] "9가지" · "간수치" · "89"가 한 글자도 틀리지 않음, 그 밖의 글자 없음
-- [ ] 왼쪽 통이 정확히 9개 (대본 문장 8과 같음), 통에 라벨·상표·제품 같은 색 조합 없음
-- [ ] "89"가 가장 크고 빨강, 노랑 강조는 "9가지" 한 곳
-- [ ] 320px 축소본에서 "9가지"와 "89"가 읽힘 · 오른쪽 아래 비어 있음 · 1280×720, 2MB 이하
+- [ ] 4줄을 이어 붙이면 채택 제목 앞 문장과 **한 글자도 다르지 않음** (숫자 9가지·24·89 표기 포함, 끝 "." 없음) · 뒤 문장 없음 · 그 밖의 글자 없음
+- [ ] 강조 2곳만 (노랑 "몸에 좋다길래", 빨강 "89") — 3곳 이하 · 색의 뜻이 건강 규칙과 같음 (빨강 = 나빠진·높아진 결과, 노랑 = 믿었던 말) · 파랑 글자 없음
+- [ ] 배경이 순수 검정 한 가지 — 인물·소품·영양제 통·도형·그라데이션·외곽선·그림자·네온 없음
+- [ ] 320px 축소본에서 4줄 모두 읽힘
+- [ ] 오른쪽 아래 구석이 비어 있음 · 1280×720, 2MB 이하
 
 ## 결과 (업로드 후)
 | 날짜 | 테스트 및 비교 결과 (시청 시간 비율) | 메모 |

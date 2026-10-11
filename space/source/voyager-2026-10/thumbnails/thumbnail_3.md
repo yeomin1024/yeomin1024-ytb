@@ -1,62 +1,53 @@
-# voyager-2026-10 썸네일 3 — 대비 (끝났다는 쇼츠 / 지금도 신호)
+# voyager-2026-10 썸네일 3 — 검은 배경 제목형 (채택 제목 문구)
 
-버전: v1.0 — 2026-10-11 — 최초 작성 (`guides/thumbnail_guide.md` v1.2, `space/guides/thumbnail_rules.md` v1.0), 대본 v1.0 기준
+버전: v2.0 — 2026-10-11 — 사용자 지시: 검은 배경에 채택 제목 문구 그대로 (대비 축 대신) — `guides/thumbnail_guide.md` v1.3 4-1, `space/guides/thumbnail_rules.md` v1.1, 대본 v1.0 기준 (v1.0 — 2026-10-11 — 대비: 끝났다는 쇼츠 / 지금도 신호)
 
 | 항목 | 값 |
 |---|---|
-| 시험하는 가설 | 쇼츠가 준 인상('끝났다')과 실제 기록('지금도 신호', 11월 18일)을 좌우로 맞세운 대비가 가장 클릭을 부른다 |
-| 짝 제목 | `titles.md` **T3 (짧은 변형)** "다섯 달 만에 살아난 보이저 1호. 끝났다던 영상이 틀린 진짜 이유" — T1과도 어울림 |
-| 숫자 근거 | 문장 1 "보이저 1호가 끝났다는 1분짜리 쇼츠를 봤어요" (0:00) · 문장 8 "그 탐사선은 지금도 신호를 보내며 2026년 11월 18일 빛으로 하루 거리에 닿는대요" (0:47~0:55) → 1분 안 |
+| 시험하는 가설 | 그림 없이 검은 배경에 채택 제목 앞 문장만 크게 넣은 **글자만으로** 클릭을 부르는지 (사진·일러스트 썸네일 사이에서 눈에 띄는지) |
+| 짝 제목 | `titles.md` **T1 (채택)** "보이저 1호는 끝났다고 가르쳤는데 아직 살아서 빛으로 하루 거리에 닿습니다. 낚시 영상 믿은 사람들의 공통점" — 글자가 곧 채택 제목 |
+| 숫자 근거 | 문장 1 "보이저 1호가 끝났다는 1분짜리 쇼츠를 봤어요" (0:00) · 문장 8 "그 탐사선은 지금도 신호를 보내며 2026년 11월 18일 빛으로 하루 거리에 닿는대요" (0:47~0:54) → 1분 안 |
 
 ## 화면 구성
-- 화면을 세로로 반씩 나눔
-- 왼쪽 절반 (빨강 쪽): 빨강 테두리 안에 세로로 긴 단순한 휴대폰 화면 하나 — 짧은 영상 화면처럼 어둡고, 가운데에 큰 **"끝났다"** (흰 글자 + 빨강 상자). 앱 이름·버튼·로고·채널 이름 없음
-- 오른쪽 절반 (파랑 쪽): 다크 네이비 우주, 안테나 접시가 달린 작은 탐사선 일러스트(로고 없음)에서 왼쪽으로 가는 가는 신호선. 그 아래 파랑 상자 **"지금도 신호"** (흰 글자, 가장 큰 글자 덩어리), 그 아래 작게 **"11월 18일"** (흰 글자)
-- 가운데 경계선에 노랑 화살표 하나 (왼쪽 → 오른쪽)
-- 오른쪽 아래 구석(약 220×70px)은 비움 · 인물 없음
+- 배경: 순수 검정 #000000 한 가지. 탐사선·지구·도형·무늬·그라데이션 없음
+- 글자: 채택 제목의 앞 문장을 **글자 그대로** 4줄로, 가운데 정렬, 화면 폭의 85% 안
+- 강조 2곳: 빨강 "끝났다고" (틀린 말) · 노랑 "빛으로 하루 거리" (실제 기록). 검정 위 파랑 글자는 쓰지 않는다
+- 오른쪽 아래 구석(약 220×70px)은 비움
 
 ## 문구 (그대로 사용)
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 왼쪽 (쇼츠 인상) | 끝났다 | 흰색 (빨강 #E63B2E 상자) | — |
-| 오른쪽 (실제 기록) | 지금도 신호 | 흰색 (파랑 #2D6CDF 상자) | 가장 큰 글자 |
-| 오른쪽 아래 | 11월 18일 | 흰색 (네이비 위) | — |
-| (그림) | 가운데 화살표 | 노랑 #FFD400 | 유일한 노랑 강조 |
+| 1줄 | 보이저 1호는 끝났다고 | 흰색 #FFFFFF | "끝났다고" 빨강 #E63B2E |
+| 2줄 | 가르쳤는데 아직 살아서 | 흰색 #FFFFFF | — |
+| 3줄 | 빛으로 하루 거리에 | 흰색 #FFFFFF | "빛으로 하루 거리" 노랑 #FFD400 |
+| 4줄 | 닿습니다 | 흰색 #FFFFFF | — |
+
+- 이어 붙이면 "보이저 1호는 끝났다고 가르쳤는데 아직 살아서 빛으로 하루 거리에 닿습니다" = 채택 제목 앞 문장 (마침표만 뺌)
+- "빛으로 하루 거리에 닿습니다"(15자)는 한 줄 14자를 넘어 "닿습니다"를 4줄로 내렸다. 반전 덩어리 "빛으로 하루 거리"는 한 줄에 있다
 
 ## [A] 완성형 프롬프트 (이미지 AI에 그대로 붙여 넣기)
 ```
-YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at small size.
-Palette: dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, fact blue #2D6CDF, wrong-information red #E63B2E, cream #F2EBDD.
+YouTube thumbnail, 16:9 (1280x720). Plain solid pure black background (#000000) and nothing else: no people, no objects, no shapes, no gradients, no texture, no effects.
+Only huge heavy bold Korean typography, centered, about 85% of the frame width, 4 lines with tight line spacing:
+line 1 "보이저 1호는 끝났다고", line 2 "가르쳤는데 아직 살아서", line 3 "빛으로 하루 거리에", line 4 "닿습니다".
+All text pure white (#FFFFFF) except "빛으로 하루 거리" in bright yellow (#FFD400) and "끝났다고" in red (#E63B2E). No outlines, shadows or glow.
 Bottom-right corner kept empty (video length badge).
-Clean flat illustrated style (clearly an illustration, not a photo). The frame is split vertically into two halves.
-Left half: a red-tinted panel with a thick red (#E63B2E) border containing one simple tall smartphone screen that looks
-like a dark generic short-video screen, with no app name, no buttons, no logos, no channel name; in its center the big
-white bold text "끝났다" on a solid red box. Right half: dark navy (#14213D) deep space with a few faint stars and a small
-generic space probe illustration with a dish antenna (intact, no logos, no letters, no flags) sending a thin glowing
-dotted signal line toward the left; below it a wide solid blue (#2D6CDF) rounded box with the large white bold text
-"지금도 신호", the largest text block, and under that box the smaller white bold text "11월 18일". On the dividing line
-in the center, one bright yellow (#FFD400) arrow pointing from left to right. Keep all text inside the central 16:9 safe
-area. Minimal, nothing decorative, no people.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 
-## [B] 글자 없는 프롬프트 (한글이 틀릴 때 — 글자는 편집에서 "문구" 표대로 얹기)
-```
-YouTube thumbnail background, 16:9 (1280x720), bold high-contrast composition.
-Palette: dark navy #14213D, highlight yellow #FFD400, fact blue #2D6CDF, wrong-information red #E63B2E.
-Clean flat illustrated style, not a photo. Frame split vertically in two halves. Left half: red-tinted panel with a thick
-red border and one simple dark tall smartphone screen with an empty solid red box in its center, no app name, no buttons,
-no logos. Right half: dark navy space with a few faint stars and a small generic probe with a dish antenna sending a thin
-glowing dotted line to the left, an empty wide solid blue rounded box below it and empty space under the box for a short
-date. One bright yellow arrow on the center dividing line pointing left to right. No people. Bottom-right corner empty.
-Absolutely no text, letters, numbers, logos or watermarks. Leave clean empty space where the headline will be added later.
-```
+## [B] 편집 프로그램으로 직접 (이미지 AI 없이)
+- 캔바·미리캔버스·포토샵 등에서 새 캔버스 **1280×720**, 배경 **#000000** 한 가지
+- 글꼴 **Noto Sans KR Black** (또는 Pretendard Black), 글자 높이 약 **100px**, 줄 간격 **1.15**, **가운데 정렬**, 4줄 묶음을 화면 가운데에
+- 색은 "문구" 표대로: 기본 흰색 #FFFFFF, "끝났다고"만 빨강 #E63B2E, "빛으로 하루 거리"만 노랑 #FFD400
+- 외곽선·그림자·빛 효과 없음 · 오른쪽 아래 **220×70** 구석은 비움
+- PNG 또는 JPG로 내보내기 (2MB 이하)
 
 ## 검수
-- [ ] "끝났다" · "지금도 신호" · "11월 18일"이 한 글자도 틀리지 않음 (문장 1·8과 같은 말·날짜)
-- [ ] 휴대폰 화면이 실제 앱(쇼츠·릴스 등)처럼 보이지 않음 — 앱 이름·버튼 배치·로고·채널 이름 없음
-- [ ] 탐사선에 로고·글자·국기 없음 · 실제 사진처럼 보이지 않음
-- [ ] 320px 축소본에서 "끝났다"와 "지금도 신호"가 바로 읽힘 · 노랑 강조 1곳 · 빨강 = 틀린 인상, 파랑 = 실제 기록
+- [ ] 4줄을 이어 붙이면 채택 제목 앞 문장과 **한 글자도 다르지 않음** ("보이저 1호는 끝났다고 가르쳤는데 아직 살아서 빛으로 하루 거리에 닿습니다")
+- [ ] 줄마다 14자 이내 (12 · 12 · 10 · 4자), 어절 중간에서 끊지 않음, "빛으로 하루 거리"가 한 줄
+- [ ] 강조 2곳(빨강 "끝났다고", 노랑 "빛으로 하루 거리") — 3곳 이하 · 빨강 = 틀린 말, 노랑 = 실제 기록 · 파랑 글자 없음
+- [ ] 배경은 검정 하나뿐 (탐사선·도형·그라데이션·효과 없음)
+- [ ] 320px 축소본에서 4줄이 모두 읽힘
 - [ ] 오른쪽 아래 비어 있음 · 1280×720, 2MB 이하
 
 ## 결과 (업로드 후)

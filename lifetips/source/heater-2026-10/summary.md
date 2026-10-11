@@ -1,6 +1,6 @@
 # heater-2026-10 한눈에 보기
 
-자동 생성 — `python tools/make_summary.py lifetips heater-2026-10` (2026-10-11 07:46). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
+자동 생성 — `python tools/make_summary.py lifetips heater-2026-10` (2026-10-11 08:41). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
 
 > **보일러보다 싸다는 말에 온풍기만 틀었다가 전기요금 2만원이 13만원이 됐습니다. 전기 난방으로 버틴 사람들의 불편한 진실**
 
@@ -22,7 +22,7 @@
 
 - [x] **T1. (채택)** 보일러보다 싸다는 말에 온풍기만 틀었다가 전기요금 2만원이 13만원이 됐습니다. 전기 난방으로 버틴 사람들의 불편한 진실 `속마음 · 작은 돈→큰 돈 · 불편한 진실` 67자 — 짝 썸네일: thumbnail_1 (고지서 숫자 반전)
 - [ ] **T2.** 가스비 3만원 아끼려고 켠 온풍기 하나에 전기요금이 13만원 나왔습니다. 누진제 모르고 전기 난방한 사람들의 공통점 `행동 · 아낀 돈→나간 돈 · 공통점` 64자 — 짝 썸네일: thumbnail_2 (인물·고지서 장면)
-- [ ] **T3.** (짧은 변형) 난방비 절약 꿀팁 따라 했다가 전기요금 13만원, 마지막에 꼭 하는 후회 `계기 · 결과 금액 · 마지막에 꼭 하는 후회` 40자 — 짝 썸네일: thumbnail_3 (꿀팁 약속 vs 결과 대비)
+- [ ] **T3.** (짧은 변형) 난방비 절약 꿀팁 따라 했다가 전기요금 13만원, 마지막에 꼭 하는 후회 `계기 · 결과 금액 · 마지막에 꼭 하는 후회` 40자 — 짝 썸네일: thumbnail_3 (검은 배경 제목형 — 채택 제목 문구)
 
 ## 2. 썸네일 3개 (`thumbnails/`)
 
@@ -36,8 +36,14 @@
 
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 위 | 전기요금 2만 원 | 잉크 #1E1E1E | "전기요금"에 노랑 형광펜 #FFD400 (유일한 강조) |
-| 아래 | 13만 원 | 흰색 (빨강 #E63B2E 상자 위) | 가장 큰 글자 |
+| 위쪽 펀치 (카드 위) | 전기요금 2만 원 | 잉크 #1E1E1E | "전기요금"에 노랑 형광펜 #FFD400 (글자 전체 높이) |
+| 위쪽 핵심 숫자 | 13만 원 | 흰색 (빨강 #E63B2E 상자 위) | 가장 큰 글자 |
+| 하단 1줄 | 보일러보다 싸다는 말에 | 흰색 #FFFFFF + 두꺼운 검정 외곽선 | — |
+| 하단 2줄 | 온풍기 틀었다가 13만 원 | 흰색 #FFFFFF + 두꺼운 검정 외곽선 | "13만 원"만 빨강 #E63B2E (더 나간 돈) |
+
+- 길이: 펀치 9자 · 하단 1줄 12자 · 하단 2줄 14자 (2줄 합 26자)
+- 하단 2줄은 채택 제목 앞 문장을 줄인 것 ("온풍기만 틀었다가" → "온풍기 틀었다가", "전기요금 2만원이 13만원이 됐습니다" → "13만 원" — 2만 원·전기요금은 위쪽 카드에 있음)
+- 강조 합 3곳: 노랑 형광펜 "전기요금" · 빨강 상자 "13만 원" · 하단 빨강 "13만 원"
 
 <details><summary>[A] 완성형 프롬프트</summary>
 
@@ -45,13 +51,17 @@
 YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at small size.
 Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, extra-cost red #E63B2E, saved-money blue #2D6CDF.
 Bottom-right corner kept empty (video length badge).
-Clean flat editorial graphic on a cream paper background (#F2EBDD) with subtle paper grain. A single large white paper
-card, slightly tilted, with a thin ink-black outline fills the center of the frame, like a very simple monthly bill
-(NOT a real utility bill: no company name, no logo, no customer number, no barcode, no QR code, no table lines).
-Top part of the card: the text "전기요금 2만 원" in bold ink-black letters, with a bright yellow (#FFD400)
-highlighter stripe behind the word "전기요금" only. Below it, one thick red (#E63B2E) arrow pointing down.
-Lower half of the card: a wide solid red (#E63B2E) rounded box with the huge white bold text "13만 원" centered,
-the largest element in the image (about a quarter of the image height). No people, no faces, no heater, no fire.
+Upper 60% of the frame: clean flat editorial graphic on a cream paper background (#F2EBDD) with subtle paper grain.
+A single white paper card, slightly tilted, with a thin ink-black outline, scaled down so it fits entirely inside the
+upper 60% of the frame, like a very simple monthly bill (NOT a real utility bill: no company name, no logo, no customer
+number, no barcode, no QR code, no table lines).
+Top part of the card: the text "전기요금 2만 원" in bold ink-black letters, with a bright yellow (#FFD400) highlighter
+box of full letter height behind the word "전기요금" only. Below it, one thick ink-black arrow pointing down.
+Lower part of the card: a wide solid red (#E63B2E) rounded box with the huge white bold text "13만 원" centered,
+the largest text in the image (about a quarter of the image height). No people, no faces, no heater, no fire.
+Bottom title: in the lower third, over a dark band that fades upward from the bottom edge, two lines of huge heavy bold Korean text, left-aligned near the left edge, white with a thick black outline:
+line 1 "보일러보다 싸다는 말에", line 2 "온풍기 틀었다가 13만 원". The word "13만 원" in line 2 is red #E63B2E. The second line ends well before the bottom-right corner.
+Keep all other picture elements in the upper 60% so they never cover the bottom title.
 Minimal, nothing decorative. Keep all text inside the central 16:9 area.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
@@ -65,8 +75,14 @@ Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold
 
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 위 | 온풍기 한 달 | 잉크 #1E1E1E | 노랑 상자 #FFD400 (유일한 강조, 글자 전체 높이) |
-| 아래 | 13만 원 | 빨강 #E63B2E (네이비 위, 흰 외곽선) | 가장 큰 글자 |
+| 위쪽 펀치 | 온풍기 한 달 | 잉크 #1E1E1E | 노랑 상자 #FFD400 (글자 전체 높이, 노랑 상자는 이곳만) |
+| 위쪽 핵심 숫자 | 13만 원 | 빨강 #E63B2E (네이비 위, 흰 외곽선) | 가장 큰 글자 |
+| 하단 1줄 | 가스비 3만 원 아끼려다 | 흰색 #FFFFFF + 두꺼운 검정 외곽선 | "3만 원"만 노랑 #FFD400 글자 (아끼려던 돈) |
+| 하단 2줄 | 전기요금 13만 원 | 흰색 #FFFFFF + 두꺼운 검정 외곽선 | — |
+
+- 길이: 펀치 7자 · 하단 1줄 13자 · 하단 2줄 10자 (2줄 합 23자)
+- 하단 2줄은 짝 제목 T2 앞 문장을 줄인 것 ("아끼려고 켠 온풍기 하나에" → "아끼려다", 대본 문장 13과 같은 말)
+- 강조 합 3곳: 노랑 상자 "온풍기 한 달" · 빨강 "13만 원" · 하단 노랑 "3만 원"
 
 <details><summary>[A] 완성형 프롬프트</summary>
 
@@ -74,46 +90,47 @@ Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold
 YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at small size.
 Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, extra-cost red #E63B2E, saved-money blue #2D6CDF.
 Bottom-right corner kept empty (video length badge).
-Left 55% of the frame: a realistic photo of a small, plain studio apartment in winter. A fictional Korean woman in her
-late twenties (fictional person, not resembling any real or famous person, natural Korean features, realistic photo style)
-sits on the floor with a gray blanket wrapped around her shoulders, holding a single sheet of blank white paper with
-both hands and staring at it, frozen in shock and regret, mouth slightly open. Beside her on the floor is a generic plain
-white box-shaped electric fan heater with no brand, no logo and no visible buttons, giving off only a faint warm orange
-glow (no flames, no fire, no smoke). Soft natural indoor light.
-Right 45% of the frame: solid dark navy (#14213D) panel with two lines of large Korean text, stacked:
-top line "온풍기 한 달" in bold ink-black letters on a bright yellow (#FFD400) box that covers the full height of the letters;
-bottom line "13만 원" in huge bold red (#E63B2E) letters with a thin white outline, the largest element in the image.
+Upper 60% of the frame, left 55%: a realistic photo of a small, plain studio apartment in winter. A fictional Korean woman
+in her late twenties (fictional person, not resembling any real or famous person, natural Korean features, realistic
+photo style), shown from the chest up, with a gray blanket wrapped around her shoulders, holding a single sheet of blank
+white paper with both hands and staring at it, frozen in shock and regret, mouth slightly open. Beside her is a generic
+plain white box-shaped electric fan heater with no brand, no logo and no visible buttons, giving off only a faint warm
+orange glow (no flames, no fire, no smoke). Soft natural indoor light.
+Upper 60% of the frame, right 45%: solid dark navy (#14213D) panel with two stacked blocks of Korean text:
+top "온풍기 한 달" in bold ink-black letters on a bright yellow (#FFD400) box that covers the full height of the letters;
+below it "13만 원" in huge bold red (#E63B2E) letters with a thin white outline, the largest text in the image.
+Bottom title: in the lower third, over a dark band that fades upward from the bottom edge, two lines of huge heavy bold Korean text, left-aligned near the left edge, white with a thick black outline:
+line 1 "가스비 3만 원 아끼려다", line 2 "전기요금 13만 원". The word "3만 원" in line 1 is bright yellow #FFD400. The second line ends well before the bottom-right corner.
+Keep all other picture elements in the upper 60% so they never cover the bottom title.
 Keep her face and all text inside the central 16:9 area.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 </details>
 
-### 썸네일 3 — 대비 (꿀팁이 약속한 것 vs 결과)
+### 썸네일 3 — 검은 배경 제목형 (채택 제목 문구)
 
 🖼️ 이미지 없음 → 이미지 AI에 `thumbnails/thumbnail_3.md`의 [A] 프롬프트를 넣어 만든 뒤 `thumbnails/thumbnail_3.png`로 저장
 
-- 가설: 꿀팁이 약속한 **"난방비 반값"**과 실제 결과 **"전기요금 13만 원"**을 나란히 놓은 대비가 검색해서 들어온 시청자를 붙잡는다
+- 가설: 그림 없이 검은 배경에 채택 제목 문구만 크게 넣은 썸네일이 **글자만으로** 클릭을 부르는지 (사진 썸네일 사이에서 오히려 눈에 띄는지)
 
-| 줄 | 문구 | 색 | 강조 |
+| 줄 | 문구 | 글자 수 | 색 |
 |---|---|---|---|
-| 왼쪽 꼬리표 | 꿀팁 | 잉크 #1E1E1E | 노랑 상자 #FFD400 (유일한 강조) |
-| 왼쪽 | 난방비 반값 | 파랑 #2D6CDF (꿀팁이 약속한 절약) | 크게 |
-| 오른쪽 | 전기요금 13만 원 | "전기요금" 흰색 · "13만 원" 빨강 #E63B2E | "13만 원"이 가장 큰 글자 |
+| 1 | 보일러보다 싸다는 말에 | 12 | 흰색 #FFFFFF |
+| 2 | 온풍기만 틀었다가 전기요금 | 14 | 흰색 #FFFFFF |
+| 3 | 2만원이 13만원이 | 10 | 흰색 #FFFFFF, **"2만원"만 노랑 #FFD400** (평소 요금 — 반전 전 숫자), **"13만원"만 빨강 #E63B2E** (더 나간 돈) |
+| 4 | 됐습니다 | 4 | 흰색 #FFFFFF |
+
+- 4줄을 띄어쓰기 하나로 이으면 "보일러보다 싸다는 말에 온풍기만 틀었다가 전기요금 2만원이 13만원이 됐습니다" = 채택 제목 앞 문장 (끝 "." 제외)
+- 강조 2곳 (노랑 "2만원" · 빨강 "13만원") — 3곳 이하. 파랑 글자는 쓰지 않는다 (검정 위에서 안 읽힘)
 
 <details><summary>[A] 완성형 프롬프트</summary>
 
 ```
-YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at small size.
-Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, extra-cost red #E63B2E, saved-money blue #2D6CDF.
+YouTube thumbnail, 16:9 (1280x720). Plain solid pure black background (#000000) and nothing else: no people, no objects, no shapes, no gradients, no texture, no effects.
+Only huge heavy bold Korean typography, centered, about 85% of the frame width, 4 lines with tight line spacing:
+line 1 "보일러보다 싸다는 말에", line 2 "온풍기만 틀었다가 전기요금", line 3 "2만원이 13만원이", line 4 "됐습니다".
+All text pure white (#FFFFFF) except "2만원" in bright yellow (#FFD400) and "13만원" in red (#E63B2E). No outlines, shadows or glow.
 Bottom-right corner kept empty (video length badge).
-Clean flat editorial split-screen graphic divided down the middle by a thick ink-black vertical line.
-Left half on a cream (#F2EBDD) background: a small tag at the top with the text "꿀팁" in ink-black bold letters on a
-bright yellow (#FFD400) box; below it the large bold blue (#2D6CDF) text "난방비 반값"; at the bottom a simple flat
-illustration of a generic plain white box-shaped electric fan heater with no brand, no logo and no visible buttons
-(no flames, no fire).
-Right half on a solid dark navy (#14213D) background: the text "전기요금" in bold white letters, and below it the huge
-bold red (#E63B2E) text "13만 원" with a thin white outline, the largest element in the image.
-No people, no faces. Minimal, nothing decorative. Keep all text inside the central 16:9 area.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 </details>

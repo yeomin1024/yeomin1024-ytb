@@ -1,6 +1,6 @@
 # multagi-2026-10 한눈에 보기
 
-자동 생성 — `python tools/make_summary.py stock multagi-2026-10` (2026-10-11 07:42). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
+자동 생성 — `python tools/make_summary.py stock multagi-2026-10` (2026-10-11 08:41). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
 
 > **평단 낮추면 된다는 말만 믿고 물타서 -200만원이 -2천만원이 됐습니다. 손절 기준 없이 버틴 사람들의 공통점**
 
@@ -22,7 +22,7 @@
 
 - [x] **T1. (채택)** 평단 낮추면 된다는 말만 믿고 물타서 -200만원이 -2천만원이 됐습니다. 손절 기준 없이 버틴 사람들의 공통점 `계기 · 손실→손실 · 공통점` 62자 — 짝 썸네일: thumbnail_1 (계좌 숫자 반전)
 - [ ] **T2.** 본전 금방 온다며 기준 없이 물타서 -200만원이 -2천만원이 됐습니다. 추가 매수로 버틴 사람들의 최악의 결말 `속마음 · 손실→손실 · 최악의 결말` 62자 — 짝 썸네일: thumbnail_2 (인물 장면)
-- [ ] **T3.** (짧은 변형) 물타기 두 번에 -200만원이 -2천만원이 됐습니다. 기준 없이 추가 매수한 사람들의 불편한 진실 `행동 · 손실→손실 · 불편한 진실` 54자 — 짝 썸네일: thumbnail_3 (평단 ↓ vs 손실)
+- [ ] **T3.** (짧은 변형) 물타기 두 번에 -200만원이 -2천만원이 됐습니다. 기준 없이 추가 매수한 사람들의 불편한 진실 `행동 · 손실→손실 · 불편한 진실` 54자 — 짝 썸네일: thumbnail_3 (검은 배경 제목형 — 채택 제목 문구)
 
 ## 2. 썸네일 3개 (`thumbnails/`)
 
@@ -36,9 +36,15 @@
 
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 시작 | -200만 원 | 파랑 #2D6CDF | — |
-| 라벨 | 물타기 2번 | 검정 #1E1E1E | 노랑 형광펜 #FFD400 (유일한 강조) |
-| 결과 | -2,000만 원 | 흰색 (파랑 상자 위) | 가장 큰 글자 |
+| 카드 시작 숫자 | -200만 원 | 파랑 #2D6CDF | — |
+| 펀치 (위쪽) | 물타기 2번 | 검정 #1E1E1E | 노랑 형광펜 #FFD400 (노랑 상자는 이 1곳만) |
+| 카드 결과 숫자 | -2,000만 원 | 흰색 (파랑 상자 위) | 가장 큰 글자 |
+| 하단 1줄 | 평단 낮추면 된다길래 | 흰색 + 검정 외곽선 | — (11자) |
+| 하단 2줄 | -200만원이 -2천만원 | 흰색 + 검정 외곽선 | "-2천만원"만 노랑 #FFD400 (13자, 2줄 합 24자) |
+
+- 강조색은 2곳: 노랑 형광펜 "물타기 2번", 노랑 글자 "-2천만원". 손실 숫자는 빨강으로 쓰지 않는다 (카드는 파랑, 하단은 흰색·노랑).
+- 하단 2줄은 T1 앞 문장("평단 낮추면 된다는 말만 믿고 물타서 -200만원이 -2천만원이 됐습니다")을 줄인 것. 펀치 "물타기 2번"과 같은 말("물타")은 하단에 넣지 않았다.
+- 하단 2줄은 제목 표기("-200만원", "-2천만원"), 카드는 영상 계좌 카드 표기("-200만 원", "-2,000만 원")다. 값은 같다 (`stock/guides/thumbnail_rules.md` 1번).
 
 <details><summary>[A] 완성형 프롬프트</summary>
 
@@ -46,13 +52,16 @@
 YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at small size.
 Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, loss blue #2D6CDF, gain red #E63B2E.
 Bottom-right corner kept empty (video length badge).
-Clean flat editorial graphic on a cream paper background (#F2EBDD) with subtle paper grain. A large light-cream rounded
-rectangle card with a thin black outline fills most of the frame, like a simple personal account summary card
-(NOT a real banking or brokerage app, no app name, no logos). Inside the card, top-left: the text "-200만 원" in large
-blue (#2D6CDF) bold letters. Below it, a thick blue arrow pointing down, and to the right of the arrow the label
-"물타기 2번" in black bold letters over a bright yellow (#FFD400) highlighter stripe. The lower half of the card is a wide
-solid blue (#2D6CDF) rounded box with the huge white bold text "-2,000만 원" centered, the largest element in the image.
+Clean flat editorial graphic on a cream paper background (#F2EBDD) with subtle paper grain. In the upper 60% of the frame,
+a wide light-cream rounded rectangle card with a thin black outline, like a simple personal account summary card
+(NOT a real banking or brokerage app, no app name, no logos). Inside the card, on the left: the text "-200만 원" in large
+blue (#2D6CDF) bold letters. In the middle: a thick blue arrow pointing right and slightly down, with the label
+"물타기 2번" in black bold letters over a bright yellow (#FFD400) highlighter stripe just above the arrow. On the right: a
+solid blue (#2D6CDF) rounded box with the huge white bold text "-2,000만 원", the largest element in the image.
 No people, no faces. Minimal, nothing decorative.
+Bottom title: in the lower third, over a dark band that fades upward from the bottom edge, two lines of huge heavy bold Korean text, left-aligned near the left edge, white with a thick black outline:
+line 1 "평단 낮추면 된다길래", line 2 "-200만원이 -2천만원". The word "-2천만원" is bright yellow #FFD400. The second line ends well before the bottom-right corner.
+Keep all other picture elements in the upper 60% so they never cover the bottom title.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 </details>
@@ -65,8 +74,15 @@ Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold
 
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 속마음 | 본전 오겠지 | 흰색 #F7F3EA ("본전"만 검정) | "본전"에 노랑 상자 (글자 전체 높이) |
-| 결과 | -2,000만 원 | 흰색 (파랑 #2D6CDF 상자, 흰 테두리) | 가장 큰 글자 |
+| 펀치 (위쪽) | 본전 오겠지 | 흰색 #F7F3EA ("본전"만 검정) | "본전"에 노랑 상자 (글자 전체 높이, 노랑 상자는 이 1곳만) |
+| 결과 숫자 (위쪽) | -2,000만 원 | 흰색 (파랑 #2D6CDF 상자, 흰 테두리) | 가장 큰 글자 |
+| 하단 1줄 | 기준 없이 물타서 | 흰색 + 검정 외곽선 | "기준 없이"만 노랑 #FFD400 (9자) |
+| 하단 2줄 | -200만원이 -2천만원 | 흰색 + 검정 외곽선 | — (13자, 2줄 합 22자) |
+
+- 강조색은 2곳: 노랑 상자 "본전", 노랑 글자 "기준 없이". 손실 숫자는 빨강으로 쓰지 않는다 (위쪽은 파랑 상자, 하단은 흰색).
+- 하단 2줄은 T2 앞 문장("본전 금방 온다며 기준 없이 물타서 -200만원이 -2천만원이 됐습니다")을 줄인 것. "본전"은 펀치에 있어 하단에 다시 쓰지 않았다.
+- "기준 없이"를 노랑으로 고른 이유: 세 제목 모두 "기준 없이"를 넣었다. 물타기 자체가 아니라 기준 없음이 문제라는 메시지다 (`titles.md` 점검).
+- 하단 2줄은 제목 표기("-200만원", "-2천만원"), 위쪽 상자는 영상 계좌 카드 표기("-2,000만 원")다. 값은 같다.
 
 <details><summary>[A] 완성형 프롬프트</summary>
 
@@ -76,38 +92,43 @@ Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #
 Bottom-right corner kept empty (video length badge).
 Realistic photo style. Dark navy-toned room in early morning. On the left 40% of the frame, a fictional Korean man in his
 early 40s, office-worker look (plain shirt), sitting and holding a smartphone, his other hand on his forehead, frozen
-stunned and regretful expression, face lit by the phone's cold light. The phone screen shows only a simple blue line
-dropping sharply, no app interface, no text. Fictional person, not resembling any real or famous person, natural Korean
-features. On the right side, large bold headline text "본전 오겠지" in off-white, where only the word "본전" sits on a
-solid bright yellow (#FFD400) box with black text. Below it, a wide solid blue (#2D6CDF) rounded box with a thin white
-border containing the huge white bold text "-2,000만 원", the largest element. No crying, no extreme fear.
+stunned and regretful expression, face lit by the phone's cold light. His face and the phone are in the upper 60% of the
+frame; his lower body fades into darkness at the bottom. The phone screen shows only a simple blue line dropping sharply,
+no app interface, no text. Fictional person, not resembling any real or famous person, natural Korean features, realistic
+photo style. In the upper right area, large bold text "본전 오겠지" in off-white, where only the word "본전" sits on a solid
+bright yellow (#FFD400) box with black text. Below it, still in the upper 60%, a wide solid blue (#2D6CDF) rounded box with
+a thin white border containing the huge white bold text "-2,000만 원", the largest element. No crying, no extreme fear.
+Bottom title: in the lower third, over a dark band that fades upward from the bottom edge, two lines of huge heavy bold Korean text, left-aligned near the left edge, white with a thick black outline:
+line 1 "기준 없이 물타서", line 2 "-200만원이 -2천만원". The word "기준 없이" is bright yellow #FFD400. The second line ends well before the bottom-right corner.
+Keep all other picture elements in the upper 60% so they never cover the bottom title.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 </details>
 
-### 썸네일 3 — 대비 (평단 ↓ vs 손실)
+### 썸네일 3 — 검은 배경 제목형 (채택 제목 문구)
 
 🖼️ 이미지 없음 → 이미지 AI에 `thumbnails/thumbnail_3.md`의 [A] 프롬프트를 넣어 만든 뒤 `thumbnails/thumbnail_3.png`로 저장
 
-- 가설: "평단은 내려갔는데 손실은 커졌다"는 **기대와 결과의 대비**가 물타기 해 본 사람에게 가장 와닿는다 (문제 분석 첫 번째 메시지)
+- 가설: 그림 없이 **글자만으로** 클릭을 부르는지 — 사진 썸네일 사이에서 검은 화면에 큰 제목 문구가 오히려 눈에 띈다
 
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 왼쪽 | 평단 | 검정 #1E1E1E | — (화살표는 웜 그레이 #9A968E) |
-| 오른쪽 | 손실 | 검정 (노랑 상자 위) | 노랑 상자 #FFD400 (유일한 강조) |
-| 결과 | -2,000만 원 | 흰색 (파랑 #2D6CDF 상자, 흰 테두리) | — |
+| 1줄 | 평단 낮추면 된다는 | 흰색 #FFFFFF | — (10자) |
+| 2줄 | 말만 믿고 물타서 | "물타서" 빨강 #E63B2E, 나머지 흰색 | 손실을 부른 행동 = 빨강 (9자) |
+| 3줄 | -200만원이 -2천만원이 | "-200만원"·"-2천만원" 노랑 #FFD400, "이" 흰색 | 손실 금액 = 노랑 (14자) |
+| 4줄 | 됐습니다 | 흰색 #FFFFFF | — (4자) |
+
+- 강조 3곳: 빨강 "물타서"(행동 단어 1곳 — `stock/guides/thumbnail_rules.md` 2번의 예), 노랑 "-200만원", 노랑 "-2천만원". 손실 숫자는 빨강으로 쓰지 않는다.
+- 4줄을 이으면 채택 제목 앞 문장과 같다: "평단 낮추면 된다는 말만 믿고 물타서 -200만원이 -2천만원이 됐습니다"
 
 <details><summary>[A] 완성형 프롬프트</summary>
 
 ```
-YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at small size.
-Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, loss blue #2D6CDF, gain red #E63B2E.
+YouTube thumbnail, 16:9 (1280x720). Plain solid pure black background (#000000) and nothing else: no people, no objects, no shapes, no gradients, no texture, no effects.
+Only huge heavy bold Korean typography, centered, about 85% of the frame width, 4 lines with tight line spacing:
+line 1 "평단 낮추면 된다는", line 2 "말만 믿고 물타서", line 3 "-200만원이 -2천만원이", line 4 "됐습니다".
+All text pure white (#FFFFFF) except "-200만원" and "-2천만원" in bright yellow (#FFD400) and "물타서" in red (#E63B2E). No outlines, shadows or glow.
 Bottom-right corner kept empty (video length badge).
-Flat editorial paper-collage graphic. The frame is split by a vertical torn-paper edge slightly left of center.
-Left side: cream paper (#F2EBDD) with the large black bold text "평단" near the top and a big warm-gray (#9A968E)
-paper-cut arrow pointing straight down below it. Right side: dark navy paper (#14213D) with the large text "손실" in black
-on a solid bright yellow (#FFD400) box near the top, and below it a wide solid blue (#2D6CDF) rounded box with a thin white
-border containing the white bold text "-2,000만 원". No people. Minimal, nothing decorative.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 </details>

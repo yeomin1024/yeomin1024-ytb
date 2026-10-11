@@ -1,63 +1,56 @@
-# dopaminedetox-2026-10 썸네일 3 — 대비 (일요일 밤 '리셋 완료' vs 월요일 출근길 9시간)
+# dopaminedetox-2026-10 썸네일 3 — 검은 배경 제목형 (채택 제목 문구)
 
-버전: v1.0 — 2026-10-11 — 최초 작성 (`guides/thumbnail_guide.md` v1.2, `selfdev/guides/thumbnail_rules.md` v1.0), 대본 `dopaminedetox-2026-10.txt` v1.0 기준
+버전: v2.0 — 2026-10-11 — 사용자 지시: 검은 배경에 채택 제목 문구 그대로 (대비 축 대신) — `guides/thumbnail_guide.md` v1.3 4-1, `selfdev/guides/thumbnail_rules.md` v1.1 2번, 대본 `dopaminedetox-2026-10.txt` v1.0 기준 (v1.0: 대비 — 일요일 밤 '리셋 완료' vs 월요일 출근길 9시간)
 
 | 항목 | 값 |
 |---|---|
-| 시험하는 가설 | 왼쪽 기대(다이어리의 "리셋 완료")와 오른쪽 결과(월요일 출근길의 "9시간")를 한 화면에 나란히 두면, 문제 분석 첫 메시지("리셋은 일어나지 않는다")가 한눈에 읽힌다 |
-| 짝 제목 | `titles.md` **T3 (짧은 변형)** "폰 끊은 주말 48시간, 월요일엔 9시간. 도파민 디톡스의 불편한 진실" — T1·T2와도 어울림 |
-| 숫자 근거 | 문장 8 "산책을 두 번 하고, 책도 반 권이나 읽었죠" (0:39) · 문장 10 "다이어리에는 '리셋 완료'라고 적었죠" (0:49) · 문장 12 "월요일 하루에만 화면 시간이 9시간" (0:55.8) · 문장 14 "출근길 지하철에서 … 숏폼으로 넘어갔죠" (1:06) |
+| 시험하는 가설 | 그림 없이 **검은 배경의 채택 제목 문구(글자)만으로** 클릭을 부르는지 — 사진 썸네일 사이에서 오히려 눈에 띄는지 |
+| 짝 제목 | `titles.md` **T1 (채택)** "도파민 디톡스 한다고 주말 48시간 폰을 끊었는데 월요일에만 9시간을 봤습니다. 숏폼 끊으려던 사람들의 최악의 결말" — 글자가 곧 이 제목의 앞 문장 |
+| 숫자 근거 | 문장 5 "48시간만 모든 자극을 끊으면 … 도파민 디톡스 영상을 봤어요" (0:20) · 문장 7 "금요일 밤 10시, 휴대폰을 서랍에 넣고" (0:32) · 문장 9 "일요일 밤 10시, 48시간을 채우자" (0:43) · 문장 12 "월요일 하루에만 화면 시간이 9시간" (0:55.8) → 모두 1분 안 |
 
 ## 화면 구성
-- 화면을 세로로 반씩 나눔 (가운데 얇은 흰 선)
-- **왼쪽 (일요일 밤, 따뜻한 크림 #F2EBDD 톤):** 책상 위에 펼친 종이 다이어리 — 손글씨 **"리셋 완료"**와 체크 표시 하나, 옆에 반쯤 읽은 책(표지 글자 없음)과 운동화 한 켤레. 휴대폰은 보이지 않음 (닫힌 서랍)
-- **오른쪽 (월요일 아침, 차가운 다크 네이비 #14213D 톤):** 출근길 지하철 안, 손잡이를 잡고 서서 휴대폰을 들여다보는 **30대 여성 직장인의 뒷모습** (얼굴 보이지 않음, 가상 인물). 휴대폰 화면은 은은한 빛만 (앱 화면 없음). 지하철 안에 노선도·광고·표지판·글자 없음
-  - 오른쪽 위에 아주 큰 빨강 **"9시간"** (흰 테두리, 가장 큰 글자)
-- 노랑 강조는 왼쪽 "리셋 완료" 아래 형광펜 줄 한 곳
-- 오른쪽 아래 구석 비움 · 글자는 가운데 16:9 안
+- 1280×720 전체가 순수 검정 #000000 한 가지. 인물·소품·도형·무늬·그라데이션 없음
+- 채택 제목 앞 문장을 **글자 그대로** 4줄로 (마침표만 뺌, 뒤 문장 "숏폼 끊으려던 사람들의 최악의 결말"은 넣지 않음)
+  - 원문: 도파민 디톡스 한다고 주말 48시간 폰을 끊었는데 월요일에만 9시간을 봤습니다
+  - "주말 48시간 폰을 끊었는데"(15자)·"월요일에만 9시간을 봤습니다"(15자)는 한 줄 14자를 넘어 한 줄에 못 넣는다 → 줄 길이를 고르게(9~11자) 나누고 "주말 48시간"·"9시간을 봤습니다"는 한 줄에 둔다
+- 가운데 정렬, 글자 덩어리는 화면 위아래 가운데, 화면 폭의 85% 안, 글자 높이 약 100px, 줄 간격 1.15
+- 기본 흰색 #FFFFFF. 강조 2곳: **노랑 "48시간"**(처음 목표 숫자) · **빨강 "9시간"**(잃은 것)
+- 외곽선·그림자·효과 없음 · 오른쪽 아래 구석(약 220×70px)은 비움
 
 ## 문구 (그대로 사용)
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 기대 (왼쪽) | 리셋 완료 | 잉크 #1E1E1E 손글씨 느낌의 굵은 글자 | 아래에 노랑 #FFD400 형광펜 줄 (유일한 강조) |
-| 결과 (오른쪽) | 9시간 | 빨강 #E63B2E (잃은 것), 흰 테두리 | 가장 큰 글자 |
+| 1줄 (11자) | 도파민 디톡스 한다고 | 흰색 #FFFFFF | — |
+| 2줄 (10자) | 주말 48시간 폰을 | 흰색 #FFFFFF | "48시간"만 노랑 #FFD400 (처음 목표 숫자) |
+| 3줄 (10자) | 끊었는데 월요일에만 | 흰색 #FFFFFF | — |
+| 4줄 (9자) | 9시간을 봤습니다 | 흰색 #FFFFFF | "9시간"만 빨강 #E63B2E (잃은 것) |
 
 ## [A] 완성형 프롬프트 (이미지 AI에 그대로 붙여 넣기)
 ```
-YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at small size.
-Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, blue #2D6CDF (what was hoped for), red #E63B2E (what was lost).
+YouTube thumbnail, 16:9 (1280x720). Plain solid pure black background (#000000) and nothing else: no people, no objects, no shapes, no gradients, no texture, no effects.
+Only huge heavy bold Korean typography, centered, about 85% of the frame width, 4 lines with tight line spacing:
+line 1 "도파민 디톡스 한다고", line 2 "주말 48시간 폰을", line 3 "끊었는데 월요일에만", line 4 "9시간을 봤습니다".
+All text pure white (#FFFFFF) except "48시간" in bright yellow (#FFD400) and "9시간" in red (#E63B2E). No outlines, shadows or glow.
 Bottom-right corner kept empty (video length badge).
-Split-screen image divided vertically in the middle by a thin white line.
-LEFT HALF, warm cream (#F2EBDD) lamplight, Sunday night: a desk with an open paper diary; on the page, the large bold
-hand-lettered black Korean text "리셋 완료" with one check mark, and a bright yellow (#FFD400) highlighter stroke under the
-text. Beside the diary, a half-read book with a blank cover and a pair of clean sneakers. No phone visible.
-RIGHT HALF, cool dark navy (#14213D) tone, Monday morning: inside a commuter subway car, the back view of a fictional
-Korean woman in her early 30s in office clothes, standing and holding a hand strap, looking down at a smartphone held
-close, the phone giving off a soft glow with no visible interface. Her face is not visible. No route maps, no ads, no
-signs, no text anywhere in the subway. In the upper part of the right half, the huge red (#E63B2E) bold text "9시간" with
-a thin white outline, the largest element in the image. Fictional person, not resembling any real or famous person.
-No brain images, no logos. Keep all text inside the central 16:9 area.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 
-## [B] 글자 없는 프롬프트 (한글이 틀릴 때 — 글자는 편집에서 "문구" 표대로 얹기)
-```
-YouTube thumbnail background, 16:9 (1280x720), bold high-contrast composition.
-Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, red #E63B2E.
-Split-screen divided vertically by a thin white line. LEFT HALF, warm cream lamplight: a desk with an open blank paper
-diary page (large empty area on the page for handwriting), a half-read book with a blank cover and a pair of clean
-sneakers, no phone. RIGHT HALF, cool dark navy tone: inside a commuter subway car with no signs or ads, the back view of a
-fictional Korean woman in her early 30s in office clothes holding a hand strap and looking down at a softly glowing
-smartphone, face not visible; large empty dark space in the upper right for a big number. Bottom-right corner empty.
-Absolutely no text, letters, numbers, logos or watermarks. Leave clean empty space where the headline will be added later.
-```
+## [B] 편집 프로그램으로 직접 (이미지 AI 없이)
+- 캔버스 1280×720, 배경 #000000 한 가지 (그 밖에 아무것도 넣지 않음)
+- 글꼴 Noto Sans KR Black (또는 Pretendard Black), 글자 높이 약 100px, 줄 간격 1.15, 가운데 정렬
+  - 가장 긴 1줄(11자)이 화면 폭 85%(약 1090px)를 넘으면 네 줄 모두 같은 크기로 조금 줄인다 (90px까지)
+- 위 "문구" 표의 줄 나눔·색 그대로: 흰색 #FFFFFF, "48시간" 노랑 #FFD400, "9시간" 빨강 #E63B2E. 외곽선·그림자·효과 없음
+- 글자 덩어리를 화면 위아래 가운데에 둔다. 오른쪽 아래 220×70px는 비움
+- PNG 또는 JPG, 2MB 이하로 `thumbnails/thumbnail_3.png`에 저장
 
 ## 검수
-- [ ] "리셋 완료" · "9시간"이 한 글자도 틀리지 않음, 다이어리·책·지하철 안에 다른 글자 없음
-- [ ] 숫자가 대본 문장 12 "9시간"·제목과 같음 · 왼쪽 소품(산책 운동화·책 반 권·다이어리)이 대본 문장 8·10과 맞음
-- [ ] 인물은 뒷모습만, 실존 인물을 닮지 않음 · 지하철 노선도·광고·실제 회사 로고 없음 · 휴대폰에 앱 화면 없음
-- [ ] 노랑 강조 1곳("리셋 완료" 형광펜) · "9시간"이 가장 크고 빨강
-- [ ] 320px 축소본에서 "9시간"과 "리셋 완료"가 읽힘 · 오른쪽 아래 비어 있음 · 1280×720, 2MB 이하
+- [ ] 글자가 채택 제목 앞 문장과 **글자 그대로** 같음: "도파민 디톡스 한다고 주말 48시간 폰을 끊었는데 월요일에만 9시간을 봤습니다" (마침표만 뺌, 숫자 표기 "48시간"·"9시간" 같음) — 한 글자도 틀리지 않음, 다른 글자 없음
+- [ ] 줄 나눔이 "문구" 표와 같음 (4줄, 한 줄 14자 이내, 어절 중간에서 끊지 않음)
+- [ ] 강조 2곳(노랑 "48시간", 빨강 "9시간")뿐 — 3곳 이하, 나머지 흰색 · 색의 뜻: 빨강 = 잃은 것, 노랑 = 처음 목표 숫자 · 파랑 글자 없음
+- [ ] 배경은 순수 검정 하나 — 인물·소품·도형·무늬·그라데이션 없음 · 외곽선·그림자·네온 없음 · 로고 없음
+- [ ] 320px 축소본에서 네 줄이 모두 읽힘
+- [ ] 오른쪽 아래 220×70 비어 있음 · 1280×720, 2MB 이하
+- [ ] 채택 제목이 바뀌면 이 문구도 같이 바꿈
 
 ## 결과 (업로드 후)
 | 날짜 | 테스트 및 비교 결과 (시청 시간 비율) | 메모 |

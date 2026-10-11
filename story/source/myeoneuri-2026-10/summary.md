@@ -1,6 +1,6 @@
 # myeoneuri-2026-10 한눈에 보기
 
-자동 생성 — `python tools/make_summary.py story myeoneuri-2026-10` (2026-10-11 07:49). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
+자동 생성 — `python tools/make_summary.py story myeoneuri-2026-10` (2026-10-11 08:41). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
 
 > **아버님 말씀만 믿고 8년을 모셨는데 며느리 몫은 0원이었습니다. 시부모 간병한 며느리들이 모르는 불편한 진실**
 
@@ -22,7 +22,7 @@
 
 - [x] **T1. (채택)** 아버님 말씀만 믿고 8년을 모셨는데 며느리 몫은 0원이었습니다. 시부모 간병한 며느리들이 모르는 불편한 진실 `속마음 · 기간→0원 · 불편한 진실` 60자 — 짝 썸네일: thumbnail_1 (8년 간병 → 0원)
 - [ ] **T2.** (말줄임 변형) 이 집은 너희 내외 몫이라는 손글씨 한 장 믿고 8년을 모셨는데… 시부모 모신 며느리들이 마지막에 꼭 하는 후회 `장면 · 기간→결과 숨김 · 마지막에 꼭 하는 후회` 62자 — 짝 썸네일: thumbnail_2 (메모를 든 사연자)
-- [ ] **T3.** (짧은 변형, 금액 없음) 8년 모신 시아버지 집에 제 몫은 없었습니다. 시부모 간병한 며느리들의 공통점 `행동 · 기간→없음 · 공통점` 43자 — 짝 썸네일: thumbnail_3 (그때 들은 말 / 결과 대비)
+- [ ] **T3.** (짧은 변형, 금액 없음) 8년 모신 시아버지 집에 제 몫은 없었습니다. 시부모 간병한 며느리들의 공통점 `행동 · 기간→없음 · 공통점` 43자 — 짝 썸네일: thumbnail_3 (검은 배경 제목형 — 채택 제목 문구)
 
 ## 2. 썸네일 3개 (`thumbnails/`)
 
@@ -36,8 +36,14 @@
 
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 시작 | 8년 간병 | 잉크 #1E1E1E | 노랑 상자 #FFD400 (유일한 강조) |
-| 결과 | 0원 | 흰색 (파랑 #2D6CDF 상자) | 가장 큰 글자 |
+| 펀치 (위 왼쪽) | 8년 간병 | 잉크 #1E1E1E | 노랑 상자 #FFD400 (노랑 상자는 이 1곳) |
+| 핵심 숫자 (위 오른쪽) | 0원 | 흰색 (파랑 #2D6CDF 상자) | 가장 큰 글자 |
+| 하단 1줄 | 말씀만 믿고 8년 모셨는데 | 흰색 + 검정 외곽선 | "말씀만 믿고" 노랑 #FFD400 글자 |
+| 하단 2줄 | 며느리 몫은 0원 | 흰색 + 검정 외곽선 | — |
+
+- 하단 2줄 = 채택 제목 앞 문장("아버님 말씀만 믿고 8년을 모셨는데 며느리 몫은 0원이었습니다")을 줄인 것. 글자 수(띄어쓰기 포함) 14 · 9, 합 23
+- 펀치 "8년 간병"(5자)은 하단 2줄과 겹치는 말이 없다 ("8년"은 숫자라 반복 허용)
+- 강조 2곳: 노랑 상자 "8년 간병", 노랑 글자 "말씀만 믿고". 빨강 없음 (잃은 몫 0원은 파랑 상자)
 
 <details><summary>[A] 완성형 프롬프트</summary>
 
@@ -45,12 +51,15 @@
 YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at small size.
 Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, loss blue #2D6CDF, gain red #E63B2E.
 Bottom-right corner kept empty (video length badge).
-Clean flat graphic design on a cream (#F2EBDD) background with a faint paper texture. On the left, a solid bright yellow
-(#FFD400) rectangle containing the large black bold text "8년 간병". In the middle, one thick ink-black arrow pointing right.
-On the right, a large solid blue (#2D6CDF) rounded box containing the huge white bold text "0원", the biggest element,
-about 30% of the image height. At the bottom center, a small prop: one old torn-off calendar sheet seen from the back,
-with faint illegible handwritten pen strokes only (no readable words, not a legal form). No people, no money bills,
-no buildings, no gavel. Keep all text inside the central 16:9 safe area, at least 48px from the edges.
+Clean flat graphic design on a cream (#F2EBDD) background with a faint paper texture. Upper 60% of the frame: on the left,
+a solid bright yellow (#FFD400) rectangle containing the large black bold text "8년 간병". In the middle, one thick
+ink-black arrow pointing right. On the right, a solid blue (#2D6CDF) rounded box containing the huge white bold text "0원",
+the biggest element, about 25% of the image height. Below the arrow, a small prop: one old torn-off calendar sheet seen
+from the back, with faint illegible handwritten pen strokes only (no readable words, not a legal form). No people, no money
+bills, no buildings, no gavel. Keep all text inside the central 16:9 safe area, at least 48px from the edges.
+Bottom title: in the lower third, over a dark band that fades upward from the bottom edge, two lines of huge heavy bold Korean text, left-aligned near the left edge, white with a thick black outline:
+line 1 "말씀만 믿고 8년 모셨는데", line 2 "며느리 몫은 0원". The word "말씀만 믿고" is bright yellow #FFD400. The second line ends well before the bottom-right corner.
+Keep all other picture elements in the upper 60% so they never cover the bottom title.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 </details>
@@ -63,8 +72,13 @@ Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold
 
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 1 | 8년 모셨는데 | 잉크 #1E1E1E | 노랑 띠 #FFD400 (글자 전체 높이, 유일한 강조) |
-| 2 | 제 몫은 0원 | 흰색 (파랑 #2D6CDF 상자) | 가장 큰 글자 |
+| 펀치 + 핵심 숫자 (위 오른쪽) | 제 몫은 0원 | 흰색 (파랑 #2D6CDF 상자) | "0원"이 가장 큰 글자 |
+| 하단 1줄 | 손글씨 한 장 믿고 | 흰색 + 검정 외곽선 | "손글씨 한 장" 노랑 #FFD400 글자 |
+| 하단 2줄 | 8년을 모셨는데 | 흰색 + 검정 외곽선 | — |
+
+- 하단 2줄 = T2 앞 문장("이 집은 너희 내외 몫이라는 손글씨 한 장 믿고 8년을 모셨는데")을 줄인 것. 글자 수(띄어쓰기 포함) 10 · 8, 합 18. 결과는 위쪽 "제 몫은 0원"이 보여 준다
+- 펀치 "제 몫은 0원"(7자)은 하단 2줄과 겹치는 말이 없다
+- 강조 1곳(노랑 글자 "손글씨 한 장"). 빨강 없음 (잃은 몫 0원은 파랑 상자)
 
 <details><summary>[A] 완성형 프롬프트</summary>
 
@@ -74,40 +88,44 @@ Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #
 Bottom-right corner kept empty (video length badge).
 Realistic photo style. A half-empty Korean apartment living room in soft afternoon light, a few taped cardboard moving
 boxes on the floor, pale marks where furniture used to be. On the left 45% of the frame, a fictional Korean woman in her
-mid 50s wearing a plain cardigan, holding one old calendar sheet in both hands and looking down at it with a hollow,
-quietly hurt expression (no tears). Fictional person, not resembling any real or famous person, natural Korean features.
+mid 50s wearing a plain cardigan, chest-up framing, holding one old calendar sheet in both hands and looking down at it
+with a hollow, quietly hurt expression (no tears); her face, hands and the sheet are all in the upper 60% of the frame.
+Fictional person, not resembling any real or famous person, natural Korean features, realistic photo style.
 On the wall behind her, a small framed photo showing only a blurred silhouette of an elderly man, face not recognizable.
-The calendar sheet shows only faint illegible handwriting strokes. On the right side, a full-height bright yellow (#FFD400)
-band containing the black bold text "8년 모셨는데", and below it a solid blue (#2D6CDF) rounded box containing
-the huge white bold text "제 몫은 0원", the largest element. No romance, no funeral, no court, no gavel, no legal form.
-Keep the face and all text inside the central 16:9 safe area.
+The calendar sheet shows only faint illegible handwriting strokes. In the upper right area, one solid blue (#2D6CDF)
+rounded box containing white bold text: a smaller line "제 몫은" above a huge "0원", the largest element.
+No romance, no funeral, no court, no gavel, no legal form. Keep the face and all text inside the central 16:9 safe area.
+Bottom title: in the lower third, over a dark band that fades upward from the bottom edge, two lines of huge heavy bold Korean text, left-aligned near the left edge, white with a thick black outline:
+line 1 "손글씨 한 장 믿고", line 2 "8년을 모셨는데". The word "손글씨 한 장" is bright yellow #FFD400. The second line ends well before the bottom-right corner.
+Keep all other picture elements in the upper 60% so they never cover the bottom title.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 </details>
 
-### 썸네일 3 — 대비 (그때 들은 말 / 결과)
+### 썸네일 3 — 검은 배경 제목형 (채택 제목 문구)
 
 🖼️ 이미지 없음 → 이미지 AI에 `thumbnails/thumbnail_3.md`의 [A] 프롬프트를 넣어 만든 뒤 `thumbnails/thumbnail_3.png`로 저장
 
-- 가설: 그때 들은 약속("이 집은 너희 내외 몫")과 결과(며느리 몫 0원)를 **나란히 놓은 대비**가 "왜?"라는 궁금증을 가장 크게 만든다
+- 가설: 그림 없이 검은 배경에 채택 제목 문구만 크게 넣은 썸네일이 **글자만으로** 클릭을 부르는지 (사진 썸네일 사이에서 오히려 눈에 띄는지)
 
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 왼쪽 말풍선 | 이 집은 너희 내외 몫 | 잉크 #1E1E1E (흰 말풍선) | 말풍선 테두리 노랑 #FFD400 (유일한 강조) |
-| 오른쪽 결과 | 며느리 몫 0원 | 흰색 (파랑 #2D6CDF 상자) | 가장 큰 글자 |
+| 1 | 아버님 말씀만 믿고 | 흰색 #FFFFFF | "말씀만 믿고" 빨강 #E63B2E (결정적 말·행동 — 숫자 아님) |
+| 2 | 8년을 모셨는데 | 흰색 #FFFFFF | "8년" 노랑 #FFD400 |
+| 3 | 며느리 몫은 | 흰색 #FFFFFF | — |
+| 4 | 0원이었습니다 | 흰색 #FFFFFF | "0원" 노랑 #FFD400 (잃은 몫 → 빨강 금지) |
+
+- 채택 제목 앞 문장과 한 글자도 다르지 않다 (문장 끝 마침표만 뺌). 줄 글자 수(띄어쓰기 포함): 10 · 8 · 6 · 7
+- 강조 3곳 (빨강 1 · 노랑 2). 외곽선·그림자·노랑 상자 없음
 
 <details><summary>[A] 완성형 프롬프트</summary>
 
 ```
-YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at small size.
-Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, loss blue #2D6CDF, gain red #E63B2E.
+YouTube thumbnail, 16:9 (1280x720). Plain solid pure black background (#000000) and nothing else: no people, no objects, no shapes, no gradients, no texture, no effects.
+Only huge heavy bold Korean typography, centered, about 85% of the frame width, 4 lines with tight line spacing:
+line 1 "아버님 말씀만 믿고", line 2 "8년을 모셨는데", line 3 "며느리 몫은", line 4 "0원이었습니다".
+All text pure white (#FFFFFF) except "8년" and "0원" in bright yellow (#FFD400) and "말씀만 믿고" in red (#E63B2E). No outlines, shadows or glow.
 Bottom-right corner kept empty (video length badge).
-Split-screen composition divided vertically by a thin white line. LEFT HALF: a warm, sunlit Korean living room in cream
-and soft orange tones with one empty old armchair (no person visible). Above the armchair, a white speech bubble with a
-thick bright yellow (#FFD400) outline containing the black bold text "이 집은 너희 내외 몫". RIGHT HALF: a cold dark-navy
-(#14213D) toned empty room with a single cardboard moving box on the floor, and in the center a large solid blue (#2D6CDF)
-rounded box containing the huge white bold text "며느리 몫 0원", the largest element. No people, no court, no gavel,
-no legal document, no money bills. Keep all text inside the central 16:9 safe area, at least 48px from the edges.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 </details>

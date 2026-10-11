@@ -1,6 +1,6 @@
 # supplement-liver-2026-10 한눈에 보기
 
-자동 생성 — `python tools/make_summary.py health supplement-liver-2026-10` (2026-10-11 07:55). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
+자동 생성 — `python tools/make_summary.py health supplement-liver-2026-10` (2026-10-11 08:41). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
 
 > **몸에 좋다길래 영양제를 9가지로 늘렸다가 간수치 24가 89가 됐습니다. 영양제 겹쳐 먹는 사람들의 공통점**
 
@@ -22,7 +22,7 @@
 
 - [x] **T1. (채택)** 몸에 좋다길래 영양제를 9가지로 늘렸다가 간수치 24가 89가 됐습니다. 영양제 겹쳐 먹는 사람들의 공통점 `속마음 · 24→89 · 공통점` 59자 — 짝 썸네일: thumbnail_1
 - [ ] **T2.** 검진 결과지의 간수치 24가 2년 만에 89가 됐습니다. 영양제 9가지 챙겨 먹은 50대의 불편한 진실 `장면 · 24→89 · 불편한 진실` 57자 — 짝 썸네일: thumbnail_2
-- [ ] **T3.** (짧은 변형) 영양제를 하루 14알씩 먹다 간수치 24가 89가 됐습니다. 한 줌씩 먹은 사람들의 후회 `행동 · 24→89 · 후회("마지막에 꼭 하는 후회"를 줄여 씀)` 49자 — 짝 썸네일: thumbnail_3
+- [ ] **T3.** (짧은 변형) 영양제를 하루 14알씩 먹다 간수치 24가 89가 됐습니다. 한 줌씩 먹은 사람들의 후회 `행동 · 24→89 · 후회("마지막에 꼭 하는 후회"를 줄여 씀)` 49자 — 짝 썸네일: thumbnail_3 (검은 배경 제목형 — 채택 제목 문구)
 
 ## 2. 썸네일 3개 (`thumbnails/`)
 
@@ -36,12 +36,15 @@
 
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 검사 이름 | 간수치(ALT) | 잉크 #1E1E1E | 노랑 #FFD400 상자 (글자 전체 높이, 유일한 노랑) |
-| 처음 | 24 | 잉크 #1E1E1E | 중간 크기 |
-| 기간 | 2년 | 잉크 #1E1E1E | 작게, 화살표 위 |
-| 결과 | 89 | 빨강 #E63B2E | 가장 큰 글자 |
+| 펀치 (위 가운데) | 몸에 좋다길래 | 잉크 #1E1E1E | 노랑 #FFD400 상자 (글자 전체 높이, 유일한 노랑) |
+| 처음 숫자 | 24 | 잉크 #1E1E1E | 중간 크기, 왼쪽 뒤 카드 |
+| 결과 숫자 | 89 | 빨강 #E63B2E | 가장 큰 글자, 오른쪽 앞 카드 |
+| 하단 1줄 | 영양제 9가지로 늘렸다가 | 흰색 #FFFFFF + 두꺼운 검정 외곽선 | 없음 |
+| 하단 2줄 | 간수치 89가 됐다 | 흰색 #FFFFFF + 두꺼운 검정 외곽선 | "89"만 빨강 #E63B2E (높아진 수치) |
 
-전체 문구 12자 (2줄 구성: "간수치(ALT)" / "24 → 89"), 제목을 그대로 반복하지 않는다 (제목에 없는 "2년" 화살표·카드 장면을 보탬).
+- 하단 2줄 = 채택 제목 앞 문장 "몸에 좋다길래 영양제를 9가지로 늘렸다가 간수치 24가 89가 됐습니다"를 줄인 것 (제목 단어를 그대로 씀). 1줄 13자 · 2줄 10자, 합 23자 (띄어쓰기 포함)
+- 펀치 "몸에 좋다길래"(7자)는 하단 2줄에 없는 말이다. 89는 위아래 모두 나온다 (숫자 반복은 허용)
+- 강조 합 3곳: 노랑 상자 "몸에 좋다길래", 빨강 "89"(카드), 빨강 "89"(하단). 파랑 글자 없음
 
 <details><summary>[A] 완성형 프롬프트</summary>
 
@@ -49,13 +52,16 @@
 YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at small size.
 Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, loss blue #2D6CDF, gain red #E63B2E.
 Bottom-right corner kept empty (video length badge).
-Clean flat illustration on a cream (#F2EBDD) background. At the top center, a solid bright yellow (#FFD400) box with the
-black bold text "간수치(ALT)". Below it, two simple white medical checkup result cards overlap in the center, with no logos,
-no institution names, no barcodes, no personal data and no small print. On the smaller card at the back left, the black
-number "24" in medium size. A thick black arrow points from the left card to the right card, with the small black text
-"2년" above the arrow. On the larger card in front on the right, the huge red (#E63B2E) number "89", the largest element
-in the image (about 28% of the image height). No pills, no bottles, no liver or organ drawings, no people, no needles,
-no hospital scenes. Keep all text inside the central area.
+Upper 60% of the frame: clean flat illustration on a cream (#F2EBDD) background. At the top center, a solid bright yellow
+(#FFD400) box with the black bold text "몸에 좋다길래". Below it, two simple white medical checkup result cards overlap in
+the center, with no logos, no institution names, no barcodes, no personal data and no small print. On the smaller card at
+the back left, the black number "24" in medium size. A thick black arrow points from the left card to the right card, with
+nothing written on or above the arrow. On the larger card in front on the right, the huge red (#E63B2E) number "89", the
+largest element in the image (about 25% of the image height). No pills, no bottles, no liver or organ drawings, no people,
+no needles, no hospital scenes.
+Bottom title: in the lower third, over a dark band that fades upward from the bottom edge, two lines of huge heavy bold Korean text, left-aligned near the left edge, white with a thick black outline:
+line 1 "영양제 9가지로 늘렸다가", line 2 "간수치 89가 됐다". The word "89" is red #E63B2E. The second line ends well before the bottom-right corner.
+Keep all other picture elements in the upper 60% so they never cover the bottom title.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 </details>
@@ -68,10 +74,14 @@ Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold
 
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 속마음 | 좋다길래 | 잉크 #1E1E1E | 노랑 #FFD400 상자 (글자 전체 높이, 유일한 노랑) |
-| 결과 | 간수치 89 | 흰 글자 (빨강 #E63B2E 상자) | "89"를 가장 크게 |
+| 펀치 (오른쪽 위) | 영양제 9가지 | 잉크 #1E1E1E | 노랑 #FFD400 상자 (글자 전체 높이, 유일한 노랑) |
+| 결과 숫자 (오른쪽) | 89 | 흰 글자 (빨강 #E63B2E 상자) | 가장 큰 글자 |
+| 하단 1줄 | 결과지의 간수치 24가 | 흰색 #FFFFFF + 두꺼운 검정 외곽선 | 없음 |
+| 하단 2줄 | 2년 만에 89가 됐다 | 흰색 #FFFFFF + 두꺼운 검정 외곽선 | "89"만 빨강 #E63B2E (높아진 수치) |
 
-전체 8자. 짝 제목 T2에 없는 속마음 "좋다길래"를 보탠다.
+- 하단 2줄 = 짝 제목 T2 앞 문장 "검진 결과지의 간수치 24가 2년 만에 89가 됐습니다"를 줄인 것 (제목 단어를 그대로 씀). 1줄 12자 · 2줄 12자, 합 24자 (띄어쓰기 포함)
+- 펀치 "영양제 9가지"(7자)는 하단 2줄에 없는 말이다 (T2 뒤 문장의 말). 89는 위아래 모두 나온다 (숫자 반복은 허용)
+- 강조 합 3곳: 노랑 상자 "영양제 9가지", 빨강 상자 "89", 빨강 "89"(하단). 파랑 글자 없음
 
 <details><summary>[A] 완성형 프롬프트</summary>
 
@@ -80,45 +90,48 @@ YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at s
 Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, loss blue #2D6CDF, gain red #E63B2E.
 Bottom-right corner kept empty (video length badge).
 Realistic photo style. A bright home kitchen table in the morning, background softly blurred in warm cream tones.
-On the left 45% of the frame, a fictional Korean woman in her early 50s, office-worker look (neat blouse), holding a
-single health checkup result sheet in her hands, the sheet facing away or blurred so no text is readable, surprised and
-worried expression looking at the paper. Fictional person, not resembling any real or famous person, natural Korean
-features. Not a doctor, no white coat, no hospital, no needles. On the table in front of her: several plain white plastic
-supplement bottles with absolutely no labels, no text, no logos and no brand-like colors, and a small saucer with a modest
-handful of pills (no pills pouring or spilling). On the right side, large bold headline text "좋다길래" in ink black on a
-solid bright yellow (#FFD400) box. Below it, a wide solid red (#E63B2E) rounded box containing the white bold text
-"간수치 89", with the number "89" much larger than the word. No crying, no extreme fear.
+On the left 45% of the frame, a fictional Korean woman in her early 50s, office-worker look (neat blouse), seated behind
+the table and shown from the waist up, holding a single health checkup result sheet in her hands, the sheet facing away
+or blurred so no text is readable, surprised and worried expression looking at the paper. Her face, hands and the sheet
+are all in the upper 60% of the frame. Fictional person, not resembling any real or famous person, natural Korean
+features. Not a doctor, no white coat, no hospital, no needles. On the table in front of her, at about the middle height
+of the frame: about nine plain white plastic supplement bottles with absolutely no labels, no text, no logos and no
+brand-like colors, and a small saucer with a modest handful of pills (no pills pouring or spilling). On the upper right
+side, the bold text "영양제 9가지" in ink black on a solid bright yellow (#FFD400) box. Below it, a solid red (#E63B2E)
+rounded box containing the huge white bold number "89", the largest text in the image. No crying, no extreme fear.
+Bottom title: in the lower third, over a dark band that fades upward from the bottom edge, two lines of huge heavy bold Korean text, left-aligned near the left edge, white with a thick black outline:
+line 1 "결과지의 간수치 24가", line 2 "2년 만에 89가 됐다". The word "89" is red #E63B2E. The second line ends well before the bottom-right corner.
+Keep all other picture elements in the upper 60% so they never cover the bottom title.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 </details>
 
-### 썸네일 3 — 대비 (영양제 9가지 vs 간수치 89)
+### 썸네일 3 — 검은 배경 제목형 (채택 제목 문구)
 
 🖼️ 이미지 없음 → 이미지 AI에 `thumbnails/thumbnail_3.md`의 [A] 프롬프트를 넣어 만든 뒤 `thumbnails/thumbnail_3.png`로 저장
 
-- 가설: 왼쪽에 줄지어 선 **영양제 통 9개**(믿었던 것)와 오른쪽 **빨간 89**(결과)를 나란히 놓으면 "많이 먹은 게 문제였구나"가 한눈에 읽힌다
+- 가설: 그림 없이 검은 배경에 채택 제목 앞 문장만 크게 넣은 **글자만으로** 클릭을 부르는지 (사진 썸네일 사이에서 오히려 눈에 띄는지)
 
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 왼쪽 | 9가지 | 잉크 #1E1E1E | 노랑 #FFD400 상자 (유일한 노랑) |
-| 오른쪽 위 | 간수치 | 흰색 #F7F3EA | 작게 |
-| 오른쪽 | 89 | 빨강 #E63B2E (흰 테두리) | 가장 큰 글자 |
+| 1줄 | 몸에 좋다길래 | 노랑 #FFD400 (줄 전체) | 믿었던 말 |
+| 2줄 | 영양제를 9가지로 | 흰색 #FFFFFF | 없음 |
+| 3줄 | 늘렸다가 간수치 | 흰색 #FFFFFF | 없음 |
+| 4줄 | 24가 89가 됐습니다 | 흰색 #FFFFFF | "89"만 빨강 #E63B2E — 나빠진(높아진) 결과 숫자 |
 
-전체 8자. 짝 제목 T3("하루 14알")에 없는 "9가지"를 보탠다.
+- 줄 길이 7자 · 9자 · 8자 · 12자 (띄어쓰기 포함, 모두 14자 이내). 어절 사이에서만 줄을 바꿨다
+- 이어 붙이면 채택 제목 앞 문장과 한 글자도 다르지 않다: "몸에 좋다길래 영양제를 9가지로 늘렸다가 간수치 24가 89가 됐습니다". 뒤 문장("영양제 겹쳐 먹는 사람들의 공통점")은 넣지 않는다
+- 숫자 반전 "24가 89가 됐습니다"가 한 줄에 온다 (마지막 줄, 가장 긴 줄)
+- 강조 합 2곳 (3곳 이하). 파랑 글자 없음 (검정 위 파랑 금지)
 
 <details><summary>[A] 완성형 프롬프트</summary>
 
 ```
-YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at small size.
-Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, loss blue #2D6CDF, gain red #E63B2E.
+YouTube thumbnail, 16:9 (1280x720). Plain solid pure black background (#000000) and nothing else: no people, no objects, no shapes, no gradients, no texture, no effects.
+Only huge heavy bold Korean typography, centered, about 85% of the frame width, 4 lines with tight line spacing:
+line 1 "몸에 좋다길래", line 2 "영양제를 9가지로", line 3 "늘렸다가 간수치", line 4 "24가 89가 됐습니다".
+All text pure white (#FFFFFF) except "몸에 좋다길래" in bright yellow (#FFD400) and "89" in red (#E63B2E). No outlines, shadows or glow.
 Bottom-right corner kept empty (video length badge).
-Flat editorial paper-collage graphic. The frame is split by a vertical torn-paper edge in the middle.
-Left half (cream #F2EBDD): exactly nine identical plain white supplement bottles drawn with thin ink outlines, arranged
-neatly in three rows of three, with absolutely no labels, no text, no logos and no brand-like colors. Above the bottles,
-the black bold text "9가지" on a solid bright yellow (#FFD400) box. Right half (dark navy #14213D): the small off-white
-bold word "간수치" near the top, and below it the huge red (#E63B2E) number "89" with a thin white outline, the largest
-element in the image (about 30% of the image height). No people, no faces, no organs, no pills spilling.
-Minimal, nothing decorative.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 </details>

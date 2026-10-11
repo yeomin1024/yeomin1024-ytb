@@ -1,6 +1,6 @@
 # panicsell-2026-10 한눈에 보기
 
-자동 생성 — `python tools/make_summary.py stock panicsell-2026-10` (2026-10-11 07:42). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
+자동 생성 — `python tools/make_summary.py stock panicsell-2026-10` (2026-10-11 08:41). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
 
 > **하락장이 무서워 -800만원에 다 팔았는데 그 뒤 +30% 반등했습니다. 패닉셀한 사람들이 마지막에 꼭 하는 후회**
 
@@ -22,7 +22,7 @@
 
 - [x] **T1. (채택)** 하락장이 무서워 -800만원에 다 팔았는데 그 뒤 +30% 반등했습니다. 패닉셀한 사람들이 마지막에 꼭 하는 후회 `속마음 · 판 뒤 반등 · 마지막에 꼭 하는 후회` 63자 — 짝 썸네일: thumbnail_1 (계좌 숫자 반전)
 - [ ] **T2.** 서킷브레이커 걸린 날 -800만원에 전부 팔았는데 다음 날 +11% 올랐습니다. 공포에 다 판 사람들의 공통점 `장면 · 판 뒤 반등 · 공통점` 61자 — 짝 썸네일: thumbnail_2 (인물 장면)
-- [ ] **T3.** (짧은 변형) 폭락한 날 -800만원에 다 팔았더니 7주 뒤 +30%였습니다. 겁먹고 판 사람들의 불편한 진실 `행동 · 판 뒤 반등 · 불편한 진실` 53자 — 짝 썸네일: thumbnail_3 (판 날 vs 7주 뒤 대비)
+- [ ] **T3.** (짧은 변형) 폭락한 날 -800만원에 다 팔았더니 7주 뒤 +30%였습니다. 겁먹고 판 사람들의 불편한 진실 `행동 · 판 뒤 반등 · 불편한 진실` 53자 — 짝 썸네일: thumbnail_3 (검은 배경 제목형 — 채택 제목 문구)
 
 ## 2. 썸네일 3개 (`thumbnails/`)
 
@@ -36,9 +36,13 @@
 
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 판 금액 | -800만 원 | 흰색 (파랑 #2D6CDF 상자 위) | — |
-| 라벨 | 전부 매도 | 검정 #1E1E1E | 노랑 형광펜 #FFD400 (유일한 강조) |
-| 판 뒤 | +30% | 빨강 #E63B2E | 가장 큰 글자 |
+| 카드 판 금액 | -800만 원 | 흰색 (파랑 #2D6CDF 상자 위) | — |
+| 카드 판 뒤 | +30% | 빨강 #E63B2E (상승) | 가장 큰 글자 |
+| 하단 1줄 | 하락장이 무서워 | 흰색 + 검정 외곽선 | — (8자) |
+| 하단 2줄 | 다 팔았는데 +30% 반등 | 흰색 + 검정 외곽선 | "다 팔았는데"만 노랑 #FFD400 (14자, 2줄 합 22자) |
+
+- 강조색은 2곳: 빨강 "+30%"(카드, 상승), 노랑 "다 팔았는데". 하단의 "+30%"는 흰색으로 둔다 (위쪽 빨강 "+30%"가 이미 가장 크다).
+- 하단 2줄은 T1 앞 문장("하락장이 무서워 -800만원에 다 팔았는데 그 뒤 +30% 반등했습니다")을 줄인 것. "-800만원"은 카드에 있어 하단에서 뺐다.
 
 <details><summary>[A] 완성형 프롬프트</summary>
 
@@ -46,13 +50,15 @@
 YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at small size.
 Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, loss blue #2D6CDF, gain red #E63B2E.
 Bottom-right corner kept empty (video length badge).
-Clean flat editorial graphic on a cream paper background (#F2EBDD) with subtle paper grain. A large light-cream rounded
-rectangle card with a thin black outline fills most of the frame, like a simple personal account summary card
+Clean flat editorial graphic on a cream paper background (#F2EBDD) with subtle paper grain. In the upper 60% of the frame,
+a wide light-cream rounded rectangle card with a thin black outline, like a simple personal account summary card
 (NOT a real banking or brokerage app, no app name, no logos). On the left half of the card: a solid blue (#2D6CDF) rounded
-box with the large white bold text "-800만 원", and below it the label "전부 매도" in black bold letters over a bright
-yellow (#FFD400) highlighter stripe. On the right half of the card: a thick red (#E63B2E) arrow rising steeply from the
-lower left to the upper right, ending at the huge red bold text "+30%", the largest element in the image.
+box with the large white bold text "-800만 원". On the right half of the card: a thick red (#E63B2E) arrow rising steeply
+from the lower left to the upper right, ending at the huge red bold text "+30%", the largest element in the image.
 No people, no faces. Minimal, nothing decorative.
+Bottom title: in the lower third, over a dark band that fades upward from the bottom edge, two lines of huge heavy bold Korean text, left-aligned near the left edge, white with a thick black outline:
+line 1 "하락장이 무서워", line 2 "다 팔았는데 +30% 반등". The word "다 팔았는데" is bright yellow #FFD400. The second line ends well before the bottom-right corner.
+Keep all other picture elements in the upper 60% so they never cover the bottom title.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 </details>
@@ -65,8 +71,12 @@ Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold
 
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 장면 | 다 판 다음 날 | 흰색 #F7F3EA ("다 판"만 검정) | "다 판"에 노랑 상자 (글자 전체 높이) |
-| 결과 | +11% | 빨강 #E63B2E | 가장 큰 글자 |
+| 결과 숫자 (위쪽) | +11% | 빨강 #E63B2E (상승, 얇은 흰 외곽선) | 가장 큰 글자 |
+| 하단 1줄 | 서킷브레이커 날 팔았는데 | 흰색 + 검정 외곽선 | "서킷브레이커"만 노랑 #FFD400 (13자) |
+| 하단 2줄 | 다음 날 +11% 올랐다 | 흰색 + 검정 외곽선 | — (13자, 2줄 합 26자) |
+
+- 강조색은 2곳: 빨강 "+11%"(위쪽, 상승), 노랑 "서킷브레이커". 하단의 "+11%"는 흰색으로 둔다 (위쪽 빨강 "+11%"가 이미 가장 크다).
+- 하단 2줄은 T2 앞 문장("서킷브레이커 걸린 날 -800만원에 전부 팔았는데 다음 날 +11% 올랐습니다")을 줄인 것. 2줄 합 26자 한도 때문에 "걸린"·"-800만원에 전부"를 뺐다 ("-800만원"은 T1·T3 썸네일에 있음).
 
 <details><summary>[A] 완성형 프롬프트</summary>
 
@@ -76,40 +86,42 @@ Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #
 Bottom-right corner kept empty (video length badge).
 Realistic photo style. Dark navy-toned kitchen in the early morning before work. On the left 40% of the frame, a fictional
 Korean woman in her late 30s, office-worker look (plain blouse), sitting at a kitchen table and staring at a smartphone,
-mouth slightly open, blank regretful expression, face lit by the phone's light. The phone screen shows only a simple red
-line rising sharply, no app interface, no text. Fictional person, not resembling any real or famous person, natural Korean
-features. On the right side, large bold headline text "다 판 다음 날" in off-white, where only the words "다 판" sit on a
-solid bright yellow (#FFD400) box with black text. Below it, the huge red (#E63B2E) bold text "+11%" with a thin white
-outline, the largest element. No crying, no extreme fear.
+mouth slightly open, blank regretful expression, face lit by the phone's light. Her face and the phone are in the upper 60%
+of the frame; her lower body fades into darkness at the bottom. The phone screen shows only a simple red line rising
+sharply, no app interface, no text. Fictional person, not resembling any real or famous person, natural Korean features,
+realistic photo style. In the upper right area, the huge red (#E63B2E) bold text "+11%" with a thin white outline, the
+largest element, kept in the upper 60%. No crying, no extreme fear.
+Bottom title: in the lower third, over a dark band that fades upward from the bottom edge, two lines of huge heavy bold Korean text, left-aligned near the left edge, white with a thick black outline:
+line 1 "서킷브레이커 날 팔았는데", line 2 "다음 날 +11% 올랐다". The word "서킷브레이커" is bright yellow #FFD400. The second line ends well before the bottom-right corner.
+Keep all other picture elements in the upper 60% so they never cover the bottom title.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 </details>
 
-### 썸네일 3 — 대비 (판 날 vs 7주 뒤)
+### 썸네일 3 — 검은 배경 제목형 (채택 제목 문구)
 
 🖼️ 이미지 없음 → 이미지 AI에 `thumbnails/thumbnail_3.md`의 [A] 프롬프트를 넣어 만든 뒤 `thumbnails/thumbnail_3.png`로 저장
 
-- 가설: "판 날"과 "7주 뒤"를 나란히 놓은 **시간 대비**가, 폭락장에 다 팔고 싶었던 사람에게 가장 와닿는다 (문제 분석 세 번째 "바닥은 지나고 나서야 보인다")
+- 가설: 그림 없이 **글자만으로** 클릭을 부르는지 — 사진 썸네일 사이에서 검은 화면에 큰 제목 문구가 오히려 눈에 띈다
 
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 왼쪽 | 판 날 | 흰색 #F7F3EA | — |
-| 왼쪽 숫자 | -800만 원 | 흰색 (파랑 #2D6CDF 상자, 흰 테두리) | — |
-| 오른쪽 | 7주 뒤 | 검정 (노랑 상자 위) | 노랑 상자 #FFD400 (유일한 강조) |
-| 오른쪽 숫자 | +30% | 빨강 #E63B2E | 가장 큰 글자 |
+| 1줄 | 하락장이 무서워 | 흰색 #FFFFFF | — (8자) |
+| 2줄 | -800만원에 다 팔았는데 | "-800만원" 노랑 #FFD400, "다 팔았는데" 빨강 #E63B2E, "에" 흰색 | 손실 금액 = 노랑, 손실을 부른 행동 = 빨강 (14자) |
+| 3줄 | 그 뒤 +30% | "+30%" 빨강 #E63B2E, "그 뒤" 흰색 | 상승 = 빨강 (8자) |
+| 4줄 | 반등했습니다 | 흰색 #FFFFFF | — (6자) |
+
+- 강조 3곳: 노랑 "-800만원"(손실), 빨강 "다 팔았는데"(행동 단어 1곳 — `stock/guides/thumbnail_rules.md` 2번의 예), 빨강 "+30%"(상승). 손실 숫자는 빨강으로 쓰지 않는다.
+- 4줄을 이으면 채택 제목 앞 문장과 같다: "하락장이 무서워 -800만원에 다 팔았는데 그 뒤 +30% 반등했습니다"
 
 <details><summary>[A] 완성형 프롬프트</summary>
 
 ```
-YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at small size.
-Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, loss blue #2D6CDF, gain red #E63B2E.
+YouTube thumbnail, 16:9 (1280x720). Plain solid pure black background (#000000) and nothing else: no people, no objects, no shapes, no gradients, no texture, no effects.
+Only huge heavy bold Korean typography, centered, about 85% of the frame width, 4 lines with tight line spacing:
+line 1 "하락장이 무서워", line 2 "-800만원에 다 팔았는데", line 3 "그 뒤 +30%", line 4 "반등했습니다".
+All text pure white (#FFFFFF) except "-800만원" in bright yellow (#FFD400) and "다 팔았는데" and "+30%" in red (#E63B2E). No outlines, shadows or glow.
 Bottom-right corner kept empty (video length badge).
-Flat editorial paper-collage graphic. The frame is split by a vertical torn-paper edge slightly left of center.
-Left side (45%, dark navy #14213D): the off-white bold text "판 날" at the top, below it a thick blue (#2D6CDF) line
-plunging sharply downward, and under it a solid blue rounded box with a thin white border containing the white bold text
-"-800만 원". Right side (55%, cream #F2EBDD): the black bold text "7주 뒤" on a solid bright yellow (#FFD400) box at the
-top, below it a thick red (#E63B2E) line rising steeply, ending at the huge red bold text "+30%", the largest element,
-placed in the upper-middle of the right side. No people, no faces, no logos. Minimal, nothing decorative.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 </details>

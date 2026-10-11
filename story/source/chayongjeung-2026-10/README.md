@@ -11,7 +11,7 @@
 | `chayongjeung-2026-10.txt` | 대본 v1.0 — **문장 120** (사연 26 · 진행자 10 · 문제 분석 29 · 올바른 방법 51 · 마무리 4). 파트 라벨, `[장면] 법률 자문이 아닙니다` (문장 36 뒤). 3,201음절 |
 | `chayongjeung-2026-10.srt` | **문장 120 / 자막 144** (1432px 넘는 24문장은 앞줄·뒷줄), 문장 36 뒤 고지 공백 8.0초, 끝 **11:12.6** (추정치, 목표 10~13분) |
 | `titles.md` | 제목 3개 (T1 채택) |
-| `thumbnails/thumbnail_1.md` ~ `_3.md` | 썸네일 이미지 AI 프롬프트 3개 (숫자 반전 / 인물·감정 / 대비) |
+| `thumbnails/thumbnail_1.md` ~ `_3.md` | 썸네일 이미지 AI 프롬프트 3개 (숫자 반전 / 인물·감정 / 검은 배경 제목형 — 3개 모두 하단 제목 2줄, thumbnail_guide v1.3) |
 | `upload.md` | 업로드 시트 (설명란·챕터 12개·태그 14개·고정 댓글) |
 | `summary.md` | 자동 생성 (`python3 tools/make_summary.py story chayongjeung-2026-10`) |
 

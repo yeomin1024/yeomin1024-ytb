@@ -156,14 +156,14 @@ python youtube_topic_analyzer.py --help                                    # 전
 2. **지시사항·주제** — 분석 결과로 주제 규칙을 만들거나 고치고, 주제 후보를 고른다
 3. **영상마다** — 대본 TXT·SRT(사례는 되도록 최신), 제목 3개, 썸네일 **프롬프트** 3개, 업로드 시트 → 요약 문서 `summary.md` (스토리보드 없음)
 4. **오디오 만들기 (Kaggle 셀 하나)** — `python tools/tts_narration.py all --push`: 대본을 모두 읽어 사연자·진행자 목소리(`voices/`)로 영상마다 오디오 하나 → 대본 폴더마다 GitHub에 자동으로 올림 ([`guides/tts_guide.md`](guides/tts_guide.md))
-5. **오디오가 생기면** (`<주제폴더>/source/<영상ID>/narration.mp3`) — 영상 코드가 없으면 Claude가 만들고(승인 없음) → SRT 맞춤 → 렌더 → 유튜브 **비공개** 업로드 + 1시간 뒤 예약 공개, 한 번에 최대 3개 (`bash tools/publish.sh`)
+5. **오디오가 생기면** (`<주제폴더>/source/<영상ID>/narration.mp3`) — 영상 코드가 없으면 Claude가 만들고(승인 없음) → SRT 맞춤 → 렌더 → 음량 맞춤(-14 LUFS) → 유튜브 **비공개** 업로드 + 1시간 뒤 예약 공개, 한 번에 최대 3개 (`bash tools/publish.sh`)
 6. 그 뒤 스튜디오에서: 테스트 및 비교(썸네일 3개)·자동 더빙 확인·공개 전환 → 결과 기록
 
 처음 한 번 할 일(키 4개 넣기, 채널 인증)은 [`guides/pipeline.md`](guides/pipeline.md) "처음 한 번 할 일"에 있습니다.
 
 | 영상 | 상태 | 위치 |
 |---|---|---|
-| 몰빵 `molppang-2026-10` | 옛 영상 제작 완료(v2.0) · **대본 v2.1**(최신 사례: 자본시장연구원 2024·엔씨소프트·LG생활건강, 문장 91 / 자막 116) — 새 내레이션이 생기면 영상 코드부터 새로 제작 | `stock/source/molppang-2026-10/` |
+| 몰빵 `molppang-2026-10` | **대본 v2.1**(최신 사례: 자본시장연구원 2024·엔씨소프트·LG생활건강, 문장 91 / 자막 116) · 제목 T1 채택(기준 제목) · 썸네일 프롬프트 3개 · 업로드 시트 · 영상 코드 · Kaggle 내레이션으로 렌더 완료(7:57) — 유튜브 비공개 업로드 대기 | `stock/source/molppang-2026-10/` |
 | 물타기 `multagi-2026-10` | 대본 v1.4(최신 사례: 자본시장연구원 2022·카카오 2021~2026, 문장 91 / 자막 107) · 제목 T1 채택 · 썸네일 프롬프트 3개 · 업로드 시트 · 영상 코드 — 내레이션 대기 | `stock/source/multagi-2026-10/` |
 | 빚투 `bittu-2026-10` | 대본 v1.1 (문장 88 / 자막 105, 문장 27 뒤 고지 공백) · 제목 T1 채택 · 썸네일 프롬프트 3개 · 업로드 시트 · 영상 코드 — 내레이션 대기 | `stock/source/bittu-2026-10/` |
 | 패닉셀 `panicsell-2026-10` | 대본 v1.1(최신 사례: 자본시장연구원 2021, 문장 92 / 자막 111, 문장 26 뒤 고지 공백) · 제목 T1 채택 · 썸네일 프롬프트 3개 · 업로드 시트 · 영상 코드 — 내레이션 대기 | `stock/source/panicsell-2026-10/` |
@@ -202,7 +202,8 @@ python tools/make_summary.py --thumb-todo stock       # 이미지가 없는 썸�
 python tools/tts_narration.py all --push              # (Kaggle GPU) 대본 전부 → 영상마다 narration.mp3 하나 → 대본 폴더마다 GitHub에 올림 → guides/tts_guide.md
 python tools/tts_narration.py check stock <영상ID>     # 저장소 오디오가 지금 대본으로 만든 것인지
 bash tools/publish.sh --dry-run                       # 4단계 대상 확인 (오디오 있음·아직 안 올림·영상 코드 있음)
-bash tools/publish.sh                                 # 4단계: SRT 맞춤 → 렌더 → 비공개 업로드 (최대 3개)
+bash tools/publish.sh                                 # 4단계: SRT 맞춤 → 렌더 → 음량 맞춤(-14 LUFS) → 비공개 업로드 (최대 3개)
+python tools/loudnorm.py --all                        # 이미 렌더한 영상들 음량만 다시 맞추기 (영상 스트림은 그대로)
 python tools/youtube_upload.py stock <영상ID> --dry-run   # 업로드할 값만 확인
 python tools/youtube_upload.py --check-auth           # 업로드 키 확인 (채널 이름)
 python tools/youtube_auth.py --client-id … --client-secret …   # (내 PC에서 한 번) 업로드용 리프레시 토큰 발급

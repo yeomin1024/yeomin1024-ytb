@@ -1,57 +1,56 @@
-# chayongjeung-2026-10 썸네일 3 — 대비 (꼭 갚을게 / 축하금 아니었어?)
+# chayongjeung-2026-10 썸네일 3 — 검은 배경 제목형 (채택 제목 문구)
 
-버전: v1.0 — 2026-10-11 — 최초 작성 (`guides/thumbnail_guide.md` v1.2, `story/guides/thumbnail_rules.md` v1.1), 대본 chayongjeung-2026-10.txt v1.0 기준
+버전: v2.0 — 2026-10-11 — 사용자 지시: 검은 배경에 채택 제목 문구 그대로 (대비 축 대신) · `guides/thumbnail_guide.md` v1.3 4-1, `story/guides/thumbnail_rules.md` v1.2, 대본 chayongjeung-2026-10.txt v1.0 기준 (v1.0: 대비 — 꼭 갚을게 / 축하금 아니었어?, 이번에 대체)
 
 | 항목 | 값 |
 |---|---|
-| 시험하는 가설 | 돈을 빌릴 때 들은 말과 3년 뒤 들은 말의 **대비**가 숫자 없이도 문제 분석 첫 번째(빌려준 돈이라는 증명)를 한눈에 보여 준다 |
-| 짝 제목 | `titles.md` T3 (짧은 변형, 금액 없음) — T1·T2와도 어울림 |
-| 숫자 근거 | 문장 5 "연말까지 꼭 갚을게." (0:20) · 문장 17 "그거 개업 축하금 아니었어?" (1:14) — 숫자는 넣지 않음. 말풍선 문구는 두 문장 안의 말 그대로 |
+| 시험하는 가설 | 그림 없이 검은 배경에 채택 제목 문구만 크게 넣은 썸네일이 **글자만으로** 클릭을 부르는지 (사진 썸네일 사이에서 오히려 눈에 띄는지) |
+| 짝 제목 | `titles.md` T1 (채택) "친구라서 차용증 없이 빌려준 3천만 원, 돌려받은 건 90만 원이었습니다. 정 때문에 돈 빌려준 사람들의 공통점" — 글자가 곧 채택 제목의 앞 문장. 채택 제목이 바뀌면 이 문구도 바꾼다 |
+| 숫자 근거 | 문장 1 "30년 지기 친구에게 3천만 원을 보냈어요" (0:00) · 문장 7 "그래서 차용증도 없이" (0:26) · 문장 12 "3천만 원 중에 제가 돌려받은 건 90만 원이 전부였어요" (0:49) → 1분 안 |
 
 ## 화면 구성
-- 가운데 세로선으로 화면 분할
-- 왼쪽(밝은 크림 #F2EBDD): 휴대폰 메시지 말풍선 하나(흰 말풍선, 앱 모양 없음) **"연말까지 꼭 갚을게"**, 그 아래 작은 종이 쪽지 모양 소품(글자 없음)
-- 오른쪽(다크 네이비 #14213D): 파랑 #2D6CDF 말풍선 하나 + 흰 글자 **"축하금 아니었어?"** (노랑은 왼쪽 말풍선 테두리 한 곳만)
-- 인물 없음 (친구 얼굴을 보이지 않기 위해)
-- 오른쪽 아래 구석은 비움
+- 순수 검정 #000000 배경 한 가지. 인물·소품·도형·무늬·그라데이션 없음
+- 채택 제목의 앞 문장을 **글자 그대로** 4줄로, 가운데 정렬. 글자 높이 약 100px, 줄 간격 1.15 (4줄 묶음 높이 약 460px, 화면 세로 가운데), 가장 긴 줄도 화면 폭의 85%(약 1,090px) 안
+- 뒤 문장("정 때문에 돈 빌려준 사람들의 공통점")은 넣지 않는다 (크게 넣어야 읽히기 때문 — 공통 4-1)
+- 숫자 반전(3천만 원 → 90만 원)은 한 줄 14자 안에 들어가지 않아 "빌려준 3천만 원," / "돌려받은 건" / "90만 원이었습니다"로 나눴다. 제목의 쉼표와 표기("3천만 원")는 그대로 둔다
+- 오른쪽 아래 구석(약 220×70px)은 비움
 
 ## 문구 (그대로 사용)
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 왼쪽 | 연말까지 꼭 갚을게 | 잉크 #1E1E1E (흰 말풍선) | 말풍선 테두리 노랑 #FFD400 (유일한 강조) |
-| 오른쪽 | 축하금 아니었어? | 흰색 (파랑 #2D6CDF 말풍선) | 오른쪽 글자를 조금 더 크게 |
+| 1 | 친구라서 차용증 없이 | 흰색 #FFFFFF | "차용증 없이" 빨강 #E63B2E (결정적 행동 — 숫자 아님) |
+| 2 | 빌려준 3천만 원, | 흰색 #FFFFFF | "3천만 원" 노랑 #FFD400 (잃은 돈 → 빨강 금지) |
+| 3 | 돌려받은 건 | 흰색 #FFFFFF | — |
+| 4 | 90만 원이었습니다 | 흰색 #FFFFFF | "90만 원" 노랑 #FFD400 |
+
+- 채택 제목 앞 문장과 한 글자도 다르지 않다 (쉼표 포함, 문장 끝 마침표만 뺌). 줄 글자 수(띄어쓰기 포함): 11 · 10 · 6 · 10
+- 강조 3곳 (빨강 1 · 노랑 2). 외곽선·그림자·노랑 상자 없음
 
 ## [A] 완성형 프롬프트 (이미지 AI에 그대로 붙여 넣기)
 ```
-YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at small size.
-Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, loss blue #2D6CDF, gain red #E63B2E.
+YouTube thumbnail, 16:9 (1280x720). Plain solid pure black background (#000000) and nothing else: no people, no objects, no shapes, no gradients, no texture, no effects.
+Only huge heavy bold Korean typography, centered, about 85% of the frame width, 4 lines with tight line spacing:
+line 1 "친구라서 차용증 없이", line 2 "빌려준 3천만 원,", line 3 "돌려받은 건", line 4 "90만 원이었습니다".
+All text pure white (#FFFFFF) except "3천만 원" and "90만 원" in bright yellow (#FFD400) and "차용증 없이" in red (#E63B2E). No outlines, shadows or glow.
 Bottom-right corner kept empty (video length badge).
-Flat clean graphic style, split screen with a clean vertical divider in the middle. Left half: bright cream (#F2EBDD)
-background with one large white chat speech bubble outlined in thick bright yellow (#FFD400), containing black bold text
-"연말까지 꼭 갚을게"; below it a small blank paper note with no writing. Right half: dark navy (#14213D) background with one
-large solid blue (#2D6CDF) chat speech bubble containing slightly bigger white bold text "축하금 아니었어?".
-Generic speech bubble shapes only: no phone interface, no messenger app design, no logos, no names, no profile pictures,
-no people. Keep all text inside the central 16:9 safe area, at least 48px from the edges.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 
-## [B] 글자 없는 프롬프트 (한글이 틀릴 때 — 글자는 편집에서 "문구" 표대로 얹기)
-```
-YouTube thumbnail background, 16:9 (1280x720), bold high-contrast composition.
-Palette: cream #F2EBDD, dark navy #14213D, highlight yellow #FFD400, loss blue #2D6CDF.
-Flat clean graphic style, split screen with a vertical divider. Left half: cream background with one large empty white
-speech bubble outlined in thick bright yellow, and a small blank paper note below it. Right half: dark navy background
-with one large empty solid blue (#2D6CDF) speech bubble. Generic bubble shapes only, no phone interface, no app design,
-no people. Bottom-right corner empty.
-Absolutely no text, letters, numbers, logos or watermarks. Leave clean empty space where the headline will be added later.
-```
+## [B] 편집 프로그램으로 직접 (이미지 AI 없이)
+이미지 AI가 한글을 틀리게 쓰면 이 방법이 더 빠르고 정확하다. 캔바·미리캔버스·포토샵 등에서:
+1. 새 캔버스 1280×720, 배경 #000000 (다른 요소 없음)
+2. 글꼴 Noto Sans KR Black (또는 Pretendard Black), 글자 높이 약 100px, 줄 간격 1.15, 가운데 정렬
+3. "문구" 표의 4줄을 그대로 입력하고 표의 강조 부분만 색을 바꾼다: "차용증 없이" #E63B2E · "3천만 원"·"90만 원" #FFD400 · 나머지(쉼표 포함) #FFFFFF
+4. 4줄 묶음을 화면 가운데에 둔다. 가장 긴 줄("친구라서 차용증 없이")이 폭 85%(약 1,090px)를 넘으면 글자 크기를 줄인다 (90px까지)
+5. 오른쪽 아래 220×70px은 비운다. 외곽선·그림자·효과는 넣지 않는다
+6. PNG(또는 JPG)로 내보내 `thumbnails/thumbnail_3.png`로 저장 (2MB 이하)
 
 ## 검수
-- [ ] "연말까지 꼭 갚을게" · "축하금 아니었어?"가 한 글자도 틀리지 않음 (대본 문장 5·17 안의 말)
-- [ ] 문구 2덩어리, 20자 이내 (19자), 제목을 그대로 반복하지 않음
-- [ ] 실제 메신저 앱 화면·로고·이름·프로필 사진 없음 · 인물 없음
-- [ ] 320px 축소본에서 두 말풍선 글자가 읽힘 · 노랑 강조 1곳 · 나빠진 관계 = 파랑
-- [ ] 오른쪽 아래 비어 있음 · 1280×720, 2MB 이하
+- [ ] 4줄을 이어 읽으면 채택 제목(T1) 앞 문장 "친구라서 차용증 없이 빌려준 3천만 원, 돌려받은 건 90만 원이었습니다"와 한 글자도 다르지 않음 (쉼표 포함, 숫자 = 대본 문장 1·12)
+- [ ] 강조 3곳 이하: 빨강 "차용증 없이" 1곳, 노랑 "3천만 원"·"90만 원" 2곳 · 잃은 돈 숫자에 빨강 없음
+- [ ] 배경이 순수 검정 하나뿐 · 인물·소품·도형·그라데이션·외곽선·그림자 없음 · 다른 글자·로고 없음
+- [ ] 320px 축소본에서 4줄이 모두 읽힘 · 오른쪽 아래 220×70 비어 있음
+- [ ] 1280×720, 2MB 이하
 
 ## 결과 (업로드 후)
 | 날짜 | 테스트 및 비교 결과 (시청 시간 비율) | 메모 |

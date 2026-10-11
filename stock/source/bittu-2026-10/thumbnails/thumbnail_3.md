@@ -1,57 +1,58 @@
-# bittu-2026-10 썸네일 3 — 대비 (주가 -42% vs 내 돈 -83%)
+# bittu-2026-10 썸네일 3 — 검은 배경 제목형 (채택 제목 문구)
 
-버전: v1.0 — 2026-10-10 — 최초 작성 (`guides/thumbnail_guide.md` v1.1, `stock/guides/thumbnail_rules.md` v1.1), 대본 v1.0 기준
+버전: v2.0 — 2026-10-11 — 사용자 지시: 검은 배경에 채택 제목 문구 그대로 (대비 축 대신) — `guides/thumbnail_guide.md` v1.3 4-1, `stock/guides/thumbnail_rules.md` v1.2, 대본 v1.1 기준 (v1.0: 2026-10-10 최초 작성 — 대비 "주가 -42% vs 내 돈 -83%", 이번에 전부 교체)
 
 | 항목 | 값 |
 |---|---|
-| 시험하는 가설 | "주가는 절반도 안 빠졌는데 내 돈은 거의 다 사라졌다"는 **빚이 키운 손실의 대비**가 신용을 써 본 사람에게 가장 와닿는다 (문제 분석 첫 번째 메시지) |
-| 짝 제목 | `titles.md` T3 (짧은 변형) "반대매매 한 번에 +1,500만원이 -2,500만원이 됐습니다 …" — T1(채택)과도 어울림 |
-| 숫자 근거 | 문장 11 "남은 돈은 500만 원, -2,500만 원" (0:53) → 1분 안. ※ "42%·83%"(문장 29·30, 2:37)는 1분 뒤라 숫자 대신 막대 길이로만 보여 주고, 큰 글자는 1분 안의 "-2,500만 원"을 쓴다 |
+| 시험하는 가설 | 그림 없이 **글자만으로** 클릭을 부르는지 — 사진 썸네일 사이에서 검은 화면에 큰 제목 문구가 오히려 눈에 띈다 |
+| 짝 제목 | `titles.md` **T1 (채택)** "신용까지 써서 번 1,500만원이 반대매매 한 번에 -2,500만원이 됐습니다. 빚투한 사람들의 최악의 결말" — 글자가 곧 채택 제목 앞 문장 |
+| 숫자 근거 | 문장 5 "수익이 1,500만 원이 됐어요" (0:22) · 문장 10 "제 주식이 전부 강제로 팔렸어요" (0:49) · 문장 11 "-2,500만 원이었어요" (0:55) → 모두 1분 안 (오디오에 맞춘 SRT 기준) |
 
 ## 화면 구성
-- 세로로 찢어진 종이 경계로 화면을 나눈다. 왼쪽 45%는 크림, 오른쪽 55%는 다크 네이비.
-- 왼쪽: "주가" (검정, 크게) + 그 아래 절반에 못 미치게 줄어든 웜 그레이 막대
-- 오른쪽: "내 돈" (노랑 상자 + 검정 글자) + 그 아래 거의 다 사라진 파랑 막대, 막대 옆에 파랑 상자 안 "-2,500만 원" (흰 글자)
-- 인물 없음 · 오른쪽 아래 구석은 비움
+- 순수 검정 #000000 배경 하나. 인물·소품·도형·무늬·그라데이션 없음
+- 채택 제목 앞 문장을 **글자 그대로** 4줄로, 가운데 정렬, 화면 폭의 85%(약 1090px) 안
+  - 제목 끝 마침표 "."만 뺐다. 뒤 문장("빚투한 사람들의 최악의 결말")은 넣지 않는다 (크게 넣어야 읽히기 때문).
+  - "1,500만원이 반대매매 한 번에 -2,500만원이"는 14자를 넘어 한 줄에 못 넣는다 → 수익(2줄)·장면(3줄)·결과(4줄)로 나눴다.
+- 오른쪽 아래 220×70 구석은 비움
 
 ## 문구 (그대로 사용)
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 왼쪽 | 주가 | 검정 #1E1E1E | — (막대는 웜 그레이 #9A968E) |
-| 오른쪽 | 내 돈 | 검정 (노랑 상자 위) | 노랑 상자 #FFD400 (유일한 강조) |
-| 결과 | -2,500만 원 | 흰색 (파랑 #2D6CDF 상자, 흰 테두리) | 가장 큰 글자 |
+| 1줄 | 신용까지 써서 번 | 흰색 #FFFFFF | — (9자) |
+| 2줄 | 1,500만원이 | "1,500만원" 빨강 #E63B2E, "이" 흰색 | 수익 금액 = 빨강 (8자) |
+| 3줄 | 반대매매 한 번에 | 흰색 #FFFFFF | — (9자) |
+| 4줄 | -2,500만원이 됐습니다 | "-2,500만원" 노랑 #FFD400, 나머지 흰색 | 손실 금액 = 노랑 (14자) |
+
+- 강조 2곳: 빨강 "1,500만원"(수익), 노랑 "-2,500만원"(손실). 손실 숫자는 빨강으로 쓰지 않는다 (`stock/guides/thumbnail_rules.md` 1번·2번).
+- "반대매매"는 흰색으로 둔다. 바로 위 줄의 빨강(수익)과 붙어 빨강 뜻이 섞이지 않게 하고, 수익 빨강 → 손실 노랑의 반전만 눈에 띄게 하기 위해서다.
+- 4줄을 이으면 채택 제목 앞 문장과 같다: "신용까지 써서 번 1,500만원이 반대매매 한 번에 -2,500만원이 됐습니다"
 
 ## [A] 완성형 프롬프트 (이미지 AI에 그대로 붙여 넣기)
 ```
-YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at small size.
-Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, loss blue #2D6CDF, gain red #E63B2E.
+YouTube thumbnail, 16:9 (1280x720). Plain solid pure black background (#000000) and nothing else: no people, no objects, no shapes, no gradients, no texture, no effects.
+Only huge heavy bold Korean typography, centered, about 85% of the frame width, 4 lines with tight line spacing:
+line 1 "신용까지 써서 번", line 2 "1,500만원이", line 3 "반대매매 한 번에", line 4 "-2,500만원이 됐습니다".
+All text pure white (#FFFFFF) except "-2,500만원" in bright yellow (#FFD400) and "1,500만원" in red (#E63B2E). No outlines, shadows or glow.
 Bottom-right corner kept empty (video length badge).
-Flat editorial paper-collage graphic. The frame is split by a vertical torn-paper edge slightly left of center.
-Left side (45%, cream #F2EBDD): the large black bold word "주가" at the top, and below it a tall outlined bar where only
-a bit more than half remains filled in warm gray (#9A968E). Right side (55%, dark navy #14213D): the word "내 돈" in black
-bold letters on a solid bright yellow (#FFD400) box at the top, and below it a tall outlined bar that is almost completely
-empty, with only a thin sliver of blue (#2D6CDF) left at the bottom. Next to that bar, a wide solid blue (#2D6CDF) rounded
-box with a thin white border containing the huge white bold text "-2,500만 원", the largest element.
-No people, no faces, no logos. Minimal, nothing decorative.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 
-## [B] 글자 없는 프롬프트 (한글이 틀릴 때 — 글자는 편집에서 "문구" 표대로 얹기)
-```
-YouTube thumbnail background, 16:9 (1280x720), bold high-contrast composition.
-Palette: cream #F2EBDD, dark navy #14213D, highlight yellow #FFD400, loss blue #2D6CDF, warm gray #9A968E.
-Flat editorial paper-collage graphic split by a vertical torn-paper edge slightly left of center. Left (cream): empty space
-at the top for a word, below it a tall outlined bar filled a bit more than halfway in warm gray. Right (dark navy): an empty
-bright yellow box at the top, below it a tall outlined bar almost completely empty with a thin blue sliver at the bottom,
-and an empty solid blue rounded box with thin white border beside it. No people. Bottom-right corner empty.
-Absolutely no text, letters, numbers, logos or watermarks. Leave clean empty space where the headline will be added later.
-```
+## [B] 편집 프로그램으로 직접 (이미지 AI 없이)
+- 캔바·미리캔버스·포토샵 등에서 만든다. 이미지 AI가 한글을 틀리게 그릴 때 이쪽이 더 빠르다.
+- 캔버스: 1280×720, 배경 #000000 한 가지 (그림·도형·그라데이션 없음)
+- 글꼴: Noto Sans KR Black (또는 Pretendard Black)
+  - 글자 크기 105px (한글 높이 약 100px), 줄 간격 1.15, 가운데 정렬
+  - Noto Sans KR Black 105px에서 가장 긴 줄 "-2,500만원이 됐습니다"가 약 1,035px → 화면 폭 85%(1,090px) 안
+- 색: "문구" 표대로 — 기본 흰색 #FFFFFF, "1,500만원" 빨강 #E63B2E, "-2,500만원" 노랑 #FFD400. 외곽선·그림자·광택 없음
+- 4줄 묶음을 화면 세로 가운데에 둔다. 오른쪽 아래 220×70px는 비운다 (영상 길이 표시).
+- 저장: `thumbnails/thumbnail_3.png`
 
 ## 검수
-- [ ] "주가" · "내 돈" · "-2,500만 원"이 한 글자도 틀리지 않음
-- [ ] 왼쪽 막대는 절반 남짓 남고(주가 -42%), 오른쪽 막대는 거의 비어 있음(내 돈 -83%) — 눈금 숫자 없음
-- [ ] 주가 막대는 웜 그레이(손실 색 아님), 내 돈 막대만 파랑 · 노랑 강조 1곳 · 종목명 없음
-- [ ] 320px 축소본에서 두 막대의 차이와 "-2,500만 원"이 읽힘
+- [ ] 4줄을 이으면 채택 제목 앞 문장과 **한 글자도 다르지 않음** ("1,500만원"·"-2,500만원" 표기, 띄어쓰기까지 제목과 같음) · 마침표·뒤 문장 없음
+- [ ] 줄마다 14자 이내 (9·8·9·14자), 어절 중간에서 줄을 바꾸지 않음
+- [ ] 강조 2곳 (빨강 "1,500만원" = 수익, 노랑 "-2,500만원" = 손실) · 3곳 이하 · 손실 숫자에 빨강 없음
+- [ ] 배경은 검정 #000000 하나뿐 (인물·도형·그라데이션·외곽선·그림자·로고 없음) · 종목명 없음
+- [ ] 320px 축소본에서 4줄 모두 읽힘
 - [ ] 오른쪽 아래 비어 있음 · 1280×720, 2MB 이하
 
 ## 결과 (업로드 후)

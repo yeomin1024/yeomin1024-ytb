@@ -1,6 +1,6 @@
 # sarcopenia-2026-10 한눈에 보기
 
-자동 생성 — `python tools/make_summary.py health sarcopenia-2026-10` (2026-10-11 07:55). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
+자동 생성 — `python tools/make_summary.py health sarcopenia-2026-10` (2026-10-11 08:41). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
 
 > **만 보만 걸으면 된다고 믿다가 2년 만에 악력 17kg, 근감소증이 됐습니다. 걷기만 하는 사람들의 공통점**
 
@@ -22,7 +22,7 @@
 
 - [x] **T1. (채택)** 만 보만 걸으면 된다고 믿다가 2년 만에 악력 17kg, 근감소증이 됐습니다. 걷기만 하는 사람들의 공통점 `속마음 · 만 보→악력 17kg·근감소증 · 공통점` 59자 — 짝 썸네일: thumbnail_1
 - [ ] **T2.** 매일 만 보 걷던 60대가 2년 만에 근감소증이 됐습니다. 근력운동 없이 걷기만 한 사람들이 꼭 하는 후회 `행동 · 만 보→근감소증 · 후회("마지막에 꼭 하는 후회"를 줄여 씀)` 59자 — 짝 썸네일: thumbnail_2
-- [ ] **T3.** (짧은 변형) 몸무게 6kg 빠졌다고 자랑했는데 근감소증이 됐습니다. 걷기만 한 사람들의 불편한 진실 `장면(작은 만족) · -6kg→근감소증 · 불편한 진실` 48자 — 짝 썸네일: thumbnail_3
+- [ ] **T3.** (짧은 변형) 몸무게 6kg 빠졌다고 자랑했는데 근감소증이 됐습니다. 걷기만 한 사람들의 불편한 진실 `장면(작은 만족) · -6kg→근감소증 · 불편한 진실` 48자 — 짝 썸네일: thumbnail_3 (검은 배경 제목형 — 채택 제목 문구)
 
 ## 2. 썸네일 3개 (`thumbnails/`)
 
@@ -36,13 +36,15 @@
 
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 처음 | 10,000 | 잉크 #1E1E1E | 휴대폰 화면 안, 중간 크기 |
-| 처음 단위 | 걸음 | 잉크 #1E1E1E | 작게, 숫자 아래 |
-| 기간 | 2년 | 잉크 #1E1E1E | 작게, 화살표 위 |
-| 검사 이름 | 악력 | 잉크 #1E1E1E | 노랑 #FFD400 상자 (글자 전체 높이, 유일한 노랑) |
-| 결과 | 17kg | 빨강 #E63B2E | 가장 큰 글자 |
+| 처음 숫자 | 10,000 | 잉크 #1E1E1E | 휴대폰 화면 안, 중간 크기 |
+| 펀치 (악력계 위) | 악력 | 잉크 #1E1E1E | 노랑 #FFD400 상자 (글자 전체 높이, 유일한 노랑) |
+| 결과 숫자 | 17kg | 빨강 #E63B2E | 가장 큰 글자 |
+| 하단 1줄 | 만 보만 걸으면 된다고 | 흰색 #FFFFFF + 두꺼운 검정 외곽선 | 없음 |
+| 하단 2줄 | 믿다가 근감소증이 됐다 | 흰색 #FFFFFF + 두꺼운 검정 외곽선 | "근감소증"만 빨강 #E63B2E (나빠진 결과) |
 
-전체 13자 (2줄 구성: "10,000 걸음" / "악력 17kg"). 제목을 그대로 반복하지 않는다 — 제목에 없는 **휴대폰 걸음 수 화면**(문장 5)과 "2년" 화살표를 보탠다.
+- 하단 2줄 = 채택 제목 앞 문장 "만 보만 걸으면 된다고 믿다가 2년 만에 악력 17kg, 근감소증이 됐습니다"를 줄인 것 (제목 단어를 그대로 씀, "악력 17kg"은 그림 쪽에). 1줄 12자 · 2줄 12자, 합 24자 (띄어쓰기 포함)
+- 펀치 "악력"(2자)은 하단 2줄에 없는 말이다. 10,000 → 17kg 숫자는 그림 쪽에만 있다
+- 강조 합 3곳: 노랑 상자 "악력", 빨강 "17kg", 빨강 "근감소증". 파랑 글자 없음
 
 <details><summary>[A] 완성형 프롬프트</summary>
 
@@ -50,14 +52,17 @@
 YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at small size.
 Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, loss blue #2D6CDF, gain red #E63B2E.
 Bottom-right corner kept empty (video length badge).
-Clean flat illustration on a cream (#F2EBDD) background. On the left, a simple generic smartphone seen from the front, its
-plain white screen showing only the big black number "10,000" and below it the small black word "걸음". No app name, no
-icons, no logos, no status bar, no other interface elements, so it does not look like any real app. In the middle, a thick
-black arrow pointing from the phone to the right, with the small black text "2년" above the arrow. On the right, a simple
-unbranded hand grip dynamometer (a handle with a round analog dial and a needle, the dial has no printed numbers or text).
-Above the dynamometer, the black bold text "악력" on a solid bright yellow (#FFD400) box. Next to the dynamometer, the huge
-red (#E63B2E) text "17kg", the largest element in the image (about 28% of the image height). No people, no hands, no gym
-equipment brands, no hospital scenes, no falling. Keep all text inside the central area.
+Upper 60% of the frame: clean flat illustration on a cream (#F2EBDD) background. On the left, a simple generic smartphone
+seen from the front, its plain white screen showing only the big black number "10,000". No app name, no icons, no logos,
+no status bar, no other words or interface elements, so it does not look like any real app. In the middle, a thick black
+arrow pointing from the phone to the right, with nothing written on or above the arrow. On the right, a simple unbranded
+hand grip dynamometer (a handle with a round analog dial and a needle, the dial has no printed numbers or text). Above the
+dynamometer, the black bold text "악력" on a solid bright yellow (#FFD400) box. Next to the dynamometer, the huge red
+(#E63B2E) text "17kg", the largest element in the image (about 25% of the image height). No people, no hands, no gym
+equipment brands, no hospital scenes, no falling.
+Bottom title: in the lower third, over a dark band that fades upward from the bottom edge, two lines of huge heavy bold Korean text, left-aligned near the left edge, white with a thick black outline:
+line 1 "만 보만 걸으면 된다고", line 2 "믿다가 근감소증이 됐다". The word "근감소증" is red #E63B2E. The second line ends well before the bottom-right corner.
+Keep all other picture elements in the upper 60% so they never cover the bottom title.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 </details>
@@ -70,10 +75,13 @@ Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold
 
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 속마음 | 매일 걸었는데 | 잉크 #1E1E1E | 노랑 #FFD400 상자 (글자 전체 높이, 유일한 노랑) |
-| 결과 | 악력 17kg | 흰 글자 (빨강 #E63B2E 상자) | "17kg"을 가장 크게 |
+| 펀치 + 결과 숫자 (오른쪽 위) | 악력 17kg | 흰 글자 (빨강 #E63B2E 상자) | "17kg"을 가장 크게 |
+| 하단 1줄 | 매일 만 보 걷던 60대 | 흰색 #FFFFFF + 두꺼운 검정 외곽선 | 없음 |
+| 하단 2줄 | 2년 만에 근감소증 | 흰색 #FFFFFF + 두꺼운 검정 외곽선 | "근감소증"만 빨강 #E63B2E (나빠진 결과) |
 
-전체 14자. 짝 제목 T2에 없는 **악력 17kg**(문장 10)과 계단 장면(문장 9)을 보탠다. "매일 걸었는데"는 진행자 연결 문장 25 "매일 걸었는데도 왜 근육이 줄었는지"와 같은 말이다.
+- 하단 2줄 = 짝 제목 T2 앞 문장 "매일 만 보 걷던 60대가 2년 만에 근감소증이 됐습니다"를 줄인 것 (제목 단어를 그대로 씀). 1줄 13자 · 2줄 10자, 합 23자 (띄어쓰기 포함)
+- 펀치 "악력"(2자)은 하단 2줄에 없는 말이다. 짝 제목 T2에 없는 **악력 17kg**(문장 10)과 계단 장면(문장 9)을 그림 쪽이 보탠다
+- 강조 합 2곳: 빨강 상자 "악력 17kg", 빨강 "근감소증". 노랑 없음, 파랑 글자 없음
 
 <details><summary>[A] 완성형 프롬프트</summary>
 
@@ -83,45 +91,46 @@ Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #
 Bottom-right corner kept empty (video length badge).
 Realistic photo style. Bright daytime, outdoor concrete stairs in an apartment complex, background softly blurred in warm
 cream tones. On the left 45% of the frame, a fictional Korean woman in her early 60s with neat short hair, wearing a plain
-light-colored windbreaker with no patterns, no text and no logos. She is walking down the stairs and has suddenly stopped,
-gripping the metal handrail firmly with one hand, knees slightly bent, both feet still on the steps, looking down at her
-own legs with a surprised and flustered expression. She is standing, not falling, not sitting down, not injured.
-Fictional person, not resembling any real or famous person, natural Korean features. No doctor, no white coat, no hospital,
-no walking stick, no gym equipment. On the right side, large bold headline text "매일 걸었는데" in ink black on a solid
-bright yellow (#FFD400) box. Below it, a wide solid red (#E63B2E) rounded box containing the white bold text "악력 17kg",
-with "17kg" much larger than the word. No crying, no pain, no extreme fear.
+light-colored windbreaker with no patterns, no text and no logos, shown from the waist up. She was walking down the stairs
+and has suddenly stopped, gripping the metal handrail firmly with one hand, looking down toward her own legs with a
+surprised and flustered expression. She is standing upright, not falling, not sitting down, not injured. Her face and the
+hand on the handrail are in the upper 60% of the frame. Fictional person, not resembling any real or famous person,
+natural Korean features. No doctor, no white coat, no hospital, no walking stick, no gym equipment. On the upper right
+side, a wide solid red (#E63B2E) rounded box containing the white bold text "악력 17kg", with "17kg" much larger than the
+word, the largest text in the image. No crying, no pain, no extreme fear.
+Bottom title: in the lower third, over a dark band that fades upward from the bottom edge, two lines of huge heavy bold Korean text, left-aligned near the left edge, white with a thick black outline:
+line 1 "매일 만 보 걷던 60대", line 2 "2년 만에 근감소증". The word "근감소증" is red #E63B2E. The second line ends well before the bottom-right corner.
+Keep all other picture elements in the upper 60% so they never cover the bottom title.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 </details>
 
-### 썸네일 3 — 대비 (몸무게 -6kg vs 악력 17kg)
+### 썸네일 3 — 검은 배경 제목형 (채택 제목 문구)
 
 🖼️ 이미지 없음 → 이미지 AI에 `thumbnails/thumbnail_3.md`의 [A] 프롬프트를 넣어 만든 뒤 `thumbnails/thumbnail_3.png`로 저장
 
-- 가설: 왼쪽에 **체중계 -6kg**(좋아했던 숫자, 파랑)과 오른쪽 **악력 17kg**(결과, 빨강)을 나란히 놓으면 "몸무게는 줄었는데 힘이 빠졌구나"가 한눈에 읽힌다 — 썸네일 1(걸음 수)과 '믿었던 숫자'만 바꿔 어느 쪽이 더 끄는지 본다
+- 가설: 그림 없이 검은 배경에 채택 제목 앞 문장만 크게 넣은 **글자만으로** 클릭을 부르는지 (사진 썸네일 사이에서 오히려 눈에 띄는지)
 
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 왼쪽 위 | 좋아했는데 | 잉크 #1E1E1E | 노랑 #FFD400 상자 (유일한 노랑) |
-| 왼쪽 | -6kg | 파랑 #2D6CDF | 크게 (좋아했던 숫자) |
-| 오른쪽 위 | 악력 | 흰색 #F7F3EA | 작게 |
-| 오른쪽 | 17kg | 빨강 #E63B2E (흰 테두리) | 가장 큰 글자 |
+| 1줄 | 만 보만 걸으면 | 흰색 #FFFFFF | "만 보만"만 노랑 #FFD400 — 믿었던 말 |
+| 2줄 | 된다고 믿다가 | 흰색 #FFFFFF | 없음 |
+| 3줄 | 2년 만에 악력 17kg, | 흰색 #FFFFFF | 없음 |
+| 4줄 | 근감소증이 됐습니다 | 흰색 #FFFFFF | "근감소증"만 빨강 #E63B2E — 나빠진 결과 |
 
-전체 13자 (2줄 구성: "좋아했는데 -6kg" / "악력 17kg"). 짝 제목 T3("6kg … 근감소증")에 없는 **악력 17kg**을 보태고, "근감소증"은 반복하지 않는다.
+- 줄 길이 8자 · 7자 · 14자 · 10자 (띄어쓰기 포함, 모두 14자 이내). 어절 사이에서만 줄을 바꿨다
+- 이어 붙이면 채택 제목 앞 문장과 한 글자도 다르지 않다: "만 보만 걸으면 된다고 믿다가 2년 만에 악력 17kg, 근감소증이 됐습니다" (3줄 끝 쉼표 포함). 뒤 문장("걷기만 하는 사람들의 공통점")은 넣지 않는다
+- 숫자 덩어리 "2년 만에 악력 17kg,"와 결과 "근감소증이 됐습니다"가 각각 한 줄에 온다
+- 강조 합 2곳 (3곳 이하). 파랑 글자 없음 (검정 위 파랑 금지)
 
 <details><summary>[A] 완성형 프롬프트</summary>
 
 ```
-YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at small size.
-Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, loss blue #2D6CDF, gain red #E63B2E.
+YouTube thumbnail, 16:9 (1280x720). Plain solid pure black background (#000000) and nothing else: no people, no objects, no shapes, no gradients, no texture, no effects.
+Only huge heavy bold Korean typography, centered, about 85% of the frame width, 4 lines with tight line spacing:
+line 1 "만 보만 걸으면", line 2 "된다고 믿다가", line 3 "2년 만에 악력 17kg,", line 4 "근감소증이 됐습니다".
+All text pure white (#FFFFFF) except "만 보만" in bright yellow (#FFD400) and "근감소증" in red (#E63B2E). No outlines, shadows or glow.
 Bottom-right corner kept empty (video length badge).
-Flat editorial paper-collage graphic. The frame is split by a vertical torn-paper edge in the middle.
-Left half (cream #F2EBDD): a simple unbranded white bathroom scale seen from slightly above, drawn with thin ink outlines,
-its display window blank. Above the scale, the black bold text "좋아했는데" on a solid bright yellow (#FFD400) box, and
-below that the large blue (#2D6CDF) text "-6kg". Right half (dark navy #14213D): the small off-white bold word "악력" near
-the top, and below it the huge red (#E63B2E) text "17kg" with a thin white outline, the largest element in the image
-(about 30% of the image height). No people, no faces, no gym equipment, no hospital scenes, no logos.
-Minimal, nothing decorative.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 </details>

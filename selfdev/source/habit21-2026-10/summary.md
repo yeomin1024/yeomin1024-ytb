@@ -1,6 +1,6 @@
 # habit21-2026-10 한눈에 보기
 
-자동 생성 — `python tools/make_summary.py selfdev habit21-2026-10` (2026-10-11 07:48). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
+자동 생성 — `python tools/make_summary.py selfdev habit21-2026-10` (2026-10-11 08:41). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
 
 > **21일만 버티면 습관이 된다길래 꼬박 채웠는데 사흘 만에 0일이 됐습니다. 작심삼일 반복하는 사람들의 공통점**
 
@@ -22,7 +22,7 @@
 
 - [x] **T1. (채택)** 21일만 버티면 습관이 된다길래 꼬박 채웠는데 사흘 만에 0일이 됐습니다. 작심삼일 반복하는 사람들의 공통점 `속마음 · 21일→0일 · 공통점` 60자 — 짝 썸네일: thumbnail_1 (달력 숫자 반전)
 - [ ] **T2.** 22일째 하루쯤 괜찮다며 알람을 껐더니 21일 기록이 0일이 됐습니다. 21일만 믿은 사람들의 최악의 결말 `장면 · 21일→0일 · 최악의 결말` 59자 — 짝 썸네일: thumbnail_2 (인물·감정)
-- [ ] **T3.** (짧은 변형) 21일 챌린지 꼬박 채우고 사흘 만에 0일. 작심삼일의 불편한 진실 `행동 · 21일→0일 · 불편한 진실` 37자 — 짝 썸네일: thumbnail_3 (기대 vs 결과 대비)
+- [ ] **T3.** (짧은 변형) 21일 챌린지 꼬박 채우고 사흘 만에 0일. 작심삼일의 불편한 진실 `행동 · 21일→0일 · 불편한 진실` 37자 — 짝 썸네일: thumbnail_3 (검은 배경 제목형 — 채택 제목 문구)
 
 ## 2. 썸네일 3개 (`thumbnails/`)
 
@@ -36,22 +36,23 @@
 
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 시작 | 21일 | 잉크 #1E1E1E | 노랑 상자 #FFD400 (유일한 강조) |
-| 결과 | 0일 | 빨강 #E63B2E (잃은 것) | 가장 큰 글자 |
+| 위쪽 문구 (시작) | 21일 | 잉크 #1E1E1E | 노랑 상자 #FFD400 (노랑 상자 1곳) |
+| 핵심 숫자 (결과) | 0일 | 빨강 #E63B2E (잃은 것) | 가장 큰 글자 |
+| 하단 1줄 (11자) | 21일 꼬박 채웠는데 | 흰색 + 두꺼운 검정 외곽선 | — |
+| 하단 2줄 (12자) | 사흘 만에 0일이 됐다 | 흰색 + 두꺼운 검정 외곽선 | "0일"만 빨강 #E63B2E (무너진 결과) |
 
 <details><summary>[A] 완성형 프롬프트</summary>
 
 ```
 YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at small size.
-Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, loss blue #2D6CDF, gain red #E63B2E.
+Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, regained blue #2D6CDF, loss red #E63B2E.
 Bottom-right corner kept empty (video length badge).
-Clean flat editorial graphic on a cream paper background (#F2EBDD) with subtle paper grain. On the left 55% of the frame,
-a single sheet of a simple paper wall calendar with a plain grid of boxes (date numbers very faint and blurred, no month
-name, no brand, no printed words). The first 21 boxes, the top three rows, each have a hand-drawn ink-black circle; all
-the remaining boxes are empty. Above the calendar, a solid bright yellow (#FFD400) box with the large ink-black bold text
-"21일". On the right 40% of the frame, a thick ink-black arrow points from the calendar to a huge red (#E63B2E) bold
-text "0일", the largest element in the image, about 30% of the image height. No people, no faces, no apps, no phones.
-Minimal, nothing decorative. Keep all text and the calendar inside the central 16:9 safe area.
+Clean flat editorial graphic on a cream paper background (#F2EBDD) with subtle paper grain.
+Upper 60% of the frame: on the left half, a single sheet of a simple paper wall calendar with a plain grid of boxes (date numbers very faint and blurred, no month name, no brand, no printed words). The first 21 boxes, the top three rows, each have a hand-drawn ink-black circle; all the remaining boxes are empty. Above the calendar, a solid bright yellow (#FFD400) box with the large ink-black bold text "21일". On the right 40%, a thick ink-black arrow points from the calendar to a huge red (#E63B2E) bold text "0일", the largest element in the image, about 30% of the image height.
+Bottom title: in the lower third, over a dark navy (#14213D) band that fades upward from the bottom edge, two lines of huge heavy bold Korean text, left-aligned near the left edge, white with a thick black outline:
+line 1 "21일 꼬박 채웠는데", line 2 "사흘 만에 0일이 됐다". The word "0일" in line 2 is red #E63B2E. The second line ends well before the bottom-right corner.
+Keep all other picture elements in the upper 60% so they never cover the bottom title.
+No people, no faces, no apps, no phones. Minimal, nothing decorative. Keep all text and the calendar inside the central 16:9 safe area.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 </details>
@@ -64,51 +65,49 @@ Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold
 
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 1 | 22일째, | 잉크 #1E1E1E | 노랑 상자 #FFD400 (유일한 강조) |
-| 2 | 멈췄다 | 흰색 (네이비 배경 위, 얇은 잉크 외곽선) | 가장 큰 글자 |
+| 핵심 숫자 | 22일째 | 잉크 #1E1E1E | 노랑 상자 #FFD400 (글자 전체 높이, 노랑 상자 1곳) — 위쪽에서 가장 큰 글자 |
+| 하단 1줄 (11자) | 하루쯤 알람을 껐더니 | 흰색 + 두꺼운 검정 외곽선 | — |
+| 하단 2줄 (14자) | 21일 기록이 0일이 됐다 | 흰색 + 두꺼운 검정 외곽선 | "0일"만 빨강 #E63B2E (무너진 결과) |
 
 <details><summary>[A] 완성형 프롬프트</summary>
 
 ```
 YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at small size.
-Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, loss blue #2D6CDF, gain red #E63B2E.
+Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, regained blue #2D6CDF, loss red #E63B2E.
 Bottom-right corner kept empty (video length badge).
-Realistic photo style. A dim, dark navy-toned living room in the early morning, faint pale light through a window. On
-the left 45% of the frame, a fictional Korean woman in her mid 30s, office-worker look, wearing a plain sweatshirt before
-work, sitting on the living-room floor and staring with a tired, deflated, regretful expression at a rolled-up exercise
-mat standing against the wall next to her. She loosely holds a smartphone with its screen turned off. Fictional person,
-not resembling any real or famous person, natural Korean features. No crying, no extreme emotion. On the right side, a
-solid bright yellow (#FFD400) box with the black bold text "22일째,". Below it, huge white bold text "멈췄다" with a thin
-dark outline, the largest text in the image. Keep the face and all text inside the central 16:9 safe area.
+Realistic photo style. A dim, dark navy-toned living room in the early morning, faint pale light through a window.
+Upper 60% of the frame: on the left 45%, a fictional Korean woman in her mid 30s, office-worker look, wearing a plain sweatshirt before work, sitting on the living-room floor and staring with a tired, deflated, regretful expression at a rolled-up exercise mat standing against the wall next to her. She loosely holds a smartphone with its screen turned off. Her face and the mat stay in the upper 60% of the frame.
+Fictional person, not resembling any real or famous person, natural Korean features. No crying, no extreme emotion.
+On the upper right, a solid bright yellow (#FFD400) box covering the full letter height with the huge black bold text "22일째", the largest text in the image.
+Bottom title: in the lower third, over a dark band that fades upward from the bottom edge, two lines of huge heavy bold Korean text, left-aligned near the left edge, white with a thick black outline:
+line 1 "하루쯤 알람을 껐더니", line 2 "21일 기록이 0일이 됐다". The word "0일" in line 2 is red #E63B2E. The second line ends well before the bottom-right corner.
+Keep all other picture elements in the upper 60% so they never cover the bottom title.
+Keep the face and all text inside the central 16:9 safe area. No brand logos on the mat, no app screens.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 </details>
 
-### 썸네일 3 — 대비 (21일 성공 vs 사흘 뒤)
+### 썸네일 3 — 검은 배경 제목형 (채택 제목 문구)
 
 🖼️ 이미지 없음 → 이미지 AI에 `thumbnails/thumbnail_3.md`의 [A] 프롬프트를 넣어 만든 뒤 `thumbnails/thumbnail_3.png`로 저장
 
-- 가설: "21일 성공"이라는 기대와 "사흘 뒤 0일"이라는 결과를 **한 화면에 나란히** 놓으면 "21일이면 끝"이라는 통념이 깨지는 게 한눈에 보인다
+- 가설: 그림 없이 **검은 배경의 채택 제목 문구(글자)만으로** 클릭을 부르는지 — 사진 썸네일 사이에서 오히려 눈에 띄는지
 
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 왼쪽 | 21일 성공 | 흰색 (파랑 #2D6CDF 상자) — 되찾은 것·좋아짐 | — |
-| 오른쪽 | 사흘 뒤 0일 | 빨강 #E63B2E ("0일"만 노랑 상자 #FFD400 위 잉크 글자) | 가장 큰 글자, 유일한 노랑 강조 |
+| 1줄 (8자) | 21일만 버티면 | 흰색 #FFFFFF | "21일"만 노랑 #FFD400 (처음 목표 숫자) |
+| 2줄 (8자) | 습관이 된다길래 | 흰색 #FFFFFF | — |
+| 3줄 (7자) | 꼬박 채웠는데 | 흰색 #FFFFFF | — |
+| 4줄 (14자) | 사흘 만에 0일이 됐습니다 | 흰색 #FFFFFF | "0일"만 빨강 #E63B2E (무너진 결과) |
 
 <details><summary>[A] 완성형 프롬프트</summary>
 
 ```
-YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at small size.
-Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, loss blue #2D6CDF, gain red #E63B2E.
+YouTube thumbnail, 16:9 (1280x720). Plain solid pure black background (#000000) and nothing else: no people, no objects, no shapes, no gradients, no texture, no effects.
+Only huge heavy bold Korean typography, centered, about 85% of the frame width, 4 lines with tight line spacing:
+line 1 "21일만 버티면", line 2 "습관이 된다길래", line 3 "꼬박 채웠는데", line 4 "사흘 만에 0일이 됐습니다".
+All text pure white (#FFFFFF) except "21일" in bright yellow (#FFD400) and "0일" in red (#E63B2E). No outlines, shadows or glow.
 Bottom-right corner kept empty (video length badge).
-Split-screen image divided vertically down the middle by a clean straight line. LEFT HALF (the hope): a bright,
-cream-toned living room in warm morning sunlight; a fictional Korean woman in her mid 30s, seen from the side or back with
-her face small, stretching on an unrolled exercise mat. Fictional person, not resembling any real or famous person,
-natural Korean features. At the top of the left half, a solid blue (#2D6CDF) box with the white bold text "21일 성공".
-RIGHT HALF (the result): the same corner of the living room in a dark navy (#14213D) tone, nobody there, the exercise mat
-rolled up and standing against the wall with a light layer of dust. In the lower middle of the right half (not in the
-bottom-right corner), large red (#E63B2E) bold text "사흘 뒤" followed by "0일" in ink-black on a bright yellow (#FFD400)
-box, the largest text in the image. Realistic photo style, no brand logos on the mat, no phones, no apps.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 </details>

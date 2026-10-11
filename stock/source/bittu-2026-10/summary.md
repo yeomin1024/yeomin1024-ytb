@@ -1,6 +1,6 @@
 # bittu-2026-10 한눈에 보기
 
-자동 생성 — `python tools/make_summary.py stock bittu-2026-10` (2026-10-11 07:42). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
+자동 생성 — `python tools/make_summary.py stock bittu-2026-10` (2026-10-11 08:41). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
 
 > **신용까지 써서 번 1,500만원이 반대매매 한 번에 -2,500만원이 됐습니다. 빚투한 사람들의 최악의 결말**
 
@@ -22,7 +22,7 @@
 
 - [x] **T1. (채택)** 신용까지 써서 번 1,500만원이 반대매매 한 번에 -2,500만원이 됐습니다. 빚투한 사람들의 최악의 결말 `행동 · 수익→손실 · 최악의 결말` 60자 — 짝 썸네일: thumbnail_1 (계좌 숫자 반전)
 - [ ] **T2.** 내 돈만 넣기 아까워 빚까지 냈다가 1,500만원 수익이 -2,500만원이 됐습니다. 빚으로 주식한 사람들의 공통점 `속마음 · 수익→손실 · 공통점` 64자 — 짝 썸네일: thumbnail_2 (인물·문자 장면)
-- [ ] **T3.** (짧은 변형) 반대매매 한 번에 +1,500만원이 -2,500만원이 됐습니다. 빚투한 사람들의 불편한 진실 `장면 · 수익→손실 · 불편한 진실` 51자 — 짝 썸네일: thumbnail_3 (빚 2배 대비)
+- [ ] **T3.** (짧은 변형) 반대매매 한 번에 +1,500만원이 -2,500만원이 됐습니다. 빚투한 사람들의 불편한 진실 `장면 · 수익→손실 · 불편한 진실` 51자 — 짝 썸네일: thumbnail_3 (검은 배경 제목형 — 채택 제목 문구)
 
 ## 2. 썸네일 3개 (`thumbnails/`)
 
@@ -32,13 +32,17 @@
 
 🖼️ 이미지 없음 → 이미지 AI에 `thumbnails/thumbnail_1.md`의 [A] 프롬프트를 넣어 만든 뒤 `thumbnails/thumbnail_1.png`로 저장
 
-- 가설: 수익이 손실로 뒤집힌 **계좌 숫자 반전**과 결정적 장면 한 단어("반대매매")가 가장 클릭을 부른다
+- 가설: 수익이 손실로 뒤집힌 **계좌 숫자 반전**과 결정적 장면 한 단어("반대매매", 하단 2줄의 노랑)가 가장 클릭을 부른다
 
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 시작 | +1,500만 원 | 빨강 #E63B2E | — |
-| 라벨 | 반대매매 | 검정 #1E1E1E | 노랑 형광펜 #FFD400 (유일한 강조) |
-| 결과 | -2,500만 원 | 흰색 (파랑 상자 위) | 가장 큰 글자 |
+| 카드 시작 숫자 | +1,500만 원 | 빨강 #E63B2E (수익) | — |
+| 카드 결과 숫자 | -2,500만 원 | 흰색 (파랑 #2D6CDF 상자 위) | 가장 큰 글자 |
+| 하단 1줄 | 신용까지 써서 번 돈 | 흰색 + 검정 외곽선 | — (11자) |
+| 하단 2줄 | 반대매매에 -2,500만원 | 흰색 + 검정 외곽선 | "반대매매"만 노랑 #FFD400 (14자, 2줄 합 25자) |
+
+- 강조색은 2곳: 빨강 "+1,500만 원"(수익), 노랑 "반대매매". 손실 숫자는 빨강으로 쓰지 않는다 (카드는 파랑 상자, 하단은 흰색).
+- 하단 2줄은 제목 표기("-2,500만원"), 카드는 영상 계좌 카드 표기("-2,500만 원")다. 값은 같다 (`stock/guides/thumbnail_rules.md` 1번).
 
 <details><summary>[A] 완성형 프롬프트</summary>
 
@@ -46,13 +50,15 @@
 YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at small size.
 Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, loss blue #2D6CDF, gain red #E63B2E.
 Bottom-right corner kept empty (video length badge).
-Clean flat editorial graphic on a cream paper background (#F2EBDD) with subtle paper grain. A large light-cream rounded
-rectangle card with a thin black outline fills most of the frame, like a simple personal account summary card
-(NOT a real banking or brokerage app, no app name, no logos). Inside the card, top-left: the text "+1,500만 원" in large
-red (#E63B2E) bold letters. Below it, a thick blue arrow pointing down, and to the right of the arrow the label
-"반대매매" in black bold letters over a bright yellow (#FFD400) highlighter stripe. The lower half of the card is a wide
-solid blue (#2D6CDF) rounded box with the huge white bold text "-2,500만 원" centered, the largest element in the image.
+Clean flat editorial graphic on a cream paper background (#F2EBDD) with subtle paper grain. In the upper 60% of the frame,
+a wide light-cream rounded rectangle card with a thin black outline, like a simple personal account summary card
+(NOT a real banking or brokerage app, no app name, no logos). Inside the card, on the left: the text "+1,500만 원" in large
+red (#E63B2E) bold letters. In the middle: a thick blue (#2D6CDF) arrow pointing right and slightly down. On the right: a
+solid blue (#2D6CDF) rounded box with the huge white bold text "-2,500만 원", the largest element in the image.
 No people, no faces. Minimal, nothing decorative.
+Bottom title: in the lower third, over a dark band that fades upward from the bottom edge, two lines of huge heavy bold Korean text, left-aligned near the left edge, white with a thick black outline:
+line 1 "신용까지 써서 번 돈", line 2 "반대매매에 -2,500만원". The word "반대매매" is bright yellow #FFD400. The second line ends well before the bottom-right corner.
+Keep all other picture elements in the upper 60% so they never cover the bottom title.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 </details>
@@ -65,8 +71,14 @@ Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold
 
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 장면 | 담보 부족 | 검정 #1E1E1E | 노랑 상자 #FFD400 (유일한 강조) |
-| 결과 | -2,500만 원 | 흰색 (파랑 #2D6CDF 상자, 흰 테두리) | 가장 큰 글자 |
+| 펀치 (위쪽) | 담보 부족 | 검정 #1E1E1E | 노랑 상자 #FFD400 (글자 전체 높이, 노랑 상자는 이 1곳만) |
+| 결과 숫자 (위쪽) | -2,500만 원 | 흰색 (파랑 #2D6CDF 상자, 흰 테두리) | 가장 큰 글자 |
+| 하단 1줄 | 내 돈만 넣기 아까워 | 흰색 + 검정 외곽선 | — (11자) |
+| 하단 2줄 | 빚 냈다가 -2,500만원 | 흰색 + 검정 외곽선 | "빚"만 노랑 #FFD400 (14자, 2줄 합 25자) |
+
+- 강조색은 2곳: 노랑 상자 "담보 부족", 노랑 글자 "빚". 손실 숫자는 빨강으로 쓰지 않는다 (위쪽은 파랑 상자, 하단은 흰색).
+- 펀치 "담보 부족"은 하단 2줄에 없는 말이다. 하단 2줄은 T2 앞 문장("내 돈만 넣기 아까워 빚까지 냈다가 … -2,500만원이 됐습니다")을 줄인 것.
+- 하단 2줄은 제목 표기("-2,500만원"), 위쪽 상자는 영상 계좌 카드 표기("-2,500만 원")다. 값은 같다.
 
 <details><summary>[A] 완성형 프롬프트</summary>
 
@@ -76,40 +88,44 @@ Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #
 Bottom-right corner kept empty (video length badge).
 Realistic photo style. Dark navy-toned living room at night, lights off. On the left 40% of the frame, a fictional Korean
 man in his mid 30s, office-worker look (plain knit or shirt), sitting on a sofa and staring at a smartphone held in both
-hands, frozen stunned expression, face lit by the phone's cold light. The phone screen shows only one simple blank
-message bubble shape and a simple blue line dropping sharply, no app interface, no text. Fictional person, not resembling
-any real or famous person, natural Korean features. On the right side, a solid bright yellow (#FFD400) box with the large
-black bold text "담보 부족". Below it, a wide solid blue (#2D6CDF) rounded box with a thin white border containing the huge
-white bold text "-2,500만 원", the largest element. No crying, no extreme fear.
+hands, frozen stunned expression, face lit by the phone's cold light. His face and the phone are in the upper 60% of the
+frame; his lower body fades into darkness at the bottom. The phone screen shows only one simple blank message bubble shape
+and a simple blue line dropping sharply, no app interface, no text. Fictional person, not resembling any real or famous
+person, natural Korean features, realistic photo style. In the upper right area, a solid bright yellow (#FFD400) box with
+the large black bold text "담보 부족". Below it, still in the upper 60%, a wide solid blue (#2D6CDF) rounded box with a thin
+white border containing the huge white bold text "-2,500만 원", the largest element. No crying, no extreme fear.
+Bottom title: in the lower third, over a dark band that fades upward from the bottom edge, two lines of huge heavy bold Korean text, left-aligned near the left edge, white with a thick black outline:
+line 1 "내 돈만 넣기 아까워", line 2 "빚 냈다가 -2,500만원". The word "빚" is bright yellow #FFD400. The second line ends well before the bottom-right corner.
+Keep all other picture elements in the upper 60% so they never cover the bottom title.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 </details>
 
-### 썸네일 3 — 대비 (주가 -42% vs 내 돈 -83%)
+### 썸네일 3 — 검은 배경 제목형 (채택 제목 문구)
 
 🖼️ 이미지 없음 → 이미지 AI에 `thumbnails/thumbnail_3.md`의 [A] 프롬프트를 넣어 만든 뒤 `thumbnails/thumbnail_3.png`로 저장
 
-- 가설: "주가는 절반도 안 빠졌는데 내 돈은 거의 다 사라졌다"는 **빚이 키운 손실의 대비**가 신용을 써 본 사람에게 가장 와닿는다 (문제 분석 첫 번째 메시지)
+- 가설: 그림 없이 **글자만으로** 클릭을 부르는지 — 사진 썸네일 사이에서 검은 화면에 큰 제목 문구가 오히려 눈에 띈다
 
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 왼쪽 | 주가 | 검정 #1E1E1E | — (막대는 웜 그레이 #9A968E) |
-| 오른쪽 | 내 돈 | 검정 (노랑 상자 위) | 노랑 상자 #FFD400 (유일한 강조) |
-| 결과 | -2,500만 원 | 흰색 (파랑 #2D6CDF 상자, 흰 테두리) | 가장 큰 글자 |
+| 1줄 | 신용까지 써서 번 | 흰색 #FFFFFF | — (9자) |
+| 2줄 | 1,500만원이 | "1,500만원" 빨강 #E63B2E, "이" 흰색 | 수익 금액 = 빨강 (8자) |
+| 3줄 | 반대매매 한 번에 | 흰색 #FFFFFF | — (9자) |
+| 4줄 | -2,500만원이 됐습니다 | "-2,500만원" 노랑 #FFD400, 나머지 흰색 | 손실 금액 = 노랑 (14자) |
+
+- 강조 2곳: 빨강 "1,500만원"(수익), 노랑 "-2,500만원"(손실). 손실 숫자는 빨강으로 쓰지 않는다 (`stock/guides/thumbnail_rules.md` 1번·2번).
+- "반대매매"는 흰색으로 둔다. 바로 위 줄의 빨강(수익)과 붙어 빨강 뜻이 섞이지 않게 하고, 수익 빨강 → 손실 노랑의 반전만 눈에 띄게 하기 위해서다.
+- 4줄을 이으면 채택 제목 앞 문장과 같다: "신용까지 써서 번 1,500만원이 반대매매 한 번에 -2,500만원이 됐습니다"
 
 <details><summary>[A] 완성형 프롬프트</summary>
 
 ```
-YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at small size.
-Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, loss blue #2D6CDF, gain red #E63B2E.
+YouTube thumbnail, 16:9 (1280x720). Plain solid pure black background (#000000) and nothing else: no people, no objects, no shapes, no gradients, no texture, no effects.
+Only huge heavy bold Korean typography, centered, about 85% of the frame width, 4 lines with tight line spacing:
+line 1 "신용까지 써서 번", line 2 "1,500만원이", line 3 "반대매매 한 번에", line 4 "-2,500만원이 됐습니다".
+All text pure white (#FFFFFF) except "-2,500만원" in bright yellow (#FFD400) and "1,500만원" in red (#E63B2E). No outlines, shadows or glow.
 Bottom-right corner kept empty (video length badge).
-Flat editorial paper-collage graphic. The frame is split by a vertical torn-paper edge slightly left of center.
-Left side (45%, cream #F2EBDD): the large black bold word "주가" at the top, and below it a tall outlined bar where only
-a bit more than half remains filled in warm gray (#9A968E). Right side (55%, dark navy #14213D): the word "내 돈" in black
-bold letters on a solid bright yellow (#FFD400) box at the top, and below it a tall outlined bar that is almost completely
-empty, with only a thin sliver of blue (#2D6CDF) left at the bottom. Next to that bar, a wide solid blue (#2D6CDF) rounded
-box with a thin white border containing the huge white bold text "-2,500만 원", the largest element.
-No people, no faces, no logos. Minimal, nothing decorative.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 </details>

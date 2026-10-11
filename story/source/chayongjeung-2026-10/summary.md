@@ -1,6 +1,6 @@
 # chayongjeung-2026-10 한눈에 보기
 
-자동 생성 — `python tools/make_summary.py story chayongjeung-2026-10` (2026-10-11 07:49). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
+자동 생성 — `python tools/make_summary.py story chayongjeung-2026-10` (2026-10-11 08:41). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
 
 > **친구라서 차용증 없이 빌려준 3천만 원, 돌려받은 건 90만 원이었습니다. 정 때문에 돈 빌려준 사람들의 공통점**
 
@@ -22,7 +22,7 @@
 
 - [x] **T1. (채택)** 친구라서 차용증 없이 빌려준 3천만 원, 돌려받은 건 90만 원이었습니다. 정 때문에 돈 빌려준 사람들의 공통점 `속마음·행동 · 금액→금액 · 공통점` 62자 — 짝 썸네일: thumbnail_1 (숫자 반전)
 - [ ] **T2.** 연말까지 꼭 갚겠다는 카톡만 믿고 보낸 3천만 원… 차용증 없이 돈 빌려준 사람들이 모르는 불편한 진실 `계기 · 결과 숨김 · 불편한 진실` 57자 — 짝 썸네일: thumbnail_2 (인물·감정)
-- [ ] **T3.** (짧은 변형, 금액 없음) 30년 우정이 돈 때문에 3년 만에 끝났습니다. 친구에게 돈 빌려준 사람들의 최악의 결말 `장면 · 기간→단절 · 최악의 결말` 49자 — 짝 썸네일: thumbnail_3 (대비)
+- [ ] **T3.** (짧은 변형, 금액 없음) 30년 우정이 돈 때문에 3년 만에 끝났습니다. 친구에게 돈 빌려준 사람들의 최악의 결말 `장면 · 기간→단절 · 최악의 결말` 49자 — 짝 썸네일: thumbnail_3 (검은 배경 제목형 — 채택 제목 문구)
 
 ## 2. 썸네일 3개 (`thumbnails/`)
 
@@ -36,8 +36,14 @@
 
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 1 | 차용증 없이 | 잉크 #1E1E1E | 노랑 상자 #FFD400 (유일한 강조) |
-| 2 | 3,000만 원 → 90만 원 | "3,000만 원"은 네이비 #14213D, "90만 원"은 흰색(파랑 #2D6CDF 상자) | "90만 원"이 가장 큰 글자 |
+| 시작 숫자 (위 왼쪽) | 3,000만 원 | 네이비 #14213D (흰 쪽지) | 큰 글자 |
+| 핵심 숫자 (위 오른쪽) | 90만 원 | 흰색 (파랑 #2D6CDF 상자) | 가장 큰 글자 |
+| 하단 1줄 | 차용증 없이 빌려준 돈 | 흰색 + 검정 외곽선 | "차용증 없이" 노랑 #FFD400 글자 |
+| 하단 2줄 | 돌려받은 건 90만 원 | 흰색 + 검정 외곽선 | — |
+
+- 하단 2줄 = 채택 제목 앞 문장("친구라서 차용증 없이 빌려준 3천만 원, 돌려받은 건 90만 원이었습니다")을 줄인 것. 글자 수(띄어쓰기 포함) 12 · 12, 합 24
+- 위쪽은 숫자 2개(시작 → 끝)뿐, 펀치 문구 없음. "90만 원"이 위아래에 두 번 나오는 것은 숫자라 허용. "3,000만 원"은 대본 표기(주제 규칙 1번), 하단에는 넣지 않아 표기가 섞이지 않는다
+- 강조 1곳(노랑 글자 "차용증 없이"). 빨강 없음 (잃은 돈은 파랑 상자)
 
 <details><summary>[A] 완성형 프롬프트</summary>
 
@@ -45,12 +51,15 @@
 YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at small size.
 Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, loss blue #2D6CDF, gain red #E63B2E.
 Bottom-right corner kept empty (video length badge).
-Flat clean graphic style on a plain cream (#F2EBDD) background, no decorations. At the top center, a small solid bright
-yellow (#FFD400) box with black bold text "차용증 없이". In the center-left, a plain white paper money-transfer slip with
-no bank name, no logo, no account number, no other writing, showing only the large dark navy bold text "3,000만 원".
-A thick dark navy arrow points right to a solid blue (#2D6CDF) rounded box with a thin white border containing the huge
-white bold text "90만 원", the largest element in the image. Keep all text inside the central 16:9 safe area, at least
-48px from the edges. No people, no banknotes, no coins, no real money designs, no app screens.
+Flat clean graphic style on a plain cream (#F2EBDD) background, no decorations. Upper 60% of the frame: on the left, a
+plain white paper money-transfer slip with no bank name, no logo, no account number, no other writing, showing only the
+large dark navy bold text "3,000만 원". A thick dark navy arrow points right to a solid blue (#2D6CDF) rounded box with a
+thin white border containing the huge white bold text "90만 원", the largest element in the image. Keep all text inside
+the central 16:9 safe area, at least 48px from the edges. No people, no banknotes, no coins, no real money designs,
+no app screens.
+Bottom title: in the lower third, over a dark band that fades upward from the bottom edge, two lines of huge heavy bold Korean text, left-aligned near the left edge, white with a thick black outline:
+line 1 "차용증 없이 빌려준 돈", line 2 "돌려받은 건 90만 원". The word "차용증 없이" is bright yellow #FFD400. The second line ends well before the bottom-right corner.
+Keep all other picture elements in the upper 60% so they never cover the bottom title.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 </details>
@@ -63,8 +72,16 @@ Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold
 
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 1 | 30년 친구였는데 | 잉크 #1E1E1E | 노랑 상자 #FFD400 (유일한 강조) |
-| 2 | 90만 원 | 흰색 (파랑 #2D6CDF 상자, 흰 테두리) | 가장 큰 글자 |
+| 펀치 (위 오른쪽) | 30년 친구였는데 | 잉크 #1E1E1E | 노랑 상자 #FFD400 (글자 전체 높이, 노랑 상자는 이 1곳) |
+| 핵심 숫자 (위 오른쪽) | 90만 원 | 흰색 (파랑 #2D6CDF 상자, 흰 테두리) | 가장 큰 글자 |
+| 하단 1줄 | 꼭 갚겠다는 말만 믿고 | 흰색 + 검정 외곽선 | — |
+| 하단 2줄 | 보낸 3천만 원 | 흰색 + 검정 외곽선 | "3천만 원" 노랑 #FFD400 글자 (잃은 돈 → 빨강 금지) |
+
+- 하단 2줄 = T2 앞 문장("연말까지 꼭 갚겠다는 카톡만 믿고 보낸 3천만 원")을 줄인 것. 글자 수(띄어쓰기 포함) 12 · 8, 합 20
+  - 제목의 "카톡"은 "말"로 바꿨다: 휴대폰 말풍선 옆에 앱 이름을 두지 않기 위해서다 (주제 규칙 4번 "앱 이름·로고 없음")
+  - "3천만 원"은 제목 표기 그대로 (값은 대본 "3천만 원"과 같음). 위쪽 "90만 원"과는 다른 숫자라 표기가 섞이지 않는다
+- 펀치 "30년 친구였는데"(9자)는 하단 2줄과 겹치는 말이 없다
+- 강조 2곳: 노랑 상자 "30년 친구였는데", 노랑 글자 "3천만 원". 빨강 없음
 
 <details><summary>[A] 완성형 프롬프트</summary>
 
@@ -75,38 +92,43 @@ Bottom-right corner kept empty (video length badge).
 Realistic photo style. A dim dark navy-toned living room in the evening, soft warm lamp light. On the left 45% of the frame,
 a fictional Korean woman around 50 years old, neat short hair, plain knit sweater, sitting at a dining table and holding a
 smartphone in both hands, looking at it with a hollow, hurt, disappointed expression, as if betrayed by an old friend;
-no tears, no anger. The phone screen shows only two simple blank message bubble shapes, no app interface, no logo, no text.
-Fictional person, not resembling any real or famous person, natural Korean features. No other people in the scene.
-On the right side, a solid bright yellow (#FFD400) box with large black bold text "30년 친구였는데". Below it, a wide solid
-blue (#2D6CDF) rounded box with a thin white border containing the huge white bold text "90만 원", the largest element.
+no tears, no anger. Her face and the phone are in the upper 60% of the frame. The phone screen shows only two simple blank
+message bubble shapes, no app interface, no logo, no text.
+Fictional person, not resembling any real or famous person, natural Korean features, realistic photo style. No other people in the scene.
+In the upper right area, a solid bright yellow (#FFD400) box with large black bold text "30년 친구였는데". Below it, a wide
+solid blue (#2D6CDF) rounded box with a thin white border containing the huge white bold text "90만 원", the largest element.
 Keep the face and all text inside the central 16:9 safe area.
+Bottom title: in the lower third, over a dark band that fades upward from the bottom edge, two lines of huge heavy bold Korean text, left-aligned near the left edge, white with a thick black outline:
+line 1 "꼭 갚겠다는 말만 믿고", line 2 "보낸 3천만 원". The word "3천만 원" is bright yellow #FFD400. The second line ends well before the bottom-right corner.
+Keep all other picture elements in the upper 60% so they never cover the bottom title.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 </details>
 
-### 썸네일 3 — 대비 (꼭 갚을게 / 축하금 아니었어?)
+### 썸네일 3 — 검은 배경 제목형 (채택 제목 문구)
 
 🖼️ 이미지 없음 → 이미지 AI에 `thumbnails/thumbnail_3.md`의 [A] 프롬프트를 넣어 만든 뒤 `thumbnails/thumbnail_3.png`로 저장
 
-- 가설: 돈을 빌릴 때 들은 말과 3년 뒤 들은 말의 **대비**가 숫자 없이도 문제 분석 첫 번째(빌려준 돈이라는 증명)를 한눈에 보여 준다
+- 가설: 그림 없이 검은 배경에 채택 제목 문구만 크게 넣은 썸네일이 **글자만으로** 클릭을 부르는지 (사진 썸네일 사이에서 오히려 눈에 띄는지)
 
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 왼쪽 | 연말까지 꼭 갚을게 | 잉크 #1E1E1E (흰 말풍선) | 말풍선 테두리 노랑 #FFD400 (유일한 강조) |
-| 오른쪽 | 축하금 아니었어? | 흰색 (파랑 #2D6CDF 말풍선) | 오른쪽 글자를 조금 더 크게 |
+| 1 | 친구라서 차용증 없이 | 흰색 #FFFFFF | "차용증 없이" 빨강 #E63B2E (결정적 행동 — 숫자 아님) |
+| 2 | 빌려준 3천만 원, | 흰색 #FFFFFF | "3천만 원" 노랑 #FFD400 (잃은 돈 → 빨강 금지) |
+| 3 | 돌려받은 건 | 흰색 #FFFFFF | — |
+| 4 | 90만 원이었습니다 | 흰색 #FFFFFF | "90만 원" 노랑 #FFD400 |
+
+- 채택 제목 앞 문장과 한 글자도 다르지 않다 (쉼표 포함, 문장 끝 마침표만 뺌). 줄 글자 수(띄어쓰기 포함): 11 · 10 · 6 · 10
+- 강조 3곳 (빨강 1 · 노랑 2). 외곽선·그림자·노랑 상자 없음
 
 <details><summary>[A] 완성형 프롬프트</summary>
 
 ```
-YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at small size.
-Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, loss blue #2D6CDF, gain red #E63B2E.
+YouTube thumbnail, 16:9 (1280x720). Plain solid pure black background (#000000) and nothing else: no people, no objects, no shapes, no gradients, no texture, no effects.
+Only huge heavy bold Korean typography, centered, about 85% of the frame width, 4 lines with tight line spacing:
+line 1 "친구라서 차용증 없이", line 2 "빌려준 3천만 원,", line 3 "돌려받은 건", line 4 "90만 원이었습니다".
+All text pure white (#FFFFFF) except "3천만 원" and "90만 원" in bright yellow (#FFD400) and "차용증 없이" in red (#E63B2E). No outlines, shadows or glow.
 Bottom-right corner kept empty (video length badge).
-Flat clean graphic style, split screen with a clean vertical divider in the middle. Left half: bright cream (#F2EBDD)
-background with one large white chat speech bubble outlined in thick bright yellow (#FFD400), containing black bold text
-"연말까지 꼭 갚을게"; below it a small blank paper note with no writing. Right half: dark navy (#14213D) background with one
-large solid blue (#2D6CDF) chat speech bubble containing slightly bigger white bold text "축하금 아니었어?".
-Generic speech bubble shapes only: no phone interface, no messenger app design, no logos, no names, no profile pictures,
-no people. Keep all text inside the central 16:9 safe area, at least 48px from the edges.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 </details>

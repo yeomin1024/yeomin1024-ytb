@@ -1,6 +1,6 @@
 # miraclemorning-2026-10 한눈에 보기
 
-자동 생성 — `python tools/make_summary.py selfdev miraclemorning-2026-10` (2026-10-11 07:49). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
+자동 생성 — `python tools/make_summary.py selfdev miraclemorning-2026-10` (2026-10-11 08:41). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
 
 > **하루 2시간 벌겠다고 새벽 5시에 일어났다가 잠 200시간을 잃었습니다. 미라클모닝 따라 한 사람들의 불편한 진실**
 
@@ -22,7 +22,7 @@
 
 - [x] **T1. (채택)** 하루 2시간 벌겠다고 새벽 5시에 일어났다가 잠 200시간을 잃었습니다. 미라클모닝 따라 한 사람들의 불편한 진실 `속마음 · 이득→손실(2시간→200시간) · 불편한 진실` 63자 — 짝 썸네일: thumbnail_1 (숫자 반전)
 - [ ] **T2.** 새벽 5시 인증 100일 만에 잠 200시간이 사라졌습니다. 잠 줄여 갓생 산 사람들이 마지막에 꼭 하는 후회 `장면 · 100일→200시간 · 마지막에 꼭 하는 후회` 61자 — 짝 썸네일: thumbnail_2 (인물·감정)
-- [ ] **T3.** (짧은 변형) 잠 줄여 새벽 5시 100일, 잃은 잠 200시간. 미라클모닝의 공통점 `행동 · 100일→200시간 · 공통점` 39자 — 짝 썸네일: thumbnail_3 (대비)
+- [ ] **T3.** (짧은 변형) 잠 줄여 새벽 5시 100일, 잃은 잠 200시간. 미라클모닝의 공통점 `행동 · 100일→200시간 · 공통점` 39자 — 짝 썸네일: thumbnail_3 (검은 배경 제목형 — 채택 제목 문구)
 
 ## 2. 썸네일 3개 (`thumbnails/`)
 
@@ -32,13 +32,14 @@
 
 🖼️ 이미지 없음 → 이미지 AI에 `thumbnails/thumbnail_1.md`의 [A] 프롬프트를 넣어 만든 뒤 `thumbnails/thumbnail_1.png`로 저장
 
-- 가설: 얻으려던 숫자(하루 +2시간)가 100배 큰 잃은 숫자(잠 -200시간)로 뒤집힌 **생활 숫자 반전**이 가장 클릭을 부른다
+- 가설: 얻으려던 숫자(하루 2시간)가 100배 큰 잃은 숫자(잠 -200시간)로 뒤집힌 **생활 숫자 반전**이 가장 클릭을 부른다
 
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 시계 | 05:00 | 잉크 #1E1E1E (노랑 시계 화면 위) | 노랑 #FFD400 (유일한 강조) |
-| 기대 | 하루 +2시간 | 크림 #F2EBDD | — |
-| 결과 | 잠 -200시간 | 흰색 (빨강 #E63B2E 상자 위) | 가장 큰 글자 |
+| 시계 (그림 속 숫자) | 05:00 | 잉크 #1E1E1E (노랑 시계 화면 위) | 노랑 #FFD400 화면 (노랑 상자 1곳) |
+| 핵심 숫자 | 잠 -200시간 | 흰색 (빨강 #E63B2E 상자 위) | 위쪽에서 가장 큰 글자 — 잃은 것 = 빨강 |
+| 하단 1줄 (11자) | 하루 2시간 벌겠다고 | 흰색 + 두꺼운 검정 외곽선 | "2시간"만 노랑 #FFD400 (얻으려던 숫자) |
+| 하단 2줄 (12자) | 잠 200시간을 잃었다 | 흰색 + 두꺼운 검정 외곽선 | — (빨강은 위쪽 상자에 이미 있음) |
 
 <details><summary>[A] 완성형 프롬프트</summary>
 
@@ -47,9 +48,10 @@ YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at s
 Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, regained blue #2D6CDF, loss red #E63B2E.
 Bottom-right corner kept empty (video length badge).
 Clean flat editorial graphic. Dark navy (#14213D) pre-dawn background, like a quiet bedroom before sunrise, with a very soft glow; nothing decorative.
-On the left third, a simple generic tabletop digital alarm clock (no brand, no logo) whose display is a bright yellow (#FFD400) panel showing large ink-black digits "05:00".
-On the right side, upper line: the text "하루 +2시간" in cream (#F2EBDD) bold letters, medium size.
-Below it, a wide solid red (#E63B2E) rounded box containing the huge white bold text "잠 -200시간", the largest element in the image, about a quarter of the image height.
+Upper 60% of the frame: on the left, a simple generic tabletop digital alarm clock (no brand, no logo) whose display is a bright yellow (#FFD400) panel showing large ink-black digits "05:00". In the middle, a thick cream (#F2EBDD) arrow pointing right. On the right, a wide solid red (#E63B2E) rounded box containing the huge white bold text "잠 -200시간", the largest text in the image, about a quarter of the image height.
+Bottom title: in the lower third, over a dark band that fades upward from the bottom edge, two lines of huge heavy bold Korean text, left-aligned near the left edge, white with a thick black outline:
+line 1 "하루 2시간 벌겠다고", line 2 "잠 200시간을 잃었다". The word "2시간" in line 1 is bright yellow #FFD400. The second line ends well before the bottom-right corner.
+Keep all other picture elements in the upper 60% so they never cover the bottom title.
 Keep all text and the clock inside the central 16:9 safe area. No people, no faces, no phone screens, no app interfaces, no brain imagery.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
@@ -63,8 +65,9 @@ Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold
 
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 장면 | 100일째, 무너졌다 | "100일째"는 잉크 #1E1E1E 글자 + 노랑 #FFD400 상자, ", 무너졌다"는 흰 글자 + 네이비 상자 | 노랑 상자 (글자 전체 높이, 유일한 강조) |
-| 결과 | 잠 -200시간 | 흰 글자 (빨강 #E63B2E 상자) | 가장 큰 글자 |
+| 핵심 숫자 | 잠 -200시간 | 흰 글자 (빨강 #E63B2E 상자) | 위쪽에서 가장 큰 글자 — 잃은 것 = 빨강 |
+| 하단 1줄 (13자) | 새벽 5시 인증 100일 | 흰색 + 두꺼운 검정 외곽선 | "100일"만 노랑 #FFD400 |
+| 하단 2줄 (12자) | 잠 200시간 사라졌다 | 흰색 + 두꺼운 검정 외곽선 | — (빨강은 위쪽 상자에 이미 있음) |
 
 <details><summary>[A] 완성형 프롬프트</summary>
 
@@ -73,38 +76,38 @@ YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at s
 Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, regained blue #2D6CDF, loss red #E63B2E.
 Bottom-right corner kept empty (video length badge).
 Realistic photo style. Softly blurred bright afternoon office background in warm cream and grey tones, afternoon sunlight through a window.
-On the left 45% of the frame, a fictional Korean woman in her mid-thirties, office worker (neat blouse or knit top, plain lanyard with no text), sitting at her desk in front of a monitor, chin resting on her hand, eyes closed, head drooping as she dozes off; tired, drained, slightly regretful expression.
+Upper 60% of the frame: on the left 45%, a fictional Korean woman in her mid-thirties, office worker (neat blouse or knit top, plain lanyard with no text), sitting at her desk in front of a monitor, chin resting on her hand, eyes closed, head drooping as she dozes off; tired, drained, slightly regretful expression. Her face and the desktop stay in the upper 60% of the frame.
 On the desk, a few empty plain paper coffee cups with no logos; the monitor screen is blurred with nothing readable.
 Fictional person, not resembling any real or famous person, natural Korean features, realistic photo style. Not a doctor, no hospital, no pills, no crying, no collapse.
-On the right side, upper headline "100일째, 무너졌다": the part "100일째" in ink-black letters on a solid bright yellow (#FFD400) box covering the full letter height, and the part ", 무너졌다" in white letters on a dark navy (#14213D) box.
-Below it, a wide solid red (#E63B2E) rounded box with the huge white bold text "잠 -200시간", the largest element.
+On the right side of the upper 60%, a wide solid red (#E63B2E) rounded box with the huge white bold text "잠 -200시간", the largest text in the image.
+Bottom title: in the lower third, over a dark band that fades upward from the bottom edge, two lines of huge heavy bold Korean text, left-aligned near the left edge, white with a thick black outline:
+line 1 "새벽 5시 인증 100일", line 2 "잠 200시간 사라졌다". The word "100일" is bright yellow #FFD400. The second line ends well before the bottom-right corner.
+Keep all other picture elements in the upper 60% so they never cover the bottom title.
 Keep the face and all text inside the central 16:9 safe area. No app screens, no phone interfaces, no brain imagery.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 </details>
 
-### 썸네일 3 — 대비 (새벽 5시의 나 vs 오후의 나)
+### 썸네일 3 — 검은 배경 제목형 (채택 제목 문구)
 
 🖼️ 이미지 없음 → 이미지 AI에 `thumbnails/thumbnail_3.md`의 [A] 프롬프트를 넣어 만든 뒤 `thumbnails/thumbnail_3.png`로 저장
 
-- 가설: 같은 사람의 **새벽(기대)과 오후(결과)를 나란히** 보여 주면, 문제 분석 첫 번째 메시지("아침 2시간은 잠에서 빌린 시간")가 한눈에 전해진다
+- 가설: 그림 없이 **검은 배경의 채택 제목 문구(글자)만으로** 클릭을 부르는지 — 사진 썸네일 사이에서 오히려 눈에 띄는지
 
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 왼쪽 시계 | 05:00 | 잉크 #1E1E1E (노랑 시계 화면 위) | 노랑 #FFD400 (유일한 강조) |
-| 왼쪽 | 인증 100일 | 잉크 #1E1E1E 글자 (크림 #F2EBDD 상자) | — |
-| 오른쪽 | 잠 -200시간 | 흰 글자 (빨강 #E63B2E 상자) | 가장 큰 글자 |
+| 1줄 (11자) | 하루 2시간 벌겠다고 | 흰색 #FFFFFF | "2시간"만 노랑 #FFD400 (처음 목표 숫자) |
+| 2줄 (12자) | 새벽 5시에 일어났다가 | 흰색 #FFFFFF | — |
+| 3줄 (14자) | 잠 200시간을 잃었습니다 | 흰색 #FFFFFF | "200시간"만 빨강 #E63B2E (잃은 것) |
 
 <details><summary>[A] 완성형 프롬프트</summary>
 
 ```
-YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at small size.
-Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, regained blue #2D6CDF, loss red #E63B2E.
+YouTube thumbnail, 16:9 (1280x720). Plain solid pure black background (#000000) and nothing else: no people, no objects, no shapes, no gradients, no texture, no effects.
+Only huge heavy bold Korean typography, centered, about 85% of the frame width, 3 lines with tight line spacing:
+line 1 "하루 2시간 벌겠다고", line 2 "새벽 5시에 일어났다가", line 3 "잠 200시간을 잃었습니다".
+All text pure white (#FFFFFF) except "2시간" in bright yellow (#FFD400) and "200시간" in red (#E63B2E). No outlines, shadows or glow.
 Bottom-right corner kept empty (video length badge).
-Split-screen comparison divided vertically in the middle by a thin cream line. Realistic photo style. The SAME fictional Korean woman in her mid-thirties, office worker, appears on both sides.
-LEFT HALF (expectation): before sunrise, the window behind is deep navy (#14213D); a desk lit by a warm desk lamp, an open book and a plain notebook with no readable writing, and a simple generic digital alarm clock (no brand) whose display is a bright yellow (#FFD400) panel showing ink-black digits "05:00". The woman sits upright, motivated, reading. At the bottom of the left half, a solid cream (#F2EBDD) box with ink-black bold text "인증 100일".
-RIGHT HALF (result): a bright afternoon office; the same woman dozing at her desk in front of a blurred monitor, chin on her hand, eyes closed, tired and drained expression. In the lower-middle of the right half (not in the bottom-right corner), a solid red (#E63B2E) box with huge white bold text "잠 -200시간", larger than the left label.
-Fictional person, not resembling any real or famous person, natural Korean features. No doctor, no hospital, no pills, no crying. No phone screens, no app interfaces, no book covers with titles, no brain imagery. Keep faces and text inside the central 16:9 safe area.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 </details>

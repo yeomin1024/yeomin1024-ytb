@@ -1,6 +1,6 @@
 # jeungyeo-2026-10 한눈에 보기
 
-자동 생성 — `python tools/make_summary.py story jeungyeo-2026-10` (2026-10-11 07:50). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
+자동 생성 — `python tools/make_summary.py story jeungyeo-2026-10` (2026-10-11 08:41). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
 
 > **어차피 줄 거라며 미리 넘긴 4억 집, 제게 남은 건 월세방이었습니다. 노후 재산부터 물려준 부모들의 최악의 결말**
 
@@ -22,7 +22,7 @@
 
 - [x] **T1. (채택)** 어차피 줄 거라며 미리 넘긴 4억 집, 제게 남은 건 월세방이었습니다. 노후 재산부터 물려준 부모들의 최악의 결말 `속마음 · 금액→결과(월세방) · 최악의 결말` 63자 — 짝 썸네일: thumbnail_1 (4억 아파트 → 월세방 숫자 반전)
 - [ ] **T2.** 모시고 살겠다는 말만 믿고 4억 집 명의를 넘겼는데… 자식에게 노후부터 물려준 부모들이 마지막에 꼭 하는 후회 `계기(남의 말) · 결과 숨김(말줄임) · 마지막에 꼭 하는 후회` 61자 — 짝 썸네일: thumbnail_2 (인물·감정, 끊긴 전화)
-- [ ] **T3.** (짧은 변형, 금액 없음) 집을 넘기고 3년, 아들의 전화가 끊겼습니다. 노후 재산 미리 준 부모들의 공통점 `장면 · 기간→단절 · 공통점` 45자 — 짝 썸네일: thumbnail_3 (그때 들은 말 ↔ 3년 뒤 월세방 대비)
+- [ ] **T3.** (짧은 변형, 금액 없음) 집을 넘기고 3년, 아들의 전화가 끊겼습니다. 노후 재산 미리 준 부모들의 공통점 `장면 · 기간→단절 · 공통점` 45자 — 짝 썸네일: thumbnail_3 (검은 배경 제목형 — 채택 제목 문구)
 
 ## 2. 썸네일 3개 (`thumbnails/`)
 
@@ -36,10 +36,13 @@
 
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 왼쪽 | 4억 아파트 | 잉크 #1E1E1E (크림 배경) | 큰 글자 |
-| 오른쪽 | 월세방 | 흰색 (파랑 #2D6CDF 상자) | 가장 큰 글자 |
+| 펀치 + 핵심 숫자 (위 왼쪽) | 4억 아파트 | 잉크 #1E1E1E (크림 배경) | 위쪽에서 가장 큰 글자 |
+| 하단 1줄 | 미리 넘긴 4억 집 | 흰색 + 검정 외곽선 | — |
+| 하단 2줄 | 제게 남은 건 월세방 | 흰색 + 검정 외곽선 | "월세방" 노랑 #FFD400 글자 |
 
-- 제목은 "4억 집"이고 썸네일은 "4억 아파트"다 — 값(4억)은 같고 표현만 다르게 해 제목을 그대로 반복하지 않는다 (공통 1-2). 대본 문장 1은 "4억 원짜리 아파트".
+- 하단 2줄 = 채택 제목 앞 문장("어차피 줄 거라며 미리 넘긴 4억 집, 제게 남은 건 월세방이었습니다")을 줄인 것. 글자 수(띄어쓰기 포함) 10 · 11, 합 21
+- 펀치 "4억 아파트"(6자)는 하단 2줄과 겹치는 말이 없다 ("4억"은 숫자라 반복 허용, "아파트"·"집"은 다른 말). 대본 문장 1은 "4억 원짜리 아파트"
+- 강조 2곳: 노랑 열쇠 아이콘, 노랑 글자 "월세방". 빨강 없음 (잃은 재산 4억은 잉크 글자)
 
 <details><summary>[A] 완성형 프롬프트</summary>
 
@@ -47,13 +50,15 @@
 YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at small size.
 Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, loss blue #2D6CDF, gain red #E63B2E.
 Bottom-right corner kept empty (video length badge).
-Clean flat-photo hybrid style on a warm cream (#F2EBDD) background. On the left 40% of the frame, an ordinary
-mid-rise Korean apartment building (modest, not luxury), bright daylight. Above it, large heavy black bold text "4억 아파트".
-In the center, one thick dark navy arrow with a white outline pointing from left to right, with a small simple yellow
-(#FFD400) house key icon at the arrow's tip (the only yellow element). On the right 40%, a small, dim, empty one-room
-studio seen through a single small window: bare walls, one small potted plant on the sill, no people. Above it, a wide
-solid blue (#2D6CDF) rounded box with a thin white border containing the huge white bold text "월세방", the largest
-element in the image. No people, no documents, no logos, no money bills.
+Clean flat-photo hybrid style on a warm cream (#F2EBDD) background. Upper 60% of the frame: on the left 40%, an ordinary
+mid-rise Korean apartment building (modest, not luxury), bright daylight. Above it, large heavy black bold text "4억 아파트",
+the biggest text in the upper area. In the center, one thick dark navy arrow with a white outline pointing from left to
+right, with a small simple yellow (#FFD400) house key icon at the arrow's tip. On the right 40%, a small, dim, empty
+one-room studio seen through a single small window: bare walls, one small potted plant on the sill, no people, no text.
+No people, no documents, no logos, no money bills.
+Bottom title: in the lower third, over a dark band that fades upward from the bottom edge, two lines of huge heavy bold Korean text, left-aligned near the left edge, white with a thick black outline:
+line 1 "미리 넘긴 4억 집", line 2 "제게 남은 건 월세방". The word "월세방" is bright yellow #FFD400. The second line ends well before the bottom-right corner.
+Keep all other picture elements in the upper 60% so they never cover the bottom title.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 </details>
@@ -66,10 +71,13 @@ Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold
 
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 1 | 모시겠다더니 | 검정 #1E1E1E | 노랑 상자 #FFD400 (유일한 강조) |
-| 2 | 전화도 끊겼다 | 흰색 (파랑 #2D6CDF 상자, 흰 테두리) | 가장 큰 글자 |
+| 펀치 (위 오른쪽) | 전화도 끊겼다 | 흰색 (파랑 #2D6CDF 상자, 흰 테두리) | 위쪽에서 가장 큰 글자 |
+| 하단 1줄 | 모시겠다는 말만 믿고 | 흰색 + 검정 외곽선 | — |
+| 하단 2줄 | 4억 집을 넘겼는데 | 흰색 + 검정 외곽선 | "4억" 노랑 #FFD400 글자 (잃은 재산 → 빨강 금지) |
 
-- 대본의 말만 썼다: "모시겠다고 했어요"(문장 3), "아들의 전화도 끊겼고"(문장 14). 13자, 2줄.
+- 하단 2줄 = T2 앞 문장("모시고 살겠다는 말만 믿고 4억 집 명의를 넘겼는데")을 줄인 것. 글자 수(띄어쓰기 포함) 11 · 10, 합 21. "모시겠다는"은 대본 문장 3 "모시겠다고 했어요"의 말
+- 펀치 "전화도 끊겼다"(7자)는 하단 2줄과 겹치는 말이 없다. 대본 문장 14 "아들의 전화도 끊겼고"의 말 (전에 쓰던 "모시겠다더니"는 하단 1줄과 같은 말이라 뺐다)
+- 강조 1곳(노랑 글자 "4억"). 핵심 숫자 "4억"은 하단 2줄에 있고 위쪽 펀치는 숫자 없는 결과 장면이다
 
 <details><summary>[A] 완성형 프롬프트</summary>
 
@@ -80,45 +88,42 @@ Bottom-right corner kept empty (video length badge).
 Realistic photo style. A small, bare, dark navy-toned one-room studio in the evening, faint light from one small window.
 On the left 45% of the frame, a fictional Korean woman in her early 70s with short gray-streaked hair and a plain
 cardigan, sitting on a thin floor mattress, holding a smartphone in both hands and looking down at it with a quiet,
-empty, deeply disappointed expression (not crying). The phone screen shows only a plain blank call-screen shape with
-round button shapes, no app interface, no text, no numbers. A single house key lies on the floor beside her knee.
-Fictional person, not resembling any real or famous person, natural Korean features. On the right side, a solid bright
-yellow (#FFD400) box with large black bold text "모시겠다더니". Below it, a wide solid blue (#2D6CDF) rounded box with a
-thin white border containing huge white bold text "전화도 끊겼다", the largest text. No other people in the scene.
+empty, deeply disappointed expression (not crying); her face and the phone are in the upper 60% of the frame. The phone
+screen shows only a plain blank call-screen shape with round button shapes, no app interface, no text, no numbers.
+Fictional person, not resembling any real or famous person, natural Korean features, realistic photo style.
+In the upper right area, a wide solid blue (#2D6CDF) rounded box with a thin white border containing huge white bold
+text "전화도 끊겼다". No other people in the scene.
+Bottom title: in the lower third, over a dark band that fades upward from the bottom edge, two lines of huge heavy bold Korean text, left-aligned near the left edge, white with a thick black outline:
+line 1 "모시겠다는 말만 믿고", line 2 "4억 집을 넘겼는데". The word "4억" is bright yellow #FFD400. The second line ends well before the bottom-right corner.
+Keep all other picture elements in the upper 60% so they never cover the bottom title.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 </details>
 
-### 썸네일 3 — 대비 (그때 들은 말 ↔ 3년 뒤 월세방)
+### 썸네일 3 — 검은 배경 제목형 (채택 제목 문구)
 
 🖼️ 이미지 없음 → 이미지 AI에 `thumbnails/thumbnail_3.md`의 [A] 프롬프트를 넣어 만든 뒤 `thumbnails/thumbnail_3.png`로 저장
 
-- 가설: "그때 들은 말"과 "3년 뒤 결과"를 한 화면에 나란히 두면, 문제 분석 두 번째 메시지(말은 법이 지켜 주지 않는다)가 한눈에 전해져 클릭을 부른다
+- 가설: 그림 없이 검은 배경에 채택 제목 문구만 크게 넣은 썸네일이 **글자만으로** 클릭을 부르는지 (사진 썸네일 사이에서 오히려 눈에 띄는지)
 
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 왼쪽 말풍선 | 들어와서 모실게요 | 검정 #1E1E1E (흰 말풍선) | — |
-| 오른쪽 1 | 3년 뒤 | 검정 #1E1E1E | 노랑 상자 #FFD400 (유일한 강조) |
-| 오른쪽 2 | 월세방 | 흰색 (파랑 #2D6CDF 상자) | 가장 큰 글자 |
+| 1 | 어차피 줄 거라며 | 흰색 #FFFFFF | — |
+| 2 | 미리 넘긴 4억 집, | 흰색 #FFFFFF | "미리 넘긴" 빨강 #E63B2E (결정적 행동 — 숫자 아님) · "4억 집" 노랑 #FFD400 (잃은 재산 → 빨강 금지) |
+| 3 | 제게 남은 건 | 흰색 #FFFFFF | — |
+| 4 | 월세방이었습니다 | 흰색 #FFFFFF | "월세방" 노랑 #FFD400 |
 
-- 말풍선은 대본 문장 3의 아들 말("들어와서 모시겠다고 했어요")을 직접 말투로 옮긴 것이다 (새 말을 지어내지 않음). 전체 15자.
-- "3년 뒤"는 증여(2022년 3월)에서 송금·전화가 끊긴 때(2025년 6월)까지 — 월세방으로 옮긴 때는 2024년 2월이고 2025년 6월에도 월세방에 산다 (README 검산 표).
+- 채택 제목 앞 문장과 한 글자도 다르지 않다 (쉼표 포함, 문장 끝 마침표만 뺌). 줄 글자 수(띄어쓰기 포함): 9 · 11 · 7 · 8
+- 강조 3곳 (빨강 1 · 노랑 2). 외곽선·그림자·노랑 상자 없음
 
 <details><summary>[A] 완성형 프롬프트</summary>
 
 ```
-YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at small size.
-Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, loss blue #2D6CDF, gain red #E63B2E.
+YouTube thumbnail, 16:9 (1280x720). Plain solid pure black background (#000000) and nothing else: no people, no objects, no shapes, no gradients, no texture, no effects.
+Only huge heavy bold Korean typography, centered, about 85% of the frame width, 4 lines with tight line spacing:
+line 1 "어차피 줄 거라며", line 2 "미리 넘긴 4억 집,", line 3 "제게 남은 건", line 4 "월세방이었습니다".
+All text pure white (#FFFFFF) except "4억 집" and "월세방" in bright yellow (#FFD400) and "미리 넘긴" in red (#E63B2E). No outlines, shadows or glow.
 Bottom-right corner kept empty (video length badge).
-Realistic photo style, split screen with a clean vertical divider in the middle.
-LEFT HALF (warm cream tones, daytime): close-up of hands only over a wooden living-room table — an elderly woman's hand
-placing a single house key into a younger man's open hand; no faces visible. Above the hands, a white speech bubble with
-black bold text "들어와서 모실게요".
-RIGHT HALF (cool dark navy tones, night): inside a small bare one-room studio, a fictional Korean woman in her early 70s
-seen from behind, sitting alone on a thin floor mattress facing a small dark window; only her back and gray-streaked
-hair are visible. Above her, a solid bright yellow (#FFD400) box with black bold text "3년 뒤", and below it a wide
-solid blue (#2D6CDF) rounded box with thin white border containing huge white bold text "월세방", the largest text.
-Fictional people, not resembling any real or famous person. No documents, no logos, no money.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 </details>

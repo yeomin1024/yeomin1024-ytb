@@ -1,6 +1,6 @@
 # bleach-2026-10 한눈에 보기
 
-자동 생성 — `python tools/make_summary.py lifetips bleach-2026-10` (2026-10-11 07:46). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
+자동 생성 — `python tools/make_summary.py lifetips bleach-2026-10` (2026-10-11 08:41). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
 
 > **1분이면 녹는다는 말에 락스에 세정제까지 뿌렸다가 응급실에서 4시간을 보냈습니다. 화장실 곰팡이 잡던 사람들의 공통점**
 
@@ -22,7 +22,7 @@
 
 - [x] **T1. (채택)** 1분이면 녹는다는 말에 락스에 세정제까지 뿌렸다가 응급실에서 4시간을 보냈습니다. 화장실 곰팡이 잡던 사람들의 공통점 `속마음 · 1분→응급실 4시간 · 공통점` 65자 — 짝 썸네일: thumbnail_1
 - [ ] **T2.** 욕실 문 닫고 락스를 뿌렸다가 1분 꿀팁이 응급실 4시간이 됐습니다. 환기 없이 청소한 사람들이 마지막에 꼭 하는 후회 `행동 · 1분→응급실 4시간 · 마지막에 꼭 하는 후회` 66자 — 짝 썸네일: thumbnail_2
-- [ ] **T3.** (짧은 변형) 화장실 곰팡이 1분 꿀팁이 응급실 4시간 됐습니다. 세정제의 불편한 진실 `계기 · 1분→응급실 4시간 · 불편한 진실` 40자 — 짝 썸네일: thumbnail_3
+- [ ] **T3.** (짧은 변형) 화장실 곰팡이 1분 꿀팁이 응급실 4시간 됐습니다. 세정제의 불편한 진실 `계기 · 1분→응급실 4시간 · 불편한 진실` 40자 — 짝 썸네일: thumbnail_3 (검은 배경 제목형 — 채택 제목 문구)
 
 ## 2. 썸네일 3개 (`thumbnails/`)
 
@@ -36,8 +36,13 @@
 
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 약속 | 1분 꿀팁 | 파랑 #2D6CDF ("꿀팁"은 잉크 #1E1E1E 글자 + 노랑 형광펜) | 노랑 #FFD400 (유일한 강조) |
-| 결과 | 응급실 4시간 | 흰색 (빨강 #E63B2E 상자 위) | 가장 큰 글자 |
+| 위쪽 펀치 (작은 카드) | 1분 꿀팁 | "1분" 파랑 #2D6CDF / "꿀팁" 잉크 #1E1E1E | "꿀팁"에 노랑 형광펜 #FFD400 (글자 전체 높이) |
+| 위쪽 핵심 숫자 | 응급실 4시간 | 흰색 (빨강 #E63B2E 상자 위) | 가장 큰 글자 |
+| 하단 1줄 | 락스에 세정제까지 뿌렸다가 | 흰색 #FFFFFF + 두꺼운 검정 외곽선 | — |
+| 하단 2줄 | 응급실에서 4시간 | 흰색 #FFFFFF + 두꺼운 검정 외곽선 | 줄 전체 "응급실에서 4시간" 빨강 #E63B2E (위험 결과) |
+
+- 길이: 펀치 5자 · 하단 1줄 14자 · 하단 2줄 9자 (2줄 합 23자)
+- 강조 합 3곳: 노랑 형광펜 "꿀팁" · 빨강 상자 "응급실 4시간" · 하단 빨강 "응급실에서 4시간"
 
 <details><summary>[A] 완성형 프롬프트</summary>
 
@@ -45,14 +50,17 @@
 YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at small size.
 Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, safe blue #2D6CDF, cost red #E63B2E.
 Bottom-right corner kept empty (video length badge).
-Clean flat editorial graphic on a cream paper background (#F2EBDD) with subtle paper grain. Upper-left area: a small
-light-cream rounded card with a thin black outline, containing a simple line-drawing stopwatch icon (no numerals, no
-marks with digits) and next to it the text "1분 꿀팁" in bold blue (#2D6CDF); only the word "꿀팁" is in ink black on a
-bright yellow (#FFD400) highlighter box of full letter height. A single thick ink-black arrow goes diagonally from the
-small card down to the right. Lower-right area (but not touching the bottom-right corner): a wide solid red (#E63B2E)
-rounded box with the huge white bold text "응급실 4시간", the largest element in the image, with "4시간" slightly larger.
-No people, no faces, no hospital, no ambulance, no medical cross, no bottles, no smoke. Minimal, nothing decorative.
-Keep all text and key elements inside the central 16:9 safe area.
+Upper 60% of the frame: clean flat editorial graphic on a cream paper background (#F2EBDD) with subtle paper grain.
+Upper-left area: a small light-cream rounded card with a thin black outline, containing a simple line-drawing stopwatch
+icon (no numerals, no marks with digits) and next to it the text "1분 꿀팁" in bold blue (#2D6CDF); only the word "꿀팁"
+is in ink black on a bright yellow (#FFD400) highlighter box of full letter height. A single thick ink-black arrow goes
+from the small card down to the right. Upper-right area, still inside the upper 60%: a wide solid red (#E63B2E) rounded
+box with the huge white bold text "응급실 4시간", the largest text in the image, with "4시간" slightly larger.
+No people, no faces, no hospital, no ambulance, no medical cross, no bottles, no spray, no pouring, no smoke.
+Bottom title: in the lower third, over a dark band that fades upward from the bottom edge, two lines of huge heavy bold Korean text, left-aligned near the left edge, white with a thick black outline:
+line 1 "락스에 세정제까지 뿌렸다가", line 2 "응급실에서 4시간". The words "응급실에서 4시간" in line 2 are red #E63B2E. The second line ends well before the bottom-right corner.
+Keep all other picture elements in the upper 60% so they never cover the bottom title.
+Minimal, nothing decorative. Keep all text and key elements inside the central 16:9 safe area.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 </details>
@@ -65,8 +73,13 @@ Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold
 
 | 줄 | 문구 | 색 | 강조 |
 |---|---|---|---|
-| 행동 | 문까지 닫았더니 | 잉크 #1E1E1E ("문까지"만 노랑 상자) | 노랑 상자 (글자 전체 높이, 유일한 강조) |
-| 결과 | 응급실 4시간 | 흰 글자 (빨강 #E63B2E 상자) | 가장 큰 글자 |
+| 위쪽 핵심 숫자 | 응급실 4시간 | 흰 글자 (빨강 #E63B2E 상자) | 가장 큰 글자 |
+| 하단 1줄 | 문 닫고 락스 뿌렸다가 | 흰색 #FFFFFF + 두꺼운 검정 외곽선 | — |
+| 하단 2줄 | 1분 꿀팁이 응급실 4시간 | 흰색 #FFFFFF + 두꺼운 검정 외곽선 | "1분"만 노랑 #FFD400 글자 (꿀팁이 약속한 시간) |
+
+- 길이: 하단 1줄 12자 · 하단 2줄 14자 (2줄 합 26자) · 펀치 없음
+- 하단 2줄은 짝 제목 T2 앞 문장을 줄인 것 ("욕실 문 닫고 락스를 뿌렸다가" → "문 닫고 락스 뿌렸다가", "응급실 4시간이 됐습니다" → "응급실 4시간")
+- 강조 합 2곳: 빨강 상자 "응급실 4시간" · 하단 노랑 "1분"
 
 <details><summary>[A] 완성형 프롬프트</summary>
 
@@ -74,44 +87,46 @@ Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold
 YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at small size.
 Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, safe blue #2D6CDF, cost red #E63B2E.
 Bottom-right corner kept empty (video length badge).
-Realistic photo style, soft natural light. A home hallway right outside a small bright white-tiled bathroom; the bathroom
-door is half open behind her and the clean white tile grout inside is softly blurred. On the left 45% of the frame, a
-fictional Korean woman in her late 40s in comfortable home clothes, covering her mouth with one hand while coughing,
-eyes slightly watery, embarrassed and regretful expression. Fictional person, not resembling any real or famous person,
-natural Korean features. She is standing upright and steady. No cleaning bottles, no spray bottles, no pouring, no
-mixing, no smoke, no fumes, no hospital, no ambulance, no oxygen mask, nobody lying down. On the right side, bold
-headline text "문까지 닫았더니" in ink black, where only the word "문까지" sits on a solid bright yellow (#FFD400) box of
-full letter height. Below it, a wide solid red (#E63B2E) rounded box containing the huge white bold text "응급실 4시간",
-the largest element. Keep face and text inside the central 16:9 safe area.
+Upper 60% of the frame: realistic photo style, soft natural light. A home hallway right outside a small bright
+white-tiled bathroom; the bathroom door is half open behind her and the clean white tile grout inside is softly blurred.
+On the left 45% of the frame, a fictional Korean woman in her late 40s in comfortable home clothes, shown from the chest
+up, covering her mouth with one hand while coughing, eyes slightly watery, embarrassed and regretful expression.
+Fictional person, not resembling any real or famous person, natural Korean features. She is standing upright and steady.
+No cleaning bottles, no spray bottles, no pouring, no mixing, no smoke, no fumes, no hospital, no ambulance, no oxygen
+mask, nobody lying down. On the right side, inside the upper 60%, a wide solid red (#E63B2E) rounded box containing the
+huge white bold text "응급실 4시간", the largest text in the image.
+Bottom title: in the lower third, over a dark band that fades upward from the bottom edge, two lines of huge heavy bold Korean text, left-aligned near the left edge, white with a thick black outline:
+line 1 "문 닫고 락스 뿌렸다가", line 2 "1분 꿀팁이 응급실 4시간". The word "1분" in line 2 is bright yellow #FFD400. The second line ends well before the bottom-right corner.
+Keep all other picture elements in the upper 60% so they never cover the bottom title.
+Keep face and text inside the central 16:9 safe area.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 </details>
 
-### 썸네일 3 — 대비 (꿀팁이 약속한 것 vs 결과)
+### 썸네일 3 — 검은 배경 제목형 (채택 제목 문구)
 
 🖼️ 이미지 없음 → 이미지 AI에 `thumbnails/thumbnail_3.md`의 [A] 프롬프트를 넣어 만든 뒤 `thumbnails/thumbnail_3.png`로 저장
 
-- 가설: 화면을 둘로 나눠 **"1분이면 끝"이라는 약속**과 **"응급실 4시간"이라는 결과**를 나란히 놓으면 결과가 궁금해 클릭한다
+- 가설: 그림 없이 검은 배경에 채택 제목 문구만 크게 넣은 썸네일이 **글자만으로** 클릭을 부르는지 (사진 썸네일 사이에서 오히려 눈에 띄는지)
 
-| 줄 | 문구 | 색 | 강조 |
+| 줄 | 문구 | 글자 수 | 색 |
 |---|---|---|---|
-| 왼쪽 (약속) | 1분이면 끝 | 흰 글자 (파랑 #2D6CDF 상자), "끝" 아래 노랑 밑줄 | 노랑 #FFD400 (유일한 강조) |
-| 오른쪽 (결과) | 응급실 4시간 | 흰 글자 (빨강 #E63B2E 상자) | 가장 큰 글자 |
+| 1 | 1분이면 녹는다는 말에 | 12 | 흰색 #FFFFFF, **"1분"만 노랑 #FFD400** (꿀팁이 약속한 시간) |
+| 2 | 락스에 세정제까지 뿌렸다가 | 14 | 흰색 #FFFFFF |
+| 3 | 응급실에서 4시간을 | 10 | 흰색 #FFFFFF, **"응급실에서 4시간"만 빨강 #E63B2E** (위험 결과, 조사 "을"은 흰색) |
+| 4 | 보냈습니다 | 5 | 흰색 #FFFFFF |
+
+- 4줄을 띄어쓰기 하나로 이으면 "1분이면 녹는다는 말에 락스에 세정제까지 뿌렸다가 응급실에서 4시간을 보냈습니다" = 채택 제목 앞 문장 (끝 "." 제외)
+- 강조 2곳 (노랑 "1분" · 빨강 "응급실에서 4시간") — 3곳 이하. 2줄(행동)은 강조하지 않는다 (섞는 행동을 눈에 띄게 하지 않음). 파랑 글자는 쓰지 않는다 (검정 위에서 안 읽힘)
 
 <details><summary>[A] 완성형 프롬프트</summary>
 
 ```
-YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at small size.
-Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, safe blue #2D6CDF, cost red #E63B2E.
+YouTube thumbnail, 16:9 (1280x720). Plain solid pure black background (#000000) and nothing else: no people, no objects, no shapes, no gradients, no texture, no effects.
+Only huge heavy bold Korean typography, centered, about 85% of the frame width, 4 lines with tight line spacing:
+line 1 "1분이면 녹는다는 말에", line 2 "락스에 세정제까지 뿌렸다가", line 3 "응급실에서 4시간을", line 4 "보냈습니다".
+All text pure white (#FFFFFF) except "1분" in bright yellow (#FFD400) and "응급실에서 4시간" in red (#E63B2E). No outlines, shadows or glow.
 Bottom-right corner kept empty (video length badge).
-Split-screen composition divided vertically into two equal halves by a thick cream (#F2EBDD) vertical stripe.
-Left half: realistic close-up of a bright white bathroom tile wall with perfectly clean white grout lines, soft light.
-At the top of the left half, a solid blue (#2D6CDF) rounded box with the white bold text "1분이면 끝", with a short bright
-yellow (#FFD400) underline under the last character "끝" only. Right half: flat dark navy (#14213D) background with a
-simple line-drawing wall clock (hour tick marks only, no numerals) in cream, and below it a wide solid red (#E63B2E)
-rounded box with the huge white bold text "응급실 4시간", the largest element in the image, placed above the
-bottom-right corner. No people, no bottles, no spray, no smoke, no hospital, no ambulance, no medical cross.
-Keep all text inside the central 16:9 safe area.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 </details>

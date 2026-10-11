@@ -1,65 +1,57 @@
-# washer-2026-10 썸네일 3 — 대비 (꿀팁이 약속한 30분 vs 수리비)
+# washer-2026-10 썸네일 3 — 검은 배경 제목형 (채택 제목 문구)
 
-버전: v1.0 — 2026-10-11 — 최초 작성 (`guides/thumbnail_guide.md` v1.2, `lifetips/guides/thumbnail_rules.md` v1.0), 대본 v1.0 기준
+버전: v2.0 — 2026-10-11 — 사용자 지시: 검은 배경에 채택 제목 문구 그대로 (대비 축 대신) · `guides/thumbnail_guide.md` v1.3 4-1, `lifetips/guides/thumbnail_rules.md` v1.1, 대본 v1.0 기준 (v1.0: 대비 — "혼자서 30분" vs "21만 원")
 
 | 항목 | 값 |
 |---|---|
-| 시험하는 가설 | 꿀팁이 약속한 **쉬움("혼자서 30분")과 결과(21만 원)를 나란히** 놓으면, 같은 꿀팁을 본 시청자가 "내 얘기다"를 가장 빨리 느낀다 |
-| 짝 제목 | `titles.md` T3 (짧은 변형) "세탁기 청소 방법 따라 하다 수리비 21만원, …" — T2와도 어울림 |
-| 숫자 근거 | 문장 3 "혼자서도 30분이면 된다는 분해 청소 영상을 봤죠" (0:11) · 문장 10 "수리비가 21만 원이 나왔어요" (0:48~0:55) → 1분 안 |
+| 시험하는 가설 | 그림 없이 검은 배경에 채택 제목 문구만 크게 넣은 썸네일이 **글자만으로** 클릭을 부르는지 (사진 썸네일 사이에서 오히려 눈에 띄는지) |
+| 짝 제목 | `titles.md` **T1 (채택)** "업체비 12만원 아끼려고 세탁기를 직접 분해했다가 수리비 21만원이 나왔습니다. 설명서 없이 뜯은 사람들의 공통점" — 글자가 곧 채택 제목의 앞 문장 |
+| 숫자 근거 | 문장 2 "세탁기 분해 청소에 12만 원이 든다더라고요" (0:06) · 문장 10 "출장비를 합쳐 수리비가 21만 원이 나왔어요" (0:48~0:55) → 모두 1분 안. 표기는 제목 그대로 "12만원"·"21만원" (글자 그대로 옮기므로 대본 표기 "12만 원"으로 바꾸지 않음) |
 
 ## 화면 구성
-- 화면을 세로로 반씩 나눔, 가운데에 얇은 흰 세로선
-- **왼쪽 (기대)** — 밝은 크림 배경, 깨끗하게 반짝이는 일반형 통돌이 세탁조 안쪽을 위에서 본 모습(스테인리스 통, 물방울 정도). 위에 파랑 글자 **"혼자서 30분"**
-- **오른쪽 (결과)** — 다크 네이비 배경, 뚜껑 닫힌 채 멈춘 일반형 흰색 통돌이 세탁기(조명이 꺼진 느낌, 분해·파손 장면 없음). 위에 빨강 상자 + 흰 글자 **"21만 원"** (가장 큼)
-- 노랑 강조는 왼쪽·오른쪽 사이 가운데 작은 화살표 하나(→)에만
-- 인물 없음 · 공구·물·전선 없음 · 오른쪽 아래 구석은 비움 (오른쪽 그림은 위쪽에 배치)
+- 1280×720 전체가 순수 검정 #000000 한 가지. 인물·소품·도형·무늬·그라데이션 없음
+- 채택 제목의 앞 문장을 글자 그대로 4줄, 가운데 정렬, 화면 폭 85%(약 1090px) 안, 글자 높이 약 100px, 줄 간격 1.15 — 글 덩어리를 세로 가운데에
+- 뒤 문장 "설명서 없이 뜯은 사람들의 공통점"은 넣지 않는다 (크게 넣어야 읽히기 때문, 공통 4-1)
+- 오른쪽 아래 구석(약 220×70px)은 비움
 
-## 문구 (그대로 사용)
-| 줄 | 문구 | 색 | 강조 |
+## 문구 (그대로 사용 — 채택 제목 앞 문장, 끝의 "."만 뺌)
+| 줄 | 문구 | 글자 수 | 색 |
 |---|---|---|---|
-| 왼쪽 | 혼자서 30분 | 파랑 #2D6CDF (크림 배경 위) | — |
-| 오른쪽 | 21만 원 | 흰색 (빨강 #E63B2E 상자) | 가장 큰 글자 |
-| 가운데 | (글자 없음) 노랑 화살표 → | 노랑 #FFD400 | 유일한 강조 |
+| 1 | 업체비 12만원 아끼려고 | 13 | 흰색 #FFFFFF, **"12만원"만 노랑 #FFD400** (아끼려던 돈) |
+| 2 | 세탁기를 직접 분해했다가 | 13 | 흰색 #FFFFFF |
+| 3 | 수리비 21만원이 | 9 | 흰색 #FFFFFF, **"21만원"만 빨강 #E63B2E** (더 나간 돈) |
+| 4 | 나왔습니다 | 5 | 흰색 #FFFFFF |
+
+- 4줄을 띄어쓰기 하나로 이으면 "업체비 12만원 아끼려고 세탁기를 직접 분해했다가 수리비 21만원이 나왔습니다" = 채택 제목 앞 문장 (끝 "." 제외)
+- 강조 2곳 (노랑 "12만원" · 빨강 "21만원") — 3곳 이하. 파랑 글자는 쓰지 않는다 (검정 위에서 안 읽힘)
+- 이 문장은 4줄에 한 줄 14자 이내로 나뉜다. 3줄로는 마지막 줄이 "수리비 21만원이 나왔습니다"(15자)가 되어 4줄로 했다. "수리비 21만원이"는 한 줄에 둔다
 
 ## [A] 완성형 프롬프트 (이미지 AI에 그대로 붙여 넣기)
 ```
-YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at small size.
-Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, saved-money blue #2D6CDF, loss red #E63B2E.
+YouTube thumbnail, 16:9 (1280x720). Plain solid pure black background (#000000) and nothing else: no people, no objects, no shapes, no gradients, no texture, no effects.
+Only huge heavy bold Korean typography, centered, about 85% of the frame width, 4 lines with tight line spacing:
+line 1 "업체비 12만원 아끼려고", line 2 "세탁기를 직접 분해했다가", line 3 "수리비 21만원이", line 4 "나왔습니다".
+All text pure white (#FFFFFF) except "12만원" in bright yellow (#FFD400) and "21만원" in red (#E63B2E). No outlines, shadows or glow.
 Bottom-right corner kept empty (video length badge).
-Split-screen comparison divided vertically in the middle by a thin white line.
-LEFT half: bright cream (#F2EBDD) background, a top-down view into the clean shiny stainless inner drum of a plain
-generic top-loading washing machine, a few water droplets, fresh and bright. Above it, the large blue (#2D6CDF) bold
-text "혼자서 30분".
-RIGHT half: dark navy (#14213D) background, a plain generic white top-loading washing machine standing with its lid
-closed, looking switched off and stopped, dim lighting, intact (not broken apart, no parts, no water, no smoke).
-Above it, in the upper part of the right half, a solid red (#E63B2E) rounded box with the huge white bold text "21만 원",
-the largest element in the image.
-On the dividing line in the center, one small bright yellow (#FFD400) arrow pointing from left to right.
-Washing machines have no brand, no logo and no copied button layout of any real product. No people, no tools.
-Keep all text inside the central 16:9 safe area; leave the bottom-right corner empty.
 Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 
-## [B] 글자 없는 프롬프트 (한글이 틀릴 때 — 글자는 편집에서 "문구" 표대로 얹기)
-```
-YouTube thumbnail background, 16:9 (1280x720), bold high-contrast composition.
-Palette: cream #F2EBDD, dark navy #14213D, highlight yellow #FFD400, saved-money blue #2D6CDF, loss red #E63B2E.
-Split-screen divided vertically by a thin white line. Left half: bright cream background, top-down view into the clean
-shiny stainless inner drum of a plain generic top-loading washing machine, with empty space above it for a headline.
-Right half: dark navy background, a plain generic white top-loading washing machine with its lid closed, looking
-switched off, dim light, intact; an empty wide solid red (#E63B2E) rounded box in the upper part of the right half.
-One small bright yellow arrow on the center line pointing right. No brand, no logo, no people, no tools.
-Bottom-right corner empty.
-Absolutely no text, letters, numbers, logos or watermarks. Leave clean empty space where the headline will be added later.
-```
+## [B] 편집 프로그램으로 직접 (이미지 AI 없이)
+캔바·미리캔버스·포토샵 등에서 만든다. 이미지 AI가 한글을 틀리게 그리면 이 방법이 가장 빠르다.
+1. 새 캔버스 1280×720, 배경 #000000 한 가지 (다른 요소 없음)
+2. 글꼴 Noto Sans KR Black (또는 Pretendard Black), 글자 높이 약 100px, 줄 간격 1.15, 가운데 정렬. 가장 긴 줄(13자)이 화면 폭 85%(약 1090px)를 넘으면 글자 크기를 조금 줄여 맞춘다
+3. "문구" 표의 4줄을 줄바꿈 위치까지 그대로 입력, 기본 흰색 #FFFFFF
+4. "12만원"만 노랑 #FFD400, "21만원"만 빨강 #E63B2E로 바꾼다. 외곽선·그림자·글로 없음
+5. 글 덩어리를 화면 가운데에 두고, 오른쪽 아래 220×70px 구석은 비운다
+6. 1280×720 PNG(또는 JPG), 2MB 이하로 `thumbnails/thumbnail_3.png`에 저장
 
 ## 검수
-- [ ] "혼자서 30분" · "21만 원"이 한 글자도 틀리지 않음 (문장 3·10)
-- [ ] 왼쪽(약속) 파랑, 오른쪽(결과) 빨강 · 노랑은 가운데 화살표 1곳뿐
-- [ ] 두 세탁기 모두 상표·로고 없는 일반형 · 분해·파손·공구 장면 없음 (`thumbnail_rules.md` 4·6번)
-- [ ] 문구가 제목(T3)을 그대로 반복하지 않음 ("수리비 21만원" 대신 "21만 원"만)
-- [ ] 320px 축소본에서 "21만 원"이 읽힘 · 오른쪽 아래 비어 있음 · 1280×720, 2MB 이하
+- [ ] 4줄을 이은 문구가 채택 제목 앞 문장과 **한 글자도 다르지 않음** (띄어쓰기, "12만원"·"21만원" 표기 포함, 끝 "."만 뺌) · 뒤 문장 없음
+- [ ] 한 줄 14자 이내 (13·13·9·5자) · 어절 중간에서 줄을 바꾸지 않음
+- [ ] 강조 3곳 이하 (노랑 "12만원" = 아끼려던 돈, 빨강 "21만원" = 더 나간 돈 — `thumbnail_rules.md` 1번) · 파랑 글자 없음
+- [ ] 배경이 순수 검정 하나뿐 (인물·소품·도형·그라데이션·외곽선·그림자 없음) · 다른 글자·로고 없음
+- [ ] 320px 축소본에서 4줄이 모두 읽힘 · 오른쪽 아래 비어 있음
+- [ ] 1280×720, 2MB 이하
 
 ## 결과 (업로드 후)
 | 날짜 | 테스트 및 비교 결과 (시청 시간 비율) | 메모 |

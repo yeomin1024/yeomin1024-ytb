@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# VERSION: v1.2.2 — 2026-10-11 — 옛 대본뿐 아니라 다른 목소리(진행자 기준 목소리가 바뀜)로 만든 오디오도 건너뜀 표시 (tts_narration check v1.3)
+# VERSION: v1.3.0 — 2026-10-11 — 렌더 뒤 음량 맞춤 단계 추가: tools/loudnorm.py (-14 LUFS, 트루 피크 -1.5 dBTP 이하, 영상 스트림 그대로) (사용자 지시 "음량 맞춰")
+# (v1.2.2: 옛 대본뿐 아니라 다른 목소리(진행자 기준 목소리가 바뀜)로 만든 오디오도 건너뜀 표시 (tts_narration check v1.3))
 # (v1.2.1: 주석: 오디오는 Kaggle(tts_narration.py all --push)이 대본 폴더마다 올림)
 # (v1.2: 사용자 지시: 스토리보드 단계 삭제(오디오가 생기면 바로 영상), 옛 대본으로 만든 오디오는 건너뜀
 #          (tts_narration.py check), 영상 코드가 없으면 Claude가 만든 뒤 다시 (승인 대기 없음)
@@ -22,6 +23,7 @@
 #    1. npm run align-audio   — 오디오는 고치지 않고 SRT·subtitles.ts 를 오디오에 맞춤 (고지 카드 자리 3.5초 쉼 필요)
 #    2. 타입 검사
 #    3. 완성 영상 렌더 → <주제폴더>/out/<영상ID>/final_1080p.mp4 (ffprobe로 길이·오디오 확인)
+#    3-1. 음량 맞춤 tools/loudnorm.py → -14 LUFS·트루 피크 -1.5 dBTP 이하 (유튜브는 작은 소리를 키워 주지 않음). 영상 스트림은 복사, 오디오만 다시
 #    4. tools/youtube_upload.py — 비공개 업로드 + 예약 공개(렌더 완료 + 1시간), 제목·설명란(챕터 재계산)·태그·자막·채택 썸네일 1개 → youtube.json
 #       (키가 없으면 업로드만 건너뜀)
 #    5. tools/make_summary.py — 요약 문서 갱신
@@ -92,6 +94,7 @@ for item in "${CANDIDATES[@]}"; do
   has_audio=$(ffprobe -v error -select_streams a -show_entries stream=codec_name -of csv=p=0 "$out/final_1080p.mp4" 2>/dev/null | head -1)
   log "stage=render video=$vid duration_s=$dur audio=${has_audio:-없음} size_mb=$(du -m "$out/final_1080p.mp4" | cut -f1)"
   [ -z "$has_audio" ] && { fail render-check "완성 영상에 오디오가 없음 (align-audio 내보내기 확인)"; continue; }
+  python3 tools/loudnorm.py "$out/final_1080p.mp4" || { fail loudness "음량 맞춤 실패 (원본 렌더는 그대로) → python3 tools/loudnorm.py $out/final_1080p.mp4 로 다시"; continue; }
 
   if [ "$NO_UPLOAD" = 0 ]; then
     SCHED=(); [ -n "$DELAY" ] && SCHED=(--publish-at "+$DELAY")     # 렌더가 끝난 지금 기준 (기본 +1h)

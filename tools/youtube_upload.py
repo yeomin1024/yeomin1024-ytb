@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.2 — 2026-10-10 — 예약 공개(--publish-at: 비공개로 올리고 지정 시각에 자동 공개, 사용자 지시 '렌더 완료 1시간 뒤')
-#          (v1.1: 사용자가 만든 썸네일 이미지를 1280×720·2MB 이하로 맞춤, 채택 제목의 짝 썸네일; v1.0: 비공개 업로드 — 제목·설명란·태그·카테고리·자막·썸네일 1개, 표준 라이브러리만)
+# VERSION: v1.3 — 2026-10-11 — '변경되거나 합성된 콘텐츠'를 업로드 시트에서 읽어 status.containsSyntheticMedia로 등록 (사용자 지시: 합성 콘텐츠 "예" — 내레이션이 AI 음성). 시트에 줄이 없으면 "예"
+#          (v1.2: 예약 공개(--publish-at, 사용자 지시 '렌더 완료 1시간 뒤'); v1.1: 사용자가 만든 썸네일 이미지를 1280×720·2MB 이하로 맞춤, 채택 제목의 짝 썸네일; v1.0: 비공개 업로드 — 제목·설명란·태그·카테고리·자막·썸네일 1개, 표준 라이브러리만)
 r"""
 업로드 시트(upload.md)대로 완성 영상을 유튜브에 **비공개**로 올립니다. (guides/pipeline.md 4단계, guides/upload_guide.md 9번)
 
@@ -16,6 +16,7 @@ r"""
 
 읽는 파일 (<주제폴더>/ 기준):
   source/<영상ID>/upload.md          1번 제목 · 2번 설명란 · 3번 챕터 명령(--chapters) · 4번 태그 (각 섹션의 첫 코드 블록)
+                                    · 업로드 설정 표의 '변경되거나 합성된 콘텐츠' 줄(예/아니요) → status.containsSyntheticMedia (줄이 없으면 예)
   source/<영상ID>/<영상ID>.txt·.srt  챕터를 지금 SRT(= 영상 시간)로 다시 계산해 설명란 "■ 챕터"를 바꿔 넣음
   out/<영상ID>/final_1080p.mp4       올릴 영상
   source/<영상ID>/thumbnails/thumbnail_N.png·jpg·webp   이미지 AI로 만든 썸네일 (N = titles.md 채택 제목의 짝, 기본 1)
@@ -75,7 +76,18 @@ def read_sheet(topic, vid):
     cmd = _section_code(md, "챕터") or ""
     spec = re.search(r'--chapters\s+"([^"]+)"', cmd)
     tags = [t.strip() for t in tags_raw.replace("\n", ",").split(",") if t.strip()]
-    return {"title": title, "description": desc, "tags": tags, "chapter_spec": spec.group(1) if spec else None}
+    return {"title": title, "description": desc, "tags": tags, "chapter_spec": spec.group(1) if spec else None,
+            "synthetic": read_synthetic(md)}
+
+
+def read_synthetic(md):
+    """업로드 설정 표 '| 변경되거나 합성된 콘텐츠 | 예 … |' → True/False. 줄이 없거나 읽을 수 없으면 True
+    (사용자 지시 2026-10-11: 내레이션이 AI 음성이므로 '예'. 애매하면 예 — guides/upload_guide.md 6번)."""
+    m = re.search(r"^\|\s*변경되거나 합성된 콘텐츠\s*\|\s*\**\s*(예|아니요)", md, re.M)
+    if not m:
+        log("SHEET", synthetic="줄 없음 → 예(기본)")
+        return True
+    return m.group(1) == "예"
 
 
 def recompute_chapters(topic, vid, desc, spec):
@@ -188,7 +200,8 @@ def parse_publish_at(value, now=None):
 
 
 def upload_video(token, path, meta, privacy, publish_at=None):
-    status = {"privacyStatus": privacy, "selfDeclaredMadeForKids": False, "embeddable": True}
+    status = {"privacyStatus": privacy, "selfDeclaredMadeForKids": False, "embeddable": True,
+              "containsSyntheticMedia": bool(meta.get("synthetic", True))}   # 변경되거나 합성된 콘텐츠 (AI 음성 내레이션)
     if publish_at:                                   # 예약 공개는 반드시 private + publishAt
         status.update(privacyStatus="private", publishAt=publish_at)
     body = {"snippet": {"title": meta["title"], "description": meta["description"], "tags": meta["tags"],
@@ -313,7 +326,8 @@ def run(topic, vid, dry_run=False, privacy="private", force=False, no_captions=F
     meta["description"], chapter_lines = recompute_chapters(topic, vid, meta["description"], meta["chapter_spec"])
     problems = validate(meta)
     log("SHEET", video=vid, title_chars=len(meta["title"]), desc_chars=len(meta["description"]),
-        tags=len(meta["tags"]), tags_chars=tags_length(meta["tags"]))
+        tags=len(meta["tags"]), tags_chars=tags_length(meta["tags"]),
+        synthetic="예" if meta["synthetic"] else "아니요")
     log("FILES", video_file=f"{video_path.relative_to(ROOT) if video_path.is_relative_to(ROOT) else video_path}"
         f"({'있음' if video_path.exists() else '없음'})", srt="있음" if srt_path.exists() else "없음",
         thumbnail=thumbs[0].name if thumbs else f"없음(thumbnail_{thumb_n} — 이미지 AI로 만든 파일을 source/{vid}/thumbnails/ 에)")
@@ -341,7 +355,7 @@ def run(topic, vid, dry_run=False, privacy="private", force=False, no_captions=F
     log("UPLOAD", status="ok", youtube_id=video_id, url=f"https://youtu.be/{video_id}")
     result = {"videoId": video_id, "url": f"https://youtu.be/{video_id}",
               "studio": f"https://studio.youtube.com/video/{video_id}/edit", "privacy": "private" if publish_at else privacy,
-              "publishAt": publish_at,
+              "publishAt": publish_at, "containsSyntheticMedia": bool(meta["synthetic"]),
               "uploadedAt": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
               "title": meta["title"], "videoFile": str(video_path.name), "videoSha256": sha256(video_path),
               "chapters": chapter_lines, "captions": None, "thumbnail": None, "warnings": [],

@@ -94,7 +94,7 @@ python tools/srt_tool.py upload health/source/prediabetes-2026-10/prediabetes-20
 | 동영상 언어 | 한국어 |
 | 시청자층 | 아동용 아님 |
 | 유료 프로모션 | 없음 |
-| 변경되거나 합성된 콘텐츠 | 아니요 (모션그래픽·재구성 사연). 내레이션을 실존 인물 목소리를 흉내 낸 AI 음성으로 만들면 "예" |
+| 변경되거나 합성된 콘텐츠 | **예** — 내레이션(사연자·진행자)이 실제 사람처럼 들리는 AI 합성 음성이라서 (사용자 지시 2026-10-11). 업로드 도구가 `status.containsSyntheticMedia=true`로 자동 등록 |
 | 차단 단어 | `health/guides/upload_rules.md` 4번 |
 
 ## 7. 점검

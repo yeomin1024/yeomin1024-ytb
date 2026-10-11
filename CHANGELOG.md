@@ -1,5 +1,18 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-11 — 업로드 설정 '변경되거나 합성된 콘텐츠' = 예 (youtube_upload v1.3)
+
+### 왜 바꿨나 (사용자 지시: "합성 콘텐츠 예로 하고")
+- 내레이션(사연자·진행자)이 실제 사람처럼 들리는 AI 합성 음성이고 재구성 사연을 고백처럼 읽는다. 업로드 지시사항도 "애매하면 예"였는데 시트 19개가 모두 "아니요"였음
+
+| 영역 | 함수/파일 | 변경 내용 |
+|---|---|---|
+| 도구 | `tools/youtube_upload.py` v1.3 `read_synthetic`(신규)·`read_sheet`·`upload_video`·`run` | 업로드 시트 설정 표의 '변경되거나 합성된 콘텐츠' 줄(예/아니요)을 읽어 `status.containsSyntheticMedia`로 등록 (YouTube Data API, 2024-10-30 추가된 속성). 줄이 없으면 예. 로그 `[SHEET] ... synthetic=예`, `youtube.json`에 기록 |
+| 산출물 | 19개 `*/source/*/upload.md` | 설정 표 그 줄을 "**예** — AI 합성 음성 내레이션"으로 |
+| 지시사항 | `guides/upload_guide.md` v1.4 (6번), `guides/pipeline.md` v1.7 (4단계 4번), `guides/README.md` v1.7, `selfdev`·`space` `upload_rules.md` v1.1, `CLAUDE.md` | 합성 콘텐츠 = 예 |
+- 확인: `youtube_upload.py --dry-run` (stock molppang·bittu, health prediabetes) → `synthetic=예`, 결과 "문제 없음"(주식). 판정 함수: 줄 없음 → 예, "아니요" → 아니요, "**예**" → 예
+- 오디오: `tts_narration.py all --dry-run` → 19개 중 make 15(오디오 없음), skip 4(주식 4개, 지금 대본·목소리와 같음) — 다시 만들지 않음
+
 ## 2026-10-11 — 음량 -14 LUFS (loudnorm v1.0, publish v1.3.0) · 썸네일 하단 제목 2줄·검은 배경 제목형 (thumbnail_guide v1.3) · 몰빵 업로드 자료
 
 ### 왜 바꿨나 (사용자 지시: "음량 맞추고 몰빵 업로드 자료 만들고 썸네일에 보니까 짧막한 문구만 중간중간 있고 하단에 두줄의 제목 관련 문구가 없잖아 지시사항에 반영해 그리고 썸네일 중 하나는 그냥 검은 배경에 제목 문구를 잘보이도록 그대로 넣는걸로 해봐 빨간색, 노란색 강조할 부분은 강조하고")

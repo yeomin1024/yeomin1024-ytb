@@ -106,7 +106,7 @@ python tools/srt_tool.py upload space/source/asteroid-2026-10/asteroid-2026-10.t
 | 동영상 언어 | 한국어 |
 | 시청자층 | 아동용 아님 |
 | 유료 프로모션 | 없음 |
-| 변경되거나 합성된 콘텐츠 | 아니요 (모션그래픽·재구성 사연). 실제 사진처럼 보이는 합성 우주 장면을 넣으면 "예" (`space/guides/upload_rules.md` 5번) |
+| 변경되거나 합성된 콘텐츠 | **예** — 내레이션(사연자·진행자)이 실제 사람처럼 들리는 AI 합성 음성이라서 (사용자 지시 2026-10-11). 업로드 도구가 `status.containsSyntheticMedia=true`로 자동 등록 |
 | 차단 단어 | `space/guides/upload_rules.md` 4번 (관련주, 급등주, 리딩방, 코인, 텔레그램, 오픈채팅, 카톡, 휴거, 종말 날짜) |
 
 ## 7. 점검

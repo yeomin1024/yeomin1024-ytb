@@ -104,7 +104,7 @@ python tools/srt_tool.py upload stock/source/molppang-2026-10/molppang-2026-10.t
 | 동영상 언어 | 한국어 |
 | 시청자층 | 아동용 아님 |
 | 유료 프로모션 | 없음 |
-| 변경되거나 합성된 콘텐츠 | 아니요 (모션그래픽·재구성 사연. 내레이션은 AI 음성이지만 실존 인물의 목소리·얼굴을 흉내 내지 않음 — 사연자·진행자 모두 가상 목소리, `voices/`) |
+| 변경되거나 합성된 콘텐츠 | **예** — 내레이션(사연자·진행자)이 실제 사람처럼 들리는 AI 합성 음성이라서 (사용자 지시 2026-10-11). 업로드 도구가 `status.containsSyntheticMedia=true`로 자동 등록 |
 | 최종 화면 | 넣지 않음 (마지막 약 25초가 정리 화면이라 가려짐). 넣으려면 영상 끝에 빈 화면 5~10초를 더해 다시 렌더 |
 | 공개 | API 업로드: 비공개 + 렌더 완료 1시간 뒤 예약 공개 (`bash tools/publish.sh`, `guides/upload_guide.md` 9번) |
 | 차단 단어 | `stock/guides/upload_rules.md` 4번 목록 (채널 설정에 한 번 등록했으면 생략) |

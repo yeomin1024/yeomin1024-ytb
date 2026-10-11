@@ -1,0 +1,35 @@
+{
+  "videoId": "q8JRMl8cN5Q",
+  "url": "https://youtu.be/q8JRMl8cN5Q",
+  "studio": "https://studio.youtube.com/video/q8JRMl8cN5Q/edit",
+  "privacy": "private",
+  "publishAt": "2026-10-11T12:00:00Z",
+  "containsSyntheticMedia": true,
+  "uploadedAt": "2026-10-11T10:34:05+00:00",
+  "title": "하락장이 무서워 -800만원에 다 팔았는데 그 뒤 +30% 반등했습니다. 패닉셀한 사람들이 마지막에 꼭 하는 후회",
+  "videoFile": "final_1080p.mp4",
+  "videoSha256": "4c4974d9862cb7e6a08c942826f34c9b486f68ab59c919b60a16084ca8bac487",
+  "chapters": [
+    "0:00 사연: -800만 원에 다 팔았는데 +30%",
+    "1:24 폭락장에서 왜 다 팔고 싶어질까",
+    "2:12 문제 01 최고의 날은 최악의 날 바로 뒤에",
+    "3:00 문제 02 한번 팔면 다시 사기 어렵다",
+    "3:36 문제 03 바닥은 지나고 나서야 보인다",
+    "4:01 문제 04 사고판 시점이 수익을 깎는다",
+    "4:49 기준 첫째: 곧 쓸 돈은 넣지 않기",
+    "5:12 기준 둘째: 폭락한 날엔 하루 기다리기",
+    "5:35 기준 셋째: 팔아도 정해 둔 만큼만",
+    "6:01 기준 넷째: 다시 살 날짜와 금액 정하기",
+    "6:31 기준 다섯째: 계좌는 정해 둔 날에만",
+    "7:27 정리"
+  ],
+  "captions": null,
+  "thumbnail": "thumbnail_1.png",
+  "warnings": [
+    "자막 실패: HTTP 403 https://www.googleapis.com/upload/youtube/v3/captions: {\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\",\n    \"details\": [\n      {\n        \"@type\": \"type.googleapis.com/google.rpc.ErrorInfo\",\n        \"reason\": \"ACCESS_TOKEN_SCOPE_INSUFFICIENT\",\n        \"domain\": \"googleapis.com\",\n        \"metadata\": {\n          \"se"
+  ],
+  "studioTodo": [
+    "공개 전(예약 시각 전) 스튜디오에서 확인: 영상·자막·썸네일, 자동 더빙(언어), 최종 화면",
+    "공개된 뒤 '테스트 및 비교'에 썸네일 3개 등록 — 비공개 영상은 테스트 불가"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "videoId": "EkJhAp2XJM0",
+  "url": "https://youtu.be/EkJhAp2XJM0",
+  "studio": "https://studio.youtube.com/video/EkJhAp2XJM0/edit",
+  "privacy": "private",
+  "publishAt": "2026-10-11T12:00:00Z",
+  "containsSyntheticMedia": true,
+  "uploadedAt": "2026-10-11T10:20:31+00:00",
+  "title": "평단 낮추면 된다는 말만 믿고 물타서 -200만원이 -2천만원이 됐습니다. 손절 기준 없이 버틴 사람들의 공통점",
+  "videoFile": "final_1080p.mp4",
+  "videoSha256": "49c7cbc6bee1872d83e8999dceffb44a2ba455ed5d706173e2713424aa01d45f",
+  "chapters": [
+    "0:00 사연: 물타기 두 번에 -2천만 원",
+    "1:24 왜 기준 없이 물타기를 할까",
+    "2:09 문제 01 평단은 조금, 걸린 돈은 크게",
+    "2:40 문제 02 떨어진 가격은 싼 가격이 아니다",
+    "3:29 문제 03 손실 종목을 너무 오래 붙잡는다",
+    "4:11 문제 04 만회하려는 물타기는 멈추기 어렵다",
+    "5:03 기준 첫째: 산 이유를 한 줄로",
+    "5:27 기준 둘째: 떨어진 이유부터 확인",
+    "5:48 기준 셋째: 평단은 잊고 지금 가격으로",
+    "6:16 기준 넷째: 손절 가격을 미리 정하기",
+    "6:55 기준 다섯째: 물타기를 해도 되는 조건과 금액",
+    "7:37 정리"
+  ],
+  "captions": null,
+  "thumbnail": "thumbnail_1.png",
+  "warnings": [
+    "자막 실패: HTTP 403 https://www.googleapis.com/upload/youtube/v3/captions: {\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\",\n    \"details\": [\n      {\n        \"@type\": \"type.googleapis.com/google.rpc.ErrorInfo\",\n        \"reason\": \"ACCESS_TOKEN_SCOPE_INSUFFICIENT\",\n        \"domain\": \"googleapis.com\",\n        \"metadata\": {\n          \"se"
+  ],
+  "studioTodo": [
+    "공개 전(예약 시각 전) 스튜디오에서 확인: 영상·자막·썸네일, 자동 더빙(언어), 최종 화면",
+    "공개된 뒤 '테스트 및 비교'에 썸네일 3개 등록 — 비공개 영상은 테스트 불가"
+  ]
+}

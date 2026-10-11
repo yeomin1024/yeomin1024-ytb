@@ -1,6 +1,6 @@
 # heater-2026-10 한눈에 보기
 
-자동 생성 — `python tools/make_summary.py lifetips heater-2026-10` (2026-10-11 04:02). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
+자동 생성 — `python tools/make_summary.py lifetips heater-2026-10` (2026-10-11 07:46). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
 
 > **보일러보다 싸다는 말에 온풍기만 틀었다가 전기요금 2만원이 13만원이 됐습니다. 전기 난방으로 버틴 사람들의 불편한 진실**
 

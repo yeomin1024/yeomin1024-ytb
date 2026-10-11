@@ -1,6 +1,6 @@
 # bleach-2026-10 한눈에 보기
 
-자동 생성 — `python tools/make_summary.py lifetips bleach-2026-10` (2026-10-11 04:03). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
+자동 생성 — `python tools/make_summary.py lifetips bleach-2026-10` (2026-10-11 07:46). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
 
 > **1분이면 녹는다는 말에 락스에 세정제까지 뿌렸다가 응급실에서 4시간을 보냈습니다. 화장실 곰팡이 잡던 사람들의 공통점**
 

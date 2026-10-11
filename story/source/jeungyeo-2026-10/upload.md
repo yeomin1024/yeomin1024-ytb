@@ -1,7 +1,7 @@
 # jeungyeo-2026-10 업로드 시트
 
 버전: v1.0 — 2026-10-11 — 최초 작성 (`guides/upload_guide.md` v1.3, `story/guides/upload_rules.md` v1.1)
-기준 파일: 대본 `jeungyeo-2026-10.txt` v1.0 · SRT 문장 131 / 자막 169 (고지 공백 8초가 SRT 안에 있음, 문장 30 뒤) · 영상 `out/jeungyeo-2026-10/final_1080p.mp4` (**아직 없음** — 오디오 전)
+기준 파일: 대본 `jeungyeo-2026-10.txt` v1.0 · SRT 문장 131 / 자막 169 (고지 공백 8초가 SRT 안에 있음, 문장 30 뒤) · 영상 `story/out/jeungyeo-2026-10/final_1080p.mp4` (**아직 없음** — 오디오 전)
 
 > ⚠️ 영상은 아직 만들지 않았다. 아래 챕터 시간은 SRT 추정 타이밍(초당 5.2음절, 전체 12분 20초) 기준이다.
 > 내레이션(`narration.mp3`)이 생기면 `npm run align-audio -- story jeungyeo-2026-10`으로 SRT를 오디오에 맞추고, 3번 명령으로 챕터를 다시 계산한다 (업로드 도구가 자동으로 다시 계산).
@@ -95,7 +95,7 @@ python tools/srt_tool.py upload story/source/jeungyeo-2026-10/jeungyeo-2026-10.t
 
 | 항목 | 값 |
 |---|---|
-| 영상 파일 | `out/jeungyeo-2026-10/final_1080p.mp4` (제작 후) |
+| 영상 파일 | `story/out/jeungyeo-2026-10/final_1080p.mp4` (제작 후) |
 | 제목 | 1번 (T1) |
 | 썸네일 | 기본 `thumbnail_1` (T1의 짝, 4억 아파트 → 월세방). **테스트 및 비교**에 `thumbnail_1`·`_2`·`_3` 모두 (공개 전환 때) |
 | 제목 테스트 | 스튜디오에 제목 테스트 메뉴가 있으면 T2·T3도 넣는다 (`titles.md`) |

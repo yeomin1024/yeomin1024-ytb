@@ -1,5 +1,38 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-11 — 주식 밖 5개 주제: 분석 → 주제 규칙 → 영상 3개씩 패키지(오디오 전까지)
+
+### 왜 (사용자 지시)
+- "주식을 제외한 나머지 건강, 우주 등 주제도 분석기 돌려서 오디오 전까지 3개까지 만들어봐" → 주제마다 최대 3개 (사용자 선택)
+
+### 1단계 분석 (클라우드, `bash tools/run_analysis.sh <주제> -- --keywords 13 --skip-install`)
+| 주제 | 쿼터 | 수집 | 비고 |
+|---|---|---|---|
+| health · space · selfdev · story · lifetips | 1,958 · 1,782 · 1,920 · 1,990 · 2,006 (합 9,656 / 하루 10,000) | 주제마다 키워드 13개(설정 48개 중, 카테고리 순환) | 남은 키워드는 다음 실행에서 (검색 7일 캐시) |
+- 클라우드 네트워크 정책으로 `suggestqueries.google.com`(자동완성 수요), `www.youtube.com`(자막·쇼츠 확인), 썸네일 이미지가 막힘 → 수요 점수 0, 성공사례 대본·썸네일 없음. 각 주제 `guides/data_insights.md`에 한계로 적고 말하기 속도·도입부·썸네일은 주식 결과를 임시로 씀
+
+### 2단계 주제 규칙 (각 `<주제>/guides/`, `README.md`, `source/used_content.md`, `voices/storyteller.json`)
+- health v1.1~1.2(분석 반영, 1900년대 자료 DPP는 사용 불가), space·selfdev·lifetips v1.0~1.1(새로 만듦), story v1.0~1.2(대본 규칙 새로 만듦)
+- 건강·사연 README의 ⏸ 보류 해제 (보류 조건이 "분석 결과 전까지"였음) → 내레이션 도구가 이 주제들도 읽음
+- 주제마다 사연자 말투만 덮어쓰는 `voices/storyteller.json` (공통 instruct가 "주식 손실 고백"이라). 화자 Sohee·진행자 기준 목소리는 그대로
+
+### 3단계 영상 패키지 15개 (각 `<주제>/source/<영상ID>/`: 대본 TXT·SRT·README(검산·출처)·제목 3개·썸네일 프롬프트 3개·업로드 시트·요약)
+| 주제 | 영상ID (추정 길이) |
+|---|---|
+| 건강 | prediabetes-2026-10 v1.1 (9:03, DPP → 영국 NDPP·독일 PLIS 2023) · supplement-liver-2026-10 (11:48) · sarcopenia-2026-10 (10:18) |
+| 우주 | nuriho-2026-10 (11:52) · voyager-2026-10 (12:14) · asteroid-2026-10 (12:28) |
+| 자기계발 | miraclemorning-2026-10 (11:01) · habit21-2026-10 (10:37) · dopaminedetox-2026-10 (11:57) |
+| 사연 | myeoneuri-2026-10 (12:14) · jeungyeo-2026-10 (12:20) · chayongjeung-2026-10 (11:13) |
+| 생활꿀팁 | washer-2026-10 (8:39) · heater-2026-10 (8:43) · bleach-2026-10 (8:29) |
+- 15개 모두 `srt_tool.py check` 4항목 ✅, `tts_narration.py all --dry-run`에 15개 모두 "오디오 없음 → make"로 잡힘
+- 읽는 소리 사전 `tts_lexicon.tsv`: health(kg·범위 물결표), selfdev(범위 물결표), 영상별(H3·2024 YR4·119·AST/ALT 등) — TTS에만 쓰고 대본·자막은 그대로
+- 확인하지 못한 숫자는 쓰지 않음: 예) 근감소증 '50~64세 의자 일어서기 10초'(출처마다 10/12초) → 확인된 12초 기준으로, 소행성 생존 용품 230만 → 150만 원(가격 확인분만)
+- 이 환경은 WebFetch·curl로 원문을 열 수 없어 모든 근거를 웹 검색 결과의 인용으로 확인 — 각 README 출처 표에 확인 방법을 적음
+
+### 다음
+- 사용자: Kaggle 셀 하나(`python tools/tts_narration.py all --push`, `guides/tts_guide.md` 3번) → 15개 오디오가 대본 폴더마다 main에 올라감 → "오디오 올렸어" → 4단계(영상 코드·렌더·비공개 업로드, 한 번에 최대 3개)
+- 썸네일 이미지는 사용자가 각 `thumbnails/thumbnail_N.md`의 [A] 프롬프트로 이미지 AI에서
+
 ## 2026-10-11 — 진행자는 중저음 남성, 모든 대본에서 같은 목소리 (tts_narration v1.3)
 
 ### 왜 바꿨나 (사용자 지시)

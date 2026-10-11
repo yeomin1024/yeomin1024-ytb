@@ -1,7 +1,8 @@
-// VERSION: v1.1 — 2026-10-10 — 파트 라벨 판정을 srt_tool.is_label과 같게: '-숫자'로 시작하는 줄은 문장 (v1.0: 내레이션 오디오에 SRT 타이밍 맞추기, 오디오는 고치지 않음)
+// VERSION: v1.2 — 2026-10-11 — 내레이션 옆에 tts_narration.json(tools/tts_narration.py)이 있고 대본·길이가 맞으면 문장 경계를 그 정확한 시각으로 (쉼 추측은 문장 안 쉼을 경계로 잘못 잡아 최대 6.9초 어긋남), 문장 경계마다 실제 무음인지 확인. --ignore-tts-meta 로 예전 방식
+// (v1.1 — 2026-10-10 — 파트 라벨 판정을 srt_tool.is_label과 같게: '-숫자'로 시작하는 줄은 문장 (v1.0: 내레이션 오디오에 SRT 타이밍 맞추기, 오디오는 고치지 않음))
 // 사용 (video/ 폴더에서):
 //   npm run align-audio -- <주제폴더> <영상ID>                예) npm run align-audio -- stock molppang-2026-10
-//   옵션: --audio <파일>  --noise -35  --min-pause 0.12  --dry-run  --srt-out <파일>  --no-export
+//   옵션: --audio <파일>  --noise -35  --min-pause 0.12  --dry-run  --srt-out <파일>  --no-export  --ignore-tts-meta
 //
 // 입력: ../<주제폴더>/source/<영상ID>/<영상ID>.txt, <영상ID>.srt (지금 SRT — 문장별 앞줄·뒷줄 나눔과 예상 길이에 씀),
 //       narration.mp3 / .wav / .m4a (또는 --audio)
@@ -32,7 +33,7 @@ const opt = (name, def) => {
   return i >= 0 ? argv[i + 1] : def;
 };
 const flag = (name) => argv.includes(`--${name}`);
-const BOOL = new Set(["dry-run", "no-export"]);
+const BOOL = new Set(["dry-run", "no-export", "ignore-tts-meta"]);
 const pos = [];
 for (let i = 0; i < argv.length; i++) {
   if (argv[i].startsWith("--")) {
@@ -135,11 +136,51 @@ const offset = sil.length && sil[sil.length - 1].e >= audioSec - 0.05 ? sil[sil.
 sil = sil.filter((x) => x.s > onset + 0.01 && x.e < offset - 0.01).map((x) => ({...x, d: x.e - x.s}));
 log("AUDIO", {seconds: audioSec.toFixed(2), speechFrom: onset.toFixed(2), speechTo: offset.toFixed(2), pauses: sil.length, noise: `${noise}dB`, minPause, ms: Date.now() - t0});
 
-// ── 동적 계획법: 문장 경계 N−1개를 쉼에 맞춤 ──
 const N = groups.length;
 const cardSet = new Set(cards);
 const S = sil.length;
-if (S < N - 1) {
+const expTotal = groups.reduce((s, g) => s + g.exp, 0);
+
+// ── 문장 시각: tts_narration.json 이 있으면 그 정확한 시각 (오디오를 만든 도구가 문장을 이은 위치) ──
+let A = null; // 문장 i 말 시작
+let SE = null; // 문장 i 말 끝
+let NX = null; // 문장 i 자막 끝 (= 다음 문장 말 시작, 마지막은 말 끝 + 0.4초)
+let rate = 1;
+let mode = "쉼 추측";
+const metaPath = path.join(path.dirname(audioPath), "tts_narration.json");
+if (!flag("ignore-tts-meta") && fs.existsSync(metaPath)) {
+  const meta = JSON.parse(fs.readFileSync(metaPath, "utf8"));
+  const items = meta.items || [];
+  const sameText = items.length === N && items.every((it, i) => it.text === groups[i].text);
+  const sameLen = Math.abs((meta.seconds ?? -1) - audioSec) < 0.3;
+  if (sameText && sameLen) {
+    A = items.map((it) => it.start);
+    SE = items.map((it) => it.end);
+    NX = items.map((it, i) => (i === N - 1 ? Math.min(audioSec, it.end + 0.4) : items[i + 1].start));
+    // 경계마다 실제 무음인지 확인 (오디오와 메타가 같은 파일에서 나왔는지)
+    const quiet = (a, b) => sil.some((x) => x.s <= a + 0.06 && x.e >= b - 0.06);
+    const bad = [];
+    for (let i = 1; i < N; i++) if (!(SE[i - 1] < A[i] && quiet(SE[i - 1], A[i]))) bad.push(i + 1); // 문장 i+1 앞 경계
+    const cardBad = cards.filter((n) => A[n] - SE[n - 1] < CARD_GAP_MIN);
+    rate = SE.reduce((s, e, i) => s + (e - A[i]), 0) / expTotal;
+    mode = "tts_narration.json";
+    log("TTS", {use: true, meta: path.relative(ROOT, metaPath), tool: meta.tool, sentences: N, boundariesNotSilent: bad.length ? bad.join(",") : 0,
+      cardGap: cards.map((n) => `문장${n}뒤 ${(A[n] - SE[n - 1]).toFixed(2)}초`).join(",") || "없음"});
+    if (cardBad.length) {
+      log("TTS", {error: `고지 카드 자리 쉼 < ${CARD_GAP_MIN}초: 문장 ${cardBad.join(",")} 뒤`, hint: "오디오는 고치지 않음 — Kaggle 에서 다시 만들기"});
+      process.exit(1);
+    }
+    if (bad.length > Math.max(2, N * 0.05)) {
+      log("TTS", {error: `무음이 아닌 경계 ${bad.length}개 — 메타와 오디오가 다른 파일일 수 있음`, hint: "--ignore-tts-meta 로 쉼 추측, 또는 오디오를 다시 만들기"});
+      process.exit(1);
+    }
+  } else {
+    log("TTS", {use: false, reason: !sameText ? "메타의 문장이 지금 대본과 다름 (옛 오디오?)" : `길이 다름 (메타 ${meta.seconds}초, 오디오 ${audioSec.toFixed(2)}초)`, fallback: "쉼 추측"});
+  }
+}
+
+// ── (메타가 없을 때) 동적 계획법: 문장 경계 N−1개를 쉼에 맞춤 ──
+if (!A && S < N - 1) {
   log("ALIGN", {error: `쉼 ${S}개 < 필요한 경계 ${N - 1}개`, hint: "--noise 를 -30 으로 올리거나 --min-pause 를 0.08 로 낮추세요"});
   process.exit(1);
 }
@@ -199,22 +240,26 @@ const align = (rate) => {
   for (let i = N - 2; i > 0; i--) pick[i - 1] = from[i][pick[i]];
   return {pick, cost: best};
 };
-const expTotal = groups.reduce((s, g) => s + g.exp, 0);
-let rate = (offset - onset - sil.reduce((s, x) => s + (x.d >= CARD_GAP_MIN ? x.d : 0), 0) - (N - 1) * 0.45) / expTotal;
-let res = null;
-for (let it = 0; it < 3; it++) {
-  res = align(rate);
-  if (!res) break;
-  const speech = groups.reduce((s, _, i) => {
-    const a = i === 0 ? onset : sil[res.pick[i - 1]].e;
-    const b = i === N - 1 ? offset : sil[res.pick[i]].s;
-    return s + (b - a);
-  }, 0);
-  rate = speech / expTotal; // 실제 말 속도로 다시
-}
-if (!res) {
-  log("ALIGN", {error: "맞출 수 없음 (고지 카드 자리의 3.5초 이상 쉼이 없을 수 있음)", hint: "오디오는 고치지 않습니다 — 녹음에 카드 자리 쉼(3.5초+)이 있는지 확인"});
-  process.exit(1);
+let res = {cost: 0};
+if (!A) {
+  rate = (offset - onset - sil.reduce((s, x) => s + (x.d >= CARD_GAP_MIN ? x.d : 0), 0) - (N - 1) * 0.45) / expTotal;
+  for (let it = 0; it < 3; it++) {
+    res = align(rate);
+    if (!res) break;
+    const speech = groups.reduce((s, _, i) => {
+      const a = i === 0 ? onset : sil[res.pick[i - 1]].e;
+      const b = i === N - 1 ? offset : sil[res.pick[i]].s;
+      return s + (b - a);
+    }, 0);
+    rate = speech / expTotal; // 실제 말 속도로 다시
+  }
+  if (!res) {
+    log("ALIGN", {error: "맞출 수 없음 (고지 카드 자리의 3.5초 이상 쉼이 없을 수 있음)", hint: "오디오는 고치지 않습니다 — 녹음에 카드 자리 쉼(3.5초+)이 있는지 확인"});
+    process.exit(1);
+  }
+  A = groups.map((_, i) => (i === 0 ? onset : sil[res.pick[i - 1]].e));
+  SE = groups.map((_, i) => (i === N - 1 ? offset : sil[res.pick[i]].s));
+  NX = groups.map((_, i) => (i === N - 1 ? Math.min(audioSec, offset + 0.4) : sil[res.pick[i]].e));
 }
 
 // ── 문장·자막 시간 만들기 ──
@@ -222,9 +267,9 @@ const out = [];
 const report = [];
 for (let i = 0; i < N; i++) {
   const g = groups[i];
-  const a = i === 0 ? onset : sil[res.pick[i - 1]].e;
-  const speechEnd = i === N - 1 ? offset : sil[res.pick[i]].s;
-  const next = i === N - 1 ? Math.min(audioSec, offset + 0.4) : sil[res.pick[i]].e;
+  const a = A[i];
+  const speechEnd = SE[i];
+  const next = NX[i];
   const end = cardSet.has(i + 1) || i === N - 1 ? (i === N - 1 ? next : speechEnd + 0.15) : next; // 카드 자리만 공백
   const dur = speechEnd - a;
   const dev = (dur - g.exp * rate) / (g.exp * rate);
@@ -253,7 +298,7 @@ for (let i = 0; i < N; i++) {
 }
 const firstSubOf = (n) => groups.slice(0, n - 1).reduce((acc, g) => acc + g.parts.length, 0); // 문장 n 첫 자막의 out 위치
 const cardGaps = cards.map((n) => ({n, gap: out[firstSubOf(n + 1)].start - out[firstSubOf(n + 1) - 1].end}));
-log("ALIGN", {rate: rate.toFixed(3), cost: res.cost.toFixed(1), subtitles: out.length, cardGap: cardGaps.map((c) => `문장${c.n}뒤 ${c.gap.toFixed(2)}초`).join(",") || "없음", lastEnd: out.at(-1).end.toFixed(2), audio: audioSec.toFixed(2), checkNeeded: report.length});
+log("ALIGN", {mode, rate: rate.toFixed(3), cost: res.cost.toFixed(1), subtitles: out.length, cardGap: cardGaps.map((c) => `문장${c.n}뒤 ${c.gap.toFixed(2)}초`).join(",") || "없음", lastEnd: out.at(-1).end.toFixed(2), audio: audioSec.toFixed(2), checkNeeded: report.length});
 for (const r of report) console.log(`  ⚠️ 확인 필요 ${r}`);
 if (out[0].start > LEAD_IN_MAX) console.log(`  ⚠️ 첫 자막이 ${out[0].start.toFixed(2)}초에 시작 (2초 넘음) — 오디오 앞 여백이 김`);
 

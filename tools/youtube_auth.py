@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-10-10 — 유튜브 업로드용 OAuth 리프레시 토큰을 한 번 발급 (사용자 PC에서 실행, 표준 라이브러리만)
+# VERSION: v1.1 — 2026-10-11 — 권한에 yt-analytics.readonly 추가 (tools/youtube_feedback.py 의 시청 지속·유입 경로 등 상세 분석), 발급 뒤 허용되지 않은 권한 경고
+#          (v1.0: 유튜브 업로드용 OAuth 리프레시 토큰을 한 번 발급 (사용자 PC에서 실행, 표준 라이브러리만))
 r"""
 유튜브 자동 업로드(tools/youtube_upload.py)에 필요한 "리프레시 토큰"을 한 번만 발급합니다.
 **클라우드가 아니라 내 PC에서** 실행합니다 (브라우저로 내 유튜브 계정에 로그인해야 하므로).
@@ -10,12 +11,13 @@ r"""
 
 준비 (guides/pipeline.md "처음 한 번 할 일" 2번):
   1) Google Cloud 콘솔에서 프로젝트 만들기 → "YouTube Data API v3" 사용 설정
+     (통계 피드백 tools/youtube_feedback.py 를 쓰려면 같은 프로젝트에서 "YouTube Analytics API"도 사용 설정)
   2) OAuth 동의 화면: 외부(External) → 내 구글 계정을 테스트 사용자로 추가 → **게시 상태를 "프로덕션"으로**
      (테스트 상태로 두면 리프레시 토큰이 7일 뒤 만료됩니다. 프로덕션이어도 나 혼자 쓰면 Google 검토 없이 쓸 수 있고,
       로그인 때 "확인되지 않은 앱" 경고가 나오면 고급 → 이동을 누릅니다)
   3) 사용자 인증 정보 → OAuth 클라이언트 ID → 애플리케이션 유형 "데스크톱 앱" → 클라이언트 ID·보안 비밀번호 복사
 
-실행하면 브라우저가 열립니다 → 영상을 올릴 유튜브 채널의 구글 계정으로 로그인·허용
+실행하면 브라우저가 열립니다 → 영상을 올릴 유튜브 채널의 구글 계정으로 로그인·허용 (권한 체크 칸이 나오면 모두 체크)
 → 터미널에 YOUTUBE_REFRESH_TOKEN 값이 나옵니다. 이 값과 클라이언트 ID·비밀번호를
   Claude Code 클라우드 환경 설정(Network secrets 또는 환경 변수)에 넣습니다. **채팅창에는 붙여 넣지 마세요.**
 """
@@ -35,8 +37,10 @@ import webbrowser
 
 AUTH_URL = "https://accounts.google.com/o/oauth2/v2/auth"
 TOKEN_URL = "https://oauth2.googleapis.com/token"
-# 업로드(videos.insert), 썸네일(thumbnails.set), 자막(captions.insert)에 필요한 권한
-SCOPES = ["https://www.googleapis.com/auth/youtube.upload", "https://www.googleapis.com/auth/youtube.force-ssl"]
+# 업로드(videos.insert), 썸네일(thumbnails.set), 자막(captions.insert)에 필요한 권한 + 통계 읽기(youtube_feedback.py: YouTube Analytics API)
+# 동의 화면에 권한 체크 칸이 나오면 모두 체크한다 (하나라도 빼면 그 기능만 403 — 예: 자막 업로드, 상세 분석)
+SCOPES = ["https://www.googleapis.com/auth/youtube.upload", "https://www.googleapis.com/auth/youtube.force-ssl",
+          "https://www.googleapis.com/auth/yt-analytics.readonly"]
 
 
 class _Handler(http.server.BaseHTTPRequestHandler):
@@ -97,6 +101,11 @@ def main():
     if "refresh_token" not in tok:
         sys.exit("[AUTH] ❌ 리프레시 토큰이 오지 않았습니다 → https://myaccount.google.com/permissions 에서 이 앱 권한을 지우고 다시 실행")
 
+    granted = set((tok.get("scope") or "").split())
+    missing = [s.rsplit("/", 1)[-1] for s in SCOPES if s not in granted]
+    if missing:   # 동의 화면에서 체크를 뺀 권한 — 그 기능만 403 이 난다
+        print(f"[AUTH] ⚠️ 허용되지 않은 권한: {', '.join(missing)} → 그 기능은 안 됩니다 (자막 업로드: youtube.force-ssl, "
+              "통계 상세 분석: yt-analytics.readonly). 모두 쓰려면 다시 실행해서 체크 칸을 모두 체크하세요.\n")
     print("[AUTH] ✅ 발급 완료. 아래 3개를 Claude Code 클라우드 환경 설정(Network secrets 또는 환경 변수)에 넣으세요.")
     print("[AUTH]    채팅창에 붙여 넣지 말고, 이 터미널 창을 닫으면 다시 볼 수 없으니 바로 옮기세요.\n")
     print(f"YOUTUBE_CLIENT_ID={a.client_id}")

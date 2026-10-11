@@ -1,5 +1,20 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-11 — 올린 영상 통계 → 피드백 자료 (youtube_feedback v1.0 신규, youtube_auth v1.1)
+
+### 왜 (사용자 지시: "영상을 올렸는데 관련 통계 자료들을 통해 피드백할 수 있는 자료를 만들어서 저장소에 올리는 코드도 만들어 분석은 하지말고 테스트만 해")
+- 주식 영상 4개를 올렸고(2026-10-11 21:00 KST 예약 공개), 다음 영상에 반영할 근거가 될 통계를 대본 문장·챕터에 맞춰 모아 둘 도구가 없었음
+- 지시사항(guides)은 바꾸지 않음. 실제 통계 수집·분석은 하지 않고 가짜 API 응답으로만 시험
+
+| 영역 | 함수/파일 | 변경 내용 |
+|---|---|---|
+| 도구 | `tools/youtube_feedback.py` v1.0 (신규) `Live`·`collect`·`render_feedback`·`render_overview`·`git_push`·`run`·`check` | `youtube.json`이 있는 영상마다: Data API(공개 지표·상태·길이) + Analytics API(합계·일별·시청 지속 100점·유입 경로) + 댓글(작성자 이름 저장 안 함) → `source/<영상ID>/stats/<한국 날짜>.json`(원자료, 같은 날은 다시 안 부름) · `feedback.md`(빠진/오른 구간 → 그 시간의 대본 문장·파트·챕터, 챕터별 유지, 수집일별 추이) · `<주제>/feedback.md`(모음). `--push`는 결과 파일만 커밋 → pull --rebase → main 푸시(2·4·8·16초 다시). 공개 전 영상은 건너뜀. 예약 시각이 지났는데 비공개면 '비공개 잠김' 경고. 각 부분이 따로 실패해도 문서는 만듦. 해석은 넣지 않음. 로그 `[SCAN]·[SOURCE]·[COLLECT]·[CHECK]·[FEEDBACK]·[OVERVIEW]·[PUSH]` |
+| 도구 | `tools/youtube_auth.py` v1.1 `SCOPES`·`main` | 권한에 `yt-analytics.readonly` 추가. 발급 뒤 허용되지 않은 권한(동의 화면에서 체크를 뺀 것)을 경고 |
+| 시험 | `tools/tests/test_youtube_feedback.py` v1.0 (신규) | 14개: 계산(길이·표·보간·챕터 유지·빠진 구간), 키·권한별 plan, 빚투 대본·SRT 사본 + 가짜 API로 처음부터 끝까지(빠진 구간 1:32–1:36 → 문장 15·16·챕터 '사연', 같은 날 캐시, --refresh, 다음 날 추이 2줄, 작성자 이름 없음), --dry-run, 공개 전 건너뜀, 권한 없음·일부 실패, 임시 원격 저장소로 git_push(결과 파일만 커밋) |
+- 시험: `python3 -m unittest discover -s tools/tests -v` → 14개 통과 (Python 3.13·3.11, 0.4초)
+- 실제 키 확인(`--check`, 통계는 받지 않음): OAuth 권한 `youtube.upload` 하나뿐 → 상세 분석 불가, 공개 지표·댓글은 API 키로 가능. 상세 분석을 쓰려면 ① 업로드용 Google Cloud 프로젝트에서 "YouTube Analytics API" 사용 설정 ② PC에서 `youtube_auth.py`(v1.1) 다시 실행 — 권한 체크 칸 모두 체크 ③ 새 `YOUTUBE_REFRESH_TOKEN`을 환경 설정에
+- ⚠️ 저장소가 공개라서 `--push`로 올린 통계·댓글 내용은 누구나 볼 수 있음
+
 ## 2026-10-11 — 업로드 설정 '변경되거나 합성된 콘텐츠' = 예 (youtube_upload v1.3)
 
 ### 왜 바꿨나 (사용자 지시: "합성 콘텐츠 예로 하고")

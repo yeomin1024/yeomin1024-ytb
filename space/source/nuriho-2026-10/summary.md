@@ -1,6 +1,6 @@
 # nuriho-2026-10 한눈에 보기
 
-자동 생성 — `python tools/make_summary.py space nuriho-2026-10` (2026-10-11 04:00). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
+자동 생성 — `python tools/make_summary.py space nuriho-2026-10` (2026-10-11 07:46). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
 
 > **46초 모자란 실패에 아들 꿈을 말렸는데 누리호는 4번 연속 성공했습니다. 첫 실패만 본 사람들의 공통점**
 

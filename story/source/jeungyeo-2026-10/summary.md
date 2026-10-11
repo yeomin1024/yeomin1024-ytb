@@ -1,0 +1,353 @@
+# jeungyeo-2026-10 한눈에 보기
+
+자동 생성 — `python tools/make_summary.py story jeungyeo-2026-10` (2026-10-11 07:39). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
+
+> **어차피 줄 거라며 미리 넘긴 4억 집, 제게 남은 건 월세방이었습니다. 노후 재산부터 물려준 부모들의 최악의 결말**
+
+## 0. 상태
+
+| 단계 | 상태 |
+|---|---|
+| 대본·SRT | ✅ 문장 131 / 자막 169, 길이 12:20 (SRT 추정) |
+| 제목 3개 | ✅ 채택 T1 |
+| 썸네일 | 프롬프트 3개 ✅ · 이미지 0/3 (이미지 AI로 만들어 `thumbnails/thumbnail_N.png`에 저장) |
+| 업로드 시트 | ✅ 설명란·태그·고정 댓글·챕터 |
+| 내레이션 역할 | 사연자 1–20 · 진행자 21–131 (`voices/*.json`) |
+| 오디오 | ⏳ 없음 → Kaggle 셀 하나(`tts_narration.py all --push`)가 `source/jeungyeo-2026-10/narration.mp3`로 올리면 영상 제작 시작 |
+| 영상 코드 | ⏳ 오디오가 생기면 Claude가 만든다 (승인 없이 바로 렌더) |
+| 렌더 | ⏳ 오디오 뒤 |
+| 유튜브 | ⏳ 렌더 뒤 비공개 업로드 + 렌더 완료 1시간 뒤 예약 공개 |
+
+## 1. 제목 3개 (`titles.md`)
+
+- [x] **T1. (채택)** 어차피 줄 거라며 미리 넘긴 4억 집, 제게 남은 건 월세방이었습니다. 노후 재산부터 물려준 부모들의 최악의 결말 `속마음 · 금액→결과(월세방) · 최악의 결말` 62자 — 짝 썸네일: thumbnail_1 (4억 아파트 → 월세방 숫자 반전)
+- [ ] **T2.** 모시고 살겠다는 말만 믿고 4억 집 명의를 넘겼는데… 자식에게 노후부터 물려준 부모들이 마지막에 꼭 하는 후회 `계기(남의 말) · 결과 숨김(말줄임) · 마지막에 꼭 하는 후회` 61자 — 짝 썸네일: thumbnail_2 (인물·감정, 끊긴 전화)
+- [ ] **T3.** (짧은 변형, 금액 없음) 집을 넘기고 3년, 아들의 전화가 끊겼습니다. 노후 재산 미리 준 부모들의 공통점 `장면 · 기간→단절 · 공통점` 45자 — 짝 썸네일: thumbnail_3 (그때 들은 말 ↔ 3년 뒤 월세방 대비)
+
+## 2. 썸네일 3개 (`thumbnails/`)
+
+썸네일은 프롬프트 파일이 산출물이다. 이미지는 이미지 AI가 프롬프트로 만든다.
+
+### 썸네일 1 ✅ 기본(채택 제목의 짝) — 숫자 반전 (4억 아파트 → 월세방)
+
+🖼️ 이미지 없음 → 이미지 AI에 `thumbnails/thumbnail_1.md`의 [A] 프롬프트를 넣어 만든 뒤 `thumbnails/thumbnail_1.png`로 저장
+
+- 가설: 인물 없이 "4억 아파트 → 월세방"이라는 **재산의 반전**만 크게 보여 주는 것이 가장 클릭을 부른다
+
+| 줄 | 문구 | 색 | 강조 |
+|---|---|---|---|
+| 왼쪽 | 4억 아파트 | 잉크 #1E1E1E (크림 배경) | 큰 글자 |
+| 오른쪽 | 월세방 | 흰색 (파랑 #2D6CDF 상자) | 가장 큰 글자 |
+
+- 제목은 "4억 집"이고 썸네일은 "4억 아파트"다 — 값(4억)은 같고 표현만 다르게 해 제목을 그대로 반복하지 않는다 (공통 1-2). 대본 문장 1은 "4억 원짜리 아파트".
+
+<details><summary>[A] 완성형 프롬프트</summary>
+
+```
+YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at small size.
+Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, loss blue #2D6CDF, gain red #E63B2E.
+Bottom-right corner kept empty (video length badge).
+Clean flat-photo hybrid style on a warm cream (#F2EBDD) background. On the left 40% of the frame, an ordinary
+mid-rise Korean apartment building (modest, not luxury), bright daylight. Above it, large heavy black bold text "4억 아파트".
+In the center, one thick dark navy arrow with a white outline pointing from left to right, with a small simple yellow
+(#FFD400) house key icon at the arrow's tip (the only yellow element). On the right 40%, a small, dim, empty one-room
+studio seen through a single small window: bare walls, one small potted plant on the sill, no people. Above it, a wide
+solid blue (#2D6CDF) rounded box with a thin white border containing the huge white bold text "월세방", the largest
+element in the image. No people, no documents, no logos, no money bills.
+Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
+```
+</details>
+
+### 썸네일 2 — 인물·감정 장면 (원룸 창가, 끊긴 전화)
+
+🖼️ 이미지 없음 → 이미지 AI에 `thumbnails/thumbnail_2.md`의 [A] 프롬프트를 넣어 만든 뒤 `thumbnails/thumbnail_2.png`로 저장
+
+- 가설: 좁은 원룸에서 울리지 않는 휴대폰을 보는 **70대 어머니의 허탈한 표정**이 숫자 카드보다 감정을 더 끈다 (주식 성공 썸네일 24개 중 약 20개가 얼굴 — 임시 근거)
+
+| 줄 | 문구 | 색 | 강조 |
+|---|---|---|---|
+| 1 | 모시겠다더니 | 검정 #1E1E1E | 노랑 상자 #FFD400 (유일한 강조) |
+| 2 | 전화도 끊겼다 | 흰색 (파랑 #2D6CDF 상자, 흰 테두리) | 가장 큰 글자 |
+
+- 대본의 말만 썼다: "모시겠다고 했어요"(문장 3), "아들의 전화도 끊겼고"(문장 14). 13자, 2줄.
+
+<details><summary>[A] 완성형 프롬프트</summary>
+
+```
+YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at small size.
+Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, loss blue #2D6CDF, gain red #E63B2E.
+Bottom-right corner kept empty (video length badge).
+Realistic photo style. A small, bare, dark navy-toned one-room studio in the evening, faint light from one small window.
+On the left 45% of the frame, a fictional Korean woman in her early 70s with short gray-streaked hair and a plain
+cardigan, sitting on a thin floor mattress, holding a smartphone in both hands and looking down at it with a quiet,
+empty, deeply disappointed expression (not crying). The phone screen shows only a plain blank call-screen shape with
+round button shapes, no app interface, no text, no numbers. A single house key lies on the floor beside her knee.
+Fictional person, not resembling any real or famous person, natural Korean features. On the right side, a solid bright
+yellow (#FFD400) box with large black bold text "모시겠다더니". Below it, a wide solid blue (#2D6CDF) rounded box with a
+thin white border containing huge white bold text "전화도 끊겼다", the largest text. No other people in the scene.
+Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
+```
+</details>
+
+### 썸네일 3 — 대비 (그때 들은 말 ↔ 3년 뒤 월세방)
+
+🖼️ 이미지 없음 → 이미지 AI에 `thumbnails/thumbnail_3.md`의 [A] 프롬프트를 넣어 만든 뒤 `thumbnails/thumbnail_3.png`로 저장
+
+- 가설: "그때 들은 말"과 "3년 뒤 결과"를 한 화면에 나란히 두면, 문제 분석 두 번째 메시지(말은 법이 지켜 주지 않는다)가 한눈에 전해져 클릭을 부른다
+
+| 줄 | 문구 | 색 | 강조 |
+|---|---|---|---|
+| 왼쪽 말풍선 | 들어와서 모실게요 | 검정 #1E1E1E (흰 말풍선) | — |
+| 오른쪽 1 | 3년 뒤 | 검정 #1E1E1E | 노랑 상자 #FFD400 (유일한 강조) |
+| 오른쪽 2 | 월세방 | 흰색 (파랑 #2D6CDF 상자) | 가장 큰 글자 |
+
+- 말풍선은 대본 문장 3의 아들 말("들어와서 모시겠다고 했어요")을 직접 말투로 옮긴 것이다 (새 말을 지어내지 않음). 전체 15자.
+- "3년 뒤"는 증여(2022년 3월)에서 송금·전화가 끊긴 때(2025년 6월)까지 — 월세방으로 옮긴 때는 2024년 2월이고 2025년 6월에도 월세방에 산다 (README 검산 표).
+
+<details><summary>[A] 완성형 프롬프트</summary>
+
+```
+YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at small size.
+Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, loss blue #2D6CDF, gain red #E63B2E.
+Bottom-right corner kept empty (video length badge).
+Realistic photo style, split screen with a clean vertical divider in the middle.
+LEFT HALF (warm cream tones, daytime): close-up of hands only over a wooden living-room table — an elderly woman's hand
+placing a single house key into a younger man's open hand; no faces visible. Above the hands, a white speech bubble with
+black bold text "들어와서 모실게요".
+RIGHT HALF (cool dark navy tones, night): inside a small bare one-room studio, a fictional Korean woman in her early 70s
+seen from behind, sitting alone on a thin floor mattress facing a small dark window; only her back and gray-streaked
+hair are visible. Above her, a solid bright yellow (#FFD400) box with black bold text "3년 뒤", and below it a wide
+solid blue (#2D6CDF) rounded box with thin white border containing huge white bold text "월세방", the largest text.
+Fictional people, not resembling any real or famous person. No documents, no logos, no money.
+Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font, large and highly legible at small sizes. No other text, letters, numbers, watermarks or logos anywhere.
+```
+</details>
+
+## 3. 업로드 정보 (`upload.md`)
+
+**설명란**
+
+```
+모시겠다는 아들의 말만 믿고 4억 원짜리 아파트를 미리 넘긴 어머니에게 남은 건 보증금 500만 원짜리 월세방이었습니다.
+등기까지 넘긴 증여가 왜 되돌리기 어려운지, 자녀에게 재산을 줄 때 무엇을 먼저 지켜야 하는지 정리했습니다.
+
+■ 이 영상에서 다루는 것
+- 등기까지 넘긴 증여는 되돌리기 어렵다 (민법 제556조·제558조, 2026년 7월 헌법재판소 합헌 결정 5대 4)
+- 모시겠다는 말은 법이 대신 지켜 주지 않는다 (조건을 적은 각서가 있었던 2015년 대법원 사건)
+- 집 한 채는 부모의 마지막 노후 자금이다 (2023년 노인실태조사: 재산을 자신과 배우자를 위해 쓰겠다 24.2%)
+- 넘긴 뒤 남는 길은 좁고 느리다 (부양료 청구의 조건)
+- 방법 5가지: 살 곳과 생활비부터 떼어 두기, 조건은 계약서로(효도계약서), 주택연금, 이미 넘겼다면 기록과 부양료 청구, 상속권 상실 제도
+- 자녀에게 미리 줘도 되는 세 가지 기준
+
+■ 챕터
+0:00 사연: 아들에게 넘긴 4억 집, 남은 건 월세방
+1:50 왜 집부터 넘길까
+2:49 문제 01 등기까지 넘긴 증여는 되돌리기 어렵다
+4:14 문제 02 모시겠다는 말은 법이 지켜 주지 않는다
+5:19 문제 03 집 한 채는 마지막 노후 자금
+6:14 문제 04 넘긴 뒤 남는 길은 좁고 느리다
+7:12 방법 첫째: 살 곳과 생활비부터 떼어 두기
+7:48 방법 둘째: 조건은 계약서로
+8:49 방법 셋째: 집을 지키며 생활비 만들기, 주택연금
+9:52 방법 넷째: 이미 넘겼다면 기록과 부양료
+10:35 방법 다섯째: 상속권 상실 제도
+11:30 미리 줘도 되는 세 가지 기준
+12:01 정리
+
+■ 사연에 대해
+이 영상의 사연은 실제 법과 통계를 바탕으로 재구성한 이야기이며, 등장인물은 실존 인물이 아닙니다.
+사연 속 금액(4억 원 아파트, 보증금 500만 원·월세 40만 원, 월 30만 원)은 이해를 돕기 위한 예시입니다.
+
+■ 출처 (2026년 10월 기준)
+- 민법 제556조(증여의 해제)·제558조(해제와 이행완료부분)·제974조·제975조(부양의무)·제1004조의2(상속권 상실 선고), 국가법령정보센터: https://www.law.go.kr/법령/민법
+- 헌법재판소 2026. 7. 23. 2023헌바274·351(병합), 민법 제558조 합헌(부양의무 불이행 부분 5대 4): https://biz.sbs.co.kr/amp/article/20000324834
+- 같은 결정 보도(사건 경위·다수의견·반대의견): https://mobile.newsis.com/view/NISX20260727_0003724436 , https://www.fnnews.com/news/202607271427383582
+- 대법원 2015. 12. 10. 선고 2015다236141 판결(효도 각서를 어긴 아들에게 증여 재산 반환): https://magazine.hankyung.com/money/article/202101204128c
+- 세계일보 2025. 4. 10. 효도계약 분쟁 6건 분석: https://www.segye.com/newsView/20250410521201
+- 보건복지부 2023년 노인실태조사(2024. 10. 16. 발표) — 재산 처분 의향: https://m.seoul.co.kr/news/2024/10/16/20241016500133
+- 같은 조사 — 혼자 사는 노인 증가: https://www.nocutnews.co.kr/news/6228175
+- 부모와 성년 자녀 사이 부양료(대법원 2013. 8. 30. 2013스96 등): https://korea.legal/wiki/2013%ec%8a%a496/
+- 주택연금 2026년 3월 개선(72세·주택가격 4억 원 기준 월 133만 8천 원): https://biz.sbs.co.kr/amp/article/20000308260
+- 주택연금 가입요건·사후 정산(한국주택금융공사): https://hf.go.kr/ko/sub03/sub03_01_01_02.do , https://hf.go.kr/ko/sub03/sub03_01_01_05.do
+- 상속권 상실 선고 대상 확대(2026년 민법 개정): https://www.kyeonggi.com/article/20260513580371
+
+■ 법률 자문이 아닙니다
+이 영상의 사연은 실제 법과 통계를 바탕으로 재구성한 이야기이며, 등장인물은 실존 인물이 아닙니다.
+이 영상은 법률 정보를 알려 드리기 위한 것이며, 법률 자문을 대신하지 않습니다.
+같은 일이라도 사정마다 결과가 다르니, 실제 사건은 변호사나 대한법률구조공단(국번 없이 132)과 상담하세요.
+영상 속 법 조문과 통계는 2026년 10월 기준이며, 출처는 설명란에 있습니다.
+
+#노후사연 #증여 #효도계약서
+```
+
+**태그**: 노후사연, 시니어사연, 인생사연, 인생조언, 자식에게 증여, 부모 재산 증여, 증여 취소, 증여 해제, 효도계약서, 부양료 청구, 상속권 상실, 주택연금, 노후 준비, 헌법재판소
+
+**고정 댓글**
+
+```
+집을 넘기기 전에 이 두 가지부터 확인해 보세요.
+1. 주고 나서도 내 이름의 살 곳과 생활비가 남는지
+2. 모시겠다는 약속 같은 조건을 계약서로 남겼는지
+
+자녀에게 재산을 미리 주실 때, 조건을 글로 남겨 두셨나요? 경험을 댓글로 나눠 주세요.
+※ 개별 사건은 변호사나 대한법률구조공단(국번 없이 132)과 상담해 주세요. 댓글에 실명·연락처·계좌·주소는 쓰지 마세요.
+```
+
+## 4. 대본 (번호 = 대본 문장 번호, 🎙 = 읽는 목소리)
+
+**사연 파트** — 🎙 사연자
+
+1. 2022년 3월, 저는 제 이름으로 된 4억 원짜리 아파트를 아들에게 넘겼어요.
+2. 그 전해 가을, 42년을 함께 산 남편을 먼저 보내고 혼자가 된 때였어요.
+3. 외아들은 혼자 계시면 걱정된다며, 집을 자기 앞으로 해 주면 들어와서 모시겠다고 했어요.
+4. 어차피 나중에 자기 줄 집 아니냐는 말도 했죠.
+5. 그때 제 나이 예순일곱, 집 말고는 모아 둔 돈도 얼마 없었어요.
+6. 첫 1년은 손주 손을 잡고 유치원에 데려다주며 참 행복했어요.
+7. 하지만 그 집 서류에서 제 이름이 빠진 날, 제 자리도 함께 빠진 거였어요.
+8. 2024년 2월, 아들은 손주 학교 때문이라며 그 집을 팔고 서울 근처로 이사했어요.
+9. 같이 가자는 말은 끝내 없었어요.
+10. 제가 간 곳은 보증금 500만 원에 월세 40만 원짜리 원룸이었어요.
+11. 4억 원짜리 집을 넘기고, 제게 남은 건 월세방 하나였던 거죠.
+12. 처음엔 아들이 달마다 30만 원씩 보내 줬어요.
+13. 그러다 2025년 6월, 집을 넘긴 지 3년 만에 그 돈이 끊겼어요.
+14. 아들의 전화도 끊겼고, 제가 걸어도 받지 않았죠.
+15. 올해 8월, 무료 법률 상담에서 그 집을 돌려받을 수 있는지 물었어요.
+16. 모시지 않는다는 이유만으로는, 등기까지 넘긴 증여를 되돌리기 어렵다고 하더라고요.
+17. 지난 7월 헌법재판소도 그 법 조항이 합헌이라고 했다는 뉴스를 봤었죠.
+18. 아들의 약속은 어디에도 적혀 있지 않았어요.
+19. 제 노후를 통째로 미리 건네 놓고, 정작 저는 제 집 열쇠 하나 없이 늙어 가고 있어요.
+20. 모시겠다는 그 말을, 왜 종이 한 장에라도 받아 두지 않았을까요.
+
+**진행자 파트** — 🎙 진행자
+
+21. 나이 들어 혼자가 되면 많은 부모님들이 이런 생각을 하시죠.
+22. 어차피 나중에 줄 건데 미리 주면 어때?
+23. 내 자식인데 설마 나를 모른 척하겠어?
+24. 집을 넘겨줘야 자식도 마음 놓고 모시지.
+25. 이런 식으로 집을 넘기는 결정은 자식에 대한 믿음에서 시작되곤 합니다.
+26. 하지만 자식과 함께 살 거라는 기대는 현실과 점점 멀어지고 있습니다.
+27. 보건복지부가 3년마다 노인 1만여 명에게 묻는 노인실태조사가 있습니다.
+28. 2023년 조사에서 혼자 사는 노인의 비율은 3년 전보다 10%포인트 넘게 늘었습니다.
+29. 사연자처럼 혼자 남는 부모가 결코 적지 않다는 뜻입니다.
+30. 그럼 집을 미리 넘긴 게 왜 이렇게 큰 문제가 되는지 하나씩 짚어 보겠습니다.
+
+> 🟨 [장면] 법률 자문이 아닙니다 (화면 고지 카드 — 자막·내레이션 아님)
+> 이 영상의 사연은 실제 법과 통계를 바탕으로 재구성한 이야기이며, 등장인물은 실존 인물이 아닙니다.
+> 이 영상은 법률 정보를 알려 드리기 위한 것이며, 법률 자문을 대신하지 않습니다.
+> 같은 일이라도 사정마다 결과가 다르니, 실제 사건은 변호사나 대한법률구조공단(국번 없이 132)과 상담하세요.
+> 영상 속 법 조문과 통계는 2026년 10월 기준이며, 출처는 설명란에 있습니다.
+
+**문제 분석 파트** — 🎙 진행자
+
+31. 첫 번째 문제는 등기까지 넘긴 증여는 되돌리기가 매우 어렵다는 것입니다.
+32. 민법은 증여받은 자녀가 부양 의무를 저버리면 증여를 해제할 수 있게 했습니다.
+33. 하지만 그 사실을 안 날부터 6개월이 지나면 이 권리는 사라집니다.
+34. 더 큰 벽은 바로 다음 조항입니다.
+35. 이미 넘겨준 부분에는 해제가 영향을 미치지 않는다는 조항이죠.
+36. 집이라면 등기를 넘긴 순간 이미 넘겨준 것이 됩니다.
+37. 2008년 아들에게 땅을 증여한 한 어머니는 15년 뒤 아들과 갈등을 겪었습니다.
+38. 아들이 부양 의무를 저버렸다며 땅을 돌려 달라고 소송을 냈지만 받아들여지지 않았죠.
+39. 어머니는 이 조항이 헌법에 어긋난다며 헌법재판소에 판단을 구했습니다.
+40. 올해 7월 헌법재판소는 이 조항이 헌법에 맞는다고 봤습니다.
+41. 재판관 9명 중 5명이 합헌, 4명이 위헌 의견이었죠.
+42. 합헌 쪽은 이미 끝난 재산 관계를 흔들면 안 된다고 봤습니다.
+43. 부모가 부양료를 청구하는 다른 길도 있다는 거죠.
+44. 위헌 쪽 4명은 부양을 저버린 자녀만 보호하고, 생계가 어려운 부모를 외면한다고 봤습니다.
+45. 그만큼 논란이 큰 문제지만, 지금 법으로는 넘긴 집을 돌려받기 어렵다는 겁니다.
+46. 두 번째는 모시겠다는 말만으로는, 법이 그 약속을 대신 지켜 주지 않는다는 것입니다.
+47. 반대로 그 약속이 증여의 조건으로 종이에 적혀 있으면 이야기가 달라집니다.
+48. 2003년 한 아버지는 서울의 2층 단독주택을 아들에게 넘기며 각서를 받았습니다.
+49. 같은 집에 살며 부모를 잘 모시고, 그러지 않으면 재산을 돌려준다는 내용이었죠.
+50. 그런데 아들은 같은 집 2층에 사는 부모를 잘 찾아가지 않았습니다.
+51. 건강이 나빠진 어머니에게는 요양원에 가시는 게 어떻겠냐고 권했죠.
+52. 2015년 대법원은, 조건을 어긴 아들이 받은 집을 돌려줘야 한다고 판단했습니다.
+53. 조건이 붙은 증여는 조건을 어기면, 이미 넘긴 집이라도 계약을 풀 수 있다고 본 겁니다.
+54. 사연자와 이 아버지의 차이는 아들의 마음이 아니라 종이 한 장이었습니다.
+55. 사연자가 받은 건 모시겠다는 말뿐이었고, 그 말에는 아무 조건도 붙어 있지 않았죠.
+56. 세 번째는 집 한 채가 전 재산인 부모에게 그 집은 마지막 노후 자금이라는 것입니다.
+57. 사연자처럼 집이 재산의 전부라면, 집을 주는 순간 살 곳과 생활비를 함께 주는 셈입니다.
+58. 그래서 부모 세대의 생각도 바뀌고 있습니다.
+59. 2023년 노인실태조사에는 재산을 어떻게 할지 묻는 질문도 있었습니다.
+60. 자신과 배우자를 위해 쓰겠다는 노인이 24.2%였습니다.
+61. 2020년 조사의 17.4%보다 크게 늘었죠.
+62. 장남에게 더 많이 물려주겠다는 응답은 13.3%에서 6.5%로 절반이 됐습니다.
+63. 물려주기보다 내 노후를 먼저 챙기겠다는 부모가 늘고 있다는 뜻입니다.
+64. 사연자에게도 그 집은 살 곳이자, 생활비를 만들 수 있는 마지막 자산이었습니다.
+65. 네 번째는 집을 넘긴 뒤에 남는 길이 좁고 느리다는 것입니다.
+66. 헌법재판소가 말한 다른 길은 바로 부양료 청구입니다.
+67. 부모와 자녀는 서로 부양할 의무가 있어서, 부모는 자녀에게 생활비를 청구할 수 있습니다.
+68. 하지만 조건이 있습니다.
+69. 부모가 자기 재산이나 일로 생활하기 어려워야 합니다.
+70. 자녀도 자기 생활을 하고 나서 여유가 있어야 하죠.
+71. 또 지나간 생활비는 원칙적으로 달라고 요구한 뒤의 몫만 받을 수 있습니다.
+72. 절차도 가정법원에 조정부터 신청해야 해서 시간이 걸립니다.
+73. 무엇보다 부양료는 생활비를 받는 길이지, 넘긴 집을 돌려받는 길이 아닙니다.
+74. 4억 원짜리 집을 넘긴 사연자가, 이제 한 달 생활비를 두고 아들과 다퉈야 하는 셈이죠.
+75. 그렇다면 자녀에게 재산을 줄 때는 어떻게 해야 할까요?
+
+**올바른 방법 설명 파트** — 🎙 진행자
+
+76. 첫째, 내가 살 곳과 생활비를 먼저 떼어 두고, 남는 만큼만 주는 것입니다.
+77. 자녀를 돕고 싶은 마음이 잘못된 건 아닙니다.
+78. 다만 순서가 바뀌면 안 됩니다.
+79. 사연자처럼 4억 원짜리 집 한 채가 전부라면, 집은 내 이름으로 지키는 게 먼저입니다.
+80. 돕고 싶다면 금액과 쓸 곳을 정한 현금으로 돕는 방법이 있습니다.
+81. 예를 들어 손주 학비처럼, 언제 얼마를 줄지 정해서 주는 거죠.
+82. 그러면 도움은 도움대로 주면서, 살 곳은 끝까지 내 것으로 남습니다.
+83. 둘째, 그래도 집을 줄 거라면 조건을 계약서로 남기는 것입니다.
+84. 앞에서 본 2015년 판결처럼, 모시는 것을 증여의 조건으로 적어 두는 거죠.
+85. 흔히 효도계약서라고 부릅니다.
+86. 이때 조건은 최대한 구체적으로 써야 합니다.
+87. 2025년 세계일보가 최근 3년간의 효도계약 다툼 6건을 살펴봤습니다.
+88. 부모가 진 2건은 모두 그 계약 자체가 효력을 인정받지 못한 경우였습니다.
+89. 기사는 계약 내용이 구체적이어야 법원에서 인정받는다고 짚었습니다.
+90. 사연자라면 이렇게 쓸 수 있었습니다.
+91. 이 집에서 어머니와 함께 살고, 매달 생활비 50만 원을 드린다.
+92. 집을 팔 때는 어머니가 살 집을 먼저 마련한다.
+93. 이 조건을 지키지 않으면 증여를 해제하고 집을 돌려준다.
+94. 날짜와 두 사람의 서명을 남기고, 등기를 넘기기 전에 전문가에게 문구를 확인받으세요.
+95. 셋째, 집을 넘기지 않고도 집으로 생활비를 만드는 공적 제도가 있습니다.
+96. 공공기관인 한국주택금융공사의 주택연금입니다.
+97. 부부 중 한 명이 만 55세 이상이고, 집값 같은 기준을 맞추면 가입할 수 있습니다.
+98. 지금 사는 집에 그대로 살면서 매달 연금을 받는 제도죠.
+99. 금융위원회가 든 예시로는 일흔두 살, 4억 원짜리 집이면 매달 133만 8천 원입니다.
+100. 올해 3월부터 새로 신청한 사람 기준이죠.
+101. 사연자도 집을 지켰다면, 월세 대신 이런 연금을 받는 길을 생각해 볼 수 있었을 겁니다.
+102. 부부가 모두 세상을 떠나면 그 집으로 정산합니다.
+103. 집값이 받은 연금보다 많으면, 남는 돈은 상속인인 자녀에게 돌아갑니다.
+104. 집값이 더 적어도 모자란 돈을 자녀에게 청구하지 않습니다.
+105. 받는 금액은 나이와 집값에 따라 달라지니, 한국주택금융공사에서 직접 확인해 보세요.
+106. 넷째, 이미 집을 넘겼다면 기록을 모으고 부양료를 청구할 수 있습니다.
+107. 사연자라면 월세 40만 원 영수증과 한 달 생활비 내역부터 모아 둡니다.
+108. 아들에게 생활비를 도와 달라고 요청한 문자도 지우지 말고 남겨 둡니다.
+109. 앞에서 본 것처럼 생활비는 요구한 때부터가 기준이라, 요청은 미루지 않는 게 좋습니다.
+110. 대화로 풀리지 않으면 가정법원에 조정을 신청할 수 있습니다.
+111. 혼자 하기 어렵다면 국번 없이 132, 대한법률구조공단에서 먼저 상담해 보세요.
+112. 집은 돌아오지 않아도, 생활비 걱정을 조금이라도 덜 수 있는 길입니다.
+113. 다섯째, 상속권 상실이라는 제도도 알아 두세요.
+114. 부양 의무를 크게 저버린 상속인의 상속권을, 가정법원이 잃게 할 수 있는 제도입니다.
+115. 2024년 민법에 생긴 이 제도는, 처음엔 어린 자녀를 돌보지 않은 부모만 대상이었습니다.
+116. 올해 민법이 다시 바뀌면서, 자녀와 배우자를 포함한 모든 상속인으로 넓어졌습니다.
+117. 부모는 공증받은 유언으로, 부양을 저버린 자녀의 상속권 상실을 원한다고 남길 수 있습니다.
+118. 다만 자동으로 되지는 않습니다.
+119. 가정법원이 경위와 관계, 재산이 만들어진 과정을 종합해 판단합니다.
+120. 사연자에게 남은 보증금 같은 재산도 언젠가는 누군가에게 상속됩니다.
+121. 관계를 끊으라는 뜻이 아니라, 이런 길이 있다는 것만은 알고 계시라는 겁니다.
+122. 정리하면, 자녀에게 미리 주는 것 자체가 나쁜 선택은 아닙니다.
+123. 다만 지켜야 할 기준이 세 가지 있습니다.
+124. 주고 나서도 내 이름의 살 곳과 생활비가 남아야 합니다.
+125. 모시겠다는 약속 같은 조건은 계약서로 남겨야 합니다.
+126. 그리고 돌려받지 못해도 내 생활이 흔들리지 않을 만큼만 줘야 합니다.
+127. 이 세 가지가 갖춰졌다면, 자녀에게 미리 주는 것도 좋은 선택이 될 수 있습니다.
+
+**마무리** — 🎙 진행자
+
+128. 이렇게 해서 자녀에게 집을 미리 넘길 때 생기는 문제와, 지켜야 할 방법을 알아보았습니다.
+129. 도장을 찍기 전에, 그 집이 내 노후의 전부는 아닌지 한 번 더 따져 보세요.
+130. 소중한 관계도, 소중한 돈도 지키셨으면 좋겠습니다.
+131. 감사합니다.
+
+
+## 5. 검산·출처
+
+사연 검산표와 모든 숫자의 출처: [`README.md`](README.md)

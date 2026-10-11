@@ -1,0 +1,16 @@
+{
+ "role": "host",
+ "text": "주가가 크게 흔들릴 때일수록 숫자부터 차분하게 확인해야 합니다. 오늘은 실제 자료로, 왜 그런지 하나씩 짚어 보겠습니다.",
+ "instruct": "A Korean man in his late 30s with a warm, mid-low baritone voice. He sounds like a trusted news anchor or documentary narrator: calm, confident and highly credible. Crisp, clear articulation so every word is easy to catch, a steady medium pace, and lively but restrained emphasis on key numbers so the listener stays engaged. Natural standard Seoul Korean accent. Not monotone, not exaggerated, no shouting.",
+ "language": "Korean",
+ "model": "Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+ "seed": 2031,
+ "f0_hz": 139.9,
+ "dur": 9.0,
+ "rate": 5.44,
+ "sr": 24000,
+ "sha1": "bdd386da96b6d968",
+ "created": "2026-10-11T02:49:02",
+ "tool": "tts_narration.py v1.3",
+ "_설명": "진행자 기준 목소리 — 모든 대본의 진행자 문장이 이 소리를 복제한다. 손으로 바꾸지 않는다 (바꾸면 해시 검사에서 멈춤)."
+}

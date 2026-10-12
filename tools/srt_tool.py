@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.5 — 2026-10-12 — check 에 사연 길이 항목: 사연 파트 읽는 음절 85~125(약 20~30초)를 넘으면 ❌ (사용자 지시: 사연은 짧지만 강렬하게)
+# VERSION: v1.6 — 2026-10-12 — check 사연 길이: 이미 올린 영상(youtube.json 있음)은 SRT가 실제 오디오 시간이므로 음절 추정 대신
+#          실측(진행자 첫 문장 시작 ≤ 0:30)으로 판정 — 스튜디오에서 사연을 잘라 낸 영상(tools/studio_trim.py)에 맞춤
+# (v1.5 — 2026-10-12 — check 에 사연 길이 항목: 사연 파트 읽는 음절 85~125(약 20~30초)를 넘으면 ❌ (사용자 지시: 사연은 짧지만 강렬하게))
 #          (v1.4: 파트 라벨 판정 수정: '-숫자'(음수 금액)로 시작하는 줄은 문장)
 #          (v1.3: 자막 한 줄 1432px, 앞줄·뒷줄 자막, 고지 공백 SRT 안, 문장 번호 기준 내보내기)
 #          (v1.2: upload 챕터, v1.1: remotion 내보내기, v1.0: TXT → SRT 생성·검사)
@@ -45,6 +47,7 @@ STORY_WORD = "사연"         # 파트 라벨에 이 낱말이 있으면 사연 
 STORY_SYL_MAX = 125
 STORY_SYL_MIN = 85
 STORY_RATE = 4.4            # 추정 초 = 읽는 음절 ÷ 이 값
+STORY_HOST_MAX = 30.0       # 올린 영상(실측): 진행자 첫 문장이 이 시각(초) 안에 시작
 
 _DIG = "영일이삼사오육칠팔구"
 _NATIVE = {1: "한", 2: "두", 3: "세", 4: "네", 5: "다섯", 6: "여섯", 7: "일곱", 8: "여덟", 9: "아홉"}
@@ -342,6 +345,10 @@ def build(txt, out, reuse=None):
 
 
 # ----------------------------------------------------------------------------- check
+def match_ok(gp):
+    return not gp
+
+
 def check(txt, srt, expect=None):
     sents, subs, cards = parse_txt(txt), parse_srt(srt), parse_cards(txt)
     problems, warnings = [], []
@@ -399,7 +406,14 @@ def check(txt, srt, expect=None):
             problems.append(f"자막 수 {len(subs)} ≠ 기대값 {es}")
     st_n, st_syl, st_sec = story_length(txt)
     story_ok = st_syl <= STORY_SYL_MAX
-    if st_n and not story_ok:
+    measured = None     # 올린 영상은 SRT = 실제 오디오 시간 → 진행자 첫 문장 시작을 잰다 (음절 추정보다 정확)
+    if st_n and match_ok(gp) and (Path(txt).parent / "youtube.json").is_file() and st_n < len(groups):
+        measured = groups[st_n]["start"]
+        story_ok = measured <= STORY_HOST_MAX + EPS
+        if not story_ok:
+            problems.append(f"사연 길이(올린 영상 실측): 진행자 시작 {measured:.1f}초 > {STORY_HOST_MAX:.0f}초 → "
+                            "tools/studio_trim.py 로 스튜디오에서 사연 문장 빼기 (guides/script_guide.md 0-1의 13번)")
+    elif st_n and not story_ok:
         problems.append(f"사연 길이: {st_n}문장·읽는 음절 {st_syl} ≈ {st_sec:.0f}초 (> {STORY_SYL_MAX}음절 ≈ 30초) → 5~7문장으로 줄이기 "
                         "(guides/script_guide.md 0-1의 13번, 사용자 지시 2026-10-12)")
     elif st_n and st_syl < STORY_SYL_MIN:
@@ -409,7 +423,8 @@ def check(txt, srt, expect=None):
     print(f"[SRT] 문장 {len(sents)} / 자막 {len(subs)} (나뉜 문장 {split_n}개) / SRT–TXT {'일치 ✅' if match else '불일치 ❌'} / "
           + (" · ".join(f"고지 공백 문장 {n} 뒤 {g:.1f}초 {'✅' if g >= CARD_GAP_MIN else '❌'}" for n, g in card_gap_info) or "고지 카드 없음")
           + f" / 끝 {_ts(total)}"
-          + (f" / 사연 {st_n}문장·{st_syl}음절 ≈ {st_sec:.0f}초 {'✅' if story_ok else '❌'}" if st_n else " / 사연 파트 없음"))
+          + ((f" / 사연 {st_n}문장·{st_syl}음절, 실측 진행자 시작 {measured:.1f}초 {'✅' if story_ok else '❌'}" if measured is not None
+              else f" / 사연 {st_n}문장·{st_syl}음절 ≈ {st_sec:.0f}초 {'✅' if story_ok else '❌'}") if st_n else " / 사연 파트 없음"))
     for w in warnings:
         print("  ⚠️", w)
     for p in problems:

@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.3.2 — 2026-10-11 — 상태표 썸네일 줄: 프롬프트 파일 개수를 실제로 셈 (없는데 '3개 ✅'로 나오던 오류)
+# VERSION: v1.3.3 — 2026-10-12 — 오디오 줄: 스튜디오에서 잘라 낸 영상(youtube.json studioTrim)은 '원본 렌더 오디오 + 스튜디오 컷'으로 표시하고
+#          'Kaggle에서 다시'를 안내하지 않음, 이미 올린 영상도 다시 만들라고 하지 않음 (tts_narration 은 올린 영상을 건드리지 않음)
+#          (v1.3.2: 상태표 썸네일 줄: 프롬프트 파일 개수를 실제로 셈 (없는데 '3개 ✅'로 나오던 오류))
 #          (v1.3.1: 오디오 없음 안내 문구: Kaggle 셀 하나(all --push)가 대본 폴더에 올림)
 #          (v1.3: 사용자 지시: 요약에서 스토리보드 빼기 (상태 줄·4번 절 삭제, 영상 코드 상태로 대체),
 #          내레이션 역할(사연자·진행자, voices/*.json) 표시, 오디오가 지금 대본으로 만든 것인지(tts_narration.json) 표시
@@ -163,7 +165,14 @@ def build(topic, vid):
     if audio and tts:   # 오디오가 지금 대본으로 만든 것인지 (문장 글 비교 — tts_narration.py check 와 같은 뜻)
         old = [i["text"] for i in tts.get("items", [])]
         diff = [i + 1 for i in range(max(len(old), len(sents))) if i >= len(old) or i >= len(sents) or old[i] != sents[i]]
-        audio_note = " · 지금 대본과 같음" if not diff else f" · ⚠️ 옛 대본으로 만든 오디오 (바뀐 문장 {diff[0]}번 등 {len(diff)}개) → Kaggle에서 다시"
+        trim = (yt or {}).get("studioTrim")
+        if diff and trim:   # 올린 영상을 스튜디오에서 잘라 냄 → 대본·SRT 는 잘라 낸 영상 기준, 오디오는 원본 렌더 기록
+            audio_note = (f" · 원본 렌더 오디오 (사연 문장 {len(trim.get('dropSentences', []))}개를 스튜디오 컷으로 뺌 — "
+                          f"`studio_trim.md`, 다시 만들지 않음)")
+        elif diff and yt:
+            audio_note = f" · ⚠️ 대본이 올린 영상과 다름 (바뀐 문장 {diff[0]}번 등 {len(diff)}개) — 올린 영상은 오디오를 다시 만들지 않음"
+        else:
+            audio_note = " · 지금 대본과 같음" if not diff else f" · ⚠️ 옛 대본으로 만든 오디오 (바뀐 문장 {diff[0]}번 등 {len(diff)}개) → Kaggle에서 다시"
     else:
         audio_note = " · 대본과 같은지 정보 없음(직접 녹음)" if audio else ""
     has_code = (ROOT / "video" / "src" / "episodes" / vid).is_dir()

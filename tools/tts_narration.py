@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.5 — 2026-10-12 — 사용자 지시: 사연자를 남자 목소리로(손실을 보고 억울해하며 자책하는 연기 톤), 말 속도를 자연스럽게 맞추고,
+# VERSION: v1.5.1 — 2026-10-12 — check: 올린 영상(youtube.json)은 대본이 달라도 '다시 만든다'고 하지 않음 — 스튜디오에서 사연을
+#          잘라 낸 영상(studio_trim.md)은 대본이 잘라 낸 영상 기준이고 오디오는 원본 렌더 기록 (all 은 원래 올린 영상을 건드리지 않음)
+# (v1.5 — 2026-10-12 — 사용자 지시: 사연자를 남자 목소리로(손실을 보고 억울해하며 자책하는 연기 톤), 말 속도를 자연스럽게 맞추고,
 #          터미널에서 바로 들을 수 있게 → 후보 S07·S08(남성 억울·자책 묘사), 역할·후보 설정 pace(문장 말 속도가 범위를 벗어나면
-#          ffmpeg atempo 로 음 높이는 그대로 두고 ±15% 안에서 늘이거나 줄임), listen 명령·samples --play (ffplay/afplay/mpv, Jupyter 는 오디오 위젯)
+#          ffmpeg atempo 로 음 높이는 그대로 두고 ±15% 안에서 늘이거나 줄임), listen 명령·samples --play (ffplay/afplay/mpv, Jupyter 는 오디오 위젯))
 # (v1.4 — 2026-10-12 — 사용자 지시: 사연자·진행자 목소리 샘플을 각각 여러 개 만들고(samples), 사용자가 고르면(pick) 그 목소리로
 #          모든 대본을 일관되게. 두 역할을 다 고르기 전에는 all 이 오디오 대신 샘플만 만들어 voices/samples/ 에 올린다.
 #          후보 설정 voices/samples/samples.json (current = 지금 목소리 그대로 / custom_voice = 화자+말투 / design = 묘사 → 기준 소리 → 복제))
@@ -95,7 +97,7 @@ ROOT = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 import srt_tool  # noqa: E402  (문장·카드 판정을 자막 도구와 똑같이 쓰기 위해)
 
-VERSION = "v1.5"
+VERSION = "v1.5.1"
 CACHE_VERSION = 1            # 생성 방식이 바뀌면 올린다 → 문장 파일을 모두 다시 만든다 (v1.1은 v1.0 캐시와 같은 키)
 DEFAULT_MODEL = "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice"     # 사연자 (화자 + 말투 지시)
 DEFAULT_CLONE_MODEL = "Qwen/Qwen3-TTS-12Hz-1.7B-Base"       # 진행자 (기준 목소리 복제)
@@ -2031,6 +2033,14 @@ def cmd_check(args):
     old = [(i["text"], i["part"]) for i in meta.get("items", [])]
     diff = [n for n in range(1, max(len(old), len(rows)) + 1)
             if n > len(old) or n > len(rows) or old[n - 1] != rows[n - 1]]
+    yt_p = audio.parent / "youtube.json"
+    if yt_p.is_file():      # 올린 영상: all 은 건드리지 않는다(repo_status=uploaded) → 다시 만들라고 하지 않는다
+        trim = json.loads(yt_p.read_text("utf-8")).get("studioTrim")
+        log("CHECK", logging.WARNING, video=args.id, audio=rel(audio), ok=False, audio_sentences=len(old),
+            script_sentences=len(rows), changed=ranges(diff) or "고지 카드만",
+            hint=("올린 영상을 스튜디오에서 잘라 냄 → 대본은 잘라 낸 영상 기준, 오디오는 원본 렌더 기록 (studio_trim.md, 다시 만들지 않음)"
+                  if trim else "올린 영상의 대본이 바뀜 — all 은 올린 영상의 오디오를 다시 만들지 않는다 (새로 올리려면 사용자 확인)"))
+        raise SystemExit(1)
     log("CHECK", logging.WARNING, video=args.id, audio=rel(audio), ok=False, audio_sentences=len(old), script_sentences=len(rows),
         changed=ranges(diff) or "고지 카드만", hint="대본이 바뀜 → Kaggle 에서 all 을 다시 돌리면 이 영상을 지금 대본으로 다시 만든다")
     raise SystemExit(1)

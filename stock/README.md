@@ -17,6 +17,7 @@
 | `source/multagi-2026-10/` | 물타기 영상: 대본 v1.4 TXT·SRT(문장 91 / 자막 107, 문제 03·04를 최신 사례로), README(검산·출처), `titles.md`(제목 3개, T1 채택), `thumbnails/`(썸네일 프롬프트 3개), `upload.md`(업로드 시트) |
 | `source/bittu-2026-10/` | 빚투 영상: 대본 v1.1 TXT·SRT(문장 88 / 자막 105), README(검산·출처), `titles.md`(T1 채택), `thumbnails/`(3개), `upload.md`. 사연: SK하이닉스 2026년 5~7월, 신용 → 반대매매. 영상 코드 `video/src/episodes/bittu-2026-10/` — 내레이션 대기 |
 | `source/panicsell-2026-10/` | 패닉셀 영상: 대본 v1.1 TXT·SRT(문장 92 / 자막 111, 문장 80~85를 최신 사례로), README(검산·출처), `titles.md`(T1 채택), `thumbnails/`(3개), `upload.md`. 사연: 삼성전자 2026년 3월 폭락 날 전량 매도 → 7주 뒤 +30%. 영상 코드 `video/src/episodes/panicsell-2026-10/` — 내레이션 대기 |
+| `source/chugyeok-2026-10/` | 추격 매수 영상: 대본 v1.0 TXT·SRT(문장 103 / 자막 120, 문장 20 뒤 고지 공백, **사연 5문장·121음절 ≈ 27초** — 사연 20~30초 규칙으로 쓴 첫 대본), README(검산·출처), `titles.md`(T1 채택), `thumbnails/`(3개 — 하단 제목 2줄, thumbnail_3 검은 배경 제목형), `upload.md`. 사연: 써클 2025년 6월 상장 직후 공모가 7배에 따라 산 뒤 일주일 만에 +380만 원 → -1천만 원. 영상 코드 없음 — 내레이션 대기 |
 | `source/<영상ID>/summary.md` | 영상별 한눈에 보기 (자동 생성: `python tools/make_summary.py`) — 상태·제목·썸네일 프롬프트·설명란·대본(🎙 사연자·진행자). 스토리보드는 넣지 않음 |
 | `thumbnail_todo.md` | 이미지가 아직 없는 썸네일의 프롬프트 모음 (자동 생성: `python tools/make_summary.py --thumb-todo stock`) |
 | `out/<영상ID>/` | 완성 영상 `final_1080p.mp4` 자리 (용량 때문에 git에 올리지 않음). 스토리보드는 만들지 않음 (사용자 지시 2026-10-10) |

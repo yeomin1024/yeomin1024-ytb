@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.5.1 — 2026-10-12 — check: 올린 영상(youtube.json)은 대본이 달라도 '다시 만든다'고 하지 않음 — 스튜디오에서 사연을
-#          잘라 낸 영상(studio_trim.md)은 대본이 잘라 낸 영상 기준이고 오디오는 원본 렌더 기록 (all 은 원래 올린 영상을 건드리지 않음)
+# VERSION: v1.6 — 2026-10-12 — 사용자 지시: 사연자 S07(말 속도 조금 더 빠르게)·진행자 H04 로 고정 → pace 에 speed(모든 문장을 이 배수로
+#          빠르게 한 뒤 [min, max] 안으로, 음 높이 그대로 ±max_stretch 까지; 짧은 문장도 speed 만큼). speed 없으면 v1.5 와 같음.
+#          고른 뒤 current 후보(S01·H01) 샘플은 '고르기 전 목소리' 기록으로 두고 다시 만들지 않음 (frozen_current).
+#          두 역할 모두 clone 이면 화자 확인용 CustomVoice 모델을 불러오지 않음 (check_speakers)
+# (v1.5.1 — 2026-10-12 — check: 올린 영상(youtube.json)은 대본이 달라도 '다시 만든다'고 하지 않음 — 스튜디오에서 사연을
+#          잘라 낸 영상(studio_trim.md)은 대본이 잘라 낸 영상 기준이고 오디오는 원본 렌더 기록 (all 은 원래 올린 영상을 건드리지 않음))
 # (v1.5 — 2026-10-12 — 사용자 지시: 사연자를 남자 목소리로(손실을 보고 억울해하며 자책하는 연기 톤), 말 속도를 자연스럽게 맞추고,
 #          터미널에서 바로 들을 수 있게 → 후보 S07·S08(남성 억울·자책 묘사), 역할·후보 설정 pace(문장 말 속도가 범위를 벗어나면
 #          ffmpeg atempo 로 음 높이는 그대로 두고 ±15% 안에서 늘이거나 줄임), listen 명령·samples --play (ffplay/afplay/mpv, Jupyter 는 오디오 위젯))
@@ -97,7 +101,7 @@ ROOT = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 import srt_tool  # noqa: E402  (문장·카드 판정을 자막 도구와 똑같이 쓰기 위해)
 
-VERSION = "v1.5.1"
+VERSION = "v1.6"
 CACHE_VERSION = 1            # 생성 방식이 바뀌면 올린다 → 문장 파일을 모두 다시 만든다 (v1.1은 v1.0 캐시와 같은 키)
 DEFAULT_MODEL = "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice"     # 사연자 (화자 + 말투 지시)
 DEFAULT_CLONE_MODEL = "Qwen/Qwen3-TTS-12Hz-1.7B-Base"       # 진행자 (기준 목소리 복제)
@@ -416,7 +420,8 @@ def spec_of(voice, instruct):
 def pace_ok(pc):
     try:
         lo, hi, st = float(pc.get("min", 0)), float(pc.get("max", 99)), float(pc.get("max_stretch", 0.15))
-        return isinstance(pc, dict) and 0 < lo < hi and 0 < st <= 0.25
+        sp = float(pc.get("speed", 1.0))
+        return isinstance(pc, dict) and 0 < lo < hi and 0 < st <= 0.25 and 0.8 <= sp <= 1.25
     except Exception:
         return False
 
@@ -630,6 +635,8 @@ class QwenPool:
         return m
 
     def check_speakers(self, speakers):
+        if not speakers:        # custom_voice 역할이 없으면 화자 확인용으로 CustomVoice 모델(3.8GB)을 불러오지 않는다 (v1.6)
+            return
         spk = self.get("custom_voice").get_supported_speakers() or []
         for s in sorted(speakers):
             if spk and s.lower() not in [x.lower() for x in spk]:
@@ -812,11 +819,16 @@ def make_sentence(engine, cache_dir, label, text, spec, syl, args, redo=False, r
     _, x, sr, attempt, seed, ok, issues, warns, m, gen_s = best
     pace_factor = 1.0
     pc = spec.get("pace")
-    if pc and syl >= SHORT_SYL and m["rate"] > 0:   # 말 속도 맞추기: 범위 밖이면 가장 가까운 끝으로 (음 높이 그대로, ±max_stretch 까지)
+    if pc and m["rate"] > 0:   # 말 속도 맞추기 (음 높이 그대로, ±max_stretch 까지)
         lo, hi, lim = float(pc.get("min", 0)), float(pc.get("max", 99)), float(pc.get("max_stretch", 0.15))
-        target = min(max(m["rate"], lo), hi)
-        if abs(target - m["rate"]) > 1e-3:
-            f = min(max(target / m["rate"], 1 - lim), 1 + lim)
+        sp = float(pc.get("speed", 1.0))   # 모든 문장을 이 배수로 (v1.6) → 그다음 [min, max] 안으로
+        if syl >= SHORT_SYL:
+            target = min(max(m["rate"] * sp, lo), hi)
+            f = target / m["rate"]
+        else:                              # 짧은 문장은 속도 재기가 부정확 → speed 만 고르게
+            f, target = sp, m["rate"] * sp
+        f = min(max(f, 1 - lim), 1 + lim)
+        if abs(f - 1) > 1e-3:
             y = atempo(x, sr, f)
             if y is not None:
                 before = m["rate"]
@@ -825,7 +837,8 @@ def make_sentence(engine, cache_dir, label, text, spec, syl, args, redo=False, r
                 m2["f0"] = m["f0"]
                 issues = issues2 + [i for i in issues if i.startswith("목소리 높이")]
                 ok, m = not issues, m2
-                log("PACE", item=label, role=role, rate_before=before, rate_after=m["rate"], factor=f, target=f"{lo}-{hi}")
+                log("PACE", item=label, role=role, rate_before=before, rate_after=m["rate"], factor=round(f, 3), speed=sp,
+                    target=f"{lo}-{hi}")
     write_wav(wav_p, x, sr)
     meta = {"key": key, "text": text, "instruct": spec["instruct"], "syl": syl, "sr": sr, "attempt": attempt, "seed": seed,
             "base_seed": spec["seed"], "role": role,
@@ -1650,6 +1663,12 @@ def sample_ident(role, c, cfg, voices):
     return sha(ident)
 
 
+def frozen_current(role, c, voices, meta):
+    """current 후보 샘플은 '고르기 전 목소리'의 기록이다. 역할을 고른 뒤에는 설정이 바뀌어 정체가 달라져도
+    그 샘플을 그대로 둔다 (다시 만들면 고른 목소리를 한 번 더 녹음할 뿐 — v1.6)."""
+    return c["how"] == "current" and bool(voices[role].get("picked")) and bool(meta)
+
+
 def samples_status(cfg, voices):
     """→ [(역할, 후보, 정체, 저장소에 이 정체의 샘플이 있는지)]"""
     out = []
@@ -1658,7 +1677,8 @@ def samples_status(cfg, voices):
             P = sample_paths(role, c["id"])
             ident = sample_ident(role, c, cfg, voices)
             meta = json.loads(P["meta"].read_text("utf-8")) if P["meta"].is_file() else {}
-            out.append((role, c, ident, P["mp3"].is_file() and meta.get("ident") == ident))
+            have = P["mp3"].is_file() and (meta.get("ident") == ident or frozen_current(role, c, voices, meta))
+            out.append((role, c, ident, have))
     return out
 
 
@@ -1775,7 +1795,7 @@ def write_samples_readme(cfg, voices):
              f"자동 생성 — `tools/tts_narration.py samples` ({VERSION}). 후보 설정: `samples.json`. 고친 뒤에는 Kaggle 셀을 다시 돌리면 바뀐 후보만 다시 만든다.", "",
              "**고르는 법:** 아래 mp3를 듣고 Claude에게 \"사연자 S0?, 진행자 H0?\"라고 말한다 → Claude 가 "
              "`python tools/tts_narration.py pick S0? H0?` 로 고정하고 main 에 올린다 → Kaggle 셀을 다시 돌리면 그 목소리로 모든 대본의 오디오를 만든다.",
-             "- **current(지금 목소리)** 를 고르면 그 역할은 아무것도 바뀌지 않는다.",
+             "- **current(지금 목소리)** 를 고르면 그 역할은 아무것도 바뀌지 않는다. 다른 후보를 고른 뒤에는 '고르기 전 목소리' 기록으로 남는다 (다시 고를 수는 없음 — git 으로 되돌림).",
              "- 다른 후보를 고르면, 아직 올리지 않은 영상 중 그 역할 오디오가 이미 있는 것은 다음 Kaggle 실행 때 새 목소리로 다시 만든다 (모든 대본 같은 목소리). "
              "이미 유튜브에 올린 영상(youtube.json 있음 — 주식 4개)은 그대로 둔다.", ""]
     for role in voices:
@@ -1785,9 +1805,11 @@ def write_samples_readme(cfg, voices):
         for c in cfg[role]:
             P = sample_paths(role, c["id"])
             m = json.loads(P["meta"].read_text("utf-8")) if P["meta"].is_file() else None
-            ok = m is not None and m.get("ident") == sample_ident(role, c, cfg, voices)
+            frozen = m is not None and m.get("ident") != sample_ident(role, c, cfg, voices) and frozen_current(role, c, voices, m)
+            ok = m is not None and (m.get("ident") == sample_ident(role, c, cfg, voices) or frozen)
             listen = f"[{c['id']}.mp3]({role}/{c['id']}.mp3)" if (P["mp3"].is_file() and ok) else "⏳ 아직 없음"
-            how = {"current": "지금 그대로", "custom_voice": f"화자 {c.get('speaker')}", "design": "묘사 → 복제"}[c["how"]]
+            how = {"current": "고르기 전 목소리" if frozen else "지금 그대로", "custom_voice": f"화자 {c.get('speaker')}",
+                   "design": "묘사 → 복제"}[c["how"]]
             picked = " ✅ 고름" if (voices[role].get("picked") or {}).get("id") == c["id"] else ""
             lines.append(f"| **{c['id']}**{picked} | {c['label']} | {how} | {listen} | {m['f0_hz'] if ok else '-'} | "
                          f"{m['rate'] if ok else '-'} | {'; '.join(m['issues']) if ok and m['issues'] else ('-' if ok else '')} |")

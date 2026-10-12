@@ -1,0 +1,18 @@
+{
+ "role": "storyteller",
+ "text": "그때는 정말 그게 최선이라고 믿었어요. 그런데 지금 돌아보면, 제 욕심이 모든 걸 망친 거였죠.",
+ "instruct": "A Korean man in his early 40s, an ordinary office worker, confessing how he lost a large sum of money in stocks. Acted with real but restrained emotion: a low, slightly husky voice that sounds wronged and bitter at first, then sinks into quiet self-blame. He sighs softly before painful numbers, his voice catches a little on the loss, and he speaks at a natural conversational pace, slowing down on key numbers and speeding up slightly when frustrated. Sincere, not theatrical, no shouting, no crying. Natural standard Seoul Korean accent, every word clear.",
+ "language": "Korean",
+ "model": "Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+ "seed": 3402,
+ "f0_hz": 107.1,
+ "dur": 9.22,
+ "rate": 4.01,
+ "sha1": "b2098b3eb85b6a0a",
+ "sample": "S07",
+ "label": "40대 초반 남성 직장인 — 손실에 억울해하다 자책으로 가라앉는 연기 톤, 자연스러운 속도",
+ "picked": "2026-10-12",
+ "created": "2026-10-12T11:19:38",
+ "tool": "tts_narration.py v1.6",
+ "_설명": "사연자 기준 목소리 — 사용자가 고른 샘플 S07. 모든 대본의 이 역할 문장이 이 소리를 복제한다. 손으로 바꾸지 않는다 (바꾸면 해시 검사에서 멈춤). 바꾸려면 다른 샘플을 pick"
+}

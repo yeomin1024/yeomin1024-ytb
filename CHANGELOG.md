@@ -1,5 +1,31 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-12 — 목소리 고정: 사연자 S07(말 속도 조금 더 빠르게)·진행자 H04 (tts_narration v1.6)
+
+### 왜 (사용자 지시: "사연자는 말하는 속도 조금 더 빠르게 해서 S07, 진행자는 H04로 정했어 수정해")
+
+### 고친 것
+| 파일 | 함수·항목 | 내용 |
+|---|---|---|
+| `voices/storyteller.json` v2.1, `voices/ref/storyteller.wav`·`.json` (새로) | `pick S07` | engine clone, 기준 소리 = S07 샘플 기준 소리(107.1Hz, 시드 3402, sha1 b2098b3eb85b6a0a), gap 0.55, lock. **pace {min 4.2, max 5.2} → {speed 1.1, min 4.6, max 5.8, max_stretch 0.15}** (⚠️ 말 속도 설정 변경 — 사용자 지시) |
+| `voices/host.json`, `voices/ref/host.wav`·`.json` | `pick H04` | 진행자 기준 소리 H01(따뜻한 중저음) → **H04**(30대 초반, 또렷하고 밝은 중저음). 옛 소리는 git 기록 |
+| `tools/tts_narration.py` v1.6 | `pace_ok`, `make_sentence` | `pace.speed`: 모든 문장을 이 배수로 빠르게 한 뒤 [min, max] 안으로(음 높이 그대로, 최대 ±max_stretch), 짧은 문장도 speed 만큼. speed 없으면 v1.5와 같음. 로그 `[PACE] … speed=` |
+| 〃 | `frozen_current`, `samples_status`, `write_samples_readme` | 고른 뒤 current 후보(S01·H01) 샘플은 '고르기 전 목소리' 기록으로 두고 다시 만들지 않음 (고친 문제: pick 뒤 README에 '⏳ 아직 없음'으로 나오고 samples 가 2개를 다시 만들려 함) |
+| 〃 | `check_speakers` | custom_voice 역할이 없으면 CustomVoice 모델(3.8GB)을 불러오지 않음 (고친 문제: 두 역할 모두 clone 인데 화자 확인만을 위해 내려받아 이 세션 디스크가 거의 참 — Kaggle에서도 시간·메모리 낭비) |
+| `voices/samples/README.md`·`samples.json` | | S07·H04 '✅ 고름', pace 설명에 speed |
+| `CLAUDE.md`, `guides/tts_guide.md` v1.7 | 4-0 | 고른 결과·속도 기록 |
+
+### 확인 (같은 문장 3+3개를 이 세션 CPU에서 실제 모델로 — `build --txt`, 9분 32초)
+| 역할 | 문장 | 생성 속도 → 맞춘 속도 (음절/초) | 배율 | 높이 |
+|---|---|---|---|---|
+| 사연자 S07 | 1 "그날 계좌를 열어 보고…" | 4.99 → 5.48 | ×1.100 | 118.8Hz |
+| 〃 | 2 "-800만 원이 찍힌…" | 4.80 → 5.27 | ×1.100 | 125.7Hz |
+| 〃 | 3 "조금만 기다렸으면…" | 5.35 → 5.78 | ×1.084 (상한 5.8) | 106.2Hz |
+| 진행자 H04 | 1~3 | 6.08 · 5.78 · 6.38 (pace 없음) | - | 137·118·119Hz |
+- 전(S07 샘플, 옛 pace): 같은 3문장 4.19 · 5.22 · 5.16 → 후: 5.48 · 5.27 · 5.78. 문장마다 생성 결과가 달라(시드) 원래 속도도 다르지만, 같은 문장 기준 약 10% 빨라짐. 품질 검사 6문장 모두 통과(ok=True)
+- 이미 올린 주식 영상 4개(`stock_backup/`, ⏸ 보류)는 옛 목소리 그대로. 지금 Kaggle `all` 을 돌리면 오디오가 없는 15개 대본을 S07·H04로 만든다 — 15개 모두 사연 72~137초로 20~30초 규칙에 어긋남 → 사용자 결정 필요
+- 연구·교육용, 투자 권유 아님
+
 ## 2026-10-12 — 패닉셀 영상 사연 줄이기: 스튜디오에서 자를 구간 5개, 대본·SRT·챕터를 잘라 낸 영상 기준으로 (studio_trim v1.0)
 
 ### 왜 (사용자 지시: "패닉셀 영상 오디오 편집은 되는것 같은데 사연 부분을 줄일려고 하는데 자를 부분좀 알려줘봐 그리고 대본 파일도 수정해봐")

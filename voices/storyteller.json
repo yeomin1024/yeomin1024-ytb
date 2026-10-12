@@ -1,6 +1,6 @@
 {
   "_설명": "사연자 목소리 설정 — 대본에서 파트 라벨에 '사연'이 든 문장(1인칭 고백)을 읽는다. tools/tts_narration.py v1.3 이 읽는다. 사용법: guides/tts_guide.md 6번",
-  "_버전": "v1.2 — 2026-10-11 — engine custom_voice 를 적어 둠 (진행자는 clone 으로 바뀜, 사연자는 그대로 Sohee) (v1.1: preset 삭제, v1.0: 최초 작성)",
+  "_버전": "v2.1 — 2026-10-12 — 사용자 지시 \"사연자는 말하는 속도 조금 더 빠르게 해서 S07\": pace {\"min\": 4.2, \"max\": 5.2, \"max_stretch\": 0.15} → speed 1.1(모든 문장 약 10% 빠르게, 음 높이 그대로) · 범위 4.6~5.8음절/초 · 최대 ±15% (tts_narration v1.6) (picked S07 — 2026-10-12 — 사용자가 샘플 S07(40대 초반 남성 직장인 — 손실에 억울해하다 자책으로 가라앉는 연기 톤, 자연스러운 속도)를 고름 → 모든 대본 이 목소리 (v1.2 — 2026-10-11 — engine custom_voice 를 적어 둠 (진행자는 clone 으로 바뀜, 사연자는 그대로 Sohee) (v1.1: preset 삭제, v1.0: 최초 작성)))",
   "_항목": {
     "picked": "사용자가 고른 목소리 샘플 {id, label, date, sample} — tools/tts_narration.py pick 이 쓴다. 두 역할 모두 있어야 오디오를 만든다 (guides/tts_guide.md 4-0)",
     "parts": "이 역할이 읽는 파트 — 파트 라벨에 이 낱말이 들어 있으면 사연자",
@@ -10,18 +10,45 @@
     "seed": "기본 시드 (문장마다 글 내용으로 정해진 만큼 더한다). 바꾸면 모든 문장을 새로 만든다",
     "gap": "이 역할의 문장 사이 쉼(초). 0.2 이상 — align-audio 가 이 쉼으로 문장 경계를 찾는다",
     "generation": "생성 설정 {temperature, top_p, top_k, repetition_penalty} — 비우면 모델 기본값",
-    "engine": "custom_voice = 화자(speaker) + 말투 지시(instruct)로 읽는다 (Qwen3-TTS CustomVoice)"
+    "engine": "custom_voice = 화자(speaker) + 말투 지시(instruct)로 읽는다 (Qwen3-TTS CustomVoice)",
+    "pace": "말 속도 {speed, min, max, max_stretch} — 문장마다 speed 배로 빠르게 한 뒤 [min, max](음절/초) 안으로, 음 높이는 그대로(ffmpeg atempo), 한 문장 최대 ±max_stretch. 바꾸면 이 역할 문장을 다시 만든다 (tts_narration v1.6)"
   },
   "role": "storyteller",
   "name": "사연자",
   "parts": [
     "사연"
   ],
-  "engine": "custom_voice",
+  "engine": "clone",
   "speaker": "Sohee",
   "instruct": "Speak like someone confessing a painful stock-market loss: regretful and aggrieved, a low voice that trembles slightly, slow pace, a soft sigh before key phrases, bitter self-blame as if holding back tears. Keep every word clear.",
   "part_instruct": {},
-  "seed": 1234,
-  "gap": 0.45,
-  "generation": {}
+  "seed": 3401,
+  "gap": 0.55,
+  "generation": {},
+  "picked": {
+    "id": "S07",
+    "label": "40대 초반 남성 직장인 — 손실에 억울해하다 자책으로 가라앉는 연기 톤, 자연스러운 속도",
+    "date": "2026-10-12",
+    "sample": "voices/samples/storyteller/S07.mp3"
+  },
+  "lock": true,
+  "ref_audio": "voices/ref/storyteller.wav",
+  "ref_meta": "voices/ref/storyteller.json",
+  "design": {
+    "instruct": "A Korean man in his early 40s, an ordinary office worker, confessing how he lost a large sum of money in stocks. Acted with real but restrained emotion: a low, slightly husky voice that sounds wronged and bitter at first, then sinks into quiet self-blame. He sighs softly before painful numbers, his voice catches a little on the loss, and he speaks at a natural conversational pace, slowing down on key numbers and speeding up slightly when frustrated. Sincere, not theatrical, no shouting, no crying. Natural standard Seoul Korean accent, every word clear.",
+    "text": "그때는 정말 그게 최선이라고 믿었어요. 그런데 지금 돌아보면, 제 욕심이 모든 걸 망친 거였죠.",
+    "seed": 3402,
+    "tries": 4,
+    "f0_range": [
+      80,
+      165
+    ],
+    "f0_target": 115
+  },
+  "pace": {
+    "speed": 1.1,
+    "min": 4.6,
+    "max": 5.8,
+    "max_stretch": 0.15
+  }
 }

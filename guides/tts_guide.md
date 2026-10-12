@@ -1,8 +1,8 @@
 # 내레이션 만들기 — 오픈소스 음성 AI(Qwen3-TTS)를 Kaggle에서 (모든 주제 공통)
 
-버전: v1.6 — 2026-10-12 — 사용자 지시: 사연자 남성 후보(억울·자책 연기 톤) S07·S08, 말 속도 맞추기(pace), 터미널에서 바로 듣기(listen) (v1.5 — 2026-10-12 — 사용자 지시: **사연자·진행자 목소리 샘플을 각각 여러 개 만들고, 사용자가 고르면 그 목소리로 일관되게** (4-0). 고르기 전에는 셀이 오디오 대신 샘플만 만든다 (v1.4 — 2026-10-11 — 사용자 지시: 진행자 목소리는 중저음 남성(귀에 쏙쏙 들어오고 신뢰감 있게), 대본마다 달라지면 안 됨 → 기준 목소리 하나를 저장소에 고정하고 모든 대본이 복제 (1번, 4-1번) (v1.3.1: 셀이 `git pull` 대신 Kaggle 사본을 main과 똑같이 맞춤 (`Your local changes ... would be overwritten by merge` 오류 해결) (v1.3: 사용자 지시: 오디오는 고르지 않고 하나로(말투 시험·선택 단계 삭제, 영상마다 `narration.mp3` 하나), 결과 파일은 GitHub의 대본 폴더마다 자동으로 올린다(`--push`), Kaggle 셀 하나 (v1.2: 사연자·진행자 목소리 설정 파일, 대본 전부 한 번에 `all`; v1.1: 셀에 도구 파일을 붙여 넣지 말 것; v1.0: 사용자 지시: edge-tts는 어색하다 → 오픈소스 음성 AI로, Kaggle에서, 사연은 억울하고 후회하는 톤))))
+버전: v1.7 — 2026-10-12 — 사용자 지시: **사연자 S07(말 속도 조금 더 빠르게)·진행자 H04로 고정** — `pace.speed`(모든 문장을 이 배수로) 추가 (v1.6 — 2026-10-12 — 사용자 지시: 사연자 남성 후보(억울·자책 연기 톤) S07·S08, 말 속도 맞추기(pace), 터미널에서 바로 듣기(listen) (v1.5 — 2026-10-12 — 사용자 지시: **사연자·진행자 목소리 샘플을 각각 여러 개 만들고, 사용자가 고르면 그 목소리로 일관되게** (4-0). 고르기 전에는 셀이 오디오 대신 샘플만 만든다 (v1.4 — 2026-10-11 — 사용자 지시: 진행자 목소리는 중저음 남성(귀에 쏙쏙 들어오고 신뢰감 있게), 대본마다 달라지면 안 됨 → 기준 목소리 하나를 저장소에 고정하고 모든 대본이 복제 (1번, 4-1번) (v1.3.1: 셀이 `git pull` 대신 Kaggle 사본을 main과 똑같이 맞춤 (`Your local changes ... would be overwritten by merge` 오류 해결) (v1.3: 사용자 지시: 오디오는 고르지 않고 하나로(말투 시험·선택 단계 삭제, 영상마다 `narration.mp3` 하나), 결과 파일은 GitHub의 대본 폴더마다 자동으로 올린다(`--push`), Kaggle 셀 하나 (v1.2: 사연자·진행자 목소리 설정 파일, 대본 전부 한 번에 `all`; v1.1: 셀에 도구 파일을 붙여 넣지 말 것; v1.0: 사용자 지시: edge-tts는 어색하다 → 오픈소스 음성 AI로, Kaggle에서, 사연은 억울하고 후회하는 톤)))))
 
-도구: `tools/tts_narration.py` v1.5 · 목소리 후보: `voices/samples/samples.json` → 샘플 `voices/samples/README.md` · 목소리 설정: `voices/storyteller.json`(사연자, 여성 Sohee), `voices/host.json`(진행자, 중저음 남성) · 진행자 기준 목소리: `voices/ref/host.wav`
+도구: `tools/tts_narration.py` v1.6 · 목소리 후보: `voices/samples/samples.json` → 샘플 `voices/samples/README.md` · 목소리 설정: `voices/storyteller.json`(사연자, **S07 남성 — 고정**), `voices/host.json`(진행자, **H04 — 고정**) · 진행자 기준 목소리: `voices/ref/host.wav`
 결과: 영상마다 오디오 **하나** — `<주제폴더>/source/<영상ID>/narration.mp3`가 **대본 폴더마다 각각** GitHub main에 자동으로 올라가고, 4단계(`guides/pipeline.md`)가 이어진다.
 ※ 연구·교육용 도구다. 주식 영상 내용은 투자 권유가 아니다.
 
@@ -113,7 +113,10 @@ os.environ["GITHUB_TOKEN"] = UserSecretsClient().get_secret("GITHUB_TOKEN")
 - 후보를 바꾸거나 더하려면 `samples.json`을 고친 뒤 셀을 다시 실행 → 바뀐 후보만 새로 만든다. 일부만 다시: `python tools/tts_narration.py samples --only S04,H02 --force --push`
 - **바로 듣기 (터미널):** `python tools/tts_narration.py listen S07 S08` (ffplay·afplay·mpv로 재생) · 만들면서 듣기: `samples --only S07,S08 --play`. 소리 장치가 없는 곳(Kaggle·클라우드)에서는 경로를 알려 주고, Kaggle 셀에서는 `from IPython.display import Audio; Audio("voices/samples/storyteller/S07.mp3")`로 듣는다.
 - **말 속도 맞추기 (`pace`):** 후보·역할 설정 `{"min": 4.2, "max": 5.2, "max_stretch": 0.15}`(음절/초) — 고른 문장의 속도가 범위 밖이면 음 높이는 그대로 두고(ffmpeg atempo) ±15% 안에서 늘이거나 줄인다. 로그 `[PACE] rate_before= rate_after= factor=`, 보고서 '속도 맞춤 ×0.93'. S07·S08에 들어 있고 pick 하면 사연자 설정으로 옮겨진다. 문장 사이 쉼도 S07·S08은 0.55초(고백하듯 조금 길게).
+  - **`speed` (v1.6):** `{"speed": 1.1, ...}` → 모든 문장을 먼저 1.1배 빠르게 한 뒤 [min, max] 안으로 (짧은 문장도 speed 만큼). 지금 사연자 설정: `{"speed": 1.1, "min": 4.6, "max": 5.8, "max_stretch": 0.15}` (사용자 지시 "말하는 속도 조금 더 빠르게"). speed 를 바꾸면 사연자 문장을 다시 만든다.
 - 고른 뒤 다른 후보로 바꿀 때도 `pick`. current ID(S01·H01)는 샘플을 만든 때의 설정으로만 돌아갈 수 있다 — 설정이 바뀐 뒤에는 `pick`이 거절하고, git으로 되돌린다.
+
+- **고른 결과 (2026-10-12, 사용자):** 사연자 **S07**(40대 초반 남성, 억울함→자책 연기 톤, 말 속도 조금 더 빠르게 — `pace.speed` 1.1), 진행자 **H04**(30대 초반, 또렷하고 밝은 중저음, 경제 유튜버). `pick S07 H04` → `voices/ref/storyteller.wav`(새로)·`voices/ref/host.wav`(H01 → H04로 바뀜). 이미 올린 주식 영상 4개(`stock_backup/`)는 옛 목소리 그대로.
 
 ### 4-1. 진행자 목소리는 모든 대본에서 같다 (사용자 지시 2026-10-11)
 - 4-0에서 묘사 후보를 고르면 그 후보의 기준 소리가 `voices/ref/host.wav`가 된다. 아래 1~2는 기준 소리가 아예 없을 때만 한다.
@@ -188,6 +191,7 @@ os.environ["GITHUB_TOKEN"] = UserSecretsClient().get_secret("GITHUB_TOKEN")
 
 | 버전 | 날짜 | 변경 내용 |
 |---|---|---|
+| v1.7 | 2026-10-12 | 사용자 지시: 사연자 S07(말 속도 조금 더 빠르게)·진행자 H04 고정 (`pick S07 H04`), `pace.speed` 1.1 (`tts_narration.py` v1.6) |
 | v1.6 | 2026-10-12 | 사용자 지시: 사연자를 남자로(손실로 억울해하며 자책하는 연기 톤), 자연스러운 속도, 터미널에서 바로 듣기 — 후보 S07·S08, `pace`(속도 맞추기), `listen`·`samples --play` (4-0) |
 | v1.5 | 2026-10-12 | 사용자 지시: 사연자·진행자 목소리 샘플을 각각 여러 개 만들고 사용자가 고르면 그 목소리로 일관되게 — 4-0(후보 12개 `voices/samples/samples.json`, 샘플 `voices/samples/`, `pick`, 고르기 전에는 셀이 샘플만), 3번 '하는 일' 0단계, 6번 `picked`, 업로드한 영상은 다시 만들지 않음 |
 | v1.4 | 2026-10-11 | 사용자 지시: 진행자는 중저음 남성(귀에 쏙쏙 들어오고 신뢰감 있게), 대본마다 달라지면 안 됨 — 기준 목소리를 처음 한 번 VoiceDesign으로 만들어(남성 중저음 85~150Hz·속도·무음 검사, 사람이 고르지 않음) `voices/ref/host.wav`로 고정하고 모든 대본이 Base 모델로 복제. 문장마다 높이 ±30% 검사, lock, 목소리가 바뀐 오디오는 다시 만듦. 1번 모델 표, 4-1 |

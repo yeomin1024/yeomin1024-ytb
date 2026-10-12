@@ -9,7 +9,7 @@
 - **전체 진행 순서(분석 → 주제 → 제작 → 요약 문서 → 내레이션(Kaggle) → 오디오가 생기면 렌더·비공개 업로드): `guides/pipeline.md`**
 - 스토리보드는 만들지 않는다. 요약 문서에도 넣지 않는다. 오디오가 생기면 승인을 기다리지 않고 바로 영상을 만든다 (영상 코드가 없으면 Claude가 만들고 still로 스스로 점검). (사용자 지시 2026-10-10)
 - 내레이션 목소리는 사연자·진행자 후보 샘플(`voices/samples/`)을 사용자가 듣고 고른 것으로 고정해 모든 대본에 쓴다. 고르기 전에는 Kaggle 셀이 오디오 대신 샘플만 만든다. 사용자가 "사연자 S0?, 진행자 H0?"라고 하면 `python tools/tts_narration.py pick S0? H0?` 후 main에 커밋 (`guides/tts_guide.md` 4-0). (사용자 지시 2026-10-12)
-- 사연자는 **남자 목소리**로, 손실을 보고 억울해하며 자책하는 연기 톤, 자연스러운 말 속도(`pace` 4.2~5.2음절/초) — 후보 S07·S08. 샘플은 `listen`으로 바로 듣는다. (사용자 지시 2026-10-12)
+- **고른 목소리 (사용자 지시 2026-10-12): 사연자 S07, 진행자 H04** — `voices/storyteller.json`·`voices/host.json`에 고정(`picked`), 기준 소리 `voices/ref/storyteller.wav`·`voices/ref/host.wav`. 사연자는 남자 목소리로 손실을 보고 억울해하며 자책하는 연기 톤, 말 속도는 S07 샘플보다 **조금 빠르게**(`pace` speed 1.1, 4.6~5.8음절/초, 음 높이 그대로). 샘플·목소리는 `listen`으로 바로 듣는다.
 - 대본의 사연 파트는 20~30초(5~7문장, 읽는 음절 85~125)로 짧지만 강렬하게, 첫 문장에 결과 숫자. 진행자는 늦어도 0:30에 시작 (`guides/script_guide.md` 0-1의 13번, `srt_tool.py check`가 검사). 근거: 패닉셀 평균 시청 시간 약 50초 (사용자 지시 2026-10-12)
 - 내레이션은 사연자·진행자 두 목소리로 읽어 영상마다 오디오 하나(`narration.mp3`)로 만든다. 말투는 고르지 않는다 (설정 `voices/storyteller.json`·`voices/host.json`). Kaggle 셀 하나(`tools/tts_narration.py all --push`)가 결과를 **대본 폴더마다** `<주제폴더>/source/<영상ID>/`에 main으로 올린다 (`guides/tts_guide.md`). (사용자 지시 2026-10-11)
 - 진행자 목소리는 대본마다 달라지면 안 된다: 저장소의 기준 목소리 `voices/ref/host.wav` 하나를 모든 대본이 복제한다. 손으로 바꾸지 않고, 바꿀 때는 `voices/host.json` 을 고친 뒤 `tts_narration.py voice --force --push` (그러면 모든 영상 오디오를 다시 만든다). (사용자 지시 2026-10-11)

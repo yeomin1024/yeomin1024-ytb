@@ -1,0 +1,30 @@
+{
+  "tool": "youtube_feedback.py v1.0",
+  "collected_at": "2026-10-12T08:12:58+00:00",
+  "collected_kst": "2026-10-12 17:12",
+  "video": {
+    "topic": "stock",
+    "id": "molppang-2026-10",
+    "youtubeId": "ZyFe-J6kEc0",
+    "title": "한 종목에만 몰빵해서 얻은 천만원 수익이 -2천만원이 됐습니다. 한 종목 올인한 사람들의 최악의 결말",
+    "publishAt": "2026-10-11T12:00:00Z",
+    "uploadedAt": "2026-10-11T10:06:43+00:00"
+  },
+  "sources": {
+    "data": "api_key",
+    "analytics": "권한 없음 — OAuth 에 yt-analytics.readonly 가 없음 → Google Cloud 'YouTube Analytics API' 사용 설정 + tools/youtube_auth.py 다시 실행(권한 모두 체크) → 새 YOUTUBE_REFRESH_TOKEN",
+    "comments": "api_key"
+  },
+  "public": {
+    "privacyStatus": "public",
+    "publishAt": null,
+    "publishedAt": "2026-10-11T12:00:37Z",
+    "duration_s": 478.0,
+    "viewCount": 0,
+    "likeCount": 0,
+    "commentCount": 0
+  },
+  "analytics": null,
+  "comments": [],
+  "warnings": []
+}

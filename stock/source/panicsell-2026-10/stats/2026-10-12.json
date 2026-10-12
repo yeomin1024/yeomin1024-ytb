@@ -1,0 +1,30 @@
+{
+  "tool": "youtube_feedback.py v1.0",
+  "collected_at": "2026-10-12T08:12:58+00:00",
+  "collected_kst": "2026-10-12 17:12",
+  "video": {
+    "topic": "stock",
+    "id": "panicsell-2026-10",
+    "youtubeId": "q8JRMl8cN5Q",
+    "title": "하락장이 무서워 -800만원에 다 팔았는데 그 뒤 +30% 반등했습니다. 패닉셀한 사람들이 마지막에 꼭 하는 후회",
+    "publishAt": "2026-10-11T12:00:00Z",
+    "uploadedAt": "2026-10-11T10:34:05+00:00"
+  },
+  "sources": {
+    "data": "api_key",
+    "analytics": "권한 없음 — OAuth 에 yt-analytics.readonly 가 없음 → Google Cloud 'YouTube Analytics API' 사용 설정 + tools/youtube_auth.py 다시 실행(권한 모두 체크) → 새 YOUTUBE_REFRESH_TOKEN",
+    "comments": "api_key"
+  },
+  "public": {
+    "privacyStatus": "public",
+    "publishAt": null,
+    "publishedAt": "2026-10-11T12:00:29Z",
+    "duration_s": 465.0,
+    "viewCount": 1,
+    "likeCount": 0,
+    "commentCount": 0
+  },
+  "analytics": null,
+  "comments": [],
+  "warnings": []
+}

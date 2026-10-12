@@ -1,0 +1,41 @@
+{
+ "id": "H06",
+ "role": "host",
+ "label": "30대 후반 — 차분하고 부드러운 바리톤, 심야 라디오 진행자",
+ "how": "design",
+ "ident": "1807d3cce7ebf241",
+ "speaker": "-",
+ "instruct": "A Korean man in his late 30s with a calm, soft baritone voice, like a late-night radio host: intimate, sincere and trustworthy, a smooth medium pace, clear articulation and subtle emphasis. Natural standard Seoul Korean accent.",
+ "seed": 4501,
+ "preview": [
+  "시장 전체가 무너지는 날이면, 많은 분들이 이런 생각을 하죠.",
+  "첫째, 한 종목에 넣는 돈은 전체의 15%를 넘기지 않습니다.",
+  "7천만 원 계좌라면, 한 종목에 1,050만 원까지입니다."
+ ],
+ "seconds": 14.83,
+ "f0_hz": 112.7,
+ "rate": 5.63,
+ "issues": [],
+ "models": {
+  "custom_voice": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+  "clone": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "design": "Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign"
+ },
+ "created": "2026-10-12T10:00:28",
+ "tool": "tts_narration.py v1.4",
+ "ref": {
+  "audio": "voices/samples/host/H06_ref.wav",
+  "text": "주가가 크게 흔들릴 때일수록 숫자부터 차분하게 확인해야 합니다. 오늘은 실제 자료로, 왜 그런지 하나씩 짚어 보겠습니다.",
+  "sha1": "73652dcc4498ffcc",
+  "f0_hz": 113.7,
+  "seed": 4502,
+  "dur": 8.41,
+  "rate": 5.83,
+  "in_range": true,
+  "f0_range": [
+   85,
+   160
+  ],
+  "design_model": "Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign"
+ }
+}

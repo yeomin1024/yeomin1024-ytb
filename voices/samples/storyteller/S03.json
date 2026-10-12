@@ -1,0 +1,26 @@
+{
+ "id": "S03",
+ "role": "storyteller",
+ "label": "Sohee — 감정이 더 실린 억울한 고백",
+ "how": "custom_voice",
+ "ident": "b69ceb9e63359772",
+ "speaker": "Sohee",
+ "instruct": "Speak like someone telling a painful story of loss with strong regret and frustration: a voice heavy with emotion, a soft sigh before the key moment, bitter self-blame, slower on the numbers, close to tears but every word clear.",
+ "seed": 1302,
+ "preview": [
+  "그날 계좌를 열어 보고, 한참 동안 아무 말도 할 수 없었어요.",
+  "-800만 원이 찍힌 그 화면을, 저는 아직도 잊지 못해요.",
+  "조금만 기다렸으면 됐는데, 겁에 질려 전부 팔아 버린 거죠."
+ ],
+ "seconds": 17.65,
+ "f0_hz": 241.2,
+ "rate": 4.6,
+ "issues": [],
+ "models": {
+  "custom_voice": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+  "clone": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "design": "Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign"
+ },
+ "created": "2026-10-12T09:55:47",
+ "tool": "tts_narration.py v1.4"
+}

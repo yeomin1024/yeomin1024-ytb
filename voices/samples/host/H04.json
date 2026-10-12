@@ -1,0 +1,43 @@
+{
+ "id": "H04",
+ "role": "host",
+ "label": "30대 초반 — 또렷하고 밝은 중저음, 경제 유튜버",
+ "how": "design",
+ "ident": "545bf915526cf162",
+ "speaker": "-",
+ "instruct": "A Korean man in his early 30s with a clear, bright mid-low voice, like a popular economics YouTuber explaining things to friends: friendly and energetic but credible, a slightly brisk pace, crisp articulation and emphasis on key numbers. Natural standard Seoul Korean accent.",
+ "seed": 4301,
+ "preview": [
+  "시장 전체가 무너지는 날이면, 많은 분들이 이런 생각을 하죠.",
+  "첫째, 한 종목에 넣는 돈은 전체의 15%를 넘기지 않습니다.",
+  "7천만 원 계좌라면, 한 종목에 1,050만 원까지입니다."
+ ],
+ "seconds": 14.87,
+ "f0_hz": 115.4,
+ "rate": 5.73,
+ "issues": [
+  "속도 6.4음절/초 (3.8~6.0)"
+ ],
+ "models": {
+  "custom_voice": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+  "clone": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "design": "Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign"
+ },
+ "created": "2026-10-12T09:59:15",
+ "tool": "tts_narration.py v1.4",
+ "ref": {
+  "audio": "voices/samples/host/H04_ref.wav",
+  "text": "주가가 크게 흔들릴 때일수록 숫자부터 차분하게 확인해야 합니다. 오늘은 실제 자료로, 왜 그런지 하나씩 짚어 보겠습니다.",
+  "sha1": "e36c19a225874205",
+  "f0_hz": 127.7,
+  "seed": 4302,
+  "dur": 7.69,
+  "rate": 6.37,
+  "in_range": true,
+  "f0_range": [
+   90,
+   165
+  ],
+  "design_model": "Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign"
+ }
+}

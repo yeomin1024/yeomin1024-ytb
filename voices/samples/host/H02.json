@@ -1,0 +1,43 @@
+{
+ "id": "H02",
+ "role": "host",
+ "label": "30대 후반 — 지금과 같은 묘사, 다른 시드 (뉴스 앵커·다큐 내레이터)",
+ "how": "design",
+ "ident": "06e6c784c23670e7",
+ "speaker": "-",
+ "instruct": "A Korean man in his late 30s with a warm, mid-low baritone voice. He sounds like a trusted news anchor or documentary narrator: calm, confident and highly credible. Crisp, clear articulation so every word is easy to catch, a steady medium pace, and lively but restrained emphasis on key numbers so the listener stays engaged. Natural standard Seoul Korean accent. Not monotone, not exaggerated, no shouting.",
+ "seed": 4101,
+ "preview": [
+  "시장 전체가 무너지는 날이면, 많은 분들이 이런 생각을 하죠.",
+  "첫째, 한 종목에 넣는 돈은 전체의 15%를 넘기지 않습니다.",
+  "7천만 원 계좌라면, 한 종목에 1,050만 원까지입니다."
+ ],
+ "seconds": 14.33,
+ "f0_hz": 140.4,
+ "rate": 5.88,
+ "issues": [
+  "문장 안 무음 1.1초"
+ ],
+ "models": {
+  "custom_voice": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+  "clone": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "design": "Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign"
+ },
+ "created": "2026-10-12T09:57:43",
+ "tool": "tts_narration.py v1.4",
+ "ref": {
+  "audio": "voices/samples/host/H02_ref.wav",
+  "text": "주가가 크게 흔들릴 때일수록 숫자부터 차분하게 확인해야 합니다. 오늘은 실제 자료로, 왜 그런지 하나씩 짚어 보겠습니다.",
+  "sha1": "57e235e1fed83e48",
+  "f0_hz": 145.5,
+  "seed": 4102,
+  "dur": 8.99,
+  "rate": 5.45,
+  "in_range": true,
+  "f0_range": [
+   85,
+   160
+  ],
+  "design_model": "Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign"
+ }
+}

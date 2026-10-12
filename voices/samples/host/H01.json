@@ -1,0 +1,32 @@
+{
+ "id": "H01",
+ "role": "host",
+ "label": "지금 기준 목소리 그대로 — 따뜻한 중저음 (voices/ref/host.wav, 주식 영상 4개에 쓴 목소리)",
+ "how": "current",
+ "ident": "eb4f25bf56d2f2d8",
+ "speaker": "-",
+ "instruct": "",
+ "seed": 1234,
+ "preview": [
+  "시장 전체가 무너지는 날이면, 많은 분들이 이런 생각을 하죠.",
+  "첫째, 한 종목에 넣는 돈은 전체의 15%를 넘기지 않습니다.",
+  "7천만 원 계좌라면, 한 종목에 1,050만 원까지입니다."
+ ],
+ "seconds": 15.24,
+ "f0_hz": 140.8,
+ "rate": 5.5,
+ "issues": [],
+ "models": {
+  "custom_voice": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+  "clone": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "design": "Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign"
+ },
+ "created": "2026-10-12T09:57:03",
+ "tool": "tts_narration.py v1.4",
+ "ref": {
+  "audio": "voices/ref/host.wav",
+  "sha1": "bdd386da96b6d968",
+  "f0_hz": 139.9,
+  "text": "주가가 크게 흔들릴 때일수록 숫자부터 차분하게 확인해야 합니다. 오늘은 실제 자료로, 왜 그런지 하나씩 짚어 보겠습니다."
+ }
+}

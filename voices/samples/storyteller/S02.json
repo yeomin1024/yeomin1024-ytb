@@ -1,0 +1,26 @@
+{
+ "id": "S02",
+ "role": "storyteller",
+ "label": "Sohee — 차분하고 담담한 고백",
+ "how": "custom_voice",
+ "ident": "4b80933e1dc4d607",
+ "speaker": "Sohee",
+ "instruct": "Speak like someone quietly confessing a costly mistake they deeply regret: calm, subdued and sincere, a slightly low voice, medium-slow pace, brief pauses before numbers, no crying. Keep every word clear.",
+ "seed": 1301,
+ "preview": [
+  "그날 계좌를 열어 보고, 한참 동안 아무 말도 할 수 없었어요.",
+  "-800만 원이 찍힌 그 화면을, 저는 아직도 잊지 못해요.",
+  "조금만 기다렸으면 됐는데, 겁에 질려 전부 팔아 버린 거죠."
+ ],
+ "seconds": 18.14,
+ "f0_hz": 230.8,
+ "rate": 4.46,
+ "issues": [],
+ "models": {
+  "custom_voice": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+  "clone": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "design": "Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign"
+ },
+ "created": "2026-10-12T09:55:11",
+ "tool": "tts_narration.py v1.4"
+}

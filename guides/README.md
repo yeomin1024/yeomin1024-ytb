@@ -1,6 +1,6 @@
 # 공통 지시사항 — 모든 주제에 쓰는 영상 제작 규칙
 
-버전: v1.7 — 2026-10-11 — 사용자 지시: 업로드 설정 '변경되거나 합성된 콘텐츠' = 예 (v1.6: 썸네일 3개 모두 아래쪽 제목 문구 2줄·thumbnail_3은 검은 배경에 채택 제목 문구 그대로(노랑·빨강 강조), 렌더 뒤 음량 -14 LUFS (v1.5: 진행자는 중저음 남성, 모든 대본에서 같은 목소리 (v1.4: 오디오는 고르지 않고 하나로, 결과 파일은 대본 폴더마다 GitHub에 자동으로 (v1.3: 스토리보드·승인 단계 삭제(오디오가 생기면 바로 영상), 내레이션은 사연자·진행자 목소리 설정 파일(`voices/`)로 대본 전부 한 번에, 사례는 되도록 최신 (v1.2: 내레이션은 Kaggle에서 오픈소스 음성 AI로, v1.1: 전체 진행 순서를 `pipeline.md`로 (분석 → 지시사항·주제 → 제목·썸네일 프롬프트·업로드 시트·대본·스토리보드 → 요약 문서 → 오디오가 생기면 렌더·비공개 업로드))
+버전: v1.8 — 2026-10-12 — 사용자 지시: 사연 20~30초로 짧지만 강렬하게, 내레이션 목소리는 샘플을 듣고 골라 고정 (v1.7: 업로드 설정 '변경되거나 합성된 콘텐츠' = 예; v1.6: 썸네일 3개 모두 아래쪽 제목 문구 2줄·thumbnail_3은 검은 배경에 채택 제목 문구 그대로(노랑·빨강 강조), 렌더 뒤 음량 -14 LUFS (v1.5: 진행자는 중저음 남성, 모든 대본에서 같은 목소리 (v1.4: 오디오는 고르지 않고 하나로, 결과 파일은 대본 폴더마다 GitHub에 자동으로 (v1.3: 스토리보드·승인 단계 삭제(오디오가 생기면 바로 영상), 내레이션은 사연자·진행자 목소리 설정 파일(`voices/`)로 대본 전부 한 번에, 사례는 되도록 최신 (v1.2: 내레이션은 Kaggle에서 오픈소스 음성 AI로, v1.1: 전체 진행 순서를 `pipeline.md`로 (분석 → 지시사항·주제 → 제목·썸네일 프롬프트·업로드 시트·대본·스토리보드 → 요약 문서 → 오디오가 생기면 렌더·비공개 업로드))
 
 이 폴더(`guides/`)는 **주제와 상관없이** 쓰는 지시사항이다. 주제마다 다른 내용(시청자, 금액 기준, 고지 문구, 근거 자료, 피드백 사례)은 각 주제 폴더의 `guides/`에 있다.
 **주제 규칙이 공통 규칙과 다르면 주제 규칙을 따른다.**
@@ -26,12 +26,12 @@
 |---|---|---|---|
 | 1 | 분석 결과가 없으면 분석기 실행 | `bash tools/run_analysis.sh <주제폴더>` | `result/` |
 | 2 | 분석 결과로 주제 규칙·`data_insights.md` 만들기·고치기 → 주제 탐색 | `data_insights.md` 9번, `title_guide.md` 0번 | `guides/`, 주제 후보 |
-| 3 ① | 대본 TXT·SRT·README — SRT 검사: 문장 / 자막 / SRT–TXT 일치 / 고지 공백. 사례·연구는 되도록 최신(2020년대 먼저) | `script_guide.md` | `source/<영상ID>/` |
+| 3 ① | 대본 TXT·SRT·README — **사연은 20~30초**(5~7문장, 첫 문장에 결과 숫자). SRT 검사: 문장 / 자막 / SRT–TXT 일치 / 고지 공백 / 사연 길이. 사례·연구는 되도록 최신(2020년대 먼저) | `script_guide.md` | `source/<영상ID>/` |
 | 3 ② | 제목 3개 (1개 채택, 짝 썸네일) | `title_guide.md` 11번 | `source/<영상ID>/titles.md` |
 | 3 ③ | 썸네일 **프롬프트** 3개 — 모두 아래쪽 제목 문구 2줄, thumbnail_3은 검은 배경에 채택 제목 문구 그대로 (이미지는 사용자가 이미지 AI로) | `thumbnail_guide.md` | `source/<영상ID>/thumbnails/thumbnail_1~3.md` |
 | 3 ④ | 업로드 시트 (제목·설명란·챕터 명령·태그·고정 댓글) | `upload_guide.md` | `source/<영상ID>/upload.md` |
 | 3-5 | 영상별 요약 문서 (스토리보드 없음) | `python tools/make_summary.py <주제폴더> <영상ID>` | `source/<영상ID>/summary.md` |
-| 3-6 | 내레이션 (사용자, Kaggle 셀 하나): 대본 전부 → 사연자·진행자 목소리 → 영상마다 오디오 하나 → 대본 폴더마다 GitHub에 자동으로 | `python tools/tts_narration.py all --push`, `tts_guide.md` | `source/<영상ID>/narration.mp3` |
+| 3-6 | 내레이션 (사용자, Kaggle 셀 하나): (처음 한 번) 목소리 후보 샘플 → 사용자가 듣고 고름 → Claude `pick` → 대본 전부 → 고른 사연자·진행자 목소리 → 영상마다 오디오 하나 → 대본 폴더마다 GitHub에 자동으로 | `python tools/tts_narration.py all --push`, `tts_guide.md` | `source/<영상ID>/narration.mp3` |
 | 4 | 오디오가 생기면 → 영상 코드가 없으면 Claude가 만들고 스스로 점검(**승인 없음**) → SRT 맞춤 → 렌더 → 음량 맞춤(-14 LUFS) → 유튜브 **비공개** 업로드 + 1시간 뒤 예약 공개 (최대 3개) | `video_guide.md` 6번, `bash tools/publish.sh`, `upload_guide.md` 9번 | `video/src/episodes/<영상ID>/`, `out/<영상ID>/final_1080p.mp4`, `source/<영상ID>/youtube.json` |
 | 그 뒤 | 스튜디오에서 테스트 및 비교(썸네일 3개)·자동 더빙 확인·공개 전환 → 결과 기록 | `upload_guide.md` 7번 | `upload.md`·`titles.md`·`thumbnails/*.md` 결과 칸 |
 
@@ -54,6 +54,7 @@ Claude Code에 시킬 때 예시는 `pipeline.md` 마지막 표에 있다.
 
 | 버전 | 날짜 | 변경 내용 |
 |---|---|---|
+| v1.8 | 2026-10-12 | 사용자 지시: 사연 20~30초 (`script_guide.md` v2.4 0-1의 13번·2-1, 주제 `script_rules.md`, `srt_tool.py` v1.5 검사 — 근거 패닉셀 평균 시청 약 50초), 목소리 샘플 고르기 (`tts_guide.md` v1.5 4-0, `tts_narration.py` v1.4 samples·pick) |
 | v1.7 | 2026-10-11 | 사용자 지시: 업로드 설정 '변경되거나 합성된 콘텐츠' = 예 (AI 음성 내레이션, `upload_guide.md` v1.4, `youtube_upload.py` v1.3이 자동 등록) |
 | v1.6 | 2026-10-11 | 사용자 지시: 썸네일 하단 제목 2줄·thumbnail_3 검은 배경 제목형 (`thumbnail_guide.md` v1.3, 주제 `thumbnail_rules.md`), 4단계 렌더 뒤 음량 맞춤 (`video_guide.md` v3.6, `tools/loudnorm.py`) |
 | v1.5 | 2026-10-11 | 사용자 지시: 진행자 중저음 남성·모든 대본 같은 목소리 (`tts_guide.md` 4-1) |

@@ -2,6 +2,7 @@
   "_설명": "진행자 목소리 설정 — 사연 파트를 뺀 나머지 모든 파트(진행자·문제 분석·올바른 방법·마무리)를 읽는다. 중저음 남성, 모든 대본에서 같은 목소리. tools/tts_narration.py v1.3 이 읽는다. 사용법: guides/tts_guide.md 6번",
   "_버전": "v2.0 — 2026-10-11 — 사용자 지시: 진행자는 중저음의 남성, 적당히 귀에 쏙쏙 들어오고 신뢰도 높은 목소리, 대본마다 달라지면 안 됨 → 기준 목소리(voices/ref/host.wav)를 한 번 만들어 고정하고 모든 대본에서 복제(engine clone), lock (v1.1: preset 삭제, v1.0: Sohee 차분한 진행)",
   "_항목": {
+    "picked": "사용자가 고른 목소리 샘플 {id, label, date, sample} — tools/tts_narration.py pick 이 쓴다. 두 역할 모두 있어야 오디오를 만든다 (guides/tts_guide.md 4-0)",
     "engine": "clone = 기준 목소리 파일을 복제해 읽는다 (Qwen3-TTS Base). 사연자처럼 화자+말투 지시는 custom_voice",
     "lock": "true = 주제·영상 폴더의 덮어쓰기와 명령줄 값을 받지 않는다 (모든 대본 같은 목소리)",
     "ref_audio": "기준 목소리 소리 파일 (voices/ref/ — 역할 설정 파일과 섞이지 않게 하위 폴더) — 없으면 design 으로 한 번 만들어 main 에 올린다. 손으로 바꾸지 않는다",

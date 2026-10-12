@@ -1,5 +1,23 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-12 — 사연 20~30초 (script_guide v2.4, srt_tool v1.5) · 목소리 샘플을 듣고 고르기 (tts_narration v1.4)
+
+### 왜 바꿨나 (사용자 지시: "패닉셀 영상이 평균 시청시간이 50초 정도되는데 20~30초 정도로 앞에 사연을 짧지만 강렬하게 하도록 지시사항 수정하고 오디오는 일단 사연자랑, 진행자 목소리 샘플을 각각 여러 개 생성하도록 수정해봐 내가 선택하면 그걸로 일관되게 하게")
+- 실측(`tts_narration.json`): 패닉셀 사연 16문장·83.1초, 진행자는 1:24에 시작 → 평균 시청 50초면 대부분 진행자 설명 전에 나감. 다른 주식 영상 사연 64.7~96.0초. 사연자 속도 4.31~4.61 읽는 음절/초(쉼 포함)
+
+| 영역 | 함수/파일 | 변경 내용 |
+|---|---|---|
+| 지시사항 | `guides/script_guide.md` v2.4 (0-1의 13번, 2-1) | 사연 = 5~7문장·읽는 음절 85~125(약 20~30초), 첫 문장에 결과 숫자, 진행자 0:30 전 시작, 압축 5비트 표(결과 먼저 → 행동·금액 → 결정적 장면 → 반전 확인 → 한탄)와 패닉셀 예(124음절 ≈ 28초) |
+| 지시사항 | 주제 `script_rules.md` (stock v1.4, health v1.3, lifetips·selfdev·space·story v1.2) | "1분 안" → "첫 문장", story 의 사연 18~26문장 규칙 폐기 |
+| 근거 | `stock/guides/data_insights.md` v1.1 10번 | 우리 영상 성과 표: 패닉셀 평균 시청 약 50초 / 사연 83초 |
+| 도구 | `tools/srt_tool.py` v1.5 `story_sentences`·`story_length`·`check` | 사연 파트(라벨에 '사연') 읽는 음절이 125를 넘으면 ❌, 85 미만이면 ⚠️. 출력 `/ 사연 N문장·M음절 ≈ S초 ✅/❌` (추정 = 음절 ÷ 4.4, 패닉셀 추정 85초 vs 실측 83초) |
+| 도구 | `tools/tts_narration.py` v1.4 `samples`·`pick` (신규), `design_best`(VoiceDesign 고르기 공통, `ensure_reference`가 씀), `load_samples_cfg`·`sample_ident`·`samples_status`·`make_samples`·`write_samples_readme`·`run_samples`·`unpicked_roles`, `cmd_all`·`cmd_build` 잠금 | 후보 12개(`voices/samples/samples.json`: 사연자 S01 지금 Sohee·S02~S03 Sohee 말투·S04~S06 묘사(여성 2·남성 1) / 진행자 H01 지금·H02~H06 묘사)마다 같은 문장 샘플 mp3 → `voices/samples/`. 묘사 후보는 기준 소리(시드 3개 중 높이·속도·무음 검사) → 복제로 읽어 실제 내레이션과 같은 방식. `pick S0? H0?`: current 그대로 / 화자·말투 고정 / 기준 소리를 `voices/ref/<역할>.wav`로 + clone, lock, `picked` 기록. 두 역할을 고르기 전에는 `all`이 샘플만, `build`는 멈춤. 이미 업로드한 영상은 목소리가 바뀌어도 다시 만들지 않음 |
+| 설정 | `voices/samples/samples.json`(신규), `voices/samples/README.md`(자동), `voices/storyteller.json`·`host.json`(`_항목.picked`) | 후보·문장 정의, 고르는 표 |
+| 지시사항 | `guides/tts_guide.md` v1.5 (3번 0단계, 4-0, 4-1, 6번), `guides/pipeline.md` v1.8, `guides/README.md` v1.8, `CLAUDE.md`, `README.md` | 목소리 고르기 순서, 사연 20~30초 |
+
+- 시험(가짜 소리, 임시 사본 + 로컬 원격): `all --fake --push` → 후보 12개 샘플·README·커밋·push ok, 다시 실행하면 make=0 / `pick S04 H01` → 사연자 clone(기준 소리 복사·해시 확인)·진행자 그대로, 잠금 풀림, `build health prediabetes-2026-10 --fake` 성공 / `pick S02 H03` → 사연자 Sohee 말투 고정·진행자 새 기준 소리 / 바뀐 뒤 `pick S01` 거절 / 고르기 전 `build` 멈춤. 실제 모델 이름으로 본 `check`: 사연자만 바뀜, 진행자 그대로
+- 지금 대본 19개 모두 사연이 67~137초라 `srt_tool.py check`에서 ❌ (주식 4개는 이미 업로드 — 고치지 않음, 나머지 15개는 사용자 결정 대기)
+
 ## 2026-10-11 — 올린 영상 통계 → 피드백 자료 (youtube_feedback v1.0 신규, youtube_auth v1.1)
 
 ### 왜 (사용자 지시: "영상을 올렸는데 관련 통계 자료들을 통해 피드백할 수 있는 자료를 만들어서 저장소에 올리는 코드도 만들어 분석은 하지말고 테스트만 해")

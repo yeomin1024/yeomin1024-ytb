@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.4 — 2026-10-10 — 파트 라벨 판정 수정: '-숫자'(음수 금액)로 시작하는 줄은 문장 (예: '-2,500만 원과 …'가 라벨로 빠지던 문제)
+# VERSION: v1.5 — 2026-10-12 — check 에 사연 길이 항목: 사연 파트 읽는 음절 85~125(약 20~30초)를 넘으면 ❌ (사용자 지시: 사연은 짧지만 강렬하게)
+#          (v1.4: 파트 라벨 판정 수정: '-숫자'(음수 금액)로 시작하는 줄은 문장)
 #          (v1.3: 자막 한 줄 1432px, 앞줄·뒷줄 자막, 고지 공백 SRT 안, 문장 번호 기준 내보내기)
 #          (v1.2: upload 챕터, v1.1: remotion 내보내기, v1.0: TXT → SRT 생성·검사)
 r"""
 대본 TXT로 SRT 자막을 만들거나, TXT와 SRT가 지시사항대로 맞는지 검사합니다. (표준 라이브러리만 사용)
 
-  python tools/srt_tool.py check <대본.txt> <자막.srt> [--expect 91/117]       # 문장 / 자막 / SRT–TXT 일치 / 고지 공백
+  python tools/srt_tool.py check <대본.txt> <자막.srt> [--expect 91/117]       # 문장 / 자막 / SRT–TXT 일치 / 고지 공백 / 사연 길이
   python tools/srt_tool.py build <대본.txt> <새.srt> [--reuse <기존.srt>]       # 대본으로 SRT 만들기 (타이밍은 추정치)
   python tools/srt_tool.py remotion <대본.txt> <자막.srt> video/src/episodes/<영상ID>/subtitles.ts [--audio-seconds 512.3 --audio-file audio/<영상ID>.mp3]
   python tools/srt_tool.py upload <대본.txt> <자막.srt> --chapters "1=사연;15=왜 물타기를 할까"   # 챕터 시간 (문장 번호 기준)
@@ -38,6 +39,12 @@ LINE_MAX_PX = 1432          # 자막 한 줄 최대 폭 = 띠 최대 1500px − 
 CARD_GAP_MIN = 3.5          # 고지 카드 공백 최소 (초)
 LEAD_IN_MAX = 2.0           # 첫 자막 앞 여백 허용 (초)
 EPS = 0.0015
+# 사연 길이 (사용자 지시 2026-10-12, guides/script_guide.md 0-1의 13번): 사연자 실측 4.3~4.6 읽는 음절/초(문장 사이 쉼 포함,
+# 주식 4개 영상 tts_narration.json) → 125음절 ≈ 27~29초, 85음절 ≈ 19~20초
+STORY_WORD = "사연"         # 파트 라벨에 이 낱말이 있으면 사연 파트 (voices/storyteller.json 의 parts 와 같음)
+STORY_SYL_MAX = 125
+STORY_SYL_MIN = 85
+STORY_RATE = 4.4            # 추정 초 = 읽는 음절 ÷ 이 값
 
 _DIG = "영일이삼사오육칠팔구"
 _NATIVE = {1: "한", 2: "두", 3: "세", 4: "네", 5: "다섯", 6: "여섯", 7: "일곱", 8: "여덟", 9: "아홉"}
@@ -193,6 +200,31 @@ def parse_txt(path):
         if not in_card:
             out.append(line)
     return out
+
+
+def story_sentences(path):
+    """파트 라벨에 '사연'이 든 파트의 문장 (사연자가 읽는 문장 — tts_narration 의 역할 판정과 같은 낱말)."""
+    out, part, in_card = [], "", False
+    for raw in Path(path).read_text("utf-8-sig").splitlines():
+        line = raw.strip()
+        if not line:
+            continue
+        if is_label(line):
+            part, in_card = line.lstrip("-").strip(), False
+            continue
+        if line.startswith("[장면]"):
+            in_card = True
+            continue
+        if not in_card and STORY_WORD in part:
+            out.append(line)
+    return out
+
+
+def story_length(path):
+    """→ (문장 수, 읽는 음절, 추정 초)."""
+    st = story_sentences(path)
+    syl = sum(syllables(x) for x in st)
+    return len(st), syl, syl / STORY_RATE
 
 
 def parse_cards(path):
@@ -365,11 +397,19 @@ def check(txt, srt, expect=None):
             problems.append(f"문장 수 {len(sents)} ≠ 기대값 {en}")
         if len(subs) != es:
             problems.append(f"자막 수 {len(subs)} ≠ 기대값 {es}")
+    st_n, st_syl, st_sec = story_length(txt)
+    story_ok = st_syl <= STORY_SYL_MAX
+    if st_n and not story_ok:
+        problems.append(f"사연 길이: {st_n}문장·읽는 음절 {st_syl} ≈ {st_sec:.0f}초 (> {STORY_SYL_MAX}음절 ≈ 30초) → 5~7문장으로 줄이기 "
+                        "(guides/script_guide.md 0-1의 13번, 사용자 지시 2026-10-12)")
+    elif st_n and st_syl < STORY_SYL_MIN:
+        warnings.append(f"사연 길이: 읽는 음절 {st_syl} ≈ {st_sec:.0f}초 (< {STORY_SYL_MIN}음절 ≈ 20초) — 결과 숫자·결정적 장면이 다 들어갔는지 확인")
     match = not gp
     total = subs[-1]["end"] if subs else 0
     print(f"[SRT] 문장 {len(sents)} / 자막 {len(subs)} (나뉜 문장 {split_n}개) / SRT–TXT {'일치 ✅' if match else '불일치 ❌'} / "
           + (" · ".join(f"고지 공백 문장 {n} 뒤 {g:.1f}초 {'✅' if g >= CARD_GAP_MIN else '❌'}" for n, g in card_gap_info) or "고지 카드 없음")
-          + f" / 끝 {_ts(total)}")
+          + f" / 끝 {_ts(total)}"
+          + (f" / 사연 {st_n}문장·{st_syl}음절 ≈ {st_sec:.0f}초 {'✅' if story_ok else '❌'}" if st_n else " / 사연 파트 없음"))
     for w in warnings:
         print("  ⚠️", w)
     for p in problems:
@@ -468,7 +508,7 @@ def main(argv=None):
     b.add_argument("txt")
     b.add_argument("out")
     b.add_argument("--reuse", help="기존 SRT (글자가 같은 문장은 길이·나눈 위치를 그대로 사용)")
-    c = sub.add_parser("check", help="문장 / 자막 / SRT–TXT 일치 / 고지 공백 검사")
+    c = sub.add_parser("check", help="문장 / 자막 / SRT–TXT 일치 / 고지 공백 / 사연 길이(20~30초) 검사")
     c.add_argument("txt")
     c.add_argument("srt")
     c.add_argument("--expect", help="기대값 '문장수/자막수' (예: 91/117)")

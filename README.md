@@ -201,6 +201,8 @@ python tools/make_summary.py --all                    # 3-5: 영상별 요약 �
 python tools/make_summary.py --thumb-todo stock       # 이미지가 없는 썸네일 프롬프트 모음 → stock/thumbnail_todo.md
 python tools/tts_narration.py all --push              # (Kaggle GPU) 대본 전부 → 영상마다 narration.mp3 하나 → 대본 폴더마다 GitHub에 올림 → guides/tts_guide.md
 python tools/tts_narration.py check stock <영상ID>     # 저장소 오디오가 지금 대본으로 만든 것인지
+python tools/tts_narration.py samples --push           # (Kaggle GPU) 목소리 후보 샘플 → voices/samples/ (목소리를 고르기 전에는 all 이 이것만 함)
+python tools/tts_narration.py pick S04 H01             # 고른 목소리로 고정 (GPU 필요 없음 — 사용자가 고르면 Claude 가 실행)
 bash tools/publish.sh --dry-run                       # 4단계 대상 확인 (오디오 있음·아직 안 올림·영상 코드 있음)
 bash tools/publish.sh                                 # 4단계: SRT 맞춤 → 렌더 → 음량 맞춤(-14 LUFS) → 비공개 업로드 (최대 3개)
 python tools/loudnorm.py --all                        # 이미 렌더한 영상들 음량만 다시 맞추기 (영상 스트림은 그대로)

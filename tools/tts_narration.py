@@ -1,14 +1,20 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.3 — 2026-10-11 — 사용자 지시: 진행자 목소리는 중저음 남성(귀에 잘 들어오고 신뢰감 있게), 대본마다 달라지지 않게 →
+# VERSION: v1.4 — 2026-10-12 — 사용자 지시: 사연자·진행자 목소리 샘플을 각각 여러 개 만들고(samples), 사용자가 고르면(pick) 그 목소리로
+#          모든 대본을 일관되게. 두 역할을 다 고르기 전에는 all 이 오디오 대신 샘플만 만들어 voices/samples/ 에 올린다.
+#          후보 설정 voices/samples/samples.json (current = 지금 목소리 그대로 / custom_voice = 화자+말투 / design = 묘사 → 기준 소리 → 복제)
+# (v1.3 — 2026-10-11 — 사용자 지시: 진행자 목소리는 중저음 남성(귀에 잘 들어오고 신뢰감 있게), 대본마다 달라지지 않게 →
 #          진행자는 저장소에 고정한 기준 목소리(voices/ref/host.wav)를 Base 모델로 복제. 기준 목소리는 없을 때 한 번만 VoiceDesign 으로
 #          만들어(목소리 높이 85~150Hz·속도·무음 검사) main 에 올린다. 문장마다 목소리 높이가 기준 ±30% 밖이면 다시 만든다.
 #          host.json lock(주제·영상 덮어쓰기 무시), 목소리 정체(voice_ids)가 바뀐 오디오는 옛 것으로 보고 다시 만든다. voice 명령
-#          (v1.2.1: Kaggle 사본 git 파일 모드 / v1.2: 오디오 하나·GitHub 대본 폴더에 올리기 / v1.1: 역할별 목소리 설정 / v1.0: 최초 작성)
+#          (v1.2.1: Kaggle 사본 git 파일 모드 / v1.2: 오디오 하나·GitHub 대본 폴더에 올리기 / v1.1: 역할별 목소리 설정 / v1.0: 최초 작성))
 r"""
 대본 TXT로 내레이션 오디오를 만듭니다. Kaggle 노트북(GPU T4)에서 돌리는 것을 기준으로 썼습니다. 사용법: guides/tts_guide.md
 
   python tools/tts_narration.py all --push                             # 저장소의 대본을 모두 읽어 오디오가 없는 영상 전부 → 영상마다 GitHub에 올림
+                                                                       #   (목소리를 아직 안 골랐으면 오디오 대신 목소리 샘플만 → voices/samples/)
+  python tools/tts_narration.py samples --push                         # 목소리 후보 샘플 (voices/samples/samples.json) → voices/samples/<역할>/<ID>.mp3
+  python tools/tts_narration.py pick S04 H01                           # 고른 목소리로 고정 (GPU 필요 없음 — Claude 가 실행하고 커밋)
   python tools/tts_narration.py all --dry-run                          # 무엇을 만들지 목록만 (모델 안 불러옴)
   python tools/tts_narration.py build stock panicsell-2026-10 --push   # 영상 하나
   python tools/tts_narration.py build stock panicsell-2026-10 --redo 12,15 --push   # 12·15번 문장만 새 시드로 다시
@@ -23,6 +29,12 @@ r"""
   - 진행자: Base — 저장소의 기준 목소리 voices/ref/host.wav 를 복제 (모든 대본·세션에서 같은 목소리)
   - 기준 목소리가 없을 때 한 번만: VoiceDesign — voices/host.json 의 design(중저음 남성 묘사)으로 만들어 main 에 올림
   - GPU 둘(T4 x2)이면 사연자 모델은 GPU 0, 진행자 모델은 GPU 1. 하나면 한 번에 한 모델만 올린다
+
+목소리 고르기 (사용자 지시 2026-10-12) — 역할마다 후보 샘플을 듣고 하나를 고르면, 그 목소리가 모든 대본에 고정된다
+  - samples: 후보마다 같은 문장(voices/samples/samples.json 의 text)을 읽힌 샘플 mp3 + 정보(json), design 후보는 기준 소리(_ref.wav)도
+  - pick <ID>...: current → 설정 그대로(이미 만든 오디오도 그대로) / custom_voice → 화자·말투 고정 / design → 기준 소리를 voices/ref/<역할>.wav 로
+    복사하고 복제(clone)로 고정. 둘 다 lock(주제·영상 덮어쓰기 무시). 목소리가 바뀐 역할의 오디오는 다음 all 이 다시 만든다
+  - 두 역할 모두 voices/<역할>.json 에 picked 가 생기기 전에는 all 이 오디오를 만들지 않고 샘플만 만든다 (build 는 멈춘다)
 
 역할 (사용자 지시 2026-10-10) — 말투는 설정 파일 하나로 정해져 있고 고르지 않는다 (사용자 지시 2026-10-11)
   - 사연자(storyteller): 파트 라벨에 '사연'이 든 문장 — 1인칭 고백. 설정 voices/storyteller.json
@@ -76,7 +88,7 @@ ROOT = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 import srt_tool  # noqa: E402  (문장·카드 판정을 자막 도구와 똑같이 쓰기 위해)
 
-VERSION = "v1.3"
+VERSION = "v1.4"
 CACHE_VERSION = 1            # 생성 방식이 바뀌면 올린다 → 문장 파일을 모두 다시 만든다 (v1.1은 v1.0 캐시와 같은 키)
 DEFAULT_MODEL = "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice"     # 사연자 (화자 + 말투 지시)
 DEFAULT_CLONE_MODEL = "Qwen/Qwen3-TTS-12Hz-1.7B-Base"       # 진행자 (기준 목소리 복제)
@@ -98,7 +110,11 @@ MIN_GAP = 0.2                # 역할 설정 gap 하한 — align-audio 가 문�
 
 VOICES_DIR = ROOT / "voices"           # 역할별 목소리 설정 (파일 이름 = 역할 = 결과 폴더 이름)
 VOICE_KEYS = {"role", "name", "parts", "engine", "lock", "speaker", "instruct", "part_instruct", "seed", "gap", "generation",
-              "ref_audio", "ref_meta", "design", "f0_tolerance"}
+              "ref_audio", "ref_meta", "design", "f0_tolerance", "picked"}
+SAMPLES_DIR = VOICES_DIR / "samples"   # 목소리 후보 샘플 (하위 폴더라 역할 설정과 섞이지 않음)
+SAMPLES_CFG = SAMPLES_DIR / "samples.json"
+SAMPLE_HOW = ("current", "custom_voice", "design")
+SAMPLE_GAP = 0.45                      # 샘플 문장 사이 쉼(초)
 ENGINES = ("custom_voice", "clone")
 GEN_KEYS = {"temperature", "top_p", "top_k", "repetition_penalty"}
 STORY_ROLE = "storyteller"             # 사연자 역할 (영상 코드 plan.ts 의 STORY_LAST 와 비교)
@@ -249,7 +265,7 @@ def load_voices(topic=None, vid=None, args=None, quiet=False):
             if ignored and not quiet:
                 log("VOICE", logging.WARNING, role=role, ignored=",".join(ignored), note="lock: 이 역할은 모든 대본에서 같은 목소리 — 덮어쓰기 무시")
         cfg = {"name": role, "parts": ["*"], "engine": "custom_voice", "lock": False, "speaker": "Sohee", "instruct": "",
-               "part_instruct": {}, "seed": 1234, "gap": 0.45, "generation": {}, "f0_tolerance": F0_TOL,
+               "part_instruct": {}, "seed": 1234, "gap": 0.45, "generation": {}, "f0_tolerance": F0_TOL, "picked": None,
                **cfg, "role": role, "files": files}
         voices[role] = cfg
     # 명령줄 덮어쓰기 (설정 파일을 고치지 않고 시험할 때) — 바꾼 것은 로그에 남긴다
@@ -1018,6 +1034,10 @@ def write_report(path, topic, vid, args, items, metas, timing, cards, total_s, v
 # ----------------------------------------------------------------------------- 명령: build (영상 하나)
 def cmd_build(args):
     root = out_root(args)
+    unpicked = unpicked_roles(load_voices(quiet=True))
+    if unpicked:
+        die("VOICE", f"목소리를 아직 고르지 않음: {','.join(unpicked)}",
+            "먼저 샘플을 듣고 고르기: Kaggle all --push(또는 samples --push) → voices/samples/README.md → Claude 가 pick")
     token = push_preflight(args)
     voices = load_voices(args.topic, args.id, args)
     engine = make_engine(args)
@@ -1122,10 +1142,19 @@ def cmd_all(args):
         out=root, list=",".join(p["video"] for p in mine) or "-",
         est_audio_min=sum(p["est_min"] for p in mine))
     done = [p for i, p in enumerate([p for p in plan if p["action"] == "done"]) if i % K == k]
-    for role, v in load_voices(quiet=True).items():
+    base_voices = load_voices(quiet=True)
+    for role, v in base_voices.items():
         if v["engine"] == "clone":
             log("PLAN", role=role, reference=v["ref_audio"] if v["ref_sha"] else "없음",
                 note=f"모든 대본이 이 기준 목소리 (높이 {v['ref_f0']}Hz)" if v["ref_sha"] else "처음 실행 때 한 번 만들어(VoiceDesign) voices/ref/ 에 올린 뒤 모든 대본이 복제")
+    unpicked = unpicked_roles(base_voices)
+    if unpicked:   # 사용자 지시 2026-10-12: 목소리 샘플을 듣고 고르기 전에는 오디오를 만들지 않는다
+        log("PLAN", logging.WARNING, unpicked=",".join(unpicked),
+            note="목소리를 아직 고르지 않음 → 이번에는 오디오 대신 목소리 후보 샘플만 만든다 (voices/samples/). 고른 뒤 같은 셀을 다시")
+        token = "" if args.dry_run else push_preflight(args)
+        if not run_samples(args, token, base_voices):
+            raise SystemExit(1)
+        return
     if args.dry_run:
         return
     token = push_preflight(args)
@@ -1393,6 +1422,44 @@ def commit_and_push(g, paths, msg, label, ok_note):
     return False
 
 
+# ----------------------------------------------------------------------------- 기준 소리 고르기 (VoiceDesign·샘플 공통)
+def design_best(engine, text, instruct, seed0, tries, f0_range, f0_target, label, gen=None):
+    """시드를 바꿔 tries 번 만들고 검사(목소리 높이 범위·말 속도·문장 안 무음) → (가장 알맞은 것, 모든 시도).
+    가장 알맞은 것 = 높이가 범위 안인 것 중 검사 통과 → 목표 높이·기준 속도에 가까운 순. 범위 안이 없으면 전체에서 고른다(in_range=False).
+    gen(seed, max_new) 를 주면 VoiceDesign 대신 그 함수로 만든다(예: CustomVoice). 시도 = dict(x, sr, f0, m, seed, issues, in_range)."""
+    lo, hi = f0_range
+    center = float(f0_target if f0_target else (lo + hi) / 2)
+    syl = srt_tool.syllables(text)
+    max_new = int(FRAME_HZ * max(syl, 4) / 2.0) + 50
+    cands = []
+    for i in range(tries):
+        seed = seed0 + i
+        res = gen(seed, max_new) if gen else engine.design(text, instruct, seed, max_new)
+        if res is None:
+            continue
+        x, sr = res
+        x = trim(np.nan_to_num(x, nan=0.0, posinf=0.0, neginf=0.0), sr)
+        _, issues, _, m = check(x, sr, syl, False)
+        f0 = f0_median(x, sr) if x.size else 0.0
+        in_range = lo <= f0 <= hi
+        if not in_range:
+            issues.append(f"높이 {f0:.0f}Hz (범위 {lo}~{hi}Hz 아님)")
+        if not DESIGN_RATE[0] <= m["rate"] <= DESIGN_RATE[1]:
+            issues.append(f"속도 {m['rate']:.1f}음절/초 ({DESIGN_RATE[0]}~{DESIGN_RATE[1]})")
+        if m["inner_sil"] > DESIGN_MAX_SIL:
+            issues.append(f"문장 안 무음 {m['inner_sil']:.1f}초")
+        log("VOICE", item=label, attempt=i + 1, seed=seed, f0_hz=f0, rate=m["rate"], dur=m["dur"], inner_sil=m["inner_sil"],
+            ok=not issues, issues=";".join(issues) or "-")
+        score = (0 if not issues else 1, abs(f0 - center) / center + abs(math.log(max(m["rate"], 1e-3) / RATE_REF)))
+        cands.append({"score": score, "in_range": in_range, "seed": seed, "x": x, "sr": sr, "f0": f0, "m": m, "issues": issues})
+    pool = [c for c in cands if c["in_range"]] or cands
+    best = min(pool, key=lambda c: c["score"]) if pool else None
+    if best is not None and best["issues"]:
+        log("VOICE", logging.WARNING, item=label, chosen_seed=best["seed"], issues=";".join(best["issues"]),
+            note="모든 검사를 통과한 시도가 없어 가장 나은 것 — 귀로 확인")
+    return best, cands
+
+
 # ----------------------------------------------------------------------------- 진행자 기준 목소리 (처음 한 번)
 def ensure_reference(engine, voices, args, token, force=False):
     """clone 역할의 기준 목소리가 저장소에 없으면(또는 force) VoiceDesign 으로 한 번 만들어 voices/ 에 저장하고 main 에 올린다.
@@ -1407,40 +1474,14 @@ def ensure_reference(engine, voices, args, token, force=False):
             continue
         d = v.get("design") or {}
         lo, hi = d.get("f0_range", [85, 150])
-        center = float(d.get("f0_target", (lo + hi) / 2))   # 중저음 쪽으로 (기본 110Hz)
         text, instruct, seed0, tries = d["text"], d["instruct"], int(d.get("seed", 2026)), int(d.get("tries", 6))
-        syl = srt_tool.syllables(text)
-        max_new = int(FRAME_HZ * max(syl, 4) / 2.0) + 50
         log("VOICE", role=role, step="기준 목소리 만들기", model=engine.ids["design"], tries=tries, f0_range=f"{lo}-{hi}Hz",
             instruct=instruct, text=text)
-        cands = []
-        for i in range(tries):
-            seed = seed0 + i
-            res = engine.design(text, instruct, seed, max_new)
-            if res is None:
-                continue
-            x, sr = res
-            x = trim(np.nan_to_num(x, nan=0.0, posinf=0.0, neginf=0.0), sr)
-            ok, issues, warns, m = check(x, sr, syl, False)
-            f0 = f0_median(x, sr) if x.size else 0.0
-            if not lo <= f0 <= hi:
-                issues.append(f"높이 {f0:.0f}Hz (남성 중저음 {lo}~{hi}Hz 아님)")
-            if not DESIGN_RATE[0] <= m["rate"] <= DESIGN_RATE[1]:
-                issues.append(f"속도 {m['rate']:.1f}음절/초 ({DESIGN_RATE[0]}~{DESIGN_RATE[1]})")
-            if m["inner_sil"] > DESIGN_MAX_SIL:
-                issues.append(f"문장 안 무음 {m['inner_sil']:.1f}초")
-            log("VOICE", role=role, attempt=i + 1, seed=seed, f0_hz=f0, rate=m["rate"], dur=m["dur"], inner_sil=m["inner_sil"],
-                ok=not issues, issues=";".join(issues) or "-")
-            in_range = lo <= f0 <= hi
-            score = (0 if not issues else 1, abs(f0 - center) / center + abs(math.log(max(m["rate"], 1e-3) / RATE_REF)))
-            cands.append((score, in_range, seed, x, sr, f0, m, issues))
-        good = [c for c in cands if c[1]]
-        if not good:   # 남성 중저음 범위가 하나도 없으면 만들지 않는다 (엉뚱한 목소리로 고정되지 않게)
+        best, cands = design_best(engine, text, instruct, seed0, tries, (lo, hi), d.get("f0_target"), role)
+        if best is None or not best["in_range"]:   # 범위 안 높이가 하나도 없으면 만들지 않는다 (엉뚱한 목소리로 고정되지 않게)
             die("VOICE", f"{tries}번 모두 목소리 높이가 {lo}~{hi}Hz 밖", "voices/host.json 의 design.seed 를 바꾸거나 tries 를 늘려 다시",
-                f0s=",".join(f"{c[5]:.0f}" for c in cands) or "-")
-        score, _, seed, x, sr, f0, m, issues = min(good, key=lambda c: c[0])
-        if issues:
-            log("VOICE", logging.WARNING, role=role, chosen_seed=seed, issues=";".join(issues), note="모든 검사를 통과한 시도가 없어 높이가 맞는 것 중 가장 나은 것")
+                f0s=",".join(f"{c['f0']:.0f}" for c in cands) or "-")
+        seed, x, sr, f0, m = best["seed"], best["x"], best["sr"], best["f0"], best["m"]
         ref.parent.mkdir(parents=True, exist_ok=True)
         write_wav(ref, x, sr)
         meta = {"role": role, "text": text, "instruct": instruct, "language": args.language, "model": engine.ids["design"],
@@ -1496,6 +1537,339 @@ def cmd_push(args):
         return
     if not push_results(root, entries, token, args):
         raise SystemExit(1)
+
+
+# ----------------------------------------------------------------------------- 목소리 고르기: samples · pick (사용자 지시 2026-10-12)
+def load_samples_cfg(voices):
+    """voices/samples/samples.json 읽기·검사 → dict. 역할마다 후보 목록과 같은 문장(text.<역할>.ref·preview)."""
+    if not SAMPLES_CFG.is_file():
+        die("SAMPLES", "후보 설정 없음", "저장소를 git pull 했는지 (voices/samples/samples.json)", file=rel(SAMPLES_CFG))
+    try:
+        cfg = json.loads(SAMPLES_CFG.read_text("utf-8-sig"))
+    except json.JSONDecodeError as e:
+        die("SAMPLES", f"JSON 오류: {e}", "쉼표·따옴표·괄호 확인", file=rel(SAMPLES_CFG))
+    seen = set()
+    for role in voices:
+        t = (cfg.get("text") or {}).get(role) or {}
+        if not t.get("ref") or not t.get("preview"):
+            die("SAMPLES", f"{role}: text.{role}.ref·preview 가 없음", "samples.json 의 text 채우기")
+        if not cfg.get(role):
+            die("SAMPLES", f"{role}: 후보가 없음", f"samples.json 에 \"{role}\": [ … ]")
+        for c in cfg[role]:
+            if c.get("id") in seen or not c.get("id"):
+                die("SAMPLES", f"후보 id 가 비었거나 겹침: {c.get('id')}", "S01·H01 처럼 하나씩 다르게")
+            seen.add(c["id"])
+            if c.get("how") not in SAMPLE_HOW:
+                die("SAMPLES", f"{c['id']}: how 는 {'/'.join(SAMPLE_HOW)}", "samples.json 확인")
+            if c["how"] == "custom_voice" and not (c.get("speaker") and c.get("instruct")):
+                die("SAMPLES", f"{c['id']}: custom_voice 는 speaker·instruct 필요", "samples.json 확인")
+            if c["how"] == "design" and not (c.get("instruct") and c.get("f0_range")):
+                die("SAMPLES", f"{c['id']}: design 은 instruct·f0_range 필요", "samples.json 확인")
+    return cfg
+
+
+def find_sample(cfg, voices, sid):
+    for role in voices:
+        for c in cfg.get(role, []):
+            if c["id"].lower() == str(sid).lower():
+                return role, c
+    die("PICK", f"없는 후보: {sid}", "voices/samples/README.md 의 ID (예: S04, H01)")
+
+
+def sample_paths(role, sid, base=None):
+    d = (base or SAMPLES_DIR) / role
+    return {"dir": d, "mp3": d / f"{sid}.mp3", "ref": d / f"{sid}_ref.wav", "meta": d / f"{sid}.json"}
+
+
+def sample_ident(role, c, cfg, voices):
+    """후보 하나의 정체 — 후보 설정·문장·모델·(current 면 지금 목소리 정체)가 바뀌면 샘플을 다시 만든다."""
+    ident = {"role": role, "c": {k: v for k, v in c.items() if k != "label"}, "text": cfg["text"][role],
+             "models": engine_ids(None), "cache": CACHE_VERSION}
+    if c["how"] == "current":
+        ident["current"] = voice_ids({role: voices[role]}, None)[role]
+    return sha(ident)
+
+
+def samples_status(cfg, voices):
+    """→ [(역할, 후보, 정체, 저장소에 이 정체의 샘플이 있는지)]"""
+    out = []
+    for role in voices:
+        for c in cfg[role]:
+            P = sample_paths(role, c["id"])
+            ident = sample_ident(role, c, cfg, voices)
+            meta = json.loads(P["meta"].read_text("utf-8")) if P["meta"].is_file() else {}
+            out.append((role, c, ident, P["mp3"].is_file() and meta.get("ident") == ident))
+    return out
+
+
+def unpicked_roles(voices):
+    return [r for r, v in voices.items() if not v.get("picked")]
+
+
+def sample_spec(role, c, voices, ref):
+    """후보로 미리 듣기 문장을 읽을 목소리 값 (spec_of 와 같은 모양). current 는 지금 설정 그대로."""
+    if c["how"] == "current":
+        v = voices[role]
+        if v["engine"] == "clone" and not v.get("ref_sha"):
+            return None
+        return spec_of(v, v["instruct"] if v["engine"] == "custom_voice" else "")
+    if c["how"] == "custom_voice":
+        return {"engine": "custom_voice", "speaker": c["speaker"], "instruct": c["instruct"], "gen": {},
+                "seed": int(c.get("seed", 1234)), "gap": SAMPLE_GAP}
+    if not ref:
+        return None
+    return {"engine": "clone", "speaker": "-", "instruct": "", "gen": {}, "seed": int(c.get("seed", 1234)), "gap": SAMPLE_GAP,
+            "ref_audio": str(ref["path"]), "ref_sha": ref["sha"], "ref_f0": ref["f0"], "ref_text": ref["text"], "f0_tol": F0_TOL}
+
+
+def make_samples(engine, args, cfg, voices, todo):
+    """후보마다: (design) 기준 소리 → 미리 듣기 문장 → mp3 하나 + 정보 json. 작업 폴더 OUT/samples/ 에 만들고,
+    저장소(voices/samples/<역할>/)에 복사한다(--fake 이고 원격이 github.com 이면 복사하지 않음). → 저장소에 쓴 파일 목록"""
+    work = out_root(args) / "samples"
+    cache = work / "cache"
+    cache.mkdir(parents=True, exist_ok=True)
+    to_repo = not (args.fake and origin_is_github())
+    refs, written, failed = {}, [], []
+    # 1) design 후보의 기준 소리 먼저 (VoiceDesign 모델을 한 번 올려 모두 만든 뒤 내린다 — GPU 메모리)
+    for role, c, ident, _ in todo:
+        if c["how"] != "design":
+            continue
+        text = cfg["text"][role]["ref"]
+        log("SAMPLES", role=role, id=c["id"], step="기준 소리", label=c["label"], f0_range=c["f0_range"], tries=int(c.get("tries", 3)))
+        best, _ = design_best(engine, text, c["instruct"], int(c.get("seed", 2026)), int(c.get("tries", 3)), c["f0_range"],
+                              c.get("f0_target"), c["id"])
+        if best is None:
+            failed.append(c["id"])
+            log("SAMPLES", logging.ERROR, id=c["id"], error="기준 소리를 만들지 못함", hint="로그의 오류 확인 후 samples --only " + c["id"])
+            continue
+        wp = work / role / f"{c['id']}_ref.wav"
+        wp.parent.mkdir(parents=True, exist_ok=True)
+        write_wav(wp, best["x"], best["sr"])
+        refs[c["id"]] = {"path": wp, "sha": hashlib.sha1(wp.read_bytes()).hexdigest()[:16], "f0": round(best["f0"], 1),
+                         "text": text, "seed": best["seed"], "m": best["m"], "issues": best["issues"], "in_range": best["in_range"]}
+    engine.unload("design")
+    # 2) 미리 듣기: 같은 모델끼리 모아서 (CustomVoice → Base 복제)
+    order = sorted(todo, key=lambda t: (t[1]["how"] == "design" or voices[t[0]]["engine"] == "clone" and t[1]["how"] == "current",
+                                        t[1]["id"]))
+    for role, c, ident, _ in order:
+        if c["id"] in failed:
+            continue
+        spec = sample_spec(role, c, voices, refs.get(c["id"]))
+        if spec is None:
+            failed.append(c["id"])
+            log("SAMPLES", logging.ERROR, id=c["id"], error="읽을 목소리가 없음 (current 인데 기준 소리 파일이 없음)",
+                hint="python tools/tts_narration.py voice --push 로 기준 소리를 먼저")
+            continue
+        clips, metas, sr = [], [], None
+        for j, text in enumerate(cfg["text"][role]["preview"], 1):
+            m = make_sentence(engine, cache, f"{c['id']}/p{j}", tts_text(text, []), spec, srt_tool.syllables(text), args, role=role)
+            x, s_ = read_wav(m["wav"])
+            sr = sr or s_
+            clips.append(x)
+            metas.append(m)
+        g = 10 ** (gain_for(clips, sr) / 20)
+        pieces = [silence(0.3, sr)]
+        for x in clips:
+            pieces += [x * g, silence(SAMPLE_GAP, sr)]
+        y = np.concatenate(pieces + [silence(0.4, sr)])
+        mp3 = export(y, sr, work / role / f"{c['id']}.mp3")
+        f0s = [m.get("f0", 0.0) for m in metas if m.get("f0")]
+        ref = refs.get(c["id"])
+        meta = {"id": c["id"], "role": role, "label": c["label"], "how": c["how"], "ident": ident,
+                "speaker": spec.get("speaker"), "instruct": c.get("instruct") or spec.get("instruct", ""),
+                "seed": spec["seed"], "preview": cfg["text"][role]["preview"], "seconds": round(len(y) / sr, 2),
+                "f0_hz": round(float(np.median(f0s)), 1) if f0s else 0.0,
+                "rate": round(float(np.mean([m["rate"] for m in metas])), 2),
+                "issues": sorted({i for m in metas for i in m["issues"]} | set((ref or {}).get("issues", []))),
+                "models": {k: v for k, v in engine.ids.items()}, "created": datetime.now().isoformat(timespec="seconds"),
+                "tool": f"tts_narration.py {VERSION}"}
+        if ref:
+            meta["ref"] = {"audio": rel(sample_paths(role, c["id"])["ref"]), "text": ref["text"], "sha1": ref["sha"],
+                           "f0_hz": ref["f0"], "seed": ref["seed"], "dur": round(ref["m"]["dur"], 2), "rate": round(ref["m"]["rate"], 2),
+                           "in_range": ref["in_range"], "f0_range": c["f0_range"], "design_model": engine.ids["design"]}
+        elif c["how"] == "current" and spec["engine"] == "clone":
+            meta["ref"] = {"audio": spec["ref_audio"], "sha1": spec["ref_sha"], "f0_hz": spec["ref_f0"], "text": spec["ref_text"]}
+        (work / role / f"{c['id']}.json").write_text(json.dumps(meta, ensure_ascii=False, indent=1) + "\n", "utf-8")
+        log("SAMPLES", role=role, id=c["id"], how=c["how"], mp3=mp3, seconds=meta["seconds"], f0_hz=meta["f0_hz"], rate=meta["rate"],
+            issues=";".join(meta["issues"]) or "-")
+        if to_repo:
+            P = sample_paths(role, c["id"])
+            P["dir"].mkdir(parents=True, exist_ok=True)
+            shutil.copy2(mp3, P["mp3"])
+            (P["meta"]).write_text(json.dumps(meta, ensure_ascii=False, indent=1) + "\n", "utf-8")
+            written += [P["mp3"], P["meta"]]
+            if ref:
+                shutil.copy2(ref["path"], P["ref"])
+                written.append(P["ref"])
+    if not to_repo:
+        log("SAMPLES", logging.WARNING, out=work, note="--fake: 샘플을 저장소에 넣지 않음 (작업 폴더에만)")
+    return written, failed
+
+
+def write_samples_readme(cfg, voices):
+    """voices/samples/README.md — 후보 표(듣기 링크·높이·속도·확인할 점). 사용자가 듣고 고르는 문서."""
+    lines = ["# 목소리 후보 샘플 — 듣고 하나씩 고르기", "",
+             f"자동 생성 — `tools/tts_narration.py samples` ({VERSION}). 후보 설정: `samples.json`. 고친 뒤에는 Kaggle 셀을 다시 돌리면 바뀐 후보만 다시 만든다.", "",
+             "**고르는 법:** 아래 mp3를 듣고 Claude에게 \"사연자 S0?, 진행자 H0?\"라고 말한다 → Claude 가 "
+             "`python tools/tts_narration.py pick S0? H0?` 로 고정하고 main 에 올린다 → Kaggle 셀을 다시 돌리면 그 목소리로 모든 대본의 오디오를 만든다.",
+             "- **current(지금 목소리)** 를 고르면 그 역할은 아무것도 바뀌지 않는다.",
+             "- 다른 후보를 고르면, 아직 올리지 않은 영상 중 그 역할 오디오가 이미 있는 것은 다음 Kaggle 실행 때 새 목소리로 다시 만든다 (모든 대본 같은 목소리). "
+             "이미 유튜브에 올린 영상(youtube.json 있음 — 주식 4개)은 그대로 둔다.", ""]
+    for role in voices:
+        t = cfg["text"][role]
+        lines += [f"## {voices[role]['name']} (`{role}`)", "", f"읽는 문장: " + " / ".join(f"\"{x}\"" for x in t["preview"]), "",
+                  "| ID | 목소리 | 방식 | 듣기 | 높이(Hz) | 속도(음절/초) | 확인할 점 |", "|---|---|---|---|---|---|---|"]
+        for c in cfg[role]:
+            P = sample_paths(role, c["id"])
+            m = json.loads(P["meta"].read_text("utf-8")) if P["meta"].is_file() else None
+            ok = m is not None and m.get("ident") == sample_ident(role, c, cfg, voices)
+            listen = f"[{c['id']}.mp3]({role}/{c['id']}.mp3)" if (P["mp3"].is_file() and ok) else "⏳ 아직 없음"
+            how = {"current": "지금 그대로", "custom_voice": f"화자 {c.get('speaker')}", "design": "묘사 → 복제"}[c["how"]]
+            picked = " ✅ 고름" if (voices[role].get("picked") or {}).get("id") == c["id"] else ""
+            lines.append(f"| **{c['id']}**{picked} | {c['label']} | {how} | {listen} | {m['f0_hz'] if ok else '-'} | "
+                         f"{m['rate'] if ok else '-'} | {'; '.join(m['issues']) if ok and m['issues'] else ('-' if ok else '')} |")
+        lines.append("")
+    lines += ["※ 높이·속도는 자동 측정값이다. 최종 판단은 귀로 한다. 연구·교육용 도구 — 영상 내용은 투자 권유가 아니다.", ""]
+    out = SAMPLES_DIR / "README.md"
+    out.write_text("\n".join(lines), "utf-8")
+    return out
+
+
+def run_samples(args, token, voices, only=None, force=False):
+    """할 일 정하기 → 만들기 → README → (--push) 올리기. → 성공 여부."""
+    cfg = load_samples_cfg(voices)
+    st = samples_status(cfg, voices)
+    only = {x.strip().lower() for x in (only or []) if x.strip()}
+    todo = [t for t in st if (force or not t[3]) and (not only or t[1]["id"].lower() in only)]
+    for role, c, ident, have in st:
+        log("SAMPLES", role=role, id=c["id"], how=c["how"], label=c["label"],
+            action="make" if any(t[1]["id"] == c["id"] for t in todo) else "skip", have=have)
+    log("SAMPLES", candidates=len(st), make=len(todo), dir=rel(SAMPLES_DIR))
+    if getattr(args, "dry_run", False):
+        return True
+    written, failed = [], []
+    if todo:
+        engine = make_engine(args)
+        spk = {c["speaker"] for _, c, _, _ in todo if c["how"] == "custom_voice"}
+        spk |= {voices[r]["speaker"] for r, c, _, _ in todo if c["how"] == "current" and voices[r]["engine"] == "custom_voice"}
+        if spk:
+            engine.check_speakers(spk)
+        written, failed = make_samples(engine, args, cfg, voices, todo)
+    if args.fake and origin_is_github():
+        return not failed
+    readme = write_samples_readme(cfg, voices)
+    if getattr(args, "push", False) and (written or todo == []):
+        g, lock = Git(token), _lock()
+        try:
+            ok = commit_and_push(g, [rel(p) for p in written] + [rel(readme)],
+                                 f"목소리 후보 샘플 {len(written) // 2}개 (tts_narration {VERSION}, Kaggle)\n\n"
+                                 "voices/samples/README.md 의 mp3 를 듣고 사연자·진행자를 하나씩 고른다 (pick).", "voices/samples",
+                                 "voices/samples/ 에 올라감")
+        finally:
+            g.close()
+            if lock:
+                lock.close()
+        if not ok:
+            return False
+    log("NEXT", note="voices/samples/README.md 의 샘플을 듣고 Claude에게 '사연자 S0?, 진행자 H0?' — 고르기 전에는 오디오를 만들지 않음",
+        failed=",".join(failed) or "-")
+    return not failed
+
+
+def cmd_samples(args):
+    token = push_preflight(args)
+    voices = load_voices(args=args, quiet=True)
+    if not run_samples(args, token, voices, only=(args.only or "").split(","), force=args.force):
+        raise SystemExit(1)
+
+
+def cmd_pick(args):
+    """고른 후보로 역할 목소리를 고정 (GPU 필요 없음). current → 설정 그대로 / custom_voice → 화자·말투 / design → 기준 소리 복사 + clone.
+    고친 파일: voices/<역할>.json (+ design 이면 voices/ref/<역할>.wav·json). 커밋은 하지 않는다 (Claude 가 확인 후 main 에)."""
+    voices = load_voices(quiet=True)
+    cfg = load_samples_cfg(voices)
+    chosen = {}
+    for sid in args.ids:
+        role, c = find_sample(cfg, voices, sid)
+        if role in chosen:
+            die("PICK", f"{role} 를 두 번 고름: {chosen[role]['id']}, {c['id']}", "역할마다 하나씩")
+        chosen[role] = c
+    today = datetime.now().strftime("%Y-%m-%d")
+    plans = []
+    for role, c in chosen.items():
+        P = sample_paths(role, c["id"])
+        meta = json.loads(P["meta"].read_text("utf-8")) if P["meta"].is_file() else None
+        if c["how"] != "current" and (meta is None or meta.get("ident") != sample_ident(role, c, cfg, voices)):
+            die("PICK", f"{c['id']} 샘플이 저장소에 없거나 후보 설정과 다름", "Kaggle 에서 samples (또는 all) --push 를 먼저 — 들어 보지 않은 목소리는 고정하지 않음")
+        if c["how"] == "current" and meta is not None and meta.get("ident") != sample_ident(role, c, cfg, voices):
+            # current = '샘플을 만들 때의 설정'. 그 뒤 다른 후보를 골라 설정이 바뀌었으면 이 ID 는 더는 그 목소리가 아니다
+            die("PICK", f"{c['id']}(지금 목소리)의 샘플을 만든 뒤 {role} 설정이 바뀜 — 이 ID 로는 예전 목소리로 돌아갈 수 없음",
+                f"예전 목소리로 되돌리려면 git 으로 voices/{role}.json(과 voices/ref/{role}.*)을 되돌린 뒤 다시 pick")
+        cfg_p = VOICES_DIR / f"{role}.json"
+        d = json.loads(cfg_p.read_text("utf-8-sig"))
+        new = dict(d)
+        new["picked"] = {"id": c["id"], "label": c["label"], "date": today,
+                         "sample": rel(P["mp3"]) if P["mp3"].is_file() else "-"}
+        files = [cfg_p]
+        if c["how"] == "custom_voice":
+            for k in ("ref_audio", "ref_meta", "design"):
+                new.pop(k, None)
+            new.update(engine="custom_voice", speaker=c["speaker"], instruct=c["instruct"], seed=int(c.get("seed", 1234)), lock=True,
+                       part_instruct={})
+        elif c["how"] == "design":
+            if not P["ref"].is_file() or hashlib.sha1(P["ref"].read_bytes()).hexdigest()[:16] != meta["ref"]["sha1"]:
+                die("PICK", f"{c['id']} 기준 소리 파일이 없거나 해시가 다름", "Kaggle 에서 samples --only " + c["id"] + " --force --push")
+            ref_wav, ref_json = VOICES_DIR / "ref" / f"{role}.wav", VOICES_DIR / "ref" / f"{role}.json"
+            new.update(engine="clone", lock=True, ref_audio=rel(ref_wav), ref_meta=rel(ref_json), seed=int(c.get("seed", 1234)),
+                       part_instruct={},
+                       design={"instruct": c["instruct"], "text": meta["ref"]["text"], "seed": meta["ref"]["seed"], "tries": int(c.get("tries", 3)),
+                               "f0_range": c["f0_range"], "f0_target": c.get("f0_target")})
+            ref_meta = {"role": role, "text": meta["ref"]["text"], "instruct": c["instruct"], "language": "Korean",
+                        "model": meta["ref"].get("design_model"), "seed": meta["ref"]["seed"], "f0_hz": meta["ref"]["f0_hz"],
+                        "dur": meta["ref"]["dur"], "rate": meta["ref"]["rate"], "sha1": meta["ref"]["sha1"], "sample": c["id"],
+                        "label": c["label"], "picked": today, "created": meta["created"], "tool": f"tts_narration.py {VERSION}",
+                        "_설명": f"{voices[role]['name']} 기준 목소리 — 사용자가 고른 샘플 {c['id']}. 모든 대본의 이 역할 문장이 이 소리를 복제한다. "
+                                 "손으로 바꾸지 않는다 (바꾸면 해시 검사에서 멈춤). 바꾸려면 다른 샘플을 pick"}
+            files += [ref_wav, ref_json]
+            plans.append((role, c, new, files, (P["ref"], ref_wav, ref_meta)))
+            continue
+        plans.append((role, c, new, files, None))
+    # 영향: 지금 저장소에 오디오가 있는 영상 중 이 역할 목소리가 바뀌는 것 (다음 all 이 다시 만든다)
+    for role, c, new, files, ref in plans:
+        changed_voice = c["how"] != "current"
+        log("PICK", role=role, id=c["id"], label=c["label"], how=c["how"], files=",".join(rel(f) for f in files),
+            voice_changes=changed_voice)
+    if args.dry_run:
+        log("PICK", note="--dry-run: 파일을 바꾸지 않음")
+        return
+    for role, c, new, files, ref in plans:
+        if ref:
+            src, dst, rmeta = ref
+            dst.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(src, dst)
+            (dst.with_suffix(".json")).write_text(json.dumps(rmeta, ensure_ascii=False, indent=1) + "\n", "utf-8")
+        new["_버전"] = (f"picked {c['id']} — {today} — 사용자가 샘플 {c['id']}({c['label']})를 고름 → 모든 대본 이 목소리"
+                       + (f" ({d0})" if (d0 := new.get("_버전")) and not str(d0).startswith("picked") else ""))
+        (VOICES_DIR / f"{role}.json").write_text(json.dumps(new, ensure_ascii=False, indent=2) + "\n", "utf-8")
+    after = load_voices(quiet=True)   # 다시 읽어 검사 (clone 이면 해시·기준 소리 확인)
+    stale, kept = [], []
+    for txt in sorted(ROOT.glob("*/source/*/*.txt")):
+        vid, topic = txt.parent.name, txt.parent.parent.parent.name
+        mp = txt.parent / META_NAME
+        if txt.stem == vid and mp.is_file() and repo_audio(topic, vid):
+            bad = voice_mismatch(json.loads(mp.read_text("utf-8")), topic, vid)
+            if bad and (txt.parent / "youtube.json").is_file():
+                kept.append(vid)            # 이미 올린 영상은 all 이 건드리지 않는다 (repo_status=uploaded)
+            elif bad:
+                stale.append(f"{vid}({','.join(bad)})")
+    log("PICK", picked=" ".join(f"{r}={v['picked']['id']}" for r, v in after.items() if v.get("picked")),
+        unpicked=",".join(unpicked_roles(after)) or "-", remake=",".join(stale) or "없음",
+        uploaded_kept=",".join(kept) or "-",
+        note=("remake 영상은 다음 Kaggle all 이 새 목소리로 다시 만들고, 렌더한 영상은 다시 렌더" if stale else "다시 만들 오디오 없음")
+        + (" · 이미 업로드한 영상은 옛 목소리 그대로 둔다" if kept else ""))
+    if SAMPLES_DIR.is_dir():
+        write_samples_readme(cfg, after)
+    log("NEXT", note="바뀐 voices/ 파일을 main 에 커밋 → Kaggle 셀(all --push)을 다시 돌리면 고른 목소리로 오디오를 만든다")
 
 
 # ----------------------------------------------------------------------------- 명령: check (저장소 오디오 ↔ 지금 대본)
@@ -1606,6 +1980,14 @@ def main():
     vo.add_argument("--push", action="store_true", help="만든 기준 목소리를 voices/ 에 올리기")
     sub.add_parser("pack", parents=[common], help=f"(올리기가 안 될 때만) OUT/upload/ → {ZIP_NAME}")
 
+    sp = sub.add_parser("samples", parents=[common], help="목소리 후보 샘플 (voices/samples/samples.json) → voices/samples/<역할>/<ID>.mp3")
+    sp.add_argument("--only", default=None, help="이 후보만 (예: S04,H02)")
+    sp.add_argument("--force", action="store_true", help="이미 있어도 다시 만들기")
+    sp.add_argument("--push", action="store_true", help="만든 샘플을 voices/samples/ 에 올리기")
+    sp.add_argument("--dry-run", action="store_true", help="무엇을 만들지 목록만")
+    pk = sub.add_parser("pick", parents=[common], help="고른 샘플로 역할 목소리 고정 (예: pick S04 H01) — GPU 필요 없음")
+    pk.add_argument("ids", nargs="+", help="고른 후보 ID (역할마다 하나)")
+    pk.add_argument("--dry-run", action="store_true", help="바꿀 내용만 보기")
     c = sub.add_parser("check", parents=[common], help="저장소의 narration 이 지금 대본으로 만든 것인지 (tts_narration.json)")
     c.add_argument("topic")
     c.add_argument("id")
@@ -1628,6 +2010,10 @@ def main():
         cmd_voice(args)
     elif args.cmd == "pack":
         cmd_pack(args)
+    elif args.cmd == "samples":
+        cmd_samples(args)
+    elif args.cmd == "pick":
+        cmd_pick(args)
     else:
         cmd_check(args)
 

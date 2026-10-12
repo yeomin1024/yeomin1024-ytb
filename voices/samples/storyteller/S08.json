@@ -1,0 +1,51 @@
+{
+ "id": "S08",
+ "role": "storyteller",
+ "label": "30대 후반 남성 — 밤에 친구에게 털어놓듯 억울함과 자책, 살짝 떨리는 중저음",
+ "how": "design",
+ "ident": "f5634b72820b9a26",
+ "speaker": "-",
+ "instruct": "A Korean man in his late 30s telling a close friend late at night how he lost money in stocks. He sounds frustrated and aggrieved, as if he still cannot believe it, and keeps blaming himself for his own choices. A mid-low voice with a faint tremble, a natural rhythm with short pauses at commas and a small breath before the result. Realistic and conversational, not overacted. Natural standard Seoul Korean accent, clear diction.",
+ "seed": 3501,
+ "preview": [
+  "그날 계좌를 열어 보고, 한참 동안 아무 말도 할 수 없었어요.",
+  "-800만 원이 찍힌 그 화면을, 저는 아직도 잊지 못해요.",
+  "조금만 기다렸으면 됐는데, 겁에 질려 전부 팔아 버린 거죠."
+ ],
+ "seconds": 16.38,
+ "f0_hz": 135.6,
+ "rate": 5.06,
+ "pace": {
+  "min": 4.2,
+  "max": 5.2,
+  "max_stretch": 0.15
+ },
+ "pace_factors": [
+  1.0,
+  1.0,
+  1.0
+ ],
+ "issues": [],
+ "models": {
+  "custom_voice": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+  "clone": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "design": "Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign"
+ },
+ "created": "2026-10-12T11:21:23",
+ "tool": "tts_narration.py v1.5",
+ "ref": {
+  "audio": "voices/samples/storyteller/S08_ref.wav",
+  "text": "그때는 정말 그게 최선이라고 믿었어요. 그런데 지금 돌아보면, 제 욕심이 모든 걸 망친 거였죠.",
+  "sha1": "72cc630e0c03f32c",
+  "f0_hz": 121.2,
+  "seed": 3501,
+  "dur": 7.76,
+  "rate": 4.77,
+  "in_range": true,
+  "f0_range": [
+   85,
+   170
+  ],
+  "design_model": "Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign"
+ }
+}

@@ -1,12 +1,14 @@
 {
   "_설명": "목소리 후보 — tools/tts_narration.py v1.4 'samples' 명령이 후보마다 같은 문장을 읽힌 샘플(<역할>/<ID>.mp3)을 만들어 이 폴더에 올린다. 사용자가 듣고 고르면 'pick' 명령이 그 목소리를 voices/<역할>.json 에 고정한다 (모든 대본 같은 목소리). 사용법: guides/tts_guide.md 4-2",
-  "_버전": "v1.0 — 2026-10-12 — 사용자 지시: 사연자·진행자 목소리 샘플을 각각 여러 개 만들고, 고른 것으로 일관되게",
+  "_버전": "v1.1 — 2026-10-12 — 사용자 지시: 사연자를 남자로, 손실을 보고 억울해하며 자책하는 연기 톤, 자연스러운 속도 → S07·S08 추가(pace 4.2~5.2음절/초, 문장 쉼 0.55초) (v1.0: 사연자·진행자 후보 12개)",
   "_항목": {
     "how": "current = 지금 설정 그대로(고르면 아무것도 바뀌지 않음, 이미 만든 오디오도 그대로) / custom_voice = 화자(speaker)+말투 지시(instruct) / design = 글로 묘사한 목소리(VoiceDesign)로 기준 소리를 만들고 그 소리를 복제(Base)해 읽음",
     "instruct": "custom_voice: 말투 지시, design: 목소리 묘사 (영어가 가장 잘 따름)",
     "f0_range": "design: 목소리 높이 범위(Hz) — 여러 시드 중 이 안에서 f0_target 에 가까운 것을 고름",
     "tries": "design·custom_voice: 기준 소리를 시드를 바꿔 만드는 횟수 (기본 3)",
-    "text": "역할마다 모든 후보가 같은 문장을 읽는다 (공정하게 비교) — ref: 기준 소리 문장(약 10초), preview: 샘플에서 들려줄 문장"
+    "text": "역할마다 모든 후보가 같은 문장을 읽는다 (공정하게 비교) — ref: 기준 소리 문장(약 10초), preview: 샘플에서 들려줄 문장",
+    "pace": "말 속도 맞추기 {min, max(음절/초), max_stretch} — 문장이 범위 밖이면 음 높이는 그대로 두고 ±15% 안에서 늘이거나 줄임 (pick 하면 역할 설정에 그대로 들어감)",
+    "gap": "문장 사이 쉼(초) — pick 하면 역할 설정에 그대로 들어감"
   },
   "text": {
     "storyteller": {
@@ -27,29 +29,167 @@
     }
   },
   "storyteller": [
-    {"id": "S01", "label": "지금 목소리 그대로 — Sohee, 억울·후회 고백 (주식 영상 4개에 쓴 목소리)", "how": "current"},
-    {"id": "S02", "label": "Sohee — 차분하고 담담한 고백", "how": "custom_voice", "speaker": "Sohee", "seed": 1301,
-     "instruct": "Speak like someone quietly confessing a costly mistake they deeply regret: calm, subdued and sincere, a slightly low voice, medium-slow pace, brief pauses before numbers, no crying. Keep every word clear."},
-    {"id": "S03", "label": "Sohee — 감정이 더 실린 억울한 고백", "how": "custom_voice", "speaker": "Sohee", "seed": 1302,
-     "instruct": "Speak like someone telling a painful story of loss with strong regret and frustration: a voice heavy with emotion, a soft sigh before the key moment, bitter self-blame, slower on the numbers, close to tears but every word clear."},
-    {"id": "S04", "label": "30대 초반 여성 직장인 — 조용하고 살짝 허스키", "how": "design", "seed": 3101, "f0_range": [150, 300], "f0_target": 205,
-     "instruct": "A Korean woman in her early 30s, an office worker, speaking quietly and honestly about a costly mistake: a soft, slightly husky mid-range voice, slow pace, short pauses before key numbers, a faint tremble of regret but composed. Natural standard Seoul Korean accent, clear articulation."},
-    {"id": "S05", "label": "40대 중반 여성 — 따뜻하고 조금 낮은, 라디오 사연 같은", "how": "design", "seed": 3201, "f0_range": [140, 280], "f0_target": 190,
-     "instruct": "A Korean woman in her mid 40s with a warm, slightly low voice, telling a personal story of regret: calm but heavy-hearted, sighs softly, steady slow pace, sincere and relatable like a caller sharing a story on a radio show. Natural standard Seoul Korean accent, every word clear."},
-    {"id": "S06", "label": "40대 초반 남성 직장인 — 낮고 지친, 자책하는", "how": "design", "seed": 3301, "f0_range": [85, 170], "f0_target": 120,
-     "instruct": "A Korean man in his early 40s, an ordinary office worker, confessing a painful investment mistake: a low, tired voice with restrained frustration and self-blame, slow pace, quiet sighs, sincere and not dramatic. Natural standard Seoul Korean accent, clear articulation."}
+    {
+      "id": "S01",
+      "label": "지금 목소리 그대로 — Sohee, 억울·후회 고백 (주식 영상 4개에 쓴 목소리)",
+      "how": "current"
+    },
+    {
+      "id": "S02",
+      "label": "Sohee — 차분하고 담담한 고백",
+      "how": "custom_voice",
+      "speaker": "Sohee",
+      "seed": 1301,
+      "instruct": "Speak like someone quietly confessing a costly mistake they deeply regret: calm, subdued and sincere, a slightly low voice, medium-slow pace, brief pauses before numbers, no crying. Keep every word clear."
+    },
+    {
+      "id": "S03",
+      "label": "Sohee — 감정이 더 실린 억울한 고백",
+      "how": "custom_voice",
+      "speaker": "Sohee",
+      "seed": 1302,
+      "instruct": "Speak like someone telling a painful story of loss with strong regret and frustration: a voice heavy with emotion, a soft sigh before the key moment, bitter self-blame, slower on the numbers, close to tears but every word clear."
+    },
+    {
+      "id": "S04",
+      "label": "30대 초반 여성 직장인 — 조용하고 살짝 허스키",
+      "how": "design",
+      "seed": 3101,
+      "f0_range": [
+        150,
+        300
+      ],
+      "f0_target": 205,
+      "instruct": "A Korean woman in her early 30s, an office worker, speaking quietly and honestly about a costly mistake: a soft, slightly husky mid-range voice, slow pace, short pauses before key numbers, a faint tremble of regret but composed. Natural standard Seoul Korean accent, clear articulation."
+    },
+    {
+      "id": "S05",
+      "label": "40대 중반 여성 — 따뜻하고 조금 낮은, 라디오 사연 같은",
+      "how": "design",
+      "seed": 3201,
+      "f0_range": [
+        140,
+        280
+      ],
+      "f0_target": 190,
+      "instruct": "A Korean woman in her mid 40s with a warm, slightly low voice, telling a personal story of regret: calm but heavy-hearted, sighs softly, steady slow pace, sincere and relatable like a caller sharing a story on a radio show. Natural standard Seoul Korean accent, every word clear."
+    },
+    {
+      "id": "S06",
+      "label": "40대 초반 남성 직장인 — 낮고 지친, 자책하는",
+      "how": "design",
+      "seed": 3301,
+      "f0_range": [
+        85,
+        170
+      ],
+      "f0_target": 120,
+      "instruct": "A Korean man in his early 40s, an ordinary office worker, confessing a painful investment mistake: a low, tired voice with restrained frustration and self-blame, slow pace, quiet sighs, sincere and not dramatic. Natural standard Seoul Korean accent, clear articulation."
+    },
+    {
+      "id": "S07",
+      "label": "40대 초반 남성 직장인 — 손실에 억울해하다 자책으로 가라앉는 연기 톤, 자연스러운 속도",
+      "how": "design",
+      "seed": 3401,
+      "tries": 4,
+      "f0_range": [
+        80,
+        165
+      ],
+      "f0_target": 115,
+      "gap": 0.55,
+      "pace": {
+        "min": 4.2,
+        "max": 5.2,
+        "max_stretch": 0.15
+      },
+      "instruct": "A Korean man in his early 40s, an ordinary office worker, confessing how he lost a large sum of money in stocks. Acted with real but restrained emotion: a low, slightly husky voice that sounds wronged and bitter at first, then sinks into quiet self-blame. He sighs softly before painful numbers, his voice catches a little on the loss, and he speaks at a natural conversational pace, slowing down on key numbers and speeding up slightly when frustrated. Sincere, not theatrical, no shouting, no crying. Natural standard Seoul Korean accent, every word clear."
+    },
+    {
+      "id": "S08",
+      "label": "30대 후반 남성 — 밤에 친구에게 털어놓듯 억울함과 자책, 살짝 떨리는 중저음",
+      "how": "design",
+      "seed": 3501,
+      "tries": 4,
+      "f0_range": [
+        85,
+        170
+      ],
+      "f0_target": 125,
+      "gap": 0.55,
+      "pace": {
+        "min": 4.2,
+        "max": 5.2,
+        "max_stretch": 0.15
+      },
+      "instruct": "A Korean man in his late 30s telling a close friend late at night how he lost money in stocks. He sounds frustrated and aggrieved, as if he still cannot believe it, and keeps blaming himself for his own choices. A mid-low voice with a faint tremble, a natural rhythm with short pauses at commas and a small breath before the result. Realistic and conversational, not overacted. Natural standard Seoul Korean accent, clear diction."
+    }
   ],
   "host": [
-    {"id": "H01", "label": "지금 기준 목소리 그대로 — 따뜻한 중저음 (voices/ref/host.wav, 주식 영상 4개에 쓴 목소리)", "how": "current"},
-    {"id": "H02", "label": "30대 후반 — 지금과 같은 묘사, 다른 시드 (뉴스 앵커·다큐 내레이터)", "how": "design", "seed": 4101, "f0_range": [85, 160], "f0_target": 112,
-     "instruct": "A Korean man in his late 30s with a warm, mid-low baritone voice. He sounds like a trusted news anchor or documentary narrator: calm, confident and highly credible. Crisp, clear articulation so every word is easy to catch, a steady medium pace, and lively but restrained emphasis on key numbers so the listener stays engaged. Natural standard Seoul Korean accent. Not monotone, not exaggerated, no shouting."},
-    {"id": "H03", "label": "40대 중반 — 깊고 울리는 저음, 저녁 뉴스 앵커", "how": "design", "seed": 4201, "f0_range": [80, 150], "f0_target": 105,
-     "instruct": "A Korean man in his mid 40s with a deep, resonant bass-baritone voice, like a veteran evening news anchor: authoritative, calm and trustworthy, a measured pace, precise articulation and firm emphasis on numbers. Natural standard Seoul Korean accent."},
-    {"id": "H04", "label": "30대 초반 — 또렷하고 밝은 중저음, 경제 유튜버", "how": "design", "seed": 4301, "f0_range": [90, 165], "f0_target": 125,
-     "instruct": "A Korean man in his early 30s with a clear, bright mid-low voice, like a popular economics YouTuber explaining things to friends: friendly and energetic but credible, a slightly brisk pace, crisp articulation and emphasis on key numbers. Natural standard Seoul Korean accent."},
-    {"id": "H05", "label": "50대 — 부드럽고 깊은 저음, 다큐 내레이터", "how": "design", "seed": 4401, "f0_range": [80, 150], "f0_target": 105,
-     "instruct": "A Korean man in his 50s with a warm, mellow low voice, like a documentary narrator: gentle and reassuring, an unhurried pace, a rich tone and very clear diction. Natural standard Seoul Korean accent."},
-    {"id": "H06", "label": "30대 후반 — 차분하고 부드러운 바리톤, 심야 라디오 진행자", "how": "design", "seed": 4501, "f0_range": [85, 160], "f0_target": 112,
-     "instruct": "A Korean man in his late 30s with a calm, soft baritone voice, like a late-night radio host: intimate, sincere and trustworthy, a smooth medium pace, clear articulation and subtle emphasis. Natural standard Seoul Korean accent."}
+    {
+      "id": "H01",
+      "label": "지금 기준 목소리 그대로 — 따뜻한 중저음 (voices/ref/host.wav, 주식 영상 4개에 쓴 목소리)",
+      "how": "current"
+    },
+    {
+      "id": "H02",
+      "label": "30대 후반 — 지금과 같은 묘사, 다른 시드 (뉴스 앵커·다큐 내레이터)",
+      "how": "design",
+      "seed": 4101,
+      "f0_range": [
+        85,
+        160
+      ],
+      "f0_target": 112,
+      "instruct": "A Korean man in his late 30s with a warm, mid-low baritone voice. He sounds like a trusted news anchor or documentary narrator: calm, confident and highly credible. Crisp, clear articulation so every word is easy to catch, a steady medium pace, and lively but restrained emphasis on key numbers so the listener stays engaged. Natural standard Seoul Korean accent. Not monotone, not exaggerated, no shouting."
+    },
+    {
+      "id": "H03",
+      "label": "40대 중반 — 깊고 울리는 저음, 저녁 뉴스 앵커",
+      "how": "design",
+      "seed": 4201,
+      "f0_range": [
+        80,
+        150
+      ],
+      "f0_target": 105,
+      "instruct": "A Korean man in his mid 40s with a deep, resonant bass-baritone voice, like a veteran evening news anchor: authoritative, calm and trustworthy, a measured pace, precise articulation and firm emphasis on numbers. Natural standard Seoul Korean accent."
+    },
+    {
+      "id": "H04",
+      "label": "30대 초반 — 또렷하고 밝은 중저음, 경제 유튜버",
+      "how": "design",
+      "seed": 4301,
+      "f0_range": [
+        90,
+        165
+      ],
+      "f0_target": 125,
+      "instruct": "A Korean man in his early 30s with a clear, bright mid-low voice, like a popular economics YouTuber explaining things to friends: friendly and energetic but credible, a slightly brisk pace, crisp articulation and emphasis on key numbers. Natural standard Seoul Korean accent."
+    },
+    {
+      "id": "H05",
+      "label": "50대 — 부드럽고 깊은 저음, 다큐 내레이터",
+      "how": "design",
+      "seed": 4401,
+      "f0_range": [
+        80,
+        150
+      ],
+      "f0_target": 105,
+      "instruct": "A Korean man in his 50s with a warm, mellow low voice, like a documentary narrator: gentle and reassuring, an unhurried pace, a rich tone and very clear diction. Natural standard Seoul Korean accent."
+    },
+    {
+      "id": "H06",
+      "label": "30대 후반 — 차분하고 부드러운 바리톤, 심야 라디오 진행자",
+      "how": "design",
+      "seed": 4501,
+      "f0_range": [
+        85,
+        160
+      ],
+      "f0_target": 112,
+      "instruct": "A Korean man in his late 30s with a calm, soft baritone voice, like a late-night radio host: intimate, sincere and trustworthy, a smooth medium pace, clear articulation and subtle emphasis. Natural standard Seoul Korean accent."
+    }
   ]
 }

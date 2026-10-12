@@ -1,0 +1,51 @@
+{
+ "id": "S07",
+ "role": "storyteller",
+ "label": "40대 초반 남성 직장인 — 손실에 억울해하다 자책으로 가라앉는 연기 톤, 자연스러운 속도",
+ "how": "design",
+ "ident": "b88cbd1af9005109",
+ "speaker": "-",
+ "instruct": "A Korean man in his early 40s, an ordinary office worker, confessing how he lost a large sum of money in stocks. Acted with real but restrained emotion: a low, slightly husky voice that sounds wronged and bitter at first, then sinks into quiet self-blame. He sighs softly before painful numbers, his voice catches a little on the loss, and he speaks at a natural conversational pace, slowing down on key numbers and speeding up slightly when frustrated. Sincere, not theatrical, no shouting, no crying. Natural standard Seoul Korean accent, every word clear.",
+ "seed": 3401,
+ "preview": [
+  "그날 계좌를 열어 보고, 한참 동안 아무 말도 할 수 없었어요.",
+  "-800만 원이 찍힌 그 화면을, 저는 아직도 잊지 못해요.",
+  "조금만 기다렸으면 됐는데, 겁에 질려 전부 팔아 버린 거죠."
+ ],
+ "seconds": 17.09,
+ "f0_hz": 108.1,
+ "rate": 4.86,
+ "pace": {
+  "min": 4.2,
+  "max": 5.2,
+  "max_stretch": 0.15
+ },
+ "pace_factors": [
+  1.028,
+  0.994,
+  1.0
+ ],
+ "issues": [],
+ "models": {
+  "custom_voice": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+  "clone": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "design": "Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign"
+ },
+ "created": "2026-10-12T11:19:38",
+ "tool": "tts_narration.py v1.5",
+ "ref": {
+  "audio": "voices/samples/storyteller/S07_ref.wav",
+  "text": "그때는 정말 그게 최선이라고 믿었어요. 그런데 지금 돌아보면, 제 욕심이 모든 걸 망친 거였죠.",
+  "sha1": "b2098b3eb85b6a0a",
+  "f0_hz": 107.1,
+  "seed": 3402,
+  "dur": 9.22,
+  "rate": 4.01,
+  "in_range": true,
+  "f0_range": [
+   80,
+   165
+  ],
+  "design_model": "Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign"
+ }
+}

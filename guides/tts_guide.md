@@ -1,8 +1,8 @@
 # 내레이션 만들기 — 오픈소스 음성 AI(Qwen3-TTS)를 Kaggle에서 (모든 주제 공통)
 
-버전: v1.5 — 2026-10-12 — 사용자 지시: **사연자·진행자 목소리 샘플을 각각 여러 개 만들고, 사용자가 고르면 그 목소리로 일관되게** (4-0). 고르기 전에는 셀이 오디오 대신 샘플만 만든다 (v1.4 — 2026-10-11 — 사용자 지시: 진행자 목소리는 중저음 남성(귀에 쏙쏙 들어오고 신뢰감 있게), 대본마다 달라지면 안 됨 → 기준 목소리 하나를 저장소에 고정하고 모든 대본이 복제 (1번, 4-1번) (v1.3.1: 셀이 `git pull` 대신 Kaggle 사본을 main과 똑같이 맞춤 (`Your local changes ... would be overwritten by merge` 오류 해결) (v1.3: 사용자 지시: 오디오는 고르지 않고 하나로(말투 시험·선택 단계 삭제, 영상마다 `narration.mp3` 하나), 결과 파일은 GitHub의 대본 폴더마다 자동으로 올린다(`--push`), Kaggle 셀 하나 (v1.2: 사연자·진행자 목소리 설정 파일, 대본 전부 한 번에 `all`; v1.1: 셀에 도구 파일을 붙여 넣지 말 것; v1.0: 사용자 지시: edge-tts는 어색하다 → 오픈소스 음성 AI로, Kaggle에서, 사연은 억울하고 후회하는 톤)))
+버전: v1.6 — 2026-10-12 — 사용자 지시: 사연자 남성 후보(억울·자책 연기 톤) S07·S08, 말 속도 맞추기(pace), 터미널에서 바로 듣기(listen) (v1.5 — 2026-10-12 — 사용자 지시: **사연자·진행자 목소리 샘플을 각각 여러 개 만들고, 사용자가 고르면 그 목소리로 일관되게** (4-0). 고르기 전에는 셀이 오디오 대신 샘플만 만든다 (v1.4 — 2026-10-11 — 사용자 지시: 진행자 목소리는 중저음 남성(귀에 쏙쏙 들어오고 신뢰감 있게), 대본마다 달라지면 안 됨 → 기준 목소리 하나를 저장소에 고정하고 모든 대본이 복제 (1번, 4-1번) (v1.3.1: 셀이 `git pull` 대신 Kaggle 사본을 main과 똑같이 맞춤 (`Your local changes ... would be overwritten by merge` 오류 해결) (v1.3: 사용자 지시: 오디오는 고르지 않고 하나로(말투 시험·선택 단계 삭제, 영상마다 `narration.mp3` 하나), 결과 파일은 GitHub의 대본 폴더마다 자동으로 올린다(`--push`), Kaggle 셀 하나 (v1.2: 사연자·진행자 목소리 설정 파일, 대본 전부 한 번에 `all`; v1.1: 셀에 도구 파일을 붙여 넣지 말 것; v1.0: 사용자 지시: edge-tts는 어색하다 → 오픈소스 음성 AI로, Kaggle에서, 사연은 억울하고 후회하는 톤))))
 
-도구: `tools/tts_narration.py` v1.4 · 목소리 후보: `voices/samples/samples.json` → 샘플 `voices/samples/README.md` · 목소리 설정: `voices/storyteller.json`(사연자, 여성 Sohee), `voices/host.json`(진행자, 중저음 남성) · 진행자 기준 목소리: `voices/ref/host.wav`
+도구: `tools/tts_narration.py` v1.5 · 목소리 후보: `voices/samples/samples.json` → 샘플 `voices/samples/README.md` · 목소리 설정: `voices/storyteller.json`(사연자, 여성 Sohee), `voices/host.json`(진행자, 중저음 남성) · 진행자 기준 목소리: `voices/ref/host.wav`
 결과: 영상마다 오디오 **하나** — `<주제폴더>/source/<영상ID>/narration.mp3`가 **대본 폴더마다 각각** GitHub main에 자동으로 올라가고, 4단계(`guides/pipeline.md`)가 이어진다.
 ※ 연구·교육용 도구다. 주식 영상 내용은 투자 권유가 아니다.
 
@@ -97,7 +97,7 @@ os.environ["GITHUB_TOKEN"] = UserSecretsClient().get_secret("GITHUB_TOKEN")
 
    | 역할 | 후보 | 만드는 법 |
    |---|---|---|
-   | 사연자 | **S01** 지금 목소리(Sohee 억울·후회) · S02 Sohee 담담 · S03 Sohee 감정 많이 · S04 30대 초반 여성 · S05 40대 중반 여성 · S06 40대 초반 남성 | current / 화자+말투(CustomVoice) / 묘사(VoiceDesign) → 기준 소리 → 복제(Base) |
+   | 사연자 | **S01** 지금 목소리(Sohee 억울·후회) · S02 Sohee 담담 · S03 Sohee 감정 많이 · S04 30대 초반 여성 · S05 40대 중반 여성 · S06 40대 초반 남성 · **S07 40대 초반 남성 — 손실에 억울해하다 자책으로 가라앉는 연기 톤 · S08 30대 후반 남성 — 친구에게 털어놓듯 억울함과 자책** (S07·S08: 사용자 지시 2026-10-12 "사연자 목소리를 남자로, 억울하고 자책하듯, 자연스러운 속도") | current / 화자+말투(CustomVoice) / 묘사(VoiceDesign) → 기준 소리 → 복제(Base) |
    | 진행자 | **H01** 지금 기준 목소리 · H02 같은 묘사 다른 시드 · H03 40대 깊은 저음 앵커 · H04 30대 밝은 경제 유튜버 · H05 50대 다큐 내레이터 · H06 심야 라디오 | current / 묘사 → 기준 소리 → 복제 |
 
    - 묘사 후보는 시드 3개로 기준 소리를 만들어 목소리 높이 범위(여성 약 140~300Hz, 남성 약 80~170Hz)·속도·무음 검사로 하나를 고른 뒤, **그 소리를 복제해** 미리 듣기 문장을 읽힌다 — 실제 내레이션과 같은 방식이라 들은 그대로 나온다.
@@ -111,6 +111,8 @@ os.environ["GITHUB_TOKEN"] = UserSecretsClient().get_secret("GITHUB_TOKEN")
    - `lock`이라 주제 폴더의 `voices/storyteller.json`(주제별 말투)은 무시된다 — 모든 대본 같은 목소리 (사용자 지시). current(S01)를 고르면 지금처럼 주제별 말투를 쓴다.
 4. **다시 셀 실행:** 고른 목소리로 오디오가 없는 영상을 모두 만든다. 그 역할 목소리가 바뀐 영상(오디오가 있고 아직 안 올린 것)은 다시 만든다. **이미 유튜브에 올린 영상(`youtube.json`)은 그대로 둔다.**
 - 후보를 바꾸거나 더하려면 `samples.json`을 고친 뒤 셀을 다시 실행 → 바뀐 후보만 새로 만든다. 일부만 다시: `python tools/tts_narration.py samples --only S04,H02 --force --push`
+- **바로 듣기 (터미널):** `python tools/tts_narration.py listen S07 S08` (ffplay·afplay·mpv로 재생) · 만들면서 듣기: `samples --only S07,S08 --play`. 소리 장치가 없는 곳(Kaggle·클라우드)에서는 경로를 알려 주고, Kaggle 셀에서는 `from IPython.display import Audio; Audio("voices/samples/storyteller/S07.mp3")`로 듣는다.
+- **말 속도 맞추기 (`pace`):** 후보·역할 설정 `{"min": 4.2, "max": 5.2, "max_stretch": 0.15}`(음절/초) — 고른 문장의 속도가 범위 밖이면 음 높이는 그대로 두고(ffmpeg atempo) ±15% 안에서 늘이거나 줄인다. 로그 `[PACE] rate_before= rate_after= factor=`, 보고서 '속도 맞춤 ×0.93'. S07·S08에 들어 있고 pick 하면 사연자 설정으로 옮겨진다. 문장 사이 쉼도 S07·S08은 0.55초(고백하듯 조금 길게).
 - 고른 뒤 다른 후보로 바꿀 때도 `pick`. current ID(S01·H01)는 샘플을 만든 때의 설정으로만 돌아갈 수 있다 — 설정이 바뀐 뒤에는 `pick`이 거절하고, git으로 되돌린다.
 
 ### 4-1. 진행자 목소리는 모든 대본에서 같다 (사용자 지시 2026-10-11)
@@ -186,6 +188,7 @@ os.environ["GITHUB_TOKEN"] = UserSecretsClient().get_secret("GITHUB_TOKEN")
 
 | 버전 | 날짜 | 변경 내용 |
 |---|---|---|
+| v1.6 | 2026-10-12 | 사용자 지시: 사연자를 남자로(손실로 억울해하며 자책하는 연기 톤), 자연스러운 속도, 터미널에서 바로 듣기 — 후보 S07·S08, `pace`(속도 맞추기), `listen`·`samples --play` (4-0) |
 | v1.5 | 2026-10-12 | 사용자 지시: 사연자·진행자 목소리 샘플을 각각 여러 개 만들고 사용자가 고르면 그 목소리로 일관되게 — 4-0(후보 12개 `voices/samples/samples.json`, 샘플 `voices/samples/`, `pick`, 고르기 전에는 셀이 샘플만), 3번 '하는 일' 0단계, 6번 `picked`, 업로드한 영상은 다시 만들지 않음 |
 | v1.4 | 2026-10-11 | 사용자 지시: 진행자는 중저음 남성(귀에 쏙쏙 들어오고 신뢰감 있게), 대본마다 달라지면 안 됨 — 기준 목소리를 처음 한 번 VoiceDesign으로 만들어(남성 중저음 85~150Hz·속도·무음 검사, 사람이 고르지 않음) `voices/ref/host.wav`로 고정하고 모든 대본이 Base 모델로 복제. 문장마다 높이 ±30% 검사, lock, 목소리가 바뀐 오디오는 다시 만듦. 1번 모델 표, 4-1 |
 | v1.3.1 | 2026-10-11 | 셀 넷째 줄: `git pull` → `git config core.fileMode false && git fetch origin main && git reset --hard origin/main` (사본에서 실행 권한만 바뀐 `tools/publish.sh` 때문에 pull이 멈춘 오류), 문제 표에 이 오류 추가 |

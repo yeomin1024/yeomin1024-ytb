@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.4 — 2026-10-12 — 사용자 지시: 사연자·진행자 목소리 샘플을 각각 여러 개 만들고(samples), 사용자가 고르면(pick) 그 목소리로
+# VERSION: v1.5 — 2026-10-12 — 사용자 지시: 사연자를 남자 목소리로(손실을 보고 억울해하며 자책하는 연기 톤), 말 속도를 자연스럽게 맞추고,
+#          터미널에서 바로 들을 수 있게 → 후보 S07·S08(남성 억울·자책 묘사), 역할·후보 설정 pace(문장 말 속도가 범위를 벗어나면
+#          ffmpeg atempo 로 음 높이는 그대로 두고 ±15% 안에서 늘이거나 줄임), listen 명령·samples --play (ffplay/afplay/mpv, Jupyter 는 오디오 위젯)
+# (v1.4 — 2026-10-12 — 사용자 지시: 사연자·진행자 목소리 샘플을 각각 여러 개 만들고(samples), 사용자가 고르면(pick) 그 목소리로
 #          모든 대본을 일관되게. 두 역할을 다 고르기 전에는 all 이 오디오 대신 샘플만 만들어 voices/samples/ 에 올린다.
-#          후보 설정 voices/samples/samples.json (current = 지금 목소리 그대로 / custom_voice = 화자+말투 / design = 묘사 → 기준 소리 → 복제)
+#          후보 설정 voices/samples/samples.json (current = 지금 목소리 그대로 / custom_voice = 화자+말투 / design = 묘사 → 기준 소리 → 복제))
 # (v1.3 — 2026-10-11 — 사용자 지시: 진행자 목소리는 중저음 남성(귀에 잘 들어오고 신뢰감 있게), 대본마다 달라지지 않게 →
 #          진행자는 저장소에 고정한 기준 목소리(voices/ref/host.wav)를 Base 모델로 복제. 기준 목소리는 없을 때 한 번만 VoiceDesign 으로
 #          만들어(목소리 높이 85~150Hz·속도·무음 검사) main 에 올린다. 문장마다 목소리 높이가 기준 ±30% 밖이면 다시 만든다.
@@ -15,6 +18,8 @@ r"""
                                                                        #   (목소리를 아직 안 골랐으면 오디오 대신 목소리 샘플만 → voices/samples/)
   python tools/tts_narration.py samples --push                         # 목소리 후보 샘플 (voices/samples/samples.json) → voices/samples/<역할>/<ID>.mp3
   python tools/tts_narration.py pick S04 H01                           # 고른 목소리로 고정 (GPU 필요 없음 — Claude 가 실행하고 커밋)
+  python tools/tts_narration.py samples --only S07,S08 --play          # 그 후보만 만들고 바로 듣기 (터미널: ffplay·afplay·mpv / Kaggle·Jupyter: 오디오 위젯)
+  python tools/tts_narration.py listen S07 S08                         # 만들어 둔 샘플 바로 듣기 (파일 경로도 됨)
   python tools/tts_narration.py all --dry-run                          # 무엇을 만들지 목록만 (모델 안 불러옴)
   python tools/tts_narration.py build stock panicsell-2026-10 --push   # 영상 하나
   python tools/tts_narration.py build stock panicsell-2026-10 --redo 12,15 --push   # 12·15번 문장만 새 시드로 다시
@@ -59,6 +64,8 @@ GitHub 올리기 (--push)
   - 문장 사이 쉼 = 역할 설정의 gap(기본 0.45초, 디지털 무음), 파트가 바뀌면 1.0초. align-audio(무음 −35dB·0.12초 이상)가 이 쉼으로 문장 경계를 찾는다.
   - 고지 카드 자리([장면] 바로 앞 문장 뒤): srt_tool.parse_cards 의 길이(문구 글자 수 ÷ 7 + 1초, 4~8초). 최소 3.5초 규칙보다 길다.
   - 문장마다 검사: 말 속도 2.5~8음절/초, 문장 안 무음 1.8초 이하, NaN·빈 소리 없음. 벗어나면 시드를 바꿔 다시(최대 3번).
+  - 말 속도 맞추기(pace, 역할·후보 설정): {"min": 음절/초, "max": 음절/초, "max_stretch": 0.15} — 고른 문장의 속도가 범위 밖이면
+    가장 가까운 끝으로 ffmpeg atempo(음 높이 그대로)로 늘이거나 줄인다. 한 번에 ±15%까지만(그 이상은 소리가 어색해짐). 보고서에 배율
   - 볼륨: 영상 전체에 이득 하나만 곱한다(말소리 RMS −18dBFS, 최고점 −1dBFS 이하). 문장·역할마다 따로 바꾸지 않는다.
   - 문장 파일은 OUT/<영상ID>/cache/ 에 남는다(<키>.wav + <키>.json). 글·말투·화자·설정이 같으면 다시 만들지 않는다.
 ※ 연구·교육용 도구다. 영상 내용은 투자 권유가 아니다(주식 영상 고지 규칙은 stock/guides 를 따른다).
@@ -88,7 +95,7 @@ ROOT = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 import srt_tool  # noqa: E402  (문장·카드 판정을 자막 도구와 똑같이 쓰기 위해)
 
-VERSION = "v1.4"
+VERSION = "v1.5"
 CACHE_VERSION = 1            # 생성 방식이 바뀌면 올린다 → 문장 파일을 모두 다시 만든다 (v1.1은 v1.0 캐시와 같은 키)
 DEFAULT_MODEL = "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice"     # 사연자 (화자 + 말투 지시)
 DEFAULT_CLONE_MODEL = "Qwen/Qwen3-TTS-12Hz-1.7B-Base"       # 진행자 (기준 목소리 복제)
@@ -110,7 +117,7 @@ MIN_GAP = 0.2                # 역할 설정 gap 하한 — align-audio 가 문�
 
 VOICES_DIR = ROOT / "voices"           # 역할별 목소리 설정 (파일 이름 = 역할 = 결과 폴더 이름)
 VOICE_KEYS = {"role", "name", "parts", "engine", "lock", "speaker", "instruct", "part_instruct", "seed", "gap", "generation",
-              "ref_audio", "ref_meta", "design", "f0_tolerance", "picked"}
+              "ref_audio", "ref_meta", "design", "f0_tolerance", "picked", "pace"}
 SAMPLES_DIR = VOICES_DIR / "samples"   # 목소리 후보 샘플 (하위 폴더라 역할 설정과 섞이지 않음)
 SAMPLES_CFG = SAMPLES_DIR / "samples.json"
 SAMPLE_HOW = ("current", "custom_voice", "design")
@@ -265,7 +272,7 @@ def load_voices(topic=None, vid=None, args=None, quiet=False):
             if ignored and not quiet:
                 log("VOICE", logging.WARNING, role=role, ignored=",".join(ignored), note="lock: 이 역할은 모든 대본에서 같은 목소리 — 덮어쓰기 무시")
         cfg = {"name": role, "parts": ["*"], "engine": "custom_voice", "lock": False, "speaker": "Sohee", "instruct": "",
-               "part_instruct": {}, "seed": 1234, "gap": 0.45, "generation": {}, "f0_tolerance": F0_TOL, "picked": None,
+               "part_instruct": {}, "seed": 1234, "gap": 0.45, "generation": {}, "f0_tolerance": F0_TOL, "picked": None, "pace": None,
                **cfg, "role": role, "files": files}
         voices[role] = cfg
     # 명령줄 덮어쓰기 (설정 파일을 고치지 않고 시험할 때) — 바꾼 것은 로그에 남긴다
@@ -311,6 +318,8 @@ def load_voices(topic=None, vid=None, args=None, quiet=False):
             die("VOICE", f"gap {v['gap']} < {MIN_GAP}초", "문장 사이 쉼이 짧으면 align-audio 가 문장 경계를 못 찾음", role=role)
         if not isinstance(v["seed"], int):
             die("VOICE", f"seed 는 정수여야 함: {v['seed']}", "예: 1234", role=role)
+        if v.get("pace") is not None and not pace_ok(v["pace"]):
+            die("VOICE", f"pace 형식 오류: {v['pace']}", '예: {"min": 4.2, "max": 5.2, "max_stretch": 0.15} (음절/초, 늘이기·줄이기 한도 0.25 이하)', role=role)
     # 낱말로 정한 역할(사연자)을 먼저, 나머지("*") 역할(진행자)을 뒤에 — 로그·보고서 순서
     voices = dict(sorted(voices.items(), key=lambda kv: ("*" in kv[1]["parts"], kv[0])))
     wild = [r for r, v in voices.items() if "*" in v["parts"]]
@@ -355,6 +364,8 @@ def voice_ids(voices, engine):
         else:
             ident = {"engine": "custom_voice", "model": engine_ids(engine)["custom_voice"], "speaker": v["speaker"],
                      "instruct": v["instruct"], "part_instruct": v["part_instruct"], "seed": v["seed"], "generation": v["generation"]}
+        if v.get("pace"):   # 말 속도 맞추기를 쓰면 정체에 넣는다 (안 쓰는 역할의 정체는 v1.4 와 같게 — 이미 만든 오디오를 옛 것으로 보지 않게)
+            ident["pace"] = v["pace"]
         out[role] = sha(ident)
     return out
 
@@ -395,7 +406,34 @@ def spec_of(voice, instruct):
     if voice["engine"] == "clone":
         spec.update(ref_audio=voice["ref_audio"], ref_sha=voice["ref_sha"], ref_f0=voice["ref_f0"], ref_text=voice["ref_text"],
                     f0_tol=float(voice["f0_tolerance"]))
+    if voice.get("pace"):
+        spec["pace"] = voice["pace"]
     return spec
+
+
+def pace_ok(pc):
+    try:
+        lo, hi, st = float(pc.get("min", 0)), float(pc.get("max", 99)), float(pc.get("max_stretch", 0.15))
+        return isinstance(pc, dict) and 0 < lo < hi and 0 < st <= 0.25
+    except Exception:
+        return False
+
+
+def atempo(x, sr, factor):
+    """음 높이는 그대로 두고 빠르기만 factor 배 (ffmpeg atempo). 실패하면 None."""
+    ff = find_ffmpeg()
+    if not ff:
+        return None
+    with tempfile.TemporaryDirectory() as td:
+        a, b = Path(td) / "in.wav", Path(td) / "out.wav"
+        write_wav(a, x, sr)
+        r = subprocess.run([ff, "-y", "-hide_banner", "-loglevel", "error", "-i", str(a), "-filter:a", f"atempo={factor:.4f}",
+                            "-ac", "1", "-ar", str(sr), "-c:a", "pcm_s16le", str(b)], capture_output=True, text=True)
+        if r.returncode != 0 or not b.is_file():
+            log("PACE", logging.WARNING, error=r.stderr.strip()[:200], note="속도 맞추기 실패 — 원래 소리 그대로")
+            return None
+        y, _ = read_wav(b)
+        return y
 
 
 def plan_items(vid, rows, voices, lex):
@@ -721,6 +759,8 @@ def f0_median(x, sr, fmin=60.0, fmax=400.0):
 # ----------------------------------------------------------------------------- 문장 하나 만들기 (캐시·검사·다시)
 def cache_key(engine, text, spec):
     d = dict(engine.describe(spec), text=text, instruct=spec["instruct"], seed=spec["seed"], cache=CACHE_VERSION)
+    if spec.get("pace"):
+        d["pace"] = spec["pace"]
     return hashlib.sha1(json.dumps(d, ensure_ascii=False, sort_keys=True).encode("utf-8")).hexdigest()[:16]
 
 
@@ -768,10 +808,26 @@ def make_sentence(engine, cache_dir, label, text, spec, syl, args, redo=False, r
     if best is None:
         die("TTS", f"{label}: {args.max_tries}번 모두 생성 오류", "로그의 오류를 보고 --dtype float32 / 런타임 재시작 후 다시", text=text)
     _, x, sr, attempt, seed, ok, issues, warns, m, gen_s = best
+    pace_factor = 1.0
+    pc = spec.get("pace")
+    if pc and syl >= SHORT_SYL and m["rate"] > 0:   # 말 속도 맞추기: 범위 밖이면 가장 가까운 끝으로 (음 높이 그대로, ±max_stretch 까지)
+        lo, hi, lim = float(pc.get("min", 0)), float(pc.get("max", 99)), float(pc.get("max_stretch", 0.15))
+        target = min(max(m["rate"], lo), hi)
+        if abs(target - m["rate"]) > 1e-3:
+            f = min(max(target / m["rate"], 1 - lim), 1 + lim)
+            y = atempo(x, sr, f)
+            if y is not None:
+                before = m["rate"]
+                x, pace_factor = trim(y, sr), f
+                _, issues2, warns2, m2 = check(x, sr, syl, False)
+                m2["f0"] = m["f0"]
+                issues = issues2 + [i for i in issues if i.startswith("목소리 높이")]
+                ok, m = not issues, m2
+                log("PACE", item=label, role=role, rate_before=before, rate_after=m["rate"], factor=f, target=f"{lo}-{hi}")
     write_wav(wav_p, x, sr)
     meta = {"key": key, "text": text, "instruct": spec["instruct"], "syl": syl, "sr": sr, "attempt": attempt, "seed": seed,
             "base_seed": spec["seed"], "role": role,
-            "tried": tried, "ok": ok, "issues": issues, "warns": warns, "gen_s": round(gen_s, 2),
+            "tried": tried, "ok": ok, "issues": issues, "warns": warns, "gen_s": round(gen_s, 2), "pace_factor": round(pace_factor, 3),
             **{k: round(float(v), 3) for k, v in m.items()}, **engine.describe(spec), "tool": VERSION}
     meta_p.write_text(json.dumps(meta, ensure_ascii=False, indent=1), "utf-8")
     if not ok:
@@ -1021,6 +1077,8 @@ def write_report(path, topic, vid, args, items, metas, timing, cards, total_s, v
     for it in items:
         m = metas[it["n"]]
         flag = "; ".join(m["issues"] + m["warns"]) or "✅"
+        if abs(m.get("pace_factor", 1.0) - 1) > 1e-3:
+            flag += f" · 속도 맞춤 ×{m['pace_factor']:.2f}"
         lines.append(f"| {it['n']} | {voices[it['role']]['name']} | {it['part']} | {mmss(timing[it['n']][0])} | {m['dur']:.2f} | "
                      f"{m['rate']:.1f} | {m.get('f0', 0):.0f} | {m['attempt']} | {flag} |")
     bad = [it for it in items if not metas[it["n"]]["ok"] or metas[it["n"]]["warns"]]
@@ -1614,12 +1672,14 @@ def sample_spec(role, c, voices, ref):
             return None
         return spec_of(v, v["instruct"] if v["engine"] == "custom_voice" else "")
     if c["how"] == "custom_voice":
-        return {"engine": "custom_voice", "speaker": c["speaker"], "instruct": c["instruct"], "gen": {},
-                "seed": int(c.get("seed", 1234)), "gap": SAMPLE_GAP}
+        sp = {"engine": "custom_voice", "speaker": c["speaker"], "instruct": c["instruct"], "gen": {},
+              "seed": int(c.get("seed", 1234)), "gap": float(c.get("gap", SAMPLE_GAP))}
+        return dict(sp, pace=c["pace"]) if c.get("pace") else sp
     if not ref:
         return None
-    return {"engine": "clone", "speaker": "-", "instruct": "", "gen": {}, "seed": int(c.get("seed", 1234)), "gap": SAMPLE_GAP,
-            "ref_audio": str(ref["path"]), "ref_sha": ref["sha"], "ref_f0": ref["f0"], "ref_text": ref["text"], "f0_tol": F0_TOL}
+    sp = {"engine": "clone", "speaker": "-", "instruct": "", "gen": {}, "seed": int(c.get("seed", 1234)), "gap": float(c.get("gap", SAMPLE_GAP)),
+          "ref_audio": str(ref["path"]), "ref_sha": ref["sha"], "ref_f0": ref["f0"], "ref_text": ref["text"], "f0_tol": F0_TOL}
+    return dict(sp, pace=c["pace"]) if c.get("pace") else sp
 
 
 def make_samples(engine, args, cfg, voices, todo):
@@ -1670,7 +1730,7 @@ def make_samples(engine, args, cfg, voices, todo):
         g = 10 ** (gain_for(clips, sr) / 20)
         pieces = [silence(0.3, sr)]
         for x in clips:
-            pieces += [x * g, silence(SAMPLE_GAP, sr)]
+            pieces += [x * g, silence(spec["gap"], sr)]
         y = np.concatenate(pieces + [silence(0.4, sr)])
         mp3 = export(y, sr, work / role / f"{c['id']}.mp3")
         f0s = [m.get("f0", 0.0) for m in metas if m.get("f0")]
@@ -1679,7 +1739,8 @@ def make_samples(engine, args, cfg, voices, todo):
                 "speaker": spec.get("speaker"), "instruct": c.get("instruct") or spec.get("instruct", ""),
                 "seed": spec["seed"], "preview": cfg["text"][role]["preview"], "seconds": round(len(y) / sr, 2),
                 "f0_hz": round(float(np.median(f0s)), 1) if f0s else 0.0,
-                "rate": round(float(np.mean([m["rate"] for m in metas])), 2),
+                "rate": round(float(np.mean([m["rate"] for m in metas])), 2), "pace": c.get("pace") or spec.get("pace"),
+                "pace_factors": [m.get("pace_factor", 1.0) for m in metas],
                 "issues": sorted({i for m in metas for i in m["issues"]} | set((ref or {}).get("issues", []))),
                 "models": {k: v for k, v in engine.ids.items()}, "created": datetime.now().isoformat(timespec="seconds"),
                 "tool": f"tts_narration.py {VERSION}"}
@@ -1779,8 +1840,72 @@ def run_samples(args, token, voices, only=None, force=False):
 def cmd_samples(args):
     token = push_preflight(args)
     voices = load_voices(args=args, quiet=True)
-    if not run_samples(args, token, voices, only=(args.only or "").split(","), force=args.force):
+    ok = run_samples(args, token, voices, only=(args.only or "").split(","), force=args.force)
+    if args.play and not args.dry_run:
+        ids = [x for x in (args.only or "").split(",") if x.strip()] or [c["id"] for r in voices for c in load_samples_cfg(voices)[r]]
+        listen(ids, args)
+    if not ok:
         raise SystemExit(1)
+
+
+def play(path, seconds=None):
+    """터미널에서 바로 재생 → 쓴 방법. ffplay·afplay·mpv (wav 면 paplay·aplay도). 소리 장치가 없으면 시간 안에 끝내고 None."""
+    for cmd in (["ffplay", "-nodisp", "-autoexit", "-loglevel", "error"], ["afplay"], ["mpv", "--no-video", "--really-quiet"],
+                ["paplay"], ["aplay", "-q"]):
+        if not shutil.which(cmd[0]) or (cmd[0] in ("paplay", "aplay") and not str(path).endswith(".wav")):
+            continue
+        t0 = time.time()
+        try:
+            r = subprocess.run(cmd + [str(path)], timeout=(seconds or 60) + 15, capture_output=True, text=True)
+        except subprocess.TimeoutExpired:
+            return None
+        took, err = time.time() - t0, (r.stderr or "").lower()
+        # ffplay 는 소리 장치가 없어도 종료 코드 0 으로 바로 끝난다 → 오류 문구·걸린 시간으로 실제 재생 여부를 판단
+        dead = any(s in err for s in ("audio device", "audio open failed", "failed to open", "cannot find card", "connection refused"))
+        if r.returncode == 0 and not dead and (not seconds or took >= seconds * 0.5):
+            return cmd[0]
+        log("LISTEN", logging.DEBUG, player=cmd[0], rc=r.returncode, took_s=round(took, 2), expect_s=seconds or "-",
+            err=(r.stderr or "").strip().splitlines()[-1:] or "-")
+    return None
+
+
+def listen(items, args):
+    """샘플 ID(S07)·역할 기준 소리(storyteller·host)·파일 경로를 찾아 바로 재생. 못 틀면 경로와 노트북용 한 줄을 알려 준다."""
+    voices = load_voices(quiet=True)
+    work = out_root(args) / "samples"
+    for it in items:
+        it = it.strip()
+        path = Path(it) if Path(it).is_file() else None
+        if path is None and it in voices and voices[it].get("ref_audio") and (ROOT / voices[it]["ref_audio"]).is_file():
+            path = ROOT / voices[it]["ref_audio"]
+        if path is None:
+            for role in voices:
+                for base in (SAMPLES_DIR, work):
+                    q = base / role / f"{it.upper()}.mp3"
+                    if q.is_file():
+                        path = q
+                        break
+                if path:
+                    break
+        if path is None:
+            log("LISTEN", logging.WARNING, item=it, note="파일 없음 — 먼저 samples --only " + it.upper())
+            continue
+        meta_p = path.with_suffix(".json")
+        info = json.loads(meta_p.read_text("utf-8")) if meta_p.is_file() else {}
+        x, sr = (read_wav(path) if path.suffix == ".wav" else (None, None))
+        secs = info.get("seconds") or (len(x) / sr if x is not None else None)
+        log("LISTEN", item=it, file=rel(path), label=info.get("label", "-"), seconds=secs or "-", f0_hz=info.get("f0_hz", "-"),
+            rate=info.get("rate", "-"), pace_factors=info.get("pace_factors", "-"))
+        how = play(path, secs)
+        if how:
+            log("LISTEN", item=it, played=how)
+        else:
+            log("LISTEN", logging.WARNING, item=it, file=str(path),
+                note="이 환경에는 소리 장치가 없음 — Kaggle·Jupyter 셀: from IPython.display import Audio; Audio(\"" + str(path) + "\")")
+
+
+def cmd_listen(args):
+    listen(args.items, args)
 
 
 def cmd_pick(args):
@@ -1816,6 +1941,9 @@ def cmd_pick(args):
                 new.pop(k, None)
             new.update(engine="custom_voice", speaker=c["speaker"], instruct=c["instruct"], seed=int(c.get("seed", 1234)), lock=True,
                        part_instruct={})
+            for k in ("pace", "gap"):
+                if c.get(k) is not None:
+                    new[k] = c[k]
         elif c["how"] == "design":
             if not P["ref"].is_file() or hashlib.sha1(P["ref"].read_bytes()).hexdigest()[:16] != meta["ref"]["sha1"]:
                 die("PICK", f"{c['id']} 기준 소리 파일이 없거나 해시가 다름", "Kaggle 에서 samples --only " + c["id"] + " --force --push")
@@ -1824,6 +1952,9 @@ def cmd_pick(args):
                        part_instruct={},
                        design={"instruct": c["instruct"], "text": meta["ref"]["text"], "seed": meta["ref"]["seed"], "tries": int(c.get("tries", 3)),
                                "f0_range": c["f0_range"], "f0_target": c.get("f0_target")})
+            for k in ("pace", "gap"):
+                if c.get(k) is not None:
+                    new[k] = c[k]
             ref_meta = {"role": role, "text": meta["ref"]["text"], "instruct": c["instruct"], "language": "Korean",
                         "model": meta["ref"].get("design_model"), "seed": meta["ref"]["seed"], "f0_hz": meta["ref"]["f0_hz"],
                         "dur": meta["ref"]["dur"], "rate": meta["ref"]["rate"], "sha1": meta["ref"]["sha1"], "sample": c["id"],
@@ -1985,6 +2116,9 @@ def main():
     sp.add_argument("--force", action="store_true", help="이미 있어도 다시 만들기")
     sp.add_argument("--push", action="store_true", help="만든 샘플을 voices/samples/ 에 올리기")
     sp.add_argument("--dry-run", action="store_true", help="무엇을 만들지 목록만")
+    sp.add_argument("--play", action="store_true", help="만든 뒤 바로 듣기 (터미널 ffplay·afplay·mpv)")
+    li = sub.add_parser("listen", parents=[common], help="샘플·기준 소리 바로 듣기 (예: listen S07 S08, listen storyteller, 파일 경로)")
+    li.add_argument("items", nargs="+", help="후보 ID · 역할 이름(기준 소리) · 파일 경로")
     pk = sub.add_parser("pick", parents=[common], help="고른 샘플로 역할 목소리 고정 (예: pick S04 H01) — GPU 필요 없음")
     pk.add_argument("ids", nargs="+", help="고른 후보 ID (역할마다 하나)")
     pk.add_argument("--dry-run", action="store_true", help="바꿀 내용만 보기")
@@ -2014,6 +2148,8 @@ def main():
         cmd_samples(args)
     elif args.cmd == "pick":
         cmd_pick(args)
+    elif args.cmd == "listen":
+        cmd_listen(args)
     else:
         cmd_check(args)
 

@@ -25,7 +25,7 @@
 | 단계 | 할 일 | 지시사항·명령 | 결과물 (`<주제폴더>/` 기준) |
 |---|---|---|---|
 | 1 | 분석 결과가 없으면 분석기 실행 | `bash tools/run_analysis.sh <주제폴더>` | `result/` |
-| 2 | 분석 결과로 주제 규칙·`data_insights.md` 만들기·고치기 → 주제 탐색 | `data_insights.md` 9번, `title_guide.md` 0번 | `guides/`, 주제 후보 |
+| 2 | 분석 결과로 주제 규칙·`data_insights.md` 만들기·고치기 → 주제 탐색 | `data_insights.md` '갱신 방법'·'시청자 니즈', `title_guide.md` 0번 | `guides/`, 주제 후보 |
 | 3 ① | 대본 TXT·SRT·README — **사연은 20~30초**(5~7문장, 첫 문장에 결과 숫자). SRT 검사: 문장 / 자막 / SRT–TXT 일치 / 고지 공백 / 사연 길이. 사례·연구는 되도록 최신(2020년대 먼저) | `script_guide.md` | `source/<영상ID>/` |
 | 3 ② | 제목 3개 (1개 채택, 짝 썸네일) | `title_guide.md` 11번 | `source/<영상ID>/titles.md` |
 | 3 ③ | 썸네일 **프롬프트** 3개 — 모두 아래쪽 제목 문구 2줄, thumbnail_3은 검은 배경에 채택 제목 문구 그대로 (이미지는 사용자가 이미지 AI로) | `thumbnail_guide.md` | `source/<영상ID>/thumbnails/thumbnail_1~3.md` |

@@ -1,29 +1,30 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-10-12 — 신규: 최근에 올라온, 구독자는 적은데 조회수가 구독자의 몇 배인 롱폼 영상(작은 채널 성공 사례)을
+# VERSION: v1.1 — 2026-10-12 — 기본 검색에 20분 넘는 영상도 (사연·우주 성공 사례 대부분이 30분 넘음 — 재분석 결과), 키워드는 그룹마다 1개(할당량 같게)
+# (v1.0 — 2026-10-12 — 신규: 최근에 올라온, 구독자는 적은데 조회수가 구독자의 몇 배인 롱폼 영상(작은 채널 성공 사례)을
 #          주제마다 찾아 내용(자막·설명·챕터)과 댓글을 모은다. 사용자 지시: "되도록 최근에 업로드 되고 구독자수 별로 없지만 그에 비해
 #          조회수가 잘나오는 영상들에서 어떤 내용이 들어있고 댓글에서 시청자의 니즈가 뭔지" — 분석기(youtube_topic_analyzer.py)의
-#          성공 사례 8개는 쇼츠·대형 채널이 섞이고(조회수 가중 35%), 주식 밖 주제는 자막을 못 받아 주식 결과를 빌려 썼던 문제를 고친다.
+#          성공 사례 8개는 쇼츠·대형 채널이 섞이고(조회수 가중 35%), 주식 밖 주제는 자막을 못 받아 주식 결과를 빌려 썼던 문제를 고친다.)
 r"""
 사용법 (저장소 최상위):
   python3 tools/outlier_research.py stock                       # 주제 하나
   python3 tools/outlier_research.py stock health space selfdev story lifetips
-  옵션: --per-group 2   키워드 그룹마다 검색할 키워드 수 (<주제>/analyzer_config.toml 의 KEYWORD_GROUPS 앞에서부터)
+  옵션: --per-group 1   키워드 그룹마다 검색할 키워드 수 (<주제>/analyzer_config.toml 의 KEYWORD_GROUPS 앞에서부터)
         --days 180      최근 며칠 안에 올라온 영상 (모자라면 --fallback-days 365 까지 넓힘)
         --max-subs 50000 --min-ratio 3 --min-views 10000 --min-sec 240   성공 사례 기준
         --top 15        자막·댓글을 모을 성공 사례 수 (채널당 최대 --per-channel 2)
         --comments 100  사례마다 모을 댓글 수 (인기순)
-        --long          20분 넘는 영상도 검색 (검색 횟수 두 배)
+        --no-long       20분 넘는 영상은 검색하지 않음 (기본은 4~20분과 20분 넘음 둘 다)
         --quota 9000    이번 실행 API 단위 한도
         --from-existing 분석기 결과에서 고르기 (API 키 없이)
         --refresh       캐시 무시
 
 수집 방법:
   기본 — YouTube Data API v3 (환경 변수 YOUTUBE_API_KEY, 분석기와 같은 키):
-    검색 search.list (publishedAfter = 지금 - days, videoDuration=medium(4~20분)[+long], order=viewCount, KR·ko) — 100단위/번
+    검색 search.list (publishedAfter = 지금 - days, videoDuration=medium(4~20분)·long(20분 넘음), order=viewCount, KR·ko) — 100단위/번
     영상 videos.list (설명·태그·길이·조회수), 채널 channels.list (구독자), 댓글 commentThreads.list (인기순) — 1단위/번
     --quota 로 이번 실행 한도(기본 9000단위, 하루 10,000 — 분석기·피드백 도구와 같은 키면 함께 줄어든다). 넘기 전에 검색을 멈춘다.
-    검색 횟수 = 키워드 그룹 × --per-group (× 2 if --long): 주식 9×2 = 18번(1,800단위), 다른 주제 6×2 = 12번(1,200단위) → 6개 주제 약 7,800단위.
+    검색 횟수 = 키워드 그룹 × --per-group × 2(길이 둘): 주식 9×1×2 = 18번(1,800단위), 다른 주제 6×1×2 = 12번(1,200단위) → 6개 주제 약 7,800단위.
   키: 환경 변수 YOUTUBE_API_KEY, 없으면 저장소 최상위 .env 의 YOUTUBE_API_KEY= (집 PC, 분석기와 같은 파일 — git 에 올라가지 않음)
   자막: youtube-transcript-api (한국어). 클라우드 IP 는 YouTube 가 막는다(2026-10-12 확인: RequestBlocked) → 집 PC 에서 실행하면 받힌다.
         못 받으면 '자막 막힘'으로 적고 설명·챕터·댓글로 분석한다.
@@ -56,7 +57,7 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v1.0"
+VERSION = "v1.1"
 LOG = logging.getLogger("outlier")
 HANGUL = re.compile(r"[가-힣]")
 
@@ -395,7 +396,7 @@ def write_summary(out, topic, name, a, used_days, rows, q, deep, source):
 def main():
     ap = argparse.ArgumentParser(description="작은 채널 성공 사례(최근·롱폼·조회수/구독자 배수) 수집 — 내용·댓글 분석용")
     ap.add_argument("topics", nargs="+")
-    ap.add_argument("--per-group", type=int, default=2)
+    ap.add_argument("--per-group", type=int, default=1)
     ap.add_argument("--days", type=int, default=180)
     ap.add_argument("--fallback-days", type=int, default=365)
     ap.add_argument("--max-subs", type=int, default=50000)
@@ -405,7 +406,7 @@ def main():
     ap.add_argument("--top", type=int, default=15)
     ap.add_argument("--per-channel", type=int, default=2)
     ap.add_argument("--comments", type=int, default=100)
-    ap.add_argument("--long", action="store_true", help="20분 넘는 영상도 검색")
+    ap.add_argument("--no-long", dest="long", action="store_false", help="20분 넘는 영상은 검색하지 않음")
     ap.add_argument("--quota", type=int, default=9000, help="이번 실행 API 단위 한도 (주제 여러 개를 함께 셈. 하루 10,000)")
     ap.add_argument("--from-existing", action="store_true", help="분석기 결과에서 고르기 (API 키 없이)")
     ap.add_argument("--no-transcript", action="store_true", help="자막 받기 건너뜀 (클라우드 IP 는 막힘)")

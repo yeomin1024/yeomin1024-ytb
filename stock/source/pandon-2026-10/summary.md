@@ -1,6 +1,6 @@
 # pandon-2026-10 한눈에 보기
 
-자동 생성 — `python tools/make_summary.py stock pandon-2026-10` (2026-10-12 12:44). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
+자동 생성 — `python tools/make_summary.py stock pandon-2026-10` (2026-10-12 12:45). 이 파일은 고치지 말고 원본(대본·titles.md·thumbnails/·upload.md)을 고친 뒤 다시 만든다.
 
 > **소질 있는 줄 알고 판돈 키웠다가 번 285만원이 -1,288만원이 됐습니다. 금액부터 늘린 사람들의 공통점**
 
@@ -91,8 +91,8 @@ YouTube thumbnail, 16:9 (1280x720), bold high-contrast composition readable at s
 Palette: cream #F2EBDD, dark navy #14213D, ink black #1E1E1E, highlight yellow #FFD400, loss blue #2D6CDF, gain red #E63B2E.
 Bottom-right corner kept empty (video length badge).
 Realistic photo style. A navy-toned office desk scene in the daytime, soft window light. On the left 40% of the frame,
-a fictional Korean woman office worker in her late 30s (plain blouse), sitting and holding a smartphone, the other hand
-pressed against her forehead, frozen stunned and regretful expression, face lit by the phone. The face and the phone are
+a fictional Korean man office worker in his early 40s (plain shirt, loosened tie), sitting and holding a smartphone, the other hand
+pressed against his forehead, frozen stunned and regretful expression, face lit by the phone. The face and the phone are
 in the upper 60% of the frame; the lower body fades into darkness at the bottom. The phone screen shows only a simple line
 that rises and then turns blue and drops sharply, no app interface, no text. Fictional person, not resembling any real or
 famous person, natural Korean features, realistic photo style. In the upper right area, the huge bold text "하루 -22%" in

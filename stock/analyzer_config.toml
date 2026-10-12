@@ -7,7 +7,7 @@
 #            '물린 주식 10년 … 복구 심리', 'ETF … 단타치다 망하는 이유' 등)
 #            ② 그룹마다 5개(45개) — 하루 할당량 안에서 전부 검색되게 (옛 90개는 하루에 40개만 수집됨). 그룹의 첫 키워드는
 #            tools/outlier_research.py 가 쓰므로 그 그룹을 가장 잘 대표하는 말로 둔다
-#            ③ QUOTA_BUDGET 7000 — 같은 키로 outlier_research(약 1,900단위)를 먼저 돌리므로 하루 10,000 안에 둘 다 들어가게
+#            ③ QUOTA_BUDGET 6000 — 같은 키로 outlier_research(--per-group 2, 3,653단위)를 먼저 돌리므로 하루 10,000 안에 둘 다 들어가게
 #
 # ✏️ 이 파일만 고치면 됩니다 (코드 수정 불필요).
 #    - 글자는 "따옴표" 안에, 목록은 [ "가", "나", ] 처럼 쉼표로 구분, 숫자·true/false 는 그대로, '#' 뒤는 설명
@@ -120,7 +120,7 @@ AD_SUSPECT_MAX_LIKE_RATE = 0.0025       # 좋아요/조회수 < 0.25%
 AD_SUSPECT_MAX_COMMENT_RATE = 0.00005   # 댓글/조회수 < 0.05/1,000
 
 [advanced]
-QUOTA_BUDGET = 7000                     # outlier_research 와 같은 키 — 둘 합쳐 하루 10,000 안 ⚠️ 비용 관련
+QUOTA_BUDGET = 6000                     # outlier_research(2026-10-12 실행: 3,653단위)와 같은 키 — 둘 합쳐 하루 10,000 안 ⚠️ 비용 관련
 # ANALYSIS_DAYS = 365
 # MAX_SEARCH_KEYWORDS = 150
 # SEARCH_ORDERS = ["relevance"]

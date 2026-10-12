@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# VERSION: v1.0 — 2026-10-10 — 클라우드(Claude Code)에서 분석기 실행 → 결과를 <주제폴더>/result/ 로 복사 (커밋·푸시는 Claude가 main에)
+# VERSION: v1.1 — 2026-10-12 — 버그 수정: 결과를 교체 복사할 때 <주제폴더>/result/outliers/(tools/outlier_research.py 결과)까지 지우던 것을 보존
+#          (v1.0 — 2026-10-10 — 클라우드(Claude Code)에서 분석기 실행 → 결과를 <주제폴더>/result/ 로 복사 (커밋·푸시는 Claude가 main에))
 # ------------------------------------------------------------------------------------------------
 #  사용법 (저장소 최상위에서):
 #    bash tools/run_analysis.sh stock                  # stock/analyzer_config.toml 로 분석
@@ -46,8 +47,18 @@ if [ ! -d "$SRC" ]; then
   exit 1
 fi
 log "stage=copy from=$SRC to=$TOPIC_DIR/result (영상·음성 제외)"
+# result/outliers/ 는 tools/outlier_research.py 결과라 분석기 결과에 없다 → 지우지 않고 잠시 옮겼다가 되돌린다 (v1.1)
+KEEP=""
+if [ -d "$TOPIC_DIR/result/outliers" ]; then
+  KEEP="$(mktemp -d)"
+  mv "$TOPIC_DIR/result/outliers" "$KEEP/outliers"
+  log "stage=keep outliers=$TOPIC_DIR/result/outliers (outlier_research 결과 보존)"
+fi
 rm -rf "$TOPIC_DIR/result"
 mkdir -p "$TOPIC_DIR/result"
+if [ -n "$KEEP" ]; then
+  mv "$KEEP/outliers" "$TOPIC_DIR/result/outliers" && rmdir "$KEEP"
+fi
 (cd "$SRC" && find . -type f ! \( -iname '*.mp4' -o -iname '*.mkv' -o -iname '*.webm' -o -iname '*.mov' -o -iname '*.m4a' -o -iname '*.mp3' -o -iname '*.opus' \) \
   -exec cp --parents {} "$ROOT/$TOPIC_DIR/result/" \;)
 log "stage=done files=$(find "$TOPIC_DIR/result" -type f | wc -l) → 다음: guides/pipeline.md 2단계 (data_insights.md·지시사항 갱신)"

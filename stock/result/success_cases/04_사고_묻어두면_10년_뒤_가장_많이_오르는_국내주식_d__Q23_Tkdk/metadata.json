@@ -1,0 +1,49 @@
+{
+  "video_id": "d__Q23_Tkdk",
+  "title": "사고 묻어두면 10년 뒤 가장 많이 오르는 국내주식",
+  "channel_title": "복리킴ㅣ주도주식 투자",
+  "channel_id": "UCehm3eXC9NtLkmncpHfw4ow",
+  "published_at": "2026-03-14T12:05:00+00:00",
+  "views": 1086109,
+  "likes": 13595.0,
+  "comments": 204.0,
+  "subscribers": 51100,
+  "duration_sec": 73.0,
+  "fmt": "long",
+  "outlier_score": 39.27209285507666,
+  "baseline_views": 27656.0,
+  "baseline_kind": "same_format",
+  "views_per_day": 5123.312547610885,
+  "views_per_sub": 21.254579256360078,
+  "like_rate": 0.012517159879901556,
+  "comment_rate": 0.00018782645204118556,
+  "case_score": 91.1,
+  "selection_reason": "종합점수 상위",
+  "tags": [
+    "주식",
+    "투자",
+    "주식투자",
+    "국내주식",
+    "한국주식",
+    "삼성전자",
+    "sk하이닉스",
+    "종목추천",
+    "장기투자",
+    "현대차",
+    "주식추천"
+  ],
+  "description": "2036년, 10년 뒤 부의 지도를 그릴 핵심 산업과 국내 주식 대장주를 소개합니다. AI와 반도체 시대를 이끌 삼성전자와 SK하이닉스의 HBM 기술력과 함께, 전력 및 원자력 분야의 SMR 기술, 그리고 미래를 선도할 로봇 산업의 중요성을 분석합니다. 이 영상에서 제시하는 투자 전략으로 여러분의 계좌 운명을 바꿔보세요.\n\n#주식  #투자  #국내주식 #삼성전자 #sk하이닉스 #장기투자",
+  "video_url": "https://www.youtube.com/watch?v=d__Q23_Tkdk",
+  "download_status": {
+    "video_id": "d__Q23_Tkdk",
+    "case_dir": "success_cases/04_사고_묻어두면_10년_뒤_가장_많이_오르는_국내주식_d__Q23_Tkdk",
+    "thumbnail": "failed",
+    "video": "skipped(DOWNLOAD_VIDEOS=False)",
+    "transcript": "failed",
+    "transcript_errors": {
+      "api": "ProxyError: HTTPSConnectionPool(host='www.youtube.com', port=443): Max retries exceeded with url: /watch?v=d__Q23_Tkdk (Caused by ProxyError('Unable to connect to",
+      "ytdlp": "DownloadError: ERROR: [youtube] d__Q23_Tkdk: Unable to download API page: ('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')) (caused ",
+      "whisper": "DownloadError: ERROR: [youtube] d__Q23_Tkdk: Unable to download API page: ('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')) (caused "
+    }
+  }
+}

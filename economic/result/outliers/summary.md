@@ -1,6 +1,6 @@
 # 재테크 — 작은 채널 성공 사례 + 조회수 상위 영상 (최근·롱폼)
 
-자동 생성 — `tools/outlier_research.py` v1.8 (2026-10-14 05:03). 사례마다 자막·댓글 전부(`comments.csv`)·썸네일은 사례 폴더에 있다 (저장소가 비공개일 때만 GitHub 에 올라감). 진행 상태(못 한 검색·댓글·자막·썸네일)는 `status.json`.
+자동 생성 — `tools/outlier_research.py` v1.8 (2026-10-14 05:25). 사례마다 자막·댓글 전부(`comments.csv`)·썸네일은 사례 폴더에 있다 (저장소가 비공개일 때만 GitHub 에 올라감). 진행 상태(못 한 검색·댓글·자막·썸네일)는 `status.json`.
 
 - 성공 사례 기준: 최근 180일 안 · 구독자 50,000명 이하 · 조회수 ≥ 구독자 × 3.0 · 조회수 10,000 이상 · 4분 이상 (쇼츠 제외) · 채널당 2개까지
 - 조회수 상위 기준: **구독자 수 상관없음** · 주제 관련(keywords.toml 관련어) · 4분 이상 · 최근 365일 · 조회수 순 20개 · 채널당 2개까지
@@ -584,7 +584,10 @@ Could not retrieve a transcript for the video https://www.youtube.com/watch?v=jA
 
 - https://www.youtube.com/watch?v=zZGKIlTr5Ic · Isa y Nati · 구독자 4,430,000 · 조회수 2,700,206 (×0.61) · 2026-01-17 (269일 전) · 27.6분 · 검색어: ISA
 - 설명 앞부분: (이 자료에는 설명 없음)
-- 자막: 한국어 자막 없음
+- 도입부(첫 20초, 자막 ko(음성인식)): 너무 시간이 남 I thought I'm going to miss this video a lot 너무 nerv Bondi if something I've always had in my life I could have 1000 of things I didn't have to do like not knowing what to study I don't know where to study I co…
+- 첫 1분 발췌: 너무 시간이 남 I thought I'm going to miss this video a lot 너무 nerv Bondi if something I've always had in my life I could have 1000 of things I didn't have to do like not knowing what to study I don't know where to study I could tell you 1000 things that my life they haven't been clear, but one thing was…
+- 말 속도 1.72음절/초 · 첫 1분 120음절 · 전체 2,839음절
+- 구간별 흐름(90초마다 첫 문장 앞부분): 0:00 너무 시간이 남 I thought I'm going to miss this vi… / 1:48 제 suggested to start this joke for me is one… / 3:21 시간을 지키지 마세요 / 4:31 여기가 / 6:02 지금 제가 여기에서 제 상품을 가지고 왔을 것 같아요 / 7:32 저는 이 컵을 넣을 수 없을 것 같아요 / 9:05 엄마는 항상 응원해요 / 10:30 아니... / 12:01 내가 손을 썰을게 / 13:30 제가 지금 생각해보니 / 15:10 그래서 베이쉬에 / 16:31 여기 있어요. / 18:00 이제는 안 되죠. / 19:30 저의 주인공은 정말 많은 것 같아요. / 21:42 3명의 주인공입니다. / 22:36 Fluffy가 노랗게 움직인다. / 24:08 아이고, 진짜 너무 심해. / 25:31 아, 진짜요 / 27:11 오다
 - 댓글 8,100개 받음 (최상위 7,282 · 답글 818 · 채널 주인 0) / 영상 표시 8,103개 — 다 받음. 전부: 사례 폴더 `comments.csv`
 - 인기 댓글 상위 10 (좋아요):
   - (2486) 😰😰😰 Al principio me preocupé pero dije ah de ser broma JSJSJJSSJSJAA

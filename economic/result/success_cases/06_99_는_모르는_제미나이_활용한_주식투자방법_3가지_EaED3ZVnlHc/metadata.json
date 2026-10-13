@@ -36,11 +36,17 @@
     "case_dir": "success_cases/06_99_는_모르는_제미나이_활용한_주식투자방법_3가지_EaED3ZVnlHc",
     "thumbnail": "ok",
     "video": "skipped(DOWNLOAD_VIDEOS=False)",
-    "transcript": "whisper_pending",
+    "transcript": "whisper_small",
     "transcript_errors": {
       "api": "IpBlocked: \nCould not retrieve a transcript for the video https://www.youtube.com/watch?v=EaED3ZVnlHc! This is most likely caused by:\n\nYouTube is blocking reques",
       "ytdlp": "RuntimeError: 자막 다운로드 실패 lang=ko-orig: HTTPError: HTTP Error 429: Too Many Requests"
     },
-    "comments": 100
+    "comments": 100,
+    "transcript_lang": "ko",
+    "whisper_done": "2026-10-14T05:39+09:00",
+    "transcript_chars": 7179,
+    "chars_per_min": 440.0,
+    "hook_seconds": 30,
+    "hook_text": "오늘 영상을 끝까지 안 보시는 분들은 진짜 땅을 치고 해야 할텐데 요 보고서로 다운받으시게 되면 안녕하세요. 돈 공부 시켜주는 남자입니다. 요즘 재미나이 안 쓰시는 분들이 있으신가요? 저도 채치 PT만 쓰다가 재미나이로 갈아타고 나서 훨씬 더 좋아진 것 같습니다. 오늘은 재미나이를 통해서 주식 투자 방법에 적용할 수 있는 3가지 알려드리도록 하겠습니다. 요즘에 AI 시대가 격변하고 있다 보니까 예전에 채치 PT의 점율이 엄청나게 높아졌는데 요즘 재미나이의 이용률이 엄청나게 높아지고 있다는 기사들이 나오고 있는 것 같습니다. 저도 투자를 하는 사람 있다 보니까 재미나이를 어떻게 투자에 접목해야 될지 고민을 해보다가"
   }
 }

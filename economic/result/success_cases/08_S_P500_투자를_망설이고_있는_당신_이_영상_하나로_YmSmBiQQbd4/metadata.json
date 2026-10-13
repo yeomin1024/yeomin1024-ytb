@@ -36,11 +36,17 @@
     "case_dir": "success_cases/08_S_P500_투자를_망설이고_있는_당신_이_영상_하나로_YmSmBiQQbd4",
     "thumbnail": "ok",
     "video": "skipped(DOWNLOAD_VIDEOS=False)",
-    "transcript": "whisper_pending",
+    "transcript": "whisper_small",
     "transcript_errors": {
       "api": "IpBlocked: \nCould not retrieve a transcript for the video https://www.youtube.com/watch?v=YmSmBiQQbd4! This is most likely caused by:\n\nYouTube is blocking reques",
       "ytdlp": "RuntimeError: 자막 다운로드 실패 lang=ko-orig: HTTPError: HTTP Error 429: Too Many Requests"
     },
-    "comments": 100
+    "comments": 100,
+    "transcript_lang": "ko",
+    "whisper_done": "2026-10-14T05:40+09:00",
+    "transcript_chars": 341,
+    "chars_per_min": 409.2,
+    "hook_seconds": 5,
+    "hook_text": "S&P 500도 역사적인 고평가에 지금 와 있는 상황이에요. 정립수구로 장기적으로 계속 투자한다라고 하는 생각은 어떤 사람이 있었어요."
   }
 }

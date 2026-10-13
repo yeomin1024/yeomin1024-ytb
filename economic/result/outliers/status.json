@@ -1,17 +1,17 @@
 {
  "tool": "outlier_research.py v1.8",
- "updated": "2026-10-13T15:22:53+00:00",
+ "updated": "2026-10-13T16:11:01+00:00",
  "topic": "economic",
  "keywords_file": "economic\\keywords.txt",
  "per_group": 0,
- "top": 20,
+ "top": 15,
  "popular_top": 20,
  "comments_cap": 0,
  "replies": true,
- "quota_used": 6658,
+ "quota_used": 0,
  "quota_stop": null,
- "searches_new": 56,
- "searches_cached": 16,
+ "searches_new": 0,
+ "searches_cached": 72,
  "pending": {
   "searches": [],
   "videos": 0,
@@ -21,13 +21,13 @@
  "stale_videos": 0,
  "candidates": 2286,
  "qualified": 119,
- "deep": 20,
+ "deep": 15,
  "popular": 20,
- "comments_total": 68342,
- "comment_units": 997,
- "comments_complete": 40,
- "cases": 40,
- "transcripts_ok": 0,
+ "comments_total": 61198,
+ "comment_units": 0,
+ "comments_complete": 35,
+ "cases": 35,
+ "transcripts_ok": 1,
  "transcript_missing": [
   {
    "id": "eFsT1K_mPjc",
@@ -95,38 +95,8 @@
    "retry_elsewhere": true
   },
   {
-   "id": "Lb9ht5PE0vU",
-   "status": "한국어 자막 없음",
-   "retry_elsewhere": false
-  },
-  {
    "id": "g10Y6ZA7rng",
    "status": "IpBlocked: \nCould not retrieve a transcript for the video https://www.youtube.com/watch?v=g10Y6ZA7rng! This is most likely caused b",
-   "retry_elsewhere": true
-  },
-  {
-   "id": "xQnFTZLNzOM",
-   "status": "IpBlocked: \nCould not retrieve a transcript for the video https://www.youtube.com/watch?v=xQnFTZLNzOM! This is most likely caused b",
-   "retry_elsewhere": true
-  },
-  {
-   "id": "8_rq_vVFDTg",
-   "status": "IpBlocked: \nCould not retrieve a transcript for the video https://www.youtube.com/watch?v=8_rq_vVFDTg! This is most likely caused b",
-   "retry_elsewhere": true
-  },
-  {
-   "id": "IT0HJS9WdAg",
-   "status": "IpBlocked: \nCould not retrieve a transcript for the video https://www.youtube.com/watch?v=IT0HJS9WdAg! This is most likely caused b",
-   "retry_elsewhere": true
-  },
-  {
-   "id": "N0gXuYAjgwk",
-   "status": "IpBlocked: \nCould not retrieve a transcript for the video https://www.youtube.com/watch?v=N0gXuYAjgwk! This is most likely caused b",
-   "retry_elsewhere": true
-  },
-  {
-   "id": "EwQzLTlokWI",
-   "status": "IpBlocked: \nCould not retrieve a transcript for the video https://www.youtube.com/watch?v=EwQzLTlokWI! This is most likely caused b",
    "retry_elsewhere": true
   },
   {
@@ -230,7 +200,7 @@
    "retry_elsewhere": true
   }
  ],
- "thumbnails_ok": 40,
+ "thumbnails_ok": 35,
  "thumbnail_missing": [],
  "ready": true,
  "top_comments_missing": [],

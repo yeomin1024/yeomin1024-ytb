@@ -27,11 +27,17 @@
     "case_dir": "success_cases/01_주식으로_성공한_부자들의_어마어마한_핵심_노하우_iacwbUHyqv4",
     "thumbnail": "ok",
     "video": "skipped(DOWNLOAD_VIDEOS=False)",
-    "transcript": "whisper_pending",
+    "transcript": "whisper_small",
     "transcript_errors": {
       "api": "IpBlocked: \nCould not retrieve a transcript for the video https://www.youtube.com/watch?v=iacwbUHyqv4! This is most likely caused by:\n\nYouTube is blocking reques",
       "ytdlp": "RuntimeError: 자막 다운로드 실패 lang=ko-orig: HTTPError: HTTP Error 429: Too Many Requests"
     },
-    "comments": 100
+    "comments": 100,
+    "transcript_lang": "ko",
+    "whisper_done": "2026-10-14T05:25+09:00",
+    "transcript_chars": 338,
+    "chars_per_min": 413.9,
+    "hook_seconds": 5,
+    "hook_text": "어마어마한 성공을 거둔 사람들의 핵심적인 노화가 오늘 나온 거예요. 뭐냐면 예를 들어서 저희가 종목 많이 하지 마라 이런 얘기 했잖아요."
   }
 }

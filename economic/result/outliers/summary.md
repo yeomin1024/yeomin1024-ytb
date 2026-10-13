@@ -1,6 +1,6 @@
 # 재테크 — 작은 채널 성공 사례 + 조회수 상위 영상 (최근·롱폼)
 
-자동 생성 — `tools/outlier_research.py` v1.8 (2026-10-14 01:35). 사례마다 자막·댓글 전부(`comments.csv`)·썸네일은 사례 폴더에 있다 (저장소가 비공개일 때만 GitHub 에 올라감). 진행 상태(못 한 검색·댓글·자막·썸네일)는 `status.json`.
+자동 생성 — `tools/outlier_research.py` v1.8 (2026-10-14 04:37). 사례마다 자막·댓글 전부(`comments.csv`)·썸네일은 사례 폴더에 있다 (저장소가 비공개일 때만 GitHub 에 올라감). 진행 상태(못 한 검색·댓글·자막·썸네일)는 `status.json`.
 
 - 성공 사례 기준: 최근 180일 안 · 구독자 50,000명 이하 · 조회수 ≥ 구독자 × 3.0 · 조회수 10,000 이상 · 4분 이상 (쇼츠 제외) · 채널당 2개까지
 - 조회수 상위 기준: **구독자 수 상관없음** · 주제 관련(keywords.toml 관련어) · 4분 이상 · 최근 365일 · 조회수 순 20개 · 채널당 2개까지
@@ -485,7 +485,7 @@ Could not retrieve a transcript for the video https://www.youtube.com/watch?v=7F
 
 - https://www.youtube.com/watch?v=BtMVltIT3lo · Isa Isarb · 구독자 3,380,000 · 조회수 3,634,244 (×1.08) · 2026-10-05 (8일 전) · 147.3분 · 검색어: ISA
 - 설명 앞부분: COOBIT COOKIES ONLINE SHOP!! TikTok: https://vt.tiktok.com/ZSHTnphqg2cJh-66Zkk/ Shopee: https://s.shopee.com.my/AUmfNT3nY4 Lazada: https://s.lazada.com.my/s.GVCSV Kalau korang nak tengok video dengan subtitle, just tekan je logo “CC”. Kami dah sediakan subtitle dalam dua bahasa , Bahasa Melayu & En…
-- 자막: 한국어 자막 없음
+- 자막: ok
 - 댓글 6,636개 받음 (최상위 5,347 · 답글 1,289 · 채널 주인 0) / 영상 표시 6,639개 — 다 받음. 전부: 사례 폴더 `comments.csv`
 - 인기 댓글 상위 10 (좋아요):
   - (9968) HADIR❤
@@ -579,7 +579,7 @@ Could not retrieve a transcript for the video https://www.youtube.com/watch?v=jA
 
 ## P15. ¿ISA ESTÁ EMBARAZADA? 😱
 
-- https://www.youtube.com/watch?v=zZGKIlTr5Ic · Isa y Nati · 구독자 4,430,000 · 조회수 2,700,206 (×0.61) · 2026-01-17 (268일 전) · 27.6분 · 검색어: ISA
+- https://www.youtube.com/watch?v=zZGKIlTr5Ic · Isa y Nati · 구독자 4,430,000 · 조회수 2,700,206 (×0.61) · 2026-01-17 (269일 전) · 27.6분 · 검색어: ISA
 - 설명 앞부분: (이 자료에는 설명 없음)
 - 자막: 한국어 자막 없음
 - 댓글 8,100개 받음 (최상위 7,282 · 답글 818 · 채널 주인 0) / 영상 표시 8,103개 — 다 받음. 전부: 사례 폴더 `comments.csv`

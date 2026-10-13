@@ -1,15 +1,18 @@
 ﻿<#
 ================================================================================================
  YouTube 분석 PC 실행기 (Windows PowerShell)
- VERSION: v2.0 — 2026-10-13 — 기본 주제 economic(경제·재테크). 분석기 + 작은 채널 성공 사례(자막·썸네일·댓글)를
+ VERSION: v2.1 — 2026-10-13 — 비공개 저장소에서도 받기: .env(또는 환경 변수)의 GITHUB_TOKEN 이 있으면 GitHub API 로 코드·설정을 받음
+          (사용자 지시: "비공개로 돌릴테니까 전부 다 업로드되게"). .env 가 없으면 먼저 틀을 만듦. 토큰 값은 화면에 쓰지 않음
+ (v2.0 — 2026-10-13 — 기본 주제 economic(경제·재테크). 분석기 + 작은 채널 성공 사례(자막·썸네일·댓글)를
           tools/pc_analysis.py 로 함께 돌리고, 할당량이 끝나 못 한 부분은 할당량 초기화(한국 오후 4~5시) 뒤 자동으로 이어서.
-          검색어 목록 <Folder>/keywords.toml 도 받음. -Once · -RegisterTask(작업 스케줄러) · -AnalyzerOnly(예전 방식) 추가
+          검색어 목록 <Folder>/keywords.toml 도 받음. -Once · -RegisterTask(작업 스케줄러) · -AnalyzerOnly(예전 방식) 추가)
  (v1.0 — 2026-10-09 — 분석 코드·설정 파일을 GitHub에서 받아 분석기만 실행)
 ================================================================================================
  처음 한 번 (자세히: guides/pc_analysis.md):
    1) Python 3.10 이상 설치 — python.org 설치 화면에서 "Add python.exe to PATH" 체크
-   2) PowerShell을 열고 작업할 폴더(예: 문서\ytb)로 이동한 뒤 아래 두 줄 실행
-      wget https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/run_analyzer.ps1 -OutFile run_analyzer.ps1
+   2) PowerShell을 열고 작업할 폴더(예: 문서\ytb)로 이동한 뒤 이 스크립트를 받아 실행
+      (저장소가 공개일 때) wget https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/run_analyzer.ps1 -OutFile run_analyzer.ps1
+      (저장소가 비공개일 때 — 토큰을 물어봄, 화면에 남지 않음) guides/pc_analysis.md "처음 한 번" 4번의 두 줄
       powershell -ExecutionPolicy Bypass -File .\run_analyzer.ps1
    3) 처음 실행하면 .env 파일이 생깁니다 → 메모장으로 열어 YOUTUBE_API_KEY(필수)·GITHUB_TOKEN(권장) 입력·저장 → 2)의 둘째 줄 다시 실행
 
@@ -53,6 +56,28 @@ $TaskName = "YouTubeAnalysis_$Folder"
 
 function Write-Step([string]$msg) { Write-Host "[RUNNER] [$(Get-Date -Format s)] $msg" }
 
+# .env 틀 (없을 때만) — 비공개 저장소는 GITHUB_TOKEN 이 있어야 코드를 받으므로 먼저 만든다. 값은 화면에 쓰지 않는다
+$EnvTemplate = @"
+# YouTube 분석 비밀 키 파일 — 절대 GitHub 에 올리거나 공유하지 마세요
+# '=' 뒤에 값을 붙여넣고 저장 (따옴표 필요 없음). 자세히: guides/pc_analysis.md
+
+# [필수] YouTube Data API v3 키 (Google Cloud 콘솔 → API 및 서비스 → 사용자 인증 정보 → API 키)
+YOUTUBE_API_KEY=
+
+# [비공개 저장소면 필수] GitHub 토큰 (Fine-grained, 저장소 yeomin1024-ytb, Contents: Read and write) — 코드 받기·결과 올리기
+GITHUB_TOKEN=
+"@
+function Get-Secret([string]$Name) {
+    $v = [Environment]::GetEnvironmentVariable($Name)
+    if ($v -and $v.Trim()) { return $v.Trim() }
+    if (Test-Path ".env") {
+        foreach ($line in (Get-Content ".env" -Encoding UTF8)) {
+            if ($line -match "^\s*$Name\s*=\s*['`"]?([^'`"\s]+)") { return $Matches[1] }
+        }
+    }
+    return ""
+}
+
 # 작업 스케줄러 등록/해제 (코드 받기 전에 처리 — 등록만 하고 끝)
 if ($UnregisterTask) {
     schtasks /Delete /TN $TaskName /F | Out-Null
@@ -72,13 +97,29 @@ if ($RegisterTask) {
     exit 1
 }
 
+if (-not (Test-Path ".env")) {
+    Set-Content -Path ".env" -Value $EnvTemplate -Encoding UTF8
+    Write-Step "📝 .env 파일을 만들었습니다 → 메모장으로 열어 YOUTUBE_API_KEY·GITHUB_TOKEN 을 넣고 저장하세요"
+}
+$Token = Get-Secret "GITHUB_TOKEN"
+$UseApi = [bool]($Token -and -not $env:RAW_BASE)
+Write-Step "코드 받는 방법: $(if ($UseApi) { 'GitHub API + 토큰 (비공개 저장소도 됨)' } else { '공개 주소 (토큰 없음 — 저장소가 비공개면 실패)' })"
+
 function Get-Remote([string]$RelPath, [string]$OutFile) {
     $url = "$Base/$RelPath"
     $tmp = "$OutFile.download"
     $dir = Split-Path -Parent $OutFile
     if ($dir -and -not (Test-Path $dir)) { New-Item -ItemType Directory -Force -Path $dir | Out-Null }
     try {
-        Invoke-WebRequest -Uri $url -OutFile $tmp -UseBasicParsing -ErrorAction Stop    # = wget
+        if ($UseApi) {    # 비공개 저장소: GitHub API (Contents, base64 — 1MB 이하 파일) — 토큰은 머리글로만, 화면에 쓰지 않음
+            $url = "https://api.github.com/repos/$Repo/contents/$RelPath" + "?ref=$Branch"
+            $headers = @{ Authorization = "Bearer $Token"; "X-GitHub-Api-Version" = "2022-11-28" }
+            $r = Invoke-RestMethod -Uri $url -Headers $headers -UseBasicParsing -ErrorAction Stop
+            if (-not $r.content) { throw "내용 없음 (1MB 넘는 파일이거나 폴더)" }
+            [IO.File]::WriteAllBytes((Join-Path (Get-Location).Path $tmp), [Convert]::FromBase64String(($r.content -replace "\s", "")))
+        } else {
+            Invoke-WebRequest -Uri $url -OutFile $tmp -UseBasicParsing -ErrorAction Stop    # = wget
+        }
         if ((Get-Item $tmp).Length -le 0) { throw "빈 파일" }
         Move-Item -Force $tmp $OutFile
         Write-Step "받음: $RelPath"
@@ -86,6 +127,8 @@ function Get-Remote([string]$RelPath, [string]$OutFile) {
     } catch {
         if (Test-Path $tmp) { Remove-Item -Force $tmp }
         Write-Step "받기 실패: $url ($($_.Exception.Message))"
+        if (-not $UseApi) { Write-Step "👉 저장소가 비공개면 .env 에 GITHUB_TOKEN 을 넣고 다시 실행하세요" }
+        else { Write-Step "👉 토큰이 이 저장소를 읽을 수 있는지 확인: Repository access 에 yeomin1024-ytb · Contents 권한 (guides/pc_analysis.md)" }
         return $false
     }
 }

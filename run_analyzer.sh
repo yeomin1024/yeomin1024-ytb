@@ -1,12 +1,15 @@
 #!/usr/bin/env bash
 # ================================================================================================
 #  YouTube 분석 PC 실행기 (macOS / Linux)
-#  VERSION: v2.0 — 2026-10-13 — 기본 주제 economic(경제·재테크). 분석기 + 작은 채널 성공 사례(자막·썸네일·댓글)를
+#  VERSION: v2.1 — 2026-10-13 — 비공개 저장소에서도 받기: .env(또는 환경 변수)의 GITHUB_TOKEN 이 있으면 GitHub API 로 코드·설정을 받음
+#           (사용자 지시: "비공개로 돌릴테니까 전부 다 업로드되게"). 토큰은 curl 설정(표준 입력)으로만 넘겨 명령줄·화면에 남기지 않음.
+#           .env 가 없으면 먼저 틀을 만듦
+#  (v2.0 — 2026-10-13 — 기본 주제 economic(경제·재테크). 분석기 + 작은 채널 성공 사례(자막·썸네일·댓글)를
 #           tools/pc_analysis.py 로 함께 돌리고, 할당량이 끝나 못 한 부분은 할당량 초기화(한국 오후 4~5시) 뒤 자동으로 이어서.
-#           검색어 목록 <폴더>/keywords.toml 도 받음. --once · --analyzer-only(예전 방식) · --print-cron 추가
+#           검색어 목록 <폴더>/keywords.toml 도 받음. --once · --analyzer-only(예전 방식) · --print-cron 추가)
 #  (v1.0 — 2026-10-09 — 분석 코드·설정 파일을 GitHub에서 wget으로 받아 분석기만 실행)
 # ================================================================================================
-#  처음 한 번 (새 폴더에서, 자세히: guides/pc_analysis.md):
+#  처음 한 번 (새 폴더에서, 자세히: guides/pc_analysis.md — 저장소가 비공개면 그 문서의 토큰으로 받는 방법):
 #    wget -O run_analyzer.sh https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/run_analyzer.sh
 #    bash run_analyzer.sh
 #    → 처음 실행하면 .env 파일이 생깁니다. YOUTUBE_API_KEY(필수)·GITHUB_TOKEN(권장)을 넣고 다시 실행
@@ -52,12 +55,44 @@ if [ "$PRINT_CRON" = 1 ]; then
   exit 0
 fi
 
+# .env 틀 (없을 때만) — 비공개 저장소는 GITHUB_TOKEN 이 있어야 코드를 받으므로 먼저 만든다
+if [ ! -f .env ]; then
+  cat > .env <<'ENVEOF'
+# YouTube 분석 비밀 키 파일 — 절대 GitHub 에 올리거나 공유하지 마세요
+# '=' 뒤에 값을 붙여넣고 저장 (따옴표 필요 없음). 자세히: guides/pc_analysis.md
+
+# [필수] YouTube Data API v3 키 (Google Cloud 콘솔 → API 및 서비스 → 사용자 인증 정보 → API 키)
+YOUTUBE_API_KEY=
+
+# [비공개 저장소면 필수] GitHub 토큰 (Fine-grained, 저장소 yeomin1024-ytb, Contents: Read and write) — 코드 받기·결과 올리기
+GITHUB_TOKEN=
+ENVEOF
+  step "📝 .env 파일을 만들었습니다 → YOUTUBE_API_KEY·GITHUB_TOKEN 을 넣고 저장하세요"
+fi
+env_get() {   # 환경 변수 → 없으면 .env (값은 출력하지 않음)
+  local v="${!1:-}"
+  if [ -z "$v" ] && [ -f .env ]; then v="$(sed -n -E "s/^[[:space:]]*$1[[:space:]]*=[[:space:]]*['\"]?([^'\" ]+).*/\1/p" .env | head -1)"; fi
+  printf '%s' "$v"
+}
+TOKEN="$(env_get GITHUB_TOKEN)"
+USE_API=0
+if [ -n "$TOKEN" ] && [ -z "${RAW_BASE:-}" ] && command -v curl >/dev/null 2>&1; then USE_API=1; fi
+step "코드 받는 방법: $([ $USE_API = 1 ] && echo 'GitHub API + 토큰 (비공개 저장소도 됨)' || echo '공개 주소 (토큰 없음 — 저장소가 비공개면 실패)')"
+
 fetch() {   # fetch <저장소 안 경로> <저장할 파일>
-  local url="$BASE/$1" out="$2"
+  local url="$BASE/$1" out="$2" rc
   mkdir -p "$(dirname "$out")"
-  if command -v wget >/dev/null 2>&1; then wget -q -O "$out.download" "$url"; else curl -fsSL -o "$out.download" "$url"; fi
-  if [ $? -eq 0 ] && [ -s "$out.download" ]; then mv -f "$out.download" "$out"; step "받음: $1"; return 0; fi
-  rm -f "$out.download"; step "받기 실패: $url"; return 1
+  if [ "$USE_API" = 1 ]; then   # 비공개 저장소: GitHub API (Contents, 원본 그대로). 토큰은 표준 입력의 curl 설정으로만
+    url="https://api.github.com/repos/$REPO/contents/$1?ref=$BRANCH"
+    printf 'header = "Authorization: Bearer %s"\n' "$TOKEN" | curl -fsSL -K - -H "Accept: application/vnd.github.raw" \
+      -H "X-GitHub-Api-Version: 2022-11-28" -o "$out.download" "$url"; rc=$?
+  elif command -v wget >/dev/null 2>&1; then wget -q -O "$out.download" "$url"; rc=$?
+  else curl -fsSL -o "$out.download" "$url"; rc=$?; fi
+  if [ $rc -eq 0 ] && [ -s "$out.download" ]; then mv -f "$out.download" "$out"; step "받음: $1"; return 0; fi
+  rm -f "$out.download"; step "받기 실패: $url"
+  if [ "$USE_API" = 1 ]; then step "👉 토큰이 이 저장소를 읽을 수 있는지 확인: Repository access 에 yeomin1024-ytb · Contents 권한"
+  else step "👉 저장소가 비공개면 .env 에 GITHUB_TOKEN 을 넣고 다시 실행하세요"; fi
+  return 1
 }
 
 # ① 코드 (항상 최신, 못 받으면 있던 파일)

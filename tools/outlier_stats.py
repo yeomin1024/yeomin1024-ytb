@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.1 — 2026-10-13 — 주제 낱말을 <주제>/keywords.toml 의 RELEVANCE_TERMS 에서 읽음 (economic 등 새 주제 폴더, 분석기 v2.4.0과 같은 파일).
-#          파일이 없으면 예전 주식 낱말(stock) 또는 거르지 않음
+# VERSION: v1.2 — 2026-10-13 — 조회수 상위 사례(P01_…, outlier_research v1.3)도 셈 (--set success|popular|all), 답글 빼고 세기(--top-level-only).
+#          순위는 글자로 비교 (성공 사례 3, 조회수 상위 P2)
+# (v1.1 — 2026-10-13 — 주제 낱말을 <주제>/keywords.toml 의 RELEVANCE_TERMS 에서 읽음 (economic 등 새 주제 폴더, 분석기 v2.4.0과 같은 파일).
+#          파일이 없으면 예전 주식 낱말(stock) 또는 거르지 않음)
 # (v1.0 — 2026-10-12 — 신규: tools/outlier_research.py 결과로 data_insights 의 숫자를 다시 계산 (재현용, 해석 없음)
 #          ① 제목·길이·채널 크기별 성공 비율 (candidates.csv — 구독자 5만 이하·365일 안·4분 이상·주제 낱말이 든 롱폼)
 #          ② 성공 사례 댓글을 낱말 규칙으로 나눈 시청자 니즈 (사례 폴더의 comments.csv, 한 댓글이 여러 갈래에 들 수 있음))
@@ -27,7 +29,7 @@ from datetime import datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v1.1"
+VERSION = "v1.2"
 LOG = logging.getLogger("outlier_stats")
 
 # 주식 주제 낱말 (제목에 하나라도 있어야 비교 집단에 넣음)
@@ -134,8 +136,11 @@ def title_stats(topic, max_subs=50000, max_age=365, min_min=4.0):
     return pop
 
 
-def comment_needs(topic, skip, groups):
-    cases = sorted(glob.glob(str(ROOT / topic / "result" / "outliers" / "[0-9][0-9]_*")))
+def comment_needs(topic, skip, groups, which="success", top_level_only=False):
+    base = ROOT / topic / "result" / "outliers"
+    pats = {"success": ["[0-9][0-9]_*"], "popular": ["P[0-9][0-9]_*"], "all": ["[0-9][0-9]_*", "P[0-9][0-9]_*"]}[which]
+    cases = sorted(d for pat in pats for d in glob.glob(str(base / pat)))
+    log("COMMENTS", topic=topic, set=which, cases=len(cases), top_level_only=top_level_only)
     if not cases:
         log("COMMENTS", logging.WARNING, topic=topic, note="사례 폴더 없음 (git 에 올라가지 않음 — outlier_research.py 를 다시)")
         return None
@@ -145,9 +150,12 @@ def comment_needs(topic, skip, groups):
         n = likes = 0
         for d in cases:
             m = json.load(open(Path(d) / "metadata.json", encoding="utf-8"))
-            if (ranks is None and m["rank"] in skip) or (ranks is not None and m["rank"] not in ranks):
+            rk = str(m["rank"])
+            if (ranks is None and rk in skip) or (ranks is not None and rk not in ranks):
                 continue
             for c in csv.DictReader(open(Path(d) / "comments.csv", encoding="utf-8-sig")):
+                if top_level_only and c.get("is_reply") == "True":
+                    continue
                 t, lk = c["text"], int(c["likes"] or 0)
                 n += 1
                 likes += lk
@@ -171,19 +179,22 @@ def comment_needs(topic, skip, groups):
 def main():
     ap = argparse.ArgumentParser(description="outlier_research 결과로 제목 요소·댓글 니즈 숫자 다시 계산 (해석 없음)")
     ap.add_argument("topic")
-    ap.add_argument("--skip-ranks", default="", help="댓글 분류에서 뺄 사례 순위 (쉼표)")
-    ap.add_argument("--group", action="append", default=[], help='이름=순위,순위… (예: "실패=2,3,5")')
+    ap.add_argument("--skip-ranks", default="", help="댓글 분류에서 뺄 사례 순위 (쉼표, 조회수 상위는 P1 처럼)")
+    ap.add_argument("--group", action="append", default=[], help='이름=순위,순위… (예: "실패=2,3,5", "인기=P1,P2")')
+    ap.add_argument("--set", dest="which", default="success", choices=["success", "popular", "all"],
+                    help="댓글을 셀 사례: 성공 사례(기본)·조회수 상위·둘 다")
+    ap.add_argument("--top-level-only", action="store_true", help="답글은 빼고 최상위 댓글만")
     ap.add_argument("--log-level", default="INFO", choices=["DEBUG", "INFO", "WARNING"])
     a = ap.parse_args()
     logging.basicConfig(level=getattr(logging, a.log_level), format="%(message)s", stream=sys.stderr)
-    skip = {int(x) for x in a.skip_ranks.split(",") if x.strip()}
+    skip = {x.strip() for x in a.skip_ranks.split(",") if x.strip()}
     groups = {}
     for g in a.group:
         name, _, ranks = g.partition("=")
-        groups[name] = {int(x) for x in ranks.split(",") if x.strip()}
+        groups[name] = {x.strip() for x in ranks.split(",") if x.strip()}
     log("START", topic=a.topic, tool=f"outlier_stats.py {VERSION}", skip=",".join(map(str, sorted(skip))) or "-", groups=len(groups))
     title_stats(a.topic)
-    comment_needs(a.topic, skip, groups)
+    comment_needs(a.topic, skip, groups, a.which, a.top_level_only)
 
 
 if __name__ == "__main__":

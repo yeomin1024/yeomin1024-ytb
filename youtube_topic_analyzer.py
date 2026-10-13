@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v2.4.0 — 2026-10-13 — 검색어·관련어 목록을 설정 파일과 따로(<폴더>/keywords.toml, KEYWORDS_FILE), 기본 주제 economic(경제·재테크),
-#          GitHub 푸시가 <폴더>/result/outliers/(tools/outlier_research.py 결과)를 지우지 않고 PC의 최신 outliers 요약도 함께 올림
+# VERSION: v2.5.0 — 2026-10-13 — 저장소가 비공개면 PC 의 outliers/ 를 사례 폴더(자막·댓글 전부·썸네일)까지 통째로 올림 (사용자 지시: "비공개로 돌릴테니까
+#          전부 다 업로드되게"). 공개 저장소면 예전처럼 요약 파일(csv·md·json)만
+# (v2.4.0 — 2026-10-13 — 검색어·관련어 목록을 설정 파일과 따로(<폴더>/keywords.toml, KEYWORDS_FILE), 기본 주제 economic(경제·재테크),
+#          GitHub 푸시가 <폴더>/result/outliers/(tools/outlier_research.py 결과)를 지우지 않고 PC의 최신 outliers 요약도 함께 올림)
 #          (v2.3.1: .env 파일이 없어도 환경변수 YOUTUBE_API_KEY로 실행 (클라우드 실행용); v2.3.0: 설정 파일 분리, --config / --init-config)
 r"""
 YouTube 주제 분석기 — 구독자 0명 채널이 조회수를 가장 잘 받을 영상 찾기
@@ -266,7 +268,7 @@ import numpy as np
 import pandas as pd
 import requests
 
-NOTEBOOK_VERSION = "v2.4.0"
+NOTEBOOK_VERSION = "v2.5.0"
 KST = dt.timezone(dt.timedelta(hours=9))
 UTC = dt.timezone.utc
 IS_WINDOWS = os.name == "nt"
@@ -3772,7 +3774,8 @@ def run_git(args, cwd, auth_b64=None, check=True, timeout=900):
 
 
 OUTLIERS_DIR = "outliers"
-OUTLIERS_PUSH_EXTS = (".csv", ".md", ".json")   # 사례 폴더(다른 채널의 자막·댓글 원문·썸네일)는 올리지 않음 (.gitignore 와 같음)
+OUTLIERS_PUSH_EXTS = (".csv", ".md", ".json")   # 공개 저장소: 맨 위 요약만 (사례 폴더 = 다른 채널의 자막·댓글 원문·썸네일은 PC에만)
+OUTLIERS_SKIP_DIRS = (".cache", "_old")          # 비공개 저장소에서도 올리지 않음 (API 캐시, 이번 목록에서 빠진 사례)
 
 
 def _clean_result_dir(target, tmp):
@@ -3788,19 +3791,32 @@ def _clean_result_dir(target, tmp):
     return keep
 
 
-def _copy_local_outliers(cfg, target):
-    """PC 의 <스크립트 폴더>/<PROJECT_FOLDER>/<RESULT_FOLDER>/outliers/ 맨 위 요약 파일(csv·md·json)을 저장소로 복사 (v2.4.0)."""
-    src = BASE_DIR / cfg["PROJECT_FOLDER"] / cfg["RESULT_FOLDER"] / OUTLIERS_DIR
+def _copy_local_outliers(cfg, target, full=False, base=None):
+    """PC 의 <스크립트 폴더>/<PROJECT_FOLDER>/<RESULT_FOLDER>/outliers/ → 저장소.
+    full=False (공개 저장소, v2.4.0): 맨 위 요약 파일(csv·md·json)만 덮어씀.
+    full=True (비공개 저장소, v2.5.0): 사례 폴더(자막·댓글 전부·썸네일·메타데이터)까지 통째로 — 저장소의 outliers/ 를 PC 와 똑같이
+    (이번 목록에서 빠진 사례는 지움). .cache·_old 와 GITHUB_MAX_FILE_MB 넘는 파일은 뺌. → (복사한 파일 수, 뺀 파일 [(경로, MB)])"""
+    src = (base or BASE_DIR) / cfg["PROJECT_FOLDER"] / cfg["RESULT_FOLDER"] / OUTLIERS_DIR
     if not src.is_dir():
-        return 0
-    n = 0
-    for f in sorted(src.iterdir()):
-        if f.is_file() and f.suffix.lower() in OUTLIERS_PUSH_EXTS:
-            dst = target / OUTLIERS_DIR / f.name
-            dst.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copy2(f, dst)
-            n += 1
-    return n
+        return 0, []
+    dst_root = target / OUTLIERS_DIR
+    n, skipped = 0, []
+    if full:
+        rmtree_force(dst_root)
+        files = [f for f in sorted(src.rglob("*")) if f.is_file() and f.relative_to(src).parts[0] not in OUTLIERS_SKIP_DIRS]
+    else:
+        files = [f for f in sorted(src.iterdir()) if f.is_file() and f.suffix.lower() in OUTLIERS_PUSH_EXTS]
+    for f in files:
+        rel = f.relative_to(src)
+        mb = f.stat().st_size / 1e6
+        if mb > GITHUB_MAX_FILE_MB:
+            skipped.append((rel.as_posix(), round(mb, 1)))
+            continue
+        dst = dst_root / rel
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(f, dst)
+        n += 1
+    return n, skipped
 
 
 def _copy_results(ctx, target, allow_videos):
@@ -3983,10 +3999,16 @@ def stage8_push_github(ctx, token):
             log("GITHUB", "기존 결과 폴더 교체 (이전 버전은 git 기록에 보존)", path=rel_path, kept_outliers=kept)
         target.mkdir(parents=True, exist_ok=True)
         skipped = _copy_results(ctx, target, allow_videos)
-        n_out = _copy_local_outliers(cfg, target)
+        n_out, out_skipped = _copy_local_outliers(cfg, target, full=private)
         if n_out:
-            log("GITHUB", "PC의 작은 채널 성공 사례 요약도 함께 올림", files=n_out, path=f"{rel_path}/{OUTLIERS_DIR}")
+            log("GITHUB", "PC의 성공 사례·조회수 상위 결과도 함께 올림" + (" — 비공개 저장소: 사례 폴더(자막·댓글 전부·썸네일)까지" if private
+                                                                  else " — 공개 저장소: 요약 파일만 (사례 폴더는 PC에만)"),
+                files=n_out, path=f"{rel_path}/{OUTLIERS_DIR}", full=private)
+        for rel_f, mb in out_skipped:
+            ctx.note("GITHUB", "GitHub 파일 크기 제한으로 올리지 않은 성공 사례 파일 (PC에는 있음)", level="WARNING", file=rel_f, mb=mb)
         run_git(["add", "-A", "--", rel_path], clone)
+        if private and n_out:   # .gitignore 의 사례 폴더 규칙(공개 저장소용)을 넘어서 올림 — 비공개일 때만
+            run_git(["add", "-A", "-f", "--", f"{rel_path}/{OUTLIERS_DIR}"], clone)
         _, status = run_git(["status", "--porcelain", "--", rel_path], clone)
         if not status.strip():
             log("GITHUB", "변경 사항 없음 → 커밋 생략")
@@ -4378,6 +4400,23 @@ def run_self_test(cfg):
           and tc["OUTLIER_MIN"] == 4.0 and isinstance(tc["OUTLIER_MIN"], float) and any("QUOTA_BUDGTE" in u for u in r["unknown"])
           and bad_blocked and tc2["PROJECT_FOLDER"] == "realestate" and tc2["KEYWORD_MODE"] == "autocomplete",
           unknown=r["unknown"], bad_blocked=bad_blocked)
+    # v2.5.0: outliers 올리기 — 공개: 요약 파일만 / 비공개: 사례 폴더까지 (.cache·_old 제외, 빠진 사례는 저장소에서도 지움)
+    with tempfile.TemporaryDirectory() as td:
+        tb = Path(td)
+        osrc = tb / "t" / "result" / OUTLIERS_DIR
+        for rel_f in ("summary.md", "status.json", "01_abc/comments.csv", "P01_def/transcript.txt", ".cache/x.json", "_old/02_zz/a.txt"):
+            (osrc / rel_f).parent.mkdir(parents=True, exist_ok=True)
+            (osrc / rel_f).write_text("x", "utf-8")
+        ocfg = {"PROJECT_FOLDER": "t", "RESULT_FOLDER": "result"}
+        tgt_pub, tgt_priv = tb / "pub", tb / "priv"
+        (tgt_priv / OUTLIERS_DIR / "09_gone").mkdir(parents=True)
+        n_pub, _ = _copy_local_outliers(ocfg, tgt_pub, full=False, base=tb)
+        n_priv, _ = _copy_local_outliers(ocfg, tgt_priv, full=True, base=tb)
+        got_pub = sorted(p.relative_to(tgt_pub / OUTLIERS_DIR).as_posix() for p in (tgt_pub / OUTLIERS_DIR).rglob("*") if p.is_file())
+        got_priv = sorted(p.relative_to(tgt_priv / OUTLIERS_DIR).as_posix() for p in (tgt_priv / OUTLIERS_DIR).rglob("*") if p.is_file())
+    check("성공 사례 올리기 (공개: 요약만 / 비공개: 사례 폴더까지)",
+          got_pub == ["status.json", "summary.md"] and got_priv == ["01_abc/comments.csv", "P01_def/transcript.txt", "status.json", "summary.md"]
+          and n_pub == 2 and n_priv == 4, public=got_pub, private=got_priv)
 
     passed = sum(ok for _, ok in results)
     log("SELFTEST", "자가진단 완료", passed=f"{passed}/{len(results)}", elapsed_sec=round(time.perf_counter() - t0, 2))

@@ -1,5 +1,38 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-13 (2) — 댓글 전부 · 조회수 상위 영상(구독자 무관) · 저장소가 비공개면 전부 올림
+
+### 왜 (사용자 지시: "비공개로 돌릴테니까 전부 다 업로드되게 하고 댓글은 전부 받도록 수정해 그리고 구독자 수 상관없이 조회수 많이 나온 영상 댓글은 전부 받아야해")
+- 지금까지: 사례마다 인기 댓글 100개(최상위만), 작은 채널 성공 사례만, 공개 저장소라 사례 폴더는 PC에만.
+- 확인 (2026-10-13 16:2x KST): 저장소는 아직 **공개** (`api.github.com/repos/…` 토큰 없이 200) → 코드가 올리기 전에 공개 여부를 확인해 비공개일 때만 사례 폴더를 올림.
+
+### 고친 것
+| 파일 (버전) | 함수·항목 | 내용 |
+|---|---|---|
+| `tools/outlier_research.py` v1.3 | `fetch_all_comments`, `write_comments_csv`, `read_comments_jsonl`, `Api.get` | **댓글 전부:** commentThreads(시간순, 100개씩) + 답글이 5개 넘는 댓글은 comments.list. 쪽마다 `comments.jsonl`에 덧붙이고 `comments_state.json`에 다음 쪽 저장 → 할당량이 끝나면 다음 실행이 그 쪽부터. 같은 댓글은 id로 하나로. 댓글 막힌 영상(403)·지워진 답글(404) 처리. `--comments 0`(기본 = 전부), `--no-replies` |
+| 〃 | `relevant`, `run_topic`, `case_folder`, `write_summary`, `write_status` | **조회수 상위 `--popular 20`:** 구독자 수 상관없이 주제 관련(분석기 `topic_relevance`와 같은 규칙, keywords.toml `RELEVANCE_*`)·4분 이상·최근 365일 → 조회수 순, 채널당 2개 → 자막·썸네일·댓글 전부 (폴더 `P01_<영상ID>`, `popular.csv`, 성공 사례와 겹치면 그 폴더). summary·status에 두 묶음·댓글 받은 수·받는 중인 영상 |
+| 〃 | `_comment_rec` | 댓글 기록: id·답글이면 부모 id·좋아요·글·시각·답글 수·채널 주인 댓글 여부. **작성자 이름은 저장하지 않음** |
+| `youtube_topic_analyzer.py` v2.5.0 | `_copy_local_outliers`, `stage8_push_github` | **저장소가 비공개면** PC의 `outliers/`를 사례 폴더까지 통째로(저장소 쪽을 PC와 똑같이, `.cache`·`_old`·95MB 넘는 파일 제외) 올리고 `git add -f`로 .gitignore 를 넘음. 공개면 예전처럼 요약 파일만. 자가진단 1개 추가(25/25) |
+| `tools/pc_analysis.py` v1.1 | `one_round`, `analyzer_done_recently`, `round_verdict` | `--popular` 전달, 분석기가 이월 없이 끝나면(7일 안) 다음 회차부터 건너뛰고 하루 할당량 `--daily-quota 9500`을 댓글에, 기본 최대 회차 7 → 10, `--rerun-analyzer` |
+| `run_analyzer.ps1` · `run_analyzer.sh` v2.1 | `Get-Secret`/`env_get`, `Get-Remote`/`fetch` | **비공개 저장소에서 코드 받기:** `.env`(또는 환경 변수)의 `GITHUB_TOKEN`으로 GitHub API(Contents)에서 받음. ps1은 JSON base64(1MB 이하), sh는 원본 머리글 — 토큰은 머리글로만(sh는 curl 설정을 표준 입력으로, 명령줄에 안 남김). `.env`가 없으면 먼저 틀을 만듦 |
+| `tools/outlier_stats.py` v1.2 | `comment_needs`, `main` | `--set success|popular|all`, `--top-level-only`, 순위를 글자로(P1) |
+| `.gitignore` | `*/result/outliers/P[0-9][0-9]_*/` | 조회수 상위 사례 폴더도 공개 상태에서는 막음 (시험에서 빠져 있던 것 발견) |
+| `guides/tts_guide.md` v1.8 | 3번 셀 | 저장소가 비공개여도 Kaggle 셀이 Secrets 토큰으로 `git clone`·`fetch` (`GIT_CONFIG_*` 환경 변수 — 값이 셀·출력에 안 나옴) |
+| `guides/pc_analysis.md` v1.1 · `guides/pipeline.md` v1.12 · `guides/README.md` v1.12 · `CLAUDE.md` · `README.md` · `economic/README.md` | 문서 | 저장소를 비공개로 바꾸는 법, 비공개일 때 실행기 처음 받는 법(PowerShell·bash 한 줄), 댓글 전부 할당량, 두 묶음, 무엇이 올라가는지 |
+
+### 결과 (로그·검사)
+- 오프라인(가짜 API, 댓글 쪽·답글 흉내) 13개 통과: 1회차 한도 2,160 → 댓글 받는 중 2개·`exit 3`·다음 쪽 저장 → 2회차 `complete`·검색 전부 캐시 → **사례 8개 모두 댓글 수 = 최상위 + 답글 (빠짐·중복 없음)**, 조회수 상위에 구독자 90만 채널 포함·주제 밖(요리) 제외, 3회차 댓글 할당량 0, `--comments 50 --no-replies` 뒤 전부로 바꾸면 이어서 전부
+- 실제 API(클라우드, 임시 폴더, `--comments 200`): 성공 사례 1개 **댓글 44/44(영상 표시 수와 같음, 최상위 26 + 답글 18)·채널 주인 1**, 조회수 상위 1개 구독자 411만 채널·조회수 355만(최상위 200에서 멈춤 — 시험 제한). 이번 시험 할당량 512 (오늘 초기화 뒤)
+- `pc_analysis.py --self-test` ALL PASS (새 시나리오: 분석기 끝난 다음 회차 = OUTLIER, PUSH 만·`--quota 9500`·`--popular` 전달)
+- 분석기 자가진단 25/25 (새: 공개면 요약만 / 비공개면 사례 폴더까지), git 시험: `git add -A` 는 사례 폴더를 건너뛰고 `git add -A -f -- …/outliers` 는 올림
+- 실행기: `run_analyzer.sh`(토큰·API 방식)로 받은 코드가 `origin/main`과 바이트 같음, 문서의 bash 한 줄·PowerShell 한 줄(같은 방식을 파이썬으로)도 바이트 같음(BOM 유지). `run_analyzer.ps1` 자체는 이 환경에 PowerShell이 없어 실행 시험 못 함
+
+### 알려 둘 것
+- 저장소를 비공개로 바꾸기 전까지는 사례 폴더가 올라가지 않음 (코드가 막음). 바꾼 뒤에는 PC·Kaggle 모두 토큰이 있어야 받음.
+- 분석기 리포트의 시청자 질문 표본(`FETCH_COMMENTS_TOP_N` 30개 영상 × 100개)은 통계용이라 그대로 — 댓글 전부는 `result/outliers/`의 두 묶음에서.
+- 받기 시작한 뒤 새로 달린 댓글은 빠질 수 있음 (시간 순으로 내려가며 받음).
+- 연구·교육용, 투자 권유 아님. 위험 관련 값 변경 없음. 할당량: 분석기가 끝난 날부터 성공 사례·조회수 상위에 9,500 (`--daily-quota`).
+
 ## 2026-10-13 — 주제 폴더를 economic(경제·재테크) 하나로 · 검색어 파일 분리 · PC 실행 · 할당량 초기화 뒤 자동으로 이어서
 
 ### 왜 (사용자 지시: "기존 stock, health 등 모든 주제 폴더 전부 삭제하고 경제, 재태크(economic) 폴더만 하나 만들고 코드 분석기에서 사용한 검색어 목록 같은거는 따로 빼놓고 분석기 코드 pc에서 돌릴 수 있도록 수정하고 방법 알려주고 api 할당량이 초기화된 시간이 되면 다시 자동으로 분석결과를 확인 못한 부분부터 새로 추가로 만들도록 수정해")

@@ -1,6 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.2 — 2026-10-13 — PC 실행·이어서 돌리기 (사용자 지시: "분석기 코드 pc에서 돌릴 수 있도록", "api 할당량이 초기화된 시간이 되면
+# VERSION: v1.3 — 2026-10-13 — 댓글 전부·조회수 상위 영상 (사용자 지시: "비공개로 돌릴테니까 전부 다 업로드되게 하고 댓글은 전부 받도록 수정해
+#          그리고 구독자 수 상관없이 조회수 많이 나온 영상 댓글은 전부 받아야해"):
+#          ① 댓글 전부: 최상위 댓글(commentThreads, 시간순, 100개씩) + 답글(5개 넘는 것은 comments.list) — 기본 --comments 0(전부)
+#             쪽마다 comments.jsonl 에 덧붙이고 comments_state.json 에 다음 쪽을 저장 → 할당량이 끝나면 다음 실행이 그 쪽부터
+#          ② 조회수 상위 영상(구독자 수 상관없음, --popular 20): 주제 관련(keywords.toml RELEVANCE_*, 분석기 topic_relevance 규칙)·
+#             4분 이상·최근 --fallback-days 일 → 조회수 순, 채널당 2개 → 설명·자막·썸네일·댓글 전부 (폴더 P01_<영상ID>/, popular.csv)
+#          ③ 댓글 기록에 답글 여부(parent)·채널 주인 댓글(creator) — 작성자 이름은 저장하지 않음
+# (v1.2 — 2026-10-13 — PC 실행·이어서 돌리기 (사용자 지시: "분석기 코드 pc에서 돌릴 수 있도록", "api 할당량이 초기화된 시간이 되면
 #          다시 자동으로 분석결과를 확인 못한 부분부터 새로 추가로"):
 #          ① 검색어는 <주제>/keywords.toml 에서 (분석기 v2.4.0과 같은 파일, 없으면 analyzer_config.toml)
 #          ② 검색 결과 캐시(.cache/search_*.json, 기본 7일) — 다시 돌리면 받은 검색은 할당량 0, 못 한 검색만 새로
@@ -9,7 +16,7 @@
 #          ⑤ summary.md 에 자막 첫 1분 발췌·구간별 흐름(90초마다 첫 문장 앞부분), Python 3.10(tomli) 지원
 #          ⑥ 주제 이름을 설정의 [topic] TOPIC 에서 제대로 읽음, EXCLUDE_KEYWORDS 를 [keywords] 섹션에서도 읽음
 #          ⑦ 영상 정보 캐시는 24시간·구독자 수는 7일 지나면 다시 받음 (조회수가 바뀌므로). 할당량이 없으면 예전 숫자로 계속
-#          ⑧ 검색은 이번 실행 한도에서 150단위를 남기고 멈춤 → 남은 단위로 영상 정보·구독자·댓글은 계속 받음
+#          ⑧ 검색은 이번 실행 한도에서 150단위를 남기고 멈춤 → 남은 단위로 영상 정보·구독자·댓글은 계속 받음)
 # (v1.1 — 2026-10-12 — 기본 검색에 20분 넘는 영상도, 키워드는 그룹마다 1개(할당량 같게)
 #  v1.0 — 2026-10-12 — 신규: 최근·작은 채널·조회수가 구독자의 몇 배인 롱폼 영상(작은 채널 성공 사례)의 내용(자막·설명·챕터)과 댓글)
 r"""
@@ -20,7 +27,8 @@ r"""
         --days 180      최근 며칠 안에 올라온 영상 (모자라면 --fallback-days 365 까지 넓힘)
         --max-subs 50000 --min-ratio 3 --min-views 10000 --min-sec 240   성공 사례 기준
         --top 15        자막·댓글을 모을 성공 사례 수 (채널당 최대 --per-channel 2)
-        --comments 100  사례마다 모을 댓글 수 (인기순)
+        --comments 0    사례마다 최상위 댓글을 몇 개까지 (0 = 전부, 기본). 답글도 전부 (--no-replies 면 최상위만)
+        --popular 20    구독자 수와 상관없이 조회수 상위 영상 수 (주제 관련·4분 이상·최근 --fallback-days 일) — 댓글 전부. 0 이면 안 함
         --no-long       20분 넘는 영상은 검색하지 않음 (기본은 4~20분과 20분 넘음 둘 다)
         --quota 9000    이번 실행 API 단위 한도 (하루 10,000 — 분석기와 같은 키면 나눠 쓴다)
         --search-ttl-hours 168   검색 결과 캐시 유효 시간 (이 안에 다시 돌리면 받은 검색은 할당량 0)
@@ -30,7 +38,8 @@ r"""
 수집 방법:
   YouTube Data API v3 (환경 변수 YOUTUBE_API_KEY, 없으면 이 폴더의 .env — 분석기와 같은 키):
     검색 search.list (최근 --fallback-days 일·조회수 순·4~20분·20분 넘음, KR·ko) — 100단위/번 · 영상 videos.list · 채널 channels.list
-    · 댓글 commentThreads.list — 1단위/번. 검색 횟수 = 검색어 그룹 × --per-group × 2(길이 둘).
+    · 댓글 commentThreads.list(최상위 100개) · comments.list(답글 100개) — 1단위/번. 검색 횟수 = 검색어 그룹 × --per-group × 2(길이 둘).
+    댓글 전부의 할당량: 영상마다 약 (최상위 댓글 수 ÷ 100) + (답글이 5개 넘는 댓글 수) 단위. 하루에 다 못 받으면 다음 실행이 이어서.
   할당량이 끝나면(이번 실행 한도 또는 하루 10,000): 새 요청을 멈추고 캐시에 있는 것만으로 결과를 만든다.
     못 한 검색·영상 정보·댓글은 status.json 의 pending 에 남는다 → 할당량이 초기화된 뒤 같은 명령을 다시 돌리면 그 부분만 새로 받는다.
     (태평양 자정 = 한국 시간 오후 4시(서머타임) / 5시. tools/pc_analysis.py 가 자동으로 기다렸다가 다시 돌린다)
@@ -41,10 +50,12 @@ r"""
 결과 (<주제>/result/outliers/):
   candidates.csv  검색에서 걸린 롱폼 후보 전부 (구독자·조회수·배수·올린 날)                 ← git
   outliers.csv    기준을 통과한 성공 사례 (배수 순)                                        ← git
+  popular.csv     조회수 상위 (구독자 수 상관없음, 주제 관련·롱폼)                         ← git
   summary.md      사례 표 + 사례마다 설명 앞부분·챕터·도입부·첫 1분·구간별 흐름·말 속도·인기 댓글 (짧게 인용) ← git
   status.json     이번 실행 상태: 검색 완료/남은 검색(pending)·할당량 멈춤·자막·썸네일·댓글 받은 수 (이어서 돌리기용)  ← git
-  <순위>_<영상ID>/ metadata.json · description.txt · transcript.txt·transcript.json · comments.csv · thumbnail.jpg
-                  ← 다른 사람의 글·이미지라 git 에 올리지 않는다 (.gitignore). 이 PC·세션의 분석에만 쓴다
+  <순위>_<영상ID>/ 성공 사례 · P<순위>_<영상ID>/ 조회수 상위 — metadata.json · description.txt · transcript.txt·transcript.json ·
+                  comments.csv(전부, 좋아요 순)·comments.jsonl(받은 순서)·comments_state.json(이어 받기) · thumbnail.jpg
+                  ← 다른 사람의 글·이미지. 저장소가 비공개일 때만 GitHub 에 올라간다 (분석기 --push-only 가 공개 여부를 확인, .gitignore 는 그대로)
   _old/           이번 상위에서 빠진 사례 폴더 (다시 들어오면 재사용, git 에 올리지 않음)
   .cache/         영상 정보·검색 결과 캐시 (git 에 올리지 않음)
 로그: [STAGE] [시각] key=value (START·SEARCH·VIDEO·FILTER·DEEP·STATUS·DONE)
@@ -72,7 +83,7 @@ except ModuleNotFoundError:             # Python 3.10 → tomli (분석기가 �
     import tomli as tomllib
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v1.2"
+VERSION = "v1.3"
 LOG = logging.getLogger("outlier")
 HANGUL = re.compile(r"[가-힣]")
 SEARCH_TTL_HOURS = 168
@@ -100,7 +111,7 @@ def _flat(data):
 
 
 def load_keywords(topic, per_group):
-    """→ ([(그룹, 검색어)], 제외 낱말, 주제 이름, 검색어 파일 경로). 검색어는 keywords.toml(분석기 v2.4.0), 없으면 analyzer_config.toml."""
+    """→ ([(그룹, 검색어)], 제외 낱말, 주제 이름, 검색어 파일 경로, 관련어 {strong, weak, exclude}). 검색어는 keywords.toml(분석기 v2.4.0), 없으면 analyzer_config.toml."""
     cfg_p = ROOT / topic / "analyzer_config.toml"
     if not cfg_p.is_file():
         raise SystemExit(f"[START] ❌ {cfg_p} 없음 — 주제 폴더 확인")
@@ -111,11 +122,14 @@ def load_keywords(topic, per_group):
     groups = src.get("KEYWORD_GROUPS") or cfg.get("KEYWORD_GROUPS") or {}
     kws = [(g, k) for g, ks in groups.items() for k in ks[:per_group]]
     exclude = [w for w in (src.get("EXCLUDE_KEYWORDS") or cfg.get("EXCLUDE_KEYWORDS") or []) if w]
-    return kws, exclude, cfg.get("TOPIC", topic), (kw_p if kw_p.is_file() else cfg_p)
+    rel = {"strong": [t for t in (src.get("RELEVANCE_TERMS") or cfg.get("RELEVANCE_TERMS") or []) if str(t).strip()],
+           "weak": [t for t in (src.get("RELEVANCE_WEAK_TERMS") or cfg.get("RELEVANCE_WEAK_TERMS") or []) if str(t).strip()],
+           "exclude": [t for t in (src.get("RELEVANCE_EXCLUDE") or cfg.get("RELEVANCE_EXCLUDE") or []) if str(t)]}
+    return kws, exclude, cfg.get("TOPIC", topic), (kw_p if kw_p.is_file() else cfg_p), rel
 
 
 API = "https://www.googleapis.com/youtube/v3/"
-COST = {"search": 100, "videos": 1, "channels": 1, "commentThreads": 1}
+COST = {"search": 100, "videos": 1, "channels": 1, "commentThreads": 1, "comments": 1}
 
 
 class QuotaStop(Exception):
@@ -153,8 +167,8 @@ class Api:
                 if e.code == 403 and ("quota" in body.lower()):
                     self.stopped = "daily"
                     raise QuotaStop("하루 할당량(10,000단위) 소진 — 태평양 자정(한국 오후 4~5시) 뒤 다시 (캐시는 남음)", "daily")
-                if e.code in (403, 404) and kind == "commentThreads":   # 댓글 막힌 영상
-                    return {"items": []}
+                if e.code in (403, 404) and kind in ("commentThreads", "comments"):   # 댓글 막힌 영상·지워진 댓글
+                    return {"items": [], "_error": e.code, "_reason": body[:120]}
                 if attempt == 2 or e.code < 500:
                     raise RuntimeError(f"HTTP {e.code} {kind}: {body}")
             except urllib.error.URLError as e:
@@ -175,15 +189,6 @@ class Api:
         for it in self.get("channels", part="statistics", id=",".join(ids)).get("items", []):
             st = it.get("statistics", {})
             out[it["id"]] = None if st.get("hiddenSubscriberCount") else int(st.get("subscriberCount", 0))
-        return out
-
-    def comments(self, vid, n):
-        d = self.get("commentThreads", part="snippet", videoId=vid, order="relevance", maxResults=min(n, 100), textFormat="plainText")
-        out = []
-        for it in d.get("items", []):
-            c = it["snippet"]["topLevelComment"]["snippet"]
-            out.append({"likes": c.get("likeCount", 0), "text": (c.get("textDisplay") or "").replace("\r", " "),
-                        "replies": it["snippet"].get("totalReplyCount", 0), "published": c.get("publishedAt", "")[:10]})
         return out
 
 
@@ -236,6 +241,157 @@ def speech_stats(snips):
             next_t = (int(s["start"]) // OUTLINE_EVERY_SEC + 1) * OUTLINE_EVERY_SEC
     return {"syl": syl, "syl_per_sec": round(syl / span, 2), "hook20": hook[:300], "first60": first60[:400],
             "first60_syl": len(HANGUL.findall(first60)), "outline": outline[:20]}
+
+
+def relevant(info, rel):
+    """주제 관련 영상인가 — 분석기 topic_relevance 와 같은 규칙 (RELEVANCE_EXCLUDE 를 지운 뒤 ① 제목·태그에 강한 관련어
+    ② 설명(앞 1500자)에 강한 관련어 2번 이상 ③ 제목에 약한 관련어 + (설명에 강한 관련어 또는 제목에 약한 관련어 2개)). 관련어가 없으면 True."""
+    strong, weak, excl = rel.get("strong") or [], rel.get("weak") or [], rel.get("exclude") or []
+    if not strong:
+        return True
+
+    def clean(x):
+        x = str(x or "")
+        for e in excl:
+            x = x.replace(e, " ")
+        return x.lower()
+    tg = info.get("tags") or []
+    title, tags = clean(info.get("title")), clean(tg if isinstance(tg, str) else " ".join(map(str, tg)))
+    desc = clean((info.get("description") or "")[:1500])
+    sl, wl = [t.lower() for t in strong], [t.lower() for t in weak]
+    if any(t in title or t in tags for t in sl):
+        return True
+    d_strong = sum(desc.count(t) for t in sl)
+    t_weak = sum(title.count(t) for t in wl)
+    return d_strong >= 2 or (t_weak >= 1 and (d_strong >= 1 or t_weak >= 2))
+
+
+def _now():
+    return datetime.now(timezone.utc).isoformat(timespec="seconds")
+
+
+def _comment_rec(sn, cid, parent, channel_id, replies=0):
+    """댓글 한 개 → 기록 (작성자 이름은 저장하지 않음. creator = 그 영상 채널 주인이 쓴 댓글)."""
+    return {"id": cid, "parent": parent, "likes": int(sn.get("likeCount", 0) or 0),
+            "text": (sn.get("textDisplay") or sn.get("textOriginal") or "").replace("\r", " "),
+            "published": (sn.get("publishedAt") or "")[:19], "replies": int(replies or 0),
+            "creator": bool(channel_id) and (sn.get("authorChannelId") or {}).get("value") == channel_id}
+
+
+def _append_jsonl(path, recs):
+    if recs:
+        with open(path, "a", encoding="utf-8") as f:
+            for r in recs:
+                f.write(json.dumps(r, ensure_ascii=False) + "\n")
+
+
+def read_comments_jsonl(path):
+    """comments.jsonl → 댓글 목록 (같은 댓글이 두 번 들어 있으면 하나로 — 쪽을 저장하다 멈췄을 때)."""
+    out = {}
+    if path.is_file():
+        with open(path, encoding="utf-8") as f:
+            for ln in f:
+                ln = ln.strip()
+                if ln:
+                    try:
+                        r = json.loads(ln)
+                    except ValueError:
+                        continue
+                    out[r["id"]] = r
+    return list(out.values())
+
+
+def fetch_all_comments(api, d, vid, channel_id, cap, with_replies, refresh):
+    """댓글 전부: 최상위 댓글(commentThreads, 시간순, 100개씩) + 답글(답글이 5개 넘는 댓글은 comments.list, 100개씩) — 쪽마다 1단위.
+    쪽마다 comments.jsonl 에 덧붙이고 comments_state.json 에 다음 쪽을 저장 → 할당량이 끝나면 멈추고, 다음 실행이 그 쪽부터 이어 받는다.
+    cap > 0 이면 최상위 댓글 cap 개쯤에서 멈춤 (나중에 cap 을 늘리거나 0 으로 하면 이어서). → (댓글 목록, 상태)."""
+    jl, sp = d / "comments.jsonl", d / "comments_state.json"
+    st = None
+    if sp.is_file() and not refresh:
+        try:
+            st = json.loads(sp.read_text("utf-8"))
+        except ValueError:
+            st = None
+    if not st or st.get("v") != 1:
+        st = {"v": 1, "video": vid, "order": "time", "threads_next": None, "threads_done": False, "threads_end": None,
+              "threads": 0, "reply_queue": [], "reply_next": {}, "replies": 0, "units": 0, "disabled": False,
+              "restarts": 0, "complete": False, "started": _now(), "finished": None, "quota_stop": None, "error": None}
+        jl.write_text("", "utf-8")
+    if st["threads_done"] and st.get("threads_end") == "cap" and (cap == 0 or st["threads"] < cap):
+        st["threads_done"] = False          # 예전에 개수 제한으로 멈춤 → 이번엔 더 받음
+    st["quota_stop"], st["error"] = None, None
+
+    def save():
+        sp.write_text(json.dumps(st, ensure_ascii=False), "utf-8")
+    try:
+        while not st["threads_done"]:
+            params = dict(part="snippet,replies", videoId=vid, order="time", maxResults=100, textFormat="plainText")
+            if st["threads_next"]:
+                params["pageToken"] = st["threads_next"]
+            data = api.get("commentThreads", **params)
+            st["units"] += 1
+            if data.get("_error"):
+                st.update(threads_done=True, threads_end=f"http_{data['_error']}", disabled=data["_error"] == 403)
+                save()
+                break
+            recs = []
+            for it in data.get("items", []):
+                sn, top = it["snippet"], it["snippet"]["topLevelComment"]
+                total = int(sn.get("totalReplyCount", 0) or 0)
+                recs.append(_comment_rec(top["snippet"], top["id"], None, channel_id, total))
+                inc = (it.get("replies") or {}).get("comments", [])
+                if total > len(inc):
+                    st["reply_queue"].append(top["id"])       # 답글이 5개 넘음 → 나중에 comments.list 로 전부
+                else:
+                    recs += [_comment_rec(r["snippet"], r["id"], top["id"], channel_id) for r in inc]
+                    st["replies"] += len(inc)
+            _append_jsonl(jl, recs)
+            st["threads"] += len(data.get("items", []))
+            st["threads_next"] = data.get("nextPageToken")
+            if not st["threads_next"]:
+                st.update(threads_done=True, threads_end="end")
+            elif cap and st["threads"] >= cap:
+                st.update(threads_done=True, threads_end="cap")
+            save()
+        while with_replies and st["reply_queue"]:
+            tid = st["reply_queue"][0]
+            params = dict(part="snippet", parentId=tid, maxResults=100, textFormat="plainText")
+            if st["reply_next"].get(tid):
+                params["pageToken"] = st["reply_next"][tid]
+            data = api.get("comments", **params)
+            st["units"] += 1
+            recs = [_comment_rec(r["snippet"], r["id"], tid, channel_id) for r in data.get("items", [])]
+            _append_jsonl(jl, recs)
+            st["replies"] += len(recs)
+            nxt = None if data.get("_error") else data.get("nextPageToken")
+            if nxt:
+                st["reply_next"][tid] = nxt
+            else:
+                st["reply_next"].pop(tid, None)
+                st["reply_queue"].pop(0)
+            save()
+    except QuotaStop as e:
+        st["quota_stop"] = e.kind
+    except RuntimeError as e:          # HTTP 오류 (쪽 표시가 낡았을 수 있음 → 한 번은 처음부터, 같은 댓글은 하나로 합쳐짐)
+        st["error"] = str(e)[:200]
+        if "HTTP 400" in str(e) and st["restarts"] < 1:
+            st.update(threads_next=None, threads_done=False, restarts=st["restarts"] + 1)
+    st["complete"] = bool(st["threads_done"] and (not with_replies or not st["reply_queue"]) and not st["error"])
+    if st["complete"] and not st["finished"]:
+        st["finished"] = _now()
+    save()
+    return read_comments_jsonl(jl), st
+
+
+def write_comments_csv(path, cms):
+    """comments.csv: 받은 댓글 전부 (최상위·답글), 좋아요 순."""
+    with open(path, "w", newline="", encoding="utf-8-sig") as f:
+        w = csv.DictWriter(f, fieldnames=["id", "parent", "is_reply", "likes", "replies", "creator", "published", "text"])
+        w.writeheader()
+        for c in sorted(cms, key=lambda c: -int(c.get("likes") or 0)):
+            w.writerow({"id": c.get("id"), "parent": c.get("parent") or "", "is_reply": bool(c.get("parent")),
+                        "likes": c.get("likes"), "replies": c.get("replies"), "creator": c.get("creator"),
+                        "published": c.get("published"), "text": c.get("text")})
 
 
 def cached_search(api, cache_dir, q, since, dur, fallback_days, ttl_h, refresh):
@@ -361,38 +517,11 @@ def collect_existing(topic):
     return rows, cm
 
 
-def _read_comments(path):
-    if not path.is_file():
-        return None
-    with open(path, encoding="utf-8-sig") as f:
-        return list(csv.DictReader(f))
-
-
 def deep_case(d, r, info, a, api, source, existing_comments, state):
-    """사례 하나: 설명·댓글·자막·썸네일. 이미 받은 것은 다시 받지 않음(--refresh 면 다시). → (meta, comments)."""
+    """사례 하나: 설명·자막·썸네일·댓글 전부. 이미 받은 것은 다시 받지 않음(--refresh 면 다시). → (meta, comments)."""
     d.mkdir(parents=True, exist_ok=True)
     (d / "description.txt").write_text(info.get("description") or "", "utf-8")
-    # 댓글
-    cms = None if a.refresh else _read_comments(d / "comments.csv")
-    if cms:
-        state["comments_reused"] += 1
-    elif source == "existing":
-        cms = existing_comments.get(r["id"], [])
-    else:
-        try:
-            cms = api.comments(r["id"], a.comments)
-        except QuotaStop as e:
-            state["quota_stop"] = state["quota_stop"] or e.kind
-            state["pending_comments"].append(r["id"])
-            cms = []
-        except RuntimeError as e:
-            cms = []
-            log("DEEP", logging.WARNING, id=r["id"], step="comments", error=str(e)[:150])
-        with open(d / "comments.csv", "w", newline="", encoding="utf-8-sig") as f:
-            w = csv.DictWriter(f, fieldnames=["likes", "text", "replies", "published"])
-            w.writeheader()
-            w.writerows(cms)
-    # 자막
+    # 자막 (할당량 0 — 댓글보다 먼저)
     tj = d / "transcript.json"
     if tj.is_file() and not a.refresh:
         saved = json.loads(tj.read_text("utf-8"))
@@ -416,9 +545,31 @@ def deep_case(d, r, info, a, api, source, existing_comments, state):
         except Exception as e:
             state["thumbnail_missing"].append(r["id"])
             log("DEEP", logging.WARNING, id=r["id"], step="thumbnail", error=str(e)[:100])
+    # 댓글 전부 (쪽마다 저장, 할당량이 끝나면 다음 실행이 이어서)
+    if source == "existing":
+        cms = existing_comments.get(r["id"], [])
+        cst = {"complete": True, "threads": len(cms), "replies": 0, "units": 0, "disabled": False}
+    else:
+        used0 = api.used
+        cms, cst = fetch_all_comments(api, d, r["id"], r.get("channel_id"), a.comments, a.replies, a.refresh)
+        state["comment_units"] += api.used - used0
+        if cst.get("quota_stop"):
+            state["quota_stop"] = state["quota_stop"] or cst["quota_stop"]
+        if cst.get("error"):
+            log("DEEP", logging.WARNING, id=r["id"], step="comments", error=cst["error"][:150], next_step="다음 실행에 다시")
+        if not cst["complete"]:
+            state["pending_comments"].append(r["id"])
+        elif api.used == used0:
+            state["comments_reused"] += 1
+    write_comments_csv(d / "comments.csv", cms)
+    state["comments_total"] += len(cms)
     stats = speech_stats(snips)
+    n_rep = sum(1 for c in cms if c.get("parent"))
     meta = {**r, "source": source, "tags": info.get("tags"), "chapters": chapters_from(info.get("description") or ""),
-            "transcript_lang": lang, "transcript_status": st, **stats, "comments_fetched": len(cms),
+            "transcript_lang": lang, "transcript_status": st, **stats,
+            "comments_fetched": len(cms), "comments_top_level": len(cms) - n_rep, "comments_replies": n_rep,
+            "comments_by_creator": sum(1 for c in cms if c.get("creator")), "comments_complete": cst["complete"],
+            "comments_disabled": cst.get("disabled", False), "comments_reported": r.get("comments"),
             "tool": f"outlier_research.py {VERSION}", "collected": datetime.now().isoformat(timespec="seconds")}
     (d / "metadata.json").write_text(json.dumps(meta, ensure_ascii=False, indent=1), "utf-8")
     return meta, cms
@@ -427,40 +578,73 @@ def deep_case(d, r, info, a, api, source, existing_comments, state):
 def new_state():
     return {"quota_stop": None, "searched": 0, "search_cached": 0, "pending_searches": [], "pending_videos": 0,
             "pending_channels": 0, "pending_comments": [], "stale_videos": 0, "transcript_missing": [], "thumbnail_missing": [],
-            "transcripts_reused": 0, "comments_reused": 0}
+            "transcripts_reused": 0, "comments_reused": 0, "comments_total": 0, "comment_units": 0}
 
 
-def write_status(out, topic, a, api, state, rows, q, deep, kw_file):
+def write_status(out, topic, a, api, state, rows, q, deep, pop_deep, kw_file):
     """이어서 돌리기용 상태 (tools/pc_analysis.py 가 읽음). complete = 할당량 때문에 못 한 일이 없음."""
     pending = bool(state["pending_searches"] or state["pending_videos"] or state["pending_channels"] or state["pending_comments"])
+    n_cases = len(deep) + len(pop_deep)
     st = {"tool": f"outlier_research.py {VERSION}", "updated": datetime.now(timezone.utc).isoformat(timespec="seconds"),
           "topic": topic, "keywords_file": str(kw_file.relative_to(ROOT)) if kw_file.is_relative_to(ROOT) else kw_file.name,
-          "per_group": a.per_group, "top": a.top, "quota_used": api.used if api else 0, "quota_stop": state["quota_stop"],
+          "per_group": a.per_group, "top": a.top, "popular_top": a.popular, "comments_cap": a.comments, "replies": a.replies,
+          "quota_used": api.used if api else 0, "quota_stop": state["quota_stop"],
           "searches_new": state["searched"], "searches_cached": state["search_cached"],
           "pending": {"searches": state["pending_searches"], "videos": state["pending_videos"], "channels": state["pending_channels"],
                       "comments": state["pending_comments"]}, "stale_videos": state["stale_videos"],
-          "candidates": len(rows), "qualified": len(q), "deep": len(deep),
-          "transcripts_ok": len(deep) - len(state["transcript_missing"]), "transcript_missing": state["transcript_missing"],
-          "thumbnails_ok": len(deep) - len(state["thumbnail_missing"]), "thumbnail_missing": state["thumbnail_missing"],
+          "candidates": len(rows), "qualified": len(q), "deep": len(deep), "popular": len(pop_deep),
+          "comments_total": state["comments_total"], "comment_units": state["comment_units"],
+          "comments_complete": n_cases - len(state["pending_comments"]), "cases": n_cases,
+          "transcripts_ok": n_cases - len(state["transcript_missing"]), "transcript_missing": state["transcript_missing"],
+          "thumbnails_ok": n_cases - len(state["thumbnail_missing"]), "thumbnail_missing": state["thumbnail_missing"],
           "complete": not pending,
           "next": ("완료" if not pending else "할당량이 초기화된 뒤(태평양 자정 = 한국 오후 4시·겨울 5시) 같은 명령을 다시 — 받은 것은 캐시, 남은 것만 새로")}
     (out / "status.json").write_text(json.dumps(st, ensure_ascii=False, indent=1), "utf-8")
     log("STATUS", topic=topic, complete=st["complete"], quota_stop=state["quota_stop"] or "-", pending_searches=len(state["pending_searches"]),
         pending_videos=state["pending_videos"], pending_comments=len(state["pending_comments"]),
-        transcripts=f"{st['transcripts_ok']}/{len(deep)}", thumbnails=f"{st['thumbnails_ok']}/{len(deep)}")
+        comments=f"{state['comments_total']}개·사례 {st['comments_complete']}/{n_cases} 끝", comment_units=state["comment_units"],
+        transcripts=f"{st['transcripts_ok']}/{n_cases}", thumbnails=f"{st['thumbnails_ok']}/{n_cases}")
     return st
+
+
+CASE_DIR = re.compile(r"^P?\d\d_(.+)$")
+
+
+def case_folder(out, old_dir, name, vid):
+    """사례 폴더 out/<name>. 같은 영상의 예전 폴더(다른 순위·다른 묶음·_old/)가 있으면 이름만 바꿔 받은 자막·댓글을 재사용."""
+    d = out / name
+    if d.exists():
+        return d
+    for base in (out, old_dir):
+        if not base.is_dir():
+            continue
+        for p in base.iterdir():
+            m = CASE_DIR.match(p.name)
+            if p.is_dir() and m and m.group(1) == vid:
+                p.rename(d)
+                return d
+    return d
+
+
+def _write_rows(path, rows, fields, extra):
+    with open(path, "w", newline="", encoding="utf-8-sig") as f:
+        w = csv.DictWriter(f, fieldnames=fields + list(extra))
+        w.writeheader()
+        for k, r in enumerate(rows, 1):
+            w.writerow({**r, **{key: fn(k, r) for key, fn in extra.items()}})
 
 
 def run_topic(topic, a, api):
     t0 = time.time()
     out = ROOT / topic / "result" / "outliers"
     (out / ".cache").mkdir(parents=True, exist_ok=True)
-    kws, exclude, topic_name, kw_file = load_keywords(topic, a.per_group)
+    kws, exclude, topic_name, kw_file, rel = load_keywords(topic, a.per_group)
     source = "existing" if a.from_existing else "api"
     state = new_state()
     log("START", topic=topic, name=topic_name, source=source, keywords=len(kws), keywords_file=kw_file.name, per_group=a.per_group,
         days=a.days, max_subs=a.max_subs, min_ratio=a.min_ratio, min_views=a.min_views, min_sec=a.min_sec, quota=a.quota,
-        tool=f"outlier_research.py {VERSION}")
+        top=a.top, popular=a.popular, comments="전부" if not a.comments else a.comments, replies=a.replies,
+        relevance_terms=len(rel["strong"]), tool=f"outlier_research.py {VERSION}")
     now = datetime.now(timezone.utc)
     existing_comments = {}
     if a.from_existing:
@@ -468,6 +652,7 @@ def run_topic(topic, a, api):
         found = {}
     else:
         infos, found = collect_api(topic, a, api, kws, exclude, out, state)
+    info_by_id = {i["id"]: i for i in infos}
     rows = []
     for i in infos:
         if i.get("live") or not i.get("duration"):
@@ -486,10 +671,7 @@ def run_topic(topic, a, api):
                      "published": str(i["published"])[:10], "queries": " | ".join(dict.fromkeys(found.get(i["id"], []))),
                      "url": f"https://www.youtube.com/watch?v={i['id']}"})
     fields = list(rows[0].keys()) if rows else ["id"]
-    with open(out / "candidates.csv", "w", newline="", encoding="utf-8-sig") as f:
-        w = csv.DictWriter(f, fieldnames=fields)
-        w.writeheader()
-        w.writerows(sorted(rows, key=lambda r: -(r["ratio"] or 0)))
+    _write_rows(out / "candidates.csv", sorted(rows, key=lambda r: -(r["ratio"] or 0)), fields, {})
 
     def qualify(days):
         qq = [r for r in rows if r["subs"] and r["subs"] <= a.max_subs and r["ratio"] and r["ratio"] >= a.min_ratio
@@ -501,37 +683,47 @@ def run_topic(topic, a, api):
             continue
         used_days, q = wider, qualify(wider)
         log("FILTER", logging.WARNING, topic=topic, note=f"최근 사례가 {a.top}개보다 적어 {wider}일로 넓힘", qualified=len(q))
-    per_ch, top = {}, []
-    for r in q:
-        if per_ch.get(r["channel_id"], 0) >= a.per_channel:
-            continue
-        per_ch[r["channel_id"]] = per_ch.get(r["channel_id"], 0) + 1
-        top.append(r)
-    top = top[:a.top]
+
+    def cap_channels(cands, n):
+        per_ch, top = {}, []
+        for r in cands:
+            if per_ch.get(r["channel_id"], 0) >= a.per_channel:
+                continue
+            per_ch[r["channel_id"]] = per_ch.get(r["channel_id"], 0) + 1
+            top.append(r)
+        return top[:n]
+    top = cap_channels(q, a.top)
     log("FILTER", topic=topic, candidates=len(rows), qualified=len(q), days=used_days, chosen=len(top),
         ratios=",".join(str(r["ratio"]) for r in top))
-    with open(out / "outliers.csv", "w", newline="", encoding="utf-8-sig") as f:
-        w = csv.DictWriter(f, fieldnames=fields + ["rank"])
-        w.writeheader()
-        for k, r in enumerate(q, 1):
-            w.writerow({**r, "rank": k})
-    deep = []
-    old_dir = out / "_old"       # 이번 상위에서 빠진 사례 폴더 (다시 들어오면 받은 자막·댓글 재사용). git 에 올리지 않음
-    for k, r in enumerate(top, 1):
-        old = [p for base in (out, old_dir) for p in base.glob(f"[0-9][0-9]_{r['id']}") if p.is_dir()]  # 순위가 바뀌면 폴더 이름만 바꿈
-        d = out / f"{k:02d}_{r['id']}"
-        if old and old[0] != d and not d.exists():
-            old[0].rename(d)
-        info = next(i for i in infos if i["id"] == r["id"])
-        meta, cms = deep_case(d, {**r, "rank": k}, info, a, api, source, existing_comments, state)
-        deep.append((meta, info, cms))
-        log("DEEP", topic=topic, rank=k, id=r["id"], subs=r["subs"], views=r["views"], ratio=r["ratio"], age=r["age_days"],
-            minutes=r["minutes"], transcript=meta["transcript_status"] if meta["transcript_status"] != "ok" else meta["transcript_lang"],
-            comments=len(cms))
-    keep = {f"{k:02d}_{r['id']}" for k, r in enumerate(top, 1)}
+    _write_rows(out / "outliers.csv", q, fields, {"rank": lambda k, r: k})
+    # 조회수 상위 (구독자 수 상관없음): 주제 관련·롱폼·최근 fallback_days 일 → 조회수 순
+    pool = [r for r in rows if r["minutes"] * 60 >= a.min_sec and r["age_days"] is not None and r["age_days"] <= a.fallback_days
+            and relevant(info_by_id[r["id"]], rel)]
+    pool.sort(key=lambda r: -r["views"])
+    pop = cap_channels(pool, a.popular) if a.popular > 0 else []
+    top_ids = {r["id"]: k for k, r in enumerate(top, 1)}
+    _write_rows(out / "popular.csv", pool, fields, {"rank": lambda k, r: k, "success_rank": lambda k, r: top_ids.get(r["id"], "")})
+    log("FILTER", topic=topic, popular_pool=len(pool), off_topic=sum(1 for r in rows if not relevant(info_by_id[r["id"]], rel)),
+        popular=len(pop), overlap=sum(1 for r in pop if r["id"] in top_ids), views=",".join(str(r["views"]) for r in pop[:10]))
+    old_dir = out / "_old"       # 이번에 빠진 사례 폴더 (다시 들어오면 받은 자막·댓글 재사용)
+    deep, pop_deep, keep = [], [], set()
+    jobs = [("", k, r) for k, r in enumerate(top, 1)] + [("P", k, r) for k, r in enumerate(pop, 1) if r["id"] not in top_ids]
+    for prefix, k, r in jobs:
+        name = f"{prefix}{k:02d}_{r['id']}"
+        keep.add(name)
+        d = case_folder(out, old_dir, name, r["id"])
+        meta, cms = deep_case(d, {**r, "rank": f"{prefix}{k}" if prefix else k, "set": "popular" if prefix else "success"},
+                              info_by_id[r["id"]], a, api, source, existing_comments, state)
+        (pop_deep if prefix else deep).append((meta, info_by_id[r["id"]], cms))
+        log("DEEP", topic=topic, set="popular" if prefix else "success", rank=meta["rank"], id=r["id"], subs=r["subs"], views=r["views"],
+            ratio=r["ratio"], age=r["age_days"], minutes=r["minutes"],
+            transcript=meta["transcript_status"] if meta["transcript_status"] != "ok" else meta["transcript_lang"],
+            comments=len(cms), comments_complete=meta["comments_complete"], quota_used=api.used if api else 0)
+    for meta, info, cms in deep:      # 성공 사례이면서 조회수 상위인 영상 → 조회수 상위 목록에도 표시
+        meta["popular_rank"] = next((f"P{k}" for k, r in enumerate(pop, 1) if r["id"] == meta["id"]), None)
     moved = 0
-    for p in out.glob("[0-9][0-9]_*"):
-        if p.is_dir() and p.name not in keep:
+    for p in out.iterdir():
+        if p.is_dir() and CASE_DIR.match(p.name) and p.name not in keep:
             old_dir.mkdir(exist_ok=True)
             dst = old_dir / p.name
             if dst.exists():
@@ -539,11 +731,12 @@ def run_topic(topic, a, api):
             p.rename(dst)
             moved += 1
     if moved:
-        log("DEEP", topic=topic, note="이번 상위에서 빠진 사례 폴더를 _old/ 로 옮김", moved=moved)
-    write_summary(out, topic, topic_name, a, used_days, rows, q, deep, source)
-    st = write_status(out, topic, a, api, state, rows, q, deep, kw_file)
-    log("DONE", topic=topic, source=source, candidates=len(rows), qualified=len(q), deep=len(deep), complete=st["complete"],
-        quota_used=api.used if api else 0, minutes=round((time.time() - t0) / 60, 1), out=str(out.relative_to(ROOT)))
+        log("DEEP", topic=topic, note="이번 목록에서 빠진 사례 폴더를 _old/ 로 옮김", moved=moved)
+    write_summary(out, topic, topic_name, a, used_days, rows, q, deep, pop, pop_deep, source)
+    st = write_status(out, topic, a, api, state, rows, q, deep, pop_deep, kw_file)
+    log("DONE", topic=topic, source=source, candidates=len(rows), qualified=len(q), deep=len(deep), popular=len(pop_deep),
+        comments=state["comments_total"], complete=st["complete"], quota_used=api.used if api else 0,
+        minutes=round((time.time() - t0) / 60, 1), out=str(out.relative_to(ROOT)))
     return st
 
 
@@ -564,44 +757,74 @@ def short(s, n):
     return s if len(s) <= n else s[: n - 1] + "…"
 
 
-def write_summary(out, topic, name, a, used_days, rows, q, deep, source):
-    L = [f"# {name} — 작은 채널 성공 사례 (최근·롱폼·조회수가 구독자의 몇 배)", "",
+def _case_lines(meta, info, cms):
+    L = [f"## {meta['rank']}. {short(meta['title'], 90)}", "",
+         f"- {meta['url']} · {meta['channel']} · 구독자 {meta['subs']:,} · 조회수 {meta['views']:,} (×{meta['ratio']}) · "
+         f"{meta['published']} ({meta['age_days']}일 전) · {meta['minutes']}분" + (f" · 검색어: {meta['queries']}" if meta['queries'] else "")
+         if meta.get("subs") is not None else
+         f"- {meta['url']} · {meta['channel']} · 구독자 비공개 · 조회수 {meta['views']:,} · {meta['published']} ({meta['age_days']}일 전) · "
+         f"{meta['minutes']}분" + (f" · 검색어: {meta['queries']}" if meta['queries'] else ""),
+         f"- 설명 앞부분: {short(info.get('description'), 300) or '(이 자료에는 설명 없음)'}"]
+    if meta.get("chapters"):
+        L.append("- 챕터: " + " / ".join(f"{int(c['start'] // 60)}:{int(c['start'] % 60):02d} {short(c['title'], 30)}"
+                                       for c in meta["chapters"][:15]))
+    if meta.get("hook20"):
+        L.append(f"- 도입부(첫 20초, 자막 {meta['transcript_lang']}): {short(meta['hook20'], 220)}")
+        L.append(f"- 첫 1분 발췌: {short(meta.get('first60'), 300)}")
+        L.append(f"- 말 속도 {meta['syl_per_sec']}음절/초 · 첫 1분 {meta['first60_syl']}음절 · 전체 {meta.get('syl', 0):,}음절")
+        if meta.get("outline"):
+            L.append(f"- 구간별 흐름({OUTLINE_EVERY_SEC}초마다 첫 문장 앞부분): "
+                     + " / ".join(f"{o['t'] // 60}:{o['t'] % 60:02d} {o['text']}" for o in meta["outline"]))
+    else:
+        L.append(f"- 자막: {meta['transcript_status']}")
+    done = "다 받음" if meta.get("comments_complete") else "받는 중 — 다음 실행이 이어서"
+    if meta.get("comments_disabled"):
+        done = "댓글 막힌 영상"
+    L.append(f"- 댓글 {meta.get('comments_fetched', 0):,}개 받음 (최상위 {meta.get('comments_top_level', 0):,} · 답글 {meta.get('comments_replies', 0):,} · "
+             f"채널 주인 {meta.get('comments_by_creator', 0):,}) / 영상 표시 {meta.get('comments_reported') or 0:,}개 — {done}. 전부: 사례 폴더 `comments.csv`")
+    top = sorted((c for c in cms if not c.get("parent")), key=lambda c: -int(c.get("likes") or 0))[:10]
+    if top:
+        L.append("- 인기 댓글 상위 10 (좋아요):")
+        L += [f"  - ({c.get('likes')}) {short(c.get('text'), 140)}" for c in top]
+    L.append("")
+    return L
+
+
+def write_summary(out, topic, name, a, used_days, rows, q, deep, pop, pop_deep, source):
+    L = [f"# {name} — 작은 채널 성공 사례 + 조회수 상위 영상 (최근·롱폼)", "",
          f"자동 생성 — `tools/outlier_research.py` {VERSION} ({datetime.now().strftime('%Y-%m-%d %H:%M')}). "
-         "다른 채널의 자막·댓글 원문·썸네일은 git 에 올리지 않고(각 사례 폴더, .gitignore), 여기에는 짧게만 인용한다. "
-         "진행 상태(못 한 검색·자막·썸네일)는 `status.json`.", "",
-         f"- 기준: 최근 {used_days}일 안 · 구독자 {a.max_subs:,}명 이하 · 조회수 ≥ 구독자 × {a.min_ratio} · 조회수 {a.min_views:,} 이상 · "
+         "사례마다 자막·댓글 전부(`comments.csv`)·썸네일은 사례 폴더에 있다 (저장소가 비공개일 때만 GitHub 에 올라감). "
+         "진행 상태(못 한 검색·댓글·자막·썸네일)는 `status.json`.", "",
+         f"- 성공 사례 기준: 최근 {used_days}일 안 · 구독자 {a.max_subs:,}명 이하 · 조회수 ≥ 구독자 × {a.min_ratio} · 조회수 {a.min_views:,} 이상 · "
          f"{a.min_sec // 60}분 이상 (쇼츠 제외) · 채널당 {a.per_channel}개까지",
+         f"- 조회수 상위 기준: **구독자 수 상관없음** · 주제 관련(keywords.toml 관련어) · {a.min_sec // 60}분 이상 · 최근 {a.fallback_days}일 · "
+         f"조회수 순 {a.popular}개 · 채널당 {a.per_channel}개까지",
          (f"- 후보 {len(rows)}개 — 자료: YouTube Data API 검색(검색어 그룹마다 {a.per_group}개, 최근 {a.fallback_days}일·조회수 순·4~20분"
           + (", 20분 넘음" if a.long else "") + ")" if source == "api" else
           f"- 후보 {len(rows)}개 — 자료: 분석기 결과 `result/data/videos.csv` (⚠️ 분석기 검색은 최근 영상만 찾지 않았다)")
-         + f" → 기준 통과 {len(q)}개 → 자세히 {len(deep)}개", "",
-         "| # | 제목 | 채널 | 구독자 | 조회수 | 배수 | 며칠 전 | 길이(분) | 말 속도(음절/초) | 댓글 |", "|---|---|---|---|---|---|---|---|---|---|"]
+         + f" → 성공 사례 기준 통과 {len(q)}개 → 자세히 {len(deep)}개 · 조회수 상위 {len(pop)}개",
+         f"- 댓글: " + ("전부 (최상위 + 답글)" if not a.comments and a.replies else
+                       f"최상위 {a.comments or '전부'}개까지" + ("" if a.replies else " · 답글 안 받음")), "",
+         "## 성공 사례 (작은 채널)", "",
+         "| # | 제목 | 채널 | 구독자 | 조회수 | 배수 | 며칠 전 | 길이(분) | 말 속도(음절/초) | 댓글 받음 |", "|---|---|---|---|---|---|---|---|---|---|"]
     for meta, info, cms in deep:
         L.append(f"| {meta['rank']} | [{short(meta['title'], 60)}]({meta['url']}) | {short(meta['channel'], 20)} | {meta['subs']:,} | {meta['views']:,} | "
-                 f"{meta['ratio']} | {meta['age_days']} | {meta['minutes']} | {meta.get('syl_per_sec', '-')} | {meta.get('comments') or 0} |")
-    L += [""]
+                 f"{meta['ratio']} | {meta['age_days']} | {meta['minutes']} | {meta.get('syl_per_sec', '-')} | "
+                 f"{meta.get('comments_fetched', 0):,}{'' if meta.get('comments_complete') else ' (받는 중)'} |")
+    by_id = {m["id"]: m for m, _, _ in deep + pop_deep}
+    L += ["", "## 조회수 상위 (구독자 수 상관없음)", "",
+          "| # | 제목 | 채널 | 구독자 | 조회수 | 며칠 전 | 길이(분) | 댓글 받음 | 성공 사례 |", "|---|---|---|---|---|---|---|---|---|"]
+    for k, r in enumerate(pop, 1):
+        m = by_id.get(r["id"], {})
+        L.append(f"| P{k} | [{short(r['title'], 60)}]({r['url']}) | {short(r['channel'], 20)} | "
+                 f"{'{:,}'.format(r['subs']) if r['subs'] is not None else '비공개'} | {r['views']:,} | {r['age_days']} | {r['minutes']} | "
+                 f"{m.get('comments_fetched', 0):,}{'' if m.get('comments_complete') else ' (받는 중)'} | "
+                 f"{m['rank'] if m.get('set') == 'success' else '-'} |")
+    L.append("")
     for meta, info, cms in deep:
-        L += [f"## {meta['rank']}. {short(meta['title'], 90)}", "",
-              f"- {meta['url']} · {meta['channel']} · 구독자 {meta['subs']:,} · 조회수 {meta['views']:,} (×{meta['ratio']}) · "
-              f"{meta['published']} ({meta['age_days']}일 전) · {meta['minutes']}분" + (f" · 검색어: {meta['queries']}" if meta['queries'] else ""),
-              f"- 설명 앞부분: {short(info.get('description'), 300) or '(이 자료에는 설명 없음)'}"]
-        if meta.get("chapters"):
-            L.append("- 챕터: " + " / ".join(f"{int(c['start'] // 60)}:{int(c['start'] % 60):02d} {short(c['title'], 30)}"
-                                           for c in meta["chapters"][:15]))
-        if meta.get("hook20"):
-            L.append(f"- 도입부(첫 20초, 자막 {meta['transcript_lang']}): {short(meta['hook20'], 220)}")
-            L.append(f"- 첫 1분 발췌: {short(meta.get('first60'), 300)}")
-            L.append(f"- 말 속도 {meta['syl_per_sec']}음절/초 · 첫 1분 {meta['first60_syl']}음절 · 전체 {meta.get('syl', 0):,}음절")
-            if meta.get("outline"):
-                L.append(f"- 구간별 흐름({OUTLINE_EVERY_SEC}초마다 첫 문장 앞부분): "
-                         + " / ".join(f"{o['t'] // 60}:{o['t'] % 60:02d} {o['text']}" for o in meta["outline"]))
-        else:
-            L.append(f"- 자막: {meta['transcript_status']}")
-        top = sorted(cms, key=lambda c: -int(c.get("likes") or 0))[:10]
-        if top:
-            L.append(f"- 인기 댓글 {len(cms)}개 중 상위 10 (좋아요):")
-            L += [f"  - ({c.get('likes')}) {short(c.get('text'), 140)}" for c in top]
-        L.append("")
+        L += _case_lines(meta, info, cms)
+    for meta, info, cms in pop_deep:
+        L += _case_lines(meta, info, cms)
     (out / "summary.md").write_text("\n".join(L), "utf-8")
 
 
@@ -615,7 +838,7 @@ def load_api_key():
 
 
 def main(argv=None):
-    ap = argparse.ArgumentParser(description="작은 채널 성공 사례(최근·롱폼·조회수/구독자 배수) 수집 — 내용·댓글 분석용, 이어서 돌리기 지원")
+    ap = argparse.ArgumentParser(description="작은 채널 성공 사례(최근·롱폼·조회수/구독자 배수) + 조회수 상위 영상 수집 — 자막·댓글 전부, 이어서 돌리기 지원")
     ap.add_argument("topics", nargs="+")
     ap.add_argument("--per-group", type=int, default=1)
     ap.add_argument("--days", type=int, default=180)
@@ -626,7 +849,9 @@ def main(argv=None):
     ap.add_argument("--min-sec", type=int, default=240)
     ap.add_argument("--top", type=int, default=15)
     ap.add_argument("--per-channel", type=int, default=2)
-    ap.add_argument("--comments", type=int, default=100)
+    ap.add_argument("--comments", type=int, default=0, help="사례마다 최상위 댓글을 몇 개까지 (0 = 전부)")
+    ap.add_argument("--no-replies", dest="replies", action="store_false", help="답글은 받지 않음 (기본: 답글도 전부)")
+    ap.add_argument("--popular", type=int, default=20, help="구독자 수 상관없이 조회수 상위 영상 수 (0 = 안 함)")
     ap.add_argument("--no-long", dest="long", action="store_false", help="20분 넘는 영상은 검색하지 않음")
     ap.add_argument("--quota", type=int, default=9000, help="이번 실행 API 단위 한도 (주제 여러 개를 함께 셈. 하루 10,000)")
     ap.add_argument("--search-ttl-hours", type=float, default=SEARCH_TTL_HOURS, help="검색 캐시 유효 시간 (기본 168 = 7일)")

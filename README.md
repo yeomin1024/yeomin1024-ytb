@@ -24,7 +24,7 @@ video/                      ← Remotion 프로젝트, 모든 주제가 같이 �
 economic/                   ← 주제 폴더: 경제·재테크 — economic/README.md
   analyzer_config.toml      ← 분석 설정 (주제 이름·저장 폴더·할당량 등)
   keywords.toml             ← 검색어 목록 (분석기·성공 사례 수집이 같이 씀) — 검색어는 여기만 고치면 됨
-  result/                   ← 분석 결과 (PC 실행이 GitHub에 올림) · result/outliers/ 성공 사례 요약
+  result/                   ← 분석 결과 (PC 실행이 GitHub에 올림) · result/outliers/ 성공 사례·조회수 상위 (댓글 전부 — 비공개 저장소면 사례 폴더까지)
   guides/                   ← (분석 뒤) 주제 전용 규칙 + data_insights.md(분석 결과 요약 = 지시사항 근거)
   source/<영상ID>/          ← (주제를 고른 뒤) 영상별 대본 TXT·SRT·README·titles.md·thumbnails/·upload.md
   out/<영상ID>/             ← 완성 영상 자리 (mp4는 git에 올리지 않음). 스토리보드는 만들지 않음
@@ -137,7 +137,7 @@ python youtube_topic_analyzer.py --help                                    # 전
 | `success_cases/NN_.../` | 성공사례별 `transcript.txt`(대본), `thumbnail.jpg`, `metadata.json`, `comments.csv` (영상 파일은 PC에만) |
 | `run_info.json`, `run_log.txt` | 설정·쿼터·소요시간·데이터 기간 등 재현 정보와 전체 로그 |
 
-| `outliers/` | 작은 채널 성공 사례 (`tools/outlier_research.py`): `summary.md`·`outliers.csv`·`candidates.csv`·`status.json` (자막·댓글 원문·썸네일은 PC에만) |
+| `outliers/` | 작은 채널 성공 사례 + 구독자 무관 조회수 상위 (`tools/outlier_research.py` v1.3): `summary.md`·`outliers.csv`·`popular.csv`·`candidates.csv`·`status.json` + 사례 폴더 `01_…`·`P01_…`(자막·**댓글 전부**·썸네일 — **저장소가 비공개일 때만** GitHub에, 공개면 PC에만) |
 | `pc_progress.json` | PC 실행 진행 상태 (`tools/pc_analysis.py`): 회차·끝났는지·남은 일·다음 회차 시각 |
 
 분석 결과를 지시사항에 쓸 수 있게 요약한 파일은 `<주제폴더>/guides/data_insights.md`입니다 (경제·재테크는 분석 뒤 만듦).
@@ -196,7 +196,7 @@ python tools/make_summary.py --all                    # 3-5: 영상별 요약 �
 python tools/make_summary.py --thumb-todo economic    # 이미지가 없는 썸네일 프롬프트 모음 → economic/thumbnail_todo.md
 python tools/tts_narration.py all --push              # (Kaggle GPU) 대본 전부 → 영상마다 narration.mp3 하나 → 대본 폴더마다 GitHub에 올림 → guides/tts_guide.md
 python tools/tts_narration.py check economic <영상ID>  # 저장소 오디오가 지금 대본으로 만든 것인지
-python3 tools/outlier_research.py economic --per-group 2 --top 20   # 작은 채널 성공 사례만 (최근·구독자 5만 이하·조회수≥구독자×3·롱폼) + 자막·댓글·썸네일 → <주제>/result/outliers/ (다시 돌리면 남은 부분만)
+python3 tools/outlier_research.py economic --per-group 2 --top 20 --popular 20   # 성공 사례 + 조회수 상위(구독자 무관), 댓글 전부 — (최근·구독자 5만 이하·조회수≥구독자×3·롱폼) + 자막·댓글·썸네일 → <주제>/result/outliers/ (다시 돌리면 남은 부분만)
 python3 tools/outlier_stats.py economic               # 성공 사례 결과로 제목 요소·댓글 니즈 숫자 다시 계산 (주제 관련어는 keywords.toml)
 python tools/tts_narration.py samples --push           # (Kaggle GPU) 목소리 후보 샘플 → voices/samples/ (목소리를 고르기 전에는 all 이 이것만 함)
 python tools/tts_narration.py pick S04 H01             # 고른 목소리로 고정 (GPU 필요 없음 — 사용자가 고르면 Claude 가 실행)
@@ -212,7 +212,8 @@ python tools/youtube_auth.py --client-id … --client-secret …   # (내 PC에�
 
 ## 주의
 - 연구/교육용 분석 도구이고, 영상은 투자 교육 콘텐츠입니다. 특정 종목의 매수·매도를 권유하지 않습니다.
-- 이 저장소가 **public**이면 타인 영상 파일은 GitHub에 올리지 않고 **PC에만 원본 화질로** 저장합니다 (저작권).
-  - private으로 바꾸면 영상도 GitHub에 함께 올라갑니다. 이때는 GitHub 용량 제한 때문에 49MB 이하로 재인코딩합니다.
+- 이 저장소가 **public**이면 타인 영상 파일·성공 사례 폴더(자막 전문·댓글 전부·썸네일)는 GitHub에 올리지 않고 **PC에만** 저장합니다 (저작권).
+  - **private으로 바꾸면 전부 GitHub에 함께 올라갑니다** (사용자 지시 2026-10-13 — 바꾸는 법: [`guides/pc_analysis.md`](guides/pc_analysis.md) "저장소를 비공개로 바꾸기"). 영상은 GitHub 용량 제한 때문에 49MB 이하로 재인코딩합니다.
+  - 비공개 저장소는 토큰이 있어야 코드를 받습니다: PC는 `.env`의 `GITHUB_TOKEN`(실행기 v2.1), Kaggle은 `guides/tts_guide.md` 3번 셀(v1.8).
 - 렌더한 완성 영상(`*/out/**/*.mp4`)은 용량 때문에 git에 올리지 않습니다 (`.gitignore`).
 - 변경 내역: 분석 코드는 [`CHANGELOG.md`](CHANGELOG.md), 지시사항은 각 파일 아래 "변경 이력" 표에 있습니다.

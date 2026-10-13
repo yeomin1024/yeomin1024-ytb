@@ -1,6 +1,6 @@
 # 재테크 — 작은 채널 성공 사례 + 조회수 상위 영상 (최근·롱폼)
 
-자동 생성 — `tools/outlier_research.py` v1.8 (2026-10-14 04:37). 사례마다 자막·댓글 전부(`comments.csv`)·썸네일은 사례 폴더에 있다 (저장소가 비공개일 때만 GitHub 에 올라감). 진행 상태(못 한 검색·댓글·자막·썸네일)는 `status.json`.
+자동 생성 — `tools/outlier_research.py` v1.8 (2026-10-14 05:03). 사례마다 자막·댓글 전부(`comments.csv`)·썸네일은 사례 폴더에 있다 (저장소가 비공개일 때만 GitHub 에 올라감). 진행 상태(못 한 검색·댓글·자막·썸네일)는 `status.json`.
 
 - 성공 사례 기준: 최근 180일 안 · 구독자 50,000명 이하 · 조회수 ≥ 구독자 × 3.0 · 조회수 10,000 이상 · 4분 이상 (쇼츠 제외) · 채널당 2개까지
 - 조회수 상위 기준: **구독자 수 상관없음** · 주제 관련(keywords.toml 관련어) · 4분 이상 · 최근 365일 · 조회수 순 20개 · 채널당 2개까지
@@ -504,7 +504,10 @@ Could not retrieve a transcript for the video https://www.youtube.com/watch?v=7F
 - https://www.youtube.com/watch?v=nvarOYC_zbU · Sözler Köşkü · 구독자 4,810,000 · 조회수 2,919,614 (×0.61) · 2026-03-03 (224일 전) · 51.5분 · 검색어: ISA
 - 설명 앞부분: İhanetle kuşatılan bir peygamber… Kundakta konuşan bir bebek, ölüleri dirilten mucizeler ve göğe yükselen bir hayat! Hz. İsa’nın gerçek hikâyesi neydi? Çarmıhta kim vardı? Ve ahir zamanda gerçekten dönecek mi? Bu sır dolu yolculuğa hazır mısın? Sözler Köşkü İlim ve Kültür Derneğine bağış yapmak ist…
 - 챕터: 0:00 Intro / 1:28 Cebrail’in (As) gelişi ve beb… / 3:34 İmtihan: Meryem’in (Ra) endiş… / 4:24 Doğum: Hurma ağacı. / 5:25 Meryem’in (Ra) şehre dönüş. / 7:00 Kundaktaki mucize konuşma “Be… / 8:35 Tehlike: Hirodes’in kararı. / 9:45 Hicret: Mısır yolculuğu. / 11:00 Hz. İsa’nın (As) yetiştirilme… / 11:45 Dönüş: Nasıra’ya yerleşme. / 12:15 Vahyin gelişi Peygamberlik ba… / 13:57 Vahiy: İncil’in verilişi / 14:27 İlk çağrı / 16:20 Hahamların sert tepkisi / 16:46 Mucize: Çamurdan kuş.
-- 자막: 한국어 자막 없음
+- 도입부(첫 20초, 자막 ko(음성인식)): 무지제 olarak 바바싯 Dünya에 gelen henüz kundaktayken konushan ölüleri dirilten bir peygamber ey nuh olusan Allah'ın izli ile kalk
+- 첫 1분 발췌: 무지제 olarak 바바싯 Dünya에 gelen henüz kundaktayken konushan ölüleri dirilten bir peygamber ey nuh olusan Allah'ın izli ile kalk onun eli ile bir yanda doğuştan göremeyen gözlerin açılışı diğer yanda çözülmesi imkansis hastalıkların deva buluşu peygamber katili bir toplum onu karşılayacak sözde Allah on…
+- 말 속도 0.01음절/초 · 첫 1분 7음절 · 전체 44음절
+- 구간별 흐름(90초마다 첫 문장 앞부분): 0:00 무지제 olarak 바바싯 Dünya에 gelen / 1:30 bu video serisi güvenilir islami kaynaklardan / 3:01 Allahın sadece bi ol emri etti / 4:30 ama aradığı sadece insanların / 6:02 ama yalnız değildi / 7:31 beni anneme saygılı kıldı / 9:01 bebek dünyaya getirmiş / 10:31 sekeri aleyhisselamdan öğrendiği / 12:01 insanlar onu nasıralı / 13:34 Yanlışa karşı kılıçdan keskin yaralı gönülle… / 15:00 Daha önce inen tevratı doğrulamak ve benden … / 16:34 «Napica kaca» herkes nasıl bi karşılık verec… / 18:04 gözleri doğuştan görmüyordu. / 19:32 şehrin dışında yaşayan elleri yumru gibi olm… / 21:03 yaralar bir bir kapanmaya başladı. / 22:30 yeri geldiğinde göreceğiz. / 24:05 bu mabedin şerefine hakarettir. / 25:34 kimi balıkçı kimi çamaşırıcı kimi vergi memu… / 27:07 altında ats yoktu deve yoktu. / 28:34 adeta durmayı kendine yasaklanış gibiydi.
 - 댓글 1,259개 받음 (최상위 933 · 답글 326 · 채널 주인 0) / 영상 표시 1,259개 — 다 받음. 전부: 사례 폴더 `comments.csv`
 - 인기 댓글 상위 10 (좋아요):
   - (1235) Ya Rabbi, Hz. İsa (a.s.) hangi dua ile Sana yöneldi de Sen izninle ölüleri dirilttin, hastalara şifa verdin; o duanın hürmetine bizim de de…

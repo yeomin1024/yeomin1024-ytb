@@ -1,0 +1,14 @@
+{
+ "meta": {
+  "source": "whisper_small",
+  "language": "ko",
+  "auto_generated": true
+ },
+ "segments": [
+  {
+   "start": 0.0,
+   "duration": 25.0,
+   "text": "구독과 좋아요 부탁드려요!"
+  }
+ ]
+}

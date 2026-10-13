@@ -64,11 +64,17 @@
     "case_dir": "success_cases/04_S_P500_vs_나스닥100_lg0r2ZOcyXU",
     "thumbnail": "ok",
     "video": "skipped(DOWNLOAD_VIDEOS=False)",
-    "transcript": "whisper_pending",
+    "transcript": "whisper_small",
     "transcript_errors": {
       "api": "TranscriptsDisabled: \nCould not retrieve a transcript for the video https://www.youtube.com/watch?v=lg0r2ZOcyXU! This is most likely caused by:\n\nSubtitles are disabled for",
       "ytdlp": "RuntimeError: 자막 트랙 없음 (manual=[], auto=0)"
     },
-    "comments": 100
+    "comments": 100,
+    "transcript_lang": "ko",
+    "whisper_done": "2026-10-14T05:27+09:00",
+    "transcript_chars": 12,
+    "chars_per_min": 27.7,
+    "hook_seconds": 5,
+    "hook_text": "구독과 좋아요 부탁드려요!"
   }
 }

@@ -1,12 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v2.7.0 — 2026-10-13 — 빠른 것 먼저 올리고 음성인식은 뒤에서 하나씩 (사용자 지시: "일단 영상 자체는 받지말고 자막, 썸네일, 댓글 등
+# VERSION: v2.7.1 — 2026-10-13 — pip 이 없는 가상환경 고침 (사용자 PC 오류: ".venv\Scripts\python.exe: No module named pip"):
+#          _ensure_pip() — 패키지를 설치하기 전에 pip 이 없으면 python -m ensurepip --upgrade --default-pip, 안 되면 공식
+#          get-pip.py(bootstrap.pypa.io). 가상환경을 만들다 끊기면 python.exe 만 있고 pip 이 없는 .venv 가 남는다
+# (v2.7.0 — 2026-10-13 — 빠른 것 먼저 올리고 음성인식은 뒤에서 하나씩 (사용자 지시: "일단 영상 자체는 받지말고 자막, 썸네일, 댓글 등
 #          빨리 받을 수 있는 것들만 다 받으면 분석결과를 먼저 올리도록 하고 오래걸리는 음성인식은 계속 진행해서 하나가 끝나면 바로 올리고
 #          그다음거 진행하는 식으로"): ① --defer-whisper: 자막이 없는 성공사례는 음성인식을 하지 않고 'whisper_pending' 으로 표시
 #          ② --whisper-queue: 음성인식 대기열 — 작은 채널 성공 사례(01_…)·조회수 상위(P01_…)·분석기 성공사례 중 자막 없는 영상을
 #          하나씩 (소리만 받아 Whisper → 소리 파일은 지움) → 끝날 때마다 바로 GitHub 에 올림, 실패는 3번까지 다음에 다시
 #          (대기열에서는 CPU 길이 제한 없음 — WHISPER_QUEUE_CPU_MAX_MINUTES) ③ --push-only 가 분석기 결과가 아직 없어도
-#          성공 사례 결과만 올림 (결과를 먼저) ④ 영상 파일 받기는 tools/pc_analysis.py 가 --no-video 로 끔 (economic 설정도 false)
+#          성공 사례 결과만 올림 (결과를 먼저) ④ 영상 파일 받기는 tools/pc_analysis.py 가 --no-video 로 끔 (economic 설정도 false))
 # (v2.6.0 — 2026-10-13 — 여러 주제를 동시에(병렬로) 돌릴 수 있게 (사용자 지시: "동시에 병렬로 다른 주제 분석도 가능하도록 해야해
 #          그럼 검색어 설정 파일, 키설정 파일도 여러개"): ① 주제별 키 파일 <주제폴더>/.env (+ 환경 변수 YOUTUBE_API_KEY_<폴더>)를
 #          맨 위 .env 보다 먼저 읽음 ② git 작업 폴더·임시 폴더·푸시 로그를 주제마다 따로 (.yt_work/_github_clone_<폴더> 등 — 같이 돌면
@@ -215,7 +218,46 @@ def _setup_console():
             pass
 
 
+_PIP_STATE = {}
+
+
+def _ensure_pip():
+    """pip 이 없으면 설치 (v2.7.1). 가상환경(.venv)을 만들다 끊기면 python.exe 만 있고 pip 이 없다
+    (사용자 PC 2026-10-13: 'No module named pip'). ① ensurepip ② 공식 get-pip.py. 한 번 확인하면 기억."""
+    if "ok" in _PIP_STATE:
+        return _PIP_STATE["ok"]
+
+    def has():
+        return _sp.run([_sys.executable, "-m", "pip", "--version"], capture_output=True).returncode == 0
+    ok = has()
+    if not ok:
+        print("[SETUP] ⚠️ 이 Python 에 pip 이 없습니다 (가상환경을 만들다 끊긴 경우) → ensurepip 로 설치", flush=True)
+        _sp.run([_sys.executable, "-m", "ensurepip", "--upgrade", "--default-pip"])
+        ok = has()
+    if not ok:
+        print("[SETUP] ⚠️ ensurepip 실패 → 공식 get-pip.py(https://bootstrap.pypa.io/get-pip.py)로 설치", flush=True)
+        tmp = _Path(__file__).resolve().parent / ".yt_work" / "get-pip.py"
+        try:
+            import urllib.request as _ur
+            tmp.parent.mkdir(parents=True, exist_ok=True)
+            with _ur.urlopen("https://bootstrap.pypa.io/get-pip.py", timeout=60) as resp:
+                tmp.write_bytes(resp.read())
+            _sp.run([_sys.executable, str(tmp), "--no-warn-script-location"])
+            ok = has()
+        except Exception as e:
+            print(f"[SETUP] get-pip.py 받기 실패: {type(e).__name__}: {e}", flush=True)
+        finally:
+            tmp.unlink(missing_ok=True)
+    print("[SETUP] pip 준비됨" if ok else
+          "[SETUP] ❌ pip 을 설치하지 못했습니다 → 실행 폴더의 .venv 폴더를 지우고 다시 실행하세요 (가상환경을 새로 만듦).\n"
+          "        그래도 안 되면 python.org 에서 Python 을 다시 설치 (설치 화면에서 'pip' 체크)", flush=True)
+    _PIP_STATE["ok"] = ok
+    return ok
+
+
 def _pip_install(pkgs, quiet=False):
+    if not _ensure_pip():
+        return False
     cmd = [_sys.executable, "-m", "pip", "install", "-U", *(["-q"] if quiet else []), *pkgs]
     print(f"[SETUP] {' '.join(cmd[2:])}", flush=True)
     return _sp.run(cmd).returncode == 0
@@ -283,7 +325,7 @@ import numpy as np
 import pandas as pd
 import requests
 
-NOTEBOOK_VERSION = "v2.7.0"
+NOTEBOOK_VERSION = "v2.7.1"
 KST = dt.timezone(dt.timedelta(hours=9))
 UTC = dt.timezone.utc
 IS_WINDOWS = os.name == "nt"

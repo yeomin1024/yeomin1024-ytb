@@ -1,5 +1,32 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-13 (8) — pip 이 없는 가상환경(.venv) 고침
+
+### 왜 (사용자 PC 오류)
+```
+[SETUP] packages=youtube-transcript-api>=1.2,tomli>=2.0,tzdata note="필요한 패키지 설치"
+C:\Users\…\yeomin1024-ytb\.venv\Scripts\python.exe: No module named pip
+[SETUP] note="패키지 설치 실패 — 위 pip 오류 확인"
+```
+원인: 가상환경(`.venv`)을 처음 만들 때 pip 설치 단계(ensurepip)가 끊기거나 실패하면 `python.exe` 만 있는 `.venv` 가 남는다.
+실행기는 `python.exe` 가 있으면 다시 만들지 않으므로 그 뒤로 매번 pip 없이 실행됐다.
+
+### 고친 것
+| 파일 (버전) | 함수·항목 | 내용 |
+|---|---|---|
+| `tools/pc_analysis.py` v1.6 | `ensure_pip`, `ensure_packages`, `GET_PIP_URL` | 패키지를 설치하기 전에 pip 확인 → 없으면 ① `python -m ensurepip --upgrade --default-pip` ② 안 되면 공식 `get-pip.py`(bootstrap.pypa.io, 쓴 뒤 지움) → 그래도 안 되면 다음 할 일(.venv 지우고 다시 실행 / Python 다시 설치)을 로그에 |
+| `youtube_topic_analyzer.py` v2.7.1 | `_ensure_pip`, `_pip_install` | 분석기 자체 설치(numpy·pandas 등)도 같은 순서로 pip 을 먼저 고침 (한 번 확인하면 기억) |
+| `run_analyzer.ps1` · `run_analyzer.sh` v2.4 | 가상환경 단계 | ① `.venv` 에 pip 이 없으면 ensurepip ② `.venv` 만들기가 실패하면 반쯤 만든 `.venv` 를 지우고 `--without-pip` 로 다시 만든 뒤 pip 을 설치 (예전: 실패한 `.venv` 가 남아 다음 실행이 그대로 씀) |
+| `guides/pc_analysis.md` v1.7 | 문제 해결 | 'No module named pip' 항목 |
+
+### 결과 (검사)
+- 같은 오류 재현: `python -m venv --without-pip` 로 만든 `.venv` → `No module named pip`
+- `ensure_pip()` → `[SETUP] note="pip 설치됨" how=ensurepip` → 그 `.venv` 에서 `ensure_packages` 가 youtube-transcript-api 설치 성공
+- ensurepip 이 없는 Python 흉내 → get-pip.py 경로: 이 클라우드에서는 bootstrap.pypa.io 가 막혀(403) 깔끔하게 실패·안내, 로컬 대역 스크립트로는 `how=get-pip.py` 성공·임시 파일 지움
+- 분석기 `_ensure_pip`: pip 없는 `.venv` → ensurepip → `_pip_install(["tomli>=2.0"])` 성공
+- `run_analyzer.sh` (로컬 서버): pip 없는 `.venv` → `⚠️ 가상환경(.venv)에 pip 이 없습니다 → ensurepip 로 설치` → `pip 준비됨` / `venv` 만들기 실패 흉내 → 지우고 pip 없이 다시 만든 뒤 pip 설치. `run_analyzer.ps1` 은 이 환경에 PowerShell 이 없어 실행 시험 못 함 (같은 순서로 작성)
+- `pc_analysis.py --self-test` ALL PASS (새: pip 이 없으면 ensurepip), 분석기 자가진단 27/27, 성공 사례 20·키 5·음성인식 대기열 7·태그 10 시험 통과
+
 ## 2026-10-13 (7) — 검색어를 실제 영상 태그로 · 검색어 전부 탐색 · 받은 자료 표에 업로드 날짜
 
 ### 왜 (사용자 지시)

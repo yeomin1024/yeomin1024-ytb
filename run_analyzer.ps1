@@ -1,10 +1,14 @@
 ﻿<#
 ================================================================================================
  YouTube 분석 PC 실행기 (Windows PowerShell)
- VERSION: v2.3 — 2026-10-13 — 검색어를 태그로 바꾼 새 판을 PC 가 자동으로 받게 (사용자 지시: "그냥 검색어를 재테크 관련 태그로 찾아서
+ VERSION: v2.4 — 2026-10-13 — pip 이 없는 가상환경 고침 (사용자 PC 오류: ".venv\Scripts\python.exe: No module named pip"):
+          ① .venv 에 pip 이 없으면 ensurepip 로 설치 (안 되면 분석 코드가 공식 get-pip.py 로 한 번 더)
+          ② .venv 만들기가 실패하면 반쯤 만든 .venv 를 지움 (남겨 두면 다음 실행이 pip 없는 .venv 를 씀) → pip 없이 만들어
+             분석 코드가 pip 을 설치하게 함
+ (v2.3 — 2026-10-13 — 검색어를 태그로 바꾼 새 판을 PC 가 자동으로 받게 (사용자 지시: "그냥 검색어를 재테크 관련 태그로 찾아서
           다 그걸로 탐색해봐"): 설정·검색어 파일(<주제>/analyzer_config.toml·keywords.toml·tag_rules.toml)은 PC 에 있어도
           GitHub 쪽 파일 머리의 VERSION 이 더 높으면 예전 것을 .bak 으로 두고 새 판으로 바꿈 (같거나 낮으면, VERSION 이 없으면 그대로).
-          코드 목록에 tools/tag_keywords.py (태그에서 검색어 고르기) 추가
+          코드 목록에 tools/tag_keywords.py (태그에서 검색어 고르기) 추가)
  (v2.2.1 — 2026-10-13 — 안내 문구만: 실행 명령을 -File run_analyzer.ps1 (.\ 없이 — Git Bash 가 \ 를 지워 '-File 인수가 없습니다' 오류),
           받기는 curl.exe (코드 동작은 v2.2 그대로))
  (v2.2 — 2026-10-13 — 여러 주제를 동시에: -Folder economic,health (사용자 지시: "동시에 병렬로 다른 주제 분석도 가능하도록").
@@ -223,12 +227,31 @@ $pyExe = $py[0]
 $pyPre = @()
 if ($py.Count -gt 1) { $pyPre = $py[1..($py.Count - 1)] }
 if (-not $NoVenv) {
-    if (-not (Test-Path ".venv\Scripts\python.exe")) {
+    $venvPy = ".venv\Scripts\python.exe"
+    if (-not (Test-Path $venvPy)) {
         Write-Step "가상환경(.venv) 만드는 중 (처음 한 번)"
         & $pyExe @pyPre -m venv .venv
-        if ($LASTEXITCODE -ne 0) { Write-Step "❌ 가상환경을 만들지 못했습니다 → -NoVenv 로 다시 실행해 보세요"; exit 1 }
+        if ($LASTEXITCODE -ne 0) {     # 반쯤 만든 .venv 를 남기지 않음 (v2.4) → pip 없이 다시 만들고 pip 은 아래에서
+            Write-Step "⚠️ 가상환경 만들기 실패 → 지우고 pip 없이 다시 만듦 (pip 은 다음 단계에서 설치)"
+            Remove-Item -Recurse -Force ".venv" -ErrorAction SilentlyContinue
+            & $pyExe @pyPre -m venv --without-pip .venv
+            if ($LASTEXITCODE -ne 0) {
+                Remove-Item -Recurse -Force ".venv" -ErrorAction SilentlyContinue
+                Write-Step "❌ 가상환경을 만들지 못했습니다 → -NoVenv 로 다시 실행하거나, python.org 에서 Python 을 다시 설치하세요"
+                exit 1
+            }
+        }
     }
-    $pyExe = ".venv\Scripts\python.exe"
+    # pip 확인 (v2.4): 만들다 끊긴 .venv 는 python.exe 만 있고 pip 이 없음 ('No module named pip') → ensurepip
+    & $venvPy -m pip --version 2>$null | Out-Null
+    if ($LASTEXITCODE -ne 0) {
+        Write-Step "⚠️ 가상환경(.venv)에 pip 이 없습니다 → ensurepip 로 설치"
+        & $venvPy -m ensurepip --upgrade --default-pip
+        & $venvPy -m pip --version 2>$null | Out-Null
+        if ($LASTEXITCODE -eq 0) { Write-Step "pip 준비됨" }
+        else { Write-Step "⚠️ ensurepip 실패 → 분석 코드가 공식 get-pip.py 로 한 번 더 시도합니다 (그래도 안 되면 .venv 폴더를 지우고 다시 실행)" }
+    }
+    $pyExe = $venvPy
     $pyPre = @()
 }
 

@@ -1,10 +1,13 @@
 #!/usr/bin/env bash
 # ================================================================================================
 #  YouTube 분석 PC 실행기 (macOS / Linux)
-#  VERSION: v2.3 — 2026-10-13 — 검색어를 태그로 바꾼 새 판을 PC 가 자동으로 받게 (사용자 지시: "그냥 검색어를 재테크 관련 태그로 찾아서
+#  VERSION: v2.4 — 2026-10-13 — pip 이 없는 가상환경 고침 (사용자 PC 오류: ".venv\Scripts\python.exe: No module named pip"):
+#           ① .venv 에 pip 이 없으면 ensurepip 로 설치 (안 되면 분석 코드가 공식 get-pip.py 로 한 번 더)
+#           ② .venv 만들기가 실패하면 반쯤 만든 .venv 를 지우고 pip 없이 다시 만들어 분석 코드가 pip 을 설치하게 함
+#  (v2.3 — 2026-10-13 — 검색어를 태그로 바꾼 새 판을 PC 가 자동으로 받게 (사용자 지시: "그냥 검색어를 재테크 관련 태그로 찾아서
 #           다 그걸로 탐색해봐"): 설정·검색어 파일(<주제>/analyzer_config.toml·keywords.toml·tag_rules.toml)은 PC 에 있어도
 #           GitHub 쪽 파일 머리의 VERSION 이 더 높으면 예전 것을 .bak 으로 두고 새 판으로 바꿈 (같거나 낮으면, VERSION 이 없으면 그대로).
-#           코드 목록에 tools/tag_keywords.py (태그에서 검색어 고르기) 추가
+#           코드 목록에 tools/tag_keywords.py (태그에서 검색어 고르기) 추가)
 #  (v2.2 — 2026-10-13 — 여러 주제를 동시에: --folder economic --folder health (또는 --folder economic,health)
 #           (사용자 지시: "동시에 병렬로 다른 주제 분석도 가능하도록"). 주제마다 설정·검색어 파일을 받고, 주제별 키는 <주제>/.env)
 #  (v2.1 — 2026-10-13 — 비공개 저장소에서도 받기: .env(또는 환경 변수)의 GITHUB_TOKEN 이 있으면 GitHub API 로 코드·설정을 받음
@@ -157,7 +160,18 @@ if [ -z "$PY" ]; then step "❌ Python 3.10 이상을 찾지 못했습니다 →
 if [ "$NO_VENV" = 0 ]; then
   if [ ! -x ".venv/bin/python" ]; then
     step "가상환경(.venv) 만드는 중 (처음 한 번)"
-    "$PY" -m venv .venv || { step "❌ 가상환경을 만들지 못했습니다 (Ubuntu면: sudo apt install python3-venv) → --no-venv 로도 실행 가능"; exit 1; }
+    if ! "$PY" -m venv .venv; then   # 반쯤 만든 .venv 를 남기지 않음 (v2.4) → pip 없이 다시 만들고 pip 은 아래에서
+      step "⚠️ 가상환경 만들기 실패 → 지우고 pip 없이 다시 만듦 (pip 은 다음 단계에서 설치)"
+      rm -rf .venv
+      "$PY" -m venv --without-pip .venv || { rm -rf .venv; step "❌ 가상환경을 만들지 못했습니다 (Ubuntu면: sudo apt install python3-venv) → --no-venv 로도 실행 가능"; exit 1; }
+    fi
+  fi
+  # pip 확인 (v2.4): 만들다 끊긴 .venv 는 python 만 있고 pip 이 없음 ('No module named pip') → ensurepip
+  if ! .venv/bin/python -m pip --version >/dev/null 2>&1; then
+    step "⚠️ 가상환경(.venv)에 pip 이 없습니다 → ensurepip 로 설치"
+    .venv/bin/python -m ensurepip --upgrade --default-pip
+    if .venv/bin/python -m pip --version >/dev/null 2>&1; then step "pip 준비됨"
+    else step "⚠️ ensurepip 실패 → 분석 코드가 공식 get-pip.py 로 한 번 더 시도합니다 (그래도 안 되면 .venv 폴더를 지우고 다시 실행)"; fi
   fi
   PY=".venv/bin/python"
 fi

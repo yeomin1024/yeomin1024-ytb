@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.5 — 2026-10-13 — 검색어 전부 (사용자 지시: "그냥 검색어를 재테크 관련 태그로 찾아서 다 그걸로 탐색해봐"):
+# VERSION: v1.6 — 2026-10-13 — pip 이 없는 가상환경 고침 (사용자 PC 오류: ".venv\Scripts\python.exe: No module named pip" → 패키지 설치 실패):
+#          ensure_pip() — pip 이 없으면 ① python -m ensurepip --upgrade --default-pip ② 안 되면 공식 get-pip.py(bootstrap.pypa.io)
+#          로 설치한 뒤 패키지를 설치. 가상환경을 만들다 끊기면(첫 실행 중단 등) python.exe 만 있고 pip 이 없는 .venv 가 남는다
+# (v1.5 — 2026-10-13 — 검색어 전부 (사용자 지시: "그냥 검색어를 재테크 관련 태그로 찾아서 다 그걸로 탐색해봐"):
 #          ① --per-group 0(기본) = keywords.toml 의 검색어 전부를 성공 사례 수집에 (검색어는 tools/tag_keywords.py 가 태그로 채움)
 #             자동 할당량(outlier_need)도 검색어 전부로 계산 (같은 검색어는 한 번)
 #          ② ⚠️ 분석기 최소 할당량 300 → ANALYZER_MIN_UNITS 1,000: 검색어 40개면 첫날 성공 사례 검색(약 9,000단위)이 하루 몫을 거의 다 써서
-#             분석기에 수백 단위만 남는데, 그걸로 돌리면 검색 0~1개짜리 빈 결과만 만들고 오래 걸림 → 다음 회차(할당량 초기화 뒤)로 미룸
+#             분석기에 수백 단위만 남는데, 그걸로 돌리면 검색 0~1개짜리 빈 결과만 만들고 오래 걸림 → 다음 회차(할당량 초기화 뒤)로 미룸)
 # (v1.4 — 2026-10-13 — 빠른 것 먼저 올리고 음성인식은 뒤에서 하나씩 (사용자 지시: "일단 영상 자체는 받지말고 자막, 썸네일, 댓글 등
 #          빨리 받을 수 있는 것들만 다 받으면 분석결과를 먼저 올리도록 하고 오래걸리는 음성인식은 계속 진행해서 하나가 끝나면 바로 올리고
 #          그다음거 진행하는 식으로" · "태그도 검색어에 포함하도록 해서 탐색"): 회차 순서 = ① 성공 사례(자막·썸네일·댓글·태그 검색어)
@@ -73,7 +76,7 @@ from datetime import date, datetime, time as dtime, timedelta, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v1.5"
+VERSION = "v1.6"
 LOG = logging.getLogger("pc_analysis")
 KST = timezone(timedelta(hours=9))
 LOCK_STALE_MIN = 30          # 잠금 파일이 이 시간 넘게 갱신되지 않으면 이전 실행이 죽은 것으로 봄
@@ -296,6 +299,46 @@ def analyzer_budget(cfg_p):
     return 9000
 
 
+GET_PIP_URL = "https://bootstrap.pypa.io/get-pip.py"   # pip 공식 설치 스크립트 (ensurepip 이 없을 때만)
+
+
+def ensure_pip(py=None, runner=subprocess.run):
+    """pip 이 없으면 설치 → (ok, how). how: 있음 / ensurepip / get-pip.py / 실패 까닭.
+    가상환경(.venv)을 만들다 끊기면 python.exe 만 있고 pip 이 없다 (사용자 PC 2026-10-13: 'No module named pip')."""
+    py = py or sys.executable
+
+    def has():
+        return runner([py, "-m", "pip", "--version"], capture_output=True, text=True).returncode == 0
+    if has():
+        return True, "있음"
+    log("SETUP", logging.WARNING, note="이 Python 에 pip 이 없음 → ensurepip 로 설치", python=py)
+    r = runner([py, "-m", "ensurepip", "--upgrade", "--default-pip"], capture_output=True, text=True)
+    if r.returncode == 0 and has():
+        log("SETUP", note="pip 설치됨", how="ensurepip")
+        return True, "ensurepip"
+    err = (r.stderr or r.stdout or "").strip().splitlines()[-1:] or ["?"]
+    log("SETUP", logging.WARNING, note="ensurepip 실패 → 공식 get-pip.py 로", error=err[0][:200])
+    tmp = ROOT / ".yt_work" / "get-pip.py"
+    try:
+        import urllib.request
+        tmp.parent.mkdir(parents=True, exist_ok=True)
+        with urllib.request.urlopen(GET_PIP_URL, timeout=60) as resp:
+            tmp.write_bytes(resp.read())
+        r = runner([py, str(tmp), "--no-warn-script-location"], capture_output=True, text=True)
+        if r.returncode == 0 and has():
+            log("SETUP", note="pip 설치됨", how="get-pip.py")
+            return True, "get-pip.py"
+        why = ((r.stderr or r.stdout or "").strip().splitlines()[-1:] or ["?"])[0][:200]
+    except Exception as e:
+        why = f"{type(e).__name__}: {e}"[:200]
+    finally:
+        tmp.unlink(missing_ok=True)
+    log("SETUP", logging.ERROR, note="pip 을 설치하지 못함", error=why,
+        next_step="실행 폴더의 .venv 폴더를 지우고 run_analyzer 를 다시 실행 (가상환경을 새로 만듦). 그래도 안 되면 python.org 에서 "
+                  "Python 을 다시 설치(설치 화면 'pip' 체크)")
+    return False, why
+
+
 def ensure_packages(dry):
     """성공 사례 수집에 필요한 것 (분석기 패키지는 분석기가 처음 실행 때 스스로 설치)."""
     need = []
@@ -313,6 +356,8 @@ def ensure_packages(dry):
     log("SETUP", packages=",".join(need), note="필요한 패키지 설치")
     if dry:
         return True
+    if not ensure_pip()[0]:                      # v1.6: pip 이 없는 .venv (만들다 끊긴 경우) → ensurepip / get-pip.py
+        return False
     r = subprocess.run([sys.executable, "-m", "pip", "install", "-U", "-q", *need])
     if r.returncode != 0:
         log("SETUP", logging.ERROR, note="패키지 설치 실패 — 위 pip 오류 확인", next_step=f"python -m pip install {' '.join(need)}")
@@ -944,6 +989,19 @@ def self_test():
         check("v1.5 --per-group 0 = 검색어 전부 (같은 검색어 한 번): 4개 × 2 × 100 + 250 + 40", outlier_need("t", 0, 20, 20) == 800 + 250 + 40,
               need=outlier_need("t", 0, 20, 20))
         check("분석기 사용량 읽기 (quota_used)", analyzer_summary(out_dir / "run_info.json", u(2000, 1, 1)).get("quota_used") == 5700)
+        # v1.6: pip 이 없는 .venv → ensurepip (가짜 실행기: pip 은 ensurepip 뒤에만 있음)
+        pip_state, calls_p = {"has": False}, []
+
+        def fake_pip(cmd, **kw):
+            calls_p.append(cmd[2] if len(cmd) > 2 else cmd[-1])
+            if cmd[1:3] == ["-m", "ensurepip"]:
+                pip_state["has"] = True
+                return subprocess.CompletedProcess(cmd, 0, "", "")
+            return subprocess.CompletedProcess(cmd, 0 if pip_state["has"] else 1, "", "" if pip_state["has"] else "No module named pip")
+        r1 = ensure_pip("py", fake_pip)
+        r2 = ensure_pip("py", fake_pip)
+        check("v1.6 pip 이 없으면 ensurepip 로 설치, 있으면 그대로", r1 == (True, "ensurepip") and r2 == (True, "있음")
+              and calls_p == ["pip", "ensurepip", "pip", "pip"], calls=",".join(calls_p))
     finally:
         ROOT = old_root
         import shutil

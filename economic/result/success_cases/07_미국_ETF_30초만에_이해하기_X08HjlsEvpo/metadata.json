@@ -1,0 +1,37 @@
+{
+  "video_id": "X08HjlsEvpo",
+  "title": "미국 ETF 30초만에 이해하기",
+  "channel_title": "어피티 UPPITY",
+  "channel_id": "UC8d2HkvVNQlRasXm6yXUw0Q",
+  "published_at": "2025-10-26T05:00:38+00:00",
+  "views": 2325966,
+  "likes": null,
+  "comments": 202.0,
+  "subscribers": 220000,
+  "duration_sec": 35.0,
+  "fmt": "shorts",
+  "outlier_score": 91.56625462562003,
+  "baseline_views": 25402.0,
+  "baseline_kind": "same_format",
+  "views_per_day": 6599.7411046971065,
+  "views_per_sub": 10.572572727272727,
+  "like_rate": null,
+  "comment_rate": 8.684563746847547e-05,
+  "case_score": 92.9,
+  "selection_reason": "종합점수 상위(카테고리 제한 완화)",
+  "tags": [],
+  "description": "#경제상식 #경제공부 #미국주식 #미국 #ETF #투자",
+  "video_url": "https://www.youtube.com/watch?v=X08HjlsEvpo",
+  "download_status": {
+    "video_id": "X08HjlsEvpo",
+    "case_dir": "success_cases/07_미국_ETF_30초만에_이해하기_X08HjlsEvpo",
+    "thumbnail": "ok",
+    "video": "skipped(DOWNLOAD_VIDEOS=False)",
+    "transcript": "whisper_pending",
+    "transcript_errors": {
+      "api": "IpBlocked: \nCould not retrieve a transcript for the video https://www.youtube.com/watch?v=X08HjlsEvpo! This is most likely caused by:\n\nYouTube is blocking reques",
+      "ytdlp": "RuntimeError: 자막 다운로드 실패 lang=ko-orig: HTTPError: HTTP Error 429: Too Many Requests"
+    },
+    "comments": 100
+  }
+}

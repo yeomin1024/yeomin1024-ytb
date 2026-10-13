@@ -1,0 +1,47 @@
+{
+  "video_id": "hp6mDQXbFHc",
+  "title": "장항준이 알려 주는 재테크 방법 #쇼츠 #Shorts #예능짧게 #꿀잼 #예능레전드 #1분요약 #장항준 #장항준감독 #재테크",
+  "channel_title": "예능짧게",
+  "channel_id": "UCse51PuSmiPHiL-N_WH0lCA",
+  "published_at": "2026-04-04T07:30:19+00:00",
+  "views": 1585450,
+  "likes": 6136.0,
+  "comments": 100.0,
+  "subscribers": 2260,
+  "duration_sec": 34.0,
+  "fmt": "shorts",
+  "outlier_score": 57.38146941730004,
+  "baseline_views": 27630.0,
+  "baseline_kind": "same_format",
+  "views_per_day": 8243.427962118656,
+  "views_per_sub": 701.5265486725664,
+  "like_rate": 0.0038701945819798796,
+  "comment_rate": 6.307357532561733e-05,
+  "case_score": 94.2,
+  "selection_reason": "종합점수 상위(카테고리 제한 완화)",
+  "tags": [
+    "예능짧게",
+    "쇼츠",
+    "Shorts",
+    "예능요약",
+    "꿀잼",
+    "웃긴영상",
+    "장항준",
+    "장항준감독",
+    "재테크"
+  ],
+  "description": "장항준이 알려 주는 재테크 방법\n\n#쇼츠 #Shorts #예능짧게 #꿀잼 #예능레전드 #1분요약 #장항준 #장항준감독 #재테크",
+  "video_url": "https://www.youtube.com/watch?v=hp6mDQXbFHc",
+  "download_status": {
+    "video_id": "hp6mDQXbFHc",
+    "case_dir": "success_cases/05_장항준이_알려_주는_재테크_방법_쇼츠_Shorts_예능_hp6mDQXbFHc",
+    "thumbnail": "ok",
+    "video": "skipped(DOWNLOAD_VIDEOS=False)",
+    "transcript": "whisper_pending",
+    "transcript_errors": {
+      "api": "IpBlocked: \nCould not retrieve a transcript for the video https://www.youtube.com/watch?v=hp6mDQXbFHc! This is most likely caused by:\n\nYouTube is blocking reques",
+      "ytdlp": "RuntimeError: 자막 다운로드 실패 lang=ko-orig: HTTPError: HTTP Error 429: Too Many Requests"
+    },
+    "comments": 63
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "video_id": "gNNhiknw81s",
+  "title": "재테크 강연대상이 신세계 손녀일 때",
+  "channel_title": "아이돌다이뜌 ",
+  "channel_id": "UCDsuWU4XP8k73r7i1dPaKfw",
+  "published_at": "2026-09-08T09:34:24+00:00",
+  "views": 4610941,
+  "likes": 36183.0,
+  "comments": 505.0,
+  "subscribers": 7290,
+  "duration_sec": 21.0,
+  "fmt": "shorts",
+  "outlier_score": 35.57289605344875,
+  "baseline_views": 129619.5,
+  "baseline_kind": "same_format",
+  "views_per_day": 130833.56070266303,
+  "views_per_sub": 632.50219478738,
+  "like_rate": 0.007847205158339697,
+  "comment_rate": 0.00010952211273143595,
+  "case_score": 94.6,
+  "selection_reason": "소규모 채널 쿼터",
+  "tags": [],
+  "description": "#애니 #우찬 #올데프 #올데이프로젝트",
+  "video_url": "https://www.youtube.com/watch?v=gNNhiknw81s",
+  "download_status": {
+    "video_id": "gNNhiknw81s",
+    "case_dir": "success_cases/03_재테크_강연대상이_신세계_손녀일_때_gNNhiknw81s",
+    "thumbnail": "ok",
+    "video": "skipped(DOWNLOAD_VIDEOS=False)",
+    "transcript": "whisper_pending",
+    "transcript_errors": {
+      "api": "IpBlocked: \nCould not retrieve a transcript for the video https://www.youtube.com/watch?v=gNNhiknw81s! This is most likely caused by:\n\nYouTube is blocking reques",
+      "ytdlp": "RuntimeError: 자막 다운로드 실패 lang=ko-orig: HTTPError: HTTP Error 429: Too Many Requests"
+    },
+    "comments": 100
+  }
+}

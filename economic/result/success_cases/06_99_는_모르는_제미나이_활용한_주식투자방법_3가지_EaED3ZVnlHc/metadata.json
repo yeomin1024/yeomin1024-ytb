@@ -1,0 +1,46 @@
+{
+  "video_id": "EaED3ZVnlHc",
+  "title": "99%는 모르는 제미나이 활용한 주식투자방법 3가지",
+  "channel_title": "돈 공부시켜주는남자",
+  "channel_id": "UCdHvVS34GpMKV16dMlIbk0w",
+  "published_at": "2026-02-23T06:36:03+00:00",
+  "views": 771298,
+  "likes": 16540.0,
+  "comments": 489.0,
+  "subscribers": 21200,
+  "duration_sec": 979.0,
+  "fmt": "long",
+  "outlier_score": 968.3590709353422,
+  "baseline_views": 796.5,
+  "baseline_kind": "same_format",
+  "views_per_day": 3319.3144821026763,
+  "views_per_sub": 36.381981132075474,
+  "like_rate": 0.021444370398989755,
+  "comment_rate": 0.0006339961986158398,
+  "case_score": 93.2,
+  "selection_reason": "종합점수 상위(카테고리 제한 완화)",
+  "tags": [
+    "저축",
+    "재테크",
+    "돈공남",
+    "돈공부시켜주는남자",
+    "주식",
+    "ETF",
+    "연금",
+    "제미나이"
+  ],
+  "description": "안녕하세요. 돈공부시켜주는남자입니다. 경제는 어렵고, 돈 공부는 귀찮은 당신을 위한 맞춤 채널입니다. 궁금하신건 편하게 질문주시고, 시간이 허락하는 한 성심성의껏 답글 달아드리도록 하겠습니다.\n\n💰돈공부시켜주는남자 재테크 강의오픈💰\nhttps://class101.net/ko/products/6864ffefc04b58cbceb637d4\n\n📖 목차📖--------------------------------------------\n00:00 인트로\n01:07 제미나이 기본 셋팅 (효율성 향상)\n01:52 첫번째 방법\n03:59 기업분석하는 전통적인 방식\n06:29 두번째 방법\n07:35 투자 아이디어 확장하는 예시\n08:43 결과값 검증\n10:34 3개월 투자하고 16프로??\n04:40 ETF 종류 및 추천\n11:20 세번째 방법\n12:07 세번째 방법 예시\n14:16 마무리 & 강의소개\n\n❗기억해주세요❗-------------------------------------\n돈공부시켜주는 남자는 경제적인 자유를 이루기 위한 교육을 합니다\n돈공부시켜주는 남자는 본인이 공부하고 투자한 것들 외에 것들을 다루지 않습니다\n \n녹화일 : 2026년02월23일",
+  "video_url": "https://www.youtube.com/watch?v=EaED3ZVnlHc",
+  "download_status": {
+    "video_id": "EaED3ZVnlHc",
+    "case_dir": "success_cases/06_99_는_모르는_제미나이_활용한_주식투자방법_3가지_EaED3ZVnlHc",
+    "thumbnail": "ok",
+    "video": "skipped(DOWNLOAD_VIDEOS=False)",
+    "transcript": "whisper_pending",
+    "transcript_errors": {
+      "api": "IpBlocked: \nCould not retrieve a transcript for the video https://www.youtube.com/watch?v=EaED3ZVnlHc! This is most likely caused by:\n\nYouTube is blocking reques",
+      "ytdlp": "RuntimeError: 자막 다운로드 실패 lang=ko-orig: HTTPError: HTTP Error 429: Too Many Requests"
+    },
+    "comments": 100
+  }
+}

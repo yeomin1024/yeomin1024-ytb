@@ -1,6 +1,6 @@
 # 재테크 — 받은 자료 표
 
-자동 생성 — `tools/outlier_research.py` v1.8 (2026-10-14 01:25). 사례 폴더의 자막·댓글 전부·썸네일은 저장소가 비공개일 때만 GitHub 에 함께 올라갑니다. 진행 상태: `status.json`.
+자동 생성 — `tools/outlier_research.py` v1.8 (2026-10-14 01:33). 사례 폴더의 자막·댓글 전부·썸네일은 저장소가 비공개일 때만 GitHub 에 함께 올라갑니다. 진행 상태: `status.json`.
 
 ## 한눈에
 
@@ -10,7 +10,7 @@
 | 찾은 후보 영상 (롱폼) | 2,286 |
 | 성공 사례 기준 통과 | 119 |
 | 자료로 받은 영상 | 35 (성공 사례 15 · 조회수 상위 20) + 분석기 성공사례 8 |
-| 자막 | ✅ 2 · ⏳ 음성인식 대기 7 · 그 밖 26 |
+| 자막 | ✅ 3 · ⏳ 음성인식 대기 6 · 그 밖 26 |
 | 댓글 다 받음 | 33 / 35 (전부 61,198개) |
 | 썸네일 | 35 / 35 |
 
@@ -37,7 +37,7 @@
 | 성공 사례 | 15 | [나스닥 투자하기 전에 이 영상 꼭 보세요 | QLD만 모아가는 이유](https://www.youtube.com/watch?v=g10Y6ZA7rng) | 올레버 | 1,580 | 114,600 | 2026-06-02 (133일 전) | 🔁 막힘 — 다음 회차에 다시 | ✅ 347/347 | ✅ | ✅ | 65 | 9 | `15_g10Y6ZA7rng` |
 | 조회수 상위 | P1 | [Aprende Peque con Isa - Aprende los Colores - Isa…](https://www.youtube.com/watch?v=5CNr36no5TI) | Aprende Peque | 1,290,000 | 8,511,739 | 2025-11-25 (322일 전) | ✅ 음성인식 | 🚫 댓글 막힌 영상 | ✅ | ✅ | 26 | 0 | `P01_5CNr36no5TI` |
 | 조회수 상위 | P2 | ["일해서 돈버는 시대 끝났다." AI시대 몸값 폭등하는 사람의 특징ㅣ지식인초대석 EP.1…](https://www.youtube.com/watch?v=512LLypVJfQ) | 지식인사이드 | 4,110,000 | 7,511,434 | 2026-03-07 (220일 전) | 🔁 막힘 — 다음 회차에 다시 | ✅ 2,965/2,965 | ✅ | ✅ | 0 | 17 | `P02_512LLypVJfQ` |
-| 조회수 상위 | P3 | [Aprende con Isa - Isa Visita @Ball N Bounce - Ind…](https://www.youtube.com/watch?v=FH6SL9CQL44) | Aprende Peque | 1,290,000 | 6,590,222 | 2026-05-26 (140일 전) | ⏳ 음성인식 대기 — 한국어 자막 없음 | 🚫 댓글 막힌 영상 | ✅ | ✅ | 24 | 6 | `P03_FH6SL9CQL44` |
+| 조회수 상위 | P3 | [Aprende con Isa - Isa Visita @Ball N Bounce - Ind…](https://www.youtube.com/watch?v=FH6SL9CQL44) | Aprende Peque | 1,290,000 | 6,590,222 | 2026-05-26 (140일 전) | ✅ 음성인식 | 🚫 댓글 막힌 영상 | ✅ | ✅ | 24 | 6 | `P03_FH6SL9CQL44` |
 | 조회수 상위 | P4 | [ISA LEI KABANI x PeniWise_music](https://www.youtube.com/watch?v=AhW02ezcXBk) | PENIWISE FJ | 32,000 | 6,121,202 | 2025-10-31 (347일 전) | ⏳ 음성인식 대기 — 한국어 자막 없음 | ✅ 1,093/1,093 | ✅ | ✅ | 0 | 0 | `P04_AhW02ezcXBk` |
 | 조회수 상위 | P5 | [6개월 연구 끝에 완성된 황금 포트폴리오 공개ㅣ어반비오나](https://www.youtube.com/watch?v=pjlP2CmnJxg) | 경제로그 | 133,000 | 5,213,384 | 2026-06-05 (130일 전) | 🔁 막힘 — 다음 회차에 다시 | ✅ 879/879 | ✅ | ✅ | 0 | 0 | `P05_pjlP2CmnJxg` |
 | 조회수 상위 | P6 | [계속 떨어지더니 '최저' 찍었다.."요즘 금값 왜 이래" 이유 보니 / 친절한 경제 / …](https://www.youtube.com/watch?v=ZlGbs_sIbQg) | SBS 뉴스 | 5,300,000 | 4,190,035 | 2026-09-30 (13일 전) | 🔁 막힘 — 다음 회차에 다시 | ✅ 1,367/1,367 | ✅ | ✅ | 34 | 0 | `P06_ZlGbs_sIbQg` |

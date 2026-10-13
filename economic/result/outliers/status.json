@@ -1,6 +1,6 @@
 {
  "tool": "outlier_research.py v1.8",
- "updated": "2026-10-13T16:25:09+00:00",
+ "updated": "2026-10-13T16:33:22+00:00",
  "topic": "economic",
  "keywords_file": "economic\\keywords.txt",
  "per_group": 0,
@@ -27,7 +27,7 @@
  "comment_units": 0,
  "comments_complete": 35,
  "cases": 35,
- "transcripts_ok": 2,
+ "transcripts_ok": 3,
  "transcript_missing": [
   {
    "id": "eFsT1K_mPjc",
@@ -103,11 +103,6 @@
    "id": "512LLypVJfQ",
    "status": "IpBlocked: \nCould not retrieve a transcript for the video https://www.youtube.com/watch?v=512LLypVJfQ! This is most likely caused b",
    "retry_elsewhere": true
-  },
-  {
-   "id": "FH6SL9CQL44",
-   "status": "한국어 자막 없음",
-   "retry_elsewhere": false
   },
   {
    "id": "AhW02ezcXBk",

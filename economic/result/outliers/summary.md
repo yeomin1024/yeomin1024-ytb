@@ -1,6 +1,6 @@
 # 재테크 — 작은 채널 성공 사례 + 조회수 상위 영상 (최근·롱폼)
 
-자동 생성 — `tools/outlier_research.py` v1.8 (2026-10-14 01:25). 사례마다 자막·댓글 전부(`comments.csv`)·썸네일은 사례 폴더에 있다 (저장소가 비공개일 때만 GitHub 에 올라감). 진행 상태(못 한 검색·댓글·자막·썸네일)는 `status.json`.
+자동 생성 — `tools/outlier_research.py` v1.8 (2026-10-14 01:33). 사례마다 자막·댓글 전부(`comments.csv`)·썸네일은 사례 폴더에 있다 (저장소가 비공개일 때만 GitHub 에 올라감). 진행 상태(못 한 검색·댓글·자막·썸네일)는 `status.json`.
 
 - 성공 사례 기준: 최근 180일 안 · 구독자 50,000명 이하 · 조회수 ≥ 구독자 × 3.0 · 조회수 10,000 이상 · 4분 이상 (쇼츠 제외) · 채널당 2개까지
 - 조회수 상위 기준: **구독자 수 상관없음** · 주제 관련(keywords.toml 관련어) · 4분 이상 · 최근 365일 · 조회수 순 20개 · 채널당 2개까지
@@ -205,7 +205,7 @@ Could not retrieve a transcript for the video https://www.youtube.com/watch?v=cz
 
 ## 10. 50대 억대연봉 임원이 퇴사 1년 후 깨달은 현실
 
-- https://www.youtube.com/watch?v=mLyNB42Hhgg · 50대 새로운 인생 준비하기 · 구독자 2,780 · 조회수 310,991 (×111.87) · 2026-08-21 (52일 전) · 8.9분 · 검색어: 은퇴준비
+- https://www.youtube.com/watch?v=mLyNB42Hhgg · 50대 새로운 인생 준비하기 · 구독자 2,780 · 조회수 310,991 (×111.87) · 2026-08-21 (53일 전) · 8.9분 · 검색어: 은퇴준비
 - 설명 앞부분: https://youtu.be/VbsJr00b_SY?si=nC5cL9cZE9ycwiRh #퇴직준비 #50대퇴직 #퇴직후현실 00:00 인트로: 50대 퇴사, 인생 후반전의 시작 00:10 퇴사 후 가장 먼저 맞닥뜨린 현실, '돈' 00:43 직함이 사라진 뒤 찾아온 정체성 고민 02:08 50대 퇴사자들의 실제 사례와 공통점 03:22 회사 밖에서 겪는 인간관계의 변화 04:47 퇴직 전, 현실적인 자금 계획 세우기 05:22 준비 없는 재취업이 오래가지 못하는 이유 06:29 회사 밖에서도 나를 지탱해 줄 관계 만들기 07:08…
 - 챕터: 0:00 인트로: 50대 퇴사, 인생 후반전의 시작 / 0:10 퇴사 후 가장 먼저 맞닥뜨린 현실, '돈' / 0:43 직함이 사라진 뒤 찾아온 정체성 고민 / 2:08 50대 퇴사자들의 실제 사례와 공통점 / 3:22 회사 밖에서 겪는 인간관계의 변화 / 4:47 퇴직 전, 현실적인 자금 계획 세우기 / 5:22 준비 없는 재취업이 오래가지 못하는 이유 / 6:29 회사 밖에서도 나를 지탱해 줄 관계 만들기 / 7:08 퇴직 전, 지금 바로 점검해야 할 4가지
 - 자막: IpBlocked: 
@@ -357,7 +357,10 @@ Could not retrieve a transcript for the video https://www.youtube.com/watch?v=51
 - https://www.youtube.com/watch?v=FH6SL9CQL44 · Aprende Peque · 구독자 1,290,000 · 조회수 6,590,222 (×5.11) · 2026-05-26 (140일 전) · 29.8분 · 검색어: ISA
 - 설명 앞부분: Para más contenido educativo, recuerda suscribirte ⁨@aprendepeque⁩ Isa visita Ball N Bounce en Los Ángeles, un parque muy divertido donde juega, explora y enseña a tu peque sobre colores, números y emociones a través del juego imaginativo. En este episodio, Isa se lanza por toboganes imaginando que…
 - 챕터: 0:00 Introduction / 5:04 Aram Sam Sam / 9:33 El Auto de Papá / 14:35 A Mis Manos / 20:08 Vamos a Buscar un Oso / 26:28 Un Tallarín
-- 자막: 한국어 자막 없음
+- 도입부(첫 20초, 자막 ko(음성인식)): 저는 이사입니다. 너무 행복해요.
+- 첫 1분 발췌: 저는 이사입니다. 너무 행복해요. 오늘 저희는 러시아-칼리포니아에 도착했습니다. 이곳은 재미있는 곳입니다. 준비되나요? 저와 함께 만나보실까요? 네, 갑니다. 몇 개의 색깔이예요? 먼저 들어가면 뼈빛을 벗기기 시작합니다. 여기에서 넣으세요. 준비되나요? 저에게 도와주세요.
+- 말 속도 0.26음절/초 · 첫 1분 109음절 · 전체 453음절
+- 구간별 흐름(90초마다 첫 문장 앞부분): 0:17 저는 이사입니다. / 1:47 바다에 가야 할 것 같다 / 3:00 우리가 더 잘 가야 할 것 같다 / 5:57 다음 곳에 왔습니다. / 6:00 이 곳이 너무 재미있어요. / 7:30 The floor is lava. / 9:01 Let's go. / 11:27 What car do you think wins? / 12:08 1. / 13:52 36. / 15:19 51. / 16:43 59. / 18:22 그리고 저는 사운드위치입니다 / 19:46 imagine that this is a forest where there ar… / 21:02 We're going to look for it / 22:45 What's going on in the mountains? / 24:01 Imagine that we're in the forest / 25:32 It's a very soft spring / 27:56 I'm nervous / 28:30 Now go down
 - 댓글 0개 받음 (최상위 0 · 답글 0 · 채널 주인 0) / 영상 표시 0개 — 댓글 막힌 영상. 전부: 사례 폴더 `comments.csv`
 
 ## P4. ISA LEI KABANI x PeniWise_music

@@ -27,11 +27,17 @@
     "case_dir": "success_cases/02_맞벌이_부부의_월급날루틴_빠르게_1억_모으기_-vPbgWEJg_g",
     "thumbnail": "ok",
     "video": "skipped(DOWNLOAD_VIDEOS=False)",
-    "transcript": "whisper_pending",
+    "transcript": "whisper_small",
     "transcript_errors": {
       "api": "IpBlocked: \nCould not retrieve a transcript for the video https://www.youtube.com/watch?v=-vPbgWEJg_g! This is most likely caused by:\n\nYouTube is blocking reques",
       "ytdlp": "RuntimeError: 자막 다운로드 실패 lang=en-US-orig: HTTPError: HTTP Error 429: Too Many Requests"
     },
-    "comments": 100
+    "comments": 100,
+    "transcript_lang": "ko",
+    "whisper_done": "2026-10-14T05:26+09:00",
+    "transcript_chars": 217,
+    "chars_per_min": 434.0,
+    "hook_seconds": 5,
+    "hook_text": "맞벌이 부부 외금날 루틴 5개 통장으로 나누어 관리해요 첫째, 저축 투자, s&p 500, 나스삭 백 개별 주식을 매수해요"
   }
 }

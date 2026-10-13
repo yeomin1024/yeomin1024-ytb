@@ -1,16 +1,19 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-10-13 — 신규 (사용자 지시: "그냥 검색어를 재테크 관련 태그로 찾아서 다 그걸로 탐색해봐"):
+# VERSION: v1.1 — 2026-10-13 — 검색어는 그룹 없이 한 줄에 하나 (사용자 지시: "꼭 그룹을 지정해야하나 검색어만 넣어도 되잖아"):
+#          --write-keywords 가 keywords.toml 의 [KEYWORD_GROUPS] 대신 <주제>/keywords.txt (한 줄에 하나, 묶음 이름은 '#' 메모 줄)를 씀.
+#          있던 keywords.txt 는 .bak 으로 남김
+# (v1.0 — 2026-10-13 — 신규 (사용자 지시: "그냥 검색어를 재테크 관련 태그로 찾아서 다 그걸로 탐색해봐"):
 #          검색어를 사람이 정하지 않고, 실제 영상들이 쓰는 태그에서 고른다.
 #          ① <주제>/tag_rules.toml 의 TAG_SEEDS 로 검색 (tools/outlier_research.py 와 같은 캐시 — 최근 365일·조회수 순·4~20분·20분 넘음)
 #          ② 지금까지 받은 영상 정보(캐시) 중 주제 관련 영상(keywords.toml 관련어)의 태그를 모음
 #          ③ TAG_EXCLUDE(경제 등)를 빼고, 채널 MIN_CHANNELS 곳 이상이 쓴 태그를 채널 수 순으로 MAX_TAGS 개
 #          ④ TAG_THEMES 로 묶어 표(<주제>/tag_candidates.md·.csv — keywords.toml 옆. result/ 는 PC 푸시가 통째로 바꾸므로 거기 두지 않음)를 쓰고, --write-keywords 면 keywords.toml 의
-#             [KEYWORD_GROUPS] 를 그 태그로 다시 씀 (관련어 등 나머지는 그대로) → 분석기·성공 사례 수집이 모두 태그로 탐색
+#             [KEYWORD_GROUPS] 를 그 태그로 다시 씀 (관련어 등 나머지는 그대로) → 분석기·성공 사례 수집이 모두 태그로 탐색)
 r"""
 사용법 (저장소 최상위 또는 PC 실행 폴더):
-  python tools/tag_keywords.py economic                       # 씨앗 검색 + 태그 표만 (keywords.toml 은 그대로)
-  python tools/tag_keywords.py economic --write-keywords      # 표 + keywords.toml 의 검색어를 태그로 바꿈
+  python tools/tag_keywords.py economic                       # 씨앗 검색 + 태그 표만 (검색어 목록은 그대로)
+  python tools/tag_keywords.py economic --write-keywords      # 표 + 검색어 목록 economic/keywords.txt 를 고른 태그로 바꿈 (.bak 남김)
   python tools/tag_keywords.py economic --no-seed-search      # 검색 없이 이미 받은 영상의 태그로만 (할당량 0)
   옵션: --max-tags 40 --min-channels 5 (tag_rules.toml 값 대신), --quota 1000 (씨앗 검색 한도)
 할당량: 씨앗 1개 = 검색 2번 = 200단위 (+ 영상 정보 50개에 1단위). 이미 받은 검색은 7일 동안 캐시(0단위).
@@ -31,7 +34,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import outlier_research as orr          # noqa: E402  같은 캐시·같은 관련어 규칙을 씀
 
 ROOT = orr.ROOT
-VERSION = "v1.0"
+VERSION = "v1.1"
 LOG = logging.getLogger("tag_keywords")
 
 
@@ -124,7 +127,7 @@ def write_table(dst, topic_name, picked, rows, n_videos, n_relevant, seeds, args
          f"자동 생성 — `tools/tag_keywords.py` {VERSION} ({datetime.now().strftime('%Y-%m-%d %H:%M')}). "
          f"영상 {n_videos:,}개 중 주제 관련 {n_relevant:,}개의 태그 · 씨앗 검색: {', '.join(seeds) or '없음'}", "",
          f"규칙: 채널 {args.min_channels}곳 이상이 쓴 태그 · 빼는 말 제외 · 채널 수 순 {args.max_tags}개 → "
-         f"{'`keywords.toml` 검색어로 씀' if args.write_keywords else '표만 (keywords.toml 은 그대로 — --write-keywords 로 바꿈)'}", "",
+         f"{'`keywords.txt` 검색어로 씀' if args.write_keywords else '표만 (keywords.txt 는 그대로 — --write-keywords 로 바꿈)'}", "",
          "| # | 태그 | 채널 수 | 영상 수 | 묶음 | 검색어로 씀 |", "|---|---|---|---|---|---|"]
     rank = {r["tag"]: k for k, r in enumerate(picked, 1)}
     for r in rows[:200]:
@@ -138,40 +141,43 @@ def write_table(dst, topic_name, picked, rows, n_videos, n_relevant, seeds, args
             w.writerow({"rank": rank.get(r["tag"], ""), **{k: r[k] for k in ("tag", "channels", "videos", "views", "theme", "why")}})
 
 
-def rewrite_keyword_groups(kw_path, picked, note):
-    """keywords.toml 의 [KEYWORD_GROUPS] 블록만 태그 묶음으로 다시 씀 (다른 줄은 그대로). 쓴 뒤 TOML 로 다시 읽어 검사."""
-    text = kw_path.read_text("utf-8")
-    head = re.compile(r"^\[KEYWORD_GROUPS\][ \t]*(#.*)?$", re.M).search(text)    # 표 머리 줄만 (주석 속 글자는 아님)
-    if not head:
-        raise SystemExit(f"[WRITE] ❌ {kw_path} 에 [KEYWORD_GROUPS] 줄이 없음 — 파일을 확인하세요")
-    start = head.start()
-    nxt = re.compile(r"^\[", re.M).search(text, head.end())
-    end = nxt.start() if nxt else len(text)
+KEYWORD_LIST_HEAD = """# 검색어 목록 — {name} ({topic})
+# 한 줄에 검색어 하나. 그룹은 필요 없음. '#' 으로 시작하는 줄은 메모(무시), 빈 줄도 무시. 같은 검색어(띄어쓰기만 다름)는 한 번만.
+# GitHub 에서 고치면 PC 가 다음 회차에 자동으로 받아 씀 (tools/pc_analysis.py v1.7). 지우면 그 검색어는 더는 검색하지 않음.
+# 할당량: 검색어 1개 = 성공 사례 검색 2번 + 분석기 1번 = 300단위 (하루 10,000 — 넘으면 다음 날 자동으로 이어서).
+# 주제 관련 영상을 가르는 관련어·제외어는 keywords.toml. 태그로 다시 고르기: python tools/tag_keywords.py {topic} --write-keywords
+"""
+
+
+def write_keyword_list(path, picked, note, name, topic):
+    """검색어 목록 <주제>/keywords.txt 를 고른 태그로 씀 (묶음 이름은 '# ── 이름 ──' 메모 줄). 있던 파일은 .bak.
+    쓴 뒤 다시 읽어(outlier_research.read_keyword_list) 고른 태그 그대로인지 검사. → {묶음: 개수}"""
     groups = {}
     for r in picked:
         groups.setdefault(r["theme"], []).append(r["tag"])
     order = sorted(groups, key=lambda g: (g == "기타 재테크", [int(x) for x in re.findall(r"^\d+", g)] or [99], g))
-    block = ["[KEYWORD_GROUPS]", f"# {note}"]
-    names = {}
-    for k, g in enumerate(order, 1):                       # 빈 묶음을 건너뛴 번호를 1부터 차례로 다시 (예: 9. 코인 → 7. 코인)
-        names[g] = f"{k}. {re.sub(r'^\d+\.\s*', '', g)}"
-        block.append(f"{json.dumps(names[g], ensure_ascii=False)} = [")
-        block += [f"  {json.dumps(t, ensure_ascii=False)}," for t in groups[g]]
-        block.append("]")
-    new = text[:start] + "\n".join(block) + "\n\n" + text[end:]
-    before, after = orr.tomllib.loads(text), orr.tomllib.loads(new)     # 형식 검사 (깨지면 쓰지 않음)
-    want = {names[g]: groups[g] for g in order}
-    if after.get("KEYWORD_GROUPS") != want or set(after) != set(before) or \
-            any(after[k] != before[k] for k in before if k != "KEYWORD_GROUPS"):
-        raise SystemExit(f"[WRITE] ❌ {kw_path} 을 다시 쓰면 검색어 말고 다른 설정이 바뀜 — 쓰지 않음 (파일 모양을 확인하세요)")
-    kw_path.write_text(new, "utf-8")
-    return {names[g]: len(groups[g]) for g in order}
+    lines = [KEYWORD_LIST_HEAD.format(name=name, topic=topic).rstrip("\n"), f"# {note}"]
+    for g in order:
+        label = re.sub(r"^\d+\.\s*", "", g)                  # 묶음 번호는 빼고 이름만
+        lines += ["", f"# ── {label} ──"] + groups[g]
+    text = "\n".join(lines) + "\n"
+    want = [t for g in order for t in groups[g]]
+    if path.is_file():
+        path.with_name(path.name + ".bak").write_bytes(path.read_bytes())
+    tmp = path.with_name(path.name + ".new")
+    tmp.write_text(text, "utf-8")
+    got = orr.read_keyword_list(tmp)
+    if got != want:
+        tmp.unlink()
+        raise SystemExit(f"[WRITE] ❌ {path} 을 다시 읽으니 고른 태그와 다름 — 쓰지 않음 (got {len(got or [])}, want {len(want)})")
+    tmp.replace(path)
+    return {re.sub(r"^\d+\.\s*", "", g): len(groups[g]) for g in order}
 
 
 def main(argv=None):
-    ap = argparse.ArgumentParser(description="실제 영상 태그에서 검색어 고르기 (재테크 등) — 표 + keywords.toml 검색어 다시 쓰기")
+    ap = argparse.ArgumentParser(description="실제 영상 태그에서 검색어 고르기 (재테크 등) — 표 + 검색어 목록 keywords.txt 다시 쓰기")
     ap.add_argument("topic")
-    ap.add_argument("--write-keywords", action="store_true", help="keywords.toml 의 [KEYWORD_GROUPS] 를 고른 태그로 바꿈")
+    ap.add_argument("--write-keywords", action="store_true", help="검색어 목록 <주제>/keywords.txt 를 고른 태그로 바꿈 (.bak 남김)")
     ap.add_argument("--no-seed-search", action="store_true", help="씨앗 검색 없이 이미 받은 영상의 태그로만 (할당량 0)")
     ap.add_argument("--max-tags", type=int, help="검색어로 쓸 태그 수 (tag_rules.toml MAX_TAGS 대신)")
     ap.add_argument("--min-channels", type=int, help="이만큼 다른 채널이 쓴 태그만 (MIN_CHANNELS 대신)")
@@ -210,8 +216,9 @@ def main(argv=None):
     if args.write_keywords and picked:
         note = (f"태그에서 고른 검색어 {len(picked)}개 — tools/tag_keywords.py {VERSION} {datetime.now().strftime('%Y-%m-%d')} "
                 f"(관련 영상 {n_rel:,}개·채널 {args.min_channels}곳 이상·표: tag_candidates.md). 손으로 고쳐도 됨")
-        groups = rewrite_keyword_groups(kw_file, picked, note)
-        log("WRITE", file=str(kw_file.relative_to(ROOT)), groups=len(groups), keywords=sum(groups.values()),
+        txt = ROOT / args.topic / orr.KEYWORD_LIST_FILE
+        groups = write_keyword_list(txt, picked, note, topic_name, args.topic)
+        log("WRITE", file=str(txt.relative_to(ROOT)), groups=len(groups), keywords=sum(groups.values()),
             themes=",".join(f"{g}:{n}" for g, n in groups.items()))
     log("DONE", topic=args.topic, picked=len(picked), quota_used=used, table=str((ROOT / args.topic / "tag_candidates.md").relative_to(ROOT)))
     return 0

@@ -1,8 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.6 — 2026-10-13 — pip 이 없는 가상환경 고침 (사용자 PC 오류: ".venv\Scripts\python.exe: No module named pip" → 패키지 설치 실패):
+# VERSION: v1.7 — 2026-10-13 — 내가 고친 검색어가 바로 쓰이게 (사용자 지시: "내가 검색어 변경했는데 안되네 해결해봐" · "걍 검색어 내가
+#          수정해도 돌아가게 하면 안돼? 꼭 그룹을 지정해야하나 검색어만 넣어도 되잖아"):
+#          ① 회차마다 GitHub 에서 설정·검색어를 받음 (sync_from_github): <주제>/keywords.txt·keywords.toml·analyzer_config.toml·
+#             tag_rules.toml — PC 파일이 지난번에 받은 그대로면 GitHub 새 판으로 바꿈(.bak), PC 에서 고쳤고 GitHub 은 그대로면 PC 것을 지킴.
+#             VERSION 을 올리지 않아도 됨. 코드·실행기(run_analyzer.ps1·.sh)도 GitHub 최신으로 (이 파일 자신은 다음 실행부터).
+#             예전: 실행기가 '없을 때만'(v2.2)·'VERSION 이 높을 때만'(v2.3) 받고, 며칠 도는 동안 다시 보지 않아 GitHub 수정이 안 왔음
+#          ② 검색어 목록 keywords.txt (한 줄에 하나, 그룹 없음) — 할당량 계산·지문도 이것으로
+#          ③ 검색어가 바뀌면 분석기를 다시 돌림 (예전: 분석기가 끝나면 7일 동안 건너뜀 → 새 검색어가 분석기에 안 쓰임)
+#          ④ --tag-keywords 기본 0 — 내가 적은 검색어만 검색 (지운 검색어가 '잘된 영상 태그'로 되살아나지 않게)
+# (v1.6 — 2026-10-13 — pip 이 없는 가상환경 고침 (사용자 PC 오류: ".venv\Scripts\python.exe: No module named pip" → 패키지 설치 실패):
 #          ensure_pip() — pip 이 없으면 ① python -m ensurepip --upgrade --default-pip ② 안 되면 공식 get-pip.py(bootstrap.pypa.io)
-#          로 설치한 뒤 패키지를 설치. 가상환경을 만들다 끊기면(첫 실행 중단 등) python.exe 만 있고 pip 이 없는 .venv 가 남는다
+#          로 설치한 뒤 패키지를 설치. 가상환경을 만들다 끊기면(첫 실행 중단 등) python.exe 만 있고 pip 이 없는 .venv 가 남는다)
 # (v1.5 — 2026-10-13 — 검색어 전부 (사용자 지시: "그냥 검색어를 재테크 관련 태그로 찾아서 다 그걸로 탐색해봐"):
 #          ① --per-group 0(기본) = keywords.toml 의 검색어 전부를 성공 사례 수집에 (검색어는 tools/tag_keywords.py 가 태그로 채움)
 #             자동 할당량(outlier_need)도 검색어 전부로 계산 (같은 검색어는 한 번)
@@ -63,6 +72,7 @@ r"""
 ※ 연구·교육용 분석 도구. 투자 조언이 아니다.
 """
 import argparse
+import hashlib
 import importlib.util
 import json
 import logging
@@ -72,11 +82,14 @@ import subprocess
 import sys
 import threading
 import time
+import urllib.error
+import urllib.parse
+import urllib.request
 from datetime import date, datetime, time as dtime, timedelta, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v1.6"
+VERSION = "v1.7"
 LOG = logging.getLogger("pc_analysis")
 KST = timezone(timedelta(hours=9))
 LOCK_STALE_MIN = 30          # 잠금 파일이 이 시간 넘게 갱신되지 않으면 이전 실행이 죽은 것으로 봄
@@ -258,14 +271,62 @@ def ensure_topic_env(folder):
         log("SETUP", folder=folder, note="주제별 키 파일 틀을 만듦 (비우면 맨 위 .env 키)", file=f"{folder}/.env")
 
 
-def outlier_need(folder, per_group, top, popular, tag_keywords=0):
-    """성공 사례 수집이 하루에 끝나려면 필요한 단위: 검색(그룹마다 앞 per_group 개 — 0 이하면 전부 — × 길이 2 × 100) + 검색 여유 150
-    + 영상 정보·구독자 약 100 + 인기 댓글(사례마다 1). 같은 검색어(띄어쓰기·대소문자만 다름)는 한 번. keywords.toml 을 못 읽으면 4,400."""
+KEYWORD_LIST_FILE = "keywords.txt"      # 검색어만 한 줄에 하나씩 (v1.7) — 있으면 keywords.toml 의 KEYWORD_GROUPS 대신
+
+
+def read_keyword_list(path):
+    """keywords.txt → 검색어 목록 (분석기 v2.8.0·성공 사례 v1.8 과 같은 규칙: 한 줄에 하나, '#' 줄·빈 줄 무시, 같은 검색어는 한 번,
+    UTF-8 — 안 되면 cp949). 파일이 없으면 None."""
+    path = Path(path)
+    if not path.is_file():
+        return None
+    raw = path.read_bytes()
+    try:
+        text = raw.decode("utf-8-sig")
+    except UnicodeDecodeError:
+        text = raw.decode("cp949", errors="replace")
+    out, seen = [], set()
+    for line in text.splitlines():
+        k = line.strip().rstrip(",").strip().strip('"').strip("'").strip()
+        if k and not k.startswith("#") and "".join(k.split()).lower() not in seen:
+            seen.add("".join(k.split()).lower())
+            out.append(k)
+    return out
+
+
+def keyword_list(folder, per_group=0):
+    """이 주제가 검색할 검색어 (정규화: 띄어쓰기 없앰·소문자, 순서 그대로, 같은 것은 한 번). keywords.txt 가 있으면 그것(per_group 무시),
+    없으면 keywords.toml 의 KEYWORD_GROUPS(그룹마다 앞 per_group 개 — 0 이하면 전부) + EXTRA_KEYWORDS. 못 읽으면 None."""
+    flat = read_keyword_list(ROOT / folder / KEYWORD_LIST_FILE)
+    extra = []
     try:
         d = _toml().loads((ROOT / folder / "keywords.toml").read_text("utf-8"))
         groups = d.get("KEYWORD_GROUPS") or {}
-        uniq = {"".join(str(k).split()).lower() for v in groups.values() for k in (v if per_group <= 0 else v[:per_group])
-                if str(k).strip()}
+        extra = [str(k) for k in d.get("EXTRA_KEYWORDS") or []]
+    except Exception:
+        if not flat:
+            return None
+        groups = {}
+    raw = flat if flat else [k for v in groups.values() for k in (v if per_group <= 0 else v[:per_group])]
+    out = []
+    for k in list(raw) + extra:
+        n = "".join(str(k).split()).lower()
+        if n and n not in out:
+            out.append(n)
+    return out
+
+
+def keywords_fingerprint(folder):
+    """검색어 목록의 지문 (분석기가 어떤 검색어로 끝났는지 기억 → 검색어가 바뀌면 분석기를 다시 돌림). 못 읽으면 None."""
+    kws = keyword_list(folder)
+    return hashlib.sha256("\n".join(sorted(kws)).encode("utf-8")).hexdigest()[:16] if kws else None
+
+
+def outlier_need(folder, per_group, top, popular, tag_keywords=0):
+    """성공 사례 수집이 하루에 끝나려면 필요한 단위: 검색(검색어 수 × 길이 2 × 100 — keywords.txt, 없으면 그룹마다 앞 per_group 개·0 이하면
+    전부) + 검색 여유 150 + 영상 정보·구독자 약 100 + 인기 댓글(사례마다 1). 같은 검색어(띄어쓰기·대소문자만 다름)는 한 번. 못 읽으면 4,400."""
+    try:
+        uniq = keyword_list(folder, per_group) or []
         searches = len(uniq) * 2
         if not searches:
             return 4400
@@ -451,14 +512,129 @@ def analyzer_summary(run_info_p, started_utc):
             "quota_used": (ri.get("youtube_api") or {}).get("quota_used")}      # v1.3: 'used' 로 잘못 읽던 것
 
 
+# ---------------------------------------------------------------- GitHub 에서 고친 설정·검색어를 PC 로 (v1.7)
+SYNC_CONFIG = ("keywords.txt", "keywords.toml", "analyzer_config.toml", "tag_rules.toml")   # <주제>/ 아래 — PC 에서 고친 것은 지킴
+SYNC_CODE = ("youtube_topic_analyzer.py", "tools/outlier_research.py", "tools/outlier_stats.py", "tools/tag_keywords.py",
+             "tools/pc_analysis.py", "run_analyzer.ps1", "run_analyzer.sh")                # 언제나 GitHub 최신
+
+
+def repo_of(folder):
+    """설정 파일의 GITHUB_REPO·GITHUB_BRANCH (없으면 yeomin1024/yeomin1024-ytb · main)."""
+    repo, branch = "yeomin1024/yeomin1024-ytb", "main"
+    try:
+        flat = {}
+        for k, v in _toml().loads((ROOT / folder / "analyzer_config.toml").read_text("utf-8")).items():
+            flat.update(v if isinstance(v, dict) and k != "KEYWORD_GROUPS" else {k: v})
+        repo, branch = str(flat.get("GITHUB_REPO") or repo), str(flat.get("GITHUB_BRANCH") or branch)
+    except Exception:
+        pass
+    return repo, branch
+
+
+def fetch_repo_file(rel, repo, branch, token):
+    """GitHub 에 있는 파일 원본 (토큰이 있으면 API — 비공개 저장소도 됨, 없으면 공개 주소). 없으면 None, 그 밖의 실패는 예외.
+    환경 변수 RAW_BASE 가 있으면 그 주소 (실행기 시험용과 같음). 토큰은 머리글로만 — 로그에 쓰지 않음."""
+    q = urllib.parse.quote(rel)
+    if os.environ.get("RAW_BASE"):
+        url, headers = f"{os.environ['RAW_BASE'].rstrip('/')}/{q}", {}
+    elif token:
+        url = f"https://api.github.com/repos/{repo}/contents/{q}?ref={urllib.parse.quote(branch)}"
+        headers = {"Authorization": f"Bearer {token}", "Accept": "application/vnd.github.raw", "X-GitHub-Api-Version": "2022-11-28"}
+    else:
+        url, headers = f"https://raw.githubusercontent.com/{repo}/{branch}/{q}", {}
+    try:
+        with urllib.request.urlopen(urllib.request.Request(url, headers=headers), timeout=30) as r:
+            return r.read()
+    except urllib.error.HTTPError as e:
+        if e.code == 404:
+            return None
+        raise
+
+
+def _write_atomic(path, data):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = path.with_name(path.name + ".sync")
+    tmp.write_bytes(data)
+    os.replace(tmp, path)          # 새 파일로 바꿔 끼움 — 돌고 있는 bash 실행기도 예전 파일을 끝까지 읽음
+
+
+def sync_from_github(folder, code=False, dry=False, fetch=None):
+    """GitHub 에서 고친 설정·검색어가 PC 에 오게 (사용자: "내가 검색어 변경했는데 안되네"). 회차마다 부름. → {경로: 결과}
+    설정(<주제>/keywords.txt·keywords.toml·analyzer_config.toml·tag_rules.toml):
+      PC 에 없음 → 받음 / 같음 → 그대로 / PC 파일이 지난번에 받은 그대로(또는 처음) → GitHub 것으로 바꿈 (PC 것은 .bak)
+      / PC 에서 고쳤고 GitHub 은 지난번 그대로 → PC 것을 지킴. 받은 내용의 지문은 .yt_work/config_sync.json.
+    code=True 면 코드·실행기도 GitHub 최신으로 (지금 도는 pc_analysis.py 는 다음 실행부터). 저장소 작업 폴더(.git)에서는 안 함."""
+    if (ROOT / ".git").exists():
+        return {"-": "git 작업 폴더 — 건너뜀"}
+    repo, branch = repo_of(folder)
+    token = find_secret("GITHUB_TOKEN", folder)[0]
+    fetch = fetch or (lambda rel: fetch_repo_file(rel, repo, branch, token))
+    state_p = ROOT / ".yt_work" / "config_sync.json"
+    try:
+        state = json.loads(state_p.read_text("utf-8"))
+    except (OSError, ValueError):
+        state = {}
+    files = [(f"{folder}/{n}", "config") for n in SYNC_CONFIG] + ([(c, "code") for c in SYNC_CODE] if code else [])
+    res = {}
+    for rel, kind in files:
+        try:
+            remote = fetch(rel)
+        except Exception as e:
+            res[rel] = f"받기 실패 ({type(e).__name__})"
+            continue
+        if not remote or not remote.strip():
+            res[rel] = "GitHub 에 없음"
+            continue
+        p = ROOT / rel
+        local = p.read_bytes() if p.is_file() else None
+        h = hashlib.sha256(remote).hexdigest()
+        if local == remote:
+            res[rel] = "같음"
+        elif kind == "config" and local is not None and state.get(rel) == h:
+            res[rel] = "PC 에서 고친 것 지킴"                        # GitHub 은 지난번에 받은 그대로
+        else:
+            res[rel] = "새로 받음" if local is None else "GitHub 새 판으로 바꿈"
+            if not dry:
+                try:
+                    if kind == "config" and local is not None:
+                        _write_atomic(p.with_name(p.name + ".bak"), local)
+                    _write_atomic(p, remote)
+                except OSError as e:
+                    res[rel] = f"바꾸기 실패 ({e.__class__.__name__}) — 다음 회차에 다시"
+                    continue
+        if not dry:
+            state[rel] = h
+    if not dry:
+        state_p.parent.mkdir(parents=True, exist_ok=True)
+        state_p.write_text(json.dumps(state, ensure_ascii=False, indent=1), "utf-8")
+    changed = {k: v for k, v in res.items() if v not in ("같음", "GitHub 에 없음")}
+    for rel, v in changed.items():
+        log("SYNC", logging.WARNING if "실패" in v else logging.INFO, file=rel, result=v,
+            note=("지금 도는 이 도구는 다음 실행부터 새 코드" if rel == "tools/pc_analysis.py" and "바꿈" in v else
+                  "예전 파일은 .bak" if v == "GitHub 새 판으로 바꿈" and not rel.endswith((".py", ".ps1", ".sh")) else None) or "-")
+    log("SYNC", folder=folder, repo=repo, branch=branch, files=len(files), changed=sum(1 for v in changed.values() if "바꿈" in v or v == "새로 받음"),
+        kept_pc=sum(1 for v in changed.values() if v == "PC 에서 고친 것 지킴"), failed=sum(1 for v in changed.values() if "실패" in v),
+        dry_run=dry)
+    return res
+
+
 def analyzer_done_recently(folder, days=7):
-    """앞 회차(이 실행 또는 --once 로 부른 예전 실행)에서 분석기가 이월 검색어 없이 끝났으면 그 시각 (days 일 안), 아니면 None."""
+    """앞 회차(이 실행 또는 --once 로 부른 예전 실행)에서 분석기가 이월 검색어 없이 끝났으면 그 시각 (days 일 안), 아니면 None.
+    v1.7: 그때의 검색어 지문이 지금과 다르면(검색어를 고쳤으면) None → 분석기를 다시 돌림 (받은 검색은 캐시라 바뀐 검색어만 새로)."""
     p = ROOT / ".yt_work" / f"pc_progress_{folder}.json"
     try:
-        t = datetime.fromisoformat(json.loads(p.read_text("utf-8")).get("analyzer_done_kst") or "")
+        prog = json.loads(p.read_text("utf-8"))
+        t = datetime.fromisoformat(prog.get("analyzer_done_kst") or "")
     except (OSError, ValueError, TypeError):
         return None
-    return t if datetime.now(KST) - t <= timedelta(days=days) else None
+    if datetime.now(KST) - t > timedelta(days=days):
+        return None
+    now_fp = keywords_fingerprint(folder)
+    if prog.get("analyzer_keywords") != now_fp:
+        log("ROUND", note="검색어가 바뀌어 분석기를 다시 돌림 (받은 검색은 캐시 — 바뀐 검색어만 새로)", folder=folder,
+            before=prog.get("analyzer_keywords") or "-", now=now_fp or "-")
+        return None
+    return t
 
 
 def round_verdict(o, a, codes, opts, skip_analyzer=None):
@@ -591,6 +767,7 @@ def one_round(folder, opts, k, runner=run_child, now_fn=lambda: datetime.now(tim
             "complete": complete, "ready": bool(o.get("ready")) if o else None, "left": left, "analyzer_skipped": skip_an,
             "quota_today": {"pacific_day": pacific_day(now_fn()), "used": ledger.used(), "budget": budget},
             "analyzer_done_kst": done_at.isoformat(timespec="minutes") if done_at else None,
+            "analyzer_keywords": keywords_fingerprint(folder) if done_at else None,      # v1.7: 이 검색어로 끝남 (바뀌면 다시)
             "next_round_kst": None if complete else reset_utc.astimezone(KST).isoformat(timespec="minutes"),
             "note": "연구·교육용. 할당량 초기화 = 태평양 자정 (한국 오후 4시, 미국 표준시 기간엔 5시)"}
     targets = [ROOT / ".yt_work" / f"pc_progress_{folder}.json"]
@@ -652,6 +829,11 @@ def run(opts, runner=run_child, now_fn=lambda: datetime.now(timezone.utc), sleep
         return 2
     try:
         for k in range(1, opts.max_rounds + 1):
+            if not getattr(opts, "no_sync", False):            # v1.7: 회차마다 GitHub 에서 고친 설정·검색어(·코드)를 받음
+                try:
+                    sync_from_github(folder, code=not opts.child, dry=opts.dry_run)
+                except Exception as e:
+                    log("SYNC", logging.WARNING, note="GitHub 에서 설정을 받지 못함 — PC 에 있는 파일로 계속", error=f"{type(e).__name__}: {e}"[:200])
             complete, info = one_round(folder, opts, k, runner, now_fn)
             if complete:
                 log("DONE", folder=folder, rounds=k, note="못 한 일 없음 — 끝" if not opts.dry_run else "dry-run")
@@ -676,7 +858,7 @@ def run(opts, runner=run_child, now_fn=lambda: datetime.now(timezone.utc), sleep
 
 
 # ---------------------------------------------------------------- 여러 주제를 동시에
-FORWARD_FLAGS = ("once", "dry_run", "skip_outliers", "skip_analyzer", "no_push", "force", "rerun_analyzer", "no_whisper")
+FORWARD_FLAGS = ("once", "dry_run", "skip_outliers", "skip_analyzer", "no_push", "force", "rerun_analyzer", "no_whisper", "no_sync")
 FORWARD_VALUES = ("max_rounds", "per_group", "top", "popular", "tag_keywords", "margin_min", "log_level")
 
 
@@ -832,7 +1014,7 @@ def self_test():
         opts = types.SimpleNamespace(folder="t", once=False, dry_run=False, max_rounds=3, per_group=2, top=20, outlier_quota=4000,
                                      skip_outliers=False, skip_analyzer=False, no_push=False, margin_min=10, force=False,
                                      popular=20, daily_quota=9500, rerun_analyzer=False, child=False, log_level="INFO", quota_share=1,
-                                     tag_keywords=5, no_whisper=False)
+                                     tag_keywords=5, no_whisper=False, no_sync=True)     # 시험은 GitHub 에 묻지 않음
         global ensure_packages
         real_ensure, ensure_packages = ensure_packages, (lambda dry: True)
         try:
@@ -1002,6 +1184,46 @@ def self_test():
         r2 = ensure_pip("py", fake_pip)
         check("v1.6 pip 이 없으면 ensurepip 로 설치, 있으면 그대로", r1 == (True, "ensurepip") and r2 == (True, "있음")
               and calls_p == ["pip", "ensurepip", "pip", "pip"], calls=",".join(calls_p))
+        # v1.7: keywords.txt (한 줄에 하나) 가 있으면 그것이 검색어 — 그룹·per_group 무시
+        (tmp / "t" / "keywords.txt").write_text("# 내 검색어\n재테크\n주식 투자\n\n주식투자\nETF\n", "utf-8")
+        check("v1.7 keywords.txt = 검색어 (주석·빈 줄·같은 검색어 무시, 그룹 무시): 3개 × 2 × 100 + 250 + 40",
+              keyword_list("t", 2) == ["재테크", "주식투자", "etf"] and outlier_need("t", 2, 20, 20) == 600 + 250 + 40,
+              kws=",".join(keyword_list("t", 2) or []), need=outlier_need("t", 2, 20, 20))
+        # v1.7: 검색어가 바뀌면 분석기를 다시 (지문)
+        fp1 = keywords_fingerprint("t")
+        prog_p = tmp / ".yt_work" / "pc_progress_t.json"
+        prog_p.write_text(json.dumps({"analyzer_done_kst": datetime.now(KST).isoformat(), "analyzer_keywords": fp1}), "utf-8")
+        same = analyzer_done_recently("t")
+        (tmp / "t" / "keywords.txt").write_text("재테크\n주식투자\n", "utf-8")       # ETF 를 지움
+        changed = analyzer_done_recently("t")
+        prog_p.unlink()
+        check("v1.7 검색어가 그대로면 분석기 건너뜀, 바뀌면 다시 돌림", same is not None and changed is None and keywords_fingerprint("t") != fp1)
+        # v1.7: GitHub 에서 고친 설정·검색어를 PC 로 (지난번에 받은 지문으로 PC 수정과 GitHub 수정을 가림)
+        gh = {"t/keywords.txt": b"A\nB\n", "t/keywords.toml": None, "t/analyzer_config.toml": None, "t/tag_rules.toml": None,
+              "tools/outlier_research.py": b"print(2)\n"}
+        fetch = lambda rel: gh.get(rel)
+        (tmp / "t" / "keywords.txt").write_text("OLD\n", "utf-8")                       # 처음 (기록 없음) — 사용자 PC 상황
+        r_a = sync_from_github("t", fetch=fetch)["t/keywords.txt"]
+        txt_a, bak_a = (tmp / "t" / "keywords.txt").read_bytes(), (tmp / "t" / "keywords.txt.bak").read_bytes()
+        r_b = sync_from_github("t", fetch=fetch)["t/keywords.txt"]                          # 같음
+        (tmp / "t" / "keywords.txt").write_bytes(b"A\nB\nPC\n")                          # PC 에서 고침, GitHub 은 그대로
+        r_c = sync_from_github("t", fetch=fetch)["t/keywords.txt"]
+        txt_c = (tmp / "t" / "keywords.txt").read_bytes()
+        gh["t/keywords.txt"] = b"A\nC\n"                                                    # GitHub 에서 고침
+        r_d = sync_from_github("t", fetch=fetch)["t/keywords.txt"]
+        txt_d = (tmp / "t" / "keywords.txt").read_bytes()
+        (tmp / "tools").mkdir(exist_ok=True)
+        (tmp / "tools" / "outlier_research.py").write_text("print(1)\n", "utf-8")
+        r_e = sync_from_github("t", code=True, fetch=fetch)
+        (tmp / ".git").mkdir()
+        r_f = sync_from_github("t", fetch=fetch)
+        (tmp / ".git").rmdir()
+        check("v1.7 GitHub 수정 → PC: 처음·다르면 GitHub 것(.bak) / 같음 / PC 에서 고친 것 지킴 / GitHub 이 또 바뀌면 GitHub 것 / 코드는 늘 최신 / git 폴더는 안 함",
+              r_a == "GitHub 새 판으로 바꿈" and txt_a == b"A\nB\n" and bak_a == b"OLD\n" and r_b == "같음"
+              and r_c == "PC 에서 고친 것 지킴" and txt_c == b"A\nB\nPC\n" and r_d == "GitHub 새 판으로 바꿈" and txt_d == b"A\nC\n"
+              and r_e["tools/outlier_research.py"] == "GitHub 새 판으로 바꿈" and (tmp / "tools" / "outlier_research.py").read_bytes() == b"print(2)\n"
+              and not (tmp / "tools" / "outlier_research.py.bak").exists() and r_e["t/keywords.toml"] == "GitHub 에 없음" and "-" in r_f,
+              a=r_a, b=r_b, c=r_c, d=r_d)
     finally:
         ROOT = old_root
         import shutil
@@ -1030,11 +1252,12 @@ def main(argv=None):
     ap.add_argument("--popular", type=int, default=20, help="구독자 수 상관없이 조회수 상위 영상 수 (댓글 전부)")
     ap.add_argument("--daily-quota", type=int, default=9500, help="분석기가 이미 끝난 날 성공 사례·조회수 상위에 쓰는 할당량")
     ap.add_argument("--rerun-analyzer", action="store_true", help="분석기가 끝났어도 이번에 다시 돌림")
-    ap.add_argument("--tag-keywords", type=int, default=5, help="잘된 영상의 태그에서 고를 검색어 수 (0 = 태그 검색 안 함)")
+    ap.add_argument("--tag-keywords", type=int, default=0, help="잘된 영상의 태그에서 더 고를 검색어 수 (기본 0 = 내가 적은 검색어만)")
     ap.add_argument("--no-whisper", action="store_true", help="음성인식 대기열을 돌리지 않음")
     ap.add_argument("--skip-outliers", action="store_true")
     ap.add_argument("--skip-analyzer", action="store_true")
     ap.add_argument("--no-push", action="store_true")
+    ap.add_argument("--no-sync", action="store_true", help="회차마다 GitHub 에서 설정·검색어·코드를 받지 않음 (PC 파일만)")
     ap.add_argument("--margin-min", type=int, default=10)
     ap.add_argument("--force", action="store_true", help="잠금 파일이 있어도 실행 (이전 실행이 확실히 멈췄을 때)")
     ap.add_argument("--self-test", action="store_true")

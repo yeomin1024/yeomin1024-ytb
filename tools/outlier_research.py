@@ -1,11 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.7 — 2026-10-13 — 검색어 전부·업로드 날짜 (사용자 지시: "그냥 검색어를 재테크 관련 태그로 찾아서 다 그걸로 탐색해봐
+# VERSION: v1.8 — 2026-10-13 — 검색어는 그룹 없이 한 줄에 하나씩 (사용자 지시: "걍 검색어 내가 수정해도 돌아가게 하면 안돼? 꼭 그룹을
+#          지정해야하나 검색어만 넣어도 되잖아"): <주제>/keywords.txt 가 있으면 그것이 검색어 목록 (read_keyword_list — 분석기 v2.8.0 과
+#          같은 규칙), 없으면 keywords.toml 의 KEYWORD_GROUPS. EXTRA_KEYWORDS 도 검색. 잘된 영상 태그 검색어(--tag-keywords)는 기본 0 —
+#          내가 적은 검색어만 검색 (지운 검색어가 태그로 되살아나지 않게)
+# (v1.7 — 2026-10-13 — 검색어 전부·업로드 날짜 (사용자 지시: "그냥 검색어를 재테크 관련 태그로 찾아서 다 그걸로 탐색해봐
 #          그리고 탐색 목록에 업로드 날짜도 같이 표시해"):
 #          ① --per-group 0(기본) = 검색어 그룹의 검색어 전부 (keywords.toml 은 tools/tag_keywords.py 가 실제 영상 태그로 채움).
 #             그룹이 달라도 같은 검색어(띄어쓰기·대소문자만 다름)는 한 번만 검색
 #          ② downloads.md·downloads.csv·summary.md 표에 업로드 날짜(YYYY-MM-DD, 며칠 전) 칸
-#          ③ 잘된 영상 태그 검색어(tag_keywords.json)는 검색어 목록에 이미 있는 것을 빼고 씀 (같은 검색 두 번 안 함)
+#          ③ 잘된 영상 태그 검색어(tag_keywords.json)는 검색어 목록에 이미 있는 것을 빼고 씀 (같은 검색 두 번 안 함))
 # (v1.6 — 2026-10-13 — 태그 검색어·받은 자료 표·오프라인 다시 만들기 (사용자 지시: "태그도 검색어에 포함하도록 해서 탐색하고 …
 #          탐색 목록에서 어떤 영상을 자료로 받았는지, 자막, 댓글 등 다운 성공한게 뭔지 표로 정리해서 깃허브에서 바로 확인 가능한 확장자로"):
 #          ① 태그 검색어 (--tag-keywords 5): 잘된 영상(배수 ≥ --min-ratio 또는 조회수 상위 50, 주제 관련)의 태그 중 검색어에 없고
@@ -106,7 +110,7 @@ except ModuleNotFoundError:             # Python 3.10 → tomli (분석기가 �
     import tomli as tomllib
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v1.7"
+VERSION = "v1.8"
 LOG = logging.getLogger("outlier")
 HANGUL = re.compile(r"[가-힣]")
 SEARCH_TTL_HOURS = 168
@@ -133,6 +137,32 @@ def _flat(data):
     return out
 
 
+KEYWORD_LIST_FILE = "keywords.txt"      # 검색어만 한 줄에 하나씩 (v1.8) — 있으면 KEYWORD_GROUPS 대신
+
+
+def read_keyword_list(path):
+    """keywords.txt → 검색어 목록 (분석기 v2.8.0 read_keyword_list 와 같은 규칙). 한 줄에 하나, '#' 으로 시작하는 줄·빈 줄은 무시,
+    띄어쓰기·대소문자만 다른 검색어는 처음 것만, "검색어", 처럼 써도 됨. UTF-8(BOM) — 안 되면 cp949. 파일이 없으면 None."""
+    path = Path(path)
+    if not path.is_file():
+        return None
+    raw = path.read_bytes()
+    try:
+        text = raw.decode("utf-8-sig")
+    except UnicodeDecodeError:
+        text = raw.decode("cp949", errors="replace")
+    out, seen = [], set()
+    for line in text.splitlines():
+        k = line.strip().rstrip(",").strip().strip('"').strip("'").strip()
+        if not k or k.startswith("#"):
+            continue
+        key = "".join(k.split()).lower()
+        if key not in seen:
+            seen.add(key)
+            out.append(k)
+    return out
+
+
 def load_keywords(topic, per_group):
     """→ ([(그룹, 검색어)], 제외 낱말, 주제 이름, 검색어 파일 경로, 관련어 {strong, weak, exclude}). 검색어는 keywords.toml(분석기 v2.4.0), 없으면 analyzer_config.toml."""
     cfg_p = ROOT / topic / "analyzer_config.toml"
@@ -143,6 +173,13 @@ def load_keywords(topic, per_group):
     kw_p = Path(kw_name) if Path(kw_name).is_absolute() else cfg_p.parent / kw_name
     src = _flat(tomllib.loads(kw_p.read_text("utf-8"))) if kw_p.is_file() else cfg
     groups = src.get("KEYWORD_GROUPS") or cfg.get("KEYWORD_GROUPS") or {}
+    txt_p = cfg_p.parent / KEYWORD_LIST_FILE
+    flat = read_keyword_list(txt_p)
+    if flat:                                                       # v1.8: keywords.txt 가 있으면 그것만 (그룹·--per-group 무시)
+        groups, per_group, kw_p = {"검색어": flat}, 0, txt_p
+    extra = [str(k) for k in (src.get("EXTRA_KEYWORDS") or cfg.get("EXTRA_KEYWORDS") or []) if str(k).strip()]
+    if extra:
+        groups = {**groups, "기타": list(groups.get("기타", [])) + extra}
     kws, seen = [], set()
     for g, ks in groups.items():
         for k in (ks if per_group <= 0 else ks[:per_group]):          # 0 이하 = 그룹의 검색어 전부 (v1.7)
@@ -764,6 +801,10 @@ def run_topic(topic, a, api):
     (out / ".cache").mkdir(parents=True, exist_ok=True)
     kws, exclude, topic_name, kw_file, rel = load_keywords(topic, a.per_group)
     source = "existing" if a.from_existing else "api"
+    if source == "api" and not kws:                  # v1.8: 검색어가 없으면 '다 끝남'으로 착각하지 않게 멈춤
+        log("START", logging.ERROR, topic=topic, note="검색어가 없음 — 검색할 것이 없어 멈춤",
+            next_step=f"{topic}/{KEYWORD_LIST_FILE} 에 검색어를 한 줄에 하나씩 적으세요 (GitHub 에서 고치면 PC 가 다음 회차에 받음)")
+        raise SystemExit(1)
     state = new_state()
     log("START", topic=topic, name=topic_name, source=source, keywords=len(kws), keywords_file=kw_file.name, per_group=a.per_group,
         days=a.days, max_subs=a.max_subs, min_ratio=a.min_ratio, min_views=a.min_views, min_sec=a.min_sec, quota=a.quota,
@@ -1137,7 +1178,7 @@ def main(argv=None):
     ap.add_argument("--no-long", dest="long", action="store_false", help="20분 넘는 영상은 검색하지 않음")
     ap.add_argument("--quota", type=int, default=9000, help="이번 실행 API 단위 한도 (주제 여러 개를 함께 셈. 하루 10,000)")
     ap.add_argument("--search-ttl-hours", type=float, default=SEARCH_TTL_HOURS, help="검색 캐시 유효 시간 (기본 168 = 7일)")
-    ap.add_argument("--tag-keywords", type=int, default=5, help="잘된 영상의 태그에서 고를 검색어 수 (0 = 태그 검색 안 함)")
+    ap.add_argument("--tag-keywords", type=int, default=0, help="잘된 영상의 태그에서 더 고를 검색어 수 (기본 0 = 내가 적은 검색어만)")
     ap.add_argument("--offline", action="store_true", help="API·자막·썸네일 요청 없이 캐시·받은 파일로 요약·표·상태만 다시 만듦")
     ap.add_argument("--from-existing", action="store_true", help="분석기 결과에서 고르기 (API 키 없이)")
     ap.add_argument("--no-transcript", action="store_true", help="자막 받기 건너뜀")

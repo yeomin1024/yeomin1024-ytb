@@ -1,10 +1,12 @@
 ﻿<#
 ================================================================================================
  YouTube 분석 PC 실행기 (Windows PowerShell)
- VERSION: v2.4 — 2026-10-13 — pip 이 없는 가상환경 고침 (사용자 PC 오류: ".venv\Scripts\python.exe: No module named pip"):
+ VERSION: v2.5 — 2026-10-13 — 검색어 목록 <주제>/keywords.txt (한 줄에 하나, 그룹 없음)도 받음 (사용자 지시: "걍 검색어 내가 수정해도
+          돌아가게 하면 안돼?"). GitHub 에서 고친 설정·검색어는 tools/pc_analysis.py v1.7 이 회차마다 받아 씀 (VERSION 안 올려도 됨)
+ (v2.4 — 2026-10-13 — pip 이 없는 가상환경 고침 (사용자 PC 오류: ".venv\Scripts\python.exe: No module named pip"):
           ① .venv 에 pip 이 없으면 ensurepip 로 설치 (안 되면 분석 코드가 공식 get-pip.py 로 한 번 더)
           ② .venv 만들기가 실패하면 반쯤 만든 .venv 를 지움 (남겨 두면 다음 실행이 pip 없는 .venv 를 씀) → pip 없이 만들어
-             분석 코드가 pip 을 설치하게 함
+             분석 코드가 pip 을 설치하게 함)
  (v2.3 — 2026-10-13 — 검색어를 태그로 바꾼 새 판을 PC 가 자동으로 받게 (사용자 지시: "그냥 검색어를 재테크 관련 태그로 찾아서
           다 그걸로 탐색해봐"): 설정·검색어 파일(<주제>/analyzer_config.toml·keywords.toml·tag_rules.toml)은 PC 에 있어도
           GitHub 쪽 파일 머리의 VERSION 이 더 높으면 예전 것을 .bak 으로 두고 새 판으로 바꿈 (같거나 낮으면, VERSION 이 없으면 그대로).
@@ -40,7 +42,8 @@
    powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 --dry-run       # 그 밖의 인자는 tools/pc_analysis.py 로 (-AnalyzerOnly 면 분석기로)
 
  동작: ① 코드(youtube_topic_analyzer.py · tools/pc_analysis.py · tools/outlier_research.py · tools/outlier_stats.py · tools/tag_keywords.py)는 매번 최신으로 받음
-       ② <Folder>/analyzer_config.toml · keywords.toml · tag_rules.toml 은 없을 때, 또는 GitHub 쪽 VERSION 이 더 높을 때만 받음
+       ② <Folder>/analyzer_config.toml · keywords.toml · keywords.txt(검색어) · tag_rules.toml 은 없을 때(또는 VERSION 이 더 높을 때) 받고,
+          실행 중에는 tools/pc_analysis.py 가 회차마다 GitHub 에서 고친 것을 받음
           (예전 것은 .bak — 같은 판이면 내가 고친 설정·검색어를 덮어쓰지 않음)
        ③ .venv 가상환경을 만들고(처음 한 번) 그 안의 Python으로 실행 — 필요한 패키지는 자동 설치
  ※ 'wget'은 Windows PowerShell 5.1에서 Invoke-WebRequest의 별칭입니다. 이 스크립트는 PowerShell 7에서도 되도록 Invoke-WebRequest를 직접 씁니다.
@@ -68,7 +71,7 @@ $Base = if ($env:RAW_BASE) { $env:RAW_BASE } else { "https://raw.githubuserconte
 $Folder = @($Folder | ForEach-Object { $_ -split "," } | ForEach-Object { $_.Trim() } | Where-Object { $_ })   # -File 로 부르면 "a,b" 한 글자열
 if (-not $Folder) { $Folder = @("economic") }
 $CodeFiles = @("youtube_topic_analyzer.py", "tools/pc_analysis.py", "tools/outlier_research.py", "tools/outlier_stats.py", "tools/tag_keywords.py")
-$ConfigFiles = @($Folder | ForEach-Object { "$_/analyzer_config.toml"; "$_/keywords.toml"; "$_/tag_rules.toml" })
+$ConfigFiles = @($Folder | ForEach-Object { "$_/analyzer_config.toml"; "$_/keywords.toml"; "$_/keywords.txt"; "$_/tag_rules.toml" })
 $TaskName = "YouTubeAnalysis_" + ($Folder -join "_")
 
 function Write-Step([string]$msg) { Write-Host "[RUNNER] [$(Get-Date -Format s)] $msg" }

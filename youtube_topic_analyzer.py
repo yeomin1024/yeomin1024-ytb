@@ -1,8 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v2.7.1 — 2026-10-13 — pip 이 없는 가상환경 고침 (사용자 PC 오류: ".venv\Scripts\python.exe: No module named pip"):
+# VERSION: v2.8.0 — 2026-10-13 — 검색어는 그룹 없이 한 줄에 하나씩 (사용자 지시: "걍 검색어 내가 수정해도 돌아가게 하면 안돼? 꼭 그룹을
+#          지정해야하나 검색어만 넣어도 되잖아"): 설정 파일과 같은 폴더의 keywords.txt (한 줄에 검색어 하나, # 으로 시작하는 줄·빈 줄은
+#          무시, 같은 검색어는 한 번)가 있으면 그것이 검색어 목록 — keywords.toml 의 KEYWORD_GROUPS 대신 (read_keyword_list).
+#          관련어(RELEVANCE_*)·제외어는 keywords.toml 그대로
+# (v2.7.1 — 2026-10-13 — pip 이 없는 가상환경 고침 (사용자 PC 오류: ".venv\Scripts\python.exe: No module named pip"):
 #          _ensure_pip() — 패키지를 설치하기 전에 pip 이 없으면 python -m ensurepip --upgrade --default-pip, 안 되면 공식
-#          get-pip.py(bootstrap.pypa.io). 가상환경을 만들다 끊기면 python.exe 만 있고 pip 이 없는 .venv 가 남는다
+#          get-pip.py(bootstrap.pypa.io). 가상환경을 만들다 끊기면 python.exe 만 있고 pip 이 없는 .venv 가 남는다)
 # (v2.7.0 — 2026-10-13 — 빠른 것 먼저 올리고 음성인식은 뒤에서 하나씩 (사용자 지시: "일단 영상 자체는 받지말고 자막, 썸네일, 댓글 등
 #          빨리 받을 수 있는 것들만 다 받으면 분석결과를 먼저 올리도록 하고 오래걸리는 음성인식은 계속 진행해서 하나가 끝나면 바로 올리고
 #          그다음거 진행하는 식으로"): ① --defer-whisper: 자막이 없는 성공사례는 음성인식을 하지 않고 'whisper_pending' 으로 표시
@@ -325,7 +329,7 @@ import numpy as np
 import pandas as pd
 import requests
 
-NOTEBOOK_VERSION = "v2.7.1"
+NOTEBOOK_VERSION = "v2.8.0"
 KST = dt.timezone(dt.timedelta(hours=9))
 UTC = dt.timezone.utc
 IS_WINDOWS = os.name == "nt"
@@ -630,6 +634,32 @@ def keywords_path_for(cfg, config_path):
     """검색어 파일 경로: KEYWORDS_FILE 이 절대경로면 그대로, 아니면 설정 파일과 같은 폴더 기준."""
     p = Path(str(cfg["KEYWORDS_FILE"]).strip() or "keywords.toml").expanduser()
     return p if p.is_absolute() else Path(config_path).parent / p
+
+
+KEYWORD_LIST_FILE = "keywords.txt"      # 검색어만 한 줄에 하나씩 (v2.8.0) — 있으면 KEYWORD_GROUPS 대신
+
+
+def read_keyword_list(path):
+    """keywords.txt → 검색어 목록. 한 줄에 하나, '#' 으로 시작하는 줄·빈 줄은 무시, 띄어쓰기·대소문자만 다른 검색어는 처음 것만.
+    UTF-8(BOM 있어도) — 안 되면 cp949(메모장 예전 기본). 파일이 없으면 None."""
+    path = Path(path)
+    if not path.is_file():
+        return None
+    raw = path.read_bytes()
+    try:
+        text = raw.decode("utf-8-sig")
+    except UnicodeDecodeError:
+        text = raw.decode("cp949", errors="replace")
+    out, seen = [], set()
+    for line in text.splitlines():
+        k = line.strip().rstrip(",").strip().strip('"').strip("'").strip()      # "검색어", 처럼 써도 됨
+        if not k or k.startswith("#"):
+            continue
+        key = "".join(k.split()).lower()
+        if key not in seen:
+            seen.add(key)
+            out.append(k)
+    return out
 
 
 def apply_keywords_file(cfg, path, config_keys=()):
@@ -4461,6 +4491,16 @@ def run_self_test(cfg):
           and tc3["RELEVANCE_TERMS"] == ["재테크"] and tc3["EXCLUDE_KEYWORDS"] == ["광고"] and kres["overridden"] == ["KEYWORD_GROUPS"]
           and kw_bad_blocked and tc4["RELEVANCE_TERMS"] == ["부동산"] and tc3["TOPIC"] == "부동산",
           overridden=kres["overridden"], bad_blocked=kw_bad_blocked)
+    # v2.8.0: keywords.txt — 한 줄에 하나, 주석·빈 줄·같은 검색어(띄어쓰기만 다름) 무시, BOM·CRLF·cp949
+    ktd = Path(tempfile.mkdtemp())
+    try:
+        (ktd / "a.txt").write_bytes("\ufeff# 주석\r\n재테크\r\n\r\n  주식 투자 \r\n주식투자\r\n\"ETF\",\r\n".encode("utf-8"))
+        (ktd / "b.txt").write_bytes("노후 준비\n연금\n".encode("cp949"))
+        kl_a, kl_b, kl_none = read_keyword_list(ktd / "a.txt"), read_keyword_list(ktd / "b.txt"), read_keyword_list(ktd / "x.txt")
+    finally:
+        rmtree_force(ktd)
+    check("검색어 목록 keywords.txt (한 줄에 하나)", kl_a == ["재테크", "주식 투자", "ETF"] and kl_b == ["노후 준비", "연금"] and kl_none is None,
+          a=kl_a, b=kl_b)
     check("설정 파일 읽기·검증", tc["TOPIC"] == "부동산" and tc["KEYWORD_GROUPS"] == {"1. 사연": ["전세 사기 사연", "갭투자 실패"]}
           and tc["OUTLIER_MIN"] == 4.0 and isinstance(tc["OUTLIER_MIN"], float) and any("QUOTA_BUDGTE" in u for u in r["unknown"])
           and bad_blocked and tc2["PROJECT_FOLDER"] == "realestate" and tc2["KEYWORD_MODE"] == "autocomplete",
@@ -4846,6 +4886,15 @@ def load_config(args, create_missing=True):
         print(f"[CONFIG] 검색어 파일 적용: {kw_path} (그룹 {kres['groups']}개·검색어 {kres['keywords']}개)")
         if kres["overridden"]:
             print(f"[CONFIG] ⚠️ 설정 파일에도 있는 목록 {kres['overridden']} 은 검색어 파일 값을 씁니다 → 설정 파일에서 지우세요")
+    # 검색어 목록 keywords.txt (v2.8.0): 그룹 없이 한 줄에 하나 — 있으면 이것이 검색어 (KEYWORD_GROUPS 대신)
+    txt_path = (kw_path.parent if kw_path else path.parent) / KEYWORD_LIST_FILE
+    kws = read_keyword_list(txt_path)
+    info.update(keyword_list_file=txt_path.name, keyword_list=len(kws) if kws is not None else None)
+    if kws:
+        cfg["KEYWORD_GROUPS"] = {"검색어": kws}
+        print(f"[CONFIG] 검색어 목록 적용: {txt_path} (검색어 {len(kws)}개 — keywords.toml 의 KEYWORD_GROUPS 대신)")
+    elif kws is not None:
+        print(f"[CONFIG] ⚠️ {txt_path} 에 검색어가 없습니다 → keywords.toml 의 KEYWORD_GROUPS 를 씁니다")
     changes = apply_cli(cfg, args)
     return cfg, info, changes
 

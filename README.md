@@ -23,7 +23,8 @@ guides/                     ← 영상 제작 공통 지시사항 (모든 주제
 video/                      ← Remotion 프로젝트, 모든 주제가 같이 씀 — video/README.md (PC에 Node.js 필요)
 economic/                   ← 주제 폴더: 경제·재테크 — economic/README.md
   analyzer_config.toml      ← 분석 설정 (주제 이름·저장 폴더·할당량 등)
-  keywords.toml             ← 검색어 목록 (분석기·성공 사례 수집이 같이 씀) — 검색어 = 실제 영상 태그 40개 (tools/tag_keywords.py 가 씀)
+  keywords.txt              ← ★ 검색어 목록 — 한 줄에 하나, 그룹 없음. GitHub 에서 고치면 PC 가 다음 회차에 자동으로 받음
+  keywords.toml             ← 주제 관련어·제외어 (주제 관련 영상 판단)
   tag_rules.toml · tag_candidates.md ← 태그 → 검색어 규칙(씨앗·빼는 말·묶음) · 고른 태그 표
   .env                      ← (PC에만, git 제외) 이 주제만 쓰는 키 — 비우면 맨 위 .env. 여러 주제를 동시에: run_analyzer.ps1 -Folder economic,health
   result/                   ← 분석 결과 (PC 실행이 GitHub에 올림) · result/outliers/ 성공 사례·조회수 상위 (댓글 전부 — 비공개 저장소면 사례 폴더까지)
@@ -68,9 +69,9 @@ wget -O run_analyzer.sh https://raw.githubusercontent.com/yeomin1024/yeomin1024-
 bash run_analyzer.sh
 ```
 
-실행기(v2.3)가 하는 일:
+실행기(v2.5)가 하는 일:
 1. 코드(`youtube_topic_analyzer.py`·`tools/pc_analysis.py`·`tools/outlier_research.py`·`tools/outlier_stats.py`·`tools/tag_keywords.py`)를 매번 최신으로 받는다.
-2. `economic/analyzer_config.toml`·`keywords.toml`·`tag_rules.toml`은 **없을 때, 또는 GitHub 쪽이 새 판(파일 머리 `VERSION`이 더 높음)일 때만** 받는다 (예전 것은 `.bak`). 같은 판이면 내가 고친 설정·검색어를 덮어쓰지 않는다.
+2. `economic/keywords.txt`(검색어)·`keywords.toml`·`analyzer_config.toml`·`tag_rules.toml`을 받는다. 실행 중에는 `tools/pc_analysis.py`가 **회차마다** GitHub 에서 고친 것을 받는다 (VERSION 안 올려도 됨 — PC 에서 고친 것은 GitHub 쪽이 그대로면 지킴, 바꿀 때 예전 것은 `.bak`).
 3. `.venv` 가상환경을 만들고 `tools/pc_analysis.py economic`을 실행한다. 필요한 패키지는 자동 설치한다.
 
 | 하고 싶은 것 | Windows | macOS / Linux |
@@ -111,7 +112,8 @@ bash run_analyzer.sh
 | `analyzer_config.toml` `[keywords]` | 키워드 모드, 검색어 파일 이름(`KEYWORDS_FILE = "keywords.toml"`) |
 | `analyzer_config.toml` `[ads]` | 광고로 조회수를 산 것으로 의심되는 영상 제외 기준 |
 | `analyzer_config.toml` `[advanced]` | (선택) 분석 기간·쿼터 예산·성공 기준 등 — `#`을 지우고 고치면 적용 |
-| **`keywords.toml`** | **묶음별 검색어** `[KEYWORD_GROUPS]`(v2.0: 실제 영상 태그 40개·8묶음 — `python tools/tag_keywords.py economic --write-keywords`가 씀, 규칙 `tag_rules.toml`, 표 `tag_candidates.md`) · `EXTRA_KEYWORDS` · `EXCLUDE_KEYWORDS` · `[relevance]` 주제 관련어(무관한 영상 제외) — 분석기와 `tools/outlier_research.py`가 같이 씀 |
+| **`keywords.txt`** | **검색어** — 한 줄에 하나, 그룹 없음, `#` 줄은 메모 (지금 36개: 태그 40개에서 부동산·코인을 뺀 것). 태그로 다시 고르기: `python tools/tag_keywords.py economic --write-keywords` (규칙 `tag_rules.toml`, 표 `tag_candidates.md`) |
+| `keywords.toml` | `[KEYWORD_GROUPS]`(비움 — `keywords.txt`가 없을 때만) · `EXTRA_KEYWORDS` · `EXCLUDE_KEYWORDS` · `[relevance]` 주제 관련어(무관한 영상 제외) — 분석기와 `tools/outlier_research.py`가 같이 씀 |
 
 - 우선순위: 코드 기본값 < 설정 파일 < 검색어 파일(목록만) < 명령줄 옵션
 - 오타·형식 오류는 실행 전에 알려 줍니다. 예: `QUOTA_BUDGTE(→ QUOTA_BUDGET?)`, "QUOTA_BUDGET: 숫자여야 함"

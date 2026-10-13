@@ -1,5 +1,40 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-13 (9) — 검색어는 keywords.txt 에 한 줄에 하나 · GitHub 에서 고치면 PC 가 회차마다 받음
+
+### 왜 (사용자 지시)
+- "야 내가 검색어 변경했는데 안되네 해결해봐" — GitHub 에서 `economic/keywords.toml` 의 부동산·코인 묶음을 지웠는데(커밋 19c6c39) PC 는 예전 40개로 검색
+- "아니 걍 검색어 내가 수정해도 돌아가게 하면 안돼? 꼭 그룹을 지정해야하나 검색어만 넣어도 되잖아"
+
+### 원인
+1. PC 실행기는 설정·검색어 파일을 '없을 때만'(v2.2) 또는 'VERSION 이 더 높을 때만'(v2.3) 받았다 — 사용자 수정은 VERSION 을 안 올렸으므로 안 옴
+2. PC 실행(`pc_analysis.py`)은 며칠 동안 돌면서 GitHub 을 다시 보지 않았다
+3. 분석기가 한 번 끝나면 7일 동안 건너뛰어 검색어가 바뀌어도 분석기에 안 쓰였다
+4. '잘된 영상 태그' 검색어(`--tag-keywords 5`)가 지운 검색어(예: 부동산)를 다시 검색할 수 있었다
+
+### 고친 것
+| 파일 (버전) | 함수·항목 | 내용 |
+|---|---|---|
+| `economic/keywords.txt` (새로) | — | **검색어 목록 — 한 줄에 하나, 그룹 없음**, `#` 줄은 메모. 사용자가 고친 36개 그대로 (부동산·코인 없음) |
+| `economic/keywords.toml` v3.0 | `[KEYWORD_GROUPS]` | 비움 (`keywords.txt`가 없을 때만 씀) — 관련어·제외어만 남김 |
+| `youtube_topic_analyzer.py` v2.8.0 | `read_keyword_list`, `load_config` | 설정 폴더의 `keywords.txt`가 있으면 그것이 검색어 (메모·빈 줄·같은 검색어 무시, `"검색어",` 도 됨, UTF-8 — 안 되면 cp949). 자가진단 28/28 |
+| `tools/outlier_research.py` v1.8 | `read_keyword_list`, `load_keywords`, `run_topic` | 같은 규칙으로 `keywords.txt`, EXTRA_KEYWORDS 도 검색, **검색어가 하나도 없으면 오류(1)로 멈춤**('다 끝남'으로 착각하지 않게), `--tag-keywords` 기본 0 |
+| `tools/pc_analysis.py` v1.7 | `sync_from_github`, `fetch_repo_file`, `repo_of` | **회차마다 GitHub 에서 받음**: `<주제>/keywords.txt·keywords.toml·analyzer_config.toml·tag_rules.toml` — PC 파일이 지난번에 받은 그대로(또는 처음)면 GitHub 것으로(.bak), PC 에서 고쳤고 GitHub 이 그대로면 PC 것을 지킴 (`.yt_work/config_sync.json` 지문). 코드·실행기도 GitHub 최신 (지금 도는 pc_analysis.py 는 다음 실행부터). 토큰이 있으면 API(비공개 저장소), 없으면 공개 주소. `--no-sync` |
+| 〃 | `read_keyword_list`, `keyword_list`, `keywords_fingerprint`, `analyzer_done_recently`, `outlier_need` | 할당량 계산은 `keywords.txt` 로, **검색어가 바뀌면 분석기를 다시**(끝났을 때의 검색어 지문 `analyzer_keywords`), `--tag-keywords` 기본 0 |
+| `tools/tag_keywords.py` v1.1 | `write_keyword_list` | `--write-keywords` 가 `keywords.txt` 를 씀 (묶음 이름은 `# ── 이름 ──` 메모 줄, 있던 것은 .bak, 다시 읽어 검사) — 예전 `rewrite_keyword_groups` 대신 |
+| `economic/tag_rules.toml` v1.1 | `TAG_EXCLUDE` | 사용자가 지운 부동산·코인 낱말 추가 (태그로 다시 골라도 되살아나지 않게) |
+| `run_analyzer.ps1` · `.sh` v2.5 | 설정 파일 목록 | `keywords.txt` 도 받음 |
+| 문서 | `guides/pc_analysis.md` v1.8 "검색어 바꾸기" · `pipeline.md` v1.16 · `guides/README.md` v1.16 · `CLAUDE.md` · `README.md` · `economic/README.md` | 한 줄에 하나·GitHub 에서 고치면 다음 회차에 |
+
+### 결과 (검사)
+- 사용자 PC 와 같은 상황 재현: 예전 실행기(v2.2) + PC 에 예전 `keywords.toml`(태그 40개) + GitHub(로컬 서버) 새 판 →
+  `[SYNC] file=economic/keywords.txt result="새로 받음"` · `file=economic/keywords.toml result="GitHub 새 판으로 바꿈" note="예전 파일은 .bak"` →
+  검색어 36개(부동산 없음), 성공 사례 자동 할당량 8,290 → 7,490, `outlier_research.py … --tag-keywords 0`
+- `pc_analysis.py --self-test` ALL PASS (새: keywords.txt 가 그룹 대신·할당량, 검색어가 바뀌면 분석기 다시, 동기화 규칙 6가지 — 처음·다르면 GitHub 것(.bak)/같음/PC 수정 지킴/GitHub 이 또 바뀌면 GitHub 것/코드는 늘 최신/git 폴더는 안 함)
+- 성공 사례 시험 21개 통과 (새: keywords.txt 읽기·그룹 대체, 검색어 없으면 오류 1), 태그 시험 10개(새: keywords.txt 씀·.bak·분석기와 같은 목록·지운 부동산·코인 안 고름), 분석기 자가진단 28/28, 키 5·음성인식 대기열 7 통과
+- 분석기가 저장소 설정으로 읽음: `[CONFIG] 검색어 목록 적용: economic/keywords.txt (검색어 36개 — keywords.toml 의 KEYWORD_GROUPS 대신)`
+- Python 3.11 로도 문법 검사 통과 (PC 가 3.10·3.11 이어도 됨). `run_analyzer.ps1` 은 PowerShell 이 없어 실행 시험 못 함 (목록에 한 줄 더한 것뿐)
+
 ## 2026-10-13 (8) — pip 이 없는 가상환경(.venv) 고침
 
 ### 왜 (사용자 PC 오류)

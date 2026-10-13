@@ -1,10 +1,11 @@
 # =====================================================================================================
 # YouTube 주제 분석기 설정 파일 — 주제: 경제·재테크 (economic)
-# VERSION: v1.0 — 2026-10-13 — 새로 만듦 (사용자 지시: 모든 주제 폴더를 지우고 경제·재테크 폴더 하나만).
-#   검색어·관련어 목록은 이 파일이 아니라 같은 폴더의 keywords.toml 에 있다 (분석기 v2.4.0).
+# VERSION: v1.0.1 — 2026-10-13 — 주석의 실행 명령만 (-File run_analyzer.ps1 — .\ 없이). 설정 값은 v1.0 그대로
+# (v1.0 — 2026-10-13 — 새로 만듦 (사용자 지시: 모든 주제 폴더를 지우고 경제·재테크 폴더 하나만).
+#   검색어·관련어 목록은 이 파일이 아니라 같은 폴더의 keywords.toml 에 있다 (분석기 v2.4.0).)
 #
 # ▶ PC에서 (자막·썸네일까지 받음, 할당량이 끝나면 다음 날 자동으로 이어서): guides/pc_analysis.md
-#      powershell -ExecutionPolicy Bypass -File .\run_analyzer.ps1                     (Windows)
+#      powershell -ExecutionPolicy Bypass -File run_analyzer.ps1                     (Windows)
 #      bash run_analyzer.sh                                                             (Mac/Linux)
 # ▶ 분석기만 한 번: python youtube_topic_analyzer.py --config economic/analyzer_config.toml
 # ▶ 클라우드(Claude Code)에서: bash tools/run_analysis.sh economic   (자막·썸네일은 네트워크 정책상 못 받을 수 있음)

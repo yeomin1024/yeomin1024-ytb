@@ -1,6 +1,6 @@
 # PC에서 분석 돌리기 — 경제·재테크(`economic`)
 
-버전: v1.2 — 2026-10-13 — 사용자 지시 "동시에 병렬로 다른 주제 분석도 가능하도록 해야해 그럼 검색어 설정 파일, 키설정 파일도 여러개": 여러 주제를 동시에(`-Folder economic,health`), 주제마다 검색어·키 파일, 같은 키는 할당량 N등분, 프로젝트 여러 개로 할당량 늘리기는 정책 위반 (v1.1 — 2026-10-13 — 사용자 지시 "비공개로 돌릴테니까 전부 다 업로드되게 하고 댓글은 전부 받도록 수정해 그리고 구독자 수 상관없이 조회수 많이 나온 영상 댓글은 전부 받아야해": 댓글 전부(답글 포함)·조회수 상위 영상 20개, 비공개 저장소면 사례 폴더까지 전부 GitHub 에, 비공개 저장소에서 코드 받기(토큰) (v1.0 — 2026-10-13 — 새로 만듦 (사용자 지시: "분석기 코드 pc에서 돌릴 수 있도록 수정하고 방법 알려주고 api 할당량이 초기화된 시간이 되면 다시 자동으로 분석결과를 확인 못한 부분부터 새로 추가로 만들도록")))
+버전: v1.3 — 2026-10-13 — 실행 명령을 어느 터미널에서나 되게: `-File run_analyzer.ps1`(`.\` 없음), 받기는 `curl.exe`(PowerShell·명령 프롬프트·Git Bash 공통), 문제 해결에 '-File 인수가 없습니다' (사용자 PC 오류 2026-10-13) (v1.2 — 2026-10-13 — 사용자 지시 "동시에 병렬로 다른 주제 분석도 가능하도록 해야해 그럼 검색어 설정 파일, 키설정 파일도 여러개": 여러 주제를 동시에(`-Folder economic,health`), 주제마다 검색어·키 파일, 같은 키는 할당량 N등분, 프로젝트 여러 개로 할당량 늘리기는 정책 위반 (v1.1 — 2026-10-13 — 사용자 지시 "비공개로 돌릴테니까 전부 다 업로드되게 하고 댓글은 전부 받도록 수정해 그리고 구독자 수 상관없이 조회수 많이 나온 영상 댓글은 전부 받아야해": 댓글 전부(답글 포함)·조회수 상위 영상 20개, 비공개 저장소면 사례 폴더까지 전부 GitHub 에, 비공개 저장소에서 코드 받기(토큰) (v1.0 — 2026-10-13 — 새로 만듦 (사용자 지시: "분석기 코드 pc에서 돌릴 수 있도록 수정하고 방법 알려주고 api 할당량이 초기화된 시간이 되면 다시 자동으로 분석결과를 확인 못한 부분부터 새로 추가로 만들도록"))))
 
 ※ 연구·교육용 분석 도구입니다. 투자 조언이 아닙니다.
 
@@ -33,14 +33,14 @@
 4. 그 폴더에서 PowerShell을 엽니다 (탐색기 주소창에 `powershell` 입력 후 Enter) → 실행기를 받아 실행합니다.
    - **저장소가 공개일 때:**
      ```powershell
-     wget https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/run_analyzer.ps1 -OutFile run_analyzer.ps1
-     powershell -ExecutionPolicy Bypass -File .\run_analyzer.ps1
+     curl.exe -L -o run_analyzer.ps1 https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/run_analyzer.ps1
+     powershell -ExecutionPolicy Bypass -File run_analyzer.ps1
      ```
-     (PowerShell 7이면 첫 줄 대신: `curl.exe -L -o run_analyzer.ps1 https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/run_analyzer.ps1`)
+     (`curl.exe`는 Windows 10·11 에 들어 있고 PowerShell·명령 프롬프트·Git Bash 어디서나 됩니다. 예전 안내의 `wget … -OutFile`은 PowerShell 에서만 됨)
    - **저장소가 비공개일 때** (첫 줄이 토큰을 물어봄 — 5번의 GITHUB_TOKEN 값을 붙여넣고 Enter):
      ```powershell
      $t = Read-Host "GitHub 토큰"; $r = Invoke-RestMethod -Headers @{Authorization="Bearer $t"} -Uri "https://api.github.com/repos/yeomin1024/yeomin1024-ytb/contents/run_analyzer.ps1?ref=main"; [IO.File]::WriteAllBytes("$PWD\run_analyzer.ps1", [Convert]::FromBase64String($r.content)); Remove-Variable t
-     powershell -ExecutionPolicy Bypass -File .\run_analyzer.ps1
+     powershell -ExecutionPolicy Bypass -File run_analyzer.ps1
      ```
      이미 받아 둔 `run_analyzer.ps1`이 v2.0이면 위 첫 줄로 한 번 새로 받으세요 (v2.0은 비공개 저장소에서 코드를 못 받음).
 5. 처음에는 키가 없어서 멈추고 **`.env` 파일**이 생깁니다. 메모장으로 열어 `=` 뒤에 값을 붙여넣고 저장합니다 (따옴표 없이).
@@ -87,8 +87,8 @@ bash run_analyzer.sh
 
 **B. 작업 스케줄러에 맡기기 (창을 닫아도 됨)**
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\run_analyzer.ps1 -RegisterTask     # 매일 17:15 에 한 회차씩 (-Once)
-powershell -ExecutionPolicy Bypass -File .\run_analyzer.ps1 -UnregisterTask   # 끄기
+powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -RegisterTask     # 매일 17:15 에 한 회차씩 (-Once)
+powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -UnregisterTask   # 끄기
 ```
 - 17:15면 서머타임이든 아니든 초기화가 지난 시각입니다. PC가 켜져 있고 로그인돼 있어야 돕니다.
 - A와 B를 함께 해도 같은 주제가 두 번 동시에 돌지 않습니다 (잠금 파일 `.yt_work/pc_analysis_economic.lock`).
@@ -128,8 +128,8 @@ powershell -ExecutionPolicy Bypass -File .\run_analyzer.ps1 -UnregisterTask   # 
 키를 찾는 순서: `<주제>/.env` → 환경 변수 `YOUTUBE_API_KEY_<주제>`(예: `YOUTUBE_API_KEY_ECONOMIC`) → 맨 위 `.env` → 환경 변수 `YOUTUBE_API_KEY`.
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\run_analyzer.ps1 -Folder economic,health                 # 두 주제를 동시에
-powershell -ExecutionPolicy Bypass -File .\run_analyzer.ps1 -Folder economic,health -RegisterTask   # 매일 17:15 에 두 주제 한 회차씩
+powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Folder economic,health                 # 두 주제를 동시에
+powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Folder economic,health -RegisterTask   # 매일 17:15 에 두 주제 한 회차씩
 ```
 macOS/Linux: `bash run_analyzer.sh --folder economic,health`
 
@@ -158,18 +158,23 @@ macOS/Linux: `bash run_analyzer.sh --folder economic,health`
 
 ## 문제 해결
 
+- **`-File 매개 변수에 대한 인수 '.run_analyzer.ps1'이(가) 없습니다`** (2026-10-13 사용자 PC) → 경로의 `\`가 사라진 것입니다. **Git Bash**(또는 WSL·VS Code 의 bash 터미널)는 `\`를 지워 `.\run_analyzer.ps1`이 `.run_analyzer.ps1`이 됩니다. 그 창에서는 받기 줄(`wget … -OutFile`)도 PowerShell 문법이라 안 돼서 파일이 없을 수도 있습니다.
+  1. 창이 **PowerShell**인지 확인 (프롬프트가 `PS C:\…>`로 시작). 아니면 시작 메뉴에서 "Windows PowerShell"을 열고 `cd` 로 작업 폴더로 이동
+  2. 파일이 있는지: `dir run_analyzer.ps1` (Git Bash 면 `ls run_analyzer.ps1`). 없으면 `curl.exe -L -o run_analyzer.ps1 https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/run_analyzer.ps1`
+  3. 실행은 `\` 없이: `powershell -ExecutionPolicy Bypass -File run_analyzer.ps1` — PowerShell·명령 프롬프트·Git Bash 어디서나 됩니다
 - **`YOUTUBE_API_KEY 없음`** → `.env`를 메모장으로 열어 키를 넣고 저장 → 다시 실행
 - **`같은 주제 분석이 이미 돌고 있음`** → 다른 창(또는 작업 스케줄러)에서 도는 중입니다. 확실히 멈춘 것이면 `--force`
 - **자막이 `RequestBlocked`·`IpBlocked`** → 짧은 시간에 많이 받아 YouTube가 잠시 막은 것입니다. 남은 일로 세어 다음 회차에 다시 받습니다 (VPN은 끄세요).
 - **`푸시 건너뜀 reason="GITHUB_TOKEN 없음"`** → `.env`에 토큰을 넣으면 다음 회차에 올라갑니다. 바로 올리려면 `python youtube_topic_analyzer.py --config economic/analyzer_config.toml --push-only`
 - **실행기 `받기 실패 … 404`** → 저장소가 비공개인데 토큰이 없거나 그 저장소를 못 읽는 토큰입니다. `.env`의 `GITHUB_TOKEN`, 토큰의 Repository access(`yeomin1024-ytb`)·Contents 권한을 확인하세요.
 - **`Permission … denied`** → 토큰의 Contents 권한이 Read and write인지, 저장소가 `yeomin1024-ytb`로 선택됐는지 확인 (`README.md` 문제 해결)
-- **PowerShell "스크립트를 실행할 수 없습니다"** → 꼭 `powershell -ExecutionPolicy Bypass -File .\run_analyzer.ps1` 형태로 실행
+- **PowerShell "스크립트를 실행할 수 없습니다"** → 꼭 `powershell -ExecutionPolicy Bypass -File run_analyzer.ps1` 형태로 실행
 
 ## 변경 이력
 
 | 버전 | 날짜 | 내용 |
 |---|---|---|
+| v1.3 | 2026-10-13 | 사용자 PC 오류 "-File 매개 변수에 대한 인수 '.run_analyzer.ps1'이(가) 없습니다": Git Bash 등이 `\`를 지움 → 모든 실행 명령을 `-File run_analyzer.ps1`로, 받기는 `curl.exe`, 문제 해결 항목 |
 | v1.2 | 2026-10-13 | 사용자 지시: 여러 주제를 동시에 — "여러 주제를 동시에" 절(주제마다 검색어·키 파일, 키 찾는 순서, 같은 키 할당량 N등분, sharding 정책 경고, 새 주제 추가), 옵션 표 |
 | v1.1 | 2026-10-13 | 사용자 지시: 댓글 전부(답글 포함, 쪽마다 이어 받기)·조회수 상위 20개(구독자 무관), 비공개 저장소면 사례 폴더까지 전부 올림·저장소를 비공개로 바꾸는 법·토큰으로 실행기 받기, 분석기가 끝난 날부터 할당량 9,500을 댓글에, 최대 10회차 |
 | v1.0 | 2026-10-13 | 새로 만듦: PC 실행 방법, 회차·이어서 돌리기, 할당량 초기화 시각, 작업 스케줄러, 공개 저장소에 올리는 것·안 올리는 것 |

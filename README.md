@@ -40,9 +40,9 @@ economic/                   ← 주제 폴더: 경제·재테크 — economic/RE
 ### 집 PC에서 — 권장 (자막·썸네일까지, 할당량이 끝나면 다음 날 자동으로 이어서)
 **자세한 방법: [`guides/pc_analysis.md`](guides/pc_analysis.md)** — Windows는 작업할 폴더의 PowerShell에서:
 ```powershell
-wget https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/run_analyzer.ps1 -OutFile run_analyzer.ps1
-powershell -ExecutionPolicy Bypass -File .\run_analyzer.ps1                 # 끝날 때까지 (창을 열어 두기)
-powershell -ExecutionPolicy Bypass -File .\run_analyzer.ps1 -RegisterTask   # 또는: 매일 17:15 에 한 회차씩 자동 (창을 닫아도 됨)
+curl.exe -L -o run_analyzer.ps1 https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/run_analyzer.ps1
+powershell -ExecutionPolicy Bypass -File run_analyzer.ps1                 # 끝날 때까지 (창을 열어 두기)
+powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -RegisterTask   # 또는: 매일 17:15 에 한 회차씩 자동 (창을 닫아도 됨)
 ```
 - 한 회차 = 성공 사례 수집(`tools/outlier_research.py`, 약 4,000단위) → 주제 분석(분석기, 6,000단위) → GitHub `economic/result/`에 올림.
 - 할당량 때문에 못 한 검색·영상 정보·댓글·자막이 남으면 **할당량 초기화(태평양 자정 = 한국 오후 4시, 11~3월엔 5시) 10분 뒤** 다음 회차를 돌아 **못 한 부분만** 새로 받습니다 (받은 것은 캐시, 할당량 0).
@@ -55,11 +55,11 @@ powershell -ExecutionPolicy Bypass -File .\run_analyzer.ps1 -RegisterTask   # �
 
 **Windows (PowerShell)** — 작업할 빈 폴더에서:
 ```powershell
-wget https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/run_analyzer.ps1 -OutFile run_analyzer.ps1
-powershell -ExecutionPolicy Bypass -File .\run_analyzer.ps1
+curl.exe -L -o run_analyzer.ps1 https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/run_analyzer.ps1
+powershell -ExecutionPolicy Bypass -File run_analyzer.ps1
 ```
 - `wget`은 Windows PowerShell 5.1(윈도우 기본)에 들어 있는 명령입니다.
-- PowerShell 7을 쓰면 첫 줄 대신 `curl.exe -L -o run_analyzer.ps1 https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/run_analyzer.ps1`을 쓰세요.
+- `curl.exe`는 Windows 10·11에 들어 있어 PowerShell·명령 프롬프트·Git Bash 어디서나 됩니다. 실행 줄은 `.\` 없이 `-File run_analyzer.ps1` (Git Bash는 `\`를 지워 "-File 매개 변수에 대한 인수 '.run_analyzer.ps1'이(가) 없습니다" 오류가 남).
 
 **macOS / Linux:**
 ```bash
@@ -159,7 +159,7 @@ python youtube_topic_analyzer.py --help                                    # 전
 - **`[CONFIG] ❌ 설정 파일 형식 오류`:** 메시지의 줄·칸 번호를 확인하세요. 글자는 `"따옴표"` 안에, 목록은 `["가", "나"]`처럼 씁니다.
 - **GitHub 푸시가 건너뛰어짐:** `.env`의 `GITHUB_TOKEN`과 Git 설치 여부를 확인하세요 (결과는 PC에 그대로 있음).
 - **패키지 설치 실패:** 가상환경(.venv)을 켠 상태인지 확인 후 `python -m pip install -r requirements.txt`.
-- **PowerShell에서 "스크립트를 실행할 수 없습니다":** `powershell -ExecutionPolicy Bypass -File .\run_analyzer.ps1`처럼 실행하세요.
+- **PowerShell에서 "스크립트를 실행할 수 없습니다":** `powershell -ExecutionPolicy Bypass -File run_analyzer.ps1`처럼 실행하세요.
 
 ---
 

@@ -1,5 +1,15 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-13 (4) — 실행 명령을 어느 터미널에서나 되게 (문서만)
+
+### 왜 (사용자 PC 오류: "-File 매개 변수에 대한 인수 '.run_analyzer.ps1'이(가) 없습니다")
+- 오류 속 경로에 `\`가 없음 → 명령을 **Git Bash**(또는 WSL·VS Code bash 터미널)에서 실행해 bash 가 `.\run_analyzer.ps1`의 `\`를 지운 것으로 판단. 그 창에서는 받기 줄 `wget … -OutFile`(PowerShell 문법)도 안 돼 파일이 없을 수 있음. 저장소는 아직 공개(raw 주소 200)라 비공개 문제는 아님.
+
+### 고친 것 (코드 동작 변화 없음)
+| 파일 (버전) | 내용 |
+|---|---|
+| `guides/pc_analysis.md` v1.3 · `README.md` · `guides/README.md` v1.14 · `run_analyzer.ps1` v2.2.1(머리 주석만) · `economic/analyzer_config.toml` v1.0.1(주석만) | 실행 `powershell -ExecutionPolicy Bypass -File run_analyzer.ps1` (`.\` 없이 — PowerShell·명령 프롬프트·Git Bash 공통), 받기 `curl.exe -L -o run_analyzer.ps1 …` (Windows 10·11 기본), 문제 해결에 이 오류 |
+
 ## 2026-10-13 (3) — 여러 주제를 동시에 (주제마다 검색어·키 파일)
 
 ### 왜 (사용자 지시: "economic 분석을 위해 경제, 재태크 관련 검색어 만들어 놓았어? 그리고 동시에 병렬로 다른 주제 분석도 가능하도록 해야해 그럼 검색어 설정 파일, 키설정 파일도 여러개 있어야 겠지")

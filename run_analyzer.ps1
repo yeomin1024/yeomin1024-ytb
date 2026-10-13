@@ -1,9 +1,11 @@
 ﻿<#
 ================================================================================================
  YouTube 분석 PC 실행기 (Windows PowerShell)
- VERSION: v2.2 — 2026-10-13 — 여러 주제를 동시에: -Folder economic,health (사용자 지시: "동시에 병렬로 다른 주제 분석도 가능하도록").
+ VERSION: v2.2.1 — 2026-10-13 — 안내 문구만: 실행 명령을 -File run_analyzer.ps1 (.\ 없이 — Git Bash 가 \ 를 지워 '-File 인수가 없습니다' 오류),
+          받기는 curl.exe (코드 동작은 v2.2 그대로)
+ (v2.2 — 2026-10-13 — 여러 주제를 동시에: -Folder economic,health (사용자 지시: "동시에 병렬로 다른 주제 분석도 가능하도록").
           주제마다 <주제>/analyzer_config.toml·keywords.toml 을 받고(없을 때만), tools/pc_analysis.py 가 주제마다 따로 돌림.
-          주제별 키는 <주제>/.env (없으면 맨 위 .env)
+          주제별 키는 <주제>/.env (없으면 맨 위 .env))
  (v2.1 — 2026-10-13 — 비공개 저장소에서도 받기: .env(또는 환경 변수)의 GITHUB_TOKEN 이 있으면 GitHub API 로 코드·설정을 받음
           (사용자 지시: "비공개로 돌릴테니까 전부 다 업로드되게"). .env 가 없으면 먼저 틀을 만듦. 토큰 값은 화면에 쓰지 않음)
  (v2.0 — 2026-10-13 — 기본 주제 economic(경제·재테크). 분석기 + 작은 채널 성공 사례(자막·썸네일·댓글)를
@@ -14,20 +16,20 @@
  처음 한 번 (자세히: guides/pc_analysis.md):
    1) Python 3.10 이상 설치 — python.org 설치 화면에서 "Add python.exe to PATH" 체크
    2) PowerShell을 열고 작업할 폴더(예: 문서\ytb)로 이동한 뒤 이 스크립트를 받아 실행
-      (저장소가 공개일 때) wget https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/run_analyzer.ps1 -OutFile run_analyzer.ps1
+      (저장소가 공개일 때) curl.exe -L -o run_analyzer.ps1 https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/run_analyzer.ps1
       (저장소가 비공개일 때 — 토큰을 물어봄, 화면에 남지 않음) guides/pc_analysis.md "처음 한 번" 4번의 두 줄
-      powershell -ExecutionPolicy Bypass -File .\run_analyzer.ps1
+      powershell -ExecutionPolicy Bypass -File run_analyzer.ps1
    3) 처음 실행하면 .env 파일이 생깁니다 → 메모장으로 열어 YOUTUBE_API_KEY(필수)·GITHUB_TOKEN(권장) 입력·저장 → 2)의 둘째 줄 다시 실행
 
  자주 쓰는 실행:
-   powershell -ExecutionPolicy Bypass -File .\run_analyzer.ps1                 # 경제·재테크 — 끝날 때까지 (남으면 다음 날 자동으로 이어서, 창을 열어 두기)
-   powershell -ExecutionPolicy Bypass -File .\run_analyzer.ps1 -Folder economic,health   # 여러 주제를 동시에 (주제마다 keywords.toml·.env)
-   powershell -ExecutionPolicy Bypass -File .\run_analyzer.ps1 -Once           # 한 회차만 (남은 부분은 다음에 실행할 때)
-   powershell -ExecutionPolicy Bypass -File .\run_analyzer.ps1 -RegisterTask   # 매일 17:15 에 -Once 로 자동 실행 (창을 닫아도 됨, PC는 켜져 있어야)
-   powershell -ExecutionPolicy Bypass -File .\run_analyzer.ps1 -UnregisterTask # 자동 실행 끄기
-   powershell -ExecutionPolicy Bypass -File .\run_analyzer.ps1 -UpdateConfig   # 설정·검색어 파일도 GitHub 최신으로 (기존 파일은 .bak)
-   powershell -ExecutionPolicy Bypass -File .\run_analyzer.ps1 -AnalyzerOnly   # 예전처럼 분석기만 한 번
-   powershell -ExecutionPolicy Bypass -File .\run_analyzer.ps1 --dry-run       # 그 밖의 인자는 tools/pc_analysis.py 로 (-AnalyzerOnly 면 분석기로)
+   powershell -ExecutionPolicy Bypass -File run_analyzer.ps1                 # 경제·재테크 — 끝날 때까지 (남으면 다음 날 자동으로 이어서, 창을 열어 두기)
+   powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Folder economic,health   # 여러 주제를 동시에 (주제마다 keywords.toml·.env)
+   powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Once           # 한 회차만 (남은 부분은 다음에 실행할 때)
+   powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -RegisterTask   # 매일 17:15 에 -Once 로 자동 실행 (창을 닫아도 됨, PC는 켜져 있어야)
+   powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -UnregisterTask # 자동 실행 끄기
+   powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -UpdateConfig   # 설정·검색어 파일도 GitHub 최신으로 (기존 파일은 .bak)
+   powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -AnalyzerOnly   # 예전처럼 분석기만 한 번
+   powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 --dry-run       # 그 밖의 인자는 tools/pc_analysis.py 로 (-AnalyzerOnly 면 분석기로)
 
  동작: ① 코드(youtube_topic_analyzer.py · tools/pc_analysis.py · tools/outlier_research.py · tools/outlier_stats.py)는 매번 최신으로 받음
        ② <Folder>/analyzer_config.toml · <Folder>/keywords.toml 은 없을 때만 받음 (내가 고친 설정·검색어를 덮어쓰지 않음)

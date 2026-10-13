@@ -37,11 +37,17 @@
     "case_dir": "success_cases/05_장항준이_알려_주는_재테크_방법_쇼츠_Shorts_예능_hp6mDQXbFHc",
     "thumbnail": "ok",
     "video": "skipped(DOWNLOAD_VIDEOS=False)",
-    "transcript": "whisper_pending",
+    "transcript": "whisper_small",
     "transcript_errors": {
       "api": "IpBlocked: \nCould not retrieve a transcript for the video https://www.youtube.com/watch?v=hp6mDQXbFHc! This is most likely caused by:\n\nYouTube is blocking reques",
       "ytdlp": "RuntimeError: 자막 다운로드 실패 lang=ko-orig: HTTPError: HTTP Error 429: Too Many Requests"
     },
-    "comments": 63
+    "comments": 63,
+    "transcript_lang": "ko",
+    "whisper_done": "2026-10-14T05:27+09:00",
+    "transcript_chars": 180,
+    "chars_per_min": 317.6,
+    "hook_seconds": 5,
+    "hook_text": "3천만에 들어왔는데 권전기수도 떼고 들어오니까 2천 8백 몇십만 원을"
   }
 }

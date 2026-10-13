@@ -1,10 +1,18 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.2 — 2026-10-13 — 여러 주제를 동시에(병렬로) (사용자 지시: "동시에 병렬로 다른 주제 분석도 가능하도록 해야해 그럼 검색어 설정 파일,
+# VERSION: v1.3 — 2026-10-13 — 남는 할당량을 버리지 않기 (사용자 지시: "너무 오래 걸리는데 댓글 전체 받아서 그런거야? … 좋은 해결 방법"):
+#          ① 오늘(태평양 날짜) 쓴 단위를 주제마다 적어 둠 (.yt_work/quota_<주제>.json — 도구가 보고한 사용량의 합)
+#          ② 분석기 다음에 '보충' 단계: 오늘 남은 할당량(10,000 ÷ 같은 키 주제 수 − 200)으로 성공 사례 수집을 한 번 더 →
+#             검색은 캐시라 남은 단위가 거의 다 댓글에 감. 예전엔 고정 배분(4,000/6,000) 때문에 몇백 단위 댓글 때문에 하루를 더 기다렸음
+#          ③ 오늘 이미 쓴 양을 빼고 도구에 할당량을 줌 (--once 를 하루 두 번 돌려도 넘지 않게), 분석기 사용량을 잘못 읽던 것 고침(quota_used)
+#          ④ 진행 상태에 ready(인기 댓글까지 받아 분석 시작 가능)·오늘 쓴 단위
+#          ⑤ 성공 사례 할당량을 검색 수로 계산 (--outlier-quota 0 = 자동, 기본): 예전 고정 4,000은 검색 40번(4,000)+여유 150 이
+#             안 들어가 검색 2번이 늘 다음 날로 밀렸음 → 이제 첫날 검색·인기 댓글까지 끝나 첫날 분석 시작 가능(ready), 분석기는 나머지
+# (v1.2 — 2026-10-13 — 여러 주제를 동시에(병렬로) (사용자 지시: "동시에 병렬로 다른 주제 분석도 가능하도록 해야해 그럼 검색어 설정 파일,
 #          키설정 파일도 여러개 있어야 겠지"): `pc_analysis.py economic health` → 패키지 준비를 한 번 하고 주제마다 따로 프로세스를 띄움
 #          (화면 줄 앞에 [주제], 주제마다 잠금·로그·진행 파일·할당량 대기). 검색어는 <주제>/keywords.toml, 키는 <주제>/.env
 #          (없으면 맨 위 .env) — 같은 키를 쓰는 주제끼리 하루 할당량을 나눔(성공 사례·분석기 QUOTA_BUDGET 모두 ÷ 주제 수).
-#          ⚠️ 할당량을 늘리려고 프로젝트를 여러 개 만드는 것은 YouTube API 정책 위반('sharding') — 기본은 키 하나를 나눠 씀
+#          ⚠️ 할당량을 늘리려고 프로젝트를 여러 개 만드는 것은 YouTube API 정책 위반('sharding') — 기본은 키 하나를 나눠 씀)
 # (v1.1 — 2026-10-13 — 댓글 전부·조회수 상위 (사용자 지시: "비공개로 돌릴테니까 전부 다 업로드되게 하고 댓글은 전부 받도록 수정해
 #          그리고 구독자 수 상관없이 조회수 많이 나온 영상 댓글은 전부 받아야해"):
 #          ① 성공 사례 수집에 --popular(조회수 상위, 기본 20)를 넘김 — 댓글은 outlier_research v1.3 기본값(전부)
@@ -27,7 +35,7 @@ r"""
   python tools/pc_analysis.py economic --once       # 한 회차만 (작업 스케줄러가 매일 부를 때). 남은 일이 있으면 종료 코드 3
   python tools/pc_analysis.py economic --dry-run    # 실행할 명령·다음 초기화 시각만 보여 줌
   옵션: --max-rounds 10      최대 회차 (하루 1회차 → 최대 10일)
-        --outlier-quota 4000 --per-group 2 --top 20 --popular 20   성공 사례·조회수 상위 수집 (분석기가 도는 날: 분석기 QUOTA_BUDGET 과 합쳐 10,000 이하)
+        --outlier-quota 0 --per-group 2 --top 20 --popular 20   성공 사례·조회수 상위 수집 (0 = 자동: 검색 수로 계산, 분석기는 오늘 남은 만큼)
         --daily-quota 9500   분석기가 이미 끝난 날 성공 사례·조회수 상위(주로 댓글 전부)에 쓰는 할당량
         --rerun-analyzer     분석기가 끝났어도 이번에 다시 돌림
         --skip-outliers / --skip-analyzer / --no-push
@@ -53,7 +61,7 @@ from datetime import date, datetime, time as dtime, timedelta, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v1.2"
+VERSION = "v1.3"
 LOG = logging.getLogger("pc_analysis")
 KST = timezone(timedelta(hours=9))
 LOCK_STALE_MIN = 30          # 잠금 파일이 이 시간 넘게 갱신되지 않으면 이전 실행이 죽은 것으로 봄
@@ -100,6 +108,53 @@ def next_quota_reset(now_utc, margin_min=10, use_zoneinfo=True):
         if off2 != off:
             cand = (midnight_local - timedelta(hours=off2)).replace(tzinfo=timezone.utc)
         return cand + timedelta(minutes=margin_min), "rule"
+
+
+DAILY_LIMIT = 10000          # YouTube Data API 하루 할당량 (프로젝트마다)
+DAILY_MARGIN = 200           # 남겨 두는 단위 (다른 곳에서 조금 쓸 때·계산 차이)
+
+
+def pacific_day(now_utc):
+    """할당량이 세는 날짜 (태평양 시간)."""
+    try:
+        from zoneinfo import ZoneInfo
+        return now_utc.astimezone(ZoneInfo("America/Los_Angeles")).date().isoformat()
+    except Exception:
+        return (now_utc + timedelta(hours=_pacific_offset_fallback(now_utc))).date().isoformat()
+
+
+class Ledger:
+    """오늘(태평양 날짜) 이 주제가 쓴 YouTube API 단위 — 도구가 보고한 사용량(status.json·run_info.json)을 더함.
+    날짜가 바뀌면 0부터. 다른 곳(클라우드 등)에서 같은 키로 쓴 양은 모름 → 그때는 도구가 하루 한도 오류로 멈추고 다음 날 이어서."""
+
+    def __init__(self, folder, now_fn=lambda: datetime.now(timezone.utc)):
+        self.p, self.now_fn = ROOT / ".yt_work" / f"quota_{folder}.json", now_fn
+
+    def _load(self):
+        day = pacific_day(self.now_fn())
+        try:
+            d = json.loads(self.p.read_text("utf-8"))
+        except (OSError, ValueError):
+            d = {}
+        return d if d.get("day") == day else {"day": day, "used": 0, "runs": []}
+
+    def used(self):
+        return self._load()["used"]
+
+    def add(self, units, what):
+        d = self._load()
+        d["used"] += int(units or 0)
+        d["runs"].append({"what": what, "units": int(units or 0), "kst": datetime.now(KST).isoformat(timespec="minutes")})
+        self.p.parent.mkdir(parents=True, exist_ok=True)
+        self.p.write_text(json.dumps(d, ensure_ascii=False, indent=1), "utf-8")
+        return d["used"]
+
+
+def _fresh(updated, started_utc):
+    try:
+        return datetime.fromisoformat(str(updated)) >= started_utc
+    except (TypeError, ValueError):
+        return False
 
 
 # ---------------------------------------------------------------- 설정·환경
@@ -185,6 +240,20 @@ def ensure_topic_env(folder):
     if (ROOT / folder).is_dir() and not p.exists():
         p.write_text(TOPIC_ENV_TEMPLATE.format(folder=folder), "utf-8")
         log("SETUP", folder=folder, note="주제별 키 파일 틀을 만듦 (비우면 맨 위 .env 키)", file=f"{folder}/.env")
+
+
+def outlier_need(folder, per_group, top, popular):
+    """성공 사례 수집이 하루에 끝나려면 필요한 단위: 검색(그룹마다 앞 per_group 개 × 길이 2 × 100) + 검색 여유 150
+    + 영상 정보·구독자 약 100 + 인기 댓글(사례마다 1). keywords.toml 을 못 읽으면 4,400."""
+    try:
+        d = _toml().loads((ROOT / folder / "keywords.toml").read_text("utf-8"))
+        groups = d.get("KEYWORD_GROUPS") or {}
+        searches = sum(min(per_group, len(v)) for v in groups.values()) * 2
+        if not searches:
+            return 4400
+        return searches * 100 + 150 + 100 + top + popular
+    except Exception:
+        return 4400
 
 
 def analyzer_budget(cfg_p):
@@ -288,7 +357,7 @@ def outlier_summary(status_p):
     return {"found": True, "complete": bool(st.get("complete")), "quota_stop": st.get("quota_stop"),
             "pending_searches": len(pend.get("searches", [])), "pending_videos": pend.get("videos", 0),
             "pending_channels": pend.get("channels", 0), "pending_comments": len(pend.get("comments", [])),
-            "deep": st.get("deep", 0), "popular": st.get("popular", 0), "comments_total": st.get("comments_total", 0),
+            "ready": bool(st.get("ready")), "deep": st.get("deep", 0), "popular": st.get("popular", 0), "comments_total": st.get("comments_total", 0),
             "comments_complete": st.get("comments_complete"), "cases": st.get("cases"), "quota_used": st.get("quota_used"),
             "transcripts_ok": st.get("transcripts_ok", 0), "retry_transcripts": len(retry_tr),
             "thumbnails_missing": len(st.get("thumbnail_missing", [])), "updated": st.get("updated")}
@@ -307,7 +376,7 @@ def analyzer_summary(run_info_p, started_utc):
     kw = ri.get("keywords") or {}
     return {"found": True, "fresh": fresh, "run_id": ri.get("run_id"), "searched": kw.get("searched"),
             "deferred": len(kw.get("deferred") or []), "deferred_examples": (kw.get("deferred") or [])[:5],
-            "quota_used": (ri.get("youtube_api") or {}).get("used")}
+            "quota_used": (ri.get("youtube_api") or {}).get("quota_used")}      # v1.3: 'used' 로 잘못 읽던 것
 
 
 def analyzer_done_recently(folder, days=7):
@@ -333,7 +402,9 @@ def round_verdict(o, a, codes, opts, skip_analyzer=None):
         if o.get("retry_transcripts"):
             left.append(f"성공 사례: 네트워크 때문에 못 받은 자막 {o['retry_transcripts']}개")
     if not skip_analyzer:
-        if codes.get("analyzer") != 0 or not a.get("fresh"):
+        if codes.get("analyzer") == "quota":
+            left.append("분석기: 오늘 할당량을 다 써서 다음 회차에")
+        elif codes.get("analyzer") != 0 or not a.get("fresh"):
             left.append(f"분석기 실패 또는 결과 없음 (종료 코드 {codes.get('analyzer')})")
         elif a.get("deferred"):
             left.append(f"분석기: 이월된 검색어 {a['deferred']}개")
@@ -349,8 +420,8 @@ def write_progress(path_list, info):
             log("ROUND", logging.WARNING, note="진행 상태 파일을 못 씀", file=str(p), error=str(e)[:120])
 
 
-def one_round(folder, opts, k, runner=run_child):
-    """한 회차: 성공 사례 → 분석기 → 진행 상태 → 푸시. → (complete, info)."""
+def one_round(folder, opts, k, runner=run_child, now_fn=lambda: datetime.now(timezone.utc)):
+    """한 회차: 성공 사례 → 분석기 → 보충(남은 할당량으로 댓글) → 진행 상태 → 푸시. → (complete, info)."""
     cfg_p, out_dir, outl_dir = read_paths(folder)
     log_file = ROOT / ".yt_work" / f"pc_analysis_{folder}.log"
     log_file.parent.mkdir(parents=True, exist_ok=True)
@@ -359,37 +430,73 @@ def one_round(folder, opts, k, runner=run_child):
     codes, o, a = {}, {}, {}
     done_at = None if (opts.rerun_analyzer or opts.skip_analyzer) else analyzer_done_recently(folder)
     skip_an = opts.skip_analyzer or done_at is not None
-    quota = opts.daily_quota if skip_an else opts.outlier_quota
+    quota = opts.daily_quota if skip_an else (opts.outlier_quota or outlier_need(folder, opts.per_group, opts.top, opts.popular))
+    share = getattr(opts, "quota_share", 1) or 1
+    budget = DAILY_LIMIT // share - DAILY_MARGIN                # 이 주제가 오늘 쓸 수 있는 단위 (같은 키 주제 수로 나눔)
+    ledger = Ledger(folder, now_fn)
+
+    def left_today():
+        return budget - ledger.used()
     log("ROUND", round=k, folder=folder, started=started.astimezone(KST).isoformat(timespec="minutes"),
         analyzer="건너뜀 (" + (done_at.isoformat(timespec="minutes") + " 에 끝남)" if done_at else "--skip-analyzer)") if skip_an else "돌림",
-        outlier_quota=quota)
-    if not opts.skip_outliers:
+        outlier_quota=quota, today_budget=budget, today_used=ledger.used())
+
+    def outlier_pass(q, stage):
         cmd = [py, "tools/outlier_research.py", folder, "--per-group", str(opts.per_group), "--top", str(opts.top),
-               "--popular", str(opts.popular), "--quota", str(quota)]
-        codes["outlier"] = 0 if opts.dry_run else runner(cmd, "OUTLIER", log_file)
+               "--popular", str(opts.popular), "--quota", str(q)]
         if opts.dry_run:
-            log("OUTLIER", dry_run=True, cmd=" ".join(cmd[1:]))
-        o = outlier_summary(outl_dir / "status.json")
-        log("OUTLIER", **{key: v for key, v in o.items() if key != "updated"})
+            log(stage, dry_run=True, cmd=" ".join(cmd[1:]))
+            return 0, outlier_summary(outl_dir / "status.json")
+        t0 = datetime.now(timezone.utc)
+        code = runner(cmd, stage, log_file)
+        res = outlier_summary(outl_dir / "status.json")
+        if _fresh(res.get("updated"), t0):
+            log(stage, today_used=ledger.add(res.get("quota_used"), stage.lower()), units=res.get("quota_used"))
+        log(stage, **{key: v for key, v in res.items() if key != "updated"})
+        return code, res
+    if not opts.skip_outliers:
+        q = min(quota, left_today())
+        if q < 100 and not opts.dry_run:
+            log("OUTLIER", logging.WARNING, note="오늘 이 주제 할당량을 다 씀 → 다음 회차에", today_used=ledger.used(), budget=budget)
+            codes["outlier"], o = 3, outlier_summary(outl_dir / "status.json")
+        else:
+            codes["outlier"], o = outlier_pass(q, "OUTLIER")
     if not skip_an:
         cmd = [py, "youtube_topic_analyzer.py", "--config", str(cfg_p.relative_to(ROOT)), "--no-push", "--no-open"] + \
             (["--skip-install"] if opts.child else [])     # 여러 주제를 동시에: 패키지 준비는 부모가 한 번
-        share = getattr(opts, "quota_share", 1) or 1
-        if share > 1:                                       # 같은 키를 쓰는 주제끼리 분석기 할당량도 나눔
-            cmd += ["--quota-budget", str(analyzer_budget(cfg_p) // share)]
-        codes["analyzer"] = 0 if opts.dry_run else runner(cmd, "ANALYZER", log_file)
-        if opts.dry_run:
-            log("ANALYZER", dry_run=True, cmd=" ".join(cmd[1:]))
-        a = analyzer_summary(out_dir / "run_info.json", started)
-        log("ANALYZER", **{key: v for key, v in a.items() if key != "deferred_examples"},
-            examples=",".join(a.get("deferred_examples") or []) or "-")
+        cfg_budget = analyzer_budget(cfg_p)
+        an_q = min(cfg_budget // share, left_today())       # 같은 키 주제끼리 나누고, 오늘 이미 쓴 양을 뺌
+        if an_q < 300 and not opts.dry_run:
+            log("ANALYZER", logging.WARNING, note="오늘 이 주제 할당량을 다 씀 → 분석기는 다음 회차에", today_used=ledger.used(), budget=budget)
+            codes["analyzer"], a = "quota", {"found": False, "deferred": None}
+        else:
+            if an_q != cfg_budget:
+                cmd += ["--quota-budget", str(an_q)]
+            codes["analyzer"] = 0 if opts.dry_run else runner(cmd, "ANALYZER", log_file)
+            if opts.dry_run:
+                log("ANALYZER", dry_run=True, cmd=" ".join(cmd[1:]))
+            a = analyzer_summary(out_dir / "run_info.json", started)
+            if a.get("fresh") and not opts.dry_run:
+                ledger.add(a.get("quota_used"), "analyzer")
+            log("ANALYZER", **{key: v for key, v in a.items() if key != "deferred_examples"},
+                examples=",".join(a.get("deferred_examples") or []) or "-", today_used=ledger.used())
+    # 보충: 남은 일이 있고 오늘 할당량이 남았으면 한 번 더 (검색은 캐시 → 남은 단위가 댓글·남은 검색에)
+    if not opts.skip_outliers and o and not o.get("complete") and codes.get("outlier") in (0, 3) and not opts.dry_run:
+        q2 = left_today()
+        if q2 >= 100:
+            log("TOPUP", note="오늘 남은 할당량으로 성공 사례·조회수 상위 보충 (주로 댓글)", quota=q2)
+            codes["topup"], o = outlier_pass(q2, "TOPUP")
+            codes["outlier"] = codes["topup"]
+        else:
+            log("TOPUP", note="오늘 남은 할당량 없음 → 다음 회차", left=q2)
     complete, left = round_verdict(o, a, codes, opts, skip_an) if not opts.dry_run else (True, [])
     if not skip_an and codes.get("analyzer") == 0 and a.get("fresh") and not a.get("deferred"):
         done_at = datetime.now(KST)                           # 분석기 끝 → 다음 회차부터 건너뛰고 할당량을 댓글에
     reset_utc, how = next_quota_reset(datetime.now(timezone.utc), opts.margin_min)
     info = {"tool": f"pc_analysis.py {VERSION}", "folder": folder, "round": k, "started_kst": started.astimezone(KST).isoformat(timespec="minutes"),
             "finished_kst": datetime.now(KST).isoformat(timespec="minutes"), "exit_codes": codes, "outliers": o, "analyzer": a,
-            "complete": complete, "left": left, "analyzer_skipped": skip_an,
+            "complete": complete, "ready": bool(o.get("ready")) if o else None, "left": left, "analyzer_skipped": skip_an,
+            "quota_today": {"pacific_day": pacific_day(now_fn()), "used": ledger.used(), "budget": budget},
             "analyzer_done_kst": done_at.isoformat(timespec="minutes") if done_at else None,
             "next_round_kst": None if complete else reset_utc.astimezone(KST).isoformat(timespec="minutes"),
             "note": "연구·교육용. 할당량 초기화 = 태평양 자정 (한국 오후 4시, 미국 표준시 기간엔 5시)"}
@@ -406,7 +513,8 @@ def one_round(folder, opts, k, runner=run_child):
             log("PUSH", logging.WARNING, note="푸시 건너뜀", reason="분석기 결과 없음" if not (out_dir / "README.md").is_file() else "GITHUB_TOKEN 없음 (.env)",
                 hint="결과는 PC 에 있음 — 토큰을 넣고 python youtube_topic_analyzer.py --config "
                      f"{cfg_p.relative_to(ROOT).as_posix()} --push-only")
-    log("ROUND", round=k, complete=complete, left=" / ".join(left) or "-", next_round=info["next_round_kst"] or "-", reset_calc=how)
+    log("ROUND", round=k, complete=complete, ready=info["ready"], today_used=ledger.used(), budget=budget, left=" / ".join(left) or "-",
+        next_round=info["next_round_kst"] or "-", reset_calc=how)
     return complete, info
 
 
@@ -446,7 +554,7 @@ def run(opts, runner=run_child, now_fn=lambda: datetime.now(timezone.utc), sleep
         return 2
     try:
         for k in range(1, opts.max_rounds + 1):
-            complete, info = one_round(folder, opts, k, runner)
+            complete, info = one_round(folder, opts, k, runner, now_fn)
             if complete:
                 log("DONE", folder=folder, rounds=k, note="못 한 일 없음 — 끝" if not opts.dry_run else "dry-run")
                 return 0
@@ -598,7 +706,7 @@ def self_test():
 
         def fake_runner(cmd, stage, log_file):          # 1일째: 할당량이 모자라 남음, 2일째: 끝
             calls.append(stage)
-            if stage == "OUTLIER":
+            if stage in ("OUTLIER", "TOPUP"):
                 outl.mkdir(parents=True, exist_ok=True)
                 done = day["n"] >= 1
                 (outl / "status.json").write_text(json.dumps({"complete": done, "quota_stop": None if done else "run_budget",
@@ -632,7 +740,8 @@ def self_test():
             code = run(opts, fake_runner, lambda: clock["t"], fake_sleep)
         finally:
             ensure_packages = real_ensure
-        check("2회차에 끝남 (exit 0)", code == 0 and calls.count("OUTLIER") == 2, calls=",".join(calls))
+        check("2회차에 끝남 (exit 0)·1회차에 남은 할당량으로 보충", code == 0 and calls.count("OUTLIER") == 2 and calls[:3] == ["OUTLIER", "ANALYZER", "TOPUP"],
+              calls=",".join(calls))
         check("1회차 뒤 초기화 시각까지 기다림 (16:10 KST)", clock["t"] >= u(2026, 10, 13, 7, 10) and sum(slept) > 0,
               waited_h=round(sum(slept) / 3600, 2))
         prog = json.loads((out_dir / "pc_progress.json").read_text("utf-8"))
@@ -667,7 +776,7 @@ def self_test():
 
         def fake_runner2(cmd, stage, log_file):
             cmds.append((stage, cmd))
-            if stage == "OUTLIER":
+            if stage in ("OUTLIER", "TOPUP"):
                 big = "9500" in cmd
                 (outl / "status.json").write_text(json.dumps({"complete": big, "quota_stop": None if big else "run_budget",
                                                               "pending": {"searches": [], "videos": 0, "channels": 0,
@@ -717,8 +826,46 @@ def self_test():
         (tmp / "p1" / "analyzer_config.toml").write_text('[topic]\nPROJECT_FOLDER = "p1"\n[advanced]\nQUOTA_BUDGET = 6000\n', "utf-8")
         check("설정의 QUOTA_BUDGET 읽기", analyzer_budget(tmp / "p1" / "analyzer_config.toml") == 6000
               and analyzer_budget(tmp / "p3" / "analyzer_config.toml") == 9000)
-        check("분석기 끝난 뒤 회차는 분석기 건너뜀·할당량 9500·--popular 전달", code == 0 and stages == ["OUTLIER", "ANALYZER", "PUSH", "OUTLIER", "PUSH"]
+        check("분석기 끝난 뒤 회차는 분석기 건너뜀·할당량 9500·--popular 전달", code == 0 and stages == ["OUTLIER", "ANALYZER", "TOPUP", "PUSH", "OUTLIER", "PUSH"]
               and q2[q2.index("--quota") + 1] == "9500" and "--popular" in q2, stages=",".join(stages))
+        # v1.3: 오늘 쓴 양 장부 — 성공 사례 3,900 + 분석기 5,700 보고 → 보충은 남은 200(=10,000-200-9,600)만, 다 쓰면 보충 안 함
+        (tmp / ".yt_work" / "pc_progress_t.json").unlink(missing_ok=True)
+        (tmp / ".yt_work" / "quota_t.json").unlink(missing_ok=True)
+        cmds3 = []
+
+        def fake_runner3(cmd, stage, log_file):
+            cmds3.append((stage, cmd))
+            now_iso = datetime.now(timezone.utc).isoformat()
+            if stage in ("OUTLIER", "TOPUP"):
+                qa = int(cmd[cmd.index("--quota") + 1])
+                (outl / "status.json").write_text(json.dumps({"complete": False, "ready": True, "updated": now_iso,
+                                                              "quota_used": min(qa, 3900 if stage == "OUTLIER" else qa),
+                                                              "pending": {"searches": [], "videos": 0, "channels": 0, "comments": ["v1"]},
+                                                              "transcript_missing": []}), "utf-8")
+                return 3
+            if stage == "ANALYZER":
+                (out_dir / "run_info.json").write_text(json.dumps({"finished_at_utc": now_iso, "keywords": {"searched": 50, "deferred": ["k"]},
+                                                                   "youtube_api": {"quota_used": 5700}}), "utf-8")
+                return 0
+            return 0
+        opts.once = True
+        ensure_packages = lambda dry: True
+        try:
+            run(opts, fake_runner3, lambda: clock["t"], fake_sleep)
+            topup = [c for st_, c in cmds3 if st_ == "TOPUP"]
+            led = json.loads((tmp / ".yt_work" / "quota_t.json").read_text("utf-8"))
+            check("보충 = 오늘 남은 할당량 (9,800 − 3,900 − 5,700 = 200)", len(topup) == 1 and topup[0][topup[0].index("--quota") + 1] == "200"
+                  and led["used"] == 9800, used=led["used"])
+            cmds3.clear()
+            run(opts, fake_runner3, lambda: clock["t"], fake_sleep)          # 같은 날 또: 이미 다 씀 → 도구를 돌리지 않음
+            check("같은 날 다시 실행하면 이미 쓴 양을 빼고 (다 썼으면 안 돌림)", [st_ for st_, _ in cmds3] == ["PUSH"], stages=",".join(st_ for st_, _ in cmds3))
+        finally:
+            ensure_packages = real_ensure
+            opts.once = False
+        (tmp / "t" / "keywords.toml").write_text('[KEYWORD_GROUPS]\n"a" = ["1","2","3"]\n"b" = ["4"]\n', "utf-8")
+        check("성공 사례 자동 할당량 = 검색 (2+1)×2×100 + 250 + 사례 40", outlier_need("t", 2, 20, 20) == 600 + 250 + 40
+              and outlier_need("nope", 2, 20, 20) == 4400, need=outlier_need("t", 2, 20, 20))
+        check("분석기 사용량 읽기 (quota_used)", analyzer_summary(out_dir / "run_info.json", u(2000, 1, 1)).get("quota_used") == 5700)
     finally:
         ROOT = old_root
         import shutil
@@ -740,7 +887,8 @@ def main(argv=None):
     ap.add_argument("--once", action="store_true", help="한 회차만 (작업 스케줄러용). 남은 일이 있으면 종료 코드 3")
     ap.add_argument("--dry-run", action="store_true", help="실행할 명령과 다음 초기화 시각만")
     ap.add_argument("--max-rounds", type=int, default=10)
-    ap.add_argument("--outlier-quota", type=int, default=4000, help="성공 사례 수집 할당량 (분석기 QUOTA_BUDGET 과 합쳐 10,000 이하)")
+    ap.add_argument("--outlier-quota", type=int, default=0,
+                    help="성공 사례 수집 할당량 (0 = 자동: 검색 수 × 100 + 여유 — 첫날 검색·인기 댓글까지 끝나게, 분석기는 나머지)")
     ap.add_argument("--per-group", type=int, default=2)
     ap.add_argument("--top", type=int, default=20)
     ap.add_argument("--popular", type=int, default=20, help="구독자 수 상관없이 조회수 상위 영상 수 (댓글 전부)")

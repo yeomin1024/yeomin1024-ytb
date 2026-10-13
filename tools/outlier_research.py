@@ -1,8 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.4 — 2026-10-13 — 주제별 키 (사용자 지시: "동시에 병렬로 다른 주제 분석도 가능하도록 … 키설정 파일도 여러개"):
+# VERSION: v1.5 — 2026-10-13 — 댓글 2단계 (사용자 지시: "너무 오래 걸리는데 댓글 전체 받아서 그런거야? … 좋은 해결 방법 생각해봐"):
+#          ① 1단계: 모든 사례의 인기 댓글 100개(관련성 순 1쪽 = 영상마다 1단위)를 먼저 → 할당량이 모자라도 분석은 바로 시작 (status.json ready)
+#          ② 2단계: 그다음 사례마다 댓글 전부(시간순 + 답글) — 남은 할당량으로, 못 받은 것은 다음 실행이 이어서 (같은 댓글은 id 로 하나로)
+#          ※ 댓글은 100개에 1단위라 싸다 — 하루 할당량의 대부분은 검색(1번 100단위). 오래 걸린 까닭은 고정 배분(tools/pc_analysis.py v1.3 에서 고침)
+# (v1.4 — 2026-10-13 — 주제별 키 (사용자 지시: "동시에 병렬로 다른 주제 분석도 가능하도록 … 키설정 파일도 여러개"):
 #          키를 <주제폴더>/.env → 환경 변수 YOUTUBE_API_KEY_<폴더> → 환경 변수 YOUTUBE_API_KEY → 맨 위 .env 순으로 찾음.
-#          주제 여러 개를 한 번에 돌리면 키마다 할당량을 따로 셈 (같은 키를 쓰는 주제끼리만 --quota 를 나눠 씀)
+#          주제 여러 개를 한 번에 돌리면 키마다 할당량을 따로 셈 (같은 키를 쓰는 주제끼리만 --quota 를 나눠 씀))
 # (v1.3 — 2026-10-13 — 댓글 전부·조회수 상위 영상 (사용자 지시: "비공개로 돌릴테니까 전부 다 업로드되게 하고 댓글은 전부 받도록 수정해
 #          그리고 구독자 수 상관없이 조회수 많이 나온 영상 댓글은 전부 받아야해"):
 #          ① 댓글 전부: 최상위 댓글(commentThreads, 시간순, 100개씩) + 답글(5개 넘는 것은 comments.list) — 기본 --comments 0(전부)
@@ -86,7 +90,7 @@ except ModuleNotFoundError:             # Python 3.10 → tomli (분석기가 �
     import tomli as tomllib
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v1.4"
+VERSION = "v1.5"
 LOG = logging.getLogger("outlier")
 HANGUL = re.compile(r"[가-힣]")
 SEARCH_TTL_HOURS = 168
@@ -304,8 +308,9 @@ def read_comments_jsonl(path):
     return list(out.values())
 
 
-def fetch_all_comments(api, d, vid, channel_id, cap, with_replies, refresh):
-    """댓글 전부: 최상위 댓글(commentThreads, 시간순, 100개씩) + 답글(답글이 5개 넘는 댓글은 comments.list, 100개씩) — 쪽마다 1단위.
+def fetch_all_comments(api, d, vid, channel_id, cap, with_replies, refresh, full=True):
+    """1단계(v1.5): 인기 댓글 100개(관련성 순 1쪽, 1단위) — full=False 면 여기까지.
+    2단계 = 댓글 전부: 최상위 댓글(commentThreads, 시간순, 100개씩) + 답글(답글이 5개 넘는 댓글은 comments.list, 100개씩) — 쪽마다 1단위.
     쪽마다 comments.jsonl 에 덧붙이고 comments_state.json 에 다음 쪽을 저장 → 할당량이 끝나면 멈추고, 다음 실행이 그 쪽부터 이어 받는다.
     cap > 0 이면 최상위 댓글 cap 개쯤에서 멈춤 (나중에 cap 을 늘리거나 0 으로 하면 이어서). → (댓글 목록, 상태)."""
     jl, sp = d / "comments.jsonl", d / "comments_state.json"
@@ -327,7 +332,22 @@ def fetch_all_comments(api, d, vid, channel_id, cap, with_replies, refresh):
     def save():
         sp.write_text(json.dumps(st, ensure_ascii=False), "utf-8")
     try:
-        while not st["threads_done"]:
+        if not st.get("top_done"):          # 1단계: 인기 댓글 100개 — 분석에 먼저 쓰는 것
+            data = api.get("commentThreads", part="snippet,replies", videoId=vid, order="relevance",
+                           maxResults=min(100, cap) if cap else 100, textFormat="plainText")
+            st["units"] += 1
+            if data.get("_error"):
+                st.update(threads_done=True, threads_end=f"http_{data['_error']}", disabled=data["_error"] == 403)
+            else:
+                recs = []
+                for it in data.get("items", []):
+                    sn, top = it["snippet"], it["snippet"]["topLevelComment"]
+                    recs.append(_comment_rec(top["snippet"], top["id"], None, channel_id, sn.get("totalReplyCount", 0)))
+                    recs += [_comment_rec(r["snippet"], r["id"], top["id"], channel_id) for r in (it.get("replies") or {}).get("comments", [])]
+                _append_jsonl(jl, recs)
+            st["top_done"] = True
+            save()
+        while full and not st["threads_done"]:
             params = dict(part="snippet,replies", videoId=vid, order="time", maxResults=100, textFormat="plainText")
             if st["threads_next"]:
                 params["pageToken"] = st["threads_next"]
@@ -356,7 +376,7 @@ def fetch_all_comments(api, d, vid, channel_id, cap, with_replies, refresh):
             elif cap and st["threads"] >= cap:
                 st.update(threads_done=True, threads_end="cap")
             save()
-        while with_replies and st["reply_queue"]:
+        while full and with_replies and st["reply_queue"]:
             tid = st["reply_queue"][0]
             params = dict(part="snippet", parentId=tid, maxResults=100, textFormat="plainText")
             if st["reply_next"].get(tid):
@@ -379,7 +399,7 @@ def fetch_all_comments(api, d, vid, channel_id, cap, with_replies, refresh):
         st["error"] = str(e)[:200]
         if "HTTP 400" in str(e) and st["restarts"] < 1:
             st.update(threads_next=None, threads_done=False, restarts=st["restarts"] + 1)
-    st["complete"] = bool(st["threads_done"] and (not with_replies or not st["reply_queue"]) and not st["error"])
+    st["complete"] = bool(st.get("top_done") and st["threads_done"] and (not with_replies or not st["reply_queue"]) and not st["error"])
     if st["complete"] and not st["finished"]:
         st["finished"] = _now()
     save()
@@ -548,24 +568,8 @@ def deep_case(d, r, info, a, api, source, existing_comments, state):
         except Exception as e:
             state["thumbnail_missing"].append(r["id"])
             log("DEEP", logging.WARNING, id=r["id"], step="thumbnail", error=str(e)[:100])
-    # 댓글 전부 (쪽마다 저장, 할당량이 끝나면 다음 실행이 이어서)
-    if source == "existing":
-        cms = existing_comments.get(r["id"], [])
-        cst = {"complete": True, "threads": len(cms), "replies": 0, "units": 0, "disabled": False}
-    else:
-        used0 = api.used
-        cms, cst = fetch_all_comments(api, d, r["id"], r.get("channel_id"), a.comments, a.replies, a.refresh)
-        state["comment_units"] += api.used - used0
-        if cst.get("quota_stop"):
-            state["quota_stop"] = state["quota_stop"] or cst["quota_stop"]
-        if cst.get("error"):
-            log("DEEP", logging.WARNING, id=r["id"], step="comments", error=cst["error"][:150], next_step="다음 실행에 다시")
-        if not cst["complete"]:
-            state["pending_comments"].append(r["id"])
-        elif api.used == used0:
-            state["comments_reused"] += 1
-    write_comments_csv(d / "comments.csv", cms)
-    state["comments_total"] += len(cms)
+    # 댓글 1단계: 인기 댓글 100개 (전부는 run_topic 이 모든 사례의 1단계가 끝난 뒤 2단계로)
+    cms, cst = comments_step(d, r, a, api, source, existing_comments, state, full=False)
     stats = speech_stats(snips)
     n_rep = sum(1 for c in cms if c.get("parent"))
     meta = {**r, "source": source, "tags": info.get("tags"), "chapters": chapters_from(info.get("description") or ""),
@@ -578,10 +582,33 @@ def deep_case(d, r, info, a, api, source, existing_comments, state):
     return meta, cms
 
 
+def comments_step(d, r, a, api, source, existing_comments, state, full):
+    """댓글 받기 한 단계 (full=False: 인기 댓글 100개 / True: 전부) → comments.csv 다시 쓰고 (댓글, 상태). 할당량이 끝나면 다음 실행이 이어서."""
+    if source == "existing":
+        cms = existing_comments.get(r["id"], [])
+        cst = {"complete": True, "top_done": True, "threads": len(cms), "replies": 0, "units": 0, "disabled": False}
+    else:
+        used0 = api.used
+        cms, cst = fetch_all_comments(api, d, r["id"], r.get("channel_id"), a.comments, a.replies, a.refresh and not full, full=full)
+        state["comment_units"] += api.used - used0
+        if cst.get("quota_stop"):
+            state["quota_stop"] = state["quota_stop"] or cst["quota_stop"]
+        if cst.get("error"):
+            log("DEEP", logging.WARNING, id=r["id"], step="comments", error=cst["error"][:150], next_step="다음 실행에 다시")
+        if not full and not cst.get("top_done"):
+            state["top_missing"].append(r["id"])
+        if full and not cst["complete"]:
+            state["pending_comments"].append(r["id"])
+        elif full and api.used == used0:
+            state["comments_reused"] += 1
+    write_comments_csv(d / "comments.csv", cms)
+    return cms, cst
+
+
 def new_state():
     return {"quota_stop": None, "searched": 0, "search_cached": 0, "pending_searches": [], "pending_videos": 0,
             "pending_channels": 0, "pending_comments": [], "stale_videos": 0, "transcript_missing": [], "thumbnail_missing": [],
-            "transcripts_reused": 0, "comments_reused": 0, "comments_total": 0, "comment_units": 0}
+            "transcripts_reused": 0, "comments_reused": 0, "comments_total": 0, "comment_units": 0, "top_missing": []}
 
 
 def write_status(out, topic, a, api, state, rows, q, deep, pop_deep, kw_file):
@@ -600,10 +627,12 @@ def write_status(out, topic, a, api, state, rows, q, deep, pop_deep, kw_file):
           "comments_complete": n_cases - len(state["pending_comments"]), "cases": n_cases,
           "transcripts_ok": n_cases - len(state["transcript_missing"]), "transcript_missing": state["transcript_missing"],
           "thumbnails_ok": n_cases - len(state["thumbnail_missing"]), "thumbnail_missing": state["thumbnail_missing"],
+          "ready": not (state["pending_searches"] or state["pending_videos"] or state["pending_channels"] or state["top_missing"]),
+          "top_comments_missing": state["top_missing"],
           "complete": not pending,
           "next": ("완료" if not pending else "할당량이 초기화된 뒤(태평양 자정 = 한국 오후 4시·겨울 5시) 같은 명령을 다시 — 받은 것은 캐시, 남은 것만 새로")}
     (out / "status.json").write_text(json.dumps(st, ensure_ascii=False, indent=1), "utf-8")
-    log("STATUS", topic=topic, complete=st["complete"], quota_stop=state["quota_stop"] or "-", pending_searches=len(state["pending_searches"]),
+    log("STATUS", topic=topic, ready=st["ready"], complete=st["complete"], quota_stop=state["quota_stop"] or "-", pending_searches=len(state["pending_searches"]),
         pending_videos=state["pending_videos"], pending_comments=len(state["pending_comments"]),
         comments=f"{state['comments_total']}개·사례 {st['comments_complete']}/{n_cases} 끝", comment_units=state["comment_units"],
         transcripts=f"{st['transcripts_ok']}/{n_cases}", thumbnails=f"{st['thumbnails_ok']}/{n_cases}")
@@ -715,13 +744,27 @@ def run_topic(topic, a, api):
         name = f"{prefix}{k:02d}_{r['id']}"
         keep.add(name)
         d = case_folder(out, old_dir, name, r["id"])
-        meta, cms = deep_case(d, {**r, "rank": f"{prefix}{k}" if prefix else k, "set": "popular" if prefix else "success"},
+        meta, cms = deep_case(d, {**r, "rank": f"{prefix}{k}" if prefix else k, "set": "popular" if prefix else "success", "folder": name},
                               info_by_id[r["id"]], a, api, source, existing_comments, state)
         (pop_deep if prefix else deep).append((meta, info_by_id[r["id"]], cms))
         log("DEEP", topic=topic, set="popular" if prefix else "success", rank=meta["rank"], id=r["id"], subs=r["subs"], views=r["views"],
             ratio=r["ratio"], age=r["age_days"], minutes=r["minutes"],
             transcript=meta["transcript_status"] if meta["transcript_status"] != "ok" else meta["transcript_lang"],
-            comments=len(cms), comments_complete=meta["comments_complete"], quota_used=api.used if api else 0)
+            top_comments=len(cms), quota_used=api.used if api else 0)
+    # 댓글 2단계: 모든 사례의 인기 댓글을 받은 뒤 사례마다 전부 (성공 사례 먼저) — 남은 할당량으로, 못 받은 것은 다음 실행이 이어서
+    for lst in (deep, pop_deep):
+        for i, (meta, info, _) in enumerate(lst):
+            d = out / meta["folder"]
+            cms, cst = comments_step(d, meta, a, api, source, existing_comments, state, full=True)
+            n_rep = sum(1 for c in cms if c.get("parent"))
+            meta.update(comments_fetched=len(cms), comments_top_level=len(cms) - n_rep, comments_replies=n_rep,
+                        comments_by_creator=sum(1 for c in cms if c.get("creator")), comments_complete=cst["complete"],
+                        comments_disabled=cst.get("disabled", False))
+            (d / "metadata.json").write_text(json.dumps(meta, ensure_ascii=False, indent=1), "utf-8")
+            state["comments_total"] += len(cms)
+            lst[i] = (meta, info, cms)
+    log("DEEP", topic=topic, note="댓글 2단계(전부) 끝", comments=state["comments_total"], pending=len(state["pending_comments"]),
+        comment_units=state["comment_units"], quota_used=api.used if api else 0)
     for meta, info, cms in deep:      # 성공 사례이면서 조회수 상위인 영상 → 조회수 상위 목록에도 표시
         meta["popular_rank"] = next((f"P{k}" for k, r in enumerate(pop, 1) if r["id"] == meta["id"]), None)
     moved = 0

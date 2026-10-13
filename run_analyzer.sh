@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
 # ================================================================================================
 #  YouTube 분석 PC 실행기 (macOS / Linux)
-#  VERSION: v2.2 — 2026-10-13 — 여러 주제를 동시에: --folder economic --folder health (또는 --folder economic,health)
-#           (사용자 지시: "동시에 병렬로 다른 주제 분석도 가능하도록"). 주제마다 설정·검색어 파일을 받고, 주제별 키는 <주제>/.env
+#  VERSION: v2.3 — 2026-10-13 — 검색어를 태그로 바꾼 새 판을 PC 가 자동으로 받게 (사용자 지시: "그냥 검색어를 재테크 관련 태그로 찾아서
+#           다 그걸로 탐색해봐"): 설정·검색어 파일(<주제>/analyzer_config.toml·keywords.toml·tag_rules.toml)은 PC 에 있어도
+#           GitHub 쪽 파일 머리의 VERSION 이 더 높으면 예전 것을 .bak 으로 두고 새 판으로 바꿈 (같거나 낮으면, VERSION 이 없으면 그대로).
+#           코드 목록에 tools/tag_keywords.py (태그에서 검색어 고르기) 추가
+#  (v2.2 — 2026-10-13 — 여러 주제를 동시에: --folder economic --folder health (또는 --folder economic,health)
+#           (사용자 지시: "동시에 병렬로 다른 주제 분석도 가능하도록"). 주제마다 설정·검색어 파일을 받고, 주제별 키는 <주제>/.env)
 #  (v2.1 — 2026-10-13 — 비공개 저장소에서도 받기: .env(또는 환경 변수)의 GITHUB_TOKEN 이 있으면 GitHub API 로 코드·설정을 받음
 #           (사용자 지시: "비공개로 돌릴테니까 전부 다 업로드되게"). 토큰은 curl 설정(표준 입력)으로만 넘겨 명령줄·화면에 남기지 않음.
 #           .env 가 없으면 먼저 틀을 만듦)
@@ -25,8 +29,9 @@
 #    bash run_analyzer.sh --analyzer-only       # 예전처럼 분석기만 한 번
 #    bash run_analyzer.sh -- --dry-run          # '--' 뒤는 tools/pc_analysis.py 옵션 (--analyzer-only 면 분석기 옵션)
 #
-#  동작: ① 코드(youtube_topic_analyzer.py · tools/pc_analysis.py · tools/outlier_research.py · tools/outlier_stats.py)는 매번 최신으로
-#        ② <폴더>/analyzer_config.toml · <폴더>/keywords.toml 은 없을 때만 받음 (내가 고친 설정·검색어를 덮어쓰지 않음)
+#  동작: ① 코드(youtube_topic_analyzer.py · tools/pc_analysis.py · tools/outlier_research.py · tools/outlier_stats.py · tools/tag_keywords.py)는 매번 최신으로
+#        ② <폴더>/analyzer_config.toml · keywords.toml · tag_rules.toml 은 없을 때, 또는 GitHub 쪽 VERSION 이 더 높을 때만 받음
+#           (예전 것은 .bak — 같은 판이면 내가 고친 설정·검색어를 덮어쓰지 않음)
 #        ③ .venv 가상환경을 만들고(처음 한 번) 그 안의 Python으로 실행 — 필요한 패키지는 자동 설치
 set -uo pipefail
 REPO="yeomin1024/yeomin1024-ytb"; BRANCH="main"; FOLDERS=(); UPDATE_CONFIG=0; NO_VENV=0; ONCE=0; ANALYZER_ONLY=0; PRINT_CRON=0
@@ -48,10 +53,10 @@ while [ $# -gt 0 ]; do
 done
 cd "$(dirname "$0")" || exit 1
 BASE="${RAW_BASE:-https://raw.githubusercontent.com/$REPO/$BRANCH}"
-CODE_FILES=(youtube_topic_analyzer.py tools/pc_analysis.py tools/outlier_research.py tools/outlier_stats.py)
+CODE_FILES=(youtube_topic_analyzer.py tools/pc_analysis.py tools/outlier_research.py tools/outlier_stats.py tools/tag_keywords.py)
 [ ${#FOLDERS[@]} -eq 0 ] && FOLDERS=(economic)
 CONFIG_FILES=()
-for f in "${FOLDERS[@]}"; do CONFIG_FILES+=("$f/analyzer_config.toml" "$f/keywords.toml"); done
+for f in "${FOLDERS[@]}"; do CONFIG_FILES+=("$f/analyzer_config.toml" "$f/keywords.toml" "$f/tag_rules.toml"); done
 FOLDER_CSV="$(IFS=,; echo "${FOLDERS[*]}")"
 step() { echo "[RUNNER] [$(date '+%Y-%m-%dT%H:%M:%S')] $*"; }
 
@@ -109,8 +114,31 @@ for f in "${CODE_FILES[@]}"; do
   fi
 done
 
-# ② 설정·검색어 파일 (없을 때만, --update-config 면 백업 후 최신으로)
+file_version() {   # 파일 머리(처음 15줄)의 'VERSION: v2.0' → 2.0 (없으면 빈 값) — 설정 파일 새 판 알아보기 (v2.3)
+  [ -f "$1" ] || return 0
+  head -n 15 "$1" | grep -oE 'VERSION: *v[0-9]+(\.[0-9]+)*' | head -n 1 | sed -E 's/.*v//'
+}
+version_gt() {     # $1 > $2 ? (숫자 마디별로 비교, sort -V 없이)
+  awk -v a="$1" -v b="$2" 'BEGIN { n = split(a, x, "."); m = split(b, y, "."); k = (n > m ? n : m)
+    for (i = 1; i <= k; i++) { if ((x[i] + 0) > (y[i] + 0)) exit 0; if ((x[i] + 0) < (y[i] + 0)) exit 1 } exit 1 }'
+}
+
+# ② 설정·검색어 파일 (없을 때만, --update-config 면 백업 후 최신으로, GitHub 쪽 VERSION 이 더 높으면 백업 후 새 판으로 — v2.3)
 for c in "${CONFIG_FILES[@]}"; do
+  if [ "$UPDATE_CONFIG" != 1 ] && [ -f "$c" ]; then
+    if fetch "$c" "$c.remote"; then
+      lv="$(file_version "$c")"; rv="$(file_version "$c.remote")"
+      if [ -n "$lv" ] && [ -n "$rv" ] && version_gt "$rv" "$lv"; then
+        cp -f "$c" "$c.bak"; mv -f "$c.remote" "$c"
+        step "🔄 새 판으로 바꿈: $c (v$lv → v$rv). 예전 파일은 $c.bak — 내가 고친 내용이 있었다면 거기서 옮기세요"
+      else
+        rm -f "$c.remote"; step "있던 파일 그대로: $c (PC v${lv:-?} · GitHub v${rv:-?})"
+      fi
+    else
+      step "있던 파일을 그대로 씁니다: $c"
+    fi
+    continue
+  fi
   if [ "$UPDATE_CONFIG" = 1 ] && [ -f "$c" ]; then cp -f "$c" "$c.bak"; step "기존 파일 백업: $c.bak"; fi
   if [ "$UPDATE_CONFIG" = 1 ] || [ ! -f "$c" ]; then
     if ! fetch "$c" "$c"; then

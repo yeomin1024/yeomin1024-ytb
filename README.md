@@ -23,7 +23,8 @@ guides/                     ← 영상 제작 공통 지시사항 (모든 주제
 video/                      ← Remotion 프로젝트, 모든 주제가 같이 씀 — video/README.md (PC에 Node.js 필요)
 economic/                   ← 주제 폴더: 경제·재테크 — economic/README.md
   analyzer_config.toml      ← 분석 설정 (주제 이름·저장 폴더·할당량 등)
-  keywords.toml             ← 검색어 목록 (분석기·성공 사례 수집이 같이 씀) — 검색어는 여기만 고치면 됨
+  keywords.toml             ← 검색어 목록 (분석기·성공 사례 수집이 같이 씀) — 검색어 = 실제 영상 태그 40개 (tools/tag_keywords.py 가 씀)
+  tag_rules.toml · tag_candidates.md ← 태그 → 검색어 규칙(씨앗·빼는 말·묶음) · 고른 태그 표
   .env                      ← (PC에만, git 제외) 이 주제만 쓰는 키 — 비우면 맨 위 .env. 여러 주제를 동시에: run_analyzer.ps1 -Folder economic,health
   result/                   ← 분석 결과 (PC 실행이 GitHub에 올림) · result/outliers/ 성공 사례·조회수 상위 (댓글 전부 — 비공개 저장소면 사례 폴더까지)
   guides/                   ← (분석 뒤) 주제 전용 규칙 + data_insights.md(분석 결과 요약 = 지시사항 근거)
@@ -67,9 +68,9 @@ wget -O run_analyzer.sh https://raw.githubusercontent.com/yeomin1024/yeomin1024-
 bash run_analyzer.sh
 ```
 
-실행기(v2.0)가 하는 일:
-1. 코드(`youtube_topic_analyzer.py`·`tools/pc_analysis.py`·`tools/outlier_research.py`·`tools/outlier_stats.py`)를 매번 최신으로 받는다.
-2. `economic/analyzer_config.toml`·`economic/keywords.toml`은 **없을 때만** 받는다. 내가 고친 설정·검색어를 덮어쓰지 않는다.
+실행기(v2.3)가 하는 일:
+1. 코드(`youtube_topic_analyzer.py`·`tools/pc_analysis.py`·`tools/outlier_research.py`·`tools/outlier_stats.py`·`tools/tag_keywords.py`)를 매번 최신으로 받는다.
+2. `economic/analyzer_config.toml`·`keywords.toml`·`tag_rules.toml`은 **없을 때, 또는 GitHub 쪽이 새 판(파일 머리 `VERSION`이 더 높음)일 때만** 받는다 (예전 것은 `.bak`). 같은 판이면 내가 고친 설정·검색어를 덮어쓰지 않는다.
 3. `.venv` 가상환경을 만들고 `tools/pc_analysis.py economic`을 실행한다. 필요한 패키지는 자동 설치한다.
 
 | 하고 싶은 것 | Windows | macOS / Linux |
@@ -110,7 +111,7 @@ bash run_analyzer.sh
 | `analyzer_config.toml` `[keywords]` | 키워드 모드, 검색어 파일 이름(`KEYWORDS_FILE = "keywords.toml"`) |
 | `analyzer_config.toml` `[ads]` | 광고로 조회수를 산 것으로 의심되는 영상 제외 기준 |
 | `analyzer_config.toml` `[advanced]` | (선택) 분석 기간·쿼터 예산·성공 기준 등 — `#`을 지우고 고치면 적용 |
-| **`keywords.toml`** | **그룹별 검색어** `[KEYWORD_GROUPS]`(10개 그룹·50개) · `EXTRA_KEYWORDS` · `EXCLUDE_KEYWORDS` · `[relevance]` 주제 관련어(무관한 영상 제외) — 분석기와 `tools/outlier_research.py`가 같이 씀 |
+| **`keywords.toml`** | **묶음별 검색어** `[KEYWORD_GROUPS]`(v2.0: 실제 영상 태그 40개·8묶음 — `python tools/tag_keywords.py economic --write-keywords`가 씀, 규칙 `tag_rules.toml`, 표 `tag_candidates.md`) · `EXTRA_KEYWORDS` · `EXCLUDE_KEYWORDS` · `[relevance]` 주제 관련어(무관한 영상 제외) — 분석기와 `tools/outlier_research.py`가 같이 씀 |
 
 - 우선순위: 코드 기본값 < 설정 파일 < 검색어 파일(목록만) < 명령줄 옵션
 - 오타·형식 오류는 실행 전에 알려 줍니다. 예: `QUOTA_BUDGTE(→ QUOTA_BUDGET?)`, "QUOTA_BUDGET: 숫자여야 함"
@@ -138,7 +139,7 @@ python youtube_topic_analyzer.py --help                                    # 전
 | `success_cases/NN_.../` | 성공사례별 `transcript.txt`(대본), `thumbnail.jpg`, `metadata.json`, `comments.csv` (영상 파일은 PC에만) |
 | `run_info.json`, `run_log.txt` | 설정·쿼터·소요시간·데이터 기간 등 재현 정보와 전체 로그 |
 
-| `outliers/` | 작은 채널 성공 사례 + 구독자 무관 조회수 상위 (`tools/outlier_research.py` v1.6, 태그 검색어 포함): **`downloads.md` 받은 자료 표** · `summary.md`·`outliers.csv`·`popular.csv`·`candidates.csv`·`status.json` + 사례 폴더 `01_…`·`P01_…`(자막·**댓글 전부**·썸네일 — **저장소가 비공개일 때만** GitHub에, 공개면 PC에만) |
+| `outliers/` | 작은 채널 성공 사례 + 구독자 무관 조회수 상위 (`tools/outlier_research.py` v1.7, 검색어 전부 + 잘된 영상 태그): **`downloads.md` 받은 자료 표**(업로드 날짜 포함) · `summary.md`·`outliers.csv`·`popular.csv`·`candidates.csv`·`status.json` + 사례 폴더 `01_…`·`P01_…`(자막·**댓글 전부**·썸네일 — **저장소가 비공개일 때만** GitHub에, 공개면 PC에만) |
 | `pc_progress.json` | PC 실행 진행 상태 (`tools/pc_analysis.py`): 회차·끝났는지·남은 일·다음 회차 시각 |
 
 분석 결과를 지시사항에 쓸 수 있게 요약한 파일은 `<주제폴더>/guides/data_insights.md`입니다 (경제·재테크는 분석 뒤 만듦).

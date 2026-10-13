@@ -1,5 +1,33 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-13 (7) — 검색어를 실제 영상 태그로 · 검색어 전부 탐색 · 받은 자료 표에 업로드 날짜
+
+### 왜 (사용자 지시)
+- "야 그냥 검색어를 재테크 관련 태그로 찾아서 다 그걸로 탐색해봐 그리고 탐색 목록에 업로드 날짜도 같이 표시해"
+
+### 고친 것
+| 파일 (버전) | 함수·항목 | 내용 |
+|---|---|---|
+| `tools/tag_keywords.py` v1.0 (새로) | `load_rules`, `cached_infos`, `tag_stats`, `theme_of`, `choose`, `write_table`, `rewrite_keyword_groups` | 씨앗 검색(`tag_rules.toml` TAG_SEEDS, 성공 사례와 같은 캐시) → 받은 영상 중 **주제 관련 영상의 태그**(띄어쓰기·대소문자만 다른 태그는 하나로) → 빼는 말 제외(예외 TAG_KEEP) → **채널 5곳 이상이 쓴 태그를 채널 수 순으로 40개** → 묶음(맞는 글자가 가장 긴 묶음, 번호 1부터) → `<주제>/tag_candidates.md`·`.csv` 표 + `--write-keywords` 면 `keywords.toml` 의 `[KEYWORD_GROUPS]` 표만 다시 씀 (머리 줄만 찾음 — 주석 속 글자는 무시, 다시 쓴 뒤 다른 설정이 그대로인지 검사) |
+| `economic/tag_rules.toml` v1.0 (새로) | TAG_SEEDS·MIN_CHANNELS·MAX_TAGS·TAG_EXCLUDE·TAG_KEEP·TAG_THEMES | 씨앗 재테크·재테크 방법·재테크 초보·돈 모으는 방법 / 빼는 말: 경제·뉴스·금리·환율·경기·물가·인플레이션·자기계발·직장인·종목 이름·정치·쇼츠·브이로그 (예외: 경제적자유·직장인 재테크) / 묶음 10개 |
+| `economic/keywords.toml` v2.0 | `[KEYWORD_GROUPS]` | 사람이 만든 50개 → **태그 40개 8묶음** (재테크·주식·투자·노후준비·주식투자·미국주식·부동산·ETF·장기투자·자산관리·ETF투자·ISA·내집마련·S&P500·코스피·은퇴준비·연금저축·IRP·연금·부자되는법·경제적자유·부동산투자·자산배분·주식초보·투자전략·연금저축펀드·나스닥·부자·돈모으기·노후·노후자금·저축·포트폴리오·돈공부·1억모으기·분산투자·주식공부·ISA계좌·비트코인·돈버는법). 관련어는 그대로 |
+| `tools/outlier_research.py` v1.7 | `load_keywords`, `--per-group` | **0(기본) = 검색어 전부**, 묶음이 달라도 같은 검색어는 한 번 |
+| 〃 | `_upload_cell`, `write_downloads`, `write_summary` | `downloads.md` 영상 표·분석기 성공사례 표, `summary.md` 표에 **업로드 날짜 (N일 전)** 칸, `downloads.csv` 에 `published` |
+| 〃 | `pick_tag_keywords` | 고정해 둔 잘된 영상 태그(`tag_keywords.json`) 중 검색어 목록에 들어간 것은 빼고 씀 (같은 검색 두 번 안 함) |
+| `tools/pc_analysis.py` v1.5 | `outlier_need`, `--per-group` | 기본 0(검색어 전부), 자동 할당량도 검색어 전부로 계산 (재테크 9,290) |
+| 〃 | ⚠️ `ANALYZER_MIN_UNITS` | 분석기 최소 할당량 300 → **1,000** (비용 관련 설정 변경 — 검색어 40개면 첫날 성공 사례가 하루 몫을 거의 다 써 분석기에 수백 단위만 남는데, 그걸로 돌리면 검색 0~1개짜리 빈 결과만 만들고 오래 걸림 → 다음 회차로) |
+| `run_analyzer.ps1` · `run_analyzer.sh` v2.3 | `Get-FileVersion` / `file_version`·`version_gt`, 설정 파일 받기 | PC 에 있는 설정·검색어 파일도 **GitHub 쪽 파일 머리 VERSION 이 더 높으면** 예전 것을 `.bak` 으로 두고 새 판으로 (같거나 낮거나 VERSION 이 없으면 그대로). `tools/tag_keywords.py`·`<주제>/tag_rules.toml` 도 받음 |
+| 문서 | `guides/pc_analysis.md` v1.6 · `guides/pipeline.md` v1.15 · `guides/README.md` v1.15 · `CLAUDE.md` · `README.md` · `economic/README.md` | 검색어 = 태그, 할당량·기간(약 이틀), 업로드 날짜, 새 판 자동 받기 |
+
+### 결과 (로그·검사)
+- 실제 실행 (클라우드 키, 씨앗 검색 8번 = 807단위): `[SEED] searches_new=8 quota_used=807` → `[TAGS] videos=770 relevant=726 distinct_tags=5137 picked=40` → `[WRITE] groups=8 keywords=40` (표 `economic/tag_candidates.md`)
+- 분석기가 새 `keywords.toml` 을 읽음: `[CONFIG] 검색어 파일 적용: economic/keywords.toml (그룹 8개·검색어 40개)` / `pc_analysis.py --dry-run`: `outlier_research.py economic --per-group 0 … --quota 9290`
+- 시험 중 찾아 고친 버그: `keywords.toml` 머리 주석에 `[KEYWORD_GROUPS]` 글자가 있으면 그 자리부터 다시 써서 표가 두 벌이 됨(TOML 은 읽혀서 형식 검사로는 안 잡힘) → 표 머리 줄만 찾고, 다시 쓴 뒤 다른 설정이 그대로인지 비교
+- `tag_keywords` 오프라인 시험 10개 통과 (캐시 파일 거르기, 주제 밖 태그 제외·표기 합치기, 빼는 말·예외, 채널 수 미만, 가장 긴 글자 묶음, 주석 속 글자 무시·다른 설정 그대로, 번호, 두 번 써도 같음, 분석기가 읽음)
+- 성공 사례 오프라인 시험 20개 통과 (새: 업로드 날짜 칸·csv·summary, `--per-group 0` 전부·같은 검색어 한 번), 키 시험 5개·음성인식 대기열 시험 7개 통과, `pc_analysis.py --self-test` ALL PASS (새: 검색어 전부 할당량)
+- 실행기: `run_analyzer.sh` 를 로컬 서버로 시험 — `🔄 새 판으로 바꿈: economic/keywords.toml (v1.1 → v2.0)` + `.bak`, 같은 판(analyzer_config v1.1)·VERSION 없는 파일은 그대로. `run_analyzer.ps1` 은 이 환경에 PowerShell 이 없어 실행 시험 못 함 (같은 규칙으로 작성)
+- 할당량: 검색어 1개 = 성공 사례 검색 2번 + 분석기 1번 = 300단위 → 40개 ≈ 12,000 + 잘된 영상 태그 1,000 → **약 이틀** (자동으로 이어서)
+
 ## 2026-10-13 (6) — 결과 먼저·음성인식은 하나씩 올림 · 영상 파일 안 받음 · 태그 검색어 · 재테크만 · 받은 자료 표
 
 ### 왜 (사용자 지시)

@@ -1,6 +1,6 @@
 # 공통 지시사항 — 모든 주제에 쓰는 영상 제작 규칙
 
-버전: v1.14 — 2026-10-13 — 실행 명령을 `-File run_analyzer.ps1`(`.\` 없이 — Git Bash 오류) (v1.13 — 2026-10-13 — 사용자 지시: 여러 주제를 동시에 분석 (주제마다 `keywords.toml`·`.env`, `pc_analysis.md` v1.2) (v1.12 — 2026-10-13 — 사용자 지시: 성공 사례·조회수 상위(구독자 무관)의 댓글 전부, 저장소가 비공개면 사례 폴더까지 전부 올림 (`pc_analysis.md` v1.1) (v1.11 — 2026-10-13 — 사용자 지시: 주제 폴더를 모두 지우고 `economic/`(경제·재테크) 하나로, 검색어는 `<주제폴더>/keywords.toml`로 따로, 분석은 집 PC에서(`pc_analysis.md` — 할당량 초기화 뒤 남은 부분부터 자동으로 이어서) (v1.10 — 2026-10-12 — 사용자 지시: 올린 영상 줄이기(스튜디오 컷, `upload_guide.md` 10번·`tools/studio_trim.py`) (v1.9 — 2026-10-12 — 사용자 지시: 성공 사례 분석은 최근·작은 채널·배수 기준과 댓글의 시청자 니즈로, 주제마다 자기 자료만 (v1.8: 사연 20~30초로 짧지만 강렬하게, 내레이션 목소리는 샘플을 듣고 골라 고정; v1.7: 업로드 설정 '변경되거나 합성된 콘텐츠' = 예; v1.6: 썸네일 3개 모두 아래쪽 제목 문구 2줄·thumbnail_3은 검은 배경에 채택 제목 문구 그대로(노랑·빨강 강조), 렌더 뒤 음량 -14 LUFS (v1.5: 진행자는 중저음 남성, 모든 대본에서 같은 목소리 (v1.4: 오디오는 고르지 않고 하나로, 결과 파일은 대본 폴더마다 GitHub에 자동으로 (v1.3: 스토리보드·승인 단계 삭제(오디오가 생기면 바로 영상), 내레이션은 사연자·진행자 목소리 설정 파일(`voices/`)로 대본 전부 한 번에, 사례는 되도록 최신 (v1.2: 내레이션은 Kaggle에서 오픈소스 음성 AI로, v1.1: 전체 진행 순서를 `pipeline.md`로 (분석 → 지시사항·주제 → 제목·썸네일 프롬프트·업로드 시트·대본·스토리보드 → 요약 문서 → 오디오가 생기면 렌더·비공개 업로드))))))
+버전: v1.15 — 2026-10-13 — 사용자 지시: 검색어는 실제 영상 태그에서 고름(`tools/tag_keywords.py`·`<주제>/tag_rules.toml`), 새 주제 시작하기 1번 (v1.14 — 2026-10-13 — 실행 명령을 `-File run_analyzer.ps1`(`.\` 없이 — Git Bash 오류) (v1.13 — 2026-10-13 — 사용자 지시: 여러 주제를 동시에 분석 (주제마다 `keywords.toml`·`.env`, `pc_analysis.md` v1.2) (v1.12 — 2026-10-13 — 사용자 지시: 성공 사례·조회수 상위(구독자 무관)의 댓글 전부, 저장소가 비공개면 사례 폴더까지 전부 올림 (`pc_analysis.md` v1.1) (v1.11 — 2026-10-13 — 사용자 지시: 주제 폴더를 모두 지우고 `economic/`(경제·재테크) 하나로, 검색어는 `<주제폴더>/keywords.toml`로 따로, 분석은 집 PC에서(`pc_analysis.md` — 할당량 초기화 뒤 남은 부분부터 자동으로 이어서) (v1.10 — 2026-10-12 — 사용자 지시: 올린 영상 줄이기(스튜디오 컷, `upload_guide.md` 10번·`tools/studio_trim.py`) (v1.9 — 2026-10-12 — 사용자 지시: 성공 사례 분석은 최근·작은 채널·배수 기준과 댓글의 시청자 니즈로, 주제마다 자기 자료만 (v1.8: 사연 20~30초로 짧지만 강렬하게, 내레이션 목소리는 샘플을 듣고 골라 고정; v1.7: 업로드 설정 '변경되거나 합성된 콘텐츠' = 예; v1.6: 썸네일 3개 모두 아래쪽 제목 문구 2줄·thumbnail_3은 검은 배경에 채택 제목 문구 그대로(노랑·빨강 강조), 렌더 뒤 음량 -14 LUFS (v1.5: 진행자는 중저음 남성, 모든 대본에서 같은 목소리 (v1.4: 오디오는 고르지 않고 하나로, 결과 파일은 대본 폴더마다 GitHub에 자동으로 (v1.3: 스토리보드·승인 단계 삭제(오디오가 생기면 바로 영상), 내레이션은 사연자·진행자 목소리 설정 파일(`voices/`)로 대본 전부 한 번에, 사례는 되도록 최신 (v1.2: 내레이션은 Kaggle에서 오픈소스 음성 AI로, v1.1: 전체 진행 순서를 `pipeline.md`로 (분석 → 지시사항·주제 → 제목·썸네일 프롬프트·업로드 시트·대본·스토리보드 → 요약 문서 → 오디오가 생기면 렌더·비공개 업로드)))))))
 
 이 폴더(`guides/`)는 **주제와 상관없이** 쓰는 지시사항이다. 주제마다 다른 내용(시청자, 금액 기준, 고지 문구, 근거 자료, 피드백 사례)은 각 주제 폴더의 `guides/`에 있다.
 **주제 규칙이 공통 규칙과 다르면 주제 규칙을 따른다.**
@@ -44,7 +44,7 @@ Claude Code에 시킬 때 예시는 `pipeline.md` 마지막 표에 있다.
 
 1. 분석 설정 파일을 만든다: `python youtube_topic_analyzer.py --topic 부동산 --folder realestate --init-config`
    - 결과: `realestate/analyzer_config.toml` + 검색어 파일 `realestate/keywords.toml` (분석기 v2.4.0)
-   - `keywords.toml`의 `[KEYWORD_GROUPS]`(그룹별 검색어 — 성공 사례 수집은 그룹마다 앞에서부터 씀)·`RELEVANCE_TERMS`를 채운다. 예: `economic/keywords.toml`
+   - `keywords.toml`의 `RELEVANCE_TERMS`(주제 관련어)를 채우고, `<폴더>/tag_rules.toml`(씨앗 검색어·빼는 말·묶음 — 예: `economic/tag_rules.toml`)을 만든 뒤 `python tools/tag_keywords.py <폴더> --write-keywords`로 `[KEYWORD_GROUPS]`를 **실제 영상 태그**로 채운다 (사용자 지시 2026-10-13). 예: `economic/keywords.toml`
 2. 분석을 실행한다 (집 PC): `powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Folder realestate` — 다른 주제와 동시에: `-Folder economic,realestate` → `pc_analysis.md` "여러 주제를 동시에" (같은 키는 하루 할당량을 나눠 씀)
    - 결과: `realestate/result/`, `realestate/result/outliers/` (클라우드에서는 `bash tools/run_analysis.sh realestate` — 자막·썸네일 없음)
 3. 분석 결과로 주제 규칙을 만든다 (형식은 옛 주식 폴더 `git show 2a68307:stock/guides/<파일>`을 본뜸).
@@ -57,6 +57,7 @@ Claude Code에 시킬 때 예시는 `pipeline.md` 마지막 표에 있다.
 
 | 버전 | 날짜 | 변경 내용 |
 |---|---|---|
+| v1.15 | 2026-10-13 | 사용자 지시 "그냥 검색어를 재테크 관련 태그로 찾아서 다 그걸로 탐색해봐": 새 주제 시작하기 1번 — 검색어는 `tag_keywords.py`로 태그에서 (`pc_analysis.md` v1.6, `pipeline.md` v1.15) |
 | v1.14 | 2026-10-13 | 사용자 PC 오류("-File 매개 변수에 대한 인수 '.run_analyzer.ps1'이(가) 없습니다"): 새 주제 시작하기 2번 명령을 `-File run_analyzer.ps1`로 (`pc_analysis.md` v1.3) |
 | v1.13 | 2026-10-13 | 사용자 지시 "동시에 병렬로 다른 주제 분석도 가능하도록 … 검색어 설정 파일, 키설정 파일도 여러개": 새 주제 시작하기 2번(동시에), `pc_analysis.md` v1.2 |
 | v1.12 | 2026-10-13 | 사용자 지시 "비공개로 돌릴테니까 전부 다 업로드되게 하고 댓글은 전부 …": `pc_analysis.md` v1.1, `pipeline.md` v1.12, `tts_guide.md` v1.8(비공개 저장소에서 Kaggle 셀) |

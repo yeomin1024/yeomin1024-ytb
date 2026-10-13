@@ -1,12 +1,18 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.6 — 2026-10-13 — 태그 검색어·받은 자료 표·오프라인 다시 만들기 (사용자 지시: "태그도 검색어에 포함하도록 해서 탐색하고 …
+# VERSION: v1.7 — 2026-10-13 — 검색어 전부·업로드 날짜 (사용자 지시: "그냥 검색어를 재테크 관련 태그로 찾아서 다 그걸로 탐색해봐
+#          그리고 탐색 목록에 업로드 날짜도 같이 표시해"):
+#          ① --per-group 0(기본) = 검색어 그룹의 검색어 전부 (keywords.toml 은 tools/tag_keywords.py 가 실제 영상 태그로 채움).
+#             그룹이 달라도 같은 검색어(띄어쓰기·대소문자만 다름)는 한 번만 검색
+#          ② downloads.md·downloads.csv·summary.md 표에 업로드 날짜(YYYY-MM-DD, 며칠 전) 칸
+#          ③ 잘된 영상 태그 검색어(tag_keywords.json)는 검색어 목록에 이미 있는 것을 빼고 씀 (같은 검색 두 번 안 함)
+# (v1.6 — 2026-10-13 — 태그 검색어·받은 자료 표·오프라인 다시 만들기 (사용자 지시: "태그도 검색어에 포함하도록 해서 탐색하고 …
 #          탐색 목록에서 어떤 영상을 자료로 받았는지, 자막, 댓글 등 다운 성공한게 뭔지 표로 정리해서 깃허브에서 바로 확인 가능한 확장자로"):
 #          ① 태그 검색어 (--tag-keywords 5): 잘된 영상(배수 ≥ --min-ratio 또는 조회수 상위 50, 주제 관련)의 태그 중 검색어에 없고
 #             채널 2곳 이상이 쓴 것을 골라 검색 (tag_keywords.json 에 고정 — 매번 바뀌지 않게, 검색 1번 100단위)
 #          ② downloads.md (GitHub 에서 바로 보이는 표) + downloads.csv: 탐색한 검색어(키워드·태그)별 결과, 자료로 받은 영상마다
 #             자막(자막/음성인식/대기/막힘)·댓글(받은 수/영상 표시 수)·썸네일·설명·태그, 분석기 성공사례도 함께
-#          ③ --offline: API·자막·썸네일 요청 없이 캐시·받은 파일로 요약·표·상태만 다시 (음성인식이 하나 끝날 때마다 분석기가 부름)
+#          ③ --offline: API·자막·썸네일 요청 없이 캐시·받은 파일로 요약·표·상태만 다시 (음성인식이 하나 끝날 때마다 분석기가 부름))
 # (v1.5 — 2026-10-13 — 댓글 2단계 (사용자 지시: "너무 오래 걸리는데 댓글 전체 받아서 그런거야? … 좋은 해결 방법 생각해봐"):
 #          ① 1단계: 모든 사례의 인기 댓글 100개(관련성 순 1쪽 = 영상마다 1단위)를 먼저 → 할당량이 모자라도 분석은 바로 시작 (status.json ready)
 #          ② 2단계: 그다음 사례마다 댓글 전부(시간순 + 답글) — 남은 할당량으로, 못 받은 것은 다음 실행이 이어서 (같은 댓글은 id 로 하나로)
@@ -37,7 +43,7 @@ r"""
 사용법 (저장소 최상위, 또는 PC 실행 폴더):
   python tools/outlier_research.py economic                     # 주제 하나
   python tools/outlier_research.py economic --per-group 2 --top 20
-  옵션: --per-group 1   검색어 그룹마다 검색할 검색어 수 (<주제>/keywords.toml 의 KEYWORD_GROUPS 앞에서부터)
+  옵션: --per-group 0   검색어 그룹마다 검색할 검색어 수 (0 = 전부, 기본. <주제>/keywords.toml 의 KEYWORD_GROUPS 앞에서부터)
         --days 180      최근 며칠 안에 올라온 영상 (모자라면 --fallback-days 365 까지 넓힘)
         --max-subs 50000 --min-ratio 3 --min-views 10000 --min-sec 240   성공 사례 기준
         --top 15        자막·댓글을 모을 성공 사례 수 (채널당 최대 --per-channel 2)
@@ -52,7 +58,7 @@ r"""
 수집 방법:
   YouTube Data API v3 — 키: <주제폴더>/.env → 환경 변수 YOUTUBE_API_KEY_<폴더> → YOUTUBE_API_KEY → 맨 위 .env (분석기와 같은 파일):
     검색 search.list (최근 --fallback-days 일·조회수 순·4~20분·20분 넘음, KR·ko) — 100단위/번 · 영상 videos.list · 채널 channels.list
-    · 댓글 commentThreads.list(최상위 100개) · comments.list(답글 100개) — 1단위/번. 검색 횟수 = 검색어 그룹 × --per-group × 2(길이 둘).
+    · 댓글 commentThreads.list(최상위 100개) · comments.list(답글 100개) — 1단위/번. 검색 횟수 = 검색어 수(--per-group 0 이면 전부) × 2(길이 둘).
     댓글 전부의 할당량: 영상마다 약 (최상위 댓글 수 ÷ 100) + (답글이 5개 넘는 댓글 수) 단위. 하루에 다 못 받으면 다음 실행이 이어서.
   할당량이 끝나면(이번 실행 한도 또는 하루 10,000): 새 요청을 멈추고 캐시에 있는 것만으로 결과를 만든다.
     못 한 검색·영상 정보·댓글은 status.json 의 pending 에 남는다 → 할당량이 초기화된 뒤 같은 명령을 다시 돌리면 그 부분만 새로 받는다.
@@ -100,7 +106,7 @@ except ModuleNotFoundError:             # Python 3.10 → tomli (분석기가 �
     import tomli as tomllib
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v1.6"
+VERSION = "v1.7"
 LOG = logging.getLogger("outlier")
 HANGUL = re.compile(r"[가-힣]")
 SEARCH_TTL_HOURS = 168
@@ -137,7 +143,13 @@ def load_keywords(topic, per_group):
     kw_p = Path(kw_name) if Path(kw_name).is_absolute() else cfg_p.parent / kw_name
     src = _flat(tomllib.loads(kw_p.read_text("utf-8"))) if kw_p.is_file() else cfg
     groups = src.get("KEYWORD_GROUPS") or cfg.get("KEYWORD_GROUPS") or {}
-    kws = [(g, k) for g, ks in groups.items() for k in ks[:per_group]]
+    kws, seen = [], set()
+    for g, ks in groups.items():
+        for k in (ks if per_group <= 0 else ks[:per_group]):          # 0 이하 = 그룹의 검색어 전부 (v1.7)
+            k = str(k).strip()
+            if k and re.sub(r"\s+", "", k).lower() not in seen:          # 그룹이 달라도 같은 검색어는 한 번만
+                seen.add(re.sub(r"\s+", "", k).lower())
+                kws.append((g, k))
     exclude = [w for w in (src.get("EXCLUDE_KEYWORDS") or cfg.get("EXCLUDE_KEYWORDS") or []) if w]
     rel = {"strong": [t for t in (src.get("RELEVANCE_TERMS") or cfg.get("RELEVANCE_TERMS") or []) if str(t).strip()],
            "weak": [t for t in (src.get("RELEVANCE_WEAK_TERMS") or cfg.get("RELEVANCE_WEAK_TERMS") or []) if str(t).strip()],
@@ -721,10 +733,11 @@ def pick_tag_keywords(rows, info_by_id, kws, rel, n, out, min_ratio):
         saved = json.loads(p.read_text("utf-8"))
     except (OSError, ValueError):
         saved = {}
-    chosen = list(saved.get("chosen") or [])
+    kw_norm = {_norm(k) for _, k in kws}
+    chosen = [t for t in (saved.get("chosen") or []) if _norm(t) not in kw_norm]     # 검색어 목록에 들어간 태그는 빼고 (v1.7)
     if len(chosen) >= n:
         return chosen[:n]
-    have = {_norm(k) for _, k in kws} | {_norm(t) for t in chosen}
+    have = kw_norm | {_norm(t) for t in chosen}
     rel_rows = [r for r in rows if relevant(info_by_id[r["id"]], rel)]
     good = {r["id"] for r in rel_rows if (r["ratio"] or 0) >= min_ratio}
     good |= {r["id"] for r in sorted(rel_rows, key=lambda r: -r["views"])[:50]}
@@ -891,6 +904,16 @@ def _transcript_cell(meta, whisper):
     return "⏳ 음성인식 대기" + (f" (시도 {w['attempts']}번)" if w.get("attempts") else "") + f" — {short(st, 20) or '자막 없음'}"
 
 
+def _upload_cell(published, now=None):
+    """업로드 날짜 칸: 'YYYY-MM-DD (N일 전)' (v1.7 — 사용자 지시 "탐색 목록에 업로드 날짜도 같이 표시해"). 모르면 '–'."""
+    p = str(published or "")[:10]
+    try:
+        d = datetime.strptime(p, "%Y-%m-%d").replace(tzinfo=timezone.utc)
+    except ValueError:
+        return "–"
+    return f"{p} ({max(((now or datetime.now(timezone.utc)) - d).days, 0)}일 전)"
+
+
 def _comment_cell(meta):
     got, rep_ = meta.get("comments_fetched") or 0, meta.get("comments_reported")
     total = f"{got:,}/{rep_:,}" if isinstance(rep_, int) else f"{got:,}"
@@ -911,6 +934,7 @@ def write_downloads(out, topic, name, a, rows, q, deep, pop_deep, state):
             d = out / str(meta.get("folder") or "")
             cases.append({"set": set_name, "rank": meta.get("rank"), "id": meta.get("id"), "title": meta.get("title"),
                           "channel": meta.get("channel"), "subs": meta.get("subs"), "views": meta.get("views"), "ratio": meta.get("ratio"),
+                          "published": str(meta.get("published") or "")[:10], "upload": _upload_cell(meta.get("published")),
                           "transcript": _transcript_cell(meta, whisper), "comments": _comment_cell(meta),
                           "thumbnail": "✅" if (d / "thumbnail.jpg").is_file() else "❌",
                           "description": "✅" if (info.get("description") or "").strip() else "–",
@@ -927,6 +951,7 @@ def write_downloads(out, topic, name, a, rows, q, deep, pop_deep, state):
             ds = m.get("download_status") or {}
             t = str(ds.get("transcript") or "-")
             an.append({"title": m.get("title"), "url": m.get("video_url"), "views": m.get("views"), "subs": m.get("subscribers"),
+                       "upload": _upload_cell(m.get("published_at")),
                        "transcript": {"whisper_pending": "⏳ 음성인식 대기", "failed": "❌ 실패", "whisper": "✅ 음성인식"}.get(
                            t, f"✅ 자막({t})" if t != "-" else "–"),
                        "comments": f"✅ {ds['comments']} (분석기 표본)" if ds.get("comments") else "–",
@@ -943,7 +968,7 @@ def write_downloads(out, topic, name, a, rows, q, deep, pop_deep, state):
          "사례 폴더의 자막·댓글 전부·썸네일은 저장소가 비공개일 때만 GitHub 에 함께 올라갑니다. 진행 상태: `status.json`.", "",
          "## 한눈에", "",
          "| 항목 | 수 |", "|---|---|",
-         f"| 탐색한 검색어 | {len({x['q'] for x in sl})}개 (키워드 {len({x['q'] for x in sl if x['source'] != '태그'})} · 태그 {len({x['q'] for x in sl if x['source'] == '태그'})}) — 검색 {len(sl)}번 (새로 {sum(1 for x in sl if x['status'] == '새로')} · 캐시 {sum(1 for x in sl if x['status'] == '캐시')} · 남음 {sum(1 for x in sl if x['status'] == '남음')}) |",
+         f"| 탐색한 검색어 | {len({x['q'] for x in sl})}개 (검색어 목록 `keywords.toml` {len({x['q'] for x in sl if x['source'] != '태그'})} · 잘된 영상 태그 {len({x['q'] for x in sl if x['source'] == '태그'})}) — 검색 {len(sl)}번 (새로 {sum(1 for x in sl if x['status'] == '새로')} · 캐시 {sum(1 for x in sl if x['status'] == '캐시')} · 남음 {sum(1 for x in sl if x['status'] == '남음')}) |",
          f"| 찾은 후보 영상 (롱폼) | {len(rows):,} |",
          f"| 성공 사례 기준 통과 | {len(q):,} |",
          f"| 자료로 받은 영상 | {len(cases)} (성공 사례 {len(deep)} · 조회수 상위 {len(pop_deep)}) + 분석기 성공사례 {len(an)} |",
@@ -952,28 +977,29 @@ def write_downloads(out, topic, name, a, rows, q, deep, pop_deep, state):
          f"| 썸네일 | {sum(1 for c in cases if c['thumbnail'] == '✅')} / {len(cases)} |", "",
          "표시: ✅ 받음 · ⏳ 진행 중(다음 실행·음성인식 대기열이 이어서) · 🔁 YouTube 가 잠시 막음(다음 회차에 다시) · ❌ 실패 · – 해당 없음", "",
          "## 자료로 받은 영상", "",
-         "| 묶음 | # | 제목 | 채널 | 구독자 | 조회수 | 자막 | 댓글 (받음/영상 표시) | 썸네일 | 설명 | 태그 | 챕터 | 폴더 |",
-         "|---|---|---|---|---|---|---|---|---|---|---|---|---|"]
+         "| 묶음 | # | 제목 | 채널 | 구독자 | 조회수 | 업로드 | 자막 | 댓글 (받음/영상 표시) | 썸네일 | 설명 | 태그 | 챕터 | 폴더 |",
+         "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|"]
     for c in cases:
         L.append(f"| {c['set']} | {c['rank']} | [{short(c['title'], 50)}]({c['url']}) | {short(c['channel'], 16)} | {num(c['subs'])} | "
-                 f"{num(c['views'])} | {c['transcript']} | {c['comments']} | {c['thumbnail']} | {c['description']} | {c['tags']} | "
+                 f"{num(c['views'])} | {c['upload']} | {c['transcript']} | {c['comments']} | {c['thumbnail']} | {c['description']} | {c['tags']} | "
                  f"{c['chapters']} | `{c['folder']}` |")
     if an:
         L += ["", "## 분석기 성공사례 (`output/…/success_cases` — 영상 파일은 받지 않음)", "",
-              "| 제목 | 구독자 | 조회수 | 자막 | 댓글 | 썸네일 | 영상 | 폴더 |", "|---|---|---|---|---|---|---|---|"]
+              "| 제목 | 구독자 | 조회수 | 업로드 | 자막 | 댓글 | 썸네일 | 영상 | 폴더 |", "|---|---|---|---|---|---|---|---|---|"]
         for c in an:
-            L.append(f"| [{short(c['title'], 50)}]({c['url']}) | {num(c['subs'])} | {num(c['views'])} | {c['transcript']} | {c['comments']} | "
+            L.append(f"| [{short(c['title'], 50)}]({c['url']}) | {num(c['subs'])} | {num(c['views'])} | {c['upload']} | {c['transcript']} | {c['comments']} | "
                      f"{c['thumbnail']} | {c['video']} | `{c['folder']}` |")
-    L += ["", "## 탐색한 검색어", "", "| 검색어 | 출처 | 길이 | 결과 | 상태 |", "|---|---|---|---|---|"]
+    L += ["", "## 탐색한 검색어", "", "검색어 목록은 실제 영상 태그에서 고른 것 (`tools/tag_keywords.py` → `keywords.toml`, 고른 표: `tag_candidates.md`). "
+          "출처 = keywords.toml 의 묶음 이름", "", "| 검색어 | 출처 | 길이 | 결과 | 상태 |", "|---|---|---|---|---|"]
     for x in sl:
-        L.append(f"| {x['q']} | {x['source']} | {'4~20분' if x['dur'] == 'medium' else '20분 넘음'} | "
+        L.append(f"| {x['q']} | {'잘된 영상 태그 (tag_keywords.json)' if x['source'] == '태그' else x['source']} | {'4~20분' if x['dur'] == 'medium' else '20분 넘음'} | "
                  f"{x['results'] if x['results'] is not None else '–'} | {x['status']} |")
     if state.get("tag_keywords"):
         L += ["", f"태그 검색어 고른 규칙·횟수: `tag_keywords.json` — {', '.join(state['tag_keywords'])}"]
     (out / "downloads.md").write_text("\n".join(L) + "\n", "utf-8")
     with open(out / "downloads.csv", "w", newline="", encoding="utf-8-sig") as f:
-        w = csv.DictWriter(f, fieldnames=["set", "rank", "id", "title", "channel", "subs", "views", "ratio", "transcript", "comments",
-                                          "thumbnail", "description", "tags", "chapters", "folder", "url"])
+        w = csv.DictWriter(f, fieldnames=["set", "rank", "id", "title", "channel", "subs", "views", "ratio", "published", "transcript",
+                                          "comments", "thumbnail", "description", "tags", "chapters", "folder", "url"], extrasaction="ignore")
         w.writeheader()
         w.writerows(cases)
     log("STATUS", topic=topic, note="받은 자료 표", file="downloads.md", cases=len(cases), analyzer_cases=len(an),
@@ -1039,25 +1065,25 @@ def write_summary(out, topic, name, a, used_days, rows, q, deep, pop, pop_deep, 
          f"{a.min_sec // 60}분 이상 (쇼츠 제외) · 채널당 {a.per_channel}개까지",
          f"- 조회수 상위 기준: **구독자 수 상관없음** · 주제 관련(keywords.toml 관련어) · {a.min_sec // 60}분 이상 · 최근 {a.fallback_days}일 · "
          f"조회수 순 {a.popular}개 · 채널당 {a.per_channel}개까지",
-         (f"- 후보 {len(rows)}개 — 자료: YouTube Data API 검색(검색어 그룹마다 {a.per_group}개, 최근 {a.fallback_days}일·조회수 순·4~20분"
+         (f"- 후보 {len(rows)}개 — 자료: YouTube Data API 검색(검색어 {'전부' if a.per_group <= 0 else f'그룹마다 {a.per_group}개'}, 최근 {a.fallback_days}일·조회수 순·4~20분"
           + (", 20분 넘음" if a.long else "") + ")" if source == "api" else
           f"- 후보 {len(rows)}개 — 자료: 분석기 결과 `result/data/videos.csv` (⚠️ 분석기 검색은 최근 영상만 찾지 않았다)")
          + f" → 성공 사례 기준 통과 {len(q)}개 → 자세히 {len(deep)}개 · 조회수 상위 {len(pop)}개",
          f"- 댓글: " + ("전부 (최상위 + 답글)" if not a.comments and a.replies else
                        f"최상위 {a.comments or '전부'}개까지" + ("" if a.replies else " · 답글 안 받음")), "",
          "## 성공 사례 (작은 채널)", "",
-         "| # | 제목 | 채널 | 구독자 | 조회수 | 배수 | 며칠 전 | 길이(분) | 말 속도(음절/초) | 댓글 받음 |", "|---|---|---|---|---|---|---|---|---|---|"]
+         "| # | 제목 | 채널 | 구독자 | 조회수 | 배수 | 업로드 | 길이(분) | 말 속도(음절/초) | 댓글 받음 |", "|---|---|---|---|---|---|---|---|---|---|"]
     for meta, info, cms in deep:
         L.append(f"| {meta['rank']} | [{short(meta['title'], 60)}]({meta['url']}) | {short(meta['channel'], 20)} | {meta['subs']:,} | {meta['views']:,} | "
-                 f"{meta['ratio']} | {meta['age_days']} | {meta['minutes']} | {meta.get('syl_per_sec', '-')} | "
+                 f"{meta['ratio']} | {_upload_cell(meta.get('published'))} | {meta['minutes']} | {meta.get('syl_per_sec', '-')} | "
                  f"{meta.get('comments_fetched', 0):,}{'' if meta.get('comments_complete') else ' (받는 중)'} |")
     by_id = {m["id"]: m for m, _, _ in deep + pop_deep}
     L += ["", "## 조회수 상위 (구독자 수 상관없음)", "",
-          "| # | 제목 | 채널 | 구독자 | 조회수 | 며칠 전 | 길이(분) | 댓글 받음 | 성공 사례 |", "|---|---|---|---|---|---|---|---|---|"]
+          "| # | 제목 | 채널 | 구독자 | 조회수 | 업로드 | 길이(분) | 댓글 받음 | 성공 사례 |", "|---|---|---|---|---|---|---|---|---|"]
     for k, r in enumerate(pop, 1):
         m = by_id.get(r["id"], {})
         L.append(f"| P{k} | [{short(r['title'], 60)}]({r['url']}) | {short(r['channel'], 20)} | "
-                 f"{'{:,}'.format(r['subs']) if r['subs'] is not None else '비공개'} | {r['views']:,} | {r['age_days']} | {r['minutes']} | "
+                 f"{'{:,}'.format(r['subs']) if r['subs'] is not None else '비공개'} | {r['views']:,} | {_upload_cell(r.get('published'))} | {r['minutes']} | "
                  f"{m.get('comments_fetched', 0):,}{'' if m.get('comments_complete') else ' (받는 중)'} | "
                  f"{m['rank'] if m.get('set') == 'success' else '-'} |")
     L.append("")
@@ -1096,7 +1122,7 @@ def load_api_key(topic=None):
 def main(argv=None):
     ap = argparse.ArgumentParser(description="작은 채널 성공 사례(최근·롱폼·조회수/구독자 배수) + 조회수 상위 영상 수집 — 자막·댓글 전부, 이어서 돌리기 지원")
     ap.add_argument("topics", nargs="+")
-    ap.add_argument("--per-group", type=int, default=1)
+    ap.add_argument("--per-group", type=int, default=0, help="검색어 그룹마다 검색할 수 (0 = 전부, 기본)")
     ap.add_argument("--days", type=int, default=180)
     ap.add_argument("--fallback-days", type=int, default=365)
     ap.add_argument("--max-subs", type=int, default=50000)

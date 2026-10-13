@@ -1,8 +1,12 @@
 ﻿<#
 ================================================================================================
  YouTube 분석 PC 실행기 (Windows PowerShell)
- VERSION: v2.2.1 — 2026-10-13 — 안내 문구만: 실행 명령을 -File run_analyzer.ps1 (.\ 없이 — Git Bash 가 \ 를 지워 '-File 인수가 없습니다' 오류),
-          받기는 curl.exe (코드 동작은 v2.2 그대로)
+ VERSION: v2.3 — 2026-10-13 — 검색어를 태그로 바꾼 새 판을 PC 가 자동으로 받게 (사용자 지시: "그냥 검색어를 재테크 관련 태그로 찾아서
+          다 그걸로 탐색해봐"): 설정·검색어 파일(<주제>/analyzer_config.toml·keywords.toml·tag_rules.toml)은 PC 에 있어도
+          GitHub 쪽 파일 머리의 VERSION 이 더 높으면 예전 것을 .bak 으로 두고 새 판으로 바꿈 (같거나 낮으면, VERSION 이 없으면 그대로).
+          코드 목록에 tools/tag_keywords.py (태그에서 검색어 고르기) 추가
+ (v2.2.1 — 2026-10-13 — 안내 문구만: 실행 명령을 -File run_analyzer.ps1 (.\ 없이 — Git Bash 가 \ 를 지워 '-File 인수가 없습니다' 오류),
+          받기는 curl.exe (코드 동작은 v2.2 그대로))
  (v2.2 — 2026-10-13 — 여러 주제를 동시에: -Folder economic,health (사용자 지시: "동시에 병렬로 다른 주제 분석도 가능하도록").
           주제마다 <주제>/analyzer_config.toml·keywords.toml 을 받고(없을 때만), tools/pc_analysis.py 가 주제마다 따로 돌림.
           주제별 키는 <주제>/.env (없으면 맨 위 .env))
@@ -31,8 +35,9 @@
    powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -AnalyzerOnly   # 예전처럼 분석기만 한 번
    powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 --dry-run       # 그 밖의 인자는 tools/pc_analysis.py 로 (-AnalyzerOnly 면 분석기로)
 
- 동작: ① 코드(youtube_topic_analyzer.py · tools/pc_analysis.py · tools/outlier_research.py · tools/outlier_stats.py)는 매번 최신으로 받음
-       ② <Folder>/analyzer_config.toml · <Folder>/keywords.toml 은 없을 때만 받음 (내가 고친 설정·검색어를 덮어쓰지 않음)
+ 동작: ① 코드(youtube_topic_analyzer.py · tools/pc_analysis.py · tools/outlier_research.py · tools/outlier_stats.py · tools/tag_keywords.py)는 매번 최신으로 받음
+       ② <Folder>/analyzer_config.toml · keywords.toml · tag_rules.toml 은 없을 때, 또는 GitHub 쪽 VERSION 이 더 높을 때만 받음
+          (예전 것은 .bak — 같은 판이면 내가 고친 설정·검색어를 덮어쓰지 않음)
        ③ .venv 가상환경을 만들고(처음 한 번) 그 안의 Python으로 실행 — 필요한 패키지는 자동 설치
  ※ 'wget'은 Windows PowerShell 5.1에서 Invoke-WebRequest의 별칭입니다. 이 스크립트는 PowerShell 7에서도 되도록 Invoke-WebRequest를 직접 씁니다.
 #>
@@ -58,8 +63,8 @@ if ($PSScriptRoot) { Set-Location -Path $PSScriptRoot }
 $Base = if ($env:RAW_BASE) { $env:RAW_BASE } else { "https://raw.githubusercontent.com/$Repo/$Branch" }
 $Folder = @($Folder | ForEach-Object { $_ -split "," } | ForEach-Object { $_.Trim() } | Where-Object { $_ })   # -File 로 부르면 "a,b" 한 글자열
 if (-not $Folder) { $Folder = @("economic") }
-$CodeFiles = @("youtube_topic_analyzer.py", "tools/pc_analysis.py", "tools/outlier_research.py", "tools/outlier_stats.py")
-$ConfigFiles = @($Folder | ForEach-Object { "$_/analyzer_config.toml"; "$_/keywords.toml" })
+$CodeFiles = @("youtube_topic_analyzer.py", "tools/pc_analysis.py", "tools/outlier_research.py", "tools/outlier_stats.py", "tools/tag_keywords.py")
+$ConfigFiles = @($Folder | ForEach-Object { "$_/analyzer_config.toml"; "$_/keywords.toml"; "$_/tag_rules.toml" })
 $TaskName = "YouTubeAnalysis_" + ($Folder -join "_")
 
 function Write-Step([string]$msg) { Write-Host "[RUNNER] [$(Get-Date -Format s)] $msg" }
@@ -141,6 +146,19 @@ function Get-Remote([string]$RelPath, [string]$OutFile) {
     }
 }
 
+function Get-FileVersion([string]$Path) {
+    # 파일 머리(처음 15줄)의 'VERSION: v2.0' → [version] (없으면 $null) — 설정 파일 새 판 알아보기 (v2.3)
+    if (-not (Test-Path $Path)) { return $null }
+    foreach ($line in (Get-Content -Path $Path -TotalCount 15 -Encoding UTF8)) {
+        if ($line -match 'VERSION:\s*v(\d+(?:\.\d+){0,3})') {
+            $v = $Matches[1]
+            if ($v -notmatch '\.') { $v = "$v.0" }
+            return [version]$v
+        }
+    }
+    return $null
+}
+
 function Find-Python {
     foreach ($cand in @(@("py", "-3"), @("python"), @("python3"))) {
         if (-not (Get-Command $cand[0] -ErrorAction SilentlyContinue)) { continue }
@@ -163,8 +181,26 @@ foreach ($f in $CodeFiles) {
     }
 }
 
-# ② 설정·검색어 파일 (없을 때만, -UpdateConfig 면 백업 후 최신으로)
+# ② 설정·검색어 파일 (없을 때만, -UpdateConfig 면 백업 후 최신으로, GitHub 쪽 VERSION 이 더 높으면 백업 후 새 판으로 — v2.3)
 foreach ($c in $ConfigFiles) {
+    if (-not $UpdateConfig -and (Test-Path $c)) {
+        $remote = "$c.remote"
+        if (Get-Remote $c $remote) {
+            $lv = Get-FileVersion $c
+            $rv = Get-FileVersion $remote
+            if ($lv -and $rv -and ($rv -gt $lv)) {
+                Copy-Item -Force $c "$c.bak"
+                Move-Item -Force $remote $c
+                Write-Step "🔄 새 판으로 바꿈: $c (v$lv → v$rv). 예전 파일은 $c.bak — 내가 고친 내용이 있었다면 거기서 옮기세요"
+            } else {
+                Remove-Item -Force $remote
+                Write-Step "있던 파일 그대로: $c (PC v$lv · GitHub v$rv)"
+            }
+        } else {
+            Write-Step "있던 파일을 그대로 씁니다: $c"
+        }
+        continue
+    }
     if ($UpdateConfig -and (Test-Path $c)) {
         Copy-Item -Force $c "$c.bak"
         Write-Step "기존 파일 백업: $c.bak"

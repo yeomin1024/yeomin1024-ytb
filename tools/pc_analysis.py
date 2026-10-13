@@ -1,11 +1,16 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.4 — 2026-10-13 — 빠른 것 먼저 올리고 음성인식은 뒤에서 하나씩 (사용자 지시: "일단 영상 자체는 받지말고 자막, 썸네일, 댓글 등
+# VERSION: v1.5 — 2026-10-13 — 검색어 전부 (사용자 지시: "그냥 검색어를 재테크 관련 태그로 찾아서 다 그걸로 탐색해봐"):
+#          ① --per-group 0(기본) = keywords.toml 의 검색어 전부를 성공 사례 수집에 (검색어는 tools/tag_keywords.py 가 태그로 채움)
+#             자동 할당량(outlier_need)도 검색어 전부로 계산 (같은 검색어는 한 번)
+#          ② ⚠️ 분석기 최소 할당량 300 → ANALYZER_MIN_UNITS 1,000: 검색어 40개면 첫날 성공 사례 검색(약 9,000단위)이 하루 몫을 거의 다 써서
+#             분석기에 수백 단위만 남는데, 그걸로 돌리면 검색 0~1개짜리 빈 결과만 만들고 오래 걸림 → 다음 회차(할당량 초기화 뒤)로 미룸
+# (v1.4 — 2026-10-13 — 빠른 것 먼저 올리고 음성인식은 뒤에서 하나씩 (사용자 지시: "일단 영상 자체는 받지말고 자막, 썸네일, 댓글 등
 #          빨리 받을 수 있는 것들만 다 받으면 분석결과를 먼저 올리도록 하고 오래걸리는 음성인식은 계속 진행해서 하나가 끝나면 바로 올리고
 #          그다음거 진행하는 식으로" · "태그도 검색어에 포함하도록 해서 탐색"): 회차 순서 = ① 성공 사례(자막·썸네일·댓글·태그 검색어)
 #          → ② 바로 올림(성공 사례 결과 먼저, 분석기가 도는 회차만) → ③ 분석기(--no-video --defer-whisper: 영상 파일 안 받음·음성인식 미룸)
 #          → ④ 보충 → ⑤ 올림 → ⑥ 음성인식 대기열(youtube_topic_analyzer.py --whisper-queue: 하나 끝날 때마다 바로 올림).
-#          --tag-keywords 5 (자동 할당량에 태그 검색 포함), --no-whisper
+#          --tag-keywords 5 (자동 할당량에 태그 검색 포함), --no-whisper)
 # (v1.3 — 2026-10-13 — 남는 할당량을 버리지 않기 (사용자 지시: "너무 오래 걸리는데 댓글 전체 받아서 그런거야? … 좋은 해결 방법"):
 #          ① 오늘(태평양 날짜) 쓴 단위를 주제마다 적어 둠 (.yt_work/quota_<주제>.json — 도구가 보고한 사용량의 합)
 #          ② 분석기 다음에 '보충' 단계: 오늘 남은 할당량(10,000 ÷ 같은 키 주제 수 − 200)으로 성공 사례 수집을 한 번 더 →
@@ -41,7 +46,8 @@ r"""
   python tools/pc_analysis.py economic --once       # 한 회차만 (작업 스케줄러가 매일 부를 때). 남은 일이 있으면 종료 코드 3
   python tools/pc_analysis.py economic --dry-run    # 실행할 명령·다음 초기화 시각만 보여 줌
   옵션: --max-rounds 10      최대 회차 (하루 1회차 → 최대 10일)
-        --outlier-quota 0 --per-group 2 --top 20 --popular 20   성공 사례·조회수 상위 수집 (0 = 자동: 검색 수로 계산, 분석기는 오늘 남은 만큼)
+        --outlier-quota 0 --per-group 0 --top 20 --popular 20   성공 사례·조회수 상위 수집 (할당량 0 = 자동: 검색 수로 계산, 분석기는 오늘 남은 만큼.
+                             --per-group 0 = 검색어 전부)
         --daily-quota 9500   분석기가 이미 끝난 날 성공 사례·조회수 상위(주로 댓글 전부)에 쓰는 할당량
         --rerun-analyzer     분석기가 끝났어도 이번에 다시 돌림
         --skip-outliers / --skip-analyzer / --no-push
@@ -67,7 +73,7 @@ from datetime import date, datetime, time as dtime, timedelta, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v1.4"
+VERSION = "v1.5"
 LOG = logging.getLogger("pc_analysis")
 KST = timezone(timedelta(hours=9))
 LOCK_STALE_MIN = 30          # 잠금 파일이 이 시간 넘게 갱신되지 않으면 이전 실행이 죽은 것으로 봄
@@ -118,6 +124,7 @@ def next_quota_reset(now_utc, margin_min=10, use_zoneinfo=True):
 
 DAILY_LIMIT = 10000          # YouTube Data API 하루 할당량 (프로젝트마다)
 DAILY_MARGIN = 200           # 남겨 두는 단위 (다른 곳에서 조금 쓸 때·계산 차이)
+ANALYZER_MIN_UNITS = 1000    # ⚠️ 분석기를 돌릴 최소 단위 (v1.5: 300 → 1,000 — 모자라면 할당량 초기화 뒤 다음 회차에)
 
 
 def pacific_day(now_utc):
@@ -249,12 +256,14 @@ def ensure_topic_env(folder):
 
 
 def outlier_need(folder, per_group, top, popular, tag_keywords=0):
-    """성공 사례 수집이 하루에 끝나려면 필요한 단위: 검색(그룹마다 앞 per_group 개 × 길이 2 × 100) + 검색 여유 150
-    + 영상 정보·구독자 약 100 + 인기 댓글(사례마다 1). keywords.toml 을 못 읽으면 4,400."""
+    """성공 사례 수집이 하루에 끝나려면 필요한 단위: 검색(그룹마다 앞 per_group 개 — 0 이하면 전부 — × 길이 2 × 100) + 검색 여유 150
+    + 영상 정보·구독자 약 100 + 인기 댓글(사례마다 1). 같은 검색어(띄어쓰기·대소문자만 다름)는 한 번. keywords.toml 을 못 읽으면 4,400."""
     try:
         d = _toml().loads((ROOT / folder / "keywords.toml").read_text("utf-8"))
         groups = d.get("KEYWORD_GROUPS") or {}
-        searches = sum(min(per_group, len(v)) for v in groups.values()) * 2
+        uniq = {"".join(str(k).split()).lower() for v in groups.values() for k in (v if per_group <= 0 else v[:per_group])
+                if str(k).strip()}
+        searches = len(uniq) * 2
         if not searches:
             return 4400
         return (searches + tag_keywords * 2) * 100 + 150 + 100 + top + popular      # 태그 검색어도 길이 2 × 100
@@ -503,7 +512,7 @@ def one_round(folder, opts, k, runner=run_child, now_fn=lambda: datetime.now(tim
                "--no-video", "--defer-whisper"] + (["--skip-install"] if opts.child else [])   # 영상 안 받음·음성인식은 ⑥에서 (v1.4)
         cfg_budget = analyzer_budget(cfg_p)
         an_q = min(cfg_budget // share, left_today())       # 같은 키 주제끼리 나누고, 오늘 이미 쓴 양을 뺌
-        if an_q < 300 and not opts.dry_run:
+        if an_q < ANALYZER_MIN_UNITS and not opts.dry_run:      # v1.5: 300 → 1,000 (빈 결과 대신 다음 회차)
             log("ANALYZER", logging.WARNING, note="오늘 이 주제 할당량을 다 씀 → 분석기는 다음 회차에", today_used=ledger.used(), budget=budget)
             codes["analyzer"], a = "quota", {"found": False, "deferred": None}
         else:
@@ -931,6 +940,9 @@ def self_test():
               st4[:3] == ["OUTLIER", "PUSH_FIRST", "ANALYZER"] and st4[-2:] == ["PUSH", "WHISPER"] and "--no-video" in an4
               and "--defer-whisper" in an4 and ou4[ou4.index("--tag-keywords") + 1] == "5", stages=",".join(st4))
         check("자동 할당량에 태그 검색 포함 (+5×2×100)", outlier_need("t", 2, 20, 20, 5) == 600 + 1000 + 250 + 40)
+        (tmp / "t" / "keywords.toml").write_text('[KEYWORD_GROUPS]\n"a" = ["1","2","3"]\n"b" = ["4", "1 "]\n', "utf-8")
+        check("v1.5 --per-group 0 = 검색어 전부 (같은 검색어 한 번): 4개 × 2 × 100 + 250 + 40", outlier_need("t", 0, 20, 20) == 800 + 250 + 40,
+              need=outlier_need("t", 0, 20, 20))
         check("분석기 사용량 읽기 (quota_used)", analyzer_summary(out_dir / "run_info.json", u(2000, 1, 1)).get("quota_used") == 5700)
     finally:
         ROOT = old_root
@@ -955,7 +967,7 @@ def main(argv=None):
     ap.add_argument("--max-rounds", type=int, default=10)
     ap.add_argument("--outlier-quota", type=int, default=0,
                     help="성공 사례 수집 할당량 (0 = 자동: 검색 수 × 100 + 여유 — 첫날 검색·인기 댓글까지 끝나게, 분석기는 나머지)")
-    ap.add_argument("--per-group", type=int, default=2)
+    ap.add_argument("--per-group", type=int, default=0, help="검색어 그룹마다 성공 사례 검색에 쓸 수 (0 = 전부, 기본)")
     ap.add_argument("--top", type=int, default=20)
     ap.add_argument("--popular", type=int, default=20, help="구독자 수 상관없이 조회수 상위 영상 수 (댓글 전부)")
     ap.add_argument("--daily-quota", type=int, default=9500, help="분석기가 이미 끝난 날 성공 사례·조회수 상위에 쓰는 할당량")

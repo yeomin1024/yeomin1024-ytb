@@ -27,11 +27,17 @@
     "case_dir": "success_cases/07_미국_ETF_30초만에_이해하기_X08HjlsEvpo",
     "thumbnail": "ok",
     "video": "skipped(DOWNLOAD_VIDEOS=False)",
-    "transcript": "whisper_pending",
+    "transcript": "whisper_small",
     "transcript_errors": {
       "api": "IpBlocked: \nCould not retrieve a transcript for the video https://www.youtube.com/watch?v=X08HjlsEvpo! This is most likely caused by:\n\nYouTube is blocking reques",
       "ytdlp": "RuntimeError: 자막 다운로드 실패 lang=ko-orig: HTTPError: HTTP Error 429: Too Many Requests"
     },
-    "comments": 100
+    "comments": 100,
+    "transcript_lang": "ko",
+    "whisper_done": "2026-10-14T05:40+09:00",
+    "transcript_chars": 266,
+    "chars_per_min": 456.0,
+    "hook_seconds": 5,
+    "hook_text": "나 빼고 다 투자하고 있는 미국 ETF 3가지 알려드릴게요. 성장성을 생각한다면 QQQ, 안정성을 생각한다면 스파이, 배당을 많이 받고 싶다면 슈드"
   }
 }

@@ -1,5 +1,35 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-13 (3) — 여러 주제를 동시에 (주제마다 검색어·키 파일)
+
+### 왜 (사용자 지시: "economic 분석을 위해 경제, 재태크 관련 검색어 만들어 놓았어? 그리고 동시에 병렬로 다른 주제 분석도 가능하도록 해야해 그럼 검색어 설정 파일, 키설정 파일도 여러개 있어야 겠지")
+- 검색어: `economic/keywords.toml` v1.0 이미 있음 (10개 그룹 × 5 = 50개, 관련어 48개) — 바꾸지 않음.
+- 같은 PC에서 두 주제를 함께 돌리면 분석기가 같은 git 작업 폴더(`.yt_work/_github_clone`)·임시 폴더를 서로 지우고, 패키지 설치가 겹쳤다.
+- 할당량: YouTube 할당량은 Google Cloud 프로젝트마다 하루 10,000. 같은 도구를 프로젝트 여러 개로 나눠 할당량을 더 받는 것('sharding')은 YouTube API 개발자 정책 위반 (할당량 축소·키 회수·계정 정지 위험, https://developers.google.com/youtube/terms/developer-policies-guide) → 기본은 키 하나를 주제끼리 나눠 씀.
+
+### 고친 것
+| 파일 (버전) | 함수·항목 | 내용 |
+|---|---|---|
+| `youtube_topic_analyzer.py` v2.6.0 | `key_sources`, `load_keys`, `reload_github_token`, `folder_tag`, `main` | 주제별 키: `<주제폴더>/.env` → 환경 변수 `<키>_<폴더>` → 맨 위 `.env` → 환경 변수 |
+| 〃 | `process_success_case`, `stage8_push_github`, `push_only`, `JsonCache.set` | 주제마다 따로: `.yt_work/_github_clone_<폴더>`·`_outliers_keep_<폴더>`·`tmp/<폴더>/<영상>`·`push_log_<폴더>.txt`, 캐시 임시 파일 이름에 프로세스 번호 |
+| 〃 | `parse_args`, `apply_cli` | `--setup-only`(패키지 준비만), `--quota-budget`(⚠️ 비용 관련 — 같은 키를 나눌 때 실행기가 넘김). 자가진단 26/26 |
+| `tools/outlier_research.py` v1.4 | `load_api_key`, `_env_file_key`, `main` | 주제별 키(같은 순서), 주제 여러 개를 한 번에 돌리면 키마다 Api(할당량) 따로 — 같은 키끼리만 `--quota` 를 나눠 씀 |
+| `tools/pc_analysis.py` v1.2 | `run_parallel`, `child_cmd`, `spawn_prefixed`, `find_secret`, `ensure_topic_env`, `analyzer_budget` | `pc_analysis.py economic health` → 패키지 준비 한 번, 주제마다 자식 프로세스(줄 앞 `[주제]`, 잠금·로그·진행·대기 따로). 같은 키를 쓰는 주제 N개 → 성공 사례·분석기 할당량 모두 ÷N. `<주제>/.env` 빈 틀을 만듦(정책 경고 포함) |
+| `run_analyzer.ps1` · `run_analyzer.sh` v2.2 | `-Folder` / `--folder` | 여러 주제 (`economic,health` 또는 여러 번), 주제마다 설정·검색어 파일 받기, 작업 스케줄러·cron 도 여러 주제 |
+| **버그 수정** `tools/pc_analysis.py`·`tools/outlier_research.py` | `.env` 읽는 정규식 | `KEY=` 가 비어 있고 다음 줄이 주석이면 `\s*`가 줄을 넘어 `#`를 키로 읽던 것 → `[ \t]*` (v1.0~1.3 에도 있던 문제: 빈 키를 '있음'으로 봄) |
+| 문서 | `guides/pc_analysis.md` v1.2 "여러 주제를 동시에" · `guides/README.md` v1.13 · `guides/pipeline.md` v1.13 · `CLAUDE.md` · `README.md` · `economic/README.md` | 주제마다 파일 표, 키 찾는 순서, 할당량 N등분, sharding 경고·할당량 증가 신청, 새 주제 추가 방법 |
+
+### 결과 (로그·검사)
+- `pc_analysis.py --self-test` ALL PASS (새: 같은 키 p1·p2 → `--outlier-quota 2000`·`--quota-share 2`, 다른 키 p3 → 4000·1, 설정 없는 주제는 건너뛰고 exit 1, 남은 일이 있으면 exit 3, `QUOTA_BUDGET` 읽기)
+- 실제 병렬 dry-run (임시 폴더, economic + `--init-config` 로 만든 health): 줄 앞 `[economic]`·`[health]`, 같은 키면 `outlier_quota=2000 daily_quota=4750`, health/.env 에 다른 키를 넣으면 나누지 않음, 자식 분석기 명령에 `--skip-install`·`--quota-budget 3000`(공유 2)
+- `run_analyzer.sh --folder economic --folder health` (로컬 서버): 설정·검색어 4개 받고 `pc_analysis.py economic health` 실행, `--print-cron` 도 두 주제
+- 주제별 키 시험 5개 통과(주제 .env 먼저·빈 값이면 맨 위·환경 변수 `_<폴더>`·키가 다르면 Api 따로·같으면 하나), 성공 사례 오프라인 시험 13개 그대로 통과, 분석기 자가진단 26/26
+- `run_analyzer.ps1` 은 이 환경에 PowerShell 이 없어 실행 시험 못 함
+
+### 알려 둘 것
+- 키 하나를 여러 주제가 나눠 쓰면 주제마다 그만큼 오래 걸림 (남은 부분은 매일 자동으로 이어서). 더 빠르게 하려면 할당량 증가 신청.
+- 연구·교육용, 투자 권유 아님. 위험 관련 값: `--quota-budget`(나눌 때만 실행기가 낮춤)은 로그에 '위험/비용 관련 설정이 기본값과 다릅니다'로 남음.
+
 ## 2026-10-13 (2) — 댓글 전부 · 조회수 상위 영상(구독자 무관) · 저장소가 비공개면 전부 올림
 
 ### 왜 (사용자 지시: "비공개로 돌릴테니까 전부 다 업로드되게 하고 댓글은 전부 받도록 수정해 그리고 구독자 수 상관없이 조회수 많이 나온 영상 댓글은 전부 받아야해")

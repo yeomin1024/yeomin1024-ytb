@@ -1,11 +1,16 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.1 — 2026-10-13 — 댓글 전부·조회수 상위 (사용자 지시: "비공개로 돌릴테니까 전부 다 업로드되게 하고 댓글은 전부 받도록 수정해
+# VERSION: v1.2 — 2026-10-13 — 여러 주제를 동시에(병렬로) (사용자 지시: "동시에 병렬로 다른 주제 분석도 가능하도록 해야해 그럼 검색어 설정 파일,
+#          키설정 파일도 여러개 있어야 겠지"): `pc_analysis.py economic health` → 패키지 준비를 한 번 하고 주제마다 따로 프로세스를 띄움
+#          (화면 줄 앞에 [주제], 주제마다 잠금·로그·진행 파일·할당량 대기). 검색어는 <주제>/keywords.toml, 키는 <주제>/.env
+#          (없으면 맨 위 .env) — 같은 키를 쓰는 주제끼리 하루 할당량을 나눔(성공 사례·분석기 QUOTA_BUDGET 모두 ÷ 주제 수).
+#          ⚠️ 할당량을 늘리려고 프로젝트를 여러 개 만드는 것은 YouTube API 정책 위반('sharding') — 기본은 키 하나를 나눠 씀
+# (v1.1 — 2026-10-13 — 댓글 전부·조회수 상위 (사용자 지시: "비공개로 돌릴테니까 전부 다 업로드되게 하고 댓글은 전부 받도록 수정해
 #          그리고 구독자 수 상관없이 조회수 많이 나온 영상 댓글은 전부 받아야해"):
 #          ① 성공 사례 수집에 --popular(조회수 상위, 기본 20)를 넘김 — 댓글은 outlier_research v1.3 기본값(전부)
 #          ② 분석기가 이미 끝났으면(이월 검색어 0, 7일 안) 다음 회차부터 분석기를 건너뛰고 하루 할당량(--daily-quota 9500)을
 #             성공 사례·조회수 상위 댓글에 씀 (.yt_work/pc_progress_<주제>.json 의 analyzer_done_kst — --once 로 매일 불러도 같음)
-#          ③ 기본 최대 회차 7 → 10 (댓글 전부는 며칠 걸릴 수 있음)
+#          ③ 기본 최대 회차 7 → 10 (댓글 전부는 며칠 걸릴 수 있음))
 # (v1.0 — 2026-10-13 — 신규 (사용자 지시: "분석기 코드 pc에서 돌릴 수 있도록 수정하고 … api 할당량이 초기화된 시간이 되면
 #          다시 자동으로 분석결과를 확인 못한 부분부터 새로 추가로 만들도록"):
 #          PC 에서 한 주제(기본 economic)를 끝까지 분석한다. 한 '회차' =
@@ -18,6 +23,7 @@
 r"""
 사용법 (PC 실행 폴더 = run_analyzer.ps1 / run_analyzer.sh 가 있는 폴더):
   python tools/pc_analysis.py economic              # 끝날 때까지 (못 한 일이 남으면 할당량 초기화 시각까지 기다렸다가 이어서)
+  python tools/pc_analysis.py economic health       # 여러 주제를 동시에 (주제마다 <주제>/keywords.toml·<주제>/.env)
   python tools/pc_analysis.py economic --once       # 한 회차만 (작업 스케줄러가 매일 부를 때). 남은 일이 있으면 종료 코드 3
   python tools/pc_analysis.py economic --dry-run    # 실행할 명령·다음 초기화 시각만 보여 줌
   옵션: --max-rounds 10      최대 회차 (하루 1회차 → 최대 10일)
@@ -47,7 +53,7 @@ from datetime import date, datetime, time as dtime, timedelta, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v1.1"
+VERSION = "v1.2"
 LOG = logging.getLogger("pc_analysis")
 KST = timezone(timedelta(hours=9))
 LOCK_STALE_MIN = 30          # 잠금 파일이 이 시간 넘게 갱신되지 않으면 이전 실행이 죽은 것으로 봄
@@ -133,14 +139,65 @@ GITHUB_TOKEN=
 """
 
 
-def env_has(name):
-    if os.environ.get(name, "").strip():
-        return True
-    p = ROOT / ".env"
-    if p.is_file():
-        m = re.search(rf"^\s*{name}\s*=\s*['\"]?([^'\"\s]+)", p.read_text("utf-8", errors="replace"), re.M)
-        return bool(m)
-    return False
+def _env_file_value(path, name):
+    if not path.is_file():
+        return ""
+    m = re.search(rf"^[ \t]*{name}[ \t]*=[ \t]*['\"]?([^'\"\s]+)", path.read_text("utf-8-sig", errors="replace"), re.M)
+    return m.group(1) if m else ""
+
+
+def find_secret(name, folder=None):
+    """키를 찾는 곳 (분석기 v2.6.0·성공 사례 v1.4 와 같은 순서): <주제>/.env → 환경 변수 <이름>_<주제> → 맨 위 .env → 환경 변수 <이름>.
+    → (값, 어디서). 값은 출력하지 않는다."""
+    if folder:
+        v = _env_file_value(ROOT / folder / ".env", name)
+        if v:
+            return v, f"{folder}/.env"
+        tag = re.sub(r"[^0-9A-Za-z가-힣]+", "_", str(folder)).strip("_").upper()
+        v = os.environ.get(f"{name}_{tag}", "").strip()
+        if v:
+            return v, f"env:{name}_{tag}"
+    v = _env_file_value(ROOT / ".env", name)
+    if v:
+        return v, ".env"
+    v = os.environ.get(name, "").strip()
+    return (v, f"env:{name}") if v else ("", "-")
+
+
+def env_has(name, folder=None):
+    return bool(find_secret(name, folder)[0])
+
+
+TOPIC_ENV_TEMPLATE = """# 이 주제({folder})만 쓰는 키 — 보통은 비워 둠 (맨 위 폴더의 .env 키를 여러 주제가 나눠 씀). 절대 GitHub 에 올리거나 공유하지 마세요
+# ⚠️ 할당량을 늘리려고 Google Cloud 프로젝트를 주제마다 새로 만드는 것은 YouTube API 개발자 정책 위반입니다('sharding' —
+#    키 회수·계정 정지 위험). 여기에는 정말 다른 용도·다른 사람의 프로젝트 키만 넣으세요. 할당량이 더 필요하면 '할당량 증가 신청'.
+# 자세히: guides/pc_analysis.md "여러 주제를 동시에"
+YOUTUBE_API_KEY=
+
+# (보통 비움 — 맨 위 .env 의 토큰을 씀)
+GITHUB_TOKEN=
+"""
+
+
+def ensure_topic_env(folder):
+    """<주제>/.env 틀 (없을 때만) — 주제별 키 파일이 어디 있는지 보이게."""
+    p = ROOT / folder / ".env"
+    if (ROOT / folder).is_dir() and not p.exists():
+        p.write_text(TOPIC_ENV_TEMPLATE.format(folder=folder), "utf-8")
+        log("SETUP", folder=folder, note="주제별 키 파일 틀을 만듦 (비우면 맨 위 .env 키)", file=f"{folder}/.env")
+
+
+def analyzer_budget(cfg_p):
+    """설정 파일의 QUOTA_BUDGET (없으면 분석기 기본 9000)."""
+    try:
+        for k, v in _toml().loads(cfg_p.read_text("utf-8")).items():
+            if k == "QUOTA_BUDGET":
+                return int(v)
+            if isinstance(v, dict) and "QUOTA_BUDGET" in v:
+                return int(v["QUOTA_BUDGET"])
+    except Exception:
+        pass
+    return 9000
 
 
 def ensure_packages(dry):
@@ -315,7 +372,11 @@ def one_round(folder, opts, k, runner=run_child):
         o = outlier_summary(outl_dir / "status.json")
         log("OUTLIER", **{key: v for key, v in o.items() if key != "updated"})
     if not skip_an:
-        cmd = [py, "youtube_topic_analyzer.py", "--config", str(cfg_p.relative_to(ROOT)), "--no-push", "--no-open"]
+        cmd = [py, "youtube_topic_analyzer.py", "--config", str(cfg_p.relative_to(ROOT)), "--no-push", "--no-open"] + \
+            (["--skip-install"] if opts.child else [])     # 여러 주제를 동시에: 패키지 준비는 부모가 한 번
+        share = getattr(opts, "quota_share", 1) or 1
+        if share > 1:                                       # 같은 키를 쓰는 주제끼리 분석기 할당량도 나눔
+            cmd += ["--quota-budget", str(analyzer_budget(cfg_p) // share)]
         codes["analyzer"] = 0 if opts.dry_run else runner(cmd, "ANALYZER", log_file)
         if opts.dry_run:
             log("ANALYZER", dry_run=True, cmd=" ".join(cmd[1:]))
@@ -338,8 +399,9 @@ def one_round(folder, opts, k, runner=run_child):
     if not opts.dry_run:
         write_progress(targets, info)
     if not opts.no_push and not opts.dry_run:
-        if (out_dir / "README.md").is_file() and env_has("GITHUB_TOKEN"):
-            codes["push"] = runner([py, "youtube_topic_analyzer.py", "--config", str(cfg_p.relative_to(ROOT)), "--push-only"], "PUSH", log_file)
+        if (out_dir / "README.md").is_file() and env_has("GITHUB_TOKEN", folder):
+            codes["push"] = runner([py, "youtube_topic_analyzer.py", "--config", str(cfg_p.relative_to(ROOT)), "--push-only"]
+                                   + (["--skip-install"] if opts.child else []), "PUSH", log_file)
         else:
             log("PUSH", logging.WARNING, note="푸시 건너뜀", reason="분석기 결과 없음" if not (out_dir / "README.md").is_file() else "GITHUB_TOKEN 없음 (.env)",
                 hint="결과는 PC 에 있음 — 토큰을 넣고 python youtube_topic_analyzer.py --config "
@@ -368,14 +430,16 @@ def run(opts, runner=run_child, now_fn=lambda: datetime.now(timezone.utc), sleep
         log("START", logging.ERROR, note="주제 폴더의 설정 파일이 없음", expected=f"{folder}/analyzer_config.toml",
             next_step="run_analyzer.ps1 / run_analyzer.sh 로 받거나 --folder 확인")
         return 1
-    if not env_has("YOUTUBE_API_KEY") and not opts.dry_run:
+    if not opts.dry_run:
+        ensure_topic_env(folder)
+    if not env_has("YOUTUBE_API_KEY", folder) and not opts.dry_run:
         env_p = ROOT / ".env"
         if not env_p.exists():
             env_p.write_text(ENV_TEMPLATE, "utf-8")
-        log("START", logging.ERROR, note="YOUTUBE_API_KEY 없음 — .env 파일을 메모장으로 열어 키를 넣고 저장한 뒤 다시 실행",
-            env_file=".env", guide="guides/pc_analysis.md")
+        log("START", logging.ERROR, note="YOUTUBE_API_KEY 없음 — .env(또는 이 주제의 .env)를 메모장으로 열어 키를 넣고 저장한 뒤 다시 실행",
+            env_file=f".env 또는 {folder}/.env", guide="guides/pc_analysis.md")
         return 1
-    if not ensure_packages(opts.dry_run):
+    if not opts.child and not ensure_packages(opts.dry_run):
         return 1
     lock = Lock(folder)
     if not opts.dry_run and not lock.acquire(opts.force):
@@ -403,6 +467,98 @@ def run(opts, runner=run_child, now_fn=lambda: datetime.now(timezone.utc), sleep
     finally:
         if not opts.dry_run:
             lock.release()
+
+
+# ---------------------------------------------------------------- 여러 주제를 동시에
+FORWARD_FLAGS = ("once", "dry_run", "skip_outliers", "skip_analyzer", "no_push", "force", "rerun_analyzer")
+FORWARD_VALUES = ("max_rounds", "per_group", "top", "popular", "margin_min", "log_level")
+
+
+def child_cmd(opts, folder, quota_div=1):
+    """주제 하나를 돌리는 자식 프로세스 명령 (같은 키를 쓰는 주제 수 quota_div 로 성공 사례 할당량을 나눔)."""
+    cmd = [sys.executable, "tools/pc_analysis.py", folder, "--child", "--quota-share", str(quota_div),
+           "--outlier-quota", str(opts.outlier_quota // quota_div), "--daily-quota", str(opts.daily_quota // quota_div)]
+    for f in FORWARD_FLAGS:
+        if getattr(opts, f, False):
+            cmd.append("--" + f.replace("_", "-"))
+    for f in FORWARD_VALUES:
+        cmd += ["--" + f.replace("_", "-"), str(getattr(opts, f))]
+    return cmd
+
+
+def spawn_prefixed(cmd, prefix, lock):
+    """자식 프로세스를 띄우고 출력 줄 앞에 [주제] 를 붙여 화면에. → Popen (끝나기를 기다리는 쪽은 부모)."""
+    env = {**os.environ, "PYTHONIOENCODING": "utf-8", "PYTHONUTF8": "1"}
+    p = subprocess.Popen(cmd, cwd=ROOT, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+
+    def pump():
+        for raw in p.stdout:
+            line = raw.decode("utf-8", errors="replace").rstrip("\r\n")
+            with lock:
+                print(f"[{prefix}] {line}", flush=True)
+    threading.Thread(target=pump, daemon=True).start()
+    return p
+
+
+def run_parallel(opts, folders, spawn=None, setup=None):
+    """주제 여러 개를 동시에: 패키지 준비 한 번 → 주제마다 자식 프로세스 (잠금·로그·진행 파일·대기는 주제마다 따로).
+    → 종료 코드 (1 오류가 하나라도 / 3 남은 일 / 2 이미 도는 주제 / 0 모두 끝)."""
+    import hashlib
+    ok_folders = []
+    for f in dict.fromkeys(folders):
+        if (ROOT / f / "analyzer_config.toml").is_file():
+            ok_folders.append(f)
+        else:
+            log("START", logging.ERROR, folder=f, note="설정 파일이 없어 이 주제는 건너뜀", expected=f"{f}/analyzer_config.toml",
+                next_step="Claude 에게 '<주제> 검색어 만들어줘' 또는 python youtube_topic_analyzer.py --topic <주제> --folder <폴더> --init-config")
+    if not ok_folders:
+        return 1
+    groups = {}                                       # 키(지문)별 주제 — 같은 키면 하루 할당량을 나눠 씀
+    for f in ok_folders:
+        if not opts.dry_run:
+            ensure_topic_env(f)
+        key, src = find_secret("YOUTUBE_API_KEY", f)
+        fp = hashlib.sha256(key.encode()).hexdigest()[:8] if key else "none"
+        groups.setdefault(fp, []).append(f)
+        log("START", folder=f, key_source=src, key_id=fp, github_token="있음" if env_has("GITHUB_TOKEN", f) else "없음")
+    div = {}
+    for fp, fs in groups.items():
+        for f in fs:
+            div[f] = len(fs)
+        if fp != "none" and len(fs) > 1:
+            log("START", folders=",".join(fs), note=f"같은 YouTube 키를 {len(fs)}개 주제가 나눠 씀 → 하루 10,000단위를 주제마다 1/{len(fs)} "
+                "(성공 사례·분석기 할당량 모두 나눔, 남은 일은 다음 날 이어서). 할당량이 더 필요하면 할당량 증가 신청 — 프로젝트를 늘리는 것은 정책 위반")
+    if setup is None:
+        def setup():
+            if not ensure_packages(opts.dry_run):
+                return False
+            if opts.dry_run:
+                return True
+            return subprocess.run([sys.executable, "youtube_topic_analyzer.py", "--setup-only"], cwd=ROOT).returncode == 0
+    if not setup():
+        log("SETUP", logging.ERROR, note="패키지 준비 실패 — 위 오류 확인", next_step="python youtube_topic_analyzer.py --setup-only")
+        return 1
+    lock = threading.Lock()
+    spawn = spawn or spawn_prefixed
+    procs = {}
+    for f in ok_folders:
+        cmd = child_cmd(opts, f, div[f])
+        log("START", folder=f, cmd=" ".join(cmd[1:]))
+        procs[f] = spawn(cmd, f, lock)
+    try:
+        codes = {f: p.wait() for f, p in procs.items()}
+    except KeyboardInterrupt:
+        for p in procs.values():
+            p.terminate()
+        log("DONE", logging.WARNING, note="사용자가 멈춤 (Ctrl+C) — 주제마다 받은 것은 캐시에 남아 다시 실행하면 이어서")
+        return 130
+    for f, c in codes.items():
+        log("DONE", folder=f, exit_code=c, meaning={0: "끝", 3: "남은 일 있음(다음 실행이 이어서)", 2: "이미 도는 중"}.get(c, "오류 — 로그 확인"),
+            log=f".yt_work/pc_analysis_{f}.log")
+    vals = list(codes.values()) + ([1] if len(ok_folders) < len(dict.fromkeys(folders)) else [])
+    if any(c not in (0, 2, 3) for c in vals):
+        return 1
+    return 3 if 3 in vals else (2 if 2 in vals else 0)
 
 
 # ---------------------------------------------------------------- 오프라인 점검
@@ -469,7 +625,7 @@ def self_test():
             clock["t"] += timedelta(seconds=s)
         opts = types.SimpleNamespace(folder="t", once=False, dry_run=False, max_rounds=3, per_group=2, top=20, outlier_quota=4000,
                                      skip_outliers=False, skip_analyzer=False, no_push=False, margin_min=10, force=False,
-                                     popular=20, daily_quota=9500, rerun_analyzer=False)
+                                     popular=20, daily_quota=9500, rerun_analyzer=False, child=False, log_level="INFO", quota_share=1)
         global ensure_packages
         real_ensure, ensure_packages = ensure_packages, (lambda dry: True)
         try:
@@ -530,6 +686,37 @@ def self_test():
             ensure_packages = real_ensure
         stages = [st for st, _ in cmds]
         q2 = [c for st, c in cmds if st == "OUTLIER"][-1]
+        # v1.2: 여러 주제를 동시에 — 같은 키를 쓰는 주제끼리 할당량 나눔, 설정 없는 주제는 건너뜀, 종료 코드 모으기
+        for f, key in (("p1", "AIzaSAME"), ("p2", "AIzaSAME"), ("p3", "AIzaOTHER")):
+            (tmp / f).mkdir()
+            (tmp / f / "analyzer_config.toml").write_text(f'[topic]\nPROJECT_FOLDER = "{f}"\n', "utf-8")
+            (tmp / f / ".env").write_text(f"YOUTUBE_API_KEY={key}\n", "utf-8")
+        spawned = {}
+
+        class FakeP:
+            def __init__(self, code):
+                self.code = code
+
+            def wait(self):
+                return self.code
+
+            def terminate(self):
+                pass
+
+        def fake_spawn(cmd, prefix, lk):
+            spawned[prefix] = cmd
+            return FakeP({"p1": 0, "p2": 3, "p3": 0}[prefix])
+        pcode = run_parallel(opts, ["p1", "p2", "p3", "nope"], spawn=fake_spawn, setup=lambda: True)
+        q = {f: int(c[c.index("--outlier-quota") + 1]) for f, c in spawned.items()}
+        check("여러 주제 동시에: 같은 키는 할당량 나눔·다른 키는 그대로·자식 --child", q == {"p1": 2000, "p2": 2000, "p3": 4000}
+              and all("--child" in c for c in spawned.values()) and pcode == 1, quotas=q, exit_code=pcode)
+        pcode2 = run_parallel(opts, ["p1", "p2", "p3"], spawn=fake_spawn, setup=lambda: True)
+        check("여러 주제 동시에: 남은 일 있는 주제가 있으면 exit 3", pcode2 == 3)
+        check("같은 키 주제는 --quota-share 2, 다른 키는 1", spawned["p1"][spawned["p1"].index("--quota-share") + 1] == "2"
+              and spawned["p3"][spawned["p3"].index("--quota-share") + 1] == "1")
+        (tmp / "p1" / "analyzer_config.toml").write_text('[topic]\nPROJECT_FOLDER = "p1"\n[advanced]\nQUOTA_BUDGET = 6000\n', "utf-8")
+        check("설정의 QUOTA_BUDGET 읽기", analyzer_budget(tmp / "p1" / "analyzer_config.toml") == 6000
+              and analyzer_budget(tmp / "p3" / "analyzer_config.toml") == 9000)
         check("분석기 끝난 뒤 회차는 분석기 건너뜀·할당량 9500·--popular 전달", code == 0 and stages == ["OUTLIER", "ANALYZER", "PUSH", "OUTLIER", "PUSH"]
               and q2[q2.index("--quota") + 1] == "9500" and "--popular" in q2, stages=",".join(stages))
     finally:
@@ -547,7 +734,9 @@ def main(argv=None):
         except Exception:
             pass
     ap = argparse.ArgumentParser(description="PC 분석 실행기 — 성공 사례 + 주제 분석, 할당량이 초기화되면 남은 부분부터 자동으로 이어서")
-    ap.add_argument("folder", nargs="?", default="economic", help="주제 폴더 (기본 economic)")
+    ap.add_argument("folders", nargs="*", default=["economic"], help="주제 폴더 (기본 economic). 여러 개면 동시에 (예: economic health)")
+    ap.add_argument("--child", action="store_true", help=argparse.SUPPRESS)      # 여러 주제를 동시에 돌릴 때 부모가 붙임
+    ap.add_argument("--quota-share", type=int, default=1, help=argparse.SUPPRESS)  # 같은 키를 쓰는 주제 수 (분석기 할당량 나눔)
     ap.add_argument("--once", action="store_true", help="한 회차만 (작업 스케줄러용). 남은 일이 있으면 종료 코드 3")
     ap.add_argument("--dry-run", action="store_true", help="실행할 명령과 다음 초기화 시각만")
     ap.add_argument("--max-rounds", type=int, default=10)
@@ -569,11 +758,17 @@ def main(argv=None):
     if opts.self_test:
         return self_test()
     reset_utc, how = next_quota_reset(datetime.now(timezone.utc), opts.margin_min)
-    log("START", tool=f"pc_analysis.py {VERSION}", folder=opts.folder, once=opts.once, dry_run=opts.dry_run, max_rounds=opts.max_rounds,
+    folders = [f for x in opts.folders for f in str(x).split(",") if f.strip()]
+    if len(folders) > 1:
+        log("START", tool=f"pc_analysis.py {VERSION}", mode="parallel", folders=",".join(folders), once=opts.once, dry_run=opts.dry_run,
+            next_quota_reset_kst=reset_utc.astimezone(KST).isoformat(timespec="minutes"))
+        return run_parallel(opts, folders)
+    opts.folder = folders[0]
+    log("START", tool=f"pc_analysis.py {VERSION}", folder=opts.folder, child=opts.child, once=opts.once, dry_run=opts.dry_run, max_rounds=opts.max_rounds,
         outlier_quota=opts.outlier_quota, daily_quota=opts.daily_quota, per_group=opts.per_group, top=opts.top, popular=opts.popular,
         python=sys.version.split()[0],
         next_quota_reset_kst=reset_utc.astimezone(KST).isoformat(timespec="minutes"), reset_calc=how,
-        youtube_key="있음" if env_has("YOUTUBE_API_KEY") else "없음", github_token="있음" if env_has("GITHUB_TOKEN") else "없음")
+        youtube_key=find_secret("YOUTUBE_API_KEY", opts.folder)[1], github_token="있음" if env_has("GITHUB_TOKEN", opts.folder) else "없음")
     return run(opts)
 
 

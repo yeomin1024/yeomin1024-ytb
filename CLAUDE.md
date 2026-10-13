@@ -22,4 +22,5 @@
 - 썸네일 3개 모두 아래쪽에 제목 문구 2줄을 크게 넣는다 (짧은 문구만 군데군데 두지 않음). 그중 하나(thumbnail_3)는 검은 배경에 채택 제목 문구를 그대로 크게, 강조할 곳만 빨강·노랑 (빨강의 뜻은 주제 규칙). 자세히: `guides/thumbnail_guide.md` (사용자 지시 2026-10-11)
 - 주제별 규칙: `<주제폴더>/guides/` (예: `economic/guides/`). 주제 폴더는 `economic/`(경제·재테크) 하나 — 다른 주제 폴더는 모두 지움 (사용자 지시 2026-10-13, 옛 내용은 커밋 `2a68307`)
 - 분석은 집 PC에서 사용자가 돌린다: `guides/pc_analysis.md` (`run_analyzer.ps1` → `tools/pc_analysis.py`, 할당량이 끝나면 초기화 뒤 남은 부분부터 자동으로 이어서). 검색어 목록은 `<주제폴더>/keywords.toml` (사용자 지시 2026-10-13)
+- 여러 주제를 동시에 분석할 수 있다: `run_analyzer.ps1 -Folder economic,health`. 주제마다 검색어 `<주제>/keywords.toml`·설정 `analyzer_config.toml`(git)·키 `<주제>/.env`(PC에만, 비우면 맨 위 `.env`). 같은 키는 하루 할당량을 N등분. **할당량을 늘리려고 Google Cloud 프로젝트를 여러 개 만들라고 권하지 않는다** (YouTube API 정책 'sharding' 위반 — 할당량 증가 신청이 정식 방법). 사용자가 새 주제를 말하면 Claude가 `<폴더>/analyzer_config.toml`·`keywords.toml`을 만들어 main에 올린다 (사용자 지시 2026-10-13)
 - 성공 사례와 **구독자 수 상관없이 조회수 상위 영상(기본 20개)**의 **댓글은 전부**(답글 포함) 받는다 — `tools/outlier_research.py` v1.3, 결과 `<주제폴더>/result/outliers/`의 `01_…`(성공 사례)·`P01_…`(조회수 상위) 폴더 `comments.csv` (사용자 지시 2026-10-13)

@@ -1,8 +1,11 @@
 ﻿<#
 ================================================================================================
  YouTube 분석 PC 실행기 (Windows PowerShell)
- VERSION: v2.1 — 2026-10-13 — 비공개 저장소에서도 받기: .env(또는 환경 변수)의 GITHUB_TOKEN 이 있으면 GitHub API 로 코드·설정을 받음
-          (사용자 지시: "비공개로 돌릴테니까 전부 다 업로드되게"). .env 가 없으면 먼저 틀을 만듦. 토큰 값은 화면에 쓰지 않음
+ VERSION: v2.2 — 2026-10-13 — 여러 주제를 동시에: -Folder economic,health (사용자 지시: "동시에 병렬로 다른 주제 분석도 가능하도록").
+          주제마다 <주제>/analyzer_config.toml·keywords.toml 을 받고(없을 때만), tools/pc_analysis.py 가 주제마다 따로 돌림.
+          주제별 키는 <주제>/.env (없으면 맨 위 .env)
+ (v2.1 — 2026-10-13 — 비공개 저장소에서도 받기: .env(또는 환경 변수)의 GITHUB_TOKEN 이 있으면 GitHub API 로 코드·설정을 받음
+          (사용자 지시: "비공개로 돌릴테니까 전부 다 업로드되게"). .env 가 없으면 먼저 틀을 만듦. 토큰 값은 화면에 쓰지 않음)
  (v2.0 — 2026-10-13 — 기본 주제 economic(경제·재테크). 분석기 + 작은 채널 성공 사례(자막·썸네일·댓글)를
           tools/pc_analysis.py 로 함께 돌리고, 할당량이 끝나 못 한 부분은 할당량 초기화(한국 오후 4~5시) 뒤 자동으로 이어서.
           검색어 목록 <Folder>/keywords.toml 도 받음. -Once · -RegisterTask(작업 스케줄러) · -AnalyzerOnly(예전 방식) 추가)
@@ -18,6 +21,7 @@
 
  자주 쓰는 실행:
    powershell -ExecutionPolicy Bypass -File .\run_analyzer.ps1                 # 경제·재테크 — 끝날 때까지 (남으면 다음 날 자동으로 이어서, 창을 열어 두기)
+   powershell -ExecutionPolicy Bypass -File .\run_analyzer.ps1 -Folder economic,health   # 여러 주제를 동시에 (주제마다 keywords.toml·.env)
    powershell -ExecutionPolicy Bypass -File .\run_analyzer.ps1 -Once           # 한 회차만 (남은 부분은 다음에 실행할 때)
    powershell -ExecutionPolicy Bypass -File .\run_analyzer.ps1 -RegisterTask   # 매일 17:15 에 -Once 로 자동 실행 (창을 닫아도 됨, PC는 켜져 있어야)
    powershell -ExecutionPolicy Bypass -File .\run_analyzer.ps1 -UnregisterTask # 자동 실행 끄기
@@ -31,7 +35,7 @@
  ※ 'wget'은 Windows PowerShell 5.1에서 Invoke-WebRequest의 별칭입니다. 이 스크립트는 PowerShell 7에서도 되도록 Invoke-WebRequest를 직접 씁니다.
 #>
 param(
-    [string]$Folder = "economic",
+    [string[]]$Folder = @("economic"),
     [string]$Repo = "yeomin1024/yeomin1024-ytb",
     [string]$Branch = "main",
     [switch]$UpdateConfig,
@@ -50,9 +54,11 @@ try { [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::
 if ($PSScriptRoot) { Set-Location -Path $PSScriptRoot }
 
 $Base = if ($env:RAW_BASE) { $env:RAW_BASE } else { "https://raw.githubusercontent.com/$Repo/$Branch" }
+$Folder = @($Folder | ForEach-Object { $_ -split "," } | ForEach-Object { $_.Trim() } | Where-Object { $_ })   # -File 로 부르면 "a,b" 한 글자열
+if (-not $Folder) { $Folder = @("economic") }
 $CodeFiles = @("youtube_topic_analyzer.py", "tools/pc_analysis.py", "tools/outlier_research.py", "tools/outlier_stats.py")
-$ConfigFiles = @("$Folder/analyzer_config.toml", "$Folder/keywords.toml")
-$TaskName = "YouTubeAnalysis_$Folder"
+$ConfigFiles = @($Folder | ForEach-Object { "$_/analyzer_config.toml"; "$_/keywords.toml" })
+$TaskName = "YouTubeAnalysis_" + ($Folder -join "_")
 
 function Write-Step([string]$msg) { Write-Host "[RUNNER] [$(Get-Date -Format s)] $msg" }
 
@@ -86,7 +92,7 @@ if ($UnregisterTask) {
 }
 if ($RegisterTask) {
     $self = Join-Path (Get-Location) "run_analyzer.ps1"
-    $tr = "powershell -NoProfile -ExecutionPolicy Bypass -File `"$self`" -Folder $Folder -Branch $Branch -Once"
+    $tr = "powershell -NoProfile -ExecutionPolicy Bypass -File `"$self`" -Folder $($Folder -join ',') -Branch $Branch -Once"
     schtasks /Create /TN $TaskName /TR $tr /SC DAILY /ST $TaskTime /F | Out-Null
     if ($LASTEXITCODE -eq 0) {
         Write-Step "매일 $TaskTime 에 자동 실행 등록: $TaskName (할당량 초기화 = 한국 오후 4시, 미국 표준시 기간 11~3월엔 5시 → $TaskTime 이면 둘 다 지남)"
@@ -164,7 +170,7 @@ foreach ($c in $ConfigFiles) {
     if ($UpdateConfig -or -not (Test-Path $c)) {
         if (-not (Get-Remote $c $c)) {
             if (Test-Path $c) { Write-Step "있던 파일을 그대로 씁니다: $c" }
-            else { Write-Step "⚠️ GitHub에 $c 가 없습니다 → -Folder 이름을 확인하세요 (현재: $Folder)" }
+            else { Write-Step "⚠️ GitHub에 $c 가 없습니다 → -Folder 이름을 확인하세요 (현재: $($Folder -join ', ')). 새 주제는 Claude 에게 '<주제> 검색어 만들어줘'" }
         }
     }
 }
@@ -189,17 +195,23 @@ if (-not $NoVenv) {
 }
 
 # ④ 실행
-$cfg = "$Folder/analyzer_config.toml"
-if ($AnalyzerOnly) {
-    $runArgs = @("youtube_topic_analyzer.py", "--config", $cfg)
+if ($AnalyzerOnly) {    # 예전 방식: 분석기만, 주제마다 차례로
+    $code = 0
+    foreach ($f in $Folder) {
+        $runArgs = @("youtube_topic_analyzer.py", "--config", "$f/analyzer_config.toml")
+        if ($ExtraArgs) { $runArgs += $ExtraArgs }
+        Write-Step "실행: python $($runArgs -join ' ')"
+        & $pyExe @pyPre @runArgs
+        if ($LASTEXITCODE -ne 0) { $code = $LASTEXITCODE }
+    }
 } else {
-    $runArgs = @("tools/pc_analysis.py", $Folder)
+    $runArgs = @("tools/pc_analysis.py") + $Folder     # 주제가 여러 개면 동시에 (pc_analysis.py 가 주제마다 따로 띄움)
     if ($Once) { $runArgs += "--once" }
+    if ($ExtraArgs) { $runArgs += $ExtraArgs }
+    Write-Step "실행: python $($runArgs -join ' ')"
+    & $pyExe @pyPre @runArgs
+    $code = $LASTEXITCODE
 }
-if ($ExtraArgs) { $runArgs += $ExtraArgs }
-Write-Step "실행: python $($runArgs -join ' ')"
-& $pyExe @pyPre @runArgs
-$code = $LASTEXITCODE
 if ($code -eq 3) { Write-Step "할당량 때문에 남은 부분이 있습니다 → 다음 실행(또는 작업 스케줄러)이 이어서 받습니다" }
 if ($code -ne 0 -and $code -ne 3 -and (Test-Path ".env") -and -not (Select-String -Path ".env" -Pattern "^YOUTUBE_API_KEY=.+" -Quiet)) {
     Write-Step "👉 .env 파일을 메모장으로 열어 YOUTUBE_API_KEY 를 넣고 저장한 뒤 이 스크립트를 다시 실행하세요"

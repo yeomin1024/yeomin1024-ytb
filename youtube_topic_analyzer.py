@@ -1,7 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v2.5.0 — 2026-10-13 — 저장소가 비공개면 PC 의 outliers/ 를 사례 폴더(자막·댓글 전부·썸네일)까지 통째로 올림 (사용자 지시: "비공개로 돌릴테니까
-#          전부 다 업로드되게"). 공개 저장소면 예전처럼 요약 파일(csv·md·json)만
+# VERSION: v2.6.0 — 2026-10-13 — 여러 주제를 동시에(병렬로) 돌릴 수 있게 (사용자 지시: "동시에 병렬로 다른 주제 분석도 가능하도록 해야해
+#          그럼 검색어 설정 파일, 키설정 파일도 여러개"): ① 주제별 키 파일 <주제폴더>/.env (+ 환경 변수 YOUTUBE_API_KEY_<폴더>)를
+#          맨 위 .env 보다 먼저 읽음 ② git 작업 폴더·임시 폴더·푸시 로그를 주제마다 따로 (.yt_work/_github_clone_<폴더> 등 — 같이 돌면
+#          서로 지우던 것) ③ 캐시 임시 파일 이름에 프로세스 번호 ④ --setup-only (패키지 설치만 — 병렬 실행 전에 한 번)
+#          ⑤ --quota-budget (같은 키를 쓰는 주제끼리 하루 할당량을 나눌 때 tools/pc_analysis.py 가 넘김)
+# (v2.5.0 — 2026-10-13 — 저장소가 비공개면 PC 의 outliers/ 를 사례 폴더(자막·댓글 전부·썸네일)까지 통째로 올림 (사용자 지시: "비공개로 돌릴테니까
+#          전부 다 업로드되게"). 공개 저장소면 예전처럼 요약 파일(csv·md·json)만)
 # (v2.4.0 — 2026-10-13 — 검색어·관련어 목록을 설정 파일과 따로(<폴더>/keywords.toml, KEYWORDS_FILE), 기본 주제 economic(경제·재테크),
 #          GitHub 푸시가 <폴더>/result/outliers/(tools/outlier_research.py 결과)를 지우지 않고 PC의 최신 outliers 요약도 함께 올림)
 #          (v2.3.1: .env 파일이 없어도 환경변수 YOUTUBE_API_KEY로 실행 (클라우드 실행용); v2.3.0: 설정 파일 분리, --config / --init-config)
@@ -268,7 +273,7 @@ import numpy as np
 import pandas as pd
 import requests
 
-NOTEBOOK_VERSION = "v2.5.0"
+NOTEBOOK_VERSION = "v2.6.0"
 KST = dt.timezone(dt.timedelta(hours=9))
 UTC = dt.timezone.utc
 IS_WINDOWS = os.name == "nt"
@@ -411,7 +416,7 @@ class JsonCache:
     def set(self, ns, key, value):
         p = self._path(ns, key)
         p.parent.mkdir(parents=True, exist_ok=True)
-        tmp = p.with_suffix(f".tmp{threading.get_ident()}")
+        tmp = p.with_suffix(f".tmp{os.getpid()}_{threading.get_ident()}")   # 여러 주제를 동시에 돌려도 겹치지 않게 (v2.6.0)
         try:
             tmp.write_text(json.dumps(value, ensure_ascii=False), "utf-8")
             os.replace(tmp, p)
@@ -3054,7 +3059,7 @@ def process_success_case(ctx, row, idx, comments):
     vid = row["video_id"]
     case_dir = ctx.out_dir / "success_cases" / f"{idx:02d}_{slugify(row['title'], 30)}_{vid}"
     case_dir.mkdir(parents=True, exist_ok=True)
-    tmp = ctx.work_dir / "tmp" / vid
+    tmp = ctx.work_dir / "tmp" / folder_tag(cfg["PROJECT_FOLDER"]) / vid     # 주제마다 따로 (v2.6.0)
     tmp.mkdir(parents=True, exist_ok=True)
     status = {"video_id": vid, "case_dir": case_dir.relative_to(ctx.out_dir).as_posix()}
     t0 = time.perf_counter()
@@ -3920,10 +3925,14 @@ def videos_go_to_github(cfg, token):
     return False, "공개 저장소 (타인 영상은 PC에만 저장)"
 
 
-def reload_github_token(current):
-    """푸시 직전에 .env 를 다시 읽음 → 분석 도중 토큰을 고쳤으면 그대로 반영."""
+def reload_github_token(current, topic_dir=None):
+    """푸시 직전에 키 파일을 다시 읽음 (주제폴더/.env → 맨 위 .env 순) → 분석 도중 토큰을 고쳤으면 그대로 반영."""
+    v = ""
     try:
-        v = load_env_file(BASE_DIR / ENV_FILE).get("GITHUB_TOKEN", "").strip()
+        for _, vals in key_sources(topic_dir):
+            if str(vals.get("GITHUB_TOKEN", "") or "").strip():
+                v = str(vals["GITHUB_TOKEN"]).strip()
+                break
     except Exception:
         v = ""
     if v and v != current:
@@ -3982,7 +3991,7 @@ def stage8_push_github(ctx, token):
     url = f"https://github.com/{repo}.git"
 
     for round_ in (1, 2):   # 동시 수정으로 push가 거부되면 새로 clone해서 1회 재시도
-        clone = ctx.work_dir / "_github_clone"
+        clone = ctx.work_dir / f"_github_clone_{folder_tag(cfg['PROJECT_FOLDER'])}"   # 주제마다 따로 — 동시에 돌면 서로 지우던 것 (v2.6.0)
         rmtree_force(clone)
         if branch_exists:
             run_git(["clone", "--depth", "1", "--branch", branch, "--single-branch", url, str(clone)], ctx.work_dir, auth)
@@ -3995,7 +4004,7 @@ def stage8_push_github(ctx, token):
             log("GITHUB", "상위 폴더가 없어 새로 생성", folder=cfg["PROJECT_FOLDER"])
         target = clone / rel_path
         if target.exists() and cfg["CLEAN_OLD_RESULTS"]:
-            kept = _clean_result_dir(target, clone.parent / "_outliers_keep")
+            kept = _clean_result_dir(target, clone.parent / f"_outliers_keep_{folder_tag(cfg['PROJECT_FOLDER'])}")
             log("GITHUB", "기존 결과 폴더 교체 (이전 버전은 git 기록에 보존)", path=rel_path, kept_outliers=kept)
         target.mkdir(parents=True, exist_ok=True)
         skipped = _copy_results(ctx, target, allow_videos)
@@ -4417,6 +4426,28 @@ def run_self_test(cfg):
     check("성공 사례 올리기 (공개: 요약만 / 비공개: 사례 폴더까지)",
           got_pub == ["status.json", "summary.md"] and got_priv == ["01_abc/comments.csv", "P01_def/transcript.txt", "status.json", "summary.md"]
           and n_pub == 2 and n_priv == 4, public=got_pub, private=got_priv)
+    # v2.6.0: 주제별 키 — <주제폴더>/.env 가 먼저, 다음 환경 변수 <키>_<폴더>, 그다음 맨 위 .env·환경 변수 / 주제마다 다른 작업 폴더 이름
+    with tempfile.TemporaryDirectory() as td:
+        ta, tb_ = Path(td) / "topic_a", Path(td) / "topic-b"
+        ta.mkdir()
+        tb_.mkdir()
+        (ta / ENV_FILE).write_text("YOUTUBE_API_KEY=AIzaTOPIC_A_FILE\n", "utf-8")
+        old_env = {k: os.environ.get(k) for k in ("YOUTUBE_API_KEY_TOPIC_A", "YOUTUBE_API_KEY_TOPIC_B")}
+        os.environ["YOUTUBE_API_KEY_TOPIC_A"] = "AIzaTOPIC_A_ENV"
+        os.environ["YOUTUBE_API_KEY_TOPIC_B"] = "AIzaTOPIC_B_ENV"
+        try:
+            pick = lambda d: next((v["YOUTUBE_API_KEY"] for _, v in key_sources(d) if v.get("YOUTUBE_API_KEY")), "")
+            got_a, got_b = pick(ta), pick(tb_)
+            first_names = [n for n, _ in key_sources(ta)][:2]
+        finally:
+            for k, v in old_env.items():
+                if v is None:
+                    os.environ.pop(k, None)
+                else:
+                    os.environ[k] = v
+    check("주제별 키 파일·환경 변수 (주제폴더/.env 먼저)", got_a == "AIzaTOPIC_A_FILE" and got_b == "AIzaTOPIC_B_ENV"
+          and first_names == ["topic_a/.env", "env:*_TOPIC_A"] and folder_tag("a/b") == "a_b" and folder_tag("topic-b") == "topic_b",
+          sources=first_names)
 
     passed = sum(ok for _, ok in results)
     log("SELFTEST", "자가진단 완료", passed=f"{passed}/{len(results)}", elapsed_sec=round(time.perf_counter() - t0, 2))
@@ -4446,31 +4477,52 @@ def _mask(v):
     return f"{v[:4]}…{v[-4:]} (len={len(v)})" if len(v) >= 10 else ("(없음)" if not v else "***")
 
 
-def load_keys(require_youtube=True):
-    """키 우선순위: .env 파일 → 환경변수.
-    .env가 없을 때: 환경변수에 YOUTUBE_API_KEY가 있으면(클라우드 실행) 파일 없이 진행하고, 없으면 템플릿을 만들고 종료."""
+def folder_tag(folder):
+    """주제 폴더 이름 → 파일·환경 변수 이름에 쓸 꼬리표 (economic → economic, a/b → a_b)."""
+    return re.sub(r"[^0-9A-Za-z가-힣]+", "_", str(folder)).strip("_") or "topic"
+
+
+def key_sources(topic_dir=None):
+    """키를 찾는 곳 (앞이 먼저, v2.6.0): ① <주제폴더>/.env ② 환경 변수 <키>_<폴더>(예: YOUTUBE_API_KEY_ECONOMIC)
+    ③ 맨 위 .env ④ 환경 변수 <키>. → [(이름, {키: 값})].
+    ⚠️ 같은 도구에 할당량을 늘리려고 Google Cloud 프로젝트를 여러 개 만드는 것('sharding')은 YouTube API 개발자 정책 위반
+    (키 회수·계정 정지 위험) — 주제별 키 파일은 정말 다른 용도의 프로젝트가 있을 때만. 할당량이 더 필요하면 할당량 증가 신청."""
+    src = []
+    if topic_dir is not None:
+        tp = Path(topic_dir) / ENV_FILE
+        if tp.is_file():
+            src.append((f"{Path(topic_dir).name}/.env", load_env_file(tp)))
+        tag = folder_tag(Path(topic_dir).name).upper()
+        src.append((f"env:*_{tag}", {k: os.environ.get(f"{k}_{tag}", "") for k in ("YOUTUBE_API_KEY", "GITHUB_TOKEN", "YTDLP_PROXY")}))
+    root = BASE_DIR / ENV_FILE
+    if root.is_file():
+        src.append((".env", load_env_file(root)))
+    src.append(("env", {k: os.environ.get(k, "") for k in ("YOUTUBE_API_KEY", "GITHUB_TOKEN", "YTDLP_PROXY")}))
+    return src
+
+
+def load_keys(require_youtube=True, topic_dir=None):
+    """키 우선순위 (v2.6.0): <주제폴더>/.env → 환경 변수 <키>_<폴더> → 맨 위 .env → 환경 변수.
+    어디에도 YOUTUBE_API_KEY 가 없으면 맨 위 .env 틀을 만들고 종료 (클라우드는 환경 변수)."""
     env_path = BASE_DIR / ENV_FILE
-    if not env_path.exists():
-        if os.environ.get("YOUTUBE_API_KEY", "").strip() or not require_youtube:
-            print(f"[KEYS] .env 없음 → 환경변수에서 키를 읽습니다 (클라우드 실행)")
-            vals = {}
-        else:
-            env_path.write_text(ENV_TEMPLATE, "utf-8")
-            print(f"[KEYS] 📝 키 파일을 만들었습니다: {env_path}\n"
-                  f"[KEYS]    메모장 등으로 열어 YOUTUBE_API_KEY(필수), GITHUB_TOKEN(권장)을 입력·저장한 뒤 다시 실행하세요.\n"
-                  f"[KEYS]    (클라우드에서는 .env 대신 환경변수 YOUTUBE_API_KEY를 설정하세요)")
-            sys.exit(1)
-    else:
-        vals = load_env_file(env_path)
+    srcs = key_sources(topic_dir)
     keys = {}
     for k in ("YOUTUBE_API_KEY", "GITHUB_TOKEN", "YTDLP_PROXY"):
-        v, src = vals.get(k, ""), ".env"
-        if not v and os.environ.get(k, "").strip():
-            v, src = os.environ[k].strip(), "env"
+        v, src = "", "-"
+        for name, vals in srcs:
+            if str(vals.get(k, "") or "").strip():
+                v, src = str(vals[k]).strip(), name
+                break
         keys[k] = v
-        print(f"[KEYS] {k}={_mask(v) if k != 'YTDLP_PROXY' else ('있음' if v else '(없음)')} source={src if v else '-'}")
+        print(f"[KEYS] {k}={_mask(v) if k != 'YTDLP_PROXY' else ('있음' if v else '(없음)')} source={src}")
+    if not keys["YOUTUBE_API_KEY"] and require_youtube and not env_path.exists():
+        env_path.write_text(ENV_TEMPLATE, "utf-8")
+        print(f"[KEYS] 📝 키 파일을 만들었습니다: {env_path}\n"
+              f"[KEYS]    메모장 등으로 열어 YOUTUBE_API_KEY(필수), GITHUB_TOKEN(권장)을 입력·저장한 뒤 다시 실행하세요.\n"
+              f"[KEYS]    (주제마다 다른 키: <주제폴더>/.env · 클라우드에서는 환경변수 YOUTUBE_API_KEY)")
+        sys.exit(1)
     if not keys["YOUTUBE_API_KEY"] and require_youtube:
-        print(f"[KEYS] ❌ YOUTUBE_API_KEY 가 비어 있습니다 → {env_path} 에 입력 후 다시 실행하세요.")
+        print(f"[KEYS] ❌ YOUTUBE_API_KEY 가 비어 있습니다 → {env_path} (또는 주제폴더/.env) 에 입력 후 다시 실행하세요.")
         sys.exit(1)
     if keys["YOUTUBE_API_KEY"] and not keys["YOUTUBE_API_KEY"].startswith("AIza"):
         print("[KEYS] ⚠️ YouTube API 키는 보통 'AIza'로 시작합니다. 값을 다시 확인하세요.")
@@ -4494,6 +4546,8 @@ def parse_args(argv=None):
     p.add_argument("--no-open", action="store_true", help="끝나고 결과 폴더 열지 않음")
     p.add_argument("--log-level", choices=["DEBUG", "INFO", "WARNING"], help="로그 상세도")
     p.add_argument("--skip-install", action="store_true", help="패키지 자동 설치/업데이트 안 함")
+    p.add_argument("--quota-budget", type=int, help="이번 실행 할당량 QUOTA_BUDGET (같은 키를 여러 주제가 나눠 쓸 때, ⚠️ 비용 관련)")
+    p.add_argument("--setup-only", action="store_true", help="패키지 설치·업데이트만 하고 끝 (여러 주제를 동시에 돌리기 전에 한 번)")
     p.add_argument("--push-only", action="store_true",
                    help="분석은 다시 하지 않고, 이미 PC에 있는 결과 폴더만 GitHub에 푸시 (토큰을 고친 뒤 사용)")
     return p.parse_args(argv)
@@ -4510,7 +4564,7 @@ def push_only(cfg, keys):
     out_dir = output_root / cfg["PROJECT_FOLDER"] / cfg["RESULT_FOLDER"]
     work = BASE_DIR / ".yt_work"
     work.mkdir(parents=True, exist_ok=True)
-    setup_logging(cfg["LOG_LEVEL"], work / "push_log.txt")
+    setup_logging(cfg["LOG_LEVEL"], work / f"push_log_{folder_tag(cfg['PROJECT_FOLDER'])}.txt")
     register_secret(keys["GITHUB_TOKEN"])
     if not (out_dir / "README.md").exists():
         log("GITHUB", "❌ 푸시할 결과가 없습니다 — 먼저 분석을 실행하세요 (주제/폴더를 바꿔 실행했다면 같은 --folder 지정)",
@@ -4610,7 +4664,7 @@ def apply_cli(cfg, args):
     for opt, key, val in (("topic", "TOPIC", args.topic), ("folder", "PROJECT_FOLDER", args.folder),
                           ("result_folder", "RESULT_FOLDER", args.result_folder),
                           ("keywords", "MAX_SEARCH_KEYWORDS", args.keywords), ("cases", "SUCCESS_CASE_COUNT", args.cases),
-                          ("log_level", "LOG_LEVEL", args.log_level)):
+                          ("log_level", "LOG_LEVEL", args.log_level), ("quota_budget", "QUOTA_BUDGET", args.quota_budget)):
         if val is not None:
             changes[key] = (cfg[key], val)
             cfg[key] = val
@@ -4624,14 +4678,18 @@ def apply_cli(cfg, args):
 
 def main(argv=None):
     args = parse_args(argv)
+    if args.setup_only:             # 패키지 설치·업데이트는 bootstrap 이 이미 함 (병렬 실행 전에 한 번, v2.6.0)
+        print(f"[SETUP] 준비 끝 (--setup-only) version={NOTEBOOK_VERSION}")
+        return 0
     try:
         if args.init_config:
             return init_config_only(args)
+        topic_dir = resolve_config_path(args.config, args.folder or PROJECT_FOLDER)[0].parent   # 주제별 키 파일 위치
         if args.push_only:
-            keys = load_keys(require_youtube=False)
+            keys = load_keys(require_youtube=False, topic_dir=topic_dir)
             cfg, _, _ = load_config(args, create_missing=False)
             return push_only(cfg, keys)
-        keys = load_keys()
+        keys = load_keys(topic_dir=topic_dir)
         cfg, cfg_info, changes = load_config(args)
     except ValueError as e:         # 설정 파일 형식·값 오류 → 분석 전에 멈춤
         print(f"[CONFIG] ❌ {e}")
@@ -4693,7 +4751,7 @@ def main(argv=None):
             stage7_report(ctx)
         try:            # 푸시 실패(토큰 오류·네트워크 등)는 PC 결과에 영향이 없으므로 계속 진행
             with stage_timer(ctx, "GITHUB"):
-                stage8_push_github(ctx, reload_github_token(keys["GITHUB_TOKEN"]))
+                stage8_push_github(ctx, reload_github_token(keys["GITHUB_TOKEN"], topic_dir))
         except Exception as e:
             ctx.note("GITHUB", "GitHub 푸시 실패 — 결과는 PC에 저장되어 있습니다", level="ERROR",
                      error=f"{type(e).__name__}: {str(e)[:600]}",

@@ -24,6 +24,7 @@ video/                      ← Remotion 프로젝트, 모든 주제가 같이 �
 economic/                   ← 주제 폴더: 경제·재테크 — economic/README.md
   analyzer_config.toml      ← 분석 설정 (주제 이름·저장 폴더·할당량 등)
   keywords.toml             ← 검색어 목록 (분석기·성공 사례 수집이 같이 씀) — 검색어는 여기만 고치면 됨
+  .env                      ← (PC에만, git 제외) 이 주제만 쓰는 키 — 비우면 맨 위 .env. 여러 주제를 동시에: run_analyzer.ps1 -Folder economic,health
   result/                   ← 분석 결과 (PC 실행이 GitHub에 올림) · result/outliers/ 성공 사례·조회수 상위 (댓글 전부 — 비공개 저장소면 사례 폴더까지)
   guides/                   ← (분석 뒤) 주제 전용 규칙 + data_insights.md(분석 결과 요약 = 지시사항 근거)
   source/<영상ID>/          ← (주제를 고른 뒤) 영상별 대본 TXT·SRT·README·titles.md·thumbnails/·upload.md
@@ -75,7 +76,7 @@ bash run_analyzer.sh
 |---|---|---|
 | 한 회차만 | `-Once` | `--once` |
 | 매일 자동 (작업 스케줄러 / cron) | `-RegisterTask` · 끄기 `-UnregisterTask` | `--print-cron` → `crontab -e`에 붙여넣기 |
-| 다른 주제 폴더 | `-Folder realestate` | `--folder realestate` |
+| 다른 주제 폴더 / 여러 주제를 동시에 | `-Folder realestate` / `-Folder economic,realestate` | `--folder realestate` / `--folder economic,realestate` |
 | 설정·검색어 파일도 최신으로 (기존은 `.bak`) | `-UpdateConfig` | `--update-config` |
 | 예전처럼 분석기만 한 번 | `-AnalyzerOnly` (뒤 인자는 분석기 옵션, 예: `--no-push --cases 3`) | `--analyzer-only -- --no-push --cases 3` |
 | `tools/pc_analysis.py` 옵션 전달 | `.\run_analyzer.ps1 --dry-run` | `bash run_analyzer.sh -- --dry-run` |

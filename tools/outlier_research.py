@@ -1,12 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.3 — 2026-10-13 — 댓글 전부·조회수 상위 영상 (사용자 지시: "비공개로 돌릴테니까 전부 다 업로드되게 하고 댓글은 전부 받도록 수정해
+# VERSION: v1.4 — 2026-10-13 — 주제별 키 (사용자 지시: "동시에 병렬로 다른 주제 분석도 가능하도록 … 키설정 파일도 여러개"):
+#          키를 <주제폴더>/.env → 환경 변수 YOUTUBE_API_KEY_<폴더> → 환경 변수 YOUTUBE_API_KEY → 맨 위 .env 순으로 찾음.
+#          주제 여러 개를 한 번에 돌리면 키마다 할당량을 따로 셈 (같은 키를 쓰는 주제끼리만 --quota 를 나눠 씀)
+# (v1.3 — 2026-10-13 — 댓글 전부·조회수 상위 영상 (사용자 지시: "비공개로 돌릴테니까 전부 다 업로드되게 하고 댓글은 전부 받도록 수정해
 #          그리고 구독자 수 상관없이 조회수 많이 나온 영상 댓글은 전부 받아야해"):
 #          ① 댓글 전부: 최상위 댓글(commentThreads, 시간순, 100개씩) + 답글(5개 넘는 것은 comments.list) — 기본 --comments 0(전부)
 #             쪽마다 comments.jsonl 에 덧붙이고 comments_state.json 에 다음 쪽을 저장 → 할당량이 끝나면 다음 실행이 그 쪽부터
 #          ② 조회수 상위 영상(구독자 수 상관없음, --popular 20): 주제 관련(keywords.toml RELEVANCE_*, 분석기 topic_relevance 규칙)·
 #             4분 이상·최근 --fallback-days 일 → 조회수 순, 채널당 2개 → 설명·자막·썸네일·댓글 전부 (폴더 P01_<영상ID>/, popular.csv)
-#          ③ 댓글 기록에 답글 여부(parent)·채널 주인 댓글(creator) — 작성자 이름은 저장하지 않음
+#          ③ 댓글 기록에 답글 여부(parent)·채널 주인 댓글(creator) — 작성자 이름은 저장하지 않음)
 # (v1.2 — 2026-10-13 — PC 실행·이어서 돌리기 (사용자 지시: "분석기 코드 pc에서 돌릴 수 있도록", "api 할당량이 초기화된 시간이 되면
 #          다시 자동으로 분석결과를 확인 못한 부분부터 새로 추가로"):
 #          ① 검색어는 <주제>/keywords.toml 에서 (분석기 v2.4.0과 같은 파일, 없으면 analyzer_config.toml)
@@ -36,7 +39,7 @@ r"""
         --refresh       캐시 무시 (검색·영상 정보·자막·썸네일·댓글 모두 새로)
 
 수집 방법:
-  YouTube Data API v3 (환경 변수 YOUTUBE_API_KEY, 없으면 이 폴더의 .env — 분석기와 같은 키):
+  YouTube Data API v3 — 키: <주제폴더>/.env → 환경 변수 YOUTUBE_API_KEY_<폴더> → YOUTUBE_API_KEY → 맨 위 .env (분석기와 같은 파일):
     검색 search.list (최근 --fallback-days 일·조회수 순·4~20분·20분 넘음, KR·ko) — 100단위/번 · 영상 videos.list · 채널 channels.list
     · 댓글 commentThreads.list(최상위 100개) · comments.list(답글 100개) — 1단위/번. 검색 횟수 = 검색어 그룹 × --per-group × 2(길이 둘).
     댓글 전부의 할당량: 영상마다 약 (최상위 댓글 수 ÷ 100) + (답글이 5개 넘는 댓글 수) 단위. 하루에 다 못 받으면 다음 실행이 이어서.
@@ -83,7 +86,7 @@ except ModuleNotFoundError:             # Python 3.10 → tomli (분석기가 �
     import tomli as tomllib
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v1.3"
+VERSION = "v1.4"
 LOG = logging.getLogger("outlier")
 HANGUL = re.compile(r"[가-힣]")
 SEARCH_TTL_HOURS = 168
@@ -828,13 +831,29 @@ def write_summary(out, topic, name, a, used_days, rows, q, deep, pop, pop_deep, 
     (out / "summary.md").write_text("\n".join(L), "utf-8")
 
 
-def load_api_key():
-    key = os.environ.get("YOUTUBE_API_KEY", "").strip()
-    env_p = ROOT / ".env"     # 집 PC: 분석기와 같은 .env (git 에 올라가지 않음). 값은 출력하지 않는다
-    if not key and env_p.is_file():
-        m = re.search(r"^\s*YOUTUBE_API_KEY\s*=\s*['\"]?([^'\"\s]+)", env_p.read_text("utf-8"), re.M)
-        key = m.group(1) if m else ""
-    return key
+def _env_file_key(path, name="YOUTUBE_API_KEY"):
+    if not path.is_file():
+        return ""
+    m = re.search(rf"^[ \t]*{name}[ \t]*=[ \t]*['\"]?([^'\"\s]+)", path.read_text("utf-8-sig"), re.M)
+    return m.group(1) if m else ""
+
+
+def load_api_key(topic=None):
+    """→ (키, 어디서). 주제별 키가 먼저 (v1.4): <주제폴더>/.env → 환경 변수 YOUTUBE_API_KEY_<폴더> → YOUTUBE_API_KEY → 맨 위 .env.
+    값은 출력하지 않는다. ⚠️ 할당량을 늘리려고 같은 도구에 Google Cloud 프로젝트를 여러 개 쓰는 것은 YouTube API 정책 위반('sharding')."""
+    if topic:
+        k = _env_file_key(ROOT / topic / ".env")
+        if k:
+            return k, f"{topic}/.env"
+        tag = re.sub(r"[^0-9A-Za-z가-힣]+", "_", str(topic)).strip("_").upper()
+        k = os.environ.get(f"YOUTUBE_API_KEY_{tag}", "").strip()
+        if k:
+            return k, f"env:YOUTUBE_API_KEY_{tag}"
+    k = os.environ.get("YOUTUBE_API_KEY", "").strip()
+    if k:
+        return k, "env:YOUTUBE_API_KEY"
+    k = _env_file_key(ROOT / ".env")
+    return (k, ".env") if k else ("", "-")
 
 
 def main(argv=None):
@@ -861,17 +880,22 @@ def main(argv=None):
     ap.add_argument("--log-level", default="INFO", choices=["DEBUG", "INFO", "WARNING"])
     a = ap.parse_args(argv)
     logging.basicConfig(level=getattr(logging, a.log_level), format="%(message)s", stream=sys.stdout)
-    api = None
+    apis, topic_api = {}, {}            # 키마다 Api 하나 (같은 키를 쓰는 주제끼리만 --quota 를 나눠 씀)
     if not a.from_existing:
-        key = load_api_key()
-        if not key:
-            raise SystemExit("[START] ❌ YOUTUBE_API_KEY 가 없음 → 이 폴더의 .env 에 YOUTUBE_API_KEY=... (PC) 또는 클라우드 환경 변수 "
-                             "(키 없이 기존 자료로만: --from-existing)")
-        api = Api(key, a.quota)
+        for t in a.topics:
+            key, src = load_api_key(t)
+            if not key:
+                raise SystemExit(f"[START] ❌ {t}: YOUTUBE_API_KEY 가 없음 → {t}/.env 또는 맨 위 .env 에 YOUTUBE_API_KEY=... (PC), "
+                                 "클라우드는 환경 변수 (키 없이 기존 자료로만: --from-existing)")
+            fp = hashlib.sha256(key.encode()).hexdigest()[:8]
+            apis.setdefault(fp, Api(key, a.quota))
+            topic_api[t] = apis[fp]
+            log("START", topic=t, key_source=src, key_id=fp,
+                shared_with=",".join(x for x in topic_api if x != t and topic_api[x] is apis[fp]) or "-")
     statuses = {}
     for t in a.topics:
         try:
-            statuses[t] = run_topic(t, a, api)
+            statuses[t] = run_topic(t, a, topic_api.get(t))
         except SystemExit:
             raise
         except Exception as e:   # 한 주제가 실패해도 다음 주제

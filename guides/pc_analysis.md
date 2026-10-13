@@ -1,6 +1,6 @@
 # PC에서 분석 돌리기 — 경제·재테크(`economic`)
 
-버전: v1.1 — 2026-10-13 — 사용자 지시 "비공개로 돌릴테니까 전부 다 업로드되게 하고 댓글은 전부 받도록 수정해 그리고 구독자 수 상관없이 조회수 많이 나온 영상 댓글은 전부 받아야해": 댓글 전부(답글 포함)·조회수 상위 영상 20개, 비공개 저장소면 사례 폴더까지 전부 GitHub 에, 비공개 저장소에서 코드 받기(토큰) (v1.0 — 2026-10-13 — 새로 만듦 (사용자 지시: "분석기 코드 pc에서 돌릴 수 있도록 수정하고 방법 알려주고 api 할당량이 초기화된 시간이 되면 다시 자동으로 분석결과를 확인 못한 부분부터 새로 추가로 만들도록"))
+버전: v1.2 — 2026-10-13 — 사용자 지시 "동시에 병렬로 다른 주제 분석도 가능하도록 해야해 그럼 검색어 설정 파일, 키설정 파일도 여러개": 여러 주제를 동시에(`-Folder economic,health`), 주제마다 검색어·키 파일, 같은 키는 할당량 N등분, 프로젝트 여러 개로 할당량 늘리기는 정책 위반 (v1.1 — 2026-10-13 — 사용자 지시 "비공개로 돌릴테니까 전부 다 업로드되게 하고 댓글은 전부 받도록 수정해 그리고 구독자 수 상관없이 조회수 많이 나온 영상 댓글은 전부 받아야해": 댓글 전부(답글 포함)·조회수 상위 영상 20개, 비공개 저장소면 사례 폴더까지 전부 GitHub 에, 비공개 저장소에서 코드 받기(토큰) (v1.0 — 2026-10-13 — 새로 만듦 (사용자 지시: "분석기 코드 pc에서 돌릴 수 있도록 수정하고 방법 알려주고 api 할당량이 초기화된 시간이 되면 다시 자동으로 분석결과를 확인 못한 부분부터 새로 추가로 만들도록")))
 
 ※ 연구·교육용 분석 도구입니다. 투자 조언이 아닙니다.
 
@@ -115,6 +115,30 @@ powershell -ExecutionPolicy Bypass -File .\run_analyzer.ps1 -UnregisterTask   # 
 - PC에 있는 파일은 실행기가 덮어쓰지 않습니다. 메모장으로 고치면 다음 회차부터 적용됩니다. GitHub 최신으로 바꾸려면 `-UpdateConfig` (기존 파일은 `.bak`).
 - 성공 사례 수집은 그룹마다 **앞에서부터** `--per-group`개(기본 2)를 씁니다 → 중요한 검색어를 앞에 두세요.
 
+## 여러 주제를 동시에
+
+주제 폴더마다 **검색어 설정 파일**과 **키 설정 파일**이 따로 있고, 실행기가 주제마다 따로 돌립니다 (`tools/pc_analysis.py` v1.2).
+
+| 파일 (주제마다) | 무엇 | 어디에 |
+|---|---|---|
+| `<주제>/keywords.toml` | 검색어 그룹·관련어 (분석기·성공 사례 수집이 같이 씀) | GitHub (Claude 가 만듦) → 실행기가 PC로 받음 (없을 때만) |
+| `<주제>/analyzer_config.toml` | 주제 이름·저장 폴더·할당량 `QUOTA_BUDGET` 등 | 〃 |
+| `<주제>/.env` | 이 주제만 쓰는 키 (`YOUTUBE_API_KEY`·`GITHUB_TOKEN`). **비우면 맨 위 `.env` 키** | **PC에만** (git 에 올라가지 않음). 처음 실행 때 빈 틀이 생김 |
+
+키를 찾는 순서: `<주제>/.env` → 환경 변수 `YOUTUBE_API_KEY_<주제>`(예: `YOUTUBE_API_KEY_ECONOMIC`) → 맨 위 `.env` → 환경 변수 `YOUTUBE_API_KEY`.
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\run_analyzer.ps1 -Folder economic,health                 # 두 주제를 동시에
+powershell -ExecutionPolicy Bypass -File .\run_analyzer.ps1 -Folder economic,health -RegisterTask   # 매일 17:15 에 두 주제 한 회차씩
+```
+macOS/Linux: `bash run_analyzer.sh --folder economic,health`
+
+- 화면 줄 앞에 `[economic]`·`[health]`가 붙습니다. 주제마다 로그 `.yt_work/pc_analysis_<주제>.log`, 진행 `pc_progress_<주제>.json`, 잠금 파일이 따로라 서로 기다리지 않습니다.
+- 패키지 준비(설치·yt-dlp 업데이트)는 처음에 한 번만 하고 주제마다 프로세스를 띄웁니다. 분석기의 git 작업 폴더·임시 폴더도 주제마다 따로입니다 (분석기 v2.6.0).
+- **할당량:** YouTube 할당량은 Google Cloud **프로젝트**마다 하루 10,000단위입니다. 같은 키(같은 프로젝트)를 쓰는 주제가 N개면 실행기가 **하루 할당량을 N등분**합니다 (성공 사례·분석기 `QUOTA_BUDGET` 모두). 그만큼 주제마다 며칠 더 걸리지만, 남은 부분은 매일 자동으로 이어서 받습니다.
+- ⚠️ **할당량을 늘리려고 Google Cloud 프로젝트를 주제마다 새로 만들어 키를 따로 쓰면 안 됩니다.** YouTube API 개발자 정책이 같은 도구를 여러 프로젝트로 나눠 할당량을 더 받는 것('sharding')을 금지하고, 어기면 할당량 축소·키 회수·계정 정지가 될 수 있습니다 ([정책 안내](https://developers.google.com/youtube/terms/developer-policies-guide)). 할당량이 더 필요하면 Google Cloud 콘솔의 **할당량 증가 신청**(YouTube API 준수 감사)을 하세요. `<주제>/.env`에는 정말 다른 용도·다른 사람의 프로젝트 키가 있을 때만 넣습니다.
+- **새 주제 추가:** Claude 에게 "<주제> 검색어 만들어줘"라고 하면 `<폴더>/analyzer_config.toml`·`keywords.toml`을 만들어 main 에 올립니다. 그다음 `-Folder economic,<폴더>`로 실행. (직접 만들려면 `python youtube_topic_analyzer.py --topic <주제> --folder <폴더> --init-config` 후 `keywords.toml`을 채우고 `KEYWORD_MODE = "curated"`)
+
 ## 옵션
 
 | 하고 싶은 것 | Windows | macOS / Linux |
@@ -126,7 +150,7 @@ powershell -ExecutionPolicy Bypass -File .\run_analyzer.ps1 -UnregisterTask   # 
 | 성공 사례·조회수 상위 할당량·개수 | `--outlier-quota 3000 --daily-quota 9500 --per-group 1 --top 15 --popular 30` | `-- --outlier-quota 3000 …` |
 | 분석기를 다시 돌리기 (끝났어도) | `--rerun-analyzer` | `-- --rerun-analyzer` |
 | 성공 사례만 / 분석기만 | `--skip-analyzer` / `--skip-outliers` | `-- --skip-analyzer` … |
-| 다른 주제 폴더 | `-Folder <폴더>` | `--folder <폴더>` |
+| 다른 주제 폴더 / 여러 주제를 동시에 | `-Folder <폴더>` / `-Folder economic,health` | `--folder <폴더>` / `--folder economic,health` |
 
 직접 실행: `python tools/pc_analysis.py economic [--once] [--dry-run]` · 점검: `python tools/pc_analysis.py --self-test`
 
@@ -146,5 +170,6 @@ powershell -ExecutionPolicy Bypass -File .\run_analyzer.ps1 -UnregisterTask   # 
 
 | 버전 | 날짜 | 내용 |
 |---|---|---|
+| v1.2 | 2026-10-13 | 사용자 지시: 여러 주제를 동시에 — "여러 주제를 동시에" 절(주제마다 검색어·키 파일, 키 찾는 순서, 같은 키 할당량 N등분, sharding 정책 경고, 새 주제 추가), 옵션 표 |
 | v1.1 | 2026-10-13 | 사용자 지시: 댓글 전부(답글 포함, 쪽마다 이어 받기)·조회수 상위 20개(구독자 무관), 비공개 저장소면 사례 폴더까지 전부 올림·저장소를 비공개로 바꾸는 법·토큰으로 실행기 받기, 분석기가 끝난 날부터 할당량 9,500을 댓글에, 최대 10회차 |
 | v1.0 | 2026-10-13 | 새로 만듦: PC 실행 방법, 회차·이어서 돌리기, 할당량 초기화 시각, 작업 스케줄러, 공개 저장소에 올리는 것·안 올리는 것 |

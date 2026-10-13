@@ -1,6 +1,6 @@
 # 재테크 — 작은 채널 성공 사례 + 조회수 상위 영상 (최근·롱폼)
 
-자동 생성 — `tools/outlier_research.py` v1.8 (2026-10-14 01:33). 사례마다 자막·댓글 전부(`comments.csv`)·썸네일은 사례 폴더에 있다 (저장소가 비공개일 때만 GitHub 에 올라감). 진행 상태(못 한 검색·댓글·자막·썸네일)는 `status.json`.
+자동 생성 — `tools/outlier_research.py` v1.8 (2026-10-14 01:35). 사례마다 자막·댓글 전부(`comments.csv`)·썸네일은 사례 폴더에 있다 (저장소가 비공개일 때만 GitHub 에 올라감). 진행 상태(못 한 검색·댓글·자막·썸네일)는 `status.json`.
 
 - 성공 사례 기준: 최근 180일 안 · 구독자 50,000명 이하 · 조회수 ≥ 구독자 × 3.0 · 조회수 10,000 이상 · 4분 이상 (쇼츠 제외) · 채널당 2개까지
 - 조회수 상위 기준: **구독자 수 상관없음** · 주제 관련(keywords.toml 관련어) · 4분 이상 · 최근 365일 · 조회수 순 20개 · 채널당 2개까지
@@ -367,7 +367,10 @@ Could not retrieve a transcript for the video https://www.youtube.com/watch?v=51
 
 - https://www.youtube.com/watch?v=AhW02ezcXBk · PENIWISE FJ · 구독자 32,000 · 조회수 6,121,202 (×191.29) · 2025-10-31 (346일 전) · 4.2분 · 검색어: ISA
 - 설명 앞부분: Inspired by the original song “Jubeinoqi” by Via ni Tebara. I have always been a great admirer of this song since its initial release. Although its background story sparked considerable discussion and debate across the nation, I felt inspired to create my own version — one that reflects my personal…
-- 자막: 한국어 자막 없음
+- 도입부(첫 20초, 자막 ko(음성인식)): 롤러 마트
+- 첫 1분 발췌: 롤러 마트
+- 말 속도 0.3음절/초 · 첫 1분 4음절 · 전체 75음절
+- 구간별 흐름(90초마다 첫 문장 앞부분): 0:00 롤러 마트 / 3:00 저와 미인 바다
 - 댓글 1,093개 받음 (최상위 885 · 답글 208 · 채널 주인 36) / 영상 표시 1,093개 — 다 받음. 전부: 사례 폴더 `comments.csv`
 - 인기 댓글 상위 10 (좋아요):
   - (647) This song just brought tears to my loving and beautiful wife who just recently passed away last Sunday😢 hope ur in better place now MY ONE …

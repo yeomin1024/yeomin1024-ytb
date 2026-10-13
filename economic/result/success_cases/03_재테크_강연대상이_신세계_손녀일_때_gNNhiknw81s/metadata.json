@@ -27,11 +27,17 @@
     "case_dir": "success_cases/03_재테크_강연대상이_신세계_손녀일_때_gNNhiknw81s",
     "thumbnail": "ok",
     "video": "skipped(DOWNLOAD_VIDEOS=False)",
-    "transcript": "whisper_pending",
+    "transcript": "whisper_small",
     "transcript_errors": {
       "api": "IpBlocked: \nCould not retrieve a transcript for the video https://www.youtube.com/watch?v=gNNhiknw81s! This is most likely caused by:\n\nYouTube is blocking reques",
       "ytdlp": "RuntimeError: 자막 다운로드 실패 lang=ko-orig: HTTPError: HTTP Error 429: Too Many Requests"
     },
-    "comments": 100
+    "comments": 100,
+    "transcript_lang": "ko",
+    "whisper_done": "2026-10-14T05:26+09:00",
+    "transcript_chars": 146,
+    "chars_per_min": 417.1,
+    "hook_seconds": 5,
+    "hook_text": "그런데 보통 로또 당첨자들이 끝이 안 좋지 않아요. 그게 리빌스 많이 봤는데 그게 리빌스 많이 봤는데 막 방탄왕에 살다가 한순간에 망했다. 20억 30억 100억 50억 이렇게 받았다가"
   }
 }

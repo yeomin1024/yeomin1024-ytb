@@ -1,15 +1,18 @@
 # 공통 지시사항 — 모든 주제에 쓰는 영상 제작 규칙
 
-버전: v1.10 — 2026-10-12 — 사용자 지시: 올린 영상 줄이기(스튜디오 컷, `upload_guide.md` 10번·`tools/studio_trim.py`) (v1.9 — 2026-10-12 — 사용자 지시: 성공 사례 분석은 최근·작은 채널·배수 기준과 댓글의 시청자 니즈로, 주제마다 자기 자료만 (v1.8: 사연 20~30초로 짧지만 강렬하게, 내레이션 목소리는 샘플을 듣고 골라 고정; v1.7: 업로드 설정 '변경되거나 합성된 콘텐츠' = 예; v1.6: 썸네일 3개 모두 아래쪽 제목 문구 2줄·thumbnail_3은 검은 배경에 채택 제목 문구 그대로(노랑·빨강 강조), 렌더 뒤 음량 -14 LUFS (v1.5: 진행자는 중저음 남성, 모든 대본에서 같은 목소리 (v1.4: 오디오는 고르지 않고 하나로, 결과 파일은 대본 폴더마다 GitHub에 자동으로 (v1.3: 스토리보드·승인 단계 삭제(오디오가 생기면 바로 영상), 내레이션은 사연자·진행자 목소리 설정 파일(`voices/`)로 대본 전부 한 번에, 사례는 되도록 최신 (v1.2: 내레이션은 Kaggle에서 오픈소스 음성 AI로, v1.1: 전체 진행 순서를 `pipeline.md`로 (분석 → 지시사항·주제 → 제목·썸네일 프롬프트·업로드 시트·대본·스토리보드 → 요약 문서 → 오디오가 생기면 렌더·비공개 업로드)))
+버전: v1.11 — 2026-10-13 — 사용자 지시: 주제 폴더를 모두 지우고 `economic/`(경제·재테크) 하나로, 검색어는 `<주제폴더>/keywords.toml`로 따로, 분석은 집 PC에서(`pc_analysis.md` — 할당량 초기화 뒤 남은 부분부터 자동으로 이어서) (v1.10 — 2026-10-12 — 사용자 지시: 올린 영상 줄이기(스튜디오 컷, `upload_guide.md` 10번·`tools/studio_trim.py`) (v1.9 — 2026-10-12 — 사용자 지시: 성공 사례 분석은 최근·작은 채널·배수 기준과 댓글의 시청자 니즈로, 주제마다 자기 자료만 (v1.8: 사연 20~30초로 짧지만 강렬하게, 내레이션 목소리는 샘플을 듣고 골라 고정; v1.7: 업로드 설정 '변경되거나 합성된 콘텐츠' = 예; v1.6: 썸네일 3개 모두 아래쪽 제목 문구 2줄·thumbnail_3은 검은 배경에 채택 제목 문구 그대로(노랑·빨강 강조), 렌더 뒤 음량 -14 LUFS (v1.5: 진행자는 중저음 남성, 모든 대본에서 같은 목소리 (v1.4: 오디오는 고르지 않고 하나로, 결과 파일은 대본 폴더마다 GitHub에 자동으로 (v1.3: 스토리보드·승인 단계 삭제(오디오가 생기면 바로 영상), 내레이션은 사연자·진행자 목소리 설정 파일(`voices/`)로 대본 전부 한 번에, 사례는 되도록 최신 (v1.2: 내레이션은 Kaggle에서 오픈소스 음성 AI로, v1.1: 전체 진행 순서를 `pipeline.md`로 (분석 → 지시사항·주제 → 제목·썸네일 프롬프트·업로드 시트·대본·스토리보드 → 요약 문서 → 오디오가 생기면 렌더·비공개 업로드)))
 
 이 폴더(`guides/`)는 **주제와 상관없이** 쓰는 지시사항이다. 주제마다 다른 내용(시청자, 금액 기준, 고지 문구, 근거 자료, 피드백 사례)은 각 주제 폴더의 `guides/`에 있다.
 **주제 규칙이 공통 규칙과 다르면 주제 규칙을 따른다.**
 
+> 2026-10-13: 주제 폴더는 `economic/`(경제·재테크) 하나다. 아래 지시사항 곳곳의 `stock/…` 경로는 지운 옛 주식 폴더의 **예시**다 — 내용은 git 커밋 `2a68307`에 있다 (`git show 2a68307:stock/guides/script_rules.md`). 경제·재테크의 주제 규칙(`economic/guides/`)은 분석 결과가 나온 뒤 만든다.
+
 ## 파일
 
-| 파일 | 하는 일 | 함께 읽는 주제 파일 (주식 예) |
+| 파일 | 하는 일 | 함께 읽는 주제 파일 (예: 옛 주식 폴더 — 경제·재테크는 `economic/guides/` 같은 이름) |
 |---|---|---|
 | **`pipeline.md`** | **전체 진행 순서 1~4단계, 사용자가 처음 한 번 할 일(키 설정), Claude에게 하는 말 예시** | — |
+| **`pc_analysis.md`** | **집 PC에서 분석 돌리기**: `run_analyzer.ps1` 한 번 → 성공 사례(자막·썸네일·댓글) + 주제 분석 → GitHub, 할당량이 모자라면 초기화(한국 오후 4~5시) 뒤 남은 부분만 자동으로 이어서 | `<주제폴더>/keywords.toml`(검색어) · `analyzer_config.toml` |
 | `title_guide.md` | 주제 탐색, 제목 공식, 영상별 제목 3개 | `stock/guides/title_rules.md` |
 | `script_guide.md` | 대본(사연→진행자→고지→문제 분석→올바른 방법→마무리), SRT 자막 | `stock/guides/script_rules.md` |
 | `thumbnail_guide.md` | 영상별 썸네일 시안 3개의 프롬프트 파일 — 3개 모두 아래쪽 제목 문구 2줄, thumbnail_3은 검은 배경 제목형 (이미지는 사용자가 이미지 AI로, 코드로 렌더하지 않음) | `stock/guides/thumbnail_rules.md` |
@@ -24,7 +27,7 @@
 
 | 단계 | 할 일 | 지시사항·명령 | 결과물 (`<주제폴더>/` 기준) |
 |---|---|---|---|
-| 1 | 분석 결과가 없으면 분석기 실행 | `bash tools/run_analysis.sh <주제폴더>` | `result/` |
+| 1 | 분석 결과가 없으면 분석 — **집 PC**(자막·썸네일까지, 남으면 다음 날 자동으로 이어서) 또는 클라우드(분석기만) | `pc_analysis.md` (`run_analyzer.ps1`), 클라우드 `bash tools/run_analysis.sh <주제폴더>` | `result/`, `result/outliers/` |
 | 2 | 분석 결과로 주제 규칙·`data_insights.md` 만들기·고치기 → 주제 탐색 | `data_insights.md` '갱신 방법'·'시청자 니즈', `title_guide.md` 0번 | `guides/`, 주제 후보 |
 | 3 ① | 대본 TXT·SRT·README — **사연은 20~30초**(5~7문장, 첫 문장에 결과 숫자). SRT 검사: 문장 / 자막 / SRT–TXT 일치 / 고지 공백 / 사연 길이. 사례·연구는 되도록 최신(2020년대 먼저) | `script_guide.md` | `source/<영상ID>/` |
 | 3 ② | 제목 3개 (1개 채택, 짝 썸네일) | `title_guide.md` 11번 | `source/<영상ID>/titles.md` |
@@ -40,11 +43,11 @@ Claude Code에 시킬 때 예시는 `pipeline.md` 마지막 표에 있다.
 ## 새 주제 시작하기 (예: 부동산)
 
 1. 분석 설정 파일을 만든다: `python youtube_topic_analyzer.py --topic 부동산 --folder realestate --init-config`
-   - 결과: `realestate/analyzer_config.toml`
-   - 그 파일의 `KEYWORD_GROUPS`·`RELEVANCE_TERMS`를 채운다.
-2. 분석을 실행한다: `python youtube_topic_analyzer.py --config realestate/analyzer_config.toml` (클라우드에서는 `bash tools/run_analysis.sh realestate`)
-   - 결과: `realestate/result/`
-3. 주식 폴더를 본떠 주제 규칙을 만든다.
+   - 결과: `realestate/analyzer_config.toml` + 검색어 파일 `realestate/keywords.toml` (분석기 v2.4.0)
+   - `keywords.toml`의 `[KEYWORD_GROUPS]`(그룹별 검색어 — 성공 사례 수집은 그룹마다 앞에서부터 씀)·`RELEVANCE_TERMS`를 채운다. 예: `economic/keywords.toml`
+2. 분석을 실행한다 (집 PC): `powershell -ExecutionPolicy Bypass -File .\run_analyzer.ps1 -Folder realestate` → `pc_analysis.md`
+   - 결과: `realestate/result/`, `realestate/result/outliers/` (클라우드에서는 `bash tools/run_analysis.sh realestate` — 자막·썸네일 없음)
+3. 분석 결과로 주제 규칙을 만든다 (형식은 옛 주식 폴더 `git show 2a68307:stock/guides/<파일>`을 본뜸).
    - `realestate/guides/script_rules.md`, `title_rules.md`, `thumbnail_rules.md`, `data_insights.md`
    - `realestate/source/used_content.md`
    - 시청자·금액 기준·고지 문구·마무리 인사·색 의미처럼 주제마다 다른 것만 적는다.
@@ -54,6 +57,7 @@ Claude Code에 시킬 때 예시는 `pipeline.md` 마지막 표에 있다.
 
 | 버전 | 날짜 | 변경 내용 |
 |---|---|---|
+| v1.11 | 2026-10-13 | 사용자 지시 "기존 stock, health 등 모든 주제 폴더 전부 삭제하고 경제, 재태크(economic) 폴더만 … 검색어 목록 같은거는 따로 빼놓고 분석기 코드 pc에서 돌릴 수 있도록 … api 할당량이 초기화된 시간이 되면 다시 자동으로 … 확인 못한 부분부터": `pc_analysis.md` v1.0 추가, 1단계 = 집 PC 권장, 새 주제는 `keywords.toml`, 옛 `stock/…` 경로는 커밋 `2a68307`의 예시 |
 | v1.10 | 2026-10-12 | 사용자 지시 "패닉셀 … 사연 부분을 줄일려고 하는데 자를 부분좀 알려줘봐": 올린 영상 줄이기 — `upload_guide.md` v1.5 10번(스튜디오 '새 컷', `tools/studio_trim.py` v1.0), `srt_tool.py` v1.6(올린 영상의 사연 길이는 실측 진행자 시작 ≤ 0:30) |
 | v1.9 | 2026-10-12 | 사용자 지시: 성공 사례 분석 다시 — `tools/outlier_research.py`(최근 180일·구독자 5만 이하·조회수≥구독자×3·4분 이상), data_insights는 주제 자기 자료·시청자 니즈 중심, 빌린 근거 금지 (`pipeline.md` v1.9) |
 | v1.8 | 2026-10-12 | 사용자 지시: 사연 20~30초 (`script_guide.md` v2.4 0-1의 13번·2-1, 주제 `script_rules.md`, `srt_tool.py` v1.5 검사 — 근거 패닉셀 평균 시청 약 50초), 목소리 샘플 고르기 (`tts_guide.md` v1.5 4-0, `tts_narration.py` v1.4 samples·pick) |

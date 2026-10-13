@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v2.3.1 — 2026-10-10 — .env 파일이 없어도 환경변수 YOUTUBE_API_KEY로 실행 (클라우드 실행용) (v2.3.0: 설정 파일 분리, --config / --init-config)
+# VERSION: v2.4.0 — 2026-10-13 — 검색어·관련어 목록을 설정 파일과 따로(<폴더>/keywords.toml, KEYWORDS_FILE), 기본 주제 economic(경제·재테크),
+#          GitHub 푸시가 <폴더>/result/outliers/(tools/outlier_research.py 결과)를 지우지 않고 PC의 최신 outliers 요약도 함께 올림
+#          (v2.3.1: .env 파일이 없어도 환경변수 YOUTUBE_API_KEY로 실행 (클라우드 실행용); v2.3.0: 설정 파일 분리, --config / --init-config)
 r"""
 YouTube 주제 분석기 — 구독자 0명 채널이 조회수를 가장 잘 받을 영상 찾기
 (연구·교육용 분석 도구입니다. 투자 조언이 아니며, 통계는 상관관계일 뿐 인과관계를 보장하지 않습니다.)
@@ -15,13 +17,15 @@ YouTube 주제 분석기 — 구독자 0명 채널이 조회수를 가장 잘 �
      → 처음 실행하면 같은 폴더에 .env 파일이 생깁니다. 메모장으로 열어 키를 넣고 저장한 뒤 다시 실행하세요.
      → 필요한 패키지는 자동으로 설치됩니다 (AUTO_INSTALL_PACKAGES).
 
-[설정 파일] 주제별로 바뀌는 값(검색 키워드·관련어 등)은 코드가 아니라 설정 파일에 있습니다.
-  stock/analyzer_config.toml  ← 주식 주제. 메모장으로 열어 키워드를 고치면 됩니다.
-  우선순위: 아래 [설정 2] 기본값 < 설정 파일 < 명령줄 옵션
+[설정 파일] 주제별로 바뀌는 값은 코드가 아니라 주제 폴더의 두 파일에 있습니다 (v2.4.0).
+  economic/keywords.toml         ← 검색어(KEYWORD_GROUPS)·관련어(RELEVANCE_*) 목록. 메모장으로 열어 검색어를 고치면 됩니다.
+  economic/analyzer_config.toml  ← 그 밖의 설정 (주제 이름, 할당량 예산, 성공 기준 등)
+  우선순위: 아래 [설정 2] 기본값 < 설정 파일 < 검색어 파일(목록만) < 명령줄 옵션
+  PC에서 할당량이 다 되면 다음 날 자동으로 이어서 돌리기: tools/pc_analysis.py (guides/pc_analysis.md)
 
 [실행 예]
-  python youtube_topic_analyzer.py                                       # stock/analyzer_config.toml 로 실행
-  python youtube_topic_analyzer.py --config stock/analyzer_config.toml   # 설정 파일 직접 지정
+  python youtube_topic_analyzer.py                                       # economic/analyzer_config.toml + keywords.toml 로 실행
+  python youtube_topic_analyzer.py --config economic/analyzer_config.toml   # 설정 파일 직접 지정
   python youtube_topic_analyzer.py --topic 부동산 --folder realestate --init-config  # 새 주제 설정 파일 만들기
   python youtube_topic_analyzer.py --folder realestate                   # realestate/analyzer_config.toml 로 실행
   python youtube_topic_analyzer.py --no-push --cases 3              # GitHub 푸시 없이, 성공사례 3개만
@@ -47,10 +51,11 @@ ENV_FILE = ".env"
 #   설정 파일이 없으면 아래 기본값(주제어 자동완성으로 키워드 자동 발굴)으로 실행하고, 설정 파일 틀을 만들어 줍니다.
 # =====================================================================================================
 CONFIG_FILE_NAME = "analyzer_config.toml"    # 주제 폴더 안의 설정 파일 이름
+KEYWORDS_FILE = "keywords.toml"              # 검색어·관련어 목록 파일 (설정 파일과 같은 폴더 기준, v2.4.0) — 있으면 목록은 이 파일 값을 씀
 
 # ---- 주제 & 저장 위치 ----
-TOPIC = "주식"                               # 분석 주제 (설정 파일·--topic 으로 변경)
-PROJECT_FOLDER = "stock"                     # 결과 상위 폴더 (PC·GitHub에 없으면 자동 생성) — 설정 파일도 이 폴더에서 찾음
+TOPIC = "경제·재테크"                        # 분석 주제 (설정 파일·--topic 으로 변경)
+PROJECT_FOLDER = "economic"                     # 결과 상위 폴더 (PC·GitHub에 없으면 자동 생성) — 설정 파일도 이 폴더에서 찾음
 RESULT_FOLDER = "result"                     # 결과 하위 폴더 → <PROJECT_FOLDER>/<RESULT_FOLDER>/
 GITHUB_REPO = "yeomin1024/yeomin1024-ytb"    # 결과를 푸시할 저장소
 GITHUB_BRANCH = "main"                       # 푸시할 브랜치 (없으면 생성)
@@ -261,7 +266,7 @@ import numpy as np
 import pandas as pd
 import requests
 
-NOTEBOOK_VERSION = "v2.3.0"
+NOTEBOOK_VERSION = "v2.4.0"
 KST = dt.timezone(dt.timedelta(hours=9))
 UTC = dt.timezone.utc
 IS_WINDOWS = os.name == "nt"
@@ -433,7 +438,7 @@ class RunContext:
 
 
 CONFIG_KEYS = [
-    "TOPIC", "PROJECT_FOLDER", "RESULT_FOLDER", "GITHUB_REPO", "GITHUB_BRANCH", "EXTRA_KEYWORDS", "EXCLUDE_KEYWORDS",
+    "TOPIC", "PROJECT_FOLDER", "RESULT_FOLDER", "GITHUB_REPO", "GITHUB_BRANCH", "KEYWORDS_FILE", "EXTRA_KEYWORDS", "EXCLUDE_KEYWORDS",
     "KEYWORD_MODE", "KEYWORD_GROUPS", "AUTOCOMPLETE_TOP_N", "RELEVANCE_TERMS", "RELEVANCE_WEAK_TERMS", "RELEVANCE_EXCLUDE",
     "MAX_CASES_PER_CATEGORY", "SEARCH_CACHE_TTL_HOURS", "BASELINE_CACHE_TTL_HOURS",
     "REGION_CODE", "LANGUAGE", "ANALYSIS_DAYS", "MAX_SEARCH_KEYWORDS", "SEARCH_ORDERS", "RELEVANCE_USE_DATE_FILTER",
@@ -547,6 +552,42 @@ def apply_config_file(cfg, path):
     return {"changed": changed, "unknown": unknown, "ignored": ignored}
 
 
+# 검색어 파일(keywords.toml)에 넣는 목록 — 이 밖의 설정은 analyzer_config.toml 에 둔다 (v2.4.0)
+KEYWORD_FILE_KEYS = ("KEYWORD_GROUPS", "EXTRA_KEYWORDS", "EXCLUDE_KEYWORDS", "RELEVANCE_TERMS", "RELEVANCE_WEAK_TERMS",
+                     "RELEVANCE_EXCLUDE")
+
+
+def toml_file_keys(path):
+    """파일에 적힌 설정 이름 (섹션을 펼친 뒤). 읽지 못하면 빈 목록 — 형식 오류는 apply_config_file 이 알린다."""
+    try:
+        with open(path, "rb") as f:
+            return list(flatten_config(_toml_module().load(f))[0])
+    except Exception:
+        return []
+
+
+def keywords_path_for(cfg, config_path):
+    """검색어 파일 경로: KEYWORDS_FILE 이 절대경로면 그대로, 아니면 설정 파일과 같은 폴더 기준."""
+    p = Path(str(cfg["KEYWORDS_FILE"]).strip() or "keywords.toml").expanduser()
+    return p if p.is_absolute() else Path(config_path).parent / p
+
+
+def apply_keywords_file(cfg, path, config_keys=()):
+    """검색어·관련어 목록 파일을 cfg에 덮어씀. 목록이 아닌 설정이 들어 있으면 실행 전에 멈춤.
+    설정 파일에도 같은 목록이 있으면 이 파일 값을 쓰고 overridden 으로 알림. 반환: {keys, overridden, groups, keywords}."""
+    keys = toml_file_keys(path)
+    other = [k for k in keys if k not in KEYWORD_FILE_KEYS]
+    if other:
+        raise ValueError(f"검색어 파일에는 {', '.join(KEYWORD_FILE_KEYS)} 만 넣습니다 → {other} 는 {CONFIG_FILE_NAME} 로 옮기세요: {path}")
+    tmp = dict(cfg)
+    apply_config_file(tmp, path)            # 형식 검사는 설정 파일과 같은 규칙
+    for k in keys:
+        cfg[k] = tmp[k]
+    groups = cfg["KEYWORD_GROUPS"] or {}
+    return {"keys": sorted(keys), "overridden": sorted(set(keys) & set(config_keys)),
+            "groups": len(groups), "keywords": sum(len(v) for v in groups.values())}
+
+
 def _toml_value(v):
     if isinstance(v, bool):
         return "true" if v else "false"
@@ -565,7 +606,7 @@ def config_template(topic, folder, cfg):
 # 자동으로 만든 틀입니다 ({NOTEBOOK_VERSION}). 메모장으로 열어 값만 고치고 저장하세요. '#' 뒤는 설명입니다.
 # 실행: python youtube_topic_analyzer.py --config {folder}/{CONFIG_FILE_NAME}
 # 여기 없는 설정은 youtube_topic_analyzer.py 위쪽 [설정 2]의 기본값을 씁니다 (같은 이름으로 적으면 덮어씀).
-# 예시 설정 파일: stock/{CONFIG_FILE_NAME}
+# 검색어·관련어 목록: {folder}/{KEYWORDS_FILE} (예시: economic/{KEYWORDS_FILE})
 
 [topic]
 TOPIC = {_toml_value(topic)}
@@ -582,10 +623,20 @@ LANGUAGE = {_toml_value(cfg["LANGUAGE"])}
 
 [keywords]
 # "autocomplete" = 주제어 자동완성으로 키워드 자동 발굴 (처음엔 이걸로 한 번 돌려 보세요)
-# "curated" = 아래 KEYWORD_GROUPS 에 직접 적은 검색어만 / "both" = 둘 다
+# "curated" = 검색어 파일({KEYWORDS_FILE})의 KEYWORD_GROUPS 에 직접 적은 검색어만 / "both" = 둘 다
 KEYWORD_MODE = "autocomplete"
-EXTRA_KEYWORDS = []
-EXCLUDE_KEYWORDS = []
+KEYWORDS_FILE = {_toml_value(KEYWORDS_FILE)}   # 검색어·관련어 목록은 이 파일에 (이 설정 파일에는 적지 않음)
+"""
+
+
+def keywords_template(topic, folder):
+    """새 주제용 검색어·관련어 목록 파일 틀 (v2.4.0). 분석기와 tools/outlier_research.py 가 같이 읽는다."""
+    return f"""# 검색어·관련어 목록 — 주제: {topic} ({folder})
+# 자동으로 만든 틀입니다 ({NOTEBOOK_VERSION}). 이 파일에는 목록만 넣습니다 (그 밖의 설정은 {CONFIG_FILE_NAME}).
+# 분석기(youtube_topic_analyzer.py)와 작은 채널 성공 사례 수집(tools/outlier_research.py)이 같이 읽습니다.
+# outlier_research 는 그룹마다 앞에서부터 --per-group 개(기본 1)만 검색하므로, 그룹의 첫 검색어를 가장 대표적인 말로 둡니다.
+EXTRA_KEYWORDS = []      # 카테고리 없이 추가할 검색어
+EXCLUDE_KEYWORDS = []    # (자동완성 모드) 빼고 싶은 단어
 
 # 카테고리별 검색어 — 예: "1. 실패 사연" = ["{topic} 실패 사례", "{topic} 후회"]
 [KEYWORD_GROUPS]
@@ -3720,6 +3771,38 @@ def run_git(args, cwd, auth_b64=None, check=True, timeout=900):
     return r.returncode, out
 
 
+OUTLIERS_DIR = "outliers"
+OUTLIERS_PUSH_EXTS = (".csv", ".md", ".json")   # 사례 폴더(다른 채널의 자막·댓글 원문·썸네일)는 올리지 않음 (.gitignore 와 같음)
+
+
+def _clean_result_dir(target, tmp):
+    """결과 폴더를 비우되 outliers/(tools/outlier_research.py 결과 — 분석기 결과가 아님)는 남긴다 (v2.4.0). 남겼으면 True."""
+    keep = (target / OUTLIERS_DIR).is_dir()
+    if keep:
+        rmtree_force(tmp)
+        shutil.move(str(target / OUTLIERS_DIR), str(tmp))
+    rmtree_force(target)
+    target.mkdir(parents=True, exist_ok=True)
+    if keep:
+        shutil.move(str(tmp), str(target / OUTLIERS_DIR))
+    return keep
+
+
+def _copy_local_outliers(cfg, target):
+    """PC 의 <스크립트 폴더>/<PROJECT_FOLDER>/<RESULT_FOLDER>/outliers/ 맨 위 요약 파일(csv·md·json)을 저장소로 복사 (v2.4.0)."""
+    src = BASE_DIR / cfg["PROJECT_FOLDER"] / cfg["RESULT_FOLDER"] / OUTLIERS_DIR
+    if not src.is_dir():
+        return 0
+    n = 0
+    for f in sorted(src.iterdir()):
+        if f.is_file() and f.suffix.lower() in OUTLIERS_PUSH_EXTS:
+            dst = target / OUTLIERS_DIR / f.name
+            dst.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(f, dst)
+            n += 1
+    return n
+
+
 def _copy_results(ctx, target, allow_videos):
     """로컬 결과 → 저장소 경로 복사. 영상 정책/용량 제한으로 제외된 파일 목록 반환."""
     skipped = []
@@ -3896,10 +3979,13 @@ def stage8_push_github(ctx, token):
             log("GITHUB", "상위 폴더가 없어 새로 생성", folder=cfg["PROJECT_FOLDER"])
         target = clone / rel_path
         if target.exists() and cfg["CLEAN_OLD_RESULTS"]:
-            rmtree_force(target)
-            log("GITHUB", "기존 결과 폴더 교체 (이전 버전은 git 기록에 보존)", path=rel_path)
+            kept = _clean_result_dir(target, clone.parent / "_outliers_keep")
+            log("GITHUB", "기존 결과 폴더 교체 (이전 버전은 git 기록에 보존)", path=rel_path, kept_outliers=kept)
         target.mkdir(parents=True, exist_ok=True)
         skipped = _copy_results(ctx, target, allow_videos)
+        n_out = _copy_local_outliers(cfg, target)
+        if n_out:
+            log("GITHUB", "PC의 작은 채널 성공 사례 요약도 함께 올림", files=n_out, path=f"{rel_path}/{OUTLIERS_DIR}")
         run_git(["add", "-A", "--", rel_path], clone)
         _, status = run_git(["status", "--porcelain", "--", rel_path], clone)
         if not status.strip():
@@ -4265,8 +4351,29 @@ def run_self_test(cfg):
         tmpl.write_text(config_template("부동산", "realestate", cfg), "utf-8")
         tc2 = {**cfg}
         apply_config_file(tc2, tmpl)
+        # 검색어 파일 (v2.4.0): 목록 덮어쓰기·설정 파일과 겹침 알림·목록 아닌 설정 차단·새 틀 읽기
+        kwf = tdir / "keywords.toml"
+        kwf.write_text('EXCLUDE_KEYWORDS = ["광고"]\n[KEYWORD_GROUPS]\n"1. 돈 모으기" = ["1억 모으기", "월급 관리"]\n'
+                       '[relevance]\nRELEVANCE_TERMS = ["재테크"]\n', "utf-8")
+        tc3 = {**tc}
+        kres = apply_keywords_file(tc3, kwf, toml_file_keys(good))
+        kbad = tdir / "kw_bad.toml"
+        kbad.write_text('QUOTA_BUDGET = 100\n[KEYWORD_GROUPS]\n"a" = ["b"]\n', "utf-8")
+        try:
+            apply_keywords_file({**cfg}, kbad)
+            kw_bad_blocked = False
+        except ValueError:
+            kw_bad_blocked = True
+        ktmpl = tdir / "kw_tmpl.toml"
+        ktmpl.write_text(keywords_template("부동산", "realestate"), "utf-8")
+        tc4 = {**cfg}
+        apply_keywords_file(tc4, ktmpl)
     finally:
         rmtree_force(tdir)
+    check("검색어 파일 읽기·검증", tc3["KEYWORD_GROUPS"] == {"1. 돈 모으기": ["1억 모으기", "월급 관리"]}
+          and tc3["RELEVANCE_TERMS"] == ["재테크"] and tc3["EXCLUDE_KEYWORDS"] == ["광고"] and kres["overridden"] == ["KEYWORD_GROUPS"]
+          and kw_bad_blocked and tc4["RELEVANCE_TERMS"] == ["부동산"] and tc3["TOPIC"] == "부동산",
+          overridden=kres["overridden"], bad_blocked=kw_bad_blocked)
     check("설정 파일 읽기·검증", tc["TOPIC"] == "부동산" and tc["KEYWORD_GROUPS"] == {"1. 사연": ["전세 사기 사연", "갭투자 실패"]}
           and tc["OUTLIER_MIN"] == 4.0 and isinstance(tc["OUTLIER_MIN"], float) and any("QUOTA_BUDGTE" in u for u in r["unknown"])
           and bad_blocked and tc2["PROJECT_FOLDER"] == "realestate" and tc2["KEYWORD_MODE"] == "autocomplete",
@@ -4416,6 +4523,23 @@ def load_config(args, create_missing=True):
               f"[CONFIG]    이번에는 주제어 자동완성으로 키워드를 찾아 분석합니다. 다음부터는 이 파일에 검색어를 넣어 쓰세요.")
     else:
         print(f"[CONFIG] 설정 파일 없음 → 코드 기본값 사용: {path}")
+    # 검색어·관련어 목록 파일 (v2.4.0) — 설정 파일과 같은 폴더의 keywords.toml
+    kw_path = keywords_path_for(cfg, path)
+    try:
+        kw_shown = kw_path.resolve().relative_to(BASE_DIR.resolve()).as_posix()
+    except ValueError:
+        kw_shown = kw_path.name
+    info.update(keywords_file=kw_shown, keywords_found=kw_path.exists(), keywords_created=False)
+    if not kw_path.exists() and info["created"]:
+        kw_path.write_text(keywords_template(cfg["TOPIC"], sanitize_folder(folder, "PROJECT_FOLDER")), "utf-8")
+        info.update(keywords_found=True, keywords_created=True)
+        print(f"[CONFIG] 📝 검색어 파일 틀을 만들었습니다: {kw_path}")
+    if kw_path.exists():
+        kres = apply_keywords_file(cfg, kw_path, toml_file_keys(path) if path.exists() else ())
+        info["keywords_info"] = kres
+        print(f"[CONFIG] 검색어 파일 적용: {kw_path} (그룹 {kres['groups']}개·검색어 {kres['keywords']}개)")
+        if kres["overridden"]:
+            print(f"[CONFIG] ⚠️ 설정 파일에도 있는 목록 {kres['overridden']} 은 검색어 파일 값을 씁니다 → 설정 파일에서 지우세요")
     changes = apply_cli(cfg, args)
     return cfg, info, changes
 
@@ -4431,9 +4555,13 @@ def init_config_only(args):
     topic = (args.topic or cfg["TOPIC"]).strip()
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(config_template(topic, folder, cfg), "utf-8")
+    kw_path = keywords_path_for(cfg, path)
+    if not kw_path.exists():
+        kw_path.write_text(keywords_template(topic, folder), "utf-8")
     print(f"[CONFIG] 📝 설정 파일을 만들었습니다: {path}\n"
-          f"[CONFIG]    메모장으로 열어 KEYWORD_GROUPS(검색어)·RELEVANCE_TERMS(관련어)를 채운 뒤 실행하세요:\n"
-          f"[CONFIG]    python {Path(__file__).name} --config {path}")
+          f"[CONFIG] 📝 검색어 파일: {kw_path}\n"
+          f"[CONFIG]    검색어 파일을 메모장으로 열어 KEYWORD_GROUPS(검색어)·RELEVANCE_TERMS(관련어)를 채우고,\n"
+          f"[CONFIG]    설정 파일의 KEYWORD_MODE 를 \"curated\" 로 바꾼 뒤 실행하세요: python {Path(__file__).name} --config {path}")
     return 0
 
 
@@ -4472,6 +4600,8 @@ def main(argv=None):
     ctx = init_run(cfg, keys["YOUTUBE_API_KEY"], keys["GITHUB_TOKEN"])
     ctx.data["config_info"] = {k: (v if k != "changed" else sorted(v)) for k, v in cfg_info.items()}
     groups = ctx.cfg["KEYWORD_GROUPS"] or {}
+    log("INIT", "검색어 파일", file=cfg_info.get("keywords_file"), found=cfg_info.get("keywords_found"),
+        overridden=(cfg_info.get("keywords_info") or {}).get("overridden", []))
     log("INIT", "설정 파일", file=cfg_info["file"], found=cfg_info["found"], created=cfg_info["created"],
         changed_keys=sorted(cfg_info["changed"]), keyword_mode=ctx.cfg["KEYWORD_MODE"],
         keyword_groups=f"{len(groups)}개 카테고리·{sum(len(v) for v in groups.values())}개 키워드")

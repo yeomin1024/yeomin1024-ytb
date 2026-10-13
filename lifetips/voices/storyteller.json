@@ -1,5 +1,0 @@
-{
-  "_설명": "생활꿀팁 사연자 말투 — voices/storyteller.json 위에 덮어쓴다(instruct만). 화자는 공통과 같은 Sohee. tools/tts_narration.py v1.3 load_voices",
-  "_버전": "v1.0 — 2026-10-11 — 최초 작성: 공통 instruct가 주식 손실 고백이라 생활꿀팁(꿀팁을 따라 했다가 손해 본 후회 고백)에 맞게",
-  "instruct": "Speak like someone confessing a costly household mistake made by blindly following a popular life hack: regretful and aggrieved, embarrassed self-blame, a low voice that trembles slightly, slow pace, a soft sigh before key phrases, and a short pause right before the amount of money or the moment things went wrong. Keep every word clear."
-}

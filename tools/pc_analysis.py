@@ -1,0 +1,519 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+# VERSION: v1.0 — 2026-10-13 — 신규 (사용자 지시: "분석기 코드 pc에서 돌릴 수 있도록 수정하고 … api 할당량이 초기화된 시간이 되면
+#          다시 자동으로 분석결과를 확인 못한 부분부터 새로 추가로 만들도록"):
+#          PC 에서 한 주제(기본 economic)를 끝까지 분석한다. 한 '회차' =
+#            ① tools/outlier_research.py (작은 채널 성공 사례 — 자막·썸네일·댓글, 할당량 약 4,000)
+#            ② youtube_topic_analyzer.py --no-push (주제 전체 분석, 할당량 QUOTA_BUDGET)
+#            ③ 진행 상태 pc_progress.json 을 결과 폴더에 쓰고 youtube_topic_analyzer.py --push-only (GitHub, 성공 사례 요약 포함)
+#          할당량 때문에 못 한 일이 남으면(성공 사례 status.json complete=false · 분석기 run_info.json 의 이월 검색어 ·
+#          네트워크 때문에 못 받은 자막) 다음 할당량 초기화(태평양 자정 + 10분 = 한국 오후 4:10, 겨울 5:10)까지 기다렸다가
+#          다음 회차를 돈다. 두 도구 모두 받은 검색·영상 정보·자막을 캐시하므로 다음 회차는 '못 한 부분만' 새로 받는다.
+r"""
+사용법 (PC 실행 폴더 = run_analyzer.ps1 / run_analyzer.sh 가 있는 폴더):
+  python tools/pc_analysis.py economic              # 끝날 때까지 (못 한 일이 남으면 할당량 초기화 시각까지 기다렸다가 이어서)
+  python tools/pc_analysis.py economic --once       # 한 회차만 (작업 스케줄러가 매일 부를 때). 남은 일이 있으면 종료 코드 3
+  python tools/pc_analysis.py economic --dry-run    # 실행할 명령·다음 초기화 시각만 보여 줌
+  옵션: --max-rounds 7       최대 회차 (하루 1회차 → 최대 7일)
+        --outlier-quota 4000 --per-group 2 --top 20   성공 사례 수집 (분석기 QUOTA_BUDGET 과 합쳐 하루 10,000 이하로)
+        --skip-outliers / --skip-analyzer / --no-push
+        --margin-min 10      초기화 뒤 몇 분 더 기다릴지
+        --self-test          오프라인 점검 (초기화 시각 계산·회차 판단·이어서 돌리기 흐름)
+결과: PC  output/<주제>/result/ (분석기) · <주제>/result/outliers/ (성공 사례) · .yt_work/pc_analysis_<주제>.log (이 도구 로그)
+      GitHub <주제>/result/ (분석기 결과 + outliers/ 의 csv·md·json + pc_progress.json). 다른 채널의 자막·댓글 원문·썸네일은 올리지 않음.
+로그: [STAGE] [시각] key=value (START·SETUP·OUTLIER·ANALYZER·PUSH·ROUND·WAIT·DONE)
+비밀값(.env 의 YOUTUBE_API_KEY·GITHUB_TOKEN)은 읽기만 하고 출력하지 않는다.
+※ 연구·교육용 분석 도구. 투자 조언이 아니다.
+"""
+import argparse
+import importlib.util
+import json
+import logging
+import os
+import re
+import subprocess
+import sys
+import threading
+import time
+from datetime import date, datetime, time as dtime, timedelta, timezone
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+VERSION = "v1.0"
+LOG = logging.getLogger("pc_analysis")
+KST = timezone(timedelta(hours=9))
+LOCK_STALE_MIN = 30          # 잠금 파일이 이 시간 넘게 갱신되지 않으면 이전 실행이 죽은 것으로 봄
+HEARTBEAT_SEC = 300
+SLEEP_CHUNK_SEC = 600        # 기다리는 동안 10분마다 벽시계로 다시 계산 (PC 절전에서 깨어나도 맞게)
+
+
+def log(stage, level=logging.INFO, **kv):
+    LOG.log(level, "[%s] [%s] %s", stage, datetime.now(KST).isoformat(timespec="seconds"),
+            " ".join(f"{k}={json.dumps(v, ensure_ascii=False) if isinstance(v, str) and ' ' in v else v}" for k, v in kv.items()))
+
+
+# ---------------------------------------------------------------- 할당량 초기화 시각 (태평양 자정)
+def _nth_sunday(year, month, n):
+    d = date(year, month, 1)
+    d += timedelta(days=(6 - d.weekday()) % 7)        # 첫 일요일
+    return d + timedelta(weeks=n - 1)
+
+
+def _pacific_offset_fallback(utc_dt):
+    """tzdata 가 없을 때: 미국 서머타임 규칙 (3월 둘째 일요일 02:00 PST ~ 11월 첫 일요일 02:00 PDT). → UTC 와의 차 (시간)."""
+    y = utc_dt.year
+    start = datetime.combine(_nth_sunday(y, 3, 2), dtime(10, 0), tzinfo=timezone.utc)    # 02:00 PST = 10:00 UTC
+    end = datetime.combine(_nth_sunday(y, 11, 1), dtime(9, 0), tzinfo=timezone.utc)      # 02:00 PDT = 09:00 UTC
+    return -7 if start <= utc_dt < end else -8
+
+
+def next_quota_reset(now_utc, margin_min=10, use_zoneinfo=True):
+    """YouTube Data API 일일 할당량이 초기화되는 다음 태평양 자정(+margin) → (UTC 시각, 계산 방법)."""
+    try:
+        if not use_zoneinfo:
+            raise LookupError("규칙 계산 점검")
+        from zoneinfo import ZoneInfo
+        la = ZoneInfo("America/Los_Angeles")
+        local = now_utc.astimezone(la)
+        nxt = datetime.combine(local.date() + timedelta(days=1), dtime(0, 0), tzinfo=la)
+        return nxt.astimezone(timezone.utc) + timedelta(minutes=margin_min), "zoneinfo"
+    except Exception:
+        off = _pacific_offset_fallback(now_utc)
+        local = now_utc + timedelta(hours=off)
+        midnight_local = datetime.combine(local.date() + timedelta(days=1), dtime(0, 0))
+        cand = (midnight_local - timedelta(hours=off)).replace(tzinfo=timezone.utc)
+        off2 = _pacific_offset_fallback(cand)                      # 서머타임이 바뀌는 날
+        if off2 != off:
+            cand = (midnight_local - timedelta(hours=off2)).replace(tzinfo=timezone.utc)
+        return cand + timedelta(minutes=margin_min), "rule"
+
+
+# ---------------------------------------------------------------- 설정·환경
+def _toml():
+    try:
+        import tomllib
+    except ModuleNotFoundError:
+        import tomli as tomllib
+    return tomllib
+
+
+def read_paths(folder):
+    """분석기 설정에서 결과 위치 → (설정 파일, 분석기 결과 폴더 output/<PROJECT_FOLDER>/<RESULT_FOLDER>, 성공 사례 폴더)."""
+    cfg_p = ROOT / folder / "analyzer_config.toml"
+    out_dir, proj, res = "output", folder, "result"
+    if cfg_p.is_file():
+        try:
+            flat = {}
+            for k, v in _toml().loads(cfg_p.read_text("utf-8")).items():
+                flat.update(v if isinstance(v, dict) and k != "KEYWORD_GROUPS" else {k: v})
+            out_dir, proj, res = flat.get("OUTPUT_DIR", out_dir), flat.get("PROJECT_FOLDER", proj), flat.get("RESULT_FOLDER", res)
+        except Exception as e:
+            log("SETUP", logging.WARNING, note="설정 파일을 읽지 못해 기본 위치 사용", error=str(e)[:150])
+    base = Path(out_dir).expanduser()
+    base = base if base.is_absolute() else ROOT / base
+    return cfg_p, base / proj / res, ROOT / folder / "result" / "outliers"
+
+
+ENV_TEMPLATE = """# YouTube 분석 비밀 키 파일 — 절대 GitHub 에 올리거나 공유하지 마세요
+# '=' 뒤에 값을 붙여넣고 저장 (따옴표 필요 없음). 자세히: guides/pc_analysis.md
+
+# [필수] YouTube Data API v3 키 (Google Cloud 콘솔 → API 및 서비스 → 사용자 인증 정보 → API 키)
+YOUTUBE_API_KEY=
+
+# [권장] GitHub 토큰 (Fine-grained, 저장소 yeomin1024-ytb, Contents: Read and write) — 비우면 결과는 PC 에만
+GITHUB_TOKEN=
+"""
+
+
+def env_has(name):
+    if os.environ.get(name, "").strip():
+        return True
+    p = ROOT / ".env"
+    if p.is_file():
+        m = re.search(rf"^\s*{name}\s*=\s*['\"]?([^'\"\s]+)", p.read_text("utf-8", errors="replace"), re.M)
+        return bool(m)
+    return False
+
+
+def ensure_packages(dry):
+    """성공 사례 수집에 필요한 것 (분석기 패키지는 분석기가 처음 실행 때 스스로 설치)."""
+    need = []
+    if importlib.util.find_spec("youtube_transcript_api") is None:
+        need.append("youtube-transcript-api>=1.2")
+    if sys.version_info < (3, 11) and importlib.util.find_spec("tomli") is None:
+        need.append("tomli>=2.0")
+    try:
+        from zoneinfo import ZoneInfo
+        ZoneInfo("America/Los_Angeles")
+    except Exception:
+        need.append("tzdata")       # Windows 는 시간대 자료가 없음 (없어도 규칙으로 계산하지만 정확하게)
+    if not need:
+        return True
+    log("SETUP", packages=",".join(need), note="필요한 패키지 설치")
+    if dry:
+        return True
+    r = subprocess.run([sys.executable, "-m", "pip", "install", "-U", "-q", *need])
+    if r.returncode != 0:
+        log("SETUP", logging.ERROR, note="패키지 설치 실패 — 위 pip 오류 확인", next_step=f"python -m pip install {' '.join(need)}")
+    return r.returncode == 0
+
+
+class Lock:
+    """같은 주제를 두 번 동시에 돌리지 않게 (작업 스케줄러 + 손으로 실행). 5분마다 갱신, 30분 넘게 멈춘 잠금은 무시."""
+
+    def __init__(self, folder):
+        self.p = ROOT / ".yt_work" / f"pc_analysis_{folder}.lock"
+        self._stop = threading.Event()
+
+    def acquire(self, force=False):
+        self.p.parent.mkdir(parents=True, exist_ok=True)
+        if self.p.is_file() and not force:
+            age_min = (time.time() - self.p.stat().st_mtime) / 60
+            if age_min < LOCK_STALE_MIN:
+                log("START", logging.ERROR, note="같은 주제 분석이 이미 돌고 있음 — 끝나길 기다리거나, 확실히 멈춘 것이면 --force",
+                    lock=str(self.p.relative_to(ROOT)), updated_min_ago=round(age_min, 1))
+                return False
+        self.p.write_text(json.dumps({"pid": os.getpid(), "started": datetime.now(KST).isoformat(timespec="seconds")}), "utf-8")
+        threading.Thread(target=self._beat, daemon=True).start()
+        return True
+
+    def _beat(self):
+        while not self._stop.wait(HEARTBEAT_SEC):
+            try:
+                os.utime(self.p, None)
+            except OSError:
+                pass
+
+    def release(self):
+        self._stop.set()
+        try:
+            self.p.unlink()
+        except OSError:
+            pass
+
+
+# ---------------------------------------------------------------- 하위 도구 실행
+def run_child(cmd, stage, log_file):
+    """하위 도구를 실행하고 출력을 화면·로그 파일에 그대로 (UTF-8). → 종료 코드."""
+    env = {**os.environ, "PYTHONIOENCODING": "utf-8", "PYTHONUTF8": "1"}
+    log(stage, cmd=" ".join(str(c) if " " not in str(c) else f'"{c}"' for c in cmd[1:]))
+    t0 = time.time()
+    try:
+        p = subprocess.Popen(cmd, cwd=ROOT, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    except OSError as e:
+        log(stage, logging.ERROR, error=f"{type(e).__name__}: {e}", next_step="Python 경로·파일이 있는지 확인")
+        return 1
+    with open(log_file, "a", encoding="utf-8") as lf:
+        for raw in p.stdout:
+            line = raw.decode("utf-8", errors="replace").rstrip("\r\n")
+            print(line, flush=True)
+            lf.write(line + "\n")
+    code = p.wait()
+    log(stage, exit_code=code, minutes=round((time.time() - t0) / 60, 1))
+    return code
+
+
+def outlier_summary(status_p):
+    """성공 사례 status.json → 회차 판단용 요약."""
+    if not status_p.is_file():
+        return {"found": False, "complete": False}
+    st = json.loads(status_p.read_text("utf-8"))
+    pend = st.get("pending", {})
+    retry_tr = [t["id"] for t in st.get("transcript_missing", []) if t.get("retry_elsewhere")]
+    return {"found": True, "complete": bool(st.get("complete")), "quota_stop": st.get("quota_stop"),
+            "pending_searches": len(pend.get("searches", [])), "pending_videos": pend.get("videos", 0),
+            "pending_channels": pend.get("channels", 0), "pending_comments": len(pend.get("comments", [])),
+            "deep": st.get("deep", 0), "transcripts_ok": st.get("transcripts_ok", 0), "retry_transcripts": len(retry_tr),
+            "thumbnails_missing": len(st.get("thumbnail_missing", [])), "updated": st.get("updated")}
+
+
+def analyzer_summary(run_info_p, started_utc):
+    """분석기 run_info.json → 이번 회차에 만든 것인지·이월 검색어."""
+    if not run_info_p.is_file():
+        return {"found": False, "deferred": None}
+    ri = json.loads(run_info_p.read_text("utf-8"))
+    fin = ri.get("finished_at_utc")
+    try:
+        fresh = datetime.fromisoformat(fin) >= started_utc
+    except (TypeError, ValueError):
+        fresh = False
+    kw = ri.get("keywords") or {}
+    return {"found": True, "fresh": fresh, "run_id": ri.get("run_id"), "searched": kw.get("searched"),
+            "deferred": len(kw.get("deferred") or []), "deferred_examples": (kw.get("deferred") or [])[:5],
+            "quota_used": (ri.get("youtube_api") or {}).get("used")}
+
+
+def round_verdict(o, a, codes, opts):
+    """이번 회차로 끝났는가 → (complete, 남은 일 목록)."""
+    left = []
+    if not opts.skip_outliers:
+        if codes.get("outlier") not in (0, 3):
+            left.append(f"성공 사례 수집 오류 (종료 코드 {codes.get('outlier')})")
+        if not o.get("complete"):
+            left.append(f"성공 사례: 남은 검색 {o.get('pending_searches', '?')}·영상 정보 {o.get('pending_videos', '?')}·"
+                        f"구독자 {o.get('pending_channels', '?')}·댓글 {o.get('pending_comments', '?')}")
+        if o.get("retry_transcripts"):
+            left.append(f"성공 사례: 네트워크 때문에 못 받은 자막 {o['retry_transcripts']}개")
+    if not opts.skip_analyzer:
+        if codes.get("analyzer") != 0 or not a.get("fresh"):
+            left.append(f"분석기 실패 또는 결과 없음 (종료 코드 {codes.get('analyzer')})")
+        elif a.get("deferred"):
+            left.append(f"분석기: 이월된 검색어 {a['deferred']}개")
+    return not left, left
+
+
+def write_progress(path_list, info):
+    for p in path_list:
+        try:
+            p.parent.mkdir(parents=True, exist_ok=True)
+            p.write_text(json.dumps(info, ensure_ascii=False, indent=1), "utf-8")
+        except OSError as e:
+            log("ROUND", logging.WARNING, note="진행 상태 파일을 못 씀", file=str(p), error=str(e)[:120])
+
+
+def one_round(folder, opts, k, runner=run_child):
+    """한 회차: 성공 사례 → 분석기 → 진행 상태 → 푸시. → (complete, info)."""
+    cfg_p, out_dir, outl_dir = read_paths(folder)
+    log_file = ROOT / ".yt_work" / f"pc_analysis_{folder}.log"
+    log_file.parent.mkdir(parents=True, exist_ok=True)
+    started = datetime.now(timezone.utc)
+    py = sys.executable
+    codes, o, a = {}, {}, {}
+    log("ROUND", round=k, folder=folder, started=started.astimezone(KST).isoformat(timespec="minutes"))
+    if not opts.skip_outliers:
+        cmd = [py, "tools/outlier_research.py", folder, "--per-group", str(opts.per_group), "--top", str(opts.top),
+               "--quota", str(opts.outlier_quota)]
+        codes["outlier"] = 0 if opts.dry_run else runner(cmd, "OUTLIER", log_file)
+        if opts.dry_run:
+            log("OUTLIER", dry_run=True, cmd=" ".join(cmd[1:]))
+        o = outlier_summary(outl_dir / "status.json")
+        log("OUTLIER", **{key: v for key, v in o.items() if key != "updated"})
+    if not opts.skip_analyzer:
+        cmd = [py, "youtube_topic_analyzer.py", "--config", str(cfg_p.relative_to(ROOT)), "--no-push", "--no-open"]
+        codes["analyzer"] = 0 if opts.dry_run else runner(cmd, "ANALYZER", log_file)
+        if opts.dry_run:
+            log("ANALYZER", dry_run=True, cmd=" ".join(cmd[1:]))
+        a = analyzer_summary(out_dir / "run_info.json", started)
+        log("ANALYZER", **{key: v for key, v in a.items() if key != "deferred_examples"},
+            examples=",".join(a.get("deferred_examples") or []) or "-")
+    complete, left = round_verdict(o, a, codes, opts) if not opts.dry_run else (True, [])
+    reset_utc, how = next_quota_reset(datetime.now(timezone.utc), opts.margin_min)
+    info = {"tool": f"pc_analysis.py {VERSION}", "folder": folder, "round": k, "started_kst": started.astimezone(KST).isoformat(timespec="minutes"),
+            "finished_kst": datetime.now(KST).isoformat(timespec="minutes"), "exit_codes": codes, "outliers": o, "analyzer": a,
+            "complete": complete, "left": left,
+            "next_round_kst": None if complete else reset_utc.astimezone(KST).isoformat(timespec="minutes"),
+            "note": "연구·교육용. 할당량 초기화 = 태평양 자정 (한국 오후 4시, 미국 표준시 기간엔 5시)"}
+    targets = [ROOT / ".yt_work" / f"pc_progress_{folder}.json"]
+    if (out_dir / "README.md").is_file():
+        targets.append(out_dir / "pc_progress.json")         # GitHub <주제>/result/pc_progress.json 으로 올라감
+    if not opts.dry_run:
+        write_progress(targets, info)
+    if not opts.no_push and not opts.dry_run:
+        if (out_dir / "README.md").is_file() and env_has("GITHUB_TOKEN"):
+            codes["push"] = runner([py, "youtube_topic_analyzer.py", "--config", str(cfg_p.relative_to(ROOT)), "--push-only"], "PUSH", log_file)
+        else:
+            log("PUSH", logging.WARNING, note="푸시 건너뜀", reason="분석기 결과 없음" if not (out_dir / "README.md").is_file() else "GITHUB_TOKEN 없음 (.env)",
+                hint="결과는 PC 에 있음 — 토큰을 넣고 python youtube_topic_analyzer.py --config "
+                     f"{cfg_p.relative_to(ROOT).as_posix()} --push-only")
+    log("ROUND", round=k, complete=complete, left=" / ".join(left) or "-", next_round=info["next_round_kst"] or "-", reset_calc=how)
+    return complete, info
+
+
+def wait_until(target_utc, now_fn=lambda: datetime.now(timezone.utc), sleep_fn=time.sleep):
+    """벽시계 기준으로 기다림 (10분마다 다시 계산 — 절전에서 깨어나도 늦지 않게). 30분마다 남은 시간 로그."""
+    last_log = None
+    while True:
+        left = (target_utc - now_fn()).total_seconds()
+        if left <= 0:
+            return
+        if last_log is None or last_log - left >= 1800:
+            log("WAIT", until_kst=target_utc.astimezone(KST).isoformat(timespec="minutes"), hours_left=round(left / 3600, 2),
+                note="PC 를 켜 두세요 (절전이면 깨어난 뒤 바로 이어서)")
+            last_log = left
+        sleep_fn(min(SLEEP_CHUNK_SEC, left))
+
+
+def run(opts, runner=run_child, now_fn=lambda: datetime.now(timezone.utc), sleep_fn=time.sleep):
+    folder = opts.folder
+    if not (ROOT / folder / "analyzer_config.toml").is_file():
+        log("START", logging.ERROR, note="주제 폴더의 설정 파일이 없음", expected=f"{folder}/analyzer_config.toml",
+            next_step="run_analyzer.ps1 / run_analyzer.sh 로 받거나 --folder 확인")
+        return 1
+    if not env_has("YOUTUBE_API_KEY") and not opts.dry_run:
+        env_p = ROOT / ".env"
+        if not env_p.exists():
+            env_p.write_text(ENV_TEMPLATE, "utf-8")
+        log("START", logging.ERROR, note="YOUTUBE_API_KEY 없음 — .env 파일을 메모장으로 열어 키를 넣고 저장한 뒤 다시 실행",
+            env_file=".env", guide="guides/pc_analysis.md")
+        return 1
+    if not ensure_packages(opts.dry_run):
+        return 1
+    lock = Lock(folder)
+    if not opts.dry_run and not lock.acquire(opts.force):
+        return 2
+    try:
+        for k in range(1, opts.max_rounds + 1):
+            complete, info = one_round(folder, opts, k, runner)
+            if complete:
+                log("DONE", folder=folder, rounds=k, note="못 한 일 없음 — 끝" if not opts.dry_run else "dry-run")
+                return 0
+            if opts.once:
+                log("DONE", folder=folder, rounds=k, complete=False, next_round=info["next_round_kst"],
+                    note="--once: 남은 일은 다음 실행 때 (작업 스케줄러가 매일 부르면 자동)")
+                return 3
+            if k == opts.max_rounds:
+                break
+            reset_utc, _ = next_quota_reset(now_fn(), opts.margin_min)
+            wait_until(reset_utc, now_fn, sleep_fn)
+        log("DONE", logging.WARNING, folder=folder, rounds=opts.max_rounds, complete=False,
+            note="최대 회차까지 돌았지만 남은 일이 있음 — 로그 확인", log=f".yt_work/pc_analysis_{folder}.log")
+        return 3
+    except KeyboardInterrupt:
+        log("DONE", logging.WARNING, note="사용자가 멈춤 (Ctrl+C) — 받은 것은 캐시에 남아 다시 실행하면 이어서")
+        return 130
+    finally:
+        if not opts.dry_run:
+            lock.release()
+
+
+# ---------------------------------------------------------------- 오프라인 점검
+def self_test():
+    ok = True
+
+    def check(name, cond, **kv):
+        nonlocal ok
+        ok &= bool(cond)
+        log("SELFTEST", logging.INFO if cond else logging.ERROR, check=name, result="PASS" if cond else "FAIL", **kv)
+
+    u = lambda *a: datetime(*a, tzinfo=timezone.utc)
+    cases = [(u(2026, 10, 13, 6, 30), u(2026, 10, 13, 7, 10)),     # 한국 15:30 → 16:10 (서머타임)
+             (u(2026, 10, 13, 7, 30), u(2026, 10, 14, 7, 10)),     # 한국 16:30 (이미 지남) → 다음 날 16:10
+             (u(2026, 12, 1, 3, 0), u(2026, 12, 1, 8, 10)),        # 겨울: 한국 12:00 → 17:10
+             (u(2026, 11, 1, 6, 0), u(2026, 11, 1, 7, 10)),        # 10/31 23:00 PDT → 11/1 00:00 PDT (서머타임 끝나는 날 자정)
+             (u(2026, 11, 1, 8, 0), u(2026, 11, 2, 8, 10)),        # 11/1 01:00 PDT → 11/2 00:00 PST (그날 02:00 에 표준시로)
+             (u(2026, 3, 8, 7, 0), u(2026, 3, 8, 8, 10)),          # 3/7 23:00 PST → 3/8 00:00 PST
+             (u(2026, 3, 8, 9, 0), u(2026, 3, 9, 7, 10))]          # 3/8 01:00 PST → 3/9 00:00 PDT (그날 02:00 에 서머타임)
+    for now, want in cases:
+        for zi in (True, False):
+            got, how = next_quota_reset(now, 10, use_zoneinfo=zi)
+            check(f"초기화 시각 {now:%m-%d %H:%M}Z ({'zoneinfo' if zi else '규칙'})", got == want, got=got.isoformat(),
+                  want=want.isoformat(), how=how)
+    import tempfile
+    import types
+    global ROOT
+    old_root = ROOT
+    tmp = Path(tempfile.mkdtemp())
+    ROOT = tmp
+    try:
+        (tmp / "t").mkdir()
+        (tmp / "t" / "analyzer_config.toml").write_text('[topic]\nPROJECT_FOLDER = "t"\n', "utf-8")
+        (tmp / ".env").write_text("YOUTUBE_API_KEY=x\nGITHUB_TOKEN=y\n", "utf-8")
+        cfg_p, out_dir, outl = read_paths("t")
+        calls, day = [], {"n": 0}
+
+        def fake_runner(cmd, stage, log_file):          # 1일째: 할당량이 모자라 남음, 2일째: 끝
+            calls.append(stage)
+            if stage == "OUTLIER":
+                outl.mkdir(parents=True, exist_ok=True)
+                done = day["n"] >= 1
+                (outl / "status.json").write_text(json.dumps({"complete": done, "quota_stop": None if done else "run_budget",
+                                                              "pending": {"searches": [] if done else ["a (medium)"], "videos": 0,
+                                                                          "channels": 0, "comments": []},
+                                                              "deep": 5, "transcripts_ok": 5, "transcript_missing": []}), "utf-8")
+                return 0 if done else 3
+            if stage == "ANALYZER":
+                out_dir.mkdir(parents=True, exist_ok=True)
+                (out_dir / "README.md").write_text("x", "utf-8")
+                (out_dir / "run_info.json").write_text(json.dumps({
+                    "finished_at_utc": datetime.now(timezone.utc).isoformat(), "run_id": f"r{day['n']}",
+                    "keywords": {"searched": 40 if day["n"] == 0 else 50, "deferred": [] if day["n"] >= 1 else ["k1", "k2"]}}), "utf-8")
+                return 0
+            if stage == "PUSH":
+                day["n"] += 1                            # 회차 끝 → 다음 날
+                return 0
+            return 1
+        clock = {"t": u(2026, 10, 13, 6, 30)}
+        slept = []
+
+        def fake_sleep(s):
+            slept.append(s)
+            clock["t"] += timedelta(seconds=s)
+        opts = types.SimpleNamespace(folder="t", once=False, dry_run=False, max_rounds=3, per_group=2, top=20, outlier_quota=4000,
+                                     skip_outliers=False, skip_analyzer=False, no_push=False, margin_min=10, force=False)
+        global ensure_packages
+        real_ensure, ensure_packages = ensure_packages, (lambda dry: True)
+        try:
+            code = run(opts, fake_runner, lambda: clock["t"], fake_sleep)
+        finally:
+            ensure_packages = real_ensure
+        check("2회차에 끝남 (exit 0)", code == 0 and calls.count("OUTLIER") == 2, calls=",".join(calls))
+        check("1회차 뒤 초기화 시각까지 기다림 (16:10 KST)", clock["t"] >= u(2026, 10, 13, 7, 10) and sum(slept) > 0,
+              waited_h=round(sum(slept) / 3600, 2))
+        prog = json.loads((out_dir / "pc_progress.json").read_text("utf-8"))
+        check("pc_progress.json (결과 폴더) complete", prog["complete"] is True and prog["round"] == 2)
+        check("잠금 파일 정리", not (tmp / ".yt_work" / "pc_analysis_t.lock").exists())
+        # --once: 남은 일이 있으면 3
+        day["n"], calls[:] = 0, []
+        opts.once = True
+        ensure_packages = lambda dry: True
+        try:
+            code = run(opts, fake_runner, lambda: clock["t"], fake_sleep)
+        finally:
+            ensure_packages = real_ensure
+        prog = json.loads((tmp / ".yt_work" / "pc_progress_t.json").read_text("utf-8"))
+        check("--once 남은 일 → exit 3·다음 회차 시각", code == 3 and prog["complete"] is False and prog["next_round_kst"]
+              and any("이월된 검색어 2개" in x for x in prog["left"]), left=" / ".join(prog["left"]))
+        # 잠금: 다른 실행이 돌고 있으면 2
+        lk = Lock("t")
+        lk.acquire()
+        opts.once = False
+        ensure_packages = lambda dry: True
+        try:
+            code = run(opts, fake_runner, lambda: clock["t"], fake_sleep)
+        finally:
+            ensure_packages = real_ensure
+            lk.release()
+        check("이미 돌고 있으면 exit 2", code == 2)
+    finally:
+        ROOT = old_root
+        import shutil
+        shutil.rmtree(tmp, ignore_errors=True)
+    log("SELFTEST", result="ALL PASS" if ok else "FAIL")
+    return 0 if ok else 1
+
+
+def main(argv=None):
+    for s in (sys.stdout, sys.stderr):
+        try:
+            s.reconfigure(encoding="utf-8", errors="replace")
+        except Exception:
+            pass
+    ap = argparse.ArgumentParser(description="PC 분석 실행기 — 성공 사례 + 주제 분석, 할당량이 초기화되면 남은 부분부터 자동으로 이어서")
+    ap.add_argument("folder", nargs="?", default="economic", help="주제 폴더 (기본 economic)")
+    ap.add_argument("--once", action="store_true", help="한 회차만 (작업 스케줄러용). 남은 일이 있으면 종료 코드 3")
+    ap.add_argument("--dry-run", action="store_true", help="실행할 명령과 다음 초기화 시각만")
+    ap.add_argument("--max-rounds", type=int, default=7)
+    ap.add_argument("--outlier-quota", type=int, default=4000, help="성공 사례 수집 할당량 (분석기 QUOTA_BUDGET 과 합쳐 10,000 이하)")
+    ap.add_argument("--per-group", type=int, default=2)
+    ap.add_argument("--top", type=int, default=20)
+    ap.add_argument("--skip-outliers", action="store_true")
+    ap.add_argument("--skip-analyzer", action="store_true")
+    ap.add_argument("--no-push", action="store_true")
+    ap.add_argument("--margin-min", type=int, default=10)
+    ap.add_argument("--force", action="store_true", help="잠금 파일이 있어도 실행 (이전 실행이 확실히 멈췄을 때)")
+    ap.add_argument("--self-test", action="store_true")
+    ap.add_argument("--log-level", default="INFO", choices=["DEBUG", "INFO", "WARNING"])
+    opts = ap.parse_args(argv)
+    logging.basicConfig(level=getattr(logging, opts.log_level), format="%(message)s", stream=sys.stdout)
+    if opts.self_test:
+        return self_test()
+    reset_utc, how = next_quota_reset(datetime.now(timezone.utc), opts.margin_min)
+    log("START", tool=f"pc_analysis.py {VERSION}", folder=opts.folder, once=opts.once, dry_run=opts.dry_run, max_rounds=opts.max_rounds,
+        outlier_quota=opts.outlier_quota, per_group=opts.per_group, top=opts.top, python=sys.version.split()[0],
+        next_quota_reset_kst=reset_utc.astimezone(KST).isoformat(timespec="minutes"), reset_calc=how,
+        youtube_key="있음" if env_has("YOUTUBE_API_KEY") else "없음", github_token="있음" if env_has("GITHUB_TOKEN") else "없음")
+    return run(opts)
+
+
+if __name__ == "__main__":
+    sys.exit(main())

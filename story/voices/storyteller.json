@@ -1,5 +1,0 @@
-{
-  "_설명": "사연(가족·돈·관계) 사연자 말투 — voices/storyteller.json 위에 덮어쓴다(instruct만). 화자는 공통과 같은 Sohee, 시드·gap도 공통 그대로. tools/tts_narration.py v1.3 load_voices",
-  "_버전": "v1.0 — 2026-10-11 — 최초 작성: 공통 instruct가 주식 손실 고백이라 가족·돈·관계 사연(간병·상속, 자녀에게 준 집, 친구에게 빌려준 돈)에 맞게",
-  "instruct": "Speak like a Korean woman quietly confessing a painful family and money story to a trusted listener: hurt, aggrieved and full of regret, a low voice that trembles slightly, slow pace with short pauses between sentences, a soft sigh before the key numbers and turning points, gentle self-blame as if holding back tears, never shouting or acting. Keep every word clear."
-}

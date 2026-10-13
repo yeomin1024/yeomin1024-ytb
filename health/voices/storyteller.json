@@ -1,5 +1,0 @@
-{
-  "_설명": "건강 사연자 말투 — voices/storyteller.json 위에 덮어쓴다(instruct만). 화자는 공통과 같은 Sohee. tools/tts_narration.py v1.3 load_voices",
-  "_버전": "v1.0 — 2026-10-11 — 최초 작성: 공통 instruct가 주식 손실 고백이라 건강(검진 경고를 넘긴 후회)에 맞게",
-  "instruct": "Speak like someone confessing how they ignored their own health warnings: regretful and quietly aggrieved at themselves, a low, slightly unsteady voice, slow pace, a short pause before each test number or diagnosis, a soft sigh on the moment they learned the result, gentle self-blame without melodrama. Keep every word clear."
-}

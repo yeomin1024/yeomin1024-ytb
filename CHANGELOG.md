@@ -1,5 +1,42 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-13 — 주제 폴더를 economic(경제·재테크) 하나로 · 검색어 파일 분리 · PC 실행 · 할당량 초기화 뒤 자동으로 이어서
+
+### 왜 (사용자 지시: "기존 stock, health 등 모든 주제 폴더 전부 삭제하고 경제, 재태크(economic) 폴더만 하나 만들고 코드 분석기에서 사용한 검색어 목록 같은거는 따로 빼놓고 분석기 코드 pc에서 돌릴 수 있도록 수정하고 방법 알려주고 api 할당량이 초기화된 시간이 되면 다시 자동으로 분석결과를 확인 못한 부분부터 새로 추가로 만들도록 수정해")
+- 클라우드는 네트워크 정책상 `www.youtube.com`·`i.ytimg.com`이 막혀 자막·썸네일을 못 받음 (2026-10-12·13 ProxyError 403) → 집 PC 실행을 기본으로.
+
+### 고친 것
+| 파일 (버전) | 함수·항목 | 내용 |
+|---|---|---|
+| `stock/` `stock_backup/` `health/` `lifetips/` `selfdev/` `space/` `story/` | 삭제 | 사용자 지시. 내용(분석 결과·규칙·대본 23개·올린 영상 4개의 `youtube.json`)은 커밋 `2a68307`에 남음 |
+| `economic/analyzer_config.toml` v1.0 (새로) | `[topic]`·`[keywords]`·`[ads]`·`[advanced]` | 주제 경제·재테크, `KEYWORDS_FILE = "keywords.toml"`, `QUOTA_BUDGET = 6000` ⚠️ 비용 관련 — 성공 사례 수집 4,000과 합쳐 하루 10,000 |
+| `economic/keywords.toml` v1.0 (새로) | `KEYWORD_GROUPS`·`[relevance]` | **검색어 목록 분리**: 10개 그룹 × 5개 = 50개, 주제 관련어 48개·약한 관련어·제외어 |
+| `youtube_topic_analyzer.py` v2.4.0 | `KEYWORDS_FILE`, `apply_keywords_file`, `keywords_template`, `load_config`, `init_config_only` | 목록 설정(`KEYWORD_GROUPS`·`EXTRA_KEYWORDS`·`EXCLUDE_KEYWORDS`·`RELEVANCE_*`)을 설정 파일 옆 `keywords.toml`에서 읽음 (설정 파일에도 있으면 검색어 파일 값 + 경고), 기본 주제 economic |
+| 〃 | `stage8_push_github`, `_clean_result_dir`, `_copy_local_outliers` | 푸시가 저장소의 `<폴더>/result/outliers/`를 지우지 않고, PC의 최신 outliers 요약(csv·md·json — 사례 폴더 제외)을 함께 올림 |
+| `tools/outlier_research.py` v1.2 | `load_keywords` | 검색어를 `keywords.toml`에서 (분석기와 같은 파일), 주제 이름 `[topic] TOPIC`, Python 3.10은 tomli |
+| 〃 | `Api.get`, `cached_search`, `collect_api` | **이어서 돌리기:** 검색 캐시 7일·영상 정보 24시간·구독자 7일, 검색은 한도에서 150단위를 남기고 멈춰 영상 정보·구독자·댓글은 계속, 하루 할당량(403 quota)이면 새 요청 중단 → 캐시로 결과 만들고 남은 일 기록 |
+| 〃 | `deep_case`, `run_topic` | 이미 받은 자막·댓글·썸네일은 다시 받지 않음, 순위가 바뀌면 폴더 이름만 바꿈, 빠진 사례는 `_old/`로 (git 제외) |
+| 〃 | `write_status`, `main` | `result/outliers/status.json`(complete·pending·자막/썸네일 못 받은 것·`retry_elsewhere`), 남은 일이 있으면 종료 코드 3 |
+| 〃 | `speech_stats`, `write_summary` | summary.md에 첫 1분 발췌·90초마다 흐름·전체 음절 (자막 원문은 git에 안 올리므로 Claude 분석용 요약) |
+| `tools/pc_analysis.py` v1.0 (새로) | `one_round`, `round_verdict`, `run`, `wait_until`, `next_quota_reset`, `Lock` | PC 실행기: 회차 = 성공 사례(`--per-group 2 --top 20 --quota 4000`) → 분석기(`--no-push`) → `pc_progress.json` → `--push-only`. 남은 일이 있으면 **태평양 자정 + 10분**(한국 16:10 / 겨울 17:10)까지 기다렸다가 다음 회차, 최대 7회차. `--once`(작업 스케줄러용, 남으면 3), `--dry-run`, 잠금 파일(동시 실행 막기, 5분마다 갱신), 패키지 자동 설치(youtube-transcript-api·tomli·tzdata) |
+| `run_analyzer.ps1` v2.0 · `run_analyzer.sh` v2.0 | 받는 파일·실행 | 기본 폴더 economic, 코드 4개(분석기·pc_analysis·outlier_research·outlier_stats)를 매번 최신으로, `analyzer_config.toml`·`keywords.toml`은 없을 때만, `tools/pc_analysis.py` 실행. `-Once`·`-RegisterTask`(매일 17:15)·`-UnregisterTask`·`-AnalyzerOnly` / `--once`·`--print-cron`·`--analyzer-only` |
+| `tools/outlier_stats.py` v1.1 | `topic_regex` | 주제 낱말을 `keywords.toml`의 `RELEVANCE_TERMS`에서 |
+| `tools/run_analysis.sh` v1.2 | 사용법 | 예시를 economic으로, 집 PC 안내 (동작은 v1.1 그대로) |
+| `.gitignore` | `*/result/outliers/_old/` | 빠진 사례 폴더도 올리지 않음 (다른 채널의 자막·댓글 원문·썸네일) |
+| `guides/pc_analysis.md` v1.0 (새로) · `guides/README.md` v1.11 · `guides/pipeline.md` v1.11 · `README.md` · `CLAUDE.md` · `economic/README.md` | 문서 | PC 실행 방법·키 넣기·회차와 이어서 돌리기·작업 스케줄러·결과 위치, 1단계 = 집 PC 기본, 옛 `stock/…` 경로는 커밋 `2a68307`의 예시 |
+
+### 결과 (로그·검사)
+- `python tools/pc_analysis.py --self-test` → `result="ALL PASS"`: 초기화 시각 7경우 × (zoneinfo·규칙 계산) — 서머타임 시작·끝나는 날 포함, 1회차 남음 → 16:10까지 기다림 → 2회차 끝(exit 0), `--once` 남음 → exit 3·`left="… 이월된 검색어 2개"`, 이미 돌고 있으면 exit 2, 잠금 파일 정리
+- `tools/outlier_research.py` 오프라인 시험(가짜 API) 14개 통과: 한도 700 → 검색 5·남은 검색 15·exit 3 → 다시 → 캐시 5·새 15·exit 0 → 다시 → 할당량 0, 오래된 영상 정보는 한도 0이면 예전 숫자로(pending 0), 다음엔 다시 받음
+- 실제 API(클라우드, 저장소 밖 임시 폴더): 1회차 `--quota 450` → `searches_new=3 quota_used=306 complete=False exit=3`, 2회차 `--quota 650` → `searches_cached=3 searches_new=5 quota_used=510`, 남은 검색 17 → 12. 자막·썸네일은 ProxyError 403 → `retry_elsewhere=True`로 기록 (PC에서 다시)
+- 실행기 시뮬레이션: `RAW_BASE=http://127.0.0.1:8765 bash run_analyzer.sh --no-venv -- --dry-run` → 코드 4개·설정 2개 받음, `tools/pc_analysis.py economic --dry-run` 실행 확인. `run_analyzer.ps1`은 이 환경에 PowerShell이 없어 실행 시험 못 함 (UTF-8 BOM·CRLF 유지, v1.0과 같은 구조)
+- 분석기 자가진단 `passed=24/24`, `economic` 설정 읽기: 그룹 10개·검색어 50개
+
+### 알려 둘 것
+- 올린 영상 4개(몰빵·물타기·빚투·패닉셀)의 `youtube.json`이 작업 폴더에서 지워져 `tools/youtube_feedback.py`·`studio_trim.py`로 그 영상들을 더는 다루지 못함 (필요하면 `git checkout 2a68307 -- stock_backup/source/<영상ID>/youtube.json`로 되살림).
+- 다른 채널의 자막 전문·댓글 원문·썸네일은 공개 저장소라 올리지 않음 (사례 폴더는 PC에만). summary.md의 발췌·흐름으로 분석.
+- 연구·교육용, 투자 권유 아님. 위험 관련 값(포지션·손절) 변경 없음. 할당량 값만 `QUOTA_BUDGET 6000`·성공 사례 4,000으로 명시.
+
 ## 2026-10-12 — 주식 폴더 새로 시작: 백업(stock → stock_backup) · 분석 다시 · 지시사항 새로 · 새 영상 3개 오디오 전까지
 
 ### 왜 (사용자 지시: "일단 기존 주제폴더 _backup 붙여서 백업해놓고 stock만 새로 만들어서 유튜브 성공사례 분석 코드 돌려서 분석 결과 파일 만들고 성공사례 분석(대본 내용, 댓글 반응 등 영상의 여러 정보 참고)해서 각 지시사항 파일 새로 만들고 오디오 생성 전 단계까지 결과물 만들어봐")

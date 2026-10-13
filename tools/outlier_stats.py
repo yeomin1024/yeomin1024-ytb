@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-10-12 — 신규: tools/outlier_research.py 결과로 data_insights 의 숫자를 다시 계산 (재현용, 해석 없음)
+# VERSION: v1.1 — 2026-10-13 — 주제 낱말을 <주제>/keywords.toml 의 RELEVANCE_TERMS 에서 읽음 (economic 등 새 주제 폴더, 분석기 v2.4.0과 같은 파일).
+#          파일이 없으면 예전 주식 낱말(stock) 또는 거르지 않음
+# (v1.0 — 2026-10-12 — 신규: tools/outlier_research.py 결과로 data_insights 의 숫자를 다시 계산 (재현용, 해석 없음)
 #          ① 제목·길이·채널 크기별 성공 비율 (candidates.csv — 구독자 5만 이하·365일 안·4분 이상·주제 낱말이 든 롱폼)
-#          ② 성공 사례 댓글을 낱말 규칙으로 나눈 시청자 니즈 (사례 폴더의 comments.csv, 한 댓글이 여러 갈래에 들 수 있음)
+#          ② 성공 사례 댓글을 낱말 규칙으로 나눈 시청자 니즈 (사례 폴더의 comments.csv, 한 댓글이 여러 갈래에 들 수 있음))
 r"""
 사용법 (저장소 최상위):
-  python3 tools/outlier_stats.py stock                       # 둘 다 (자료가 있는 것만)
-  python3 tools/outlier_stats.py stock --skip-ranks 1,7,11,13,15   # 댓글 분류에서 뺄 사례 순위 (주제 밖·광고 의심)
-  python3 tools/outlier_stats.py stock --group "실패=2,3,5,6,10,17,19,20" --group "해봄·제도=4,8,9,12,14,16,18"
+  python3 tools/outlier_stats.py economic                       # 둘 다 (자료가 있는 것만)
+  python3 tools/outlier_stats.py economic --skip-ranks 1,7,11,13,15   # 댓글 분류에서 뺄 사례 순위 (주제 밖·광고 의심)
+  python3 tools/outlier_stats.py economic --group "실패=2,3,5,6,10,17,19,20" --group "해봄·제도=4,8,9,12,14,16,18"
 
 성공 = 조회수 1만 이상 그리고 조회수 ≥ 구독자 × 3 (outlier_research 기준과 같음, 구독자 100 미만은 100으로).
 댓글 분류는 낱말 규칙이라 거칠다: '질문'은 물음표·'~나요'를 세므로 반문도 들어가고, AI 를 다룬 영상에서는 'AI' 가 비판으로 잘못 셀 수 있다.
@@ -25,12 +27,29 @@ from datetime import datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v1.0"
+VERSION = "v1.1"
 LOG = logging.getLogger("outlier_stats")
 
 # 주식 주제 낱말 (제목에 하나라도 있어야 비교 집단에 넣음)
 TOPIC_RE = {"stock": r"주식|주가|증시|코스피|코스닥|나스닥|ETF|etf|S&P|에스앤피|배당|빚투|신용|미수|반대매매|물타기|손절|종목|개미|레버리지|리딩방|투자|퇴직금|노후자금|연금|ISA|isa|삼성전자|하이닉스|반도체"}
-TOPIC_RE["stock_backup"] = TOPIC_RE["stock"]   # 옛 주식 폴더 (2026-10-12 백업)
+
+
+def topic_regex(topic):
+    """제목 비교 집단의 주제 낱말: <주제>/keywords.toml 의 RELEVANCE_TERMS (분석기와 같은 파일) → 없으면 TOPIC_RE → 없으면 거르지 않음."""
+    p = ROOT / topic / "keywords.toml"
+    if p.is_file():
+        try:
+            try:
+                import tomllib
+            except ModuleNotFoundError:
+                import tomli as tomllib
+            d = tomllib.loads(p.read_text("utf-8"))
+            terms = d.get("RELEVANCE_TERMS") or (d.get("relevance") or {}).get("RELEVANCE_TERMS") or []
+            if terms:
+                return "|".join(re.escape(t) for t in sorted(set(terms), key=len, reverse=True)), f"keywords.toml {len(set(terms))}개"
+        except Exception as e:
+            log("TITLE", logging.WARNING, topic=topic, note="keywords.toml 읽기 실패 — 기본 낱말 사용", error=str(e)[:120])
+    return TOPIC_RE.get(topic, r"."), ("TOPIC_RE" if topic in TOPIC_RE else "거르지 않음")
 MONEY = r"\d[\d,\.]*\s*(?:억|천만|만\s*원|만원|천\s*만|백만|원)"
 TITLE_FEATURES = {
     "금액(억·만원)": MONEY,
@@ -81,7 +100,9 @@ def title_stats(topic, max_subs=50000, max_age=365, min_min=4.0):
     if not p.is_file():
         log("TITLE", logging.WARNING, topic=topic, note="candidates.csv 없음 — outlier_research.py 를 먼저 (API 검색)", file=str(p.relative_to(ROOT)))
         return None
-    rel = re.compile(TOPIC_RE.get(topic, r"."))
+    pattern, src = topic_regex(topic)
+    rel = re.compile(pattern)
+    log("TITLE", topic=topic, topic_terms=src)
     pop = []
     for r in csv.DictReader(open(p, encoding="utf-8-sig")):
         try:

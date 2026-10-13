@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
-# VERSION: v1.1 — 2026-10-12 — 버그 수정: 결과를 교체 복사할 때 <주제폴더>/result/outliers/(tools/outlier_research.py 결과)까지 지우던 것을 보존
-#          (v1.0 — 2026-10-10 — 클라우드(Claude Code)에서 분석기 실행 → 결과를 <주제폴더>/result/ 로 복사 (커밋·푸시는 Claude가 main에))
+# VERSION: v1.2 — 2026-10-13 — 사용법 예시를 economic 으로 (주제 폴더를 모두 지우고 economic 하나 — 동작은 v1.1 그대로), 집 PC 실행 안내
+# (v1.1 — 2026-10-12 — 버그 수정: 결과를 교체 복사할 때 <주제폴더>/result/outliers/(tools/outlier_research.py 결과)까지 지우던 것을 보존
+#          (v1.0 — 2026-10-10 — 클라우드(Claude Code)에서 분석기 실행 → 결과를 <주제폴더>/result/ 로 복사 (커밋·푸시는 Claude가 main에)))
 # ------------------------------------------------------------------------------------------------
 #  사용법 (저장소 최상위에서):
-#    bash tools/run_analysis.sh stock                  # stock/analyzer_config.toml 로 분석
-#    bash tools/run_analysis.sh health -- --cases 3    # '--' 뒤는 분석기 옵션
+#    bash tools/run_analysis.sh economic               # economic/analyzer_config.toml (+ keywords.toml) 로 분석
+#    bash tools/run_analysis.sh economic -- --cases 3  # '--' 뒤는 분석기 옵션
+#  ※ 자막·썸네일까지 받는 기본 방법은 집 PC: guides/pc_analysis.md (이 스크립트는 클라우드용)
 #
 #  필요: 환경변수 YOUTUBE_API_KEY (클라우드 환경 설정의 Network secrets 또는 환경 변수). .env 파일은 쓰지 않음.
 #  하는 일:
@@ -20,7 +22,7 @@ ROOT="$(pwd)"
 
 TOPIC_DIR="${1:-}"
 if [ -z "$TOPIC_DIR" ] || [ ! -f "$TOPIC_DIR/analyzer_config.toml" ]; then
-  echo "[ANALYSIS] ❌ 주제 폴더를 주세요 (예: bash tools/run_analysis.sh stock). 설정 파일: <주제폴더>/analyzer_config.toml"
+  echo "[ANALYSIS] ❌ 주제 폴더를 주세요 (예: bash tools/run_analysis.sh economic). 설정 파일: <주제폴더>/analyzer_config.toml"
   exit 1
 fi
 shift

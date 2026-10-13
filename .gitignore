@@ -27,3 +27,4 @@ video/public/audio/
 # 성공 사례 수집(tools/outlier_research.py): 다른 채널의 자막·댓글 원문·썸네일·캐시는 올리지 않음 (공개 저장소)
 */result/outliers/.cache/
 */result/outliers/[0-9][0-9]_*/
+*/result/outliers/_old/

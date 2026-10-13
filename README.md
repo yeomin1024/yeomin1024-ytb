@@ -1,6 +1,6 @@
 # yeomin1024-ytb — 0명 채널을 위한 YouTube 주제 분석 + 영상 제작 지시사항
 
-주제(지금: **경제·재테크** `economic/`)에서 **어떤 영상이 구독자 수와 무관하게 터지는지** 분석하고, 그 결과를 근거로 **대본·제목·썸네일·모션그래픽 영상**을 만드는 저장소입니다.
+주제(지금: **재테크** `economic/`)에서 **어떤 영상이 구독자 수와 무관하게 터지는지** 분석하고, 그 결과를 근거로 **대본·제목·썸네일·모션그래픽 영상**을 만드는 저장소입니다.
 연구·교육용입니다. 투자 조언이 아닙니다.
 
 > 2026-10-13 사용자 지시로 주제 폴더를 모두 지우고(stock·stock_backup·health·lifetips·selfdev·space·story) `economic/` 하나로 새로 시작했습니다.
@@ -138,7 +138,7 @@ python youtube_topic_analyzer.py --help                                    # 전
 | `success_cases/NN_.../` | 성공사례별 `transcript.txt`(대본), `thumbnail.jpg`, `metadata.json`, `comments.csv` (영상 파일은 PC에만) |
 | `run_info.json`, `run_log.txt` | 설정·쿼터·소요시간·데이터 기간 등 재현 정보와 전체 로그 |
 
-| `outliers/` | 작은 채널 성공 사례 + 구독자 무관 조회수 상위 (`tools/outlier_research.py` v1.3): `summary.md`·`outliers.csv`·`popular.csv`·`candidates.csv`·`status.json` + 사례 폴더 `01_…`·`P01_…`(자막·**댓글 전부**·썸네일 — **저장소가 비공개일 때만** GitHub에, 공개면 PC에만) |
+| `outliers/` | 작은 채널 성공 사례 + 구독자 무관 조회수 상위 (`tools/outlier_research.py` v1.6, 태그 검색어 포함): **`downloads.md` 받은 자료 표** · `summary.md`·`outliers.csv`·`popular.csv`·`candidates.csv`·`status.json` + 사례 폴더 `01_…`·`P01_…`(자막·**댓글 전부**·썸네일 — **저장소가 비공개일 때만** GitHub에, 공개면 PC에만) |
 | `pc_progress.json` | PC 실행 진행 상태 (`tools/pc_analysis.py`): 회차·끝났는지·남은 일·다음 회차 시각 |
 
 분석 결과를 지시사항에 쓸 수 있게 요약한 파일은 `<주제폴더>/guides/data_insights.md`입니다 (경제·재테크는 분석 뒤 만듦).

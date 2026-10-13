@@ -23,4 +23,6 @@
 - 주제별 규칙: `<주제폴더>/guides/` (예: `economic/guides/`). 주제 폴더는 `economic/`(경제·재테크) 하나 — 다른 주제 폴더는 모두 지움 (사용자 지시 2026-10-13, 옛 내용은 커밋 `2a68307`)
 - 분석은 집 PC에서 사용자가 돌린다: `guides/pc_analysis.md` (`run_analyzer.ps1` → `tools/pc_analysis.py`, 할당량이 끝나면 초기화 뒤 남은 부분부터 자동으로 이어서). 검색어 목록은 `<주제폴더>/keywords.toml` (사용자 지시 2026-10-13)
 - 여러 주제를 동시에 분석할 수 있다: `run_analyzer.ps1 -Folder economic,health`. 주제마다 검색어 `<주제>/keywords.toml`·설정 `analyzer_config.toml`(git)·키 `<주제>/.env`(PC에만, 비우면 맨 위 `.env`). 같은 키는 하루 할당량을 N등분. **할당량을 늘리려고 Google Cloud 프로젝트를 여러 개 만들라고 권하지 않는다** (YouTube API 정책 'sharding' 위반 — 할당량 증가 신청이 정식 방법). 사용자가 새 주제를 말하면 Claude가 `<폴더>/analyzer_config.toml`·`keywords.toml`을 만들어 main에 올린다 (사용자 지시 2026-10-13)
-- 성공 사례와 **구독자 수 상관없이 조회수 상위 영상(기본 20개)**의 **댓글은 전부**(답글 포함) 받는다 — `tools/outlier_research.py` v1.3, 결과 `<주제폴더>/result/outliers/`의 `01_…`(성공 사례)·`P01_…`(조회수 상위) 폴더 `comments.csv` (사용자 지시 2026-10-13)
+- 성공 사례와 **구독자 수 상관없이 조회수 상위 영상(기본 20개)**의 **댓글은 전부**(답글 포함) 받는다 — `tools/outlier_research.py`, 결과 `<주제폴더>/result/outliers/`의 `01_…`(성공 사례)·`P01_…`(조회수 상위) 폴더 `comments.csv` (사용자 지시 2026-10-13)
+- 성공 사례 **영상 파일은 받지 않는다**. 자막·썸네일·댓글 등 빨리 받는 것을 다 받으면 **결과를 먼저 올리고**, 자막 없는 영상의 **음성인식은 대기열에서 하나씩 — 하나 끝날 때마다 바로 올린다** (`youtube_topic_analyzer.py --whisper-queue`). 잘된 영상의 **태그도 검색어로** 탐색한다(`tag_keywords.json`). 어떤 영상을 자료로 받았고 자막·댓글·썸네일이 성공했는지는 **`<주제폴더>/result/outliers/downloads.md`** 표 (사용자 지시 2026-10-13)
+- `economic/` 폴더의 주제는 **재테크** — 경제(뉴스·금리·환율 해설)는 뺀다 (사용자 지시 2026-10-13)

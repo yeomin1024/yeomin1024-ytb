@@ -1,9 +1,16 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.5 — 2026-10-13 — 댓글 2단계 (사용자 지시: "너무 오래 걸리는데 댓글 전체 받아서 그런거야? … 좋은 해결 방법 생각해봐"):
+# VERSION: v1.6 — 2026-10-13 — 태그 검색어·받은 자료 표·오프라인 다시 만들기 (사용자 지시: "태그도 검색어에 포함하도록 해서 탐색하고 …
+#          탐색 목록에서 어떤 영상을 자료로 받았는지, 자막, 댓글 등 다운 성공한게 뭔지 표로 정리해서 깃허브에서 바로 확인 가능한 확장자로"):
+#          ① 태그 검색어 (--tag-keywords 5): 잘된 영상(배수 ≥ --min-ratio 또는 조회수 상위 50, 주제 관련)의 태그 중 검색어에 없고
+#             채널 2곳 이상이 쓴 것을 골라 검색 (tag_keywords.json 에 고정 — 매번 바뀌지 않게, 검색 1번 100단위)
+#          ② downloads.md (GitHub 에서 바로 보이는 표) + downloads.csv: 탐색한 검색어(키워드·태그)별 결과, 자료로 받은 영상마다
+#             자막(자막/음성인식/대기/막힘)·댓글(받은 수/영상 표시 수)·썸네일·설명·태그, 분석기 성공사례도 함께
+#          ③ --offline: API·자막·썸네일 요청 없이 캐시·받은 파일로 요약·표·상태만 다시 (음성인식이 하나 끝날 때마다 분석기가 부름)
+# (v1.5 — 2026-10-13 — 댓글 2단계 (사용자 지시: "너무 오래 걸리는데 댓글 전체 받아서 그런거야? … 좋은 해결 방법 생각해봐"):
 #          ① 1단계: 모든 사례의 인기 댓글 100개(관련성 순 1쪽 = 영상마다 1단위)를 먼저 → 할당량이 모자라도 분석은 바로 시작 (status.json ready)
 #          ② 2단계: 그다음 사례마다 댓글 전부(시간순 + 답글) — 남은 할당량으로, 못 받은 것은 다음 실행이 이어서 (같은 댓글은 id 로 하나로)
-#          ※ 댓글은 100개에 1단위라 싸다 — 하루 할당량의 대부분은 검색(1번 100단위). 오래 걸린 까닭은 고정 배분(tools/pc_analysis.py v1.3 에서 고침)
+#          ※ 댓글은 100개에 1단위라 싸다 — 하루 할당량의 대부분은 검색(1번 100단위). 오래 걸린 까닭은 고정 배분(tools/pc_analysis.py v1.3 에서 고침))
 # (v1.4 — 2026-10-13 — 주제별 키 (사용자 지시: "동시에 병렬로 다른 주제 분석도 가능하도록 … 키설정 파일도 여러개"):
 #          키를 <주제폴더>/.env → 환경 변수 YOUTUBE_API_KEY_<폴더> → 환경 변수 YOUTUBE_API_KEY → 맨 위 .env 순으로 찾음.
 #          주제 여러 개를 한 번에 돌리면 키마다 할당량을 따로 셈 (같은 키를 쓰는 주제끼리만 --quota 를 나눠 씀))
@@ -57,6 +64,9 @@ r"""
 결과 (<주제>/result/outliers/):
   candidates.csv  검색에서 걸린 롱폼 후보 전부 (구독자·조회수·배수·올린 날)                 ← git
   outliers.csv    기준을 통과한 성공 사례 (배수 순)                                        ← git
+  downloads.md    받은 자료 표: 검색어(키워드·태그)별 탐색 결과, 영상마다 자막·댓글·썸네일 성공 여부  ← git (GitHub 에서 바로 보임)
+  downloads.csv   같은 표 (영상마다 한 줄)                                                  ← git
+  tag_keywords.json 태그에서 고른 검색어 (한 번 고르면 고정)                                 ← git
   popular.csv     조회수 상위 (구독자 수 상관없음, 주제 관련·롱폼)                         ← git
   summary.md      사례 표 + 사례마다 설명 앞부분·챕터·도입부·첫 1분·구간별 흐름·말 속도·인기 댓글 (짧게 인용) ← git
   status.json     이번 실행 상태: 검색 완료/남은 검색(pending)·할당량 멈춤·자막·썸네일·댓글 받은 수 (이어서 돌리기용)  ← git
@@ -90,7 +100,7 @@ except ModuleNotFoundError:             # Python 3.10 → tomli (분석기가 �
     import tomli as tomllib
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v1.5"
+VERSION = "v1.6"
 LOG = logging.getLogger("outlier")
 HANGUL = re.compile(r"[가-힣]")
 SEARCH_TTL_HOURS = 168
@@ -156,8 +166,8 @@ class Api:
         self.key, self.quota, self.used, self.stopped = key, quota, 0, None
 
     def get(self, kind, **params):
-        if self.stopped == "daily":
-            raise QuotaStop("하루 할당량 소진 — 새 요청 안 함", "daily")
+        if self.stopped in ("daily", "offline"):
+            raise QuotaStop("새 요청 안 함 (" + ("하루 할당량 소진" if self.stopped == "daily" else "--offline") + ")", self.stopped)
         limit = self.quota - (SEARCH_RESERVE if kind == "search" else 0)
         if self.used + COST[kind] > limit:
             self.stopped = self.stopped or "run_budget"
@@ -447,10 +457,12 @@ def collect_api(topic, a, api, kws, exclude, out, state):
             except QuotaStop as e:
                 state["quota_stop"] = state["quota_stop"] or e.kind
                 state["pending_searches"].append(f"{q} ({dur})")
+                state["search_log"].append({"q": q, "source": g, "dur": dur, "results": None, "status": "남음"})
                 continue
             state["searched" if not hit else "search_cached"] += 1
+            state["search_log"].append({"q": q, "source": g, "dur": dur, "results": len(ids), "status": "캐시" if hit else "새로"})
             for vid in ids:
-                found.setdefault(vid, []).append(q)
+                found.setdefault(vid, []).append(f"태그:{q}" if g == "태그" else q)
             log("SEARCH", query=q, group=g, dur=dur, results=len(ids), cached=hit, quota_used=api.used)
     if state["pending_searches"]:
         log("SEARCH", logging.WARNING, topic=topic, note="할당량이 끝나 못 한 검색 — status.json pending, 다음 실행에 이어서",
@@ -552,6 +564,12 @@ def deep_case(d, r, info, a, api, source, existing_comments, state):
         state["transcripts_reused"] += 1
     elif a.no_transcript:
         snips, lang, st = [], "-", "건너뜀(--no-transcript)"
+    elif a.offline:                                   # 다시 만들기만: 예전 상태 그대로 (자막 요청 안 함)
+        try:
+            prev = json.loads((d / "metadata.json").read_text("utf-8")).get("transcript_status")
+        except (OSError, ValueError):
+            prev = None
+        snips, lang, st = [], "-", prev or "확인 안 함(--offline)"
     else:
         snips, lang, st = transcript(r["id"])
         if snips:
@@ -561,7 +579,9 @@ def deep_case(d, r, info, a, api, source, existing_comments, state):
         state["transcript_missing"].append({"id": r["id"], "status": st, "retry_elsewhere": is_network_failure(st)})
     # 썸네일
     th = d / "thumbnail.jpg"
-    if not (th.is_file() and th.stat().st_size > 0) or a.refresh:
+    if a.offline and not (th.is_file() and th.stat().st_size > 0):
+        state["thumbnail_missing"].append(r["id"])
+    elif not (th.is_file() and th.stat().st_size > 0) or a.refresh:
         try:
             req = urllib.request.Request(f"https://i.ytimg.com/vi/{r['id']}/hqdefault.jpg", headers={"User-Agent": "Mozilla/5.0"})
             th.write_bytes(urllib.request.urlopen(req, timeout=20).read())
@@ -608,7 +628,8 @@ def comments_step(d, r, a, api, source, existing_comments, state, full):
 def new_state():
     return {"quota_stop": None, "searched": 0, "search_cached": 0, "pending_searches": [], "pending_videos": 0,
             "pending_channels": 0, "pending_comments": [], "stale_videos": 0, "transcript_missing": [], "thumbnail_missing": [],
-            "transcripts_reused": 0, "comments_reused": 0, "comments_total": 0, "comment_units": 0, "top_missing": []}
+            "transcripts_reused": 0, "comments_reused": 0, "comments_total": 0, "comment_units": 0, "top_missing": [],
+            "search_log": [], "tag_keywords": []}
 
 
 def write_status(out, topic, a, api, state, rows, q, deep, pop_deep, kw_file):
@@ -666,6 +687,64 @@ def _write_rows(path, rows, fields, extra):
             w.writerow({**r, **{key: fn(k, r) for key, fn in extra.items()}})
 
 
+def build_rows(infos, found, now):
+    """영상 정보 → 후보 행 (라이브·길이 없음 제외). 배수 = 조회수 ÷ 구독자(100 미만은 100)."""
+    rows = []
+    for i in infos:
+        if i.get("live") or not i.get("duration"):
+            continue
+        try:
+            pub = datetime.fromisoformat(str(i["published"]).replace("Z", "+00:00"))
+            pub = pub if pub.tzinfo else pub.replace(tzinfo=timezone.utc)
+            age = (now - pub).days
+        except Exception:
+            age = None
+        subs, views = i.get("subs"), i.get("view_count") or 0
+        ratio = round(views / max(subs, 100), 2) if subs else None
+        rows.append({"id": i["id"], "title": i["title"], "channel": i["channel"], "channel_id": i["channel_id"], "subs": subs,
+                     "views": views, "ratio": ratio, "age_days": age, "views_per_day": round(views / max(age or 1, 1), 1),
+                     "minutes": round(i["duration"] / 60, 1), "likes": i.get("like_count"), "comments": i.get("comment_count"),
+                     "published": str(i["published"])[:10], "queries": " | ".join(dict.fromkeys(found.get(i["id"], []))),
+                     "url": f"https://www.youtube.com/watch?v={i['id']}"})
+    return rows
+
+
+def _norm(t):
+    return re.sub(r"\s+", "", str(t)).lower()
+
+
+def pick_tag_keywords(rows, info_by_id, kws, rel, n, out, min_ratio):
+    """태그 검색어 n개: 잘된 영상(배수 ≥ min_ratio 또는 조회수 상위 50, 주제 관련)의 태그 중 검색어에 없고 채널 2곳 이상이 쓴 것,
+    관련어가 들었거나 5번 이상 나온 것. 한 번 고르면 tag_keywords.json 에 고정 (모자라면 다음 실행에 채움)."""
+    p = out / "tag_keywords.json"
+    try:
+        saved = json.loads(p.read_text("utf-8"))
+    except (OSError, ValueError):
+        saved = {}
+    chosen = list(saved.get("chosen") or [])
+    if len(chosen) >= n:
+        return chosen[:n]
+    have = {_norm(k) for _, k in kws} | {_norm(t) for t in chosen}
+    rel_rows = [r for r in rows if relevant(info_by_id[r["id"]], rel)]
+    good = {r["id"] for r in rel_rows if (r["ratio"] or 0) >= min_ratio}
+    good |= {r["id"] for r in sorted(rel_rows, key=lambda r: -r["views"])[:50]}
+    cnt, chans = {}, {}
+    for vid in good:
+        for t in {str(x).strip().lstrip("#") for x in (info_by_id[vid].get("tags") or [])}:
+            if 2 <= len(t) <= 20:
+                cnt[t] = cnt.get(t, 0) + 1
+                chans.setdefault(t, set()).add(info_by_id[vid].get("channel_id"))
+    terms = [x.lower() for x in (rel.get("strong") or []) + (rel.get("weak") or [])]
+    cands = [t for t, c in sorted(cnt.items(), key=lambda x: (-x[1], x[0]))
+             if _norm(t) not in have and len(chans[t]) >= 2 and (any(x in t.lower() for x in terms) or c >= 5)]
+    chosen += cands[: n - len(chosen)]
+    if chosen:
+        p.write_text(json.dumps({"chosen": chosen, "counts": {t: cnt.get(t) for t in chosen}, "from_videos": len(good),
+                                 "updated": _now(), "rule": "잘된 영상의 태그 · 검색어에 없음 · 채널 2곳 이상 · 관련어 포함 또는 5번 이상"},
+                                ensure_ascii=False, indent=1), "utf-8")
+    return chosen
+
+
 def run_topic(topic, a, api):
     t0 = time.time()
     out = ROOT / topic / "result" / "outliers"
@@ -684,24 +763,18 @@ def run_topic(topic, a, api):
         found = {}
     else:
         infos, found = collect_api(topic, a, api, kws, exclude, out, state)
+    if source == "api" and a.tag_keywords > 0:                   # 태그 검색어 (v1.6): 잘된 영상들이 쓴 태그로 한 번 더 탐색
+        tags = pick_tag_keywords(build_rows(infos, found, now), {i["id"]: i for i in infos}, kws, rel, a.tag_keywords, out, a.min_ratio)
+        state["tag_keywords"] = tags
+        if tags:
+            log("SEARCH", topic=topic, note="태그 검색어로 더 탐색", tags=",".join(tags))
+            tinfos, tfound = collect_api(topic, a, api, [("태그", t) for t in tags], exclude, out, state)
+            seen = {i["id"] for i in infos}
+            infos += [i for i in tinfos if i["id"] not in seen]
+            for vid, qs in tfound.items():
+                found.setdefault(vid, []).extend(qs)
     info_by_id = {i["id"]: i for i in infos}
-    rows = []
-    for i in infos:
-        if i.get("live") or not i.get("duration"):
-            continue
-        try:
-            pub = datetime.fromisoformat(str(i["published"]).replace("Z", "+00:00"))
-            pub = pub if pub.tzinfo else pub.replace(tzinfo=timezone.utc)
-            age = (now - pub).days
-        except Exception:
-            age = None
-        subs, views = i.get("subs"), i.get("view_count") or 0
-        ratio = round(views / max(subs, 100), 2) if subs else None
-        rows.append({"id": i["id"], "title": i["title"], "channel": i["channel"], "channel_id": i["channel_id"], "subs": subs,
-                     "views": views, "ratio": ratio, "age_days": age, "views_per_day": round(views / max(age or 1, 1), 1),
-                     "minutes": round(i["duration"] / 60, 1), "likes": i.get("like_count"), "comments": i.get("comment_count"),
-                     "published": str(i["published"])[:10], "queries": " | ".join(dict.fromkeys(found.get(i["id"], []))),
-                     "url": f"https://www.youtube.com/watch?v={i['id']}"})
+    rows = build_rows(infos, found, now)
     fields = list(rows[0].keys()) if rows else ["id"]
     _write_rows(out / "candidates.csv", sorted(rows, key=lambda r: -(r["ratio"] or 0)), fields, {})
 
@@ -780,10 +853,131 @@ def run_topic(topic, a, api):
         log("DEEP", topic=topic, note="이번 목록에서 빠진 사례 폴더를 _old/ 로 옮김", moved=moved)
     write_summary(out, topic, topic_name, a, used_days, rows, q, deep, pop, pop_deep, source)
     st = write_status(out, topic, a, api, state, rows, q, deep, pop_deep, kw_file)
+    write_downloads(out, topic, topic_name, a, rows, q, deep, pop_deep, state)
     log("DONE", topic=topic, source=source, candidates=len(rows), qualified=len(q), deep=len(deep), popular=len(pop_deep),
         comments=state["comments_total"], complete=st["complete"], quota_used=api.used if api else 0,
         minutes=round((time.time() - t0) / 60, 1), out=str(out.relative_to(ROOT)))
     return st
+
+
+def _folder_tag(folder):
+    return re.sub(r"[^0-9A-Za-z가-힣]+", "_", str(folder)).strip("_") or "topic"
+
+
+def analyzer_out_dir(topic):
+    """분석기 결과 폴더 (설정의 OUTPUT_DIR/PROJECT_FOLDER/RESULT_FOLDER, 기본 output/<주제>/result)."""
+    try:
+        cfg = _flat(tomllib.loads((ROOT / topic / "analyzer_config.toml").read_text("utf-8")))
+    except Exception:
+        cfg = {}
+    base = Path(str(cfg.get("OUTPUT_DIR") or "output")).expanduser()
+    base = base if base.is_absolute() else ROOT / base
+    return base / str(cfg.get("PROJECT_FOLDER") or topic) / str(cfg.get("RESULT_FOLDER") or "result")
+
+
+def _transcript_cell(meta, whisper):
+    st, lang = str(meta.get("transcript_status") or ""), str(meta.get("transcript_lang") or "")
+    if st == "ok":
+        return "✅ 음성인식" if "음성인식" in lang else f"✅ 자막({lang})"
+    if st.startswith("건너뜀"):
+        return "– 건너뜀"
+    if st.startswith("확인 안 함"):
+        return "… 아직 확인 안 함 (다음 실행)"
+    if is_network_failure(st):
+        return "🔁 막힘 — 다음 회차에 다시"
+    w = whisper.get(meta.get("id")) or {}
+    if w.get("attempts", 0) >= 3 and not w.get("done"):
+        return f"❌ 음성인식 실패 ({short(w.get('error'), 40)})"
+    return "⏳ 음성인식 대기" + (f" (시도 {w['attempts']}번)" if w.get("attempts") else "") + f" — {short(st, 20) or '자막 없음'}"
+
+
+def _comment_cell(meta):
+    got, rep_ = meta.get("comments_fetched") or 0, meta.get("comments_reported")
+    total = f"{got:,}/{rep_:,}" if isinstance(rep_, int) else f"{got:,}"
+    if meta.get("comments_disabled"):
+        return "🚫 댓글 막힌 영상"
+    return f"✅ {total}" if meta.get("comments_complete") else f"⏳ {total} 받는 중"
+
+
+def write_downloads(out, topic, name, a, rows, q, deep, pop_deep, state):
+    """downloads.md (GitHub 에서 바로 보이는 표) + downloads.csv — 탐색한 검색어와, 자료로 받은 영상마다 무엇을 받았는지."""
+    try:
+        whisper = json.loads((ROOT / ".yt_work" / f"whisper_{_folder_tag(topic)}.json").read_text("utf-8"))
+    except (OSError, ValueError):
+        whisper = {}
+    cases = []
+    for set_name, lst in (("성공 사례", deep), ("조회수 상위", pop_deep)):
+        for meta, info, cms in lst:
+            d = out / str(meta.get("folder") or "")
+            cases.append({"set": set_name, "rank": meta.get("rank"), "id": meta.get("id"), "title": meta.get("title"),
+                          "channel": meta.get("channel"), "subs": meta.get("subs"), "views": meta.get("views"), "ratio": meta.get("ratio"),
+                          "transcript": _transcript_cell(meta, whisper), "comments": _comment_cell(meta),
+                          "thumbnail": "✅" if (d / "thumbnail.jpg").is_file() else "❌",
+                          "description": "✅" if (info.get("description") or "").strip() else "–",
+                          "tags": len(info.get("tags") or []), "chapters": len(meta.get("chapters") or []),
+                          "folder": meta.get("folder"), "url": meta.get("url")})
+    an = []
+    sc = analyzer_out_dir(topic) / "success_cases"
+    if sc.is_dir():
+        for d in sorted(sc.iterdir()):
+            try:
+                m = json.loads((d / "metadata.json").read_text("utf-8"))
+            except (OSError, ValueError):
+                continue
+            ds = m.get("download_status") or {}
+            t = str(ds.get("transcript") or "-")
+            an.append({"title": m.get("title"), "url": m.get("video_url"), "views": m.get("views"), "subs": m.get("subscribers"),
+                       "transcript": {"whisper_pending": "⏳ 음성인식 대기", "failed": "❌ 실패", "whisper": "✅ 음성인식"}.get(
+                           t, f"✅ 자막({t})" if t != "-" else "–"),
+                       "comments": f"✅ {ds['comments']} (분석기 표본)" if ds.get("comments") else "–",
+                       "thumbnail": "✅" if ds.get("thumbnail") == "ok" else "❌",
+                       "video": "– 받지 않음" if str(ds.get("video", "")).startswith("skipped") else str(ds.get("video") or "–"),
+                       "folder": d.name})
+    num = lambda v: f"{v:,}" if isinstance(v, (int, float)) and v == v else "–"
+    ok_tr = sum(1 for c in cases if c["transcript"].startswith("✅"))
+    wait_tr = sum(1 for c in cases if c["transcript"].startswith("⏳"))
+    ok_cm = sum(1 for c in cases if c["comments"].startswith("✅"))
+    sl = state["search_log"]
+    L = [f"# {name} — 받은 자료 표", "",
+         f"자동 생성 — `tools/outlier_research.py` {VERSION} ({datetime.now().strftime('%Y-%m-%d %H:%M')}). "
+         "사례 폴더의 자막·댓글 전부·썸네일은 저장소가 비공개일 때만 GitHub 에 함께 올라갑니다. 진행 상태: `status.json`.", "",
+         "## 한눈에", "",
+         "| 항목 | 수 |", "|---|---|",
+         f"| 탐색한 검색어 | {len({x['q'] for x in sl})}개 (키워드 {len({x['q'] for x in sl if x['source'] != '태그'})} · 태그 {len({x['q'] for x in sl if x['source'] == '태그'})}) — 검색 {len(sl)}번 (새로 {sum(1 for x in sl if x['status'] == '새로')} · 캐시 {sum(1 for x in sl if x['status'] == '캐시')} · 남음 {sum(1 for x in sl if x['status'] == '남음')}) |",
+         f"| 찾은 후보 영상 (롱폼) | {len(rows):,} |",
+         f"| 성공 사례 기준 통과 | {len(q):,} |",
+         f"| 자료로 받은 영상 | {len(cases)} (성공 사례 {len(deep)} · 조회수 상위 {len(pop_deep)}) + 분석기 성공사례 {len(an)} |",
+         f"| 자막 | ✅ {ok_tr} · ⏳ 음성인식 대기 {wait_tr} · 그 밖 {len(cases) - ok_tr - wait_tr} |",
+         f"| 댓글 다 받음 | {ok_cm} / {len(cases)} (전부 {state['comments_total']:,}개) |",
+         f"| 썸네일 | {sum(1 for c in cases if c['thumbnail'] == '✅')} / {len(cases)} |", "",
+         "표시: ✅ 받음 · ⏳ 진행 중(다음 실행·음성인식 대기열이 이어서) · 🔁 YouTube 가 잠시 막음(다음 회차에 다시) · ❌ 실패 · – 해당 없음", "",
+         "## 자료로 받은 영상", "",
+         "| 묶음 | # | 제목 | 채널 | 구독자 | 조회수 | 자막 | 댓글 (받음/영상 표시) | 썸네일 | 설명 | 태그 | 챕터 | 폴더 |",
+         "|---|---|---|---|---|---|---|---|---|---|---|---|---|"]
+    for c in cases:
+        L.append(f"| {c['set']} | {c['rank']} | [{short(c['title'], 50)}]({c['url']}) | {short(c['channel'], 16)} | {num(c['subs'])} | "
+                 f"{num(c['views'])} | {c['transcript']} | {c['comments']} | {c['thumbnail']} | {c['description']} | {c['tags']} | "
+                 f"{c['chapters']} | `{c['folder']}` |")
+    if an:
+        L += ["", "## 분석기 성공사례 (`output/…/success_cases` — 영상 파일은 받지 않음)", "",
+              "| 제목 | 구독자 | 조회수 | 자막 | 댓글 | 썸네일 | 영상 | 폴더 |", "|---|---|---|---|---|---|---|---|"]
+        for c in an:
+            L.append(f"| [{short(c['title'], 50)}]({c['url']}) | {num(c['subs'])} | {num(c['views'])} | {c['transcript']} | {c['comments']} | "
+                     f"{c['thumbnail']} | {c['video']} | `{c['folder']}` |")
+    L += ["", "## 탐색한 검색어", "", "| 검색어 | 출처 | 길이 | 결과 | 상태 |", "|---|---|---|---|---|"]
+    for x in sl:
+        L.append(f"| {x['q']} | {x['source']} | {'4~20분' if x['dur'] == 'medium' else '20분 넘음'} | "
+                 f"{x['results'] if x['results'] is not None else '–'} | {x['status']} |")
+    if state.get("tag_keywords"):
+        L += ["", f"태그 검색어 고른 규칙·횟수: `tag_keywords.json` — {', '.join(state['tag_keywords'])}"]
+    (out / "downloads.md").write_text("\n".join(L) + "\n", "utf-8")
+    with open(out / "downloads.csv", "w", newline="", encoding="utf-8-sig") as f:
+        w = csv.DictWriter(f, fieldnames=["set", "rank", "id", "title", "channel", "subs", "views", "ratio", "transcript", "comments",
+                                          "thumbnail", "description", "tags", "chapters", "folder", "url"])
+        w.writeheader()
+        w.writerows(cases)
+    log("STATUS", topic=topic, note="받은 자료 표", file="downloads.md", cases=len(cases), analyzer_cases=len(an),
+        transcripts_ok=ok_tr, whisper_wait=wait_tr, comments_done=ok_cm)
 
 
 def chapters_from(desc):
@@ -917,6 +1111,8 @@ def main(argv=None):
     ap.add_argument("--no-long", dest="long", action="store_false", help="20분 넘는 영상은 검색하지 않음")
     ap.add_argument("--quota", type=int, default=9000, help="이번 실행 API 단위 한도 (주제 여러 개를 함께 셈. 하루 10,000)")
     ap.add_argument("--search-ttl-hours", type=float, default=SEARCH_TTL_HOURS, help="검색 캐시 유효 시간 (기본 168 = 7일)")
+    ap.add_argument("--tag-keywords", type=int, default=5, help="잘된 영상의 태그에서 고를 검색어 수 (0 = 태그 검색 안 함)")
+    ap.add_argument("--offline", action="store_true", help="API·자막·썸네일 요청 없이 캐시·받은 파일로 요약·표·상태만 다시 만듦")
     ap.add_argument("--from-existing", action="store_true", help="분석기 결과에서 고르기 (API 키 없이)")
     ap.add_argument("--no-transcript", action="store_true", help="자막 받기 건너뜀")
     ap.add_argument("--refresh", action="store_true", help="캐시·이미 받은 자막·썸네일·댓글을 무시하고 새로")
@@ -924,7 +1120,11 @@ def main(argv=None):
     a = ap.parse_args(argv)
     logging.basicConfig(level=getattr(logging, a.log_level), format="%(message)s", stream=sys.stdout)
     apis, topic_api = {}, {}            # 키마다 Api 하나 (같은 키를 쓰는 주제끼리만 --quota 를 나눠 씀)
-    if not a.from_existing:
+    if a.offline:                       # 요청 없이 다시 만들기만 (키 필요 없음)
+        off = Api("", 0)
+        off.stopped = "offline"
+        topic_api = {t: off for t in a.topics}
+    elif not a.from_existing:
         for t in a.topics:
             key, src = load_api_key(t)
             if not key:

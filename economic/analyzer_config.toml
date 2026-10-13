@@ -1,6 +1,8 @@
 # =====================================================================================================
-# YouTube 주제 분석기 설정 파일 — 주제: 경제·재테크 (economic)
-# VERSION: v1.0.1 — 2026-10-13 — 주석의 실행 명령만 (-File run_analyzer.ps1 — .\ 없이). 설정 값은 v1.0 그대로
+# YouTube 주제 분석기 설정 파일 — 주제: 재테크 (폴더 economic)
+# VERSION: v1.1 — 2026-10-13 — 주제 이름 '재테크'(경제는 뺌 — 사용자 지시), 성공사례 영상 파일은 받지 않음(DOWNLOAD_VIDEOS = false — 사용자 지시
+#          "일단 영상 자체는 받지말고"), 자막 없는 영상 음성인식은 결과를 먼저 올린 뒤 대기열에서 하나씩 (tools/pc_analysis.py 가 --defer-whisper)
+# (v1.0.1 — 2026-10-13 — 주석의 실행 명령만 (-File run_analyzer.ps1 — .\ 없이). 설정 값은 v1.0 그대로)
 # (v1.0 — 2026-10-13 — 새로 만듦 (사용자 지시: 모든 주제 폴더를 지우고 경제·재테크 폴더 하나만).
 #   검색어·관련어 목록은 이 파일이 아니라 같은 폴더의 keywords.toml 에 있다 (분석기 v2.4.0).)
 #
@@ -13,7 +15,7 @@
 # =====================================================================================================
 
 [topic]
-TOPIC = "경제·재테크"
+TOPIC = "재테크"
 PROJECT_FOLDER = "economic"          # 결과 상위 폴더 → PC: output/economic/result/, GitHub: economic/result/
 RESULT_FOLDER = "result"
 
@@ -38,7 +40,8 @@ AD_SUSPECT_MAX_COMMENT_RATE = 0.00005
 [advanced]
 # 하루 할당량 10,000단위를 tools/outlier_research.py(작은 채널 성공 사례, 약 4,000단위)와 나눠 쓴다.
 # 다 못 한 검색어는 다음 날로 이월되고, tools/pc_analysis.py 가 할당량이 초기화되면(태평양 자정) 자동으로 이어서 돌린다.
-QUOTA_BUDGET = 6000                  # ⚠️ 비용 관련
+QUOTA_BUDGET = 6000                  # ⚠️ 비용 관련 (tools/pc_analysis.py 는 오늘 남은 만큼만 줌)
+DOWNLOAD_VIDEOS = false              # ⚠️ 성공사례 영상 파일은 받지 않음 (사용자 지시 2026-10-13) — 자막·썸네일·댓글·메타데이터만
 # ANALYSIS_DAYS = 365
 # OUTLIER_MIN = 3.0
 # MIN_SUCCESS_VIEWS = 10000

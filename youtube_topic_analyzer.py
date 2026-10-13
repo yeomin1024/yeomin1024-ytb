@@ -1,10 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v2.6.0 — 2026-10-13 — 여러 주제를 동시에(병렬로) 돌릴 수 있게 (사용자 지시: "동시에 병렬로 다른 주제 분석도 가능하도록 해야해
+# VERSION: v2.7.0 — 2026-10-13 — 빠른 것 먼저 올리고 음성인식은 뒤에서 하나씩 (사용자 지시: "일단 영상 자체는 받지말고 자막, 썸네일, 댓글 등
+#          빨리 받을 수 있는 것들만 다 받으면 분석결과를 먼저 올리도록 하고 오래걸리는 음성인식은 계속 진행해서 하나가 끝나면 바로 올리고
+#          그다음거 진행하는 식으로"): ① --defer-whisper: 자막이 없는 성공사례는 음성인식을 하지 않고 'whisper_pending' 으로 표시
+#          ② --whisper-queue: 음성인식 대기열 — 작은 채널 성공 사례(01_…)·조회수 상위(P01_…)·분석기 성공사례 중 자막 없는 영상을
+#          하나씩 (소리만 받아 Whisper → 소리 파일은 지움) → 끝날 때마다 바로 GitHub 에 올림, 실패는 3번까지 다음에 다시
+#          (대기열에서는 CPU 길이 제한 없음 — WHISPER_QUEUE_CPU_MAX_MINUTES) ③ --push-only 가 분석기 결과가 아직 없어도
+#          성공 사례 결과만 올림 (결과를 먼저) ④ 영상 파일 받기는 tools/pc_analysis.py 가 --no-video 로 끔 (economic 설정도 false)
+# (v2.6.0 — 2026-10-13 — 여러 주제를 동시에(병렬로) 돌릴 수 있게 (사용자 지시: "동시에 병렬로 다른 주제 분석도 가능하도록 해야해
 #          그럼 검색어 설정 파일, 키설정 파일도 여러개"): ① 주제별 키 파일 <주제폴더>/.env (+ 환경 변수 YOUTUBE_API_KEY_<폴더>)를
 #          맨 위 .env 보다 먼저 읽음 ② git 작업 폴더·임시 폴더·푸시 로그를 주제마다 따로 (.yt_work/_github_clone_<폴더> 등 — 같이 돌면
 #          서로 지우던 것) ③ 캐시 임시 파일 이름에 프로세스 번호 ④ --setup-only (패키지 설치만 — 병렬 실행 전에 한 번)
-#          ⑤ --quota-budget (같은 키를 쓰는 주제끼리 하루 할당량을 나눌 때 tools/pc_analysis.py 가 넘김)
+#          ⑤ --quota-budget (같은 키를 쓰는 주제끼리 하루 할당량을 나눌 때 tools/pc_analysis.py 가 넘김))
 # (v2.5.0 — 2026-10-13 — 저장소가 비공개면 PC 의 outliers/ 를 사례 폴더(자막·댓글 전부·썸네일)까지 통째로 올림 (사용자 지시: "비공개로 돌릴테니까
 #          전부 다 업로드되게"). 공개 저장소면 예전처럼 요약 파일(csv·md·json)만)
 # (v2.4.0 — 2026-10-13 — 검색어·관련어 목록을 설정 파일과 따로(<폴더>/keywords.toml, KEYWORDS_FILE), 기본 주제 economic(경제·재테크),
@@ -128,6 +135,9 @@ ALLOW_VIDEO_UPLOAD_TO_PUBLIC_REPO = False  # ⚠️ 공개 저장소에 타인 �
 USE_WHISPER_FALLBACK = True     # 자막이 없으면 Whisper 음성인식으로 대본 생성 (faster-whisper 자동 설치)
 WHISPER_MODEL = "small"         # tiny/base/small/medium/large-v3 (NVIDIA GPU 있으면 medium 권장)
 WHISPER_CPU_MAX_MINUTES = 15    # GPU 없이 실행 시 이 길이(분)를 넘는 영상은 Whisper 생략 (GPU면 제한 없음)
+DEFER_WHISPER = False           # True(--defer-whisper): 분석 중에는 음성인식을 하지 않고 'whisper_pending' 표시 → --whisper-queue 가 하나씩
+WHISPER_QUEUE_CPU_MAX_MINUTES = 0   # 대기열(--whisper-queue)에서 GPU 없이 음성인식할 최대 길이(분). 0 = 제한 없음 (뒤에서 도니까)
+WHISPER_QUEUE_MAX_ATTEMPTS = 3  # 대기열에서 같은 영상 음성인식을 몇 번까지 다시 시도할지
 
 # ---- YouTube 봇 확인('Sign in to confirm you're not a bot') 대응 — 가정용 인터넷이면 보통 필요 없음 ----
 YTDLP_COOKIES_FILE = ""         # cookies.txt 경로. 비워두면 이 폴더의 cookies*.txt 를 자동으로 사용
@@ -273,7 +283,7 @@ import numpy as np
 import pandas as pd
 import requests
 
-NOTEBOOK_VERSION = "v2.6.0"
+NOTEBOOK_VERSION = "v2.7.0"
 KST = dt.timezone(dt.timedelta(hours=9))
 UTC = dt.timezone.utc
 IS_WINDOWS = os.name == "nt"
@@ -455,7 +465,8 @@ CONFIG_KEYS = [
     "SMALL_CHANNEL_MAX_SUBS", "BIG_CHANNEL_MIN_SUBS", "SERP_TOP_N", "FRESH_DAYS", "SHORTS_HTTP_CHECK",
     "FETCH_COMMENTS_TOP_N", "SUCCESS_CASE_COUNT", "SUCCESS_SMALL_CHANNEL_SHARE", "SUCCESS_LONGFORM_SHARE",
     "MAX_CASES_PER_CHANNEL", "DOWNLOAD_VIDEOS", "VIDEO_MAX_HEIGHT", "VIDEO_MAX_MB", "ALLOW_VIDEO_UPLOAD_TO_PUBLIC_REPO",
-    "USE_WHISPER_FALLBACK", "WHISPER_MODEL", "WHISPER_CPU_MAX_MINUTES", "YTDLP_COOKIES_FILE",
+    "USE_WHISPER_FALLBACK", "WHISPER_MODEL", "WHISPER_CPU_MAX_MINUTES", "DEFER_WHISPER", "WHISPER_QUEUE_CPU_MAX_MINUTES",
+    "WHISPER_QUEUE_MAX_ATTEMPTS", "YTDLP_COOKIES_FILE",
     "COOKIES_FROM_BROWSER", "YTDLP_CLIENT_FALLBACK", "YTDLP_MAX_BOT_BLOCKS",
     "PUSH_TO_GITHUB", "CLEAN_OLD_RESULTS", "OUTPUT_DIR", "OPEN_RESULT_FOLDER", "MAKE_RESULT_ZIP",
     "AUTO_INSTALL_PACKAGES", "UPDATE_YTDLP_DAILY", "CACHE_TTL_HOURS", "RANDOM_SEED", "LOG_LEVEL", "RUN_SELF_TEST",
@@ -3102,7 +3113,9 @@ def process_success_case(ctx, row, idx, comments):
             break
         except Exception as e:
             errors[name] = f"{type(e).__name__}: {str(e)[:150]}"
-    if segs is None and cfg["USE_WHISPER_FALLBACK"]:
+    if segs is None and cfg["USE_WHISPER_FALLBACK"] and cfg.get("DEFER_WHISPER"):
+        status["transcript"] = "whisper_pending"      # 결과를 먼저 올리고 음성인식은 --whisper-queue 가 하나씩 (v2.7.0)
+    elif segs is None and cfg["USE_WHISPER_FALLBACK"]:
         try:
             src = media
             if src is None or src.suffix.lower() not in VIDEO_EXTS:
@@ -3113,7 +3126,7 @@ def process_success_case(ctx, row, idx, comments):
     if segs:
         write_transcript(case_dir, segs, meta, row)
         status.update(transcript=meta["source"], transcript_lang=meta["language"], **transcript_stats(segs, row["duration_sec"], row["fmt"]))
-    else:
+    elif status.get("transcript") != "whisper_pending":
         status["transcript"] = "failed"
         log("SUCCESS", "대본 확보 실패", level="WARNING", video_id=vid, errors=errors,
             next_step="봇 확인 차단이면 cookies.txt를 스크립트 폴더에 두고 다시 실행 / 자막 없는 영상은 USE_WHISPER_FALLBACK")
@@ -3942,7 +3955,7 @@ def reload_github_token(current, topic_dir=None):
     return current
 
 
-def stage8_push_github(ctx, token):
+def stage8_push_github(ctx, token, outliers_only=False):
     cfg = ctx.cfg
     result = {"pushed": False}
     ctx.data["github_push"] = result
@@ -4003,11 +4016,11 @@ def stage8_push_github(ctx, token):
         if not project_dir.exists():
             log("GITHUB", "상위 폴더가 없어 새로 생성", folder=cfg["PROJECT_FOLDER"])
         target = clone / rel_path
-        if target.exists() and cfg["CLEAN_OLD_RESULTS"]:
+        if target.exists() and cfg["CLEAN_OLD_RESULTS"] and not outliers_only:
             kept = _clean_result_dir(target, clone.parent / f"_outliers_keep_{folder_tag(cfg['PROJECT_FOLDER'])}")
             log("GITHUB", "기존 결과 폴더 교체 (이전 버전은 git 기록에 보존)", path=rel_path, kept_outliers=kept)
         target.mkdir(parents=True, exist_ok=True)
-        skipped = _copy_results(ctx, target, allow_videos)
+        skipped = [] if outliers_only else _copy_results(ctx, target, allow_videos)   # 분석기 결과가 아직 없으면 성공 사례만 (v2.7.0)
         n_out, out_skipped = _copy_local_outliers(cfg, target, full=private)
         if n_out:
             log("GITHUB", "PC의 성공 사례·조회수 상위 결과도 함께 올림" + (" — 비공개 저장소: 사례 폴더(자막·댓글 전부·썸네일)까지" if private
@@ -4023,7 +4036,8 @@ def stage8_push_github(ctx, token):
             log("GITHUB", "변경 사항 없음 → 커밋 생략")
             result.update(pushed=False, reason="no_changes")
             return result
-        msg = f"[{cfg['TOPIC']}] YouTube 분석 결과 {ctx.run_id} ({NOTEBOOK_VERSION})"
+        msg = (f"[{cfg['TOPIC']}] 성공 사례 결과 먼저 ({NOTEBOOK_VERSION}, 분석기 결과는 아직)" if outliers_only else
+               f"[{cfg['TOPIC']}] {ctx.data.get('push_message') or 'YouTube 분석 결과'} {ctx.run_id} ({NOTEBOOK_VERSION})")
         run_git(author + ["commit", "-q", "-m", msg], clone)
         pushed, out = False, ""
         for attempt, wait in enumerate((0, 2, 4, 8, 16), 1):
@@ -4448,6 +4462,24 @@ def run_self_test(cfg):
     check("주제별 키 파일·환경 변수 (주제폴더/.env 먼저)", got_a == "AIzaTOPIC_A_FILE" and got_b == "AIzaTOPIC_B_ENV"
           and first_names == ["topic_a/.env", "env:*_TOPIC_A"] and folder_tag("a/b") == "a_b" and folder_tag("topic-b") == "topic_b",
           sources=first_names)
+    # v2.7.0: 음성인식 대기열 — 자막 없는 성공 사례(01 → P01 순) + 분석기 'whisper_pending', 네트워크 막힘·자막 있음·건너뜀은 제외
+    with tempfile.TemporaryDirectory() as td:
+        tb = Path(td)
+        od = tb / "t" / "result" / OUTLIERS_DIR
+        for name, st_, has_tr in (("P01_pp", "한국어 자막 없음", False), ("02_bb", "TranscriptsDisabled: x", False), ("01_aa", "ok", True),
+                                  ("03_cc", "ProxyError: 403", False), ("04_dd", "건너뜀(--no-transcript)", False),
+                                  ("05_ee", "확인 안 함(--offline)", False)):
+            (od / name).mkdir(parents=True)
+            (od / name / "metadata.json").write_text(json.dumps({"id": name.split("_", 1)[1], "transcript_status": st_, "minutes": 12}), "utf-8")
+            if has_tr:
+                (od / name / "transcript.json").write_text("{}", "utf-8")
+        sc = tb / "out" / "success_cases" / "01_x_v1"
+        sc.mkdir(parents=True)
+        (sc / "metadata.json").write_text(json.dumps({"video_id": "v1", "duration_sec": 600,
+                                                      "download_status": {"transcript": "whisper_pending"}}), "utf-8")
+        q_items = speech_queue_items({"PROJECT_FOLDER": "t", "RESULT_FOLDER": "result"}, tb / "out", base=tb)
+    check("음성인식 대기열 고르기 (01·02 → P01 → 분석기, 막힘·자막 있음·건너뜀 제외)", [i_["video_id"] for i_ in q_items] == ["bb", "pp", "v1"]
+          and q_items[0]["duration_sec"] == 720, order=[i_["video_id"] for i_ in q_items])
 
     passed = sum(ok for _, ok in results)
     log("SELFTEST", "자가진단 완료", passed=f"{passed}/{len(results)}", elapsed_sec=round(time.perf_counter() - t0, 2))
@@ -4546,6 +4578,8 @@ def parse_args(argv=None):
     p.add_argument("--no-open", action="store_true", help="끝나고 결과 폴더 열지 않음")
     p.add_argument("--log-level", choices=["DEBUG", "INFO", "WARNING"], help="로그 상세도")
     p.add_argument("--skip-install", action="store_true", help="패키지 자동 설치/업데이트 안 함")
+    p.add_argument("--defer-whisper", action="store_true", help="자막 없는 성공사례 음성인식은 미루고 결과부터 (--whisper-queue 가 하나씩)")
+    p.add_argument("--whisper-queue", action="store_true", help="음성인식 대기열만: 자막 없는 영상을 하나씩 음성인식하고 끝날 때마다 GitHub 에 올림")
     p.add_argument("--quota-budget", type=int, help="이번 실행 할당량 QUOTA_BUDGET (같은 키를 여러 주제가 나눠 쓸 때, ⚠️ 비용 관련)")
     p.add_argument("--setup-only", action="store_true", help="패키지 설치·업데이트만 하고 끝 (여러 주제를 동시에 돌리기 전에 한 번)")
     p.add_argument("--push-only", action="store_true",
@@ -4553,7 +4587,7 @@ def parse_args(argv=None):
     return p.parse_args(argv)
 
 
-def push_only(cfg, keys):
+def push_only(cfg, keys, message=None):
     """기존 결과(output/<PROJECT_FOLDER>/<RESULT_FOLDER>)를 지우지 않고 그대로 GitHub에 푸시."""
     cfg = dict(cfg)
     cfg["PROJECT_FOLDER"] = sanitize_folder(cfg["PROJECT_FOLDER"], "PROJECT_FOLDER")
@@ -4566,10 +4600,15 @@ def push_only(cfg, keys):
     work.mkdir(parents=True, exist_ok=True)
     setup_logging(cfg["LOG_LEVEL"], work / f"push_log_{folder_tag(cfg['PROJECT_FOLDER'])}.txt")
     register_secret(keys["GITHUB_TOKEN"])
+    outliers_only = False
     if not (out_dir / "README.md").exists():
-        log("GITHUB", "❌ 푸시할 결과가 없습니다 — 먼저 분석을 실행하세요 (주제/폴더를 바꿔 실행했다면 같은 --folder 지정)",
-            level="ERROR", expected=str(out_dir))
-        return 1
+        if (BASE_DIR / cfg["PROJECT_FOLDER"] / cfg["RESULT_FOLDER"] / OUTLIERS_DIR / "summary.md").is_file():
+            outliers_only = True         # 분석기 결과가 아직 없어도 성공 사례 결과는 먼저 올림 (v2.7.0)
+            log("GITHUB", "분석기 결과는 아직 없음 → 성공 사례 결과만 먼저 올림", outliers=f"{cfg['PROJECT_FOLDER']}/{cfg['RESULT_FOLDER']}/{OUTLIERS_DIR}")
+        else:
+            log("GITHUB", "❌ 푸시할 결과가 없습니다 — 먼저 분석을 실행하세요 (주제/폴더를 바꿔 실행했다면 같은 --folder 지정)",
+                level="ERROR", expected=str(out_dir))
+            return 1
     run_id = dt.datetime.now(KST).strftime("%Y%m%d_%H%M%S")
     try:
         run_id = json.loads((out_dir / "run_info.json").read_text("utf-8")).get("run_id", run_id)
@@ -4577,16 +4616,148 @@ def push_only(cfg, keys):
         pass
     ctx = RunContext(cfg=cfg, run_id=run_id, started_at=dt.datetime.now(UTC), work_dir=work, out_dir=out_dir,
                      cache=JsonCache(work / "cache", cfg["CACHE_TTL_HOURS"]), output_root=output_root)
-    log("GITHUB", "푸시 전용 실행 (--push-only)", out_dir=str(out_dir), run_id=run_id)
+    if message:
+        ctx.data["push_message"] = message
+    log("GITHUB", "푸시 전용 실행 (--push-only)", out_dir=str(out_dir), run_id=run_id, outliers_only=outliers_only)
     try:
         with stage_timer(ctx, "GITHUB"):
-            res = stage8_push_github(ctx, keys["GITHUB_TOKEN"])
+            res = stage8_push_github(ctx, keys["GITHUB_TOKEN"], outliers_only=outliers_only)
     except Exception as e:
         log("GITHUB", "❌ 푸시 실패", level="ERROR", error=f"{type(e).__name__}: {str(e)[:600]}")
         return 1
     for n in ctx.notes:
         log("SUMMARY", "주의", level="WARNING", note=n)
     return 0 if res.get("pushed") or res.get("reason") == "no_changes" else 1
+
+
+NETWORK_FAIL_WORDS = ("RequestBlocked", "IpBlocked", "ProxyError", "ConnectionError", "Timeout", "TooManyRequests", "URLError")
+OUTLIER_CASE_RX = re.compile(r"^(P?)(\d\d)_(.+)$")
+
+
+def speech_queue_items(cfg, out_dir, base=None):
+    """음성인식 대기열 (v2.7.0): 자막을 못 받은 영상 — ① 작은 채널 성공 사례 01_… ② 조회수 상위 P01_… (tools/outlier_research.py,
+    '자막 없음' 류만 — 네트워크 실패는 그 도구가 다음 회차에 다시 받음) ③ 분석기 성공사례 중 'whisper_pending'. → 차례대로 목록."""
+    items = []
+    od = (base or BASE_DIR) / cfg["PROJECT_FOLDER"] / cfg["RESULT_FOLDER"] / OUTLIERS_DIR
+    if od.is_dir():
+        found = []
+        for d in od.iterdir():
+            m = OUTLIER_CASE_RX.match(d.name)
+            if not (d.is_dir() and m and (d / "metadata.json").is_file()) or (d / "transcript.json").is_file():
+                continue
+            try:
+                meta = json.loads((d / "metadata.json").read_text("utf-8"))
+            except ValueError:
+                continue
+            st = str(meta.get("transcript_status") or "")
+            if st == "ok" or st.startswith(("건너뜀", "확인 안 함")) or any(w in st for w in NETWORK_FAIL_WORDS):
+                continue
+            found.append((1 if m.group(1) else 0, int(m.group(2)), {
+                "kind": "outlier", "dir": d, "video_id": meta.get("id") or m.group(3), "title": meta.get("title"),
+                "duration_sec": float(meta.get("minutes") or 0) * 60, "reason": st}))
+        items += [it for _, _, it in sorted(found, key=lambda x: (x[0], x[1]))]
+    sc = Path(out_dir) / "success_cases"
+    if sc.is_dir():
+        for d in sorted(sc.iterdir()):
+            mp = d / "metadata.json"
+            if not mp.is_file():
+                continue
+            try:
+                meta = json.loads(mp.read_text("utf-8"))
+            except ValueError:
+                continue
+            if (meta.get("download_status") or {}).get("transcript") == "whisper_pending":
+                items.append({"kind": "analyzer", "dir": d, "video_id": meta.get("video_id"), "title": meta.get("title"),
+                              "duration_sec": float(meta.get("duration_sec") or 0), "reason": "whisper_pending", "meta": meta})
+    return items
+
+
+def whisper_queue(cfg, keys, push=True):
+    """--whisper-queue (v2.7.0): 대기열 영상을 하나씩 — 소리만 받아 Whisper → 대본 파일 → (성공 사례면 요약 다시 만들기) → 바로 GitHub.
+    실패하면 기록하고 다음 영상 (같은 영상은 WHISPER_QUEUE_MAX_ATTEMPTS 번까지). 영상·소리 파일은 남기지 않음."""
+    cfg = dict(cfg)
+    cfg["PROJECT_FOLDER"] = sanitize_folder(cfg["PROJECT_FOLDER"], "PROJECT_FOLDER")
+    cfg["RESULT_FOLDER"] = sanitize_folder(cfg["RESULT_FOLDER"], "RESULT_FOLDER")
+    cfg["WHISPER_CPU_MAX_MINUTES"] = cfg["WHISPER_QUEUE_CPU_MAX_MINUTES"] or 10 ** 6     # 뒤에서 도니까 길이 제한 없음 (0)
+    output_root = Path(cfg["OUTPUT_DIR"]).expanduser()
+    output_root = output_root if output_root.is_absolute() else BASE_DIR / output_root
+    out_dir = output_root / cfg["PROJECT_FOLDER"] / cfg["RESULT_FOLDER"]
+    tag = folder_tag(cfg["PROJECT_FOLDER"])
+    work = BASE_DIR / ".yt_work"
+    work.mkdir(parents=True, exist_ok=True)
+    setup_logging(cfg["LOG_LEVEL"], work / f"whisper_log_{tag}.txt")
+    state_p = work / f"whisper_{tag}.json"
+    try:
+        state = json.loads(state_p.read_text("utf-8"))
+    except (OSError, ValueError):
+        state = {}
+    ctx = RunContext(cfg=cfg, run_id=dt.datetime.now(KST).strftime("%Y%m%d_%H%M%S"), started_at=dt.datetime.now(UTC), work_dir=work,
+                     out_dir=out_dir, cache=JsonCache(work / "cache", cfg["CACHE_TTL_HOURS"]), output_root=output_root)
+    items = [it for it in speech_queue_items(cfg, out_dir)
+             if (state.get(it["video_id"]) or {}).get("attempts", 0) < cfg["WHISPER_QUEUE_MAX_ATTEMPTS"]]
+    log("WHISPER", "음성인식 대기열", items=len(items), model=cfg["WHISPER_MODEL"],
+        outlier=sum(1 for i in items if i["kind"] == "outlier"), analyzer=sum(1 for i in items if i["kind"] == "analyzer"),
+        given_up=sum(1 for v in state.values() if not v.get("done") and v.get("attempts", 0) >= cfg["WHISPER_QUEUE_MAX_ATTEMPTS"]))
+    if not items:
+        return 0
+    refresh_download_auth(ctx, proxy=keys.get("YTDLP_PROXY", ""))
+    done = failed = 0
+    for n, it in enumerate(items, 1):
+        vid, t0 = it["video_id"], time.perf_counter()
+        rec = state.setdefault(vid, {"attempts": 0})
+        rec["attempts"] += 1
+        tmp = work / "tmp" / tag / f"whisper_{vid}"
+        tmp.mkdir(parents=True, exist_ok=True)
+        log("WHISPER", f"{n}/{len(items)} 시작", video_id=vid, kind=it["kind"], minutes=round(it["duration_sec"] / 60, 1),
+            attempt=rec["attempts"], title=str(it.get("title") or "")[:40])
+        try:
+            src = ytdlp_download(vid, tmp, cfg, audio_only=True)       # 소리만 (영상 파일은 받지 않음)
+            segs, meta = transcript_via_whisper(src, cfg, it["duration_sec"])
+            if not segs:
+                raise RuntimeError("음성인식 결과가 비어 있음 (말소리 없음?)")
+        except Exception as e:
+            rec.update(error=f"{type(e).__name__}: {str(e)[:200]}", last=dt.datetime.now(KST).isoformat(timespec="minutes"))
+            state_p.write_text(json.dumps(state, ensure_ascii=False, indent=1), "utf-8")
+            failed += 1
+            log("WHISPER", f"{n}/{len(items)} 실패 — 다음 영상으로", level="WARNING", video_id=vid, error=rec["error"],
+                next_try="다음 회차" if rec["attempts"] < cfg["WHISPER_QUEUE_MAX_ATTEMPTS"] else "포기 (시도 한도)")
+            continue
+        finally:
+            rmtree_force(tmp)                                           # 소리 파일은 남기지 않음
+        d = it["dir"]
+        if it["kind"] == "outlier":     # tools/outlier_research.py 형식 → 그 도구가 요약·메타데이터를 다시 만듦 (할당량 0)
+            snips = [{"text": x["text"], "start": x["start"], "duration": x["duration"]} for x in segs]
+            (d / "transcript.json").write_text(json.dumps({"lang": f"{meta['language']}(음성인식)", "snippets": snips,
+                                                           "source": meta.get("source")}, ensure_ascii=False), "utf-8")
+            (d / "transcript.txt").write_text("\n".join(f"[{x['start']:7.1f}] {x['text']}" for x in snips), "utf-8")
+        else:                            # 분석기 성공사례 형식
+            m = it["meta"]
+            row = {"title": m.get("title"), "video_id": vid, "channel_title": m.get("channel_title"), "views": m.get("views"),
+                   "published_at": m.get("published_at")}
+            write_transcript(d, segs, meta, row)
+            ds = m.setdefault("download_status", {})
+            ds.update(transcript=meta["source"], transcript_lang=meta["language"], whisper_done=dt.datetime.now(KST).isoformat(timespec="minutes"),
+                      **transcript_stats(segs, it["duration_sec"], m.get("fmt") or "long"))
+            (d / "metadata.json").write_text(json.dumps(m, ensure_ascii=False, indent=2), "utf-8")
+        rec.update(done=True, error=None, elapsed_sec=round(time.perf_counter() - t0, 1), segments=len(segs))
+        state_p.write_text(json.dumps(state, ensure_ascii=False, indent=1), "utf-8")
+        orx = BASE_DIR / "tools" / "outlier_research.py"
+        if orx.is_file() and (BASE_DIR / cfg["PROJECT_FOLDER"] / "analyzer_config.toml").is_file():   # 요약·받은 자료 표 다시 (할당량 0)
+            r = subprocess.run([sys.executable, str(orx), cfg["PROJECT_FOLDER"], "--offline", "--log-level", "WARNING"], cwd=BASE_DIR,
+                               capture_output=True, text=True, encoding="utf-8", errors="replace")
+            if r.returncode not in (0, 3):
+                log("WHISPER", "요약·받은 자료 표 다시 만들기 실패 (대본 파일은 저장됨)", level="WARNING", code=r.returncode,
+                    out=(r.stdout + r.stderr)[-300:])
+        state_p.write_text(json.dumps(state, ensure_ascii=False, indent=1), "utf-8")
+        done += 1
+        log("WHISPER", f"{n}/{len(items)} 끝", video_id=vid, segments=len(segs), elapsed_sec=rec["elapsed_sec"])
+        if push and cfg["PUSH_TO_GITHUB"]:
+            code = push_only(cfg, keys, message=f"음성인식 대본 {vid} ({n}/{len(items)})")
+            setup_logging(cfg["LOG_LEVEL"], work / f"whisper_log_{tag}.txt")
+            log("WHISPER", f"{n}/{len(items)} 올림" if code == 0 else f"{n}/{len(items)} 올리기 실패 (다음 영상 뒤에 다시 올라감)",
+                level="INFO" if code == 0 else "WARNING", video_id=vid)
+    log("WHISPER", "대기열 끝", done=done, failed=failed, total=len(items))
+    return 0 if not failed else 3
 
 
 def load_config(args, create_missing=True):
@@ -4669,6 +4840,7 @@ def apply_cli(cfg, args):
             changes[key] = (cfg[key], val)
             cfg[key] = val
     for flag, key, val in ((args.no_video, "DOWNLOAD_VIDEOS", False), (args.no_push, "PUSH_TO_GITHUB", False),
+                           (getattr(args, "defer_whisper", False), "DEFER_WHISPER", True),
                            (args.no_open, "OPEN_RESULT_FOLDER", False)):
         if flag:
             changes[key] = (cfg[key], val)
@@ -4689,6 +4861,10 @@ def main(argv=None):
             keys = load_keys(require_youtube=False, topic_dir=topic_dir)
             cfg, _, _ = load_config(args, create_missing=False)
             return push_only(cfg, keys)
+        if args.whisper_queue:
+            keys = load_keys(require_youtube=False, topic_dir=topic_dir)
+            cfg, _, _ = load_config(args, create_missing=False)
+            return whisper_queue(cfg, keys, push=not args.no_push)
         keys = load_keys(topic_dir=topic_dir)
         cfg, cfg_info, changes = load_config(args)
     except ValueError as e:         # 설정 파일 형식·값 오류 → 분석 전에 멈춤

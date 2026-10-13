@@ -1,6 +1,6 @@
 # 재테크 — 받은 자료 표
 
-자동 생성 — `tools/outlier_research.py` v1.8 (2026-10-14 01:11). 사례 폴더의 자막·댓글 전부·썸네일은 저장소가 비공개일 때만 GitHub 에 함께 올라갑니다. 진행 상태: `status.json`.
+자동 생성 — `tools/outlier_research.py` v1.8 (2026-10-14 01:25). 사례 폴더의 자막·댓글 전부·썸네일은 저장소가 비공개일 때만 GitHub 에 함께 올라갑니다. 진행 상태: `status.json`.
 
 ## 한눈에
 
@@ -10,7 +10,7 @@
 | 찾은 후보 영상 (롱폼) | 2,286 |
 | 성공 사례 기준 통과 | 119 |
 | 자료로 받은 영상 | 35 (성공 사례 15 · 조회수 상위 20) + 분석기 성공사례 8 |
-| 자막 | ✅ 1 · ⏳ 음성인식 대기 8 · 그 밖 26 |
+| 자막 | ✅ 2 · ⏳ 음성인식 대기 7 · 그 밖 26 |
 | 댓글 다 받음 | 33 / 35 (전부 61,198개) |
 | 썸네일 | 35 / 35 |
 
@@ -35,7 +35,7 @@
 | 성공 사례 | 13 | [나이들수록 '이것' 챙기면 노후가 바뀌고 행복해집니다ㅣ귀티나는 노후를 위한 행복특강ㅣ황창…](https://www.youtube.com/watch?v=cn8b0mMUR3Q) | 포강쇼 | 5,060 | 487,164 | 2026-06-10 (125일 전) | 🔁 막힘 — 다음 회차에 다시 | ✅ 160/160 | ✅ | ✅ | 0 | 0 | `13_cn8b0mMUR3Q` |
 | 성공 사례 | 14 | [【資産公開】S&P500に1000万入れて5年間放置した結果（めちゃ増えた）｜31歳会社員・新NI…](https://www.youtube.com/watch?v=Lb9ht5PE0vU) | ぼんじり【平凡会社員のずぼら投… | 4,470 | 359,826 | 2026-07-18 (87일 전) | ✅ 음성인식 | ✅ 141/141 | ✅ | ✅ | 8 | 7 | `14_Lb9ht5PE0vU` |
 | 성공 사례 | 15 | [나스닥 투자하기 전에 이 영상 꼭 보세요 | QLD만 모아가는 이유](https://www.youtube.com/watch?v=g10Y6ZA7rng) | 올레버 | 1,580 | 114,600 | 2026-06-02 (133일 전) | 🔁 막힘 — 다음 회차에 다시 | ✅ 347/347 | ✅ | ✅ | 65 | 9 | `15_g10Y6ZA7rng` |
-| 조회수 상위 | P1 | [Aprende Peque con Isa - Aprende los Colores - Isa…](https://www.youtube.com/watch?v=5CNr36no5TI) | Aprende Peque | 1,290,000 | 8,511,739 | 2025-11-25 (322일 전) | ⏳ 음성인식 대기 — 한국어 자막 없음 | 🚫 댓글 막힌 영상 | ✅ | ✅ | 26 | 0 | `P01_5CNr36no5TI` |
+| 조회수 상위 | P1 | [Aprende Peque con Isa - Aprende los Colores - Isa…](https://www.youtube.com/watch?v=5CNr36no5TI) | Aprende Peque | 1,290,000 | 8,511,739 | 2025-11-25 (322일 전) | ✅ 음성인식 | 🚫 댓글 막힌 영상 | ✅ | ✅ | 26 | 0 | `P01_5CNr36no5TI` |
 | 조회수 상위 | P2 | ["일해서 돈버는 시대 끝났다." AI시대 몸값 폭등하는 사람의 특징ㅣ지식인초대석 EP.1…](https://www.youtube.com/watch?v=512LLypVJfQ) | 지식인사이드 | 4,110,000 | 7,511,434 | 2026-03-07 (220일 전) | 🔁 막힘 — 다음 회차에 다시 | ✅ 2,965/2,965 | ✅ | ✅ | 0 | 17 | `P02_512LLypVJfQ` |
 | 조회수 상위 | P3 | [Aprende con Isa - Isa Visita @Ball N Bounce - Ind…](https://www.youtube.com/watch?v=FH6SL9CQL44) | Aprende Peque | 1,290,000 | 6,590,222 | 2026-05-26 (140일 전) | ⏳ 음성인식 대기 — 한국어 자막 없음 | 🚫 댓글 막힌 영상 | ✅ | ✅ | 24 | 6 | `P03_FH6SL9CQL44` |
 | 조회수 상위 | P4 | [ISA LEI KABANI x PeniWise_music](https://www.youtube.com/watch?v=AhW02ezcXBk) | PENIWISE FJ | 32,000 | 6,121,202 | 2025-10-31 (347일 전) | ⏳ 음성인식 대기 — 한국어 자막 없음 | ✅ 1,093/1,093 | ✅ | ✅ | 0 | 0 | `P04_AhW02ezcXBk` |

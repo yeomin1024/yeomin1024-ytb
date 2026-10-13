@@ -1,6 +1,6 @@
 # 재테크 — 작은 채널 성공 사례 + 조회수 상위 영상 (최근·롱폼)
 
-자동 생성 — `tools/outlier_research.py` v1.8 (2026-10-14 01:11). 사례마다 자막·댓글 전부(`comments.csv`)·썸네일은 사례 폴더에 있다 (저장소가 비공개일 때만 GitHub 에 올라감). 진행 상태(못 한 검색·댓글·자막·썸네일)는 `status.json`.
+자동 생성 — `tools/outlier_research.py` v1.8 (2026-10-14 01:25). 사례마다 자막·댓글 전부(`comments.csv`)·썸네일은 사례 폴더에 있다 (저장소가 비공개일 때만 GitHub 에 올라감). 진행 상태(못 한 검색·댓글·자막·썸네일)는 `status.json`.
 
 - 성공 사례 기준: 최근 180일 안 · 구독자 50,000명 이하 · 조회수 ≥ 구독자 × 3.0 · 조회수 10,000 이상 · 4분 이상 (쇼츠 제외) · 채널당 2개까지
 - 조회수 상위 기준: **구독자 수 상관없음** · 주제 관련(keywords.toml 관련어) · 4분 이상 · 최근 365일 · 조회수 순 20개 · 채널당 2개까지
@@ -326,7 +326,10 @@ Could not retrieve a transcript for the video https://www.youtube.com/watch?v=g1
 
 - https://www.youtube.com/watch?v=5CNr36no5TI · Aprende Peque · 구독자 1,290,000 · 조회수 8,511,739 (×6.6) · 2025-11-25 (322일 전) · 39.6분 · 검색어: ISA
 - 설명 앞부분: Para más contenido educativo, recuerda suscribirte ⁨@aprendepeque⁩ Isa visita Crayola Experience en Plano, Texas, donde a través del arte y el juego enseña a tu peque colores, números, letras, emociones y muchas cosas más. Durante su recorrido, Isa hace un carrito y una mano de cera, diseña una más…
-- 자막: 한국어 자막 없음
+- 도입부(첫 20초, 자막 ko(음성인식)): 저는 이스타일입니다. 너무 감사드립니다.
+- 첫 1분 발췌: 저는 이스타일입니다. 너무 감사드립니다. 오늘 저희는 플레이노 텍사스에서 경험을 해보았습니다. 준비됐습니다. 공연을 하고, 색깔을 배우고, 함께 놀고, 네? 가자! 와우! 이 곳을 이 공연을 통해서 너무 감사드립니다. 같이 오세요. 안녕하세요. 감사합니다. 감사합니다. 이 컬러를 발휘하려고 했다. 우리의 그룹을 찾아봅시다.
+- 말 속도 0.25음절/초 · 첫 1분 126음절 · 전체 597음절
+- 구간별 흐름(90초마다 첫 문장 앞부분): 0:00 저는 이스타일입니다. / 1:39 이 machines / 3:09 In that machine, / 4:37 I have an orange crayon / 6:00 my mom taught me how to make cheese. / 7:30 Like this. / 9:05 And I can also make angry face. / 10:30 You do it when they take photos of you. / 12:00 Come. / 13:47 It feels very hard. / 15:00 With another color, we're going to see. / 16:32 Or use the markers. / 18:04 We fly. / 19:30 In this map we can see where there are gems … / 21:08 With colors tubes. / 23:02 Park is very big. / 24:00 Let's go over there. / 25:35 Do you know what's inside? / 27:01 This one. / 28:32 the bear.
 - 댓글 0개 받음 (최상위 0 · 답글 0 · 채널 주인 0) / 영상 표시 0개 — 댓글 막힌 영상. 전부: 사례 폴더 `comments.csv`
 
 ## P2. "일해서 돈버는 시대 끝났다." AI시대 몸값 폭등하는 사람의 특징ㅣ지식인초대석 EP.100 (김대식 X 오건영)

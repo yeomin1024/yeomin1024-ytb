@@ -1,0 +1,1333 @@
+{
+ "tool": "weekly_analysis.py v1.0",
+ "topic": "economic",
+ "name": "재테크",
+ "generated": "2026-10-14T03:15:28+00:00",
+ "cases": 58,
+ "dated": 58,
+ "older_than_windows": 0,
+ "max_weeks": 12,
+ "criteria": "성공 사례 = 구독자 50,000 이하 · 조회수 10,000 이상 · 조회수 ≥ 구독자 × 3",
+ "windows": [
+  {
+   "weeks": 1,
+   "label": "최근 1주",
+   "videos": 13,
+   "channels": 7,
+   "new_this_week": [
+    {
+     "id": "c0000000001",
+     "title": "연금저축 vs IRP 비교 #805",
+     "published": "2026-10-12"
+    },
+    {
+     "id": "c0000000003",
+     "title": "노후 준비 1억 모으기! #82",
+     "published": "2026-10-11"
+    },
+    {
+     "id": "c0000000004",
+     "title": "월 300만원 모은 방법? 3가지 이유 #736",
+     "published": "2026-10-09"
+    },
+    {
+     "id": "c0000000005",
+     "title": "재테크 초보가 하는 착각 #20",
+     "published": "2026-10-09"
+    },
+    {
+     "id": "c0000000006",
+     "title": "월 300만원 모은 방법? 3가지 이유 #424",
+     "published": "2026-10-07"
+    },
+    {
+     "id": "v0000000050",
+     "title": "미국주식 배당 받는 법 #587",
+     "published": "2026-10-11"
+    },
+    {
+     "id": "v0000000223",
+     "title": "50대 은퇴 후 생활비 현실 #454",
+     "published": "2026-10-09"
+    },
+    {
+     "id": "v0000000382",
+     "title": "50대 은퇴 후 생활비 현실 #270",
+     "published": "2026-10-13"
+    },
+    {
+     "id": "v0000000387",
+     "title": "ETF 장기투자 5년 후기 #409",
+     "published": "2026-10-09"
+    },
+    {
+     "id": "v0000000432",
+     "title": "미국주식 배당 받는 법 #587",
+     "published": "2026-10-11"
+    },
+    {
+     "id": "v0000000437",
+     "title": "연금저축 vs IRP 비교 #317",
+     "published": "2026-10-11"
+    },
+    {
+     "id": "v0000000441",
+     "title": "50대 은퇴 후 생활비 현실 #94",
+     "published": "2026-10-10"
+    },
+    {
+     "id": "v0000000443",
+     "title": "미국주식 배당 받는 법 #771",
+     "published": "2026-10-07"
+    }
+   ],
+   "views_median": 725800,
+   "views_per_day_median": 197771.5,
+   "ratio_median": 21.11,
+   "success": 10,
+   "minutes_median": 14.2,
+   "title_len_avg": 19.5,
+   "title_features": [
+    {
+     "name": "vs 비교",
+     "count": 5,
+     "share": 0.385
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 4,
+     "share": 0.308
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 3,
+     "share": 0.231
+    },
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 3,
+     "share": 0.231
+    },
+    {
+     "name": "물음표 ?",
+     "count": 2,
+     "share": 0.154
+    },
+    {
+     "name": "이유",
+     "count": 2,
+     "share": 0.154
+    },
+    {
+     "name": "N가지",
+     "count": 2,
+     "share": 0.154
+    },
+    {
+     "name": "느낌표 !",
+     "count": 1,
+     "share": 0.077
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 1,
+     "share": 0.077
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 1,
+     "share": 0.077
+    }
+   ],
+   "title_words": [
+    {
+     "word": "받는",
+     "count": 3
+    },
+    {
+     "word": "배당",
+     "count": 3
+    },
+    {
+     "word": "미국주식",
+     "count": 3
+    },
+    {
+     "word": "현실",
+     "count": 3
+    },
+    {
+     "word": "생활비",
+     "count": 3
+    },
+    {
+     "word": "50대",
+     "count": 3
+    },
+    {
+     "word": "은퇴",
+     "count": 3
+    },
+    {
+     "word": "비교",
+     "count": 2
+    },
+    {
+     "word": "연금저축",
+     "count": 2
+    },
+    {
+     "word": "IRP",
+     "count": 2
+    }
+   ],
+   "transcripts": 1,
+   "syl_per_sec_median": 2.71,
+   "hooks": [
+    {
+     "id": "v0000000382",
+     "title": "50대 은퇴 후 생활비 현실 #270",
+     "hook": "여러분 안녕하세요 오늘은 노후 준비 첫째 저축"
+    }
+   ],
+   "comments": 65,
+   "comment_needs": [
+    {
+     "name": "칭찬·감사",
+     "count": 26,
+     "share": 0.4
+    },
+    {
+     "name": "질문",
+     "count": 26,
+     "share": 0.4
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 13,
+     "share": 0.2
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 13,
+     "share": 0.2
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 13,
+     "share": 0.2
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "저도 해봤어요 감사합니다",
+     "likes": 10
+    },
+    {
+     "text": "저도 해봤어요 감사합니다",
+     "likes": 10
+    },
+    {
+     "text": "저도 해봤어요 감사합니다",
+     "likes": 10
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "c0000000001",
+     "title": "연금저축 vs IRP 비교 #805",
+     "channel": "테스트채널",
+     "views": 1373500,
+     "views_per_day": 1136554.9,
+     "published": "2026-10-12",
+     "url": "https://www.youtube.com/watch?v=c0000000001"
+    },
+    {
+     "id": "v0000000382",
+     "title": "50대 은퇴 후 생활비 현실 #270",
+     "channel": "ch6",
+     "views": 464000,
+     "views_per_day": 464000.0,
+     "published": "2026-10-13",
+     "url": "https://www.youtube.com/watch?v=v0000000382"
+    },
+    {
+     "id": "v0000000050",
+     "title": "미국주식 배당 받는 법 #587",
+     "channel": "ch11",
+     "views": 1002900,
+     "views_per_day": 401137.0,
+     "published": "2026-10-11",
+     "url": "https://www.youtube.com/watch?v=v0000000050"
+    },
+    {
+     "id": "v0000000432",
+     "title": "미국주식 배당 받는 법 #587",
+     "channel": "ch11",
+     "views": 1002900,
+     "views_per_day": 401137.0,
+     "published": "2026-10-11",
+     "url": "https://www.youtube.com/watch?v=v0000000432"
+    },
+    {
+     "id": "c0000000004",
+     "title": "월 300만원 모은 방법? 3가지 이유 #736",
+     "channel": "테스트채널",
+     "views": 1256200,
+     "views_per_day": 269177.4,
+     "published": "2026-10-09",
+     "url": "https://www.youtube.com/watch?v=c0000000004"
+    }
+   ]
+  },
+  {
+   "weeks": 2,
+   "label": "최근 2주",
+   "videos": 27,
+   "channels": 10,
+   "new_this_week": [
+    {
+     "id": "c0000000007",
+     "title": "50대 은퇴 후 생활비 현실 #734",
+     "published": "2026-10-06"
+    },
+    {
+     "id": "c0000000008",
+     "title": "요리 브이로그 #535",
+     "published": "2026-10-05"
+    },
+    {
+     "id": "c0000000009",
+     "title": "노후 준비 1억 모으기! #690",
+     "published": "2026-10-04"
+    },
+    {
+     "id": "c0000000010",
+     "title": "노후 준비 1억 모으기! #178",
+     "published": "2026-10-03"
+    },
+    {
+     "id": "c0000000012",
+     "title": "50대 은퇴 후 생활비 현실 #406",
+     "published": "2026-10-01"
+    },
+    {
+     "id": "c0000000013",
+     "title": "미국주식 배당 받는 법 #411",
+     "published": "2026-09-30"
+    },
+    {
+     "id": "v0000000015",
+     "title": "미국주식 배당 받는 법 #643",
+     "published": "2026-09-30"
+    },
+    {
+     "id": "v0000000018",
+     "title": "연금저축 vs IRP 비교 #597",
+     "published": "2026-10-01"
+    },
+    {
+     "id": "v0000000053",
+     "title": "재테크 초보가 하는 착각 #508",
+     "published": "2026-10-01"
+    },
+    {
+     "id": "v0000000057",
+     "title": "미국주식 배당 받는 법 #867",
+     "published": "2026-10-01"
+    },
+    {
+     "id": "v0000000113",
+     "title": "ETF 장기투자 5년 후기 #953",
+     "published": "2026-10-05"
+    },
+    {
+     "id": "v0000000117",
+     "title": "ETF 장기투자 5년 후기 #641",
+     "published": "2026-10-02"
+    },
+    {
+     "id": "v0000000220",
+     "title": "ETF 장기투자 5년 후기 #369",
+     "published": "2026-10-05"
+    },
+    {
+     "id": "v0000000433",
+     "title": "노후 준비 1억 모으기! #954",
+     "published": "2026-10-04"
+    }
+   ],
+   "views_median": 914500,
+   "views_per_day_median": 117694.6,
+   "ratio_median": 96.12,
+   "success": 21,
+   "minutes_median": 14.2,
+   "title_len_avg": 18.7,
+   "title_features": [
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 9,
+     "share": 0.333
+    },
+    {
+     "name": "vs 비교",
+     "count": 8,
+     "share": 0.296
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 6,
+     "share": 0.222
+    },
+    {
+     "name": "느낌표 !",
+     "count": 4,
+     "share": 0.148
+    },
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 4,
+     "share": 0.148
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 4,
+     "share": 0.148
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 4,
+     "share": 0.148
+    },
+    {
+     "name": "물음표 ?",
+     "count": 2,
+     "share": 0.074
+    },
+    {
+     "name": "이유",
+     "count": 2,
+     "share": 0.074
+    },
+    {
+     "name": "N가지",
+     "count": 2,
+     "share": 0.074
+    }
+   ],
+   "title_words": [
+    {
+     "word": "받는",
+     "count": 6
+    },
+    {
+     "word": "배당",
+     "count": 6
+    },
+    {
+     "word": "미국주식",
+     "count": 6
+    },
+    {
+     "word": "현실",
+     "count": 5
+    },
+    {
+     "word": "생활비",
+     "count": 5
+    },
+    {
+     "word": "50대",
+     "count": 5
+    },
+    {
+     "word": "은퇴",
+     "count": 5
+    },
+    {
+     "word": "모으기",
+     "count": 4
+    },
+    {
+     "word": "1억",
+     "count": 4
+    },
+    {
+     "word": "준비",
+     "count": 4
+    }
+   ],
+   "transcripts": 1,
+   "syl_per_sec_median": 2.71,
+   "hooks": [
+    {
+     "id": "v0000000382",
+     "title": "50대 은퇴 후 생활비 현실 #270",
+     "hook": "여러분 안녕하세요 오늘은 노후 준비 첫째 저축"
+    }
+   ],
+   "comments": 135,
+   "comment_needs": [
+    {
+     "name": "칭찬·감사",
+     "count": 54,
+     "share": 0.4
+    },
+    {
+     "name": "질문",
+     "count": 54,
+     "share": 0.4
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 27,
+     "share": 0.2
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 27,
+     "share": 0.2
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 27,
+     "share": 0.2
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "저도 해봤어요 감사합니다",
+     "likes": 10
+    },
+    {
+     "text": "저도 해봤어요 감사합니다",
+     "likes": 10
+    },
+    {
+     "text": "저도 해봤어요 감사합니다",
+     "likes": 10
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "c0000000001",
+     "title": "연금저축 vs IRP 비교 #805",
+     "channel": "테스트채널",
+     "views": 1373500,
+     "views_per_day": 1136554.9,
+     "published": "2026-10-12",
+     "url": "https://www.youtube.com/watch?v=c0000000001"
+    },
+    {
+     "id": "v0000000382",
+     "title": "50대 은퇴 후 생활비 현실 #270",
+     "channel": "ch6",
+     "views": 464000,
+     "views_per_day": 464000.0,
+     "published": "2026-10-13",
+     "url": "https://www.youtube.com/watch?v=v0000000382"
+    },
+    {
+     "id": "v0000000050",
+     "title": "미국주식 배당 받는 법 #587",
+     "channel": "ch11",
+     "views": 1002900,
+     "views_per_day": 401137.0,
+     "published": "2026-10-11",
+     "url": "https://www.youtube.com/watch?v=v0000000050"
+    },
+    {
+     "id": "v0000000432",
+     "title": "미국주식 배당 받는 법 #587",
+     "channel": "ch11",
+     "views": 1002900,
+     "views_per_day": 401137.0,
+     "published": "2026-10-11",
+     "url": "https://www.youtube.com/watch?v=v0000000432"
+    },
+    {
+     "id": "c0000000004",
+     "title": "월 300만원 모은 방법? 3가지 이유 #736",
+     "channel": "테스트채널",
+     "views": 1256200,
+     "views_per_day": 269177.4,
+     "published": "2026-10-09",
+     "url": "https://www.youtube.com/watch?v=c0000000004"
+    }
+   ]
+  },
+  {
+   "weeks": 3,
+   "label": "최근 3주",
+   "videos": 42,
+   "channels": 10,
+   "new_this_week": [
+    {
+     "id": "c0000000014",
+     "title": "미국주식 배당 받는 법 #747",
+     "published": "2026-09-29"
+    },
+    {
+     "id": "c0000000015",
+     "title": "미국주식 배당 받는 법 #243",
+     "published": "2026-09-29"
+    },
+    {
+     "id": "c0000000016",
+     "title": "노후 준비 1억 모으기! #354",
+     "published": "2026-09-27"
+    },
+    {
+     "id": "c0000000017",
+     "title": "50대 은퇴 후 생활비 현실 #878",
+     "published": "2026-09-26"
+    },
+    {
+     "id": "c0000000019",
+     "title": "미국주식 배당 받는 법 #283",
+     "published": "2026-09-25"
+    },
+    {
+     "id": "c0000000020",
+     "title": "미국주식 배당 받는 법 #427",
+     "published": "2026-09-23"
+    },
+    {
+     "id": "v0000000009",
+     "title": "ETF 장기투자 5년 후기 #153",
+     "published": "2026-09-25"
+    },
+    {
+     "id": "v0000000055",
+     "title": "50대 은퇴 후 생활비 현실 #334",
+     "published": "2026-09-24"
+    },
+    {
+     "id": "v0000000104",
+     "title": "연금저축 vs IRP 비교 #557",
+     "published": "2026-09-26"
+    },
+    {
+     "id": "v0000000106",
+     "title": "요리 브이로그 #919",
+     "published": "2026-09-24"
+    },
+    {
+     "id": "v0000000110",
+     "title": "미국주식 배당 받는 법 #827",
+     "published": "2026-09-26"
+    },
+    {
+     "id": "v0000000218",
+     "title": "ETF 장기투자 5년 후기 #785",
+     "published": "2026-09-24"
+    },
+    {
+     "id": "v0000000376",
+     "title": "연금저축 vs IRP 비교 #965",
+     "published": "2026-09-23"
+    },
+    {
+     "id": "v0000000386",
+     "title": "ETF 장기투자 5년 후기 #465",
+     "published": "2026-09-28"
+    },
+    {
+     "id": "v0000000439",
+     "title": "50대 은퇴 후 생활비 현실 #646",
+     "published": "2026-09-28"
+    }
+   ],
+   "views_median": 933200.0,
+   "views_per_day_median": 78825.95,
+   "ratio_median": 141.28,
+   "success": 34,
+   "minutes_median": 13.2,
+   "title_len_avg": 18.4,
+   "title_features": [
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 13,
+     "share": 0.31
+    },
+    {
+     "name": "vs 비교",
+     "count": 13,
+     "share": 0.31
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 7,
+     "share": 0.167
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 7,
+     "share": 0.167
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 7,
+     "share": 0.167
+    },
+    {
+     "name": "느낌표 !",
+     "count": 5,
+     "share": 0.119
+    },
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 4,
+     "share": 0.095
+    },
+    {
+     "name": "물음표 ?",
+     "count": 2,
+     "share": 0.048
+    },
+    {
+     "name": "이유",
+     "count": 2,
+     "share": 0.048
+    },
+    {
+     "name": "N가지",
+     "count": 2,
+     "share": 0.048
+    }
+   ],
+   "title_words": [
+    {
+     "word": "받는",
+     "count": 11
+    },
+    {
+     "word": "배당",
+     "count": 11
+    },
+    {
+     "word": "미국주식",
+     "count": 11
+    },
+    {
+     "word": "현실",
+     "count": 8
+    },
+    {
+     "word": "생활비",
+     "count": 8
+    },
+    {
+     "word": "50대",
+     "count": 8
+    },
+    {
+     "word": "은퇴",
+     "count": 8
+    },
+    {
+     "word": "장기투자",
+     "count": 7
+    },
+    {
+     "word": "ETF",
+     "count": 7
+    },
+    {
+     "word": "후기",
+     "count": 7
+    }
+   ],
+   "transcripts": 1,
+   "syl_per_sec_median": 2.71,
+   "hooks": [
+    {
+     "id": "v0000000382",
+     "title": "50대 은퇴 후 생활비 현실 #270",
+     "hook": "여러분 안녕하세요 오늘은 노후 준비 첫째 저축"
+    }
+   ],
+   "comments": 210,
+   "comment_needs": [
+    {
+     "name": "칭찬·감사",
+     "count": 84,
+     "share": 0.4
+    },
+    {
+     "name": "질문",
+     "count": 84,
+     "share": 0.4
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 42,
+     "share": 0.2
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 42,
+     "share": 0.2
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 42,
+     "share": 0.2
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "저도 해봤어요 감사합니다",
+     "likes": 10
+    },
+    {
+     "text": "저도 해봤어요 감사합니다",
+     "likes": 10
+    },
+    {
+     "text": "저도 해봤어요 감사합니다",
+     "likes": 10
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "c0000000001",
+     "title": "연금저축 vs IRP 비교 #805",
+     "channel": "테스트채널",
+     "views": 1373500,
+     "views_per_day": 1136554.9,
+     "published": "2026-10-12",
+     "url": "https://www.youtube.com/watch?v=c0000000001"
+    },
+    {
+     "id": "v0000000382",
+     "title": "50대 은퇴 후 생활비 현실 #270",
+     "channel": "ch6",
+     "views": 464000,
+     "views_per_day": 464000.0,
+     "published": "2026-10-13",
+     "url": "https://www.youtube.com/watch?v=v0000000382"
+    },
+    {
+     "id": "v0000000050",
+     "title": "미국주식 배당 받는 법 #587",
+     "channel": "ch11",
+     "views": 1002900,
+     "views_per_day": 401137.0,
+     "published": "2026-10-11",
+     "url": "https://www.youtube.com/watch?v=v0000000050"
+    },
+    {
+     "id": "v0000000432",
+     "title": "미국주식 배당 받는 법 #587",
+     "channel": "ch11",
+     "views": 1002900,
+     "views_per_day": 401137.0,
+     "published": "2026-10-11",
+     "url": "https://www.youtube.com/watch?v=v0000000432"
+    },
+    {
+     "id": "c0000000004",
+     "title": "월 300만원 모은 방법? 3가지 이유 #736",
+     "channel": "테스트채널",
+     "views": 1256200,
+     "views_per_day": 269177.4,
+     "published": "2026-10-09",
+     "url": "https://www.youtube.com/watch?v=c0000000004"
+    }
+   ]
+  },
+  {
+   "weeks": 4,
+   "label": "최근 4주",
+   "videos": 56,
+   "channels": 12,
+   "new_this_week": [
+    {
+     "id": "c0000000021",
+     "title": "노후 준비 1억 모으기! #906",
+     "published": "2026-09-22"
+    },
+    {
+     "id": "c0000000022",
+     "title": "미국주식 배당 받는 법 #267",
+     "published": "2026-09-21"
+    },
+    {
+     "id": "c0000000023",
+     "title": "ETF 장기투자 5년 후기 #177",
+     "published": "2026-09-20"
+    },
+    {
+     "id": "c0000000024",
+     "title": "미국주식 배당 받는 법 #507",
+     "published": "2026-09-19"
+    },
+    {
+     "id": "c0000000025",
+     "title": "연금저축 vs IRP 비교 #373",
+     "published": "2026-09-18"
+    },
+    {
+     "id": "c0000000026",
+     "title": "노후 준비 1억 모으기! #762",
+     "published": "2026-09-18"
+    },
+    {
+     "id": "c0000000027",
+     "title": "노후 준비 1억 모으기! #506",
+     "published": "2026-09-16"
+    },
+    {
+     "id": "v0000000114",
+     "title": "50대 은퇴 후 생활비 현실 #878",
+     "published": "2026-09-20"
+    },
+    {
+     "id": "v0000000116",
+     "title": "노후 준비 1억 모으기! #202",
+     "published": "2026-09-21"
+    },
+    {
+     "id": "v0000000226",
+     "title": "미국주식 배당 받는 법 #699",
+     "published": "2026-09-19"
+    },
+    {
+     "id": "v0000000374",
+     "title": "ETF 장기투자 5년 후기 #161",
+     "published": "2026-09-18"
+    },
+    {
+     "id": "v0000000377",
+     "title": "재테크 초보가 하는 착각 #972",
+     "published": "2026-09-16"
+    },
+    {
+     "id": "v0000000435",
+     "title": "연금저축 vs IRP 비교 #205",
+     "published": "2026-09-18"
+    },
+    {
+     "id": "v0000000777",
+     "title": "ETF 장기투자 5년 후기 #201",
+     "published": "2026-09-22"
+    }
+   ],
+   "views_median": 867750.0,
+   "views_per_day_median": 66473.8,
+   "ratio_median": 137.03,
+   "success": 46,
+   "minutes_median": 12.7,
+   "title_len_avg": 18.4,
+   "title_features": [
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 18,
+     "share": 0.321
+    },
+    {
+     "name": "vs 비교",
+     "count": 16,
+     "share": 0.286
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 11,
+     "share": 0.196
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 10,
+     "share": 0.179
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 10,
+     "share": 0.179
+    },
+    {
+     "name": "느낌표 !",
+     "count": 9,
+     "share": 0.161
+    },
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 5,
+     "share": 0.089
+    },
+    {
+     "name": "물음표 ?",
+     "count": 2,
+     "share": 0.036
+    },
+    {
+     "name": "이유",
+     "count": 2,
+     "share": 0.036
+    },
+    {
+     "name": "N가지",
+     "count": 2,
+     "share": 0.036
+    }
+   ],
+   "title_words": [
+    {
+     "word": "받는",
+     "count": 14
+    },
+    {
+     "word": "배당",
+     "count": 14
+    },
+    {
+     "word": "미국주식",
+     "count": 14
+    },
+    {
+     "word": "장기투자",
+     "count": 10
+    },
+    {
+     "word": "ETF",
+     "count": 10
+    },
+    {
+     "word": "후기",
+     "count": 10
+    },
+    {
+     "word": "5년",
+     "count": 10
+    },
+    {
+     "word": "모으기",
+     "count": 9
+    },
+    {
+     "word": "1억",
+     "count": 9
+    },
+    {
+     "word": "준비",
+     "count": 9
+    }
+   ],
+   "transcripts": 1,
+   "syl_per_sec_median": 2.71,
+   "hooks": [
+    {
+     "id": "v0000000382",
+     "title": "50대 은퇴 후 생활비 현실 #270",
+     "hook": "여러분 안녕하세요 오늘은 노후 준비 첫째 저축"
+    }
+   ],
+   "comments": 280,
+   "comment_needs": [
+    {
+     "name": "칭찬·감사",
+     "count": 112,
+     "share": 0.4
+    },
+    {
+     "name": "질문",
+     "count": 112,
+     "share": 0.4
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 56,
+     "share": 0.2
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 56,
+     "share": 0.2
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 56,
+     "share": 0.2
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "저도 해봤어요 감사합니다",
+     "likes": 10
+    },
+    {
+     "text": "저도 해봤어요 감사합니다",
+     "likes": 10
+    },
+    {
+     "text": "저도 해봤어요 감사합니다",
+     "likes": 10
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "c0000000001",
+     "title": "연금저축 vs IRP 비교 #805",
+     "channel": "테스트채널",
+     "views": 1373500,
+     "views_per_day": 1136554.9,
+     "published": "2026-10-12",
+     "url": "https://www.youtube.com/watch?v=c0000000001"
+    },
+    {
+     "id": "v0000000382",
+     "title": "50대 은퇴 후 생활비 현실 #270",
+     "channel": "ch6",
+     "views": 464000,
+     "views_per_day": 464000.0,
+     "published": "2026-10-13",
+     "url": "https://www.youtube.com/watch?v=v0000000382"
+    },
+    {
+     "id": "v0000000050",
+     "title": "미국주식 배당 받는 법 #587",
+     "channel": "ch11",
+     "views": 1002900,
+     "views_per_day": 401137.0,
+     "published": "2026-10-11",
+     "url": "https://www.youtube.com/watch?v=v0000000050"
+    },
+    {
+     "id": "v0000000432",
+     "title": "미국주식 배당 받는 법 #587",
+     "channel": "ch11",
+     "views": 1002900,
+     "views_per_day": 401137.0,
+     "published": "2026-10-11",
+     "url": "https://www.youtube.com/watch?v=v0000000432"
+    },
+    {
+     "id": "c0000000004",
+     "title": "월 300만원 모은 방법? 3가지 이유 #736",
+     "channel": "테스트채널",
+     "views": 1256200,
+     "views_per_day": 269177.4,
+     "published": "2026-10-09",
+     "url": "https://www.youtube.com/watch?v=c0000000004"
+    }
+   ]
+  },
+  {
+   "weeks": 5,
+   "label": "최근 5주",
+   "videos": 58,
+   "channels": 12,
+   "new_this_week": [
+    {
+     "id": "c0000000028",
+     "title": "50대 은퇴 후 생활비 현실 #886",
+     "published": "2026-09-15"
+    },
+    {
+     "id": "v0000000442",
+     "title": "ETF 장기투자 5년 후기 #433",
+     "published": "2026-09-15"
+    }
+   ],
+   "views_median": 867750.0,
+   "views_per_day_median": 65516.65,
+   "ratio_median": 137.03,
+   "success": 48,
+   "minutes_median": 12.7,
+   "title_len_avg": 18.4,
+   "title_features": [
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 19,
+     "share": 0.328
+    },
+    {
+     "name": "vs 비교",
+     "count": 17,
+     "share": 0.293
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 11,
+     "share": 0.19
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 11,
+     "share": 0.19
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 11,
+     "share": 0.19
+    },
+    {
+     "name": "느낌표 !",
+     "count": 9,
+     "share": 0.155
+    },
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 5,
+     "share": 0.086
+    },
+    {
+     "name": "물음표 ?",
+     "count": 2,
+     "share": 0.034
+    },
+    {
+     "name": "이유",
+     "count": 2,
+     "share": 0.034
+    },
+    {
+     "name": "N가지",
+     "count": 2,
+     "share": 0.034
+    }
+   ],
+   "title_words": [
+    {
+     "word": "받는",
+     "count": 14
+    },
+    {
+     "word": "배당",
+     "count": 14
+    },
+    {
+     "word": "미국주식",
+     "count": 14
+    },
+    {
+     "word": "장기투자",
+     "count": 11
+    },
+    {
+     "word": "ETF",
+     "count": 11
+    },
+    {
+     "word": "후기",
+     "count": 11
+    },
+    {
+     "word": "5년",
+     "count": 11
+    },
+    {
+     "word": "현실",
+     "count": 10
+    },
+    {
+     "word": "생활비",
+     "count": 10
+    },
+    {
+     "word": "50대",
+     "count": 10
+    }
+   ],
+   "transcripts": 1,
+   "syl_per_sec_median": 2.71,
+   "hooks": [
+    {
+     "id": "v0000000382",
+     "title": "50대 은퇴 후 생활비 현실 #270",
+     "hook": "여러분 안녕하세요 오늘은 노후 준비 첫째 저축"
+    }
+   ],
+   "comments": 290,
+   "comment_needs": [
+    {
+     "name": "칭찬·감사",
+     "count": 116,
+     "share": 0.4
+    },
+    {
+     "name": "질문",
+     "count": 116,
+     "share": 0.4
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 58,
+     "share": 0.2
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 58,
+     "share": 0.2
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 58,
+     "share": 0.2
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "저도 해봤어요 감사합니다",
+     "likes": 10
+    },
+    {
+     "text": "저도 해봤어요 감사합니다",
+     "likes": 10
+    },
+    {
+     "text": "저도 해봤어요 감사합니다",
+     "likes": 10
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "c0000000001",
+     "title": "연금저축 vs IRP 비교 #805",
+     "channel": "테스트채널",
+     "views": 1373500,
+     "views_per_day": 1136554.9,
+     "published": "2026-10-12",
+     "url": "https://www.youtube.com/watch?v=c0000000001"
+    },
+    {
+     "id": "v0000000382",
+     "title": "50대 은퇴 후 생활비 현실 #270",
+     "channel": "ch6",
+     "views": 464000,
+     "views_per_day": 464000.0,
+     "published": "2026-10-13",
+     "url": "https://www.youtube.com/watch?v=v0000000382"
+    },
+    {
+     "id": "v0000000050",
+     "title": "미국주식 배당 받는 법 #587",
+     "channel": "ch11",
+     "views": 1002900,
+     "views_per_day": 401137.0,
+     "published": "2026-10-11",
+     "url": "https://www.youtube.com/watch?v=v0000000050"
+    },
+    {
+     "id": "v0000000432",
+     "title": "미국주식 배당 받는 법 #587",
+     "channel": "ch11",
+     "views": 1002900,
+     "views_per_day": 401137.0,
+     "published": "2026-10-11",
+     "url": "https://www.youtube.com/watch?v=v0000000432"
+    },
+    {
+     "id": "c0000000004",
+     "title": "월 300만원 모은 방법? 3가지 이유 #736",
+     "channel": "테스트채널",
+     "views": 1256200,
+     "views_per_day": 269177.4,
+     "published": "2026-10-09",
+     "url": "https://www.youtube.com/watch?v=c0000000004"
+    }
+   ]
+  }
+ ]
+}

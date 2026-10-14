@@ -1,6 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-10-14 — 신규: 분석기 웹 화면 (사용자 지시: "이거 분석기 웹 ui 형식으로 만들어 실행하면 바로 웹 ui가 나와서 env, 검색어
+# VERSION: v1.1 — 2026-10-14 — 목록 고침 (사용자 지시: "영상이나 채널 여러 개 넣을 수 있게 하고 체크된거랑 안된거 따로 목록 분리해서
+#          보여주고 이미 분석에 사용한 영상이면 목록에서 제외해 그리고 라이브 방송, 외국 영상은 탐색 대상에서 제외 그리고 목록을 배수가
+#          가장 높은순으로 정렬해"): ① 직접 추가 칸에 여러 개 (한 줄에 하나 — 띄어쓰기·쉼표로 나눠도 됨) ② 목록을 '체크한 영상'과
+#          '체크 안 한 영상' 두 표로 (체크하면 위 표로 옮겨 감) ③ 이미 분석에 쓴 영상(승인한 W_·성공 사례 01_·조회수 상위 P01_·_old·
+#          분석기 성공사례)은 목록에서 뺌 ④ 라이브 방송·외국 영상은 탐색에서 뺌 (tools/outlier_research.py v2.0 exclusion_reason —
+#          주소로 직접 넣은 영상만 남기고 표시) ⑤ 목록은 배수(조회수÷구독자) 높은 순 (구독자 비공개는 맨 뒤)
+# (v1.0 — 2026-10-14 — 신규: 분석기 웹 화면 (사용자 지시: "이거 분석기 웹 ui 형식으로 만들어 실행하면 바로 웹 ui가 나와서 env, 검색어
 #          수정할 수 있게하고 탐색 버튼 누르면 탐색 대상 영상 목록이 나오지만 체크 표시만 해놓고 내가 승인 버튼을 눌러야 관련 자료를 받아서
 #          분석하는걸로 해 그리고 내가 영상 url이나 채널을 추가하면 탐색 대상에 추가하도록 하고(채널을 추가하면 그 채널에 올려진 영상 다
 #          탐색하는거야) 목록은 최근에 업로드 된 순으로 하고 1주 전, 2주 전, 3주 전 1주씩 늘리면서 분석 결과 내보도록 해"):
@@ -10,7 +16,7 @@
 #          ④ [탐색] → 검색어(최근 N주·조회수 순·4~20분·20분 넘음) + 추가한 채널·영상 → 목록 (최근 업로드 순). 추천(성공 사례·조회수 상위·
 #             추가한 것)은 체크만 해 둠 — 자료는 아직 안 받음
 #          ⑤ [승인] → 체크한 영상만 설명·자막·썸네일·댓글 전부를 받고(<주제>/result/outliers/W_<영상ID>/) 주별 분석
-#             (tools/weekly_analysis.py — 최근 1주·2주·3주 … 한 주씩 넓힘) → 자막을 못 받은 영상은 음성인식 대기열 → 다시 분석 → GitHub
+#             (tools/weekly_analysis.py — 최근 1주·2주·3주 … 한 주씩 넓힘) → 자막을 못 받은 영상은 음성인식 대기열 → 다시 분석 → GitHub)
 r"""
 사용법 (PC 실행 폴더 — run_analyzer.ps1 이 기본으로 띄움):
   python tools/web_ui.py                    # economic (설정 파일이 있는 주제 폴더가 여럿이면 화면에서 고름)
@@ -47,7 +53,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import pc_analysis as pc                 # noqa: E402  할당량 장부·키 찾기·GitHub 동기화·패키지 준비
 
 ROOT = pc.ROOT
-VERSION = "v1.0"
+VERSION = "v1.1"
 LOG = logging.getLogger("web")
 KST = timezone(timedelta(hours=9))
 TOKEN = secrets.token_urlsafe(18)        # 화면이 요청마다 보내는 열쇠 (다른 사이트가 이 PC 의 화면을 조작하지 못하게)
@@ -262,6 +268,47 @@ def add_target(t, text):
     return {"kind": "channel", **ch}
 
 
+def add_targets(t, text):
+    """여러 개를 한 번에 (한 줄에 하나 — 띄어쓰기·쉼표로 나눠도 됨). → [{input, ok, kind, id, title, note|error}] (v1.1)."""
+    items = [x for x in re.split(r"[\s,]+", str(text or "")) if x.strip()]
+    if not items:
+        raise UserError("빈 칸 — 영상 주소나 채널 주소를 넣으세요")
+    out = []
+    for x in items[:200]:
+        try:
+            out.append({"input": x, "ok": True, **add_target(t, x)})
+        except UserError as e:
+            out.append({"input": x, "ok": False, "error": str(e)})
+        except Exception as e:
+            out.append({"input": x, "ok": False, "error": f"{type(e).__name__}: {e}"[:160]})
+    return out
+
+
+CASE_RX = re.compile(r"^(?:W_|P?\d\d_)([0-9A-Za-z_-]{11})$")
+
+
+def used_ids(t):
+    """이미 분석에 쓴 영상 (v1.1 — 목록에서 뺌): 웹 화면에서 승인한 W_·성공 사례 01_·조회수 상위 P01_ (빠진 것 _old/ 도) +
+    분석기 성공사례(output/…/success_cases). → {영상ID}"""
+    ids = set()
+    od = out_dir(t)
+    for base in (od, od / "_old"):
+        if base.is_dir():
+            for d in base.iterdir():
+                m = CASE_RX.match(d.name)
+                if m and d.is_dir() and (d / "metadata.json").is_file():
+                    ids.add(m.group(1))
+    try:
+        sc = pc.read_paths(t)[1] / "success_cases"
+        for d in (sc.iterdir() if sc.is_dir() else []):
+            vid = _read_json(d / "metadata.json", {}).get("video_id")
+            if vid:
+                ids.add(vid)
+    except Exception:
+        pass
+    return ids
+
+
 def remove_target(t, kind, tid):
     tg = load_targets(t)
     key = "channels" if kind == "channel" else "videos"
@@ -346,6 +393,11 @@ def estimate(t, weeks, use_keywords):
             "channels": len(tg["channels"]), "videos": len(tg["videos"])}
 
 
+def ratio_key(r):
+    """배수 높은 순 (구독자 비공개 = 배수 없음은 맨 뒤), 같으면 조회수 많은 순."""
+    return (r.get("ratio") is None, -(r.get("ratio") or 0), -(r.get("views") or 0))
+
+
 def _is_success(r):
     return r["subs"] is not None and r["subs"] <= 50000 and r["views"] >= 10000 and (r["ratio"] or 0) >= 3
 
@@ -419,8 +471,11 @@ def job_explore(t, weeks, use_keywords):
     for i in infos:
         i["subs"] = (subs.get(i["channel_id"]) or {}).get("subs")
     info_by_id = {i["id"]: i for i in infos}
+    url_ids = {v["id"] for v in tg["videos"]}                     # 주소로 직접 넣은 영상은 라이브·외국이어도 남김 (표시만)
+    excluded = collections.Counter(orr.exclusion_reason(i) for i in infos if i["id"] not in url_ids)
+    excluded.pop(None, None)
     rows = []
-    for r in orr.build_rows(infos, found, now):
+    for r in orr.build_rows(infos, found, now, keep=url_ids):
         srcs = list(dict.fromkeys(found.get(r["id"], [])))
         if "주소" not in srcs and any(w in (r["title"] or "") for w in exclude):
             continue
@@ -433,12 +488,13 @@ def job_explore(t, weeks, use_keywords):
     reasons = preselect(rows)
     for r in rows:
         r["reason"] = reasons.get(r["id"], "")
-    rows.sort(key=lambda r: r["published_at"], reverse=True)          # 최근 업로드 순
+    rows.sort(key=ratio_key)                                         # 배수 높은 순 (v1.1)
     data = {"topic": t, "generated": datetime.now(KST).isoformat(timespec="seconds"), "weeks": weeks, "use_keywords": use_keywords,
-            "rows": rows, "checked": [r["id"] for r in rows if r["reason"]], "pending": pending, "quota_used": api.used}
+            "rows": rows, "checked": [r["id"] for r in rows if r["reason"]], "pending": pending, "quota_used": api.used,
+            "excluded": dict(excluded)}
     _write_json(web_dir(t) / "explore.json", data)
     log("EXPLORE", topic=t, videos=len(rows), checked=len(data["checked"]), pending=len(pending), quota_used=api.used,
-        note="체크만 해 둠 — [승인]을 눌러야 자료를 받음")
+        excluded=",".join(f"{k}:{v}" for k, v in excluded.items()) or "-", note="체크만 해 둠 — [승인]을 눌러야 자료를 받음")
     step("끝", total, total)
     return {"videos": len(rows), "checked": len(data["checked"]), "pending": pending, "quota_used": api.used}
 
@@ -585,8 +641,11 @@ class Handler(BaseHTTPRequestHandler):
                 return self._send(200, job_view())
             if u.path == "/api/explore":
                 ex = _read_json(web_dir(t) / "explore.json", {})
-                return self._send(200, {"rows": ex.get("rows") or [], "checked": ex.get("checked") or [], "generated": ex.get("generated"),
-                                        "weeks": ex.get("weeks")})
+                used = used_ids(t)                                     # 이미 분석에 쓴 영상은 뺌 (승인하면 바로 빠짐)
+                rows = sorted((r for r in ex.get("rows") or [] if r["id"] not in used), key=ratio_key)
+                return self._send(200, {"rows": rows, "checked": [i for i in ex.get("checked") or [] if i not in used],
+                                        "generated": ex.get("generated"), "weeks": ex.get("weeks"), "excluded": ex.get("excluded") or {},
+                                        "used_hidden": sum(1 for r in ex.get("rows") or [] if r["id"] in used)})
             if u.path == "/api/estimate":
                 weeks = max(1, min(52, int((q.get("weeks") or ["8"])[0])))
                 return self._send(200, estimate(t, weeks, (q.get("kw") or ["1"])[0] == "1"))
@@ -644,7 +703,7 @@ class Handler(BaseHTTPRequestHandler):
                 log("KEYWORDS", topic=t, keywords=len(kws), note=msg)
                 return self._send(200, {"count": len(kws), "message": msg})
             if path == "/api/targets/add":
-                return self._send(200, {"added": add_target(t, body.get("text")), "targets": load_targets(t)})
+                return self._send(200, {"results": add_targets(t, body.get("text")), "targets": load_targets(t)})
             if path == "/api/targets/remove":
                 return self._send(200, {"targets": remove_target(t, body.get("kind"), body.get("id"))})
             if path == "/api/checked":
@@ -779,7 +838,7 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}a{color:var(--acc)}
 .bar{height:6px;background:var(--line);border-radius:9px;overflow:hidden}.bar i{display:block;height:100%;background:var(--acc);width:0}
 pre{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px;max-height:260px;overflow:auto;font-size:12px;white-space:pre-wrap;margin:8px 0 0}
 details{border:1px solid var(--line);border-radius:8px;padding:8px 12px;margin-top:8px}summary{cursor:pointer;font-weight:600}
-.msg{min-height:20px;font-size:13px}.k{display:grid;grid-template-columns:150px 1fr;gap:8px;align-items:center;margin-bottom:8px}
+.msg{min-height:20px;font-size:13px}h3.sub{font-size:14px;margin:14px 0 6px}.tag.x{border-color:var(--warn);color:var(--warn)}.k{display:grid;grid-template-columns:150px 1fr;gap:8px;align-items:center;margin-bottom:8px}
 @media (max-width:600px){.k{grid-template-columns:1fr}}
 </style></head><body>
 <header><h1 id="title">분석기</h1><select id="topic" title="주제 폴더"></select>
@@ -797,8 +856,9 @@ details{border:1px solid var(--line);border-radius:8px;padding:8px 12px;margin-t
    <label><input type="checkbox" id="kwPush" checked> GitHub 에도 저장</label><span class="mut" id="kwCount"></span><span class="msg" id="kwMsg"></span></div>
  </section>
 </div>
-<section class="card"><h2>3. 직접 추가 <small>영상 주소 → 그 영상 · 채널 주소나 @이름 → 그 채널에 올라온 영상 전부</small></h2>
- <div class="row"><input type="text" id="tgIn" class="grow" placeholder="https://www.youtube.com/watch?v=…  또는  https://www.youtube.com/@채널이름"><button class="pri" id="tgAdd">추가</button><span class="msg" id="tgMsg"></span></div>
+<section class="card"><h2>3. 직접 추가 <small>영상 주소 → 그 영상 · 채널 주소나 @이름 → 그 채널에 올라온 영상 전부 · 여러 개는 한 줄에 하나</small></h2>
+ <div class="row" style="align-items:flex-start"><textarea id="tgIn" class="grow" style="min-height:70px" placeholder="https://www.youtube.com/watch?v=…&#10;https://www.youtube.com/@채널이름&#10;(여러 개를 한 번에 붙여넣어도 됩니다)"></textarea><button class="pri" id="tgAdd">추가</button></div>
+ <div class="msg" id="tgMsg"></div>
  <div id="tgList" style="margin-top:6px"></div>
 </section>
 <section class="card"><h2>4. 탐색 <small>목록만 만듭니다 — 자료는 승인한 영상만 받습니다</small></h2>
@@ -806,12 +866,14 @@ details{border:1px solid var(--line);border-radius:8px;padding:8px 12px;margin-t
   <label><input type="checkbox" id="useKw" checked> 검색어로도 찾기</label>
   <span class="mut" id="est"></span><button class="pri" id="explore">탐색</button></div>
 </section>
-<section class="card" id="listCard"><h2>5. 탐색 목록 <small id="listInfo">최근 업로드 순 · 추천은 체크해 둠</small></h2>
+<section class="card" id="listCard"><h2>5. 탐색 목록 <small id="listInfo">배수 높은 순 · 추천은 체크해 둠</small></h2>
  <div class="row" style="margin-bottom:8px"><input type="text" id="flt" class="grow" placeholder="제목·채널 거르기">
   <label><input type="checkbox" id="fShort"> 짧은 영상(4분 미만)도</label><label><input type="checkbox" id="fRel" checked> 주제 관련만</label>
-  <label><input type="checkbox" id="fChk"> 체크한 것만</label>
   <button id="chkAll">보이는 것 모두 체크</button><button id="chkNone">모두 해제</button><button id="chkRec">추천만</button></div>
- <div class="tablewrap"><table><thead><tr><th></th><th>업로드</th><th>제목</th><th>채널</th><th class="n">구독자</th><th class="n">조회수</th><th class="n">배수</th><th class="n">하루 조회수</th><th class="n">길이</th><th>추천 · 출처</th></tr></thead><tbody id="rows"><tr><td colspan="10" class="mut">탐색을 누르면 여기에 나옵니다</td></tr></tbody></table></div>
+ <h3 class="sub">✅ 체크한 영상 <span id="onCount"></span> <small class="mut">— 승인하면 이 영상들의 자료를 받습니다</small></h3>
+ <div class="tablewrap"><table><thead><tr><th></th><th>업로드</th><th>제목</th><th>채널</th><th class="n">구독자</th><th class="n">조회수</th><th class="n">배수 ▼</th><th class="n">하루 조회수</th><th class="n">길이</th><th>추천 · 출처</th></tr></thead><tbody id="rowsOn"><tr><td colspan="10" class="mut">탐색을 누르면 여기에 나옵니다</td></tr></tbody></table></div>
+ <h3 class="sub">☐ 체크 안 한 영상 <span id="offCount"></span></h3>
+ <div class="tablewrap"><table><thead><tr><th></th><th>업로드</th><th>제목</th><th>채널</th><th class="n">구독자</th><th class="n">조회수</th><th class="n">배수 ▼</th><th class="n">하루 조회수</th><th class="n">길이</th><th>추천 · 출처</th></tr></thead><tbody id="rowsOff"><tr><td colspan="10" class="mut">—</td></tr></tbody></table></div>
  <div class="row" style="margin-top:10px"><button class="pri" id="approve">승인 — 체크한 영상 자료 받고 분석</button><label><input type="checkbox" id="autoW" checked> 자막 없는 영상은 음성인식까지</label><span class="mut" id="chkInfo"></span></div>
 </section>
 <section class="card"><h2>진행 <small id="jobName"></small></h2>
@@ -842,17 +904,22 @@ function renderTargets(tg){const c=tg.channels.map(x=>`<span class=chip>📺 ${e
 let estT;function estimate(){clearTimeout(estT);estT=setTimeout(async()=>{try{const e=await api(`/api/estimate?weeks=${$('weeks').value}&kw=${$('useKw').checked?1:0}`);
  $('est').textContent=`검색 ${e.searches}번 (캐시 ${e.cached}) + 채널 ${e.channels}·영상 ${e.videos} → 약 ${num(e.units)}단위`}catch(x){$('est').textContent=x.message}},250)}
 async function loadRows(){const d=await api('/api/explore');ROWS=d.rows;CHECK=new Set(d.checked);REC=new Set(ROWS.filter(r=>r.reason).map(r=>r.id));
- $('listInfo').textContent=d.generated?`최근 업로드 순 · ${d.generated.slice(0,16).replace('T',' ')} 탐색 (최근 ${d.weeks}주) · 영상 ${ROWS.length.toLocaleString()}개 · 추천은 체크해 둠`:'최근 업로드 순 · 추천은 체크해 둠';renderRows()}
+ const ex=Object.entries(d.excluded||{}).map(([k,v])=>`${k} ${v}개`);if(d.used_hidden)ex.unshift(`이미 분석에 쓴 영상 ${d.used_hidden}개`);
+ $('listInfo').textContent=(d.generated?`배수 높은 순 · ${d.generated.slice(0,16).replace('T',' ')} 탐색 (최근 ${d.weeks}주) · 영상 ${ROWS.length.toLocaleString()}개 · 추천은 체크해 둠`:'배수 높은 순 · 추천은 체크해 둠')+(ex.length?` · 뺀 것: ${ex.join(', ')}`:'');renderRows()}
+function byRatio(a){return a.sort((x,y)=>((y.ratio??-1)-(x.ratio??-1))||(y.views-x.views))}
 function visible(){const f=$('flt').value.trim().toLowerCase();return ROWS.filter(r=>(r.sources.includes('주소')||(($('fShort').checked||!r.short)&&(!$('fRel').checked||r.relevant)))
- &&(!$('fChk').checked||CHECK.has(r.id))&&(!f||(r.title+' '+r.channel).toLowerCase().includes(f)))}
-function renderRows(){const vs=visible();if(!ROWS.length){$('rows').innerHTML='<tr><td colspan=10 class=mut>탐색을 누르면 여기에 나옵니다</td></tr>';updChk();return}
- $('rows').innerHTML=vs.slice(0,3000).map(r=>{const src=r.sources.map(s=>s.startsWith('검색:')?'🔎'+s.slice(3):s.startsWith('채널:')?'📺'+s.slice(3):'▶ 추가').slice(0,3).join(' ');
+ &&(!f||(r.title+' '+r.channel).toLowerCase().includes(f)))}
+function rowHtml(r){const src=r.sources.map(s=>s.startsWith('검색:')?'🔎'+s.slice(3):s.startsWith('채널:')?'📺'+s.slice(3):'▶ 추가').slice(0,3).join(' ');
   return `<tr class="${CHECK.has(r.id)?'on':''}"><td><input type=checkbox data-id="${r.id}" ${CHECK.has(r.id)?'checked':''}></td><td>${esc(r.published)}<div class=mut>${r.age_days}일 전</div></td>
   <td class=t><a href="${r.url}" target=_blank rel=noopener>${esc(r.title)}</a></td><td>${esc(r.channel)}</td><td class=n>${r.subs==null?'비공개':num(r.subs)}</td><td class=n>${num(r.views)}</td>
   <td class=n>${r.ratio==null?'–':num(r.ratio)}</td><td class=n>${num(r.views_per_day)}</td><td class=n>${num(r.minutes)}분</td>
-  <td>${r.reason?`<span class="tag ${r.reason==='성공 사례'?'s':''}">${esc(r.reason)}</span>`:''}${r.downloaded?'<span class="tag d">받음</span>':''}<span class=mut>${esc(src)}</span></td></tr>`}).join('')
-  +(vs.length>3000?`<tr><td colspan=10 class=mut>앞 3,000개만 보입니다 — 거르기를 쓰세요 (전체 ${vs.length.toLocaleString()}개)</td></tr>`:'');
- $('rows').querySelectorAll('input[type=checkbox]').forEach(c=>c.onchange=()=>{c.checked?CHECK.add(c.dataset.id):CHECK.delete(c.dataset.id);c.closest('tr').className=c.checked?'on':'';updChk();saveChk()});updChk()}
+  <td>${r.reason?`<span class="tag ${r.reason==='성공 사례'?'s':''}">${esc(r.reason)}</span>`:''}${r.flag?`<span class="tag x">${esc(r.flag)}</span>`:''}<span class=mut>${esc(src)}</span></td></tr>`}
+function fill(id,list,empty){$(id).innerHTML=list.length?list.slice(0,3000).map(rowHtml).join('')+(list.length>3000?`<tr><td colspan=10 class=mut>앞 3,000개만 보입니다 — 거르기를 쓰세요 (전체 ${list.length.toLocaleString()}개)</td></tr>`:''):`<tr><td colspan=10 class=mut>${empty}</td></tr>`}
+function renderRows(){if(!ROWS.length){$('rowsOn').innerHTML='<tr><td colspan=10 class=mut>탐색을 누르면 여기에 나옵니다</td></tr>';$('rowsOff').innerHTML='<tr><td colspan=10 class=mut>—</td></tr>';$('onCount').textContent='';$('offCount').textContent='';updChk();return}
+ const vs=visible(),on=byRatio(vs.filter(r=>CHECK.has(r.id))),off=byRatio(vs.filter(r=>!CHECK.has(r.id)));
+ fill('rowsOn',on,'체크한 영상 없음 — 아래 표에서 체크하세요');fill('rowsOff',off,'체크 안 한 영상 없음');
+ $('onCount').textContent=`${on.length.toLocaleString()}개`;$('offCount').textContent=`${off.length.toLocaleString()}개`;
+ document.querySelectorAll('#rowsOn input[type=checkbox],#rowsOff input[type=checkbox]').forEach(c=>c.onchange=()=>{c.checked?CHECK.add(c.dataset.id):CHECK.delete(c.dataset.id);renderRows();saveChk()});updChk()}
 function updChk(){$('chkInfo').textContent=`체크 ${CHECK.size.toLocaleString()}개 / 목록 ${ROWS.length.toLocaleString()}개`;$('approve').disabled=busy||!CHECK.size}
 let chkT;function saveChk(){clearTimeout(chkT);chkT=setTimeout(()=>api('/api/checked',{ids:[...CHECK]}).catch(()=>{}),700)}
 function showJob(j){busy=j.status==='running';$('jobName').textContent=j.name?`${j.name} — ${({running:'도는 중',done:'끝',error:'오류',cancelled:'멈춤',idle:''})[j.status]||j.status}`:'';
@@ -879,8 +946,11 @@ $('saveEnv').onclick=async()=>{try{const r=await api('/api/env',{YOUTUBE_API_KEY
  say('envMsg',r.changed.length?`저장함: ${r.changed.join(', ')}`:'바뀐 것 없음 (넣은 칸만 저장)','ok');loadState()}catch(e){say('envMsg',e.message,'bad')}};
 $('saveKw').onclick=async()=>{try{const r=await api('/api/keywords',{text:$('kw').value,push:$('kwPush').checked});say('kwMsg',r.message,'ok');$('kwCount').textContent=`검색어 ${r.count}개`;estimate()}catch(e){say('kwMsg',e.message,'bad')}};
 $('tgAdd').onclick=async()=>{const v=$('tgIn').value.trim();if(!v)return;say('tgMsg','확인 중…');try{const r=await api('/api/targets/add',{text:v});
- say('tgMsg',(r.added.kind==='channel'?`채널 추가: ${r.added.title} (영상 ${num(r.added.videos)}개)`:`영상 추가: ${r.added.title||r.added.id}`)+(r.added.note?' — '+r.added.note:''),'ok');$('tgIn').value='';renderTargets(r.targets);estimate()}catch(e){say('tgMsg',e.message,'bad')}};
-$('tgIn').onkeydown=e=>{if(e.key==='Enter')$('tgAdd').click()};
+ const ok=r.results.filter(x=>x.ok),bad=r.results.filter(x=>!x.ok);
+ $('tgMsg').innerHTML=ok.map(x=>`<span class=ok>✓ ${x.kind==='channel'?`채널 ${esc(x.title)} (영상 ${num(x.videos)}개)`:`영상 ${esc(x.title||x.id)}`}${x.note?' — '+esc(x.note):''}</span>`).concat(
+  bad.map(x=>`<span class=bad>✕ ${esc(x.input.slice(0,60))} — ${esc(x.error)}</span>`)).join('<br>');$('tgMsg').className='msg';
+ $('tgIn').value=bad.map(x=>x.input).join('\n');renderTargets(r.targets);estimate()}catch(e){say('tgMsg',e.message,'bad')}};
+$('tgIn').onkeydown=e=>{if(e.key==='Enter'&&(e.ctrlKey||e.metaKey))$('tgAdd').click()};
 $('weeks').oninput=estimate;$('useKw').onchange=estimate;
 async function startJob(p,b){try{waitDone=true;await api(p,b);busy=true;showJob(await api('/api/job'))}catch(e){waitDone=false;alert(e.message)}}
 $('explore').onclick=()=>startJob('/api/explore',{weeks:+$('weeks').value,keywords:$('useKw').checked});
@@ -888,7 +958,7 @@ $('approve').onclick=async()=>{const ids=ROWS.filter(r=>CHECK.has(r.id)).map(r=>
  if(!confirm(`체크한 영상 ${ids.length}개의 설명·자막·썸네일·댓글 전부를 받고 분석합니다.\n(댓글 100개에 할당량 1단위)`))return;
  startJob('/api/approve',{ids,whisper:$('autoW').checked})};
 $('cancel').onclick=()=>api('/api/cancel',{});$('reanalyze').onclick=()=>startJob('/api/analyze',{});$('whisper').onclick=()=>startJob('/api/whisper',{});
-['flt','fShort','fRel','fChk'].forEach(id=>$(id).addEventListener('input',renderRows));
+['flt','fShort','fRel'].forEach(id=>$(id).addEventListener('input',renderRows));
 $('chkAll').onclick=()=>{visible().forEach(r=>CHECK.add(r.id));renderRows();saveChk()};$('chkNone').onclick=()=>{CHECK.clear();renderRows();saveChk()};
 $('chkRec').onclick=()=>{CHECK=new Set(REC);renderRows();saveChk()};
 loadState().then(()=>{loadRows();loadReport()}).catch(e=>document.body.insertAdjacentHTML('afterbegin',`<p class=bad style="padding:16px">${esc(e.message)}</p>`));poll();

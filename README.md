@@ -72,7 +72,7 @@ bash run_analyzer.sh
 실행기(v3.0)가 하는 일:
 1. 코드(`youtube_topic_analyzer.py`·`tools/pc_analysis.py`·`tools/outlier_research.py`·`tools/outlier_stats.py`·`tools/tag_keywords.py`·`tools/web_ui.py`·`tools/weekly_analysis.py`)를 매번 최신으로 받는다.
 2. `economic/keywords.txt`(검색어)·`keywords.toml`·`analyzer_config.toml`·`tag_rules.toml`을 받는다. 실행 중에는 `tools/pc_analysis.py`가 **회차마다** GitHub 에서 고친 것을 받는다 (VERSION 안 올려도 됨 — PC 에서 고친 것은 GitHub 쪽이 그대로면 지킴, 바꿀 때 예전 것은 `.bak`).
-3. `.venv` 가상환경을 만들고 **웹 화면 `tools/web_ui.py`** 를 띄운다 — 브라우저에 `http://127.0.0.1:8765/`: 키·검색어 고치기, 영상 주소·채널 추가(채널은 올라온 영상 전부), **[탐색] → 목록(최근 업로드 순, 추천은 체크만) → [승인]한 영상만 자료(설명·자막·썸네일·댓글 전부) 받기 → 주별 분석(최근 1·2·3…주)**. 예전 자동 실행(할당량이 끝나면 다음 날 이어서)은 `-Auto` (`tools/pc_analysis.py`). 필요한 패키지는 자동 설치한다. 자세히: [`guides/pc_analysis.md`](guides/pc_analysis.md) "웹 화면".
+3. `.venv` 가상환경을 만들고 **웹 화면 `tools/web_ui.py`** 를 띄운다 — 브라우저에 `http://127.0.0.1:8765/`: 키·검색어 고치기, 영상 주소·채널 추가(여러 개 한 번에, 채널은 올라온 영상 전부), **[탐색] → 목록(배수 높은 순, 체크한 것·안 한 것 두 표, 이미 분석한 영상·라이브·외국 영상 뺌, 추천은 체크만) → [승인]한 영상만 자료(설명·자막·썸네일·댓글 전부) 받기 → 주별 분석(최근 1·2·3…주)**. 예전 자동 실행(할당량이 끝나면 다음 날 이어서)은 `-Auto` (`tools/pc_analysis.py`). 필요한 패키지는 자동 설치한다. 자세히: [`guides/pc_analysis.md`](guides/pc_analysis.md) "웹 화면".
 
 | 하고 싶은 것 | Windows | macOS / Linux |
 |---|---|---|

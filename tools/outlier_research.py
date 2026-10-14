@@ -1,13 +1,18 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.9 — 2026-10-14 — 자막이 계속 막히던 것 고침 (사용자 지시: "왜 자꾸 자막 다운로드 막히는지 에러 찾아서 수정해"):
+# VERSION: v2.0 — 2026-10-14 — 라이브 방송·외국 영상은 탐색 대상에서 뺌 (사용자 지시: "라이브 방송, 외국 영상은 탐색 대상에서 제외"):
+#          exclusion_reason() — 라이브 = 지금 라이브·예정(liveBroadcastContent) 또는 라이브였던 영상(liveStreamingDetails, videos.list
+#          같은 1단위로 같이 받음) 또는 제목에 라이브·생방송·스트리밍·LIVE. 외국 = 영상 언어(defaultAudioLanguage·defaultLanguage)가
+#          한국어가 아님, 언어 표시가 없으면 제목에 한글이 없음. build_rows 가 뺌 (keep 으로 넘긴 영상 — 웹 화면에서 주소로 직접
+#          넣은 것 — 은 남기고 표시만). 예전 캐시(라이브 여부 없음)는 다시 받음
+# (v1.9 — 2026-10-14 — 자막이 계속 막히던 것 고침 (사용자 지시: "왜 자꾸 자막 다운로드 막히는지 에러 찾아서 수정해"):
 #          원인(PC 로그): YouTube 자막 서버가 PC 의 IP 에 HTTP 429(Too Many Requests)로 답함 → youtube-transcript-api 'IpBlocked'
 #          35개 중 26개, 분석기 yt-dlp 자막도 8/8 이 429. 그런데 소리 받기는 됨(음성인식 17/17 성공). 예전 코드는 IpBlocked 를
 #          '네트워크 실패 — 다음 회차에 다시'로 보고 음성인식에서 빼서, 매 회차 같은 자막을 또 요청 → 차단이 이어지고 대본은 영영 없음.
 #          ① 자막 서버 차단(IpBlocked·RequestBlocked·429)은 음성인식 대기열로 (is_caption_block) — 연결 자체 실패만 다음 회차에 다시
 #          ② 차단 쉬기: 연속 2번 막히면 6시간 동안 모든 도구(분석기·웹 화면 포함)가 자막 요청을 쉼 (.yt_work/caption_block.json)
 #          ③ 자막 요청 사이 1.5~3초 쉼 (짧은 시간에 몰아서 요청하지 않게)
-#          ④ 웹 화면(tools/web_ui.py)용: fetch_video_infos·fetch_channel_subs(영상·구독자 정보 따로), channel_uploads(채널의 모든 영상)
+#          ④ 웹 화면(tools/web_ui.py)용: fetch_video_infos·fetch_channel_subs(영상·구독자 정보 따로), channel_uploads(채널의 모든 영상))
 # (v1.8 — 2026-10-13 — 검색어는 그룹 없이 한 줄에 하나씩 (사용자 지시: "걍 검색어 내가 수정해도 돌아가게 하면 안돼? 꼭 그룹을
 #          지정해야하나 검색어만 넣어도 되잖아"): <주제>/keywords.txt 가 있으면 그것이 검색어 목록 (read_keyword_list — 분석기 v2.8.0 과
 #          같은 규칙), 없으면 keywords.toml 의 KEYWORD_GROUPS. EXTRA_KEYWORDS 도 검색. 잘된 영상 태그 검색어(--tag-keywords)는 기본 0 —
@@ -118,7 +123,7 @@ except ModuleNotFoundError:             # Python 3.10 → tomli (분석기가 �
     import tomli as tomllib
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v1.9"
+VERSION = "v2.0"
 LOG = logging.getLogger("outlier")
 HANGUL = re.compile(r"[가-힣]")
 SEARCH_TTL_HOURS = 168
@@ -260,7 +265,7 @@ class Api:
         return [it["id"]["videoId"] for it in d.get("items", []) if it.get("id", {}).get("videoId")]
 
     def videos(self, ids):
-        return self.get("videos", part="snippet,contentDetails,statistics", id=",".join(ids)).get("items", [])
+        return self.get("videos", part="snippet,contentDetails,statistics,liveStreamingDetails", id=",".join(ids)).get("items", [])   # 같은 1단위
 
     def channels(self, ids):
         out = {}
@@ -607,14 +612,19 @@ def _info_from_item(it):
             "published": sn.get("publishedAt"), "description": sn.get("description"), "tags": sn.get("tags"),
             "duration": iso_seconds(cd.get("duration")), "live": sn.get("liveBroadcastContent") != "none",
             "view_count": int(st.get("viewCount", 0)), "like_count": int(st.get("likeCount", 0) or 0),
-            "comment_count": int(st.get("commentCount", 0) or 0), "fetched": datetime.now(timezone.utc).isoformat()}
+            "comment_count": int(st.get("commentCount", 0) or 0), "fetched": datetime.now(timezone.utc).isoformat(),
+            "was_live": bool(it.get("liveStreamingDetails")),                                   # v2.0: 라이브였던 영상
+            "audio_lang": sn.get("defaultAudioLanguage") or "", "lang": sn.get("defaultLanguage") or ""}
 
 
 def fetch_video_infos(api, cache_dir, ids, state, refresh=False):
     """영상 정보 (캐시 .cache/<id>.json, 24시간). 할당량이 끝나면 있던 캐시로 계속하고 state 에 남김. → [info] (ids 순서, 받은 것만).
     v1.9: collect_api 에서 떼어 냄 — 웹 화면(tools/web_ui.py)이 채널·주소로 더한 영상에도 씀."""
     ids = list(dict.fromkeys(ids))
-    need = [v for v in ids if not _fresh(cache_dir / f"{v}.json", VIDEO_TTL_HOURS, refresh)]
+    def ok(v):          # 캐시가 새것이고 v2.0 정보(라이브였는지·언어)가 있으면 다시 받지 않음
+        f = cache_dir / f"{v}.json"
+        return _fresh(f, VIDEO_TTL_HOURS, refresh) and "was_live" in json.loads(f.read_text("utf-8"))
+    need = [v for v in ids if not ok(v)]
     missing = sum(1 for v in need if not (cache_dir / f"{v}.json").is_file())
     log("VIDEO", found=len(ids), refresh=len(need), new=missing, ttl_h=VIDEO_TTL_HOURS)
     for i in range(0, len(need), 50):
@@ -912,11 +922,30 @@ def _write_rows(path, rows, fields, extra):
             w.writerow({**r, **{key: fn(k, r) for key, fn in extra.items()}})
 
 
-def build_rows(infos, found, now):
-    """영상 정보 → 후보 행 (라이브·길이 없음 제외). 배수 = 조회수 ÷ 구독자(100 미만은 100)."""
+LIVE_TITLE_RX = re.compile(r"라이브|생방송|스트리밍|실시간\s*방송|\blive\b", re.I)
+
+
+def exclusion_reason(info):
+    """탐색에서 뺄 영상인가 → '라이브 방송' / '외국 영상' / None (v2.0 — 사용자 지시 "라이브 방송, 외국 영상은 탐색 대상에서 제외")."""
+    if info.get("live") or info.get("was_live") or LIVE_TITLE_RX.search(str(info.get("title") or "")):
+        return "라이브 방송"
+    lang = str(info.get("audio_lang") or info.get("lang") or "").lower()
+    if lang and not lang.startswith("ko") and lang not in ("zxx", "und", "mul"):
+        return "외국 영상"
+    if not lang and not HANGUL.search(str(info.get("title") or "")):
+        return "외국 영상"
+    return None
+
+
+def build_rows(infos, found, now, keep=()):
+    """영상 정보 → 후보 행 (길이 없음·라이브 방송·외국 영상 제외 — keep 에 든 영상은 라이브·외국이어도 남기고 'flag' 로 표시).
+    배수 = 조회수 ÷ 구독자(100 미만은 100)."""
     rows = []
     for i in infos:
-        if i.get("live") or not i.get("duration"):
+        if not i.get("duration"):
+            continue
+        why = exclusion_reason(i)
+        if why and i["id"] not in keep:
             continue
         try:
             pub = datetime.fromisoformat(str(i["published"]).replace("Z", "+00:00"))
@@ -930,7 +959,7 @@ def build_rows(infos, found, now):
                      "views": views, "ratio": ratio, "age_days": age, "views_per_day": round(views / max(age or 1, 1), 1),
                      "minutes": round(i["duration"] / 60, 1), "likes": i.get("like_count"), "comments": i.get("comment_count"),
                      "published": str(i["published"])[:10], "queries": " | ".join(dict.fromkeys(found.get(i["id"], []))),
-                     "url": f"https://www.youtube.com/watch?v={i['id']}"})
+                     "url": f"https://www.youtube.com/watch?v={i['id']}", "flag": why or ""})
     return rows
 
 

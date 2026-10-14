@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.9 — 2026-10-14 — 성공 사례 분석 도구(tools/success_analysis.py)·규칙(<주제>/analysis_rules.toml)도 GitHub 최신으로 받는 목록에
-#          (SYNC_CODE·SYNC_CONFIG — 사용자 지시: "… 올바른 분석 결과까지만 내도록 수정해")
+# VERSION: v1.10 — 2026-10-14 — 음성인식 기록 요약(whisper_summary)이 2차(전체) 기록('<영상ID>#full' — 분석기 v2.10.0)을 영상으로 세지 않게
+# (v1.9 — 2026-10-14 — 성공 사례 분석 도구(tools/success_analysis.py)·규칙(<주제>/analysis_rules.toml)도 GitHub 최신으로 받는 목록에
+#          (SYNC_CODE·SYNC_CONFIG — 사용자 지시: "… 올바른 분석 결과까지만 내도록 수정해"))
 # (v1.8 — 2026-10-14 — 웹 화면(tools/web_ui.py·tools/weekly_analysis.py)도 회차마다 GitHub 최신으로 받는 코드 목록에 (SYNC_CODE).
 #          자동 실행은 이제 run_analyzer.ps1 -Auto (기본은 웹 화면). 자막 서버 차단(IpBlocked)은 '네트워크 때문에 못 받은 자막'으로
 #          세지 않음 — tools/outlier_research.py v1.9 가 음성인식으로 보냄 (예전: 그 때문에 끝나지 않고 매일 같은 자막을 다시 요청))
@@ -94,7 +95,7 @@ from datetime import date, datetime, time as dtime, timedelta, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v1.9"
+VERSION = "v1.10"
 LOG = logging.getLogger("pc_analysis")
 KST = timezone(timedelta(hours=9))
 LOCK_STALE_MIN = 30          # 잠금 파일이 이 시간 넘게 갱신되지 않으면 이전 실행이 죽은 것으로 봄
@@ -347,6 +348,7 @@ def whisper_summary(folder):
         st = json.loads((ROOT / ".yt_work" / f"whisper_{tag}.json").read_text("utf-8"))
     except (OSError, ValueError):
         st = {}
+    st = {k: v for k, v in st.items() if "#" not in k}      # v1.10: '<영상ID>#full' = 2차(전체) 기록 — 영상 수는 1차 기준으로 셈
     return {"done": sum(1 for v in st.values() if v.get("done")),
             "retry": sum(1 for v in st.values() if not v.get("done") and v.get("attempts", 0) < 3),
             "given_up": sum(1 for v in st.values() if not v.get("done") and v.get("attempts", 0) >= 3)}

@@ -1,13 +1,20 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.3 — 2026-10-14 — 성공 사례 분석(analysis.md)이 맞게 나오게 (사용자 지시: "성공 사례 영상의 정보와 시청자들의 니즈 …
+# VERSION: v1.4 — 2026-10-14 — 분석 결과로 '무엇이 먹혔나'를 가릴 수 있게 (사용자 지시: "결과 올라갔는데 문제가 부분 수정하고
+#          분석결과로 내가 말한 거 할수 있는지 판단해 개선 필요하면 더 개선하고"):
+#          ① 같은 채널 기준선 (job_baseline): 켤 때·승인 때 사례 채널(구독자 5만 이하) 최근 영상 50개(업로드 목록 + 영상 정보 —
+#             채널 하나 약 2단위, 7일 캐시)를 받음 → 분석이 '채널 평소 대비 ×'·같은 채널 잘된 영상 vs 평소 영상을 셈
+#             (⚠️ 할당량: 처음 한 번 채널 141곳이면 약 280단위)
+#          ② 음성인식 2단계 표시 (분석기 v2.10.0 — 1차 앞 5분 → 2차 전체): 차수 이름·차수마다 n/전체, 남은 수에 2차 남은 영상도
+#          ③ 분석 요약 칸에 같은 채널 기준선 (성공 사례 몇 개에 '채널 평소 대비'가 있나)
+# (v1.3 — 2026-10-14 — 성공 사례 분석(analysis.md)이 맞게 나오게 (사용자 지시: "성공 사례 영상의 정보와 시청자들의 니즈 …
 #          어떤 주제, 어떤 제목, 어떤 썸네일, 내용을 어떻게 구성해야하는지 … 올바른 분석 결과까지만 내도록 수정해"):
 #          ① 켤 때 코드도 GitHub 최신으로 받은 뒤 도구를 불러옴 (새 도구 tools/success_analysis.py 가 PC 에 오게 — 실행기 목록에 없던 파일)
 #          ② 못 받은 댓글 이어 받기 (job_comments — 승인 영상 W_ 중 comments_complete=False: 2026-10-14 88개 중 55개가 할당량이 끝나 0개였고
 #             예전엔 다시 받을 길이 없었음) — 켤 때 저절로, [못 받은 댓글 이어 받기] 단추
 #          ③ 분석 결과 칸 위에 성공 사례 분석 요약 (성공 사례 수·글 출처·한계·자료 없는 성공 후보 → [성공 후보 체크] 단추)
 #          ④ 수요와 공급 (사용자 지시: "수요 대비 영상 공급이 별로 없는지도 파악해야해 …"): [탐색] 때 검색어마다 YouTube 자동완성(사람들이 찾는 말)도
-#             받음 (할당량 0, 7일 캐시) · [공급 확인] = 수요는 있는데 영상이 적어 보이는 말 N개를 직접 검색(말 하나 100단위) → 다시 분석·올림
+#             받음 (할당량 0, 7일 캐시) · [공급 확인] = 수요는 있는데 영상이 적어 보이는 말 N개를 직접 검색(말 하나 100단위) → 다시 분석·올림)
 # (v1.2.1 — 2026-10-14 — 공개 저장소에도 자료(사례 폴더)를 다 올림 (사용자 지시 "그냥 공개에서 다 올리도록 해" — 분석기 v2.9.3): 승인 결과 안내를
 #          분석기 로그의 full=True/False 로 읽음 (예전: private=True/False — 공개면 늘 'PC 에만'으로 보였을 것))
 # (v1.2 — 2026-10-14 — 결과 먼저 올리고 음성인식은 뒤에서 (사용자 지시: "아니 음성인식이랑 별개로 분석결과 낼 수 있잖아 자막도
@@ -46,9 +53,11 @@ r"""
   python tools/web_ui.py economic --port 8765 --no-browser
   옵션: --port 8765 (쓰는 중이면 다음 번호) · --no-browser (주소만 보여 줌) · --no-sync (GitHub 에서 설정·검색어를 받지 않음)
         --no-whisper (켤 때 음성인식을 뒤에서 시작하지 않음 — 화면의 [음성인식 시작]으로)
-순서: [승인] → 자료 받기 → 주별 분석(자막 없으면 설명으로) → GitHub 에 올림 → (뒤에서) 음성인식 하나씩 → 끝날 때마다 다시 분석·올림
+순서: [승인] → 자료 받기 → 같은 채널 기준선(채널 평소 영상) → 주별·성공 사례 분석(자막 없으면 설명으로) → GitHub 에 올림
+      → (뒤에서) 음성인식 — 성공 사례부터 1차(앞 5분) → 2차(전체), 하나 끝날 때마다 다시 분석, 15분마다·차수 끝에 올림
 할당량: 탐색 = 검색어 1개마다 검색 2번(200단위, 7일 캐시) + 채널 영상 목록 50개에 1단위 + 영상 정보 50개에 1단위.
-        승인 = 영상마다 댓글 100개에 1단위 (+ 답글). 오늘 쓴 양은 .yt_work/quota_<주제>.json (자동 실행과 같은 장부).
+        승인 = 영상마다 댓글 100개에 1단위 (+ 답글). 같은 채널 기준선(켤 때·승인 때) = 채널 하나 약 2단위 (7일 캐시).
+        오늘 쓴 양은 .yt_work/quota_<주제>.json (자동 실행과 같은 장부).
 로그: [STAGE] [시각] key=value — 화면의 '진행' 칸과 .yt_work/web_ui.log
 비밀값(키·토큰)은 화면·로그에 끝 4자리만. ※ 연구·교육용 분석 도구. 투자 권유가 아니다.
 """
@@ -78,7 +87,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import pc_analysis as pc                 # noqa: E402  할당량 장부·키 찾기·GitHub 동기화·패키지 준비
 
 ROOT = pc.ROOT
-VERSION = "v1.3"
+VERSION = "v1.4"
 LOG = logging.getLogger("web")
 KST = timezone(timedelta(hours=9))
 TOKEN = secrets.token_urlsafe(18)        # 화면이 요청마다 보내는 열쇠 (다른 사이트가 이 PC 의 화면을 조작하지 못하게)
@@ -92,10 +101,10 @@ JOB = {"name": None, "status": "idle", "step": "", "done": 0, "total": 0, "start
 JOB_LOCK = threading.Lock()
 # 음성인식 (v1.2) — 작업(JOB)과 따로 뒤에서: 탐색·승인을 하는 동안에도 돎. 분석기 --whisper-queue 를 돌리고 출력 줄로 진행을 읽음
 WHISPER = {"status": "idle", "topic": None, "proc": None, "started": None, "finished": None, "current": "", "done": 0, "failed": 0,
-           "total": 0, "rerun": False, "stop": False, "last_exit": None, "note": "", "log": collections.deque(maxlen=300)}
+           "total": 0, "pass": "", "rerun": False, "stop": False, "last_exit": None, "note": "", "log": collections.deque(maxlen=300)}
 WHISPER_LOCK = threading.Lock()
 WHISPER_LINE_RX = re.compile(r"\[(?:INFO|WARNING)\] (\d+)/(\d+) (시작|끝|실패|올림|올리기 실패)(.*)$")
-WHISPER_ITEMS_RX = re.compile(r"음성인식 대기열 items=(\d+)")
+WHISPER_ITEMS_RX = re.compile(r"음성인식 대기열 items=(\d+)(?:.*?pass_=(\"[^\"]*\"|\S+))?")   # 분석기 v2.10.0 — 차수(1차 앞 5분·2차 전체)마다 한 줄
 WHISPER_MAX_ATTEMPTS = 3                 # 분석기 WHISPER_QUEUE_MAX_ATTEMPTS 와 같게 (그만큼 실패한 영상은 '남은 것'에서 뺌)
 SKIP_TRANSCRIPT = ("건너뜀", "확인 안 함")
 NETWORK_FAIL_WORDS = ("ProxyError", "ConnectionError", "Timeout", "URLError")     # 분석기 대기열과 같은 기준 (연결 자체 실패는 뺌)
@@ -592,6 +601,7 @@ def job_approve(t, ids, auto_whisper=True):
     appr["approved"] = list(dict.fromkeys(appr["approved"] + [m["id"] for m in got]))
     _write_json(web_dir(t) / "approved.json", appr)
     missing = [m["id"] for m in got if m["transcript_status"] != "ok"]
+    base = job_baseline(t, quiet=True)          # v1.4: 같은 채널 기준선 — 새로 승인한 영상의 채널 최근 영상 (채널 하나 약 2단위)
     # v1.2: 음성인식을 기다리지 않음 — 자막을 못 받은 영상은 설명으로 대신 분석하고 바로 올림, 음성인식은 그 뒤에 뒤에서
     step(f"주별 분석 (자막 못 받은 {len(missing)}개는 영상 설명으로 대신)", len(ids), len(ids))
     rep = wa.run(t)
@@ -599,7 +609,7 @@ def job_approve(t, ids, auto_whisper=True):
     src = collections.Counter(c["src"] for c in wa.load_cases(out) if c["meta"].get("id") in got_ids)
     res = {"videos": len(got), "transcripts_ok": len(got) - len(missing), "description_fallback": src.get("설명", 0),
            "no_text": src.get("없음", 0), "whisper_needed": len(missing), "quota_used": api.used,
-           "pending_comments": len(state["pending_comments"]), "windows": len(rep["windows"])}
+           "pending_comments": len(state["pending_comments"]), "windows": len(rep["windows"]), **base}
     res.update(push_results(t, f"웹 화면 승인 {len(got)}개 — 자료·주별 분석 (자막 못 받은 {len(missing)}개는 설명으로, 음성인식은 뒤에서)"))
     if missing and auto_whisper:
         res["whisper"] = start_whisper(t, f"승인한 영상 중 자막을 못 받은 {len(missing)}개")[1]
@@ -720,6 +730,126 @@ def job_supply(t, n=None):
     return res
 
 
+BASELINE_VIDEOS = 50                     # 채널마다 최근 영상 몇 개로 '평소'를 셈 (업로드 목록 1단위 + 영상 정보 1단위)
+BASELINE_TTL_H = 168                     # 채널 업로드 목록 캐시 7일 (영상 정보는 outlier_research 캐시 24시간)
+
+
+def job_baseline(t, quiet=False):
+    """같은 채널 기준선 (v1.4): 사례(W_·01_·P01_) 채널 중 구독자 ≤ 비교 기준(analysis_rules [compare] MAX_SUBS)인 곳의 최근 영상
+    BASELINE_VIDEOS 개 (업로드 목록 + 영상 정보 — 채널 하나 약 2단위, 7일 캐시) → .cache/uploads_<채널ID>.json · .cache/<영상ID>.json
+    → 분석(success_analysis 1-2번)이 '채널 평소 대비 ×'와 같은 채널 잘된 영상 vs 평소 영상을 셈. 성공 사례 채널부터, 할당량이 끝나면 멈춤."""
+    od = out_dir(t)
+    cache = od / ".cache"
+    succ = {c.get("id"): c.get("no") or 999 for c in (_read_json(od / "analysis.json", {}).get("success_cases") or [])}
+    max_subs = 50000
+    try:
+        rp = topic_dir(t) / "analysis_rules.toml"
+        if rp.is_file():
+            max_subs = int(orr.tomllib.loads(rp.read_text("utf-8")).get("compare", {}).get("MAX_SUBS", max_subs))
+    except Exception as e:                  # 규칙 파일이 깨져도 기본값으로
+        log("BASELINE", logging.WARNING, note=f"analysis_rules.toml 못 읽음 — 구독자 {max_subs} 이하로 — {type(e).__name__}")
+    chans = {}
+    for d in (od.iterdir() if od.is_dir() else []):
+        if not (CASE_RX.match(d.name) and d.is_dir()):
+            continue
+        m = _read_json(d / "metadata.json", None)
+        cid = (m or {}).get("channel_id") or ""
+        if not (cid.startswith("UC") and len(cid) == 24):
+            continue
+        subs = m.get("subs")
+        if subs is not None and subs > max_subs:
+            continue
+        rank = min(succ.get(m.get("id"), 999), chans.get(cid, {}).get("rank", 999))
+        chans[cid] = {"id": cid, "uploads": "UU" + cid[2:], "title": m.get("channel") or cid, "rank": rank}
+    todo = sorted(chans.values(), key=lambda c: (c["rank"], c["title"]))
+    fresh = [c for c in todo if orr._fresh(cache / f"uploads_{c['id']}.json", BASELINE_TTL_H, False)]
+    need = [c for c in todo if c not in fresh]
+    # 채널 개설일·영상 수 (analysis.md 7번 '빨리 크는 작은 채널') — 탐색에서 본 영상의 채널 중 개설일이 없거나 7일 지난 것 (50채널에 1단위)
+    pool = _pool_channels(t)
+    try:
+        known = _read_json(cache / "channels.json", {})
+    except Exception:
+        known = {}
+    meta_need = sorted(c for c in pool if not (isinstance(known.get(c), dict) and "created" in known[c]))
+    res = {"baseline_channels": len(todo), "baseline_cached": len(fresh), "channel_meta_missing": len(meta_need)}
+    if not need and not meta_need:
+        log("BASELINE", topic=t, channels=len(todo), cached=len(fresh), note="채널 평소 영상·채널 정보 — 모두 캐시")
+        return res
+    try:
+        api, ledger, _ = make_api(t)
+    except UserError as e:
+        if not quiet:
+            raise
+        log("BASELINE", logging.WARNING, topic=t, todo=len(need), note=f"채널 평소 영상 받기 건너뜀 — {e}")
+        return {**res, "baseline_skipped": str(e)}
+    state = orr.new_state()
+    got = 0
+    log("BASELINE", topic=t, channels=len(todo), cached=len(fresh), todo=len(need), channel_meta=len(meta_need), quota_left=api.quota,
+        note=f"채널 평소 영상 (최근 {BASELINE_VIDEOS}개) — 채널 하나 약 2단위, 성공 사례 채널부터 · 채널 개설일은 50채널에 1단위")
+    try:
+        if meta_need:
+            step(f"채널 정보(개설일·영상 수) {len(meta_need)}곳 — 50곳에 1단위", 0, max(len(need), 1))
+            orr.fetch_channel_subs(api, cache, set(meta_need), state)
+            res["channel_meta_fetched"] = len(meta_need) - state["pending_channels"]
+        for n, c in enumerate(need, 1):
+            step(f"채널 평소 영상 {n}/{len(need)} — {c['title'][:30]}", n - 1, len(need))
+            try:
+                ids = orr.channel_uploads(api, cache, c, ttl_h=BASELINE_TTL_H, max_videos=BASELINE_VIDEOS)
+                orr.fetch_video_infos(api, cache, ids[:BASELINE_VIDEOS], state)
+            except orr.QuotaStop as e:
+                log("BASELINE", logging.WARNING, topic=t, note=f"할당량이 끝나 멈춤 — 다음에 이어서 ({e})", done=got, left=len(need) - n + 1)
+                state["quota_stop"] = state["quota_stop"] or getattr(e, "kind", "quota")
+                break
+            except (RuntimeError, urllib.error.URLError, OSError, ValueError, KeyError) as e:   # 채널이 지워졌거나 비공개 등 — 그 채널만
+                log("BASELINE", logging.WARNING, channel=c["title"], id=c["id"], error=f"{type(e).__name__}: {e}"[:160],
+                    note="이 채널만 건너뜀")
+                continue
+            got += 1
+            if state["quota_stop"]:
+                log("BASELINE", logging.WARNING, topic=t, note="할당량이 끝나 멈춤 — 다음에 이어서", done=got, left=len(need) - n)
+                break
+    finally:
+        ledger.add(api.used, "web_baseline")
+    log("BASELINE", topic=t, fetched=got, todo=len(need), quota_used=api.used)
+    return {**res, "baseline_fetched": got, "baseline_quota_used": api.used, "baseline_quota_stop": state["quota_stop"]}
+
+
+def _pool_channels(t):
+    """탐색에서 본 영상(.cache/<영상ID>.json)의 채널 ID 전부 (v1.4 — 채널 개설일을 받을 대상)."""
+    cache = out_dir(t) / ".cache"
+    ids = set()
+    for f in (cache.glob("*.json") if cache.is_dir() else []):
+        if f.name.startswith(("search_", "supply_", "uploads_")) or f.name in ("channels.json", "autocomplete.json"):
+            continue
+        cid = (_read_json(f, {}) or {}).get("channel_id")
+        if isinstance(cid, str) and cid.startswith("UC"):
+            ids.add(cid)
+    return ids
+
+
+def job_demand(t, quiet=True):
+    """수요 자료 (v1.4): 검색어(keywords.txt)마다 YouTube 자동완성 — 할당량 0, 7일 캐시. 켤 때 저절로 (예전엔 '검색어로도 찾기' 탐색 때만 받아
+    탐색을 안 하면 analysis.md 3-3 이 비었음). 연결 실패가 3번 이어지면 그만."""
+    qs = pc.read_keyword_list(keywords_path(t)) or []
+    cache = out_dir(t) / ".cache"
+    cache.mkdir(parents=True, exist_ok=True)
+    new = fail = 0
+    for k, q in enumerate(qs, 1):
+        step(f"자동완성(사람들이 찾는 말) {k}/{len(qs)} — {q} (할당량 0)", k - 1, len(qs))
+        try:
+            _, hit = orr.fetch_autocomplete(q, cache)
+            if not hit:
+                new += 1
+                time.sleep(0.2)
+        except Exception as e:
+            fail += 1
+            if fail >= 3:
+                log("AUTOCOMPLETE", logging.WARNING, note="자동완성 연결 실패가 이어짐 — 이번엔 그만 (분석은 자동완성 없이)", error=type(e).__name__)
+                break
+    log("AUTOCOMPLETE", topic=t, keywords=len(qs), new=new, failed=fail, note="수요 자료 (할당량 0, 켤 때)")
+    return {"autocomplete_keywords": len(qs), "autocomplete_new": new, "autocomplete_failed": fail}
+
+
 def job_comments_then_analyze(t):
     res = job_comments(t)
     res.update(job_analyze(t))
@@ -727,9 +857,12 @@ def job_comments_then_analyze(t):
 
 
 def job_startup(t, whisper=True):
-    """화면을 켤 때 (v1.2·v1.3): 못 받은 댓글 이어 받기 → 승인한 영상이 있으면 분석(주별·성공 사례)을 다시 만들어 올림
+    """화면을 켤 때 (v1.2·v1.3·v1.4): 못 받은 댓글 이어 받기 → 채널 평소 영상(같은 채널 기준선)·채널 개설일 → 자동완성(수요, 할당량 0)
+    → 승인한 영상이 있으면 분석(주별·성공 사례)을 다시 만들어 올림
     → 자막 없는 영상이 남았으면 음성인식을 뒤에서."""
     res = job_comments(t, quiet=True)
+    res.update(job_baseline(t, quiet=True))
+    res.update(job_demand(t))
     if any(out_dir(t).glob("W_*/metadata.json")):
         res.update(job_analyze(t))
     n = whisper_pending(t, fresh=True)
@@ -742,8 +875,8 @@ def job_startup(t, whisper=True):
 
 # ---------------------------------------------------------------- 음성인식 (뒤에서, v1.2)
 def whisper_pending(t, fresh=False):
-    """음성인식이 남은 영상 수 — 분석기 대기열과 같은 기준 (W_·01_·P01_ 중 대본 없음·자막 서버 차단·자막 없음; 건너뜀·연결 실패·
-    시도 한도를 넘은 것은 뺌). 화면이 자주 물어서 15초 동안은 지난 값."""
+    """음성인식이 남은 영상 수 — 분석기 대기열과 같은 기준 (W_·01_·P01_ 중 대본 없음·자막 서버 차단·자막 없음 + 앞부분만 한 대본(2차);
+    건너뜀·연결 실패·시도 한도를 넘은 것은 뺌). 화면이 자주 물어서 15초 동안은 지난 값."""
     now = time.monotonic()
     if not fresh and _PENDING_CACHE["t"] == t and now - _PENDING_CACHE["at"] < 15:
         return _PENDING_CACHE["n"]
@@ -753,7 +886,12 @@ def whisper_pending(t, fresh=False):
     od = out_dir(t)
     for d in (od.iterdir() if od.is_dir() else []):
         m = CASE_RX.match(d.name)
-        if not (m and d.is_dir() and (d / "metadata.json").is_file()) or (d / "transcript.json").is_file():
+        if not (m and d.is_dir() and (d / "metadata.json").is_file()):
+            continue
+        if (d / "transcript.json").is_file():     # v1.4: 앞부분만 한 대본(partial_sec — 분석기 v2.10.0 1차)은 2차(전체)가 남음
+            if _read_json(d / "transcript.json", {}).get("partial_sec"):
+                rec = tried.get(m.group(1) + "#full") or {}
+                n += not (rec.get("done") or rec.get("attempts", 0) >= WHISPER_MAX_ATTEMPTS)
             continue
         st = str(_read_json(d / "metadata.json", {}).get("transcript_status") or "")
         if st == "ok" or st.startswith(SKIP_TRANSCRIPT) or any(w in st for w in NETWORK_FAIL_WORDS):
@@ -783,11 +921,11 @@ def start_whisper(t, why=""):
             WHISPER["rerun"] = True
             return False, "음성인식이 이미 도는 중 — 지금 대기열이 끝나면 새 영상도 이어서"
         WHISPER.update(status="running", topic=t, started=datetime.now(KST).isoformat(timespec="seconds"), finished=None, current="",
-                       done=0, failed=0, total=0, rerun=False, stop=False, last_exit=None, note=why, proc=None)
+                       done=0, failed=0, total=0, rerun=False, stop=False, last_exit=None, note=why, proc=None, **{"pass": ""})
         WHISPER["log"].clear()
     log("WHISPER", topic=t, note=f"뒤에서 시작 — {why}" if why else "뒤에서 시작")
     threading.Thread(target=_whisper_loop, args=(t,), daemon=True, name="whisper").start()
-    return True, "음성인식을 뒤에서 시작 — 하나 끝날 때마다 주별 분석을 다시 만들어 올림"
+    return True, "음성인식을 뒤에서 시작 — 성공 사례부터 1차(앞 5분) → 2차(전체), 하나 끝날 때마다 분석을 다시 만들고 15분마다·차수 끝에 올림"
 
 
 def stop_whisper():
@@ -808,7 +946,7 @@ def _whisper_loop(t):
             has_token = bool(pc.find_secret("GITHUB_TOKEN", t)[0])
             cmd = [sys.executable, "youtube_topic_analyzer.py", "--config", f"{t}/analyzer_config.toml", "--whisper-queue"] + \
                   ([] if has_token else ["--no-push"])
-            WHISPER.update(done=0, failed=0, total=0, current="")
+            WHISPER.update(done=0, failed=0, total=0, current="", **{"pass": ""})
             code = _whisper_run(cmd)
             WHISPER["last_exit"] = code
             _PENDING_CACHE["at"] = 0.0
@@ -839,8 +977,9 @@ def _whisper_run(cmd):
         line = raw.decode("utf-8", errors="replace").rstrip()
         WHISPER["log"].append(line)
         m = WHISPER_ITEMS_RX.search(line)
-        if m:
-            WHISPER["total"] = int(m.group(1))
+        if m:                           # 차수가 바뀌면 n/전체를 새로 셈 (v1.4 — 분석기 v2.10.0: 1차 앞 5분 → 2차 전체)
+            WHISPER.update(total=int(m.group(1)), done=0, failed=0, current="")
+            WHISPER["pass"] = (m.group(2) or "").strip('"')
         m = WHISPER_LINE_RX.search(line)
         if m:
             n, total, what, rest = int(m.group(1)), int(m.group(2)), m.group(3), m.group(4)
@@ -946,7 +1085,10 @@ class Handler(BaseHTTPRequestHandler):
                                                        if not r.get("small_sample")][:6],
                                      "gaps": [(r["phrase"], r["pool_recent"], (r.get("verified") or {}).get("total"))
                                               for r in ((a.get("market") or {}).get("autocomplete") or [])[:8]],
-                                     "fast_channels": len((a.get("growth") or {}).get("fast") or [])})
+                                     "fast_channels": len((a.get("growth") or {}).get("fast") or []),
+                                     "baseline": {k: (a.get("baseline") or {}).get(k) for k in ("success_covered", "channels", "hits", "normal")},
+                                     "formats": [(r["format"].split(" (")[0], r.get("success_share"), r.get("market_index")) for r in a.get("formats") or []],
+                                     "requests": (a.get("needs") or {}).get("requests_total")})
         except UserError as e:
             return self._send(400, {"error": str(e)})
         except Exception as e:
@@ -1190,14 +1332,14 @@ details{border:1px solid var(--line);border-radius:8px;padding:8px 12px;margin-t
  <h3 class="sub">☐ 체크 안 한 영상 <span id="offCount"></span></h3>
  <div class="tablewrap"><table><thead><tr><th></th><th>업로드</th><th>제목</th><th>채널</th><th class="n">구독자</th><th class="n">조회수</th><th class="n">배수 ▼</th><th class="n">하루 조회수</th><th class="n">길이</th><th>추천 · 출처</th></tr></thead><tbody id="rowsOff"><tr><td colspan="10" class="mut">—</td></tr></tbody></table></div>
  <div class="row" style="margin-top:10px"><button class="pri" id="approve">승인 — 자료 받고 분석해서 바로 올리기</button><label><input type="checkbox" id="autoW" checked> 그다음 자막 못 받은 영상 음성인식 (뒤에서)</label><span class="mut" id="chkInfo"></span></div>
- <div class="mut" style="margin-top:6px">순서: 자료(설명·자막·썸네일·댓글) 받기 → 주별 분석 (자막을 못 받은 영상은 영상 설명으로 대신) → GitHub 에 바로 올림 → 음성인식은 뒤에서 하나씩 (끝날 때마다 다시 분석해 올림)</div>
+ <div class="mut" style="margin-top:6px">순서: 자료(설명·자막·썸네일·댓글) 받기 → 채널 평소 영상(같은 채널 기준선, 채널 하나 약 2단위) → 분석 (자막을 못 받은 영상은 영상 설명으로 대신) → GitHub 에 바로 올림 → 음성인식은 뒤에서 (성공 사례부터 앞 5분 → 전체)</div>
 </section>
 <section class="card"><h2>진행 <small id="jobName"></small></h2>
  <div class="row"><span id="jobStep" class="grow">쉬는 중</span><button id="cancel" disabled>멈춤</button><button id="reanalyze" title="주별 분석·성공 사례 분석을 다시 만들어 GitHub 에 올림">다시 분석·올리기</button><button id="comments" title="할당량이 끝나 다 받지 못한 댓글을 이어 받고 다시 분석">못 받은 댓글 이어 받기</button></div>
  <div class="msg" id="jobRes"></div>
  <div class="bar" style="margin-top:8px"><i id="jobBar"></i></div><pre id="jobLog"></pre>
 </section>
-<section class="card"><h2>음성인식 <small>뒤에서 하나씩 · 끝날 때마다 대본을 넣어 주별 분석을 다시 만들고 올림 · 도는 동안에도 탐색·승인 가능</small></h2>
+<section class="card"><h2>음성인식 <small>뒤에서 하나씩 · 성공 사례부터 1차(앞 5분) → 2차(전체) · 끝날 때마다 분석을 다시 만들고 15분마다·차수 끝에 올림 · 도는 동안에도 탐색·승인 가능</small></h2>
  <div class="row"><span id="wStep" class="grow">쉬는 중</span><button id="wStart">음성인식 시작</button><button id="wStop" disabled>멈춤</button></div>
  <div class="bar" style="margin-top:8px"><i id="wBar"></i></div>
  <details><summary>음성인식 기록</summary><pre id="wLog"></pre></details>
@@ -1258,8 +1400,8 @@ function showJob(j){busy=j.status==='running';$('jobName').textContent=j.name?`$
  if(j.whisper)showWhisper(j.whisper);
  if((lastJob==='running'||waitDone)&&j.status!=='running'){waitDone=false;loadState();loadRows().then(loadAnalysis);loadReport()}lastJob=j.status}
 function showWhisper(w){const run=w.status==='running'||w.status==='stopping';const left=w.pending==null?'':` · 남은 ${num(w.pending)}개`;
- $('wPill').textContent=run?`음성인식 ${w.done}/${w.total||'…'}${w.failed?` (실패 ${w.failed})`:''}`:`음성인식 쉬는 중${left}`;$('wPill').className='pill '+(run?'ok':'');
- $('wStep').innerHTML=run?`${w.status==='stopping'?'멈추는 중… ':''}${esc(w.current||'준비 중 (소리 받기·모델 불러오기)')} <span class=mut>끝 ${w.done} · 실패 ${w.failed} / 이번 대기열 ${w.total||'…'}${w.rerun?' · 끝나면 새로 승인한 영상도':''}</span>`
+ $('wPill').textContent=run?`음성인식${w.pass?' '+w.pass:''} ${w.done}/${w.total||'…'}${w.failed?` (실패 ${w.failed})`:''}`:`음성인식 쉬는 중${left}`;$('wPill').className='pill '+(run?'ok':'');
+ $('wStep').innerHTML=run?`${w.status==='stopping'?'멈추는 중… ':''}${esc(w.current||'준비 중 (소리 받기·모델 불러오기)')} <span class=mut>${w.pass?esc(w.pass)+' — ':''}끝 ${w.done} · 실패 ${w.failed} / 이번 대기열 ${w.total||'…'}${left}${w.rerun?' · 끝나면 새로 승인한 영상도':''}</span>`
   :`${w.status==='stopped'?'멈춤':'쉬는 중'}${left}${w.finished?` <span class=mut>(마지막 ${esc(w.finished.slice(5,16).replace('T',' '))} — 끝 ${w.done} · 실패 ${w.failed})</span>`:''}${w.note?` <span class=mut>${esc(w.note)}</span>`:''}`;
  $('wBar').style.width=w.total?Math.round(100*(w.done+w.failed)/w.total)+'%':(run?'5%':'0');$('wStart').disabled=run;$('wStop').disabled=!run||w.status==='stopping';
  const L=$('wLog'),atEnd=L.scrollTop+L.clientHeight>=L.scrollHeight-20;L.textContent=(w.log||[]).join('\n');if(atEnd)L.scrollTop=L.scrollHeight;
@@ -1273,10 +1415,12 @@ async function loadAnalysis(){let a;try{a=await api('/api/analysis')}catch(e){re
  const inList=MISSING.filter(id=>ROWS.some(r=>r.id===id)).length;
  $('analysis').innerHTML=`<div><b>성공 사례 ${a.success}개</b> <span class=mut>(${esc(a.generated.slice(0,16).replace('T',' '))} UTC · 기준 통과 ${s.success_passed} − 뺀 것 ${(s.success_excluded||[]).length} − 채널당 제한 ${(s.success_channel_cut||[]).length})</span>
   · 글 출처 ${esc(ts)} · 댓글 ${num(s.success_comments_fetched)}/${num(s.success_comments_reported)} · 비교 집단 ${num(s.compare_group)}개 (성공 ${pct(s.compare_rate)})</div>
-  <div>시청자 니즈: ${(a.needs||[]).map(([n,c])=>esc(n.split(' (')[0])+' '+num(c)).join(' · ')}</div>
+  <div>시청자 니즈: ${(a.needs||[]).map(([n,c])=>esc(n.split(' (')[0])+' '+num(c)).join(' · ')}${a.requests!=null?` <span class=mut>(그중 '다뤄 주세요·알려 주세요' 요청 ${num(a.requests)}개 — analysis.md 8-1)</span>`:''}</div>
+  <div>형식(성공 사례 몫·시장 지수): ${(a.formats||[]).map(([f,sh,ix])=>esc(f)+' '+pct(sh)+(ix!=null?' · '+num(ix):'')).join(' / ')||'<span class=mut>자료 없음</span>'}</div>
   <div>수요/공급 지수 (1보다 크면 영상이 모자라 보임): ${(a.market_themes||[]).map(([t,i,v])=>esc(t)+' <b>'+num(i)+'</b>').join(' · ')||'<span class=mut>자료 없음</span>'}</div>
   <div>찾는데 영상이 적어 보이는 말: ${(a.gaps||[]).map(([p,n,tot])=>esc(p)+` <span class=mut>(본 영상 ${n}${tot!=null?` · 결과 ${num(tot)}`:''})</span>`).join(', ')||'<span class=mut>자동완성 자료 없음 — 검색어로 탐색하면 받음</span>'}
    ${(a.gap_candidates||[]).length?`<button id="supply">공급 확인 ${(a.gap_candidates||[]).length}개 (≈${(a.gap_candidates||[]).length*100+20}단위)</button>`:''}</div>
+  <div>같은 채널 기준선: 성공 사례 ${num((a.baseline||{}).success_covered)}/${num(a.success)}개에 '채널 평소 대비' · 잘된 영상 ${num((a.baseline||{}).hits)} vs 평소 영상 ${num((a.baseline||{}).normal)} <span class=mut>(채널 평소 영상은 켤 때·승인 때 받음, analysis.md 1-2번)</span></div>
   <div>빨리 크는 작은 채널: ${num(a.fast_channels)}곳 <span class=mut>(analysis.md 7번)</span></div>
   ${a.missing_success_total?`<div class=warn style="margin-top:4px">자료를 받지 않은 성공 후보 ${a.missing_success_total}개 — 승인하면 분석에 들어갑니다 <button id="chkMissing" ${inList?'':'disabled'}>성공 후보 체크 (지금 목록에 ${inList}개)</button></div>`:''}
   <details><summary>한계 ${(a.limits||[]).length}개</summary><ul>${(a.limits||[]).map(x=>`<li>${esc(x)}</li>`).join('')}</ul></details>

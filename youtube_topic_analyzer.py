@@ -1,9 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v2.9.3 — 2026-10-14 — 공개 저장소에서도 사례 폴더를 다 올림 (사용자 지시: "그냥 공개에서 다 올리도록 해"):
+# VERSION: v2.10.0 — 2026-10-14 — 음성인식 대기열을 빨리·성공 사례 먼저 (사용자 지시: "분석결과로 내가 말한 거 할수 있는지 판단해 개선 필요하면
+#          더 개선하고" — 2026-10-14 분석: 성공 사례 165개 모두 대본 0, 영상 하나 13분 → 165개 약 36시간이라 구성·도입부를 셀 수 없었음):
+#          ① 1차 = 영상마다 앞 5분만 (WHISPER_QUEUE_FIRST_SEC=300 — ffmpeg -t) → 도입부·초반 흐름을 모든 성공 사례에서 먼저 ② 2차 = 끝까지
+#          ③ 차례 = 성공 사례(analysis.json #) 먼저 ④ GitHub 올리기는 15분마다·차수 끝에 (WHISPER_QUEUE_PUSH_EVERY_MIN — 저장소가 커져
+#          올리기마다 오래 걸리던 것)
+# (v2.9.3 — 2026-10-14 — 공개 저장소에서도 사례 폴더를 다 올림 (사용자 지시: "그냥 공개에서 다 올리도록 해"):
 #          UPLOAD_CASES_TO_PUBLIC_REPO = True (새 설정, 기본 켬) → 저장소가 공개여도 성공 사례 01_·조회수 상위 P01_·웹 화면 W_ 폴더
 #          (설명·자막·댓글 전부·썸네일·메타데이터)를 git add -f 로 올림 (예전 v2.5.0~v2.9.2: 비공개일 때만). 영상 파일 정책
-#          (ALLOW_VIDEO_UPLOAD_TO_PUBLIC_REPO=False)은 그대로 — 영상은 받지도 않음 (--no-video)
+#          (ALLOW_VIDEO_UPLOAD_TO_PUBLIC_REPO=False)은 그대로 — 영상은 받지도 않음 (--no-video))
 # (v2.9.2 — 2026-10-14 — 웹 화면이 결과를 먼저 올리고 음성인식은 뒤에서 (사용자 지시: "음성인식이랑 별개로 분석결과 낼 수 있잖아 …
 #          분석결과랑 자료 다 올려 그 다음 음성인식하라고 수정해"): ① 올리기 잠금 (.yt_work/push_<폴더>.lock — OS 파일 잠금, 프로세스가
 #          죽으면 풀림): 웹 화면의 올리기와 음성인식의 올리기가 같은 작업 폴더(_github_clone_<폴더>)를 동시에 지우던 것을 차례로
@@ -166,6 +171,8 @@ WHISPER_CPU_MAX_MINUTES = 15    # GPU 없이 실행 시 이 길이(분)를 넘�
 DEFER_WHISPER = False           # True(--defer-whisper): 분석 중에는 음성인식을 하지 않고 'whisper_pending' 표시 → --whisper-queue 가 하나씩
 WHISPER_QUEUE_CPU_MAX_MINUTES = 0   # 대기열(--whisper-queue)에서 GPU 없이 음성인식할 최대 길이(분). 0 = 제한 없음 (뒤에서 도니까)
 WHISPER_QUEUE_MAX_ATTEMPTS = 3  # 대기열에서 같은 영상 음성인식을 몇 번까지 다시 시도할지
+WHISPER_QUEUE_FIRST_SEC = 300  # 대기열 1차: 영상마다 앞 몇 초만 먼저 (도입부·초반 구성을 모든 성공 사례에서 빨리) → 2차에 끝까지. 0 = 처음부터 끝까지 (v2.10.0)
+WHISPER_QUEUE_PUSH_EVERY_MIN = 15  # 대기열이 GitHub 에 올리는 간격(분) — 차수가 끝날 때도 올림 (예전: 영상마다, v2.10.0)
 
 # ---- YouTube 봇 확인('Sign in to confirm you're not a bot') 대응 — 가정용 인터넷이면 보통 필요 없음 ----
 YTDLP_COOKIES_FILE = ""         # cookies.txt 경로. 비워두면 이 폴더의 cookies*.txt 를 자동으로 사용
@@ -350,7 +357,7 @@ import numpy as np
 import pandas as pd
 import requests
 
-NOTEBOOK_VERSION = "v2.9.3"
+NOTEBOOK_VERSION = "v2.10.0"
 KST = dt.timezone(dt.timedelta(hours=9))
 UTC = dt.timezone.utc
 IS_WINDOWS = os.name == "nt"
@@ -534,7 +541,7 @@ CONFIG_KEYS = [
     "MAX_CASES_PER_CHANNEL", "DOWNLOAD_VIDEOS", "VIDEO_MAX_HEIGHT", "VIDEO_MAX_MB", "ALLOW_VIDEO_UPLOAD_TO_PUBLIC_REPO",
     "UPLOAD_CASES_TO_PUBLIC_REPO",
     "USE_WHISPER_FALLBACK", "WHISPER_MODEL", "WHISPER_CPU_MAX_MINUTES", "DEFER_WHISPER", "WHISPER_QUEUE_CPU_MAX_MINUTES",
-    "WHISPER_QUEUE_MAX_ATTEMPTS", "YTDLP_COOKIES_FILE",
+    "WHISPER_QUEUE_MAX_ATTEMPTS", "WHISPER_QUEUE_FIRST_SEC", "WHISPER_QUEUE_PUSH_EVERY_MIN", "YTDLP_COOKIES_FILE",
     "COOKIES_FROM_BROWSER", "YTDLP_CLIENT_FALLBACK", "YTDLP_MAX_BOT_BLOCKS",
     "PUSH_TO_GITHUB", "CLEAN_OLD_RESULTS", "OUTPUT_DIR", "OPEN_RESULT_FOLDER", "MAKE_RESULT_ZIP",
     "AUTO_INSTALL_PACKAGES", "UPDATE_YTDLP_DAILY", "CACHE_TTL_HOURS", "RANDOM_SEED", "LOG_LEVEL", "RUN_SELF_TEST",
@@ -3118,8 +3125,11 @@ def transcript_via_ytdlp(video_id, langs, tmp_dir, cfg):
 _WHISPER = {}
 
 
-def transcript_via_whisper(media_path, cfg, duration_sec):
+def transcript_via_whisper(media_path, cfg, duration_sec, max_sec=None):
+    """max_sec (v2.10.0): 앞 max_sec 초만 (음성인식 대기열 1차 — 도입부·초반 구성을 빨리)."""
     from faster_whisper import WhisperModel
+    if max_sec:
+        duration_sec = min(duration_sec or max_sec, max_sec)
     try:
         import ctranslate2
         cuda = ctranslate2.get_cuda_device_count() > 0
@@ -3134,8 +3144,8 @@ def transcript_via_whisper(media_path, cfg, duration_sec):
         raise RuntimeError("ffmpeg 없음 → pip install imageio-ffmpeg 후 다시 실행")
     t0 = time.perf_counter()
     # 오디오는 ffmpeg로 직접 디코딩(16kHz mono) → PyAV 버전 호환성 문제 회피
-    pcm = subprocess.run([ff, "-nostdin", "-loglevel", "error", "-i", str(media_path), "-f", "s16le", "-ac", "1",
-                          "-ar", "16000", "-"], capture_output=True, check=True).stdout
+    pcm = subprocess.run([ff, "-nostdin", "-loglevel", "error", "-i", str(media_path)] + (["-t", str(int(max_sec))] if max_sec else [])
+                         + ["-f", "s16le", "-ac", "1", "-ar", "16000", "-"], capture_output=True, check=True).stdout
     audio = np.frombuffer(pcm, np.int16).astype(np.float32) / 32768.0
 
     def _model(use_cuda):
@@ -4736,9 +4746,17 @@ def run_self_test(cfg):
         (sc / "metadata.json").write_text(json.dumps({"video_id": "v1", "duration_sec": 600,
                                                       "download_status": {"transcript": "whisper_pending"}}), "utf-8")
         q_items = speech_queue_items({"PROJECT_FOLDER": "t", "RESULT_FOLDER": "result"}, tb / "out", base=tb)
+        # v2.10.0: 성공 사례(analysis.json #) 먼저 · 2차 = 앞부분만 한 대본(partial_sec)
+        (od / "analysis.json").write_text(json.dumps({"success_cases": [{"no": 1, "id": "wwwwwwwwwww"}, {"no": 2, "id": "pp"}]}), "utf-8")
+        q_succ = speech_queue_items({"PROJECT_FOLDER": "t", "RESULT_FOLDER": "result"}, tb / "out", base=tb)
+        (od / "02_bb" / "transcript.json").write_text(json.dumps({"lang": "ko(음성인식)", "partial_sec": 300, "snippets": []}), "utf-8")
+        q_part = speech_queue_items({"PROJECT_FOLDER": "t", "RESULT_FOLDER": "result"}, tb / "out", base=tb, partial=True)
     check("음성인식 대기열 고르기 (01·02·06 → P01 → 웹 W_ → 분석기; 자막 서버 차단은 넣고 연결 실패·자막 있음·건너뜀은 뺌)",
           [i_["video_id"] for i_ in q_items] == ["bb", "ff", "pp", "wwwwwwwwwww", "v1"]
           and q_items[0]["duration_sec"] == 720, order=[i_["video_id"] for i_ in q_items])
+    check("음성인식 차례: 성공 사례 먼저 · 2차는 앞부분만 한 대본만 (v2.10.0)",
+          [i_["video_id"] for i_ in q_succ] == ["wwwwwwwwwww", "pp", "bb", "ff", "v1"] and [i_["video_id"] for i_ in q_part] == ["bb"],
+          order=[i_["video_id"] for i_ in q_succ], partial=[i_["video_id"] for i_ in q_part])
     # v2.9.0: 자막 서버 차단 쉬기 — 연속 2번 막히면 6시간 쉼, 받으면 이어진 횟수 0 (모든 도구가 같은 파일)
     global BASE_DIR
     saved_base = BASE_DIR
@@ -4915,33 +4933,54 @@ OUTLIER_CASE_RX = re.compile(r"^(P?)(\d\d)_(.+)$")
 WEB_CASE_RX = re.compile(r"^W_([0-9A-Za-z_-]{11})$")     # 웹 화면(tools/web_ui.py)에서 승인한 영상 (v2.9.0)
 
 
-def speech_queue_items(cfg, out_dir, base=None):
+def _success_order(od):
+    """성공 사례 순서 (tools/success_analysis.py 의 analysis.json — 배수 큰 순 #) → {영상ID: #} (v2.10.0 — 성공 사례를 먼저)."""
+    try:
+        a = json.loads((Path(od) / "analysis.json").read_text("utf-8"))
+        return {c["id"]: int(c["no"]) for c in a.get("success_cases") or [] if c.get("id")}
+    except (OSError, ValueError, KeyError, TypeError):
+        return {}
+
+
+def speech_queue_items(cfg, out_dir, base=None, partial=False):
     """음성인식 대기열 (v2.7.0): 자막을 못 받은 영상 — ① 작은 채널 성공 사례 01_… ② 조회수 상위 P01_… ③ 웹 화면에서 승인한 W_<영상ID>
     (tools/outlier_research.py·tools/web_ui.py — 자막 없음·자막 서버 차단(IpBlocked 등, v2.9.0); 연결 자체 실패만 그 도구가 다음 회차에 다시)
     ④ 분석기 성공사례 중 'whisper_pending'. → 차례대로 목록."""
     items = []
     od = (base or BASE_DIR) / cfg["PROJECT_FOLDER"] / cfg["RESULT_FOLDER"] / OUTLIERS_DIR
+    success_no = _success_order(od)
     if od.is_dir():
         found = []
         for d in od.iterdir():
             m = OUTLIER_CASE_RX.match(d.name)
             web = WEB_CASE_RX.match(d.name)
-            if not (d.is_dir() and (m or web) and (d / "metadata.json").is_file()) or (d / "transcript.json").is_file():
+            if not (d.is_dir() and (m or web) and (d / "metadata.json").is_file()):
+                continue
+            tj = d / "transcript.json"
+            if partial:                                   # v2.10.0: 2차 = 앞부분만 받은 영상 (partial_sec)
+                try:
+                    if not (tj.is_file() and json.loads(tj.read_text("utf-8")).get("partial_sec")):
+                        continue
+                except (OSError, ValueError):
+                    continue
+            elif tj.is_file():
                 continue
             try:
                 meta = json.loads((d / "metadata.json").read_text("utf-8"))
             except ValueError:
                 continue
             st = str(meta.get("transcript_status") or "")
-            if st == "ok" or st.startswith(("건너뜀", "확인 안 함")) or any(w in st for w in NETWORK_FAIL_WORDS):
+            if not partial and (st == "ok" or st.startswith(("건너뜀", "확인 안 함")) or any(w in st for w in NETWORK_FAIL_WORDS)):
                 continue
-            order = (2, 0) if web else (1 if m.group(1) else 0, int(m.group(2)))     # 01 → P01 → 웹 화면 W_
-            found.append((*order, {
-                "kind": "outlier", "dir": d, "video_id": meta.get("id") or (web.group(1) if web else m.group(3)), "title": meta.get("title"),
+            vid = meta.get("id") or (web.group(1) if web else m.group(3))
+            # 차례 (v2.10.0): 성공 사례(analysis.json #) 먼저 → 01 → P01 → 웹 화면 W_ (이름순)
+            order = (0, success_no[vid]) if vid in success_no else ((3, 0) if web else (1 if not m.group(1) else 2, int(m.group(2))))
+            found.append((*order, d.name, {
+                "kind": "outlier", "dir": d, "video_id": vid, "title": meta.get("title"), "success_no": success_no.get(vid),
                 "duration_sec": float(meta.get("minutes") or 0) * 60, "reason": st}))
-        items += [it for _, _, it in sorted(found, key=lambda x: (x[0], x[1]))]
+        items += [it for _, _, _, it in sorted(found, key=lambda x: (x[0], x[1], x[2]))]
     sc = Path(out_dir) / "success_cases"
-    if sc.is_dir():
+    if sc.is_dir() and not partial:
         for d in sorted(sc.iterdir()):
             mp = d / "metadata.json"
             if not mp.is_file():
@@ -4973,8 +5012,11 @@ def whisper_queue(cfg, keys, push=True):
 
 
 def _whisper_queue_run(cfg, keys, push=True):
-    """--whisper-queue (v2.7.0): 대기열 영상을 하나씩 — 소리만 받아 Whisper → 대본 파일 → (성공 사례면 요약 다시 만들기) → 바로 GitHub.
-    실패하면 기록하고 다음 영상 (같은 영상은 WHISPER_QUEUE_MAX_ATTEMPTS 번까지). 영상·소리 파일은 남기지 않음."""
+    """--whisper-queue (v2.7.0 · v2.10.0): 대기열 영상을 하나씩 — 소리만 받아 Whisper → 대본 파일 → (성공 사례면 요약 다시 만들기) → GitHub.
+    v2.10.0: ① 1차 = 앞 WHISPER_QUEUE_FIRST_SEC 초(기본 5분)만 — 도입부·초반 구성을 모든 영상에서 빨리 (transcript.json 의 partial_sec)
+    ② 2차 = 1차가 끝난 영상을 끝까지 ③ 차례 = 성공 사례(analysis.json 순서) 먼저 ④ 올리기는 WHISPER_QUEUE_PUSH_EVERY_MIN 분마다 + 차수 끝에
+    (예전: 영상마다 — 저장소가 커져 올리기마다 오래 걸림). 실패하면 기록하고 다음 영상 (같은 영상·같은 차수는 WHISPER_QUEUE_MAX_ATTEMPTS 번까지).
+    영상·소리 파일은 남기지 않음."""
     cfg = dict(cfg)
     cfg["PROJECT_FOLDER"] = sanitize_folder(cfg["PROJECT_FOLDER"], "PROJECT_FOLDER")
     cfg["RESULT_FOLDER"] = sanitize_folder(cfg["RESULT_FOLDER"], "RESULT_FOLDER")
@@ -4993,79 +5035,106 @@ def _whisper_queue_run(cfg, keys, push=True):
         state = {}
     ctx = RunContext(cfg=cfg, run_id=dt.datetime.now(KST).strftime("%Y%m%d_%H%M%S"), started_at=dt.datetime.now(UTC), work_dir=work,
                      out_dir=out_dir, cache=JsonCache(work / "cache", cfg["CACHE_TTL_HOURS"]), output_root=output_root)
-    items = [it for it in speech_queue_items(cfg, out_dir)
-             if (state.get(it["video_id"]) or {}).get("attempts", 0) < cfg["WHISPER_QUEUE_MAX_ATTEMPTS"]]
-    log("WHISPER", "음성인식 대기열", items=len(items), model=cfg["WHISPER_MODEL"],
-        outlier=sum(1 for i in items if i["kind"] == "outlier"), analyzer=sum(1 for i in items if i["kind"] == "analyzer"),
-        given_up=sum(1 for v in state.values() if not v.get("done") and v.get("attempts", 0) >= cfg["WHISPER_QUEUE_MAX_ATTEMPTS"]))
-    if not items:
-        return 0
-    refresh_download_auth(ctx, proxy=keys.get("YTDLP_PROXY", ""))
-    done = failed = 0
-    for n, it in enumerate(items, 1):
-        vid, t0 = it["video_id"], time.perf_counter()
-        rec = state.setdefault(vid, {"attempts": 0})
-        rec["attempts"] += 1
-        tmp = work / "tmp" / tag / f"whisper_{vid}"
-        tmp.mkdir(parents=True, exist_ok=True)
-        log("WHISPER", f"{n}/{len(items)} 시작", video_id=vid, kind=it["kind"], minutes=round(it["duration_sec"] / 60, 1),
-            attempt=rec["attempts"], title=str(it.get("title") or "")[:40])
-        try:
-            src = ytdlp_download(vid, tmp, cfg, audio_only=True)       # 소리만 (영상 파일은 받지 않음)
-            segs, meta = transcript_via_whisper(src, cfg, it["duration_sec"])
-            if not segs:
-                raise RuntimeError("음성인식 결과가 비어 있음 (말소리 없음?)")
-        except Exception as e:
-            rec.update(error=f"{type(e).__name__}: {str(e)[:200]}", last=dt.datetime.now(KST).isoformat(timespec="minutes"))
+    first_sec = int(cfg.get("WHISPER_QUEUE_FIRST_SEC") or 0)
+    every_sec = max(0.0, float(cfg.get("WHISPER_QUEUE_PUSH_EVERY_MIN") or 0)) * 60
+    totals = {"done": 0, "failed": 0, "pushed_at": time.monotonic(), "unpushed": 0}
+
+    def key_of(vid, mode):
+        return f"{vid}#full" if mode == "full2" else vid          # 2차(전체)는 따로 셈 — 1차와 시도 횟수가 섞이지 않게
+
+    def do_push(why):
+        if not (push and cfg["PUSH_TO_GITHUB"]) or not totals["unpushed"]:
+            return
+        code = push_only(cfg, keys, message=f"음성인식 대본 {why}")
+        setup_logging(cfg["LOG_LEVEL"], work / f"whisper_log_{tag}.txt")
+        log("WHISPER", "올림" if code == 0 else "올리기 실패 (다음에 다시 올라감)", level="INFO" if code == 0 else "WARNING", why=why)
+        if code == 0:
+            totals["unpushed"] = 0
+            totals["pushed_at"] = time.monotonic()
+
+    def run_pass(items, mode, label):
+        """mode: 'first'(앞 first_sec 초) · 'full'(처음부터 끝까지 — 1차를 안 쓸 때) · 'full2'(1차 끝난 영상을 끝까지)."""
+        items = [it for it in items if (state.get(key_of(it["video_id"], mode)) or {}).get("attempts", 0) < cfg["WHISPER_QUEUE_MAX_ATTEMPTS"]]
+        log("WHISPER", "음성인식 대기열", items=len(items), model=cfg["WHISPER_MODEL"], pass_=label,
+            outlier=sum(1 for i in items if i["kind"] == "outlier"), analyzer=sum(1 for i in items if i["kind"] == "analyzer"),
+            success_first=sum(1 for i in items if i.get("success_no")),
+            given_up=sum(1 for v in state.values() if not v.get("done") and v.get("attempts", 0) >= cfg["WHISPER_QUEUE_MAX_ATTEMPTS"]))
+        if not items:
+            return
+        refresh_download_auth(ctx, proxy=keys.get("YTDLP_PROXY", ""))
+        for n, it in enumerate(items, 1):
+            vid, t0 = it["video_id"], time.perf_counter()
+            rec = state.setdefault(key_of(vid, mode), {"attempts": 0})
+            rec["attempts"] += 1
+            max_sec = first_sec if mode == "first" and it["kind"] == "outlier" else None
+            tmp = work / "tmp" / tag / f"whisper_{vid}"
+            tmp.mkdir(parents=True, exist_ok=True)
+            log("WHISPER", f"{n}/{len(items)} 시작", video_id=vid, kind=it["kind"], minutes=round(it["duration_sec"] / 60, 1),
+                attempt=rec["attempts"], pass_=label, until_sec=max_sec or "끝", title=str(it.get("title") or "")[:40])
+            try:
+                src = ytdlp_download(vid, tmp, cfg, audio_only=True)       # 소리만 (영상 파일은 받지 않음)
+                segs, meta = transcript_via_whisper(src, cfg, it["duration_sec"], max_sec=max_sec)
+                if not segs:
+                    raise RuntimeError("음성인식 결과가 비어 있음 (말소리 없음?)")
+            except Exception as e:
+                rec.update(error=f"{type(e).__name__}: {str(e)[:200]}", last=dt.datetime.now(KST).isoformat(timespec="minutes"))
+                state_p.write_text(json.dumps(state, ensure_ascii=False, indent=1), "utf-8")
+                totals["failed"] += 1
+                log("WHISPER", f"{n}/{len(items)} 실패 — 다음 영상으로", level="WARNING", video_id=vid, error=rec["error"],
+                    next_try="다음 회차" if rec["attempts"] < cfg["WHISPER_QUEUE_MAX_ATTEMPTS"] else "포기 (시도 한도)")
+                continue
+            finally:
+                rmtree_force(tmp)                                           # 소리 파일은 남기지 않음
+            d = it["dir"]
+            partial = bool(max_sec) and it["duration_sec"] > max_sec + 5
+            if it["kind"] == "outlier":     # tools/outlier_research.py 형식 → 그 도구가 요약·메타데이터를 다시 만듦 (할당량 0)
+                snips = [{"text": x["text"], "start": x["start"], "duration": x["duration"]} for x in segs]
+                tj = {"lang": f"{meta['language']}(음성인식)", "snippets": snips, "source": meta.get("source")}
+                if partial:
+                    tj["partial_sec"] = max_sec                             # 앞부분만 — 2차가 끝까지 다시
+                (d / "transcript.json").write_text(json.dumps(tj, ensure_ascii=False), "utf-8")
+                (d / "transcript.txt").write_text(("" if not partial else f"[앞 {max_sec // 60}분만 — 전체는 2차 음성인식에서]\n")
+                                                  + "\n".join(f"[{x['start']:7.1f}] {x['text']}" for x in snips), "utf-8")
+            else:                            # 분석기 성공사례 형식
+                m = it["meta"]
+                row = {"title": m.get("title"), "video_id": vid, "channel_title": m.get("channel_title"), "views": m.get("views"),
+                       "published_at": m.get("published_at")}
+                write_transcript(d, segs, meta, row)
+                ds = m.setdefault("download_status", {})
+                ds.update(transcript=meta["source"], transcript_lang=meta["language"], whisper_done=dt.datetime.now(KST).isoformat(timespec="minutes"),
+                          **transcript_stats(segs, it["duration_sec"], m.get("fmt") or "long"))
+                (d / "metadata.json").write_text(json.dumps(m, ensure_ascii=False, indent=2), "utf-8")
+            rec.update(done=True, partial=partial, error=None, elapsed_sec=round(time.perf_counter() - t0, 1), segments=len(segs))
             state_p.write_text(json.dumps(state, ensure_ascii=False, indent=1), "utf-8")
-            failed += 1
-            log("WHISPER", f"{n}/{len(items)} 실패 — 다음 영상으로", level="WARNING", video_id=vid, error=rec["error"],
-                next_try="다음 회차" if rec["attempts"] < cfg["WHISPER_QUEUE_MAX_ATTEMPTS"] else "포기 (시도 한도)")
-            continue
-        finally:
-            rmtree_force(tmp)                                           # 소리 파일은 남기지 않음
-        d = it["dir"]
-        if it["kind"] == "outlier":     # tools/outlier_research.py 형식 → 그 도구가 요약·메타데이터를 다시 만듦 (할당량 0)
-            snips = [{"text": x["text"], "start": x["start"], "duration": x["duration"]} for x in segs]
-            (d / "transcript.json").write_text(json.dumps({"lang": f"{meta['language']}(음성인식)", "snippets": snips,
-                                                           "source": meta.get("source")}, ensure_ascii=False), "utf-8")
-            (d / "transcript.txt").write_text("\n".join(f"[{x['start']:7.1f}] {x['text']}" for x in snips), "utf-8")
-        else:                            # 분석기 성공사례 형식
-            m = it["meta"]
-            row = {"title": m.get("title"), "video_id": vid, "channel_title": m.get("channel_title"), "views": m.get("views"),
-                   "published_at": m.get("published_at")}
-            write_transcript(d, segs, meta, row)
-            ds = m.setdefault("download_status", {})
-            ds.update(transcript=meta["source"], transcript_lang=meta["language"], whisper_done=dt.datetime.now(KST).isoformat(timespec="minutes"),
-                      **transcript_stats(segs, it["duration_sec"], m.get("fmt") or "long"))
-            (d / "metadata.json").write_text(json.dumps(m, ensure_ascii=False, indent=2), "utf-8")
-        rec.update(done=True, error=None, elapsed_sec=round(time.perf_counter() - t0, 1), segments=len(segs))
-        state_p.write_text(json.dumps(state, ensure_ascii=False, indent=1), "utf-8")
-        orx = BASE_DIR / "tools" / "outlier_research.py"
-        if orx.is_file() and (BASE_DIR / cfg["PROJECT_FOLDER"] / "analyzer_config.toml").is_file():   # 요약·받은 자료 표 다시 (할당량 0)
-            r = subprocess.run([sys.executable, str(orx), cfg["PROJECT_FOLDER"], "--offline", "--log-level", "WARNING"], cwd=BASE_DIR,
-                               capture_output=True, text=True, encoding="utf-8", errors="replace")
-            if r.returncode not in (0, 3):
-                log("WHISPER", "요약·받은 자료 표 다시 만들기 실패 (대본 파일은 저장됨)", level="WARNING", code=r.returncode,
-                    out=(r.stdout + r.stderr)[-300:])
-        wkx = BASE_DIR / "tools" / "weekly_analysis.py"
-        od_ = BASE_DIR / cfg["PROJECT_FOLDER"] / cfg["RESULT_FOLDER"] / OUTLIERS_DIR
-        has_web = od_.is_dir() and any(WEB_CASE_RX.match(x.name) for x in od_.iterdir())
-        if wkx.is_file() and has_web:                    # v2.9.1: 웹 화면 사례가 있으면 주별 분석도 다시
-            r = subprocess.run([sys.executable, str(wkx), cfg["PROJECT_FOLDER"], "--log-level", "WARNING"], cwd=BASE_DIR,
-                               capture_output=True, text=True, encoding="utf-8", errors="replace")
-            if r.returncode != 0:
-                log("WHISPER", "주별 분석 다시 만들기 실패 (대본 파일은 저장됨)", level="WARNING", out=(r.stdout + r.stderr)[-300:])
-        state_p.write_text(json.dumps(state, ensure_ascii=False, indent=1), "utf-8")
-        done += 1
-        log("WHISPER", f"{n}/{len(items)} 끝", video_id=vid, segments=len(segs), elapsed_sec=rec["elapsed_sec"])
-        if push and cfg["PUSH_TO_GITHUB"]:
-            code = push_only(cfg, keys, message=f"음성인식 대본 {vid} ({n}/{len(items)})")
-            setup_logging(cfg["LOG_LEVEL"], work / f"whisper_log_{tag}.txt")
-            log("WHISPER", f"{n}/{len(items)} 올림" if code == 0 else f"{n}/{len(items)} 올리기 실패 (다음 영상 뒤에 다시 올라감)",
-                level="INFO" if code == 0 else "WARNING", video_id=vid)
-    log("WHISPER", "대기열 끝", done=done, failed=failed, total=len(items))
-    return 0 if not failed else 3
+            orx = BASE_DIR / "tools" / "outlier_research.py"
+            if orx.is_file() and (BASE_DIR / cfg["PROJECT_FOLDER"] / "analyzer_config.toml").is_file():   # 요약·받은 자료 표 다시 (할당량 0)
+                r = subprocess.run([sys.executable, str(orx), cfg["PROJECT_FOLDER"], "--offline", "--log-level", "WARNING"], cwd=BASE_DIR,
+                                   capture_output=True, text=True, encoding="utf-8", errors="replace")
+                if r.returncode not in (0, 3):
+                    log("WHISPER", "요약·받은 자료 표 다시 만들기 실패 (대본 파일은 저장됨)", level="WARNING", code=r.returncode,
+                        out=(r.stdout + r.stderr)[-300:])
+            wkx = BASE_DIR / "tools" / "weekly_analysis.py"
+            od_ = BASE_DIR / cfg["PROJECT_FOLDER"] / cfg["RESULT_FOLDER"] / OUTLIERS_DIR
+            has_web = od_.is_dir() and any(WEB_CASE_RX.match(x.name) for x in od_.iterdir())
+            if wkx.is_file() and has_web:                    # v2.9.1: 웹 화면 사례가 있으면 주별·성공 사례 분석도 다시
+                r = subprocess.run([sys.executable, str(wkx), cfg["PROJECT_FOLDER"], "--log-level", "WARNING"], cwd=BASE_DIR,
+                                   capture_output=True, text=True, encoding="utf-8", errors="replace")
+                if r.returncode != 0:
+                    log("WHISPER", "주별 분석 다시 만들기 실패 (대본 파일은 저장됨)", level="WARNING", out=(r.stdout + r.stderr)[-300:])
+            totals["done"] += 1
+            totals["unpushed"] += 1
+            log("WHISPER", f"{n}/{len(items)} 끝", video_id=vid, segments=len(segs), elapsed_sec=rec["elapsed_sec"], partial=partial)
+            if time.monotonic() - totals["pushed_at"] >= every_sec:
+                do_push(f"{label} {n}/{len(items)} ({vid})")
+        do_push(f"{label} 끝")
+
+    if first_sec > 0:
+        run_pass(speech_queue_items(cfg, out_dir), "first", f"1차(앞 {first_sec // 60}분)")
+        run_pass(speech_queue_items(cfg, out_dir, partial=True), "full2", "2차(전체)")
+    else:
+        run_pass(speech_queue_items(cfg, out_dir), "full", "전체")
+    log("WHISPER", "대기열 끝", done=totals["done"], failed=totals["failed"])
+    return 0 if not totals["failed"] else 3
 
 
 def load_config(args, create_missing=True):

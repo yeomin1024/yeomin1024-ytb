@@ -1,0 +1,65 @@
+{
+ "id": "t6NrbgrRE_k",
+ "title": "반드시 부자되는 신혼부부의 3가지 공통점 (부자되는 방법)",
+ "channel": "해쏘현_신혼부부 재테크",
+ "channel_id": "UCVIB6JMy4MW5b8yl4TA04YA",
+ "subs": 26400,
+ "views": 89264,
+ "ratio": 3.38,
+ "age_days": 51,
+ "views_per_day": 1750.3,
+ "minutes": 11.9,
+ "likes": 723,
+ "comments": 100,
+ "published": "2026-08-23",
+ "queries": "검색:부자되는법",
+ "url": "https://www.youtube.com/watch?v=t6NrbgrRE_k",
+ "flag": "",
+ "published_at": "2026-08-23T10:00:20Z",
+ "rank": "W36",
+ "set": "web",
+ "folder": "W_t6NrbgrRE_k",
+ "sources": [
+  "검색:부자되는법"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 50,
+   "title": "부부가 한 방향으로 돈을 굴린다"
+  },
+  {
+   "start": 210,
+   "title": "오를 곳을 고르는 방법"
+  },
+  {
+   "start": 413,
+   "title": "남들이 망설일 때 실행한다"
+  },
+  {
+   "start": 534,
+   "title": "클로징"
+  },
+  {
+   "start": 675,
+   "title": "요즘 근황"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-14 19:49까지 자막 요청을 쉼 → 음성인식",
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 100,
+ "tool": "outlier_research.py v2.0.2",
+ "collected": "2026-10-14T15:19:37",
+ "approved": "2026-10-14T15:19+09:00"
+}

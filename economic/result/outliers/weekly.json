@@ -1,0 +1,7062 @@
+{
+ "tool": "weekly_analysis.py v1.2.1",
+ "topic": "economic",
+ "name": "재테크",
+ "generated": "2026-10-14T06:19:48+00:00",
+ "cases": 88,
+ "dated": 88,
+ "older_than_windows": 0,
+ "max_weeks": 52,
+ "text_sources": {
+  "자막": 0,
+  "음성인식": 0,
+  "설명": 87,
+  "없음": 1
+ },
+ "criteria": "성공 사례 = 구독자 50,000 이하 · 조회수 10,000 이상 · 조회수 ≥ 구독자 × 3",
+ "windows": [
+  {
+   "weeks": 1,
+   "label": "최근 1주",
+   "videos": 1,
+   "channels": 1,
+   "new_this_week": [
+    {
+     "id": "gA4FS4OwUJU",
+     "title": "아직도 주식에만 올인하시나요? 완벽한 노후 포트폴리오 공개",
+     "published": "2026-10-13"
+    }
+   ],
+   "views_median": 42110,
+   "views_per_day_median": 42110.0,
+   "ratio_median": 0.35,
+   "success": 0,
+   "minutes_median": 14.8,
+   "title_len_avg": 32.0,
+   "title_features": [
+    {
+     "name": "물음표 ?",
+     "count": 1,
+     "share": 1.0
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 1,
+     "share": 1.0
+    }
+   ],
+   "title_words": [],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 1,
+    "없음": 0
+   },
+   "content_words": [],
+   "chapters_share": 1.0,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "gA4FS4OwUJU",
+     "title": "아직도 주식에만 올인하시나요? 완벽한 노후 포트폴리오 공개",
+     "src": "설명",
+     "hook": "S&P500을 20년 모아도 은퇴 후에는 부족할 수 있습니다. 배당 1,000만 원을 받았는데 계좌는 마이너스인 이유, 60세 퇴직과 65세 연금 사이 5년 공백, 주식이 30% 빠져도 생활비가 끊기지 않는 배치법까지 정리했습니다. 이 영상에서 다루는 것 내 노후에 매달 얼마가 비는지 "
+    }
+   ],
+   "comments": 0,
+   "comment_needs": [],
+   "top_comments": [],
+   "top_videos": [
+    {
+     "id": "gA4FS4OwUJU",
+     "title": "아직도 주식에만 올인하시나요? 완벽한 노후 포트폴리오 공개",
+     "channel": "경제해적단",
+     "views": 42110,
+     "views_per_day": 42110.0,
+     "published": "2026-10-13",
+     "url": "https://www.youtube.com/watch?v=gA4FS4OwUJU"
+    }
+   ]
+  },
+  {
+   "weeks": 2,
+   "label": "최근 2주",
+   "videos": 1,
+   "channels": 1,
+   "new_this_week": [],
+   "views_median": 42110,
+   "views_per_day_median": 42110.0,
+   "ratio_median": 0.35,
+   "success": 0,
+   "minutes_median": 14.8,
+   "title_len_avg": 32.0,
+   "title_features": [
+    {
+     "name": "물음표 ?",
+     "count": 1,
+     "share": 1.0
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 1,
+     "share": 1.0
+    }
+   ],
+   "title_words": [],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 1,
+    "없음": 0
+   },
+   "content_words": [],
+   "chapters_share": 1.0,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "gA4FS4OwUJU",
+     "title": "아직도 주식에만 올인하시나요? 완벽한 노후 포트폴리오 공개",
+     "src": "설명",
+     "hook": "S&P500을 20년 모아도 은퇴 후에는 부족할 수 있습니다. 배당 1,000만 원을 받았는데 계좌는 마이너스인 이유, 60세 퇴직과 65세 연금 사이 5년 공백, 주식이 30% 빠져도 생활비가 끊기지 않는 배치법까지 정리했습니다. 이 영상에서 다루는 것 내 노후에 매달 얼마가 비는지 "
+    }
+   ],
+   "comments": 0,
+   "comment_needs": [],
+   "top_comments": [],
+   "top_videos": [
+    {
+     "id": "gA4FS4OwUJU",
+     "title": "아직도 주식에만 올인하시나요? 완벽한 노후 포트폴리오 공개",
+     "channel": "경제해적단",
+     "views": 42110,
+     "views_per_day": 42110.0,
+     "published": "2026-10-13",
+     "url": "https://www.youtube.com/watch?v=gA4FS4OwUJU"
+    }
+   ]
+  },
+  {
+   "weeks": 3,
+   "label": "최근 3주",
+   "videos": 2,
+   "channels": 2,
+   "new_this_week": [
+    {
+     "id": "5TF8BKFWERo",
+     "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
+     "published": "2026-09-23"
+    }
+   ],
+   "views_median": 548646.5,
+   "views_per_day_median": 47038.2,
+   "ratio_median": 0.42,
+   "success": 0,
+   "minutes_median": 18.0,
+   "title_len_avg": 43.5,
+   "title_features": [
+    {
+     "name": "금액(억·만원)",
+     "count": 1,
+     "share": 0.5
+    },
+    {
+     "name": "두 금액(반전)",
+     "count": 1,
+     "share": 0.5
+    },
+    {
+     "name": "물음표 ?",
+     "count": 1,
+     "share": 0.5
+    },
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 1,
+     "share": 0.5
+    },
+    {
+     "name": "공통점",
+     "count": 1,
+     "share": 0.5
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 1,
+     "share": 0.5
+    }
+   ],
+   "title_words": [],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 2,
+    "없음": 0
+   },
+   "content_words": [
+    {
+     "word": "매달",
+     "count": 2
+    },
+    {
+     "word": "모으는",
+     "count": 2
+    },
+    {
+     "word": "실제",
+     "count": 2
+    }
+   ],
+   "chapters_share": 0.5,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "5TF8BKFWERo",
+     "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
+     "src": "설명",
+     "hook": "구해줘월급 타임라인 용기내어 고민 남겨주신 사연자 분께 선플 부탁드립니다:) 📍딱 한 번 세팅으로, 가장 빠르게 1억 모으는 방법 [잔쟈니, 너나위의 종잣돈 모으기 기초반]이 궁금하다면? 빠듯한 월급의 공무원도, 두 아이 키우는 외벌이도, 통장 세팅 하나로 매달 100만원 더 모았어요."
+    },
+    {
+     "id": "gA4FS4OwUJU",
+     "title": "아직도 주식에만 올인하시나요? 완벽한 노후 포트폴리오 공개",
+     "src": "설명",
+     "hook": "S&P500을 20년 모아도 은퇴 후에는 부족할 수 있습니다. 배당 1,000만 원을 받았는데 계좌는 마이너스인 이유, 60세 퇴직과 65세 연금 사이 5년 공백, 주식이 30% 빠져도 생활비가 끊기지 않는 배치법까지 정리했습니다. 이 영상에서 다루는 것 내 노후에 매달 얼마가 비는지 "
+    }
+   ],
+   "comments": 0,
+   "comment_needs": [],
+   "top_comments": [],
+   "top_videos": [
+    {
+     "id": "5TF8BKFWERo",
+     "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
+     "channel": "월급쟁이부자들TV",
+     "views": 1055183,
+     "views_per_day": 51966.4,
+     "published": "2026-09-23",
+     "url": "https://www.youtube.com/watch?v=5TF8BKFWERo"
+    },
+    {
+     "id": "gA4FS4OwUJU",
+     "title": "아직도 주식에만 올인하시나요? 완벽한 노후 포트폴리오 공개",
+     "channel": "경제해적단",
+     "views": 42110,
+     "views_per_day": 42110.0,
+     "published": "2026-10-13",
+     "url": "https://www.youtube.com/watch?v=gA4FS4OwUJU"
+    }
+   ]
+  },
+  {
+   "weeks": 4,
+   "label": "최근 4주",
+   "videos": 9,
+   "channels": 9,
+   "new_this_week": [
+    {
+     "id": "5kBEU3V3ZXY",
+     "title": "본인도 모르는 사이에 남몰래 부자가 되고 있다는 5가지 신호",
+     "published": "2026-09-17"
+    },
+    {
+     "id": "eFsT1K_mPjc",
+     "title": "안 팔릴수록 부자되는 '동네 금은방'의 소름돋는 수익구조",
+     "published": "2026-09-16"
+    },
+    {
+     "id": "LALHM41PKzY",
+     "title": "현실적인 2030 재테크",
+     "published": "2026-09-19"
+    },
+    {
+     "id": "q1fYjAwma3s",
+     "title": "[풀영상] 월급 10%로 당장 시작하는 존리의 자산 증식 치트키",
+     "published": "2026-09-17"
+    },
+    {
+     "id": "TKBAsjZgVWU",
+     "title": "조용한 부자들이 절대 입에 담지 않는 7가지 — 돈 있는 사람의 진짜 습관 ㅣ시니어ㅣ오디오북ㅣ노후준비ㅣ심리학ㅣ",
+     "published": "2026-09-16"
+    },
+    {
+     "id": "vD6oAnU4ZPo",
+     "title": "\"돈 버는 규칙은 따로 있어요.\" 1300억 부자가 추천하는 단 한권의 책/인생책/레버리지 몰아보기",
+     "published": "2026-09-22"
+    },
+    {
+     "id": "vmjGJVCfwhk",
+     "title": "신혼부부가 돈 못 모으는 이유...결혼 후 돈 관리 이렇게 하세요(김경필 머니트레이너)ㅣ보라언니동생 EP.04",
+     "published": "2026-09-22"
+    }
+   ],
+   "views_median": 203470,
+   "views_per_day_median": 14945.8,
+   "ratio_median": 22.6,
+   "success": 6,
+   "minutes_median": 20.0,
+   "title_len_avg": 41.8,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 4,
+     "share": 0.444
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 2,
+     "share": 0.222
+    },
+    {
+     "name": "N가지",
+     "count": 2,
+     "share": 0.222
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 2,
+     "share": 0.222
+    },
+    {
+     "name": "두 금액(반전)",
+     "count": 1,
+     "share": 0.111
+    },
+    {
+     "name": "물음표 ?",
+     "count": 1,
+     "share": 0.111
+    },
+    {
+     "name": "공통점",
+     "count": 1,
+     "share": 0.111
+    },
+    {
+     "name": "이유",
+     "count": 1,
+     "share": 0.111
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 1,
+     "share": 0.111
+    },
+    {
+     "name": "vs 비교",
+     "count": 1,
+     "share": 0.111
+    },
+    {
+     "name": "빚투·신용·미수·레버리지·대출",
+     "count": 1,
+     "share": 0.111
+    }
+   ],
+   "title_words": [
+    {
+     "word": "부자가",
+     "count": 2
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 9,
+    "없음": 0
+   },
+   "content_words": [
+    {
+     "word": "돈을",
+     "count": 5
+    },
+    {
+     "word": "않는",
+     "count": 5
+    },
+    {
+     "word": "않습니다",
+     "count": 5
+    },
+    {
+     "word": "영상에서",
+     "count": 4
+    },
+    {
+     "word": "이유",
+     "count": 4
+    },
+    {
+     "word": "있을",
+     "count": 3
+    },
+    {
+     "word": "돈이",
+     "count": 3
+    },
+    {
+     "word": "부자가",
+     "count": 3
+    },
+    {
+     "word": "됩니다",
+     "count": 3
+    },
+    {
+     "word": "것입니다",
+     "count": 3
+    },
+    {
+     "word": "어떻게",
+     "count": 3
+    },
+    {
+     "word": "매달",
+     "count": 3
+    }
+   ],
+   "chapters_share": 0.444,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "5TF8BKFWERo",
+     "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
+     "src": "설명",
+     "hook": "구해줘월급 타임라인 용기내어 고민 남겨주신 사연자 분께 선플 부탁드립니다:) 📍딱 한 번 세팅으로, 가장 빠르게 1억 모으는 방법 [잔쟈니, 너나위의 종잣돈 모으기 기초반]이 궁금하다면? 빠듯한 월급의 공무원도, 두 아이 키우는 외벌이도, 통장 세팅 하나로 매달 100만원 더 모았어요."
+    },
+    {
+     "id": "gA4FS4OwUJU",
+     "title": "아직도 주식에만 올인하시나요? 완벽한 노후 포트폴리오 공개",
+     "src": "설명",
+     "hook": "S&P500을 20년 모아도 은퇴 후에는 부족할 수 있습니다. 배당 1,000만 원을 받았는데 계좌는 마이너스인 이유, 60세 퇴직과 65세 연금 사이 5년 공백, 주식이 30% 빠져도 생활비가 끊기지 않는 배치법까지 정리했습니다. 이 영상에서 다루는 것 내 노후에 매달 얼마가 비는지 "
+    },
+    {
+     "id": "LALHM41PKzY",
+     "title": "현실적인 2030 재테크",
+     "src": "설명",
+     "hook": "가만히 두면 최대 152만원 지원금 손해!🔥 전화 한 통으로 받을 수 있는 최대 152만원 지원금 약정 지났는데 그냥 두면 한 푼도 못 받고 손해예요! (인터넷TV 52 + 정수기 30 + 휴대폰 최대지원금 + 카드 20) 26년 9월 기준, 카드사 조건 변동 가능 아정당을 믿을 수 있"
+    }
+   ],
+   "comments": 520,
+   "comment_needs": [
+    {
+     "name": "칭찬·감사",
+     "count": 156,
+     "share": 0.3
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 83,
+     "share": 0.16
+    },
+    {
+     "name": "질문",
+     "count": 80,
+     "share": 0.154
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 66,
+     "share": 0.127
+    },
+    {
+     "name": "빚·신용·미수",
+     "count": 20,
+     "share": 0.038
+    },
+    {
+     "name": "2026 시장(폭락·불장·서킷)",
+     "count": 17,
+     "share": 0.033
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "했던 말 또 하고 또 하고 또 하고 하는건 진리이기 때문이고 그럼에도 말들을 드럽게 안들어먹기 때문이다",
+     "likes": 213
+    },
+    {
+     "text": "나도 조금 벌면, 떠벌려서 커피값이든 술값이든 돈을 내게 됨.... 조용히 있어야 한다는 걸 아는데도 자꾸 말하게 됨.....50대가 코앞인데 아직 덜 성숙한 것 같다.",
+     "likes": 87
+    },
+    {
+     "text": "제 나이가 현재 72세인데 존리 대표님 덕분에 노후대책을 완전히 하고 지금은 돈에 걱정없이 자유롭게 생활하고 있습니다  고맙습니다 \n퇴직하고 퇴직금으로 리딩방 따라 다니다가 그사람들한테 속아서 실패하고 있을 때  우",
+     "likes": 77
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "5TF8BKFWERo",
+     "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
+     "channel": "월급쟁이부자들TV",
+     "views": 1055183,
+     "views_per_day": 51966.4,
+     "published": "2026-09-23",
+     "url": "https://www.youtube.com/watch?v=5TF8BKFWERo"
+    },
+    {
+     "id": "gA4FS4OwUJU",
+     "title": "아직도 주식에만 올인하시나요? 완벽한 노후 포트폴리오 공개",
+     "channel": "경제해적단",
+     "views": 42110,
+     "views_per_day": 42110.0,
+     "published": "2026-10-13",
+     "url": "https://www.youtube.com/watch?v=gA4FS4OwUJU"
+    },
+    {
+     "id": "LALHM41PKzY",
+     "title": "현실적인 2030 재테크",
+     "channel": "머니코믹스 Money Comics",
+     "views": 710390,
+     "views_per_day": 28542.8,
+     "published": "2026-09-19",
+     "url": "https://www.youtube.com/watch?v=LALHM41PKzY"
+    },
+    {
+     "id": "eFsT1K_mPjc",
+     "title": "안 팔릴수록 부자되는 '동네 금은방'의 소름돋는 수익구조",
+     "channel": "새파란 경제",
+     "views": 510269,
+     "views_per_day": 18324.0,
+     "published": "2026-09-16",
+     "url": "https://www.youtube.com/watch?v=eFsT1K_mPjc"
+    },
+    {
+     "id": "TKBAsjZgVWU",
+     "title": "조용한 부자들이 절대 입에 담지 않는 7가지 — 돈 있는 사람의 진짜 습관 ㅣ시니어ㅣ오디오북ㅣ노후준비ㅣ심리학ㅣ",
+     "channel": "가을빛 심리학",
+     "views": 413701,
+     "views_per_day": 14945.8,
+     "published": "2026-09-16",
+     "url": "https://www.youtube.com/watch?v=TKBAsjZgVWU"
+    }
+   ]
+  },
+  {
+   "weeks": 5,
+   "label": "최근 5주",
+   "videos": 16,
+   "channels": 12,
+   "new_this_week": [
+    {
+     "id": "abPHpPAuZmw",
+     "title": "순자산 5억은 대한민국에서 정확히 어디쯤인걸까",
+     "published": "2026-09-11"
+    },
+    {
+     "id": "d1X-vkjfMdc",
+     "title": "퇴근하고 부업 뛰고 돈을 위해 달려가는 당신이 반드시 봐야 할 영상ㅣ사마천의 연구",
+     "published": "2026-09-13"
+    },
+    {
+     "id": "e3EY2JJMgDw",
+     "title": "노후 자금 주식에 올인했다간 큰일 납니다, 은퇴자가 무조건 사서 묻어둬야 할 ETF 종목 | 존리 | ETF아는형",
+     "published": "2026-09-11"
+    },
+    {
+     "id": "m9dsn7u4L1Q",
+     "title": "전설적인 투자자가 알려주는 제대로 된 주식 투자 방법",
+     "published": "2026-09-09"
+    },
+    {
+     "id": "Nro4_Y8yS0o",
+     "title": "환율 1,336원 시대, 부자들이 조용히 하고 있는 것",
+     "published": "2026-09-13"
+    },
+    {
+     "id": "YPHCeHZbHxc",
+     "title": "기준금리 3%시대, 살아남는 투자자들은?",
+     "published": "2026-09-12"
+    },
+    {
+     "id": "yUOPigEkdzM",
+     "title": "연금저축·IRP·ISA 순서 총정리, 뭐부터 얼마씩 넣어야 하나?",
+     "published": "2026-09-13"
+    }
+   ],
+   "views_median": 192590.5,
+   "views_per_day_median": 8835.0,
+   "ratio_median": 3.94,
+   "success": 7,
+   "minutes_median": 21.4,
+   "title_len_avg": 39.1,
+   "title_features": [
+    {
+     "name": "금액(억·만원)",
+     "count": 4,
+     "share": 0.25
+    },
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 4,
+     "share": 0.25
+    },
+    {
+     "name": "물음표 ?",
+     "count": 3,
+     "share": 0.188
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 3,
+     "share": 0.188
+    },
+    {
+     "name": "N가지",
+     "count": 2,
+     "share": 0.125
+    },
+    {
+     "name": "두 금액(반전)",
+     "count": 1,
+     "share": 0.062
+    },
+    {
+     "name": "공통점",
+     "count": 1,
+     "share": 0.062
+    },
+    {
+     "name": "이유",
+     "count": 1,
+     "share": 0.062
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 1,
+     "share": 0.062
+    },
+    {
+     "name": "vs 비교",
+     "count": 1,
+     "share": 0.062
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 1,
+     "share": 0.062
+    },
+    {
+     "name": "빚투·신용·미수·레버리지·대출",
+     "count": 1,
+     "share": 0.062
+    }
+   ],
+   "title_words": [
+    {
+     "word": "부자가",
+     "count": 2
+    },
+    {
+     "word": "노후",
+     "count": 2
+    },
+    {
+     "word": "시대",
+     "count": 2
+    },
+    {
+     "word": "부자들이",
+     "count": 2
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 16,
+    "없음": 0
+   },
+   "content_words": [
+    {
+     "word": "돈을",
+     "count": 7
+    },
+    {
+     "word": "영상에서",
+     "count": 5
+    },
+    {
+     "word": "않는",
+     "count": 5
+    },
+    {
+     "word": "않습니다",
+     "count": 5
+    },
+    {
+     "word": "어떻게",
+     "count": 5
+    },
+    {
+     "word": "그리고",
+     "count": 5
+    },
+    {
+     "word": "9월",
+     "count": 5
+    },
+    {
+     "word": "댓글로",
+     "count": 5
+    },
+    {
+     "word": "정리했습니다",
+     "count": 5
+    },
+    {
+     "word": "됩니다",
+     "count": 4
+    },
+    {
+     "word": "영상에서는",
+     "count": 4
+    },
+    {
+     "word": "이유",
+     "count": 4
+    }
+   ],
+   "chapters_share": 0.312,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "5TF8BKFWERo",
+     "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
+     "src": "설명",
+     "hook": "구해줘월급 타임라인 용기내어 고민 남겨주신 사연자 분께 선플 부탁드립니다:) 📍딱 한 번 세팅으로, 가장 빠르게 1억 모으는 방법 [잔쟈니, 너나위의 종잣돈 모으기 기초반]이 궁금하다면? 빠듯한 월급의 공무원도, 두 아이 키우는 외벌이도, 통장 세팅 하나로 매달 100만원 더 모았어요."
+    },
+    {
+     "id": "gA4FS4OwUJU",
+     "title": "아직도 주식에만 올인하시나요? 완벽한 노후 포트폴리오 공개",
+     "src": "설명",
+     "hook": "S&P500을 20년 모아도 은퇴 후에는 부족할 수 있습니다. 배당 1,000만 원을 받았는데 계좌는 마이너스인 이유, 60세 퇴직과 65세 연금 사이 5년 공백, 주식이 30% 빠져도 생활비가 끊기지 않는 배치법까지 정리했습니다. 이 영상에서 다루는 것 내 노후에 매달 얼마가 비는지 "
+    },
+    {
+     "id": "d1X-vkjfMdc",
+     "title": "퇴근하고 부업 뛰고 돈을 위해 달려가는 당신이 반드시 봐야 할 영상ㅣ사마천의 연구",
+     "src": "설명",
+     "hook": "📔세네카 [세네카, 오늘을 빼앗기고 있는 당신에게] 📔조태경 [오뒷세이아: 흔들리는 인간에 대하여] 403화 사마천 [사기 화식열전]"
+    }
+   ],
+   "comments": 875,
+   "comment_needs": [
+    {
+     "name": "칭찬·감사",
+     "count": 191,
+     "share": 0.218
+    },
+    {
+     "name": "질문",
+     "count": 152,
+     "share": 0.174
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 120,
+     "share": 0.137
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 111,
+     "share": 0.127
+    },
+    {
+     "name": "2026 시장(폭락·불장·서킷)",
+     "count": 29,
+     "share": 0.033
+    },
+    {
+     "name": "빚·신용·미수",
+     "count": 27,
+     "share": 0.031
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "했던 말 또 하고 또 하고 또 하고 하는건 진리이기 때문이고 그럼에도 말들을 드럽게 안들어먹기 때문이다",
+     "likes": 213
+    },
+    {
+     "text": "존리 선생님 덕분에 여유자금 12억 달성했습니다 20억되면 은퇴하고 하고싶은 스마트팜 하려고합니다",
+     "likes": 128
+    },
+    {
+     "text": "나도 조금 벌면, 떠벌려서 커피값이든 술값이든 돈을 내게 됨.... 조용히 있어야 한다는 걸 아는데도 자꾸 말하게 됨.....50대가 코앞인데 아직 덜 성숙한 것 같다.",
+     "likes": 87
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "5TF8BKFWERo",
+     "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
+     "channel": "월급쟁이부자들TV",
+     "views": 1055183,
+     "views_per_day": 51966.4,
+     "published": "2026-09-23",
+     "url": "https://www.youtube.com/watch?v=5TF8BKFWERo"
+    },
+    {
+     "id": "gA4FS4OwUJU",
+     "title": "아직도 주식에만 올인하시나요? 완벽한 노후 포트폴리오 공개",
+     "channel": "경제해적단",
+     "views": 42110,
+     "views_per_day": 42110.0,
+     "published": "2026-10-13",
+     "url": "https://www.youtube.com/watch?v=gA4FS4OwUJU"
+    },
+    {
+     "id": "d1X-vkjfMdc",
+     "title": "퇴근하고 부업 뛰고 돈을 위해 달려가는 당신이 반드시 봐야 할 영상ㅣ사마천의 연구",
+     "channel": "하와이 대저택",
+     "views": 1039986,
+     "views_per_day": 34223.2,
+     "published": "2026-09-13",
+     "url": "https://www.youtube.com/watch?v=d1X-vkjfMdc"
+    },
+    {
+     "id": "e3EY2JJMgDw",
+     "title": "노후 자금 주식에 올인했다간 큰일 납니다, 은퇴자가 무조건 사서 묻어둬야 할 ETF 종목 | 존리 | ETF아는형",
+     "channel": "ETF 아는 형",
+     "views": 946952,
+     "views_per_day": 29312.5,
+     "published": "2026-09-11",
+     "url": "https://www.youtube.com/watch?v=e3EY2JJMgDw"
+    },
+    {
+     "id": "LALHM41PKzY",
+     "title": "현실적인 2030 재테크",
+     "channel": "머니코믹스 Money Comics",
+     "views": 710390,
+     "views_per_day": 28542.8,
+     "published": "2026-09-19",
+     "url": "https://www.youtube.com/watch?v=LALHM41PKzY"
+    }
+   ]
+  },
+  {
+   "weeks": 6,
+   "label": "최근 6주",
+   "videos": 19,
+   "channels": 13,
+   "new_this_week": [
+    {
+     "id": "NJtszuRxre8",
+     "title": "\"달러 약세라는데..\" S&P500 계속 사모아도 되는 걸까?ㅣ돈크라테스 EP. 27",
+     "published": "2026-09-07"
+    },
+    {
+     "id": "uj9g5PJrRi0",
+     "title": "부자들은 끊임없이 공부합니다. 부자 필수 과목 6가지",
+     "published": "2026-09-06"
+    },
+    {
+     "id": "VFW04efhm7Q",
+     "title": "13개월 만에 약 200원 하락! 환율 얼마나 더 떨어질까?",
+     "published": "2026-09-05"
+    }
+   ],
+   "views_median": 203470,
+   "views_per_day_median": 9153.5,
+   "ratio_median": 2.37,
+   "success": 7,
+   "minutes_median": 21.6,
+   "title_len_avg": 38.7,
+   "title_features": [
+    {
+     "name": "금액(억·만원)",
+     "count": 5,
+     "share": 0.263
+    },
+    {
+     "name": "물음표 ?",
+     "count": 5,
+     "share": 0.263
+    },
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 5,
+     "share": 0.263
+    },
+    {
+     "name": "N가지",
+     "count": 3,
+     "share": 0.158
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 3,
+     "share": 0.158
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 2,
+     "share": 0.105
+    },
+    {
+     "name": "두 금액(반전)",
+     "count": 1,
+     "share": 0.053
+    },
+    {
+     "name": "느낌표 !",
+     "count": 1,
+     "share": 0.053
+    },
+    {
+     "name": "공통점",
+     "count": 1,
+     "share": 0.053
+    },
+    {
+     "name": "이유",
+     "count": 1,
+     "share": 0.053
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 1,
+     "share": 0.053
+    },
+    {
+     "name": "vs 비교",
+     "count": 1,
+     "share": 0.053
+    },
+    {
+     "name": "빚투·신용·미수·레버리지·대출",
+     "count": 1,
+     "share": 0.053
+    }
+   ],
+   "title_words": [
+    {
+     "word": "부자가",
+     "count": 2
+    },
+    {
+     "word": "노후",
+     "count": 2
+    },
+    {
+     "word": "EP",
+     "count": 2
+    },
+    {
+     "word": "시대",
+     "count": 2
+    },
+    {
+     "word": "환율",
+     "count": 2
+    },
+    {
+     "word": "부자들이",
+     "count": 2
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 19,
+    "없음": 0
+   },
+   "content_words": [
+    {
+     "word": "돈을",
+     "count": 7
+    },
+    {
+     "word": "찾는",
+     "count": 7
+    },
+    {
+     "word": "영상에서",
+     "count": 6
+    },
+    {
+     "word": "9월",
+     "count": 6
+    },
+    {
+     "word": "댓글로",
+     "count": 6
+    },
+    {
+     "word": "사람한테만",
+     "count": 6
+    },
+    {
+     "word": "보물은",
+     "count": 6
+    },
+    {
+     "word": "아니라",
+     "count": 6
+    },
+    {
+     "word": "옵니다",
+     "count": 6
+    },
+    {
+     "word": "것입니다",
+     "count": 5
+    },
+    {
+     "word": "않는",
+     "count": 5
+    },
+    {
+     "word": "않습니다",
+     "count": 5
+    }
+   ],
+   "chapters_share": 0.316,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "5TF8BKFWERo",
+     "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
+     "src": "설명",
+     "hook": "구해줘월급 타임라인 용기내어 고민 남겨주신 사연자 분께 선플 부탁드립니다:) 📍딱 한 번 세팅으로, 가장 빠르게 1억 모으는 방법 [잔쟈니, 너나위의 종잣돈 모으기 기초반]이 궁금하다면? 빠듯한 월급의 공무원도, 두 아이 키우는 외벌이도, 통장 세팅 하나로 매달 100만원 더 모았어요."
+    },
+    {
+     "id": "gA4FS4OwUJU",
+     "title": "아직도 주식에만 올인하시나요? 완벽한 노후 포트폴리오 공개",
+     "src": "설명",
+     "hook": "S&P500을 20년 모아도 은퇴 후에는 부족할 수 있습니다. 배당 1,000만 원을 받았는데 계좌는 마이너스인 이유, 60세 퇴직과 65세 연금 사이 5년 공백, 주식이 30% 빠져도 생활비가 끊기지 않는 배치법까지 정리했습니다. 이 영상에서 다루는 것 내 노후에 매달 얼마가 비는지 "
+    },
+    {
+     "id": "d1X-vkjfMdc",
+     "title": "퇴근하고 부업 뛰고 돈을 위해 달려가는 당신이 반드시 봐야 할 영상ㅣ사마천의 연구",
+     "src": "설명",
+     "hook": "📔세네카 [세네카, 오늘을 빼앗기고 있는 당신에게] 📔조태경 [오뒷세이아: 흔들리는 인간에 대하여] 403화 사마천 [사기 화식열전]"
+    }
+   ],
+   "comments": 875,
+   "comment_needs": [
+    {
+     "name": "칭찬·감사",
+     "count": 191,
+     "share": 0.218
+    },
+    {
+     "name": "질문",
+     "count": 152,
+     "share": 0.174
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 120,
+     "share": 0.137
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 111,
+     "share": 0.127
+    },
+    {
+     "name": "2026 시장(폭락·불장·서킷)",
+     "count": 29,
+     "share": 0.033
+    },
+    {
+     "name": "빚·신용·미수",
+     "count": 27,
+     "share": 0.031
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "했던 말 또 하고 또 하고 또 하고 하는건 진리이기 때문이고 그럼에도 말들을 드럽게 안들어먹기 때문이다",
+     "likes": 213
+    },
+    {
+     "text": "존리 선생님 덕분에 여유자금 12억 달성했습니다 20억되면 은퇴하고 하고싶은 스마트팜 하려고합니다",
+     "likes": 128
+    },
+    {
+     "text": "나도 조금 벌면, 떠벌려서 커피값이든 술값이든 돈을 내게 됨.... 조용히 있어야 한다는 걸 아는데도 자꾸 말하게 됨.....50대가 코앞인데 아직 덜 성숙한 것 같다.",
+     "likes": 87
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "5TF8BKFWERo",
+     "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
+     "channel": "월급쟁이부자들TV",
+     "views": 1055183,
+     "views_per_day": 51966.4,
+     "published": "2026-09-23",
+     "url": "https://www.youtube.com/watch?v=5TF8BKFWERo"
+    },
+    {
+     "id": "gA4FS4OwUJU",
+     "title": "아직도 주식에만 올인하시나요? 완벽한 노후 포트폴리오 공개",
+     "channel": "경제해적단",
+     "views": 42110,
+     "views_per_day": 42110.0,
+     "published": "2026-10-13",
+     "url": "https://www.youtube.com/watch?v=gA4FS4OwUJU"
+    },
+    {
+     "id": "d1X-vkjfMdc",
+     "title": "퇴근하고 부업 뛰고 돈을 위해 달려가는 당신이 반드시 봐야 할 영상ㅣ사마천의 연구",
+     "channel": "하와이 대저택",
+     "views": 1039986,
+     "views_per_day": 34223.2,
+     "published": "2026-09-13",
+     "url": "https://www.youtube.com/watch?v=d1X-vkjfMdc"
+    },
+    {
+     "id": "e3EY2JJMgDw",
+     "title": "노후 자금 주식에 올인했다간 큰일 납니다, 은퇴자가 무조건 사서 묻어둬야 할 ETF 종목 | 존리 | ETF아는형",
+     "channel": "ETF 아는 형",
+     "views": 946952,
+     "views_per_day": 29312.5,
+     "published": "2026-09-11",
+     "url": "https://www.youtube.com/watch?v=e3EY2JJMgDw"
+    },
+    {
+     "id": "LALHM41PKzY",
+     "title": "현실적인 2030 재테크",
+     "channel": "머니코믹스 Money Comics",
+     "views": 710390,
+     "views_per_day": 28542.8,
+     "published": "2026-09-19",
+     "url": "https://www.youtube.com/watch?v=LALHM41PKzY"
+    }
+   ]
+  },
+  {
+   "weeks": 7,
+   "label": "최근 7주",
+   "videos": 26,
+   "channels": 18,
+   "new_this_week": [
+    {
+     "id": "2hEQ_7smoy8",
+     "title": "S&P500 ETF 좋다고 투자해도 90%가 망하는 이유 | 최영민 작가",
+     "published": "2026-08-26"
+    },
+    {
+     "id": "77exyhGYbro",
+     "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
+     "published": "2026-08-28"
+    },
+    {
+     "id": "ICYD3f6W-MA",
+     "title": "\"인생에 변명하지 마세요\" 대놓고 방법 다 알려줘도 가난 못 벗어나는 이유 (함익병 원장 | 어른을 위한 쓴소리 인생 수업 풀버전)",
+     "published": "2026-09-01"
+    },
+    {
+     "id": "n5NebAo9UYU",
+     "title": "원달러 환율 1300원대 진입! 지금 해야 하는 달러 투자법 3가지 | 김나영 양정중학교 교사 [재테크숟가락]",
+     "published": "2026-08-27"
+    },
+    {
+     "id": "r5jnahsJw5Q",
+     "title": "택배로 부자가 될 수 있냐고요? 솔직하게 말씀드리겠습니다",
+     "published": "2026-09-01"
+    },
+    {
+     "id": "RGKX32DwzMI",
+     "title": "부자들이 먼저 배운 돈의 원리, \"열심히 벌어도 왜 안 모일까\" 자본주의에 대해  알게되면 부자는 불가능한 일이 아니라 선택의 영역이 되실겁니다.",
+     "published": "2026-08-30"
+    },
+    {
+     "id": "W8ktTNAzCws",
+     "title": "13개월만에 최저치 찍은 환율. 기업이 돈을 쓰는 곳에 기회가 있습니다.",
+     "published": "2026-08-31"
+    }
+   ],
+   "views_median": 244820.0,
+   "views_per_day_median": 10820.7,
+   "ratio_median": 4.63,
+   "success": 10,
+   "minutes_median": 21.7,
+   "title_len_avg": 42.3,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 9,
+     "share": 0.346
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 6,
+     "share": 0.231
+    },
+    {
+     "name": "물음표 ?",
+     "count": 6,
+     "share": 0.231
+    },
+    {
+     "name": "N가지",
+     "count": 4,
+     "share": 0.154
+    },
+    {
+     "name": "이유",
+     "count": 3,
+     "share": 0.115
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 3,
+     "share": 0.115
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 3,
+     "share": 0.115
+    },
+    {
+     "name": "느낌표 !",
+     "count": 2,
+     "share": 0.077
+    },
+    {
+     "name": "vs 비교",
+     "count": 2,
+     "share": 0.077
+    },
+    {
+     "name": "두 금액(반전)",
+     "count": 1,
+     "share": 0.038
+    },
+    {
+     "name": "공통점",
+     "count": 1,
+     "share": 0.038
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 1,
+     "share": 0.038
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 1,
+     "share": 0.038
+    },
+    {
+     "name": "빚투·신용·미수·레버리지·대출",
+     "count": 1,
+     "share": 0.038
+    }
+   ],
+   "title_words": [
+    {
+     "word": "환율",
+     "count": 4
+    },
+    {
+     "word": "이유",
+     "count": 3
+    },
+    {
+     "word": "부자가",
+     "count": 3
+    },
+    {
+     "word": "부자들이",
+     "count": 3
+    },
+    {
+     "word": "S&P500",
+     "count": 2
+    },
+    {
+     "word": "ETF",
+     "count": 2
+    },
+    {
+     "word": "돈의",
+     "count": 2
+    },
+    {
+     "word": "부자",
+     "count": 2
+    },
+    {
+     "word": "있습니다",
+     "count": 2
+    },
+    {
+     "word": "심리학",
+     "count": 2
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 26,
+    "없음": 0
+   },
+   "content_words": [
+    {
+     "word": "영상에서",
+     "count": 9
+    },
+    {
+     "word": "아니라",
+     "count": 9
+    },
+    {
+     "word": "어떻게",
+     "count": 8
+    },
+    {
+     "word": "돈을",
+     "count": 8
+    },
+    {
+     "word": "찾는",
+     "count": 8
+    },
+    {
+     "word": "있습니다",
+     "count": 7
+    },
+    {
+     "word": "댓글로",
+     "count": 7
+    },
+    {
+     "word": "사람한테만",
+     "count": 7
+    },
+    {
+     "word": "보물은",
+     "count": 7
+    },
+    {
+     "word": "옵니다",
+     "count": 7
+    },
+    {
+     "word": "타임라인",
+     "count": 6
+    },
+    {
+     "word": "이유",
+     "count": 6
+    }
+   ],
+   "chapters_share": 0.385,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "77exyhGYbro",
+     "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
+     "src": "설명",
+     "hook": "오늘은 돈을 잘 버는 기술보다 돈을 대하는 태도와 인간의 본성을 이야기하는 모건 하우절의 대표작,『돈의 심리학』을 만나봅니다. 투자의 성공은 지능이나 학벌이 아닌 심리와 행동에 달려있음을 짚어보며, 타인과의 비교를 멈추고 자신만의 '멈출 수 있는 골대'를 세우는 것의 중요성을 이야기합니"
+    },
+    {
+     "id": "ICYD3f6W-MA",
+     "title": "\"인생에 변명하지 마세요\" 대놓고 방법 다 알려줘도 가난 못 벗어나는 이유 (함익병 원장 | 어른을 위한 쓴소리 인생 수업 풀버전)",
+     "src": "설명",
+     "hook": "💌 함익병 원장님과 함께 나눈 이야기 나에게 딱 맞는 재테크 로드맵 만드는 법 [너나위의 재테크 입문반] 500석 전석 7분 마감! 1,000명이 넘는 분들이 다음 기수를 기다리고 있어요. 💌 단칸방에서 타워팰리스까지… 함익병님의 '어른을 위한 쓴소리 인생 수업'을 한눈에 보기 쉬운 요"
+    },
+    {
+     "id": "5TF8BKFWERo",
+     "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
+     "src": "설명",
+     "hook": "구해줘월급 타임라인 용기내어 고민 남겨주신 사연자 분께 선플 부탁드립니다:) 📍딱 한 번 세팅으로, 가장 빠르게 1억 모으는 방법 [잔쟈니, 너나위의 종잣돈 모으기 기초반]이 궁금하다면? 빠듯한 월급의 공무원도, 두 아이 키우는 외벌이도, 통장 세팅 하나로 매달 100만원 더 모았어요."
+    }
+   ],
+   "comments": 2196,
+   "comment_needs": [
+    {
+     "name": "칭찬·감사",
+     "count": 371,
+     "share": 0.169
+    },
+    {
+     "name": "질문",
+     "count": 339,
+     "share": 0.154
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 236,
+     "share": 0.107
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 231,
+     "share": 0.105
+    },
+    {
+     "name": "2026 시장(폭락·불장·서킷)",
+     "count": 64,
+     "share": 0.029
+    },
+    {
+     "name": "빚·신용·미수",
+     "count": 54,
+     "share": 0.025
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "개인적으로 돈을 모아야 하는 가장 큰 이유는 좋은집,  좋은차,  좋은음식보다는 \n하기 싫은 일을 하지 않을 권리를  갖기 위해서라고 생각합니다",
+     "likes": 1493
+    },
+    {
+     "text": "외모가 순수하고 공주과인데\n내면에 대형 도서관을 담고계시니 더욱 우아하게 이쁨😅",
+     "likes": 558
+    },
+    {
+     "text": "부자는 무언가를 끊임없이 파는 사람이고 가난한 자는 무언가를 끊임없이 사는 사람이다.\n라이너 지텔만.",
+     "likes": 298
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "77exyhGYbro",
+     "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
+     "channel": "이혜성의 1% 북클럽",
+     "views": 2668198,
+     "views_per_day": 56915.9,
+     "published": "2026-08-28",
+     "url": "https://www.youtube.com/watch?v=77exyhGYbro"
+    },
+    {
+     "id": "ICYD3f6W-MA",
+     "title": "\"인생에 변명하지 마세요\" 대놓고 방법 다 알려줘도 가난 못 벗어나는 이유 (함익병 원장 | 어른을 위한 쓴소리 인생 수업 풀버전)",
+     "channel": "월급쟁이부자들TV",
+     "views": 2381724,
+     "views_per_day": 56243.5,
+     "published": "2026-09-01",
+     "url": "https://www.youtube.com/watch?v=ICYD3f6W-MA"
+    },
+    {
+     "id": "5TF8BKFWERo",
+     "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
+     "channel": "월급쟁이부자들TV",
+     "views": 1055183,
+     "views_per_day": 51966.4,
+     "published": "2026-09-23",
+     "url": "https://www.youtube.com/watch?v=5TF8BKFWERo"
+    },
+    {
+     "id": "gA4FS4OwUJU",
+     "title": "아직도 주식에만 올인하시나요? 완벽한 노후 포트폴리오 공개",
+     "channel": "경제해적단",
+     "views": 42110,
+     "views_per_day": 42110.0,
+     "published": "2026-10-13",
+     "url": "https://www.youtube.com/watch?v=gA4FS4OwUJU"
+    },
+    {
+     "id": "d1X-vkjfMdc",
+     "title": "퇴근하고 부업 뛰고 돈을 위해 달려가는 당신이 반드시 봐야 할 영상ㅣ사마천의 연구",
+     "channel": "하와이 대저택",
+     "views": 1039986,
+     "views_per_day": 34223.2,
+     "published": "2026-09-13",
+     "url": "https://www.youtube.com/watch?v=d1X-vkjfMdc"
+    }
+   ]
+  },
+  {
+   "weeks": 8,
+   "label": "최근 8주",
+   "videos": 33,
+   "channels": 22,
+   "new_this_week": [
+    {
+     "id": "2nDXlFjGSzQ",
+     "title": "99%가 모르는 부자의 비밀 습관 | 인문학 서적 7가지로 부의 본질을 읽는 법",
+     "published": "2026-08-20"
+    },
+    {
+     "id": "g45m3De3D-M",
+     "title": "연금저축은 이렇게 활용해야 돈이 쌓입니다.",
+     "published": "2026-08-20"
+    },
+    {
+     "id": "IN56QZtXmXw",
+     "title": "은퇴 후 절대 하면 안 되는 5가지",
+     "published": "2026-08-21"
+    },
+    {
+     "id": "oGOz1HXeYQM",
+     "title": "배당 위주로 투자해 배달 기사 그만 두고 월 200만원 받는 3년 차 파이어족  [싱글파이어]",
+     "published": "2026-08-25"
+    },
+    {
+     "id": "s7d7bMEosQ8",
+     "title": "IT 자산관리 전문 기업이 브라더 라벨 프린터를 쓰는 이유 l PT-P900W",
+     "published": "2026-08-25"
+    },
+    {
+     "id": "SLmxz2IOa_k",
+     "title": "ISA 개설부터 만기 해지까지 부자되는 전략 총정리",
+     "published": "2026-08-19"
+    },
+    {
+     "id": "t6NrbgrRE_k",
+     "title": "반드시 부자되는 신혼부부의 3가지 공통점 (부자되는 방법)",
+     "published": "2026-08-23"
+    }
+   ],
+   "views_median": 203470,
+   "views_per_day_median": 7822.9,
+   "ratio_median": 3.38,
+   "success": 13,
+   "minutes_median": 21.7,
+   "title_len_avg": 40.6,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 13,
+     "share": 0.394
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 7,
+     "share": 0.212
+    },
+    {
+     "name": "N가지",
+     "count": 7,
+     "share": 0.212
+    },
+    {
+     "name": "물음표 ?",
+     "count": 6,
+     "share": 0.182
+    },
+    {
+     "name": "이유",
+     "count": 4,
+     "share": 0.121
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 4,
+     "share": 0.121
+    },
+    {
+     "name": "vs 비교",
+     "count": 3,
+     "share": 0.091
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 3,
+     "share": 0.091
+    },
+    {
+     "name": "느낌표 !",
+     "count": 2,
+     "share": 0.061
+    },
+    {
+     "name": "공통점",
+     "count": 2,
+     "share": 0.061
+    },
+    {
+     "name": "두 금액(반전)",
+     "count": 1,
+     "share": 0.03
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 1,
+     "share": 0.03
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 1,
+     "share": 0.03
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 1,
+     "share": 0.03
+    },
+    {
+     "name": "빚투·신용·미수·레버리지·대출",
+     "count": 1,
+     "share": 0.03
+    }
+   ],
+   "title_words": [
+    {
+     "word": "이유",
+     "count": 4
+    },
+    {
+     "word": "환율",
+     "count": 4
+    },
+    {
+     "word": "부자가",
+     "count": 3
+    },
+    {
+     "word": "부자되는",
+     "count": 3
+    },
+    {
+     "word": "방법",
+     "count": 3
+    },
+    {
+     "word": "부자들이",
+     "count": 3
+    },
+    {
+     "word": "S&P500",
+     "count": 2
+    },
+    {
+     "word": "ETF",
+     "count": 2
+    },
+    {
+     "word": "습관",
+     "count": 2
+    },
+    {
+     "word": "모르는",
+     "count": 2
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 33,
+    "없음": 0
+   },
+   "content_words": [
+    {
+     "word": "영상에서",
+     "count": 14
+    },
+    {
+     "word": "찾는",
+     "count": 11
+    },
+    {
+     "word": "있습니다",
+     "count": 10
+    },
+    {
+     "word": "사람한테만",
+     "count": 10
+    },
+    {
+     "word": "보물은",
+     "count": 10
+    },
+    {
+     "word": "옵니다",
+     "count": 10
+    },
+    {
+     "word": "아니라",
+     "count": 10
+    },
+    {
+     "word": "어떻게",
+     "count": 9
+    },
+    {
+     "word": "댓글로",
+     "count": 9
+    },
+    {
+     "word": "타임라인",
+     "count": 8
+    },
+    {
+     "word": "돈을",
+     "count": 8
+    },
+    {
+     "word": "그런데",
+     "count": 8
+    }
+   ],
+   "chapters_share": 0.394,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "77exyhGYbro",
+     "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
+     "src": "설명",
+     "hook": "오늘은 돈을 잘 버는 기술보다 돈을 대하는 태도와 인간의 본성을 이야기하는 모건 하우절의 대표작,『돈의 심리학』을 만나봅니다. 투자의 성공은 지능이나 학벌이 아닌 심리와 행동에 달려있음을 짚어보며, 타인과의 비교를 멈추고 자신만의 '멈출 수 있는 골대'를 세우는 것의 중요성을 이야기합니"
+    },
+    {
+     "id": "ICYD3f6W-MA",
+     "title": "\"인생에 변명하지 마세요\" 대놓고 방법 다 알려줘도 가난 못 벗어나는 이유 (함익병 원장 | 어른을 위한 쓴소리 인생 수업 풀버전)",
+     "src": "설명",
+     "hook": "💌 함익병 원장님과 함께 나눈 이야기 나에게 딱 맞는 재테크 로드맵 만드는 법 [너나위의 재테크 입문반] 500석 전석 7분 마감! 1,000명이 넘는 분들이 다음 기수를 기다리고 있어요. 💌 단칸방에서 타워팰리스까지… 함익병님의 '어른을 위한 쓴소리 인생 수업'을 한눈에 보기 쉬운 요"
+    },
+    {
+     "id": "5TF8BKFWERo",
+     "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
+     "src": "설명",
+     "hook": "구해줘월급 타임라인 용기내어 고민 남겨주신 사연자 분께 선플 부탁드립니다:) 📍딱 한 번 세팅으로, 가장 빠르게 1억 모으는 방법 [잔쟈니, 너나위의 종잣돈 모으기 기초반]이 궁금하다면? 빠듯한 월급의 공무원도, 두 아이 키우는 외벌이도, 통장 세팅 하나로 매달 100만원 더 모았어요."
+    }
+   ],
+   "comments": 2322,
+   "comment_needs": [
+    {
+     "name": "칭찬·감사",
+     "count": 422,
+     "share": 0.182
+    },
+    {
+     "name": "질문",
+     "count": 348,
+     "share": 0.15
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 239,
+     "share": 0.103
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 234,
+     "share": 0.101
+    },
+    {
+     "name": "2026 시장(폭락·불장·서킷)",
+     "count": 66,
+     "share": 0.028
+    },
+    {
+     "name": "요청",
+     "count": 56,
+     "share": 0.024
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "개인적으로 돈을 모아야 하는 가장 큰 이유는 좋은집,  좋은차,  좋은음식보다는 \n하기 싫은 일을 하지 않을 권리를  갖기 위해서라고 생각합니다",
+     "likes": 1493
+    },
+    {
+     "text": "외모가 순수하고 공주과인데\n내면에 대형 도서관을 담고계시니 더욱 우아하게 이쁨😅",
+     "likes": 558
+    },
+    {
+     "text": "부자는 무언가를 끊임없이 파는 사람이고 가난한 자는 무언가를 끊임없이 사는 사람이다.\n라이너 지텔만.",
+     "likes": 298
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "77exyhGYbro",
+     "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
+     "channel": "이혜성의 1% 북클럽",
+     "views": 2668198,
+     "views_per_day": 56915.9,
+     "published": "2026-08-28",
+     "url": "https://www.youtube.com/watch?v=77exyhGYbro"
+    },
+    {
+     "id": "ICYD3f6W-MA",
+     "title": "\"인생에 변명하지 마세요\" 대놓고 방법 다 알려줘도 가난 못 벗어나는 이유 (함익병 원장 | 어른을 위한 쓴소리 인생 수업 풀버전)",
+     "channel": "월급쟁이부자들TV",
+     "views": 2381724,
+     "views_per_day": 56243.5,
+     "published": "2026-09-01",
+     "url": "https://www.youtube.com/watch?v=ICYD3f6W-MA"
+    },
+    {
+     "id": "5TF8BKFWERo",
+     "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
+     "channel": "월급쟁이부자들TV",
+     "views": 1055183,
+     "views_per_day": 51966.4,
+     "published": "2026-09-23",
+     "url": "https://www.youtube.com/watch?v=5TF8BKFWERo"
+    },
+    {
+     "id": "gA4FS4OwUJU",
+     "title": "아직도 주식에만 올인하시나요? 완벽한 노후 포트폴리오 공개",
+     "channel": "경제해적단",
+     "views": 42110,
+     "views_per_day": 42110.0,
+     "published": "2026-10-13",
+     "url": "https://www.youtube.com/watch?v=gA4FS4OwUJU"
+    },
+    {
+     "id": "d1X-vkjfMdc",
+     "title": "퇴근하고 부업 뛰고 돈을 위해 달려가는 당신이 반드시 봐야 할 영상ㅣ사마천의 연구",
+     "channel": "하와이 대저택",
+     "views": 1039986,
+     "views_per_day": 34223.2,
+     "published": "2026-09-13",
+     "url": "https://www.youtube.com/watch?v=d1X-vkjfMdc"
+    }
+   ]
+  },
+  {
+   "weeks": 9,
+   "label": "최근 9주",
+   "videos": 40,
+   "channels": 22,
+   "new_this_week": [
+    {
+     "id": "1-M2uIaVoKs",
+     "title": "\"조용히 부자 되는 3가지 비밀\" 부자들은 다 돈을 이렇게 씁니다.",
+     "published": "2026-08-12"
+    },
+    {
+     "id": "81c1g3RiDE8",
+     "title": "\"월 배당 500\" 나오는 비밀 ETF 포트폴리오",
+     "published": "2026-08-16"
+    },
+    {
+     "id": "_5H7MVsb1Rk",
+     "title": "월급 250만원으로 20억 만드는 법 | \"떨어져도 계속 사세요\"",
+     "published": "2026-08-16"
+    },
+    {
+     "id": "aepM7E3vsTs",
+     "title": "\"지금이라도 하셔야합니다.\" 무섭게 부자되는 주식 투자법",
+     "published": "2026-08-15"
+    },
+    {
+     "id": "cPG7tHytnXQ",
+     "title": "돈 없는 초보 투자자라면, S&P500 이렇게 사면 됩니다.",
+     "published": "2026-08-15"
+    },
+    {
+     "id": "NID7VESSER8",
+     "title": "달러 패권의 진짜 전략, 한국 투자자가 놓치면 안 될 것",
+     "published": "2026-08-13"
+    },
+    {
+     "id": "ztlNzqArChw",
+     "title": "의외로 잘 모르는 엔화 약세의 진짜 이유. 이걸 알아야 앞으로의 경제가 보입니다.",
+     "published": "2026-08-18"
+    }
+   ],
+   "views_median": 177807.5,
+   "views_per_day_median": 5172.75,
+   "ratio_median": 2.16,
+   "success": 13,
+   "minutes_median": 22.05,
+   "title_len_avg": 39.5,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 15,
+     "share": 0.375
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 8,
+     "share": 0.2
+    },
+    {
+     "name": "N가지",
+     "count": 8,
+     "share": 0.2
+    },
+    {
+     "name": "물음표 ?",
+     "count": 6,
+     "share": 0.15
+    },
+    {
+     "name": "이유",
+     "count": 5,
+     "share": 0.125
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 5,
+     "share": 0.125
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 4,
+     "share": 0.1
+    },
+    {
+     "name": "vs 비교",
+     "count": 3,
+     "share": 0.075
+    },
+    {
+     "name": "두 금액(반전)",
+     "count": 2,
+     "share": 0.05
+    },
+    {
+     "name": "느낌표 !",
+     "count": 2,
+     "share": 0.05
+    },
+    {
+     "name": "공통점",
+     "count": 2,
+     "share": 0.05
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 1,
+     "share": 0.025
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 1,
+     "share": 0.025
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 1,
+     "share": 0.025
+    },
+    {
+     "name": "빚투·신용·미수·레버리지·대출",
+     "count": 1,
+     "share": 0.025
+    }
+   ],
+   "title_words": [
+    {
+     "word": "이유",
+     "count": 5
+    },
+    {
+     "word": "이렇게",
+     "count": 4
+    },
+    {
+     "word": "부자되는",
+     "count": 4
+    },
+    {
+     "word": "환율",
+     "count": 4
+    },
+    {
+     "word": "3가지",
+     "count": 3
+    },
+    {
+     "word": "부자",
+     "count": 3
+    },
+    {
+     "word": "비밀",
+     "count": 3
+    },
+    {
+     "word": "돈을",
+     "count": 3
+    },
+    {
+     "word": "S&P500",
+     "count": 3
+    },
+    {
+     "word": "ETF",
+     "count": 3
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 40,
+    "없음": 0
+   },
+   "content_words": [
+    {
+     "word": "영상에서",
+     "count": 17
+    },
+    {
+     "word": "찾는",
+     "count": 17
+    },
+    {
+     "word": "사람한테만",
+     "count": 16
+    },
+    {
+     "word": "보물은",
+     "count": 16
+    },
+    {
+     "word": "옵니다",
+     "count": 16
+    },
+    {
+     "word": "댓글로",
+     "count": 15
+    },
+    {
+     "word": "아니라",
+     "count": 15
+    },
+    {
+     "word": "그리고",
+     "count": 14
+    },
+    {
+     "word": "있습니다",
+     "count": 13
+    },
+    {
+     "word": "그런데",
+     "count": 13
+    },
+    {
+     "word": "다루는",
+     "count": 10
+    },
+    {
+     "word": "다음",
+     "count": 10
+    }
+   ],
+   "chapters_share": 0.325,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "77exyhGYbro",
+     "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
+     "src": "설명",
+     "hook": "오늘은 돈을 잘 버는 기술보다 돈을 대하는 태도와 인간의 본성을 이야기하는 모건 하우절의 대표작,『돈의 심리학』을 만나봅니다. 투자의 성공은 지능이나 학벌이 아닌 심리와 행동에 달려있음을 짚어보며, 타인과의 비교를 멈추고 자신만의 '멈출 수 있는 골대'를 세우는 것의 중요성을 이야기합니"
+    },
+    {
+     "id": "ICYD3f6W-MA",
+     "title": "\"인생에 변명하지 마세요\" 대놓고 방법 다 알려줘도 가난 못 벗어나는 이유 (함익병 원장 | 어른을 위한 쓴소리 인생 수업 풀버전)",
+     "src": "설명",
+     "hook": "💌 함익병 원장님과 함께 나눈 이야기 나에게 딱 맞는 재테크 로드맵 만드는 법 [너나위의 재테크 입문반] 500석 전석 7분 마감! 1,000명이 넘는 분들이 다음 기수를 기다리고 있어요. 💌 단칸방에서 타워팰리스까지… 함익병님의 '어른을 위한 쓴소리 인생 수업'을 한눈에 보기 쉬운 요"
+    },
+    {
+     "id": "5TF8BKFWERo",
+     "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
+     "src": "설명",
+     "hook": "구해줘월급 타임라인 용기내어 고민 남겨주신 사연자 분께 선플 부탁드립니다:) 📍딱 한 번 세팅으로, 가장 빠르게 1억 모으는 방법 [잔쟈니, 너나위의 종잣돈 모으기 기초반]이 궁금하다면? 빠듯한 월급의 공무원도, 두 아이 키우는 외벌이도, 통장 세팅 하나로 매달 100만원 더 모았어요."
+    }
+   ],
+   "comments": 2322,
+   "comment_needs": [
+    {
+     "name": "칭찬·감사",
+     "count": 422,
+     "share": 0.182
+    },
+    {
+     "name": "질문",
+     "count": 348,
+     "share": 0.15
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 239,
+     "share": 0.103
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 234,
+     "share": 0.101
+    },
+    {
+     "name": "2026 시장(폭락·불장·서킷)",
+     "count": 66,
+     "share": 0.028
+    },
+    {
+     "name": "요청",
+     "count": 56,
+     "share": 0.024
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "개인적으로 돈을 모아야 하는 가장 큰 이유는 좋은집,  좋은차,  좋은음식보다는 \n하기 싫은 일을 하지 않을 권리를  갖기 위해서라고 생각합니다",
+     "likes": 1493
+    },
+    {
+     "text": "외모가 순수하고 공주과인데\n내면에 대형 도서관을 담고계시니 더욱 우아하게 이쁨😅",
+     "likes": 558
+    },
+    {
+     "text": "부자는 무언가를 끊임없이 파는 사람이고 가난한 자는 무언가를 끊임없이 사는 사람이다.\n라이너 지텔만.",
+     "likes": 298
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "77exyhGYbro",
+     "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
+     "channel": "이혜성의 1% 북클럽",
+     "views": 2668198,
+     "views_per_day": 56915.9,
+     "published": "2026-08-28",
+     "url": "https://www.youtube.com/watch?v=77exyhGYbro"
+    },
+    {
+     "id": "ICYD3f6W-MA",
+     "title": "\"인생에 변명하지 마세요\" 대놓고 방법 다 알려줘도 가난 못 벗어나는 이유 (함익병 원장 | 어른을 위한 쓴소리 인생 수업 풀버전)",
+     "channel": "월급쟁이부자들TV",
+     "views": 2381724,
+     "views_per_day": 56243.5,
+     "published": "2026-09-01",
+     "url": "https://www.youtube.com/watch?v=ICYD3f6W-MA"
+    },
+    {
+     "id": "5TF8BKFWERo",
+     "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
+     "channel": "월급쟁이부자들TV",
+     "views": 1055183,
+     "views_per_day": 51966.4,
+     "published": "2026-09-23",
+     "url": "https://www.youtube.com/watch?v=5TF8BKFWERo"
+    },
+    {
+     "id": "gA4FS4OwUJU",
+     "title": "아직도 주식에만 올인하시나요? 완벽한 노후 포트폴리오 공개",
+     "channel": "경제해적단",
+     "views": 42110,
+     "views_per_day": 42110.0,
+     "published": "2026-10-13",
+     "url": "https://www.youtube.com/watch?v=gA4FS4OwUJU"
+    },
+    {
+     "id": "d1X-vkjfMdc",
+     "title": "퇴근하고 부업 뛰고 돈을 위해 달려가는 당신이 반드시 봐야 할 영상ㅣ사마천의 연구",
+     "channel": "하와이 대저택",
+     "views": 1039986,
+     "views_per_day": 34223.2,
+     "published": "2026-09-13",
+     "url": "https://www.youtube.com/watch?v=d1X-vkjfMdc"
+    }
+   ]
+  },
+  {
+   "weeks": 10,
+   "label": "최근 10주",
+   "videos": 47,
+   "channels": 23,
+   "new_this_week": [
+    {
+     "id": "BTpNqy7XqJE",
+     "title": "《정약용 명언》 부자가 되는 여성이 즐겨 입는 옷 색깔 5가지. 이 색만 입어도 평생 재물이 따릅니다",
+     "published": "2026-08-12"
+    },
+    {
+     "id": "JREdVuRBv9U",
+     "title": "같은 S&P500인데 세금 970만 vs 3700만원…종목 아니라 '이것' 때문입니다",
+     "published": "2026-08-10"
+    },
+    {
+     "id": "MHhrnW-0Fig",
+     "title": "부자들이 자산을 폭발적으로 키우는 5가지 방법",
+     "published": "2026-08-07"
+    },
+    {
+     "id": "PEnNxbBd5eY",
+     "title": "돈이 스스로 일하기 시작하는 시작점",
+     "published": "2026-08-09"
+    },
+    {
+     "id": "s0Eq_VrFt_A",
+     "title": "\"ETF 투자 10년차\" 가 첫 투자로 다시 돌아간다면 절대 안 할 5가지",
+     "published": "2026-08-05"
+    },
+    {
+     "id": "V4U7fqescuA",
+     "title": "완벽한 노후준비를 위한 종목, 계좌, 금액 전부 알려드립니다!",
+     "published": "2026-08-06"
+    },
+    {
+     "id": "XyfHR8H2JI0",
+     "title": "부자 되고 싶으면 공부하라 | 핵심 이유 7가지 완벽 정리 #부자되는법",
+     "published": "2026-08-11"
+    }
+   ],
+   "views_median": 198504,
+   "views_per_day_median": 4833.8,
+   "ratio_median": 2.37,
+   "success": 15,
+   "minutes_median": 22.4,
+   "title_len_avg": 39.2,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 19,
+     "share": 0.404
+    },
+    {
+     "name": "N가지",
+     "count": 12,
+     "share": 0.255
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 9,
+     "share": 0.191
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 7,
+     "share": 0.149
+    },
+    {
+     "name": "물음표 ?",
+     "count": 6,
+     "share": 0.128
+    },
+    {
+     "name": "이유",
+     "count": 6,
+     "share": 0.128
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 5,
+     "share": 0.106
+    },
+    {
+     "name": "vs 비교",
+     "count": 5,
+     "share": 0.106
+    },
+    {
+     "name": "느낌표 !",
+     "count": 3,
+     "share": 0.064
+    },
+    {
+     "name": "두 금액(반전)",
+     "count": 2,
+     "share": 0.043
+    },
+    {
+     "name": "공통점",
+     "count": 2,
+     "share": 0.043
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 2,
+     "share": 0.043
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 1,
+     "share": 0.021
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 1,
+     "share": 0.021
+    },
+    {
+     "name": "빚투·신용·미수·레버리지·대출",
+     "count": 1,
+     "share": 0.021
+    }
+   ],
+   "title_words": [
+    {
+     "word": "이유",
+     "count": 6
+    },
+    {
+     "word": "5가지",
+     "count": 5
+    },
+    {
+     "word": "부자",
+     "count": 4
+    },
+    {
+     "word": "이렇게",
+     "count": 4
+    },
+    {
+     "word": "ETF",
+     "count": 4
+    },
+    {
+     "word": "부자가",
+     "count": 4
+    },
+    {
+     "word": "부자되는",
+     "count": 4
+    },
+    {
+     "word": "방법",
+     "count": 4
+    },
+    {
+     "word": "부자들이",
+     "count": 4
+    },
+    {
+     "word": "환율",
+     "count": 4
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 47,
+    "없음": 0
+   },
+   "content_words": [
+    {
+     "word": "찾는",
+     "count": 22
+    },
+    {
+     "word": "사람한테만",
+     "count": 21
+    },
+    {
+     "word": "보물은",
+     "count": 21
+    },
+    {
+     "word": "옵니다",
+     "count": 21
+    },
+    {
+     "word": "영상에서",
+     "count": 19
+    },
+    {
+     "word": "그리고",
+     "count": 19
+    },
+    {
+     "word": "댓글로",
+     "count": 19
+    },
+    {
+     "word": "아니라",
+     "count": 19
+    },
+    {
+     "word": "있습니다",
+     "count": 14
+    },
+    {
+     "word": "이유",
+     "count": 14
+    },
+    {
+     "word": "그런데",
+     "count": 14
+    },
+    {
+     "word": "다루는",
+     "count": 12
+    }
+   ],
+   "chapters_share": 0.298,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "77exyhGYbro",
+     "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
+     "src": "설명",
+     "hook": "오늘은 돈을 잘 버는 기술보다 돈을 대하는 태도와 인간의 본성을 이야기하는 모건 하우절의 대표작,『돈의 심리학』을 만나봅니다. 투자의 성공은 지능이나 학벌이 아닌 심리와 행동에 달려있음을 짚어보며, 타인과의 비교를 멈추고 자신만의 '멈출 수 있는 골대'를 세우는 것의 중요성을 이야기합니"
+    },
+    {
+     "id": "ICYD3f6W-MA",
+     "title": "\"인생에 변명하지 마세요\" 대놓고 방법 다 알려줘도 가난 못 벗어나는 이유 (함익병 원장 | 어른을 위한 쓴소리 인생 수업 풀버전)",
+     "src": "설명",
+     "hook": "💌 함익병 원장님과 함께 나눈 이야기 나에게 딱 맞는 재테크 로드맵 만드는 법 [너나위의 재테크 입문반] 500석 전석 7분 마감! 1,000명이 넘는 분들이 다음 기수를 기다리고 있어요. 💌 단칸방에서 타워팰리스까지… 함익병님의 '어른을 위한 쓴소리 인생 수업'을 한눈에 보기 쉬운 요"
+    },
+    {
+     "id": "5TF8BKFWERo",
+     "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
+     "src": "설명",
+     "hook": "구해줘월급 타임라인 용기내어 고민 남겨주신 사연자 분께 선플 부탁드립니다:) 📍딱 한 번 세팅으로, 가장 빠르게 1억 모으는 방법 [잔쟈니, 너나위의 종잣돈 모으기 기초반]이 궁금하다면? 빠듯한 월급의 공무원도, 두 아이 키우는 외벌이도, 통장 세팅 하나로 매달 100만원 더 모았어요."
+    }
+   ],
+   "comments": 4342,
+   "comment_needs": [
+    {
+     "name": "칭찬·감사",
+     "count": 1429,
+     "share": 0.329
+    },
+    {
+     "name": "질문",
+     "count": 1206,
+     "share": 0.278
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 336,
+     "share": 0.077
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 324,
+     "share": 0.075
+    },
+    {
+     "name": "2026 시장(폭락·불장·서킷)",
+     "count": 87,
+     "share": 0.02
+    },
+    {
+     "name": "요청",
+     "count": 73,
+     "share": 0.017
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "개인적으로 돈을 모아야 하는 가장 큰 이유는 좋은집,  좋은차,  좋은음식보다는 \n하기 싫은 일을 하지 않을 권리를  갖기 위해서라고 생각합니다",
+     "likes": 1493
+    },
+    {
+     "text": "외모가 순수하고 공주과인데\n내면에 대형 도서관을 담고계시니 더욱 우아하게 이쁨😅",
+     "likes": 558
+    },
+    {
+     "text": "부자는 무언가를 끊임없이 파는 사람이고 가난한 자는 무언가를 끊임없이 사는 사람이다.\n라이너 지텔만.",
+     "likes": 298
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "77exyhGYbro",
+     "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
+     "channel": "이혜성의 1% 북클럽",
+     "views": 2668198,
+     "views_per_day": 56915.9,
+     "published": "2026-08-28",
+     "url": "https://www.youtube.com/watch?v=77exyhGYbro"
+    },
+    {
+     "id": "ICYD3f6W-MA",
+     "title": "\"인생에 변명하지 마세요\" 대놓고 방법 다 알려줘도 가난 못 벗어나는 이유 (함익병 원장 | 어른을 위한 쓴소리 인생 수업 풀버전)",
+     "channel": "월급쟁이부자들TV",
+     "views": 2381724,
+     "views_per_day": 56243.5,
+     "published": "2026-09-01",
+     "url": "https://www.youtube.com/watch?v=ICYD3f6W-MA"
+    },
+    {
+     "id": "5TF8BKFWERo",
+     "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
+     "channel": "월급쟁이부자들TV",
+     "views": 1055183,
+     "views_per_day": 51966.4,
+     "published": "2026-09-23",
+     "url": "https://www.youtube.com/watch?v=5TF8BKFWERo"
+    },
+    {
+     "id": "gA4FS4OwUJU",
+     "title": "아직도 주식에만 올인하시나요? 완벽한 노후 포트폴리오 공개",
+     "channel": "경제해적단",
+     "views": 42110,
+     "views_per_day": 42110.0,
+     "published": "2026-10-13",
+     "url": "https://www.youtube.com/watch?v=gA4FS4OwUJU"
+    },
+    {
+     "id": "d1X-vkjfMdc",
+     "title": "퇴근하고 부업 뛰고 돈을 위해 달려가는 당신이 반드시 봐야 할 영상ㅣ사마천의 연구",
+     "channel": "하와이 대저택",
+     "views": 1039986,
+     "views_per_day": 34223.2,
+     "published": "2026-09-13",
+     "url": "https://www.youtube.com/watch?v=d1X-vkjfMdc"
+    }
+   ]
+  },
+  {
+   "weeks": 11,
+   "label": "최근 11주",
+   "videos": 51,
+   "channels": 24,
+   "new_this_week": [
+    {
+     "id": "Ss7mHMbe5rE",
+     "title": "2026년 필수로 모아야 하는 가장 안전한 5가지 자산",
+     "published": "2026-07-29"
+    },
+    {
+     "id": "TOr7yxkT80M",
+     "title": "개미들이 주식 열심히 해도 \"100만원도 못버는 3가지 이유\"",
+     "published": "2026-08-03"
+    },
+    {
+     "id": "utJCd6LsWpI",
+     "title": "\"76~57년생 꼭 보세요. 정부가 약속한 것 떴다\" 5060세대만을 위한 초고속 연금 나왔다. 5년 납입하고 평생토록 받습니다 | 이영주 대표 40분 요약",
+     "published": "2026-07-30"
+    },
+    {
+     "id": "vIJ49BrbFc8",
+     "title": "자본주의 사회에서 경제적 자유를 누리는 돈의 구조",
+     "published": "2026-08-04"
+    }
+   ],
+   "views_median": 203470,
+   "views_per_day_median": 4833.8,
+   "ratio_median": 2.44,
+   "success": 15,
+   "minutes_median": 22.5,
+   "title_len_avg": 39.8,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 21,
+     "share": 0.412
+    },
+    {
+     "name": "N가지",
+     "count": 14,
+     "share": 0.275
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 10,
+     "share": 0.196
+    },
+    {
+     "name": "이유",
+     "count": 7,
+     "share": 0.137
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 7,
+     "share": 0.137
+    },
+    {
+     "name": "물음표 ?",
+     "count": 6,
+     "share": 0.118
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 5,
+     "share": 0.098
+    },
+    {
+     "name": "vs 비교",
+     "count": 5,
+     "share": 0.098
+    },
+    {
+     "name": "느낌표 !",
+     "count": 3,
+     "share": 0.059
+    },
+    {
+     "name": "두 금액(반전)",
+     "count": 2,
+     "share": 0.039
+    },
+    {
+     "name": "공통점",
+     "count": 2,
+     "share": 0.039
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 2,
+     "share": 0.039
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 1,
+     "share": 0.02
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 1,
+     "share": 0.02
+    },
+    {
+     "name": "빚투·신용·미수·레버리지·대출",
+     "count": 1,
+     "share": 0.02
+    }
+   ],
+   "title_words": [
+    {
+     "word": "이유",
+     "count": 7
+    },
+    {
+     "word": "5가지",
+     "count": 6
+    },
+    {
+     "word": "3가지",
+     "count": 4
+    },
+    {
+     "word": "부자",
+     "count": 4
+    },
+    {
+     "word": "이렇게",
+     "count": 4
+    },
+    {
+     "word": "ETF",
+     "count": 4
+    },
+    {
+     "word": "부자가",
+     "count": 4
+    },
+    {
+     "word": "부자되는",
+     "count": 4
+    },
+    {
+     "word": "방법",
+     "count": 4
+    },
+    {
+     "word": "부자들이",
+     "count": 4
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 51,
+    "없음": 0
+   },
+   "content_words": [
+    {
+     "word": "찾는",
+     "count": 25
+    },
+    {
+     "word": "사람한테만",
+     "count": 24
+    },
+    {
+     "word": "보물은",
+     "count": 24
+    },
+    {
+     "word": "옵니다",
+     "count": 24
+    },
+    {
+     "word": "영상에서",
+     "count": 22
+    },
+    {
+     "word": "아니라",
+     "count": 21
+    },
+    {
+     "word": "그리고",
+     "count": 20
+    },
+    {
+     "word": "댓글로",
+     "count": 20
+    },
+    {
+     "word": "이유",
+     "count": 17
+    },
+    {
+     "word": "그런데",
+     "count": 16
+    },
+    {
+     "word": "다루는",
+     "count": 14
+    },
+    {
+     "word": "있습니다",
+     "count": 14
+    }
+   ],
+   "chapters_share": 0.275,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "77exyhGYbro",
+     "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
+     "src": "설명",
+     "hook": "오늘은 돈을 잘 버는 기술보다 돈을 대하는 태도와 인간의 본성을 이야기하는 모건 하우절의 대표작,『돈의 심리학』을 만나봅니다. 투자의 성공은 지능이나 학벌이 아닌 심리와 행동에 달려있음을 짚어보며, 타인과의 비교를 멈추고 자신만의 '멈출 수 있는 골대'를 세우는 것의 중요성을 이야기합니"
+    },
+    {
+     "id": "ICYD3f6W-MA",
+     "title": "\"인생에 변명하지 마세요\" 대놓고 방법 다 알려줘도 가난 못 벗어나는 이유 (함익병 원장 | 어른을 위한 쓴소리 인생 수업 풀버전)",
+     "src": "설명",
+     "hook": "💌 함익병 원장님과 함께 나눈 이야기 나에게 딱 맞는 재테크 로드맵 만드는 법 [너나위의 재테크 입문반] 500석 전석 7분 마감! 1,000명이 넘는 분들이 다음 기수를 기다리고 있어요. 💌 단칸방에서 타워팰리스까지… 함익병님의 '어른을 위한 쓴소리 인생 수업'을 한눈에 보기 쉬운 요"
+    },
+    {
+     "id": "5TF8BKFWERo",
+     "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
+     "src": "설명",
+     "hook": "구해줘월급 타임라인 용기내어 고민 남겨주신 사연자 분께 선플 부탁드립니다:) 📍딱 한 번 세팅으로, 가장 빠르게 1억 모으는 방법 [잔쟈니, 너나위의 종잣돈 모으기 기초반]이 궁금하다면? 빠듯한 월급의 공무원도, 두 아이 키우는 외벌이도, 통장 세팅 하나로 매달 100만원 더 모았어요."
+    }
+   ],
+   "comments": 4342,
+   "comment_needs": [
+    {
+     "name": "칭찬·감사",
+     "count": 1429,
+     "share": 0.329
+    },
+    {
+     "name": "질문",
+     "count": 1206,
+     "share": 0.278
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 336,
+     "share": 0.077
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 324,
+     "share": 0.075
+    },
+    {
+     "name": "2026 시장(폭락·불장·서킷)",
+     "count": 87,
+     "share": 0.02
+    },
+    {
+     "name": "요청",
+     "count": 73,
+     "share": 0.017
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "개인적으로 돈을 모아야 하는 가장 큰 이유는 좋은집,  좋은차,  좋은음식보다는 \n하기 싫은 일을 하지 않을 권리를  갖기 위해서라고 생각합니다",
+     "likes": 1493
+    },
+    {
+     "text": "외모가 순수하고 공주과인데\n내면에 대형 도서관을 담고계시니 더욱 우아하게 이쁨😅",
+     "likes": 558
+    },
+    {
+     "text": "부자는 무언가를 끊임없이 파는 사람이고 가난한 자는 무언가를 끊임없이 사는 사람이다.\n라이너 지텔만.",
+     "likes": 298
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "77exyhGYbro",
+     "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
+     "channel": "이혜성의 1% 북클럽",
+     "views": 2668198,
+     "views_per_day": 56915.9,
+     "published": "2026-08-28",
+     "url": "https://www.youtube.com/watch?v=77exyhGYbro"
+    },
+    {
+     "id": "ICYD3f6W-MA",
+     "title": "\"인생에 변명하지 마세요\" 대놓고 방법 다 알려줘도 가난 못 벗어나는 이유 (함익병 원장 | 어른을 위한 쓴소리 인생 수업 풀버전)",
+     "channel": "월급쟁이부자들TV",
+     "views": 2381724,
+     "views_per_day": 56243.5,
+     "published": "2026-09-01",
+     "url": "https://www.youtube.com/watch?v=ICYD3f6W-MA"
+    },
+    {
+     "id": "5TF8BKFWERo",
+     "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
+     "channel": "월급쟁이부자들TV",
+     "views": 1055183,
+     "views_per_day": 51966.4,
+     "published": "2026-09-23",
+     "url": "https://www.youtube.com/watch?v=5TF8BKFWERo"
+    },
+    {
+     "id": "gA4FS4OwUJU",
+     "title": "아직도 주식에만 올인하시나요? 완벽한 노후 포트폴리오 공개",
+     "channel": "경제해적단",
+     "views": 42110,
+     "views_per_day": 42110.0,
+     "published": "2026-10-13",
+     "url": "https://www.youtube.com/watch?v=gA4FS4OwUJU"
+    },
+    {
+     "id": "d1X-vkjfMdc",
+     "title": "퇴근하고 부업 뛰고 돈을 위해 달려가는 당신이 반드시 봐야 할 영상ㅣ사마천의 연구",
+     "channel": "하와이 대저택",
+     "views": 1039986,
+     "views_per_day": 34223.2,
+     "published": "2026-09-13",
+     "url": "https://www.youtube.com/watch?v=d1X-vkjfMdc"
+    }
+   ]
+  },
+  {
+   "weeks": 12,
+   "label": "최근 12주",
+   "videos": 55,
+   "channels": 26,
+   "new_this_week": [
+    {
+     "id": "H30mkQq3Vmw",
+     "title": "1억 모으려 하지 마세요. 인생이 바뀌는 건 정확히 3천만원부터입니다",
+     "published": "2026-07-23"
+    },
+    {
+     "id": "hB08zAphwdc",
+     "title": "\"쉽지만 효과는 강력한\" 경제공부 시작하는 법",
+     "published": "2026-07-24"
+    },
+    {
+     "id": "JExUQaROk40",
+     "title": "복리가 부를 만드는 진짜 시작점｜언제부터 돈이 스스로 일하기 시작할까",
+     "published": "2026-07-22"
+    },
+    {
+     "id": "XWjW3xiUKxw",
+     "title": "🇨🇦 아무도 알려주지 않았던 '은퇴의 잔인한 현실' 8가지! | 브랜든 캐나다",
+     "published": "2026-07-28"
+    }
+   ],
+   "views_median": 200861,
+   "views_per_day_median": 4197.6,
+   "ratio_median": 2.44,
+   "success": 17,
+   "minutes_median": 22.5,
+   "title_len_avg": 39.5,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 22,
+     "share": 0.4
+    },
+    {
+     "name": "N가지",
+     "count": 15,
+     "share": 0.273
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 11,
+     "share": 0.2
+    },
+    {
+     "name": "이유",
+     "count": 7,
+     "share": 0.127
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 7,
+     "share": 0.127
+    },
+    {
+     "name": "물음표 ?",
+     "count": 6,
+     "share": 0.109
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 6,
+     "share": 0.109
+    },
+    {
+     "name": "vs 비교",
+     "count": 5,
+     "share": 0.091
+    },
+    {
+     "name": "느낌표 !",
+     "count": 4,
+     "share": 0.073
+    },
+    {
+     "name": "두 금액(반전)",
+     "count": 3,
+     "share": 0.055
+    },
+    {
+     "name": "공통점",
+     "count": 2,
+     "share": 0.036
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 2,
+     "share": 0.036
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 1,
+     "share": 0.018
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 1,
+     "share": 0.018
+    },
+    {
+     "name": "빚투·신용·미수·레버리지·대출",
+     "count": 1,
+     "share": 0.018
+    }
+   ],
+   "title_words": [
+    {
+     "word": "이유",
+     "count": 7
+    },
+    {
+     "word": "5가지",
+     "count": 6
+    },
+    {
+     "word": "3가지",
+     "count": 4
+    },
+    {
+     "word": "부자",
+     "count": 4
+    },
+    {
+     "word": "이렇게",
+     "count": 4
+    },
+    {
+     "word": "ETF",
+     "count": 4
+    },
+    {
+     "word": "부자가",
+     "count": 4
+    },
+    {
+     "word": "부자되는",
+     "count": 4
+    },
+    {
+     "word": "방법",
+     "count": 4
+    },
+    {
+     "word": "부자들이",
+     "count": 4
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 55,
+    "없음": 0
+   },
+   "content_words": [
+    {
+     "word": "찾는",
+     "count": 27
+    },
+    {
+     "word": "사람한테만",
+     "count": 26
+    },
+    {
+     "word": "보물은",
+     "count": 26
+    },
+    {
+     "word": "옵니다",
+     "count": 26
+    },
+    {
+     "word": "아니라",
+     "count": 24
+    },
+    {
+     "word": "영상에서",
+     "count": 23
+    },
+    {
+     "word": "그리고",
+     "count": 22
+    },
+    {
+     "word": "댓글로",
+     "count": 22
+    },
+    {
+     "word": "이유",
+     "count": 18
+    },
+    {
+     "word": "있습니다",
+     "count": 16
+    },
+    {
+     "word": "그런데",
+     "count": 16
+    },
+    {
+     "word": "다루는",
+     "count": 14
+    }
+   ],
+   "chapters_share": 0.255,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "77exyhGYbro",
+     "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
+     "src": "설명",
+     "hook": "오늘은 돈을 잘 버는 기술보다 돈을 대하는 태도와 인간의 본성을 이야기하는 모건 하우절의 대표작,『돈의 심리학』을 만나봅니다. 투자의 성공은 지능이나 학벌이 아닌 심리와 행동에 달려있음을 짚어보며, 타인과의 비교를 멈추고 자신만의 '멈출 수 있는 골대'를 세우는 것의 중요성을 이야기합니"
+    },
+    {
+     "id": "ICYD3f6W-MA",
+     "title": "\"인생에 변명하지 마세요\" 대놓고 방법 다 알려줘도 가난 못 벗어나는 이유 (함익병 원장 | 어른을 위한 쓴소리 인생 수업 풀버전)",
+     "src": "설명",
+     "hook": "💌 함익병 원장님과 함께 나눈 이야기 나에게 딱 맞는 재테크 로드맵 만드는 법 [너나위의 재테크 입문반] 500석 전석 7분 마감! 1,000명이 넘는 분들이 다음 기수를 기다리고 있어요. 💌 단칸방에서 타워팰리스까지… 함익병님의 '어른을 위한 쓴소리 인생 수업'을 한눈에 보기 쉬운 요"
+    },
+    {
+     "id": "5TF8BKFWERo",
+     "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
+     "src": "설명",
+     "hook": "구해줘월급 타임라인 용기내어 고민 남겨주신 사연자 분께 선플 부탁드립니다:) 📍딱 한 번 세팅으로, 가장 빠르게 1억 모으는 방법 [잔쟈니, 너나위의 종잣돈 모으기 기초반]이 궁금하다면? 빠듯한 월급의 공무원도, 두 아이 키우는 외벌이도, 통장 세팅 하나로 매달 100만원 더 모았어요."
+    }
+   ],
+   "comments": 4523,
+   "comment_needs": [
+    {
+     "name": "칭찬·감사",
+     "count": 1501,
+     "share": 0.332
+    },
+    {
+     "name": "질문",
+     "count": 1232,
+     "share": 0.272
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 362,
+     "share": 0.08
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 347,
+     "share": 0.077
+    },
+    {
+     "name": "2026 시장(폭락·불장·서킷)",
+     "count": 93,
+     "share": 0.021
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 81,
+     "share": 0.018
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "개인적으로 돈을 모아야 하는 가장 큰 이유는 좋은집,  좋은차,  좋은음식보다는 \n하기 싫은 일을 하지 않을 권리를  갖기 위해서라고 생각합니다",
+     "likes": 1493
+    },
+    {
+     "text": "외모가 순수하고 공주과인데\n내면에 대형 도서관을 담고계시니 더욱 우아하게 이쁨😅",
+     "likes": 558
+    },
+    {
+     "text": "부자는 무언가를 끊임없이 파는 사람이고 가난한 자는 무언가를 끊임없이 사는 사람이다.\n라이너 지텔만.",
+     "likes": 298
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "77exyhGYbro",
+     "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
+     "channel": "이혜성의 1% 북클럽",
+     "views": 2668198,
+     "views_per_day": 56915.9,
+     "published": "2026-08-28",
+     "url": "https://www.youtube.com/watch?v=77exyhGYbro"
+    },
+    {
+     "id": "ICYD3f6W-MA",
+     "title": "\"인생에 변명하지 마세요\" 대놓고 방법 다 알려줘도 가난 못 벗어나는 이유 (함익병 원장 | 어른을 위한 쓴소리 인생 수업 풀버전)",
+     "channel": "월급쟁이부자들TV",
+     "views": 2381724,
+     "views_per_day": 56243.5,
+     "published": "2026-09-01",
+     "url": "https://www.youtube.com/watch?v=ICYD3f6W-MA"
+    },
+    {
+     "id": "5TF8BKFWERo",
+     "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
+     "channel": "월급쟁이부자들TV",
+     "views": 1055183,
+     "views_per_day": 51966.4,
+     "published": "2026-09-23",
+     "url": "https://www.youtube.com/watch?v=5TF8BKFWERo"
+    },
+    {
+     "id": "gA4FS4OwUJU",
+     "title": "아직도 주식에만 올인하시나요? 완벽한 노후 포트폴리오 공개",
+     "channel": "경제해적단",
+     "views": 42110,
+     "views_per_day": 42110.0,
+     "published": "2026-10-13",
+     "url": "https://www.youtube.com/watch?v=gA4FS4OwUJU"
+    },
+    {
+     "id": "d1X-vkjfMdc",
+     "title": "퇴근하고 부업 뛰고 돈을 위해 달려가는 당신이 반드시 봐야 할 영상ㅣ사마천의 연구",
+     "channel": "하와이 대저택",
+     "views": 1039986,
+     "views_per_day": 34223.2,
+     "published": "2026-09-13",
+     "url": "https://www.youtube.com/watch?v=d1X-vkjfMdc"
+    }
+   ]
+  },
+  {
+   "weeks": 13,
+   "label": "최근 13주",
+   "videos": 58,
+   "channels": 27,
+   "new_this_week": [
+    {
+     "id": "l4MAizC_l20",
+     "title": "2030 자산성장, 어떻게 시작해야 할까? 「주식투자는 처음이라 EP.1」 #곽범 #슈카",
+     "published": "2026-07-20"
+    },
+    {
+     "id": "OwVoLhhr30U",
+     "title": "연금고수들이 연금저축계좌 반드시 담는 ETF 3가지",
+     "published": "2026-07-17"
+    },
+    {
+     "id": "T2NAq3jFDQM",
+     "title": "재테크의 기초 상식. 모르면 절대 부자 못 됩니다",
+     "published": "2026-07-20"
+    }
+   ],
+   "views_median": 202165.5,
+   "views_per_day_median": 4192.7,
+   "ratio_median": 2.35,
+   "success": 17,
+   "minutes_median": 22.55,
+   "title_len_avg": 39.3,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 23,
+     "share": 0.397
+    },
+    {
+     "name": "N가지",
+     "count": 16,
+     "share": 0.276
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 11,
+     "share": 0.19
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 8,
+     "share": 0.138
+    },
+    {
+     "name": "물음표 ?",
+     "count": 7,
+     "share": 0.121
+    },
+    {
+     "name": "이유",
+     "count": 7,
+     "share": 0.121
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 6,
+     "share": 0.103
+    },
+    {
+     "name": "vs 비교",
+     "count": 6,
+     "share": 0.103
+    },
+    {
+     "name": "느낌표 !",
+     "count": 4,
+     "share": 0.069
+    },
+    {
+     "name": "두 금액(반전)",
+     "count": 3,
+     "share": 0.052
+    },
+    {
+     "name": "공통점",
+     "count": 2,
+     "share": 0.034
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 2,
+     "share": 0.034
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 1,
+     "share": 0.017
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 1,
+     "share": 0.017
+    },
+    {
+     "name": "빚투·신용·미수·레버리지·대출",
+     "count": 1,
+     "share": 0.017
+    }
+   ],
+   "title_words": [
+    {
+     "word": "이유",
+     "count": 7
+    },
+    {
+     "word": "5가지",
+     "count": 6
+    },
+    {
+     "word": "3가지",
+     "count": 5
+    },
+    {
+     "word": "부자",
+     "count": 5
+    },
+    {
+     "word": "ETF",
+     "count": 5
+    },
+    {
+     "word": "이렇게",
+     "count": 4
+    },
+    {
+     "word": "부자가",
+     "count": 4
+    },
+    {
+     "word": "부자되는",
+     "count": 4
+    },
+    {
+     "word": "방법",
+     "count": 4
+    },
+    {
+     "word": "부자들이",
+     "count": 4
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 58,
+    "없음": 0
+   },
+   "content_words": [
+    {
+     "word": "찾는",
+     "count": 29
+    },
+    {
+     "word": "사람한테만",
+     "count": 28
+    },
+    {
+     "word": "보물은",
+     "count": 28
+    },
+    {
+     "word": "옵니다",
+     "count": 28
+    },
+    {
+     "word": "영상에서",
+     "count": 25
+    },
+    {
+     "word": "댓글로",
+     "count": 25
+    },
+    {
+     "word": "아니라",
+     "count": 24
+    },
+    {
+     "word": "그리고",
+     "count": 22
+    },
+    {
+     "word": "이유",
+     "count": 19
+    },
+    {
+     "word": "있습니다",
+     "count": 17
+    },
+    {
+     "word": "다음",
+     "count": 16
+    },
+    {
+     "word": "그런데",
+     "count": 16
+    }
+   ],
+   "chapters_share": 0.241,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "77exyhGYbro",
+     "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
+     "src": "설명",
+     "hook": "오늘은 돈을 잘 버는 기술보다 돈을 대하는 태도와 인간의 본성을 이야기하는 모건 하우절의 대표작,『돈의 심리학』을 만나봅니다. 투자의 성공은 지능이나 학벌이 아닌 심리와 행동에 달려있음을 짚어보며, 타인과의 비교를 멈추고 자신만의 '멈출 수 있는 골대'를 세우는 것의 중요성을 이야기합니"
+    },
+    {
+     "id": "ICYD3f6W-MA",
+     "title": "\"인생에 변명하지 마세요\" 대놓고 방법 다 알려줘도 가난 못 벗어나는 이유 (함익병 원장 | 어른을 위한 쓴소리 인생 수업 풀버전)",
+     "src": "설명",
+     "hook": "💌 함익병 원장님과 함께 나눈 이야기 나에게 딱 맞는 재테크 로드맵 만드는 법 [너나위의 재테크 입문반] 500석 전석 7분 마감! 1,000명이 넘는 분들이 다음 기수를 기다리고 있어요. 💌 단칸방에서 타워팰리스까지… 함익병님의 '어른을 위한 쓴소리 인생 수업'을 한눈에 보기 쉬운 요"
+    },
+    {
+     "id": "5TF8BKFWERo",
+     "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
+     "src": "설명",
+     "hook": "구해줘월급 타임라인 용기내어 고민 남겨주신 사연자 분께 선플 부탁드립니다:) 📍딱 한 번 세팅으로, 가장 빠르게 1억 모으는 방법 [잔쟈니, 너나위의 종잣돈 모으기 기초반]이 궁금하다면? 빠듯한 월급의 공무원도, 두 아이 키우는 외벌이도, 통장 세팅 하나로 매달 100만원 더 모았어요."
+    }
+   ],
+   "comments": 4523,
+   "comment_needs": [
+    {
+     "name": "칭찬·감사",
+     "count": 1501,
+     "share": 0.332
+    },
+    {
+     "name": "질문",
+     "count": 1232,
+     "share": 0.272
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 362,
+     "share": 0.08
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 347,
+     "share": 0.077
+    },
+    {
+     "name": "2026 시장(폭락·불장·서킷)",
+     "count": 93,
+     "share": 0.021
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 81,
+     "share": 0.018
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "개인적으로 돈을 모아야 하는 가장 큰 이유는 좋은집,  좋은차,  좋은음식보다는 \n하기 싫은 일을 하지 않을 권리를  갖기 위해서라고 생각합니다",
+     "likes": 1493
+    },
+    {
+     "text": "외모가 순수하고 공주과인데\n내면에 대형 도서관을 담고계시니 더욱 우아하게 이쁨😅",
+     "likes": 558
+    },
+    {
+     "text": "부자는 무언가를 끊임없이 파는 사람이고 가난한 자는 무언가를 끊임없이 사는 사람이다.\n라이너 지텔만.",
+     "likes": 298
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "77exyhGYbro",
+     "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
+     "channel": "이혜성의 1% 북클럽",
+     "views": 2668198,
+     "views_per_day": 56915.9,
+     "published": "2026-08-28",
+     "url": "https://www.youtube.com/watch?v=77exyhGYbro"
+    },
+    {
+     "id": "ICYD3f6W-MA",
+     "title": "\"인생에 변명하지 마세요\" 대놓고 방법 다 알려줘도 가난 못 벗어나는 이유 (함익병 원장 | 어른을 위한 쓴소리 인생 수업 풀버전)",
+     "channel": "월급쟁이부자들TV",
+     "views": 2381724,
+     "views_per_day": 56243.5,
+     "published": "2026-09-01",
+     "url": "https://www.youtube.com/watch?v=ICYD3f6W-MA"
+    },
+    {
+     "id": "5TF8BKFWERo",
+     "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
+     "channel": "월급쟁이부자들TV",
+     "views": 1055183,
+     "views_per_day": 51966.4,
+     "published": "2026-09-23",
+     "url": "https://www.youtube.com/watch?v=5TF8BKFWERo"
+    },
+    {
+     "id": "gA4FS4OwUJU",
+     "title": "아직도 주식에만 올인하시나요? 완벽한 노후 포트폴리오 공개",
+     "channel": "경제해적단",
+     "views": 42110,
+     "views_per_day": 42110.0,
+     "published": "2026-10-13",
+     "url": "https://www.youtube.com/watch?v=gA4FS4OwUJU"
+    },
+    {
+     "id": "d1X-vkjfMdc",
+     "title": "퇴근하고 부업 뛰고 돈을 위해 달려가는 당신이 반드시 봐야 할 영상ㅣ사마천의 연구",
+     "channel": "하와이 대저택",
+     "views": 1039986,
+     "views_per_day": 34223.2,
+     "published": "2026-09-13",
+     "url": "https://www.youtube.com/watch?v=d1X-vkjfMdc"
+    }
+   ]
+  },
+  {
+   "weeks": 14,
+   "label": "최근 14주",
+   "videos": 60,
+   "channels": 28,
+   "new_this_week": [
+    {
+     "id": "COJaeQaYMJg",
+     "title": "주식 고수도 당하는 '타이밍'의 착각과 폭락·반등의 비밀",
+     "published": "2026-07-13"
+    },
+    {
+     "id": "yfLp54zD9Gk",
+     "title": "독일인은 부자인데 왜 가난하게 살까? | 조용히 부자 되는 돈 습관 10가지",
+     "published": "2026-07-14"
+    }
+   ],
+   "views_median": 200763.5,
+   "views_per_day_median": 4117.6,
+   "ratio_median": 2.35,
+   "success": 18,
+   "minutes_median": 22.55,
+   "title_len_avg": 39.2,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 25,
+     "share": 0.417
+    },
+    {
+     "name": "N가지",
+     "count": 17,
+     "share": 0.283
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 11,
+     "share": 0.183
+    },
+    {
+     "name": "물음표 ?",
+     "count": 8,
+     "share": 0.133
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 8,
+     "share": 0.133
+    },
+    {
+     "name": "이유",
+     "count": 7,
+     "share": 0.117
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 6,
+     "share": 0.1
+    },
+    {
+     "name": "vs 비교",
+     "count": 6,
+     "share": 0.1
+    },
+    {
+     "name": "느낌표 !",
+     "count": 4,
+     "share": 0.067
+    },
+    {
+     "name": "두 금액(반전)",
+     "count": 3,
+     "share": 0.05
+    },
+    {
+     "name": "공통점",
+     "count": 2,
+     "share": 0.033
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 2,
+     "share": 0.033
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 1,
+     "share": 0.017
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 1,
+     "share": 0.017
+    },
+    {
+     "name": "빚투·신용·미수·레버리지·대출",
+     "count": 1,
+     "share": 0.017
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 1,
+     "share": 0.017
+    }
+   ],
+   "title_words": [
+    {
+     "word": "이유",
+     "count": 7
+    },
+    {
+     "word": "부자",
+     "count": 6
+    },
+    {
+     "word": "5가지",
+     "count": 6
+    },
+    {
+     "word": "3가지",
+     "count": 5
+    },
+    {
+     "word": "ETF",
+     "count": 5
+    },
+    {
+     "word": "비밀",
+     "count": 4
+    },
+    {
+     "word": "이렇게",
+     "count": 4
+    },
+    {
+     "word": "부자가",
+     "count": 4
+    },
+    {
+     "word": "부자되는",
+     "count": 4
+    },
+    {
+     "word": "주식",
+     "count": 4
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 60,
+    "없음": 0
+   },
+   "content_words": [
+    {
+     "word": "찾는",
+     "count": 30
+    },
+    {
+     "word": "사람한테만",
+     "count": 29
+    },
+    {
+     "word": "보물은",
+     "count": 29
+    },
+    {
+     "word": "옵니다",
+     "count": 29
+    },
+    {
+     "word": "댓글로",
+     "count": 26
+    },
+    {
+     "word": "영상에서",
+     "count": 25
+    },
+    {
+     "word": "아니라",
+     "count": 24
+    },
+    {
+     "word": "그리고",
+     "count": 23
+    },
+    {
+     "word": "이유",
+     "count": 20
+    },
+    {
+     "word": "다음",
+     "count": 17
+    },
+    {
+     "word": "있습니다",
+     "count": 17
+    },
+    {
+     "word": "그런데",
+     "count": 17
+    }
+   ],
+   "chapters_share": 0.233,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "77exyhGYbro",
+     "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
+     "src": "설명",
+     "hook": "오늘은 돈을 잘 버는 기술보다 돈을 대하는 태도와 인간의 본성을 이야기하는 모건 하우절의 대표작,『돈의 심리학』을 만나봅니다. 투자의 성공은 지능이나 학벌이 아닌 심리와 행동에 달려있음을 짚어보며, 타인과의 비교를 멈추고 자신만의 '멈출 수 있는 골대'를 세우는 것의 중요성을 이야기합니"
+    },
+    {
+     "id": "ICYD3f6W-MA",
+     "title": "\"인생에 변명하지 마세요\" 대놓고 방법 다 알려줘도 가난 못 벗어나는 이유 (함익병 원장 | 어른을 위한 쓴소리 인생 수업 풀버전)",
+     "src": "설명",
+     "hook": "💌 함익병 원장님과 함께 나눈 이야기 나에게 딱 맞는 재테크 로드맵 만드는 법 [너나위의 재테크 입문반] 500석 전석 7분 마감! 1,000명이 넘는 분들이 다음 기수를 기다리고 있어요. 💌 단칸방에서 타워팰리스까지… 함익병님의 '어른을 위한 쓴소리 인생 수업'을 한눈에 보기 쉬운 요"
+    },
+    {
+     "id": "5TF8BKFWERo",
+     "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
+     "src": "설명",
+     "hook": "구해줘월급 타임라인 용기내어 고민 남겨주신 사연자 분께 선플 부탁드립니다:) 📍딱 한 번 세팅으로, 가장 빠르게 1억 모으는 방법 [잔쟈니, 너나위의 종잣돈 모으기 기초반]이 궁금하다면? 빠듯한 월급의 공무원도, 두 아이 키우는 외벌이도, 통장 세팅 하나로 매달 100만원 더 모았어요."
+    }
+   ],
+   "comments": 4632,
+   "comment_needs": [
+    {
+     "name": "칭찬·감사",
+     "count": 1539,
+     "share": 0.332
+    },
+    {
+     "name": "질문",
+     "count": 1240,
+     "share": 0.268
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 378,
+     "share": 0.082
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 350,
+     "share": 0.076
+    },
+    {
+     "name": "2026 시장(폭락·불장·서킷)",
+     "count": 93,
+     "share": 0.02
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 82,
+     "share": 0.018
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "개인적으로 돈을 모아야 하는 가장 큰 이유는 좋은집,  좋은차,  좋은음식보다는 \n하기 싫은 일을 하지 않을 권리를  갖기 위해서라고 생각합니다",
+     "likes": 1493
+    },
+    {
+     "text": "외모가 순수하고 공주과인데\n내면에 대형 도서관을 담고계시니 더욱 우아하게 이쁨😅",
+     "likes": 558
+    },
+    {
+     "text": "부자는 무언가를 끊임없이 파는 사람이고 가난한 자는 무언가를 끊임없이 사는 사람이다.\n라이너 지텔만.",
+     "likes": 298
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "77exyhGYbro",
+     "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
+     "channel": "이혜성의 1% 북클럽",
+     "views": 2668198,
+     "views_per_day": 56915.9,
+     "published": "2026-08-28",
+     "url": "https://www.youtube.com/watch?v=77exyhGYbro"
+    },
+    {
+     "id": "ICYD3f6W-MA",
+     "title": "\"인생에 변명하지 마세요\" 대놓고 방법 다 알려줘도 가난 못 벗어나는 이유 (함익병 원장 | 어른을 위한 쓴소리 인생 수업 풀버전)",
+     "channel": "월급쟁이부자들TV",
+     "views": 2381724,
+     "views_per_day": 56243.5,
+     "published": "2026-09-01",
+     "url": "https://www.youtube.com/watch?v=ICYD3f6W-MA"
+    },
+    {
+     "id": "5TF8BKFWERo",
+     "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
+     "channel": "월급쟁이부자들TV",
+     "views": 1055183,
+     "views_per_day": 51966.4,
+     "published": "2026-09-23",
+     "url": "https://www.youtube.com/watch?v=5TF8BKFWERo"
+    },
+    {
+     "id": "gA4FS4OwUJU",
+     "title": "아직도 주식에만 올인하시나요? 완벽한 노후 포트폴리오 공개",
+     "channel": "경제해적단",
+     "views": 42110,
+     "views_per_day": 42110.0,
+     "published": "2026-10-13",
+     "url": "https://www.youtube.com/watch?v=gA4FS4OwUJU"
+    },
+    {
+     "id": "d1X-vkjfMdc",
+     "title": "퇴근하고 부업 뛰고 돈을 위해 달려가는 당신이 반드시 봐야 할 영상ㅣ사마천의 연구",
+     "channel": "하와이 대저택",
+     "views": 1039986,
+     "views_per_day": 34223.2,
+     "published": "2026-09-13",
+     "url": "https://www.youtube.com/watch?v=d1X-vkjfMdc"
+    }
+   ]
+  },
+  {
+   "weeks": 15,
+   "label": "최근 15주",
+   "videos": 63,
+   "channels": 28,
+   "new_this_week": [
+    {
+     "id": "g5QcZDL9zCA",
+     "title": "\"지금 예적금 하지 마세요\" 현금 안전하게 굴리는 방법",
+     "published": "2026-07-06"
+    },
+    {
+     "id": "IinIFTY18jk",
+     "title": "\"주식으로 조용히 부자 된 사람들\" 이 10년간 딱 지킨 5가지 원칙",
+     "published": "2026-07-02"
+    },
+    {
+     "id": "wAzTayTbarY",
+     "title": "통장에 1000만원 있다면, 오늘부터 이 순서대로 굴리세요",
+     "published": "2026-07-05"
+    }
+   ],
+   "views_median": 200861,
+   "views_per_day_median": 4047.4,
+   "ratio_median": 2.34,
+   "success": 18,
+   "minutes_median": 22.6,
+   "title_len_avg": 38.9,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 26,
+     "share": 0.413
+    },
+    {
+     "name": "N가지",
+     "count": 18,
+     "share": 0.286
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 12,
+     "share": 0.19
+    },
+    {
+     "name": "물음표 ?",
+     "count": 8,
+     "share": 0.127
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 8,
+     "share": 0.127
+    },
+    {
+     "name": "이유",
+     "count": 7,
+     "share": 0.111
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 6,
+     "share": 0.095
+    },
+    {
+     "name": "vs 비교",
+     "count": 6,
+     "share": 0.095
+    },
+    {
+     "name": "느낌표 !",
+     "count": 4,
+     "share": 0.063
+    },
+    {
+     "name": "두 금액(반전)",
+     "count": 3,
+     "share": 0.048
+    },
+    {
+     "name": "공통점",
+     "count": 2,
+     "share": 0.032
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 2,
+     "share": 0.032
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 1,
+     "share": 0.016
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 1,
+     "share": 0.016
+    },
+    {
+     "name": "빚투·신용·미수·레버리지·대출",
+     "count": 1,
+     "share": 0.016
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 1,
+     "share": 0.016
+    }
+   ],
+   "title_words": [
+    {
+     "word": "부자",
+     "count": 7
+    },
+    {
+     "word": "이유",
+     "count": 7
+    },
+    {
+     "word": "5가지",
+     "count": 7
+    },
+    {
+     "word": "3가지",
+     "count": 5
+    },
+    {
+     "word": "ETF",
+     "count": 5
+    },
+    {
+     "word": "방법",
+     "count": 5
+    },
+    {
+     "word": "조용히",
+     "count": 4
+    },
+    {
+     "word": "비밀",
+     "count": 4
+    },
+    {
+     "word": "이렇게",
+     "count": 4
+    },
+    {
+     "word": "부자가",
+     "count": 4
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 63,
+    "없음": 0
+   },
+   "content_words": [
+    {
+     "word": "찾는",
+     "count": 33
+    },
+    {
+     "word": "사람한테만",
+     "count": 32
+    },
+    {
+     "word": "보물은",
+     "count": 32
+    },
+    {
+     "word": "옵니다",
+     "count": 32
+    },
+    {
+     "word": "댓글로",
+     "count": 28
+    },
+    {
+     "word": "영상에서",
+     "count": 26
+    },
+    {
+     "word": "아니라",
+     "count": 24
+    },
+    {
+     "word": "그리고",
+     "count": 23
+    },
+    {
+     "word": "이유",
+     "count": 22
+    },
+    {
+     "word": "있습니다",
+     "count": 20
+    },
+    {
+     "word": "다음",
+     "count": 18
+    },
+    {
+     "word": "그런데",
+     "count": 17
+    }
+   ],
+   "chapters_share": 0.222,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "77exyhGYbro",
+     "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
+     "src": "설명",
+     "hook": "오늘은 돈을 잘 버는 기술보다 돈을 대하는 태도와 인간의 본성을 이야기하는 모건 하우절의 대표작,『돈의 심리학』을 만나봅니다. 투자의 성공은 지능이나 학벌이 아닌 심리와 행동에 달려있음을 짚어보며, 타인과의 비교를 멈추고 자신만의 '멈출 수 있는 골대'를 세우는 것의 중요성을 이야기합니"
+    },
+    {
+     "id": "ICYD3f6W-MA",
+     "title": "\"인생에 변명하지 마세요\" 대놓고 방법 다 알려줘도 가난 못 벗어나는 이유 (함익병 원장 | 어른을 위한 쓴소리 인생 수업 풀버전)",
+     "src": "설명",
+     "hook": "💌 함익병 원장님과 함께 나눈 이야기 나에게 딱 맞는 재테크 로드맵 만드는 법 [너나위의 재테크 입문반] 500석 전석 7분 마감! 1,000명이 넘는 분들이 다음 기수를 기다리고 있어요. 💌 단칸방에서 타워팰리스까지… 함익병님의 '어른을 위한 쓴소리 인생 수업'을 한눈에 보기 쉬운 요"
+    },
+    {
+     "id": "5TF8BKFWERo",
+     "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
+     "src": "설명",
+     "hook": "구해줘월급 타임라인 용기내어 고민 남겨주신 사연자 분께 선플 부탁드립니다:) 📍딱 한 번 세팅으로, 가장 빠르게 1억 모으는 방법 [잔쟈니, 너나위의 종잣돈 모으기 기초반]이 궁금하다면? 빠듯한 월급의 공무원도, 두 아이 키우는 외벌이도, 통장 세팅 하나로 매달 100만원 더 모았어요."
+    }
+   ],
+   "comments": 4632,
+   "comment_needs": [
+    {
+     "name": "칭찬·감사",
+     "count": 1539,
+     "share": 0.332
+    },
+    {
+     "name": "질문",
+     "count": 1240,
+     "share": 0.268
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 378,
+     "share": 0.082
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 350,
+     "share": 0.076
+    },
+    {
+     "name": "2026 시장(폭락·불장·서킷)",
+     "count": 93,
+     "share": 0.02
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 82,
+     "share": 0.018
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "개인적으로 돈을 모아야 하는 가장 큰 이유는 좋은집,  좋은차,  좋은음식보다는 \n하기 싫은 일을 하지 않을 권리를  갖기 위해서라고 생각합니다",
+     "likes": 1493
+    },
+    {
+     "text": "외모가 순수하고 공주과인데\n내면에 대형 도서관을 담고계시니 더욱 우아하게 이쁨😅",
+     "likes": 558
+    },
+    {
+     "text": "부자는 무언가를 끊임없이 파는 사람이고 가난한 자는 무언가를 끊임없이 사는 사람이다.\n라이너 지텔만.",
+     "likes": 298
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "77exyhGYbro",
+     "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
+     "channel": "이혜성의 1% 북클럽",
+     "views": 2668198,
+     "views_per_day": 56915.9,
+     "published": "2026-08-28",
+     "url": "https://www.youtube.com/watch?v=77exyhGYbro"
+    },
+    {
+     "id": "ICYD3f6W-MA",
+     "title": "\"인생에 변명하지 마세요\" 대놓고 방법 다 알려줘도 가난 못 벗어나는 이유 (함익병 원장 | 어른을 위한 쓴소리 인생 수업 풀버전)",
+     "channel": "월급쟁이부자들TV",
+     "views": 2381724,
+     "views_per_day": 56243.5,
+     "published": "2026-09-01",
+     "url": "https://www.youtube.com/watch?v=ICYD3f6W-MA"
+    },
+    {
+     "id": "5TF8BKFWERo",
+     "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
+     "channel": "월급쟁이부자들TV",
+     "views": 1055183,
+     "views_per_day": 51966.4,
+     "published": "2026-09-23",
+     "url": "https://www.youtube.com/watch?v=5TF8BKFWERo"
+    },
+    {
+     "id": "gA4FS4OwUJU",
+     "title": "아직도 주식에만 올인하시나요? 완벽한 노후 포트폴리오 공개",
+     "channel": "경제해적단",
+     "views": 42110,
+     "views_per_day": 42110.0,
+     "published": "2026-10-13",
+     "url": "https://www.youtube.com/watch?v=gA4FS4OwUJU"
+    },
+    {
+     "id": "d1X-vkjfMdc",
+     "title": "퇴근하고 부업 뛰고 돈을 위해 달려가는 당신이 반드시 봐야 할 영상ㅣ사마천의 연구",
+     "channel": "하와이 대저택",
+     "views": 1039986,
+     "views_per_day": 34223.2,
+     "published": "2026-09-13",
+     "url": "https://www.youtube.com/watch?v=d1X-vkjfMdc"
+    }
+   ]
+  },
+  {
+   "weeks": 16,
+   "label": "최근 16주",
+   "videos": 65,
+   "channels": 28,
+   "new_this_week": [
+    {
+     "id": "_aTLO_yYPAY",
+     "title": "ISA 계좌 하나로 3년 굴리면 얼마 벌까?",
+     "published": "2026-06-29"
+    },
+    {
+     "id": "KnQL-_ll6dU",
+     "title": "부자는 돈을 어디에 담을까?",
+     "published": "2026-06-29"
+    }
+   ],
+   "views_median": 200861,
+   "views_per_day_median": 4024.9,
+   "ratio_median": 2.2,
+   "success": 18,
+   "minutes_median": 22.5,
+   "title_len_avg": 38.3,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 26,
+     "share": 0.4
+    },
+    {
+     "name": "N가지",
+     "count": 18,
+     "share": 0.277
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 12,
+     "share": 0.185
+    },
+    {
+     "name": "물음표 ?",
+     "count": 10,
+     "share": 0.154
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 8,
+     "share": 0.123
+    },
+    {
+     "name": "이유",
+     "count": 7,
+     "share": 0.108
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 6,
+     "share": 0.092
+    },
+    {
+     "name": "vs 비교",
+     "count": 6,
+     "share": 0.092
+    },
+    {
+     "name": "느낌표 !",
+     "count": 4,
+     "share": 0.062
+    },
+    {
+     "name": "두 금액(반전)",
+     "count": 3,
+     "share": 0.046
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 3,
+     "share": 0.046
+    },
+    {
+     "name": "공통점",
+     "count": 2,
+     "share": 0.031
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 1,
+     "share": 0.015
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 1,
+     "share": 0.015
+    },
+    {
+     "name": "빚투·신용·미수·레버리지·대출",
+     "count": 1,
+     "share": 0.015
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 1,
+     "share": 0.015
+    }
+   ],
+   "title_words": [
+    {
+     "word": "부자",
+     "count": 7
+    },
+    {
+     "word": "이유",
+     "count": 7
+    },
+    {
+     "word": "5가지",
+     "count": 7
+    },
+    {
+     "word": "3가지",
+     "count": 5
+    },
+    {
+     "word": "ETF",
+     "count": 5
+    },
+    {
+     "word": "방법",
+     "count": 5
+    },
+    {
+     "word": "조용히",
+     "count": 4
+    },
+    {
+     "word": "비밀",
+     "count": 4
+    },
+    {
+     "word": "돈을",
+     "count": 4
+    },
+    {
+     "word": "이렇게",
+     "count": 4
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 65,
+    "없음": 0
+   },
+   "content_words": [
+    {
+     "word": "찾는",
+     "count": 35
+    },
+    {
+     "word": "사람한테만",
+     "count": 34
+    },
+    {
+     "word": "보물은",
+     "count": 34
+    },
+    {
+     "word": "옵니다",
+     "count": 34
+    },
+    {
+     "word": "댓글로",
+     "count": 30
+    },
+    {
+     "word": "영상에서",
+     "count": 28
+    },
+    {
+     "word": "아니라",
+     "count": 24
+    },
+    {
+     "word": "그리고",
+     "count": 23
+    },
+    {
+     "word": "이유",
+     "count": 23
+    },
+    {
+     "word": "있습니다",
+     "count": 20
+    },
+    {
+     "word": "다음",
+     "count": 19
+    },
+    {
+     "word": "다루는",
+     "count": 18
+    }
+   ],
+   "chapters_share": 0.215,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "77exyhGYbro",
+     "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
+     "src": "설명",
+     "hook": "오늘은 돈을 잘 버는 기술보다 돈을 대하는 태도와 인간의 본성을 이야기하는 모건 하우절의 대표작,『돈의 심리학』을 만나봅니다. 투자의 성공은 지능이나 학벌이 아닌 심리와 행동에 달려있음을 짚어보며, 타인과의 비교를 멈추고 자신만의 '멈출 수 있는 골대'를 세우는 것의 중요성을 이야기합니"
+    },
+    {
+     "id": "ICYD3f6W-MA",
+     "title": "\"인생에 변명하지 마세요\" 대놓고 방법 다 알려줘도 가난 못 벗어나는 이유 (함익병 원장 | 어른을 위한 쓴소리 인생 수업 풀버전)",
+     "src": "설명",
+     "hook": "💌 함익병 원장님과 함께 나눈 이야기 나에게 딱 맞는 재테크 로드맵 만드는 법 [너나위의 재테크 입문반] 500석 전석 7분 마감! 1,000명이 넘는 분들이 다음 기수를 기다리고 있어요. 💌 단칸방에서 타워팰리스까지… 함익병님의 '어른을 위한 쓴소리 인생 수업'을 한눈에 보기 쉬운 요"
+    },
+    {
+     "id": "5TF8BKFWERo",
+     "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
+     "src": "설명",
+     "hook": "구해줘월급 타임라인 용기내어 고민 남겨주신 사연자 분께 선플 부탁드립니다:) 📍딱 한 번 세팅으로, 가장 빠르게 1억 모으는 방법 [잔쟈니, 너나위의 종잣돈 모으기 기초반]이 궁금하다면? 빠듯한 월급의 공무원도, 두 아이 키우는 외벌이도, 통장 세팅 하나로 매달 100만원 더 모았어요."
+    }
+   ],
+   "comments": 4632,
+   "comment_needs": [
+    {
+     "name": "칭찬·감사",
+     "count": 1539,
+     "share": 0.332
+    },
+    {
+     "name": "질문",
+     "count": 1240,
+     "share": 0.268
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 378,
+     "share": 0.082
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 350,
+     "share": 0.076
+    },
+    {
+     "name": "2026 시장(폭락·불장·서킷)",
+     "count": 93,
+     "share": 0.02
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 82,
+     "share": 0.018
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "개인적으로 돈을 모아야 하는 가장 큰 이유는 좋은집,  좋은차,  좋은음식보다는 \n하기 싫은 일을 하지 않을 권리를  갖기 위해서라고 생각합니다",
+     "likes": 1493
+    },
+    {
+     "text": "외모가 순수하고 공주과인데\n내면에 대형 도서관을 담고계시니 더욱 우아하게 이쁨😅",
+     "likes": 558
+    },
+    {
+     "text": "부자는 무언가를 끊임없이 파는 사람이고 가난한 자는 무언가를 끊임없이 사는 사람이다.\n라이너 지텔만.",
+     "likes": 298
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "77exyhGYbro",
+     "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
+     "channel": "이혜성의 1% 북클럽",
+     "views": 2668198,
+     "views_per_day": 56915.9,
+     "published": "2026-08-28",
+     "url": "https://www.youtube.com/watch?v=77exyhGYbro"
+    },
+    {
+     "id": "ICYD3f6W-MA",
+     "title": "\"인생에 변명하지 마세요\" 대놓고 방법 다 알려줘도 가난 못 벗어나는 이유 (함익병 원장 | 어른을 위한 쓴소리 인생 수업 풀버전)",
+     "channel": "월급쟁이부자들TV",
+     "views": 2381724,
+     "views_per_day": 56243.5,
+     "published": "2026-09-01",
+     "url": "https://www.youtube.com/watch?v=ICYD3f6W-MA"
+    },
+    {
+     "id": "5TF8BKFWERo",
+     "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
+     "channel": "월급쟁이부자들TV",
+     "views": 1055183,
+     "views_per_day": 51966.4,
+     "published": "2026-09-23",
+     "url": "https://www.youtube.com/watch?v=5TF8BKFWERo"
+    },
+    {
+     "id": "gA4FS4OwUJU",
+     "title": "아직도 주식에만 올인하시나요? 완벽한 노후 포트폴리오 공개",
+     "channel": "경제해적단",
+     "views": 42110,
+     "views_per_day": 42110.0,
+     "published": "2026-10-13",
+     "url": "https://www.youtube.com/watch?v=gA4FS4OwUJU"
+    },
+    {
+     "id": "d1X-vkjfMdc",
+     "title": "퇴근하고 부업 뛰고 돈을 위해 달려가는 당신이 반드시 봐야 할 영상ㅣ사마천의 연구",
+     "channel": "하와이 대저택",
+     "views": 1039986,
+     "views_per_day": 34223.2,
+     "published": "2026-09-13",
+     "url": "https://www.youtube.com/watch?v=d1X-vkjfMdc"
+    }
+   ]
+  },
+  {
+   "weeks": 17,
+   "label": "최근 17주",
+   "videos": 68,
+   "channels": 29,
+   "new_this_week": [
+    {
+     "id": "dVSpaWB1IZs",
+     "title": "-30% 물린 종목, 팔아야 할까 버텨야 할까 | 손절 기준 3가지",
+     "published": "2026-06-20"
+    },
+    {
+     "id": "KJL0XCINHco",
+     "title": "당신이 채권을 모르면 절대 부자가 될 수 없는 이유",
+     "published": "2026-06-23"
+    },
+    {
+     "id": "t94bcrWeee0",
+     "title": "60대부터라도 싫어도 부자가 된다. TV에서 소개된 ‘5가지 마법의 습관’이 너무 대단했다",
+     "published": "2026-06-23"
+    }
+   ],
+   "views_median": 200763.5,
+   "views_per_day_median": 3815.15,
+   "ratio_median": 2.27,
+   "success": 19,
+   "minutes_median": 22.5,
+   "title_len_avg": 38.3,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 29,
+     "share": 0.426
+    },
+    {
+     "name": "N가지",
+     "count": 20,
+     "share": 0.294
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 12,
+     "share": 0.176
+    },
+    {
+     "name": "물음표 ?",
+     "count": 10,
+     "share": 0.147
+    },
+    {
+     "name": "이유",
+     "count": 8,
+     "share": 0.118
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 8,
+     "share": 0.118
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 7,
+     "share": 0.103
+    },
+    {
+     "name": "vs 비교",
+     "count": 7,
+     "share": 0.103
+    },
+    {
+     "name": "느낌표 !",
+     "count": 4,
+     "share": 0.059
+    },
+    {
+     "name": "두 금액(반전)",
+     "count": 3,
+     "share": 0.044
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 3,
+     "share": 0.044
+    },
+    {
+     "name": "공통점",
+     "count": 2,
+     "share": 0.029
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 1,
+     "share": 0.015
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 1,
+     "share": 0.015
+    },
+    {
+     "name": "빚투·신용·미수·레버리지·대출",
+     "count": 1,
+     "share": 0.015
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 1,
+     "share": 0.015
+    }
+   ],
+   "title_words": [
+    {
+     "word": "이유",
+     "count": 8
+    },
+    {
+     "word": "5가지",
+     "count": 8
+    },
+    {
+     "word": "부자",
+     "count": 7
+    },
+    {
+     "word": "3가지",
+     "count": 6
+    },
+    {
+     "word": "부자가",
+     "count": 6
+    },
+    {
+     "word": "ETF",
+     "count": 5
+    },
+    {
+     "word": "방법",
+     "count": 5
+    },
+    {
+     "word": "조용히",
+     "count": 4
+    },
+    {
+     "word": "비밀",
+     "count": 4
+    },
+    {
+     "word": "돈을",
+     "count": 4
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 68,
+    "없음": 0
+   },
+   "content_words": [
+    {
+     "word": "찾는",
+     "count": 36
+    },
+    {
+     "word": "사람한테만",
+     "count": 35
+    },
+    {
+     "word": "보물은",
+     "count": 35
+    },
+    {
+     "word": "옵니다",
+     "count": 35
+    },
+    {
+     "word": "댓글로",
+     "count": 31
+    },
+    {
+     "word": "영상에서",
+     "count": 29
+    },
+    {
+     "word": "아니라",
+     "count": 26
+    },
+    {
+     "word": "이유",
+     "count": 25
+    },
+    {
+     "word": "그리고",
+     "count": 23
+    },
+    {
+     "word": "있습니다",
+     "count": 21
+    },
+    {
+     "word": "다루는",
+     "count": 19
+    },
+    {
+     "word": "다음",
+     "count": 19
+    }
+   ],
+   "chapters_share": 0.206,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "77exyhGYbro",
+     "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
+     "src": "설명",
+     "hook": "오늘은 돈을 잘 버는 기술보다 돈을 대하는 태도와 인간의 본성을 이야기하는 모건 하우절의 대표작,『돈의 심리학』을 만나봅니다. 투자의 성공은 지능이나 학벌이 아닌 심리와 행동에 달려있음을 짚어보며, 타인과의 비교를 멈추고 자신만의 '멈출 수 있는 골대'를 세우는 것의 중요성을 이야기합니"
+    },
+    {
+     "id": "ICYD3f6W-MA",
+     "title": "\"인생에 변명하지 마세요\" 대놓고 방법 다 알려줘도 가난 못 벗어나는 이유 (함익병 원장 | 어른을 위한 쓴소리 인생 수업 풀버전)",
+     "src": "설명",
+     "hook": "💌 함익병 원장님과 함께 나눈 이야기 나에게 딱 맞는 재테크 로드맵 만드는 법 [너나위의 재테크 입문반] 500석 전석 7분 마감! 1,000명이 넘는 분들이 다음 기수를 기다리고 있어요. 💌 단칸방에서 타워팰리스까지… 함익병님의 '어른을 위한 쓴소리 인생 수업'을 한눈에 보기 쉬운 요"
+    },
+    {
+     "id": "5TF8BKFWERo",
+     "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
+     "src": "설명",
+     "hook": "구해줘월급 타임라인 용기내어 고민 남겨주신 사연자 분께 선플 부탁드립니다:) 📍딱 한 번 세팅으로, 가장 빠르게 1억 모으는 방법 [잔쟈니, 너나위의 종잣돈 모으기 기초반]이 궁금하다면? 빠듯한 월급의 공무원도, 두 아이 키우는 외벌이도, 통장 세팅 하나로 매달 100만원 더 모았어요."
+    }
+   ],
+   "comments": 4672,
+   "comment_needs": [
+    {
+     "name": "칭찬·감사",
+     "count": 1553,
+     "share": 0.332
+    },
+    {
+     "name": "질문",
+     "count": 1242,
+     "share": 0.266
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 382,
+     "share": 0.082
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 350,
+     "share": 0.075
+    },
+    {
+     "name": "2026 시장(폭락·불장·서킷)",
+     "count": 93,
+     "share": 0.02
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 83,
+     "share": 0.018
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "개인적으로 돈을 모아야 하는 가장 큰 이유는 좋은집,  좋은차,  좋은음식보다는 \n하기 싫은 일을 하지 않을 권리를  갖기 위해서라고 생각합니다",
+     "likes": 1493
+    },
+    {
+     "text": "외모가 순수하고 공주과인데\n내면에 대형 도서관을 담고계시니 더욱 우아하게 이쁨😅",
+     "likes": 558
+    },
+    {
+     "text": "부자는 무언가를 끊임없이 파는 사람이고 가난한 자는 무언가를 끊임없이 사는 사람이다.\n라이너 지텔만.",
+     "likes": 298
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "77exyhGYbro",
+     "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
+     "channel": "이혜성의 1% 북클럽",
+     "views": 2668198,
+     "views_per_day": 56915.9,
+     "published": "2026-08-28",
+     "url": "https://www.youtube.com/watch?v=77exyhGYbro"
+    },
+    {
+     "id": "ICYD3f6W-MA",
+     "title": "\"인생에 변명하지 마세요\" 대놓고 방법 다 알려줘도 가난 못 벗어나는 이유 (함익병 원장 | 어른을 위한 쓴소리 인생 수업 풀버전)",
+     "channel": "월급쟁이부자들TV",
+     "views": 2381724,
+     "views_per_day": 56243.5,
+     "published": "2026-09-01",
+     "url": "https://www.youtube.com/watch?v=ICYD3f6W-MA"
+    },
+    {
+     "id": "5TF8BKFWERo",
+     "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
+     "channel": "월급쟁이부자들TV",
+     "views": 1055183,
+     "views_per_day": 51966.4,
+     "published": "2026-09-23",
+     "url": "https://www.youtube.com/watch?v=5TF8BKFWERo"
+    },
+    {
+     "id": "gA4FS4OwUJU",
+     "title": "아직도 주식에만 올인하시나요? 완벽한 노후 포트폴리오 공개",
+     "channel": "경제해적단",
+     "views": 42110,
+     "views_per_day": 42110.0,
+     "published": "2026-10-13",
+     "url": "https://www.youtube.com/watch?v=gA4FS4OwUJU"
+    },
+    {
+     "id": "d1X-vkjfMdc",
+     "title": "퇴근하고 부업 뛰고 돈을 위해 달려가는 당신이 반드시 봐야 할 영상ㅣ사마천의 연구",
+     "channel": "하와이 대저택",
+     "views": 1039986,
+     "views_per_day": 34223.2,
+     "published": "2026-09-13",
+     "url": "https://www.youtube.com/watch?v=d1X-vkjfMdc"
+    }
+   ]
+  },
+  {
+   "weeks": 18,
+   "label": "최근 18주",
+   "videos": 72,
+   "channels": 32,
+   "new_this_week": [
+    {
+     "id": "2L1Wb-CLf-o",
+     "title": "\"배당금으로 먹고 살려면, 얼마를 투자해야 할까?\"",
+     "published": "2026-06-10"
+    },
+    {
+     "id": "fFURFeLTdAg",
+     "title": "주식 상위 2%만 아는 10가지 절대 생존 원칙 (돈의 원리)",
+     "published": "2026-06-10"
+    },
+    {
+     "id": "ghEDa5tjlvs",
+     "title": "(가난한 사람들은 절대 모르는) 부자들의 진짜 소비법 I 교수 정선용 (통합본)",
+     "published": "2026-06-12"
+    },
+    {
+     "id": "hA5g5pbTFUo",
+     "title": "1억, 5억, 10억, 30억 자산 구간별 나타나는 인생 변화. (부자들이 돈 버는 법)",
+     "published": "2026-06-14"
+    }
+   ],
+   "views_median": 199585.0,
+   "views_per_day_median": 3604.75,
+   "ratio_median": 2.35,
+   "success": 22,
+   "minutes_median": 22.5,
+   "title_len_avg": 38.3,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 30,
+     "share": 0.417
+    },
+    {
+     "name": "N가지",
+     "count": 21,
+     "share": 0.292
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 13,
+     "share": 0.181
+    },
+    {
+     "name": "물음표 ?",
+     "count": 11,
+     "share": 0.153
+    },
+    {
+     "name": "vs 비교",
+     "count": 9,
+     "share": 0.125
+    },
+    {
+     "name": "이유",
+     "count": 8,
+     "share": 0.111
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 8,
+     "share": 0.111
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 7,
+     "share": 0.097
+    },
+    {
+     "name": "두 금액(반전)",
+     "count": 4,
+     "share": 0.056
+    },
+    {
+     "name": "느낌표 !",
+     "count": 4,
+     "share": 0.056
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 3,
+     "share": 0.042
+    },
+    {
+     "name": "공통점",
+     "count": 2,
+     "share": 0.028
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 1,
+     "share": 0.014
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 1,
+     "share": 0.014
+    },
+    {
+     "name": "빚투·신용·미수·레버리지·대출",
+     "count": 1,
+     "share": 0.014
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 1,
+     "share": 0.014
+    }
+   ],
+   "title_words": [
+    {
+     "word": "이유",
+     "count": 8
+    },
+    {
+     "word": "5가지",
+     "count": 8
+    },
+    {
+     "word": "부자",
+     "count": 7
+    },
+    {
+     "word": "3가지",
+     "count": 6
+    },
+    {
+     "word": "부자가",
+     "count": 6
+    },
+    {
+     "word": "ETF",
+     "count": 5
+    },
+    {
+     "word": "주식",
+     "count": 5
+    },
+    {
+     "word": "방법",
+     "count": 5
+    },
+    {
+     "word": "부자들이",
+     "count": 5
+    },
+    {
+     "word": "조용히",
+     "count": 4
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 72,
+    "없음": 0
+   },
+   "content_words": [
+    {
+     "word": "찾는",
+     "count": 37
+    },
+    {
+     "word": "사람한테만",
+     "count": 36
+    },
+    {
+     "word": "보물은",
+     "count": 36
+    },
+    {
+     "word": "옵니다",
+     "count": 35
+    },
+    {
+     "word": "댓글로",
+     "count": 31
+    },
+    {
+     "word": "영상에서",
+     "count": 30
+    },
+    {
+     "word": "아니라",
+     "count": 27
+    },
+    {
+     "word": "이유",
+     "count": 26
+    },
+    {
+     "word": "그리고",
+     "count": 23
+    },
+    {
+     "word": "있습니다",
+     "count": 21
+    },
+    {
+     "word": "다음",
+     "count": 20
+    },
+    {
+     "word": "오늘",
+     "count": 19
+    }
+   ],
+   "chapters_share": 0.208,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "77exyhGYbro",
+     "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
+     "src": "설명",
+     "hook": "오늘은 돈을 잘 버는 기술보다 돈을 대하는 태도와 인간의 본성을 이야기하는 모건 하우절의 대표작,『돈의 심리학』을 만나봅니다. 투자의 성공은 지능이나 학벌이 아닌 심리와 행동에 달려있음을 짚어보며, 타인과의 비교를 멈추고 자신만의 '멈출 수 있는 골대'를 세우는 것의 중요성을 이야기합니"
+    },
+    {
+     "id": "ICYD3f6W-MA",
+     "title": "\"인생에 변명하지 마세요\" 대놓고 방법 다 알려줘도 가난 못 벗어나는 이유 (함익병 원장 | 어른을 위한 쓴소리 인생 수업 풀버전)",
+     "src": "설명",
+     "hook": "💌 함익병 원장님과 함께 나눈 이야기 나에게 딱 맞는 재테크 로드맵 만드는 법 [너나위의 재테크 입문반] 500석 전석 7분 마감! 1,000명이 넘는 분들이 다음 기수를 기다리고 있어요. 💌 단칸방에서 타워팰리스까지… 함익병님의 '어른을 위한 쓴소리 인생 수업'을 한눈에 보기 쉬운 요"
+    },
+    {
+     "id": "5TF8BKFWERo",
+     "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
+     "src": "설명",
+     "hook": "구해줘월급 타임라인 용기내어 고민 남겨주신 사연자 분께 선플 부탁드립니다:) 📍딱 한 번 세팅으로, 가장 빠르게 1억 모으는 방법 [잔쟈니, 너나위의 종잣돈 모으기 기초반]이 궁금하다면? 빠듯한 월급의 공무원도, 두 아이 키우는 외벌이도, 통장 세팅 하나로 매달 100만원 더 모았어요."
+    }
+   ],
+   "comments": 5434,
+   "comment_needs": [
+    {
+     "name": "칭찬·감사",
+     "count": 1629,
+     "share": 0.3
+    },
+    {
+     "name": "질문",
+     "count": 1356,
+     "share": 0.25
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 462,
+     "share": 0.085
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 429,
+     "share": 0.079
+    },
+    {
+     "name": "2026 시장(폭락·불장·서킷)",
+     "count": 110,
+     "share": 0.02
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 96,
+     "share": 0.018
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "개인적으로 돈을 모아야 하는 가장 큰 이유는 좋은집,  좋은차,  좋은음식보다는 \n하기 싫은 일을 하지 않을 권리를  갖기 위해서라고 생각합니다",
+     "likes": 1493
+    },
+    {
+     "text": "외모가 순수하고 공주과인데\n내면에 대형 도서관을 담고계시니 더욱 우아하게 이쁨😅",
+     "likes": 558
+    },
+    {
+     "text": "부자는 무언가를 끊임없이 파는 사람이고 가난한 자는 무언가를 끊임없이 사는 사람이다.\n라이너 지텔만.",
+     "likes": 298
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "77exyhGYbro",
+     "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
+     "channel": "이혜성의 1% 북클럽",
+     "views": 2668198,
+     "views_per_day": 56915.9,
+     "published": "2026-08-28",
+     "url": "https://www.youtube.com/watch?v=77exyhGYbro"
+    },
+    {
+     "id": "ICYD3f6W-MA",
+     "title": "\"인생에 변명하지 마세요\" 대놓고 방법 다 알려줘도 가난 못 벗어나는 이유 (함익병 원장 | 어른을 위한 쓴소리 인생 수업 풀버전)",
+     "channel": "월급쟁이부자들TV",
+     "views": 2381724,
+     "views_per_day": 56243.5,
+     "published": "2026-09-01",
+     "url": "https://www.youtube.com/watch?v=ICYD3f6W-MA"
+    },
+    {
+     "id": "5TF8BKFWERo",
+     "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
+     "channel": "월급쟁이부자들TV",
+     "views": 1055183,
+     "views_per_day": 51966.4,
+     "published": "2026-09-23",
+     "url": "https://www.youtube.com/watch?v=5TF8BKFWERo"
+    },
+    {
+     "id": "gA4FS4OwUJU",
+     "title": "아직도 주식에만 올인하시나요? 완벽한 노후 포트폴리오 공개",
+     "channel": "경제해적단",
+     "views": 42110,
+     "views_per_day": 42110.0,
+     "published": "2026-10-13",
+     "url": "https://www.youtube.com/watch?v=gA4FS4OwUJU"
+    },
+    {
+     "id": "d1X-vkjfMdc",
+     "title": "퇴근하고 부업 뛰고 돈을 위해 달려가는 당신이 반드시 봐야 할 영상ㅣ사마천의 연구",
+     "channel": "하와이 대저택",
+     "views": 1039986,
+     "views_per_day": 34223.2,
+     "published": "2026-09-13",
+     "url": "https://www.youtube.com/watch?v=d1X-vkjfMdc"
+    }
+   ]
+  },
+  {
+   "weeks": 19,
+   "label": "최근 19주",
+   "videos": 72,
+   "channels": 32,
+   "new_this_week": [],
+   "views_median": 199585.0,
+   "views_per_day_median": 3604.75,
+   "ratio_median": 2.35,
+   "success": 22,
+   "minutes_median": 22.5,
+   "title_len_avg": 38.3,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 30,
+     "share": 0.417
+    },
+    {
+     "name": "N가지",
+     "count": 21,
+     "share": 0.292
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 13,
+     "share": 0.181
+    },
+    {
+     "name": "물음표 ?",
+     "count": 11,
+     "share": 0.153
+    },
+    {
+     "name": "vs 비교",
+     "count": 9,
+     "share": 0.125
+    },
+    {
+     "name": "이유",
+     "count": 8,
+     "share": 0.111
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 8,
+     "share": 0.111
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 7,
+     "share": 0.097
+    },
+    {
+     "name": "두 금액(반전)",
+     "count": 4,
+     "share": 0.056
+    },
+    {
+     "name": "느낌표 !",
+     "count": 4,
+     "share": 0.056
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 3,
+     "share": 0.042
+    },
+    {
+     "name": "공통점",
+     "count": 2,
+     "share": 0.028
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 1,
+     "share": 0.014
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 1,
+     "share": 0.014
+    },
+    {
+     "name": "빚투·신용·미수·레버리지·대출",
+     "count": 1,
+     "share": 0.014
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 1,
+     "share": 0.014
+    }
+   ],
+   "title_words": [
+    {
+     "word": "이유",
+     "count": 8
+    },
+    {
+     "word": "5가지",
+     "count": 8
+    },
+    {
+     "word": "부자",
+     "count": 7
+    },
+    {
+     "word": "3가지",
+     "count": 6
+    },
+    {
+     "word": "부자가",
+     "count": 6
+    },
+    {
+     "word": "ETF",
+     "count": 5
+    },
+    {
+     "word": "주식",
+     "count": 5
+    },
+    {
+     "word": "방법",
+     "count": 5
+    },
+    {
+     "word": "부자들이",
+     "count": 5
+    },
+    {
+     "word": "조용히",
+     "count": 4
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 72,
+    "없음": 0
+   },
+   "content_words": [
+    {
+     "word": "찾는",
+     "count": 37
+    },
+    {
+     "word": "사람한테만",
+     "count": 36
+    },
+    {
+     "word": "보물은",
+     "count": 36
+    },
+    {
+     "word": "옵니다",
+     "count": 35
+    },
+    {
+     "word": "댓글로",
+     "count": 31
+    },
+    {
+     "word": "영상에서",
+     "count": 30
+    },
+    {
+     "word": "아니라",
+     "count": 27
+    },
+    {
+     "word": "이유",
+     "count": 26
+    },
+    {
+     "word": "그리고",
+     "count": 23
+    },
+    {
+     "word": "있습니다",
+     "count": 21
+    },
+    {
+     "word": "다음",
+     "count": 20
+    },
+    {
+     "word": "오늘",
+     "count": 19
+    }
+   ],
+   "chapters_share": 0.208,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "77exyhGYbro",
+     "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
+     "src": "설명",
+     "hook": "오늘은 돈을 잘 버는 기술보다 돈을 대하는 태도와 인간의 본성을 이야기하는 모건 하우절의 대표작,『돈의 심리학』을 만나봅니다. 투자의 성공은 지능이나 학벌이 아닌 심리와 행동에 달려있음을 짚어보며, 타인과의 비교를 멈추고 자신만의 '멈출 수 있는 골대'를 세우는 것의 중요성을 이야기합니"
+    },
+    {
+     "id": "ICYD3f6W-MA",
+     "title": "\"인생에 변명하지 마세요\" 대놓고 방법 다 알려줘도 가난 못 벗어나는 이유 (함익병 원장 | 어른을 위한 쓴소리 인생 수업 풀버전)",
+     "src": "설명",
+     "hook": "💌 함익병 원장님과 함께 나눈 이야기 나에게 딱 맞는 재테크 로드맵 만드는 법 [너나위의 재테크 입문반] 500석 전석 7분 마감! 1,000명이 넘는 분들이 다음 기수를 기다리고 있어요. 💌 단칸방에서 타워팰리스까지… 함익병님의 '어른을 위한 쓴소리 인생 수업'을 한눈에 보기 쉬운 요"
+    },
+    {
+     "id": "5TF8BKFWERo",
+     "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
+     "src": "설명",
+     "hook": "구해줘월급 타임라인 용기내어 고민 남겨주신 사연자 분께 선플 부탁드립니다:) 📍딱 한 번 세팅으로, 가장 빠르게 1억 모으는 방법 [잔쟈니, 너나위의 종잣돈 모으기 기초반]이 궁금하다면? 빠듯한 월급의 공무원도, 두 아이 키우는 외벌이도, 통장 세팅 하나로 매달 100만원 더 모았어요."
+    }
+   ],
+   "comments": 5434,
+   "comment_needs": [
+    {
+     "name": "칭찬·감사",
+     "count": 1629,
+     "share": 0.3
+    },
+    {
+     "name": "질문",
+     "count": 1356,
+     "share": 0.25
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 462,
+     "share": 0.085
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 429,
+     "share": 0.079
+    },
+    {
+     "name": "2026 시장(폭락·불장·서킷)",
+     "count": 110,
+     "share": 0.02
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 96,
+     "share": 0.018
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "개인적으로 돈을 모아야 하는 가장 큰 이유는 좋은집,  좋은차,  좋은음식보다는 \n하기 싫은 일을 하지 않을 권리를  갖기 위해서라고 생각합니다",
+     "likes": 1493
+    },
+    {
+     "text": "외모가 순수하고 공주과인데\n내면에 대형 도서관을 담고계시니 더욱 우아하게 이쁨😅",
+     "likes": 558
+    },
+    {
+     "text": "부자는 무언가를 끊임없이 파는 사람이고 가난한 자는 무언가를 끊임없이 사는 사람이다.\n라이너 지텔만.",
+     "likes": 298
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "77exyhGYbro",
+     "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
+     "channel": "이혜성의 1% 북클럽",
+     "views": 2668198,
+     "views_per_day": 56915.9,
+     "published": "2026-08-28",
+     "url": "https://www.youtube.com/watch?v=77exyhGYbro"
+    },
+    {
+     "id": "ICYD3f6W-MA",
+     "title": "\"인생에 변명하지 마세요\" 대놓고 방법 다 알려줘도 가난 못 벗어나는 이유 (함익병 원장 | 어른을 위한 쓴소리 인생 수업 풀버전)",
+     "channel": "월급쟁이부자들TV",
+     "views": 2381724,
+     "views_per_day": 56243.5,
+     "published": "2026-09-01",
+     "url": "https://www.youtube.com/watch?v=ICYD3f6W-MA"
+    },
+    {
+     "id": "5TF8BKFWERo",
+     "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
+     "channel": "월급쟁이부자들TV",
+     "views": 1055183,
+     "views_per_day": 51966.4,
+     "published": "2026-09-23",
+     "url": "https://www.youtube.com/watch?v=5TF8BKFWERo"
+    },
+    {
+     "id": "gA4FS4OwUJU",
+     "title": "아직도 주식에만 올인하시나요? 완벽한 노후 포트폴리오 공개",
+     "channel": "경제해적단",
+     "views": 42110,
+     "views_per_day": 42110.0,
+     "published": "2026-10-13",
+     "url": "https://www.youtube.com/watch?v=gA4FS4OwUJU"
+    },
+    {
+     "id": "d1X-vkjfMdc",
+     "title": "퇴근하고 부업 뛰고 돈을 위해 달려가는 당신이 반드시 봐야 할 영상ㅣ사마천의 연구",
+     "channel": "하와이 대저택",
+     "views": 1039986,
+     "views_per_day": 34223.2,
+     "published": "2026-09-13",
+     "url": "https://www.youtube.com/watch?v=d1X-vkjfMdc"
+    }
+   ]
+  },
+  {
+   "weeks": 20,
+   "label": "최근 20주",
+   "videos": 73,
+   "channels": 33,
+   "new_this_week": [
+    {
+     "id": "ITzgH6CeZns",
+     "title": "매일 아침 7시, 내 포트폴리오를 관리해주는 AI 주식 비서를 만들어봤습니다",
+     "published": "2026-05-28"
+    }
+   ],
+   "views_median": 200666,
+   "views_per_day_median": 3747.2,
+   "ratio_median": 2.37,
+   "success": 23,
+   "minutes_median": 22.5,
+   "title_len_avg": 38.4,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 30,
+     "share": 0.411
+    },
+    {
+     "name": "N가지",
+     "count": 21,
+     "share": 0.288
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 13,
+     "share": 0.178
+    },
+    {
+     "name": "물음표 ?",
+     "count": 11,
+     "share": 0.151
+    },
+    {
+     "name": "vs 비교",
+     "count": 9,
+     "share": 0.123
+    },
+    {
+     "name": "이유",
+     "count": 8,
+     "share": 0.11
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 8,
+     "share": 0.11
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 7,
+     "share": 0.096
+    },
+    {
+     "name": "두 금액(반전)",
+     "count": 4,
+     "share": 0.055
+    },
+    {
+     "name": "느낌표 !",
+     "count": 4,
+     "share": 0.055
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 4,
+     "share": 0.055
+    },
+    {
+     "name": "공통점",
+     "count": 2,
+     "share": 0.027
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 1,
+     "share": 0.014
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 1,
+     "share": 0.014
+    },
+    {
+     "name": "빚투·신용·미수·레버리지·대출",
+     "count": 1,
+     "share": 0.014
+    },
+    {
+     "name": "AI",
+     "count": 1,
+     "share": 0.014
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 1,
+     "share": 0.014
+    }
+   ],
+   "title_words": [
+    {
+     "word": "이유",
+     "count": 8
+    },
+    {
+     "word": "5가지",
+     "count": 8
+    },
+    {
+     "word": "부자",
+     "count": 7
+    },
+    {
+     "word": "3가지",
+     "count": 6
+    },
+    {
+     "word": "부자가",
+     "count": 6
+    },
+    {
+     "word": "주식",
+     "count": 6
+    },
+    {
+     "word": "ETF",
+     "count": 5
+    },
+    {
+     "word": "방법",
+     "count": 5
+    },
+    {
+     "word": "부자들이",
+     "count": 5
+    },
+    {
+     "word": "조용히",
+     "count": 4
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 73,
+    "없음": 0
+   },
+   "content_words": [
+    {
+     "word": "찾는",
+     "count": 37
+    },
+    {
+     "word": "사람한테만",
+     "count": 36
+    },
+    {
+     "word": "보물은",
+     "count": 36
+    },
+    {
+     "word": "옵니다",
+     "count": 35
+    },
+    {
+     "word": "댓글로",
+     "count": 31
+    },
+    {
+     "word": "영상에서",
+     "count": 30
+    },
+    {
+     "word": "아니라",
+     "count": 27
+    },
+    {
+     "word": "이유",
+     "count": 26
+    },
+    {
+     "word": "그리고",
+     "count": 23
+    },
+    {
+     "word": "있습니다",
+     "count": 21
+    },
+    {
+     "word": "다음",
+     "count": 20
+    },
+    {
+     "word": "오늘",
+     "count": 19
+    }
+   ],
+   "chapters_share": 0.219,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "77exyhGYbro",
+     "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
+     "src": "설명",
+     "hook": "오늘은 돈을 잘 버는 기술보다 돈을 대하는 태도와 인간의 본성을 이야기하는 모건 하우절의 대표작,『돈의 심리학』을 만나봅니다. 투자의 성공은 지능이나 학벌이 아닌 심리와 행동에 달려있음을 짚어보며, 타인과의 비교를 멈추고 자신만의 '멈출 수 있는 골대'를 세우는 것의 중요성을 이야기합니"
+    },
+    {
+     "id": "ICYD3f6W-MA",
+     "title": "\"인생에 변명하지 마세요\" 대놓고 방법 다 알려줘도 가난 못 벗어나는 이유 (함익병 원장 | 어른을 위한 쓴소리 인생 수업 풀버전)",
+     "src": "설명",
+     "hook": "💌 함익병 원장님과 함께 나눈 이야기 나에게 딱 맞는 재테크 로드맵 만드는 법 [너나위의 재테크 입문반] 500석 전석 7분 마감! 1,000명이 넘는 분들이 다음 기수를 기다리고 있어요. 💌 단칸방에서 타워팰리스까지… 함익병님의 '어른을 위한 쓴소리 인생 수업'을 한눈에 보기 쉬운 요"
+    },
+    {
+     "id": "5TF8BKFWERo",
+     "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
+     "src": "설명",
+     "hook": "구해줘월급 타임라인 용기내어 고민 남겨주신 사연자 분께 선플 부탁드립니다:) 📍딱 한 번 세팅으로, 가장 빠르게 1억 모으는 방법 [잔쟈니, 너나위의 종잣돈 모으기 기초반]이 궁금하다면? 빠듯한 월급의 공무원도, 두 아이 키우는 외벌이도, 통장 세팅 하나로 매달 100만원 더 모았어요."
+    }
+   ],
+   "comments": 5821,
+   "comment_needs": [
+    {
+     "name": "칭찬·감사",
+     "count": 1688,
+     "share": 0.29
+    },
+    {
+     "name": "질문",
+     "count": 1478,
+     "share": 0.254
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 477,
+     "share": 0.082
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 451,
+     "share": 0.077
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 119,
+     "share": 0.02
+    },
+    {
+     "name": "2026 시장(폭락·불장·서킷)",
+     "count": 116,
+     "share": 0.02
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "개인적으로 돈을 모아야 하는 가장 큰 이유는 좋은집,  좋은차,  좋은음식보다는 \n하기 싫은 일을 하지 않을 권리를  갖기 위해서라고 생각합니다",
+     "likes": 1493
+    },
+    {
+     "text": "외모가 순수하고 공주과인데\n내면에 대형 도서관을 담고계시니 더욱 우아하게 이쁨😅",
+     "likes": 558
+    },
+    {
+     "text": "부자는 무언가를 끊임없이 파는 사람이고 가난한 자는 무언가를 끊임없이 사는 사람이다.\n라이너 지텔만.",
+     "likes": 298
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "77exyhGYbro",
+     "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
+     "channel": "이혜성의 1% 북클럽",
+     "views": 2668198,
+     "views_per_day": 56915.9,
+     "published": "2026-08-28",
+     "url": "https://www.youtube.com/watch?v=77exyhGYbro"
+    },
+    {
+     "id": "ICYD3f6W-MA",
+     "title": "\"인생에 변명하지 마세요\" 대놓고 방법 다 알려줘도 가난 못 벗어나는 이유 (함익병 원장 | 어른을 위한 쓴소리 인생 수업 풀버전)",
+     "channel": "월급쟁이부자들TV",
+     "views": 2381724,
+     "views_per_day": 56243.5,
+     "published": "2026-09-01",
+     "url": "https://www.youtube.com/watch?v=ICYD3f6W-MA"
+    },
+    {
+     "id": "5TF8BKFWERo",
+     "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
+     "channel": "월급쟁이부자들TV",
+     "views": 1055183,
+     "views_per_day": 51966.4,
+     "published": "2026-09-23",
+     "url": "https://www.youtube.com/watch?v=5TF8BKFWERo"
+    },
+    {
+     "id": "gA4FS4OwUJU",
+     "title": "아직도 주식에만 올인하시나요? 완벽한 노후 포트폴리오 공개",
+     "channel": "경제해적단",
+     "views": 42110,
+     "views_per_day": 42110.0,
+     "published": "2026-10-13",
+     "url": "https://www.youtube.com/watch?v=gA4FS4OwUJU"
+    },
+    {
+     "id": "d1X-vkjfMdc",
+     "title": "퇴근하고 부업 뛰고 돈을 위해 달려가는 당신이 반드시 봐야 할 영상ㅣ사마천의 연구",
+     "channel": "하와이 대저택",
+     "views": 1039986,
+     "views_per_day": 34223.2,
+     "published": "2026-09-13",
+     "url": "https://www.youtube.com/watch?v=d1X-vkjfMdc"
+    }
+   ]
+  },
+  {
+   "weeks": 21,
+   "label": "최근 21주",
+   "videos": 77,
+   "channels": 35,
+   "new_this_week": [
+    {
+     "id": "0eSDzo-Nd_g",
+     "title": "주식 언제 팔아야 할까? 가장 완벽한 매도 타이밍",
+     "published": "2026-05-20"
+    },
+    {
+     "id": "L_g1h2oVZv0",
+     "title": "\"노후는 완벽하게 해결됩니다\" 월급에서 딱 50만 원만 '이 계좌'에 넣으세요 (박곰희 작가 2부)",
+     "published": "2026-05-20"
+    },
+    {
+     "id": "QdtKu0Zfw14",
+     "title": "금융자산 10억 생기면 실제로 벌어지는 일 6가지 (세금·심리·현금흐름 전부 말씀드립니다)",
+     "published": "2026-05-22"
+    },
+    {
+     "id": "Qi3oWAmT9N8",
+     "title": "\"나스닥100 ETF 완전히 바뀝니다\" 적립식 투자하고 있다면 꼭 알아야 할 룰 변경 총정리 (스페이스X·오픈AI·앤트로픽)",
+     "published": "2026-05-26"
+    }
+   ],
+   "views_median": 200861,
+   "views_per_day_median": 3782.3,
+   "ratio_median": 2.34,
+   "success": 23,
+   "minutes_median": 22.4,
+   "title_len_avg": 39.0,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 31,
+     "share": 0.403
+    },
+    {
+     "name": "N가지",
+     "count": 22,
+     "share": 0.286
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 15,
+     "share": 0.195
+    },
+    {
+     "name": "물음표 ?",
+     "count": 12,
+     "share": 0.156
+    },
+    {
+     "name": "vs 비교",
+     "count": 9,
+     "share": 0.117
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 9,
+     "share": 0.117
+    },
+    {
+     "name": "이유",
+     "count": 8,
+     "share": 0.104
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 8,
+     "share": 0.104
+    },
+    {
+     "name": "두 금액(반전)",
+     "count": 4,
+     "share": 0.052
+    },
+    {
+     "name": "느낌표 !",
+     "count": 4,
+     "share": 0.052
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 4,
+     "share": 0.052
+    },
+    {
+     "name": "공통점",
+     "count": 2,
+     "share": 0.026
+    },
+    {
+     "name": "AI",
+     "count": 2,
+     "share": 0.026
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 1,
+     "share": 0.013
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 1,
+     "share": 0.013
+    },
+    {
+     "name": "빚투·신용·미수·레버리지·대출",
+     "count": 1,
+     "share": 0.013
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 1,
+     "share": 0.013
+    }
+   ],
+   "title_words": [
+    {
+     "word": "이유",
+     "count": 8
+    },
+    {
+     "word": "5가지",
+     "count": 8
+    },
+    {
+     "word": "주식",
+     "count": 7
+    },
+    {
+     "word": "부자",
+     "count": 7
+    },
+    {
+     "word": "3가지",
+     "count": 6
+    },
+    {
+     "word": "ETF",
+     "count": 6
+    },
+    {
+     "word": "부자가",
+     "count": 6
+    },
+    {
+     "word": "방법",
+     "count": 5
+    },
+    {
+     "word": "부자들이",
+     "count": 5
+    },
+    {
+     "word": "할까",
+     "count": 4
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 76,
+    "없음": 1
+   },
+   "content_words": [
+    {
+     "word": "찾는",
+     "count": 37
+    },
+    {
+     "word": "사람한테만",
+     "count": 36
+    },
+    {
+     "word": "보물은",
+     "count": 36
+    },
+    {
+     "word": "옵니다",
+     "count": 35
+    },
+    {
+     "word": "댓글로",
+     "count": 34
+    },
+    {
+     "word": "영상에서",
+     "count": 32
+    },
+    {
+     "word": "이유",
+     "count": 27
+    },
+    {
+     "word": "아니라",
+     "count": 27
+    },
+    {
+     "word": "그리고",
+     "count": 24
+    },
+    {
+     "word": "다루는",
+     "count": 21
+    },
+    {
+     "word": "다음",
+     "count": 21
+    },
+    {
+     "word": "있습니다",
+     "count": 21
+    }
+   ],
+   "chapters_share": 0.221,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "77exyhGYbro",
+     "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
+     "src": "설명",
+     "hook": "오늘은 돈을 잘 버는 기술보다 돈을 대하는 태도와 인간의 본성을 이야기하는 모건 하우절의 대표작,『돈의 심리학』을 만나봅니다. 투자의 성공은 지능이나 학벌이 아닌 심리와 행동에 달려있음을 짚어보며, 타인과의 비교를 멈추고 자신만의 '멈출 수 있는 골대'를 세우는 것의 중요성을 이야기합니"
+    },
+    {
+     "id": "ICYD3f6W-MA",
+     "title": "\"인생에 변명하지 마세요\" 대놓고 방법 다 알려줘도 가난 못 벗어나는 이유 (함익병 원장 | 어른을 위한 쓴소리 인생 수업 풀버전)",
+     "src": "설명",
+     "hook": "💌 함익병 원장님과 함께 나눈 이야기 나에게 딱 맞는 재테크 로드맵 만드는 법 [너나위의 재테크 입문반] 500석 전석 7분 마감! 1,000명이 넘는 분들이 다음 기수를 기다리고 있어요. 💌 단칸방에서 타워팰리스까지… 함익병님의 '어른을 위한 쓴소리 인생 수업'을 한눈에 보기 쉬운 요"
+    },
+    {
+     "id": "5TF8BKFWERo",
+     "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
+     "src": "설명",
+     "hook": "구해줘월급 타임라인 용기내어 고민 남겨주신 사연자 분께 선플 부탁드립니다:) 📍딱 한 번 세팅으로, 가장 빠르게 1억 모으는 방법 [잔쟈니, 너나위의 종잣돈 모으기 기초반]이 궁금하다면? 빠듯한 월급의 공무원도, 두 아이 키우는 외벌이도, 통장 세팅 하나로 매달 100만원 더 모았어요."
+    }
+   ],
+   "comments": 6871,
+   "comment_needs": [
+    {
+     "name": "칭찬·감사",
+     "count": 1726,
+     "share": 0.251
+    },
+    {
+     "name": "질문",
+     "count": 1677,
+     "share": 0.244
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 564,
+     "share": 0.082
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 553,
+     "share": 0.08
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 156,
+     "share": 0.023
+    },
+    {
+     "name": "2026 시장(폭락·불장·서킷)",
+     "count": 138,
+     "share": 0.02
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "개인적으로 돈을 모아야 하는 가장 큰 이유는 좋은집,  좋은차,  좋은음식보다는 \n하기 싫은 일을 하지 않을 권리를  갖기 위해서라고 생각합니다",
+     "likes": 1493
+    },
+    {
+     "text": "이영상을 보는 사람들은\n모두가 종소세기준금액 2천만원이\n얼마나 불합리한지 나라에 외쳐야합니다\n매년 물가상승률이 얼마나되는데\n10년이\n넘게 아직도 2천만원인지\n세금을 가만히 앉아서 어마어마하게 걷을수 있기에 건드리지\n",
+     "likes": 1257
+    },
+    {
+     "text": "금융자산 10억 됐다고 크게 변하는거 없음\n요즘 세상에 은행이던 증권사든 먼저 연락 안옴..연락오는건 보험 아줌마 뿐\n큰일 날 소리 하지 마라",
+     "likes": 722
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "77exyhGYbro",
+     "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
+     "channel": "이혜성의 1% 북클럽",
+     "views": 2668198,
+     "views_per_day": 56915.9,
+     "published": "2026-08-28",
+     "url": "https://www.youtube.com/watch?v=77exyhGYbro"
+    },
+    {
+     "id": "ICYD3f6W-MA",
+     "title": "\"인생에 변명하지 마세요\" 대놓고 방법 다 알려줘도 가난 못 벗어나는 이유 (함익병 원장 | 어른을 위한 쓴소리 인생 수업 풀버전)",
+     "channel": "월급쟁이부자들TV",
+     "views": 2381724,
+     "views_per_day": 56243.5,
+     "published": "2026-09-01",
+     "url": "https://www.youtube.com/watch?v=ICYD3f6W-MA"
+    },
+    {
+     "id": "5TF8BKFWERo",
+     "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
+     "channel": "월급쟁이부자들TV",
+     "views": 1055183,
+     "views_per_day": 51966.4,
+     "published": "2026-09-23",
+     "url": "https://www.youtube.com/watch?v=5TF8BKFWERo"
+    },
+    {
+     "id": "gA4FS4OwUJU",
+     "title": "아직도 주식에만 올인하시나요? 완벽한 노후 포트폴리오 공개",
+     "channel": "경제해적단",
+     "views": 42110,
+     "views_per_day": 42110.0,
+     "published": "2026-10-13",
+     "url": "https://www.youtube.com/watch?v=gA4FS4OwUJU"
+    },
+    {
+     "id": "d1X-vkjfMdc",
+     "title": "퇴근하고 부업 뛰고 돈을 위해 달려가는 당신이 반드시 봐야 할 영상ㅣ사마천의 연구",
+     "channel": "하와이 대저택",
+     "views": 1039986,
+     "views_per_day": 34223.2,
+     "published": "2026-09-13",
+     "url": "https://www.youtube.com/watch?v=d1X-vkjfMdc"
+    }
+   ]
+  },
+  {
+   "weeks": 22,
+   "label": "최근 22주",
+   "videos": 80,
+   "channels": 37,
+   "new_this_week": [
+    {
+     "id": "e4vnRumvEPk",
+     "title": "일반계좌 vs 기존 ISA vs 슈퍼 ISA 세금 직접 비교 (연수익 1천만·2천만 원 케이스)",
+     "published": "2026-05-18"
+    },
+    {
+     "id": "GxGvoXZQbZ0",
+     "title": "부자 되기 바로 전, 삶에 나타나는 이상한 변화 7가지 (놓치면 평생 후회합니다)",
+     "published": "2026-05-14"
+    },
+    {
+     "id": "w0tGUgRg9mM",
+     "title": "금융자산 10억 도달하면 반드시 겪게 됩니다. 아무도 미리 알려주지 않는 진짜 현실 (ft. 금융소득종합과세, 건강보험료)",
+     "published": "2026-05-16"
+    }
+   ],
+   "views_median": 200763.5,
+   "views_per_day_median": 3764.75,
+   "ratio_median": 2.35,
+   "success": 24,
+   "minutes_median": 22.35,
+   "title_len_avg": 39.6,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 32,
+     "share": 0.4
+    },
+    {
+     "name": "N가지",
+     "count": 23,
+     "share": 0.287
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 17,
+     "share": 0.212
+    },
+    {
+     "name": "물음표 ?",
+     "count": 12,
+     "share": 0.15
+    },
+    {
+     "name": "vs 비교",
+     "count": 10,
+     "share": 0.125
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 9,
+     "share": 0.113
+    },
+    {
+     "name": "이유",
+     "count": 8,
+     "share": 0.1
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 8,
+     "share": 0.1
+    },
+    {
+     "name": "두 금액(반전)",
+     "count": 5,
+     "share": 0.062
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 5,
+     "share": 0.062
+    },
+    {
+     "name": "느낌표 !",
+     "count": 4,
+     "share": 0.05
+    },
+    {
+     "name": "공통점",
+     "count": 2,
+     "share": 0.025
+    },
+    {
+     "name": "AI",
+     "count": 2,
+     "share": 0.025
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 1,
+     "share": 0.013
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 1,
+     "share": 0.013
+    },
+    {
+     "name": "빚투·신용·미수·레버리지·대출",
+     "count": 1,
+     "share": 0.013
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 1,
+     "share": 0.013
+    }
+   ],
+   "title_words": [
+    {
+     "word": "부자",
+     "count": 8
+    },
+    {
+     "word": "이유",
+     "count": 8
+    },
+    {
+     "word": "5가지",
+     "count": 8
+    },
+    {
+     "word": "주식",
+     "count": 7
+    },
+    {
+     "word": "3가지",
+     "count": 6
+    },
+    {
+     "word": "ETF",
+     "count": 6
+    },
+    {
+     "word": "부자가",
+     "count": 6
+    },
+    {
+     "word": "방법",
+     "count": 5
+    },
+    {
+     "word": "부자들이",
+     "count": 5
+    },
+    {
+     "word": "할까",
+     "count": 4
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 79,
+    "없음": 1
+   },
+   "content_words": [
+    {
+     "word": "찾는",
+     "count": 37
+    },
+    {
+     "word": "사람한테만",
+     "count": 36
+    },
+    {
+     "word": "보물은",
+     "count": 36
+    },
+    {
+     "word": "댓글로",
+     "count": 35
+    },
+    {
+     "word": "옵니다",
+     "count": 35
+    },
+    {
+     "word": "영상에서",
+     "count": 33
+    },
+    {
+     "word": "이유",
+     "count": 28
+    },
+    {
+     "word": "아니라",
+     "count": 28
+    },
+    {
+     "word": "그리고",
+     "count": 24
+    },
+    {
+     "word": "있습니다",
+     "count": 23
+    },
+    {
+     "word": "다루는",
+     "count": 22
+    },
+    {
+     "word": "다음",
+     "count": 21
+    }
+   ],
+   "chapters_share": 0.225,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "77exyhGYbro",
+     "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
+     "src": "설명",
+     "hook": "오늘은 돈을 잘 버는 기술보다 돈을 대하는 태도와 인간의 본성을 이야기하는 모건 하우절의 대표작,『돈의 심리학』을 만나봅니다. 투자의 성공은 지능이나 학벌이 아닌 심리와 행동에 달려있음을 짚어보며, 타인과의 비교를 멈추고 자신만의 '멈출 수 있는 골대'를 세우는 것의 중요성을 이야기합니"
+    },
+    {
+     "id": "ICYD3f6W-MA",
+     "title": "\"인생에 변명하지 마세요\" 대놓고 방법 다 알려줘도 가난 못 벗어나는 이유 (함익병 원장 | 어른을 위한 쓴소리 인생 수업 풀버전)",
+     "src": "설명",
+     "hook": "💌 함익병 원장님과 함께 나눈 이야기 나에게 딱 맞는 재테크 로드맵 만드는 법 [너나위의 재테크 입문반] 500석 전석 7분 마감! 1,000명이 넘는 분들이 다음 기수를 기다리고 있어요. 💌 단칸방에서 타워팰리스까지… 함익병님의 '어른을 위한 쓴소리 인생 수업'을 한눈에 보기 쉬운 요"
+    },
+    {
+     "id": "5TF8BKFWERo",
+     "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
+     "src": "설명",
+     "hook": "구해줘월급 타임라인 용기내어 고민 남겨주신 사연자 분께 선플 부탁드립니다:) 📍딱 한 번 세팅으로, 가장 빠르게 1억 모으는 방법 [잔쟈니, 너나위의 종잣돈 모으기 기초반]이 궁금하다면? 빠듯한 월급의 공무원도, 두 아이 키우는 외벌이도, 통장 세팅 하나로 매달 100만원 더 모았어요."
+    }
+   ],
+   "comments": 7386,
+   "comment_needs": [
+    {
+     "name": "칭찬·감사",
+     "count": 1763,
+     "share": 0.239
+    },
+    {
+     "name": "질문",
+     "count": 1759,
+     "share": 0.238
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 622,
+     "share": 0.084
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 606,
+     "share": 0.082
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 176,
+     "share": 0.024
+    },
+    {
+     "name": "2026 시장(폭락·불장·서킷)",
+     "count": 158,
+     "share": 0.021
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "개인적으로 돈을 모아야 하는 가장 큰 이유는 좋은집,  좋은차,  좋은음식보다는 \n하기 싫은 일을 하지 않을 권리를  갖기 위해서라고 생각합니다",
+     "likes": 1493
+    },
+    {
+     "text": "이영상을 보는 사람들은\n모두가 종소세기준금액 2천만원이\n얼마나 불합리한지 나라에 외쳐야합니다\n매년 물가상승률이 얼마나되는데\n10년이\n넘게 아직도 2천만원인지\n세금을 가만히 앉아서 어마어마하게 걷을수 있기에 건드리지\n",
+     "likes": 1257
+    },
+    {
+     "text": "돈의 가치가 내려가도 저 2000만원은 절대 손 안대는 정부가 의문",
+     "likes": 1058
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "77exyhGYbro",
+     "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
+     "channel": "이혜성의 1% 북클럽",
+     "views": 2668198,
+     "views_per_day": 56915.9,
+     "published": "2026-08-28",
+     "url": "https://www.youtube.com/watch?v=77exyhGYbro"
+    },
+    {
+     "id": "ICYD3f6W-MA",
+     "title": "\"인생에 변명하지 마세요\" 대놓고 방법 다 알려줘도 가난 못 벗어나는 이유 (함익병 원장 | 어른을 위한 쓴소리 인생 수업 풀버전)",
+     "channel": "월급쟁이부자들TV",
+     "views": 2381724,
+     "views_per_day": 56243.5,
+     "published": "2026-09-01",
+     "url": "https://www.youtube.com/watch?v=ICYD3f6W-MA"
+    },
+    {
+     "id": "5TF8BKFWERo",
+     "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
+     "channel": "월급쟁이부자들TV",
+     "views": 1055183,
+     "views_per_day": 51966.4,
+     "published": "2026-09-23",
+     "url": "https://www.youtube.com/watch?v=5TF8BKFWERo"
+    },
+    {
+     "id": "gA4FS4OwUJU",
+     "title": "아직도 주식에만 올인하시나요? 완벽한 노후 포트폴리오 공개",
+     "channel": "경제해적단",
+     "views": 42110,
+     "views_per_day": 42110.0,
+     "published": "2026-10-13",
+     "url": "https://www.youtube.com/watch?v=gA4FS4OwUJU"
+    },
+    {
+     "id": "d1X-vkjfMdc",
+     "title": "퇴근하고 부업 뛰고 돈을 위해 달려가는 당신이 반드시 봐야 할 영상ㅣ사마천의 연구",
+     "channel": "하와이 대저택",
+     "views": 1039986,
+     "views_per_day": 34223.2,
+     "published": "2026-09-13",
+     "url": "https://www.youtube.com/watch?v=d1X-vkjfMdc"
+    }
+   ]
+  },
+  {
+   "weeks": 23,
+   "label": "최근 23주",
+   "videos": 81,
+   "channels": 37,
+   "new_this_week": [
+    {
+     "id": "yysVN041wz8",
+     "title": "국민성장펀드 vs 반도체 ETF | 같은 3000만원, 5년 뒤 손에 쥐는 돈이 다릅니다.",
+     "published": "2026-05-12"
+    }
+   ],
+   "views_median": 200861,
+   "views_per_day_median": 3782.3,
+   "ratio_median": 2.37,
+   "success": 24,
+   "minutes_median": 22.3,
+   "title_len_avg": 39.7,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 32,
+     "share": 0.395
+    },
+    {
+     "name": "N가지",
+     "count": 23,
+     "share": 0.284
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 18,
+     "share": 0.222
+    },
+    {
+     "name": "물음표 ?",
+     "count": 12,
+     "share": 0.148
+    },
+    {
+     "name": "vs 비교",
+     "count": 11,
+     "share": 0.136
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 10,
+     "share": 0.123
+    },
+    {
+     "name": "이유",
+     "count": 8,
+     "share": 0.099
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 8,
+     "share": 0.099
+    },
+    {
+     "name": "두 금액(반전)",
+     "count": 5,
+     "share": 0.062
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 5,
+     "share": 0.062
+    },
+    {
+     "name": "느낌표 !",
+     "count": 4,
+     "share": 0.049
+    },
+    {
+     "name": "공통점",
+     "count": 2,
+     "share": 0.025
+    },
+    {
+     "name": "AI",
+     "count": 2,
+     "share": 0.025
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 1,
+     "share": 0.012
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 1,
+     "share": 0.012
+    },
+    {
+     "name": "빚투·신용·미수·레버리지·대출",
+     "count": 1,
+     "share": 0.012
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 1,
+     "share": 0.012
+    }
+   ],
+   "title_words": [
+    {
+     "word": "부자",
+     "count": 8
+    },
+    {
+     "word": "이유",
+     "count": 8
+    },
+    {
+     "word": "5가지",
+     "count": 8
+    },
+    {
+     "word": "주식",
+     "count": 7
+    },
+    {
+     "word": "ETF",
+     "count": 7
+    },
+    {
+     "word": "3가지",
+     "count": 6
+    },
+    {
+     "word": "부자가",
+     "count": 6
+    },
+    {
+     "word": "방법",
+     "count": 5
+    },
+    {
+     "word": "부자들이",
+     "count": 5
+    },
+    {
+     "word": "할까",
+     "count": 4
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 80,
+    "없음": 1
+   },
+   "content_words": [
+    {
+     "word": "찾는",
+     "count": 37
+    },
+    {
+     "word": "사람한테만",
+     "count": 36
+    },
+    {
+     "word": "보물은",
+     "count": 36
+    },
+    {
+     "word": "댓글로",
+     "count": 35
+    },
+    {
+     "word": "옵니다",
+     "count": 35
+    },
+    {
+     "word": "영상에서",
+     "count": 34
+    },
+    {
+     "word": "이유",
+     "count": 28
+    },
+    {
+     "word": "아니라",
+     "count": 28
+    },
+    {
+     "word": "그리고",
+     "count": 24
+    },
+    {
+     "word": "다루는",
+     "count": 23
+    },
+    {
+     "word": "있습니다",
+     "count": 23
+    },
+    {
+     "word": "투자",
+     "count": 21
+    }
+   ],
+   "chapters_share": 0.222,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "77exyhGYbro",
+     "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
+     "src": "설명",
+     "hook": "오늘은 돈을 잘 버는 기술보다 돈을 대하는 태도와 인간의 본성을 이야기하는 모건 하우절의 대표작,『돈의 심리학』을 만나봅니다. 투자의 성공은 지능이나 학벌이 아닌 심리와 행동에 달려있음을 짚어보며, 타인과의 비교를 멈추고 자신만의 '멈출 수 있는 골대'를 세우는 것의 중요성을 이야기합니"
+    },
+    {
+     "id": "ICYD3f6W-MA",
+     "title": "\"인생에 변명하지 마세요\" 대놓고 방법 다 알려줘도 가난 못 벗어나는 이유 (함익병 원장 | 어른을 위한 쓴소리 인생 수업 풀버전)",
+     "src": "설명",
+     "hook": "💌 함익병 원장님과 함께 나눈 이야기 나에게 딱 맞는 재테크 로드맵 만드는 법 [너나위의 재테크 입문반] 500석 전석 7분 마감! 1,000명이 넘는 분들이 다음 기수를 기다리고 있어요. 💌 단칸방에서 타워팰리스까지… 함익병님의 '어른을 위한 쓴소리 인생 수업'을 한눈에 보기 쉬운 요"
+    },
+    {
+     "id": "5TF8BKFWERo",
+     "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
+     "src": "설명",
+     "hook": "구해줘월급 타임라인 용기내어 고민 남겨주신 사연자 분께 선플 부탁드립니다:) 📍딱 한 번 세팅으로, 가장 빠르게 1억 모으는 방법 [잔쟈니, 너나위의 종잣돈 모으기 기초반]이 궁금하다면? 빠듯한 월급의 공무원도, 두 아이 키우는 외벌이도, 통장 세팅 하나로 매달 100만원 더 모았어요."
+    }
+   ],
+   "comments": 7837,
+   "comment_needs": [
+    {
+     "name": "질문",
+     "count": 1882,
+     "share": 0.24
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 1784,
+     "share": 0.228
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 681,
+     "share": 0.087
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 633,
+     "share": 0.081
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 191,
+     "share": 0.024
+    },
+    {
+     "name": "2026 시장(폭락·불장·서킷)",
+     "count": 182,
+     "share": 0.023
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "개인적으로 돈을 모아야 하는 가장 큰 이유는 좋은집,  좋은차,  좋은음식보다는 \n하기 싫은 일을 하지 않을 권리를  갖기 위해서라고 생각합니다",
+     "likes": 1493
+    },
+    {
+     "text": "이영상을 보는 사람들은\n모두가 종소세기준금액 2천만원이\n얼마나 불합리한지 나라에 외쳐야합니다\n매년 물가상승률이 얼마나되는데\n10년이\n넘게 아직도 2천만원인지\n세금을 가만히 앉아서 어마어마하게 걷을수 있기에 건드리지\n",
+     "likes": 1257
+    },
+    {
+     "text": "돈의 가치가 내려가도 저 2000만원은 절대 손 안대는 정부가 의문",
+     "likes": 1058
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "77exyhGYbro",
+     "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
+     "channel": "이혜성의 1% 북클럽",
+     "views": 2668198,
+     "views_per_day": 56915.9,
+     "published": "2026-08-28",
+     "url": "https://www.youtube.com/watch?v=77exyhGYbro"
+    },
+    {
+     "id": "ICYD3f6W-MA",
+     "title": "\"인생에 변명하지 마세요\" 대놓고 방법 다 알려줘도 가난 못 벗어나는 이유 (함익병 원장 | 어른을 위한 쓴소리 인생 수업 풀버전)",
+     "channel": "월급쟁이부자들TV",
+     "views": 2381724,
+     "views_per_day": 56243.5,
+     "published": "2026-09-01",
+     "url": "https://www.youtube.com/watch?v=ICYD3f6W-MA"
+    },
+    {
+     "id": "5TF8BKFWERo",
+     "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
+     "channel": "월급쟁이부자들TV",
+     "views": 1055183,
+     "views_per_day": 51966.4,
+     "published": "2026-09-23",
+     "url": "https://www.youtube.com/watch?v=5TF8BKFWERo"
+    },
+    {
+     "id": "gA4FS4OwUJU",
+     "title": "아직도 주식에만 올인하시나요? 완벽한 노후 포트폴리오 공개",
+     "channel": "경제해적단",
+     "views": 42110,
+     "views_per_day": 42110.0,
+     "published": "2026-10-13",
+     "url": "https://www.youtube.com/watch?v=gA4FS4OwUJU"
+    },
+    {
+     "id": "d1X-vkjfMdc",
+     "title": "퇴근하고 부업 뛰고 돈을 위해 달려가는 당신이 반드시 봐야 할 영상ㅣ사마천의 연구",
+     "channel": "하와이 대저택",
+     "views": 1039986,
+     "views_per_day": 34223.2,
+     "published": "2026-09-13",
+     "url": "https://www.youtube.com/watch?v=d1X-vkjfMdc"
+    }
+   ]
+  },
+  {
+   "weeks": 24,
+   "label": "최근 24주",
+   "videos": 88,
+   "channels": 41,
+   "new_this_week": [
+    {
+     "id": "1AFnKX2-rt0",
+     "title": "20대에 돈 가장 빨리 모으는 현실적인 방법 (ISA, ETF 활용법)",
+     "published": "2026-05-05"
+    },
+    {
+     "id": "7rtO_hfLvF8",
+     "title": "국민연금 빈칸 메우는 한국 ETF 3개 — 월 200만 원 평생 월급 만들기",
+     "published": "2026-04-29"
+    },
+    {
+     "id": "9aGa9QDr3OQ",
+     "title": "내 집 앞이 바로 맑은 계곡! 537평 땅 부자 되는 법 / 양평전원주택매매 / 양평전원주택 / 양평전원주택급매물/ 양평전원주택급매 / 전원주택매매 / 전원주택 /명품정원",
+     "published": "2026-05-06"
+    },
+    {
+     "id": "AbpqDkCFTT0",
+     "title": "중개형 ISA 계좌 만기해지 안 하는 이유",
+     "published": "2026-05-02"
+    },
+    {
+     "id": "HqbFKanBUQo",
+     "title": "\"국민성장펀드 안들어가면 나만 손해?\" | 소득공제 40%, 정부 손실보전, 가입방법 총정리",
+     "published": "2026-04-30"
+    },
+    {
+     "id": "V1NE7th1ugU",
+     "title": "“요즘 예적금하면 바보라고?” 1000~5000만 원 놀고있는 목돈 안전하게 투자하는방법 (S&P 500 아님)",
+     "published": "2026-04-29"
+    },
+    {
+     "id": "zzN97_et0WE",
+     "title": "[실전편] 개인투자자 90%가 모르는 것 | 3일 만에 투자 시각이 바뀌는 공부법",
+     "published": "2026-05-03"
+    }
+   ],
+   "views_median": 202165.5,
+   "views_per_day_median": 3686.35,
+   "ratio_median": 2.41,
+   "success": 27,
+   "minutes_median": 22.15,
+   "title_len_avg": 40.6,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 33,
+     "share": 0.375
+    },
+    {
+     "name": "N가지",
+     "count": 23,
+     "share": 0.261
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 20,
+     "share": 0.227
+    },
+    {
+     "name": "물음표 ?",
+     "count": 14,
+     "share": 0.159
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 13,
+     "share": 0.148
+    },
+    {
+     "name": "vs 비교",
+     "count": 11,
+     "share": 0.125
+    },
+    {
+     "name": "이유",
+     "count": 9,
+     "share": 0.102
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 8,
+     "share": 0.091
+    },
+    {
+     "name": "두 금액(반전)",
+     "count": 5,
+     "share": 0.057
+    },
+    {
+     "name": "느낌표 !",
+     "count": 5,
+     "share": 0.057
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 5,
+     "share": 0.057
+    },
+    {
+     "name": "공통점",
+     "count": 2,
+     "share": 0.023
+    },
+    {
+     "name": "AI",
+     "count": 2,
+     "share": 0.023
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 1,
+     "share": 0.011
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 1,
+     "share": 0.011
+    },
+    {
+     "name": "빚투·신용·미수·레버리지·대출",
+     "count": 1,
+     "share": 0.011
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 1,
+     "share": 0.011
+    }
+   ],
+   "title_words": [
+    {
+     "word": "부자",
+     "count": 9
+    },
+    {
+     "word": "ETF",
+     "count": 9
+    },
+    {
+     "word": "이유",
+     "count": 9
+    },
+    {
+     "word": "5가지",
+     "count": 8
+    },
+    {
+     "word": "주식",
+     "count": 7
+    },
+    {
+     "word": "3가지",
+     "count": 6
+    },
+    {
+     "word": "방법",
+     "count": 6
+    },
+    {
+     "word": "ISA",
+     "count": 6
+    },
+    {
+     "word": "부자가",
+     "count": 6
+    },
+    {
+     "word": "모르는",
+     "count": 5
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 87,
+    "없음": 1
+   },
+   "content_words": [
+    {
+     "word": "영상에서",
+     "count": 37
+    },
+    {
+     "word": "찾는",
+     "count": 37
+    },
+    {
+     "word": "사람한테만",
+     "count": 36
+    },
+    {
+     "word": "보물은",
+     "count": 36
+    },
+    {
+     "word": "댓글로",
+     "count": 35
+    },
+    {
+     "word": "옵니다",
+     "count": 35
+    },
+    {
+     "word": "이유",
+     "count": 31
+    },
+    {
+     "word": "아니라",
+     "count": 29
+    },
+    {
+     "word": "있습니다",
+     "count": 26
+    },
+    {
+     "word": "투자",
+     "count": 24
+    },
+    {
+     "word": "그리고",
+     "count": 24
+    },
+    {
+     "word": "오늘",
+     "count": 24
+    }
+   ],
+   "chapters_share": 0.227,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "77exyhGYbro",
+     "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
+     "src": "설명",
+     "hook": "오늘은 돈을 잘 버는 기술보다 돈을 대하는 태도와 인간의 본성을 이야기하는 모건 하우절의 대표작,『돈의 심리학』을 만나봅니다. 투자의 성공은 지능이나 학벌이 아닌 심리와 행동에 달려있음을 짚어보며, 타인과의 비교를 멈추고 자신만의 '멈출 수 있는 골대'를 세우는 것의 중요성을 이야기합니"
+    },
+    {
+     "id": "ICYD3f6W-MA",
+     "title": "\"인생에 변명하지 마세요\" 대놓고 방법 다 알려줘도 가난 못 벗어나는 이유 (함익병 원장 | 어른을 위한 쓴소리 인생 수업 풀버전)",
+     "src": "설명",
+     "hook": "💌 함익병 원장님과 함께 나눈 이야기 나에게 딱 맞는 재테크 로드맵 만드는 법 [너나위의 재테크 입문반] 500석 전석 7분 마감! 1,000명이 넘는 분들이 다음 기수를 기다리고 있어요. 💌 단칸방에서 타워팰리스까지… 함익병님의 '어른을 위한 쓴소리 인생 수업'을 한눈에 보기 쉬운 요"
+    },
+    {
+     "id": "5TF8BKFWERo",
+     "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
+     "src": "설명",
+     "hook": "구해줘월급 타임라인 용기내어 고민 남겨주신 사연자 분께 선플 부탁드립니다:) 📍딱 한 번 세팅으로, 가장 빠르게 1억 모으는 방법 [잔쟈니, 너나위의 종잣돈 모으기 기초반]이 궁금하다면? 빠듯한 월급의 공무원도, 두 아이 키우는 외벌이도, 통장 세팅 하나로 매달 100만원 더 모았어요."
+    }
+   ],
+   "comments": 9317,
+   "comment_needs": [
+    {
+     "name": "질문",
+     "count": 2226,
+     "share": 0.239
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 1940,
+     "share": 0.208
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 959,
+     "share": 0.103
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 819,
+     "share": 0.088
+    },
+    {
+     "name": "2026 시장(폭락·불장·서킷)",
+     "count": 252,
+     "share": 0.027
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 218,
+     "share": 0.023
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "20대에 돈잘버는법: 공고 나와서 하이닉스 가기",
+     "likes": 3272
+    },
+    {
+     "text": "개인적으로 돈을 모아야 하는 가장 큰 이유는 좋은집,  좋은차,  좋은음식보다는 \n하기 싫은 일을 하지 않을 권리를  갖기 위해서라고 생각합니다",
+     "likes": 1493
+    },
+    {
+     "text": "투자도 중요하고 \n무엇보다 20대면 자신의 소득을 높이려고 하는것도 중요합니다.\n투자+직장+공부 병행해서\n더 나은 직장으로 점프도 뛰어야 해요",
+     "likes": 1346
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "77exyhGYbro",
+     "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
+     "channel": "이혜성의 1% 북클럽",
+     "views": 2668198,
+     "views_per_day": 56915.9,
+     "published": "2026-08-28",
+     "url": "https://www.youtube.com/watch?v=77exyhGYbro"
+    },
+    {
+     "id": "ICYD3f6W-MA",
+     "title": "\"인생에 변명하지 마세요\" 대놓고 방법 다 알려줘도 가난 못 벗어나는 이유 (함익병 원장 | 어른을 위한 쓴소리 인생 수업 풀버전)",
+     "channel": "월급쟁이부자들TV",
+     "views": 2381724,
+     "views_per_day": 56243.5,
+     "published": "2026-09-01",
+     "url": "https://www.youtube.com/watch?v=ICYD3f6W-MA"
+    },
+    {
+     "id": "5TF8BKFWERo",
+     "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
+     "channel": "월급쟁이부자들TV",
+     "views": 1055183,
+     "views_per_day": 51966.4,
+     "published": "2026-09-23",
+     "url": "https://www.youtube.com/watch?v=5TF8BKFWERo"
+    },
+    {
+     "id": "gA4FS4OwUJU",
+     "title": "아직도 주식에만 올인하시나요? 완벽한 노후 포트폴리오 공개",
+     "channel": "경제해적단",
+     "views": 42110,
+     "views_per_day": 42110.0,
+     "published": "2026-10-13",
+     "url": "https://www.youtube.com/watch?v=gA4FS4OwUJU"
+    },
+    {
+     "id": "d1X-vkjfMdc",
+     "title": "퇴근하고 부업 뛰고 돈을 위해 달려가는 당신이 반드시 봐야 할 영상ㅣ사마천의 연구",
+     "channel": "하와이 대저택",
+     "views": 1039986,
+     "views_per_day": 34223.2,
+     "published": "2026-09-13",
+     "url": "https://www.youtube.com/watch?v=d1X-vkjfMdc"
+    }
+   ]
+  }
+ ]
+}

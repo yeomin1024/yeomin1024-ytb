@@ -1,0 +1,95 @@
+{
+ "id": "eFsT1K_mPjc",
+ "title": "안 팔릴수록 부자되는 '동네 금은방'의 소름돋는 수익구조",
+ "channel": "새파란 경제",
+ "channel_id": "UCX_pKKqKCULJHf5mKA6rSmA",
+ "subs": 906,
+ "views": 510269,
+ "ratio": 563.21,
+ "age_days": 27,
+ "views_per_day": 18898.9,
+ "minutes": 17.6,
+ "likes": 1284,
+ "comments": 139,
+ "published": "2026-09-16",
+ "queries": "검색:부자되는법",
+ "url": "https://www.youtube.com/watch?v=eFsT1K_mPjc",
+ "flag": "",
+ "published_at": "2026-09-16T10:00:10Z",
+ "rank": "W1",
+ "set": "web",
+ "folder": "W_eFsT1K_mPjc",
+ "sources": [
+  "검색:부자되는법"
+ ],
+ "source": "web",
+ "tags": [
+  "금은방",
+  "돌반지",
+  "순금",
+  "금은방은 어떻게 돈을 버나요",
+  "돌반지 팔면 얼마 받나요",
+  "금 살 때와 팔 때 왜 차이가 나나요",
+  "18K 금 팔면 얼마인가요",
+  "금 팔러 갈 때 뭘 확인해야 하나요",
+  "금은방 마진은 얼마인가요"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "손님 없는 금은방이 버티는 이유"
+  },
+  {
+   "start": 76,
+   "title": "금은방이 보는 건 무게와 순도뿐"
+  },
+  {
+   "start": 137,
+   "title": "18K와 순금, 받는 돈이 갈리는 이유"
+  },
+  {
+   "start": 236,
+   "title": "금시세보다 낮은 금액을 부르는 까닭"
+  },
+  {
+   "start": 300,
+   "title": "가게마다 금매입 가격이 다른 이유"
+  },
+  {
+   "start": 442,
+   "title": "금 한 돈 사서 바로 팔면 11만 9000원"
+  },
+  {
+   "start": 484,
+   "title": "그 차액의 3분의 2는 부가세"
+  },
+  {
+   "start": 597,
+   "title": "팔린 돌반지가 녹으러 가는 길"
+  },
+  {
+   "start": 786,
+   "title": "금은방이 교환에서 버는 방식"
+  },
+  {
+   "start": 828,
+   "title": "수리와 재세공에서 생기는 공임"
+  },
+  {
+   "start": 914,
+   "title": "안 팔린 금을 녹일 수 있다는 말의 뜻"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-14 19:49까지 자막 요청을 쉼 → 음성인식",
+ "comments_fetched": 139,
+ "comments_top_level": 59,
+ "comments_replies": 80,
+ "comments_by_creator": 68,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 139,
+ "tool": "outlier_research.py v2.0.2",
+ "collected": "2026-10-14T15:18:06",
+ "approved": "2026-10-14T15:18+09:00"
+}

@@ -1,0 +1,95 @@
+{
+ "id": "GxGvoXZQbZ0",
+ "title": "부자 되기 바로 전, 삶에 나타나는 이상한 변화 7가지 (놓치면 평생 후회합니다)",
+ "channel": "누구나 겪는 돈 이야기",
+ "channel_id": "UCyanGFhP1N0R20m9_N2cPoA",
+ "subs": 4490,
+ "views": 14314,
+ "ratio": 3.19,
+ "age_days": 152,
+ "views_per_day": 94.2,
+ "minutes": 17.2,
+ "likes": 356,
+ "comments": 14,
+ "published": "2026-05-14",
+ "queries": "검색:부자되는법",
+ "url": "https://www.youtube.com/watch?v=GxGvoXZQbZ0",
+ "flag": "",
+ "published_at": "2026-05-14T09:41:38Z",
+ "rank": "W38",
+ "set": "web",
+ "folder": "W_GxGvoXZQbZ0",
+ "sources": [
+  "검색:부자되는법"
+ ],
+ "source": "web",
+ "tags": [
+  "경제",
+  "경제지식",
+  "재테크",
+  "경제이슈",
+  "시사경제",
+  "물가",
+  "자산관리",
+  "돈관리",
+  "부자되는법",
+  "인생변화",
+  "성공신호",
+  "동기부여",
+  "터닝포인트"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "도입: 최근 느껴지는 낯선 감각"
+  },
+  {
+   "start": 105,
+   "title": "신호 1: 기존 인간관계에서의 소외감"
+  },
+  {
+   "start": 210,
+   "title": "신호 2: 예전의 취미가 무의미하게 느껴짐"
+  },
+  {
+   "start": 315,
+   "title": "신호 3: 직관의 필터가 바뀌기 시작함"
+  },
+  {
+   "start": 420,
+   "title": "신호 4: 논쟁을 멈추고 실행에 집중"
+  },
+  {
+   "start": 555,
+   "title": "신호 5: 하나의 목표에 대한 강한 집중"
+  },
+  {
+   "start": 690,
+   "title": "신호 6: 극한의 피로에 도달"
+  },
+  {
+   "start": 825,
+   "title": "신호 7: 현재 수입 구조에 대한 의문"
+  },
+  {
+   "start": 930,
+   "title": "정리: 폭발을 위한 에너지가 축적되는 과정"
+  },
+  {
+   "start": 1005,
+   "title": "당신에게 전하는 메시지: 멈추지 마세요"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-14 19:49까지 자막 요청을 쉼 → 음성인식",
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 14,
+ "tool": "outlier_research.py v2.0.2",
+ "collected": "2026-10-14T15:19:38",
+ "approved": "2026-10-14T15:19+09:00"
+}

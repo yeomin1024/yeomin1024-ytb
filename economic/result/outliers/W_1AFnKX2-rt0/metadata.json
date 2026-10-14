@@ -1,0 +1,78 @@
+{
+ "id": "1AFnKX2-rt0",
+ "title": "20대에 돈 가장 빨리 모으는 현실적인 방법 (ISA, ETF 활용법)",
+ "channel": "강지영의 동그라미",
+ "channel_id": "UCCXktLc07byaN61hv-Fg6JQ",
+ "subs": 144000,
+ "views": 1044886,
+ "ratio": 7.26,
+ "age_days": 162,
+ "views_per_day": 6449.9,
+ "minutes": 26.4,
+ "likes": 17056,
+ "comments": 642,
+ "published": "2026-05-05",
+ "queries": "검색:재테크 | 검색:자산관리",
+ "url": "https://www.youtube.com/watch?v=1AFnKX2-rt0",
+ "flag": "",
+ "published_at": "2026-05-05T01:30:01Z",
+ "rank": "W23",
+ "set": "web",
+ "folder": "W_1AFnKX2-rt0",
+ "sources": [
+  "검색:재테크",
+  "검색:자산관리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "미리보기"
+  },
+  {
+   "start": 40,
+   "title": "떡잎부터 달랐던? 알상무, 강지영 20대 투자법"
+  },
+  {
+   "start": 154,
+   "title": "상담 ① 투자 없이 저축만 하는 시골쥐🐭"
+  },
+  {
+   "start": 651,
+   "title": "알상무 추천 ETF 상품"
+  },
+  {
+   "start": 690,
+   "title": "돈 모으기 좋은 2030 소비습관"
+  },
+  {
+   "start": 799,
+   "title": "상담 ② 열심히 하지만 늘 파란불🔵 어중간한 주린이"
+  },
+  {
+   "start": 1152,
+   "title": "사회초년생에게 통장 쪼개기가 필요 없는 이유"
+  },
+  {
+   "start": 1225,
+   "title": "20대가 주식에 실패하기 좋은 레버리지의 늪"
+  },
+  {
+   "start": 1363,
+   "title": "돈 모으는 2030이 절대 하면 안되는 행동"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-14 19:49까지 자막 요청을 쉼 → 음성인식",
+ "comments_fetched": 642,
+ "comments_top_level": 314,
+ "comments_replies": 328,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 642,
+ "tool": "outlier_research.py v2.0.2",
+ "collected": "2026-10-14T15:18:57",
+ "approved": "2026-10-14T15:19+09:00"
+}

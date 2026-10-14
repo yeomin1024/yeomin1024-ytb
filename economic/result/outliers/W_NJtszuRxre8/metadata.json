@@ -1,0 +1,69 @@
+{
+ "id": "NJtszuRxre8",
+ "title": "\"달러 약세라는데..\" S&P500 계속 사모아도 되는 걸까?ㅣ돈크라테스 EP. 27",
+ "channel": "지식한상 ",
+ "channel_id": "UCw8hsZYZcasyyLrfOFP8D-w",
+ "subs": 1460000,
+ "views": 974350,
+ "ratio": 0.67,
+ "age_days": 36,
+ "views_per_day": 27065.3,
+ "minutes": 21.3,
+ "likes": 3681,
+ "comments": 302,
+ "published": "2026-09-07",
+ "queries": "검색:재테크",
+ "url": "https://www.youtube.com/watch?v=NJtszuRxre8",
+ "flag": "",
+ "published_at": "2026-09-07T11:00:09Z",
+ "rank": "W79",
+ "set": "web",
+ "folder": "W_NJtszuRxre8",
+ "sources": [
+  "검색:재테크"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 28,
+   "title": "구독자 인사"
+  },
+  {
+   "start": 110,
+   "title": "“연평균 10%씩 오른다” 현금 S&P500에 넣는 이유?"
+  },
+  {
+   "start": 299,
+   "title": "매달 200씩 받으려면 S&P500 얼마 넣어야 할까?"
+  },
+  {
+   "start": 592,
+   "title": "연금저축, IRP, ISA 어떤 순서로 채워야 할까?"
+  },
+  {
+   "start": 899,
+   "title": "“달러 약세라는데..” 미국 주식 투자해도 될까?"
+  },
+  {
+   "start": 1112,
+   "title": "매번 재테크 미루는 사람을 위한 조언"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-14 19:49까지 자막 요청을 쉼 → 음성인식",
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 302,
+ "tool": "outlier_research.py v2.0.2",
+ "collected": "2026-10-14T15:19:46",
+ "approved": "2026-10-14T15:19+09:00"
+}

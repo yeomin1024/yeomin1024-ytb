@@ -1,0 +1,109 @@
+{
+ "id": "_H2oRoXuF-Q",
+ "title": "평생 모은 돈, 노후에는 이 3가지에 먼저 쓰세요",
+ "channel": "인생다시쓰기",
+ "channel_id": "UCKkrzNGgv_3XeIDS1lf91tw",
+ "subs": 8060,
+ "views": 140789,
+ "ratio": 17.47,
+ "age_days": 20,
+ "views_per_day": 7039.4,
+ "minutes": 16.4,
+ "likes": 500,
+ "comments": 12,
+ "published": "2026-09-23",
+ "queries": "검색:노후자금",
+ "url": "https://www.youtube.com/watch?v=_H2oRoXuF-Q",
+ "flag": "",
+ "published_at": "2026-09-23T21:00:03Z",
+ "rank": "W68",
+ "set": "web",
+ "folder": "W__H2oRoXuF-Q",
+ "sources": [
+  "검색:노후자금"
+ ],
+ "source": "web",
+ "tags": [
+  "50대",
+  "60대",
+  "70대",
+  "노후 준비",
+  "노후 생활",
+  "행복한 노후",
+  "시니어",
+  "인생명언",
+  "재테크",
+  "중년의삶",
+  "노후준비",
+  "노후생활",
+  "60대 노후",
+  "70대 노후",
+  "노후자금",
+  "노후 돈관리",
+  "은퇴 후 돈관리",
+  "노후에 돈 쓰는 법",
+  "60대 돈관리",
+  "70대 돈관리",
+  "노후 독립",
+  "노후 생활비",
+  "노후 절약",
+  "노후 소비",
+  "시니어 돈관리",
+  "노년기 생활",
+  "노후 집",
+  "노후 주거",
+  "고령자 낙상 예방",
+  "노인 낙상 예방",
+  "노인 청력",
+  "청력 저하",
+  "노후 인간관계",
+  "고령자 운전",
+  "부모 노후",
+  "노후 가족관계",
+  "편안한 노후",
+  "노후에 필요한 것",
+  "노후 재산",
+  "은퇴생활",
+  "시니어 생활",
+  "60대 이후 삶",
+  "70대 이후 삶"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "돈이 있어도 가난해지는 노후"
+  },
+  {
+   "start": 76,
+   "title": "첫 번째, 80세에도 혼자 살 수 있는 집"
+  },
+  {
+   "start": 274,
+   "title": "두 번째, 귀가 멀어지면 사람도 멀어진다"
+  },
+  {
+   "start": 464,
+   "title": "세 번째, 자동차보다 중요한 이동의 자유"
+  },
+  {
+   "start": 631,
+   "title": "돈을 아끼면 자식이 시간을 쓰게 됩니다"
+  },
+  {
+   "start": 876,
+   "title": "노후에 돈으로 정말 사야 하는 것"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-14 19:49까지 자막 요청을 쉼 → 음성인식",
+ "comments_fetched": 12,
+ "comments_top_level": 12,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 12,
+ "tool": "outlier_research.py v2.1",
+ "collected": "2026-10-14T16:23:37",
+ "approved": "2026-10-14T16:23+09:00"
+}

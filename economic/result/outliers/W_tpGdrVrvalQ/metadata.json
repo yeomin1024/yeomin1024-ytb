@@ -1,0 +1,93 @@
+{
+ "id": "tpGdrVrvalQ",
+ "title": "숨만 쉬어도 관리비 70만 원? 12억 인천 송도 아파트 유리 성에서 4억 5천 날린 60대 부부의 피눈물! | 노후자금사연 | 오디오북",
+ "channel": "은빛시나리오",
+ "channel_id": "UCowMNQXcxSJJ7Kyc41Q4Pzw",
+ "subs": 29200,
+ "views": 148360,
+ "ratio": 5.08,
+ "age_days": 142,
+ "views_per_day": 1044.8,
+ "minutes": 57.8,
+ "likes": 2063,
+ "comments": 205,
+ "published": "2026-05-24",
+ "queries": "검색:노후자금",
+ "url": "https://www.youtube.com/watch?v=tpGdrVrvalQ",
+ "flag": "",
+ "published_at": "2026-05-24T22:00:40Z",
+ "rank": "W147",
+ "set": "web",
+ "folder": "W_tpGdrVrvalQ",
+ "sources": [
+  "검색:노후자금"
+ ],
+ "source": "web",
+ "tags": [
+  "부동산투자",
+  "송도아파트",
+  "인천아파트",
+  "은퇴후삶",
+  "소래포구",
+  "퇴직금",
+  "오디오북",
+  "은빛시나리오",
+  "노후자금",
+  "노후사연",
+  "노후준비",
+  "시니어재테크",
+  "부동산실패",
+  "노후현금흐름",
+  "은퇴사연"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 150,
+   "title": "Chapter 1. 소래포구의 30년"
+  },
+  {
+   "start": 480,
+   "title": "Chapter 2. 조급함이라는 파도"
+  },
+  {
+   "start": 840,
+   "title": "Chapter 3. 바다 건너 신기루"
+  },
+  {
+   "start": 1200,
+   "title": "Chapter 4. 사라진 활기"
+  },
+  {
+   "start": 1560,
+   "title": "Chapter 5. 덮쳐오는 이자의 덫"
+  },
+  {
+   "start": 1950,
+   "title": "Chapter 6. 새벽 다섯 시의 부부"
+  },
+  {
+   "start": 2310,
+   "title": "Chapter 7. 10억의 실종"
+  },
+  {
+   "start": 2670,
+   "title": "Chapter 8. 소래의 파도소리가 그리운 밤"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-14 19:49까지 자막 요청을 쉼 → 음성인식",
+ "comments_fetched": 205,
+ "comments_top_level": 98,
+ "comments_replies": 107,
+ "comments_by_creator": 89,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 205,
+ "tool": "outlier_research.py v2.1",
+ "collected": "2026-10-14T16:27:09",
+ "approved": "2026-10-14T16:27+09:00"
+}

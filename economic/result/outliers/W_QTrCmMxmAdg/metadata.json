@@ -1,0 +1,71 @@
+{
+ "id": "QTrCmMxmAdg",
+ "title": "라오어님의 TQQQ, SOXL 무한매수법 정말 좋아합니다(QQQ, QLD, TQQQ, SOXL)",
+ "channel": "레버리지 하는 미국회계사 장기투자 여정",
+ "channel_id": "UCsOBK0F0M9yZqIdq2Dmez3Q",
+ "subs": 13100,
+ "views": 66746,
+ "ratio": 5.1,
+ "age_days": 104,
+ "views_per_day": 641.8,
+ "minutes": 5.2,
+ "likes": 1033,
+ "comments": 199,
+ "published": "2026-07-01",
+ "queries": "검색:장기투자",
+ "url": "https://www.youtube.com/watch?v=QTrCmMxmAdg",
+ "flag": "",
+ "published_at": "2026-07-01T07:28:57Z",
+ "rank": "W146",
+ "set": "web",
+ "folder": "W_QTrCmMxmAdg",
+ "sources": [
+  "검색:장기투자"
+ ],
+ "source": "web",
+ "tags": [
+  "QQQ",
+  "TQQQ",
+  "SOXL",
+  "나스닥",
+  "QLD"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "라오어 무한매수법이란? 하게 된 계기"
+  },
+  {
+   "start": 94,
+   "title": "무한매수법 실제 운용 현황 (법인 계좌 TQQQ, SOXL 40분할)"
+  },
+  {
+   "start": 128,
+   "title": "무한매수법 핵심 — 변동성에 투자한다는 것"
+  },
+  {
+   "start": 203,
+   "title": "무한매수법 수익률 30%, 충분한건가?"
+  },
+  {
+   "start": 234,
+   "title": "라오어님의 증여 이야기"
+  },
+  {
+   "start": 274,
+   "title": "무한매수법 세금, 법인 통한 절세"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-14 19:49까지 자막 요청을 쉼 → 음성인식",
+ "comments_fetched": 199,
+ "comments_top_level": 76,
+ "comments_replies": 123,
+ "comments_by_creator": 76,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 199,
+ "tool": "outlier_research.py v2.1",
+ "collected": "2026-10-14T16:27:07",
+ "approved": "2026-10-14T16:27+09:00"
+}

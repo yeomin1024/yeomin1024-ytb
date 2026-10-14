@@ -1,0 +1,78 @@
+{
+ "id": "mLyNB42Hhgg",
+ "title": "50대 억대연봉 임원이 퇴사 1년 후 깨달은 현실",
+ "channel": "50대 새로운 인생 준비하기",
+ "channel_id": "UCIGX7UQwLdZEK9gU0V9CMmA",
+ "subs": 2780,
+ "views": 311751,
+ "ratio": 112.14,
+ "age_days": 53,
+ "views_per_day": 5882.1,
+ "minutes": 8.9,
+ "likes": 1648,
+ "comments": 219,
+ "published": "2026-08-21",
+ "queries": "검색:노후준비 | 검색:은퇴준비",
+ "url": "https://www.youtube.com/watch?v=mLyNB42Hhgg",
+ "flag": "",
+ "published_at": "2026-08-21T16:28:41Z",
+ "rank": "W14",
+ "set": "web",
+ "folder": "W_mLyNB42Hhgg",
+ "sources": [
+  "검색:노후준비",
+  "검색:은퇴준비"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로: 50대 퇴사, 인생 후반전의 시작"
+  },
+  {
+   "start": 10,
+   "title": "퇴사 후 가장 먼저 맞닥뜨린 현실, '돈'"
+  },
+  {
+   "start": 43,
+   "title": "직함이 사라진 뒤 찾아온 정체성 고민"
+  },
+  {
+   "start": 128,
+   "title": "50대 퇴사자들의 실제 사례와 공통점"
+  },
+  {
+   "start": 202,
+   "title": "회사 밖에서 겪는 인간관계의 변화"
+  },
+  {
+   "start": 287,
+   "title": "퇴직 전, 현실적인 자금 계획 세우기"
+  },
+  {
+   "start": 322,
+   "title": "준비 없는 재취업이 오래가지 못하는 이유"
+  },
+  {
+   "start": 389,
+   "title": "회사 밖에서도 나를 지탱해 줄 관계 만들기"
+  },
+  {
+   "start": 428,
+   "title": "퇴직 전, 지금 바로 점검해야 할 4가지"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-14 19:49까지 자막 요청을 쉼 → 음성인식",
+ "comments_fetched": 219,
+ "comments_top_level": 152,
+ "comments_replies": 67,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 219,
+ "tool": "outlier_research.py v2.1",
+ "collected": "2026-10-14T16:19:50",
+ "approved": "2026-10-14T16:19+09:00"
+}

@@ -1,0 +1,73 @@
+{
+ "id": "USUzkksspmg",
+ "title": "1억 모았으면 지금 당장 이것부터 하세요. 10억 가는 사람은 여기서 갈립니다.",
+ "channel": "지금 돈 공부",
+ "channel_id": "UC8ulbGt9B5_d0bsPnjxzN1w",
+ "subs": 737,
+ "views": 16603,
+ "ratio": 22.53,
+ "age_days": 124,
+ "views_per_day": 133.9,
+ "minutes": 13.6,
+ "likes": 452,
+ "comments": 9,
+ "published": "2026-06-11",
+ "queries": "검색:돈공부",
+ "url": "https://www.youtube.com/watch?v=USUzkksspmg",
+ "flag": "",
+ "published_at": "2026-06-11T14:02:45Z",
+ "rank": "W57",
+ "set": "web",
+ "folder": "W_USUzkksspmg",
+ "sources": [
+  "검색:돈공부"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "1억에서 10억으로 가기 위해 꼭 알아야 할 것"
+  },
+  {
+   "start": 32,
+   "title": "1억 모은 사람이 절대 하면 안 되는 실수 ① (소비 증가)"
+  },
+  {
+   "start": 129,
+   "title": "실수 ② (예적금의 덫)"
+  },
+  {
+   "start": 216,
+   "title": "실수 ③ (무리한 투자와 레버리지)"
+  },
+  {
+   "start": 371,
+   "title": "돈이 불어나는 무너지지 않는 구조란?"
+  },
+  {
+   "start": 446,
+   "title": "방법 1: S&P500 적립식 장기투자 (부부가 20억 만드는 법)"
+  },
+  {
+   "start": 578,
+   "title": "방법 2: 마음 편한 자산배분, '투자 4분법' (홍춘욱 박사, 올웨더 기반)"
+  },
+  {
+   "start": 706,
+   "title": "요약 및 마무리 (지금 당장 해야 할 딱 한 가지)"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-14 19:49까지 자막 요청을 쉼 → 음성인식",
+ "comments_fetched": 9,
+ "comments_top_level": 5,
+ "comments_replies": 4,
+ "comments_by_creator": 5,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 9,
+ "tool": "outlier_research.py v2.1",
+ "collected": "2026-10-14T16:22:46",
+ "approved": "2026-10-14T16:22+09:00"
+}

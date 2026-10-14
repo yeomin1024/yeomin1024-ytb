@@ -1,0 +1,93 @@
+{
+ "id": "-gcRoQnRARY",
+ "title": "주식계좌에 1억 있으면, 대한민국 상위 몇 % 일까요?",
+ "channel": "억빌더 | 순자산 10억 평범한 월급쟁이",
+ "channel_id": "UC0oH5uvdjs5rIR56dl9Myqw",
+ "subs": 6490,
+ "views": 33299,
+ "ratio": 5.13,
+ "age_days": 113,
+ "views_per_day": 294.7,
+ "minutes": 8.6,
+ "likes": 604,
+ "comments": 156,
+ "published": "2026-06-22",
+ "queries": "검색:1억모으기",
+ "url": "https://www.youtube.com/watch?v=-gcRoQnRARY",
+ "flag": "",
+ "published_at": "2026-06-22T22:06:30Z",
+ "rank": "W145",
+ "set": "web",
+ "folder": "W_-gcRoQnRARY",
+ "sources": [
+  "검색:1억모으기"
+ ],
+ "source": "web",
+ "tags": [
+  "1억",
+  "1억모으기",
+  "1억만들기",
+  "주식",
+  "부동산",
+  "투자",
+  "자산",
+  "자본",
+  "10억",
+  "10억모으기",
+  "10억은퇴",
+  "복리",
+  "72법칙",
+  "억빌더",
+  "은퇴",
+  "퇴사",
+  "파이어족",
+  "부자",
+  "습관",
+  "꾸준함",
+  "재테크",
+  "돈버는법",
+  "부자되는법",
+  "저축",
+  "1억으로10억만들기",
+  "동기부여",
+  "순자산"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "주식 계좌에 딱 1억, 대한민국 상위 몇 %일까? (생각보다 엄청 높습니다)"
+  },
+  {
+   "start": 57,
+   "title": "주식 1억이 생각보다 훨씬 드문 이유"
+  },
+  {
+   "start": 172,
+   "title": "\"지금 고점 아닌가요?\" 무서워서 미국 주식 시작도 못 하는 분들께"
+  },
+  {
+   "start": 316,
+   "title": "초봉 3천만 원 월급쟁이가 주식 계좌에만 10억을 굴릴 수 있었던 '비밀'"
+  },
+  {
+   "start": 380,
+   "title": "주식 10억은 대한민국 상위 0.35%, 1000명 중 3등이 된 월급쟁이의 비밀"
+  },
+  {
+   "start": 456,
+   "title": "\"월급의 10%부터 똑같이 작동합니다\" 평범한 직장인이 상위 7% 맨 앞줄에 서는 법"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-14 19:49까지 자막 요청을 쉼 → 음성인식",
+ "comments_fetched": 156,
+ "comments_top_level": 80,
+ "comments_replies": 76,
+ "comments_by_creator": 7,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 156,
+ "tool": "outlier_research.py v2.1",
+ "collected": "2026-10-14T16:27:05",
+ "approved": "2026-10-14T16:27+09:00"
+}

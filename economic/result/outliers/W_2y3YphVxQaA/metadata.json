@@ -1,0 +1,99 @@
+{
+ "id": "2y3YphVxQaA",
+ "title": "경제적 자유의 진실: 이 원리를 모르면 당신은 80살까지 평생 출근해야 합니다",
+ "channel": "김상훈의 재테크",
+ "channel_id": "UCNTzjjVVrdgcvl1KcULt6Bw",
+ "subs": 2930,
+ "views": 92404,
+ "ratio": 31.54,
+ "age_days": 132,
+ "views_per_day": 700.0,
+ "minutes": 28.7,
+ "likes": 1921,
+ "comments": 135,
+ "published": "2026-06-03",
+ "queries": "검색:경제적자유",
+ "url": "https://www.youtube.com/watch?v=2y3YphVxQaA",
+ "flag": "",
+ "published_at": "2026-06-03T11:58:08Z",
+ "rank": "W44",
+ "set": "web",
+ "folder": "W_2y3YphVxQaA",
+ "sources": [
+  "검색:경제적자유"
+ ],
+ "source": "web",
+ "tags": [
+  "옆집 김대리",
+  "김대리",
+  "옆집형",
+  "재테크",
+  "자산관리",
+  "돈 모으기",
+  "월급 관리",
+  "노후준비",
+  "자기계발",
+  "갓생",
+  "성공 습관",
+  "동기부여",
+  "마인드셋",
+  "경제적 자유",
+  "파이어족",
+  "조기 은퇴",
+  "주식 투자",
+  "ETF 투자",
+  "복리",
+  "심리",
+  "노동수익",
+  "인플레이션",
+  "중산층함정",
+  "고정비절감",
+  "은퇴설계",
+  "지수투자",
+  "복리의마법",
+  "종신출근",
+  "자산배분전략"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝: 성실함이라는 달콤한 최면에서 깨어나는 법"
+  },
+  {
+   "start": 73,
+   "title": "제일부: 빗물 젖은 양복과 일억 원의 빈곤"
+  },
+  {
+   "start": 259,
+   "title": "제이부: 물통을 드는 성실함이라는 저주"
+  },
+  {
+   "start": 581,
+   "title": "제삼부: 차가운 숫자가 말하는 생존의 시계"
+  },
+  {
+   "start": 953,
+   "title": "제사부: 물길을 만드는 설계자의 시선"
+  },
+  {
+   "start": 1240,
+   "title": "제오부: 여든 살의 출근길을 지우는 법"
+  },
+  {
+   "start": 1534,
+   "title": "마무리: 당신의 시간은 누구의 것입니까"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-14 19:49까지 자막 요청을 쉼 → 음성인식",
+ "comments_fetched": 135,
+ "comments_top_level": 73,
+ "comments_replies": 62,
+ "comments_by_creator": 14,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 135,
+ "tool": "outlier_research.py v2.1",
+ "collected": "2026-10-14T16:21:59",
+ "approved": "2026-10-14T16:22+09:00"
+}

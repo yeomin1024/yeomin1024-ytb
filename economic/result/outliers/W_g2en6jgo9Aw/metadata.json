@@ -1,0 +1,89 @@
+{
+ "id": "g2en6jgo9Aw",
+ "title": "매달 배당 받으면서 세금도 아끼는 구조 | IRP 황금 포트폴리오-당신의 IRP, 지금 일하고 있나요?",
+ "channel": "투게더경제학",
+ "channel_id": "UCqdI_JTiDMJhY7MnI7DJtDg",
+ "subs": 806,
+ "views": 14248,
+ "ratio": 17.68,
+ "age_days": 149,
+ "views_per_day": 95.6,
+ "minutes": 18.3,
+ "likes": 275,
+ "comments": 2,
+ "published": "2026-05-18",
+ "queries": "검색:IRP",
+ "url": "https://www.youtube.com/watch?v=g2en6jgo9Aw",
+ "flag": "",
+ "published_at": "2026-05-18T07:11:28Z",
+ "rank": "W67",
+ "set": "web",
+ "folder": "W_g2en6jgo9Aw",
+ "sources": [
+  "검색:IRP"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "IRP에 2% 예금 넣고 있다면 당장 보세요!"
+  },
+  {
+   "start": 45,
+   "title": "IRP, 세액공제만 받는 계좌가 아닙니다 (최대 148만원 돌려받는 법)"
+  },
+  {
+   "start": 130,
+   "title": "2026년 IRP 계좌 활용법: 배당 ETF 3가지가 핵심인 이유"
+  },
+  {
+   "start": 185,
+   "title": "IRP 계좌에 ETF 담을 때 규칙 (위험자산 70%는 필수!)"
+  },
+  {
+   "start": 220,
+   "title": "첫 번째 배당 ETF: ACE 미국배당다우존스 (장기 배당 성장의 씨앗)"
+  },
+  {
+   "start": 440,
+   "title": "두 번째 배당 ETF: TIGER 미국배당다우존스 (규모와 유동성의 힘)"
+  },
+  {
+   "start": 570,
+   "title": "세 번째 배당 ETF: KODEX 미국배당커버드콜액티브 (월 현금 흐름의 마법)"
+  },
+  {
+   "start": 830,
+   "title": "IRP 안에서 3가지 ETF, 어떻게 배합해야 할까요? (추천 포트폴리오)"
+  },
+  {
+   "start": 930,
+   "title": "상황별 IRP 투자 전략: 금리 인하 vs 인플레이션 (Plan A & Plan B)"
+  },
+  {
+   "start": 1080,
+   "title": "지금 당장 확인해야 할 IRP 체크리스트 5가지"
+  },
+  {
+   "start": 1230,
+   "title": "오늘 영상 3줄 요약 (IRP 핵심 정리)"
+  },
+  {
+   "start": 1280,
+   "title": "중요한 투자 유의사항 (면책 조항)"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-14 19:49까지 자막 요청을 쉼 → 음성인식",
+ "comments_fetched": 2,
+ "comments_top_level": 2,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 2,
+ "tool": "outlier_research.py v2.1",
+ "collected": "2026-10-14T16:23:37",
+ "approved": "2026-10-14T16:23+09:00"
+}

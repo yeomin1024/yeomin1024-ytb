@@ -1,0 +1,63 @@
+{
+ "id": "TK4FK8lH1Qs",
+ "title": "50대 자산 7억이 거지라고 진짜 평균은 따로 있습니다",
+ "channel": "송차장기록",
+ "channel_id": "UCYHmqqSy8EhVoxGICwh4NaQ",
+ "subs": 8440,
+ "views": 131445,
+ "ratio": 15.57,
+ "age_days": 148,
+ "views_per_day": 888.1,
+ "minutes": 17.6,
+ "likes": 1514,
+ "comments": 689,
+ "published": "2026-05-18",
+ "queries": "검색:노후준비 | 검색:은퇴준비",
+ "url": "https://www.youtube.com/watch?v=TK4FK8lH1Qs",
+ "flag": "",
+ "published_at": "2026-05-18T08:27:30Z",
+ "rank": "W73",
+ "set": "web",
+ "folder": "W_TK4FK8lH1Qs",
+ "sources": [
+  "검색:노후준비",
+  "검색:은퇴준비"
+ ],
+ "source": "web",
+ "tags": [
+  "송차장기록",
+  "4050직장인",
+  "40대직장인",
+  "중년현실"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "회사 선배가 며칠째 잠을 못 이루는 이유"
+  },
+  {
+   "start": 210,
+   "title": "\"50대 7억은 폐지 주워라\"… 진짜 그런가"
+  },
+  {
+   "start": 540,
+   "title": "100가구 중 88가구는 10억이 없습니다"
+  },
+  {
+   "start": 820,
+   "title": "댓글창의 거짓말, 영화 「리플리」처럼"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-14 19:49까지 자막 요청을 쉼 → 음성인식",
+ "comments_fetched": 689,
+ "comments_top_level": 400,
+ "comments_replies": 289,
+ "comments_by_creator": 138,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 689,
+ "tool": "outlier_research.py v2.1",
+ "collected": "2026-10-14T16:23:55",
+ "approved": "2026-10-14T16:23+09:00"
+}

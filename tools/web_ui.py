@@ -1,6 +1,18 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.1.1 — 2026-10-14 — 분석 결과 안내 글만: 오래된 영상은 '창 밖' → 마지막 '전체' 창에 (weekly_analysis v1.1)
+# VERSION: v1.2 — 2026-10-14 — 결과 먼저 올리고 음성인식은 뒤에서 (사용자 지시: "아니 음성인식이랑 별개로 분석결과 낼 수 있잖아 자막도
+#          다운 시도했는데 안되면영상 설명으로 대체해서 그냥 분석결과랑 자료 다 올려 그 다음 음성인식하라고 수정해"):
+#          ① [승인] = 자료 받기(설명·자막 시도·썸네일·댓글 전부) → 주별 분석(자막을 못 받은 영상은 영상 설명으로 대신 —
+#             weekly_analysis v1.2, 승인 영상 표 approved.md) → **바로 GitHub 에 올림** → 작업 끝. (예전 v1.1: 음성인식 대기열이
+#             다 끝나야 — 289개면 2~3일 — 올렸음)
+#          ② 음성인식은 그 뒤에 '뒤에서' 따로 (화면 위 '음성인식' 표시: n/전체·지금 영상, [음성인식 시작]·[멈춤]) — 하나 끝날 때마다
+#             대본을 넣어 주별 분석을 다시 만들고 바로 올림 (분석기 --whisper-queue). 도는 동안에도 탐색·승인을 할 수 있음.
+#             승인을 더 하면 지금 대기열이 끝난 뒤 새 영상도 이어서
+#          ③ 화면을 켜면: 승인한 영상이 있으면 주별 분석을 다시 만들어 올리고(새 코드의 설명 대체·표), 자막 없는 영상이 남았으면
+#             음성인식을 뒤에서 시작 (--no-whisper 로 끔)
+#          ④ [다시 분석]도 다시 만든 뒤 올림
+#          ※ 사례 폴더(W_ — 다른 사람의 설명·자막·댓글·썸네일 원문)는 저장소가 비공개일 때만 올라감 (CLAUDE.md) — 공개면 화면에 안내
+# (v1.1.1 — 2026-10-14 — 분석 결과 안내 글만: 오래된 영상은 '창 밖' → 마지막 '전체' 창에 (weekly_analysis v1.1))
 # (v1.1 — 2026-10-14 — 목록 고침 (사용자 지시: "영상이나 채널 여러 개 넣을 수 있게 하고 체크된거랑 안된거 따로 목록 분리해서
 #          보여주고 이미 분석에 사용한 영상이면 목록에서 제외해 그리고 라이브 방송, 외국 영상은 탐색 대상에서 제외 그리고 목록을 배수가
 #          가장 높은순으로 정렬해"): ① 직접 추가 칸에 여러 개 (한 줄에 하나 — 띄어쓰기·쉼표로 나눠도 됨) ② 목록을 '체크한 영상'과
@@ -17,12 +29,14 @@
 #          ④ [탐색] → 검색어(최근 N주·조회수 순·4~20분·20분 넘음) + 추가한 채널·영상 → 목록 (최근 업로드 순). 추천(성공 사례·조회수 상위·
 #             추가한 것)은 체크만 해 둠 — 자료는 아직 안 받음
 #          ⑤ [승인] → 체크한 영상만 설명·자막·썸네일·댓글 전부를 받고(<주제>/result/outliers/W_<영상ID>/) 주별 분석
-#             (tools/weekly_analysis.py — 최근 1주·2주·3주 … 한 주씩 넓힘) → 자막을 못 받은 영상은 음성인식 대기열 → 다시 분석 → GitHub))
+#             (tools/weekly_analysis.py — 최근 1주·2주·3주 … 한 주씩 넓힘) → 자막을 못 받은 영상은 음성인식 대기열 → 다시 분석 → GitHub)
 r"""
 사용법 (PC 실행 폴더 — run_analyzer.ps1 이 기본으로 띄움):
   python tools/web_ui.py                    # economic (설정 파일이 있는 주제 폴더가 여럿이면 화면에서 고름)
   python tools/web_ui.py economic --port 8765 --no-browser
   옵션: --port 8765 (쓰는 중이면 다음 번호) · --no-browser (주소만 보여 줌) · --no-sync (GitHub 에서 설정·검색어를 받지 않음)
+        --no-whisper (켤 때 음성인식을 뒤에서 시작하지 않음 — 화면의 [음성인식 시작]으로)
+순서: [승인] → 자료 받기 → 주별 분석(자막 없으면 설명으로) → GitHub 에 올림 → (뒤에서) 음성인식 하나씩 → 끝날 때마다 다시 분석·올림
 할당량: 탐색 = 검색어 1개마다 검색 2번(200단위, 7일 캐시) + 채널 영상 목록 50개에 1단위 + 영상 정보 50개에 1단위.
         승인 = 영상마다 댓글 100개에 1단위 (+ 답글). 오늘 쓴 양은 .yt_work/quota_<주제>.json (자동 실행과 같은 장부).
 로그: [STAGE] [시각] key=value — 화면의 '진행' 칸과 .yt_work/web_ui.log
@@ -54,7 +68,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import pc_analysis as pc                 # noqa: E402  할당량 장부·키 찾기·GitHub 동기화·패키지 준비
 
 ROOT = pc.ROOT
-VERSION = "v1.1.1"
+VERSION = "v1.2"
 LOG = logging.getLogger("web")
 KST = timezone(timedelta(hours=9))
 TOKEN = secrets.token_urlsafe(18)        # 화면이 요청마다 보내는 열쇠 (다른 사이트가 이 PC 의 화면을 조작하지 못하게)
@@ -66,6 +80,16 @@ STATE = {"topic": None, "topics": [], "port": None}
 JOB = {"name": None, "status": "idle", "step": "", "done": 0, "total": 0, "started": None, "finished": None, "error": None,
        "result": None, "cancel": False, "log": collections.deque(maxlen=500), "proc": None}
 JOB_LOCK = threading.Lock()
+# 음성인식 (v1.2) — 작업(JOB)과 따로 뒤에서: 탐색·승인을 하는 동안에도 돎. 분석기 --whisper-queue 를 돌리고 출력 줄로 진행을 읽음
+WHISPER = {"status": "idle", "topic": None, "proc": None, "started": None, "finished": None, "current": "", "done": 0, "failed": 0,
+           "total": 0, "rerun": False, "stop": False, "last_exit": None, "note": "", "log": collections.deque(maxlen=300)}
+WHISPER_LOCK = threading.Lock()
+WHISPER_LINE_RX = re.compile(r"\[(?:INFO|WARNING)\] (\d+)/(\d+) (시작|끝|실패|올림|올리기 실패)(.*)$")
+WHISPER_ITEMS_RX = re.compile(r"음성인식 대기열 items=(\d+)")
+WHISPER_MAX_ATTEMPTS = 3                 # 분석기 WHISPER_QUEUE_MAX_ATTEMPTS 와 같게 (그만큼 실패한 영상은 '남은 것'에서 뺌)
+SKIP_TRANSCRIPT = ("건너뜀", "확인 안 함")
+NETWORK_FAIL_WORDS = ("ProxyError", "ConnectionError", "Timeout", "URLError")     # 분석기 대기열과 같은 기준 (연결 자체 실패는 뺌)
+_PENDING_CACHE = {"t": None, "at": 0.0, "n": 0}
 
 
 def log(stage, level=logging.INFO, **kv):
@@ -361,14 +385,17 @@ def step(text, done=None, total=None):
         JOB["total"] = total
 
 
-def run_subprocess(cmd, label):
-    """도구를 따로 돌리고 출력 줄을 '진행' 칸으로 (멈춤을 누르면 끝냄). → 종료 코드."""
+def run_subprocess(cmd, label, capture=None):
+    """도구를 따로 돌리고 출력 줄을 '진행' 칸으로 (멈춤을 누르면 끝냄). capture(목록)가 있으면 출력 줄을 거기에도. → 종료 코드."""
     env = {**os.environ, "PYTHONIOENCODING": "utf-8", "PYTHONUTF8": "1"}
     log("JOB", step=label, cmd=" ".join(str(c) for c in cmd[1:]))
     p = subprocess.Popen(cmd, cwd=ROOT, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     JOB["proc"] = p
     for raw in p.stdout:
-        JOB["log"].append(raw.decode("utf-8", errors="replace").rstrip())
+        line = raw.decode("utf-8", errors="replace").rstrip()
+        JOB["log"].append(line)
+        if capture is not None:
+            capture.append(line)
         if JOB["cancel"]:
             p.terminate()
     code = p.wait()
@@ -539,43 +566,194 @@ def job_approve(t, ids, auto_whisper=True):
     appr = _read_json(web_dir(t) / "approved.json", {"approved": []})
     appr["approved"] = list(dict.fromkeys(appr["approved"] + [m["id"] for m in got]))
     _write_json(web_dir(t) / "approved.json", appr)
-    step("주별 분석", len(ids), len(ids))
-    rep = wa.run(t)
     missing = [m["id"] for m in got if m["transcript_status"] != "ok"]
-    res = {"videos": len(got), "transcripts_ok": len(got) - len(missing), "whisper_needed": len(missing), "quota_used": api.used,
+    # v1.2: 음성인식을 기다리지 않음 — 자막을 못 받은 영상은 설명으로 대신 분석하고 바로 올림, 음성인식은 그 뒤에 뒤에서
+    step(f"주별 분석 (자막 못 받은 {len(missing)}개는 영상 설명으로 대신)", len(ids), len(ids))
+    rep = wa.run(t)
+    got_ids = {m["id"] for m in got}
+    src = collections.Counter(c["src"] for c in wa.load_cases(out) if c["meta"].get("id") in got_ids)
+    res = {"videos": len(got), "transcripts_ok": len(got) - len(missing), "description_fallback": src.get("설명", 0),
+           "no_text": src.get("없음", 0), "whisper_needed": len(missing), "quota_used": api.used,
            "pending_comments": len(state["pending_comments"]), "windows": len(rep["windows"])}
-    has_token = bool(pc.find_secret("GITHUB_TOKEN", t)[0])
+    res.update(push_results(t, f"웹 화면 승인 {len(got)}개 — 자료·주별 분석 (자막 못 받은 {len(missing)}개는 설명으로, 음성인식은 뒤에서)"))
     if missing and auto_whisper:
-        step(f"음성인식 {len(missing)}개 (자막을 못 받은 영상 — 하나씩, 오래 걸림)", 0, len(missing))
-        code = run_subprocess([sys.executable, "youtube_topic_analyzer.py", "--config", f"{t}/analyzer_config.toml", "--whisper-queue"]
-                              + ([] if has_token else ["--no-push"]), "음성인식")
-        res["whisper_exit"] = code
-        step("주별 분석 (음성인식 대본 넣어서)")
-        rep = wa.run(t)
-        res["transcripts_ok"] = sum(1 for c in wa.load_cases(out) if c["snips"] and c["meta"]["id"] in {m["id"] for m in got})
-    if has_token:
-        step("GitHub 에 올리기")
-        res["push_exit"] = run_subprocess([sys.executable, "youtube_topic_analyzer.py", "--config", f"{t}/analyzer_config.toml",
-                                           "--push-only"], "GitHub")
+        res["whisper"] = start_whisper(t, f"승인한 영상 중 자막을 못 받은 {len(missing)}개")[1]
+    elif missing:
+        res["whisper"] = "자동 음성인식 끔 — 화면의 [음성인식 시작]으로"
     log("APPROVE", topic=t, **{k: v for k, v in res.items()})
-    step("끝")
+    step("끝 — " + ("결과를 GitHub 에 올렸습니다" if res.get("pushed") else res.get("push_note") or "PC 에 저장")
+         + (" · 음성인식은 뒤에서 (화면 위 '음성인식')" if missing and auto_whisper else ""))
     return res
 
 
+def push_results(t, message):
+    """분석 결과(+ 비공개 저장소면 사례 폴더 자료)를 바로 GitHub 에 (분석기 --push-only, 다른 올리기와 차례로 — 분석기 v2.9.2 잠금).
+    → {pushed, push_exit, push_note, materials}"""
+    if not pc.find_secret("GITHUB_TOKEN", t)[0]:
+        note = "GITHUB_TOKEN 없음 — 결과는 PC 에만 (화면 위 '1. 키 설정'에서 넣으면 다음부터 올라감)"
+        log("PUSH", logging.WARNING, topic=t, note=note)
+        return {"pushed": False, "push_note": note}
+    step("GitHub 에 올리기 (분석 결과·자료)")
+    lines = []                          # 진행 칸(최근 500줄)과 따로 — 승인이 많아 진행 칸이 차 있어도 올리기 출력을 읽게
+    code = run_subprocess([sys.executable, "youtube_topic_analyzer.py", "--config", f"{t}/analyzer_config.toml", "--push-only",
+                           "--push-message", message], "GitHub", capture=lines)
+    out = "\n".join(lines)
+    if "공개 저장소: 요약 파일만" in out or "private=False" in out:
+        materials = "PC 에만 — 저장소가 공개라 사례 폴더(설명·자막·댓글·썸네일)는 올리지 않음. 비공개로 바꾸면 다음 올리기부터 자동으로 올라감"
+    elif "비공개 저장소: 사례 폴더" in out or "private=True" in out:
+        materials = "올림 (비공개 저장소 — 사례 폴더까지)"
+    else:
+        materials = "확인 못 함 (진행 칸의 GitHub 줄 참고)"
+    no_change = "변경 사항 없음" in out
+    note = ("바뀐 것 없음 (이미 올라가 있음)" if code == 0 and no_change else "GitHub 에 올림" if code == 0
+            else f"올리기 실패 (종료 코드 {code}) — 진행 칸의 GitHub 줄 확인, [다시 분석]을 누르면 다시 올림")
+    log("PUSH", logging.INFO if code == 0 else logging.WARNING, topic=t, exit=code, note=note, materials=materials)
+    return {"pushed": code == 0, "push_exit": code, "push_note": note, "materials": materials}
+
+
 def job_analyze(t):
-    step("주별 분석")
+    step("주별 분석 (자막 없으면 설명으로)")
     rep = wa.run(t)
-    return {"windows": len(rep["windows"]), "cases": rep["cases"]}
+    res = {"windows": len(rep["windows"]), "cases": rep["cases"], "text_sources": rep.get("text_sources")}
+    if rep["cases"]:
+        res.update(push_results(t, f"웹 화면 주별 분석 다시 (승인 {rep['cases']}개)"))
+    step("끝 — " + (res.get("push_note") or "승인한 영상 없음"))
+    return res
 
 
-def job_whisper(t):
-    step("음성인식 대기열")
-    has_token = bool(pc.find_secret("GITHUB_TOKEN", t)[0])
-    code = run_subprocess([sys.executable, "youtube_topic_analyzer.py", "--config", f"{t}/analyzer_config.toml", "--whisper-queue"]
-                          + ([] if has_token else ["--no-push"]), "음성인식")
-    step("주별 분석")
-    wa.run(t)
-    return {"exit": code}
+def job_startup(t, whisper=True):
+    """화면을 켤 때 (v1.2): 승인한 영상이 있으면 주별 분석을 다시 만들어 올리고, 자막 없는 영상이 남았으면 음성인식을 뒤에서."""
+    res = {}
+    if any(out_dir(t).glob("W_*/metadata.json")):
+        res = job_analyze(t)
+    n = whisper_pending(t, fresh=True)
+    res["whisper_pending"] = n
+    if n and whisper:
+        res["whisper"] = start_whisper(t, f"켤 때 남은 {n}개")[1]
+    step("끝 — " + (res.get("push_note") or "올릴 결과 없음") + (f" · 음성인식 {n}개 남음" if n else ""))
+    return res
+
+
+# ---------------------------------------------------------------- 음성인식 (뒤에서, v1.2)
+def whisper_pending(t, fresh=False):
+    """음성인식이 남은 영상 수 — 분석기 대기열과 같은 기준 (W_·01_·P01_ 중 대본 없음·자막 서버 차단·자막 없음; 건너뜀·연결 실패·
+    시도 한도를 넘은 것은 뺌). 화면이 자주 물어서 15초 동안은 지난 값."""
+    now = time.monotonic()
+    if not fresh and _PENDING_CACHE["t"] == t and now - _PENDING_CACHE["at"] < 15:
+        return _PENDING_CACHE["n"]
+    tag = re.sub(r"[^0-9A-Za-z가-힣]+", "_", str(t)).strip("_") or "topic"
+    tried = _read_json(ROOT / ".yt_work" / f"whisper_{tag}.json", {})
+    n = 0
+    od = out_dir(t)
+    for d in (od.iterdir() if od.is_dir() else []):
+        m = CASE_RX.match(d.name)
+        if not (m and d.is_dir() and (d / "metadata.json").is_file()) or (d / "transcript.json").is_file():
+            continue
+        st = str(_read_json(d / "metadata.json", {}).get("transcript_status") or "")
+        if st == "ok" or st.startswith(SKIP_TRANSCRIPT) or any(w in st for w in NETWORK_FAIL_WORDS):
+            continue
+        rec = tried.get(m.group(1)) or {}
+        if rec.get("done") or rec.get("attempts", 0) >= WHISPER_MAX_ATTEMPTS:
+            continue
+        n += 1
+    _PENDING_CACHE.update(t=t, at=now, n=n)
+    return n
+
+
+def whisper_view():
+    w = {k: (list(v)[-120:] if k == "log" else v) for k, v in WHISPER.items() if k not in ("proc", "stop")}
+    t = WHISPER["topic"] or STATE["topic"]
+    try:
+        w["pending"] = whisper_pending(t) if t else 0
+    except Exception:
+        w["pending"] = None
+    return w
+
+
+def start_whisper(t, why=""):
+    """음성인식을 뒤에서 시작. 이미 도는 중이면 '끝나면 다시'만 표시 (새로 승인한 영상도 이어서). → (시작했나, 설명)."""
+    with WHISPER_LOCK:
+        if WHISPER["status"] in ("running", "stopping"):
+            WHISPER["rerun"] = True
+            return False, "음성인식이 이미 도는 중 — 지금 대기열이 끝나면 새 영상도 이어서"
+        WHISPER.update(status="running", topic=t, started=datetime.now(KST).isoformat(timespec="seconds"), finished=None, current="",
+                       done=0, failed=0, total=0, rerun=False, stop=False, last_exit=None, note=why, proc=None)
+        WHISPER["log"].clear()
+    log("WHISPER", topic=t, note=f"뒤에서 시작 — {why}" if why else "뒤에서 시작")
+    threading.Thread(target=_whisper_loop, args=(t,), daemon=True, name="whisper").start()
+    return True, "음성인식을 뒤에서 시작 — 하나 끝날 때마다 주별 분석을 다시 만들어 올림"
+
+
+def stop_whisper():
+    with WHISPER_LOCK:
+        if WHISPER["status"] != "running":
+            return False
+        WHISPER.update(stop=True, status="stopping", rerun=False)
+        p = WHISPER.get("proc")
+    if p:
+        p.terminate()
+    log("WHISPER", logging.WARNING, note="사용자가 멈춤 — 끝난 영상의 대본은 남음, 하던 영상은 다음에 처음부터")
+    return True
+
+
+def _whisper_loop(t):
+    try:
+        while True:
+            has_token = bool(pc.find_secret("GITHUB_TOKEN", t)[0])
+            cmd = [sys.executable, "youtube_topic_analyzer.py", "--config", f"{t}/analyzer_config.toml", "--whisper-queue"] + \
+                  ([] if has_token else ["--no-push"])
+            WHISPER.update(done=0, failed=0, total=0, current="")
+            code = _whisper_run(cmd)
+            WHISPER["last_exit"] = code
+            _PENDING_CACHE["at"] = 0.0
+            with WHISPER_LOCK:
+                again = WHISPER["rerun"] and not WHISPER["stop"]
+                WHISPER["rerun"] = False
+            if not again:
+                break
+            log("WHISPER", topic=t, note="새로 승인한 영상도 이어서")
+    except Exception as e:
+        WHISPER["note"] = f"오류: {type(e).__name__}: {e}"[:200]
+        LOG.exception("[WHISPER] 실패")
+    finally:
+        with WHISPER_LOCK:
+            stopped = WHISPER["stop"]
+            WHISPER.update(status="stopped" if stopped else "idle", finished=datetime.now(KST).isoformat(timespec="seconds"), proc=None,
+                           current="")
+        log("WHISPER", topic=t, done=WHISPER["done"], failed=WHISPER["failed"], exit=WHISPER["last_exit"],
+            note="멈춤" if stopped else "대기열 끝")
+
+
+def _whisper_run(cmd):
+    env = {**os.environ, "PYTHONIOENCODING": "utf-8", "PYTHONUTF8": "1"}
+    log("WHISPER", cmd=" ".join(str(c) for c in cmd[1:]))
+    p = subprocess.Popen(cmd, cwd=ROOT, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    WHISPER["proc"] = p
+    for raw in p.stdout:
+        line = raw.decode("utf-8", errors="replace").rstrip()
+        WHISPER["log"].append(line)
+        m = WHISPER_ITEMS_RX.search(line)
+        if m:
+            WHISPER["total"] = int(m.group(1))
+        m = WHISPER_LINE_RX.search(line)
+        if m:
+            n, total, what, rest = int(m.group(1)), int(m.group(2)), m.group(3), m.group(4)
+            WHISPER["total"] = total
+            if what == "시작":
+                title = re.search(r'title=("([^"]*)"|\S+)', rest)
+                WHISPER["current"] = f"{n}/{total} " + ((title.group(2) if title.group(2) is not None else title.group(1)) if title else "")
+            elif what == "끝":
+                WHISPER["done"] += 1
+                _PENDING_CACHE["at"] = 0.0
+            elif what == "실패":
+                WHISPER["failed"] += 1
+        if "이미 도는 중" in line:
+            WHISPER["note"] = "다른 창(자동 실행)에서 음성인식이 이미 도는 중 — 그쪽이 하나씩 올림"
+        if WHISPER["stop"]:
+            p.terminate()
+    code = p.wait()
+    WHISPER["proc"] = None
+    return code
 
 
 # ---------------------------------------------------------------- 화면 상태
@@ -639,7 +817,7 @@ class Handler(BaseHTTPRequestHandler):
             if u.path == "/api/state":
                 return self._send(200, state_view(t))
             if u.path == "/api/job":
-                return self._send(200, job_view())
+                return self._send(200, {**job_view(), "whisper": whisper_view()})
             if u.path == "/api/explore":
                 ex = _read_json(web_dir(t) / "explore.json", {})
                 used = used_ids(t)                                     # 이미 분석에 쓴 영상은 뺌 (승인하면 바로 빠짐)
@@ -725,8 +903,10 @@ class Handler(BaseHTTPRequestHandler):
                 ok, msg = start_job("주별 분석", job_analyze, t)
                 return self._send(200 if ok else 409, {"ok": ok, "message": msg})
             if path == "/api/whisper":
-                ok, msg = start_job("음성인식", job_whisper, t)
-                return self._send(200 if ok else 409, {"ok": ok, "message": msg})
+                ok, msg = start_whisper(t, "화면에서 [음성인식 시작]")
+                return self._send(200, {"ok": ok, "message": msg})
+            if path == "/api/whisper/stop":
+                return self._send(200, {"ok": stop_whisper()})
             if path == "/api/cancel":
                 JOB["cancel"] = True
                 p = JOB.get("proc")
@@ -758,6 +938,8 @@ def main(argv=None):
     ap.add_argument("--no-browser", action="store_true")
     ap.add_argument("--no-sync", action="store_true", help="GitHub 에서 설정·검색어를 받지 않음")
     ap.add_argument("--skip-install", action="store_true")
+    ap.add_argument("--no-whisper", action="store_true", help="켤 때 음성인식을 뒤에서 시작하지 않음 (화면의 [음성인식 시작]으로)")
+    ap.add_argument("--no-startup", action="store_true", help="켤 때 주별 분석 다시 만들기·올리기를 하지 않음")
     ap.add_argument("--log-level", default="INFO", choices=["DEBUG", "INFO", "WARNING"])
     a = ap.parse_args(argv)
     for s in (sys.stdout, sys.stderr):
@@ -800,12 +982,18 @@ def main(argv=None):
     print(f"\n  ▶ 분석기 화면: {url}\n    (브라우저가 안 열리면 위 주소를 복사해 여세요. 끝내려면 이 창에서 Ctrl+C)\n", flush=True)
     if not a.no_browser:
         threading.Timer(0.8, lambda: webbrowser.open(url)).start()
+    if not a.no_startup:                      # v1.2: 승인한 영상 결과를 새로 만들어 올리고, 남은 음성인식은 뒤에서
+        start_job("켤 때 — 분석 결과 올리기", job_startup, STATE["topic"], not a.no_whisper)
     try:
         srv.serve_forever()
     except KeyboardInterrupt:
         log("DONE", note="화면을 끔")
     finally:
         srv.server_close()
+        for holder in (WHISPER, JOB):          # 음성인식·올리기도 같이 끝냄 (하던 영상은 다음에 처음부터)
+            p = holder.get("proc")
+            if p and p.poll() is None:
+                p.terminate()
     return 0
 
 
@@ -843,7 +1031,7 @@ details{border:1px solid var(--line);border-radius:8px;padding:8px 12px;margin-t
 @media (max-width:600px){.k{grid-template-columns:1fr}}
 </style></head><body>
 <header><h1 id="title">분석기</h1><select id="topic" title="주제 폴더"></select>
-<span class="pill" id="quota">할당량 …</span><span class="pill" id="caption">자막 서버 …</span><span class="pill" id="ver"></span></header>
+<span class="pill" id="quota">할당량 …</span><span class="pill" id="caption">자막 서버 …</span><span class="pill" id="wPill">음성인식 …</span><span class="pill" id="ver"></span></header>
 <main>
 <div class="two">
  <section class="card"><h2>1. 키 설정 <small>.env — 끝 4자리만 보입니다</small></h2>
@@ -875,16 +1063,23 @@ details{border:1px solid var(--line);border-radius:8px;padding:8px 12px;margin-t
  <div class="tablewrap"><table><thead><tr><th></th><th>업로드</th><th>제목</th><th>채널</th><th class="n">구독자</th><th class="n">조회수</th><th class="n">배수 ▼</th><th class="n">하루 조회수</th><th class="n">길이</th><th>추천 · 출처</th></tr></thead><tbody id="rowsOn"><tr><td colspan="10" class="mut">탐색을 누르면 여기에 나옵니다</td></tr></tbody></table></div>
  <h3 class="sub">☐ 체크 안 한 영상 <span id="offCount"></span></h3>
  <div class="tablewrap"><table><thead><tr><th></th><th>업로드</th><th>제목</th><th>채널</th><th class="n">구독자</th><th class="n">조회수</th><th class="n">배수 ▼</th><th class="n">하루 조회수</th><th class="n">길이</th><th>추천 · 출처</th></tr></thead><tbody id="rowsOff"><tr><td colspan="10" class="mut">—</td></tr></tbody></table></div>
- <div class="row" style="margin-top:10px"><button class="pri" id="approve">승인 — 체크한 영상 자료 받고 분석</button><label><input type="checkbox" id="autoW" checked> 자막 없는 영상은 음성인식까지</label><span class="mut" id="chkInfo"></span></div>
+ <div class="row" style="margin-top:10px"><button class="pri" id="approve">승인 — 자료 받고 분석해서 바로 올리기</button><label><input type="checkbox" id="autoW" checked> 그다음 자막 못 받은 영상 음성인식 (뒤에서)</label><span class="mut" id="chkInfo"></span></div>
+ <div class="mut" style="margin-top:6px">순서: 자료(설명·자막·썸네일·댓글) 받기 → 주별 분석 (자막을 못 받은 영상은 영상 설명으로 대신) → GitHub 에 바로 올림 → 음성인식은 뒤에서 하나씩 (끝날 때마다 다시 분석해 올림)</div>
 </section>
 <section class="card"><h2>진행 <small id="jobName"></small></h2>
- <div class="row"><span id="jobStep" class="grow">쉬는 중</span><button id="cancel" disabled>멈춤</button><button id="reanalyze">다시 분석</button><button id="whisper">음성인식 대기열</button></div>
+ <div class="row"><span id="jobStep" class="grow">쉬는 중</span><button id="cancel" disabled>멈춤</button><button id="reanalyze" title="주별 분석을 다시 만들어 GitHub 에 올림">다시 분석·올리기</button></div>
+ <div class="msg" id="jobRes"></div>
  <div class="bar" style="margin-top:8px"><i id="jobBar"></i></div><pre id="jobLog"></pre>
+</section>
+<section class="card"><h2>음성인식 <small>뒤에서 하나씩 · 끝날 때마다 대본을 넣어 주별 분석을 다시 만들고 올림 · 도는 동안에도 탐색·승인 가능</small></h2>
+ <div class="row"><span id="wStep" class="grow">쉬는 중</span><button id="wStart">음성인식 시작</button><button id="wStop" disabled>멈춤</button></div>
+ <div class="bar" style="margin-top:8px"><i id="wBar"></i></div>
+ <details><summary>음성인식 기록</summary><pre id="wLog"></pre></details>
 </section>
 <section class="card"><h2>6. 분석 결과 <small>최근 1주부터 한 주씩 넓힘 (누적) · weekly.md 로도 저장</small></h2><div id="report" class="mut">승인한 영상이 생기면 여기에 나옵니다</div></section>
 </main>
 <script>
-const T=document.querySelector('meta[name=t]').content;let ROWS=[],CHECK=new Set(),REC=new Set(),busy=false,lastJob=null,waitDone=false;
+const T=document.querySelector('meta[name=t]').content;let ROWS=[],CHECK=new Set(),REC=new Set(),busy=false,lastJob=null,waitDone=false,lastWDone=null;
 const $=id=>document.getElementById(id);const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const num=x=>x==null?'–':(typeof x==='number'?x.toLocaleString('ko-KR',{maximumFractionDigits:1}):x);
 async function api(p,b){const r=await fetch(p,{method:b?'POST':'GET',headers:{'X-Token':T,'Content-Type':'application/json'},body:b?JSON.stringify(b):undefined});
@@ -926,19 +1121,32 @@ let chkT;function saveChk(){clearTimeout(chkT);chkT=setTimeout(()=>api('/api/che
 function showJob(j){busy=j.status==='running';$('jobName').textContent=j.name?`${j.name} — ${({running:'도는 중',done:'끝',error:'오류',cancelled:'멈춤',idle:''})[j.status]||j.status}`:'';
  $('jobStep').innerHTML=j.status==='error'?`<span class=bad>${esc(j.error)}</span>`:esc(j.step||'쉬는 중');
  $('jobBar').style.width=j.total?Math.round(100*j.done/j.total)+'%':(busy?'15%':'0');$('cancel').disabled=!busy;
- ['explore','reanalyze','whisper'].forEach(id=>$(id).disabled=busy);updChk();
+ ['explore','reanalyze'].forEach(id=>$(id).disabled=busy);updChk();
+ const r=j.result||{};$('jobRes').innerHTML=j.status==='done'&&(r.push_note||r.materials||r.whisper)?[r.push_note?`GitHub: ${esc(r.push_note)}`:'',
+  r.description_fallback!=null?`자막 ${r.transcripts_ok}개 · 설명으로 대신 ${r.description_fallback}개${r.no_text?` · 글 없음 ${r.no_text}개`:''}`:'',
+  r.materials?`<span class="${String(r.materials).startsWith('PC')?'warn':'ok'}">자료(사례 폴더): ${esc(r.materials)}</span>`:'',r.whisper?`음성인식: ${esc(r.whisper)}`:''].filter(Boolean).join('<br>'):'';
  const L=$('jobLog'),atEnd=L.scrollTop+L.clientHeight>=L.scrollHeight-20;L.textContent=(j.log||[]).join('\n');if(atEnd)L.scrollTop=L.scrollHeight;
+ if(j.whisper)showWhisper(j.whisper);
  if((lastJob==='running'||waitDone)&&j.status!=='running'){waitDone=false;loadState();loadRows();loadReport()}lastJob=j.status}
-async function poll(){try{showJob(await api('/api/job'))}catch(e){}setTimeout(poll,busy?1000:4000)}
+function showWhisper(w){const run=w.status==='running'||w.status==='stopping';const left=w.pending==null?'':` · 남은 ${num(w.pending)}개`;
+ $('wPill').textContent=run?`음성인식 ${w.done}/${w.total||'…'}${w.failed?` (실패 ${w.failed})`:''}`:`음성인식 쉬는 중${left}`;$('wPill').className='pill '+(run?'ok':'');
+ $('wStep').innerHTML=run?`${w.status==='stopping'?'멈추는 중… ':''}${esc(w.current||'준비 중 (소리 받기·모델 불러오기)')} <span class=mut>끝 ${w.done} · 실패 ${w.failed} / 이번 대기열 ${w.total||'…'}${w.rerun?' · 끝나면 새로 승인한 영상도':''}</span>`
+  :`${w.status==='stopped'?'멈춤':'쉬는 중'}${left}${w.finished?` <span class=mut>(마지막 ${esc(w.finished.slice(5,16).replace('T',' '))} — 끝 ${w.done} · 실패 ${w.failed})</span>`:''}${w.note?` <span class=mut>${esc(w.note)}</span>`:''}`;
+ $('wBar').style.width=w.total?Math.round(100*(w.done+w.failed)/w.total)+'%':(run?'5%':'0');$('wStart').disabled=run;$('wStop').disabled=!run||w.status==='stopping';
+ const L=$('wLog'),atEnd=L.scrollTop+L.clientHeight>=L.scrollHeight-20;L.textContent=(w.log||[]).join('\n');if(atEnd)L.scrollTop=L.scrollHeight;
+ if(lastWDone!==null&&w.done!==lastWDone)loadReport();lastWDone=w.done}
+async function poll(){try{showJob(await api('/api/job'))}catch(e){}setTimeout(poll,busy?1000:3000)}
 function pct(x){return x==null?'–':Math.round(x*100)+'%'}
+function srcTxt(w){const s=w.text_sources;return s?`${s['자막']||0}·${s['음성인식']||0}·${s['설명']||0}`:num(w.transcripts)}
 async function loadReport(){const r=await api('/api/report');if(!r.windows){$('report').innerHTML='<span class=mut>승인한 영상이 생기면 여기에 나옵니다</span>';return}
- let h=`<div class=mut>${esc(r.generated.slice(0,16).replace('T',' '))} UTC · 승인 영상 ${r.cases}개 · ${esc(r.criteria)}${r.older_than_windows?` · ${r.max_weeks}주보다 오래된 영상 ${r.older_than_windows}개는 마지막 '전체' 창에`:''}</div>
- <div class=tablewrap style="margin-top:8px"><table><thead><tr><th>창</th><th class=n>영상</th><th class=n>채널</th><th class=n>이번 주 새로</th><th class=n>조회수 중앙값</th><th class=n>하루 조회수</th><th class=n>배수</th><th class=n>성공 사례</th><th class=n>길이(분)</th><th class=n>제목 글자</th><th class=n>자막</th><th class=n>댓글</th></tr></thead><tbody>`;
- h+=r.windows.map(w=>`<tr><td>${esc(w.label)}</td><td class=n>${w.videos}</td><td class=n>${w.channels}</td><td class=n>${w.new_this_week.length}</td><td class=n>${num(w.views_median)}</td><td class=n>${num(w.views_per_day_median)}</td><td class=n>${num(w.ratio_median)}</td><td class=n>${w.success}</td><td class=n>${num(w.minutes_median)}</td><td class=n>${num(w.title_len_avg)}</td><td class=n>${w.transcripts}</td><td class=n>${num(w.comments)}</td></tr>`).join('')+'</tbody></table></div>';
+ const ts=r.text_sources||{};let h=`<div class=mut>${esc(r.generated.slice(0,16).replace('T',' '))} UTC · 승인 영상 ${r.cases}개 (글 출처: 자막 ${ts['자막']||0} · 음성인식 ${ts['음성인식']||0} · 설명으로 대신 ${ts['설명']||0} · 없음 ${ts['없음']||0}) · 승인 영상 표는 approved.md · ${esc(r.criteria)}${r.older_than_windows?` · ${r.max_weeks}주보다 오래된 영상 ${r.older_than_windows}개는 마지막 '전체' 창에`:''}</div>
+ <div class=tablewrap style="margin-top:8px"><table><thead><tr><th>창</th><th class=n>영상</th><th class=n>채널</th><th class=n>이번 주 새로</th><th class=n>조회수 중앙값</th><th class=n>하루 조회수</th><th class=n>배수</th><th class=n>성공 사례</th><th class=n>길이(분)</th><th class=n>제목 글자</th><th class=n title="분석에 쓴 글: 자막 · 음성인식 · 설명(자막을 못 받아 대신)">글 출처 자막·음성·설명</th><th class=n>댓글</th></tr></thead><tbody>`;
+ h+=r.windows.map(w=>`<tr><td>${esc(w.label)}</td><td class=n>${w.videos}</td><td class=n>${w.channels}</td><td class=n>${w.new_this_week.length}</td><td class=n>${num(w.views_median)}</td><td class=n>${num(w.views_per_day_median)}</td><td class=n>${num(w.ratio_median)}</td><td class=n>${w.success}</td><td class=n>${num(w.minutes_median)}</td><td class=n>${num(w.title_len_avg)}</td><td class=n>${srcTxt(w)}</td><td class=n>${num(w.comments)}</td></tr>`).join('')+'</tbody></table></div>';
  h+=r.windows.filter(w=>w.videos).map(w=>`<details><summary>${esc(w.label)} — 영상 ${w.videos}개 (이번 주 새로 ${w.new_this_week.length})</summary>
   ${w.title_features.length?`<p><b>제목 특징</b> ${w.title_features.slice(0,6).map(f=>esc(f.name)+' '+pct(f.share)).join(' · ')}</p>`:''}
   ${w.title_words.length?`<p><b>자주 쓴 낱말</b> ${w.title_words.map(x=>esc(x.word)+'('+x.count+')').join(', ')}</p>`:''}
-  ${w.hooks.length?`<p><b>첫 20초</b> (말 속도 ${num(w.syl_per_sec_median)} 음절/초)</p><ul>${w.hooks.map(x=>`<li>${esc(x.title.slice(0,30))}: “${esc(x.hook)}”</li>`).join('')}</ul>`:''}
+  ${w.content_words&&w.content_words.length?`<p><b>내용에 자주 나온 낱말</b> <span class=mut>(자막·음성인식, 없으면 설명)</span> ${w.content_words.map(x=>esc(x.word)+'('+x.count+')').join(', ')}</p>`:''}
+  ${w.hooks.length?`<p><b>도입부</b> <span class=mut>(자막·음성인식은 첫 20초${w.transcripts?` · 말 속도 ${num(w.syl_per_sec_median)} 음절/초`:''}, 없으면 설명 앞부분)</span></p><ul>${w.hooks.map(x=>`<li><span class="tag ${x.src==='설명'?'x':'d'}">${esc(x.src||'자막')}</span>${esc(x.title.slice(0,30))}: “${esc(x.hook)}”</li>`).join('')}</ul>`:''}
   ${w.comment_needs.length?`<p><b>댓글 ${num(w.comments)}개 니즈</b> ${w.comment_needs.map(n=>esc(n.name)+' '+pct(n.share)).join(' · ')}</p><ul>${w.top_comments.map(c=>`<li>👍${num(c.likes)} “${esc(c.text)}”</li>`).join('')}</ul>`:''}
   <p><b>상위 영상</b> (하루 조회수 순)</p><ol>${w.top_videos.map(v=>`<li><a href="${v.url}" target=_blank rel=noopener>${esc(v.title)}</a> <span class=mut>${esc(v.channel)} · ${num(v.views)}회 · 하루 ${num(v.views_per_day)} · ${v.published}</span></li>`).join('')}</ol></details>`).join('');
  $('report').innerHTML=h}
@@ -956,9 +1164,11 @@ $('weeks').oninput=estimate;$('useKw').onchange=estimate;
 async function startJob(p,b){try{waitDone=true;await api(p,b);busy=true;showJob(await api('/api/job'))}catch(e){waitDone=false;alert(e.message)}}
 $('explore').onclick=()=>startJob('/api/explore',{weeks:+$('weeks').value,keywords:$('useKw').checked});
 $('approve').onclick=async()=>{const ids=ROWS.filter(r=>CHECK.has(r.id)).map(r=>r.id);if(!ids.length)return;
- if(!confirm(`체크한 영상 ${ids.length}개의 설명·자막·썸네일·댓글 전부를 받고 분석합니다.\n(댓글 100개에 할당량 1단위)`))return;
+ if(!confirm(`체크한 영상 ${ids.length}개의 설명·자막·썸네일·댓글 전부를 받고 → 주별 분석 → GitHub 에 바로 올립니다.\n자막을 못 받은 영상은 영상 설명으로 대신 분석하고, 음성인식은 그다음 뒤에서 합니다.\n(댓글 100개에 할당량 1단위)`))return;
  startJob('/api/approve',{ids,whisper:$('autoW').checked})};
-$('cancel').onclick=()=>api('/api/cancel',{});$('reanalyze').onclick=()=>startJob('/api/analyze',{});$('whisper').onclick=()=>startJob('/api/whisper',{});
+$('cancel').onclick=()=>api('/api/cancel',{});$('reanalyze').onclick=()=>startJob('/api/analyze',{});
+$('wStart').onclick=async()=>{try{const r=await api('/api/whisper',{});if(!r.ok)alert(r.message);showJob(await api('/api/job'))}catch(e){alert(e.message)}};
+$('wStop').onclick=async()=>{if(!confirm('음성인식을 멈출까요? (끝난 영상의 대본은 남고, 하던 영상은 다음에 처음부터)'))return;await api('/api/whisper/stop',{});showJob(await api('/api/job'))};
 ['flt','fShort','fRel'].forEach(id=>$(id).addEventListener('input',renderRows));
 $('chkAll').onclick=()=>{visible().forEach(r=>CHECK.add(r.id));renderRows();saveChk()};$('chkNone').onclick=()=>{CHECK.clear();renderRows();saveChk()};
 $('chkRec').onclick=()=>{CHECK=new Set(REC);renderRows();saveChk()};

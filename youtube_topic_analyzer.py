@@ -1,9 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v2.9.1 — 2026-10-14 — 올라간 결과가 모자라던 것 고침 (사용자 질문 "분석 결과 다 올라온거야?"):
+# VERSION: v2.9.2 — 2026-10-14 — 웹 화면이 결과를 먼저 올리고 음성인식은 뒤에서 (사용자 지시: "음성인식이랑 별개로 분석결과 낼 수 있잖아 …
+#          분석결과랑 자료 다 올려 그 다음 음성인식하라고 수정해"): ① 올리기 잠금 (.yt_work/push_<폴더>.lock — OS 파일 잠금, 프로세스가
+#          죽으면 풀림): 웹 화면의 올리기와 음성인식의 올리기가 같은 작업 폴더(_github_clone_<폴더>)를 동시에 지우던 것을 차례로
+#          ② 음성인식 대기열은 한 번에 하나 (.yt_work/whisper_<폴더>.lock — 이미 도는 중이면 '이미 도는 중' 남기고 끝, 같은 영상을
+#          두 번 인식하지 않게) ③ --push-message: --push-only 커밋 메시지 (웹 화면이 '승인 N개 — 자료·주별 분석' 처럼)
+# (v2.9.1 — 2026-10-14 — 올라간 결과가 모자라던 것 고침 (사용자 질문 "분석 결과 다 올라온거야?"):
 #          ① 성공 사례 결과만 올릴 때(분석기 결과 없음)도 커밋 메시지에 '음성인식 대본 <영상> (n/전체)' 를 남김 (예전: 늘 '성공 사례 결과 먼저'
 #          라서 진행이 안 보였음) ② 음성인식이 하나 끝날 때마다 웹 화면의 주별 분석(weekly.md)도 다시 만듦 (예전: 대기열이 다 끝나야 —
-#          289개면 며칠 — 그동안 자막 0개로 보였음)
+#          289개면 며칠 — 그동안 자막 0개로 보였음))
 # (v2.9.0 — 2026-10-14 — 자막이 계속 막히던 것 고침 + 웹 화면 사례 (사용자 지시: "왜 자꾸 자막 다운로드 막히는지 에러 찾아서 수정해",
 #          "분석기 웹 ui 형식으로 만들어"): 원인(PC 로그) = YouTube 자막 서버가 HTTP 429 — yt-dlp 자막 8/8, youtube-transcript-api
 #          IpBlocked 26/35. 소리 받기는 됨(음성인식 17/17). ① 자막 429 는 같은 클라이언트로 3번 다시 하지 않음(CaptionBlockedError —
@@ -339,7 +344,7 @@ import numpy as np
 import pandas as pd
 import requests
 
-NOTEBOOK_VERSION = "v2.9.1"
+NOTEBOOK_VERSION = "v2.9.2"
 KST = dt.timezone(dt.timedelta(hours=9))
 UTC = dt.timezone.utc
 IS_WINDOWS = os.name == "nt"
@@ -4092,7 +4097,69 @@ def reload_github_token(current, topic_dir=None):
     return current
 
 
+PUSH_LOCK_WAIT_SEC = 30 * 60      # 다른 올리기(웹 화면·음성인식)가 끝나기를 기다리는 최대 시간 (v2.9.2)
+
+
+def file_lock(path, wait_sec=0.0, poll=2.0):
+    """OS 파일 잠금 (v2.9.2) — 잠근 프로세스가 죽으면 OS 가 풀어 줌 (남은 잠금 파일 때문에 영영 막히지 않음).
+    → 잠긴 파일(file_unlock 으로 풂) 또는 None (wait_sec 안에 못 얻음)."""
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    f = open(path, "a+")
+    deadline = time.monotonic() + max(0.0, wait_sec)
+    while True:
+        try:
+            if IS_WINDOWS:
+                import msvcrt
+                f.seek(0)
+                msvcrt.locking(f.fileno(), msvcrt.LK_NBLCK, 1)
+            else:
+                import fcntl
+                fcntl.flock(f.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
+            return f
+        except OSError:
+            if time.monotonic() >= deadline:
+                f.close()
+                return None
+            time.sleep(poll)
+
+
+def file_unlock(f):
+    if not f:
+        return
+    try:
+        if IS_WINDOWS:
+            import msvcrt
+            f.seek(0)
+            msvcrt.locking(f.fileno(), msvcrt.LK_UNLCK, 1)
+        else:
+            import fcntl
+            fcntl.flock(f.fileno(), fcntl.LOCK_UN)
+    except OSError:
+        pass
+    finally:
+        f.close()
+
+
 def stage8_push_github(ctx, token, outliers_only=False):
+    """올리기 — 같은 주제의 올리기는 한 번에 하나 (v2.9.2: 웹 화면·음성인식·분석기가 같은 작업 폴더를 지우며 부딪히던 것)."""
+    lock_p = ctx.work_dir / f"push_{folder_tag(ctx.cfg['PROJECT_FOLDER'])}.lock"
+    lock = file_lock(lock_p, wait_sec=0)
+    if lock is None:
+        log("GITHUB", "다른 올리기가 도는 중 → 끝나기를 기다림", wait_max_min=PUSH_LOCK_WAIT_SEC // 60)
+        t0 = time.perf_counter()
+        lock = file_lock(lock_p, wait_sec=PUSH_LOCK_WAIT_SEC)
+        if lock is None:
+            raise RuntimeError(f"다른 올리기가 {PUSH_LOCK_WAIT_SEC // 60}분 넘게 끝나지 않음 → 잠시 뒤 다시: "
+                               f"python youtube_topic_analyzer.py --config {ctx.cfg['PROJECT_FOLDER']}/{CONFIG_FILE_NAME} --push-only")
+        log("GITHUB", "기다림 끝 → 올림", waited_sec=round(time.perf_counter() - t0, 1))
+    try:
+        return _stage8_push_github_unlocked(ctx, token, outliers_only)
+    finally:
+        file_unlock(lock)
+
+
+def _stage8_push_github_unlocked(ctx, token, outliers_only=False):
     cfg = ctx.cfg
     result = {"pushed": False}
     ctx.data["github_push"] = result
@@ -4601,6 +4668,15 @@ def run_self_test(cfg):
     check("성공 사례 올리기 (공개: 요약만 / 비공개: 사례 폴더까지)",
           got_pub == ["status.json", "summary.md"] and got_priv == ["01_abc/comments.csv", "P01_def/transcript.txt", "status.json", "summary.md"]
           and n_pub == 2 and n_priv == 4, public=got_pub, private=got_priv)
+    # v2.9.2: 올리기·음성인식 잠금 — 잡혀 있으면 못 얻고, 풀면 다시 얻음 (프로세스가 죽으면 OS 가 풂)
+    with tempfile.TemporaryDirectory() as td:
+        lp = Path(td) / "push_t.lock"
+        l1 = file_lock(lp)
+        l2 = file_lock(lp, wait_sec=0.3, poll=0.1)
+        file_unlock(l1)
+        l3 = file_lock(lp)
+        file_unlock(l3)
+    check("올리기 잠금 (한 번에 하나, v2.9.2)", l1 is not None and l2 is None and l3 is not None, first=l1 is not None, second=l2 is None)
     # v2.6.0: 주제별 키 — <주제폴더>/.env 가 먼저, 다음 환경 변수 <키>_<폴더>, 그다음 맨 위 .env·환경 변수 / 주제마다 다른 작업 폴더 이름
     with tempfile.TemporaryDirectory() as td:
         ta, tb_ = Path(td) / "topic_a", Path(td) / "topic-b"
@@ -4766,6 +4842,7 @@ def parse_args(argv=None):
     p.add_argument("--setup-only", action="store_true", help="패키지 설치·업데이트만 하고 끝 (여러 주제를 동시에 돌리기 전에 한 번)")
     p.add_argument("--push-only", action="store_true",
                    help="분석은 다시 하지 않고, 이미 PC에 있는 결과 폴더만 GitHub에 푸시 (토큰을 고친 뒤 사용)")
+    p.add_argument("--push-message", help="--push-only 커밋 메시지 (v2.9.2 — 웹 화면이 '승인 N개 — 자료·주별 분석' 처럼)")
     return p.parse_args(argv)
 
 
@@ -4860,6 +4937,22 @@ def speech_queue_items(cfg, out_dir, base=None):
 
 
 def whisper_queue(cfg, keys, push=True):
+    """음성인식 대기열 — 같은 주제는 한 번에 하나 (v2.9.2: 웹 화면과 자동 실행이 같은 영상을 동시에 인식하지 않게).
+    이미 도는 중이면 '이미 도는 중'을 남기고 0 으로 끝 (그쪽이 대기열을 다 함)."""
+    tag = folder_tag(sanitize_folder(cfg["PROJECT_FOLDER"], "PROJECT_FOLDER"))
+    work = BASE_DIR / ".yt_work"
+    lock = file_lock(work / f"whisper_{tag}.lock", wait_sec=0)
+    if lock is None:
+        setup_logging(cfg["LOG_LEVEL"], work / f"whisper_log_{tag}.txt")
+        log("WHISPER", "음성인식 대기열이 다른 창에서 이미 도는 중 → 이번엔 건너뜀 (그쪽이 하나씩 올림)", folder=tag)
+        return 0
+    try:
+        return _whisper_queue_run(cfg, keys, push)
+    finally:
+        file_unlock(lock)
+
+
+def _whisper_queue_run(cfg, keys, push=True):
     """--whisper-queue (v2.7.0): 대기열 영상을 하나씩 — 소리만 받아 Whisper → 대본 파일 → (성공 사례면 요약 다시 만들기) → 바로 GitHub.
     실패하면 기록하고 다음 영상 (같은 영상은 WHISPER_QUEUE_MAX_ATTEMPTS 번까지). 영상·소리 파일은 남기지 않음."""
     cfg = dict(cfg)
@@ -5064,7 +5157,7 @@ def main(argv=None):
         if args.push_only:
             keys = load_keys(require_youtube=False, topic_dir=topic_dir)
             cfg, _, _ = load_config(args, create_missing=False)
-            return push_only(cfg, keys)
+            return push_only(cfg, keys, message=args.push_message)
         if args.whisper_queue:
             keys = load_keys(require_youtube=False, topic_dir=topic_dir)
             cfg, _, _ = load_config(args, create_missing=False)

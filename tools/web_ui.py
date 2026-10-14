@@ -1,7 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.2.1 — 2026-10-14 — 공개 저장소에도 자료(사례 폴더)를 다 올림 (사용자 지시 "그냥 공개에서 다 올리도록 해" — 분석기 v2.9.3): 승인 결과 안내를
-#          분석기 로그의 full=True/False 로 읽음 (예전: private=True/False — 공개면 늘 'PC 에만'으로 보였을 것)
+# VERSION: v1.3 — 2026-10-14 — 성공 사례 분석(analysis.md)이 맞게 나오게 (사용자 지시: "성공 사례 영상의 정보와 시청자들의 니즈 …
+#          어떤 주제, 어떤 제목, 어떤 썸네일, 내용을 어떻게 구성해야하는지 … 올바른 분석 결과까지만 내도록 수정해"):
+#          ① 켤 때 코드도 GitHub 최신으로 받은 뒤 도구를 불러옴 (새 도구 tools/success_analysis.py 가 PC 에 오게 — 실행기 목록에 없던 파일)
+#          ② 못 받은 댓글 이어 받기 (job_comments — 승인 영상 W_ 중 comments_complete=False: 2026-10-14 88개 중 55개가 할당량이 끝나 0개였고
+#             예전엔 다시 받을 길이 없었음) — 켤 때 저절로, [못 받은 댓글 이어 받기] 단추
+#          ③ 분석 결과 칸 위에 성공 사례 분석 요약 (성공 사례 수·글 출처·한계·자료 없는 성공 후보 → [성공 후보 체크] 단추)
+#          ④ 수요와 공급 (사용자 지시: "수요 대비 영상 공급이 별로 없는지도 파악해야해 …"): [탐색] 때 검색어마다 YouTube 자동완성(사람들이 찾는 말)도
+#             받음 (할당량 0, 7일 캐시) · [공급 확인] = 수요는 있는데 영상이 적어 보이는 말 N개를 직접 검색(말 하나 100단위) → 다시 분석·올림
+# (v1.2.1 — 2026-10-14 — 공개 저장소에도 자료(사례 폴더)를 다 올림 (사용자 지시 "그냥 공개에서 다 올리도록 해" — 분석기 v2.9.3): 승인 결과 안내를
+#          분석기 로그의 full=True/False 로 읽음 (예전: private=True/False — 공개면 늘 'PC 에만'으로 보였을 것))
 # (v1.2 — 2026-10-14 — 결과 먼저 올리고 음성인식은 뒤에서 (사용자 지시: "아니 음성인식이랑 별개로 분석결과 낼 수 있잖아 자막도
 #          다운 시도했는데 안되면영상 설명으로 대체해서 그냥 분석결과랑 자료 다 올려 그 다음 음성인식하라고 수정해"):
 #          ① [승인] = 자료 받기(설명·자막 시도·썸네일·댓글 전부) → 주별 분석(자막을 못 받은 영상은 영상 설명으로 대신 —
@@ -70,7 +78,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import pc_analysis as pc                 # noqa: E402  할당량 장부·키 찾기·GitHub 동기화·패키지 준비
 
 ROOT = pc.ROOT
-VERSION = "v1.2.1"
+VERSION = "v1.3"
 LOG = logging.getLogger("web")
 KST = timezone(timedelta(hours=9))
 TOKEN = secrets.token_urlsafe(18)        # 화면이 요청마다 보내는 열쇠 (다른 사이트가 이 PC 의 화면을 조작하지 못하게)
@@ -492,6 +500,21 @@ def job_explore(t, weeks, use_keywords):
                 found.setdefault(vid, []).append(f"채널:{ch.get('title') or ch['id']}")
         for v in tg["videos"]:
             found.setdefault(v["id"], []).append("주소")
+        if kws:                                   # v1.3: 수요 — 사람들이 찾는 말 (YouTube 자동완성, 할당량 0, 7일 캐시)
+            ac_fail = ac_new = 0
+            for k, (g, q) in enumerate(kws, 1):
+                step(f"자동완성(사람들이 찾는 말) {k}/{len(kws)} — {q} (할당량 0)", n, total)
+                try:
+                    _, hit = orr.fetch_autocomplete(q, cache)
+                    if not hit:
+                        ac_new += 1
+                        time.sleep(0.2)
+                except Exception as e:
+                    ac_fail += 1
+                    if ac_fail == 3:
+                        log("AUTOCOMPLETE", logging.WARNING, note="자동완성 연결 실패가 이어짐 — 이번엔 그만 (분석은 자동완성 없이)", error=f"{type(e).__name__}"[:60])
+                        break
+            log("AUTOCOMPLETE", keywords=len(kws), new=ac_new, failed=ac_fail, note="수요 자료 (할당량 0)")
         step(f"영상 {len(found):,}개 정보·구독자 수", n + 1, total)
         state = orr.new_state()
         infos = orr.fetch_video_infos(api, cache, list(found), state)
@@ -614,7 +637,7 @@ def push_results(t, message):
 
 
 def job_analyze(t):
-    step("주별 분석 (자막 없으면 설명으로)")
+    step("주별 분석·성공 사례 분석 (자막 없으면 설명으로)")
     rep = wa.run(t)
     res = {"windows": len(rep["windows"]), "cases": rep["cases"], "text_sources": rep.get("text_sources")}
     if rep["cases"]:
@@ -623,11 +646,92 @@ def job_analyze(t):
     return res
 
 
+def job_comments(t, quiet=False):
+    """못 받은 댓글 이어 받기 (v1.3): 승인 영상(W_) 중 댓글을 다 받지 못한 것 — 받은 쪽 다음부터 (comments_state.json),
+    할당량이 끝나면 멈추고 다음에 이어서. quiet=True(켤 때)면 키·할당량이 없을 때 오류 대신 건너뜀."""
+    todo = []
+    for d in sorted(out_dir(t).glob("W_*")):
+        m = _read_json(d / "metadata.json", None)
+        if m and m.get("id") and not m.get("comments_complete") and not m.get("comments_disabled"):
+            todo.append((d, m))
+    if not todo:
+        return {"comments_todo": 0}
+    try:
+        api, ledger, _ = make_api(t)
+    except UserError as e:
+        if not quiet:
+            raise
+        log("COMMENTS", logging.WARNING, topic=t, todo=len(todo), note=f"못 받은 댓글 이어 받기 건너뜀 — {e}")
+        return {"comments_todo": len(todo), "comments_skipped": str(e)}
+    a = types.SimpleNamespace(refresh=False, no_transcript=False, offline=False, comments=0, replies=True)
+    state = orr.new_state()
+    done = got = 0
+    log("COMMENTS", topic=t, todo=len(todo), quota_left=api.quota, note="못 받은 댓글 이어 받기")
+    try:
+        for n, (d, m) in enumerate(todo, 1):
+            step(f"못 받은 댓글 이어 받기 {n}/{len(todo)} — {str(m.get('title') or '')[:40]}", n - 1, len(todo))
+            cms, cst = orr.comments_step(d, m, a, api, "web", {}, state, full=True)
+            n_rep = sum(1 for c in cms if c.get("parent"))
+            m.update(comments_fetched=len(cms), comments_top_level=len(cms) - n_rep, comments_replies=n_rep,
+                     comments_by_creator=sum(1 for c in cms if c.get("creator")), comments_complete=cst["complete"],
+                     comments_disabled=cst.get("disabled", False))
+            _write_json(d / "metadata.json", m)
+            done += bool(cst["complete"])
+            got += len(cms)
+            if state["quota_stop"]:
+                log("COMMENTS", logging.WARNING, topic=t, note="할당량이 끝나 멈춤 — 다음에 이어서", done=done, left=len(todo) - n)
+                break
+    finally:
+        ledger.add(api.used, "web_comments")
+    log("COMMENTS", topic=t, todo=len(todo), completed=done, comments=got, quota_used=api.used)
+    return {"comments_todo": len(todo), "comments_completed": done, "comments_quota_used": api.used,
+            "comments_quota_stop": state["quota_stop"]}
+
+
+def job_supply(t, n=None):
+    """[공급 확인] (v1.3): 분석의 '수요는 있는데 영상이 적어 보이는 말'(analysis.json gap_candidates) n개를 직접 검색 —
+    최근 90일·길이 상관없이 조회수 순 (말 하나 = 검색 1번 100단위 + 영상 정보) → 다시 분석·올림."""
+    a = _read_json(out_dir(t) / "analysis.json", {})
+    words = list(a.get("gap_candidates") or [])
+    days = int(((a.get("rules") or {}).get("demand") or {}).get("RECENT_DAYS") or 90)
+    if n:
+        words = words[:n]
+    if not words:
+        raise UserError("확인할 말이 없습니다 — 먼저 '검색어로도 찾기'로 탐색해 자동완성(수요)을 받고 다시 분석하세요")
+    api, ledger, _ = make_api(t)
+    cache = out_dir(t) / ".cache"
+    state = orr.new_state()
+    done = []
+    log("SUPPLY", topic=t, words=len(words), days=days, quota_left=api.quota, note="말 하나 = 검색 1번 100단위")
+    try:
+        for k, w in enumerate(words, 1):
+            step(f"공급 확인 {k}/{len(words)} — '{w}' 최근 {days}일 검색", k - 1, len(words))
+            try:
+                r = orr.search_supply(api, cache, w, days, state)
+            except orr.QuotaStop as e:
+                log("SUPPLY", logging.WARNING, note=f"할당량이 끝나 멈춤 — {e}", done=len(done))
+                break
+            done.append(w)
+            log("SUPPLY", word=w, total=r.get("total"), found=len(r.get("ids") or []), cached=r.get("cached"))
+    finally:
+        ledger.add(api.used, "web_supply")
+    res = {"supply_checked": len(done), "supply_quota_used": api.used}
+    res.update(job_analyze(t))
+    return res
+
+
+def job_comments_then_analyze(t):
+    res = job_comments(t)
+    res.update(job_analyze(t))
+    return res
+
+
 def job_startup(t, whisper=True):
-    """화면을 켤 때 (v1.2): 승인한 영상이 있으면 주별 분석을 다시 만들어 올리고, 자막 없는 영상이 남았으면 음성인식을 뒤에서."""
-    res = {}
+    """화면을 켤 때 (v1.2·v1.3): 못 받은 댓글 이어 받기 → 승인한 영상이 있으면 분석(주별·성공 사례)을 다시 만들어 올림
+    → 자막 없는 영상이 남았으면 음성인식을 뒤에서."""
+    res = job_comments(t, quiet=True)
     if any(out_dir(t).glob("W_*/metadata.json")):
-        res = job_analyze(t)
+        res.update(job_analyze(t))
     n = whisper_pending(t, fresh=True)
     res["whisper_pending"] = n
     if n and whisper:
@@ -832,6 +936,17 @@ class Handler(BaseHTTPRequestHandler):
                 return self._send(200, estimate(t, weeks, (q.get("kw") or ["1"])[0] == "1"))
             if u.path == "/api/report":
                 return self._send(200, _read_json(out_dir(t) / "weekly.json", {}))
+            if u.path == "/api/analysis":                      # v1.3: 성공 사례 분석 요약 (전문은 analysis.md)
+                a = _read_json(out_dir(t) / "analysis.json", {})
+                return self._send(200, {k: a.get(k) for k in ("generated", "sources", "limits", "missing_success_total", "tool", "gap_candidates")}
+                                  | {"success": len(a.get("success_cases") or []),
+                                     "missing_ids": [x["id"] for x in a.get("missing_success") or []],
+                                     "needs": [(c["name"], c["count"]) for c in (a.get("needs") or {}).get("categories") or []],
+                                     "market_themes": [(r["theme"], r["index"], r["videos"]) for r in (a.get("market") or {}).get("themes") or []
+                                                       if not r.get("small_sample")][:6],
+                                     "gaps": [(r["phrase"], r["pool_recent"], (r.get("verified") or {}).get("total"))
+                                              for r in ((a.get("market") or {}).get("autocomplete") or [])[:8]],
+                                     "fast_channels": len((a.get("growth") or {}).get("fast") or [])})
         except UserError as e:
             return self._send(400, {"error": str(e)})
         except Exception as e:
@@ -904,6 +1019,13 @@ class Handler(BaseHTTPRequestHandler):
             if path == "/api/analyze":
                 ok, msg = start_job("주별 분석", job_analyze, t)
                 return self._send(200 if ok else 409, {"ok": ok, "message": msg})
+            if path == "/api/supply":
+                n = max(1, min(30, int(body.get("n") or 10)))
+                ok, msg = start_job("공급 확인 — 수요는 있는데 영상이 적어 보이는 말", job_supply, t, n)
+                return self._send(200 if ok else 409, {"ok": ok, "message": msg})
+            if path == "/api/comments":
+                ok, msg = start_job("못 받은 댓글 이어 받기", job_comments_then_analyze, t)
+                return self._send(200 if ok else 409, {"ok": ok, "message": msg})
             if path == "/api/whisper":
                 ok, msg = start_whisper(t, "화면에서 [음성인식 시작]")
                 return self._send(200, {"ok": ok, "message": msg})
@@ -967,15 +1089,17 @@ def main(argv=None):
     STATE.update(topic=topics[0], topics=topics)
     if not a.skip_install and not pc.ensure_packages(False):
         raise SystemExit("[START] ❌ 패키지 설치 실패 — 위 오류 확인")
+    if not a.no_sync:                         # v1.3: 코드도 — 실행기 목록에 없는 새 도구(tools/success_analysis.py)가 PC 에 오게 (불러오기 전에)
+        for k, t in enumerate(topics):
+            try:
+                res = pc.sync_from_github(t, code=(k == 0))
+                got = [r for r, v in res.items() if v in ("새로 받음", "GitHub 새 판으로 바꿈")]
+                log("SYNC", topic=t, updated=",".join(got) or "-", note="GitHub 최신 설정·코드 (이 화면 자신은 다음 실행부터)")
+            except Exception as e:
+                log("SYNC", logging.WARNING, topic=t, note="GitHub 에서 설정·코드를 받지 못함 — PC 파일로", error=f"{type(e).__name__}"[:80])
     import outlier_research as _orr
     import weekly_analysis as _wa
     orr, wa = _orr, _wa
-    if not a.no_sync:
-        for t in topics:
-            try:
-                pc.sync_from_github(t, code=False)
-            except Exception as e:
-                log("SYNC", logging.WARNING, topic=t, note="GitHub 에서 설정을 받지 못함 — PC 파일로", error=f"{type(e).__name__}"[:80])
     srv, port = serve(a.port)
     STATE["port"] = port
     url = f"http://127.0.0.1:{port}/"
@@ -1069,7 +1193,7 @@ details{border:1px solid var(--line);border-radius:8px;padding:8px 12px;margin-t
  <div class="mut" style="margin-top:6px">순서: 자료(설명·자막·썸네일·댓글) 받기 → 주별 분석 (자막을 못 받은 영상은 영상 설명으로 대신) → GitHub 에 바로 올림 → 음성인식은 뒤에서 하나씩 (끝날 때마다 다시 분석해 올림)</div>
 </section>
 <section class="card"><h2>진행 <small id="jobName"></small></h2>
- <div class="row"><span id="jobStep" class="grow">쉬는 중</span><button id="cancel" disabled>멈춤</button><button id="reanalyze" title="주별 분석을 다시 만들어 GitHub 에 올림">다시 분석·올리기</button></div>
+ <div class="row"><span id="jobStep" class="grow">쉬는 중</span><button id="cancel" disabled>멈춤</button><button id="reanalyze" title="주별 분석·성공 사례 분석을 다시 만들어 GitHub 에 올림">다시 분석·올리기</button><button id="comments" title="할당량이 끝나 다 받지 못한 댓글을 이어 받고 다시 분석">못 받은 댓글 이어 받기</button></div>
  <div class="msg" id="jobRes"></div>
  <div class="bar" style="margin-top:8px"><i id="jobBar"></i></div><pre id="jobLog"></pre>
 </section>
@@ -1078,7 +1202,10 @@ details{border:1px solid var(--line);border-radius:8px;padding:8px 12px;margin-t
  <div class="bar" style="margin-top:8px"><i id="wBar"></i></div>
  <details><summary>음성인식 기록</summary><pre id="wLog"></pre></details>
 </section>
-<section class="card"><h2>6. 분석 결과 <small>최근 1주부터 한 주씩 넓힘 (누적) · weekly.md 로도 저장</small></h2><div id="report" class="mut">승인한 영상이 생기면 여기에 나옵니다</div></section>
+<section class="card"><h2>6. 분석 결과 <small>성공 사례 분석 analysis.md (지시사항 재료) · 주별 추세 weekly.md</small></h2>
+ <div id="analysis" class="mut" style="margin-bottom:12px"></div>
+ <h3 class="sub">주별 추세 <small class="mut">— 승인한 영상 전부 (최근 1주부터 한 주씩 넓힘, 누적)</small></h3>
+ <div id="report" class="mut">승인한 영상이 생기면 여기에 나옵니다</div></section>
 </main>
 <script>
 const T=document.querySelector('meta[name=t]').content;let ROWS=[],CHECK=new Set(),REC=new Set(),busy=false,lastJob=null,waitDone=false,lastWDone=null;
@@ -1123,22 +1250,39 @@ let chkT;function saveChk(){clearTimeout(chkT);chkT=setTimeout(()=>api('/api/che
 function showJob(j){busy=j.status==='running';$('jobName').textContent=j.name?`${j.name} — ${({running:'도는 중',done:'끝',error:'오류',cancelled:'멈춤',idle:''})[j.status]||j.status}`:'';
  $('jobStep').innerHTML=j.status==='error'?`<span class=bad>${esc(j.error)}</span>`:esc(j.step||'쉬는 중');
  $('jobBar').style.width=j.total?Math.round(100*j.done/j.total)+'%':(busy?'15%':'0');$('cancel').disabled=!busy;
- ['explore','reanalyze'].forEach(id=>$(id).disabled=busy);updChk();
+ ['explore','reanalyze','comments'].forEach(id=>$(id).disabled=busy);updChk();
  const r=j.result||{};$('jobRes').innerHTML=j.status==='done'&&(r.push_note||r.materials||r.whisper)?[r.push_note?`GitHub: ${esc(r.push_note)}`:'',
   r.description_fallback!=null?`자막 ${r.transcripts_ok}개 · 설명으로 대신 ${r.description_fallback}개${r.no_text?` · 글 없음 ${r.no_text}개`:''}`:'',
   r.materials?`<span class="${String(r.materials).startsWith('PC')?'warn':'ok'}">자료(사례 폴더): ${esc(r.materials)}</span>`:'',r.whisper?`음성인식: ${esc(r.whisper)}`:''].filter(Boolean).join('<br>'):'';
  const L=$('jobLog'),atEnd=L.scrollTop+L.clientHeight>=L.scrollHeight-20;L.textContent=(j.log||[]).join('\n');if(atEnd)L.scrollTop=L.scrollHeight;
  if(j.whisper)showWhisper(j.whisper);
- if((lastJob==='running'||waitDone)&&j.status!=='running'){waitDone=false;loadState();loadRows();loadReport()}lastJob=j.status}
+ if((lastJob==='running'||waitDone)&&j.status!=='running'){waitDone=false;loadState();loadRows().then(loadAnalysis);loadReport()}lastJob=j.status}
 function showWhisper(w){const run=w.status==='running'||w.status==='stopping';const left=w.pending==null?'':` · 남은 ${num(w.pending)}개`;
  $('wPill').textContent=run?`음성인식 ${w.done}/${w.total||'…'}${w.failed?` (실패 ${w.failed})`:''}`:`음성인식 쉬는 중${left}`;$('wPill').className='pill '+(run?'ok':'');
  $('wStep').innerHTML=run?`${w.status==='stopping'?'멈추는 중… ':''}${esc(w.current||'준비 중 (소리 받기·모델 불러오기)')} <span class=mut>끝 ${w.done} · 실패 ${w.failed} / 이번 대기열 ${w.total||'…'}${w.rerun?' · 끝나면 새로 승인한 영상도':''}</span>`
   :`${w.status==='stopped'?'멈춤':'쉬는 중'}${left}${w.finished?` <span class=mut>(마지막 ${esc(w.finished.slice(5,16).replace('T',' '))} — 끝 ${w.done} · 실패 ${w.failed})</span>`:''}${w.note?` <span class=mut>${esc(w.note)}</span>`:''}`;
  $('wBar').style.width=w.total?Math.round(100*(w.done+w.failed)/w.total)+'%':(run?'5%':'0');$('wStart').disabled=run;$('wStop').disabled=!run||w.status==='stopping';
  const L=$('wLog'),atEnd=L.scrollTop+L.clientHeight>=L.scrollHeight-20;L.textContent=(w.log||[]).join('\n');if(atEnd)L.scrollTop=L.scrollHeight;
- if(lastWDone!==null&&w.done!==lastWDone)loadReport();lastWDone=w.done}
+ if(lastWDone!==null&&w.done!==lastWDone){loadReport();loadAnalysis()}lastWDone=w.done}
 async function poll(){try{showJob(await api('/api/job'))}catch(e){}setTimeout(poll,busy?1000:3000)}
 function pct(x){return x==null?'–':Math.round(x*100)+'%'}
+let MISSING=[];
+async function loadAnalysis(){let a;try{a=await api('/api/analysis')}catch(e){return}
+ if(!a.generated){$('analysis').innerHTML='<span class=mut>성공 사례 분석은 승인한 영상이 생기면 만들어집니다 (analysis.md)</span>';return}
+ const s=a.sources||{},ts=Object.entries(s.success_text_sources||{}).map(([k,v])=>`${k} ${v}`).join(' · ')||'-';MISSING=a.missing_ids||[];
+ const inList=MISSING.filter(id=>ROWS.some(r=>r.id===id)).length;
+ $('analysis').innerHTML=`<div><b>성공 사례 ${a.success}개</b> <span class=mut>(${esc(a.generated.slice(0,16).replace('T',' '))} UTC · 기준 통과 ${s.success_passed} − 뺀 것 ${(s.success_excluded||[]).length} − 채널당 제한 ${(s.success_channel_cut||[]).length})</span>
+  · 글 출처 ${esc(ts)} · 댓글 ${num(s.success_comments_fetched)}/${num(s.success_comments_reported)} · 비교 집단 ${num(s.compare_group)}개 (성공 ${pct(s.compare_rate)})</div>
+  <div>시청자 니즈: ${(a.needs||[]).map(([n,c])=>esc(n.split(' (')[0])+' '+num(c)).join(' · ')}</div>
+  <div>수요/공급 지수 (1보다 크면 영상이 모자라 보임): ${(a.market_themes||[]).map(([t,i,v])=>esc(t)+' <b>'+num(i)+'</b>').join(' · ')||'<span class=mut>자료 없음</span>'}</div>
+  <div>찾는데 영상이 적어 보이는 말: ${(a.gaps||[]).map(([p,n,tot])=>esc(p)+` <span class=mut>(본 영상 ${n}${tot!=null?` · 결과 ${num(tot)}`:''})</span>`).join(', ')||'<span class=mut>자동완성 자료 없음 — 검색어로 탐색하면 받음</span>'}
+   ${(a.gap_candidates||[]).length?`<button id="supply">공급 확인 ${(a.gap_candidates||[]).length}개 (≈${(a.gap_candidates||[]).length*100+20}단위)</button>`:''}</div>
+  <div>빨리 크는 작은 채널: ${num(a.fast_channels)}곳 <span class=mut>(analysis.md 7번)</span></div>
+  ${a.missing_success_total?`<div class=warn style="margin-top:4px">자료를 받지 않은 성공 후보 ${a.missing_success_total}개 — 승인하면 분석에 들어갑니다 <button id="chkMissing" ${inList?'':'disabled'}>성공 후보 체크 (지금 목록에 ${inList}개)</button></div>`:''}
+  <details><summary>한계 ${(a.limits||[]).length}개</summary><ul>${(a.limits||[]).map(x=>`<li>${esc(x)}</li>`).join('')}</ul></details>
+  <div class=mut>전문(주제·제목·썸네일·구성·니즈·사례별): GitHub 의 economic/result/outliers/analysis.md</div>`;
+ const sb=$('supply');if(sb)sb.onclick=()=>{const n=(a.gap_candidates||[]).length;if(!confirm(`수요는 있는데 영상이 적어 보이는 말 ${n}개를 직접 검색합니다 (최근 90일).\n말 하나 = 검색 1번 100단위 → 약 ${n*100+20}단위`))return;startJob('/api/supply',{n})};
+ const b=$('chkMissing');if(b)b.onclick=()=>{MISSING.forEach(id=>{if(ROWS.some(r=>r.id===id))CHECK.add(id)});renderRows();saveChk();$('listCard').scrollIntoView({behavior:'smooth'})}}
 function srcTxt(w){const s=w.text_sources;return s?`${s['자막']||0}·${s['음성인식']||0}·${s['설명']||0}`:num(w.transcripts)}
 async function loadReport(){const r=await api('/api/report');if(!r.windows){$('report').innerHTML='<span class=mut>승인한 영상이 생기면 여기에 나옵니다</span>';return}
  const ts=r.text_sources||{};let h=`<div class=mut>${esc(r.generated.slice(0,16).replace('T',' '))} UTC · 승인 영상 ${r.cases}개 (글 출처: 자막 ${ts['자막']||0} · 음성인식 ${ts['음성인식']||0} · 설명으로 대신 ${ts['설명']||0} · 없음 ${ts['없음']||0}) · 승인 영상 표는 approved.md · ${esc(r.criteria)}${r.older_than_windows?` · ${r.max_weeks}주보다 오래된 영상 ${r.older_than_windows}개는 마지막 '전체' 창에`:''}</div>
@@ -1152,7 +1296,7 @@ async function loadReport(){const r=await api('/api/report');if(!r.windows){$('r
   ${w.comment_needs.length?`<p><b>댓글 ${num(w.comments)}개 니즈</b> ${w.comment_needs.map(n=>esc(n.name)+' '+pct(n.share)).join(' · ')}</p><ul>${w.top_comments.map(c=>`<li>👍${num(c.likes)} “${esc(c.text)}”</li>`).join('')}</ul>`:''}
   <p><b>상위 영상</b> (하루 조회수 순)</p><ol>${w.top_videos.map(v=>`<li><a href="${v.url}" target=_blank rel=noopener>${esc(v.title)}</a> <span class=mut>${esc(v.channel)} · ${num(v.views)}회 · 하루 ${num(v.views_per_day)} · ${v.published}</span></li>`).join('')}</ol></details>`).join('');
  $('report').innerHTML=h}
-$('topic').onchange=async()=>{await api('/api/topic',{topic:$('topic').value});await loadState();await loadRows();await loadReport()};
+$('topic').onchange=async()=>{await api('/api/topic',{topic:$('topic').value});await loadState();await loadRows();await loadReport();await loadAnalysis()};
 $('saveEnv').onclick=async()=>{try{const r=await api('/api/env',{YOUTUBE_API_KEY:$('ytkey').value,GITHUB_TOKEN:$('ghtok').value});$('ytkey').value='';$('ghtok').value='';
  say('envMsg',r.changed.length?`저장함: ${r.changed.join(', ')}`:'바뀐 것 없음 (넣은 칸만 저장)','ok');loadState()}catch(e){say('envMsg',e.message,'bad')}};
 $('saveKw').onclick=async()=>{try{const r=await api('/api/keywords',{text:$('kw').value,push:$('kwPush').checked});say('kwMsg',r.message,'ok');$('kwCount').textContent=`검색어 ${r.count}개`;estimate()}catch(e){say('kwMsg',e.message,'bad')}};
@@ -1168,13 +1312,13 @@ $('explore').onclick=()=>startJob('/api/explore',{weeks:+$('weeks').value,keywor
 $('approve').onclick=async()=>{const ids=ROWS.filter(r=>CHECK.has(r.id)).map(r=>r.id);if(!ids.length)return;
  if(!confirm(`체크한 영상 ${ids.length}개의 설명·자막·썸네일·댓글 전부를 받고 → 주별 분석 → GitHub 에 바로 올립니다.\n자막을 못 받은 영상은 영상 설명으로 대신 분석하고, 음성인식은 그다음 뒤에서 합니다.\n(댓글 100개에 할당량 1단위)`))return;
  startJob('/api/approve',{ids,whisper:$('autoW').checked})};
-$('cancel').onclick=()=>api('/api/cancel',{});$('reanalyze').onclick=()=>startJob('/api/analyze',{});
+$('cancel').onclick=()=>api('/api/cancel',{});$('reanalyze').onclick=()=>startJob('/api/analyze',{});$('comments').onclick=()=>startJob('/api/comments',{});
 $('wStart').onclick=async()=>{try{const r=await api('/api/whisper',{});if(!r.ok)alert(r.message);showJob(await api('/api/job'))}catch(e){alert(e.message)}};
 $('wStop').onclick=async()=>{if(!confirm('음성인식을 멈출까요? (끝난 영상의 대본은 남고, 하던 영상은 다음에 처음부터)'))return;await api('/api/whisper/stop',{});showJob(await api('/api/job'))};
 ['flt','fShort','fRel'].forEach(id=>$(id).addEventListener('input',renderRows));
 $('chkAll').onclick=()=>{visible().forEach(r=>CHECK.add(r.id));renderRows();saveChk()};$('chkNone').onclick=()=>{CHECK.clear();renderRows();saveChk()};
 $('chkRec').onclick=()=>{CHECK=new Set(REC);renderRows();saveChk()};
-loadState().then(()=>{loadRows();loadReport()}).catch(e=>document.body.insertAdjacentHTML('afterbegin',`<p class=bad style="padding:16px">${esc(e.message)}</p>`));poll();
+loadState().then(()=>{loadRows().then(loadAnalysis);loadReport()}).catch(e=>document.body.insertAdjacentHTML('afterbegin',`<p class=bad style="padding:16px">${esc(e.message)}</p>`));poll();
 </script></body></html>
 """
 

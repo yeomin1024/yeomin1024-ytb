@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.8 — 2026-10-14 — 웹 화면(tools/web_ui.py·tools/weekly_analysis.py)도 회차마다 GitHub 최신으로 받는 코드 목록에 (SYNC_CODE).
+# VERSION: v1.9 — 2026-10-14 — 성공 사례 분석 도구(tools/success_analysis.py)·규칙(<주제>/analysis_rules.toml)도 GitHub 최신으로 받는 목록에
+#          (SYNC_CODE·SYNC_CONFIG — 사용자 지시: "… 올바른 분석 결과까지만 내도록 수정해")
+# (v1.8 — 2026-10-14 — 웹 화면(tools/web_ui.py·tools/weekly_analysis.py)도 회차마다 GitHub 최신으로 받는 코드 목록에 (SYNC_CODE).
 #          자동 실행은 이제 run_analyzer.ps1 -Auto (기본은 웹 화면). 자막 서버 차단(IpBlocked)은 '네트워크 때문에 못 받은 자막'으로
-#          세지 않음 — tools/outlier_research.py v1.9 가 음성인식으로 보냄 (예전: 그 때문에 끝나지 않고 매일 같은 자막을 다시 요청)
+#          세지 않음 — tools/outlier_research.py v1.9 가 음성인식으로 보냄 (예전: 그 때문에 끝나지 않고 매일 같은 자막을 다시 요청))
 # (v1.7 — 2026-10-13 — 내가 고친 검색어가 바로 쓰이게 (사용자 지시: "내가 검색어 변경했는데 안되네 해결해봐" · "걍 검색어 내가
 #          수정해도 돌아가게 하면 안돼? 꼭 그룹을 지정해야하나 검색어만 넣어도 되잖아"):
 #          ① 회차마다 GitHub 에서 설정·검색어를 받음 (sync_from_github): <주제>/keywords.txt·keywords.toml·analyzer_config.toml·
@@ -92,7 +94,7 @@ from datetime import date, datetime, time as dtime, timedelta, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v1.8"
+VERSION = "v1.9"
 LOG = logging.getLogger("pc_analysis")
 KST = timezone(timedelta(hours=9))
 LOCK_STALE_MIN = 30          # 잠금 파일이 이 시간 넘게 갱신되지 않으면 이전 실행이 죽은 것으로 봄
@@ -516,9 +518,10 @@ def analyzer_summary(run_info_p, started_utc):
 
 
 # ---------------------------------------------------------------- GitHub 에서 고친 설정·검색어를 PC 로 (v1.7)
-SYNC_CONFIG = ("keywords.txt", "keywords.toml", "analyzer_config.toml", "tag_rules.toml")   # <주제>/ 아래 — PC 에서 고친 것은 지킴
+SYNC_CONFIG = ("keywords.txt", "keywords.toml", "analyzer_config.toml", "tag_rules.toml", "analysis_rules.toml")   # <주제>/ 아래 — PC 에서 고친 것은 지킴
 SYNC_CODE = ("youtube_topic_analyzer.py", "tools/outlier_research.py", "tools/outlier_stats.py", "tools/tag_keywords.py",
-             "tools/pc_analysis.py", "tools/web_ui.py", "tools/weekly_analysis.py", "run_analyzer.ps1", "run_analyzer.sh")   # 언제나 GitHub 최신
+             "tools/pc_analysis.py", "tools/web_ui.py", "tools/weekly_analysis.py", "tools/success_analysis.py",
+             "run_analyzer.ps1", "run_analyzer.sh")   # 언제나 GitHub 최신
 
 
 def repo_of(folder):

@@ -1,10 +1,12 @@
 ﻿<#
 ================================================================================================
  YouTube 분석 PC 실행기 (Windows PowerShell)
- VERSION: v3.0 — 2026-10-14 — 실행하면 웹 화면이 뜸 (사용자 지시: "이거 분석기 웹 ui 형식으로 만들어 실행하면 바로 웹 ui가 나와서 env,
+ VERSION: v3.1 — 2026-10-14 — 코드 목록에 tools/success_analysis.py(성공 사례 분석 analysis.md), 설정 목록에 <주제>/analysis_rules.toml
+          (사용자 지시: "… 올바른 분석 결과까지만 내도록 수정해"). 웹 화면 v1.3 도 켤 때 코드를 받으므로 예전 실행기로도 새 도구가 옴
+ (v3.0 — 2026-10-14 — 실행하면 웹 화면이 뜸 (사용자 지시: "이거 분석기 웹 ui 형식으로 만들어 실행하면 바로 웹 ui가 나와서 env,
           검색어 수정할 수 있게하고 탐색 버튼 누르면 … 승인 버튼을 눌러야 관련 자료를 받아서 분석"): 기본 = tools/web_ui.py (브라우저에
           http://127.0.0.1:8765/). 예전 자동 실행(할당량이 끝나면 다음 날 이어서)은 -Auto, -Once·작업 스케줄러도 자동 실행.
-          코드 목록에 tools/web_ui.py·tools/weekly_analysis.py 추가
+          코드 목록에 tools/web_ui.py·tools/weekly_analysis.py 추가)
  (v2.5 — 2026-10-13 — 검색어 목록 <주제>/keywords.txt (한 줄에 하나, 그룹 없음)도 받음 (사용자 지시: "걍 검색어 내가 수정해도
           돌아가게 하면 안돼?"). GitHub 에서 고친 설정·검색어는 tools/pc_analysis.py v1.7 이 회차마다 받아 씀 (VERSION 안 올려도 됨))
  (v2.4 — 2026-10-13 — pip 이 없는 가상환경 고침 (사용자 PC 오류: ".venv\Scripts\python.exe: No module named pip"):
@@ -77,8 +79,8 @@ $Base = if ($env:RAW_BASE) { $env:RAW_BASE } else { "https://raw.githubuserconte
 $Folder = @($Folder | ForEach-Object { $_ -split "," } | ForEach-Object { $_.Trim() } | Where-Object { $_ })   # -File 로 부르면 "a,b" 한 글자열
 if (-not $Folder) { $Folder = @("economic") }
 $CodeFiles = @("youtube_topic_analyzer.py", "tools/pc_analysis.py", "tools/outlier_research.py", "tools/outlier_stats.py", "tools/tag_keywords.py",
-               "tools/web_ui.py", "tools/weekly_analysis.py")
-$ConfigFiles = @($Folder | ForEach-Object { "$_/analyzer_config.toml"; "$_/keywords.toml"; "$_/keywords.txt"; "$_/tag_rules.toml" })
+               "tools/web_ui.py", "tools/weekly_analysis.py", "tools/success_analysis.py")
+$ConfigFiles = @($Folder | ForEach-Object { "$_/analyzer_config.toml"; "$_/keywords.toml"; "$_/keywords.txt"; "$_/tag_rules.toml"; "$_/analysis_rules.toml" })
 $TaskName = "YouTubeAnalysis_" + ($Folder -join "_")
 
 function Write-Step([string]$msg) { Write-Host "[RUNNER] [$(Get-Date -Format s)] $msg" }

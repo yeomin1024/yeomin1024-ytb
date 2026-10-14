@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.1 — 2026-10-13 — 검색어는 그룹 없이 한 줄에 하나 (사용자 지시: "꼭 그룹을 지정해야하나 검색어만 넣어도 되잖아"):
+# VERSION: v1.2 — 2026-10-14 — 캐시에서 영상 정보 파일(<영상ID>.json)만 읽음 — 웹 화면의 채널 업로드 목록(uploads_*.json)·자동완성
+#          (autocomplete.json)·공급 확인(supply_*.json) 캐시를 영상으로 잘못 읽던 것 (outlier_research v2.1 과 함께)
+# (v1.1 — 2026-10-13 — 검색어는 그룹 없이 한 줄에 하나 (사용자 지시: "꼭 그룹을 지정해야하나 검색어만 넣어도 되잖아"):
 #          --write-keywords 가 keywords.toml 의 [KEYWORD_GROUPS] 대신 <주제>/keywords.txt (한 줄에 하나, 묶음 이름은 '#' 메모 줄)를 씀.
-#          있던 keywords.txt 는 .bak 으로 남김
+#          있던 keywords.txt 는 .bak 으로 남김)
 # (v1.0 — 2026-10-13 — 신규 (사용자 지시: "그냥 검색어를 재테크 관련 태그로 찾아서 다 그걸로 탐색해봐"):
 #          검색어를 사람이 정하지 않고, 실제 영상들이 쓰는 태그에서 고른다.
 #          ① <주제>/tag_rules.toml 의 TAG_SEEDS 로 검색 (tools/outlier_research.py 와 같은 캐시 — 최근 365일·조회수 순·4~20분·20분 넘음)
@@ -34,7 +36,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import outlier_research as orr          # noqa: E402  같은 캐시·같은 관련어 규칙을 씀
 
 ROOT = orr.ROOT
-VERSION = "v1.1"
+VERSION = "v1.2"
 LOG = logging.getLogger("tag_keywords")
 
 
@@ -58,12 +60,14 @@ def cached_infos(out):
     """성공 사례 캐시(out/.cache)에 있는 영상 정보 전부 (검색·채널 캐시 파일은 빼고)."""
     infos = []
     for f in sorted((out / ".cache").glob("*.json")):
-        if f.name.startswith("search_") or f.name == "channels.json":
+        if f.name.startswith(("search_", "supply_", "uploads_", "channels.json", "autocomplete.json")):   # v1.2: 영상 정보만
             continue
         try:
-            infos.append(json.loads(f.read_text("utf-8")))
+            i = json.loads(f.read_text("utf-8"))
         except ValueError:
             continue
+        if isinstance(i, dict) and i.get("id"):
+            infos.append(i)
     return infos
 
 

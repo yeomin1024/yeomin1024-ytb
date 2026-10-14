@@ -21,6 +21,8 @@
 | `result/` | (분석 뒤) 분석기 결과 — PC 실행이 GitHub에 올림. 직접 고치지 않음 |
 | `result/outliers/` | (분석 뒤) 작은 채널 성공 사례 20개 + **구독자 수 상관없이 조회수 상위 20개**: `summary.md`(사례마다 첫 1분 발췌·90초마다 흐름·인기 댓글) · `outliers.csv` · `popular.csv` · `candidates.csv` · `status.json`(남은 일) + 사례 폴더 `01_…`·`P01_…` (설명·자막·**댓글 전부**·썸네일 — 공개 저장소에도 GitHub 에, 2026-10-14) |
 | `targets.json` | (PC 웹 화면) 직접 추가한 영상·채널 — 채널은 올라온 영상 전부를 탐색 |
+| `result/outliers/analysis.md` | **분석 결과 (지시사항 재료)** — 성공 사례·주제·수요와 공급·제목·썸네일(`analysis_thumbs.jpg`)·구성·구독자(빨리 크는 채널)·시청자 니즈·사례별, 비교 목록 `compare.csv` (`tools/success_analysis.py`) |
+| `analysis_rules.toml` | 분석 기준 — 성공 사례·비교 집단·수요(최근 90일)·채널 성장·뺄 주제(부동산·코인)·광고 의심 |
 | `result/outliers/W_<영상ID>/` | (웹 화면) **승인한 영상**의 설명·자막·썸네일·댓글 전부 (GitHub 에도 — 공개 저장소에도, 2026-10-14) · 승인한 영상 표는 `result/outliers/approved.md` |
 | `result/outliers/weekly.md` | (웹 화면) **주별 분석** — 최근 1주·2주·3주… 한 주씩 넓힌 창 (`weekly.json`·`weekly.csv`) |
 | `result/outliers/downloads.md` | **받은 자료 표** (GitHub 에서 바로 보임): 탐색한 검색어(태그)별 결과, 자료로 받은 영상마다 **업로드 날짜**·자막(자막/음성인식/대기)·댓글(받은 수/영상 표시)·썸네일·설명·태그·챕터, 분석기 성공사례 |

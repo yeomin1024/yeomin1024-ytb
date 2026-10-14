@@ -1,7 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v2.0.2 — 2026-10-14 — 안내 글만: 사례 폴더는 저장소가 공개여도 GitHub 에 올라감 (사용자 지시 "그냥 공개에서 다 올리도록 해" — 분석기 v2.9.3
-#          UPLOAD_CASES_TO_PUBLIC_REPO). 받기·고르기·숫자는 그대로
+# VERSION: v2.1 — 2026-10-14 — 수요·공급과 채널 성장을 셀 자료도 모음 (사용자 지시: "수요 대비 영상 공급이 별로 없는지도 파악해야해
+#          이외에도 내가 말한 목표를 달성하기 위한 모든 분석 방법을 찾아서 반영해" — 목표: 조회수가 높고 구독자가 많이 모이는 영상):
+#          ① 검색 캐시에 YouTube 가 알려 준 결과 수(pageInfo.totalResults — 그 기간에 올라온 영상 수 추정 = 공급)도 저장 (할당량 같음)
+#          ② 채널 구독자 수를 받을 때 개설일·영상 수·총 조회수도 (channels.list part=snippet,statistics — 같은 1단위) +
+#             받을 때마다 구독자 수 기록(history — 채널 성장 속도) — 예전 캐시는 한 번 다시 받음 (50채널 1단위)
+#          ③ fetch_autocomplete: YouTube 검색어 자동완성(할당량 0, 7일 캐시 .cache/autocomplete.json) = 사람들이 찾는 말(수요)
+#          ④ search_supply: 자동완성 말 하나의 최근 90일 공급 확인 (검색 1번 100단위 + 영상 정보) — 웹 화면 [공급 확인]이 부름
+# (v2.0.2 — 2026-10-14 — 안내 글만: 사례 폴더는 저장소가 공개여도 GitHub 에 올라감 (사용자 지시 "그냥 공개에서 다 올리도록 해" — 분석기 v2.9.3
+#          UPLOAD_CASES_TO_PUBLIC_REPO). 받기·고르기·숫자는 그대로)
 # (v2.0.1 — 2026-10-14 — --offline 다시 만들기가 결과를 지우던 것 고침 (사용자 질문 "분석 결과 다 올라온거야?" — GitHub 에
 #          '후보 0개' 요약이 올라가 있었음): 음성인식이 하나 끝날 때마다 부르는 --offline 이 검색 캐시를 못 찾으면(결과 폴더를 지웠거나
 #          7일 지남) 후보 0개로 summary.md·downloads.md·status.json·csv 를 덮어쓰고 사례 폴더(01_·P01_)까지 _old/ 로 옮길 수 있었음 →
@@ -129,7 +136,7 @@ except ModuleNotFoundError:             # Python 3.10 → tomli (분석기가 �
     import tomli as tomllib
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v2.0.2"
+VERSION = "v2.1"
 LOG = logging.getLogger("outlier")
 HANGUL = re.compile(r"[가-힣]")
 SEARCH_TTL_HOURS = 168
@@ -236,6 +243,8 @@ class Api:
 
     def __init__(self, key, quota):
         self.key, self.quota, self.used, self.stopped = key, quota, 0, None
+        self.last_total = None        # 마지막 검색의 pageInfo.totalResults (v2.1 — 공급 추정)
+        self.channel_meta = {}        # 채널ID → 개설일·영상 수·총 조회수·이름 (v2.1 — 채널 성장)
 
     def get(self, kind, **params):
         if self.stopped in ("daily", "offline"):
@@ -265,9 +274,13 @@ class Api:
                     raise RuntimeError(f"{kind}: {e}")
             time.sleep(2 ** attempt)
 
-    def search(self, q, published_after, duration):
-        d = self.get("search", part="snippet", q=q, type="video", order="viewCount", publishedAfter=published_after,
-                     videoDuration=duration, regionCode="KR", relevanceLanguage="ko", maxResults=50)
+    def search(self, q, published_after, duration=None):
+        p = dict(part="snippet", q=q, type="video", order="viewCount", publishedAfter=published_after, regionCode="KR",
+                 relevanceLanguage="ko", maxResults=50)
+        if duration:                                     # None = 길이 상관없이 (search_supply)
+            p["videoDuration"] = duration
+        d = self.get("search", **p)
+        self.last_total = (d.get("pageInfo") or {}).get("totalResults")
         return [it["id"]["videoId"] for it in d.get("items", []) if it.get("id", {}).get("videoId")]
 
     def videos(self, ids):
@@ -275,9 +288,11 @@ class Api:
 
     def channels(self, ids):
         out = {}
-        for it in self.get("channels", part="statistics", id=",".join(ids)).get("items", []):
-            st = it.get("statistics", {})
+        for it in self.get("channels", part="snippet,statistics", id=",".join(ids)).get("items", []):   # 같은 1단위 (v2.1: 개설일·영상 수도)
+            st, sn = it.get("statistics", {}), it.get("snippet", {})
             out[it["id"]] = None if st.get("hiddenSubscriberCount") else int(st.get("subscriberCount", 0))
+            self.channel_meta[it["id"]] = {"title": sn.get("title"), "created": sn.get("publishedAt"),
+                                           "videos": int(st.get("videoCount", 0) or 0), "views": int(st.get("viewCount", 0) or 0)}
         return out
 
 
@@ -597,7 +612,7 @@ def cached_search(api, cache_dir, q, since, dur, fallback_days, ttl_h, refresh):
             pass
     ids = api.search(q, since, dur)
     f.write_text(json.dumps({"q": q, "dur": dur, "fallback_days": fallback_days, "fetched": datetime.now(timezone.utc).isoformat(),
-                             "ids": ids}, ensure_ascii=False), "utf-8")
+                             "since": since, "total": getattr(api, "last_total", None), "ids": ids}, ensure_ascii=False), "utf-8")
     return ids, False
 
 
@@ -657,10 +672,10 @@ def fetch_channel_subs(api, cache_dir, channel_ids, state, refresh=False):
     subs_cache = {k: v for k, v in subs_cache.items() if isinstance(v, dict)}       # v1.1 이전 형식(숫자만)은 다시 받음
     now = datetime.now(timezone.utc)
 
-    def ch_fresh(cid):
+    def ch_fresh(cid):                          # v2.1: 개설일(created)이 없는 예전 캐시는 한 번 다시 받음
         v = subs_cache.get(cid)
         try:
-            return bool(v) and (now - datetime.fromisoformat(v["fetched"])).total_seconds() / 3600 <= CHANNEL_TTL_HOURS
+            return bool(v) and "created" in v and (now - datetime.fromisoformat(v["fetched"])).total_seconds() / 3600 <= CHANNEL_TTL_HOURS
         except (ValueError, KeyError, TypeError):
             return False
     ch_need = sorted(c for c in channel_ids if c and not ch_fresh(c))
@@ -674,7 +689,12 @@ def fetch_channel_subs(api, cache_dir, channel_ids, state, refresh=False):
                 pending=state["pending_channels"])
             break
         stamp = datetime.now(timezone.utc).isoformat()
-        subs_cache.update({cid: {"subs": n, "fetched": stamp} for cid, n in got.items()})
+        for cid, n in got.items():                 # v2.1: 개설일·영상 수 + 받을 때마다 구독자 수 기록 (날짜별, 최근 60번)
+            hist = dict((subs_cache.get(cid) or {}).get("history") or {})
+            if n is not None:
+                hist[stamp[:10]] = n
+            subs_cache[cid] = {"subs": n, "fetched": stamp, **(getattr(api, "channel_meta", {}).get(cid) or {}),
+                               "history": dict(sorted(hist.items())[-60:])}
     subs_cache_p.write_text(json.dumps(subs_cache, ensure_ascii=False), "utf-8")
     return subs_cache
 
@@ -701,6 +721,84 @@ def parse_target(text):
     if re.fullmatch(r"[0-9A-Za-z_-]{11}", t):
         return "video", t
     return None, "영상 주소(watch?v=…, youtu.be/…)나 채널 주소(/channel/UC…, /@이름)가 아님"
+
+
+AUTOCOMPLETE_URL = "https://suggestqueries.google.com/complete/search"
+AUTOCOMPLETE_TTL_HOURS = 168
+SUPPLY_TTL_HOURS = 168
+
+
+def parse_autocomplete(text):
+    """자동완성 응답 (client=firefox 순수 JSON, client=youtube JSONP) → [제안] (분석기 parse_autocomplete 와 같음)."""
+    try:
+        data = json.loads(text)
+    except ValueError:
+        m = re.search(r"\((\[.*\])\)\s*;?\s*$", text, re.S)
+        if not m:
+            return []
+        data = json.loads(m.group(1))
+    if not isinstance(data, list) or len(data) < 2 or not isinstance(data[1], list):
+        return []
+    out = [(x[0] if isinstance(x, list) and x else x) for x in data[1]]
+    return [x.strip() for x in out if isinstance(x, str) and x.strip()]
+
+
+def fetch_autocomplete(q, cache_dir, refresh=False, fetch=None):
+    """YouTube 검색어 자동완성 (할당량 0) — 사람들이 이 말로 무엇을 찾는지 (수요). 캐시 .cache/autocomplete.json 7일.
+    → (제안 목록 — 앞일수록 많이 찾음, 캐시 여부). fetch(url)→text 는 시험용."""
+    p = Path(cache_dir) / "autocomplete.json"
+    try:
+        d = json.loads(p.read_text("utf-8")) if p.is_file() else {}
+    except (OSError, ValueError):
+        d = {}
+    hit = d.get(q)
+    if hit and not refresh:
+        try:
+            if (datetime.now(timezone.utc) - datetime.fromisoformat(hit["fetched"])).total_seconds() / 3600 <= AUTOCOMPLETE_TTL_HOURS:
+                return hit["s"], True
+        except (KeyError, ValueError):
+            pass
+    url = AUTOCOMPLETE_URL + "?" + urllib.parse.urlencode({"client": "firefox", "ds": "yt", "hl": "ko", "gl": "kr", "q": q})
+    if fetch:
+        text = fetch(url)
+    else:
+        with urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"}), timeout=10) as r:
+            raw = r.read()
+        try:
+            text = raw.decode("utf-8")
+        except UnicodeDecodeError:
+            text = raw.decode("cp949", errors="replace")
+    sugg = parse_autocomplete(text)
+    d[q] = {"s": sugg, "fetched": datetime.now(timezone.utc).isoformat()}
+    tmp = p.with_name(p.name + f".{os.getpid()}.tmp")
+    tmp.write_text(json.dumps(d, ensure_ascii=False), "utf-8")
+    os.replace(tmp, p)
+    return sugg, False
+
+
+def supply_cache_file(cache_dir, phrase, days):
+    return Path(cache_dir) / f"supply_{hashlib.sha1(f'{phrase}|{days}'.encode('utf-8')).hexdigest()[:16]}.json"
+
+
+def search_supply(api, cache_dir, phrase, days, state, refresh=False):
+    """말 하나의 공급 확인 (v2.1): 최근 days 일·길이 상관없이 조회수 순 검색 1번(100단위) → 결과 수(totalResults 추정)·상위 50개 영상
+    정보·채널 구독자. 캐시 .cache/supply_<해시>.json 7일. → {"phrase","days","total","ids","fetched","cached"}"""
+    f = supply_cache_file(cache_dir, phrase, days)
+    if f.is_file() and not refresh:
+        try:
+            d = json.loads(f.read_text("utf-8"))
+            if (datetime.now(timezone.utc) - datetime.fromisoformat(d["fetched"])).total_seconds() / 3600 <= SUPPLY_TTL_HOURS:
+                return {**d, "cached": True}
+        except (ValueError, KeyError):
+            pass
+    since = (datetime.now(timezone.utc) - timedelta(days=days)).strftime("%Y-%m-%dT00:00:00Z")
+    ids = api.search(phrase, since, None)
+    d = {"phrase": phrase, "days": days, "since": since, "total": api.last_total, "ids": ids,
+         "fetched": datetime.now(timezone.utc).isoformat()}
+    f.write_text(json.dumps(d, ensure_ascii=False), "utf-8")
+    infos = fetch_video_infos(api, Path(cache_dir), ids, state)
+    fetch_channel_subs(api, Path(cache_dir), {i["channel_id"] for i in infos}, state)
+    return {**d, "cached": False}
 
 
 def resolve_channel(api, kind, value):

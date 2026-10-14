@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 # ================================================================================================
 #  YouTube 분석 PC 실행기 (macOS / Linux)
-#  VERSION: v3.0 — 2026-10-14 — 실행하면 웹 화면이 뜸 (사용자 지시: "이거 분석기 웹 ui 형식으로 만들어 실행하면 바로 웹 ui가 나와서"):
+#  VERSION: v3.1 — 2026-10-14 — 코드 목록에 tools/success_analysis.py, 설정 목록에 <주제>/analysis_rules.toml (사용자 지시: "… 올바른 분석 결과까지만 내도록 수정해")
+#  (v3.0 — 2026-10-14 — 실행하면 웹 화면이 뜸 (사용자 지시: "이거 분석기 웹 ui 형식으로 만들어 실행하면 바로 웹 ui가 나와서"):
 #           기본 = tools/web_ui.py (http://127.0.0.1:8765/). 예전 자동 실행은 --auto (--once·cron 도 자동 실행).
-#           코드 목록에 tools/web_ui.py·tools/weekly_analysis.py 추가
+#           코드 목록에 tools/web_ui.py·tools/weekly_analysis.py 추가)
 #  (v2.5 — 2026-10-13 — 검색어 목록 <주제>/keywords.txt (한 줄에 하나, 그룹 없음)도 받음 (사용자 지시: "걍 검색어 내가 수정해도
 #           돌아가게 하면 안돼?"). GitHub 에서 고친 설정·검색어는 tools/pc_analysis.py v1.7 이 회차마다 받아 씀 (VERSION 안 올려도 됨))
 #  (v2.4 — 2026-10-13 — pip 이 없는 가상환경 고침 (사용자 PC 오류: ".venv\Scripts\python.exe: No module named pip"):
@@ -65,10 +66,10 @@ done
 cd "$(dirname "$0")" || exit 1
 BASE="${RAW_BASE:-https://raw.githubusercontent.com/$REPO/$BRANCH}"
 CODE_FILES=(youtube_topic_analyzer.py tools/pc_analysis.py tools/outlier_research.py tools/outlier_stats.py tools/tag_keywords.py
-            tools/web_ui.py tools/weekly_analysis.py)
+            tools/web_ui.py tools/weekly_analysis.py tools/success_analysis.py)
 [ ${#FOLDERS[@]} -eq 0 ] && FOLDERS=(economic)
 CONFIG_FILES=()
-for f in "${FOLDERS[@]}"; do CONFIG_FILES+=("$f/analyzer_config.toml" "$f/keywords.toml" "$f/keywords.txt" "$f/tag_rules.toml"); done
+for f in "${FOLDERS[@]}"; do CONFIG_FILES+=("$f/analyzer_config.toml" "$f/keywords.toml" "$f/keywords.txt" "$f/tag_rules.toml" "$f/analysis_rules.toml"); done
 FOLDER_CSV="$(IFS=,; echo "${FOLDERS[*]}")"
 step() { echo "[RUNNER] [$(date '+%Y-%m-%dT%H:%M:%S')] $*"; }
 

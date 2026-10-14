@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.2.1 — 2026-10-14 — 안내 글만: approved.md 의 '사례 폴더는 비공개일 때만' → 공개 저장소에도 올라감 (사용자 지시 "그냥 공개에서 다 올리도록 해")
+# VERSION: v1.3 — 2026-10-14 — 끝날 때 성공 사례 분석(tools/success_analysis.py → analysis.md — AI 가 지시사항을 만들 재료)도 다시 만듦
+#          (사용자 지시: "… 어떤 주제, 어떤 제목, 어떤 썸네일, 내용을 어떻게 구성해야하는지 … 올바른 분석 결과까지만 내도록 수정해").
+#          weekly.md 머리에 '이 표는 승인 영상 전부의 추세 — 성공 사례 분석은 analysis.md' 안내 (한 채널 쏠림 보정은 analysis.md 에만)
+# (v1.2.1 — 2026-10-14 — 안내 글만: approved.md 의 '사례 폴더는 비공개일 때만' → 공개 저장소에도 올라감 (사용자 지시 "그냥 공개에서 다 올리도록 해"))
 # (v1.2 — 2026-10-14 — 자막을 못 받은 영상은 영상 설명으로 대신 분석 (사용자 지시: "음성인식이랑 별개로 분석결과 낼 수 있잖아
 #          자막도 다운 시도했는데 안되면 영상 설명으로 대체해서 그냥 분석결과랑 자료 다 올려 그 다음 음성인식하라고 수정해"):
 #          ① 영상마다 '글 출처' = 자막 → 음성인식 → 설명(description.txt — 링크·#태그·시각·구독/문의/투자 권유 문구 줄은 뺌) → 없음
@@ -44,7 +47,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from outlier_stats import COMMENT_CATS, TITLE_FEATURES       # noqa: E402  같은 규칙 (제목 특징·댓글 갈래)
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v1.2.1"
+VERSION = "v1.3"
 LOG = logging.getLogger("weekly")
 WEB_CASE_RX = re.compile(r"^W_([0-9A-Za-z_-]{11})$")
 MAX_SUBS, MIN_RATIO, MIN_VIEWS = 50000, 3.0, 10000
@@ -337,6 +340,8 @@ def write_report(out_dir, rep, cases=None):
     L = [f"# {rep['name']} — 주별 분석 (최근 1주부터 한 주씩 넓힘)", "",
          f"자동 생성 — `tools/weekly_analysis.py` {VERSION} ({rep['generated'][:16].replace('T', ' ')} UTC). 웹 화면에서 승인해 자료를 받은 영상 "
          f"{rep['cases']}개 (`W_<영상ID>` 폴더). {rep['criteria']}. ※ 연구·교육용 — 투자 권유가 아님.", "",
+         "> 이 표는 승인한 영상 **전부**의 주별 추세다 (한 채널을 통째로 추가하면 그 채널 쪽으로 쏠림). 성공 사례만 골라 주제·제목·썸네일·구성·"
+         "시청자 니즈를 비교한 분석은 **`analysis.md`** (지시사항 재료).", "",
          "## 한눈에 (누적: 최근 k주 안에 올라온 영상)", "",
          "| 창 | 영상 | 채널 | 이번 주 새로 | 조회수 중앙값 | 하루 조회수 중앙값 | 배수 중앙값 | 성공 사례 | 길이(분) | 제목 글자 | 글 출처 자막·음성·설명 | 댓글 |",
          "|---|---|---|---|---|---|---|---|---|---|---|---|"]
@@ -399,6 +404,11 @@ def run(topic, max_weeks=52, now=None, root=None):
     log("START", topic=topic, cases=len(cases), max_weeks=max_weeks, tool=f"weekly_analysis.py {VERSION}")
     rep = build_report(topic, name, cases, now, max_weeks)
     write_report(out, rep, cases)
+    try:                                       # v1.3: 성공 사례 분석 (analysis.md) — 실패해도 주별 분석은 저장됨
+        import success_analysis
+        success_analysis.run(topic, now=now, root=root)
+    except Exception as e:
+        log("WEEKLY", logging.WARNING, note="성공 사례 분석(analysis.md) 실패 — 주별 분석은 저장됨", error=f"{type(e).__name__}: {e}"[:300])
     log("DONE", topic=topic, windows=len(rep["windows"]), success=rep["windows"][-1]["success"] if rep["windows"] else 0,
         text_sources=",".join(f"{k}:{v}" for k, v in rep["text_sources"].items()))
     return rep

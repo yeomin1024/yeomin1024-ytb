@@ -1,6 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.2 — 2026-10-14 — 실제 결과(승인 280·성공 사례 165)를 다시 읽고 고침 (사용자 지시: "결과 올라갔는데 문제가 부분 수정하고
+# VERSION: v1.3 — 2026-10-14 — PC 결과(v1.2, 같은 채널 기준선 155/162)를 점검해 고침 (사용자 지시 "지금 됐어? 확인해봐"):
+#          ① 비교 집단에서 올린 지 7일 안 된 영상 뺌 ([compare] MIN_AGE_DAYS — 채널 평소 영상을 받은 뒤 700개 중 180개가 조회수가 덜 쌓인
+#             새 영상이라 '성공 아님'으로 셈) · 한계 글에 비교 집단 구성(검색·채널 평소 영상 몇 개) 적음
+#          ② '자료를 받지 않은 성공 후보'는 채널당 자리가 남은 것만 (375개 중 305개가 이미 성공 사례 2개인 채널의 영상 — 승인해도 성공 사례가 안 됨)
+#          ③ 같은 채널 잘된/평소 영상 비교·짝에서 뺀 주제(부동산·코인)·외국 영상 뺌 (채널 중앙값에는 넣음)
+#          ④ 빨리 크는 채널에 '기관·브랜드?' 표시 ([growth] BRAND_HINT — 운용사 ETF 채널 등) ⑤ 한계: 자동완성 말에 책·방송·사람 이름이 섞임
+# (v1.2 — 2026-10-14 — 실제 결과(승인 280·성공 사례 165)를 다시 읽고 고침 (사용자 지시: "결과 올라갔는데 문제가 부분 수정하고
 #          분석결과로 내가 말한 거 할수 있는지 판단해 개선 필요하면 더 개선하고"):
 #          ① 형식(포맷) — 사연·드라마 / 오디오북·낭독(명언·인생조언) / 인터뷰·강연·대담 / 브이로그·직접 해본 이야기 / 정보·해설 (제목·채널 이름·
 #             태그 낱말, analysis_rules.toml [format]): 성공 사례 표에 '형식' 칸, 2-2번 = 비교 집단 성공 비율·성공 사례 몫·시장 지수·같은 채널
@@ -10,7 +16,7 @@
 #          ③ 도배·광고 댓글 뺌: 'NN세. 이름. 저는 …' 체험담 광고·리딩방·오픈채팅, 같은 글이 영상 3곳 이상 (SPAM_RX·SPAM_MIN_VIDEOS)
 #          ④ 제목 불만 낱말 넓힘 ('제목이 너무 과장', '제목과 내용이 다르') · '틀린 게 하나도 없네요'(띄어 씀)도 칭찬
 #          ⑤ 같은 채널 기준선: 업로드 목록의 영상 중 그 채널 영상만 셈 (캐시가 섞였을 때)
-#          (규칙 파일 v1.2: 도박·스포츠·괴담을 뺀 주제로 — 스포츠토토·여자배구·괴담 영상이 성공 사례에 있었음)
+#          (규칙 파일 v1.2: 도박·스포츠·괴담을 뺀 주제로 — 스포츠토토·여자배구·괴담 영상이 성공 사례에 있었음))
 # (v1.0 — 2026-10-14 — 신규: 성공 사례 분석 — AI 가 지시사항을 만들 재료 (사용자 지시: "성공 사례 영상의 정보와 시청자들의
 #          니즈(댓글을 통해 영상의 좋은점, 뭐를 더 알고 싶은지, 영상의 아쉬운점이 뭔지 등)를 분석해서 어떤 주제, 어떤 제목, 어떤 썸네일,
 #          내용을 어떻게 구성해야하는지 등 조회수가 높게 나오고 구독자가 많이 모일 수 있는 영상을 만드는 거야 … 분석결과를 ai가 보고
@@ -75,16 +81,18 @@ from outlier_stats import TITLE_FEATURES                          # noqa: E402  
 from weekly_analysis import _published, _write_atomic, clean_description   # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v1.2"
+VERSION = "v1.3"
 LOG = logging.getLogger("success")
 CASE_DIR_RX = re.compile(r"^(W_|P?\d\d_)")
 NON_VIDEO_CACHE = ("search_", "supply_", "uploads_", "channels.json", "autocomplete.json")   # 영상 정보가 아닌 캐시 파일
 DEFAULT_RULES = {
     "success": {"MAX_AGE_DAYS": 180, "MAX_SUBS": 50000, "MIN_RATIO": 3.0, "MIN_VIEWS": 10000, "MIN_MINUTES": 4.0, "CASES_PER_CHANNEL": 2},
-    "compare": {"MAX_AGE_DAYS": 365, "MAX_SUBS": 50000, "MIN_MINUTES": 4.0, "PER_CHANNEL": 5, "MIN_GROUP": 15, "NOTABLE_DIFF": 0.10},
+    "compare": {"MIN_AGE_DAYS": 7, "MAX_AGE_DAYS": 365, "MAX_SUBS": 50000, "MIN_MINUTES": 4.0, "PER_CHANNEL": 5, "MIN_GROUP": 15, "NOTABLE_DIFF": 0.10},
     "demand": {"RECENT_DAYS": 90, "AUTOCOMPLETE_TOP": 30, "GAP_VERIFY_N": 10,
                "AC_EXCLUDE": ["실시간", "라이브", "전망", "시황", "속보", "뉴스", "롤체", "자격증", "운용사", "주가"]},
-    "growth": {"NEW_CHANNEL_MONTHS": 24, "MIN_SUBS": 1000, "MAX_SUBS": 200000, "MIN_TOPIC_VIDEOS": 2, "TOP": 25},
+    "growth": {"NEW_CHANNEL_MONTHS": 24, "MIN_SUBS": 1000, "MAX_SUBS": 200000, "MIN_TOPIC_VIDEOS": 2, "TOP": 25,
+               "BRAND_HINT": ["ACE", "PLUS", "KODEX", "TIGER", "RISE", "SOL", "HANARO", "KIWOOM", "ARIRANG", "TIMEFOLIO",
+                              "자산운용", "증권", "은행", "보험", "공식", "Official", "뉴스", "방송"]},
     "baseline": {"MIN_VIDEOS": 5, "MIN_AGE_DAYS": 7, "MAX_AGE_DAYS": 365, "HIT": 3.0, "NORMAL_LO": 0.5, "NORMAL_HI": 1.5,
                  "PER_CHANNEL": 5, "PAIRS": 20},
     "exclude": {"OFF_TOPIC": [], "OFF_TOPIC_THEMES": [], "AD_SUSPECT_MIN_VIEWS": 50000, "AD_SUSPECT_MAX_LIKE_RATE": 0.0025, "AD_SUSPECT_MAX_COMMENT_RATE": 0.00005},
@@ -504,6 +512,8 @@ def analyze(topic, name, cases, cache_infos, cache_subs, rules, rel, themes, now
                          "comments_total", "published", "age_days", "minutes", "ratio", "vpd", "tags", "live", "was_live",
                          "audio_lang", "lang")}, "description": c["desc"]}
     rows_all = list(pool.values())
+    searched_ids = {i for d in (market_caches[0] if market_caches else ()) for i in (d.get("ids") or [])}
+    uploads_only = {i for ids in (uploads or {}).values() for i in ids} - searched_ids - case_ids     # v1.3: 채널 평소 영상으로만 본 것
     for x in rows_all:
         x["theme"] = theme_of(x["title"], x["tags"], themes)
         x["format"] = format_of(x, formats)
@@ -511,7 +521,7 @@ def analyze(topic, name, cases, cache_infos, cache_subs, rules, rel, themes, now
         x["success"] = is_success(x, S, with_age=False)
         x["has_case"] = x["id"] in case_ids
         x["in_scope"] = (not x["exclude"] and x["subs"] is not None and x["subs"] <= C["MAX_SUBS"] and x["minutes"] >= C["MIN_MINUTES"]
-                         and x["age_days"] is not None and x["age_days"] <= C["MAX_AGE_DAYS"])
+                         and x["age_days"] is not None and C["MIN_AGE_DAYS"] <= x["age_days"] <= C["MAX_AGE_DAYS"])
     by_ch = defaultdict(list)
     for x in rows_all:
         if x["in_scope"]:
@@ -526,10 +536,21 @@ def analyze(topic, name, cases, cache_infos, cache_subs, rules, rel, themes, now
     for x in group:
         x["in_compare"] = True
     base = _rate(group)
+    n_uploads_only = sum(1 for x in group if x["id"] in uploads_only)
     log("COMPARE", pool=len(rows_all), in_scope=sum(1 for x in rows_all if x["in_scope"]), group=len(group), channel_cut=ch_cut,
-        success=base["success"], rate=base["rate"])
+        success=base["success"], rate=base["rate"], from_channel_uploads=n_uploads_only, min_age=C["MIN_AGE_DAYS"])
     # 자료를 받지 않은 성공 후보 (승인하면 분석에 들어감)
-    missing = sorted((x for x in rows_all if not x["has_case"] and not x["exclude"] and is_success(x, S)), key=lambda x: -(x["ratio"] or 0))
+    # v1.3: 성공 사례가 이미 채널당 한도(CASES_PER_CHANNEL)만큼 있는 채널의 영상은 승인해도 성공 사례가 되지 않으니 뺌, 채널마다 남은 자리만큼
+    slots = Counter({k: S["CASES_PER_CHANNEL"] - v for k, v in per_ch.items()})
+    missing, miss_ch, missing_full = [], Counter(), 0
+    for x in sorted((x for x in rows_all if not x["has_case"] and not x["exclude"] and is_success(x, S)), key=lambda x: -(x["ratio"] or 0)):
+        key = x["channel_id"] or x["channel"]
+        room = slots[key] if key in per_ch else S["CASES_PER_CHANNEL"]
+        if miss_ch[key] >= room:
+            missing_full += 1
+            continue
+        miss_ch[key] += 1
+        missing.append(x)
     # 3) 주제 묶음
     theme_rows = []
     for th in list(themes) + ["기타"]:
@@ -676,8 +697,10 @@ def analyze(topic, name, cases, cache_infos, cache_subs, rules, rel, themes, now
     if not group:
         limits.append("비교 집단 없음 — 탐색 캐시(.cache)가 없음 (PC 에서 탐색한 뒤 다시). 주제·제목·길이의 '성공 비율'은 셀 수 없음")
     else:
-        limits.append(f"비교 집단 {len(group)}개는 검색(조회수 순)·추가한 채널에서 나와 성공 비율({base['rate']:.0%})이 실제보다 높다 — "
-                      "같은 집단 안의 '있음/없음' 차이로만 보라")
+        limits.append(f"비교 집단 {len(group)}개 = 검색(조회수 순 — 잘된 영상 쪽으로 치우침)·추가한 채널" +
+                      (f"·성공 사례 채널의 평소 영상 {n_uploads_only}개 (치우침 없음)" if n_uploads_only else "") +
+                      f" 에서 올린 지 {C['MIN_AGE_DAYS']}~{C['MAX_AGE_DAYS']}일 영상, 성공 비율 {base['rate']:.0%} — 실제 시장 비율이 아니다. "
+                      "같은 집단 안의 '있음/없음' 차이로만 보고, '무엇이 먹혔나'는 1-2번(같은 채널 안)을 먼저 보라")
     if len(success) < 15:
         limits.append(f"성공 사례가 {len(success)}개뿐 — 성공 사례 안의 비율은 흔들림이 크다 (웹 화면에서 '자료 없는 성공 후보'를 승인하면 늘어남)")
     limits += baseline["limits"] + market["limits"] + growth["limits"]
@@ -699,7 +722,7 @@ def analyze(topic, name, cases, cache_infos, cache_subs, rules, rel, themes, now
             "missing_success": [{"id": x["id"], "title": x["title"], "channel": x["channel"], "subs": x["subs"], "views": x["views"],
                                  "ratio": x["ratio"], "minutes": x["minutes"], "published": x["published"].date().isoformat() if x["published"] else "",
                                  "theme": x["theme"]} for x in missing[:40]],
-            "missing_success_total": len(missing),
+            "missing_success_total": len(missing), "missing_success_channel_full": missing_full,
             "themes": theme_rows, "formats": format_rows, "title_features": title_rows, "title_words_up": [r for r in word_rows if (r["diff"] or 0) > 0][:15],
             "title_words_down": [r for r in reversed(word_rows) if (r["diff"] or 0) < 0][:10], "title_length": len_rows,
             "minutes": minutes_rows, "subs": subs_rows, "structure": structure, "needs": needs,
@@ -834,6 +857,8 @@ def demand_supply(rows_all, cases, group, theme_rows, themes, rules, now, market
         limits.append("자동완성(사람들이 찾는 말) 자료 없음 — 웹 화면에서 '검색어로도 찾기'로 탐색하면 받는다 (할당량 0)")
     elif top_ac and not any(r["verified"] for r in top_ac):
         limits.append("자동완성 말의 '최근 영상 수'는 우리가 본 영상만 셌다 — 실제 공급은 웹 화면 [공급 확인](말 하나에 검색 1번 = 100단위)으로 확인")
+    if ac:
+        limits.append("자동완성 말에는 책·방송·사람·채널 이름도 섞인다 (예: '…를 찾아서'·'…지침서') — 영상 주제가 아닌 말은 건너뛰고 읽어라")
     log("MARKET", market=len(market), searched=len(searched), themes=len(th_rows), keywords=len(kw_rows), autocomplete=len(ac_rows),
         ac_excluded=",".join(f"{k}:{v}" for k, v in ac_excluded.items()) or "-",
         verified=sum(1 for r in ac_rows if r["verified"]), gap_candidates=len(gap_candidates))
@@ -890,7 +915,9 @@ def channel_growth(rows_all, rules, now, rel=None):
             if (d1 - d0).days >= 3:
                 recent = round((hist[-1][1] - hist[0][1]) / (d1 - d0).days, 1)
         best = max(xs, key=lambda x: x["vpd"])
-        rows.append({"channel_id": cid, "channel": xs[0]["channel"] or e.get("title"), "created": str(e["created"])[:10],
+        name = str(xs[0]["channel"] or e.get("title") or "")
+        brand = next((w for w in G.get("BRAND_HINT") or [] if w and re.search(r"(?<![A-Za-z])" + re.escape(w) + r"(?![A-Za-z])", name, re.I)), None)
+        rows.append({"channel_id": cid, "channel": xs[0]["channel"] or e.get("title"), "brand_hint": brand, "created": str(e["created"])[:10],
                      "months": round(months, 1), "subs": subs, "videos": e.get("videos"), "subs_per_month": round(subs / months),
                      "uploads_per_month": round((e.get("videos") or 0) / months, 1), "subs_per_day_recent": recent,
                      "themes": [t for t, _ in Counter(x["theme"] for x in xs).most_common(2)], "seen_videos": len(xs),
@@ -943,6 +970,11 @@ def channel_baseline(cases, success, cache_infos, cache_subs, uploads, rules, th
             x["theme"] = theme_of(x["title"], x["tags"], themes)
             x["format"] = format_of({**x, "description": i.get("description") or ""}, rules.get("format") or DEFAULT_FORMATS)
             x["chapters"] = bool(orr.chapters_from(i.get("description") or ""))
+            # v1.3: 뺀 주제(부동산·코인 …)·외국 영상은 채널 중앙값에는 넣고(채널 평소 실력) 잘된/평소 영상 비교에서는 뺌
+            ex_ = rules["exclude"]
+            x["off"] = bool(orr.exclusion_reason({"title": x["title"], "live": x["live"], "was_live": x["was_live"],
+                                                   "audio_lang": x["audio_lang"], "lang": x["lang"]})
+                            or any(w and w in x["title"] for w in ex_["OFF_TOPIC"]) or x["theme"] in ex_["OFF_TOPIC_THEMES"])
             rows.append(x)
         if rows:
             chan_rows[cid] = rows
@@ -953,15 +985,16 @@ def channel_baseline(cases, success, cache_infos, cache_subs, uploads, rules, th
             med = statistics.median([x["views"] for x in others])
             c["channel_median"] = round(med)
             c["channel_ratio"] = round(c["views"] / max(med, 1), 1)
-            c["normal_pairs"] = sorted(others, key=lambda x: abs(math.log((x["views"] + 1) / (med + 1))))[:2]     # 중앙값에 가장 가까운 2개
+            c["normal_pairs"] = sorted([x for x in others if not x["off"]] or others,
+                                       key=lambda x: abs(math.log((x["views"] + 1) / (med + 1))))[:2]     # 중앙값에 가장 가까운 2개 (뺀 주제 말고)
     hits, normal, n_ch = [], [], 0
     for cid, rows in chan_rows.items():
         if len(rows) < B["MIN_VIDEOS"] + 1:
             continue
         n_ch += 1
         med = statistics.median([x["views"] for x in rows])
-        h = sorted((x for x in rows if x["views"] >= B["HIT"] * med), key=lambda x: -x["views"])[:B["PER_CHANNEL"]]
-        nm = sorted((x for x in rows if B["NORMAL_LO"] * med <= x["views"] <= B["NORMAL_HI"] * med),
+        h = sorted((x for x in rows if not x["off"] and x["views"] >= B["HIT"] * med), key=lambda x: -x["views"])[:B["PER_CHANNEL"]]
+        nm = sorted((x for x in rows if not x["off"] and B["NORMAL_LO"] * med <= x["views"] <= B["NORMAL_HI"] * med),
                     key=lambda x: -(x["published"].timestamp() if x["published"] else 0))[:B["PER_CHANNEL"]]
         hits += h
         normal += nm
@@ -1136,7 +1169,8 @@ def write_md(out, data, success):
          f"| 성공 사례 썸네일 | {src['success_thumbnails']} |",
          f"| 비교 집단 — 탐색에서 본 영상 중 구독자 {C['MAX_SUBS']:,} 이하·{C['MIN_MINUTES']:g}분 이상·{C['MAX_AGE_DAYS']}일 안·주제 관련, "
          f"채널당 최근 {C['PER_CHANNEL']}개 | {src['compare_group']} (성공 {src['compare_success']} = {_pct(src['compare_rate'])}, 채널당 제한으로 뺀 {src['compare_channel_cut']}) |",
-         f"| 자료를 받지 않은 성공 후보 (웹 화면에서 승인하면 들어감) | {data['missing_success_total']} |",
+         f"| 자료를 받지 않은 성공 후보 (웹 화면에서 승인하면 들어감 — 채널당 자리가 남은 것만) | {data['missing_success_total']}"
+         f"{' (자리가 찬 채널의 ' + format(data.get('missing_success_channel_full') or 0, ',') + '개 뺌)' if data.get('missing_success_channel_full') else ''} |",
          f"| 수요·공급 시장 — 최근 {data['market']['days']}일 영상 (채널 크기 상관없음) | {data['market']['videos']} · 검색어 {data['market']['keywords_total']} · "
          f"자동완성 말 {data['market']['autocomplete_total']} (공급 확인 {sum(1 for r in data['market']['autocomplete'] if r['verified'])}) |",
          f"| 채널 성장 자료 (개설일이 있는 채널) | {data['growth']['channels']} (빨리 크는 작은 채널 {len(data['growth']['fast'])}) |", ""]
@@ -1156,7 +1190,8 @@ def write_md(out, data, success):
                  f"{c['minutes']:g}분 | {c['published']} | {_cell(c['theme'], 14)} | {_cell(c['format'].split(' (')[0], 14)} | {c['text_source']} | "
                  f"{c['comments_fetched']:,}/{c['comments_total']:,} |")
     if data["missing_success"]:
-        L += ["", f"### 자료를 받지 않은 성공 후보 ({data['missing_success_total']}개 중 배수 큰 {len(data['missing_success'])}개 — 웹 화면 탐색 목록에서 승인하면 분석에 들어감)", "",
+        L += ["", f"### 자료를 받지 않은 성공 후보 ({data['missing_success_total']}개 중 배수 큰 {len(data['missing_success'])}개 — 웹 화면 탐색 목록에서 승인하면 분석에 들어감, "
+              f"성공 사례가 이미 채널당 {S['CASES_PER_CHANNEL']}개인 채널은 뺌)", "",
               "| 제목 | 채널 | 구독자 | 조회수 | 배수 | 길이 | 업로드 | 주제 묶음 |", "|---|---|---|---|---|---|---|---|"]
         for x in data["missing_success"]:
             L.append(f"| [{_cell(x['title'], 60)}](https://www.youtube.com/watch?v={x['id']}) | {_cell(x['channel'], 14)} | {_n(x['subs'])} | "
@@ -1296,16 +1331,17 @@ def write_md(out, data, success):
     gr = data["growth"]
     L += ["", "## 7. 구독자 — 빨리 크는 작은 채널", "",
           "YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로 본다. 개설 24개월 안·구독자 1,000 이상 채널을 **월 구독자 증가(구독자 ÷ 개설 뒤 달 수)** 순으로. "
-          "최근 하루 증가 = 받을 때마다 남긴 구독자 기록 (3일 넘게 벌어져야 나옴). 주로 다룬 주제 = 우리가 본 그 채널 영상의 주제 묶음.", "",
-          "| 채널 | 개설 | 구독자 | 월 구독자 증가 | 최근 하루 증가 | 영상 수 | 월 업로드 | 길이 중앙값 | 주로 다룬 주제 | 대표 영상 (하루 조회수 큰 것) |",
-          "|---|---|---|---|---|---|---|---|---|---|"]
+          "최근 하루 증가 = 받을 때마다 남긴 구독자 기록 (3일 넘게 벌어져야 나옴). 주로 다룬 주제 = 우리가 본 그 채널 영상의 주제 묶음. "
+          "**기관·브랜드?** = 채널 이름에 운용사 ETF 상표·증권·은행·공식·방송 같은 말 (`analysis_rules.toml` [growth] BRAND_HINT) — 광고비로 큰 채널일 수 있어 개인 채널과 따로 보라.", "",
+          "| 채널 | 기관·브랜드? | 개설 | 구독자 | 월 구독자 증가 | 최근 하루 증가 | 영상 수 | 월 업로드 | 길이 중앙값 | 주로 다룬 주제 | 대표 영상 (하루 조회수 큰 것) |",
+          "|---|---|---|---|---|---|---|---|---|---|---|"]
     for r in gr["fast"]:
         b = r["best"]
-        L.append(f"| {_cell(r['channel'], 16)} | {r['created']} | {r['subs']:,} | {r['subs_per_month']:,} | {_n(r['subs_per_day_recent'])} | {_n(r['videos'])} | "
+        L.append(f"| {_cell(r['channel'], 16)} | {('예(' + r['brand_hint'] + ')') if r.get('brand_hint') else ''} | {r['created']} | {r['subs']:,} | {r['subs_per_month']:,} | {_n(r['subs_per_day_recent'])} | {_n(r['videos'])} | "
                  f"{_n(r['uploads_per_month'])} | {_n(r['minutes_median'])}분 | {_cell(', '.join(r['themes']), 24)} | "
                  f"[{_cell(b['title'], 40)}](https://www.youtube.com/watch?v={b['id']}) {b['views']:,}회 |")
     if not gr["fast"]:
-        L.append("| (자료 없음 — 한계 참고) |  |  |  |  |  |  |  |  |  |")
+        L.append("| (자료 없음 — 한계 참고) |  |  |  |  |  |  |  |  |  |  |")
     # 6. 니즈
     nd = data["needs"]
     L += ["", f"## 8. 시청자 니즈 (성공 사례 {len(success)}개의 시청자 댓글 {nd['viewer_comments']:,}개 — 채널 주인 댓글·도배 댓글 {nd.get('spam_excluded', 0):,}개 뺌)", "",

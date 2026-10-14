@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.1 — 2026-10-14 — 목록 고침 (사용자 지시: "영상이나 채널 여러 개 넣을 수 있게 하고 체크된거랑 안된거 따로 목록 분리해서
+# VERSION: v1.1.1 — 2026-10-14 — 분석 결과 안내 글만: 오래된 영상은 '창 밖' → 마지막 '전체' 창에 (weekly_analysis v1.1)
+# (v1.1 — 2026-10-14 — 목록 고침 (사용자 지시: "영상이나 채널 여러 개 넣을 수 있게 하고 체크된거랑 안된거 따로 목록 분리해서
 #          보여주고 이미 분석에 사용한 영상이면 목록에서 제외해 그리고 라이브 방송, 외국 영상은 탐색 대상에서 제외 그리고 목록을 배수가
 #          가장 높은순으로 정렬해"): ① 직접 추가 칸에 여러 개 (한 줄에 하나 — 띄어쓰기·쉼표로 나눠도 됨) ② 목록을 '체크한 영상'과
 #          '체크 안 한 영상' 두 표로 (체크하면 위 표로 옮겨 감) ③ 이미 분석에 쓴 영상(승인한 W_·성공 사례 01_·조회수 상위 P01_·_old·
@@ -16,7 +17,7 @@
 #          ④ [탐색] → 검색어(최근 N주·조회수 순·4~20분·20분 넘음) + 추가한 채널·영상 → 목록 (최근 업로드 순). 추천(성공 사례·조회수 상위·
 #             추가한 것)은 체크만 해 둠 — 자료는 아직 안 받음
 #          ⑤ [승인] → 체크한 영상만 설명·자막·썸네일·댓글 전부를 받고(<주제>/result/outliers/W_<영상ID>/) 주별 분석
-#             (tools/weekly_analysis.py — 최근 1주·2주·3주 … 한 주씩 넓힘) → 자막을 못 받은 영상은 음성인식 대기열 → 다시 분석 → GitHub)
+#             (tools/weekly_analysis.py — 최근 1주·2주·3주 … 한 주씩 넓힘) → 자막을 못 받은 영상은 음성인식 대기열 → 다시 분석 → GitHub))
 r"""
 사용법 (PC 실행 폴더 — run_analyzer.ps1 이 기본으로 띄움):
   python tools/web_ui.py                    # economic (설정 파일이 있는 주제 폴더가 여럿이면 화면에서 고름)
@@ -53,7 +54,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import pc_analysis as pc                 # noqa: E402  할당량 장부·키 찾기·GitHub 동기화·패키지 준비
 
 ROOT = pc.ROOT
-VERSION = "v1.1"
+VERSION = "v1.1.1"
 LOG = logging.getLogger("web")
 KST = timezone(timedelta(hours=9))
 TOKEN = secrets.token_urlsafe(18)        # 화면이 요청마다 보내는 열쇠 (다른 사이트가 이 PC 의 화면을 조작하지 못하게)
@@ -931,7 +932,7 @@ function showJob(j){busy=j.status==='running';$('jobName').textContent=j.name?`$
 async function poll(){try{showJob(await api('/api/job'))}catch(e){}setTimeout(poll,busy?1000:4000)}
 function pct(x){return x==null?'–':Math.round(x*100)+'%'}
 async function loadReport(){const r=await api('/api/report');if(!r.windows){$('report').innerHTML='<span class=mut>승인한 영상이 생기면 여기에 나옵니다</span>';return}
- let h=`<div class=mut>${esc(r.generated.slice(0,16).replace('T',' '))} UTC · 승인 영상 ${r.cases}개 · ${esc(r.criteria)}${r.older_than_windows?` · ${r.max_weeks}주보다 오래된 영상 ${r.older_than_windows}개는 창 밖`:''}</div>
+ let h=`<div class=mut>${esc(r.generated.slice(0,16).replace('T',' '))} UTC · 승인 영상 ${r.cases}개 · ${esc(r.criteria)}${r.older_than_windows?` · ${r.max_weeks}주보다 오래된 영상 ${r.older_than_windows}개는 마지막 '전체' 창에`:''}</div>
  <div class=tablewrap style="margin-top:8px"><table><thead><tr><th>창</th><th class=n>영상</th><th class=n>채널</th><th class=n>이번 주 새로</th><th class=n>조회수 중앙값</th><th class=n>하루 조회수</th><th class=n>배수</th><th class=n>성공 사례</th><th class=n>길이(분)</th><th class=n>제목 글자</th><th class=n>자막</th><th class=n>댓글</th></tr></thead><tbody>`;
  h+=r.windows.map(w=>`<tr><td>${esc(w.label)}</td><td class=n>${w.videos}</td><td class=n>${w.channels}</td><td class=n>${w.new_this_week.length}</td><td class=n>${num(w.views_median)}</td><td class=n>${num(w.views_per_day_median)}</td><td class=n>${num(w.ratio_median)}</td><td class=n>${w.success}</td><td class=n>${num(w.minutes_median)}</td><td class=n>${num(w.title_len_avg)}</td><td class=n>${w.transcripts}</td><td class=n>${num(w.comments)}</td></tr>`).join('')+'</tbody></table></div>';
  h+=r.windows.filter(w=>w.videos).map(w=>`<details><summary>${esc(w.label)} — 영상 ${w.videos}개 (이번 주 새로 ${w.new_this_week.length})</summary>

@@ -1,15 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-10-14 — 신규 (사용자 지시: "목록은 최근에 업로드 된 순으로 하고 1주 전, 2주 전, 3주 전 1주씩 늘리면서 분석 결과 내보도록"):
+# VERSION: v1.1 — 2026-10-14 — 승인한 영상이 모두 들어가게 (사용자 질문 "분석 결과 다 올라온거야?" — 승인 289개 중 155개가 12주보다
+#          오래돼 어느 창에도 없었음): 창을 최대 52주까지(한 주씩), 그보다 오래된 영상이 있으면 마지막에 '전체' 창을 더함
+# (v1.0 — 2026-10-14 — 신규 (사용자 지시: "목록은 최근에 업로드 된 순으로 하고 1주 전, 2주 전, 3주 전 1주씩 늘리면서 분석 결과 내보도록"):
 #          웹 화면(tools/web_ui.py)에서 승인해 자료를 받은 영상(<주제>/result/outliers/W_<영상ID>/)을 업로드 날짜로 묶어
 #          '최근 1주 · 최근 2주 · 최근 3주 …' 처럼 한 주씩 넓히며 같은 숫자를 낸다 (누적 창). 창마다:
 #          영상·채널 수, 그 주에 새로 들어온 영상, 조회수·하루 조회수·배수(조회수÷구독자) 중앙값, 성공 사례 수, 길이,
 #          제목 특징(금액·물음표·N가지 … — tools/outlier_stats.py 와 같은 규칙)·자주 쓴 낱말, 자막(말 속도·첫 20초), 댓글 니즈·인기 댓글, 상위 영상
-#          → weekly.md (GitHub 에서 바로 보이는 표) · weekly.json (웹 화면) · weekly.csv
+#          → weekly.md (GitHub 에서 바로 보이는 표) · weekly.json (웹 화면) · weekly.csv)
 r"""
 사용법 (저장소 최상위 또는 PC 실행 폴더):
   python tools/weekly_analysis.py economic                 # W_ 사례로 weekly.md·json·csv 다시 만듦 (API 요청 없음)
-  python tools/weekly_analysis.py economic --max-weeks 12  # 창을 최대 12주까지
+  python tools/weekly_analysis.py economic --max-weeks 26  # 창을 최대 26주까지 (기본 52, 더 오래된 영상은 마지막 '전체' 창)
 성공 사례 기준 = 구독자 5만 이하 · 조회수 1만 이상 · 조회수 ≥ 구독자 × 3 (outlier_research 와 같음, 구독자 100 미만은 100).
 로그: [STAGE] [시각] key=value (START·WEEKLY·DONE)
 ※ 연구·교육용. 투자 권유가 아니다.
@@ -30,7 +32,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from outlier_stats import COMMENT_CATS, TITLE_FEATURES       # noqa: E402  같은 규칙 (제목 특징·댓글 갈래)
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v1.0"
+VERSION = "v1.1"
 LOG = logging.getLogger("weekly")
 WEB_CASE_RX = re.compile(r"^W_([0-9A-Za-z_-]{11})$")
 MAX_SUBS, MIN_RATIO, MIN_VIEWS = 50000, 3.0, 10000
@@ -160,8 +162,9 @@ def window_metrics(cases, prev_ids, now):
     }
 
 
-def build_report(topic, name, cases, now=None, max_weeks=12):
-    """승인한 영상 → 창 목록 (최근 1주, 2주, … — 가장 오래된 영상이 들어갈 때까지, 최대 max_weeks)."""
+def build_report(topic, name, cases, now=None, max_weeks=52):
+    """승인한 영상 → 창 목록 (최근 1주, 2주, … — 가장 오래된 영상이 들어갈 때까지, 최대 max_weeks).
+    그보다 오래된 영상이 있으면 마지막에 '전체' 창 (v1.1 — 승인한 영상이 빠지지 않게)."""
     now = now or datetime.now(timezone.utc)
     dated = [c for c in cases if _published(c["meta"])]
     ages = [(now - _published(c["meta"])).total_seconds() / 86400 for c in dated]
@@ -172,7 +175,9 @@ def build_report(topic, name, cases, now=None, max_weeks=12):
         w = {"weeks": k, "label": f"최근 {k}주", **window_metrics(sub, prev, now)}
         windows.append(w)
         prev = {c["meta"]["id"] for c in sub}
-    older = sum(1 for a in ages if a > 7 * k_max)                 # max_weeks 보다 오래된 영상 (창에 안 들어감)
+    older = sum(1 for a in ages if a > 7 * k_max)                 # max_weeks 보다 오래된 영상 → '전체' 창에만
+    if older:
+        windows.append({"weeks": None, "label": f"전체 ({k_max}주보다 오래된 {older}개 포함)", **window_metrics(dated, prev, now)})
     return {"tool": f"weekly_analysis.py {VERSION}", "topic": topic, "name": name, "generated": now.isoformat(timespec="seconds"),
             "cases": len(cases), "dated": len(dated), "older_than_windows": older, "max_weeks": max_weeks,
             "criteria": f"성공 사례 = 구독자 {MAX_SUBS:,} 이하 · 조회수 {MIN_VIEWS:,} 이상 · 조회수 ≥ 구독자 × {MIN_RATIO:g}",
@@ -238,7 +243,7 @@ def write_report(out_dir, rep):
     log("WEEKLY", file=str(out_dir / "weekly.md"), windows=len(rep["windows"]), cases=rep["cases"])
 
 
-def run(topic, max_weeks=12, now=None, root=None):
+def run(topic, max_weeks=52, now=None, root=None):
     root = Path(root or ROOT)
     out = root / topic / "result" / "outliers"
     name = topic
@@ -262,7 +267,7 @@ def run(topic, max_weeks=12, now=None, root=None):
 def main(argv=None):
     ap = argparse.ArgumentParser(description="웹 화면에서 승인한 영상의 주별 분석 (최근 1주·2주·3주 …)")
     ap.add_argument("topic")
-    ap.add_argument("--max-weeks", type=int, default=12)
+    ap.add_argument("--max-weeks", type=int, default=52, help="한 주씩 넓힐 최대 주 수 (더 오래된 영상은 마지막 '전체' 창)")
     ap.add_argument("--log-level", default="INFO", choices=["DEBUG", "INFO", "WARNING"])
     a = ap.parse_args(argv)
     logging.basicConfig(level=getattr(logging, a.log_level), format="%(message)s", stream=sys.stdout)

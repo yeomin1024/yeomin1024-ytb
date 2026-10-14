@@ -1,11 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v2.9.0 — 2026-10-14 — 자막이 계속 막히던 것 고침 + 웹 화면 사례 (사용자 지시: "왜 자꾸 자막 다운로드 막히는지 에러 찾아서 수정해",
+# VERSION: v2.9.1 — 2026-10-14 — 올라간 결과가 모자라던 것 고침 (사용자 질문 "분석 결과 다 올라온거야?"):
+#          ① 성공 사례 결과만 올릴 때(분석기 결과 없음)도 커밋 메시지에 '음성인식 대본 <영상> (n/전체)' 를 남김 (예전: 늘 '성공 사례 결과 먼저'
+#          라서 진행이 안 보였음) ② 음성인식이 하나 끝날 때마다 웹 화면의 주별 분석(weekly.md)도 다시 만듦 (예전: 대기열이 다 끝나야 —
+#          289개면 며칠 — 그동안 자막 0개로 보였음)
+# (v2.9.0 — 2026-10-14 — 자막이 계속 막히던 것 고침 + 웹 화면 사례 (사용자 지시: "왜 자꾸 자막 다운로드 막히는지 에러 찾아서 수정해",
 #          "분석기 웹 ui 형식으로 만들어"): 원인(PC 로그) = YouTube 자막 서버가 HTTP 429 — yt-dlp 자막 8/8, youtube-transcript-api
 #          IpBlocked 26/35. 소리 받기는 됨(음성인식 17/17). ① 자막 429 는 같은 클라이언트로 3번 다시 하지 않음(CaptionBlockedError —
 #          영상마다 약 35초 낭비·차단 연장이던 것) ② 연속 2번 막히면 6시간 동안 자막 요청을 쉬고 바로 음성인식 대기열로
 #          (.yt_work/caption_block.json — 성공 사례 v1.9·웹 화면과 같은 파일) ③ 음성인식 대기열이 자막 서버 차단(IpBlocked 등) 영상도
-#          받음 (예전: '네트워크 실패'로 빼서 대본이 영영 없었음 — 연결 자체 실패만 뺌) ④ 웹 화면에서 승인한 영상(W_<영상ID> 폴더)도 대기열에
+#          받음 (예전: '네트워크 실패'로 빼서 대본이 영영 없었음 — 연결 자체 실패만 뺌) ④ 웹 화면에서 승인한 영상(W_<영상ID> 폴더)도 대기열에)
 # (v2.8.0 — 2026-10-13 — 검색어는 그룹 없이 한 줄에 하나씩 (사용자 지시: "걍 검색어 내가 수정해도 돌아가게 하면 안돼? 꼭 그룹을
 #          지정해야하나 검색어만 넣어도 되잖아"): 설정 파일과 같은 폴더의 keywords.txt (한 줄에 검색어 하나, # 으로 시작하는 줄·빈 줄은
 #          무시, 같은 검색어는 한 번)가 있으면 그것이 검색어 목록 — keywords.toml 의 KEYWORD_GROUPS 대신 (read_keyword_list).
@@ -335,7 +339,7 @@ import numpy as np
 import pandas as pd
 import requests
 
-NOTEBOOK_VERSION = "v2.9.0"
+NOTEBOOK_VERSION = "v2.9.1"
 KST = dt.timezone(dt.timedelta(hours=9))
 UTC = dt.timezone.utc
 IS_WINDOWS = os.name == "nt"
@@ -4169,7 +4173,7 @@ def stage8_push_github(ctx, token, outliers_only=False):
             log("GITHUB", "변경 사항 없음 → 커밋 생략")
             result.update(pushed=False, reason="no_changes")
             return result
-        msg = (f"[{cfg['TOPIC']}] 성공 사례 결과 먼저 ({NOTEBOOK_VERSION}, 분석기 결과는 아직)" if outliers_only else
+        msg = (f"[{cfg['TOPIC']}] {ctx.data.get('push_message') or '성공 사례 결과 먼저'} ({NOTEBOOK_VERSION}, 분석기 결과는 아직)" if outliers_only else
                f"[{cfg['TOPIC']}] {ctx.data.get('push_message') or 'YouTube 분석 결과'} {ctx.run_id} ({NOTEBOOK_VERSION})")
         run_git(author + ["commit", "-q", "-m", msg], clone)
         pushed, out = False, ""
@@ -4931,6 +4935,14 @@ def whisper_queue(cfg, keys, push=True):
             if r.returncode not in (0, 3):
                 log("WHISPER", "요약·받은 자료 표 다시 만들기 실패 (대본 파일은 저장됨)", level="WARNING", code=r.returncode,
                     out=(r.stdout + r.stderr)[-300:])
+        wkx = BASE_DIR / "tools" / "weekly_analysis.py"
+        od_ = BASE_DIR / cfg["PROJECT_FOLDER"] / cfg["RESULT_FOLDER"] / OUTLIERS_DIR
+        has_web = od_.is_dir() and any(WEB_CASE_RX.match(x.name) for x in od_.iterdir())
+        if wkx.is_file() and has_web:                    # v2.9.1: 웹 화면 사례가 있으면 주별 분석도 다시
+            r = subprocess.run([sys.executable, str(wkx), cfg["PROJECT_FOLDER"], "--log-level", "WARNING"], cwd=BASE_DIR,
+                               capture_output=True, text=True, encoding="utf-8", errors="replace")
+            if r.returncode != 0:
+                log("WHISPER", "주별 분석 다시 만들기 실패 (대본 파일은 저장됨)", level="WARNING", out=(r.stdout + r.stderr)[-300:])
         state_p.write_text(json.dumps(state, ensure_ascii=False, indent=1), "utf-8")
         done += 1
         log("WHISPER", f"{n}/{len(items)} 끝", video_id=vid, segments=len(segs), elapsed_sec=rec["elapsed_sec"])

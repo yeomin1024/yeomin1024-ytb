@@ -1,10 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v2.0 — 2026-10-14 — 라이브 방송·외국 영상은 탐색 대상에서 뺌 (사용자 지시: "라이브 방송, 외국 영상은 탐색 대상에서 제외"):
+# VERSION: v2.0.1 — 2026-10-14 — --offline 다시 만들기가 결과를 지우던 것 고침 (사용자 질문 "분석 결과 다 올라온거야?" — GitHub 에
+#          '후보 0개' 요약이 올라가 있었음): 음성인식이 하나 끝날 때마다 부르는 --offline 이 검색 캐시를 못 찾으면(결과 폴더를 지웠거나
+#          7일 지남) 후보 0개로 summary.md·downloads.md·status.json·csv 를 덮어쓰고 사례 폴더(01_·P01_)까지 _old/ 로 옮길 수 있었음 →
+#          ① --offline 은 오래된 검색 캐시도 씀 ② 그래도 후보가 0이면 아무것도 쓰지·옮기지 않고 있던 결과를 그대로 둠
+# (v2.0 — 2026-10-14 — 라이브 방송·외국 영상은 탐색 대상에서 뺌 (사용자 지시: "라이브 방송, 외국 영상은 탐색 대상에서 제외"):
 #          exclusion_reason() — 라이브 = 지금 라이브·예정(liveBroadcastContent) 또는 라이브였던 영상(liveStreamingDetails, videos.list
 #          같은 1단위로 같이 받음) 또는 제목에 라이브·생방송·스트리밍·LIVE. 외국 = 영상 언어(defaultAudioLanguage·defaultLanguage)가
 #          한국어가 아님, 언어 표시가 없으면 제목에 한글이 없음. build_rows 가 뺌 (keep 으로 넘긴 영상 — 웹 화면에서 주소로 직접
-#          넣은 것 — 은 남기고 표시만). 예전 캐시(라이브 여부 없음)는 다시 받음
+#          넣은 것 — 은 남기고 표시만). 예전 캐시(라이브 여부 없음)는 다시 받음)
 # (v1.9 — 2026-10-14 — 자막이 계속 막히던 것 고침 (사용자 지시: "왜 자꾸 자막 다운로드 막히는지 에러 찾아서 수정해"):
 #          원인(PC 로그): YouTube 자막 서버가 PC 의 IP 에 HTTP 429(Too Many Requests)로 답함 → youtube-transcript-api 'IpBlocked'
 #          35개 중 26개, 분석기 yt-dlp 자막도 8/8 이 429. 그런데 소리 받기는 됨(음성인식 17/17 성공). 예전 코드는 IpBlocked 를
@@ -123,7 +127,7 @@ except ModuleNotFoundError:             # Python 3.10 → tomli (분석기가 �
     import tomli as tomllib
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v2.0"
+VERSION = "v2.0.1"
 LOG = logging.getLogger("outlier")
 HANGUL = re.compile(r"[가-힣]")
 SEARCH_TTL_HOURS = 168
@@ -1034,6 +1038,13 @@ def run_topic(topic, a, api):
                 found.setdefault(vid, []).extend(qs)
     info_by_id = {i["id"]: i for i in infos}
     rows = build_rows(infos, found, now)
+    if a.offline and not rows:                      # v2.0.1: 다시 만들 자료가 없으면 있던 결과를 지우지 않음
+        log("DONE", logging.WARNING, topic=topic, note="--offline: 검색 캐시가 없어 다시 만들 후보가 0 — 요약·표·사례 폴더를 그대로 둠",
+            hint="결과를 새로 만들려면 할당량이 있을 때 --offline 없이 (또는 웹 화면에서 탐색)")
+        try:
+            return json.loads((out / "status.json").read_text("utf-8"))
+        except (OSError, ValueError):
+            return {"complete": True, "skipped": "offline-no-data"}
     fields = list(rows[0].keys()) if rows else ["id"]
     _write_rows(out / "candidates.csv", sorted(rows, key=lambda r: -(r["ratio"] or 0)), fields, {})
 
@@ -1395,6 +1406,7 @@ def main(argv=None):
     logging.basicConfig(level=getattr(logging, a.log_level), format="%(message)s", stream=sys.stdout)
     apis, topic_api = {}, {}            # 키마다 Api 하나 (같은 키를 쓰는 주제끼리만 --quota 를 나눠 씀)
     if a.offline:                       # 요청 없이 다시 만들기만 (키 필요 없음)
+        a.search_ttl_hours = float("inf")   # v2.0.1: 오래된 검색 캐시도 씀 (새로 요청할 수 없으므로)
         off = Api("", 0)
         off.stopped = "offline"
         topic_api = {t: off for t in a.topics}

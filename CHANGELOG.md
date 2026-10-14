@@ -1,5 +1,39 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-14 (10) — 분석기 웹 화면 · 자막이 계속 막히던 것 고침
+
+### 왜 (사용자 지시)
+- "이거 분석기 웹 ui 형식으로 만들어 실행하면 바로 웹 ui가 나와서 env, 검색어 수정할 수 있게하고 탐색 버튼 누르면 탐색 대상 영상 목록이 나오지만 체크 표시만 해놓고 내가 승인 버튼을 눌러야 관련 자료를 받아서 분석하는걸로 해 그리고 내가 영상 url이나 채널을 추가하면 탐색 대상에 추가하도록 하고(채널을 추가하면 그 채널에 올려진 영상 다 탐색하는거야) 목록은 최근에 업로드 된 순으로 하고 1주 전, 2주 전, 3주 전 1주씩 늘리면서 분석 결과 내보도록 해"
+- "그리고 실행 중이면 왜 자꾸 자막 다운로드 막히는지 에러 찾아서 수정해"
+
+### 자막이 막히던 원인 (PC 가 올린 로그로 확인)
+- 성공 사례 자막(youtube-transcript-api): 35개 중 26개 `IpBlocked` (= YouTube 가 HTTP 429 Too Many Requests), 2개 `TranscriptsDisabled`(라이브)
+- 분석기 자막(yt-dlp): 8/8 `HTTP Error 429: Too Many Requests` (자막 주소 `lang=ko-orig`) — 같은 클라이언트로 3·8초 기다려 3번씩 다시 (영상마다 약 35초)
+- 소리 받기는 됨: 음성인식 대본 17/17 성공
+- 그런데 예전 코드는 IpBlocked 를 '네트워크 실패 — 다음 회차에 다시'로 보고 **음성인식 대기열에서 뺐다** → 매 회차(매일) 같은 자막을 또 요청해 차단이 이어졌고, 그 영상들은 대본이 영영 없었다 (pc_analysis 도 '네트워크 때문에 못 받은 자막'이 남았다며 끝내지 않음)
+
+### 고친 것
+| 파일 (버전) | 함수·항목 | 내용 |
+|---|---|---|
+| `tools/outlier_research.py` v1.9 | `is_caption_block`, `is_network_failure`, `caption_blocked`, `note_caption_result`, `transcript` | 자막 서버 차단(IpBlocked·RequestBlocked·429)은 음성인식으로 (연결 실패만 다음 회차에), **연속 2번 막히면 6시간 자막 요청 쉼**(`.yt_work/caption_block.json` — 모든 도구 공유), 자막 요청 사이 1.5~3초, 받은 자료 표 '⏳ 음성인식 대기 — 자막 서버가 막음(429)' |
+| 〃 | `fetch_video_infos`, `fetch_channel_subs`, `parse_target`, `resolve_channel`, `channel_uploads`, `search_cache_file`, `search_is_cached` | 웹 화면용: 영상·구독자 정보 떼어 냄(collect_api 가 같이 씀), 영상·채널 주소 읽기, 채널의 모든 영상(업로드 목록 50개에 1단위), 예상 할당량 |
+| `youtube_topic_analyzer.py` v2.9.0 | `CaptionBlockedError`, `run_ytdlp`, `transcript_via_ytdlp`, `process_success_case`, `caption_blocked`·`note_caption_result` | 자막 429 는 다시 하지 않음, 쉬는 중이면 자막 요청 없이 음성인식 대기, 막힘 기록 공유 |
+| 〃 | `speech_queue_items`, `NETWORK_FAIL_WORDS`, `WEB_CASE_RX` | 음성인식 대기열이 자막 서버 차단 영상도 받음 (연결 실패만 뺌), 웹 화면 승인 영상 `W_<영상ID>` 도 (01 → P01 → W_ → 분석기) |
+| 〃 | `push_only` | 웹 화면의 `weekly.md` 만 있어도 올림. 자가진단 30/30 |
+| `tools/web_ui.py` v1.0 (새로) | 서버·화면 | **실행하면 뜨는 웹 화면** (표준 라이브러리만, 127.0.0.1, 요청마다 무작위 열쇠·Host 확인): 키 저장(끝 4자리만 보임), 검색어 저장(+GitHub), 영상·채널 추가(`targets.json`), [탐색] → 최근 업로드 순 목록·추천은 체크만(성공 사례·조회수 상위 20·추가한 것) → [승인]한 영상만 설명·자막·썸네일·댓글 전부 → 주별 분석 → 음성인식 → 다시 분석 → GitHub. 진행 로그·멈춤, 오늘 할당량·자막 서버 상태 |
+| `tools/weekly_analysis.py` v1.0 (새로) | `build_report`, `window_metrics`, `write_report` | **최근 1주·2주·3주… 한 주씩 넓힌 창**마다 영상·채널·이번 주 새 영상·조회수/하루 조회수/배수 중앙값·성공 사례·길이·제목 특징·낱말·자막 첫 20초·말 속도·댓글 니즈·인기 댓글·상위 영상 → `weekly.md`·`.json`·`.csv` |
+| `tools/pc_analysis.py` v1.8 | `SYNC_CODE` | 웹 화면 파일도 회차마다 GitHub 최신으로 |
+| `run_analyzer.ps1` · `.sh` v3.0 | 실행 | **기본 = 웹 화면**, 예전 자동 실행은 `-Auto`/`--auto` (`-Once`·작업 스케줄러는 자동 실행), 코드 목록에 웹 화면 두 파일 |
+| 문서 | `guides/pc_analysis.md` v1.9 '웹 화면'·문제 해결 · `pipeline.md` v1.17 · `guides/README.md` v1.17 · `CLAUDE.md` · `README.md` · `economic/README.md` | |
+
+### 결과 (검사)
+- 웹 화면 끝까지 시험 (진짜 web_ui.py + 가짜 YouTube API, Chromium) **19개 통과**: 키 끝 4자리만·검색어 저장·채널(@이름)·영상 주소 추가·주소 아니면 알림·예상 할당량·탐색 151개·**최근 업로드 순**·**추천은 체크만(승인 전 자료 폴더 없음)**·체크 고친 대로 **체크한 것만 받음**·주별 분석 최근 1~5주·자막 서버 쉼 표시·토큰 저장·화면 오류 없음·폰 너비 넘침 없음
+- 시험 중 고친 것: 빨리 끝난 작업은 목록이 새로 고쳐지지 않던 것, 짧은 영상 거르기가 직접 추가한 영상까지 숨기던 것, 아이콘 요청 403, 폰 너비에서 표가 화면을 넓히던 것
+- ⚠️ 시험 사고: 첫 시험이 클라우드 환경 변수 GITHUB_TOKEN 으로 가짜 주별 분석 3개(weekly.md·json·csv, 더하기만)를 실제 저장소에 올림(e591d47) → 바로 되돌림(a31e765). 다른 결과는 바뀌지 않음. 이후 시험은 토큰 환경 변수를 지우고 가짜 저장소 이름으로 — 다시 돌려 GitHub 에 아무것도 안 올라간 것 확인
+- 성공 사례 21 · 키 5 · 음성인식 대기열 7 · 태그 10 · 자막 차단 5(연속 2번 → 쉼·쉬는 동안 요청 없음·표 표시·다시 받으면 0·요청 사이 쉼) · 주별 분석 10 통과, `pc_analysis.py --self-test` ALL PASS, 분석기 자가진단 30/30, Python 3.11 문법 검사
+- `run_analyzer.sh` (로컬 서버): 기본 실행이 웹 화면을 띄움(HTTP 200), 웹 화면 두 파일을 받음. `run_analyzer.ps1` 은 PowerShell 이 없어 실행 시험 못 함 (같은 분기)
+- 실제 YouTube(429)는 클라우드에서 막혀 재현 못 함 — 로그로 원인을 확인하고, 차단·쉬기·음성인식 경로를 흉내 낸 시험으로 확인
+
 ## 2026-10-13 (9) — 검색어는 keywords.txt 에 한 줄에 하나 · GitHub 에서 고치면 PC 가 회차마다 받음
 
 ### 왜 (사용자 지시)

@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.7 — 2026-10-13 — 내가 고친 검색어가 바로 쓰이게 (사용자 지시: "내가 검색어 변경했는데 안되네 해결해봐" · "걍 검색어 내가
+# VERSION: v1.8 — 2026-10-14 — 웹 화면(tools/web_ui.py·tools/weekly_analysis.py)도 회차마다 GitHub 최신으로 받는 코드 목록에 (SYNC_CODE).
+#          자동 실행은 이제 run_analyzer.ps1 -Auto (기본은 웹 화면). 자막 서버 차단(IpBlocked)은 '네트워크 때문에 못 받은 자막'으로
+#          세지 않음 — tools/outlier_research.py v1.9 가 음성인식으로 보냄 (예전: 그 때문에 끝나지 않고 매일 같은 자막을 다시 요청)
+# (v1.7 — 2026-10-13 — 내가 고친 검색어가 바로 쓰이게 (사용자 지시: "내가 검색어 변경했는데 안되네 해결해봐" · "걍 검색어 내가
 #          수정해도 돌아가게 하면 안돼? 꼭 그룹을 지정해야하나 검색어만 넣어도 되잖아"):
 #          ① 회차마다 GitHub 에서 설정·검색어를 받음 (sync_from_github): <주제>/keywords.txt·keywords.toml·analyzer_config.toml·
 #             tag_rules.toml — PC 파일이 지난번에 받은 그대로면 GitHub 새 판으로 바꿈(.bak), PC 에서 고쳤고 GitHub 은 그대로면 PC 것을 지킴.
@@ -8,7 +11,7 @@
 #             예전: 실행기가 '없을 때만'(v2.2)·'VERSION 이 높을 때만'(v2.3) 받고, 며칠 도는 동안 다시 보지 않아 GitHub 수정이 안 왔음
 #          ② 검색어 목록 keywords.txt (한 줄에 하나, 그룹 없음) — 할당량 계산·지문도 이것으로
 #          ③ 검색어가 바뀌면 분석기를 다시 돌림 (예전: 분석기가 끝나면 7일 동안 건너뜀 → 새 검색어가 분석기에 안 쓰임)
-#          ④ --tag-keywords 기본 0 — 내가 적은 검색어만 검색 (지운 검색어가 '잘된 영상 태그'로 되살아나지 않게)
+#          ④ --tag-keywords 기본 0 — 내가 적은 검색어만 검색 (지운 검색어가 '잘된 영상 태그'로 되살아나지 않게))
 # (v1.6 — 2026-10-13 — pip 이 없는 가상환경 고침 (사용자 PC 오류: ".venv\Scripts\python.exe: No module named pip" → 패키지 설치 실패):
 #          ensure_pip() — pip 이 없으면 ① python -m ensurepip --upgrade --default-pip ② 안 되면 공식 get-pip.py(bootstrap.pypa.io)
 #          로 설치한 뒤 패키지를 설치. 가상환경을 만들다 끊기면(첫 실행 중단 등) python.exe 만 있고 pip 이 없는 .venv 가 남는다)
@@ -89,7 +92,7 @@ from datetime import date, datetime, time as dtime, timedelta, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v1.7"
+VERSION = "v1.8"
 LOG = logging.getLogger("pc_analysis")
 KST = timezone(timedelta(hours=9))
 LOCK_STALE_MIN = 30          # 잠금 파일이 이 시간 넘게 갱신되지 않으면 이전 실행이 죽은 것으로 봄
@@ -515,7 +518,7 @@ def analyzer_summary(run_info_p, started_utc):
 # ---------------------------------------------------------------- GitHub 에서 고친 설정·검색어를 PC 로 (v1.7)
 SYNC_CONFIG = ("keywords.txt", "keywords.toml", "analyzer_config.toml", "tag_rules.toml")   # <주제>/ 아래 — PC 에서 고친 것은 지킴
 SYNC_CODE = ("youtube_topic_analyzer.py", "tools/outlier_research.py", "tools/outlier_stats.py", "tools/tag_keywords.py",
-             "tools/pc_analysis.py", "run_analyzer.ps1", "run_analyzer.sh")                # 언제나 GitHub 최신
+             "tools/pc_analysis.py", "tools/web_ui.py", "tools/weekly_analysis.py", "run_analyzer.ps1", "run_analyzer.sh")   # 언제나 GitHub 최신
 
 
 def repo_of(folder):

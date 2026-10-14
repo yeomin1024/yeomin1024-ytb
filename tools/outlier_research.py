@@ -1,9 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.8 — 2026-10-13 — 검색어는 그룹 없이 한 줄에 하나씩 (사용자 지시: "걍 검색어 내가 수정해도 돌아가게 하면 안돼? 꼭 그룹을
+# VERSION: v1.9 — 2026-10-14 — 자막이 계속 막히던 것 고침 (사용자 지시: "왜 자꾸 자막 다운로드 막히는지 에러 찾아서 수정해"):
+#          원인(PC 로그): YouTube 자막 서버가 PC 의 IP 에 HTTP 429(Too Many Requests)로 답함 → youtube-transcript-api 'IpBlocked'
+#          35개 중 26개, 분석기 yt-dlp 자막도 8/8 이 429. 그런데 소리 받기는 됨(음성인식 17/17 성공). 예전 코드는 IpBlocked 를
+#          '네트워크 실패 — 다음 회차에 다시'로 보고 음성인식에서 빼서, 매 회차 같은 자막을 또 요청 → 차단이 이어지고 대본은 영영 없음.
+#          ① 자막 서버 차단(IpBlocked·RequestBlocked·429)은 음성인식 대기열로 (is_caption_block) — 연결 자체 실패만 다음 회차에 다시
+#          ② 차단 쉬기: 연속 2번 막히면 6시간 동안 모든 도구(분석기·웹 화면 포함)가 자막 요청을 쉼 (.yt_work/caption_block.json)
+#          ③ 자막 요청 사이 1.5~3초 쉼 (짧은 시간에 몰아서 요청하지 않게)
+#          ④ 웹 화면(tools/web_ui.py)용: fetch_video_infos·fetch_channel_subs(영상·구독자 정보 따로), channel_uploads(채널의 모든 영상)
+# (v1.8 — 2026-10-13 — 검색어는 그룹 없이 한 줄에 하나씩 (사용자 지시: "걍 검색어 내가 수정해도 돌아가게 하면 안돼? 꼭 그룹을
 #          지정해야하나 검색어만 넣어도 되잖아"): <주제>/keywords.txt 가 있으면 그것이 검색어 목록 (read_keyword_list — 분석기 v2.8.0 과
 #          같은 규칙), 없으면 keywords.toml 의 KEYWORD_GROUPS. EXTRA_KEYWORDS 도 검색. 잘된 영상 태그 검색어(--tag-keywords)는 기본 0 —
-#          내가 적은 검색어만 검색 (지운 검색어가 태그로 되살아나지 않게)
+#          내가 적은 검색어만 검색 (지운 검색어가 태그로 되살아나지 않게))
 # (v1.7 — 2026-10-13 — 검색어 전부·업로드 날짜 (사용자 지시: "그냥 검색어를 재테크 관련 태그로 찾아서 다 그걸로 탐색해봐
 #          그리고 탐색 목록에 업로드 날짜도 같이 표시해"):
 #          ① --per-group 0(기본) = 검색어 그룹의 검색어 전부 (keywords.toml 은 tools/tag_keywords.py 가 실제 영상 태그로 채움).
@@ -110,7 +118,7 @@ except ModuleNotFoundError:             # Python 3.10 → tomli (분석기가 �
     import tomli as tomllib
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v1.8"
+VERSION = "v1.9"
 LOG = logging.getLogger("outlier")
 HANGUL = re.compile(r"[가-힣]")
 SEARCH_TTL_HOURS = 168
@@ -118,7 +126,11 @@ VIDEO_TTL_HOURS = 24          # 영상 조회수: 하루 지나면 다시 (video
 CHANNEL_TTL_HOURS = 168       # 구독자 수: 7일
 SEARCH_RESERVE = 150          # 검색이 한도를 다 쓰지 않게 남기는 단위 (영상 정보·구독자·댓글용)
 OUTLINE_EVERY_SEC = 90
-NETWORK_ERRORS = ("RequestBlocked", "IpBlocked", "ProxyError", "ConnectionError", "Timeout", "TooManyRequests", "URLError")
+NETWORK_ERRORS = ("ProxyError", "ConnectionError", "Timeout", "URLError")       # 연결 자체가 안 됨 → 다음 회차에 다시 (v1.9)
+CAPTION_BLOCK_ERRORS = ("RequestBlocked", "IpBlocked", "TooManyRequests", "429")   # YouTube 자막 서버가 거부 → 음성인식으로 (v1.9)
+CAPTION_BLOCK_AFTER = 2       # 자막 요청이 연속 이만큼 막히면
+CAPTION_COOLDOWN_H = 6        # 이 시간 동안 모든 도구가 자막 요청을 쉼 (.yt_work/caption_block.json — 분석기·웹 화면도 봄)
+CAPTION_PACE_SEC = (1.5, 3.0)  # 자막 요청 사이 쉬는 시간 (초, 무작위)
 
 
 def log(stage, level=logging.INFO, **kv):
@@ -195,7 +207,7 @@ def load_keywords(topic, per_group):
 
 
 API = "https://www.googleapis.com/youtube/v3/"
-COST = {"search": 100, "videos": 1, "channels": 1, "commentThreads": 1, "comments": 1}
+COST = {"search": 100, "videos": 1, "channels": 1, "commentThreads": 1, "comments": 1, "playlistItems": 1}
 
 
 class QuotaStop(Exception):
@@ -266,8 +278,69 @@ def iso_seconds(iso):
     return d * 86400 + h * 3600 + mi * 60 + se
 
 
+_CAPTION = {"last": 0.0}
+
+
+def caption_block_path():
+    return ROOT / ".yt_work" / "caption_block.json"
+
+
+def caption_blocked(now=None):
+    """자막 요청을 쉬는 중이면 끝나는 시각(UTC), 아니면 None (v1.9 — 분석기 v2.9.0·웹 화면과 같은 파일)."""
+    try:
+        until = datetime.fromisoformat(json.loads(caption_block_path().read_text("utf-8")).get("until") or "")
+    except (OSError, ValueError, TypeError):
+        return None
+    return until if until > (now or datetime.now(timezone.utc)) else None
+
+
+def note_caption_result(blocked, why="", now=None):
+    """자막 요청 결과 기록: 막힘이 CAPTION_BLOCK_AFTER 번 이어지면 CAPTION_COOLDOWN_H 시간 쉼. 막히지 않으면 이어진 횟수를 0 으로."""
+    p = caption_block_path()
+    try:
+        d = json.loads(p.read_text("utf-8"))
+    except (OSError, ValueError):
+        d = {}
+    now = now or datetime.now(timezone.utc)
+    if blocked:
+        d["streak"] = int(d.get("streak") or 0) + 1
+        d["last_error"] = str(why)[:160]
+        d["last_at"] = now.isoformat(timespec="seconds")
+        if d["streak"] >= CAPTION_BLOCK_AFTER and not caption_blocked(now):
+            d["until"] = (now + timedelta(hours=CAPTION_COOLDOWN_H)).isoformat(timespec="seconds")
+            d["blocks"] = int(d.get("blocks") or 0) + 1
+            log("TRANSCRIPT", logging.WARNING, note=f"YouTube 자막 서버가 연속 {d['streak']}번 막음(429) → {CAPTION_COOLDOWN_H}시간 동안 자막 요청을 쉼 "
+                "(대본은 음성인식으로)", until=d["until"], error=str(why)[:100])
+    elif d.get("streak"):
+        d["streak"] = 0
+    else:
+        return
+    p.parent.mkdir(parents=True, exist_ok=True)
+    p.write_text(json.dumps(d, ensure_ascii=False, indent=1), "utf-8")
+
+
+def is_caption_block(status):
+    """YouTube 자막 서버가 거부했나 (IpBlocked·RequestBlocked·429). 소리는 받히므로 음성인식 대기열로 보냄 (v1.9)."""
+    return any(w in str(status) for w in CAPTION_BLOCK_ERRORS)
+
+
 def transcript(vid):
-    """→ (조각 목록 [{text,start,duration}], 언어, 상태). 한국어 자막 → 자동 생성 한국어."""
+    """→ (조각 목록 [{text,start,duration}], 언어, 상태). 한국어 자막 → 자동 생성 한국어.
+    v1.9: 자막 요청을 쉬는 중이면 요청하지 않음, 요청 사이 1.5~3초 쉼, 막힘·성공을 기록 (연속 2번 막히면 6시간 쉼)."""
+    until = caption_blocked()
+    if until:
+        return [], "-", f"IpBlocked: 자막 서버 차단으로 {until.astimezone().strftime('%m-%d %H:%M')}까지 자막 요청을 쉼 → 음성인식"
+    import random
+    wait = _CAPTION["last"] + random.uniform(*CAPTION_PACE_SEC) - time.time()
+    if wait > 0:
+        time.sleep(wait)
+    try:
+        return _transcript_fetch(vid)
+    finally:
+        _CAPTION["last"] = time.time()
+
+
+def _transcript_fetch(vid):
     try:
         from youtube_transcript_api import YouTubeTranscriptApi
         api = YouTubeTranscriptApi()
@@ -280,15 +353,23 @@ def transcript(vid):
             except Exception:
                 continue
         if tr is None:
+            note_caption_result(False)
             return [], "-", "한국어 자막 없음"
         snips = [{"text": s.text, "start": s.start, "duration": s.duration} for s in tr.fetch()]
+        note_caption_result(False)
         return snips, tr.language_code + ("(자동)" if tr.is_generated else ""), "ok"
     except Exception as e:
-        return [], "-", f"{type(e).__name__}: {str(e)[:120]}"
+        st = f"{type(e).__name__}: {str(e)[:120]}"
+        if is_caption_block(st):
+            note_caption_result(True, st)
+        elif not is_network_failure(st):
+            note_caption_result(False)          # 자막 꺼짐·없음 등 = 서버는 답함
+        return [], "-", st
 
 
 def is_network_failure(status):
-    """자막 실패가 네트워크·차단 때문인가 (다른 곳·다른 날 다시 하면 받을 수 있음) — '한국어 자막 없음'은 아님."""
+    """자막 실패가 연결 실패 때문인가 (다른 곳·다른 날 다시 하면 받을 수 있음) — '한국어 자막 없음'은 아님.
+    v1.9: YouTube 자막 서버 차단(IpBlocked 등)은 여기 아님 → is_caption_block (음성인식으로)."""
     return any(w in str(status) for w in NETWORK_ERRORS)
 
 
@@ -476,10 +557,25 @@ def write_comments_csv(path, cms):
                         "published": c.get("published"), "text": c.get("text")})
 
 
+def search_cache_file(cache_dir, q, dur, fallback_days):
+    """검색 캐시 파일 경로 (검색어·길이·기간이 같으면 같은 파일)."""
+    key = hashlib.sha1(f"{q}|{dur}|{fallback_days}|viewCount|KR|ko".encode("utf-8")).hexdigest()[:16]
+    return cache_dir / f"search_{key}.json"
+
+
+def search_is_cached(cache_dir, q, dur, fallback_days, ttl_h=SEARCH_TTL_HOURS):
+    """이 검색을 지금 하면 캐시(할당량 0)인가 — 웹 화면의 예상 할당량 계산용 (v1.9)."""
+    f = search_cache_file(cache_dir, q, dur, fallback_days)
+    try:
+        d = json.loads(f.read_text("utf-8"))
+        return (datetime.now(timezone.utc) - datetime.fromisoformat(d["fetched"])).total_seconds() / 3600 <= ttl_h
+    except (OSError, ValueError, KeyError):
+        return False
+
+
 def cached_search(api, cache_dir, q, since, dur, fallback_days, ttl_h, refresh):
     """검색 캐시: (검색어, 길이, 기간) 이 같고 ttl_h 안이면 할당량 0. → (영상 ID 목록, 캐시 여부). 할당량이 없으면 QuotaStop."""
-    key = hashlib.sha1(f"{q}|{dur}|{fallback_days}|viewCount|KR|ko".encode("utf-8")).hexdigest()[:16]
-    f = cache_dir / f"search_{key}.json"
+    f = search_cache_file(cache_dir, q, dur, fallback_days)
     if f.is_file() and not refresh:
         try:
             d = json.loads(f.read_text("utf-8"))
@@ -492,6 +588,142 @@ def cached_search(api, cache_dir, q, since, dur, fallback_days, ttl_h, refresh):
     f.write_text(json.dumps({"q": q, "dur": dur, "fallback_days": fallback_days, "fetched": datetime.now(timezone.utc).isoformat(),
                              "ids": ids}, ensure_ascii=False), "utf-8")
     return ids, False
+
+
+def _fresh(path, ttl_h, refresh=False):
+    """캐시 파일이 ttl_h 시간 안에 받은 것인가 (조회수·구독자 수는 바뀌므로 오래된 것은 다시 — 50개에 1단위)."""
+    if refresh or not path.is_file():
+        return False
+    try:
+        t = datetime.fromisoformat(json.loads(path.read_text("utf-8")).get("fetched", "2000-01-01T00:00:00+00:00"))
+    except (ValueError, AttributeError):
+        return False
+    return (datetime.now(timezone.utc) - t).total_seconds() / 3600 <= ttl_h
+
+
+def _info_from_item(it):
+    sn, cd, st = it["snippet"], it["contentDetails"], it.get("statistics", {})
+    return {"id": it["id"], "title": sn.get("title"), "channel": sn.get("channelTitle"), "channel_id": sn.get("channelId"),
+            "published": sn.get("publishedAt"), "description": sn.get("description"), "tags": sn.get("tags"),
+            "duration": iso_seconds(cd.get("duration")), "live": sn.get("liveBroadcastContent") != "none",
+            "view_count": int(st.get("viewCount", 0)), "like_count": int(st.get("likeCount", 0) or 0),
+            "comment_count": int(st.get("commentCount", 0) or 0), "fetched": datetime.now(timezone.utc).isoformat()}
+
+
+def fetch_video_infos(api, cache_dir, ids, state, refresh=False):
+    """영상 정보 (캐시 .cache/<id>.json, 24시간). 할당량이 끝나면 있던 캐시로 계속하고 state 에 남김. → [info] (ids 순서, 받은 것만).
+    v1.9: collect_api 에서 떼어 냄 — 웹 화면(tools/web_ui.py)이 채널·주소로 더한 영상에도 씀."""
+    ids = list(dict.fromkeys(ids))
+    need = [v for v in ids if not _fresh(cache_dir / f"{v}.json", VIDEO_TTL_HOURS, refresh)]
+    missing = sum(1 for v in need if not (cache_dir / f"{v}.json").is_file())
+    log("VIDEO", found=len(ids), refresh=len(need), new=missing, ttl_h=VIDEO_TTL_HOURS)
+    for i in range(0, len(need), 50):
+        chunk = need[i:i + 50]
+        try:
+            items = api.videos(chunk)
+        except QuotaStop as e:
+            state["quota_stop"] = state["quota_stop"] or e.kind
+            left = need[i:]
+            state["pending_videos"] += sum(1 for v in left if not (cache_dir / f"{v}.json").is_file())   # 없는 것만 '못 함'
+            state["stale_videos"] += sum(1 for v in left if (cache_dir / f"{v}.json").is_file())        # 예전 숫자로 계속
+            log("VIDEO", logging.WARNING, note="할당량이 끝나 영상 정보 못 받음 — 다음 실행에 이어서 (있던 캐시는 예전 숫자로 씀)",
+                pending=state["pending_videos"], stale=state["stale_videos"])
+            break
+        for it in items:
+            (cache_dir / f"{it['id']}.json").write_text(json.dumps(_info_from_item(it), ensure_ascii=False), "utf-8")
+    return [json.loads((cache_dir / f"{v}.json").read_text("utf-8")) for v in ids if (cache_dir / f"{v}.json").is_file()]
+
+
+def fetch_channel_subs(api, cache_dir, channel_ids, state, refresh=False):
+    """채널 구독자 수 (캐시 .cache/channels.json, 7일). → {채널ID: {"subs": n|None, "fetched": 시각}} (v1.9: collect_api 에서 떼어 냄)."""
+    subs_cache_p = cache_dir / "channels.json"     # {채널ID: {"subs": n|null, "fetched": 시각}}
+    subs_cache = json.loads(subs_cache_p.read_text("utf-8")) if subs_cache_p.is_file() and not refresh else {}
+    subs_cache = {k: v for k, v in subs_cache.items() if isinstance(v, dict)}       # v1.1 이전 형식(숫자만)은 다시 받음
+    now = datetime.now(timezone.utc)
+
+    def ch_fresh(cid):
+        v = subs_cache.get(cid)
+        try:
+            return bool(v) and (now - datetime.fromisoformat(v["fetched"])).total_seconds() / 3600 <= CHANNEL_TTL_HOURS
+        except (ValueError, KeyError, TypeError):
+            return False
+    ch_need = sorted(c for c in channel_ids if c and not ch_fresh(c))
+    for i in range(0, len(ch_need), 50):
+        try:
+            got = api.channels(ch_need[i:i + 50])
+        except QuotaStop as e:
+            state["quota_stop"] = state["quota_stop"] or e.kind
+            state["pending_channels"] += sum(1 for c in ch_need[i:] if c not in subs_cache)
+            log("VIDEO", logging.WARNING, note="할당량이 끝나 채널 구독자 수 못 받음 — 다음 실행에 이어서",
+                pending=state["pending_channels"])
+            break
+        stamp = datetime.now(timezone.utc).isoformat()
+        subs_cache.update({cid: {"subs": n, "fetched": stamp} for cid, n in got.items()})
+    subs_cache_p.write_text(json.dumps(subs_cache, ensure_ascii=False), "utf-8")
+    return subs_cache
+
+
+VIDEO_ID_RX = re.compile(r"(?:v=|youtu\.be/|/shorts/|/live/|/embed/)([0-9A-Za-z_-]{11})")
+CHANNEL_ID_RX = re.compile(r"(UC[0-9A-Za-z_-]{22})")
+
+
+def parse_target(text):
+    """사용자가 넣은 주소·이름 → ("video", 영상ID) / ("channel", "UC…") / ("handle", "@이름") / (None, 까닭).
+    영상: watch?v=… · youtu.be/… · shorts/… · 영상 ID 11자. 채널: /channel/UC… · UC… · /@이름 · @이름 (v1.9 — 웹 화면)."""
+    t = str(text or "").strip()
+    if not t:
+        return None, "빈 칸"
+    m = VIDEO_ID_RX.search(t)
+    if m:
+        return "video", m.group(1)
+    m = CHANNEL_ID_RX.search(t)
+    if m:
+        return "channel", m.group(1)
+    m = re.search(r"(?:youtube\.com/)?(@[^/?#\s]+)", t)
+    if m:
+        return "handle", urllib.parse.unquote(m.group(1))
+    if re.fullmatch(r"[0-9A-Za-z_-]{11}", t):
+        return "video", t
+    return None, "영상 주소(watch?v=…, youtu.be/…)나 채널 주소(/channel/UC…, /@이름)가 아님"
+
+
+def resolve_channel(api, kind, value):
+    """채널 ID 또는 @이름 → {"id","title","handle","uploads","subs","videos"} (channels.list 1단위). 없으면 None."""
+    params = {"part": "snippet,contentDetails,statistics"}
+    if kind == "handle":
+        params["forHandle"] = value
+    else:
+        params["id"] = value
+    items = api.get("channels", **params).get("items", [])
+    if not items:
+        return None
+    it = items[0]
+    st = it.get("statistics", {})
+    return {"id": it["id"], "title": it["snippet"].get("title"), "handle": it["snippet"].get("customUrl") or (value if kind == "handle" else ""),
+            "uploads": (it.get("contentDetails", {}).get("relatedPlaylists") or {}).get("uploads") or ("UU" + it["id"][2:]),
+            "subs": None if st.get("hiddenSubscriberCount") else int(st.get("subscriberCount", 0)), "videos": int(st.get("videoCount", 0) or 0)}
+
+
+def channel_uploads(api, cache_dir, ch, ttl_h=24, refresh=False, max_videos=0):
+    """채널에 올라온 영상 전부 (업로드 목록 playlistItems.list — 50개에 1단위, 최근 것부터). 캐시 .cache/uploads_<채널ID>.json (ttl_h).
+    max_videos > 0 이면 최근 그만큼만. → [영상ID] (v1.9 — 웹 화면: 채널을 더하면 그 채널 영상을 모두 탐색)"""
+    p = cache_dir / f"uploads_{ch['id']}.json"
+    if _fresh(p, ttl_h, refresh):
+        ids = json.loads(p.read_text("utf-8"))["ids"]
+        return ids[:max_videos] if max_videos else ids
+    ids, token = [], None
+    while True:
+        params = {"part": "contentDetails", "playlistId": ch["uploads"], "maxResults": 50}
+        if token:
+            params["pageToken"] = token
+        d = api.get("playlistItems", **params)
+        ids += [it["contentDetails"]["videoId"] for it in d.get("items", []) if it.get("contentDetails", {}).get("videoId")]
+        token = d.get("nextPageToken")
+        if not token or (max_videos and len(ids) >= max_videos):
+            break
+    p.write_text(json.dumps({"channel": ch["id"], "fetched": datetime.now(timezone.utc).isoformat(), "ids": ids}, ensure_ascii=False), "utf-8")
+    log("CHANNEL", channel=ch.get("title"), id=ch["id"], videos=len(ids), quota_used=api.used)
+    return ids[:max_videos] if max_videos else ids
 
 
 def collect_api(topic, a, api, kws, exclude, out, state):
@@ -516,64 +748,8 @@ def collect_api(topic, a, api, kws, exclude, out, state):
     if state["pending_searches"]:
         log("SEARCH", logging.WARNING, topic=topic, note="할당량이 끝나 못 한 검색 — status.json pending, 다음 실행에 이어서",
             pending=len(state["pending_searches"]), stop=state["quota_stop"])
-    def fresh(path, ttl_h):
-        """캐시 파일이 ttl_h 시간 안에 받은 것인가 (조회수·구독자 수는 바뀌므로 오래된 것은 다시 — 50개에 1단위)."""
-        if a.refresh or not path.is_file():
-            return False
-        try:
-            t = datetime.fromisoformat(json.loads(path.read_text("utf-8")).get("fetched", "2000-01-01T00:00:00+00:00"))
-        except (ValueError, AttributeError):
-            return False
-        return (datetime.now(timezone.utc) - t).total_seconds() / 3600 <= ttl_h
-
-    need = [v for v in found if not fresh(cache_dir / f"{v}.json", VIDEO_TTL_HOURS)]
-    missing = sum(1 for v in need if not (cache_dir / f"{v}.json").is_file())
-    log("VIDEO", topic=topic, found=len(found), refresh=len(need), new=missing, ttl_h=VIDEO_TTL_HOURS)
-    for i in range(0, len(need), 50):
-        chunk = need[i:i + 50]
-        try:
-            items = api.videos(chunk)
-        except QuotaStop as e:
-            state["quota_stop"] = state["quota_stop"] or e.kind
-            left = need[i:]
-            state["pending_videos"] += sum(1 for v in left if not (cache_dir / f"{v}.json").is_file())   # 없는 것만 '못 함'
-            state["stale_videos"] += sum(1 for v in left if (cache_dir / f"{v}.json").is_file())        # 예전 숫자로 계속
-            log("VIDEO", logging.WARNING, note="할당량이 끝나 영상 정보 못 받음 — 다음 실행에 이어서 (있던 캐시는 예전 숫자로 씀)",
-                pending=state["pending_videos"], stale=state["stale_videos"])
-            break
-        for it in items:
-            sn, cd, st = it["snippet"], it["contentDetails"], it.get("statistics", {})
-            info = {"id": it["id"], "title": sn.get("title"), "channel": sn.get("channelTitle"), "channel_id": sn.get("channelId"),
-                    "published": sn.get("publishedAt"), "description": sn.get("description"), "tags": sn.get("tags"),
-                    "duration": iso_seconds(cd.get("duration")), "live": sn.get("liveBroadcastContent") != "none",
-                    "view_count": int(st.get("viewCount", 0)), "like_count": int(st.get("likeCount", 0) or 0),
-                    "comment_count": int(st.get("commentCount", 0) or 0), "fetched": datetime.now(timezone.utc).isoformat()}
-            (cache_dir / f"{it['id']}.json").write_text(json.dumps(info, ensure_ascii=False), "utf-8")
-    infos = [json.loads((cache_dir / f"{v}.json").read_text("utf-8")) for v in found if (cache_dir / f"{v}.json").is_file()]
-    subs_cache_p = cache_dir / "channels.json"     # {채널ID: {"subs": n|null, "fetched": 시각}}
-    subs_cache = json.loads(subs_cache_p.read_text("utf-8")) if subs_cache_p.is_file() and not a.refresh else {}
-    subs_cache = {k: v for k, v in subs_cache.items() if isinstance(v, dict)}       # v1.1 이전 형식(숫자만)은 다시 받음
-    now = datetime.now(timezone.utc)
-
-    def ch_fresh(cid):
-        v = subs_cache.get(cid)
-        try:
-            return bool(v) and (now - datetime.fromisoformat(v["fetched"])).total_seconds() / 3600 <= CHANNEL_TTL_HOURS
-        except (ValueError, KeyError, TypeError):
-            return False
-    ch_need = sorted({i["channel_id"] for i in infos if not ch_fresh(i["channel_id"])})
-    for i in range(0, len(ch_need), 50):
-        try:
-            got = api.channels(ch_need[i:i + 50])
-        except QuotaStop as e:
-            state["quota_stop"] = state["quota_stop"] or e.kind
-            state["pending_channels"] += sum(1 for c in ch_need[i:] if c not in subs_cache)
-            log("VIDEO", logging.WARNING, note="할당량이 끝나 채널 구독자 수 못 받음 — 다음 실행에 이어서",
-                pending=state["pending_channels"])
-            break
-        stamp = datetime.now(timezone.utc).isoformat()
-        subs_cache.update({cid: {"subs": n, "fetched": stamp} for cid, n in got.items()})
-    subs_cache_p.write_text(json.dumps(subs_cache, ensure_ascii=False), "utf-8")
+    infos = fetch_video_infos(api, cache_dir, list(found), state, a.refresh)
+    subs_cache = fetch_channel_subs(api, cache_dir, {i["channel_id"] for i in infos}, state, a.refresh)
     rows = []
     for i in infos:
         if any(w in (i["title"] or "") for w in exclude):
@@ -938,8 +1114,10 @@ def _transcript_cell(meta, whisper):
     if st.startswith("확인 안 함"):
         return "… 아직 확인 안 함 (다음 실행)"
     if is_network_failure(st):
-        return "🔁 막힘 — 다음 회차에 다시"
+        return "🔁 연결 안 됨 — 다음 회차에 다시"
     w = whisper.get(meta.get("id")) or {}
+    if is_caption_block(st) and not (w.get("attempts", 0) >= 3 and not w.get("done")):
+        return "⏳ 음성인식 대기" + (f" (시도 {w['attempts']}번)" if w.get("attempts") else "") + " — 자막 서버가 막음(429)"
     if w.get("attempts", 0) >= 3 and not w.get("done"):
         return f"❌ 음성인식 실패 ({short(w.get('error'), 40)})"
     return "⏳ 음성인식 대기" + (f" (시도 {w['attempts']}번)" if w.get("attempts") else "") + f" — {short(st, 20) or '자막 없음'}"
@@ -1016,7 +1194,7 @@ def write_downloads(out, topic, name, a, rows, q, deep, pop_deep, state):
          f"| 자막 | ✅ {ok_tr} · ⏳ 음성인식 대기 {wait_tr} · 그 밖 {len(cases) - ok_tr - wait_tr} |",
          f"| 댓글 다 받음 | {ok_cm} / {len(cases)} (전부 {state['comments_total']:,}개) |",
          f"| 썸네일 | {sum(1 for c in cases if c['thumbnail'] == '✅')} / {len(cases)} |", "",
-         "표시: ✅ 받음 · ⏳ 진행 중(다음 실행·음성인식 대기열이 이어서) · 🔁 YouTube 가 잠시 막음(다음 회차에 다시) · ❌ 실패 · – 해당 없음", "",
+         "표시: ✅ 받음 · ⏳ 진행 중(다음 실행·음성인식 대기열이 이어서 — 자막 서버가 막은 영상도 음성인식으로) · 🔁 연결 안 됨(다음 회차에 다시) · ❌ 실패 · – 해당 없음", "",
          "## 자료로 받은 영상", "",
          "| 묶음 | # | 제목 | 채널 | 구독자 | 조회수 | 업로드 | 자막 | 댓글 (받음/영상 표시) | 썸네일 | 설명 | 태그 | 챕터 | 폴더 |",
          "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|"]

@@ -1,9 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v2.8.0 — 2026-10-13 — 검색어는 그룹 없이 한 줄에 하나씩 (사용자 지시: "걍 검색어 내가 수정해도 돌아가게 하면 안돼? 꼭 그룹을
+# VERSION: v2.9.0 — 2026-10-14 — 자막이 계속 막히던 것 고침 + 웹 화면 사례 (사용자 지시: "왜 자꾸 자막 다운로드 막히는지 에러 찾아서 수정해",
+#          "분석기 웹 ui 형식으로 만들어"): 원인(PC 로그) = YouTube 자막 서버가 HTTP 429 — yt-dlp 자막 8/8, youtube-transcript-api
+#          IpBlocked 26/35. 소리 받기는 됨(음성인식 17/17). ① 자막 429 는 같은 클라이언트로 3번 다시 하지 않음(CaptionBlockedError —
+#          영상마다 약 35초 낭비·차단 연장이던 것) ② 연속 2번 막히면 6시간 동안 자막 요청을 쉬고 바로 음성인식 대기열로
+#          (.yt_work/caption_block.json — 성공 사례 v1.9·웹 화면과 같은 파일) ③ 음성인식 대기열이 자막 서버 차단(IpBlocked 등) 영상도
+#          받음 (예전: '네트워크 실패'로 빼서 대본이 영영 없었음 — 연결 자체 실패만 뺌) ④ 웹 화면에서 승인한 영상(W_<영상ID> 폴더)도 대기열에
+# (v2.8.0 — 2026-10-13 — 검색어는 그룹 없이 한 줄에 하나씩 (사용자 지시: "걍 검색어 내가 수정해도 돌아가게 하면 안돼? 꼭 그룹을
 #          지정해야하나 검색어만 넣어도 되잖아"): 설정 파일과 같은 폴더의 keywords.txt (한 줄에 검색어 하나, # 으로 시작하는 줄·빈 줄은
 #          무시, 같은 검색어는 한 번)가 있으면 그것이 검색어 목록 — keywords.toml 의 KEYWORD_GROUPS 대신 (read_keyword_list).
-#          관련어(RELEVANCE_*)·제외어는 keywords.toml 그대로
+#          관련어(RELEVANCE_*)·제외어는 keywords.toml 그대로)
 # (v2.7.1 — 2026-10-13 — pip 이 없는 가상환경 고침 (사용자 PC 오류: ".venv\Scripts\python.exe: No module named pip"):
 #          _ensure_pip() — 패키지를 설치하기 전에 pip 이 없으면 python -m ensurepip --upgrade --default-pip, 안 되면 공식
 #          get-pip.py(bootstrap.pypa.io). 가상환경을 만들다 끊기면 python.exe 만 있고 pip 이 없는 .venv 가 남는다)
@@ -329,7 +335,7 @@ import numpy as np
 import pandas as pd
 import requests
 
-NOTEBOOK_VERSION = "v2.8.0"
+NOTEBOOK_VERSION = "v2.9.0"
 KST = dt.timezone(dt.timedelta(hours=9))
 UTC = dt.timezone.utc
 IS_WINDOWS = os.name == "nt"
@@ -2734,6 +2740,51 @@ class BotCheckError(RuntimeError):
     """YouTube 'Sign in to confirm you're not a bot' — IP 평판(데이터센터·VPN·과도한 요청) 기반 차단."""
 
 
+class CaptionBlockedError(RuntimeError):
+    """YouTube 자막 서버가 HTTP 429 (v2.9.0) — 같은 클라이언트로 다시 해도 소용없으므로 run_ytdlp 가 재시도하지 않음 → 음성인식."""
+
+
+CAPTION_BLOCK_WORDS = ("RequestBlocked", "IpBlocked", "TooManyRequests", "429", "CaptionBlocked")
+CAPTION_BLOCK_AFTER = 2       # 자막 요청이 연속 이만큼 막히면
+CAPTION_COOLDOWN_H = 6        # 이 시간 동안 자막 요청을 쉼 (tools/outlier_research.py v1.9·tools/web_ui.py 와 같은 파일)
+
+
+def caption_block_path():
+    return BASE_DIR / ".yt_work" / "caption_block.json"
+
+
+def caption_blocked(now=None):
+    """자막 요청을 쉬는 중이면 끝나는 시각(UTC), 아니면 None."""
+    try:
+        until = dt.datetime.fromisoformat(json.loads(caption_block_path().read_text("utf-8")).get("until") or "")
+    except (OSError, ValueError, TypeError):
+        return None
+    return until if until > (now or dt.datetime.now(UTC)) else None
+
+
+def note_caption_result(blocked, why=""):
+    """자막 요청 결과 기록 — 막힘이 CAPTION_BLOCK_AFTER 번 이어지면 CAPTION_COOLDOWN_H 시간 쉼, 받으면 이어진 횟수 0."""
+    p = caption_block_path()
+    try:
+        d = json.loads(p.read_text("utf-8"))
+    except (OSError, ValueError):
+        d = {}
+    now = dt.datetime.now(UTC)
+    if blocked:
+        d.update(streak=int(d.get("streak") or 0) + 1, last_error=str(why)[:160], last_at=now.isoformat(timespec="seconds"))
+        if d["streak"] >= CAPTION_BLOCK_AFTER and not caption_blocked(now):
+            d["until"] = (now + dt.timedelta(hours=CAPTION_COOLDOWN_H)).isoformat(timespec="seconds")
+            d["blocks"] = int(d.get("blocks") or 0) + 1
+            log("SUCCESS", f"YouTube 자막 서버가 연속 {d['streak']}번 막음(429) → {CAPTION_COOLDOWN_H}시간 동안 자막 요청을 쉬고 음성인식으로",
+                level="WARNING", until=d["until"])
+    elif d.get("streak"):
+        d["streak"] = 0
+    else:
+        return
+    p.parent.mkdir(parents=True, exist_ok=True)
+    p.write_text(json.dumps(d, ensure_ascii=False, indent=1), "utf-8")
+
+
 class _YtdlpLogger:
     def __init__(self):
         self.errors = []
@@ -2824,7 +2875,7 @@ def run_ytdlp(cfg, extra_opts, fn, video_id):
                 break
             except Exception as e:
                 err = e
-                if BOT_CHECK_RX.search(str(e)) or not TRANSIENT_RX.search(str(e)):
+                if isinstance(e, CaptionBlockedError) or BOT_CHECK_RX.search(str(e)) or not TRANSIENT_RX.search(str(e)):
                     break
         if err is not None:
             if BOT_CHECK_RX.search(str(err)):
@@ -3035,6 +3086,8 @@ def transcript_via_ytdlp(video_id, langs, tmp_dir, cfg):
             try:
                 return ydl.urlopen(vtt["url"]).read().decode("utf-8", "replace"), lang, auto
             except Exception as e:
+                if "429" in str(e):                    # v2.9.0: 자막 서버 차단 — 다시 해도 소용없음 → 음성인식
+                    raise CaptionBlockedError(f"자막 다운로드 실패 lang={lang}: HTTP 429 (자막 서버 차단)")
                 if attempt == 2:
                     raise RuntimeError(f"자막 다운로드 실패 lang={lang}: {type(e).__name__}: {str(e)[:120]}")
                 time.sleep(5)
@@ -3178,13 +3231,21 @@ def process_success_case(ctx, row, idx, comments):
     langs = [cfg["LANGUAGE"], "ko", "en"]
     langs = list(dict.fromkeys(l for l in langs if l))
     segs, meta, errors = None, None, {}
-    for name, fn in (("api", lambda: transcript_via_api(vid, langs)),
-                     ("ytdlp", lambda: transcript_via_ytdlp(vid, langs, tmp, cfg))):
+    paused = caption_blocked()
+    if paused:                                       # v2.9.0: 자막 서버 차단으로 쉬는 중 → 자막 요청 없이 음성인식으로
+        errors["captions"] = f"자막 서버 차단으로 {paused.isoformat(timespec='minutes')}(UTC)까지 자막 요청을 쉼"
+    for name, fn in (() if paused else (("api", lambda: transcript_via_api(vid, langs)),
+                                        ("ytdlp", lambda: transcript_via_ytdlp(vid, langs, tmp, cfg)))):
         try:
             segs, meta = fn()
+            note_caption_result(False)
             break
         except Exception as e:
             errors[name] = f"{type(e).__name__}: {str(e)[:150]}"
+            if any(w in errors[name] for w in CAPTION_BLOCK_WORDS):
+                note_caption_result(True, errors[name])
+                if caption_blocked():                # 방금 쉬기 시작 → 이 영상의 다음 방법(yt-dlp 자막)도 하지 않음
+                    break
     if segs is None and cfg["USE_WHISPER_FALLBACK"] and cfg.get("DEFER_WHISPER"):
         status["transcript"] = "whisper_pending"      # 결과를 먼저 올리고 음성인식은 --whisper-queue 가 하나씩 (v2.7.0)
     elif segs is None and cfg["USE_WHISPER_FALLBACK"]:
@@ -4346,6 +4407,20 @@ def run_self_test(cfg):
             r2 = run_ytdlp(bcfg, {}, lambda y: y.go(), "t5")
         TRANSIENT_WAITS = saved_waits
         check("일시 오류 자동 재시도", r2 == "ok" and _FakeYDL.calls == 2, calls=_FakeYDL.calls)
+        # v2.9.0: 자막 서버 429(CaptionBlockedError)는 같은 클라이언트로 다시 하지 않음 (예전: 3·8초 기다려 3번 — 영상마다 약 35초)
+        DL_STATE.update(client=None, bot_streak=0, bot_total=0, disabled=False, last_blocked=None)
+        cb_calls = []
+
+        def _cb(y):
+            cb_calls.append(1)
+            raise CaptionBlockedError("자막 다운로드 실패 lang=ko-orig: HTTP 429 (자막 서버 차단)")
+        try:
+            with _quiet_logs():
+                run_ytdlp(bcfg, {}, _cb, "t6")
+            cb_err = None
+        except CaptionBlockedError as e:
+            cb_err = e
+        check("자막 서버 429 는 다시 하지 않음 (바로 음성인식으로)", cb_err is not None and len(cb_calls) == 1, calls=len(cb_calls))
     finally:
         if saved_mod is not None:
             sys.modules["yt_dlp"] = saved_mod
@@ -4550,7 +4625,8 @@ def run_self_test(cfg):
         od = tb / "t" / "result" / OUTLIERS_DIR
         for name, st_, has_tr in (("P01_pp", "한국어 자막 없음", False), ("02_bb", "TranscriptsDisabled: x", False), ("01_aa", "ok", True),
                                   ("03_cc", "ProxyError: 403", False), ("04_dd", "건너뜀(--no-transcript)", False),
-                                  ("05_ee", "확인 안 함(--offline)", False)):
+                                  ("05_ee", "확인 안 함(--offline)", False), ("06_ff", "IpBlocked: 429", False),
+                                  ("W_wwwwwwwwwww", "IpBlocked: 자막 서버 차단으로 … 쉼", False)):
             (od / name).mkdir(parents=True)
             (od / name / "metadata.json").write_text(json.dumps({"id": name.split("_", 1)[1], "transcript_status": st_, "minutes": 12}), "utf-8")
             if has_tr:
@@ -4560,8 +4636,28 @@ def run_self_test(cfg):
         (sc / "metadata.json").write_text(json.dumps({"video_id": "v1", "duration_sec": 600,
                                                       "download_status": {"transcript": "whisper_pending"}}), "utf-8")
         q_items = speech_queue_items({"PROJECT_FOLDER": "t", "RESULT_FOLDER": "result"}, tb / "out", base=tb)
-    check("음성인식 대기열 고르기 (01·02 → P01 → 분석기, 막힘·자막 있음·건너뜀 제외)", [i_["video_id"] for i_ in q_items] == ["bb", "pp", "v1"]
+    check("음성인식 대기열 고르기 (01·02·06 → P01 → 웹 W_ → 분석기; 자막 서버 차단은 넣고 연결 실패·자막 있음·건너뜀은 뺌)",
+          [i_["video_id"] for i_ in q_items] == ["bb", "ff", "pp", "wwwwwwwwwww", "v1"]
           and q_items[0]["duration_sec"] == 720, order=[i_["video_id"] for i_ in q_items])
+    # v2.9.0: 자막 서버 차단 쉬기 — 연속 2번 막히면 6시간 쉼, 받으면 이어진 횟수 0 (모든 도구가 같은 파일)
+    global BASE_DIR
+    saved_base = BASE_DIR
+    with tempfile.TemporaryDirectory() as td:
+        BASE_DIR = Path(td)
+        try:
+            with _quiet_logs():
+                note_caption_result(True, "IpBlocked")
+                one = caption_blocked()
+                note_caption_result(False)
+                note_caption_result(True, "429")
+                still_open = caption_blocked()
+                note_caption_result(True, "429")
+                paused = caption_blocked()
+            cb_state = json.loads(caption_block_path().read_text("utf-8"))
+        finally:
+            BASE_DIR = saved_base
+    check("자막 서버 차단 쉬기 (연속 2번 → 6시간, 중간에 받으면 처음부터)", one is None and still_open is None and paused is not None
+          and 5.9 < (paused - dt.datetime.now(UTC)).total_seconds() / 3600 <= 6 and cb_state["blocks"] == 1, until=cb_state.get("until"))
 
     passed = sum(ok for _, ok in results)
     log("SELFTEST", "자가진단 완료", passed=f"{passed}/{len(results)}", elapsed_sec=round(time.perf_counter() - t0, 2))
@@ -4684,7 +4780,8 @@ def push_only(cfg, keys, message=None):
     register_secret(keys["GITHUB_TOKEN"])
     outliers_only = False
     if not (out_dir / "README.md").exists():
-        if (BASE_DIR / cfg["PROJECT_FOLDER"] / cfg["RESULT_FOLDER"] / OUTLIERS_DIR / "summary.md").is_file():
+        od_ = BASE_DIR / cfg["PROJECT_FOLDER"] / cfg["RESULT_FOLDER"] / OUTLIERS_DIR
+        if (od_ / "summary.md").is_file() or (od_ / "weekly.md").is_file():     # v2.9.0: 웹 화면의 주별 분석만 있어도
             outliers_only = True         # 분석기 결과가 아직 없어도 성공 사례 결과는 먼저 올림 (v2.7.0)
             log("GITHUB", "분석기 결과는 아직 없음 → 성공 사례 결과만 먼저 올림", outliers=f"{cfg['PROJECT_FOLDER']}/{cfg['RESULT_FOLDER']}/{OUTLIERS_DIR}")
         else:
@@ -4712,20 +4809,23 @@ def push_only(cfg, keys, message=None):
     return 0 if res.get("pushed") or res.get("reason") == "no_changes" else 1
 
 
-NETWORK_FAIL_WORDS = ("RequestBlocked", "IpBlocked", "ProxyError", "ConnectionError", "Timeout", "TooManyRequests", "URLError")
+NETWORK_FAIL_WORDS = ("ProxyError", "ConnectionError", "Timeout", "URLError")   # 연결 자체 실패만 (v2.9.0 — 자막 서버 차단은 음성인식으로)
 OUTLIER_CASE_RX = re.compile(r"^(P?)(\d\d)_(.+)$")
+WEB_CASE_RX = re.compile(r"^W_([0-9A-Za-z_-]{11})$")     # 웹 화면(tools/web_ui.py)에서 승인한 영상 (v2.9.0)
 
 
 def speech_queue_items(cfg, out_dir, base=None):
-    """음성인식 대기열 (v2.7.0): 자막을 못 받은 영상 — ① 작은 채널 성공 사례 01_… ② 조회수 상위 P01_… (tools/outlier_research.py,
-    '자막 없음' 류만 — 네트워크 실패는 그 도구가 다음 회차에 다시 받음) ③ 분석기 성공사례 중 'whisper_pending'. → 차례대로 목록."""
+    """음성인식 대기열 (v2.7.0): 자막을 못 받은 영상 — ① 작은 채널 성공 사례 01_… ② 조회수 상위 P01_… ③ 웹 화면에서 승인한 W_<영상ID>
+    (tools/outlier_research.py·tools/web_ui.py — 자막 없음·자막 서버 차단(IpBlocked 등, v2.9.0); 연결 자체 실패만 그 도구가 다음 회차에 다시)
+    ④ 분석기 성공사례 중 'whisper_pending'. → 차례대로 목록."""
     items = []
     od = (base or BASE_DIR) / cfg["PROJECT_FOLDER"] / cfg["RESULT_FOLDER"] / OUTLIERS_DIR
     if od.is_dir():
         found = []
         for d in od.iterdir():
             m = OUTLIER_CASE_RX.match(d.name)
-            if not (d.is_dir() and m and (d / "metadata.json").is_file()) or (d / "transcript.json").is_file():
+            web = WEB_CASE_RX.match(d.name)
+            if not (d.is_dir() and (m or web) and (d / "metadata.json").is_file()) or (d / "transcript.json").is_file():
                 continue
             try:
                 meta = json.loads((d / "metadata.json").read_text("utf-8"))
@@ -4734,8 +4834,9 @@ def speech_queue_items(cfg, out_dir, base=None):
             st = str(meta.get("transcript_status") or "")
             if st == "ok" or st.startswith(("건너뜀", "확인 안 함")) or any(w in st for w in NETWORK_FAIL_WORDS):
                 continue
-            found.append((1 if m.group(1) else 0, int(m.group(2)), {
-                "kind": "outlier", "dir": d, "video_id": meta.get("id") or m.group(3), "title": meta.get("title"),
+            order = (2, 0) if web else (1 if m.group(1) else 0, int(m.group(2)))     # 01 → P01 → 웹 화면 W_
+            found.append((*order, {
+                "kind": "outlier", "dir": d, "video_id": meta.get("id") or (web.group(1) if web else m.group(3)), "title": meta.get("title"),
                 "duration_sec": float(meta.get("minutes") or 0) * 60, "reason": st}))
         items += [it for _, _, it in sorted(found, key=lambda x: (x[0], x[1]))]
     sc = Path(out_dir) / "success_cases"

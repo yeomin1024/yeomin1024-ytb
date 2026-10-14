@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
 # ================================================================================================
 #  YouTube 분석 PC 실행기 (macOS / Linux)
-#  VERSION: v2.5 — 2026-10-13 — 검색어 목록 <주제>/keywords.txt (한 줄에 하나, 그룹 없음)도 받음 (사용자 지시: "걍 검색어 내가 수정해도
-#           돌아가게 하면 안돼?"). GitHub 에서 고친 설정·검색어는 tools/pc_analysis.py v1.7 이 회차마다 받아 씀 (VERSION 안 올려도 됨)
+#  VERSION: v3.0 — 2026-10-14 — 실행하면 웹 화면이 뜸 (사용자 지시: "이거 분석기 웹 ui 형식으로 만들어 실행하면 바로 웹 ui가 나와서"):
+#           기본 = tools/web_ui.py (http://127.0.0.1:8765/). 예전 자동 실행은 --auto (--once·cron 도 자동 실행).
+#           코드 목록에 tools/web_ui.py·tools/weekly_analysis.py 추가
+#  (v2.5 — 2026-10-13 — 검색어 목록 <주제>/keywords.txt (한 줄에 하나, 그룹 없음)도 받음 (사용자 지시: "걍 검색어 내가 수정해도
+#           돌아가게 하면 안돼?"). GitHub 에서 고친 설정·검색어는 tools/pc_analysis.py v1.7 이 회차마다 받아 씀 (VERSION 안 올려도 됨))
 #  (v2.4 — 2026-10-13 — pip 이 없는 가상환경 고침 (사용자 PC 오류: ".venv\Scripts\python.exe: No module named pip"):
 #           ① .venv 에 pip 이 없으면 ensurepip 로 설치 (안 되면 분석 코드가 공식 get-pip.py 로 한 번 더)
 #           ② .venv 만들기가 실패하면 반쯤 만든 .venv 를 지우고 pip 없이 다시 만들어 분석 코드가 pip 을 설치하게 함)
@@ -26,13 +29,14 @@
 #    → 처음 실행하면 .env 파일이 생깁니다. YOUTUBE_API_KEY(필수)·GITHUB_TOKEN(권장)을 넣고 다시 실행
 #
 #  자주 쓰는 실행:
-#    bash run_analyzer.sh                       # 경제·재테크 — 끝날 때까지 (남으면 다음 날 자동으로 이어서, 터미널을 열어 두기)
-#    bash run_analyzer.sh --folder economic,health   # 여러 주제를 동시에 (주제마다 keywords.toml·.env)
-#    bash run_analyzer.sh --once                # 한 회차만 (남은 부분은 다음에 실행할 때)
+#    bash run_analyzer.sh                       # ★ 웹 화면 (키·검색어 고치기 → 탐색 → 체크 → 승인 → 주별 분석)
+#    bash run_analyzer.sh --auto                # 예전 자동 실행 — 끝날 때까지 (남으면 다음 날 이어서, 터미널을 열어 두기)
+#    bash run_analyzer.sh --auto --folder economic,health   # 자동 실행 여러 주제 동시에
+#    bash run_analyzer.sh --once                # 자동 실행 한 회차만 (남은 부분은 다음에 실행할 때)
 #    bash run_analyzer.sh --print-cron          # 매일 17:15 에 --once 로 돌리는 crontab 줄을 보여 줌 (crontab -e 에 붙여넣기)
 #    bash run_analyzer.sh --update-config       # 설정·검색어 파일도 GitHub 최신으로 (기존 파일은 .bak)
 #    bash run_analyzer.sh --analyzer-only       # 예전처럼 분석기만 한 번
-#    bash run_analyzer.sh -- --dry-run          # '--' 뒤는 tools/pc_analysis.py 옵션 (--analyzer-only 면 분석기 옵션)
+#    bash run_analyzer.sh -- --port 8800        # '--' 뒤는 웹 화면 옵션 (--auto 면 tools/pc_analysis.py, --analyzer-only 면 분석기 옵션)
 #
 #  동작: ① 코드(youtube_topic_analyzer.py · tools/pc_analysis.py · tools/outlier_research.py · tools/outlier_stats.py · tools/tag_keywords.py)는 매번 최신으로
 #        ② <폴더>/analyzer_config.toml · keywords.toml · keywords.txt(검색어) · tag_rules.toml 은 없을 때(또는 VERSION 이 더 높을 때) 받고,
@@ -40,7 +44,7 @@
 #           (예전 것은 .bak — 같은 판이면 내가 고친 설정·검색어를 덮어쓰지 않음)
 #        ③ .venv 가상환경을 만들고(처음 한 번) 그 안의 Python으로 실행 — 필요한 패키지는 자동 설치
 set -uo pipefail
-REPO="yeomin1024/yeomin1024-ytb"; BRANCH="main"; FOLDERS=(); UPDATE_CONFIG=0; NO_VENV=0; ONCE=0; ANALYZER_ONLY=0; PRINT_CRON=0
+REPO="yeomin1024/yeomin1024-ytb"; BRANCH="main"; FOLDERS=(); UPDATE_CONFIG=0; NO_VENV=0; ONCE=0; ANALYZER_ONLY=0; PRINT_CRON=0; AUTO=0
 EXTRA=()
 while [ $# -gt 0 ]; do
   case "$1" in
@@ -50,6 +54,7 @@ while [ $# -gt 0 ]; do
     --update-config) UPDATE_CONFIG=1; shift ;;
     --no-venv) NO_VENV=1; shift ;;
     --once) ONCE=1; shift ;;
+    --auto) AUTO=1; shift ;;
     --analyzer-only) ANALYZER_ONLY=1; shift ;;
     --print-cron) PRINT_CRON=1; shift ;;
     -h|--help) sed -n '2,25p' "$0"; exit 0 ;;
@@ -59,7 +64,8 @@ while [ $# -gt 0 ]; do
 done
 cd "$(dirname "$0")" || exit 1
 BASE="${RAW_BASE:-https://raw.githubusercontent.com/$REPO/$BRANCH}"
-CODE_FILES=(youtube_topic_analyzer.py tools/pc_analysis.py tools/outlier_research.py tools/outlier_stats.py tools/tag_keywords.py)
+CODE_FILES=(youtube_topic_analyzer.py tools/pc_analysis.py tools/outlier_research.py tools/outlier_stats.py tools/tag_keywords.py
+            tools/web_ui.py tools/weekly_analysis.py)
 [ ${#FOLDERS[@]} -eq 0 ] && FOLDERS=(economic)
 CONFIG_FILES=()
 for f in "${FOLDERS[@]}"; do CONFIG_FILES+=("$f/analyzer_config.toml" "$f/keywords.toml" "$f/keywords.txt" "$f/tag_rules.toml"); done
@@ -186,10 +192,14 @@ if [ "$ANALYZER_ONLY" = 1 ]; then   # 예전 방식: 분석기만, 주제마다 
     step "실행: python youtube_topic_analyzer.py --config $f/analyzer_config.toml ${EXTRA[*]+${EXTRA[*]}}"
     "$PY" youtube_topic_analyzer.py --config "$f/analyzer_config.toml" ${EXTRA[@]+"${EXTRA[@]}"} || code=$?
   done
-else
+elif [ "$AUTO" = 1 ] || [ "$ONCE" = 1 ]; then   # 예전 자동 실행 (할당량이 끝나면 다음 날 이어서)
   ARGS=(tools/pc_analysis.py "${FOLDERS[@]}"); if [ "$ONCE" = 1 ]; then ARGS+=(--once); fi   # 주제가 여러 개면 동시에
   step "실행: python ${ARGS[*]} ${EXTRA[*]+${EXTRA[*]}}"
   "$PY" "${ARGS[@]}" ${EXTRA[@]+"${EXTRA[@]}"}
+  code=$?
+else                                       # 기본: 웹 화면 (v3.0) — 브라우저가 저절로 열림, Ctrl+C 로 끝냄
+  step "웹 화면 실행: python tools/web_ui.py ${FOLDERS[*]} — 브라우저가 저절로 열림 (주소는 아래 ▶ 줄, 끝내려면 Ctrl+C)"
+  "$PY" tools/web_ui.py "${FOLDERS[@]}" ${EXTRA[@]+"${EXTRA[@]}"}
   code=$?
 fi
 if [ $code -eq 3 ]; then step "할당량 때문에 남은 부분이 있습니다 → 다음 실행(또는 cron)이 이어서 받습니다"; fi

@@ -1,8 +1,12 @@
 ﻿<#
 ================================================================================================
  YouTube 분석 PC 실행기 (Windows PowerShell)
- VERSION: v2.5 — 2026-10-13 — 검색어 목록 <주제>/keywords.txt (한 줄에 하나, 그룹 없음)도 받음 (사용자 지시: "걍 검색어 내가 수정해도
-          돌아가게 하면 안돼?"). GitHub 에서 고친 설정·검색어는 tools/pc_analysis.py v1.7 이 회차마다 받아 씀 (VERSION 안 올려도 됨)
+ VERSION: v3.0 — 2026-10-14 — 실행하면 웹 화면이 뜸 (사용자 지시: "이거 분석기 웹 ui 형식으로 만들어 실행하면 바로 웹 ui가 나와서 env,
+          검색어 수정할 수 있게하고 탐색 버튼 누르면 … 승인 버튼을 눌러야 관련 자료를 받아서 분석"): 기본 = tools/web_ui.py (브라우저에
+          http://127.0.0.1:8765/). 예전 자동 실행(할당량이 끝나면 다음 날 이어서)은 -Auto, -Once·작업 스케줄러도 자동 실행.
+          코드 목록에 tools/web_ui.py·tools/weekly_analysis.py 추가
+ (v2.5 — 2026-10-13 — 검색어 목록 <주제>/keywords.txt (한 줄에 하나, 그룹 없음)도 받음 (사용자 지시: "걍 검색어 내가 수정해도
+          돌아가게 하면 안돼?"). GitHub 에서 고친 설정·검색어는 tools/pc_analysis.py v1.7 이 회차마다 받아 씀 (VERSION 안 올려도 됨))
  (v2.4 — 2026-10-13 — pip 이 없는 가상환경 고침 (사용자 PC 오류: ".venv\Scripts\python.exe: No module named pip"):
           ① .venv 에 pip 이 없으면 ensurepip 로 설치 (안 되면 분석 코드가 공식 get-pip.py 로 한 번 더)
           ② .venv 만들기가 실패하면 반쯤 만든 .venv 를 지움 (남겨 두면 다음 실행이 pip 없는 .venv 를 씀) → pip 없이 만들어
@@ -32,14 +36,15 @@
    3) 처음 실행하면 .env 파일이 생깁니다 → 메모장으로 열어 YOUTUBE_API_KEY(필수)·GITHUB_TOKEN(권장) 입력·저장 → 2)의 둘째 줄 다시 실행
 
  자주 쓰는 실행:
-   powershell -ExecutionPolicy Bypass -File run_analyzer.ps1                 # 경제·재테크 — 끝날 때까지 (남으면 다음 날 자동으로 이어서, 창을 열어 두기)
-   powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Folder economic,health   # 여러 주제를 동시에 (주제마다 keywords.toml·.env)
-   powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Once           # 한 회차만 (남은 부분은 다음에 실행할 때)
+   powershell -ExecutionPolicy Bypass -File run_analyzer.ps1                 # ★ 웹 화면 (키·검색어 고치기 → 탐색 → 체크 → 승인 → 주별 분석)
+   powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Auto           # 예전 자동 실행 — 끝날 때까지 (남으면 다음 날 이어서, 창을 열어 두기)
+   powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Auto -Folder economic,health   # 자동 실행 여러 주제 동시에
+   powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Once           # 자동 실행 한 회차만 (남은 부분은 다음에 실행할 때)
    powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -RegisterTask   # 매일 17:15 에 -Once 로 자동 실행 (창을 닫아도 됨, PC는 켜져 있어야)
    powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -UnregisterTask # 자동 실행 끄기
    powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -UpdateConfig   # 설정·검색어 파일도 GitHub 최신으로 (기존 파일은 .bak)
    powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -AnalyzerOnly   # 예전처럼 분석기만 한 번
-   powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 --dry-run       # 그 밖의 인자는 tools/pc_analysis.py 로 (-AnalyzerOnly 면 분석기로)
+   powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 --port 8800     # 그 밖의 인자는 웹 화면(tools/web_ui.py)으로 (-Auto 면 pc_analysis.py, -AnalyzerOnly 면 분석기로)
 
  동작: ① 코드(youtube_topic_analyzer.py · tools/pc_analysis.py · tools/outlier_research.py · tools/outlier_stats.py · tools/tag_keywords.py)는 매번 최신으로 받음
        ② <Folder>/analyzer_config.toml · keywords.toml · keywords.txt(검색어) · tag_rules.toml 은 없을 때(또는 VERSION 이 더 높을 때) 받고,
@@ -55,6 +60,7 @@ param(
     [switch]$UpdateConfig,
     [switch]$NoVenv,
     [switch]$Once,
+    [switch]$Auto,
     [switch]$AnalyzerOnly,
     [switch]$RegisterTask,
     [switch]$UnregisterTask,
@@ -70,7 +76,8 @@ if ($PSScriptRoot) { Set-Location -Path $PSScriptRoot }
 $Base = if ($env:RAW_BASE) { $env:RAW_BASE } else { "https://raw.githubusercontent.com/$Repo/$Branch" }
 $Folder = @($Folder | ForEach-Object { $_ -split "," } | ForEach-Object { $_.Trim() } | Where-Object { $_ })   # -File 로 부르면 "a,b" 한 글자열
 if (-not $Folder) { $Folder = @("economic") }
-$CodeFiles = @("youtube_topic_analyzer.py", "tools/pc_analysis.py", "tools/outlier_research.py", "tools/outlier_stats.py", "tools/tag_keywords.py")
+$CodeFiles = @("youtube_topic_analyzer.py", "tools/pc_analysis.py", "tools/outlier_research.py", "tools/outlier_stats.py", "tools/tag_keywords.py",
+               "tools/web_ui.py", "tools/weekly_analysis.py")
 $ConfigFiles = @($Folder | ForEach-Object { "$_/analyzer_config.toml"; "$_/keywords.toml"; "$_/keywords.txt"; "$_/tag_rules.toml" })
 $TaskName = "YouTubeAnalysis_" + ($Folder -join "_")
 
@@ -106,7 +113,7 @@ if ($UnregisterTask) {
 }
 if ($RegisterTask) {
     $self = Join-Path (Get-Location) "run_analyzer.ps1"
-    $tr = "powershell -NoProfile -ExecutionPolicy Bypass -File `"$self`" -Folder $($Folder -join ',') -Branch $Branch -Once"
+    $tr = "powershell -NoProfile -ExecutionPolicy Bypass -File `"$self`" -Folder $($Folder -join ',') -Branch $Branch -Auto -Once"   # 자동 실행 (화면 없이)
     schtasks /Create /TN $TaskName /TR $tr /SC DAILY /ST $TaskTime /F | Out-Null
     if ($LASTEXITCODE -eq 0) {
         Write-Step "매일 $TaskTime 에 자동 실행 등록: $TaskName (할당량 초기화 = 한국 오후 4시, 미국 표준시 기간 11~3월엔 5시 → $TaskTime 이면 둘 다 지남)"
@@ -268,11 +275,17 @@ if ($AnalyzerOnly) {    # 예전 방식: 분석기만, 주제마다 차례로
         & $pyExe @pyPre @runArgs
         if ($LASTEXITCODE -ne 0) { $code = $LASTEXITCODE }
     }
-} else {
+} elseif ($Auto -or $Once) {    # 예전 자동 실행 (할당량이 끝나면 다음 날 이어서)
     $runArgs = @("tools/pc_analysis.py") + $Folder     # 주제가 여러 개면 동시에 (pc_analysis.py 가 주제마다 따로 띄움)
     if ($Once) { $runArgs += "--once" }
     if ($ExtraArgs) { $runArgs += $ExtraArgs }
     Write-Step "실행: python $($runArgs -join ' ')"
+    & $pyExe @pyPre @runArgs
+    $code = $LASTEXITCODE
+} else {                         # 기본: 웹 화면 (v3.0) — 브라우저가 저절로 열림, 이 창을 닫으면 화면도 꺼짐
+    $runArgs = @("tools/web_ui.py") + $Folder
+    if ($ExtraArgs) { $runArgs += $ExtraArgs }
+    Write-Step "웹 화면 실행: python $($runArgs -join ' ') — 브라우저가 저절로 열림 (주소는 아래 ▶ 줄, 끝내려면 이 창에서 Ctrl+C)"
     & $pyExe @pyPre @runArgs
     $code = $LASTEXITCODE
 }

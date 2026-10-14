@@ -1,0 +1,114 @@
+{
+ "id": "LC8DvY1DUoA",
+ "title": "\"50대 노후 5억, 지금 이렇게 준비하세요 (연금저축·IRP 148만원)\"",
+ "channel": "야무진 경제학",
+ "channel_id": "UCdu6FZYHrnBKdyzRawLabmg",
+ "subs": 22500,
+ "views": 73355,
+ "ratio": 3.26,
+ "age_days": 101,
+ "views_per_day": 726.3,
+ "minutes": 27.3,
+ "likes": 1053,
+ "comments": 38,
+ "published": "2026-07-04",
+ "queries": "검색:저축 | 검색:IRP | 검색:연금저축펀드",
+ "url": "https://www.youtube.com/watch?v=LC8DvY1DUoA",
+ "published_at": "2026-07-04T22:00:19Z",
+ "rank": "W159",
+ "set": "web",
+ "folder": "W_LC8DvY1DUoA",
+ "sources": [
+  "검색:저축",
+  "검색:IRP",
+  "검색:연금저축펀드"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "매달 416만원? 오억이라는 막막한 숫자"
+  },
+  {
+   "start": 127,
+   "title": "왜 하필 5억인가 (은퇴 후 13년 소득 절벽)"
+  },
+  {
+   "start": 238,
+   "title": "5억이면 매달 167만원, 국민연금의 2.5배"
+  },
+  {
+   "start": 294,
+   "title": "50대는 늦은 게 아니라 가장 힘 센 나이"
+  },
+  {
+   "start": 341,
+   "title": "맨손으로 10년, 매달 289만원의 벽"
+  },
+  {
+   "start": 500,
+   "title": "출발조차 못 하게 막는 3가지 함정"
+  },
+  {
+   "start": 543,
+   "title": "첫 번째 비밀 : 출발선(종잣돈)의 반전"
+  },
+  {
+   "start": 605,
+   "title": "2억을 깔면 매달 56만원으로 (커피값 수준)"
+  },
+  {
+   "start": 743,
+   "title": "두 번째 비밀 : 복리라는 등 뒤의 순풍"
+  },
+  {
+   "start": 830,
+   "title": "5년 미루면 부담 2배, 가장 비싼 건 시간"
+  },
+  {
+   "start": 869,
+   "title": "조급함이라는 십 년 계획의 가장 무서운 적"
+  },
+  {
+   "start": 928,
+   "title": "종잣돈 없으면? 새는 돈부터 틀어막기"
+  },
+  {
+   "start": 1072,
+   "title": "세 번째 등장인물 : 세제혜택 계좌(셰르파)"
+  },
+  {
+   "start": 1103,
+   "title": "연금저축+IRP 900만원 → 148만원 환급"
+  },
+  {
+   "start": 1195,
+   "title": "부부 활용 + 세금 이연의 힘"
+  },
+  {
+   "start": 1320,
+   "title": "쉰두 살 김 부장 사례로 총정리"
+  },
+  {
+   "start": 1442,
+   "title": "10년 뒤, 갈라지는 두 개의 장면"
+  },
+  {
+   "start": 1502,
+   "title": "공포가 아니라 계산입니다 (오늘의 결론)"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-14 19:49까지 자막 요청을 쉼 → 음성인식",
+ "comments_fetched": 38,
+ "comments_top_level": 21,
+ "comments_replies": 17,
+ "comments_by_creator": 4,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 38,
+ "tool": "outlier_research.py v1.9",
+ "collected": "2026-10-14T13:56:08",
+ "approved": "2026-10-14T13:56+09:00"
+}

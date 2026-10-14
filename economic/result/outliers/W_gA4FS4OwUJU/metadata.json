@@ -1,0 +1,102 @@
+{
+ "id": "gA4FS4OwUJU",
+ "title": "아직도 주식에만 올인하시나요? 완벽한 노후 포트폴리오 공개",
+ "channel": "경제해적단",
+ "channel_id": "UCn49LSg2JSP-9rXV5G2kt4A",
+ "subs": 121000,
+ "views": 41022,
+ "ratio": 0.34,
+ "age_days": 0,
+ "views_per_day": 41022.0,
+ "minutes": 14.8,
+ "likes": 314,
+ "comments": 13,
+ "published": "2026-10-13",
+ "queries": "채널:경제해적단",
+ "url": "https://www.youtube.com/watch?v=gA4FS4OwUJU",
+ "published_at": "2026-10-13T10:45:35Z",
+ "rank": "W1",
+ "set": "web",
+ "folder": "W_gA4FS4OwUJU",
+ "sources": [
+  "채널:경제해적단"
+ ],
+ "source": "web",
+ "tags": [
+  "노후준비",
+  "은퇴준비",
+  "S&P500",
+  "S&P500 노후",
+  "S&P500 은퇴",
+  "연금저축펀드",
+  "IRP",
+  "연금저축 IRP",
+  "세액공제",
+  "노후자금 계산",
+  "노후자금 얼마",
+  "은퇴 포트폴리오",
+  "노후 포트폴리오",
+  "자산배분",
+  "4% 법칙",
+  "인출 전략",
+  "은퇴 후 생활비",
+  "배당 ETF",
+  "고배당 ETF",
+  "커버드콜",
+  "커버드콜 ETF",
+  "월배당",
+  "국민연금 공백",
+  "연금 크레바스",
+  "채권 ETF",
+  "리밸런싱",
+  "사적연금 1500만원",
+  "연금소득세",
+  "경제해적단"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "은퇴 후, S&P500 투자만으로 충분할까?"
+  },
+  {
+   "start": 59,
+   "title": "내게 필요한 노후자금 계산하기"
+  },
+  {
+   "start": 199,
+   "title": "연금저축·IRP 활용과 세액공제 주의사항"
+  },
+  {
+   "start": 320,
+   "title": "노후자금을 세 가지 역할로 나누는 방법"
+  },
+  {
+   "start": 447,
+   "title": "금융자산 5억 원 포트폴리오 구성 예시"
+  },
+  {
+   "start": 579,
+   "title": "고배당·커버드콜 ETF 투자 시 주의할 점"
+  },
+  {
+   "start": 630,
+   "title": "생활비 인출 순서와 포트폴리오 점검 방법"
+  },
+  {
+   "start": 832,
+   "title": "노후 준비 실천 체크리스트"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: \nCould not retrieve a transcript for the video https://www.youtube.com/watch?v=gA4FS4OwUJU! This is most likely caused b",
+ "comments_fetched": 13,
+ "comments_top_level": 12,
+ "comments_replies": 1,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 13,
+ "tool": "outlier_research.py v1.9",
+ "collected": "2026-10-14T13:49:36",
+ "approved": "2026-10-14T13:49+09:00"
+}

@@ -1,0 +1,143 @@
+{
+ "id": "q1fYjAwma3s",
+ "title": "[풀영상] 월급 10%로 당장 시작하는 존리의 자산 증식 치트키",
+ "channel": "여의돈스트리트",
+ "channel_id": "UCL10nJjqz3PabTdZX2qiMVQ",
+ "subs": 1330,
+ "views": 203279,
+ "ratio": 152.84,
+ "age_days": 26,
+ "views_per_day": 7818.4,
+ "minutes": 36.0,
+ "likes": 1260,
+ "comments": 112,
+ "published": "2026-09-17",
+ "queries": "검색:부자되는법 | 검색:자산배분",
+ "url": "https://www.youtube.com/watch?v=q1fYjAwma3s",
+ "published_at": "2026-09-17T23:00:35Z",
+ "rank": "W19",
+ "set": "web",
+ "folder": "W_q1fYjAwma3s",
+ "sources": [
+  "검색:부자되는법",
+  "검색:자산배분"
+ ],
+ "source": "web",
+ "tags": [
+  "주식",
+  "재태크",
+  "주식투자",
+  "주식 투자",
+  "경제",
+  "ETF",
+  "증시",
+  "여의돈스트리트",
+  "투자"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 50,
+   "title": "‘존리의 부자학교’, 어떤 곳인가요?"
+  },
+  {
+   "start": 69,
+   "title": "우리나라 금융 수준, 정말 높아졌나요?"
+  },
+  {
+   "start": 159,
+   "title": "빨리 부자가 되는 투자, 가능한가요?"
+  },
+  {
+   "start": 293,
+   "title": "장기 투자, 어떤 ETF를 사야 할까요?"
+  },
+  {
+   "start": 413,
+   "title": "평범한 사람은 어떻게 부자가 되나요?"
+  },
+  {
+   "start": 510,
+   "title": "주식 투자에 전문가가 없다?"
+  },
+  {
+   "start": 624,
+   "title": "레버리지 투자는 왜 위험한가요?"
+  },
+  {
+   "start": 691,
+   "title": "한국주식, 지금도 투자할 만한가요?"
+  },
+  {
+   "start": 736,
+   "title": "투자 뉴스는 어디까지 봐야 할까요?"
+  },
+  {
+   "start": 884,
+   "title": "부동산 비중이 높으면 위험한가요?"
+  },
+  {
+   "start": 1005,
+   "title": "주식 투자의 진짜 목적은 무엇인가요?"
+  },
+  {
+   "start": 1046,
+   "title": "좋은 기업은 어떻게 고르나요?"
+  },
+  {
+   "start": 1219,
+   "title": "장기 투자 중 기업 상황이 나빠진다면?"
+  },
+  {
+   "start": 1269,
+   "title": "박스권에 갇힌 현재 증시 진단"
+  },
+  {
+   "start": 1343,
+   "title": "AI 버블 우려 속 올바른 매수 시기"
+  },
+  {
+   "start": 1410,
+   "title": "안전해 보이는 ‘원금 보장’ 상품의 함정"
+  },
+  {
+   "start": 1501,
+   "title": "반도체·대형주 쏠림 계좌, 포트폴리오 개선 조언"
+  },
+  {
+   "start": 1635,
+   "title": "시황 뉴스·차트·리포트의 올바른 활용법"
+  },
+  {
+   "start": 1775,
+   "title": "직장인 월급 대비 적정 투자 비중 및 방법"
+  },
+  {
+   "start": 1851,
+   "title": "좌절하는 2030 세대를 위한 투자 마인드셋"
+  },
+  {
+   "start": 1962,
+   "title": "은퇴(예정)자를 위한 포트폴리오 비중 조절법"
+  },
+  {
+   "start": 2010,
+   "title": "학원비 대신 주식, 자녀를 위한 올바른 금융 교육법"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-14 19:49까지 자막 요청을 쉼 → 음성인식",
+ "comments_fetched": 112,
+ "comments_top_level": 59,
+ "comments_replies": 53,
+ "comments_by_creator": 4,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 112,
+ "tool": "outlier_research.py v1.9",
+ "collected": "2026-10-14T13:50:09",
+ "approved": "2026-10-14T13:50+09:00"
+}

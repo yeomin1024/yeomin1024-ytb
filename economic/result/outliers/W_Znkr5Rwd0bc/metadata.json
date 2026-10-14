@@ -1,0 +1,104 @@
+{
+ "id": "Znkr5Rwd0bc",
+ "title": "미국 직투 할까 국내상장 할까? 같은 S&P500인데 세금 3배 차이",
+ "channel": "야무진 경제학",
+ "channel_id": "UCdu6FZYHrnBKdyzRawLabmg",
+ "subs": 22500,
+ "views": 126547,
+ "ratio": 5.62,
+ "age_days": 82,
+ "views_per_day": 1543.3,
+ "minutes": 31.2,
+ "likes": 1653,
+ "comments": 105,
+ "published": "2026-07-23",
+ "queries": "검색:연금저축",
+ "url": "https://www.youtube.com/watch?v=Znkr5Rwd0bc",
+ "published_at": "2026-07-23T22:00:25Z",
+ "rank": "W131",
+ "set": "web",
+ "folder": "W_Znkr5Rwd0bc",
+ "sources": [
+  "검색:연금저축"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "같은 SP500인데 세금 3배? 그 이유"
+  },
+  {
+   "start": 83,
+   "title": "노후자금이 태평양을 건넌다 (300조의 이동)"
+  },
+  {
+   "start": 209,
+   "title": "최종 수익률을 가르는 세 승부처: 세금·환율·비용"
+  },
+  {
+   "start": 256,
+   "title": "[1관문] 해외 직투 — 세율 22%, 대신 250만원 공제라는 무기"
+  },
+  {
+   "start": 401,
+   "title": "[2관문] 국내상장 ETF — '15.4%가 싸다'는 착각"
+  },
+  {
+   "start": 601,
+   "title": "운명의 숫자 ① 833만원, 세상이 둘로 갈리는 선"
+  },
+  {
+   "start": 749,
+   "title": "운명의 숫자 ② 2000만원, 잠자던 괴물이 깨어난다"
+  },
+  {
+   "start": 838,
+   "title": "세금보다 아픈 건보료 폭탄 & 피부양자 탈락"
+  },
+  {
+   "start": 987,
+   "title": "[승부처2] 환율 — 환헤지 vs 환노출, 뭘 골라야 하나"
+  },
+  {
+   "start": 1125,
+   "title": "[승부처3] 비용 — 실부담비용·추적오차 체크법"
+  },
+  {
+   "start": 1237,
+   "title": "모든 걸 우회하는 비밀 통로, 절세계좌"
+  },
+  {
+   "start": 1371,
+   "title": "30대 직장인 vs 50대 자산가, 정반대의 정답"
+  },
+  {
+   "start": 1484,
+   "title": "상황별 정리: 나는 지금 어느 관문인가"
+  },
+  {
+   "start": 1584,
+   "title": "많은 사람이 당하는 3가지 실수"
+  },
+  {
+   "start": 1664,
+   "title": "[주의] 금투세, 다시 도입되나 (진행 중인 논의)"
+  },
+  {
+   "start": 1735,
+   "title": "결론: 상품보다 관문을 먼저 골라라"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-14 19:49까지 자막 요청을 쉼 → 음성인식",
+ "comments_fetched": 105,
+ "comments_top_level": 51,
+ "comments_replies": 54,
+ "comments_by_creator": 9,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 105,
+ "tool": "outlier_research.py v1.9",
+ "collected": "2026-10-14T13:54:40",
+ "approved": "2026-10-14T13:54+09:00"
+}

@@ -1,0 +1,81 @@
+{
+ "id": "ITzgH6CeZns",
+ "title": "매일 아침 7시, 내 포트폴리오를 관리해주는 AI 주식 비서를 만들어봤습니다",
+ "channel": "스티브의 파도타기 | AI 시대 일하는 법",
+ "channel_id": "UCDieGYS2T1fy-j9_GZeZeqQ",
+ "subs": 26600,
+ "views": 680600,
+ "ratio": 25.59,
+ "age_days": 138,
+ "views_per_day": 4931.9,
+ "minutes": 14.8,
+ "likes": 16159,
+ "comments": 387,
+ "published": "2026-05-28",
+ "queries": "검색:자산관리 | 검색:주식 | 검색:주식투자 | 검색:포트폴리오",
+ "url": "https://www.youtube.com/watch?v=ITzgH6CeZns",
+ "published_at": "2026-05-28T14:34:24Z",
+ "rank": "W230",
+ "set": "web",
+ "folder": "W_ITzgH6CeZns",
+ "sources": [
+  "검색:자산관리",
+  "검색:주식",
+  "검색:주식투자",
+  "검색:포트폴리오"
+ ],
+ "source": "web",
+ "tags": [
+  "AI자동화",
+  "AI에이전트",
+  "AI도입",
+  "중소기업AI",
+  "AX컨설팅"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Intro"
+  },
+  {
+   "start": 104,
+   "title": "시작 전 꼭 알아야 할 것"
+  },
+  {
+   "start": 157,
+   "title": "1단계 - 주식 가격 정확하게 가져오기"
+  },
+  {
+   "start": 220,
+   "title": "2단계 - 관련 뉴스 가져오기 (날짜 문제 해결)"
+  },
+  {
+   "start": 380,
+   "title": "3단계 - 브리핑으로 묶기"
+  },
+  {
+   "start": 474,
+   "title": "4단계 - 카카오톡으로 받기 (PlayMCP 연결)"
+  },
+  {
+   "start": 677,
+   "title": "5단계 - 매일 아침 7시 자동 실행 (스케줄 등록)"
+  },
+  {
+   "start": 789,
+   "title": "다음날 아침, 실제로 작동하는지 확인"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-14 19:49까지 자막 요청을 쉼 → 음성인식",
+ "comments_fetched": 387,
+ "comments_top_level": 171,
+ "comments_replies": 216,
+ "comments_by_creator": 135,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 387,
+ "tool": "outlier_research.py v1.9",
+ "collected": "2026-10-14T13:59:48",
+ "approved": "2026-10-14T13:59+09:00"
+}

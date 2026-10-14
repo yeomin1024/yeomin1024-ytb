@@ -1,0 +1,72 @@
+{
+ "id": "QnnwzV8yHpU",
+ "title": "돈 없는 58세 재혼녀가 젊은 애들보다 더 약아 빠져도 되는  이유",
+ "channel": "내 누군지 아나?",
+ "channel_id": "UCFO2oS04Xo34bwMIAv3zjuA",
+ "subs": 6190,
+ "views": 33695,
+ "ratio": 5.44,
+ "age_days": 69,
+ "views_per_day": 488.3,
+ "minutes": 29.0,
+ "likes": 706,
+ "comments": 106,
+ "published": "2026-08-05",
+ "queries": "검색:돈공부",
+ "url": "https://www.youtube.com/watch?v=QnnwzV8yHpU",
+ "published_at": "2026-08-05T09:00:23Z",
+ "rank": "W111",
+ "set": "web",
+ "folder": "W_QnnwzV8yHpU",
+ "sources": [
+  "검색:돈공부"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "그 사람이 연금을 물었을 때"
+  },
+  {
+   "start": 63,
+   "title": "새벽 6시 괴안동, 쉰여덟의 하루"
+  },
+  {
+   "start": 364,
+   "title": "연금 창구에서 들은 세 문장"
+  },
+  {
+   "start": 626,
+   "title": "사랑은 반반이어도 목소리는 반반이 아니다"
+  },
+  {
+   "start": 875,
+   "title": "제도가 결혼하지 말라고 말한다"
+  },
+  {
+   "start": 1114,
+   "title": "그럼 나는 뭘 받고 저 집에 들어가지"
+  },
+  {
+   "start": 1347,
+   "title": "순서를 바꾸는 세 가지"
+  },
+  {
+   "start": 1658,
+   "title": "공책에 적은 세 줄"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-14 19:49까지 자막 요청을 쉼 → 음성인식",
+ "comments_fetched": 106,
+ "comments_top_level": 77,
+ "comments_replies": 29,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 106,
+ "tool": "outlier_research.py v1.9",
+ "collected": "2026-10-14T13:53:56",
+ "approved": "2026-10-14T13:53+09:00"
+}

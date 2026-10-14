@@ -1,0 +1,76 @@
+{
+ "id": "4ssDlPoir2M",
+ "title": "'부동산 투자 보다 더 중요한 게  있습니다' 3040이 자산을 모을 수 있는 가장 현실적인 방법 | 송희구 작가 2편 | 로컬수다 EP.15",
+ "channel": "광화문로",
+ "channel_id": "UCFTrRyisOR2jGkfLihQKDFQ",
+ "subs": 4360,
+ "views": 29757,
+ "ratio": 6.83,
+ "age_days": 68,
+ "views_per_day": 437.6,
+ "minutes": 15.3,
+ "likes": 0,
+ "comments": 14,
+ "published": "2026-08-06",
+ "queries": "검색:경제적자유",
+ "url": "https://www.youtube.com/watch?v=4ssDlPoir2M",
+ "published_at": "2026-08-06T21:01:25Z",
+ "rank": "W107",
+ "set": "web",
+ "folder": "W_4ssDlPoir2M",
+ "sources": [
+  "검색:경제적자유"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트"
+  },
+  {
+   "start": 99,
+   "title": "직장인 시절 송희구 작가의 캐릭터"
+  },
+  {
+   "start": 185,
+   "title": "경제적 자유에 대하여"
+  },
+  {
+   "start": 241,
+   "title": "재테크 핵심 원칙, 직장 그만두지 말기?"
+  },
+  {
+   "start": 333,
+   "title": "짠내 나는 재테크"
+  },
+  {
+   "start": 499,
+   "title": "돈 모으려면 허세를 버려라"
+  },
+  {
+   "start": 637,
+   "title": "'김 부장 이야기' 탄생 배경"
+  },
+  {
+   "start": 689,
+   "title": "경제적 자유를 이뤄도 새벽 5시에 기상하는 이유"
+  },
+  {
+   "start": 772,
+   "title": "송희구 작가가 꼭 짓고 싶은 것"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-14 19:49까지 자막 요청을 쉼 → 음성인식",
+ "comments_fetched": 14,
+ "comments_top_level": 12,
+ "comments_replies": 2,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 14,
+ "tool": "outlier_research.py v1.9",
+ "collected": "2026-10-14T13:53:43",
+ "approved": "2026-10-14T13:53+09:00"
+}

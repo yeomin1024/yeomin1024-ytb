@@ -1,0 +1,74 @@
+{
+ "id": "AbpqDkCFTT0",
+ "title": "중개형 ISA 계좌 만기해지 안 하는 이유",
+ "channel": "청년개미",
+ "channel_id": "UCn4m5ec1YQH5H1GHwB2likQ",
+ "subs": 15800,
+ "views": 224984,
+ "ratio": 14.24,
+ "age_days": 165,
+ "views_per_day": 1363.5,
+ "minutes": 5.2,
+ "likes": 2558,
+ "comments": 537,
+ "published": "2026-05-02",
+ "queries": "검색:자산관리 | 검색:1억모으기 | 검색:연금저축펀드 | 검색:ISA계좌",
+ "url": "https://www.youtube.com/watch?v=AbpqDkCFTT0",
+ "published_at": "2026-05-02T02:31:10Z",
+ "rank": "W284",
+ "set": "web",
+ "folder": "W_AbpqDkCFTT0",
+ "sources": [
+  "검색:자산관리",
+  "검색:1억모으기",
+  "검색:연금저축펀드",
+  "검색:ISA계좌"
+ ],
+ "source": "web",
+ "tags": [
+  "ISA",
+  "ISA계좌",
+  "ISA만기",
+  "ISA만기해지",
+  "중개형ISA",
+  "서민형ISA"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 19,
+   "title": "ISA 1억 초과"
+  },
+  {
+   "start": 50,
+   "title": "만기해지 안하는 이유 1"
+  },
+  {
+   "start": 149,
+   "title": "만기해지 안하는 이유 2"
+  },
+  {
+   "start": 236,
+   "title": "연금 계좌로 이전 안하는 이유"
+  },
+  {
+   "start": 263,
+   "title": "정리하면.."
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-14 19:49까지 자막 요청을 쉼 → 음성인식",
+ "comments_fetched": 537,
+ "comments_top_level": 172,
+ "comments_replies": 365,
+ "comments_by_creator": 14,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 537,
+ "tool": "outlier_research.py v1.9",
+ "collected": "2026-10-14T14:02:05",
+ "approved": "2026-10-14T14:02+09:00"
+}

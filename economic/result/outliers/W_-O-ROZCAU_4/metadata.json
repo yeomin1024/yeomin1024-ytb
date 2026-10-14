@@ -1,0 +1,62 @@
+{
+ "id": "-O-ROZCAU_4",
+ "title": "1억이 우스우세요 사실 여기서부터가 진짜 시작입니다",
+ "channel": "송차장기록",
+ "channel_id": "UCYHmqqSy8EhVoxGICwh4NaQ",
+ "subs": 8430,
+ "views": 160536,
+ "ratio": 19.04,
+ "age_days": 102,
+ "views_per_day": 1573.9,
+ "minutes": 15.4,
+ "likes": 1913,
+ "comments": 595,
+ "published": "2026-07-03",
+ "queries": "검색:돈모으기 | 검색:1억모으기",
+ "url": "https://www.youtube.com/watch?v=-O-ROZCAU_4",
+ "published_at": "2026-07-03T08:02:48Z",
+ "rank": "W163",
+ "set": "web",
+ "folder": "W_-O-ROZCAU_4",
+ "sources": [
+  "검색:돈모으기",
+  "검색:1억모으기"
+ ],
+ "source": "web",
+ "tags": [
+  "송차장기록",
+  "4050직장인",
+  "40대직장인",
+  "중년현실"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "통장에 1억, 아니 5천은 있으세요?"
+  },
+  {
+   "start": 240,
+   "title": "\"요즘 1억이 돈이에요?\" 후배의 한마디"
+  },
+  {
+   "start": 510,
+   "title": "주식으로 1억 넘게 가진 사람, 몇 명이나 될까"
+  },
+  {
+   "start": 750,
+   "title": "1억이 우스운 게 아니라, 여기서부터가 시작인 이유"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-14 19:49까지 자막 요청을 쉼 → 음성인식",
+ "comments_fetched": 595,
+ "comments_top_level": 244,
+ "comments_replies": 351,
+ "comments_by_creator": 224,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 595,
+ "tool": "outlier_research.py v1.9",
+ "collected": "2026-10-14T13:56:17",
+ "approved": "2026-10-14T13:56+09:00"
+}

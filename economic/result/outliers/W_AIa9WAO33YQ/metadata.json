@@ -1,0 +1,43 @@
+{
+ "id": "AIa9WAO33YQ",
+ "title": "경제가 무너질수록 부자들은 ‘이 2가지’를 모읍니다",
+ "channel": "돈의 방파제",
+ "channel_id": "UCPfq9q6-zJRTpIFZ74-UpyQ",
+ "subs": 1650,
+ "views": 65814,
+ "ratio": 39.89,
+ "age_days": 56,
+ "views_per_day": 1175.2,
+ "minutes": 21.2,
+ "likes": 1652,
+ "comments": 28,
+ "published": "2026-08-18",
+ "queries": "검색:자산배분",
+ "url": "https://www.youtube.com/watch?v=AIa9WAO33YQ",
+ "published_at": "2026-08-18T05:30:06Z",
+ "rank": "W80",
+ "set": "web",
+ "folder": "W_AIa9WAO33YQ",
+ "sources": [
+  "검색:자산배분"
+ ],
+ "source": "web",
+ "tags": [
+  "경제위기",
+  "금투자",
+  "달러투자"
+ ],
+ "chapters": [],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-14 19:49까지 자막 요청을 쉼 → 음성인식",
+ "comments_fetched": 28,
+ "comments_top_level": 12,
+ "comments_replies": 16,
+ "comments_by_creator": 5,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 28,
+ "tool": "outlier_research.py v1.9",
+ "collected": "2026-10-14T13:52:33",
+ "approved": "2026-10-14T13:52+09:00"
+}

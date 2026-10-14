@@ -1,0 +1,64 @@
+{
+ "id": "m-ZkLW7xMvk",
+ "title": "\"연금 저축부터 채워라?\" 연봉 따라 순서 뒤집히는 ISA·연금저축·IRP",
+ "channel": "머니랩 : 내 돈 지키는 투자법",
+ "channel_id": "UCSvugWtYfJNo3_tGvWkGJhw",
+ "subs": 380,
+ "views": 11445,
+ "ratio": 30.12,
+ "age_days": 85,
+ "views_per_day": 134.6,
+ "minutes": 14.2,
+ "likes": 234,
+ "comments": 17,
+ "published": "2026-07-20",
+ "queries": "검색:IRP",
+ "url": "https://www.youtube.com/watch?v=m-ZkLW7xMvk",
+ "published_at": "2026-07-20T09:00:10Z",
+ "rank": "W138",
+ "set": "web",
+ "folder": "W_m-ZkLW7xMvk",
+ "sources": [
+  "검색:IRP"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "다들 \"연금저축부터\"라는데, 진짜일까?"
+  },
+  {
+   "start": 42,
+   "title": "이 순서, 누군가에겐 최악의 선택일 수도 있다"
+  },
+  {
+   "start": 142,
+   "title": "ISA·연금저축·IRP, 시소 하나로 정리 끝"
+  },
+  {
+   "start": 370,
+   "title": "진짜 기준은 '결정세액'입니다"
+  },
+  {
+   "start": 585,
+   "title": "내 결정세액 확인하고 실전 배분하기"
+  },
+  {
+   "start": 759,
+   "title": "결론: 순서는 사람마다 다릅니다"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-14 19:49까지 자막 요청을 쉼 → 음성인식",
+ "comments_fetched": 17,
+ "comments_top_level": 7,
+ "comments_replies": 10,
+ "comments_by_creator": 10,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 17,
+ "tool": "outlier_research.py v1.9",
+ "collected": "2026-10-14T13:55:17",
+ "approved": "2026-10-14T13:55+09:00"
+}

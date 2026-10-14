@@ -1,0 +1,52 @@
+{
+ "id": "KGOC_mfphu4",
+ "title": "배당 ETF 10억 투자하면 진짜 배당금 얼마? | 공식분배금·실수령 차이 (무료 전자책 제공)",
+ "channel": "은퇴머니 - 은퇴 현금흐름 설계",
+ "channel_id": "UCQrlX5mzcTICHZC1BMVKwhQ",
+ "subs": 30000,
+ "views": 123668,
+ "ratio": 4.12,
+ "age_days": 158,
+ "views_per_day": 782.7,
+ "minutes": 18.8,
+ "likes": 2065,
+ "comments": 261,
+ "published": "2026-05-08",
+ "queries": "검색:ETF투자",
+ "url": "https://www.youtube.com/watch?v=KGOC_mfphu4",
+ "published_at": "2026-05-08T08:11:52Z",
+ "rank": "W275",
+ "set": "web",
+ "folder": "W_KGOC_mfphu4",
+ "sources": [
+  "검색:ETF투자"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "도입 — 10억 ETF에 넣으면 매달 얼마?"
+  },
+  {
+   "start": 265,
+   "title": "시뮬레이터 — 공식 분배금에서 실수령까지"
+  },
+  {
+   "start": 820,
+   "title": "마무리 — 빠져나가는 돈을 줄이는 조합"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-14 19:49까지 자막 요청을 쉼 → 음성인식",
+ "comments_fetched": 261,
+ "comments_top_level": 104,
+ "comments_replies": 157,
+ "comments_by_creator": 23,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 261,
+ "tool": "outlier_research.py v1.9",
+ "collected": "2026-10-14T14:01:44",
+ "approved": "2026-10-14T14:01+09:00"
+}

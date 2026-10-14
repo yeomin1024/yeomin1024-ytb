@@ -1,0 +1,79 @@
+{
+ "id": "x26AhOtaVsg",
+ "title": "주식 ETF 자산 17억 구독자님의 포트폴리오 분석, 세금 건보료 절세 위한 추가 전략",
+ "channel": "배당으로 부자되기",
+ "channel_id": "UCvl0hzRqO1ZNZybOWDdFYjA",
+ "subs": 8560,
+ "views": 53028,
+ "ratio": 6.19,
+ "age_days": 150,
+ "views_per_day": 353.5,
+ "minutes": 15.2,
+ "likes": 943,
+ "comments": 78,
+ "published": "2026-05-16",
+ "queries": "검색:포트폴리오",
+ "url": "https://www.youtube.com/watch?v=x26AhOtaVsg",
+ "published_at": "2026-05-16T11:01:34Z",
+ "rank": "W253",
+ "set": "web",
+ "folder": "W_x26AhOtaVsg",
+ "sources": [
+  "검색:포트폴리오"
+ ],
+ "source": "web",
+ "tags": [
+  "제테크",
+  "퇴사"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "10억 ETF 투자 시 매달 들어오는 배당금 규모"
+  },
+  {
+   "start": 65,
+   "title": "17억 자산가 구독자님의 현실적인 스펙 및 자산 현황"
+  },
+  {
+   "start": 106,
+   "title": "1만 주 매집으로 12억 수익을 올린 킬러 콘텐츠 분석"
+  },
+  {
+   "start": 152,
+   "title": "은퇴 후 자산을 지키는 '분배와 방어' 리밸런싱의 시작"
+  },
+  {
+   "start": 198,
+   "title": "월 1,000만 원 현금흐름을 만드는 2가지 핵심 커버드콜 ETF"
+  },
+  {
+   "start": 266,
+   "title": "실제 수령액 1,000만 원 이상, 그러나 정부가 잡는 소득은 337만 원인 마법"
+  },
+  {
+   "start": 362,
+   "title": "실제 소득을 1/3로 줄여주는 국내 커버드콜 ETF의 비과세 원천"
+  },
+  {
+   "start": 419,
+   "title": "직장 가입자 자격 유지를 통한 건강보험료 추가 부담 통제 전략"
+  },
+  {
+   "start": 645,
+   "title": "세후 수익률을 극대화하는 감액 배당주 투자"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-14 19:49까지 자막 요청을 쉼 → 음성인식",
+ "comments_fetched": 78,
+ "comments_top_level": 42,
+ "comments_replies": 36,
+ "comments_by_creator": 29,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 78,
+ "tool": "outlier_research.py v1.9",
+ "collected": "2026-10-14T14:01:00",
+ "approved": "2026-10-14T14:01+09:00"
+}

@@ -1,0 +1,86 @@
+{
+ "id": "7kHfB06S2NM",
+ "title": "은퇴 후 경비직에 사람들이 몰리는 진짜 이유",
+ "channel": "은퇴갓생",
+ "channel_id": "UCzM60RmskXG2OV-oeorXKoQ",
+ "subs": 6780,
+ "views": 287679,
+ "ratio": 42.43,
+ "age_days": 79,
+ "views_per_day": 3641.5,
+ "minutes": 15.7,
+ "likes": 2550,
+ "comments": 350,
+ "published": "2026-07-26",
+ "queries": "검색:노후준비",
+ "url": "https://www.youtube.com/watch?v=7kHfB06S2NM",
+ "published_at": "2026-07-26T05:15:03Z",
+ "rank": "W127",
+ "set": "web",
+ "folder": "W_7kHfB06S2NM",
+ "sources": [
+  "검색:노후준비"
+ ],
+ "source": "web",
+ "tags": [
+  "60대",
+  "50대",
+  "노후준비",
+  "은퇴",
+  "은퇴준비",
+  "정년퇴직",
+  "은퇴후취업",
+  "경비",
+  "아파트 경비"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "취업 센터의 기이한 풍경"
+  },
+  {
+   "start": 88,
+   "title": "5가지 경비직의 현실"
+  },
+  {
+   "start": 290,
+   "title": "기술이 없는 은퇴자"
+  },
+  {
+   "start": 363,
+   "title": "나이가 무기가 되는 곳"
+  },
+  {
+   "start": 433,
+   "title": "매달 찌히는 통장의 의미"
+  },
+  {
+   "start": 532,
+   "title": "10년을 계속하는 진짜 이유"
+  },
+  {
+   "start": 658,
+   "title": "누군가에게 필요한 존재"
+  },
+  {
+   "start": 733,
+   "title": "시작 전 반드시 따져볼 5가지"
+  },
+  {
+   "start": 811,
+   "title": "화려함 뒤에 숨은 진짜 가치"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-14 19:49까지 자막 요청을 쉼 → 음성인식",
+ "comments_fetched": 350,
+ "comments_top_level": 200,
+ "comments_replies": 150,
+ "comments_by_creator": 5,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 350,
+ "tool": "outlier_research.py v1.9",
+ "collected": "2026-10-14T13:54:32",
+ "approved": "2026-10-14T13:54+09:00"
+}

@@ -1,0 +1,119 @@
+{
+ "id": "3Q3-zlebLjk",
+ "title": "상위 1%는 매일 하는 '이것’! 당신의 돈이 일하게 하세요. | 존리 | 연금받는형 |",
+ "channel": "연금 받는 형",
+ "channel_id": "UCT_-hLYlO4rlbvccX1eMD_w",
+ "subs": 21500,
+ "views": 69232,
+ "ratio": 3.22,
+ "age_days": 151,
+ "views_per_day": 458.5,
+ "minutes": 14.5,
+ "likes": 1679,
+ "comments": 92,
+ "published": "2026-05-15",
+ "queries": "검색:연금저축 | 검색:연금저축펀드",
+ "url": "https://www.youtube.com/watch?v=3Q3-zlebLjk",
+ "published_at": "2026-05-15T11:00:11Z",
+ "rank": "W255",
+ "set": "web",
+ "folder": "W_3Q3-zlebLjk",
+ "sources": [
+  "검색:연금저축",
+  "검색:연금저축펀드"
+ ],
+ "source": "web",
+ "tags": [
+  "은퇴",
+  "은퇴자금",
+  "노후생활비",
+  "연금",
+  "국민연금",
+  "주택연금",
+  "개인연금",
+  "노후자금",
+  "노후자산",
+  "노후준비",
+  "은퇴준비",
+  "재테크",
+  "주식투자",
+  "금융교육",
+  "자산현황",
+  "현금흐름",
+  "부동산투자",
+  "연금저축펀드",
+  "경제독립",
+  "IRP",
+  "ETF투자",
+  "S&P500",
+  "미국주식",
+  "장기투자",
+  "복리의마법"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하일라이트"
+  },
+  {
+   "start": 88,
+   "title": "노후 준비와 재테크의 차이"
+  },
+  {
+   "start": 120,
+   "title": "한국인이 주식 투자를 두려워하는 이유"
+  },
+  {
+   "start": 196,
+   "title": "부동산 중심 자산 구조의 위험성"
+  },
+  {
+   "start": 279,
+   "title": "가족이 함께 경제 공부를 해야 하는 이유"
+  },
+  {
+   "start": 343,
+   "title": "노후 준비의 시작 ‘자산 점검’"
+  },
+  {
+   "start": 476,
+   "title": "나이에 따라 달라지는 투자 비중 전략"
+  },
+  {
+   "start": 552,
+   "title": "연금저축·IRP·ISA 어디부터 시작해야 할까?"
+  },
+  {
+   "start": 587,
+   "title": "40대~50대 연금 준비 늦지 않았다"
+  },
+  {
+   "start": 617,
+   "title": "퇴직연금 ETF 포트폴리오 구성법"
+  },
+  {
+   "start": 680,
+   "title": "테마형 ETF 투자 열풍 어떻게 봐야 할까?"
+  },
+  {
+   "start": 726,
+   "title": "지금도 유효한 S&P 500 장기 투자"
+  },
+  {
+   "start": 765,
+   "title": "아직 연금 투자를 시작 못 했다면"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-14 19:49까지 자막 요청을 쉼 → 음성인식",
+ "comments_fetched": 92,
+ "comments_top_level": 47,
+ "comments_replies": 45,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 92,
+ "tool": "outlier_research.py v1.9",
+ "collected": "2026-10-14T14:01:04",
+ "approved": "2026-10-14T14:01+09:00"
+}

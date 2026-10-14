@@ -1,0 +1,103 @@
+{
+ "id": "vD6oAnU4ZPo",
+ "title": "\"돈 버는 규칙은 따로 있어요.\" 1300억 부자가 추천하는 단 한권의 책/인생책/레버리지 몰아보기",
+ "channel": "달콤하게성장",
+ "channel_id": "UCoO5GSZYTfi9gou3pq7NGSg",
+ "subs": 8020,
+ "views": 181692,
+ "ratio": 22.65,
+ "age_days": 21,
+ "views_per_day": 8652.0,
+ "minutes": 34.7,
+ "likes": 1289,
+ "comments": 95,
+ "published": "2026-09-22",
+ "queries": "검색:부자되는법",
+ "url": "https://www.youtube.com/watch?v=vD6oAnU4ZPo",
+ "published_at": "2026-09-22T22:15:23Z",
+ "rank": "W13",
+ "set": "web",
+ "folder": "W_vD6oAnU4ZPo",
+ "sources": [
+  "검색:부자되는법"
+ ],
+ "source": "web",
+ "tags": [
+  "성공적인삶",
+  "성공",
+  "몰입",
+  "자기계발",
+  "자기계발서",
+  "부자",
+  "성장",
+  "창조",
+  "창의",
+  "성공하기",
+  "행복",
+  "행복한삶",
+  "나는열심히살지않기로했다",
+  "독서",
+  "독서법",
+  "운동",
+  "체력",
+  "실력"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "열심히만 살면 부자가 될까?"
+  },
+  {
+   "start": 167,
+   "title": "레버리지란 무엇인가"
+  },
+  {
+   "start": 320,
+   "title": "내가 아니어도 되는 일은 위임하라"
+  },
+  {
+   "start": 465,
+   "title": "절약보다 투자"
+  },
+  {
+   "start": 623,
+   "title": "시간 관리보다 감정 관리"
+  },
+  {
+   "start": 804,
+   "title": "아끼고 열심히 살아도 부자가 되지 않는 이유"
+  },
+  {
+   "start": 1019,
+   "title": "작은 돈보다 시간과 에너지를 아껴라"
+  },
+  {
+   "start": 1265,
+   "title": "가격 비교에 시간 쓰지 마라"
+  },
+  {
+   "start": 1510,
+   "title": "건강에는 아끼지 마라"
+  },
+  {
+   "start": 1753,
+   "title": "책과 배움에 투자하라"
+  },
+  {
+   "start": 1885,
+   "title": "돈보다 시간·건강·교육에 투자하라"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-14 19:49까지 자막 요청을 쉼 → 음성인식",
+ "comments_fetched": 95,
+ "comments_top_level": 54,
+ "comments_replies": 41,
+ "comments_by_creator": 38,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 95,
+ "tool": "outlier_research.py v1.9",
+ "collected": "2026-10-14T13:49:58",
+ "approved": "2026-10-14T13:49+09:00"
+}

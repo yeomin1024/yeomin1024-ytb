@@ -1,0 +1,76 @@
+{
+ "id": "LjHlXKeRH5s",
+ "title": "\"노후자금 구멍 5개, 당신은 이미 2개 뚫려 있습니다\"",
+ "channel": "야무진 경제학",
+ "channel_id": "UCdu6FZYHrnBKdyzRawLabmg",
+ "subs": 22500,
+ "views": 114377,
+ "ratio": 5.08,
+ "age_days": 67,
+ "views_per_day": 1707.1,
+ "minutes": 14.9,
+ "likes": 1915,
+ "comments": 35,
+ "published": "2026-08-07",
+ "queries": "검색:노후자금",
+ "url": "https://www.youtube.com/watch?v=LjHlXKeRH5s",
+ "published_at": "2026-08-07T22:00:22Z",
+ "rank": "W104",
+ "set": "web",
+ "folder": "W_LjHlXKeRH5s",
+ "sources": [
+  "검색:노후자금"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "1억 예금 한 달 이자 21만 7천 원의 진짜 의미"
+  },
+  {
+   "start": 92,
+   "title": "[구멍 1] 원금보장 집착 — 손실이라고 안 찍히는 손실"
+  },
+  {
+   "start": 217,
+   "title": "[구멍 2] 몰빵 — 반토막에서 원금까지 100%가 필요한 이유"
+  },
+  {
+   "start": 373,
+   "title": "[구멍 3] 수익률 착시 — 평균 0%인데 내 돈은 2,500만 원이 사라짐"
+  },
+  {
+   "start": 470,
+   "title": "[구멍 4] 세금 — 900만 원 넣고 확정으로 받는 148만 5천 원"
+  },
+  {
+   "start": 604,
+   "title": "사적연금 1,500만 원 선, 부부라면 반드시 확인할 숫자"
+  },
+  {
+   "start": 681,
+   "title": "[구멍 5] 남 따라 하기 — 막아놓은 네 개를 다시 뚫는 구멍"
+  },
+  {
+   "start": 797,
+   "title": "다섯 개 구멍 총정리"
+  },
+  {
+   "start": 852,
+   "title": "오늘 밤 딱 하나만 해보세요"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-14 19:49까지 자막 요청을 쉼 → 음성인식",
+ "comments_fetched": 35,
+ "comments_top_level": 26,
+ "comments_replies": 9,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 35,
+ "tool": "outlier_research.py v1.9",
+ "collected": "2026-10-14T13:53:37",
+ "approved": "2026-10-14T13:53+09:00"
+}

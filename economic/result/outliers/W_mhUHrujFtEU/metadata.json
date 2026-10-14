@@ -1,0 +1,101 @@
+{
+ "id": "mhUHrujFtEU",
+ "title": "\"55세 노후준비, 지금 시작해도 늦지 않은 진짜 이유\"",
+ "channel": "야무진 경제학",
+ "channel_id": "UCdu6FZYHrnBKdyzRawLabmg",
+ "subs": 22500,
+ "views": 174365,
+ "ratio": 7.75,
+ "age_days": 65,
+ "views_per_day": 2682.5,
+ "minutes": 18.1,
+ "likes": 1665,
+ "comments": 81,
+ "published": "2026-08-09",
+ "queries": "검색:은퇴준비 | 검색:연금저축",
+ "url": "https://www.youtube.com/watch?v=mhUHrujFtEU",
+ "published_at": "2026-08-09T22:00:11Z",
+ "rank": "W101",
+ "set": "web",
+ "folder": "W_mhUHrujFtEU",
+ "sources": [
+  "검색:은퇴준비",
+  "검색:연금저축"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "55세, 월 200만원 10년이면 통장에 얼마가 남을까"
+  },
+  {
+   "start": 115,
+   "title": "정년 60세 · 연금 65세, 55세의 진짜 시간표 세 토막"
+  },
+  {
+   "start": 192,
+   "title": "10년은 넣는 기간, 30년은 돈이 일하는 기간"
+  },
+  {
+   "start": 279,
+   "title": "노후 준비는 물통이 아니라 '수도꼭지'입니다"
+  },
+  {
+   "start": 322,
+   "title": "월 200만원부터 30만원까지, 금액별 결과 전부 계산 (연 8% 가정)"
+  },
+  {
+   "start": 449,
+   "title": "\"그 200만원이 대체 어디 있냐\"는 50대의 현실"
+  },
+  {
+   "start": 568,
+   "title": "남는 돈으로 저축이 안 되는 이유 — 파킨슨 제2법칙"
+  },
+  {
+   "start": 602,
+   "title": "의지를 시스템으로 바꾸는 법, 자동화"
+  },
+  {
+   "start": 641,
+   "title": "55세에게 복리보다 강력한 무기, 세액공제 900만원"
+  },
+  {
+   "start": 752,
+   "title": "연금계좌 한도 1,800만원 = 월 150만원의 의미"
+  },
+  {
+   "start": 793,
+   "title": "55세 + 가입 5년, 오늘 계좌부터 열어야 하는 이유"
+  },
+  {
+   "start": 837,
+   "title": "1년 미루면 1,240만원, '시작 지연 비용'의 정체"
+  },
+  {
+   "start": 929,
+   "title": "원금이 똑같은 두 사람, 왜 결과가 갈렸나"
+  },
+  {
+   "start": 974,
+   "title": "금액을 여섯 배 늘려도 바뀌지 않는 숫자"
+  },
+  {
+   "start": 1054,
+   "title": "55세가 가장 많이 하는 실수 3가지"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-14 19:49까지 자막 요청을 쉼 → 음성인식",
+ "comments_fetched": 81,
+ "comments_top_level": 61,
+ "comments_replies": 20,
+ "comments_by_creator": 2,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 81,
+ "tool": "outlier_research.py v1.9",
+ "collected": "2026-10-14T13:53:30",
+ "approved": "2026-10-14T13:53+09:00"
+}

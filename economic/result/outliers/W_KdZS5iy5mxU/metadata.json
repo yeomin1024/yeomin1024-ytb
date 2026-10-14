@@ -1,0 +1,93 @@
+{
+ "id": "KdZS5iy5mxU",
+ "title": "1억 모으는 동안 제가 절대 안 쓴 것들",
+ "channel": "돈모으는 단곰",
+ "channel_id": "UC1g62GjxCa1qgc1KuPbjfYQ",
+ "subs": 17800,
+ "views": 421807,
+ "ratio": 23.7,
+ "age_days": 55,
+ "views_per_day": 7669.2,
+ "minutes": 9.9,
+ "likes": 6097,
+ "comments": 514,
+ "published": "2026-08-19",
+ "queries": "검색:돈모으기 | 검색:1억모으기",
+ "url": "https://www.youtube.com/watch?v=KdZS5iy5mxU",
+ "published_at": "2026-08-19T11:35:50Z",
+ "rank": "W75",
+ "set": "web",
+ "folder": "W_KdZS5iy5mxU",
+ "sources": [
+  "검색:돈모으기",
+  "검색:1억모으기"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "안녕하세요!"
+  },
+  {
+   "start": 35,
+   "title": "화장품"
+  },
+  {
+   "start": 120,
+   "title": "옷"
+  },
+  {
+   "start": 165,
+   "title": "다이소"
+  },
+  {
+   "start": 195,
+   "title": "6개월 동안 냉동볶음밥만 먹었던 이유"
+  },
+  {
+   "start": 275,
+   "title": "고정비 ㅜ"
+  },
+  {
+   "start": 320,
+   "title": "인간 이불이 되어버린 이유"
+  },
+  {
+   "start": 360,
+   "title": "운동"
+  },
+  {
+   "start": 410,
+   "title": "그런데 저도 쓸 때는 씁니다"
+  },
+  {
+   "start": 460,
+   "title": "저만의 소비 기준"
+  },
+  {
+   "start": 510,
+   "title": "여행·술보다 집"
+  },
+  {
+   "start": 540,
+   "title": "절약만으로 1억은 아님요"
+  },
+  {
+   "start": 560,
+   "title": "다음엔 진짜 부업 이야기"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-14 19:49까지 자막 요청을 쉼 → 음성인식",
+ "comments_fetched": 514,
+ "comments_top_level": 239,
+ "comments_replies": 275,
+ "comments_by_creator": 121,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 514,
+ "tool": "outlier_research.py v1.9",
+ "collected": "2026-10-14T13:52:19",
+ "approved": "2026-10-14T13:52+09:00"
+}

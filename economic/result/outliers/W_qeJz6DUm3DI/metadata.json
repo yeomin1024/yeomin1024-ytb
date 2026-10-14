@@ -1,0 +1,64 @@
+{
+ "id": "qeJz6DUm3DI",
+ "title": "\"미국 주식 배당금 세금 0원 만드는 법: ISA, 연금저축, IRP 완벽 비교 가이드\"",
+ "channel": "맛스토리",
+ "channel_id": "UCl0FrjxBbrAhjqMi3UUOOoQ",
+ "subs": 3000,
+ "views": 25551,
+ "ratio": 8.52,
+ "age_days": 164,
+ "views_per_day": 155.8,
+ "minutes": 20.2,
+ "likes": 576,
+ "comments": 17,
+ "published": "2026-05-02",
+ "queries": "검색:IRP",
+ "url": "https://www.youtube.com/watch?v=qeJz6DUm3DI",
+ "published_at": "2026-05-02T22:00:50Z",
+ "rank": "W282",
+ "set": "web",
+ "folder": "W_qeJz6DUm3DI",
+ "sources": [
+  "검색:IRP"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "월 300만 원 배당 투자의 숨겨진 함정 (세금 폭탄)"
+  },
+  {
+   "start": 91,
+   "title": "배당성장(SCHD) vs 커버드콜(JEPI) 완벽 비교"
+  },
+  {
+   "start": 232,
+   "title": "고배당의 유혹, 내 원금이 녹아내리는 이유 (ROC)"
+  },
+  {
+   "start": 315,
+   "title": "무조건 만들어야 할 '절세 3대장' (ISA, 연금저축, IRP)"
+  },
+  {
+   "start": 504,
+   "title": "자산가들의 비밀, 월 300만 원 세팅 '바벨 전략'"
+  },
+  {
+   "start": 649,
+   "title": "배당 투자자가 절대 하면 안 되는 치명적 실수 3가지"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-14 19:49까지 자막 요청을 쉼 → 음성인식",
+ "comments_fetched": 17,
+ "comments_top_level": 9,
+ "comments_replies": 8,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 17,
+ "tool": "outlier_research.py v1.9",
+ "collected": "2026-10-14T14:02:00",
+ "approved": "2026-10-14T14:02+09:00"
+}

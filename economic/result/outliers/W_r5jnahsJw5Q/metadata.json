@@ -1,0 +1,72 @@
+{
+ "id": "r5jnahsJw5Q",
+ "title": "택배로 부자가 될 수 있냐고요? 솔직하게 말씀드리겠습니다",
+ "channel": "택부 - 택배기사 부자들",
+ "channel_id": "UC79hLBEMljdVtCwgfgZhnnA",
+ "subs": 6550,
+ "views": 52812,
+ "ratio": 8.06,
+ "age_days": 42,
+ "views_per_day": 1257.4,
+ "minutes": 8.3,
+ "likes": 413,
+ "comments": 203,
+ "published": "2026-09-01",
+ "queries": "검색:부자되는법",
+ "url": "https://www.youtube.com/watch?v=r5jnahsJw5Q",
+ "published_at": "2026-09-01T09:00:26Z",
+ "rank": "W52",
+ "set": "web",
+ "folder": "W_r5jnahsJw5Q",
+ "sources": [
+  "검색:부자되는법"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "택배로 부자 못 됩니다"
+  },
+  {
+   "start": 22,
+   "title": "택배기사 월급 공개 영상 댓글"
+  },
+  {
+   "start": 48,
+   "title": "부자란 무엇인가?"
+  },
+  {
+   "start": 90,
+   "title": "부자들의 공통점"
+  },
+  {
+   "start": 169,
+   "title": "택배기사들이 좋은 이유"
+  },
+  {
+   "start": 277,
+   "title": "택배기사는 해병대다?"
+  },
+  {
+   "start": 317,
+   "title": "부정적인 댓글들에게 하고 싶은 말"
+  },
+  {
+   "start": 420,
+   "title": "인생의 불확실성을 대하는 태도"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-14 19:49까지 자막 요청을 쉼 → 음성인식",
+ "comments_fetched": 203,
+ "comments_top_level": 132,
+ "comments_replies": 71,
+ "comments_by_creator": 54,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 203,
+ "tool": "outlier_research.py v1.9",
+ "collected": "2026-10-14T13:51:15",
+ "approved": "2026-10-14T13:51+09:00"
+}

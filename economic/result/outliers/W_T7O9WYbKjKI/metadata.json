@@ -1,0 +1,91 @@
+{
+ "id": "T7O9WYbKjKI",
+ "title": "돈 없는 노후가 얼마나 비참한지 아십니까? 30평 아파트 지키려다 거지로 살지 마세요 | 노후빈곤 해결책",
+ "channel": "은빛시나리오",
+ "channel_id": "UCowMNQXcxSJJ7Kyc41Q4Pzw",
+ "subs": 29200,
+ "views": 152771,
+ "ratio": 5.23,
+ "age_days": 159,
+ "views_per_day": 960.8,
+ "minutes": 46.8,
+ "likes": 3668,
+ "comments": 444,
+ "published": "2026-05-07",
+ "queries": "검색:노후자금",
+ "url": "https://www.youtube.com/watch?v=T7O9WYbKjKI",
+ "published_at": "2026-05-07T22:00:37Z",
+ "rank": "W276",
+ "set": "web",
+ "folder": "W_T7O9WYbKjKI",
+ "sources": [
+  "검색:노후자금"
+ ],
+ "source": "web",
+ "tags": [
+  "은퇴후삶",
+  "오디오북",
+  "노후사연",
+  "노후자금사연",
+  "노후준비",
+  "노후빈곤",
+  "노인빈곤",
+  "노후파산",
+  "주택연금",
+  "시니어드라마",
+  "은빛시나리오",
+  "시니어재테크",
+  "가족갈등",
+  "노후생활"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 90,
+   "title": "1장. 텅 빈 통장, 달라진 아침"
+  },
+  {
+   "start": 480,
+   "title": "2장. 평생을 바쳤습니다, 그게 부모의 도리인 줄 알았습니다"
+  },
+  {
+   "start": 960,
+   "title": "3장. 효도는 입금순이었습니다"
+  },
+  {
+   "start": 1380,
+   "title": "4장. 친구도 형편이 맞아야 친구입니다"
+  },
+  {
+   "start": 1800,
+   "title": "5장. 가장의 위신은 돈과 함께 사라졌습니다"
+  },
+  {
+   "start": 2220,
+   "title": "6장. 덩치만 큰 집, 배고픈 주인"
+  },
+  {
+   "start": 2580,
+   "title": "7장. 약값이 무서워 병원 가기가 겁납니다"
+  },
+  {
+   "start": 2940,
+   "title": "8장. 껍데기를 버리고 나니 비로소 숨이 트였습니다"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-14 19:49까지 자막 요청을 쉼 → 음성인식",
+ "comments_fetched": 444,
+ "comments_top_level": 207,
+ "comments_replies": 237,
+ "comments_by_creator": 193,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 444,
+ "tool": "outlier_research.py v1.9",
+ "collected": "2026-10-14T14:01:48",
+ "approved": "2026-10-14T14:01+09:00"
+}

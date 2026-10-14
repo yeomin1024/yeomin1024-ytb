@@ -2,15 +2,15 @@
  "tool": "weekly_analysis.py v1.3",
  "topic": "economic",
  "name": "재테크",
- "generated": "2026-10-14T09:14:42+00:00",
+ "generated": "2026-10-14T09:30:46+00:00",
  "cases": 280,
  "dated": 280,
  "older_than_windows": 0,
  "max_weeks": 52,
  "text_sources": {
   "자막": 0,
-  "음성인식": 20,
-  "설명": 251,
+  "음성인식": 25,
+  "설명": 246,
   "없음": 9
  },
  "criteria": "성공 사례 = 구독자 50,000 이하 · 조회수 10,000 이상 · 조회수 ≥ 구독자 × 3",
@@ -33,7 +33,7 @@
     }
    ],
    "views_median": 61632.0,
-   "views_per_day_median": 61632.0,
+   "views_per_day_median": 61620.9,
    "ratio_median": 1.91,
    "success": 1,
    "minutes_median": 22.2,
@@ -133,7 +133,7 @@
      "title": "45살에 시작한 사이드잡 부업으로 월 순수익 1억 벌고 인생역전한 48살 아저씨",
      "channel": "실전부업클럽",
      "views": 81154,
-     "views_per_day": 81154.0,
+     "views_per_day": 81131.8,
      "published": "2026-10-13",
      "url": "https://www.youtube.com/watch?v=XX8QV3-5rAM"
     },
@@ -186,7 +186,7 @@
     }
    ],
    "views_median": 93310.5,
-   "views_per_day_median": 27001.7,
+   "views_per_day_median": 26996.7,
    "ratio_median": 36.34,
    "success": 6,
    "minutes_median": 20.95,
@@ -265,11 +265,11 @@
      "count": 4
     },
     {
-     "word": "지난",
+     "word": "그리고",
      "count": 3
     },
     {
-     "word": "그리고",
+     "word": "지난",
      "count": 3
     },
     {
@@ -281,10 +281,6 @@
      "count": 3
     },
     {
-     "word": "아니라",
-     "count": 3
-    },
-    {
      "word": "가장",
      "count": 3
     },
@@ -293,15 +289,19 @@
      "count": 3
     },
     {
+     "word": "아니라",
+     "count": 3
+    },
+    {
      "word": "따라",
      "count": 3
     },
     {
-     "word": "주식을",
+     "word": "이후",
      "count": 2
     },
     {
-     "word": "앞에",
+     "word": "평생",
      "count": 2
     },
     {
@@ -384,7 +384,7 @@
      "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
      "channel": "ACE ETF",
      "views": 2180869,
-     "views_per_day": 181281.5,
+     "views_per_day": 181113.6,
      "published": "2026-10-02",
      "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
     },
@@ -393,7 +393,7 @@
      "title": "45살에 시작한 사이드잡 부업으로 월 순수익 1억 벌고 인생역전한 48살 아저씨",
      "channel": "실전부업클럽",
      "views": 81154,
-     "views_per_day": 81154.0,
+     "views_per_day": 81131.8,
      "published": "2026-10-13",
      "url": "https://www.youtube.com/watch?v=XX8QV3-5rAM"
     },
@@ -402,7 +402,7 @@
      "title": "현대차 반토막에 숨겨진 진실… 엔비디아 합작 발표 전 무조건 모아야 할 이유 [이권희 대표]",
      "channel": "경제시그널",
      "views": 397862,
-     "views_per_day": 50059.2,
+     "views_per_day": 49989.0,
      "published": "2026-10-06",
      "url": "https://www.youtube.com/watch?v=m3ZRHahRGHU"
     },
@@ -420,7 +420,7 @@
      "title": "은퇴 후 연금만으로 살기 좋은 한국 최고의 섬마을",
      "channel": "살이픽",
      "views": 157461,
-     "views_per_day": 11893.4,
+     "views_per_day": 11883.4,
      "published": "2026-10-01",
      "url": "https://www.youtube.com/watch?v=nksAlCVCgLo"
     }
@@ -548,11 +548,11 @@
    ],
    "title_words": [
     {
-     "word": "이유",
+     "word": "2부",
      "count": 3
     },
     {
-     "word": "2부",
+     "word": "이유",
      "count": 3
     },
     {
@@ -568,10 +568,6 @@
      "count": 2
     },
     {
-     "word": "Ep",
-     "count": 2
-    },
-    {
      "word": "50대",
      "count": 2
     },
@@ -581,6 +577,10 @@
     },
     {
      "word": "책과사람",
+     "count": 2
+    },
+    {
+     "word": "Ep",
      "count": 2
     },
     {
@@ -605,7 +605,7 @@
      "count": 6
     },
     {
-     "word": "노후",
+     "word": "영상에서",
      "count": 5
     },
     {
@@ -613,19 +613,19 @@
      "count": 5
     },
     {
-     "word": "영상에서",
-     "count": 5
-    },
-    {
      "word": "따라",
      "count": 5
     },
     {
-     "word": "지난",
+     "word": "노후",
      "count": 5
     },
     {
      "word": "그리고",
+     "count": 5
+    },
+    {
+     "word": "지난",
      "count": 5
     },
     {
@@ -720,7 +720,7 @@
      "title": "계속 떨어지더니 '최저' 찍었다..\"요즘 금값 왜 이래\" 이유 보니 / 친절한 경제 / SBS 모닝와이드 2부",
      "channel": "SBS 뉴스",
      "views": 4192694,
-     "views_per_day": 292311.8,
+     "views_per_day": 292084.6,
      "published": "2026-09-30",
      "url": "https://www.youtube.com/watch?v=ZlGbs_sIbQg"
     },
@@ -729,7 +729,7 @@
      "title": "\"살다살다 이런 발표는 처음\" 기초연금 충격 개편에 발칵 | 이영주 대표 1부",
      "channel": "김정호의 경제TV",
      "views": 3909231,
-     "views_per_day": 215565.0,
+     "views_per_day": 215432.5,
      "published": "2026-09-26",
      "url": "https://www.youtube.com/watch?v=UInNIcvnTC4"
     },
@@ -738,7 +738,7 @@
      "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
      "channel": "ACE ETF",
      "views": 2180869,
-     "views_per_day": 181281.5,
+     "views_per_day": 181113.6,
      "published": "2026-10-02",
      "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
     },
@@ -747,7 +747,7 @@
      "title": "\"부자 될 확률 높다\" 늙을수록 오히려 팔자 좋은 사람 특징 ㅣ Ep. 책과사람 163 (이석진 역술가 2부)",
      "channel": "책과삶",
      "views": 2729036,
-     "views_per_day": 136383.5,
+     "views_per_day": 136307.6,
      "published": "2026-09-24",
      "url": "https://www.youtube.com/watch?v=jAOLy75qtGk"
     },
@@ -756,7 +756,7 @@
      "title": "“50대 이후 급변해요” 은퇴 후 인생 격차 급격하게 벌어지는 이유 | Ep. 책과사람 164 (김민식PD 2부)",
      "channel": "책과삶",
      "views": 2061469,
-     "views_per_day": 106572.0,
+     "views_per_day": 106510.5,
      "published": "2026-09-25",
      "url": "https://www.youtube.com/watch?v=6XD2NySGz7w"
     }
@@ -825,7 +825,7 @@
     }
    ],
    "views_median": 176633.5,
-   "views_per_day_median": 11888.35,
+   "views_per_day_median": 11880.5,
    "ratio_median": 17.75,
    "success": 20,
    "minutes_median": 19.55,
@@ -932,36 +932,32 @@
      "count": 2
     },
     {
-     "word": "Ep",
-     "count": 2
-    },
-    {
      "word": "50대",
      "count": 2
     },
     {
      "word": "은퇴",
      "count": 2
+    },
+    {
+     "word": "책과사람",
+     "count": 2
     }
    ],
-   "transcripts": 6,
+   "transcripts": 7,
    "text_sources": {
     "자막": 0,
-    "음성인식": 6,
-    "설명": 22,
+    "음성인식": 7,
+    "설명": 21,
     "없음": 0
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 13
+     "count": 14
     },
     {
      "word": "아니라",
-     "count": 10
-    },
-    {
-     "word": "그리고",
      "count": 10
     },
     {
@@ -969,19 +965,27 @@
      "count": 9
     },
     {
+     "word": "따라",
+     "count": 9
+    },
+    {
+     "word": "그리고",
+     "count": 9
+    },
+    {
+     "word": "돈을",
+     "count": 8
+    },
+    {
      "word": "돈이",
      "count": 8
     },
     {
-     "word": "따라",
-     "count": 8
-    },
-    {
      "word": "어떤",
-     "count": 8
+     "count": 7
     },
     {
-     "word": "돈을",
+     "word": "그런데",
      "count": 7
     },
     {
@@ -989,15 +993,11 @@
      "count": 7
     },
     {
-     "word": "가장",
+     "word": "대한",
      "count": 7
     },
     {
      "word": "같은",
-     "count": 7
-    },
-    {
-     "word": "위해",
      "count": 7
     }
    ],
@@ -1076,7 +1076,7 @@
      "title": "계속 떨어지더니 '최저' 찍었다..\"요즘 금값 왜 이래\" 이유 보니 / 친절한 경제 / SBS 모닝와이드 2부",
      "channel": "SBS 뉴스",
      "views": 4192694,
-     "views_per_day": 292311.8,
+     "views_per_day": 292084.6,
      "published": "2026-09-30",
      "url": "https://www.youtube.com/watch?v=ZlGbs_sIbQg"
     },
@@ -1085,7 +1085,7 @@
      "title": "\"살다살다 이런 발표는 처음\" 기초연금 충격 개편에 발칵 | 이영주 대표 1부",
      "channel": "김정호의 경제TV",
      "views": 3909231,
-     "views_per_day": 215565.0,
+     "views_per_day": 215432.5,
      "published": "2026-09-26",
      "url": "https://www.youtube.com/watch?v=UInNIcvnTC4"
     },
@@ -1094,7 +1094,7 @@
      "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
      "channel": "ACE ETF",
      "views": 2180869,
-     "views_per_day": 181281.5,
+     "views_per_day": 181113.6,
      "published": "2026-10-02",
      "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
     },
@@ -1103,7 +1103,7 @@
      "title": "\"부자 될 확률 높다\" 늙을수록 오히려 팔자 좋은 사람 특징 ㅣ Ep. 책과사람 163 (이석진 역술가 2부)",
      "channel": "책과삶",
      "views": 2729036,
-     "views_per_day": 136383.5,
+     "views_per_day": 136307.6,
      "published": "2026-09-24",
      "url": "https://www.youtube.com/watch?v=jAOLy75qtGk"
     },
@@ -1112,7 +1112,7 @@
      "title": "“50대 이후 급변해요” 은퇴 후 인생 격차 급격하게 벌어지는 이유 | Ep. 책과사람 164 (김민식PD 2부)",
      "channel": "책과삶",
      "views": 2061469,
-     "views_per_day": 106572.0,
+     "views_per_day": 106510.5,
      "published": "2026-09-25",
      "url": "https://www.youtube.com/watch?v=6XD2NySGz7w"
     }
@@ -1206,7 +1206,7 @@
     }
    ],
    "views_median": 193293.0,
-   "views_per_day_median": 11197.8,
+   "views_per_day_median": 11189.85,
    "ratio_median": 14.07,
    "success": 29,
    "minutes_median": 19.6,
@@ -1330,21 +1330,21 @@
      "count": 2
     }
    ],
-   "transcripts": 8,
+   "transcripts": 9,
    "text_sources": {
     "자막": 0,
-    "음성인식": 8,
-    "설명": 36,
+    "음성인식": 9,
+    "설명": 35,
     "없음": 0
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 20
+     "count": 21
     },
     {
      "word": "그리고",
-     "count": 17
+     "count": 16
     },
     {
      "word": "아니라",
@@ -1352,11 +1352,15 @@
     },
     {
      "word": "돈을",
-     "count": 12
+     "count": 13
     },
     {
      "word": "같은",
      "count": 12
+    },
+    {
+     "word": "따라",
+     "count": 11
     },
     {
      "word": "어떻게",
@@ -1367,7 +1371,7 @@
      "count": 11
     },
     {
-     "word": "어떤",
+     "word": "그런데",
      "count": 11
     },
     {
@@ -1375,15 +1379,11 @@
      "count": 10
     },
     {
-     "word": "따라",
+     "word": "투자",
      "count": 10
     },
     {
      "word": "대한",
-     "count": 10
-    },
-    {
-     "word": "그런데",
      "count": 10
     }
    ],
@@ -1462,7 +1462,7 @@
      "title": "계속 떨어지더니 '최저' 찍었다..\"요즘 금값 왜 이래\" 이유 보니 / 친절한 경제 / SBS 모닝와이드 2부",
      "channel": "SBS 뉴스",
      "views": 4192694,
-     "views_per_day": 292311.8,
+     "views_per_day": 292084.6,
      "published": "2026-09-30",
      "url": "https://www.youtube.com/watch?v=ZlGbs_sIbQg"
     },
@@ -1471,7 +1471,7 @@
      "title": "\"살다살다 이런 발표는 처음\" 기초연금 충격 개편에 발칵 | 이영주 대표 1부",
      "channel": "김정호의 경제TV",
      "views": 3909231,
-     "views_per_day": 215565.0,
+     "views_per_day": 215432.5,
      "published": "2026-09-26",
      "url": "https://www.youtube.com/watch?v=UInNIcvnTC4"
     },
@@ -1480,7 +1480,7 @@
      "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
      "channel": "ACE ETF",
      "views": 2180869,
-     "views_per_day": 181281.5,
+     "views_per_day": 181113.6,
      "published": "2026-10-02",
      "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
     },
@@ -1489,7 +1489,7 @@
      "title": "\"부자 될 확률 높다\" 늙을수록 오히려 팔자 좋은 사람 특징 ㅣ Ep. 책과사람 163 (이석진 역술가 2부)",
      "channel": "책과삶",
      "views": 2729036,
-     "views_per_day": 136383.5,
+     "views_per_day": 136307.6,
      "published": "2026-09-24",
      "url": "https://www.youtube.com/watch?v=jAOLy75qtGk"
     },
@@ -1498,7 +1498,7 @@
      "title": "청약통장 다들 왜 깨고 있을까?｜크랩",
      "channel": "크랩 KLAB",
      "views": 3763992,
-     "views_per_day": 113882.8,
+     "views_per_day": 113844.3,
      "published": "2026-09-11",
      "url": "https://www.youtube.com/watch?v=g4h29mJufpc"
     }
@@ -1577,7 +1577,7 @@
     }
    ],
    "views_median": 203470,
-   "views_per_day_median": 11380.9,
+   "views_per_day_median": 11377.7,
    "ratio_median": 13.62,
    "success": 38,
    "minutes_median": 20.0,
@@ -1686,11 +1686,11 @@
      "count": 3
     },
     {
-     "word": "주식",
+     "word": "백승호",
      "count": 3
     },
     {
-     "word": "백승호",
+     "word": "주식",
      "count": 3
     },
     {
@@ -1706,21 +1706,21 @@
      "count": 3
     }
    ],
-   "transcripts": 8,
+   "transcripts": 11,
    "text_sources": {
     "자막": 0,
-    "음성인식": 8,
-    "설명": 49,
+    "음성인식": 11,
+    "설명": 46,
     "없음": 0
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 28
+     "count": 29
     },
     {
      "word": "그리고",
-     "count": 22
+     "count": 21
     },
     {
      "word": "아니라",
@@ -1728,38 +1728,38 @@
     },
     {
      "word": "돈을",
+     "count": 18
+    },
+    {
+     "word": "같은",
      "count": 16
+    },
+    {
+     "word": "투자",
+     "count": 15
     },
     {
      "word": "많이",
      "count": 15
     },
     {
-     "word": "투자",
-     "count": 14
-    },
-    {
-     "word": "같은",
-     "count": 14
+     "word": "그런데",
+     "count": 15
     },
     {
      "word": "따라",
      "count": 14
     },
     {
-     "word": "실제",
-     "count": 13
-    },
-    {
-     "word": "대한",
-     "count": 13
-    },
-    {
-     "word": "그런데",
+     "word": "하나",
      "count": 13
     },
     {
      "word": "어떻게",
+     "count": 13
+    },
+    {
+     "word": "가장",
      "count": 13
     }
    ],
@@ -1838,7 +1838,7 @@
      "title": "계속 떨어지더니 '최저' 찍었다..\"요즘 금값 왜 이래\" 이유 보니 / 친절한 경제 / SBS 모닝와이드 2부",
      "channel": "SBS 뉴스",
      "views": 4192694,
-     "views_per_day": 292311.8,
+     "views_per_day": 292084.6,
      "published": "2026-09-30",
      "url": "https://www.youtube.com/watch?v=ZlGbs_sIbQg"
     },
@@ -1847,7 +1847,7 @@
      "title": "\"살다살다 이런 발표는 처음\" 기초연금 충격 개편에 발칵 | 이영주 대표 1부",
      "channel": "김정호의 경제TV",
      "views": 3909231,
-     "views_per_day": 215565.0,
+     "views_per_day": 215432.5,
      "published": "2026-09-26",
      "url": "https://www.youtube.com/watch?v=UInNIcvnTC4"
     },
@@ -1856,7 +1856,7 @@
      "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
      "channel": "ACE ETF",
      "views": 2180869,
-     "views_per_day": 181281.5,
+     "views_per_day": 181113.6,
      "published": "2026-10-02",
      "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
     },
@@ -1865,7 +1865,7 @@
      "title": "\"부자 될 확률 높다\" 늙을수록 오히려 팔자 좋은 사람 특징 ㅣ Ep. 책과사람 163 (이석진 역술가 2부)",
      "channel": "책과삶",
      "views": 2729036,
-     "views_per_day": 136383.5,
+     "views_per_day": 136307.6,
      "published": "2026-09-24",
      "url": "https://www.youtube.com/watch?v=jAOLy75qtGk"
     },
@@ -1874,7 +1874,7 @@
      "title": "청약통장 다들 왜 깨고 있을까?｜크랩",
      "channel": "크랩 KLAB",
      "views": 3763992,
-     "views_per_day": 113882.8,
+     "views_per_day": 113844.3,
      "published": "2026-09-11",
      "url": "https://www.youtube.com/watch?v=g4h29mJufpc"
     }
@@ -1958,7 +1958,7 @@
     }
    ],
    "views_median": 248645,
-   "views_per_day_median": 11380.9,
+   "views_per_day_median": 11377.7,
    "ratio_median": 13.13,
    "success": 46,
    "minutes_median": 20.6,
@@ -2084,29 +2084,29 @@
      "count": 3
     },
     {
-     "word": "주식",
+     "word": "백승호",
      "count": 3
     },
     {
-     "word": "백승호",
+     "word": "주식",
      "count": 3
     }
    ],
-   "transcripts": 11,
+   "transcripts": 14,
    "text_sources": {
     "자막": 0,
-    "음성인식": 11,
-    "설명": 58,
+    "음성인식": 14,
+    "설명": 55,
     "없음": 2
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 34
+     "count": 35
     },
     {
      "word": "그리고",
-     "count": 24
+     "count": 23
     },
     {
      "word": "아니라",
@@ -2114,10 +2114,18 @@
     },
     {
      "word": "돈을",
-     "count": 19
+     "count": 21
     },
     {
      "word": "같은",
+     "count": 19
+    },
+    {
+     "word": "그런데",
+     "count": 19
+    },
+    {
+     "word": "투자",
      "count": 17
     },
     {
@@ -2125,23 +2133,15 @@
      "count": 17
     },
     {
-     "word": "그런데",
-     "count": 17
-    },
-    {
-     "word": "투자",
-     "count": 16
-    },
-    {
-     "word": "실제",
-     "count": 16
-    },
-    {
      "word": "많이",
      "count": 16
     },
     {
      "word": "따라",
+     "count": 16
+    },
+    {
+     "word": "하나",
      "count": 16
     },
     {
@@ -2224,7 +2224,7 @@
      "title": "계속 떨어지더니 '최저' 찍었다..\"요즘 금값 왜 이래\" 이유 보니 / 친절한 경제 / SBS 모닝와이드 2부",
      "channel": "SBS 뉴스",
      "views": 4192694,
-     "views_per_day": 292311.8,
+     "views_per_day": 292084.6,
      "published": "2026-09-30",
      "url": "https://www.youtube.com/watch?v=ZlGbs_sIbQg"
     },
@@ -2233,7 +2233,7 @@
      "title": "\"살다살다 이런 발표는 처음\" 기초연금 충격 개편에 발칵 | 이영주 대표 1부",
      "channel": "김정호의 경제TV",
      "views": 3909231,
-     "views_per_day": 215565.0,
+     "views_per_day": 215432.5,
      "published": "2026-09-26",
      "url": "https://www.youtube.com/watch?v=UInNIcvnTC4"
     },
@@ -2242,7 +2242,7 @@
      "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
      "channel": "ACE ETF",
      "views": 2180869,
-     "views_per_day": 181281.5,
+     "views_per_day": 181113.6,
      "published": "2026-10-02",
      "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
     },
@@ -2251,7 +2251,7 @@
      "title": "\"부자 될 확률 높다\" 늙을수록 오히려 팔자 좋은 사람 특징 ㅣ Ep. 책과사람 163 (이석진 역술가 2부)",
      "channel": "책과삶",
      "views": 2729036,
-     "views_per_day": 136383.5,
+     "views_per_day": 136307.6,
      "published": "2026-09-24",
      "url": "https://www.youtube.com/watch?v=jAOLy75qtGk"
     },
@@ -2260,7 +2260,7 @@
      "title": "청약통장 다들 왜 깨고 있을까?｜크랩",
      "channel": "크랩 KLAB",
      "views": 3763992,
-     "views_per_day": 113882.8,
+     "views_per_day": 113844.3,
      "published": "2026-09-11",
      "url": "https://www.youtube.com/watch?v=g4h29mJufpc"
     }
@@ -2354,7 +2354,7 @@
     }
    ],
    "views_median": 223129,
-   "views_per_day_median": 8468.3,
+   "views_per_day_median": 8463.9,
    "ratio_median": 8.77,
    "success": 58,
    "minutes_median": 19.7,
@@ -2480,25 +2480,25 @@
      "count": 4
     },
     {
-     "word": "2부",
+     "word": "은퇴",
      "count": 4
     },
     {
-     "word": "은퇴",
+     "word": "2부",
      "count": 4
     }
    ],
-   "transcripts": 14,
+   "transcripts": 19,
    "text_sources": {
     "자막": 0,
-    "음성인식": 14,
-    "설명": 71,
+    "음성인식": 19,
+    "설명": 66,
     "없음": 2
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 41
+     "count": 43
     },
     {
      "word": "그리고",
@@ -2510,22 +2510,18 @@
     },
     {
      "word": "돈을",
-     "count": 23
-    },
-    {
-     "word": "같은",
-     "count": 23
-    },
-    {
-     "word": "실제",
-     "count": 22
+     "count": 26
     },
     {
      "word": "그런데",
-     "count": 22
+     "count": 26
     },
     {
-     "word": "가장",
+     "word": "같은",
+     "count": 25
+    },
+    {
+     "word": "투자",
      "count": 21
     },
     {
@@ -2533,11 +2529,15 @@
      "count": 21
     },
     {
-     "word": "투자",
-     "count": 20
+     "word": "가장",
+     "count": 21
     },
     {
      "word": "많이",
+     "count": 20
+    },
+    {
+     "word": "돈이",
      "count": 20
     },
     {
@@ -2620,7 +2620,7 @@
      "title": "계속 떨어지더니 '최저' 찍었다..\"요즘 금값 왜 이래\" 이유 보니 / 친절한 경제 / SBS 모닝와이드 2부",
      "channel": "SBS 뉴스",
      "views": 4192694,
-     "views_per_day": 292311.8,
+     "views_per_day": 292084.6,
      "published": "2026-09-30",
      "url": "https://www.youtube.com/watch?v=ZlGbs_sIbQg"
     },
@@ -2629,7 +2629,7 @@
      "title": "\"살다살다 이런 발표는 처음\" 기초연금 충격 개편에 발칵 | 이영주 대표 1부",
      "channel": "김정호의 경제TV",
      "views": 3909231,
-     "views_per_day": 215565.0,
+     "views_per_day": 215432.5,
      "published": "2026-09-26",
      "url": "https://www.youtube.com/watch?v=UInNIcvnTC4"
     },
@@ -2638,7 +2638,7 @@
      "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
      "channel": "ACE ETF",
      "views": 2180869,
-     "views_per_day": 181281.5,
+     "views_per_day": 181113.6,
      "published": "2026-10-02",
      "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
     },
@@ -2647,7 +2647,7 @@
      "title": "\"부자 될 확률 높다\" 늙을수록 오히려 팔자 좋은 사람 특징 ㅣ Ep. 책과사람 163 (이석진 역술가 2부)",
      "channel": "책과삶",
      "views": 2729036,
-     "views_per_day": 136383.5,
+     "views_per_day": 136307.6,
      "published": "2026-09-24",
      "url": "https://www.youtube.com/watch?v=jAOLy75qtGk"
     },
@@ -2656,7 +2656,7 @@
      "title": "청약통장 다들 왜 깨고 있을까?｜크랩",
      "channel": "크랩 KLAB",
      "views": 3763992,
-     "views_per_day": 113882.8,
+     "views_per_day": 113844.3,
      "published": "2026-09-11",
      "url": "https://www.youtube.com/watch?v=g4h29mJufpc"
     }
@@ -2745,7 +2745,7 @@
     }
    ],
    "views_median": 206199.0,
-   "views_per_day_median": 5956.2,
+   "views_per_day_median": 5954.35,
    "ratio_median": 8.34,
    "success": 66,
    "minutes_median": 21.65,
@@ -2879,17 +2879,17 @@
      "count": 4
     }
    ],
-   "transcripts": 15,
+   "transcripts": 20,
    "text_sources": {
     "자막": 0,
-    "음성인식": 15,
-    "설명": 84,
+    "음성인식": 20,
+    "설명": 79,
     "없음": 3
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 48
+     "count": 50
     },
     {
      "word": "그리고",
@@ -2901,14 +2901,18 @@
     },
     {
      "word": "그런데",
-     "count": 30
+     "count": 34
     },
     {
      "word": "같은",
-     "count": 29
+     "count": 31
     },
     {
-     "word": "실제",
+     "word": "돈을",
+     "count": 27
+    },
+    {
+     "word": "어떤",
      "count": 25
     },
     {
@@ -2916,24 +2920,20 @@
      "count": 25
     },
     {
-     "word": "어떤",
-     "count": 25
-    },
-    {
-     "word": "돈을",
-     "count": 24
-    },
-    {
      "word": "어떻게",
      "count": 23
+    },
+    {
+     "word": "투자",
+     "count": 22
     },
     {
      "word": "많이",
      "count": 22
     },
     {
-     "word": "영상에서",
-     "count": 22
+     "word": "실제",
+     "count": 21
     }
    ],
    "chapters_share": 0.275,
@@ -3011,7 +3011,7 @@
      "title": "계속 떨어지더니 '최저' 찍었다..\"요즘 금값 왜 이래\" 이유 보니 / 친절한 경제 / SBS 모닝와이드 2부",
      "channel": "SBS 뉴스",
      "views": 4192694,
-     "views_per_day": 292311.8,
+     "views_per_day": 292084.6,
      "published": "2026-09-30",
      "url": "https://www.youtube.com/watch?v=ZlGbs_sIbQg"
     },
@@ -3020,7 +3020,7 @@
      "title": "\"살다살다 이런 발표는 처음\" 기초연금 충격 개편에 발칵 | 이영주 대표 1부",
      "channel": "김정호의 경제TV",
      "views": 3909231,
-     "views_per_day": 215565.0,
+     "views_per_day": 215432.5,
      "published": "2026-09-26",
      "url": "https://www.youtube.com/watch?v=UInNIcvnTC4"
     },
@@ -3029,7 +3029,7 @@
      "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
      "channel": "ACE ETF",
      "views": 2180869,
-     "views_per_day": 181281.5,
+     "views_per_day": 181113.6,
      "published": "2026-10-02",
      "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
     },
@@ -3038,7 +3038,7 @@
      "title": "\"부자 될 확률 높다\" 늙을수록 오히려 팔자 좋은 사람 특징 ㅣ Ep. 책과사람 163 (이석진 역술가 2부)",
      "channel": "책과삶",
      "views": 2729036,
-     "views_per_day": 136383.5,
+     "views_per_day": 136307.6,
      "published": "2026-09-24",
      "url": "https://www.youtube.com/watch?v=jAOLy75qtGk"
     },
@@ -3047,7 +3047,7 @@
      "title": "청약통장 다들 왜 깨고 있을까?｜크랩",
      "channel": "크랩 KLAB",
      "views": 3763992,
-     "views_per_day": 113882.8,
+     "views_per_day": 113844.3,
      "published": "2026-09-11",
      "url": "https://www.youtube.com/watch?v=g4h29mJufpc"
     }
@@ -3136,7 +3136,7 @@
     }
    ],
    "views_median": 194385,
-   "views_per_day_median": 5182.9,
+   "views_per_day_median": 5181.9,
    "ratio_median": 7.75,
    "success": 76,
    "minutes_median": 21.7,
@@ -3270,17 +3270,17 @@
      "count": 5
     }
    ],
-   "transcripts": 15,
+   "transcripts": 20,
    "text_sources": {
     "자막": 0,
-    "음성인식": 15,
-    "설명": 99,
+    "음성인식": 20,
+    "설명": 94,
     "없음": 3
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 55
+     "count": 57
     },
     {
      "word": "그리고",
@@ -3292,18 +3292,26 @@
     },
     {
      "word": "그런데",
-     "count": 34
+     "count": 38
+    },
+    {
+     "word": "같은",
+     "count": 32
     },
     {
      "word": "가장",
      "count": 31
     },
     {
-     "word": "같은",
-     "count": 30
+     "word": "돈을",
+     "count": 28
     },
     {
-     "word": "실제",
+     "word": "투자",
+     "count": 27
+    },
+    {
+     "word": "오늘",
      "count": 27
     },
     {
@@ -3311,19 +3319,11 @@
      "count": 27
     },
     {
-     "word": "투자",
-     "count": 26
-    },
-    {
-     "word": "영상에서",
-     "count": 26
-    },
-    {
-     "word": "돈을",
-     "count": 25
-    },
-    {
      "word": "돈이",
+     "count": 26
+    },
+    {
+     "word": "어떤",
      "count": 25
     }
    ],
@@ -3402,7 +3402,7 @@
      "title": "계속 떨어지더니 '최저' 찍었다..\"요즘 금값 왜 이래\" 이유 보니 / 친절한 경제 / SBS 모닝와이드 2부",
      "channel": "SBS 뉴스",
      "views": 4192694,
-     "views_per_day": 292311.8,
+     "views_per_day": 292084.6,
      "published": "2026-09-30",
      "url": "https://www.youtube.com/watch?v=ZlGbs_sIbQg"
     },
@@ -3411,7 +3411,7 @@
      "title": "\"살다살다 이런 발표는 처음\" 기초연금 충격 개편에 발칵 | 이영주 대표 1부",
      "channel": "김정호의 경제TV",
      "views": 3909231,
-     "views_per_day": 215565.0,
+     "views_per_day": 215432.5,
      "published": "2026-09-26",
      "url": "https://www.youtube.com/watch?v=UInNIcvnTC4"
     },
@@ -3420,7 +3420,7 @@
      "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
      "channel": "ACE ETF",
      "views": 2180869,
-     "views_per_day": 181281.5,
+     "views_per_day": 181113.6,
      "published": "2026-10-02",
      "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
     },
@@ -3429,7 +3429,7 @@
      "title": "\"부자 될 확률 높다\" 늙을수록 오히려 팔자 좋은 사람 특징 ㅣ Ep. 책과사람 163 (이석진 역술가 2부)",
      "channel": "책과삶",
      "views": 2729036,
-     "views_per_day": 136383.5,
+     "views_per_day": 136307.6,
      "published": "2026-09-24",
      "url": "https://www.youtube.com/watch?v=jAOLy75qtGk"
     },
@@ -3438,7 +3438,7 @@
      "title": "청약통장 다들 왜 깨고 있을까?｜크랩",
      "channel": "크랩 KLAB",
      "views": 3763992,
-     "views_per_day": 113882.8,
+     "views_per_day": 113844.3,
      "published": "2026-09-11",
      "url": "https://www.youtube.com/watch?v=g4h29mJufpc"
     }
@@ -3522,7 +3522,7 @@
     }
    ],
    "views_median": 194385,
-   "views_per_day_median": 4893.2,
+   "views_per_day_median": 4889.9,
    "ratio_median": 7.44,
    "success": 84,
    "minutes_median": 22.1,
@@ -3641,11 +3641,11 @@
      "count": 7
     },
     {
-     "word": "부자",
+     "word": "3가지",
      "count": 6
     },
     {
-     "word": "3가지",
+     "word": "부자",
      "count": 6
     },
     {
@@ -3661,17 +3661,17 @@
      "count": 5
     }
    ],
-   "transcripts": 15,
+   "transcripts": 20,
    "text_sources": {
     "자막": 0,
-    "음성인식": 15,
-    "설명": 111,
+    "음성인식": 20,
+    "설명": 106,
     "없음": 5
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 55
+     "count": 57
     },
     {
      "word": "그리고",
@@ -3683,11 +3683,11 @@
     },
     {
      "word": "그런데",
-     "count": 36
+     "count": 40
     },
     {
      "word": "같은",
-     "count": 33
+     "count": 35
     },
     {
      "word": "가장",
@@ -3695,26 +3695,26 @@
     },
     {
      "word": "영상에서",
-     "count": 31
+     "count": 30
     },
     {
-     "word": "실제",
+     "word": "오늘",
      "count": 29
+    },
+    {
+     "word": "돈을",
+     "count": 29
+    },
+    {
+     "word": "투자",
+     "count": 28
     },
     {
      "word": "댓글로",
      "count": 28
     },
     {
-     "word": "투자",
-     "count": 27
-    },
-    {
      "word": "어떻게",
-     "count": 27
-    },
-    {
-     "word": "오늘",
      "count": 27
     }
    ],
@@ -3793,7 +3793,7 @@
      "title": "계속 떨어지더니 '최저' 찍었다..\"요즘 금값 왜 이래\" 이유 보니 / 친절한 경제 / SBS 모닝와이드 2부",
      "channel": "SBS 뉴스",
      "views": 4192694,
-     "views_per_day": 292311.8,
+     "views_per_day": 292084.6,
      "published": "2026-09-30",
      "url": "https://www.youtube.com/watch?v=ZlGbs_sIbQg"
     },
@@ -3802,7 +3802,7 @@
      "title": "\"살다살다 이런 발표는 처음\" 기초연금 충격 개편에 발칵 | 이영주 대표 1부",
      "channel": "김정호의 경제TV",
      "views": 3909231,
-     "views_per_day": 215565.0,
+     "views_per_day": 215432.5,
      "published": "2026-09-26",
      "url": "https://www.youtube.com/watch?v=UInNIcvnTC4"
     },
@@ -3811,7 +3811,7 @@
      "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
      "channel": "ACE ETF",
      "views": 2180869,
-     "views_per_day": 181281.5,
+     "views_per_day": 181113.6,
      "published": "2026-10-02",
      "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
     },
@@ -3820,7 +3820,7 @@
      "title": "\"부자 될 확률 높다\" 늙을수록 오히려 팔자 좋은 사람 특징 ㅣ Ep. 책과사람 163 (이석진 역술가 2부)",
      "channel": "책과삶",
      "views": 2729036,
-     "views_per_day": 136383.5,
+     "views_per_day": 136307.6,
      "published": "2026-09-24",
      "url": "https://www.youtube.com/watch?v=jAOLy75qtGk"
     },
@@ -3829,7 +3829,7 @@
      "title": "청약통장 다들 왜 깨고 있을까?｜크랩",
      "channel": "크랩 KLAB",
      "views": 3763992,
-     "views_per_day": 113882.8,
+     "views_per_day": 113844.3,
      "published": "2026-09-11",
      "url": "https://www.youtube.com/watch?v=g4h29mJufpc"
     }
@@ -3838,7 +3838,7 @@
   {
    "weeks": 12,
    "label": "최근 12주",
-   "videos": 140,
+   "videos": 139,
    "channels": 94,
    "new_this_week": [
     {
@@ -3867,11 +3867,6 @@
      "published": "2026-07-28"
     },
     {
-     "id": "JExUQaROk40",
-     "title": "복리가 부를 만드는 진짜 시작점｜언제부터 돈이 스스로 일하기 시작할까",
-     "published": "2026-07-22"
-    },
-    {
      "id": "Ly8W-jVvLa0",
      "title": "[스포츠 토토] 재테크 적중률 높이는 확률 계산법 대공개! #토토 #스포츠토토 #토토분석 #프로토분석 #스포츠분석",
      "published": "2026-07-27"
@@ -3887,42 +3882,42 @@
      "published": "2026-07-23"
     }
    ],
-   "views_median": 192535.5,
-   "views_per_day_median": 4262.5,
-   "ratio_median": 7.47,
-   "success": 91,
-   "minutes_median": 22.15,
+   "views_median": 194385,
+   "views_per_day_median": 4278.6,
+   "ratio_median": 7.44,
+   "success": 90,
+   "minutes_median": 22.2,
    "title_len_avg": 46.7,
    "title_features": [
     {
      "name": "노후·퇴직금·은퇴·50~70대",
      "count": 45,
-     "share": 0.321
+     "share": 0.324
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 44,
-     "share": 0.314
+     "share": 0.317
     },
     {
      "name": "금액(억·만원)",
      "count": 33,
-     "share": 0.236
+     "share": 0.237
     },
     {
      "name": "N가지",
      "count": 23,
-     "share": 0.164
+     "share": 0.165
     },
     {
      "name": "이유",
      "count": 21,
-     "share": 0.15
+     "share": 0.151
     },
     {
      "name": "vs 비교",
      "count": 19,
-     "share": 0.136
+     "share": 0.137
     },
     {
      "name": "물음표 ?",
@@ -3932,17 +3927,17 @@
     {
      "name": "S&P500·ETF·지수·나스닥",
      "count": 17,
-     "share": 0.121
+     "share": 0.122
     },
     {
      "name": "사연·오디오북·실화·고백",
      "count": 10,
-     "share": 0.071
+     "share": 0.072
     },
     {
      "name": "느낌표 !",
      "count": 8,
-     "share": 0.057
+     "share": 0.058
     },
     {
      "name": "두 금액(반전)",
@@ -3957,7 +3952,7 @@
     {
      "name": "손실 낱말(망하·날린·잃은·반토막)",
      "count": 3,
-     "share": 0.021
+     "share": 0.022
     },
     {
      "name": "공통점",
@@ -4027,21 +4022,21 @@
      "count": 6
     }
    ],
-   "transcripts": 15,
+   "transcripts": 20,
    "text_sources": {
     "자막": 0,
-    "음성인식": 15,
-    "설명": 119,
+    "음성인식": 20,
+    "설명": 113,
     "없음": 6
    },
    "content_words": [
     {
-     "word": "그리고",
-     "count": 58
+     "word": "있습니다",
+     "count": 59
     },
     {
-     "word": "있습니다",
-     "count": 57
+     "word": "그리고",
+     "count": 58
     },
     {
      "word": "아니라",
@@ -4049,22 +4044,26 @@
     },
     {
      "word": "그런데",
-     "count": 37
+     "count": 41
+    },
+    {
+     "word": "같은",
+     "count": 36
     },
     {
      "word": "가장",
      "count": 35
     },
     {
-     "word": "같은",
-     "count": 34
-    },
-    {
-     "word": "영상에서",
-     "count": 32
+     "word": "오늘",
+     "count": 31
     },
     {
      "word": "댓글로",
+     "count": 31
+    },
+    {
+     "word": "영상에서",
      "count": 31
     },
     {
@@ -4072,19 +4071,15 @@
      "count": 30
     },
     {
-     "word": "실제",
-     "count": 30
-    },
-    {
-     "word": "오늘",
+     "word": "돈을",
      "count": 29
     },
     {
-     "word": "이유",
+     "word": "찾는",
      "count": 29
     }
    ],
-   "chapters_share": 0.279,
+   "chapters_share": 0.281,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -4106,31 +4101,31 @@
      "hook": "결혼을 앞둔 친구의 다급한 상견례 고민부터 연령별 맞춤 자산 관리 전략까지! 프로미스나인 이채영과 함께하는 ACE 투자상담소 고수 선배들의 속 시원한 금융 꿀팁을 확인해 보세요. 💡 🎁 ACE 투자상담소 EP.03 댓글 이벤트 영상을 시청하고 [에/이/스/채/영] 5행시 댓글을 남겨주세"
     }
    ],
-   "comments": 55111,
+   "comments": 55008,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 11226,
+     "count": 11209,
      "share": 0.204
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 5969,
+     "count": 5954,
      "share": 0.108
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 5509,
+     "count": 5488,
      "share": 0.1
     },
     {
      "name": "칭찬·감사",
-     "count": 5220,
-     "share": 0.095
+     "count": 5193,
+     "share": 0.094
     },
     {
      "name": "빚·신용·미수",
-     "count": 3527,
+     "count": 3526,
      "share": 0.064
     },
     {
@@ -4159,7 +4154,7 @@
      "title": "계속 떨어지더니 '최저' 찍었다..\"요즘 금값 왜 이래\" 이유 보니 / 친절한 경제 / SBS 모닝와이드 2부",
      "channel": "SBS 뉴스",
      "views": 4192694,
-     "views_per_day": 292311.8,
+     "views_per_day": 292084.6,
      "published": "2026-09-30",
      "url": "https://www.youtube.com/watch?v=ZlGbs_sIbQg"
     },
@@ -4168,7 +4163,7 @@
      "title": "\"살다살다 이런 발표는 처음\" 기초연금 충격 개편에 발칵 | 이영주 대표 1부",
      "channel": "김정호의 경제TV",
      "views": 3909231,
-     "views_per_day": 215565.0,
+     "views_per_day": 215432.5,
      "published": "2026-09-26",
      "url": "https://www.youtube.com/watch?v=UInNIcvnTC4"
     },
@@ -4177,7 +4172,7 @@
      "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
      "channel": "ACE ETF",
      "views": 2180869,
-     "views_per_day": 181281.5,
+     "views_per_day": 181113.6,
      "published": "2026-10-02",
      "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
     },
@@ -4186,7 +4181,7 @@
      "title": "\"부자 될 확률 높다\" 늙을수록 오히려 팔자 좋은 사람 특징 ㅣ Ep. 책과사람 163 (이석진 역술가 2부)",
      "channel": "책과삶",
      "views": 2729036,
-     "views_per_day": 136383.5,
+     "views_per_day": 136307.6,
      "published": "2026-09-24",
      "url": "https://www.youtube.com/watch?v=jAOLy75qtGk"
     },
@@ -4195,7 +4190,7 @@
      "title": "청약통장 다들 왜 깨고 있을까?｜크랩",
      "channel": "크랩 KLAB",
      "views": 3763992,
-     "views_per_day": 113882.8,
+     "views_per_day": 113844.3,
      "published": "2026-09-11",
      "url": "https://www.youtube.com/watch?v=g4h29mJufpc"
     }
@@ -4216,6 +4211,11 @@
      "id": "IT0HJS9WdAg",
      "title": "\"서울요? 아닙니다\" 노년에 가장 살기 좋은곳 압도적 1위",
      "published": "2026-07-21"
+    },
+    {
+     "id": "JExUQaROk40",
+     "title": "복리가 부를 만드는 진짜 시작점｜언제부터 돈이 스스로 일하기 시작할까",
+     "published": "2026-07-22"
     },
     {
      "id": "l4MAizC_l20",
@@ -4254,7 +4254,7 @@
     }
    ],
    "views_median": 198504,
-   "views_per_day_median": 4245.7,
+   "views_per_day_median": 4243.9,
    "ratio_median": 7.44,
    "success": 96,
    "minutes_median": 22.2,
@@ -4365,11 +4365,11 @@
      "count": 10
     },
     {
-     "word": "이렇게",
+     "word": "3가지",
      "count": 8
     },
     {
-     "word": "3가지",
+     "word": "이렇게",
      "count": 8
     },
     {
@@ -4393,17 +4393,17 @@
      "count": 6
     }
    ],
-   "transcripts": 15,
+   "transcripts": 20,
    "text_sources": {
     "자막": 0,
-    "음성인식": 15,
-    "설명": 128,
+    "음성인식": 20,
+    "설명": 123,
     "없음": 6
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 60
+     "count": 62
     },
     {
      "word": "그리고",
@@ -4415,18 +4415,18 @@
     },
     {
      "word": "그런데",
-     "count": 38
+     "count": 42
+    },
+    {
+     "word": "같은",
+     "count": 37
     },
     {
      "word": "가장",
      "count": 37
     },
     {
-     "word": "영상에서",
-     "count": 36
-    },
-    {
-     "word": "같은",
+     "word": "오늘",
      "count": 35
     },
     {
@@ -4434,19 +4434,19 @@
      "count": 35
     },
     {
-     "word": "실제",
-     "count": 34
-    },
-    {
-     "word": "오늘",
-     "count": 33
-    },
-    {
-     "word": "이유",
-     "count": 32
+     "word": "영상에서",
+     "count": 35
     },
     {
      "word": "투자",
+     "count": 32
+    },
+    {
+     "word": "돈을",
+     "count": 31
+    },
+    {
+     "word": "찾는",
      "count": 31
     }
    ],
@@ -4525,7 +4525,7 @@
      "title": "계속 떨어지더니 '최저' 찍었다..\"요즘 금값 왜 이래\" 이유 보니 / 친절한 경제 / SBS 모닝와이드 2부",
      "channel": "SBS 뉴스",
      "views": 4192694,
-     "views_per_day": 292311.8,
+     "views_per_day": 292084.6,
      "published": "2026-09-30",
      "url": "https://www.youtube.com/watch?v=ZlGbs_sIbQg"
     },
@@ -4534,7 +4534,7 @@
      "title": "\"살다살다 이런 발표는 처음\" 기초연금 충격 개편에 발칵 | 이영주 대표 1부",
      "channel": "김정호의 경제TV",
      "views": 3909231,
-     "views_per_day": 215565.0,
+     "views_per_day": 215432.5,
      "published": "2026-09-26",
      "url": "https://www.youtube.com/watch?v=UInNIcvnTC4"
     },
@@ -4543,7 +4543,7 @@
      "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
      "channel": "ACE ETF",
      "views": 2180869,
-     "views_per_day": 181281.5,
+     "views_per_day": 181113.6,
      "published": "2026-10-02",
      "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
     },
@@ -4552,7 +4552,7 @@
      "title": "\"부자 될 확률 높다\" 늙을수록 오히려 팔자 좋은 사람 특징 ㅣ Ep. 책과사람 163 (이석진 역술가 2부)",
      "channel": "책과삶",
      "views": 2729036,
-     "views_per_day": 136383.5,
+     "views_per_day": 136307.6,
      "published": "2026-09-24",
      "url": "https://www.youtube.com/watch?v=jAOLy75qtGk"
     },
@@ -4561,7 +4561,7 @@
      "title": "청약통장 다들 왜 깨고 있을까?｜크랩",
      "channel": "크랩 KLAB",
      "views": 3763992,
-     "views_per_day": 113882.8,
+     "views_per_day": 113844.3,
      "published": "2026-09-11",
      "url": "https://www.youtube.com/watch?v=g4h29mJufpc"
     }
@@ -4610,7 +4610,7 @@
     }
    ],
    "views_median": 192535.5,
-   "views_per_day_median": 4180.25,
+   "views_per_day_median": 4179.15,
    "ratio_median": 7.63,
    "success": 101,
    "minutes_median": 22.15,
@@ -4725,11 +4725,11 @@
      "count": 9
     },
     {
-     "word": "부자",
+     "word": "3가지",
      "count": 8
     },
     {
-     "word": "3가지",
+     "word": "부자",
      "count": 8
     },
     {
@@ -4741,29 +4741,29 @@
      "count": 6
     },
     {
-     "word": "투자",
+     "word": "방법",
      "count": 6
     },
     {
-     "word": "방법",
+     "word": "투자",
      "count": 6
     }
    ],
-   "transcripts": 15,
+   "transcripts": 20,
    "text_sources": {
     "자막": 0,
-    "음성인식": 15,
-    "설명": 135,
+    "음성인식": 20,
+    "설명": 130,
     "없음": 6
    },
    "content_words": [
     {
-     "word": "그리고",
+     "word": "있습니다",
      "count": 62
     },
     {
-     "word": "있습니다",
-     "count": 60
+     "word": "그리고",
+     "count": 62
     },
     {
      "word": "아니라",
@@ -4771,35 +4771,35 @@
     },
     {
      "word": "그런데",
-     "count": 40
+     "count": 44
+    },
+    {
+     "word": "오늘",
+     "count": 38
+    },
+    {
+     "word": "같은",
+     "count": 38
     },
     {
      "word": "가장",
      "count": 38
     },
     {
-     "word": "영상에서",
-     "count": 37
-    },
-    {
-     "word": "같은",
-     "count": 36
-    },
-    {
-     "word": "오늘",
-     "count": 36
-    },
-    {
      "word": "댓글로",
      "count": 36
     },
     {
-     "word": "실제",
-     "count": 34
+     "word": "영상에서",
+     "count": 36
     },
     {
-     "word": "이유",
-     "count": 33
+     "word": "투자",
+     "count": 32
+    },
+    {
+     "word": "돈을",
+     "count": 32
     },
     {
      "word": "찾는",
@@ -4881,7 +4881,7 @@
      "title": "계속 떨어지더니 '최저' 찍었다..\"요즘 금값 왜 이래\" 이유 보니 / 친절한 경제 / SBS 모닝와이드 2부",
      "channel": "SBS 뉴스",
      "views": 4192694,
-     "views_per_day": 292311.8,
+     "views_per_day": 292084.6,
      "published": "2026-09-30",
      "url": "https://www.youtube.com/watch?v=ZlGbs_sIbQg"
     },
@@ -4890,7 +4890,7 @@
      "title": "\"살다살다 이런 발표는 처음\" 기초연금 충격 개편에 발칵 | 이영주 대표 1부",
      "channel": "김정호의 경제TV",
      "views": 3909231,
-     "views_per_day": 215565.0,
+     "views_per_day": 215432.5,
      "published": "2026-09-26",
      "url": "https://www.youtube.com/watch?v=UInNIcvnTC4"
     },
@@ -4899,7 +4899,7 @@
      "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
      "channel": "ACE ETF",
      "views": 2180869,
-     "views_per_day": 181281.5,
+     "views_per_day": 181113.6,
      "published": "2026-10-02",
      "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
     },
@@ -4908,7 +4908,7 @@
      "title": "\"부자 될 확률 높다\" 늙을수록 오히려 팔자 좋은 사람 특징 ㅣ Ep. 책과사람 163 (이석진 역술가 2부)",
      "channel": "책과삶",
      "views": 2729036,
-     "views_per_day": 136383.5,
+     "views_per_day": 136307.6,
      "published": "2026-09-24",
      "url": "https://www.youtube.com/watch?v=jAOLy75qtGk"
     },
@@ -4917,7 +4917,7 @@
      "title": "청약통장 다들 왜 깨고 있을까?｜크랩",
      "channel": "크랩 KLAB",
      "views": 3763992,
-     "views_per_day": 113882.8,
+     "views_per_day": 113844.3,
      "published": "2026-09-11",
      "url": "https://www.youtube.com/watch?v=g4h29mJufpc"
     }
@@ -5006,7 +5006,7 @@
     }
    ],
    "views_median": 184556,
-   "views_per_day_median": 3896.3,
+   "views_per_day_median": 3895.1,
    "ratio_median": 7.44,
    "success": 113,
    "minutes_median": 22.4,
@@ -5145,17 +5145,17 @@
      "count": 7
     }
    ],
-   "transcripts": 15,
+   "transcripts": 20,
    "text_sources": {
     "자막": 0,
-    "음성인식": 15,
-    "설명": 150,
+    "음성인식": 20,
+    "설명": 145,
     "없음": 6
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 67
+     "count": 69
     },
     {
      "word": "그리고",
@@ -5167,39 +5167,39 @@
     },
     {
      "word": "그런데",
-     "count": 40
+     "count": 44
     },
     {
      "word": "가장",
      "count": 40
     },
     {
+     "word": "오늘",
+     "count": 39
+    },
+    {
+     "word": "같은",
+     "count": 39
+    },
+    {
      "word": "영상에서",
-     "count": 40
+     "count": 39
     },
     {
      "word": "댓글로",
      "count": 38
     },
     {
-     "word": "같은",
-     "count": 37
-    },
-    {
-     "word": "오늘",
-     "count": 37
-    },
-    {
      "word": "이유",
-     "count": 37
-    },
-    {
-     "word": "실제",
-     "count": 36
+     "count": 35
     },
     {
      "word": "찾는",
      "count": 35
+    },
+    {
+     "word": "투자",
+     "count": 33
     }
    ],
    "chapters_share": 0.275,
@@ -5277,7 +5277,7 @@
      "title": "계속 떨어지더니 '최저' 찍었다..\"요즘 금값 왜 이래\" 이유 보니 / 친절한 경제 / SBS 모닝와이드 2부",
      "channel": "SBS 뉴스",
      "views": 4192694,
-     "views_per_day": 292311.8,
+     "views_per_day": 292084.6,
      "published": "2026-09-30",
      "url": "https://www.youtube.com/watch?v=ZlGbs_sIbQg"
     },
@@ -5286,7 +5286,7 @@
      "title": "\"살다살다 이런 발표는 처음\" 기초연금 충격 개편에 발칵 | 이영주 대표 1부",
      "channel": "김정호의 경제TV",
      "views": 3909231,
-     "views_per_day": 215565.0,
+     "views_per_day": 215432.5,
      "published": "2026-09-26",
      "url": "https://www.youtube.com/watch?v=UInNIcvnTC4"
     },
@@ -5295,7 +5295,7 @@
      "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
      "channel": "ACE ETF",
      "views": 2180869,
-     "views_per_day": 181281.5,
+     "views_per_day": 181113.6,
      "published": "2026-10-02",
      "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
     },
@@ -5304,7 +5304,7 @@
      "title": "\"부자 될 확률 높다\" 늙을수록 오히려 팔자 좋은 사람 특징 ㅣ Ep. 책과사람 163 (이석진 역술가 2부)",
      "channel": "책과삶",
      "views": 2729036,
-     "views_per_day": 136383.5,
+     "views_per_day": 136307.6,
      "published": "2026-09-24",
      "url": "https://www.youtube.com/watch?v=jAOLy75qtGk"
     },
@@ -5313,7 +5313,7 @@
      "title": "청약통장 다들 왜 깨고 있을까?｜크랩",
      "channel": "크랩 KLAB",
      "views": 3763992,
-     "views_per_day": 113882.8,
+     "views_per_day": 113844.3,
      "published": "2026-09-11",
      "url": "https://www.youtube.com/watch?v=g4h29mJufpc"
     }
@@ -5367,7 +5367,7 @@
     }
    ],
    "views_median": 181738,
-   "views_per_day_median": 3839.5,
+   "views_per_day_median": 3838.7,
    "ratio_median": 7.44,
    "success": 119,
    "minutes_median": 22.3,
@@ -5506,17 +5506,17 @@
      "count": 7
     }
    ],
-   "transcripts": 15,
+   "transcripts": 20,
    "text_sources": {
     "자막": 0,
-    "음성인식": 15,
-    "설명": 158,
+    "음성인식": 20,
+    "설명": 153,
     "없음": 6
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 71
+     "count": 73
     },
     {
      "word": "그리고",
@@ -5527,40 +5527,40 @@
      "count": 58
     },
     {
-     "word": "영상에서",
-     "count": 43
+     "word": "그런데",
+     "count": 45
     },
     {
-     "word": "그런데",
-     "count": 41
+     "word": "영상에서",
+     "count": 42
     },
     {
      "word": "가장",
      "count": 41
     },
     {
+     "word": "오늘",
+     "count": 40
+    },
+    {
      "word": "댓글로",
      "count": 40
     },
     {
-     "word": "이유",
-     "count": 40
-    },
-    {
-     "word": "오늘",
-     "count": 38
-    },
-    {
-     "word": "실제",
-     "count": 37
-    },
-    {
      "word": "같은",
-     "count": 37
+     "count": 39
+    },
+    {
+     "word": "이유",
+     "count": 38
     },
     {
      "word": "찾는",
      "count": 37
+    },
+    {
+     "word": "어떻게",
+     "count": 35
     }
    ],
    "chapters_share": 0.268,
@@ -5638,7 +5638,7 @@
      "title": "계속 떨어지더니 '최저' 찍었다..\"요즘 금값 왜 이래\" 이유 보니 / 친절한 경제 / SBS 모닝와이드 2부",
      "channel": "SBS 뉴스",
      "views": 4192694,
-     "views_per_day": 292311.8,
+     "views_per_day": 292084.6,
      "published": "2026-09-30",
      "url": "https://www.youtube.com/watch?v=ZlGbs_sIbQg"
     },
@@ -5647,7 +5647,7 @@
      "title": "\"살다살다 이런 발표는 처음\" 기초연금 충격 개편에 발칵 | 이영주 대표 1부",
      "channel": "김정호의 경제TV",
      "views": 3909231,
-     "views_per_day": 215565.0,
+     "views_per_day": 215432.5,
      "published": "2026-09-26",
      "url": "https://www.youtube.com/watch?v=UInNIcvnTC4"
     },
@@ -5656,7 +5656,7 @@
      "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
      "channel": "ACE ETF",
      "views": 2180869,
-     "views_per_day": 181281.5,
+     "views_per_day": 181113.6,
      "published": "2026-10-02",
      "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
     },
@@ -5665,7 +5665,7 @@
      "title": "\"부자 될 확률 높다\" 늙을수록 오히려 팔자 좋은 사람 특징 ㅣ Ep. 책과사람 163 (이석진 역술가 2부)",
      "channel": "책과삶",
      "views": 2729036,
-     "views_per_day": 136383.5,
+     "views_per_day": 136307.6,
      "published": "2026-09-24",
      "url": "https://www.youtube.com/watch?v=jAOLy75qtGk"
     },
@@ -5674,7 +5674,7 @@
      "title": "청약통장 다들 왜 깨고 있을까?｜크랩",
      "channel": "크랩 KLAB",
      "views": 3763992,
-     "views_per_day": 113882.8,
+     "views_per_day": 113844.3,
      "published": "2026-09-11",
      "url": "https://www.youtube.com/watch?v=g4h29mJufpc"
     }
@@ -5758,7 +5758,7 @@
     }
    ],
    "views_median": 181711,
-   "views_per_day_median": 3450.2,
+   "views_per_day_median": 3449.1,
    "ratio_median": 7.44,
    "success": 131,
    "minutes_median": 21.8,
@@ -5869,11 +5869,11 @@
      "count": 13
     },
     {
-     "word": "이렇게",
+     "word": "3가지",
      "count": 10
     },
     {
-     "word": "3가지",
+     "word": "이렇게",
      "count": 10
     },
     {
@@ -5897,17 +5897,17 @@
      "count": 8
     }
    ],
-   "transcripts": 15,
+   "transcripts": 20,
    "text_sources": {
     "자막": 0,
-    "음성인식": 15,
-    "설명": 171,
+    "음성인식": 20,
+    "설명": 166,
     "없음": 7
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 75
+     "count": 77
     },
     {
      "word": "그리고",
@@ -5919,34 +5919,34 @@
     },
     {
      "word": "영상에서",
-     "count": 47
+     "count": 46
+    },
+    {
+     "word": "그런데",
+     "count": 45
     },
     {
      "word": "가장",
      "count": 44
     },
     {
+     "word": "오늘",
+     "count": 43
+    },
+    {
      "word": "댓글로",
      "count": 42
     },
     {
-     "word": "이유",
-     "count": 42
-    },
-    {
-     "word": "그런데",
-     "count": 41
-    },
-    {
-     "word": "오늘",
-     "count": 41
-    },
-    {
      "word": "투자",
-     "count": 39
+     "count": 40
     },
     {
-     "word": "실제",
+     "word": "이유",
+     "count": 40
+    },
+    {
+     "word": "같은",
      "count": 39
     },
     {
@@ -6029,7 +6029,7 @@
      "title": "계속 떨어지더니 '최저' 찍었다..\"요즘 금값 왜 이래\" 이유 보니 / 친절한 경제 / SBS 모닝와이드 2부",
      "channel": "SBS 뉴스",
      "views": 4192694,
-     "views_per_day": 292311.8,
+     "views_per_day": 292084.6,
      "published": "2026-09-30",
      "url": "https://www.youtube.com/watch?v=ZlGbs_sIbQg"
     },
@@ -6038,7 +6038,7 @@
      "title": "\"살다살다 이런 발표는 처음\" 기초연금 충격 개편에 발칵 | 이영주 대표 1부",
      "channel": "김정호의 경제TV",
      "views": 3909231,
-     "views_per_day": 215565.0,
+     "views_per_day": 215432.5,
      "published": "2026-09-26",
      "url": "https://www.youtube.com/watch?v=UInNIcvnTC4"
     },
@@ -6047,7 +6047,7 @@
      "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
      "channel": "ACE ETF",
      "views": 2180869,
-     "views_per_day": 181281.5,
+     "views_per_day": 181113.6,
      "published": "2026-10-02",
      "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
     },
@@ -6056,7 +6056,7 @@
      "title": "\"부자 될 확률 높다\" 늙을수록 오히려 팔자 좋은 사람 특징 ㅣ Ep. 책과사람 163 (이석진 역술가 2부)",
      "channel": "책과삶",
      "views": 2729036,
-     "views_per_day": 136383.5,
+     "views_per_day": 136307.6,
      "published": "2026-09-24",
      "url": "https://www.youtube.com/watch?v=jAOLy75qtGk"
     },
@@ -6065,7 +6065,7 @@
      "title": "청약통장 다들 왜 깨고 있을까?｜크랩",
      "channel": "크랩 KLAB",
      "views": 3763992,
-     "views_per_day": 113882.8,
+     "views_per_day": 113844.3,
      "published": "2026-09-11",
      "url": "https://www.youtube.com/watch?v=g4h29mJufpc"
     }
@@ -6129,7 +6129,7 @@
     }
    ],
    "views_median": 176854,
-   "views_per_day_median": 3133.2,
+   "views_per_day_median": 3132.6,
    "ratio_median": 7.51,
    "success": 140,
    "minutes_median": 21.8,
@@ -6244,11 +6244,11 @@
      "count": 11
     },
     {
-     "word": "이렇게",
+     "word": "3가지",
      "count": 10
     },
     {
-     "word": "3가지",
+     "word": "이렇게",
      "count": 10
     },
     {
@@ -6268,17 +6268,17 @@
      "count": 8
     }
    ],
-   "transcripts": 16,
+   "transcripts": 21,
    "text_sources": {
     "자막": 0,
-    "음성인식": 16,
-    "설명": 180,
+    "음성인식": 21,
+    "설명": 175,
     "없음": 7
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 78
+     "count": 80
     },
     {
      "word": "그리고",
@@ -6290,38 +6290,38 @@
     },
     {
      "word": "영상에서",
-     "count": 51
+     "count": 50
+    },
+    {
+     "word": "오늘",
+     "count": 47
+    },
+    {
+     "word": "투자",
+     "count": 46
     },
     {
      "word": "가장",
      "count": 46
     },
     {
-     "word": "투자",
-     "count": 45
-    },
-    {
-     "word": "오늘",
-     "count": 45
-    },
-    {
-     "word": "이유",
-     "count": 43
-    },
-    {
      "word": "그런데",
-     "count": 42
+     "count": 46
     },
     {
      "word": "댓글로",
      "count": 42
     },
     {
-     "word": "실제",
+     "word": "이유",
+     "count": 41
+    },
+    {
+     "word": "같은",
      "count": 40
     },
     {
-     "word": "어떻게",
+     "word": "돈을",
      "count": 38
     }
    ],
@@ -6400,7 +6400,7 @@
      "title": "계속 떨어지더니 '최저' 찍었다..\"요즘 금값 왜 이래\" 이유 보니 / 친절한 경제 / SBS 모닝와이드 2부",
      "channel": "SBS 뉴스",
      "views": 4192694,
-     "views_per_day": 292311.8,
+     "views_per_day": 292084.6,
      "published": "2026-09-30",
      "url": "https://www.youtube.com/watch?v=ZlGbs_sIbQg"
     },
@@ -6409,7 +6409,7 @@
      "title": "\"살다살다 이런 발표는 처음\" 기초연금 충격 개편에 발칵 | 이영주 대표 1부",
      "channel": "김정호의 경제TV",
      "views": 3909231,
-     "views_per_day": 215565.0,
+     "views_per_day": 215432.5,
      "published": "2026-09-26",
      "url": "https://www.youtube.com/watch?v=UInNIcvnTC4"
     },
@@ -6418,7 +6418,7 @@
      "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
      "channel": "ACE ETF",
      "views": 2180869,
-     "views_per_day": 181281.5,
+     "views_per_day": 181113.6,
      "published": "2026-10-02",
      "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
     },
@@ -6427,7 +6427,7 @@
      "title": "\"부자 될 확률 높다\" 늙을수록 오히려 팔자 좋은 사람 특징 ㅣ Ep. 책과사람 163 (이석진 역술가 2부)",
      "channel": "책과삶",
      "views": 2729036,
-     "views_per_day": 136383.5,
+     "views_per_day": 136307.6,
      "published": "2026-09-24",
      "url": "https://www.youtube.com/watch?v=jAOLy75qtGk"
     },
@@ -6436,7 +6436,7 @@
      "title": "청약통장 다들 왜 깨고 있을까?｜크랩",
      "channel": "크랩 KLAB",
      "views": 3763992,
-     "views_per_day": 113882.8,
+     "views_per_day": 113844.3,
      "published": "2026-09-11",
      "url": "https://www.youtube.com/watch?v=g4h29mJufpc"
     }
@@ -6490,7 +6490,7 @@
     }
    ],
    "views_median": 173904,
-   "views_per_day_median": 3031.6,
+   "views_per_day_median": 3030.8,
    "ratio_median": 7.51,
    "success": 147,
    "minutes_median": 21.7,
@@ -6605,11 +6605,11 @@
      "count": 11
     },
     {
-     "word": "이렇게",
+     "word": "3가지",
      "count": 10
     },
     {
-     "word": "3가지",
+     "word": "이렇게",
      "count": 10
     },
     {
@@ -6629,17 +6629,17 @@
      "count": 9
     }
    ],
-   "transcripts": 16,
+   "transcripts": 21,
    "text_sources": {
     "자막": 0,
-    "음성인식": 16,
-    "설명": 188,
+    "음성인식": 21,
+    "설명": 183,
     "없음": 7
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 81
+     "count": 83
     },
     {
      "word": "그리고",
@@ -6651,35 +6651,35 @@
     },
     {
      "word": "영상에서",
-     "count": 53
-    },
-    {
-     "word": "투자",
-     "count": 48
+     "count": 52
     },
     {
      "word": "오늘",
-     "count": 48
+     "count": 50
+    },
+    {
+     "word": "투자",
+     "count": 49
     },
     {
      "word": "가장",
      "count": 47
     },
     {
-     "word": "이유",
-     "count": 44
-    },
-    {
-     "word": "실제",
-     "count": 43
+     "word": "그런데",
+     "count": 46
     },
     {
      "word": "댓글로",
      "count": 43
     },
     {
-     "word": "그런데",
+     "word": "이유",
      "count": 42
+    },
+    {
+     "word": "같은",
+     "count": 41
     },
     {
      "word": "어떻게",
@@ -6761,7 +6761,7 @@
      "title": "계속 떨어지더니 '최저' 찍었다..\"요즘 금값 왜 이래\" 이유 보니 / 친절한 경제 / SBS 모닝와이드 2부",
      "channel": "SBS 뉴스",
      "views": 4192694,
-     "views_per_day": 292311.8,
+     "views_per_day": 292084.6,
      "published": "2026-09-30",
      "url": "https://www.youtube.com/watch?v=ZlGbs_sIbQg"
     },
@@ -6770,7 +6770,7 @@
      "title": "\"살다살다 이런 발표는 처음\" 기초연금 충격 개편에 발칵 | 이영주 대표 1부",
      "channel": "김정호의 경제TV",
      "views": 3909231,
-     "views_per_day": 215565.0,
+     "views_per_day": 215432.5,
      "published": "2026-09-26",
      "url": "https://www.youtube.com/watch?v=UInNIcvnTC4"
     },
@@ -6779,7 +6779,7 @@
      "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
      "channel": "ACE ETF",
      "views": 2180869,
-     "views_per_day": 181281.5,
+     "views_per_day": 181113.6,
      "published": "2026-10-02",
      "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
     },
@@ -6788,7 +6788,7 @@
      "title": "\"부자 될 확률 높다\" 늙을수록 오히려 팔자 좋은 사람 특징 ㅣ Ep. 책과사람 163 (이석진 역술가 2부)",
      "channel": "책과삶",
      "views": 2729036,
-     "views_per_day": 136383.5,
+     "views_per_day": 136307.6,
      "published": "2026-09-24",
      "url": "https://www.youtube.com/watch?v=jAOLy75qtGk"
     },
@@ -6797,7 +6797,7 @@
      "title": "청약통장 다들 왜 깨고 있을까?｜크랩",
      "channel": "크랩 KLAB",
      "views": 3763992,
-     "views_per_day": 113882.8,
+     "views_per_day": 113844.3,
      "published": "2026-09-11",
      "url": "https://www.youtube.com/watch?v=g4h29mJufpc"
     }
@@ -6871,7 +6871,7 @@
     }
    ],
    "views_median": 173904,
-   "views_per_day_median": 2930.8,
+   "views_per_day_median": 2930.3,
    "ratio_median": 7.74,
    "success": 159,
    "minutes_median": 21.3,
@@ -7010,17 +7010,17 @@
      "count": 9
     }
    ],
-   "transcripts": 16,
+   "transcripts": 21,
    "text_sources": {
     "자막": 0,
-    "음성인식": 16,
-    "설명": 200,
+    "음성인식": 21,
+    "설명": 195,
     "없음": 7
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 86
+     "count": 88
     },
     {
      "word": "그리고",
@@ -7032,39 +7032,39 @@
     },
     {
      "word": "영상에서",
-     "count": 54
+     "count": 53
     },
     {
      "word": "오늘",
-     "count": 50
+     "count": 52
     },
     {
      "word": "투자",
-     "count": 49
+     "count": 50
     },
     {
      "word": "가장",
      "count": 48
     },
     {
-     "word": "이유",
+     "word": "그런데",
      "count": 46
+    },
+    {
+     "word": "이유",
+     "count": 44
     },
     {
      "word": "댓글로",
      "count": 44
     },
     {
-     "word": "실제",
-     "count": 43
-    },
-    {
-     "word": "그런데",
+     "word": "같은",
      "count": 42
     },
     {
-     "word": "같은",
-     "count": 40
+     "word": "돈을",
+     "count": 39
     }
    ],
    "chapters_share": 0.274,
@@ -7142,7 +7142,7 @@
      "title": "계속 떨어지더니 '최저' 찍었다..\"요즘 금값 왜 이래\" 이유 보니 / 친절한 경제 / SBS 모닝와이드 2부",
      "channel": "SBS 뉴스",
      "views": 4192694,
-     "views_per_day": 292311.8,
+     "views_per_day": 292084.6,
      "published": "2026-09-30",
      "url": "https://www.youtube.com/watch?v=ZlGbs_sIbQg"
     },
@@ -7151,7 +7151,7 @@
      "title": "\"살다살다 이런 발표는 처음\" 기초연금 충격 개편에 발칵 | 이영주 대표 1부",
      "channel": "김정호의 경제TV",
      "views": 3909231,
-     "views_per_day": 215565.0,
+     "views_per_day": 215432.5,
      "published": "2026-09-26",
      "url": "https://www.youtube.com/watch?v=UInNIcvnTC4"
     },
@@ -7160,7 +7160,7 @@
      "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
      "channel": "ACE ETF",
      "views": 2180869,
-     "views_per_day": 181281.5,
+     "views_per_day": 181113.6,
      "published": "2026-10-02",
      "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
     },
@@ -7169,7 +7169,7 @@
      "title": "\"부자 될 확률 높다\" 늙을수록 오히려 팔자 좋은 사람 특징 ㅣ Ep. 책과사람 163 (이석진 역술가 2부)",
      "channel": "책과삶",
      "views": 2729036,
-     "views_per_day": 136383.5,
+     "views_per_day": 136307.6,
      "published": "2026-09-24",
      "url": "https://www.youtube.com/watch?v=jAOLy75qtGk"
     },
@@ -7178,7 +7178,7 @@
      "title": "청약통장 다들 왜 깨고 있을까?｜크랩",
      "channel": "크랩 KLAB",
      "views": 3763992,
-     "views_per_day": 113882.8,
+     "views_per_day": 113844.3,
      "published": "2026-09-11",
      "url": "https://www.youtube.com/watch?v=g4h29mJufpc"
     }
@@ -7237,7 +7237,7 @@
     }
    ],
    "views_median": 172730.0,
-   "views_per_day_median": 2731.25,
+   "views_per_day_median": 2730.85,
    "ratio_median": 7.71,
    "success": 165,
    "minutes_median": 21.2,
@@ -7376,17 +7376,17 @@
      "count": 9
     }
    ],
-   "transcripts": 17,
+   "transcripts": 22,
    "text_sources": {
     "자막": 0,
-    "음성인식": 17,
-    "설명": 208,
+    "음성인식": 22,
+    "설명": 203,
     "없음": 7
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 90
+     "count": 92
     },
     {
      "word": "그리고",
@@ -7398,26 +7398,22 @@
     },
     {
      "word": "영상에서",
-     "count": 58
+     "count": 57
     },
     {
      "word": "투자",
-     "count": 54
+     "count": 55
     },
     {
      "word": "오늘",
-     "count": 53
+     "count": 55
     },
     {
      "word": "가장",
      "count": 50
     },
     {
-     "word": "이유",
-     "count": 47
-    },
-    {
-     "word": "실제",
+     "word": "그런데",
      "count": 47
     },
     {
@@ -7425,11 +7421,15 @@
      "count": 47
     },
     {
-     "word": "그런데",
-     "count": 43
+     "word": "이유",
+     "count": 45
     },
     {
      "word": "같은",
+     "count": 45
+    },
+    {
+     "word": "실제",
      "count": 43
     }
    ],
@@ -7508,7 +7508,7 @@
      "title": "계속 떨어지더니 '최저' 찍었다..\"요즘 금값 왜 이래\" 이유 보니 / 친절한 경제 / SBS 모닝와이드 2부",
      "channel": "SBS 뉴스",
      "views": 4192694,
-     "views_per_day": 292311.8,
+     "views_per_day": 292084.6,
      "published": "2026-09-30",
      "url": "https://www.youtube.com/watch?v=ZlGbs_sIbQg"
     },
@@ -7517,7 +7517,7 @@
      "title": "\"살다살다 이런 발표는 처음\" 기초연금 충격 개편에 발칵 | 이영주 대표 1부",
      "channel": "김정호의 경제TV",
      "views": 3909231,
-     "views_per_day": 215565.0,
+     "views_per_day": 215432.5,
      "published": "2026-09-26",
      "url": "https://www.youtube.com/watch?v=UInNIcvnTC4"
     },
@@ -7526,7 +7526,7 @@
      "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
      "channel": "ACE ETF",
      "views": 2180869,
-     "views_per_day": 181281.5,
+     "views_per_day": 181113.6,
      "published": "2026-10-02",
      "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
     },
@@ -7535,7 +7535,7 @@
      "title": "\"부자 될 확률 높다\" 늙을수록 오히려 팔자 좋은 사람 특징 ㅣ Ep. 책과사람 163 (이석진 역술가 2부)",
      "channel": "책과삶",
      "views": 2729036,
-     "views_per_day": 136383.5,
+     "views_per_day": 136307.6,
      "published": "2026-09-24",
      "url": "https://www.youtube.com/watch?v=jAOLy75qtGk"
     },
@@ -7544,7 +7544,7 @@
      "title": "청약통장 다들 왜 깨고 있을까?｜크랩",
      "channel": "크랩 KLAB",
      "views": 3763992,
-     "views_per_day": 113882.8,
+     "views_per_day": 113844.3,
      "published": "2026-09-11",
      "url": "https://www.youtube.com/watch?v=g4h29mJufpc"
     }
@@ -7643,7 +7643,7 @@
     }
    ],
    "views_median": 170591,
-   "views_per_day_median": 2522.7,
+   "views_per_day_median": 2522.4,
    "ratio_median": 7.66,
    "success": 179,
    "minutes_median": 20.4,
@@ -7774,25 +7774,25 @@
      "count": 10
     },
     {
-     "word": "이렇게",
+     "word": "부자",
      "count": 10
     },
     {
-     "word": "부자",
+     "word": "이렇게",
      "count": 10
     }
    ],
-   "transcripts": 17,
+   "transcripts": 22,
    "text_sources": {
     "자막": 0,
-    "음성인식": 17,
-    "설명": 224,
+    "음성인식": 22,
+    "설명": 219,
     "없음": 8
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 99
+     "count": 101
     },
     {
      "word": "그리고",
@@ -7803,40 +7803,40 @@
      "count": 73
     },
     {
-     "word": "영상에서",
+     "word": "투자",
      "count": 62
     },
     {
-     "word": "투자",
+     "word": "영상에서",
      "count": 61
     },
     {
      "word": "오늘",
-     "count": 58
+     "count": 60
     },
     {
      "word": "가장",
      "count": 55
     },
     {
-     "word": "실제",
-     "count": 50
-    },
-    {
-     "word": "이유",
-     "count": 49
-    },
-    {
      "word": "댓글로",
      "count": 48
     },
     {
-     "word": "같은",
-     "count": 45
+     "word": "이유",
+     "count": 47
     },
     {
-     "word": "어떤",
-     "count": 45
+     "word": "같은",
+     "count": 47
+    },
+    {
+     "word": "그런데",
+     "count": 47
+    },
+    {
+     "word": "실제",
+     "count": 46
     }
    ],
    "chapters_share": 0.293,
@@ -7914,7 +7914,7 @@
      "title": "계속 떨어지더니 '최저' 찍었다..\"요즘 금값 왜 이래\" 이유 보니 / 친절한 경제 / SBS 모닝와이드 2부",
      "channel": "SBS 뉴스",
      "views": 4192694,
-     "views_per_day": 292311.8,
+     "views_per_day": 292084.6,
      "published": "2026-09-30",
      "url": "https://www.youtube.com/watch?v=ZlGbs_sIbQg"
     },
@@ -7923,7 +7923,7 @@
      "title": "\"살다살다 이런 발표는 처음\" 기초연금 충격 개편에 발칵 | 이영주 대표 1부",
      "channel": "김정호의 경제TV",
      "views": 3909231,
-     "views_per_day": 215565.0,
+     "views_per_day": 215432.5,
      "published": "2026-09-26",
      "url": "https://www.youtube.com/watch?v=UInNIcvnTC4"
     },
@@ -7932,7 +7932,7 @@
      "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
      "channel": "ACE ETF",
      "views": 2180869,
-     "views_per_day": 181281.5,
+     "views_per_day": 181113.6,
      "published": "2026-10-02",
      "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
     },
@@ -7941,7 +7941,7 @@
      "title": "\"부자 될 확률 높다\" 늙을수록 오히려 팔자 좋은 사람 특징 ㅣ Ep. 책과사람 163 (이석진 역술가 2부)",
      "channel": "책과삶",
      "views": 2729036,
-     "views_per_day": 136383.5,
+     "views_per_day": 136307.6,
      "published": "2026-09-24",
      "url": "https://www.youtube.com/watch?v=jAOLy75qtGk"
     },
@@ -7950,7 +7950,7 @@
      "title": "청약통장 다들 왜 깨고 있을까?｜크랩",
      "channel": "크랩 KLAB",
      "views": 3763992,
-     "views_per_day": 113882.8,
+     "views_per_day": 113844.3,
      "published": "2026-09-11",
      "url": "https://www.youtube.com/watch?v=g4h29mJufpc"
     }
@@ -8039,7 +8039,7 @@
     }
    ],
    "views_median": 165455.5,
-   "views_per_day_median": 2381.2,
+   "views_per_day_median": 2380.85,
    "ratio_median": 7.68,
    "success": 192,
    "minutes_median": 19.65,
@@ -8170,25 +8170,25 @@
      "count": 11
     },
     {
-     "word": "이렇게",
+     "word": "부자",
      "count": 10
     },
     {
-     "word": "부자",
+     "word": "이렇게",
      "count": 10
     }
    ],
-   "transcripts": 17,
+   "transcripts": 22,
    "text_sources": {
     "자막": 0,
-    "음성인식": 17,
-    "설명": 239,
+    "음성인식": 22,
+    "설명": 234,
     "없음": 8
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 104
+     "count": 106
     },
     {
      "word": "그리고",
@@ -8200,39 +8200,39 @@
     },
     {
      "word": "투자",
-     "count": 65
+     "count": 66
+    },
+    {
+     "word": "오늘",
+     "count": 63
     },
     {
      "word": "영상에서",
-     "count": 63
+     "count": 62
     },
     {
      "word": "가장",
      "count": 61
     },
     {
-     "word": "오늘",
-     "count": 61
+     "word": "이유",
+     "count": 50
     },
     {
      "word": "실제",
-     "count": 53
-    },
-    {
-     "word": "이유",
-     "count": 52
+     "count": 49
     },
     {
      "word": "댓글로",
      "count": 49
     },
     {
-     "word": "어떤",
-     "count": 47
+     "word": "직접",
+     "count": 48
     },
     {
-     "word": "직접",
-     "count": 46
+     "word": "같은",
+     "count": 48
     }
    ],
    "chapters_share": 0.303,
@@ -8310,7 +8310,7 @@
      "title": "계속 떨어지더니 '최저' 찍었다..\"요즘 금값 왜 이래\" 이유 보니 / 친절한 경제 / SBS 모닝와이드 2부",
      "channel": "SBS 뉴스",
      "views": 4192694,
-     "views_per_day": 292311.8,
+     "views_per_day": 292084.6,
      "published": "2026-09-30",
      "url": "https://www.youtube.com/watch?v=ZlGbs_sIbQg"
     },
@@ -8319,7 +8319,7 @@
      "title": "\"살다살다 이런 발표는 처음\" 기초연금 충격 개편에 발칵 | 이영주 대표 1부",
      "channel": "김정호의 경제TV",
      "views": 3909231,
-     "views_per_day": 215565.0,
+     "views_per_day": 215432.5,
      "published": "2026-09-26",
      "url": "https://www.youtube.com/watch?v=UInNIcvnTC4"
     },
@@ -8328,7 +8328,7 @@
      "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
      "channel": "ACE ETF",
      "views": 2180869,
-     "views_per_day": 181281.5,
+     "views_per_day": 181113.6,
      "published": "2026-10-02",
      "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
     },
@@ -8337,7 +8337,7 @@
      "title": "\"부자 될 확률 높다\" 늙을수록 오히려 팔자 좋은 사람 특징 ㅣ Ep. 책과사람 163 (이석진 역술가 2부)",
      "channel": "책과삶",
      "views": 2729036,
-     "views_per_day": 136383.5,
+     "views_per_day": 136307.6,
      "published": "2026-09-24",
      "url": "https://www.youtube.com/watch?v=jAOLy75qtGk"
     },
@@ -8346,7 +8346,7 @@
      "title": "청약통장 다들 왜 깨고 있을까?｜크랩",
      "channel": "크랩 KLAB",
      "views": 3763992,
-     "views_per_day": 113882.8,
+     "views_per_day": 113844.3,
      "published": "2026-09-11",
      "url": "https://www.youtube.com/watch?v=g4h29mJufpc"
     }
@@ -8440,7 +8440,7 @@
     }
    ],
    "views_median": 167556.5,
-   "views_per_day_median": 2255.6,
+   "views_per_day_median": 2255.35,
    "ratio_median": 7.71,
    "success": 203,
    "minutes_median": 19.35,
@@ -8579,17 +8579,17 @@
      "count": 11
     }
    ],
-   "transcripts": 20,
+   "transcripts": 25,
    "text_sources": {
     "자막": 0,
-    "음성인식": 20,
-    "설명": 251,
+    "음성인식": 25,
+    "설명": 246,
     "없음": 9
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 110
+     "count": 112
     },
     {
      "word": "그리고",
@@ -8601,15 +8601,15 @@
     },
     {
      "word": "투자",
-     "count": 72
-    },
-    {
-     "word": "영상에서",
-     "count": 67
+     "count": 73
     },
     {
      "word": "오늘",
-     "count": 67
+     "count": 69
+    },
+    {
+     "word": "영상에서",
+     "count": 66
     },
     {
      "word": "가장",
@@ -8617,23 +8617,23 @@
     },
     {
      "word": "이유",
-     "count": 58
-    },
-    {
-     "word": "실제",
      "count": 56
     },
     {
      "word": "직접",
-     "count": 50
+     "count": 52
     },
     {
-     "word": "어떤",
-     "count": 50
+     "word": "그런데",
+     "count": 52
     },
     {
-     "word": "댓글로",
-     "count": 50
+     "word": "실제",
+     "count": 52
+    },
+    {
+     "word": "같은",
+     "count": 51
     }
    ],
    "chapters_share": 0.311,
@@ -8711,7 +8711,7 @@
      "title": "계속 떨어지더니 '최저' 찍었다..\"요즘 금값 왜 이래\" 이유 보니 / 친절한 경제 / SBS 모닝와이드 2부",
      "channel": "SBS 뉴스",
      "views": 4192694,
-     "views_per_day": 292311.8,
+     "views_per_day": 292084.6,
      "published": "2026-09-30",
      "url": "https://www.youtube.com/watch?v=ZlGbs_sIbQg"
     },
@@ -8720,7 +8720,7 @@
      "title": "\"살다살다 이런 발표는 처음\" 기초연금 충격 개편에 발칵 | 이영주 대표 1부",
      "channel": "김정호의 경제TV",
      "views": 3909231,
-     "views_per_day": 215565.0,
+     "views_per_day": 215432.5,
      "published": "2026-09-26",
      "url": "https://www.youtube.com/watch?v=UInNIcvnTC4"
     },
@@ -8729,7 +8729,7 @@
      "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
      "channel": "ACE ETF",
      "views": 2180869,
-     "views_per_day": 181281.5,
+     "views_per_day": 181113.6,
      "published": "2026-10-02",
      "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
     },
@@ -8738,7 +8738,7 @@
      "title": "\"부자 될 확률 높다\" 늙을수록 오히려 팔자 좋은 사람 특징 ㅣ Ep. 책과사람 163 (이석진 역술가 2부)",
      "channel": "책과삶",
      "views": 2729036,
-     "views_per_day": 136383.5,
+     "views_per_day": 136307.6,
      "published": "2026-09-24",
      "url": "https://www.youtube.com/watch?v=jAOLy75qtGk"
     },
@@ -8747,7 +8747,7 @@
      "title": "청약통장 다들 왜 깨고 있을까?｜크랩",
      "channel": "크랩 KLAB",
      "views": 3763992,
-     "views_per_day": 113882.8,
+     "views_per_day": 113844.3,
      "published": "2026-09-11",
      "url": "https://www.youtube.com/watch?v=g4h29mJufpc"
     }

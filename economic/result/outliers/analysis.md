@@ -1,27 +1,26 @@
 # 재테크 — 성공 사례 분석 (지시사항 재료)
 
-자동 생성 — `tools/success_analysis.py` v1.0 (2026-10-14 07:27 UTC), 규칙 `economic/analysis_rules.toml` v1.0. **이 문서는 숫자와 원문만 담는다 — 해석·지시사항은 이것을 읽는 AI 가 만든다.** 주별 추세는 `weekly.md`, 승인한 영상 전부는 `approved.md`. ※ 연구·교육용 — 투자 권유가 아님.
+자동 생성 — `tools/success_analysis.py` v1.0 (2026-10-14 07:31 UTC), 규칙 `economic/analysis_rules.toml` v1.0. **이 문서는 숫자와 원문만 담는다 — 해석·지시사항은 이것을 읽는 AI 가 만든다.** 주별 추세는 `weekly.md`, 승인한 영상 전부는 `approved.md`. ※ 연구·교육용 — 투자 권유가 아님.
 
 ## 0. 자료와 한계
 
 | 자료 | 수 |
 |---|---|
-| 사례 폴더 (설명·자막·댓글·썸네일을 받은 영상) | 234 (웹 승인 234) |
-| **성공 사례** — 180일 안·구독자 50,000 이하·조회수 ≥ 구독자 × 3·10,000회 이상·4분 이상, 채널당 2개 | **145** (기준 통과 167 − 뺀 것 9 − 채널당 제한 13) |
-| 성공 사례의 글 출처 (자막·음성인식·설명·없음) | 설명 140 · 없음 5 |
-| 성공 사례 댓글 (받은 / 달린) | 43,506 / 43,511 |
-| 성공 사례 썸네일 | 145 |
+| 사례 폴더 (설명·자막·댓글·썸네일을 받은 영상) | 280 (웹 승인 280) |
+| **성공 사례** — 180일 안·구독자 50,000 이하·조회수 ≥ 구독자 × 3·10,000회 이상·4분 이상, 채널당 2개 | **165** (기준 통과 203 − 뺀 것 11 − 채널당 제한 27) |
+| 성공 사례의 글 출처 (자막·음성인식·설명·없음) | 설명 158 · 없음 7 |
+| 성공 사례 댓글 (받은 / 달린) | 48,752 / 48,755 |
+| 성공 사례 썸네일 | 165 |
 | 비교 집단 — 탐색에서 본 영상 중 구독자 50,000 이하·4분 이상·365일 안·주제 관련, 채널당 최근 5개 | 271 (성공 181 = 67%, 채널당 제한으로 뺀 15) |
-| 자료를 받지 않은 성공 후보 (웹 화면에서 승인하면 들어감) | 34 |
+| 자료를 받지 않은 성공 후보 (웹 화면에서 승인하면 들어감) | 0 |
 | 수요·공급 시장 — 최근 90일 영상 (채널 크기 상관없음) | 778 · 검색어 36 · 자동완성 말 312 (공급 확인 0) |
 | 채널 성장 자료 (개설일이 있는 채널) | 507 (빨리 크는 작은 채널 25) |
 
-성공 기준은 넘었지만 뺀 영상: '부동산 투자 보다 더 중요한 게 있습니다' 3040… (뺀 주제(부동산)) · 내 집 앞이 바로 맑은 계곡! 537평 땅 부자 되는… (뺀 주제(전원주택)) · "서울요? 아닙니다" 노년에 가장 살기 좋은곳 압도적… (뺀 주제(5. 부동산)) · 일본 다가구 주택 2동 사면 경제적 자유를 달성할 수… (뺀 주제(부동산)) · 연말정산 연금저축·IRP 무조건 가입하면 후회하는 3… (광고 의심(좋아요·댓글 거의 없음)) · 【실화】65세, 내 집에 계속 산 부부와 집을 팔고 … (뺀 주제(월세)) · IT 자산관리 전문 기업이 브라더 라벨 프린터를 쓰는… (광고 의심(좋아요·댓글 거의 없음)) · 돈 없는 노후가 얼마나 비참한지 아십니까? 30평 아… (뺀 주제(아파트)) · "잘 곳은 넘치는데 벌 곳이 없죠" 일산과 송도, 같… (뺀 주제(5. 부동산))
+성공 기준은 넘었지만 뺀 영상: '부동산 투자 보다 더 중요한 게 있습니다' 3040… (뺀 주제(부동산)) · 내 집 앞이 바로 맑은 계곡! 537평 땅 부자 되는… (뺀 주제(전원주택)) · 30대 직장인 절약 브이로그 ∣ 번아웃 쉬어가요 ∣ … (뺀 주제(월세)) · "서울요? 아닙니다" 노년에 가장 살기 좋은곳 압도적… (뺀 주제(5. 부동산)) · 일본 다가구 주택 2동 사면 경제적 자유를 달성할 수… (뺀 주제(부동산)) · 연말정산 연금저축·IRP 무조건 가입하면 후회하는 3… (광고 의심(좋아요·댓글 거의 없음)) · 【실화】65세, 내 집에 계속 산 부부와 집을 팔고 … (뺀 주제(월세)) · IT 자산관리 전문 기업이 브라더 라벨 프린터를 쓰는… (광고 의심(좋아요·댓글 거의 없음)) · 돈 없는 노후가 얼마나 비참한지 아십니까? 30평 아… (뺀 주제(아파트)) · 숨만 쉬어도 관리비 70만 원? 12억 인천 송도 아… (뺀 주제(아파트)) · "잘 곳은 넘치는데 벌 곳이 없죠" 일산과 송도, 같… (뺀 주제(5. 부동산))
 
 **한계**
 
-- 대본(자막·음성인식)이 없는 성공 사례 145개 (#1, #2, #3, #4, #5, #6, #7, #8, #9, #10, #11, #12, #13, #14, #15, #16, #17, #18, #19, #20, #21, #22, #23, #24, #25, #26, #27, #28, #29, #30 …) — 설명란·챕터만 있음. 도입부·구성·말 속도는 대본이 있는 0개로만 셌다 (음성인식이 끝나면 다시 셈)
-- 댓글을 다 받지 못한 성공 사례 1개 (받은 43,506 / 달린 43,511개 — 할당량이 끝나면 다음에 이어 받음)
+- 대본(자막·음성인식)이 없는 성공 사례 165개 (#1, #2, #3, #4, #5, #6, #7, #8, #9, #10, #11, #12, #13, #14, #15, #16, #17, #18, #19, #20, #21, #22, #23, #24, #25, #26, #27, #28, #29, #30 …) — 설명란·챕터만 있음. 도입부·구성·말 속도는 대본이 있는 0개로만 셌다 (음성인식이 끝나면 다시 셈)
 - 비교 집단 271개는 검색(조회수 순)·추가한 채널에서 나와 성공 비율(67%)이 실제보다 높다 — 같은 집단 안의 '있음/없음' 차이로만 보라
 - 수요·공급의 '시장'은 탐색·검색에서 본 최근 90일 영상 778개 — 검색이 조회수 순이라 조회수 적은 영상이 덜 잡힌다. 주제 묶음 사이의 상대 비교(지수)로만 보라
 - 자동완성 말의 '최근 영상 수'는 우리가 본 영상만 셌다 — 실제 공급은 웹 화면 [공급 확인](말 하나에 검색 1번 = 100단위)으로 확인
@@ -30,194 +29,175 @@
 - 댓글 갈래·제목 특징은 낱말 규칙이라 거칠다 (물음표 반문도 '질문', 한 댓글이 여러 갈래). 원문 인용을 함께 보라
 - '눈에 띔'은 차이가 크고 표본이 충분하다는 표시일 뿐 원인이 아니다
 
-## 1. 성공 사례 (145개 — 배수 큰 순)
+## 1. 성공 사례 (165개 — 배수 큰 순)
 
 | # | 썸네일 | 제목 | 채널 | 구독자 | 조회수 | 배수 | 하루 조회수 | 길이 | 업로드 | 주제 묶음 | 글 출처 | 댓글 받은/달린 |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| 1 | <img src="W_eFsT1K_mPjc/thumbnail.jpg" width="160"> | [안 팔릴수록 부자되는 '동네 금은방'의 소름돋는 수익구조](https://www.youtube.com/watch?v=eFsT1K_mPjc) | 새파란 경제 | 908 | 510,269 | 562.0 | 18,293.3 | 17.6분 | 2026-09-16 | 1. 재테크 일반·마인드 | 설명 | 139/139 |
-| 2 | <img src="W_MJE-dsUuqIM/thumbnail.jpg" width="160"> | [65세 이후 통장에 '이 금액' 있다면 돈 벌지 말고 그냥 인생을 즐겨라ㅣ명언ㅣ인생조언ㅣ오디오북](https://www.youtube.com/watch?v=MJE-dsUuqIM) | 인생의 고수 | 1,580 | 838,223 | 530.5 | 25,985.5 | 34.8분 | 2026-09-12 | 4. 노후·연금 | 설명 | 196/196 |
-| 3 | <img src="W_TKBAsjZgVWU/thumbnail.jpg" width="160"> | [조용한 부자들이 절대 입에 담지 않는 7가지 — 돈 있는 사람의 진짜 습관 ㅣ시니어ㅣ오디오북ㅣ노후준비ㅣ심리…](https://www.youtube.com/watch?v=TKBAsjZgVWU) | 가을빛 심리학 | 1,000 | 413,701 | 413.7 | 14,920.6 | 21.7분 | 2026-09-16 | 1. 재테크 일반·마인드 | 설명 | 100/100 |
-| 4 | <img src="W_42N9nj2wWko/thumbnail.jpg" width="160"> | [기초연금 개편 진짜였네? 결국 내가 받을 돈 '이렇게' 받는다 [대통령 긴급 발표] 61년생부터 주목](https://www.youtube.com/watch?v=42N9nj2wWko) | 연금노하우 | 1,280 | 412,530 | 322.3 | 8,991.5 | 9.4분 | 2026-08-29 | 4. 노후·연금 | 설명 | 349/349 |
-| 5 | <img src="W_6QkzqMZYrVQ/thumbnail.jpg" width="160"> | [생생한 택배기사 최근 6개월치 월급 공개... 이게 '진짜 현실'입니다.](https://www.youtube.com/watch?v=6QkzqMZYrVQ) | 택부 - 택배기사 부자들 | 6,550 | 1,941,365 | 296.4 | 38,114.3 | 8.6분 | 2026-08-24 | 2. 돈 모으기·저축 | 설명 | 1,547/1,547 |
+| 1 | <img src="W_eFsT1K_mPjc/thumbnail.jpg" width="160"> | [안 팔릴수록 부자되는 '동네 금은방'의 소름돋는 수익구조](https://www.youtube.com/watch?v=eFsT1K_mPjc) | 새파란 경제 | 908 | 510,269 | 562.0 | 18,291.4 | 17.6분 | 2026-09-16 | 1. 재테크 일반·마인드 | 설명 | 139/139 |
+| 2 | <img src="W_MJE-dsUuqIM/thumbnail.jpg" width="160"> | [65세 이후 통장에 '이 금액' 있다면 돈 벌지 말고 그냥 인생을 즐겨라ㅣ명언ㅣ인생조언ㅣ오디오북](https://www.youtube.com/watch?v=MJE-dsUuqIM) | 인생의 고수 | 1,580 | 838,223 | 530.5 | 25,983.1 | 34.8분 | 2026-09-12 | 4. 노후·연금 | 설명 | 196/196 |
+| 3 | <img src="W_TKBAsjZgVWU/thumbnail.jpg" width="160"> | [조용한 부자들이 절대 입에 담지 않는 7가지 — 돈 있는 사람의 진짜 습관 ㅣ시니어ㅣ오디오북ㅣ노후준비ㅣ심리…](https://www.youtube.com/watch?v=TKBAsjZgVWU) | 가을빛 심리학 | 1,000 | 413,701 | 413.7 | 14,919.1 | 21.7분 | 2026-09-16 | 1. 재테크 일반·마인드 | 설명 | 100/100 |
+| 4 | <img src="W_42N9nj2wWko/thumbnail.jpg" width="160"> | [기초연금 개편 진짜였네? 결국 내가 받을 돈 '이렇게' 받는다 [대통령 긴급 발표] 61년생부터 주목](https://www.youtube.com/watch?v=42N9nj2wWko) | 연금노하우 | 1,280 | 412,530 | 322.3 | 8,990.9 | 9.4분 | 2026-08-29 | 4. 노후·연금 | 설명 | 349/349 |
+| 5 | <img src="W_6QkzqMZYrVQ/thumbnail.jpg" width="160"> | [생생한 택배기사 최근 6개월치 월급 공개... 이게 '진짜 현실'입니다.](https://www.youtube.com/watch?v=6QkzqMZYrVQ) | 택부 - 택배기사 부자들 | 6,550 | 1,941,365 | 296.4 | 38,112.1 | 8.6분 | 2026-08-24 | 2. 돈 모으기·저축 | 설명 | 1,547/1,547 |
 | 6 | <img src="W_mJbPirgzeu0/thumbnail.jpg" width="160"> | [은퇴 후 행복한 삶을 누리는 노년층의 4가지 특징 60세 이후 최고의 삶을 누리는 비결은 바로 '이것'을 …](https://www.youtube.com/watch?v=mJbPirgzeu0) | 삶의 깊은 이야기 | 1,600 | 425,737 | 266.1 | 2,625.4 | 21.1분 | 2026-05-05 | 4. 노후·연금 | 설명 | 482/482 |
-| 7 | <img src="W_RGKX32DwzMI/thumbnail.jpg" width="160"> | [부자들이 먼저 배운 돈의 원리, "열심히 벌어도 왜 안 모일까" 자본주의에 대해 알게되면 부자는 불가능한 …](https://www.youtube.com/watch?v=RGKX32DwzMI) | 경제집현전 | 699 | 168,049 | 240.4 | 3,778.3 | 24.2분 | 2026-08-30 | 1. 재테크 일반·마인드 | 설명 | 10/10 |
-| 8 | <img src="W_oyiEl0p35BY/thumbnail.jpg" width="160"> | [일흔이 넘으면 ‘이 다섯 곳’에는 절대 가지 마세요｜노후 자금을 지키는 지혜｜노년의 마음소리](https://www.youtube.com/watch?v=oyiEl0p35BY) | 은퇴후인생수업 | 407 | 89,871 | 220.8 | 1,878.1 | 32분 | 2026-08-27 | 4. 노후·연금 | 설명 | 17/17 |
-| 9 | <img src="W_FJq7Cz3CSz8/thumbnail.jpg" width="160"> | [돈이 더 적은 사람들이 항상 당신보다 더 많은 것을 가지고 있는 이유](https://www.youtube.com/watch?v=FJq7Cz3CSz8) | 투자 가이드 | 962 | 183,116 | 190.3 | 5,254.1 | 31.1분 | 2026-09-09 | 2. 돈 모으기·저축 | 설명 | 15/15 |
-| 10 | <img src="W_nksAlCVCgLo/thumbnail.jpg" width="160"> | [은퇴 후 연금만으로 살기 좋은 한국 최고의 섬마을](https://www.youtube.com/watch?v=nksAlCVCgLo) | 살이픽 | 898 | 157,461 | 175.3 | 11,960.9 | 18.3분 | 2026-10-01 | 4. 노후·연금 | 설명 | 47/47 |
+| 7 | <img src="W_RGKX32DwzMI/thumbnail.jpg" width="160"> | [부자들이 먼저 배운 돈의 원리, "열심히 벌어도 왜 안 모일까" 자본주의에 대해 알게되면 부자는 불가능한 …](https://www.youtube.com/watch?v=RGKX32DwzMI) | 경제집현전 | 699 | 168,049 | 240.4 | 3,778.1 | 24.2분 | 2026-08-30 | 1. 재테크 일반·마인드 | 설명 | 10/10 |
+| 8 | <img src="W_oyiEl0p35BY/thumbnail.jpg" width="160"> | [일흔이 넘으면 ‘이 다섯 곳’에는 절대 가지 마세요｜노후 자금을 지키는 지혜｜노년의 마음소리](https://www.youtube.com/watch?v=oyiEl0p35BY) | 은퇴후인생수업 | 407 | 89,871 | 220.8 | 1,877.9 | 32분 | 2026-08-27 | 4. 노후·연금 | 설명 | 17/17 |
+| 9 | <img src="W_FJq7Cz3CSz8/thumbnail.jpg" width="160"> | [돈이 더 적은 사람들이 항상 당신보다 더 많은 것을 가지고 있는 이유](https://www.youtube.com/watch?v=FJq7Cz3CSz8) | 투자 가이드 | 962 | 183,116 | 190.3 | 5,253.7 | 31.1분 | 2026-09-09 | 2. 돈 모으기·저축 | 설명 | 15/15 |
+| 10 | <img src="W_nksAlCVCgLo/thumbnail.jpg" width="160"> | [은퇴 후 연금만으로 살기 좋은 한국 최고의 섬마을](https://www.youtube.com/watch?v=nksAlCVCgLo) | 살이픽 | 898 | 157,461 | 175.3 | 11,958.2 | 18.3분 | 2026-10-01 | 4. 노후·연금 | 설명 | 47/47 |
 | 11 | <img src="W_qOdjXbl2g6Y/thumbnail.jpg" width="160"> | [60세 이후, 계속 일하는 사람 vs 쉬는 사람 5년 후 놀라운 차이 치매 위험 35% 낮추는 비밀!](https://www.youtube.com/watch?v=qOdjXbl2g6Y) | 쉽게 이해하는 경제 | 2,200 | 373,184 | 169.6 | 2,259.3 | 11.8분 | 2026-05-02 | 4. 노후·연금 | 설명 | 590/590 |
-| 12 | <img src="W_Ly8W-jVvLa0/thumbnail.jpg" width="160"> | [[스포츠 토토] 재테크 적중률 높이는 확률 계산법 대공개! #토토 #스포츠토토 #토토분석 #프로토분석 #스…](https://www.youtube.com/watch?v=Ly8W-jVvLa0) | 스포츠토토_메시 | 1,130 | 190,686 | 168.8 | 2,414.5 | 4.4분 | 2026-07-27 | 1. 재테크 일반·마인드 | 없음 | 2/2 |
-| 13 | <img src="W_kZJEE6mtay4/thumbnail.jpg" width="160"> | [ISA·연금저축·IRP에서 평생 모아갈 국내상장 월배당 ETF 총정리 ∣ 9월 분배금 이만큼 나왔습니다 (…](https://www.youtube.com/watch?v=kZJEE6mtay4) | 퇴근후ETF | 169 | 26,238 | 155.2 | 3,297.9 | 19.1분 | 2026-10-06 | 4. 노후·연금 | 설명 | 6/6 |
-| 14 | <img src="W_q1fYjAwma3s/thumbnail.jpg" width="160"> | [[풀영상] 월급 10%로 당장 시작하는 존리의 자산 증식 치트키](https://www.youtube.com/watch?v=q1fYjAwma3s) | 여의돈스트리트 | 1,330 | 203,470 | 153.0 | 7,721.3 | 36분 | 2026-09-17 | 2. 돈 모으기·저축 | 설명 | 112/112 |
-| 15 | <img src="W_6LShuUa4Zt0/thumbnail.jpg" width="160"> | [50대에 조기퇴직하면 어떤 삶을 살게 될까? 51세에 경제적 자유와 조기은퇴(FIRE)를 이룬 사람의 실제…](https://www.youtube.com/watch?v=6LShuUa4Zt0) | 누군가의 인생 | 1,820 | 273,612 | 150.3 | 11,922.0 | 18.8분 | 2026-09-21 | 4. 노후·연금 | 설명 | 177/177 |
-| 16 | <img src="W_5kBEU3V3ZXY/thumbnail.jpg" width="160"> | [본인도 모르는 사이에 남몰래 부자가 되고 있다는 5가지 신호](https://www.youtube.com/watch?v=5kBEU3V3ZXY) | 투자 가이드 | 962 | 138,086 | 143.5 | 5,142.5 | 20분 | 2026-09-17 | 1. 재테크 일반·마인드 | 설명 | 12/12 |
-| 17 | <img src="W_ksCSvgpQvg8/thumbnail.jpg" width="160"> | [노후에 등산가면 접근하는 꽃뱀의 수법, 하필 32년 강력계 형사한테 걸렸다 ∣ 사이다 복수극 ∣ 노후사연 …](https://www.youtube.com/watch?v=ksCSvgpQvg8) | 수채화 인생 이야기 | 4,070 | 460,244 | 113.1 | 12,116.4 | 8.6분 | 2026-09-06 | 4. 노후·연금 | 설명 | 158/158 |
-| 18 | <img src="W_mLyNB42Hhgg/thumbnail.jpg" width="160"> | [50대 억대연봉 임원이 퇴사 1년 후 깨달은 현실](https://www.youtube.com/watch?v=mLyNB42Hhgg) | 50대 새로운 인생 준비… | 2,780 | 311,751 | 112.1 | 5,813.7 | 8.9분 | 2026-08-21 | 기타 | 설명 | 219/219 |
-| 19 | <img src="W_DeXKTULwhEI/thumbnail.jpg" width="160"> | [재고가 쌓일수록 부자가 되는 유일한 장사, 금은방의 기막힌 구조](https://www.youtube.com/watch?v=DeXKTULwhEI) | 수익구조 연구소 | 4,820 | 523,257 | 108.6 | 14,394.1 | 15.4분 | 2026-09-07 | 1. 재테크 일반·마인드 | 설명 | 115/115 |
-| 20 | <img src="W_5wYVYUrG4Ds/thumbnail.jpg" width="160"> | ["순서대로 무너집니다" 금리 7% 시대, 한국 중산층 자산이 흔들리는 진짜 순서 4단계](https://www.youtube.com/watch?v=5wYVYUrG4Ds) | 월급쟁이경제학 | 2,910 | 300,548 | 103.3 | 5,661.3 | 27.8분 | 2026-08-22 | 1. 재테크 일반·마인드 | 설명 | 388/388 |
-| 21 | <img src="W_RuWOYsSZl_E/thumbnail.jpg" width="160"> | [객실 팔아서 돈 버는 게 아니라고? 우리가 몰랐던 호텔이 진짜 돈을 버는 방법](https://www.youtube.com/watch?v=RuWOYsSZl_E) | 머니파이 | 9,110 | 916,998 | 100.7 | 9,778.3 | 17.6분 | 2026-07-12 | 기타 | 설명 | 280/280 |
-| 22 | <img src="W_cn8b0mMUR3Q/thumbnail.jpg" width="160"> | [나이들수록 '이것' 챙기면 노후가 바뀌고 행복해집니다ㅣ귀티나는 노후를 위한 행복특강ㅣ황창연신부님최근강의ㅣ황…](https://www.youtube.com/watch?v=cn8b0mMUR3Q) | 포강쇼 | 5,060 | 488,848 | 96.6 | 3,884.3 | 179.8분 | 2026-06-10 | 4. 노후·연금 | 설명 | 160/160 |
-| 23 | <img src="W_FRzyTNO9mNI/thumbnail.jpg" width="160"> | [50대 옥탑방 부부, "그 나이에 왜 주식을..."](https://www.youtube.com/watch?v=FRzyTNO9mNI) | 반백살, 옥탑방 이야기 | 580 | 42,191 | 72.7 | 3,902.9 | 6.3분 | 2026-10-03 | 3. 주식·ETF | 설명 | 187/187 |
+| 12 | <img src="W_Ly8W-jVvLa0/thumbnail.jpg" width="160"> | [[스포츠 토토] 재테크 적중률 높이는 확률 계산법 대공개! #토토 #스포츠토토 #토토분석 #프로토분석 #스…](https://www.youtube.com/watch?v=Ly8W-jVvLa0) | 스포츠토토_메시 | 1,130 | 190,686 | 168.8 | 2,414.4 | 4.4분 | 2026-07-27 | 1. 재테크 일반·마인드 | 없음 | 2/2 |
+| 13 | <img src="W_kZJEE6mtay4/thumbnail.jpg" width="160"> | [ISA·연금저축·IRP에서 평생 모아갈 국내상장 월배당 ETF 총정리 ∣ 9월 분배금 이만큼 나왔습니다 (…](https://www.youtube.com/watch?v=kZJEE6mtay4) | 퇴근후ETF | 169 | 26,238 | 155.2 | 3,296.7 | 19.1분 | 2026-10-06 | 4. 노후·연금 | 설명 | 6/6 |
+| 14 | <img src="W_q1fYjAwma3s/thumbnail.jpg" width="160"> | [[풀영상] 월급 10%로 당장 시작하는 존리의 자산 증식 치트키](https://www.youtube.com/watch?v=q1fYjAwma3s) | 여의돈스트리트 | 1,330 | 203,470 | 153.0 | 7,720.5 | 36분 | 2026-09-17 | 2. 돈 모으기·저축 | 설명 | 112/112 |
+| 15 | <img src="W_6LShuUa4Zt0/thumbnail.jpg" width="160"> | [50대에 조기퇴직하면 어떤 삶을 살게 될까? 51세에 경제적 자유와 조기은퇴(FIRE)를 이룬 사람의 실제…](https://www.youtube.com/watch?v=6LShuUa4Zt0) | 누군가의 인생 | 1,820 | 273,612 | 150.3 | 11,920.5 | 18.8분 | 2026-09-21 | 4. 노후·연금 | 설명 | 177/177 |
+| 16 | <img src="W_5kBEU3V3ZXY/thumbnail.jpg" width="160"> | [본인도 모르는 사이에 남몰래 부자가 되고 있다는 5가지 신호](https://www.youtube.com/watch?v=5kBEU3V3ZXY) | 투자 가이드 | 962 | 138,086 | 143.5 | 5,141.9 | 20분 | 2026-09-17 | 1. 재테크 일반·마인드 | 설명 | 12/12 |
+| 17 | <img src="W_ksCSvgpQvg8/thumbnail.jpg" width="160"> | [노후에 등산가면 접근하는 꽃뱀의 수법, 하필 32년 강력계 형사한테 걸렸다 ∣ 사이다 복수극 ∣ 노후사연 …](https://www.youtube.com/watch?v=ksCSvgpQvg8) | 수채화 인생 이야기 | 4,070 | 460,244 | 113.1 | 12,115.4 | 8.6분 | 2026-09-06 | 4. 노후·연금 | 설명 | 158/158 |
+| 18 | <img src="W_mLyNB42Hhgg/thumbnail.jpg" width="160"> | [50대 억대연봉 임원이 퇴사 1년 후 깨달은 현실](https://www.youtube.com/watch?v=mLyNB42Hhgg) | 50대 새로운 인생 준비… | 2,780 | 311,751 | 112.1 | 5,813.3 | 8.9분 | 2026-08-21 | 기타 | 설명 | 219/219 |
+| 19 | <img src="W_DeXKTULwhEI/thumbnail.jpg" width="160"> | [재고가 쌓일수록 부자가 되는 유일한 장사, 금은방의 기막힌 구조](https://www.youtube.com/watch?v=DeXKTULwhEI) | 수익구조 연구소 | 4,820 | 523,257 | 108.6 | 14,393.0 | 15.4분 | 2026-09-07 | 1. 재테크 일반·마인드 | 설명 | 115/115 |
+| 20 | <img src="W_5wYVYUrG4Ds/thumbnail.jpg" width="160"> | ["순서대로 무너집니다" 금리 7% 시대, 한국 중산층 자산이 흔들리는 진짜 순서 4단계](https://www.youtube.com/watch?v=5wYVYUrG4Ds) | 월급쟁이경제학 | 2,910 | 300,548 | 103.3 | 5,661.0 | 27.8분 | 2026-08-22 | 1. 재테크 일반·마인드 | 설명 | 388/388 |
+| 21 | <img src="W_RuWOYsSZl_E/thumbnail.jpg" width="160"> | [객실 팔아서 돈 버는 게 아니라고? 우리가 몰랐던 호텔이 진짜 돈을 버는 방법](https://www.youtube.com/watch?v=RuWOYsSZl_E) | 머니파이 | 9,110 | 916,998 | 100.7 | 9,778.0 | 17.6분 | 2026-07-12 | 기타 | 설명 | 280/280 |
+| 22 | <img src="W_cn8b0mMUR3Q/thumbnail.jpg" width="160"> | [나이들수록 '이것' 챙기면 노후가 바뀌고 행복해집니다ㅣ귀티나는 노후를 위한 행복특강ㅣ황창연신부님최근강의ㅣ황…](https://www.youtube.com/watch?v=cn8b0mMUR3Q) | 포강쇼 | 5,060 | 488,848 | 96.6 | 3,884.2 | 179.8분 | 2026-06-10 | 4. 노후·연금 | 설명 | 160/160 |
+| 23 | <img src="W_FRzyTNO9mNI/thumbnail.jpg" width="160"> | [50대 옥탑방 부부, "그 나이에 왜 주식을..."](https://www.youtube.com/watch?v=FRzyTNO9mNI) | 반백살, 옥탑방 이야기 | 580 | 42,191 | 72.7 | 3,901.9 | 6.3분 | 2026-10-03 | 3. 주식·ETF | 설명 | 187/187 |
 | 24 | <img src="W_g10Y6ZA7rng/thumbnail.jpg" width="160"> | [나스닥 투자하기 전에 이 영상 꼭 보세요 ∣ QLD만 모아가는 이유](https://www.youtube.com/watch?v=g10Y6ZA7rng) | 올레버 | 1,580 | 114,758 | 72.6 | 856.4 | 5.7분 | 2026-06-02 | 3. 주식·ETF | 설명 | 347/347 |
-| 25 | <img src="W_xQnFTZLNzOM/thumbnail.jpg" width="160"> | [5060 노후 준비, 1000만원으로 매월 배당금 받는 가장 현실적인 방법](https://www.youtube.com/watch?v=xQnFTZLNzOM) | 맛스토리 | 3,000 | 189,623 | 63.2 | 1,135.8 | 17.6분 | 2026-04-30 | 3. 주식·ETF | 설명 | 44/44 |
-| 26 | <img src="W_FrSslE4xeBA/thumbnail.jpg" width="160"> | [아무리 돈이 많아도 없는 척하세요, 재산이 알려지면 생기는 일](https://www.youtube.com/watch?v=FrSslE4xeBA) | 인생다시쓰기 | 8,060 | 505,964 | 62.8 | 10,239.2 | 17.3분 | 2026-08-25 | 1. 재테크 일반·마인드 | 설명 | 250/250 |
-| 27 | <img src="W_8_rq_vVFDTg/thumbnail.jpg" width="160"> | [[100만 조회수] 대기업 30년 다니고 은퇴했지만, 78세에 고시원에서 혼자 사는 이유](https://www.youtube.com/watch?v=8_rq_vVFDTg) | 아니모 인생기록관 | 21,600 | 1,338,670 | 62.0 | 11,609.3 | 14.5분 | 2026-06-21 | 4. 노후·연금 | 설명 | 1,690/1,690 |
-| 28 | <img src="W_N0gXuYAjgwk/thumbnail.jpg" width="160"> | ["와, 이렇게 돈 버는 여자 처음 봤습니다" 마트 사진 찍어 올려 월 3천만원 버는 98년생의 비밀부업추천](https://www.youtube.com/watch?v=N0gXuYAjgwk) | 머니종결자 | 8,000 | 452,263 | 56.5 | 14,590.2 | 17.4분 | 2026-09-13 | 8. 부업·소득 | 설명 | 3,562/3,565 |
+| 25 | <img src="W_xQnFTZLNzOM/thumbnail.jpg" width="160"> | [5060 노후 준비, 1000만원으로 매월 배당금 받는 가장 현실적인 방법](https://www.youtube.com/watch?v=xQnFTZLNzOM) | 맛스토리 | 3,000 | 189,623 | 63.2 | 1,135.7 | 17.6분 | 2026-04-30 | 3. 주식·ETF | 설명 | 44/44 |
+| 26 | <img src="W_FrSslE4xeBA/thumbnail.jpg" width="160"> | [아무리 돈이 많아도 없는 척하세요, 재산이 알려지면 생기는 일](https://www.youtube.com/watch?v=FrSslE4xeBA) | 인생다시쓰기 | 8,060 | 505,964 | 62.8 | 10,238.6 | 17.3분 | 2026-08-25 | 1. 재테크 일반·마인드 | 설명 | 250/250 |
+| 27 | <img src="W_8_rq_vVFDTg/thumbnail.jpg" width="160"> | [[100만 조회수] 대기업 30년 다니고 은퇴했지만, 78세에 고시원에서 혼자 사는 이유](https://www.youtube.com/watch?v=8_rq_vVFDTg) | 아니모 인생기록관 | 21,600 | 1,338,670 | 62.0 | 11,609.0 | 14.5분 | 2026-06-21 | 4. 노후·연금 | 설명 | 1,690/1,690 |
+| 28 | <img src="W_N0gXuYAjgwk/thumbnail.jpg" width="160"> | ["와, 이렇게 돈 버는 여자 처음 봤습니다" 마트 사진 찍어 올려 월 3천만원 버는 98년생의 비밀부업추천](https://www.youtube.com/watch?v=N0gXuYAjgwk) | 머니종결자 | 8,000 | 452,263 | 56.5 | 14,588.9 | 17.4분 | 2026-09-13 | 8. 부업·소득 | 설명 | 3,562/3,565 |
 | 29 | <img src="W_t94bcrWeee0/thumbnail.jpg" width="160"> | [60대부터라도 싫어도 부자가 된다. TV에서 소개된 ‘5가지 마법의 습관’이 너무 대단했다](https://www.youtube.com/watch?v=t94bcrWeee0) | 인간 인사이트 | 946 | 53,221 | 56.3 | 471.5 | 30.4분 | 2026-06-23 | 1. 재테크 일반·마인드 | 설명 | 40/40 |
 | 30 | <img src="W_KSCrtH33vPA/thumbnail.jpg" width="160"> | [여자배구 페퍼저축은행 결국 SOOP 인수 확정, 새 외국인 선수 레베카? 투트쿠? 시마무라 재계약 여부는?](https://www.youtube.com/watch?v=KSCrtH33vPA) | 배구의정석 | 998 | 51,819 | 51.9 | 342.5 | 4.9분 | 2026-05-16 | 2. 돈 모으기·저축 | 설명 | 184/184 |
-| 31 | <img src="W_9E9OrcoMCjk/thumbnail.jpg" width="160"> | [AI로 주식 자동 매매하면 어떻게 될까?](https://www.youtube.com/watch?v=9E9OrcoMCjk) | 이영배 | 18,800 | 962,332 | 51.2 | 8,306.8 | 11.3분 | 2026-06-20 | 3. 주식·ETF | 없음 | 576/576 |
-| 32 | <img src="W_q3Pig5W6QaI/thumbnail.jpg" width="160"> | ["모르면 노후에 후회한다" 국민연금 65세 말고 무조건 '이때' 받으세요 ∣ 김현우 소장 ∣ 연금받는형](https://www.youtube.com/watch?v=q3Pig5W6QaI) | 연금 받는 형 | 21,500 | 1,022,606 | 47.6 | 18,309.2 | 22.9분 | 2026-08-19 | 4. 노후·연금 | 설명 | 481/481 |
-| 33 | <img src="W_YydZ774lKfI/thumbnail.jpg" width="160"> | [“은퇴자금 아끼려고 당근에 물건 하나 올렸다가…60대 노후가 무너졌습니다”ㅣ 은퇴자금 ㅣ노후사연 ㅣ오디오](https://www.youtube.com/watch?v=YydZ774lKfI) | 노을서사 | 1,790 | 82,621 | 46.2 | 4,914.9 | 73.1분 | 2026-09-27 | 4. 노후·연금 | 설명 | 94/94 |
-| 34 | <img src="W_TozHpX9DmQU/thumbnail.jpg" width="160"> | [(긴급)매달 나오던 기초연금 7월부터 바뀝니다!! 받던 분도 꼭 확인하세요](https://www.youtube.com/watch?v=TozHpX9DmQU) | 경상도이서방 | 5,520 | 250,421 | 45.4 | 1,856.6 | 9.2분 | 2026-06-01 | 4. 노후·연금 | 설명 | 163/163 |
-| 35 | <img src="W_7kHfB06S2NM/thumbnail.jpg" width="160"> | [은퇴 후 경비직에 사람들이 몰리는 진짜 이유](https://www.youtube.com/watch?v=7kHfB06S2NM) | 은퇴갓생 | 6,780 | 287,847 | 42.5 | 3,594.0 | 15.7분 | 2026-07-26 | 4. 노후·연금 | 설명 | 350/350 |
-| 36 | <img src="W_pMZmS_k_s0U/thumbnail.jpg" width="160"> | [노후자금사연 월 450만원 연금 받는 전직 은행원 60대 부부도 무너지는 충격적인 현상황!](https://www.youtube.com/watch?v=pMZmS_k_s0U) | 삶의시나리오 | 2,820 | 115,876 | 41.1 | 4,257.3 | 110.8분 | 2026-09-17 | 4. 노후·연금 | 설명 | 104/104 |
-| 37 | <img src="W_PX-qc9FOViA/thumbnail.jpg" width="160"> | [예비 며느리 시험하려 청소부로 변장한 재벌회장, 일부러 커피 쏟았는데 그녀의 행동에 말문이 막혔습니다 ∣ …](https://www.youtube.com/watch?v=PX-qc9FOViA) | 인생유랑 | 20,900 | 856,988 | 41.0 | 14,567.6 | 96.3분 | 2026-08-16 | 4. 노후·연금 | 설명 | 294/294 |
+| 31 | <img src="W_9E9OrcoMCjk/thumbnail.jpg" width="160"> | [AI로 주식 자동 매매하면 어떻게 될까?](https://www.youtube.com/watch?v=9E9OrcoMCjk) | 이영배 | 18,800 | 962,332 | 51.2 | 8,306.5 | 11.3분 | 2026-06-20 | 3. 주식·ETF | 없음 | 576/576 |
+| 32 | <img src="W_q3Pig5W6QaI/thumbnail.jpg" width="160"> | ["모르면 노후에 후회한다" 국민연금 65세 말고 무조건 '이때' 받으세요 ∣ 김현우 소장 ∣ 연금받는형](https://www.youtube.com/watch?v=q3Pig5W6QaI) | 연금 받는 형 | 21,500 | 1,022,606 | 47.6 | 18,308.3 | 22.9분 | 2026-08-19 | 4. 노후·연금 | 설명 | 481/481 |
+| 33 | <img src="W_YydZ774lKfI/thumbnail.jpg" width="160"> | [“은퇴자금 아끼려고 당근에 물건 하나 올렸다가…60대 노후가 무너졌습니다”ㅣ 은퇴자금 ㅣ노후사연 ㅣ오디오](https://www.youtube.com/watch?v=YydZ774lKfI) | 노을서사 | 1,790 | 82,621 | 46.2 | 4,914.0 | 73.1분 | 2026-09-27 | 4. 노후·연금 | 설명 | 94/94 |
+| 34 | <img src="W_TozHpX9DmQU/thumbnail.jpg" width="160"> | [(긴급)매달 나오던 기초연금 7월부터 바뀝니다!! 받던 분도 꼭 확인하세요](https://www.youtube.com/watch?v=TozHpX9DmQU) | 경상도이서방 | 5,520 | 250,421 | 45.4 | 1,856.5 | 9.2분 | 2026-06-01 | 4. 노후·연금 | 설명 | 163/163 |
+| 35 | <img src="W_7kHfB06S2NM/thumbnail.jpg" width="160"> | [은퇴 후 경비직에 사람들이 몰리는 진짜 이유](https://www.youtube.com/watch?v=7kHfB06S2NM) | 은퇴갓생 | 6,780 | 287,847 | 42.5 | 3,593.8 | 15.7분 | 2026-07-26 | 4. 노후·연금 | 설명 | 350/350 |
+| 36 | <img src="W_pMZmS_k_s0U/thumbnail.jpg" width="160"> | [노후자금사연 월 450만원 연금 받는 전직 은행원 60대 부부도 무너지는 충격적인 현상황!](https://www.youtube.com/watch?v=pMZmS_k_s0U) | 삶의시나리오 | 2,820 | 115,876 | 41.1 | 4,256.9 | 110.8분 | 2026-09-17 | 4. 노후·연금 | 설명 | 104/104 |
+| 37 | <img src="W_PX-qc9FOViA/thumbnail.jpg" width="160"> | [예비 며느리 시험하려 청소부로 변장한 재벌회장, 일부러 커피 쏟았는데 그녀의 행동에 말문이 막혔습니다 ∣ …](https://www.youtube.com/watch?v=PX-qc9FOViA) | 인생유랑 | 20,900 | 856,988 | 41.0 | 14,566.9 | 96.3분 | 2026-08-16 | 4. 노후·연금 | 설명 | 294/294 |
 | 38 | <img src="W_cqgVNBbMYew/thumbnail.jpg" width="160"> | [배당주 20년 vs S&P500 20년, 3억 원이 만든 충격적인 자산과 삶의 격차 [ 재테크/미국주식/E…](https://www.youtube.com/watch?v=cqgVNBbMYew) | 박대리와 황과장의 경제이… | 1,920 | 78,181 | 40.7 | 1,029.0 | 20.5분 | 2026-07-30 | 1. 재테크 일반·마인드 | 설명 | 162/162 |
-| 39 | <img src="W_yGuybuoroRI/thumbnail.jpg" width="160"> | ["원금 안 깎여요" 진화형 커버드콜 ETF 황금 포트폴리오 공개](https://www.youtube.com/watch?v=yGuybuoroRI) | 투자360 | 15,800 | 633,839 | 40.1 | 6,098.4 | 22.2분 | 2026-07-02 | 3. 주식·ETF | 설명 | 574/574 |
-| 40 | <img src="W_vU5PWT2zLDs/thumbnail.jpg" width="160"> | [연금 310만 원을 말한 뒤 40년 계모임이 깨졌습니다… 노후에 말하면 안 되는 4가지](https://www.youtube.com/watch?v=vU5PWT2zLDs) | 노년의 마음소리 | 33,500 | 1,247,649 | 37.2 | 30,478.7 | 29분 | 2026-09-03 | 4. 노후·연금 | 설명 | 771/771 |
+| 39 | <img src="W_yGuybuoroRI/thumbnail.jpg" width="160"> | ["원금 안 깎여요" 진화형 커버드콜 ETF 황금 포트폴리오 공개](https://www.youtube.com/watch?v=yGuybuoroRI) | 투자360 | 15,800 | 633,839 | 40.1 | 6,098.2 | 22.2분 | 2026-07-02 | 3. 주식·ETF | 설명 | 574/574 |
+| 40 | <img src="W_vU5PWT2zLDs/thumbnail.jpg" width="160"> | [연금 310만 원을 말한 뒤 40년 계모임이 깨졌습니다… 노후에 말하면 안 되는 4가지](https://www.youtube.com/watch?v=vU5PWT2zLDs) | 노년의 마음소리 | 33,500 | 1,247,649 | 37.2 | 30,476.5 | 29분 | 2026-09-03 | 4. 노후·연금 | 설명 | 771/771 |
 | 41 | <img src="W_mopoYlkCYC4/thumbnail.jpg" width="160"> | [50대 이후, 인생이 술술 풀리는 여성들의 3가지 비밀 ∣ 심리학 ∣ 뇌과학 ∣ 행복한노후 ∣](https://www.youtube.com/watch?v=mopoYlkCYC4) | 브라보 인생후반전 | 7,670 | 277,152 | 36.1 | 1,847.3 | 21.9분 | 2026-05-17 | 4. 노후·연금 | 설명 | 214/214 |
 | 42 | <img src="W_7rtO_hfLvF8/thumbnail.jpg" width="160"> | [국민연금 빈칸 메우는 한국 ETF 3개 — 월 200만 원 평생 월급 만들기](https://www.youtube.com/watch?v=7rtO_hfLvF8) | 술술 경제학 | 17,600 | 608,500 | 34.6 | 3,624.5 | 16.8분 | 2026-04-29 | 3. 주식·ETF | 설명 | 284/284 |
 | 43 | <img src="W_qKJQ58SOsow/thumbnail.jpg" width="160"> | [주 4일 · 창고 알바 여성의 저축이 약 28만 7천 원 → 약 4,393만 원으로 늘었다, 싫어도 부자가…](https://www.youtube.com/watch?v=qKJQ58SOsow) | 노후 재테크 | 2,320 | 79,707 | 34.4 | 781.9 | 31분 | 2026-07-04 | 1. 재테크 일반·마인드 | 설명 | 79/79 |
-| 44 | <img src="W_JExUQaROk40/thumbnail.jpg" width="160"> | [복리가 부를 만드는 진짜 시작점｜언제부터 돈이 스스로 일하기 시작할까](https://www.youtube.com/watch?v=JExUQaROk40) | 돈의 통찰 | 3,930 | 131,681 | 33.5 | 1,569.1 | 17.8분 | 2026-07-22 | 3. 주식·ETF | 설명 | 103/103 |
-| 45 | <img src="W_ddEat5zF-yU/thumbnail.jpg" width="160"> | [2026년 7월부터 기초연금 이렇게 바뀝니다 — 모르면 매달 33만원 손해](https://www.youtube.com/watch?v=ddEat5zF-yU) | 모두의딸 | 5,670 | 184,556 | 32.5 | 1,936.1 | 11.6분 | 2026-07-10 | 4. 노후·연금 | 설명 | 267/267 |
-| 46 | <img src="W_1eQJLsk4Fm8/thumbnail.jpg" width="160"> | [금값, 이제 시작입니다. 이것 때문에 금이 폭등합니다.](https://www.youtube.com/watch?v=1eQJLsk4Fm8) | 지금 돈 공부 | 737 | 23,504 | 31.9 | 576.2 | 18.8분 | 2026-09-03 | 기타 | 설명 | 35/35 |
-| 47 | <img src="W_2y3YphVxQaA/thumbnail.jpg" width="160"> | [경제적 자유의 진실: 이 원리를 모르면 당신은 80살까지 평생 출근해야 합니다](https://www.youtube.com/watch?v=2y3YphVxQaA) | 김상훈의 재테크 | 2,930 | 92,404 | 31.5 | 695.8 | 28.7분 | 2026-06-03 | 1. 재테크 일반·마인드 | 설명 | 135/135 |
-| 48 | <img src="W_yfLp54zD9Gk/thumbnail.jpg" width="160"> | [독일인은 부자인데 왜 가난하게 살까? ∣ 조용히 부자 되는 돈 습관 10가지](https://www.youtube.com/watch?v=yfLp54zD9Gk) | 돈나침반 | 2,350 | 73,180 | 31.1 | 796.4 | 27.6분 | 2026-07-14 | 1. 재테크 일반·마인드 | 설명 | 109/109 |
+| 44 | <img src="W_JExUQaROk40/thumbnail.jpg" width="160"> | [복리가 부를 만드는 진짜 시작점｜언제부터 돈이 스스로 일하기 시작할까](https://www.youtube.com/watch?v=JExUQaROk40) | 돈의 통찰 | 3,930 | 131,681 | 33.5 | 1,569.0 | 17.8분 | 2026-07-22 | 3. 주식·ETF | 설명 | 103/103 |
+| 45 | <img src="W_ddEat5zF-yU/thumbnail.jpg" width="160"> | [2026년 7월부터 기초연금 이렇게 바뀝니다 — 모르면 매달 33만원 손해](https://www.youtube.com/watch?v=ddEat5zF-yU) | 모두의딸 | 5,670 | 184,556 | 32.5 | 1,936.0 | 11.6분 | 2026-07-10 | 4. 노후·연금 | 설명 | 267/267 |
+| 46 | <img src="W_1eQJLsk4Fm8/thumbnail.jpg" width="160"> | [금값, 이제 시작입니다. 이것 때문에 금이 폭등합니다.](https://www.youtube.com/watch?v=1eQJLsk4Fm8) | 지금 돈 공부 | 737 | 23,504 | 31.9 | 576.1 | 18.8분 | 2026-09-03 | 기타 | 설명 | 35/35 |
+| 47 | <img src="W_2y3YphVxQaA/thumbnail.jpg" width="160"> | [경제적 자유의 진실: 이 원리를 모르면 당신은 80살까지 평생 출근해야 합니다](https://www.youtube.com/watch?v=2y3YphVxQaA) | 김상훈의 재테크 | 2,930 | 92,404 | 31.5 | 695.7 | 28.7분 | 2026-06-03 | 1. 재테크 일반·마인드 | 설명 | 135/135 |
+| 48 | <img src="W_yfLp54zD9Gk/thumbnail.jpg" width="160"> | [독일인은 부자인데 왜 가난하게 살까? ∣ 조용히 부자 되는 돈 습관 10가지](https://www.youtube.com/watch?v=yfLp54zD9Gk) | 돈나침반 | 2,350 | 73,180 | 31.1 | 796.3 | 27.6분 | 2026-07-14 | 1. 재테크 일반·마인드 | 설명 | 109/109 |
 | 49 | <img src="W_m-ZkLW7xMvk/thumbnail.jpg" width="160"> | ["연금 저축부터 채워라?" 연봉 따라 순서 뒤집히는 ISA·연금저축·IRP](https://www.youtube.com/watch?v=m-ZkLW7xMvk) | 머니랩 : 내 돈 지키는… | 380 | 11,446 | 30.1 | 133.2 | 14.2분 | 2026-07-20 | 4. 노후·연금 | 설명 | 17/17 |
-| 50 | <img src="W_Pnrbrya6urQ/thumbnail.jpg" width="160"> | [한겨울 저수지 뚝방에 버려진 치매 엄마, 아들 차가 떠나자마자 보따리에서 꺼낸 이것은..ㅣ노후사연ㅣ감동사연…](https://www.youtube.com/watch?v=Pnrbrya6urQ) | 햇살 머문 인생 | 30,500 | 886,017 | 29.1 | 12,817.2 | 137.6분 | 2026-08-06 | 4. 노후·연금 | 설명 | 1,406/1,406 |
-| 51 | <img src="W_o9wqKcVOwPI/thumbnail.jpg" width="160"> | ["저축은 의미 없어집니다" 머스크의 미래 예측이 하나씩 현실이 되는 진짜 이유](https://www.youtube.com/watch?v=o9wqKcVOwPI) | 경제우체부 | 9,570 | 277,072 | 28.9 | 2,636.5 | 23.2분 | 2026-07-01 | 2. 돈 모으기·저축 | 설명 | 166/166 |
-| 52 | <img src="W_IQd8juHSTuw/thumbnail.jpg" width="160"> | ["큰 돈 안들이고 평생 즐긴다" 퇴직 후 비참한 노후를 피하는 취미 3가지 I 교수 정선용 (3부)](https://www.youtube.com/watch?v=IQd8juHSTuw) | 퇴평성대 | 24,300 | 695,761 | 28.6 | 16,208.9 | 12.3분 | 2026-09-01 | 4. 노후·연금 | 설명 | 192/192 |
-| 53 | <img src="W_imK95IyKW3Q/thumbnail.jpg" width="160"> | [삼성 전고체 배터리가 노리는 진짜 목표](https://www.youtube.com/watch?v=imK95IyKW3Q) | 돈공부 | 4,550 | 118,841 | 26.1 | 756.1 | 13.1분 | 2026-05-10 | 1. 재테크 일반·마인드 | 설명 | 95/95 |
-| 54 | <img src="W_SrwNTk6GT9U/thumbnail.jpg" width="160"> | ['5천피' 예언적중한 문남중 "코스피 저점? 5040 봅니다, 지금은 아무것도 하지 마세요" #문남중 _2…](https://www.youtube.com/watch?v=SrwNTk6GT9U) | 경제통마늘 | 11,300 | 295,016 | 26.1 | 3,872.9 | 19.6분 | 2026-07-30 | 3. 주식·ETF | 설명 | 989/989 |
-| 55 | <img src="W_ITzgH6CeZns/thumbnail.jpg" width="160"> | [매일 아침 7시, 내 포트폴리오를 관리해주는 AI 주식 비서를 만들어봤습니다](https://www.youtube.com/watch?v=ITzgH6CeZns) | 스티브의 파도타기 ∣ A… | 26,600 | 680,729 | 25.6 | 4,907.8 | 14.8분 | 2026-05-28 | 3. 주식·ETF | 설명 | 387/388 |
-| 56 | <img src="W_i9Mj9VvL20o/thumbnail.jpg" width="160"> | [금융자산 10억 부자도 아직 공부합니다… 평생 돈이 안 모이는 사람은 ‘이 6가지’를 놓칩니다](https://www.youtube.com/watch?v=i9Mj9VvL20o) | 오십의 경제지도 | 677 | 17,188 | 25.4 | 842.4 | 16.5분 | 2026-09-23 | 1. 재테크 일반·마인드 | 설명 | 1/1 |
-| 57 | <img src="W_yRDpbgaZahc/thumbnail.jpg" width="160"> | [월배당 ETF 10억 투자하면 정말 배당금 얼마? ∣ 종합소득세·건강보험료 계산법 (은퇴 현금흐름 설계)](https://www.youtube.com/watch?v=yRDpbgaZahc) | 은퇴머니 - 은퇴 현금흐… | 30,000 | 748,689 | 25.0 | 5,528.1 | 11.4분 | 2026-05-31 | 6. 절세·제도 | 설명 | 965/965 |
-| 58 | <img src="W_EomU4-CfZCw/thumbnail.jpg" width="160"> | [머스크가 던진 32개 예측 중 부자들이 베팅한 TOP 7 카운트다운 "이미 19개가 맞았습니다"](https://www.youtube.com/watch?v=EomU4-CfZCw) | 경제가머니 | 22,500 | 558,543 | 24.8 | 3,629.4 | 27.2분 | 2026-05-13 | 1. 재테크 일반·마인드 | 설명 | 484/484 |
-| 59 | <img src="W_2yOps8H0fWs/thumbnail.jpg" width="160"> | [에어컨이 필요 없는 문쌤의 폐건물 괴담 [문쌤 라디오]](https://www.youtube.com/watch?v=2yOps8H0fWs) | 한국자산관리공사 캠코TV | 42,700 | 1,040,777 | 24.4 | 31,521.0 | 15.8분 | 2026-09-11 | 1. 재테크 일반·마인드 | 설명 | 853/853 |
-| 60 | <img src="W_fFURFeLTdAg/thumbnail.jpg" width="160"> | [주식 상위 2%만 아는 10가지 절대 생존 원칙 (돈의 원리)](https://www.youtube.com/watch?v=fFURFeLTdAg) | 준의 경제노트 (jun’… | 12,600 | 305,667 | 24.3 | 2,438.1 | 21.6분 | 2026-06-10 | 3. 주식·ETF | 설명 | 189/189 |
-| 61 | <img src="W_kXnYK2PiBDc/thumbnail.jpg" width="160"> | [65세 이후 통장에 돈 이정도 들어있다면 돈 벌지 말고 그냥 돈 쓰면서 사세요ㅣ명언ㅣ인생조언ㅣ오디오북ㅣ라디…](https://www.youtube.com/watch?v=kXnYK2PiBDc) | 철인의지혜 | 18,400 | 446,340 | 24.3 | 11,402.6 | 26.9분 | 2026-09-05 | 4. 노후·연금 | 설명 | 130/130 |
+| 50 | <img src="W_Pnrbrya6urQ/thumbnail.jpg" width="160"> | [한겨울 저수지 뚝방에 버려진 치매 엄마, 아들 차가 떠나자마자 보따리에서 꺼낸 이것은..ㅣ노후사연ㅣ감동사연…](https://www.youtube.com/watch?v=Pnrbrya6urQ) | 햇살 머문 인생 | 30,500 | 886,017 | 29.1 | 12,816.7 | 137.6분 | 2026-08-06 | 4. 노후·연금 | 설명 | 1,406/1,406 |
+| 51 | <img src="W_o9wqKcVOwPI/thumbnail.jpg" width="160"> | ["저축은 의미 없어집니다" 머스크의 미래 예측이 하나씩 현실이 되는 진짜 이유](https://www.youtube.com/watch?v=o9wqKcVOwPI) | 경제우체부 | 9,570 | 277,072 | 28.9 | 2,636.4 | 23.2분 | 2026-07-01 | 2. 돈 모으기·저축 | 설명 | 166/166 |
+| 52 | <img src="W_IQd8juHSTuw/thumbnail.jpg" width="160"> | ["큰 돈 안들이고 평생 즐긴다" 퇴직 후 비참한 노후를 피하는 취미 3가지 I 교수 정선용 (3부)](https://www.youtube.com/watch?v=IQd8juHSTuw) | 퇴평성대 | 24,300 | 695,761 | 28.6 | 16,207.8 | 12.3분 | 2026-09-01 | 4. 노후·연금 | 설명 | 192/192 |
+| 53 | <img src="W_imK95IyKW3Q/thumbnail.jpg" width="160"> | [삼성 전고체 배터리가 노리는 진짜 목표](https://www.youtube.com/watch?v=imK95IyKW3Q) | 돈공부 | 4,550 | 118,841 | 26.1 | 756.0 | 13.1분 | 2026-05-10 | 1. 재테크 일반·마인드 | 설명 | 95/95 |
+| 54 | <img src="W_SrwNTk6GT9U/thumbnail.jpg" width="160"> | ['5천피' 예언적중한 문남중 "코스피 저점? 5040 봅니다, 지금은 아무것도 하지 마세요" #문남중 _2…](https://www.youtube.com/watch?v=SrwNTk6GT9U) | 경제통마늘 | 11,300 | 295,016 | 26.1 | 3,872.7 | 19.6분 | 2026-07-30 | 3. 주식·ETF | 설명 | 989/989 |
+| 55 | <img src="W_ITzgH6CeZns/thumbnail.jpg" width="160"> | [매일 아침 7시, 내 포트폴리오를 관리해주는 AI 주식 비서를 만들어봤습니다](https://www.youtube.com/watch?v=ITzgH6CeZns) | 스티브의 파도타기 ∣ A… | 26,600 | 680,729 | 25.6 | 4,907.7 | 14.8분 | 2026-05-28 | 3. 주식·ETF | 설명 | 387/388 |
+| 56 | <img src="W_i9Mj9VvL20o/thumbnail.jpg" width="160"> | [금융자산 10억 부자도 아직 공부합니다… 평생 돈이 안 모이는 사람은 ‘이 6가지’를 놓칩니다](https://www.youtube.com/watch?v=i9Mj9VvL20o) | 오십의 경제지도 | 677 | 17,188 | 25.4 | 842.3 | 16.5분 | 2026-09-23 | 1. 재테크 일반·마인드 | 설명 | 1/1 |
+| 57 | <img src="W_yRDpbgaZahc/thumbnail.jpg" width="160"> | [월배당 ETF 10억 투자하면 정말 배당금 얼마? ∣ 종합소득세·건강보험료 계산법 (은퇴 현금흐름 설계)](https://www.youtube.com/watch?v=yRDpbgaZahc) | 은퇴머니 - 은퇴 현금흐… | 30,000 | 748,689 | 25.0 | 5,528.0 | 11.4분 | 2026-05-31 | 6. 절세·제도 | 설명 | 965/965 |
+| 58 | <img src="W_EomU4-CfZCw/thumbnail.jpg" width="160"> | [머스크가 던진 32개 예측 중 부자들이 베팅한 TOP 7 카운트다운 "이미 19개가 맞았습니다"](https://www.youtube.com/watch?v=EomU4-CfZCw) | 경제가머니 | 22,500 | 558,543 | 24.8 | 3,629.3 | 27.2분 | 2026-05-13 | 1. 재테크 일반·마인드 | 설명 | 484/484 |
+| 59 | <img src="W_2yOps8H0fWs/thumbnail.jpg" width="160"> | [에어컨이 필요 없는 문쌤의 폐건물 괴담 [문쌤 라디오]](https://www.youtube.com/watch?v=2yOps8H0fWs) | 한국자산관리공사 캠코TV | 42,700 | 1,040,777 | 24.4 | 31,518.2 | 15.8분 | 2026-09-11 | 1. 재테크 일반·마인드 | 설명 | 853/853 |
+| 60 | <img src="W_fFURFeLTdAg/thumbnail.jpg" width="160"> | [주식 상위 2%만 아는 10가지 절대 생존 원칙 (돈의 원리)](https://www.youtube.com/watch?v=fFURFeLTdAg) | 준의 경제노트 (jun’… | 12,600 | 305,667 | 24.3 | 2,438.0 | 21.6분 | 2026-06-10 | 3. 주식·ETF | 설명 | 189/189 |
+| 61 | <img src="W_kXnYK2PiBDc/thumbnail.jpg" width="160"> | [65세 이후 통장에 돈 이정도 들어있다면 돈 벌지 말고 그냥 돈 쓰면서 사세요ㅣ명언ㅣ인생조언ㅣ오디오북ㅣ라디…](https://www.youtube.com/watch?v=kXnYK2PiBDc) | 철인의지혜 | 18,400 | 446,340 | 24.3 | 11,401.8 | 26.9분 | 2026-09-05 | 4. 노후·연금 | 설명 | 130/130 |
 | 62 | <img src="W_02hqxRMURPs/thumbnail.jpg" width="160"> | [주식 AI 비서 4명 만들었더니 공부가 쉬워졌어요 (제미나이 활용법)](https://www.youtube.com/watch?v=02hqxRMURPs) | 공부하는 주린이 | 1,310 | 31,158 | 23.8 | 199.8 | 7.1분 | 2026-05-11 | 3. 주식·ETF | 설명 | 36/36 |
-| 63 | <img src="W_vD6oAnU4ZPo/thumbnail.jpg" width="160"> | ["돈 버는 규칙은 따로 있어요." 1300억 부자가 추천하는 단 한권의 책/인생책/레버리지 몰아보기](https://www.youtube.com/watch?v=vD6oAnU4ZPo) | 달콤하게성장 | 8,040 | 181,711 | 22.6 | 8,497.9 | 34.7분 | 2026-09-22 | 1. 재테크 일반·마인드 | 설명 | 95/95 |
+| 63 | <img src="W_vD6oAnU4ZPo/thumbnail.jpg" width="160"> | ["돈 버는 규칙은 따로 있어요." 1300억 부자가 추천하는 단 한권의 책/인생책/레버리지 몰아보기](https://www.youtube.com/watch?v=vD6oAnU4ZPo) | 달콤하게성장 | 8,040 | 181,711 | 22.6 | 8,496.7 | 34.7분 | 2026-09-22 | 1. 재테크 일반·마인드 | 설명 | 95/95 |
 | 64 | <img src="W_USUzkksspmg/thumbnail.jpg" width="160"> | [1억 모았으면 지금 당장 이것부터 하세요. 10억 가는 사람은 여기서 갈립니다.](https://www.youtube.com/watch?v=USUzkksspmg) | 지금 돈 공부 | 737 | 16,603 | 22.5 | 133.1 | 13.6분 | 2026-06-11 | 2. 돈 모으기·저축 | 설명 | 9/9 |
 | 65 | <img src="W_Gd_EdTezZBw/thumbnail.jpg" width="160"> | [【김형석 교수】 자식에게 통장을 맡기지 마십시오｜노후 자금이 가장 안전한 세 곳](https://www.youtube.com/watch?v=Gd_EdTezZBw) | 영혼의 철학 | 4,860 | 108,084 | 22.2 | 1,422.7 | 52.5분 | 2026-07-30 | 4. 노후·연금 | 없음 | 24/24 |
 | 66 | <img src="W_IePgz3kEuNk/thumbnail.jpg" width="160"> | [노후 걱정 끝, 커버드콜로 평생 월급받는 법 ∣ 커버드콜 ETF ∣ 조재영 웰스에듀 부사장](https://www.youtube.com/watch?v=IePgz3kEuNk) | 투자360 | 15,800 | 350,615 | 22.2 | 2,101.1 | 22.8분 | 2026-04-30 | 3. 주식·ETF | 설명 | 237/237 |
-| 67 | <img src="W_SwW4n0ERlS8/thumbnail.jpg" width="160"> | [내 주변에 주식으로 돈 번 사람이 '진짜' 단 1명도 없는 소름 돋는 이유 ∣ 교수 정선용 (통합본)](https://www.youtube.com/watch?v=SwW4n0ERlS8) | 너와 나의 경제학교 | 30,200 | 613,828 | 20.3 | 10,075.1 | 52.7분 | 2026-08-14 | 3. 주식·ETF | 설명 | 1,622/1,622 |
-| 68 | <img src="W_XWjW3xiUKxw/thumbnail.jpg" width="160"> | [🇨🇦 아무도 알려주지 않았던 '은퇴의 잔인한 현실' 8가지! ∣ 브랜든 캐나다](https://www.youtube.com/watch?v=XWjW3xiUKxw) | 브랜든 캐나다 투자전략 | 3,240 | 65,369 | 20.2 | 844.2 | 18.1분 | 2026-07-28 | 4. 노후·연금 | 설명 | 78/78 |
+| 67 | <img src="W_SwW4n0ERlS8/thumbnail.jpg" width="160"> | [내 주변에 주식으로 돈 번 사람이 '진짜' 단 1명도 없는 소름 돋는 이유 ∣ 교수 정선용 (통합본)](https://www.youtube.com/watch?v=SwW4n0ERlS8) | 너와 나의 경제학교 | 30,200 | 613,828 | 20.3 | 10,074.7 | 52.7분 | 2026-08-14 | 3. 주식·ETF | 설명 | 1,622/1,622 |
+| 68 | <img src="W_XWjW3xiUKxw/thumbnail.jpg" width="160"> | [🇨🇦 아무도 알려주지 않았던 '은퇴의 잔인한 현실' 8가지! ∣ 브랜든 캐나다](https://www.youtube.com/watch?v=XWjW3xiUKxw) | 브랜든 캐나다 투자전략 | 3,240 | 65,369 | 20.2 | 844.1 | 18.1분 | 2026-07-28 | 4. 노후·연금 | 설명 | 78/78 |
 | 69 | <img src="W_aTh--_DtGNU/thumbnail.jpg" width="160"> | ["삼성전자 SK하이닉스 2배 레버리지 ETF" 5월 22일 상장 확정인데 증권사 CEO 열 명 중 아홉 명…](https://www.youtube.com/watch?v=aTh--_DtGNU) | 이코노메이션 | 14,400 | 274,426 | 19.1 | 1,726.3 | 25.6분 | 2026-05-08 | 3. 주식·ETF | 설명 | 808/808 |
 | 70 | <img src="W_-O-ROZCAU_4/thumbnail.jpg" width="160"> | [1억이 우스우세요 사실 여기서부터가 진짜 시작입니다](https://www.youtube.com/watch?v=-O-ROZCAU_4) | 송차장기록 | 8,440 | 160,569 | 19.0 | 1,559.3 | 15.4분 | 2026-07-03 | 2. 돈 모으기·저축 | 설명 | 595/595 |
 | 71 | <img src="W_hA5g5pbTFUo/thumbnail.jpg" width="160"> | [1억, 5억, 10억, 30억 자산 구간별 나타나는 인생 변화. (부자들이 돈 버는 법)](https://www.youtube.com/watch?v=hA5g5pbTFUo) | 신현욱의 경영백서 | 8,410 | 155,355 | 18.5 | 1,272.4 | 26.2분 | 2026-06-14 | 1. 재테크 일반·마인드 | 설명 | 423/423 |
 | 72 | <img src="W_AeK-KvdyI-k/thumbnail.jpg" width="160"> | [주식으로 돈 잃는 사람들이 겪는 4가지 함정 (ft. 조영구, 장성규) ∣ 뇌과학과 데이터로 분석한 상위 …](https://www.youtube.com/watch?v=AeK-KvdyI-k) | 준의 경제노트 (jun’… | 12,600 | 228,391 | 18.1 | 1,539.3 | 14.9분 | 2026-05-18 | 3. 주식·ETF | 설명 | 319/319 |
-| 73 | <img src="W_RfFgJJomevo/thumbnail.jpg" width="160"> | [기준 금리 요동치는 지금, 내 계좌 살리는 분산 포트 비율 (홍춘욱 박사)](https://www.youtube.com/watch?v=RfFgJJomevo) | 오늘의 경제노트 | 1,160 | 20,924 | 18.0 | 833.6 | 17.6분 | 2026-09-19 | 3. 주식·ETF | 설명 | 4/4 |
-| 74 | <img src="W_9h3kmvUNlB0/thumbnail.jpg" width="160"> | [손 하나 까딱 않는 며느리에게 가게를 맡겼더니, 한달 뒤 놀라운 일이 벌어지는데... ㅣ노후사연ㅣ감동사연ㅣ…](https://www.youtube.com/watch?v=9h3kmvUNlB0) | 마음나날 | 14,900 | 264,874 | 17.8 | 3,217.6 | 110.1분 | 2026-07-23 | 4. 노후·연금 | 설명 | 387/387 |
+| 73 | <img src="W_RfFgJJomevo/thumbnail.jpg" width="160"> | [기준 금리 요동치는 지금, 내 계좌 살리는 분산 포트 비율 (홍춘욱 박사)](https://www.youtube.com/watch?v=RfFgJJomevo) | 오늘의 경제노트 | 1,160 | 20,924 | 18.0 | 833.5 | 17.6분 | 2026-09-19 | 3. 주식·ETF | 설명 | 4/4 |
+| 74 | <img src="W_9h3kmvUNlB0/thumbnail.jpg" width="160"> | [손 하나 까딱 않는 며느리에게 가게를 맡겼더니, 한달 뒤 놀라운 일이 벌어지는데... ㅣ노후사연ㅣ감동사연ㅣ…](https://www.youtube.com/watch?v=9h3kmvUNlB0) | 마음나날 | 14,900 | 264,874 | 17.8 | 3,217.5 | 110.1분 | 2026-07-23 | 4. 노후·연금 | 설명 | 387/387 |
 | 75 | <img src="W_g2en6jgo9Aw/thumbnail.jpg" width="160"> | [매달 배당 받으면서 세금도 아끼는 구조 ∣ IRP 황금 포트폴리오-당신의 IRP, 지금 일하고 있나요?](https://www.youtube.com/watch?v=g2en6jgo9Aw) | 투게더경제학 | 806 | 14,248 | 17.7 | 95.6 | 18.3분 | 2026-05-18 | 3. 주식·ETF | 설명 | 2/2 |
-| 76 | <img src="W__H2oRoXuF-Q/thumbnail.jpg" width="160"> | [평생 모은 돈, 노후에는 이 3가지에 먼저 쓰세요](https://www.youtube.com/watch?v=_H2oRoXuF-Q) | 인생다시쓰기 | 8,060 | 140,789 | 17.5 | 6,889.4 | 16.4분 | 2026-09-23 | 4. 노후·연금 | 설명 | 12/12 |
-| 77 | <img src="W_A9MWoLgYDnQ/thumbnail.jpg" width="160"> | [돈 이야기가 아닙니다. 노후에 ‘남편이 있는 집’과 ‘남편이 없는 집’의 너무나 잔혹한 결정적 차이](https://www.youtube.com/watch?v=A9MWoLgYDnQ) | 마음을 안아주는 이야기-… | 14,700 | 248,782 | 16.9 | 4,130.7 | 40.7분 | 2026-08-15 | 4. 노후·연금 | 설명 | 335/335 |
-| 78 | <img src="W_RRnTh3k1Fls/thumbnail.jpg" width="160"> | [노년에 이성이 접근한다면, 목적은 딱 4가지입니다… 돈이 있든 없든 반드시 보세요【노후의 진실】](https://www.youtube.com/watch?v=RRnTh3k1Fls) | 노후의 진실 | 20,100 | 333,845 | 16.6 | 3,340.6 | 29.1분 | 2026-07-06 | 4. 노후·연금 | 설명 | 469/469 |
-| 79 | <img src="W_BTpNqy7XqJE/thumbnail.jpg" width="160"> | [《정약용 명언》 부자가 되는 여성이 즐겨 입는 옷 색깔 5가지. 이 색만 입어도 평생 재물이 따릅니다](https://www.youtube.com/watch?v=BTpNqy7XqJE) | 다산의 서재 | 22,200 | 363,948 | 16.4 | 5,752.0 | 36.9분 | 2026-08-12 | 1. 재테크 일반·마인드 | 설명 | 1,619/1,619 |
+| 76 | <img src="W__H2oRoXuF-Q/thumbnail.jpg" width="160"> | [평생 모은 돈, 노후에는 이 3가지에 먼저 쓰세요](https://www.youtube.com/watch?v=_H2oRoXuF-Q) | 인생다시쓰기 | 8,060 | 140,789 | 17.5 | 6,888.5 | 16.4분 | 2026-09-23 | 4. 노후·연금 | 설명 | 12/12 |
+| 77 | <img src="W_A9MWoLgYDnQ/thumbnail.jpg" width="160"> | [돈 이야기가 아닙니다. 노후에 ‘남편이 있는 집’과 ‘남편이 없는 집’의 너무나 잔혹한 결정적 차이](https://www.youtube.com/watch?v=A9MWoLgYDnQ) | 마음을 안아주는 이야기-… | 14,700 | 248,782 | 16.9 | 4,130.5 | 40.7분 | 2026-08-15 | 4. 노후·연금 | 설명 | 335/335 |
+| 78 | <img src="W_RRnTh3k1Fls/thumbnail.jpg" width="160"> | [노년에 이성이 접근한다면, 목적은 딱 4가지입니다… 돈이 있든 없든 반드시 보세요【노후의 진실】](https://www.youtube.com/watch?v=RRnTh3k1Fls) | 노후의 진실 | 20,100 | 333,845 | 16.6 | 3,340.5 | 29.1분 | 2026-07-06 | 4. 노후·연금 | 설명 | 469/469 |
+| 79 | <img src="W_BTpNqy7XqJE/thumbnail.jpg" width="160"> | [《정약용 명언》 부자가 되는 여성이 즐겨 입는 옷 색깔 5가지. 이 색만 입어도 평생 재물이 따릅니다](https://www.youtube.com/watch?v=BTpNqy7XqJE) | 다산의 서재 | 22,200 | 363,948 | 16.4 | 5,751.8 | 36.9분 | 2026-08-12 | 1. 재테크 일반·마인드 | 설명 | 1,619/1,619 |
 | 80 | <img src="W_ObUr9qiawmo/thumbnail.jpg" width="160"> | [62세 은퇴후 아내마저 떠났다. 68세에 월 80만원으로 살아가는 노인의 독백 "삼십 년을 살았는데, 아내…](https://www.youtube.com/watch?v=ObUr9qiawmo) | 황금노후 | 12,400 | 194,163 | 15.7 | 1,265.8 | 13.7분 | 2026-05-13 | 4. 노후·연금 | 설명 | 610/610 |
 | 81 | <img src="W_TK4FK8lH1Qs/thumbnail.jpg" width="160"> | [50대 자산 7억이 거지라고 진짜 평균은 따로 있습니다](https://www.youtube.com/watch?v=TK4FK8lH1Qs) | 송차장기록 | 8,440 | 131,445 | 15.6 | 882.4 | 17.6분 | 2026-05-18 | 기타 | 설명 | 689/689 |
-| 82 | <img src="W_lHj-_pcQSX4/thumbnail.jpg" width="160"> | ["이건 저희 부모님도 가능해요" 외국인한테 한국어 읽어주고 달러 버는 역대급 부업](https://www.youtube.com/watch?v=lHj-_pcQSX4) | 뉴머니 | 27,800 | 405,639 | 14.6 | 4,832.2 | 16.1분 | 2026-07-22 | 8. 부업·소득 | 설명 | 990/990 |
+| 82 | <img src="W_lHj-_pcQSX4/thumbnail.jpg" width="160"> | ["이건 저희 부모님도 가능해요" 외국인한테 한국어 읽어주고 달러 버는 역대급 부업](https://www.youtube.com/watch?v=lHj-_pcQSX4) | 뉴머니 | 27,800 | 405,639 | 14.6 | 4,832.0 | 16.1분 | 2026-07-22 | 8. 부업·소득 | 설명 | 990/990 |
 | 83 | <img src="W_IBAvE_dF0L4/thumbnail.jpg" width="160"> | [저는 1년 동안 매달 5만 원을 모아봤습니다. 그리고 돈에 대한 생각이 달라졌습니다](https://www.youtube.com/watch?v=IBAvE_dF0L4) | 돈의 통찰 | 3,930 | 56,958 | 14.5 | 921.5 | 41.6분 | 2026-08-13 | 기타 | 설명 | 40/40 |
-| 84 | <img src="W_m3ZRHahRGHU/thumbnail.jpg" width="160"> | [현대차 반토막에 숨겨진 진실… 엔비디아 합작 발표 전 무조건 모아야 할 이유 [이권희 대표]](https://www.youtube.com/watch?v=m3ZRHahRGHU) | 경제시그널 | 27,500 | 397,862 | 14.5 | 50,534.3 | 33분 | 2026-10-06 | 기타 | 설명 | 206/206 |
+| 84 | <img src="W_m3ZRHahRGHU/thumbnail.jpg" width="160"> | [현대차 반토막에 숨겨진 진실… 엔비디아 합작 발표 전 무조건 모아야 할 이유 [이권희 대표]](https://www.youtube.com/watch?v=m3ZRHahRGHU) | 경제시그널 | 27,500 | 397,862 | 14.5 | 50,515.5 | 33분 | 2026-10-06 | 기타 | 설명 | 206/206 |
 | 85 | <img src="W__o4FbnwxGrw/thumbnail.jpg" width="160"> | [월 300 직장인ㅣ알바하면서 3억 모으기ㅣ고물가시대 집밥으로 60% 저축ㅣ사실상 걍생 브이로그](https://www.youtube.com/watch?v=_o4FbnwxGrw) | 테라 | 9,400 | 135,113 | 14.4 | 995.8 | 7.8분 | 2026-05-31 | 2. 돈 모으기·저축 | 설명 | 312/312 |
 | 86 | <img src="W_AbpqDkCFTT0/thumbnail.jpg" width="160"> | [중개형 ISA 계좌 만기해지 안 하는 이유](https://www.youtube.com/watch?v=AbpqDkCFTT0) | 청년개미 | 15,800 | 224,984 | 14.2 | 1,361.8 | 5.2분 | 2026-05-02 | 6. 절세·제도 | 설명 | 537/537 |
 | 87 | <img src="W_WOiX6ELngak/thumbnail.jpg" width="160"> | [퇴직 공무원들의 연금과 생활비는 어떨까｜고위공무원·별정직·군인·구청공무원에게 직접 물었습니다](https://www.youtube.com/watch?v=WOiX6ELngak) | 아니모 인생기록관 | 21,600 | 305,635 | 14.2 | 2,987.9 | 34.2분 | 2026-07-04 | 4. 노후·연금 | 설명 | 607/607 |
 | 88 | <img src="W_FddFrDSLQDU/thumbnail.jpg" width="160"> | [얼마 있어야 대한민국 평균일까? ∣ 2026 대한민국 자산 계급도 완전 분석](https://www.youtube.com/watch?v=FddFrDSLQDU) | 경제만담 | 1,800 | 24,734 | 13.7 | 159.6 | 18.5분 | 2026-05-12 | 4. 노후·연금 | 설명 | 47/47 |
 | 89 | <img src="W_UqaJYS7vQfE/thumbnail.jpg" width="160"> | [1천만원으로 시작한다면 ‘분산 공식’부터 버리세요 — 소액 투자 자산배분 4원칙](https://www.youtube.com/watch?v=UqaJYS7vQfE) | 경제포커스 | 1,230 | 16,805 | 13.7 | 489.2 | 18.7분 | 2026-09-09 | 3. 주식·ETF | 설명 | 0/0 |
-| 90 | <img src="W_abPHpPAuZmw/thumbnail.jpg" width="160"> | [순자산 5억은 대한민국에서 정확히 어디쯤인걸까](https://www.youtube.com/watch?v=abPHpPAuZmw) | 탐구하는 변호사 송현영 | 9,680 | 131,847 | 13.6 | 4,019.1 | 14.7분 | 2026-09-11 | 1. 재테크 일반·마인드 | 설명 | 194/194 |
+| 90 | <img src="W_abPHpPAuZmw/thumbnail.jpg" width="160"> | [순자산 5억은 대한민국에서 정확히 어디쯤인걸까](https://www.youtube.com/watch?v=abPHpPAuZmw) | 탐구하는 변호사 송현영 | 9,680 | 131,847 | 13.6 | 4,018.8 | 14.7분 | 2026-09-11 | 1. 재테크 일반·마인드 | 설명 | 194/194 |
 | 91 | <img src="W_yQfFHr8xZi8/thumbnail.jpg" width="160"> | [20대에 1억 모으기 가능할까?](https://www.youtube.com/watch?v=yQfFHr8xZi8) | 토스뱅크 오리지널 | 5,310 | 71,871 | 13.5 | 647.9 | 10.3분 | 2026-06-25 | 2. 돈 모으기·저축 | 설명 | 4/4 |
 | 92 | <img src="W_PzWL53BrkcQ/thumbnail.jpg" width="160"> | [ETF 2개 + 절세 계좌 3개, 이 순서대로 채우면 매달 100만 원이 들어옵니다!](https://www.youtube.com/watch?v=PzWL53BrkcQ) | 술술 경제학 | 17,600 | 230,573 | 13.1 | 1,591.4 | 18분 | 2026-05-22 | 3. 주식·ETF | 설명 | 262/262 |
-| 93 | <img src="W_y4ZUoXoQuXA/thumbnail.jpg" width="160"> | [48살이 되어서야 돈보다 중요한 걸 배웠습니다 l 돈 공부를 시작했더니 제 인생이 달라졌습니다](https://www.youtube.com/watch?v=y4ZUoXoQuXA) | 안녕, 오후 | 4,380 | 55,676 | 12.7 | 630.2 | 7.4분 | 2026-07-17 | 1. 재테크 일반·마인드 | 설명 | 96/96 |
-| 94 | <img src="W_k9be9TSs41s/thumbnail.jpg" width="160"> | [내 주변에 주식으로 돈 번 사람이 '진짜' 단 한 명도 없는 소름 돋는 이유 ∣ 교수 정선용 (3부)](https://www.youtube.com/watch?v=k9be9TSs41s) | 너와 나의 경제학교 | 30,200 | 370,855 | 12.3 | 4,884.5 | 11.9분 | 2026-07-30 | 3. 주식·ETF | 설명 | 1,286/1,286 |
+| 93 | <img src="W_y4ZUoXoQuXA/thumbnail.jpg" width="160"> | [48살이 되어서야 돈보다 중요한 걸 배웠습니다 l 돈 공부를 시작했더니 제 인생이 달라졌습니다](https://www.youtube.com/watch?v=y4ZUoXoQuXA) | 안녕, 오후 | 4,380 | 55,676 | 12.7 | 630.1 | 7.4분 | 2026-07-17 | 1. 재테크 일반·마인드 | 설명 | 96/96 |
+| 94 | <img src="W_k9be9TSs41s/thumbnail.jpg" width="160"> | [내 주변에 주식으로 돈 번 사람이 '진짜' 단 한 명도 없는 소름 돋는 이유 ∣ 교수 정선용 (3부)](https://www.youtube.com/watch?v=k9be9TSs41s) | 너와 나의 경제학교 | 30,200 | 370,855 | 12.3 | 4,884.3 | 11.9분 | 2026-07-30 | 3. 주식·ETF | 설명 | 1,286/1,286 |
 | 95 | <img src="W_keim9Fw6NwE/thumbnail.jpg" width="160"> | [노후자금 2억 태양광에 넣은 50대, 1년 만에 벌어진 일ㅣ태양광발전사업 리스크 정리](https://www.youtube.com/watch?v=keim9Fw6NwE) | 짐컴퍼니ㅣ태양광의 모든 것 | 3,780 | 45,565 | 12.1 | 680.7 | 7.9분 | 2026-08-08 | 4. 노후·연금 | 설명 | 36/36 |
 | 96 | <img src="W_TkBt14Q2mnQ/thumbnail.jpg" width="160"> | [현명한 부모는 결혼한 자식에게 '이 3가지' 당장 끊어낸다 ∣ 정약용 명언 ∣ 인간관계 조언 ∣ 오디오북 …](https://www.youtube.com/watch?v=TkBt14Q2mnQ) | 현인의등불 | 36,700 | 431,970 | 11.8 | 3,212.7 | 28.4분 | 2026-06-01 | 4. 노후·연금 | 설명 | 504/504 |
 | 97 | <img src="W_MDxxdf11In8/thumbnail.jpg" width="160"> | [나이가 들면, 저축은 어디에 두어야합니까? 75세가 있는 여성의 방법이 절묘하면 화제에. 이것은 모든 사람…](https://www.youtube.com/watch?v=MDxxdf11In8) | 마음의 빛이 영혼을 비춘다 | 5,080 | 59,135 | 11.6 | 542.7 | 31.8분 | 2026-06-27 | 2. 돈 모으기·저축 | 설명 | 100/100 |
-| 98 | <img src="W_3mIsnHTgylg/thumbnail.jpg" width="160"> | [ISA 계좌, S&P500 하나로 3년 굴리면 얼마 벌까? (ft. 향후 계획 포함)](https://www.youtube.com/watch?v=3mIsnHTgylg) | 원원 - 파이어 준비생 | 16,900 | 195,289 | 11.6 | 1,367.2 | 15.6분 | 2026-05-24 | 3. 주식·ETF | 설명 | 672/672 |
+| 98 | <img src="W_3mIsnHTgylg/thumbnail.jpg" width="160"> | [ISA 계좌, S&P500 하나로 3년 굴리면 얼마 벌까? (ft. 향후 계획 포함)](https://www.youtube.com/watch?v=3mIsnHTgylg) | 원원 - 파이어 준비생 | 16,900 | 195,289 | 11.6 | 1,367.1 | 15.6분 | 2026-05-24 | 3. 주식·ETF | 설명 | 672/672 |
 | 99 | <img src="W__YjqNIK-ONY/thumbnail.jpg" width="160"> | [연금자산! 주식형 ETF 팔고, 자산배분 포트폴리오로 리밸런싱하세요.](https://www.youtube.com/watch?v=_YjqNIK-ONY) | 은퇴할수있을까 | 2,150 | 23,396 | 10.9 | 163.9 | 11.3분 | 2026-05-24 | 3. 주식·ETF | 설명 | 37/37 |
-| 100 | <img src="W_HSAB2xHXtiQ/thumbnail.jpg" width="160"> | [[원가공개] 100만 유튜버, 한달에 얼마 벌까?](https://www.youtube.com/watch?v=HSAB2xHXtiQ) | 원가 공개 경제학 | 40,500 | 426,746 | 10.5 | 4,180.5 | 26.1분 | 2026-07-04 | 기타 | 설명 | 125/125 |
-| 101 | <img src="W_LHUIFXJ3eAs/thumbnail.jpg" width="160"> | [# "같은 ETF도 통장 잘못 고르면 손해" 직장인 배당 ETF TOP 3 + 1 통장 매칭 가이드, 배당…](https://www.youtube.com/watch?v=LHUIFXJ3eAs) | 머니톡 마니업 | 1,080 | 10,992 | 10.2 | 70.8 | 15.1분 | 2026-05-11 | 3. 주식·ETF | 설명 | 10/10 |
-| 102 | <img src="W_Zor4Zw2SyYI/thumbnail.jpg" width="160"> | [노후에 자녀와 같이 살면 안 되는 이유｜데이터가 보여준 부모와 자녀의 적정 거리](https://www.youtube.com/watch?v=Zor4Zw2SyYI) | 김지호의 공간문해력 | 18,300 | 179,016 | 9.8 | 3,137.3 | 15.7분 | 2026-08-18 | 4. 노후·연금 | 설명 | 241/241 |
+| 100 | <img src="W_HSAB2xHXtiQ/thumbnail.jpg" width="160"> | [[원가공개] 100만 유튜버, 한달에 얼마 벌까?](https://www.youtube.com/watch?v=HSAB2xHXtiQ) | 원가 공개 경제학 | 40,500 | 426,746 | 10.5 | 4,180.3 | 26.1분 | 2026-07-04 | 기타 | 설명 | 125/125 |
+| 101 | <img src="W_LHUIFXJ3eAs/thumbnail.jpg" width="160"> | [# "같은 ETF도 통장 잘못 고르면 손해" 직장인 배당 ETF TOP 3 + 1 통장 매칭 가이드, 배당…](https://www.youtube.com/watch?v=LHUIFXJ3eAs) | 머니톡 마니업 | 1,080 | 10,992 | 10.2 | 70.7 | 15.1분 | 2026-05-11 | 3. 주식·ETF | 설명 | 10/10 |
+| 102 | <img src="W_Zor4Zw2SyYI/thumbnail.jpg" width="160"> | [노후에 자녀와 같이 살면 안 되는 이유｜데이터가 보여준 부모와 자녀의 적정 거리](https://www.youtube.com/watch?v=Zor4Zw2SyYI) | 김지호의 공간문해력 | 18,300 | 179,016 | 9.8 | 3,137.2 | 15.7분 | 2026-08-18 | 4. 노후·연금 | 설명 | 241/241 |
 | 103 | <img src="W_0vnE5QONVtk/thumbnail.jpg" width="160"> | [은퇴 후 노후 걱정? 이렇게만 하면 월 300만 원도 가능합니다!ㅣ은퇴레시피](https://www.youtube.com/watch?v=0vnE5QONVtk) | 건강IN으로 | 16,900 | 162,739 | 9.6 | 1,178.2 | 18.9분 | 2026-05-29 | 4. 노후·연금 | 설명 | 90/90 |
-| 104 | <img src="W_IAFVinxTAbQ/thumbnail.jpg" width="160"> | ["우리나라 현 정부 얼마 안남았어" 명문대 엘리트 코스 33년차 교수는 연금을 얼마나 받을까?](https://www.youtube.com/watch?v=IAFVinxTAbQ) | 할티비 | 39,500 | 379,369 | 9.6 | 11,879.4 | 11.9분 | 2026-09-12 | 4. 노후·연금 | 설명 | 1,047/1,047 |
-| 105 | <img src="W_r-tcC-ZmMBE/thumbnail.jpg" width="160"> | [퇴직금 반토막 나고 깨달은 '상위 2%'의 주식투자자 생존법 6가지! ∣ 노후자금사연 ∣ 오디오북](https://www.youtube.com/watch?v=r-tcC-ZmMBE) | 은빛시나리오 | 29,200 | 276,405 | 9.5 | 1,790.3 | 52.8분 | 2026-05-12 | 3. 주식·ETF | 설명 | 424/424 |
+| 104 | <img src="W_IAFVinxTAbQ/thumbnail.jpg" width="160"> | ["우리나라 현 정부 얼마 안남았어" 명문대 엘리트 코스 33년차 교수는 연금을 얼마나 받을까?](https://www.youtube.com/watch?v=IAFVinxTAbQ) | 할티비 | 39,500 | 379,369 | 9.6 | 11,878.3 | 11.9분 | 2026-09-12 | 4. 노후·연금 | 설명 | 1,047/1,047 |
+| 105 | <img src="W_r-tcC-ZmMBE/thumbnail.jpg" width="160"> | [퇴직금 반토막 나고 깨달은 '상위 2%'의 주식투자자 생존법 6가지! ∣ 노후자금사연 ∣ 오디오북](https://www.youtube.com/watch?v=r-tcC-ZmMBE) | 은빛시나리오 | 29,200 | 276,405 | 9.5 | 1,790.2 | 52.8분 | 2026-05-12 | 3. 주식·ETF | 설명 | 424/424 |
 | 106 | <img src="W_-PrN9w6Fu0Y/thumbnail.jpg" width="160"> | [미국 주식 10억 투자 직접해보니 믿기 힘든 결과가 생깁니다](https://www.youtube.com/watch?v=-PrN9w6Fu0Y) | 억빌더 ∣ 순자산 10억… | 6,490 | 61,266 | 9.4 | 508.9 | 10.6분 | 2026-06-15 | 3. 주식·ETF | 설명 | 86/86 |
-| 107 | <img src="W_WGkQ7wwHHlQ/thumbnail.jpg" width="160"> | [월 100만원 ETF 투자하면, 60대에 "진짜 부자"가 됩니다](https://www.youtube.com/watch?v=WGkQ7wwHHlQ) | 농부의 경제학 | 8,260 | 76,560 | 9.3 | 1,196.3 | 13.4분 | 2026-08-11 | 3. 주식·ETF | 설명 | 82/82 |
+| 107 | <img src="W_WGkQ7wwHHlQ/thumbnail.jpg" width="160"> | [월 100만원 ETF 투자하면, 60대에 "진짜 부자"가 됩니다](https://www.youtube.com/watch?v=WGkQ7wwHHlQ) | 농부의 경제학 | 8,260 | 76,560 | 9.3 | 1,196.2 | 13.4분 | 2026-08-11 | 3. 주식·ETF | 설명 | 82/82 |
 | 108 | <img src="W_qRxB_45NLys/thumbnail.jpg" width="160"> | [노년에 무조건 주식 투자를 해야하는 이유 ∣ 이 영상이 당신의…](https://www.youtube.com/watch?v=qRxB_45NLys) | 농부의 경제학 | 8,260 | 74,915 | 9.1 | 459.6 | 11.8분 | 2026-05-04 | 1. 재테크 일반·마인드 | 없음 | 77/77 |
-| 109 | <img src="W_bk5ingu3Eb0/thumbnail.jpg" width="160"> | [스트레스 없이 돈 모으는 미니멀 소비습관 3가지 ㅣ 미니멀라이프](https://www.youtube.com/watch?v=bk5ingu3Eb0) | 비채홈 | 12,600 | 110,997 | 8.8 | 974.8 | 12분 | 2026-06-22 | 2. 돈 모으기·저축 | 설명 | 126/126 |
-| 110 | <img src="W_2nDXlFjGSzQ/thumbnail.jpg" width="160"> | [99%가 모르는 부자의 비밀 습관 ∣ 인문학 서적 7가지로 부의 본질을 읽는 법](https://www.youtube.com/watch?v=2nDXlFjGSzQ) | 위대한 비밀 | 24,300 | 208,928 | 8.6 | 3,844.7 | 43.7분 | 2026-08-20 | 1. 재테크 일반·마인드 | 설명 | 125/125 |
+| 109 | <img src="W_bk5ingu3Eb0/thumbnail.jpg" width="160"> | [스트레스 없이 돈 모으는 미니멀 소비습관 3가지 ㅣ 미니멀라이프](https://www.youtube.com/watch?v=bk5ingu3Eb0) | 비채홈 | 12,600 | 110,997 | 8.8 | 974.7 | 12분 | 2026-06-22 | 2. 돈 모으기·저축 | 설명 | 126/126 |
+| 110 | <img src="W_2nDXlFjGSzQ/thumbnail.jpg" width="160"> | [99%가 모르는 부자의 비밀 습관 ∣ 인문학 서적 7가지로 부의 본질을 읽는 법](https://www.youtube.com/watch?v=2nDXlFjGSzQ) | 위대한 비밀 | 24,300 | 208,928 | 8.6 | 3,844.5 | 43.7분 | 2026-08-20 | 1. 재테크 일반·마인드 | 설명 | 125/125 |
 | 111 | <img src="W_qeJz6DUm3DI/thumbnail.jpg" width="160"> | ["미국 주식 배당금 세금 0원 만드는 법: ISA, 연금저축, IRP 완벽 비교 가이드"](https://www.youtube.com/watch?v=qeJz6DUm3DI) | 맛스토리 | 3,000 | 25,551 | 8.5 | 155.4 | 20.2분 | 2026-05-02 | 4. 노후·연금 | 설명 | 17/17 |
-| 112 | <img src="W_TEPZ-oD7iFA/thumbnail.jpg" width="160"> | [65세에 저축이 '이 금액' 이하라면... 당신은 이미 '하류 노인'입니다 ∣ 아무도 말해주지 않은 잔인한…](https://www.youtube.com/watch?v=TEPZ-oD7iFA) | 노후의 진실 | 20,100 | 167,064 | 8.3 | 1,723.5 | 25.9분 | 2026-07-09 | 2. 돈 모으기·저축 | 설명 | 131/131 |
+| 112 | <img src="W_TEPZ-oD7iFA/thumbnail.jpg" width="160"> | [65세에 저축이 '이 금액' 이하라면... 당신은 이미 '하류 노인'입니다 ∣ 아무도 말해주지 않은 잔인한…](https://www.youtube.com/watch?v=TEPZ-oD7iFA) | 노후의 진실 | 20,100 | 167,064 | 8.3 | 1,723.4 | 25.9분 | 2026-07-09 | 2. 돈 모으기·저축 | 설명 | 131/131 |
 | 113 | <img src="W_cQY_kOU_Rhs/thumbnail.jpg" width="160"> | [자산 1억, 3억, 5억, 10억, 20억, 30억 자산 구간마다 나타나는 인생의 변화들 [ 재테크/미국주…](https://www.youtube.com/watch?v=cQY_kOU_Rhs) | 경제기상도 | 4,310 | 35,446 | 8.2 | 305.6 | 14분 | 2026-06-20 | 1. 재테크 일반·마인드 | 설명 | 37/37 |
-| 114 | <img src="W_XyfHR8H2JI0/thumbnail.jpg" width="160"> | [부자 되고 싶으면 공부하라 ∣ 핵심 이유 7가지 완벽 정리 #부자되는법](https://www.youtube.com/watch?v=XyfHR8H2JI0) | 위대한 비밀 | 24,300 | 198,504 | 8.2 | 3,130.3 | 46.9분 | 2026-08-11 | 1. 재테크 일반·마인드 | 설명 | 58/58 |
-| 115 | <img src="W_r5jnahsJw5Q/thumbnail.jpg" width="160"> | [택배로 부자가 될 수 있냐고요? 솔직하게 말씀드리겠습니다](https://www.youtube.com/watch?v=r5jnahsJw5Q) | 택부 - 택배기사 부자들 | 6,550 | 52,828 | 8.1 | 1,230.4 | 8.3분 | 2026-09-01 | 1. 재테크 일반·마인드 | 설명 | 203/203 |
+| 114 | <img src="W_XyfHR8H2JI0/thumbnail.jpg" width="160"> | [부자 되고 싶으면 공부하라 ∣ 핵심 이유 7가지 완벽 정리 #부자되는법](https://www.youtube.com/watch?v=XyfHR8H2JI0) | 위대한 비밀 | 24,300 | 198,504 | 8.2 | 3,130.1 | 46.9분 | 2026-08-11 | 1. 재테크 일반·마인드 | 설명 | 58/58 |
+| 115 | <img src="W_r5jnahsJw5Q/thumbnail.jpg" width="160"> | [택배로 부자가 될 수 있냐고요? 솔직하게 말씀드리겠습니다](https://www.youtube.com/watch?v=r5jnahsJw5Q) | 택부 - 택배기사 부자들 | 6,550 | 52,828 | 8.1 | 1,230.3 | 8.3분 | 2026-09-01 | 1. 재테크 일반·마인드 | 설명 | 203/203 |
 | 116 | <img src="W_dtX7Hmq0tdU/thumbnail.jpg" width="160"> | [50대 노후자금, S&P500 버리고 나스닥100만 사면 벌어지는 일 (현실적인 은퇴 포트폴리오)](https://www.youtube.com/watch?v=dtX7Hmq0tdU) | 돈잡는 경제학 | 2,700 | 21,336 | 7.9 | 136.5 | 13.7분 | 2026-05-10 | 3. 주식·ETF | 설명 | 9/9 |
 | 117 | <img src="W_SqA7WIZcrQs/thumbnail.jpg" width="160"> | [은퇴 후에도 월 300만원 쓰는 사람 실제로 몇 %일까](https://www.youtube.com/watch?v=SqA7WIZcrQs) | Ah Gong Talks… | 5,810 | 45,558 | 7.8 | 700.7 | 16.8분 | 2026-08-10 | 4. 노후·연금 | 설명 | 39/39 |
 | 118 | <img src="W_v7tzJPrZr4A/thumbnail.jpg" width="160"> | [【김형석 교수】 자식에게 통장을 맡기지 마십시오｜노후 자금이 가장 안전한 세 곳](https://www.youtube.com/watch?v=v7tzJPrZr4A) | 인생의 통찰 | 4,100 | 32,093 | 7.8 | 433.9 | 52.5분 | 2026-08-01 | 4. 노후·연금 | 없음 | 11/11 |
-| 119 | <img src="W_mhUHrujFtEU/thumbnail.jpg" width="160"> | ["55세 노후준비, 지금 시작해도 늦지 않은 진짜 이유"](https://www.youtube.com/watch?v=mhUHrujFtEU) | 야무진 경제학 | 22,500 | 174,365 | 7.8 | 2,666.4 | 18.1분 | 2026-08-09 | 4. 노후·연금 | 설명 | 81/81 |
-| 120 | <img src="W_q8knIYPIobk/thumbnail.jpg" width="160"> | [이 방식으로 살림 하니 돈이 무섭게 쌓여요.(주중 외식비0원, 배달비0원)](https://www.youtube.com/watch?v=q8knIYPIobk) | 뚝딱 살림 | 29,400 | 227,454 | 7.7 | 1,737.6 | 8.6분 | 2026-06-05 | 기타 | 설명 | 400/400 |
+| 119 | <img src="W_mhUHrujFtEU/thumbnail.jpg" width="160"> | ["55세 노후준비, 지금 시작해도 늦지 않은 진짜 이유"](https://www.youtube.com/watch?v=mhUHrujFtEU) | 야무진 경제학 | 22,500 | 174,365 | 7.8 | 2,666.3 | 18.1분 | 2026-08-09 | 4. 노후·연금 | 설명 | 81/81 |
+| 120 | <img src="W_q8knIYPIobk/thumbnail.jpg" width="160"> | [이 방식으로 살림 하니 돈이 무섭게 쌓여요.(주중 외식비0원, 배달비0원)](https://www.youtube.com/watch?v=q8knIYPIobk) | 뚝딱 살림 | 29,400 | 227,454 | 7.7 | 1,737.5 | 8.6분 | 2026-06-05 | 기타 | 설명 | 400/400 |
 | 121 | <img src="W_JJG1mtkTN6g/thumbnail.jpg" width="160"> | [삼성전자 지금 시작인가? 노무라가 목표주가 67만원 제시한 이유가 소름입니다... 여기서 90% 더 오를 …](https://www.youtube.com/watch?v=JJG1mtkTN6g) | 코스피 읽는 개미 | 2,190 | 16,835 | 7.7 | 154.2 | 15.7분 | 2026-06-27 | 기타 | 설명 | 25/25 |
 | 122 | <img src="W_gzP2RMXMuBU/thumbnail.jpg" width="160"> | [노후 투자 얘기하다가 존리랑 싸웠습니다. 삼전 사도 되나요?vs그걸 제가 어떻게 알아요](https://www.youtube.com/watch?v=gzP2RMXMuBU) | 웬만해선 정수를 막을 수… | 44,400 | 340,212 | 7.7 | 2,559.2 | 37.2분 | 2026-06-03 | 3. 주식·ETF | 설명 | 386/386 |
 | 123 | <img src="W_97zLvnO3BnY/thumbnail.jpg" width="160"> | [1억으로 노후준비 끝, QLD에 1억 넣고 10년 버텼더니 충격 결과!](https://www.youtube.com/watch?v=97zLvnO3BnY) | 두배럭 2XLuck | 3,040 | 23,220 | 7.6 | 177.4 | 11.5분 | 2026-06-05 | 2. 돈 모으기·저축 | 설명 | 41/41 |
-| 124 | <img src="W_iMkvDXx86dE/thumbnail.jpg" width="160"> | [연금고수들이 연금저축계좌 반드시 담는 ETF 3가지](https://www.youtube.com/watch?v=iMkvDXx86dE) | 경제나침반 | 14,000 | 105,108 | 7.5 | 1,345.7 | 25.2분 | 2026-07-28 | 4. 노후·연금 | 설명 | 67/67 |
-| 125 | <img src="W_1qlywudP2oY/thumbnail.jpg" width="160"> | [ETF 이 '2가지'만 사두면 됩니다. '나머지는 필요없어요' 100억 자산 관리자의 꿀팁(백승호 단장 풀…](https://www.youtube.com/watch?v=1qlywudP2oY) | 자람들 - 자립하는사람들 | 33,400 | 248,645 | 7.4 | 8,254.2 | 69.7분 | 2026-09-14 | 3. 주식·ETF | 설명 | 69/69 |
-| 126 | <img src="W_QEgZrrQEQfA/thumbnail.jpg" width="160"> | ["2026년 상반기 연금 순위" 은퇴한 내 친구들의 연금은 상위 몇%일까? 연금 수령액 TOP 10](https://www.youtube.com/watch?v=QEgZrrQEQfA) | 할티비 | 39,500 | 289,996 | 7.3 | 2,566.5 | 15분 | 2026-06-23 | 4. 노후·연금 | 설명 | 188/188 |
-| 127 | <img src="W_WGCZYnwacuo/thumbnail.jpg" width="160"> | [S&P500 하나로 채운 ISA 3년 투자 총정리 ∣ 5년 연장 대신 지금 해지한 이유 ∣ 직접 경험한 이…](https://www.youtube.com/watch?v=WGCZYnwacuo) | 원원 - 파이어 준비생 | 16,900 | 120,100 | 7.1 | 1,383.0 | 22.5분 | 2026-07-19 | 3. 주식·ETF | 설명 | 542/542 |
+| 124 | <img src="W_iMkvDXx86dE/thumbnail.jpg" width="160"> | [연금고수들이 연금저축계좌 반드시 담는 ETF 3가지](https://www.youtube.com/watch?v=iMkvDXx86dE) | 경제나침반 | 14,000 | 105,108 | 7.5 | 1,345.6 | 25.2분 | 2026-07-28 | 4. 노후·연금 | 설명 | 67/67 |
+| 125 | <img src="W_1qlywudP2oY/thumbnail.jpg" width="160"> | [ETF 이 '2가지'만 사두면 됩니다. '나머지는 필요없어요' 100억 자산 관리자의 꿀팁(백승호 단장 풀…](https://www.youtube.com/watch?v=1qlywudP2oY) | 자람들 - 자립하는사람들 | 33,400 | 248,645 | 7.4 | 8,253.4 | 69.7분 | 2026-09-14 | 3. 주식·ETF | 설명 | 69/69 |
+| 126 | <img src="W_QEgZrrQEQfA/thumbnail.jpg" width="160"> | ["2026년 상반기 연금 순위" 은퇴한 내 친구들의 연금은 상위 몇%일까? 연금 수령액 TOP 10](https://www.youtube.com/watch?v=QEgZrrQEQfA) | 할티비 | 39,500 | 289,996 | 7.3 | 2,566.4 | 15분 | 2026-06-23 | 4. 노후·연금 | 설명 | 188/188 |
+| 127 | <img src="W_WGCZYnwacuo/thumbnail.jpg" width="160"> | [S&P500 하나로 채운 ISA 3년 투자 총정리 ∣ 5년 연장 대신 지금 해지한 이유 ∣ 직접 경험한 이…](https://www.youtube.com/watch?v=WGCZYnwacuo) | 원원 - 파이어 준비생 | 16,900 | 120,100 | 7.1 | 1,382.9 | 22.5분 | 2026-07-19 | 3. 주식·ETF | 설명 | 542/542 |
 | 128 | <img src="W_SgL_q0Ybdvc/thumbnail.jpg" width="160"> | [젠슨 황이 한국에 온 진짜 이유, 소름 돋는 반전](https://www.youtube.com/watch?v=SgL_q0Ybdvc) | 돈공부 | 4,550 | 32,264 | 7.1 | 253.7 | 18.1분 | 2026-06-09 | 1. 재테크 일반·마인드 | 설명 | 59/59 |
 | 129 | <img src="W_TrpDxPeBbbY/thumbnail.jpg" width="160"> | [은퇴 후 최대 걱정 '건보료 폭탄' 피하려면? "이것만은 꼭 알아두세요!" ∣ 신승식 ∣ 김경록 ∣ 연금받…](https://www.youtube.com/watch?v=TrpDxPeBbbY) | 연금 받는 형 | 21,500 | 146,252 | 6.8 | 1,394.8 | 27.8분 | 2026-07-01 | 4. 노후·연금 | 설명 | 128/128 |
-| 130 | <img src="W_acPLoAXYROM/thumbnail.jpg" width="160"> | [국민연금 추납, 1,850만원 내고 월 15만원 더 받으면 이득일까?](https://www.youtube.com/watch?v=acPLoAXYROM) | 김성일 TV | 28,700 | 194,385 | 6.8 | 3,888.3 | 14.2분 | 2026-08-25 | 4. 노후·연금 | 설명 | 107/107 |
+| 130 | <img src="W_acPLoAXYROM/thumbnail.jpg" width="160"> | [국민연금 추납, 1,850만원 내고 월 15만원 더 받으면 이득일까?](https://www.youtube.com/watch?v=acPLoAXYROM) | 김성일 TV | 28,700 | 194,385 | 6.8 | 3,888.0 | 14.2분 | 2026-08-25 | 4. 노후·연금 | 설명 | 107/107 |
 | 131 | <img src="W_dQdACzI6nKE/thumbnail.jpg" width="160"> | [나스닥100 1배수, 2배수, 3배수 20년 어떤 성과 보여주나(거치식, 적립식, 리벨런싱) ㅣ QQQ, …](https://www.youtube.com/watch?v=dQdACzI6nKE) | 레버리지 하는 미국회계사… | 13,100 | 84,907 | 6.5 | 731.7 | 16.3분 | 2026-06-20 | 3. 주식·ETF | 설명 | 390/390 |
 | 132 | <img src="W_NGLEPdYvQdQ/thumbnail.jpg" width="160"> | [50대 이후, 이런 집에 살면 노후가 무너집니다](https://www.youtube.com/watch?v=NGLEPdYvQdQ) | 김지호의 공간문해력 | 18,300 | 114,720 | 6.3 | 1,081.2 | 18.2분 | 2026-06-30 | 4. 노후·연금 | 설명 | 207/207 |
 | 133 | <img src="W_x26AhOtaVsg/thumbnail.jpg" width="160"> | [주식 ETF 자산 17억 구독자님의 포트폴리오 분석, 세금 건보료 절세 위한 추가 전략](https://www.youtube.com/watch?v=x26AhOtaVsg) | 배당으로 부자되기 | 8,560 | 53,030 | 6.2 | 351.5 | 15.2분 | 2026-05-16 | 3. 주식·ETF | 설명 | 78/78 |
 | 134 | <img src="W_vU5AK1FfCqQ/thumbnail.jpg" width="160"> | [QLD 직투 vs ISA, 잘 못 선택하면 10년 뒤 수천만 원 손해 봅니다.](https://www.youtube.com/watch?v=vU5AK1FfCqQ) | 돈재이 DONJAY | 19,700 | 121,030 | 6.1 | 1,000.1 | 20.3분 | 2026-06-15 | 6. 절세·제도 | 설명 | 465/465 |
-| 135 | <img src="W_fmQLRfIm28Y/thumbnail.jpg" width="160"> | ["S&P500 ETF, 종목보다 '계좌'가 20년 뒤를 바꾸는 진짜 이유 (연금·ISA)"](https://www.youtube.com/watch?v=fmQLRfIm28Y) | 야무진 경제학 | 22,500 | 137,168 | 6.1 | 1,394.1 | 28.4분 | 2026-07-07 | 3. 주식·ETF | 설명 | 115/115 |
+| 135 | <img src="W_fmQLRfIm28Y/thumbnail.jpg" width="160"> | ["S&P500 ETF, 종목보다 '계좌'가 20년 뒤를 바꾸는 진짜 이유 (연금·ISA)"](https://www.youtube.com/watch?v=fmQLRfIm28Y) | 야무진 경제학 | 22,500 | 137,168 | 6.1 | 1,394.0 | 28.4분 | 2026-07-07 | 3. 주식·ETF | 설명 | 115/115 |
 | 136 | <img src="W_WS4hFxgz01Y/thumbnail.jpg" width="160"> | [호주 한국 반반 살기 '이것' 모르면 은퇴 자금 거덜 납니다 건강보험 & 세금 폭탄의 진실](https://www.youtube.com/watch?v=WS4hFxgz01Y) | Jungestate | 3,370 | 19,864 | 5.9 | 152.8 | 15.9분 | 2026-06-06 | 6. 절세·제도 | 설명 | 91/91 |
 | 137 | <img src="W_0ftjA5wsqtQ/thumbnail.jpg" width="160"> | [삼성전자 투자자분들 주목하셔야합니다 실적은 사상 최대인데 주가는 왜 못 따라갈까? 목표가 48만원·150조…](https://www.youtube.com/watch?v=0ftjA5wsqtQ) | 코스피 읽는 개미 | 2,190 | 12,659 | 5.8 | 109.9 | 18.6분 | 2026-06-21 | 3. 주식·ETF | 설명 | 17/17 |
-| 138 | <img src="W_cc4uBxFSiiY/thumbnail.jpg" width="160"> | [평생 모은 노후자금 뜯긴 노인들... 조폭 소굴 쳐들어간 아줌마의 100대 참교육 [박여사 6화]](https://www.youtube.com/watch?v=cc4uBxFSiiY) | 아직 늦지 않았습니다 | 30,800 | 176,854 | 5.7 | 3,509.5 | 9.2분 | 2026-08-24 | 4. 노후·연금 | 설명 | 36/36 |
-| 139 | <img src="W_vmjGJVCfwhk/thumbnail.jpg" width="160"> | [신혼부부가 돈 못 모으는 이유...결혼 후 돈 관리 이렇게 하세요(김경필 머니트레이너)ㅣ보라언니동생 EP.…](https://www.youtube.com/watch?v=vmjGJVCfwhk) | STUDIO OMG | 31,100 | 171,556 | 5.5 | 7,806.3 | 18.2분 | 2026-09-22 | 1. 재테크 일반·마인드 | 설명 | 62/62 |
+| 138 | <img src="W_cc4uBxFSiiY/thumbnail.jpg" width="160"> | [평생 모은 노후자금 뜯긴 노인들... 조폭 소굴 쳐들어간 아줌마의 100대 참교육 [박여사 6화]](https://www.youtube.com/watch?v=cc4uBxFSiiY) | 아직 늦지 않았습니다 | 30,800 | 176,854 | 5.7 | 3,509.3 | 9.2분 | 2026-08-24 | 4. 노후·연금 | 설명 | 36/36 |
+| 139 | <img src="W_vmjGJVCfwhk/thumbnail.jpg" width="160"> | [신혼부부가 돈 못 모으는 이유...결혼 후 돈 관리 이렇게 하세요(김경필 머니트레이너)ㅣ보라언니동생 EP.…](https://www.youtube.com/watch?v=vmjGJVCfwhk) | STUDIO OMG | 31,100 | 171,556 | 5.5 | 7,805.2 | 18.2분 | 2026-09-22 | 1. 재테크 일반·마인드 | 설명 | 62/62 |
 | 140 | <img src="W_QnnwzV8yHpU/thumbnail.jpg" width="160"> | [돈 없는 58세 재혼녀가 젊은 애들보다 더 약아 빠져도 되는 이유](https://www.youtube.com/watch?v=QnnwzV8yHpU) | 내 누군지 아나? | 6,190 | 33,695 | 5.4 | 481.8 | 29분 | 2026-08-05 | 기타 | 설명 | 106/106 |
-| 141 | <img src="W_gPYpuRW8UOk/thumbnail.jpg" width="160"> | [1억을 모았다면 20억까지 절대 꿈의 숫자가 아닙니다 (돈의 물리학)](https://www.youtube.com/watch?v=gPYpuRW8UOk) | 경제기상도 | 4,310 | 22,754 | 5.3 | 145.0 | 16.9분 | 2026-05-10 | 2. 돈 모으기·저축 | 설명 | 43/43 |
+| 141 | <img src="W_gPYpuRW8UOk/thumbnail.jpg" width="160"> | [1억을 모았다면 20억까지 절대 꿈의 숫자가 아닙니다 (돈의 물리학)](https://www.youtube.com/watch?v=gPYpuRW8UOk) | 경제기상도 | 4,310 | 22,754 | 5.3 | 144.9 | 16.9분 | 2026-05-10 | 2. 돈 모으기·저축 | 설명 | 43/43 |
 | 142 | <img src="W_-gcRoQnRARY/thumbnail.jpg" width="160"> | [주식계좌에 1억 있으면, 대한민국 상위 몇 % 일까요?](https://www.youtube.com/watch?v=-gcRoQnRARY) | 억빌더 ∣ 순자산 10억… | 6,490 | 33,299 | 5.1 | 293.7 | 8.6분 | 2026-06-22 | 2. 돈 모으기·저축 | 설명 | 156/156 |
-| 143 | <img src="W_QTrCmMxmAdg/thumbnail.jpg" width="160"> | [라오어님의 TQQQ, SOXL 무한매수법 정말 좋아합니다(QQQ, QLD, TQQQ, SOXL)](https://www.youtube.com/watch?v=QTrCmMxmAdg) | 레버리지 하는 미국회계사… | 13,100 | 66,746 | 5.1 | 635.7 | 5.2분 | 2026-07-01 | 3. 주식·ETF | 설명 | 198/199 |
-| 144 | <img src="W_t6NrbgrRE_k/thumbnail.jpg" width="160"> | [반드시 부자되는 신혼부부의 3가지 공통점 (부자되는 방법)](https://www.youtube.com/watch?v=t6NrbgrRE_k) | 해쏘현_신혼부부 재테크 | 26,400 | 89,264 | 3.4 | 1,720.1 | 11.9분 | 2026-08-23 | 1. 재테크 일반·마인드 | 설명 | 100/100 |
-| 145 | <img src="W_GxGvoXZQbZ0/thumbnail.jpg" width="160"> | [부자 되기 바로 전, 삶에 나타나는 이상한 변화 7가지 (놓치면 평생 후회합니다)](https://www.youtube.com/watch?v=GxGvoXZQbZ0) | 누구나 겪는 돈 이야기 | 4,490 | 14,314 | 3.2 | 93.6 | 17.2분 | 2026-05-14 | 1. 재테크 일반·마인드 | 설명 | 14/14 |
-
-### 자료를 받지 않은 성공 후보 (34개 중 배수 큰 34개 — 웹 화면 탐색 목록에서 승인하면 분석에 들어감)
-
-| 제목 | 채널 | 구독자 | 조회수 | 배수 | 길이 | 업로드 | 주제 묶음 |
-|---|---|---|---|---|---|---|---|
-| ["노후자금 구멍 5개, 당신은 이미 2개 뚫려 있습니다"](https://www.youtube.com/watch?v=LjHlXKeRH5s) | 야무진 경제학 | 22,500 | 114,379 | 5.1 | 14.9분 | 2026-08-07 | 4. 노후·연금 |
-| [금융자산 10억을 넘긴 순간, 돈의 성격이 완전히 바뀝니다 금융자산가가 찐부자인 이유](https://www.youtube.com/watch?v=xEH9PaLKOR0) | 경제기상도 | 4,310 | 21,778 | 5.0 | 23.9분 | 2026-05-24 | 1. 재테크 일반·마인드 |
-| ["삼성전자 SK하이닉스 2배 레버리지 ETF", 사도 되는 사람과 절대 안 되는 사람 (5월 27일 상장)](https://www.youtube.com/watch?v=ZUz1YwWZ0s8) | 술술 경제학 | 17,600 | 87,394 | 5.0 | 27.6분 | 2026-05-15 | 3. 주식·ETF |
-| ["68세도 돈버는 부업" 월급70만원 요양사 관두고 집에서 노트북 하나로 순수익 월250만원 버는 68살](https://www.youtube.com/watch?v=pZ7fCdoOvCI) | 록터뷰 | 35,600 | 170,591 | 4.8 | 7.8분 | 2026-07-05 | 8. 부업·소득 |
-| [경제공부 시작하는 법 ∣ 하루 10분이면 됩니다! (해야하는 이유) 🗞️ 📊 💸](https://www.youtube.com/watch?v=z7fHe2Og-zE) | 찌니ZZINI | 30,500 | 143,670 | 4.7 | 17.5분 | 2026-05-03 | 1. 재테크 일반·마인드 |
-| [우리 부모님 유산 탐내다 노후 자금 탈탈 털린 시어머니, 전과자에 신용불량자까지 세트로 만들어드림](https://www.youtube.com/watch?v=5c7V1i5q_xc) | 리얼톡툰 | 15,400 | 70,535 | 4.6 | 9.8분 | 2026-05-28 | 4. 노후·연금 |
-| [1.3억 커버드콜로 은퇴했어요 #배당투자 #배당은퇴 #경제적자유 #파이어족 #월배당 #고배당주 #주식투자 …](https://www.youtube.com/watch?v=BqDfJt2vAHY) | ttobaedang또배당 | 6,330 | 28,523 | 4.5 | 7.9분 | 2026-09-02 | 1. 재테크 일반·마인드 |
-| [ETF는 이 '2개'로 충분합니다. 돈 있으면 무조건 여기부터 넣습니다. 노후 준비 끝납니다 (백승호 단장…](https://www.youtube.com/watch?v=YdmZDxBcYKE) | 자람들 - 자립하는사람들 | 33,400 | 143,569 | 4.3 | 19.7분 | 2026-09-07 | 3. 주식·ETF |
-| [경제신문 무료로 보는법 📰 (경제공부 초보 읽는 방법 👀)](https://www.youtube.com/watch?v=PIiGnsoTl7I) | 찌니ZZINI | 30,500 | 130,846 | 4.3 | 10.2분 | 2026-05-10 | 2. 돈 모으기·저축 |
-| [반도체 주식 열풍에 예순 살 부부의 은퇴자금 2억이 단 한 달만에 반토막 나기까지!](https://www.youtube.com/watch?v=Uwfjww9_yKk) | 은빛시나리오 | 29,200 | 124,612 | 4.3 | 39.6분 | 2026-08-06 | 1. 재테크 일반·마인드 |
-| [55세, 인생이 갈린다! 미리 대비하지 않으면 노후 파산하는 이유? ∣ 김동엽 ∣ 김경록 ∣ 연금받는형](https://www.youtube.com/watch?v=vUDveBMalNQ) | 연금 받는 형 | 21,500 | 90,358 | 4.2 | 23.4분 | 2026-07-07 | 4. 노후·연금 |
-| ["머리 쓸 수록 수명이 줄어들어" 월 연금 300만원 교사 출신 어르신이 노후 자금 아들에게 투자하는 이유](https://www.youtube.com/watch?v=dAKKRj0KBog) | 할티비 | 39,500 | 164,945 | 4.2 | 8분 | 2026-09-17 | 3. 주식·ETF |
-| [성공한 인생인 줄 알았습니다... 은퇴 후 찾아온 잔인한 현실](https://www.youtube.com/watch?v=27QUCjtiMVg) | 인생의에필로그 | 9,590 | 39,773 | 4.2 | 19.3분 | 2026-07-08 | 4. 노후·연금 |
-| [배당 ETF 10억 투자하면 진짜 배당금 얼마? ∣ 공식분배금·실수령 차이 (무료 전자책 제공)](https://www.youtube.com/watch?v=KGOC_mfphu4) | 은퇴머니 - 은퇴 현금흐… | 30,000 | 123,678 | 4.1 | 18.8분 | 2026-05-08 | 3. 주식·ETF |
-| [배당 10%를 주면서 동시에 주가도 20% 오른 단 6개의 ETF [1,099개 ETF 모두 뒤져봤습니다.]](https://www.youtube.com/watch?v=4Gy4lBNuebE) | 우아한짠테크 TV | 37,200 | 150,656 | 4.0 | 12.7분 | 2026-05-15 | 3. 주식·ETF |
-| ['2가지' ETF만 모아도 됩니다. 100억 자산관리사의 꿀팁 (백승호 단장 2부) #ETF #배당주 #주…](https://www.youtube.com/watch?v=Gwk2gkxpx3I) | 자람들 - 자립하는사람들 | 33,400 | 127,177 | 3.8 | 23.7분 | 2026-09-02 | 1. 재테크 일반·마인드 |
-| ["골드만삭스가 전주에 무릎 꿇었습니다" 국민연금 1,458조, 세계 1위 수익률의 비밀](https://www.youtube.com/watch?v=3Hw87oNMlHI) | 경제초고수 | 39,400 | 149,400 | 3.8 | 14.7분 | 2026-05-06 | 4. 노후·연금 |
-| [서울대 의대생이었던 내가 돈을 모으기 시작한 이유ㅣ반지하에서 반포자가까지(feat. 절약, 저축)](https://www.youtube.com/watch?v=qP7PI42yX6g) | 닥터나솔 | 48,900 | 181,738 | 3.7 | 15.8분 | 2026-08-13 | 2. 돈 모으기·저축 |
-| [돈 버는 방식은 정해져 있다, 수익 모델 15종 다이제스트](https://www.youtube.com/watch?v=wr4nCMUy1dk) | 사다리게임 | 36,100 | 133,654 | 3.7 | 18분 | 2026-05-28 | 기타 |
-| ["50세 매달 75만원 넣으면, 10년 뒤 통장에 찍히는 숫자 (연금저축·IRP)"](https://www.youtube.com/watch?v=MDITNCGFdNU) | 야무진 경제학 | 22,500 | 81,679 | 3.6 | 18분 | 2026-07-09 | 4. 노후·연금 |
-| [월 150만원 QLD 적립식 매수로 3억 달성 시간, 15년 후 50억?(QQQ, TQQQ, SOXL, 나…](https://www.youtube.com/watch?v=j276Y2gU6hg) | 레버리지 하는 미국회계사… | 13,100 | 46,228 | 3.5 | 7.8분 | 2026-06-07 | 3. 주식·ETF |
-| [45살에 시작한 사이드잡 부업으로 월 순수익 1억 벌고 인생역전한 48살 아저씨](https://www.youtube.com/watch?v=XX8QV3-5rAM) | 실전부업클럽 | 23,400 | 81,154 | 3.5 | 29.6분 | 2026-10-13 | 2. 돈 모으기·저축 |
-| [연금 300만원 받아도 부족한 생활비, 현실적인 노후생활](https://www.youtube.com/watch?v=NJNjJ8ym8lI) | 아니모 인생기록관 | 21,600 | 74,541 | 3.5 | 12.9분 | 2026-05-10 | 4. 노후·연금 |
-| [월 100만 원으로 QLD 적립식 투자하면 10억 은퇴자금 가능할까?](https://www.youtube.com/watch?v=hSorn4W4RsI) | 돈재이 DONJAY | 19,700 | 67,682 | 3.4 | 19.2분 | 2026-05-20 | 3. 주식·ETF |
-| [-5억, 주식에 노후자금 몰빵🔥내 미래는 쪽빵ㅜㅜ](https://www.youtube.com/watch?v=IthWsvdt6q4) | 권감각의 유기주식테라피 | 20,300 | 68,927 | 3.4 | 11.1분 | 2026-09-05 | 3. 주식·ETF |
-| ["지금 잔고 5천만원 안 되신다면, 이것부터 이렇게 하세요"](https://www.youtube.com/watch?v=Suach3Oqdas) | 야무진 경제학 | 22,500 | 75,534 | 3.4 | 22.4분 | 2026-08-01 | 기타 |
-| [2000만원으로 시작하는 '가장 쉬운 S&P500 장기투자'](https://www.youtube.com/watch?v=oRPjnPQvygE) | 농부의 경제학 | 8,260 | 27,232 | 3.3 | 14.1분 | 2026-09-07 | 3. 주식·ETF |
-| [ISA 3년마다 연금저축 이전, 진짜 이득일까? 아니면 놔두는 것이 좋을까? 직접 계산해본 놀라운 결과](https://www.youtube.com/watch?v=X6WyXVU7LZ8) | 돈재이 DONJAY | 19,700 | 64,525 | 3.3 | 15.5분 | 2026-06-22 | 4. 노후·연금 |
-| ["50대 노후 5억, 지금 이렇게 준비하세요 (연금저축·IRP 148만원)"](https://www.youtube.com/watch?v=LC8DvY1DUoA) | 야무진 경제학 | 22,500 | 73,383 | 3.3 | 27.3분 | 2026-07-04 | 4. 노후·연금 |
-| [상위 1%는 매일 하는 '이것’! 당신의 돈이 일하게 하세요. ∣ 존리 ∣ 연금받는형 ∣](https://www.youtube.com/watch?v=3Q3-zlebLjk) | 연금 받는 형 | 21,500 | 69,241 | 3.2 | 14.5분 | 2026-05-15 | 4. 노후·연금 |
-| [친구? 없어요. 혼자 재테크 경제 세미나 다니는 30대 미혼 여자 직장인 vlog 💸 ∣ 자산 폭등기 대처…](https://www.youtube.com/watch?v=jHm2LpwKQRg) | 일어나안나 | 42,200 | 128,570 | 3.0 | 6.5분 | 2026-05-10 | 1. 재테크 일반·마인드 |
-| [[전문가 초대] 인플레 고착화 시대...내 포트폴리오에 담을 자산은? (오건영 단장)](https://www.youtube.com/watch?v=6tQaMqgqoxA) | 돈에안기자(TV조선경제채… | 26,500 | 80,561 | 3.0 | 44.2분 | 2026-06-09 | 3. 주식·ETF |
-| [부모 노후자금 4억 5천만 원 앞에서 드러낸 자식들의 민낯! "엄마 노후는 우리가 책임질게" 서로 모시겠다…](https://www.youtube.com/watch?v=iIGP8SjSqRE) | 청춘은안단테 | 19,800 | 60,114 | 3.0 | 57분 | 2026-08-01 | 4. 노후·연금 |
-| [2026 국민성장펀드 가입전 필수 확인! 5060이 반드시 피해야 할 함정 3가지 (소득공제, 분리과세 총…](https://www.youtube.com/watch?v=A5E-2sukBgo) | 만약에 머니 | 33,900 | 102,308 | 3.0 | 20.6분 | 2026-05-15 | 3. 주식·ETF |
+| 143 | <img src="W_QTrCmMxmAdg/thumbnail.jpg" width="160"> | [라오어님의 TQQQ, SOXL 무한매수법 정말 좋아합니다(QQQ, QLD, TQQQ, SOXL)](https://www.youtube.com/watch?v=QTrCmMxmAdg) | 레버리지 하는 미국회계사… | 13,100 | 66,746 | 5.1 | 635.7 | 5.2분 | 2026-07-01 | 3. 주식·ETF | 설명 | 199/199 |
+| 144 | <img src="W_pZ7fCdoOvCI/thumbnail.jpg" width="160"> | ["68세도 돈버는 부업" 월급70만원 요양사 관두고 집에서 노트북 하나로 순수익 월250만원 버는 68살](https://www.youtube.com/watch?v=pZ7fCdoOvCI) | 록터뷰 | 35,600 | 170,591 | 4.8 | 1,688.0 | 7.8분 | 2026-07-05 | 8. 부업·소득 | 설명 | 1,602/1,603 |
+| 145 | <img src="W_z7fHe2Og-zE/thumbnail.jpg" width="160"> | [경제공부 시작하는 법 ∣ 하루 10분이면 됩니다! (해야하는 이유) 🗞️ 📊 💸](https://www.youtube.com/watch?v=z7fHe2Og-zE) | 찌니ZZINI | 30,500 | 143,670 | 4.7 | 875.1 | 17.5분 | 2026-05-03 | 1. 재테크 일반·마인드 | 설명 | 147/147 |
+| 146 | <img src="W_5c7V1i5q_xc/thumbnail.jpg" width="160"> | [우리 부모님 유산 탐내다 노후 자금 탈탈 털린 시어머니, 전과자에 신용불량자까지 세트로 만들어드림](https://www.youtube.com/watch?v=5c7V1i5q_xc) | 리얼톡툰 | 15,400 | 70,535 | 4.6 | 506.7 | 9.8분 | 2026-05-28 | 4. 노후·연금 | 설명 | 19/19 |
+| 147 | <img src="W_BqDfJt2vAHY/thumbnail.jpg" width="160"> | [1.3억 커버드콜로 은퇴했어요 #배당투자 #배당은퇴 #경제적자유 #파이어족 #월배당 #고배당주 #주식투자 …](https://www.youtube.com/watch?v=BqDfJt2vAHY) | ttobaedang또배당 | 6,330 | 28,523 | 4.5 | 679.4 | 7.9분 | 2026-09-02 | 1. 재테크 일반·마인드 | 없음 | 153/153 |
+| 148 | <img src="W_YdmZDxBcYKE/thumbnail.jpg" width="160"> | [ETF는 이 '2개'로 충분합니다. 돈 있으면 무조건 여기부터 넣습니다. 노후 준비 끝납니다 (백승호 단장…](https://www.youtube.com/watch?v=YdmZDxBcYKE) | 자람들 - 자립하는사람들 | 33,400 | 143,569 | 4.3 | 3,903.9 | 19.7분 | 2026-09-07 | 3. 주식·ETF | 설명 | 61/61 |
+| 149 | <img src="W_PIiGnsoTl7I/thumbnail.jpg" width="160"> | [경제신문 무료로 보는법 📰 (경제공부 초보 읽는 방법 👀)](https://www.youtube.com/watch?v=PIiGnsoTl7I) | 찌니ZZINI | 30,500 | 130,846 | 4.3 | 832.2 | 10.2분 | 2026-05-10 | 2. 돈 모으기·저축 | 설명 | 334/334 |
+| 150 | <img src="W_Uwfjww9_yKk/thumbnail.jpg" width="160"> | [반도체 주식 열풍에 예순 살 부부의 은퇴자금 2억이 단 한 달만에 반토막 나기까지!](https://www.youtube.com/watch?v=Uwfjww9_yKk) | 은빛시나리오 | 29,200 | 124,612 | 4.3 | 1,821.9 | 39.6분 | 2026-08-06 | 1. 재테크 일반·마인드 | 설명 | 535/535 |
+| 151 | <img src="W_27QUCjtiMVg/thumbnail.jpg" width="160"> | [성공한 인생인 줄 알았습니다... 은퇴 후 찾아온 잔인한 현실](https://www.youtube.com/watch?v=27QUCjtiMVg) | 인생의에필로그 | 9,590 | 39,773 | 4.2 | 405.8 | 19.3분 | 2026-07-08 | 4. 노후·연금 | 설명 | 40/40 |
+| 152 | <img src="W_KGOC_mfphu4/thumbnail.jpg" width="160"> | [배당 ETF 10억 투자하면 진짜 배당금 얼마? ∣ 공식분배금·실수령 차이 (무료 전자책 제공)](https://www.youtube.com/watch?v=KGOC_mfphu4) | 은퇴머니 - 은퇴 현금흐… | 30,000 | 123,678 | 4.1 | 778.0 | 18.8분 | 2026-05-08 | 3. 주식·ETF | 설명 | 261/261 |
+| 153 | <img src="W_4Gy4lBNuebE/thumbnail.jpg" width="160"> | [배당 10%를 주면서 동시에 주가도 20% 오른 단 6개의 ETF [1,099개 ETF 모두 뒤져봤습니다.]](https://www.youtube.com/watch?v=4Gy4lBNuebE) | 우아한짠테크 TV | 37,200 | 150,656 | 4.0 | 995.4 | 12.7분 | 2026-05-15 | 3. 주식·ETF | 설명 | 316/316 |
+| 154 | <img src="W_3Hw87oNMlHI/thumbnail.jpg" width="160"> | ["골드만삭스가 전주에 무릎 꿇었습니다" 국민연금 1,458조, 세계 1위 수익률의 비밀](https://www.youtube.com/watch?v=3Hw87oNMlHI) | 경제초고수 | 39,400 | 149,400 | 3.8 | 927.8 | 14.7분 | 2026-05-06 | 4. 노후·연금 | 설명 | 415/415 |
+| 155 | <img src="W_qP7PI42yX6g/thumbnail.jpg" width="160"> | [서울대 의대생이었던 내가 돈을 모으기 시작한 이유ㅣ반지하에서 반포자가까지(feat. 절약, 저축)](https://www.youtube.com/watch?v=qP7PI42yX6g) | 닥터나솔 | 48,900 | 181,738 | 3.7 | 2,934.2 | 15.8분 | 2026-08-13 | 2. 돈 모으기·저축 | 없음 | 280/280 |
+| 156 | <img src="W_wr4nCMUy1dk/thumbnail.jpg" width="160"> | [돈 버는 방식은 정해져 있다, 수익 모델 15종 다이제스트](https://www.youtube.com/watch?v=wr4nCMUy1dk) | 사다리게임 | 36,100 | 133,654 | 3.7 | 962.7 | 18분 | 2026-05-28 | 기타 | 설명 | 77/77 |
+| 157 | <img src="W_XX8QV3-5rAM/thumbnail.jpg" width="160"> | [45살에 시작한 사이드잡 부업으로 월 순수익 1억 벌고 인생역전한 48살 아저씨](https://www.youtube.com/watch?v=XX8QV3-5rAM) | 실전부업클럽 | 23,400 | 81,154 | 3.5 | 81,154.0 | 29.6분 | 2026-10-13 | 2. 돈 모으기·저축 | 설명 | 230/228 |
+| 158 | <img src="W_hSorn4W4RsI/thumbnail.jpg" width="160"> | [월 100만 원으로 QLD 적립식 투자하면 10억 은퇴자금 가능할까?](https://www.youtube.com/watch?v=hSorn4W4RsI) | 돈재이 DONJAY | 19,700 | 67,682 | 3.4 | 460.4 | 19.2분 | 2026-05-20 | 3. 주식·ETF | 설명 | 342/342 |
+| 159 | <img src="W_IthWsvdt6q4/thumbnail.jpg" width="160"> | [-5억, 주식에 노후자금 몰빵🔥내 미래는 쪽빵ㅜㅜ](https://www.youtube.com/watch?v=IthWsvdt6q4) | 권감각의 유기주식테라피 | 20,300 | 68,927 | 3.4 | 1,770.4 | 11.1분 | 2026-09-05 | 3. 주식·ETF | 설명 | 81/81 |
+| 160 | <img src="W_t6NrbgrRE_k/thumbnail.jpg" width="160"> | [반드시 부자되는 신혼부부의 3가지 공통점 (부자되는 방법)](https://www.youtube.com/watch?v=t6NrbgrRE_k) | 해쏘현_신혼부부 재테크 | 26,400 | 89,264 | 3.4 | 1,720.0 | 11.9분 | 2026-08-23 | 1. 재테크 일반·마인드 | 설명 | 100/100 |
+| 161 | <img src="W_GxGvoXZQbZ0/thumbnail.jpg" width="160"> | [부자 되기 바로 전, 삶에 나타나는 이상한 변화 7가지 (놓치면 평생 후회합니다)](https://www.youtube.com/watch?v=GxGvoXZQbZ0) | 누구나 겪는 돈 이야기 | 4,490 | 14,314 | 3.2 | 93.6 | 17.2분 | 2026-05-14 | 1. 재테크 일반·마인드 | 설명 | 14/14 |
+| 162 | <img src="W_jHm2LpwKQRg/thumbnail.jpg" width="160"> | [친구? 없어요. 혼자 재테크 경제 세미나 다니는 30대 미혼 여자 직장인 vlog 💸 ∣ 자산 폭등기 대처…](https://www.youtube.com/watch?v=jHm2LpwKQRg) | 일어나안나 | 42,200 | 128,570 | 3.0 | 819.5 | 6.5분 | 2026-05-10 | 1. 재테크 일반·마인드 | 설명 | 188/188 |
+| 163 | <img src="W_6tQaMqgqoxA/thumbnail.jpg" width="160"> | [[전문가 초대] 인플레 고착화 시대...내 포트폴리오에 담을 자산은? (오건영 단장)](https://www.youtube.com/watch?v=6tQaMqgqoxA) | 돈에안기자(TV조선경제채… | 26,500 | 80,561 | 3.0 | 635.3 | 44.2분 | 2026-06-09 | 3. 주식·ETF | 설명 | 42/42 |
+| 164 | <img src="W_iIGP8SjSqRE/thumbnail.jpg" width="160"> | [부모 노후자금 4억 5천만 원 앞에서 드러낸 자식들의 민낯! "엄마 노후는 우리가 책임질게" 서로 모시겠다…](https://www.youtube.com/watch?v=iIGP8SjSqRE) | 청춘은안단테 | 19,800 | 60,114 | 3.0 | 819.0 | 57분 | 2026-08-01 | 4. 노후·연금 | 설명 | 35/35 |
+| 165 | <img src="W_A5E-2sukBgo/thumbnail.jpg" width="160"> | [2026 국민성장펀드 가입전 필수 확인! 5060이 반드시 피해야 할 함정 3가지 (소득공제, 분리과세 총…](https://www.youtube.com/watch?v=A5E-2sukBgo) | 만약에 머니 | 33,900 | 102,308 | 3.0 | 673.5 | 20.6분 | 2026-05-15 | 3. 주식·ETF | 설명 | 87/87 |
 
 ## 2. 주제 — 주제 묶음별 성공 비율 (비교 집단)
 
@@ -225,12 +205,12 @@
 
 | 주제 묶음 | 영상 | 성공 | 성공 비율 | 배수 중앙값 | 조회수 중앙값 | 성공 사례 # |
 |---|---|---|---|---|---|---|
-| 4. 노후·연금 | 65 | 54 | 83% | 13.7 | 157,461 | 2, 4, 6, 8, 10, 11, 13, 15, 17, 22, 27, 32, 33, 34, 35, 36, 37, 40, 41, 45, 49, 50, 52, 61, 65, 68, 74, 76, 77, 78, 80, 87, 88, 95, 96, 102, 103, 104, 111, 117, 118, 119, 124, 126, 129, 130, 132, 138 |
-| 기타 | 15 | 12 | 80% | 7.7 | 75,534 | 18, 21, 46, 81, 83, 84, 100, 120, 121, 140 |
-| 2. 돈 모으기·저축 | 24 | 19 | 79% | 8.6 | 79,675.0 | 5, 9, 14, 30, 51, 64, 70, 85, 91, 97, 109, 112, 123, 141, 142 |
-| 1. 재테크 일반·마인드 | 58 | 38 | 66% | 5.8 | 70,009.5 | 1, 3, 7, 12, 16, 19, 20, 26, 29, 38, 43, 47, 48, 53, 56, 58, 59, 63, 71, 79, 90, 93, 108, 110, 113, 114, 115, 128, 139, 144, 145 |
-| 3. 주식·ETF | 100 | 51 | 51% | 3.4 | 39,646.0 | 23, 24, 25, 31, 39, 42, 44, 54, 55, 60, 62, 66, 67, 69, 72, 73, 75, 89, 92, 94, 98, 99, 101, 105, 106, 107, 116, 122, 125, 127, 131, 133, 135, 137, 143 |
-| 8. 부업·소득 (표본 적음) | 3 | 3 | 100% | 14.6 | 405,639 | 28, 82 |
+| 4. 노후·연금 | 65 | 54 | 83% | 13.7 | 157,461 | 2, 4, 6, 8, 10, 11, 13, 15, 17, 22, 27, 32, 33, 34, 35, 36, 37, 40, 41, 45, 49, 50, 52, 61, 65, 68, 74, 76, 77, 78, 80, 87, 88, 95, 96, 102, 103, 104, 111, 117, 118, 119, 124, 126, 129, 130, 132, 138, 146, 151, 154, 164 |
+| 기타 | 15 | 12 | 80% | 7.7 | 75,534 | 18, 21, 46, 81, 83, 84, 100, 120, 121, 140, 156 |
+| 2. 돈 모으기·저축 | 24 | 19 | 79% | 8.6 | 79,675.0 | 5, 9, 14, 30, 51, 64, 70, 85, 91, 97, 109, 112, 123, 141, 142, 149, 155, 157 |
+| 1. 재테크 일반·마인드 | 58 | 38 | 66% | 5.8 | 70,009.5 | 1, 3, 7, 12, 16, 19, 20, 26, 29, 38, 43, 47, 48, 53, 56, 58, 59, 63, 71, 79, 90, 93, 108, 110, 113, 114, 115, 128, 139, 145, 147, 150, 160, 161, 162 |
+| 3. 주식·ETF | 100 | 51 | 51% | 3.4 | 39,646.0 | 23, 24, 25, 31, 39, 42, 44, 54, 55, 60, 62, 66, 67, 69, 72, 73, 75, 89, 92, 94, 98, 99, 101, 105, 106, 107, 116, 122, 125, 127, 131, 133, 135, 137, 143, 148, 152, 153, 158, 159, 163, 165 |
+| 8. 부업·소득 (표본 적음) | 3 | 3 | 100% | 14.6 | 405,639 | 28, 82, 144 |
 | 6. 절세·제도 (표본 적음) | 5 | 4 | 80% | 6.1 | 121,030 | 57, 86, 134, 136 |
 | 7. 빚·대출·신용 (표본 적음) | 1 | 0 | 0% | 1.3 | 18,364 | - |
 
@@ -242,15 +222,15 @@
 
 | 주제 묶음 | 영상(공급) | 채널 | 수요 몫 | 공급 몫 | 지수 | 영상당 하루 조회수 중앙값 | 작은 채널 성공 비율 | 시청자 질문 |
 |---|---|---|---|---|---|---|---|---|
-| 4. 노후·연금 | 161 | 94 | 28% | 21% | **1.4** | 5,260.1 | 83% | 535 |
-| 8. 부업·소득 | 17 | 8 | 2.5% | 2.2% | **1.1** | 13,312.0 | 100% | 23 |
-| 2. 돈 모으기·저축 | 51 | 39 | 7.1% | 6.6% | **1.1** | 4,073.1 | 79% | 196 |
-| 3. 주식·ETF | 345 | 145 | 44% | 44% | **1.0** | 4,044.7 | 51% | 1321 |
-| 기타 | 41 | 26 | 4.7% | 5.3% | **0.9** | 5,676.4 | 80% | 0 |
-| 1. 재테크 일반·마인드 | 132 | 79 | 11% | 17% | **0.6** | 3,973.8 | 66% | 99 |
-| 6. 절세·제도 | 27 | 22 | 1.6% | 3.5% | **0.5** | 2,109.8 | 80% | 333 |
-| 10. 금융 사기 (표본 적음) | 3 | 3 | 0.9% | 0.4% | **2.2** | 7,739.7 | – | 15 |
-| 7. 빚·대출·신용 (표본 적음) | 1 | 1 | 0.1% | 0.1% | **0.5** | 7,353.9 | 0% | 21 |
+| 4. 노후·연금 | 161 | 94 | 28% | 21% | **1.4** | 5,259.9 | 83% | 629 |
+| 8. 부업·소득 | 17 | 8 | 2.5% | 2.2% | **1.1** | 13,310.4 | 100% | 25 |
+| 2. 돈 모으기·저축 | 51 | 39 | 7.1% | 6.6% | **1.1** | 4,072.7 | 79% | 247 |
+| 3. 주식·ETF | 345 | 145 | 44% | 44% | **1.0** | 4,044.5 | 51% | 1789 |
+| 기타 | 41 | 26 | 4.7% | 5.3% | **0.9** | 5,676.2 | 80% | 0 |
+| 1. 재테크 일반·마인드 | 132 | 79 | 11% | 17% | **0.6** | 3,973.5 | 66% | 121 |
+| 6. 절세·제도 | 27 | 22 | 1.6% | 3.5% | **0.5** | 2,109.7 | 80% | 390 |
+| 10. 금융 사기 (표본 적음) | 3 | 3 | 0.9% | 0.4% | **2.2** | 7,739.2 | – | 27 |
+| 7. 빚·대출·신용 (표본 적음) | 1 | 1 | 0.1% | 0.1% | **0.5** | 7,353.6 | 0% | 121 |
 
 ### 3-2. 검색어별 (탐색·검색 캐시 — 검색어마다 조회수 순 상위 결과)
 
@@ -259,41 +239,41 @@
 | 검색어 | 기간(일) | 본 영상 | 결과 수(공급) | 최근 30일 | 조회수 중앙값 | 하루 조회수 중앙값 | 영상당 하루 조회수 | 큰 채널 비율 | 작은 채널이 뚫은 비율 |
 |---|---|---|---|---|---|---|---|---|---|
 | 노후자금 | 168 | 100 | 164,506 | 12 | 92,621 | 1,489.9 | 2.4 | 62% | 29% (26개) |
-| 노후 | 168 | 100 | 222,398 | 4 | 385,783 | 3,884.3 | 3.4 | 72% | 28% (25개) |
+| 노후 | 168 | 100 | 222,398 | 4 | 385,783 | 3,884.2 | 3.4 | 72% | 28% (25개) |
 | 노후준비 | 168 | 100 | 196,467 | 6 | 364,239.5 | 3,800.8 | 3.3 | 75% | 25% (23개) |
-| 부자되는법 | 168 | 100 | – | 13 | 162,894 | 2,153.1 | – | 70% | 25% (17개) |
-| 은퇴준비 | 168 | 100 | 194,198 | 9 | 235,477 | 2,352.7 | 3.3 | 77% | 23% (22개) |
+| 부자되는법 | 168 | 100 | – | 13 | 162,894 | 2,153.0 | – | 70% | 25% (17개) |
+| 은퇴준비 | 168 | 100 | 194,198 | 9 | 235,477 | 2,352.6 | 3.3 | 77% | 23% (22개) |
 | 1억모으기 | 168 | 100 | 76,176 | 8 | 113,058.0 | 1,364.5 | 5.0 | 73% | 19% (15개) |
 | 돈공부 | 168 | 100 | 220,872 | 9 | 79,235.5 | 902.0 | 1.3 | 68% | 16% (11개) |
 | 저축 | 168 | 100 | 220,772 | 6 | 112,875.0 | 1,483.2 | 1.5 | 81% | 15% (11개) |
-| 돈모으기 | 168 | 100 | 157,849 | 11 | 185,308 | 2,312.0 | 2.7 | 82% | 14% (11개) |
+| 돈모으기 | 168 | 100 | 157,849 | 11 | 185,308 | 2,311.9 | 2.7 | 82% | 14% (11개) |
 | 장기투자 | 168 | 100 | 203,694 | 8 | 165,112 | 2,071.4 | 2.0 | 86% | 14% (13개) |
-| 돈버는법 | 168 | 100 | 209,869 | 5 | 429,547.5 | 4,470.9 | 2.7 | 86% | 14% (9개) |
-| 연금 | 168 | 100 | 176,237 | 14 | 460,009 | 7,314.9 | 14.6 | 87% | 13% (12개) |
-| 연금저축펀드 | 168 | 100 | 153,617 | 6 | 129,619 | 1,383.0 | 2.4 | 88% | 12% (12개) |
-| 경제적자유 | 168 | 100 | 178,501 | 9 | 67,108.5 | 661.9 | 1.6 | 85% | 12% (8개) |
-| 연금저축 | 168 | 100 | 188,677 | 4 | 230,573 | 2,298.7 | 2.9 | 88% | 11% (11개) |
-| ISA계좌 | 168 | 100 | 152,289 | 4 | 181,132.0 | 1,705.2 | 2.5 | 88% | 11% (10개) |
-| ETF투자 | 168 | 100 | 218,565 | 4 | 284,123 | 2,974.1 | 3.8 | 90% | 10% (10개) |
+| 돈버는법 | 168 | 100 | 209,869 | 5 | 429,547.5 | 4,470.7 | 2.7 | 86% | 14% (9개) |
+| 연금 | 168 | 100 | 176,237 | 14 | 460,009 | 7,314.6 | 14.5 | 87% | 13% (12개) |
+| 연금저축펀드 | 168 | 100 | 153,617 | 6 | 129,619 | 1,382.9 | 2.4 | 88% | 12% (12개) |
+| 경제적자유 | 168 | 100 | 178,501 | 9 | 67,108.5 | 661.8 | 1.6 | 85% | 12% (8개) |
+| 연금저축 | 168 | 100 | 188,677 | 4 | 230,573 | 2,298.7 | 2.8 | 88% | 11% (11개) |
+| ISA계좌 | 168 | 100 | 152,289 | 4 | 181,132.0 | 1,705.0 | 2.5 | 88% | 11% (10개) |
+| ETF투자 | 168 | 100 | 218,565 | 4 | 284,123 | 2,974.0 | 3.8 | 90% | 10% (10개) |
 | 주식공부 | 168 | 100 | 212,591 | 8 | 143,169 | 1,474.0 | 1.2 | 77% | 9.6% (7개) |
-| IRP | 168 | 100 | 171,137 | 9 | 46,597 | 482.6 | 1.0 | 78% | 9.6% (8개) |
-| 자산배분 | 168 | 100 | 159,575 | 16 | 107,554.5 | 1,677.4 | 2.0 | 86% | 9.5% (8개) |
-| 부자 | 168 | 100 | 245,278 | 4 | 523,257 | 5,345.4 | 2.2 | 91% | 9.1% (3개) |
+| IRP | 168 | 100 | 171,137 | 9 | 46,597 | 482.5 | 1.0 | 78% | 9.6% (8개) |
+| 자산배분 | 168 | 100 | 159,575 | 16 | 107,554.5 | 1,677.3 | 2.0 | 86% | 9.5% (8개) |
+| 부자 | 168 | 100 | 245,278 | 4 | 523,257 | 5,345.3 | 2.2 | 91% | 9.1% (3개) |
 | 자산관리 | 168 | 100 | – | 4 | 177,463.5 | 2,097.3 | – | 89% | 9.1% (8개) |
-| 포트폴리오 | 168 | 100 | 216,782 | 6 | 228,572.5 | 2,468.4 | 1.7 | 91% | 7.1% (4개) |
-| ETF | 168 | 100 | 228,131 | 2 | 435,219.0 | 4,088.8 | 1.7 | 93% | 6.9% (4개) |
-| 주식투자 | 168 | 100 | 305,804 | 2 | 630,420.0 | 5,900.6 | 3.2 | 95% | 5.1% (4개) |
+| 포트폴리오 | 168 | 100 | 216,782 | 6 | 228,572.5 | 2,468.3 | 1.7 | 91% | 7.1% (4개) |
+| ETF | 168 | 100 | 228,131 | 2 | 435,219.0 | 4,088.7 | 1.7 | 93% | 6.9% (4개) |
+| 주식투자 | 168 | 100 | 305,804 | 2 | 630,420.0 | 5,900.4 | 3.2 | 95% | 5.1% (4개) |
 | 분산투자 | 168 | 100 | 147,669 | 11 | 7,818 | 123.3 | 0.5 | 60% | 4.7% (4개) |
-| S&P500 | 168 | 100 | 211,104 | 0 | 314,474.5 | 2,780.1 | 0.7 | 96% | 4.2% (1개) |
-| 주식 | 168 | 100 | 356,141 | 1 | 621,812 | 5,429.9 | 1.6 | 96% | 4.1% (2개) |
-| 재테크 | 168 | 100 | – | 6 | 436,564 | 4,940.0 | – | 97% | 2.9% (2개) |
-| 투자 | 168 | 100 | 480,082 | 7 | 591,606 | 5,779.9 | 3.4 | 98% | 2.5% (2개) |
+| S&P500 | 168 | 100 | 211,104 | 0 | 314,474.5 | 2,780.0 | 0.7 | 96% | 4.2% (1개) |
+| 주식 | 168 | 100 | 356,141 | 1 | 621,812 | 5,429.7 | 1.6 | 96% | 4.1% (2개) |
+| 재테크 | 168 | 100 | – | 6 | 436,564 | 4,939.8 | – | 97% | 2.9% (2개) |
+| 투자 | 168 | 100 | 480,082 | 7 | 591,606 | 5,779.7 | 3.4 | 98% | 2.5% (2개) |
 | 주식초보 | 168 | 100 | 179,106 | 7 | 100,113.0 | 1,000.3 | 1.4 | 96% | 2.4% (2개) |
-| 나스닥 | 168 | 100 | 204,358 | 5 | 168,549.0 | 1,618.4 | 2.0 | 98% | 1.9% (1개) |
+| 나스닥 | 168 | 100 | 204,358 | 5 | 168,549.0 | 1,618.3 | 1.9 | 98% | 1.9% (1개) |
 | 코스피 | 168 | 100 | 217,550 | 4 | 287,983.0 | 2,475.7 | 5.1 | 98% | 1.6% (1개) |
-| 투자전략 | 168 | 100 | 237,300 | 21 | 97,422 | 1,354.0 | 3.3 | 95% | 1.3% (1개) |
-| ISA | 168 | 100 | 286,572 | 0 | 953,809.5 | 6,358.6 | 0.2 | 100% | 0% (0개) |
-| 미국주식 | 168 | 100 | 228,269 | 15 | 250,840.0 | 4,138.7 | 3.3 | 100% | 0% (0개) |
+| 투자전략 | 168 | 100 | 237,300 | 21 | 97,422 | 1,353.9 | 3.3 | 95% | 1.3% (1개) |
+| ISA | 168 | 100 | 286,572 | 0 | 953,809.5 | 6,358.4 | 0.2 | 100% | 0% (0개) |
+| 미국주식 | 168 | 100 | 228,269 | 15 | 250,840.0 | 4,138.6 | 3.3 | 100% | 0% (0개) |
 
 ### 3-3. 사람들이 찾는 말 (YouTube 자동완성) 중 최근 영상이 적은 말
 
@@ -334,14 +314,14 @@
 
 ### 3-4. 주제 묶음별 시청자 질문 (사례 댓글 — 좋아요 순)
 
-- **3. 주식·ETF** (1321개): 👍1666 “오늘도 아주 유익한 영상 감사합니다:) 확실히 배당투자에 대한 고민이 많았었는데 이렇게 숫자로 계산해서 보여주시니 이해가 쏙쏙❤ 저는 5개월전부터 방콕상품 꾸준히 복리효과 누리면서 분할구매 하고있…” / 👍220 “안그래도 느꼈어요 요즘은 증권방송 보기도 싷더라구요 소위 주식 전문가들 증권사 직원들 에널리스트들 전부 자기밥그릇 챙기느라 혈안ᆢ 한통속 이예요 ᆢ 그들의 만행을 속시원히 알려주니 감사하네요 ᆢ” / 👍219 “하이닉스 기업총수 조강지처 헌신짝 처럼 버리는데 주식 주주님들 한테 진심일까요? 기업총수 정신자세 중요하죠. 주식은 믿음이 있어야 장기투자 할수있으니까요!”
-- **4. 노후·연금** (535개): 👍226 “조두순이 월120받습니다 국민연금30년부어서 월100받습니다 공정한사회인가요?” / 👍222 “정말 기본적인건데 국민연금 예상연금액 조회하면 나오는 예상연금액은 지금 가입된 소득으로 60세까지 납부했을때 기준이에요 왜 저렇게 설명하시지? 오해 소지가 넘 많은데요?” / 👍189 “은퇴하고 쉰지3년 하루하루가행복합니다 왜?꼭일해야하나요? 참나 죽을때가지일하라하지마세요~”
-- **6. 절세·제도** (333개): 👍380 “국내 중국인들에게 25가지 정부지원이 네이버 검색하니 쭉 나오네요 왜 이렇게 세금으로 혜택을주나요?” / 👍212 “개빡치는게 세금 왜 이따구로 복잡하게 만드는거냐 ㅡ 그냥 깔끔하게 퍼센트 정해서 그거 고정으로 가져가면 되잖아ㅡㅡ 왜 저딴 여러 계좌를 우리가 공부해야돼?” / 👍76 “국회의원. 지방의원 반드시 줄여야 해요. 해야 할 일은 안하고 쓸모없는 법안이나 만들고 온갖 혜택은 다 누리니 왜 우리의 피같은 세금을 그들에게 줘야 하나요? 나라 꼴 개판으로 돌아가게 힘쓴분들이…”
-- **2. 돈 모으기·저축** (196개): 👍164 “금융소득 종합과세 2000만원은 왜 왜 그대로냐고??????? 배당금으로 생활을 하려해도 그놈의 세금때문에???? 예금자보호도 1억으로 상향했으면 이것도 5천정도로 올려야지??????” / 👍38 “다이소 올리브영에서 가성비좋고 꼭 필요한 제품 낱개씩 사서 열심히 잘 사용하고있습니다. 백화점에서 화장품사는 것보다 알뜰하게 구매하고 잘 소비하고 잘 사용하고 있어 지혜롭게 소비생활하고있습니다. …” / 👍38 “죄송한데 얼마 버셔서 500만원 저축하시는거예요?? 정말 대단하셔서 궁금해서요”
-- **1. 재테크 일반·마인드** (99개): 👍103 “사는동안 잘사는 것도 중요하지않나요? 돈만 모으다가 죽는 사람도 많이 봤어요 돈도 모으는 사람은 평생 돈을 못쓰더라구요 부자면 뭐해요 평생 지질이 궁사안 떨다가 죽는것도 문제” / 👍27 “주식해서 폭망하라고요? 투자해서 쪽박차라고요? 거지될 확률을 알려주시나요? 직장 다닐때 감사하세요 투자해서 부자되는것이 쉬의면 세상사람절반이 부자됐겠다 허파에 바람만 쳐넣는구나” / 👍24 “공무원 이십년 퇴직자의 공무원연금 백만원 정도다. 퇴직금도없다. 공공근로도 제외된다. 어떤 곳에서도 이에 대한 말을 안한다. 정부의 함구령인가? 공무원 퇴직자가 받는 백만원 연금은 상위 30퍼센트…”
-- **8. 부업·소득** (23개): 👍18 “돈버는 방법 알려주는데 말투가 무슨 상관이겠습니까? 감사합니다 열심히해서 부자되겠습니다” / 👍9 “왠지 딱 20프로 손실나서 국민은 세금감면만 받아서 입꾹닫하고 펀드만 20프로 돈버는 결말은 아니겠지?” / 👍4 “부업으로 할 수 있는 일을 찾고 있었는데 알고리즘에 딱 뜨네요 운명인가😮 가지고 계신 노하우를 알려주시는게 쉬운일은 아니실텐데 이렇게 공유해주신다니 감사할 따름이네요..! 도전해보고 싶어지네요 저…”
-- **7. 빚·대출·신용** (21개): 👍10 “재산이 있다면, 죽을때까지 관리 잘 해야 합니다~ 내 손을 떠난 돈은 다시 돌아오기 엄청 어렵습니다~ 누구에게 빌려 줬더라도 받기가 힘들고요~ 특히 자녀들에게 준것은 돌려받기 어렵지요~ 달라고 하…” / 👍5 “신용카드 매주 자동 결재 좋던데요?” / 👍4 “한 가지 잘 모르시는 사항이 있으시군요. 일본의 부채는 다른 나라와 달리 외국 돈을 빌리는 게 아니라 자기네 나라 국채 라든가 중앙 은행이라든가 자기네 나라 돈을 빌리는 겁니다. 그리고 엔화 가 …”
-- **10. 금융 사기** (15개): 👍52 “첫번째 노인 사기꾼 아닌가요 사고방식이나 말투가 서울대 나온사람이 아님 삼성에서 오라했는데 본인이 안갔다??” / 👍5 “금시세라는게 동네 금방만 가도 바로 아는데ᆢ5백을 더 준다는게 소설이네 ㅋ 당근에서는 단돈 만원도 깍을려구하지ᆢ누가 더 준대요? 백프로 사기지요 ㅋ 그것도 2천5백이나 큰돈을ᆢ 당근거래?” / 👍2 “머리 저렇게 지저분하게 기른놈중 사기꾼 이 많더라! 젊은청년들에게 사기처 요즘 시끄러운 이병한놈과 비스무리한 머리스타일???”
+- **3. 주식·ETF** (1789개): 👍1666 “오늘도 아주 유익한 영상 감사합니다:) 확실히 배당투자에 대한 고민이 많았었는데 이렇게 숫자로 계산해서 보여주시니 이해가 쏙쏙❤ 저는 5개월전부터 방콕상품 꾸준히 복리효과 누리면서 분할구매 하고있…” / 👍248 “누가 대출 받아서 주식하라고 누칼협?” / 👍220 “안그래도 느꼈어요 요즘은 증권방송 보기도 싷더라구요 소위 주식 전문가들 증권사 직원들 에널리스트들 전부 자기밥그릇 챙기느라 혈안ᆢ 한통속 이예요 ᆢ 그들의 만행을 속시원히 알려주니 감사하네요 ᆢ”
+- **4. 노후·연금** (629개): 👍226 “조두순이 월120받습니다 국민연금30년부어서 월100받습니다 공정한사회인가요?” / 👍222 “정말 기본적인건데 국민연금 예상연금액 조회하면 나오는 예상연금액은 지금 가입된 소득으로 60세까지 납부했을때 기준이에요 왜 저렇게 설명하시지? 오해 소지가 넘 많은데요?” / 👍206 “지금시점으론 1700조라던데.. 5000조 만들어서 연금좀 많이줘라.. 부탁하고 응원한다..”
+- **6. 절세·제도** (390개): 👍380 “국내 중국인들에게 25가지 정부지원이 네이버 검색하니 쭉 나오네요 왜 이렇게 세금으로 혜택을주나요?” / 👍212 “개빡치는게 세금 왜 이따구로 복잡하게 만드는거냐 ㅡ 그냥 깔끔하게 퍼센트 정해서 그거 고정으로 가져가면 되잖아ㅡㅡ 왜 저딴 여러 계좌를 우리가 공부해야돼?” / 👍76 “국회의원. 지방의원 반드시 줄여야 해요. 해야 할 일은 안하고 쓸모없는 법안이나 만들고 온갖 혜택은 다 누리니 왜 우리의 피같은 세금을 그들에게 줘야 하나요? 나라 꼴 개판으로 돌아가게 힘쓴분들이…”
+- **2. 돈 모으기·저축** (247개): 👍164 “금융소득 종합과세 2000만원은 왜 왜 그대로냐고??????? 배당금으로 생활을 하려해도 그놈의 세금때문에???? 예금자보호도 1억으로 상향했으면 이것도 5천정도로 올려야지??????” / 👍38 “다이소 올리브영에서 가성비좋고 꼭 필요한 제품 낱개씩 사서 열심히 잘 사용하고있습니다. 백화점에서 화장품사는 것보다 알뜰하게 구매하고 잘 소비하고 잘 사용하고 있어 지혜롭게 소비생활하고있습니다. …” / 👍38 “죄송한데 얼마 버셔서 500만원 저축하시는거예요?? 정말 대단하셔서 궁금해서요”
+- **1. 재테크 일반·마인드** (121개): 👍103 “사는동안 잘사는 것도 중요하지않나요? 돈만 모으다가 죽는 사람도 많이 봤어요 돈도 모으는 사람은 평생 돈을 못쓰더라구요 부자면 뭐해요 평생 지질이 궁사안 떨다가 죽는것도 문제” / 👍27 “주식해서 폭망하라고요? 투자해서 쪽박차라고요? 거지될 확률을 알려주시나요? 직장 다닐때 감사하세요 투자해서 부자되는것이 쉬의면 세상사람절반이 부자됐겠다 허파에 바람만 쳐넣는구나” / 👍24 “공무원 이십년 퇴직자의 공무원연금 백만원 정도다. 퇴직금도없다. 공공근로도 제외된다. 어떤 곳에서도 이에 대한 말을 안한다. 정부의 함구령인가? 공무원 퇴직자가 받는 백만원 연금은 상위 30퍼센트…”
+- **7. 빚·대출·신용** (121개): 👍99 “무주택자들 집사라고 해놓고 대출 막음 ㅋㅋㅋㅋ 뭔 제도냐?” / 👍10 “재산이 있다면, 죽을때까지 관리 잘 해야 합니다~ 내 손을 떠난 돈은 다시 돌아오기 엄청 어렵습니다~ 누구에게 빌려 줬더라도 받기가 힘들고요~ 특히 자녀들에게 준것은 돌려받기 어렵지요~ 달라고 하…” / 👍5 “신용카드 매주 자동 결재 좋던데요?”
+- **10. 금융 사기** (27개): 👍263 “들으면 들을수록 열받네 국가가 날강도네 아니 누구는 63세부터 받기 시작해 100%받는데 누구는 63세가 조기 수령이라고 평생 30% 까이고 받는다고 이게 사기지 좋은거냐?” / 👍52 “첫번째 노인 사기꾼 아닌가요 사고방식이나 말투가 서울대 나온사람이 아님 삼성에서 오라했는데 본인이 안갔다??” / 👍8 “대국민사기극ᆢ은 아니겠죠~~??”
+- **8. 부업·소득** (25개): 👍18 “돈버는 방법 알려주는데 말투가 무슨 상관이겠습니까? 감사합니다 열심히해서 부자되겠습니다” / 👍9 “왠지 딱 20프로 손실나서 국민은 세금감면만 받아서 입꾹닫하고 펀드만 20프로 돈버는 결말은 아니겠지?” / 👍4 “부업으로 할 수 있는 일을 찾고 있었는데 알고리즘에 딱 뜨네요 운명인가😮 가지고 계신 노하우를 알려주시는게 쉬운일은 아니실텐데 이렇게 공유해주신다니 감사할 따름이네요..! 도전해보고 싶어지네요 저…”
 
 ## 4. 제목
 
@@ -351,30 +331,30 @@
 
 | 제목 특징 | 있음 (성공 비율) | 없음 (성공 비율) | 차이 | 표시 | 성공 사례 중 |
 |---|---|---|---|---|---|
-| 노후·퇴직금·은퇴·50~70대 | 76 (86%) | 195 (60%) | +26%p | **눈에 띔** | 35% |
-| 40자 이상 | 172 (76%) | 99 (52%) | +24%p | **눈에 띔** | 70% |
-| 말줄임 …·... | 18 (83%) | 253 (66%) | +18%p | **눈에 띔** | 9.0% |
-| 숫자가 들어감 | 188 (72%) | 83 (55%) | +16%p | **눈에 띔** | 71% |
+| 노후·퇴직금·은퇴·50~70대 | 76 (86%) | 195 (60%) | +26%p | **눈에 띔** | 36% |
+| 40자 이상 | 172 (76%) | 99 (52%) | +24%p | **눈에 띔** | 71% |
+| 말줄임 …·... | 18 (83%) | 253 (66%) | +18%p | **눈에 띔** | 9.1% |
+| 숫자가 들어감 | 188 (72%) | 83 (55%) | +16%p | **눈에 띔** | 72% |
 | 이유 | 43 (54%) | 228 (69%) | -16%p | **눈에 띔** | 12% |
-| 따옴표·괄호로 강조 | 90 (77%) | 181 (62%) | +15%p | **눈에 띔** | 39% |
-| 사연·오디오북·실화·고백 | 15 (80%) | 256 (66%) | +14%p | **눈에 띔** | 8.3% |
-| vs 비교 | 32 (78%) | 239 (65%) | +13%p | **눈에 띔** | 14% |
-| 느낌표 ! | 28 (57%) | 243 (68%) | -11%p | **눈에 띔** | 9.0% |
-| 코스피·폭락·급락·하락장 | 5 (20%) | 266 (68%) | -48%p | 표본 적음 | 0.7% |
-| 공통점 | 1 (100%) | 270 (67%) | +33%p | 표본 적음 | 0.7% |
+| 따옴표·괄호로 강조 | 90 (77%) | 181 (62%) | +15%p | **눈에 띔** | 38% |
+| 사연·오디오북·실화·고백 | 15 (80%) | 256 (66%) | +14%p | **눈에 띔** | 7.3% |
+| vs 비교 | 32 (78%) | 239 (65%) | +13%p | **눈에 띔** | 13% |
+| 느낌표 ! | 28 (57%) | 243 (68%) | -11%p | **눈에 띔** | 10% |
+| 코스피·폭락·급락·하락장 | 5 (20%) | 266 (68%) | -48%p | 표본 적음 | 0.6% |
+| 공통점 | 1 (100%) | 270 (67%) | +33%p | 표본 적음 | 0.6% |
 | 직접·해보니·N년 기록 | 10 (90%) | 261 (66%) | +24%p | 표본 적음 | 4.8% |
-| AI | 5 (80%) | 266 (66%) | +14%p | 표본 적음 | 2.8% |
-| 25자 미만 | 7 (57%) | 264 (67%) | -10%p | 표본 적음 | 3.4% |
-| N가지 | 35 (74%) | 236 (66%) | +9%p |  | 17% |
-| 물음표 ? | 54 (61%) | 217 (68%) | -7%p |  | 17% |
-| 과정·벌어진 일·결말·결국 | 5 (60%) | 266 (67%) | -7%p | 표본 적음 | 2.1% |
-| 금액(억·만원) | 71 (72%) | 200 (65%) | +7%p |  | 26% |
-| 패턴형(공통점·특징·이유·N가지·착각·과정) | 77 (62%) | 194 (69%) | -6%p |  | 28% |
+| AI | 5 (80%) | 266 (66%) | +14%p | 표본 적음 | 2.4% |
+| 25자 미만 | 7 (57%) | 264 (67%) | -10%p | 표본 적음 | 3.0% |
+| N가지 | 35 (74%) | 236 (66%) | +9%p |  | 15% |
+| 물음표 ? | 54 (61%) | 217 (68%) | -7%p |  | 18% |
+| 과정·벌어진 일·결말·결국 | 5 (60%) | 266 (67%) | -7%p | 표본 적음 | 1.8% |
+| 금액(억·만원) | 71 (72%) | 200 (65%) | +7%p |  | 28% |
+| 패턴형(공통점·특징·이유·N가지·착각·과정) | 77 (62%) | 194 (69%) | -6%p |  | 27% |
 | S&P500·ETF·지수·나스닥 | 41 (71%) | 230 (66%) | +5%p |  | 14% |
-| 손실 낱말(망하·날린·잃은·반토막) | 8 (62%) | 263 (67%) | -4%p | 표본 적음 | 2.1% |
-| 두 금액(반전) | 17 (71%) | 254 (66%) | +4%p |  | 5.5% |
-| 구분 기호(ㅣ·｜·/)로 나눔 | 74 (68%) | 197 (66%) | +1%p |  | 31% |
-| 빚투·신용·미수·레버리지·대출 | 6 (67%) | 265 (67%) | -0%p | 표본 적음 | 1.4% |
+| 손실 낱말(망하·날린·잃은·반토막) | 8 (62%) | 263 (67%) | -4%p | 표본 적음 | 2.4% |
+| 두 금액(반전) | 17 (71%) | 254 (66%) | +4%p |  | 6.7% |
+| 구분 기호(ㅣ·｜·/)로 나눔 | 74 (68%) | 197 (66%) | +1%p |  | 30% |
+| 빚투·신용·미수·레버리지·대출 | 6 (67%) | 265 (67%) | -0%p | 표본 적음 | 1.8% |
 
 ### 4-2. 제목 낱말 (비교 집단 제목에 자주 나온 낱말 — 조사를 거칠게 뗌)
 
@@ -397,8 +377,8 @@
 | 평생 | 15 (73%) | 256 (66%) | +7%p |  |
 | 분산투자 | 10 (0%) | 261 (69%) | -69%p | 표본 적음 |
 | 투자 | 22 (27%) | 249 (70%) | -43%p | **눈에 띔** |
-| 연금저축 | 9 (44%) | 262 (68%) | -23%p | 표본 적음 |
 | IRP | 9 (44%) | 262 (68%) | -23%p | 표본 적음 |
+| 연금저축 | 9 (44%) | 262 (68%) | -23%p | 표본 적음 |
 | 방법 | 11 (46%) | 260 (68%) | -22%p | 표본 적음 |
 | 이유 | 43 (54%) | 228 (69%) | -16%p | **눈에 띔** |
 | S&P500 | 13 (54%) | 258 (67%) | -14%p | 표본 적음 |
@@ -435,11 +415,11 @@
 
 | 길이 | 영상 (성공 비율) | 성공 사례 |
 |---|---|---|
-| 4~8분 | 23 (61%) | 10 |
-| 8~15분 | 74 (57%) | 35 |
-| 15~25분 | 109 (69%) | 57 |
-| 25~40분 | 43 (72%) | 28 |
-| 40분 이상 | 22 (86%) | 15 |
+| 4~8분 | 23 (61%) | 13 |
+| 8~15분 | 74 (57%) | 40 |
+| 15~25분 | 109 (69%) | 65 |
+| 25~40분 | 43 (72%) | 30 |
+| 40분 이상 | 22 (86%) | 17 |
 
 ### 6-2. 채널 크기별 성공 비율 (참고 — 구독자가 적을수록 배수가 커지기 쉬움)
 
@@ -497,15 +477,15 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 | 자산제곱 | 2026-03-10 | 68,300 | 9,537 | – | 27 | 3.8 | 28.7분 | 3. 주식·ETF | [순자산 6단계 투자 전략, 3천만원부터 20억 이상까지](https://www.youtube.com/watch?v=8KYN-lrLumc) 124,831회 |
 | 위폴 WePoll | 2026-03-11 | 66,600 | 9,342 | – | 352 | 49.4 | 46.8분 | 3. 주식·ETF | [7월 변동성 예견한 백찬규 센터장의 하반기 전략 (NH투자증권 백찬규 …](https://www.youtube.com/watch?v=DIkn2We-Gwk) 76,139회 |
 
-## 8. 시청자 니즈 (성공 사례 145개의 시청자 댓글 35,749개 — 채널 주인 댓글 뺌)
+## 8. 시청자 니즈 (성공 사례 165개의 시청자 댓글 39,461개 — 채널 주인 댓글 뺌)
 
 | 갈래 | 댓글 | 비율 | 좋아요 합 |
 |---|---|---|---|
-| 좋은 점 (칭찬·도움·공감) | 4,679 | 13% | 42,054 |
-| 더 알고 싶은 것 (질문·요청) | 4,062 | 11% | 13,623 |
-| 아쉬운 점 (비판·불만·반박) | 1,282 | 3.6% | 10,742 |
-| 경험 공유 (내 이야기) | 2,931 | 8.2% | 26,122 |
-| 구독·다음 기대 | 234 | 0.7% | 1,215 |
+| 좋은 점 (칭찬·도움·공감) | 5,346 | 14% | 45,141 |
+| 더 알고 싶은 것 (질문·요청) | 4,669 | 12% | 14,836 |
+| 아쉬운 점 (비판·불만·반박) | 1,373 | 3.5% | 11,445 |
+| 경험 공유 (내 이야기) | 3,454 | 8.8% | 28,056 |
+| 구독·다음 기대 | 284 | 0.7% | 1,359 |
 
 ### 좋은 점 (칭찬·도움·공감) — 좋아요 많은 댓글
 
@@ -535,10 +515,10 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 - 👍817 [#57] “개인연금 시대에 종합소득 과세 2000은 말도 안되는 시대에 뒤떨어진 정책입니다 최소 4000은 되어야 함”
 - 👍756 [#54] “이분이 이번에 맞췄다고 해서 다음에 또 맞추는건 아닙니다. 남의 말 듣지말고 자기 주관대로 해야 후회가 남지 않습니다”
 - 👍589 [#86] “소액만 하고 목돈 안모아본 사람들 댓글이 대부분이네요 ㅋㅋㅋ 저도 1억 채웠는데 해지 안합니다. 해지하지마세요. 경험들도 안해봤으면서 돈 모이면 연금저축으로 이전해라 얼마빼고 일부 돈 뺼수잇다 이러는데 전혀 아닙니다. 연말정산 자기들이 직접 하는게 아니라 회사서 일괄로 하기때문에 세액공제 조금씩은 다 받아져잇습니다.(안받앗다고 주장하는 사람들 나중에 다 몰”
+- 👍311 [#145] “신문사에서 가장 중요하게 생각하는 페이지의 순서는 1> 3면이라고 합니다. 그래서 1면의 심층기사가 3면에 계속되는게 보통이라고 들었습니다. 저는 1,3,world,market 섹션은 꼭 읽고 나머지는 시간이 되면 읽는 편입니다. 못읽는날도 스트레스 없이 그냥 넘기고 꾸준히 읽다보니 책도 잘 안읽던 제가 신문을 본지 어느덧 1년이 조금 넘었습니다. 보통 출”
 - 👍233 [#82] “안녕하세요, 한글언니입니다! 🥰 저도 광고를 보고 시작한 사람인만큼 많은 무료 부업 강의들을 시청했습니다 여러분이 느끼셨던 기분, 저도 느껴봤어요 🫥 제 시급 4만원을 기준으로 강의는 두시간가량 진행 예정이니 여러분이 내어주시는 시간을 돈으로 환산하면 10만원이 되겠네요 (그보다 더한 가치라고 생각합니다) 하나 약속드릴 수 있는 건, 귀하신 시간 내어 참석”
 - 👍229 [#104] “구구절절 옳은말씀 틀린게 하나도 없네요”
 - 👍200 [#31] “재밌어요. 구독자 68명 퀄이아닌데요 머지”
-- 👍191 [#18] “50대 초반 대기업 시니어 부장에서 퇴직하고 거짓말 안 보태고 이력서만 100곳 이상 썼습니다. 그리고 천신만고 끝에 조그만 중소기업에 재취업을 했는데, 공황장애가 오더군요. 이번엔 살려고 퇴사했습니다. 그리고 결국 다 내려놓고, 자격증을 땄습니다. 70 넘어서도 일할 수 있는 일이 기준이었고(물론 그 이전 65세에 은퇴할 생각입니다) 밑바닥 부터 시작해도”
 
 ### 경험 공유 (내 이야기) — 좋아요 많은 댓글
 
@@ -572,6 +552,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 - 👍222 [#32] “정말 기본적인건데 국민연금 예상연금액 조회하면 나오는 예상연금액은 지금 가입된 소득으로 60세까지 납부했을때 기준이에요 왜 저렇게 설명하시지? 오해 소지가 넘 많은데요?”
 - 👍220 [#67] “안그래도 느꼈어요 요즘은 증권방송 보기도 싷더라구요 소위 주식 전문가들 증권사 직원들 에널리스트들 전부 자기밥그릇 챙기느라 혈안ᆢ 한통속 이예요 ᆢ 그들의 만행을 속시원히 알려주니 감사하네요 ᆢ”
 - 👍219 [#67] “하이닉스 기업총수 조강지처 헌신짝 처럼 버리는데 주식 주주님들 한테 진심일까요? 기업총수 정신자세 중요하죠. 주식은 믿음이 있어야 장기투자 할수있으니까요!”
+- 👍206 [#154] “지금시점으론 1700조라던데.. 5000조 만들어서 연금좀 많이줘라.. 부탁하고 응원한다..”
 - 👍189 [#11] “은퇴하고 쉰지3년 하루하루가행복합니다 왜?꼭일해야하나요? 참나 죽을때가지일하라하지마세요~”
 - 👍189 [#67] “개미들 돈 누가 다 먹었을까요? 다 외국인 기관들한테 갔습니다 증권사는 수수료로 돈 잔치 했겠죠. 그동안 주식해서 번돈 다시 재투자하면서 이제 원금입니다 ㅠ 그나마 다행이지요. ㅠㅠ 그동안 무료 봉사 했어요 주식에~~~~”
 - 👍177 [#87] “저분이 삼성 안가서 삼성한테는 다행이다 ᆢ무슨 저런 생각을하나?”
@@ -586,9 +567,8 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 - 👍75 [#87] “기업을 기우면 우리국민한테 돌아오는데 삼성을 위해서는 안는다고 그럼지금 무슨 봉사라도 하시나?”
 - 👍75 [#126] “진짜 웃기네.... 아무것도 안하고 범죄자로 살다가 100만원씩 받고, 열심히 살았는데 칠팔십만원 받는다?????”
 - 👍74 [#4] “세금 쓰는 모든 돈의 지출을 복잡하게 해서 누구 주머니 채울생각임?”
+- 👍74 [#149] “헐 이렇게 쉽게 성공하다니..!! 예전에 저도 국립중앙도서관으로 하면 프레스리더로 무료 읽기 된다구 해서 시도했다가 실패했었는데 알려주신대로 시도했더니 바로 인증됐어요ㅠㅠ 정말 감사해요~~!!”
 - 👍73 [#104] “전부 다 맞는말이네요~~??”
-- 👍71 [#96] “맞아요 부탁할때만, 호출할때만 봐주면 좋아요”
-- 👍68 [#59] “빠더너스 채널인줄 알았어요..! 시간이 지나면 폐건물이 되는 건 당연한 수순인데 하나만 있어도 그 주변 미관이 많이 망가지더라구요. 그런 건물들을 찾아다니며 리모델링한다니 너무 좋네요! 앞으로 많은 활동 부탁드려용”
 
 ### 아쉬운 점 — 비판·불만 (좋아요 순, 답글 포함)
 
@@ -596,6 +576,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 - 👍817 [#57] “개인연금 시대에 종합소득 과세 2000은 말도 안되는 시대에 뒤떨어진 정책입니다 최소 4000은 되어야 함”
 - 👍756 [#54] “이분이 이번에 맞췄다고 해서 다음에 또 맞추는건 아닙니다. 남의 말 듣지말고 자기 주관대로 해야 후회가 남지 않습니다”
 - 👍589 [#86] “소액만 하고 목돈 안모아본 사람들 댓글이 대부분이네요 ㅋㅋㅋ 저도 1억 채웠는데 해지 안합니다. 해지하지마세요. 경험들도 안해봤으면서 돈 모이면 연금저축으로 이전해라 얼마빼고 일부 돈 뺼수잇다 이러는데 전혀 아닙니다. 연말정산 자기들이 직접 하는게 아니라 회사서 일괄로 하기때문에 세액공제 조금씩은 다 받아져잇습니다.(안받앗다고 주장하는 사람들 나중에 다 몰”
+- 👍311 [#145] “신문사에서 가장 중요하게 생각하는 페이지의 순서는 1> 3면이라고 합니다. 그래서 1면의 심층기사가 3면에 계속되는게 보통이라고 들었습니다. 저는 1,3,world,market 섹션은 꼭 읽고 나머지는 시간이 되면 읽는 편입니다. 못읽는날도 스트레스 없이 그냥 넘기고 꾸준히 읽다보니 책도 잘 안읽던 제가 신문을 본지 어느덧 1년이 조금 넘었습니다. 보통 출”
 - 👍233 [#82] “안녕하세요, 한글언니입니다! 🥰 저도 광고를 보고 시작한 사람인만큼 많은 무료 부업 강의들을 시청했습니다 여러분이 느끼셨던 기분, 저도 느껴봤어요 🫥 제 시급 4만원을 기준으로 강의는 두시간가량 진행 예정이니 여러분이 내어주시는 시간을 돈으로 환산하면 10만원이 되겠네요 (그보다 더한 가치라고 생각합니다) 하나 약속드릴 수 있는 건, 귀하신 시간 내어 참석”
 - 👍229 [#104] “구구절절 옳은말씀 틀린게 하나도 없네요”
 - 👍200 [#31] “재밌어요. 구독자 68명 퀄이아닌데요 머지”
@@ -606,13 +587,12 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 - 👍136 [#104] “그때는 옳고 현재는 틀렸다. 역사가 어떻게 증명할지 기대 됩니다. 그때는 내주머니에 돈채워주던때 지금은 내주머니 돈 뺏어가던때”
 - 👍121 [#120] “저렇게 만들어준 집밥 먹어주는 자녀들이 기특하다는 댓글들 많은데요 글쎄요~ 저는 다른관점에서 보네요. 아이들을 그렇게 키우신 엄마가 지혜롭고 야무져보입니다.”
 - 👍114 [#54] “돌이켜보니 이 사람 예측이 제일 정확했다...5000대 초반까지 떨어질 수 있다고 한 유일한 사람임...그 때는 말도 안되는 소리라 생각했는데 정확했음”
-- 👍106 [#140] “함께 이룬 재산도 아닌데 재혼하면서 왜 그걸 자기랑 공유해야한다고 생각하는지...”
 
 ## 9. 사례별 자세히
 
 ### 1. 안 팔릴수록 부자되는 '동네 금은방'의 소름돋는 수익구조
 
-- https://www.youtube.com/watch?v=eFsT1K_mPjc · 새파란 경제 · 구독자 908 · 조회수 510,269 (×562.0, 하루 18,293.3) · 좋아요 1,284 (0.2%) · 17.6분 · 2026-09-16 · 주제 묶음 1. 재테크 일반·마인드 · 폴더 `W_eFsT1K_mPjc` (웹 승인)
+- https://www.youtube.com/watch?v=eFsT1K_mPjc · 새파란 경제 · 구독자 908 · 조회수 510,269 (×562.0, 하루 18,291.4) · 좋아요 1,284 (0.2%) · 17.6분 · 2026-09-16 · 주제 묶음 1. 재테크 일반·마인드 · 폴더 `W_eFsT1K_mPjc` (웹 승인)
 - 썸네일: <img src="W_eFsT1K_mPjc/thumbnail.jpg" width="320">
 - 챕터: 0:00 손님 없는 금은방이 버티는 이유 · 1:16 금은방이 보는 건 무게와 순도뿐 · 2:17 18K와 순금, 받는 돈이 갈리는 이유 · 3:56 금시세보다 낮은 금액을 부르는 까닭 · 5:00 가게마다 금매입 가격이 다른 이유 · 7:22 금 한 돈 사서 바로 팔면 11만 9000원 · 8:04 그 차액의 3분의 2는 부가세 · 9:57 팔린 돌반지가 녹으러 가는 길 · 13:06 금은방이 교환에서 버는 방식 · 13:48 수리와 재세공에서 생기는 공임 · 15:14 안 팔린 금을 녹일 수 있다는 말의 뜻
 - 설명 앞부분: 진열장 앞은 비어 있는데 금은방은 문을 닫지 않습니다. 금시세가 오르는 동안 금값과 금매입 가격이 얼마나 벌어졌는지, 서랍 속 돌반지 하나가 금은방 안에서 몇 번 돈이 되는지 순서대로 따라가 봤습니다. 【 ⏱️ 타임코드 】 1. 한국금거래소 — 「2026년 9월 14일 귀금속 시세 고시」 (순금 한 돈 살 때 827,000원 · 팔 때 708,000원 · 차액 11만 9000원) 2. 한국표준금거래소 — 「2026년 9월 14일 귀금속 시세 고시」 (거래소 두 곳 매입가 차이 0.14% · 은 5.3% · 백금) 3. 농민신문 —…
@@ -627,7 +607,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 2. 65세 이후 통장에 '이 금액' 있다면 돈 벌지 말고 그냥 인생을 즐겨라ㅣ명언ㅣ인생조언ㅣ오디오북
 
-- https://www.youtube.com/watch?v=MJE-dsUuqIM · 인생의 고수 · 구독자 1,580 · 조회수 838,223 (×530.5, 하루 25,985.5) · 좋아요 3,156 (0.4%) · 34.8분 · 2026-09-12 · 주제 묶음 4. 노후·연금 · 폴더 `W_MJE-dsUuqIM` (웹 승인)
+- https://www.youtube.com/watch?v=MJE-dsUuqIM · 인생의 고수 · 구독자 1,580 · 조회수 838,223 (×530.5, 하루 25,983.1) · 좋아요 3,156 (0.4%) · 34.8분 · 2026-09-12 · 주제 묶음 4. 노후·연금 · 폴더 `W_MJE-dsUuqIM` (웹 승인)
 - 썸네일: <img src="W_MJE-dsUuqIM/thumbnail.jpg" width="320">
 - 설명 앞부분: 요즘 저는 거의 매일 동네 복지관에 갑니다. 그곳에서 운동도 하고, 프로그램도 듣고, 또래 어르신들과 잡담도 하며 소소한 재미를 느끼고 있습니다. 그런데 어느 순간부터 이런 생각이 들기 시작했습니다. “이분들은 도대체 노후 자금이 얼마나 될까?” 화려한 삶을 사는 것도 아닌데, 매일 복지관에 오고 지역 모임에도 참여하고, 커피 한 잔 편하게 마실 수 있는 걸 보면 돈 걱정이 아주 심한 분들은 아닐 텐데…라는 의문 말입니다. 그리고 이 질문은 자연스럽게 제 자신의 노후를 떠올리게 했습니다. “나는 70대가 되었을 때, 통장에 얼마를…
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -643,7 +623,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 3. 조용한 부자들이 절대 입에 담지 않는 7가지 — 돈 있는 사람의 진짜 습관 ㅣ시니어ㅣ오디오북ㅣ노후준비ㅣ심리학ㅣ
 
-- https://www.youtube.com/watch?v=TKBAsjZgVWU · 가을빛 심리학 · 구독자 1,000 · 조회수 413,701 (×413.7, 하루 14,920.6) · 좋아요 1,518 (0.4%) · 21.7분 · 2026-09-16 · 주제 묶음 1. 재테크 일반·마인드 · 폴더 `W_TKBAsjZgVWU` (웹 승인)
+- https://www.youtube.com/watch?v=TKBAsjZgVWU · 가을빛 심리학 · 구독자 1,000 · 조회수 413,701 (×413.7, 하루 14,919.1) · 좋아요 1,518 (0.4%) · 21.7분 · 2026-09-16 · 주제 묶음 1. 재테크 일반·마인드 · 폴더 `W_TKBAsjZgVWU` (웹 승인)
 - 썸네일: <img src="W_TKBAsjZgVWU/thumbnail.jpg" width="320">
 - 설명 앞부분: 🔇 조용한 부자들은 왜 말을 안 할까? 모임에서 늘 구석에 앉고, 누가 물어봐도 "이것저것이요" 한마디로 끝내는 사람. 알고 보니 건물 두 채, 세 채를 가지고 있었습니다. 이 사람들에게는 절대 입 밖에 꺼내지 않는 공통된 습관이 있었어요. 자산 규모, 소비 기준, 성공 원인, 심지어 좋은 일을 하고도 말하지 않습니다. 왜 그런 걸까요? 심리학 연구와 실제 사례를 바탕으로, 조용한 부자들이 침묵하는 진짜 이유 7가지를 하나씩 풀어봤습니다. 💡 이런 분들에게 추천합니다 ✔️ 말을 아끼는 사람들의 심리가 궁금한 분 ✔️ 부자들의 실제…
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -657,7 +637,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 4. 기초연금 개편 진짜였네? 결국 내가 받을 돈 '이렇게' 받는다 [대통령 긴급 발표] 61년생부터 주목
 
-- https://www.youtube.com/watch?v=42N9nj2wWko · 연금노하우 · 구독자 1,280 · 조회수 412,530 (×322.3, 하루 8,991.5) · 좋아요 4,308 (1.0%) · 9.4분 · 2026-08-29 · 주제 묶음 4. 노후·연금 · 폴더 `W_42N9nj2wWko` (웹 승인)
+- https://www.youtube.com/watch?v=42N9nj2wWko · 연금노하우 · 구독자 1,280 · 조회수 412,530 (×322.3, 하루 8,990.9) · 좋아요 4,308 (1.0%) · 9.4분 · 2026-08-29 · 주제 묶음 4. 노후·연금 · 폴더 `W_42N9nj2wWko` (웹 승인)
 - 썸네일: <img src="W_42N9nj2wWko/thumbnail.jpg" width="320">
 - 설명 앞부분: "기초연금 개편 진짜였다" 여러분, 61년생부터 받는 기초연금이 12년만에 확 달라졌습니다. 대통령이 긴급 발표한 내용인데요. 이재명 대통령이 절대 그냥 주라고 하지는 않았다네요.. 그동안 똑같이 받던 연금, 이제 누구는 더 받고, 또 누구는 그대로 라는데요. 여러분의 부모님은 과연 어느 쪽일까요? 자세한 내용은 영상에서 확인하세요!
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -673,7 +653,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 5. 생생한 택배기사 최근 6개월치 월급 공개... 이게 '진짜 현실'입니다.
 
-- https://www.youtube.com/watch?v=6QkzqMZYrVQ · 택부 - 택배기사 부자들 · 구독자 6,550 · 조회수 1,941,365 (×296.4, 하루 38,114.3) · 좋아요 6,600 (0.3%) · 8.6분 · 2026-08-24 · 주제 묶음 2. 돈 모으기·저축 · 폴더 `W_6QkzqMZYrVQ` (웹 승인)
+- https://www.youtube.com/watch?v=6QkzqMZYrVQ · 택부 - 택배기사 부자들 · 구독자 6,550 · 조회수 1,941,365 (×296.4, 하루 38,112.1) · 좋아요 6,600 (0.3%) · 8.6분 · 2026-08-24 · 주제 묶음 2. 돈 모으기·저축 · 폴더 `W_6QkzqMZYrVQ` (웹 승인)
 - 썸네일: <img src="W_6QkzqMZYrVQ/thumbnail.jpg" width="320">
 - 챕터: 0:00 인트로 · 0:16 택배기사 진짜 돈 많이 버나? · 0:39 택배기사 월급, 매출 계산하는 방법 · 1:32 택배기사 월급 공개 · 3:14 순수익 계산 방법 · 4:49 택배기사 현실 순수익 · 5:46 현 시점 택배가 돈이 되는 이유 · 6:34 근데도 내가 돈이 없는 이유 · 7:26 택배기사의 꿈
 - 설명 앞부분: 택배 얼마 벌어? 이제 그만 물어보세요. 다 말씀드릴테니까 😉 택배로 돈 더 벌 수 있는 새로운 방법
@@ -708,7 +688,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 7. 부자들이 먼저 배운 돈의 원리, "열심히 벌어도 왜 안 모일까" 자본주의에 대해 알게되면 부자는 불가능한 일이 아니라 선택의 영역이 되실겁니다.
 
-- https://www.youtube.com/watch?v=RGKX32DwzMI · 경제집현전 · 구독자 699 · 조회수 168,049 (×240.4, 하루 3,778.3) · 좋아요 1,136 (0.7%) · 24.2분 · 2026-08-30 · 주제 묶음 1. 재테크 일반·마인드 · 폴더 `W_RGKX32DwzMI` (웹 승인)
+- https://www.youtube.com/watch?v=RGKX32DwzMI · 경제집현전 · 구독자 699 · 조회수 168,049 (×240.4, 하루 3,778.1) · 좋아요 1,136 (0.7%) · 24.2분 · 2026-08-30 · 주제 묶음 1. 재테크 일반·마인드 · 폴더 `W_RGKX32DwzMI` (웹 승인)
 - 썸네일: <img src="W_RGKX32DwzMI/thumbnail.jpg" width="320">
 - 설명 앞부분: 한국은행이 실제로 찍어낸 돈은 309조 원입니다. 그런데 시중에 도는 돈은 4213조 원입니다. 나머지 92.7퍼센트는 종이가 아니라 은행 장부 위에 적힌 숫자, 그러니까 누군가의 빚입니다. 돈이 어떻게 태어나고 왜 매년 늙는지를 따라가면, 부자가 되는 일이 재능이 아니라 순서의 문제로 바뀝니다. 이 영상에서 다루는 내용 금융자산 10억 원 이상 부자는 47만 6천 명, 인구의 0.93퍼센트. 그런데 이들이 꼽은 자산관리 성공 비결 1위는 종목도 타이밍도 아닌 지속적인 학습이었습니다 부의 원천에서 상속과 증여는 18.3퍼센트. 가…
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -721,7 +701,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 8. 일흔이 넘으면 ‘이 다섯 곳’에는 절대 가지 마세요｜노후 자금을 지키는 지혜｜노년의 마음소리
 
-- https://www.youtube.com/watch?v=oyiEl0p35BY · 은퇴후인생수업 · 구독자 407 · 조회수 89,871 (×220.8, 하루 1,878.1) · 좋아요 743 (0.8%) · 32분 · 2026-08-27 · 주제 묶음 4. 노후·연금 · 폴더 `W_oyiEl0p35BY` (웹 승인)
+- https://www.youtube.com/watch?v=oyiEl0p35BY · 은퇴후인생수업 · 구독자 407 · 조회수 89,871 (×220.8, 하루 1,877.9) · 좋아요 743 (0.8%) · 32분 · 2026-08-27 · 주제 묶음 4. 노후·연금 · 폴더 `W_oyiEl0p35BY` (웹 승인)
 - 썸네일: <img src="W_oyiEl0p35BY/thumbnail.jpg" width="320">
 - 챕터: 0:00 노후를 위협하는 다섯 곳, 우리가 피해야 할 이유 · 1:34 국민연금과 노후 생활비의 현실 · 3:06 매달 조금씩 새는 노후 자금의 비밀 · 5:17 돈을 버는 것보다 지키는 지혜 · 6:05 건강식품 홍보관의 달콤한 상술 · 10:00 무료 건강 강좌 뒤에 숨은 함정 · 12:49 노름이 노년의 삶을 무너뜨리는 이유 · 15:14 손주 사랑과 불필요한 지출 줄이기 · 20:50 체면 때문에 늘어나는 노후 지출 · 23:26 노후 자금을 지키는 실천법과 마지막 조언
 - 설명 앞부분: 일흔이 넘으면 ‘이 다섯 곳’에는 절대 가지 마세요｜노후 자금을 지키는 지혜｜노년의 마음소리 노년의 마음소리와 함께 노후에 무심코 돈이 새어나가는 다섯 곳을 짚어봅니다. 💰 건강식품 홍보관과 무료 건강 강좌에서 시작되는 소비의 함정, 노름과 과도한 손주 선물, 체면 때문에 늘어나는 지출까지 노년의 마음소리로 차분히 살펴봅니다. 🧓 노년의 마음소리는 단순히 돈을 아끼라는 이야기가 아니라, 외로움과 두려움에 흔들리지 않고 내 삶과 노후 자금을 지키는 방법을 전합니다. 🌱 작은 지출도 10년이 지나면 큰돈이 될 수 있습니다. 노년의 마…
@@ -733,7 +713,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 9. 돈이 더 적은 사람들이 항상 당신보다 더 많은 것을 가지고 있는 이유
 
-- https://www.youtube.com/watch?v=FJq7Cz3CSz8 · 투자 가이드 · 구독자 962 · 조회수 183,116 (×190.3, 하루 5,254.1) · 좋아요 1,024 (0.6%) · 31.1분 · 2026-09-09 · 주제 묶음 2. 돈 모으기·저축 · 폴더 `W_FJq7Cz3CSz8` (웹 승인)
+- https://www.youtube.com/watch?v=FJq7Cz3CSz8 · 투자 가이드 · 구독자 962 · 조회수 183,116 (×190.3, 하루 5,253.7) · 좋아요 1,024 (0.6%) · 31.1분 · 2026-09-09 · 주제 묶음 2. 돈 모으기·저축 · 폴더 `W_FJq7Cz3CSz8` (웹 승인)
 - 썸네일: <img src="W_FJq7Cz3CSz8/thumbnail.jpg" width="320">
 - 설명 앞부분: "왜 소득이 더 적은 사람들이 결국 더 많은 저축액과 마음의 평화, 그리고 선택의 자유를 누리게 될까요? 이 영상에서는 고소득자가 왜 종종 빈털터리로 남는지, 그리고 재정적 안정과 급여 수준이 사실상 거의 무관한 이유를 밝혀드립니다. 매달 돈이 어디로 사라지는지 알 수 없거나, 자신보다 소득은 적지만 스트레스 없이 살아가는 사람을 알고 계신다면, 이 영상에서 그 숨겨진 이유를 확인해 보세요. 이 영상을 통해 '라이프스타일 크립(소득이 늘어남에 따라 소비 수준도 함께 높아지는 현상)'이 어떻게 소리 없이 부를 갉아먹는지, 소유한 물…
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -746,7 +726,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 10. 은퇴 후 연금만으로 살기 좋은 한국 최고의 섬마을
 
-- https://www.youtube.com/watch?v=nksAlCVCgLo · 살이픽 · 구독자 898 · 조회수 157,461 (×175.3, 하루 11,960.9) · 좋아요 1,209 (0.8%) · 18.3분 · 2026-10-01 · 주제 묶음 4. 노후·연금 · 폴더 `W_nksAlCVCgLo` (웹 승인)
+- https://www.youtube.com/watch?v=nksAlCVCgLo · 살이픽 · 구독자 898 · 조회수 157,461 (×175.3, 하루 11,958.2) · 좋아요 1,209 (0.8%) · 18.3분 · 2026-10-01 · 주제 묶음 4. 노후·연금 · 폴더 `W_nksAlCVCgLo` (웹 승인)
 - 썸네일: <img src="W_nksAlCVCgLo/thumbnail.jpg" width="320">
 - 설명 앞부분: 은퇴 후 연금만으로도 비교적 여유롭게 살 수 있는 곳이 있을까요? 생활비는 낮추고 자연은 가까이 누리면서 조용한 노후를 보내고 싶다면, 한국의 섬마을도 하나의 선택지가 될 수 있습니다. 이번 영상에서는 은퇴 후 살기 좋은 한국의 섬마을을 살펴보고, 60대 이후 실제 정착을 고민할 때 반드시 확인해야 할 조건들을 함께 알아봅니다. 도시를 떠나 섬에서 생활하면 주거비와 일부 생활비를 줄일 가능성이 있지만, 단순히 경치가 좋다는 이유만으로 결정해서는 안 됩니다. 노후에는 특히 다음 조건이 중요합니다. ✓ 월평균 생활비는 얼마나 필요한지…
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -778,14 +758,14 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 12. [스포츠 토토] 재테크 적중률 높이는 확률 계산법 대공개! #토토 #스포츠토토 #토토분석 #프로토분석 #스포츠분석
 
-- https://www.youtube.com/watch?v=Ly8W-jVvLa0 · 스포츠토토_메시 · 구독자 1,130 · 조회수 190,686 (×168.8, 하루 2,414.5) · 좋아요 738 (0.4%) · 4.4분 · 2026-07-27 · 주제 묶음 1. 재테크 일반·마인드 · 폴더 `W_Ly8W-jVvLa0` (웹 승인)
+- https://www.youtube.com/watch?v=Ly8W-jVvLa0 · 스포츠토토_메시 · 구독자 1,130 · 조회수 190,686 (×168.8, 하루 2,414.4) · 좋아요 738 (0.4%) · 4.4분 · 2026-07-27 · 주제 묶음 1. 재테크 일반·마인드 · 폴더 `W_Ly8W-jVvLa0` (웹 승인)
 - 썸네일: <img src="W_Ly8W-jVvLa0/thumbnail.jpg" width="320">
 - 대본 없음 (없음) — 음성인식이 끝나면 도입부·흐름이 들어감
 - 댓글 2/2: 좋은 점 0 · 더 알고 싶은 것 0 · 아쉬운 점 0 · 경험 공유 0 · 구독·다음 기대 0
 
 ### 13. ISA·연금저축·IRP에서 평생 모아갈 국내상장 월배당 ETF 총정리 ∣ 9월 분배금 이만큼 나왔습니다 (ft. 커버드콜, 고배당 etf)
 
-- https://www.youtube.com/watch?v=kZJEE6mtay4 · 퇴근후ETF · 구독자 169 · 조회수 26,238 (×155.2, 하루 3,297.9) · 좋아요 317 (1.2%) · 19.1분 · 2026-10-06 · 주제 묶음 4. 노후·연금 · 폴더 `W_kZJEE6mtay4` (웹 승인)
+- https://www.youtube.com/watch?v=kZJEE6mtay4 · 퇴근후ETF · 구독자 169 · 조회수 26,238 (×155.2, 하루 3,296.7) · 좋아요 317 (1.2%) · 19.1분 · 2026-10-06 · 주제 묶음 4. 노후·연금 · 폴더 `W_kZJEE6mtay4` (웹 승인)
 - 썸네일: <img src="W_kZJEE6mtay4/thumbnail.jpg" width="320">
 - 설명 앞부분: 같은 1억원인데 9월 분배금은 201만원과 44만원으로 갈렸습니다. 그런데 많이 받은 쪽이 재산도 더 불렸을까요? 26년 9월 말 공시를 기준으로 국내상장 월배당 ETF의 9월 분배금을 정리하고, 커버드콜과 고배당 ETF의 차이를 짚었습니다. 분배율은 그대로인데 분배금이 줄어드는 이유, 상승장과 하락장에서 갈린 성적, 일반계좌에선 비과세였던 분배금이 연금계좌에서 과세되는 구조까지 담았습니다. ISA·연금저축·IRP의 규칙과 연금 수령 연 1,500만원 기준을 바탕으로, 평생 모아가는 시기와 꺼내 쓰는 시기에 무엇을 봐야 하는지 정…
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -796,7 +776,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 14. [풀영상] 월급 10%로 당장 시작하는 존리의 자산 증식 치트키
 
-- https://www.youtube.com/watch?v=q1fYjAwma3s · 여의돈스트리트 · 구독자 1,330 · 조회수 203,470 (×153.0, 하루 7,721.3) · 좋아요 1,260 (0.6%) · 36분 · 2026-09-17 · 주제 묶음 2. 돈 모으기·저축 · 폴더 `W_q1fYjAwma3s` (웹 승인)
+- https://www.youtube.com/watch?v=q1fYjAwma3s · 여의돈스트리트 · 구독자 1,330 · 조회수 203,470 (×153.0, 하루 7,720.5) · 좋아요 1,260 (0.6%) · 36분 · 2026-09-17 · 주제 묶음 2. 돈 모으기·저축 · 폴더 `W_q1fYjAwma3s` (웹 승인)
 - 썸네일: <img src="W_q1fYjAwma3s/thumbnail.jpg" width="320">
 - 챕터: 0:00 인트로 · 0:50 ‘존리의 부자학교’, 어떤 곳인가요? · 1:09 우리나라 금융 수준, 정말 높아졌나요? · 2:39 빨리 부자가 되는 투자, 가능한가요? · 4:53 장기 투자, 어떤 ETF를 사야 할까요? · 6:53 평범한 사람은 어떻게 부자가 되나요? · 8:30 주식 투자에 전문가가 없다? · 10:24 레버리지 투자는 왜 위험한가요? · 11:31 한국주식, 지금도 투자할 만한가요? · 12:16 투자 뉴스는 어디까지 봐야 할까요? · 14:44 부동산 비중이 높으면 위험한가요? · 16:45 주식 투자의 진짜 목적은 무엇인가요? · 17:26 좋은 기업은 어떻게 고르나요? · 20:19 장기 투자 중 기업 상황이 나빠진다면? · 21:09 박스권에 갇힌 현재 증시 진단 · 22:23 AI 버블 우려 속 올바른 매수 시기 · 23:30 안전해 보이는 ‘원금 보장’ 상품의 함정 · 25:01 반도체·대형주 쏠림 계좌, 포트폴리오 개선 조언 · 27:15 시황 뉴스·차트·리포트의 올바른 활용법 · 29:35 직장인 월급 대비 적정 투자 비중 및 방법
 - 설명 앞부분: 매일 오르내리는 주가, 금리 인상 뉴스... 언제 사고 언제 팔아야 할지 늘 스트레스받고 계시나요? 혹은 원금 손실이 두려워 아직도 투자를 망설이고 계신가요? 이번 풀영상에서는 '존리의 부자학교' 존리 대표님을 모시고 평범한 사람이 스트레스 없이 진짜 부자가 되는 투자의 본질부터 구체적인 실천 방법까지 모두 담았습니다. 단기간에 부자가 되려는 조급함과 마켓 타이밍을 재는 습관을 버리고, 내 자본이 스스로 일하게 만드는 진짜 투자법을 짚어봅니다. 또한, 인플레이션 시대에 돈을 예적금에만 두는 것이 왜 자산 가치를 갉아먹는 가장 위험…
@@ -813,7 +793,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 15. 50대에 조기퇴직하면 어떤 삶을 살게 될까? 51세에 경제적 자유와 조기은퇴(FIRE)를 이룬 사람의 실제 이야기…
 
-- https://www.youtube.com/watch?v=6LShuUa4Zt0 · 누군가의 인생 · 구독자 1,820 · 조회수 273,612 (×150.3, 하루 11,922.0) · 좋아요 695 (0.2%) · 18.8분 · 2026-09-21 · 주제 묶음 4. 노후·연금 · 폴더 `W_6LShuUa4Zt0` (웹 승인)
+- https://www.youtube.com/watch?v=6LShuUa4Zt0 · 누군가의 인생 · 구독자 1,820 · 조회수 273,612 (×150.3, 하루 11,920.5) · 좋아요 695 (0.2%) · 18.8분 · 2026-09-21 · 주제 묶음 4. 노후·연금 · 폴더 `W_6LShuUa4Zt0` (웹 승인)
 - 썸네일: <img src="W_6LShuUa4Zt0/thumbnail.jpg" width="320">
 - 설명 앞부분: 50대에 조기퇴직하면 어떤 삶을 살게 될까? 51세에 경제적 자유와 조기은퇴(FIRE)를 이룬 사람의 실제 이야기… 51세에 경제적 자유를 이루고, 29년 동안 다니던 회사를 떠난 한 남성. 출근도 없고, 상사의 눈치도 없고, 이제부터 매일이 자유로울 거라 생각했습니다. 충분한 자산도 있었고 오랫동안 꿈꿔 온 자전거 여행도 시작했습니다. 하지만 조기퇴직 후 몇 달이 지나자 예상하지 못했던 현실이 찾아왔습니다. 돈은 준비했지만 하루를 어떻게 보낼지는 준비하지 못했습니다. 사람들과의 관계가 줄어들고, 생활 리듬이 무너지면서 그토록 바…
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -829,7 +809,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 16. 본인도 모르는 사이에 남몰래 부자가 되고 있다는 5가지 신호
 
-- https://www.youtube.com/watch?v=5kBEU3V3ZXY · 투자 가이드 · 구독자 962 · 조회수 138,086 (×143.5, 하루 5,142.5) · 좋아요 826 (0.6%) · 20분 · 2026-09-17 · 주제 묶음 1. 재테크 일반·마인드 · 폴더 `W_5kBEU3V3ZXY` (웹 승인)
+- https://www.youtube.com/watch?v=5kBEU3V3ZXY · 투자 가이드 · 구독자 962 · 조회수 138,086 (×143.5, 하루 5,141.9) · 좋아요 826 (0.6%) · 20분 · 2026-09-17 · 주제 묶음 1. 재테크 일반·마인드 · 폴더 `W_5kBEU3V3ZXY` (웹 승인)
 - 썸네일: <img src="W_5kBEU3V3ZXY/thumbnail.jpg" width="320">
 - 설명 앞부분: "자신도 모르게 부자가 되어가고 있다는 5가지 신호 대부분의 사람들은 부자가 되기 시작하면 그 변화를 즉시 느낄 수 있을 것이라 생각합니다. 예를 들어, 감탄이 나올 만한 통장 잔고, 늘 꿈꿔왔던 삶의 모습, 혹은 그간의 노력이 헛되지 않았음을 증명해 주는 계좌 속 숫자 같은 확실한 신호가 있을 것이라고 말이죠. 하지만 진정한 부는 요란하게 그 시작을 알리지 않습니다. 부는 조용히 쌓여갑니다. 사소해 보이는 결정들과 소셜 미디어에는 드러나지 않는 습관들을 통해서 말이죠. 그렇기에 수많은 사람들이 자신도 모르는 사이에 부자가 되어가…
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -841,7 +821,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 17. 노후에 등산가면 접근하는 꽃뱀의 수법, 하필 32년 강력계 형사한테 걸렸다 ∣ 사이다 복수극 ∣ 노후사연 ∣ AI드라마
 
-- https://www.youtube.com/watch?v=ksCSvgpQvg8 · 수채화 인생 이야기 · 구독자 4,070 · 조회수 460,244 (×113.1, 하루 12,116.4) · 좋아요 2,104 (0.5%) · 8.6분 · 2026-09-06 · 주제 묶음 4. 노후·연금 · 폴더 `W_ksCSvgpQvg8` (웹 승인)
+- https://www.youtube.com/watch?v=ksCSvgpQvg8 · 수채화 인생 이야기 · 구독자 4,070 · 조회수 460,244 (×113.1, 하루 12,115.4) · 좋아요 2,104 (0.5%) · 8.6분 · 2026-09-06 · 주제 묶음 4. 노후·연금 · 폴더 `W_ksCSvgpQvg8` (웹 승인)
 - 썸네일: <img src="W_ksCSvgpQvg8/thumbnail.jpg" width="320">
 - 설명 앞부분: "혼인신고까지 세 달. 건물 팔아서 넘기는 데 두 달. 이번이 마지막이야." 등산 모임에서 손수건 한 장 주워준 어수룩한 홀아비. 상가 세 채에 자식들은 다 분가. 꽃뱀은 완벽한 먹잇감을 골랐다고 믿었습니다. 그런데 그 영감, 32년 강력계 형사였습니다. 처음 만난 것도 등산 모임이 아니라 15년 전 조사실이었습니다. 결과는 어떻게 될까요? ⚠️ 본 영상의 모든 인물, 배경, 음성, 음악은 AI로 생성된 가상의 콘텐츠입니다. 등장하는 인물·기업·사건은 실존하지 않으며 실제와 무관합니다. [법적 고지 및 면책조항] 창작물 안내 : …
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -857,7 +837,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 18. 50대 억대연봉 임원이 퇴사 1년 후 깨달은 현실
 
-- https://www.youtube.com/watch?v=mLyNB42Hhgg · 50대 새로운 인생 준비하기 · 구독자 2,780 · 조회수 311,751 (×112.1, 하루 5,813.7) · 좋아요 1,648 (0.5%) · 8.9분 · 2026-08-21 · 주제 묶음 기타 · 폴더 `W_mLyNB42Hhgg` (웹 승인)
+- https://www.youtube.com/watch?v=mLyNB42Hhgg · 50대 새로운 인생 준비하기 · 구독자 2,780 · 조회수 311,751 (×112.1, 하루 5,813.3) · 좋아요 1,648 (0.5%) · 8.9분 · 2026-08-21 · 주제 묶음 기타 · 폴더 `W_mLyNB42Hhgg` (웹 승인)
 - 썸네일: <img src="W_mLyNB42Hhgg/thumbnail.jpg" width="320">
 - 챕터: 0:00 인트로: 50대 퇴사, 인생 후반전의 시작 · 0:10 퇴사 후 가장 먼저 맞닥뜨린 현실, '돈' · 0:43 직함이 사라진 뒤 찾아온 정체성 고민 · 2:08 50대 퇴사자들의 실제 사례와 공통점 · 3:22 회사 밖에서 겪는 인간관계의 변화 · 4:47 퇴직 전, 현실적인 자금 계획 세우기 · 5:22 준비 없는 재취업이 오래가지 못하는 이유 · 6:29 회사 밖에서도 나를 지탱해 줄 관계 만들기 · 7:08 퇴직 전, 지금 바로 점검해야 할 4가지
 - 설명 앞부분: 49살, 25년간 직장생활을 한 뒤 저는 결국 퇴사를 선택했습니다. 대기업, 중견기업, 스타트업을 거치며 40대 중반에는 임원까지 올라갔지만, 회사의 자금 문제와 경영권 문제를 겪으며 결국 멘탈이 무너졌고 더 이상 버티기 어렵다는 판단을 내렸습니다. 퇴사를 결심한 뒤 가장 먼저 한 것은 “돈을 벌지 않아도 나는 얼마나 버틸 수 있을까?”를 계산하는 일이었습니다. 하지만 막상 회사를 나오고 보니 돈만큼이나 어려운 문제가 있었습니다. “회사라는 이름을 떼고 나면 나는 누구인가?” 25년 동안 해왔던 일을 내려놓고 나니 내가 무엇을 좋…
@@ -875,7 +855,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 19. 재고가 쌓일수록 부자가 되는 유일한 장사, 금은방의 기막힌 구조
 
-- https://www.youtube.com/watch?v=DeXKTULwhEI · 수익구조 연구소 · 구독자 4,820 · 조회수 523,257 (×108.6, 하루 14,394.1) · 좋아요 1,402 (0.3%) · 15.4분 · 2026-09-07 · 주제 묶음 1. 재테크 일반·마인드 · 폴더 `W_DeXKTULwhEI` (웹 승인)
+- https://www.youtube.com/watch?v=DeXKTULwhEI · 수익구조 연구소 · 구독자 4,820 · 조회수 523,257 (×108.6, 하루 14,393.0) · 좋아요 1,402 (0.3%) · 15.4분 · 2026-09-07 · 주제 묶음 1. 재테크 일반·마인드 · 폴더 `W_DeXKTULwhEI` (웹 승인)
 - 썸네일: <img src="W_DeXKTULwhEI/thumbnail.jpg" width="320">
 - 설명 앞부분: 금은방 벽에는 오늘의 시세가 두 줄로 붙어 있습니다. 살 때 값과 팔 때 값입니다. 그 두 값 사이가 한 돈에 13만 원 넘게 벌어져 있습니다. 사서 그 자리에서 도로 팔면 그만큼이 사라집니다. 그 돈은 누가 가져갈까요. 이 영상은 금은방이 돈을 버는 길을 하나씩 엽니다. 순금을 팔아 남기는 몫, 14K·18K 완제품에서 남기는 몫, 손님 금을 녹여 주고 받는 분석료와 공임, 줄 하나 이어 주고 받는 수리비, 그리고 안 팔린 채 진열장에 놓여 있는 금이 오르는 몫까지입니다. 한국금거래소 공식 고시가(2026-09-02) — 순금 …
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -892,7 +872,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 20. "순서대로 무너집니다" 금리 7% 시대, 한국 중산층 자산이 흔들리는 진짜 순서 4단계
 
-- https://www.youtube.com/watch?v=5wYVYUrG4Ds · 월급쟁이경제학 · 구독자 2,910 · 조회수 300,548 (×103.3, 하루 5,661.3) · 좋아요 4,645 (1.6%) · 27.8분 · 2026-08-22 · 주제 묶음 1. 재테크 일반·마인드 · 폴더 `W_5wYVYUrG4Ds` (웹 승인)
+- https://www.youtube.com/watch?v=5wYVYUrG4Ds · 월급쟁이경제학 · 구독자 2,910 · 조회수 300,548 (×103.3, 하루 5,661.0) · 좋아요 4,645 (1.6%) · 27.8분 · 2026-08-22 · 주제 묶음 1. 재테크 일반·마인드 · 폴더 `W_5wYVYUrG4Ds` (웹 승인)
 - 썸네일: <img src="W_5wYVYUrG4Ds/thumbnail.jpg" width="320">
 - 설명 앞부분: 경제 위기는 한꺼번에 오지 않습니다. 가장 약한 고리부터 도미노처럼 순서대로 옵니다. 가계부채 2,000조 시대, 위기가 자영업에서 서민 예금으로, 영끌 아파트에서 노후 연금으로 번지는 순서를 2026년 한국의 실제 데이터로 따라갑니다. 이 영상에서 다루는 내용 첫 번째 도미노 — 취약 자영업자 연체율 12.24%, 4년 만에 3배가 된 이유 재작년 폐업 사업자 사상 첫 100만 명 돌파, 절반이 '사업부진' 두 번째 도미노 — 새마을금고·신협 등 상호금융 예금, 33년 만에 처음 줄어든 27조 8,200억 원의 행방 같은 기간 …
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -909,7 +889,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 21. 객실 팔아서 돈 버는 게 아니라고? 우리가 몰랐던 호텔이 진짜 돈을 버는 방법
 
-- https://www.youtube.com/watch?v=RuWOYsSZl_E · 머니파이 · 구독자 9,110 · 조회수 916,998 (×100.7, 하루 9,778.3) · 좋아요 5,862 (0.6%) · 17.6분 · 2026-07-12 · 주제 묶음 기타 · 폴더 `W_RuWOYsSZl_E` (웹 승인)
+- https://www.youtube.com/watch?v=RuWOYsSZl_E · 머니파이 · 구독자 9,110 · 조회수 916,998 (×100.7, 하루 9,778.0) · 좋아요 5,862 (0.6%) · 17.6분 · 2026-07-12 · 주제 묶음 기타 · 폴더 `W_RuWOYsSZl_E` (웹 승인)
 - 썸네일: <img src="W_RuWOYsSZl_E/thumbnail.jpg" width="320">
 - 설명 앞부분: 하룻밤 자는데 수십만 원, 건물 하나 짓는 데는 무려 1조 원이 넘게 드는 글로벌 럭셔리 호텔들! 힐튼, 메리어트, 하얏트 같은 세계적인 호텔 체인들은 과연 객실 요금으로만 이 엄청난 건축비와 유지비를 감당하고 있을까요? 🎵Music provided by 브금대통령 🎵Track : 쳇바퀴 인생
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -927,7 +907,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 22. 나이들수록 '이것' 챙기면 노후가 바뀌고 행복해집니다ㅣ귀티나는 노후를 위한 행복특강ㅣ황창연신부님최근강의ㅣ황창연신부님행복특강ㅣ인생 조언ㅣ오디오북ㅣ나눔철학 srt
 
-- https://www.youtube.com/watch?v=cn8b0mMUR3Q · 포강쇼 · 구독자 5,060 · 조회수 488,848 (×96.6, 하루 3,884.3) · 좋아요 8,184 (1.7%) · 179.8분 · 2026-06-10 · 주제 묶음 4. 노후·연금 · 폴더 `W_cn8b0mMUR3Q` (웹 승인)
+- https://www.youtube.com/watch?v=cn8b0mMUR3Q · 포강쇼 · 구독자 5,060 · 조회수 488,848 (×96.6, 하루 3,884.2) · 좋아요 8,184 (1.7%) · 179.8분 · 2026-06-10 · 주제 묶음 4. 노후·연금 · 폴더 `W_cn8b0mMUR3Q` (웹 승인)
 - 썸네일: <img src="W_cn8b0mMUR3Q/thumbnail.jpg" width="320">
 - 설명 앞부분: 🎉 웃음과 재미가 가득한 포강쇼에 오신 것을 환영합니다! 🎉 포강쇼는 매일 새로운 웃음과 즐거움을 전하는 엔터테인먼트 채널입니다. 😄 재미있는 챌린지, 리액션, 유머 영상, 브이로그, 그리고 최신 트렌드까지! 지루할 틈 없이 누구나 함께 즐길 수 있는 콘텐츠를 제공합니다. 🚀 매일 업로드되는 다양한 영상으로 여러분의 하루를 더 즐겁게 만들어 드립니다. 함께 웃고 함께 즐기는 공간, 지금 바로 포강쇼와 함께하세요! 🎬✨ 새로운 영상 매일 업로드! 재미와 감동이 가득한 채널!
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -941,7 +921,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 23. 50대 옥탑방 부부, "그 나이에 왜 주식을..."
 
-- https://www.youtube.com/watch?v=FRzyTNO9mNI · 반백살, 옥탑방 이야기 · 구독자 580 · 조회수 42,191 (×72.7, 하루 3,902.9) · 좋아요 414 (1.0%) · 6.3분 · 2026-10-03 · 주제 묶음 3. 주식·ETF · 폴더 `W_FRzyTNO9mNI` (웹 승인)
+- https://www.youtube.com/watch?v=FRzyTNO9mNI · 반백살, 옥탑방 이야기 · 구독자 580 · 조회수 42,191 (×72.7, 하루 3,901.9) · 좋아요 414 (1.0%) · 6.3분 · 2026-10-03 · 주제 묶음 3. 주식·ETF · 폴더 `W_FRzyTNO9mNI` (웹 승인)
 - 썸네일: <img src="W_FRzyTNO9mNI/thumbnail.jpg" width="320">
 - 설명 앞부분: 지난 영상 이후, 50대 옥탑방 부부인 저희의 주식 도전에 많은 분들이 걱정과 조언을 남겨주셨습니다. 진심으로 감사드립니다. "그 나이에 왜 위험하게 주식을 하느냐"는 물음에 오늘 제 진솔한 속마음을 전합니다. 사기와 빚을 겪으며 깨달은 금융 무지의 서러움, 그리고 평생 일할 수 없다는 현실 앞에 저희에게 파이어족은 노후를 위한 '마지막 생존 전략"입니다. 지치지 않고 끝까지 걸어갈 수 있도록 많은 응원과 격려 부탁드립니다. 오늘도 시청해 주셔서 감사합니다.
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -975,7 +955,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 25. 5060 노후 준비, 1000만원으로 매월 배당금 받는 가장 현실적인 방법
 
-- https://www.youtube.com/watch?v=xQnFTZLNzOM · 맛스토리 · 구독자 3,000 · 조회수 189,623 (×63.2, 하루 1,135.8) · 좋아요 2,404 (1.3%) · 17.6분 · 2026-04-30 · 주제 묶음 3. 주식·ETF · 폴더 `W_xQnFTZLNzOM` (웹 승인)
+- https://www.youtube.com/watch?v=xQnFTZLNzOM · 맛스토리 · 구독자 3,000 · 조회수 189,623 (×63.2, 하루 1,135.7) · 좋아요 2,404 (1.3%) · 17.6분 · 2026-04-30 · 주제 묶음 3. 주식·ETF · 폴더 `W_xQnFTZLNzOM` (웹 승인)
 - 썸네일: <img src="W_xQnFTZLNzOM/thumbnail.jpg" width="320">
 - 챕터: 0:00 1000만원으로 노후를 바꿀 마지막 기회 · 1:40 은행 예금은 왜 내 자산을 갉아먹는 독인가? · 3:08 60대 박 선생님이 매달 스벅 20잔을 마시게 된 비결 · 4:22 2026년 시니어 투자 황금비율 : '4:3:3 법칙' · 6:10 내 돈 노리는 '독버섯' 사기꾼 완벽하게 거르는 법 · 7:35 배당금 꽂히는 데이터센터/헬스케어 리츠의 비밀 · 8:45 금리 하락기, 내 계좌를 지켜주는 무적의 '채권 투자' · 9:50 세상의 변화에 올라타는 '글로벌 성장주' 30% · 11:20 자산을 기하급수적으로 불리는 '복리'의 마법과 멘탈 … · 13:10 당장 오늘부터 실천해야 할 3가지 액션 플랜
 - 설명 앞부분: 아직도 소중한 1000만원을 이자도 안 붙는 은행 예금에만 넣어두고 계신가요? 매년 내 돈을 갉아먹는 예금을 탈출해 '평생 마르지 않는 월급 기계'를 만드는 4:3:3 황금 비율 투자법을 공개합니다. [본문 요약] 2026년 고물가 시대, "원금 보장이 최고다"라는 고정관념은 여러분을 가난하게 만듭니다. 이번 영상에서는 은퇴를 앞두거나 이미 은퇴하신 5060 시니어분들을 위해, 가장 안전하면서도 확실한 '1000만원 분산 투자 가이드'를 준비했습니다. 건물주가 되는 '데이터센터/헬스케어 리츠(40%)', 내 계좌의 든든한 방패 '…
@@ -990,7 +970,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 26. 아무리 돈이 많아도 없는 척하세요, 재산이 알려지면 생기는 일
 
-- https://www.youtube.com/watch?v=FrSslE4xeBA · 인생다시쓰기 · 구독자 8,060 · 조회수 505,964 (×62.8, 하루 10,239.2) · 좋아요 1,887 (0.4%) · 17.3분 · 2026-08-25 · 주제 묶음 1. 재테크 일반·마인드 · 폴더 `W_FrSslE4xeBA` (웹 승인)
+- https://www.youtube.com/watch?v=FrSslE4xeBA · 인생다시쓰기 · 구독자 8,060 · 조회수 505,964 (×62.8, 하루 10,238.6) · 좋아요 1,887 (0.4%) · 17.3분 · 2026-08-25 · 주제 묶음 1. 재테크 일반·마인드 · 폴더 `W_FrSslE4xeBA` (웹 승인)
 - 썸네일: <img src="W_FrSslE4xeBA/thumbnail.jpg" width="320">
 - 챕터: 0:00 돈이 알려지는 순간 생기는 일 · 2:47 돈 많은 사람의 200만 원은 왜 작아 보일까 · 4:15 부모의 노후자금을 자식은 다르게 봅니다 · 7:15 내 재산을 말하면 부탁의 기준도 달라집니다 · 8:55 10억짜리 집이 있어도 현금 부자는 아닙니다 · 9:55 돈 있는 사람이 표적이 되는 순간 · 11:13 돈이 많을수록 지켜야 하는 진짜 자유 · 15:17 돈이 많아도 굳이 말하지 않아야 하는 이유
 - 설명 앞부분: 돈의 가치는 자산 규모에 따라 완전히 달라집니다. 재산의 크기가 당신의 경제적 판단에 어떤 영향을 미치는지 구체적인 사례를 통해 확인해보세요. 이 영상은 현재 나의 자산 상황에 따라 10만 원이나 1억 원이라는 돈의 가치가 어떻게 다르게 느껴지는지 분석합니다. 10억 원의 자산을 가진 사람에게는 사소한 금액이라도, 당장 급전이 필요한 사람에게는 생존과 직결된 문제일 수 있습니다. 경제적 상황에 따른 돈의 가치를 이해하는 것은 올바른 자산 관리를 위한 첫걸음입니다.
@@ -1007,7 +987,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 27. [100만 조회수] 대기업 30년 다니고 은퇴했지만, 78세에 고시원에서 혼자 사는 이유
 
-- https://www.youtube.com/watch?v=8_rq_vVFDTg · 아니모 인생기록관 · 구독자 21,600 · 조회수 1,338,670 (×62.0, 하루 11,609.3) · 좋아요 14,268 (1.1%) · 14.5분 · 2026-06-21 · 주제 묶음 4. 노후·연금 · 폴더 `W_8_rq_vVFDTg` (웹 승인)
+- https://www.youtube.com/watch?v=8_rq_vVFDTg · 아니모 인생기록관 · 구독자 21,600 · 조회수 1,338,670 (×62.0, 하루 11,609.0) · 좋아요 14,268 (1.1%) · 14.5분 · 2026-06-21 · 주제 묶음 4. 노후·연금 · 폴더 `W_8_rq_vVFDTg` (웹 승인)
 - 썸네일: <img src="W_8_rq_vVFDTg/thumbnail.jpg" width="320">
 - 설명 앞부분: 대기업 30년 현장소장에서 고시원 생활까지... 석촌호수에 만난 78세 어르신이 졸혼 후 노후에 마주한 현실을 솔직하게 들려드립니다. 아니모 채널에서는 시니어분들의 삶을 기록합니다. 지나온 시간, 지금의 고민 그리고 앞으로의 하루를 묻습니다. 많은 시청 부탁드립니다.
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -1025,7 +1005,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 28. "와, 이렇게 돈 버는 여자 처음 봤습니다" 마트 사진 찍어 올려 월 3천만원 버는 98년생의 비밀부업추천
 
-- https://www.youtube.com/watch?v=N0gXuYAjgwk · 머니종결자 · 구독자 8,000 · 조회수 452,263 (×56.5, 하루 14,590.2) · 좋아요 0 (0.0%) · 17.4분 · 2026-09-13 · 주제 묶음 8. 부업·소득 · 폴더 `W_N0gXuYAjgwk` (웹 승인)
+- https://www.youtube.com/watch?v=N0gXuYAjgwk · 머니종결자 · 구독자 8,000 · 조회수 452,263 (×56.5, 하루 14,588.9) · 좋아요 0 (0.0%) · 17.4분 · 2026-09-13 · 주제 묶음 8. 부업·소득 · 폴더 `W_N0gXuYAjgwk` (웹 승인)
 - 썸네일: <img src="W_N0gXuYAjgwk/thumbnail.jpg" width="320">
 - 설명 앞부분: 👇 무료 전자책, 이렇게 받아가세요 👇 1. ”무료강의 신청완료” 댓글 달기 3. 무료강의 시청하고 무료 전자책 받기 📲 휴대폰 하나로 월 순수익 2천만 원 버는 미친 부업 사진 3장 찍어서 → 실제 수익으로 연결하는 과정을 무료 강의에서 공개합니다 🔥 🎁 무료강의 신청자 한정 혜택 🔥 무료강의 정원 곧 마감!!! 딱 하루만 진행합니다 ❌ 다시보기 없음 ❌ 📢 저희 머니종결자 채널은 돈 되는 부업, 창업, 재테크 정보들을 소개합니다.
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -1073,7 +1053,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 31. AI로 주식 자동 매매하면 어떻게 될까?
 
-- https://www.youtube.com/watch?v=9E9OrcoMCjk · 이영배 · 구독자 18,800 · 조회수 962,332 (×51.2, 하루 8,306.8) · 좋아요 5,234 (0.5%) · 11.3분 · 2026-06-20 · 주제 묶음 3. 주식·ETF · 폴더 `W_9E9OrcoMCjk` (웹 승인)
+- https://www.youtube.com/watch?v=9E9OrcoMCjk · 이영배 · 구독자 18,800 · 조회수 962,332 (×51.2, 하루 8,306.5) · 좋아요 5,234 (0.5%) · 11.3분 · 2026-06-20 · 주제 묶음 3. 주식·ETF · 폴더 `W_9E9OrcoMCjk` (웹 승인)
 - 썸네일: <img src="W_9E9OrcoMCjk/thumbnail.jpg" width="320">
 - 대본 없음 (없음) — 음성인식이 끝나면 도입부·흐름이 들어감
 - 댓글 576/576: 좋은 점 43 · 더 알고 싶은 것 99 · 아쉬운 점 22 · 경험 공유 41 · 구독·다음 기대 20
@@ -1090,7 +1070,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 32. "모르면 노후에 후회한다" 국민연금 65세 말고 무조건 '이때' 받으세요 ∣ 김현우 소장 ∣ 연금받는형
 
-- https://www.youtube.com/watch?v=q3Pig5W6QaI · 연금 받는 형 · 구독자 21,500 · 조회수 1,022,606 (×47.6, 하루 18,309.2) · 좋아요 5,728 (0.6%) · 22.9분 · 2026-08-19 · 주제 묶음 4. 노후·연금 · 폴더 `W_q3Pig5W6QaI` (웹 승인)
+- https://www.youtube.com/watch?v=q3Pig5W6QaI · 연금 받는 형 · 구독자 21,500 · 조회수 1,022,606 (×47.6, 하루 18,308.3) · 좋아요 5,728 (0.6%) · 22.9분 · 2026-08-19 · 주제 묶음 4. 노후·연금 · 폴더 `W_q3Pig5W6QaI` (웹 승인)
 - 썸네일: <img src="W_q3Pig5W6QaI/thumbnail.jpg" width="320">
 - 설명 앞부분: 많은 분들이 국민연금은 오래 납부하면 정해진 금액을 국가에서 알아서 지급해주는 제도라고 생각합니다. 하지만 같은 기간, 같은 보험료를 납부해도 연금을 언제부터 받느냐에 따라 누군가는 월 130만 원을 받고, 누군가는 월 220만 원을 받을 수도 있습니다. 조기수령과 연기수령 중 무엇이 유리한지, 임의계속가입과 추후납부는 어떻게 활용해야 하는지, 국민연금에 세금이 붙는 기준은 무엇인지에 따라 실제 노후에 받게 되는 금액은 크게 달라질 수 있습니다. 또한 연금 수령액만 늘리는 데 집중하다 보면 건강보험 피부양자 자격이나 세금, 노후에…
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -1106,7 +1086,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 33. “은퇴자금 아끼려고 당근에 물건 하나 올렸다가…60대 노후가 무너졌습니다”ㅣ 은퇴자금 ㅣ노후사연 ㅣ오디오
 
-- https://www.youtube.com/watch?v=YydZ774lKfI · 노을서사 · 구독자 1,790 · 조회수 82,621 (×46.2, 하루 4,914.9) · 좋아요 1,206 (1.5%) · 73.1분 · 2026-09-27 · 주제 묶음 4. 노후·연금 · 폴더 `W_YydZ774lKfI` (웹 승인)
+- https://www.youtube.com/watch?v=YydZ774lKfI · 노을서사 · 구독자 1,790 · 조회수 82,621 (×46.2, 하루 4,914.0) · 좋아요 1,206 (1.5%) · 73.1분 · 2026-09-27 · 주제 묶음 4. 노후·연금 · 폴더 `W_YydZ774lKfI` (웹 승인)
 - 썸네일: <img src="W_YydZ774lKfI/thumbnail.jpg" width="320">
 - 설명 앞부분: 인생의 속도가 조금 느려진 뒤에야 비로소 보이는 것들이 있습니다. 노을서사는 50대, 60대, 70대 이후의 삶을 살아가는 분들과 함께 은퇴 이후의 현실, 노후의 선택, 가족 관계, 건강한 일상, 그리고 지나온 세월에서 얻은 인생의 지혜를 나누는 채널입니다. 오랜 시간 가족과 일을 위해 달려온 뒤 맞이하는 퇴직과 은퇴는 끝이 아니라 새로운 삶의 시작입니다. 달라진 하루의 리듬, 인간관계의 변화, 노후 자금과 연금에 대한 고민, 자녀와 배우자 사이의 갈등, 앞으로 어떻게 살아가야 할지에 대한 현실적인 이야기를 따뜻한 시선으로 풀어냅…
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -1122,7 +1102,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 34. (긴급)매달 나오던 기초연금 7월부터 바뀝니다!! 받던 분도 꼭 확인하세요
 
-- https://www.youtube.com/watch?v=TozHpX9DmQU · 경상도이서방 · 구독자 5,520 · 조회수 250,421 (×45.4, 하루 1,856.6) · 좋아요 2,902 (1.2%) · 9.2분 · 2026-06-01 · 주제 묶음 4. 노후·연금 · 폴더 `W_TozHpX9DmQU` (웹 승인)
+- https://www.youtube.com/watch?v=TozHpX9DmQU · 경상도이서방 · 구독자 5,520 · 조회수 250,421 (×45.4, 하루 1,856.5) · 좋아요 2,902 (1.2%) · 9.2분 · 2026-06-01 · 주제 묶음 4. 노후·연금 · 폴더 `W_TozHpX9DmQU` (웹 승인)
 - 썸네일: <img src="W_TozHpX9DmQU/thumbnail.jpg" width="320">
 - 챕터: 0:00 기초연금 기준 달라집니다 · 0:40 기초연금 폐지되는 건 아닙니다 · 1:20 7월부터 달라지는 제도 · 2:10 신청 안 해도 재검토되는 경우 · 3:10 찾아가는 복지 방향 · 4:00 재산·소득 심사 강화 가능성 · 5:00 차등 지급 논의 · 6:10 통장·보험·자동차 주의 · 7:20 부부 감액제도 개선 가능성 · 8:10 노인 기준 연령 상향 논의 · 9:00 기초연금 준비 방법 · 10:00 핵심 정리 · 10:40 마무리
 - 설명 앞부분: 매달 받던 기초연금 기준이 앞으로 달라질 수 있습니다. 7월부터는 예전에 기초연금을 신청했다가 탈락한 분들도 정부가 다시 소득과 재산 자료를 확인해 수급 가능성을 검토하는 방식이 시작됩니다. 하지만 반대로 통장 예금, 보험 만기금, 자동차, 부동산, 금융재산 등 재산 심사는 더 꼼꼼해질 가능성이 큽니다. 이번 영상에서는 기초연금 자동 재검토 제도, 차등 지급 논의, 부부 감액 완화 가능성, 재산 심사 강화 방향, 그리고 어르신들이 미리 준비해야 할 핵심 사항까지 쉽게 정리해드립니다. 기초연금은 신청하지 않으면 받을 수 없습니다. …
@@ -1139,7 +1119,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 35. 은퇴 후 경비직에 사람들이 몰리는 진짜 이유
 
-- https://www.youtube.com/watch?v=7kHfB06S2NM · 은퇴갓생 · 구독자 6,780 · 조회수 287,847 (×42.5, 하루 3,594.0) · 좋아요 2,550 (0.9%) · 15.7분 · 2026-07-26 · 주제 묶음 4. 노후·연금 · 폴더 `W_7kHfB06S2NM` (웹 승인)
+- https://www.youtube.com/watch?v=7kHfB06S2NM · 은퇴갓생 · 구독자 6,780 · 조회수 287,847 (×42.5, 하루 3,593.8) · 좋아요 2,550 (0.9%) · 15.7분 · 2026-07-26 · 주제 묶음 4. 노후·연금 · 폴더 `W_7kHfB06S2NM` (웹 승인)
 - 썸네일: <img src="W_7kHfB06S2NM/thumbnail.jpg" width="320">
 - 챕터: 0:00 취업 센터의 기이한 풍경 · 1:28 5가지 경비직의 현실 · 4:50 기술이 없는 은퇴자 · 6:03 나이가 무기가 되는 곳 · 7:13 매달 찌히는 통장의 의미 · 8:52 10년을 계속하는 진짜 이유 · 10:58 누군가에게 필요한 존재 · 12:13 시작 전 반드시 따져볼 5가지 · 13:31 화려함 뒤에 숨은 진짜 가치
 - 설명 앞부분: "평생 열심히 일했는데 결국 경비직인가 자존심이 상했습니다. 하지만 시니어 취업 센터에 가서야 비로소 깨달았습니다." 안녕하십니까, 은퇴갓생입니다. 20~30년간 대기업, 공무원, 교사, 은행원, 자영업 사장님으로 사회를 이끌어오셨던 분들이 은퇴 후 취업 센터에 오셔서 가장 먼저 찾는 일자리가 무엇인지 아십니까? 바로 '경비직'입니다. 고용24 채용 정보의 90%를 차지할 정도로 많은 은퇴자들이 몰리는 곳입니다. 처음에는 "잠깐만 하겠다"던 분들이 3년, 5년, 길게는 10년 넘게 경비 일자리를 지키는 진짜 이유는 무엇일까요? 단…
@@ -1156,7 +1136,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 36. 노후자금사연 월 450만원 연금 받는 전직 은행원 60대 부부도 무너지는 충격적인 현상황!
 
-- https://www.youtube.com/watch?v=pMZmS_k_s0U · 삶의시나리오 · 구독자 2,820 · 조회수 115,876 (×41.1, 하루 4,257.3) · 좋아요 1,340 (1.2%) · 110.8분 · 2026-09-17 · 주제 묶음 4. 노후·연금 · 폴더 `W_pMZmS_k_s0U` (웹 승인)
+- https://www.youtube.com/watch?v=pMZmS_k_s0U · 삶의시나리오 · 구독자 2,820 · 조회수 115,876 (×41.1, 하루 4,256.9) · 좋아요 1,340 (1.2%) · 110.8분 · 2026-09-17 · 주제 묶음 4. 노후·연금 · 폴더 `W_pMZmS_k_s0U` (웹 승인)
 - 썸네일: <img src="W_pMZmS_k_s0U/thumbnail.jpg" width="320">
 - 설명 앞부분: 본 채널의 모든 영상은 실제 사례와 사회적 이슈를 바탕으로 재구성한 감동 스토리 콘텐츠입니다. 등장인물과 일부 상황은 이해를 돕기 위해 각색되거나 창작될 수 있으며, 특정 개인이나 단체를 지칭하는 의도는 없습니다. 영상은 삶의 교훈과 공감, 그리고 올바른 가치관을 나누기 위한 목적으로 제작되었습니다. 재산, 상속, 법률, 의료, 투자 등 중요한 문제는 반드시 전문가와 상담하시기 바랍니다. 여러분의 소중한 의견은 댓글을 통해 자유롭게 남겨주세요. 시청해 주셔서 진심으로 감사합니다.
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -1171,7 +1151,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 37. 예비 며느리 시험하려 청소부로 변장한 재벌회장, 일부러 커피 쏟았는데 그녀의 행동에 말문이 막혔습니다 ∣ 인생사연 ∣ 노후사연 ∣ 감동사연 ∣ 시니어사연 ∣
 
-- https://www.youtube.com/watch?v=PX-qc9FOViA · 인생유랑 · 구독자 20,900 · 조회수 856,988 (×41.0, 하루 14,567.6) · 좋아요 9,876 (1.1%) · 96.3분 · 2026-08-16 · 주제 묶음 4. 노후·연금 · 폴더 `W_PX-qc9FOViA` (웹 승인)
+- https://www.youtube.com/watch?v=PX-qc9FOViA · 인생유랑 · 구독자 20,900 · 조회수 856,988 (×41.0, 하루 14,566.9) · 좋아요 9,876 (1.1%) · 96.3분 · 2026-08-16 · 주제 묶음 4. 노후·연금 · 폴더 `W_PX-qc9FOViA` (웹 승인)
 - 썸네일: <img src="W_PX-qc9FOViA/thumbnail.jpg" width="320">
 - 설명 앞부분: 예비며느리를 시험하려고 청소부로 변장한 회장님은 오히려 그녀의 인품에 완전히 반해버리는데...ㅣ노후사연ㅣ인생사연ㅣ감동사연ㅣ시니어사연ㅣ오디오북 ☕ 아들이 선택한 사람은 화려한 배경도, 대단한 학벌도 없는 고졸 계약직 직원이었습니다. 못마땅했던 재벌회장은 직접 청소부로 변장해 그녀의 진짜 모습을 확인하기로 합니다. 그리고 일부러 벌어진 작은 사고 하나. 그런데 예상과 전혀 다른 그녀의 행동에 회장은 순간 아무 말도 하지 못하는데… 😳 사람의 진짜 가치는 어디에서 드러나는 걸까요?
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -1204,7 +1184,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 39. "원금 안 깎여요" 진화형 커버드콜 ETF 황금 포트폴리오 공개
 
-- https://www.youtube.com/watch?v=yGuybuoroRI · 투자360 · 구독자 15,800 · 조회수 633,839 (×40.1, 하루 6,098.4) · 좋아요 6,189 (1.0%) · 22.2분 · 2026-07-02 · 주제 묶음 3. 주식·ETF · 폴더 `W_yGuybuoroRI` (웹 승인)
+- https://www.youtube.com/watch?v=yGuybuoroRI · 투자360 · 구독자 15,800 · 조회수 633,839 (×40.1, 하루 6,098.2) · 좋아요 6,189 (1.0%) · 22.2분 · 2026-07-02 · 주제 묶음 3. 주식·ETF · 폴더 `W_yGuybuoroRI` (웹 승인)
 - 썸네일: <img src="W_yGuybuoroRI/thumbnail.jpg" width="320">
 - 설명 앞부분: 커버드콜 ETF는 정말 원금을 깎아먹는 상품일까요? 한국투자신탁운용 염정인 부장과 함께 커버드콜 ETF의 오해와 진실, 활용법까지 알아봤습니다. 국내 주식형 커버드콜이 절세에 유리한 이유는 무엇인지, 미국 주식형 커버드콜은 왜 연금저축·IRP 계좌에서 활용하는 것이 좋은지도 함께 짚어봅니다. 또한 국내 커버드콜, 해외 커버드콜, 파킹형 ETF 또는 채권형 ETF으로 구성하는 포트폴리오 전략과 계좌별 인출 순서까지 정리했습니다. 노후자금을 지키면서 매달 현금흐름을 만들고 싶은 분들이라면 끝까지 시청해 주세요. 핵심만 골라보기
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -1220,7 +1200,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 40. 연금 310만 원을 말한 뒤 40년 계모임이 깨졌습니다… 노후에 말하면 안 되는 4가지
 
-- https://www.youtube.com/watch?v=vU5PWT2zLDs · 노년의 마음소리 · 구독자 33,500 · 조회수 1,247,649 (×37.2, 하루 30,478.7) · 좋아요 8,750 (0.7%) · 29분 · 2026-09-03 · 주제 묶음 4. 노후·연금 · 폴더 `W_vU5PWT2zLDs` (웹 승인)
+- https://www.youtube.com/watch?v=vU5PWT2zLDs · 노년의 마음소리 · 구독자 33,500 · 조회수 1,247,649 (×37.2, 하루 30,476.5) · 좋아요 8,750 (0.7%) · 29분 · 2026-09-03 · 주제 묶음 4. 노후·연금 · 폴더 `W_vU5PWT2zLDs` (웹 승인)
 - 썸네일: <img src="W_vU5PWT2zLDs/thumbnail.jpg" width="320">
 - 설명 앞부분: 친한 사이일수록 절대 입 밖으로 꺼내지 마세요… 73세 노인이 뼈저리게 후회한 4가지
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -1286,7 +1266,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 44. 복리가 부를 만드는 진짜 시작점｜언제부터 돈이 스스로 일하기 시작할까
 
-- https://www.youtube.com/watch?v=JExUQaROk40 · 돈의 통찰 · 구독자 3,930 · 조회수 131,681 (×33.5, 하루 1,569.1) · 좋아요 1,542 (1.2%) · 17.8분 · 2026-07-22 · 주제 묶음 3. 주식·ETF · 폴더 `W_JExUQaROk40` (웹 승인)
+- https://www.youtube.com/watch?v=JExUQaROk40 · 돈의 통찰 · 구독자 3,930 · 조회수 131,681 (×33.5, 하루 1,569.0) · 좋아요 1,542 (1.2%) · 17.8분 · 2026-07-22 · 주제 묶음 3. 주식·ETF · 폴더 `W_JExUQaROk40` (웹 승인)
 - 썸네일: <img src="W_JExUQaROk40/thumbnail.jpg" width="320">
 - 설명 앞부분: 복리는 단순히 이자를 더해주는 원리가 아닙니다. 대부분의 사람들은 복리의 힘이 나타나기 전에 포기합니다. 이 영상에서는 복리가 언제부터 눈에 보이는 자산 성장으로 이어지는지, 돈이 스스로 일하기 시작하는 진짜 전환점은 언제인지 실제 숫자와 사례를 통해 쉽게 설명합니다. 장기 투자, 경제적 자유, 자산 증식을 목표로 한다면 꼭 끝까지 시청해 보세요.
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -1302,7 +1282,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 45. 2026년 7월부터 기초연금 이렇게 바뀝니다 — 모르면 매달 33만원 손해
 
-- https://www.youtube.com/watch?v=ddEat5zF-yU · 모두의딸 · 구독자 5,670 · 조회수 184,556 (×32.5, 하루 1,936.1) · 좋아요 4,406 (2.4%) · 11.6분 · 2026-07-10 · 주제 묶음 4. 노후·연금 · 폴더 `W_ddEat5zF-yU` (웹 승인)
+- https://www.youtube.com/watch?v=ddEat5zF-yU · 모두의딸 · 구독자 5,670 · 조회수 184,556 (×32.5, 하루 1,936.0) · 좋아요 4,406 (2.4%) · 11.6분 · 2026-07-10 · 주제 묶음 4. 노후·연금 · 폴더 `W_ddEat5zF-yU` (웹 승인)
 - 썸네일: <img src="W_ddEat5zF-yU/thumbnail.jpg" width="320">
 - 설명 앞부분: "2026년 7월부터 기초연금이 확 바뀝니다. 모르면 매달 33만원 손해 보세요." 기초연금 받고 계신가요? 앞으로 받으실 예정인가요? 2026년 7월부터 달라지는 게 딱 3가지 있어요. 이 영상에서 알려드릴 내용: 소득별로 기초연금 차등 지급 — 누구는 더 받고 누구는 그대로 배우자 감액 20%, 2027년부터 점차 사라집니다 일하는 어르신들, 월 519만원까지 벌어도 기초연금 그대로 받아요 2025년으로 소급 적용 — 이미 깎인 분들은 환급! "나는 해당되는가?" 헷갈리시죠? 영상 끝까지 보시면, 내 경우엔 얼마나 받는지, 언…
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -1319,7 +1299,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 46. 금값, 이제 시작입니다. 이것 때문에 금이 폭등합니다.
 
-- https://www.youtube.com/watch?v=1eQJLsk4Fm8 · 지금 돈 공부 · 구독자 737 · 조회수 23,504 (×31.9, 하루 576.2) · 좋아요 394 (1.7%) · 18.8분 · 2026-09-03 · 주제 묶음 기타 · 폴더 `W_1eQJLsk4Fm8` (웹 승인)
+- https://www.youtube.com/watch?v=1eQJLsk4Fm8 · 지금 돈 공부 · 구독자 737 · 조회수 23,504 (×31.9, 하루 576.1) · 좋아요 394 (1.7%) · 18.8분 · 2026-09-03 · 주제 묶음 기타 · 폴더 `W_1eQJLsk4Fm8` (웹 승인)
 - 썸네일: <img src="W_1eQJLsk4Fm8/thumbnail.jpg" width="320">
 - 챕터: 0:00 끝난 줄 알았던 금, 다시 움직인다 · 0:59 ① 금리가 오르는데 금도 오른다? · 2:15 ② 미국 국채에 무슨 일이 생긴 걸까 · 3:58 ③ 중앙은행들은 왜 금을 사고 있을까 · 6:31 ④ 중국은 왜 이렇게까지 금을 모을까 · 8:48 ⑤ 중국이 걱정하는 건 금값이 아니라 달러 · 10:33 ⑥ 그렇다고 달러가 망한다는 얘기는 아니다 · 11:34 ⑦ 금은 다시 전고점을 뚫을까 · 13:29 ⑧ 금 38,000달러, 가능할까 · 15:02 ⑨ 그래서 개인투자자는 어떻게 해야 할까 · 16:49 마무리 — 가격보다 중요한 것
 - 설명 앞부분: 금만 사면 위험합니다. 금은 '흔들림을 막는 한 칸'일 뿐, 나머지 3칸을 채워야 끝까지 버팁니다. 금값이 크게 빠졌다가 다시 반등하고 있습니다. 이번 반등이 잠깐 오르고 마는 희망고문일까요, 아니면 전고점을 뚫는 진짜 상승의 시작일까요? 지금 금 시장에서는 우리가 알던 공식이 깨지고 있습니다. 금리가 오르면 금은 떨어져야 하는데, 국채금리가 오르는데도 금이 같이 오르고요. 세계 중앙은행들은 금을 쓸어 담고 있고, 금에 무관심하던 한국은행마저 13년 만에 다시 금을 사기 시작했습니다. 이 흐름을 하나씩 따라가면 결국 한 곳에서 만…
@@ -1333,7 +1313,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 47. 경제적 자유의 진실: 이 원리를 모르면 당신은 80살까지 평생 출근해야 합니다
 
-- https://www.youtube.com/watch?v=2y3YphVxQaA · 김상훈의 재테크 · 구독자 2,930 · 조회수 92,404 (×31.5, 하루 695.8) · 좋아요 1,921 (2.1%) · 28.7분 · 2026-06-03 · 주제 묶음 1. 재테크 일반·마인드 · 폴더 `W_2y3YphVxQaA` (웹 승인)
+- https://www.youtube.com/watch?v=2y3YphVxQaA · 김상훈의 재테크 · 구독자 2,930 · 조회수 92,404 (×31.5, 하루 695.7) · 좋아요 1,921 (2.1%) · 28.7분 · 2026-06-03 · 주제 묶음 1. 재테크 일반·마인드 · 폴더 `W_2y3YphVxQaA` (웹 승인)
 - 썸네일: <img src="W_2y3YphVxQaA/thumbnail.jpg" width="320">
 - 챕터: 0:00 오프닝: 성실함이라는 달콤한 최면에서 깨어나는 법 · 1:13 제일부: 빗물 젖은 양복과 일억 원의 빈곤 · 4:19 제이부: 물통을 드는 성실함이라는 저주 · 9:41 제삼부: 차가운 숫자가 말하는 생존의 시계 · 15:53 제사부: 물길을 만드는 설계자의 시선 · 20:40 제오부: 여든 살의 출근길을 지우는 법 · 25:34 마무리: 당신의 시간은 누구의 것입니까
 - 설명 앞부분: 이 원리를 모르면 당신은 80살까지 평생 출근해야 합니다 매달 꼬박꼬박 나오는 월급에 안도하며 평생 성실하게 일하면 안정적인 노후준비와 경제적 자유가 보장될 거라 믿으셨나요? 오늘 옆집 김대리는 이 치명적인 자본주의의 착각을 깨부수고, 80살까지 평생 출근하는 노예의 사슬을 끊어낼 단 하나의 절대 원리를 공개합니다. 지금 아래 더 보기를 눌러 매일 반복되는 쳇바퀴에서 탈출하고 당신의 계좌를 진짜 자본가 시스템으로 바꿀 실전 생존 설계도를 확인하세요. 우리는 회사와 사회가 설계한 달콤한 안락함에 속아 내 소중한 인생의 시간을 돈과 …
@@ -1350,7 +1330,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 48. 독일인은 부자인데 왜 가난하게 살까? ∣ 조용히 부자 되는 돈 습관 10가지
 
-- https://www.youtube.com/watch?v=yfLp54zD9Gk · 돈나침반 · 구독자 2,350 · 조회수 73,180 (×31.1, 하루 796.4) · 좋아요 1,778 (2.4%) · 27.6분 · 2026-07-14 · 주제 묶음 1. 재테크 일반·마인드 · 폴더 `W_yfLp54zD9Gk` (웹 승인)
+- https://www.youtube.com/watch?v=yfLp54zD9Gk · 돈나침반 · 구독자 2,350 · 조회수 73,180 (×31.1, 하루 796.3) · 좋아요 1,778 (2.4%) · 27.6분 · 2026-07-14 · 주제 묶음 1. 재테크 일반·마인드 · 폴더 `W_yfLp54zD9Gk` (웹 승인)
 - 썸네일: <img src="W_yfLp54zD9Gk/thumbnail.jpg" width="320">
 - 설명 앞부분: 세계에서 가장 부유한 나라 중 하나인 독일. 그런데 독일 백만장자는 20년 된 차를 몰고, 대기업 임원은 낡은 자전거로 출근합니다. 명품도, 외제차 경쟁도 없습니다. 왜일까요? 그들은 '부자처럼 보이는 것'과 '진짜 부자가 되는 것'이 완전히 다른 일이라는 걸 문화적으로 아는 사람들이기 때문입니다. 현금 지불, 빚을 죄악처럼 여기는 태도, 평생 쓰는 물건, 그리고 우리가 미덕이라 믿어온 것을 뒤집는 7번째 습관까지 — 조용히, 그러나 확실하게 부를 쌓는 독일인의 돈 습관 10가지를 공개합니다. 여러분이 오늘 시작해 보고 싶은 습관…
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -1379,7 +1359,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 50. 한겨울 저수지 뚝방에 버려진 치매 엄마, 아들 차가 떠나자마자 보따리에서 꺼낸 이것은..ㅣ노후사연ㅣ감동사연ㅣ사연라디오ㅣ오디오북
 
-- https://www.youtube.com/watch?v=Pnrbrya6urQ · 햇살 머문 인생 · 구독자 30,500 · 조회수 886,017 (×29.1, 하루 12,817.2) · 좋아요 19,185 (2.2%) · 137.6분 · 2026-08-06 · 주제 묶음 4. 노후·연금 · 폴더 `W_Pnrbrya6urQ` (웹 승인)
+- https://www.youtube.com/watch?v=Pnrbrya6urQ · 햇살 머문 인생 · 구독자 30,500 · 조회수 886,017 (×29.1, 하루 12,816.7) · 좋아요 19,185 (2.2%) · 137.6분 · 2026-08-06 · 주제 묶음 4. 노후·연금 · 폴더 `W_Pnrbrya6urQ` (웹 승인)
 - 썸네일: <img src="W_Pnrbrya6urQ/thumbnail.jpg" width="320">
 - 설명 앞부분: 본 영상은 창작자가 직접 기획·대본·연출한 100% 순수 창작 드라마(픽션)입니다. (영상 속 이미지와 음성은 일부 AI 기술 활용하여 생성) 이번 인생사연은 한겨울 저수지 둑방에 홀로 버려진 68세 치매 어머니의 이야기입니다. 효자로 소문난 큰아들이 어머니를 놓고 떠나자마자 멍하게 풀려 있던 어머니의 눈빛이 또렷하게 변하기 시작했습니다. 그런데 이 모든 비극의 시작은 석 달 전 아들이 병원에서 몰래 꺼내 든 인감도장에서 비롯되었습니다. 과연 어머니는 정말 치매였을까요? 도대체 그 효자 아들은 무슨 짓을 저지른 걸까요? ☀ 햇살머…
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -1397,7 +1377,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 51. "저축은 의미 없어집니다" 머스크의 미래 예측이 하나씩 현실이 되는 진짜 이유
 
-- https://www.youtube.com/watch?v=o9wqKcVOwPI · 경제우체부 · 구독자 9,570 · 조회수 277,072 (×28.9, 하루 2,636.5) · 좋아요 3,424 (1.2%) · 23.2분 · 2026-07-01 · 주제 묶음 2. 돈 모으기·저축 · 폴더 `W_o9wqKcVOwPI` (웹 승인)
+- https://www.youtube.com/watch?v=o9wqKcVOwPI · 경제우체부 · 구독자 9,570 · 조회수 277,072 (×28.9, 하루 2,636.4) · 좋아요 3,424 (1.2%) · 23.2분 · 2026-07-01 · 주제 묶음 2. 돈 모으기·저축 · 폴더 `W_o9wqKcVOwPI` (웹 승인)
 - 썸네일: <img src="W_o9wqKcVOwPI/thumbnail.jpg" width="320">
 - 설명 앞부분: 평생 아껴가며 노후 자금 모으고 계시죠? 자식만큼은 의사나 전문직 시키려 뒷바라지하시고요. 그런데 머스크는, 그렇게 모은 저축도 그 자식의 길도 곧 의미가 없어진다고 말합니다. 허풍 같으시죠? 그런데 전기차도 로켓 재활용도 다 해낸 그 사람이, 지난 5년간 던진 예측 가운데 상당수가 이미 현실이 됐습니다. 남은 예측에는 지금 전 세계 큰손들의 돈이 몰리고 있고요. 이 영상에서는 어떤 직업이 가장 먼저 흔들리는지(놀랍게도 단순직이 아닙니다), 그 일을 대신할 로봇은 어디까지 왔는지, 우리가 평생 믿어온 저축과 돈의 의미가 어떻게 바…
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -1414,7 +1394,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 52. "큰 돈 안들이고 평생 즐긴다" 퇴직 후 비참한 노후를 피하는 취미 3가지 I 교수 정선용 (3부)
 
-- https://www.youtube.com/watch?v=IQd8juHSTuw · 퇴평성대 · 구독자 24,300 · 조회수 695,761 (×28.6, 하루 16,208.9) · 좋아요 2,737 (0.4%) · 12.3분 · 2026-09-01 · 주제 묶음 4. 노후·연금 · 폴더 `W_IQd8juHSTuw` (웹 승인)
+- https://www.youtube.com/watch?v=IQd8juHSTuw · 퇴평성대 · 구독자 24,300 · 조회수 695,761 (×28.6, 하루 16,207.8) · 좋아요 2,737 (0.4%) · 12.3분 · 2026-09-01 · 주제 묶음 4. 노후·연금 · 폴더 `W_IQd8juHSTuw` (웹 승인)
 - 썸네일: <img src="W_IQd8juHSTuw/thumbnail.jpg" width="320">
 - 설명 앞부분: 🎁 달리고 읽고 쓰는 사람의 하이, 정선용 진솔하게 자신의 경험을 나눠주신 선생님께 감사의 말씀을 드립니다. 선생님의 경험과 지식이 많은 분들에게 도움이 되었으면 좋겠습니다.
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -1430,7 +1410,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 53. 삼성 전고체 배터리가 노리는 진짜 목표
 
-- https://www.youtube.com/watch?v=imK95IyKW3Q · 돈공부 · 구독자 4,550 · 조회수 118,841 (×26.1, 하루 756.1) · 좋아요 1,163 (1.0%) · 13.1분 · 2026-05-10 · 주제 묶음 1. 재테크 일반·마인드 · 폴더 `W_imK95IyKW3Q` (웹 승인)
+- https://www.youtube.com/watch?v=imK95IyKW3Q · 돈공부 · 구독자 4,550 · 조회수 118,841 (×26.1, 하루 756.0) · 좋아요 1,163 (1.0%) · 13.1분 · 2026-05-10 · 주제 묶음 1. 재테크 일반·마인드 · 폴더 `W_imK95IyKW3Q` (웹 승인)
 - 썸네일: <img src="W_imK95IyKW3Q/thumbnail.jpg" width="320">
 - 챕터: 0:00 삼성이 찾아간 곳은 전기차가 아니었다 · 1:00 한국 배터리 3사 위기의 실체 · 4:00 로봇이라는 블루오션 · 7:00 KAIST가 뚫은 새로운 길 · 9:00 삼성 30년 공정의 비밀 · 11:00 내 돈에 무슨 의미인가 · 14:00 정리 — 삼성의 진짜 전략
 - 설명 앞부분: 삼성SDI가 전고체 배터리를 들고 가장 먼저 찾아간 곳은 전기차가 아니라 로봇이었습니다. 한국 배터리 3사 점유율이 25.5%로 추락한 지금, 삼성이 왜 가장 작은 시장부터 시작하는지 그 경제 논리를 추적합니다. KAIST의 특허 우회 전략부터 30년 MLCC 제조 노하우, 그리고 이 모든 것이 우리 돈에 어떤 의미인지까지. 타임라인 KAIST 지르코늄 기반 할라이드 전해질 연구 — Nature Communications, 헤럴드경제 2026.01.07 KAIST 산소 앵커링 후속 연구 — Advanced Energy Materi…
@@ -1445,7 +1425,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 54. '5천피' 예언적중한 문남중 "코스피 저점? 5040 봅니다, 지금은 아무것도 하지 마세요" #문남중 _260730
 
-- https://www.youtube.com/watch?v=SrwNTk6GT9U · 경제통마늘 · 구독자 11,300 · 조회수 295,016 (×26.1, 하루 3,872.9) · 좋아요 4,518 (1.5%) · 19.6분 · 2026-07-30 · 주제 묶음 3. 주식·ETF · 폴더 `W_SrwNTk6GT9U` (웹 승인)
+- https://www.youtube.com/watch?v=SrwNTk6GT9U · 경제통마늘 · 구독자 11,300 · 조회수 295,016 (×26.1, 하루 3,872.7) · 좋아요 4,518 (1.5%) · 19.6분 · 2026-07-30 · 주제 묶음 3. 주식·ETF · 폴더 `W_SrwNTk6GT9U` (웹 승인)
 - 썸네일: <img src="W_SrwNTk6GT9U/thumbnail.jpg" width="320">
 - 설명 앞부분: 여기서 더 떨어진다고? '5천피' 적중한 전문가 "지금 아무 것도 하지마라!" '5천피' 예언적중? 슬픈 예감은 틀린 적이 없어요 지금은 펀더멘털보다는 기술적 분석에 의존해야하는 시기 6월부터 부각된 물가, 금리불안, 이란전쟁 재확전, 美 관세부과로 인한 미 증시 하락 등 살펴야 낙폭 과대하지만, 코스피 '저점' 섣부른 예단 안돼..추가하락 염두해야 코스피 급락, 이번주가 '클라이막스' 증시 반등 시점? 4분기 예상..반도체 주가 급등할 것 펀더멘탈 훼손은 없어...문제는 '가치' 아닌 '이 것' (가격) 코스피 4일연속 음봉, …
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -1463,7 +1443,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 55. 매일 아침 7시, 내 포트폴리오를 관리해주는 AI 주식 비서를 만들어봤습니다
 
-- https://www.youtube.com/watch?v=ITzgH6CeZns · 스티브의 파도타기 | AI 시대 일하는 법 · 구독자 26,600 · 조회수 680,729 (×25.6, 하루 4,907.8) · 좋아요 16,162 (2.4%) · 14.8분 · 2026-05-28 · 주제 묶음 3. 주식·ETF · 폴더 `W_ITzgH6CeZns` (웹 승인)
+- https://www.youtube.com/watch?v=ITzgH6CeZns · 스티브의 파도타기 | AI 시대 일하는 법 · 구독자 26,600 · 조회수 680,729 (×25.6, 하루 4,907.7) · 좋아요 16,162 (2.4%) · 14.8분 · 2026-05-28 · 주제 묶음 3. 주식·ETF · 폴더 `W_ITzgH6CeZns` (웹 승인)
 - 썸네일: <img src="W_ITzgH6CeZns/thumbnail.jpg" width="320">
 - 챕터: 0:00 Intro · 1:44 시작 전 꼭 알아야 할 것 · 2:37 1단계 - 주식 가격 정확하게 가져오기 · 3:40 2단계 - 관련 뉴스 가져오기 (날짜 문제 해결) · 6:20 3단계 - 브리핑으로 묶기 · 7:54 4단계 - 카카오톡으로 받기 (PlayMCP 연결) · 11:17 5단계 - 매일 아침 7시 자동 실행 (스케줄 등록) · 13:09 다음날 아침, 실제로 작동하는지 확인
 - 설명 앞부분: Claude 하나로 매일 아침 7시, 코딩을 모르는 누구나 만들 수 있을만큼 쉽습니다. AI 자동화 콘텐츠가 넘쳐납니다. "주식 자동 매매", "포트폴리오 자동 운영" 같은 것들이요. 저는 개인적으로 추천드리지 않습니다. AI가 주식 판단을 대신할 수 있다면, AI 쓰는 사람들 모두 부자가 됐겠죠. AI는 미래를 알지 못합니다. 반복 노동은 AI에게 넘기고 진짜 중요한 판단은 내가 하는 것. 이게 제가 생각하는 AI 시대의 일하는 방식입니다. 타임라인 ○ 이렇게 AI를 활용하는 법을 직접 배우고 싶다면?
@@ -1482,7 +1462,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 56. 금융자산 10억 부자도 아직 공부합니다… 평생 돈이 안 모이는 사람은 ‘이 6가지’를 놓칩니다
 
-- https://www.youtube.com/watch?v=i9Mj9VvL20o · 오십의 경제지도 · 구독자 677 · 조회수 17,188 (×25.4, 하루 842.4) · 좋아요 101 (0.6%) · 16.5분 · 2026-09-23 · 주제 묶음 1. 재테크 일반·마인드 · 폴더 `W_i9Mj9VvL20o` (웹 승인)
+- https://www.youtube.com/watch?v=i9Mj9VvL20o · 오십의 경제지도 · 구독자 677 · 조회수 17,188 (×25.4, 하루 842.3) · 좋아요 101 (0.6%) · 16.5분 · 2026-09-23 · 주제 묶음 1. 재테크 일반·마인드 · 폴더 `W_i9Mj9VvL20o` (웹 승인)
 - 썸네일: <img src="W_i9Mj9VvL20o/thumbnail.jpg" width="320">
 - 설명 앞부분: 금융자산 10억 원 이상 부자들이 왜 계속 금융지식을 공부하는지, 금리·세금·현금흐름·자산배분·시간·투자심리 여섯 가지로 정리합니다. 40대·50대 자산관리와 노후 준비에 필요한 돈 공부의 핵심을 확인해 보세요. 가장 자신 없는 과목도 댓글로 남겨주세요. 여섯 과목 중 지금 가장 자신 없는 것은 무엇인가요? 금리, 세금, 현금흐름, 자산배분, 시간, 나 자신 중 딱 하나만 골라 댓글로 남겨주세요. 가장 많이 나온 과목부터 다음 영상에서 깊게 다뤄보겠습니다.
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -1490,7 +1470,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 57. 월배당 ETF 10억 투자하면 정말 배당금 얼마? ∣ 종합소득세·건강보험료 계산법 (은퇴 현금흐름 설계)
 
-- https://www.youtube.com/watch?v=yRDpbgaZahc · 은퇴머니 - 은퇴 현금흐름 설계 · 구독자 30,000 · 조회수 748,689 (×25.0, 하루 5,528.1) · 좋아요 10,244 (1.4%) · 11.4분 · 2026-05-31 · 주제 묶음 6. 절세·제도 · 폴더 `W_yRDpbgaZahc` (웹 승인)
+- https://www.youtube.com/watch?v=yRDpbgaZahc · 은퇴머니 - 은퇴 현금흐름 설계 · 구독자 30,000 · 조회수 748,689 (×25.0, 하루 5,528.0) · 좋아요 10,244 (1.4%) · 11.4분 · 2026-05-31 · 주제 묶음 6. 절세·제도 · 폴더 `W_yRDpbgaZahc` (웹 승인)
 - 썸네일: <img src="W_yRDpbgaZahc/thumbnail.jpg" width="320">
 - 챕터: 0:00 평생 모은 10억으로 생활비를 만들어야 한다면 · 1:10 10억을 배당 ETF에 넣고 3년, 직접 따라가 봤습… · 2:00 첫 분배금, 그리고 먼저 떼이는 원천세 · 3:11 예상 못 한 종합소득세 · 4:36 매달 빠져나가는 건강보험료 · 6:25 분배금은 36개월, 세금은 58개월 · 7:04 시뮬레이터 + 커버드콜 ETF 3종 비교 · 8:39 결국 종목이 아니라, 본인의 다섯 변수
 - 설명 앞부분: 은퇴 후 10억을 월배당 ETF(JEPQ)에 넣으면 매달 얼마가 들어오고, 세금은 언제 얼마가 빠질까. 2023~2025년 3년 치 통장을 한 화면에 펼쳐 직접 확인해 봤습니다. 타임라인 📑 영상 PPT 자료 영상 내용을 정리한 슬라이드를 웹에서 바로 보고, PDF로도 내려받을 수 있습니다. 🧮 직접 계산해 보기 영상의 사례를 내 조건으로 바꿔 계산할 수 있습니다. 📄 전자책 「은퇴 현금흐름 설계법」 💬 여러분의 은퇴 설계에서 가장 고민되는 부분은? (자산 규모 / 세금 / 건강보험) 댓글로 알려 주세요.
@@ -1509,7 +1489,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 58. 머스크가 던진 32개 예측 중 부자들이 베팅한 TOP 7 카운트다운 "이미 19개가 맞았습니다"
 
-- https://www.youtube.com/watch?v=EomU4-CfZCw · 경제가머니 · 구독자 22,500 · 조회수 558,543 (×24.8, 하루 3,629.4) · 좋아요 10,625 (1.9%) · 27.2분 · 2026-05-13 · 주제 묶음 1. 재테크 일반·마인드 · 폴더 `W_EomU4-CfZCw` (웹 승인)
+- https://www.youtube.com/watch?v=EomU4-CfZCw · 경제가머니 · 구독자 22,500 · 조회수 558,543 (×24.8, 하루 3,629.3) · 좋아요 10,625 (1.9%) · 27.2분 · 2026-05-13 · 주제 묶음 1. 재테크 일반·마인드 · 폴더 `W_EomU4-CfZCw` (웹 승인)
 - 썸네일: <img src="W_EomU4-CfZCw/thumbnail.jpg" width="320">
 - 설명 앞부분: 머스크가 5년 동안 던진 미래 예측 32개 중 19개가 이미 현실이 됐습니다. 그럼 남은 13개는요? 부자들이 진짜 돈을 쏟아붓는 일곱 자리, 그리고 카운트다운에 적히지 않은 자리 하나가 더 있습니다. 오픈AI 5,000억 달러, xAI 2,300억 달러, 스페이스X 8,000억 달러. 부자들의 자본이 한 산업으로 빨려 들어가는 그림과, AI 시대의 새 석유·새 전기·새 노동력이 어디로 향하는지, 그리고 그 거대한 베팅 옆에 한국이 어떤 자리에 끼어 있는지 — 친근한 선생님 톤으로 한 번에 정리해드립니다. 노후 적금부터 자녀 진로…
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -1525,7 +1505,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 59. 에어컨이 필요 없는 문쌤의 폐건물 괴담 [문쌤 라디오]
 
-- https://www.youtube.com/watch?v=2yOps8H0fWs · 한국자산관리공사 캠코TV · 구독자 42,700 · 조회수 1,040,777 (×24.4, 하루 31,521.0) · 좋아요 4,433 (0.4%) · 15.8분 · 2026-09-11 · 주제 묶음 1. 재테크 일반·마인드 · 폴더 `W_2yOps8H0fWs` (웹 승인)
+- https://www.youtube.com/watch?v=2yOps8H0fWs · 한국자산관리공사 캠코TV · 구독자 42,700 · 조회수 1,040,777 (×24.4, 하루 31,518.2) · 좋아요 4,433 (0.4%) · 15.8분 · 2026-09-11 · 주제 묶음 1. 재테크 일반·마인드 · 폴더 `W_2yOps8H0fWs` (웹 승인)
 - 썸네일: <img src="W_2yOps8H0fWs/thumbnail.jpg" width="320">
 - 설명 앞부분: [캠코 X 빠더너스 문쌤] 문쌤이 들려주는 공포 라디오 특집 아직 덥지 얘들아? 오늘은 폐건물에 관한 이야기를 준비해봤어. 늦더위 쫓아낼 만큼 으스스한 이야기니깐 다들 각오해! '캠코 X 빠더너스 문쌤의 공포 라디오' 영상 시청하고, 캠코의 ‘나라On’ 사업이 널리 알려질 수 있도록 응원과 지지, 또는 시청 소감 댓글을 달아줘! (*캠코는 재정경제부로부터 국유재산을 위탁받아 관리, 활용하는 국내 유일 공적자산관리 전문기관입니다. 캠코는 더 이상 활용되지 않는 폐파출소 등의 국유재산을 리모델링하고 재활용하여 국가재산의 가치를 높이는…
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -1543,7 +1523,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 60. 주식 상위 2%만 아는 10가지 절대 생존 원칙 (돈의 원리)
 
-- https://www.youtube.com/watch?v=fFURFeLTdAg · 준의 경제노트 (jun’s Note) · 구독자 12,600 · 조회수 305,667 (×24.3, 하루 2,438.1) · 좋아요 6,907 (2.3%) · 21.6분 · 2026-06-10 · 주제 묶음 3. 주식·ETF · 폴더 `W_fFURFeLTdAg` (웹 승인)
+- https://www.youtube.com/watch?v=fFURFeLTdAg · 준의 경제노트 (jun’s Note) · 구독자 12,600 · 조회수 305,667 (×24.3, 하루 2,438.0) · 좋아요 6,907 (2.3%) · 21.6분 · 2026-06-10 · 주제 묶음 3. 주식·ETF · 폴더 `W_fFURFeLTdAg` (웹 승인)
 - 썸네일: <img src="W_fFURFeLTdAg/thumbnail.jpg" width="320">
 - 챕터: 0:00 주식 시장, 살아남는 자가 강하다 · 1:25 금융 천재 vs 평범한 경비원, 진짜 승자는? · 3:10 주식 투자는 지능이 아닌 '행동'의 영역 · 3:52 원칙 1. 예측하지 말고, 대응하라 · 5:22 원칙 2. 손실의 비대칭성을 이해하라 (바벨 전략) · 7:23 원칙 3. 승률이 아니라, 손익비로 계산하라 · 9:05 원칙 4. 좋은 회사가 아니라, 싼 주식을 사라 · 11:00 원칙 5. 현금은 쓰레기가 아니라, 무기다 · 12:56 원칙 6. 살 때는 신중하게, 팔 때는 과감하게 · 14:00 원칙 7. 공포에 사고, 환희에 팔아라 · 15:35 원칙 8. 좋은 종목만 사라 · 16:45 원칙 9. 본전 심리를 버려라 · 17:50 원칙 10. 감정과 싸우지 말고, 회피하라 · 19:25 실전 적용: 시장의 주인이 되는 법 · 20:20 마무리: 10년 생존을 위한 자가 진단
 - 설명 앞부분: 주식 투자자 10명 중 9명은 왜 돈을 잃을까요?** 📉 예측에 의존하는 투자가 아닌, 진짜 부자들만 아는 '10가지 절대 생존 원칙'을 공개합니다. 평생 경비원으로 일하며 95억 원의 유산을 남긴 로널드 리드와, 화려한 경력에도 파산한 금융 천재의 결정적 차이는 무엇이었을까요? 이 영상에서 자산을 수십 배로 불리는 투자의 본질을 확실히 해부해 드립니다. 핵심 요약 주식 투자는 지능의 게임이 아니라 '행동'의 영역입니다. 10년, 20년 동안 시장에서 살아남아 끝까지 승리하는 상위 2%가 되고 싶다면, 영상에서 제시하는 생존 지도…
@@ -1560,7 +1540,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 61. 65세 이후 통장에 돈 이정도 들어있다면 돈 벌지 말고 그냥 돈 쓰면서 사세요ㅣ명언ㅣ인생조언ㅣ오디오북ㅣ라디오북ㅣ시니어ㅣ노후ㅣ노년
 
-- https://www.youtube.com/watch?v=kXnYK2PiBDc · 철인의지혜 · 구독자 18,400 · 조회수 446,340 (×24.3, 하루 11,402.6) · 좋아요 1,820 (0.4%) · 26.9분 · 2026-09-05 · 주제 묶음 4. 노후·연금 · 폴더 `W_kXnYK2PiBDc` (웹 승인)
+- https://www.youtube.com/watch?v=kXnYK2PiBDc · 철인의지혜 · 구독자 18,400 · 조회수 446,340 (×24.3, 하루 11,401.8) · 좋아요 1,820 (0.4%) · 26.9분 · 2026-09-05 · 주제 묶음 4. 노후·연금 · 폴더 `W_kXnYK2PiBDc` (웹 승인)
 - 썸네일: <img src="W_kXnYK2PiBDc/thumbnail.jpg" width="320">
 - 설명 앞부분: 65세 이후에는 더 많이 버는 것보다 지금까지 모은 돈을 현명하게 사용하는 일이 중요합니다. 평생 가족을 위해 아끼고 참고 살아왔지만, 건강과 시간은 돈처럼 통장에 쌓아둘 수 없습니다. 생활비와 의료비를 충분히 준비했다면, 이제는 무리해서 돈을 벌기보다 여행도 다니고 먹고 싶었던 음식도 즐기며 자신을 위해 살아야 합니다. 이번 영상에서는 65세 이후 일을 내려놓아도 되는 현실적인 예금 기준과 노후 자금을 안전하게 관리하고 사용하는 방법을 알아봅니다. 돈은 남기기 위해서만 모으는 것이 아닙니다. 건강하게 움직일 수 있는 지금, 여러…
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -1591,7 +1571,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 63. "돈 버는 규칙은 따로 있어요." 1300억 부자가 추천하는 단 한권의 책/인생책/레버리지 몰아보기
 
-- https://www.youtube.com/watch?v=vD6oAnU4ZPo · 달콤하게성장 · 구독자 8,040 · 조회수 181,711 (×22.6, 하루 8,497.9) · 좋아요 1,290 (0.7%) · 34.7분 · 2026-09-22 · 주제 묶음 1. 재테크 일반·마인드 · 폴더 `W_vD6oAnU4ZPo` (웹 승인)
+- https://www.youtube.com/watch?v=vD6oAnU4ZPo · 달콤하게성장 · 구독자 8,040 · 조회수 181,711 (×22.6, 하루 8,496.7) · 좋아요 1,290 (0.7%) · 34.7분 · 2026-09-22 · 주제 묶음 1. 재테크 일반·마인드 · 폴더 `W_vD6oAnU4ZPo` (웹 승인)
 - 썸네일: <img src="W_vD6oAnU4ZPo/thumbnail.jpg" width="320">
 - 챕터: 0:00 열심히만 살면 부자가 될까? · 2:47 레버리지란 무엇인가 · 5:20 내가 아니어도 되는 일은 위임하라 · 7:45 절약보다 투자 · 10:23 시간 관리보다 감정 관리 · 13:24 아끼고 열심히 살아도 부자가 되지 않는 이유 · 16:59 작은 돈보다 시간과 에너지를 아껴라 · 21:05 가격 비교에 시간 쓰지 마라 · 25:10 건강에는 아끼지 마라 · 29:13 책과 배움에 투자하라 · 31:25 돈보다 시간·건강·교육에 투자하라
 - 설명 앞부분: 레버리지는 무조건 열심히 사는 것이 아니라 적은 노력으로 더 큰 성과를 만드는 방법입니다. 열심히 살고 악착같이 아끼는데도 왜 생각만큼 부자가 되지 못할까요? 부자되는 법을 알고 싶다면 돈보다 먼저 나의 시간과 에너지를 어디에 쓰고 있는지 살펴봐야 합니다. 진짜 돈 관리는 무조건 아끼고 저축하는 것만을 의미하지 않습니다. 몇백 원, 몇천 원을 아끼기 위해 소중한 시간과 에너지를 낭비하고 있지는 않은지 생각해 봐야 합니다. 레버리지를 이해하면 돈을 써서 시간을 사고, 그 시간을 더 가치 있는 일에 사용하는 방법을 고민하게 됩니다. …
@@ -1649,7 +1629,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 67. 내 주변에 주식으로 돈 번 사람이 '진짜' 단 1명도 없는 소름 돋는 이유 ∣ 교수 정선용 (통합본)
 
-- https://www.youtube.com/watch?v=SwW4n0ERlS8 · 너와 나의 경제학교 · 구독자 30,200 · 조회수 613,828 (×20.3, 하루 10,075.1) · 좋아요 11,581 (1.9%) · 52.7분 · 2026-08-14 · 주제 묶음 3. 주식·ETF · 폴더 `W_SwW4n0ERlS8` (웹 승인)
+- https://www.youtube.com/watch?v=SwW4n0ERlS8 · 너와 나의 경제학교 · 구독자 30,200 · 조회수 613,828 (×20.3, 하루 10,074.7) · 좋아요 11,581 (1.9%) · 52.7분 · 2026-08-14 · 주제 묶음 3. 주식·ETF · 폴더 `W_SwW4n0ERlS8` (웹 승인)
 - 썸네일: <img src="W_SwW4n0ERlS8/thumbnail.jpg" width="320">
 - 설명 앞부분: 정선용, 달리고 읽고 쓰는 사람의 하이
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -1667,7 +1647,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 68. 🇨🇦 아무도 알려주지 않았던 '은퇴의 잔인한 현실' 8가지! ∣ 브랜든 캐나다
 
-- https://www.youtube.com/watch?v=XWjW3xiUKxw · 브랜든 캐나다 투자전략 · 구독자 3,240 · 조회수 65,369 (×20.2, 하루 844.2) · 좋아요 1,342 (2.1%) · 18.1분 · 2026-07-28 · 주제 묶음 4. 노후·연금 · 폴더 `W_XWjW3xiUKxw` (웹 승인)
+- https://www.youtube.com/watch?v=XWjW3xiUKxw · 브랜든 캐나다 투자전략 · 구독자 3,240 · 조회수 65,369 (×20.2, 하루 844.1) · 좋아요 1,342 (2.1%) · 18.1분 · 2026-07-28 · 주제 묶음 4. 노후·연금 · 폴더 `W_XWjW3xiUKxw` (웹 승인)
 - 썸네일: <img src="W_XWjW3xiUKxw/thumbnail.jpg" width="320">
 - 설명 앞부분: 📍 상담 안내 상담 가능 지역: BC, ON, AB (공식 금융 라이센스 보유) 브랜든 유 (Branden Yu), CIM®, Investment Advisor 🏛️ Harbourfront Wealth Management 🏦 National Bank Independent Network (NBIN) Custodian 🇨🇦 전략적 투자플랜/ 프라이빗 자산관리/ 은퇴 및 상속플랜 📩 Contact 604-616-0192 (BC), 647-982-0192 (ON) 문자 메세지 캐나다에서의 은퇴는 단순한 자산 축적이 아닌, 철저한 세금 통…
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -1752,7 +1732,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 73. 기준 금리 요동치는 지금, 내 계좌 살리는 분산 포트 비율 (홍춘욱 박사)
 
-- https://www.youtube.com/watch?v=RfFgJJomevo · 오늘의 경제노트 · 구독자 1,160 · 조회수 20,924 (×18.0, 하루 833.6) · 좋아요 83 (0.4%) · 17.6분 · 2026-09-19 · 주제 묶음 3. 주식·ETF · 폴더 `W_RfFgJJomevo` (웹 승인)
+- https://www.youtube.com/watch?v=RfFgJJomevo · 오늘의 경제노트 · 구독자 1,160 · 조회수 20,924 (×18.0, 하루 833.5) · 좋아요 83 (0.4%) · 17.6분 · 2026-09-19 · 주제 묶음 3. 주식·ETF · 폴더 `W_RfFgJJomevo` (웹 승인)
 - 썸네일: <img src="W_RfFgJJomevo/thumbnail.jpg" width="320">
 - 설명 앞부분: 기준금리가 크게 움직이는 지금, 내 자산은 안전하게 분산되어 있을까요? 금리 변화가 이어지는 시기에는 주식과 채권, 현금 등 자산별 움직임도 달라질 수 있습니다. 그렇다면 변동성이 커진 시장에서 계좌를 지키기 위해 어떤 방식으로 포트폴리오를 구성해야 할까요? 이번 영상에서는 홍춘욱 박사가 금리 변화에 따른 시장의 흐름을 살펴보고, 분산투자의 중요성과 자산별 비중을 어떻게 바라봐야 하는지 자세히 설명합니다. 주식에만 집중하는 것이 부담스럽거나 시장 변동성에 대비하고 싶다면, 지금 내 포트폴리오에서 무엇을 점검해야 하는지 함께 확인해…
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -1764,7 +1744,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 74. 손 하나 까딱 않는 며느리에게 가게를 맡겼더니, 한달 뒤 놀라운 일이 벌어지는데... ㅣ노후사연ㅣ감동사연ㅣ사연라디오ㅣ오디오북
 
-- https://www.youtube.com/watch?v=9h3kmvUNlB0 · 마음나날 · 구독자 14,900 · 조회수 264,874 (×17.8, 하루 3,217.6) · 좋아요 8,729 (3.3%) · 110.1분 · 2026-07-23 · 주제 묶음 4. 노후·연금 · 폴더 `W_9h3kmvUNlB0` (웹 승인)
+- https://www.youtube.com/watch?v=9h3kmvUNlB0 · 마음나날 · 구독자 14,900 · 조회수 264,874 (×17.8, 하루 3,217.5) · 좋아요 8,729 (3.3%) · 110.1분 · 2026-07-23 · 주제 묶음 4. 노후·연금 · 폴더 `W_9h3kmvUNlB0` (웹 승인)
 - 썸네일: <img src="W_9h3kmvUNlB0/thumbnail.jpg" width="320">
 - 설명 앞부분: 시집온 지 사흘, 손 하나 까딱 않는 며느리에게 시어머니가 가게 열쇠를 통째로 맡겼습니다. 시장 사람들은 노망이 났다며 손가락질했지요. 그런데 한 달 뒤, 그 며느리가 입을 열었습니다. "이상한 날은 일곱 번이었습니다." 사십 년을 지켜온 가게에서, 십오 년 동안 아무도 몰랐던 일이 그날 처음 드러났습니다. 걷지 못해 종일 앉아만 있던 사람이, 그 자리에서 모든 것을 보고 있었던 것입니다. 끝까지 들으시면, 아무 말 없이 내 편에 서 주었던 그 사람이 떠오르실 겁니다. ☕ 따뜻한 차 한 잔 준비하시고, 편안히 이야기 속으로 들어오…
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -1790,7 +1770,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 76. 평생 모은 돈, 노후에는 이 3가지에 먼저 쓰세요
 
-- https://www.youtube.com/watch?v=_H2oRoXuF-Q · 인생다시쓰기 · 구독자 8,060 · 조회수 140,789 (×17.5, 하루 6,889.4) · 좋아요 500 (0.4%) · 16.4분 · 2026-09-23 · 주제 묶음 4. 노후·연금 · 폴더 `W__H2oRoXuF-Q` (웹 승인)
+- https://www.youtube.com/watch?v=_H2oRoXuF-Q · 인생다시쓰기 · 구독자 8,060 · 조회수 140,789 (×17.5, 하루 6,888.5) · 좋아요 500 (0.4%) · 16.4분 · 2026-09-23 · 주제 묶음 4. 노후·연금 · 폴더 `W__H2oRoXuF-Q` (웹 승인)
 - 썸네일: <img src="W__H2oRoXuF-Q/thumbnail.jpg" width="320">
 - 챕터: 0:00 돈이 있어도 가난해지는 노후 · 1:16 첫 번째, 80세에도 혼자 살 수 있는 집 · 4:34 두 번째, 귀가 멀어지면 사람도 멀어진다 · 7:44 세 번째, 자동차보다 중요한 이동의 자유 · 10:31 돈을 아끼면 자식이 시간을 쓰게 됩니다 · 14:36 노후에 돈으로 정말 사야 하는 것
 - 설명 앞부분: 나이 들어 돈이 있어도 가난하게 느껴지는 노후가 있습니다. 돈보다 중요한 독립적인 노후 준비를 위해 지금 당장 시작해야 할 3가지를 정리했습니다. 영상에서는 단순히 재산의 많고 적음을 떠나, 실제로 어떻게 살아가느냐에 따라 갈리는 삶의 풍경을 다룹니다. 통장에 돈이 있어도 활동 반경이 좁아지면 결국 가난한 노후 생활을 보내게 되기 때문입니다. 반대로 적은 돈으로도 시장에 가고 친구를 만나며 활기차게 지내는 분들도 있습니다. 결국 중요한 것은 돈을 어떻게 쓰느냐입니다. 건강하게 움직이고 사람들과 어울릴 수 있는 환경을 만드는 것이야…
@@ -1802,7 +1782,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 77. 돈 이야기가 아닙니다. 노후에 ‘남편이 있는 집’과 ‘남편이 없는 집’의 너무나 잔혹한 결정적 차이
 
-- https://www.youtube.com/watch?v=A9MWoLgYDnQ · 마음을 안아주는 이야기-hkt · 구독자 14,700 · 조회수 248,782 (×16.9, 하루 4,130.7) · 좋아요 4,334 (1.7%) · 40.7분 · 2026-08-15 · 주제 묶음 4. 노후·연금 · 폴더 `W_A9MWoLgYDnQ` (웹 승인)
+- https://www.youtube.com/watch?v=A9MWoLgYDnQ · 마음을 안아주는 이야기-hkt · 구독자 14,700 · 조회수 248,782 (×16.9, 하루 4,130.5) · 좋아요 4,334 (1.7%) · 40.7분 · 2026-08-15 · 주제 묶음 4. 노후·연금 · 폴더 `W_A9MWoLgYDnQ` (웹 승인)
 - 썸네일: <img src="W_A9MWoLgYDnQ/thumbnail.jpg" width="320">
 - 설명 앞부분: 노후의 삶에서 가장 큰 차이는 단순히 돈이나 재산의 많고 적음에서 결정되지 않습니다. 오랜 세월 함께 살아온 남편이 곁에 있는 집과 남편이 없는 집은 일상, 감정, 건강, 인간관계에서 생각보다 훨씬 큰 차이를 만들어냅니다. 이번 영상에서는 노후, 남편이 있는 집, 남편이 없는 집에서 실제로 나타날 수 있는 결정적인 차이를 현실적인 시선으로 살펴봅니다. 경제적인 문제만이 아니라 외로움, 정서적 안정, 생활 습관, 가족과의 관계, 사회적 연결까지 노후의 삶에 영향을 미치는 중요한 요소들을 이야기합니다. 특히 평소에는 당연하게 생각했던…
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -1818,7 +1798,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 78. 노년에 이성이 접근한다면, 목적은 딱 4가지입니다… 돈이 있든 없든 반드시 보세요【노후의 진실】
 
-- https://www.youtube.com/watch?v=RRnTh3k1Fls · 노후의 진실 · 구독자 20,100 · 조회수 333,845 (×16.6, 하루 3,340.6) · 좋아요 7,505 (2.2%) · 29.1분 · 2026-07-06 · 주제 묶음 4. 노후·연금 · 폴더 `W_RRnTh3k1Fls` (웹 승인)
+- https://www.youtube.com/watch?v=RRnTh3k1Fls · 노후의 진실 · 구독자 20,100 · 조회수 333,845 (×16.6, 하루 3,340.5) · 좋아요 7,505 (2.2%) · 29.1분 · 2026-07-06 · 주제 묶음 4. 노후·연금 · 폴더 `W_RRnTh3k1Fls` (웹 승인)
 - 썸네일: <img src="W_RRnTh3k1Fls/thumbnail.jpg" width="320">
 - 설명 앞부분: 노년에 이성이 접근한다면, 목적은 딱 4가지입니다… 돈이 있든 없든 반드시 보세요【노후의 진실】
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -1835,7 +1815,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 79. 《정약용 명언》 부자가 되는 여성이 즐겨 입는 옷 색깔 5가지. 이 색만 입어도 평생 재물이 따릅니다
 
-- https://www.youtube.com/watch?v=BTpNqy7XqJE · 다산의 서재 · 구독자 22,200 · 조회수 363,948 (×16.4, 하루 5,752.0) · 좋아요 11,916 (3.3%) · 36.9분 · 2026-08-12 · 주제 묶음 1. 재테크 일반·마인드 · 폴더 `W_BTpNqy7XqJE` (웹 승인)
+- https://www.youtube.com/watch?v=BTpNqy7XqJE · 다산의 서재 · 구독자 22,200 · 조회수 363,948 (×16.4, 하루 5,751.8) · 좋아요 11,916 (3.3%) · 36.9분 · 2026-08-12 · 주제 묶음 1. 재테크 일반·마인드 · 폴더 `W_BTpNqy7XqJE` (웹 승인)
 - 썸네일: <img src="W_BTpNqy7XqJE/thumbnail.jpg" width="320">
 - 챕터: 0:00 당신의 옷장이 자신도 모르는 사이에 행운을 쫓아내고 … · 3:42 현인 정약용은 복장과 인품에 관해 무엇을 가르쳤습니까? · 8:18 결단력의 색이자 신뢰의 색, 이는 부유한 여성들이 결… · 13:21 "대지의 색과 지성의 색—자산의 유출을 막아주는 두 … · 18:57 "위엄 있는 품격의 색 — 자연스럽게 타인의 시선을 … · 24:30 "대가들은 공허한 이론을 가르치지 않습니다 — 오늘 … · 30:33 색을 이해하는 여성은 자신의 운명을 이해하는 여성입니…
 - 설명 앞부분: 정약용 선생의 가르침에 따르면, 사람의 옷차림은 단순한 외모가 아니라 마음의 태도와 운의 흐름을 나타냅니다. 특히 여성이 즐겨 입는 옷의 색깔은 그 사람의 내면 에너지, 자존감, 그리고 재물을 끌어당기는 기운을 그대로 반영합니다. 부자가 되는 여성들은 결코 우연히 부를 얻은 것이 아닙니다. 그들은 자신도 모르게 특정 색깔의 옷을 선택하며, 그 색이 마음의 품격을 세우고 주변의 존중을 자연스럽게 불러옵니다. 오늘 이 영상에서는 정약용 선생이 남긴 지혜를 통해, 평생 재물이 따르는 여성들이 사랑하는 5가지 옷 색깔의 비밀을 함께 나눕…
@@ -1887,7 +1867,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 82. "이건 저희 부모님도 가능해요" 외국인한테 한국어 읽어주고 달러 버는 역대급 부업
 
-- https://www.youtube.com/watch?v=lHj-_pcQSX4 · 뉴머니 · 구독자 27,800 · 조회수 405,639 (×14.6, 하루 4,832.2) · 좋아요 8,170 (2.0%) · 16.1분 · 2026-07-22 · 주제 묶음 8. 부업·소득 · 폴더 `W_lHj-_pcQSX4` (웹 승인)
+- https://www.youtube.com/watch?v=lHj-_pcQSX4 · 뉴머니 · 구독자 27,800 · 조회수 405,639 (×14.6, 하루 4,832.0) · 좋아요 8,170 (2.0%) · 16.1분 · 2026-07-22 · 주제 묶음 8. 부업·소득 · 폴더 `W_lHj-_pcQSX4` (웹 승인)
 - 썸네일: <img src="W_lHj-_pcQSX4/thumbnail.jpg" width="320">
 - 설명 앞부분: ⏰ 무료라이브 날짜는 신청하시면 단톡방에서 공지드립니다 ⚠️현재 신청 폭주!!! 곧 단톡방 마감됩니다⚠ 필수! 단톡방 입장하면 필살기 무료선물 드립니다 🚨선착순 한정 한국어만 읽어주고 달러를 번다고?🫢 오늘 출연하신 한글언니님은 영어를 유창하게 하지 않아도 외국인들에게 한국어를 가르치며 매달 꾸준히 달러 수익을 만들고 계십니다. “이런 거 하는 사람 많아서 이미 레드오션 아닌가요?” 그렇게 생각하실 수도 있는데요. 놀랍게도 한국어 강사는 영어 강사보다 훨씬 적은 반면 배우려는 학생은 200만명이 넘는다는 사실...🫢 이번 영상에서…
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -1921,7 +1901,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 84. 현대차 반토막에 숨겨진 진실… 엔비디아 합작 발표 전 무조건 모아야 할 이유 [이권희 대표]
 
-- https://www.youtube.com/watch?v=m3ZRHahRGHU · 경제시그널 · 구독자 27,500 · 조회수 397,862 (×14.5, 하루 50,534.3) · 좋아요 1,826 (0.5%) · 33분 · 2026-10-06 · 주제 묶음 기타 · 폴더 `W_m3ZRHahRGHU` (웹 승인)
+- https://www.youtube.com/watch?v=m3ZRHahRGHU · 경제시그널 · 구독자 27,500 · 조회수 397,862 (×14.5, 하루 50,515.5) · 좋아요 1,826 (0.5%) · 33분 · 2026-10-06 · 주제 묶음 기타 · 폴더 `W_m3ZRHahRGHU` (웹 승인)
 - 썸네일: <img src="W_m3ZRHahRGHU/thumbnail.jpg" width="320">
 - 챕터: 0:00 오프닝 · 0:15 요즘 주식시장 · 13:25 삼성전자 3분기 잠정실적 · 15:40 수급으로 인한 리스크는? · 20:10 반도체 소부장 접근법 · 22:30 전력기기·전선주 투자 포인트 · 24:25 현대차 언제 전고점가나? · 28:45 3분기 어닝시즌 진입... 투자 전략은?
 - 설명 앞부분: 🔎올초 피지컬 AI와 로봇 기대감으로 치솟았던 현대차 주가 고점 대비 반토막 난 상황! 새만금 데이터센터 건립과 복정동 연구센터에 '엔비디아' 엔지니어들이 들어온다? 연내 발표될 엔비디아와의 합작법인 모멘텀부터 2035년까지 이어질 메모리·로봇 대폭발 사이클까지! 지금 현대차를 팔면 안 되는 이유와 반등 타이밍을 공개합니다. 뿐만 아니라 삼성전자 3분기 실적발표를 앞두고 반도체 소부장주 급등랠리 중입니다. 50개가 넘는 소부장 종목 속에서 가장 스마트하게 수익률을 챙기는 전략도 전격 공개합니다. 🕥 타임스탬프 🕥 녹화일: 2026…
@@ -2014,7 +1994,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 90. 순자산 5억은 대한민국에서 정확히 어디쯤인걸까
 
-- https://www.youtube.com/watch?v=abPHpPAuZmw · 탐구하는 변호사 송현영 · 구독자 9,680 · 조회수 131,847 (×13.6, 하루 4,019.1) · 좋아요 1,162 (0.9%) · 14.7분 · 2026-09-11 · 주제 묶음 1. 재테크 일반·마인드 · 폴더 `W_abPHpPAuZmw` (웹 승인)
+- https://www.youtube.com/watch?v=abPHpPAuZmw · 탐구하는 변호사 송현영 · 구독자 9,680 · 조회수 131,847 (×13.6, 하루 4,018.8) · 좋아요 1,162 (0.9%) · 14.7분 · 2026-09-11 · 주제 묶음 1. 재테크 일반·마인드 · 폴더 `W_abPHpPAuZmw` (웹 승인)
 - 썸네일: <img src="W_abPHpPAuZmw/thumbnail.jpg" width="320">
 - 설명 앞부분: 순자산 5억이면 대한민국에서 어느 정도일까요? 요즘 집값을 보면 5억이 큰돈 같지도 않다고도 느껴집니다, 하지만 막상 모으려면 엄청 큰돈이죠. 대한민국 전체 가구를 줄 세워보면 생각보다 꽤 앞에 있습니다. 하지만 문제는, 똑같이 5억을 가지고 있어도 어떤 형태냐에 따라 완전히 다르게 살아간다는 것입니다. 그리고 5억부터는 단순히 얼마를 더 모으느냐보다, 그 돈을 어디에 두고 어떻게 굴리느냐가 더 중요해지기도 합니다. 오늘은 순자산 5억의 실제 위치와, 같은 5억이 왜 전혀 다른 삶을 만드는지 이야기해보겠습니다.
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -2057,7 +2037,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 93. 48살이 되어서야 돈보다 중요한 걸 배웠습니다 l 돈 공부를 시작했더니 제 인생이 달라졌습니다
 
-- https://www.youtube.com/watch?v=y4ZUoXoQuXA · 안녕, 오후 · 구독자 4,380 · 조회수 55,676 (×12.7, 하루 630.2) · 좋아요 892 (1.6%) · 7.4분 · 2026-07-17 · 주제 묶음 1. 재테크 일반·마인드 · 폴더 `W_y4ZUoXoQuXA` (웹 승인)
+- https://www.youtube.com/watch?v=y4ZUoXoQuXA · 안녕, 오후 · 구독자 4,380 · 조회수 55,676 (×12.7, 하루 630.1) · 좋아요 892 (1.6%) · 7.4분 · 2026-07-17 · 주제 묶음 1. 재테크 일반·마인드 · 폴더 `W_y4ZUoXoQuXA` (웹 승인)
 - 썸네일: <img src="W_y4ZUoXoQuXA/thumbnail.jpg" width="320">
 - 설명 앞부분: 45살. 300만 원이 없어 동생에게 돈을 빌렸던 날. 처음으로 돈 공부를 시작했습니다. 그런데 돈보다 먼저 바뀐 건 제 생활이었습니다. 배달을 줄이고, 냉장고를 정리하고, 돈을 대하는 태도가 달라졌습니다. 저는 의지가 강한 사람이 아닙니다. 그래서 꾸준히 할 수 있는 환경을 만들었습니다. 오늘 영상이 누군가의 작은 시작이 되었으면 좋겠습니다. 오늘도 함께해 주셔서 감사합니다. 우리 인생은 아직 오후니까요. 😊
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -2074,7 +2054,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 94. 내 주변에 주식으로 돈 번 사람이 '진짜' 단 한 명도 없는 소름 돋는 이유 ∣ 교수 정선용 (3부)
 
-- https://www.youtube.com/watch?v=k9be9TSs41s · 너와 나의 경제학교 · 구독자 30,200 · 조회수 370,855 (×12.3, 하루 4,884.5) · 좋아요 5,569 (1.5%) · 11.9분 · 2026-07-30 · 주제 묶음 3. 주식·ETF · 폴더 `W_k9be9TSs41s` (웹 승인)
+- https://www.youtube.com/watch?v=k9be9TSs41s · 너와 나의 경제학교 · 구독자 30,200 · 조회수 370,855 (×12.3, 하루 4,884.3) · 좋아요 5,569 (1.5%) · 11.9분 · 2026-07-30 · 주제 묶음 3. 주식·ETF · 폴더 `W_k9be9TSs41s` (웹 승인)
 - 썸네일: <img src="W_k9be9TSs41s/thumbnail.jpg" width="320">
 - 설명 앞부분: 정선용, 달리고 읽고 쓰는 사람의 하이
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -2138,7 +2118,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 98. ISA 계좌, S&P500 하나로 3년 굴리면 얼마 벌까? (ft. 향후 계획 포함)
 
-- https://www.youtube.com/watch?v=3mIsnHTgylg · 원원 - 파이어 준비생 · 구독자 16,900 · 조회수 195,289 (×11.6, 하루 1,367.2) · 좋아요 2,991 (1.5%) · 15.6분 · 2026-05-24 · 주제 묶음 3. 주식·ETF · 폴더 `W_3mIsnHTgylg` (웹 승인)
+- https://www.youtube.com/watch?v=3mIsnHTgylg · 원원 - 파이어 준비생 · 구독자 16,900 · 조회수 195,289 (×11.6, 하루 1,367.1) · 좋아요 2,991 (1.5%) · 15.6분 · 2026-05-24 · 주제 묶음 3. 주식·ETF · 폴더 `W_3mIsnHTgylg` (웹 승인)
 - 썸네일: <img src="W_3mIsnHTgylg/thumbnail.jpg" width="320">
 - 설명 앞부분: 💫 :: won spirit 적립식 ETF 투자 관리 플랫폼 & 커뮤니티 안녕하세요! 금융권 직장인으로서 파이어(FIRE: Financial Independence, Retire Early)를 준비하며, 미국 S&P500 ETF, 단 하나로 목표를 이루는 여정을 기록하고 있습니다. S&P500을 현재 2.4억 정도 투자중이며, 매월 투명한 투자 내역 공개를 하고 그 밖에 투자 마인드, 투자 공부, 그리고 직장인의 삶을 공유합니다. 특히, 단순하면서도 누구나 실천 가능한 투자 전략으로 재정 독립을 목표로 하고 있습니다.💡 ➡️ 이번…
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -2171,7 +2151,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 100. [원가공개] 100만 유튜버, 한달에 얼마 벌까?
 
-- https://www.youtube.com/watch?v=HSAB2xHXtiQ · 원가 공개 경제학 · 구독자 40,500 · 조회수 426,746 (×10.5, 하루 4,180.5) · 좋아요 6,763 (1.6%) · 26.1분 · 2026-07-04 · 주제 묶음 기타 · 폴더 `W_HSAB2xHXtiQ` (웹 승인)
+- https://www.youtube.com/watch?v=HSAB2xHXtiQ · 원가 공개 경제학 · 구독자 40,500 · 조회수 426,746 (×10.5, 하루 4,180.3) · 좋아요 6,763 (1.6%) · 26.1분 · 2026-07-04 · 주제 묶음 기타 · 폴더 `W_HSAB2xHXtiQ` (웹 승인)
 - 썸네일: <img src="W_HSAB2xHXtiQ/thumbnail.jpg" width="320">
 - 챕터: 0:00 인트로 — 구독자 100만이 통장에 찍히는 진짜 숫자… · 0:58 유튜버 수익의 6가지 파이프 — 수수료율이 전부 다르다 · 6:24 CPM vs RPM — 왜 항상 RPM이 더 낮은가 · 7:06 RPM 실감 계산 — 금융 채널 기준 100만 뷰 =… · 8:10 시청자 국가의 함정 — 미국 1명 = 인도네시아 6명 · 9:17 포브스코리아 1위 채널이 돈 버는 방식 · 10:09 노란딱지의 구조 — AI 봇이 수익을 막는 이유 · 10:50 쇼츠의 민낯 — 115만 구독자 채널의 쇼츠 수익이 … · 12:19 세금 두 단계 — 미국 원천세 + 국내 종합소득세 · 15:01 고정비 해부 — 혼자 vs 팀, 월 200만 원 vs… · 16:50 PPL 단가 공개 — 단순 노출 750만 원, 브랜디… · 18:59 케이스 1 · 2 · 3 실계산 — 같은 100만 구… · 26:04 플랫폼 비교 — 유튜브 vs SOOP vs 치지직 수… · 27:52 유튜브 수익 집중의 진짜 구조 — 상위 1%가 52배… · 29:49 마무리 — 조회수는 명함, PPL이 월급, 세금이 현실
 - 설명 앞부분: [타임라인] [연관 검색어] 유튜버 수익 구조 실제로 얼마나 버는지 유튜브 수수료 크리에이터 수익 배분 비율 유튜버 고정비 스튜디오 직원 운영비 현실 유튜브 미국 원천세 종합소득세 신고 방법 유튜버 개인사업자 법인 전환 세금 절세 비교 쇼츠 수익 롱폼 비교 실제 얼마나 차이나는지 유튜버 수익 불평등 상위 1% 수입 격차 얼마 [해시태그]
@@ -2188,7 +2168,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 101. # "같은 ETF도 통장 잘못 고르면 손해" 직장인 배당 ETF TOP 3 + 1 통장 매칭 가이드, 배당금 TOP3 골라드립니다
 
-- https://www.youtube.com/watch?v=LHUIFXJ3eAs · 머니톡 마니업 · 구독자 1,080 · 조회수 10,992 (×10.2, 하루 70.8) · 좋아요 199 (1.8%) · 15.1분 · 2026-05-11 · 주제 묶음 3. 주식·ETF · 폴더 `W_LHUIFXJ3eAs` (웹 승인)
+- https://www.youtube.com/watch?v=LHUIFXJ3eAs · 머니톡 마니업 · 구독자 1,080 · 조회수 10,992 (×10.2, 하루 70.7) · 좋아요 199 (1.8%) · 15.1분 · 2026-05-11 · 주제 묶음 3. 주식·ETF · 폴더 `W_LHUIFXJ3eAs` (웹 승인)
 - 썸네일: <img src="W_LHUIFXJ3eAs/thumbnail.jpg" width="320">
 - 설명 앞부분: "같은 ETF도 통장 잘못 고르면 손해" 직장인 배당 ETF TOP 3 + 1 통장 매칭 가이드 ETF 잘 골라도, 통장 잘못 고르면 결국 세금에서 손해 봅니다. 같은 종목인데, 어느 통장에 담느냐에 따라 1년에 100만원대가 살아남기도 사라지기도 해요. 종목 추천만 받고 통장은 그냥 둔다면, 사실 절반만 받은 셈입니다. 이 영상은 한국 직장인이 진짜 받아야 할 배당 ETF TOP 3에 보너스 한 종목까지, 각각 어느 통장에 담아야 정답인지를 매칭표로 풀어드립니다. 일반계좌, ISA, 연금저축이나 IRP, 미국 직투 계좌 — 네 …
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -2201,7 +2181,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 102. 노후에 자녀와 같이 살면 안 되는 이유｜데이터가 보여준 부모와 자녀의 적정 거리
 
-- https://www.youtube.com/watch?v=Zor4Zw2SyYI · 김지호의 공간문해력 · 구독자 18,300 · 조회수 179,016 (×9.8, 하루 3,137.3) · 좋아요 2,612 (1.5%) · 15.7분 · 2026-08-18 · 주제 묶음 4. 노후·연금 · 폴더 `W_Zor4Zw2SyYI` (웹 승인)
+- https://www.youtube.com/watch?v=Zor4Zw2SyYI · 김지호의 공간문해력 · 구독자 18,300 · 조회수 179,016 (×9.8, 하루 3,137.2) · 좋아요 2,612 (1.5%) · 15.7분 · 2026-08-18 · 주제 묶음 4. 노후·연금 · 폴더 `W_Zor4Zw2SyYI` (웹 승인)
 - 썸네일: <img src="W_Zor4Zw2SyYI/thumbnail.jpg" width="320">
 - 설명 앞부분: 노후에 자녀와 같이 사는 것이 정말 행복한 선택일까요? 자녀와 가까이 지내면 외롭지 않고 서로 의지할 수 있을 것 같지만, 실제로는 부모와 자녀 모두에게 적절한 거리와 독립성이 필요할 수 있습니다. 이번 영상에서는 노후 생활과 부모 자식 관계, 그리고 ​자녀와 함께 살 때 생길 수 있는 현실적인 문제를 데이터와 여러 연구 내용을 바탕으로 살펴봅니다. 나이가 들수록 자녀에게 의지하고 싶은 마음이 커질 수 있습니다. 하지만 지나치게 가까운 관계는 오히려 서로에게 부담이 되고, 작은 생활 방식의 차이가 갈등으로 이어지기도 합니다. 그렇…
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -2232,7 +2212,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 104. "우리나라 현 정부 얼마 안남았어" 명문대 엘리트 코스 33년차 교수는 연금을 얼마나 받을까?
 
-- https://www.youtube.com/watch?v=IAFVinxTAbQ · 할티비 · 구독자 39,500 · 조회수 379,369 (×9.6, 하루 11,879.4) · 좋아요 6,660 (1.8%) · 11.9분 · 2026-09-12 · 주제 묶음 4. 노후·연금 · 폴더 `W_IAFVinxTAbQ` (웹 승인)
+- https://www.youtube.com/watch?v=IAFVinxTAbQ · 할티비 · 구독자 39,500 · 조회수 379,369 (×9.6, 하루 11,878.3) · 좋아요 6,660 (1.8%) · 11.9분 · 2026-09-12 · 주제 묶음 4. 노후·연금 · 폴더 `W_IAFVinxTAbQ` (웹 승인)
 - 썸네일: <img src="W_IAFVinxTAbQ/thumbnail.jpg" width="320">
 - 설명 앞부분: 🦭 노르웨이 자연산 하프물범 오메가3 (셀올예) 나이 들수록 신경 쓰이는 혈행·뼈 건강, 미리 챙기세요. 노르웨이에서 35년간 만들어 온 씰오일 오메가3입니다. 안녕하세요, 여러분의 현실적인 노후 준비를 돕는 [할티비]입니다. 🎤 연세대학 출신 33년차 교수는 연금을 얼마나 받을까? 대한민국 시니어들이 직접 겪고 있는 생생하고도 충격적인 노후 현실을 영상을 통해 직접 확인해 보세요! 오늘 영상이 노후 준비에 대해 다시 한번 생각해보는 계기가 되셨다면, 여러분의 연금 준비 상황이나 노후에 대한 생각도 댓글로 자유롭게 남겨주세요. 언…
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -2249,7 +2229,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 105. 퇴직금 반토막 나고 깨달은 '상위 2%'의 주식투자자 생존법 6가지! ∣ 노후자금사연 ∣ 오디오북
 
-- https://www.youtube.com/watch?v=r-tcC-ZmMBE · 은빛시나리오 · 구독자 29,200 · 조회수 276,405 (×9.5, 하루 1,790.3) · 좋아요 11,798 (4.3%) · 52.8분 · 2026-05-12 · 주제 묶음 3. 주식·ETF · 폴더 `W_r-tcC-ZmMBE` (웹 승인)
+- https://www.youtube.com/watch?v=r-tcC-ZmMBE · 은빛시나리오 · 구독자 29,200 · 조회수 276,405 (×9.5, 하루 1,790.2) · 좋아요 11,798 (4.3%) · 52.8분 · 2026-05-12 · 주제 묶음 3. 주식·ETF · 폴더 `W_r-tcC-ZmMBE` (웹 승인)
 - 썸네일: <img src="W_r-tcC-ZmMBE/thumbnail.jpg" width="320">
 - 챕터: 0:00 인트로 · 1:20 Chapter 1. 1억이 사라진 날, 나는 안전화 … · 8:40 Chapter 2. 일기예보와 낡은 우산 (예측 대신… · 16:10 Chapter 3. 추락은 1초, 복구는 3년의 가시… · 23:30 Chapter 4. 잔챙이는 놔주고 대물만 기다렸습니… · 31:00 Chapter 5. 15만 원짜리 패딩과 4만 원짜리… · 38:20 Chapter 6. 남겨둔 현금이 진짜 무기가 된 날… · 45:50 Chapter 7. 냉장고 문에 자물쇠를 채운 날 (… · 53:10 Chapter 8. 10년의 인내가 선물한 노후의 평온
 - 설명 앞부분: 여러분은 퇴직 후 노후 자금, 어떻게 지키고 계신가요? 퇴직금 2억 중 1억을 주식으로 날렸습니다. 채 1년도 걸리지 않았습니다.가족들 볼 면목이 없어 예순을 앞둔 나이에 건설 현장 막노동을 나갔습니다. 하루 13만 원짜리 일당으로 버티면서 남은 1억을 지키기 위한 원칙을 하나씩 세워나갔습니다.그렇게 10년이 지났습니다. 제 계좌에는 지금 10억이 넘는 돈이 있습니다.대단한 천재라서가 아닙니다. 운이 좋아서도 아닙니다. 현장에서 땀을 흘리는 동안 단 한 번도 어기지 않은 원칙 6가지를 지켜냈기 때문입니다. 오늘 그 원칙을 남김없이…
@@ -2285,7 +2265,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 107. 월 100만원 ETF 투자하면, 60대에 "진짜 부자"가 됩니다
 
-- https://www.youtube.com/watch?v=WGkQ7wwHHlQ · 농부의 경제학 · 구독자 8,260 · 조회수 76,560 (×9.3, 하루 1,196.3) · 좋아요 1,370 (1.8%) · 13.4분 · 2026-08-11 · 주제 묶음 3. 주식·ETF · 폴더 `W_WGkQ7wwHHlQ` (웹 승인)
+- https://www.youtube.com/watch?v=WGkQ7wwHHlQ · 농부의 경제학 · 구독자 8,260 · 조회수 76,560 (×9.3, 하루 1,196.2) · 좋아요 1,370 (1.8%) · 13.4분 · 2026-08-11 · 주제 묶음 3. 주식·ETF · 폴더 `W_WGkQ7wwHHlQ` (웹 승인)
 - 썸네일: <img src="W_WGkQ7wwHHlQ/thumbnail.jpg" width="320">
 - 설명 앞부분: 50세 노후 준비, 결코 늦지 않았습니다. 주변에서 스무 살부터 시작해야 복리가 붙는다고 말하지만, 50세부터 매달 100만 원씩 15년 동안 미국 ETF에 투자하면 65세 은퇴 후 세금을 떼고도 매달 236만 원의 마르지 않는 현금흐름을 만들 수 있습니다. 오늘 영상에서는 미국 대표 ETF인 SCHD(40%), SPYM(40%), QQQM(20%) 포트폴리오를 통해 배당 수익과 자산 성장을 동시에 챙기는 가장 현실적인 노후 자금 설계법을 상세히 풀어드립니다. 은퇴 후 원금을 깎아 먹지 않고 죽을 때까지 통장 잔고가 늘어나는 미국…
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -2315,7 +2295,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 109. 스트레스 없이 돈 모으는 미니멀 소비습관 3가지 ㅣ 미니멀라이프
 
-- https://www.youtube.com/watch?v=bk5ingu3Eb0 · 비채홈 · 구독자 12,600 · 조회수 110,997 (×8.8, 하루 974.8) · 좋아요 1,328 (1.2%) · 12분 · 2026-06-22 · 주제 묶음 2. 돈 모으기·저축 · 폴더 `W_bk5ingu3Eb0` (웹 승인)
+- https://www.youtube.com/watch?v=bk5ingu3Eb0 · 비채홈 · 구독자 12,600 · 조회수 110,997 (×8.8, 하루 974.7) · 좋아요 1,328 (1.2%) · 12분 · 2026-06-22 · 주제 묶음 2. 돈 모으기·저축 · 폴더 `W_bk5ingu3Eb0` (웹 승인)
 - 썸네일: <img src="W_bk5ingu3Eb0/thumbnail.jpg" width="320">
 - 설명 앞부분: 저는 집밥, 가계부를 통해 소비충동을 억제하게 되면서 자연스럽게 소비도 미니멀하게 변했는데요. 오늘은 제가 미니멀라이프하면서 바뀐 소비습관 3가지를 이야기하면서 여러분들과 생각을 공유하려 합니다. ⭐️ 자주묻는 제품, 식단표 정보 ⭐
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -2330,7 +2310,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 110. 99%가 모르는 부자의 비밀 습관 ∣ 인문학 서적 7가지로 부의 본질을 읽는 법
 
-- https://www.youtube.com/watch?v=2nDXlFjGSzQ · 위대한 비밀 · 구독자 24,300 · 조회수 208,928 (×8.6, 하루 3,844.7) · 좋아요 2,092 (1.0%) · 43.7분 · 2026-08-20 · 주제 묶음 1. 재테크 일반·마인드 · 폴더 `W_2nDXlFjGSzQ` (웹 승인)
+- https://www.youtube.com/watch?v=2nDXlFjGSzQ · 위대한 비밀 · 구독자 24,300 · 조회수 208,928 (×8.6, 하루 3,844.5) · 좋아요 2,092 (1.0%) · 43.7분 · 2026-08-20 · 주제 묶음 1. 재테크 일반·마인드 · 폴더 `W_2nDXlFjGSzQ` (웹 승인)
 - 썸네일: <img src="W_2nDXlFjGSzQ/thumbnail.jpg" width="320">
 - 설명 앞부분: 부자가 되기 위해 읽어야 할 인문학 서적 7가지 ∣ 차트 공부는 그만, 이제 고전을 읽어라 차트만 보다 망한 사람들의 공통점 ∣ 부자들이 주식책 대신 읽는 인문학 7권 99%가 모르는 부자의 비밀 습관 ∣ 인문학 서적 7가지로 부의 본질을 읽는 법 단 7권으로 투자 철학 완성 ∣ 군주론부터 죽음의 수용소까지, 부자들의 필독서 왜 부자들은 역사책을 읽을까? ∣ 차트 대신 인문학으로 돈의 흐름을 읽는 법 억대 부자들의 서재에 꽂힌 7권 ∣ 주식 기술서가 아닌 고전이 부를 만든다 투자 실패자가 몰랐던 진실 ∣ 인문학 서적 7가지가 알려…
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -2360,7 +2340,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 112. 65세에 저축이 '이 금액' 이하라면... 당신은 이미 '하류 노인'입니다 ∣ 아무도 말해주지 않은 잔인한 현실
 
-- https://www.youtube.com/watch?v=TEPZ-oD7iFA · 노후의 진실 · 구독자 20,100 · 조회수 167,064 (×8.3, 하루 1,723.5) · 좋아요 3,263 (1.9%) · 25.9분 · 2026-07-09 · 주제 묶음 2. 돈 모으기·저축 · 폴더 `W_TEPZ-oD7iFA` (웹 승인)
+- https://www.youtube.com/watch?v=TEPZ-oD7iFA · 노후의 진실 · 구독자 20,100 · 조회수 167,064 (×8.3, 하루 1,723.4) · 좋아요 3,263 (1.9%) · 25.9분 · 2026-07-09 · 주제 묶음 2. 돈 모으기·저축 · 폴더 `W_TEPZ-oD7iFA` (웹 승인)
 - 썸네일: <img src="W_TEPZ-oD7iFA/thumbnail.jpg" width="320">
 - 설명 앞부분: 65세에 저축이 '이 금액' 이하라면... 당신은 이미 '하류 노인'입니다 ∣ 아무도 말해주지 않은 잔인한 현실
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -2393,7 +2373,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 114. 부자 되고 싶으면 공부하라 ∣ 핵심 이유 7가지 완벽 정리 #부자되는법
 
-- https://www.youtube.com/watch?v=XyfHR8H2JI0 · 위대한 비밀 · 구독자 24,300 · 조회수 198,504 (×8.2, 하루 3,130.3) · 좋아요 2,180 (1.1%) · 46.9분 · 2026-08-11 · 주제 묶음 1. 재테크 일반·마인드 · 폴더 `W_XyfHR8H2JI0` (웹 승인)
+- https://www.youtube.com/watch?v=XyfHR8H2JI0 · 위대한 비밀 · 구독자 24,300 · 조회수 198,504 (×8.2, 하루 3,130.1) · 좋아요 2,180 (1.1%) · 46.9분 · 2026-08-11 · 주제 묶음 1. 재테크 일반·마인드 · 폴더 `W_XyfHR8H2JI0` (웹 승인)
 - 썸네일: <img src="W_XyfHR8H2JI0/thumbnail.jpg" width="320">
 - 설명 앞부분: 부자가 되기 위해 공부를 잘 해야 하는 7가지 이유 ∣ 빌게이츠도 숨긴 진실 공부 안 하면 평생 가난? 부자들이 절대 말 안 하는 비밀 7가지 대공개 왜 부자는 책을 읽을까? 공부의 힘 7가지 진실 전격 공개 공부 잘하면 부자 된다! 아무도 안 알려준 충격적인 이유 7개 부자의 습관은 공부였다 ∣ 반드시 알아야 할 7가지 핵심 원리 공부가 부를 만드는 원리 ∣ 충격적인 이유 7가지 과학적 분석 부자 되고 싶으면 공부하라 ∣ 핵심 이유 7가지 완벽 정리 공부를 멈추면 가난해진다 ∣ 부자의 비밀 습관 7개 최초 공개 억대 연봉의 비밀…
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -2406,7 +2386,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 115. 택배로 부자가 될 수 있냐고요? 솔직하게 말씀드리겠습니다
 
-- https://www.youtube.com/watch?v=r5jnahsJw5Q · 택부 - 택배기사 부자들 · 구독자 6,550 · 조회수 52,828 (×8.1, 하루 1,230.4) · 좋아요 413 (0.8%) · 8.3분 · 2026-09-01 · 주제 묶음 1. 재테크 일반·마인드 · 폴더 `W_r5jnahsJw5Q` (웹 승인)
+- https://www.youtube.com/watch?v=r5jnahsJw5Q · 택부 - 택배기사 부자들 · 구독자 6,550 · 조회수 52,828 (×8.1, 하루 1,230.3) · 좋아요 413 (0.8%) · 8.3분 · 2026-09-01 · 주제 묶음 1. 재테크 일반·마인드 · 폴더 `W_r5jnahsJw5Q` (웹 승인)
 - 썸네일: <img src="W_r5jnahsJw5Q/thumbnail.jpg" width="320">
 - 챕터: 0:00 택배로 부자 못 됩니다 · 0:22 택배기사 월급 공개 영상 댓글 · 0:48 부자란 무엇인가? · 1:30 부자들의 공통점 · 2:49 택배기사들이 좋은 이유 · 4:37 택배기사는 해병대다? · 5:17 부정적인 댓글들에게 하고 싶은 말 · 7:00 인생의 불확실성을 대하는 태도
 - 설명 앞부분: [Community] 택배기사 소통카페 전국 택배기사 구인구직 카페 [Contct]
@@ -2458,7 +2438,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 119. "55세 노후준비, 지금 시작해도 늦지 않은 진짜 이유"
 
-- https://www.youtube.com/watch?v=mhUHrujFtEU · 야무진 경제학 · 구독자 22,500 · 조회수 174,365 (×7.8, 하루 2,666.4) · 좋아요 1,665 (0.9%) · 18.1분 · 2026-08-09 · 주제 묶음 4. 노후·연금 · 폴더 `W_mhUHrujFtEU` (웹 승인)
+- https://www.youtube.com/watch?v=mhUHrujFtEU · 야무진 경제학 · 구독자 22,500 · 조회수 174,365 (×7.8, 하루 2,666.3) · 좋아요 1,665 (0.9%) · 18.1분 · 2026-08-09 · 주제 묶음 4. 노후·연금 · 폴더 `W_mhUHrujFtEU` (웹 승인)
 - 썸네일: <img src="W_mhUHrujFtEU/thumbnail.jpg" width="320">
 - 챕터: 0:00 55세, 월 200만원 10년이면 통장에 얼마가 남을까 · 1:55 정년 60세 · 연금 65세, 55세의 진짜 시간표 … · 3:12 10년은 넣는 기간, 30년은 돈이 일하는 기간 · 4:39 노후 준비는 물통이 아니라 '수도꼭지'입니다 · 5:22 월 200만원부터 30만원까지, 금액별 결과 전부 계… · 7:29 "그 200만원이 대체 어디 있냐"는 50대의 현실 · 9:28 남는 돈으로 저축이 안 되는 이유 — 파킨슨 제2법칙 · 10:02 의지를 시스템으로 바꾸는 법, 자동화 · 10:41 55세에게 복리보다 강력한 무기, 세액공제 900만원 · 12:32 연금계좌 한도 1,800만원 = 월 150만원의 의미 · 13:13 55세 + 가입 5년, 오늘 계좌부터 열어야 하는 이유 · 13:57 1년 미루면 1,240만원, '시작 지연 비용'의 정체 · 15:29 원금이 똑같은 두 사람, 왜 결과가 갈렸나 · 16:14 금액을 여섯 배 늘려도 바뀌지 않는 숫자 · 17:34 55세가 가장 많이 하는 실수 3가지
 - 설명 앞부분: 55세에 노후 준비를 시작하면 정말 늦은 걸까요? 숫자는 그렇지 않다고 말합니다. 월 200만원부터 30만원까지, 금액을 하나씩 내려가며 계산해보면 55세에게 진짜 필요한 게 무엇인지가 분명해집니다. 지금 55세이신 분에게 회사 월급이 나오는 기간은 5년, 국민연금이 시작되는 건 65세. 그 사이 5년의 소득 크레바스가 기다리고 있습니다. 그런데 많은 분들이 여기서 계산을 멈추십니다. "10년 가지고 뭘 하겠느냐"고요. 이 계산에는 큰 착각이 하나 숨어 있습니다. 10년은 돈을 넣는 기간이지, 돈이 일하는 기간이 아니거든요. 60…
@@ -2474,7 +2454,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 120. 이 방식으로 살림 하니 돈이 무섭게 쌓여요.(주중 외식비0원, 배달비0원)
 
-- https://www.youtube.com/watch?v=q8knIYPIobk · 뚝딱 살림 · 구독자 29,400 · 조회수 227,454 (×7.7, 하루 1,737.6) · 좋아요 2,307 (1.0%) · 8.6분 · 2026-06-05 · 주제 묶음 기타 · 폴더 `W_q8knIYPIobk` (웹 승인)
+- https://www.youtube.com/watch?v=q8knIYPIobk · 뚝딱 살림 · 구독자 29,400 · 조회수 227,454 (×7.7, 하루 1,737.5) · 좋아요 2,307 (1.0%) · 8.6분 · 2026-06-05 · 주제 묶음 기타 · 폴더 `W_q8knIYPIobk` (웹 승인)
 - 썸네일: <img src="W_q8knIYPIobk/thumbnail.jpg" width="320">
 - 설명 앞부분: 오늘은 제가 늘 살림 할 때 마법처럼 외우는 주문에 대해 영상을 준비해보았습니다. 살림에도 어려운 살림, 쉬운 살림이 있습니다. 같은 살림인데 쉽게 하면 에너지도 아끼고 더 좋겠지요. 우리가 집안일을 할 때 특히 매 끼니 식사를 준비하는 과정에서 이러한 생각을 장착하고 음식을 만들면 음식 만드는 게 더욱 편해지고 거침없어 집니다. 실제로 저는 주중에는 거의 집밥으로 먹습니다. 주중에 외식이나 배달했던 경우는 1년에 몇 번 있을까 말까 하네요. 오히려 집밥을 해먹을때 시간도 아끼는 것 같아요. 시간, 돈, 에너지 모두 아끼는 이 마…
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -2535,7 +2515,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 124. 연금고수들이 연금저축계좌 반드시 담는 ETF 3가지
 
-- https://www.youtube.com/watch?v=iMkvDXx86dE · 경제나침반 · 구독자 14,000 · 조회수 105,108 (×7.5, 하루 1,345.7) · 좋아요 2,048 (1.9%) · 25.2분 · 2026-07-28 · 주제 묶음 4. 노후·연금 · 폴더 `W_iMkvDXx86dE` (웹 승인)
+- https://www.youtube.com/watch?v=iMkvDXx86dE · 경제나침반 · 구독자 14,000 · 조회수 105,108 (×7.5, 하루 1,345.6) · 좋아요 2,048 (1.9%) · 25.2분 · 2026-07-28 · 주제 묶음 4. 노후·연금 · 폴더 `W_iMkvDXx86dE` (웹 승인)
 - 썸네일: <img src="W_iMkvDXx86dE/thumbnail.jpg" width="320">
 - 설명 앞부분: 📈 오늘 시장에서 꼭 알아야 할 경제와 투자 인사이트를 쉽고 명확하게 정리해드립니다. 💡 주식, ETF, 미국주식, 경제 전망, 금리, AI, 반도체, 부동산까지 투자자가 반드시 알아야 할 핵심 정보를 함께 살펴보세요. 이번 영상에서는 최신 경제 뉴스와 금융시장 흐름을 바탕으로 투자에 도움이 되는 핵심 내용을 쉽고 이해하기 편하게 설명해드립니다. 경제나침반은 경제공부, 주식투자, ETF 투자, 미국주식, 한국 증시, 경제 전망, 재테크, 자산관리, 금리와 환율, AI 및 반도체 산업 등 다양한 주제를 객관적인 자료와 시장 흐름을 …
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -2550,7 +2530,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 125. ETF 이 '2가지'만 사두면 됩니다. '나머지는 필요없어요' 100억 자산 관리자의 꿀팁(백승호 단장 풀버전) #ETF #배당주 #주식 #백승호
 
-- https://www.youtube.com/watch?v=1qlywudP2oY · 자람들 - 자립하는사람들 · 구독자 33,400 · 조회수 248,645 (×7.4, 하루 8,254.2) · 좋아요 2,054 (0.8%) · 69.7분 · 2026-09-14 · 주제 묶음 3. 주식·ETF · 폴더 `W_1qlywudP2oY` (웹 승인)
+- https://www.youtube.com/watch?v=1qlywudP2oY · 자람들 - 자립하는사람들 · 구독자 33,400 · 조회수 248,645 (×7.4, 하루 8,253.4) · 좋아요 2,054 (0.8%) · 69.7분 · 2026-09-14 · 주제 묶음 3. 주식·ETF · 폴더 `W_1qlywudP2oY` (웹 승인)
 - 썸네일: <img src="W_1qlywudP2oY/thumbnail.jpg" width="320">
 - 설명 앞부분: 👤 오늘의 게스트: 백승호 단장 개인 재무 컨설팅 전문가 & 유튜버·작가로도 활동 20년간 몇백 명의 고객 자산을 관리해온 재무 컨설턴트입니다. 현재 관리하는 총 자산만 100억원이 넘지만, 폭락장에도 노트북에 손 하나 대지 않을 만큼 평온한 태도로 유명합니다. 비결은 단 하나, "투자해도 되는 돈"과 "투자하면 안 되는 돈"을 철저히 구분하는 원칙입니다. 시드머니 없이 매주 조금씩 사 모으는 전략, 차트나 재무제표 대신 "내 지갑"을 믿고 애플·넷플릭스·구글 같은 주식을 고르는 방법, 그리고 레버리지·인버스 상품에 대한 강한 경…
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -2565,7 +2545,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 126. "2026년 상반기 연금 순위" 은퇴한 내 친구들의 연금은 상위 몇%일까? 연금 수령액 TOP 10
 
-- https://www.youtube.com/watch?v=QEgZrrQEQfA · 할티비 · 구독자 39,500 · 조회수 289,996 (×7.3, 하루 2,566.5) · 좋아요 950 (0.3%) · 15분 · 2026-06-23 · 주제 묶음 4. 노후·연금 · 폴더 `W_QEgZrrQEQfA` (웹 승인)
+- https://www.youtube.com/watch?v=QEgZrrQEQfA · 할티비 · 구독자 39,500 · 조회수 289,996 (×7.3, 하루 2,566.4) · 좋아요 950 (0.3%) · 15분 · 2026-06-23 · 주제 묶음 4. 노후·연금 · 폴더 `W_QEgZrrQEQfA` (웹 승인)
 - 썸네일: <img src="W_QEgZrrQEQfA/thumbnail.jpg" width="320">
 - 설명 앞부분: 안녕하세요, 여러분의 현실적인 노후 준비를 돕는 [할티비]입니다. 🎤 당신의 연금은 상위 몇프로입니까? "연금 얼마 받으세요?"라는 질문에 어르신들께서 들려주신 대답은 우리의 예상보다 훨씬 더 현실적이고, 조금은 충격적이기도 했습니다. 대한민국 시니어들이 직접 겪고 있는 생생하고도 충격적인 노후 현실을 영상을 통해 직접 확인해 보세요! 오늘 영상이 노후 준비에 대해 다시 한번 생각해보는 계기가 되셨다면, 여러분의 연금 준비 상황이나 노후에 대한 생각도 댓글로 자유롭게 남겨주세요. 언제나 큰 힘이 됩니다! 🙇‍♂️🙇‍♀
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -2582,7 +2562,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 127. S&P500 하나로 채운 ISA 3년 투자 총정리 ∣ 5년 연장 대신 지금 해지한 이유 ∣ 직접 경험한 이전 절차 포함
 
-- https://www.youtube.com/watch?v=WGCZYnwacuo · 원원 - 파이어 준비생 · 구독자 16,900 · 조회수 120,100 (×7.1, 하루 1,383.0) · 좋아요 2,860 (2.4%) · 22.5분 · 2026-07-19 · 주제 묶음 3. 주식·ETF · 폴더 `W_WGCZYnwacuo` (웹 승인)
+- https://www.youtube.com/watch?v=WGCZYnwacuo · 원원 - 파이어 준비생 · 구독자 16,900 · 조회수 120,100 (×7.1, 하루 1,382.9) · 좋아요 2,860 (2.4%) · 22.5분 · 2026-07-19 · 주제 묶음 3. 주식·ETF · 폴더 `W_WGCZYnwacuo` (웹 승인)
 - 썸네일: <img src="W_WGCZYnwacuo/thumbnail.jpg" width="320">
 - 설명 앞부분: 💫 :: won spirit 적립식 ETF 투자 관리 플랫폼 & 커뮤니티 안녕하세요! 금융권 직장인으로서 파이어(FIRE: Financial Independence, Retire Early)를 준비하며, 미국 S&P500 ETF, 단 하나로 목표를 이루는 여정을 기록하고 있습니다. S&P500을 현재 2.4억 정도 투자중이며, 매월 투명한 투자 내역 공개를 하고 그 밖에 투자 마인드, 투자 공부, 그리고 직장인의 삶을 공유합니다. 특히, 단순하면서도 누구나 실천 가능한 투자 전략으로 재정 독립을 목표로 하고 있습니다.💡 ➡️ 이번…
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -2628,7 +2608,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 130. 국민연금 추납, 1,850만원 내고 월 15만원 더 받으면 이득일까?
 
-- https://www.youtube.com/watch?v=acPLoAXYROM · 김성일 TV · 구독자 28,700 · 조회수 194,385 (×6.8, 하루 3,888.3) · 좋아요 623 (0.3%) · 14.2분 · 2026-08-25 · 주제 묶음 4. 노후·연금 · 폴더 `W_acPLoAXYROM` (웹 승인)
+- https://www.youtube.com/watch?v=acPLoAXYROM · 김성일 TV · 구독자 28,700 · 조회수 194,385 (×6.8, 하루 3,888.0) · 좋아요 623 (0.3%) · 14.2분 · 2026-08-25 · 주제 묶음 4. 노후·연금 · 폴더 `W_acPLoAXYROM` (웹 승인)
 - 썸네일: <img src="W_acPLoAXYROM/thumbnail.jpg" width="320">
 - 챕터: 0:00 카페에 올라온 질문 — 추납할까 말까 · 1:07 추납 제도 정리 (조건·한도 119개월·보험료 계산식) · 2:27 공단 안내 확인 — 월 97.7만 원 → 113만 원 · 3:54 빠진 것 두 가지: 세금·건보료, 물가연동 · 5:17 세후 실수령과 원금 회수 시점 · 5:42 얼마나 오래 사느냐 — 사망 시점별 실질수익률 · 7:44 소득공제까지 넣은 실질 순투입 · 8:19 연금저축과 비교하면 몇 %를 넘겨야 하나 · 11:47 주의 — 고소득 사업장 가입자 · 12:21 실행 팁 세 가지
 - 설명 앞부분: 국민연금 추납, 52개월에 1,850만 원을 넣으면 65세부터 월 15만 3천 원을 더 받습니다. "10년이면 원금 회수"라는 계산이 실제로 맞는지, 세금·건강보험료·물가연동을 모두 넣어 다시 계산했습니다. 사례는 만 34세, 공무원으로 근무하다 이직해 현재 국민연금 가입 중인 분입니다. ■ 다룬 내용 ■ 더 궁금한 점은 글 남겨주시면 확인해서 영상으로 답변드립니다.
@@ -2714,7 +2694,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 135. "S&P500 ETF, 종목보다 '계좌'가 20년 뒤를 바꾸는 진짜 이유 (연금·ISA)"
 
-- https://www.youtube.com/watch?v=fmQLRfIm28Y · 야무진 경제학 · 구독자 22,500 · 조회수 137,168 (×6.1, 하루 1,394.1) · 좋아요 3,515 (2.6%) · 28.4분 · 2026-07-07 · 주제 묶음 3. 주식·ETF · 폴더 `W_fmQLRfIm28Y` (웹 승인)
+- https://www.youtube.com/watch?v=fmQLRfIm28Y · 야무진 경제학 · 구독자 22,500 · 조회수 137,168 (×6.1, 하루 1,394.0) · 좋아요 3,515 (2.6%) · 28.4분 · 2026-07-07 · 주제 묶음 3. 주식·ETF · 폴더 `W_fmQLRfIm28Y` (웹 승인)
 - 썸네일: <img src="W_fmQLRfIm28Y/thumbnail.jpg" width="320">
 - 챕터: 0:00 종목은 담았는데 왜 내 계좌만 이 모양일까 · 2:19 원칙 ① 짐을 줄여라 — 종목이 많을수록 위험한 이유 · 5:02 원칙 ② 오래 메고 걸어라 — 매달 30만원 20년의… · 8:26 40세 시작 vs 50세 시작, 10년이 만든 격차 · 10:03 목돈 한 번에? 나눠서? 리밸런싱은 언제 · 10:44 우리가 가장 많이 하는 두 가지 오해 · 11:49 달콤한 함정 — 월배당·커버드콜의 진실 (금감원 경보) · 15:25 반전 — 짐이 아니라 '배낭'을 바꾸는 고수들 · 16:42 방수 배낭 ① 연금저축·IRP, 148만원 돌려받는 법 · 19:25 방수 배낭 ② ISA, 3년 유연 + 비과세 · 20:59 같은 상품 김 씨 vs 박 씨, 10년 뒤 잔고 차이 · 22:38 ISA를 연금으로 갈아타 혜택 두 번 챙기는 기술 · 24:04 꼭 알아야 할 주의점 — 중도해지 벌금 & ISA 한… · 25:47 오늘 걸어온 길 정리 — 짐이 아니라 배낭이 결과를 …
 - 설명 앞부분: S&P500 ETF, 좋다는 종목만 열심히 담았는데 왜 내 계좌만 안 불어날까요? 문제는 '무엇을 담느냐'가 아니라 '어떤 계좌에 담느냐'입니다. 오늘은 ETF 투자를 배낭여행에 빗대, 20년 뒤 통장을 바꾸는 절세계좌(연금저축·IRP·ISA) 활용법을 한 번에 정리했습니다. 똑같은 미국 지수 ETF를 일반계좌(비닐봉지)에 담은 사람과 절세계좌(방수 배낭)에 담은 사람의 결과가 왜 갈리는지, 그리고 요즘 인기인 월배당·커버드콜의 숨은 함정(금융감독원 소비자경보)까지 짚습니다. 종목 압축, 복리의 시간, 절세계좌라는 세 가지 뼈대만…
@@ -2762,7 +2742,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 138. 평생 모은 노후자금 뜯긴 노인들... 조폭 소굴 쳐들어간 아줌마의 100대 참교육 [박여사 6화]
 
-- https://www.youtube.com/watch?v=cc4uBxFSiiY · 아직 늦지 않았습니다 · 구독자 30,800 · 조회수 176,854 (×5.7, 하루 3,509.5) · 좋아요 998 (0.6%) · 9.2분 · 2026-08-24 · 주제 묶음 4. 노후·연금 · 폴더 `W_cc4uBxFSiiY` (웹 승인)
+- https://www.youtube.com/watch?v=cc4uBxFSiiY · 아직 늦지 않았습니다 · 구독자 30,800 · 조회수 176,854 (×5.7, 하루 3,509.3) · 좋아요 998 (0.6%) · 9.2분 · 2026-08-24 · 주제 묶음 4. 노후·연금 · 폴더 `W_cc4uBxFSiiY` (웹 승인)
 - 썸네일: <img src="W_cc4uBxFSiiY/thumbnail.jpg" width="320">
 - 설명 앞부분: 평생 모은 노후자금을 노리는 주식 리딩방 사기 조직. 길바닥에 나뒹구는 노인을 보고 박여사의 분노가 폭발한다. "어르신, 제가 꼭 그 돈 찾아올게요." 조폭 소굴로 정면 돌파한 박여사와 전트. 그리고 5화에서 처음으로 패배를 안겼던 그 남자, 왕도일과의 재대결. "열 번 찍어 안 넘어가면 백 번, 백 번 찍어 안 넘어가면 천 번을 찍어." 과연 박여사는 왕도일을 무릎 꿇릴 수 있을까? 이 채널은 AI로 제작됩니다. 중년이 주인공인 이야기를 만듭니다. 평범한 아줌마, 평범한 아저씨. 그런데 건드리면 안 되는 사람들. 본 영상은 AI…
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -2773,7 +2753,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 139. 신혼부부가 돈 못 모으는 이유...결혼 후 돈 관리 이렇게 하세요(김경필 머니트레이너)ㅣ보라언니동생 EP.04
 
-- https://www.youtube.com/watch?v=vmjGJVCfwhk · STUDIO OMG · 구독자 31,100 · 조회수 171,556 (×5.5, 하루 7,806.3) · 좋아요 585 (0.3%) · 18.2분 · 2026-09-22 · 주제 묶음 1. 재테크 일반·마인드 · 폴더 `W_vmjGJVCfwhk` (웹 승인)
+- https://www.youtube.com/watch?v=vmjGJVCfwhk · STUDIO OMG · 구독자 31,100 · 조회수 171,556 (×5.5, 하루 7,805.2) · 좋아요 585 (0.3%) · 18.2분 · 2026-09-22 · 주제 묶음 1. 재테크 일반·마인드 · 폴더 `W_vmjGJVCfwhk` (웹 승인)
 - 썸네일: <img src="W_vmjGJVCfwhk/thumbnail.jpg" width="320">
 - 설명 앞부분: 오늘은 김경필 머니트레이너 님을 모시고 내 돈 관리법 수업을 듣고 왔어요!💸 곧 결혼을 앞둔 PD동생도, 결혼 2년차인 저도 돈 관리에 고민이 정말 많았는데요! 주식부터 월급 관리, 내집마련까지 2030세대가 필수시청해야 할 자산관리 꿀팁 쏙쏙 뽑아왔으니까 영상 정주행해주세요~! 🎁보라언니동생 4화 댓글 이벤트🎁 참여방법 1. "영상 소감" or “재테크 고민”을 댓글로 남겨주세요 2. 아래 구글 폼에 정보 제출하면 끝! 📚 이벤트 상품 돈쭐남 김경필 쌤의 친필사인 도서 [딱 1억만 모읍시다] 증정! (10명) 🎉 당첨자 발표 개…
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -2805,7 +2785,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 
 ### 141. 1억을 모았다면 20억까지 절대 꿈의 숫자가 아닙니다 (돈의 물리학)
 
-- https://www.youtube.com/watch?v=gPYpuRW8UOk · 경제기상도 · 구독자 4,310 · 조회수 22,754 (×5.3, 하루 145.0) · 좋아요 486 (2.1%) · 16.9분 · 2026-05-10 · 주제 묶음 2. 돈 모으기·저축 · 폴더 `W_gPYpuRW8UOk` (웹 승인)
+- https://www.youtube.com/watch?v=gPYpuRW8UOk · 경제기상도 · 구독자 4,310 · 조회수 22,754 (×5.3, 하루 144.9) · 좋아요 486 (2.1%) · 16.9분 · 2026-05-10 · 주제 묶음 2. 돈 모으기·저축 · 폴더 `W_gPYpuRW8UOk` (웹 승인)
 - 썸네일: <img src="W_gPYpuRW8UOk/thumbnail.jpg" width="320">
 - 설명 앞부분: 1억을 모았다면 이미 20억까지 '30%'는 끝난 겁니다 (돈의 물리학) 왜 첫 1억이 20억의 5%가 아니라 30%인가? (부의 임계점) 0원에서 1억까지가 가장 고통스러운 과학적 이유
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -2842,7 +2822,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
 - 챕터: 0:00 라오어 무한매수법이란? 하게 된 계기 · 1:34 무한매수법 실제 운용 현황 (법인 계좌 TQQQ, S… · 2:08 무한매수법 핵심 — 변동성에 투자한다는 것 · 3:23 무한매수법 수익률 30%, 충분한건가? · 3:54 라오어님의 증여 이야기 · 4:34 무한매수법 세금, 법인 통한 절세
 - 설명 앞부분: 저는 라오어님의 무한매수법을 5년 넘게 해오고 있고, 지금은 법인 계좌로 TQQQ와 SOXL 40분할 사이클을 운영하면서 절세까지 하고 있습니다. 회계사로 일하면서 오히려 레버리지 상품을 불신했던 제가 어떻게 생각이 바뀌었는지, 지금 실전에서 어떤 구조로 운영하고 있는지 빠르게 정리해드립니다. 🎯 이 영상에서 다루는 내용 라오어 무한매수법이란 무엇인가 회계사인 제가 레버리지를 불신하다가 시작하게 된 계기 지금 법인 계좌 2개로 운영 중인 SOXL 40분할 구조와 최근 수익률 무매를 계속하는 이유 — 변동성에 투자한다는 것 연 30…
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
-- 댓글 198/199 (다 받지 못함): 좋은 점 28 · 더 알고 싶은 것 54 · 아쉬운 점 4 · 경험 공유 21 · 구독·다음 기대 1
+- 댓글 199/199: 좋은 점 29 · 더 알고 싶은 것 54 · 아쉬운 점 4 · 경험 공유 21 · 구독·다음 기대 1
   - 좋은 점 👍20 “SPYM 8개월 수익과 TQQQ 5일차 수익이 똑같아서 TQQQ 분할매수중입니다 저도 저의 도파민입니다 꾸준히 매수누릅니다 -10% -20% -30% 트리거오면 현금 이빠이 넣으려고요 열심히 살겠습니다 감사합니다!”
   - 좋은 점 👍9 “영상 잘보고 있습니다. 문득 궁금증이 들어서요 1. 라오어 tqqq vr(밸류리밸런싱, 장투법)도 알고 계실 듯한데 이거 대신 qld장투로 가져가는 이유를 알 수 있을까요? 2. 추측건대 라오어님은 vr이 qld장투의 상위호환전략이라고 생각하시기 때문에 vr로 장투하…”
   - 더 알고 싶은 것 👍9 “영상 잘보고 있습니다. 문득 궁금증이 들어서요 1. 라오어 tqqq vr(밸류리밸런싱, 장투법)도 알고 계실 듯한데 이거 대신 qld장투로 가져가는 이유를 알 수 있을까요? 2. 추측건대 라오어님은 vr이 qld장투의 상위호환전략이라고 생각하시기 때문에 vr로 장투하…”
@@ -2852,9 +2832,269 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
   - 경험 공유 👍9 “영상 잘보고 있습니다. 문득 궁금증이 들어서요 1. 라오어 tqqq vr(밸류리밸런싱, 장투법)도 알고 계실 듯한데 이거 대신 qld장투로 가져가는 이유를 알 수 있을까요? 2. 추측건대 라오어님은 vr이 qld장투의 상위호환전략이라고 생각하시기 때문에 vr로 장투하…”
   - 구독·다음 기대 👍0 “세상에나...고퀄 영상 감사합니다. 정주행하고 있는데 이해력이 낮아 답답할 뿐입니다. 51살 아줌마고요 63세까지는 일할 수 있을 것 같습니다. qld나 tqqq 하기에는 좀 애매한 나이일까요? 그냥 qqq를 해야할까요? 현재 isa계좌에 맥쿼리인프라 8000만원어치…”
 
-### 144. 반드시 부자되는 신혼부부의 3가지 공통점 (부자되는 방법)
+### 144. "68세도 돈버는 부업" 월급70만원 요양사 관두고 집에서 노트북 하나로 순수익 월250만원 버는 68살
 
-- https://www.youtube.com/watch?v=t6NrbgrRE_k · 해쏘현_신혼부부 재테크 · 구독자 26,400 · 조회수 89,264 (×3.4, 하루 1,720.1) · 좋아요 723 (0.8%) · 11.9분 · 2026-08-23 · 주제 묶음 1. 재테크 일반·마인드 · 폴더 `W_t6NrbgrRE_k` (웹 승인)
+- https://www.youtube.com/watch?v=pZ7fCdoOvCI · 록터뷰 · 구독자 35,600 · 조회수 170,591 (×4.8, 하루 1,688.0) · 좋아요 3,384 (2.0%) · 7.8분 · 2026-07-05 · 주제 묶음 8. 부업·소득 · 폴더 `W_pZ7fCdoOvCI` (웹 승인)
+- 썸네일: <img src="W_pZ7fCdoOvCI/thumbnail.jpg" width="320">
+- 설명 앞부분: 신청하시고 댓글 달아주시는 모든 분들께 제공드립니다! 나이도, 경험도 상관없습니다. 재고 없이, 초기 자본 없이 시작하는 온라인 판매 노하우를 무료 라이브에서 공개합니다. 💬 "온라인 판매는 한 번도 안 해봤는데 괜찮을까요?" 💬 "어떻게 진행하면 될까요?" 💬 "아무것도 몰라도 수익낼 수 있을까요?" 이런 고민이 있으셨다면 이번 무료 라이브에서 모두 알려드립니다. 🎁 무료 라이브 신청만 해도 전원 제공! 📕 사업 시작하는 방법 처음부터 끝까지 📕 집에서 10분이면 끝나는 판매 준비법 📕 돈 버는 온라인 판매 세팅 방법 📘 재고 …
+- 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
+- 댓글 1,602/1,603: 좋은 점 172 · 더 알고 싶은 것 108 · 아쉬운 점 3 · 경험 공유 315 · 구독·다음 기대 18
+  - 좋은 점 👍10 “맞아요 이직업 참좋내요 요양사 일은 최고로 힘던직업이라 한번 배우고싶내요”
+  - 좋은 점 👍10 “신청합니다❤감사합니다!”
+  - 더 알고 싶은 것 👍6 “안녕하세요 배워 보고 싶어요 책자 부탁드립니다 감사합니다”
+  - 더 알고 싶은 것 👍6 “저도 조만간 직장을 그만둘려고 생각중인데 뭔가를 해야겠다는 생각에 이것저것 찾아보고는 있는데....마땅히 떠오르질 않았었는데 동영상을 보고 저도 꼭 배워보고 싶다는 생각이 들었습니다. 강의신청 가능할까요?”
+  - 아쉬운 점 👍2 “아무나 하는것 아닙니다 어려워요-”
+  - 아쉬운 점 👍1 “바다님입니다~방송보고책을구입햇는데요~~제가원하는내용아닙니다”
+  - 경험 공유 👍21 “안녕하세요 신청합니다 현재 저도 요양사 자격증을 따서 시어머님을 모시는 가족요양사로 일하고 있는 며느리입니다 우연찮게 영상 보게되어 운이 좋다고 생각하고 배워보고 싶어 댓글 남깁니다 기회를 주시면 열심히 해보겠습니다”
+  - 경험 공유 👍9 “구독합니다. 저도 신청할게요. 오랜 경력단절로 무기력하고 자존감도 떨어졌는데.. 좋은 정보 얻었어요.”
+  - 구독·다음 기대 👍9 “구독합니다. 저도 신청할게요. 오랜 경력단절로 무기력하고 자존감도 떨어졌는데.. 좋은 정보 얻었어요.”
+  - 구독·다음 기대 👍8 “구독합니다. 저도 참여하고 싶습니다 정보 감사합니다🎉🎉😢”
+
+### 145. 경제공부 시작하는 법 ∣ 하루 10분이면 됩니다! (해야하는 이유) 🗞️ 📊 💸
+
+- https://www.youtube.com/watch?v=z7fHe2Og-zE · 찌니ZZINI · 구독자 30,500 · 조회수 143,670 (×4.7, 하루 875.1) · 좋아요 0 (0.0%) · 17.5분 · 2026-05-03 · 주제 묶음 1. 재테크 일반·마인드 · 폴더 `W_z7fHe2Og-zE` (웹 승인)
+- 썸네일: <img src="W_z7fHe2Og-zE/thumbnail.jpg" width="320">
+- 챕터: 0:00 영상시작 · 0:12 경제공부 하는 이유? · 2:56 어피니 머니레터 · 5:24 매일경제신문 · 13:42 유튜브/팟캐스트 · 14:18 경제책 · 16:10 디그 · 16:44 마무리
+- 설명 앞부분: 다이어리는 meeplus에서 제공받아 촬영되었습니다. 🔻다이어리 + 속지 어느덧 매일경제신문을 읽은지 1년이 다되어가네요 ! 꾸준히 10분씩만 하자였는데 1년을 하게 되었어요 경제공부를 해야하는 이유 투자, 부동산매매가 아니더라도 제가 느낀 이유가 있었어요. 하루 10분만 투자하기 초보자도 누구나 가능 ! 누구나 쉽게 할수있게 제가 정리를 했어요. 영상으로 만들었으니 재미있게 봐주세요 🙂
+- 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
+- 댓글 147/147: 좋은 점 32 · 더 알고 싶은 것 27 · 아쉬운 점 1 · 경험 공유 6 · 구독·다음 기대 2
+  - 좋은 점 👍311 “신문사에서 가장 중요하게 생각하는 페이지의 순서는 1> 3면이라고 합니다. 그래서 1면의 심층기사가 3면에 계속되는게 보통이라고 들었습니다. 저는 1,3,world,market 섹션은 꼭 읽고 나머지는 시간이 되면 읽는 편입니다. 못읽는날도 스트레스 없이 그냥 넘기고…”
+  - 좋은 점 👍111 “안녕하세요 늘 영상 잘 보고 있습니다^^ 하나 꿀팁 드리면 press reader 앱 사용하면 매일경제신문 무료로 읽는거 가능합니다 다른 신문도 볼 수 있어요 저는 제가 졸업한 대학교 이메일 계정으로 이용 중이에요^^ 저도 경제공부 열심히 해봐야겠어요 큰 도움 되는 …”
+  - 더 알고 싶은 것 👍69 “경제 공부 시작하려고 했는데 이렇게 좋은 타이밍에 좋은 영상을 발견했네요! 귀한 정보 알려주셔서 너무 감사하고 참고해서 열심히 공부해보겠습니다!!”
+  - 더 알고 싶은 것 👍16 “경제공부 어떻게 시작해야하나 막막했는데 이렇게 유용한 영상이 똭 ... 알려주신데로 차근차근 공부해볼게요!! 감사해요 찌니님🥰”
+  - 아쉬운 점 👍311 “신문사에서 가장 중요하게 생각하는 페이지의 순서는 1> 3면이라고 합니다. 그래서 1면의 심층기사가 3면에 계속되는게 보통이라고 들었습니다. 저는 1,3,world,market 섹션은 꼭 읽고 나머지는 시간이 되면 읽는 편입니다. 못읽는날도 스트레스 없이 그냥 넘기고…”
+  - 경험 공유 👍311 “신문사에서 가장 중요하게 생각하는 페이지의 순서는 1> 3면이라고 합니다. 그래서 1면의 심층기사가 3면에 계속되는게 보통이라고 들었습니다. 저는 1,3,world,market 섹션은 꼭 읽고 나머지는 시간이 되면 읽는 편입니다. 못읽는날도 스트레스 없이 그냥 넘기고…”
+  - 경험 공유 👍111 “안녕하세요 늘 영상 잘 보고 있습니다^^ 하나 꿀팁 드리면 press reader 앱 사용하면 매일경제신문 무료로 읽는거 가능합니다 다른 신문도 볼 수 있어요 저는 제가 졸업한 대학교 이메일 계정으로 이용 중이에요^^ 저도 경제공부 열심히 해봐야겠어요 큰 도움 되는 …”
+  - 구독·다음 기대 👍1 “이 영상으로 처음 뵙는데 구독하고 갈게요! 이북리더기 탐나네요,ㅎㅎㅋㅋㅋ 원래 쓰던게 고장나서 새로 사야하나싶었는데,,,, 어디꺼쓰시나요?! 이뻐서 따라사고싶어용 ㅎㅎ”
+  - 구독·다음 기대 👍0 “구독하고 가요~~~”
+
+### 146. 우리 부모님 유산 탐내다 노후 자금 탈탈 털린 시어머니, 전과자에 신용불량자까지 세트로 만들어드림
+
+- https://www.youtube.com/watch?v=5c7V1i5q_xc · 리얼톡툰 · 구독자 15,400 · 조회수 70,535 (×4.6, 하루 506.7) · 좋아요 470 (0.7%) · 9.8분 · 2026-05-28 · 주제 묶음 4. 노후·연금 · 폴더 `W_5c7V1i5q_xc` (웹 승인)
+- 썸네일: <img src="W_5c7V1i5q_xc/thumbnail.jpg" width="320">
+- 설명 앞부분: 우리 부모님 유산 탐내다 노후 자금 탈탈 털린 시어머니, 전과자에 신용불량자까지 세트로 만들어드림 ★리얼톡툰의 영상의 소재들은 인터넷속 '실화'를 각색하거나 '창작'으로 제작 됩니다. 본채널의 동의 없이 영상을 불법다운로드, 복제, 재편집, 재배포 하는 행위는 금지하며, 민형사상의 법적 조치를 취하고 있음을 알려드립니다.
+- 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
+- 댓글 19/19: 좋은 점 0 · 더 알고 싶은 것 1 · 아쉬운 점 1 · 경험 공유 0 · 구독·다음 기대 0
+  - 더 알고 싶은 것 👍1 “진짜 저런 사람이 있긴 함?”
+  - 아쉬운 점 👍0 “사돈집 재산을 왜 탐을 낸다요 말도 안되짓을 하네요”
+
+### 147. 1.3억 커버드콜로 은퇴했어요 #배당투자 #배당은퇴 #경제적자유 #파이어족 #월배당 #고배당주 #주식투자 #재테크#노후준비#배당금생활 #SCHD #JEPI #J…
+
+- https://www.youtube.com/watch?v=BqDfJt2vAHY · ttobaedang또배당 · 구독자 6,330 · 조회수 28,523 (×4.5, 하루 679.4) · 좋아요 532 (1.9%) · 7.9분 · 2026-09-02 · 주제 묶음 1. 재테크 일반·마인드 · 폴더 `W_BqDfJt2vAHY` (웹 승인)
+- 썸네일: <img src="W_BqDfJt2vAHY/thumbnail.jpg" width="320">
+- 대본 없음 (없음) — 음성인식이 끝나면 도입부·흐름이 들어감
+- 댓글 153/153: 좋은 점 20 · 더 알고 싶은 것 19 · 아쉬운 점 2 · 경험 공유 14 · 구독·다음 기대 2
+  - 좋은 점 👍13 “시간의 간절함 정말 공감해요. 이 시간이라는게 젊음이기도 하니까요. 100세 시대가 온다고 젊은 시절의 육체로 100년 사는게 아니고 한 해 한 해 체력이 예전같지 않는 걸 느끼며 자산 뿐만 아니고 내 남은 수명과의 밸런스의 중요하단 생각이 드네요. 앞으로도 좋은 영…”
+  - 좋은 점 👍7 “오늘처럼 주가 폭락했을때 의기소침 하고 있는데 또배당님 영상을 보며 위로를 받습니다.감사합니다..”
+  - 더 알고 싶은 것 👍13 “시간의 간절함 정말 공감해요. 이 시간이라는게 젊음이기도 하니까요. 100세 시대가 온다고 젊은 시절의 육체로 100년 사는게 아니고 한 해 한 해 체력이 예전같지 않는 걸 느끼며 자산 뿐만 아니고 내 남은 수명과의 밸런스의 중요하단 생각이 드네요. 앞으로도 좋은 영…”
+  - 더 알고 싶은 것 👍9 “형님 전 직장생활이 너무 힘든 12년차 직장인입니다 이제 막 3억을 바라보고있는데 형님 영상보면서 나도 할수있구나 하고 자신감 얻어갑니다 나중에라도 팬들이랑 가볍게 밥한끼 했으면 하네요 솔직하고 용기있는 모습 너무 멋있습니다 나중에 세금 건보료 관련해서 영상도 부탁드…”
+  - 아쉬운 점 👍3 “형님 말슴이 지금것 거짓 나부렁이로 구독자만 빨던 유튜바 보다 더 진실된 모습이 보여서 존경 하고 마니 배웁니다.”
+  - 아쉬운 점 👍0 “1.3억으로 낚시 ㅡㅡㅅㅂ”
+  - 경험 공유 👍9 “형님 전 직장생활이 너무 힘든 12년차 직장인입니다 이제 막 3억을 바라보고있는데 형님 영상보면서 나도 할수있구나 하고 자신감 얻어갑니다 나중에라도 팬들이랑 가볍게 밥한끼 했으면 하네요 솔직하고 용기있는 모습 너무 멋있습니다 나중에 세금 건보료 관련해서 영상도 부탁드…”
+  - 경험 공유 👍7 “저랑 비슷한 생각을 하고 계셔서 조금 놀랐어요 ㅎㅎ 100프로 공감해요 투자은 역시 시간이더라구요 그 시간 동안 버틸수 있는 힘은 커버드콜이란 걸 저도 느껴요 그래서 저도 요즘 나만의 원칙을 만들려고 노력하고 있어요❤”
+  - 구독·다음 기대 👍5 “싱글파이어 보고 왔어요. 구독했습니다.”
+  - 구독·다음 기대 👍1 “오늘 구독했습니다 정주행하러갑니다 ❤ ISA 계좌부터 만들어야겠군요? 토스에선 안보이네요?”
+
+### 148. ETF는 이 '2개'로 충분합니다. 돈 있으면 무조건 여기부터 넣습니다. 노후 준비 끝납니다 (백승호 단장 3부) #백승호 #ETF #배당금 #커버드콜
+
+- https://www.youtube.com/watch?v=YdmZDxBcYKE · 자람들 - 자립하는사람들 · 구독자 33,400 · 조회수 143,569 (×4.3, 하루 3,903.9) · 좋아요 1,061 (0.7%) · 19.7분 · 2026-09-07 · 주제 묶음 3. 주식·ETF · 폴더 `W_YdmZDxBcYKE` (웹 승인)
+- 썸네일: <img src="W_YdmZDxBcYKE/thumbnail.jpg" width="320">
+- 설명 앞부분: 👤 오늘의 게스트: 백승호 단장 (3부) 개인 재무 컨설팅 전문가 & 유튜버·작가로도 활동 100억원대 자산을 20년간 관리해온 재무 컨설턴트가 이번엔 계좌별 자산 배치 전략, 나이대별 포트폴리오 구성법, 그리고 투자 철학의 핵심을 정리했습니다. 절세 계좌(ISA·연금)에 국내 주식을 넣으면 오히려 손해라는 아이러니한 사실부터, 조기축구회에 비유한 20대·40대·60대별 맞춤 포트폴리오, 저평가된 중국 ETF와 생소한 유럽 명품 ETF 추천까지 다뤘습니다. 마지막은 "투자는 버티는 것"이라는 한마디로 마무리됩니다. 절세계좌에국내주…
+- 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
+- 댓글 61/61: 좋은 점 11 · 더 알고 싶은 것 12 · 아쉬운 점 1 · 경험 공유 2 · 구독·다음 기대 0
+  - 좋은 점 👍34 “커버드콜도 자산 증식 면에서도, 장기 투자 면에서도 활용도 등 전략적으로 좋아요. 다만, 커버드콜을 잘 고르면 됩니다.”
+  - 좋은 점 👍8 “강의 내용이 매우 퀄리티 있고 구구절절 공감가는 내용인데 주변 소음이 너무 아쉽네요.”
+  - 더 알고 싶은 것 👍6 “안녕하세요~저는30대후반입니다. Isa /연금계좌 둘다 나스닥100 샀거든요(연금저축은1800 isa는 15~2000 채워요) 24년도 말쯤에 rise미국테크100커버드콜 이 나와서 연저에 나스닥100 어느정도 정리하고 배당금 월90~120 나오게했습니다 그래서 그배…”
+  - 더 알고 싶은 것 👍3 “뭔소린지.... ISA에 무조건 해외주식을 넣어야 되고 한국주식을 넣으면 안된다? 이유가... 일반계좌에서 매매차익 비과세 어차피 받으니까? 그럼 배당금은? 15.4% 배당소득세 비과세 받으려고 ISA넣는 전략은? 1개만 알고 2개를 모르시네.... 진짜 100억 자…”
+  - 아쉬운 점 👍8 “강의 내용이 매우 퀄리티 있고 구구절절 공감가는 내용인데 주변 소음이 너무 아쉽네요.”
+
+### 149. 경제신문 무료로 보는법 📰 (경제공부 초보 읽는 방법 👀)
+
+- https://www.youtube.com/watch?v=PIiGnsoTl7I · 찌니ZZINI · 구독자 30,500 · 조회수 130,846 (×4.3, 하루 832.2) · 좋아요 0 (0.0%) · 10.2분 · 2026-05-10 · 주제 묶음 2. 돈 모으기·저축 · 폴더 `W_PIiGnsoTl7I` (웹 승인)
+- 썸네일: <img src="W_PIiGnsoTl7I/thumbnail.jpg" width="320">
+- 챕터: 0:00 영상시작 · 0:19 첫주식투자 도전 · 1:22 경제신문 무료 방법 · 5:10 경제공부방법 질문 · 9:36 책추천 · 10:00 마무리
+- 설명 앞부분: 🔻아래 사이트로 들어가서 국립중앙도서관과 연동하기 오늘은 경제신문 무료로 보는법을 가지고 왔어요 ! 어느덧 1년이 지났더라구요 🙂 연락을 주셨을때 내심 뿌듯하기도 하고 1년전 저의 모습이 보이더라구요 ✨ 많은 분들이 도움 되셨음 좋겠습니다! ⏰ 타임라인
+- 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
+- 댓글 334/334: 좋은 점 95 · 더 알고 싶은 것 53 · 아쉬운 점 5 · 경험 공유 11 · 구독·다음 기대 1
+  - 좋은 점 👍74 “헐 이렇게 쉽게 성공하다니..!! 예전에 저도 국립중앙도서관으로 하면 프레스리더로 무료 읽기 된다구 해서 시도했다가 실패했었는데 알려주신대로 시도했더니 바로 인증됐어요ㅠㅠ 정말 감사해요~~!!”
+  - 좋은 점 👍26 “경제신문을 굳이 돈 주고 볼 필요는 없다고 생각하는 편입니다. 다만 솔직히 말씀드리면, 복잡한 절차를 거쳐 무료로 보는 방식은 오래 유지하기 쉽지 않더라고요. 물론 잘 활용하시는 분들도 계시겠지만 때마다 로그인하고 도서관 연동하고 매번 들어가는 과정 자체가 생각보다 …”
+  - 더 알고 싶은 것 👍74 “헐 이렇게 쉽게 성공하다니..!! 예전에 저도 국립중앙도서관으로 하면 프레스리더로 무료 읽기 된다구 해서 시도했다가 실패했었는데 알려주신대로 시도했더니 바로 인증됐어요ㅠㅠ 정말 감사해요~~!!”
+  - 더 알고 싶은 것 👍12 “매일경제 구독할지 고민하던찰나였는데 찌니님이 3면까지는 무료라고 알려주셔서 보다가 이젠 전체무료까지 알려주신 덕분에 다 볼 수 있게됐어요 ㅎㅎ 덕분입니다! 감사합니다 찌니님!!”
+  - 아쉬운 점 👍4 “뉴욕타임즈가 없어서 아쉽지만 너무 좋네요! 감사합니다”
+  - 아쉬운 점 👍2 “우왕 감사해용!! 꿀팁!! 신문 보고 싶었는데 인터넷으로는 원하는걸 보기 힘들더라고요!! 카테고리별로 정리도되고 정말 감사합니다☺️”
+  - 경험 공유 👍74 “헐 이렇게 쉽게 성공하다니..!! 예전에 저도 국립중앙도서관으로 하면 프레스리더로 무료 읽기 된다구 해서 시도했다가 실패했었는데 알려주신대로 시도했더니 바로 인증됐어요ㅠㅠ 정말 감사해요~~!!”
+  - 경험 공유 👍26 “경제신문을 굳이 돈 주고 볼 필요는 없다고 생각하는 편입니다. 다만 솔직히 말씀드리면, 복잡한 절차를 거쳐 무료로 보는 방식은 오래 유지하기 쉽지 않더라고요. 물론 잘 활용하시는 분들도 계시겠지만 때마다 로그인하고 도서관 연동하고 매번 들어가는 과정 자체가 생각보다 …”
+  - 구독·다음 기대 👍4 “이런 정보 몰랐다면 덜컥 돈 주고 구독했을 것 같은데… 너무 감사해요!! 🥹 그리고 혹시 1:22 이 기기는 이름이 뭔지 알 수 있을까요?”
+
+### 150. 반도체 주식 열풍에 예순 살 부부의 은퇴자금 2억이 단 한 달만에 반토막 나기까지!
+
+- https://www.youtube.com/watch?v=Uwfjww9_yKk · 은빛시나리오 · 구독자 29,200 · 조회수 124,612 (×4.3, 하루 1,821.9) · 좋아요 2,213 (1.8%) · 39.6분 · 2026-08-06 · 주제 묶음 1. 재테크 일반·마인드 · 폴더 `W_Uwfjww9_yKk` (웹 승인)
+- 썸네일: <img src="W_Uwfjww9_yKk/thumbnail.jpg" width="320">
+- 설명 앞부분: 삼십 년을 뙤약볕 아래 택배 상자를 나르며 부부가 한 푼 두 푼 모아온 전 재산 2억 7천만 원. 딱 3천만 원만 더 채우면 완성되는 5억 원의 꿈이었습니다. 고향 거제도로 내려가 아내 손에 더 이상 물집 잡히지 않게 해주고 싶었던 소박한 바람이었죠. 하지만 반도체 열풍이 불던 2026년 여름, 그 조급함 하나가 모든 걸 바꿔놓았습니다. 2억 원을 반도체 대장주에 밀어 넣은 지 한 달 만에, 계좌는 반토막이 났습니다. 📢 안내 및 유의사항 본 영상은 여러 사례를 바탕으로 재구성된 드라마 형식의 시나리오 콘텐츠입니다. 본 영상의 이…
+- 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
+- 댓글 535/535: 좋은 점 24 · 더 알고 싶은 것 34 · 아쉬운 점 22 · 경험 공유 25 · 구독·다음 기대 6
+  - 좋은 점 👍10 “대한민국 사회병폐는 주식은 황금알을 낳는 투기.도박개념으로 일확천금 대박풍조가 너무 많이 만연돼있다 그래서 김거니같은 천박한 투기꾼 주가조작범죄자가 탄생했다”
+  - 좋은 점 👍8 “공감합니다 처음에는 300으로 시작해서 일년에 4000벌었다 그래서 남편몰래 현금써비스 보험해약한것 월급 1억 5000원 넣었다 그러다가 마이너스 6500이 넘었다 내가 팔면 오르고 사면 내린다 젠쟝”
+  - 더 알고 싶은 것 👍16 “나는 좌파인가요? 우파인가요? 내가 대통령 투표에서 지지한 순서 김영삼, 이회창, 이회창, 이명박, 문재인, 문재인, 이재명, 이재명 이순서로 투표 하였는데 지금은 나를 좌파로 주위에서 이야기 하네요 이잼은 정말 열심히 일하는데 부동산 정책은 넘 못하는 것 같습니다.…”
+  - 더 알고 싶은 것 👍12 “마음 아프지만,남을 탓하면 바보 본인의욕심 때문 누구는 몰라서, 안하는가?”
+  - 아쉬운 점 👍57 “모든일에 숨죽여 그 댓가를 치르리라. 등허리에 땀흘려 모으는게 힘들고 지루해도 이게 진리임!”
+  - 아쉬운 점 👍10 “글쎄요 ᆢ2억 7000이면 이자만 600이 넘 어요 ᆢ 요새는 훨씬 많고요 ᆢ갑자기. 무슨 욕심 이 생기셔서. ᆢ주식에 손을 대셨을까 ᆢ”
+  - 경험 공유 👍27 “그나마 다행 7천이라도남았으니...많은이들이 비슷한경험했을겁니다”
+  - 경험 공유 👍16 “나는 좌파인가요? 우파인가요? 내가 대통령 투표에서 지지한 순서 김영삼, 이회창, 이회창, 이명박, 문재인, 문재인, 이재명, 이재명 이순서로 투표 하였는데 지금은 나를 좌파로 주위에서 이야기 하네요 이잼은 정말 열심히 일하는데 부동산 정책은 넘 못하는 것 같습니다.…”
+  - 구독·다음 기대 👍5 “탐욕이 부른결과다 그냥 기다려라ㅡ 누구 탓할것없다 주식이 뭔지도 모르고 뛰어 들면 깨지는건 당연하지 주식이 만날 오르기만하나? 누굴 원망하냐고 ~~”
+  - 구독·다음 기대 👍4 “주식은투자니까 5년에서10년가지고가는데기다려야지 투자가아니고 투기를해나보네 그럼망하지”
+
+### 151. 성공한 인생인 줄 알았습니다... 은퇴 후 찾아온 잔인한 현실
+
+- https://www.youtube.com/watch?v=27QUCjtiMVg · 인생의에필로그 · 구독자 9,590 · 조회수 39,773 (×4.2, 하루 405.8) · 좋아요 463 (1.2%) · 19.3분 · 2026-07-08 · 주제 묶음 4. 노후·연금 · 폴더 `W_27QUCjtiMVg` (웹 승인)
+- 썸네일: <img src="W_27QUCjtiMVg/thumbnail.jpg" width="320">
+- 챕터: 0:00 인트로 · 0:33 1장. 오랜만의 모임 · 2:41 2장. 같은 자리에서 시작했는데 · 3:46 3장. 좋았던 시절 · 5:02 4장. 조금씩 어긋나기 시작했다 · 11:45 5장. 처음으로 따져본 노후 · 12:52 6장. 빛바랜 사진 앞에서 · 14:15 7장. 내밀어준 손 · 16:24 8장. 뒤늦게 알게 된 것 · 18:21 9장. 제작자인사
+- 설명 앞부분: 평생 자기 가게 하나로 성공한 삶을 살았다 믿었던 60대 가장. 은퇴 후 오랜만에 만난 친구들 앞에서 처음으로 자신의 노후를 계산기에 두드려본 날의 이야기입니다. 크게 벌었는데도 손에 남은 게 없었던 이유, 매달의 작은 안정을 우습게 봤던 대가는 무엇이었을까요. 노후자금과 은퇴 후 삶을 돌아보게 하는 오늘의 사연, 끝까지 들어주세요. ⏱ 타임스탬프 본 영상은 공개된 자료와 실제 사건을 참고하여 제작자가 직접 기획·각본한 스토리텔링 콘텐츠입니다. 일부 표현과 장면은 이해를 돕기 위한 창작적 각색이 포함되어 있습니다. 본 콘텐츠는 다…
+- 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
+- 댓글 40/40: 좋은 점 4 · 더 알고 싶은 것 5 · 아쉬운 점 1 · 경험 공유 2 · 구독·다음 기대 0
+  - 좋은 점 👍7 “명퇴 12년차 60대인데, 퇴직후 빚없이 아파트1채 소유하며, 부부 공적연금 300만원+ 목돈4억원이면, 월360만원 이상의 금융소득으로 노부부 돈 신경 안쓰고 삽니다. 단 부부가 큰병없이 건강하고, 출가한 자식들과 돈거래가 전혀없고, 보이스피싱 등 사기만 안 당하면…”
+  - 좋은 점 👍5 “88년 대기업 입사하여 고액 년봉받고 60세 정년퇴직이 최고의.인생”
+  - 더 알고 싶은 것 👍0 “핵심없는 이야기 너무 길게 하신거 아닌가요,,,,,,,,,,,,핵심이 없어요, 왜 들어야 하죠?”
+  - 더 알고 싶은 것 👍0 “실손보험 들었눈데 가입3개월전에 병원기록있러서 해약 되려하는대 방법있을까요?”
+  - 아쉬운 점 👍0 “핵심없는 이야기 너무 길게 하신거 아닌가요,,,,,,,,,,,,핵심이 없어요, 왜 들어야 하죠?”
+  - 경험 공유 👍7 “명퇴 12년차 60대인데, 퇴직후 빚없이 아파트1채 소유하며, 부부 공적연금 300만원+ 목돈4억원이면, 월360만원 이상의 금융소득으로 노부부 돈 신경 안쓰고 삽니다. 단 부부가 큰병없이 건강하고, 출가한 자식들과 돈거래가 전혀없고, 보이스피싱 등 사기만 안 당하면…”
+
+### 152. 배당 ETF 10억 투자하면 진짜 배당금 얼마? ∣ 공식분배금·실수령 차이 (무료 전자책 제공)
+
+- https://www.youtube.com/watch?v=KGOC_mfphu4 · 은퇴머니 - 은퇴 현금흐름 설계 · 구독자 30,000 · 조회수 123,678 (×4.1, 하루 778.0) · 좋아요 2,065 (1.7%) · 18.8분 · 2026-05-08 · 주제 묶음 3. 주식·ETF · 폴더 `W_KGOC_mfphu4` (웹 승인)
+- 썸네일: <img src="W_KGOC_mfphu4/thumbnail.jpg" width="320">
+- 챕터: 0:00 도입 — 10억 ETF에 넣으면 매달 얼마? · 4:25 시뮬레이터 — 공식 분배금에서 실수령까지 · 13:40 마무리 — 빠져나가는 돈을 줄이는 조합
+- 설명 앞부분: 10억을 한 ETF에 통째로 넣으면 — 공식 분배금의 65%만 실수령. 배당소득세·종합소득세·건강보험료, 세 단계에서 빠져나가는 돈을 시뮬레이터로 확인합니다. PDF 요약본 안내: 고정 댓글 확인 📑 영상 PPT 자료 영상 내용을 정리한 슬라이드를 웹에서 바로 보고, PDF로도 내려받을 수 있습니다. 🧮 직접 계산해 보기 영상의 사례를 내 조건으로 바꿔 계산할 수 있습니다.
+- 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
+- 댓글 261/261: 좋은 점 35 · 더 알고 싶은 것 52 · 아쉬운 점 10 · 경험 공유 14 · 구독·다음 기대 6
+  - 좋은 점 👍9 “연금저축계좌나 isa에서는 얼마나 절세되는지 비교분석해 주시면 감사하겠습니다”
+  - 좋은 점 👍7 “구독했습니다. 좋은 내용 감사합니다 ~~”
+  - 더 알고 싶은 것 👍9 “연금저축계좌나 isa에서는 얼마나 절세되는지 비교분석해 주시면 감사하겠습니다”
+  - 더 알고 싶은 것 👍7 “커버드콜이면 분배금 재원 대부분이 옵션프리미엄이라 비과세인데, 배당소득세를 왤케 많이 떼시나요?”
+  - 아쉬운 점 👍9 “국내 커버드콜로 하면 실제 수령액에서 옵션 수익분은 다 빼야 해요. 그냥 전부 합하면 위처럼 말도 안되는 건강보험료, 원천차감금액이 나와요. 따라서 커버드콜을 미국지수나 주식에 연동되는 것으로 하면 손해가 수천 만원씩 나와요.”
+  - 아쉬운 점 👍0 “너무 길어서 그래서 얼마 받는지 알수가 없네...”
+  - 경험 공유 👍1 “10억으로 빠질거 빠지고 월 600이상이면 노후는 될거 같은데..저도 qqqi 10000주 목표로 매수하고있는데.. 이제 1200 주지만..”
+  - 경험 공유 👍1 “멋집니다 저도 받고 싶어요 자료~!!”
+  - 구독·다음 기대 👍7 “구독했습니다. 좋은 내용 감사합니다 ~~”
+  - 구독·다음 기대 👍4 “구독완료~~~ Isa계좌 커버드콜만 운용하는데 비교 부탁드립니다 그리고 배당금은 어느정도를 받아야 세금을 합리적으로 내는지도 궁금합니다”
+
+### 153. 배당 10%를 주면서 동시에 주가도 20% 오른 단 6개의 ETF [1,099개 ETF 모두 뒤져봤습니다.]
+
+- https://www.youtube.com/watch?v=4Gy4lBNuebE · 우아한짠테크 TV · 구독자 37,200 · 조회수 150,656 (×4.0, 하루 995.4) · 좋아요 4,478 (3.0%) · 12.7분 · 2026-05-15 · 주제 묶음 3. 주식·ETF · 폴더 `W_4Gy4lBNuebE` (웹 승인)
+- 썸네일: <img src="W_4Gy4lBNuebE/thumbnail.jpg" width="320">
+- 설명 앞부분: 안녕하세요, 우아한짠테크 '우짠'입니다! "배당 많이 받으면 주가는 안 오른다?" 이 상식을 완벽하게 깨부쉈습니다. 국내 상장 ETF 1,099개를 일일이 전수조사해 [배당 10% + 주가 상승 20% + 순자산 3,000억 이상]이라는 미친 조건을 통과한 ETF만 걸러냈습니다. 심지어 이 중에는 수익률 무려 103%를 찍어버린 전설적인 종목도 숨어있는데요! 월배당 투자자라면 무조건 계좌에 담아야 할 상위 0.55%의 기적 같은 ETF, 오늘 영상에서 확인하세요!
+- 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
+- 댓글 316/316: 좋은 점 78 · 더 알고 싶은 것 38 · 아쉬운 점 5 · 경험 공유 11 · 구독·다음 기대 3
+  - 좋은 점 👍19 “Rise 미국테크 2000주 정도 들고있는데 좋아요”
+  - 좋은 점 👍14 “깔끔한 정리 감사합니다.”
+  - 더 알고 싶은 것 👍5 “고생해서 만들어올려주신 영상덕분에 제계좌도 이제조금 웃을일이보이기 시작했습니다.😊 오늘소개해주신 종목을 모두가지고있는데 너무분산되서 3개만 집중하려고합니다. 감사합니다.🎉❤”
+  - 더 알고 싶은 것 👍3 “저기 중에서 1-2개는 담아가야 겠어요:) 없어서 아쉬웠는데! 이렇게 분석해주셔서 감사합니다. 우짠님 어찌 생각하시나요?~ 요즘 장신없어 자주 못왔는데! 우짠님 현재 포트폴리오도 궁금하네요~~~”
+  - 아쉬운 점 👍5 “와...정말 정말 주옥같은 컨텐츠 입니다~ 정말 고생하셨고 고맙습니다~ (아쉬운건 종목코드도 같이 있었으면 더 좋았을 것 같네요~)”
+  - 아쉬운 점 👍3 “6개 ETF중 1~4번째 ETF 보유하고 있습니다. 6:04 설명은 라이즈밸류체인 설명인데 맨상단 제목이 라이즈미국테크100데일리고정커버드콜로 되어 있네요.”
+  - 경험 공유 👍66 “분석 하시느라 수고 많으셨습니다 언급 하신 여섯개 종목 중에 저희 포트폴리오 안에는 총 4개 종목이 포함되어 있네요 그래서인지 현재 손실 중인 종목은 단 한개도 없고 전체 계좌 총 수익률은 어제 기준 16% 입니다”
+  - 경험 공유 👍6 “감사합니다. 제가 기존에 갖고있던 3가지 etf 와 이 6개 모두 총 9가지 etf만 매수해야겠습니다. 유익한 정보 정말 감사드립니다 ~~~~!”
+  - 구독·다음 기대 👍12 “깔끔한 정리 아주 좋네요~~ 구독갑니다”
+  - 구독·다음 기대 👍2 “왕왕 주린이인대 너무 잘봤어요 매일봐도 모르겟었는데 도움받고가요 근데 커버드콜도 장투하는 개념인지 안전한지 궁금합니다 감사합니다”
+
+### 154. "골드만삭스가 전주에 무릎 꿇었습니다" 국민연금 1,458조, 세계 1위 수익률의 비밀
+
+- https://www.youtube.com/watch?v=3Hw87oNMlHI · 경제초고수 · 구독자 39,400 · 조회수 149,400 (×3.8, 하루 927.8) · 좋아요 4,089 (2.7%) · 14.7분 · 2026-05-06 · 주제 묶음 4. 노후·연금 · 폴더 `W_3Hw87oNMlHI` (웹 승인)
+- 썸네일: <img src="W_3Hw87oNMlHI/thumbnail.jpg" width="320">
+- 챕터: 0:00 231조 수익, 삼성전자 반 개를 벌어왔다 (Hook) · 0:25 골드만삭스가 전주에 사무소를 열었다 · 0:50 블랙록, 알리안츠까지 전주에 모이는 이유 · 1:10 오늘 영상 로드맵 선언 · 1:30 적립금 1,458조, 세계 3위 연기금 · 1:50 1년 예산 680조의 두 배 · 2:10 해외주식 508조, 해외투자 합계 607조 (44%) · 2:30 대체투자 214조: 공항, 도로, 데이터센터, 오피스 · 3:00 대체투자가 왜 중요한가 (폭락장 쿠션) · 3:30 과거 채권 53% 시대의 교훈 · 3:50 수익률 4.2% vs 캐나다 10.7% (7년 전 꼴… · 4:20 복리 차이: 5년이면 수백 조 · 4:40 왜 채권에 묶어뒀나 (정치적 안전 논리) · 5:00 대전환 시작: 해외 37%, 대체 17% · 5:20 한국 주식 시장 비중 2%, 98%를 놓치고 있었다 · 5:40 장기 목표 해외투자 60% · 6:00 김성주 이사장: 사상 첫 재임 · 6:20 자산 배분 철학: 비율이 수익 90% 결정 · 6:50 정치 압력과 관성을 돌파한 팀 · 7:10 세계 비교: 한국 18.82% 압도적 1위
+- 설명 앞부분: 2025년 국민연금 수익률 18.82%. 역대 최고. 1년 수익금만 231.6조 원. 삼성전자 시가총액의 절반을 1년 만에 벌어왔습니다. 근데 진짜 소름 돋는 건 따로 있어요. 골드만삭스가 전주에 사무소를 열었습니다. 배우러 온 거예요. 이 영상에서 다루는 내용: 국민연금 적립금 1,458조 원, 세계 3위 연기금의 규모 해외투자 607조 원 (44%), 대체투자 214조 원의 정체 과거 채권 53% 시대 수익률 4.2%에서 현재 18.82%로의 대전환 자산 배분 전략: 종목이 아니라 비율이 수익의 90%를 결정한다 세계 연기금 …
+- 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
+- 댓글 415/415: 좋은 점 17 · 더 알고 싶은 것 44 · 아쉬운 점 22 · 경험 공유 14 · 구독·다음 기대 0
+  - 좋은 점 👍116 “극민연금 현재의 직원들 잘 운영해주어 고맙고 수고 많습니다”
+  - 좋은 점 👍74 “우리연금제도를 보고 많은 나라가 부러워할 것 같습니다. 참 말이 많았죠. 최근 주식 때문이기도 하지만 다행입니다. 주변에 연금 받는 사람들 보면 생활을 완전히 보장은 못해도 상당한 도움이 됩니다. 안심하시고 연금을 꾸준히 납입하세요.”
+  - 더 알고 싶은 것 👍206 “지금시점으론 1700조라던데.. 5000조 만들어서 연금좀 많이줘라.. 부탁하고 응원한다..”
+  - 더 알고 싶은 것 👍25 “삼전이 1000조가 넘었는데???”
+  - 아쉬운 점 👍4 “투표만 잘하면 된다 국가와 국민을 먼저 생각하는 정치인에게 표를 줘라 기득권 가지고 자신들만 잘쳐먹고 살겠다는 놈들에게 표를 주지 말고 특히 내란 독재를 옹호하는 극우는 피해라 나라 말아먹을 놈들이다 국민 한명 한명이 똑똑하고 현명하고 가짜뉴스 왜곡된 정보에 현혹되지…”
+  - 아쉬운 점 👍1 “국민 연금을 그렇게 욕 먹으면서 개혁을 하니 이런 좋은 일도 생겨서 더이상 국민 연금 고갈 되어서 못 받는 다는 헛소리 안 나오게 되어 미래 세대가 세금 폭탄을 드디어 벗어 나게 되어 새로운 세상에 대한 희망이 생기게 되었다..”
+  - 경험 공유 👍22 “국민연금 투자결정했었던 사람들에게 인센티브를 줘야합니다. 그것도 생각했던 것 보다 많이... 반도체 공장에 근무만해도 내년에 10억이상 받는데... 이런 투자결정을 했었던 사람들이 받아야지 ... 자 ~ 박수 짝짝짝~♡”
+  - 경험 공유 👍4 “나도 껴주라”
+
+### 155. 서울대 의대생이었던 내가 돈을 모으기 시작한 이유ㅣ반지하에서 반포자가까지(feat. 절약, 저축)
+
+- https://www.youtube.com/watch?v=qP7PI42yX6g · 닥터나솔 · 구독자 48,900 · 조회수 181,738 (×3.7, 하루 2,934.2) · 좋아요 2,426 (1.3%) · 15.8분 · 2026-08-13 · 주제 묶음 2. 돈 모으기·저축 · 폴더 `W_qP7PI42yX6g` (웹 승인)
+- 썸네일: <img src="W_qP7PI42yX6g/thumbnail.jpg" width="320">
+- 대본 없음 (없음) — 음성인식이 끝나면 도입부·흐름이 들어감
+- 댓글 280/280: 좋은 점 51 · 더 알고 싶은 것 22 · 아쉬운 점 6 · 경험 공유 30 · 구독·다음 기대 5
+  - 좋은 점 👍364 “학교다닐때 95학번입니다.저희 고등학교에서 넘사벽 전교 1등 저는 10등권 이었습니다. 진짜 서울의대는 넘사벽이었죠.장세권 이름도 안잊어 먹을 정도로 수재여서 그친구도 평범한 집. 그런 끈기와 머리는 부모님께 받은 선물입니다. 노력만으로도 안되지요. 저는 수유시장 앞…”
+  - 좋은 점 👍273 “부모님께서 좋은 머리를 물려주셨어요...넘 감사할 일이죠...”
+  - 더 알고 싶은 것 👍10 “많이 배웁니다 제가 많이 부족함을 느낍니다. 인생을 다시 잘 살아야겠다고 생각이 드는 영상입니다. 이런걸 알려주셔서 감사합니다”
+  - 더 알고 싶은 것 👍7 “지금은 담담하게 말씀하시지만 그 당시엔 얼마나 처절하게 노력했을지 느껴집니다 부모님들도 대견해 하셨을 겁니다 스스로한테 칭찬 많이해 주세요^^”
+  - 아쉬운 점 👍78 “94년도 중3때 도덕담당이던 아줌씨 담임 내가 교실을 깨끗히 청소 잘 한다며 일요일 본인 집 이삿날 새벽일찍부터 날 불러 청소시키더라. 순진했던 난 왁스로 손이 벗겨져라 화장실 청소까지 말끔하게 했는데 본인 가족 끼리만 짜장면 먹으러가고 나한텐 뻥튀기 과자 한봉다리 …”
+  - 아쉬운 점 👍3 “저 좋은 유전자를 후대에 못전한게 아쉽네요”
+  - 경험 공유 👍364 “학교다닐때 95학번입니다.저희 고등학교에서 넘사벽 전교 1등 저는 10등권 이었습니다. 진짜 서울의대는 넘사벽이었죠.장세권 이름도 안잊어 먹을 정도로 수재여서 그친구도 평범한 집. 그런 끈기와 머리는 부모님께 받은 선물입니다. 노력만으로도 안되지요. 저는 수유시장 앞…”
+  - 경험 공유 👍78 “94년도 중3때 도덕담당이던 아줌씨 담임 내가 교실을 깨끗히 청소 잘 한다며 일요일 본인 집 이삿날 새벽일찍부터 날 불러 청소시키더라. 순진했던 난 왁스로 손이 벗겨져라 화장실 청소까지 말끔하게 했는데 본인 가족 끼리만 짜장면 먹으러가고 나한텐 뻥튀기 과자 한봉다리 …”
+  - 구독·다음 기대 👍22 “저도 지금 경제 상황이 좋지 않은 대학생인데 보면서 희망을 얻고 구독하고 갑니다. 멋있으세요!”
+  - 구독·다음 기대 👍16 “아~~~쌤. 저 반성하게 되요. 팬입니다. ㅎㅎ”
+
+### 156. 돈 버는 방식은 정해져 있다, 수익 모델 15종 다이제스트
+
+- https://www.youtube.com/watch?v=wr4nCMUy1dk · 사다리게임 · 구독자 36,100 · 조회수 133,654 (×3.7, 하루 962.7) · 좋아요 9,026 (6.8%) · 18분 · 2026-05-28 · 주제 묶음 기타 · 폴더 `W_wr4nCMUy1dk` (웹 승인)
+- 썸네일: <img src="W_wr4nCMUy1dk/thumbnail.jpg" width="320">
+- 설명 앞부분: 수익 모델의 유형은 이미 정해져 있습니다. 세상에 아무리 새로운 서비스가 나와도, 돈을 버는 구조는 결국 기존 패턴의 선택이거나 조합이에요. 15가지 수익 모델을 하나씩 빠르게 훑을 건데요, 이 중에서 여러분의 사업에 맞는 걸 찾아 보세요.
+- 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
+- 댓글 77/77: 좋은 점 16 · 더 알고 싶은 것 10 · 아쉬운 점 1 · 경험 공유 1 · 구독·다음 기대 2
+  - 좋은 점 👍34 “뭐지 이 개 똑똑한 영상이 내게 뜨다니.... 감사합니다.”
+  - 좋은 점 👍10 “우연히 보게되었는데 내용이 간결하게 핵심이 잘 정리되어서 너무 좋았습니다 감사합니다 😊”
+  - 더 알고 싶은 것 👍4 “와 유툽에 이런 양질의 컨텐츠가?”
+  - 더 알고 싶은 것 👍2 “각각 매출 발생 방법별 디테일한 성과 지표알려주세요”
+  - 아쉬운 점 👍7 “대부분의 인터넷 서비스에는 저 앞에 있는 3개가 합쳐진 프리미엄구독광고형 이라는 혐오스러운 수익모델을 쓰는게 너무 짜증남 누가 좀 없애줘라”
+  - 경험 공유 👍3 “제가 봤으니까 이제 영상 내려주세요”
+  - 구독·다음 기대 👍3 “구독하고 갑니다. 감사합니다.”
+  - 구독·다음 기대 👍2 “구독합니다”
+
+### 157. 45살에 시작한 사이드잡 부업으로 월 순수익 1억 벌고 인생역전한 48살 아저씨
+
+- https://www.youtube.com/watch?v=XX8QV3-5rAM · 실전부업클럽 · 구독자 23,400 · 조회수 81,154 (×3.5, 하루 81,154.0) · 좋아요 0 (0.0%) · 29.6분 · 2026-10-13 · 주제 묶음 2. 돈 모으기·저축 · 폴더 `W_XX8QV3-5rAM` (웹 승인)
+- 썸네일: <img src="W_XX8QV3-5rAM/thumbnail.jpg" width="320">
+- 설명 앞부분: 🎁 건기식 사이드잡으로 월 2억을 달성하며 인생 역전을 이뤄낸 48살 '최대표' 님의 '쿠팡 건기식 수익화 자료 3종'을 100% 무료로 드립니다. 📂 무료 제공 콘텐츠 (소수 인원에게만 한정 공개) 1️⃣ 무료 라이브 공개! 최대표만의 쿠팡 상위 노출 시크릿 전자책 초보 셀러도 쿠팡 알고리즘을 정복하고 첫 페이지 노출을 노리는 핵심 돈버는법 가이드! 2️⃣ 구매 전환율을 폭발시키는 상세페이지 & 썸네일 제작 전자책 디자이너 없이도 클릭을 부르는 썸네일과 구매를 유도하는 상세페이지 제작 기법 완전 정리! 3️⃣ 실패 없는 수익을 …
+- 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
+- 댓글 230/228: 좋은 점 26 · 더 알고 싶은 것 46 · 아쉬운 점 0 · 경험 공유 13 · 구독·다음 기대 0
+  - 좋은 점 👍1 “자료신청완료 영상 잘 봤습니다 배우고 싶습니다”
+  - 좋은 점 👍1 “자료신청완료 감사합니다.”
+  - 더 알고 싶은 것 👍7 “아직도 이런거 속는 사람 없져??”
+  - 더 알고 싶은 것 👍2 “전자책 주시나요?? 받고싶어요”
+  - 경험 공유 👍1 “많이 힘이듭니다.. 저도 좋은일이 생겼으면 좋겠습니다~~!!”
+  - 경험 공유 👍0 “진정성이 느껴져요 저도 배워보고 싶습니다 전자책 신청합니다.”
+
+### 158. 월 100만 원으로 QLD 적립식 투자하면 10억 은퇴자금 가능할까?
+
+- https://www.youtube.com/watch?v=hSorn4W4RsI · 돈재이 DONJAY · 구독자 19,700 · 조회수 67,682 (×3.4, 하루 460.4) · 좋아요 1,359 (2.0%) · 19.2분 · 2026-05-20 · 주제 묶음 3. 주식·ETF · 폴더 `W_hSorn4W4RsI` (웹 승인)
+- 썸네일: <img src="W_hSorn4W4RsI/thumbnail.jpg" width="320">
+- 설명 앞부분: ⭐안녕하세요, 본 채널은 저의 개인적인 투자 여정과 장기 투자 철학을 기록하는 공간입니다. 제가 겪은 시행착오와 시장을 바라보는 관점이 여러분의 투자 공부에 작은 참고가 되기를 희망합니다. 다만, 채널의 모든 콘텐츠는 정보 전달을 목적으로 제작되었습니다. 여러분의 성공적인 투자 여정을 응원합니다.
+- 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
+- 댓글 342/342: 좋은 점 40 · 더 알고 싶은 것 81 · 아쉬운 점 3 · 경험 공유 28 · 구독·다음 기대 1
+  - 좋은 점 👍7 “헐 지금 내가 딱 궁금한 딱!!!! 슈드 큐엘디 갈까 고민하는 상황에서 뜨네 와 감사합니다”
+  - 좋은 점 👍7 “하나 아쉬운게 물가상승률 까지 포함하지 않으셨네요 ㅠㅠ 그래도 나머지는 도움 됐습니다!”
+  - 더 알고 싶은 것 👍7 “헐 지금 내가 딱 궁금한 딱!!!! 슈드 큐엘디 갈까 고민하는 상황에서 뜨네 와 감사합니다”
+  - 더 알고 싶은 것 👍6 “안녕하세요 20대 후반 직장인 입니다. 월급이 적어서 월에 100만원 QLD 넣고 있는데 10년 후가 궁금해지네요.. 같이 모아요!!”
+  - 아쉬운 점 👍7 “하나 아쉬운게 물가상승률 까지 포함하지 않으셨네요 ㅠㅠ 그래도 나머지는 도움 됐습니다!”
+  - 경험 공유 👍26 “제가 실제로 1억 5천 정도 미국 개별주식 들고있던 상태에서 21년 7월 부터 매일 QLD를 사모았거든요. 어제까지 총 3억 정도 분할 매수해서 원금은 4억 5천 살짝 안되고 계좌는 딱 13억 찍혀있어요. 시장을 떠나지 않고 꾸준히 적립식 분할 매수한다면 10년안에 …”
+  - 경험 공유 👍21 “제가 주식 금융순자산 만드는데 8년 8개월 걸렸는데 정말 1배짜리로는 힘들고 적절한 하락장때 적절한 레버리지 섞어야 가능하더라구요. 하락장마다 직장신용대출받아서 추가로 들어가니 가능하더군요.”
+  - 구독·다음 기대 👍2 “매달 사는날이 정해져 있나요? 좋은방법인것 같아요 오늘 구독하고 갑니다.”
+
+### 159. -5억, 주식에 노후자금 몰빵🔥내 미래는 쪽빵ㅜㅜ
+
+- https://www.youtube.com/watch?v=IthWsvdt6q4 · 권감각의 유기주식테라피  · 구독자 20,300 · 조회수 68,927 (×3.4, 하루 1,770.4) · 좋아요 571 (0.8%) · 11.1분 · 2026-09-05 · 주제 묶음 3. 주식·ETF · 폴더 `W_IthWsvdt6q4` (웹 승인)
+- 썸네일: <img src="W_IthWsvdt6q4/thumbnail.jpg" width="320">
+- 설명 앞부분: 당첨자 정보 입력하기 : 사연을 보내주실 때는 주식 매수 동기와 화면 캡처본(개인정보 가림 처리)을 함께 첨부해 주세요! 🎶 엔딩송 풀버전
+- 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
+- 댓글 81/81: 좋은 점 2 · 더 알고 싶은 것 9 · 아쉬운 점 2 · 경험 공유 6 · 구독·다음 기대 0
+  - 좋은 점 👍0 “이거보면 항상 마음이 편안해요 수면제로 좋아요”
+  - 좋은 점 👍0 “지금 당장 다 팔고 그 돈으로 양주 사드세요 그게 정신 건강에 좋아요 가지고 있으면 오래 못 살아요 제발 손절 하시고 술 사드세요 그래야 님이 살수 있어요”
+  - 더 알고 싶은 것 👍4 “코가 큰 아저씨 누구야?”
+  - 더 알고 싶은 것 👍2 “코 큰 분이면 ??? 이광수???”
+  - 아쉬운 점 👍4 “평생 주식 할 생각이라지만 우리의 생명이 영원한 것이 아닌데 말이죠~😅 이러다 이 별에서 떠나는 날까지도 돈이 묶여 있을까 싶어 걱정입니다. 제 얘기예요~😂”
+  - 아쉬운 점 👍3 “레버리지는 진짜 주식 많이 한 초고수들만 해야할텐데. 아쉽네”
+  - 경험 공유 👍16 “몰빵….주식3년차인데 단한번도 몰빵해본적이없다요… 쫄보라서그런가 무조건 분매수분매도실천함”
+  - 경험 공유 👍4 “어우 5억 끔찍...나도 6월까지 -7억 이었다가 최근 -4억정도로 회복했는데.... 화이팅 합시다~!!!”
+
+### 160. 반드시 부자되는 신혼부부의 3가지 공통점 (부자되는 방법)
+
+- https://www.youtube.com/watch?v=t6NrbgrRE_k · 해쏘현_신혼부부 재테크 · 구독자 26,400 · 조회수 89,264 (×3.4, 하루 1,720.0) · 좋아요 723 (0.8%) · 11.9분 · 2026-08-23 · 주제 묶음 1. 재테크 일반·마인드 · 폴더 `W_t6NrbgrRE_k` (웹 승인)
 - 썸네일: <img src="W_t6NrbgrRE_k/thumbnail.jpg" width="320">
 - 챕터: 0:00 인트로 · 0:50 부부가 한 방향으로 돈을 굴린다 · 3:30 오를 곳을 고르는 방법 · 6:53 남들이 망설일 때 실행한다 · 8:54 클로징 · 11:15 요즘 근황
 - 설명 앞부분: 🙋‍♀️ 여전히 내집마련이 어렵다면 고민 상담하기 ‼️내집마련 고민상담 대기 신청하기
@@ -2869,7 +3109,7 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
   - 경험 공유 👍2 “공주시 같은 소도시는여???? 현 대장 아파트가 300세대 ( 3년차 ) 거의 5억입니다.”
   - 구독·다음 기대 👍2 “대출을 저금리에 받을 수 있는 여권이 돼서 대출+모은 돈과 합쳐서 상급지는 아니더라고 관심이 생기는 지역에 매매를 할지, 저금리로 대출을 받을 수 있어서 오피스텔 전세로 주거비를 최소화하고 돈을 1-2년간 모아 조금 더 좋은 곳을 매매할지 고민중이에요. 이 영상에서는…”
 
-### 145. 부자 되기 바로 전, 삶에 나타나는 이상한 변화 7가지 (놓치면 평생 후회합니다)
+### 161. 부자 되기 바로 전, 삶에 나타나는 이상한 변화 7가지 (놓치면 평생 후회합니다)
 
 - https://www.youtube.com/watch?v=GxGvoXZQbZ0 · 누구나 겪는 돈 이야기 · 구독자 4,490 · 조회수 14,314 (×3.2, 하루 93.6) · 좋아요 356 (2.5%) · 17.2분 · 2026-05-14 · 주제 묶음 1. 재테크 일반·마인드 · 폴더 `W_GxGvoXZQbZ0` (웹 승인)
 - 썸네일: <img src="W_GxGvoXZQbZ0/thumbnail.jpg" width="320">
@@ -2881,4 +3121,61 @@ YouTube API 는 영상별 구독 증가를 주지 않는다 → 채널 단위로
   - 좋은 점 👍1 “좋은 영상 올려주셔서 정말 감사드립니다”
   - 더 알고 싶은 것 👍1 “좋은 영상 올려주셔서 정말 감사드립니다”
   - 경험 공유 👍4 “나도나도 이런느낌. 부자될 상이로군요.. 아니라도 이영상. 자신감 뿜뿜 되네요~~”
+
+### 162. 친구? 없어요. 혼자 재테크 경제 세미나 다니는 30대 미혼 여자 직장인 vlog 💸 ∣ 자산 폭등기 대처법, 돈 공부, 서울머니쇼 후기, 강남 조용한 북카페 …
+
+- https://www.youtube.com/watch?v=jHm2LpwKQRg · 일어나안나 · 구독자 42,200 · 조회수 128,570 (×3.0, 하루 819.5) · 좋아요 2,264 (1.8%) · 6.5분 · 2026-05-10 · 주제 묶음 1. 재테크 일반·마인드 · 폴더 `W_jHm2LpwKQRg` (웹 승인)
+- 썸네일: <img src="W_jHm2LpwKQRg/thumbnail.jpg" width="320">
+- 설명 앞부분: 혼자 경제 세미나와 북카페들 다녀온 30대 직장인 재테크 브이로그예요.💸 2026 서울머니쇼 후기와 자산 폭등기 대처법, 그리고 강남의 조용한 북카페 3곳(북쌔즈, 최인아책방, 북앤레스트)을 담았습니다. 직접 다녀와보니 너무 좋았는데요. 혼자 집중해서 공부하거나 책 읽을 곳 찾는 분들은 영상 끝까지 시청해 주세요! ✨ 감사합니다.🤍 ▪by 일어나안나
+- 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
+- 댓글 188/188: 좋은 점 21 · 더 알고 싶은 것 22 · 아쉬운 점 1 · 경험 공유 28 · 구독·다음 기대 3
+  - 좋은 점 👍20 “저도 내향인이어서 공감가는게 있어요~”
+  - 좋은 점 👍17 “오늘 영상 첨보는데 영상글자가 커서 좋네요 ㅎㅎ(지나가는 30대 여자 직장인ㅋㅋ)”
+  - 더 알고 싶은 것 👍17 “우와 이런 경제 세미나 운영 정보는 어디서 얻나요...?”
+  - 더 알고 싶은 것 👍8 “=== 책도 친구됨 !!!........세종대왕님 노후에 뭘 했을까요?.....책은 결별 없는 친구,!!!....”
+  - 아쉬운 점 👍1 “제목만 보고 좋아요!눌렀네요.ㅎㅎ”
+  - 경험 공유 👍68 “나이 먹을수록 친구는 다 떨어져 나갑니다 결혼하고 가족과 자기인생 꾸려나가서 약속잡고 만나기도 힘들어요 그냥 일찍 겪는거라 생각하면 마음 편합니다 그리고 언젠가 결혼할 생각이 들면 옆에 동반자가 생길텐데 신경 안써도 됩니다”
+  - 경험 공유 👍60 “저는 32살 일반 직장인인데요 저도 딱 이래요.. 친구도 만나는것도 뭔가 의미없게 느껴지고 일하고 부업하고 매일 월급날만 기다리면서 계산기만 두드리는데 가끔 보면 너무 현생을 희생하면서 사는게 아닌지 잘살고있는건지 의문이 들더라구요..”
+  - 구독·다음 기대 👍5 “친구 없어서 구독합니다..”
+  - 구독·다음 기대 👍0 “구독합니다”
+
+### 163. [전문가 초대] 인플레 고착화 시대...내 포트폴리오에 담을 자산은? (오건영 단장)
+
+- https://www.youtube.com/watch?v=6tQaMqgqoxA · 돈에안기자(TV조선경제채널) · 구독자 26,500 · 조회수 80,561 (×3.0, 하루 635.3) · 좋아요 951 (1.2%) · 44.2분 · 2026-06-09 · 주제 묶음 3. 주식·ETF · 폴더 `W_6tQaMqgqoxA` (웹 승인)
+- 썸네일: <img src="W_6tQaMqgqoxA/thumbnail.jpg" width="320">
+- 설명 앞부분: 🚨2026 경제아카데미 시즌1 - 오건영 단장 풀버전 안내 말씀 본 영상은 지난 5월 16일 진행된 오프라인 증시 강연 녹화본입니다. (시청에 참고하시기 바랍니다.) 현장에 직접 참석해 주신 분들을 배려하고자 부득이하게 업로드에 시차를 두게 되었습니다. 촬영일과 차이는 있지만, 현재 시장 상황에서도 투자에 큰 도움이 되는 유효한 인사이트를 담고 있으니 시청자 여러분의 너른 양해와 관심 부탁드립니다. 💹 美 CPI 9.1%→3.0% 급락 후 정체, 금리 인하 지연 가능성 🛢️ 중동분쟁 장기화로 글로벌 에너지·안보 패러다임 재편 💰 …
+- 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
+- 댓글 42/42: 좋은 점 10 · 더 알고 싶은 것 5 · 아쉬운 점 0 · 경험 공유 1 · 구독·다음 기대 0
+  - 좋은 점 👍7 “너무좋은강의다진짜 무료로보는게 죄송할정도네”
+  - 좋은 점 👍3 “귀한 강의 감사합니다.”
+  - 더 알고 싶은 것 👍2 “묻지말고 니 얘기나 해 ~~본인강의 안들어 보냐 ?”
+  - 더 알고 싶은 것 👍1 “차트만 봐도 유가나, 금리는 이미 추세가 상방으로 돌려졌음. 지금은 잠시 눌리면서 힘을 모으는 단계죠. 과거 금리는 충분히 누를 수 있던 시기가 분명히 있었지만, 안 했죠. 오히려 몇년간 금리 인하 소리만 죽도록 나왔는데, 감자기 올해는 금리 인상..? 아무리 내가 …”
+  - 경험 공유 👍1 “차트만 봐도 유가나, 금리는 이미 추세가 상방으로 돌려졌음. 지금은 잠시 눌리면서 힘을 모으는 단계죠. 과거 금리는 충분히 누를 수 있던 시기가 분명히 있었지만, 안 했죠. 오히려 몇년간 금리 인하 소리만 죽도록 나왔는데, 감자기 올해는 금리 인상..? 아무리 내가 …”
+
+### 164. 부모 노후자금 4억 5천만 원 앞에서 드러낸 자식들의 민낯! "엄마 노후는 우리가 책임질게" 서로 모시겠다는 아들 딸?
+
+- https://www.youtube.com/watch?v=iIGP8SjSqRE · 청춘은안단테 · 구독자 19,800 · 조회수 60,114 (×3.0, 하루 819.0) · 좋아요 523 (0.9%) · 57분 · 2026-08-01 · 주제 묶음 4. 노후·연금 · 폴더 `W_iIGP8SjSqRE` (웹 승인)
+- 썸네일: <img src="W_iIGP8SjSqRE/thumbnail.jpg" width="320">
+- 설명 앞부분: 여러분은 자식에게 노후자금을 얼마나 나눠주실 건가요? 다 퍼주고 남는 게 없어도 괜찮으신가요, 아니면 마지막 한 줄은 지키실 건가요? 예순아홉 김영자 씨는 남편을 먼저 보내고, 자식 셋 결혼자금으로 3억을 썼습니다. 아파트와 예금을 정리해 손에 쥔 돈은 4억 5천만 원, 이 돈으로 조용한 노후를 보내려 시골로 내려갔습니다. 처음엔 결사반대하던 자식들은 시간이 지나며 서로 모시겠다고 나섰지만, 그 속에 숨은 진짜 이유는 따로 있었습니다. 명절날 한자리에 모인 삼 남매가 동시에 요구한 돈은 무려 3억, 노후자금의 3분의 2였습니다. …
+- 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
+- 댓글 35/35: 좋은 점 1 · 더 알고 싶은 것 0 · 아쉬운 점 0 · 경험 공유 1 · 구독·다음 기대 0
+  - 좋은 점 👍0 “좋은 말씀 감사합니다”
+  - 경험 공유 👍4 “전 하와이에서 56년 동안살았어요. 작년2월에 남편도 4개월 정도 아프다 돌아가고 전 혼자 살고 있는데 혼자 사는것도 처음이지만 요즘엔 참으로 행복합니다. 일년에 봄 가을두번 한국에갑니다. 아들이 하나에 쌍둥이 손자가 있어 일년에 두번 오고 내가두번가고 잘 지내고 있…”
+
+### 165. 2026 국민성장펀드 가입전 필수 확인! 5060이 반드시 피해야 할 함정 3가지 (소득공제, 분리과세 총정리)
+
+- https://www.youtube.com/watch?v=A5E-2sukBgo · 만약에 머니 · 구독자 33,900 · 조회수 102,308 (×3.0, 하루 673.5) · 좋아요 1,552 (1.5%) · 20.6분 · 2026-05-15 · 주제 묶음 3. 주식·ETF · 폴더 `W_A5E-2sukBgo` (웹 승인)
+- 썸네일: <img src="W_A5E-2sukBgo/thumbnail.jpg" width="320">
+- 챕터: 0:00 국민성장펀드, 5060에게 '독'이 될 수 있는 이유 · 1:15 2026 국민성장펀드 핵심 요약 (일정 및 세제 혜택) · 2:40 5060 자산가가 주목해야 할 진짜 혜택: 분리과세 … · 4:10 [함정 01] 금융소득 종합과세 대상자는 '입구 컷'? · 6:22 [함정 02] 5년 폐쇄형의 공포, 급전 필요할 때 … · 8:45 [함정 03] '손실 20% 보장'이 원금 보장이 아… · 10:30 가입해도 좋은 사람 vs 절대 하면 안 되는 사람 (… · 12:15 가입 전 오늘 밤 당장 해야 할 실전 3단계 체크리스트
+- 설명 앞부분: 5월 22일 시작되는 국민성장펀드, '나만은 예외겠지' 하다가 5년 동안 노후 자금이 잠길 수 있습니다. 정부가 손실 20%를 보전해준다는 달콤한 유혹 뒤에 숨겨진 5060 맞춤형 독소 조항을 낱낱이 파헤쳐 드립니다. "남들 다 하니까 나도?"라는 생각으로 은행 가시기 전에 딱 10분만 투자하세요. 이 영상은 여러분의 소중한 노후 자금을 지키는 가장 확실한 보험이 될 것입니다. [타임라인]
+- 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
+- 댓글 87/87: 좋은 점 11 · 더 알고 싶은 것 19 · 아쉬운 점 5 · 경험 공유 1 · 구독·다음 기대 1
+  - 좋은 점 👍62 “국민들 위해 엄청 신경써주셔서 감사합니다 대장동 개발이익도 일부 환수로 성남시를 위해 공원만들고 국민들 위해 애써주셨는데 국민들 우해 늘 신경써주시니 감사하네요”
+  - 좋은 점 👍18 “판단에 도움이 되었네요”
+  - 더 알고 싶은 것 👍8 “대국민사기극ᆢ은 아니겠죠~~??”
+  - 더 알고 싶은 것 👍7 “달에 적금식으론 안되나요?”
+  - 아쉬운 점 👍23 “확실히 다른 금융상품보다 월등히 이익... 돈있으면 가입하는 것이 돈버는 것임... 함정이니 뭐니 다 헛소리임.... 이보다 조건 좋은 금융상품 없음.”
+  - 아쉬운 점 👍1 “재외국민이안된다는것이좀아쉽네요”
+  - 경험 공유 👍2 “온 국민 돈 빨아다가 운용사 배불리고, 이름도 없는 회사에 돈 퍼부어 빼먹는 방식이 김대중의 IT, 문재인 태양광 등과 비슷해보인다. 내인생 내가 책임지는게 답이라 생각한다. 누굴믿냐”
+  - 구독·다음 기대 👍4 “고민 중이였는데 50,60대에 맞춰 장단점을 잘 설명 해주셨어요. 좋은 영상인데 구독자수가 적어서 의아했는데... 올해부터 시작하셨군요. 장담컨대 번창하실 겁니다~ 요즘 금융 공부 중인데...구독하고 정주행 하려구요. 앞으로 예비 은퇴자, 은퇴자 위주로 영상 만들길 …”
 

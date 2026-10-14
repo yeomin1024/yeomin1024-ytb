@@ -1,0 +1,121 @@
+{
+ "id": "Suach3Oqdas",
+ "title": "\"지금 잔고 5천만원 안 되신다면, 이것부터 이렇게 하세요\"",
+ "channel": "야무진 경제학",
+ "channel_id": "UCdu6FZYHrnBKdyzRawLabmg",
+ "subs": 22500,
+ "views": 75534,
+ "ratio": 3.36,
+ "age_days": 73,
+ "views_per_day": 1034.7,
+ "minutes": 22.4,
+ "likes": 1392,
+ "comments": 25,
+ "published": "2026-08-01",
+ "queries": "검색:1억모으기",
+ "url": "https://www.youtube.com/watch?v=Suach3Oqdas",
+ "flag": "",
+ "published_at": "2026-08-01T22:00:17Z",
+ "rank": "W175",
+ "set": "web",
+ "folder": "W_Suach3Oqdas",
+ "sources": [
+  "검색:1억모으기"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "20% 수익 60만원 vs 자동이체 240만원"
+  },
+  {
+   "start": 101,
+   "title": "캠핑장 라이터와 장작, 우리가 늘 틀리는 순서"
+  },
+  {
+   "start": 165,
+   "title": "100만원에 연 7%면 한 달에 커피 두 잔"
+  },
+  {
+   "start": 231,
+   "title": "복리의 사각지대란 무엇인가"
+  },
+  {
+   "start": 295,
+   "title": "아무도 이 구간을 알려주지 않는 3가지 이유"
+  },
+  {
+   "start": 387,
+   "title": "임계 원금, 돈이 나와 동등해지는 지점"
+  },
+  {
+   "start": 402,
+   "title": "월 30·50·100만원, 각각의 경계선 숫자"
+  },
+  {
+   "start": 474,
+   "title": "첫 1억 11년, 세 번째 1억 4년"
+  },
+  {
+   "start": 560,
+   "title": "저축액·수익률·시간, 세 개의 레버 분해"
+  },
+  {
+   "start": 631,
+   "title": "왜 소액 구간에서는 저축률이 수익률을 이기는가"
+  },
+  {
+   "start": 683,
+   "title": "2026년 1분기 가계동향조사, 흑자액 123만 9천원"
+  },
+  {
+   "start": 754,
+   "title": "자산 격차는 수익률 이전에 흑자액에서 벌어진다"
+  },
+  {
+   "start": 834,
+   "title": "원칙 1. 쓰고 남기지 말고, 먼저 떼십시오"
+  },
+  {
+   "start": 893,
+   "title": "고정비 한 번 vs 변동비 서른 번"
+  },
+  {
+   "start": 976,
+   "title": "원칙 2. 지금 나는 저축 게임인가 수익률 게임인가"
+  },
+  {
+   "start": 1023,
+   "title": "원칙 3. 잃지 않는 것이 버는 것보다 먼저인 이유"
+  },
+  {
+   "start": 1088,
+   "title": "원칙 4. 72 법칙이 알려주는 건 수익률이 아니라 순서"
+  },
+  {
+   "start": 1143,
+   "title": "월 50만원 30년, 6억의 정체를 뜯어보면"
+  },
+  {
+   "start": 1258,
+   "title": "라이터가 아니라 장작이 필요한 시기"
+  },
+  {
+   "start": 1302,
+   "title": "오늘 확인하실 두 개의 숫자"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-14 19:49까지 자막 요청을 쉼 → 음성인식",
+ "comments_fetched": 25,
+ "comments_top_level": 15,
+ "comments_replies": 10,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 25,
+ "tool": "outlier_research.py v2.1",
+ "collected": "2026-10-14T16:29:41",
+ "approved": "2026-10-14T16:29+09:00"
+}

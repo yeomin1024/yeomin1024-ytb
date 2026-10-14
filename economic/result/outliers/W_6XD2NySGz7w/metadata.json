@@ -1,0 +1,81 @@
+{
+ "id": "6XD2NySGz7w",
+ "title": "“50대 이후 급변해요” 은퇴 후 인생 격차 급격하게 벌어지는 이유 | Ep. 책과사람 164 (김민식PD 2부)",
+ "channel": "책과삶",
+ "channel_id": "UCgUaqrLRGLL-dHislR1e2TA",
+ "subs": 1250000,
+ "views": 2061469,
+ "ratio": 1.65,
+ "age_days": 19,
+ "views_per_day": 108498.4,
+ "minutes": 28.9,
+ "likes": 9897,
+ "comments": 432,
+ "published": "2026-09-25",
+ "queries": "검색:은퇴준비",
+ "url": "https://www.youtube.com/watch?v=6XD2NySGz7w",
+ "flag": "",
+ "published_at": "2026-09-25T01:00:09Z",
+ "rank": "W187",
+ "set": "web",
+ "folder": "W_6XD2NySGz7w",
+ "sources": [
+  "검색:은퇴준비"
+ ],
+ "source": "web",
+ "tags": [
+  "한국",
+  "대한민국",
+  "책추천",
+  "독서법",
+  "자기계발",
+  "교양",
+  "지식"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝"
+  },
+  {
+   "start": 78,
+   "title": "아무리 돈 많아도 은퇴하면 겪게 되는 진짜 현실"
+  },
+  {
+   "start": 201,
+   "title": "“50대 이후 급변해요” 인생 격차 벌어지는 이유"
+  },
+  {
+   "start": 308,
+   "title": "대한민국 50대가 절대 착각하면 안되는 ‘이것’"
+  },
+  {
+   "start": 503,
+   "title": "지능이 높은 사람들 사이에서만 돌고 있는 취미"
+  },
+  {
+   "start": 799,
+   "title": "“헬스장 끊기 전에 '이것'부터 하세요” 근력운동 가장 쉬운 방법 1가지"
+  },
+  {
+   "start": 1138,
+   "title": "큰 꿈을 '어중간하게' 목표로 쪼개면 반드시 실패하는 이유"
+  },
+  {
+   "start": 1545,
+   "title": "원하는 게 뭔지 모르겠을 땐 ‘이 곳’으로 가세요"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-14 19:49까지 자막 요청을 쉼 → 음성인식",
+ "comments_fetched": 432,
+ "comments_top_level": 268,
+ "comments_replies": 164,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 432,
+ "tool": "outlier_research.py v2.1",
+ "collected": "2026-10-14T16:30:15",
+ "approved": "2026-10-14T16:30+09:00"
+}

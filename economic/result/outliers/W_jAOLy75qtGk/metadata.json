@@ -1,0 +1,85 @@
+{
+ "id": "jAOLy75qtGk",
+ "title": "\"부자 될 확률 높다\" 늙을수록 오히려 팔자 좋은 사람 특징 ㅣ Ep. 책과사람 163 (이석진 역술가 2부)",
+ "channel": "책과삶",
+ "channel_id": "UCgUaqrLRGLL-dHislR1e2TA",
+ "subs": 1250000,
+ "views": 2729036,
+ "ratio": 2.18,
+ "age_days": 19,
+ "views_per_day": 143633.5,
+ "minutes": 27.9,
+ "likes": 15015,
+ "comments": 470,
+ "published": "2026-09-24",
+ "queries": "검색:부자",
+ "url": "https://www.youtube.com/watch?v=jAOLy75qtGk",
+ "flag": "",
+ "published_at": "2026-09-24T09:00:18Z",
+ "rank": "W185",
+ "set": "web",
+ "folder": "W_jAOLy75qtGk",
+ "sources": [
+  "검색:부자"
+ ],
+ "source": "web",
+ "tags": [
+  "한국",
+  "대한민국",
+  "책추천",
+  "독서법",
+  "자기계발",
+  "교양",
+  "지식"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝"
+  },
+  {
+   "start": 100,
+   "title": "\"수천 명 사주보고 깨달았다\" 팔자 좋은 사람들의 공통점"
+  },
+  {
+   "start": 260,
+   "title": "\"손흥민·엄정화는 사주부터 다르다?\"인기스타 사주풀이"
+  },
+  {
+   "start": 364,
+   "title": "\"내가 하면 잘되는 직업\" 사주로 알 수 있는 이유"
+  },
+  {
+   "start": 690,
+   "title": "\"죽을 때까지 돈 걱정 없다\" 돈복 타고난 사람들 특징"
+  },
+  {
+   "start": 866,
+   "title": "\"주식 투자 vs 부동산 투자\" 돈 버는 팔자는 따로 있는 이유"
+  },
+  {
+   "start": 1025,
+   "title": "\"결혼생활이 달라집니다\" 부부 궁합이 중요한 이유"
+  },
+  {
+   "start": 1134,
+   "title": "\"절대 놓치지 마세요\" 인생 최고의 귀인은 '이 사람' 입니다"
+  },
+  {
+   "start": 1350,
+   "title": "34년차 KBS PD가 명리학을 공부한 이유"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-14 19:49까지 자막 요청을 쉼 → 음성인식",
+ "comments_fetched": 470,
+ "comments_top_level": 235,
+ "comments_replies": 235,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 470,
+ "tool": "outlier_research.py v2.1",
+ "collected": "2026-10-14T16:29:57",
+ "approved": "2026-10-14T16:30+09:00"
+}

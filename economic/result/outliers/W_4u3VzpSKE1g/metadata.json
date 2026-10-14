@@ -1,0 +1,81 @@
+{
+ "id": "4u3VzpSKE1g",
+ "title": "강제 장기투자로 들어간 K-개미들",
+ "channel": "슈카월드",
+ "channel_id": "UCsJ6RuBiTVWRX156FVbeaGg",
+ "subs": 3730000,
+ "views": 2076925,
+ "ratio": 0.56,
+ "age_days": 43,
+ "views_per_day": 48300.6,
+ "minutes": 34.4,
+ "likes": 7398,
+ "comments": 1152,
+ "published": "2026-08-31",
+ "queries": "검색:투자 | 검색:장기투자",
+ "url": "https://www.youtube.com/watch?v=4u3VzpSKE1g",
+ "flag": "",
+ "published_at": "2026-08-31T10:09:29Z",
+ "rank": "W191",
+ "set": "web",
+ "folder": "W_4u3VzpSKE1g",
+ "sources": [
+  "검색:투자",
+  "검색:장기투자"
+ ],
+ "source": "web",
+ "tags": [
+  "슈카",
+  "슈카월드",
+  "경제",
+  "시사",
+  "이슈",
+  "뉴스",
+  "상식",
+  "면접",
+  "논술",
+  "자소서",
+  "취업",
+  "주식",
+  "증시",
+  "주가",
+  "시장",
+  "자산",
+  "투자",
+  "금리"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "일장춘몽"
+  },
+  {
+   "start": 368,
+   "title": "우리는 왜 삼전닉스를 팔지 못하는가"
+  },
+  {
+   "start": 949,
+   "title": "노벨경제학상을 받은 인간의 비합리적 의사결정 이론"
+  },
+  {
+   "start": 1479,
+   "title": "엔비디아 분기 실적 발표"
+  },
+  {
+   "start": 1696,
+   "title": "한국은행 기준금리 연속 인상"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-14 19:49까지 자막 요청을 쉼 → 음성인식",
+ "comments_fetched": 1152,
+ "comments_top_level": 829,
+ "comments_replies": 323,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 1152,
+ "tool": "outlier_research.py v2.1",
+ "collected": "2026-10-14T16:30:50",
+ "approved": "2026-10-14T16:30+09:00"
+}

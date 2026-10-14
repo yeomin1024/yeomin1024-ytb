@@ -1,0 +1,102 @@
+{
+ "id": "A5E-2sukBgo",
+ "title": "2026 국민성장펀드 가입전 필수 확인! 5060이 반드시 피해야 할 함정 3가지 (소득공제, 분리과세 총정리)",
+ "channel": "만약에 머니",
+ "channel_id": "UCSqFJxc0zYKLTr2IwFth2pA",
+ "subs": 33900,
+ "views": 102308,
+ "ratio": 3.02,
+ "age_days": 151,
+ "views_per_day": 677.5,
+ "minutes": 20.6,
+ "likes": 1552,
+ "comments": 87,
+ "published": "2026-05-15",
+ "queries": "검색:ISA계좌",
+ "url": "https://www.youtube.com/watch?v=A5E-2sukBgo",
+ "flag": "",
+ "published_at": "2026-05-15T10:00:14Z",
+ "rank": "W184",
+ "set": "web",
+ "folder": "W_A5E-2sukBgo",
+ "sources": [
+  "검색:ISA계좌"
+ ],
+ "source": "web",
+ "tags": [
+  "만약에머니",
+  "경제학",
+  "환율",
+  "경제공부",
+  "재테크",
+  "주식",
+  "투자",
+  "금융",
+  "부자되는법",
+  "세계경제",
+  "부의법칙",
+  "돈버는법",
+  "재테크기초",
+  "거시경제",
+  "미시경제",
+  "S&P500",
+  "ETF",
+  "국민연금",
+  "kospi",
+  "kodex200",
+  "50대재테크",
+  "노후준비",
+  "주식초보",
+  "ISA",
+  "조기수령",
+  "연기연금",
+  "퇴직연금",
+  "국민성장펀드"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "국민성장펀드, 5060에게 '독'이 될 수 있는 이유"
+  },
+  {
+   "start": 75,
+   "title": "2026 국민성장펀드 핵심 요약 (일정 및 세제 혜택)"
+  },
+  {
+   "start": 160,
+   "title": "5060 자산가가 주목해야 할 진짜 혜택: 분리과세 9.9%"
+  },
+  {
+   "start": 250,
+   "title": "[함정 01] 금융소득 종합과세 대상자는 '입구 컷'?"
+  },
+  {
+   "start": 382,
+   "title": "[함정 02] 5년 폐쇄형의 공포, 급전 필요할 때 벌어지는 일"
+  },
+  {
+   "start": 525,
+   "title": "[함정 03] '손실 20% 보장'이 원금 보장이 아닌 결정적 증거"
+  },
+  {
+   "start": 630,
+   "title": "가입해도 좋은 사람 vs 절대 하면 안 되는 사람 (판단 기준)"
+  },
+  {
+   "start": 735,
+   "title": "가입 전 오늘 밤 당장 해야 할 실전 3단계 체크리스트"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-14 19:49까지 자막 요청을 쉼 → 음성인식",
+ "comments_fetched": 87,
+ "comments_top_level": 53,
+ "comments_replies": 34,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 87,
+ "tool": "outlier_research.py v2.1",
+ "collected": "2026-10-14T16:29:55",
+ "approved": "2026-10-14T16:29+09:00"
+}

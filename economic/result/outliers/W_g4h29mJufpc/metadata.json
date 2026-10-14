@@ -1,0 +1,42 @@
+{
+ "id": "g4h29mJufpc",
+ "title": "청약통장 다들 왜 깨고 있을까?｜크랩",
+ "channel": "크랩 KLAB",
+ "channel_id": "UCoxT1kQSLq564FwpK473w-g",
+ "subs": 1080000,
+ "views": 3763992,
+ "ratio": 3.49,
+ "age_days": 32,
+ "views_per_day": 117624.8,
+ "minutes": 6.6,
+ "likes": 7483,
+ "comments": 3438,
+ "published": "2026-09-11",
+ "queries": "검색:저축",
+ "url": "https://www.youtube.com/watch?v=g4h29mJufpc",
+ "flag": "",
+ "published_at": "2026-09-11T08:00:36Z",
+ "rank": "W170",
+ "set": "web",
+ "folder": "W_g4h29mJufpc",
+ "sources": [
+  "검색:저축"
+ ],
+ "source": "web",
+ "tags": [
+  "크랩"
+ ],
+ "chapters": [],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-14 19:49까지 자막 요청을 쉼 → 음성인식",
+ "comments_fetched": 3438,
+ "comments_top_level": 2301,
+ "comments_replies": 1137,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 3438,
+ "tool": "outlier_research.py v2.1",
+ "collected": "2026-10-14T16:29:08",
+ "approved": "2026-10-14T16:29+09:00"
+}

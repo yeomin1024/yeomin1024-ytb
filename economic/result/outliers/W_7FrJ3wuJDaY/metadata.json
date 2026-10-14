@@ -1,0 +1,67 @@
+{
+ "id": "7FrJ3wuJDaY",
+ "title": "어떤 투자는 '도박'이다? 주식 투자 때문에 인생이 무너진 사람들 | 추적60분 KBS 방송",
+ "channel": "KBS 추적60분",
+ "channel_id": "UCy-6oZwPwrR_W-zYnqLD8dg",
+ "subs": 805000,
+ "views": 3668313,
+ "ratio": 4.56,
+ "age_days": 72,
+ "views_per_day": 50948.8,
+ "minutes": 38.6,
+ "likes": 20713,
+ "comments": 9494,
+ "published": "2026-08-02",
+ "queries": "검색:주식 | 검색:투자 | 검색:주식투자 | 검색:투자전략",
+ "url": "https://www.youtube.com/watch?v=7FrJ3wuJDaY",
+ "flag": "",
+ "published_at": "2026-08-02T14:59:30Z",
+ "rank": "W154",
+ "set": "web",
+ "folder": "W_7FrJ3wuJDaY",
+ "sources": [
+  "검색:주식",
+  "검색:투자",
+  "검색:주식투자",
+  "검색:투자전략"
+ ],
+ "source": "web",
+ "tags": [
+  "KBS",
+  "다큐",
+  "다큐멘터리",
+  "인터뷰",
+  "레전드",
+  "그것이 알고싶다"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "빚투 https://youtu.be/9sOGwpOy4jY"
+  },
+  {
+   "start": 248,
+   "title": "K사 거래정지 사태 https://youtu.be/yERWAxUcgCY"
+  },
+  {
+   "start": 818,
+   "title": "레버리지 https://youtu.be/dRJNi2zPD4U"
+  },
+  {
+   "start": 1831,
+   "title": "대유 상장폐지 사태 https://youtu.be/HDc7WDhn1kg"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-14 19:49까지 자막 요청을 쉼 → 음성인식",
+ "comments_fetched": 9494,
+ "comments_top_level": 8080,
+ "comments_replies": 1414,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 9494,
+ "tool": "outlier_research.py v2.1",
+ "collected": "2026-10-14T16:27:30",
+ "approved": "2026-10-14T16:28+09:00"
+}

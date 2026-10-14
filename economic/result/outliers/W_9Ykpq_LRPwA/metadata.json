@@ -1,0 +1,98 @@
+{
+ "id": "9Ykpq_LRPwA",
+ "title": "\"모르면 노후에 후회한다\" 국민연금 65세 말고 무조건 '이때' 받으세요ㅣ Ep. 책과사람 123 (이영주 대표 1부)",
+ "channel": "책과삶",
+ "channel_id": "UCgUaqrLRGLL-dHislR1e2TA",
+ "subs": 1250000,
+ "views": 2700248,
+ "ratio": 2.16,
+ "age_days": 84,
+ "views_per_day": 32145.8,
+ "minutes": 26.5,
+ "likes": 17454,
+ "comments": 1925,
+ "published": "2026-07-21",
+ "queries": "검색:저축 | 검색:노후준비 | 검색:은퇴준비 | 검색:연금저축 | 검색:연금 | 검색:노후",
+ "url": "https://www.youtube.com/watch?v=9Ykpq_LRPwA",
+ "flag": "",
+ "published_at": "2026-07-21T09:00:30Z",
+ "rank": "W186",
+ "set": "web",
+ "folder": "W_9Ykpq_LRPwA",
+ "sources": [
+  "검색:저축",
+  "검색:노후준비",
+  "검색:은퇴준비",
+  "검색:연금저축",
+  "검색:연금",
+  "검색:노후"
+ ],
+ "source": "web",
+ "tags": [
+  "한국",
+  "대한민국",
+  "책추천",
+  "독서법",
+  "자기계발",
+  "교양",
+  "지식"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝"
+  },
+  {
+   "start": 57,
+   "title": "\"국민연금 무조건 65세에 받지 마세요\" '이때' 받으셔야 합니다"
+  },
+  {
+   "start": 205,
+   "title": "\"국민연금 일찍 받기 vs 늦게 받기\" 딱 정리해 드립니다"
+  },
+  {
+   "start": 474,
+   "title": "\"연금박사가 말하는\" 국민연금 개혁의 치명적 문제"
+  },
+  {
+   "start": 728,
+   "title": "\"국민연금 추후 납부 전에\" 확인해야 하는 1가지"
+  },
+  {
+   "start": 840,
+   "title": "이 '3가지' 자산 있다면 이미 훌륭한 중년입니다"
+  },
+  {
+   "start": 977,
+   "title": "퇴직금 '이렇게' 운용하면 노후 걱정 끝납니다"
+  },
+  {
+   "start": 1240,
+   "title": "\"연금저축 vs IRP\" 어떻게 해야 이득일까?"
+  },
+  {
+   "start": 1297,
+   "title": "5억짜리 아파트, 주택연금 실수령액은?"
+  },
+  {
+   "start": 1373,
+   "title": "50대 통장에 '이 금액' 있으면 당장 은퇴해도 됩니다"
+  },
+  {
+   "start": 1501,
+   "title": "노후 준비, 연금으로 할까? 투자로 할까?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-14 19:49까지 자막 요청을 쉼 → 음성인식",
+ "comments_fetched": 1925,
+ "comments_top_level": 1075,
+ "comments_replies": 850,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 1925,
+ "tool": "outlier_research.py v2.1",
+ "collected": "2026-10-14T16:30:01",
+ "approved": "2026-10-14T16:30+09:00"
+}

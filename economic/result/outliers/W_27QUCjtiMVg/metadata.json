@@ -1,0 +1,90 @@
+{
+ "id": "27QUCjtiMVg",
+ "title": "성공한 인생인 줄 알았습니다... 은퇴 후 찾아온 잔인한 현실",
+ "channel": "인생의에필로그",
+ "channel_id": "UCZ05CJd7qZGd6c3D6Yn089g",
+ "subs": 9590,
+ "views": 39773,
+ "ratio": 4.15,
+ "age_days": 97,
+ "views_per_day": 410.0,
+ "minutes": 19.3,
+ "likes": 463,
+ "comments": 40,
+ "published": "2026-07-08",
+ "queries": "검색:노후자금",
+ "url": "https://www.youtube.com/watch?v=27QUCjtiMVg",
+ "flag": "",
+ "published_at": "2026-07-08T07:30:15Z",
+ "rank": "W161",
+ "set": "web",
+ "folder": "W_27QUCjtiMVg",
+ "sources": [
+  "검색:노후자금"
+ ],
+ "source": "web",
+ "tags": [
+  "노후자금사연",
+  "노후사연",
+  "노년이야기",
+  "사연라디오",
+  "인생사연",
+  "노후의지혜",
+  "인생이야기",
+  "지혜"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 33,
+   "title": "1장. 오랜만의 모임"
+  },
+  {
+   "start": 161,
+   "title": "2장. 같은 자리에서 시작했는데"
+  },
+  {
+   "start": 226,
+   "title": "3장. 좋았던 시절"
+  },
+  {
+   "start": 302,
+   "title": "4장. 조금씩 어긋나기 시작했다"
+  },
+  {
+   "start": 705,
+   "title": "5장. 처음으로 따져본 노후"
+  },
+  {
+   "start": 772,
+   "title": "6장. 빛바랜 사진 앞에서"
+  },
+  {
+   "start": 855,
+   "title": "7장. 내밀어준 손"
+  },
+  {
+   "start": 984,
+   "title": "8장. 뒤늦게 알게 된 것"
+  },
+  {
+   "start": 1101,
+   "title": "9장. 제작자인사"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-14 19:49까지 자막 요청을 쉼 → 음성인식",
+ "comments_fetched": 40,
+ "comments_top_level": 17,
+ "comments_replies": 23,
+ "comments_by_creator": 8,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 40,
+ "tool": "outlier_research.py v2.1",
+ "collected": "2026-10-14T16:28:48",
+ "approved": "2026-10-14T16:28+09:00"
+}

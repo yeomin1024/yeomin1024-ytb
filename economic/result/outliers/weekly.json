@@ -2,15 +2,15 @@
  "tool": "weekly_analysis.py v1.2.1",
  "topic": "economic",
  "name": "재테크",
- "generated": "2026-10-14T06:28:57+00:00",
+ "generated": "2026-10-14T06:42:44+00:00",
  "cases": 88,
  "dated": 88,
  "older_than_windows": 0,
  "max_weeks": 52,
  "text_sources": {
   "자막": 0,
-  "음성인식": 1,
-  "설명": 86,
+  "음성인식": 2,
+  "설명": 85,
   "없음": 1
  },
  "criteria": "성공 사례 = 구독자 50,000 이하 · 조회수 10,000 이상 · 조회수 ≥ 구독자 × 3",
@@ -150,7 +150,7 @@
     }
    ],
    "views_median": 548646.5,
-   "views_per_day_median": 47030.05,
+   "views_per_day_median": 47017.85,
    "ratio_median": 0.42,
    "success": 0,
    "minutes_median": 18.0,
@@ -234,7 +234,7 @@
      "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
      "channel": "월급쟁이부자들TV",
      "views": 1055183,
-     "views_per_day": 51950.1,
+     "views_per_day": 51925.7,
      "published": "2026-09-23",
      "url": "https://www.youtube.com/watch?v=5TF8BKFWERo"
     },
@@ -292,7 +292,7 @@
     }
    ],
    "views_median": 203470,
-   "views_per_day_median": 14942.4,
+   "views_per_day_median": 14937.2,
    "ratio_median": 22.6,
    "success": 6,
    "minutes_median": 20.0,
@@ -373,11 +373,11 @@
      "count": 5
     },
     {
-     "word": "않는",
+     "word": "돈을",
      "count": 5
     },
     {
-     "word": "돈을",
+     "word": "않는",
      "count": 5
     },
     {
@@ -389,7 +389,7 @@
      "count": 4
     },
     {
-     "word": "됩니다",
+     "word": "것입니다",
      "count": 3
     },
     {
@@ -397,7 +397,7 @@
      "count": 3
     },
     {
-     "word": "있을",
+     "word": "부자가",
      "count": 3
     },
     {
@@ -405,11 +405,11 @@
      "count": 3
     },
     {
-     "word": "것입니다",
+     "word": "있을",
      "count": 3
     },
     {
-     "word": "부자가",
+     "word": "됩니다",
      "count": 3
     },
     {
@@ -492,7 +492,7 @@
      "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
      "channel": "월급쟁이부자들TV",
      "views": 1055183,
-     "views_per_day": 51950.1,
+     "views_per_day": 51925.7,
      "published": "2026-09-23",
      "url": "https://www.youtube.com/watch?v=5TF8BKFWERo"
     },
@@ -510,7 +510,7 @@
      "title": "현실적인 2030 재테크",
      "channel": "머니코믹스 Money Comics",
      "views": 710390,
-     "views_per_day": 28535.5,
+     "views_per_day": 28524.5,
      "published": "2026-09-19",
      "url": "https://www.youtube.com/watch?v=LALHM41PKzY"
     },
@@ -519,7 +519,7 @@
      "title": "안 팔릴수록 부자되는 '동네 금은방'의 소름돋는 수익구조",
      "channel": "새파란 경제",
      "views": 510269,
-     "views_per_day": 18319.9,
+     "views_per_day": 18313.6,
      "published": "2026-09-16",
      "url": "https://www.youtube.com/watch?v=eFsT1K_mPjc"
     },
@@ -528,7 +528,7 @@
      "title": "조용한 부자들이 절대 입에 담지 않는 7가지 — 돈 있는 사람의 진짜 습관 ㅣ시니어ㅣ오디오북ㅣ노후준비ㅣ심리학ㅣ",
      "channel": "가을빛 심리학",
      "views": 413701,
-     "views_per_day": 14942.4,
+     "views_per_day": 14937.2,
      "published": "2026-09-16",
      "url": "https://www.youtube.com/watch?v=TKBAsjZgVWU"
     }
@@ -577,7 +577,7 @@
     }
    ],
    "views_median": 192590.5,
-   "views_per_day_median": 8832.8,
+   "views_per_day_median": 8829.5,
    "ratio_median": 3.94,
    "success": 7,
    "minutes_median": 21.4,
@@ -654,11 +654,11 @@
      "count": 2
     },
     {
-     "word": "부자들이",
+     "word": "시대",
      "count": 2
     },
     {
-     "word": "시대",
+     "word": "부자들이",
      "count": 2
     }
    ],
@@ -675,11 +675,11 @@
      "count": 7
     },
     {
-     "word": "어떻게",
+     "word": "영상에서",
      "count": 5
     },
     {
-     "word": "영상에서",
+     "word": "어떻게",
      "count": 5
     },
     {
@@ -707,15 +707,15 @@
      "count": 5
     },
     {
-     "word": "됩니다",
-     "count": 4
-    },
-    {
      "word": "영상에서는",
      "count": 4
     },
     {
      "word": "것입니다",
+     "count": 4
+    },
+    {
+     "word": "이유",
      "count": 4
     }
    ],
@@ -794,7 +794,7 @@
      "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
      "channel": "월급쟁이부자들TV",
      "views": 1055183,
-     "views_per_day": 51950.1,
+     "views_per_day": 51925.7,
      "published": "2026-09-23",
      "url": "https://www.youtube.com/watch?v=5TF8BKFWERo"
     },
@@ -812,7 +812,7 @@
      "title": "퇴근하고 부업 뛰고 돈을 위해 달려가는 당신이 반드시 봐야 할 영상ㅣ사마천의 연구",
      "channel": "하와이 대저택",
      "views": 1039986,
-     "views_per_day": 34216.0,
+     "views_per_day": 34205.2,
      "published": "2026-09-13",
      "url": "https://www.youtube.com/watch?v=d1X-vkjfMdc"
     },
@@ -821,7 +821,7 @@
      "title": "노후 자금 주식에 올인했다간 큰일 납니다, 은퇴자가 무조건 사서 묻어둬야 할 ETF 종목 | 존리 | ETF아는형",
      "channel": "ETF 아는 형",
      "views": 946952,
-     "views_per_day": 29306.7,
+     "views_per_day": 29298.1,
      "published": "2026-09-11",
      "url": "https://www.youtube.com/watch?v=e3EY2JJMgDw"
     },
@@ -830,7 +830,7 @@
      "title": "현실적인 2030 재테크",
      "channel": "머니코믹스 Money Comics",
      "views": 710390,
-     "views_per_day": 28535.5,
+     "views_per_day": 28524.5,
      "published": "2026-09-19",
      "url": "https://www.youtube.com/watch?v=LALHM41PKzY"
     }
@@ -859,7 +859,7 @@
     }
    ],
    "views_median": 203470,
-   "views_per_day_median": 9151.7,
+   "views_per_day_median": 9148.9,
    "ratio_median": 2.37,
    "success": 7,
    "minutes_median": 21.6,
@@ -945,11 +945,11 @@
      "count": 2
     },
     {
-     "word": "부자들이",
+     "word": "시대",
      "count": 2
     },
     {
-     "word": "시대",
+     "word": "부자들이",
      "count": 2
     },
     {
@@ -994,19 +994,19 @@
      "count": 6
     },
     {
-     "word": "사람한테만",
-     "count": 6
-    },
-    {
      "word": "옵니다",
      "count": 6
     },
     {
-     "word": "어떻게",
-     "count": 5
+     "word": "사람한테만",
+     "count": 6
     },
     {
      "word": "것입니다",
+     "count": 5
+    },
+    {
+     "word": "어떻게",
      "count": 5
     },
     {
@@ -1089,7 +1089,7 @@
      "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
      "channel": "월급쟁이부자들TV",
      "views": 1055183,
-     "views_per_day": 51950.1,
+     "views_per_day": 51925.7,
      "published": "2026-09-23",
      "url": "https://www.youtube.com/watch?v=5TF8BKFWERo"
     },
@@ -1107,7 +1107,7 @@
      "title": "퇴근하고 부업 뛰고 돈을 위해 달려가는 당신이 반드시 봐야 할 영상ㅣ사마천의 연구",
      "channel": "하와이 대저택",
      "views": 1039986,
-     "views_per_day": 34216.0,
+     "views_per_day": 34205.2,
      "published": "2026-09-13",
      "url": "https://www.youtube.com/watch?v=d1X-vkjfMdc"
     },
@@ -1116,7 +1116,7 @@
      "title": "노후 자금 주식에 올인했다간 큰일 납니다, 은퇴자가 무조건 사서 묻어둬야 할 ETF 종목 | 존리 | ETF아는형",
      "channel": "ETF 아는 형",
      "views": 946952,
-     "views_per_day": 29306.7,
+     "views_per_day": 29298.1,
      "published": "2026-09-11",
      "url": "https://www.youtube.com/watch?v=e3EY2JJMgDw"
     },
@@ -1125,7 +1125,7 @@
      "title": "현실적인 2030 재테크",
      "channel": "머니코믹스 Money Comics",
      "views": 710390,
-     "views_per_day": 28535.5,
+     "views_per_day": 28524.5,
      "published": "2026-09-19",
      "url": "https://www.youtube.com/watch?v=LALHM41PKzY"
     }
@@ -1174,7 +1174,7 @@
     }
    ],
    "views_median": 244820.0,
-   "views_per_day_median": 10818.75,
+   "views_per_day_median": 10815.8,
    "ratio_median": 4.63,
    "success": 10,
    "minutes_median": 21.7,
@@ -1269,15 +1269,11 @@
      "count": 3
     },
     {
-     "word": "ETF",
-     "count": 2
-    },
-    {
      "word": "S&P500",
      "count": 2
     },
     {
-     "word": "돈의",
+     "word": "ETF",
      "count": 2
     },
     {
@@ -1286,6 +1282,10 @@
     },
     {
      "word": "심리학",
+     "count": 2
+    },
+    {
+     "word": "돈의",
      "count": 2
     },
     {
@@ -1334,11 +1334,11 @@
      "count": 7
     },
     {
-     "word": "사람한테만",
+     "word": "옵니다",
      "count": 7
     },
     {
-     "word": "옵니다",
+     "word": "사람한테만",
      "count": 7
     },
     {
@@ -1346,7 +1346,7 @@
      "count": 6
     },
     {
-     "word": "이유",
+     "word": "않습니다",
      "count": 6
     }
    ],
@@ -1425,7 +1425,7 @@
      "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
      "channel": "이혜성의 1% 북클럽",
      "views": 2668198,
-     "views_per_day": 56908.2,
+     "views_per_day": 56896.6,
      "published": "2026-08-28",
      "url": "https://www.youtube.com/watch?v=77exyhGYbro"
     },
@@ -1434,7 +1434,7 @@
      "title": "\"인생에 변명하지 마세요\" 대놓고 방법 다 알려줘도 가난 못 벗어나는 이유 (함익병 원장 | 어른을 위한 쓴소리 인생 수업 풀버전)",
      "channel": "월급쟁이부자들TV",
      "views": 2381724,
-     "views_per_day": 56235.1,
+     "views_per_day": 56222.4,
      "published": "2026-09-01",
      "url": "https://www.youtube.com/watch?v=ICYD3f6W-MA"
     },
@@ -1443,7 +1443,7 @@
      "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
      "channel": "월급쟁이부자들TV",
      "views": 1055183,
-     "views_per_day": 51950.1,
+     "views_per_day": 51925.7,
      "published": "2026-09-23",
      "url": "https://www.youtube.com/watch?v=5TF8BKFWERo"
     },
@@ -1461,7 +1461,7 @@
      "title": "퇴근하고 부업 뛰고 돈을 위해 달려가는 당신이 반드시 봐야 할 영상ㅣ사마천의 연구",
      "channel": "하와이 대저택",
      "views": 1039986,
-     "views_per_day": 34216.0,
+     "views_per_day": 34205.2,
      "published": "2026-09-13",
      "url": "https://www.youtube.com/watch?v=d1X-vkjfMdc"
     }
@@ -1510,7 +1510,7 @@
     }
    ],
    "views_median": 203470,
-   "views_per_day_median": 7820.6,
+   "views_per_day_median": 7817.2,
    "ratio_median": 3.38,
    "success": 13,
    "minutes_median": 21.7,
@@ -1618,19 +1618,19 @@
      "count": 3
     },
     {
-     "word": "ETF",
-     "count": 2
-    },
-    {
      "word": "S&P500",
      "count": 2
     },
     {
-     "word": "모르는",
+     "word": "ETF",
      "count": 2
     },
     {
      "word": "습관",
+     "count": 2
+    },
+    {
+     "word": "모르는",
      "count": 2
     }
    ],
@@ -1655,15 +1655,15 @@
      "count": 10
     },
     {
-     "word": "사람한테만",
-     "count": 10
-    },
-    {
      "word": "보물은",
      "count": 10
     },
     {
      "word": "옵니다",
+     "count": 10
+    },
+    {
+     "word": "사람한테만",
      "count": 10
     },
     {
@@ -1766,7 +1766,7 @@
      "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
      "channel": "이혜성의 1% 북클럽",
      "views": 2668198,
-     "views_per_day": 56908.2,
+     "views_per_day": 56896.6,
      "published": "2026-08-28",
      "url": "https://www.youtube.com/watch?v=77exyhGYbro"
     },
@@ -1775,7 +1775,7 @@
      "title": "\"인생에 변명하지 마세요\" 대놓고 방법 다 알려줘도 가난 못 벗어나는 이유 (함익병 원장 | 어른을 위한 쓴소리 인생 수업 풀버전)",
      "channel": "월급쟁이부자들TV",
      "views": 2381724,
-     "views_per_day": 56235.1,
+     "views_per_day": 56222.4,
      "published": "2026-09-01",
      "url": "https://www.youtube.com/watch?v=ICYD3f6W-MA"
     },
@@ -1784,7 +1784,7 @@
      "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
      "channel": "월급쟁이부자들TV",
      "views": 1055183,
-     "views_per_day": 51950.1,
+     "views_per_day": 51925.7,
      "published": "2026-09-23",
      "url": "https://www.youtube.com/watch?v=5TF8BKFWERo"
     },
@@ -1802,7 +1802,7 @@
      "title": "퇴근하고 부업 뛰고 돈을 위해 달려가는 당신이 반드시 봐야 할 영상ㅣ사마천의 연구",
      "channel": "하와이 대저택",
      "views": 1039986,
-     "views_per_day": 34216.0,
+     "views_per_day": 34205.2,
      "published": "2026-09-13",
      "url": "https://www.youtube.com/watch?v=d1X-vkjfMdc"
     }
@@ -1851,7 +1851,7 @@
     }
    ],
    "views_median": 177807.5,
-   "views_per_day_median": 5171.8,
+   "views_per_day_median": 5170.45,
    "ratio_median": 2.16,
    "success": 13,
    "minutes_median": 22.05,
@@ -1951,14 +1951,6 @@
      "count": 4
     },
     {
-     "word": "돈을",
-     "count": 3
-    },
-    {
-     "word": "부자",
-     "count": 3
-    },
-    {
      "word": "비밀",
      "count": 3
     },
@@ -1967,36 +1959,36 @@
      "count": 3
     },
     {
-     "word": "ETF",
+     "word": "돈을",
+     "count": 3
+    },
+    {
+     "word": "부자",
      "count": 3
     },
     {
      "word": "S&P500",
      "count": 3
+    },
+    {
+     "word": "ETF",
+     "count": 3
     }
    ],
-   "transcripts": 0,
+   "transcripts": 1,
    "text_sources": {
     "자막": 0,
-    "음성인식": 0,
-    "설명": 40,
+    "음성인식": 1,
+    "설명": 39,
     "없음": 0
    },
    "content_words": [
-    {
-     "word": "찾는",
-     "count": 17
-    },
     {
      "word": "영상에서",
      "count": 17
     },
     {
-     "word": "사람한테만",
-     "count": 16
-    },
-    {
-     "word": "보물은",
+     "word": "아니라",
      "count": 16
     },
     {
@@ -2004,32 +1996,40 @@
      "count": 16
     },
     {
+     "word": "찾는",
+     "count": 16
+    },
+    {
      "word": "댓글로",
      "count": 15
     },
     {
-     "word": "아니라",
+     "word": "보물은",
      "count": 15
+    },
+    {
+     "word": "사람한테만",
+     "count": 15
+    },
+    {
+     "word": "있습니다",
+     "count": 14
+    },
+    {
+     "word": "그런데",
+     "count": 14
     },
     {
      "word": "그리고",
      "count": 14
     },
     {
-     "word": "있습니다",
-     "count": 13
+     "word": "만에",
+     "count": 11
     },
     {
-     "word": "그런데",
-     "count": 13
-    },
-    {
-     "word": "다루는",
-     "count": 10
-    },
-    {
-     "word": "다음",
-     "count": 10
+     "word": "어떻게",
+     "count": 11
     }
    ],
    "chapters_share": 0.325,
@@ -2107,7 +2107,7 @@
      "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
      "channel": "이혜성의 1% 북클럽",
      "views": 2668198,
-     "views_per_day": 56908.2,
+     "views_per_day": 56896.6,
      "published": "2026-08-28",
      "url": "https://www.youtube.com/watch?v=77exyhGYbro"
     },
@@ -2116,7 +2116,7 @@
      "title": "\"인생에 변명하지 마세요\" 대놓고 방법 다 알려줘도 가난 못 벗어나는 이유 (함익병 원장 | 어른을 위한 쓴소리 인생 수업 풀버전)",
      "channel": "월급쟁이부자들TV",
      "views": 2381724,
-     "views_per_day": 56235.1,
+     "views_per_day": 56222.4,
      "published": "2026-09-01",
      "url": "https://www.youtube.com/watch?v=ICYD3f6W-MA"
     },
@@ -2125,7 +2125,7 @@
      "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
      "channel": "월급쟁이부자들TV",
      "views": 1055183,
-     "views_per_day": 51950.1,
+     "views_per_day": 51925.7,
      "published": "2026-09-23",
      "url": "https://www.youtube.com/watch?v=5TF8BKFWERo"
     },
@@ -2143,7 +2143,7 @@
      "title": "퇴근하고 부업 뛰고 돈을 위해 달려가는 당신이 반드시 봐야 할 영상ㅣ사마천의 연구",
      "channel": "하와이 대저택",
      "views": 1039986,
-     "views_per_day": 34216.0,
+     "views_per_day": 34205.2,
      "published": "2026-09-13",
      "url": "https://www.youtube.com/watch?v=d1X-vkjfMdc"
     }
@@ -2192,7 +2192,7 @@
     }
    ],
    "views_median": 198504,
-   "views_per_day_median": 4833.4,
+   "views_per_day_median": 4832.7,
    "ratio_median": 2.37,
    "success": 15,
    "minutes_median": 22.4,
@@ -2316,29 +2316,37 @@
      "count": 4
     }
    ],
-   "transcripts": 0,
+   "transcripts": 1,
    "text_sources": {
     "자막": 0,
-    "음성인식": 0,
-    "설명": 47,
+    "음성인식": 1,
+    "설명": 46,
     "없음": 0
    },
    "content_words": [
     {
-     "word": "찾는",
-     "count": 22
+     "word": "옵니다",
+     "count": 21
     },
     {
-     "word": "사람한테만",
+     "word": "찾는",
      "count": 21
+    },
+    {
+     "word": "아니라",
+     "count": 20
     },
     {
      "word": "보물은",
-     "count": 21
+     "count": 20
     },
     {
-     "word": "옵니다",
-     "count": 21
+     "word": "사람한테만",
+     "count": 20
+    },
+    {
+     "word": "그리고",
+     "count": 19
     },
     {
      "word": "영상에서",
@@ -2349,27 +2357,19 @@
      "count": 19
     },
     {
-     "word": "그리고",
-     "count": 19
-    },
-    {
-     "word": "아니라",
-     "count": 19
-    },
-    {
      "word": "있습니다",
-     "count": 14
+     "count": 15
+    },
+    {
+     "word": "그런데",
+     "count": 15
     },
     {
      "word": "이유",
      "count": 14
     },
     {
-     "word": "그런데",
-     "count": 14
-    },
-    {
-     "word": "다루는",
+     "word": "다음",
      "count": 12
     }
    ],
@@ -2448,7 +2448,7 @@
      "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
      "channel": "이혜성의 1% 북클럽",
      "views": 2668198,
-     "views_per_day": 56908.2,
+     "views_per_day": 56896.6,
      "published": "2026-08-28",
      "url": "https://www.youtube.com/watch?v=77exyhGYbro"
     },
@@ -2457,7 +2457,7 @@
      "title": "\"인생에 변명하지 마세요\" 대놓고 방법 다 알려줘도 가난 못 벗어나는 이유 (함익병 원장 | 어른을 위한 쓴소리 인생 수업 풀버전)",
      "channel": "월급쟁이부자들TV",
      "views": 2381724,
-     "views_per_day": 56235.1,
+     "views_per_day": 56222.4,
      "published": "2026-09-01",
      "url": "https://www.youtube.com/watch?v=ICYD3f6W-MA"
     },
@@ -2466,7 +2466,7 @@
      "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
      "channel": "월급쟁이부자들TV",
      "views": 1055183,
-     "views_per_day": 51950.1,
+     "views_per_day": 51925.7,
      "published": "2026-09-23",
      "url": "https://www.youtube.com/watch?v=5TF8BKFWERo"
     },
@@ -2484,7 +2484,7 @@
      "title": "퇴근하고 부업 뛰고 돈을 위해 달려가는 당신이 반드시 봐야 할 영상ㅣ사마천의 연구",
      "channel": "하와이 대저택",
      "views": 1039986,
-     "views_per_day": 34216.0,
+     "views_per_day": 34205.2,
      "published": "2026-09-13",
      "url": "https://www.youtube.com/watch?v=d1X-vkjfMdc"
     }
@@ -2518,7 +2518,7 @@
     }
    ],
    "views_median": 203470,
-   "views_per_day_median": 4833.4,
+   "views_per_day_median": 4832.7,
    "ratio_median": 2.44,
    "success": 15,
    "minutes_median": 22.5,
@@ -2614,11 +2614,11 @@
      "count": 4
     },
     {
-     "word": "부자",
+     "word": "3가지",
      "count": 4
     },
     {
-     "word": "3가지",
+     "word": "부자",
      "count": 4
     },
     {
@@ -2642,60 +2642,60 @@
      "count": 4
     }
    ],
-   "transcripts": 0,
+   "transcripts": 1,
    "text_sources": {
     "자막": 0,
-    "음성인식": 0,
-    "설명": 51,
+    "음성인식": 1,
+    "설명": 50,
     "없음": 0
    },
    "content_words": [
     {
-     "word": "찾는",
-     "count": 25
+     "word": "옵니다",
+     "count": 24
     },
     {
-     "word": "사람한테만",
+     "word": "찾는",
      "count": 24
     },
     {
      "word": "보물은",
-     "count": 24
+     "count": 23
     },
     {
-     "word": "옵니다",
-     "count": 24
+     "word": "사람한테만",
+     "count": 23
+    },
+    {
+     "word": "아니라",
+     "count": 22
     },
     {
      "word": "영상에서",
      "count": 22
     },
     {
-     "word": "아니라",
-     "count": 21
+     "word": "그리고",
+     "count": 20
     },
     {
      "word": "댓글로",
      "count": 20
     },
     {
-     "word": "그리고",
-     "count": 20
+     "word": "그런데",
+     "count": 17
     },
     {
      "word": "이유",
      "count": 17
     },
     {
-     "word": "그런데",
-     "count": 16
+     "word": "있습니다",
+     "count": 15
     },
     {
      "word": "다루는",
-     "count": 14
-    },
-    {
-     "word": "있습니다",
      "count": 14
     }
    ],
@@ -2774,7 +2774,7 @@
      "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
      "channel": "이혜성의 1% 북클럽",
      "views": 2668198,
-     "views_per_day": 56908.2,
+     "views_per_day": 56896.6,
      "published": "2026-08-28",
      "url": "https://www.youtube.com/watch?v=77exyhGYbro"
     },
@@ -2783,7 +2783,7 @@
      "title": "\"인생에 변명하지 마세요\" 대놓고 방법 다 알려줘도 가난 못 벗어나는 이유 (함익병 원장 | 어른을 위한 쓴소리 인생 수업 풀버전)",
      "channel": "월급쟁이부자들TV",
      "views": 2381724,
-     "views_per_day": 56235.1,
+     "views_per_day": 56222.4,
      "published": "2026-09-01",
      "url": "https://www.youtube.com/watch?v=ICYD3f6W-MA"
     },
@@ -2792,7 +2792,7 @@
      "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
      "channel": "월급쟁이부자들TV",
      "views": 1055183,
-     "views_per_day": 51950.1,
+     "views_per_day": 51925.7,
      "published": "2026-09-23",
      "url": "https://www.youtube.com/watch?v=5TF8BKFWERo"
     },
@@ -2810,7 +2810,7 @@
      "title": "퇴근하고 부업 뛰고 돈을 위해 달려가는 당신이 반드시 봐야 할 영상ㅣ사마천의 연구",
      "channel": "하와이 대저택",
      "views": 1039986,
-     "views_per_day": 34216.0,
+     "views_per_day": 34205.2,
      "published": "2026-09-13",
      "url": "https://www.youtube.com/watch?v=d1X-vkjfMdc"
     }
@@ -2844,7 +2844,7 @@
     }
    ],
    "views_median": 200861,
-   "views_per_day_median": 4197.1,
+   "views_per_day_median": 4196.4,
    "ratio_median": 2.44,
    "success": 17,
    "minutes_median": 22.5,
@@ -2940,11 +2940,11 @@
      "count": 4
     },
     {
-     "word": "부자",
+     "word": "3가지",
      "count": 4
     },
     {
-     "word": "3가지",
+     "word": "부자",
      "count": 4
     },
     {
@@ -2968,44 +2968,44 @@
      "count": 4
     }
    ],
-   "transcripts": 0,
+   "transcripts": 1,
    "text_sources": {
     "자막": 0,
-    "음성인식": 0,
-    "설명": 55,
+    "음성인식": 1,
+    "설명": 54,
     "없음": 0
    },
    "content_words": [
-    {
-     "word": "찾는",
-     "count": 27
-    },
-    {
-     "word": "사람한테만",
-     "count": 26
-    },
-    {
-     "word": "보물은",
-     "count": 26
-    },
     {
      "word": "옵니다",
      "count": 26
     },
     {
+     "word": "찾는",
+     "count": 26
+    },
+    {
      "word": "아니라",
-     "count": 24
+     "count": 25
+    },
+    {
+     "word": "보물은",
+     "count": 25
+    },
+    {
+     "word": "사람한테만",
+     "count": 25
     },
     {
      "word": "영상에서",
      "count": 23
     },
     {
-     "word": "댓글로",
+     "word": "그리고",
      "count": 22
     },
     {
-     "word": "그리고",
+     "word": "댓글로",
      "count": 22
     },
     {
@@ -3014,14 +3014,14 @@
     },
     {
      "word": "있습니다",
-     "count": 16
+     "count": 17
     },
     {
      "word": "그런데",
-     "count": 16
+     "count": 17
     },
     {
-     "word": "다루는",
+     "word": "다음",
      "count": 14
     }
    ],
@@ -3100,7 +3100,7 @@
      "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
      "channel": "이혜성의 1% 북클럽",
      "views": 2668198,
-     "views_per_day": 56908.2,
+     "views_per_day": 56896.6,
      "published": "2026-08-28",
      "url": "https://www.youtube.com/watch?v=77exyhGYbro"
     },
@@ -3109,7 +3109,7 @@
      "title": "\"인생에 변명하지 마세요\" 대놓고 방법 다 알려줘도 가난 못 벗어나는 이유 (함익병 원장 | 어른을 위한 쓴소리 인생 수업 풀버전)",
      "channel": "월급쟁이부자들TV",
      "views": 2381724,
-     "views_per_day": 56235.1,
+     "views_per_day": 56222.4,
      "published": "2026-09-01",
      "url": "https://www.youtube.com/watch?v=ICYD3f6W-MA"
     },
@@ -3118,7 +3118,7 @@
      "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
      "channel": "월급쟁이부자들TV",
      "views": 1055183,
-     "views_per_day": 51950.1,
+     "views_per_day": 51925.7,
      "published": "2026-09-23",
      "url": "https://www.youtube.com/watch?v=5TF8BKFWERo"
     },
@@ -3136,7 +3136,7 @@
      "title": "퇴근하고 부업 뛰고 돈을 위해 달려가는 당신이 반드시 봐야 할 영상ㅣ사마천의 연구",
      "channel": "하와이 대저택",
      "views": 1039986,
-     "views_per_day": 34216.0,
+     "views_per_day": 34205.2,
      "published": "2026-09-13",
      "url": "https://www.youtube.com/watch?v=d1X-vkjfMdc"
     }
@@ -3165,7 +3165,7 @@
     }
    ],
    "views_median": 202165.5,
-   "views_per_day_median": 4192.05,
+   "views_per_day_median": 4191.05,
    "ratio_median": 2.35,
    "success": 17,
    "minutes_median": 22.55,
@@ -3257,11 +3257,11 @@
      "count": 6
     },
     {
-     "word": "부자",
+     "word": "3가지",
      "count": 5
     },
     {
-     "word": "3가지",
+     "word": "부자",
      "count": 5
     },
     {
@@ -3289,29 +3289,33 @@
      "count": 4
     }
    ],
-   "transcripts": 0,
+   "transcripts": 1,
    "text_sources": {
     "자막": 0,
-    "음성인식": 0,
-    "설명": 58,
+    "음성인식": 1,
+    "설명": 57,
     "없음": 0
    },
    "content_words": [
     {
-     "word": "찾는",
-     "count": 29
+     "word": "옵니다",
+     "count": 28
     },
     {
-     "word": "사람한테만",
+     "word": "찾는",
      "count": 28
     },
     {
      "word": "보물은",
-     "count": 28
+     "count": 27
     },
     {
-     "word": "옵니다",
-     "count": 28
+     "word": "사람한테만",
+     "count": 27
+    },
+    {
+     "word": "아니라",
+     "count": 25
     },
     {
      "word": "영상에서",
@@ -3320,10 +3324,6 @@
     {
      "word": "댓글로",
      "count": 25
-    },
-    {
-     "word": "아니라",
-     "count": 24
     },
     {
      "word": "그리고",
@@ -3335,14 +3335,14 @@
     },
     {
      "word": "있습니다",
+     "count": 18
+    },
+    {
+     "word": "그런데",
      "count": 17
     },
     {
      "word": "다음",
-     "count": 16
-    },
-    {
-     "word": "그런데",
      "count": 16
     }
    ],
@@ -3421,7 +3421,7 @@
      "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
      "channel": "이혜성의 1% 북클럽",
      "views": 2668198,
-     "views_per_day": 56908.2,
+     "views_per_day": 56896.6,
      "published": "2026-08-28",
      "url": "https://www.youtube.com/watch?v=77exyhGYbro"
     },
@@ -3430,7 +3430,7 @@
      "title": "\"인생에 변명하지 마세요\" 대놓고 방법 다 알려줘도 가난 못 벗어나는 이유 (함익병 원장 | 어른을 위한 쓴소리 인생 수업 풀버전)",
      "channel": "월급쟁이부자들TV",
      "views": 2381724,
-     "views_per_day": 56235.1,
+     "views_per_day": 56222.4,
      "published": "2026-09-01",
      "url": "https://www.youtube.com/watch?v=ICYD3f6W-MA"
     },
@@ -3439,7 +3439,7 @@
      "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
      "channel": "월급쟁이부자들TV",
      "views": 1055183,
-     "views_per_day": 51950.1,
+     "views_per_day": 51925.7,
      "published": "2026-09-23",
      "url": "https://www.youtube.com/watch?v=5TF8BKFWERo"
     },
@@ -3457,7 +3457,7 @@
      "title": "퇴근하고 부업 뛰고 돈을 위해 달려가는 당신이 반드시 봐야 할 영상ㅣ사마천의 연구",
      "channel": "하와이 대저택",
      "views": 1039986,
-     "views_per_day": 34216.0,
+     "views_per_day": 34205.2,
      "published": "2026-09-13",
      "url": "https://www.youtube.com/watch?v=d1X-vkjfMdc"
     }
@@ -3481,7 +3481,7 @@
     }
    ],
    "views_median": 200763.5,
-   "views_per_day_median": 4117.05,
+   "views_per_day_median": 4116.1,
    "ratio_median": 2.35,
    "success": 18,
    "minutes_median": 22.55,
@@ -3590,11 +3590,11 @@
      "count": 5
     },
     {
-     "word": "이렇게",
+     "word": "비밀",
      "count": 4
     },
     {
-     "word": "비밀",
+     "word": "이렇게",
      "count": 4
     },
     {
@@ -3610,41 +3610,41 @@
      "count": 4
     }
    ],
-   "transcripts": 0,
+   "transcripts": 1,
    "text_sources": {
     "자막": 0,
-    "음성인식": 0,
-    "설명": 60,
+    "음성인식": 1,
+    "설명": 59,
     "없음": 0
    },
    "content_words": [
     {
-     "word": "찾는",
-     "count": 30
+     "word": "옵니다",
+     "count": 29
     },
     {
-     "word": "사람한테만",
+     "word": "찾는",
      "count": 29
     },
     {
      "word": "보물은",
-     "count": 29
+     "count": 28
     },
     {
-     "word": "옵니다",
-     "count": 29
+     "word": "사람한테만",
+     "count": 28
     },
     {
      "word": "댓글로",
      "count": 26
     },
     {
-     "word": "영상에서",
+     "word": "아니라",
      "count": 25
     },
     {
-     "word": "아니라",
-     "count": 24
+     "word": "영상에서",
+     "count": 25
     },
     {
      "word": "그리고",
@@ -3655,15 +3655,15 @@
      "count": 20
     },
     {
-     "word": "다음",
-     "count": 17
-    },
-    {
      "word": "있습니다",
-     "count": 17
+     "count": 18
     },
     {
      "word": "그런데",
+     "count": 18
+    },
+    {
+     "word": "다음",
      "count": 17
     }
    ],
@@ -3742,7 +3742,7 @@
      "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
      "channel": "이혜성의 1% 북클럽",
      "views": 2668198,
-     "views_per_day": 56908.2,
+     "views_per_day": 56896.6,
      "published": "2026-08-28",
      "url": "https://www.youtube.com/watch?v=77exyhGYbro"
     },
@@ -3751,7 +3751,7 @@
      "title": "\"인생에 변명하지 마세요\" 대놓고 방법 다 알려줘도 가난 못 벗어나는 이유 (함익병 원장 | 어른을 위한 쓴소리 인생 수업 풀버전)",
      "channel": "월급쟁이부자들TV",
      "views": 2381724,
-     "views_per_day": 56235.1,
+     "views_per_day": 56222.4,
      "published": "2026-09-01",
      "url": "https://www.youtube.com/watch?v=ICYD3f6W-MA"
     },
@@ -3760,7 +3760,7 @@
      "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
      "channel": "월급쟁이부자들TV",
      "views": 1055183,
-     "views_per_day": 51950.1,
+     "views_per_day": 51925.7,
      "published": "2026-09-23",
      "url": "https://www.youtube.com/watch?v=5TF8BKFWERo"
     },
@@ -3778,7 +3778,7 @@
      "title": "퇴근하고 부업 뛰고 돈을 위해 달려가는 당신이 반드시 봐야 할 영상ㅣ사마천의 연구",
      "channel": "하와이 대저택",
      "views": 1039986,
-     "views_per_day": 34216.0,
+     "views_per_day": 34205.2,
      "published": "2026-09-13",
      "url": "https://www.youtube.com/watch?v=d1X-vkjfMdc"
     }
@@ -3807,7 +3807,7 @@
     }
    ],
    "views_median": 200861,
-   "views_per_day_median": 4047.1,
+   "views_per_day_median": 4046.5,
    "ratio_median": 2.34,
    "success": 18,
    "minutes_median": 22.6,
@@ -3924,11 +3924,11 @@
      "count": 4
     },
     {
-     "word": "이렇게",
+     "word": "비밀",
      "count": 4
     },
     {
-     "word": "비밀",
+     "word": "이렇게",
      "count": 4
     },
     {
@@ -3936,29 +3936,29 @@
      "count": 4
     }
    ],
-   "transcripts": 0,
+   "transcripts": 1,
    "text_sources": {
     "자막": 0,
-    "음성인식": 0,
-    "설명": 63,
+    "음성인식": 1,
+    "설명": 62,
     "없음": 0
    },
    "content_words": [
     {
-     "word": "찾는",
-     "count": 33
+     "word": "옵니다",
+     "count": 32
     },
     {
-     "word": "사람한테만",
+     "word": "찾는",
      "count": 32
     },
     {
      "word": "보물은",
-     "count": 32
+     "count": 31
     },
     {
-     "word": "옵니다",
-     "count": 32
+     "word": "사람한테만",
+     "count": 31
     },
     {
      "word": "댓글로",
@@ -3970,7 +3970,7 @@
     },
     {
      "word": "아니라",
-     "count": 24
+     "count": 25
     },
     {
      "word": "그리고",
@@ -3982,7 +3982,7 @@
     },
     {
      "word": "있습니다",
-     "count": 20
+     "count": 21
     },
     {
      "word": "다음",
@@ -3990,7 +3990,7 @@
     },
     {
      "word": "그런데",
-     "count": 17
+     "count": 18
     }
    ],
    "chapters_share": 0.222,
@@ -4068,7 +4068,7 @@
      "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
      "channel": "이혜성의 1% 북클럽",
      "views": 2668198,
-     "views_per_day": 56908.2,
+     "views_per_day": 56896.6,
      "published": "2026-08-28",
      "url": "https://www.youtube.com/watch?v=77exyhGYbro"
     },
@@ -4077,7 +4077,7 @@
      "title": "\"인생에 변명하지 마세요\" 대놓고 방법 다 알려줘도 가난 못 벗어나는 이유 (함익병 원장 | 어른을 위한 쓴소리 인생 수업 풀버전)",
      "channel": "월급쟁이부자들TV",
      "views": 2381724,
-     "views_per_day": 56235.1,
+     "views_per_day": 56222.4,
      "published": "2026-09-01",
      "url": "https://www.youtube.com/watch?v=ICYD3f6W-MA"
     },
@@ -4086,7 +4086,7 @@
      "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
      "channel": "월급쟁이부자들TV",
      "views": 1055183,
-     "views_per_day": 51950.1,
+     "views_per_day": 51925.7,
      "published": "2026-09-23",
      "url": "https://www.youtube.com/watch?v=5TF8BKFWERo"
     },
@@ -4104,7 +4104,7 @@
      "title": "퇴근하고 부업 뛰고 돈을 위해 달려가는 당신이 반드시 봐야 할 영상ㅣ사마천의 연구",
      "channel": "하와이 대저택",
      "views": 1039986,
-     "views_per_day": 34216.0,
+     "views_per_day": 34205.2,
      "published": "2026-09-13",
      "url": "https://www.youtube.com/watch?v=d1X-vkjfMdc"
     }
@@ -4128,7 +4128,7 @@
     }
    ],
    "views_median": 200861,
-   "views_per_day_median": 4024.1,
+   "views_per_day_median": 4022.9,
    "ratio_median": 2.2,
    "success": 18,
    "minutes_median": 22.5,
@@ -4241,11 +4241,11 @@
      "count": 5
     },
     {
-     "word": "돈을",
+     "word": "조용히",
      "count": 4
     },
     {
-     "word": "조용히",
+     "word": "비밀",
      "count": 4
     },
     {
@@ -4253,33 +4253,33 @@
      "count": 4
     },
     {
-     "word": "비밀",
+     "word": "돈을",
      "count": 4
     }
    ],
-   "transcripts": 0,
+   "transcripts": 1,
    "text_sources": {
     "자막": 0,
-    "음성인식": 0,
-    "설명": 65,
+    "음성인식": 1,
+    "설명": 64,
     "없음": 0
    },
    "content_words": [
     {
-     "word": "찾는",
-     "count": 35
+     "word": "옵니다",
+     "count": 34
     },
     {
-     "word": "사람한테만",
+     "word": "찾는",
      "count": 34
     },
     {
      "word": "보물은",
-     "count": 34
+     "count": 33
     },
     {
-     "word": "옵니다",
-     "count": 34
+     "word": "사람한테만",
+     "count": 33
     },
     {
      "word": "댓글로",
@@ -4291,7 +4291,7 @@
     },
     {
      "word": "아니라",
-     "count": 24
+     "count": 25
     },
     {
      "word": "그리고",
@@ -4303,7 +4303,7 @@
     },
     {
      "word": "있습니다",
-     "count": 20
+     "count": 21
     },
     {
      "word": "다음",
@@ -4389,7 +4389,7 @@
      "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
      "channel": "이혜성의 1% 북클럽",
      "views": 2668198,
-     "views_per_day": 56908.2,
+     "views_per_day": 56896.6,
      "published": "2026-08-28",
      "url": "https://www.youtube.com/watch?v=77exyhGYbro"
     },
@@ -4398,7 +4398,7 @@
      "title": "\"인생에 변명하지 마세요\" 대놓고 방법 다 알려줘도 가난 못 벗어나는 이유 (함익병 원장 | 어른을 위한 쓴소리 인생 수업 풀버전)",
      "channel": "월급쟁이부자들TV",
      "views": 2381724,
-     "views_per_day": 56235.1,
+     "views_per_day": 56222.4,
      "published": "2026-09-01",
      "url": "https://www.youtube.com/watch?v=ICYD3f6W-MA"
     },
@@ -4407,7 +4407,7 @@
      "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
      "channel": "월급쟁이부자들TV",
      "views": 1055183,
-     "views_per_day": 51950.1,
+     "views_per_day": 51925.7,
      "published": "2026-09-23",
      "url": "https://www.youtube.com/watch?v=5TF8BKFWERo"
     },
@@ -4425,7 +4425,7 @@
      "title": "퇴근하고 부업 뛰고 돈을 위해 달려가는 당신이 반드시 봐야 할 영상ㅣ사마천의 연구",
      "channel": "하와이 대저택",
      "views": 1039986,
-     "views_per_day": 34216.0,
+     "views_per_day": 34205.2,
      "published": "2026-09-13",
      "url": "https://www.youtube.com/watch?v=d1X-vkjfMdc"
     }
@@ -4454,7 +4454,7 @@
     }
    ],
    "views_median": 200763.5,
-   "views_per_day_median": 3814.7,
+   "views_per_day_median": 3813.95,
    "ratio_median": 2.27,
    "success": 19,
    "minutes_median": 22.5,
@@ -4571,11 +4571,11 @@
      "count": 5
     },
     {
-     "word": "돈을",
+     "word": "조용히",
      "count": 4
     },
     {
-     "word": "조용히",
+     "word": "비밀",
      "count": 4
     },
     {
@@ -4583,29 +4583,29 @@
      "count": 4
     }
    ],
-   "transcripts": 0,
+   "transcripts": 1,
    "text_sources": {
     "자막": 0,
-    "음성인식": 0,
-    "설명": 68,
+    "음성인식": 1,
+    "설명": 67,
     "없음": 0
    },
    "content_words": [
     {
-     "word": "찾는",
-     "count": 36
+     "word": "옵니다",
+     "count": 35
     },
     {
-     "word": "사람한테만",
+     "word": "찾는",
      "count": 35
     },
     {
      "word": "보물은",
-     "count": 35
+     "count": 34
     },
     {
-     "word": "옵니다",
-     "count": 35
+     "word": "사람한테만",
+     "count": 34
     },
     {
      "word": "댓글로",
@@ -4617,7 +4617,7 @@
     },
     {
      "word": "아니라",
-     "count": 26
+     "count": 27
     },
     {
      "word": "이유",
@@ -4629,14 +4629,14 @@
     },
     {
      "word": "있습니다",
-     "count": 21
-    },
-    {
-     "word": "다루는",
-     "count": 19
+     "count": 22
     },
     {
      "word": "다음",
+     "count": 19
+    },
+    {
+     "word": "다루는",
      "count": 19
     }
    ],
@@ -4715,7 +4715,7 @@
      "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
      "channel": "이혜성의 1% 북클럽",
      "views": 2668198,
-     "views_per_day": 56908.2,
+     "views_per_day": 56896.6,
      "published": "2026-08-28",
      "url": "https://www.youtube.com/watch?v=77exyhGYbro"
     },
@@ -4724,7 +4724,7 @@
      "title": "\"인생에 변명하지 마세요\" 대놓고 방법 다 알려줘도 가난 못 벗어나는 이유 (함익병 원장 | 어른을 위한 쓴소리 인생 수업 풀버전)",
      "channel": "월급쟁이부자들TV",
      "views": 2381724,
-     "views_per_day": 56235.1,
+     "views_per_day": 56222.4,
      "published": "2026-09-01",
      "url": "https://www.youtube.com/watch?v=ICYD3f6W-MA"
     },
@@ -4733,7 +4733,7 @@
      "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
      "channel": "월급쟁이부자들TV",
      "views": 1055183,
-     "views_per_day": 51950.1,
+     "views_per_day": 51925.7,
      "published": "2026-09-23",
      "url": "https://www.youtube.com/watch?v=5TF8BKFWERo"
     },
@@ -4751,7 +4751,7 @@
      "title": "퇴근하고 부업 뛰고 돈을 위해 달려가는 당신이 반드시 봐야 할 영상ㅣ사마천의 연구",
      "channel": "하와이 대저택",
      "views": 1039986,
-     "views_per_day": 34216.0,
+     "views_per_day": 34205.2,
      "published": "2026-09-13",
      "url": "https://www.youtube.com/watch?v=d1X-vkjfMdc"
     }
@@ -4785,7 +4785,7 @@
     }
    ],
    "views_median": 199585.0,
-   "views_per_day_median": 3604.25,
+   "views_per_day_median": 3603.45,
    "ratio_median": 2.35,
    "success": 22,
    "minutes_median": 22.5,
@@ -4910,32 +4910,32 @@
      "count": 5
     },
     {
-     "word": "돈을",
+     "word": "조용히",
      "count": 4
     }
    ],
-   "transcripts": 0,
+   "transcripts": 1,
    "text_sources": {
     "자막": 0,
-    "음성인식": 0,
-    "설명": 72,
+    "음성인식": 1,
+    "설명": 71,
     "없음": 0
    },
    "content_words": [
     {
      "word": "찾는",
-     "count": 37
-    },
-    {
-     "word": "사람한테만",
-     "count": 36
-    },
-    {
-     "word": "보물은",
      "count": 36
     },
     {
      "word": "옵니다",
+     "count": 35
+    },
+    {
+     "word": "보물은",
+     "count": 35
+    },
+    {
+     "word": "사람한테만",
      "count": 35
     },
     {
@@ -4948,7 +4948,7 @@
     },
     {
      "word": "아니라",
-     "count": 27
+     "count": 28
     },
     {
      "word": "이유",
@@ -4960,14 +4960,14 @@
     },
     {
      "word": "있습니다",
-     "count": 21
+     "count": 22
     },
     {
      "word": "다음",
      "count": 20
     },
     {
-     "word": "다루는",
+     "word": "오늘",
      "count": 19
     }
    ],
@@ -5046,7 +5046,7 @@
      "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
      "channel": "이혜성의 1% 북클럽",
      "views": 2668198,
-     "views_per_day": 56908.2,
+     "views_per_day": 56896.6,
      "published": "2026-08-28",
      "url": "https://www.youtube.com/watch?v=77exyhGYbro"
     },
@@ -5055,7 +5055,7 @@
      "title": "\"인생에 변명하지 마세요\" 대놓고 방법 다 알려줘도 가난 못 벗어나는 이유 (함익병 원장 | 어른을 위한 쓴소리 인생 수업 풀버전)",
      "channel": "월급쟁이부자들TV",
      "views": 2381724,
-     "views_per_day": 56235.1,
+     "views_per_day": 56222.4,
      "published": "2026-09-01",
      "url": "https://www.youtube.com/watch?v=ICYD3f6W-MA"
     },
@@ -5064,7 +5064,7 @@
      "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
      "channel": "월급쟁이부자들TV",
      "views": 1055183,
-     "views_per_day": 51950.1,
+     "views_per_day": 51925.7,
      "published": "2026-09-23",
      "url": "https://www.youtube.com/watch?v=5TF8BKFWERo"
     },
@@ -5082,7 +5082,7 @@
      "title": "퇴근하고 부업 뛰고 돈을 위해 달려가는 당신이 반드시 봐야 할 영상ㅣ사마천의 연구",
      "channel": "하와이 대저택",
      "views": 1039986,
-     "views_per_day": 34216.0,
+     "views_per_day": 34205.2,
      "published": "2026-09-13",
      "url": "https://www.youtube.com/watch?v=d1X-vkjfMdc"
     }
@@ -5095,7 +5095,7 @@
    "channels": 32,
    "new_this_week": [],
    "views_median": 199585.0,
-   "views_per_day_median": 3604.25,
+   "views_per_day_median": 3603.45,
    "ratio_median": 2.35,
    "success": 22,
    "minutes_median": 22.5,
@@ -5220,32 +5220,32 @@
      "count": 5
     },
     {
-     "word": "돈을",
+     "word": "조용히",
      "count": 4
     }
    ],
-   "transcripts": 0,
+   "transcripts": 1,
    "text_sources": {
     "자막": 0,
-    "음성인식": 0,
-    "설명": 72,
+    "음성인식": 1,
+    "설명": 71,
     "없음": 0
    },
    "content_words": [
     {
      "word": "찾는",
-     "count": 37
-    },
-    {
-     "word": "사람한테만",
-     "count": 36
-    },
-    {
-     "word": "보물은",
      "count": 36
     },
     {
      "word": "옵니다",
+     "count": 35
+    },
+    {
+     "word": "보물은",
+     "count": 35
+    },
+    {
+     "word": "사람한테만",
      "count": 35
     },
     {
@@ -5258,7 +5258,7 @@
     },
     {
      "word": "아니라",
-     "count": 27
+     "count": 28
     },
     {
      "word": "이유",
@@ -5270,14 +5270,14 @@
     },
     {
      "word": "있습니다",
-     "count": 21
+     "count": 22
     },
     {
      "word": "다음",
      "count": 20
     },
     {
-     "word": "다루는",
+     "word": "오늘",
      "count": 19
     }
    ],
@@ -5356,7 +5356,7 @@
      "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
      "channel": "이혜성의 1% 북클럽",
      "views": 2668198,
-     "views_per_day": 56908.2,
+     "views_per_day": 56896.6,
      "published": "2026-08-28",
      "url": "https://www.youtube.com/watch?v=77exyhGYbro"
     },
@@ -5365,7 +5365,7 @@
      "title": "\"인생에 변명하지 마세요\" 대놓고 방법 다 알려줘도 가난 못 벗어나는 이유 (함익병 원장 | 어른을 위한 쓴소리 인생 수업 풀버전)",
      "channel": "월급쟁이부자들TV",
      "views": 2381724,
-     "views_per_day": 56235.1,
+     "views_per_day": 56222.4,
      "published": "2026-09-01",
      "url": "https://www.youtube.com/watch?v=ICYD3f6W-MA"
     },
@@ -5374,7 +5374,7 @@
      "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
      "channel": "월급쟁이부자들TV",
      "views": 1055183,
-     "views_per_day": 51950.1,
+     "views_per_day": 51925.7,
      "published": "2026-09-23",
      "url": "https://www.youtube.com/watch?v=5TF8BKFWERo"
     },
@@ -5392,7 +5392,7 @@
      "title": "퇴근하고 부업 뛰고 돈을 위해 달려가는 당신이 반드시 봐야 할 영상ㅣ사마천의 연구",
      "channel": "하와이 대저택",
      "views": 1039986,
-     "views_per_day": 34216.0,
+     "views_per_day": 34205.2,
      "published": "2026-09-13",
      "url": "https://www.youtube.com/watch?v=d1X-vkjfMdc"
     }
@@ -5411,7 +5411,7 @@
     }
    ],
    "views_median": 200666,
-   "views_per_day_median": 3746.8,
+   "views_per_day_median": 3746.2,
    "ratio_median": 2.37,
    "success": 23,
    "minutes_median": 22.5,
@@ -5541,32 +5541,32 @@
      "count": 5
     },
     {
-     "word": "돈을",
+     "word": "조용히",
      "count": 4
     }
    ],
-   "transcripts": 0,
+   "transcripts": 1,
    "text_sources": {
     "자막": 0,
-    "음성인식": 0,
-    "설명": 73,
+    "음성인식": 1,
+    "설명": 72,
     "없음": 0
    },
    "content_words": [
     {
      "word": "찾는",
-     "count": 37
-    },
-    {
-     "word": "사람한테만",
-     "count": 36
-    },
-    {
-     "word": "보물은",
      "count": 36
     },
     {
      "word": "옵니다",
+     "count": 35
+    },
+    {
+     "word": "보물은",
+     "count": 35
+    },
+    {
+     "word": "사람한테만",
      "count": 35
     },
     {
@@ -5579,7 +5579,7 @@
     },
     {
      "word": "아니라",
-     "count": 27
+     "count": 28
     },
     {
      "word": "이유",
@@ -5591,14 +5591,14 @@
     },
     {
      "word": "있습니다",
-     "count": 21
+     "count": 22
     },
     {
      "word": "다음",
      "count": 20
     },
     {
-     "word": "다루는",
+     "word": "오늘",
      "count": 19
     }
    ],
@@ -5677,7 +5677,7 @@
      "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
      "channel": "이혜성의 1% 북클럽",
      "views": 2668198,
-     "views_per_day": 56908.2,
+     "views_per_day": 56896.6,
      "published": "2026-08-28",
      "url": "https://www.youtube.com/watch?v=77exyhGYbro"
     },
@@ -5686,7 +5686,7 @@
      "title": "\"인생에 변명하지 마세요\" 대놓고 방법 다 알려줘도 가난 못 벗어나는 이유 (함익병 원장 | 어른을 위한 쓴소리 인생 수업 풀버전)",
      "channel": "월급쟁이부자들TV",
      "views": 2381724,
-     "views_per_day": 56235.1,
+     "views_per_day": 56222.4,
      "published": "2026-09-01",
      "url": "https://www.youtube.com/watch?v=ICYD3f6W-MA"
     },
@@ -5695,7 +5695,7 @@
      "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
      "channel": "월급쟁이부자들TV",
      "views": 1055183,
-     "views_per_day": 51950.1,
+     "views_per_day": 51925.7,
      "published": "2026-09-23",
      "url": "https://www.youtube.com/watch?v=5TF8BKFWERo"
     },
@@ -5713,7 +5713,7 @@
      "title": "퇴근하고 부업 뛰고 돈을 위해 달려가는 당신이 반드시 봐야 할 영상ㅣ사마천의 연구",
      "channel": "하와이 대저택",
      "views": 1039986,
-     "views_per_day": 34216.0,
+     "views_per_day": 34205.2,
      "published": "2026-09-13",
      "url": "https://www.youtube.com/watch?v=d1X-vkjfMdc"
     }
@@ -5747,7 +5747,7 @@
     }
    ],
    "views_median": 200861,
-   "views_per_day_median": 3781.8,
+   "views_per_day_median": 3781.0,
    "ratio_median": 2.34,
    "success": 23,
    "minutes_median": 22.4,
@@ -5881,28 +5881,28 @@
      "count": 4
     }
    ],
-   "transcripts": 1,
+   "transcripts": 2,
    "text_sources": {
     "자막": 0,
-    "음성인식": 1,
-    "설명": 75,
+    "음성인식": 2,
+    "설명": 74,
     "없음": 1
    },
    "content_words": [
     {
      "word": "찾는",
-     "count": 37
-    },
-    {
-     "word": "사람한테만",
-     "count": 36
-    },
-    {
-     "word": "보물은",
      "count": 36
     },
     {
      "word": "옵니다",
+     "count": 35
+    },
+    {
+     "word": "보물은",
+     "count": 35
+    },
+    {
+     "word": "사람한테만",
      "count": 35
     },
     {
@@ -5915,7 +5915,7 @@
     },
     {
      "word": "아니라",
-     "count": 28
+     "count": 29
     },
     {
      "word": "이유",
@@ -5926,11 +5926,11 @@
      "count": 25
     },
     {
-     "word": "다음",
-     "count": 22
+     "word": "있습니다",
+     "count": 23
     },
     {
-     "word": "있습니다",
+     "word": "다음",
      "count": 22
     },
     {
@@ -6013,7 +6013,7 @@
      "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
      "channel": "이혜성의 1% 북클럽",
      "views": 2668198,
-     "views_per_day": 56908.2,
+     "views_per_day": 56896.6,
      "published": "2026-08-28",
      "url": "https://www.youtube.com/watch?v=77exyhGYbro"
     },
@@ -6022,7 +6022,7 @@
      "title": "\"인생에 변명하지 마세요\" 대놓고 방법 다 알려줘도 가난 못 벗어나는 이유 (함익병 원장 | 어른을 위한 쓴소리 인생 수업 풀버전)",
      "channel": "월급쟁이부자들TV",
      "views": 2381724,
-     "views_per_day": 56235.1,
+     "views_per_day": 56222.4,
      "published": "2026-09-01",
      "url": "https://www.youtube.com/watch?v=ICYD3f6W-MA"
     },
@@ -6031,7 +6031,7 @@
      "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
      "channel": "월급쟁이부자들TV",
      "views": 1055183,
-     "views_per_day": 51950.1,
+     "views_per_day": 51925.7,
      "published": "2026-09-23",
      "url": "https://www.youtube.com/watch?v=5TF8BKFWERo"
     },
@@ -6049,7 +6049,7 @@
      "title": "퇴근하고 부업 뛰고 돈을 위해 달려가는 당신이 반드시 봐야 할 영상ㅣ사마천의 연구",
      "channel": "하와이 대저택",
      "views": 1039986,
-     "views_per_day": 34216.0,
+     "views_per_day": 34205.2,
      "published": "2026-09-13",
      "url": "https://www.youtube.com/watch?v=d1X-vkjfMdc"
     }
@@ -6078,7 +6078,7 @@
     }
    ],
    "views_median": 200763.5,
-   "views_per_day_median": 3764.3,
+   "views_per_day_median": 3763.6,
    "ratio_median": 2.35,
    "success": 24,
    "minutes_median": 22.35,
@@ -6212,28 +6212,28 @@
      "count": 4
     }
    ],
-   "transcripts": 1,
+   "transcripts": 2,
    "text_sources": {
     "자막": 0,
-    "음성인식": 1,
-    "설명": 78,
+    "음성인식": 2,
+    "설명": 77,
     "없음": 1
    },
    "content_words": [
     {
      "word": "찾는",
-     "count": 37
-    },
-    {
-     "word": "사람한테만",
-     "count": 36
-    },
-    {
-     "word": "보물은",
      "count": 36
     },
     {
      "word": "옵니다",
+     "count": 35
+    },
+    {
+     "word": "보물은",
+     "count": 35
+    },
+    {
+     "word": "사람한테만",
      "count": 35
     },
     {
@@ -6246,19 +6246,19 @@
     },
     {
      "word": "아니라",
-     "count": 29
+     "count": 30
     },
     {
      "word": "이유",
      "count": 27
     },
     {
-     "word": "그리고",
+     "word": "있습니다",
      "count": 25
     },
     {
-     "word": "있습니다",
-     "count": 24
+     "word": "그리고",
+     "count": 25
     },
     {
      "word": "다음",
@@ -6344,7 +6344,7 @@
      "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
      "channel": "이혜성의 1% 북클럽",
      "views": 2668198,
-     "views_per_day": 56908.2,
+     "views_per_day": 56896.6,
      "published": "2026-08-28",
      "url": "https://www.youtube.com/watch?v=77exyhGYbro"
     },
@@ -6353,7 +6353,7 @@
      "title": "\"인생에 변명하지 마세요\" 대놓고 방법 다 알려줘도 가난 못 벗어나는 이유 (함익병 원장 | 어른을 위한 쓴소리 인생 수업 풀버전)",
      "channel": "월급쟁이부자들TV",
      "views": 2381724,
-     "views_per_day": 56235.1,
+     "views_per_day": 56222.4,
      "published": "2026-09-01",
      "url": "https://www.youtube.com/watch?v=ICYD3f6W-MA"
     },
@@ -6362,7 +6362,7 @@
      "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
      "channel": "월급쟁이부자들TV",
      "views": 1055183,
-     "views_per_day": 51950.1,
+     "views_per_day": 51925.7,
      "published": "2026-09-23",
      "url": "https://www.youtube.com/watch?v=5TF8BKFWERo"
     },
@@ -6380,7 +6380,7 @@
      "title": "퇴근하고 부업 뛰고 돈을 위해 달려가는 당신이 반드시 봐야 할 영상ㅣ사마천의 연구",
      "channel": "하와이 대저택",
      "views": 1039986,
-     "views_per_day": 34216.0,
+     "views_per_day": 34205.2,
      "published": "2026-09-13",
      "url": "https://www.youtube.com/watch?v=d1X-vkjfMdc"
     }
@@ -6399,7 +6399,7 @@
     }
    ],
    "views_median": 200861,
-   "views_per_day_median": 3781.8,
+   "views_per_day_median": 3781.0,
    "ratio_median": 2.37,
    "success": 24,
    "minutes_median": 22.3,
@@ -6533,28 +6533,28 @@
      "count": 4
     }
    ],
-   "transcripts": 1,
+   "transcripts": 2,
    "text_sources": {
     "자막": 0,
-    "음성인식": 1,
-    "설명": 79,
+    "음성인식": 2,
+    "설명": 78,
     "없음": 1
    },
    "content_words": [
     {
      "word": "찾는",
-     "count": 37
-    },
-    {
-     "word": "사람한테만",
-     "count": 36
-    },
-    {
-     "word": "보물은",
      "count": 36
     },
     {
      "word": "옵니다",
+     "count": 35
+    },
+    {
+     "word": "보물은",
+     "count": 35
+    },
+    {
+     "word": "사람한테만",
      "count": 35
     },
     {
@@ -6567,26 +6567,26 @@
     },
     {
      "word": "아니라",
-     "count": 29
+     "count": 30
     },
     {
      "word": "이유",
      "count": 27
     },
     {
-     "word": "그리고",
+     "word": "있습니다",
      "count": 25
     },
     {
-     "word": "있습니다",
-     "count": 24
+     "word": "그리고",
+     "count": 25
     },
     {
      "word": "다음",
      "count": 22
     },
     {
-     "word": "다루는",
+     "word": "투자",
      "count": 22
     }
    ],
@@ -6665,7 +6665,7 @@
      "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
      "channel": "이혜성의 1% 북클럽",
      "views": 2668198,
-     "views_per_day": 56908.2,
+     "views_per_day": 56896.6,
      "published": "2026-08-28",
      "url": "https://www.youtube.com/watch?v=77exyhGYbro"
     },
@@ -6674,7 +6674,7 @@
      "title": "\"인생에 변명하지 마세요\" 대놓고 방법 다 알려줘도 가난 못 벗어나는 이유 (함익병 원장 | 어른을 위한 쓴소리 인생 수업 풀버전)",
      "channel": "월급쟁이부자들TV",
      "views": 2381724,
-     "views_per_day": 56235.1,
+     "views_per_day": 56222.4,
      "published": "2026-09-01",
      "url": "https://www.youtube.com/watch?v=ICYD3f6W-MA"
     },
@@ -6683,7 +6683,7 @@
      "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
      "channel": "월급쟁이부자들TV",
      "views": 1055183,
-     "views_per_day": 51950.1,
+     "views_per_day": 51925.7,
      "published": "2026-09-23",
      "url": "https://www.youtube.com/watch?v=5TF8BKFWERo"
     },
@@ -6701,7 +6701,7 @@
      "title": "퇴근하고 부업 뛰고 돈을 위해 달려가는 당신이 반드시 봐야 할 영상ㅣ사마천의 연구",
      "channel": "하와이 대저택",
      "views": 1039986,
-     "views_per_day": 34216.0,
+     "views_per_day": 34205.2,
      "published": "2026-09-13",
      "url": "https://www.youtube.com/watch?v=d1X-vkjfMdc"
     }
@@ -6750,7 +6750,7 @@
     }
    ],
    "views_median": 202165.5,
-   "views_per_day_median": 3686.1,
+   "views_per_day_median": 3685.7,
    "ratio_median": 2.41,
    "success": 27,
    "minutes_median": 22.15,
@@ -6884,32 +6884,32 @@
      "count": 5
     }
    ],
-   "transcripts": 1,
+   "transcripts": 2,
    "text_sources": {
     "자막": 0,
-    "음성인식": 1,
-    "설명": 86,
+    "음성인식": 2,
+    "설명": 85,
     "없음": 1
    },
    "content_words": [
-    {
-     "word": "찾는",
-     "count": 37
-    },
-    {
-     "word": "사람한테만",
-     "count": 36
-    },
-    {
-     "word": "보물은",
-     "count": 36
-    },
     {
      "word": "영상에서",
      "count": 36
     },
     {
+     "word": "찾는",
+     "count": 36
+    },
+    {
      "word": "옵니다",
+     "count": 35
+    },
+    {
+     "word": "보물은",
+     "count": 35
+    },
+    {
+     "word": "사람한테만",
      "count": 35
     },
     {
@@ -6918,7 +6918,7 @@
     },
     {
      "word": "아니라",
-     "count": 30
+     "count": 31
     },
     {
      "word": "이유",
@@ -6926,7 +6926,7 @@
     },
     {
      "word": "있습니다",
-     "count": 27
+     "count": 28
     },
     {
      "word": "오늘",
@@ -6938,7 +6938,7 @@
     },
     {
      "word": "투자",
-     "count": 24
+     "count": 25
     }
    ],
    "chapters_share": 0.227,
@@ -7016,7 +7016,7 @@
      "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
      "channel": "이혜성의 1% 북클럽",
      "views": 2668198,
-     "views_per_day": 56908.2,
+     "views_per_day": 56896.6,
      "published": "2026-08-28",
      "url": "https://www.youtube.com/watch?v=77exyhGYbro"
     },
@@ -7025,7 +7025,7 @@
      "title": "\"인생에 변명하지 마세요\" 대놓고 방법 다 알려줘도 가난 못 벗어나는 이유 (함익병 원장 | 어른을 위한 쓴소리 인생 수업 풀버전)",
      "channel": "월급쟁이부자들TV",
      "views": 2381724,
-     "views_per_day": 56235.1,
+     "views_per_day": 56222.4,
      "published": "2026-09-01",
      "url": "https://www.youtube.com/watch?v=ICYD3f6W-MA"
     },
@@ -7034,7 +7034,7 @@
      "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
      "channel": "월급쟁이부자들TV",
      "views": 1055183,
-     "views_per_day": 51950.1,
+     "views_per_day": 51925.7,
      "published": "2026-09-23",
      "url": "https://www.youtube.com/watch?v=5TF8BKFWERo"
     },
@@ -7052,7 +7052,7 @@
      "title": "퇴근하고 부업 뛰고 돈을 위해 달려가는 당신이 반드시 봐야 할 영상ㅣ사마천의 연구",
      "channel": "하와이 대저택",
      "views": 1039986,
-     "views_per_day": 34216.0,
+     "views_per_day": 34205.2,
      "published": "2026-09-13",
      "url": "https://www.youtube.com/watch?v=d1X-vkjfMdc"
     }

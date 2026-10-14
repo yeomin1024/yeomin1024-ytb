@@ -27,7 +27,7 @@ economic/                   ← 주제 폴더: 경제·재테크 — economic/RE
   keywords.toml             ← 주제 관련어·제외어 (주제 관련 영상 판단)
   tag_rules.toml · tag_candidates.md ← 태그 → 검색어 규칙(씨앗·빼는 말·묶음) · 고른 태그 표
   .env                      ← (PC에만, git 제외) 이 주제만 쓰는 키 — 비우면 맨 위 .env. 여러 주제를 동시에: run_analyzer.ps1 -Folder economic,health
-  result/                   ← 분석 결과 (PC 실행이 GitHub에 올림) · result/outliers/ 성공 사례·조회수 상위 (댓글 전부 — 비공개 저장소면 사례 폴더까지)
+  result/                   ← 분석 결과 (PC 실행이 GitHub에 올림) · result/outliers/ 성공 사례·조회수 상위 (댓글 전부 — 사례 폴더까지, 공개 저장소에도)
   guides/                   ← (분석 뒤) 주제 전용 규칙 + data_insights.md(분석 결과 요약 = 지시사항 근거)
   source/<영상ID>/          ← (주제를 고른 뒤) 영상별 대본 TXT·SRT·README·titles.md·thumbnails/·upload.md
   out/<영상ID>/             ← 완성 영상 자리 (mp4는 git에 올리지 않음). 스토리보드는 만들지 않음
@@ -142,7 +142,7 @@ python youtube_topic_analyzer.py --help                                    # 전
 | `success_cases/NN_.../` | 성공사례별 `transcript.txt`(대본), `thumbnail.jpg`, `metadata.json`, `comments.csv` (영상 파일은 PC에만) |
 | `run_info.json`, `run_log.txt` | 설정·쿼터·소요시간·데이터 기간 등 재현 정보와 전체 로그 |
 
-| `outliers/` | 작은 채널 성공 사례 + 구독자 무관 조회수 상위 (`tools/outlier_research.py` v1.7, 검색어 전부 + 잘된 영상 태그): **`downloads.md` 받은 자료 표**(업로드 날짜 포함) · `summary.md`·`outliers.csv`·`popular.csv`·`candidates.csv`·`status.json` + 사례 폴더 `01_…`·`P01_…`(자막·**댓글 전부**·썸네일 — **저장소가 비공개일 때만** GitHub에, 공개면 PC에만) |
+| `outliers/` | 작은 채널 성공 사례 + 구독자 무관 조회수 상위 (`tools/outlier_research.py` v1.7, 검색어 전부 + 잘된 영상 태그): **`downloads.md` 받은 자료 표**(업로드 날짜 포함) · `summary.md`·`outliers.csv`·`popular.csv`·`candidates.csv`·`status.json` + 사례 폴더 `01_…`·`P01_…`(설명·자막·**댓글 전부**·썸네일 — 공개 저장소에도 GitHub에, 사용자 지시 2026-10-14) |
 | `pc_progress.json` | PC 실행 진행 상태 (`tools/pc_analysis.py`): 회차·끝났는지·남은 일·다음 회차 시각 |
 
 분석 결과를 지시사항에 쓸 수 있게 요약한 파일은 `<주제폴더>/guides/data_insights.md`입니다 (경제·재테크는 분석 뒤 만듦).
@@ -218,7 +218,7 @@ python tools/youtube_auth.py --client-id … --client-secret …   # (내 PC에�
 ## 주의
 - 연구/교육용 분석 도구이고, 영상은 투자 교육 콘텐츠입니다. 특정 종목의 매수·매도를 권유하지 않습니다.
 - 이 저장소가 **public**이면 타인 영상 파일·성공 사례 폴더(자막 전문·댓글 전부·썸네일)는 GitHub에 올리지 않고 **PC에만** 저장합니다 (저작권).
-  - **private으로 바꾸면 전부 GitHub에 함께 올라갑니다** (사용자 지시 2026-10-13 — 바꾸는 법: [`guides/pc_analysis.md`](guides/pc_analysis.md) "저장소를 비공개로 바꾸기"). 영상은 GitHub 용량 제한 때문에 49MB 이하로 재인코딩합니다.
+  - 사례 폴더(설명·자막·댓글 전부·썸네일)는 **공개 저장소에도 올라갑니다** (사용자 지시 2026-10-14 "그냥 공개에서 다 올리도록 해" — 분석기 `UPLOAD_CASES_TO_PUBLIC_REPO`). 다른 사람의 영상 파일은 받지 않습니다. 비공개로 바꾸는 법(선택): [`guides/pc_analysis.md`](guides/pc_analysis.md) "저장소를 비공개로 바꾸기".
   - 비공개 저장소는 토큰이 있어야 코드를 받습니다: PC는 `.env`의 `GITHUB_TOKEN`(실행기 v2.1), Kaggle은 `guides/tts_guide.md` 3번 셀(v1.8).
 - 렌더한 완성 영상(`*/out/**/*.mp4`)은 용량 때문에 git에 올리지 않습니다 (`.gitignore`).
 - 변경 내역: 분석 코드는 [`CHANGELOG.md`](CHANGELOG.md), 지시사항은 각 파일 아래 "변경 이력" 표에 있습니다.

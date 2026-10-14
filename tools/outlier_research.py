@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v2.0.1 — 2026-10-14 — --offline 다시 만들기가 결과를 지우던 것 고침 (사용자 질문 "분석 결과 다 올라온거야?" — GitHub 에
+# VERSION: v2.0.2 — 2026-10-14 — 안내 글만: 사례 폴더는 저장소가 공개여도 GitHub 에 올라감 (사용자 지시 "그냥 공개에서 다 올리도록 해" — 분석기 v2.9.3
+#          UPLOAD_CASES_TO_PUBLIC_REPO). 받기·고르기·숫자는 그대로
+# (v2.0.1 — 2026-10-14 — --offline 다시 만들기가 결과를 지우던 것 고침 (사용자 질문 "분석 결과 다 올라온거야?" — GitHub 에
 #          '후보 0개' 요약이 올라가 있었음): 음성인식이 하나 끝날 때마다 부르는 --offline 이 검색 캐시를 못 찾으면(결과 폴더를 지웠거나
 #          7일 지남) 후보 0개로 summary.md·downloads.md·status.json·csv 를 덮어쓰고 사례 폴더(01_·P01_)까지 _old/ 로 옮길 수 있었음 →
-#          ① --offline 은 오래된 검색 캐시도 씀 ② 그래도 후보가 0이면 아무것도 쓰지·옮기지 않고 있던 결과를 그대로 둠
+#          ① --offline 은 오래된 검색 캐시도 씀 ② 그래도 후보가 0이면 아무것도 쓰지·옮기지 않고 있던 결과를 그대로 둠)
 # (v2.0 — 2026-10-14 — 라이브 방송·외국 영상은 탐색 대상에서 뺌 (사용자 지시: "라이브 방송, 외국 영상은 탐색 대상에서 제외"):
 #          exclusion_reason() — 라이브 = 지금 라이브·예정(liveBroadcastContent) 또는 라이브였던 영상(liveStreamingDetails, videos.list
 #          같은 1단위로 같이 받음) 또는 제목에 라이브·생방송·스트리밍·LIVE. 외국 = 영상 언어(defaultAudioLanguage·defaultLanguage)가
@@ -99,7 +101,7 @@ r"""
   status.json     이번 실행 상태: 검색 완료/남은 검색(pending)·할당량 멈춤·자막·썸네일·댓글 받은 수 (이어서 돌리기용)  ← git
   <순위>_<영상ID>/ 성공 사례 · P<순위>_<영상ID>/ 조회수 상위 — metadata.json · description.txt · transcript.txt·transcript.json ·
                   comments.csv(전부, 좋아요 순)·comments.jsonl(받은 순서)·comments_state.json(이어 받기) · thumbnail.jpg
-                  ← 다른 사람의 글·이미지. 저장소가 비공개일 때만 GitHub 에 올라간다 (분석기 --push-only 가 공개 여부를 확인, .gitignore 는 그대로)
+                  ← 다른 사람의 글·이미지. 공개 저장소에도 GitHub 에 올라간다 (2026-10-14 사용자 지시 — 분석기 v2.9.3 UPLOAD_CASES_TO_PUBLIC_REPO)
   _old/           이번 상위에서 빠진 사례 폴더 (다시 들어오면 재사용, git 에 올리지 않음)
   .cache/         영상 정보·검색 결과 캐시 (git 에 올리지 않음)
 로그: [STAGE] [시각] key=value (START·SEARCH·VIDEO·FILTER·DEEP·STATUS·DONE)
@@ -127,7 +129,7 @@ except ModuleNotFoundError:             # Python 3.10 → tomli (분석기가 �
     import tomli as tomllib
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v2.0.1"
+VERSION = "v2.0.2"
 LOG = logging.getLogger("outlier")
 HANGUL = re.compile(r"[가-힣]")
 SEARCH_TTL_HOURS = 168
@@ -1224,7 +1226,7 @@ def write_downloads(out, topic, name, a, rows, q, deep, pop_deep, state):
     sl = state["search_log"]
     L = [f"# {name} — 받은 자료 표", "",
          f"자동 생성 — `tools/outlier_research.py` {VERSION} ({datetime.now().strftime('%Y-%m-%d %H:%M')}). "
-         "사례 폴더의 자막·댓글 전부·썸네일은 저장소가 비공개일 때만 GitHub 에 함께 올라갑니다. 진행 상태: `status.json`.", "",
+         "사례 폴더(설명·자막·댓글 전부·썸네일)도 GitHub 에 함께 올라갑니다 (공개 저장소에도 — 2026-10-14 사용자 지시). 진행 상태: `status.json`.", "",
          "## 한눈에", "",
          "| 항목 | 수 |", "|---|---|",
          f"| 탐색한 검색어 | {len({x['q'] for x in sl})}개 (검색어 목록 `keywords.toml` {len({x['q'] for x in sl if x['source'] != '태그'})} · 잘된 영상 태그 {len({x['q'] for x in sl if x['source'] == '태그'})}) — 검색 {len(sl)}번 (새로 {sum(1 for x in sl if x['status'] == '새로')} · 캐시 {sum(1 for x in sl if x['status'] == '캐시')} · 남음 {sum(1 for x in sl if x['status'] == '남음')}) |",
@@ -1318,7 +1320,7 @@ def _case_lines(meta, info, cms):
 def write_summary(out, topic, name, a, used_days, rows, q, deep, pop, pop_deep, source):
     L = [f"# {name} — 작은 채널 성공 사례 + 조회수 상위 영상 (최근·롱폼)", "",
          f"자동 생성 — `tools/outlier_research.py` {VERSION} ({datetime.now().strftime('%Y-%m-%d %H:%M')}). "
-         "사례마다 자막·댓글 전부(`comments.csv`)·썸네일은 사례 폴더에 있다 (저장소가 비공개일 때만 GitHub 에 올라감). "
+         "사례마다 자막·댓글 전부(`comments.csv`)·썸네일은 사례 폴더에 있다 (GitHub 에도 올라감). "
          "진행 상태(못 한 검색·댓글·자막·썸네일)는 `status.json`.", "",
          f"- 성공 사례 기준: 최근 {used_days}일 안 · 구독자 {a.max_subs:,}명 이하 · 조회수 ≥ 구독자 × {a.min_ratio} · 조회수 {a.min_views:,} 이상 · "
          f"{a.min_sec // 60}분 이상 (쇼츠 제외) · 채널당 {a.per_channel}개까지",

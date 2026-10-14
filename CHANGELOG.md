@@ -1,5 +1,29 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-14 (14) — 공개 저장소에도 사례 폴더(설명·자막·댓글·썸네일)를 다 올림
+
+### 왜 (사용자 지시)
+- "그냥 공개에서 다 올리도록 해" — 저장소 `yeomin1024/yeomin1024-ytb` 는 공개(2026-10-14 확인). 예전 규칙(2026-10-13): 사례 폴더는 비공개일 때만.
+
+### 고친 것
+| 파일 (버전) | 함수·항목 | 내용 |
+|---|---|---|
+| `youtube_topic_analyzer.py` v2.9.2 → v2.9.3 | `UPLOAD_CASES_TO_PUBLIC_REPO` (새 설정, 기본 **True**), `cases_upload_full`, `_stage8_push_github_unlocked` | 사례 폴더(`01_`·`P01_`·`W_` — 설명·자막·댓글 전부·썸네일·메타데이터)를 공개 저장소에도 `git add -f` 로 올림. 로그 `full=True private=False` + 까닭. 끄려면 설정 파일에 `UPLOAD_CASES_TO_PUBLIC_REPO = false` (비공개일 때만으로 돌아감) |
+| 〃 | 그대로 | `ALLOW_VIDEO_UPLOAD_TO_PUBLIC_REPO = False` — 다른 사람의 **영상 파일**은 받지도 올리지도 않음 (PC 는 `--no-video`) |
+| `tools/web_ui.py` v1.2 → v1.2.1 | `push_results` | 자료 안내를 분석기 로그 `full=True/False` 로 읽음 → "올림 — 사례 폴더까지 (공개 저장소)" (예전 판단 `private=False` 였다면 공개 저장소에서 늘 'PC 에만'으로 보였을 것) |
+| `tools/outlier_research.py` v2.0.1 → v2.0.2, `tools/weekly_analysis.py` v1.2 → v1.2.1 | 안내 글 (`summary.md`·`downloads.md`·`approved.md` 머리) | '비공개일 때만' → '공개 저장소에도 올라감'. 받기·고르기·숫자는 그대로 |
+| `.gitignore` | 사례 폴더 | `[0-9][0-9]_*/`·`P[0-9][0-9]_*/` 빼고, `.cache/`·`_old/`·`result/web/`(탐색 목록) 만 PC 에 |
+| `CLAUDE.md`, `guides/pc_analysis.md` v2.3, `guides/pipeline.md` v1.19, `README.md`, `economic/README.md` | 규칙·안내 | 공개 저장소에도 올림, 비공개 전환은 선택, 저작권 삭제 요청(DMCA) 주의 |
+
+### 위험 (알림)
+- 공개 저장소면 누구나 다른 채널의 설명·자막 전문·댓글·썸네일을 볼 수 있음 → 저작권자가 GitHub 에 삭제 요청을 하면 파일·저장소가 막힐 수 있음. 비공개로 바꾸면 같은 것이 올라가되 남에게 안 보임.
+- 댓글 파일(`comments.csv`)에는 작성자 이름·채널 ID 가 없음 (본문·좋아요·답글 수·채널 주인 여부·날짜만).
+
+### 결과 (검사)
+- 분석기 자가진단 32/32 (새: 판정 — 비공개 → 예 / 공개 + 기본 → 예 / 공개 + 끔 → 아니오), 설정 파일에 `UPLOAD_CASES_TO_PUBLIC_REPO = false` 를 넣으면 받아들이고 공개 저장소에서 '아니오'
+- 브라우저 끝까지 시험(가짜 분석기, 토큰 지움): 21/21 — 승인 결과에 "자료(사례 폴더): 올림 — 사례 폴더(설명·자막·댓글 전부·썸네일)까지 (공개 저장소)"
+- 실제로 올라가는 때: 사용자 PC 가 새 코드로 다시 켜진 뒤 첫 올리기 (지금 켜진 창은 옛 코드 — 사례 폴더를 안 올림)
+
 ## 2026-10-14 (13) — 승인하면 결과 먼저 올리고 음성인식은 뒤에서 · 자막 없으면 영상 설명으로 대신 분석
 
 ### 왜 (사용자 지시)

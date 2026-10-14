@@ -19,9 +19,9 @@
 | [`tag_candidates.md`](tag_candidates.md) | **고른 태그 표** (GitHub 에서 바로 보임): 태그마다 채널 수·영상 수·묶음·검색어로 썼는지(안 쓴 까닭) — `.csv` 도 |
 | `.env` | (PC에만, git 제외) 이 주제만 쓰는 키 — 보통 비워 둠(맨 위 `.env` 키). 다른 주제와 동시에 돌리면 같은 키의 하루 할당량을 나눠 씀 (`guides/pc_analysis.md` "여러 주제를 동시에") |
 | `result/` | (분석 뒤) 분석기 결과 — PC 실행이 GitHub에 올림. 직접 고치지 않음 |
-| `result/outliers/` | (분석 뒤) 작은 채널 성공 사례 20개 + **구독자 수 상관없이 조회수 상위 20개**: `summary.md`(사례마다 첫 1분 발췌·90초마다 흐름·인기 댓글) · `outliers.csv` · `popular.csv` · `candidates.csv` · `status.json`(남은 일) + 사례 폴더 `01_…`·`P01_…` (자막·**댓글 전부**·썸네일 — 저장소가 비공개일 때만 GitHub 에) |
+| `result/outliers/` | (분석 뒤) 작은 채널 성공 사례 20개 + **구독자 수 상관없이 조회수 상위 20개**: `summary.md`(사례마다 첫 1분 발췌·90초마다 흐름·인기 댓글) · `outliers.csv` · `popular.csv` · `candidates.csv` · `status.json`(남은 일) + 사례 폴더 `01_…`·`P01_…` (설명·자막·**댓글 전부**·썸네일 — 공개 저장소에도 GitHub 에, 2026-10-14) |
 | `targets.json` | (PC 웹 화면) 직접 추가한 영상·채널 — 채널은 올라온 영상 전부를 탐색 |
-| `result/outliers/W_<영상ID>/` | (웹 화면) **승인한 영상**의 설명·자막·썸네일·댓글 전부 (저장소가 비공개일 때만 GitHub 에) |
+| `result/outliers/W_<영상ID>/` | (웹 화면) **승인한 영상**의 설명·자막·썸네일·댓글 전부 (GitHub 에도 — 공개 저장소에도, 2026-10-14) · 승인한 영상 표는 `result/outliers/approved.md` |
 | `result/outliers/weekly.md` | (웹 화면) **주별 분석** — 최근 1주·2주·3주… 한 주씩 넓힌 창 (`weekly.json`·`weekly.csv`) |
 | `result/outliers/downloads.md` | **받은 자료 표** (GitHub 에서 바로 보임): 탐색한 검색어(태그)별 결과, 자료로 받은 영상마다 **업로드 날짜**·자막(자막/음성인식/대기)·댓글(받은 수/영상 표시)·썸네일·설명·태그·챕터, 분석기 성공사례 |
 | `result/pc_progress.json` | (분석 뒤) PC 실행 진행 상태: 회차·끝났는지·남은 일·다음 회차 시각 |

@@ -1,10 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v2.9.2 — 2026-10-14 — 웹 화면이 결과를 먼저 올리고 음성인식은 뒤에서 (사용자 지시: "음성인식이랑 별개로 분석결과 낼 수 있잖아 …
+# VERSION: v2.9.3 — 2026-10-14 — 공개 저장소에서도 사례 폴더를 다 올림 (사용자 지시: "그냥 공개에서 다 올리도록 해"):
+#          UPLOAD_CASES_TO_PUBLIC_REPO = True (새 설정, 기본 켬) → 저장소가 공개여도 성공 사례 01_·조회수 상위 P01_·웹 화면 W_ 폴더
+#          (설명·자막·댓글 전부·썸네일·메타데이터)를 git add -f 로 올림 (예전 v2.5.0~v2.9.2: 비공개일 때만). 영상 파일 정책
+#          (ALLOW_VIDEO_UPLOAD_TO_PUBLIC_REPO=False)은 그대로 — 영상은 받지도 않음 (--no-video)
+# (v2.9.2 — 2026-10-14 — 웹 화면이 결과를 먼저 올리고 음성인식은 뒤에서 (사용자 지시: "음성인식이랑 별개로 분석결과 낼 수 있잖아 …
 #          분석결과랑 자료 다 올려 그 다음 음성인식하라고 수정해"): ① 올리기 잠금 (.yt_work/push_<폴더>.lock — OS 파일 잠금, 프로세스가
 #          죽으면 풀림): 웹 화면의 올리기와 음성인식의 올리기가 같은 작업 폴더(_github_clone_<폴더>)를 동시에 지우던 것을 차례로
 #          ② 음성인식 대기열은 한 번에 하나 (.yt_work/whisper_<폴더>.lock — 이미 도는 중이면 '이미 도는 중' 남기고 끝, 같은 영상을
-#          두 번 인식하지 않게) ③ --push-message: --push-only 커밋 메시지 (웹 화면이 '승인 N개 — 자료·주별 분석' 처럼)
+#          두 번 인식하지 않게) ③ --push-message: --push-only 커밋 메시지 (웹 화면이 '승인 N개 — 자료·주별 분석' 처럼))
 # (v2.9.1 — 2026-10-14 — 올라간 결과가 모자라던 것 고침 (사용자 질문 "분석 결과 다 올라온거야?"):
 #          ① 성공 사례 결과만 올릴 때(분석기 결과 없음)도 커밋 메시지에 '음성인식 대본 <영상> (n/전체)' 를 남김 (예전: 늘 '성공 사례 결과 먼저'
 #          라서 진행이 안 보였음) ② 음성인식이 하나 끝날 때마다 웹 화면의 주별 분석(weekly.md)도 다시 만듦 (예전: 대기열이 다 끝나야 —
@@ -154,6 +158,8 @@ DOWNLOAD_VIDEOS = True          # 영상 파일 다운로드
 VIDEO_MAX_HEIGHT = 480          # 다운로드 해상도 상한 (용량 절약)
 VIDEO_MAX_MB = 49               # 파일당 최대 용량 — 초과 시 ffmpeg 재인코딩 (GitHub 50MB 경고/100MB 차단)
 ALLOW_VIDEO_UPLOAD_TO_PUBLIC_REPO = False  # ⚠️ 공개 저장소에 타인 영상 업로드 허용 여부 (저작권 위험) — False면 영상은 PC에만 저장
+UPLOAD_CASES_TO_PUBLIC_REPO = True         # 공개 저장소에도 사례 폴더(설명·자막·댓글 전부·썸네일) 업로드 (사용자 지시 2026-10-14
+                                           # "그냥 공개에서 다 올리도록 해" — False 면 비공개 저장소일 때만, v2.9.3)
 USE_WHISPER_FALLBACK = True     # 자막이 없으면 Whisper 음성인식으로 대본 생성 (faster-whisper 자동 설치)
 WHISPER_MODEL = "small"         # tiny/base/small/medium/large-v3 (NVIDIA GPU 있으면 medium 권장)
 WHISPER_CPU_MAX_MINUTES = 15    # GPU 없이 실행 시 이 길이(분)를 넘는 영상은 Whisper 생략 (GPU면 제한 없음)
@@ -344,7 +350,7 @@ import numpy as np
 import pandas as pd
 import requests
 
-NOTEBOOK_VERSION = "v2.9.2"
+NOTEBOOK_VERSION = "v2.9.3"
 KST = dt.timezone(dt.timedelta(hours=9))
 UTC = dt.timezone.utc
 IS_WINDOWS = os.name == "nt"
@@ -526,6 +532,7 @@ CONFIG_KEYS = [
     "SMALL_CHANNEL_MAX_SUBS", "BIG_CHANNEL_MIN_SUBS", "SERP_TOP_N", "FRESH_DAYS", "SHORTS_HTTP_CHECK",
     "FETCH_COMMENTS_TOP_N", "SUCCESS_CASE_COUNT", "SUCCESS_SMALL_CHANNEL_SHARE", "SUCCESS_LONGFORM_SHARE",
     "MAX_CASES_PER_CHANNEL", "DOWNLOAD_VIDEOS", "VIDEO_MAX_HEIGHT", "VIDEO_MAX_MB", "ALLOW_VIDEO_UPLOAD_TO_PUBLIC_REPO",
+    "UPLOAD_CASES_TO_PUBLIC_REPO",
     "USE_WHISPER_FALLBACK", "WHISPER_MODEL", "WHISPER_CPU_MAX_MINUTES", "DEFER_WHISPER", "WHISPER_QUEUE_CPU_MAX_MINUTES",
     "WHISPER_QUEUE_MAX_ATTEMPTS", "YTDLP_COOKIES_FILE",
     "COOKIES_FROM_BROWSER", "YTDLP_CLIENT_FALLBACK", "YTDLP_MAX_BOT_BLOCKS",
@@ -3951,6 +3958,15 @@ def _clean_result_dir(target, tmp):
     return keep
 
 
+def cases_upload_full(private, cfg):
+    """사례 폴더까지 올릴지 (v2.9.3): 비공개 저장소이거나 UPLOAD_CASES_TO_PUBLIC_REPO(기본 켬 — 사용자 지시 2026-10-14). → (bool, 까닭)."""
+    if private:
+        return True, "비공개 저장소"
+    if cfg.get("UPLOAD_CASES_TO_PUBLIC_REPO"):
+        return True, "공개 저장소 — UPLOAD_CASES_TO_PUBLIC_REPO=True (사용자 지시 2026-10-14)"
+    return False, "공개 저장소 — UPLOAD_CASES_TO_PUBLIC_REPO=False"
+
+
 def _copy_local_outliers(cfg, target, full=False, base=None):
     """PC 의 <스크립트 폴더>/<PROJECT_FOLDER>/<RESULT_FOLDER>/outliers/ → 저장소.
     full=False (공개 저장소, v2.4.0): 맨 위 요약 파일(csv·md·json)만 덮어씀.
@@ -4225,15 +4241,16 @@ def _stage8_push_github_unlocked(ctx, token, outliers_only=False):
             log("GITHUB", "기존 결과 폴더 교체 (이전 버전은 git 기록에 보존)", path=rel_path, kept_outliers=kept)
         target.mkdir(parents=True, exist_ok=True)
         skipped = [] if outliers_only else _copy_results(ctx, target, allow_videos)   # 분석기 결과가 아직 없으면 성공 사례만 (v2.7.0)
-        n_out, out_skipped = _copy_local_outliers(cfg, target, full=private)
+        full, why = cases_upload_full(private, cfg)
+        n_out, out_skipped = _copy_local_outliers(cfg, target, full=full)
         if n_out:
-            log("GITHUB", "PC의 성공 사례·조회수 상위 결과도 함께 올림" + (" — 비공개 저장소: 사례 폴더(자막·댓글 전부·썸네일)까지" if private
-                                                                  else " — 공개 저장소: 요약 파일만 (사례 폴더는 PC에만)"),
-                files=n_out, path=f"{rel_path}/{OUTLIERS_DIR}", full=private)
+            log("GITHUB", "PC의 성공 사례·조회수 상위·웹 화면 결과도 함께 올림" + (f" — 사례 폴더(설명·자막·댓글 전부·썸네일)까지 ({why})" if full
+                                                                        else f" — 요약 파일만, 사례 폴더는 PC에만 ({why})"),
+                files=n_out, path=f"{rel_path}/{OUTLIERS_DIR}", full=full, private=private)
         for rel_f, mb in out_skipped:
             ctx.note("GITHUB", "GitHub 파일 크기 제한으로 올리지 않은 성공 사례 파일 (PC에는 있음)", level="WARNING", file=rel_f, mb=mb)
         run_git(["add", "-A", "--", rel_path], clone)
-        if private and n_out:   # .gitignore 의 사례 폴더 규칙(공개 저장소용)을 넘어서 올림 — 비공개일 때만
+        if full and n_out:      # .gitignore 에 걸려도 사례 폴더까지 (비공개 저장소, 또는 UPLOAD_CASES_TO_PUBLIC_REPO — v2.9.3)
             run_git(["add", "-A", "-f", "--", f"{rel_path}/{OUTLIERS_DIR}"], clone)
         _, status = run_git(["status", "--porcelain", "--", rel_path], clone)
         if not status.strip():
@@ -4676,6 +4693,9 @@ def run_self_test(cfg):
         file_unlock(l1)
         l3 = file_lock(lp)
         file_unlock(l3)
+    check("사례 폴더 올리기 판정 (비공개 → 예 / 공개 + 기본 → 예 / 공개 + 끔 → 아니오, v2.9.3)",
+          cases_upload_full(True, {"UPLOAD_CASES_TO_PUBLIC_REPO": False})[0] and cases_upload_full(False, {"UPLOAD_CASES_TO_PUBLIC_REPO": True})[0]
+          and not cases_upload_full(False, {"UPLOAD_CASES_TO_PUBLIC_REPO": False})[0] and UPLOAD_CASES_TO_PUBLIC_REPO is True)
     check("올리기 잠금 (한 번에 하나, v2.9.2)", l1 is not None and l2 is None and l3 is not None, first=l1 is not None, second=l2 is None)
     # v2.6.0: 주제별 키 — <주제폴더>/.env 가 먼저, 다음 환경 변수 <키>_<폴더>, 그다음 맨 위 .env·환경 변수 / 주제마다 다른 작업 폴더 이름
     with tempfile.TemporaryDirectory() as td:

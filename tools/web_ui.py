@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.2 — 2026-10-14 — 결과 먼저 올리고 음성인식은 뒤에서 (사용자 지시: "아니 음성인식이랑 별개로 분석결과 낼 수 있잖아 자막도
+# VERSION: v1.2.1 — 2026-10-14 — 공개 저장소에도 자료(사례 폴더)를 다 올림 (사용자 지시 "그냥 공개에서 다 올리도록 해" — 분석기 v2.9.3): 승인 결과 안내를
+#          분석기 로그의 full=True/False 로 읽음 (예전: private=True/False — 공개면 늘 'PC 에만'으로 보였을 것)
+# (v1.2 — 2026-10-14 — 결과 먼저 올리고 음성인식은 뒤에서 (사용자 지시: "아니 음성인식이랑 별개로 분석결과 낼 수 있잖아 자막도
 #          다운 시도했는데 안되면영상 설명으로 대체해서 그냥 분석결과랑 자료 다 올려 그 다음 음성인식하라고 수정해"):
 #          ① [승인] = 자료 받기(설명·자막 시도·썸네일·댓글 전부) → 주별 분석(자막을 못 받은 영상은 영상 설명으로 대신 —
 #             weekly_analysis v1.2, 승인 영상 표 approved.md) → **바로 GitHub 에 올림** → 작업 끝. (예전 v1.1: 음성인식 대기열이
@@ -11,7 +13,7 @@
 #          ③ 화면을 켜면: 승인한 영상이 있으면 주별 분석을 다시 만들어 올리고(새 코드의 설명 대체·표), 자막 없는 영상이 남았으면
 #             음성인식을 뒤에서 시작 (--no-whisper 로 끔)
 #          ④ [다시 분석]도 다시 만든 뒤 올림
-#          ※ 사례 폴더(W_ — 다른 사람의 설명·자막·댓글·썸네일 원문)는 저장소가 비공개일 때만 올라감 (CLAUDE.md) — 공개면 화면에 안내
+#          ※ 사례 폴더(W_ — 다른 사람의 설명·자막·댓글·썸네일 원문)는 저장소가 비공개일 때만 올라감 (CLAUDE.md) — 공개면 화면에 안내)
 # (v1.1.1 — 2026-10-14 — 분석 결과 안내 글만: 오래된 영상은 '창 밖' → 마지막 '전체' 창에 (weekly_analysis v1.1))
 # (v1.1 — 2026-10-14 — 목록 고침 (사용자 지시: "영상이나 채널 여러 개 넣을 수 있게 하고 체크된거랑 안된거 따로 목록 분리해서
 #          보여주고 이미 분석에 사용한 영상이면 목록에서 제외해 그리고 라이브 방송, 외국 영상은 탐색 대상에서 제외 그리고 목록을 배수가
@@ -68,7 +70,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import pc_analysis as pc                 # noqa: E402  할당량 장부·키 찾기·GitHub 동기화·패키지 준비
 
 ROOT = pc.ROOT
-VERSION = "v1.2"
+VERSION = "v1.2.1"
 LOG = logging.getLogger("web")
 KST = timezone(timedelta(hours=9))
 TOKEN = secrets.token_urlsafe(18)        # 화면이 요청마다 보내는 열쇠 (다른 사이트가 이 PC 의 화면을 조작하지 못하게)
@@ -587,7 +589,7 @@ def job_approve(t, ids, auto_whisper=True):
 
 
 def push_results(t, message):
-    """분석 결과(+ 비공개 저장소면 사례 폴더 자료)를 바로 GitHub 에 (분석기 --push-only, 다른 올리기와 차례로 — 분석기 v2.9.2 잠금).
+    """분석 결과와 자료(사례 폴더 — 공개 저장소에도, 분석기 v2.9.3)를 바로 GitHub 에 (분석기 --push-only, 다른 올리기와 차례로 — 분석기 v2.9.2 잠금).
     → {pushed, push_exit, push_note, materials}"""
     if not pc.find_secret("GITHUB_TOKEN", t)[0]:
         note = "GITHUB_TOKEN 없음 — 결과는 PC 에만 (화면 위 '1. 키 설정'에서 넣으면 다음부터 올라감)"
@@ -598,10 +600,10 @@ def push_results(t, message):
     code = run_subprocess([sys.executable, "youtube_topic_analyzer.py", "--config", f"{t}/analyzer_config.toml", "--push-only",
                            "--push-message", message], "GitHub", capture=lines)
     out = "\n".join(lines)
-    if "공개 저장소: 요약 파일만" in out or "private=False" in out:
-        materials = "PC 에만 — 저장소가 공개라 사례 폴더(설명·자막·댓글·썸네일)는 올리지 않음. 비공개로 바꾸면 다음 올리기부터 자동으로 올라감"
-    elif "비공개 저장소: 사례 폴더" in out or "private=True" in out:
-        materials = "올림 (비공개 저장소 — 사례 폴더까지)"
+    if re.search(r"\bfull=True\b", out):
+        materials = "올림 — 사례 폴더(설명·자막·댓글 전부·썸네일)까지" + (" (공개 저장소)" if re.search(r"\bprivate=False\b", out) else "")
+    elif re.search(r"\bfull=False\b", out) or "요약 파일만" in out:
+        materials = "PC 에만 — 분석기 설정 UPLOAD_CASES_TO_PUBLIC_REPO 가 꺼져 있고 저장소가 공개라 사례 폴더는 올리지 않음"
     else:
         materials = "확인 못 함 (진행 칸의 GitHub 줄 참고)"
     no_change = "변경 사항 없음" in out

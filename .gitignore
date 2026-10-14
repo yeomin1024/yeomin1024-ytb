@@ -24,9 +24,8 @@ video/public/audio/
 *.srt.bak-*
 # Claude Code 임시 작업 공간 (에이전트 worktree) — 커밋하지 않음
 .claude/worktrees/
-# 성공 사례 수집(tools/outlier_research.py): 다른 채널의 자막·댓글 원문·썸네일·캐시는 공개 저장소에 올리지 않음.
-# 저장소가 비공개면 PC 실행(분석기 v2.5.0 --push-only)이 사례 폴더를 git add -f 로 올린다 (사용자 지시 2026-10-13)
+# 성공 사례 수집(tools/outlier_research.py)·웹 화면: 사례 폴더(01_·P01_·W_ — 설명·자막·댓글·썸네일)는 공개 저장소에도 올림
+# (사용자 지시 2026-10-14 "그냥 공개에서 다 올리도록 해" — 분석기 v2.9.3). API 캐시·빠진 사례·탐색 목록만 PC 에
 */result/outliers/.cache/
-*/result/outliers/[0-9][0-9]_*/
-*/result/outliers/P[0-9][0-9]_*/
 */result/outliers/_old/
+*/result/web/

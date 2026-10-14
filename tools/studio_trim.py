@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-10-12 — 사용자 지시("패닉셀 영상 오디오 편집은 되는것 같은데 사연 부분을 줄일려고 하는데 자를 부분좀
+# VERSION: v1.0.1 — 2026-10-14 — 경고 문구의 지시사항 경로만 고침 (archive/script_guide_v1, 동작 같음)
+# (v1.0 — 2026-10-12 — 사용자 지시("패닉셀 영상 오디오 편집은 되는것 같은데 사연 부분을 줄일려고 하는데 자를 부분좀
 #          알려줘봐 그리고 대본 파일도 수정해봐"): 이미 올린 영상을 유튜브 스튜디오 편집기(자르기 및 컷 → 새 컷)로 줄일 때
-#          자를 시각을 계산(소리가 잘리지 않고, 빼는 문장의 화면 자막이 번쩍이지 않게)하고, 대본·SRT·챕터를 잘라 낸 영상에 맞춘다
+#          자를 시각을 계산(소리가 잘리지 않고, 빼는 문장의 화면 자막이 번쩍이지 않게)하고, 대본·SRT·챕터를 잘라 낸 영상에 맞춘다)
 """
 이미 올린 영상의 문장 일부를 유튜브 스튜디오에서 잘라 낼 때 쓰는 도구. 연구·교육용 — 투자 권유 아님.
 
@@ -38,7 +39,7 @@ from pathlib import Path
 
 import numpy as np
 
-VERSION = "v1.0"
+VERSION = "v1.0.1"
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import srt_tool  # noqa: E402  — 대본 문장 번호·SRT 묶기 (같은 규칙)
@@ -400,7 +401,7 @@ def main(argv=None):
         after_syllables=syl, host_starts=mmss(host_at) if host_at is not None else "-", removed_s=round(total_cut, 2),
         video_before=mmss(dur_old), video_after=mmss(dur_old - total_cut))
     if host_at is not None and host_at > 30.0:
-        log("STORY", logging.WARNING, note=f"진행자 시작 {mmss(host_at)} > 0:30 (script_guide 0-1의 13번)")
+        log("STORY", logging.WARNING, note=f"진행자 시작 {mmss(host_at)} > 0:30 (archive/script_guide_v1 0-1의 13번)")
 
     if args.preview:
         if not video.is_file():

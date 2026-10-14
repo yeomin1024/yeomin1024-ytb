@@ -1,6 +1,6 @@
 # 전체 진행 순서 — 분석부터 비공개 업로드까지 (모든 주제 공통)
 
-버전: v1.21 — 2026-10-14 — 사용자 지시 "결과 올라갔는데 문제가 부분 수정하고 분석결과로 내가 말한 거 할수 있는지 판단해 개선 필요하면 더 개선하고": 1단계 analysis.md 에 같은 채널 기준선(1-2)·형식(2-2)·요청(8-1), 음성인식은 성공 사례부터 앞 5분 → 전체 · 2단계는 1-2번을 먼저
+버전: v1.22 — 2026-10-14 — 사용자 지시 "주제 탐색, 제목 생성, 대본 생성 … 각각 지시사항 파일": 2단계 주제 탐색은 `topic_guide.md`, 3단계 제목·대본은 `title_guide.md`·`script_guide.md` v3.0 (v1.21 — 2026-10-14 — 사용자 지시 "결과 올라갔는데 문제가 부분 수정하고 분석결과로 내가 말한 거 할수 있는지 판단해 개선 필요하면 더 개선하고": 1단계 analysis.md 에 같은 채널 기준선(1-2)·형식(2-2)·요청(8-1), 음성인식은 성공 사례부터 앞 5분 → 전체 · 2단계는 1-2번을 먼저)
 
 Claude Code는 이 순서대로 진행한다. 단계마다 자세한 규칙은 각 지시사항 파일에 있다 (`guides/README.md` 표).
 ※ 투자·건강 등 주제별 고지 규칙은 각 주제 규칙을 따른다. 주식 영상은 투자 교육용이며 투자 권유가 아니다.
@@ -8,8 +8,8 @@ Claude Code는 이 순서대로 진행한다. 단계마다 자세한 규칙은 �
 | 단계 | 하는 일 | Claude가 쓰는 명령·지시사항 | 결과물 (`<주제폴더>/` 기준) |
 |---|---|---|---|
 | 1 | 분석 결과가 없거나 오래됐으면 분석 — **사용자가 집 PC에서** (성공 사례 자막·썸네일까지, 남으면 다음 날 자동으로 이어서). 클라우드는 분석기만 | `pc_analysis.md` (`run_analyzer.ps1`), 클라우드 `bash tools/run_analysis.sh <주제폴더>` | `result/`, `result/outliers/`, `result/pc_progress.json` |
-| 2 | 분석 결과로 지시사항 만들기·고치기 → 주제 탐색 | `data_insights.md` '갱신 방법'·'시청자 니즈', `title_guide.md` 0번 | `guides/*.md`, 주제 후보 |
-| 3 | 주제마다 제목 3개 · 썸네일 프롬프트 3개 · 업로드 시트 · 대본(TXT·SRT) | `title_guide.md` 11번, `thumbnail_guide.md`, `upload_guide.md`, `script_guide.md` | `source/<영상ID>/` |
+| 2 | 분석 결과로 지시사항 만들기·고치기 → 주제 탐색 | `topic_guide.md`, `data_insights.md` (`tools/content_research.py all <주제>`) | `guides/*.md`, `source/topic_candidates.md` |
+| 3 | 주제마다 제목 3개 · 썸네일 프롬프트 3개 · 업로드 시트 · 대본(TXT·SRT) | `title_guide.md` v3.0, `thumbnail_guide.md`, `upload_guide.md`, `script_guide.md` | `source/<영상ID>/` |
 | 3-5 | 영상별 요약 문서 (한눈에 보기, **스토리보드 없음**) | `python tools/make_summary.py <주제폴더> <영상ID>` | `source/<영상ID>/summary.md` |
 | 3-6 | 내레이션 (사용자가 Kaggle에서 셀 하나): 대본 전부를 읽어 사연자·진행자 목소리로 영상마다 오디오 하나 → 대본 폴더마다 GitHub에 자동으로 올림 | `python tools/tts_narration.py all --push` (`tts_guide.md`) | `source/<영상ID>/narration.mp3`, `tts_narration.json` |
 | 4 | 오디오 파일이 생기면 → (영상 코드가 없으면 Claude가 만든다, **승인 없이**) → SRT 맞춤 → 렌더 → 유튜브 **비공개** 업로드 + **렌더 완료 1시간 뒤 예약 공개** (한 번에 최대 3개) | `video_guide.md` 6번, `bash tools/publish.sh` | `video/src/episodes/<영상ID>/`, `out/<영상ID>/final_1080p.mp4`, `source/<영상ID>/youtube.json` |
@@ -62,8 +62,8 @@ Claude Code는 이 순서대로 진행한다. 단계마다 자세한 규칙은 �
    - 반드시 들어가는 절: ① 작은 채널 성공 사례 표(1단계 4번 기준) ② 그 영상들에 들어 있는 것(제목·길이·형식·썸네일·도입부) ③ **시청자 니즈** — 성공 사례 댓글을 질문·고민·요청·칭찬·비판으로 나눠 개수·좋아요와 짧은 인용, 니즈마다 "어떻게 채우나" ④ 지시사항 반영 표(근거 → 바꾼 규칙 파일·항목).
    - 바뀐 숫자 때문에 규칙이 달라지면(분량, 제목 길이, 소재 성공 비율 등) 해당 규칙 파일을 고친다.
    - 버전과 변경 이력을 남긴다.
-3. **주제 탐색:** `title_guide.md` 0번 순서로 후보 5개 표 → 추천 1~2개.
-   - 근거: 분석 결과의 카테고리 기회점수, 소재 성공 비율, 시청자 댓글
+3. **주제 탐색:** `topic_guide.md` 순서로 후보 5개 표(`source/topic_candidates.md`) → 추천.
+   - 근거: 시청자가 가장 원하는 정보(질문 묶음 — `content_research.py needs`), 수요·공급(analysis.md 3번), 같은 채널(1-2번), 사실 확인 길
    - 주제 규칙의 "상시 고민 목록"과 "제작 현황"도 새 결과로 고친다.
 4. 사용자가 주제를 맡기면 Claude가 고르고 이유를 남긴다. 분석 결과가 없는 주제는 진행하지 않는다 (1단계 먼저).
 
@@ -73,14 +73,14 @@ Claude Code는 이 순서대로 진행한다. 단계마다 자세한 규칙은 �
 
 | 순서 | 결과물 | 지시사항 |
 |---|---|---|
-| ① | 대본 TXT·SRT·README(검산·출처). **사연은 20~30초**(5~7문장, 첫 문장에 결과 숫자). SRT 검사 5항목 통과(문장·자막·SRT–TXT·고지 공백·사연 길이) | `script_guide.md` + 주제 `script_rules.md` |
-| ② | 제목 3개 `titles.md` (1개 채택, 짝 썸네일 표시) | `title_guide.md` 11번 |
+| ① | 대본 TXT·SRT·README·`checklist.md`(사실 확인표)·`calc/`(계산 코드). 7~8분, 결론 먼저, 오늘 시행 중인 법령으로 확인 (사연 파트를 넣으면 20~30초). SRT 검사 ✅ | `script_guide.md` v3.0 + 주제 `data_insights.md` |
+| ② | 제목 3개 `titles.md` (R1 추천, 근거 표, 짝 썸네일 표시) | `title_guide.md` v3.0 |
 | ③ | 썸네일 **프롬프트** 3개 `thumbnails/thumbnail_1~3.md` — 3개 모두 아래쪽에 제목 문구 2줄, thumbnail_3은 검은 배경에 채택 제목 문구 그대로(노랑·빨강 강조) | `thumbnail_guide.md` v1.3 (이미지는 이미지 AI가 만든다) |
 | ④ | 업로드 시트 `upload.md`: 제목·설명란·챕터 명령·태그·고정 댓글·설정 | `upload_guide.md` |
 | ⑤ | 요약 문서 `summary.md` | 아래 3-5 |
 
 - 이전 영상과 겹치지 않게 `source/used_content.md`를 먼저 읽고, 다 쓰면 추가한다.
-- **사례·연구는 되도록 최신으로 쓴다** (사용자 지시 2026-10-10: "1900년도는 너무 옛날"). 2020년대를 먼저, 없으면 2010년대까지. 1900년대 사건·1900년대 자료로 한 연구는 쓰지 않는다 (`script_guide.md` 0-1의 7번, 주식 `stock/guides/script_rules.md` 3-7).
+- **사례·연구는 되도록 최신으로 쓴다** (사용자 지시 2026-10-10: "1900년도는 너무 옛날"). 2020년대를 먼저, 없으면 2010년대까지. 1900년대 사건·1900년대 자료로 한 연구는 쓰지 않는다 (`topic_guide.md` 0번 6, 옛 `archive/script_guide_v1.md` 0-1의 7번, 주식 `stock/guides/script_rules.md` 3-7).
 - **영상 코드·스토리보드는 3단계에서 만들지 않는다** (사용자 지시 2026-10-10). 영상 코드는 오디오가 생긴 뒤 4단계에서 Claude가 만들고, 스토리보드 문서·승인 단계는 없다.
 - 대본이 바뀌면 SRT·제목·썸네일 문구·업로드 시트·영상 코드(있으면)를 같이 고친다. 이미 만든 오디오는 옛 대본이 되므로 Kaggle 셀을 다시 실행하면 그 영상만 다시 만들어 올린다 (3-6).
 

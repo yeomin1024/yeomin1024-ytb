@@ -1,6 +1,6 @@
 # 공통 지시사항 — 모든 주제에 쓰는 영상 제작 규칙
 
-버전: v1.18 — 2026-10-14 — 사용자 지시: 분석 결과는 `result/outliers/analysis.md`(성공 사례·주제·수요와 공급·제목·썸네일·구성·구독자·시청자 니즈 — 지시사항 재료) (v1.17 — 2026-10-14 — 사용자 지시: PC 분석은 웹 화면(`pc_analysis.md` v1.9 "웹 화면") (v1.16 — 2026-10-13 — 사용자 지시: 검색어는 `<주제>/keywords.txt`에 한 줄에 하나 (그룹 없음) (v1.15 — 2026-10-13 — 사용자 지시: 검색어는 실제 영상 태그에서 고름(`tools/tag_keywords.py`·`<주제>/tag_rules.toml`), 새 주제 시작하기 1번 (v1.14 — 2026-10-13 — 실행 명령을 `-File run_analyzer.ps1`(`.\` 없이 — Git Bash 오류) (v1.13 — 2026-10-13 — 사용자 지시: 여러 주제를 동시에 분석 (주제마다 `keywords.toml`·`.env`, `pc_analysis.md` v1.2) (v1.12 — 2026-10-13 — 사용자 지시: 성공 사례·조회수 상위(구독자 무관)의 댓글 전부, 저장소가 비공개면 사례 폴더까지 전부 올림 (`pc_analysis.md` v1.1) (v1.11 — 2026-10-13 — 사용자 지시: 주제 폴더를 모두 지우고 `economic/`(경제·재테크) 하나로, 검색어는 `<주제폴더>/keywords.toml`로 따로, 분석은 집 PC에서(`pc_analysis.md` — 할당량 초기화 뒤 남은 부분부터 자동으로 이어서) (v1.10 — 2026-10-12 — 사용자 지시: 올린 영상 줄이기(스튜디오 컷, `upload_guide.md` 10번·`tools/studio_trim.py`) (v1.9 — 2026-10-12 — 사용자 지시: 성공 사례 분석은 최근·작은 채널·배수 기준과 댓글의 시청자 니즈로, 주제마다 자기 자료만 (v1.8: 사연 20~30초로 짧지만 강렬하게, 내레이션 목소리는 샘플을 듣고 골라 고정; v1.7: 업로드 설정 '변경되거나 합성된 콘텐츠' = 예; v1.6: 썸네일 3개 모두 아래쪽 제목 문구 2줄·thumbnail_3은 검은 배경에 채택 제목 문구 그대로(노랑·빨강 강조), 렌더 뒤 음량 -14 LUFS (v1.5: 진행자는 중저음 남성, 모든 대본에서 같은 목소리 (v1.4: 오디오는 고르지 않고 하나로, 결과 파일은 대본 폴더마다 GitHub에 자동으로 (v1.3: 스토리보드·승인 단계 삭제(오디오가 생기면 바로 영상), 내레이션은 사연자·진행자 목소리 설정 파일(`voices/`)로 대본 전부 한 번에, 사례는 되도록 최신 (v1.2: 내레이션은 Kaggle에서 오픈소스 음성 AI로, v1.1: 전체 진행 순서를 `pipeline.md`로 (분석 → 지시사항·주제 → 제목·썸네일 프롬프트·업로드 시트·대본·스토리보드 → 요약 문서 → 오디오가 생기면 렌더·비공개 업로드))))))))))
+버전: v1.19 — 2026-10-14 — 사용자 지시 "주제 탐색, 제목 생성, 대본 생성을 어떻게 했는지와 피드백을 반영해서 각각 지시사항 파일": `topic_guide.md` v1.0 신설, `title_guide.md`·`script_guide.md` v3.0 전면 개정(옛 것은 `archive/`), 도구 `tools/content_research.py`·`tools/law_text.py` (v1.18 — 2026-10-14 — 사용자 지시: 분석 결과는 `result/outliers/analysis.md`(성공 사례·주제·수요와 공급·제목·썸네일·구성·구독자·시청자 니즈 — 지시사항 재료) (v1.17 — 2026-10-14 — 사용자 지시: PC 분석은 웹 화면(`pc_analysis.md` v1.9 "웹 화면") (v1.16 — 2026-10-13 — 사용자 지시: 검색어는 `<주제>/keywords.txt`에 한 줄에 하나 (그룹 없음) (v1.15 — 2026-10-13 — 사용자 지시: 검색어는 실제 영상 태그에서 고름(`tools/tag_keywords.py`·`<주제>/tag_rules.toml`), 새 주제 시작하기 1번 (v1.14 — 2026-10-13 — 실행 명령을 `-File run_analyzer.ps1`(`.\` 없이 — Git Bash 오류) (v1.13 — 2026-10-13 — 사용자 지시: 여러 주제를 동시에 분석 (주제마다 `keywords.toml`·`.env`, `pc_analysis.md` v1.2) (v1.12 — 2026-10-13 — 사용자 지시: 성공 사례·조회수 상위(구독자 무관)의 댓글 전부, 저장소가 비공개면 사례 폴더까지 전부 올림 (`pc_analysis.md` v1.1) (v1.11 — 2026-10-13 — 사용자 지시: 주제 폴더를 모두 지우고 `economic/`(경제·재테크) 하나로, 검색어는 `<주제폴더>/keywords.toml`로 따로, 분석은 집 PC에서(`pc_analysis.md` — 할당량 초기화 뒤 남은 부분부터 자동으로 이어서) (v1.10 — 2026-10-12 — 사용자 지시: 올린 영상 줄이기(스튜디오 컷, `upload_guide.md` 10번·`tools/studio_trim.py`) (v1.9 — 2026-10-12 — 사용자 지시: 성공 사례 분석은 최근·작은 채널·배수 기준과 댓글의 시청자 니즈로, 주제마다 자기 자료만 (v1.8: 사연 20~30초로 짧지만 강렬하게, 내레이션 목소리는 샘플을 듣고 골라 고정; v1.7: 업로드 설정 '변경되거나 합성된 콘텐츠' = 예; v1.6: 썸네일 3개 모두 아래쪽 제목 문구 2줄·thumbnail_3은 검은 배경에 채택 제목 문구 그대로(노랑·빨강 강조), 렌더 뒤 음량 -14 LUFS (v1.5: 진행자는 중저음 남성, 모든 대본에서 같은 목소리 (v1.4: 오디오는 고르지 않고 하나로, 결과 파일은 대본 폴더마다 GitHub에 자동으로 (v1.3: 스토리보드·승인 단계 삭제(오디오가 생기면 바로 영상), 내레이션은 사연자·진행자 목소리 설정 파일(`voices/`)로 대본 전부 한 번에, 사례는 되도록 최신 (v1.2: 내레이션은 Kaggle에서 오픈소스 음성 AI로, v1.1: 전체 진행 순서를 `pipeline.md`로 (분석 → 지시사항·주제 → 제목·썸네일 프롬프트·업로드 시트·대본·스토리보드 → 요약 문서 → 오디오가 생기면 렌더·비공개 업로드)))))))))))
 
 이 폴더(`guides/`)는 **주제와 상관없이** 쓰는 지시사항이다. 주제마다 다른 내용(시청자, 금액 기준, 고지 문구, 근거 자료, 피드백 사례)은 각 주제 폴더의 `guides/`에 있다.
 **주제 규칙이 공통 규칙과 다르면 주제 규칙을 따른다.**
@@ -13,8 +13,9 @@
 |---|---|---|
 | **`pipeline.md`** | **전체 진행 순서 1~4단계, 사용자가 처음 한 번 할 일(키 설정), Claude에게 하는 말 예시** | — |
 | **`pc_analysis.md`** | **집 PC에서 분석 돌리기**: `run_analyzer.ps1` → **웹 화면**(키·검색어·영상/채널 추가·탐색→체크→승인→주별 분석 1·2·3…주). **분석 결과 = `<주제폴더>/result/outliers/analysis.md`** (성공 사례·주제·수요와 공급·제목·썸네일·구성·구독자·시청자 니즈 — 2단계 지시사항 재료). 자동 실행(`-Auto`):  성공 사례 + 조회수 상위(구독자 무관)의 자막·썸네일·**댓글 전부** + 주제 분석 → GitHub(비공개 저장소면 사례 폴더까지), 할당량이 모자라면 초기화(한국 오후 4~5시) 뒤 남은 부분만 자동으로 이어서. 저장소를 비공개로 바꾸는 법 | `<주제폴더>/keywords.txt`(검색어, 한 줄에 하나) · `keywords.toml`(관련어) · `analyzer_config.toml` |
-| `title_guide.md` | 주제 탐색, 제목 공식, 영상별 제목 3개 | `stock/guides/title_rules.md` |
-| `script_guide.md` | 대본(사연→진행자→고지→문제 분석→올바른 방법→마무리), SRT 자막 | `stock/guides/script_rules.md` |
+| **`topic_guide.md`** (v1.0) | **주제 탐색**: 시청자층(댓글 나이) → 시청자가 가장 원하는 정보(질문 묶음) = 결론 → 시장(수요·공급·같은 채널) → 후보 표 → 결론·오래가는 원칙·바뀔 수 있는 것 (`tools/content_research.py audience·needs`) | `<주제>/guides/data_insights.md` 1번, `<주제>/research_rules.toml` |
+| **`title_guide.md`** (v3.0) | **제목**: 호기심 구절 + 해소 구절, 형식·낱말·맨 앞 말·금액 표현을 비교 집단·좁힌 주제·같은 채널로 확인, 60자 이하, 숫자는 대본이 증명 (`content_research.py titles`) | `data_insights.md` 2번 |
+| **`script_guide.md`** (v3.0) | **대본**: 사용자 피드백 18개(0번), 7챕터 구성(도입 50초에 결론·약속·기준 날짜 → 예시 인물 → 원칙 2~3개 → 순서 → 결과 → 이미 하고 있다면 → 정리·감사 인사), 사실은 오늘 시행 중인 법령 원문(`tools/law_text.py`), 숫자는 계산 코드, 측정(`content_research.py measure`), SRT. 사연 파트는 선택 | `data_insights.md` 3·4번, 완성 예 `economic/source/eunte-kkeonaeseugi-2026-10/` |
 | `thumbnail_guide.md` | 영상별 썸네일 시안 3개의 프롬프트 파일 — 3개 모두 아래쪽 제목 문구 2줄, thumbnail_3은 검은 배경 제목형 (이미지는 사용자가 이미지 AI로, 코드로 렌더하지 않음) | `stock/guides/thumbnail_rules.md` |
 | `video_guide.md` | Remotion 모션그래픽 영상 (오디오가 생기면: 장면 구성 `plan.ts` → 영상 코드 → still 자체 점검 → 렌더 → 음량 -14 LUFS, 승인 없음) | `stock/guides/script_rules.md` (재구성 문구 등) |
 | `upload_guide.md` | 업로드 시트: 설명란·챕터·태그·고정 댓글·업로드 설정 | `stock/guides/upload_rules.md` |
@@ -28,9 +29,9 @@
 | 단계 | 할 일 | 지시사항·명령 | 결과물 (`<주제폴더>/` 기준) |
 |---|---|---|---|
 | 1 | 분석 결과가 없으면 분석 — **집 PC**(자막·썸네일까지, 남으면 다음 날 자동으로 이어서) 또는 클라우드(분석기만) | `pc_analysis.md` (`run_analyzer.ps1`), 클라우드 `bash tools/run_analysis.sh <주제폴더>` | `result/`, `result/outliers/` |
-| 2 | 분석 결과로 주제 규칙·`data_insights.md` 만들기·고치기 → 주제 탐색 | `data_insights.md` '갱신 방법'·'시청자 니즈', `title_guide.md` 0번 | `guides/`, 주제 후보 |
-| 3 ① | 대본 TXT·SRT·README — **사연은 20~30초**(5~7문장, 첫 문장에 결과 숫자). SRT 검사: 문장 / 자막 / SRT–TXT 일치 / 고지 공백 / 사연 길이. 사례·연구는 되도록 최신(2020년대 먼저) | `script_guide.md` | `source/<영상ID>/` |
-| 3 ② | 제목 3개 (1개 채택, 짝 썸네일) | `title_guide.md` 11번 | `source/<영상ID>/titles.md` |
+| 2 | 분석 결과로 `data_insights.md` 만들기·고치기(`content_research.py all`) → 주제 탐색 | `topic_guide.md` | `guides/`, `source/topic_candidates.md` |
+| 3 ① | 대본 TXT·SRT·README·확인표·계산 코드 — 7~8분, 결론 먼저, 오늘 시행 중인 법령으로 사실 확인, 숫자는 계산 코드(사연 파트를 넣으면 20~30초). SRT 검사 ✅. 사례·연구는 되도록 최신(2020년대 먼저) | `script_guide.md` v3.0 | `source/<영상ID>/` |
+| 3 ② | 제목 3개 (R1 추천, 근거 표, 짝 썸네일) | `title_guide.md` v3.0 | `source/<영상ID>/titles.md` |
 | 3 ③ | 썸네일 **프롬프트** 3개 — 모두 아래쪽 제목 문구 2줄, thumbnail_3은 검은 배경에 채택 제목 문구 그대로 (이미지는 사용자가 이미지 AI로) | `thumbnail_guide.md` | `source/<영상ID>/thumbnails/thumbnail_1~3.md` |
 | 3 ④ | 업로드 시트 (제목·설명란·챕터 명령·태그·고정 댓글) | `upload_guide.md` | `source/<영상ID>/upload.md` |
 | 3-5 | 영상별 요약 문서 (스토리보드 없음) | `python tools/make_summary.py <주제폴더> <영상ID>` | `source/<영상ID>/summary.md` |
@@ -57,6 +58,7 @@ Claude Code에 시킬 때 예시는 `pipeline.md` 마지막 표에 있다.
 
 | 버전 | 날짜 | 변경 내용 |
 |---|---|---|
+| v1.19 | 2026-10-14 | 사용자 지시 "주제 탐색, 제목 생성, 대본 생성 … 각각 지시사항 파일": `topic_guide.md` v1.0 신설, `title_guide.md`·`script_guide.md` v3.0(옛 v2.1·v2.4.1 → `archive/`), 재테크 근거 `economic/guides/data_insights.md`, 도구 `tools/content_research.py`·`tools/law_text.py` |
 | v1.17 | 2026-10-14 | 사용자 지시 "분석기 웹 ui 형식으로": `pc_analysis.md` v1.9 웹 화면 |
 | v1.16 | 2026-10-13 | 사용자 지시 "꼭 그룹을 지정해야하나 검색어만 넣어도 되잖아": 검색어 `keywords.txt` (`pc_analysis.md` v1.8, `pipeline.md` v1.16) |
 | v1.15 | 2026-10-13 | 사용자 지시 "그냥 검색어를 재테크 관련 태그로 찾아서 다 그걸로 탐색해봐": 새 주제 시작하기 1번 — 검색어는 `tag_keywords.py`로 태그에서 (`pc_analysis.md` v1.6, `pipeline.md` v1.15) |

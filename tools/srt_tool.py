@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.6 — 2026-10-12 — check 사연 길이: 이미 올린 영상(youtube.json 있음)은 SRT가 실제 오디오 시간이므로 음절 추정 대신
-#          실측(진행자 첫 문장 시작 ≤ 0:30)으로 판정 — 스튜디오에서 사연을 잘라 낸 영상(tools/studio_trim.py)에 맞춤
+# VERSION: v1.6.1 — 2026-10-14 — 문서 경로만 고침: 옛 대본 지시사항이 guides/archive/script_guide_v1.md 로 옮겨짐 (동작 같음)
+# (v1.6 — 2026-10-12 — check 사연 길이: 이미 올린 영상(youtube.json 있음)은 SRT가 실제 오디오 시간이므로 음절 추정 대신
+#          실측(진행자 첫 문장 시작 ≤ 0:30)으로 판정 — 스튜디오에서 사연을 잘라 낸 영상(tools/studio_trim.py)에 맞춤)
 # (v1.5 — 2026-10-12 — check 에 사연 길이 항목: 사연 파트 읽는 음절 85~125(약 20~30초)를 넘으면 ❌ (사용자 지시: 사연은 짧지만 강렬하게))
 #          (v1.4: 파트 라벨 판정 수정: '-숫자'(음수 금액)로 시작하는 줄은 문장)
 #          (v1.3: 자막 한 줄 1432px, 앞줄·뒷줄 자막, 고지 공백 SRT 안, 문장 번호 기준 내보내기)
@@ -15,7 +16,7 @@ r"""
   python tools/srt_tool.py upload <대본.txt> <자막.srt> --chapters "1=사연;15=왜 물타기를 할까"   # 챕터 시간 (문장 번호 기준)
   python tools/srt_tool.py measure <대본.txt>                                   # 문장별 자막 폭(px)과 나뉠 문장
 
-자막 규칙 (guides/script_guide.md 5-2, guides/video_guide.md 3-3)
+자막 규칙 (guides/archive/script_guide_v1.md 5-2 — 새 대본은 guides/script_guide.md 5번, guides/video_guide.md 3-3)
   - 번호: 장면·챕터는 대본 문장 번호(TXT에서 라벨·[장면]·카드 문구를 뺀 줄 순서)로 센다. SRT 번호와 다르다.
   - 자막 한 줄: 자막은 늘 한 줄. 문장 폭(46px Noto Sans KR 700)이 1432px 이하면 문장 전체가 자막 1개,
     넘으면 앞줄·뒷줄 자막 2개로 나눠 차례로 보여 준다. (나뉜 문장: 문장 수 < 자막 수)
@@ -41,7 +42,7 @@ LINE_MAX_PX = 1432          # 자막 한 줄 최대 폭 = 띠 최대 1500px − 
 CARD_GAP_MIN = 3.5          # 고지 카드 공백 최소 (초)
 LEAD_IN_MAX = 2.0           # 첫 자막 앞 여백 허용 (초)
 EPS = 0.0015
-# 사연 길이 (사용자 지시 2026-10-12, guides/script_guide.md 0-1의 13번): 사연자 실측 4.3~4.6 읽는 음절/초(문장 사이 쉼 포함,
+# 사연 길이 (사용자 지시 2026-10-12, guides/archive/script_guide_v1.md 0-1의 13번 — 사연 파트가 있을 때만): 사연자 실측 4.3~4.6 읽는 음절/초(문장 사이 쉼 포함,
 # 주식 4개 영상 tts_narration.json) → 125음절 ≈ 27~29초, 85음절 ≈ 19~20초
 STORY_WORD = "사연"         # 파트 라벨에 이 낱말이 있으면 사연 파트 (voices/storyteller.json 의 parts 와 같음)
 STORY_SYL_MAX = 125
@@ -412,10 +413,10 @@ def check(txt, srt, expect=None):
         story_ok = measured <= STORY_HOST_MAX + EPS
         if not story_ok:
             problems.append(f"사연 길이(올린 영상 실측): 진행자 시작 {measured:.1f}초 > {STORY_HOST_MAX:.0f}초 → "
-                            "tools/studio_trim.py 로 스튜디오에서 사연 문장 빼기 (guides/script_guide.md 0-1의 13번)")
+                            "tools/studio_trim.py 로 스튜디오에서 사연 문장 빼기 (guides/archive/script_guide_v1.md 0-1의 13번)")
     elif st_n and not story_ok:
         problems.append(f"사연 길이: {st_n}문장·읽는 음절 {st_syl} ≈ {st_sec:.0f}초 (> {STORY_SYL_MAX}음절 ≈ 30초) → 5~7문장으로 줄이기 "
-                        "(guides/script_guide.md 0-1의 13번, 사용자 지시 2026-10-12)")
+                        "(guides/archive/script_guide_v1.md 0-1의 13번, 사용자 지시 2026-10-12)")
     elif st_n and st_syl < STORY_SYL_MIN:
         warnings.append(f"사연 길이: 읽는 음절 {st_syl} ≈ {st_sec:.0f}초 (< {STORY_SYL_MIN}음절 ≈ 20초) — 결과 숫자·결정적 장면이 다 들어갔는지 확인")
     match = not gp

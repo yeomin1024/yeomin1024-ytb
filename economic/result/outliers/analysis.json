@@ -1,8 +1,8 @@
 {
- "tool": "success_analysis.py v1.2",
+ "tool": "success_analysis.py v1.3",
  "topic": "economic",
  "name": "재테크",
- "generated": "2026-10-14T08:24:39+00:00",
+ "generated": "2026-10-14T08:40:34+00:00",
  "rules": {
   "success": {
    "MAX_AGE_DAYS": 180,
@@ -13,6 +13,7 @@
    "CASES_PER_CHANNEL": 2
   },
   "compare": {
+   "MIN_AGE_DAYS": 7,
    "MAX_AGE_DAYS": 365,
    "MAX_SUBS": 50000,
    "MIN_MINUTES": 4.0,
@@ -42,7 +43,27 @@
    "MIN_SUBS": 1000,
    "MAX_SUBS": 200000,
    "MIN_TOPIC_VIDEOS": 2,
-   "TOP": 25
+   "TOP": 25,
+   "BRAND_HINT": [
+    "ACE",
+    "PLUS",
+    "KODEX",
+    "TIGER",
+    "RISE",
+    "SOL",
+    "HANARO",
+    "KIWOOM",
+    "ARIRANG",
+    "TIMEFOLIO",
+    "자산운용",
+    "증권",
+    "은행",
+    "보험",
+    "공식",
+    "Official",
+    "뉴스",
+    "방송"
+   ]
   },
   "baseline": {
    "MIN_VIDEOS": 5,
@@ -93,7 +114,7 @@
    "AD_SUSPECT_MAX_LIKE_RATE": 0.0025,
    "AD_SUSPECT_MAX_COMMENT_RATE": 5e-05
   },
-  "version": "v1.2",
+  "version": "v1.3",
   "file": "economic/analysis_rules.toml",
   "keywords": [
    "재테크",
@@ -146,10 +167,10 @@
    "웹 승인": 280
   },
   "pool": 8302,
-  "compare_group": 700,
-  "compare_success": 125,
-  "compare_rate": 0.179,
-  "compare_channel_cut": 2656,
+  "compare_group": 686,
+  "compare_success": 143,
+  "compare_rate": 0.208,
+  "compare_channel_cut": 2349,
   "success_passed": 203,
   "success_excluded": [
    {
@@ -361,7 +382,8 @@
    }
   ],
   "success_text_sources": {
-   "설명": 154,
+   "음성인식(앞 5분)": 4,
+   "설명": 150,
    "음성인식": 2,
    "없음": 6
   },
@@ -370,11 +392,12 @@
   "success_thumbnails": 162
  },
  "limits": [
-  "대본(자막·음성인식)이 없는 성공 사례 160개 (#1, #2, #3, #4, #5, #6, #7, #8, #9, #10, #11, #12, #13, #14, #16, #17, #18, #19, #20, #21, #22, #23, #24, #25, #26, #27, #28, #29, #30, #31 …) — 설명란·챕터만 있음. 도입부·구성·말 속도는 대본이 있는 2개로만 셌다 (음성인식이 끝나면 다시 셈)",
-  "비교 집단 700개는 검색(조회수 순)·추가한 채널에서 나와 성공 비율(18%)이 실제보다 높다 — 같은 집단 안의 '있음/없음' 차이로만 보라",
+  "대본(자막·음성인식)이 없는 성공 사례 156개 (#5, #6, #7, #8, #9, #10, #11, #12, #13, #14, #16, #17, #18, #19, #20, #21, #22, #23, #24, #25, #26, #27, #28, #29, #30, #31, #32, #33, #34, #35 …) — 설명란·챕터만 있음. 도입부·구성·말 속도는 대본이 있는 6개로만 셌다 (음성인식이 끝나면 다시 셈)",
+  "비교 집단 686개 = 검색(조회수 순 — 잘된 영상 쪽으로 치우침)·추가한 채널·성공 사례 채널의 평소 영상 582개 (치우침 없음) 에서 올린 지 7~365일 영상, 성공 비율 21% — 실제 시장 비율이 아니다. 같은 집단 안의 '있음/없음' 차이로만 보고, '무엇이 먹혔나'는 1-2번(같은 채널 안)을 먼저 보라",
   "같은 채널 기준선이 있는 성공 사례 155/162개 (채널 영상이 5개 미만이거나 아직 못 받음)",
   "수요·공급의 '시장'은 탐색·검색에서 본 최근 90일 영상 763개 — 검색이 조회수 순이라 조회수 적은 영상이 덜 잡힌다. 주제 묶음 사이의 상대 비교(지수)로만 보라",
   "자동완성 말의 '최근 영상 수'는 우리가 본 영상만 셌다 — 실제 공급은 웹 화면 [공급 확인](말 하나에 검색 1번 = 100단위)으로 확인",
+  "자동완성 말에는 책·방송·사람·채널 이름도 섞인다 (예: '…를 찾아서'·'…지침서') — 영상 주제가 아닌 말은 건너뛰고 읽어라",
   "채널의 최근 구독자 증가는 구독자 수를 3일 넘게 사이를 두고 두 번 이상 받아야 나온다 (7일마다 다시 받음)",
   "'구독자가 많이 모이는가'는 YouTube API 로 영상별 구독 증가를 볼 수 없다 — 대신 채널 성장(7번: 개설 뒤 월 구독자·받을 때마다 남긴 기록), '구독·다음 기대' 댓글, 배수(조회수÷구독자)로 본다",
   "댓글 갈래·제목 특징은 낱말 규칙이라 거칠다 (물음표 반문도 '질문', 한 댓글이 여러 갈래). 원문 인용을 함께 보라",
@@ -389,7 +412,7 @@
    "subs": 908,
    "views": 510269,
    "ratio": 561.97,
-   "views_per_day": 18267.2,
+   "views_per_day": 18259.9,
    "minutes": 17.6,
    "likes": 1284,
    "like_rate": 0.0025,
@@ -400,7 +423,7 @@
    "folder": "W_eFsT1K_mPjc",
    "kind": "웹 승인",
    "thumbnail": "W_eFsT1K_mPjc/thumbnail.jpg",
-   "text_source": "설명",
+   "text_source": "음성인식(앞 5분)",
    "chapters": [
     {
      "start": 0,
@@ -448,16 +471,35 @@
     }
    ],
    "description": "진열장 앞은 비어 있는데 금은방은 문을 닫지 않습니다. 금시세가 오르는 동안 금값과 금매입 가격이 얼마나 벌어졌는지, 서랍 속 돌반지 하나가 금은방 안에서 몇 번 돈이 되는지 순서대로 따라가 봤습니다. 【 ⏱️ 타임코드 】 1. 한국금거래소 — 「2026년 9월 14일 귀금속 시세 고시」 (순금 한 돈 살 때 827,000원 · 팔 때 708,000원 · 차액 11만 9000원) 2. 한국표준금거래소 — 「2026년 9월 14일 귀금속 시세 고시」 (거래소 두 곳 매입가 차이 0.14% · 은 5.3% · 백금) 3. 농민신문 — 「'금' 팔러갔다 맘 상할판…살때 팔때 '이렇게' 차이 난다고?」 (소매가 구성: 금 시세 + 세공비 + 유통 + 부가세, 정제 비용) 4. 월곡주얼리산업연구소 — 「2025 금 ",
-   "hook20": null,
-   "first60": null,
-   "outline": null,
-   "syl_per_sec": null,
+   "hook20": "동네 그문밤 아플 지날 때마다 이상하지 않으셨습니까? 진흘장에는 수천만 원어치 금이 가득한데 안에는 손님 한 명 보이지 않습니다 주변 식당과 옷 가게는 몇 년 사이 몇 번씩 바뀌는데 그문방은 10년이 지나도 그 자리에 그대로 있어요 손님도 없는데 어떻게 오랫동안 버치는 걸까요? 집 서랍이나 장면 깊숙한 곳에",
+   "first60": "동네 그문밤 아플 지날 때마다 이상하지 않으셨습니까? 진흘장에는 수천만 원어치 금이 가득한데 안에는 손님 한 명 보이지 않습니다 주변 식당과 옷 가게는 몇 년 사이 몇 번씩 바뀌는데 그문방은 10년이 지나도 그 자리에 그대로 있어요 손님도 없는데 어떻게 오랫동안 버치는 걸까요? 집 서랍이나 장면 깊숙한 곳에 돌반지나 오래된 예물 하나쯤 있으시죠? 금값이 올랐다는 소식을 들으면 지금 팔면 얼마를 받을 수 있을지 궁금해집니다 실제로 지난해 우리나라 사람들이 보관하던 금을 대팔고 받은 돈은 약 6조 9천억 원으로 추정됩니다 그 많은 금은 어디로 갔을까요? 돌반지 하나를 들고 동네 그문방에 갔다고 해보겠습니다 주인은 반지를 받아 얼마를 줄지 정한 뒤 손님에게 돈을 건네죠 손님은 가게를 나갑니다 그런데 그문방의 장사",
+   "outline": [
+    {
+     "t": 0,
+     "text": "동네 그문밤 아플 지날 때마다 이상하지 않으셨습니까?"
+    },
+    {
+     "t": 90,
+     "text": "어느 브랜드에서 샀는지 디자인이 얼마나 곱게 빠졌는지는 묻지 않아요"
+    },
+    {
+     "t": 180,
+     "text": "어머니에게 물려받은 반지가 생각보다 적은 금액으로 계산됐다면"
+    },
+    {
+     "t": 272,
+     "text": "마지막으로 가게가 남길 몫이 빠져요"
+    }
+   ],
+   "syl_per_sec": 5.52,
    "comments_fetched": 139,
    "comments_total": 139,
    "comments_complete": true,
-   "hook_first": null,
-   "hook_types": null,
-   "partial_sec": 0,
+   "hook_first": "동네 그문밤 아플 지날 때마다 이상하지 않으셨습니까?",
+   "hook_types": [
+    "질문으로 시작"
+   ],
+   "partial_sec": 300,
    "channel_ratio": 455.0,
    "channel_median": 1122,
    "channel_id": "UCX_pKKqKCULJHf5mKA6rSmA",
@@ -540,7 +582,7 @@
    "subs": 1580,
    "views": 838223,
    "ratio": 530.52,
-   "views_per_day": 25953.3,
+   "views_per_day": 25944.4,
    "minutes": 34.8,
    "likes": 3156,
    "like_rate": 0.0038,
@@ -551,19 +593,38 @@
    "folder": "W_MJE-dsUuqIM",
    "kind": "웹 승인",
    "thumbnail": "W_MJE-dsUuqIM/thumbnail.jpg",
-   "text_source": "설명",
+   "text_source": "음성인식(앞 5분)",
    "chapters": [],
    "description": "요즘 저는 거의 매일 동네 복지관에 갑니다. 그곳에서 운동도 하고, 프로그램도 듣고, 또래 어르신들과 잡담도 하며 소소한 재미를 느끼고 있습니다. 그런데 어느 순간부터 이런 생각이 들기 시작했습니다. “이분들은 도대체 노후 자금이 얼마나 될까?” 화려한 삶을 사는 것도 아닌데, 매일 복지관에 오고 지역 모임에도 참여하고, 커피 한 잔 편하게 마실 수 있는 걸 보면 돈 걱정이 아주 심한 분들은 아닐 텐데…라는 의문 말입니다. 그리고 이 질문은 자연스럽게 제 자신의 노후를 떠올리게 했습니다. “나는 70대가 되었을 때, 통장에 얼마를 가지고 있을까?” 이건 아마 제만의 궁금증은 아닐 것입니다.",
-   "hook20": null,
-   "first60": null,
-   "outline": null,
-   "syl_per_sec": null,
+   "hook20": "요즘 저는 거의 매일 동네 복지관에 갑니다. 그곳에서 운동도 하고 프로그램도 듣고 또래 어르신들과 잡담도 하며 소소한 재미를 느끼고 있죠. 그런데 어느 순간부터 이런 생각이 들기 시작했습니다. 이분들은 도대체 노후 자금이 얼마나 될까?",
+   "first60": "요즘 저는 거의 매일 동네 복지관에 갑니다. 그곳에서 운동도 하고 프로그램도 듣고 또래 어르신들과 잡담도 하며 소소한 재미를 느끼고 있죠. 그런데 어느 순간부터 이런 생각이 들기 시작했습니다. 이분들은 도대체 노후 자금이 얼마나 될까? 화려한 삶을 사는 것도 아닌데 매일 복지관에 오고 지역 모임에도 참여하고 카피 한 잔 편하게 마실 수 있는 걸 보면 동걱정이 아주 심한 분들은 아닐 텐데 라는 의문 말입니다. 그리고 이 질문은 자연스럽게 제 자신의 노후를 떠올리게 했습니다. 나는 70대가 되었을 때 통장에 얼마를 가지고 있을까? 이건 아마 제 만의 궁금증은 아닐 것입니다. 70대가 되면 대부분 경제 활동에서 완전히 물러납니다. 소득이 끊어지는 시기죠. 그리고 이때부터 인생의 두 갈래로 갈린다고 합니다. 철물 ",
+   "outline": [
+    {
+     "t": 0,
+     "text": "요즘 저는 거의 매일 동네 복지관에 갑니다."
+    },
+    {
+     "t": 90,
+     "text": "최근 발표된 자료들을 보면 우리나라 사람들의 자산구조는"
+    },
+    {
+     "t": 182,
+     "text": "집은 10억인데 통장은 200만 원이다."
+    },
+    {
+     "t": 274,
+     "text": "이 질문을 스스로에게 던져봐야 합니다."
+    }
+   ],
+   "syl_per_sec": 4.73,
    "comments_fetched": 196,
    "comments_total": 196,
    "comments_complete": true,
-   "hook_first": null,
-   "hook_types": null,
-   "partial_sec": 0,
+   "hook_first": "요즘 저는 거의 매일 동네 복지관에 갑니다.",
+   "hook_types": [
+    "내 이야기·사연"
+   ],
+   "partial_sec": 300,
    "channel_ratio": 369.7,
    "channel_median": 2267,
    "channel_id": "UCWC7hxdRSXdmBkAs8rQU9cg",
@@ -687,7 +748,7 @@
    "subs": 1000,
    "views": 413701,
    "ratio": 413.7,
-   "views_per_day": 14899.2,
+   "views_per_day": 14893.2,
    "minutes": 21.7,
    "likes": 1518,
    "like_rate": 0.0037,
@@ -698,19 +759,36 @@
    "folder": "W_TKBAsjZgVWU",
    "kind": "웹 승인",
    "thumbnail": "W_TKBAsjZgVWU/thumbnail.jpg",
-   "text_source": "설명",
+   "text_source": "음성인식(앞 5분)",
    "chapters": [],
    "description": "🔇 조용한 부자들은 왜 말을 안 할까? 모임에서 늘 구석에 앉고, 누가 물어봐도 \"이것저것이요\" 한마디로 끝내는 사람. 알고 보니 건물 두 채, 세 채를 가지고 있었습니다. 이 사람들에게는 절대 입 밖에 꺼내지 않는 공통된 습관이 있었어요. 자산 규모, 소비 기준, 성공 원인, 심지어 좋은 일을 하고도 말하지 않습니다. 왜 그런 걸까요? 심리학 연구와 실제 사례를 바탕으로, 조용한 부자들이 침묵하는 진짜 이유 7가지를 하나씩 풀어봤습니다. 💡 이런 분들에게 추천합니다 ✔️ 말을 아끼는 사람들의 심리가 궁금한 분 ✔️ 부자들의 실제 습관이 알고 싶은 분 ✔️ 인간관계에서 말 때문에 데여본 적 있는 분 ✔️ 돈과 심리의 관계가 궁금한 분 📚 영상에서 언급된 참고 자료 • 레온 페스팅거 — 사회적 비교 이론 (1",
-   "hook20": null,
-   "first60": null,
-   "outline": null,
-   "syl_per_sec": null,
+   "hook20": "한 사람이 있었습니다. 제가 아는 모임에서 돈 얘기가 나올 때마다 그 사람은 딱 한 가지만 했어요. 고개를 끄덕이 한 거 누가 주식 얼마 벌었다. 부동산 어디가 올랐다. 목소리 높여가며 떠들 때 그 사람은 그냥 어 대단하다 한 마디 하고 술잔만 기울이고 있었습니다. 그래서 전 그 사람이 돈에 관심이 없는 줄 알았어요.",
+   "first60": "한 사람이 있었습니다. 제가 아는 모임에서 돈 얘기가 나올 때마다 그 사람은 딱 한 가지만 했어요. 고개를 끄덕이 한 거 누가 주식 얼마 벌었다. 부동산 어디가 올랐다. 목소리 높여가며 떠들 때 그 사람은 그냥 어 대단하다 한 마디 하고 술잔만 기울이고 있었습니다. 그래서 전 그 사람이 돈에 관심이 없는 줄 알았어요. 아니었습니다. 어느 날 우연히 알게 됐어요. 그 사람이 우리가 떠들고 있던 그 시간에 이미 건물 두 채의 월세를 받고 있었다는 걸 우리가 벌었다고 자랑하던 금액을 그 사람은 한 달에 그냥 통장으로 받고 있었던 겁니다. 그때든 감정이 모였는지 아세요. 부러움이 아니었어요. 놀라움도 아니었습니다. 창피함이었어요. 나는 그 사람 앞에서 몇 백 벌었다고 신나 했었고 그 사람은 아무 말 없이 그냥 들어",
+   "outline": [
+    {
+     "t": 0,
+     "text": "한 사람이 있었습니다."
+    },
+    {
+     "t": 93,
+     "text": "소비 습관."
+    },
+    {
+     "t": 180,
+     "text": "지금부터 그 7가지를 풀어보겠습니다."
+    },
+    {
+     "t": 270,
+     "text": "저도 이런 걸 느끼면서 변한 게 하나 있거든요."
+    }
+   ],
+   "syl_per_sec": 5.48,
    "comments_fetched": 100,
    "comments_total": 100,
    "comments_complete": true,
-   "hook_first": null,
-   "hook_types": null,
-   "partial_sec": 0,
+   "hook_first": "한 사람이 있었습니다.",
+   "hook_types": [],
+   "partial_sec": 300,
    "channel_ratio": 670.5,
    "channel_median": 617,
    "channel_id": "UCG86MEVZbr8Gm5-9UK6txHg",
@@ -779,7 +857,7 @@
    "subs": 1280,
    "views": 412530,
    "ratio": 322.29,
-   "views_per_day": 8983.7,
+   "views_per_day": 8981.5,
    "minutes": 9.4,
    "likes": 4308,
    "like_rate": 0.0104,
@@ -790,19 +868,38 @@
    "folder": "W_42N9nj2wWko",
    "kind": "웹 승인",
    "thumbnail": "W_42N9nj2wWko/thumbnail.jpg",
-   "text_source": "설명",
+   "text_source": "음성인식(앞 5분)",
    "chapters": [],
    "description": "\"기초연금 개편 진짜였다\" 여러분, 61년생부터 받는 기초연금이 12년만에 확 달라졌습니다. 대통령이 긴급 발표한 내용인데요. 이재명 대통령이 절대 그냥 주라고 하지는 않았다네요.. 그동안 똑같이 받던 연금, 이제 누구는 더 받고, 또 누구는 그대로 라는데요. 여러분의 부모님은 과연 어느 쪽일까요? 자세한 내용은 영상에서 확인하세요!",
-   "hook20": null,
-   "first60": null,
-   "outline": null,
-   "syl_per_sec": null,
+   "hook20": "여러분 얼마 전이었죠. 청와대 업무 보고에서 정말 중요한 얘기가 나왔어요. 그동안 바뀐다 바뀐다 말만 많았던 기초 연금 이번엔 진짜 움직이기 시작했습니다. 보건복지부 장관이 직접 지금과는 완전히 다른 방식으로 개편하겠다고 밝혔는데요. 이 소식 하나로 부모님들 가슴이 철렁하셨을 겁니다. 매달 똑같이 봤던 기초 연금인데 이제는 상황에 따라 받는 금액이 갈릴 수도 있다는 거니까요.",
+   "first60": "여러분 얼마 전이었죠. 청와대 업무 보고에서 정말 중요한 얘기가 나왔어요. 그동안 바뀐다 바뀐다 말만 많았던 기초 연금 이번엔 진짜 움직이기 시작했습니다. 보건복지부 장관이 직접 지금과는 완전히 다른 방식으로 개편하겠다고 밝혔는데요. 이 소식 하나로 부모님들 가슴이 철렁하셨을 겁니다. 매달 똑같이 봤던 기초 연금인데 이제는 상황에 따라 받는 금액이 갈릴 수도 있다는 거니까요. 그런데 정작 뭐가 어떻게 바뀌는 건지 내가 여기 해당되는 건지는 다들 모르고 계시더라고요. 지금 받는 돈은 정말 그대로일까요? 부분은 얼마나 달라질 수 있을까요? 하나씩 짚어드릴 테니까 끝까지 봐주세요. 먼저 가장 궁금하신 것부터 말씀드릴게요. 이번 소식으로 이제 연금 못 받는 건 아닌지 봤던 돈이 줄어드는 건 아닌지 걱정이 많으실 텐",
+   "outline": [
+    {
+     "t": 0,
+     "text": "여러분 얼마 전이었죠. 청와대 업무 보고에서 정말 중요한 얘기가 나왔어요."
+    },
+    {
+     "t": 92,
+     "text": "이 소득 인정액이 2026년 기준으로 혼자 사시는 분은 월 247만원 부분은 월…"
+    },
+    {
+     "t": 181,
+     "text": "아래 사람에게는 후하게, 윗 사람에게는 박하게."
+    },
+    {
+     "t": 272,
+     "text": "혹시 부부가 함께 기초형금을 받으면 각자 얼마씩 깎이는지 알고 계셨나요?"
+    }
+   ],
+   "syl_per_sec": 5.87,
    "comments_fetched": 349,
    "comments_total": 349,
    "comments_complete": true,
-   "hook_first": null,
-   "hook_types": null,
-   "partial_sec": 0,
+   "hook_first": "여러분 얼마 전이었죠.",
+   "hook_types": [
+    "시청자 부르기"
+   ],
+   "partial_sec": 300,
    "channel_ratio": null,
    "channel_median": null,
    "channel_id": "UCPcPNRQOlCGRpd48i5K-U2w",
@@ -915,7 +1012,7 @@
    "subs": 6550,
    "views": 1941365,
    "ratio": 296.39,
-   "views_per_day": 38084.4,
+   "views_per_day": 38076.1,
    "minutes": 8.6,
    "likes": 6600,
    "like_rate": 0.0034,
@@ -1125,7 +1222,7 @@
    "subs": 1600,
    "views": 425737,
    "ratio": 266.09,
-   "views_per_day": 2624.8,
+   "views_per_day": 2624.6,
    "minutes": 21.1,
    "likes": 4876,
    "like_rate": 0.0115,
@@ -1284,7 +1381,7 @@
    "subs": 699,
    "views": 168049,
    "ratio": 240.41,
-   "views_per_day": 3774.9,
+   "views_per_day": 3774.0,
    "minutes": 24.2,
    "likes": 1136,
    "like_rate": 0.0068,
@@ -1318,9 +1415,9 @@
      "views": 1040
     },
     {
-     "id": "GvrG9vE69CM",
-     "title": "2026년 냉장고 팔던 삼성·LG가 '집'에 뛰어든 진짜 이유, 집이 홈쇼핑에 등장했다",
-     "views": 942
+     "id": "J1nnnUhGiII",
+     "title": "대한민국 회사들이 만든 K뷰티 화장품 진짜 대박난 이유",
+     "views": 927
     }
    ],
    "needs": {
@@ -1381,7 +1478,7 @@
    "subs": 407,
    "views": 89871,
    "ratio": 220.81,
-   "views_per_day": 1876.5,
+   "views_per_day": 1876.1,
    "minutes": 32.0,
    "likes": 743,
    "like_rate": 0.0083,
@@ -1513,7 +1610,7 @@
    "subs": 962,
    "views": 183116,
    "ratio": 190.35,
-   "views_per_day": 5248.1,
+   "views_per_day": 5246.4,
    "minutes": 31.1,
    "likes": 1024,
    "like_rate": 0.0056,
@@ -1612,7 +1709,7 @@
    "subs": 898,
    "views": 157461,
    "ratio": 175.35,
-   "views_per_day": 11924.7,
+   "views_per_day": 11914.7,
    "minutes": 18.3,
    "likes": 1209,
    "like_rate": 0.0077,
@@ -1641,14 +1738,14 @@
    "channel_id": "UCfZOSJImtu6Ks-XRMHgRvPw",
    "normal_pairs": [
     {
-     "id": "VktAZJVItuU",
-     "title": "1억도 안 되는 20평 아파트, 바다까지 가깝습니다｜은퇴도시 5곳",
-     "views": 13794
+     "id": "_ygyEh-dZJA",
+     "title": "연금 150만원, 어디서 가장 많이 남을까?｜은퇴도시 5곳 생활비 비교",
+     "views": 8427
     },
     {
-     "id": "Dj3iacggtrg",
-     "title": "자동차보다 싼 시골집, 진짜 있습니다",
-     "views": 12686
+     "id": "3c8ITTj-z1U",
+     "title": "돈 받으면서 시골 살아보기, 진짜 됩니다",
+     "views": 4854
     }
    ],
    "needs": {
@@ -1704,7 +1801,7 @@
    "subs": 2200,
    "views": 373184,
    "ratio": 169.63,
-   "views_per_day": 2258.8,
+   "views_per_day": 2258.6,
    "minutes": 11.8,
    "likes": 4882,
    "like_rate": 0.0131,
@@ -1871,7 +1968,7 @@
    "subs": 169,
    "views": 26238,
    "ratio": 155.25,
-   "views_per_day": 3281.4,
+   "views_per_day": 3276.9,
    "minutes": 19.1,
    "likes": 317,
    "like_rate": 0.0121,
@@ -1929,7 +2026,7 @@
    "subs": 1330,
    "views": 203470,
    "ratio": 152.98,
-   "views_per_day": 7709.6,
+   "views_per_day": 7706.4,
    "minutes": 36.0,
    "likes": 1260,
    "like_rate": 0.0062,
@@ -2149,7 +2246,7 @@
    "subs": 1820,
    "views": 273612,
    "ratio": 150.34,
-   "views_per_day": 11901.3,
+   "views_per_day": 11895.6,
    "minutes": 18.8,
    "likes": 695,
    "like_rate": 0.0025,
@@ -2296,7 +2393,7 @@
    "subs": 962,
    "views": 138086,
    "ratio": 143.54,
-   "views_per_day": 5134.8,
+   "views_per_day": 5132.7,
    "minutes": 20.0,
    "likes": 826,
    "like_rate": 0.006,
@@ -2458,7 +2555,7 @@
    "subs": 4070,
    "views": 460244,
    "ratio": 113.08,
-   "views_per_day": 12103.6,
+   "views_per_day": 12100.1,
    "minutes": 8.6,
    "likes": 2104,
    "like_rate": 0.0046,
@@ -2591,7 +2688,7 @@
    "subs": 2780,
    "views": 311751,
    "ratio": 112.14,
-   "views_per_day": 5809.3,
+   "views_per_day": 5808.1,
    "minutes": 8.9,
    "likes": 1648,
    "like_rate": 0.0053,
@@ -2795,7 +2892,7 @@
    "subs": 4820,
    "views": 523257,
    "ratio": 108.56,
-   "views_per_day": 14378.3,
+   "views_per_day": 14373.9,
    "minutes": 15.4,
    "likes": 1402,
    "like_rate": 0.0027,
@@ -2900,7 +2997,7 @@
    "subs": 2910,
    "views": 300548,
    "ratio": 103.28,
-   "views_per_day": 5657.0,
+   "views_per_day": 5655.9,
    "minutes": 27.8,
    "likes": 4645,
    "like_rate": 0.0155,
@@ -3014,7 +3111,7 @@
    "subs": 9110,
    "views": 916998,
    "ratio": 100.66,
-   "views_per_day": 9774.2,
+   "views_per_day": 9773.0,
    "minutes": 17.6,
    "likes": 5862,
    "like_rate": 0.0064,
@@ -3162,7 +3259,7 @@
    "subs": 5060,
    "views": 488848,
    "ratio": 96.61,
-   "views_per_day": 3883.1,
+   "views_per_day": 3882.7,
    "minutes": 179.8,
    "likes": 8184,
    "like_rate": 0.0167,
@@ -3279,7 +3376,7 @@
    "subs": 580,
    "views": 42191,
    "ratio": 72.74,
-   "views_per_day": 3888.6,
+   "views_per_day": 3884.6,
    "minutes": 6.3,
    "likes": 414,
    "like_rate": 0.0098,
@@ -3432,7 +3529,7 @@
    "subs": 1580,
    "views": 114758,
    "ratio": 72.63,
-   "views_per_day": 856.2,
+   "views_per_day": 856.1,
    "minutes": 5.7,
    "likes": 1623,
    "like_rate": 0.0141,
@@ -3616,7 +3713,7 @@
    "subs": 3000,
    "views": 189623,
    "ratio": 63.21,
-   "views_per_day": 1135.5,
+   "views_per_day": 1135.4,
    "minutes": 17.6,
    "likes": 2404,
    "like_rate": 0.0127,
@@ -3782,7 +3879,7 @@
    "subs": 8060,
    "views": 505964,
    "ratio": 62.77,
-   "views_per_day": 10231.0,
+   "views_per_day": 10228.7,
    "minutes": 17.3,
    "likes": 1887,
    "like_rate": 0.0037,
@@ -3949,7 +4046,7 @@
    "subs": 21600,
    "views": 1338670,
    "ratio": 61.98,
-   "views_per_day": 11605.3,
+   "views_per_day": 11604.1,
    "minutes": 14.5,
    "likes": 14268,
    "like_rate": 0.0107,
@@ -4122,7 +4219,7 @@
    "subs": 8000,
    "views": 452263,
    "ratio": 56.53,
-   "views_per_day": 14571.5,
+   "views_per_day": 14566.3,
    "minutes": 17.4,
    "likes": 0,
    "like_rate": 0.0,
@@ -4364,7 +4461,7 @@
    "subs": 18800,
    "views": 962332,
    "ratio": 51.19,
-   "views_per_day": 8303.9,
+   "views_per_day": 8303.1,
    "minutes": 11.3,
    "likes": 5234,
    "like_rate": 0.0054,
@@ -4393,14 +4490,14 @@
    "channel_id": "UCNoDulso251ty4e1b9V_9Cg",
    "normal_pairs": [
     {
-     "id": "USGxXedrqBM",
-     "title": "AI로 스포츠 토토 하면 맞출 수 있을까?",
-     "views": 163134
-    },
-    {
      "id": "46GrAocDqR0",
      "title": "AI에게 인스타그램 운영을 시키면 팔로워를 몇 명 모을까?",
      "views": 218700
+    },
+    {
+     "id": "f1_zlfhkt7E",
+     "title": "AI에게 100만 원 주고 쇼핑 시키면 뭘 살까?",
+     "views": 591562
     }
    ],
    "needs": {
@@ -4537,7 +4634,7 @@
    "subs": 21500,
    "views": 1022606,
    "ratio": 47.56,
-   "views_per_day": 18296.1,
+   "views_per_day": 18292.5,
    "minutes": 22.9,
    "likes": 5728,
    "like_rate": 0.0056,
@@ -4690,7 +4787,7 @@
    "subs": 1790,
    "views": 82621,
    "ratio": 46.16,
-   "views_per_day": 4903.2,
+   "views_per_day": 4900.0,
    "minutes": 73.1,
    "likes": 1206,
    "like_rate": 0.0146,
@@ -4795,7 +4892,7 @@
    "subs": 5520,
    "views": 250421,
    "ratio": 45.37,
-   "views_per_day": 1856.0,
+   "views_per_day": 1855.9,
    "minutes": 9.2,
    "likes": 2902,
    "like_rate": 0.0116,
@@ -4975,7 +5072,7 @@
    "subs": 6780,
    "views": 287847,
    "ratio": 42.46,
-   "views_per_day": 3592.2,
+   "views_per_day": 3591.7,
    "minutes": 15.7,
    "likes": 2550,
    "like_rate": 0.0089,
@@ -5165,7 +5262,7 @@
    "subs": 2820,
    "views": 115876,
    "ratio": 41.09,
-   "views_per_day": 4251.1,
+   "views_per_day": 4249.4,
    "minutes": 110.8,
    "likes": 1340,
    "like_rate": 0.0116,
@@ -5273,7 +5370,7 @@
    "subs": 20900,
    "views": 856988,
    "ratio": 41.0,
-   "views_per_day": 14557.7,
+   "views_per_day": 14555.0,
    "minutes": 96.3,
    "likes": 9876,
    "like_rate": 0.0115,
@@ -5426,7 +5523,7 @@
    "subs": 1920,
    "views": 78181,
    "ratio": 40.72,
-   "views_per_day": 1028.5,
+   "views_per_day": 1028.3,
    "minutes": 20.5,
    "likes": 1106,
    "like_rate": 0.0141,
@@ -5579,7 +5676,7 @@
    "subs": 15800,
    "views": 633839,
    "ratio": 40.12,
-   "views_per_day": 6096.1,
+   "views_per_day": 6095.4,
    "minutes": 22.2,
    "likes": 6189,
    "like_rate": 0.0098,
@@ -5613,9 +5710,9 @@
      "views": 33443
     },
     {
-     "id": "WsdGWsO1DCU",
-     "title": "비트코인 8만 달러 재돌파, 지금 사도 될까? “하락장 끝난 진짜 상승장 신호” (feat. 연말 14만 달러 전망) #잭슨홀 #케빈워시 #비트코인전망 #BTC",
-     "views": 34006
+     "id": "DJNibs43TzI",
+     "title": "환율 내린 지금이 기회! 삼전닉스 팔아서 현금 '여기로' 옮기세요 #부자탐사대 #효라클 #김성효 #삼성전자 #SK하이닉스 #달러투자 #환율",
+     "views": 38360
     }
    ],
    "needs": {
@@ -5719,7 +5816,7 @@
    "subs": 33500,
    "views": 1247649,
    "ratio": 37.24,
-   "views_per_day": 30449.0,
+   "views_per_day": 30440.7,
    "minutes": 29.0,
    "likes": 8750,
    "like_rate": 0.007,
@@ -5864,7 +5961,7 @@
    "subs": 7670,
    "views": 277152,
    "ratio": 36.13,
-   "views_per_day": 1846.8,
+   "views_per_day": 1846.7,
    "minutes": 21.9,
    "likes": 3778,
    "like_rate": 0.0136,
@@ -6028,7 +6125,7 @@
    "subs": 17600,
    "views": 608500,
    "ratio": 34.57,
-   "views_per_day": 3623.7,
+   "views_per_day": 3623.4,
    "minutes": 16.8,
    "likes": 9030,
    "like_rate": 0.0148,
@@ -6182,7 +6279,7 @@
    "subs": 2320,
    "views": 79707,
    "ratio": 34.36,
-   "views_per_day": 781.6,
+   "views_per_day": 781.5,
    "minutes": 31.0,
    "likes": 1294,
    "like_rate": 0.0162,
@@ -6301,7 +6398,7 @@
    "subs": 3930,
    "views": 131681,
    "ratio": 33.51,
-   "views_per_day": 1568.3,
+   "views_per_day": 1568.1,
    "minutes": 17.8,
    "likes": 1542,
    "like_rate": 0.0117,
@@ -6421,7 +6518,7 @@
    "subs": 5670,
    "views": 184556,
    "ratio": 32.55,
-   "views_per_day": 1935.3,
+   "views_per_day": 1935.0,
    "minutes": 11.6,
    "likes": 4406,
    "like_rate": 0.0239,
@@ -6576,7 +6673,7 @@
    "subs": 737,
    "views": 23504,
    "ratio": 31.89,
-   "views_per_day": 575.6,
+   "views_per_day": 575.5,
    "minutes": 18.8,
    "likes": 394,
    "like_rate": 0.0168,
@@ -6842,7 +6939,7 @@
    "subs": 2350,
    "views": 73180,
    "ratio": 31.14,
-   "views_per_day": 796.0,
+   "views_per_day": 795.9,
    "minutes": 27.6,
    "likes": 1778,
    "like_rate": 0.0243,
@@ -7084,7 +7181,7 @@
    "subs": 30500,
    "views": 886017,
    "ratio": 29.05,
-   "views_per_day": 12809.8,
+   "views_per_day": 12807.8,
    "minutes": 137.6,
    "likes": 19185,
    "like_rate": 0.0217,
@@ -7251,7 +7348,7 @@
    "subs": 9570,
    "views": 277072,
    "ratio": 28.95,
-   "views_per_day": 2635.5,
+   "views_per_day": 2635.2,
    "minutes": 23.2,
    "likes": 3424,
    "like_rate": 0.0124,
@@ -7412,7 +7509,7 @@
    "subs": 24300,
    "views": 695761,
    "ratio": 28.63,
-   "views_per_day": 16193.8,
+   "views_per_day": 16189.7,
    "minutes": 12.3,
    "likes": 2737,
    "like_rate": 0.0039,
@@ -7551,7 +7648,7 @@
    "subs": 4550,
    "views": 118841,
    "ratio": 26.12,
-   "views_per_day": 755.9,
+   "views_per_day": 755.8,
    "minutes": 13.1,
    "likes": 1163,
    "like_rate": 0.0098,
@@ -7699,7 +7796,7 @@
    "subs": 11300,
    "views": 295016,
    "ratio": 26.11,
-   "views_per_day": 3870.9,
+   "views_per_day": 3870.3,
    "minutes": 19.6,
    "likes": 4518,
    "like_rate": 0.0153,
@@ -7728,14 +7825,14 @@
    "channel_id": "UCWv9hNM-8pNa7K8yMrXokYQ",
    "normal_pairs": [
     {
-     "id": "3bg0rRKBxUY",
-     "title": "[풀버전_86주연속 상승] “文때 평당 2천→4천만원, 李정부 평당 4천→1억 됐다” 李부동산대책 어디서부터 잘못됐나? #빠숑 #김학렬 #김제경",
-     "views": 19162
-    },
-    {
      "id": "v8A9Tfnc85M",
      "title": "[반도체의 '구루' 노근창] \"엔비디아 TSMC 신고가 경신, 왜 삼전닉스만 못가냐고요? 지금은 CPU의 팽창기, D램 수요 폭증합니다\" #노근창 _261007",
      "views": 25022
+    },
+    {
+     "id": "FNlIP3tmXuQ",
+     "title": "[삼성전자 3분기 실적전망] \"삼전 주가 '전고점' 돌파? 머지 않았습니다\" 삼전 3분기 영업익 110조원, 780억달러 예상..엔비디아 700억달러 추월, 세계1위_261007",
+     "views": 27501
     }
    ],
    "needs": {
@@ -7845,12 +7942,12 @@
    "subs": 26600,
    "views": 680729,
    "ratio": 25.59,
-   "views_per_day": 4906.4,
+   "views_per_day": 4906.0,
    "minutes": 14.8,
    "likes": 16162,
    "like_rate": 0.0237,
    "published": "2026-05-28",
-   "age_days": 138.7,
+   "age_days": 138.8,
    "theme": "3. 주식·ETF",
    "format": "정보·해설 (그 밖)",
    "folder": "W_ITzgH6CeZns",
@@ -8024,12 +8121,12 @@
    "subs": 677,
    "views": 17188,
    "ratio": 25.39,
-   "views_per_day": 840.7,
+   "views_per_day": 840.3,
    "minutes": 16.5,
    "likes": 101,
    "like_rate": 0.0059,
    "published": "2026-09-23",
-   "age_days": 20.4,
+   "age_days": 20.5,
    "theme": "1. 재테크 일반·마인드",
    "format": "정보·해설 (그 밖)",
    "folder": "W_i9Mj9VvL20o",
@@ -8084,7 +8181,7 @@
    "subs": 30000,
    "views": 748689,
    "ratio": 24.96,
-   "views_per_day": 5526.4,
+   "views_per_day": 5526.0,
    "minutes": 11.4,
    "likes": 10244,
    "like_rate": 0.0137,
@@ -8271,7 +8368,7 @@
    "subs": 22500,
    "views": 558543,
    "ratio": 24.82,
-   "views_per_day": 3628.5,
+   "views_per_day": 3628.2,
    "minutes": 27.2,
    "likes": 10625,
    "like_rate": 0.019,
@@ -8424,7 +8521,7 @@
    "subs": 12600,
    "views": 305667,
    "ratio": 24.26,
-   "views_per_day": 2437.3,
+   "views_per_day": 2437.1,
    "minutes": 21.6,
    "likes": 6907,
    "like_rate": 0.0226,
@@ -8630,7 +8727,7 @@
    "subs": 18400,
    "views": 446340,
    "ratio": 24.26,
-   "views_per_day": 11391.0,
+   "views_per_day": 11387.8,
    "minutes": 26.9,
    "likes": 1820,
    "like_rate": 0.0041,
@@ -8763,7 +8860,7 @@
    "subs": 1310,
    "views": 31158,
    "ratio": 23.78,
-   "views_per_day": 199.8,
+   "views_per_day": 199.7,
    "minutes": 7.1,
    "likes": 1002,
    "like_rate": 0.0322,
@@ -8911,7 +9008,7 @@
    "subs": 8040,
    "views": 181711,
    "ratio": 22.6,
-   "views_per_day": 8482.0,
+   "views_per_day": 8477.6,
    "minutes": 34.7,
    "likes": 1290,
    "like_rate": 0.0071,
@@ -9183,7 +9280,7 @@
    "subs": 4860,
    "views": 108084,
    "ratio": 22.24,
-   "views_per_day": 1422.0,
+   "views_per_day": 1421.8,
    "minutes": 52.5,
    "likes": 1574,
    "like_rate": 0.0146,
@@ -9266,7 +9363,7 @@
    "subs": 15800,
    "views": 350615,
    "ratio": 22.19,
-   "views_per_day": 2100.6,
+   "views_per_day": 2100.4,
    "minutes": 22.8,
    "likes": 6213,
    "like_rate": 0.0177,
@@ -9333,9 +9430,9 @@
      "views": 33443
     },
     {
-     "id": "WsdGWsO1DCU",
-     "title": "비트코인 8만 달러 재돌파, 지금 사도 될까? “하락장 끝난 진짜 상승장 신호” (feat. 연말 14만 달러 전망) #잭슨홀 #케빈워시 #비트코인전망 #BTC",
-     "views": 34006
+     "id": "DJNibs43TzI",
+     "title": "환율 내린 지금이 기회! 삼전닉스 팔아서 현금 '여기로' 옮기세요 #부자탐사대 #효라클 #김성효 #삼성전자 #SK하이닉스 #달러투자 #환율",
+     "views": 38360
     }
    ],
    "needs": {
@@ -9452,7 +9549,7 @@
    "subs": 30200,
    "views": 613828,
    "ratio": 20.33,
-   "views_per_day": 10068.5,
+   "views_per_day": 10066.7,
    "minutes": 52.7,
    "likes": 11581,
    "like_rate": 0.0189,
@@ -9625,7 +9722,7 @@
    "subs": 3240,
    "views": 65369,
    "ratio": 20.18,
-   "views_per_day": 843.7,
+   "views_per_day": 843.6,
    "minutes": 18.1,
    "likes": 1342,
    "like_rate": 0.0205,
@@ -9758,7 +9855,7 @@
    "subs": 14400,
    "views": 274426,
    "ratio": 19.06,
-   "views_per_day": 1725.9,
+   "views_per_day": 1725.8,
    "minutes": 25.6,
    "likes": 5239,
    "like_rate": 0.0191,
@@ -9919,7 +10016,7 @@
    "subs": 8440,
    "views": 160569,
    "ratio": 19.02,
-   "views_per_day": 1558.7,
+   "views_per_day": 1558.5,
    "minutes": 15.4,
    "likes": 1913,
    "like_rate": 0.0119,
@@ -10097,7 +10194,7 @@
    "subs": 8410,
    "views": 155355,
    "ratio": 18.47,
-   "views_per_day": 1272.0,
+   "views_per_day": 1271.9,
    "minutes": 26.2,
    "likes": 1796,
    "like_rate": 0.0116,
@@ -10238,7 +10335,7 @@
    "subs": 12600,
    "views": 228391,
    "ratio": 18.13,
-   "views_per_day": 1538.9,
+   "views_per_day": 1538.8,
    "minutes": 14.9,
    "likes": 4361,
    "like_rate": 0.0191,
@@ -10431,12 +10528,12 @@
    "subs": 1160,
    "views": 20924,
    "ratio": 18.04,
-   "views_per_day": 832.2,
+   "views_per_day": 831.9,
    "minutes": 17.6,
    "likes": 83,
    "like_rate": 0.004,
    "published": "2026-09-19",
-   "age_days": 25.1,
+   "age_days": 25.2,
    "theme": "3. 주식·ETF",
    "format": "인터뷰·강연·대담",
    "folder": "W_RfFgJJomevo",
@@ -10524,7 +10621,7 @@
    "subs": 14900,
    "views": 264874,
    "ratio": 17.78,
-   "views_per_day": 3216.0,
+   "views_per_day": 3215.6,
    "minutes": 110.1,
    "likes": 8729,
    "like_rate": 0.033,
@@ -10761,7 +10858,7 @@
    "subs": 8060,
    "views": 140789,
    "ratio": 17.47,
-   "views_per_day": 6876.0,
+   "views_per_day": 6872.3,
    "minutes": 16.4,
    "likes": 500,
    "like_rate": 0.0036,
@@ -10877,7 +10974,7 @@
    "subs": 14700,
    "views": 248782,
    "ratio": 16.92,
-   "views_per_day": 4128.0,
+   "views_per_day": 4127.2,
    "minutes": 40.7,
    "likes": 4334,
    "like_rate": 0.0174,
@@ -11017,7 +11114,7 @@
    "subs": 20100,
    "views": 333845,
    "ratio": 16.61,
-   "views_per_day": 3339.3,
+   "views_per_day": 3338.9,
    "minutes": 29.1,
    "likes": 7505,
    "like_rate": 0.0225,
@@ -11151,7 +11248,7 @@
    "subs": 22200,
    "views": 363948,
    "ratio": 16.39,
-   "views_per_day": 5748.4,
+   "views_per_day": 5747.4,
    "minutes": 36.9,
    "likes": 11916,
    "like_rate": 0.0327,
@@ -11333,7 +11430,7 @@
    "subs": 12400,
    "views": 194163,
    "ratio": 15.66,
-   "views_per_day": 1265.5,
+   "views_per_day": 1265.4,
    "minutes": 13.7,
    "likes": 2890,
    "like_rate": 0.0149,
@@ -11492,7 +11589,7 @@
    "subs": 8440,
    "views": 131445,
    "ratio": 15.57,
-   "views_per_day": 882.2,
+   "views_per_day": 882.1,
    "minutes": 17.6,
    "likes": 1514,
    "like_rate": 0.0115,
@@ -11670,7 +11767,7 @@
    "subs": 27800,
    "views": 405639,
    "ratio": 14.59,
-   "views_per_day": 4829.9,
+   "views_per_day": 4829.2,
    "minutes": 16.1,
    "likes": 8170,
    "like_rate": 0.0201,
@@ -11694,8 +11791,8 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": 33.7,
-   "channel_median": 12028,
+   "channel_ratio": 34.1,
+   "channel_median": 11898,
    "channel_id": "UCLOsPoIK68KqJAjCtpP1i_w",
    "normal_pairs": [
     {
@@ -11704,9 +11801,9 @@
      "views": 12028
     },
     {
-     "id": "C2hy5zx2O6Y",
-     "title": "이게 '진짜' 자동화입니다. 원클릭으로 쇼츠 뽑아서 월 수천만원 버는 미친 방법 (뻔한 프로그램❌)",
-     "views": 12042
+     "id": "hqBPAWng4Do",
+     "title": "\"쉬운데 모르는 사람 많아요\" 과일 사진 올려주고 4개월만에 17억 번 역대급 부업",
+     "views": 11768
     }
    ],
    "needs": {
@@ -11829,7 +11926,7 @@
    "subs": 3930,
    "views": 56958,
    "ratio": 14.49,
-   "views_per_day": 920.9,
+   "views_per_day": 920.7,
    "minutes": 41.6,
    "likes": 777,
    "like_rate": 0.0136,
@@ -11946,7 +12043,7 @@
    "subs": 27500,
    "views": 397862,
    "ratio": 14.47,
-   "views_per_day": 50279.1,
+   "views_per_day": 50209.0,
    "minutes": 33.0,
    "likes": 1826,
    "like_rate": 0.0046,
@@ -12112,7 +12209,7 @@
    "subs": 9400,
    "views": 135113,
    "ratio": 14.37,
-   "views_per_day": 995.5,
+   "views_per_day": 995.4,
    "minutes": 7.8,
    "likes": 1307,
    "like_rate": 0.0097,
@@ -12237,12 +12334,12 @@
    "subs": 15800,
    "views": 224984,
    "ratio": 14.24,
-   "views_per_day": 1361.5,
+   "views_per_day": 1361.4,
    "minutes": 5.2,
    "likes": 2558,
    "like_rate": 0.0114,
    "published": "2026-05-02",
-   "age_days": 165.2,
+   "age_days": 165.3,
    "theme": "6. 절세·제도",
    "format": "정보·해설 (그 밖)",
    "folder": "W_AbpqDkCFTT0",
@@ -12402,7 +12499,7 @@
    "subs": 21600,
    "views": 305635,
    "ratio": 14.15,
-   "views_per_day": 2986.8,
+   "views_per_day": 2986.5,
    "minutes": 34.2,
    "likes": 3351,
    "like_rate": 0.011,
@@ -12669,7 +12766,7 @@
    "subs": 1230,
    "views": 16805,
    "ratio": 13.66,
-   "views_per_day": 488.6,
+   "views_per_day": 488.5,
    "minutes": 18.7,
    "likes": 142,
    "like_rate": 0.0084,
@@ -12729,12 +12826,12 @@
    "subs": 9680,
    "views": 131847,
    "ratio": 13.62,
-   "views_per_day": 4014.2,
+   "views_per_day": 4012.9,
    "minutes": 14.7,
    "likes": 1162,
    "like_rate": 0.0088,
    "published": "2026-09-11",
-   "age_days": 32.8,
+   "age_days": 32.9,
    "theme": "1. 재테크 일반·마인드",
    "format": "정보·해설 (그 밖)",
    "folder": "W_abPHpPAuZmw",
@@ -12973,7 +13070,7 @@
    "subs": 17600,
    "views": 230573,
    "ratio": 13.1,
-   "views_per_day": 1591.0,
+   "views_per_day": 1590.9,
    "minutes": 18.0,
    "likes": 3903,
    "like_rate": 0.0169,
@@ -13114,7 +13211,7 @@
    "subs": 4380,
    "views": 55676,
    "ratio": 12.71,
-   "views_per_day": 629.9,
+   "views_per_day": 629.8,
    "minutes": 7.4,
    "likes": 892,
    "like_rate": 0.016,
@@ -13247,7 +13344,7 @@
    "subs": 30200,
    "views": 370855,
    "ratio": 12.28,
-   "views_per_day": 4881.9,
+   "views_per_day": 4881.2,
    "minutes": 11.9,
    "likes": 5569,
    "like_rate": 0.015,
@@ -13406,7 +13503,7 @@
    "subs": 3780,
    "views": 45565,
    "ratio": 12.05,
-   "views_per_day": 680.3,
+   "views_per_day": 680.2,
    "minutes": 7.9,
    "likes": 234,
    "like_rate": 0.0051,
@@ -13589,7 +13686,7 @@
    "subs": 36700,
    "views": 431970,
    "ratio": 11.77,
-   "views_per_day": 3211.8,
+   "views_per_day": 3211.5,
    "minutes": 28.4,
    "likes": 6627,
    "like_rate": 0.0153,
@@ -13834,7 +13931,7 @@
    "subs": 16900,
    "views": 195289,
    "ratio": 11.56,
-   "views_per_day": 1366.8,
+   "views_per_day": 1366.7,
    "minutes": 15.6,
    "likes": 2991,
    "like_rate": 0.0153,
@@ -13863,14 +13960,14 @@
    "channel_id": "UC-oewIxBlHummugX-DtqUxg",
    "normal_pairs": [
     {
-     "id": "TWrlfilcNMw",
-     "title": "혼자 서울 아파트를 매수하고 6년 뒤, 삶이 어떻게 달라졌을까?",
-     "views": 5017
-    },
-    {
      "id": "4VAUD2FuBSw",
      "title": "[1월결산] S&P500 투자자가 코스피 5,000 돌파를 바라보며!",
      "views": 4849
+    },
+    {
+     "id": "4M6-yhK78WI",
+     "title": "직장인이 부자 되려면 반드시 거쳐야 할 단계들!",
+     "views": 4848
     }
    ],
    "needs": {
@@ -14131,7 +14228,7 @@
    "subs": 40500,
    "views": 426746,
    "ratio": 10.54,
-   "views_per_day": 4178.8,
+   "views_per_day": 4178.4,
    "minutes": 26.1,
    "likes": 6763,
    "like_rate": 0.0158,
@@ -14409,7 +14506,7 @@
    "subs": 18300,
    "views": 179016,
    "ratio": 9.78,
-   "views_per_day": 3135.1,
+   "views_per_day": 3134.5,
    "minutes": 15.7,
    "likes": 2612,
    "like_rate": 0.0146,
@@ -14438,14 +14535,14 @@
    "channel_id": "UC1svPlZhZkFROW5WseKgI7A",
    "normal_pairs": [
     {
-     "id": "163Hn6l5280",
-     "title": "\"운전대 다음은 앞치마 입니다\" 노년에 앞치마를 놓는 날 | 김지호의 공간문해력",
-     "views": 95790
-    },
-    {
      "id": "K9UrTBJ6TGE",
      "title": "\"이게 대한민국 현실입니다\" 평생 집 한채 마련했는데 갈 곳 없는 노후의 현실",
      "views": 105414
+    },
+    {
+     "id": "WYi5QQq_G0w",
+     "title": "노년에 '이 집' 선택했다가 평생 후회합니다.｜김지호의 공간문해력",
+     "views": 86352
     }
    ],
    "needs": {
@@ -14522,7 +14619,7 @@
    "subs": 16900,
    "views": 162739,
    "ratio": 9.63,
-   "views_per_day": 1177.9,
+   "views_per_day": 1177.8,
    "minutes": 18.9,
    "likes": 2031,
    "like_rate": 0.0125,
@@ -14661,7 +14758,7 @@
    "subs": 39500,
    "views": 379369,
    "ratio": 9.6,
-   "views_per_day": 11864.6,
+   "views_per_day": 11860.4,
    "minutes": 11.9,
    "likes": 6660,
    "like_rate": 0.0176,
@@ -14690,14 +14787,14 @@
    "channel_id": "UCFqEeQTCibscA6shz-zcRvA",
    "normal_pairs": [
     {
-     "id": "E3caJ0peuig",
-     "title": "\"노인돼서 집값 오르고 연금도 못받잖아!\" 재건축 기다리는 노인이 죽지 못하고 항상 공원에 나오는 이유",
-     "views": 9736
-    },
-    {
      "id": "bjPX8r1FbfM",
      "title": "\"기독교, 불교가 못하는 걸 해\" 사이비 종교 40년 차 교직자는 연금 없이 행복한 진짜 이유",
      "views": 8365
+    },
+    {
+     "id": "Sfi0Ca_HwQI",
+     "title": "\"한국 병원, 이게 말이 돼?\" 연금 받아도 세금으로 다 나가니까 병원비도 모자란 대한민국 노인의 현실",
+     "views": 14429
     }
    ],
    "needs": {
@@ -14820,7 +14917,7 @@
    "subs": 29200,
    "views": 276405,
    "ratio": 9.47,
-   "views_per_day": 1789.8,
+   "views_per_day": 1789.7,
    "minutes": 52.8,
    "likes": 11798,
    "like_rate": 0.0427,
@@ -14886,14 +14983,14 @@
    "channel_id": "UCowMNQXcxSJJ7Kyc41Q4Pzw",
    "normal_pairs": [
     {
-     "id": "9oKOQqd9UwY",
-     "title": "은퇴 후 8억짜리 속초 바닷가 아파트, 1년 만에 4억 6천에 던졌습니다 | 60대 은퇴자의 부동산 영끌 실패기!",
-     "views": 28676
-    },
-    {
      "id": "ulfAA7WKZCE",
      "title": "60대 빚투의 끝…포모에 눈 멀어 반대매매로 노후를 날린 은퇴자의 고백! | 노후자금사연 | 오디오북",
      "views": 27079
+    },
+    {
+     "id": "MTt3XJT1Q64",
+     "title": "60대 이상 노후 파산자 45%? 그 숫자가 제가 될 줄 몰랐습니다. 가난한 노년의 공포!",
+     "views": 31205
     }
    ],
    "needs": {
@@ -15174,7 +15271,7 @@
    "subs": 8260,
    "views": 76560,
    "ratio": 9.27,
-   "views_per_day": 1195.5,
+   "views_per_day": 1195.3,
    "minutes": 13.4,
    "likes": 1370,
    "like_rate": 0.0179,
@@ -15414,7 +15511,7 @@
    "subs": 12600,
    "views": 110997,
    "ratio": 8.81,
-   "views_per_day": 974.4,
+   "views_per_day": 974.3,
    "minutes": 12.0,
    "likes": 1328,
    "like_rate": 0.012,
@@ -15547,7 +15644,7 @@
    "subs": 24300,
    "views": 208928,
    "ratio": 8.6,
-   "views_per_day": 3841.9,
+   "views_per_day": 3841.1,
    "minutes": 43.7,
    "likes": 2092,
    "like_rate": 0.01,
@@ -15881,7 +15978,7 @@
    "subs": 20100,
    "views": 167064,
    "ratio": 8.31,
-   "views_per_day": 1722.7,
+   "views_per_day": 1722.6,
    "minutes": 25.9,
    "likes": 3263,
    "like_rate": 0.0195,
@@ -16139,7 +16236,7 @@
    "subs": 24300,
    "views": 198504,
    "ratio": 8.17,
-   "views_per_day": 3128.3,
+   "views_per_day": 3127.7,
    "minutes": 46.9,
    "likes": 2180,
    "like_rate": 0.011,
@@ -16236,7 +16333,7 @@
    "subs": 6550,
    "views": 52828,
    "ratio": 8.07,
-   "views_per_day": 1229.3,
+   "views_per_day": 1229.0,
    "minutes": 8.3,
    "likes": 413,
    "like_rate": 0.0078,
@@ -16503,7 +16600,7 @@
    "subs": 5810,
    "views": 45558,
    "ratio": 7.84,
-   "views_per_day": 700.3,
+   "views_per_day": 700.1,
    "minutes": 16.8,
    "likes": 429,
    "like_rate": 0.0094,
@@ -16580,7 +16677,7 @@
    "subs": 4100,
    "views": 32093,
    "ratio": 7.83,
-   "views_per_day": 433.7,
+   "views_per_day": 433.6,
    "minutes": 52.5,
    "likes": 520,
    "like_rate": 0.0162,
@@ -16655,7 +16752,7 @@
    "subs": 22500,
    "views": 174365,
    "ratio": 7.75,
-   "views_per_day": 2664.8,
+   "views_per_day": 2664.3,
    "minutes": 18.1,
    "likes": 1665,
    "like_rate": 0.0095,
@@ -16857,12 +16954,12 @@
    "subs": 29400,
    "views": 227454,
    "ratio": 7.74,
-   "views_per_day": 1737.0,
+   "views_per_day": 1736.9,
    "minutes": 8.6,
    "likes": 2307,
    "like_rate": 0.0101,
    "published": "2026-06-05",
-   "age_days": 130.9,
+   "age_days": 131.0,
    "theme": "기타",
    "format": "브이로그·직접 해본 이야기",
    "folder": "W_q8knIYPIobk",
@@ -17079,7 +17176,7 @@
    "subs": 44400,
    "views": 340212,
    "ratio": 7.66,
-   "views_per_day": 2558.5,
+   "views_per_day": 2558.3,
    "minutes": 37.2,
    "likes": 5965,
    "like_rate": 0.0175,
@@ -17108,14 +17205,14 @@
    "channel_id": "UClJv7SeB665l9yi9v7mWA8Q",
    "normal_pairs": [
     {
-     "id": "Vi-gwnbBcnY",
-     "title": "\"200억 건물을 팔라고요?!\" 부동산 박사의 충격 솔루션",
-     "views": 169523
-    },
-    {
      "id": "Eq0O3Kwmvyg",
      "title": "중년 배우들이 20대 때부터 비밀리에 다니던 레전드 편집숍 대공개!",
      "views": 217952
+    },
+    {
+     "id": "RDzPGWOnaOA",
+     "title": "[거제 야-호] 리센느가  끌어올린 요즘 대세 거제도! 손녀와 함께 욱정수가 다녀온 실패 없는 1등 코스",
+     "views": 243388
     }
    ],
    "needs": {
@@ -17337,12 +17434,12 @@
    "subs": 14000,
    "views": 105108,
    "ratio": 7.51,
-   "views_per_day": 1345.0,
+   "views_per_day": 1344.8,
    "minutes": 25.2,
    "likes": 2048,
    "like_rate": 0.0195,
    "published": "2026-07-28",
-   "age_days": 78.1,
+   "age_days": 78.2,
    "theme": "4. 노후·연금",
    "format": "정보·해설 (그 밖)",
    "folder": "W_iMkvDXx86dE",
@@ -17464,7 +17561,7 @@
    "subs": 33400,
    "views": 248645,
    "ratio": 7.44,
-   "views_per_day": 8243.3,
+   "views_per_day": 8240.3,
    "minutes": 69.7,
    "likes": 2054,
    "like_rate": 0.0083,
@@ -17599,7 +17696,7 @@
    "subs": 39500,
    "views": 289996,
    "ratio": 7.34,
-   "views_per_day": 2565.6,
+   "views_per_day": 2565.3,
    "minutes": 15.0,
    "likes": 950,
    "like_rate": 0.0033,
@@ -17628,14 +17725,14 @@
    "channel_id": "UCFqEeQTCibscA6shz-zcRvA",
    "normal_pairs": [
     {
-     "id": "E3caJ0peuig",
-     "title": "\"노인돼서 집값 오르고 연금도 못받잖아!\" 재건축 기다리는 노인이 죽지 못하고 항상 공원에 나오는 이유",
-     "views": 9736
-    },
-    {
      "id": "bjPX8r1FbfM",
      "title": "\"기독교, 불교가 못하는 걸 해\" 사이비 종교 40년 차 교직자는 연금 없이 행복한 진짜 이유",
      "views": 8365
+    },
+    {
+     "id": "Sfi0Ca_HwQI",
+     "title": "\"한국 병원, 이게 말이 돼?\" 연금 받아도 세금으로 다 나가니까 병원비도 모자란 대한민국 노인의 현실",
+     "views": 14429
     }
    ],
    "needs": {
@@ -17742,7 +17839,7 @@
    "subs": 16900,
    "views": 120100,
    "ratio": 7.11,
-   "views_per_day": 1382.3,
+   "views_per_day": 1382.2,
    "minutes": 22.5,
    "likes": 2860,
    "like_rate": 0.0238,
@@ -17771,14 +17868,14 @@
    "channel_id": "UC-oewIxBlHummugX-DtqUxg",
    "normal_pairs": [
     {
-     "id": "TWrlfilcNMw",
-     "title": "혼자 서울 아파트를 매수하고 6년 뒤, 삶이 어떻게 달라졌을까?",
-     "views": 5017
-    },
-    {
      "id": "4VAUD2FuBSw",
      "title": "[1월결산] S&P500 투자자가 코스피 5,000 돌파를 바라보며!",
      "views": 4849
+    },
+    {
+     "id": "4M6-yhK78WI",
+     "title": "직장인이 부자 되려면 반드시 거쳐야 할 단계들!",
+     "views": 4848
     }
    ],
    "needs": {
@@ -17998,7 +18095,7 @@
    "subs": 21500,
    "views": 146252,
    "ratio": 6.8,
-   "views_per_day": 1394.3,
+   "views_per_day": 1394.2,
    "minutes": 27.8,
    "likes": 1434,
    "like_rate": 0.0098,
@@ -18125,7 +18222,7 @@
    "subs": 28700,
    "views": 194385,
    "ratio": 6.77,
-   "views_per_day": 3885.2,
+   "views_per_day": 3884.3,
    "minutes": 14.2,
    "likes": 623,
    "like_rate": 0.0032,
@@ -18451,12 +18548,12 @@
    "subs": 18300,
    "views": 114720,
    "ratio": 6.27,
-   "views_per_day": 1080.8,
+   "views_per_day": 1080.7,
    "minutes": 18.2,
    "likes": 2380,
    "like_rate": 0.0207,
    "published": "2026-06-30",
-   "age_days": 106.1,
+   "age_days": 106.2,
    "theme": "4. 노후·연금",
    "format": "인터뷰·강연·대담",
    "folder": "W_NGLEPdYvQdQ",
@@ -18480,14 +18577,14 @@
    "channel_id": "UC1svPlZhZkFROW5WseKgI7A",
    "normal_pairs": [
     {
-     "id": "163Hn6l5280",
-     "title": "\"운전대 다음은 앞치마 입니다\" 노년에 앞치마를 놓는 날 | 김지호의 공간문해력",
-     "views": 95790
-    },
-    {
      "id": "K9UrTBJ6TGE",
      "title": "\"이게 대한민국 현실입니다\" 평생 집 한채 마련했는데 갈 곳 없는 노후의 현실",
      "views": 105414
+    },
+    {
+     "id": "WYi5QQq_G0w",
+     "title": "노년에 '이 집' 선택했다가 평생 후회합니다.｜김지호의 공간문해력",
+     "views": 86352
     }
    ],
    "needs": {
@@ -18738,7 +18835,7 @@
    "subs": 19700,
    "views": 121030,
    "ratio": 6.14,
-   "views_per_day": 999.8,
+   "views_per_day": 999.7,
    "minutes": 20.3,
    "likes": 2520,
    "like_rate": 0.0208,
@@ -18905,7 +19002,7 @@
    "subs": 22500,
    "views": 137168,
    "ratio": 6.1,
-   "views_per_day": 1393.5,
+   "views_per_day": 1393.4,
    "minutes": 28.4,
    "likes": 3515,
    "like_rate": 0.0256,
@@ -19175,14 +19272,14 @@
    "channel_id": "UCTMAnpaM-NyF576Fijd34GQ",
    "normal_pairs": [
     {
-     "id": "-niIdO8OrOg",
-     "title": "[호주 은퇴 설계] 자식 빚 갚아줬더니 연금이 깎인다? 💵센터링크 증여 규정과 자산 방어 전략 #호주 #노령연금 #호주부동산",
-     "views": 7199
+     "id": "-BJNW29QrSU",
+     "title": "호주 상속세 0원? 🇦🇺 유언장 써도 내 재산 32% 뺏기는 숨겨진 세금 함정",
+     "views": 10244
     },
     {
-     "id": "mQzc-8Jvo4c",
-     "title": "호주 하우스푸어 탈출! 집 안 팔고 내 주머니 현금 늘리는 4가지 비법 #호주부동산 #호주생활 #호주",
-     "views": 6515
+     "id": "j_p3nWr_VsY",
+     "title": "내 수퍼, 진짜 '내 돈' 맞나요? 💸4 5조 달러를 둘러싼 호주 정부의 의도",
+     "views": 3686
     }
    ],
    "needs": {
@@ -19374,7 +19471,7 @@
    "subs": 30800,
    "views": 176854,
    "ratio": 5.74,
-   "views_per_day": 3506.7,
+   "views_per_day": 3505.9,
    "minutes": 9.2,
    "likes": 998,
    "like_rate": 0.0056,
@@ -19440,7 +19537,7 @@
    "subs": 31100,
    "views": 171556,
    "ratio": 5.52,
-   "views_per_day": 7792.1,
+   "views_per_day": 7788.2,
    "minutes": 18.2,
    "likes": 585,
    "like_rate": 0.0034,
@@ -19775,7 +19872,7 @@
    "subs": 6490,
    "views": 33299,
    "ratio": 5.13,
-   "views_per_day": 293.6,
+   "views_per_day": 293.5,
    "minutes": 8.6,
    "likes": 604,
    "like_rate": 0.0181,
@@ -20072,7 +20169,7 @@
    "subs": 35600,
    "views": 170591,
    "ratio": 4.79,
-   "views_per_day": 1687.4,
+   "views_per_day": 1687.2,
    "minutes": 7.8,
    "likes": 3384,
    "like_rate": 0.0198,
@@ -20106,9 +20203,9 @@
      "views": 2705
     },
     {
-     "id": "iQWC43FEyLY",
-     "title": "\"전세계 에서 우리 나라사람만 안해요\" 노트북 하나로 트로트드라마 만들고 하루 200만원 버는 20대",
-     "views": 2680
+     "id": "NX4rlFwUGKk",
+     "title": "\"이거 못하면 다른 부업 아무것도 못해요\" 아이 둘 키우며 노트북 하나로 하루 2시간 일하고 월매출 2500찍는 육아맘",
+     "views": 2817
     }
    ],
    "needs": {
@@ -20406,7 +20503,7 @@
    "subs": 15400,
    "views": 70535,
    "ratio": 4.58,
-   "views_per_day": 506.6,
+   "views_per_day": 506.5,
    "minutes": 9.8,
    "likes": 470,
    "like_rate": 0.0067,
@@ -20475,7 +20572,7 @@
    "subs": 6330,
    "views": 28523,
    "ratio": 4.51,
-   "views_per_day": 678.8,
+   "views_per_day": 678.7,
    "minutes": 7.9,
    "likes": 532,
    "like_rate": 0.0187,
@@ -20614,7 +20711,7 @@
    "subs": 33400,
    "views": 143569,
    "ratio": 4.3,
-   "views_per_day": 3900.0,
+   "views_per_day": 3898.8,
    "minutes": 19.7,
    "likes": 1061,
    "like_rate": 0.0074,
@@ -20720,7 +20817,7 @@
    "subs": 30500,
    "views": 130846,
    "ratio": 4.29,
-   "views_per_day": 832.0,
+   "views_per_day": 831.9,
    "minutes": 10.2,
    "likes": 0,
    "like_rate": 0.0,
@@ -20891,7 +20988,7 @@
    "subs": 29200,
    "views": 124612,
    "ratio": 4.27,
-   "views_per_day": 1820.9,
+   "views_per_day": 1820.6,
    "minutes": 39.6,
    "likes": 2213,
    "like_rate": 0.0178,
@@ -20920,14 +21017,14 @@
    "channel_id": "UCowMNQXcxSJJ7Kyc41Q4Pzw",
    "normal_pairs": [
     {
-     "id": "9oKOQqd9UwY",
-     "title": "은퇴 후 8억짜리 속초 바닷가 아파트, 1년 만에 4억 6천에 던졌습니다 | 60대 은퇴자의 부동산 영끌 실패기!",
-     "views": 28676
-    },
-    {
      "id": "ulfAA7WKZCE",
      "title": "60대 빚투의 끝…포모에 눈 멀어 반대매매로 노후를 날린 은퇴자의 고백! | 노후자금사연 | 오디오북",
      "views": 27079
+    },
+    {
+     "id": "MTt3XJT1Q64",
+     "title": "60대 이상 노후 파산자 45%? 그 숫자가 제가 될 줄 몰랐습니다. 가난한 노년의 공포!",
+     "views": 31205
     }
    ],
    "needs": {
@@ -21058,7 +21155,7 @@
    "subs": 9590,
    "views": 39773,
    "ratio": 4.15,
-   "views_per_day": 405.7,
+   "views_per_day": 405.6,
    "minutes": 19.3,
    "likes": 463,
    "like_rate": 0.0116,
@@ -21492,7 +21589,7 @@
    "subs": 39400,
    "views": 149400,
    "ratio": 3.79,
-   "views_per_day": 927.6,
+   "views_per_day": 927.5,
    "minutes": 14.7,
    "likes": 4089,
    "like_rate": 0.0274,
@@ -21762,7 +21859,7 @@
    "subs": 48900,
    "views": 181738,
    "ratio": 3.72,
-   "views_per_day": 2932.4,
+   "views_per_day": 2931.9,
    "minutes": 15.8,
    "likes": 2426,
    "like_rate": 0.0133,
@@ -22269,7 +22366,7 @@
    "subs": 20300,
    "views": 68927,
    "ratio": 3.4,
-   "views_per_day": 1768.7,
+   "views_per_day": 1768.2,
    "minutes": 11.1,
    "likes": 571,
    "like_rate": 0.0083,
@@ -22375,7 +22472,7 @@
    "subs": 26400,
    "views": 89264,
    "ratio": 3.38,
-   "views_per_day": 1718.8,
+   "views_per_day": 1718.4,
    "minutes": 11.9,
    "likes": 723,
    "like_rate": 0.0081,
@@ -22429,14 +22526,14 @@
    "channel_id": "UCVIB6JMy4MW5b8yl4TA04YA",
    "normal_pairs": [
     {
-     "id": "_ynpluRVu9A",
-     "title": "잠실에 살고 싶은 신혼부부 예비부부만 보세요 (금수저 아님 주의)",
-     "views": 7169
+     "id": "PnKeTQ2_ZqI",
+     "title": "주식 증여 vs 현금 증여, 뭐가 유리할까? (세무사 상담 후 바꾼 이유)",
+     "views": 6197
     },
     {
-     "id": "VS1X18q92Mk",
-     "title": "드디어 바뀜.. 신혼부부를 위한 보금자리론 최신 업데이트 (2026년)",
-     "views": 7036
+     "id": "yb-QgdOIXiE",
+     "title": "자녀에게 주식 증여하는 방법 (집에서 홈택스 신고까지 A to Z)",
+     "views": 8720
     }
    ],
    "needs": {
@@ -22545,7 +22642,7 @@
    "likes": 356,
    "like_rate": 0.0249,
    "published": "2026-05-14",
-   "age_days": 152.9,
+   "age_days": 153.0,
    "theme": "1. 재테크 일반·마인드",
    "format": "정보·해설 (그 밖)",
    "folder": "W_GxGvoXZQbZ0",
@@ -22678,7 +22775,7 @@
    "subs": 42200,
    "views": 128570,
    "ratio": 3.05,
-   "views_per_day": 819.3,
+   "views_per_day": 819.2,
    "minutes": 6.5,
    "likes": 2264,
    "like_rate": 0.0176,
@@ -22707,14 +22804,14 @@
    "channel_id": "UCYDSNg7kQSyl3HvBqLLXjvg",
    "normal_pairs": [
     {
-     "id": "8qr3lkLnYjk",
-     "title": "30대 자취 1인 가구, 이사 비용으로 얼마 썼을까?💸 포장이사부터 정리수납 업체까지 비용 총정리(이사 견적 어플, 옷 정리 꿀팁, 가계부 브이로그)",
-     "views": 22470
-    },
-    {
      "id": "XfLaWui6rFo",
      "title": "지출 스트레스 없이 혼자 0원 문화생활 하는 싱글 여성의 24시간 vlog (서울무료전시,서울야외도서관,종로혼놀)",
      "views": 23027
+    },
+    {
+     "id": "gFj3ueEqF7c",
+     "title": "나도 모르게 돈 버리고 있는 소비습관 3가지",
+     "views": 21811
     }
    ],
    "needs": {
@@ -22809,7 +22906,7 @@
    "subs": 26500,
    "views": 80561,
    "ratio": 3.04,
-   "views_per_day": 635.1,
+   "views_per_day": 635.0,
    "minutes": 44.2,
    "likes": 951,
    "like_rate": 0.0118,
@@ -22909,7 +23006,7 @@
    "subs": 19800,
    "views": 60114,
    "ratio": 3.04,
-   "views_per_day": 818.6,
+   "views_per_day": 818.5,
    "minutes": 57.0,
    "likes": 523,
    "like_rate": 0.0087,
@@ -22943,9 +23040,9 @@
      "views": 23526
     },
     {
-     "id": "DNI_PwiPQbk",
-     "title": "꿈꾸던 귀농 생활? 서울 아파트 7억에 팔고 귀농했다가 막노동판으로 주저앉은 대기업 부장의 절규!",
-     "views": 20511
+     "id": "OhF6XoahBFI",
+     "title": "끝없는 자녀 지원, 이제는 멈춰야 할 때...",
+     "views": 38952
     }
    ],
    "needs": {
@@ -23000,7 +23097,7 @@
    "subs": 33900,
    "views": 102308,
    "ratio": 3.02,
-   "views_per_day": 673.4,
+   "views_per_day": 673.3,
    "minutes": 20.6,
    "likes": 1552,
    "like_rate": 0.0152,
@@ -23243,17 +23340,6 @@
    "theme": "7. 빚·대출·신용"
   },
   {
-   "id": "Fn1bh-lwmJA",
-   "title": "60대에 가난한 친구가 불편해지는 건, 당신이 속물이 돼서가 아닙니다",
-   "channel": "내 누군지 아나?",
-   "subs": 6190,
-   "views": 459792,
-   "ratio": 74.28,
-   "minutes": 28.2,
-   "published": "2026-07-23",
-   "theme": "기타"
-  },
-  {
    "id": "2TR1rBX5x8o",
    "title": "복리가 부를 만드는 순간은, 대부분이 포기한 뒤에 찾아옵니다",
    "channel": "경제포커스",
@@ -23263,17 +23349,6 @@
    "minutes": 22.0,
    "published": "2026-10-04",
    "theme": "1. 재테크 일반·마인드"
-  },
-  {
-   "id": "aUUWqaO4wG0",
-   "title": "10년 뒤 무조건 승리하는 개미들의 진짜 투자법",
-   "channel": "여의돈스트리트",
-   "subs": 1330,
-   "views": 84988,
-   "ratio": 63.9,
-   "minutes": 15.5,
-   "published": "2026-09-14",
-   "theme": "3. 주식·ETF"
   },
   {
    "id": "kJMnhDJ3Itk",
@@ -23320,17 +23395,6 @@
    "theme": "4. 노후·연금"
   },
   {
-   "id": "EuANuB1O3qU",
-   "title": "아들 둘 다 취업했길래 48평을 24평으로 줄였는데, 아무도 안 나갔다",
-   "channel": "내 누군지 아나?",
-   "subs": 6190,
-   "views": 287623,
-   "ratio": 46.47,
-   "minutes": 27.9,
-   "published": "2026-07-30",
-   "theme": "기타"
-  },
-  {
    "id": "zyVvu8J7gsw",
    "title": "파크골프 모임을 조용히 무너뜨리는 3가지 심리 | 골프심리 | 시니어심리학 | 관계심리학 |",
    "channel": "브라보 인생후반전",
@@ -23350,17 +23414,6 @@
    "ratio": 43.02,
    "minutes": 21.4,
    "published": "2026-09-26",
-   "theme": "4. 노후·연금"
-  },
-  {
-   "id": "4hkjSY2XpCU",
-   "title": "연금 150만원으로 바닷가에서 살 수 있을까?｜실제로 가능한 은퇴도시 5곳",
-   "channel": "살이픽",
-   "subs": 898,
-   "views": 38112,
-   "ratio": 42.44,
-   "minutes": 20.5,
-   "published": "2026-10-04",
    "theme": "4. 노후·연금"
   },
   {
@@ -23397,28 +23450,6 @@
    "theme": "4. 노후·연금"
   },
   {
-   "id": "pSFccP6q7Hk",
-   "title": "2031년, 노후가 갈립니다… 국민연금만 믿으면 위험한 이유",
-   "channel": "오십의 경제지도",
-   "subs": 677,
-   "views": 23611,
-   "ratio": 34.88,
-   "minutes": 19.4,
-   "published": "2026-09-22",
-   "theme": "4. 노후·연금"
-  },
-  {
-   "id": "Mka7XQEmWTA",
-   "title": "나이 들수록 예금은 어디에 둬야 할까? 76세 노인의 방법이 너무 현명했습니다",
-   "channel": "노후의 진실",
-   "subs": 20100,
-   "views": 695223,
-   "ratio": 34.59,
-   "minutes": 35.2,
-   "published": "2026-07-19",
-   "theme": "2. 돈 모으기·저축"
-  },
-  {
    "id": "-Hv98EGwZhE",
    "title": "\"대한민국에서 딱 천명만 알아요\" 아무도 안 하길래 이 부업으로 212억 벌었습니다.",
    "channel": "머니종결자",
@@ -23428,39 +23459,6 @@
    "minutes": 16.5,
    "published": "2026-09-15",
    "theme": "8. 부업·소득"
-  },
-  {
-   "id": "eFoD9OYcE5U",
-   "title": "차 없이 병원·시장·바다 다 갑니다｜은퇴 후 살기 편한 도시 5곳",
-   "channel": "살이픽",
-   "subs": 898,
-   "views": 30678,
-   "ratio": 34.16,
-   "minutes": 18.9,
-   "published": "2026-10-11",
-   "theme": "4. 노후·연금"
-  },
-  {
-   "id": "7oBRZldFf9E",
-   "title": "67세에 은퇴하고 아들 가족 근처로 이사한다면, 당신의 삶은 어떻게 될까요...노후에 자식과 손주 곁에서 살기 위해 집을 판 한 남자의 실화",
-   "channel": "누군가의 인생",
-   "subs": 1820,
-   "views": 60669,
-   "ratio": 33.33,
-   "minutes": 26.0,
-   "published": "2026-10-06",
-   "theme": "4. 노후·연금"
-  },
-  {
-   "id": "8A9Dm0Gm2cQ",
-   "title": "9억 집 가진 60세, 팔아야 할까? 주택연금 계산했더니 예상 밖의 결과",
-   "channel": "오십의 경제지도",
-   "subs": 677,
-   "views": 22297,
-   "ratio": 32.94,
-   "minutes": 16.6,
-   "published": "2026-10-05",
-   "theme": "4. 노후·연금"
   },
   {
    "id": "l4IixiiPj6c",
@@ -23474,39 +23472,6 @@
    "theme": "4. 노후·연금"
   },
   {
-   "id": "xk46_2WsjMk",
-   "title": "친한 사람들과 여행 갔다가 사이가 틀어지는 진짜 이유(feat. 심리학) | 갈등심리학 | 우정 |",
-   "channel": "브라보 인생후반전",
-   "subs": 7670,
-   "views": 250963,
-   "ratio": 32.72,
-   "minutes": 25.2,
-   "published": "2026-09-12",
-   "theme": "4. 노후·연금"
-  },
-  {
-   "id": "q1ydIa3fCdw",
-   "title": "제가 나스닥100을 30년 보고 계속 사는 이유 4가지 (틀릴 수 있는 1가지까지)",
-   "channel": "경제포커스",
-   "subs": 1230,
-   "views": 38615,
-   "ratio": 31.39,
-   "minutes": 23.1,
-   "published": "2026-09-27",
-   "theme": "3. 주식·ETF"
-  },
-  {
-   "id": "MAgXtYwaCQM",
-   "title": "돈을 엄청 아껴주는 사소한 습관 10가지 (2,700만 원 절약)",
-   "channel": "투자 가이드",
-   "subs": 962,
-   "views": 29848,
-   "ratio": 31.03,
-   "minutes": 26.6,
-   "published": "2026-09-26",
-   "theme": "2. 돈 모으기·저축"
-  },
-  {
    "id": "HVqYoXaP0sM",
    "title": "배우자 먼저 보낸 뒤, 통장보다 먼저 해야 할 5가지 | 노년의 마음소리",
    "channel": "은퇴후인생수업",
@@ -23516,39 +23481,6 @@
    "minutes": 35.8,
    "published": "2026-10-01",
    "theme": "4. 노후·연금"
-  },
-  {
-   "id": "Kx-vIvO-uiY",
-   "title": "60세부터 시작되는 멈출 수 없는 인생  진짜 성공은 노년의 행복에서 시작된다  후회 없는 삶을 위한 7가지 원칙!",
-   "channel": "쉽게 이해하는 경제",
-   "subs": 2200,
-   "views": 62252,
-   "ratio": 28.3,
-   "minutes": 11.8,
-   "published": "2026-04-30",
-   "theme": "4. 노후·연금"
-  },
-  {
-   "id": "yrWcAXWJfic",
-   "title": "54세에 회사를 그만두고 퇴직금으로 치킨집을 연 부부… 3년 뒤 두 사람이 마주한 현실은…",
-   "channel": "누군가의 인생",
-   "subs": 1820,
-   "views": 51418,
-   "ratio": 28.25,
-   "minutes": 28.6,
-   "published": "2026-09-16",
-   "theme": "4. 노후·연금"
-  },
-  {
-   "id": "a5GTRSOYDnY",
-   "title": "\"와, 이렇게도 돈 벌 수 있다구요??\" 코스트코에서 사진 딱 2장씩만 찍고 45억 번 여자의 추천부업",
-   "channel": "머니종결자",
-   "subs": 8000,
-   "views": 223551,
-   "ratio": 27.94,
-   "minutes": 18.2,
-   "published": "2026-09-23",
-   "theme": "8. 부업·소득"
   },
   {
    "id": "DWuThrlAI80",
@@ -23562,50 +23494,6 @@
    "theme": "4. 노후·연금"
   },
   {
-   "id": "T3pMNTQLU54",
-   "title": "36세에 자산 형성을 시작한다면 펼쳐질 삶 — 미리 알았더라면 좋았을 것들",
-   "channel": "투자 가이드",
-   "subs": 962,
-   "views": 26633,
-   "ratio": 27.69,
-   "minutes": 33.4,
-   "published": "2026-09-14",
-   "theme": "1. 재테크 일반·마인드"
-  },
-  {
-   "id": "EUkl4UZqEng",
-   "title": "금융자산 10억, 돈을 모을수록 불안해지는 진짜 이유 5가지",
-   "channel": "경제포커스",
-   "subs": 1230,
-   "views": 33108,
-   "ratio": 26.92,
-   "minutes": 22.3,
-   "published": "2026-10-10",
-   "theme": "1. 재테크 일반·마인드"
-  },
-  {
-   "id": "F523dcVEbTk",
-   "title": "매일 15,000원, 1년 뒤 놀라운 저축이 만들어집니다",
-   "channel": "투자 가이드",
-   "subs": 962,
-   "views": 25863,
-   "ratio": 26.88,
-   "minutes": 46.2,
-   "published": "2026-09-12",
-   "theme": "2. 돈 모으기·저축"
-  },
-  {
-   "id": "6MkWZOeBCGk",
-   "title": "같은 돈인데 순서만 바꿨더니, 건보료 0원 (은퇴 현금흐름 4단계)",
-   "channel": "경제포커스",
-   "subs": 1230,
-   "views": 32501,
-   "ratio": 26.42,
-   "minutes": 22.1,
-   "published": "2026-10-02",
-   "theme": "4. 노후·연금"
-  },
-  {
    "id": "kwF0yAciXig",
    "title": "평생 절약이라고 생각했습니다… 사실은 역효과였던 10가지｜70대가 되어서야 깨달은 진짜 절약법",
    "channel": "노후 재테크",
@@ -23615,17 +23503,241 @@
    "minutes": 29.4,
    "published": "2026-08-21",
    "theme": "2. 돈 모으기·저축"
+  },
+  {
+   "id": "8iNha4B8x2o",
+   "title": "중졸인 며느리를 직원으로 받아준 부도직전 시아버지, 며느리의 정체에 모두 놀라는데...ㅣ노후사연ㅣ감동사연ㅣ사연라디오ㅣ오디오북",
+   "channel": "마음나날",
+   "subs": 14900,
+   "views": 337399,
+   "ratio": 22.64,
+   "minutes": 114.5,
+   "published": "2026-07-21",
+   "theme": "4. 노후·연금"
+  },
+  {
+   "id": "idt3W9DQQYk",
+   "title": "돈 그릇을 키우는 법 10가지 | 돈이 담기는 그릇을 넓히는 지혜",
+   "channel": "돈나침반",
+   "subs": 2350,
+   "views": 52540,
+   "ratio": 22.36,
+   "minutes": 22.7,
+   "published": "2026-08-27",
+   "theme": "1. 재테크 일반·마인드"
+  },
+  {
+   "id": "SbouHofKYgI",
+   "title": "“퇴직 후 구박만 받던 교장선생님   68세, 결국 내린 선택＂ㅣ 노후사연 ㅣ 노후 은퇴 ㅣ 오디오북",
+   "channel": "노을서사",
+   "subs": 1790,
+   "views": 39201,
+   "ratio": 21.9,
+   "minutes": 77.2,
+   "published": "2026-09-28",
+   "theme": "4. 노후·연금"
+  },
+  {
+   "id": "TISOm_7M_vM",
+   "title": "만약 어느 날 갑자기 세상을 떠난다면… 은행 예금 전액을 자녀가 받을 수 있을까? 은행 지점장이 밝힌 충격적인 진실",
+   "channel": "노년의 마음소리",
+   "subs": 33500,
+   "views": 730828,
+   "ratio": 21.82,
+   "minutes": 38.2,
+   "published": "2026-08-22",
+   "theme": "2. 돈 모으기·저축"
+  },
+  {
+   "id": "e2NdjQVWfYQ",
+   "title": "성장률은 올랐는데 폐업은 역대 최대, 지금 나타난 한국 경제 이상징후",
+   "channel": "월급쟁이경제학",
+   "subs": 2910,
+   "views": 56405,
+   "ratio": 19.38,
+   "minutes": 28.0,
+   "published": "2026-08-31",
+   "theme": "2. 돈 모으기·저축"
+  },
+  {
+   "id": "ndFo2P_pIIg",
+   "title": "모두를 긴장시키는 이 남자..알고 보니 그의 정체는?!",
+   "channel": "한국자산관리공사 캠코TV",
+   "subs": 42700,
+   "views": 778508,
+   "ratio": 18.23,
+   "minutes": 11.2,
+   "published": "2026-08-18",
+   "theme": "1. 재테크 일반·마인드"
+  },
+  {
+   "id": "Tflg6WXtzXI",
+   "title": "영농형 태양광 설치비용 1억 2천이면, 자기 돈은 2천만 원ㅣ농지 1,000평 100kW 태양광 수익, 한 달에 얼마 남을까요? (12월 시행 조건)",
+   "channel": "짐컴퍼니ㅣ태양광의 모든 것",
+   "subs": 3780,
+   "views": 67495,
+   "ratio": 17.86,
+   "minutes": 7.6,
+   "published": "2026-09-20",
+   "theme": "2. 돈 모으기·저축"
+  },
+  {
+   "id": "EFIpgAwOs6c",
+   "title": "etf로 3억만 모으세요  3억부터 돈이 일을 합니다",
+   "channel": "머니톡 마니업",
+   "subs": 1080,
+   "views": 18780,
+   "ratio": 17.39,
+   "minutes": 16.0,
+   "published": "2026-05-06",
+   "theme": "3. 주식·ETF"
+  },
+  {
+   "id": "sHkewus-Qd8",
+   "title": "밥 먹을 때 '이런 말'하는 사람 즉시 거리둬라 | 본성 아는법 | 인간관계 인생조언 | 오디오북 | 정약용 | 명언 | 심리 철학",
+   "channel": "현인의등불",
+   "subs": 36700,
+   "views": 636026,
+   "ratio": 17.33,
+   "minutes": 55.8,
+   "published": "2026-06-17",
+   "theme": "4. 노후·연금"
+  },
+  {
+   "id": "o0M_BFQ_ykw",
+   "title": "매일 아침 먹던 이것… 노년 치매를 부르는 최악의 습관 6가지 | 김형석 교수",
+   "channel": "영혼의 철학",
+   "subs": 4860,
+   "views": 84055,
+   "ratio": 17.3,
+   "minutes": 35.9,
+   "published": "2026-06-29",
+   "theme": "4. 노후·연금"
+  },
+  {
+   "id": "OGwIikG9zH4",
+   "title": "수조원 쏟아부은 시흥 거북섬 신도시의 기막힌 현실",
+   "channel": "새파란 경제",
+   "subs": 908,
+   "views": 14941,
+   "ratio": 16.45,
+   "minutes": 14.8,
+   "published": "2026-09-17",
+   "theme": "3. 주식·ETF"
+  },
+  {
+   "id": "Vv_WsJSAUZA",
+   "title": "임의가입으로 국민연금 수령액을 50% 올리는 방법! 은퇴플래너의 가이드",
+   "channel": "은퇴할수있을까",
+   "subs": 2150,
+   "views": 33513,
+   "ratio": 15.59,
+   "minutes": 13.1,
+   "published": "2026-05-11",
+   "theme": "4. 노후·연금"
+  },
+  {
+   "id": "2-m2A71LIb4",
+   "title": "회장인 줄 모르고 매일 도시락 챙겨준 계약직 여직원, 도둑 누명 쓰고 쫓겨나자 노인이 감사팀을 부르는데… | 인생사연 | 감동사연",
+   "channel": "인생유랑",
+   "subs": 20900,
+   "views": 291239,
+   "ratio": 13.93,
+   "minutes": 95.5,
+   "published": "2026-08-06",
+   "theme": "4. 노후·연금"
+  },
+  {
+   "id": "sPnYKTUWnvo",
+   "title": "2026년 생계급여와 기초연금 이젠 자식 소득 안 봅니다! 월 82만원 받는 방법",
+   "channel": "모두의딸",
+   "subs": 5670,
+   "views": 73971,
+   "ratio": 13.05,
+   "minutes": 17.6,
+   "published": "2026-07-29",
+   "theme": "4. 노후·연금"
+  },
+  {
+   "id": "Gr1-cT-7uNU",
+   "title": "80대 어르신 100명에게 물었더니 '이것' 안 한 사람이 가장 행복했습니다\" 노후 상팔자의 비밀 7가지!",
+   "channel": "삶의 깊은 이야기",
+   "subs": 1600,
+   "views": 20738,
+   "ratio": 12.96,
+   "minutes": 22.5,
+   "published": "2026-05-29",
+   "theme": "4. 노후·연금"
+  },
+  {
+   "id": "rcnyaR3CLsc",
+   "title": "은퇴 후 사람들이 사교댄스에 빠지는 진짜 이유",
+   "channel": "은퇴갓생",
+   "subs": 6780,
+   "views": 81913,
+   "ratio": 12.08,
+   "minutes": 10.8,
+   "published": "2026-08-05",
+   "theme": "4. 노후·연금"
+  },
+  {
+   "id": "1wAtLmMFCiA",
+   "title": "나이 70줄 넘어가면 자식들 다 필요없다 이 4가지만 미친듯이 의지해라ㅣ명언ㅣ인생조언ㅣ오디오북ㅣ라디오북ㅣ시니어ㅣ노후ㅣ노년",
+   "channel": "철인의지혜",
+   "subs": 18400,
+   "views": 214335,
+   "ratio": 11.65,
+   "minutes": 27.9,
+   "published": "2026-10-04",
+   "theme": "4. 노후·연금"
+  },
+  {
+   "id": "6E94rXuX7fE",
+   "title": "2027년 기초생활수급자 이렇게 달라집니다｜생계급여·의료·주거급여 총정리",
+   "channel": "경상도이서방",
+   "subs": 5520,
+   "views": 63670,
+   "ratio": 11.53,
+   "minutes": 12.1,
+   "published": "2026-08-23",
+   "theme": "기타"
+  },
+  {
+   "id": "c2gVsmW6amw",
+   "title": "방치된 건물로 떼돈 번 일본의 빈집 사업 알아보기 (신사업 원정대)",
+   "channel": "사다리게임",
+   "subs": 36100,
+   "views": 407312,
+   "ratio": 11.28,
+   "minutes": 20.7,
+   "published": "2026-08-21",
+   "theme": "8. 부업·소득"
   }
  ],
- "missing_success_total": 375,
+ "missing_success_total": 70,
+ "missing_success_channel_full": 305,
  "themes": [
   {
+   "theme": "8. 부업·소득",
+   "n": 22,
+   "success": 6,
+   "rate": 0.273,
+   "ratio_median": 1.14,
+   "views_median": 10721.0,
+   "small_sample": false,
+   "success_cases": [
+    27,
+    79,
+    141
+   ]
+  },
+  {
    "theme": "2. 돈 모으기·저축",
-   "n": 59,
-   "success": 17,
-   "rate": 0.288,
-   "ratio_median": 1.73,
-   "views_median": 13434,
+   "n": 61,
+   "success": 16,
+   "rate": 0.262,
+   "ratio_median": 1.83,
+   "views_median": 17480,
    "small_sample": false,
    "success_cases": [
     5,
@@ -23648,12 +23760,27 @@
    ]
   },
   {
+   "theme": "6. 절세·제도",
+   "n": 23,
+   "success": 6,
+   "rate": 0.261,
+   "ratio_median": 1.35,
+   "views_median": 5899,
+   "small_sample": false,
+   "success_cases": [
+    55,
+    83,
+    131,
+    133
+   ]
+  },
+  {
    "theme": "기타",
-   "n": 75,
+   "n": 73,
    "success": 18,
-   "rate": 0.24,
-   "ratio_median": 0.68,
-   "views_median": 9622,
+   "rate": 0.247,
+   "ratio_median": 0.61,
+   "views_median": 9250,
    "small_sample": false,
    "success_cases": [
     17,
@@ -23670,27 +23797,12 @@
    ]
   },
   {
-   "theme": "6. 절세·제도",
-   "n": 24,
-   "success": 5,
-   "rate": 0.208,
-   "ratio_median": 1.02,
-   "views_median": 10362.5,
-   "small_sample": false,
-   "success_cases": [
-    55,
-    83,
-    131,
-    133
-   ]
-  },
-  {
    "theme": "4. 노후·연금",
-   "n": 202,
-   "success": 39,
-   "rate": 0.193,
-   "ratio_median": 0.46,
-   "views_median": 4471.5,
+   "n": 205,
+   "success": 49,
+   "rate": 0.239,
+   "ratio_median": 0.69,
+   "views_median": 7049,
    "small_sample": false,
    "success_cases": [
     2,
@@ -23748,26 +23860,12 @@
    ]
   },
   {
-   "theme": "8. 부업·소득",
-   "n": 26,
-   "success": 5,
-   "rate": 0.192,
-   "ratio_median": 0.46,
-   "views_median": 5492.5,
-   "small_sample": false,
-   "success_cases": [
-    27,
-    79,
-    141
-   ]
-  },
-  {
    "theme": "1. 재테크 일반·마인드",
-   "n": 126,
-   "success": 20,
-   "rate": 0.159,
-   "ratio_median": 0.55,
-   "views_median": 6130.0,
+   "n": 129,
+   "success": 27,
+   "rate": 0.209,
+   "ratio_median": 0.76,
+   "views_median": 7329,
    "small_sample": false,
    "success_cases": [
     1,
@@ -23807,11 +23905,11 @@
   },
   {
    "theme": "3. 주식·ETF",
-   "n": 179,
+   "n": 165,
    "success": 20,
-   "rate": 0.112,
-   "ratio_median": 0.61,
-   "views_median": 5951,
+   "rate": 0.121,
+   "ratio_median": 0.79,
+   "views_median": 8035,
    "small_sample": false,
    "success_cases": [
     22,
@@ -23860,21 +23958,21 @@
   },
   {
    "theme": "7. 빚·대출·신용",
-   "n": 5,
+   "n": 6,
    "success": 1,
-   "rate": 0.2,
-   "ratio_median": 1.03,
-   "views_median": 1316,
+   "rate": 0.167,
+   "ratio_median": 1.35,
+   "views_median": 1425.0,
    "small_sample": true,
    "success_cases": []
   },
   {
    "theme": "10. 금융 사기",
-   "n": 4,
+   "n": 2,
    "success": 0,
    "rate": 0.0,
-   "ratio_median": 0.24,
-   "views_median": 1028.0,
+   "ratio_median": 0.18,
+   "views_median": 767.5,
    "small_sample": true,
    "success_cases": []
   }
@@ -23882,11 +23980,11 @@
  "formats": [
   {
    "format": "사연·드라마",
-   "n": 77,
-   "success": 11,
-   "rate": 0.143,
+   "n": 69,
+   "success": 14,
+   "rate": 0.203,
    "small_sample": false,
-   "ratio_median": 0.25,
+   "ratio_median": 0.51,
    "success_cases": [
     6,
     16,
@@ -23910,16 +24008,16 @@
    "market_videos": 36,
    "market_index": 0.73,
    "market_small": false,
-   "baseline_hits": 0.096,
-   "baseline_normal": 0.101
+   "baseline_hits": 0.102,
+   "baseline_normal": 0.105
   },
   {
    "format": "오디오북·낭독 (명언·인생조언)",
-   "n": 91,
-   "success": 8,
-   "rate": 0.088,
+   "n": 90,
+   "success": 11,
+   "rate": 0.122,
    "small_sample": false,
-   "ratio_median": 0.26,
+   "ratio_median": 0.43,
    "success_cases": [
     2,
     3,
@@ -23947,16 +24045,16 @@
    "market_videos": 43,
    "market_index": 0.85,
    "market_small": false,
-   "baseline_hits": 0.149,
-   "baseline_normal": 0.114
+   "baseline_hits": 0.151,
+   "baseline_normal": 0.121
   },
   {
    "format": "인터뷰·강연·대담",
-   "n": 78,
-   "success": 15,
-   "rate": 0.192,
+   "n": 73,
+   "success": 22,
+   "rate": 0.301,
    "small_sample": false,
-   "ratio_median": 0.76,
+   "ratio_median": 1.25,
    "success_cases": [
     12,
     13,
@@ -23988,16 +24086,16 @@
    "market_videos": 224,
    "market_index": 0.86,
    "market_small": false,
-   "baseline_hits": 0.11,
-   "baseline_normal": 0.099
+   "baseline_hits": 0.1,
+   "baseline_normal": 0.097
   },
   {
    "format": "브이로그·직접 해본 이야기",
-   "n": 68,
-   "success": 16,
-   "rate": 0.235,
+   "n": 70,
+   "success": 18,
+   "rate": 0.257,
    "small_sample": false,
-   "ratio_median": 1.54,
+   "ratio_median": 1.53,
    "success_cases": [
     5,
     19,
@@ -24022,16 +24120,16 @@
    "market_videos": 49,
    "market_index": 0.62,
    "market_small": false,
-   "baseline_hits": 0.112,
-   "baseline_normal": 0.109
+   "baseline_hits": 0.115,
+   "baseline_normal": 0.121
   },
   {
    "format": "정보·해설 (그 밖)",
-   "n": 386,
-   "success": 75,
-   "rate": 0.194,
+   "n": 384,
+   "success": 78,
+   "rate": 0.203,
    "small_sample": false,
-   "ratio_median": 0.69,
+   "ratio_median": 0.78,
    "success_cases": [
     1,
     4,
@@ -24119,296 +24217,228 @@
    "market_videos": 411,
    "market_index": 1.16,
    "market_small": false,
-   "baseline_hits": 0.533,
-   "baseline_normal": 0.576
+   "baseline_hits": 0.531,
+   "baseline_normal": 0.555
   }
  ],
  "title_features": [
   {
    "feature": "AI",
    "with": {
-    "n": 18,
+    "n": 19,
     "success": 7,
-    "rate": 0.389
+    "rate": 0.368
    },
    "without": {
-    "n": 682,
-    "success": 118,
-    "rate": 0.173
+    "n": 667,
+    "success": 136,
+    "rate": 0.204
    },
-   "diff": 0.216,
+   "diff": 0.164,
    "small_sample": false,
    "notable": true,
    "success_case_share": 0.025
   },
   {
-   "feature": "직접·해보니·N년 기록",
+   "feature": "코스피·폭락·급락·하락장",
    "with": {
-    "n": 15,
-    "success": 5,
-    "rate": 0.333
+    "n": 16,
+    "success": 1,
+    "rate": 0.062
    },
    "without": {
-    "n": 685,
-    "success": 120,
-    "rate": 0.175
+    "n": 670,
+    "success": 142,
+    "rate": 0.212
    },
-   "diff": 0.158,
+   "diff": -0.15,
+   "small_sample": false,
+   "notable": true,
+   "success_case_share": 0.006
+  },
+  {
+   "feature": "S&P500·ETF·지수·나스닥",
+   "with": {
+    "n": 48,
+    "success": 5,
+    "rate": 0.104
+   },
+   "without": {
+    "n": 638,
+    "success": 138,
+    "rate": 0.216
+   },
+   "diff": -0.112,
+   "small_sample": false,
+   "notable": true,
+   "success_case_share": 0.142
+  },
+  {
+   "feature": "직접·해보니·N년 기록",
+   "with": {
+    "n": 16,
+    "success": 5,
+    "rate": 0.312
+   },
+   "without": {
+    "n": 670,
+    "success": 138,
+    "rate": 0.206
+   },
+   "diff": 0.106,
    "small_sample": false,
    "notable": true,
    "success_case_share": 0.049
   },
   {
-   "feature": "코스피·폭락·급락·하락장",
-   "with": {
-    "n": 23,
-    "success": 1,
-    "rate": 0.043
-   },
-   "without": {
-    "n": 677,
-    "success": 124,
-    "rate": 0.183
-   },
-   "diff": -0.14,
-   "small_sample": false,
-   "notable": true,
-   "success_case_share": 0.006
-  },
-  {
    "feature": "말줄임 …·...",
    "with": {
-    "n": 85,
-    "success": 22,
-    "rate": 0.259
+    "n": 71,
+    "success": 21,
+    "rate": 0.296
    },
    "without": {
     "n": 615,
-    "success": 103,
-    "rate": 0.167
+    "success": 122,
+    "rate": 0.198
    },
-   "diff": 0.092,
+   "diff": 0.098,
    "small_sample": false,
    "notable": false,
    "success_case_share": 0.093
   },
   {
-   "feature": "과정·벌어진 일·결말·결국",
-   "with": {
-    "n": 11,
-    "success": 1,
-    "rate": 0.091
-   },
-   "without": {
-    "n": 689,
-    "success": 124,
-    "rate": 0.18
-   },
-   "diff": -0.089,
-   "small_sample": true,
-   "notable": false,
-   "success_case_share": 0.012
-  },
-  {
-   "feature": "S&P500·ETF·지수·나스닥",
-   "with": {
-    "n": 59,
-    "success": 6,
-    "rate": 0.102
-   },
-   "without": {
-    "n": 641,
-    "success": 119,
-    "rate": 0.186
-   },
-   "diff": -0.084,
-   "small_sample": false,
-   "notable": false,
-   "success_case_share": 0.142
-  },
-  {
    "feature": "물음표 ?",
    "with": {
-    "n": 139,
-    "success": 34,
-    "rate": 0.245
+    "n": 137,
+    "success": 39,
+    "rate": 0.285
    },
    "without": {
-    "n": 561,
-    "success": 91,
-    "rate": 0.162
+    "n": 549,
+    "success": 104,
+    "rate": 0.189
    },
-   "diff": 0.083,
+   "diff": 0.096,
    "small_sample": false,
    "notable": false,
    "success_case_share": 0.179
   },
   {
-   "feature": "공통점",
-   "with": {
-    "n": 4,
-    "success": 1,
-    "rate": 0.25
-   },
-   "without": {
-    "n": 696,
-    "success": 124,
-    "rate": 0.178
-   },
-   "diff": 0.072,
-   "small_sample": true,
-   "notable": false,
-   "success_case_share": 0.006
-  },
-  {
-   "feature": "손실 낱말(망하·날린·잃은·반토막)",
-   "with": {
-    "n": 18,
-    "success": 2,
-    "rate": 0.111
-   },
-   "without": {
-    "n": 682,
-    "success": 123,
-    "rate": 0.18
-   },
-   "diff": -0.069,
-   "small_sample": false,
-   "notable": false,
-   "success_case_share": 0.025
-  },
-  {
-   "feature": "N가지",
-   "with": {
-    "n": 83,
-    "success": 10,
-    "rate": 0.12
-   },
-   "without": {
-    "n": 617,
-    "success": 115,
-    "rate": 0.186
-   },
-   "diff": -0.066,
-   "small_sample": false,
-   "notable": false,
-   "success_case_share": 0.154
-  },
-  {
-   "feature": "따옴표·괄호로 강조",
-   "with": {
-    "n": 248,
-    "success": 34,
-    "rate": 0.137
-   },
-   "without": {
-    "n": 452,
-    "success": 91,
-    "rate": 0.201
-   },
-   "diff": -0.064,
-   "small_sample": false,
-   "notable": false,
-   "success_case_share": 0.377
-  },
-  {
    "feature": "두 금액(반전)",
    "with": {
-    "n": 38,
-    "success": 9,
-    "rate": 0.237
+    "n": 37,
+    "success": 11,
+    "rate": 0.297
    },
    "without": {
-    "n": 662,
-    "success": 116,
-    "rate": 0.175
+    "n": 649,
+    "success": 132,
+    "rate": 0.203
    },
-   "diff": 0.062,
+   "diff": 0.094,
    "small_sample": false,
    "notable": false,
    "success_case_share": 0.068
   },
   {
-   "feature": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+   "feature": "손실 낱말(망하·날린·잃은·반토막)",
    "with": {
-    "n": 200,
-    "success": 27,
-    "rate": 0.135
+    "n": 17,
+    "success": 2,
+    "rate": 0.118
    },
    "without": {
-    "n": 500,
-    "success": 98,
-    "rate": 0.196
+    "n": 669,
+    "success": 141,
+    "rate": 0.211
    },
-   "diff": -0.061,
+   "diff": -0.093,
+   "small_sample": false,
+   "notable": false,
+   "success_case_share": 0.025
+  },
+  {
+   "feature": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+   "with": {
+    "n": 201,
+    "success": 29,
+    "rate": 0.144
+   },
+   "without": {
+    "n": 485,
+    "success": 114,
+    "rate": 0.235
+   },
+   "diff": -0.091,
    "small_sample": false,
    "notable": false,
    "success_case_share": 0.272
   },
   {
-   "feature": "25자 미만",
-   "with": {
-    "n": 34,
-    "success": 8,
-    "rate": 0.235
-   },
-   "without": {
-    "n": 666,
-    "success": 117,
-    "rate": 0.176
-   },
-   "diff": 0.059,
-   "small_sample": false,
-   "notable": false,
-   "success_case_share": 0.031
-  },
-  {
    "feature": "금액(억·만원)",
    "with": {
-    "n": 148,
-    "success": 33,
-    "rate": 0.223
+    "n": 152,
+    "success": 42,
+    "rate": 0.276
    },
    "without": {
-    "n": 552,
-    "success": 92,
-    "rate": 0.167
+    "n": 534,
+    "success": 101,
+    "rate": 0.189
    },
-   "diff": 0.056,
+   "diff": 0.087,
    "small_sample": false,
    "notable": false,
    "success_case_share": 0.284
   },
   {
-   "feature": "빚투·신용·미수·레버리지·대출",
+   "feature": "따옴표·괄호로 강조",
    "with": {
-    "n": 13,
-    "success": 3,
-    "rate": 0.231
+    "n": 252,
+    "success": 39,
+    "rate": 0.155
    },
    "without": {
-    "n": 687,
-    "success": 122,
-    "rate": 0.178
+    "n": 434,
+    "success": 104,
+    "rate": 0.24
    },
-   "diff": 0.053,
-   "small_sample": true,
+   "diff": -0.085,
+   "small_sample": false,
    "notable": false,
-   "success_case_share": 0.019
+   "success_case_share": 0.377
+  },
+  {
+   "feature": "N가지",
+   "with": {
+    "n": 86,
+    "success": 12,
+    "rate": 0.14
+   },
+   "without": {
+    "n": 600,
+    "success": 131,
+    "rate": 0.218
+   },
+   "diff": -0.078,
+   "small_sample": false,
+   "notable": false,
+   "success_case_share": 0.154
   },
   {
    "feature": "노후·퇴직금·은퇴·50~70대",
    "with": {
-    "n": 188,
-    "success": 40,
-    "rate": 0.213
+    "n": 189,
+    "success": 50,
+    "rate": 0.265
    },
    "without": {
-    "n": 512,
-    "success": 85,
-    "rate": 0.166
+    "n": 497,
+    "success": 93,
+    "rate": 0.187
    },
-   "diff": 0.047,
+   "diff": 0.078,
    "small_sample": false,
    "notable": false,
    "success_case_share": 0.364
@@ -24416,101 +24446,84 @@
   {
    "feature": "이유",
    "with": {
-    "n": 121,
-    "success": 18,
-    "rate": 0.149
+    "n": 116,
+    "success": 17,
+    "rate": 0.147
    },
    "without": {
-    "n": 579,
-    "success": 107,
-    "rate": 0.185
+    "n": 570,
+    "success": 126,
+    "rate": 0.221
    },
-   "diff": -0.036,
+   "diff": -0.074,
    "small_sample": false,
    "notable": false,
    "success_case_share": 0.123
   },
   {
-   "feature": "느낌표 !",
+   "feature": "빚투·신용·미수·레버리지·대출",
    "with": {
-    "n": 91,
-    "success": 14,
+    "n": 11,
+    "success": 3,
+    "rate": 0.273
+   },
+   "without": {
+    "n": 675,
+    "success": 140,
+    "rate": 0.207
+   },
+   "diff": 0.066,
+   "small_sample": true,
+   "notable": false,
+   "success_case_share": 0.019
+  },
+  {
+   "feature": "과정·벌어진 일·결말·결국",
+   "with": {
+    "n": 13,
+    "success": 2,
     "rate": 0.154
    },
    "without": {
-    "n": 609,
-    "success": 111,
-    "rate": 0.182
+    "n": 673,
+    "success": 141,
+    "rate": 0.21
    },
-   "diff": -0.028,
-   "small_sample": false,
+   "diff": -0.056,
+   "small_sample": true,
    "notable": false,
-   "success_case_share": 0.099
+   "success_case_share": 0.012
   },
   {
-   "feature": "사연·오디오북·실화·고백",
+   "feature": "25자 미만",
    "with": {
-    "n": 59,
-    "success": 9,
-    "rate": 0.153
+    "n": 28,
+    "success": 7,
+    "rate": 0.25
    },
    "without": {
-    "n": 641,
-    "success": 116,
-    "rate": 0.181
+    "n": 658,
+    "success": 136,
+    "rate": 0.207
    },
-   "diff": -0.028,
+   "diff": 0.043,
    "small_sample": false,
    "notable": false,
-   "success_case_share": 0.074
-  },
-  {
-   "feature": "40자 이상",
-   "with": {
-    "n": 462,
-    "success": 79,
-    "rate": 0.171
-   },
-   "without": {
-    "n": 238,
-    "success": 46,
-    "rate": 0.193
-   },
-   "diff": -0.022,
-   "small_sample": false,
-   "notable": false,
-   "success_case_share": 0.71
-  },
-  {
-   "feature": "구분 기호(ㅣ·｜·/)로 나눔",
-   "with": {
-    "n": 219,
-    "success": 36,
-    "rate": 0.164
-   },
-   "without": {
-    "n": 481,
-    "success": 89,
-    "rate": 0.185
-   },
-   "diff": -0.021,
-   "small_sample": false,
-   "notable": false,
-   "success_case_share": 0.302
+   "success_case_share": 0.031
   },
   {
    "feature": "숫자가 들어감",
    "with": {
-    "n": 478,
-    "success": 88,
-    "rate": 0.184
+    "n": 469,
+    "success": 103,
+    "rate": 0.22
    },
    "without": {
-    "n": 222,
-    "success": 37,
-    "rate": 0.167
+    "n": 217,
+    "success": 40,
+    "rate": 0.184
    },
-   "diff": 0.017,
+   "diff": 0.036,
    "small_sample": false,
    "notable": false,
    "success_case_share": 0.728
@@ -24518,131 +24531,200 @@
   {
    "feature": "vs 비교",
    "with": {
-    "n": 101,
-    "success": 18,
-    "rate": 0.178
+    "n": 94,
+    "success": 22,
+    "rate": 0.234
    },
    "without": {
-    "n": 599,
-    "success": 107,
-    "rate": 0.179
+    "n": 592,
+    "success": 121,
+    "rate": 0.204
+   },
+   "diff": 0.03,
+   "small_sample": false,
+   "notable": false,
+   "success_case_share": 0.136
+  },
+  {
+   "feature": "느낌표 !",
+   "with": {
+    "n": 85,
+    "success": 16,
+    "rate": 0.188
+   },
+   "without": {
+    "n": 601,
+    "success": 127,
+    "rate": 0.211
+   },
+   "diff": -0.023,
+   "small_sample": false,
+   "notable": false,
+   "success_case_share": 0.099
+  },
+  {
+   "feature": "공통점",
+   "with": {
+    "n": 5,
+    "success": 1,
+    "rate": 0.2
+   },
+   "without": {
+    "n": 681,
+    "success": 142,
+    "rate": 0.209
+   },
+   "diff": -0.009,
+   "small_sample": true,
+   "notable": false,
+   "success_case_share": 0.006
+  },
+  {
+   "feature": "40자 이상",
+   "with": {
+    "n": 450,
+    "success": 93,
+    "rate": 0.207
+   },
+   "without": {
+    "n": 236,
+    "success": 50,
+    "rate": 0.212
+   },
+   "diff": -0.005,
+   "small_sample": false,
+   "notable": false,
+   "success_case_share": 0.71
+  },
+  {
+   "feature": "사연·오디오북·실화·고백",
+   "with": {
+    "n": 57,
+    "success": 12,
+    "rate": 0.211
+   },
+   "without": {
+    "n": 629,
+    "success": 131,
+    "rate": 0.208
+   },
+   "diff": 0.003,
+   "small_sample": false,
+   "notable": false,
+   "success_case_share": 0.074
+  },
+  {
+   "feature": "구분 기호(ㅣ·｜·/)로 나눔",
+   "with": {
+    "n": 212,
+    "success": 44,
+    "rate": 0.208
+   },
+   "without": {
+    "n": 474,
+    "success": 99,
+    "rate": 0.209
    },
    "diff": -0.001,
    "small_sample": false,
    "notable": false,
-   "success_case_share": 0.136
+   "success_case_share": 0.302
   }
  ],
  "title_words_up": [
   {
-   "word": "1억",
-   "with": {
-    "n": 29,
-    "success": 9,
-    "rate": 0.31
-   },
-   "without": {
-    "n": 671,
-    "success": 116,
-    "rate": 0.173
-   },
-   "diff": 0.137,
-   "small_sample": false,
-   "notable": true
-  },
-  {
    "word": "은퇴",
    "with": {
-    "n": 29,
-    "success": 9,
-    "rate": 0.31
+    "n": 30,
+    "success": 11,
+    "rate": 0.367
    },
    "without": {
-    "n": 671,
-    "success": 116,
-    "rate": 0.173
+    "n": 656,
+    "success": 132,
+    "rate": 0.201
    },
-   "diff": 0.137,
+   "diff": 0.166,
    "small_sample": false,
    "notable": true
   },
   {
-   "word": "연금",
+   "word": "1억",
    "with": {
-    "n": 21,
-    "success": 6,
+    "n": 28,
+    "success": 8,
     "rate": 0.286
    },
    "without": {
-    "n": 679,
-    "success": 119,
-    "rate": 0.175
+    "n": 658,
+    "success": 135,
+    "rate": 0.205
    },
-   "diff": 0.111,
+   "diff": 0.081,
    "small_sample": false,
-   "notable": true
+   "notable": false
   },
   {
    "word": "노후사연",
    "with": {
-    "n": 23,
+    "n": 22,
     "success": 6,
-    "rate": 0.261
+    "rate": 0.273
    },
    "without": {
-    "n": 677,
-    "success": 119,
-    "rate": 0.176
+    "n": 664,
+    "success": 137,
+    "rate": 0.206
    },
-   "diff": 0.085,
+   "diff": 0.067,
    "small_sample": false,
    "notable": false
   },
   {
    "word": "부자",
    "with": {
-    "n": 28,
+    "n": 26,
     "success": 7,
-    "rate": 0.25
+    "rate": 0.269
    },
    "without": {
-    "n": 672,
-    "success": 118,
-    "rate": 0.176
+    "n": 660,
+    "success": 136,
+    "rate": 0.206
    },
-   "diff": 0.074,
-   "small_sample": false,
-   "notable": false
-  },
-  {
-   "word": "평생",
-   "with": {
-    "n": 30,
-    "success": 7,
-    "rate": 0.233
-   },
-   "without": {
-    "n": 670,
-    "success": 118,
-    "rate": 0.176
-   },
-   "diff": 0.057,
+   "diff": 0.063,
    "small_sample": false,
    "notable": false
   },
   {
    "word": "이렇게",
    "with": {
-    "n": 22,
-    "success": 5,
-    "rate": 0.227
+    "n": 23,
+    "success": 6,
+    "rate": 0.261
    },
    "without": {
-    "n": 678,
-    "success": 120,
-    "rate": 0.177
+    "n": 663,
+    "success": 137,
+    "rate": 0.207
    },
-   "diff": 0.05,
+   "diff": 0.054,
+   "small_sample": false,
+   "notable": false
+  },
+  {
+   "word": "60대",
+   "with": {
+    "n": 21,
+    "success": 5,
+    "rate": 0.238
+   },
+   "without": {
+    "n": 665,
+    "success": 138,
+    "rate": 0.208
+   },
+   "diff": 0.03,
    "small_sample": false,
    "notable": false
   },
@@ -24650,47 +24732,47 @@
    "word": "노후",
    "with": {
     "n": 64,
-    "success": 14,
-    "rate": 0.219
+    "success": 15,
+    "rate": 0.234
    },
    "without": {
-    "n": 636,
-    "success": 111,
-    "rate": 0.175
+    "n": 622,
+    "success": 128,
+    "rate": 0.206
    },
-   "diff": 0.044,
+   "diff": 0.028,
    "small_sample": false,
    "notable": false
   },
   {
-   "word": "인생",
+   "word": "평생",
    "with": {
-    "n": 23,
-    "success": 5,
-    "rate": 0.217
+    "n": 31,
+    "success": 7,
+    "rate": 0.226
    },
    "without": {
-    "n": 677,
-    "success": 120,
-    "rate": 0.177
+    "n": 655,
+    "success": 136,
+    "rate": 0.208
    },
-   "diff": 0.04,
+   "diff": 0.018,
    "small_sample": false,
    "notable": false
   },
   {
-   "word": "60대",
+   "word": "사람",
    "with": {
-    "n": 22,
-    "success": 4,
-    "rate": 0.182
+    "n": 43,
+    "success": 9,
+    "rate": 0.209
    },
    "without": {
-    "n": 678,
-    "success": 121,
-    "rate": 0.178
+    "n": 643,
+    "success": 134,
+    "rate": 0.208
    },
-   "diff": 0.004,
+   "diff": 0.001,
    "small_sample": false,
    "notable": false
   }
@@ -24699,128 +24781,112 @@
   {
    "word": "투자",
    "with": {
-    "n": 29,
-    "success": 1,
-    "rate": 0.034
+    "n": 25,
+    "success": 2,
+    "rate": 0.08
    },
    "without": {
-    "n": 671,
-    "success": 124,
-    "rate": 0.185
+    "n": 661,
+    "success": 141,
+    "rate": 0.213
    },
-   "diff": -0.151,
+   "diff": -0.133,
    "small_sample": false,
    "notable": true
   },
   {
    "word": "방법",
    "with": {
-    "n": 23,
+    "n": 22,
     "success": 2,
-    "rate": 0.087
+    "rate": 0.091
    },
    "without": {
-    "n": 677,
-    "success": 123,
-    "rate": 0.182
+    "n": 664,
+    "success": 141,
+    "rate": 0.212
    },
-   "diff": -0.095,
+   "diff": -0.121,
    "small_sample": false,
-   "notable": false
-  },
-  {
-   "word": "오디오북",
-   "with": {
-    "n": 37,
-    "success": 4,
-    "rate": 0.108
-   },
-   "without": {
-    "n": 663,
-    "success": 121,
-    "rate": 0.183
-   },
-   "diff": -0.075,
-   "small_sample": false,
-   "notable": false
+   "notable": true
   },
   {
    "word": "ETF",
    "with": {
-    "n": 44,
-    "success": 5,
-    "rate": 0.114
+    "n": 31,
+    "success": 4,
+    "rate": 0.129
    },
    "without": {
-    "n": 656,
-    "success": 120,
-    "rate": 0.183
+    "n": 655,
+    "success": 139,
+    "rate": 0.212
    },
-   "diff": -0.069,
-   "small_sample": false,
-   "notable": false
-  },
-  {
-   "word": "사람",
-   "with": {
-    "n": 52,
-    "success": 7,
-    "rate": 0.135
-   },
-   "without": {
-    "n": 648,
-    "success": 118,
-    "rate": 0.182
-   },
-   "diff": -0.047,
-   "small_sample": false,
-   "notable": false
-  },
-  {
-   "word": "이것",
-   "with": {
-    "n": 22,
-    "success": 3,
-    "rate": 0.136
-   },
-   "without": {
-    "n": 678,
-    "success": 122,
-    "rate": 0.18
-   },
-   "diff": -0.044,
+   "diff": -0.083,
    "small_sample": false,
    "notable": false
   },
   {
    "word": "이유",
    "with": {
-    "n": 119,
+    "n": 115,
     "success": 17,
-    "rate": 0.143
+    "rate": 0.148
    },
    "without": {
-    "n": 581,
-    "success": 108,
-    "rate": 0.186
+    "n": 571,
+    "success": 126,
+    "rate": 0.221
    },
-   "diff": -0.043,
+   "diff": -0.073,
+   "small_sample": false,
+   "notable": false
+  },
+  {
+   "word": "오디오북",
+   "with": {
+    "n": 36,
+    "success": 6,
+    "rate": 0.167
+   },
+   "without": {
+    "n": 650,
+    "success": 137,
+    "rate": 0.211
+   },
+   "diff": -0.044,
    "small_sample": false,
    "notable": false
   },
   {
    "word": "주식",
    "with": {
-    "n": 36,
-    "success": 5,
-    "rate": 0.139
+    "n": 35,
+    "success": 7,
+    "rate": 0.2
    },
    "without": {
-    "n": 664,
-    "success": 120,
-    "rate": 0.181
+    "n": 651,
+    "success": 136,
+    "rate": 0.209
    },
-   "diff": -0.042,
+   "diff": -0.009,
+   "small_sample": false,
+   "notable": false
+  },
+  {
+   "word": "인생",
+   "with": {
+    "n": 25,
+    "success": 5,
+    "rate": 0.2
+   },
+   "without": {
+    "n": 661,
+    "success": 138,
+    "rate": 0.209
+   },
+   "diff": -0.009,
    "small_sample": false,
    "notable": false
   }
@@ -24828,108 +24894,111 @@
  "title_length": [
   {
    "label": "0~24자",
-   "n": 34,
-   "success": 8,
-   "rate": 0.235
+   "n": 28,
+   "success": 7,
+   "rate": 0.25
   },
   {
    "label": "25~34자",
-   "n": 111,
-   "success": 18,
-   "rate": 0.162
+   "n": 114,
+   "success": 22,
+   "rate": 0.193
   },
   {
    "label": "35~44자",
-   "n": 201,
-   "success": 42,
-   "rate": 0.209
+   "n": 199,
+   "success": 45,
+   "rate": 0.226
   },
   {
    "label": "45자 이상",
-   "n": 354,
-   "success": 57,
-   "rate": 0.161
+   "n": 345,
+   "success": 69,
+   "rate": 0.2
   }
  ],
  "minutes": [
   {
    "label": "4~8분",
-   "n": 41,
-   "success": 7,
-   "rate": 0.171,
+   "n": 40,
+   "success": 8,
+   "rate": 0.2,
    "success_cases": 11
   },
   {
    "label": "8~15분",
-   "n": 228,
-   "success": 48,
-   "rate": 0.211,
+   "n": 233,
+   "success": 55,
+   "rate": 0.236,
    "success_cases": 40
   },
   {
    "label": "15~25분",
-   "n": 245,
-   "success": 47,
-   "rate": 0.192,
+   "n": 239,
+   "success": 55,
+   "rate": 0.23,
    "success_cases": 64
   },
   {
    "label": "25~40분",
-   "n": 118,
-   "success": 17,
-   "rate": 0.144,
+   "n": 116,
+   "success": 18,
+   "rate": 0.155,
    "success_cases": 30
   },
   {
    "label": "40분 이상",
-   "n": 68,
-   "success": 6,
-   "rate": 0.088,
+   "n": 58,
+   "success": 7,
+   "rate": 0.121,
    "success_cases": 17
   }
  ],
  "subs": [
   {
    "label": "0~999명",
-   "n": 76,
-   "success": 15,
-   "rate": 0.197
+   "n": 72,
+   "success": 17,
+   "rate": 0.236
   },
   {
    "label": "1,000~4,999명",
-   "n": 190,
-   "success": 44,
-   "rate": 0.232
+   "n": 186,
+   "success": 52,
+   "rate": 0.28
   },
   {
    "label": "5,000~19,999명",
-   "n": 219,
-   "success": 43,
-   "rate": 0.196
+   "n": 216,
+   "success": 48,
+   "rate": 0.222
   },
   {
    "label": "20,000~50,000명",
-   "n": 215,
-   "success": 23,
-   "rate": 0.107
+   "n": 212,
+   "success": 26,
+   "rate": 0.123
   }
  ],
  "structure": {
   "minutes_median_success": 18.05,
-  "minutes_median_compare_others": 18.9,
+  "minutes_median_compare_others": 18.8,
   "chapters_share": 0.346,
   "chapters_count_median": 8.0,
-  "transcripts": 2,
+  "transcripts": 6,
   "text_sources": {
-   "설명": 154,
+   "음성인식(앞 5분)": 4,
+   "설명": 150,
    "음성인식": 2,
    "없음": 6
   },
-  "syl_per_sec_median": 4.98,
-  "first60_syl_median": 332.0,
+  "syl_per_sec_median": 5.39,
+  "first60_syl_median": 347.5,
   "hook_types": {
-   "그 밖": 1,
-   "질문으로 시작": 1
+   "질문으로 시작": 2,
+   "내 이야기·사연": 1,
+   "그 밖": 2,
+   "시청자 부르기": 1
   }
  },
  "needs": {
@@ -25886,9 +25955,9 @@
     "demand_share": 0.288,
     "supply_share": 0.21,
     "index": 1.37,
-    "vpd_median": 5378.1,
-    "small_success_rate": 0.193,
-    "small_n": 202,
+    "vpd_median": 5376.7,
+    "small_success_rate": 0.239,
+    "small_n": 205,
     "questions": 176,
     "small_sample": false,
     "top_questions": [
@@ -25916,12 +25985,12 @@
     "theme": "8. 부업·소득",
     "videos": 17,
     "channels": 8,
-    "demand_share": 0.025,
+    "demand_share": 0.026,
     "supply_share": 0.022,
-    "index": 1.14,
-    "vpd_median": 13290.9,
-    "small_success_rate": 0.192,
-    "small_n": 26,
+    "index": 1.15,
+    "vpd_median": 13285.1,
+    "small_success_rate": 0.273,
+    "small_n": 22,
     "questions": 3,
     "small_sample": false,
     "top_questions": [
@@ -25946,9 +26015,9 @@
     "demand_share": 0.072,
     "supply_share": 0.066,
     "index": 1.09,
-    "vpd_median": 4076.75,
-    "small_success_rate": 0.288,
-    "small_n": 59,
+    "vpd_median": 4075.7,
+    "small_success_rate": 0.262,
+    "small_n": 61,
     "questions": 67,
     "small_sample": false,
     "top_questions": [
@@ -25976,12 +26045,12 @@
     "theme": "3. 주식·ETF",
     "videos": 339,
     "channels": 145,
-    "demand_share": 0.437,
+    "demand_share": 0.436,
     "supply_share": 0.444,
     "index": 0.98,
-    "vpd_median": 4059.9,
-    "small_success_rate": 0.112,
-    "small_n": 179,
+    "vpd_median": 4059.3,
+    "small_success_rate": 0.121,
+    "small_n": 165,
     "questions": 562,
     "small_sample": false,
     "top_questions": [
@@ -26012,9 +26081,9 @@
     "demand_share": 0.048,
     "supply_share": 0.054,
     "index": 0.89,
-    "vpd_median": 5672.7,
-    "small_success_rate": 0.24,
-    "small_n": 75,
+    "vpd_median": 5671.7,
+    "small_success_rate": 0.247,
+    "small_n": 73,
     "questions": 0,
     "small_sample": false,
     "top_questions": []
@@ -26025,10 +26094,10 @@
     "channels": 77,
     "demand_share": 0.106,
     "supply_share": 0.164,
-    "index": 0.64,
-    "vpd_median": 4014.2,
-    "small_success_rate": 0.159,
-    "small_n": 126,
+    "index": 0.65,
+    "vpd_median": 4012.9,
+    "small_success_rate": 0.209,
+    "small_n": 129,
     "questions": 41,
     "small_sample": false,
     "top_questions": [
@@ -26059,9 +26128,9 @@
     "demand_share": 0.016,
     "supply_share": 0.035,
     "index": 0.44,
-    "vpd_median": 2108.7,
-    "small_success_rate": 0.208,
-    "small_n": 24,
+    "vpd_median": 2108.4,
+    "small_success_rate": 0.261,
+    "small_n": 23,
     "questions": 120,
     "small_sample": false,
     "top_questions": [
@@ -26092,9 +26161,9 @@
     "demand_share": 0.009,
     "supply_share": 0.004,
     "index": 2.21,
-    "vpd_median": 7733.1,
+    "vpd_median": 7731.2,
     "small_success_rate": 0.0,
-    "small_n": 4,
+    "small_n": 2,
     "questions": 1,
     "small_sample": true,
     "top_questions": [
@@ -26113,9 +26182,9 @@
     "demand_share": 0.001,
     "supply_share": 0.001,
     "index": 0.52,
-    "vpd_median": 7350.4,
-    "small_success_rate": 0.2,
-    "small_n": 5,
+    "vpd_median": 7349.4,
+    "small_success_rate": 0.167,
+    "small_n": 6,
     "questions": 8,
     "small_sample": true,
     "top_questions": [
@@ -26144,31 +26213,31 @@
    "사연·드라마": {
     "videos": 36,
     "index": 0.73,
-    "vpd_median": 4240.85,
+    "vpd_median": 4239.45,
     "small_sample": false
    },
    "오디오북·낭독 (명언·인생조언)": {
     "videos": 43,
     "index": 0.85,
-    "vpd_median": 5748.4,
+    "vpd_median": 5747.4,
     "small_sample": false
    },
    "인터뷰·강연·대담": {
     "videos": 224,
     "index": 0.86,
-    "vpd_median": 4673.35,
+    "vpd_median": 4672.6,
     "small_sample": false
    },
    "브이로그·직접 해본 이야기": {
     "videos": 49,
     "index": 0.62,
-    "vpd_median": 4985.1,
+    "vpd_median": 4984.4,
     "small_sample": false
    },
    "정보·해설 (그 밖)": {
     "videos": 411,
     "index": 1.16,
-    "vpd_median": 4191.1,
+    "vpd_median": 4190.3,
     "small_sample": false
    }
   },
@@ -26180,7 +26249,7 @@
     "recent30": 12,
     "total": 164506,
     "views_median": 92621,
-    "vpd_median": 1489.2,
+    "vpd_median": 1489.0,
     "vpd_per_video": 2.4,
     "big_share": 0.615,
     "small_n": 35,
@@ -26196,7 +26265,7 @@
     "recent30": 4,
     "total": 222398,
     "views_median": 385783,
-    "vpd_median": 3883.1,
+    "vpd_median": 3882.7,
     "vpd_per_video": 3.3,
     "big_share": 0.719,
     "small_n": 25,
@@ -26212,7 +26281,7 @@
     "recent30": 6,
     "total": 196467,
     "views_median": 364239.5,
-    "vpd_median": 3799.2,
+    "vpd_median": 3798.75,
     "vpd_per_video": 3.3,
     "big_share": 0.75,
     "small_n": 23,
@@ -26228,7 +26297,7 @@
     "recent30": 13,
     "total": null,
     "views_median": 162894,
-    "vpd_median": 2152.5,
+    "vpd_median": 2152.3,
     "vpd_per_video": null,
     "big_share": 0.696,
     "small_n": 21,
@@ -26244,7 +26313,7 @@
     "recent30": 9,
     "total": 194198,
     "views_median": 235477,
-    "vpd_median": 2351.4,
+    "vpd_median": 2351.0,
     "vpd_per_video": 3.3,
     "big_share": 0.768,
     "small_n": 22,
@@ -26260,7 +26329,7 @@
     "recent30": 8,
     "total": 76176,
     "views_median": 113058.0,
-    "vpd_median": 1364.15,
+    "vpd_median": 1364.05,
     "vpd_per_video": 5.0,
     "big_share": 0.731,
     "small_n": 21,
@@ -26276,7 +26345,7 @@
     "recent30": 9,
     "total": 220872,
     "views_median": 79235.5,
-    "vpd_median": 901.5,
+    "vpd_median": 901.3,
     "vpd_per_video": 1.3,
     "big_share": 0.676,
     "small_n": 22,
@@ -26292,7 +26361,7 @@
     "recent30": 11,
     "total": 157849,
     "views_median": 185308,
-    "vpd_median": 2311.4,
+    "vpd_median": 2311.2,
     "vpd_per_video": 2.7,
     "big_share": 0.818,
     "small_n": 14,
@@ -26308,7 +26377,7 @@
     "recent30": 8,
     "total": 203694,
     "views_median": 165112,
-    "vpd_median": 2070.9,
+    "vpd_median": 2070.8,
     "vpd_per_video": 2.0,
     "big_share": 0.857,
     "small_n": 13,
@@ -26324,7 +26393,7 @@
     "recent30": 5,
     "total": 209869,
     "views_median": 429547.5,
-    "vpd_median": 4469.1,
+    "vpd_median": 4468.65,
     "vpd_per_video": 2.7,
     "big_share": 0.859,
     "small_n": 9,
@@ -26340,7 +26409,7 @@
     "recent30": 6,
     "total": 220772,
     "views_median": 113998.5,
-    "vpd_median": 1580.55,
+    "vpd_median": 1580.35,
     "vpd_per_video": 1.5,
     "big_share": 0.833,
     "small_n": 12,
@@ -26356,7 +26425,7 @@
     "recent30": 14,
     "total": 176237,
     "views_median": 460009,
-    "vpd_median": 7310.2,
+    "vpd_median": 7308.9,
     "vpd_per_video": 14.4,
     "big_share": 0.874,
     "small_n": 12,
@@ -26372,7 +26441,7 @@
     "recent30": 6,
     "total": 153617,
     "views_median": 129619,
-    "vpd_median": 1382.3,
+    "vpd_median": 1382.2,
     "vpd_per_video": 2.4,
     "big_share": 0.879,
     "small_n": 12,
@@ -26388,7 +26457,7 @@
     "recent30": 9,
     "total": 178501,
     "views_median": 67108.5,
-    "vpd_median": 661.35,
+    "vpd_median": 661.3,
     "vpd_per_video": 1.6,
     "big_share": 0.848,
     "small_n": 10,
@@ -26404,7 +26473,7 @@
     "recent30": 4,
     "total": 188677,
     "views_median": 230573,
-    "vpd_median": 2298.1,
+    "vpd_median": 2298.0,
     "vpd_per_video": 2.8,
     "big_share": 0.876,
     "small_n": 12,
@@ -26420,7 +26489,7 @@
     "recent30": 4,
     "total": 152289,
     "views_median": 181132.0,
-    "vpd_median": 1704.2,
+    "vpd_median": 1703.9,
     "vpd_per_video": 2.5,
     "big_share": 0.883,
     "small_n": 11,
@@ -26436,7 +26505,7 @@
     "recent30": 4,
     "total": 218565,
     "views_median": 284123,
-    "vpd_median": 2972.8,
+    "vpd_median": 2972.5,
     "vpd_per_video": 3.7,
     "big_share": 0.895,
     "small_n": 10,
@@ -26452,7 +26521,7 @@
     "recent30": 8,
     "total": 212591,
     "views_median": 140619.0,
-    "vpd_median": 1647.1,
+    "vpd_median": 1647.0,
     "vpd_per_video": 1.2,
     "big_share": 0.764,
     "small_n": 17,
@@ -26484,7 +26553,7 @@
     "recent30": 16,
     "total": 159575,
     "views_median": 107554.5,
-    "vpd_median": 1676.6,
+    "vpd_median": 1676.4,
     "vpd_per_video": 2.0,
     "big_share": 0.857,
     "small_n": 12,
@@ -26500,7 +26569,7 @@
     "recent30": 4,
     "total": 245278,
     "views_median": 523257,
-    "vpd_median": 5343.5,
+    "vpd_median": 5343.0,
     "vpd_per_video": 2.1,
     "big_share": 0.909,
     "small_n": 3,
@@ -26516,7 +26585,7 @@
     "recent30": 4,
     "total": null,
     "views_median": 173093,
-    "vpd_median": 2094.8,
+    "vpd_median": 2094.6,
     "vpd_per_video": null,
     "big_share": 0.897,
     "small_n": 9,
@@ -26532,7 +26601,7 @@
     "recent30": 6,
     "total": 216782,
     "views_median": 228572.5,
-    "vpd_median": 2467.4,
+    "vpd_median": 2467.1,
     "vpd_per_video": 1.7,
     "big_share": 0.911,
     "small_n": 5,
@@ -26548,7 +26617,7 @@
     "recent30": 2,
     "total": 228131,
     "views_median": 435219.0,
-    "vpd_median": 4087.2,
+    "vpd_median": 4086.75,
     "vpd_per_video": 1.7,
     "big_share": 0.931,
     "small_n": 4,
@@ -26564,7 +26633,7 @@
     "recent30": 2,
     "total": 305804,
     "views_median": 630420.0,
-    "vpd_median": 5897.55,
+    "vpd_median": 5896.75,
     "vpd_per_video": 3.2,
     "big_share": 0.949,
     "small_n": 4,
@@ -26596,7 +26665,7 @@
     "recent30": 0,
     "total": 211104,
     "views_median": 314474.5,
-    "vpd_median": 2779.15,
+    "vpd_median": 2778.9,
     "vpd_per_video": 0.7,
     "big_share": 0.958,
     "small_n": 1,
@@ -26612,7 +26681,7 @@
     "recent30": 1,
     "total": 356141,
     "views_median": 621812,
-    "vpd_median": 5428.1,
+    "vpd_median": 5427.6,
     "vpd_per_video": 1.6,
     "big_share": 0.959,
     "small_n": 2,
@@ -26628,7 +26697,7 @@
     "recent30": 7,
     "total": 480082,
     "views_median": 591606,
-    "vpd_median": 5777.0,
+    "vpd_median": 5776.2,
     "vpd_per_video": 3.4,
     "big_share": 0.975,
     "small_n": 2,
@@ -26644,7 +26713,7 @@
     "recent30": 7,
     "total": 179106,
     "views_median": 100113.0,
-    "vpd_median": 1000.0,
+    "vpd_median": 999.9,
     "vpd_per_video": 1.4,
     "big_share": 0.964,
     "small_n": 3,
@@ -26660,7 +26729,7 @@
     "recent30": 5,
     "total": 204358,
     "views_median": 168549.0,
-    "vpd_median": 1617.65,
+    "vpd_median": 1617.45,
     "vpd_per_video": 1.9,
     "big_share": 0.981,
     "small_n": 1,
@@ -26676,7 +26745,7 @@
     "recent30": 4,
     "total": 217550,
     "views_median": 290172,
-    "vpd_median": 2476.0,
+    "vpd_median": 2475.6,
     "vpd_per_video": 5.0,
     "big_share": 0.984,
     "small_n": 1,
@@ -26692,7 +26761,7 @@
     "recent30": 6,
     "total": null,
     "views_median": 438658.5,
-    "vpd_median": 5030.4,
+    "vpd_median": 5029.7,
     "vpd_per_video": null,
     "big_share": 0.985,
     "small_n": 1,
@@ -26708,7 +26777,7 @@
     "recent30": 21,
     "total": 237300,
     "views_median": 97422,
-    "vpd_median": 1353.1,
+    "vpd_median": 1352.9,
     "vpd_per_video": 3.2,
     "big_share": 0.949,
     "small_n": 4,
@@ -26724,7 +26793,7 @@
     "recent30": 0,
     "total": 286572,
     "views_median": 953809.5,
-    "vpd_median": 6357.0,
+    "vpd_median": 6356.55,
     "vpd_per_video": 0.2,
     "big_share": 1.0,
     "small_n": 0,
@@ -26740,7 +26809,7 @@
     "recent30": 15,
     "total": 228269,
     "views_median": 250840.0,
-    "vpd_median": 4136.5,
+    "vpd_median": 4135.9,
     "vpd_per_video": 3.3,
     "big_share": 1.0,
     "small_n": 0,
@@ -27084,6 +27153,7 @@
    {
     "channel_id": "UCuHUaZo43N9PgOCjs3Hg2Uw",
     "channel": "PLUS TV (플러스 TV)",
+    "brand_hint": "PLUS",
     "created": "2026-04-23",
     "months": 5.7,
     "subs": 161000,
@@ -27101,12 +27171,13 @@
      "id": "8IH_hQaWyQ8",
      "title": "나스닥 최악의 달 9월, “그런데… 또 놀라서 파실거예요?”",
      "views": 762094,
-     "vpd": 18137.7
+     "vpd": 18132.9
     }
    },
    {
     "channel_id": "UC1eyYJRpM_g5WBp60mmRwCQ",
     "channel": "경제명탐정",
+    "brand_hint": null,
     "created": "2026-02-08",
     "months": 8.1,
     "subs": 200000,
@@ -27123,12 +27194,13 @@
      "id": "d3bAeeYGu1I",
      "title": "[긴급] 나스닥100 ETF 5월부터 룰 변경, 적립식 투자가 호구 되는 진짜 이유",
      "views": 266486,
-     "vpd": 1657.3
+     "vpd": 1657.2
     }
    },
    {
     "channel_id": "UCCXktLc07byaN61hv-Fg6JQ",
     "channel": "강지영의 동그라미",
+    "brand_hint": null,
     "created": "2026-03-02",
     "months": 7.4,
     "subs": 144000,
@@ -27145,12 +27217,13 @@
      "id": "1AFnKX2-rt0",
      "title": "20대에 돈 가장 빨리 모으는 현실적인 방법 (ISA, ETF 활용법)",
      "views": 1044886,
-     "vpd": 6438.5
+     "vpd": 6438.0
     }
    },
    {
     "channel_id": "UCn49LSg2JSP-9rXV5G2kt4A",
     "channel": "경제해적단",
+    "brand_hint": null,
     "created": "2026-03-18",
     "months": 6.9,
     "subs": 121000,
@@ -27174,6 +27247,7 @@
    {
     "channel_id": "UCn1FIHzmP3kyGhEH-gO6mQg",
     "channel": "배움에 끝은없다",
+    "brand_hint": null,
     "created": "2026-06-07",
     "months": 4.2,
     "subs": 60800,
@@ -27191,12 +27265,13 @@
      "id": "OBGWI2sJfr8",
      "title": "아무도 안하는 부업으로 27억 모은 40대, 70대도 첫 달 9천만원 매출했어요",
      "views": 912296,
-     "vpd": 23222.4
+     "vpd": 23215.9
     }
    },
    {
     "channel_id": "UCdA_ovMcYiNgbkf4624Tbxw",
     "channel": "집구석 경제학",
+    "brand_hint": null,
     "created": "2025-11-21",
     "months": 10.7,
     "subs": 133000,
@@ -27220,6 +27295,7 @@
    {
     "channel_id": "UCIt_hQy30blHrVAS7QLTyTg",
     "channel": "ETF 아는 형",
+    "brand_hint": null,
     "created": "2025-07-01",
     "months": 15.4,
     "subs": 157000,
@@ -27236,12 +27312,13 @@
      "id": "e3EY2JJMgDw",
      "title": "노후 자금 주식에 올인했다간 큰일 납니다, 은퇴자가 무조건 사서 묻어둬야 할 ETF 종목 | 존리 | ETF아는형",
      "views": 946952,
-     "vpd": 29234.1
+     "vpd": 29224.1
     }
    },
    {
     "channel_id": "UCId55ph0gspBax7VQKBqTYg",
     "channel": "돈터치",
+    "brand_hint": null,
     "created": "2025-08-30",
     "months": 13.5,
     "subs": 129000,
@@ -27259,12 +27336,13 @@
      "id": "mtt8jIsIdQg",
      "title": "71세 전직 3성 장군, 하루 1시간 부업으로 월 450만원 법니다",
      "views": 1284719,
-     "vpd": 34456.2
+     "vpd": 34446.0
     }
    },
    {
     "channel_id": "UCNLRGd_UrF31wirXhX16eJQ",
     "channel": "머니클래스 - 경제적 자유를 향하여",
+    "brand_hint": null,
     "created": "2026-01-06",
     "months": 9.2,
     "subs": 85900,
@@ -27288,6 +27366,7 @@
    {
     "channel_id": "UCrIQPjBZzzgw8ovos0pCQtw",
     "channel": "배워야산다",
+    "brand_hint": null,
     "created": "2025-12-29",
     "months": 9.5,
     "subs": 84800,
@@ -27305,12 +27384,13 @@
      "id": "-R-wUUholT4",
      "title": "\"통장 잔고 0원이었는데 지금은 1억씩 기부해요\" 집에서 34억 찍게 해준 부업",
      "views": 329829,
-     "vpd": 2537.9
+     "vpd": 2537.7
     }
    },
    {
     "channel_id": "UC_2hzxrF0OfXjITTLxqZvHA",
     "channel": "머니스토리랩",
+    "brand_hint": null,
     "created": "2025-11-29",
     "months": 10.4,
     "subs": 90100,
@@ -27328,12 +27408,13 @@
      "id": "Kd2TEM-WL48",
      "title": "당신의 ISA, 올해 안에 이 버튼 안 누르면 5년짜리로 묶입니다",
      "views": 81036,
-     "vpd": 1166.1
+     "vpd": 1165.9
     }
    },
    {
     "channel_id": "UCnuyNitL5SIfBJvTJcdDNLQ",
     "channel": "ACE ETF",
+    "brand_hint": "ACE",
     "created": "2025-04-17",
     "months": 17.9,
     "subs": 148000,
@@ -27351,12 +27432,13 @@
      "id": "WfEK5IRkpE4",
      "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
      "views": 2180869,
-     "vpd": 181806.9
+     "vpd": 181639.5
     }
    },
    {
     "channel_id": "UCtjj8T7n2_jS92pfMeWdoWQ",
     "channel": "머니인더트랩",
+    "brand_hint": null,
     "created": "2025-09-09",
     "months": 13.1,
     "subs": 108000,
@@ -27374,12 +27456,13 @@
      "id": "Cx2KhmXJI7k",
      "title": "미국주식 너무 올랐다고요? 10년 전에도 고점이었습니다 | 포메뽀꼬 김지훈 작가 [얘기좀합시다]",
      "views": 456042,
-     "vpd": 136550.4
+     "vpd": 136099.8
     }
    },
    {
     "channel_id": "UCEDbet_4cQqo5_8Yw2ermKg",
     "channel": "똑똑하게 돈 벌기",
+    "brand_hint": null,
     "created": "2025-12-09",
     "months": 10.2,
     "subs": 78000,
@@ -27402,6 +27485,7 @@
    {
     "channel_id": "UCXwOVioPSL6T3mBvcGFuOYg",
     "channel": "경제초고수",
+    "brand_hint": null,
     "created": "2026-03-21",
     "months": 6.8,
     "subs": 39400,
@@ -27419,12 +27503,13 @@
      "id": "3Hw87oNMlHI",
      "title": "\"골드만삭스가 전주에 무릎 꿇었습니다\" 국민연금 1,458조, 세계 1위 수익률의 비밀",
      "views": 149400,
-     "vpd": 927.6
+     "vpd": 927.5
     }
    },
    {
     "channel_id": "UCjm62t0FCasxIA_fu_uUcOg",
     "channel": "경제나침반",
+    "brand_hint": null,
     "created": "2026-07-27",
     "months": 2.6,
     "subs": 14000,
@@ -27442,12 +27527,13 @@
      "id": "iMkvDXx86dE",
      "title": "연금고수들이 연금저축계좌 반드시 담는 ETF 3가지",
      "views": 105108,
-     "vpd": 1345.0
+     "vpd": 1344.8
     }
    },
    {
     "channel_id": "UCiDxoJ3S4HWZI0t-tqlZzaw",
     "channel": "인생유랑",
+    "brand_hint": null,
     "created": "2026-06-16",
     "months": 3.9,
     "subs": 20900,
@@ -27464,12 +27550,13 @@
      "id": "PX-qc9FOViA",
      "title": "예비 며느리 시험하려 청소부로 변장한 재벌회장, 일부러 커피 쏟았는데 그녀의 행동에 말문이 막혔습니다 | 인생사연 | 노후사연 | 감동사연 | 시니어사연 |",
      "views": 856988,
-     "vpd": 14557.7
+     "vpd": 14555.0
     }
    },
    {
     "channel_id": "UCDieGYS2T1fy-j9_GZeZeqQ",
     "channel": "스티브의 파도타기 | AI 시대 일하는 법",
+    "brand_hint": null,
     "created": "2026-05-08",
     "months": 5.2,
     "subs": 26600,
@@ -27487,12 +27574,13 @@
      "id": "ITzgH6CeZns",
      "title": "매일 아침 7시, 내 포트폴리오를 관리해주는 AI 주식 비서를 만들어봤습니다",
      "views": 680729,
-     "vpd": 4906.4
+     "vpd": 4906.0
     }
    },
    {
     "channel_id": "UC-ruq0a4Fep64Vi2cjoL_dg",
     "channel": "사다리게임",
+    "brand_hint": null,
     "created": "2026-03-03",
     "months": 7.4,
     "subs": 36100,
@@ -27510,12 +27598,13 @@
      "id": "c2gVsmW6amw",
      "title": "방치된 건물로 떼돈 번 일본의 빈집 사업 알아보기 (신사업 원정대)",
      "views": 407312,
-     "vpd": 7571.1
+     "vpd": 7569.5
     }
    },
    {
     "channel_id": "UC092e5GLtfXQMFRCoJYB0lw",
     "channel": "원가 공개 경제학",
+    "brand_hint": null,
     "created": "2026-01-30",
     "months": 8.4,
     "subs": 40500,
@@ -27533,12 +27622,13 @@
      "id": "HbIoyrhpR-o",
      "title": "국회의원 운전기사는 얼마 받나? 의원 1명에 붙는 직원 9명의 월급",
      "views": 3330633,
-     "vpd": 181093.1
+     "vpd": 180984.3
     }
    },
    {
     "channel_id": "UCz0bFdzqCfYDGbcMLHeBR4Q",
     "channel": "마음나날",
+    "brand_hint": null,
     "created": "2026-07-09",
     "months": 3.2,
     "subs": 14900,
@@ -27555,12 +27645,13 @@
      "id": "8iNha4B8x2o",
      "title": "중졸인 며느리를 직원으로 받아준 부도직전 시아버지, 며느리의 정체에 모두 놀라는데...ㅣ노후사연ㅣ감동사연ㅣ사연라디오ㅣ오디오북",
      "views": 337399,
-     "vpd": 3999.5
+     "vpd": 3999.0
     }
    },
    {
     "channel_id": "UC1svPlZhZkFROW5WseKgI7A",
     "channel": "김지호의 공간문해력",
+    "brand_hint": null,
     "created": "2026-06-17",
     "months": 3.9,
     "subs": 18300,
@@ -27578,12 +27669,13 @@
      "id": "x3sp6JiPaWs",
      "title": "30년 잘 살던 부부도 은퇴 후 틀어지는 진짜 이유",
      "views": 50708,
-     "vpd": 6260.0
+     "vpd": 6251.5
     }
    },
    {
     "channel_id": "UCi1QIcN6ZaXNUmH3_3OUtww",
     "channel": "현인의등불",
+    "brand_hint": null,
     "created": "2026-01-25",
     "months": 8.6,
     "subs": 36700,
@@ -27600,12 +27692,13 @@
      "id": "TkBt14Q2mnQ",
      "title": "현명한 부모는 결혼한 자식에게 '이 3가지' 당장 끊어낸다 | 정약용 명언 | 인간관계 조언 | 오디오북 | 인생조언 | 노후준비",
      "views": 431970,
-     "vpd": 3211.8
+     "vpd": 3211.5
     }
    },
    {
     "channel_id": "UCQrlX5mzcTICHZC1BMVKwhQ",
     "channel": "은퇴머니 - 은퇴 현금흐름 설계",
+    "brand_hint": null,
     "created": "2026-03-03",
     "months": 7.4,
     "subs": 30000,
@@ -27623,12 +27716,13 @@
      "id": "yRDpbgaZahc",
      "title": "월배당 ETF 10억 투자하면 정말 배당금 얼마? | 종합소득세·건강보험료 계산법 (은퇴 현금흐름 설계)",
      "views": 748689,
-     "vpd": 5526.4
+     "vpd": 5526.0
     }
    },
    {
     "channel_id": "UCAGsOPVivN4YgJRf6Y89eOA",
     "channel": "누룽지 - 정보를 구수하고 빠삭하게 알려드림",
+    "brand_hint": null,
     "created": "2025-04-09",
     "months": 18.2,
     "subs": 68000,
@@ -27646,21 +27740,21 @@
      "id": "z-DkCGSLX0Q",
      "title": "\"통장에 최소 1,000만원은 꼭 묶어두세요\" 은퇴 6년차가 말하는 노후 한 달 실제 지출 내역",
      "views": 539872,
-     "vpd": 37296.2
+     "vpd": 37267.8
     }
    }
   ]
  },
  "engagement": {
   "success": {
-   "likes_per_1k": 7.01,
-   "comments_per_1k": 0.78,
-   "n": 125
+   "likes_per_1k": 6.59,
+   "comments_per_1k": 0.74,
+   "n": 143
   },
   "others": {
-   "likes_per_1k": 12.3,
-   "comments_per_1k": 0.91,
-   "n": 575
+   "likes_per_1k": 12.09,
+   "comments_per_1k": 0.98,
+   "n": 543
   }
  },
  "gap_candidates": [
@@ -27678,209 +27772,203 @@
  "baseline": {
   "channels": 141,
   "compared_channels": 132,
-  "hits": 490,
-  "normal": 604,
+  "hits": 469,
+  "normal": 569,
   "small_sample": false,
   "features": [
    {
-    "feature": "물음표 ?",
-    "hits": 0.155,
-    "normal": 0.212,
-    "diff": -0.057,
-    "notable": false
-   },
-   {
     "feature": "숫자가 들어감",
-    "hits": 0.731,
-    "normal": 0.682,
-    "diff": 0.049,
+    "hits": 0.736,
+    "normal": 0.684,
+    "diff": 0.052,
     "notable": false
    },
    {
     "feature": "노후·퇴직금·은퇴·50~70대",
-    "hits": 0.265,
-    "normal": 0.219,
-    "diff": 0.046,
+    "hits": 0.281,
+    "normal": 0.232,
+    "diff": 0.049,
     "notable": false
    },
    {
-    "feature": "N가지",
-    "hits": 0.159,
-    "normal": 0.124,
-    "diff": 0.035,
+    "feature": "물음표 ?",
+    "hits": 0.162,
+    "normal": 0.207,
+    "diff": -0.045,
     "notable": false
    },
    {
     "feature": "사연·오디오북·실화·고백",
-    "hits": 0.086,
-    "normal": 0.055,
-    "diff": 0.031,
+    "hits": 0.096,
+    "normal": 0.054,
+    "diff": 0.042,
     "notable": false
    },
    {
     "feature": "40자 이상",
-    "hits": 0.673,
-    "normal": 0.642,
-    "diff": 0.031,
-    "notable": false
-   },
-   {
-    "feature": "직접·해보니·N년 기록",
-    "hits": 0.043,
-    "normal": 0.023,
-    "diff": 0.02,
-    "notable": false
-   },
-   {
-    "feature": "이유",
-    "hits": 0.157,
-    "normal": 0.175,
-    "diff": -0.018,
-    "notable": false
-   },
-   {
-    "feature": "코스피·폭락·급락·하락장",
-    "hits": 0.002,
-    "normal": 0.018,
-    "diff": -0.016,
+    "hits": 0.676,
+    "normal": 0.638,
+    "diff": 0.038,
     "notable": false
    },
    {
     "feature": "금액(억·만원)",
-    "hits": 0.239,
-    "normal": 0.225,
-    "diff": 0.014,
+    "hits": 0.252,
+    "normal": 0.216,
+    "diff": 0.036,
     "notable": false
    },
    {
-    "feature": "빚투·신용·미수·레버리지·대출",
-    "hits": 0.018,
-    "normal": 0.031,
-    "diff": -0.013,
+    "feature": "N가지",
+    "hits": 0.166,
+    "normal": 0.132,
+    "diff": 0.034,
     "notable": false
    },
    {
     "feature": "느낌표 !",
-    "hits": 0.12,
-    "normal": 0.108,
-    "diff": 0.012,
+    "hits": 0.124,
+    "normal": 0.1,
+    "diff": 0.024,
     "notable": false
    },
    {
-    "feature": "과정·벌어진 일·결말·결국",
-    "hits": 0.01,
-    "normal": 0.022,
-    "diff": -0.012,
-    "notable": false
-   },
-   {
-    "feature": "25자 미만",
-    "hits": 0.039,
-    "normal": 0.05,
-    "diff": -0.011,
-    "notable": false
-   },
-   {
-    "feature": "두 금액(반전)",
-    "hits": 0.055,
-    "normal": 0.046,
-    "diff": 0.009,
-    "notable": false
-   },
-   {
-    "feature": "말줄임 …·...",
-    "hits": 0.086,
-    "normal": 0.094,
-    "diff": -0.008,
-    "notable": false
-   },
-   {
-    "feature": "S&P500·ETF·지수·나스닥",
-    "hits": 0.086,
-    "normal": 0.079,
-    "diff": 0.007,
+    "feature": "직접·해보니·N년 기록",
+    "hits": 0.047,
+    "normal": 0.023,
+    "diff": 0.024,
     "notable": false
    },
    {
     "feature": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-    "hits": 0.302,
-    "normal": 0.296,
-    "diff": 0.006,
+    "hits": 0.311,
+    "normal": 0.299,
+    "diff": 0.012,
     "notable": false
    },
    {
-    "feature": "구분 기호(ㅣ·｜·/)로 나눔",
-    "hits": 0.314,
-    "normal": 0.308,
-    "diff": 0.006,
+    "feature": "코스피·폭락·급락·하락장",
+    "hits": 0.006,
+    "normal": 0.018,
+    "diff": -0.012,
+    "notable": false
+   },
+   {
+    "feature": "두 금액(반전)",
+    "hits": 0.058,
+    "normal": 0.047,
+    "diff": 0.011,
+    "notable": false
+   },
+   {
+    "feature": "과정·벌어진 일·결말·결국",
+    "hits": 0.009,
+    "normal": 0.019,
+    "diff": -0.01,
+    "notable": false
+   },
+   {
+    "feature": "25자 미만",
+    "hits": 0.041,
+    "normal": 0.051,
+    "diff": -0.01,
+    "notable": false
+   },
+   {
+    "feature": "이유",
+    "hits": 0.16,
+    "normal": 0.169,
+    "diff": -0.009,
+    "notable": false
+   },
+   {
+    "feature": "S&P500·ETF·지수·나스닥",
+    "hits": 0.092,
+    "normal": 0.084,
+    "diff": 0.008,
+    "notable": false
+   },
+   {
+    "feature": "말줄임 …·...",
+    "hits": 0.083,
+    "normal": 0.091,
+    "diff": -0.008,
     "notable": false
    },
    {
     "feature": "공통점",
     "hits": 0.004,
-    "normal": 0.008,
-    "diff": -0.004,
+    "normal": 0.011,
+    "diff": -0.007,
     "notable": false
    },
    {
-    "feature": "따옴표·괄호로 강조",
-    "hits": 0.349,
-    "normal": 0.346,
-    "diff": 0.003,
+    "feature": "빚투·신용·미수·레버리지·대출",
+    "hits": 0.023,
+    "normal": 0.028,
+    "diff": -0.005,
+    "notable": false
+   },
+   {
+    "feature": "구분 기호(ㅣ·｜·/)로 나눔",
+    "hits": 0.318,
+    "normal": 0.313,
+    "diff": 0.005,
     "notable": false
    },
    {
     "feature": "손실 낱말(망하·날린·잃은·반토막)",
-    "hits": 0.018,
-    "normal": 0.02,
-    "diff": -0.002,
+    "hits": 0.023,
+    "normal": 0.021,
+    "diff": 0.002,
     "notable": false
    },
    {
     "feature": "vs 비교",
-    "hits": 0.131,
-    "normal": 0.129,
-    "diff": 0.002,
+    "hits": 0.13,
+    "normal": 0.132,
+    "diff": -0.002,
     "notable": false
    },
    {
     "feature": "AI",
-    "hits": 0.027,
-    "normal": 0.025,
+    "hits": 0.028,
+    "normal": 0.026,
     "diff": 0.002,
+    "notable": false
+   },
+   {
+    "feature": "따옴표·괄호로 강조",
+    "hits": 0.341,
+    "normal": 0.341,
+    "diff": 0.0,
     "notable": false
    }
   ],
   "themes": [
    {
     "theme": "4. 노후·연금",
-    "hits": 0.29,
-    "normal": 0.21,
-    "diff": 0.08
+    "hits": 0.311,
+    "normal": 0.225,
+    "diff": 0.086
    },
    {
     "theme": "8. 부업·소득",
-    "hits": 0.027,
-    "normal": 0.015,
-    "diff": 0.012
-   },
-   {
-    "theme": "7. 빚·대출·신용",
-    "hits": 0.012,
-    "normal": 0.005,
-    "diff": 0.007
+    "hits": 0.026,
+    "normal": 0.016,
+    "diff": 0.01
    },
    {
     "theme": "2. 돈 모으기·저축",
-    "hits": 0.078,
-    "normal": 0.076,
-    "diff": 0.002
+    "hits": 0.083,
+    "normal": 0.077,
+    "diff": 0.006
    },
    {
-    "theme": "3. 주식·ETF",
-    "hits": 0.188,
-    "normal": 0.189,
-    "diff": -0.001
+    "theme": "7. 빚·대출·신용",
+    "hits": 0.013,
+    "normal": 0.011,
+    "diff": 0.002
    },
    {
     "theme": "10. 금융 사기",
@@ -27889,224 +27977,218 @@
     "diff": -0.002
    },
    {
-    "theme": "9. 코인",
-    "hits": 0.002,
-    "normal": 0.005,
-    "diff": -0.003
+    "theme": "3. 주식·ETF",
+    "hits": 0.203,
+    "normal": 0.211,
+    "diff": -0.008
    },
    {
     "theme": "6. 절세·제도",
-    "hits": 0.016,
-    "normal": 0.028,
-    "diff": -0.012
-   },
-   {
-    "theme": "5. 부동산",
-    "hits": 0.055,
-    "normal": 0.07,
-    "diff": -0.015
+    "hits": 0.017,
+    "normal": 0.03,
+    "diff": -0.013
    },
    {
     "theme": "1. 재테크 일반·마인드",
-    "hits": 0.151,
-    "normal": 0.172,
-    "diff": -0.021
+    "hits": 0.154,
+    "normal": 0.188,
+    "diff": -0.034
    },
    {
     "theme": "기타",
-    "hits": 0.182,
-    "normal": 0.228,
-    "diff": -0.046
+    "hits": 0.194,
+    "normal": 0.241,
+    "diff": -0.047
    }
   ],
   "formats": [
    {
     "format": "사연·드라마",
-    "hits": 0.096,
-    "normal": 0.101,
-    "diff": -0.005
+    "hits": 0.102,
+    "normal": 0.105,
+    "diff": -0.003
    },
    {
     "format": "오디오북·낭독 (명언·인생조언)",
-    "hits": 0.149,
-    "normal": 0.114,
-    "diff": 0.035
+    "hits": 0.151,
+    "normal": 0.121,
+    "diff": 0.03
    },
    {
     "format": "인터뷰·강연·대담",
-    "hits": 0.11,
-    "normal": 0.099,
-    "diff": 0.011
-   },
-   {
-    "format": "브이로그·직접 해본 이야기",
-    "hits": 0.112,
-    "normal": 0.109,
+    "hits": 0.1,
+    "normal": 0.097,
     "diff": 0.003
    },
    {
+    "format": "브이로그·직접 해본 이야기",
+    "hits": 0.115,
+    "normal": 0.121,
+    "diff": -0.006
+   },
+   {
     "format": "정보·해설 (그 밖)",
-    "hits": 0.533,
-    "normal": 0.576,
-    "diff": -0.043
+    "hits": 0.531,
+    "normal": 0.555,
+    "diff": -0.024
    }
   ],
   "words_up": [
    {
+    "word": "오디오북",
+    "hits": 0.081,
+    "normal": 0.04,
+    "diff": 0.041,
+    "n": 61
+   },
+   {
     "word": "노후",
     "hits": 0.098,
-    "normal": 0.063,
-    "diff": 0.035,
+    "normal": 0.07,
+    "diff": 0.028,
     "n": 86
    },
    {
-    "word": "오디오북",
-    "hits": 0.069,
-    "normal": 0.038,
-    "diff": 0.031,
-    "n": 57
+    "word": "10억",
+    "hits": 0.032,
+    "normal": 0.011,
+    "diff": 0.021,
+    "n": 21
    },
    {
     "word": "현실",
-    "hits": 0.039,
-    "normal": 0.018,
-    "diff": 0.021,
-    "n": 30
-   },
-   {
-    "word": "50대",
-    "hits": 0.029,
-    "normal": 0.01,
+    "hits": 0.041,
+    "normal": 0.021,
     "diff": 0.019,
-    "n": 20
-   },
-   {
-    "word": "3년",
-    "hits": 0.02,
-    "normal": 0.003,
-    "diff": 0.017,
-    "n": 12
+    "n": 31
    },
    {
     "word": "부부",
-    "hits": 0.02,
-    "normal": 0.003,
-    "diff": 0.017,
+    "hits": 0.021,
+    "normal": 0.004,
+    "diff": 0.018,
     "n": 12
    },
    {
-    "word": "10억",
-    "hits": 0.027,
-    "normal": 0.01,
+    "word": "3년",
+    "hits": 0.019,
+    "normal": 0.002,
     "diff": 0.017,
-    "n": 19
+    "n": 10
    },
    {
-    "word": "매달",
-    "hits": 0.024,
-    "normal": 0.01,
+    "word": "자산",
+    "hits": 0.023,
+    "normal": 0.007,
+    "diff": 0.016,
+    "n": 15
+   },
+   {
+    "word": "50대",
+    "hits": 0.03,
+    "normal": 0.014,
+    "diff": 0.016,
+    "n": 22
+   },
+   {
+    "word": "이렇게",
+    "hits": 0.047,
+    "normal": 0.032,
     "diff": 0.015,
-    "n": 18
+    "n": 40
    },
    {
-    "word": "교수",
-    "hits": 0.043,
-    "normal": 0.028,
+    "word": "사람",
+    "hits": 0.087,
+    "normal": 0.072,
+    "diff": 0.015,
+    "n": 82
+   },
+   {
+    "word": "60대",
+    "hits": 0.045,
+    "normal": 0.03,
     "diff": 0.015,
     "n": 38
    },
    {
-    "word": "부자",
-    "hits": 0.053,
-    "normal": 0.038,
+    "word": "위한",
+    "hits": 0.017,
+    "normal": 0.002,
     "diff": 0.015,
-    "n": 49
-   },
-   {
-    "word": "않는",
-    "hits": 0.02,
-    "normal": 0.007,
-    "diff": 0.014,
-    "n": 14
-   },
-   {
-    "word": "ISA",
-    "hits": 0.031,
-    "normal": 0.017,
-    "diff": 0.014,
-    "n": 25
+    "n": 9
    }
   ],
   "words_down": [
    {
     "word": "재테크",
-    "hits": 0.01,
-    "normal": 0.03,
-    "diff": -0.02,
-    "n": 23
+    "hits": 0.009,
+    "normal": 0.032,
+    "diff": -0.023,
+    "n": 22
    },
    {
     "word": "충격적인",
     "hits": 0.004,
-    "normal": 0.02,
-    "diff": -0.016,
+    "normal": 0.021,
+    "diff": -0.017,
     "n": 14
-   },
-   {
-    "word": "투자",
-    "hits": 0.01,
-    "normal": 0.026,
-    "diff": -0.016,
-    "n": 21
-   },
-   {
-    "word": "브이로그",
-    "hits": 0.002,
-    "normal": 0.017,
-    "diff": -0.015,
-    "n": 11
    },
    {
     "word": "미국주식",
     "hits": 0.006,
-    "normal": 0.022,
-    "diff": -0.015,
+    "normal": 0.023,
+    "diff": -0.016,
     "n": 16
    },
    {
     "word": "10년",
-    "hits": 0.01,
+    "hits": 0.009,
     "normal": 0.025,
-    "diff": -0.015,
-    "n": 20
+    "diff": -0.016,
+    "n": 18
    },
    {
-    "word": "AI",
-    "hits": 0.008,
-    "normal": 0.022,
-    "diff": -0.013,
-    "n": 17
+    "word": "브이로그",
+    "hits": 0.002,
+    "normal": 0.018,
+    "diff": -0.015,
+    "n": 11
    },
    {
     "word": "vs",
-    "hits": 0.01,
-    "normal": 0.023,
-    "diff": -0.013,
+    "hits": 0.011,
+    "normal": 0.025,
+    "diff": -0.014,
     "n": 19
+   },
+   {
+    "word": "AI",
+    "hits": 0.009,
+    "normal": 0.023,
+    "diff": -0.014,
+    "n": 17
+   },
+   {
+    "word": "순간",
+    "hits": 0.002,
+    "normal": 0.014,
+    "diff": -0.012,
+    "n": 9
    }
   ],
   "other": {
    "hits": {
-    "minutes_median": 18.75,
-    "title_len_median": 45.0,
-    "chapters_share": 0.378,
-    "n": 490
+    "minutes_median": 18.8,
+    "title_len_median": 45,
+    "chapters_share": 0.392,
+    "n": 469
    },
    "normal": {
-    "minutes_median": 17.8,
-    "title_len_median": 44.0,
-    "chapters_share": 0.354,
-    "n": 604
+    "minutes_median": 18.2,
+    "title_len_median": 44,
+    "chapters_share": 0.351,
+    "n": 569
    }
   },
   "pairs": [
@@ -28235,10 +28317,10 @@
       "thumb": ".cache/thumbs/fseem71zuoE.jpg"
      },
      {
-      "id": "GvrG9vE69CM",
-      "title": "2026년 냉장고 팔던 삼성·LG가 '집'에 뛰어든 진짜 이유, 집이 홈쇼핑에 등장했다",
-      "views": 942,
-      "thumb": ".cache/thumbs/GvrG9vE69CM.jpg"
+      "id": "J1nnnUhGiII",
+      "title": "대한민국 회사들이 만든 K뷰티 화장품 진짜 대박난 이유",
+      "views": 927,
+      "thumb": ".cache/thumbs/J1nnnUhGiII.jpg"
      }
     ]
    },
@@ -28295,16 +28377,16 @@
     "thumb": "W_nksAlCVCgLo/thumbnail.jpg",
     "normal": [
      {
-      "id": "VktAZJVItuU",
-      "title": "1억도 안 되는 20평 아파트, 바다까지 가깝습니다｜은퇴도시 5곳",
-      "views": 13794,
-      "thumb": ".cache/thumbs/VktAZJVItuU.jpg"
+      "id": "_ygyEh-dZJA",
+      "title": "연금 150만원, 어디서 가장 많이 남을까?｜은퇴도시 5곳 생활비 비교",
+      "views": 8427,
+      "thumb": ".cache/thumbs/_ygyEh-dZJA.jpg"
      },
      {
-      "id": "Dj3iacggtrg",
-      "title": "자동차보다 싼 시골집, 진짜 있습니다",
-      "views": 12686,
-      "thumb": ".cache/thumbs/Dj3iacggtrg.jpg"
+      "id": "3c8ITTj-z1U",
+      "title": "돈 받으면서 시골 살아보기, 진짜 됩니다",
+      "views": 4854,
+      "thumb": ".cache/thumbs/3c8ITTj-z1U.jpg"
      }
     ]
    },
@@ -28555,8 +28637,8 @@
  },
  "transcripts": {
   "full": 2,
-  "partial": 0,
-  "none": 160
+  "partial": 4,
+  "none": 156
  },
  "thumb_pages": [
   [

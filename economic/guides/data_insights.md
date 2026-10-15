@@ -116,7 +116,8 @@
 
 ## 5. 썸네일 (thumbnail_guide v2.0)
 - 자료: 승인 영상 썸네일 280개(성공 162 / 기준 밖 118). 그중 노후·연금·절세 85개(성공 56 / 기준 밖 29, 같은 영상 1개 → 눈으로 표시는 56 / 28).
-- 계산·표시: `source/eunte-kkeonaeseugi-2026-10/thumbnails/analysis/` (`metrics.py` v1.1, `codes.csv`). 자세한 표는 그 폴더 `README.md` 3번.
+- 계산·표시: `tools/thumbnail_metrics.py economic` (이미지 수치), `source/eunte-kkeonaeseugi-2026-10/thumbnails/analysis/codes.csv` (눈으로 표시). 자세한 표는 그 폴더 `README.md` 3번.
+- 이미지 AI 결과(2026-10-15 1차): 글자 모양 입체 한글('건보료')은 획이 틀렸다 2/2, 꼬리표·평면 글자는 맞았다 1/1 → 그림 속 낱말은 평면 글자로.
 
 | 특징 (노후·연금·절세, 눈으로 표시) | 성공 56 | 성공 배수 상위 16 | 기준 밖 28 | 쓰는 법 |
 |---|---|---|---|---|

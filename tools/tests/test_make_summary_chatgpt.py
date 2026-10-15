@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-10-15 — tools/make_summary.py v1.4.0 --chatgpt 시험 (임시 폴더의 가짜 thumbnail_N.md 만 씀 — 네트워크 없음)
+# VERSION: v1.1 — 2026-10-15 — tools/make_summary.py v1.4.1 --chatgpt 시험 (올리기 단계·이미지 있는 시안 빼기 추가)
+# (v1.0 — 2026-10-15 — v1.4.0 --chatgpt 시험)
+# (임시 폴더의 가짜 thumbnail_N.md 만 씀 — 네트워크 없음)
 r"""
   python3 -m unittest tools.tests.test_make_summary_chatgpt -v     (저장소 최상위에서)
 
@@ -52,11 +54,23 @@ class ChatgptFileTest(unittest.TestCase):
             self.assertNotIn(f"CHECK_{i}", text)     # 검수 칸도 넣지 않음
         self.assertLess(text.index("## thumbnail_1"), text.index("## thumbnail_2"))
         self.assertLess(text.index("## thumbnail_2"), text.index("## thumbnail_3"))
-        self.assertIn("thumbnail_1부터 차례로 모두", text)
+        self.assertIn("thumbnail_1, thumbnail_2, thumbnail_3)를 **차례로 모두**", text)
+        self.assertIn(f"{ms.UPLOAD_BASE}/economic/source/vid/thumbnails", text)   # 올리기 링크
+        self.assertIn("thumbnail_N.png", text)
         self.assertIn("가로형 16:9", text)
         self.assertIn("글자·띄어쓰기 그대로", text)
         self.assertIn(f"{ms.RAW_BASE}/economic/source/vid/thumbnails/chatgpt.md", text)
         self.assertIn("[CHATGPT] topic=economic video=vid thumbnails=3", log)
+
+    def test_skips_thumbnails_with_images(self):
+        for i in (1, 2, 3):
+            (self.folder / f"thumbnail_{i}.md").write_text(thumb_md(i), "utf-8")
+        (self.folder / "thumbnail_1.webp").write_bytes(b"img")
+        text, log = self.run_tool()
+        self.assertNotIn("## thumbnail_1", text)
+        self.assertIn("## thumbnail_2", text)
+        self.assertIn("thumbnail_2, thumbnail_3)를", text)
+        self.assertIn("skip=thumbnail_1", log)
 
     def test_missing_a_block_stops(self):
         (self.folder / "thumbnail_1.md").write_text(thumb_md(1, with_a=False), "utf-8")

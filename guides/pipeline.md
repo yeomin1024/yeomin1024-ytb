@@ -75,7 +75,7 @@ Claude Code는 이 순서대로 진행한다. 단계마다 자세한 규칙은 �
 |---|---|---|
 | ① | 대본 TXT·SRT·README·`checklist.md`(사실 확인표)·`calc/`(계산 코드). 7~8분, 결론 먼저, 오늘 시행 중인 법령으로 확인 (사연 파트를 넣으면 20~30초). SRT 검사 ✅ | `script_guide.md` v3.0 + 주제 `data_insights.md` |
 | ② | 제목 3개 `titles.md` (R1 추천, 근거 표, 짝 썸네일 표시) | `title_guide.md` v3.0 |
-| ③ | 썸네일 **프롬프트** 3개 `thumbnails/thumbnail_1~3.md` + 근거 `thumbnails/README.md` — 본안 1(클릭률 최대) + 실험안 2, 모두 아래쪽 2줄(채택 제목 줄임, 노랑 = 중요·빨강 = 나쁜 상황) | `thumbnail_guide.md` v2.0 (이미지는 이미지 AI가 만든다) |
+| ③ | 썸네일 **프롬프트** 3개 `thumbnails/thumbnail_1~3.md` + 근거 `thumbnails/README.md` — 본안 1(클릭률 최대) + 실험안 2, 모두 아래쪽 2줄(채택 제목 줄임, 노랑 = 중요·빨강 = 나쁜 상황) | `thumbnail_guide.md` v3.0 (이미지는 ChatGPT가 `chatgpt.md`를 읽고 만들어 저장소에 올린다) |
 | ④ | 업로드 시트 `upload.md`: 제목·설명란·챕터 명령·태그·고정 댓글·설정 | `upload_guide.md` |
 | ⑤ | 요약 문서 `summary.md` | 아래 3-5 |
 

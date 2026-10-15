@@ -1,5 +1,32 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-15 (3) — 썸네일 1차 이미지 검수 · 썸네일 지시사항 v3.0 · ChatGPT가 저장소에 올리기
+
+### 왜 (사용자 지시)
+- "썸네일 잘 만들었는지 확인하고 여태까지 진행했던 썸네일 만드는 방식, 피드백 반영해서 지시사항 파일 만들고 chatgpt가 저장소 경로에 업로드하라고 지시사항에 반영해"
+
+### 결과 (1차 이미지 — ChatGPT, 1672×941)
+| 시안 | 결과 | 조치 |
+|---|---|---|
+| thumbnail_1 (본안) | ✅ 한글·색·자리·인물·320px 모두 맞음 | `thumbnail_1.webp` 저장 (업로드 변환 시험 1280×720 JPG 126KB) |
+| thumbnail_2 | ❌ 글자 모양 입체 '건보료' 획 틀림 ('료' ㄹ 아래·'보' ㅗ) | 프롬프트 v4.2: 돌판 앞면에 평면 글자 |
+| thumbnail_3 | ❌ 같은 문제 + 지폐에 초상·숫자 무늬 | 프롬프트 v4.2: 덩어리 앞면에 평면 글자, 무늬 없는 지폐 |
+
+### 바꾼 것
+| 파일 (버전) | 내용 |
+|---|---|
+| `guides/thumbnail_guide.md` v2.2 → **v3.0** | 진행 순서 10단계, 사용자 피드백 12개 + 1차 결과에서 배운 것, 분석 방법, 그림 속 낱말은 평면 글자, [A]에 반드시 넣는 문장, ChatGPT 저장소 올리기, Claude 검수표 |
+| `tools/make_summary.py` v1.4.0 → v1.4.1 | `chatgpt.md`: 저장소 올리기 단계(GitHub 앱 커밋, 안 되면 업로드 링크), 이미지가 있는 시안은 빼고 남은 것만, 한글 획 확대 확인 |
+| `tools/tests/test_make_summary_chatgpt.py` v1.0 → v1.1 | 시험 4개 (이미지 있는 시안 빼기 추가) |
+| `tools/thumbnail_metrics.py` v1.2 (옮김) | `thumbnails/analysis/metrics.py` → 주제·묶음 인자, 기본 저장 `.yt_work/` (같은 숫자 확인) |
+| 썸네일 `thumbnail_1~3.md` | '1차 이미지 검수' 기록, 2·3 v4.2 |
+| 썸네일 `README.md` v4.3 · `chatgpt.md` (다시 만듦, 2·3만) | 5-1 메시지 "만들어서 저장소에 올려 줘" |
+| `CLAUDE.md` · `guides/README.md` · `guides/pipeline.md` · `economic/guides/data_insights.md` | 썸네일 v3.0 줄, 입체 글자 결과 |
+
+### 검사
+- `python3 -m unittest tools.tests.test_make_summary_chatgpt` 4개 OK
+- `tools/thumbnail_metrics.py economic` → README 3-1 표와 같은 숫자
+
 ## 2026-10-15 (2) — 썸네일: ChatGPT에 주소 하나로 3장 (make_summary v1.4.0 --chatgpt)
 
 ### 왜 (사용자 지시)

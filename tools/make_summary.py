@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.4.0 — 2026-10-15 — 사용자 지시 "한번에 3개 다 읽어서 만들라고 하면 되잖아": --chatgpt 주제 영상ID → thumbnails/chatgpt.md
-#          (ChatGPT가 주소 하나로 읽고 썸네일 3장을 차례로 만드는 지시 + 시안별 문구표·[A] 프롬프트, thumbnail_N.md 에서 만들어 어긋나지 않게)
+# VERSION: v1.4.1 — 2026-10-15 — 사용자 지시 "chatgpt가 저장소 경로에 업로드하라고": chatgpt.md 에 저장소 올리기 단계(GitHub 앱 커밋, 안 되면 업로드 링크),
+#          이미 이미지가 있는 시안은 빼고 남은 것만, 한글 획 확대 확인 (1차: 입체 '건보료' 획 틀림)
+#          (v1.4.0 — 2026-10-15 — 사용자 지시 "한번에 3개 다 읽어서 만들라고 하면 되잖아": --chatgpt 주제 영상ID → thumbnails/chatgpt.md
+#          (ChatGPT가 주소 하나로 읽고 썸네일 3장을 차례로 만드는 지시 + 시안별 문구표·[A] 프롬프트, thumbnail_N.md 에서 만들어 어긋나지 않게))
 #          (v1.3.3 — 2026-10-12 — 오디오 줄: 스튜디오에서 잘라 낸 영상(youtube.json studioTrim)은 '원본 렌더 오디오 + 스튜디오 컷'으로 표시하고
 #          'Kaggle에서 다시'를 안내하지 않음, 이미 올린 영상도 다시 만들라고 하지 않음 (tts_narration 은 올린 영상을 건드리지 않음)
 #          (v1.3.2: 상태표 썸네일 줄: 프롬프트 파일 개수를 실제로 셈 (없는데 '3개 ✅'로 나오던 오류))
@@ -268,16 +270,22 @@ def thumb_todo(topic):
     print(f"[THUMB-TODO] topic={topic} remaining={len(items)} file={path.relative_to(ROOT)}")
 
 
-RAW_BASE = "https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main"   # 공개 저장소 — ChatGPT가 이 주소로 파일을 연다
+REPO = "yeomin1024/yeomin1024-ytb"
+RAW_BASE = f"https://raw.githubusercontent.com/{REPO}/main"   # 공개 저장소 — ChatGPT가 이 주소로 파일을 연다
+UPLOAD_BASE = f"https://github.com/{REPO}/upload/main"        # GitHub 웹 '파일 올리기' 화면 (폴더 지정)
 
 CHATGPT_RULES = """## ChatGPT에게 — 이 파일을 읽으면 할 일
-1. 아래 썸네일 {n}개를 **thumbnail_1부터 차례로 모두** 만든다. 질문하지 말고, 한 장을 만든 뒤 멈추지 말고 다음 장으로 넘어간다.
+1. 아래 썸네일 {n}개({names})를 **차례로 모두** 만든다. 질문하지 말고, 한 장을 만든 뒤 멈추지 말고 다음 장으로 넘어간다.
 2. 각 장은 그 칸의 **프롬프트(``` 안)를 한 글자도 바꾸지 않고 그대로** 쓴다. 장마다 서로 다른 그림이다 — 앞 장의 인물·구도·색을 이어 쓰지 않는다.
 3. 크기는 가로형 16:9 (1280×720). 16:9가 안 되면 가장 넓은 가로형으로 만들고, 글자와 얼굴은 가운데에 두고 위아래 가장자리 8%는 비운다.
 4. 그림 속 글자는 프롬프트의 따옴표 안 한글만, 글자·띄어쓰기 그대로 쓴다. 다른 글자·숫자·로고·워터마크는 넣지 않는다.
 5. 사람은 실존 인물이나 유명인을 닮지 않은 가상 인물이다.
-6. 한 장을 만들 때마다 그 칸의 '문구' 표와 그림 속 한글을 한 글자씩 맞춰 본다. 다르면 그림은 그대로 두고 글자만 고쳐 다시 만든다.
+6. 한 장을 만들 때마다 그 칸의 '문구' 표와 그림 속 한글을 한 글자씩 맞춰 본다. 크게 확대해서 받침과 모음 획(예: '료'의 ㄹ, '보'의 ㅗ)이 빠지거나 가려지지 않았는지도 본다. 다르면 그림은 그대로 두고 글자만 고쳐 다시 만든다.
 7. 그림마다 위에 'thumbnail_N'이라고 한 줄 적어 어느 시안인지 알려 준다 (그림 안에는 쓰지 않는다).
+8. **다 만들면 저장소에 올린다.**
+   - 올릴 곳: 저장소 `{repo}` main 브랜치의 `{folder}/` 폴더, 파일 이름 `thumbnail_N.png` (N = 시안 번호).
+   - GitHub 앱(쓰기 권한)이 연결돼 있으면 그 폴더에 커밋한다. 커밋 메시지: `[썸네일] {vid} thumbnail_N 이미지`
+   - 올릴 수 없으면 그렇다고 말하고, 그림마다 `thumbnail_N.png` 이름으로 내려받게 해 준 뒤 이 링크를 알려 준다 (끌어다 놓고 Commit changes): {upload}
 """
 
 
@@ -290,6 +298,10 @@ def chatgpt_file(topic, vid, root=ROOT):
         if not md_path.exists():
             print(f"[CHATGPT] level=warn missing={md_path.relative_to(root)}")
             continue
+        img = next((p for p in (folder / f"thumbnail_{i}{e}" for e in IMG_EXTS) if p.exists()), None)
+        if img:   # 이미 만든 시안은 빼고 남은 것만 ChatGPT에 맡긴다
+            print(f"[CHATGPT] skip=thumbnail_{i} reason=이미지_있음 file={img.name}")
+            continue
         md = md_path.read_text("utf-8")
         a = re.search(r"## \[A\][^\n]*\n```\n(.*?)\n```", md, re.S)
         words = re.search(r"## 문구[^\n]*\n(.*?)(?=\n## )", md, re.S)
@@ -297,13 +309,14 @@ def chatgpt_file(topic, vid, root=ROOT):
             raise SystemExit(f"[CHATGPT] level=error file={md_path.name} reason=[A] 프롬프트 칸 없음 — '## [A] …' 아래 ``` 블록 필요")
         items.append((i, md.splitlines()[0].lstrip("# ").strip(), a.group(1), words.group(1).strip() if words else ""))
     if not items:
-        raise SystemExit(f"[CHATGPT] level=error folder={folder.relative_to(root)} reason=thumbnail_N.md 없음")
+        raise SystemExit(f"[CHATGPT] level=error folder={folder.relative_to(root)} reason=만들 썸네일 없음 (thumbnail_N.md 없음 또는 이미지가 이미 있음)")
     rel = folder.relative_to(root).as_posix()
-    out = [f"# {vid} 썸네일 {len(items)}장 — ChatGPT용 (읽고 그대로 만들기)", "",
+    out = [f"# {vid} 썸네일 {len(items)}장 — ChatGPT용 (읽고 그대로 만들고 저장소에 올리기)", "",
            f"자동 생성 — `python tools/make_summary.py --chatgpt {topic} {vid}` ({dt.datetime.now().strftime('%Y-%m-%d %H:%M')}). "
            f"이 파일은 고치지 말고 `thumbnail_N.md`를 고친 뒤 다시 만든다.", "",
            f"이 파일 주소: {RAW_BASE}/{rel}/chatgpt.md", "",
-           CHATGPT_RULES.format(n=len(items))]
+           CHATGPT_RULES.format(n=len(items), names=", ".join(f"thumbnail_{i}" for i, *_ in items), repo=REPO,
+                                folder=rel, vid=vid, upload=f"{UPLOAD_BASE}/{rel}")]
     for i, head, prompt, words in items:
         out += [f"## thumbnail_{i} — {head.split('—', 1)[-1].strip()}", ""]
         if words:

@@ -16,7 +16,7 @@
 | **`topic_guide.md`** (v1.0) | **주제 탐색**: 시청자층(댓글 나이) → 시청자가 가장 원하는 정보(질문 묶음) = 결론 → 시장(수요·공급·같은 채널) → 후보 표 → 결론·오래가는 원칙·바뀔 수 있는 것 (`tools/content_research.py audience·needs`) | `<주제>/guides/data_insights.md` 1번, `<주제>/research_rules.toml` |
 | **`title_guide.md`** (v3.0) | **제목**: 호기심 구절 + 해소 구절, 형식·낱말·맨 앞 말·금액 표현을 비교 집단·좁힌 주제·같은 채널로 확인, 60자 이하, 숫자는 대본이 증명 (`content_research.py titles`) | `data_insights.md` 2번 |
 | **`script_guide.md`** (v3.0) | **대본**: 사용자 피드백 18개(0번), 7챕터 구성(도입 50초에 결론·약속·기준 날짜 → 예시 인물 → 원칙 2~3개 → 순서 → 결과 → 이미 하고 있다면 → 정리·감사 인사), 사실은 오늘 시행 중인 법령 원문(`tools/law_text.py`), 숫자는 계산 코드, 측정(`content_research.py measure`), SRT. 사연 파트는 선택 | `data_insights.md` 3·4번, 완성 예 `economic/source/eunte-kkeonaeseugi-2026-10/` |
-| `thumbnail_guide.md` v2.0 | 영상별 썸네일 프롬프트 3개 — 본안 1(클릭률 최대) + 실험안 2, 모두 아래쪽 2줄(채택 제목 줄임, 노랑 = 중요·빨강 = 나쁜 상황), 그림은 문구의 장면, 댓글 니즈 낱말은 낱말 그대로 (이미지는 사용자가 이미지 AI로, 코드로 렌더하지 않음) | `<주제>/guides/data_insights.md` '썸네일' |
+| `thumbnail_guide.md` v3.0 | 영상별 썸네일 프롬프트 3개 — 본안 1(클릭률 최대) + 실험안 2, 모두 아래쪽 2줄(채택 제목 줄임, 노랑 = 중요·빨강 = 나쁜 상황), 그림은 문구의 장면, 댓글 니즈 낱말은 낱말 그대로 (이미지는 사용자가 이미지 AI로, 코드로 렌더하지 않음) | `<주제>/guides/data_insights.md` '썸네일' |
 | `video_guide.md` | Remotion 모션그래픽 영상 (오디오가 생기면: 장면 구성 `plan.ts` → 영상 코드 → still 자체 점검 → 렌더 → 음량 -14 LUFS, 승인 없음) | `stock/guides/script_rules.md` (재구성 문구 등) |
 | `upload_guide.md` | 업로드 시트: 설명란·챕터·태그·고정 댓글·업로드 설정 | `stock/guides/upload_rules.md` |
 | `tts_guide.md` | 내레이션 만들기: Kaggle GPU에서 Qwen3-TTS(오픈소스). 사연자(Sohee)·진행자(중저음 남성, 기준 목소리 `voices/ref/host.wav`를 모든 대본이 복제) 목소리 설정(`voices/*.json`), 대본 전부 한 번에(`all --push`) → 영상마다 `narration.mp3` 하나를 대본 폴더에 자동으로 올림 | — |
@@ -32,7 +32,7 @@
 | 2 | 분석 결과로 `data_insights.md` 만들기·고치기(`content_research.py all`) → 주제 탐색 | `topic_guide.md` | `guides/`, `source/topic_candidates.md` |
 | 3 ① | 대본 TXT·SRT·README·확인표·계산 코드 — 7~8분, 결론 먼저, 오늘 시행 중인 법령으로 사실 확인, 숫자는 계산 코드(사연 파트를 넣으면 20~30초). SRT 검사 ✅. 사례·연구는 되도록 최신(2020년대 먼저) | `script_guide.md` v3.0 | `source/<영상ID>/` |
 | 3 ② | 제목 3개 (R1 추천, 근거 표, 짝 썸네일) | `title_guide.md` v3.0 | `source/<영상ID>/titles.md` |
-| 3 ③ | 썸네일 **프롬프트** 3개 — 본안 1 + 실험안 2, 모두 아래쪽 2줄 (이미지는 사용자가 이미지 AI로) | `thumbnail_guide.md` v2.0 | `source/<영상ID>/thumbnails/thumbnail_1~3.md`·`README.md` |
+| 3 ③ | 썸네일 **프롬프트** 3개 — 본안 1 + 실험안 2, 모두 아래쪽 2줄 (이미지는 사용자가 이미지 AI로) | `thumbnail_guide.md` v3.0 | `source/<영상ID>/thumbnails/thumbnail_1~3.md`·`README.md`·`chatgpt.md`·이미지 |
 | 3 ④ | 업로드 시트 (제목·설명란·챕터 명령·태그·고정 댓글) | `upload_guide.md` | `source/<영상ID>/upload.md` |
 | 3-5 | 영상별 요약 문서 (스토리보드 없음) | `python tools/make_summary.py <주제폴더> <영상ID>` | `source/<영상ID>/summary.md` |
 | 3-6 | 내레이션 (사용자, Kaggle 셀 하나): (처음 한 번) 목소리 후보 샘플 → 사용자가 듣고 고름 → Claude `pick` → 대본 전부 → 고른 사연자·진행자 목소리 → 영상마다 오디오 하나 → 대본 폴더마다 GitHub에 자동으로 | `python tools/tts_narration.py all --push`, `tts_guide.md` | `source/<영상ID>/narration.mp3` |

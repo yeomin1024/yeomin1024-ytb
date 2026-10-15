@@ -1,16 +1,32 @@
-# VERSION: v1.1 — 2026-10-15 — 저장소 상대 경로, 2-1 표(중앙값·P(성공>기준 밖)·성공 안 순위상관) 계산 추가
-"""썸네일 분석 자료 — 승인 영상 280개(성공 162 / 기준 밖 118)의 썸네일 경로·주제·배수 + 이미지 수치(밝기·채도·색 비율·글자 띠 추정).
-연구·교육용. 색 판정은 HSV 범위 규칙(근사)."""
-import csv, json, sys, colorsys, logging, time
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+# VERSION: v1.2 — 2026-10-15 — tools/ 로 옮기고 주제 폴더·묶음 낱말을 인자로 (guides/thumbnail_guide.md v3.0 2단계)
+#          (v1.1: 저장소 상대 경로, 2-1 표(중앙값·P(성공>기준 밖)·성공 안 순위상관) 계산 / v1.0: 이미지 수치)
+r"""썸네일 이미지 수치 — 승인 영상 썸네일(성공 / 기준 밖)의 밝기·채도·색 비율·글자 띠 추정과 비교 표.
+연구·교육용. 색 판정은 HSV 범위 규칙(근사).
+
+  python3 tools/thumbnail_metrics.py economic --group 노후,절세 --out <저장 폴더>
+    읽기: <주제>/result/outliers/{analysis.json, compare.csv, approved.csv, */thumbnail.jpg}
+    쓰기: <저장 폴더>/thumbs.json (기본: .yt_work/thumbnail_metrics/<주제>/ — git 밖)
+    로그 [STATS]: 전체·묶음별 중앙값, P(성공>기준 밖)(Mann-Whitney AUC), 성공 안에서 배수와 스피어만 순위상관
+"""
+import argparse, csv, json, sys, logging, time
 from pathlib import Path
 import numpy as np
 from PIL import Image
 logging.basicConfig(level=logging.INFO, format="%(message)s")
 def log(stage, **kv): logging.info("[%s] %s %s", stage, time.strftime("%H:%M:%S"), " ".join(f"{k}={v}" for k, v in kv.items()))
-ROOT = Path(__file__).resolve().parents[5]  # 저장소 맨 위
-O = ROOT / "economic" / "result" / "outliers"
-OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).parent  # thumbs.json 저장 위치
+ROOT = Path(__file__).resolve().parent.parent  # 저장소 맨 위
+ap = argparse.ArgumentParser(description="썸네일 이미지 수치 (성공 vs 기준 밖)")
+ap.add_argument("topic", help="주제 폴더 (예: economic)")
+ap.add_argument("--group", default="노후,절세", help="따로 볼 주제 묶음 낱말, 쉼표로 (analysis.json theme 에 든 말)")
+ap.add_argument("--out", help="thumbs.json 저장 폴더")
+args = ap.parse_args()
+O = ROOT / args.topic / "result" / "outliers"
+OUT = Path(args.out) if args.out else ROOT / ".yt_work" / "thumbnail_metrics" / args.topic
 OUT.mkdir(parents=True, exist_ok=True)
+if not (O / "analysis.json").is_file():
+    sys.exit(f"[LOAD] level=error stage=분석결과 file={O / 'analysis.json'} reason=없음 — 다음: PC 분석(guides/pc_analysis.md)을 먼저 돌려 결과를 올린다")
 a = json.load(open(O / "analysis.json", encoding="utf-8"))
 succ = {c["id"]: c for c in a["success_cases"]}
 theme = {r["id"]: r["theme"] for r in csv.DictReader(open(O / "compare.csv", encoding="utf-8-sig"))}
@@ -62,8 +78,8 @@ def auc(a, b):
 def spearman(x, y):
     rx, ry = np.argsort(np.argsort(x)), np.argsort(np.argsort(y))
     return float(np.corrcoef(rx, ry)[0, 1])
-OLD = ("노후", "절세")
-for label, subset in (("전체", rows), ("노후·절세", [r for r in rows if any(k in r["theme"] for k in OLD)])):
+GROUP = tuple(w for w in args.group.split(",") if w)
+for label, subset in (("전체", rows), ("·".join(GROUP), [r for r in rows if any(k in r["theme"] for k in GROUP)])):
     s_ = [r for r in subset if r["success"] and "brightness" in r]; o_ = [r for r in subset if not r["success"] and "brightness" in r]
     log("STATS", group=label, success=len(s_), other=len(o_))
     for k in ("brightness", "saturation", "c_white", "c_yellow", "c_red", "c_black"):

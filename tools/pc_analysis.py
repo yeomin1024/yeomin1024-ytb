@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.11 — 2026-10-15 — 할당량을 키 하나로 함께 셈 (사용자 지시: "웹 ui에 사용량 얼마나 남았는지 표시하고 그리고 분석기 여러개 열어서
+# VERSION: v1.12 — 2026-10-15 — 쇼츠 분석 도구(tools/shorts_analysis.py)도 GitHub 최신으로 받는 코드 목록에 (SYNC_CODE — 사용자 지시:
+#          "깃허브 저장소에 유튜브 분석기 있지? 거기에 쇼츠 분석 기능도 추가해 … 전력을 다해서 해봐". 웹 화면 v1.6 이 켤 때 이 목록으로 받은 뒤 불러옴)
+# (v1.11 — 2026-10-15 — 할당량을 키 하나로 함께 셈 (사용자 지시: "웹 ui에 사용량 얼마나 남았는지 표시하고 그리고 분석기 여러개 열어서
 #          각자 다른 주제로 탐색해도 되지? … 사용량 초기화되면 자동으로 다시 분석 마저 하는거지? 그렇게 되야해"):
 #          ① KeyLedger — 같은 YouTube API 키를 쓰는 모든 창·주제·도구가 한 장부(.yt_work/quota_key_<키 지문>.json, 키 자체는 안 씀)를
 #             OS 파일 잠금으로 함께 씀. 요청마다 먼저 단위를 잡고(reserve) 실패하면 돌려줌(refund) → 창 두 개가 동시에 써도 한도를 넘지 않음.
 #             Google 이 '하루 할당량 끝'이라고 답하면 그날은 모든 창이 0 으로 봄(mark_exhausted)
 #          ② quota_snapshot — 오늘 쓴 양·남은 양·주제별·다음 초기화(한국 시간) (웹 화면 표시용)
 #          ③ Ledger.add 가 키 장부에도 더함 (자동 실행 -Auto 가 쓴 양도 웹 화면에 보임), 자동 실행의 남은 양 = min(주제 몫, 키 장부 남은 양)
-#          ④ os_lock / os_unlock — 잠근 프로세스가 죽으면 OS 가 풀어 주는 파일 잠금 (웹 화면의 주제 잠금도 이것)
+#          ④ os_lock / os_unlock — 잠근 프로세스가 죽으면 OS 가 풀어 주는 파일 잠금 (웹 화면의 주제 잠금도 이것))
 # (v1.10 — 2026-10-14 — 음성인식 기록 요약(whisper_summary)이 2차(전체) 기록('<영상ID>#full' — 분석기 v2.10.0)을 영상으로 세지 않게)
 # (v1.9 — 2026-10-14 — 성공 사례 분석 도구(tools/success_analysis.py)·규칙(<주제>/analysis_rules.toml)도 GitHub 최신으로 받는 목록에
 #          (SYNC_CODE·SYNC_CONFIG — 사용자 지시: "… 올바른 분석 결과까지만 내도록 수정해"))
@@ -696,7 +698,7 @@ def analyzer_summary(run_info_p, started_utc):
 SYNC_CONFIG = ("keywords.txt", "keywords.toml", "analyzer_config.toml", "tag_rules.toml", "analysis_rules.toml")   # <주제>/ 아래 — PC 에서 고친 것은 지킴
 SYNC_CODE = ("youtube_topic_analyzer.py", "tools/outlier_research.py", "tools/outlier_stats.py", "tools/tag_keywords.py",
              "tools/pc_analysis.py", "tools/web_ui.py", "tools/weekly_analysis.py", "tools/success_analysis.py",
-             "run_analyzer.ps1", "run_analyzer.sh")   # 언제나 GitHub 최신
+             "tools/shorts_analysis.py", "run_analyzer.ps1", "run_analyzer.sh")   # 언제나 GitHub 최신 (v1.12: 쇼츠 분석 도구)
 
 
 def repo_of(folder):

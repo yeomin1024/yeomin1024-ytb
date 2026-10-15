@@ -1,6 +1,16 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.5 — 2026-10-15 — 할당량 표시·주제별 창·초기화 뒤 자동으로 이어서 (사용자 지시: "유튜브 분석 코드를 최대한 api 사용량 덜쓰는
+# VERSION: v1.6 — 2026-10-15 — 쇼츠 탐색·승인·분석 (사용자 지시: "깃허브 저장소에 유튜브 분석기 있지? 거기에 쇼츠 분석 기능도 추가해 목적은
+#          사람들의 니즈를 충족해주는 쇼츠를 만들어서 최대한 조회수를 높이기 위한 쇼츠를 만들기 위해 분석하는거야 전력을 다해서 해봐"):
+#          ① 4·5번 칸에 [롱폼 | 쇼츠] 전환 — 쇼츠 탐색 = 검색어마다 쇼츠 검색 1번(videoDuration=short, 100단위, 적응형 7일 캐시) + 추가한 채널의
+#             쇼츠 목록(UUSH — 50개에 1단위) + 주소로 넣은 쇼츠 → 3분 이하·세로만 (outlier_research v2.3 is_short — 화면비는 영상 정보와 같은 1단위)
+#             → 배수 높은 순 목록, 추천(성공 쇼츠: 구독자 5만 이하·조회수 5만 이상·×3 / 조회수 상위 20 / 추가한 것)은 체크만
+#          ② 쇼츠 [승인] → 설명·자막(시도)·표지(세로 먼저)·댓글 전부 → <주제>/result/outliers/shorts/S_<영상ID>/ → 채널 평소 쇼츠(채널 쇼츠 목록
+#             최근 50개 — 채널 하나 약 2단위) → 쇼츠 분석(tools/shorts_analysis.py → shorts/analysis.md) → 바로 GitHub → 음성인식은 뒤에서
+#             (분석기 v2.11.0 — 쇼츠 먼저, 쇼츠는 짧아 하나에 1~2분)
+#          ③ 6번 칸에 쇼츠 분석 요약 · [쇼츠 성공 후보 체크], 켤 때·다시 분석·초기화 뒤 이어서에 쇼츠도 (못 받은 댓글·채널 평소 쇼츠·남은 쇼츠 탐색)
+#          ④ 시험 고침: 초기화 뒤 이어서의 상태('started')를 작업 시작 전에 적음 (시험이 작업 시작과 상태 쓰기 사이를 읽어 실패하던 것)
+# (v1.5 — 2026-10-15 — 할당량 표시·주제별 창·초기화 뒤 자동으로 이어서 (사용자 지시: "유튜브 분석 코드를 최대한 api 사용량 덜쓰는
 #          방법(단어 줄이는 방법 말고) 찾아서 수정해보고 웹 ui에 사용량 얼마나 남았는지 표시하고 그리고 분석기 여러개 열어서 각자 다른 주제로
 #          탐색해도 되지? 그리고 economic 같은 주제 경로를 선택할 수 있게해서 각각 주제별로 탐색할 수 있게 수정해 그리고 사용량 초기화되면
 #          자동으로 다시 분석 마저 하는거지? 그렇게 되야해"):
@@ -13,7 +23,7 @@
 #          ④ 초기화 뒤 자동으로 이어서: 태평양 자정(+10분)이 되면 할당량 때문에 남은 것(탐색 검색·영상 정보, 못 받은 댓글, 채널 기준선)을
 #             저절로 이어서 하고 다시 분석·올림 (job_resume). 켤 때도 남은 탐색이 있으면 이어서. 다시 탐색해도 내가 체크한 것은 그대로
 #          ⑤ 할당량 아끼기 (outlier_research v2.2): 적응형 검색 캐시(안 바뀌는 검색은 7→14→21일), 채널 목록은 새 영상만, 오래된 영상 정보는
-#             길게, 한 쪽짜리 댓글은 인기 댓글 쪽 건너뜀 — 탐색 로그에 검색마다 캐시 시간·단계·새로 보인 영상
+#             길게, 한 쪽짜리 댓글은 인기 댓글 쪽 건너뜀 — 탐색 로그에 검색마다 캐시 시간·단계·새로 보인 영상)
 # (v1.4 — 2026-10-14 — 분석 결과로 '무엇이 먹혔나'를 가릴 수 있게 (사용자 지시: "결과 올라갔는데 문제가 부분 수정하고
 #          분석결과로 내가 말한 거 할수 있는지 판단해 개선 필요하면 더 개선하고"):
 #          ① 같은 채널 기준선 (job_baseline): 켤 때·승인 때 사례 채널(구독자 5만 이하) 최근 영상 50개(업로드 목록 + 영상 정보 —
@@ -70,7 +80,10 @@ r"""
         --no-whisper (켤 때 음성인식을 뒤에서 시작하지 않음 — 화면의 [음성인식 시작]으로)
 순서: [승인] → 자료 받기 → 같은 채널 기준선(채널 평소 영상) → 주별·성공 사례 분석(자막 없으면 설명으로) → GitHub 에 올림
       → (뒤에서) 음성인식 — 성공 사례부터 1차(앞 5분) → 2차(전체), 하나 끝날 때마다 다시 분석, 15분마다·차수 끝에 올림
+쇼츠 (v1.6, 화면 4·5번 칸 [쇼츠]): [탐색] → 쇼츠 목록(3분 이하·세로) → 체크 → [승인] → shorts/S_<영상ID>/ → 채널 평소 쇼츠 → 쇼츠 분석
+      (shorts/analysis.md) → GitHub → 음성인식(쇼츠 먼저). 검색어는 <주제>/shorts_keywords.txt 가 있으면 그것, 없으면 keywords.txt
 할당량: 탐색 = 검색어 1개마다 검색 2번(200단위, 7일 캐시) + 채널 영상 목록 50개에 1단위 + 영상 정보 50개에 1단위.
+        쇼츠 탐색 = 검색어 1개마다 검색 1번(100단위, 7일 캐시) + 영상 정보 50개에 1단위. 쇼츠 승인 = 댓글 100개에 1단위 + 채널 평소 쇼츠 채널 하나 약 2단위.
         승인 = 영상마다 댓글 100개에 1단위 (+ 답글). 같은 채널 기준선(켤 때·승인 때) = 채널 하나 약 2단위 (7일 캐시).
         오늘 쓴 양: 키 장부 .yt_work/quota_key_<키 지문>.json (같은 키의 모든 창·주제·자동 실행) + 주제 장부 .yt_work/quota_<주제>.json.
         할당량이 끝나 남은 것은 태평양 자정(한국 오후 4~5시) +10분에 저절로 이어서 (창을 켜 둔 동안 · 켤 때도).
@@ -103,7 +116,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import pc_analysis as pc                 # noqa: E402  할당량 장부·키 찾기·GitHub 동기화·패키지 준비
 
 ROOT = pc.ROOT
-VERSION = "v1.5"
+VERSION = "v1.6"
 LOG = logging.getLogger("web")
 KST = timezone(timedelta(hours=9))
 TOKEN = secrets.token_urlsafe(18)        # 화면이 요청마다 보내는 열쇠 (다른 사이트가 이 PC 의 화면을 조작하지 못하게)
@@ -111,6 +124,11 @@ MIN_SEC = 240                            # 롱폼 기준 (4분) — 그보다 �
 POPULAR_N = 20                           # 검색 결과 중 조회수 상위 몇 개를 추천(체크)할지
 orr = None                               # tools/outlier_research.py (패키지 준비 뒤 불러옴)
 wa = None                                # tools/weekly_analysis.py
+sh = None                                # tools/shorts_analysis.py (v1.6 — 쇼츠 분석, 없으면 쇼츠 기능만 꺼짐)
+SHORTS_POPULAR_N = 20                    # v1.6: 쇼츠 검색 결과 중 조회수 상위 몇 개를 추천(체크)할지
+SHORTS_BASELINE_VIDEOS = 50              # v1.6: 채널 평소 쇼츠 — 채널 쇼츠 목록(UUSH) 최근 몇 개 (목록 1단위 + 영상 정보 1단위)
+SHORTS_BASELINE_TTL_H = 168
+SHORTS_CASE_RX = re.compile(r"^S_([0-9A-Za-z_-]{11})$")
 STATE = {"topic": None, "topics": [], "port": None}
 WINDOW = {"lock": None, "topic": None}     # v1.5: 이 창이 잠근 주제 (OS 잠금 — 창이 꺼지면 풀림)
 RESUME = {"next": None, "last": None, "last_result": None, "status": "idle", "note": ""}   # v1.5: 초기화 뒤 자동으로 이어서
@@ -832,11 +850,15 @@ def push_results(t, message):
 
 
 def job_analyze(t):
-    step("주별 분석·성공 사례 분석 (자막 없으면 설명으로)")
-    rep = wa.run(t)
+    if any(out_dir(t).glob("W_*/metadata.json")):           # v1.6: 롱폼 승인 영상이 없으면(쇼츠만) 롱폼 분석 파일을 빈 것으로 덮지 않음
+        step("주별 분석·성공 사례 분석 (자막 없으면 설명으로)")
+        rep = wa.run(t)
+    else:
+        rep = {"windows": [], "cases": 0}
     res = {"windows": len(rep["windows"]), "cases": rep["cases"], "text_sources": rep.get("text_sources")}
-    if rep["cases"]:
-        res.update(push_results(t, f"웹 화면 주별 분석 다시 (승인 {rep['cases']}개)"))
+    res.update(run_shorts_analysis(t))                      # v1.6: 쇼츠 분석도 (쇼츠 자료가 있을 때만)
+    if rep["cases"] or res.get("shorts_cases"):
+        res.update(push_results(t, f"웹 화면 분석 다시 (승인 롱폼 {rep['cases']}개 · 쇼츠 {res.get('shorts_cases') or 0}개)"))
     step("끝 — " + (res.get("push_note") or "승인한 영상 없음"))
     return res
 
@@ -845,7 +867,7 @@ def job_comments(t, quiet=False):
     """못 받은 댓글 이어 받기 (v1.3): 승인 영상(W_) 중 댓글을 다 받지 못한 것 — 받은 쪽 다음부터 (comments_state.json),
     할당량이 끝나면 멈추고 다음에 이어서. quiet=True(켤 때)면 키·할당량이 없을 때 오류 대신 건너뜀."""
     todo = []
-    for d in sorted(out_dir(t).glob("W_*")):
+    for d in sorted(out_dir(t).glob("W_*")) + sorted(shorts_out(t).glob("S_*")):     # v1.6: 쇼츠(S_)도
         m = _read_json(d / "metadata.json", None)
         if m and m.get("id") and not m.get("comments_complete") and not m.get("comments_disabled"):
             todo.append((d, m))
@@ -1058,9 +1080,13 @@ def job_startup(t, whisper=True):
     → 자막 없는 영상이 남았으면 음성인식을 뒤에서."""
     res = job_comments(t, quiet=True)
     res.update(job_baseline(t, quiet=True))
+    if sh is not None:
+        res.update(job_shorts_baseline(t, quiet=True))   # v1.6: 받은 쇼츠의 채널 평소 쇼츠
     res.update(job_demand(t))
     res.update(_resume_explore(t, "켤 때"))         # v1.5: 할당량 때문에 남은 탐색(검색·영상 정보)이 있으면 이어서
-    if any(out_dir(t).glob("W_*/metadata.json")):
+    if sh is not None:
+        res.update(_resume_shorts_explore(t, "켤 때"))
+    if any(out_dir(t).glob("W_*/metadata.json")) or any(shorts_out(t).glob("S_*/metadata.json")):
         res.update(job_analyze(t))
     n = whisper_pending(t, fresh=True)
     res["whisper_pending"] = n
@@ -1077,10 +1103,17 @@ def resume_plan(t):
     pend = list(ex.get("pending") or [])
     pv = int(ex.get("pending_videos") or 0) + int(ex.get("pending_channels") or 0)
     comments = 0
-    for d in sorted(out_dir(t).glob("W_*")):
+    for d in sorted(out_dir(t).glob("W_*")) + sorted(shorts_out(t).glob("S_*")):
         m = _read_json(d / "metadata.json", None)
         if m and m.get("id") and not m.get("comments_complete") and not m.get("comments_disabled"):
             comments += 1
+    sx = _read_json(web_dir(t) / "shorts_explore.json", {})                      # v1.6: 쇼츠 탐색·채널 평소 쇼츠
+    s_pend = len(sx.get("pending") or []) + int(sx.get("pending_videos") or 0) + int(sx.get("pending_channels") or 0)
+    try:
+        s_base = len(shorts_baseline_plan(t)["need"]) if sh is not None else 0
+    except Exception as e:
+        log("RESUME", logging.WARNING, topic=t, note=f"채널 평소 쇼츠 계획 실패 — {type(e).__name__}")
+        s_base = 0
     try:
         bp = baseline_plan(t)
         base = len(bp["need"]) + (1 if bp["meta_need"] else 0)
@@ -1088,8 +1121,9 @@ def resume_plan(t):
         log("RESUME", logging.WARNING, topic=t, note=f"채널 기준선 계획 실패 — {type(e).__name__}")
         base = 0
     plan = {"explore_searches": len(pend), "explore_videos": pv, "explore_weeks": ex.get("weeks"),
-            "explore_keywords": ex.get("use_keywords", True), "comments": comments, "baseline": base}
-    plan["any"] = bool(pend or pv or comments or base)
+            "explore_keywords": ex.get("use_keywords", True), "comments": comments, "baseline": base,
+            "shorts_explore": s_pend, "shorts_baseline": s_base}
+    plan["any"] = bool(pend or pv or comments or base or s_pend or s_base)
     return plan
 
 
@@ -1117,7 +1151,11 @@ def job_resume(t, why="할당량 초기화"):
     res.update(job_comments(t, quiet=True))
     res.update(job_baseline(t, quiet=True))
     res.update(_resume_explore(t, why))
-    if any(out_dir(t).glob("W_*/metadata.json")) and (plan["comments"] or plan["baseline"]):
+    if sh is not None:                       # v1.6: 쇼츠 — 채널 평소 쇼츠·남은 쇼츠 탐색
+        res.update(job_shorts_baseline(t, quiet=True))
+        res.update(_resume_shorts_explore(t, why))
+    has_cases = any(out_dir(t).glob("W_*/metadata.json")) or any(shorts_out(t).glob("S_*/metadata.json"))
+    if has_cases and (plan["comments"] or plan["baseline"] or plan["shorts_baseline"]):
         res.update(job_analyze(t))           # 댓글·기준선이 바뀌었으면 분석을 다시 만들어 올림
     after = resume_plan(t)
     res["left_after"] = {k: v for k, v in after.items() if k != "any"}
@@ -1149,6 +1187,7 @@ def _resume_loop():
             while JOB["status"] == "running" and waited < RESUME_JOB_WAIT_H * 3600:
                 time.sleep(30)
                 waited += 30
+            RESUME.update(status="started", note="시작")      # v1.6: 작업을 띄우기 전에 적음 (작업이 바로 끝나도 상태가 맞게)
             ok, msg = start_job("할당량 초기화 — 남은 것 이어서", job_resume, t, "할당량 초기화")
             RESUME.update(status="started" if ok else "skipped", note=msg)
             log("RESUME", topic=t, started=ok, note=msg, waited_min=waited // 60)
@@ -1169,12 +1208,13 @@ def whisper_pending(t, fresh=False):
     tag = re.sub(r"[^0-9A-Za-z가-힣]+", "_", str(t)).strip("_") or "topic"
     tried = _read_json(ROOT / ".yt_work" / f"whisper_{tag}.json", {})
     n = 0
-    od = out_dir(t)
-    for d in (od.iterdir() if od.is_dir() else []):
-        m = CASE_RX.match(d.name)
+    od, sd = out_dir(t), shorts_out(t)
+    dirs = list(od.iterdir() if od.is_dir() else []) + list(sd.iterdir() if sd.is_dir() else [])    # v1.6: 쇼츠(S_)도
+    for d in dirs:
+        m = CASE_RX.match(d.name) or SHORTS_CASE_RX.match(d.name)
         if not (m and d.is_dir() and (d / "metadata.json").is_file()):
             continue
-        if (d / "transcript.json").is_file():     # v1.4: 앞부분만 한 대본(partial_sec — 분석기 v2.10.0 1차)은 2차(전체)가 남음
+        if (d / "transcript.json").is_file():     # v1.4: 앞부분만 한 대본(partial_sec — 분석기 v2.10.0 1차)은 2차(전체)가 남음 (쇼츠는 '말 없음'도 끝)
             if _read_json(d / "transcript.json", {}).get("partial_sec"):
                 rec = tried.get(m.group(1) + "#full") or {}
                 n += not (rec.get("done") or rec.get("attempts", 0) >= WHISPER_MAX_ATTEMPTS)
@@ -1287,6 +1327,397 @@ def _whisper_run(cmd):
     return code
 
 
+# ---------------------------------------------------------------- 쇼츠 (v1.6)
+def shorts_out(t):
+    return out_dir(t) / "shorts"
+
+
+def shorts_cache(t):
+    d = out_dir(t) / ".cache" / "shorts"         # .cache 아래 — GitHub 에 올리지 않음 (분석기 OUTLIERS_SKIP_DIRS·.gitignore)
+    d.mkdir(parents=True, exist_ok=True)
+    return d
+
+
+def need_sh():
+    if sh is None:
+        raise UserError("쇼츠 분석 도구(tools/shorts_analysis.py)가 PC 에 없습니다 — 이 창을 닫고 같은 명령으로 다시 켜면 GitHub 최신 코드를 받습니다")
+    return sh
+
+
+def shorts_rules(t):
+    """[shorts]·[shorts_compare] 규칙 (analysis_rules.toml — 없으면 shorts_analysis 기본값)."""
+    m = need_sh()
+    d = {}
+    try:
+        rp = topic_dir(t) / "analysis_rules.toml"
+        d = orr.tomllib.loads(rp.read_text("utf-8")) if rp.is_file() else {}
+    except Exception as e:
+        log("SHORTS", logging.WARNING, note=f"analysis_rules.toml 못 읽음 — 쇼츠 기본값으로 — {type(e).__name__}")
+    out = {}
+    for sec, dflt in m.DEFAULT_RULES.items():
+        out[sec] = {**dflt, **{k: v for k, v in (d.get(sec) or {}).items() if k in dflt}}
+    return out
+
+
+def shorts_keywords(t, kws):
+    """쇼츠 검색어: <주제>/shorts_keywords.txt 가 있으면 그것 (한 줄에 하나), 없으면 롱폼 검색어(keywords.txt) 그대로."""
+    p = topic_dir(t) / "shorts_keywords.txt"
+    own = pc.read_keyword_list(p) if p.is_file() else None
+    return ([("쇼츠", q) for q in own], p.name) if own else (kws, pc.KEYWORD_LIST_FILE)
+
+
+def shorts_known(t):
+    """채널 쇼츠 목록(UUSH)에 있는 영상 ID 전부 — 쇼츠 '확실' 판별용 (할당량 0)."""
+    ids = set()
+    for f in shorts_cache(t).glob("uploads_*.json"):
+        ids.update(_read_json(f, {}).get("ids") or [])
+    return ids
+
+
+def used_shorts_ids(t):
+    sd = shorts_out(t)
+    return {m.group(1) for d in (sd.iterdir() if sd.is_dir() else []) for m in [SHORTS_CASE_RX.match(d.name)]
+            if m and d.is_dir() and (d / "metadata.json").is_file()}
+
+
+def estimate_shorts(t, weeks, use_keywords):
+    kws = shorts_keywords(t, orr.load_keywords(t, 0)[0])[0] if use_keywords else []
+    cache = shorts_cache(t)
+    cached = sum(orr.search_is_cached(cache, q, "short", weeks * 7) for _, q in kws)
+    tg = load_targets(t)
+    ch_units = len(tg["channels"]) * 2
+    q = quota_view(t)
+    return {"keywords": len(kws), "searches": len(kws), "cached": cached, "units": (len(kws) - cached) * 100 + ch_units + 20,
+            "channels": len(tg["channels"]), "videos": len(tg["videos"]), "left": q.get("left"), "reset_kst": q.get("reset_kst")}
+
+
+def _is_success_short(r, S):
+    return (r["subs"] is not None and r["subs"] <= S["MAX_SUBS"] and r["views"] >= S["MIN_VIEWS"] and (r["ratio"] or 0) >= S["MIN_RATIO"]
+            and r["age_days"] is not None and S["MIN_AGE_DAYS"] <= r["age_days"] <= S["MAX_AGE_DAYS"])
+
+
+def preselect_shorts(rows, S):
+    """쇼츠 추천 = 체크만: 주소로 넣은 쇼츠 · 추가한 채널의 최근 N주 쇼츠 · 쇼츠 검색 결과 중 성공 쇼츠·조회수 상위(주제 관련, 최근 N주)."""
+    reasons = {}
+    searched = [r for r in rows if r["in_window"] and r["relevant"] and r.get("flag") != "부풀림 의심" and any(s.startswith("검색:") for s in r["sources"])]
+    searched_ids = {r["id"] for r in searched}
+    for r in sorted(searched, key=lambda r: -r["views"])[:SHORTS_POPULAR_N]:
+        reasons[r["id"]] = "조회수 상위"
+    for r in rows:
+        if "주소" in r["sources"]:
+            reasons[r["id"]] = "추가한 영상"
+        elif any(s.startswith("채널:") for s in r["sources"]) and r["in_window"] and r.get("flag") != "부풀림 의심":
+            reasons[r["id"]] = "추가한 채널"
+        elif r["id"] in searched_ids and r["success"]:
+            reasons[r["id"]] = "성공 쇼츠"
+    return reasons
+
+
+def job_shorts_explore(t, weeks, use_keywords):
+    """쇼츠 탐색 (v1.6): 검색어마다 쇼츠 검색 1번(4분 미만·조회수 순·최근 N주 — 100단위, 적응형 캐시) + 추가한 채널의 쇼츠 목록(UUSH) + 주소로 넣은
+    영상 → 영상 정보(화면비 포함, 50개에 1단위)·구독자 → 3분 이하·세로만 (주소로 넣은 것은 남기고 표시) → web/shorts_explore.json. 자료는 안 받음."""
+    S = shorts_rules(t)["shorts"]
+    api, ledger, src = make_api(t, "web_shorts_explore")
+    cache, main_cache = shorts_cache(t), out_dir(t) / ".cache"
+    main_cache.mkdir(parents=True, exist_ok=True)
+    now = datetime.now(timezone.utc)
+    days = weeks * 7
+    since = (now - timedelta(days=days)).strftime("%Y-%m-%dT00:00:00Z")
+    kws, exclude, _, _, rel = orr.load_keywords(t, 0)
+    kws, kw_file = shorts_keywords(t, kws)
+    kws = kws if use_keywords else []
+    tg = load_targets(t)
+    if not kws and not tg["channels"] and not tg["videos"]:
+        raise UserError("탐색할 것이 없습니다 — 검색어를 넣거나 영상·채널을 추가하세요")
+    found, pending, searched_new = {}, [], 0
+    state = orr.new_state()
+    infos = []
+    total, n = len(kws) + len(tg["channels"]) + 2, 0
+    log("SHORTS", step="explore", topic=t, weeks=weeks, keywords=len(kws), keywords_file=kw_file, channels=len(tg["channels"]),
+        videos=len(tg["videos"]), key_source=src, quota_left=api.quota)
+    try:
+        for g, q in kws:
+            n += 1
+            step(f"쇼츠 검색 {q} (4분 미만 → 3분 이하·세로만)", n, total)
+            ttl = {}
+            try:
+                ids, hit = orr.cached_search(api, cache, q, since, "short", days, orr.SEARCH_TTL_HOURS, False, info=ttl)
+            except orr.QuotaStop:
+                pending.append(f"{q} (short)")
+                continue
+            for vid in ids:
+                found.setdefault(vid, []).append(f"검색:{q}")
+            searched_new += not hit
+            log("SEARCH", query=q, dur="short", results=len(ids), cached=hit, quota_used=api.used, **{k: v for k, v in ttl.items() if v is not None})
+        for ch in tg["channels"]:
+            n += 1
+            step(f"채널 {ch.get('title') or ch['id']} 쇼츠 목록", n, total)
+            try:
+                ids = orr.channel_shorts(api, cache, ch["id"], ttl_h=24, title=ch.get("title") or "")
+            except orr.QuotaStop:
+                pending.append(f"채널 {ch.get('title')}")
+                continue
+            for vid in ids:
+                found.setdefault(vid, []).append(f"채널:{ch.get('title') or ch['id']}")
+        for v in tg["videos"]:
+            found.setdefault(v["id"], []).append("주소")
+        for k, (g, q) in enumerate(kws, 1):                 # 수요 — 롱폼과 같은 자동완성 캐시 (할당량 0, 이미 받았으면 그대로)
+            step(f"자동완성(사람들이 찾는 말) {k}/{len(kws)} — {q} (할당량 0)", n, total)
+            try:
+                orr.fetch_autocomplete(q, main_cache)
+            except Exception:
+                break
+        step(f"영상 {len(found):,}개 정보(화면비 포함)·구독자 수", n + 1, total)
+        infos = orr.fetch_video_infos(api, cache, list(found), state, player=True)
+        subs = orr.fetch_channel_subs(api, main_cache, {i["channel_id"] for i in infos}, state)
+    finally:
+        record_use(t, api, ledger, "web_shorts_explore")
+    known = shorts_known(t)
+    url_ids = {v["id"] for v in tg["videos"]}
+    excluded, rows, excluded_note = collections.Counter(), [], collections.Counter()
+    for i in infos:
+        i["subs"] = (subs.get(i["channel_id"]) or {}).get("subs")
+        why = orr.exclusion_reason(i)
+        ok, basis = orr.is_short(i, known)
+        if i["id"] not in url_ids:
+            if why:
+                excluded[why] += 1
+                continue
+            if not ok:
+                excluded["쇼츠 아님 (" + basis + ")"] += 1
+                continue
+        srcs = list(dict.fromkeys(found.get(i["id"], [])))
+        if "주소" not in srcs and any(w in (i.get("title") or "") for w in exclude):
+            continue
+        try:
+            pub = datetime.fromisoformat(str(i["published"]).replace("Z", "+00:00"))
+            age = (now - pub).days
+        except (ValueError, TypeError):
+            age = None
+        sec, views, sb = int(i.get("duration") or 0), int(i.get("view_count") or 0), i["subs"]
+        r = {"id": i["id"], "title": i.get("title") or "", "channel": i.get("channel") or "", "channel_id": i.get("channel_id") or "",
+             "subs": sb, "views": views, "ratio": round(views / max(sb, 100), 2) if sb else None, "age_days": age,
+             "views_per_day": round(views / max(age or 1, 1), 1), "minutes": round(sec / 60, 1), "seconds": sec,
+             "likes": i.get("like_count"), "comments": i.get("comment_count"), "published": str(i.get("published") or "")[:10],
+             "published_at": str(i.get("published") or ""), "queries": " | ".join(srcs), "url": f"https://www.youtube.com/shorts/{i['id']}",
+             "flag": why or ("" if ok else "쇼츠 아님?"), "sources": srcs, "relevant": orr.relevant(i, rel), "short": False,
+             "short_basis": basis, "in_window": age is not None and age <= days,
+             "downloaded": (shorts_out(t) / f"S_{i['id']}" / "metadata.json").is_file(), "hashtags": len(orr.hashtags(i.get("title"), i.get("description")))}
+        ad = sh.ad_suspect(r, S)              # 조회수 부풀림 의심 — 광고 또는 반복 재생 (2026-10-15 실측: 6초·좋아요 0.04%) — 표시만, 추천 안 함
+        if ad and not r["flag"]:
+            r["flag"] = "부풀림 의심"
+            excluded_note["조회수 부풀림 의심 — 광고·반복 재생 (표시만, 추천 안 함)"] += 1
+        r["success"] = ok and not ad and _is_success_short(r, S)
+        rows.append(r)
+    reasons = preselect_shorts(rows, S)
+    for r in rows:
+        r["reason"] = reasons.get(r["id"], "")
+    rows.sort(key=ratio_key)
+    p = web_dir(t) / "shorts_explore.json"
+    prev = _read_json(p, {})
+    prev_rows, prev_checked = {r["id"] for r in prev.get("rows") or []}, set(prev.get("checked") or [])
+    checked = [r["id"] for r in rows if (r["id"] in prev_checked if r["id"] in prev_rows else bool(r["reason"]))]
+    data = {"topic": t, "mode": "shorts", "generated": datetime.now(KST).isoformat(timespec="seconds"), "weeks": weeks, "use_keywords": use_keywords,
+            "keywords_file": kw_file, "rows": rows, "checked": checked, "pending": pending, "quota_used": api.used,
+            "pending_videos": state["pending_videos"], "pending_channels": state["pending_channels"], "searched_new": searched_new,
+            "excluded": {**dict(excluded), **dict(excluded_note)}}
+    _write_json(p, data)
+    log("SHORTS", step="explore", topic=t, shorts=len(rows), checked=len(checked), success=sum(1 for r in rows if r["success"]),
+        pending=len(pending), pending_videos=state["pending_videos"], searched_new=searched_new, quota_used=api.used,
+        excluded=",".join(f"{k}:{v}" for k, v in (excluded + excluded_note).items()) or "-", note="체크만 해 둠 — [승인]을 눌러야 자료를 받음")
+    step("끝", total, total)
+    return {"videos": len(rows), "checked": len(checked), "pending": pending, "pending_videos": state["pending_videos"], "quota_used": api.used}
+
+
+def job_shorts_approve(t, ids, auto_whisper=True):
+    """쇼츠 승인 (v1.6): 체크한 쇼츠만 설명·자막(시도)·표지(세로 먼저)·댓글 전부 → shorts/S_<영상ID>/ → 채널 평소 쇼츠 → 쇼츠 분석 → GitHub
+    → 자막을 못 받은 쇼츠는 음성인식(뒤에서, 쇼츠 먼저)."""
+    need_sh()
+    ex = _read_json(web_dir(t) / "shorts_explore.json", {})
+    by_id = {r["id"]: r for r in ex.get("rows") or []}
+    ids = [i for i in dict.fromkeys(ids) if i in by_id]
+    if not ids:
+        raise UserError("승인할 쇼츠가 없습니다 — [쇼츠] 목록에서 체크하세요 (쇼츠 탐색을 먼저)")
+    api, ledger, _ = make_api(t, "web_shorts_approve")
+    sdir, cache = shorts_out(t), shorts_cache(t)
+    a = types.SimpleNamespace(refresh=False, no_transcript=False, offline=False, comments=0, replies=True)
+    state = orr.new_state()
+    known = shorts_known(t)
+    got = []
+    log("SHORTS", step="approve", topic=t, shorts=len(ids), note="설명·자막·표지·댓글 전부 받음")
+    try:
+        for n, vid in enumerate(ids, 1):
+            step(f"쇼츠 자료 받기 {n}/{len(ids)} — {by_id[vid]['title'][:40]}", n - 1, len(ids))
+            info = _read_json(cache / f"{vid}.json", None)
+            if not info:
+                log("SHORTS", logging.WARNING, id=vid, note="영상 정보 캐시 없음 — 쇼츠 탐색을 다시")
+                continue
+            d = sdir / f"S_{vid}"
+            d.mkdir(parents=True, exist_ok=True)
+            th = d / "thumbnail.jpg"
+            cover = None
+            if not (th.is_file() and th.stat().st_size > 0):
+                cover = orr.shorts_cover(vid, th)                  # 세로 표지 먼저 (deep_case 는 있으면 다시 받지 않음)
+            row = {k: v for k, v in by_id[vid].items() if k not in ("sources", "reason", "downloaded", "in_window", "relevant", "short", "success")}
+            row.update(rank=f"S{n}", set="web_shorts", folder=d.name, sources=by_id[vid]["sources"], url=f"https://www.youtube.com/shorts/{vid}")
+            meta, cms = orr.deep_case(d, row, info, a, api, "web_shorts", {}, state)
+            cms, cst = orr.comments_step(d, meta, a, api, "web_shorts", {}, state, full=True)
+            n_rep = sum(1 for c in cms if c.get("parent"))
+            ok, basis = orr.is_short(info, known)
+            old = _read_json(d / "metadata.json", {})
+            meta.update(comments_fetched=len(cms), comments_top_level=len(cms) - n_rep, comments_replies=n_rep,
+                        comments_by_creator=sum(1 for c in cms if c.get("creator")), comments_complete=cst["complete"],
+                        comments_disabled=cst.get("disabled", False), approved=datetime.now(KST).isoformat(timespec="minutes"), kind="shorts",
+                        seconds=int(info.get("duration") or 0), published_at=str(info.get("published") or ""), short_basis=basis,
+                        embed_w=info.get("embed_w"), embed_h=info.get("embed_h"), hashtags=orr.hashtags(info.get("title"), info.get("description")),
+                        cover=cover or old.get("cover") or ("hqdefault.jpg" if th.is_file() and th.stat().st_size > 0 else ""))
+            _write_json(d / "metadata.json", meta)
+            got.append(meta)
+            log("SHORTS", step="approve", n=f"{n}/{len(ids)}", id=vid, seconds=meta["seconds"], cover=meta["cover"] or "-",
+                transcript=meta["transcript_status"] if meta["transcript_status"] != "ok" else meta["transcript_lang"],
+                comments=len(cms), comments_complete=cst["complete"], quota_used=api.used)
+    finally:
+        record_use(t, api, ledger, "web_shorts_approve")
+    appr = _read_json(web_dir(t) / "shorts_approved.json", {"approved": []})
+    appr["approved"] = list(dict.fromkeys(appr["approved"] + [m["id"] for m in got]))
+    _write_json(web_dir(t) / "shorts_approved.json", appr)
+    missing = [m["id"] for m in got if m["transcript_status"] != "ok"]
+    base = job_shorts_baseline(t, quiet=True)
+    step(f"쇼츠 분석 (자막 못 받은 {len(missing)}개는 음성인식 뒤에 다시 셈)", len(ids), len(ids))
+    res = {"videos": len(got), "transcripts_ok": len(got) - len(missing), "whisper_needed": len(missing), "quota_used": api.used,
+           "pending_comments": len(state["pending_comments"]), **base, **run_shorts_analysis(t)}
+    res.update(push_results(t, f"웹 화면 쇼츠 승인 {len(got)}개 — 자료·쇼츠 분석 (자막 못 받은 {len(missing)}개는 음성인식 뒤에서)"))
+    if missing and auto_whisper:
+        res["whisper"] = start_whisper(t, f"승인한 쇼츠 중 자막을 못 받은 {len(missing)}개")[1]
+    elif missing:
+        res["whisper"] = "자동 음성인식 끔 — 화면의 [음성인식 시작]으로"
+    log("SHORTS", step="approve", topic=t, **{k: v for k, v in res.items()})
+    step("끝 — " + ("결과를 GitHub 에 올렸습니다" if res.get("pushed") else res.get("push_note") or "PC 에 저장")
+         + (" · 음성인식은 뒤에서 (화면 위 '음성인식')" if missing and auto_whisper else ""))
+    return res
+
+
+def shorts_baseline_plan(t):
+    """채널 평소 쇼츠 (v1.6)에서 받을 것 — 받은 쇼츠(S_)의 채널 중 구독자 ≤ [shorts_compare] MAX_SUBS (할당량 0으로 셈)."""
+    try:
+        max_subs = int(shorts_rules(t)["shorts_compare"]["MAX_SUBS"])
+    except UserError:
+        return {"todo": [], "need": []}
+    cache = shorts_cache(t)
+    chans = {}
+    sd = shorts_out(t)
+    for d in (sd.iterdir() if sd.is_dir() else []):
+        if not (SHORTS_CASE_RX.match(d.name) and d.is_dir()):
+            continue
+        m = _read_json(d / "metadata.json", None) or {}
+        cid = m.get("channel_id") or ""
+        if not (cid.startswith("UC") and len(cid) == 24) or (m.get("subs") is not None and m["subs"] > max_subs):
+            continue
+        chans[cid] = {"id": cid, "title": m.get("channel") or cid, "views": max(int(m.get("views") or 0), chans.get(cid, {}).get("views", 0))}
+    todo = sorted(chans.values(), key=lambda c: -c["views"])
+    need = [c for c in todo if not orr._fresh(cache / f"uploads_{c['id']}.json", SHORTS_BASELINE_TTL_H, False)]
+    return {"todo": todo, "need": need}
+
+
+def job_shorts_baseline(t, quiet=False):
+    """채널 평소 쇼츠 (v1.6): 받은 쇼츠의 채널마다 쇼츠 목록(UUSH) 최근 SHORTS_BASELINE_VIDEOS 개 + 영상 정보 — 채널 하나 약 2단위, 7일 캐시
+    → 쇼츠 분석 1-2번 '채널 평소 쇼츠 대비 ×'·잘된 쇼츠 vs 평소 쇼츠. 조회수 큰 쇼츠의 채널부터, 할당량이 끝나면 멈춤."""
+    plan = shorts_baseline_plan(t)
+    todo, need = plan["todo"], plan["need"]
+    res = {"shorts_baseline_channels": len(todo), "shorts_baseline_cached": len(todo) - len(need)}
+    if not need:
+        return res
+    try:
+        api, ledger, _ = make_api(t, "web_shorts_baseline")
+    except UserError as e:
+        if not quiet:
+            raise
+        log("SHORTS", logging.WARNING, step="baseline", topic=t, todo=len(need), note=f"채널 평소 쇼츠 받기 건너뜀 — {e}")
+        return {**res, "shorts_baseline_skipped": str(e)}
+    cache = shorts_cache(t)
+    state = orr.new_state()
+    got = 0
+    log("SHORTS", step="baseline", topic=t, channels=len(todo), todo=len(need), quota_left=api.quota,
+        note=f"채널 평소 쇼츠 (쇼츠 목록 최근 {SHORTS_BASELINE_VIDEOS}개) — 채널 하나 약 2단위")
+    try:
+        for n, c in enumerate(need, 1):
+            step(f"채널 평소 쇼츠 {n}/{len(need)} — {c['title'][:30]}", n - 1, len(need))
+            try:
+                ids = orr.channel_shorts(api, cache, c["id"], ttl_h=SHORTS_BASELINE_TTL_H, max_videos=SHORTS_BASELINE_VIDEOS, title=c["title"])
+                orr.fetch_video_infos(api, cache, ids[:SHORTS_BASELINE_VIDEOS], state, player=True)
+            except orr.QuotaStop as e:
+                log("SHORTS", logging.WARNING, step="baseline", topic=t, note=f"할당량이 끝나 멈춤 — 다음에 이어서 ({e})", done=got, left=len(need) - n + 1)
+                break
+            except (RuntimeError, urllib.error.URLError, OSError, ValueError, KeyError) as e:
+                log("SHORTS", logging.WARNING, step="baseline", channel=c["title"], id=c["id"], error=f"{type(e).__name__}: {e}"[:160], note="이 채널만 건너뜀")
+                continue
+            got += 1
+            if state["quota_stop"]:
+                break
+    finally:
+        record_use(t, api, ledger, "web_shorts_baseline")
+    log("SHORTS", step="baseline", topic=t, fetched=got, todo=len(need), quota_used=api.used)
+    return {**res, "shorts_baseline_fetched": got, "shorts_baseline_quota_used": api.used}
+
+
+def has_shorts(t):
+    return bool(used_shorts_ids(t)) or any(shorts_cache(t).glob("search_*.json"))
+
+
+def run_shorts_analysis(t):
+    """쇼츠 분석 (tools/shorts_analysis.py — 할당량 0) → 요약 숫자. 쇼츠 자료가 없거나 도구가 없으면 건너뜀 (롱폼 작업을 멈추지 않음)."""
+    if sh is None or not has_shorts(t):
+        return {}
+    step("쇼츠 분석 (shorts/analysis.md)")
+    try:
+        d = sh.run(t)
+    except Exception as e:
+        LOG.exception("[SHORTS] 쇼츠 분석 실패")
+        return {"shorts_analysis_error": f"{type(e).__name__}: {e}"[:200]}
+    if not d:
+        return {}
+    return {"shorts_success": len(d.get("success_cases") or []), "shorts_cases": d["sources"]["case_folders"],
+            "shorts_compare": d["sources"]["compare_group"]}
+
+
+def _resume_shorts_explore(t, why):
+    ex = _read_json(web_dir(t) / "shorts_explore.json", {})
+    if not (ex.get("pending") or ex.get("pending_videos") or ex.get("pending_channels")):
+        return {}
+    kl = key_ledger(t)
+    need = 100 + orr.SEARCH_RESERVE if ex.get("pending") else 1
+    if not kl or kl.left() < need:
+        log("RESUME", topic=t, why=why, note="남은 쇼츠 탐색이 있지만 할당량이 모자람 — 다음 초기화 뒤에", left=kl.left() if kl else "-")
+        return {"shorts_explore_resume": "할당량 모자람 — 다음 초기화 뒤"}
+    log("RESUME", topic=t, why=why, pending=len(ex.get("pending") or []), note="할당량 때문에 남은 쇼츠 탐색을 이어서 (체크는 그대로)")
+    r = job_shorts_explore(t, int(ex.get("weeks") or 8), bool(ex.get("use_keywords", True)))
+    return {"shorts_explore_resumed": True, "shorts_explore_pending_after": len(r.get("pending") or [])}
+
+
+def shorts_view(t):
+    """6번 칸 쇼츠 분석 요약 (shorts/analysis.json)."""
+    a = _read_json(shorts_out(t) / "analysis.json", {})
+    if not a:
+        return {"generated": None}
+    sp, src = a.get("speech") or {}, a.get("sources") or {}
+    eng = a.get("engagement") or {}
+    return {"generated": a.get("generated"), "success": len(a.get("success_cases") or []), "cases": src.get("case_folders"),
+            "text_sources": src.get("text_sources"), "compare_group": src.get("compare_group"), "compare_rate": src.get("compare_rate"),
+            "pool_shorts": src.get("pool_shorts"), "limits": a.get("limits"), "missing_ids": [x["id"] for x in a.get("missing_success") or []],
+            "missing_total": a.get("missing_success_total"),
+            "seconds": {"success": (eng.get("success_cases") or {}).get("seconds_median"), "others": (eng.get("others") or {}).get("seconds_median")},
+            "hooks": {k: [((sp.get("success") or {}).get("hook_types") or {}).get(k), ((sp.get("others") or {}).get("hook_types") or {}).get(k)]
+                      for k in ((sp.get("success") or {}).get("hook_types") or {})},
+            "first_speech": [(sp.get("success") or {}).get("first_speech_sec"), (sp.get("others") or {}).get("first_speech_sec")],
+            "formats": [(r["format"].split(" (")[0], r.get("success_share"), r.get("rate"), r.get("n")) for r in a.get("formats") or []],
+            "needs": [(c["name"], c["count"]) for c in (a.get("needs") or {}).get("categories") or []],
+            "requests": (a.get("needs") or {}).get("requests_total"),
+            "gaps": [(r["phrase"], r["shorts_recent"]) for r in ((a.get("market") or {}).get("autocomplete") or [])[:8]],
+            "market_themes": [(r["theme"], r["index"], r["videos"]) for r in (a.get("market") or {}).get("themes") or [] if not r.get("small_sample")][:6],
+            "baseline": {k: (a.get("baseline") or {}).get(k) for k in ("success_covered", "channels", "hits", "normal")},
+            "channel_types": [(r["type"].split(" (")[0], r.get("rate"), r.get("n")) for r in a.get("channel_types") or []]}
+
+
 # ---------------------------------------------------------------- 화면 상태
 def state_view(t):
     ex = _read_json(web_dir(t) / "explore.json", {})
@@ -1301,6 +1732,8 @@ def state_view(t):
             "keywords_text": text, "keywords_count": len(pc.read_keyword_list(kp) or []), "targets": load_targets(t),
             "explore": {"generated": ex.get("generated"), "weeks": ex.get("weeks"), "videos": len(ex.get("rows") or []),
                         "checked": len(ex.get("checked") or []), "pending": ex.get("pending") or []},
+            "shorts": {"available": sh is not None, "approved": len(used_shorts_ids(t)),
+                       "keywords_file": shorts_keywords(t, [])[1] if sh is not None else None},
             "quota": quota_view(t),
             "caption_block": until.astimezone(KST).strftime("%m-%d %H:%M") if until else None,
             "approved": len(_read_json(web_dir(t) / "approved.json", {"approved": []})["approved"]),
@@ -1354,15 +1787,22 @@ class Handler(BaseHTTPRequestHandler):
                 return self._send(200, {**job_view(), "whisper": whisper_view(), "quota": quota_view(t),
                                         "resume": {k: v for k, v in RESUME.items()}})
             if u.path == "/api/explore":
-                ex = _read_json(web_dir(t) / "explore.json", {})
-                used = used_ids(t)                                     # 이미 분석에 쓴 영상은 뺌 (승인하면 바로 빠짐)
+                shorts = (q.get("mode") or [""])[0] == "shorts"        # v1.6: 쇼츠 목록
+                ex = _read_json(web_dir(t) / ("shorts_explore.json" if shorts else "explore.json"), {})
+                used = used_shorts_ids(t) if shorts else used_ids(t)   # 이미 분석에 쓴 영상은 뺌 (승인하면 바로 빠짐)
                 rows = sorted((r for r in ex.get("rows") or [] if r["id"] not in used), key=ratio_key)
                 return self._send(200, {"rows": rows, "checked": [i for i in ex.get("checked") or [] if i not in used],
                                         "generated": ex.get("generated"), "weeks": ex.get("weeks"), "excluded": ex.get("excluded") or {},
-                                        "used_hidden": sum(1 for r in ex.get("rows") or [] if r["id"] in used)})
+                                        "used_hidden": sum(1 for r in ex.get("rows") or [] if r["id"] in used), "mode": "shorts" if shorts else "long",
+                                        "keywords_file": ex.get("keywords_file")})
             if u.path == "/api/estimate":
                 weeks = max(1, min(52, int((q.get("weeks") or ["8"])[0])))
+                if (q.get("mode") or [""])[0] == "shorts":
+                    need_sh()
+                    return self._send(200, estimate_shorts(t, weeks, (q.get("kw") or ["1"])[0] == "1"))
                 return self._send(200, estimate(t, weeks, (q.get("kw") or ["1"])[0] == "1"))
+            if u.path == "/api/shorts_analysis":               # v1.6: 쇼츠 분석 요약 (전문은 shorts/analysis.md)
+                return self._send(200, shorts_view(t))
             if u.path == "/api/report":
                 return self._send(200, _read_json(out_dir(t) / "weekly.json", {}))
             if u.path == "/api/analysis":                      # v1.3: 성공 사례 분석 요약 (전문은 analysis.md)
@@ -1458,18 +1898,27 @@ class Handler(BaseHTTPRequestHandler):
             if path == "/api/targets/remove":
                 return self._send(200, {"targets": remove_target(t, body.get("kind"), body.get("id"))})
             if path == "/api/checked":
-                ex = _read_json(web_dir(t) / "explore.json", {})
+                fn = "shorts_explore.json" if body.get("mode") == "shorts" else "explore.json"      # v1.6: 쇼츠 목록의 체크는 따로
+                ex = _read_json(web_dir(t) / fn, {})
                 if ex:
                     ok_ids = {r["id"] for r in ex.get("rows") or []}
                     ex["checked"] = [i for i in body.get("ids") or [] if i in ok_ids]
-                    _write_json(web_dir(t) / "explore.json", ex)
+                    _write_json(web_dir(t) / fn, ex)
                 return self._send(200, {"checked": len(ex.get("checked") or [])})
             if path == "/api/explore":
                 weeks = max(1, min(52, int(body.get("weeks") or 8)))
-                ok, msg = start_job("탐색", job_explore, t, weeks, bool(body.get("keywords", True)))
+                if body.get("mode") == "shorts":
+                    need_sh()
+                    ok, msg = start_job("쇼츠 탐색", job_shorts_explore, t, weeks, bool(body.get("keywords", True)))
+                else:
+                    ok, msg = start_job("탐색", job_explore, t, weeks, bool(body.get("keywords", True)))
                 return self._send(200 if ok else 409, {"ok": ok, "message": msg})
             if path == "/api/approve":
-                ok, msg = start_job("승인 — 자료 받고 분석", job_approve, t, list(body.get("ids") or []), bool(body.get("whisper", True)))
+                if body.get("mode") == "shorts":
+                    need_sh()
+                    ok, msg = start_job("쇼츠 승인 — 자료 받고 분석", job_shorts_approve, t, list(body.get("ids") or []), bool(body.get("whisper", True)))
+                else:
+                    ok, msg = start_job("승인 — 자료 받고 분석", job_approve, t, list(body.get("ids") or []), bool(body.get("whisper", True)))
                 return self._send(200 if ok else 409, {"ok": ok, "message": msg})
             if path == "/api/analyze":
                 ok, msg = start_job("주별 분석", job_analyze, t)
@@ -1526,7 +1975,7 @@ def serve(port, host="127.0.0.1"):
 
 
 def main(argv=None):
-    global orr, wa
+    global orr, wa, sh
     ap = argparse.ArgumentParser(description="분석기 웹 화면 — 키·검색어 고치기, 탐색 → 체크 → 승인 → 자료 받기·주별 분석")
     ap.add_argument("topics", nargs="*", help="주제 폴더 (없으면 설정 파일이 있는 폴더 — economic 먼저)")
     ap.add_argument("--port", type=int, default=8765)
@@ -1585,6 +2034,12 @@ def main(argv=None):
     import outlier_research as _orr
     import weekly_analysis as _wa
     orr, wa = _orr, _wa
+    try:                                      # v1.6: 쇼츠 분석 (없으면 쇼츠 기능만 꺼짐 — 롱폼은 그대로)
+        import shorts_analysis as _sh
+        sh = _sh
+    except Exception as e:
+        log("START", logging.WARNING, note="쇼츠 분석 도구를 못 불러옴 — 쇼츠 기능 꺼짐 (창을 닫고 다시 켜면 GitHub 최신 코드를 받음)",
+            error=f"{type(e).__name__}: {e}"[:160])
     srv, port = serve(a.port)
     STATE["port"] = port
     mine = None
@@ -1663,6 +2118,8 @@ pre{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:
 details{border:1px solid var(--line);border-radius:8px;padding:8px 12px;margin-top:8px}summary{cursor:pointer;font-weight:600}
 .msg{min-height:20px;font-size:13px}h3.sub{font-size:14px;margin:14px 0 6px}.tag.x{border-color:var(--warn);color:var(--warn)}.k{display:grid;grid-template-columns:150px 1fr;gap:8px;align-items:center;margin-bottom:8px}
 @media (max-width:600px){.k{grid-template-columns:1fr}}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:9px;overflow:hidden;margin-left:8px;vertical-align:middle}.seg button{border:0;border-radius:0;padding:4px 14px;font-size:13px}
+.seg button.on{background:var(--acc);color:#fff;font-weight:600}.seg button:disabled{opacity:.4}
 </style></head><body>
 <header><h1 id="title">분석기</h1><select id="topic" title="주제 폴더 — 창 하나에 주제 하나 (다른 주제는 새 창으로 동시에)"></select>
 <span class="pill" id="quota">할당량 …</span><span class="pill" id="caption">자막 서버 …</span><span class="pill" id="wPill">음성인식 …</span><span class="pill" id="ver"></span></header>
@@ -1700,21 +2157,21 @@ details{border:1px solid var(--line);border-radius:8px;padding:8px 12px;margin-t
  <div class="msg" id="tgMsg"></div>
  <div id="tgList" style="margin-top:6px"></div>
 </section>
-<section class="card"><h2>4. 탐색 <small>목록만 만듭니다 — 자료는 승인한 영상만 받습니다</small></h2>
+<section class="card"><h2>4. 탐색 <span class="seg" id="modeSeg" title="롱폼(4분 넘음)과 쇼츠(3분 이하 세로)는 목록·자료·분석이 따로입니다"><button data-m="long">롱폼</button><button data-m="shorts">쇼츠</button></span> <small id="exploreSub">목록만 만듭니다 — 자료는 승인한 영상만 받습니다</small></h2>
  <div class="row">최근 <input type="number" id="weeks" min="1" max="52" value="8" style="width:70px"> 주
   <label><input type="checkbox" id="useKw" checked> 검색어로도 찾기</label>
   <span class="mut" id="est"></span><button class="pri" id="explore">탐색</button></div>
 </section>
-<section class="card" id="listCard"><h2>5. 탐색 목록 <small id="listInfo">배수 높은 순 · 추천은 체크해 둠</small></h2>
+<section class="card" id="listCard"><h2>5. <span id="listTitle">탐색 목록</span> <small id="listInfo">배수 높은 순 · 추천은 체크해 둠</small></h2>
  <div class="row" style="margin-bottom:8px"><input type="text" id="flt" class="grow" placeholder="제목·채널 거르기">
-  <label><input type="checkbox" id="fShort"> 짧은 영상(4분 미만)도</label><label><input type="checkbox" id="fRel" checked> 주제 관련만</label>
+  <label id="fShortLbl"><input type="checkbox" id="fShort"> 짧은 영상(4분 미만)도</label><label><input type="checkbox" id="fRel" checked> 주제 관련만</label>
   <button id="chkAll">보이는 것 모두 체크</button><button id="chkNone">모두 해제</button><button id="chkRec">추천만</button></div>
  <h3 class="sub">✅ 체크한 영상 <span id="onCount"></span> <small class="mut">— 승인하면 이 영상들의 자료를 받습니다</small></h3>
  <div class="tablewrap"><table><thead><tr><th></th><th>업로드</th><th>제목</th><th>채널</th><th class="n">구독자</th><th class="n">조회수</th><th class="n">배수 ▼</th><th class="n">하루 조회수</th><th class="n">길이</th><th>추천 · 출처</th></tr></thead><tbody id="rowsOn"><tr><td colspan="10" class="mut">탐색을 누르면 여기에 나옵니다</td></tr></tbody></table></div>
  <h3 class="sub">☐ 체크 안 한 영상 <span id="offCount"></span></h3>
  <div class="tablewrap"><table><thead><tr><th></th><th>업로드</th><th>제목</th><th>채널</th><th class="n">구독자</th><th class="n">조회수</th><th class="n">배수 ▼</th><th class="n">하루 조회수</th><th class="n">길이</th><th>추천 · 출처</th></tr></thead><tbody id="rowsOff"><tr><td colspan="10" class="mut">—</td></tr></tbody></table></div>
  <div class="row" style="margin-top:10px"><button class="pri" id="approve">승인 — 자료 받고 분석해서 바로 올리기</button><label><input type="checkbox" id="autoW" checked> 그다음 자막 못 받은 영상 음성인식 (뒤에서)</label><span class="mut" id="chkInfo"></span></div>
- <div class="mut" style="margin-top:6px">순서: 자료(설명·자막·썸네일·댓글) 받기 → 채널 평소 영상(같은 채널 기준선, 채널 하나 약 2단위) → 분석 (자막을 못 받은 영상은 영상 설명으로 대신) → GitHub 에 바로 올림 → 음성인식은 뒤에서 (성공 사례부터 앞 5분 → 전체)</div>
+ <div class="mut" style="margin-top:6px" id="approveNote">순서: 자료(설명·자막·썸네일·댓글) 받기 → 채널 평소 영상(같은 채널 기준선, 채널 하나 약 2단위) → 분석 (자막을 못 받은 영상은 영상 설명으로 대신) → GitHub 에 바로 올림 → 음성인식은 뒤에서 (성공 사례부터 앞 5분 → 전체)</div>
 </section>
 <section class="card"><h2>진행 <small id="jobName"></small></h2>
  <div class="row"><span id="jobStep" class="grow">쉬는 중</span><button id="cancel" disabled>멈춤</button><button id="reanalyze" title="주별 분석·성공 사례 분석을 다시 만들어 GitHub 에 올림">다시 분석·올리기</button><button id="comments" title="할당량이 끝나 다 받지 못한 댓글을 이어 받고 다시 분석">못 받은 댓글 이어 받기</button></div>
@@ -1726,13 +2183,16 @@ details{border:1px solid var(--line);border-radius:8px;padding:8px 12px;margin-t
  <div class="bar" style="margin-top:8px"><i id="wBar"></i></div>
  <details><summary>음성인식 기록</summary><pre id="wLog"></pre></details>
 </section>
-<section class="card"><h2>6. 분석 결과 <small>성공 사례 분석 analysis.md (지시사항 재료) · 주별 추세 weekly.md</small></h2>
+<section class="card"><h2>6. 분석 결과 <small>성공 사례 분석 analysis.md (지시사항 재료) · 쇼츠 분석 shorts/analysis.md · 주별 추세 weekly.md</small></h2>
  <div id="analysis" class="mut" style="margin-bottom:12px"></div>
+ <h3 class="sub">쇼츠 분석 <small class="mut">— 받은 쇼츠(shorts/S_) · 성공 쇼츠 · 첫 3초 · 길이 · 니즈</small></h3>
+ <div id="shortsAnalysis" class="mut" style="margin-bottom:12px">쇼츠를 승인하면 여기에 나옵니다 (4번 칸에서 [쇼츠]로 바꿔 탐색)</div>
  <h3 class="sub">주별 추세 <small class="mut">— 승인한 영상 전부 (최근 1주부터 한 주씩 넓힘, 누적)</small></h3>
  <div id="report" class="mut">승인한 영상이 생기면 여기에 나옵니다</div></section>
 </main>
 <script>
 const T=document.querySelector('meta[name=t]').content;let ROWS=[],CHECK=new Set(),REC=new Set(),busy=false,lastJob=null,waitDone=false,lastWDone=null,TOPICS={names:{},windows:[]},PLAN=null;
+let MODE='long',SHORTS_OK=true;try{MODE=localStorage.getItem('ytMode')==='shorts'?'shorts':'long'}catch(e){}
 const $=id=>document.getElementById(id);const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const num=x=>x==null?'–':(typeof x==='number'?x.toLocaleString('ko-KR',{maximumFractionDigits:1}):x);
 async function api(p,b){const r=await fetch(p,{method:b?'POST':'GET',headers:{'X-Token':T,'Content-Type':'application/json'},body:b?JSON.stringify(b):undefined});
@@ -1744,7 +2204,14 @@ async function loadState(){const s=await api('/api/state');$('title').textConten
  const e=s.env;$('ytkey_now').innerHTML=e.YOUTUBE_API_KEY.set?`<span class=ok>설정됨</span> ${esc(e.YOUTUBE_API_KEY.tail)} · ${esc(e.YOUTUBE_API_KEY.source)}`:'<span class=bad>없음</span> — 넣어야 탐색할 수 있습니다';
  $('ghtok_now').innerHTML=e.GITHUB_TOKEN.set?`<span class=ok>설정됨</span> ${esc(e.GITHUB_TOKEN.tail)} · ${esc(e.GITHUB_TOKEN.source)}`:'없음 — 결과는 PC 에만 저장';
  if(document.activeElement!==$('kw'))$('kw').value=s.keywords_text;$('kwCount').textContent=`검색어 ${s.keywords_count}개`;
- renderTargets(s.targets);showJob(s.job);estimate();return s}
+ renderTargets(s.targets);showJob(s.job);SHORTS_OK=!!(s.shorts&&s.shorts.available);if(!SHORTS_OK&&MODE==='shorts')MODE='long';renderMode();estimate();return s}
+function renderMode(){document.querySelectorAll('#modeSeg button').forEach(b=>{b.classList.toggle('on',b.dataset.m===MODE);if(b.dataset.m==='shorts'){b.disabled=!SHORTS_OK;b.title=SHORTS_OK?'':'쇼츠 분석 도구가 없음 — 창을 닫고 다시 켜면 받음'}});
+ const sh=MODE==='shorts';$('listTitle').textContent=sh?'쇼츠 목록':'탐색 목록';$('fShortLbl').style.display=sh?'none':'';
+ $('exploreSub').textContent=sh?'쇼츠(3분 이하·세로)만 — 검색어마다 쇼츠 검색 1번(100단위) + 추가한 채널의 쇼츠 목록. 자료는 승인한 쇼츠만':'목록만 만듭니다 — 자료는 승인한 영상만 받습니다';
+ $('approve').textContent=sh?'쇼츠 승인 — 자료 받고 분석해서 바로 올리기':'승인 — 자료 받고 분석해서 바로 올리기';
+ $('approveNote').textContent=sh?'순서: 쇼츠 자료(설명·자막·세로 표지·댓글 전부) 받기 → 채널 평소 쇼츠(채널 쇼츠 목록, 채널 하나 약 2단위) → 쇼츠 분석(shorts/analysis.md) → GitHub 에 바로 올림 → 음성인식은 뒤에서 (쇼츠 먼저 — 하나에 1~2분)'
+  :'순서: 자료(설명·자막·썸네일·댓글) 받기 → 채널 평소 영상(같은 채널 기준선, 채널 하나 약 2단위) → 분석 (자막을 못 받은 영상은 영상 설명으로 대신) → GitHub 에 바로 올림 → 음성인식은 뒤에서 (성공 사례부터 앞 5분 → 전체)'}
+function setMode(m){if(m===MODE||(m==='shorts'&&!SHORTS_OK))return;MODE=m;try{localStorage.setItem('ytMode',m)}catch(e){}renderMode();ROWS=[];CHECK=new Set();renderRows();estimate();loadRows().then(()=>{loadAnalysis();loadShortsAnalysis()})}
 function hm(m){return m>=60?`${Math.floor(m/60)}시간 ${m%60}분`:`${m}분`}
 function renderQuota(q){if(!q)return;
  if(q.key===null){$('quota').textContent='할당량 — 키 없음';$('quota').className='pill warn';$('qBig').textContent='YouTube API 키를 넣으면 남은 할당량이 보입니다';$('qBy').textContent='';return}
@@ -1771,27 +2238,28 @@ function renderTargets(tg){const c=tg.channels.map(x=>`<span class=chip>📺 ${e
  const v=tg.videos.map(x=>`<span class=chip>▶ ${esc((x.title||x.id).slice(0,40))}<button data-k=video data-id="${esc(x.id)}" title="빼기">✕</button></span>`);
  $('tgList').innerHTML=(c.concat(v).join(''))||'<span class=mut>추가한 영상·채널 없음</span>';
  $('tgList').querySelectorAll('button').forEach(b=>b.onclick=async()=>{const r=await api('/api/targets/remove',{kind:b.dataset.k,id:b.dataset.id});renderTargets(r.targets);estimate()})}
-let estT;function estimate(){clearTimeout(estT);estT=setTimeout(async()=>{try{const e=await api(`/api/estimate?weeks=${$('weeks').value}&kw=${$('useKw').checked?1:0}`);
- $('est').textContent=`검색 ${e.searches}번 (캐시 ${e.cached}) + 채널 ${e.channels}·영상 ${e.videos} → 약 ${num(e.units)}단위`+(e.left!=null?` · 오늘 남은 ${num(e.left)}`+(e.units>e.left?' (모자라는 만큼은 초기화 뒤 저절로 이어서)':''):'')}catch(x){$('est').textContent=x.message}},250)}
-async function loadRows(){const d=await api('/api/explore');ROWS=d.rows;CHECK=new Set(d.checked);REC=new Set(ROWS.filter(r=>r.reason).map(r=>r.id));
- const ex=Object.entries(d.excluded||{}).map(([k,v])=>`${k} ${v}개`);if(d.used_hidden)ex.unshift(`이미 분석에 쓴 영상 ${d.used_hidden}개`);
- $('listInfo').textContent=(d.generated?`배수 높은 순 · ${d.generated.slice(0,16).replace('T',' ')} 탐색 (최근 ${d.weeks}주) · 영상 ${ROWS.length.toLocaleString()}개 · 추천은 체크해 둠`:'배수 높은 순 · 추천은 체크해 둠')+(ex.length?` · 뺀 것: ${ex.join(', ')}`:'');renderRows()}
+let estT;function estimate(){clearTimeout(estT);estT=setTimeout(async()=>{try{const e=await api(`/api/estimate?weeks=${$('weeks').value}&kw=${$('useKw').checked?1:0}&mode=${MODE}`);
+ $('est').textContent=`${MODE==='shorts'?'쇼츠 검색':'검색'} ${e.searches}번 (캐시 ${e.cached}) + 채널 ${e.channels}·영상 ${e.videos} → 약 ${num(e.units)}단위`+(e.left!=null?` · 오늘 남은 ${num(e.left)}`+(e.units>e.left?' (모자라는 만큼은 초기화 뒤 저절로 이어서)':''):'')}catch(x){$('est').textContent=x.message}},250)}
+async function loadRows(){const m=MODE,d=await api(`/api/explore?mode=${m}`);if(m!==MODE)return;ROWS=d.rows;CHECK=new Set(d.checked);REC=new Set(ROWS.filter(r=>r.reason).map(r=>r.id));
+ const ex=Object.entries(d.excluded||{}).map(([k,v])=>`${k} ${v}개`);if(d.used_hidden)ex.unshift(`이미 분석에 쓴 ${m==='shorts'?'쇼츠':'영상'} ${d.used_hidden}개`);
+ const what=m==='shorts'?'쇼츠':'영상';
+ $('listInfo').textContent=(d.generated?`배수 높은 순 · ${d.generated.slice(0,16).replace('T',' ')} ${m==='shorts'?'쇼츠 ':''}탐색 (최근 ${d.weeks}주${d.keywords_file?' · 검색어 '+d.keywords_file:''}) · ${what} ${ROWS.length.toLocaleString()}개 · 추천은 체크해 둠`:(m==='shorts'?'쇼츠 탐색을 누르면 여기에 나옵니다 · 배수 높은 순':'배수 높은 순 · 추천은 체크해 둠'))+(ex.length?` · 뺀 것: ${ex.join(', ')}`:'');renderRows()}
 function byRatio(a){return a.sort((x,y)=>((y.ratio??-1)-(x.ratio??-1))||(y.views-x.views))}
-function visible(){const f=$('flt').value.trim().toLowerCase();return ROWS.filter(r=>(r.sources.includes('주소')||(($('fShort').checked||!r.short)&&(!$('fRel').checked||r.relevant)))
+function visible(){const f=$('flt').value.trim().toLowerCase();return ROWS.filter(r=>(r.sources.includes('주소')||(($('fShort').checked||MODE==='shorts'||!r.short)&&(!$('fRel').checked||r.relevant)))
  &&(!f||(r.title+' '+r.channel).toLowerCase().includes(f)))}
 function rowHtml(r){const src=r.sources.map(s=>s.startsWith('검색:')?'🔎'+s.slice(3):s.startsWith('채널:')?'📺'+s.slice(3):'▶ 추가').slice(0,3).join(' ');
   return `<tr class="${CHECK.has(r.id)?'on':''}"><td><input type=checkbox data-id="${r.id}" ${CHECK.has(r.id)?'checked':''}></td><td>${esc(r.published)}<div class=mut>${r.age_days}일 전</div></td>
   <td class=t><a href="${r.url}" target=_blank rel=noopener>${esc(r.title)}</a></td><td>${esc(r.channel)}</td><td class=n>${r.subs==null?'비공개':num(r.subs)}</td><td class=n>${num(r.views)}</td>
-  <td class=n>${r.ratio==null?'–':num(r.ratio)}</td><td class=n>${num(r.views_per_day)}</td><td class=n>${num(r.minutes)}분</td>
-  <td>${r.reason?`<span class="tag ${r.reason==='성공 사례'?'s':''}">${esc(r.reason)}</span>`:''}${r.flag?`<span class="tag x">${esc(r.flag)}</span>`:''}<span class=mut>${esc(src)}</span></td></tr>`}
+  <td class=n>${r.ratio==null?'–':num(r.ratio)}</td><td class=n>${num(r.views_per_day)}</td><td class=n>${r.seconds!=null&&MODE==='shorts'?num(r.seconds)+'초':num(r.minutes)+'분'}</td>
+  <td>${r.reason?`<span class="tag ${r.reason==='성공 사례'||r.reason==='성공 쇼츠'?'s':''}">${esc(r.reason)}</span>`:''}${r.flag?`<span class="tag x">${esc(r.flag)}</span>`:''}<span class=mut>${esc(src)}</span></td></tr>`}
 function fill(id,list,empty){$(id).innerHTML=list.length?list.slice(0,3000).map(rowHtml).join('')+(list.length>3000?`<tr><td colspan=10 class=mut>앞 3,000개만 보입니다 — 거르기를 쓰세요 (전체 ${list.length.toLocaleString()}개)</td></tr>`:''):`<tr><td colspan=10 class=mut>${empty}</td></tr>`}
-function renderRows(){if(!ROWS.length){$('rowsOn').innerHTML='<tr><td colspan=10 class=mut>탐색을 누르면 여기에 나옵니다</td></tr>';$('rowsOff').innerHTML='<tr><td colspan=10 class=mut>—</td></tr>';$('onCount').textContent='';$('offCount').textContent='';updChk();return}
+function renderRows(){if(!ROWS.length){$('rowsOn').innerHTML=`<tr><td colspan=10 class=mut>${MODE==='shorts'?'쇼츠':''} 탐색을 누르면 여기에 나옵니다</td></tr>`;$('rowsOff').innerHTML='<tr><td colspan=10 class=mut>—</td></tr>';$('onCount').textContent='';$('offCount').textContent='';updChk();return}
  const vs=visible(),on=byRatio(vs.filter(r=>CHECK.has(r.id))),off=byRatio(vs.filter(r=>!CHECK.has(r.id)));
  fill('rowsOn',on,'체크한 영상 없음 — 아래 표에서 체크하세요');fill('rowsOff',off,'체크 안 한 영상 없음');
  $('onCount').textContent=`${on.length.toLocaleString()}개`;$('offCount').textContent=`${off.length.toLocaleString()}개`;
  document.querySelectorAll('#rowsOn input[type=checkbox],#rowsOff input[type=checkbox]').forEach(c=>c.onchange=()=>{c.checked?CHECK.add(c.dataset.id):CHECK.delete(c.dataset.id);renderRows();saveChk()});updChk()}
 function updChk(){$('chkInfo').textContent=`체크 ${CHECK.size.toLocaleString()}개 / 목록 ${ROWS.length.toLocaleString()}개`;$('approve').disabled=busy||!CHECK.size}
-let chkT;function saveChk(){clearTimeout(chkT);chkT=setTimeout(()=>api('/api/checked',{ids:[...CHECK]}).catch(()=>{}),700)}
+let chkT;function saveChk(){clearTimeout(chkT);const m=MODE,ids=[...CHECK];chkT=setTimeout(()=>api('/api/checked',{ids,mode:m}).catch(()=>{}),700)}
 function showJob(j){if(j.quota)renderQuota(j.quota);if(j.resume)renderResume(j.resume);busy=j.status==='running';$('jobName').textContent=j.name?`${j.name} — ${({running:'도는 중',done:'끝',error:'오류',cancelled:'멈춤',idle:''})[j.status]||j.status}`:'';
  $('jobStep').innerHTML=j.status==='error'?`<span class=bad>${esc(j.error)}</span>`:esc(j.step||'쉬는 중');
  $('jobBar').style.width=j.total?Math.round(100*j.done/j.total)+'%':(busy?'15%':'0');$('cancel').disabled=!busy;
@@ -1801,14 +2269,14 @@ function showJob(j){if(j.quota)renderQuota(j.quota);if(j.resume)renderResume(j.r
   r.materials?`<span class="${String(r.materials).startsWith('PC')?'warn':'ok'}">자료(사례 폴더): ${esc(r.materials)}</span>`:'',r.whisper?`음성인식: ${esc(r.whisper)}`:''].filter(Boolean).join('<br>'):'';
  const L=$('jobLog'),atEnd=L.scrollTop+L.clientHeight>=L.scrollHeight-20;L.textContent=(j.log||[]).join('\n');if(atEnd)L.scrollTop=L.scrollHeight;
  if(j.whisper)showWhisper(j.whisper);
- if((lastJob==='running'||waitDone)&&j.status!=='running'){waitDone=false;loadState();loadRows().then(loadAnalysis);loadReport()}lastJob=j.status}
+ if((lastJob==='running'||waitDone)&&j.status!=='running'){waitDone=false;loadState();loadRows().then(()=>{loadAnalysis();loadShortsAnalysis()});loadReport()}lastJob=j.status}
 function showWhisper(w){const run=w.status==='running'||w.status==='stopping';const left=w.pending==null?'':` · 남은 ${num(w.pending)}개`;
  $('wPill').textContent=run?`음성인식${w.pass?' '+w.pass:''} ${w.done}/${w.total||'…'}${w.failed?` (실패 ${w.failed})`:''}`:`음성인식 쉬는 중${left}`;$('wPill').className='pill '+(run?'ok':'');
  $('wStep').innerHTML=run?`${w.status==='stopping'?'멈추는 중… ':''}${esc(w.current||'준비 중 (소리 받기·모델 불러오기)')} <span class=mut>${w.pass?esc(w.pass)+' — ':''}끝 ${w.done} · 실패 ${w.failed} / 이번 대기열 ${w.total||'…'}${left}${w.rerun?' · 끝나면 새로 승인한 영상도':''}</span>`
   :`${w.status==='stopped'?'멈춤':'쉬는 중'}${left}${w.finished?` <span class=mut>(마지막 ${esc(w.finished.slice(5,16).replace('T',' '))} — 끝 ${w.done} · 실패 ${w.failed})</span>`:''}${w.note?` <span class=mut>${esc(w.note)}</span>`:''}`;
  $('wBar').style.width=w.total?Math.round(100*(w.done+w.failed)/w.total)+'%':(run?'5%':'0');$('wStart').disabled=run;$('wStop').disabled=!run||w.status==='stopping';
  const L=$('wLog'),atEnd=L.scrollTop+L.clientHeight>=L.scrollHeight-20;L.textContent=(w.log||[]).join('\n');if(atEnd)L.scrollTop=L.scrollHeight;
- if(lastWDone!==null&&w.done!==lastWDone){loadReport();loadAnalysis()}lastWDone=w.done}
+ if(lastWDone!==null&&w.done!==lastWDone){loadReport();loadAnalysis();loadShortsAnalysis()}lastWDone=w.done}
 async function poll(){try{showJob(await api('/api/job'))}catch(e){}setTimeout(poll,busy?1000:3000)}
 function pct(x){return x==null?'–':Math.round(x*100)+'%'}
 let MISSING=[];
@@ -1829,7 +2297,24 @@ async function loadAnalysis(){let a;try{a=await api('/api/analysis')}catch(e){re
   <details><summary>한계 ${(a.limits||[]).length}개</summary><ul>${(a.limits||[]).map(x=>`<li>${esc(x)}</li>`).join('')}</ul></details>
   <div class=mut>전문(주제·제목·썸네일·구성·니즈·사례별): GitHub 의 economic/result/outliers/analysis.md</div>`;
  const sb=$('supply');if(sb)sb.onclick=()=>{const n=(a.gap_candidates||[]).length;if(!confirm(`수요는 있는데 영상이 적어 보이는 말 ${n}개를 직접 검색합니다 (최근 90일).\n말 하나 = 검색 1번 100단위 → 약 ${n*100+20}단위`))return;startJob('/api/supply',{n})};
- const b=$('chkMissing');if(b)b.onclick=()=>{MISSING.forEach(id=>{if(ROWS.some(r=>r.id===id))CHECK.add(id)});renderRows();saveChk();$('listCard').scrollIntoView({behavior:'smooth'})}}
+ const b=$('chkMissing');if(b){b.disabled=MODE!=='long'||!inList;b.onclick=()=>{MISSING.forEach(id=>{if(ROWS.some(r=>r.id===id))CHECK.add(id)});renderRows();saveChk();$('listCard').scrollIntoView({behavior:'smooth'})}}}
+let SMISSING=[];
+async function loadShortsAnalysis(){let a;try{a=await api('/api/shorts_analysis')}catch(e){return}
+ if(!a.generated){$('shortsAnalysis').innerHTML='<span class=mut>쇼츠를 승인하면 여기에 나옵니다 (4번 칸에서 [쇼츠]로 바꿔 탐색 → 체크 → 쇼츠 승인)</span>';return}
+ SMISSING=a.missing_ids||[];const inList=MODE==='shorts'?SMISSING.filter(id=>ROWS.some(r=>r.id===id)).length:0;
+ const ts=Object.entries(a.text_sources||{}).map(([k,v])=>`${k} ${v}`).join(' · ')||'-';
+ const hk=Object.entries(a.hooks||{}).filter(([k,[x,y]])=>x!=null||y!=null).map(([k,[x,y]])=>`${esc(k)} ${pct(x)} vs ${pct(y)}`).join(' · ');
+ $('shortsAnalysis').innerHTML=`<div><b>성공 쇼츠 ${a.success}개</b> <span class=mut>(${esc(a.generated.slice(0,16).replace('T',' '))} UTC · 받은 쇼츠 ${num(a.cases)} · 탐색에서 본 쇼츠 ${num(a.pool_shorts)})</span> · 글 출처 ${esc(ts)} · 비교 집단 ${num(a.compare_group)}개 (성공 ${pct(a.compare_rate)})</div>
+  <div>길이 중앙값: 성공 쇼츠 ${a.seconds.success==null?'–':num(a.seconds.success)+'초'} · 비교 집단 나머지 ${a.seconds.others==null?'–':num(a.seconds.others)+'초'} · 첫 말까지: 성공 ${a.first_speech[0]==null?'–':a.first_speech[0]+'초'} vs 나머지 ${a.first_speech[1]==null?'–':a.first_speech[1]+'초'}</div>
+  <div>첫 줄 유형 (성공 vs 나머지 받은 쇼츠): ${hk||'<span class=mut>대본이 생기면 (음성인식 — 쇼츠 먼저)</span>'}</div>
+  <div>형식 (성공 쇼츠 몫 · 비교 집단 성공 비율): ${(a.formats||[]).map(([f,sh,r,n])=>esc(f)+' '+pct(sh)+' · '+pct(r)+` <span class=mut>(${n})</span>`).join(' / ')||'<span class=mut>자료 없음</span>'}</div>
+  <div>시청자 니즈: ${(a.needs||[]).map(([n,c])=>esc(n.split(' (')[0])+' '+num(c)).join(' · ')}${a.requests!=null?` <span class=mut>(요청 ${num(a.requests)}개 — shorts/analysis.md 11-1)</span>`:''}</div>
+  <div>수요/공급 지수: ${(a.market_themes||[]).map(([t,i])=>esc(t)+' <b>'+num(i)+'</b>').join(' · ')||'<span class=mut>자료 없음</span>'} · 찾는데 쇼츠가 적은 말: ${(a.gaps||[]).map(([p,n])=>esc(p)+` <span class=mut>(${n})</span>`).join(', ')||'<span class=mut>–</span>'}</div>
+  <div>같은 채널 기준선: 성공 쇼츠 ${num((a.baseline||{}).success_covered)}/${num(a.success)}개에 '채널 평소 쇼츠 대비' · 잘된 쇼츠 ${num((a.baseline||{}).hits)} vs 평소 ${num((a.baseline||{}).normal)} · 채널 유형: ${(a.channel_types||[]).map(([t,r,n])=>esc(t)+' '+pct(r)+` (${n})`).join(' · ')}</div>
+  ${a.missing_total?`<div class=warn style="margin-top:4px">자료를 받지 않은 성공 쇼츠 후보 ${a.missing_total}개 <button id="chkSMissing" ${inList?'':'disabled'} title="4번 칸이 [쇼츠]일 때">쇼츠 성공 후보 체크 (지금 목록에 ${inList}개)</button></div>`:''}
+  <details><summary>한계 ${(a.limits||[]).length}개</summary><ul>${(a.limits||[]).map(x=>`<li>${esc(x)}</li>`).join('')}</ul></details>
+  <div class=mut>전문(성공 쇼츠·같은 채널·주제·길이·첫 3초·끝 문장·해시태그·올린 시각·니즈·사례별): GitHub 의 &lt;주제&gt;/result/outliers/shorts/analysis.md</div>`;
+ const b=$('chkSMissing');if(b)b.onclick=()=>{SMISSING.forEach(id=>{if(ROWS.some(r=>r.id===id))CHECK.add(id)});renderRows();saveChk();$('listCard').scrollIntoView({behavior:'smooth'})}}
 function srcTxt(w){const s=w.text_sources;return s?`${s['자막']||0}·${s['음성인식']||0}·${s['설명']||0}`:num(w.transcripts)}
 async function loadReport(){const r=await api('/api/report');if(!r.windows){$('report').innerHTML='<span class=mut>승인한 영상이 생기면 여기에 나옵니다</span>';return}
  const ts=r.text_sources||{};let h=`<div class=mut>${esc(r.generated.slice(0,16).replace('T',' '))} UTC · 승인 영상 ${r.cases}개 (글 출처: 자막 ${ts['자막']||0} · 음성인식 ${ts['음성인식']||0} · 설명으로 대신 ${ts['설명']||0} · 없음 ${ts['없음']||0}) · 승인 영상 표는 approved.md · ${esc(r.criteria)}${r.older_than_windows?` · ${r.max_weeks}주보다 오래된 영상 ${r.older_than_windows}개는 마지막 '전체' 창에`:''}</div>
@@ -1862,17 +2347,20 @@ $('tgAdd').onclick=async()=>{const v=$('tgIn').value.trim();if(!v)return;say('tg
 $('tgIn').onkeydown=e=>{if(e.key==='Enter'&&(e.ctrlKey||e.metaKey))$('tgAdd').click()};
 $('weeks').oninput=estimate;$('useKw').onchange=estimate;
 async function startJob(p,b){try{waitDone=true;await api(p,b);busy=true;showJob(await api('/api/job'))}catch(e){waitDone=false;alert(e.message)}}
-$('explore').onclick=()=>startJob('/api/explore',{weeks:+$('weeks').value,keywords:$('useKw').checked});
+$('explore').onclick=()=>startJob('/api/explore',{weeks:+$('weeks').value,keywords:$('useKw').checked,mode:MODE});
 $('approve').onclick=async()=>{const ids=ROWS.filter(r=>CHECK.has(r.id)).map(r=>r.id);if(!ids.length)return;
- if(!confirm(`체크한 영상 ${ids.length}개의 설명·자막·썸네일·댓글 전부를 받고 → 주별 분석 → GitHub 에 바로 올립니다.\n자막을 못 받은 영상은 영상 설명으로 대신 분석하고, 음성인식은 그다음 뒤에서 합니다.\n(댓글 100개에 할당량 1단위)`))return;
- startJob('/api/approve',{ids,whisper:$('autoW').checked})};
+ const msg=MODE==='shorts'?`체크한 쇼츠 ${ids.length}개의 설명·자막·세로 표지·댓글 전부를 받고 → 채널 평소 쇼츠 → 쇼츠 분석 → GitHub 에 바로 올립니다.\n자막을 못 받은 쇼츠는 음성인식을 뒤에서 합니다 (쇼츠 먼저).\n(댓글 100개에 할당량 1단위 · 채널 하나 약 2단위)`
+  :`체크한 영상 ${ids.length}개의 설명·자막·썸네일·댓글 전부를 받고 → 주별 분석 → GitHub 에 바로 올립니다.\n자막을 못 받은 영상은 영상 설명으로 대신 분석하고, 음성인식은 그다음 뒤에서 합니다.\n(댓글 100개에 할당량 1단위)`;
+ if(!confirm(msg))return;
+ startJob('/api/approve',{ids,whisper:$('autoW').checked,mode:MODE})};
+document.querySelectorAll('#modeSeg button').forEach(b=>b.onclick=()=>setMode(b.dataset.m));
 $('cancel').onclick=()=>api('/api/cancel',{});$('reanalyze').onclick=()=>startJob('/api/analyze',{});$('comments').onclick=()=>startJob('/api/comments',{});
 $('wStart').onclick=async()=>{try{const r=await api('/api/whisper',{});if(!r.ok)alert(r.message);showJob(await api('/api/job'))}catch(e){alert(e.message)}};
 $('wStop').onclick=async()=>{if(!confirm('음성인식을 멈출까요? (끝난 영상의 대본은 남고, 하던 영상은 다음에 처음부터)'))return;await api('/api/whisper/stop',{});showJob(await api('/api/job'))};
 ['flt','fShort','fRel'].forEach(id=>$(id).addEventListener('input',renderRows));
 $('chkAll').onclick=()=>{visible().forEach(r=>CHECK.add(r.id));renderRows();saveChk()};$('chkNone').onclick=()=>{CHECK.clear();renderRows();saveChk()};
 $('chkRec').onclick=()=>{CHECK=new Set(REC);renderRows();saveChk()};
-loadState().then(()=>{loadRows().then(loadAnalysis);loadReport()}).catch(e=>document.body.insertAdjacentHTML('afterbegin',`<p class=bad style="padding:16px">${esc(e.message)}</p>`));poll();
+loadState().then(()=>{loadRows().then(()=>{loadAnalysis();loadShortsAnalysis()});loadReport()}).catch(e=>document.body.insertAdjacentHTML('afterbegin',`<p class=bad style="padding:16px">${esc(e.message)}</p>`));poll();
 </script></body></html>
 """
 

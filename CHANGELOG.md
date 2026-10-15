@@ -1,5 +1,44 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-15 (10) — 쇼츠 분석 (웹 화면 [롱폼 | 쇼츠] · tools/shorts_analysis.py · 음성인식 쇼츠 먼저)
+
+### 왜 (사용자 지시)
+- "깃허브 저장소에 유튜브 분석기 있지? 거기에 쇼츠 분석 기능도 추가해 목적은 사람들의 니즈를 충족해주는 쇼츠를 만들어서 최대한 조회수를 높이기 위한 쇼츠를 만들기 위해 분석하는거야 전력을 다해서 해봐"
+
+### 바꾼 것
+| 파일 (버전) | 함수·항목 | 내용 |
+|---|---|---|
+| `tools/outlier_research.py` v2.2 → v2.3 | `is_short`·`Api.videos(player=)`·`_info_from_item`·`fetch_video_infos(player=)` | 쇼츠 판별 = 3분 이하 + 세로·정사각. 화면비는 videos.list 에 `part=player`·`maxHeight` (같은 1단위 — 실측 쇼츠 4608×8192, 가로 14564×8192). 모르면 '#shorts'·60초 이하 추정, 채널 쇼츠 목록에 있으면 확실. 쇼츠 캐시는 화면비가 없으면 한 번 다시 받음 |
+| 〃 | `channel_shorts`·`channel_uploads`(total) | 채널의 쇼츠만 = 자동 재생목록 `UUSH`+채널ID (50개에 1단위, 실측 쇼츠 111·롱폼 99 채널). 첫 쪽 totalResults = 채널 쇼츠 수, 쇼츠 없는 채널(404)은 빈 목록으로 캐시 |
+| 〃 | `_useful_novel` | 적응형 검색 캐시의 '새로 보인 쓸 만한 영상'을 쇼츠 검색(`dur=short`)은 3분 이하로 셈 (예전 4분 기준이면 쇼츠 검색은 늘 '안 바뀜') |
+| 〃 | `shorts_cover`·`hashtags` | 쇼츠 표지 oar2.jpg → oardefault.jpg → hqdefault.jpg (그림 1장), #해시태그 |
+| `tools/shorts_analysis.py` v1.0 (새로) | `run`·`analyze`·`channel_baseline`·`demand_supply`·`speech_features`·`speech_compare`·`comment_needs`·`shorts_growth`·`write_*` | `<주제>/result/outliers/shorts/analysis.md`·json·`compare.csv`·`approved.md`·`cases_NN.md`·`thumbs_NN.jpg` — 숫자·원문만: 성공 쇼츠, 1-2 같은 채널 기준선(채널 평소 쇼츠 대비 ×, 잘된 vs 평소), 주제·형식, 수요와 공급, 제목·해시태그, 길이(초), 5-2 15초 미만, 6 첫 3초(첫 말까지 걸린 시간·3초 안 음절·첫 줄 유형), 7 말 속도·말이 차지한 비율·끝 줄 유형·끝맺음 없이 끝남·말 없음·설명란 롱폼 연결, 참여율, 올린 요일·시각(한국), 채널 유형(쇼츠 몫)·빨리 크는 쇼츠 채널, 시청자 니즈(롱폼 갈래 + '더 자세히·긴 영상 요청'). 할당량 0 |
+| 〃 | `ad_suspect`·`flags` | **조회수 부풀림 의심** = 조회수 5만 이상인데 좋아요 0.2% 미만 (광고 또는 반복 재생 — API 로는 못 가름) → 성공·비교·같은 채널 기준선에서 빼고 5-2번에 숫자. 근거: 아래 '실제 자료로 확인' |
+| `tools/web_ui.py` v1.5 → v1.6 | `job_shorts_explore`·`preselect_shorts`·`job_shorts_approve`·`job_shorts_baseline`·`run_shorts_analysis`·`shorts_view`·`estimate_shorts`·`_resume_shorts_explore` | 4·5번 칸 **[롱폼 ∣ 쇼츠]**: 쇼츠 탐색(검색어마다 쇼츠 검색 1번 + 추가한 채널 쇼츠 목록 + 주소) → 쇼츠만 목록(배수 순, 길이 초) → 추천은 체크만(성공 쇼츠·조회수 상위 20·추가한 것, 부풀림 의심 제외) → [쇼츠 승인] → `shorts/S_<영상ID>/` → 채널 평소 쇼츠(채널 하나 약 2단위) → 쇼츠 분석 → GitHub → 음성인식. 6번 칸 쇼츠 분석 요약·[쇼츠 성공 후보 체크]. 검색어 `<주제>/shorts_keywords.txt`(있으면) |
+| 〃 | `job_comments`·`job_analyze`·`job_startup`·`resume_plan`·`job_resume`·`whisper_pending`·`state_view`·`do_GET`·`do_POST` | 쇼츠도: 못 받은 댓글 이어 받기, 다시 분석·올리기, 켤 때, 초기화 뒤 이어서(남은 쇼츠 탐색·채널 평소 쇼츠), 음성인식 남은 수. API `mode=shorts` |
+| 〃 | `_resume_loop` | 시험 고침: 'started' 상태를 작업을 띄우기 전에 적음 (`test_resume_loop_starts_job_after_reset` 이 고치기 전 코드에서도 실패하던 것 — 작업이 상태 쓰기보다 먼저 끝남) |
+| `youtube_topic_analyzer.py` v2.10.1 → v2.11.0 | `speech_queue_items`·`_whisper_queue_run`·`transcript_via_whisper(vad_retry=)`·`WHISPER_QUEUE_SHORTS_FIRST`·`run_self_test` | 음성인식 대기열에 쇼츠(S_) — 쇼츠 먼저(성공 쇼츠 # 먼저), 1차에 끝까지. 쇼츠는 VAD 없이 다시 돌리지 않음(음악만인 쇼츠의 헛말 방지), 말이 없으면 '말 없음'(no_speech)으로 끝. 쇼츠 하나 끝날 때마다 쇼츠 분석 다시. 자가진단에 쇼츠 대기열 확인 |
+| `tools/pc_analysis.py` v1.12 · `run_analyzer.ps1` v3.3 · `run_analyzer.sh` v3.2 | `SYNC_CODE`·`$CodeFiles`·`CODE_FILES` | `tools/shorts_analysis.py` 를 받는 코드 목록에 (실행 명령은 같음, ps1 은 CRLF·BOM 그대로) |
+| `economic/analysis_rules.toml` v1.3 → v1.4 | `[shorts]`·`[shorts_compare]`·`[shorts_baseline]`·`[shorts_format]` | 쇼츠 기준 (롱폼 값은 그대로). 성공 '조회수 5만 이상' 근거: `compare.csv` 의 작은 채널 쇼츠 777개 — 조회수 중앙값 2,287·상위 10% 55,631, '5만·×3' 3.5% |
+| `guides/shorts_guide.md` v1.0 (새로) · `guides/pc_analysis.md` v2.7 · `guides/README.md` v1.26 · `guides/pipeline.md` v1.26 · `README.md` · `CLAUDE.md` | — | 쇼츠 자료 모으기 → `shorts/analysis.md` 읽는 순서 → `shorts_insights.md` 를 만드는 규칙(그 주제 쇼츠 자료만), API 로 볼 수 없는 것 |
+| `tools/tests/test_shorts.py` v1.0 (새로) | 9개 | 가짜 API·임시 폴더·GITHUB_TOKEN 없음: 쇼츠 판별·해시태그, 화면비 받기와 예전 캐시 다시 받기(1단위), 채널 쇼츠 목록·404, 쇼츠 검색 캐시, 말 특징, 가짜 자료 분석(성공 3·채널당 제한·가로 제외·부풀림 의심·같은 채널 ×·첫 줄·끝 줄·말 없음·요청·긴 영상 요청·시장·빨리 크는 채널), 자료 없으면 아무것도 안 씀, 웹 탐색 → 승인 → 분석(할당량 202단위·표지·음성인식 남은 수·롱폼과 따로), API mode |
+
+### 실제 자료로 확인 (클라우드, 실제 YouTube API — 임시 폴더, GitHub 토큰 없음)
+- 쓴 할당량 합계 **약 116단위** (화면비·UUSH 확인 3 + 쇼츠 검색 '연금' 1번 100 + 영상 정보·채널 2 + 댓글 7 + 채널 평소 쇼츠 4). 다시 탐색(캐시) 0단위
+- 쇼츠 검색 '연금' 50개 → 쇼츠 33 · 가로 영상 17 (뺌). 걸린 시간: 탐색 1.9초, 승인 2개(댓글 161개·채널 평소 쇼츠 2곳) 6.6초, 쇼츠 분석 0.05~0.08초
+- **발견**: 조회수 순 위쪽을 6초짜리 쇼츠 7개(조회수 73만~279만)가 덮었는데 좋아요 0.03~0.06% (나머지 26개 0.28~11%). 롱폼 광고 규칙은 그중 하나를 댓글 0.0049%(기준 0.005%)로 겨우 걸렀음 → 쇼츠 규칙 '부풀림 의심'(좋아요 0.2% 미만) 추가
+  - 고치기 전 → 후 (같은 자료, 할당량 0): 추천(체크) 26 → 24개, '성공 쇼츠' 표시 18 → 10개, **추천된 6초짜리 8 → 0개**(목록에는 '부풀림 의심' 표시로 남음)
+  - 분석 5-2번: 15초 미만 쇼츠 67개(부풀림 의심 10, 채널 6곳) 조회수 중앙값 1,865·좋아요/1천 0.96 vs 15초 이상 32개 579,411·12.3 — 같은 채널이 6초짜리 한 장 정보 쇼츠를 많이 올림 (반복 재생으로 조회수가 사람 수보다 많을 수 있음)
+- 클라우드에서는 자막(youtube.com)·표지(i.ytimg.com)를 못 받음 → PC 에서 받힘 (예전과 같음)
+
+### 검사
+- `python3 tools/tests/test_shorts.py` 9개 OK · `tools/tests/test_quota_saving.py` 14개 OK (고치기 전 코드에서는 1개 실패 — 위 `_resume_loop`, 고친 뒤 3번 연속 OK) · `test_content_research` 3개 · `test_make_summary_chatgpt` 5개 OK
+- 분석기 `run_self_test` 34개 모두 통과 (새 '음성인식 대기열 쇼츠' 포함) · `tools/pc_analysis.py --self-test` ALL PASS · 웹 화면 JS `node --check` OK · `pyflakes` 새 경고 없음
+
+### 다음
+- PC: 창을 닫고 같은 명령(`run_analyzer.ps1`)으로 다시 켬 → 4번 칸 [쇼츠] → 탐색 → 승인 → 결과 `economic/result/outliers/shorts/analysis.md`
+- 결과가 쌓이면 Claude 에게 "쇼츠 분석 결과로 쇼츠 지시사항 만들어줘" → `guides/shorts_guide.md` 3번대로 `economic/guides/shorts_insights.md`
+
 ## 2026-10-15 (9) — 영상 4개 완성 · 압축본을 저장소에 · Colab 셀 하나로 유튜브 예약 업로드
 
 ### 왜 (사용자 지시)

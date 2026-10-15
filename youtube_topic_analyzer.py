@@ -1,8 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v2.10.1 — 2026-10-15 — 음성인식은 PC 한 대에서 한 번에 하나 (사용자 지시: "분석기 여러개 열어서 각자 다른 주제로 탐색해도 되지?"):
+# VERSION: v2.11.0 — 2026-10-15 — 음성인식 대기열에 쇼츠 (사용자 지시: "깃허브 저장소에 유튜브 분석기 있지? 거기에 쇼츠 분석 기능도 추가해 …
+#          전력을 다해서 해봐" — 웹 화면 v1.6 이 쇼츠를 <주제>/result/outliers/shorts/S_<영상ID>/ 에 받음):
+#          ① speech_queue_items 가 쇼츠(S_) 폴더도 — 쇼츠 먼저 (WHISPER_QUEUE_SHORTS_FIRST, 쇼츠는 3분 이하라 하나에 1~2분 · 성공 쇼츠
+#             (shorts/analysis.json #) 먼저), 1차에 끝까지 (앞 5분 자르기 없음)
+#          ② 쇼츠는 VAD(말소리 찾기) 없이 다시 돌리지 않음 (transcript_via_whisper vad_retry=False) — 음악·화면 글자만 있는 쇼츠에서 Whisper 가
+#             '시청해 주셔서 감사합니다' 같은 헛말을 만드는 것을 막음. 말이 없으면 실패가 아니라 '말 없음'(transcript.json no_speech)으로 끝
+#          ③ 쇼츠 하나가 끝날 때마다 쇼츠 분석(tools/shorts_analysis.py → shorts/analysis.md)을 다시 (롱폼 요약·주별 분석은 롱폼 영상일 때만)
+# (v2.10.1 — 2026-10-15 — 음성인식은 PC 한 대에서 한 번에 하나 (사용자 지시: "분석기 여러개 열어서 각자 다른 주제로 탐색해도 되지?"):
 #          주제가 달라도 Whisper 는 PC 를 거의 다 씀 → .yt_work/whisper_machine.lock (OS 잠금) — 다른 주제의 음성인식이 도는 중이면
-#          끝나길 기다렸다가 이어서 (WHISPER_MACHINE_WAIT_H 시간까지, 30초마다 확인). 같은 주제는 예전처럼 '이미 도는 중'으로 건너뜀
+#          끝나길 기다렸다가 이어서 (WHISPER_MACHINE_WAIT_H 시간까지, 30초마다 확인). 같은 주제는 예전처럼 '이미 도는 중'으로 건너뜀)
 # (v2.10.0 — 2026-10-14 — 음성인식 대기열을 빨리·성공 사례 먼저 (사용자 지시: "분석결과로 내가 말한 거 할수 있는지 판단해 개선 필요하면
 #          더 개선하고" — 2026-10-14 분석: 성공 사례 165개 모두 대본 0, 영상 하나 13분 → 165개 약 36시간이라 구성·도입부를 셀 수 없었음):
 #          ① 1차 = 영상마다 앞 5분만 (WHISPER_QUEUE_FIRST_SEC=300 — ffmpeg -t) → 도입부·초반 흐름을 모든 성공 사례에서 먼저 ② 2차 = 끝까지
@@ -176,6 +183,7 @@ WHISPER_QUEUE_CPU_MAX_MINUTES = 0   # 대기열(--whisper-queue)에서 GPU 없�
 WHISPER_QUEUE_MAX_ATTEMPTS = 3  # 대기열에서 같은 영상 음성인식을 몇 번까지 다시 시도할지
 WHISPER_QUEUE_FIRST_SEC = 300  # 대기열 1차: 영상마다 앞 몇 초만 먼저 (도입부·초반 구성을 모든 성공 사례에서 빨리) → 2차에 끝까지. 0 = 처음부터 끝까지 (v2.10.0)
 WHISPER_QUEUE_PUSH_EVERY_MIN = 15  # 대기열이 GitHub 에 올리는 간격(분) — 차수가 끝날 때도 올림 (예전: 영상마다, v2.10.0)
+WHISPER_QUEUE_SHORTS_FIRST = True  # 대기열에서 쇼츠(웹 화면 쇼츠 승인 S_ — 3분 이하라 빠름)를 롱폼보다 먼저 (v2.11.0)
 
 # ---- YouTube 봇 확인('Sign in to confirm you're not a bot') 대응 — 가정용 인터넷이면 보통 필요 없음 ----
 YTDLP_COOKIES_FILE = ""         # cookies.txt 경로. 비워두면 이 폴더의 cookies*.txt 를 자동으로 사용
@@ -360,7 +368,7 @@ import numpy as np
 import pandas as pd
 import requests
 
-NOTEBOOK_VERSION = "v2.10.1"
+NOTEBOOK_VERSION = "v2.11.0"
 KST = dt.timezone(dt.timedelta(hours=9))
 UTC = dt.timezone.utc
 IS_WINDOWS = os.name == "nt"
@@ -544,7 +552,7 @@ CONFIG_KEYS = [
     "MAX_CASES_PER_CHANNEL", "DOWNLOAD_VIDEOS", "VIDEO_MAX_HEIGHT", "VIDEO_MAX_MB", "ALLOW_VIDEO_UPLOAD_TO_PUBLIC_REPO",
     "UPLOAD_CASES_TO_PUBLIC_REPO",
     "USE_WHISPER_FALLBACK", "WHISPER_MODEL", "WHISPER_CPU_MAX_MINUTES", "DEFER_WHISPER", "WHISPER_QUEUE_CPU_MAX_MINUTES",
-    "WHISPER_QUEUE_MAX_ATTEMPTS", "WHISPER_QUEUE_FIRST_SEC", "WHISPER_QUEUE_PUSH_EVERY_MIN", "YTDLP_COOKIES_FILE",
+    "WHISPER_QUEUE_MAX_ATTEMPTS", "WHISPER_QUEUE_FIRST_SEC", "WHISPER_QUEUE_PUSH_EVERY_MIN", "WHISPER_QUEUE_SHORTS_FIRST", "YTDLP_COOKIES_FILE",
     "COOKIES_FROM_BROWSER", "YTDLP_CLIENT_FALLBACK", "YTDLP_MAX_BOT_BLOCKS",
     "PUSH_TO_GITHUB", "CLEAN_OLD_RESULTS", "OUTPUT_DIR", "OPEN_RESULT_FOLDER", "MAKE_RESULT_ZIP",
     "AUTO_INSTALL_PACKAGES", "UPDATE_YTDLP_DAILY", "CACHE_TTL_HOURS", "RANDOM_SEED", "LOG_LEVEL", "RUN_SELF_TEST",
@@ -3128,8 +3136,9 @@ def transcript_via_ytdlp(video_id, langs, tmp_dir, cfg):
 _WHISPER = {}
 
 
-def transcript_via_whisper(media_path, cfg, duration_sec, max_sec=None):
-    """max_sec (v2.10.0): 앞 max_sec 초만 (음성인식 대기열 1차 — 도입부·초반 구성을 빨리)."""
+def transcript_via_whisper(media_path, cfg, duration_sec, max_sec=None, vad_retry=True):
+    """max_sec (v2.10.0): 앞 max_sec 초만 (음성인식 대기열 1차 — 도입부·초반 구성을 빨리).
+    vad_retry=False (v2.11.0 — 쇼츠): VAD 가 말소리를 못 찾으면 VAD 없이 다시 하지 않고 빈 결과 (음악만 있는 쇼츠의 헛말 방지)."""
     from faster_whisper import WhisperModel
     if max_sec:
         duration_sec = min(duration_sec or max_sec, max_sec)
@@ -3163,7 +3172,7 @@ def transcript_via_whisper(media_path, cfg, duration_sec, max_sec=None):
         return _WHISPER[key]
 
     def _run(use_cuda):
-        for vad in (True, False):   # VAD가 음악/배경음 위주 구간을 전부 걸러내면 VAD 없이 재시도
+        for vad in ((True, False) if vad_retry else (True,)):   # VAD가 음악/배경음 위주 구간을 전부 걸러내면 VAD 없이 재시도 (쇼츠는 안 함)
             segments, info = _model(use_cuda).transcribe(audio, language=cfg["LANGUAGE"] or None, vad_filter=vad, beam_size=5)
             segs = [{"start": round(s.start, 2), "duration": round(s.end - s.start, 2), "text": s.text.strip()} for s in segments]
             if segs:
@@ -4760,6 +4769,24 @@ def run_self_test(cfg):
     check("음성인식 차례: 성공 사례 먼저 · 2차는 앞부분만 한 대본만 (v2.10.0)",
           [i_["video_id"] for i_ in q_succ] == ["wwwwwwwwwww", "pp", "bb", "ff", "v1"] and [i_["video_id"] for i_ in q_part] == ["bb"],
           order=[i_["video_id"] for i_ in q_succ], partial=[i_["video_id"] for i_ in q_part])
+    # v2.11.0: 쇼츠(shorts/S_) — 쇼츠 먼저(성공 쇼츠 # 먼저), 자막 있음·말 없음(transcript.json)은 뺌, 길이는 seconds
+    with tempfile.TemporaryDirectory() as td:
+        tb = Path(td)
+        od = tb / "t" / "result" / OUTLIERS_DIR
+        for name, st_, has_tr in (("01_aa", "IpBlocked: 429", False), ("shorts/S_sssssssss01", "한국어 자막 없음", False),
+                                  ("shorts/S_sssssssss02", "IpBlocked: 429", False), ("shorts/S_sssssssss03", "ok", True)):
+            (od / name).mkdir(parents=True)
+            (od / name / "metadata.json").write_text(json.dumps({"id": Path(name).name.split("_", 1)[1], "transcript_status": st_,
+                                                                 "seconds": 45, "minutes": 0.8}), "utf-8")
+            if has_tr:
+                (od / name / "transcript.json").write_text(json.dumps({"snippets": [], "no_speech": True}), "utf-8")
+        (od / "shorts" / "analysis.json").write_text(json.dumps({"success_cases": [{"no": 1, "id": "sssssssss02"}]}), "utf-8")
+        q_sh = speech_queue_items({"PROJECT_FOLDER": "t", "RESULT_FOLDER": "result"}, tb / "out", base=tb)
+        q_late = speech_queue_items({"PROJECT_FOLDER": "t", "RESULT_FOLDER": "result", "WHISPER_QUEUE_SHORTS_FIRST": False}, tb / "out", base=tb)
+    check("음성인식 대기열 쇼츠: 쇼츠 먼저·성공 쇼츠 먼저·말 없음은 끝 (v2.11.0)",
+          [i_["video_id"] for i_ in q_sh] == ["sssssssss02", "sssssssss01", "aa"] and q_sh[0]["kind"] == "shorts"
+          and q_sh[0]["duration_sec"] == 45 and [i_["video_id"] for i_ in q_late] == ["aa", "sssssssss02", "sssssssss01"],
+          order=[i_["video_id"] for i_ in q_sh], late=[i_["video_id"] for i_ in q_late])
     # v2.9.0: 자막 서버 차단 쉬기 — 연속 2번 막히면 6시간 쉼, 받으면 이어진 횟수 0 (모든 도구가 같은 파일)
     global BASE_DIR
     saved_base = BASE_DIR
@@ -4934,6 +4961,8 @@ def push_only(cfg, keys, message=None):
 NETWORK_FAIL_WORDS = ("ProxyError", "ConnectionError", "Timeout", "URLError")   # 연결 자체 실패만 (v2.9.0 — 자막 서버 차단은 음성인식으로)
 OUTLIER_CASE_RX = re.compile(r"^(P?)(\d\d)_(.+)$")
 WEB_CASE_RX = re.compile(r"^W_([0-9A-Za-z_-]{11})$")     # 웹 화면(tools/web_ui.py)에서 승인한 영상 (v2.9.0)
+SHORTS_CASE_RX = re.compile(r"^S_([0-9A-Za-z_-]{11})$")  # 웹 화면 [쇼츠]에서 승인한 쇼츠 — outliers/shorts/S_<영상ID> (v2.11.0)
+SHORTS_DIR = "shorts"
 
 
 def _success_order(od):
@@ -4952,12 +4981,16 @@ def speech_queue_items(cfg, out_dir, base=None, partial=False):
     items = []
     od = (base or BASE_DIR) / cfg["PROJECT_FOLDER"] / cfg["RESULT_FOLDER"] / OUTLIERS_DIR
     success_no = _success_order(od)
+    shorts_no = _success_order(od / SHORTS_DIR)                   # v2.11.0: 성공 쇼츠 (shorts/analysis.json #)
+    shorts_grp = -1 if cfg.get("WHISPER_QUEUE_SHORTS_FIRST", True) else 4
     if od.is_dir():
         found = []
-        for d in od.iterdir():
-            m = OUTLIER_CASE_RX.match(d.name)
-            web = WEB_CASE_RX.match(d.name)
-            if not (d.is_dir() and (m or web) and (d / "metadata.json").is_file()):
+        sd = od / SHORTS_DIR
+        for d in list(od.iterdir()) + (list(sd.iterdir()) if sd.is_dir() else []):
+            m = OUTLIER_CASE_RX.match(d.name) if d.parent == od else None
+            web = WEB_CASE_RX.match(d.name) if d.parent == od else None
+            short = SHORTS_CASE_RX.match(d.name) if d.parent == sd else None
+            if not (d.is_dir() and (m or web or short) and (d / "metadata.json").is_file()):
                 continue
             tj = d / "transcript.json"
             if partial:                                   # v2.10.0: 2차 = 앞부분만 받은 영상 (partial_sec)
@@ -4975,12 +5008,17 @@ def speech_queue_items(cfg, out_dir, base=None, partial=False):
             st = str(meta.get("transcript_status") or "")
             if not partial and (st == "ok" or st.startswith(("건너뜀", "확인 안 함")) or any(w in st for w in NETWORK_FAIL_WORDS)):
                 continue
-            vid = meta.get("id") or (web.group(1) if web else m.group(3))
+            vid = meta.get("id") or ((web or short).group(1) if (web or short) else m.group(3))
             # 차례 (v2.10.0): 성공 사례(analysis.json #) 먼저 → 01 → P01 → 웹 화면 W_ (이름순)
-            order = (0, success_no[vid]) if vid in success_no else ((3, 0) if web else (1 if not m.group(1) else 2, int(m.group(2))))
+            # v2.11.0: 쇼츠(S_)는 맨 앞(WHISPER_QUEUE_SHORTS_FIRST) — 성공 쇼츠 먼저 (짧아서 하나에 1~2분)
+            if short:
+                order = (shorts_grp, shorts_no.get(vid, 10 ** 6))
+            else:
+                order = (0, success_no[vid]) if vid in success_no else ((3, 0) if web else (1 if not m.group(1) else 2, int(m.group(2))))
             found.append((*order, d.name, {
-                "kind": "outlier", "dir": d, "video_id": vid, "title": meta.get("title"), "success_no": success_no.get(vid),
-                "duration_sec": float(meta.get("minutes") or 0) * 60, "reason": st}))
+                "kind": "shorts" if short else "outlier", "dir": d, "video_id": vid, "title": meta.get("title"),
+                "success_no": shorts_no.get(vid) if short else success_no.get(vid),
+                "duration_sec": float(meta.get("seconds") or 0) or float(meta.get("minutes") or 0) * 60, "reason": st}))
         items += [it for _, _, _, it in sorted(found, key=lambda x: (x[0], x[1], x[2]))]
     sc = Path(out_dir) / "success_cases"
     if sc.is_dir() and not partial:
@@ -5075,6 +5113,7 @@ def _whisper_queue_run(cfg, keys, push=True):
         items = [it for it in items if (state.get(key_of(it["video_id"], mode)) or {}).get("attempts", 0) < cfg["WHISPER_QUEUE_MAX_ATTEMPTS"]]
         log("WHISPER", "음성인식 대기열", items=len(items), model=cfg["WHISPER_MODEL"], pass_=label,
             outlier=sum(1 for i in items if i["kind"] == "outlier"), analyzer=sum(1 for i in items if i["kind"] == "analyzer"),
+            shorts=sum(1 for i in items if i["kind"] == "shorts"),
             success_first=sum(1 for i in items if i.get("success_no")),
             given_up=sum(1 for v in state.values() if not v.get("done") and v.get("attempts", 0) >= cfg["WHISPER_QUEUE_MAX_ATTEMPTS"]))
         if not items:
@@ -5084,15 +5123,15 @@ def _whisper_queue_run(cfg, keys, push=True):
             vid, t0 = it["video_id"], time.perf_counter()
             rec = state.setdefault(key_of(vid, mode), {"attempts": 0})
             rec["attempts"] += 1
-            max_sec = first_sec if mode == "first" and it["kind"] == "outlier" else None
+            max_sec = first_sec if mode == "first" and it["kind"] == "outlier" else None     # 쇼츠는 끝까지 (3분 이하)
             tmp = work / "tmp" / tag / f"whisper_{vid}"
             tmp.mkdir(parents=True, exist_ok=True)
             log("WHISPER", f"{n}/{len(items)} 시작", video_id=vid, kind=it["kind"], minutes=round(it["duration_sec"] / 60, 1),
                 attempt=rec["attempts"], pass_=label, until_sec=max_sec or "끝", title=str(it.get("title") or "")[:40])
             try:
                 src = ytdlp_download(vid, tmp, cfg, audio_only=True)       # 소리만 (영상 파일은 받지 않음)
-                segs, meta = transcript_via_whisper(src, cfg, it["duration_sec"], max_sec=max_sec)
-                if not segs:
+                segs, meta = transcript_via_whisper(src, cfg, it["duration_sec"], max_sec=max_sec, vad_retry=it["kind"] != "shorts")
+                if not segs and it["kind"] != "shorts":
                     raise RuntimeError("음성인식 결과가 비어 있음 (말소리 없음?)")
             except Exception as e:
                 rec.update(error=f"{type(e).__name__}: {str(e)[:200]}", last=dt.datetime.now(KST).isoformat(timespec="minutes"))
@@ -5105,9 +5144,11 @@ def _whisper_queue_run(cfg, keys, push=True):
                 rmtree_force(tmp)                                           # 소리 파일은 남기지 않음
             d = it["dir"]
             partial = bool(max_sec) and it["duration_sec"] > max_sec + 5
-            if it["kind"] == "outlier":     # tools/outlier_research.py 형식 → 그 도구가 요약·메타데이터를 다시 만듦 (할당량 0)
+            if it["kind"] in ("outlier", "shorts"):     # tools/outlier_research.py 형식 → 그 도구가 요약·메타데이터를 다시 만듦 (할당량 0)
                 snips = [{"text": x["text"], "start": x["start"], "duration": x["duration"]} for x in segs]
                 tj = {"lang": f"{meta['language']}(음성인식)", "snippets": snips, "source": meta.get("source")}
+                if not snips:                                               # v2.11.0: 쇼츠 — 말 없음(음악·화면 글자만)도 끝
+                    tj["no_speech"] = True
                 if partial:
                     tj["partial_sec"] = max_sec                             # 앞부분만 — 2차가 끝까지 다시
                 (d / "transcript.json").write_text(json.dumps(tj, ensure_ascii=False), "utf-8")
@@ -5124,8 +5165,16 @@ def _whisper_queue_run(cfg, keys, push=True):
                 (d / "metadata.json").write_text(json.dumps(m, ensure_ascii=False, indent=2), "utf-8")
             rec.update(done=True, partial=partial, error=None, elapsed_sec=round(time.perf_counter() - t0, 1), segments=len(segs))
             state_p.write_text(json.dumps(state, ensure_ascii=False, indent=1), "utf-8")
+            shx = BASE_DIR / "tools" / "shorts_analysis.py"
+            if it["kind"] == "shorts" and shx.is_file():     # v2.11.0: 쇼츠 분석 다시 (할당량 0) — 롱폼 요약·주별 분석은 롱폼 영상일 때만
+                r = subprocess.run([sys.executable, str(shx), cfg["PROJECT_FOLDER"], "--log-level", "WARNING"], cwd=BASE_DIR,
+                                   capture_output=True, text=True, encoding="utf-8", errors="replace")
+                if r.returncode != 0:
+                    log("WHISPER", "쇼츠 분석 다시 만들기 실패 (대본 파일은 저장됨)", level="WARNING", out=(r.stdout + r.stderr)[-300:])
             orx = BASE_DIR / "tools" / "outlier_research.py"
-            if orx.is_file() and (BASE_DIR / cfg["PROJECT_FOLDER"] / "analyzer_config.toml").is_file():   # 요약·받은 자료 표 다시 (할당량 0)
+            if it["kind"] == "shorts":
+                pass
+            elif orx.is_file() and (BASE_DIR / cfg["PROJECT_FOLDER"] / "analyzer_config.toml").is_file():   # 요약·받은 자료 표 다시 (할당량 0)
                 r = subprocess.run([sys.executable, str(orx), cfg["PROJECT_FOLDER"], "--offline", "--log-level", "WARNING"], cwd=BASE_DIR,
                                    capture_output=True, text=True, encoding="utf-8", errors="replace")
                 if r.returncode not in (0, 3):
@@ -5134,14 +5183,15 @@ def _whisper_queue_run(cfg, keys, push=True):
             wkx = BASE_DIR / "tools" / "weekly_analysis.py"
             od_ = BASE_DIR / cfg["PROJECT_FOLDER"] / cfg["RESULT_FOLDER"] / OUTLIERS_DIR
             has_web = od_.is_dir() and any(WEB_CASE_RX.match(x.name) for x in od_.iterdir())
-            if wkx.is_file() and has_web:                    # v2.9.1: 웹 화면 사례가 있으면 주별·성공 사례 분석도 다시
+            if wkx.is_file() and has_web and it["kind"] != "shorts":   # v2.9.1: 웹 화면 사례가 있으면 주별·성공 사례 분석도 다시
                 r = subprocess.run([sys.executable, str(wkx), cfg["PROJECT_FOLDER"], "--log-level", "WARNING"], cwd=BASE_DIR,
                                    capture_output=True, text=True, encoding="utf-8", errors="replace")
                 if r.returncode != 0:
                     log("WHISPER", "주별 분석 다시 만들기 실패 (대본 파일은 저장됨)", level="WARNING", out=(r.stdout + r.stderr)[-300:])
             totals["done"] += 1
             totals["unpushed"] += 1
-            log("WHISPER", f"{n}/{len(items)} 끝", video_id=vid, segments=len(segs), elapsed_sec=rec["elapsed_sec"], partial=partial)
+            log("WHISPER", f"{n}/{len(items)} 끝", video_id=vid, segments=len(segs), elapsed_sec=rec["elapsed_sec"], partial=partial,
+                kind=it["kind"], **({"no_speech": True} if not segs else {}))
             if time.monotonic() - totals["pushed_at"] >= every_sec:
                 do_push(f"{label} {n}/{len(items)} ({vid})")
         do_push(f"{label} 끝")

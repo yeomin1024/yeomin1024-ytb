@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # ================================================================================================
 #  YouTube 분석 PC 실행기 (macOS / Linux)
-#  VERSION: v3.1 — 2026-10-14 — 코드 목록에 tools/success_analysis.py, 설정 목록에 <주제>/analysis_rules.toml (사용자 지시: "… 올바른 분석 결과까지만 내도록 수정해")
+#  VERSION: v3.2 — 2026-10-15 — 코드 목록에 tools/shorts_analysis.py (사용자 지시: "… 쇼츠 분석 기능도 추가해 … 전력을 다해서 해봐")
+#  (v3.1 — 2026-10-14 — 코드 목록에 tools/success_analysis.py, 설정 목록에 <주제>/analysis_rules.toml (사용자 지시: "… 올바른 분석 결과까지만 내도록 수정해"))
 #  (v3.0 — 2026-10-14 — 실행하면 웹 화면이 뜸 (사용자 지시: "이거 분석기 웹 ui 형식으로 만들어 실행하면 바로 웹 ui가 나와서"):
 #           기본 = tools/web_ui.py (http://127.0.0.1:8765/). 예전 자동 실행은 --auto (--once·cron 도 자동 실행).
 #           코드 목록에 tools/web_ui.py·tools/weekly_analysis.py 추가)
@@ -66,7 +67,7 @@ done
 cd "$(dirname "$0")" || exit 1
 BASE="${RAW_BASE:-https://raw.githubusercontent.com/$REPO/$BRANCH}"
 CODE_FILES=(youtube_topic_analyzer.py tools/pc_analysis.py tools/outlier_research.py tools/outlier_stats.py tools/tag_keywords.py
-            tools/web_ui.py tools/weekly_analysis.py tools/success_analysis.py)
+            tools/web_ui.py tools/weekly_analysis.py tools/success_analysis.py tools/shorts_analysis.py)
 [ ${#FOLDERS[@]} -eq 0 ] && FOLDERS=(economic)
 CONFIG_FILES=()
 for f in "${FOLDERS[@]}"; do CONFIG_FILES+=("$f/analyzer_config.toml" "$f/keywords.toml" "$f/keywords.txt" "$f/tag_rules.toml" "$f/analysis_rules.toml"); done

@@ -1,6 +1,18 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v2.2 — 2026-10-15 — 할당량을 덜 씀 (사용자 지시: "유튜브 분석 코드를 최대한 api 사용량 덜쓰는 방법(단어 줄이는 방법 말고) 찾아서
+# VERSION: v2.3 — 2026-10-15 — 쇼츠 자료 받기 (사용자 지시: "유튜브 분석기 … 쇼츠 분석 기능도 추가해 목적은 사람들의 니즈를 충족해주는
+#          쇼츠를 만들어서 최대한 조회수를 높이기 위한 쇼츠를 만들기 위해 분석하는거야 전력을 다해서 해봐"). 롱폼 동작은 그대로:
+#          ① 쇼츠 판별 is_short(): 3분(180초) 이하 + 세로·정사각 (YouTube 쇼츠 규칙 — 2024-10-15 부터 3분까지). 화면비는 videos.list 에
+#             part=player·maxHeight 를 더해 받는 embedWidth·embedHeight (같은 1단위 — 2026-10-15 실측: 쇼츠 4608×8192, 가로 영상 14564×8192).
+#             화면비를 모르면 '#shorts' 표시 또는 60초 이하로 '추정'. 채널의 쇼츠 목록(UUSH…)에 있으면 '확실'
+#          ② fetch_video_infos(player=True) — 쇼츠 캐시는 화면비(embed_w·embed_h)가 없는 예전 캐시를 한 번 다시 받음 (50개에 1단위)
+#          ③ channel_shorts(): 채널의 쇼츠만 모은 목록 (playlistItems UUSH+채널ID — 50개에 1단위, 2026-10-15 실측: 쇼츠 111·롱폼 99 채널).
+#             목록 첫 쪽의 totalResults = 채널 쇼츠 수 (채널 유형: 쇼츠 위주·섞음). 쇼츠가 없는 채널(404)은 빈 목록으로 캐시
+#          ④ 적응형 검색 캐시의 '새로 보인 쓸 만한 영상'을 쇼츠 검색(videoDuration=short)에서는 3분 이하로 셈 (예전 기준 4분 이상이면
+#             쇼츠 검색은 늘 '안 바뀜'으로 보여 새로 고침이 늦어졌을 것)
+#          ⑤ shorts_cover(): 쇼츠 표지 그림 — 세로(oar2.jpg → oardefault.jpg) 먼저, 없으면 hqdefault.jpg (그림 1장, 영상 아님)
+#          ⑥ hashtags(): 제목·설명의 #해시태그
+# (v2.2 — 2026-10-15 — 할당량을 덜 씀 (사용자 지시: "유튜브 분석 코드를 최대한 api 사용량 덜쓰는 방법(단어 줄이는 방법 말고) 찾아서
 #          수정해보고" · "분석기 여러개 열어서 각자 다른 주제로 탐색해도 되지?"). 검색어는 그대로, 같은 정보를 덜 자주·덜 겹치게 받음:
 #          ① 적응형 검색 캐시 (search_ttl — 검색 1번 = 100단위, 할당량의 거의 전부): 새로 고칠 때 지난 결과·다른 검색어 결과에 없던
 #             '새로 보인 쓸 만한 영상'(롱폼·라이브 아님·한국어·기간 안)을 적어 두고, 그것이 2개 이하면 다음 새로 고침을 늦춤
@@ -9,7 +21,7 @@
 #          ③ 영상 정보 캐시 시간을 올린 지 오래된 영상은 길게 (30일 안 24시간 · 180일 안 3일 · 그보다 오래 7일 — 조회수가 거의 안 바뀜)
 #          ④ 댓글 전부를 받을 때 한 쪽(100개 이하)으로 끝나는 영상은 인기 댓글 쪽(같은 댓글)을 건너뜀 (영상마다 1단위)
 #          ⑤ Api(ledger=) — 요청마다 키 장부(tools/pc_analysis.py KeyLedger)에 먼저 적고 실패하면 돌려줌: 같은 키를 쓰는 다른 창·주제와
-#             함께 셈 → 창 여러 개가 동시에 탐색해도 하루 한도를 넘지 않음. Google 의 하루 한도 답은 장부에 '오늘 끝'으로
+#             함께 셈 → 창 여러 개가 동시에 탐색해도 하루 한도를 넘지 않음. Google 의 하루 한도 답은 장부에 '오늘 끝'으로)
 # (v2.1 — 2026-10-14 — 수요·공급과 채널 성장을 셀 자료도 모음 (사용자 지시: "수요 대비 영상 공급이 별로 없는지도 파악해야해
 #          이외에도 내가 말한 목표를 달성하기 위한 모든 분석 방법을 찾아서 반영해" — 목표: 조회수가 높고 구독자가 많이 모이는 영상):
 #          ① 검색 캐시에 YouTube 가 알려 준 결과 수(pageInfo.totalResults — 그 기간에 올라온 영상 수 추정 = 공급)도 저장 (할당량 같음)
@@ -147,7 +159,7 @@ except ModuleNotFoundError:             # Python 3.10 → tomli (분석기가 �
     import tomli as tomllib
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v2.2"
+VERSION = "v2.3"
 LOG = logging.getLogger("outlier")
 HANGUL = re.compile(r"[가-힣]")
 SEARCH_TTL_HOURS = 168
@@ -156,6 +168,10 @@ SEARCH_TTL_WINDOW_FRAC = 0.25 # 그래도 탐색 기간의 1/4 보다 오래 묵
 SEARCH_NOVEL_LOW = 2          # 지난 새로 고침에서 '새로 보인 쓸 만한 영상'(다른 검색에도 없던 롱폼·한국어·라이브 아님·기간 안)이 이 이하면 늦춤
 SEARCH_MAX_LEVEL = 2          # 늦추는 단계 (0 = 7일, 1 = 14일, 2 = 21일)
 MIN_LONGFORM_SEC = 240        # '쓸 만한 영상' 판단용 롱폼 기준 (--min-sec 기본과 같음)
+SHORTS_MAX_SEC = 180          # v2.3: 쇼츠 = 3분 이하 + 세로·정사각 (YouTube 쇼츠 규칙, 2024-10-15 부터 3분)
+SHORTS_GUESS_SEC = 60         # v2.3: 화면비를 모를 때 '#shorts' 표시가 없으면 이 길이 이하만 쇼츠로 추정
+SHORTS_TAG_RX = re.compile(r"#shorts?\b|#쇼츠", re.I)
+HASHTAG_RX = re.compile(r"#([0-9A-Za-z가-힣_]+)")
 VIDEO_TTL_HOURS = 24          # 영상 조회수: 하루 지나면 다시 (videos.list 50개 = 1단위)
 VIDEO_TTL_BY_AGE = ((30, 24), (180, 72), (None, 168))   # v2.2: 올린 지 30일 안 = 24시간 · 180일 안 = 3일 · 그보다 오래 = 7일
 CHANNEL_TTL_HOURS = 168       # 구독자 수: 7일
@@ -320,7 +336,11 @@ class Api:
         self.last_total = (d.get("pageInfo") or {}).get("totalResults")
         return [it["id"]["videoId"] for it in d.get("items", []) if it.get("id", {}).get("videoId")]
 
-    def videos(self, ids):
+    def videos(self, ids, player=False):
+        """player=True (v2.3 — 쇼츠): part 에 player 를 더하고 maxHeight 를 주면 화면비(embedWidth·embedHeight)가 옴 — 같은 1단위."""
+        if player:
+            return self.get("videos", part="snippet,contentDetails,statistics,liveStreamingDetails,player", id=",".join(ids),
+                            maxHeight=8192).get("items", [])
         return self.get("videos", part="snippet,contentDetails,statistics,liveStreamingDetails", id=",".join(ids)).get("items", [])   # 같은 1단위
 
     def channels(self, ids):
@@ -642,8 +662,9 @@ def search_cache_file(cache_dir, q, dur, fallback_days):
 
 def _useful_novel(cache_dir, d, window_days, now=None):
     """캐시 d 가 지난번 새로 고침에서 새로 데려온 영상(d['novel']) 중 쓸 만한 것의 수 (v2.2) — 롱폼·라이브 아님·한국어·지금 기간 안.
-    영상 정보 캐시가 없으면 쓸 만한 것으로 셈 (모르면 늦추지 않는 쪽)."""
+    영상 정보 캐시가 없으면 쓸 만한 것으로 셈 (모르면 늦추지 않는 쪽). v2.3: 쇼츠 검색(dur='short')은 3분 이하를 쓸 만한 것으로."""
     now = now or datetime.now(timezone.utc)
+    shorts = d.get("dur") == "short"
     n = 0
     for v in d.get("novel") or []:
         f = Path(cache_dir) / f"{v}.json"
@@ -656,7 +677,8 @@ def _useful_novel(cache_dir, d, window_days, now=None):
             age = (now - datetime.fromisoformat(str(i.get("published")).replace("Z", "+00:00"))).days
         except ValueError:
             age = 0
-        if (i.get("duration") or 0) >= MIN_LONGFORM_SEC and not exclusion_reason(i) and age <= window_days:
+        sec = i.get("duration") or 0
+        if ((0 < sec <= SHORTS_MAX_SEC) if shorts else sec >= MIN_LONGFORM_SEC) and not exclusion_reason(i) and age <= window_days:
             n += 1
     return n
 
@@ -754,7 +776,44 @@ def _info_from_item(it):
             "view_count": int(st.get("viewCount", 0)), "like_count": int(st.get("likeCount", 0) or 0),
             "comment_count": int(st.get("commentCount", 0) or 0), "fetched": datetime.now(timezone.utc).isoformat(),
             "was_live": bool(it.get("liveStreamingDetails")),                                   # v2.0: 라이브였던 영상
-            "audio_lang": sn.get("defaultAudioLanguage") or "", "lang": sn.get("defaultLanguage") or ""}
+            "audio_lang": sn.get("defaultAudioLanguage") or "", "lang": sn.get("defaultLanguage") or "",
+            **({"embed_w": _int_or_none(it["player"].get("embedWidth")), "embed_h": _int_or_none(it["player"].get("embedHeight"))}
+               if "player" in it else {})}                                                         # v2.3: 화면비 (쇼츠 판별)
+
+
+def _int_or_none(x):
+    try:
+        return int(x)
+    except (TypeError, ValueError):
+        return None
+
+
+def hashtags(*texts):
+    """제목·설명의 #해시태그 (v2.3) → 소문자 목록 (나온 순서, 같은 것은 한 번)."""
+    out = []
+    for t in texts:
+        out += [h.lower() for h in HASHTAG_RX.findall(str(t or ""))]
+    return list(dict.fromkeys(out))
+
+
+def is_short(info, known_shorts=()):
+    """쇼츠인가 (v2.3) → (True/False, 근거). 3분 넘음 → 아님. 채널 쇼츠 목록(UUSH)에 있음 → 확실. 화면비를 알면 세로·정사각(높이 ≥ 너비) → 쇼츠,
+    가로 → 아님. 화면비를 모르면 '#shorts' 표시 또는 SHORTS_GUESS_SEC 초 이하 → 쇼츠(추정)."""
+    sec = info.get("duration") or 0
+    if not sec or sec > SHORTS_MAX_SEC:
+        return False, f"{SHORTS_MAX_SEC // 60}분 넘음" if sec else "길이 모름"
+    if info.get("id") in known_shorts:
+        return True, "채널 쇼츠 목록"
+    w, h = info.get("embed_w"), info.get("embed_h")
+    if w and h:
+        return (True, "세로·정사각") if h >= w else (False, "가로 영상")
+    tagged = bool(SHORTS_TAG_RX.search(" ".join([str(info.get("title") or ""), str(info.get("description") or "")[:500],
+                                                    " ".join(map(str, info.get("tags") or []))])))
+    if tagged:
+        return True, "#shorts 표시 (화면비 모름)"
+    if sec <= SHORTS_GUESS_SEC:
+        return True, f"{SHORTS_GUESS_SEC}초 이하 (화면비 모름 — 추정)"
+    return False, "화면비 모름·#shorts 없음"
 
 
 def video_ttl_h(published, now=None):
@@ -770,9 +829,10 @@ def video_ttl_h(published, now=None):
     return VIDEO_TTL_HOURS
 
 
-def fetch_video_infos(api, cache_dir, ids, state, refresh=False):
+def fetch_video_infos(api, cache_dir, ids, state, refresh=False, player=False):
     """영상 정보 (캐시 .cache/<id>.json, 24시간). 할당량이 끝나면 있던 캐시로 계속하고 state 에 남김. → [info] (ids 순서, 받은 것만).
-    v1.9: collect_api 에서 떼어 냄 — 웹 화면(tools/web_ui.py)이 채널·주소로 더한 영상에도 씀."""
+    v1.9: collect_api 에서 떼어 냄 — 웹 화면(tools/web_ui.py)이 채널·주소로 더한 영상에도 씀.
+    v2.3: player=True (쇼츠 캐시) — 화면비(embed_w·embed_h)도 받음, 화면비가 없는 예전 캐시는 다시 받음."""
     ids = list(dict.fromkeys(ids))
     now = datetime.now(timezone.utc)
     kept_old = [0]
@@ -786,7 +846,7 @@ def fetch_video_infos(api, cache_dir, ids, state, refresh=False):
             fetched = datetime.fromisoformat(i.get("fetched", "2000-01-01T00:00:00+00:00"))
         except (OSError, ValueError, TypeError):
             return False
-        if "was_live" not in i:
+        if "was_live" not in i or (player and "embed_h" not in i):
             return False
         ttl = video_ttl_h(i.get("published"), now)
         fresh = (now - fetched).total_seconds() / 3600 <= ttl
@@ -799,7 +859,7 @@ def fetch_video_infos(api, cache_dir, ids, state, refresh=False):
     for i in range(0, len(need), 50):
         chunk = need[i:i + 50]
         try:
-            items = api.videos(chunk)
+            items = api.videos(chunk, player=True) if player else api.videos(chunk)
         except QuotaStop as e:
             state["quota_stop"] = state["quota_stop"] or e.kind
             left = need[i:]
@@ -981,13 +1041,15 @@ def channel_uploads(api, cache_dir, ch, ttl_h=24, refresh=False, max_videos=0):
         except (OSError, ValueError):
             old = []
     known = set(old)
-    ids, token, pages, hit_known = [], None, 0, False
+    ids, token, pages, hit_known, total = [], None, 0, False, None
     while True:
         params = {"part": "contentDetails", "playlistId": ch["uploads"], "maxResults": 50}
         if token:
             params["pageToken"] = token
         d = api.get("playlistItems", **params)
         pages += 1
+        if pages == 1:                          # v2.3: 목록 전체 수 (쇼츠 목록이면 채널 쇼츠 수 — 채널 유형)
+            total = (d.get("pageInfo") or {}).get("totalResults")
         page = [it["contentDetails"]["videoId"] for it in d.get("items", []) if it.get("contentDetails", {}).get("videoId")]
         new = [v for v in page if v not in known]
         ids += new
@@ -999,11 +1061,46 @@ def channel_uploads(api, cache_dir, ch, ttl_h=24, refresh=False, max_videos=0):
             break
     merged = list(dict.fromkeys(ids + (old if hit_known else [])))
     complete = hit_known or not token          # 끝까지(또는 아는 영상까지) 받았나 — max_videos 로 멈춘 목록은 다음에 이어 붙이지 않음
-    p.write_text(json.dumps({"channel": ch["id"], "fetched": datetime.now(timezone.utc).isoformat(), "ids": merged, "complete": complete},
-                            ensure_ascii=False), "utf-8")
+    p.write_text(json.dumps({"channel": ch["id"], "fetched": datetime.now(timezone.utc).isoformat(), "ids": merged, "complete": complete,
+                             "playlist": ch["uploads"], "total": total}, ensure_ascii=False), "utf-8")
     log("CHANNEL", channel=ch.get("title"), id=ch["id"], videos=len(merged), new=len(ids), pages=pages, incremental=hit_known,
         quota_used=api.used)
     return merged[:max_videos] if max_videos else merged
+
+
+def channel_shorts(api, cache_dir, cid, ttl_h=168, refresh=False, max_videos=0, title=""):
+    """채널의 쇼츠만 (v2.3): 자동 재생목록 UUSH+채널ID (playlistItems — 50개에 1단위, 최근 것부터). 캐시 cache_dir/uploads_<채널ID>.json
+    (쇼츠 캐시 폴더 — 롱폼 업로드 목록과 따로). 쇼츠가 없는 채널은 목록이 없음(404) → 빈 목록으로 캐시. → [영상ID]"""
+    if not (isinstance(cid, str) and cid.startswith("UC") and len(cid) == 24):
+        return []
+    ch = {"id": cid, "uploads": "UUSH" + cid[2:], "title": title or cid}
+    try:
+        return channel_uploads(api, Path(cache_dir), ch, ttl_h=ttl_h, refresh=refresh, max_videos=max_videos)
+    except RuntimeError as e:
+        if "HTTP 404" not in str(e):
+            raise
+        (Path(cache_dir) / f"uploads_{cid}.json").write_text(json.dumps(
+            {"channel": cid, "fetched": datetime.now(timezone.utc).isoformat(), "ids": [], "complete": True, "playlist": ch["uploads"],
+             "total": 0, "none": True}, ensure_ascii=False), "utf-8")
+        log("CHANNEL", channel=cid, note="쇼츠 목록 없음(404) — 쇼츠가 없는 채널로 기록", playlist=ch["uploads"])
+        return []
+
+
+SHORTS_COVERS = ("oar2.jpg", "oardefault.jpg", "hqdefault.jpg")   # 세로 표지(쇼츠) 먼저 — 없으면 4:3 표지 (그림 1장, 영상 아님)
+
+
+def shorts_cover(vid, path, timeout=20):
+    """쇼츠 표지 그림 (v2.3) → 받은 파일 이름(oar2.jpg 등) 또는 None. 1KB 미만(빈 그림)은 다음 것으로."""
+    for name in SHORTS_COVERS:
+        try:
+            req = urllib.request.Request(f"https://i.ytimg.com/vi/{vid}/{name}", headers={"User-Agent": "Mozilla/5.0"})
+            data = urllib.request.urlopen(req, timeout=timeout).read()
+        except Exception:
+            continue
+        if len(data) >= 1000:
+            Path(path).write_bytes(data)
+            return name
+    return None
 
 
 def collect_api(topic, a, api, kws, exclude, out, state):

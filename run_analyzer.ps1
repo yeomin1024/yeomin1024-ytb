@@ -1,9 +1,11 @@
 ﻿<#
 ================================================================================================
  YouTube 분석 PC 실행기 (Windows PowerShell)
- VERSION: v3.2 — 2026-10-15 — 안내만 (사용자 지시: "분석기 여러개 열어서 각자 다른 주제로 탐색해도 되지? … economic 같은 주제 경로를
+ VERSION: v3.3 — 2026-10-15 — 코드 목록에 tools/shorts_analysis.py (쇼츠 분석 — 사용자 지시: "… 쇼츠 분석 기능도 추가해 … 전력을 다해서
+          해봐"). 웹 화면 v1.6 의 4번 칸 [롱폼 | 쇼츠]. 실행 명령은 같음
+ (v3.2 — 2026-10-15 — 안내만 (사용자 지시: "분석기 여러개 열어서 각자 다른 주제로 탐색해도 되지? … economic 같은 주제 경로를
           선택할 수 있게해서 각각 주제별로 탐색할 수 있게"): 웹 화면 v1.5 — -Folder economic,health 면 주제마다 창(포트)을 하나씩 띄움,
-          같은 주제 창이 이미 있으면 그 창을 엶. 할당량은 같은 키의 모든 창이 함께 셈(화면 위 '남은 할당량'), 초기화 뒤 남은 것은 저절로 이어서
+          같은 주제 창이 이미 있으면 그 창을 엶. 할당량은 같은 키의 모든 창이 함께 셈(화면 위 '남은 할당량'), 초기화 뒤 남은 것은 저절로 이어서)
  (v3.1 — 2026-10-14 — 코드 목록에 tools/success_analysis.py(성공 사례 분석 analysis.md), 설정 목록에 <주제>/analysis_rules.toml
           (사용자 지시: "… 올바른 분석 결과까지만 내도록 수정해"). 웹 화면 v1.3 도 켤 때 코드를 받으므로 예전 실행기로도 새 도구가 옴)
  (v3.0 — 2026-10-14 — 실행하면 웹 화면이 뜸 (사용자 지시: "이거 분석기 웹 ui 형식으로 만들어 실행하면 바로 웹 ui가 나와서 env,
@@ -83,7 +85,7 @@ $Base = if ($env:RAW_BASE) { $env:RAW_BASE } else { "https://raw.githubuserconte
 $Folder = @($Folder | ForEach-Object { $_ -split "," } | ForEach-Object { $_.Trim() } | Where-Object { $_ })   # -File 로 부르면 "a,b" 한 글자열
 if (-not $Folder) { $Folder = @("economic") }
 $CodeFiles = @("youtube_topic_analyzer.py", "tools/pc_analysis.py", "tools/outlier_research.py", "tools/outlier_stats.py", "tools/tag_keywords.py",
-               "tools/web_ui.py", "tools/weekly_analysis.py", "tools/success_analysis.py")
+               "tools/web_ui.py", "tools/weekly_analysis.py", "tools/success_analysis.py", "tools/shorts_analysis.py")
 $ConfigFiles = @($Folder | ForEach-Object { "$_/analyzer_config.toml"; "$_/keywords.toml"; "$_/keywords.txt"; "$_/tag_rules.toml"; "$_/analysis_rules.toml" })
 $TaskName = "YouTubeAnalysis_" + ($Folder -join "_")
 

@@ -159,8 +159,8 @@ const CHECK_FN = () => {
   const st = document.getElementById("stage");
   const out = [];
   const cc0 = document.getElementById("cc");
-  const LOW = cc0 ? 884 : 1020;
-  const NOWORDS = !!(window.K && window.K.opt && window.K.opt.noWords);                // 자막 띠 위 · 자막 없는 영상은 맨 아래 60px(진행 막대·자동 자막) 위
+  const LOW = cc0 ? 884 : 1020;                // 자막 띠 위 · 자막 없는 영상은 맨 아래 60px(진행 막대·자동 자막) 위
+  const NOWORDS = !!(window.K && window.K.opt && window.K.opt.noWords);
   const op = el => { let o = 1; for (let e = el; e && e !== st; e = e.parentElement) { const cs = getComputedStyle(e); o *= +cs.opacity; if (cs.display === "none" || cs.visibility === "hidden") return 0; } return o; };
   const walker = document.createTreeWalker(st, NodeFilter.SHOW_TEXT);
   for (let n = walker.nextNode(); n; n = walker.nextNode()) {

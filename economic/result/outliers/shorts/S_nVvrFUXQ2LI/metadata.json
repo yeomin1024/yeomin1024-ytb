@@ -1,0 +1,70 @@
+{
+ "id": "nVvrFUXQ2LI",
+ "title": "(60만 조회)잔액 3만 원에 무시당한 할머니        #사이다사연 #노후이야기 #반전사연",
+ "channel": "스토리 한바다",
+ "channel_id": "UC961n8kvBRba6MiQ7X11x5w",
+ "subs": 2020,
+ "views": 641265,
+ "ratio": 317.46,
+ "age_days": 12,
+ "views_per_day": 53438.8,
+ "minutes": 2.1,
+ "seconds": 124,
+ "likes": 8102,
+ "comments": 44,
+ "published": "2026-10-02",
+ "published_at": "2026-10-02T21:00:01Z",
+ "queries": "검색:노후",
+ "url": "https://www.youtube.com/shorts/nVvrFUXQ2LI",
+ "flag": "",
+ "short_basis": "세로·정사각",
+ "hashtags": [
+  "사이다사연",
+  "노후이야기",
+  "반전사연",
+  "쇼츠",
+  "shorts",
+  "감동사연",
+  "반전드라마"
+ ],
+ "rank": "S9",
+ "set": "web_shorts",
+ "folder": "S_nVvrFUXQ2LI",
+ "sources": [
+  "검색:노후"
+ ],
+ "source": "web_shorts",
+ "tags": null,
+ "chapters": [],
+ "transcript_lang": "ko(자동)",
+ "transcript_status": "ok",
+ "syl": 414,
+ "syl_per_sec": 3.45,
+ "hook20": "잠깐만요. 전부 해제하시겠다고요? 네. 그런데 왜 그러는지는 모르시겠어요? >> 불과 10분 전이었습니다. >> 저기요.이 통장 좀 봐 주시겠어요?이",
+ "first60": "잠깐만요. 전부 해제하시겠다고요? 네. 그런데 왜 그러는지는 모르시겠어요? >> 불과 10분 전이었습니다. >> 저기요.이 통장 좀 봐 주시겠어요?이 이 정도 금액 찾으실 거면 ATM 이용하시면 돼요. >> 돈 찾으러 온게 아니고 올해는 통장이라 [음악] 물어볼게 있어서요. 대표님 오셨어요? 이쪽으로 앉으세요. 다른 통장도 같이 정리하려고요. 복잡한 업무면 번호표 다시 뽑고 기다리세요. 어르신 [음악] 제가 한번 봐 드릴까요? 그런 고객 붙잡고 있으면네 실정만 떨어져. 그래도 [음악] 고객이잖아요. 오래 쓰신 통장이네요. 남편이 살아 있을 때 만든 거예요. 그래서 간직하고 싶으셨군요.",
+ "first60_syl": 218,
+ "outline": [
+  {
+   "t": 2,
+   "text": "잠깐만요. 전부 해제하시겠다고요?"
+  },
+  {
+   "t": 91,
+   "text": ">> 고객님 불편을 들여 죄송합니다."
+  }
+ ],
+ "comments_fetched": 44,
+ "comments_top_level": 21,
+ "comments_replies": 23,
+ "comments_by_creator": 20,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 44,
+ "tool": "outlier_research.py v2.3",
+ "collected": "2026-10-15T17:49:06",
+ "approved": "2026-10-15T17:49+09:00",
+ "kind": "shorts",
+ "embed_w": 4608,
+ "embed_h": 8192,
+ "cover": "oar2.jpg"
+}

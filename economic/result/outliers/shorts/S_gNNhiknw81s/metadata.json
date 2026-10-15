@@ -1,0 +1,63 @@
+{
+ "id": "gNNhiknw81s",
+ "title": "재테크 강연대상이 신세계 손녀일 때",
+ "channel": "아이돌다이뜌 ",
+ "channel_id": "UCDsuWU4XP8k73r7i1dPaKfw",
+ "subs": 7360,
+ "views": 4734418,
+ "ratio": 643.26,
+ "age_days": 36,
+ "views_per_day": 131511.6,
+ "minutes": 0.3,
+ "seconds": 21,
+ "likes": 37524,
+ "comments": 517,
+ "published": "2026-09-08",
+ "published_at": "2026-09-08T09:34:24Z",
+ "queries": "검색:재테크",
+ "url": "https://www.youtube.com/shorts/gNNhiknw81s",
+ "flag": "",
+ "short_basis": "세로·정사각",
+ "hashtags": [
+  "애니",
+  "우찬",
+  "올데프",
+  "올데이프로젝트"
+ ],
+ "rank": "S5",
+ "set": "web_shorts",
+ "folder": "S_gNNhiknw81s",
+ "sources": [
+  "검색:재테크"
+ ],
+ "source": "web_shorts",
+ "tags": null,
+ "chapters": [],
+ "transcript_lang": "ko(자동)",
+ "transcript_status": "ok",
+ "syl": 114,
+ "syl_per_sec": 5.41,
+ "hook20": "근데 보통 로또 당첨자들이 끝이 안 좋지 않아요. [음악] 그의 릴스 많이 봤는데. 그게 릴스 많이 봤는데 막 방탕에 살다가 한 순간에 망했다고 >> 20억 30억 100억 50억 이렇게 받았다가 끝이 안 좋은 경우가 대단히 많죠. >> 2조 8천억이면 끝이 좋 안 좋지 않을 것 같아. >> 끝이 없지? 정답입니다. 2조 8,억이면 보통 끝이 좋아요.",
+ "first60": "근데 보통 로또 당첨자들이 끝이 안 좋지 않아요. [음악] 그의 릴스 많이 봤는데. 그게 릴스 많이 봤는데 막 방탕에 살다가 한 순간에 망했다고 >> 20억 30억 100억 50억 이렇게 받았다가 끝이 안 좋은 경우가 대단히 많죠. >> 2조 8천억이면 끝이 좋 안 좋지 않을 것 같아. >> 끝이 없지? 정답입니다. 2조 8,억이면 보통 끝이 좋아요.",
+ "first60_syl": 114,
+ "outline": [
+  {
+   "t": 0,
+   "text": "근데 보통 로또 당첨자들이 끝이 안"
+  }
+ ],
+ "comments_fetched": 517,
+ "comments_top_level": 225,
+ "comments_replies": 292,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 517,
+ "tool": "outlier_research.py v2.3",
+ "collected": "2026-10-15T17:48:40",
+ "approved": "2026-10-15T17:48+09:00",
+ "kind": "shorts",
+ "embed_w": 4608,
+ "embed_h": 8192,
+ "cover": "oar2.jpg"
+}

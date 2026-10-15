@@ -1,0 +1,69 @@
+{
+ "id": "Fx3vItigpoA",
+ "title": "주식 초보, 이렇게만 투자하세요🔥",
+ "channel": "1분 자기계발",
+ "channel_id": "UCEOOA4iwmrCZp2Dai7NajHw",
+ "subs": 1980,
+ "views": 1103761,
+ "ratio": 557.46,
+ "age_days": 79,
+ "views_per_day": 13971.7,
+ "minutes": 0.9,
+ "seconds": 53,
+ "likes": 10913,
+ "comments": 343,
+ "published": "2026-07-27",
+ "published_at": "2026-07-27T22:30:35Z",
+ "queries": "검색:주식초보",
+ "url": "https://www.youtube.com/shorts/Fx3vItigpoA",
+ "flag": "",
+ "short_basis": "세로·정사각",
+ "hashtags": [
+  "돈뜨겁게사랑하고차갑게다루어라",
+  "투자에대한생각"
+ ],
+ "rank": "S7",
+ "set": "web_shorts",
+ "folder": "S_Fx3vItigpoA",
+ "sources": [
+  "검색:주식초보"
+ ],
+ "source": "web_shorts",
+ "tags": [
+  "돈뜨겁게사랑하고차갑게다루어라",
+  "투자에대한생각",
+  "주식책",
+  "주식도서",
+  "황현희",
+  "주식책추천",
+  "추천도서"
+ ],
+ "chapters": [],
+ "transcript_lang": "ko(자동)",
+ "transcript_status": "ok",
+ "syl": 280,
+ "syl_per_sec": 5.25,
+ "hook20": "지금 주식 시장에 들어가실 생각을 아예 하시면 안 돼요. 지금은 선수들의 시장인 거예요. 일단 1억을 다섯 개로 쪼개세요. >> 2천만 원씩 >> 예. 2천만 원 다섯 개로 쪼개시고 서점에 가셔서 양들의 코틀라니가 쓴 돈 뜨겁게 사랑하고 차갑게 대하라라는 책을 한 권 사시고 >> 투자에 대한 생각이라는 책이 있어요.",
+ "first60": "지금 주식 시장에 들어가실 생각을 아예 하시면 안 돼요. 지금은 선수들의 시장인 거예요. 일단 1억을 다섯 개로 쪼개세요. >> 2천만 원씩 >> 예. 2천만 원 다섯 개로 쪼개시고 서점에 가셔서 양들의 코틀라니가 쓴 돈 뜨겁게 사랑하고 차갑게 대하라라는 책을 한 권 사시고 >> 투자에 대한 생각이라는 책이 있어요. 투자에 대한 생각이라는 책. 그 두 권의 책을 일단은 읽으세요. 그거 책을 읽으면은 어느 정도 아 주식은 이렇게 돌아가는구나. 아, 이런 패턴이구나. 아, 이렇게 그림을 그리면 되겠구나라는게 어느 정도 잡힐 거예요. >> 음. >> 연말까지 기다리세요. 계속 -1%부터 쪼갠 걸 넣으시면 됩니다. -5% 떨어질 때마다 -30됐다. 그럼 다 넣으세요. >> 무슨 종목? 이건 그냥 나스닥에 투자하시면",
+ "first60_syl": 280,
+ "outline": [
+  {
+   "t": 0,
+   "text": "지금 주식 시장에 들어가실 생각을"
+  }
+ ],
+ "comments_fetched": 343,
+ "comments_top_level": 274,
+ "comments_replies": 69,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 343,
+ "tool": "outlier_research.py v2.3",
+ "collected": "2026-10-15T17:48:58",
+ "approved": "2026-10-15T17:49+09:00",
+ "kind": "shorts",
+ "embed_w": 4608,
+ "embed_h": 8192,
+ "cover": "oar2.jpg"
+}

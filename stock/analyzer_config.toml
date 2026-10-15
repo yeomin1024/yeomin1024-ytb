@@ -1,0 +1,49 @@
+# =====================================================================================================
+# YouTube 주제 분석기 설정 파일 — 주제: 주식 (폴더 stock)
+# VERSION: v1.0 — 2026-10-15 — 새로 만듦 (사용자 지시: "주식 주제로 유튜브 분석기 돌리기위한 세팅 좀 해줘 stock 폴더 만들고 검색어 설정 같은거 말이야").
+#          값은 economic/analyzer_config.toml v1.1 과 같고 주제 이름·폴더만 다름 (성공 사례 영상 파일은 받지 않음, 자막 없는 영상 음성인식은
+#          결과를 먼저 올린 뒤 대기열에서). 검색어 = 같은 폴더 keywords.txt (한 줄에 하나), 관련어·제외어 = keywords.toml.
+#          예전 stock 폴더(사연형 주식 영상, 2026-10-13 지움 — 커밋 2a68307)와는 따로 새로 시작.
+#
+# ▶ PC에서 (웹 화면 — 탐색 → 체크 → 승인 → 주별 분석): guides/pc_analysis.md
+#      powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Folder stock               (Windows)
+#      powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Folder economic,stock      (재테크·주식 창 두 개 — 할당량은 함께 셈)
+# ▶ 분석기만 한 번: python youtube_topic_analyzer.py --config stock/analyzer_config.toml
+# ▶ 여기 없는 설정은 youtube_topic_analyzer.py 위쪽 [설정 2]의 기본값 (우선순위: 코드 기본값 < 이 파일 < keywords.toml(목록만) < 명령줄)
+# ※ 연구·교육용 분석 — 투자 권유가 아니다.
+# =====================================================================================================
+
+[topic]
+TOPIC = "주식"
+PROJECT_FOLDER = "stock"             # 결과 상위 폴더 → PC: output/stock/result/, GitHub: stock/result/
+RESULT_FOLDER = "result"
+
+[github]
+GITHUB_REPO = "yeomin1024/yeomin1024-ytb"
+GITHUB_BRANCH = "main"
+
+[search]
+REGION_CODE = "KR"
+LANGUAGE = "ko"
+
+[keywords]
+KEYWORD_MODE = "curated"             # keywords.toml 의 KEYWORD_GROUPS 에 적은 검색어만
+KEYWORDS_FILE = "keywords.toml"      # 검색어·관련어 목록 파일 (이 파일과 같은 폴더)
+
+[ads]
+AD_SUSPECT_FILTER = true             # 조회수는 많은데 좋아요·댓글이 거의 없는 영상(광고로 조회수를 산 것으로 의심) 제외
+AD_SUSPECT_MIN_VIEWS = 50000
+AD_SUSPECT_MAX_LIKE_RATE = 0.0025
+AD_SUSPECT_MAX_COMMENT_RATE = 0.00005
+
+[advanced]
+# 하루 할당량 10,000단위를 tools/outlier_research.py(작은 채널 성공 사례, 약 4,000단위)와 나눠 쓴다.
+# 다 못 한 검색어는 다음 날로 이월되고, tools/pc_analysis.py 가 할당량이 초기화되면(태평양 자정) 자동으로 이어서 돌린다.
+QUOTA_BUDGET = 6000                  # ⚠️ 비용 관련 (tools/pc_analysis.py 는 오늘 남은 만큼만 줌)
+DOWNLOAD_VIDEOS = false              # ⚠️ 성공사례 영상 파일은 받지 않음 (사용자 지시 2026-10-13) — 자막·썸네일·댓글·메타데이터만
+# ANALYSIS_DAYS = 365
+# OUTLIER_MIN = 3.0
+# MIN_SUCCESS_VIEWS = 10000
+# SUCCESS_CASE_COUNT = 8
+# FETCH_COMMENTS_TOP_N = 30
+# SEARCH_CACHE_TTL_HOURS = 168      # 검색 결과 캐시 7일 — 이어서 돌릴 때 이미 받은 검색은 할당량 0

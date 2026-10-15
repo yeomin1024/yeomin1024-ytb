@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.6 — 2026-10-15 — 쇼츠 탐색·승인·분석 (사용자 지시: "깃허브 저장소에 유튜브 분석기 있지? 거기에 쇼츠 분석 기능도 추가해 목적은
+# VERSION: v1.6.1 — 2026-10-15 — 분석 칸의 'analysis.md 전문' 경로를 이 창의 주제로 (예전엔 economic 고정 — stock 창에서 틀린 경로)
+# (v1.6 — 2026-10-15 — 쇼츠 탐색·승인·분석 (사용자 지시: "깃허브 저장소에 유튜브 분석기 있지? 거기에 쇼츠 분석 기능도 추가해 목적은
 #          사람들의 니즈를 충족해주는 쇼츠를 만들어서 최대한 조회수를 높이기 위한 쇼츠를 만들기 위해 분석하는거야 전력을 다해서 해봐"):
 #          ① 4·5번 칸에 [롱폼 | 쇼츠] 전환 — 쇼츠 탐색 = 검색어마다 쇼츠 검색 1번(videoDuration=short, 100단위, 적응형 7일 캐시) + 추가한 채널의
 #             쇼츠 목록(UUSH — 50개에 1단위) + 주소로 넣은 쇼츠 → 3분 이하·세로만 (outlier_research v2.3 is_short — 화면비는 영상 정보와 같은 1단위)
@@ -9,7 +10,7 @@
 #             최근 50개 — 채널 하나 약 2단위) → 쇼츠 분석(tools/shorts_analysis.py → shorts/analysis.md) → 바로 GitHub → 음성인식은 뒤에서
 #             (분석기 v2.11.0 — 쇼츠 먼저, 쇼츠는 짧아 하나에 1~2분)
 #          ③ 6번 칸에 쇼츠 분석 요약 · [쇼츠 성공 후보 체크], 켤 때·다시 분석·초기화 뒤 이어서에 쇼츠도 (못 받은 댓글·채널 평소 쇼츠·남은 쇼츠 탐색)
-#          ④ 시험 고침: 초기화 뒤 이어서의 상태('started')를 작업 시작 전에 적음 (시험이 작업 시작과 상태 쓰기 사이를 읽어 실패하던 것)
+#          ④ 시험 고침: 초기화 뒤 이어서의 상태('started')를 작업 시작 전에 적음 (시험이 작업 시작과 상태 쓰기 사이를 읽어 실패하던 것))
 # (v1.5 — 2026-10-15 — 할당량 표시·주제별 창·초기화 뒤 자동으로 이어서 (사용자 지시: "유튜브 분석 코드를 최대한 api 사용량 덜쓰는
 #          방법(단어 줄이는 방법 말고) 찾아서 수정해보고 웹 ui에 사용량 얼마나 남았는지 표시하고 그리고 분석기 여러개 열어서 각자 다른 주제로
 #          탐색해도 되지? 그리고 economic 같은 주제 경로를 선택할 수 있게해서 각각 주제별로 탐색할 수 있게 수정해 그리고 사용량 초기화되면
@@ -116,7 +117,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import pc_analysis as pc                 # noqa: E402  할당량 장부·키 찾기·GitHub 동기화·패키지 준비
 
 ROOT = pc.ROOT
-VERSION = "v1.6"
+VERSION = "v1.6.1"
 LOG = logging.getLogger("web")
 KST = timezone(timedelta(hours=9))
 TOKEN = secrets.token_urlsafe(18)        # 화면이 요청마다 보내는 열쇠 (다른 사이트가 이 PC 의 화면을 조작하지 못하게)
@@ -2295,7 +2296,7 @@ async function loadAnalysis(){let a;try{a=await api('/api/analysis')}catch(e){re
   <div>빨리 크는 작은 채널: ${num(a.fast_channels)}곳 <span class=mut>(analysis.md 7번)</span></div>
   ${a.missing_success_total?`<div class=warn style="margin-top:4px">자료를 받지 않은 성공 후보 ${a.missing_success_total}개 — 승인하면 분석에 들어갑니다 <button id="chkMissing" ${inList?'':'disabled'}>성공 후보 체크 (지금 목록에 ${inList}개)</button></div>`:''}
   <details><summary>한계 ${(a.limits||[]).length}개</summary><ul>${(a.limits||[]).map(x=>`<li>${esc(x)}</li>`).join('')}</ul></details>
-  <div class=mut>전문(주제·제목·썸네일·구성·니즈·사례별): GitHub 의 economic/result/outliers/analysis.md</div>`;
+  <div class=mut>전문(주제·제목·썸네일·구성·니즈·사례별): GitHub 의 ${esc((TOPICS.windows.find(w=>w.me)||{}).topic||'<주제>')}/result/outliers/analysis.md</div>`;
  const sb=$('supply');if(sb)sb.onclick=()=>{const n=(a.gap_candidates||[]).length;if(!confirm(`수요는 있는데 영상이 적어 보이는 말 ${n}개를 직접 검색합니다 (최근 90일).\n말 하나 = 검색 1번 100단위 → 약 ${n*100+20}단위`))return;startJob('/api/supply',{n})};
  const b=$('chkMissing');if(b){b.disabled=MODE!=='long'||!inList;b.onclick=()=>{MISSING.forEach(id=>{if(ROWS.some(r=>r.id===id))CHECK.add(id)});renderRows();saveChk();$('listCard').scrollIntoView({behavior:'smooth'})}}}
 let SMISSING=[];

@@ -1,5 +1,35 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-15 (12) — 주식 주제 폴더 `stock/` (분석기 설정 · 검색어 32개는 태그에서)
+
+### 왜 (사용자 지시)
+- "주식 주제로 유튜브 분석기 돌리기위한 세팅 좀 해줘 stock 폴더 만들고 검색어 설정 같은거 말이야 그리고 내가 어떻게 실행해야하는지도 명령 알려줘"
+
+### 바꾼 것
+| 파일 (버전) | 함수·항목 | 내용 |
+|---|---|---|
+| `stock/analyzer_config.toml` (v1.0, 새로) | 설정 | `economic/` v1.1 과 같은 값, 주제 이름 **주식**·폴더 `stock` · 영상 파일 안 받음 · `QUOTA_BUDGET = 6000` |
+| `stock/keywords.toml` (v1.0, 새로) | `RELEVANCE_TERMS`·`WEAK`·`EXCLUDE` | 관련어 45개(주식·코스피·ETF·배당주·공매도·반대매매·연금저축·ISA …) · 약한 관련어 23개 · 제외어 주식회사·(주)·㈜ |
+| `stock/tag_rules.toml` (v1.0, 새로) | 씨앗·빼는 말·묶음 | 씨앗 4개(주식·주식 투자·주식 초보·미국주식) · 빼는 말 47개(뉴스·시황·전망·경제·금리·환율·정치·**종목 이름**·부동산·코인·자기계발·AI·금융·달러) · 묶음 13개 · `TAG_OTHER = "기타 주식"` |
+| `stock/keywords.txt` (새로) | 검색어 | **32개** — `tag_keywords.py stock --write-keywords` (영상 331개 중 관련 329개, 채널 5곳 이상) · 고른 표 `stock/tag_candidates.md`·`.csv` |
+| `stock/analysis_rules.toml` (v1.0, 새로) | `[exclude] OFF_TOPIC_THEMES` | `economic/` v1.4 와 같은 기준, 뺄 주제 이름만 `12. 부동산`·`13. 코인` |
+| `stock/README.md` (v1.0, 새로) | 안내 | 실행 명령 · 할당량(검색어 1개 ≈ 300단위 → 한 바퀴 ≈ 9,600) · 파일 표 · 옛 stock(커밋 `2a68307`)과 따로 · 연구·교육용 |
+| `tools/tag_keywords.py` (v1.2 → v1.3) | `load_rules`·`theme_of`·`choose`·`write_keyword_list` | 남는 태그 묶음 이름을 주제마다(`TAG_OTHER`, 없으면 예전처럼 '기타 재테크') — 주식 검색어 목록에 '기타 재테크'가 나오던 것 |
+| `tools/web_ui.py` (v1.6 → v1.6.1) | 분석 칸 HTML | 'analysis.md 전문' 경로를 이 창의 주제로 (예전엔 `economic/` 고정 — stock 창에서 틀린 경로) |
+| `tools/tests/test_stock_topic.py` (v1.0, 새로) | 시험 3개 | stock 설정 파일 읽기 · 검색어에 빼는 말 없음 · `TAG_OTHER` (재테크는 그대로 '기타 재테크') |
+| `guides/pc_analysis.md` (v2.8) · `guides/README.md` (v1.28) · `CLAUDE.md` | 안내 | 주제 폴더 = `economic/`·`stock/`, `-Folder stock`·`-Folder economic,stock`, 지시사항의 옛 `stock/…` 예시 경로는 지운 옛 폴더라는 안내를 고침 |
+
+### 확인
+- `youtube_topic_analyzer.load_config(--config stock/analyzer_config.toml)` → TOPIC=주식·PROJECT_FOLDER=stock·검색어 목록 32개 적용 (로그 `[CONFIG] 검색어 목록 적용: stock/keywords.txt (검색어 32개 …)`)
+- `outlier_research.load_keywords('stock')` 32개 · 관련어 45/23 · `pc_analysis.read_keyword_list` 32개 · `web_ui.find_topics()` = economic·stock
+- `python3 -m unittest tools.tests.test_stock_topic tools.tests.test_shorts tools.tests.test_quota_saving` 26개 통과 (GITHUB_TOKEN 류 지움)
+- `tag_keywords.py economic --no-seed-search` 로 재테크 묶음 이름이 그대로 '기타 재테크'인 것 확인 (결과 파일은 되돌림 — 재테크 검색어 바뀐 것 없음)
+
+### 위험·할당량
+- 검색어를 고르느라 클라우드 키로 약 810단위를 씀 (씨앗 검색 4개 × 200 + 영상 정보). 같은 Google Cloud 프로젝트 키면 오늘 PC 할당량에서 빠짐.
+- 재테크(36개)·주식(32개)을 함께 돌리면 같은 키의 하루 할당량을 나눠 써서 한 바퀴에 며칠 걸림 — 남은 것은 초기화 뒤 자동으로 이어서.
+- 연구·교육용 분석 도구이며 투자 권유가 아님.
+
 ## 2026-10-15 (11) — 압축본·Colab 없앰 → 원본은 Google Drive, 업로드는 PC 업로더 (예약 공개·자동 업로드)
 
 ### 왜 (사용자 지시)

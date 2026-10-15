@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.2 — 2026-10-14 — 캐시에서 영상 정보 파일(<영상ID>.json)만 읽음 — 웹 화면의 채널 업로드 목록(uploads_*.json)·자동완성
+# VERSION: v1.3 — 2026-10-15 — 남는 태그 묶음 이름을 주제마다 (tag_rules.toml TAG_OTHER, 없으면 예전처럼 '기타 재테크') — 주식 주제(stock)에서
+#          '기타 재테크'로 나오던 것 (사용자 지시 "주식 주제로 유튜브 분석기 돌리기위한 세팅 좀 해줘")
+# (v1.2 — 2026-10-14 — 캐시에서 영상 정보 파일(<영상ID>.json)만 읽음 — 웹 화면의 채널 업로드 목록(uploads_*.json)·자동완성)
 #          (autocomplete.json)·공급 확인(supply_*.json) 캐시를 영상으로 잘못 읽던 것 (outlier_research v2.1 과 함께)
 # (v1.1 — 2026-10-13 — 검색어는 그룹 없이 한 줄에 하나 (사용자 지시: "꼭 그룹을 지정해야하나 검색어만 넣어도 되잖아"):
 #          --write-keywords 가 keywords.toml 의 [KEYWORD_GROUPS] 대신 <주제>/keywords.txt (한 줄에 하나, 묶음 이름은 '#' 메모 줄)를 씀.
@@ -36,7 +38,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import outlier_research as orr          # noqa: E402  같은 캐시·같은 관련어 규칙을 씀
 
 ROOT = orr.ROOT
-VERSION = "v1.2"
+VERSION = "v1.3"
+OTHER_DEFAULT = "기타 재테크"     # TAG_THEMES 어디에도 안 맞는 태그의 묶음 (tag_rules.toml TAG_OTHER 로 바꿈)
 LOG = logging.getLogger("tag_keywords")
 
 
@@ -53,7 +56,8 @@ def load_rules(topic):
     return {"seeds": list(d.get("TAG_SEEDS") or []), "min_channels": int(d.get("MIN_CHANNELS") or 5),
             "max_tags": int(d.get("MAX_TAGS") or 40), "exclude": [str(x) for x in d.get("TAG_EXCLUDE") or []],
             "keep": [orr._norm(x) for x in d.get("TAG_KEEP") or []],
-            "themes": {str(k): [str(x) for x in v] for k, v in (d.get("TAG_THEMES") or {}).items()}, "path": p}
+            "themes": {str(k): [str(x) for x in v] for k, v in (d.get("TAG_THEMES") or {}).items()},
+            "other": str(d.get("TAG_OTHER") or OTHER_DEFAULT), "path": p}
 
 
 def cached_infos(out):
@@ -94,9 +98,10 @@ def tag_stats(infos, rel):
     return out
 
 
-def theme_of(tag, themes):
-    """맞는 글자가 가장 긴 묶음 (같으면 위쪽 묶음). 예: 연금저축펀드 → '연금저축'(4글자)이 든 노후·연금, 부동산투자 → 부동산."""
-    low, best, best_len = tag.lower(), "기타 재테크", 0
+def theme_of(tag, themes, other=None):
+    """맞는 글자가 가장 긴 묶음 (같으면 위쪽 묶음). 예: 연금저축펀드 → '연금저축'(4글자)이 든 노후·연금, 부동산투자 → 부동산.
+    아무것도 안 맞으면 other (tag_rules.toml TAG_OTHER, 없으면 '기타 재테크')."""
+    low, best, best_len = tag.lower(), other or OTHER_DEFAULT, 0
     for name, words in themes.items():
         n = max((len(w) for w in words if w.lower() in low), default=0)
         if n > best_len:
@@ -116,7 +121,7 @@ def choose(stats, rules, max_tags, min_channels):
             why = "길이"
         elif s["channels"] < min_channels:
             why = f"채널 {min_channels}곳 미만"
-        rows.append({"tag": t, **s, "theme": theme_of(t, rules["themes"]), "why": why})
+        rows.append({"tag": t, **s, "theme": theme_of(t, rules["themes"], rules.get("other")), "why": why})
     picked = [r for r in rows if not r["why"]][:max_tags]
     picked_set = {r["tag"] for r in picked}
     for r in rows:
@@ -159,7 +164,7 @@ def write_keyword_list(path, picked, note, name, topic):
     groups = {}
     for r in picked:
         groups.setdefault(r["theme"], []).append(r["tag"])
-    order = sorted(groups, key=lambda g: (g == "기타 재테크", [int(x) for x in re.findall(r"^\d+", g)] or [99], g))
+    order = sorted(groups, key=lambda g: (g.startswith("기타"), [int(x) for x in re.findall(r"^\d+", g)] or [99], g))
     lines = [KEYWORD_LIST_HEAD.format(name=name, topic=topic).rstrip("\n"), f"# {note}"]
     for g in order:
         label = re.sub(r"^\d+\.\s*", "", g)                  # 묶음 번호는 빼고 이름만

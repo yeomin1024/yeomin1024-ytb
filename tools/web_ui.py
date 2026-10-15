@@ -1,6 +1,20 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.4 — 2026-10-14 — 분석 결과로 '무엇이 먹혔나'를 가릴 수 있게 (사용자 지시: "결과 올라갔는데 문제가 부분 수정하고
+# VERSION: v1.5 — 2026-10-15 — 할당량 표시·주제별 창·초기화 뒤 자동으로 이어서 (사용자 지시: "유튜브 분석 코드를 최대한 api 사용량 덜쓰는
+#          방법(단어 줄이는 방법 말고) 찾아서 수정해보고 웹 ui에 사용량 얼마나 남았는지 표시하고 그리고 분석기 여러개 열어서 각자 다른 주제로
+#          탐색해도 되지? 그리고 economic 같은 주제 경로를 선택할 수 있게해서 각각 주제별로 탐색할 수 있게 수정해 그리고 사용량 초기화되면
+#          자동으로 다시 분석 마저 하는거지? 그렇게 되야해"):
+#          ① 남은 할당량: 화면 위에 '남은 N / 9,800 · 초기화 한국 시간 MM-DD HH:MM (n시간 뒤)' — 같은 키를 쓰는 모든 창·주제·자동 실행을
+#             합친 키 장부(tools/pc_analysis.py KeyLedger, 요청마다 적음). 자세히: 주제별·작업별 사용량, 열린 다른 창
+#          ② 주제 고르기: 화면 위 주제 목록 = 설정 파일이 있는 모든 주제 폴더(경로 표시) + [새 주제] (폴더·이름·검색어 → 설정 파일 3개)
+#          ③ 창 여러 개: 창(프로세스)마다 주제 하나를 잠금(.yt_work/web_<주제>.lock — OS 잠금) — 같은 주제를 두 창이 동시에 쓰지 않게,
+#             다른 주제는 동시에. 같은 주제 창이 이미 있으면 그 창 주소를 열고 끝. `web_ui.py economic health` 처럼 주제를 여러 개 주면
+#             주제마다 창을 하나씩 띄움 (포트 자동). 음성인식은 PC 에서 한 번에 하나 (분석기 v2.10.1 — 다른 주제는 기다렸다가)
+#          ④ 초기화 뒤 자동으로 이어서: 태평양 자정(+10분)이 되면 할당량 때문에 남은 것(탐색 검색·영상 정보, 못 받은 댓글, 채널 기준선)을
+#             저절로 이어서 하고 다시 분석·올림 (job_resume). 켤 때도 남은 탐색이 있으면 이어서. 다시 탐색해도 내가 체크한 것은 그대로
+#          ⑤ 할당량 아끼기 (outlier_research v2.2): 적응형 검색 캐시(안 바뀌는 검색은 7→14→21일), 채널 목록은 새 영상만, 오래된 영상 정보는
+#             길게, 한 쪽짜리 댓글은 인기 댓글 쪽 건너뜀 — 탐색 로그에 검색마다 캐시 시간·단계·새로 보인 영상
+# (v1.4 — 2026-10-14 — 분석 결과로 '무엇이 먹혔나'를 가릴 수 있게 (사용자 지시: "결과 올라갔는데 문제가 부분 수정하고
 #          분석결과로 내가 말한 거 할수 있는지 판단해 개선 필요하면 더 개선하고"):
 #          ① 같은 채널 기준선 (job_baseline): 켤 때·승인 때 사례 채널(구독자 5만 이하) 최근 영상 50개(업로드 목록 + 영상 정보 —
 #             채널 하나 약 2단위, 7일 캐시)를 받음 → 분석이 '채널 평소 대비 ×'·같은 채널 잘된 영상 vs 평소 영상을 셈
@@ -46,18 +60,20 @@
 #          ④ [탐색] → 검색어(최근 N주·조회수 순·4~20분·20분 넘음) + 추가한 채널·영상 → 목록 (최근 업로드 순). 추천(성공 사례·조회수 상위·
 #             추가한 것)은 체크만 해 둠 — 자료는 아직 안 받음
 #          ⑤ [승인] → 체크한 영상만 설명·자막·썸네일·댓글 전부를 받고(<주제>/result/outliers/W_<영상ID>/) 주별 분석
-#             (tools/weekly_analysis.py — 최근 1주·2주·3주 … 한 주씩 넓힘) → 자막을 못 받은 영상은 음성인식 대기열 → 다시 분석 → GitHub)
+#             (tools/weekly_analysis.py — 최근 1주·2주·3주 … 한 주씩 넓힘) → 자막을 못 받은 영상은 음성인식 대기열 → 다시 분석 → GitHub))
 r"""
 사용법 (PC 실행 폴더 — run_analyzer.ps1 이 기본으로 띄움):
   python tools/web_ui.py                    # economic (설정 파일이 있는 주제 폴더가 여럿이면 화면에서 고름)
   python tools/web_ui.py economic --port 8765 --no-browser
+  python tools/web_ui.py economic health    # 주제마다 창 하나씩 (같은 키의 할당량은 함께 셈 — 화면 위 '남은 할당량')
   옵션: --port 8765 (쓰는 중이면 다음 번호) · --no-browser (주소만 보여 줌) · --no-sync (GitHub 에서 설정·검색어를 받지 않음)
         --no-whisper (켤 때 음성인식을 뒤에서 시작하지 않음 — 화면의 [음성인식 시작]으로)
 순서: [승인] → 자료 받기 → 같은 채널 기준선(채널 평소 영상) → 주별·성공 사례 분석(자막 없으면 설명으로) → GitHub 에 올림
       → (뒤에서) 음성인식 — 성공 사례부터 1차(앞 5분) → 2차(전체), 하나 끝날 때마다 다시 분석, 15분마다·차수 끝에 올림
 할당량: 탐색 = 검색어 1개마다 검색 2번(200단위, 7일 캐시) + 채널 영상 목록 50개에 1단위 + 영상 정보 50개에 1단위.
         승인 = 영상마다 댓글 100개에 1단위 (+ 답글). 같은 채널 기준선(켤 때·승인 때) = 채널 하나 약 2단위 (7일 캐시).
-        오늘 쓴 양은 .yt_work/quota_<주제>.json (자동 실행과 같은 장부).
+        오늘 쓴 양: 키 장부 .yt_work/quota_key_<키 지문>.json (같은 키의 모든 창·주제·자동 실행) + 주제 장부 .yt_work/quota_<주제>.json.
+        할당량이 끝나 남은 것은 태평양 자정(한국 오후 4~5시) +10분에 저절로 이어서 (창을 켜 둔 동안 · 켤 때도).
 로그: [STAGE] [시각] key=value — 화면의 '진행' 칸과 .yt_work/web_ui.log
 비밀값(키·토큰)은 화면·로그에 끝 4자리만. ※ 연구·교육용 분석 도구. 투자 권유가 아니다.
 """
@@ -87,7 +103,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import pc_analysis as pc                 # noqa: E402  할당량 장부·키 찾기·GitHub 동기화·패키지 준비
 
 ROOT = pc.ROOT
-VERSION = "v1.4"
+VERSION = "v1.5"
 LOG = logging.getLogger("web")
 KST = timezone(timedelta(hours=9))
 TOKEN = secrets.token_urlsafe(18)        # 화면이 요청마다 보내는 열쇠 (다른 사이트가 이 PC 의 화면을 조작하지 못하게)
@@ -96,6 +112,11 @@ POPULAR_N = 20                           # 검색 결과 중 조회수 상위 �
 orr = None                               # tools/outlier_research.py (패키지 준비 뒤 불러옴)
 wa = None                                # tools/weekly_analysis.py
 STATE = {"topic": None, "topics": [], "port": None}
+WINDOW = {"lock": None, "topic": None}     # v1.5: 이 창이 잠근 주제 (OS 잠금 — 창이 꺼지면 풀림)
+RESUME = {"next": None, "last": None, "last_result": None, "status": "idle", "note": ""}   # v1.5: 초기화 뒤 자동으로 이어서
+RESUME_MARGIN_MIN = 10                   # 태평양 자정 + 이 분 뒤에 이어서 (Google 쪽 초기화가 조금 늦을 때)
+RESUME_JOB_WAIT_H = 6                    # 그때 다른 작업이 도는 중이면 끝나길 기다리는 최대 시간
+TOPIC_RX = re.compile(r"^[a-z][a-z0-9_-]{1,30}$")
 JOB = {"name": None, "status": "idle", "step": "", "done": 0, "total": 0, "started": None, "finished": None, "error": None,
        "result": None, "cancel": False, "log": collections.deque(maxlen=500), "proc": None}
 JOB_LOCK = threading.Lock()
@@ -257,15 +278,165 @@ def github_put(t, rel, data, message):
     return True, f"GitHub 에도 저장 ({repo}/{rel})"
 
 
-def make_api(t):
+def key_ledger(t):
+    """이 주제가 쓰는 YouTube 키의 장부 (같은 키 = 모든 창·주제가 함께, v1.5). 키가 없으면 None."""
+    key = orr.load_api_key(t)[0]
+    return pc.KeyLedger(key) if key else None
+
+
+def make_api(t, what="web"):
+    """v1.5: 남은 양 = 키 장부(같은 키의 다른 창·주제·자동 실행 포함). 요청마다 키 장부에 먼저 적고(orr.Api ledger=) 실패하면 돌려줌."""
     key, src = orr.load_api_key(t)
     if not key:
         raise UserError("YouTube API 키가 없습니다 — 화면 위 '1. 키 설정'에서 넣고 저장하세요")
-    ledger = pc.Ledger(t)
-    left = pc.DAILY_LIMIT - pc.DAILY_MARGIN - ledger.used()
+    kl = pc.KeyLedger(key)
+    left = kl.left()
     if left < 1:
-        raise UserError(f"오늘 할당량을 다 썼습니다 ({ledger.used():,}단위) — 한국 시간 오후 4~5시(태평양 자정) 뒤에 다시")
-    return orr.Api(key, left), ledger, src
+        q = kl.snapshot()
+        raise UserError(f"오늘 할당량을 다 썼습니다 (이 키로 {q['used']:,}단위" + (" · Google 이 하루 한도라고 답함" if q["exhausted"] else "")
+                        + f") — 한국 시간 {q['reset_kst']} 초기화 +{RESUME_MARGIN_MIN}분 뒤 남은 것은 저절로 이어서 합니다 (이 창을 켜 두면)")
+    return orr.Api(key, left, ledger=kl, what=what, topic=t), pc.Ledger(t), src
+
+
+def record_use(t, api, ledger, what):
+    """작업이 끝날 때 (v1.5): 주제 장부(자동 실행이 주제 몫을 셀 때 봄)에 적음 — 키 장부는 요청마다 이미 적었으므로 기록 한 줄만."""
+    ledger.add(api.used, what, forward=False)
+    if api.used and getattr(api, "ledger", None) is not None:
+        api.ledger.note_run(what, t, api.used)
+    if api.used:
+        log("QUOTA", topic=t, what=what, units=api.used, calls=",".join(f"{k}:{v}" for k, v in sorted(api.calls.items())) or "-",
+            left=api.ledger.left() if getattr(api, "ledger", None) is not None else "-")
+
+
+def quota_view(t):
+    """화면 위 할당량 (v1.5): 같은 키의 오늘 사용·남은 양·다음 초기화(한국 시간)·주제별·작업별."""
+    kl = key_ledger(t)
+    budget = pc.DAILY_LIMIT - pc.DAILY_MARGIN
+    if not kl:
+        reset, _ = pc.next_quota_reset(datetime.now(timezone.utc), margin_min=0)
+        return {"key": None, "used": 0, "left": None, "budget": budget, "exhausted": False, "by_topic": {}, "by_what": {},
+                "reset_kst": reset.astimezone(KST).strftime("%m-%d %H:%M"), "topic_used": pc.Ledger(t).used(),
+                "day": pc.pacific_day(datetime.now(timezone.utc))}
+    q = kl.snapshot()
+    q.update(budget=budget, topic_used=int((q.get("by_topic") or {}).get(t, 0)))
+    return q
+
+
+# ---------------------------------------------------------------- 창 여러 개 (v1.5): 창마다 주제 하나를 잠금
+def _window_tag(t):
+    return re.sub(r"[^0-9A-Za-z_-]+", "_", str(t)) or "topic"
+
+
+def _window_paths(t):
+    base = ROOT / ".yt_work" / f"web_{_window_tag(t)}"
+    return base.with_suffix(".lock"), base.with_suffix(".json")
+
+
+def topic_window(t):
+    """다른 창이 이 주제를 쓰는 중이면 그 창 정보 {url, pid, since}, 아니면 None (잠금을 잠깐 잡아 보고 바로 놓음)."""
+    lock_p, info_p = _window_paths(t)
+    if WINDOW["topic"] == t:
+        return None
+    if not lock_p.is_file():
+        return None
+    f = pc.os_lock(lock_p, 0)
+    if f is not None:                 # 아무도 안 잡고 있음 (예전 창이 꺼짐)
+        pc.os_unlock(f)
+        return None
+    return _read_json(info_p, {}) or {"url": "", "pid": None}
+
+
+def claim_topic(t):
+    """이 창이 주제 t 를 씀 — 다른 창이 쓰는 중이면 UserError (그 창 주소와 함께). 예전 주제의 잠금은 놓음."""
+    if WINDOW["topic"] == t and WINDOW["lock"] is not None:
+        return
+    lock_p, info_p = _window_paths(t)
+    f = pc.os_lock(lock_p, 0)
+    if f is None:
+        other = _read_json(info_p, {})
+        raise UserError(f"'{t}' 주제는 다른 분석기 창이 쓰는 중입니다 — {other.get('url') or '그 창'} (한 주제는 창 하나에서만, 다른 주제는 동시에 돼요)")
+    old_lock, old_t = WINDOW["lock"], WINDOW["topic"]
+    WINDOW.update(lock=f, topic=t)
+    _write_json(info_p, {"topic": t, "url": f"http://127.0.0.1:{STATE['port']}/" if STATE.get("port") else "", "pid": os.getpid(),
+                         "since": datetime.now(KST).isoformat(timespec="seconds")})
+    if old_lock is not None:
+        pc.os_unlock(old_lock)
+        try:
+            _window_paths(old_t)[1].unlink()
+        except OSError:
+            pass
+    log("WINDOW", topic=t, port=STATE.get("port"), note="이 창이 이 주제를 씀 (다른 창은 다른 주제만)")
+
+
+def release_topic():
+    if WINDOW["lock"] is not None:
+        pc.os_unlock(WINDOW["lock"])
+        try:
+            _window_paths(WINDOW["topic"])[1].unlink()
+        except OSError:
+            pass
+        WINDOW.update(lock=None, topic=None)
+
+
+def open_windows():
+    """열린 분석기 창 전부 (이 창 포함) → [{topic, url, me}] (v1.5)."""
+    out = []
+    for t in find_topics():
+        if t == WINDOW["topic"]:
+            out.append({"topic": t, "url": f"http://127.0.0.1:{STATE['port']}/", "me": True})
+            continue
+        w = topic_window(t)
+        if w is not None:
+            out.append({"topic": t, "url": w.get("url") or "", "me": False})
+    return out
+
+
+def create_topic(folder, name, keywords_text, push=False):
+    """새 주제 폴더 (v1.5): <폴더>/analyzer_config.toml(economic 틀에서 주제 이름·폴더만 바꿈)·keywords.txt·keywords.toml(관련어 비움)
+    ·analysis_rules.toml(economic 것 복사). 관련어가 비어 있으면 모든 검색 결과를 주제 관련으로 봄 → Claude 에게 '<주제> 검색어 만들어줘'로 다듬기."""
+    folder = str(folder or "").strip()
+    name = str(name or "").strip() or folder
+    if not TOPIC_RX.match(folder):
+        raise UserError("폴더 이름은 영어 소문자로 시작하고 영어 소문자·숫자·-·_ 만 (2~31자) — 예: health, side-job")
+    d = ROOT / folder
+    if (d / "analyzer_config.toml").is_file():
+        raise UserError(f"'{folder}' 주제 폴더가 이미 있습니다 — 위 주제 목록에서 고르세요")
+    if any(c in name for c in '"\\\n') or len(name) > 40:
+        raise UserError("주제 이름은 40자 이하, 따옴표·역슬래시 없이")
+    tpl_p = ROOT / "economic" / "analyzer_config.toml"
+    if tpl_p.is_file():
+        cfg = tpl_p.read_text("utf-8")
+        cfg = re.sub(r'(?m)^TOPIC\s*=\s*"[^"]*"', f'TOPIC = "{name}"', cfg)
+        cfg = re.sub(r'(?m)^PROJECT_FOLDER\s*=\s*"[^"]*"', f'PROJECT_FOLDER = "{folder}"', cfg)
+    else:
+        cfg = (f'[topic]\nTOPIC = "{name}"\nPROJECT_FOLDER = "{folder}"\nRESULT_FOLDER = "result"\n\n[github]\nGITHUB_REPO = "yeomin1024/yeomin1024-ytb"\n'
+               f'GITHUB_BRANCH = "main"\n\n[search]\nREGION_CODE = "KR"\nLANGUAGE = "ko"\n\n[keywords]\nKEYWORD_MODE = "curated"\nKEYWORDS_FILE = "keywords.toml"\n')
+    cfg = f"# {name} — 웹 화면에서 새로 만든 주제 ({datetime.now(KST).strftime('%Y-%m-%d')}, web_ui {VERSION}, 틀: economic)\n" + cfg
+    kws = [k.strip() for k in str(keywords_text or "").splitlines() if k.strip() and not k.strip().startswith("#")]
+    files = {
+        "analyzer_config.toml": cfg,
+        "keywords.txt": f"# {name} 검색어 — 한 줄에 하나 (# 은 메모)\n" + "".join(k + "\n" for k in kws),
+        "keywords.toml": (f"# {name} — 관련어(주제와 관련된 영상 가리기)·제외어. 비어 있으면 모든 검색 결과를 주제 관련으로 봄\n"
+                          "EXTRA_KEYWORDS = []\nEXCLUDE_KEYWORDS = []\n\n[KEYWORD_GROUPS]\n\n[relevance]\n"
+                          "RELEVANCE_TERMS = []\nRELEVANCE_WEAK_TERMS = []\nRELEVANCE_EXCLUDE = []\n"),
+    }
+    rules = ROOT / "economic" / "analysis_rules.toml"
+    if rules.is_file():
+        files["analysis_rules.toml"] = rules.read_text("utf-8")
+    d.mkdir(parents=True, exist_ok=True)
+    for fn, text in files.items():
+        (d / fn).write_text(text, "utf-8")
+    notes = [f"PC 에 만듦 ({folder}/ — {', '.join(files)})"]
+    if push:
+        for fn, text in files.items():
+            ok, note = github_put(folder, f"{folder}/{fn}", text.encode("utf-8"), f"[{name}] 새 주제 (웹 화면) — {fn}")
+            if not ok:
+                notes.append(note)
+                break
+        else:
+            notes.append("GitHub 에도 저장")
+    log("TOPIC", folder=folder, name=name, keywords=len(kws), note=" · ".join(notes))
+    return {"folder": folder, "name": name, "keywords": len(kws), "message": " · ".join(notes)}
 
 
 def add_target(t, text):
@@ -279,7 +450,7 @@ def add_target(t, text):
             return {"kind": "video", "id": val, "note": "이미 있음"}
         entry = {"id": val, "title": "", "added": now}
         try:
-            api, ledger, _ = make_api(t)
+            api, ledger, _ = make_api(t, "web_add")
         except UserError as e:                       # 키가 없거나 할당량이 없어도 추가는 됨 — 제목은 탐색 때
             api, entry["note"] = None, f"제목은 탐색 때 ({e})"
         if api:
@@ -288,7 +459,7 @@ def add_target(t, text):
             except Exception as e:
                 items, entry["note"] = None, f"제목은 탐색 때 ({type(e).__name__})"
             finally:
-                ledger.add(api.used, "web_add")
+                record_use(t, api, ledger, "web_add")
             if items == []:
                 raise UserError(f"영상을 찾지 못했습니다 (지워졌거나 비공개): {val}")
             if items:
@@ -298,9 +469,11 @@ def add_target(t, text):
         _write_json(targets_path(t), tg)
         log("TARGET", kind="video", id=val, title=entry.get("title", ""))
         return {"kind": "video", **entry}
-    api, ledger, _ = make_api(t)
-    ch = orr.resolve_channel(api, kind, val)
-    ledger.add(api.used, "web_add")
+    api, ledger, _ = make_api(t, "web_add")
+    try:
+        ch = orr.resolve_channel(api, kind, val)
+    finally:
+        record_use(t, api, ledger, "web_add")
     if not ch:
         raise UserError(f"채널을 찾지 못했습니다: {val}")
     if any(c["id"] == ch["id"] for c in tg["channels"]):
@@ -436,8 +609,9 @@ def estimate(t, weeks, use_keywords):
             cached += orr.search_is_cached(cache, q, dur, weeks * 7)
     tg = load_targets(t)
     ch_units = sum(max(1, -(-int(c.get("videos") or 50) // 50)) * 2 for c in tg["channels"])   # 목록 + 영상 정보
+    q = quota_view(t)
     return {"keywords": len(kws), "searches": total, "cached": cached, "units": (total - cached) * 100 + ch_units + 20,
-            "channels": len(tg["channels"]), "videos": len(tg["videos"])}
+            "channels": len(tg["channels"]), "videos": len(tg["videos"]), "left": q.get("left"), "reset_kst": q.get("reset_kst")}
 
 
 def ratio_key(r):
@@ -467,7 +641,7 @@ def preselect(rows):
 
 
 def job_explore(t, weeks, use_keywords):
-    api, ledger, src = make_api(t)
+    api, ledger, src = make_api(t, "web_explore")
     out = out_dir(t)
     cache = out / ".cache"
     cache.mkdir(parents=True, exist_ok=True)
@@ -480,6 +654,9 @@ def job_explore(t, weeks, use_keywords):
     if not kws and not tg["channels"] and not tg["videos"]:
         raise UserError("탐색할 것이 없습니다 — 검색어를 넣거나 영상·채널을 추가하세요")
     found, pending = {}, []
+    searched_new = 0
+    state = orr.new_state()
+    infos = []
     total = len(kws) * 2 + len(tg["channels"]) + 2
     n = 0
     log("EXPLORE", topic=t, weeks=weeks, keywords=len(kws), channels=len(tg["channels"]), videos=len(tg["videos"]), key_source=src,
@@ -489,14 +666,17 @@ def job_explore(t, weeks, use_keywords):
             for dur in ("medium", "long"):
                 n += 1
                 step(f"검색 {q} ({'4~20분' if dur == 'medium' else '20분 넘음'})", n, total)
+                ttl = {}
                 try:
-                    ids, hit = orr.cached_search(api, cache, q, since, dur, days, orr.SEARCH_TTL_HOURS, False)
+                    ids, hit = orr.cached_search(api, cache, q, since, dur, days, orr.SEARCH_TTL_HOURS, False, info=ttl)
                 except orr.QuotaStop:
                     pending.append(f"{q} ({dur})")
                     continue
                 for vid in ids:
                     found.setdefault(vid, []).append(f"검색:{q}")
-                log("SEARCH", query=q, dur=dur, results=len(ids), cached=hit, quota_used=api.used)
+                searched_new += not hit
+                log("SEARCH", query=q, dur=dur, results=len(ids), cached=hit, quota_used=api.used,
+                    **{k: v for k, v in ttl.items() if v is not None})       # v1.5: 적응형 캐시 시간(ttl_h)·단계·새로 보인 영상
         for ch in tg["channels"]:
             n += 1
             step(f"채널 {ch.get('title') or ch['id']} 영상 목록", n, total)
@@ -525,11 +705,10 @@ def job_explore(t, weeks, use_keywords):
                         break
             log("AUTOCOMPLETE", keywords=len(kws), new=ac_new, failed=ac_fail, note="수요 자료 (할당량 0)")
         step(f"영상 {len(found):,}개 정보·구독자 수", n + 1, total)
-        state = orr.new_state()
         infos = orr.fetch_video_infos(api, cache, list(found), state)
         subs = orr.fetch_channel_subs(api, cache, {i["channel_id"] for i in infos}, state)
     finally:
-        ledger.add(api.used, "web_explore")
+        record_use(t, api, ledger, "web_explore")
     for i in infos:
         i["subs"] = (subs.get(i["channel_id"]) or {}).get("subs")
     info_by_id = {i["id"]: i for i in infos}
@@ -551,14 +730,20 @@ def job_explore(t, weeks, use_keywords):
     for r in rows:
         r["reason"] = reasons.get(r["id"], "")
     rows.sort(key=ratio_key)                                         # 배수 높은 순 (v1.1)
+    prev = _read_json(web_dir(t) / "explore.json", {})               # v1.5: 다시 탐색해도(자동 이어서 포함) 전에 있던 영상은 내가 체크한 그대로
+    prev_rows, prev_checked = {r["id"] for r in prev.get("rows") or []}, set(prev.get("checked") or [])
+    checked = [r["id"] for r in rows if (r["id"] in prev_checked if r["id"] in prev_rows else bool(r["reason"]))]
     data = {"topic": t, "generated": datetime.now(KST).isoformat(timespec="seconds"), "weeks": weeks, "use_keywords": use_keywords,
-            "rows": rows, "checked": [r["id"] for r in rows if r["reason"]], "pending": pending, "quota_used": api.used,
-            "excluded": dict(excluded)}
+            "rows": rows, "checked": checked, "pending": pending, "quota_used": api.used,
+            "pending_videos": state["pending_videos"], "pending_channels": state["pending_channels"],
+            "searched_new": searched_new, "excluded": dict(excluded)}
     _write_json(web_dir(t) / "explore.json", data)
-    log("EXPLORE", topic=t, videos=len(rows), checked=len(data["checked"]), pending=len(pending), quota_used=api.used,
+    log("EXPLORE", topic=t, videos=len(rows), checked=len(data["checked"]), kept_checks=len(prev_rows & {r["id"] for r in rows}),
+        pending=len(pending), pending_videos=state["pending_videos"], searched_new=searched_new, quota_used=api.used,
         excluded=",".join(f"{k}:{v}" for k, v in excluded.items()) or "-", note="체크만 해 둠 — [승인]을 눌러야 자료를 받음")
     step("끝", total, total)
-    return {"videos": len(rows), "checked": len(data["checked"]), "pending": pending, "quota_used": api.used}
+    return {"videos": len(rows), "checked": len(data["checked"]), "pending": pending, "pending_videos": state["pending_videos"],
+            "quota_used": api.used}
 
 
 # ---------------------------------------------------------------- 승인 → 자료 받기 → 주별 분석 → 음성인식 → 다시 분석 → GitHub
@@ -568,7 +753,7 @@ def job_approve(t, ids, auto_whisper=True):
     ids = [i for i in dict.fromkeys(ids) if i in by_id]
     if not ids:
         raise UserError("승인할 영상이 없습니다 — 목록에서 체크하세요 (탐색을 먼저)")
-    api, ledger, _ = make_api(t)
+    api, ledger, _ = make_api(t, "web_approve")
     out = out_dir(t)
     cache = out / ".cache"
     a = types.SimpleNamespace(refresh=False, no_transcript=False, offline=False, comments=0, replies=True)
@@ -596,7 +781,7 @@ def job_approve(t, ids, auto_whisper=True):
             log("APPROVE", n=f"{n}/{len(ids)}", id=vid, transcript=meta["transcript_status"] if meta["transcript_status"] != "ok" else meta["transcript_lang"],
                 comments=len(cms), comments_complete=cst["complete"], quota_used=api.used)
     finally:
-        ledger.add(api.used, "web_approve")
+        record_use(t, api, ledger, "web_approve")
     appr = _read_json(web_dir(t) / "approved.json", {"approved": []})
     appr["approved"] = list(dict.fromkeys(appr["approved"] + [m["id"] for m in got]))
     _write_json(web_dir(t) / "approved.json", appr)
@@ -667,7 +852,7 @@ def job_comments(t, quiet=False):
     if not todo:
         return {"comments_todo": 0}
     try:
-        api, ledger, _ = make_api(t)
+        api, ledger, _ = make_api(t, "web_comments")
     except UserError as e:
         if not quiet:
             raise
@@ -692,7 +877,7 @@ def job_comments(t, quiet=False):
                 log("COMMENTS", logging.WARNING, topic=t, note="할당량이 끝나 멈춤 — 다음에 이어서", done=done, left=len(todo) - n)
                 break
     finally:
-        ledger.add(api.used, "web_comments")
+        record_use(t, api, ledger, "web_comments")
     log("COMMENTS", topic=t, todo=len(todo), completed=done, comments=got, quota_used=api.used)
     return {"comments_todo": len(todo), "comments_completed": done, "comments_quota_used": api.used,
             "comments_quota_stop": state["quota_stop"]}
@@ -708,7 +893,7 @@ def job_supply(t, n=None):
         words = words[:n]
     if not words:
         raise UserError("확인할 말이 없습니다 — 먼저 '검색어로도 찾기'로 탐색해 자동완성(수요)을 받고 다시 분석하세요")
-    api, ledger, _ = make_api(t)
+    api, ledger, _ = make_api(t, "web_supply")
     cache = out_dir(t) / ".cache"
     state = orr.new_state()
     done = []
@@ -724,7 +909,7 @@ def job_supply(t, n=None):
             done.append(w)
             log("SUPPLY", word=w, total=r.get("total"), found=len(r.get("ids") or []), cached=r.get("cached"))
     finally:
-        ledger.add(api.used, "web_supply")
+        record_use(t, api, ledger, "web_supply")
     res = {"supply_checked": len(done), "supply_quota_used": api.used}
     res.update(job_analyze(t))
     return res
@@ -738,6 +923,17 @@ def job_baseline(t, quiet=False):
     """같은 채널 기준선 (v1.4): 사례(W_·01_·P01_) 채널 중 구독자 ≤ 비교 기준(analysis_rules [compare] MAX_SUBS)인 곳의 최근 영상
     BASELINE_VIDEOS 개 (업로드 목록 + 영상 정보 — 채널 하나 약 2단위, 7일 캐시) → .cache/uploads_<채널ID>.json · .cache/<영상ID>.json
     → 분석(success_analysis 1-2번)이 '채널 평소 대비 ×'와 같은 채널 잘된 영상 vs 평소 영상을 셈. 성공 사례 채널부터, 할당량이 끝나면 멈춤."""
+    plan = baseline_plan(t)
+    cache, todo, fresh, need, meta_need = plan["cache"], plan["todo"], plan["fresh"], plan["need"], plan["meta_need"]
+    res = {"baseline_channels": len(todo), "baseline_cached": len(fresh), "channel_meta_missing": len(meta_need)}
+    if not need and not meta_need:
+        log("BASELINE", topic=t, channels=len(todo), cached=len(fresh), note="채널 평소 영상·채널 정보 — 모두 캐시")
+        return res
+    return _baseline_fetch(t, quiet, cache, todo, fresh, need, meta_need, res)
+
+
+def baseline_plan(t):
+    """같은 채널 기준선에서 받을 것 (v1.5: job_baseline 에서 떼어 냄 — 자동 이어서(resume_plan)도 셈). 할당량 0."""
     od = out_dir(t)
     cache = od / ".cache"
     succ = {c.get("id"): c.get("no") or 999 for c in (_read_json(od / "analysis.json", {}).get("success_cases") or [])}
@@ -771,12 +967,12 @@ def job_baseline(t, quiet=False):
     except Exception:
         known = {}
     meta_need = sorted(c for c in pool if not (isinstance(known.get(c), dict) and "created" in known[c]))
-    res = {"baseline_channels": len(todo), "baseline_cached": len(fresh), "channel_meta_missing": len(meta_need)}
-    if not need and not meta_need:
-        log("BASELINE", topic=t, channels=len(todo), cached=len(fresh), note="채널 평소 영상·채널 정보 — 모두 캐시")
-        return res
+    return {"cache": cache, "todo": todo, "fresh": fresh, "need": need, "meta_need": meta_need}
+
+
+def _baseline_fetch(t, quiet, cache, todo, fresh, need, meta_need, res):
     try:
-        api, ledger, _ = make_api(t)
+        api, ledger, _ = make_api(t, "web_baseline")
     except UserError as e:
         if not quiet:
             raise
@@ -809,7 +1005,7 @@ def job_baseline(t, quiet=False):
                 log("BASELINE", logging.WARNING, topic=t, note="할당량이 끝나 멈춤 — 다음에 이어서", done=got, left=len(need) - n)
                 break
     finally:
-        ledger.add(api.used, "web_baseline")
+        record_use(t, api, ledger, "web_baseline")
     log("BASELINE", topic=t, fetched=got, todo=len(need), quota_used=api.used)
     return {**res, "baseline_fetched": got, "baseline_quota_used": api.used, "baseline_quota_stop": state["quota_stop"]}
 
@@ -863,6 +1059,7 @@ def job_startup(t, whisper=True):
     res = job_comments(t, quiet=True)
     res.update(job_baseline(t, quiet=True))
     res.update(job_demand(t))
+    res.update(_resume_explore(t, "켤 때"))         # v1.5: 할당량 때문에 남은 탐색(검색·영상 정보)이 있으면 이어서
     if any(out_dir(t).glob("W_*/metadata.json")):
         res.update(job_analyze(t))
     n = whisper_pending(t, fresh=True)
@@ -871,6 +1068,95 @@ def job_startup(t, whisper=True):
         res["whisper"] = start_whisper(t, f"켤 때 남은 {n}개")[1]
     step("끝 — " + (res.get("push_note") or "올릴 결과 없음") + (f" · 음성인식 {n}개 남음" if n else ""))
     return res
+
+
+# ---------------------------------------------------------------- 할당량 초기화 뒤 자동으로 이어서 (v1.5)
+def resume_plan(t):
+    """할당량 때문에 남은 것 (할당량 0으로 셈): 탐색의 못 한 검색·채널·영상 정보 · 못 받은 댓글 · 같은 채널 기준선."""
+    ex = _read_json(web_dir(t) / "explore.json", {})
+    pend = list(ex.get("pending") or [])
+    pv = int(ex.get("pending_videos") or 0) + int(ex.get("pending_channels") or 0)
+    comments = 0
+    for d in sorted(out_dir(t).glob("W_*")):
+        m = _read_json(d / "metadata.json", None)
+        if m and m.get("id") and not m.get("comments_complete") and not m.get("comments_disabled"):
+            comments += 1
+    try:
+        bp = baseline_plan(t)
+        base = len(bp["need"]) + (1 if bp["meta_need"] else 0)
+    except Exception as e:                  # 계획을 못 세워도 다른 것은 이어서
+        log("RESUME", logging.WARNING, topic=t, note=f"채널 기준선 계획 실패 — {type(e).__name__}")
+        base = 0
+    plan = {"explore_searches": len(pend), "explore_videos": pv, "explore_weeks": ex.get("weeks"),
+            "explore_keywords": ex.get("use_keywords", True), "comments": comments, "baseline": base}
+    plan["any"] = bool(pend or pv or comments or base)
+    return plan
+
+
+def _resume_explore(t, why):
+    ex = _read_json(web_dir(t) / "explore.json", {})
+    if not (ex.get("pending") or ex.get("pending_videos") or ex.get("pending_channels")):
+        return {}
+    kl = key_ledger(t)
+    need = 100 + orr.SEARCH_RESERVE if ex.get("pending") else 1
+    if not kl or kl.left() < need:
+        log("RESUME", topic=t, why=why, note="남은 탐색이 있지만 할당량이 모자람 — 다음 초기화 뒤에", left=kl.left() if kl else "-")
+        return {"explore_resume": "할당량 모자람 — 다음 초기화 뒤"}
+    log("RESUME", topic=t, why=why, pending=len(ex.get("pending") or []), pending_videos=ex.get("pending_videos") or 0,
+        note="할당량 때문에 남은 탐색을 이어서 (캐시된 검색은 0단위, 체크는 그대로)")
+    r = job_explore(t, int(ex.get("weeks") or 8), bool(ex.get("use_keywords", True)))
+    return {"explore_resumed": True, "explore_pending_after": len(r.get("pending") or []), "explore_quota_used": r.get("quota_used")}
+
+
+def job_resume(t, why="할당량 초기화"):
+    """남은 것 이어서 (v1.5 — 사용자 지시 "사용량 초기화되면 자동으로 다시 분석 마저 하는거지? 그렇게 되야해"):
+    못 받은 댓글 → 같은 채널 기준선 → 남은 탐색 → 분석 다시·GitHub. 각 단계는 할당량이 끝나면 멈추고 다음 초기화 때 또 이어서."""
+    plan = resume_plan(t)
+    log("RESUME", topic=t, why=why, **{k: v for k, v in plan.items() if k != "any"})
+    res = {"plan": plan}
+    res.update(job_comments(t, quiet=True))
+    res.update(job_baseline(t, quiet=True))
+    res.update(_resume_explore(t, why))
+    if any(out_dir(t).glob("W_*/metadata.json")) and (plan["comments"] or plan["baseline"]):
+        res.update(job_analyze(t))           # 댓글·기준선이 바뀌었으면 분석을 다시 만들어 올림
+    after = resume_plan(t)
+    res["left_after"] = {k: v for k, v in after.items() if k != "any"}
+    RESUME.update(last=datetime.now(KST).isoformat(timespec="minutes"), last_result=res["left_after"])
+    step("끝 — " + ("남은 것 없음" if not after["any"] else "아직 남은 것은 다음 초기화 뒤에 또 이어서"))
+    return res
+
+
+def _resume_loop():
+    """태평양 자정 + RESUME_MARGIN_MIN 분마다 남은 것을 저절로 이어서 (이 창이 켜져 있는 동안). PC 가 잠들었다 깨도 벽시계로 다시 셈."""
+    while True:
+        try:
+            nxt, how = pc.next_quota_reset(datetime.now(timezone.utc), margin_min=RESUME_MARGIN_MIN)
+            RESUME.update(next=nxt.astimezone(KST).isoformat(timespec="minutes"), status="waiting")
+            while True:
+                left_s = (nxt - datetime.now(timezone.utc)).total_seconds()
+                if left_s <= 0:
+                    break
+                time.sleep(min(60.0, left_s))
+            t = STATE["topic"]
+            plan = resume_plan(t)
+            if not plan["any"]:
+                RESUME.update(last=datetime.now(KST).isoformat(timespec="minutes"), last_result={}, note="초기화 — 남은 것 없음")
+                log("RESUME", topic=t, note="할당량 초기화 — 이어서 할 것 없음")
+                time.sleep(90)
+                continue
+            RESUME.update(status="waiting_job")
+            waited = 0
+            while JOB["status"] == "running" and waited < RESUME_JOB_WAIT_H * 3600:
+                time.sleep(30)
+                waited += 30
+            ok, msg = start_job("할당량 초기화 — 남은 것 이어서", job_resume, t, "할당량 초기화")
+            RESUME.update(status="started" if ok else "skipped", note=msg)
+            log("RESUME", topic=t, started=ok, note=msg, waited_min=waited // 60)
+            time.sleep(90)                   # 같은 초기화로 두 번 돌지 않게
+        except Exception as e:               # 이어서 하기가 죽지 않게 — 기록하고 다음 초기화에
+            LOG.exception("[RESUME] 실패")
+            RESUME.update(status="error", note=f"{type(e).__name__}: {e}"[:200])
+            time.sleep(300)
 
 
 # ---------------------------------------------------------------- 음성인식 (뒤에서, v1.2)
@@ -1007,12 +1293,15 @@ def state_view(t):
     kp = keywords_path(t)
     text = kp.read_text("utf-8-sig") if kp.is_file() else ""
     until = orr.caption_blocked()
-    ledger = pc.Ledger(t)
+    STATE["topics"] = sorted(set(find_topics()) | {t}, key=lambda x: (x != "economic", x))     # v1.5: 새로 만든 주제 폴더도
+    wins = open_windows()
     return {"version": VERSION, "topic": t, "name": topic_name(t), "topics": STATE["topics"], "env": env_view(t),
+            "topic_names": {x: topic_name(x) for x in STATE["topics"]}, "windows": wins, "port": STATE.get("port"),
+            "resume": {**{k: v for k, v in RESUME.items()}, "plan": resume_plan(t)},
             "keywords_text": text, "keywords_count": len(pc.read_keyword_list(kp) or []), "targets": load_targets(t),
             "explore": {"generated": ex.get("generated"), "weeks": ex.get("weeks"), "videos": len(ex.get("rows") or []),
                         "checked": len(ex.get("checked") or []), "pending": ex.get("pending") or []},
-            "quota": {"used": ledger.used(), "budget": pc.DAILY_LIMIT - pc.DAILY_MARGIN, "day": pc.pacific_day(datetime.now(timezone.utc))},
+            "quota": quota_view(t),
             "caption_block": until.astimezone(KST).strftime("%m-%d %H:%M") if until else None,
             "approved": len(_read_json(web_dir(t) / "approved.json", {"approved": []})["approved"]),
             "job": job_view()}
@@ -1061,8 +1350,9 @@ class Handler(BaseHTTPRequestHandler):
         try:
             if u.path == "/api/state":
                 return self._send(200, state_view(t))
-            if u.path == "/api/job":
-                return self._send(200, {**job_view(), "whisper": whisper_view()})
+            if u.path == "/api/job":                                   # v1.5: 남은 할당량·자동 이어서도 (화면이 1~3초마다 물음)
+                return self._send(200, {**job_view(), "whisper": whisper_view(), "quota": quota_view(t),
+                                        "resume": {k: v for k, v in RESUME.items()}})
             if u.path == "/api/explore":
                 ex = _read_json(web_dir(t) / "explore.json", {})
                 used = used_ids(t)                                     # 이미 분석에 쓴 영상은 뺌 (승인하면 바로 빠짐)
@@ -1109,11 +1399,34 @@ class Handler(BaseHTTPRequestHandler):
         t = STATE["topic"]
         path = urllib.parse.urlparse(self.path).path
         try:
-            if path == "/api/topic":
-                if body.get("topic") not in STATE["topics"]:
-                    raise UserError("없는 주제 폴더")
-                STATE["topic"] = body["topic"]
+            if path == "/api/topic":                                   # v1.5: 창마다 주제 하나 (다른 창이 쓰는 주제는 못 고름)
+                nt = str(body.get("topic") or "")
+                if nt not in find_topics():
+                    raise UserError("없는 주제 폴더 (<폴더>/analyzer_config.toml 이 있어야 함)")
+                if nt != t:
+                    if JOB["status"] == "running":
+                        raise UserError(f"'{JOB['name']}' 작업이 도는 중 — 끝난 뒤(또는 [멈춤] 뒤)에 주제를 바꾸세요. 동시에 하려면 [새 창으로 열기]")
+                    if WHISPER["status"] in ("running", "stopping"):
+                        raise UserError("음성인식이 도는 중 — 멈춘 뒤 주제를 바꾸세요. 동시에 하려면 [새 창으로 열기]")
+                    claim_topic(nt)
+                    STATE["topic"] = nt
+                    log("TOPIC", topic=nt, note="이 창의 주제를 바꿈")
                 return self._send(200, state_view(STATE["topic"]))
+            if path == "/api/topic/new":                               # v1.5: 새 주제 폴더
+                r = create_topic(body.get("folder"), body.get("name"), body.get("keywords"), bool(body.get("push")))
+                return self._send(200, r)
+            if path == "/api/window/new":                              # v1.5: 다른 주제를 새 창(다른 포트)으로 — 동시에 탐색
+                nt = str(body.get("topic") or "")
+                if nt not in find_topics():
+                    raise UserError("없는 주제 폴더")
+                w = topic_window(nt) if nt != t else {"url": f"http://127.0.0.1:{STATE['port']}/"}
+                if w is not None:
+                    return self._send(200, {"ok": False, "url": w.get("url"), "message": "이미 열린 창이 있습니다"})
+                spawn_windows([nt])
+                return self._send(200, {"ok": True, "message": f"'{nt}' 새 창을 띄웠습니다 — 브라우저 탭이 하나 더 열립니다 (몇 초)"})
+            if path == "/api/resume":                                  # v1.5: [지금 이어서] — 초기화를 기다리지 않고 남은 것을 이어서
+                ok, msg = start_job("남은 것 이어서", job_resume, t, "화면에서")
+                return self._send(200 if ok else 409, {"ok": ok, "message": msg})
             if path == "/api/env":
                 changed = []
                 for name in ENV_NAMES:
@@ -1187,6 +1500,22 @@ class Handler(BaseHTTPRequestHandler):
         return self._send(404, {"error": "없는 주소"})
 
 
+CHILDREN = []          # v1.5: 이 창이 띄운 다른 주제 창 (이 창을 끄면 같이 끔)
+SPAWN_OPTS = {"flags": []}
+
+
+def spawn_windows(topics):
+    """다른 주제를 새 창(프로세스·포트)으로 (v1.5). 출력은 .yt_work/web_ui_<주제>.log. 같은 키의 할당량은 키 장부로 함께 셈."""
+    for t in topics:
+        logp = ROOT / ".yt_work" / f"web_ui_{_window_tag(t)}.log"
+        cmd = [sys.executable, str(Path(__file__).resolve()), t, "--port", str((STATE.get("port") or 8765) + 1), "--no-sync",
+               "--skip-install", "--log-file", str(logp)] + SPAWN_OPTS["flags"]
+        env = {**os.environ, "PYTHONIOENCODING": "utf-8", "PYTHONUTF8": "1"}
+        err = open(logp.with_suffix(".err.log"), "a", encoding="utf-8")
+        CHILDREN.append(subprocess.Popen(cmd, cwd=ROOT, env=env, stdout=subprocess.DEVNULL, stderr=err))
+        log("WINDOW", topic=t, note="이 주제는 새 창(다른 포트)으로 — 브라우저 탭이 하나 더 열림", log_file=str(logp.relative_to(ROOT)))
+
+
 def serve(port, host="127.0.0.1"):
     for p in range(port, port + 20):
         try:
@@ -1207,6 +1536,8 @@ def main(argv=None):
     ap.add_argument("--no-whisper", action="store_true", help="켤 때 음성인식을 뒤에서 시작하지 않음 (화면의 [음성인식 시작]으로)")
     ap.add_argument("--no-startup", action="store_true", help="켤 때 주별 분석 다시 만들기·올리기를 하지 않음")
     ap.add_argument("--log-level", default="INFO", choices=["DEBUG", "INFO", "WARNING"])
+    ap.add_argument("--log-file", default="", help=argparse.SUPPRESS)          # v1.5: 다른 주제 창(spawn_windows)이 따로 쓰는 기록 파일
+    ap.add_argument("--no-resume", action="store_true", help="할당량 초기화 뒤 남은 것을 저절로 이어서 하지 않음")
     a = ap.parse_args(argv)
     for s in (sys.stdout, sys.stderr):
         try:
@@ -1220,7 +1551,7 @@ def main(argv=None):
         h.setFormatter(fmt)
         root_log.addHandler(h)
     (ROOT / ".yt_work").mkdir(exist_ok=True)
-    fh = logging.FileHandler(ROOT / ".yt_work" / "web_ui.log", encoding="utf-8")
+    fh = logging.FileHandler(Path(a.log_file) if a.log_file else ROOT / ".yt_work" / "web_ui.log", encoding="utf-8")
     fh.setFormatter(fmt)
     root_log.addHandler(fh)
     topics = a.topics or find_topics()
@@ -1229,6 +1560,18 @@ def main(argv=None):
     if "economic" in topics:
         topics = ["economic"] + [x for x in topics if x != "economic"]
     STATE.update(topic=topics[0], topics=topics)
+    SPAWN_OPTS["flags"] = ["--log-level", a.log_level] + [f for f, on in (("--no-browser", a.no_browser), ("--no-whisper", a.no_whisper),
+                                                                           ("--no-startup", a.no_startup), ("--no-resume", a.no_resume)) if on]
+    # v1.5: 창마다 주제 하나 — 같은 주제가 이미 다른 창에 열려 있으면 그 창을 열고 끝 (같은 주제를 두 창이 동시에 쓰지 않게)
+    free = [t for t in topics if topic_window(t) is None]
+    if not free:
+        other = topic_window(topics[0]) or {}
+        url = other.get("url") or ""
+        log("START", topics=",".join(topics), note="이 주제는 이미 다른 분석기 창에 열려 있음 — 그 창을 씀", url=url or "-")
+        print(f"\n  ▶ '{topics[0]}' 분석기 화면은 이미 열려 있습니다: {url or '(다른 창)'}\n    다른 주제를 동시에 하려면: run_analyzer.ps1 -Folder <주제>\n", flush=True)
+        if url and not a.no_browser:
+            webbrowser.open(url)
+        return 0
     if not a.skip_install and not pc.ensure_packages(False):
         raise SystemExit("[START] ❌ 패키지 설치 실패 — 위 오류 확인")
     if not a.no_sync:                         # v1.3: 코드도 — 실행기 목록에 없는 새 도구(tools/success_analysis.py)가 PC 에 오게 (불러오기 전에)
@@ -1244,6 +1587,19 @@ def main(argv=None):
     orr, wa = _orr, _wa
     srv, port = serve(a.port)
     STATE["port"] = port
+    mine = None
+    for t in free:                            # v1.5: 이 창의 주제 (잠금) — 켜는 사이 다른 창이 먼저 잡았으면 다음 주제
+        try:
+            claim_topic(t)
+            mine = t
+            break
+        except UserError as e:
+            log("START", logging.WARNING, topic=t, note=str(e))
+    if mine is None:
+        srv.server_close()
+        print("\n  ▶ 고른 주제가 모두 다른 창에 열려 있습니다 — 그 창을 쓰세요\n", flush=True)
+        return 0
+    STATE["topic"] = mine
     url = f"http://127.0.0.1:{port}/"
     log("START", url=url, topics=",".join(topics), tool=f"web_ui.py {VERSION}",
         note="이 창을 닫으면 화면도 꺼집니다 (Ctrl+C 로 끝냄)")
@@ -1252,12 +1608,22 @@ def main(argv=None):
         threading.Timer(0.8, lambda: webbrowser.open(url)).start()
     if not a.no_startup:                      # v1.2: 승인한 영상 결과를 새로 만들어 올리고, 남은 음성인식은 뒤에서
         start_job("켤 때 — 분석 결과 올리기", job_startup, STATE["topic"], not a.no_whisper)
+    if not a.no_resume:                       # v1.5: 할당량 초기화(태평양 자정 +10분) 뒤 남은 것을 저절로 이어서
+        threading.Thread(target=_resume_loop, daemon=True, name="resume").start()
+        log("RESUME", topic=STATE["topic"], next_kst=pc.next_quota_reset(datetime.now(timezone.utc), RESUME_MARGIN_MIN)[0].astimezone(KST)
+            .strftime("%m-%d %H:%M"), note="할당량이 끝나 남은 것은 초기화 뒤 저절로 이어서 (이 창을 켜 둔 동안)")
+    if a.topics and len(a.topics) > 1:        # v1.5: 주제를 여러 개 주면 나머지 주제는 창을 하나씩 (동시에 탐색)
+        spawn_windows([t for t in free if t != mine])
     try:
         srv.serve_forever()
     except KeyboardInterrupt:
         log("DONE", note="화면을 끔")
     finally:
         srv.server_close()
+        release_topic()
+        for c in CHILDREN:                    # 이 창이 띄운 다른 주제 창도 끔
+            if c.poll() is None:
+                c.terminate()
         for holder in (WHISPER, JOB):          # 음성인식·올리기도 같이 끝냄 (하던 영상은 다음에 처음부터)
             p = holder.get("proc")
             if p and p.poll() is None:
@@ -1298,9 +1664,25 @@ details{border:1px solid var(--line);border-radius:8px;padding:8px 12px;margin-t
 .msg{min-height:20px;font-size:13px}h3.sub{font-size:14px;margin:14px 0 6px}.tag.x{border-color:var(--warn);color:var(--warn)}.k{display:grid;grid-template-columns:150px 1fr;gap:8px;align-items:center;margin-bottom:8px}
 @media (max-width:600px){.k{grid-template-columns:1fr}}
 </style></head><body>
-<header><h1 id="title">분석기</h1><select id="topic" title="주제 폴더"></select>
+<header><h1 id="title">분석기</h1><select id="topic" title="주제 폴더 — 창 하나에 주제 하나 (다른 주제는 새 창으로 동시에)"></select>
 <span class="pill" id="quota">할당량 …</span><span class="pill" id="caption">자막 서버 …</span><span class="pill" id="wPill">음성인식 …</span><span class="pill" id="ver"></span></header>
 <main>
+<section class="card"><h2>0. 주제 · 할당량 <small>창 하나에 주제 하나 — 다른 주제는 새 창으로 동시에 탐색 · 할당량은 같은 키를 쓰는 모든 창·주제가 함께</small></h2>
+ <div class="row"><b id="qBig">할당량 …</b><span class="mut" id="qReset"></span></div>
+ <div class="bar" style="margin-top:6px"><i id="qBar"></i></div>
+ <div class="mut" id="qBy" style="margin-top:6px"></div>
+ <div class="row" style="margin-top:6px"><span class="grow mut" id="resumeInfo"></span><button id="resumeNow" title="초기화를 기다리지 않고 남은 탐색·댓글·채널 기준선을 지금 이어서 (남은 할당량만큼)">지금 이어서</button></div>
+ <div class="mut" id="winInfo" style="margin-top:4px"></div>
+ <details><summary>다른 주제를 새 창으로 · 새 주제 만들기</summary>
+  <div class="row" style="margin-top:8px"><select id="winTopic"></select><button id="winOpen">새 창으로 열기</button><span class="msg" id="winMsg"></span></div>
+  <h3 class="sub">새 주제 만들기 <small class="mut">— economic 설정을 틀로 <code>&lt;폴더&gt;/analyzer_config.toml · keywords.txt · keywords.toml</code></small></h3>
+  <div class="k"><label for="ntFolder">폴더 이름 (영어 소문자)</label><input type="text" id="ntFolder" placeholder="예: health"></div>
+  <div class="k"><label for="ntName">주제 이름</label><input type="text" id="ntName" placeholder="예: 건강"></div>
+  <div class="k"><label for="ntKw">검색어 (한 줄에 하나)</label><textarea id="ntKw" style="min-height:90px"></textarea></div>
+  <div class="row"><button class="pri" id="ntMake">주제 폴더 만들기</button><label><input type="checkbox" id="ntPush" checked> GitHub 에도 저장</label><span class="msg" id="ntMsg"></span></div>
+  <div class="mut">관련어(주제와 관련된 영상 가리기)는 비어 있게 만들어집니다 — 비어 있으면 모든 검색 결과를 주제 관련으로 봅니다. 다듬으려면 Claude 에게 '&lt;주제&gt; 검색어 만들어줘'.</div>
+ </details>
+</section>
 <div class="two">
  <section class="card"><h2>1. 키 설정 <small>.env — 끝 4자리만 보입니다</small></h2>
   <div class="k"><label for="ytkey">YouTube API 키</label><div><input type="password" id="ytkey" class="grow" style="width:100%" placeholder="바꿀 때만 붙여넣기" autocomplete="off"><div class="mut" id="ytkey_now"></div></div></div>
@@ -1350,26 +1732,47 @@ details{border:1px solid var(--line);border-radius:8px;padding:8px 12px;margin-t
  <div id="report" class="mut">승인한 영상이 생기면 여기에 나옵니다</div></section>
 </main>
 <script>
-const T=document.querySelector('meta[name=t]').content;let ROWS=[],CHECK=new Set(),REC=new Set(),busy=false,lastJob=null,waitDone=false,lastWDone=null;
+const T=document.querySelector('meta[name=t]').content;let ROWS=[],CHECK=new Set(),REC=new Set(),busy=false,lastJob=null,waitDone=false,lastWDone=null,TOPICS={names:{},windows:[]},PLAN=null;
 const $=id=>document.getElementById(id);const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const num=x=>x==null?'–':(typeof x==='number'?x.toLocaleString('ko-KR',{maximumFractionDigits:1}):x);
 async function api(p,b){const r=await fetch(p,{method:b?'POST':'GET',headers:{'X-Token':T,'Content-Type':'application/json'},body:b?JSON.stringify(b):undefined});
  const j=await r.json().catch(()=>({error:'응답 오류'}));if(!r.ok)throw new Error(j.error||j.message||r.status);return j}
 function say(id,t,cls){const e=$(id);e.textContent=t;e.className='msg '+(cls||'')}
 async function loadState(){const s=await api('/api/state');$('title').textContent=s.name+' 분석기';$('ver').textContent='web_ui '+s.version;
- $('topic').innerHTML=s.topics.map(t=>`<option ${t===s.topic?'selected':''}>${esc(t)}</option>`).join('');
- $('quota').textContent=`오늘 할당량 ${num(s.quota.used)} / ${num(s.quota.budget)}`;
+ renderTopics(s);PLAN=s.resume&&s.resume.plan;renderQuota(s.quota);renderResume(s.resume);
  $('caption').textContent=s.caption_block?`자막 서버 차단 — ${s.caption_block}까지 쉬는 중 (음성인식으로)`:'자막 서버 정상';$('caption').className='pill '+(s.caption_block?'warn':'');
  const e=s.env;$('ytkey_now').innerHTML=e.YOUTUBE_API_KEY.set?`<span class=ok>설정됨</span> ${esc(e.YOUTUBE_API_KEY.tail)} · ${esc(e.YOUTUBE_API_KEY.source)}`:'<span class=bad>없음</span> — 넣어야 탐색할 수 있습니다';
  $('ghtok_now').innerHTML=e.GITHUB_TOKEN.set?`<span class=ok>설정됨</span> ${esc(e.GITHUB_TOKEN.tail)} · ${esc(e.GITHUB_TOKEN.source)}`:'없음 — 결과는 PC 에만 저장';
  if(document.activeElement!==$('kw'))$('kw').value=s.keywords_text;$('kwCount').textContent=`검색어 ${s.keywords_count}개`;
  renderTargets(s.targets);showJob(s.job);estimate();return s}
+function hm(m){return m>=60?`${Math.floor(m/60)}시간 ${m%60}분`:`${m}분`}
+function renderQuota(q){if(!q)return;
+ if(q.key===null){$('quota').textContent='할당량 — 키 없음';$('quota').className='pill warn';$('qBig').textContent='YouTube API 키를 넣으면 남은 할당량이 보입니다';$('qBy').textContent='';return}
+ const pct=Math.min(100,Math.round(100*q.used/Math.max(1,q.budget)));
+ $('quota').textContent=`남은 할당량 ${num(q.left)} / ${num(q.budget)} · 초기화 ${q.reset_kst} (${hm(q.reset_in_min)} 뒤)`;
+ $('quota').className='pill '+(q.left<=0?'bad':q.left<1000?'warn':'ok');
+ $('qBig').textContent=q.exhausted?`오늘 할당량 끝 — Google 이 하루 한도라고 답함 (장부상 쓴 양 ${num(q.used)})`:`남은 ${num(q.left)}단위 · 오늘 쓴 ${num(q.used)} / ${num(q.budget)}`;
+ $('qReset').textContent=` · 하루 ${num(q.limit)} − 여유 ${num(q.margin)} · 초기화 한국 시간 ${q.reset_kst} (${hm(q.reset_in_min)} 뒤)`;
+ $('qBar').style.width=pct+'%';$('qBar').style.background=q.left<=0?'var(--bad)':q.left<1000?'var(--warn)':'var(--acc)';
+ const bt=Object.entries(q.by_topic||{}).filter(x=>x[1]).map(([k,v])=>`${esc(k)} ${num(v)}`).join(' · ');
+ const bw=Object.entries(q.by_what||{}).filter(x=>x[1]).sort((a,b)=>b[1]-a[1]).slice(0,6).map(([k,v])=>`${esc(k)} ${num(v)}`).join(' · ');
+ $('qBy').innerHTML=`주제별 ${bt||'—'} · 작업별 ${bw||'—'} <span class=mut>(같은 키를 쓰는 이 PC 의 모든 창·자동 실행 합계 — 다른 PC·클라우드에서 쓴 양은 모름, 그때는 Google 의 한도 답으로 멈춤)</span>`}
+function renderResume(r){if(!r)return;const p=PLAN||{};
+ const parts=[p.explore_searches?`검색 ${p.explore_searches}개`:'',p.explore_videos?`영상 정보 ${p.explore_videos}개`:'',p.comments?`댓글 못 받은 영상 ${p.comments}개`:'',p.baseline?`채널 기준선 ${p.baseline}곳`:''].filter(Boolean);
+ const nx=r.next?`다음 자동 이어서: 한국 시간 ${r.next.slice(5,16).replace('T',' ')}`:'자동 이어서 꺼짐 (--no-resume)';
+ $('resumeInfo').textContent=(parts.length?`할당량 때문에 남은 것: ${parts.join(' · ')} → ${nx}`:`남은 것 없음 · ${nx}`)+(r.status==='waiting_job'?' · 지금 작업이 끝나길 기다리는 중':'')+(r.last?` · 지난번 ${r.last.slice(5,16).replace('T',' ')}`:'')}
+function renderTopics(s){TOPICS={names:s.topic_names||{},windows:s.windows||[]};
+ const other=Object.fromEntries(TOPICS.windows.filter(w=>!w.me).map(w=>[w.topic,w.url]));
+ $('topic').innerHTML=s.topics.map(t=>`<option value="${esc(t)}" ${t===s.topic?'selected':''}>${esc(t)}/ · ${esc(TOPICS.names[t]||t)}${other[t]?' (다른 창에 열림)':''}</option>`).join('');
+ const rest=s.topics.filter(t=>t!==s.topic);
+ $('winTopic').innerHTML=rest.length?rest.map(t=>`<option value="${esc(t)}">${esc(t)}/ · ${esc(TOPICS.names[t]||t)}${other[t]?' (이미 열림 — 그 창으로)':''}</option>`).join(''):'<option value="">다른 주제 없음 — 아래에서 만들기</option>';
+ $('winInfo').innerHTML='열린 창: '+TOPICS.windows.map(w=>w.me?`<b>${esc(w.topic)}</b> (이 창)`:`<a href="${esc(w.url)}" target=_blank rel=noopener>${esc(w.topic)}</a>`).join(' · ')}
 function renderTargets(tg){const c=tg.channels.map(x=>`<span class=chip>📺 ${esc(x.title||x.id)} <span class=mut>영상 ${num(x.videos)}개</span><button data-k=channel data-id="${esc(x.id)}" title="빼기">✕</button></span>`);
  const v=tg.videos.map(x=>`<span class=chip>▶ ${esc((x.title||x.id).slice(0,40))}<button data-k=video data-id="${esc(x.id)}" title="빼기">✕</button></span>`);
  $('tgList').innerHTML=(c.concat(v).join(''))||'<span class=mut>추가한 영상·채널 없음</span>';
  $('tgList').querySelectorAll('button').forEach(b=>b.onclick=async()=>{const r=await api('/api/targets/remove',{kind:b.dataset.k,id:b.dataset.id});renderTargets(r.targets);estimate()})}
 let estT;function estimate(){clearTimeout(estT);estT=setTimeout(async()=>{try{const e=await api(`/api/estimate?weeks=${$('weeks').value}&kw=${$('useKw').checked?1:0}`);
- $('est').textContent=`검색 ${e.searches}번 (캐시 ${e.cached}) + 채널 ${e.channels}·영상 ${e.videos} → 약 ${num(e.units)}단위`}catch(x){$('est').textContent=x.message}},250)}
+ $('est').textContent=`검색 ${e.searches}번 (캐시 ${e.cached}) + 채널 ${e.channels}·영상 ${e.videos} → 약 ${num(e.units)}단위`+(e.left!=null?` · 오늘 남은 ${num(e.left)}`+(e.units>e.left?' (모자라는 만큼은 초기화 뒤 저절로 이어서)':''):'')}catch(x){$('est').textContent=x.message}},250)}
 async function loadRows(){const d=await api('/api/explore');ROWS=d.rows;CHECK=new Set(d.checked);REC=new Set(ROWS.filter(r=>r.reason).map(r=>r.id));
  const ex=Object.entries(d.excluded||{}).map(([k,v])=>`${k} ${v}개`);if(d.used_hidden)ex.unshift(`이미 분석에 쓴 영상 ${d.used_hidden}개`);
  $('listInfo').textContent=(d.generated?`배수 높은 순 · ${d.generated.slice(0,16).replace('T',' ')} 탐색 (최근 ${d.weeks}주) · 영상 ${ROWS.length.toLocaleString()}개 · 추천은 체크해 둠`:'배수 높은 순 · 추천은 체크해 둠')+(ex.length?` · 뺀 것: ${ex.join(', ')}`:'');renderRows()}
@@ -1389,10 +1792,10 @@ function renderRows(){if(!ROWS.length){$('rowsOn').innerHTML='<tr><td colspan=10
  document.querySelectorAll('#rowsOn input[type=checkbox],#rowsOff input[type=checkbox]').forEach(c=>c.onchange=()=>{c.checked?CHECK.add(c.dataset.id):CHECK.delete(c.dataset.id);renderRows();saveChk()});updChk()}
 function updChk(){$('chkInfo').textContent=`체크 ${CHECK.size.toLocaleString()}개 / 목록 ${ROWS.length.toLocaleString()}개`;$('approve').disabled=busy||!CHECK.size}
 let chkT;function saveChk(){clearTimeout(chkT);chkT=setTimeout(()=>api('/api/checked',{ids:[...CHECK]}).catch(()=>{}),700)}
-function showJob(j){busy=j.status==='running';$('jobName').textContent=j.name?`${j.name} — ${({running:'도는 중',done:'끝',error:'오류',cancelled:'멈춤',idle:''})[j.status]||j.status}`:'';
+function showJob(j){if(j.quota)renderQuota(j.quota);if(j.resume)renderResume(j.resume);busy=j.status==='running';$('jobName').textContent=j.name?`${j.name} — ${({running:'도는 중',done:'끝',error:'오류',cancelled:'멈춤',idle:''})[j.status]||j.status}`:'';
  $('jobStep').innerHTML=j.status==='error'?`<span class=bad>${esc(j.error)}</span>`:esc(j.step||'쉬는 중');
  $('jobBar').style.width=j.total?Math.round(100*j.done/j.total)+'%':(busy?'15%':'0');$('cancel').disabled=!busy;
- ['explore','reanalyze','comments'].forEach(id=>$(id).disabled=busy);updChk();
+ ['explore','reanalyze','comments','resumeNow'].forEach(id=>$(id).disabled=busy);updChk();
  const r=j.result||{};$('jobRes').innerHTML=j.status==='done'&&(r.push_note||r.materials||r.whisper)?[r.push_note?`GitHub: ${esc(r.push_note)}`:'',
   r.description_fallback!=null?`자막 ${r.transcripts_ok}개 · 설명으로 대신 ${r.description_fallback}개${r.no_text?` · 글 없음 ${r.no_text}개`:''}`:'',
   r.materials?`<span class="${String(r.materials).startsWith('PC')?'warn':'ok'}">자료(사례 폴더): ${esc(r.materials)}</span>`:'',r.whisper?`음성인식: ${esc(r.whisper)}`:''].filter(Boolean).join('<br>'):'';
@@ -1440,7 +1843,14 @@ async function loadReport(){const r=await api('/api/report');if(!r.windows){$('r
   ${w.comment_needs.length?`<p><b>댓글 ${num(w.comments)}개 니즈</b> ${w.comment_needs.map(n=>esc(n.name)+' '+pct(n.share)).join(' · ')}</p><ul>${w.top_comments.map(c=>`<li>👍${num(c.likes)} “${esc(c.text)}”</li>`).join('')}</ul>`:''}
   <p><b>상위 영상</b> (하루 조회수 순)</p><ol>${w.top_videos.map(v=>`<li><a href="${v.url}" target=_blank rel=noopener>${esc(v.title)}</a> <span class=mut>${esc(v.channel)} · ${num(v.views)}회 · 하루 ${num(v.views_per_day)} · ${v.published}</span></li>`).join('')}</ol></details>`).join('');
  $('report').innerHTML=h}
-$('topic').onchange=async()=>{await api('/api/topic',{topic:$('topic').value});await loadState();await loadRows();await loadReport();await loadAnalysis()};
+$('topic').onchange=async()=>{const nt=$('topic').value;const w=TOPICS.windows.find(x=>x.topic===nt&&!x.me);
+ if(w){window.open(w.url,'_blank');await loadState();return}
+ try{await api('/api/topic',{topic:nt});await loadState();await loadRows();await loadReport();await loadAnalysis()}catch(e){alert(e.message);await loadState()}};
+$('winOpen').onclick=async()=>{const nt=$('winTopic').value;if(!nt)return;try{const r=await api('/api/window/new',{topic:nt});
+ if(!r.ok&&r.url)window.open(r.url,'_blank');say('winMsg',r.message,r.ok?'ok':'');setTimeout(loadState,5000)}catch(e){say('winMsg',e.message,'bad')}};
+$('ntMake').onclick=async()=>{try{const r=await api('/api/topic/new',{folder:$('ntFolder').value.trim(),name:$('ntName').value.trim(),keywords:$('ntKw').value,push:$('ntPush').checked});
+ say('ntMsg',r.message+' — 위 주제 목록에서 고르거나 [새 창으로 열기]','ok');$('ntFolder').value='';$('ntName').value='';$('ntKw').value='';await loadState()}catch(e){say('ntMsg',e.message,'bad')}};
+$('resumeNow').onclick=()=>startJob('/api/resume',{});
 $('saveEnv').onclick=async()=>{try{const r=await api('/api/env',{YOUTUBE_API_KEY:$('ytkey').value,GITHUB_TOKEN:$('ghtok').value});$('ytkey').value='';$('ghtok').value='';
  say('envMsg',r.changed.length?`저장함: ${r.changed.join(', ')}`:'바뀐 것 없음 (넣은 칸만 저장)','ok');loadState()}catch(e){say('envMsg',e.message,'bad')}};
 $('saveKw').onclick=async()=>{try{const r=await api('/api/keywords',{text:$('kw').value,push:$('kwPush').checked});say('kwMsg',r.message,'ok');$('kwCount').textContent=`검색어 ${r.count}개`;estimate()}catch(e){say('kwMsg',e.message,'bad')}};

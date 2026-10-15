@@ -1,6 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.10 — 2026-10-14 — 음성인식 기록 요약(whisper_summary)이 2차(전체) 기록('<영상ID>#full' — 분석기 v2.10.0)을 영상으로 세지 않게
+# VERSION: v1.11 — 2026-10-15 — 할당량을 키 하나로 함께 셈 (사용자 지시: "웹 ui에 사용량 얼마나 남았는지 표시하고 그리고 분석기 여러개 열어서
+#          각자 다른 주제로 탐색해도 되지? … 사용량 초기화되면 자동으로 다시 분석 마저 하는거지? 그렇게 되야해"):
+#          ① KeyLedger — 같은 YouTube API 키를 쓰는 모든 창·주제·도구가 한 장부(.yt_work/quota_key_<키 지문>.json, 키 자체는 안 씀)를
+#             OS 파일 잠금으로 함께 씀. 요청마다 먼저 단위를 잡고(reserve) 실패하면 돌려줌(refund) → 창 두 개가 동시에 써도 한도를 넘지 않음.
+#             Google 이 '하루 할당량 끝'이라고 답하면 그날은 모든 창이 0 으로 봄(mark_exhausted)
+#          ② quota_snapshot — 오늘 쓴 양·남은 양·주제별·다음 초기화(한국 시간) (웹 화면 표시용)
+#          ③ Ledger.add 가 키 장부에도 더함 (자동 실행 -Auto 가 쓴 양도 웹 화면에 보임), 자동 실행의 남은 양 = min(주제 몫, 키 장부 남은 양)
+#          ④ os_lock / os_unlock — 잠근 프로세스가 죽으면 OS 가 풀어 주는 파일 잠금 (웹 화면의 주제 잠금도 이것)
+# (v1.10 — 2026-10-14 — 음성인식 기록 요약(whisper_summary)이 2차(전체) 기록('<영상ID>#full' — 분석기 v2.10.0)을 영상으로 세지 않게)
 # (v1.9 — 2026-10-14 — 성공 사례 분석 도구(tools/success_analysis.py)·규칙(<주제>/analysis_rules.toml)도 GitHub 최신으로 받는 목록에
 #          (SYNC_CODE·SYNC_CONFIG — 사용자 지시: "… 올바른 분석 결과까지만 내도록 수정해"))
 # (v1.8 — 2026-10-14 — 웹 화면(tools/web_ui.py·tools/weekly_analysis.py)도 회차마다 GitHub 최신으로 받는 코드 목록에 (SYNC_CODE).
@@ -95,7 +103,7 @@ from datetime import date, datetime, time as dtime, timedelta, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v1.10"
+VERSION = "v1.11"
 LOG = logging.getLogger("pc_analysis")
 KST = timezone(timedelta(hours=9))
 LOCK_STALE_MIN = 30          # 잠금 파일이 이 시간 넘게 갱신되지 않으면 이전 실행이 죽은 것으로 봄
@@ -163,7 +171,7 @@ class Ledger:
     날짜가 바뀌면 0부터. 다른 곳(클라우드 등)에서 같은 키로 쓴 양은 모름 → 그때는 도구가 하루 한도 오류로 멈추고 다음 날 이어서."""
 
     def __init__(self, folder, now_fn=lambda: datetime.now(timezone.utc)):
-        self.p, self.now_fn = ROOT / ".yt_work" / f"quota_{folder}.json", now_fn
+        self.p, self.now_fn, self.folder = ROOT / ".yt_work" / f"quota_{folder}.json", now_fn, folder
 
     def _load(self):
         day = pacific_day(self.now_fn())
@@ -176,13 +184,178 @@ class Ledger:
     def used(self):
         return self._load()["used"]
 
-    def add(self, units, what):
+    def add(self, units, what, forward=True):
+        """forward=True(기본) 면 키 장부(KeyLedger)에도 더함 — 요청마다 이미 키 장부에 적은 웹 화면은 forward=False (v1.11)."""
         d = self._load()
         d["used"] += int(units or 0)
         d["runs"].append({"what": what, "units": int(units or 0), "kst": datetime.now(KST).isoformat(timespec="minutes")})
         self.p.parent.mkdir(parents=True, exist_ok=True)
         self.p.write_text(json.dumps(d, ensure_ascii=False, indent=1), "utf-8")
+        if forward and units:
+            kl = KeyLedger.for_folder(self.folder, self.now_fn)
+            if kl:
+                kl.add(units, what, self.folder)
         return d["used"]
+
+
+# ---------------------------------------------------------------- 키 하나 = 장부 하나 (v1.11 — 여러 창·여러 주제가 함께)
+def os_lock(path, wait_sec=0.0, poll=0.05):
+    """OS 파일 잠금 — 잠근 프로세스가 죽으면 OS 가 풀어 줌 (남은 잠금 파일 때문에 영영 막히지 않음).
+    → 잠긴 파일 객체(os_unlock 으로 풂) 또는 None (wait_sec 안에 못 얻음). 분석기 file_lock 과 같은 방식."""
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    f = open(path, "a+")
+    deadline = time.monotonic() + max(0.0, wait_sec)
+    while True:
+        try:
+            if os.name == "nt":
+                import msvcrt
+                f.seek(0)
+                msvcrt.locking(f.fileno(), msvcrt.LK_NBLCK, 1)
+            else:
+                import fcntl
+                fcntl.flock(f.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
+            return f
+        except OSError:
+            if time.monotonic() >= deadline:
+                f.close()
+                return None
+            time.sleep(poll)
+
+
+def os_unlock(f):
+    if not f:
+        return
+    try:
+        if os.name == "nt":
+            import msvcrt
+            f.seek(0)
+            msvcrt.locking(f.fileno(), msvcrt.LK_UNLCK, 1)
+        else:
+            import fcntl
+            fcntl.flock(f.fileno(), fcntl.LOCK_UN)
+    except OSError:
+        pass
+    finally:
+        f.close()
+
+
+def key_fingerprint(key):
+    """API 키 → 장부 파일 이름에 쓸 지문 (sha256 앞 12자리 — 키 자체는 어디에도 쓰지 않음)."""
+    return hashlib.sha256(str(key).encode("utf-8")).hexdigest()[:12]
+
+
+class KeyLedger:
+    """오늘(태평양 날짜) 이 YouTube API 키가 쓴 단위 — 이 PC 의 모든 창(웹 화면 여러 개)·주제·자동 실행이 함께 쓰는 장부 (v1.11).
+    파일: .yt_work/quota_key_<지문>.json (+ .lock — OS 잠금으로 읽고 쓰기를 한 번에 하나씩).
+    reserve(단위) = 남은 양 안이면 먼저 적고 True (요청 전에), refund = 요청이 실패하면 돌려줌.
+    다른 PC·클라우드에서 같은 키로 쓴 양은 모름 → Google 이 하루 한도라고 답하면 mark_exhausted 로 그날은 0."""
+
+    RUNS_KEEP = 200
+
+    def __init__(self, key, now_fn=lambda: datetime.now(timezone.utc), limit=None, margin=None):
+        self.fp = key_fingerprint(key)
+        self.p = ROOT / ".yt_work" / f"quota_key_{self.fp}.json"
+        self.lock_p = self.p.with_suffix(".lock")
+        self.now_fn = now_fn
+        self.limit = DAILY_LIMIT if limit is None else int(limit)
+        self.margin = DAILY_MARGIN if margin is None else int(margin)
+
+    @classmethod
+    def for_folder(cls, folder, now_fn=lambda: datetime.now(timezone.utc)):
+        """그 주제가 쓰는 키(<주제>/.env → 맨 위 .env → 환경 변수)의 장부. 키가 없으면 None."""
+        key = find_secret("YOUTUBE_API_KEY", folder)[0]
+        return cls(key, now_fn) if key else None
+
+    def _empty(self, day):
+        return {"day": day, "used": 0, "by_topic": {}, "by_what": {}, "exhausted": False, "runs": [], "updated": None}
+
+    def _load(self):
+        day = pacific_day(self.now_fn())
+        try:
+            d = json.loads(self.p.read_text("utf-8"))
+        except (OSError, ValueError):
+            d = {}
+        return d if d.get("day") == day else self._empty(day)
+
+    def _save(self, d):
+        d["updated"] = datetime.now(KST).isoformat(timespec="seconds")
+        tmp = self.p.with_name(self.p.name + f".{os.getpid()}.tmp")
+        tmp.write_text(json.dumps(d, ensure_ascii=False, indent=1), "utf-8")
+        os.replace(tmp, self.p)
+
+    def _locked(self, fn):
+        f = os_lock(self.lock_p, wait_sec=15)
+        if f is None:                      # 15초 넘게 못 얻음 (거의 없음) — 잠금 없이라도 진행 (세는 것이 조금 틀릴 수 있음)
+            log("QUOTA", logging.WARNING, note="할당량 장부 잠금을 15초 안에 못 얻음 — 잠금 없이 적음", file=self.p.name)
+        try:
+            d = self._load()
+            out = fn(d)
+            self._save(d)
+            return out
+        finally:
+            os_unlock(f)
+
+    def used(self):
+        return int(self._load()["used"])
+
+    def left(self, d=None):
+        d = d or self._load()
+        return 0 if d.get("exhausted") else max(0, self.limit - self.margin - int(d["used"]))
+
+    def _bump(self, d, units, what, topic):
+        d["used"] = int(d["used"]) + units
+        d["by_topic"][topic or "-"] = int(d["by_topic"].get(topic or "-", 0)) + units
+        d["by_what"][what or "-"] = int(d["by_what"].get(what or "-", 0)) + units
+
+    def reserve(self, units, what="", topic="", keep=0):
+        """남은 양에서 keep 을 빼고도 units 가 되면 먼저 적고 True. 아니면 False (아무것도 안 적음)."""
+        units = int(units)
+
+        def fn(d):
+            if self.left(d) - int(keep) < units:
+                return False
+            self._bump(d, units, what, topic)
+            return True
+        return self._locked(fn)
+
+    def refund(self, units, what="", topic=""):
+        self._locked(lambda d: self._bump(d, -int(units), what, topic))
+
+    def add(self, units, what="", topic=""):
+        """끝난 뒤에 한꺼번에 적음 (자동 실행 — 하위 도구가 보고한 사용량). 기록 한 줄도 남김."""
+        units = int(units or 0)
+
+        def fn(d):
+            self._bump(d, units, what, topic)
+            d["runs"] = (d["runs"] + [{"what": what, "topic": topic, "units": units,
+                                       "kst": datetime.now(KST).isoformat(timespec="minutes")}])[-self.RUNS_KEEP:]
+            return int(d["used"])
+        return self._locked(fn)
+
+    def note_run(self, what, topic, units):
+        """요청마다 이미 적은 작업(웹 화면)의 끝 기록만 한 줄 — 사용량은 더하지 않음."""
+        def fn(d):
+            d["runs"] = (d["runs"] + [{"what": what, "topic": topic, "units": int(units or 0),
+                                       "kst": datetime.now(KST).isoformat(timespec="minutes")}])[-self.RUNS_KEEP:]
+        self._locked(fn)
+
+    def mark_exhausted(self, why=""):
+        def fn(d):
+            if not d.get("exhausted"):
+                d["exhausted"] = True
+                d["exhausted_at"] = datetime.now(KST).isoformat(timespec="minutes")
+                d["exhausted_why"] = str(why)[:120]
+        self._locked(fn)
+
+    def snapshot(self):
+        d = self._load()
+        now = self.now_fn()
+        reset_utc, _ = next_quota_reset(now, margin_min=0)
+        mins = max(0, int((reset_utc - now).total_seconds() // 60))
+        return {"key": self.fp, "day": d["day"], "used": int(d["used"]), "left": self.left(d), "limit": self.limit, "margin": self.margin,
+                "exhausted": bool(d.get("exhausted")), "by_topic": d.get("by_topic") or {}, "by_what": d.get("by_what") or {},
+                "reset_kst": reset_utc.astimezone(KST).strftime("%m-%d %H:%M"), "reset_in_min": mins, "updated": d.get("updated")}
 
 
 def _fresh(updated, started_utc):
@@ -693,7 +866,8 @@ def one_round(folder, opts, k, runner=run_child, now_fn=lambda: datetime.now(tim
     ledger = Ledger(folder, now_fn)
 
     def left_today():
-        return budget - ledger.used()
+        kl = KeyLedger.for_folder(folder, now_fn)          # v1.11: 다른 창(웹 화면)·다른 주제가 같은 키로 쓴 양도 빼고
+        return min(budget - ledger.used(), kl.left() if kl else budget)
     log("ROUND", round=k, folder=folder, started=started.astimezone(KST).isoformat(timespec="minutes"),
         analyzer="건너뜀 (" + (done_at.isoformat(timespec="minutes") + " 에 끝남)" if done_at else "--skip-analyzer)") if skip_an else "돌림",
         outlier_quota=quota, today_budget=budget, today_used=ledger.used())
@@ -1121,6 +1295,8 @@ def self_test():
         # v1.3: 오늘 쓴 양 장부 — 성공 사례 3,900 + 분석기 5,700 보고 → 보충은 남은 200(=10,000-200-9,600)만, 다 쓰면 보충 안 함
         (tmp / ".yt_work" / "pc_progress_t.json").unlink(missing_ok=True)
         (tmp / ".yt_work" / "quota_t.json").unlink(missing_ok=True)
+        for f in (tmp / ".yt_work").glob("quota_key_*.json"):   # v1.11: 키 장부도 (시나리오마다 새 날처럼)
+            f.unlink()
         cmds3 = []
 
         def fake_runner3(cmd, stage, log_file):
@@ -1146,6 +1322,9 @@ def self_test():
             led = json.loads((tmp / ".yt_work" / "quota_t.json").read_text("utf-8"))
             check("보충 = 오늘 남은 할당량 (9,800 − 3,900 − 5,700 = 200)", len(topup) == 1 and topup[0][topup[0].index("--quota") + 1] == "200"
                   and led["used"] == 9800, used=led["used"])
+            kl = KeyLedger("x", lambda: clock["t"])
+            check("v1.11 키 장부 = 주제 장부와 같은 양 (자동 실행이 쓴 양도 웹 화면 '남은 할당량'에 보임)", kl.used() == led["used"] and kl.left() == 0,
+                  key_used=kl.used(), topic_used=led["used"])
             cmds3.clear()
             run(opts, fake_runner3, lambda: clock["t"], fake_sleep)          # 같은 날 또: 이미 다 씀 → 도구를 돌리지 않음
             check("같은 날 다시 실행하면 이미 쓴 양을 빼고 (다 썼으면 안 돌림·안 올림, 음성인식만)", [st_ for st_, _ in cmds3] == ["WHISPER"],
@@ -1158,6 +1337,8 @@ def self_test():
               and outlier_need("nope", 2, 20, 20) == 4400, need=outlier_need("t", 2, 20, 20))
         # v1.4: 성공 사례 결과가 있으면 분석기 전에 먼저 올림, 분석기는 --no-video --defer-whisper, 끝에 음성인식 대기열
         (tmp / ".yt_work" / "quota_t.json").unlink(missing_ok=True)
+        for f in (tmp / ".yt_work").glob("quota_key_*.json"):   # v1.11: 키 장부도 (시나리오마다 새 날처럼)
+            f.unlink()
         (tmp / ".yt_work" / "pc_progress_t.json").unlink(missing_ok=True)
         (outl / "summary.md").write_text("x", "utf-8")
         cmds4 = []

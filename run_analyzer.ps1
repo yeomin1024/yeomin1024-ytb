@@ -1,8 +1,11 @@
 ﻿<#
 ================================================================================================
  YouTube 분석 PC 실행기 (Windows PowerShell)
- VERSION: v3.1 — 2026-10-14 — 코드 목록에 tools/success_analysis.py(성공 사례 분석 analysis.md), 설정 목록에 <주제>/analysis_rules.toml
-          (사용자 지시: "… 올바른 분석 결과까지만 내도록 수정해"). 웹 화면 v1.3 도 켤 때 코드를 받으므로 예전 실행기로도 새 도구가 옴
+ VERSION: v3.2 — 2026-10-15 — 안내만 (사용자 지시: "분석기 여러개 열어서 각자 다른 주제로 탐색해도 되지? … economic 같은 주제 경로를
+          선택할 수 있게해서 각각 주제별로 탐색할 수 있게"): 웹 화면 v1.5 — -Folder economic,health 면 주제마다 창(포트)을 하나씩 띄움,
+          같은 주제 창이 이미 있으면 그 창을 엶. 할당량은 같은 키의 모든 창이 함께 셈(화면 위 '남은 할당량'), 초기화 뒤 남은 것은 저절로 이어서
+ (v3.1 — 2026-10-14 — 코드 목록에 tools/success_analysis.py(성공 사례 분석 analysis.md), 설정 목록에 <주제>/analysis_rules.toml
+          (사용자 지시: "… 올바른 분석 결과까지만 내도록 수정해"). 웹 화면 v1.3 도 켤 때 코드를 받으므로 예전 실행기로도 새 도구가 옴)
  (v3.0 — 2026-10-14 — 실행하면 웹 화면이 뜸 (사용자 지시: "이거 분석기 웹 ui 형식으로 만들어 실행하면 바로 웹 ui가 나와서 env,
           검색어 수정할 수 있게하고 탐색 버튼 누르면 … 승인 버튼을 눌러야 관련 자료를 받아서 분석"): 기본 = tools/web_ui.py (브라우저에
           http://127.0.0.1:8765/). 예전 자동 실행(할당량이 끝나면 다음 날 이어서)은 -Auto, -Once·작업 스케줄러도 자동 실행.
@@ -39,6 +42,7 @@
 
  자주 쓰는 실행:
    powershell -ExecutionPolicy Bypass -File run_analyzer.ps1                 # ★ 웹 화면 (키·검색어 고치기 → 탐색 → 체크 → 승인 → 주별 분석)
+   powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Folder economic,health   # 웹 화면 주제마다 창 하나씩 (동시에 탐색, 할당량은 함께 셈)
    powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Auto           # 예전 자동 실행 — 끝날 때까지 (남으면 다음 날 이어서, 창을 열어 두기)
    powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Auto -Folder economic,health   # 자동 실행 여러 주제 동시에
    powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Once           # 자동 실행 한 회차만 (남은 부분은 다음에 실행할 때)

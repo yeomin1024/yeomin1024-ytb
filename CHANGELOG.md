@@ -1,5 +1,36 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-15 (7) — 분석기 할당량 아끼기 · 남은 할당량 표시 · 창마다 주제 하나 · 초기화 뒤 자동으로 이어서
+
+### 왜 (사용자 지시)
+- "유튜브 분석 코드를 최대한 api 사용량 덜쓰는 방법(단어 줄이는 방법 말고) 찾아서 수정해보고 웹 ui에 사용량 얼마나 남았는지 표시하고 그리고 분석기 여러개 열어서 각자 다른 주제로 탐색해도 되지? 그리고 economic 같은 주제 경로를 선택할 수 있게해서 각각 주제별로 탐색할 수 있게 수정해 그리고 사용량 초기화되면 자동으로 다시 분석 마저 하는거지? 그렇게 되야해"
+
+### 바꾼 것
+| 파일 (버전) | 함수·항목 | 내용 |
+|---|---|---|
+| `tools/outlier_research.py` v2.1 → v2.2 | `search_ttl`·`_useful_novel`·`_search_pool`·`cached_search(info=)`·`search_is_cached` | 적응형 검색 캐시: 새로 고칠 때 지난 결과·다른 검색 결과에 없던 영상(`novel`)과 단계(`ttl_level`)를 저장 → 쓸 만한 새 영상(롱폼·라이브 아님·한국어·기간 안) ≤ 2개면 7→14→21일, 상한 max(7일, min(21일, 기간×1/4)). 처음·예전 캐시는 7일 |
+| 〃 | `channel_uploads` | 새 영상만 받고 아는 영상에서 멈춤 (`complete` 표시 — 예전 형식은 한 번 끝까지) |
+| 〃 | `video_ttl_h`·`fetch_video_infos` | 영상 정보 캐시: 30일 안 24시간 · 180일 안 72시간 · 그보다 오래 168시간 (`[VIDEO] kept_old=`) |
+| 〃 | `fetch_all_comments` (`time_page`) | full 이면 시간순 첫 쪽부터 — 한 쪽으로 끝나면 인기 댓글 쪽 건너뜀 (`top_skipped`), 더 있으면 인기 쪽을 둘째로 (중간에 끊겨도 인기 댓글 있음) |
+| 〃 | `Api(ledger=, what=, topic=)`·`Api.calls` | 요청마다 키 장부에 먼저 적고(reserve, 검색은 150 여유) 실패하면 돌려줌(refund), 남은 양이 모자라면 QuotaStop `shared`, Google 하루 한도 답은 `mark_exhausted`. 댓글 403·404 답도 1단위로 셈 |
+| `tools/pc_analysis.py` v1.10 → v1.11 | `KeyLedger`·`os_lock`/`os_unlock`·`key_fingerprint`·`Ledger.add(forward=)`·`one_round.left_today` | 키 하나 = 장부 하나 (`.yt_work/quota_key_<sha256 앞 12자>.json`, OS 잠금), 주제별·작업별 사용량, 다음 초기화(한국 시간). 자동 실행이 쓴 양도 키 장부에, 자동 실행의 남은 양 = min(주제 몫, 키 장부 남은 양). 자체 점검에 키 장부 확인 1개 |
+| `tools/web_ui.py` v1.4 → v1.5 | `make_api(t, what)`·`record_use`·`quota_view`·`claim_topic`·`topic_window`·`open_windows`·`release_topic`·`create_topic`·`spawn_windows`·`baseline_plan`·`resume_plan`·`job_resume`·`_resume_explore`·`_resume_loop`·`job_explore`·`job_startup`·`state_view`·`/api/job`·`/api/topic`·`/api/topic/new`·`/api/window/new`·`/api/resume`·`main`·PAGE | '0. 주제 · 할당량' 칸과 머리줄(남은 할당량·초기화 시각·주제별·작업별), 창마다 주제 하나(OS 잠금 — 같은 주제 창이 있으면 그 창을 열고 끝), 주제를 여러 개 주면 창을 하나씩, [새 창으로 열기], [새 주제 만들기], 초기화(태평양 자정 +10분) 뒤 남은 탐색·댓글·기준선을 저절로 이어서 + 켤 때도, [지금 이어서], 다시 탐색해도 체크 유지, 예상 할당량 옆에 오늘 남은 양 |
+| `youtube_topic_analyzer.py` v2.10.0 → v2.10.1 | `whisper_queue`, `WHISPER_MACHINE_WAIT_H` | 음성인식은 PC 에서 한 번에 하나 (`.yt_work/whisper_machine.lock`) — 다른 주제의 음성인식이 끝나길 기다렸다가 (최대 24시간) |
+| `run_analyzer.ps1` v3.1 → v3.2 | 안내 | `-Folder economic,health` = 주제마다 창 |
+| `tools/tests/test_quota_saving.py` v1.0 (새로) | 14개 | 아래 |
+| `guides/pc_analysis.md` v2.5 → v2.6 · `CLAUDE.md` | — | 위 내용 |
+
+### 검사 (GITHUB_TOKEN 없이, 가짜 YouTube·임시 폴더)
+- `python3 -m unittest tools.tests.test_quota_saving` 14개 OK — 키 장부(창 둘이 함께·날짜 바뀌면 0·키는 파일에 없음·하루 한도 답이면 0), 다른 창이 쓴 만큼 검색 멈추고 1단위 요청은 계속, **적응형 캐시 모의 12주(검색어 40개 중 절반 안정, 8주 기간): 고정 7일 960번(96,000단위) → 760번(76,000단위) 21%↓, 바뀌는 검색어는 매주 그대로 새로 고침**, 영상 500개 채널 새로 고침 10단위 → 1단위, 댓글 40개 영상 2단위 → 1단위(250개 영상은 4단위 그대로), 창 잠금(다른 프로세스가 잡은 주제는 못 고름·꺼지면 풀림), 할당량 때문에 남은 탐색 → 다음 날 이어서 끝냄·체크 유지, 초기화 시각이 되면 이어서 작업 시작, 새 주제 만들기(경로 밖·따옴표 막음)
+- `python3 tools/pc_analysis.py --self-test` ALL PASS (키 장부 확인 포함)
+- 분석기 음성인식 잠금: 다른 주제가 잡고 있으면 기다렸다가 실행, 같은 주제는 예전처럼 건너뜀
+- 임시 복사본에서 웹 화면 실제로 띄움: 같은 주제 두 번째 실행 → "이미 열려 있습니다" 끝(0), 새 주제 health 만들기 → [새 창으로 열기] → 8791 포트 창, 키 장부 합계(economic 6,400 + health 820 → 남은 2,580)가 화면에, economic 창에서 health 고르기 → "다른 창이 쓰는 중 — http://127.0.0.1:8791/". 브라우저(1280·390px) 가로 넘침 없음·스크립트 오류 없음
+
+### 한계
+- 적응형 캐시의 절약은 검색어마다 결과가 얼마나 안 바뀌는지에 달림 (위 21%는 모의 — 실제는 PC 로그 `[SEARCH] level=` 로 확인). 안정된 검색어의 최근 영상은 최대 기간의 1/4(8주면 14일)까지 늦게 보일 수 있음 — 다른 검색어가 먼저 찾는 경우가 많음
+- 키 장부는 이 PC 안에서만 함께 셈 (다른 PC·클라우드 사용은 Google 의 한도 답으로만 앎)
+- 분석기(`-Auto`)의 관련성 검색(검색어마다 100단위)은 이번에 바꾸지 않음 — 기본은 웹 화면
+
 ## 2026-10-15 (6) — 썸네일 v5.0 이미지 3장 검수·저장 · ChatGPT가 못 올리면 Claude 대화로
 
 ### 왜 (사용자 지시)

@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v2.10.0 — 2026-10-14 — 음성인식 대기열을 빨리·성공 사례 먼저 (사용자 지시: "분석결과로 내가 말한 거 할수 있는지 판단해 개선 필요하면
+# VERSION: v2.10.1 — 2026-10-15 — 음성인식은 PC 한 대에서 한 번에 하나 (사용자 지시: "분석기 여러개 열어서 각자 다른 주제로 탐색해도 되지?"):
+#          주제가 달라도 Whisper 는 PC 를 거의 다 씀 → .yt_work/whisper_machine.lock (OS 잠금) — 다른 주제의 음성인식이 도는 중이면
+#          끝나길 기다렸다가 이어서 (WHISPER_MACHINE_WAIT_H 시간까지, 30초마다 확인). 같은 주제는 예전처럼 '이미 도는 중'으로 건너뜀
+# (v2.10.0 — 2026-10-14 — 음성인식 대기열을 빨리·성공 사례 먼저 (사용자 지시: "분석결과로 내가 말한 거 할수 있는지 판단해 개선 필요하면
 #          더 개선하고" — 2026-10-14 분석: 성공 사례 165개 모두 대본 0, 영상 하나 13분 → 165개 약 36시간이라 구성·도입부를 셀 수 없었음):
 #          ① 1차 = 영상마다 앞 5분만 (WHISPER_QUEUE_FIRST_SEC=300 — ffmpeg -t) → 도입부·초반 흐름을 모든 성공 사례에서 먼저 ② 2차 = 끝까지
 #          ③ 차례 = 성공 사례(analysis.json #) 먼저 ④ GitHub 올리기는 15분마다·차수 끝에 (WHISPER_QUEUE_PUSH_EVERY_MIN — 저장소가 커져
@@ -357,7 +360,7 @@ import numpy as np
 import pandas as pd
 import requests
 
-NOTEBOOK_VERSION = "v2.10.0"
+NOTEBOOK_VERSION = "v2.10.1"
 KST = dt.timezone(dt.timedelta(hours=9))
 UTC = dt.timezone.utc
 IS_WINDOWS = os.name == "nt"
@@ -4995,6 +4998,9 @@ def speech_queue_items(cfg, out_dir, base=None, partial=False):
     return items
 
 
+WHISPER_MACHINE_WAIT_H = 24       # 다른 주제의 음성인식이 끝나길 기다리는 최대 시간 (v2.10.1)
+
+
 def whisper_queue(cfg, keys, push=True):
     """음성인식 대기열 — 같은 주제는 한 번에 하나 (v2.9.2: 웹 화면과 자동 실행이 같은 영상을 동시에 인식하지 않게).
     이미 도는 중이면 '이미 도는 중'을 남기고 0 으로 끝 (그쪽이 대기열을 다 함)."""
@@ -5005,9 +5011,21 @@ def whisper_queue(cfg, keys, push=True):
         setup_logging(cfg["LOG_LEVEL"], work / f"whisper_log_{tag}.txt")
         log("WHISPER", "음성인식 대기열이 다른 창에서 이미 도는 중 → 이번엔 건너뜀 (그쪽이 하나씩 올림)", folder=tag)
         return 0
+    machine = file_lock(work / "whisper_machine.lock", wait_sec=0)       # v2.10.1: PC 한 대에서 한 번에 하나 (다른 주제 창 포함)
+    if machine is None:
+        setup_logging(cfg["LOG_LEVEL"], work / f"whisper_log_{tag}.txt")
+        log("WHISPER", "다른 주제의 음성인식이 도는 중 → 끝나길 기다렸다가 이어서 (Whisper 는 PC 를 거의 다 씀 — 한 번에 하나)",
+            folder=tag, wait_max_h=WHISPER_MACHINE_WAIT_H)
+        machine = file_lock(work / "whisper_machine.lock", wait_sec=WHISPER_MACHINE_WAIT_H * 3600, poll=30)
+        if machine is None:
+            log("WHISPER", "기다려도 다른 음성인식이 끝나지 않음 → 이번엔 건너뜀 (다음에 이어서)", folder=tag)
+            file_unlock(lock)
+            return 0
+        log("WHISPER", "다른 주제의 음성인식이 끝남 → 이어서 시작", folder=tag)
     try:
         return _whisper_queue_run(cfg, keys, push)
     finally:
+        file_unlock(machine)
         file_unlock(lock)
 
 

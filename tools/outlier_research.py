@@ -1,12 +1,22 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v2.1 — 2026-10-14 — 수요·공급과 채널 성장을 셀 자료도 모음 (사용자 지시: "수요 대비 영상 공급이 별로 없는지도 파악해야해
+# VERSION: v2.2 — 2026-10-15 — 할당량을 덜 씀 (사용자 지시: "유튜브 분석 코드를 최대한 api 사용량 덜쓰는 방법(단어 줄이는 방법 말고) 찾아서
+#          수정해보고" · "분석기 여러개 열어서 각자 다른 주제로 탐색해도 되지?"). 검색어는 그대로, 같은 정보를 덜 자주·덜 겹치게 받음:
+#          ① 적응형 검색 캐시 (search_ttl — 검색 1번 = 100단위, 할당량의 거의 전부): 새로 고칠 때 지난 결과·다른 검색어 결과에 없던
+#             '새로 보인 쓸 만한 영상'(롱폼·라이브 아님·한국어·기간 안)을 적어 두고, 그것이 2개 이하면 다음 새로 고침을 늦춤
+#             (7일 → 14일 → 21일, 탐색 기간의 1/4 이하 — 8주면 14일까지), 많으면 7일로. 처음·예전 캐시는 7일 그대로
+#          ② 채널 업로드 목록을 새 영상만 (channel_uploads — 아는 영상이 나오면 멈춤: 영상 500개 채널 새로 고침 10단위 → 1단위)
+#          ③ 영상 정보 캐시 시간을 올린 지 오래된 영상은 길게 (30일 안 24시간 · 180일 안 3일 · 그보다 오래 7일 — 조회수가 거의 안 바뀜)
+#          ④ 댓글 전부를 받을 때 한 쪽(100개 이하)으로 끝나는 영상은 인기 댓글 쪽(같은 댓글)을 건너뜀 (영상마다 1단위)
+#          ⑤ Api(ledger=) — 요청마다 키 장부(tools/pc_analysis.py KeyLedger)에 먼저 적고 실패하면 돌려줌: 같은 키를 쓰는 다른 창·주제와
+#             함께 셈 → 창 여러 개가 동시에 탐색해도 하루 한도를 넘지 않음. Google 의 하루 한도 답은 장부에 '오늘 끝'으로
+# (v2.1 — 2026-10-14 — 수요·공급과 채널 성장을 셀 자료도 모음 (사용자 지시: "수요 대비 영상 공급이 별로 없는지도 파악해야해
 #          이외에도 내가 말한 목표를 달성하기 위한 모든 분석 방법을 찾아서 반영해" — 목표: 조회수가 높고 구독자가 많이 모이는 영상):
 #          ① 검색 캐시에 YouTube 가 알려 준 결과 수(pageInfo.totalResults — 그 기간에 올라온 영상 수 추정 = 공급)도 저장 (할당량 같음)
 #          ② 채널 구독자 수를 받을 때 개설일·영상 수·총 조회수도 (channels.list part=snippet,statistics — 같은 1단위) +
 #             받을 때마다 구독자 수 기록(history — 채널 성장 속도) — 예전 캐시는 한 번 다시 받음 (50채널 1단위)
 #          ③ fetch_autocomplete: YouTube 검색어 자동완성(할당량 0, 7일 캐시 .cache/autocomplete.json) = 사람들이 찾는 말(수요)
-#          ④ search_supply: 자동완성 말 하나의 최근 90일 공급 확인 (검색 1번 100단위 + 영상 정보) — 웹 화면 [공급 확인]이 부름
+#          ④ search_supply: 자동완성 말 하나의 최근 90일 공급 확인 (검색 1번 100단위 + 영상 정보) — 웹 화면 [공급 확인]이 부름)
 # (v2.0.2 — 2026-10-14 — 안내 글만: 사례 폴더는 저장소가 공개여도 GitHub 에 올라감 (사용자 지시 "그냥 공개에서 다 올리도록 해" — 분석기 v2.9.3
 #          UPLOAD_CASES_TO_PUBLIC_REPO). 받기·고르기·숫자는 그대로)
 # (v2.0.1 — 2026-10-14 — --offline 다시 만들기가 결과를 지우던 것 고침 (사용자 질문 "분석 결과 다 올라온거야?" — GitHub 에
@@ -115,6 +125,7 @@ r"""
 ※ 연구·교육용. 다른 채널 영상을 내려받지 않는다(메타데이터·자막 글·댓글만).
 """
 import argparse
+import collections
 import csv
 import hashlib
 import json
@@ -136,11 +147,17 @@ except ModuleNotFoundError:             # Python 3.10 → tomli (분석기가 �
     import tomli as tomllib
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v2.1"
+VERSION = "v2.2"
 LOG = logging.getLogger("outlier")
 HANGUL = re.compile(r"[가-힣]")
 SEARCH_TTL_HOURS = 168
+SEARCH_TTL_MAX_H = 504        # v2.2 적응형 검색 캐시: 결과가 거의 안 바뀌는 검색은 7일 → 14일 → 21일까지 늦춤
+SEARCH_TTL_WINDOW_FRAC = 0.25 # 그래도 탐색 기간의 1/4 보다 오래 묵히지 않음 (8주 → 14일 · 12주 → 21일) — 최근 영상을 너무 놓치지 않게
+SEARCH_NOVEL_LOW = 2          # 지난 새로 고침에서 '새로 보인 쓸 만한 영상'(다른 검색에도 없던 롱폼·한국어·라이브 아님·기간 안)이 이 이하면 늦춤
+SEARCH_MAX_LEVEL = 2          # 늦추는 단계 (0 = 7일, 1 = 14일, 2 = 21일)
+MIN_LONGFORM_SEC = 240        # '쓸 만한 영상' 판단용 롱폼 기준 (--min-sec 기본과 같음)
 VIDEO_TTL_HOURS = 24          # 영상 조회수: 하루 지나면 다시 (videos.list 50개 = 1단위)
+VIDEO_TTL_BY_AGE = ((30, 24), (180, 72), (None, 168))   # v2.2: 올린 지 30일 안 = 24시간 · 180일 안 = 3일 · 그보다 오래 = 7일
 CHANNEL_TTL_HOURS = 168       # 구독자 수: 7일
 SEARCH_RESERVE = 150          # 검색이 한도를 다 쓰지 않게 남기는 단위 (영상 정보·구독자·댓글용)
 OUTLINE_EVERY_SEC = 90
@@ -241,10 +258,12 @@ class Api:
     검색(100단위)은 한도에서 SEARCH_RESERVE 를 남기고 멈춘다 → 남은 단위로 영상 정보·구독자·댓글(1단위)은 계속 받는다.
     하루 할당량이 끝나면(daily) 같은 실행에서는 새 요청을 하지 않는다. stopped = 처음 멈춘 까닭."""
 
-    def __init__(self, key, quota):
+    def __init__(self, key, quota, ledger=None, what="", topic=""):
         self.key, self.quota, self.used, self.stopped = key, quota, 0, None
         self.last_total = None        # 마지막 검색의 pageInfo.totalResults (v2.1 — 공급 추정)
         self.channel_meta = {}        # 채널ID → 개설일·영상 수·총 조회수·이름 (v2.1 — 채널 성장)
+        self.ledger, self.what, self.topic = ledger, what, topic   # v2.2: 키 장부(pc_analysis.KeyLedger) — 요청마다 먼저 잡고 실패하면 돌려줌
+        self.calls = collections.Counter()                         # v2.2: 종류별 요청 수 (로그·시험용)
 
     def get(self, kind, **params):
         if self.stopped in ("daily", "offline"):
@@ -254,25 +273,43 @@ class Api:
             self.stopped = self.stopped or "run_budget"
             raise QuotaStop(f"이번 실행 한도 {self.quota}단위 — 사용 {self.used}" + (f" (검색은 {SEARCH_RESERVE}단위 남김)" if kind == "search" else ""),
                             "run_budget")
+        if self.ledger is not None and not self.ledger.reserve(COST[kind], self.what or kind, self.topic,
+                                                               keep=SEARCH_RESERVE if kind == "search" else 0):
+            self.stopped = self.stopped or "shared"     # 다른 창·주제가 같은 키로 써서 오늘 남은 양이 없음 (1단위 요청은 남았으면 계속)
+            raise QuotaStop(f"같은 키의 오늘 남은 할당량이 모자람 (다른 창·주제 포함, {kind} {COST[kind]}단위"
+                            + (f" + 검색은 {SEARCH_RESERVE}단위 남김" if kind == "search" else "") + ")", "shared")
         url = API + kind + "?" + urllib.parse.urlencode({**params, "key": self.key})
-        for attempt in range(3):
-            try:
-                with urllib.request.urlopen(urllib.request.Request(url), timeout=30) as r:
-                    self.used += COST[kind]
-                    return json.loads(r.read().decode("utf-8"))
-            except urllib.error.HTTPError as e:
-                body = e.read().decode("utf-8", "replace")[:300]
-                if e.code == 403 and ("quota" in body.lower()):
-                    self.stopped = "daily"
-                    raise QuotaStop("하루 할당량(10,000단위) 소진 — 태평양 자정(한국 오후 4~5시) 뒤 다시 (캐시는 남음)", "daily")
-                if e.code in (403, 404) and kind in ("commentThreads", "comments"):   # 댓글 막힌 영상·지워진 댓글
-                    return {"items": [], "_error": e.code, "_reason": body[:120]}
-                if attempt == 2 or e.code < 500:
-                    raise RuntimeError(f"HTTP {e.code} {kind}: {body}")
-            except urllib.error.URLError as e:
-                if attempt == 2:
-                    raise RuntimeError(f"{kind}: {e}")
-            time.sleep(2 ** attempt)
+        ok = False
+        try:
+            for attempt in range(3):
+                try:
+                    with urllib.request.urlopen(urllib.request.Request(url), timeout=30) as r:
+                        data = json.loads(r.read().decode("utf-8"))
+                        self.used += COST[kind]
+                        self.calls[kind] += 1
+                        ok = True
+                        return data
+                except urllib.error.HTTPError as e:
+                    body = e.read().decode("utf-8", "replace")[:300]
+                    if e.code == 403 and ("quota" in body.lower()):
+                        self.stopped = "daily"
+                        if self.ledger is not None:
+                            self.ledger.mark_exhausted(f"{kind} 403 quota")
+                        raise QuotaStop("하루 할당량(10,000단위) 소진 — 태평양 자정(한국 오후 4~5시) 뒤 다시 (캐시는 남음)", "daily")
+                    if e.code in (403, 404) and kind in ("commentThreads", "comments"):   # 댓글 막힌 영상·지워진 댓글
+                        self.used += COST[kind]          # Google 은 오류 답도 센다 (v2.2: 장부와 맞춤)
+                        self.calls[kind] += 1
+                        ok = True
+                        return {"items": [], "_error": e.code, "_reason": body[:120]}
+                    if attempt == 2 or e.code < 500:
+                        raise RuntimeError(f"HTTP {e.code} {kind}: {body}")
+                except urllib.error.URLError as e:
+                    if attempt == 2:
+                        raise RuntimeError(f"{kind}: {e}")
+                time.sleep(2 ** attempt)
+        finally:
+            if not ok and self.ledger is not None:   # 받지 못한 요청은 장부에서 돌려줌
+                self.ledger.refund(COST[kind], self.what or kind, self.topic)
 
     def search(self, q, published_after, duration=None):
         p = dict(part="snippet", q=q, type="video", order="viewCount", publishedAfter=published_after, regionCode="KR",
@@ -476,6 +513,7 @@ def read_comments_jsonl(path):
 
 def fetch_all_comments(api, d, vid, channel_id, cap, with_replies, refresh, full=True):
     """1단계(v1.5): 인기 댓글 100개(관련성 순 1쪽, 1단위) — full=False 면 여기까지.
+    v2.2: full=True 면 시간순 첫 쪽을 먼저 — 그 한 쪽으로 다 받으면 인기 댓글 쪽(같은 댓글)은 건너뜀 (1단위 아낌, top_skipped).
     2단계 = 댓글 전부: 최상위 댓글(commentThreads, 시간순, 100개씩) + 답글(답글이 5개 넘는 댓글은 comments.list, 100개씩) — 쪽마다 1단위.
     쪽마다 comments.jsonl 에 덧붙이고 comments_state.json 에 다음 쪽을 저장 → 할당량이 끝나면 멈추고, 다음 실행이 그 쪽부터 이어 받는다.
     cap > 0 이면 최상위 댓글 cap 개쯤에서 멈춤 (나중에 cap 을 늘리거나 0 으로 하면 이어서). → (댓글 목록, 상태)."""
@@ -497,7 +535,46 @@ def fetch_all_comments(api, d, vid, channel_id, cap, with_replies, refresh, full
 
     def save():
         sp.write_text(json.dumps(st, ensure_ascii=False), "utf-8")
+    def time_page():
+        """시간순 최상위 댓글 한 쪽 (100개, 1단위). 댓글이 막혔으면 False."""
+        params = dict(part="snippet,replies", videoId=vid, order="time", maxResults=100, textFormat="plainText")
+        if st["threads_next"]:
+            params["pageToken"] = st["threads_next"]
+        data = api.get("commentThreads", **params)
+        st["units"] += 1
+        if data.get("_error"):
+            st.update(threads_done=True, threads_end=f"http_{data['_error']}", disabled=data["_error"] == 403)
+            save()
+            return False
+        recs = []
+        for it in data.get("items", []):
+            sn, top = it["snippet"], it["snippet"]["topLevelComment"]
+            total = int(sn.get("totalReplyCount", 0) or 0)
+            recs.append(_comment_rec(top["snippet"], top["id"], None, channel_id, total))
+            inc = (it.get("replies") or {}).get("comments", [])
+            if total > len(inc):
+                st["reply_queue"].append(top["id"])       # 답글이 5개 넘음 → 나중에 comments.list 로 전부
+            else:
+                recs += [_comment_rec(r["snippet"], r["id"], top["id"], channel_id) for r in inc]
+                st["replies"] += len(inc)
+        _append_jsonl(jl, recs)
+        st["threads"] += len(data.get("items", []))
+        st["threads_next"] = data.get("nextPageToken")
+        if not st["threads_next"]:
+            st.update(threads_done=True, threads_end="end")
+        elif cap and st["threads"] >= cap:
+            st.update(threads_done=True, threads_end="cap")
+        save()
+        return True
     try:
+        # v2.2: 댓글 전부를 받을 때(full)는 시간순 첫 쪽부터 — 그 한 쪽으로 끝나면(최상위 댓글 100개 이하 — 작은 채널 영상 대부분)
+        # 인기 댓글 쪽은 같은 댓글을 다시 받는 것이라 건너뜀 (영상마다 1단위 아낌). 더 있으면 예전처럼 인기 댓글 쪽을 먼저 받아 둠
+        # (할당량이 중간에 끝나도 분석에 쓸 인기 댓글이 있게).
+        if full and not st.get("top_done") and not st["threads"] and not st["threads_done"] and not st["threads_next"]:
+            time_page()
+            if st["threads_done"]:
+                st.update(top_done=True, top_skipped=True)
+                save()
         if not st.get("top_done"):          # 1단계: 인기 댓글 100개 — 분석에 먼저 쓰는 것
             data = api.get("commentThreads", part="snippet,replies", videoId=vid, order="relevance",
                            maxResults=min(100, cap) if cap else 100, textFormat="plainText")
@@ -514,34 +591,8 @@ def fetch_all_comments(api, d, vid, channel_id, cap, with_replies, refresh, full
             st["top_done"] = True
             save()
         while full and not st["threads_done"]:
-            params = dict(part="snippet,replies", videoId=vid, order="time", maxResults=100, textFormat="plainText")
-            if st["threads_next"]:
-                params["pageToken"] = st["threads_next"]
-            data = api.get("commentThreads", **params)
-            st["units"] += 1
-            if data.get("_error"):
-                st.update(threads_done=True, threads_end=f"http_{data['_error']}", disabled=data["_error"] == 403)
-                save()
+            if not time_page():
                 break
-            recs = []
-            for it in data.get("items", []):
-                sn, top = it["snippet"], it["snippet"]["topLevelComment"]
-                total = int(sn.get("totalReplyCount", 0) or 0)
-                recs.append(_comment_rec(top["snippet"], top["id"], None, channel_id, total))
-                inc = (it.get("replies") or {}).get("comments", [])
-                if total > len(inc):
-                    st["reply_queue"].append(top["id"])       # 답글이 5개 넘음 → 나중에 comments.list 로 전부
-                else:
-                    recs += [_comment_rec(r["snippet"], r["id"], top["id"], channel_id) for r in inc]
-                    st["replies"] += len(inc)
-            _append_jsonl(jl, recs)
-            st["threads"] += len(data.get("items", []))
-            st["threads_next"] = data.get("nextPageToken")
-            if not st["threads_next"]:
-                st.update(threads_done=True, threads_end="end")
-            elif cap and st["threads"] >= cap:
-                st.update(threads_done=True, threads_end="cap")
-            save()
         while full and with_replies and st["reply_queue"]:
             tid = st["reply_queue"][0]
             params = dict(part="snippet", parentId=tid, maxResults=100, textFormat="plainText")
@@ -589,30 +640,98 @@ def search_cache_file(cache_dir, q, dur, fallback_days):
     return cache_dir / f"search_{key}.json"
 
 
+def _useful_novel(cache_dir, d, window_days, now=None):
+    """캐시 d 가 지난번 새로 고침에서 새로 데려온 영상(d['novel']) 중 쓸 만한 것의 수 (v2.2) — 롱폼·라이브 아님·한국어·지금 기간 안.
+    영상 정보 캐시가 없으면 쓸 만한 것으로 셈 (모르면 늦추지 않는 쪽)."""
+    now = now or datetime.now(timezone.utc)
+    n = 0
+    for v in d.get("novel") or []:
+        f = Path(cache_dir) / f"{v}.json"
+        try:
+            i = json.loads(f.read_text("utf-8"))
+        except (OSError, ValueError):
+            n += 1
+            continue
+        try:
+            age = (now - datetime.fromisoformat(str(i.get("published")).replace("Z", "+00:00"))).days
+        except ValueError:
+            age = 0
+        if (i.get("duration") or 0) >= MIN_LONGFORM_SEC and not exclusion_reason(i) and age <= window_days:
+            n += 1
+    return n
+
+
+def search_ttl(cache_dir, d, base_h, window_days, now=None):
+    """적응형 검색 캐시 시간 (v2.2 — 사용자 지시 "유튜브 분석 코드를 최대한 api 사용량 덜쓰는 방법(단어 줄이는 방법 말고) 찾아서 수정해보고"):
+    검색 1번 = 100단위라 할당량의 거의 전부. 새로 고쳐도 새 영상이 거의 안 나오는 검색(결과가 안정 · 다른 검색어와 겹침)은 덜 자주.
+    지난 새로 고침에서 '새로 보인 쓸 만한 영상'이 SEARCH_NOVEL_LOW 이하 → 한 단계 늦춤 (7일 → 14일 → 21일), 많으면 7일로 돌아감.
+    상한 = max(기본, min(21일, 탐색 기간 × 1/4)). 새로 고친 기록이 없는 캐시(처음·예전 형식)는 기본.
+    → (시간, 단계, 쓸 만한 새 영상 수|None)"""
+    if "novel" not in d:
+        return base_h, 0, None
+    useful = _useful_novel(cache_dir, d, window_days, now)
+    level = min(int(d.get("ttl_level") or 0) + 1, SEARCH_MAX_LEVEL) if useful <= SEARCH_NOVEL_LOW else 0
+    cap = max(base_h, min(SEARCH_TTL_MAX_H, window_days * 24 * SEARCH_TTL_WINDOW_FRAC))
+    return min(base_h * (1 + level), cap), level, useful
+
+
+def _search_age_h(d, now=None):
+    return ((now or datetime.now(timezone.utc)) - datetime.fromisoformat(d["fetched"])).total_seconds() / 3600
+
+
 def search_is_cached(cache_dir, q, dur, fallback_days, ttl_h=SEARCH_TTL_HOURS):
-    """이 검색을 지금 하면 캐시(할당량 0)인가 — 웹 화면의 예상 할당량 계산용 (v1.9)."""
+    """이 검색을 지금 하면 캐시(할당량 0)인가 — 웹 화면의 예상 할당량 계산용 (v1.9, v2.2: 적응형 캐시 시간)."""
     f = search_cache_file(cache_dir, q, dur, fallback_days)
     try:
         d = json.loads(f.read_text("utf-8"))
-        return (datetime.now(timezone.utc) - datetime.fromisoformat(d["fetched"])).total_seconds() / 3600 <= ttl_h
+        return _search_age_h(d) <= search_ttl(cache_dir, d, ttl_h, fallback_days)[0]
     except (OSError, ValueError, KeyError):
         return False
 
 
-def cached_search(api, cache_dir, q, since, dur, fallback_days, ttl_h, refresh):
-    """검색 캐시: (검색어, 길이, 기간) 이 같고 ttl_h 안이면 할당량 0. → (영상 ID 목록, 캐시 여부). 할당량이 없으면 QuotaStop."""
-    f = search_cache_file(cache_dir, q, dur, fallback_days)
-    if f.is_file() and not refresh:
+def _search_pool(cache_dir, skip):
+    """다른 검색 캐시들이 이미 찾은 영상 ID (v2.2 — '새로 보인 영상'에서 뺌: 다른 검색어로 이미 찾은 영상은 이 검색이 새로 데려온 것이 아님)."""
+    pool = set()
+    for f in Path(cache_dir).glob("search_*.json"):
+        if f.name == skip:
+            continue
         try:
-            d = json.loads(f.read_text("utf-8"))
-            age_h = (datetime.now(timezone.utc) - datetime.fromisoformat(d["fetched"])).total_seconds() / 3600
-            if age_h <= ttl_h:
-                return d["ids"], True
-        except (ValueError, KeyError):
+            pool.update(json.loads(f.read_text("utf-8")).get("ids") or [])
+        except (OSError, ValueError):
             pass
+    return pool
+
+
+def cached_search(api, cache_dir, q, since, dur, fallback_days, ttl_h, refresh, info=None):
+    """검색 캐시: (검색어, 길이, 기간) 이 같고 적응형 캐시 시간(search_ttl) 안이면 할당량 0. → (영상 ID 목록, 캐시 여부).
+    할당량이 없으면 QuotaStop. info(dict) 를 주면 ttl_h·level·useful·age_h 를 채움 (로그용).
+    새로 고칠 때 지난 결과와 비교해 '새로 보인 영상'(novel)·늦춤 단계(ttl_level)를 같이 저장 (v2.2)."""
+    f = search_cache_file(cache_dir, q, dur, fallback_days)
+    old = None
+    if f.is_file():
+        try:
+            old = json.loads(f.read_text("utf-8"))
+            old["fetched"], old["ids"]                                   # 형식 확인
+        except (OSError, ValueError, KeyError, TypeError):
+            old = None
+    level = 0
+    if old:
+        eff, level, useful = search_ttl(cache_dir, old, ttl_h, fallback_days)
+        age_h = _search_age_h(old)
+        if info is not None:
+            info.update(ttl_h=round(eff), level=level, useful=useful, age_h=round(age_h, 1))
+        if age_h <= eff and not refresh:
+            return old["ids"], True
     ids = api.search(q, since, dur)
-    f.write_text(json.dumps({"q": q, "dur": dur, "fallback_days": fallback_days, "fetched": datetime.now(timezone.utc).isoformat(),
-                             "since": since, "total": getattr(api, "last_total", None), "ids": ids}, ensure_ascii=False), "utf-8")
+    rec = {"q": q, "dur": dur, "fallback_days": fallback_days, "fetched": datetime.now(timezone.utc).isoformat(),
+           "since": since, "total": getattr(api, "last_total", None), "ids": ids}
+    if old:                                     # v2.2: 이번 새로 고침이 새로 데려온 영상 (지난 결과에도, 다른 검색에도 없던 것)
+        prev, pool = set(old["ids"]), _search_pool(cache_dir, f.name)
+        rec.update(novel=[v for v in ids if v not in prev and v not in pool], ttl_level=level, prev_fetched=old["fetched"],
+                   refreshes=int(old.get("refreshes") or 0) + 1)
+        if info is not None:
+            info.update(novel=len(rec["novel"]))
+    f.write_text(json.dumps(rec, ensure_ascii=False), "utf-8")
     return ids, False
 
 
@@ -638,16 +757,45 @@ def _info_from_item(it):
             "audio_lang": sn.get("defaultAudioLanguage") or "", "lang": sn.get("defaultLanguage") or ""}
 
 
+def video_ttl_h(published, now=None):
+    """영상 정보 캐시 시간 (v2.2): 조회수가 빨리 바뀌는 새 영상은 24시간, 오래된 영상은 길게 (VIDEO_TTL_BY_AGE). 날짜를 모르면 24시간."""
+    now = now or datetime.now(timezone.utc)
+    try:
+        age = (now - datetime.fromisoformat(str(published).replace("Z", "+00:00"))).days
+    except ValueError:
+        return VIDEO_TTL_HOURS
+    for max_age, ttl in VIDEO_TTL_BY_AGE:
+        if max_age is None or age <= max_age:
+            return ttl
+    return VIDEO_TTL_HOURS
+
+
 def fetch_video_infos(api, cache_dir, ids, state, refresh=False):
     """영상 정보 (캐시 .cache/<id>.json, 24시간). 할당량이 끝나면 있던 캐시로 계속하고 state 에 남김. → [info] (ids 순서, 받은 것만).
     v1.9: collect_api 에서 떼어 냄 — 웹 화면(tools/web_ui.py)이 채널·주소로 더한 영상에도 씀."""
     ids = list(dict.fromkeys(ids))
+    now = datetime.now(timezone.utc)
+    kept_old = [0]
+
     def ok(v):          # 캐시가 새것이고 v2.0 정보(라이브였는지·언어)가 있으면 다시 받지 않음
         f = cache_dir / f"{v}.json"
-        return _fresh(f, VIDEO_TTL_HOURS, refresh) and "was_live" in json.loads(f.read_text("utf-8"))
+        if refresh or not f.is_file():
+            return False
+        try:
+            i = json.loads(f.read_text("utf-8"))
+            fetched = datetime.fromisoformat(i.get("fetched", "2000-01-01T00:00:00+00:00"))
+        except (OSError, ValueError, TypeError):
+            return False
+        if "was_live" not in i:
+            return False
+        ttl = video_ttl_h(i.get("published"), now)
+        fresh = (now - fetched).total_seconds() / 3600 <= ttl
+        kept_old[0] += fresh and ttl > VIDEO_TTL_HOURS and (now - fetched).total_seconds() / 3600 > VIDEO_TTL_HOURS
+        return fresh
     need = [v for v in ids if not ok(v)]
     missing = sum(1 for v in need if not (cache_dir / f"{v}.json").is_file())
-    log("VIDEO", found=len(ids), refresh=len(need), new=missing, ttl_h=VIDEO_TTL_HOURS)
+    log("VIDEO", found=len(ids), refresh=len(need), new=missing, ttl_h="24/72/168 (올린 지 30일·180일 기준)",
+        kept_old=kept_old[0], units=-(-len(need) // 50))
     for i in range(0, len(need), 50):
         chunk = need[i:i + 50]
         try:
@@ -825,19 +973,37 @@ def channel_uploads(api, cache_dir, ch, ttl_h=24, refresh=False, max_videos=0):
     if _fresh(p, ttl_h, refresh):
         ids = json.loads(p.read_text("utf-8"))["ids"]
         return ids[:max_videos] if max_videos else ids
-    ids, token = [], None
+    old = []                                  # v2.2: 예전 목록이 있으면 새 영상만 — 아는 영상이 나오면 멈춤 (채널 영상 500개면 10단위 → 1단위)
+    if p.is_file() and not refresh:
+        try:
+            prev = json.loads(p.read_text("utf-8"))
+            old = list(prev.get("ids") or []) if prev.get("complete") else []    # 예전 형식(complete 없음)은 잘린 목록일 수 있어 한 번 끝까지
+        except (OSError, ValueError):
+            old = []
+    known = set(old)
+    ids, token, pages, hit_known = [], None, 0, False
     while True:
         params = {"part": "contentDetails", "playlistId": ch["uploads"], "maxResults": 50}
         if token:
             params["pageToken"] = token
         d = api.get("playlistItems", **params)
-        ids += [it["contentDetails"]["videoId"] for it in d.get("items", []) if it.get("contentDetails", {}).get("videoId")]
+        pages += 1
+        page = [it["contentDetails"]["videoId"] for it in d.get("items", []) if it.get("contentDetails", {}).get("videoId")]
+        new = [v for v in page if v not in known]
+        ids += new
         token = d.get("nextPageToken")
+        if len(new) < len(page):               # 아는 영상까지 왔음 → 나머지는 예전 목록 그대로
+            hit_known = True
+            break
         if not token or (max_videos and len(ids) >= max_videos):
             break
-    p.write_text(json.dumps({"channel": ch["id"], "fetched": datetime.now(timezone.utc).isoformat(), "ids": ids}, ensure_ascii=False), "utf-8")
-    log("CHANNEL", channel=ch.get("title"), id=ch["id"], videos=len(ids), quota_used=api.used)
-    return ids[:max_videos] if max_videos else ids
+    merged = list(dict.fromkeys(ids + (old if hit_known else [])))
+    complete = hit_known or not token          # 끝까지(또는 아는 영상까지) 받았나 — max_videos 로 멈춘 목록은 다음에 이어 붙이지 않음
+    p.write_text(json.dumps({"channel": ch["id"], "fetched": datetime.now(timezone.utc).isoformat(), "ids": merged, "complete": complete},
+                            ensure_ascii=False), "utf-8")
+    log("CHANNEL", channel=ch.get("title"), id=ch["id"], videos=len(merged), new=len(ids), pages=pages, incremental=hit_known,
+        quota_used=api.used)
+    return merged[:max_videos] if max_videos else merged
 
 
 def collect_api(topic, a, api, kws, exclude, out, state):
@@ -847,8 +1013,9 @@ def collect_api(topic, a, api, kws, exclude, out, state):
     found = {}
     for g, q in kws:
         for dur in (("medium", "long") if a.long else ("medium",)):
+            ttl = {}
             try:
-                ids, hit = cached_search(api, cache_dir, q, since, dur, a.fallback_days, a.search_ttl_hours, a.refresh)
+                ids, hit = cached_search(api, cache_dir, q, since, dur, a.fallback_days, a.search_ttl_hours, a.refresh, info=ttl)
             except QuotaStop as e:
                 state["quota_stop"] = state["quota_stop"] or e.kind
                 state["pending_searches"].append(f"{q} ({dur})")
@@ -858,7 +1025,8 @@ def collect_api(topic, a, api, kws, exclude, out, state):
             state["search_log"].append({"q": q, "source": g, "dur": dur, "results": len(ids), "status": "캐시" if hit else "새로"})
             for vid in ids:
                 found.setdefault(vid, []).append(f"태그:{q}" if g == "태그" else q)
-            log("SEARCH", query=q, group=g, dur=dur, results=len(ids), cached=hit, quota_used=api.used)
+            log("SEARCH", query=q, group=g, dur=dur, results=len(ids), cached=hit, quota_used=api.used,
+                **{k: v for k, v in ttl.items() if v is not None})          # v2.2: 적응형 캐시 시간·단계·새로 보인 영상
     if state["pending_searches"]:
         log("SEARCH", logging.WARNING, topic=topic, note="할당량이 끝나 못 한 검색 — status.json pending, 다음 실행에 이어서",
             pending=len(state["pending_searches"]), stop=state["quota_stop"])

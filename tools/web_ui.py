@@ -1,6 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v2.0 — 2026-10-15 — 한 화면에 주제 탭 (사용자 지시: "헷갈리니까 하나의 사이트에서 그냥 탭 만들어서 다른 주제 볼 수 있게 하자 서로
+# VERSION: v2.1 — 2026-10-15 — 주제마다 다른 키 · 외국 영상 켜고 끄기 (사용자 지시: "키도 나눠서 쓸수 있게해 주제별로 다른키 넣을거니까 그리고
+#          주식은 외국 영상도 다 분석할 건데 확인해봐 on/off 기능(default off) 있는지 확인하고 없으면 추가해"):
+#          ① 4번 칸 [외국 영상도] — 이 주제의 analyzer_config.toml [search] INCLUDE_FOREIGN 을 고침 (POST /api/foreign — PC 파일 + GitHub 토큰이
+#             있으면 GitHub 에도, 작업 중엔 못 바꿈). 기본 꺼짐 = 예전처럼 외국 영상을 뺌. 켜면 탐색이 외국 영상을 빼지 않고 '외국 영상' 표시만,
+#             검색은 언어 지정 없이 (outlier_research v2.4 — 검색 캐시가 따로라 켠 뒤 첫 탐색은 새로 검색), 분석(success·shorts)도 넣음
+#          ② 0번 칸 할당량에 '이 탭 키'(지문 끝 4자리)·같은 키를 쓰는 다른 주제 — 주제마다 다른 키면 할당량도 따로 보임 (키 장부가 키마다 하나)
+# (v2.0 — 2026-10-15 — 한 화면에 주제 탭 (사용자 지시: "헷갈리니까 하나의 사이트에서 그냥 탭 만들어서 다른 주제 볼 수 있게 하자 서로
 #          캐시는 공유하지 않도록 하고" · "설정도 다 따로써야해"):
 #          ① 창(포트)을 주제마다 띄우던 것 → 한 화면(http://127.0.0.1:8765/) 위쪽 탭으로 주제를 고름. 요청마다 X-Topic 머리글로 주제를 보냄
 #          ② 작업(JOB)도 주제마다 따로 — 재테크 탭에서 승인하는 동안 주식 탭에서 탐색 가능 (할당량은 같은 키 장부로 함께 셈)
@@ -130,7 +136,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import pc_analysis as pc                 # noqa: E402  할당량 장부·키 찾기·GitHub 동기화·패키지 준비
 
 ROOT = pc.ROOT
-VERSION = "v2.0"
+VERSION = "v2.1"
 LOG = logging.getLogger("web")
 KST = timezone(timedelta(hours=9))
 TOKEN = secrets.token_urlsafe(18)        # 화면이 요청마다 보내는 열쇠 (다른 사이트가 이 PC 의 화면을 조작하지 못하게)
@@ -374,8 +380,43 @@ def quota_view(t):
                 "reset_kst": reset.astimezone(KST).strftime("%m-%d %H:%M"), "topic_used": pc.Ledger(t).used(),
                 "day": pc.pacific_day(datetime.now(timezone.utc))}
     q = kl.snapshot()
-    q.update(budget=budget, topic_used=int((q.get("by_topic") or {}).get(t, 0)))
+    q.update(budget=budget, topic_used=int((q.get("by_topic") or {}).get(t, 0)),
+             same_key=[x for x in STATE.get("topics") or [] if x != t and key_fp(x) == kl.fp])   # v2.1: 같은 키를 쓰는 다른 주제
     return q
+
+
+def key_fp(t):
+    """이 주제가 쓰는 YouTube 키의 지문 (v2.1 — 주제마다 다른 키인지 보기). 키가 없으면 None. 키 값은 내보내지 않음."""
+    key = orr.load_api_key(t)[0]
+    return pc.key_fingerprint(key) if key else None
+
+
+def foreign_ok(t):
+    """이 주제는 외국 영상도 탐색·분석하나 (v2.1 — <주제>/analyzer_config.toml [search] INCLUDE_FOREIGN, 기본 꺼짐)."""
+    return orr.include_foreign(t, ROOT)
+
+
+FOREIGN_LINE_RX = re.compile(r"(?m)^[ \t]*INCLUDE_FOREIGN[ \t]*=[^\n]*$")     # 주석 줄(# …)은 건드리지 않음
+FOREIGN_NOTE = "# 외국 영상도 탐색·분석 (true) — 기본 false = 한국어 영상만. 웹 화면 4번 칸 [외국 영상도]로 켜고 끔"
+
+
+def set_include_foreign(t, on):
+    """<주제>/analyzer_config.toml 의 INCLUDE_FOREIGN 을 고침 (v2.1). 줄이 있으면 그 줄만, 없으면 [search] 밑에 (없으면 끝에 [search] 와 함께).
+    → 고친 파일 내용(bytes). 다른 줄·주석은 그대로."""
+    p = ROOT / t / "analyzer_config.toml"
+    text = p.read_text("utf-8")
+    line = f"INCLUDE_FOREIGN = {'true' if on else 'false'}".ljust(37) + FOREIGN_NOTE
+    if FOREIGN_LINE_RX.search(text):
+        text = FOREIGN_LINE_RX.sub(lambda m: line, text, count=1)
+    elif re.search(r"(?m)^\[search\][ \t]*$", text):
+        text = re.sub(r"(?m)^\[search\][ \t]*$", lambda m: m.group(0) + "\n" + line, text, count=1)
+    else:
+        text = text.rstrip("\n") + "\n\n[search]\n" + line + "\n"
+    data = text.encode("utf-8")
+    tmp = p.with_name(p.name + ".tmp")
+    tmp.write_bytes(data)
+    os.replace(tmp, p)
+    return data
 
 
 # ---------------------------------------------------------------- 주제 잠금 (v2.0: 한 화면이 주제 탭 전부를 잠금)
@@ -462,7 +503,7 @@ def create_topic(folder, name, keywords_text, push=False):
         cfg = re.sub(r'(?m)^PROJECT_FOLDER\s*=\s*"[^"]*"', f'PROJECT_FOLDER = "{folder}"', cfg)
     else:
         cfg = (f'[topic]\nTOPIC = "{name}"\nPROJECT_FOLDER = "{folder}"\nRESULT_FOLDER = "result"\n\n[github]\nGITHUB_REPO = "yeomin1024/yeomin1024-ytb"\n'
-               f'GITHUB_BRANCH = "main"\n\n[search]\nREGION_CODE = "KR"\nLANGUAGE = "ko"\n\n[keywords]\nKEYWORD_MODE = "curated"\nKEYWORDS_FILE = "keywords.toml"\n')
+               f'GITHUB_BRANCH = "main"\n\n[search]\nREGION_CODE = "KR"\nLANGUAGE = "ko"\nINCLUDE_FOREIGN = false             # 외국 영상도 탐색·분석 (true) — 기본 false\n\n[keywords]\nKEYWORD_MODE = "curated"\nKEYWORDS_FILE = "keywords.toml"\n')
     cfg = f"# {name} — 웹 화면에서 새로 만든 주제 ({datetime.now(KST).strftime('%Y-%m-%d')}, web_ui {VERSION}, 틀: economic)\n" + cfg
     kws = [k.strip() for k in str(keywords_text or "").splitlines() if k.strip() and not k.strip().startswith("#")]
     files = {
@@ -660,11 +701,12 @@ def estimate(t, weeks, use_keywords):
     """탐색하면 쓸 검색 할당량 (캐시는 0). → {searches, cached, units, channels}."""
     cache = out_dir(t) / ".cache"
     kws = orr.load_keywords(t, 0)[0] if use_keywords else []
+    lang = orr.search_lang(foreign_ok(t))                  # v2.1: 외국 영상을 넣는 주제는 언어 지정 없는 검색 캐시
     total = cached = 0
     for _, q in kws:
         for dur in ("medium", "long"):
             total += 1
-            cached += orr.search_is_cached(cache, q, dur, weeks * 7)
+            cached += orr.search_is_cached(cache, q, dur, weeks * 7, lang=lang)
     tg = load_targets(t)
     ch_units = sum(max(1, -(-int(c.get("videos") or 50) // 50)) * 2 for c in tg["channels"])   # 목록 + 영상 정보
     q = quota_view(t)
@@ -708,6 +750,8 @@ def job_explore(t, weeks, use_keywords):
     since = (now - timedelta(days=days)).strftime("%Y-%m-%dT00:00:00Z")
     kws, exclude, _, _, rel = orr.load_keywords(t, 0)
     kws = kws if use_keywords else []
+    fo = foreign_ok(t)                                           # v2.1: 외국 영상도 (주제 설정 INCLUDE_FOREIGN — 기본 꺼짐)
+    lang = orr.search_lang(fo)
     tg = load_targets(t)
     if not kws and not tg["channels"] and not tg["videos"]:
         raise UserError("탐색할 것이 없습니다 — 검색어를 넣거나 영상·채널을 추가하세요")
@@ -718,7 +762,7 @@ def job_explore(t, weeks, use_keywords):
     total = len(kws) * 2 + len(tg["channels"]) + 2
     n = 0
     log("EXPLORE", topic=t, weeks=weeks, keywords=len(kws), channels=len(tg["channels"]), videos=len(tg["videos"]), key_source=src,
-        quota_left=api.quota)
+        quota_left=api.quota, include_foreign=fo, search_lang=lang or orr.ANY_LANG)
     try:
         for g, q in kws:
             for dur in ("medium", "long"):
@@ -726,7 +770,7 @@ def job_explore(t, weeks, use_keywords):
                 step(f"검색 {q} ({'4~20분' if dur == 'medium' else '20분 넘음'})", n, total)
                 ttl = {}
                 try:
-                    ids, hit = orr.cached_search(api, cache, q, since, dur, days, orr.SEARCH_TTL_HOURS, False, info=ttl)
+                    ids, hit = orr.cached_search(api, cache, q, since, dur, days, orr.SEARCH_TTL_HOURS, False, info=ttl, lang=lang)
                 except orr.QuotaStop:
                     pending.append(f"{q} ({dur})")
                     continue
@@ -771,10 +815,10 @@ def job_explore(t, weeks, use_keywords):
         i["subs"] = (subs.get(i["channel_id"]) or {}).get("subs")
     info_by_id = {i["id"]: i for i in infos}
     url_ids = {v["id"] for v in tg["videos"]}                     # 주소로 직접 넣은 영상은 라이브·외국이어도 남김 (표시만)
-    excluded = collections.Counter(orr.exclusion_reason(i) for i in infos if i["id"] not in url_ids)
+    excluded = collections.Counter(orr.exclusion_reason(i, fo) for i in infos if i["id"] not in url_ids)
     excluded.pop(None, None)
     rows = []
-    for r in orr.build_rows(infos, found, now, keep=url_ids):
+    for r in orr.build_rows(infos, found, now, keep=url_ids, foreign_ok=fo):
         srcs = list(dict.fromkeys(found.get(r["id"], [])))
         if "주소" not in srcs and any(w in (r["title"] or "") for w in exclude):
             continue
@@ -1443,7 +1487,8 @@ def used_shorts_ids(t):
 def estimate_shorts(t, weeks, use_keywords):
     kws = shorts_keywords(t, orr.load_keywords(t, 0)[0])[0] if use_keywords else []
     cache = shorts_cache(t)
-    cached = sum(orr.search_is_cached(cache, q, "short", weeks * 7) for _, q in kws)
+    lang = orr.search_lang(foreign_ok(t))
+    cached = sum(orr.search_is_cached(cache, q, "short", weeks * 7, lang=lang) for _, q in kws)
     tg = load_targets(t)
     ch_units = len(tg["channels"]) * 2
     q = quota_view(t)
@@ -1486,6 +1531,8 @@ def job_shorts_explore(t, weeks, use_keywords):
     kws, exclude, _, _, rel = orr.load_keywords(t, 0)
     kws, kw_file = shorts_keywords(t, kws)
     kws = kws if use_keywords else []
+    fo = foreign_ok(t)                                           # v2.1: 외국 영상도 (주제 설정 INCLUDE_FOREIGN — 기본 꺼짐)
+    lang = orr.search_lang(fo)
     tg = load_targets(t)
     if not kws and not tg["channels"] and not tg["videos"]:
         raise UserError("탐색할 것이 없습니다 — 검색어를 넣거나 영상·채널을 추가하세요")
@@ -1494,14 +1541,14 @@ def job_shorts_explore(t, weeks, use_keywords):
     infos = []
     total, n = len(kws) + len(tg["channels"]) + 2, 0
     log("SHORTS", step="explore", topic=t, weeks=weeks, keywords=len(kws), keywords_file=kw_file, channels=len(tg["channels"]),
-        videos=len(tg["videos"]), key_source=src, quota_left=api.quota)
+        videos=len(tg["videos"]), key_source=src, quota_left=api.quota, include_foreign=fo, search_lang=lang or orr.ANY_LANG)
     try:
         for g, q in kws:
             n += 1
             step(f"쇼츠 검색 {q} (4분 미만 → 3분 이하·세로만)", n, total)
             ttl = {}
             try:
-                ids, hit = orr.cached_search(api, cache, q, since, "short", days, orr.SEARCH_TTL_HOURS, False, info=ttl)
+                ids, hit = orr.cached_search(api, cache, q, since, "short", days, orr.SEARCH_TTL_HOURS, False, info=ttl, lang=lang)
             except orr.QuotaStop:
                 pending.append(f"{q} (short)")
                 continue
@@ -1537,7 +1584,7 @@ def job_shorts_explore(t, weeks, use_keywords):
     excluded, rows, excluded_note = collections.Counter(), [], collections.Counter()
     for i in infos:
         i["subs"] = (subs.get(i["channel_id"]) or {}).get("subs")
-        why = orr.exclusion_reason(i)
+        why = orr.exclusion_reason(i, fo)
         ok, basis = orr.is_short(i, known)
         if i["id"] not in url_ids:
             if why:
@@ -1567,6 +1614,8 @@ def job_shorts_explore(t, weeks, use_keywords):
         if ad and not r["flag"]:
             r["flag"] = "부풀림 의심"
             excluded_note["조회수 부풀림 의심 — 광고·반복 재생 (표시만, 추천 안 함)"] += 1
+        if fo and not r["flag"] and orr.is_foreign(i):     # v2.1: 외국 영상을 넣는 주제 — 표시만 (추천·성공 판정은 그대로)
+            r["flag"] = orr.FOREIGN
         r["success"] = ok and not ad and _is_success_short(r, S)
         rows.append(r)
     reasons = preselect_shorts(rows, S)
@@ -1791,6 +1840,7 @@ def state_view(t):
             "topic_names": {x: topic_name(x) for x in STATE["topics"]}, "windows": wins, "port": STATE.get("port"),
             "locked_elsewhere": (other or {}).get("url") or (bool(other) or None),                  # v2.0: 다른 화면이 쓰는 주제 — 보기만
             "env_file": f"{t}/.env",
+            "include_foreign": foreign_ok(t),                                                       # v2.1: 이 주제 설정 (기본 꺼짐)
             "resume": {**resume_view(t), "plan": resume_plan(t)},
             "keywords_text": text, "keywords_count": len(pc.read_keyword_list(kp) or []), "targets": load_targets(t),
             "explore": {"generated": ex.get("generated"), "weeks": ex.get("weeks"), "videos": len(ex.get("rows") or []),
@@ -1925,6 +1975,19 @@ class Handler(BaseHTTPRequestHandler):
                 except Exception as e:
                     log("TOPIC", logging.WARNING, topic=r.get("folder"), note="새 주제 탭 준비 실패", error=f"{type(e).__name__}: {e}"[:160])
                 return self._send(200, r)
+            if path == "/api/foreign":                                 # v2.1: [외국 영상도] — 이 주제 설정 INCLUDE_FOREIGN
+                if job_of(t)["status"] == "running":
+                    raise UserError(f"'{job_of(t)['name']}' 작업이 도는 중 — 끝난 뒤(또는 [멈춤] 뒤)에 바꾸세요")
+                on = body.get("on") is True
+                if foreign_ok(t) == on:
+                    return self._send(200, {"ok": True, "include_foreign": on, "message": "이미 " + ("켜져" if on else "꺼져") + " 있습니다"})
+                data = set_include_foreign(t, on)
+                ok, note = github_put(t, f"{t}/analyzer_config.toml", data,
+                                      f"[{topic_name(t)}] 외국 영상 {'켬' if on else '끔'} — INCLUDE_FOREIGN = {'true' if on else 'false'} (웹 화면)")
+                log("SETTINGS", topic=t, include_foreign=on, file=f"{t}/analyzer_config.toml", github=note)
+                msg = (("켬 — 다음 탐색부터 외국 영상도 목록·분석에 넣습니다 (검색은 언어 지정 없이 새로 — 첫 탐색은 캐시 없음)" if on
+                        else "끔 — 다음 탐색부터 외국 영상을 뺍니다 (주소로 직접 넣은 영상만 남김)") + f" · PC 설정 저장 · {note}")
+                return self._send(200, {"ok": True, "include_foreign": foreign_ok(t), "github": ok, "message": msg})
             if path == "/api/cache/reset":                             # v1.6.2: [캐시 비우기] — 이 주제의 탐색 캐시·탐색 목록만
                 if job_of(t)["status"] == "running":
                     raise UserError(f"'{job_of(t)['name']}' 작업이 도는 중 — 끝난 뒤(또는 [멈춤] 뒤)에 비우세요")
@@ -2225,7 +2288,9 @@ nav.tabs .dot.running{background:var(--ok)}nav.tabs .dot.error{background:var(--
 <section class="card"><h2>4. 탐색 <span class="seg" id="modeSeg" title="롱폼(4분 넘음)과 쇼츠(3분 이하 세로)는 목록·자료·분석이 따로입니다"><button data-m="long">롱폼</button><button data-m="shorts">쇼츠</button></span> <small id="exploreSub">목록만 만듭니다 — 자료는 승인한 영상만 받습니다</small></h2>
  <div class="row">최근 <input type="number" id="weeks" min="1" max="52" value="8" style="width:70px"> 주
   <label><input type="checkbox" id="useKw" checked> 검색어로도 찾기</label>
+  <label title="이 주제 설정(analyzer_config.toml INCLUDE_FOREIGN) — 켜면 외국 영상도 목록·분석에 넣고 검색은 언어 지정 없이. 기본 꺼짐"><input type="checkbox" id="foreign"> 외국 영상도 <small class="mut">(이 주제 설정)</small></label>
   <span class="mut" id="est"></span><button id="cacheReset" title="이 주제의 탐색 캐시·탐색 목록(체크 포함)을 .yt_work/old/ 로 옮김 — 승인한 자료·분석 결과는 그대로">캐시 비우기</button><button class="pri" id="explore">탐색</button></div>
+ <div class="msg" id="foreignMsg"></div>
 </section>
 <section class="card" id="listCard"><h2>5. <span id="listTitle">탐색 목록</span> <small id="listInfo">배수 높은 순 · 추천은 체크해 둠</small></h2>
  <div class="row" style="margin-bottom:8px"><input type="text" id="flt" class="grow" placeholder="제목·채널 거르기">
@@ -2276,7 +2341,7 @@ async function loadState(){const s=await api('/api/state');if(TOPIC!==s.topic){T
  const e=s.env;$('ytkey_now').innerHTML=e.YOUTUBE_API_KEY.set?`<span class=ok>설정됨</span> ${esc(e.YOUTUBE_API_KEY.tail)} · ${esc(e.YOUTUBE_API_KEY.source)}`:'<span class=bad>없음</span> — 넣어야 탐색할 수 있습니다';
  $('ghtok_now').innerHTML=e.GITHUB_TOKEN.set?`<span class=ok>설정됨</span> ${esc(e.GITHUB_TOKEN.tail)} · ${esc(e.GITHUB_TOKEN.source)}`:'없음 — 결과는 PC 에만 저장';
  if(document.activeElement!==$('kw'))$('kw').value=s.keywords_text;$('kwCount').textContent=`검색어 ${s.keywords_count}개`;
- renderTargets(s.targets);showJob(s.job);SHORTS_OK=!!(s.shorts&&s.shorts.available);if(!SHORTS_OK&&MODE==='shorts')MODE='long';renderMode();estimate();return s}
+ $('foreign').checked=!!s.include_foreign;renderTargets(s.targets);showJob(s.job);SHORTS_OK=!!(s.shorts&&s.shorts.available);if(!SHORTS_OK&&MODE==='shorts')MODE='long';renderMode();estimate();return s}
 function renderMode(){document.querySelectorAll('#modeSeg button').forEach(b=>{b.classList.toggle('on',b.dataset.m===MODE);if(b.dataset.m==='shorts'){b.disabled=!SHORTS_OK;b.title=SHORTS_OK?'':'쇼츠 분석 도구가 없음 — 창을 닫고 다시 켜면 받음'}});
  const sh=MODE==='shorts';$('listTitle').textContent=sh?'쇼츠 목록':'탐색 목록';$('fShortLbl').style.display=sh?'none':'';
  $('exploreSub').textContent=sh?'쇼츠(3분 이하·세로)만 — 검색어마다 쇼츠 검색 1번(100단위) + 추가한 채널의 쇼츠 목록. 자료는 승인한 쇼츠만':'목록만 만듭니다 — 자료는 승인한 영상만 받습니다';
@@ -2297,7 +2362,8 @@ function renderQuota(q){if(!q)return;
  $('qBar').style.width=pct+'%';$('qBar').style.background=q.left<=0?'var(--bad)':q.left<1000?'var(--warn)':'var(--acc)';
  const bt=Object.entries(q.by_topic||{}).filter(x=>x[1]).map(([k,v])=>`${esc(k)} ${num(v)}`).join(' · ');
  const bw=Object.entries(q.by_what||{}).filter(x=>x[1]).sort((a,b)=>b[1]-a[1]).slice(0,6).map(([k,v])=>`${esc(k)} ${num(v)}`).join(' · ');
- $('qBy').innerHTML=`주제별 ${bt||'—'} · 작업별 ${bw||'—'} <span class=mut>(같은 키를 쓰는 이 PC 의 모든 창·자동 실행 합계 — 다른 PC·클라우드에서 쓴 양은 모름, 그때는 Google 의 한도 답으로 멈춤)</span>`}
+ const sk=(q.same_key||[]).length?`같은 키를 쓰는 다른 탭: ${q.same_key.map(esc).join(' · ')} (할당량을 함께 씀)`:'이 탭만 쓰는 키 (할당량 따로)';
+ $('qBy').innerHTML=`<b>이 탭 키</b> 지문 …${esc(String(q.key).slice(-4))} — ${sk}<br>주제별 ${bt||'—'} · 작업별 ${bw||'—'} <span class=mut>(같은 키를 쓰는 이 PC 의 모든 창·자동 실행 합계 — 다른 PC·클라우드에서 쓴 양은 모름, 그때는 Google 의 한도 답으로 멈춤)</span>`}
 function renderResume(r){if(!r)return;const p=PLAN||{};
  const parts=[p.explore_searches?`검색 ${p.explore_searches}개`:'',p.explore_videos?`영상 정보 ${p.explore_videos}개`:'',p.comments?`댓글 못 받은 영상 ${p.comments}개`:'',p.baseline?`채널 기준선 ${p.baseline}곳`:''].filter(Boolean);
  const nx=r.next?`다음 자동 이어서: 한국 시간 ${r.next.slice(5,16).replace('T',' ')}`:'자동 이어서 꺼짐 (--no-resume)';
@@ -2423,7 +2489,8 @@ $('tgAdd').onclick=async()=>{const v=$('tgIn').value.trim();if(!v)return;say('tg
   bad.map(x=>`<span class=bad>✕ ${esc(x.input.slice(0,60))} — ${esc(x.error)}</span>`)).join('<br>');$('tgMsg').className='msg';
  $('tgIn').value=bad.map(x=>x.input).join('\n');renderTargets(r.targets);estimate()}catch(e){say('tgMsg',e.message,'bad')}};
 $('tgIn').onkeydown=e=>{if(e.key==='Enter'&&(e.ctrlKey||e.metaKey))$('tgAdd').click()};
-$('weeks').oninput=()=>{lsSet('ytWeeks',$('weeks').value);estimate()};$('useKw').onchange=()=>{lsSet('ytUseKw',$('useKw').checked?'1':'0');estimate()};
+$('weeks').oninput=()=>{lsSet('ytWeeks',$('weeks').value);estimate()};
+$('foreign').onchange=async()=>{const on=$('foreign').checked;try{const r=await api('/api/foreign',{on});$('foreign').checked=!!r.include_foreign;say('foreignMsg','외국 영상 '+r.message,'ok');estimate()}catch(e){$('foreign').checked=!on;say('foreignMsg',e.message,'bad')}};$('useKw').onchange=()=>{lsSet('ytUseKw',$('useKw').checked?'1':'0');estimate()};
 async function startJob(p,b){try{waitDone=true;await api(p,b);busy=true;showJob(await api('/api/job'))}catch(e){waitDone=false;alert(e.message)}}
 $('explore').onclick=()=>startJob('/api/explore',{weeks:+$('weeks').value,keywords:$('useKw').checked,mode:MODE});
 $('approve').onclick=async()=>{const ids=ROWS.filter(r=>CHECK.has(r.id)).map(r=>r.id);if(!ids.length)return;

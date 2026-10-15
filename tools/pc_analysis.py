@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.14 — 2026-10-15 — 주제마다 캐시·설정 따로 (사용자 지시: "하나의 사이트에서 그냥 탭 만들어서 다른 주제 볼 수 있게 하자 서로 캐시는
+# VERSION: v1.15 — 2026-10-15 — 주제마다 다른 키 (사용자 지시: "키도 나눠서 쓸수 있게해 주제별로 다른키 넣을거니까"): 키 찾는 순서는 그대로
+#          (<주제>/.env → 환경 변수 YOUTUBE_API_KEY_<주제> → 맨 위 .env → YOUTUBE_API_KEY), 할당량 장부도 키마다 따로(KeyLedger — 키 지문).
+#          ① <주제>/.env 틀(TOPIC_ENV_TEMPLATE)의 안내를 '보통 비워 둠' → '이 주제 전용 키 (주제마다 달라도 됨 — 다르면 할당량도 따로)'
+#          ② 맨 위 .env 가 없으면 그 틀로 <주제>/.env 를 만듦 (예전: 아무것도 안 만듦 — 주제 키를 어디에 넣는지 안 보였음)
+#          ③ 앞쪽에 남아 있던 예전 ensure_topic_env(뒤의 v1.14 판에 가려져 쓰이지 않던 것)를 지움
+# (v1.14 — 2026-10-15 — 주제마다 캐시·설정 따로 (사용자 지시: "하나의 사이트에서 그냥 탭 만들어서 다른 주제 볼 수 있게 하자 서로 캐시는
 #          공유하지 않도록 하고" · "설정도 다 따로써야해"): ① retire_shared_cache — 분석기 v2.12.0 부터 API 캐시가 주제마다(.yt_work/cache_<주제>)라
 #          예전 공동 캐시 .yt_work/cache 를 .yt_work/old/ 로 한 번 옮김 ② ensure_topic_env — <주제>/.env 가 없으면 맨 위 .env 를 복사해 주제마다
 #          키 파일을 따로 씀 (그 뒤 웹 화면의 키 저장은 그 주제 .env 에만) ③ reset_topic_cache 가 이 주제의 분석기 캐시(.yt_work/cache_<주제>)도 치움
@@ -118,7 +123,7 @@ from datetime import date, datetime, time as dtime, timedelta, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v1.14"
+VERSION = "v1.15"
 LOG = logging.getLogger("pc_analysis")
 KST = timezone(timedelta(hours=9))
 LOCK_STALE_MIN = 30          # 잠금 파일이 이 시간 넘게 갱신되지 않으면 이전 실행이 죽은 것으로 봄
@@ -446,23 +451,15 @@ def env_has(name, folder=None):
     return bool(find_secret(name, folder)[0])
 
 
-TOPIC_ENV_TEMPLATE = """# 이 주제({folder})만 쓰는 키 — 보통은 비워 둠 (맨 위 폴더의 .env 키를 여러 주제가 나눠 씀). 절대 GitHub 에 올리거나 공유하지 마세요
-# ⚠️ 할당량을 늘리려고 Google Cloud 프로젝트를 주제마다 새로 만드는 것은 YouTube API 개발자 정책 위반입니다('sharding' —
-#    키 회수·계정 정지 위험). 여기에는 정말 다른 용도·다른 사람의 프로젝트 키만 넣으세요. 할당량이 더 필요하면 '할당량 증가 신청'.
-# 자세히: guides/pc_analysis.md "여러 주제를 동시에"
+TOPIC_ENV_TEMPLATE = """# 이 주제({folder}) 전용 키 — 주제마다 다른 키를 넣어도 되고 같은 키여도 됩니다. 절대 GitHub 에 올리거나 공유하지 마세요
+# 키가 다르면 하루 할당량도 따로 셉니다 (웹 화면 0번 칸 '이 탭 키'), 같으면 함께 셉니다. 비우면 맨 위 폴더 .env 의 키를 씀.
+# ※ YouTube API 정책: 같은 도구의 할당량을 늘리려고 Google Cloud 프로젝트를 여러 개 만들어 나눠 쓰는 것은 'sharding' 위반입니다
+#    (키 회수 위험) — 할당량이 더 필요하면 '할당량 증가 신청'. 자세히: guides/pc_analysis.md "주제마다 다른 키"
 YOUTUBE_API_KEY=
 
-# (보통 비움 — 맨 위 .env 의 토큰을 씀)
+# (비우면 맨 위 .env 의 토큰을 씀)
 GITHUB_TOKEN=
 """
-
-
-def ensure_topic_env(folder):
-    """<주제>/.env 틀 (없을 때만) — 주제별 키 파일이 어디 있는지 보이게."""
-    p = ROOT / folder / ".env"
-    if (ROOT / folder).is_dir() and not p.exists():
-        p.write_text(TOPIC_ENV_TEMPLATE.format(folder=folder), "utf-8")
-        log("SETUP", folder=folder, note="주제별 키 파일 틀을 만듦 (비우면 맨 위 .env 키)", file=f"{folder}/.env")
 
 
 KEYWORD_LIST_FILE = "keywords.txt"      # 검색어만 한 줄에 하나씩 (v1.7) — 있으면 keywords.toml 의 KEYWORD_GROUPS 대신
@@ -928,11 +925,17 @@ def retire_shared_cache(dry=False):
 
 def ensure_topic_env(folder, dry=False):
     """v1.14 (사용자 지시 "설정도 다 따로써야해"): <주제>/.env 가 없고 맨 위 .env 가 있으면 복사해 주제마다 키 파일을 따로 둔다
-    (그 뒤 웹 화면의 키 저장은 그 주제 .env 에만 — 다른 주제 키는 안 바뀜). 값은 출력하지 않음. 같은 키를 여러 주제가 쓰는 것은 괜찮다
-    (할당량은 키 장부로 함께 셈) — 할당량을 늘리려고 Google Cloud 프로젝트를 주제마다 만드는 것은 정책 위반('sharding'). → 만들었으면 True"""
+    (그 뒤 웹 화면의 키 저장은 그 주제 .env 에만 — 다른 주제 키는 안 바뀜). 값은 출력하지 않음. 같은 키를 여러 주제가 쓰면 할당량을
+    키 장부로 함께 세고, 주제마다 다른 키면 따로 셈 (v1.15) — 할당량을 늘리려고 Google Cloud 프로젝트를 주제마다 만드는 것은 정책 위반
+    ('sharding'). v1.15: 맨 위 .env 가 없으면 빈 틀(TOPIC_ENV_TEMPLATE). → 만들었으면 True"""
     dst, src = ROOT / folder / ".env", ROOT / ".env"
-    if dst.exists() or not src.is_file() or not (ROOT / folder / "analyzer_config.toml").is_file():
+    if dst.exists() or not (ROOT / folder / "analyzer_config.toml").is_file():
         return False
+    if not src.is_file():                             # v1.15: 맨 위 .env 가 없으면 빈 틀 (이 주제 키를 넣을 곳이 보이게)
+        if not dry:
+            _write_atomic(dst, TOPIC_ENV_TEMPLATE.format(folder=folder).encode("utf-8"))
+        log("SETUP", folder=folder, note="주제 전용 키 파일 틀을 만듦 (YOUTUBE_API_KEY= 뒤에 이 주제 키)", file=f"{folder}/.env", dry_run=dry)
+        return True
     if not dry:
         head = (f"# 이 주제({folder}) 전용 키 — {datetime.now().strftime('%Y-%m-%d')} 맨 위 .env 를 복사해 만듦 (tools/pc_analysis.py {VERSION}).\n"
                 "# 웹 화면에서 이 주제 탭의 키를 고치면 이 파일만 바뀝니다. 절대 GitHub 에 올리거나 공유하지 마세요.\n")

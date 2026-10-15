@@ -1,6 +1,8 @@
 # =====================================================================================================
 # YouTube 주제 분석기 설정 파일 — 주제: 재테크 (폴더 economic)
-# VERSION: v1.1 — 2026-10-13 — 주제 이름 '재테크'(경제는 뺌 — 사용자 지시), 성공사례 영상 파일은 받지 않음(DOWNLOAD_VIDEOS = false — 사용자 지시
+# VERSION: v1.2 — 2026-10-15 — INCLUDE_FOREIGN = false 추가 (외국 영상 켜고 끄기 — 사용자 지시: "주식은 외국 영상도 다 분석할 건데 확인해봐
+#          on/off 기능(default off) 있는지 확인하고 없으면 추가해"). 재테크는 꺼 둠 = 예전처럼 한국어 영상만. 다른 값은 v1.1 그대로
+# (v1.1 — 2026-10-13 — 주제 이름 '재테크'(경제는 뺌 — 사용자 지시), 성공사례 영상 파일은 받지 않음(DOWNLOAD_VIDEOS = false — 사용자 지시
 #          "일단 영상 자체는 받지말고"), 자막 없는 영상 음성인식은 결과를 먼저 올린 뒤 대기열에서 하나씩 (tools/pc_analysis.py 가 --defer-whisper)
 # (v1.0.1 — 2026-10-13 — 주석의 실행 명령만 (-File run_analyzer.ps1 — .\ 없이). 설정 값은 v1.0 그대로)
 # (v1.0 — 2026-10-13 — 새로 만듦 (사용자 지시: 모든 주제 폴더를 지우고 경제·재테크 폴더 하나만).
@@ -26,6 +28,7 @@ GITHUB_BRANCH = "main"
 [search]
 REGION_CODE = "KR"
 LANGUAGE = "ko"
+INCLUDE_FOREIGN = false              # 외국 영상도 탐색·분석 (true) — 기본 false = 한국어 영상만. 웹 화면 4번 칸 [외국 영상도]로 켜고 끔
 
 [keywords]
 KEYWORD_MODE = "curated"             # keywords.toml 의 KEYWORD_GROUPS 에 적은 검색어만

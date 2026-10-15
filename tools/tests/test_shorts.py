@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-10-15 — 쇼츠 분석 시험 (사용자 지시: "… 쇼츠 분석 기능도 추가해 목적은 사람들의 니즈를 충족해주는 쇼츠를 만들어서
+# VERSION: v1.0.1 — 2026-10-15 — 가짜 자막 함수가 outlier_research v2.4 의 any_lang(외국 영상 원래 언어 자막)을 받음 (시험 내용은 그대로)
+# (v1.0 — 2026-10-15 — 쇼츠 분석 시험 (사용자 지시: "… 쇼츠 분석 기능도 추가해 목적은 사람들의 니즈를 충족해주는 쇼츠를 만들어서
 #          최대한 조회수를 높이기 위한 쇼츠를 만들기 위해 분석하는거야 전력을 다해서 해봐"):
 #          outlier_research v2.3 (쇼츠 판별·화면비·채널 쇼츠 목록·쇼츠 검색 캐시) · shorts_analysis v1.0 (가짜 자료로 결과 숫자 확인) ·
 #          web_ui v1.6 (쇼츠 탐색 → 승인 → 분석, 음성인식 남은 수). 진짜 YouTube·GitHub 에 요청하지 않는다: urlopen·자막을 가짜로,
-#          저장소 대신 임시 폴더를 ROOT 로, GITHUB_TOKEN 류는 지움 (CLAUDE.md '시험이 진짜 GitHub 에 올리지 않게').
+#          저장소 대신 임시 폴더를 ROOT 로, GITHUB_TOKEN 류는 지움 (CLAUDE.md '시험이 진짜 GitHub 에 올리지 않게').)
 """python3 -m unittest tools.tests.test_shorts -v   (또는 python3 tools/tests/test_shorts.py)"""
 import csv
 import io
@@ -155,7 +156,7 @@ class Base(unittest.TestCase):
             shutil.copy(REPO / "economic" / f, td / f)
         (td / "keywords.txt").write_text("연금\n노후준비\n", "utf-8")
 
-    def fake_transcript(self, vid):
+    def fake_transcript(self, vid, any_lang=False):                             # v1.0.1: outlier_research v2.4 any_lang
         if vid.endswith("1"):
             return ([{"text": "연금 이렇게 받으면 손해일까요?", "start": 0.4, "duration": 2.2},
                      {"text": "정답은 순서에 있습니다", "start": 2.6, "duration": 2.0},

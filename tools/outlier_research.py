@@ -1,6 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v2.3 — 2026-10-15 — 쇼츠 자료 받기 (사용자 지시: "유튜브 분석기 … 쇼츠 분석 기능도 추가해 목적은 사람들의 니즈를 충족해주는
+# VERSION: v2.4 — 2026-10-15 — 외국 영상 켜고 끄기 (사용자 지시: "주식은 외국 영상도 다 분석할 건데 확인해봐 on/off 기능(default off) 있는지
+#          확인하고 없으면 추가해"). 주제마다 <주제>/analyzer_config.toml [search] INCLUDE_FOREIGN (없거나 false = 예전처럼 뺌 — 기본 꺼짐):
+#          ① include_foreign(topic) — 설정 읽기 · is_foreign(info) — 외국 영상 판별(예전 exclusion_reason 의 규칙 그대로)
+#          ② exclusion_reason(info, foreign_ok) · build_rows(foreign_ok) — 켜면 외국 영상을 빼지 않고 flag '외국 영상'(표시만)
+#          ③ 검색 언어 search_lang(foreign_ok): 꺼짐 = relevanceLanguage=ko (예전 그대로) · 켜짐 = 언어 지정 없음 (한국어 쪽으로 기울이지 않음).
+#             검색 캐시 열쇠도 언어별 ('…|KR|ko' 는 예전 그대로 → 끈 주제는 다시 검색하지 않음, 켠 주제는 '…|KR|any' 로 한 번 새로)
+#          ④ 자막: 외국 영상은 한국어 자막이 없으면 그 영상의 원래 언어 자막(수동 → 자동)을 받음 (예전: '한국어 자막 없음' → 음성인식이
+#             한국어로 억지로 받아씀). metadata 에 video_lang·foreign 을 적어 음성인식 대기열(분석기 v2.13.0)이 언어를 고름
+#          ⑤ 쓸 만한 새 영상 수(적응형 검색 캐시)도 켠 검색은 외국 영상을 셈
+#          ⑥ 고침: 언어 표시가 없는 영상의 '제목에 한글' 판별을 NFC 로 모아서 — 맥에서 쓴 제목(풀어쓴 자모 NFD)의 한국어 영상이 외국 영상으로
+#             빠지던 것 (끈 주제에도 적용 — 재테크 분석에서 성공 기준을 넘은 롱폼 2·쇼츠 1 이 이것 때문에 빠져 있었음)
+# (v2.3 — 2026-10-15 — 쇼츠 자료 받기 (사용자 지시: "유튜브 분석기 … 쇼츠 분석 기능도 추가해 목적은 사람들의 니즈를 충족해주는
 #          쇼츠를 만들어서 최대한 조회수를 높이기 위한 쇼츠를 만들기 위해 분석하는거야 전력을 다해서 해봐"). 롱폼 동작은 그대로:
 #          ① 쇼츠 판별 is_short(): 3분(180초) 이하 + 세로·정사각 (YouTube 쇼츠 규칙 — 2024-10-15 부터 3분까지). 화면비는 videos.list 에
 #             part=player·maxHeight 를 더해 받는 embedWidth·embedHeight (같은 1단위 — 2026-10-15 실측: 쇼츠 4608×8192, 가로 영상 14564×8192).
@@ -147,6 +158,7 @@ import re
 import shutil
 import sys
 import time
+import unicodedata
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -159,7 +171,7 @@ except ModuleNotFoundError:             # Python 3.10 → tomli (분석기가 �
     import tomli as tomllib
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v2.3"
+VERSION = "v2.4"
 LOG = logging.getLogger("outlier")
 HANGUL = re.compile(r"[가-힣]")
 SEARCH_TTL_HOURS = 168
@@ -182,6 +194,8 @@ CAPTION_BLOCK_ERRORS = ("RequestBlocked", "IpBlocked", "TooManyRequests", "429")
 CAPTION_BLOCK_AFTER = 2       # 자막 요청이 연속 이만큼 막히면
 CAPTION_COOLDOWN_H = 6        # 이 시간 동안 모든 도구가 자막 요청을 쉼 (.yt_work/caption_block.json — 분석기·웹 화면도 봄)
 CAPTION_PACE_SEC = (1.5, 3.0)  # 자막 요청 사이 쉬는 시간 (초, 무작위)
+FOREIGN = "외국 영상"          # v2.4: 외국 영상 표시·뺄 까닭
+ANY_LANG = "any"              # v2.4: 언어 지정 없는 검색의 캐시 열쇠 (INCLUDE_FOREIGN = true)
 
 
 def log(stage, level=logging.INFO, **kv):
@@ -327,9 +341,11 @@ class Api:
             if not ok and self.ledger is not None:   # 받지 못한 요청은 장부에서 돌려줌
                 self.ledger.refund(COST[kind], self.what or kind, self.topic)
 
-    def search(self, q, published_after, duration=None):
-        p = dict(part="snippet", q=q, type="video", order="viewCount", publishedAfter=published_after, regionCode="KR",
-                 relevanceLanguage="ko", maxResults=50)
+    def search(self, q, published_after, duration=None, lang="ko"):
+        """lang (v2.4): relevanceLanguage — None 이면 언어 지정 없이 (외국 영상을 넣는 주제, search_lang)."""
+        p = dict(part="snippet", q=q, type="video", order="viewCount", publishedAfter=published_after, regionCode="KR", maxResults=50)
+        if lang:
+            p["relevanceLanguage"] = lang
         if duration:                                     # None = 길이 상관없이 (search_supply)
             p["videoDuration"] = duration
         d = self.get("search", **p)
@@ -407,9 +423,10 @@ def is_caption_block(status):
     return any(w in str(status) for w in CAPTION_BLOCK_ERRORS)
 
 
-def transcript(vid):
+def transcript(vid, any_lang=False):
     """→ (조각 목록 [{text,start,duration}], 언어, 상태). 한국어 자막 → 자동 생성 한국어.
-    v1.9: 자막 요청을 쉬는 중이면 요청하지 않음, 요청 사이 1.5~3초 쉼, 막힘·성공을 기록 (연속 2번 막히면 6시간 쉼)."""
+    v1.9: 자막 요청을 쉬는 중이면 요청하지 않음, 요청 사이 1.5~3초 쉼, 막힘·성공을 기록 (연속 2번 막히면 6시간 쉼).
+    any_lang (v2.4 — 외국 영상): 한국어 자막이 없으면 다른 언어 자막(수동 → 자동 생성, 받은 목록 순)."""
     until = caption_blocked()
     if until:
         return [], "-", f"IpBlocked: 자막 서버 차단으로 {until.astimezone().strftime('%m-%d %H:%M')}까지 자막 요청을 쉼 → 음성인식"
@@ -418,12 +435,12 @@ def transcript(vid):
     if wait > 0:
         time.sleep(wait)
     try:
-        return _transcript_fetch(vid)
+        return _transcript_fetch(vid, any_lang)
     finally:
         _CAPTION["last"] = time.time()
 
 
-def _transcript_fetch(vid):
+def _transcript_fetch(vid, any_lang=False):
     try:
         from youtube_transcript_api import YouTubeTranscriptApi
         api = YouTubeTranscriptApi()
@@ -435,9 +452,12 @@ def _transcript_fetch(vid):
                 break
             except Exception:
                 continue
+        if tr is None and any_lang:                     # v2.4: 외국 영상 — 원래 언어 자막 (수동 먼저)
+            tracks = list(tl)
+            tr = next((t for t in tracks if not t.is_generated), None) or next(iter(tracks), None)
         if tr is None:
             note_caption_result(False)
-            return [], "-", "한국어 자막 없음"
+            return [], "-", "자막 없음" if any_lang else "한국어 자막 없음"
         snips = [{"text": s.text, "start": s.start, "duration": s.duration} for s in tr.fetch()]
         note_caption_result(False)
         return snips, tr.language_code + ("(자동)" if tr.is_generated else ""), "ok"
@@ -654,17 +674,24 @@ def write_comments_csv(path, cms):
                         "published": c.get("published"), "text": c.get("text")})
 
 
-def search_cache_file(cache_dir, q, dur, fallback_days):
-    """검색 캐시 파일 경로 (검색어·길이·기간이 같으면 같은 파일)."""
-    key = hashlib.sha1(f"{q}|{dur}|{fallback_days}|viewCount|KR|ko".encode("utf-8")).hexdigest()[:16]
+def search_lang(foreign_ok):
+    """검색 언어 (v2.4): 외국 영상을 빼는 주제 = 'ko' (예전 그대로) · 넣는 주제(INCLUDE_FOREIGN) = None (언어 지정 없이)."""
+    return None if foreign_ok else "ko"
+
+
+def search_cache_file(cache_dir, q, dur, fallback_days, lang="ko"):
+    """검색 캐시 파일 경로 (검색어·길이·기간·검색 언어가 같으면 같은 파일). v2.4: 'ko' 열쇠는 예전과 같음 (끈 주제는 캐시 그대로)."""
+    key = hashlib.sha1(f"{q}|{dur}|{fallback_days}|viewCount|KR|{lang or ANY_LANG}".encode("utf-8")).hexdigest()[:16]
     return cache_dir / f"search_{key}.json"
 
 
 def _useful_novel(cache_dir, d, window_days, now=None):
     """캐시 d 가 지난번 새로 고침에서 새로 데려온 영상(d['novel']) 중 쓸 만한 것의 수 (v2.2) — 롱폼·라이브 아님·한국어·지금 기간 안.
-    영상 정보 캐시가 없으면 쓸 만한 것으로 셈 (모르면 늦추지 않는 쪽). v2.3: 쇼츠 검색(dur='short')은 3분 이하를 쓸 만한 것으로."""
+    영상 정보 캐시가 없으면 쓸 만한 것으로 셈 (모르면 늦추지 않는 쪽). v2.3: 쇼츠 검색(dur='short')은 3분 이하를 쓸 만한 것으로.
+    v2.4: 언어 지정 없는 검색(lang='any' — 외국 영상을 넣는 주제)은 외국 영상도 쓸 만한 것으로."""
     now = now or datetime.now(timezone.utc)
     shorts = d.get("dur") == "short"
+    foreign_ok = d.get("lang") == ANY_LANG
     n = 0
     for v in d.get("novel") or []:
         f = Path(cache_dir) / f"{v}.json"
@@ -678,7 +705,7 @@ def _useful_novel(cache_dir, d, window_days, now=None):
         except ValueError:
             age = 0
         sec = i.get("duration") or 0
-        if ((0 < sec <= SHORTS_MAX_SEC) if shorts else sec >= MIN_LONGFORM_SEC) and not exclusion_reason(i) and age <= window_days:
+        if ((0 < sec <= SHORTS_MAX_SEC) if shorts else sec >= MIN_LONGFORM_SEC) and not exclusion_reason(i, foreign_ok) and age <= window_days:
             n += 1
     return n
 
@@ -701,9 +728,9 @@ def _search_age_h(d, now=None):
     return ((now or datetime.now(timezone.utc)) - datetime.fromisoformat(d["fetched"])).total_seconds() / 3600
 
 
-def search_is_cached(cache_dir, q, dur, fallback_days, ttl_h=SEARCH_TTL_HOURS):
-    """이 검색을 지금 하면 캐시(할당량 0)인가 — 웹 화면의 예상 할당량 계산용 (v1.9, v2.2: 적응형 캐시 시간)."""
-    f = search_cache_file(cache_dir, q, dur, fallback_days)
+def search_is_cached(cache_dir, q, dur, fallback_days, ttl_h=SEARCH_TTL_HOURS, lang="ko"):
+    """이 검색을 지금 하면 캐시(할당량 0)인가 — 웹 화면의 예상 할당량 계산용 (v1.9, v2.2: 적응형 캐시 시간, v2.4: 검색 언어)."""
+    f = search_cache_file(cache_dir, q, dur, fallback_days, lang)
     try:
         d = json.loads(f.read_text("utf-8"))
         return _search_age_h(d) <= search_ttl(cache_dir, d, ttl_h, fallback_days)[0]
@@ -724,11 +751,12 @@ def _search_pool(cache_dir, skip):
     return pool
 
 
-def cached_search(api, cache_dir, q, since, dur, fallback_days, ttl_h, refresh, info=None):
-    """검색 캐시: (검색어, 길이, 기간) 이 같고 적응형 캐시 시간(search_ttl) 안이면 할당량 0. → (영상 ID 목록, 캐시 여부).
+def cached_search(api, cache_dir, q, since, dur, fallback_days, ttl_h, refresh, info=None, lang="ko"):
+    """검색 캐시: (검색어, 길이, 기간, 검색 언어) 가 같고 적응형 캐시 시간(search_ttl) 안이면 할당량 0. → (영상 ID 목록, 캐시 여부).
     할당량이 없으면 QuotaStop. info(dict) 를 주면 ttl_h·level·useful·age_h 를 채움 (로그용).
-    새로 고칠 때 지난 결과와 비교해 '새로 보인 영상'(novel)·늦춤 단계(ttl_level)를 같이 저장 (v2.2)."""
-    f = search_cache_file(cache_dir, q, dur, fallback_days)
+    새로 고칠 때 지난 결과와 비교해 '새로 보인 영상'(novel)·늦춤 단계(ttl_level)를 같이 저장 (v2.2).
+    lang (v2.4): search_lang(foreign_ok) — 'ko' 또는 None(언어 지정 없음, 캐시 열쇠 'any')."""
+    f = search_cache_file(cache_dir, q, dur, fallback_days, lang)
     old = None
     if f.is_file():
         try:
@@ -744,9 +772,9 @@ def cached_search(api, cache_dir, q, since, dur, fallback_days, ttl_h, refresh, 
             info.update(ttl_h=round(eff), level=level, useful=useful, age_h=round(age_h, 1))
         if age_h <= eff and not refresh:
             return old["ids"], True
-    ids = api.search(q, since, dur)
+    ids = api.search(q, since, dur, lang=lang)
     rec = {"q": q, "dur": dur, "fallback_days": fallback_days, "fetched": datetime.now(timezone.utc).isoformat(),
-           "since": since, "total": getattr(api, "last_total", None), "ids": ids}
+           "since": since, "total": getattr(api, "last_total", None), "ids": ids, "lang": lang or ANY_LANG}
     if old:                                     # v2.2: 이번 새로 고침이 새로 데려온 영상 (지난 결과에도, 다른 검색에도 없던 것)
         prev, pool = set(old["ids"]), _search_pool(cache_dir, f.name)
         rec.update(novel=[v for v in ids if v not in prev and v not in pool], ttl_level=level, prev_fetched=old["fetched"],
@@ -1107,12 +1135,13 @@ def collect_api(topic, a, api, kws, exclude, out, state):
     """검색(최근·조회수 순) → 영상·채널 정보 → 후보 행 목록. 캐시: out/.cache/. 할당량이 끝나면 캐시만으로 계속하고 state 에 남김."""
     cache_dir = out / ".cache"
     since = (datetime.now(timezone.utc) - timedelta(days=a.fallback_days)).strftime("%Y-%m-%dT00:00:00Z")
+    lang = search_lang(include_foreign(topic))          # v2.4: 외국 영상을 넣는 주제는 언어 지정 없이 검색
     found = {}
     for g, q in kws:
         for dur in (("medium", "long") if a.long else ("medium",)):
             ttl = {}
             try:
-                ids, hit = cached_search(api, cache_dir, q, since, dur, a.fallback_days, a.search_ttl_hours, a.refresh, info=ttl)
+                ids, hit = cached_search(api, cache_dir, q, since, dur, a.fallback_days, a.search_ttl_hours, a.refresh, info=ttl, lang=lang)
             except QuotaStop as e:
                 state["quota_stop"] = state["quota_stop"] or e.kind
                 state["pending_searches"].append(f"{q} ({dur})")
@@ -1175,7 +1204,7 @@ def deep_case(d, r, info, a, api, source, existing_comments, state):
             prev = None
         snips, lang, st = [], "-", prev or "확인 안 함(--offline)"
     else:
-        snips, lang, st = transcript(r["id"])
+        snips, lang, st = transcript(r["id"], any_lang=is_foreign(info))     # v2.4: 외국 영상은 원래 언어 자막도
         if snips:
             tj.write_text(json.dumps({"lang": lang, "snippets": snips}, ensure_ascii=False), "utf-8")
             (d / "transcript.txt").write_text("\n".join(f"[{x['start']:7.1f}] {x['text']}" for x in snips), "utf-8")
@@ -1198,6 +1227,7 @@ def deep_case(d, r, info, a, api, source, existing_comments, state):
     n_rep = sum(1 for c in cms if c.get("parent"))
     meta = {**r, "source": source, "tags": info.get("tags"), "chapters": chapters_from(info.get("description") or ""),
             "transcript_lang": lang, "transcript_status": st, **stats,
+            "video_lang": str(info.get("audio_lang") or info.get("lang") or ""), "foreign": is_foreign(info),   # v2.4: 음성인식 언어 고르기
             "comments_fetched": len(cms), "comments_top_level": len(cms) - n_rep, "comments_replies": n_rep,
             "comments_by_creator": sum(1 for c in cms if c.get("creator")), "comments_complete": cst["complete"],
             "comments_disabled": cst.get("disabled", False), "comments_reported": r.get("comments"),
@@ -1294,28 +1324,47 @@ def _write_rows(path, rows, fields, extra):
 LIVE_TITLE_RX = re.compile(r"라이브|생방송|스트리밍|실시간\s*방송|\blive\b", re.I)
 
 
-def exclusion_reason(info):
-    """탐색에서 뺄 영상인가 → '라이브 방송' / '외국 영상' / None (v2.0 — 사용자 지시 "라이브 방송, 외국 영상은 탐색 대상에서 제외")."""
+def include_foreign(topic, root=None):
+    """외국 영상도 탐색·분석하나 (v2.4 — 사용자 지시 "주식은 외국 영상도 다 분석할 건데 … on/off 기능(default off)"):
+    <주제>/analyzer_config.toml 의 INCLUDE_FOREIGN ([search]) — true 일 때만 켬 (없음·false·잘못된 값·파일 없음 = 꺼짐)."""
+    try:
+        cfg = _flat(tomllib.loads((Path(root or ROOT) / topic / "analyzer_config.toml").read_text("utf-8")))
+    except (OSError, ValueError):
+        return False
+    return cfg.get("INCLUDE_FOREIGN") is True
+
+
+def is_foreign(info):
+    """외국 영상인가 (v2.0 규칙): 영상 언어(defaultAudioLanguage·defaultLanguage)가 한국어가 아님 (zxx 말 없음·und·mul 은 모름),
+    언어 표시가 없으면 제목에 한글이 없음. v2.4: 제목을 NFC 로 모아 봄 — 맥에서 쓴 제목은 한글이 풀어쓴 자모(NFD)라 [가-힣] 에 안 걸려
+    한국어 영상이 '외국 영상'으로 빠졌음 (2026-10-15 실측: 재테크 성공 기준을 넘은 롱폼 2·쇼츠 1)."""
+    lang = str(info.get("audio_lang") or info.get("lang") or "").lower()
+    if lang:
+        return not lang.startswith("ko") and lang not in ("zxx", "und", "mul")
+    return not HANGUL.search(unicodedata.normalize("NFC", str(info.get("title") or "")))
+
+
+def exclusion_reason(info, foreign_ok=False):
+    """탐색에서 뺄 영상인가 → '라이브 방송' / '외국 영상' / None (v2.0 — 사용자 지시 "라이브 방송, 외국 영상은 탐색 대상에서 제외").
+    foreign_ok (v2.4): 외국 영상을 넣는 주제(include_foreign) — 외국 영상은 빼지 않음 (라이브 방송은 그대로 뺌)."""
     if info.get("live") or info.get("was_live") or LIVE_TITLE_RX.search(str(info.get("title") or "")):
         return "라이브 방송"
-    lang = str(info.get("audio_lang") or info.get("lang") or "").lower()
-    if lang and not lang.startswith("ko") and lang not in ("zxx", "und", "mul"):
-        return "외국 영상"
-    if not lang and not HANGUL.search(str(info.get("title") or "")):
-        return "외국 영상"
+    if not foreign_ok and is_foreign(info):
+        return FOREIGN
     return None
 
 
-def build_rows(infos, found, now, keep=()):
+def build_rows(infos, found, now, keep=(), foreign_ok=False):
     """영상 정보 → 후보 행 (길이 없음·라이브 방송·외국 영상 제외 — keep 에 든 영상은 라이브·외국이어도 남기고 'flag' 로 표시).
-    배수 = 조회수 ÷ 구독자(100 미만은 100)."""
+    배수 = 조회수 ÷ 구독자(100 미만은 100). foreign_ok (v2.4): 외국 영상도 남기고 flag '외국 영상'(표시만)."""
     rows = []
     for i in infos:
         if not i.get("duration"):
             continue
-        why = exclusion_reason(i)
+        why = exclusion_reason(i, foreign_ok)
         if why and i["id"] not in keep:
             continue
+        why = why or (FOREIGN if foreign_ok and is_foreign(i) else None)
         try:
             pub = datetime.fromisoformat(str(i["published"]).replace("Z", "+00:00"))
             pub = pub if pub.tzinfo else pub.replace(tzinfo=timezone.utc)
@@ -1380,7 +1429,9 @@ def run_topic(topic, a, api):
             next_step=f"{topic}/{KEYWORD_LIST_FILE} 에 검색어를 한 줄에 하나씩 적으세요 (GitHub 에서 고치면 PC 가 다음 회차에 받음)")
         raise SystemExit(1)
     state = new_state()
+    foreign_ok = include_foreign(topic)                 # v2.4: <주제>/analyzer_config.toml INCLUDE_FOREIGN (기본 꺼짐)
     log("START", topic=topic, name=topic_name, source=source, keywords=len(kws), keywords_file=kw_file.name, per_group=a.per_group,
+        include_foreign=foreign_ok,
         days=a.days, max_subs=a.max_subs, min_ratio=a.min_ratio, min_views=a.min_views, min_sec=a.min_sec, quota=a.quota,
         top=a.top, popular=a.popular, comments="전부" if not a.comments else a.comments, replies=a.replies,
         relevance_terms=len(rel["strong"]), tool=f"outlier_research.py {VERSION}")
@@ -1392,7 +1443,7 @@ def run_topic(topic, a, api):
     else:
         infos, found = collect_api(topic, a, api, kws, exclude, out, state)
     if source == "api" and a.tag_keywords > 0:                   # 태그 검색어 (v1.6): 잘된 영상들이 쓴 태그로 한 번 더 탐색
-        tags = pick_tag_keywords(build_rows(infos, found, now), {i["id"]: i for i in infos}, kws, rel, a.tag_keywords, out, a.min_ratio)
+        tags = pick_tag_keywords(build_rows(infos, found, now, foreign_ok=foreign_ok), {i["id"]: i for i in infos}, kws, rel, a.tag_keywords, out, a.min_ratio)
         state["tag_keywords"] = tags
         if tags:
             log("SEARCH", topic=topic, note="태그 검색어로 더 탐색", tags=",".join(tags))
@@ -1402,7 +1453,7 @@ def run_topic(topic, a, api):
             for vid, qs in tfound.items():
                 found.setdefault(vid, []).extend(qs)
     info_by_id = {i["id"]: i for i in infos}
-    rows = build_rows(infos, found, now)
+    rows = build_rows(infos, found, now, foreign_ok=foreign_ok)
     if a.offline and not rows:                      # v2.0.1: 다시 만들 자료가 없으면 있던 결과를 지우지 않음
         log("DONE", logging.WARNING, topic=topic, note="--offline: 검색 캐시가 없어 다시 만들 후보가 0 — 요약·표·사례 폴더를 그대로 둠",
             hint="결과를 새로 만들려면 할당량이 있을 때 --offline 없이 (또는 웹 화면에서 탐색)")

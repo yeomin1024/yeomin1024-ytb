@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.1 — 2026-10-15 — 돈 이야기가 아닌 쇼츠 빼기 · 채널 유형 '모름' 빼고 셈 · 정보 요청이 아닌 댓글 거름 (사용자 지시: "고쳐서 다시 분석해보자"
+# VERSION: v1.2 — 2026-10-15 — 외국 영상 켜고 끄기 (사용자 지시: "주식은 외국 영상도 다 분석할 건데 확인해봐 on/off 기능(default off) 있는지
+#          확인하고 없으면 추가해"): 주제 설정 INCLUDE_FOREIGN(기본 꺼짐)을 켜면 외국 쇼츠도 성공·비교·같은 채널 기준선에 넣음 (success_analysis v1.4
+#          규칙을 그대로 씀) · 쇼츠마다 foreign 표시 · 첫 3초 음절·말 속도(한글 음절)는 한국어 쇼츠만으로 셈 · 한계 글
+# (v1.1 — 2026-10-15 — 돈 이야기가 아닌 쇼츠 빼기 · 채널 유형 '모름' 빼고 셈 · 정보 요청이 아닌 댓글 거름 (사용자 지시: "고쳐서 다시 분석해보자"
 #          — 2026-10-15 결과 검토: 성공 쇼츠 103개 중 40여 개가 연예·예능 클립·운세·명언·정치·'노후차' 같은 다른 뜻이라 주제·형식 통계가 흐려짐):
 #          ① [shorts_exclude] (주제마다 analysis_rules.toml — 코드 기본값 없음) 갈래별 정규식: where = text(제목·설명 앞 300자·채널 이름 — 영상 태그는
 #             안 봄: '명언'·'이재명' 태그가 붙은 주식 쇼츠까지 빠져서) 또는 title(제목만). keep_if_money = true 면 제목(해시태그 포함)에 돈 낱말
@@ -57,7 +60,7 @@ from outlier_stats import TITLE_FEATURES                            # noqa: E402
 from weekly_analysis import _published, _write_atomic, clean_description   # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v1.1"
+VERSION = "v1.2"
 LOG = logging.getLogger("shorts")
 KST = timezone(timedelta(hours=9))
 SHORTS_DIR = "shorts"
@@ -272,6 +275,7 @@ def row_of(info, subs, now, known=()):
             "minutes": round((sec or 0) / 60, 2), "ratio": round(views / max(subs, 100), 2) if subs is not None else None,
             "vpd": round(views / max(age or 1, 1), 1), "tags": info.get("tags") or [], "description": desc,
             "live": info.get("live"), "was_live": info.get("was_live"), "audio_lang": info.get("audio_lang") or "", "lang": info.get("lang") or "",
+            "foreign": orr.is_foreign({"title": info.get("title"), "audio_lang": info.get("audio_lang"), "lang": info.get("lang")}),   # v1.2
             "is_short": sh, "short_basis": basis, "hashtags": orr.hashtags(info.get("title"), desc),
             "weekday": WEEKDAYS[kst.weekday()] if kst else "", "hour": kst.hour if kst else None,
             "long_link": bool(DESC_LONG_LINK_RX.search(desc))}
@@ -639,6 +643,11 @@ def analyze(topic, name, cases, infos, uploads, searches, channels, ac, rules, r
     if not_short:
         limits.append("쇼츠 판별: 3분 이하 + 세로·정사각(화면비 = API embed 크기) — 쇼츠가 아니라서 뺀 것: "
                       + ", ".join(f"{k} {v}개" for k, v in not_short.most_common()) + ". 화면비를 모르는 예전 캐시는 '#shorts' 표시·60초 이하로 추정")
+    if rules.get("include_foreign"):                              # v1.2: 외국 영상을 넣는 주제
+        n_foreign = [c["no"] for c in success if c.get("foreign")]
+        limits.append(f"외국 영상을 넣음 (주제 설정 INCLUDE_FOREIGN = true) — 성공 쇼츠 중 외국 쇼츠 {len(n_foreign)}개"
+                      + (f" (#{', #'.join(map(str, n_foreign[:30]))})" if n_foreign else "") +
+                      ". 첫 3초 음절·말 속도(한글 음절)는 한국어 쇼츠만으로 셌고, 제목·댓글 낱말 규칙은 한국어 기준이라 외국 쇼츠에는 거의 걸리지 않는다")
     limits += baseline["limits"] + market["limits"] + growth["limits"] + speech["limits"]
     limits += ["쇼츠 조회수는 2025-03-31 부터 '재생·다시 재생 횟수'(시청 시간 하한 없음)다 — 그 전 쇼츠와 숫자를 바로 비교하지 말 것. "
                "쇼츠의 핵심 신호(피드에서 '본 비율 vs 넘긴 비율'·평균 시청 비율·다시 재생)는 YouTube API 로 볼 수 없다 — 대신 조회수·배수·같은 채널 대비·"
@@ -741,7 +750,7 @@ def channel_baseline(cases, success, infos, uploads, subs_map, rules, themes, re
             x["theme"] = sa.theme_of(x["title"], x["tags"], themes)
             x["format"] = format_of(x, formats)
             ex_ = rules["exclude"]
-            x["off"] = bool(orr.exclusion_reason(x) or any(w and w in x["title"] for w in ex_["OFF_TOPIC"]) or x["theme"] in ex_["OFF_TOPIC_THEMES"]
+            x["off"] = bool(orr.exclusion_reason(x, rules.get("include_foreign", False)) or any(w and w in x["title"] for w in ex_["OFF_TOPIC"]) or x["theme"] in ex_["OFF_TOPIC_THEMES"]
                             or off_kind(x, rules))                  # v1.1: 돈 이야기가 아닌 쇼츠는 잘된/평소 비교에서 뺌
             rows.append(x)
         if rows:
@@ -896,10 +905,11 @@ def speech_compare(success, others):
     def stats(cs):
         t = [c for c in cs if c["snips"]]
         sp = [c["speech"] for c in t]
+        sp_ko = [c["speech"] for c in t if not c.get("foreign")]     # v1.2: 음절(한글) 수는 한국어 쇼츠만
         return {"n": len(cs), "with_script": len(t), "no_speech": sum(1 for c in cs if c["no_speech"]),
                 "no_speech_share": _share(cs, lambda c: c["no_speech"]) if cs else None,
-                "first_speech_sec": _median([s["first_speech_sec"] for s in sp]), "syl_first3": _median([s["syl_first3"] for s in sp]),
-                "syl_per_sec": _median([s["syl_per_sec"] for s in sp]), "coverage": _median([s["coverage"] for s in sp]),
+                "first_speech_sec": _median([s["first_speech_sec"] for s in sp]), "syl_first3": _median([s["syl_first3"] for s in sp_ko]),
+                "syl_per_sec": _median([s["syl_per_sec"] for s in sp_ko]), "coverage": _median([s["coverage"] for s in sp]),
                 "lines": _median([s["lines"] for s in sp]), "seconds": _median([c["seconds"] for c in cs]),
                 "hook_types": {k: _share(sp, lambda s, k=k: k in s["hook_types"]) for k in HOOK_TYPES},
                 "hook_none": _share(sp, lambda s: not s["hook_types"]),

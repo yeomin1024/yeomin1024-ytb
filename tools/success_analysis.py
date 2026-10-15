@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.3 — 2026-10-14 — PC 결과(v1.2, 같은 채널 기준선 155/162)를 점검해 고침 (사용자 지시 "지금 됐어? 확인해봐"):
+# VERSION: v1.4 — 2026-10-15 — 외국 영상 켜고 끄기 (사용자 지시: "주식은 외국 영상도 다 분석할 건데 확인해봐 on/off 기능(default off) 있는지
+#          확인하고 없으면 추가해"): 주제 설정 INCLUDE_FOREIGN (outlier_research v2.4 include_foreign — 기본 꺼짐)을 읽어 켜면 외국 영상을
+#          성공 사례·비교 집단·같은 채널 비교에서 빼지 않음 (라이브는 그대로 뺌). 사례마다 foreign 표시 · 말 속도(한글 음절)는 한국어 영상만으로
+#          셈 (외국 대본은 한글 0 음절이라 중앙값을 끌어내림) · 0번 표에 '외국 영상' 줄과 한계 글
+# (v1.3 — 2026-10-14 — PC 결과(v1.2, 같은 채널 기준선 155/162)를 점검해 고침 (사용자 지시 "지금 됐어? 확인해봐"):
 #          ① 비교 집단에서 올린 지 7일 안 된 영상 뺌 ([compare] MIN_AGE_DAYS — 채널 평소 영상을 받은 뒤 700개 중 180개가 조회수가 덜 쌓인
 #             새 영상이라 '성공 아님'으로 셈) · 한계 글에 비교 집단 구성(검색·채널 평소 영상 몇 개) 적음
 #          ② '자료를 받지 않은 성공 후보'는 채널당 자리가 남은 것만 (375개 중 305개가 이미 성공 사례 2개인 채널의 영상 — 승인해도 성공 사례가 안 됨)
@@ -81,7 +85,7 @@ from outlier_stats import TITLE_FEATURES                          # noqa: E402  
 from weekly_analysis import _published, _write_atomic, clean_description   # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v1.3"
+VERSION = "v1.4"
 LOG = logging.getLogger("success")
 CASE_DIR_RX = re.compile(r"^(W_|P?\d\d_)")
 NON_VIDEO_CACHE = ("search_", "supply_", "uploads_", "channels.json", "autocomplete.json")   # 영상 정보가 아닌 캐시 파일
@@ -200,6 +204,7 @@ def load_rules(root, topic):
     rules["version"] = m.group(1) if m else "-"
     rules["file"] = f"{topic}/analysis_rules.toml" if (root / topic / "analysis_rules.toml").is_file() else "(기본값)"
     rules["keywords"] = orr.read_keyword_list(root / topic / "keywords.txt") or []
+    rules["include_foreign"] = orr.include_foreign(topic, root)        # v1.4: 주제 설정 INCLUDE_FOREIGN (기본 꺼짐)
     fm = {str(k): str(v) for k, v in (d.get("format") or {}).items() if isinstance(v, str)}
     rules["format"] = fm or dict(DEFAULT_FORMATS)
     for k, rx in list(rules["format"].items()):           # 깨진 정규식은 빼고 알림 (분석은 계속)
@@ -276,7 +281,8 @@ def _base(info, subs, now):
             "published": pub, "age_days": round(age, 1) if age is not None else None, "minutes": float(minutes or 0),
             "ratio": round(views / max(subs, 100), 2) if subs is not None else None,
             "vpd": round(views / max(age or 1, 1), 1), "tags": info.get("tags") or [], "live": info.get("live"), "was_live": info.get("was_live"),
-            "audio_lang": info.get("audio_lang") or "", "lang": info.get("lang") or ""}
+            "audio_lang": info.get("audio_lang") or "", "lang": info.get("lang") or "",
+            "foreign": orr.is_foreign({"title": info.get("title"), "audio_lang": info.get("audio_lang"), "lang": info.get("lang")})}   # v1.4
 
 
 def load_cache(out):
@@ -395,7 +401,7 @@ def flags(x, rules, rel):
     """뺄 까닭 → '' 이면 쓸 수 있음: 라이브·외국 / 주제 밖(관련어 없음) / 뺀 주제(부동산·코인 …) / 광고 의심."""
     ex = rules["exclude"]
     why = orr.exclusion_reason({"title": x["title"], "live": x.get("live"), "was_live": x.get("was_live"),
-                                "audio_lang": x.get("audio_lang"), "lang": x.get("lang")})
+                                "audio_lang": x.get("audio_lang"), "lang": x.get("lang")}, rules.get("include_foreign", False))
     if why:
         return why
     hit = next((w for w in ex["OFF_TOPIC"] if w and w in x["title"]), None)
@@ -599,14 +605,15 @@ def analyze(topic, name, cases, cache_infos, cache_subs, rules, rel, themes, now
         subs_rows.append({"label": f"{lo:,}~{hi - 1:,}명", **_rate(g)})
     # 6) 내용 구성 (성공 사례)
     with_tr = [c for c in success if c["snips"]]
+    with_tr_ko = [c for c in with_tr if not c.get("foreign")]     # v1.4: 말 속도는 한글 음절이라 한국어 영상만
     structure = {
         "minutes_median_success": _median([c["minutes"] for c in success]),
         "minutes_median_compare_others": _median([x["minutes"] for x in group if not x["success"]]),
         "chapters_share": round(sum(1 for c in success if c["chapters"]) / len(success), 3) if success else None,
         "chapters_count_median": _median([len(c["chapters"]) for c in success if c["chapters"]]),
         "transcripts": len(with_tr), "text_sources": dict(Counter(c["src"] for c in success)),
-        "syl_per_sec_median": _median([c["speech"].get("syl_per_sec") for c in with_tr]),
-        "first60_syl_median": _median([c["speech"].get("first60_syl") for c in with_tr]),
+        "syl_per_sec_median": _median([c["speech"].get("syl_per_sec") for c in with_tr_ko]),
+        "first60_syl_median": _median([c["speech"].get("first60_syl") for c in with_tr_ko]),
     }
     # 7) 시청자 니즈 (성공 사례 댓글 — 채널 주인 댓글·도배 댓글 뺌)
     def spam_key(t):
@@ -703,6 +710,12 @@ def analyze(topic, name, cases, cache_infos, cache_subs, rules, rel, themes, now
                       "같은 집단 안의 '있음/없음' 차이로만 보고, '무엇이 먹혔나'는 1-2번(같은 채널 안)을 먼저 보라")
     if len(success) < 15:
         limits.append(f"성공 사례가 {len(success)}개뿐 — 성공 사례 안의 비율은 흔들림이 크다 (웹 화면에서 '자료 없는 성공 후보'를 승인하면 늘어남)")
+    n_foreign = [c["no"] for c in success if c.get("foreign")]
+    if rules.get("include_foreign"):                              # v1.4: 외국 영상을 넣는 주제
+        limits.append(f"외국 영상을 넣음 (주제 설정 INCLUDE_FOREIGN = true) — 성공 사례 중 외국 영상 {len(n_foreign)}개"
+                      + (f" (#{', #'.join(map(str, n_foreign[:30]))})" if n_foreign else "") +
+                      ". 말 속도(한글 음절)는 한국어 영상만으로 셌고, 제목 특징·댓글 갈래(질문·요청 등)는 한국어 낱말 규칙이라 "
+                      "외국 영상에는 거의 걸리지 않는다 — 외국 사례는 원문을 직접 읽어라")
     limits += baseline["limits"] + market["limits"] + growth["limits"]
     limits += ["'구독자가 많이 모이는가'는 YouTube API 로 영상별 구독 증가를 볼 수 없다 — 대신 채널 성장(7번: 개설 뒤 월 구독자·받을 때마다 남긴 기록), "
                "'구독·다음 기대' 댓글, 배수(조회수÷구독자)로 본다",
@@ -973,7 +986,7 @@ def channel_baseline(cases, success, cache_infos, cache_subs, uploads, rules, th
             # v1.3: 뺀 주제(부동산·코인 …)·외국 영상은 채널 중앙값에는 넣고(채널 평소 실력) 잘된/평소 영상 비교에서는 뺌
             ex_ = rules["exclude"]
             x["off"] = bool(orr.exclusion_reason({"title": x["title"], "live": x["live"], "was_live": x["was_live"],
-                                                   "audio_lang": x["audio_lang"], "lang": x["lang"]})
+                                                   "audio_lang": x["audio_lang"], "lang": x["lang"]}, rules.get("include_foreign", False))
                             or any(w and w in x["title"] for w in ex_["OFF_TOPIC"]) or x["theme"] in ex_["OFF_TOPIC_THEMES"])
             rows.append(x)
         if rows:

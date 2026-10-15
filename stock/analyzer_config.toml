@@ -1,6 +1,9 @@
 # =====================================================================================================
 # YouTube 주제 분석기 설정 파일 — 주제: 주식 (폴더 stock)
-# VERSION: v3.0 — 2026-10-15 — FRESH_START 추가 (사용자 지시: "왜 예전 재테크 캐시가 남아 있어 이거 어떻게해"): PC 가 처음 이 설정을 받으면
+# VERSION: v3.1 — 2026-10-15 — INCLUDE_FOREIGN = false 추가 (외국 영상 켜고 끄기 — 사용자 지시: "주식은 외국 영상도 다 분석할 건데 확인해봐
+#          on/off 기능(default off) 있는지 확인하고 없으면 추가해"). 기본은 꺼짐 — 켜려면 웹 화면 주식 탭 4번 칸 [외국 영상도] 체크
+#          (또는 아래 값을 true 로). FRESH_START 날짜는 그대로 (바꾸면 PC 자료를 또 옮김)
+# (v3.0 — 2026-10-15 — FRESH_START 추가 (사용자 지시: "왜 예전 재테크 캐시가 남아 있어 이거 어떻게해"): PC 가 처음 이 설정을 받으면
 #          예전에 같은 stock 폴더로 돌린 PC 자료(2026-10-10~12 — run_analyzer.ps1 v1 의 기본 주제였음)를 .yt_work/old/ 로 한 번 옮김
 #          (tools/pc_analysis.py v1.13 fresh_start). 판 번호를 v3.0 으로 — PC 에 남은 옛 설정(v2.0)보다 높아야 실행기가 새 설정으로 바꿈
 # (v1.0 — 2026-10-15 — 새로 만듦 (사용자 지시: "주식 주제로 유튜브 분석기 돌리기위한 세팅 좀 해줘 stock 폴더 만들고 검색어 설정 같은거 말이야").
@@ -32,6 +35,7 @@ GITHUB_BRANCH = "main"
 [search]
 REGION_CODE = "KR"
 LANGUAGE = "ko"
+INCLUDE_FOREIGN = false              # 외국 영상도 탐색·분석 (true) — 기본 false = 한국어 영상만. 웹 화면 4번 칸 [외국 영상도]로 켜고 끔
 
 [keywords]
 KEYWORD_MODE = "curated"             # keywords.toml 의 KEYWORD_GROUPS 에 적은 검색어만

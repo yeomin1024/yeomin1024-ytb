@@ -1,7 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v2.12.0 — 2026-10-15 — API 응답 캐시를 주제마다 따로 .yt_work/cache_<폴더> (topic_cache_dir — 사용자 지시: "하나의 사이트에서 그냥 탭
-#          만들어서 다른 주제 볼 수 있게 하자 서로 캐시는 공유하지 않도록 하고"). 예전 공동 캐시 .yt_work/cache 는 안 씀 — 첫 실행은 이 주제 요청을 새로 받음
+# VERSION: v2.13.0 — 2026-10-15 — 외국 영상 켜고 끄기 (사용자 지시: "주식은 외국 영상도 다 분석할 건데 확인해봐 on/off 기능(default off) 있는지
+#          확인하고 없으면 추가해"): 설정 INCLUDE_FOREIGN ([search], 기본 false — 웹 화면·tools/outlier_research.py v2.4 와 같은 값).
+#          ① 켜면 검색을 언어 지정 없이 (relevanceLanguage 를 보내지 않음 — search_language) · 끄면 예전 그대로 LANGUAGE(ko)
+#          ② 음성인식: 외국 영상(영상 언어가 한국어가 아님 · 언어 표시가 없으면 제목에 한글 없음 — video_is_foreign)은 언어를 Whisper 가
+#             알아내게 (예전: 늘 LANGUAGE=ko 로 받아써서 영어 영상이 엉터리 한국어가 됨) — 대기열(W_·S_·01_ 의 metadata foreign·video_lang)과
+#             분석기 성공 사례 모두. 끈 주제에도 적용 (주소로 직접 넣은 외국 영상이 있을 수 있음)
+# (v2.12.0 — 2026-10-15 — API 응답 캐시를 주제마다 따로 .yt_work/cache_<폴더> (topic_cache_dir — 사용자 지시: "하나의 사이트에서 그냥 탭
+#          만들어서 다른 주제 볼 수 있게 하자 서로 캐시는 공유하지 않도록 하고"). 예전 공동 캐시 .yt_work/cache 는 안 씀 — 첫 실행은 이 주제 요청을 새로 받음)
 # (v2.11.1 — 2026-10-15 — 설정 파일의 FRESH_START(PC 실행기 tools/pc_analysis.py v1.13 가 읽음 — 새로 시작하는 주제의 옛 PC 자료 옮기기)를
 #          '모르는 설정' 경고 없이 넘김 (CONFIG_OTHER_TOOLS). 분석 동작은 그대로 (사용자 지시: "왜 예전 재테크 캐시가 남아 있어 이거 어떻게해"))
 # (v2.11.0 — 2026-10-15 — 음성인식 대기열에 쇼츠 (사용자 지시: "깃허브 저장소에 유튜브 분석기 있지? 거기에 쇼츠 분석 기능도 추가해 …
@@ -138,6 +144,7 @@ RELEVANCE_EXCLUDE = []           # 관련어처럼 보이지만 무관한 표현
 # ---- 수집 범위 ----
 REGION_CODE = "KR"              # 검색 지역
 LANGUAGE = "ko"                 # 검색/자막 언어
+INCLUDE_FOREIGN = False         # v2.13.0: 외국 영상도 (True = 검색에 언어 지정 없음) — 기본 False. 웹 화면 4번 칸 [외국 영상도]와 같은 값
 ANALYSIS_DAYS = 365             # 성과 분석 대상: 최근 N일 내 업로드 영상
 MAX_SEARCH_KEYWORDS = 150       # 한 번에 검색할 최대 키워드 수 (실제 개수는 쿼터 예산이 결정)
 SEARCH_ORDERS = ["relevance"]   # relevance=실제 검색 결과 화면. "viewCount"(기간 내 조회수 상위)를 추가하면 키워드당 비용 2배
@@ -372,7 +379,7 @@ import numpy as np
 import pandas as pd
 import requests
 
-NOTEBOOK_VERSION = "v2.12.0"
+NOTEBOOK_VERSION = "v2.13.0"
 KST = dt.timezone(dt.timedelta(hours=9))
 UTC = dt.timezone.utc
 IS_WINDOWS = os.name == "nt"
@@ -547,7 +554,7 @@ CONFIG_KEYS = [
     "TOPIC", "PROJECT_FOLDER", "RESULT_FOLDER", "GITHUB_REPO", "GITHUB_BRANCH", "KEYWORDS_FILE", "EXTRA_KEYWORDS", "EXCLUDE_KEYWORDS",
     "KEYWORD_MODE", "KEYWORD_GROUPS", "AUTOCOMPLETE_TOP_N", "RELEVANCE_TERMS", "RELEVANCE_WEAK_TERMS", "RELEVANCE_EXCLUDE",
     "MAX_CASES_PER_CATEGORY", "SEARCH_CACHE_TTL_HOURS", "BASELINE_CACHE_TTL_HOURS",
-    "REGION_CODE", "LANGUAGE", "ANALYSIS_DAYS", "MAX_SEARCH_KEYWORDS", "SEARCH_ORDERS", "RELEVANCE_USE_DATE_FILTER",
+    "REGION_CODE", "LANGUAGE", "INCLUDE_FOREIGN", "ANALYSIS_DAYS", "MAX_SEARCH_KEYWORDS", "SEARCH_ORDERS", "RELEVANCE_USE_DATE_FILTER",
     "PAGES_PER_QUERY", "QUOTA_BUDGET", "AUTOCOMPLETE_EXPAND", "AUTOCOMPLETE_DEPTH2_N", "REQUIRE_TOPIC_IN_KEYWORD",
     "MATURE_AGE_DAYS", "BASELINE_UPLOADS", "BASELINE_MIN_N", "MAX_BASELINE_CHANNELS", "OUTLIER_MIN", "MIN_SUCCESS_VIEWS",
     "AD_SUSPECT_FILTER", "AD_SUSPECT_MIN_VIEWS", "AD_SUSPECT_MAX_LIKE_RATE", "AD_SUSPECT_MAX_COMMENT_RATE",
@@ -757,6 +764,7 @@ GITHUB_BRANCH = {_toml_value(cfg["GITHUB_BRANCH"])}
 [search]
 REGION_CODE = {_toml_value(cfg["REGION_CODE"])}
 LANGUAGE = {_toml_value(cfg["LANGUAGE"])}
+INCLUDE_FOREIGN = {_toml_value(cfg["INCLUDE_FOREIGN"])}   # 외국 영상도 탐색·분석 (true) — 기본 false
 
 [keywords]
 # "autocomplete" = 주제어 자동완성으로 키워드 자동 발굴 (처음엔 이걸로 한 번 돌려 보세요)
@@ -1588,7 +1596,7 @@ def plan_quota(ctx, keywords):
     cfg, yt = ctx.cfg, ctx.yt
     orders, pages = cfg["SEARCH_ORDERS"], cfg["PAGES_PER_QUERY"]
     cost_one = YouTubeClient.COST["search"] * pages
-    kw_cost = {kw: sum(0 if yt.search_is_cached(kw, o, _published_after(ctx, o), cfg["REGION_CODE"], cfg["LANGUAGE"]) else cost_one
+    kw_cost = {kw: sum(0 if yt.search_is_cached(kw, o, _published_after(ctx, o), cfg["REGION_CODE"], search_language(cfg)) else cost_one
                        for o in orders) for kw in keywords}
     est_videos = int(len(keywords) * len(orders) * pages * 50 * 0.7)
     est_channels = min(cfg["MAX_BASELINE_CHANNELS"], int(est_videos * 0.5))
@@ -1629,7 +1637,7 @@ def collect_search(ctx, keywords):
         reasons[k] = why
 
     def all_cached(k):
-        return all(yt.search_is_cached(k, o, _published_after(ctx, o), cfg["REGION_CODE"], cfg["LANGUAGE"]) for o in cfg["SEARCH_ORDERS"])
+        return all(yt.search_is_cached(k, o, _published_after(ctx, o), cfg["REGION_CODE"], search_language(cfg)) for o in cfg["SEARCH_ORDERS"])
 
     rows, stop_kind, n_after_stop = [], None, 0
     for i, kw in enumerate(keywords, 1):
@@ -1640,7 +1648,7 @@ def collect_search(ctx, keywords):
         for order in cfg["SEARCH_ORDERS"]:
             pa = _published_after(ctx, order)
             try:
-                items, total = yt.search(kw, order, pa, cfg["PAGES_PER_QUERY"], cfg["REGION_CODE"], cfg["LANGUAGE"])
+                items, total = yt.search(kw, order, pa, cfg["PAGES_PER_QUERY"], cfg["REGION_CODE"], search_language(cfg))
             except QuotaExceededError as e:
                 stop_kind = stop_kind or e.kind
                 n_after_stop = i
@@ -3149,9 +3157,25 @@ def transcript_via_ytdlp(video_id, langs, tmp_dir, cfg):
 _WHISPER = {}
 
 
-def transcript_via_whisper(media_path, cfg, duration_sec, max_sec=None, vad_retry=True):
+def search_language(cfg):
+    """검색의 relevanceLanguage (v2.13.0): INCLUDE_FOREIGN 이면 None(보내지 않음 — 외국 영상도), 아니면 LANGUAGE."""
+    return None if cfg.get("INCLUDE_FOREIGN") else (cfg["LANGUAGE"] or None)
+
+
+def video_is_foreign(lang, title):
+    """외국 영상인가 (v2.13.0 — tools/outlier_research.py is_foreign 과 같은 규칙): 영상 언어가 한국어가 아님 (zxx·und·mul 은 모름),
+    언어 표시가 없으면 제목에 한글이 없음."""
+    lang = str(lang or "").lower()
+    if lang:
+        return not lang.startswith("ko") and lang not in ("zxx", "und", "mul")
+    return not re.search(r"[가-힣]", unicodedata.normalize("NFC", str(title or "")))     # 맥에서 쓴 제목(NFD 자모)도 한글로
+
+
+def transcript_via_whisper(media_path, cfg, duration_sec, max_sec=None, vad_retry=True, foreign=False):
     """max_sec (v2.10.0): 앞 max_sec 초만 (음성인식 대기열 1차 — 도입부·초반 구성을 빨리).
-    vad_retry=False (v2.11.0 — 쇼츠): VAD 가 말소리를 못 찾으면 VAD 없이 다시 하지 않고 빈 결과 (음악만 있는 쇼츠의 헛말 방지)."""
+    vad_retry=False (v2.11.0 — 쇼츠): VAD 가 말소리를 못 찾으면 VAD 없이 다시 하지 않고 빈 결과 (음악만 있는 쇼츠의 헛말 방지).
+    foreign=True (v2.13.0 — 외국 영상): 언어를 정하지 않고 Whisper 가 알아냄 (예전엔 늘 LANGUAGE=ko 로 받아씀)."""
+    language = None if foreign else (cfg["LANGUAGE"] or None)
     from faster_whisper import WhisperModel
     if max_sec:
         duration_sec = min(duration_sec or max_sec, max_sec)
@@ -3186,7 +3210,7 @@ def transcript_via_whisper(media_path, cfg, duration_sec, max_sec=None, vad_retr
 
     def _run(use_cuda):
         for vad in ((True, False) if vad_retry else (True,)):   # VAD가 음악/배경음 위주 구간을 전부 걸러내면 VAD 없이 재시도 (쇼츠는 안 함)
-            segments, info = _model(use_cuda).transcribe(audio, language=cfg["LANGUAGE"] or None, vad_filter=vad, beam_size=5)
+            segments, info = _model(use_cuda).transcribe(audio, language=language, vad_filter=vad, beam_size=5)
             segs = [{"start": round(s.start, 2), "duration": round(s.end - s.start, 2), "text": s.text.strip()} for s in segments]
             if segs:
                 break
@@ -3204,7 +3228,7 @@ def transcript_via_whisper(media_path, cfg, duration_sec, max_sec=None, vad_retr
             raise RuntimeError(f"GPU 실패 + CPU로 {duration_sec / 60:.0f}분 영상은 Whisper 생략")
         segs, info, vad = _run(False)
     log("TRANSCRIPT", "Whisper 음성인식 완료", segments=len(segs), vad_filter=vad, audio_sec=round(len(audio) / 16000),
-        elapsed_sec=round(time.perf_counter() - t0, 1))
+        elapsed_sec=round(time.perf_counter() - t0, 1), language=language or f"자동({info.language})")
     return segs, {"source": f"whisper_{cfg['WHISPER_MODEL']}", "language": info.language, "auto_generated": True}
 
 
@@ -3304,7 +3328,8 @@ def process_success_case(ctx, row, idx, comments):
             src = media
             if src is None or src.suffix.lower() not in VIDEO_EXTS:
                 src = ytdlp_download(vid, tmp, cfg, audio_only=True)
-            segs, meta = transcript_via_whisper(src, cfg, row["duration_sec"])
+            segs, meta = transcript_via_whisper(src, cfg, row["duration_sec"],
+                                                foreign=video_is_foreign(row.get("default_audio_language"), row.get("title")))
         except Exception as e:
             errors["whisper"] = f"{type(e).__name__}: {str(e)[:150]}"
     if segs:
@@ -5031,7 +5056,8 @@ def speech_queue_items(cfg, out_dir, base=None, partial=False):
             found.append((*order, d.name, {
                 "kind": "shorts" if short else "outlier", "dir": d, "video_id": vid, "title": meta.get("title"),
                 "success_no": shorts_no.get(vid) if short else success_no.get(vid),
-                "duration_sec": float(meta.get("seconds") or 0) or float(meta.get("minutes") or 0) * 60, "reason": st}))
+                "duration_sec": float(meta.get("seconds") or 0) or float(meta.get("minutes") or 0) * 60, "reason": st,
+                "foreign": bool(meta["foreign"]) if "foreign" in meta else video_is_foreign(meta.get("video_lang"), meta.get("title"))}))
         items += [it for _, _, _, it in sorted(found, key=lambda x: (x[0], x[1], x[2]))]
     sc = Path(out_dir) / "success_cases"
     if sc.is_dir() and not partial:
@@ -5045,7 +5071,8 @@ def speech_queue_items(cfg, out_dir, base=None, partial=False):
                 continue
             if (meta.get("download_status") or {}).get("transcript") == "whisper_pending":
                 items.append({"kind": "analyzer", "dir": d, "video_id": meta.get("video_id"), "title": meta.get("title"),
-                              "duration_sec": float(meta.get("duration_sec") or 0), "reason": "whisper_pending", "meta": meta})
+                              "duration_sec": float(meta.get("duration_sec") or 0), "reason": "whisper_pending", "meta": meta,
+                              "foreign": video_is_foreign(meta.get("default_audio_language"), meta.get("title"))})
     return items
 
 
@@ -5143,7 +5170,8 @@ def _whisper_queue_run(cfg, keys, push=True):
                 attempt=rec["attempts"], pass_=label, until_sec=max_sec or "끝", title=str(it.get("title") or "")[:40])
             try:
                 src = ytdlp_download(vid, tmp, cfg, audio_only=True)       # 소리만 (영상 파일은 받지 않음)
-                segs, meta = transcript_via_whisper(src, cfg, it["duration_sec"], max_sec=max_sec, vad_retry=it["kind"] != "shorts")
+                segs, meta = transcript_via_whisper(src, cfg, it["duration_sec"], max_sec=max_sec, vad_retry=it["kind"] != "shorts",
+                                                    foreign=it.get("foreign", False))
                 if not segs and it["kind"] != "shorts":
                     raise RuntimeError("음성인식 결과가 비어 있음 (말소리 없음?)")
             except Exception as e:

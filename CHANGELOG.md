@@ -1,5 +1,41 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-15 (15) — 주제마다 다른 키 · 외국 영상 켜고 끄기 (기본 꺼짐)
+
+### 왜 (사용자 지시)
+- "야 키도 나눠서 쓸수 있게해 주제별로 다른키 넣을거니까 그리고 주식은 외국 영상도 다 분석할 건데 확인해봐 on/off 기능(default off) 있는지 확인하고 없으면 추가해"
+
+### 확인한 것 (바꾸기 전)
+- **키:** 주제마다 다른 키는 이미 됨 — 찾는 순서 `<주제>/.env` → `YOUTUBE_API_KEY_<주제>` → 맨 위 `.env` → `YOUTUBE_API_KEY` (웹 화면·성공 사례·분석기·자동 실행 모두), 할당량 장부도 키 지문마다. 모자란 것: 안내 문구('보통 비워 둠'), 어느 탭이 어느 키를 쓰는지 화면에 안 보임
+- **외국 영상:** 켜고 끄는 기능 없음 — 늘 뺌(탐색·성공 사례·같은 채널 비교), 검색은 늘 `relevanceLanguage=ko`, 자막은 한국어만, 음성인식은 늘 한국어로 받아씀
+
+### 바꾼 것
+| 파일 (버전) | 함수·항목 | 내용 |
+|---|---|---|
+| `tools/outlier_research.py` (v2.3 → v2.4) | `include_foreign`·`is_foreign`·`exclusion_reason(foreign_ok)`·`build_rows(foreign_ok)`·`search_lang`·`Api.search(lang)`·`search_cache_file(lang)`·`cached_search(lang)`·`search_is_cached(lang)`·`_useful_novel`·`transcript(any_lang)`·`deep_case`·`run_topic`·`collect_api` | 주제 설정 `INCLUDE_FOREIGN`(기본 꺼짐). 켜면 외국 영상을 빼지 않고 flag '외국 영상', 검색은 언어 지정 없이 — 캐시 열쇠 `…|KR|any` (꺼짐 `…|KR|ko` 는 예전과 같아 끈 주제는 다시 검색하지 않음). 외국 영상 자막은 원래 언어(수동 → 자동), metadata 에 `video_lang`·`foreign`. **고침:** 언어 표시가 없는 영상의 '제목에 한글' 판별을 NFC 로 — 맥에서 쓴 제목(NFD 자모)의 한국어 영상이 외국 영상으로 빠지던 것 |
+| `tools/web_ui.py` (v2.0 → v2.1) | `foreign_ok`·`set_include_foreign`·`POST /api/foreign`·`state_view`·`estimate`·`estimate_shorts`·`job_explore`·`job_shorts_explore`·`quota_view`·`key_fp`·화면 | 4번 칸 **[외국 영상도]**(탭마다 — 그 주제 `analyzer_config.toml` 한 줄만 고침, GitHub 토큰이 있으면 GitHub 에도, 작업 중엔 못 바꿈). 0번 칸 **'이 탭 키 지문 …abcd' · 같은 키를 쓰는 다른 탭**. 새 주제 설정 틀에 `INCLUDE_FOREIGN = false` |
+| `tools/success_analysis.py` (v1.3 → v1.4) | `load_rules`·`_base`·`flags`·`channel_baseline`·구성·한계 | 설정을 읽어 켜면 외국 영상도 성공·비교·같은 채널 비교에 · 사례마다 `foreign` · 말 속도(한글 음절) 중앙값은 한국어 영상만 · 한계에 외국 영상 수 |
+| `tools/shorts_analysis.py` (v1.1 → v1.2) | `row_of`·`channel_baseline`·`speech_compare`·한계 | 같은 규칙 (쇼츠) — 첫 3초 음절·말 속도는 한국어 쇼츠만 |
+| `youtube_topic_analyzer.py` (v2.12.0 → v2.13.0) | `INCLUDE_FOREIGN`·`search_language`·`video_is_foreign`·`transcript_via_whisper(foreign)`·`speech_queue_items` | 켜면 검색에 언어 지정 없음 · 외국 영상 음성인식은 Whisper 가 언어를 알아냄 (끈 주제에서 주소로 넣은 외국 영상에도) · 설정 파일 틀에 줄 추가 |
+| `tools/pc_analysis.py` (v1.14 → v1.15) | `TOPIC_ENV_TEMPLATE`·`ensure_topic_env` | `<주제>/.env` 안내 '이 주제 전용 키 (주제마다 달라도 됨 — 다르면 할당량 따로)' · 맨 위 `.env` 가 없으면 빈 틀을 만듦 · 가려져 안 쓰이던 예전 `ensure_topic_env` 지움 |
+| `economic/analyzer_config.toml` (v1.1 → v1.2) · `stock/analyzer_config.toml` (v3.0 → v3.1) | `[search] INCLUDE_FOREIGN = false` | 두 주제 모두 **꺼짐** (기본) — 다른 값 그대로 |
+| `stock/keywords.toml` (v1.0 → v1.1) | 관련어 | 영어 강한 관련어 9개(stock market·stocks·dividend·nasdaq·dow jones·wall street·S&P …)·약한 관련어 11개(investing·trading·portfolio·shares …) — 켰을 때 영어 주식 영상이 '주제 밖'이 되지 않게 |
+| 시험 | `test_foreign_and_keys.py`(14, 새로) · `test_shorts.py` v1.0.1 | 켜고 끄기·NFD 제목·캐시 열쇠·검색 언어·원래 언어 자막·분석 규칙·음성인식 언어·주제마다 다른 키(할당량 따로, 같은 키면 함께) / 가짜 자막 함수가 `any_lang` 받음 |
+| `guides/pc_analysis.md` (v3.1) · `stock/README.md` (v1.3) · `guides/README.md` (v1.31) · `CLAUDE.md` | 안내 | '주제마다 다른 키' · '외국 영상 켜고 끄기' 절 |
+
+### 확인
+- **끈 상태 결과가 예전과 같은지** (저장소의 재테크 자료 그대로, 임시 폴더에서 예전 코드 vs 새 코드): NFD 고침 전에는 `analysis.json`·`shorts/analysis.json`·`.md` 차이 0 (시간에 따라 바뀌는 하루 조회수 빼고). NFD 고침 뒤: 성공 사례 **162 → 162**, 성공 쇼츠 **66 → 66** (같은 영상), '외국 영상'으로 뺀 성공 후보 롱폼 2 → 0 · 쇼츠 1 → 0 (모두 맥 NFD 제목의 한국어 영상 — 롱폼 2개는 이제 '채널당 제한'으로 25 → 27, 쇼츠 1개는 '뺀 주제(부동산)'), 비교 집단 329 → 332
+- **켠 상태**: 같은 자료로 한계 글 '외국 영상을 넣음 — 성공 사례 중 외국 영상 0개' (지금 자료에는 외국 영상이 없음 — 승인한 영상은 모두 한국어)
+- 웹 화면: 임시 폴더에서 켜서 Playwright(크로미움)로 — 주식 탭 [외국 영상도] 체크 → `stock/analyzer_config.toml` 만 `true`, 재테크 탭은 꺼진 채, 다시 끄면 `false`, 예상 할당량이 '검색 80번 (캐시 0) → 약 8,020단위'로 바뀜, 탭마다 다른 키를 넣으면 '이 탭 키 지문 …491e / …27ec — 이 탭만 쓰는 키 (할당량 따로)', 화면 오류 0. 화면 JS `node --check`
+- 가짜 YouTube 로 탐색: 꺼짐 = 영어 영상 뺌(뺀 수 '외국 영상 1')·요청에 `relevanceLanguage=ko`, 켬 = 새 검색에 `relevanceLanguage` 없음·영어 영상 '외국 영상' 표시, 다시 끄면 예전 캐시 그대로(새 검색 0)
+- `python3 -m unittest` 91개 중 86 통과 — 실패 5개는 예전부터인 `test_youtube_feedback`(지운 옛 `stock/source/bittu-2026-10` 파일 필요, 이번 변경과 무관). `pc_analysis.py --self-test` ALL PASS · Python 3.11 컴파일
+
+### 위험
+- 켜면 검색 캐시가 언어별이라 **첫 탐색은 새로 검색** — 주식 롱폼 약 8,000단위 + 쇼츠 약 4,000단위 (4번 칸 예상 할당량에 보임, 모자라면 초기화 뒤 저절로 이어서)
+- 검색어가 한국어라 켜도 외국 영상이 많이 나오지 않을 수 있음 — 영어 검색어를 더하거나 외국 채널 주소를 넣어야 많아짐
+- 외국 사례의 제목·댓글 낱말 통계는 한국어 규칙이라 거의 안 걸림 (한계에 적음)
+- PC 에서만 켜고(GitHub 토큰 없음) 나중에 GitHub 의 설정 판 번호가 올라가면 실행기가 GitHub 것으로 바꿀 수 있음 (PC 것은 `.bak`) — 토큰이 있으면 GitHub 에도 저장돼 문제없음
+
 ## 2026-10-15 (14) — 쇼츠 '돈 이야기 아님' 빼기 · 웹 화면 한 화면·주제 탭 · 캐시·설정 주제마다 따로
 
 ### 왜 (사용자 지시)

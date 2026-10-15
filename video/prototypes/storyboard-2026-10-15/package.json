@@ -1,0 +1,6 @@
+{
+  "name": "storyboard-2026-10-15",
+  "private": true,
+  "description": "은퇴 꺼내 쓰기 새 영상 스타일 시안 (GSAP 타임라인 + Playwright 렌더)",
+  "dependencies": { "gsap": "3.12.5" }
+}

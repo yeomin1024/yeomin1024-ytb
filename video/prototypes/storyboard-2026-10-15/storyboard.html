@@ -1,0 +1,512 @@
+<title>은퇴 꺼내 쓰기 스토리보드</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500;700;900&family=IBM+Plex+Sans+KR:wght@400;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* 레이아웃: 방송 큐시트 — 위에 재생기(16:9 무대), 아래에 컷 카드(시간·화면·내레이션·이해 장치) */
+:root{
+  --bg:#F1F3F6; --fg:#121826; --muted:#5B6578; --line:#D5DAE3; --card:#FFFFFF;
+  --accent:#B98F00; --loss:#D93A2B; --save:#0F9C89; --chip:#E6EAF1;
+  --f-display:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --f-body:"IBM Plex Sans KR","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0D121C; --fg:#E7EBF2; --muted:#98A3B8; --line:#273247; --card:#151C2A;
+  --accent:#FFD400; --loss:#FF5A4A; --save:#2CD3BC; --chip:#1D2638; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0D121C; --fg:#E7EBF2; --muted:#98A3B8; --line:#273247; --card:#151C2A;
+  --accent:#FFD400; --loss:#FF5A4A; --save:#2CD3BC; --chip:#1D2638; color-scheme:dark}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.65}
+.page{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 64px;display:grid;gap:40px}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.25}
+h1{font-size:clamp(28px,4.4vw,44px);font-weight:900;letter-spacing:-.5px}
+h2{font-size:clamp(21px,2.6vw,27px);font-weight:900}
+h3{font-size:18px;font-weight:700}
+p{margin:0}
+.eyebrow{font-family:var(--f-mono);font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.lede{color:var(--muted);max-width:68ch}
+header{display:grid;gap:12px}
+.mark{background:linear-gradient(transparent 62%,color-mix(in srgb,var(--accent) 38%,transparent) 62%)}
+.player{display:grid;gap:12px}
+.stage-wrap{position:relative;width:100%;max-width:100%;aspect-ratio:16/9;border-radius:10px;overflow:hidden;background:#0C1424;box-shadow:0 18px 50px -24px rgba(8,14,26,.55)}
+.ctrl{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.ctrl button{font:600 14.5px var(--f-body);color:var(--fg);background:var(--chip);border:1px solid var(--line);border-radius:8px;padding:8px 14px;cursor:pointer}
+.ctrl button:focus-visible,.cut button:focus-visible,input[type=range]:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.ctrl button[aria-pressed="true"]{background:var(--fg);color:var(--bg)}
+.time{font-family:var(--f-mono);font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums;min-width:118px}
+#scrub{flex:1 1 260px;min-width:0;accent-color:var(--accent)}
+.now{min-height:2.9em;padding:10px 14px;border-left:3px solid var(--accent);background:var(--card);border-radius:0 8px 8px 0;font-size:15.5px}
+.now small{display:block;font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+.rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,330px),1fr));gap:14px}
+.rule{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;display:grid;gap:6px;align-content:start;min-width:0}
+.rule b{font-family:var(--f-display);font-size:16.5px}
+.rule p{color:var(--muted);font-size:14.5px}
+.rule .src{font-family:var(--f-mono);font-size:11.5px;color:var(--muted);opacity:.85}
+.legend{display:flex;flex-wrap:wrap;gap:10px 18px;font-size:14px}
+.sw{display:inline-flex;align-items:center;gap:8px}
+.sw i{width:14px;height:14px;border-radius:3px;display:inline-block}
+.compare{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:16px}
+.compare figure{margin:0;display:grid;gap:8px;min-width:0}
+.compare img{border-radius:8px;border:1px solid var(--line);aspect-ratio:16/9;object-fit:cover;width:100%;max-width:100%}
+.compare figcaption{font-size:14px;color:var(--muted)}
+.compare figcaption b{color:var(--fg)}
+.cuts{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,520px),1fr));gap:18px}
+.cut{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:grid;align-content:start;min-width:0}
+.cut .img{position:relative;aspect-ratio:16/9;max-width:100%;background:#0C1424}
+.cut img{display:block;width:100%;height:100%;object-fit:cover}
+.cut .body{padding:14px 16px 16px;display:grid;gap:8px;min-width:0}
+.cut .top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.tc{font-family:var(--f-mono);font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.say{font-size:15px}
+.say::before{content:"내레이션 · ";color:var(--muted);font-size:13px}
+.dev{display:flex;flex-wrap:wrap;gap:6px}
+.dev span{font-size:12.5px;padding:3px 9px;border-radius:999px;background:var(--chip);color:var(--fg)}
+.cut button{justify-self:start;font:600 13.5px var(--f-body);background:none;border:1px solid var(--line);color:var(--fg);border-radius:7px;padding:6px 11px;cursor:pointer}
+.qs{display:grid;gap:10px;padding:0;margin:0}
+.qs li{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;list-style:none;min-width:0}
+.qs li b{font-family:var(--f-display)}
+.tools{font-size:14.5px;color:var(--muted);max-width:75ch}
+.tools code{font-family:var(--f-mono);font-size:13px;color:var(--fg)}
+
+/* ===== 영상 무대 (1920×1080 고정 좌표, 화면에 맞춰 줄임) — 영상 색은 테마와 상관없이 고정 ===== */
+#stage{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:0 0;overflow:hidden;
+  background:radial-gradient(1300px 900px at 50% 38%,#17243D 0%,#0C1424 58%,#070C17 100%);
+  font-family:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;color:#F4F6FA;line-height:1.2;
+  --Y:#FFD400;--R:#FF4D3D;--G:#22C7B0;--N:#9AA7BF;--P:rgba(255,255,255,.06);--L:rgba(255,255,255,.14)}
+#stage *{box-sizing:border-box}
+.sc{position:absolute;inset:0;opacity:0}
+.a{position:absolute}
+.c{text-align:center}
+.w9{font-weight:900}.w7{font-weight:700}.w5{font-weight:500}
+.Y{color:var(--Y)}.R{color:var(--R)}.G{color:var(--G)}.N{color:var(--N)}
+.badge{display:inline-block;font-weight:900;font-size:40px;line-height:1;padding:14px 26px;border-radius:999px;color:#0C1424;white-space:nowrap}
+.badge.kA{background:var(--R);color:#fff}.badge.kB{background:var(--G)}
+.pill{font-weight:700;font-size:60px;line-height:1;padding:24px 40px;border-radius:999px;background:var(--P);border:2px solid var(--L);white-space:nowrap}
+#chip{position:absolute;left:96px;top:60px;font-weight:700;font-size:36px;line-height:1;padding:16px 28px;border-radius:999px;background:rgba(255,255,255,.06);border:2px solid rgba(255,255,255,.12);display:flex;gap:16px;align-items:center;z-index:5}
+#chip .dots{display:flex;gap:8px}#chip .dots i{width:14px;height:14px;border-radius:50%;background:rgba(255,255,255,.22);display:block}#chip .dots i.on{background:var(--Y)}
+#cc{position:absolute;left:50%;bottom:44px;transform:translateX(-50%);max-width:1600px;font-weight:700;font-size:48px;line-height:1.3;padding:14px 30px;border-radius:14px;background:rgba(5,9,18,.82);text-align:center;z-index:6}
+.strike{position:absolute;height:12px;background:var(--R);border-radius:6px;transform-origin:0 50%}
+.stack{position:absolute;width:380px;border-radius:18px;overflow:hidden;display:grid}
+.stack div{display:flex;align-items:center;justify-content:center;font-weight:700;font-size:40px;color:#E9EEF7}
+.coin{position:absolute;width:86px;height:22px;border-radius:50%;background:radial-gradient(ellipse at 50% 35%,#FF8A7E,#FF4D3D 55%,#B8261B);box-shadow:0 3px 0 #7E160E}
+.rain i{position:absolute;width:4px;height:60px;border-radius:2px;background:linear-gradient(rgba(159,182,218,0),rgba(159,182,218,.8))}
+.card3{position:absolute;top:300px;width:500px;height:470px;border-radius:28px;background:rgba(255,255,255,.05);border:2px solid rgba(255,255,255,.12);padding:46px 48px;display:grid;align-content:start;gap:22px}
+.card3 .n{font-weight:900;font-size:150px;line-height:.9;color:var(--Y)}
+.card3 .t{font-weight:900;font-size:66px;line-height:1.18}
+.axis{position:absolute;height:4px;background:rgba(255,255,255,.28);border-radius:2px}
+.tick{position:absolute;font-weight:500;font-size:36px;color:var(--N);white-space:nowrap}
+.thr{position:absolute;width:0;border-left:6px dashed var(--Y)}
+.seg{position:absolute;height:120px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:40px;white-space:nowrap;overflow:hidden;transform-origin:0 50%}
+.cal{position:absolute;top:300px;width:420px;height:440px;border-radius:26px;background:rgba(255,255,255,.05);border:2px solid rgba(255,255,255,.14);overflow:hidden}
+.cal .h{height:96px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:52px;background:rgba(255,255,255,.08)}
+.env{position:absolute;width:300px;height:190px;border-radius:14px;background:#F4F6FA;color:#0C1424;display:grid;place-items:center;font-weight:900;font-size:44px;box-shadow:0 20px 40px -10px rgba(0,0,0,.6)}
+.env::before{content:"";position:absolute;inset:0;border-radius:14px;background:linear-gradient(160deg,transparent 49%,rgba(12,20,36,.18) 50%,transparent 51%),linear-gradient(20deg,transparent 49%,rgba(12,20,36,.18) 50%,transparent 51%)}
+.env span{position:relative}
+.ck{font-weight:900;font-size:64px;color:var(--G)}
+</style>
+
+<div class="page">
+  <header>
+    <div class="eyebrow">은퇴 꺼내 쓰기 · eunte-kkeonaeseugi-2026-10 · 새 영상 스타일 시안</div>
+    <h1>은퇴 꺼내 쓰기 스토리보드</h1>
+    <p class="lede">대본 앞부분(0:00~0:49)과 원칙 하나의 핵심(2:49~4:06)을 컷 14개로 나눠, 실제로 움직이는 화면으로 만들었습니다. 예전처럼 작은 카드에 숫자를 빽빽하게 넣지 않습니다. <span class="mark">한 화면에 생각 하나</span>만 크게 보여 주고, 내레이션이 그 숫자를 말하는 순간에 숫자가 나옵니다. 오디오가 아직 없어서 무음이고, 자막 시간에 맞췄습니다.</p>
+  </header>
+
+  <section class="player" aria-label="스토리보드 재생기">
+    <div class="stage-wrap" id="wrap"><div id="stage"></div></div>
+    <div class="ctrl">
+      <button id="play" type="button" aria-pressed="false">▶ 재생</button>
+      <span class="time" id="time">0:00.0 / 2:07.3</span>
+      <input id="scrub" type="range" min="0" max="127.28" step="0.01" value="16.6" aria-label="재생 위치">
+      <button id="ccbtn" type="button" aria-pressed="false">자막 굽기 보기</button>
+    </div>
+    <div class="now" id="now" aria-live="polite"><small>내레이션</small>—</div>
+  </section>
+
+  <section style="display:grid;gap:14px">
+    <h2>무엇을 바꿨나 — 이해를 돕는 장치 6가지</h2>
+    <div class="rules">
+      <div class="rule"><b>1. 한 화면에 생각 하나</b><p>예전 화면은 카드·표·라벨이 한꺼번에 있었습니다. 이제는 지금 말하는 것 하나만 크게 두고 나머지는 지웁니다.</p><span class="src">일관성 원칙 (Mayer, 멀티미디어 학습)</span></div>
+      <div class="rule"><b>2. 말하는 순간에 숫자가 나온다</b><p>"334만 원"이라고 말할 때 숫자가 올라갑니다. 숫자를 미리 다 띄워 두지 않습니다.</p><span class="src">시간 근접 원칙</span></div>
+      <div class="rule"><b>3. 색이 곧 뜻</b><p>빨강은 손해·넘침(A 부부), 청록은 아낌·안전(B 부부), 노랑은 기억할 기준과 방법입니다. 썸네일과 같은 뜻입니다.</p><span class="src">신호 주기 원칙</span></div>
+      <div class="rule"><b>4. 모든 기준은 같은 모양</b><p>1,000만·1,500만·2,000만 원 기준은 모두 노란 점선입니다. 점선을 넘으면 빨강으로 바뀝니다.</p><span class="src">신호 주기 · 사전 학습 원칙</span></div>
+      <div class="rule"><b>5. 어려운 말은 그림 하나로</b><p>피부양자는 자녀 건강보험 우산, 기준은 사람마다 따로 있는 바구니로 그립니다. 같은 그림을 다시 쓰면 설명 없이도 알아봅니다.</p><span class="src">구체적 예시 · 반복</span></div>
+      <div class="rule"><b>6. 50~70대가 읽히는 크기</b><p>글자는 40px 이상(1080p), 핵심 숫자는 190px 이상이고 2초 이상 머뭅니다. 지금 어느 장인지 왼쪽 위 이름표로 늘 보여 줍니다.</p><span class="src">분할 원칙 · 고령 시청자 가독성</span></div>
+    </div>
+    <div class="legend" aria-label="색의 뜻">
+      <span class="sw"><i style="background:#FF4D3D"></i>빨강 = 손해·넘침·A 부부</span>
+      <span class="sw"><i style="background:#22C7B0"></i>청록 = 아낌·안전·B 부부</span>
+      <span class="sw"><i style="background:#FFD400"></i>노랑 = 기준·방법 (기억할 것)</span>
+    </div>
+  </section>
+
+  <section style="display:grid;gap:14px">
+    <h2>예전 화면과 새 화면</h2>
+    <div class="compare">
+      <figure><img src="frames/old_cliff.jpg" alt="예전 스타일: 밝은 배경에 작은 막대와 라벨, 아래에 긴 문장 자막"><figcaption><b>예전</b> · 같은 장면(기준을 넘으면 전부 소득). 글자가 작고, 문장 자막이 화면 아래를 차지합니다.</figcaption></figure>
+      <figure><img src="frames/s09.jpg" alt="새 스타일: 어두운 화면에 큰 막대와 노란 기준 점선, 1,010만 원 전부가 빨강으로 바뀜"><figcaption><b>새 시안</b> · 노란 점선을 넘는 순간 '넘은 10만 원'이 지워지고 막대 전체가 빨강으로 바뀝니다.</figcaption></figure>
+    </div>
+  </section>
+
+  <section style="display:grid;gap:14px">
+    <h2>컷 14개</h2>
+    <div class="cuts" id="cuts"></div>
+  </section>
+
+  <section style="display:grid;gap:12px">
+    <h2>정해 주실 것</h2>
+    <ol class="qs">
+      <li><b>자막을 화면에 구울까요?</b> 시안은 문장 자막을 굽지 않고 유튜브 자막(CC)으로 둡니다. 화면 글자와 같은 문장을 또 읽게 하면 이해가 늦어진다는 연구가 있어서입니다. 소리를 끄고 보는 분이 많다면 구워야 합니다. 재생기의 '자막 굽기 보기'로 비교해 보세요.</li>
+      <li><b>A 부부 = 빨강으로 맞출까요?</b> 썸네일에서 빨강이 '손해'라서 영상도 A 부부(손해)를 빨강으로 바꿨습니다. 예전 영상은 B 부부가 빨강이었습니다.</li>
+      <li><b>속도.</b> 지금은 자막 시간에 맞췄습니다. 실제 내레이션(사연자 S07·진행자 H04)이 생기면 그 시간에 다시 맞춥니다.</li>
+    </ol>
+    <p class="tools">만든 도구: 장면은 HTML·SVG로 그리고 <code>GSAP 3.12.5</code> 타임라인으로 움직입니다. 같은 파일을 브라우저에서 바로 재생하고, 렌더할 때는 <code>Playwright</code>가 1/30초마다 타임라인을 멈춰 찍은 장면을 <code>ffmpeg</code>로 이어 붙입니다. 미리보기 영상도 이렇게 만들었습니다. 연구·교육용 자료이며 투자·세무 권유가 아닙니다.</p>
+  </section>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script>
+(function(){
+"use strict";
+const RENDER = /[?&]render\b/.test(location.search);
+const D = 127.28;
+const SUBS = [[0.0,2.89,"지금 퇴직금이나 연금저축을 갖고"],[2.89,6.7,"은퇴를 앞두고 계시다면, 이 숫자부터 보세요."],[6.7,10.13,"같은 5억 원을 가진 두 부부가 있습니다."],[10.13,17.41,"그런데 65세 첫해 세금이 한 부부는 334만 원, 다른 부부는 108만 원입니다."],[17.41,19.68,"왜 이렇게 차이가 날까요?"],[19.68,22.73,"상품이나 수익률 때문이 아닙니다."],[22.73,25.96,"돈을 꺼내는 순서가 달랐을 뿐입니다."],[25.96,30.57,"세금 차이는 은퇴 후 10년 동안 한 달에 15만 원이 넘고,"],[30.57,33.44,"평생 합치면 약 2천만 원이 됩니다."],[33.44,39.36,"게다가 한 부부는 5년 동안 자녀 건강보험의 피부양자에서도 빠집니다."],[39.36,42.02,"결론부터 말씀드리겠습니다."],[42.02,47.58,"예금부터 쓰고, 연금계좌는 나중에 쓰고, 부부가 나눠서 꺼낸다."],[47.58,49.27,"이 세 가지입니다."],[50.78,53.05,"그리고 이게 중요합니다."],[53.05,58.41,"기준을 넘으면, 넘은 만큼이 아니라 전부가 소득으로 잡힙니다."],[58.41,61.93,"예를 들어 이자가 1년에 1,010만 원이면,"],[61.93,67.63,"넘은 10만 원이 아니라 1,010만 원이 전부 건보료 소득으로 잡힙니다."],[67.63,72.09,"A 부부 남편은 퇴직금까지 넣은 예금 3억 원에서,"],[72.09,75.11,"1년 이자가 1,050만 원 나옵니다."],[75.11,81.44,"이자 기준 1,000만 원을 넘었으니, 1,050만 원이 전부 소득으로 잡힙니다."],[81.44,88.41,"여기에 1년치 국민연금 1,320만 원을 더하면 2,370만 원이 되어,"],[88.41,91.63,"피부양자 기준 2,000만 원을 넘습니다."],[91.63,97.96,"연금저축에서 꺼낸 1,800만 원도 연금저축 기준 1,500만 원을 넘어서,"],[97.96,100.66,"피부양자 소득에 또 더해집니다."],[100.66,106.16,"부부는 두 사람 모두 피부양자 기준 2,000만 원을 넘지 않아야 해서,"],[106.16,110.45,"남편 때문에 아내까지 같이 피부양자에서 빠집니다."],[110.45,116.38,"게다가 건보료 고지서는 다음 해에 나와서, 모르고 지나가기 쉽습니다."],[116.38,120.96,"기준은 사람마다 따로 있는 바구니라고 보시면 됩니다."],[120.96,127.28,"한 바구니에 몰아 담으면 넘치고, 두 바구니에 나눠 담으면 넘치지 않습니다."]];
+// 컷: [번호, 시작, 끝, 대표 장면 시각, 대본 시간, 이름, 이해 장치]
+const CUTS = [
+ [1,0.00,6.70,5.6,"0:00","이 숫자부터",["물음 먼저","숫자 자리를 비워 둠"]],
+ [2,6.70,10.13,9.7,"0:07","같은 5억, 두 부부",["같은 출발선","돈의 구성을 블록으로"]],
+ [3,10.13,17.41,16.9,"0:10","첫해 세금 334만 vs 108만",["말하는 순간 숫자","길이로 차이"]],
+ [4,17.41,25.96,25.2,"0:17","왜? → 꺼내는 순서",["오답을 지움","답은 노랑"]],
+ [5,25.96,33.44,33.0,"0:26","월 15만 원이 쌓여 평생 2천만 원",["작은 돈 → 큰 돈","동전 = 한 달"]],
+ [6,33.44,39.36,38.9,"0:33","피부양자 = 자녀 건강보험 우산",["어려운 말을 그림 하나로","5년을 칸으로"]],
+ [7,39.36,49.27,48.4,"0:39","결론 세 가지",["결론 먼저","번호 = 순서"]],
+ [8,50.77,58.41,57.9,"2:49","넘으면 넘은 만큼이 아니라 전부",["기준 = 노란 점선","전부가 빨강으로"]],
+ [9,58.41,67.63,66.9,"2:57","이자 1,010만 원 → 전부 건보료 소득",["10만 원을 지우고 전체를 칠함","눈금은 실제 비율"]],
+ [10,67.63,91.63,91.0,"3:06","A 남편: 1,050 + 1,320 = 2,370 > 2,000",["쌓이는 막대","기준선은 나중에 내려옴"]],
+ [11,91.63,100.66,100.0,"3:30","연금저축 1,800만 원도 더해짐",["같은 막대에 이어 붙임","작은 막대로 1,500만 기준"]],
+ [12,100.66,110.45,109.9,"3:39","남편 때문에 아내까지",["우산 그림 다시 씀","두 사람 막대를 나란히"]],
+ [13,110.45,116.38,115.8,"3:49","고지서는 다음 해에",["시간을 달력 두 장으로"]],
+ [14,116.38,127.28,126.7,"3:54","바구니: 몰아 담으면 넘친다",["1,800만 원 = 동전 18개","나눠 담기 10 + 8"]]
+];
+
+const stage = document.getElementById("stage");
+// 요소 만들기: 'cx'·'tick'은 가운데 기준 (GSAP xPercent — 글자 길이가 바뀌어도 가운데 유지)
+const $ = (html, parent) => { const t = document.createElement("template"); t.innerHTML = html.trim(); const n = t.content.firstChild; (parent || stage).appendChild(n); if (n.classList && (n.classList.contains("cx") || n.classList.contains("tick"))) gsap.set(n,{xPercent:-50}); return n; };
+const fmt = v => Math.round(v).toLocaleString("ko-KR");
+const tl = gsap.timeline({paused:true});
+const counter = (node, from, to, at, dur, f) => { const o = {v:from}; node.textContent = f(from); tl.fromTo(o,{v:from},{v:to,duration:dur,ease:"power2.out",onUpdate:()=>{node.textContent=f(o.v)}},at); };
+const scene = (a, b) => { const sc = $(`<div class="sc"></div>`); tl.fromTo(sc,{opacity:0},{opacity:1,duration:.35,ease:"none"},a); tl.to(sc,{opacity:0,duration:.35,ease:"none"},b-.35); return sc; };
+const pop = (n, at, extra) => tl.fromTo(n, Object.assign({opacity:0,y:40,scale:.96},extra&&extra.from), Object.assign({opacity:1,y:0,scale:1,duration:.55,ease:"power3.out"},extra&&extra.to), at);
+const person = (fill, h) => `<svg viewBox="0 0 120 200" width="${h*0.6}" height="${h}" aria-hidden="true"><circle cx="60" cy="42" r="34" fill="${fill}"/><path d="M6 198 C6 124 24 90 60 90 C96 90 114 124 114 198 Z" fill="${fill}"/></svg>`;
+const couple = (parent, cx, top, kind, h) => {
+  const g = $(`<div class="a cx" style="left:${cx}px;top:${top}px;display:grid;justify-items:center;gap:18px"></div>`, parent);
+  $(`<div style="display:flex;align-items:flex-end;gap:10px">${person("#DCE3EE",h)}${person("#AEB9CC",h*.88)}</div>`, g);
+  $(`<span class="badge k${kind}">${kind} 부부</span>`, g);
+  return g;
+};
+const umbrella = (parent, cx, w) => $(`<svg class="a" viewBox="0 0 1000 560" width="${w}" height="${w*.56}" style="left:${cx-w/2}px;top:240px" aria-hidden="true">
+    <path d="M30 300 C80 90 320 20 500 20 C680 20 920 90 970 300 C900 262 820 262 760 300 C700 262 620 262 560 300 C500 262 420 262 360 300 C300 262 220 262 160 300 C100 262 60 268 30 300 Z" fill="#2A3B5E" stroke="#FFD400" stroke-width="6"/>
+    <path d="M500 20 L500 520 C500 552 460 552 452 524" fill="none" stroke="#C9D2E2" stroke-width="12" stroke-linecap="round"/></svg>`, parent);
+const rainIn = (sc, left, width, at, n, reps) => {
+  const rain = $(`<div class="a rain" style="left:${left}px;top:120px;width:${width}px;height:820px;overflow:hidden"></div>`, sc);
+  const drops=[]; for(let i=0;i<n;i++){ drops.push($(`<i style="left:${(i*53)%(width-10)}px;top:${-80-(i*97)%400}px"></i>`, rain)); }
+  tl.fromTo(rain,{opacity:0},{opacity:1,duration:.4},at);
+  tl.fromTo(drops,{y:0},{y:1100,duration:1.1,ease:"none",stagger:{each:.05,repeat:reps}},at);
+};
+
+// 장 이름표와 자막 자리
+const chip = $(`<div id="chip"><span class="Y">도입</span><span>같은 5억, 다른 세금</span><span class="dots"><i></i><i></i><i></i></span></div>`);
+const chipK = chip.children[0], chipT = chip.children[1], dotsBox = chip.children[2], dots = dotsBox.querySelectorAll("i");
+const cc = $(`<div id="cc" hidden></div>`);
+
+/* 컷 1. 이 숫자부터 (0~6.7) */
+{ const sc = scene(0, 6.7);
+  ["퇴직금","연금저축","예금"].forEach((n,i)=>{ const p = $(`<div class="a cx pill" style="left:${520+i*440}px;top:380px">${n}</div>`, sc); pop(p, .25+i*.35); tl.to(p,{y:-170,scale:.72,opacity:.55,duration:.8,ease:"power2.inOut"},2.9); });
+  const lab = $(`<div class="a cx c w7 Y" style="left:960px;top:430px;font-size:56px">65세 첫해 세금</div>`, sc); pop(lab, 3.6);
+  const num = $(`<div class="a cx c w9" style="left:960px;top:520px;font-size:230px;line-height:1;letter-spacing:-4px;white-space:nowrap"><span class="Y">???</span><span style="font-size:120px">만 원</span></div>`, sc); pop(num, 3.9);
+  tl.fromTo(num.firstChild,{opacity:1},{opacity:.35,duration:.45,ease:"sine.inOut",yoyo:true,repeat:3},4.5);   // 숫자는 아직 비워 둠 (가짜 숫자 금지)
+}
+
+/* 컷 2~3. 같은 5억 → 첫해 세금 (6.7~17.41) */
+{ const sc = scene(6.7, 17.41);
+  const title = $(`<div class="a cx c w9" style="left:960px;top:150px;font-size:84px;white-space:nowrap">같은 <span class="Y">5억 원</span></div>`, sc); pop(title, 6.9);
+  const eq = $(`<div class="a cx w9 Y" style="left:960px;top:560px;font-size:170px;line-height:1">=</div>`, sc); pop(eq, 7.6);
+  const mk = (cx, kind, d) => {
+    const cp = couple(sc, cx, 250, kind, 150); pop(cp, 6.9+d);
+    const st = $(`<div class="stack" style="left:${cx-190}px;top:520px;grid-template-rows:150px 75px 150px"><div style="background:#2E4470">예금 2억</div><div style="background:#3C5788">연금저축 1억</div><div style="background:#4A69A2">퇴직금 2억</div></div>`, sc);
+    tl.fromTo(st.children,{scaleY:0,transformOrigin:"50% 100%"},{scaleY:1,duration:.5,ease:"power3.out",stagger:.18},7.2+d);
+    const tot = $(`<div class="a cx c w9" style="left:${cx}px;top:910px;font-size:60px">5억 원</div>`, sc); pop(tot, 8.2+d);
+    return {cp, st, tot};
+  };
+  const A = mk(560,"A",0), B = mk(1360,"B",.15);
+  tl.to([title, eq, A.st, B.st, A.tot, B.tot],{opacity:0,y:-30,duration:.45},10.15);
+  tl.to([A.cp,B.cp],{y:-120,scale:.8,duration:.6,ease:"power2.inOut"},10.15);
+  const lab = $(`<div class="a cx c w7 Y" style="left:960px;top:150px;font-size:56px;white-space:nowrap">65세 첫해 세금</div>`, sc); pop(lab, 10.5);
+  const tax = (cx, val, at, color) => {
+    const n = $(`<div class="a cx c w9" style="left:${cx}px;top:470px;font-size:190px;line-height:1;letter-spacing:-4px;color:${color};white-space:nowrap"><span>0</span><span style="font-size:96px">만 원</span></div>`, sc);
+    pop(n, at-.2); counter(n.firstChild, 0, val, at, 1.4, fmt);
+    const bar = $(`<div class="a" style="left:${cx-270}px;top:720px;height:70px;width:${val*1.6}px;border-radius:12px;background:${color};transform-origin:0 50%"></div>`, sc);
+    tl.fromTo(bar,{scaleX:0},{scaleX:1,duration:1.4,ease:"power2.out"},at);
+  };
+  tax(560,334,11.6,"#FF4D3D");
+  tax(1360,108,14.6,"#22C7B0");
+  const base = $(`<div class="a" style="left:290px;top:820px;width:1340px;height:3px;background:rgba(255,255,255,.18)"></div>`, sc); pop(base, 11.4);
+}
+
+/* 컷 4. 왜? → 꺼내는 순서 (17.41~25.96) */
+{ const sc = scene(17.41, 25.96);
+  const q = $(`<div class="a cx c w9" style="left:960px;top:250px;font-size:260px;line-height:1">왜?</div>`, sc); pop(q, 17.6, {from:{scale:.6}});
+  const p1 = $(`<div class="a cx pill" style="left:640px;top:610px">상품</div>`, sc);
+  const p2 = $(`<div class="a cx pill" style="left:1280px;top:610px">수익률</div>`, sc);
+  pop(p1, 19.8); pop(p2, 20.1);
+  const s1 = $(`<div class="strike" style="left:540px;top:658px;width:200px;rotate:-8deg"></div>`, sc);
+  const s2 = $(`<div class="strike" style="left:1150px;top:658px;width:260px;rotate:-8deg"></div>`, sc);
+  tl.fromTo([s1,s2],{scaleX:0},{scaleX:1,duration:.35,stagger:.25,ease:"power2.out"},21.2);
+  tl.to([q,p1,p2,s1,s2],{opacity:0,y:-40,duration:.45},22.6);
+  const ans = $(`<div class="a cx c w9 Y" style="left:960px;top:300px;font-size:170px;line-height:1;white-space:nowrap">꺼내는 순서</div>`, sc); pop(ans, 22.9, {from:{scale:1.15,y:0}});
+  const row = $(`<div class="a cx" style="left:960px;top:600px;display:flex;align-items:center;gap:40px"></div>`, sc);
+  [1,2,3].forEach((n,i)=>{ $(`<div style="width:170px;height:170px;border-radius:30px;border:4px solid rgba(255,214,0,.7);display:grid;place-items:center;font-weight:900;font-size:96px;color:#FFD400">${n}</div>`, row); if(i<2){ $(`<div class="w9 N" style="font-size:80px">→</div>`, row); } });
+  tl.fromTo(row.children,{opacity:0,x:-30},{opacity:1,x:0,duration:.4,stagger:.12,ease:"power2.out"},23.6);
+}
+
+/* 컷 5. 월 15만 원 → 평생 2천만 원 (25.96~33.44) */
+{ const sc = scene(25.96, 33.44);
+  const head = $(`<div class="a cx c w9" style="left:960px;top:150px;font-size:64px;white-space:nowrap"><span class="badge kA" style="font-size:44px;vertical-align:middle">A 부부</span>가 더 낸 세금</div>`, sc); pop(head, 26.1);
+  const sub = $(`<div class="a cx c w7" style="left:960px;top:270px;font-size:58px;white-space:nowrap">한 달에 <span class="Y">15만 원</span> 넘게 · 10년</div>`, sc); pop(sub, 26.6);
+  const cols = [];
+  for (let y=0;y<10;y++){
+    const x = 330 + y*140;
+    const lab = $(`<div class="a cx c w5 N" style="left:${x}px;top:880px;font-size:38px">${65+y}세</div>`, sc); pop(lab, 26.8+y*.05);
+    const coins=[];
+    for (let m=0;m<12;m++){ coins.push($(`<div class="coin" style="left:${x-43}px;top:${840-m*20}px"></div>`, sc)); }
+    tl.fromTo(coins,{opacity:0,y:-260},{opacity:1,y:0,duration:.32,ease:"bounce.out",stagger:.025},27.1+y*.33);
+    cols.push(lab, ...coins);
+  }
+  tl.to(cols,{opacity:.12,duration:.5},30.55);
+  tl.to(sub,{opacity:0,duration:.3},30.55);
+  const life = $(`<div class="a cx c w7 Y" style="left:960px;top:330px;font-size:60px;white-space:nowrap">평생 합치면</div>`, sc); pop(life, 30.7);
+  const big = $(`<div class="a cx c w9 R" style="left:960px;top:430px;font-size:230px;line-height:1;letter-spacing:-5px;white-space:nowrap">약 <span>0</span>만 원</div>`, sc); pop(big, 30.8);
+  const bn = big.querySelector("span"); const o={v:0};
+  tl.fromTo(o,{v:0},{v:2000,duration:1.6,ease:"power2.out",onUpdate:()=>{ bn.textContent = o.v>=1999.5 ? "2천" : fmt(o.v); }},31.0);
+  tl.fromTo(big,{textShadow:"0 0 0px rgba(255,77,61,0)"},{textShadow:"0 0 60px rgba(255,77,61,.55)",duration:.6},32.6);
+}
+
+/* 컷 6. 피부양자 우산 (33.44~39.36) */
+{ const sc = scene(33.44, 39.36);
+  const lab = $(`<div class="a cx c w9 Y" style="left:960px;top:140px;font-size:60px;white-space:nowrap">자녀 건강보험 · 피부양자</div>`, sc); pop(lab, 33.6);
+  const um = umbrella(sc, 960, 1000); pop(um, 33.7);
+  const A = couple(sc, 770, 520, "A", 150), B = couple(sc, 1150, 520, "B", 150);
+  pop(A, 34.0); pop(B, 34.15);
+  tl.to(A,{x:-470,duration:1.0,ease:"power2.inOut"},35.2);
+  rainIn(sc, 110, 380, 35.8, 26, 3);
+  const out = $(`<div class="a cx c w9 R" style="left:300px;top:860px;font-size:56px;white-space:nowrap">피부양자 탈락</div>`, sc); pop(out, 36.0);
+  const yrs = $(`<div class="a" style="left:560px;top:874px;display:flex;gap:14px;align-items:center"></div>`, sc);
+  for(let i=0;i<5;i++) $(`<div style="width:64px;height:64px;border-radius:12px;border:3px solid #FF4D3D;display:grid;place-items:center;font-weight:900;font-size:34px;color:#FF4D3D">${i+1}</div>`, yrs);
+  $(`<div class="w9 R" style="font-size:56px;margin-left:10px">5년</div>`, yrs);
+  tl.fromTo(yrs.children,{opacity:0,scale:.6},{opacity:1,scale:1,duration:.3,stagger:.32,ease:"back.out(2)"},36.4);
+}
+
+/* 컷 7. 결론 세 가지 (39.36~49.27) */
+{ const sc = scene(39.36, 49.27);
+  const t = $(`<div class="a cx c w9" style="left:960px;top:160px;font-size:72px;white-space:nowrap">결론부터</div>`, sc); pop(t, 39.5);
+  const items=[["1","예금부터<br>쓰고"],["2","연금계좌는<br>나중에"],["3","부부가<br>나눠서 꺼낸다"]];
+  const cards = items.map((it,i)=>{ const c=$(`<div class="card3" style="left:${150+i*560}px"><div class="n">${it[0]}</div><div class="t">${it[1]}</div></div>`, sc); pop(c, 42.0+i*1.85); return c; });
+  tl.to(cards,{borderColor:"rgba(255,214,0,.75)",duration:.3,stagger:.08},47.6);
+  const end = $(`<div class="a cx c w7 Y" style="left:960px;top:860px;font-size:56px;white-space:nowrap">이 세 가지입니다</div>`, sc); pop(end, 47.7);
+}
+
+/* 생략 카드 (49.27~50.9) */
+{ const sc = scene(49.27, 50.9);
+  $(`<div class="a" style="inset:0;background:#05080F"></div>`, sc);
+  $(`<div class="a cx c w5 N" style="left:960px;top:420px;font-size:40px;white-space:nowrap">⋯ 생략: 두 부부의 통장 · 기억할 기준 세 가지 ⋯</div>`, sc);
+  $(`<div class="a cx c w9 Y" style="left:960px;top:500px;font-size:84px;white-space:nowrap">원칙 하나 · 기준은 한 사람씩</div>`, sc);
+}
+tl.fromTo(chip,{opacity:1},{opacity:0,duration:.3,immediateRender:false},49.2); tl.to(chip,{opacity:1,duration:.3},50.6);
+
+/* 컷 8. 넘으면 전부 (50.77~58.41) */
+{ const sc = scene(50.77, 58.41);
+  const imp = $(`<div class="a cx c w9" style="left:960px;top:400px;font-size:150px;line-height:1;white-space:nowrap"><span class="Y">이게</span> 중요합니다</div>`, sc); pop(imp, 50.9, {from:{scale:.8}});
+  tl.to(imp,{opacity:0,y:-60,duration:.4},53.0);
+  const tank = $(`<div class="a" style="left:830px;top:220px;width:260px;height:640px;border-radius:26px;border:5px solid rgba(255,255,255,.35);overflow:hidden"></div>`, sc);
+  const water = $(`<div class="a" style="left:0;bottom:0;width:100%;height:100%;background:#22C7B0;transform-origin:50% 100%"></div>`, tank);
+  const thrY = 220 + 640*(1-.6);
+  const line = $(`<div class="a" style="left:700px;top:${thrY}px;width:420px;border-top:6px dashed #FFD400"></div>`, sc);
+  const lt = $(`<div class="a w9 Y" style="left:540px;top:${thrY-40}px;font-size:60px">기준</div>`, sc);
+  pop(tank, 53.2); pop(line, 53.3); pop(lt, 53.3);
+  tl.fromTo(water,{scaleY:0},{scaleY:.7,duration:1.6,ease:"power2.out"},53.5);
+  const overTop = 220+640*.3;
+  const over = $(`<div class="a" style="left:1110px;top:${overTop}px;display:flex;align-items:center;gap:20px"><div style="width:22px;height:${640*.1}px;border:6px solid #FFD400;border-left:none;border-radius:0 10px 10px 0"></div><div class="w9" style="font-size:60px;white-space:nowrap">넘은 만큼?</div></div>`, sc);
+  pop(over, 55.2);
+  const st = $(`<div class="strike" style="left:1150px;top:${overTop+26}px;width:330px"></div>`, sc);
+  tl.fromTo(st,{scaleX:0},{scaleX:1,duration:.35},56.0);
+  tl.to(water,{backgroundColor:"#FF4D3D",duration:.5},56.4);
+  tl.to([over,st],{opacity:0,duration:.3},56.5);
+  const all = $(`<div class="a w9 R" style="left:1160px;top:520px;font-size:150px;line-height:1">전부</div>`, sc); pop(all, 56.6, {from:{scale:1.3,y:0}});
+}
+
+/* 컷 9. 이자 1,010만 원 (58.41~67.63) */
+{ const sc = scene(58.41, 67.63);
+  const X0=260, W=1400, MAX=1200, px=v=>X0+v*W/MAX;
+  const axis = $(`<div class="axis" style="left:${X0}px;top:660px;width:${W}px"></div>`, sc); pop(axis, 58.5);
+  [0,500,1000].forEach(v=>{ pop($(`<div class="tick" style="left:${px(v)}px;top:680px">${v ? fmt(v)+"만" : "0"}</div>`, sc), 58.6); });
+  const thr = $(`<div class="thr" style="left:${px(1000)-3}px;top:380px;height:300px"></div>`, sc); pop(thr, 58.7);
+  const tl1 = $(`<div class="a cx w9 Y" style="left:${px(1000)}px;top:300px;font-size:48px;white-space:nowrap">이자·배당 기준 1,000만 원</div>`, sc); pop(tl1, 58.8);
+  const bar = $(`<div class="seg" style="left:${X0}px;top:500px;width:${W*1010/MAX}px;background:#22C7B0"></div>`, sc);
+  tl.fromTo(bar,{scaleX:0},{scaleX:1,duration:1.8,ease:"power2.out"},58.9);
+  const lab = $(`<div class="a w9" style="left:${X0}px;top:770px;font-size:72px;white-space:nowrap">이자 1년 <span>0</span>만 원</div>`, sc); pop(lab, 58.9);
+  counter(lab.querySelector("span"), 0, 1010, 58.9, 1.8, fmt);
+  const ten = $(`<div class="a w9 Y" style="left:${px(1010)+30}px;top:528px;font-size:46px;white-space:nowrap">넘은 10만 원?</div>`, sc);
+  pop(ten, 62.0, {from:{x:-20,y:0}});
+  const st = $(`<div class="strike" style="left:${px(1010)+22}px;top:552px;width:310px"></div>`, sc);
+  tl.fromTo(st,{scaleX:0},{scaleX:1,duration:.35},63.3);
+  tl.to([ten,st],{opacity:0,duration:.3},63.9);
+  tl.to(bar,{backgroundColor:"#FF4D3D",duration:.5},64.0);
+  tl.to(lab,{opacity:0,duration:.25},64.0);
+  const lab2 = $(`<div class="a w9" style="left:${X0}px;top:770px;font-size:72px;white-space:nowrap"><span class="R">1,010만 원 전부</span> → 건보료 소득</div>`, sc); pop(lab2, 64.2);
+}
+
+/* 컷 10~11. A 남편 합산 (67.63~100.66) */
+{ const sc = scene(67.63, 100.66);
+  const X0=230, W=1460, MAX=4400, px=v=>X0+v*W/MAX, wd=v=>v*W/MAX;
+  const who = $(`<div class="a" style="left:230px;top:180px"><span class="badge kA">A 부부 · 남편</span></div>`, sc); pop(who, 67.8);
+  const dep = $(`<div class="a pill" style="left:230px;top:270px;font-size:52px;padding:20px 34px">예금 3억 원 <span class="N" style="font-size:36px">(퇴직금 포함)</span></div>`, sc); pop(dep, 68.4);
+  const arr = $(`<div class="a w9 N" style="left:880px;top:276px;font-size:70px">→</div>`, sc); pop(arr, 72.1);
+  const intr = $(`<div class="a w9" style="left:990px;top:262px;font-size:76px;white-space:nowrap">1년 이자 <span class="R">0</span><span class="R">만 원</span></div>`, sc); pop(intr, 72.2);
+  counter(intr.querySelector("span"), 0, 1050, 72.3, 1.3, fmt);
+  const axis = $(`<div class="axis" style="left:${X0}px;top:690px;width:${W}px"></div>`, sc); pop(axis, 75.2);
+  pop($(`<div class="tick" style="left:${px(0)}px;top:710px">0</div>`, sc), 75.2);
+  const s1 = $(`<div class="seg" style="left:${px(0)}px;top:550px;width:${wd(1050)}px;background:#FF4D3D">이자 1,050만</div>`, sc);
+  tl.fromTo(s1,{scaleX:0},{scaleX:1,duration:.9,ease:"power2.out"},75.4);
+  const note = $(`<div class="a w7" style="left:${X0}px;top:440px;font-size:46px;white-space:nowrap"><span class="Y">이자 기준 1,000만 원</span> 넘음 → <span class="R">1,050만 원 전부 소득</span></div>`, sc); pop(note, 76.2);
+  tl.to(note,{opacity:0,duration:.3},81.2);
+  const s2 = $(`<div class="seg" style="left:${px(1050)+6}px;top:550px;width:${wd(1320)-6}px;background:#5B7DB8">국민연금 1,320만</div>`, sc);
+  tl.fromTo(s2,{scaleX:0},{scaleX:1,duration:.9,ease:"power2.out"},81.6);
+  const tot = $(`<div class="a w9" style="left:${px(2370)+24}px;top:560px;font-size:84px;white-space:nowrap">= <span>0</span>만 원</div>`, sc); pop(tot, 83.0, {from:{x:-20,y:0}});
+  counter(tot.querySelector("span"), 0, 2370, 83.1, 1.3, fmt);
+  const thr = $(`<div class="thr" style="left:${px(2000)-3}px;top:500px;height:220px"></div>`, sc);
+  tl.fromTo(thr,{opacity:0,y:-120},{opacity:1,y:0,duration:.6,ease:"bounce.out"},88.5);
+  const thrL = $(`<div class="a cx w9 Y" style="left:${px(2000)}px;top:440px;font-size:46px;white-space:nowrap">피부양자 기준 2,000만 원</div>`, sc); pop(thrL, 88.6);
+  pop($(`<div class="tick" style="left:${px(2000)}px;top:710px">2,000만</div>`, sc), 88.6);
+  tl.to(tot,{color:"#FF4D3D",duration:.4},89.4);
+  const ov = $(`<div class="a w9 R" style="left:${px(2370)+560}px;top:582px;font-size:56px;white-space:nowrap">넘음</div>`, sc); pop(ov, 89.6, {from:{x:-20,y:0}});
+  // 컷 11. 연금저축 1,800만 원
+  tl.to([tot,ov,who,dep,arr,intr],{opacity:0,duration:.35},91.7);
+  const mini = $(`<div class="a" style="left:1150px;top:170px;width:560px;padding:22px 26px;border-radius:20px;background:rgba(255,255,255,.05);border:2px solid rgba(255,255,255,.14)"></div>`, sc);
+  $(`<div class="w7" style="font-size:40px;margin-bottom:18px;white-space:nowrap">연금저축에서 꺼낸 돈 (1년)</div>`, mini);
+  const mb = $(`<div style="position:relative;height:56px;border-radius:10px;background:rgba(255,255,255,.08)"></div>`, mini);
+  const mfill = $(`<div style="position:absolute;left:0;top:0;bottom:0;width:${1800/2000*100}%;border-radius:10px;background:#FF4D3D;transform-origin:0 50%"></div>`, mb);
+  $(`<div style="position:absolute;left:${1500/2000*100}%;top:-12px;bottom:-12px;border-left:5px dashed #FFD400"></div>`, mb);
+  $(`<div class="w7" style="font-size:36px;margin-top:16px;white-space:nowrap"><span class="R">1,800만</span> &gt; <span class="Y">기준 1,500만</span></div>`, mini);
+  pop(mini, 91.9); tl.fromTo(mfill,{scaleX:0},{scaleX:1,duration:1.0,ease:"power2.out"},92.3);
+  const s3 = $(`<div class="seg" style="left:${px(2370)+6}px;top:550px;width:${wd(1800)-6}px;background:repeating-linear-gradient(135deg,#FF4D3D 0 26px,#D93A2B 26px 52px)">연금저축 1,800만</div>`, sc);
+  tl.fromTo(s3,{scaleX:0},{scaleX:1,duration:1.0,ease:"power2.out"},98.0);
+  const plus = $(`<div class="a cx w9 R" style="left:${px(2370)+wd(1800)/2}px;top:440px;font-size:56px;white-space:nowrap">또 더해짐</div>`, sc); pop(plus, 98.4);
+}
+
+/* 컷 12. 남편 때문에 아내까지 (100.66~110.45) */
+{ const sc = scene(100.66, 110.45);
+  const lab = $(`<div class="a cx c w9 Y" style="left:960px;top:140px;font-size:60px;white-space:nowrap">자녀 건강보험 · 피부양자</div>`, sc); pop(lab, 100.8);
+  const um = umbrella(sc, 960, 1000); pop(um, 100.9);
+  const grp = $(`<div class="a" style="left:0;top:0;width:1920px;height:1080px"></div>`, sc);
+  const H = $(`<div class="a cx" style="left:800px;top:500px;display:grid;justify-items:center;gap:14px">${person("#DCE3EE",170)}<div class="w7" style="font-size:40px">남편</div></div>`, grp);
+  const Wf = $(`<div class="a cx" style="left:1120px;top:515px;display:grid;justify-items:center;gap:14px">${person("#AEB9CC",155)}<div class="w7" style="font-size:40px">아내</div></div>`, grp);
+  pop(H, 101.1); pop(Wf, 101.3);
+  const bars = (cx, frac, color) => { const b=$(`<div class="a" style="left:${cx-110}px;top:800px;width:220px;height:40px;border-radius:8px;background:rgba(255,255,255,.08)"></div>`, grp); const f=$(`<div style="position:absolute;left:0;top:0;bottom:0;width:${frac*100}%;border-radius:8px;background:${color};transform-origin:0 50%"></div>`, b); $(`<div style="position:absolute;left:${2000/3000*100}%;top:-10px;bottom:-10px;border-left:5px dashed #FFD400"></div>`, b); return [b,f]; };
+  const [hb,hf] = bars(800, 2370/3000, "#FF4D3D"), [wb,wf] = bars(1120, .35, "#22C7B0");
+  pop(hb,102.0); pop(wb,102.1); tl.fromTo([hf,wf],{scaleX:0},{scaleX:1,duration:.9,ease:"power2.out",stagger:.15},102.3);
+  const cond = $(`<div class="a cx c w7" style="left:960px;top:900px;font-size:52px;white-space:nowrap">두 사람 모두 <span class="Y">2,000만 원 이하</span>여야</div>`, sc); pop(cond, 102.6);
+  tl.to(cond,{opacity:0,duration:.3},106.0);
+  tl.to(grp,{x:-560,scale:.75,transformOrigin:"300px 600px",duration:1.1,ease:"power2.inOut"},106.3);
+  rainIn(sc, 40, 520, 107.0, 30, 2);
+  const res = $(`<div class="a cx c w9" style="left:1180px;top:880px;font-size:60px;white-space:nowrap"><span class="R">아내까지</span> 피부양자 탈락</div>`, sc); pop(res, 107.4);
+}
+
+/* 컷 13. 고지서는 다음 해 (110.45~116.38) */
+{ const sc = scene(110.45, 116.38);
+  const c1 = $(`<div class="cal" style="left:330px"><div class="h">올해</div></div>`, sc);
+  const c2 = $(`<div class="cal" style="left:1170px"><div class="h Y">다음 해</div></div>`, sc);
+  pop(c1, 110.6); pop(c2, 110.8);
+  const t1 = $(`<div class="a c w7" style="left:330px;top:440px;width:420px;font-size:44px;line-height:1.4">소득이<br>기준을 넘음</div>`, sc); pop(t1, 111.0);
+  const env = $(`<div class="env" style="left:390px;top:560px"><span>건보료 고지서</span></div>`, sc);
+  tl.fromTo(env,{opacity:0,y:40},{opacity:1,y:0,duration:.4},111.6);
+  tl.to(env,{x:840,duration:1.5,ease:"power2.inOut"},112.3);
+  const arr = $(`<div class="a w9 N" style="left:900px;top:440px;font-size:90px">→</div>`, sc); pop(arr, 112.3);
+  const late = $(`<div class="a cx c w7" style="left:960px;top:850px;font-size:56px;white-space:nowrap">그래서 <span class="Y">모르고 지나가기 쉽다</span></div>`, sc); pop(late, 114.2);
+}
+
+/* 컷 14. 바구니 (116.38~127.28) */
+{ const sc = scene(116.38, 127.28);
+  const head = $(`<div class="a cx c w9" style="left:960px;top:150px;font-size:66px;white-space:nowrap">기준 = 사람마다 따로 있는 <span class="Y">바구니</span></div>`, sc); pop(head, 116.5);
+  [[640,"남편"],[1280,"아내"]].forEach(([cx,name],i)=>{
+    const g = $(`<div class="a" style="left:${cx-170}px;top:330px;width:340px;height:600px"></div>`, sc);
+    $(`<svg class="a" viewBox="0 0 340 520" width="340" height="520" style="left:0;top:0" aria-hidden="true"><path d="M10 110 L40 510 L300 510 L330 110" fill="rgba(255,255,255,.05)" stroke="#C9D2E2" stroke-width="8" stroke-linejoin="round"/></svg>`, g);
+    $(`<div class="a c w7" style="left:0;width:340px;top:540px;font-size:44px">${name}</div>`, g);
+    pop(g, 116.8+i*.2);
+  });
+  const lineY = 818 - 15*24 - 4;   // 동전 15개(1,500만 원) 높이
+  [640,1280].forEach((cx,i)=>pop($(`<div class="a" style="left:${cx-200}px;top:${lineY}px;width:400px;border-top:6px dashed #FFD400"></div>`, sc), 117.6+i*.1));
+  pop($(`<div class="a w7 Y" style="left:1500px;top:${lineY-28}px;font-size:40px;line-height:1.25">연금저축<br>기준 1,500만</div>`, sc), 117.8);
+  pop($(`<div class="a w5 N" style="left:110px;top:${lineY+90}px;font-size:36px;line-height:1.35">동전 1개<br>= 100만 원</div>`, sc), 118.2);
+  const teal = {background:"radial-gradient(ellipse at 50% 35%,#7FE6D8,#22C7B0 55%,#11806F)",boxShadow:"0 4px 0 #0B5A4E"};
+  const red = {background:"radial-gradient(ellipse at 50% 35%,#FF8A7E,#FF4D3D 55%,#B8261B)",boxShadow:"0 4px 0 #7E160E"};
+  const coins=[];
+  for (let k=0;k<18;k++){ const c=$(`<div class="coin" style="left:580px;top:${818-(k+1)*24}px;width:120px;height:28px"></div>`, sc); gsap.set(c, teal); coins.push(c); }
+  tl.fromTo(coins,{opacity:0,y:-420},{opacity:1,y:0,duration:.3,ease:"bounce.out",stagger:.1},121.0);
+  tl.to(coins.slice(15),Object.assign({duration:.3},red),123.0);   // 기준을 넘는 동전 3개
+  const ovf = $(`<div class="a w9 R" style="left:300px;top:370px;font-size:64px">넘침</div>`, sc); pop(ovf, 123.1);
+  tl.to(ovf,{opacity:0,duration:.3},124.3);
+  coins.slice(10).forEach((c,j)=>{ tl.to(c,{x:640,y:240,duration:.55,ease:"power2.inOut"},124.4+j*.06); });   // 위 8개 → 아내 바구니 바닥부터
+  tl.to(coins.slice(15),Object.assign({duration:.3},teal),124.6);
+  pop($(`<div class="a ck" style="left:830px;top:640px">✓</div>`, sc), 125.6); pop($(`<div class="a ck" style="left:1470px;top:640px">✓</div>`, sc), 125.7);
+  const sum = $(`<div class="a cx c w9" style="left:960px;top:950px;font-size:52px;white-space:nowrap"><span class="G">1,000만 + 800만</span> · 둘 다 안 넘침</div>`, sc); pop(sum, 125.9);
+}
+
+/* 재생기 */
+const mmss = t => `${Math.floor(t/60)}:${(t%60).toFixed(1).padStart(4,"0")}`;
+const sub = t => SUBS.find(s => t >= s[0] && t < s[1]);
+let ccOn = false;
+const ui = RENDER ? null : { time: document.getElementById("time"), scrub: document.getElementById("scrub"), now: document.getElementById("now"), play: document.getElementById("play"), cc: document.getElementById("ccbtn") };
+const sync = () => {
+  const t = tl.time(), s = sub(t), intro = t < 50;
+  chipK.textContent = intro ? "도입" : "원칙 1"; chipT.textContent = intro ? "같은 5억, 다른 세금" : "기준은 한 사람씩";
+  dotsBox.hidden = intro; dots.forEach((d,i)=>d.classList.toggle("on", i === 0));
+  cc.hidden = !(ccOn && s); if (ccOn && s) cc.textContent = s[2];
+  if (ui) { ui.time.textContent = `${mmss(t)} / ${mmss(D)}`; ui.scrub.value = t.toFixed(2); ui.now.innerHTML = `<small>내레이션 · ${mmss(t)}</small>${s ? s[2] : "—"}`; }
+};
+tl.eventCallback("onUpdate", sync);
+const seek = t => { tl.seek(Math.max(0, Math.min(D, t)), false); sync(); };
+window.SB = { D, seek, cuts: CUTS };
+if (RENDER) {
+  document.querySelector(".page").replaceWith(stage);
+  Object.assign(document.body.style,{margin:"0",background:"#000",overflow:"hidden"});
+  stage.style.transform = `scale(${window.innerWidth/1920})`;
+  seek(0);
+  return;
+}
+const fit = () => { stage.style.transform = `scale(${document.getElementById("wrap").clientWidth/1920})`; };
+window.addEventListener("resize", fit); fit();
+const setBtn = () => { const playing = !tl.paused(); ui.play.setAttribute("aria-pressed", String(playing)); ui.play.textContent = playing ? "❚❚ 멈춤" : (tl.time() >= D - .05 ? "▶ 다시 재생" : "▶ 재생"); };
+ui.play.addEventListener("click", () => { if (!tl.paused()) tl.pause(); else { if (tl.time() >= D - .05) tl.seek(0, false); tl.play(); } setBtn(); });
+tl.eventCallback("onComplete", () => { tl.pause(); setBtn(); });
+ui.scrub.addEventListener("input", () => { tl.pause(); seek(parseFloat(ui.scrub.value)); setBtn(); });
+ui.cc.addEventListener("click", () => { ccOn = !ccOn; ui.cc.setAttribute("aria-pressed", String(ccOn)); ui.cc.textContent = ccOn ? "자막 굽기 끄기" : "자막 굽기 보기"; sync(); });
+
+// 컷 카드
+const cutsEl = document.getElementById("cuts");
+CUTS.forEach(c => {
+  const [n,a,b,key,orig,name,dev] = c;
+  const lines = SUBS.filter(s => s[0] < b - .01 && s[1] > a + .01).map(s => s[2]).join(" ");
+  const card = document.createElement("article"); card.className = "cut";
+  card.innerHTML = `<div class="img"><img loading="lazy" src="frames/s${String(n).padStart(2,"0")}.jpg" alt="컷 ${n} 대표 장면: ${name}"></div>
+    <div class="body"><div class="top"><h3>${n}. ${name}</h3><span class="tc">시안 ${mmss(a)}–${mmss(b)} · 대본 ${orig}</span></div>
+    <p class="say">${lines}</p><div class="dev">${dev.map(d=>`<span>${d}</span>`).join("")}</div>
+    <button type="button" data-t="${a}">이 컷부터 재생</button></div>`;
+  cutsEl.appendChild(card);
+});
+cutsEl.addEventListener("click", e => { const btn = e.target.closest("button[data-t]"); if (!btn) return; seek(parseFloat(btn.dataset.t)); tl.play(); setBtn(); document.getElementById("wrap").scrollIntoView({behavior:"smooth",block:"center"}); });
+seek(16.6); setBtn();
+})();
+</script>

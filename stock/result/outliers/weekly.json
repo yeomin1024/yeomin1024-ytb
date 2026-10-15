@@ -2,15 +2,15 @@
  "tool": "weekly_analysis.py v1.3",
  "topic": "stock",
  "name": "주식",
- "generated": "2026-10-15T14:01:56+00:00",
+ "generated": "2026-10-15T14:13:03+00:00",
  "cases": 102,
  "dated": 102,
  "older_than_windows": 0,
  "max_weeks": 52,
  "text_sources": {
   "자막": 0,
-  "음성인식": 12,
-  "설명": 84,
+  "음성인식": 15,
+  "설명": 81,
   "없음": 6
  },
  "criteria": "성공 사례 = 구독자 50,000 이하 · 조회수 10,000 이상 · 조회수 ≥ 구독자 × 3",
@@ -48,7 +48,7 @@
     }
    ],
    "views_median": 80984,
-   "views_per_day_median": 36722.7,
+   "views_per_day_median": 36594.7,
    "ratio_median": 13.7,
    "success": 4,
    "minutes_median": 15.2,
@@ -192,7 +192,7 @@
      "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
      "channel": "박종훈의 지식한방",
      "views": 1500722,
-     "views_per_day": 483276.2,
+     "views_per_day": 482079.0,
      "published": "2026-10-12",
      "url": "https://www.youtube.com/watch?v=hTRG4ehA6NU"
     },
@@ -201,7 +201,7 @@
      "title": "코스피 다 맞춘 무당이 알려드립니다 ! 달러 환율 & 코인 전망 확인하세요 ! X월 이 금액이 보인다 ?! / 코인전망 , 환율전망",
      "channel": "대국신당 임장군",
      "views": 248659,
-     "views_per_day": 40155.7,
+     "views_per_day": 40105.8,
      "published": "2026-10-09",
      "url": "https://www.youtube.com/watch?v=B6BWv1OZV7w"
     },
@@ -210,7 +210,7 @@
      "title": "하이닉스 주주들만 호구인가?… 결국 6천피 찍은 코스피 폭락장",
      "channel": "잘되라대한민국",
      "views": 80984,
-     "views_per_day": 36722.7,
+     "views_per_day": 36594.7,
      "published": "2026-10-13",
      "url": "https://www.youtube.com/watch?v=O8ZlEWiJ0yI"
     },
@@ -219,7 +219,7 @@
      "title": "삼성전자·하이닉스 왜 급락? 코스피 6000 붕괴, 중국 CXMT 공포가 과도한 이유 3가지",
      "channel": "경제야! 놀자~",
      "views": 61799,
-     "views_per_day": 25893.6,
+     "views_per_day": 25810.2,
      "published": "2026-10-13",
      "url": "https://www.youtube.com/watch?v=amgqXbScFMY"
     },
@@ -228,7 +228,7 @@
      "title": "주식 기초 강의 한번 배워서 평생 써먹는 주린이를 위한 주식 투자 방법",
      "channel": "마이크로스콥 ",
      "views": 14966,
-     "views_per_day": 2183.3,
+     "views_per_day": 2180.8,
      "published": "2026-10-08",
      "url": "https://www.youtube.com/watch?v=36sFYI8uboE"
     }
@@ -267,7 +267,7 @@
     }
    ],
    "views_median": 218878.0,
-   "views_per_day_median": 38439.2,
+   "views_per_day_median": 38350.25,
    "ratio_median": 12.23,
    "success": 6,
    "minutes_median": 15.85,
@@ -367,31 +367,11 @@
      "count": 3
     },
     {
-     "word": "오늘은",
-     "count": 2
-    },
-    {
-     "word": "생각합니다",
-     "count": 2
-    },
-    {
-     "word": "그래서",
+     "word": "보는",
      "count": 2
     },
     {
      "word": "투자를",
-     "count": 2
-    },
-    {
-     "word": "분들은",
-     "count": 2
-    },
-    {
-     "word": "많은",
-     "count": 2
-    },
-    {
-     "word": "가장",
      "count": 2
     },
     {
@@ -400,6 +380,26 @@
     },
     {
      "word": "제가",
+     "count": 2
+    },
+    {
+     "word": "가장",
+     "count": 2
+    },
+    {
+     "word": "오늘은",
+     "count": 2
+    },
+    {
+     "word": "투자에",
+     "count": 2
+    },
+    {
+     "word": "많은",
+     "count": 2
+    },
+    {
+     "word": "그래서",
      "count": 2
     }
    ],
@@ -478,7 +478,7 @@
      "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
      "channel": "박종훈의 지식한방",
      "views": 1500722,
-     "views_per_day": 483276.2,
+     "views_per_day": 482079.0,
      "published": "2026-10-12",
      "url": "https://www.youtube.com/watch?v=hTRG4ehA6NU"
     },
@@ -487,7 +487,7 @@
      "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
      "channel": "ACE ETF",
      "views": 2304062,
-     "views_per_day": 174157.6,
+     "views_per_day": 174056.1,
      "published": "2026-10-02",
      "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
     },
@@ -496,7 +496,7 @@
      "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
      "channel": "연합뉴스경제TV",
      "views": 1176049,
-     "views_per_day": 165135.5,
+     "views_per_day": 164956.9,
      "published": "2026-10-08",
      "url": "https://www.youtube.com/watch?v=d4gqZGtuUxo"
     },
@@ -505,7 +505,7 @@
      "title": "인도 옵션 투자 광풍, 50조 털린 인도 개미들",
      "channel": "슈카월드",
      "views": 1876477,
-     "views_per_day": 154411.4,
+     "views_per_day": 154313.5,
      "published": "2026-10-03",
      "url": "https://www.youtube.com/watch?v=0K52Ex714NU"
     },
@@ -514,7 +514,7 @@
      "title": "코스피 다 맞춘 무당이 알려드립니다 ! 달러 환율 & 코인 전망 확인하세요 ! X월 이 금액이 보인다 ?! / 코인전망 , 환율전망",
      "channel": "대국신당 임장군",
      "views": 248659,
-     "views_per_day": 40155.7,
+     "views_per_day": 40105.8,
      "published": "2026-10-09",
      "url": "https://www.youtube.com/watch?v=B6BWv1OZV7w"
     }
@@ -543,7 +543,7 @@
     }
    ],
    "views_median": 189097,
-   "views_per_day_median": 36722.7,
+   "views_per_day_median": 36594.7,
    "ratio_median": 13.7,
    "success": 8,
    "minutes_median": 15.2,
@@ -632,11 +632,11 @@
      "count": 2
     }
    ],
-   "transcripts": 2,
+   "transcripts": 3,
    "text_sources": {
     "자막": 0,
-    "음성인식": 2,
-    "설명": 9,
+    "음성인식": 3,
+    "설명": 8,
     "없음": 2
    },
    "content_words": [
@@ -649,43 +649,43 @@
      "count": 4
     },
     {
+     "word": "오늘은",
+     "count": 4
+    },
+    {
+     "word": "그래서",
+     "count": 4
+    },
+    {
+     "word": "오늘",
+     "count": 4
+    },
+    {
+     "word": "겁니다",
+     "count": 4
+    },
+    {
+     "word": "있습니다",
+     "count": 4
+    },
+    {
      "word": "같은",
      "count": 4
     },
     {
-     "word": "기간",
+     "word": "많이",
      "count": 4
-    },
-    {
-     "word": "오늘은",
-     "count": 3
-    },
-    {
-     "word": "그래서",
-     "count": 3
     },
     {
      "word": "투자를",
      "count": 3
     },
     {
-     "word": "많은",
+     "word": "제가",
      "count": 3
     },
     {
      "word": "안녕하세요",
-     "count": 3
-    },
-    {
-     "word": "보세요",
-     "count": 3
-    },
-    {
-     "word": "실제",
-     "count": 3
-    },
-    {
-     "word": "오늘",
      "count": 3
     }
    ],
@@ -764,7 +764,7 @@
      "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
      "channel": "박종훈의 지식한방",
      "views": 1500722,
-     "views_per_day": 483276.2,
+     "views_per_day": 482079.0,
      "published": "2026-10-12",
      "url": "https://www.youtube.com/watch?v=hTRG4ehA6NU"
     },
@@ -773,7 +773,7 @@
      "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
      "channel": "ACE ETF",
      "views": 2304062,
-     "views_per_day": 174157.6,
+     "views_per_day": 174056.1,
      "published": "2026-10-02",
      "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
     },
@@ -782,7 +782,7 @@
      "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
      "channel": "연합뉴스경제TV",
      "views": 1176049,
-     "views_per_day": 165135.5,
+     "views_per_day": 164956.9,
      "published": "2026-10-08",
      "url": "https://www.youtube.com/watch?v=d4gqZGtuUxo"
     },
@@ -791,7 +791,7 @@
      "title": "인도 옵션 투자 광풍, 50조 털린 인도 개미들",
      "channel": "슈카월드",
      "views": 1876477,
-     "views_per_day": 154411.4,
+     "views_per_day": 154313.5,
      "published": "2026-10-03",
      "url": "https://www.youtube.com/watch?v=0K52Ex714NU"
     },
@@ -800,7 +800,7 @@
      "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
      "channel": "SBS 뉴스",
      "views": 1444127,
-     "views_per_day": 99438.1,
+     "views_per_day": 99385.4,
      "published": "2026-10-01",
      "url": "https://www.youtube.com/watch?v=Uuw517jwuRQ"
     }
@@ -839,7 +839,7 @@
     }
    ],
    "views_median": 198056.5,
-   "views_per_day_median": 20531.0,
+   "views_per_day_median": 20484.6,
    "ratio_median": 10.04,
    "success": 12,
    "minutes_median": 16.3,
@@ -924,11 +924,11 @@
      "count": 2
     },
     {
-     "word": "이유",
+     "word": "급락",
      "count": 2
     },
     {
-     "word": "급락",
+     "word": "이유",
      "count": 2
     },
     {
@@ -936,7 +936,7 @@
      "count": 2
     },
     {
-     "word": "ETF",
+     "word": "대표",
      "count": 2
     },
     {
@@ -944,15 +944,15 @@
      "count": 2
     },
     {
-     "word": "투자일기",
+     "word": "금융문맹",
      "count": 2
     }
    ],
-   "transcripts": 3,
+   "transcripts": 4,
    "text_sources": {
     "자막": 0,
-    "음성인식": 3,
-    "설명": 13,
+    "음성인식": 4,
+    "설명": 12,
     "없음": 2
    },
    "content_words": [
@@ -961,20 +961,20 @@
      "count": 11
     },
     {
+     "word": "있습니다",
+     "count": 7
+    },
+    {
      "word": "가장",
      "count": 6
     },
     {
-     "word": "있습니다",
-     "count": 6
-    },
-    {
-     "word": "아니라",
-     "count": 6
-    },
-    {
      "word": "그래서",
-     "count": 5
+     "count": 6
+    },
+    {
+     "word": "대한",
+     "count": 6
     },
     {
      "word": "투자를",
@@ -985,11 +985,11 @@
      "count": 5
     },
     {
-     "word": "대한",
+     "word": "만든",
      "count": 5
     },
     {
-     "word": "만든",
+     "word": "아니라",
      "count": 5
     },
     {
@@ -1001,8 +1001,8 @@
      "count": 5
     },
     {
-     "word": "많은",
-     "count": 4
+     "word": "많이",
+     "count": 5
     }
    ],
    "chapters_share": 0.444,
@@ -1080,7 +1080,7 @@
      "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
      "channel": "박종훈의 지식한방",
      "views": 1500722,
-     "views_per_day": 483276.2,
+     "views_per_day": 482079.0,
      "published": "2026-10-12",
      "url": "https://www.youtube.com/watch?v=hTRG4ehA6NU"
     },
@@ -1089,7 +1089,7 @@
      "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
      "channel": "ACE ETF",
      "views": 2304062,
-     "views_per_day": 174157.6,
+     "views_per_day": 174056.1,
      "published": "2026-10-02",
      "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
     },
@@ -1098,7 +1098,7 @@
      "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
      "channel": "연합뉴스경제TV",
      "views": 1176049,
-     "views_per_day": 165135.5,
+     "views_per_day": 164956.9,
      "published": "2026-10-08",
      "url": "https://www.youtube.com/watch?v=d4gqZGtuUxo"
     },
@@ -1107,7 +1107,7 @@
      "title": "인도 옵션 투자 광풍, 50조 털린 인도 개미들",
      "channel": "슈카월드",
      "views": 1876477,
-     "views_per_day": 154411.4,
+     "views_per_day": 154313.5,
      "published": "2026-10-03",
      "url": "https://www.youtube.com/watch?v=0K52Ex714NU"
     },
@@ -1116,7 +1116,7 @@
      "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
      "channel": "SBS 뉴스",
      "views": 1444127,
-     "views_per_day": 99438.1,
+     "views_per_day": 99385.4,
      "published": "2026-10-01",
      "url": "https://www.youtube.com/watch?v=Uuw517jwuRQ"
     }
@@ -1155,7 +1155,7 @@
     }
    ],
    "views_median": 224310,
-   "views_per_day_median": 14660.5,
+   "views_per_day_median": 14657.0,
    "ratio_median": 9.32,
    "success": 16,
    "minutes_median": 16.5,
@@ -1228,11 +1228,11 @@
      "count": 4
     },
     {
-     "word": "ETF",
+     "word": "주식",
      "count": 3
     },
     {
-     "word": "주식",
+     "word": "ETF",
      "count": 3
     },
     {
@@ -1264,11 +1264,11 @@
      "count": 2
     }
    ],
-   "transcripts": 4,
+   "transcripts": 5,
    "text_sources": {
     "자막": 0,
-    "음성인식": 4,
-    "설명": 16,
+    "음성인식": 5,
+    "설명": 15,
     "없음": 3
    },
    "content_words": [
@@ -1278,38 +1278,34 @@
     },
     {
      "word": "있습니다",
+     "count": 9
+    },
+    {
+     "word": "대한",
      "count": 8
+    },
+    {
+     "word": "그래서",
+     "count": 7
     },
     {
      "word": "같은",
      "count": 7
     },
     {
-     "word": "대한",
+     "word": "주식",
      "count": 7
     },
     {
-     "word": "그래서",
-     "count": 6
+     "word": "많이",
+     "count": 7
     },
     {
      "word": "가장",
      "count": 6
     },
     {
-     "word": "반도체",
-     "count": 6
-    },
-    {
-     "word": "많이",
-     "count": 6
-    },
-    {
-     "word": "주식",
-     "count": 6
-    },
-    {
-     "word": "ETF",
+     "word": "겁니다",
      "count": 6
     },
     {
@@ -1317,7 +1313,11 @@
      "count": 6
     },
     {
-     "word": "아니라",
+     "word": "ETF",
+     "count": 6
+    },
+    {
+     "word": "반도체",
      "count": 6
     }
    ],
@@ -1396,7 +1396,7 @@
      "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
      "channel": "박종훈의 지식한방",
      "views": 1500722,
-     "views_per_day": 483276.2,
+     "views_per_day": 482079.0,
      "published": "2026-10-12",
      "url": "https://www.youtube.com/watch?v=hTRG4ehA6NU"
     },
@@ -1405,7 +1405,7 @@
      "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
      "channel": "ACE ETF",
      "views": 2304062,
-     "views_per_day": 174157.6,
+     "views_per_day": 174056.1,
      "published": "2026-10-02",
      "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
     },
@@ -1414,7 +1414,7 @@
      "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
      "channel": "연합뉴스경제TV",
      "views": 1176049,
-     "views_per_day": 165135.5,
+     "views_per_day": 164956.9,
      "published": "2026-10-08",
      "url": "https://www.youtube.com/watch?v=d4gqZGtuUxo"
     },
@@ -1423,7 +1423,7 @@
      "title": "인도 옵션 투자 광풍, 50조 털린 인도 개미들",
      "channel": "슈카월드",
      "views": 1876477,
-     "views_per_day": 154411.4,
+     "views_per_day": 154313.5,
      "published": "2026-10-03",
      "url": "https://www.youtube.com/watch?v=0K52Ex714NU"
     },
@@ -1432,7 +1432,7 @@
      "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
      "channel": "SBS 뉴스",
      "views": 1444127,
-     "views_per_day": 99438.1,
+     "views_per_day": 99385.4,
      "published": "2026-10-01",
      "url": "https://www.youtube.com/watch?v=Uuw517jwuRQ"
     }
@@ -1491,7 +1491,7 @@
     }
    ],
    "views_median": 215663.0,
-   "views_per_day_median": 9535.45,
+   "views_per_day_median": 9532.35,
    "ratio_median": 7.18,
    "success": 23,
    "minutes_median": 17.3,
@@ -1590,15 +1590,15 @@
      "count": 3
     },
     {
+     "word": "없던",
+     "count": 2
+    },
+    {
      "word": "교수",
      "count": 2
     },
     {
      "word": "정선용",
-     "count": 2
-    },
-    {
-     "word": "없던",
      "count": 2
     },
     {
@@ -1610,11 +1610,11 @@
      "count": 2
     }
    ],
-   "transcripts": 5,
+   "transcripts": 6,
    "text_sources": {
     "자막": 0,
-    "음성인식": 5,
-    "설명": 24,
+    "음성인식": 6,
+    "설명": 23,
     "없음": 3
    },
    "content_words": [
@@ -1623,15 +1623,23 @@
      "count": 15
     },
     {
+     "word": "있습니다",
+     "count": 10
+    },
+    {
+     "word": "대한",
+     "count": 10
+    },
+    {
      "word": "같은",
      "count": 9
     },
     {
-     "word": "있습니다",
+     "word": "주식",
      "count": 9
     },
     {
-     "word": "대한",
+     "word": "많이",
      "count": 9
     },
     {
@@ -1639,11 +1647,7 @@
      "count": 8
     },
     {
-     "word": "많이",
-     "count": 8
-    },
-    {
-     "word": "주식",
+     "word": "그래서",
      "count": 8
     },
     {
@@ -1651,15 +1655,11 @@
      "count": 8
     },
     {
-     "word": "그래서",
-     "count": 7
-    },
-    {
      "word": "투자를",
      "count": 7
     },
     {
-     "word": "주식을",
+     "word": "겁니다",
      "count": 7
     },
     {
@@ -1742,7 +1742,7 @@
      "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
      "channel": "박종훈의 지식한방",
      "views": 1500722,
-     "views_per_day": 483276.2,
+     "views_per_day": 482079.0,
      "published": "2026-10-12",
      "url": "https://www.youtube.com/watch?v=hTRG4ehA6NU"
     },
@@ -1751,7 +1751,7 @@
      "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
      "channel": "ACE ETF",
      "views": 2304062,
-     "views_per_day": 174157.6,
+     "views_per_day": 174056.1,
      "published": "2026-10-02",
      "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
     },
@@ -1760,7 +1760,7 @@
      "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
      "channel": "연합뉴스경제TV",
      "views": 1176049,
-     "views_per_day": 165135.5,
+     "views_per_day": 164956.9,
      "published": "2026-10-08",
      "url": "https://www.youtube.com/watch?v=d4gqZGtuUxo"
     },
@@ -1769,7 +1769,7 @@
      "title": "인도 옵션 투자 광풍, 50조 털린 인도 개미들",
      "channel": "슈카월드",
      "views": 1876477,
-     "views_per_day": 154411.4,
+     "views_per_day": 154313.5,
      "published": "2026-10-03",
      "url": "https://www.youtube.com/watch?v=0K52Ex714NU"
     },
@@ -1778,7 +1778,7 @@
      "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
      "channel": "SBS 뉴스",
      "views": 1444127,
-     "views_per_day": 99438.1,
+     "views_per_day": 99385.4,
      "published": "2026-10-01",
      "url": "https://www.youtube.com/watch?v=Uuw517jwuRQ"
     }
@@ -1847,7 +1847,7 @@
     }
    ],
    "views_median": 195140,
-   "views_per_day_median": 7963.0,
+   "views_per_day_median": 7961.0,
    "ratio_median": 6.92,
    "success": 31,
    "minutes_median": 19.2,
@@ -1962,15 +1962,15 @@
      "count": 3
     },
     {
-     "word": "백승호",
+     "word": "단장",
      "count": 3
     }
    ],
-   "transcripts": 6,
+   "transcripts": 7,
    "text_sources": {
     "자막": 0,
-    "음성인식": 6,
-    "설명": 32,
+    "음성인식": 7,
+    "설명": 31,
     "없음": 5
    },
    "content_words": [
@@ -1979,27 +1979,27 @@
      "count": 17
     },
     {
+     "word": "있습니다",
+     "count": 12
+    },
+    {
      "word": "많이",
-     "count": 11
+     "count": 12
+    },
+    {
+     "word": "대한",
+     "count": 12
     },
     {
      "word": "같은",
      "count": 11
     },
     {
-     "word": "있습니다",
-     "count": 11
-    },
-    {
-     "word": "대한",
-     "count": 11
-    },
-    {
      "word": "주식",
-     "count": 10
+     "count": 11
     },
     {
-     "word": "함께",
+     "word": "그리고",
      "count": 10
     },
     {
@@ -2007,19 +2007,19 @@
      "count": 9
     },
     {
-     "word": "그리고",
-     "count": 9
-    },
-    {
      "word": "ETF",
      "count": 9
     },
     {
-     "word": "이번",
+     "word": "함께",
+     "count": 9
+    },
+    {
+     "word": "제가",
      "count": 8
     },
     {
-     "word": "주식을",
+     "word": "그래서",
      "count": 8
     }
    ],
@@ -2098,7 +2098,7 @@
      "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
      "channel": "박종훈의 지식한방",
      "views": 1500722,
-     "views_per_day": 483276.2,
+     "views_per_day": 482079.0,
      "published": "2026-10-12",
      "url": "https://www.youtube.com/watch?v=hTRG4ehA6NU"
     },
@@ -2107,7 +2107,7 @@
      "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
      "channel": "ACE ETF",
      "views": 2304062,
-     "views_per_day": 174157.6,
+     "views_per_day": 174056.1,
      "published": "2026-10-02",
      "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
     },
@@ -2116,7 +2116,7 @@
      "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
      "channel": "연합뉴스경제TV",
      "views": 1176049,
-     "views_per_day": 165135.5,
+     "views_per_day": 164956.9,
      "published": "2026-10-08",
      "url": "https://www.youtube.com/watch?v=d4gqZGtuUxo"
     },
@@ -2125,7 +2125,7 @@
      "title": "인도 옵션 투자 광풍, 50조 털린 인도 개미들",
      "channel": "슈카월드",
      "views": 1876477,
-     "views_per_day": 154411.4,
+     "views_per_day": 154313.5,
      "published": "2026-10-03",
      "url": "https://www.youtube.com/watch?v=0K52Ex714NU"
     },
@@ -2134,7 +2134,7 @@
      "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
      "channel": "SBS 뉴스",
      "views": 1444127,
-     "views_per_day": 99438.1,
+     "views_per_day": 99385.4,
      "published": "2026-10-01",
      "url": "https://www.youtube.com/watch?v=Uuw517jwuRQ"
     }
@@ -2183,7 +2183,7 @@
     }
    ],
    "views_median": 162302.5,
-   "views_per_day_median": 7451.1,
+   "views_per_day_median": 7448.7,
    "ratio_median": 7.18,
    "success": 38,
    "minutes_median": 18.45,
@@ -2307,11 +2307,11 @@
      "count": 3
     }
    ],
-   "transcripts": 7,
+   "transcripts": 8,
    "text_sources": {
     "자막": 0,
-    "음성인식": 7,
-    "설명": 38,
+    "음성인식": 8,
+    "설명": 37,
     "없음": 5
    },
    "content_words": [
@@ -2320,15 +2320,23 @@
      "count": 22
     },
     {
+     "word": "있습니다",
+     "count": 14
+    },
+    {
      "word": "같은",
      "count": 13
     },
     {
-     "word": "있습니다",
-     "count": 13
+     "word": "그리고",
+     "count": 12
     },
     {
-     "word": "함께",
+     "word": "많이",
+     "count": 12
+    },
+    {
+     "word": "대한",
      "count": 12
     },
     {
@@ -2336,23 +2344,15 @@
      "count": 11
     },
     {
-     "word": "많이",
-     "count": 11
-    },
-    {
-     "word": "그리고",
-     "count": 11
-    },
-    {
-     "word": "대한",
-     "count": 11
-    },
-    {
      "word": "주식",
-     "count": 10
+     "count": 11
     },
     {
-     "word": "바랍니다",
+     "word": "함께",
+     "count": 11
+    },
+    {
+     "word": "제가",
      "count": 9
     },
     {
@@ -2439,7 +2439,7 @@
      "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
      "channel": "박종훈의 지식한방",
      "views": 1500722,
-     "views_per_day": 483276.2,
+     "views_per_day": 482079.0,
      "published": "2026-10-12",
      "url": "https://www.youtube.com/watch?v=hTRG4ehA6NU"
     },
@@ -2448,7 +2448,7 @@
      "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
      "channel": "ACE ETF",
      "views": 2304062,
-     "views_per_day": 174157.6,
+     "views_per_day": 174056.1,
      "published": "2026-10-02",
      "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
     },
@@ -2457,7 +2457,7 @@
      "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
      "channel": "연합뉴스경제TV",
      "views": 1176049,
-     "views_per_day": 165135.5,
+     "views_per_day": 164956.9,
      "published": "2026-10-08",
      "url": "https://www.youtube.com/watch?v=d4gqZGtuUxo"
     },
@@ -2466,7 +2466,7 @@
      "title": "인도 옵션 투자 광풍, 50조 털린 인도 개미들",
      "channel": "슈카월드",
      "views": 1876477,
-     "views_per_day": 154411.4,
+     "views_per_day": 154313.5,
      "published": "2026-10-03",
      "url": "https://www.youtube.com/watch?v=0K52Ex714NU"
     },
@@ -2475,7 +2475,7 @@
      "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
      "channel": "SBS 뉴스",
      "views": 1444127,
-     "views_per_day": 99438.1,
+     "views_per_day": 99385.4,
      "published": "2026-10-01",
      "url": "https://www.youtube.com/watch?v=Uuw517jwuRQ"
     }
@@ -2509,7 +2509,7 @@
     }
    ],
    "views_median": 154347.5,
-   "views_per_day_median": 6203.3,
+   "views_per_day_median": 6201.5,
    "ratio_median": 8.1,
    "success": 42,
    "minutes_median": 18.95,
@@ -2633,11 +2633,11 @@
      "count": 3
     }
    ],
-   "transcripts": 7,
+   "transcripts": 8,
    "text_sources": {
     "자막": 0,
-    "음성인식": 7,
-    "설명": 42,
+    "음성인식": 8,
+    "설명": 41,
     "없음": 5
    },
    "content_words": [
@@ -2647,10 +2647,18 @@
     },
     {
      "word": "있습니다",
-     "count": 14
+     "count": 15
     },
     {
      "word": "같은",
+     "count": 13
+    },
+    {
+     "word": "그리고",
+     "count": 13
+    },
+    {
+     "word": "많이",
      "count": 13
     },
     {
@@ -2658,35 +2666,27 @@
      "count": 12
     },
     {
-     "word": "많이",
-     "count": 12
-    },
-    {
-     "word": "그리고",
-     "count": 12
-    },
-    {
-     "word": "함께",
-     "count": 12
-    },
-    {
      "word": "대한",
-     "count": 11
+     "count": 12
     },
     {
      "word": "주식",
-     "count": 10
+     "count": 11
     },
     {
-     "word": "바랍니다",
+     "word": "함께",
+     "count": 11
+    },
+    {
+     "word": "제가",
+     "count": 9
+    },
+    {
+     "word": "겁니다",
      "count": 9
     },
     {
      "word": "주식을",
-     "count": 9
-    },
-    {
-     "word": "ETF",
      "count": 9
     }
    ],
@@ -2765,7 +2765,7 @@
      "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
      "channel": "박종훈의 지식한방",
      "views": 1500722,
-     "views_per_day": 483276.2,
+     "views_per_day": 482079.0,
      "published": "2026-10-12",
      "url": "https://www.youtube.com/watch?v=hTRG4ehA6NU"
     },
@@ -2774,7 +2774,7 @@
      "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
      "channel": "ACE ETF",
      "views": 2304062,
-     "views_per_day": 174157.6,
+     "views_per_day": 174056.1,
      "published": "2026-10-02",
      "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
     },
@@ -2783,7 +2783,7 @@
      "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
      "channel": "연합뉴스경제TV",
      "views": 1176049,
-     "views_per_day": 165135.5,
+     "views_per_day": 164956.9,
      "published": "2026-10-08",
      "url": "https://www.youtube.com/watch?v=d4gqZGtuUxo"
     },
@@ -2792,7 +2792,7 @@
      "title": "인도 옵션 투자 광풍, 50조 털린 인도 개미들",
      "channel": "슈카월드",
      "views": 1876477,
-     "views_per_day": 154411.4,
+     "views_per_day": 154313.5,
      "published": "2026-10-03",
      "url": "https://www.youtube.com/watch?v=0K52Ex714NU"
     },
@@ -2801,7 +2801,7 @@
      "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
      "channel": "SBS 뉴스",
      "views": 1444127,
-     "views_per_day": 99438.1,
+     "views_per_day": 99385.4,
      "published": "2026-10-01",
      "url": "https://www.youtube.com/watch?v=Uuw517jwuRQ"
     }
@@ -2835,7 +2835,7 @@
     }
    ],
    "views_median": 146855.0,
-   "views_per_day_median": 4611.15,
+   "views_per_day_median": 4610.2,
    "ratio_median": 8.8,
    "success": 46,
    "minutes_median": 18.05,
@@ -2959,11 +2959,11 @@
      "count": 3
     }
    ],
-   "transcripts": 8,
+   "transcripts": 9,
    "text_sources": {
     "자막": 0,
-    "음성인식": 8,
-    "설명": 45,
+    "음성인식": 9,
+    "설명": 44,
     "없음": 5
    },
    "content_words": [
@@ -2973,7 +2973,11 @@
     },
     {
      "word": "있습니다",
-     "count": 17
+     "count": 18
+    },
+    {
+     "word": "그리고",
+     "count": 15
     },
     {
      "word": "가장",
@@ -2984,19 +2988,23 @@
      "count": 14
     },
     {
-     "word": "그리고",
+     "word": "많이",
      "count": 14
     },
     {
-     "word": "많이",
-     "count": 13
+     "word": "주식",
+     "count": 12
+    },
+    {
+     "word": "대한",
+     "count": 12
     },
     {
      "word": "함께",
-     "count": 13
+     "count": 12
     },
     {
-     "word": "주식",
+     "word": "제가",
      "count": 11
     },
     {
@@ -3004,15 +3012,7 @@
      "count": 11
     },
     {
-     "word": "대한",
-     "count": 11
-    },
-    {
-     "word": "제가",
-     "count": 10
-    },
-    {
-     "word": "바랍니다",
+     "word": "주식을",
      "count": 10
     }
    ],
@@ -3091,7 +3091,7 @@
      "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
      "channel": "박종훈의 지식한방",
      "views": 1500722,
-     "views_per_day": 483276.2,
+     "views_per_day": 482079.0,
      "published": "2026-10-12",
      "url": "https://www.youtube.com/watch?v=hTRG4ehA6NU"
     },
@@ -3100,7 +3100,7 @@
      "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
      "channel": "ACE ETF",
      "views": 2304062,
-     "views_per_day": 174157.6,
+     "views_per_day": 174056.1,
      "published": "2026-10-02",
      "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
     },
@@ -3109,7 +3109,7 @@
      "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
      "channel": "연합뉴스경제TV",
      "views": 1176049,
-     "views_per_day": 165135.5,
+     "views_per_day": 164956.9,
      "published": "2026-10-08",
      "url": "https://www.youtube.com/watch?v=d4gqZGtuUxo"
     },
@@ -3118,7 +3118,7 @@
      "title": "인도 옵션 투자 광풍, 50조 털린 인도 개미들",
      "channel": "슈카월드",
      "views": 1876477,
-     "views_per_day": 154411.4,
+     "views_per_day": 154313.5,
      "published": "2026-10-03",
      "url": "https://www.youtube.com/watch?v=0K52Ex714NU"
     },
@@ -3127,7 +3127,7 @@
      "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
      "channel": "SBS 뉴스",
      "views": 1444127,
-     "views_per_day": 99438.1,
+     "views_per_day": 99385.4,
      "published": "2026-10-01",
      "url": "https://www.youtube.com/watch?v=Uuw517jwuRQ"
     }
@@ -3161,7 +3161,7 @@
     }
    ],
    "views_median": 146855.0,
-   "views_per_day_median": 4611.15,
+   "views_per_day_median": 4610.2,
    "ratio_median": 8.8,
    "success": 48,
    "minutes_median": 18.45,
@@ -3285,11 +3285,11 @@
      "count": 4
     }
    ],
-   "transcripts": 9,
+   "transcripts": 10,
    "text_sources": {
     "자막": 0,
-    "음성인식": 9,
-    "설명": 48,
+    "음성인식": 10,
+    "설명": 47,
     "없음": 5
    },
    "content_words": [
@@ -3299,14 +3299,14 @@
     },
     {
      "word": "있습니다",
-     "count": 17
-    },
-    {
-     "word": "가장",
-     "count": 15
+     "count": 18
     },
     {
      "word": "그리고",
+     "count": 16
+    },
+    {
+     "word": "가장",
      "count": 15
     },
     {
@@ -3314,31 +3314,31 @@
      "count": 14
     },
     {
-     "word": "함께",
+     "word": "많이",
      "count": 14
     },
     {
-     "word": "많이",
+     "word": "함께",
      "count": 13
+    },
+    {
+     "word": "제가",
+     "count": 12
+    },
+    {
+     "word": "주식",
+     "count": 12
     },
     {
      "word": "ETF",
      "count": 12
     },
     {
-     "word": "제가",
-     "count": 11
-    },
-    {
-     "word": "주식",
-     "count": 11
+     "word": "대한",
+     "count": 12
     },
     {
      "word": "주식을",
-     "count": 11
-    },
-    {
-     "word": "대한",
      "count": 11
     }
    ],
@@ -3417,7 +3417,7 @@
      "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
      "channel": "박종훈의 지식한방",
      "views": 1500722,
-     "views_per_day": 483276.2,
+     "views_per_day": 482079.0,
      "published": "2026-10-12",
      "url": "https://www.youtube.com/watch?v=hTRG4ehA6NU"
     },
@@ -3426,7 +3426,7 @@
      "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
      "channel": "ACE ETF",
      "views": 2304062,
-     "views_per_day": 174157.6,
+     "views_per_day": 174056.1,
      "published": "2026-10-02",
      "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
     },
@@ -3435,7 +3435,7 @@
      "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
      "channel": "연합뉴스경제TV",
      "views": 1176049,
-     "views_per_day": 165135.5,
+     "views_per_day": 164956.9,
      "published": "2026-10-08",
      "url": "https://www.youtube.com/watch?v=d4gqZGtuUxo"
     },
@@ -3444,7 +3444,7 @@
      "title": "인도 옵션 투자 광풍, 50조 털린 인도 개미들",
      "channel": "슈카월드",
      "views": 1876477,
-     "views_per_day": 154411.4,
+     "views_per_day": 154313.5,
      "published": "2026-10-03",
      "url": "https://www.youtube.com/watch?v=0K52Ex714NU"
     },
@@ -3453,7 +3453,7 @@
      "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
      "channel": "SBS 뉴스",
      "views": 1444127,
-     "views_per_day": 99438.1,
+     "views_per_day": 99385.4,
      "published": "2026-10-01",
      "url": "https://www.youtube.com/watch?v=Uuw517jwuRQ"
     }
@@ -3502,7 +3502,7 @@
     }
    ],
    "views_median": 150093,
-   "views_per_day_median": 4485.8,
+   "views_per_day_median": 4484.8,
    "ratio_median": 8.85,
    "success": 53,
    "minutes_median": 18.7,
@@ -3602,15 +3602,15 @@
      "count": 9
     },
     {
-     "word": "통합본",
-     "count": 4
-    },
-    {
      "word": "교수",
      "count": 4
     },
     {
      "word": "정선용",
+     "count": 4
+    },
+    {
+     "word": "통합본",
      "count": 4
     },
     {
@@ -3626,11 +3626,11 @@
      "count": 4
     }
    ],
-   "transcripts": 9,
+   "transcripts": 11,
    "text_sources": {
     "자막": 0,
-    "음성인식": 9,
-    "설명": 55,
+    "음성인식": 11,
+    "설명": 53,
     "없음": 5
    },
    "content_words": [
@@ -3640,15 +3640,15 @@
     },
     {
      "word": "있습니다",
-     "count": 19
+     "count": 20
     },
     {
      "word": "그리고",
-     "count": 17
+     "count": 18
     },
     {
      "word": "가장",
-     "count": 15
+     "count": 16
     },
     {
      "word": "같은",
@@ -3659,28 +3659,28 @@
      "count": 15
     },
     {
-     "word": "많이",
+     "word": "주식",
      "count": 14
     },
     {
-     "word": "주식",
-     "count": 13
+     "word": "ETF",
+     "count": 14
+    },
+    {
+     "word": "많이",
+     "count": 14
     },
     {
      "word": "주식을",
      "count": 13
     },
     {
-     "word": "ETF",
+     "word": "오늘",
      "count": 13
     },
     {
      "word": "제가",
-     "count": 11
-    },
-    {
-     "word": "바랍니다",
-     "count": 11
+     "count": 12
     }
    ],
    "chapters_share": 0.406,
@@ -3758,7 +3758,7 @@
      "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
      "channel": "박종훈의 지식한방",
      "views": 1500722,
-     "views_per_day": 483276.2,
+     "views_per_day": 482079.0,
      "published": "2026-10-12",
      "url": "https://www.youtube.com/watch?v=hTRG4ehA6NU"
     },
@@ -3767,7 +3767,7 @@
      "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
      "channel": "ACE ETF",
      "views": 2304062,
-     "views_per_day": 174157.6,
+     "views_per_day": 174056.1,
      "published": "2026-10-02",
      "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
     },
@@ -3776,7 +3776,7 @@
      "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
      "channel": "연합뉴스경제TV",
      "views": 1176049,
-     "views_per_day": 165135.5,
+     "views_per_day": 164956.9,
      "published": "2026-10-08",
      "url": "https://www.youtube.com/watch?v=d4gqZGtuUxo"
     },
@@ -3785,7 +3785,7 @@
      "title": "인도 옵션 투자 광풍, 50조 털린 인도 개미들",
      "channel": "슈카월드",
      "views": 1876477,
-     "views_per_day": 154411.4,
+     "views_per_day": 154313.5,
      "published": "2026-10-03",
      "url": "https://www.youtube.com/watch?v=0K52Ex714NU"
     },
@@ -3794,7 +3794,7 @@
      "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
      "channel": "SBS 뉴스",
      "views": 1444127,
-     "views_per_day": 99438.1,
+     "views_per_day": 99385.4,
      "published": "2026-10-01",
      "url": "https://www.youtube.com/watch?v=Uuw517jwuRQ"
     }
@@ -3843,7 +3843,7 @@
     }
    ],
    "views_median": 149441.5,
-   "views_per_day_median": 4350.3,
+   "views_per_day_median": 4349.25,
    "ratio_median": 8.8,
    "success": 58,
    "minutes_median": 19.4,
@@ -3951,10 +3951,6 @@
      "count": 5
     },
     {
-     "word": "통합본",
-     "count": 4
-    },
-    {
      "word": "교수",
      "count": 4
     },
@@ -3963,15 +3959,19 @@
      "count": 4
     },
     {
+     "word": "통합본",
+     "count": 4
+    },
+    {
      "word": "S&P500",
      "count": 4
     }
    ],
-   "transcripts": 10,
+   "transcripts": 12,
    "text_sources": {
     "자막": 0,
-    "음성인식": 10,
-    "설명": 61,
+    "음성인식": 12,
+    "설명": 59,
     "없음": 5
    },
    "content_words": [
@@ -3981,18 +3981,22 @@
     },
     {
      "word": "있습니다",
-     "count": 24
+     "count": 25
     },
     {
      "word": "그리고",
-     "count": 20
+     "count": 21
     },
     {
      "word": "가장",
-     "count": 18
+     "count": 19
     },
     {
      "word": "같은",
+     "count": 16
+    },
+    {
+     "word": "주식",
      "count": 16
     },
     {
@@ -4000,19 +4004,11 @@
      "count": 16
     },
     {
-     "word": "주식",
+     "word": "ETF",
      "count": 15
     },
     {
-     "word": "바랍니다",
-     "count": 14
-    },
-    {
-     "word": "많이",
-     "count": 14
-    },
-    {
-     "word": "ETF",
+     "word": "이번",
      "count": 14
     },
     {
@@ -4020,8 +4016,12 @@
      "count": 14
     },
     {
-     "word": "따라",
-     "count": 13
+     "word": "많이",
+     "count": 14
+    },
+    {
+     "word": "대한",
+     "count": 14
     }
    ],
    "chapters_share": 0.382,
@@ -4099,7 +4099,7 @@
      "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
      "channel": "박종훈의 지식한방",
      "views": 1500722,
-     "views_per_day": 483276.2,
+     "views_per_day": 482079.0,
      "published": "2026-10-12",
      "url": "https://www.youtube.com/watch?v=hTRG4ehA6NU"
     },
@@ -4108,7 +4108,7 @@
      "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
      "channel": "ACE ETF",
      "views": 2304062,
-     "views_per_day": 174157.6,
+     "views_per_day": 174056.1,
      "published": "2026-10-02",
      "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
     },
@@ -4117,7 +4117,7 @@
      "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
      "channel": "연합뉴스경제TV",
      "views": 1176049,
-     "views_per_day": 165135.5,
+     "views_per_day": 164956.9,
      "published": "2026-10-08",
      "url": "https://www.youtube.com/watch?v=d4gqZGtuUxo"
     },
@@ -4126,7 +4126,7 @@
      "title": "인도 옵션 투자 광풍, 50조 털린 인도 개미들",
      "channel": "슈카월드",
      "views": 1876477,
-     "views_per_day": 154411.4,
+     "views_per_day": 154313.5,
      "published": "2026-10-03",
      "url": "https://www.youtube.com/watch?v=0K52Ex714NU"
     },
@@ -4135,7 +4135,7 @@
      "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
      "channel": "SBS 뉴스",
      "views": 1444127,
-     "views_per_day": 99438.1,
+     "views_per_day": 99385.4,
      "published": "2026-10-01",
      "url": "https://www.youtube.com/watch?v=Uuw517jwuRQ"
     }
@@ -4179,7 +4179,7 @@
     }
    ],
    "views_median": 148728.5,
-   "views_per_day_median": 3643.7,
+   "views_per_day_median": 3642.2,
    "ratio_median": 8.96,
    "success": 64,
    "minutes_median": 19.4,
@@ -4287,10 +4287,6 @@
      "count": 5
     },
     {
-     "word": "통합본",
-     "count": 4
-    },
-    {
      "word": "교수",
      "count": 4
     },
@@ -4299,15 +4295,19 @@
      "count": 4
     },
     {
+     "word": "통합본",
+     "count": 4
+    },
+    {
      "word": "S&P500",
      "count": 4
     }
    ],
-   "transcripts": 11,
+   "transcripts": 13,
    "text_sources": {
     "자막": 0,
-    "음성인식": 11,
-    "설명": 66,
+    "음성인식": 13,
+    "설명": 64,
     "없음": 5
    },
    "content_words": [
@@ -4317,15 +4317,15 @@
     },
     {
      "word": "있습니다",
-     "count": 26
+     "count": 27
     },
     {
      "word": "그리고",
-     "count": 22
+     "count": 23
     },
     {
      "word": "가장",
-     "count": 18
+     "count": 19
     },
     {
      "word": "같은",
@@ -4336,24 +4336,24 @@
      "count": 17
     },
     {
-     "word": "바랍니다",
-     "count": 15
+     "word": "이번",
+     "count": 16
     },
     {
      "word": "주식",
-     "count": 15
-    },
-    {
-     "word": "이번",
-     "count": 15
+     "count": 16
     },
     {
      "word": "대한",
-     "count": 14
+     "count": 15
     },
     {
-     "word": "많이",
-     "count": 14
+     "word": "ETF",
+     "count": 15
+    },
+    {
+     "word": "바랍니다",
+     "count": 15
     },
     {
      "word": "따라",
@@ -4435,7 +4435,7 @@
      "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
      "channel": "박종훈의 지식한방",
      "views": 1500722,
-     "views_per_day": 483276.2,
+     "views_per_day": 482079.0,
      "published": "2026-10-12",
      "url": "https://www.youtube.com/watch?v=hTRG4ehA6NU"
     },
@@ -4444,7 +4444,7 @@
      "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
      "channel": "ACE ETF",
      "views": 2304062,
-     "views_per_day": 174157.6,
+     "views_per_day": 174056.1,
      "published": "2026-10-02",
      "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
     },
@@ -4453,7 +4453,7 @@
      "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
      "channel": "연합뉴스경제TV",
      "views": 1176049,
-     "views_per_day": 165135.5,
+     "views_per_day": 164956.9,
      "published": "2026-10-08",
      "url": "https://www.youtube.com/watch?v=d4gqZGtuUxo"
     },
@@ -4462,7 +4462,7 @@
      "title": "인도 옵션 투자 광풍, 50조 털린 인도 개미들",
      "channel": "슈카월드",
      "views": 1876477,
-     "views_per_day": 154411.4,
+     "views_per_day": 154313.5,
      "published": "2026-10-03",
      "url": "https://www.youtube.com/watch?v=0K52Ex714NU"
     },
@@ -4471,7 +4471,7 @@
      "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
      "channel": "SBS 뉴스",
      "views": 1444127,
-     "views_per_day": 99438.1,
+     "views_per_day": 99385.4,
      "published": "2026-10-01",
      "url": "https://www.youtube.com/watch?v=Uuw517jwuRQ"
     }
@@ -4500,7 +4500,7 @@
     }
    ],
    "views_median": 148790,
-   "views_per_day_median": 3512.7,
+   "views_per_day_median": 3510.4,
    "ratio_median": 8.85,
    "success": 66,
    "minutes_median": 19.6,
@@ -4612,23 +4612,23 @@
      "count": 5
     },
     {
-     "word": "통합본",
-     "count": 4
-    },
-    {
      "word": "교수",
      "count": 4
     },
     {
      "word": "정선용",
      "count": 4
+    },
+    {
+     "word": "통합본",
+     "count": 4
     }
    ],
-   "transcripts": 11,
+   "transcripts": 13,
    "text_sources": {
     "자막": 0,
-    "음성인식": 11,
-    "설명": 69,
+    "음성인식": 13,
+    "설명": 67,
     "없음": 5
    },
    "content_words": [
@@ -4638,15 +4638,15 @@
     },
     {
      "word": "있습니다",
-     "count": 28
+     "count": 29
     },
     {
      "word": "그리고",
-     "count": 24
+     "count": 25
     },
     {
      "word": "가장",
-     "count": 18
+     "count": 19
     },
     {
      "word": "같은",
@@ -4657,28 +4657,28 @@
      "count": 17
     },
     {
+     "word": "이번",
+     "count": 16
+    },
+    {
+     "word": "주식",
+     "count": 16
+    },
+    {
+     "word": "ETF",
+     "count": 16
+    },
+    {
      "word": "바랍니다",
      "count": 16
     },
     {
+     "word": "대한",
+     "count": 15
+    },
+    {
      "word": "따라",
      "count": 15
-    },
-    {
-     "word": "주식",
-     "count": 15
-    },
-    {
-     "word": "이번",
-     "count": 15
-    },
-    {
-     "word": "ETF",
-     "count": 15
-    },
-    {
-     "word": "대한",
-     "count": 14
     }
    ],
    "chapters_share": 0.388,
@@ -4756,7 +4756,7 @@
      "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
      "channel": "박종훈의 지식한방",
      "views": 1500722,
-     "views_per_day": 483276.2,
+     "views_per_day": 482079.0,
      "published": "2026-10-12",
      "url": "https://www.youtube.com/watch?v=hTRG4ehA6NU"
     },
@@ -4765,7 +4765,7 @@
      "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
      "channel": "ACE ETF",
      "views": 2304062,
-     "views_per_day": 174157.6,
+     "views_per_day": 174056.1,
      "published": "2026-10-02",
      "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
     },
@@ -4774,7 +4774,7 @@
      "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
      "channel": "연합뉴스경제TV",
      "views": 1176049,
-     "views_per_day": 165135.5,
+     "views_per_day": 164956.9,
      "published": "2026-10-08",
      "url": "https://www.youtube.com/watch?v=d4gqZGtuUxo"
     },
@@ -4783,7 +4783,7 @@
      "title": "인도 옵션 투자 광풍, 50조 털린 인도 개미들",
      "channel": "슈카월드",
      "views": 1876477,
-     "views_per_day": 154411.4,
+     "views_per_day": 154313.5,
      "published": "2026-10-03",
      "url": "https://www.youtube.com/watch?v=0K52Ex714NU"
     },
@@ -4792,7 +4792,7 @@
      "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
      "channel": "SBS 뉴스",
      "views": 1444127,
-     "views_per_day": 99438.1,
+     "views_per_day": 99385.4,
      "published": "2026-10-01",
      "url": "https://www.youtube.com/watch?v=Uuw517jwuRQ"
     }
@@ -4841,7 +4841,7 @@
     }
    ],
    "views_median": 148728.5,
-   "views_per_day_median": 3118.65,
+   "views_per_day_median": 3118.3,
    "ratio_median": 8.29,
    "success": 72,
    "minutes_median": 19.65,
@@ -4961,15 +4961,15 @@
      "count": 5
     },
     {
-     "word": "통합본",
+     "word": "교수",
      "count": 4
     }
    ],
-   "transcripts": 11,
+   "transcripts": 14,
    "text_sources": {
     "자막": 0,
-    "음성인식": 11,
-    "설명": 75,
+    "음성인식": 14,
+    "설명": 72,
     "없음": 6
    },
    "content_words": [
@@ -4979,46 +4979,46 @@
     },
     {
      "word": "있습니다",
-     "count": 30
+     "count": 32
     },
     {
      "word": "그리고",
-     "count": 24
+     "count": 26
+    },
+    {
+     "word": "가장",
+     "count": 19
     },
     {
      "word": "함께",
      "count": 19
     },
     {
-     "word": "가장",
+     "word": "같은",
      "count": 18
     },
     {
-     "word": "같은",
+     "word": "대한",
      "count": 17
     },
     {
-     "word": "바랍니다",
-     "count": 16
+     "word": "이번",
+     "count": 17
     },
     {
      "word": "주식",
-     "count": 16
-    },
-    {
-     "word": "이번",
-     "count": 16
+     "count": 17
     },
     {
      "word": "ETF",
      "count": 16
     },
     {
-     "word": "대한",
-     "count": 15
+     "word": "바랍니다",
+     "count": 16
     },
     {
-     "word": "따라",
+     "word": "제가",
      "count": 15
     }
    ],
@@ -5097,7 +5097,7 @@
      "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
      "channel": "박종훈의 지식한방",
      "views": 1500722,
-     "views_per_day": 483276.2,
+     "views_per_day": 482079.0,
      "published": "2026-10-12",
      "url": "https://www.youtube.com/watch?v=hTRG4ehA6NU"
     },
@@ -5106,7 +5106,7 @@
      "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
      "channel": "ACE ETF",
      "views": 2304062,
-     "views_per_day": 174157.6,
+     "views_per_day": 174056.1,
      "published": "2026-10-02",
      "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
     },
@@ -5115,7 +5115,7 @@
      "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
      "channel": "연합뉴스경제TV",
      "views": 1176049,
-     "views_per_day": 165135.5,
+     "views_per_day": 164956.9,
      "published": "2026-10-08",
      "url": "https://www.youtube.com/watch?v=d4gqZGtuUxo"
     },
@@ -5124,7 +5124,7 @@
      "title": "인도 옵션 투자 광풍, 50조 털린 인도 개미들",
      "channel": "슈카월드",
      "views": 1876477,
-     "views_per_day": 154411.4,
+     "views_per_day": 154313.5,
      "published": "2026-10-03",
      "url": "https://www.youtube.com/watch?v=0K52Ex714NU"
     },
@@ -5133,7 +5133,7 @@
      "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
      "channel": "SBS 뉴스",
      "views": 1444127,
-     "views_per_day": 99438.1,
+     "views_per_day": 99385.4,
      "published": "2026-10-01",
      "url": "https://www.youtube.com/watch?v=Uuw517jwuRQ"
     }
@@ -5152,7 +5152,7 @@
     }
    ],
    "views_median": 148790,
-   "views_per_day_median": 3288.9,
+   "views_per_day_median": 3288.7,
    "ratio_median": 8.75,
    "success": 73,
    "minutes_median": 19.6,
@@ -5277,15 +5277,15 @@
      "count": 5
     },
     {
-     "word": "통합본",
+     "word": "교수",
      "count": 4
     }
    ],
-   "transcripts": 12,
+   "transcripts": 15,
    "text_sources": {
     "자막": 0,
-    "음성인식": 12,
-    "설명": 75,
+    "음성인식": 15,
+    "설명": 72,
     "없음": 6
    },
    "content_words": [
@@ -5295,34 +5295,38 @@
     },
     {
      "word": "있습니다",
-     "count": 30
+     "count": 32
     },
     {
      "word": "그리고",
-     "count": 25
+     "count": 27
+    },
+    {
+     "word": "가장",
+     "count": 20
     },
     {
      "word": "함께",
      "count": 20
     },
     {
-     "word": "가장",
+     "word": "같은",
      "count": 19
     },
     {
-     "word": "같은",
+     "word": "주식",
      "count": 18
     },
     {
-     "word": "주식",
+     "word": "대한",
      "count": 17
     },
     {
-     "word": "바랍니다",
-     "count": 16
+     "word": "이번",
+     "count": 17
     },
     {
-     "word": "이번",
+     "word": "제가",
      "count": 16
     },
     {
@@ -5330,12 +5334,8 @@
      "count": 16
     },
     {
-     "word": "대한",
-     "count": 15
-    },
-    {
      "word": "많이",
-     "count": 15
+     "count": 16
     }
    ],
    "chapters_share": 0.376,
@@ -5413,7 +5413,7 @@
      "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
      "channel": "박종훈의 지식한방",
      "views": 1500722,
-     "views_per_day": 483276.2,
+     "views_per_day": 482079.0,
      "published": "2026-10-12",
      "url": "https://www.youtube.com/watch?v=hTRG4ehA6NU"
     },
@@ -5422,7 +5422,7 @@
      "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
      "channel": "ACE ETF",
      "views": 2304062,
-     "views_per_day": 174157.6,
+     "views_per_day": 174056.1,
      "published": "2026-10-02",
      "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
     },
@@ -5431,7 +5431,7 @@
      "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
      "channel": "연합뉴스경제TV",
      "views": 1176049,
-     "views_per_day": 165135.5,
+     "views_per_day": 164956.9,
      "published": "2026-10-08",
      "url": "https://www.youtube.com/watch?v=d4gqZGtuUxo"
     },
@@ -5440,7 +5440,7 @@
      "title": "인도 옵션 투자 광풍, 50조 털린 인도 개미들",
      "channel": "슈카월드",
      "views": 1876477,
-     "views_per_day": 154411.4,
+     "views_per_day": 154313.5,
      "published": "2026-10-03",
      "url": "https://www.youtube.com/watch?v=0K52Ex714NU"
     },
@@ -5449,7 +5449,7 @@
      "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
      "channel": "SBS 뉴스",
      "views": 1444127,
-     "views_per_day": 99438.1,
+     "views_per_day": 99385.4,
      "published": "2026-10-01",
      "url": "https://www.youtube.com/watch?v=Uuw517jwuRQ"
     }
@@ -5462,7 +5462,7 @@
    "channels": 66,
    "new_this_week": [],
    "views_median": 148790,
-   "views_per_day_median": 3288.9,
+   "views_per_day_median": 3288.7,
    "ratio_median": 8.75,
    "success": 73,
    "minutes_median": 19.6,
@@ -5587,15 +5587,15 @@
      "count": 5
     },
     {
-     "word": "통합본",
+     "word": "교수",
      "count": 4
     }
    ],
-   "transcripts": 12,
+   "transcripts": 15,
    "text_sources": {
     "자막": 0,
-    "음성인식": 12,
-    "설명": 75,
+    "음성인식": 15,
+    "설명": 72,
     "없음": 6
    },
    "content_words": [
@@ -5605,34 +5605,38 @@
     },
     {
      "word": "있습니다",
-     "count": 30
+     "count": 32
     },
     {
      "word": "그리고",
-     "count": 25
+     "count": 27
+    },
+    {
+     "word": "가장",
+     "count": 20
     },
     {
      "word": "함께",
      "count": 20
     },
     {
-     "word": "가장",
+     "word": "같은",
      "count": 19
     },
     {
-     "word": "같은",
+     "word": "주식",
      "count": 18
     },
     {
-     "word": "주식",
+     "word": "대한",
      "count": 17
     },
     {
-     "word": "바랍니다",
-     "count": 16
+     "word": "이번",
+     "count": 17
     },
     {
-     "word": "이번",
+     "word": "제가",
      "count": 16
     },
     {
@@ -5640,12 +5644,8 @@
      "count": 16
     },
     {
-     "word": "대한",
-     "count": 15
-    },
-    {
      "word": "많이",
-     "count": 15
+     "count": 16
     }
    ],
    "chapters_share": 0.376,
@@ -5723,7 +5723,7 @@
      "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
      "channel": "박종훈의 지식한방",
      "views": 1500722,
-     "views_per_day": 483276.2,
+     "views_per_day": 482079.0,
      "published": "2026-10-12",
      "url": "https://www.youtube.com/watch?v=hTRG4ehA6NU"
     },
@@ -5732,7 +5732,7 @@
      "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
      "channel": "ACE ETF",
      "views": 2304062,
-     "views_per_day": 174157.6,
+     "views_per_day": 174056.1,
      "published": "2026-10-02",
      "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
     },
@@ -5741,7 +5741,7 @@
      "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
      "channel": "연합뉴스경제TV",
      "views": 1176049,
-     "views_per_day": 165135.5,
+     "views_per_day": 164956.9,
      "published": "2026-10-08",
      "url": "https://www.youtube.com/watch?v=d4gqZGtuUxo"
     },
@@ -5750,7 +5750,7 @@
      "title": "인도 옵션 투자 광풍, 50조 털린 인도 개미들",
      "channel": "슈카월드",
      "views": 1876477,
-     "views_per_day": 154411.4,
+     "views_per_day": 154313.5,
      "published": "2026-10-03",
      "url": "https://www.youtube.com/watch?v=0K52Ex714NU"
     },
@@ -5759,7 +5759,7 @@
      "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
      "channel": "SBS 뉴스",
      "views": 1444127,
-     "views_per_day": 99438.1,
+     "views_per_day": 99385.4,
      "published": "2026-10-01",
      "url": "https://www.youtube.com/watch?v=Uuw517jwuRQ"
     }
@@ -5778,7 +5778,7 @@
     }
    ],
    "views_median": 149441.5,
-   "views_per_day_median": 3118.65,
+   "views_per_day_median": 3118.3,
    "ratio_median": 8.8,
    "success": 74,
    "minutes_median": 19.65,
@@ -5903,15 +5903,15 @@
      "count": 5
     },
     {
-     "word": "통합본",
+     "word": "교수",
      "count": 4
     }
    ],
-   "transcripts": 12,
+   "transcripts": 15,
    "text_sources": {
     "자막": 0,
-    "음성인식": 12,
-    "설명": 76,
+    "음성인식": 15,
+    "설명": 73,
     "없음": 6
    },
    "content_words": [
@@ -5921,11 +5921,11 @@
     },
     {
      "word": "있습니다",
-     "count": 30
+     "count": 32
     },
     {
      "word": "그리고",
-     "count": 25
+     "count": 27
     },
     {
      "word": "함께",
@@ -5933,22 +5933,26 @@
     },
     {
      "word": "가장",
-     "count": 19
+     "count": 20
     },
     {
      "word": "같은",
-     "count": 18
+     "count": 19
     },
     {
      "word": "주식",
-     "count": 18
+     "count": 19
     },
     {
-     "word": "바랍니다",
-     "count": 16
+     "word": "대한",
+     "count": 17
     },
     {
      "word": "이번",
+     "count": 17
+    },
+    {
+     "word": "제가",
      "count": 16
     },
     {
@@ -5956,12 +5960,8 @@
      "count": 16
     },
     {
-     "word": "대한",
-     "count": 15
-    },
-    {
      "word": "많이",
-     "count": 15
+     "count": 16
     }
    ],
    "chapters_share": 0.383,
@@ -6039,7 +6039,7 @@
      "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
      "channel": "박종훈의 지식한방",
      "views": 1500722,
-     "views_per_day": 483276.2,
+     "views_per_day": 482079.0,
      "published": "2026-10-12",
      "url": "https://www.youtube.com/watch?v=hTRG4ehA6NU"
     },
@@ -6048,7 +6048,7 @@
      "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
      "channel": "ACE ETF",
      "views": 2304062,
-     "views_per_day": 174157.6,
+     "views_per_day": 174056.1,
      "published": "2026-10-02",
      "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
     },
@@ -6057,7 +6057,7 @@
      "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
      "channel": "연합뉴스경제TV",
      "views": 1176049,
-     "views_per_day": 165135.5,
+     "views_per_day": 164956.9,
      "published": "2026-10-08",
      "url": "https://www.youtube.com/watch?v=d4gqZGtuUxo"
     },
@@ -6066,7 +6066,7 @@
      "title": "인도 옵션 투자 광풍, 50조 털린 인도 개미들",
      "channel": "슈카월드",
      "views": 1876477,
-     "views_per_day": 154411.4,
+     "views_per_day": 154313.5,
      "published": "2026-10-03",
      "url": "https://www.youtube.com/watch?v=0K52Ex714NU"
     },
@@ -6075,7 +6075,7 @@
      "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
      "channel": "SBS 뉴스",
      "views": 1444127,
-     "views_per_day": 99438.1,
+     "views_per_day": 99385.4,
      "published": "2026-10-01",
      "url": "https://www.youtube.com/watch?v=Uuw517jwuRQ"
     }
@@ -6099,7 +6099,7 @@
     }
    ],
    "views_median": 151650.0,
-   "views_per_day_median": 3400.8,
+   "views_per_day_median": 3399.55,
    "ratio_median": 8.95,
    "success": 76,
    "minutes_median": 19.4,
@@ -6224,15 +6224,15 @@
      "count": 5
     },
     {
-     "word": "통합본",
+     "word": "교수",
      "count": 4
     }
    ],
-   "transcripts": 12,
+   "transcripts": 15,
    "text_sources": {
     "자막": 0,
-    "음성인식": 12,
-    "설명": 78,
+    "음성인식": 15,
+    "설명": 75,
     "없음": 6
    },
    "content_words": [
@@ -6242,47 +6242,47 @@
     },
     {
      "word": "있습니다",
-     "count": 31
+     "count": 33
     },
     {
      "word": "그리고",
-     "count": 25
+     "count": 27
+    },
+    {
+     "word": "가장",
+     "count": 21
     },
     {
      "word": "함께",
      "count": 21
     },
     {
-     "word": "가장",
+     "word": "같은",
      "count": 20
     },
     {
-     "word": "같은",
-     "count": 19
+     "word": "주식",
+     "count": 20
     },
     {
-     "word": "주식",
-     "count": 19
+     "word": "제가",
+     "count": 17
+    },
+    {
+     "word": "대한",
+     "count": 17
+    },
+    {
+     "word": "이번",
+     "count": 17
     },
     {
      "word": "ETF",
      "count": 17
     },
     {
-     "word": "바랍니다",
+     "word": "많이",
      "count": 16
-    },
-    {
-     "word": "이번",
-     "count": 16
-    },
-    {
-     "word": "제가",
-     "count": 15
-    },
-    {
-     "word": "대한",
-     "count": 15
     }
    ],
    "chapters_share": 0.396,
@@ -6360,7 +6360,7 @@
      "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
      "channel": "박종훈의 지식한방",
      "views": 1500722,
-     "views_per_day": 483276.2,
+     "views_per_day": 482079.0,
      "published": "2026-10-12",
      "url": "https://www.youtube.com/watch?v=hTRG4ehA6NU"
     },
@@ -6369,7 +6369,7 @@
      "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
      "channel": "ACE ETF",
      "views": 2304062,
-     "views_per_day": 174157.6,
+     "views_per_day": 174056.1,
      "published": "2026-10-02",
      "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
     },
@@ -6378,7 +6378,7 @@
      "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
      "channel": "연합뉴스경제TV",
      "views": 1176049,
-     "views_per_day": 165135.5,
+     "views_per_day": 164956.9,
      "published": "2026-10-08",
      "url": "https://www.youtube.com/watch?v=d4gqZGtuUxo"
     },
@@ -6387,7 +6387,7 @@
      "title": "인도 옵션 투자 광풍, 50조 털린 인도 개미들",
      "channel": "슈카월드",
      "views": 1876477,
-     "views_per_day": 154411.4,
+     "views_per_day": 154313.5,
      "published": "2026-10-03",
      "url": "https://www.youtube.com/watch?v=0K52Ex714NU"
     },
@@ -6396,7 +6396,7 @@
      "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
      "channel": "SBS 뉴스",
      "views": 1444127,
-     "views_per_day": 99438.1,
+     "views_per_day": 99385.4,
      "published": "2026-10-01",
      "url": "https://www.youtube.com/watch?v=Uuw517jwuRQ"
     }
@@ -6409,7 +6409,7 @@
    "channels": 68,
    "new_this_week": [],
    "views_median": 151650.0,
-   "views_per_day_median": 3400.8,
+   "views_per_day_median": 3399.55,
    "ratio_median": 8.95,
    "success": 76,
    "minutes_median": 19.4,
@@ -6534,15 +6534,15 @@
      "count": 5
     },
     {
-     "word": "통합본",
+     "word": "교수",
      "count": 4
     }
    ],
-   "transcripts": 12,
+   "transcripts": 15,
    "text_sources": {
     "자막": 0,
-    "음성인식": 12,
-    "설명": 78,
+    "음성인식": 15,
+    "설명": 75,
     "없음": 6
    },
    "content_words": [
@@ -6552,47 +6552,47 @@
     },
     {
      "word": "있습니다",
-     "count": 31
+     "count": 33
     },
     {
      "word": "그리고",
-     "count": 25
+     "count": 27
+    },
+    {
+     "word": "가장",
+     "count": 21
     },
     {
      "word": "함께",
      "count": 21
     },
     {
-     "word": "가장",
+     "word": "같은",
      "count": 20
     },
     {
-     "word": "같은",
-     "count": 19
+     "word": "주식",
+     "count": 20
     },
     {
-     "word": "주식",
-     "count": 19
+     "word": "제가",
+     "count": 17
+    },
+    {
+     "word": "대한",
+     "count": 17
+    },
+    {
+     "word": "이번",
+     "count": 17
     },
     {
      "word": "ETF",
      "count": 17
     },
     {
-     "word": "바랍니다",
+     "word": "많이",
      "count": 16
-    },
-    {
-     "word": "이번",
-     "count": 16
-    },
-    {
-     "word": "제가",
-     "count": 15
-    },
-    {
-     "word": "대한",
-     "count": 15
     }
    ],
    "chapters_share": 0.396,
@@ -6670,7 +6670,7 @@
      "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
      "channel": "박종훈의 지식한방",
      "views": 1500722,
-     "views_per_day": 483276.2,
+     "views_per_day": 482079.0,
      "published": "2026-10-12",
      "url": "https://www.youtube.com/watch?v=hTRG4ehA6NU"
     },
@@ -6679,7 +6679,7 @@
      "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
      "channel": "ACE ETF",
      "views": 2304062,
-     "views_per_day": 174157.6,
+     "views_per_day": 174056.1,
      "published": "2026-10-02",
      "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
     },
@@ -6688,7 +6688,7 @@
      "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
      "channel": "연합뉴스경제TV",
      "views": 1176049,
-     "views_per_day": 165135.5,
+     "views_per_day": 164956.9,
      "published": "2026-10-08",
      "url": "https://www.youtube.com/watch?v=d4gqZGtuUxo"
     },
@@ -6697,7 +6697,7 @@
      "title": "인도 옵션 투자 광풍, 50조 털린 인도 개미들",
      "channel": "슈카월드",
      "views": 1876477,
-     "views_per_day": 154411.4,
+     "views_per_day": 154313.5,
      "published": "2026-10-03",
      "url": "https://www.youtube.com/watch?v=0K52Ex714NU"
     },
@@ -6706,7 +6706,7 @@
      "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
      "channel": "SBS 뉴스",
      "views": 1444127,
-     "views_per_day": 99438.1,
+     "views_per_day": 99385.4,
      "published": "2026-10-01",
      "url": "https://www.youtube.com/watch?v=Uuw517jwuRQ"
     }
@@ -6725,7 +6725,7 @@
     }
    ],
    "views_median": 150704,
-   "views_per_day_median": 3288.9,
+   "views_per_day_median": 3288.7,
    "ratio_median": 8.85,
    "success": 77,
    "minutes_median": 19.2,
@@ -6850,15 +6850,15 @@
      "count": 5
     },
     {
-     "word": "통합본",
+     "word": "교수",
      "count": 4
     }
    ],
-   "transcripts": 12,
+   "transcripts": 15,
    "text_sources": {
     "자막": 0,
-    "음성인식": 12,
-    "설명": 79,
+    "음성인식": 15,
+    "설명": 76,
     "없음": 6
    },
    "content_words": [
@@ -6868,47 +6868,47 @@
     },
     {
      "word": "있습니다",
-     "count": 31
+     "count": 33
     },
     {
      "word": "그리고",
-     "count": 25
+     "count": 27
+    },
+    {
+     "word": "가장",
+     "count": 21
+    },
+    {
+     "word": "같은",
+     "count": 21
     },
     {
      "word": "함께",
      "count": 21
     },
     {
-     "word": "가장",
-     "count": 20
-    },
-    {
-     "word": "같은",
-     "count": 20
-    },
-    {
      "word": "주식",
-     "count": 19
+     "count": 20
     },
     {
      "word": "ETF",
      "count": 18
     },
     {
-     "word": "바랍니다",
-     "count": 16
+     "word": "제가",
+     "count": 17
     },
     {
-     "word": "많이",
-     "count": 16
+     "word": "대한",
+     "count": 17
     },
     {
      "word": "이번",
-     "count": 16
+     "count": 17
     },
     {
-     "word": "국내",
-     "count": 16
+     "word": "많이",
+     "count": 17
     }
    ],
    "chapters_share": 0.392,
@@ -6986,7 +6986,7 @@
      "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
      "channel": "박종훈의 지식한방",
      "views": 1500722,
-     "views_per_day": 483276.2,
+     "views_per_day": 482079.0,
      "published": "2026-10-12",
      "url": "https://www.youtube.com/watch?v=hTRG4ehA6NU"
     },
@@ -6995,7 +6995,7 @@
      "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
      "channel": "ACE ETF",
      "views": 2304062,
-     "views_per_day": 174157.6,
+     "views_per_day": 174056.1,
      "published": "2026-10-02",
      "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
     },
@@ -7004,7 +7004,7 @@
      "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
      "channel": "연합뉴스경제TV",
      "views": 1176049,
-     "views_per_day": 165135.5,
+     "views_per_day": 164956.9,
      "published": "2026-10-08",
      "url": "https://www.youtube.com/watch?v=d4gqZGtuUxo"
     },
@@ -7013,7 +7013,7 @@
      "title": "인도 옵션 투자 광풍, 50조 털린 인도 개미들",
      "channel": "슈카월드",
      "views": 1876477,
-     "views_per_day": 154411.4,
+     "views_per_day": 154313.5,
      "published": "2026-10-03",
      "url": "https://www.youtube.com/watch?v=0K52Ex714NU"
     },
@@ -7022,7 +7022,7 @@
      "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
      "channel": "SBS 뉴스",
      "views": 1444127,
-     "views_per_day": 99438.1,
+     "views_per_day": 99385.4,
      "published": "2026-10-01",
      "url": "https://www.youtube.com/watch?v=Uuw517jwuRQ"
     }
@@ -7046,7 +7046,7 @@
     }
    ],
    "views_median": 150093,
-   "views_per_day_median": 2948.4,
+   "views_per_day_median": 2947.9,
    "ratio_median": 8.75,
    "success": 79,
    "minutes_median": 18.8,
@@ -7171,15 +7171,15 @@
      "count": 5
     },
     {
-     "word": "통합본",
+     "word": "교수",
      "count": 4
     }
    ],
-   "transcripts": 12,
+   "transcripts": 15,
    "text_sources": {
     "자막": 0,
-    "음성인식": 12,
-    "설명": 81,
+    "음성인식": 15,
+    "설명": 78,
     "없음": 6
    },
    "content_words": [
@@ -7189,47 +7189,47 @@
     },
     {
      "word": "있습니다",
-     "count": 32
+     "count": 34
     },
     {
      "word": "그리고",
-     "count": 25
+     "count": 27
+    },
+    {
+     "word": "가장",
+     "count": 21
+    },
+    {
+     "word": "같은",
+     "count": 21
     },
     {
      "word": "함께",
      "count": 21
     },
     {
-     "word": "가장",
-     "count": 20
-    },
-    {
-     "word": "같은",
-     "count": 20
-    },
-    {
      "word": "주식",
-     "count": 19
+     "count": 20
     },
     {
      "word": "ETF",
      "count": 18
     },
     {
-     "word": "바랍니다",
-     "count": 16
+     "word": "제가",
+     "count": 17
     },
     {
-     "word": "많이",
-     "count": 16
+     "word": "대한",
+     "count": 17
     },
     {
      "word": "이번",
-     "count": 16
+     "count": 17
     },
     {
-     "word": "국내",
-     "count": 16
+     "word": "많이",
+     "count": 17
     }
    ],
    "chapters_share": 0.404,
@@ -7307,7 +7307,7 @@
      "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
      "channel": "박종훈의 지식한방",
      "views": 1500722,
-     "views_per_day": 483276.2,
+     "views_per_day": 482079.0,
      "published": "2026-10-12",
      "url": "https://www.youtube.com/watch?v=hTRG4ehA6NU"
     },
@@ -7316,7 +7316,7 @@
      "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
      "channel": "ACE ETF",
      "views": 2304062,
-     "views_per_day": 174157.6,
+     "views_per_day": 174056.1,
      "published": "2026-10-02",
      "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
     },
@@ -7325,7 +7325,7 @@
      "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
      "channel": "연합뉴스경제TV",
      "views": 1176049,
-     "views_per_day": 165135.5,
+     "views_per_day": 164956.9,
      "published": "2026-10-08",
      "url": "https://www.youtube.com/watch?v=d4gqZGtuUxo"
     },
@@ -7334,7 +7334,7 @@
      "title": "인도 옵션 투자 광풍, 50조 털린 인도 개미들",
      "channel": "슈카월드",
      "views": 1876477,
-     "views_per_day": 154411.4,
+     "views_per_day": 154313.5,
      "published": "2026-10-03",
      "url": "https://www.youtube.com/watch?v=0K52Ex714NU"
     },
@@ -7343,7 +7343,7 @@
      "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
      "channel": "SBS 뉴스",
      "views": 1444127,
-     "views_per_day": 99438.1,
+     "views_per_day": 99385.4,
      "published": "2026-10-01",
      "url": "https://www.youtube.com/watch?v=Uuw517jwuRQ"
     }
@@ -7362,7 +7362,7 @@
     }
    ],
    "views_median": 149441.5,
-   "views_per_day_median": 2888.6,
+   "views_per_day_median": 2888.2,
    "ratio_median": 8.29,
    "success": 80,
    "minutes_median": 18.8,
@@ -7491,11 +7491,11 @@
      "count": 5
     }
    ],
-   "transcripts": 12,
+   "transcripts": 15,
    "text_sources": {
     "자막": 0,
-    "음성인식": 12,
-    "설명": 82,
+    "음성인식": 15,
+    "설명": 79,
     "없음": 6
    },
    "content_words": [
@@ -7505,47 +7505,47 @@
     },
     {
      "word": "있습니다",
-     "count": 32
+     "count": 34
     },
     {
      "word": "그리고",
-     "count": 25
+     "count": 27
+    },
+    {
+     "word": "가장",
+     "count": 21
+    },
+    {
+     "word": "같은",
+     "count": 21
     },
     {
      "word": "함께",
      "count": 21
     },
     {
-     "word": "가장",
-     "count": 20
-    },
-    {
-     "word": "같은",
-     "count": 20
-    },
-    {
      "word": "주식",
-     "count": 19
+     "count": 20
+    },
+    {
+     "word": "제가",
+     "count": 18
     },
     {
      "word": "ETF",
      "count": 18
     },
     {
-     "word": "제가",
-     "count": 16
-    },
-    {
-     "word": "바랍니다",
-     "count": 16
-    },
-    {
-     "word": "많이",
-     "count": 16
+     "word": "대한",
+     "count": 17
     },
     {
      "word": "이번",
-     "count": 16
+     "count": 17
+    },
+    {
+     "word": "많이",
+     "count": 17
     }
    ],
    "chapters_share": 0.41,
@@ -7623,7 +7623,7 @@
      "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
      "channel": "박종훈의 지식한방",
      "views": 1500722,
-     "views_per_day": 483276.2,
+     "views_per_day": 482079.0,
      "published": "2026-10-12",
      "url": "https://www.youtube.com/watch?v=hTRG4ehA6NU"
     },
@@ -7632,7 +7632,7 @@
      "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
      "channel": "ACE ETF",
      "views": 2304062,
-     "views_per_day": 174157.6,
+     "views_per_day": 174056.1,
      "published": "2026-10-02",
      "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
     },
@@ -7641,7 +7641,7 @@
      "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
      "channel": "연합뉴스경제TV",
      "views": 1176049,
-     "views_per_day": 165135.5,
+     "views_per_day": 164956.9,
      "published": "2026-10-08",
      "url": "https://www.youtube.com/watch?v=d4gqZGtuUxo"
     },
@@ -7650,7 +7650,7 @@
      "title": "인도 옵션 투자 광풍, 50조 털린 인도 개미들",
      "channel": "슈카월드",
      "views": 1876477,
-     "views_per_day": 154411.4,
+     "views_per_day": 154313.5,
      "published": "2026-10-03",
      "url": "https://www.youtube.com/watch?v=0K52Ex714NU"
     },
@@ -7659,7 +7659,7 @@
      "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
      "channel": "SBS 뉴스",
      "views": 1444127,
-     "views_per_day": 99438.1,
+     "views_per_day": 99385.4,
      "published": "2026-10-01",
      "url": "https://www.youtube.com/watch?v=Uuw517jwuRQ"
     }
@@ -7678,7 +7678,7 @@
     }
    ],
    "views_median": 150093,
-   "views_per_day_median": 2948.4,
+   "views_per_day_median": 2947.9,
    "ratio_median": 8.75,
    "success": 81,
    "minutes_median": 18.8,
@@ -7807,11 +7807,11 @@
      "count": 5
     }
    ],
-   "transcripts": 12,
+   "transcripts": 15,
    "text_sources": {
     "자막": 0,
-    "음성인식": 12,
-    "설명": 83,
+    "음성인식": 15,
+    "설명": 80,
     "없음": 6
    },
    "content_words": [
@@ -7821,14 +7821,18 @@
     },
     {
      "word": "있습니다",
-     "count": 33
+     "count": 35
     },
     {
      "word": "그리고",
-     "count": 25
+     "count": 27
     },
     {
      "word": "같은",
+     "count": 22
+    },
+    {
+     "word": "가장",
      "count": 21
     },
     {
@@ -7836,32 +7840,28 @@
      "count": 21
     },
     {
-     "word": "가장",
-     "count": 20
-    },
-    {
      "word": "주식",
-     "count": 19
+     "count": 20
     },
     {
      "word": "ETF",
      "count": 19
     },
     {
-     "word": "바랍니다",
+     "word": "제가",
+     "count": 18
+    },
+    {
+     "word": "대한",
      "count": 17
     },
     {
-     "word": "제가",
-     "count": 16
+     "word": "이번",
+     "count": 17
     },
     {
      "word": "많이",
-     "count": 16
-    },
-    {
-     "word": "따라",
-     "count": 16
+     "count": 17
     }
    ],
    "chapters_share": 0.406,
@@ -7939,7 +7939,7 @@
      "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
      "channel": "박종훈의 지식한방",
      "views": 1500722,
-     "views_per_day": 483276.2,
+     "views_per_day": 482079.0,
      "published": "2026-10-12",
      "url": "https://www.youtube.com/watch?v=hTRG4ehA6NU"
     },
@@ -7948,7 +7948,7 @@
      "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
      "channel": "ACE ETF",
      "views": 2304062,
-     "views_per_day": 174157.6,
+     "views_per_day": 174056.1,
      "published": "2026-10-02",
      "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
     },
@@ -7957,7 +7957,7 @@
      "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
      "channel": "연합뉴스경제TV",
      "views": 1176049,
-     "views_per_day": 165135.5,
+     "views_per_day": 164956.9,
      "published": "2026-10-08",
      "url": "https://www.youtube.com/watch?v=d4gqZGtuUxo"
     },
@@ -7966,7 +7966,7 @@
      "title": "인도 옵션 투자 광풍, 50조 털린 인도 개미들",
      "channel": "슈카월드",
      "views": 1876477,
-     "views_per_day": 154411.4,
+     "views_per_day": 154313.5,
      "published": "2026-10-03",
      "url": "https://www.youtube.com/watch?v=0K52Ex714NU"
     },
@@ -7975,7 +7975,7 @@
      "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
      "channel": "SBS 뉴스",
      "views": 1444127,
-     "views_per_day": 99438.1,
+     "views_per_day": 99385.4,
      "published": "2026-10-01",
      "url": "https://www.youtube.com/watch?v=Uuw517jwuRQ"
     }
@@ -7994,7 +7994,7 @@
     }
    ],
    "views_median": 150398.5,
-   "views_per_day_median": 2888.6,
+   "views_per_day_median": 2888.2,
    "ratio_median": 8.8,
    "success": 82,
    "minutes_median": 18.75,
@@ -8123,11 +8123,11 @@
      "count": 5
     }
    ],
-   "transcripts": 12,
+   "transcripts": 15,
    "text_sources": {
     "자막": 0,
-    "음성인식": 12,
-    "설명": 84,
+    "음성인식": 15,
+    "설명": 81,
     "없음": 6
    },
    "content_words": [
@@ -8137,19 +8137,19 @@
     },
     {
      "word": "있습니다",
-     "count": 34
+     "count": 36
     },
     {
      "word": "그리고",
-     "count": 26
+     "count": 28
     },
     {
      "word": "같은",
-     "count": 22
+     "count": 23
     },
     {
      "word": "가장",
-     "count": 21
+     "count": 22
     },
     {
      "word": "함께",
@@ -8157,27 +8157,27 @@
     },
     {
      "word": "주식",
-     "count": 20
+     "count": 21
     },
     {
      "word": "ETF",
      "count": 19
     },
     {
+     "word": "제가",
+     "count": 18
+    },
+    {
      "word": "바랍니다",
      "count": 18
     },
     {
-     "word": "제가",
-     "count": 16
+     "word": "오늘",
+     "count": 18
     },
     {
-     "word": "많이",
-     "count": 16
-    },
-    {
-     "word": "따라",
-     "count": 16
+     "word": "대한",
+     "count": 17
     }
    ],
    "chapters_share": 0.402,
@@ -8255,7 +8255,7 @@
      "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
      "channel": "박종훈의 지식한방",
      "views": 1500722,
-     "views_per_day": 483276.2,
+     "views_per_day": 482079.0,
      "published": "2026-10-12",
      "url": "https://www.youtube.com/watch?v=hTRG4ehA6NU"
     },
@@ -8264,7 +8264,7 @@
      "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
      "channel": "ACE ETF",
      "views": 2304062,
-     "views_per_day": 174157.6,
+     "views_per_day": 174056.1,
      "published": "2026-10-02",
      "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
     },
@@ -8273,7 +8273,7 @@
      "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
      "channel": "연합뉴스경제TV",
      "views": 1176049,
-     "views_per_day": 165135.5,
+     "views_per_day": 164956.9,
      "published": "2026-10-08",
      "url": "https://www.youtube.com/watch?v=d4gqZGtuUxo"
     },
@@ -8282,7 +8282,7 @@
      "title": "인도 옵션 투자 광풍, 50조 털린 인도 개미들",
      "channel": "슈카월드",
      "views": 1876477,
-     "views_per_day": 154411.4,
+     "views_per_day": 154313.5,
      "published": "2026-10-03",
      "url": "https://www.youtube.com/watch?v=0K52Ex714NU"
     },
@@ -8291,7 +8291,7 @@
      "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
      "channel": "SBS 뉴스",
      "views": 1444127,
-     "views_per_day": 99438.1,
+     "views_per_day": 99385.4,
      "published": "2026-10-01",
      "url": "https://www.youtube.com/watch?v=Uuw517jwuRQ"
     }

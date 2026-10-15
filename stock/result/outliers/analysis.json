@@ -2,7 +2,7 @@
  "tool": "success_analysis.py v1.4.1",
  "topic": "stock",
  "name": "주식",
- "generated": "2026-10-15T13:59:55+00:00",
+ "generated": "2026-10-15T14:13:11+00:00",
  "rules": {
   "success": {
    "MAX_AGE_DAYS": 180,
@@ -257,8 +257,8 @@
    }
   ],
   "success_text_sources": {
-   "음성인식(앞 5분)": 11,
-   "설명": 54,
+   "음성인식(앞 5분)": 15,
+   "설명": 50,
    "없음": 2
   },
   "success_comments_fetched": 19769,
@@ -266,7 +266,7 @@
   "success_thumbnails": 67
  },
  "limits": [
-  "대본(자막·음성인식)이 없는 성공 사례 56개 (#12, #13, #14, #15, #16, #17, #18, #19, #20, #21, #22, #23, #24, #25, #26, #27, #28, #29, #30, #31, #32, #33, #34, #35, #36, #37, #38, #39, #40, #41 …) — 설명란·챕터만 있음. 도입부·구성·말 속도는 대본이 있는 11개로만 셌다 (음성인식이 끝나면 다시 셈)",
+  "대본(자막·음성인식)이 없는 성공 사례 52개 (#16, #17, #18, #19, #20, #21, #22, #23, #24, #25, #26, #27, #28, #29, #30, #31, #32, #33, #34, #35, #36, #37, #38, #39, #40, #41, #42, #43, #44, #45 …) — 설명란·챕터만 있음. 도입부·구성·말 속도는 대본이 있는 15개로만 셌다 (음성인식이 끝나면 다시 셈)",
   "비교 집단 328개 = 검색(조회수 순 — 잘된 영상 쪽으로 치우침)·추가한 채널·성공 사례 채널의 평소 영상 205개 (치우침 없음) 에서 올린 지 7~365일 영상, 성공 비율 18% — 실제 시장 비율이 아니다. 같은 집단 안의 '있음/없음' 차이로만 보고, '무엇이 먹혔나'는 1-2번(같은 채널 안)을 먼저 보라",
   "같은 채널 기준선이 있는 성공 사례 64/67개 (채널 영상이 5개 미만이거나 아직 못 받음)",
   "수요·공급의 '시장'은 탐색·검색에서 본 최근 90일 영상 1140개 — 검색이 조회수 순이라 조회수 적은 영상이 덜 잡힌다. 주제 묶음 사이의 상대 비교(지수)로만 보라",
@@ -286,7 +286,7 @@
    "subs": 270,
    "views": 121208,
    "ratio": 448.92,
-   "views_per_day": 2623.1,
+   "views_per_day": 2622.6,
    "minutes": 18.7,
    "likes": 669,
    "like_rate": 0.0055,
@@ -375,7 +375,7 @@
    "subs": 864,
    "views": 316778,
    "ratio": 366.64,
-   "views_per_day": 7616.8,
+   "views_per_day": 7615.1,
    "minutes": 21.4,
    "likes": 1271,
    "like_rate": 0.004,
@@ -587,7 +587,7 @@
    "subs": 537,
    "views": 95716,
    "ratio": 178.24,
-   "views_per_day": 1787.7,
+   "views_per_day": 1787.4,
    "minutes": 30.5,
    "likes": 1115,
    "like_rate": 0.0116,
@@ -723,7 +723,7 @@
    "subs": 1340,
    "views": 207016,
    "ratio": 154.49,
-   "views_per_day": 7493.9,
+   "views_per_day": 7491.4,
    "minutes": 36.0,
    "likes": 1274,
    "like_rate": 0.0062,
@@ -960,7 +960,7 @@
    "subs": 1380,
    "views": 153207,
    "ratio": 111.02,
-   "views_per_day": 2282.4,
+   "views_per_day": 2282.1,
    "minutes": 13.5,
    "likes": 2650,
    "like_rate": 0.0173,
@@ -1122,7 +1122,7 @@
    "subs": 2190,
    "views": 188786,
    "ratio": 86.2,
-   "views_per_day": 10717.4,
+   "views_per_day": 10711.8,
    "minutes": 8.1,
    "likes": 859,
    "like_rate": 0.0046,
@@ -1355,7 +1355,7 @@
    "subs": 597,
    "views": 42448,
    "ratio": 71.1,
-   "views_per_day": 3513.1,
+   "views_per_day": 3510.4,
    "minutes": 6.3,
    "likes": 416,
    "like_rate": 0.0098,
@@ -1528,7 +1528,7 @@
    "subs": 1340,
    "views": 93654,
    "ratio": 69.89,
-   "views_per_day": 1038.6,
+   "views_per_day": 1038.4,
    "minutes": 15.0,
    "likes": 2368,
    "like_rate": 0.0253,
@@ -1716,7 +1716,7 @@
    "subs": 18900,
    "views": 976300,
    "ratio": 51.66,
-   "views_per_day": 8335.7,
+   "views_per_day": 8335.1,
    "minutes": 11.3,
    "likes": 5269,
    "like_rate": 0.0054,
@@ -1908,7 +1908,7 @@
    "subs": 1840,
    "views": 82427,
    "ratio": 44.8,
-   "views_per_day": 1107.6,
+   "views_per_day": 1107.5,
    "minutes": 9.9,
    "likes": 1805,
    "like_rate": 0.0219,
@@ -2100,7 +2100,7 @@
    "subs": 3390,
    "views": 148667,
    "ratio": 43.85,
-   "views_per_day": 1537.9,
+   "views_per_day": 1537.8,
    "minutes": 20.4,
    "likes": 5112,
    "like_rate": 0.0344,
@@ -2265,7 +2265,7 @@
    "subs": 5910,
    "views": 243747,
    "ratio": 41.24,
-   "views_per_day": 7792.6,
+   "views_per_day": 7790.3,
    "minutes": 8.2,
    "likes": 964,
    "like_rate": 0.004,
@@ -2276,7 +2276,7 @@
    "folder": "W_wwrCztntACs",
    "kind": "웹 승인",
    "thumbnail": "W_wwrCztntACs/thumbnail.jpg",
-   "text_source": "설명",
+   "text_source": "음성인식(앞 5분)",
    "chapters": [
     {
      "start": 0,
@@ -2304,16 +2304,33 @@
     }
    ],
    "description": "[겸공_12시에만나요 260914] 오늘부터 본격적으로 시작된 한국거래소(KRX) 애프터마켓 개시 소식과 투자자 체크포인트를 완벽하게 분석해 드립니다. 오후 4시부터 저녁 8시까지 연장된 거래 시간, 시장가 주문 불가와 자동 승계 미지원 등 기존 정규장과 달라지는 핵심 규칙들을 낱낱이 파헤쳐 봅니다. 새로운 제도 도입에 따른 숨겨진 변동성 위험과 투자 전략을 지금 바로 확인해 보세요! 타임라인",
-   "hook20": null,
-   "first60": null,
-   "outline": null,
-   "syl_per_sec": null,
+   "hook20": "그러면 이제 전혀 새로운 패턴이 또 나올 수 있다는 걸 좀 염두에 두셔야 될 것 같아요. 왜냐하면 4시 넘어서 그동안 거래 안 되는 종목이 거래되는 600개고 이제 새로 열리면 한 1500개 이상 이제 새로 될 텐데 그러면 이제 8시까지 거의 본장 이어지는 셈이나 마찬가지거든요. 그럼 우리 본장에서 미국 선물을 그대로 보면서 할 수 있는 상황이 되는 거니까",
+   "first60": "그러면 이제 전혀 새로운 패턴이 또 나올 수 있다는 걸 좀 염두에 두셔야 될 것 같아요. 왜냐하면 4시 넘어서 그동안 거래 안 되는 종목이 거래되는 600개고 이제 새로 열리면 한 1500개 이상 이제 새로 될 텐데 그러면 이제 8시까지 거의 본장 이어지는 셈이나 마찬가지거든요. 그럼 우리 본장에서 미국 선물을 그대로 보면서 할 수 있는 상황이 되는 거니까 오늘부터 저녁 8시까지 주식 거래가 가능해진다는 사실 알고 계셨나요? 본장에서 미국 선물을 보면서 투자할 수 있게 되는데요. 이렇게 되면 앞으로는 주식시장의 전혀 새로운 패턴이 시작될 예정입니다. 과연 우리에게 독이 될지 아니면 새로운 기회가 될지 그 숨겨진 이야기가 지금 바로 공개됩니다. 그래서 왜 오늘부터 애프터마켓이 오픈되는 겁니다? 저녁 8시까지 ",
+   "outline": [
+    {
+     "t": 0,
+     "text": "그러면 이제 전혀 새로운 패턴이 또 나올 수 있다는 걸 좀 염두에 두셔야 될 것…"
+    },
+    {
+     "t": 93,
+     "text": "그래서 별도입니다."
+    },
+    {
+     "t": 180,
+     "text": "그래서 얘네들이 아침에 8시에 프리로 한 번 열고 또 저녁에 3시 40분"
+    },
+    {
+     "t": 273,
+     "text": "박시동 대표님 말씀처럼 한국 거래소가 단순히 돈 벌려고 자기네들이"
+    }
+   ],
+   "syl_per_sec": 5.37,
    "comments_fetched": 253,
    "comments_total": 253,
    "comments_complete": true,
-   "hook_first": null,
-   "hook_types": null,
-   "partial_sec": 0,
+   "hook_first": "그러면 이제 전혀 새로운 패턴이 또 나올 수 있다는 걸 좀 염두에 두셔야 될 것 같아요.",
+   "hook_types": [],
+   "partial_sec": 300,
    "channel_ratio": 8.0,
    "channel_median": 30442,
    "channel_id": "UC1GeuioIW52kCX-v3mlDx9g",
@@ -2401,30 +2418,47 @@
    "subs": 1930,
    "views": 78763,
    "ratio": 40.81,
-   "views_per_day": 1019.6,
+   "views_per_day": 1019.5,
    "minutes": 20.5,
    "likes": 1113,
    "like_rate": 0.0141,
    "published": "2026-07-30",
-   "age_days": 77.2,
+   "age_days": 77.3,
    "theme": "4. 미국·해외주식",
    "format": "정보·해설 (그 밖)",
    "folder": "W_cqgVNBbMYew",
    "kind": "웹 승인",
    "thumbnail": "W_cqgVNBbMYew/thumbnail.jpg",
-   "text_source": "설명",
+   "text_source": "음성인식(앞 5분)",
    "chapters": [],
    "description": "같은 3억 원으로 시작해 20년 동안 완전히 다른 길을 걸어간 두 사람. 미국 배당 성장주에 투자해 매달 현금흐름을 굴린 박 대리와, S&P 500 지수 전체에 투자해 자본의 성장을 노린 황 과장. 20년이라는 긴 세월이 흐른 뒤, 두 사람의 계좌에 찍힌 숫자는 어떻게 달라졌을까요? 그리고 더 중요한 것, 은퇴 후 두 사람의 '진짜 삶의 모습'은 어떻게 갈렸을까요? 단순히 \"어느 쪽이 더 많이 벌었나\"를 넘어, 자산 형성기에서 은퇴기까지 우리가 투자를 바라보는 관점 자체를 바꿔줄 20년의 실측 데이터 서사를 확인해 보세요. [영상 포인트] 같은 출발선, 3억 원의 두 갈래 박 대리의 선택: 배당 성장의 복리 눈덩이 (SCHD) 황 과장의 선택: 미국 자본주의 우상향 (S&P 500) 7년 차와 12년 차 폭",
-   "hook20": null,
-   "first60": null,
-   "outline": null,
-   "syl_per_sec": null,
+   "hook20": "배당주와 지수 주식, 이 두 가지 자산은 같은 주식시장 안에서 가장 오랜 기간 라이벌 관계로 불려왔습니다. 시장이 폭발적인 성장을 온 몸으로 받아내며 지수의 팽창을 누릴 것인가, 새 된 챈 챈 누릴 것인가. 아니면 기업이 만들어내는 당장의 현금 흐름을 매달 꼬박꼬박 재투자하여 복리의 눈덩이를 굴릴 것인가.",
+   "first60": "배당주와 지수 주식, 이 두 가지 자산은 같은 주식시장 안에서 가장 오랜 기간 라이벌 관계로 불려왔습니다. 시장이 폭발적인 성장을 온 몸으로 받아내며 지수의 팽창을 누릴 것인가, 새 된 챈 챈 누릴 것인가. 아니면 기업이 만들어내는 당장의 현금 흐름을 매달 꼬박꼬박 재투자하여 복리의 눈덩이를 굴릴 것인가. 오늘 다룰 이야기는 바로 이 질문에서 출발합니다. 출발서는 똑같았습니다. 두 사람에게는 20년 전 각자 핏땀 흘려 모은 종자똥 3억 원이 손에 쥐어져 있었습니다. 대기업 직장인으로 오랜 기간 함께 근무하며 같은 월급을 받고, 같은 점심을 먹고, 같은 퇴근길을 걸었던 박 대리와 황 과장, 두 사람은 어느 날 점심을 먹고 회사 근처 공원 벤치에 앉아 서로의 통장을 열어보았습니다. 각자의 계좌에는 약속이라도 한",
+   "outline": [
+    {
+     "t": 0,
+     "text": "배당주와 지수 주식, 이 두 가지 자산은 같은 주식시장 안에서 가장 오랜 기간 …"
+    },
+    {
+     "t": 92,
+     "text": "박 대리가 선택한 것은 미국 시장을 대표하는 배당 성장 자산이었습니다."
+    },
+    {
+     "t": 187,
+     "text": "황 과장은 배당에 목매지 않았습니다."
+    },
+    {
+     "t": 275,
+     "text": "S&P 500 역시 연 1.5% 안팎에 소소한 배당을 지급했지만 황과장 역시 이…"
+    }
+   ],
+   "syl_per_sec": 4.93,
    "comments_fetched": 162,
    "comments_total": 162,
    "comments_complete": true,
-   "hook_first": null,
-   "hook_types": null,
-   "partial_sec": 0,
+   "hook_first": "배당주와 지수 주식, 이 두 가지 자산은 같은 주식시장 안에서 가장 오랜 기간 라이벌 관계로 불려왔습니다.",
+   "hook_types": [],
+   "partial_sec": 300,
    "channel_ratio": 11.6,
    "channel_median": 6804,
    "channel_id": "UCAhpJzf-V8o0dob_DSnGbJQ",
@@ -2554,7 +2588,7 @@
    "subs": 15900,
    "views": 636075,
    "ratio": 40.0,
-   "views_per_day": 6045.9,
+   "views_per_day": 6045.3,
    "minutes": 22.2,
    "likes": 6205,
    "like_rate": 0.0098,
@@ -2565,19 +2599,38 @@
    "folder": "W_yGuybuoroRI",
    "kind": "웹 승인",
    "thumbnail": "W_yGuybuoroRI/thumbnail.jpg",
-   "text_source": "설명",
+   "text_source": "음성인식(앞 5분)",
    "chapters": [],
    "description": "커버드콜 ETF는 정말 원금을 깎아먹는 상품일까요? 한국투자신탁운용 염정인 부장과 함께 커버드콜 ETF의 오해와 진실, 활용법까지 알아봤습니다. 국내 주식형 커버드콜이 절세에 유리한 이유는 무엇인지, 미국 주식형 커버드콜은 왜 연금저축·IRP 계좌에서 활용하는 것이 좋은지도 함께 짚어봅니다. 또한 국내 커버드콜, 해외 커버드콜, 파킹형 ETF 또는 채권형 ETF으로 구성하는 포트폴리오 전략과 계좌별 인출 순서까지 정리했습니다. 노후자금을 지키면서 매달 현금흐름을 만들고 싶은 분들이라면 끝까지 시청해 주세요. 핵심만 골라보기",
-   "hook20": null,
-   "first60": null,
-   "outline": null,
-   "syl_per_sec": null,
+   "hook20": "그러니까 한마디로 원금 깎아 먹지 않고 오히려 원금을 늘려가면서 꾸준한 분배율도 제공하고 있다 예를 들어 산 5억원 정도 은퇴자금이 있고 여기서 매달 300만 원씩 꺼냈으면 이제 20년이 최안되는 사이에 원금이 다 없어지거든요 제가 보통 추천을 드리는 거는 40, 40, 20씩 이제 말씀을 드려요 커버드 콜 매달 높은 배당금을 준다고 하니",
+   "first60": "그러니까 한마디로 원금 깎아 먹지 않고 오히려 원금을 늘려가면서 꾸준한 분배율도 제공하고 있다 예를 들어 산 5억원 정도 은퇴자금이 있고 여기서 매달 300만 원씩 꺼냈으면 이제 20년이 최안되는 사이에 원금이 다 없어지거든요 제가 보통 추천을 드리는 거는 40, 40, 20씩 이제 말씀을 드려요 커버드 콜 매달 높은 배당금을 준다고 하니 눈길이 가지만 이러다 이거 결국 내 원금 까먹으면서 쓴 돈 아닌가 하는 생각도 듭니다 오늘은 한국 투자신탁 운용 염정인 부장님과 함께 커버드 콜의 오해와 진실을 명쾌하게 풀어드리고 또 소득 공백기 동안 원금 손실 없이 안전하게 월급을 꺼냈을 수 있는 실전 연금 세팅법까지 상세하게 알아보겠습니다 부장님 안녕하세요 안녕하세요 반갑습니다 부장님과 함께 저희가 이제 소중한 노후 ",
+   "outline": [
+    {
+     "t": 0,
+     "text": "그러니까 한마디로 원금 깎아 먹지 않고"
+    },
+    {
+     "t": 93,
+     "text": "내가 운 좋게 정년까지 갔다 하더라도"
+    },
+    {
+     "t": 183,
+     "text": "커버드콜 말은 좀 어렵지만"
+    },
+    {
+     "t": 272,
+     "text": "나는 그냥 배당만 받고"
+    }
+   ],
+   "syl_per_sec": 5.66,
    "comments_fetched": 577,
    "comments_total": 577,
    "comments_complete": true,
-   "hook_first": null,
-   "hook_types": null,
-   "partial_sec": 0,
+   "hook_first": "그러니까 한마디로 원금 깎아 먹지 않고 오히려 원금을 늘려가면서 꾸준한 분배율도 제공하고 있다 예를 들어 산 5억원 정도 은퇴자금이 있고 여기서 매달 300만 원씩 꺼냈으면 이제 20년이 최안되는 사이에 원금이 다 ",
+   "hook_types": [
+    "숫자로 시작"
+   ],
+   "partial_sec": 300,
    "channel_ratio": 18.8,
    "channel_median": 33784,
    "channel_id": "UCEJIw_FUvkxK7ZoiejSj7HA",
@@ -2694,7 +2747,7 @@
    "subs": 4400,
    "views": 166003,
    "ratio": 37.73,
-   "views_per_day": 9441.2,
+   "views_per_day": 9436.2,
    "minutes": 27.8,
    "likes": 2108,
    "like_rate": 0.0127,
@@ -2705,7 +2758,7 @@
    "folder": "W_uqsGXwRgP68",
    "kind": "웹 승인",
    "thumbnail": "W_uqsGXwRgP68/thumbnail.jpg",
-   "text_source": "설명",
+   "text_source": "음성인식(앞 5분)",
    "chapters": [
     {
      "start": 0,
@@ -2741,16 +2794,33 @@
     }
    ],
    "description": "매주 수요일 오후 9시에 라이브를 진행합니다. 많은 분들이 공부한 만큼 계좌가 따라오지 않는 이유를 아직 공부가 부족해서라고 생각하지만, 실제로는 배운 것을 실제 비중과 행동에 옮기지 못한 데서 오는 경우가 많습니다. 여기에 시장이 오를 때 확인 절차를 건너뛰게 만드는 수익의 착각이 겹치면 같은 자리를 다시 맴돌게 됩니다. 한지우는 2016년에 투자를 시작해 5년 동안 책과 강의, 새벽까지 이어진 기업 분석에 매달렸지만 그 기간 주식으로 번 돈은 없었습니다. 2019년 가치투자 스터디에서 만난 투자자들이 종목이 아니라 기준을 이야기하고 있다는 걸 보고 기준을 만들기 시작했지만, 수익이 나자 그 기준을 쓰지 않았고 그 대가는 2020년 코로나 국면의 깊은 낙폭이었습니다. 그 과정에서 얻은 건 더 많은 정보가 ",
-   "hook20": null,
-   "first60": null,
-   "outline": null,
-   "syl_per_sec": null,
+   "hook20": "요즘은 투자 공부를 할 수 있는 곳이 정말 많습니다. 책도 많고 강의도 많고 예전과는 비교하기 어려울 정도죠. 그런데 공부한 만큼 계좌가 따라오느냐는 또 다른 이야기일 수 있습니다. 저도 그랬습니다. 무려 5년 동안 주식 공부를 했는데도 계좌는 제 자리였습니다. 주변에서는 그 정도 공부했으면 이제 충분하지 않냐는 말까지 들었죠.",
+   "first60": "요즘은 투자 공부를 할 수 있는 곳이 정말 많습니다. 책도 많고 강의도 많고 예전과는 비교하기 어려울 정도죠. 그런데 공부한 만큼 계좌가 따라오느냐는 또 다른 이야기일 수 있습니다. 저도 그랬습니다. 무려 5년 동안 주식 공부를 했는데도 계좌는 제 자리였습니다. 주변에서는 그 정도 공부했으면 이제 충분하지 않냐는 말까지 들었죠. 그런데 정작 저는 5년 동안 뭔가를 놓치고 있었습니다. 열심히 공부했지만 제가 놓치고 있었던 건 따로 있었던 겁니다. 그리고 그걸 이해하고 나서부터는 본격적으로 수익이 나기 시작했습니다. 그리고 지금은 경제적 자유를 이루게 됐습니다. 오늘은 제가 그 5년 동안 무엇을 놓치고 있었는지 그리고 수많은 시행차고 끝에 무엇을 깨달았는지 말씀드리겠습니다. 이 영상을 끝까지 보시면 저처럼 오랜",
+   "outline": [
+    {
+     "t": 0,
+     "text": "요즘은 투자 공부를 할 수 있는 곳이 정말 많습니다."
+    },
+    {
+     "t": 90,
+     "text": "벌었다가 잃었다가 또 벌었다가 다시 잃었습니다."
+    },
+    {
+     "t": 181,
+     "text": "그런데 무엇보다 돈을 크게 잃었을 때보다"
+    },
+    {
+     "t": 271,
+     "text": "그걸 몰랐던 거죠 3년 차까지는."
+    }
+   ],
+   "syl_per_sec": 5.15,
    "comments_fetched": 111,
    "comments_total": 111,
    "comments_complete": true,
-   "hook_first": null,
-   "hook_types": null,
-   "partial_sec": 0,
+   "hook_first": "요즘은 투자 공부를 할 수 있는 곳이 정말 많습니다.",
+   "hook_types": [],
+   "partial_sec": 300,
    "channel_ratio": 51.4,
    "channel_median": 3229,
    "channel_id": "UCopbo8p9-a5XyT6k7o1zSwQ",
@@ -2970,7 +3040,7 @@
    "subs": 17600,
    "views": 608543,
    "ratio": 34.58,
-   "views_per_day": 3597.5,
+   "views_per_day": 3597.3,
    "minutes": 16.8,
    "likes": 9030,
    "like_rate": 0.0148,
@@ -3124,7 +3194,7 @@
    "subs": 3920,
    "views": 131970,
    "ratio": 33.67,
-   "views_per_day": 1549.0,
+   "views_per_day": 1548.9,
    "minutes": 17.8,
    "likes": 1543,
    "like_rate": 0.0117,
@@ -3244,7 +3314,7 @@
    "subs": 566,
    "views": 15467,
    "ratio": 27.33,
-   "views_per_day": 427.7,
+   "views_per_day": 427.6,
    "minutes": 17.9,
    "likes": 95,
    "like_rate": 0.0061,
@@ -3314,12 +3384,12 @@
    "subs": 11300,
    "views": 295080,
    "ratio": 26.11,
-   "views_per_day": 3810.1,
+   "views_per_day": 3809.6,
    "minutes": 19.6,
    "likes": 4517,
    "like_rate": 0.0153,
    "published": "2026-07-30",
-   "age_days": 77.4,
+   "age_days": 77.5,
    "theme": "5. 국내주식",
    "format": "정보·해설 (그 밖)",
    "folder": "W_SrwNTk6GT9U",
@@ -3460,7 +3530,7 @@
    "subs": 26700,
    "views": 683001,
    "ratio": 25.58,
-   "views_per_day": 4879.4,
+   "views_per_day": 4879.1,
    "minutes": 14.8,
    "likes": 16177,
    "like_rate": 0.0237,
@@ -3639,7 +3709,7 @@
    "subs": 2450,
    "views": 61799,
    "ratio": 25.22,
-   "views_per_day": 25908.9,
+   "views_per_day": 25809.1,
    "minutes": 12.9,
    "likes": 611,
    "like_rate": 0.0099,
@@ -3834,7 +3904,7 @@
    "subs": 30000,
    "views": 750300,
    "ratio": 25.01,
-   "views_per_day": 5488.4,
+   "views_per_day": 5488.0,
    "minutes": 11.4,
    "likes": 10256,
    "like_rate": 0.0137,
@@ -4021,7 +4091,7 @@
    "subs": 33600,
    "views": 825816,
    "ratio": 24.58,
-   "views_per_day": 9167.9,
+   "views_per_day": 9167.0,
    "minutes": 29.3,
    "likes": 6932,
    "like_rate": 0.0084,
@@ -4188,7 +4258,7 @@
    "subs": 3510,
    "views": 85769,
    "ratio": 24.44,
-   "views_per_day": 1399.4,
+   "views_per_day": 1399.2,
    "minutes": 20.6,
    "likes": 2060,
    "like_rate": 0.024,
@@ -4379,12 +4449,12 @@
    "subs": 12600,
    "views": 305793,
    "ratio": 24.27,
-   "views_per_day": 2414.6,
+   "views_per_day": 2414.4,
    "minutes": 21.6,
    "likes": 6908,
    "like_rate": 0.0226,
    "published": "2026-06-10",
-   "age_days": 126.6,
+   "age_days": 126.7,
    "theme": "11. 투자 일반",
    "format": "오디오북·낭독 (명언·인생조언)",
    "folder": "W_fFURFeLTdAg",
@@ -4585,7 +4655,7 @@
    "subs": 2280,
    "views": 52173,
    "ratio": 22.88,
-   "views_per_day": 826.0,
+   "views_per_day": 825.8,
    "minutes": 7.5,
    "likes": 664,
    "like_rate": 0.0127,
@@ -4724,12 +4794,12 @@
    "subs": 5260,
    "views": 119801,
    "ratio": 22.78,
-   "views_per_day": 1286.2,
+   "views_per_day": 1286.1,
    "minutes": 16.6,
    "likes": 2443,
    "like_rate": 0.0204,
    "published": "2026-07-14",
-   "age_days": 93.1,
+   "age_days": 93.2,
    "theme": "5. 국내주식",
    "format": "정보·해설 (그 밖)",
    "folder": "W_r6YwLBtCXXQ",
@@ -4855,7 +4925,7 @@
    "subs": 5910,
    "views": 119188,
    "ratio": 20.17,
-   "views_per_day": 2155.1,
+   "views_per_day": 2154.7,
    "minutes": 11.0,
    "likes": 1489,
    "like_rate": 0.0125,
@@ -5021,7 +5091,7 @@
    "subs": 30500,
    "views": 614144,
    "ratio": 20.14,
-   "views_per_day": 9874.0,
+   "views_per_day": 9872.6,
    "minutes": 52.7,
    "likes": 11581,
    "like_rate": 0.0189,
@@ -5194,7 +5264,7 @@
    "subs": 5550,
    "views": 102735,
    "ratio": 18.51,
-   "views_per_day": 1347.0,
+   "views_per_day": 1346.9,
    "minutes": 24.8,
    "likes": 1605,
    "like_rate": 0.0156,
@@ -5333,7 +5403,7 @@
    "subs": 8090,
    "views": 116587,
    "ratio": 14.41,
-   "views_per_day": 1237.5,
+   "views_per_day": 1237.4,
    "minutes": 21.2,
    "likes": 3100,
    "like_rate": 0.0266,
@@ -5696,7 +5766,7 @@
    "subs": 15900,
    "views": 225932,
    "ratio": 14.21,
-   "views_per_day": 4998.0,
+   "views_per_day": 4997.0,
    "minutes": 20.6,
    "likes": 1318,
    "like_rate": 0.0058,
@@ -5859,7 +5929,7 @@
    "likes": 6829,
    "like_rate": 0.0267,
    "published": "2026-04-20",
-   "age_days": 178.2,
+   "age_days": 178.3,
    "theme": "7. 매매·전략",
    "format": "정보·해설 (그 밖)",
    "folder": "W_EyCVdx8IFyg",
@@ -6009,7 +6079,7 @@
    "subs": 13200,
    "views": 166957,
    "ratio": 12.65,
-   "views_per_day": 1718.9,
+   "views_per_day": 1718.7,
    "minutes": 4.6,
    "likes": 1683,
    "like_rate": 0.0101,
@@ -6176,7 +6246,7 @@
    "subs": 30500,
    "views": 370924,
    "ratio": 12.16,
-   "views_per_day": 4804.8,
+   "views_per_day": 4804.3,
    "minutes": 11.9,
    "likes": 5568,
    "like_rate": 0.015,
@@ -6418,7 +6488,7 @@
    "subs": 42800,
    "views": 472277,
    "ratio": 11.03,
-   "views_per_day": 14661.1,
+   "views_per_day": 14656.9,
    "minutes": 9.0,
    "likes": 1956,
    "like_rate": 0.0041,
@@ -6557,7 +6627,7 @@
    "subs": 1390,
    "views": 14966,
    "ratio": 10.77,
-   "views_per_day": 2183.7,
+   "views_per_day": 2180.8,
    "minutes": 13.7,
    "likes": 246,
    "like_rate": 0.0164,
@@ -6733,7 +6803,7 @@
    "subs": 20300,
    "views": 189097,
    "ratio": 9.32,
-   "views_per_day": 15170.1,
+   "views_per_day": 15158.9,
    "minutes": 16.5,
    "likes": 1878,
    "like_rate": 0.0099,
@@ -6858,7 +6928,7 @@
    "subs": 8260,
    "views": 76665,
    "ratio": 9.28,
-   "views_per_day": 1174.6,
+   "views_per_day": 1174.4,
    "minutes": 13.4,
    "likes": 1370,
    "like_rate": 0.0179,
@@ -6989,7 +7059,7 @@
    "likes": 166,
    "like_rate": 0.013,
    "published": "2026-08-30",
-   "age_days": 46.3,
+   "age_days": 46.4,
    "theme": "1. 주식 기초·초보",
    "format": "인터뷰·강연·대담",
    "folder": "W_KwvGol5A8m4",
@@ -7053,7 +7123,7 @@
    "subs": 32400,
    "views": 292780,
    "ratio": 9.04,
-   "views_per_day": 2828.8,
+   "views_per_day": 2828.5,
    "minutes": 8.6,
    "likes": 4719,
    "like_rate": 0.0161,
@@ -7231,7 +7301,7 @@
    "likes": 93,
    "like_rate": 0.0066,
    "published": "2026-08-27",
-   "age_days": 49.5,
+   "age_days": 49.6,
    "theme": "4. 미국·해외주식",
    "format": "정보·해설 (그 밖)",
    "folder": "W_fPN8ENZl2Y8",
@@ -7286,12 +7356,12 @@
    "subs": 46800,
    "views": 365892,
    "ratio": 7.82,
-   "views_per_day": 3288.9,
+   "views_per_day": 3288.7,
    "minutes": 27.3,
    "likes": 13838,
    "like_rate": 0.0378,
    "published": "2026-06-26",
-   "age_days": 111.2,
+   "age_days": 111.3,
    "theme": "5. 국내주식",
    "format": "정보·해설 (그 밖)",
    "folder": "W_SKogeS0bYpM",
@@ -7477,7 +7547,7 @@
    "subs": 14000,
    "views": 105121,
    "ratio": 7.51,
-   "views_per_day": 1324.2,
+   "views_per_day": 1324.1,
    "minutes": 25.2,
    "likes": 2048,
    "like_rate": 0.0195,
@@ -7593,7 +7663,7 @@
    "subs": 33600,
    "views": 250018,
    "ratio": 7.44,
-   "views_per_day": 7963.3,
+   "views_per_day": 7961.0,
    "minutes": 69.7,
    "likes": 2081,
    "like_rate": 0.0083,
@@ -7728,7 +7798,7 @@
    "subs": 16900,
    "views": 120491,
    "ratio": 7.13,
-   "views_per_day": 1367.4,
+   "views_per_day": 1367.3,
    "minutes": 22.5,
    "likes": 2866,
    "like_rate": 0.0238,
@@ -7868,12 +7938,12 @@
    "subs": 9990,
    "views": 69331,
    "ratio": 6.94,
-   "views_per_day": 725.7,
+   "views_per_day": 725.6,
    "minutes": 24.1,
    "likes": 1302,
    "like_rate": 0.0188,
    "published": "2026-07-12",
-   "age_days": 95.5,
+   "age_days": 95.6,
    "theme": "8. 투자 심리·실패",
    "format": "사연·드라마",
    "folder": "W_BL8sygt6dgw",
@@ -8024,7 +8094,7 @@
    "subs": 32400,
    "views": 224310,
    "ratio": 6.92,
-   "views_per_day": 8464.6,
+   "views_per_day": 8461.7,
    "minutes": 8.6,
    "likes": 2093,
    "like_rate": 0.0093,
@@ -8177,7 +8247,7 @@
    "subs": 21900,
    "views": 150093,
    "ratio": 6.85,
-   "views_per_day": 4486.0,
+   "views_per_day": 4484.8,
    "minutes": 27.4,
    "likes": 3699,
    "like_rate": 0.0246,
@@ -8302,7 +8372,7 @@
    "subs": 22500,
    "views": 137193,
    "ratio": 6.1,
-   "views_per_day": 1376.5,
+   "views_per_day": 1376.4,
    "minutes": 28.4,
    "likes": 3514,
    "like_rate": 0.0256,
@@ -8498,7 +8568,7 @@
    "subs": 13100,
    "views": 74483,
    "ratio": 5.69,
-   "views_per_day": 1339.5,
+   "views_per_day": 1339.2,
    "minutes": 16.1,
    "likes": 1354,
    "like_rate": 0.0182,
@@ -8660,7 +8730,7 @@
    "subs": 2560,
    "views": 14105,
    "ratio": 5.51,
-   "views_per_day": 379.5,
+   "views_per_day": 379.4,
    "minutes": 6.9,
    "likes": 151,
    "like_rate": 0.0107,
@@ -8908,7 +8978,7 @@
    "subs": 30600,
    "views": 144028,
    "ratio": 4.71,
-   "views_per_day": 870.6,
+   "views_per_day": 870.5,
    "minutes": 17.5,
    "likes": 0,
    "like_rate": 0.0,
@@ -9081,7 +9151,7 @@
    "subs": 23800,
    "views": 111730,
    "ratio": 4.69,
-   "views_per_day": 2346.1,
+   "views_per_day": 2345.6,
    "minutes": 19.2,
    "likes": 1449,
    "like_rate": 0.013,
@@ -9235,7 +9305,7 @@
    "subs": 30000,
    "views": 137289,
    "ratio": 4.58,
-   "views_per_day": 2071.8,
+   "views_per_day": 2071.5,
    "minutes": 10.7,
    "likes": 1524,
    "like_rate": 0.0111,
@@ -9423,7 +9493,7 @@
    "subs": 3210,
    "views": 14673,
    "ratio": 4.57,
-   "views_per_day": 345.6,
+   "views_per_day": 345.5,
    "minutes": 31.7,
    "likes": 262,
    "like_rate": 0.0179,
@@ -9687,7 +9757,7 @@
    "subs": 19800,
    "views": 81405,
    "ratio": 4.11,
-   "views_per_day": 1587.1,
+   "views_per_day": 1586.8,
    "minutes": 24.1,
    "likes": 1189,
    "like_rate": 0.0146,
@@ -9960,7 +10030,7 @@
    "subs": 23800,
    "views": 76521,
    "ratio": 3.22,
-   "views_per_day": 1883.6,
+   "views_per_day": 1883.2,
    "minutes": 18.2,
    "likes": 1238,
    "like_rate": 0.0162,
@@ -10114,12 +10184,12 @@
    "subs": 20700,
    "views": 65776,
    "ratio": 3.18,
-   "views_per_day": 600.5,
+   "views_per_day": 600.4,
    "minutes": 18.8,
    "likes": 2186,
    "like_rate": 0.0332,
    "published": "2026-06-28",
-   "age_days": 109.5,
+   "age_days": 109.6,
    "theme": "2. 장기투자·ETF·지수",
    "format": "정보·해설 (그 밖)",
    "folder": "W_2G0epuL2UbI",
@@ -11683,18 +11753,18 @@
   "minutes_median_compare_others": 14.2,
   "chapters_share": 0.388,
   "chapters_count_median": 8.0,
-  "transcripts": 11,
+  "transcripts": 15,
   "text_sources": {
-   "음성인식(앞 5분)": 11,
-   "설명": 54,
+   "음성인식(앞 5분)": 15,
+   "설명": 50,
    "없음": 2
   },
-  "syl_per_sec_median": 4.94,
-  "first60_syl_median": 323,
+  "syl_per_sec_median": 5.15,
+  "first60_syl_median": 343,
   "hook_types": {
-   "그 밖": 4,
+   "그 밖": 7,
    "질문으로 시작": 3,
-   "숫자로 시작": 5,
+   "숫자로 시작": 6,
    "내 이야기·사연": 1,
    "시청자 부르기": 2
   }
@@ -12653,7 +12723,7 @@
     "demand_share": 0.054,
     "supply_share": 0.021,
     "index": 2.54,
-    "vpd_median": 4994.6,
+    "vpd_median": 4993.7,
     "small_success_rate": 0.167,
     "small_n": 6,
     "questions": 14,
@@ -12686,7 +12756,7 @@
     "demand_share": 0.264,
     "supply_share": 0.144,
     "index": 1.83,
-    "vpd_median": 1799.7,
+    "vpd_median": 1799.45,
     "small_success_rate": 0.273,
     "small_n": 22,
     "questions": 12,
@@ -12719,7 +12789,7 @@
     "demand_share": 0.1,
     "supply_share": 0.062,
     "index": 1.6,
-    "vpd_median": 4531.5,
+    "vpd_median": 4531.0,
     "small_success_rate": 0.269,
     "small_n": 26,
     "questions": 0,
@@ -12733,7 +12803,7 @@
     "demand_share": 0.062,
     "supply_share": 0.053,
     "index": 1.17,
-    "vpd_median": 1933.85,
+    "vpd_median": 1933.55,
     "small_success_rate": 0.118,
     "small_n": 17,
     "questions": 70,
@@ -12766,7 +12836,7 @@
     "demand_share": 0.06,
     "supply_share": 0.061,
     "index": 0.99,
-    "vpd_median": 1691.9,
+    "vpd_median": 1691.6,
     "small_success_rate": 0.136,
     "small_n": 22,
     "questions": 32,
@@ -12799,7 +12869,7 @@
     "demand_share": 0.195,
     "supply_share": 0.223,
     "index": 0.88,
-    "vpd_median": 2695.35,
+    "vpd_median": 2694.85,
     "small_success_rate": 0.153,
     "small_n": 59,
     "questions": 112,
@@ -12832,7 +12902,7 @@
     "demand_share": 0.094,
     "supply_share": 0.111,
     "index": 0.85,
-    "vpd_median": 2641.5,
+    "vpd_median": 2641.0,
     "small_success_rate": 0.176,
     "small_n": 51,
     "questions": 89,
@@ -12865,7 +12935,7 @@
     "demand_share": 0.087,
     "supply_share": 0.108,
     "index": 0.8,
-    "vpd_median": 1680.9,
+    "vpd_median": 1680.7,
     "small_success_rate": 0.111,
     "small_n": 36,
     "questions": 14,
@@ -12898,7 +12968,7 @@
     "demand_share": 0.016,
     "supply_share": 0.022,
     "index": 0.71,
-    "vpd_median": 1774.9,
+    "vpd_median": 1774.6,
     "small_success_rate": 0.077,
     "small_n": 13,
     "questions": 66,
@@ -12931,7 +13001,7 @@
     "demand_share": 0.046,
     "supply_share": 0.089,
     "index": 0.52,
-    "vpd_median": 1312.5,
+    "vpd_median": 1312.3,
     "small_success_rate": 0.225,
     "small_n": 40,
     "questions": 138,
@@ -12964,7 +13034,7 @@
     "demand_share": 0.01,
     "supply_share": 0.028,
     "index": 0.37,
-    "vpd_median": 1695.65,
+    "vpd_median": 1695.45,
     "small_success_rate": 0.0,
     "small_n": 4,
     "questions": 20,
@@ -12994,7 +13064,7 @@
     "theme": "6. 종목 고르기·분석",
     "videos": 90,
     "channels": 35,
-    "demand_share": 0.013,
+    "demand_share": 0.014,
     "supply_share": 0.079,
     "index": 0.17,
     "vpd_median": 261.3,
@@ -13028,31 +13098,31 @@
    "사연·드라마": {
     "videos": 40,
     "index": 0.61,
-    "vpd_median": 1390.9,
+    "vpd_median": 1390.7,
     "small_sample": false
    },
    "오디오북·낭독 (명언·인생조언)": {
     "videos": 28,
     "index": 0.8,
-    "vpd_median": 4343.8,
+    "vpd_median": 4342.7,
     "small_sample": false
    },
    "인터뷰·강연·대담": {
     "videos": 303,
     "index": 1.07,
-    "vpd_median": 1829.9,
+    "vpd_median": 1829.6,
     "small_sample": false
    },
    "브이로그·직접 해본 이야기": {
     "videos": 53,
     "index": 0.78,
-    "vpd_median": 2771.4,
+    "vpd_median": 2771.1,
     "small_sample": false
    },
    "정보·해설 (그 밖)": {
     "videos": 716,
     "index": 1.02,
-    "vpd_median": 1806.4,
+    "vpd_median": 1806.1,
     "small_sample": false
    }
   },
@@ -13064,7 +13134,7 @@
     "recent30": 16,
     "total": 132278,
     "views_median": 148790,
-    "vpd_median": 1902.5,
+    "vpd_median": 1902.2,
     "vpd_per_video": 4.7,
     "big_share": 0.747,
     "small_n": 24,
@@ -13080,7 +13150,7 @@
     "recent30": 26,
     "total": 263414,
     "views_median": 181431,
-    "vpd_median": 2994.8,
+    "vpd_median": 2994.6,
     "vpd_per_video": 3.8,
     "big_share": 0.813,
     "small_n": 17,
@@ -13096,7 +13166,7 @@
     "recent30": 19,
     "total": 241230,
     "views_median": 165445.5,
-    "vpd_median": 2269.7,
+    "vpd_median": 2269.4,
     "vpd_per_video": 3.5,
     "big_share": 0.819,
     "small_n": 17,
@@ -13112,7 +13182,7 @@
     "recent30": 16,
     "total": 256492,
     "views_median": 148790,
-    "vpd_median": 1850.4,
+    "vpd_median": 1850.2,
     "vpd_per_video": 2.5,
     "big_share": 0.825,
     "small_n": 17,
@@ -13128,7 +13198,7 @@
     "recent30": 6,
     "total": 174662,
     "views_median": 147380.0,
-    "vpd_median": 2129.8,
+    "vpd_median": 2129.55,
     "vpd_per_video": 2.4,
     "big_share": 0.888,
     "small_n": 11,
@@ -13144,7 +13214,7 @@
     "recent30": 13,
     "total": 214628,
     "views_median": 124688,
-    "vpd_median": 2674.1,
+    "vpd_median": 2673.2,
     "vpd_per_video": 2.0,
     "big_share": 0.89,
     "small_n": 10,
@@ -13160,7 +13230,7 @@
     "recent30": 11,
     "total": 207112,
     "views_median": 152555.0,
-    "vpd_median": 2165.05,
+    "vpd_median": 2164.85,
     "vpd_per_video": 3.3,
     "big_share": 0.908,
     "small_n": 9,
@@ -13176,7 +13246,7 @@
     "recent30": 11,
     "total": 222357,
     "views_median": 165579,
-    "vpd_median": 2893.3,
+    "vpd_median": 2893.1,
     "vpd_per_video": 3.9,
     "big_share": 0.909,
     "small_n": 5,
@@ -13192,7 +13262,7 @@
     "recent30": 13,
     "total": 175934,
     "views_median": 105844,
-    "vpd_median": 2081.7,
+    "vpd_median": 2081.6,
     "vpd_per_video": 2.2,
     "big_share": 0.913,
     "small_n": 6,
@@ -13224,7 +13294,7 @@
     "recent30": 18,
     "total": 195499,
     "views_median": 118566.5,
-    "vpd_median": 1783.1,
+    "vpd_median": 1782.85,
     "vpd_per_video": 2.7,
     "big_share": 0.885,
     "small_n": 11,
@@ -13240,7 +13310,7 @@
     "recent30": 18,
     "total": 135132,
     "views_median": 109165.5,
-    "vpd_median": 1734.6,
+    "vpd_median": 1734.4,
     "vpd_per_video": 3.0,
     "big_share": 0.865,
     "small_n": 13,
@@ -13256,7 +13326,7 @@
     "recent30": 11,
     "total": 216494,
     "views_median": 45438.0,
-    "vpd_median": 819.75,
+    "vpd_median": 819.55,
     "vpd_per_video": 1.0,
     "big_share": 0.717,
     "small_n": 17,
@@ -13272,7 +13342,7 @@
     "recent30": 15,
     "total": 530042,
     "views_median": 211358,
-    "vpd_median": 3591.8,
+    "vpd_median": 3591.2,
     "vpd_per_video": 2.0,
     "big_share": 0.928,
     "small_n": 7,
@@ -13288,7 +13358,7 @@
     "recent30": 16,
     "total": 66022,
     "views_median": 76152,
-    "vpd_median": 1267.2,
+    "vpd_median": 1267.0,
     "vpd_per_video": 4.9,
     "big_share": 0.835,
     "small_n": 16,
@@ -13304,7 +13374,7 @@
     "recent30": 14,
     "total": 382946,
     "views_median": 166003,
-    "vpd_median": 2686.0,
+    "vpd_median": 2685.6,
     "vpd_per_video": 1.3,
     "big_share": 0.938,
     "small_n": 5,
@@ -13320,7 +13390,7 @@
     "recent30": 18,
     "total": 1404393,
     "views_median": 206706,
-    "vpd_median": 6798.6,
+    "vpd_median": 6796.5,
     "vpd_per_video": 0.7,
     "big_share": 0.939,
     "small_n": 3,
@@ -13336,7 +13406,7 @@
     "recent30": 26,
     "total": 202923,
     "views_median": 3573.0,
-    "vpd_median": 126.05,
+    "vpd_median": 126.0,
     "vpd_per_video": 0.7,
     "big_share": 0.273,
     "small_n": 64,
@@ -13352,7 +13422,7 @@
     "recent30": 17,
     "total": 146122,
     "views_median": 24282.5,
-    "vpd_median": 643.85,
+    "vpd_median": 643.75,
     "vpd_per_video": 1.3,
     "big_share": 0.63,
     "small_n": 20,
@@ -13368,7 +13438,7 @@
     "recent30": 10,
     "total": 353492,
     "views_median": 221234,
-    "vpd_median": 2889.3,
+    "vpd_median": 2888.9,
     "vpd_per_video": 4.8,
     "big_share": 0.945,
     "small_n": 3,
@@ -13384,7 +13454,7 @@
     "recent30": 8,
     "total": 186460,
     "views_median": 62943.0,
-    "vpd_median": 1023.0,
+    "vpd_median": 1022.85,
     "vpd_per_video": 0.7,
     "big_share": 0.875,
     "small_n": 7,
@@ -13400,7 +13470,7 @@
     "recent30": 22,
     "total": 167689,
     "views_median": 116091,
-    "vpd_median": 1763.0,
+    "vpd_median": 1762.8,
     "vpd_per_video": 4.0,
     "big_share": 0.916,
     "small_n": 8,
@@ -13416,7 +13486,7 @@
     "recent30": 17,
     "total": 215805,
     "views_median": 223994.5,
-    "vpd_median": 4412.05,
+    "vpd_median": 4411.0,
     "vpd_per_video": 3.0,
     "big_share": 0.955,
     "small_n": 4,
@@ -13432,7 +13502,7 @@
     "recent30": 3,
     "total": 1750034,
     "views_median": 392132,
-    "vpd_median": 4991.8,
+    "vpd_median": 4991.3,
     "vpd_per_video": 0.3,
     "big_share": 0.956,
     "small_n": 2,
@@ -13448,7 +13518,7 @@
     "recent30": 7,
     "total": 278634,
     "views_median": 152474.5,
-    "vpd_median": 1812.3,
+    "vpd_median": 1812.1,
     "vpd_per_video": 5.2,
     "big_share": 0.959,
     "small_n": 3,
@@ -13464,7 +13534,7 @@
     "recent30": 7,
     "total": 633602,
     "views_median": 289839.0,
-    "vpd_median": 5291.45,
+    "vpd_median": 5290.8,
     "vpd_per_video": 0.9,
     "big_share": 0.966,
     "small_n": 2,
@@ -13480,7 +13550,7 @@
     "recent30": 12,
     "total": 193452,
     "views_median": 96303.5,
-    "vpd_median": 1425.2,
+    "vpd_median": 1425.05,
     "vpd_per_video": 2.6,
     "big_share": 0.97,
     "small_n": 2,
@@ -13496,7 +13566,7 @@
     "recent30": 10,
     "total": 157090,
     "views_median": 8711.5,
-    "vpd_median": 212.85,
+    "vpd_median": 212.8,
     "vpd_per_video": 0.3,
     "big_share": 0.46,
     "small_n": 27,
@@ -13512,7 +13582,7 @@
     "recent30": 13,
     "total": 216788,
     "views_median": 118742.0,
-    "vpd_median": 2063.35,
+    "vpd_median": 2063.2,
     "vpd_per_video": 1.8,
     "big_share": 0.981,
     "small_n": 1,
@@ -13528,7 +13598,7 @@
     "recent30": 6,
     "total": 1617606,
     "views_median": 281964,
-    "vpd_median": 3400.8,
+    "vpd_median": 3400.2,
     "vpd_per_video": 0.3,
     "big_share": 0.984,
     "small_n": 1,
@@ -13544,7 +13614,7 @@
     "recent30": 4,
     "total": 1485877,
     "views_median": 540015,
-    "vpd_median": 7265.0,
+    "vpd_median": 7264.1,
     "vpd_per_video": 0.7,
     "big_share": 0.986,
     "small_n": 1,
@@ -13560,7 +13630,7 @@
     "recent30": 10,
     "total": 228064,
     "views_median": 68355.5,
-    "vpd_median": 934.9,
+    "vpd_median": 934.8,
     "vpd_per_video": 2.0,
     "big_share": 0.971,
     "small_n": 2,
@@ -13576,7 +13646,7 @@
     "recent30": 21,
     "total": 160054,
     "views_median": 22393.5,
-    "vpd_median": 975.1,
+    "vpd_median": 974.9,
     "vpd_per_video": 1.5,
     "big_share": 0.887,
     "small_n": 9,
@@ -13592,7 +13662,7 @@
     "recent30": 15,
     "total": 413341,
     "views_median": 257827,
-    "vpd_median": 5243.9,
+    "vpd_median": 5243.2,
     "vpd_per_video": 1.7,
     "big_share": 1.0,
     "small_n": 0,
@@ -13608,7 +13678,7 @@
     "recent30": 1,
     "total": 228642,
     "views_median": 316205,
-    "vpd_median": 4746.6,
+    "vpd_median": 4746.0,
     "vpd_per_video": 0.5,
     "big_share": 1.0,
     "small_n": 0,
@@ -13624,7 +13694,7 @@
     "recent30": 10,
     "total": 219876,
     "views_median": 217681.5,
-    "vpd_median": 4082.6,
+    "vpd_median": 4082.1,
     "vpd_per_video": 2.6,
     "big_share": 1.0,
     "small_n": 0,
@@ -13640,7 +13710,7 @@
     "recent30": 11,
     "total": 275091,
     "views_median": 187855,
-    "vpd_median": 3151.7,
+    "vpd_median": 3151.2,
     "vpd_per_video": 2.1,
     "big_share": 1.0,
     "small_n": 0,
@@ -13656,7 +13726,7 @@
     "recent30": 23,
     "total": 227560,
     "views_median": 52382.0,
-    "vpd_median": 1430.5,
+    "vpd_median": 1430.35,
     "vpd_per_video": 2.0,
     "big_share": 0.979,
     "small_n": 2,
@@ -13672,7 +13742,7 @@
     "recent30": 14,
     "total": 161938,
     "views_median": 60367.5,
-    "vpd_median": 1383.0,
+    "vpd_median": 1382.8,
     "vpd_per_video": 1.9,
     "big_share": 0.971,
     "small_n": 2,
@@ -13688,7 +13758,7 @@
     "recent30": 30,
     "total": 75258,
     "views_median": 2034.5,
-    "vpd_median": 78.6,
+    "vpd_median": 78.5,
     "vpd_per_video": 0.9,
     "big_share": 0.514,
     "small_n": 35,
@@ -14043,7 +14113,7 @@
      "id": "gboCCahkeLM",
      "title": "코스피는 못 올라                                                                           [지표추적자 1005]",
      "views": 54540,
-     "vpd": 5425.9
+     "vpd": 5421.0
     }
    },
    {
@@ -14091,7 +14161,7 @@
      "id": "DJIxZCCvEyU",
      "title": "이번주 국장 미장 투자자들이 꼭 알아야 하는 증시 핵심 투자 포인트",
      "views": 44910,
-     "vpd": 615.4
+     "vpd": 615.3
     }
    },
    {
@@ -14114,7 +14184,7 @@
      "id": "gkCHBKhWA74",
      "title": "[미장응원송] 나만 화성 못갔쪄 — 성야·잔광 (CINEMATIC POP BALLAD 음악)",
      "views": 25368,
-     "vpd": 1338.0
+     "vpd": 1337.3
     }
    },
    {
@@ -14138,7 +14208,7 @@
      "id": "JREdVuRBv9U",
      "title": "같은 S&P500인데 세금 970만 vs 3700만원…종목 아니라 '이것' 때문입니다",
      "views": 313573,
-     "vpd": 4746.6
+     "vpd": 4746.0
     }
    },
    {
@@ -14161,7 +14231,7 @@
      "id": "pX5cBcS9r9E",
      "title": "퇴직금 3억 주식 투자했다가 한 달 만에 토막 난 이유 | 존리 | ETF아는형",
      "views": 186595,
-     "vpd": 57415.2
+     "vpd": 57252.9
     }
    },
    {
@@ -14185,7 +14255,7 @@
      "id": "Sx0CiT9mJEE",
      "title": "폭락이 무섭지 않은 사람들의 비밀, 저수지투자법",
      "views": 66980,
-     "vpd": 779.2
+     "vpd": 779.1
     }
    },
    {
@@ -14209,7 +14279,7 @@
      "id": "Cx2KhmXJI7k",
      "title": "미국주식 너무 올랐다고요? 10년 전에도 고점이었습니다 | 포메뽀꼬 김지훈 작가 [얘기좀합시다]",
      "views": 504853,
-     "vpd": 110409.3
+     "vpd": 110187.2
     }
    },
    {
@@ -14257,7 +14327,7 @@
      "id": "SKogeS0bYpM",
      "title": "코스피 9,000에도 웃지 못하는 | 고독한 ITZY(있지) 팬미팅 [ENG]",
      "views": 365892,
-     "vpd": 3288.9
+     "vpd": 3288.7
     }
    },
    {
@@ -14281,7 +14351,7 @@
      "id": "pQquJM1LsMY",
      "title": "[삼성전자, SK하이닉스 주가전망 김교수] '새벽 사건발생' 와.. 美 연준 의사록에 핵심 비둘기파 발언에 이상수급 보셨나요?  오늘 싹 다 뒤집힙니다 #삼성전자 #sk하이닉스",
      "views": 11993,
-     "vpd": 3198.6
+     "vpd": 3190.7
     }
    },
    {
@@ -14305,7 +14375,7 @@
      "id": "yRDpbgaZahc",
      "title": "월배당 ETF 10억 투자하면 정말 배당금 얼마? | 종합소득세·건강보험료 계산법 (은퇴 현금흐름 설계)",
      "views": 750300,
-     "vpd": 5488.4
+     "vpd": 5488.0
     }
    },
    {
@@ -14329,7 +14399,7 @@
      "id": "jV_V_oJZqsU",
      "title": "내년 6월까지 주식시장 무조건 오르는 이유, 부를 늘릴 기회는 단 한 번뿐입니다 (매불쇼 ft. 문남중, 최욱)",
      "views": 114178,
-     "vpd": 1580.3
+     "vpd": 1580.1
     }
    },
    {
@@ -14353,7 +14423,7 @@
      "id": "Wc52vsC6q4U",
      "title": "생활비 한 달 5만원..10년 만에 배당금 월 300만원 받는 이유  (조윤진 1부) #세미파이어 #배당투자",
      "views": 825816,
-     "vpd": 9167.9
+     "vpd": 9167.0
     }
    },
    {
@@ -14376,7 +14446,7 @@
      "id": "9E9OrcoMCjk",
      "title": "AI로 주식 자동 매매하면 어떻게 될까?",
      "views": 976300,
-     "vpd": 8335.7
+     "vpd": 8335.1
     }
    },
    {
@@ -14400,7 +14470,7 @@
      "id": "v3lby9QzpS0",
      "title": "'코스피 하락 전환' 맞춘 전문가 \"강세장 종료\"…'5천'도 깨지나 #이재만 _261013",
      "views": 117659,
-     "vpd": 47234.1
+     "vpd": 47060.0
     }
    },
    {
@@ -14424,7 +14494,7 @@
      "id": "hHkzgA2Rrao",
      "title": "KOSPI 급락! 그런데 수익은 미장보다 국장이 더 좋았다? QLD와 국장 비교",
      "views": 5851,
-     "vpd": 4151.7
+     "vpd": 4124.7
     }
    },
    {
@@ -14448,7 +14518,7 @@
      "id": "7rtO_hfLvF8",
      "title": "국민연금 빈칸 메우는 한국 ETF 3개 — 월 200만 원 평생 월급 만들기",
      "views": 608543,
-     "vpd": 3597.5
+     "vpd": 3597.3
     }
    },
    {
@@ -14472,7 +14542,7 @@
      "id": "uY9fN0UJG5c",
      "title": "\"지금 50세라면 복리 투자가 절대 늦지 않은 진짜 이유\"",
      "views": 16666,
-     "vpd": 6250.4
+     "vpd": 6228.9
     }
    },
    {
@@ -14496,7 +14566,7 @@
      "id": "P0cS-_iQJQ8",
      "title": "-2400만원, 아픈 추억도 추억이다 미장 버리고 국장가서 돈 탈탈🔥",
      "views": 20472,
-     "vpd": 6640.7
+     "vpd": 6620.9
     }
    },
    {
@@ -14520,7 +14590,7 @@
      "id": "r26G8V5qGZg",
      "title": "코스피 장중 6000선 하회, 이동평균선에 주목해야 하는 이유 #코스피 #이동평균선 #sk하이닉스",
      "views": 153371,
-     "vpd": 68657.9
+     "vpd": 68375.7
     }
    },
    {
@@ -14544,7 +14614,7 @@
      "id": "dydejylfoKQ",
      "title": "첫 1억 모으기 앞당기는 방법 | 미국주식, 재테크, 월급, 경제적자유, 나스닥, QQQ",
      "views": 3503,
-     "vpd": 1559.9
+     "vpd": 1553.6
     }
    },
    {
@@ -14568,7 +14638,7 @@
      "id": "N5MkG8RV4Jw",
      "title": "삼성전자·SK하이닉스 장기투자? “저는 반대합니다” 우주산업은 다르다? #스페이스x #정의훈연구원 #shorts",
      "views": 36048,
-     "vpd": 28377.0
+     "vpd": 28172.5
     }
    },
    {
@@ -14592,7 +14662,7 @@
      "id": "fFURFeLTdAg",
      "title": "주식 상위 2%만 아는 10가지 절대 생존 원칙 (돈의 원리)",
      "views": 305793,
-     "vpd": 2414.6
+     "vpd": 2414.4
     }
    },
    {
@@ -14616,7 +14686,7 @@
      "id": "hWrbXiP00zg",
      "title": "' 로또 조작설 ' 많이도 해먹었다 ?! 코스피 다 때려맞춘 용한 무당이 신점으로 본 복권위원장 임기근 사주 속 불편한 이야기 ! / 임기근사주 , 사주풀이",
      "views": 10552,
-     "vpd": 4749.7
+     "vpd": 4730.1
     }
    }
   ]
@@ -14985,14 +15055,14 @@
     "n": 7
    },
    {
-    "word": "3년",
+    "word": "2개",
     "hits": 0.027,
     "normal": 0.0,
     "diff": 0.027,
     "n": 5
    },
    {
-    "word": "2개",
+    "word": "3년",
     "hits": 0.027,
     "normal": 0.0,
     "diff": 0.027,
@@ -15050,13 +15120,6 @@
     "n": 6
    },
    {
-    "word": "미국주식",
-    "hits": 0.022,
-    "normal": 0.049,
-    "diff": -0.027,
-    "n": 15
-   },
-   {
     "word": "몰아보기",
     "hits": 0.0,
     "normal": 0.027,
@@ -15064,7 +15127,14 @@
     "n": 6
    },
    {
-    "word": "노후준비",
+    "word": "미국주식",
+    "hits": 0.022,
+    "normal": 0.049,
+    "diff": -0.027,
+    "n": 15
+   },
+   {
+    "word": "같은",
     "hits": 0.005,
     "normal": 0.031,
     "diff": -0.026,
@@ -15531,8 +15601,8 @@
  },
  "transcripts": {
   "full": 0,
-  "partial": 11,
-  "none": 56
+  "partial": 15,
+  "none": 52
  },
  "thumb_pages": [
   [

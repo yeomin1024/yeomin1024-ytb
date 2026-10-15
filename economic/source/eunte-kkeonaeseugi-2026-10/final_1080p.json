@@ -1,0 +1,27 @@
+{
+ "tool": "v1.0",
+ "created": "2026-10-15T07:45:19+00:00",
+ "video": "eunte-kkeonaeseugi-2026-10",
+ "topic": "economic",
+ "source": "economic/out/eunte-kkeonaeseugi-2026-10/final_1080p.mp4",
+ "source_mb": 29.97,
+ "source_sha256": "9681d64d75b0c0ca08a74cb98bf3c2e2ae6985b24c1a25571efb76c3b4ed7ea1",
+ "file": "final_1080p.mp4",
+ "mb": 19.47,
+ "sha256": "136f3e2d27050b8b75a7994b653f487f64016cc7260038e6edf6f2410f8e2257",
+ "seconds": 478.533,
+ "crf": 23,
+ "preset": "medium",
+ "tune": "animation",
+ "audio": "aac 96k mono 48kHz",
+ "ssim": 0.999272,
+ "loudness_before": {
+  "I": -14.24,
+  "TP": -1.69
+ },
+ "loudness_after": {
+  "I": -14.29,
+  "TP": -1.73
+ },
+ "elapsed_s": 311.8
+}

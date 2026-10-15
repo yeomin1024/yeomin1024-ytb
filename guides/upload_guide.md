@@ -1,6 +1,6 @@
 # 사연형 설명 영상 — 업로드 지시사항 (공통)
 
-버전: v1.5 — 2026-10-12 — 사용자 지시: 올린 영상의 사연을 줄일 때 자를 구간 알려 주기·대본 고치기 → **10번 올린 영상 줄이기 (스튜디오 컷, `tools/studio_trim.py`)** (v1.4 — 2026-10-11 — 사용자 지시: '변경되거나 합성된 콘텐츠'는 **예** (내레이션이 AI 음성, 업로드 도구가 자동 등록) (v1.3: 렌더 완료 1시간 뒤 **예약 공개** (9번); v1.2: API 비공개 자동 업로드, 썸네일 이미지 위치; v1.1: SRT 그대로 업로드, 챕터는 문장 번호))
+버전: v1.6 — 2026-10-15 — 사용자 지시 "영상 만들었으면 각 영상 압축해서 저장소에 올리고 실행하면 해당 영상 유튜브에 자동 예약으로 1시간 후 업로드하는 colab 코드 전체 하나로": **11번 Colab 셀 하나로 예약 업로드** (압축본 `source/<영상ID>/final_1080p.mp4` — `tools/compress_video.py`, 일괄 업로드 `tools/colab_youtube.py`, `youtube_upload.py` v1.4) (v1.5 — 2026-10-12 — 사용자 지시: 올린 영상의 사연을 줄일 때 자를 구간 알려 주기·대본 고치기 → **10번 올린 영상 줄이기 (스튜디오 컷, `tools/studio_trim.py`)** (v1.4 — 2026-10-11 — 사용자 지시: '변경되거나 합성된 콘텐츠'는 **예** (내레이션이 AI 음성, 업로드 도구가 자동 등록) (v1.3: 렌더 완료 1시간 뒤 **예약 공개** (9번); v1.2: API 비공개 자동 업로드, 썸네일 이미지 위치; v1.1: SRT 그대로 업로드, 챕터는 문장 번호)))
 
 영상이 완성되면 Claude Code가 이 순서대로 **업로드 시트 `<주제폴더>/source/<영상ID>/upload.md`** 를 만든다. 사용자는 이 시트를 보고 YouTube 스튜디오에 그대로 붙여 넣는다.
 주제 전용 규칙 `<주제폴더>/guides/upload_rules.md`(예: `stock/guides/upload_rules.md`)를 함께 읽는다. **이 파일과 다르면 주제 규칙을 따른다.**
@@ -11,7 +11,7 @@
 | `source/<영상ID>/<영상ID>.txt`, `.srt` | 설명란 요약, 챕터, 업로드용 자막 |
 | `source/<영상ID>/README.md` | 출처 링크 (설명란 "출처") |
 | `source/<영상ID>/thumbnails/thumbnail_1~3.md` | 테스트 및 비교에 넣을 썸네일 3개 (이미지는 사용자가 이미지 AI로 만들어 같은 폴더에 `thumbnail_N.png`) |
-| `out/<영상ID>/final_1080p.mp4` | 업로드할 영상 |
+| `out/<영상ID>/final_1080p.mp4` | 업로드할 영상 (렌더 원본, git 에 없음) — 없으면 저장소의 압축본 `source/<영상ID>/final_1080p.mp4` (11번) |
 
 ---
 
@@ -140,10 +140,63 @@ YouTube는 설명란 첫 2줄(약 100자)만 "더보기" 전에 보여 준다. �
 - ⚠️ 저장한 편집은 '원본으로 되돌리기'가 안 된다 (2025년 6월부터). 조회수 10만이 넘은 영상은 파트너 프로그램이 아니면 저장이 막힐 수 있다.
 - 자막은 화면에 박혀 있어 함께 잘린다. 유튜브 자막 파일을 따로 올렸다면 잘라 낸 SRT로 다시 올린다.
 
+## 11. Colab 셀 하나로 예약 업로드 (사용자 지시 2026-10-15)
+
+사용자 지시: "영상 만들었으면 각 영상 압축해서 저장소에 올리고 실행하면 해당 영상 유튜브에 자동 예약으로 1시간 후 업로드하는 colab 코드 전체 하나로 알려줘".
+
+1. **Claude** — 렌더가 끝나면 영상마다 압축본을 저장소에 올린다: `python tools/compress_video.py <주제> <영상ID>` (또는 `--all`)
+   → `<주제>/source/<영상ID>/final_1080p.mp4` + 기록 `final_1080p.json`.
+   - 영상 H.264 CRF 23·medium·tune animation, 소리 AAC 96 kbps 단일 채널. 원본(CRF 18)과 SSIM 0.999 이상, 음량 -14 LUFS·트루 피크 -1.5 dBTP 이하 그대로 (넘으면 소리는 원본 복사). 8분 영상 약 20MB (GitHub 한 파일 한도 100MB, 95MB 넘으면 멈춤).
+   - 업로드 시트 `upload.md`(8번)도 같이 올린다. 제목은 시트 1번 코드 블록 — 바꾸려면 GitHub 에서 그 줄만 고친다.
+2. **사용자** — Colab 에 아래 셀 하나를 붙여 실행한다. 처음 한 번만 왼쪽 🔑(보안 비밀)에 `GITHUB_TOKEN`(Kaggle 과 같은 토큰)·`YOUTUBE_CLIENT_ID`·`YOUTUBE_CLIENT_SECRET`·`YOUTUBE_REFRESH_TOKEN`(`pipeline.md` '처음 한 번 할 일' B, 클라우드 환경에 넣은 값과 같음)을 넣고 **노트북 액세스**를 켠다.
+3. 셀이 하는 일 (`tools/colab_youtube.py`):
+   - 저장소에서 `tools`·`economic/source`만 받는다 (비공개 저장소도 — 토큰을 git 머리글로, 값은 출력하지 않음).
+   - 준비된 영상(시트·영상 파일이 있고 `youtube.json`이 없는 것)마다 `youtube_upload.py`로 **비공개 업로드 + 실행 시각 + 1시간 예약 공개**, 자막(SRT)·썸네일(있으면)·합성 콘텐츠 '예'.
+   - 영상 하나가 끝날 때마다 `youtube.json`을 main 에 올린다 → 셀을 다시 실행해도 같은 영상을 두 번 올리지 않는다.
+   - 끝에 표: 영상 · 결과 · 유튜브 주소 · 공개 시각(한국).
+   - 할당량: 영상 하나 약 2,050단위, 하루 10,000 → **하루 최대 4개** (`--max 4`). 넘으면 멈추고 다음 날 같은 셀을 다시 실행.
+   - 영상 여러 개를 같은 시각에 공개하지 않으려면 `GAP = "24h"` (하루에 하나씩).
+   - 먼저 확인만: `DRY_RUN = True` (키 없이도 된다).
+
+```
+# 유튜브 예약 업로드 — Colab 셀 하나 (guides/upload_guide.md 11번)
+# 처음 한 번: 왼쪽 🔑(보안 비밀)에 GITHUB_TOKEN · YOUTUBE_CLIENT_ID · YOUTUBE_CLIENT_SECRET · YOUTUBE_REFRESH_TOKEN 을 넣고 '노트북 액세스'를 켠다
+DELAY = "1h"      # 예약 공개 = 실행 시각 + 1시간
+GAP = "0m"        # 영상이 여러 개일 때 공개 간격 ("24h" = 하루에 하나씩)
+IDS = ""          # 비우면 준비된 영상 전부 · 하나만: "isa-mangi-2026-10"
+DRY_RUN = False   # True = 올리지 않고 확인만
+
+import os, sys, base64, subprocess
+from google.colab import userdata
+for k in ("GITHUB_TOKEN", "YOUTUBE_CLIENT_ID", "YOUTUBE_CLIENT_SECRET", "YOUTUBE_REFRESH_TOKEN"):
+    try:
+        os.environ[k] = userdata.get(k)
+    except Exception as e:
+        raise SystemExit(f"보안 비밀 {k} 를 읽지 못함 ({type(e).__name__}) → 왼쪽 🔑에 넣고 '노트북 액세스'를 켠 뒤 다시 실행")
+os.environ.update(GIT_CONFIG_COUNT="1", GIT_CONFIG_KEY_0="http.https://github.com/.extraheader",
+                  GIT_CONFIG_VALUE_0="AUTHORIZATION: basic " + base64.b64encode(("x-access-token:" + os.environ["GITHUB_TOKEN"]).encode()).decode())
+R = "/content/yeomin1024-ytb"
+def sh(*cmd):
+    print("$", " ".join(cmd), flush=True)
+    subprocess.run(cmd, check=True)
+if not os.path.isdir(R):
+    sh("git", "clone", "-q", "--depth", "1", "--filter=blob:none", "--sparse", "https://github.com/yeomin1024/yeomin1024-ytb.git", R)
+sh("git", "-C", R, "sparse-checkout", "set", "tools", "economic/source")
+sh("git", "-C", R, "fetch", "-q", "--depth", "1", "origin", "main")
+sh("git", "-C", R, "reset", "-q", "--hard", "origin/main")
+args = [sys.executable, f"{R}/tools/colab_youtube.py", "--delay", DELAY, "--gap", GAP] + (["--ids", IDS] if IDS else []) + (["--dry-run"] if DRY_RUN else [])
+print("종료 코드", subprocess.run(args).returncode)
+```
+
+- ⚠️ 예약 시각 전에 스튜디오에서 영상·자막·썸네일을 확인한다. 썸네일 파일이 없으면 유튜브가 고른 장면이 쓰이니 스튜디오에서 바꾼다.
+- ⚠️ Google 감사를 받지 않은 API 프로젝트로 올린 영상은 비공개로 잠겨 예약 공개가 되지 않을 수 있다 (`pipeline.md` '업로드 주의'). 그때는 압축본(저장소의 `final_1080p.mp4`)을 스튜디오에서 직접 올린다.
+- 업로드를 취소하려면 스튜디오에서 그 영상을 지우고, 저장소의 `youtube.json`도 지운다 (다시 올릴 수 있게).
+
 ## 변경 이력
 
 | 버전 | 날짜 | 변경 내용 |
 |---|---|---|
+| v1.6 | 2026-10-15 | 사용자 지시: 압축본을 저장소에 올리고 Colab 셀 하나로 비공개 업로드 + 1시간 뒤 예약 공개 (`compress_video.py` v1.0, `colab_youtube.py` v1.0, `youtube_upload.py` v1.4) | 11 |
 | v1.5 | 2026-10-12 | 사용자 지시: 올린 영상의 사연 줄이기 — 스튜디오 '새 컷'으로 문장 빼기, 자를 시각 계산·대본/SRT/챕터 맞추기 (`tools/studio_trim.py` v1.0) | 10 |
 | v1.4 | 2026-10-11 | 사용자 지시: 업로드 설정 '변경되거나 합성된 콘텐츠' = 예 (AI 음성 내레이션), API로 자동 등록 (`youtube_upload.py` v1.3) | 6, 9 |
 | v1.3 | 2026-10-10 | 사용자 지시: 9번 공개 상태를 비공개 + 렌더 완료 1시간 뒤 예약 공개로 | 9 |

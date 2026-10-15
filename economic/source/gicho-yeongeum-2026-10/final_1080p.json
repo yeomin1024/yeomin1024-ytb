@@ -1,0 +1,27 @@
+{
+ "tool": "v1.0",
+ "created": "2026-10-15T07:54:36+00:00",
+ "video": "gicho-yeongeum-2026-10",
+ "topic": "economic",
+ "source": "economic/out/gicho-yeongeum-2026-10/final_1080p.mp4",
+ "source_mb": 25.09,
+ "source_sha256": "6d4daff535b8656933f7495a5c341f47670da9fbe9648e8def89118cc3ac5d09",
+ "file": "final_1080p.mp4",
+ "mb": 16.52,
+ "sha256": "656cdfebe95f39d3728266cdb2399f1bd173caf70ab8cb8c8ad5712b48464527",
+ "seconds": 432.133,
+ "crf": 23,
+ "preset": "medium",
+ "tune": "animation",
+ "audio": "aac 96k mono 48kHz",
+ "ssim": 0.999322,
+ "loudness_before": {
+  "I": -14.25,
+  "TP": -1.59
+ },
+ "loudness_after": {
+  "I": -14.29,
+  "TP": -1.61
+ },
+ "elapsed_s": 154.3
+}

@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.3 — 2026-10-11 — '변경되거나 합성된 콘텐츠'를 업로드 시트에서 읽어 status.containsSyntheticMedia로 등록 (사용자 지시: 합성 콘텐츠 "예" — 내레이션이 AI 음성). 시트에 줄이 없으면 "예"
+# VERSION: v1.4 — 2026-10-15 — 사용자 지시 "각 영상 압축해서 저장소에 올리고 … colab 코드": 올릴 영상을 out/<영상ID>/final_1080p.mp4 (렌더 원본)
+#          가 없으면 저장소의 압축본 source/<영상ID>/final_1080p.mp4 (tools/compress_video.py) 에서 찾는다 — Colab 은 저장소만 받으므로.
+#          Colab 일괄 업로드 tools/colab_youtube.py 가 run()·find_video()·check_auth() 를 부른다 (업로드 실패는 예전처럼 RuntimeError).
+# (v1.3 — 2026-10-11 — '변경되거나 합성된 콘텐츠'를 업로드 시트에서 읽어 status.containsSyntheticMedia로 등록 (사용자 지시: 합성 콘텐츠 "예" — 내레이션이 AI 음성). 시트에 줄이 없으면 "예"
 #          (v1.2: 예약 공개(--publish-at, 사용자 지시 '렌더 완료 1시간 뒤'); v1.1: 사용자가 만든 썸네일 이미지를 1280×720·2MB 이하로 맞춤, 채택 제목의 짝 썸네일; v1.0: 비공개 업로드 — 제목·설명란·태그·카테고리·자막·썸네일 1개, 표준 라이브러리만)
 r"""
 업로드 시트(upload.md)대로 완성 영상을 유튜브에 **비공개**로 올립니다. (guides/pipeline.md 4단계, guides/upload_guide.md 9번)
@@ -18,7 +21,7 @@ r"""
   source/<영상ID>/upload.md          1번 제목 · 2번 설명란 · 3번 챕터 명령(--chapters) · 4번 태그 (각 섹션의 첫 코드 블록)
                                     · 업로드 설정 표의 '변경되거나 합성된 콘텐츠' 줄(예/아니요) → status.containsSyntheticMedia (줄이 없으면 예)
   source/<영상ID>/<영상ID>.txt·.srt  챕터를 지금 SRT(= 영상 시간)로 다시 계산해 설명란 "■ 챕터"를 바꿔 넣음
-  out/<영상ID>/final_1080p.mp4       올릴 영상
+  out/<영상ID>/final_1080p.mp4       올릴 영상 (없으면 저장소의 압축본 source/<영상ID>/final_1080p.mp4 — v1.4, Colab 업로드)
   source/<영상ID>/thumbnails/thumbnail_N.png·jpg·webp   이미지 AI로 만든 썸네일 (N = titles.md 채택 제목의 짝, 기본 1)
                                     → 1280×720이 아니거나 2MB를 넘으면 ffmpeg로 가운데 기준 16:9 자르기·JPG 변환해 올림
 
@@ -299,6 +302,14 @@ def prepare_thumbnail(img, out_dir):
     return out
 
 
+def find_video(topic, vid):
+    """올릴 영상: 렌더 원본(out/, git 에 없음)이 있으면 그것, 없으면 저장소의 압축본(source/, tools/compress_video.py). 둘 다 없으면 원본 경로."""
+    for p in (ROOT / topic / "out" / vid / "final_1080p.mp4", ROOT / topic / "source" / vid / "final_1080p.mp4"):
+        if p.exists():
+            return p
+    return ROOT / topic / "out" / vid / "final_1080p.mp4"
+
+
 def sha256(path):
     h = hashlib.sha256()
     with path.open("rb") as f:
@@ -317,7 +328,7 @@ def run(topic, vid, dry_run=False, privacy="private", force=False, no_captions=F
         st = json.loads(state_path.read_text("utf-8"))
         log("SKIP", video=vid, reason="이미 업로드됨", youtube_id=st.get("videoId"), hint="--force 로 다시 올림")
         return st
-    video_path = Path(video) if video else out / "final_1080p.mp4"
+    video_path = Path(video) if video else find_video(topic, vid)
     srt_path = src / f"{vid}.srt"
     thumb_n = paired_thumbnail(topic, vid)
     thumb_src = find_thumbnail(topic, vid, thumb_n)
@@ -390,7 +401,7 @@ def main(argv=None):
     ap.add_argument("--check-auth", action="store_true", help="키로 채널 이름만 확인")
     ap.add_argument("--privacy", default="private", choices=["private", "unlisted", "public"])
     ap.add_argument("--force", action="store_true", help="youtube.json이 있어도 다시 올림")
-    ap.add_argument("--video", help="영상 파일 경로 (기본: <주제>/out/<영상ID>/final_1080p.mp4)")
+    ap.add_argument("--video", help="영상 파일 경로 (기본: <주제>/out/<영상ID>/final_1080p.mp4, 없으면 source/<영상ID>/final_1080p.mp4)")
     ap.add_argument("--no-captions", action="store_true")
     ap.add_argument("--no-thumbnail", action="store_true")
     ap.add_argument("--publish-at", help="예약 공개 시각: '+1h'·'+90m' 또는 ISO 8601 (예: 2026-10-11T18:00:00+09:00). 비공개로 올리고 그 시각에 공개")

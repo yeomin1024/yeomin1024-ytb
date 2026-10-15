@@ -1,5 +1,42 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-15 (9) — 영상 4개 완성 · 압축본을 저장소에 · Colab 셀 하나로 유튜브 예약 업로드
+
+### 왜 (사용자 지시)
+- "오디오 올렸어 이제 영상 만들었으면 각 영상 압축해서 저장소에 올리고 실행하면 해당 영상 유튜브에 자동 예약으로 1시간 후 업로드하는 colab 코드 전체 하나로 알려줘"
+
+### 바꾼 것
+| 파일 (버전) | 함수·항목 | 내용 |
+|---|---|---|
+| `economic/source/*/…srt` (4개) | align-audio | 새 내레이션(끝 문장만 다시 만든 tts_narration v1.8)에 SRT 시각 맞춤 — 4개 모두 `srt_tool check` ✅ |
+| `video/episodes/toejik-geonbo-2026-10/index.html` v1.0 (새로) | 장면 46개 | 퇴직 후 건보료 영상. still 61장 점검 → 장면 3(화살표 거리)·12(우산 이름표가 손잡이와 겹침)·19(퇴직 전 18개월이 화면 왼쪽 밖)·20(회사 몫 글자 겹침) 고침. `render.mjs check` 문제 0 |
+| `video/episodes/{eunte,gicho,isa}/index.html` | sync | 새 오디오 시각으로 데이터 칸 다시 (`render.mjs check` 문제 0) |
+| `tools/compress_video.py` v1.0 (새로) | `compress`·`encode`·`loudness`·`ssim`·`probe` | 렌더 원본(out/, git 에 없음) → 압축본 `source/<영상ID>/final_1080p.mp4` + `final_1080p.json`. H.264 CRF 23·medium·tune animation, AAC 96k 단일 채널. 길이·음량(-15~-13 LUFS, TP ≤ -1.5)·SSIM·95MB 한도 검사, 같은 원본이면 건너뜀 |
+| `tools/colab_youtube.py` v1.0 (새로) | `find_ready`·`push_state`·`main` | Colab 셀이 부르는 일괄 업로드: 준비된 영상(시트·영상 있고 youtube.json 없음)마다 `youtube_upload.run` → 비공개 + 실행 시각 + 1시간 예약 공개 → youtube.json 을 main 에 (pull --rebase, 4번 다시). `--gap`(공개 간격)·`--max 4`(하루 할당량)·`--dry-run`·할당량 초과면 멈춤 |
+| `tools/youtube_upload.py` v1.3 → v1.4 | `find_video`·`run` | out/ 원본이 없으면 저장소 압축본을 올림 |
+| `economic/source/*/upload.md` v1.0 (4개, 새로) | 업로드 시트 | 제목 = `titles.md` R1(추천안), 설명란(숫자는 대본·README 것만)·챕터 9개(✅ 규칙 통과)·태그 13~14개·고정 댓글·합성 콘텐츠 예 |
+| `tools/tests/test_colab_youtube.py` v1.0 (새로) | 4개 | 준비된 영상 고르기·예약 시각·할당량 초과 멈춤·dry-run 은 키 없이 |
+| `.gitignore` | — | `**/out/**/*_upload.jpg` (업로드 도구의 썸네일 변환본) |
+| `guides/upload_guide.md` v1.5 → v1.6 (11번) · `pipeline.md` v1.25 · `video_guide.md` v4.2 · `guides/README.md` v1.25 · `CLAUDE.md` | — | 압축본을 저장소에, Colab 셀 하나로 예약 업로드. CLAUDE.md Git 규칙: 원본은 안 올리고 압축본만 |
+
+### 검사
+| 영상 | 길이 | 렌더 원본 → 압축본 | SSIM | 음량 (I / 트루 피크) | 소리 |
+|---|---|---|---|---|---|
+| eunte-kkeonaeseugi | 7:58.5 | 30.0 → 19.5MB (-35%) | 0.99927 | -14.29 LUFS / -1.73 dBTP | AAC 96k |
+| gicho-yeongeum | 7:12.1 | 25.1 → 16.5MB (-34%) | 0.99932 | -14.29 / -1.61 | AAC 96k |
+| isa-mangi | 7:01.4 | 24.8 → 20.3MB (-18%) | 0.99931 | -14.15 / -1.59 | 원본 복사 (96k 로 줄이면 트루 피크 +0.99 → 도구가 원본 소리로 다시) |
+| toejik-geonbo | 7:08.7 | 24.8 → 16.3MB (-34%) | 0.99936 | -14.34 / -1.76 | AAC 96k |
+
+- 렌더: `render.mjs video` 3 workers — 영상 1초에 약 0.8초 (7~8분 영상 6분 안팎) + loudnorm 1분.
+- `python3 -m unittest tools.tests.test_colab_youtube tools.tests.test_tts_patch tools.tests.test_content_research tools.tests.test_kaggle_tts_panel` 22개 OK (GITHUB_TOKEN 없이). `test_youtube_feedback` 5개는 지운 stock 폴더를 읽어 전부터 실패 (이번 변경과 무관).
+- `colab_youtube.py --dry-run` (키 없이): 4개 모두 시트 문제 없음, 챕터 9개 ✅. `youtube_upload.py --check-auth` (읽기만): 채널 확인 ok.
+- 업로드는 하지 않았다 — 사용자가 Colab 셀로 한다.
+
+### 한계
+- 4개를 한 번에 올리면 모두 같은 시각(실행 + 1시간)에 공개된다 — 나눠 공개하려면 셀의 `GAP = "24h"`.
+- 썸네일 파일은 은퇴 꺼내 쓰기만 있다 (나머지 3개는 유튜브가 고른 장면 → 스튜디오에서 바꾸기).
+- 감사 전 API 프로젝트면 비공개로 잠길 수 있다 (2026-10-11 주식 영상 4개를 같은 방법으로 예약 업로드했다 — 공개됐는지는 스튜디오에서 확인).
+
 ## 2026-10-15 (8) — 끝인사 "시청해주셔서 감사합니다." · 내레이션은 바뀐 문장만 다시 · 새 스타일 렌더기
 
 ### 왜 (사용자 지시)

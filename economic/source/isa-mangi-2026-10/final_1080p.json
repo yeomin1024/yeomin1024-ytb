@@ -1,0 +1,27 @@
+{
+ "tool": "v1.0",
+ "created": "2026-10-15T07:59:09+00:00",
+ "video": "isa-mangi-2026-10",
+ "topic": "economic",
+ "source": "economic/out/isa-mangi-2026-10/final_1080p.mp4",
+ "source_mb": 24.78,
+ "source_sha256": "51b92fe218e6504331a7dfc222a272d86ad60d095ed075bf34a843d1cdba4378",
+ "file": "final_1080p.mp4",
+ "mb": 20.33,
+ "sha256": "1406bfc8d1aff6e5298f739ad15df834549d05f063fd56922c75b8cfc0d5b974",
+ "seconds": 421.367,
+ "crf": 23,
+ "preset": "medium",
+ "tune": "animation",
+ "audio": "copy",
+ "ssim": 0.999308,
+ "loudness_before": {
+  "I": -14.15,
+  "TP": -1.59
+ },
+ "loudness_after": {
+  "I": -14.15,
+  "TP": -1.59
+ },
+ "elapsed_s": 265.1
+}

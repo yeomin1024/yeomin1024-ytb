@@ -1,0 +1,27 @@
+{
+ "tool": "v1.0",
+ "created": "2026-10-15T08:01:55+00:00",
+ "video": "toejik-geonbo-2026-10",
+ "topic": "economic",
+ "source": "economic/out/toejik-geonbo-2026-10/final_1080p.mp4",
+ "source_mb": 24.82,
+ "source_sha256": "d5c12e8d9e9ebc56a4ba9f60ae69cefea285869ca297d22cdc818d6c535ddf5e",
+ "file": "final_1080p.mp4",
+ "mb": 16.33,
+ "sha256": "b1f4b08efa4f20a773aa1f86be43f26ea544723eb27017682063873a0c2a168a",
+ "seconds": 428.733,
+ "crf": 23,
+ "preset": "medium",
+ "tune": "animation",
+ "audio": "aac 96k mono 48kHz",
+ "ssim": 0.999361,
+ "loudness_before": {
+  "I": -14.29,
+  "TP": -1.7
+ },
+ "loudness_after": {
+  "I": -14.34,
+  "TP": -1.76
+ },
+ "elapsed_s": 157.4
+}

@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 # ================================================================================================
 #  YouTube 분석 PC 실행기 (macOS / Linux)
-#  VERSION: v3.2 — 2026-10-15 — 코드 목록에 tools/shorts_analysis.py (사용자 지시: "… 쇼츠 분석 기능도 추가해 … 전력을 다해서 해봐")
+#  VERSION: v3.3 — 2026-10-15 — --reset-cache: 이 주제의 탐색 캐시·탐색 목록을 치운 뒤 평소처럼 실행 (.yt_work/old/ 로 옮김 — 사용자 지시:
+#           "왜 예전 재테크 캐시가 남아 있어 이거 어떻게해", tools/pc_analysis.py v1.13)
+#  (v3.2 — 2026-10-15 — 코드 목록에 tools/shorts_analysis.py (사용자 지시: "… 쇼츠 분석 기능도 추가해 … 전력을 다해서 해봐"))
 #  (v3.1 — 2026-10-14 — 코드 목록에 tools/success_analysis.py, 설정 목록에 <주제>/analysis_rules.toml (사용자 지시: "… 올바른 분석 결과까지만 내도록 수정해"))
 #  (v3.0 — 2026-10-14 — 실행하면 웹 화면이 뜸 (사용자 지시: "이거 분석기 웹 ui 형식으로 만들어 실행하면 바로 웹 ui가 나와서"):
 #           기본 = tools/web_ui.py (http://127.0.0.1:8765/). 예전 자동 실행은 --auto (--once·cron 도 자동 실행).
@@ -37,6 +39,7 @@
 #    bash run_analyzer.sh --once                # 자동 실행 한 회차만 (남은 부분은 다음에 실행할 때)
 #    bash run_analyzer.sh --print-cron          # 매일 17:15 에 --once 로 돌리는 crontab 줄을 보여 줌 (crontab -e 에 붙여넣기)
 #    bash run_analyzer.sh --update-config       # 설정·검색어 파일도 GitHub 최신으로 (기존 파일은 .bak)
+#    bash run_analyzer.sh --reset-cache --folder stock   # 이 주제 탐색 캐시·탐색 목록 치우고 실행 (.yt_work/old/ 로 옮김)
 #    bash run_analyzer.sh --analyzer-only       # 예전처럼 분석기만 한 번
 #    bash run_analyzer.sh -- --port 8800        # '--' 뒤는 웹 화면 옵션 (--auto 면 tools/pc_analysis.py, --analyzer-only 면 분석기 옵션)
 #
@@ -54,6 +57,7 @@ while [ $# -gt 0 ]; do
     --repo) REPO="$2"; shift 2 ;;
     --branch) BRANCH="$2"; shift 2 ;;
     --update-config) UPDATE_CONFIG=1; shift ;;
+    --reset-cache) RESET_CACHE=1; shift ;;
     --no-venv) NO_VENV=1; shift ;;
     --once) ONCE=1; shift ;;
     --auto) AUTO=1; shift ;;
@@ -185,6 +189,12 @@ if [ "$NO_VENV" = 0 ]; then
     else step "⚠️ ensurepip 실패 → 분석 코드가 공식 get-pip.py 로 한 번 더 시도합니다 (그래도 안 되면 .venv 폴더를 지우고 다시 실행)"; fi
   fi
   PY=".venv/bin/python"
+fi
+
+# ③-1 캐시 치우기 (v3.3) — 이 주제의 탐색 캐시·탐색 목록만, 지우지 않고 .yt_work/old/ 로 옮긴 뒤 평소처럼 실행
+if [ "${RESET_CACHE:-0}" = 1 ]; then
+  step "캐시 치우기: python tools/pc_analysis.py ${FOLDERS[*]} --reset-cache"
+  "$PY" tools/pc_analysis.py "${FOLDERS[@]}" --reset-cache || step "⚠️ 캐시 치우기 실패 (위 줄 확인) — 그대로 실행합니다"
 fi
 
 # ④ 실행

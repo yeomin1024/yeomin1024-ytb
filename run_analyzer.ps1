@@ -1,8 +1,10 @@
 ﻿<#
 ================================================================================================
  YouTube 분석 PC 실행기 (Windows PowerShell)
- VERSION: v3.3 — 2026-10-15 — 코드 목록에 tools/shorts_analysis.py (쇼츠 분석 — 사용자 지시: "… 쇼츠 분석 기능도 추가해 … 전력을 다해서
-          해봐"). 웹 화면 v1.6 의 4번 칸 [롱폼 | 쇼츠]. 실행 명령은 같음
+ VERSION: v3.4 — 2026-10-15 — -ResetCache: 이 주제의 탐색 캐시·탐색 목록을 치운 뒤 평소처럼 실행 (지우지 않고 .yt_work/old/ 로 옮김 —
+          승인한 자료·분석 결과는 그대로. 사용자 지시: "왜 예전 재테크 캐시가 남아 있어 이거 어떻게해"). tools/pc_analysis.py v1.13
+ (v3.3 — 2026-10-15 — 코드 목록에 tools/shorts_analysis.py (쇼츠 분석 — 사용자 지시: "… 쇼츠 분석 기능도 추가해 … 전력을 다해서
+          해봐"). 웹 화면 v1.6 의 4번 칸 [롱폼 | 쇼츠]. 실행 명령은 같음)
  (v3.2 — 2026-10-15 — 안내만 (사용자 지시: "분석기 여러개 열어서 각자 다른 주제로 탐색해도 되지? … economic 같은 주제 경로를
           선택할 수 있게해서 각각 주제별로 탐색할 수 있게"): 웹 화면 v1.5 — -Folder economic,health 면 주제마다 창(포트)을 하나씩 띄움,
           같은 주제 창이 이미 있으면 그 창을 엶. 할당량은 같은 키의 모든 창이 함께 셈(화면 위 '남은 할당량'), 초기화 뒤 남은 것은 저절로 이어서)
@@ -51,6 +53,7 @@
    powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -RegisterTask   # 매일 17:15 에 -Once 로 자동 실행 (창을 닫아도 됨, PC는 켜져 있어야)
    powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -UnregisterTask # 자동 실행 끄기
    powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -UpdateConfig   # 설정·검색어 파일도 GitHub 최신으로 (기존 파일은 .bak)
+   powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -ResetCache -Folder stock   # 이 주제 탐색 캐시·탐색 목록 치우고 실행 (.yt_work/old/ 로 옮김)
    powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -AnalyzerOnly   # 예전처럼 분석기만 한 번
    powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 --port 8800     # 그 밖의 인자는 웹 화면(tools/web_ui.py)으로 (-Auto 면 pc_analysis.py, -AnalyzerOnly 면 분석기로)
 
@@ -66,6 +69,7 @@ param(
     [string]$Repo = "yeomin1024/yeomin1024-ytb",
     [string]$Branch = "main",
     [switch]$UpdateConfig,
+    [switch]$ResetCache,
     [switch]$NoVenv,
     [switch]$Once,
     [switch]$Auto,
@@ -271,6 +275,14 @@ if (-not $NoVenv) {
     }
     $pyExe = $venvPy
     $pyPre = @()
+}
+
+# ③-1 캐시 치우기 (v3.4) — 이 주제의 탐색 캐시·탐색 목록만, 지우지 않고 .yt_work/old/ 로 옮긴 뒤 평소처럼 실행
+if ($ResetCache) {
+    $resetArgs = @("tools/pc_analysis.py") + $Folder + @("--reset-cache")
+    Write-Step "캐시 치우기: python $($resetArgs -join ' ')"
+    & $pyExe @pyPre @resetArgs
+    if ($LASTEXITCODE -ne 0) { Write-Step "⚠️ 캐시 치우기 실패 (위 줄 확인) — 그대로 실행합니다" }
 }
 
 # ④ 실행

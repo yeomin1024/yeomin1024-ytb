@@ -1,7 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.12 — 2026-10-15 — 쇼츠 분석 도구(tools/shorts_analysis.py)도 GitHub 최신으로 받는 코드 목록에 (SYNC_CODE — 사용자 지시:
-#          "깃허브 저장소에 유튜브 분석기 있지? 거기에 쇼츠 분석 기능도 추가해 … 전력을 다해서 해봐". 웹 화면 v1.6 이 켤 때 이 목록으로 받은 뒤 불러옴)
+# VERSION: v1.13 — 2026-10-15 — 주제 캐시 치우기 (사용자 지시: "왜 예전 재테크 캐시가 남아 있어 이거 어떻게해"):
+#          ① reset_topic_cache(주제) — 다시 받을 수 있는 이 주제 캐시(탐색 검색·영상 정보·쇼츠 캐시 <주제>/result/outliers/.cache, 탐색 목록
+#             <주제>/result/web/)를 지우지 않고 .yt_work/old/<주제>_<시각>/ 로 옮김. 승인한 자료·분석 결과·GitHub 은 그대로.
+#             --reset-cache <주제> (run_analyzer.ps1 -ResetCache) · 웹 화면 [캐시 비우기]
+#          ② fresh_start(주제) — 설정 analyzer_config.toml 의 FRESH_START(날짜)가 PC 표시(.yt_work/fresh_start_<주제>.txt)와 다르면
+#             이 주제의 PC 자료 전부(<주제>/result/·분석기 결과 output/<폴더>/·진행·음성인식 기록)를 한 번 옮김 — 예전에 같은 폴더 이름으로
+#             돌린 자료(2026-10-10~12 옛 stock — run_analyzer.ps1 v1 의 기본 주제였음)가 새 주식 결과에 섞이지 않게. 회차마다·웹 화면 켤 때 검사.
+#          VERSION 상수도 맞춤 (머리는 v1.12 인데 상수는 v1.11 이던 것)
+# (v1.12 — 2026-10-15 — 쇼츠 분석 도구(tools/shorts_analysis.py)도 GitHub 최신으로 받는 코드 목록에 (SYNC_CODE — 사용자 지시:
+#          "깃허브 저장소에 유튜브 분석기 있지? 거기에 쇼츠 분석 기능도 추가해 … 전력을 다해서 해봐". 웹 화면 v1.6 이 켤 때 이 목록으로 받은 뒤 불러옴))
 # (v1.11 — 2026-10-15 — 할당량을 키 하나로 함께 셈 (사용자 지시: "웹 ui에 사용량 얼마나 남았는지 표시하고 그리고 분석기 여러개 열어서
 #          각자 다른 주제로 탐색해도 되지? … 사용량 초기화되면 자동으로 다시 분석 마저 하는거지? 그렇게 되야해"):
 #          ① KeyLedger — 같은 YouTube API 키를 쓰는 모든 창·주제·도구가 한 장부(.yt_work/quota_key_<키 지문>.json, 키 자체는 안 씀)를
@@ -94,6 +102,7 @@ import json
 import logging
 import os
 import re
+import shutil
 import subprocess
 import sys
 import threading
@@ -105,7 +114,7 @@ from datetime import date, datetime, time as dtime, timedelta, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v1.11"
+VERSION = "v1.13"
 LOG = logging.getLogger("pc_analysis")
 KST = timezone(timedelta(hours=9))
 LOCK_STALE_MIN = 30          # 잠금 파일이 이 시간 넘게 갱신되지 않으면 이전 실행이 죽은 것으로 봄
@@ -801,6 +810,86 @@ def sync_from_github(folder, code=False, dry=False, fetch=None):
     return res
 
 
+# ---------------------------------------------------------------- 주제 캐시 치우기 (v1.13)
+def _topic_flat(folder):
+    """<주제>/analyzer_config.toml → 평평한 dict (못 읽으면 {})."""
+    flat = {}
+    try:
+        for k, v in _toml().loads((ROOT / folder / "analyzer_config.toml").read_text("utf-8")).items():
+            flat.update(v if isinstance(v, dict) and k != "KEYWORD_GROUPS" else {k: v})
+    except Exception as e:
+        log("RESET", logging.WARNING, folder=folder, note="설정 파일을 읽지 못함", error=f"{type(e).__name__}"[:80])
+    return flat
+
+
+def _archive(paths, folder, why, dry=False):
+    """paths 를 지우지 않고 .yt_work/old/<주제>_<시각>/ 아래로 옮김 (저장소 폴더 기준 경로 그대로 — 되돌리려면 그대로 다시 옮김).
+    저장소 폴더 밖·없는 경로는 건너뜀. → ([옮긴 상대 경로], 옮긴 곳)"""
+    dst = ROOT / ".yt_work" / "old" / f"{re.sub(r'[^0-9A-Za-z_-]+', '_', folder)}_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
+    moved, root = [], ROOT.resolve()
+    for p in paths:
+        p = Path(p)
+        if not p.exists():
+            continue
+        try:
+            rel = p.resolve().relative_to(root)
+        except ValueError:
+            log("RESET", logging.WARNING, folder=folder, path=str(p), note="저장소 폴더 밖이라 건드리지 않음")
+            continue
+        if len(rel.parts) < 2 or rel.parts[0] in (".git", "tools") or rel == Path(folder):    # 저장소 폴더·주제 폴더 자체는 안 옮김
+            log("RESET", logging.WARNING, folder=folder, path=rel.as_posix() or ".", note="옮기면 안 되는 경로 — 건너뜀")
+            continue
+        if not dry:
+            t = dst / rel
+            t.parent.mkdir(parents=True, exist_ok=True)
+            shutil.move(str(p), str(t))
+        moved.append(rel.as_posix())
+    log("RESET", folder=folder, why=why, moved=len(moved), paths=",".join(moved) or "-",
+        to=dst.relative_to(ROOT).as_posix() if moved else "-", dry_run=dry,
+        note="지우지 않고 옮김 — 필요 없으면 .yt_work/old 폴더를 지워도 됨" if moved else "치울 것 없음")
+    return moved, (dst if moved and not dry else None)
+
+
+def reset_topic_cache(folder, full=False, dry=False, why="손으로"):
+    """이 주제의 PC 캐시를 치움 (지우지 않고 .yt_work/old/ 로 옮김). → {"moved": [상대 경로], "to": 경로|None, "full": bool}
+    full=False (어느 주제나 안전 — --reset-cache · 웹 화면 [캐시 비우기]): 다시 받을 수 있는 것만 — 탐색 검색·영상 정보·채널·자동완성·
+      쇼츠 캐시(<주제>/result/outliers/.cache)와 탐색 목록·체크(<주제>/result/web/). 승인한 자료(W_·S_)·analysis.md·GitHub 은 그대로.
+      다음 탐색은 처음부터 새로 검색한다 (할당량을 씀 — 검색 1번 100단위).
+    full=True (fresh_start 로만 — 새로 시작하는 주제): <주제>/result/ 전부 + 분석기 결과(output/<폴더>/) + 이 주제 진행·음성인식 기록.
+    분석기의 API 응답 캐시(.yt_work/cache)는 모든 주제가 함께 쓰는 '같은 요청 = 같은 답' 캐시라 여기서 건드리지 않는다
+    (주제 결과가 섞이지 않음 — 주제마다 관련어로 거름)."""
+    _, an_out, od = read_paths(folder)
+    if full:
+        tag = re.sub(r"[^0-9A-Za-z가-힣]+", "_", str(folder)).strip("_") or "topic"     # outlier_research._folder_tag 와 같음
+        an_dir = an_out.parent                                   # output/<PROJECT_FOLDER>/ (분석기가 매 실행 새로 만드는 결과)
+        if an_dir.resolve() in (ROOT.resolve(), (ROOT / folder).resolve()):   # OUTPUT_DIR = "." 같은 설정이면 결과 폴더만
+            an_dir = an_out
+        paths = [ROOT / folder / "result", an_dir, ROOT / ".yt_work" / f"pc_progress_{folder}.json", ROOT / ".yt_work" / f"whisper_{tag}.json"]
+    else:
+        paths = [od / ".cache", ROOT / folder / "result" / "web"]
+    moved, to = _archive(paths, folder, why, dry)
+    return {"moved": moved, "to": to.relative_to(ROOT).as_posix() if to else None, "full": full}
+
+
+def fresh_start(folder, dry=False):
+    """설정의 FRESH_START = "날짜" 가 PC 표시(.yt_work/fresh_start_<주제>.txt)와 다르면 이 주제의 PC 자료를 한 번 치움 (full).
+    같으면·FRESH_START 가 없으면(economic) 아무것도 안 함. 처음 켜는 PC(자료 없음)는 표시만 씀. → reset 결과 또는 None"""
+    want = str(_topic_flat(folder).get("FRESH_START") or "").strip()
+    if not want:
+        return None
+    mark = ROOT / ".yt_work" / f"fresh_start_{re.sub(r'[^0-9A-Za-z_-]+', '_', folder)}.txt"
+    try:
+        have = mark.read_text("utf-8").strip()
+    except OSError:
+        have = ""
+    if have == want:
+        return None
+    r = reset_topic_cache(folder, full=True, dry=dry, why=f"FRESH_START {want} (PC 표시 {have or '없음'})")
+    if not dry:
+        mark.parent.mkdir(parents=True, exist_ok=True)
+        mark.write_text(want + "\n", "utf-8")
+    return r
+
 def analyzer_done_recently(folder, days=7):
     """앞 회차(이 실행 또는 --once 로 부른 예전 실행)에서 분석기가 이월 검색어 없이 끝났으면 그 시각 (days 일 안), 아니면 None.
     v1.7: 그때의 검색어 지문이 지금과 다르면(검색어를 고쳤으면) None → 분석기를 다시 돌림 (받은 검색은 캐시라 바뀐 검색어만 새로)."""
@@ -1018,6 +1107,10 @@ def run(opts, runner=run_child, now_fn=lambda: datetime.now(timezone.utc), sleep
                     sync_from_github(folder, code=not opts.child, dry=opts.dry_run)
                 except Exception as e:
                     log("SYNC", logging.WARNING, note="GitHub 에서 설정을 받지 못함 — PC 에 있는 파일로 계속", error=f"{type(e).__name__}: {e}"[:200])
+            try:                                                # v1.13: 새로 시작하는 주제(FRESH_START)면 예전 PC 자료를 한 번 옮김
+                fresh_start(folder, dry=opts.dry_run)
+            except Exception as e:
+                log("RESET", logging.WARNING, folder=folder, note="옛 자료 옮기기 실패 — 그대로 계속", error=f"{type(e).__name__}: {e}"[:200])
             complete, info = one_round(folder, opts, k, runner, now_fn)
             if complete:
                 log("DONE", folder=folder, rounds=k, note="못 한 일 없음 — 끝" if not opts.dry_run else "dry-run")
@@ -1452,6 +1545,8 @@ def main(argv=None):
     ap.add_argument("--margin-min", type=int, default=10)
     ap.add_argument("--force", action="store_true", help="잠금 파일이 있어도 실행 (이전 실행이 확실히 멈췄을 때)")
     ap.add_argument("--self-test", action="store_true")
+    ap.add_argument("--reset-cache", action="store_true",
+                    help="이 주제의 탐색 캐시·탐색 목록만 치우고 끝 (지우지 않고 .yt_work/old/ 로 옮김 — 승인한 자료·결과는 그대로)")
     ap.add_argument("--log-level", default="INFO", choices=["DEBUG", "INFO", "WARNING"])
     opts = ap.parse_args(argv)
     logging.basicConfig(level=getattr(logging, opts.log_level), format="%(message)s", stream=sys.stdout)
@@ -1459,6 +1554,11 @@ def main(argv=None):
         return self_test()
     reset_utc, how = next_quota_reset(datetime.now(timezone.utc), opts.margin_min)
     folders = [f for x in opts.folders for f in str(x).split(",") if f.strip()]
+    if opts.reset_cache:                                    # v1.13: run_analyzer.ps1 -ResetCache
+        for f in folders:
+            r = reset_topic_cache(f, dry=opts.dry_run, why="--reset-cache")
+            print(f"  ▶ {f}: 캐시 {len(r['moved'])}곳 치움" + (f" → {r['to']}" if r["to"] else " (치울 것 없음)"), flush=True)
+        return 0
     if len(folders) > 1:
         log("START", tool=f"pc_analysis.py {VERSION}", mode="parallel", folders=",".join(folders), once=opts.once, dry_run=opts.dry_run,
             next_quota_reset_kst=reset_utc.astimezone(KST).isoformat(timespec="minutes"))

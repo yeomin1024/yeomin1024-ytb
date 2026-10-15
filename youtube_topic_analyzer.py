@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v2.11.0 — 2026-10-15 — 음성인식 대기열에 쇼츠 (사용자 지시: "깃허브 저장소에 유튜브 분석기 있지? 거기에 쇼츠 분석 기능도 추가해 …
+# VERSION: v2.11.1 — 2026-10-15 — 설정 파일의 FRESH_START(PC 실행기 tools/pc_analysis.py v1.13 가 읽음 — 새로 시작하는 주제의 옛 PC 자료 옮기기)를
+#          '모르는 설정' 경고 없이 넘김 (CONFIG_OTHER_TOOLS). 분석 동작은 그대로 (사용자 지시: "왜 예전 재테크 캐시가 남아 있어 이거 어떻게해")
+# (v2.11.0 — 2026-10-15 — 음성인식 대기열에 쇼츠 (사용자 지시: "깃허브 저장소에 유튜브 분석기 있지? 거기에 쇼츠 분석 기능도 추가해 …
 #          전력을 다해서 해봐" — 웹 화면 v1.6 이 쇼츠를 <주제>/result/outliers/shorts/S_<영상ID>/ 에 받음):
 #          ① speech_queue_items 가 쇼츠(S_) 폴더도 — 쇼츠 먼저 (WHISPER_QUEUE_SHORTS_FIRST, 쇼츠는 3분 이하라 하나에 1~2분 · 성공 쇼츠
 #             (shorts/analysis.json #) 먼저), 1차에 끝까지 (앞 5분 자르기 없음)
 #          ② 쇼츠는 VAD(말소리 찾기) 없이 다시 돌리지 않음 (transcript_via_whisper vad_retry=False) — 음악·화면 글자만 있는 쇼츠에서 Whisper 가
 #             '시청해 주셔서 감사합니다' 같은 헛말을 만드는 것을 막음. 말이 없으면 실패가 아니라 '말 없음'(transcript.json no_speech)으로 끝
-#          ③ 쇼츠 하나가 끝날 때마다 쇼츠 분석(tools/shorts_analysis.py → shorts/analysis.md)을 다시 (롱폼 요약·주별 분석은 롱폼 영상일 때만)
+#          ③ 쇼츠 하나가 끝날 때마다 쇼츠 분석(tools/shorts_analysis.py → shorts/analysis.md)을 다시 (롱폼 요약·주별 분석은 롱폼 영상일 때만))
 # (v2.10.1 — 2026-10-15 — 음성인식은 PC 한 대에서 한 번에 하나 (사용자 지시: "분석기 여러개 열어서 각자 다른 주제로 탐색해도 되지?"):
 #          주제가 달라도 Whisper 는 PC 를 거의 다 씀 → .yt_work/whisper_machine.lock (OS 잠금) — 다른 주제의 음성인식이 도는 중이면
 #          끝나길 기다렸다가 이어서 (WHISPER_MACHINE_WAIT_H 시간까지, 30초마다 확인). 같은 주제는 예전처럼 '이미 도는 중'으로 건너뜀)
@@ -368,7 +370,7 @@ import numpy as np
 import pandas as pd
 import requests
 
-NOTEBOOK_VERSION = "v2.11.0"
+NOTEBOOK_VERSION = "v2.11.1"
 KST = dt.timezone(dt.timedelta(hours=9))
 UTC = dt.timezone.utc
 IS_WINDOWS = os.name == "nt"
@@ -571,6 +573,7 @@ def collect_config(namespace):
 
 # ----------------------------------------------------------------------------- 설정 파일 (TOML)
 CONFIG_SCRIPT_ONLY = {"AUTO_INSTALL_PACKAGES", "UPDATE_YTDLP_DAILY"}   # 설정 파일을 읽기 전(패키지 설치 단계)에 쓰이므로 파일로는 못 바꿈
+CONFIG_OTHER_TOOLS = {"FRESH_START"}   # v2.11.1: 같은 설정 파일을 읽는 다른 도구의 값 (pc_analysis.fresh_start) — 분석기는 쓰지 않고 경고도 안 냄
 
 
 def _toml_module():
@@ -625,6 +628,8 @@ def apply_config_file(cfg, path):
     for k, v in flat.items():
         if k in CONFIG_SCRIPT_ONLY:
             ignored.append(k)
+            continue
+        if k in CONFIG_OTHER_TOOLS:
             continue
         if k not in cfg:
             hint = difflib.get_close_matches(k, list(cfg), n=1)

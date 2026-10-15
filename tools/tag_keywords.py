@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.3 — 2026-10-15 — 남는 태그 묶음 이름을 주제마다 (tag_rules.toml TAG_OTHER, 없으면 예전처럼 '기타 재테크') — 주식 주제(stock)에서
-#          '기타 재테크'로 나오던 것 (사용자 지시 "주식 주제로 유튜브 분석기 돌리기위한 세팅 좀 해줘")
+# VERSION: v1.4 — 2026-10-15 — TAG_REQUIRE: 태그에 이 낱말 중 하나가 들어 있어야 검색어로 씀 (주제 낱말 필수 — 사용자 지시 "아니 검색어 다
+#          주식 관련으로 변경하고": 주식 주제에 재테크·연금·노후준비·부자·반도체 같은 넓은 태그가 들어가던 것). 빈 목록이면 예전처럼 (economic 그대로).
+#          표의 '검색어로 씀' 칸에 '주제 낱말 없음 (TAG_REQUIRE)'
+# (v1.3 — 2026-10-15 — 남는 태그 묶음 이름을 주제마다 (tag_rules.toml TAG_OTHER, 없으면 예전처럼 '기타 재테크') — 주식 주제(stock)에서
+#          '기타 재테크'로 나오던 것 (사용자 지시 "주식 주제로 유튜브 분석기 돌리기위한 세팅 좀 해줘"))
 # (v1.2 — 2026-10-14 — 캐시에서 영상 정보 파일(<영상ID>.json)만 읽음 — 웹 화면의 채널 업로드 목록(uploads_*.json)·자동완성)
 #          (autocomplete.json)·공급 확인(supply_*.json) 캐시를 영상으로 잘못 읽던 것 (outlier_research v2.1 과 함께)
 # (v1.1 — 2026-10-13 — 검색어는 그룹 없이 한 줄에 하나 (사용자 지시: "꼭 그룹을 지정해야하나 검색어만 넣어도 되잖아"):
@@ -38,7 +41,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import outlier_research as orr          # noqa: E402  같은 캐시·같은 관련어 규칙을 씀
 
 ROOT = orr.ROOT
-VERSION = "v1.3"
+VERSION = "v1.4"
 OTHER_DEFAULT = "기타 재테크"     # TAG_THEMES 어디에도 안 맞는 태그의 묶음 (tag_rules.toml TAG_OTHER 로 바꿈)
 LOG = logging.getLogger("tag_keywords")
 
@@ -55,6 +58,7 @@ def load_rules(topic):
     d = orr.tomllib.loads(p.read_text("utf-8"))
     return {"seeds": list(d.get("TAG_SEEDS") or []), "min_channels": int(d.get("MIN_CHANNELS") or 5),
             "max_tags": int(d.get("MAX_TAGS") or 40), "exclude": [str(x) for x in d.get("TAG_EXCLUDE") or []],
+            "require": [str(x) for x in d.get("TAG_REQUIRE") or []],          # v1.4: 비면 검사 안 함
             "keep": [orr._norm(x) for x in d.get("TAG_KEEP") or []],
             "themes": {str(k): [str(x) for x in v] for k, v in (d.get("TAG_THEMES") or {}).items()},
             "other": str(d.get("TAG_OTHER") or OTHER_DEFAULT), "path": p}
@@ -117,6 +121,8 @@ def choose(stats, rules, max_tags, min_channels):
         keep = any(k in orr._norm(t) for k in rules["keep"])                  # TAG_KEEP: 빼는 말이 들어 있어도 씀
         if not keep and any(x.lower() in t.lower() for x in rules["exclude"]):
             why = "빼는 말 (TAG_EXCLUDE)"
+        elif not keep and rules.get("require") and not any(x.lower() in t.lower() for x in rules["require"]):
+            why = "주제 낱말 없음 (TAG_REQUIRE)"
         elif not (2 <= len(t) <= 20):
             why = "길이"
         elif s["channels"] < min_channels:
@@ -135,7 +141,9 @@ def write_table(dst, topic_name, picked, rows, n_videos, n_relevant, seeds, args
     L = [f"# {topic_name} — 태그로 고른 검색어", "",
          f"자동 생성 — `tools/tag_keywords.py` {VERSION} ({datetime.now().strftime('%Y-%m-%d %H:%M')}). "
          f"영상 {n_videos:,}개 중 주제 관련 {n_relevant:,}개의 태그 · 씨앗 검색: {', '.join(seeds) or '없음'}", "",
-         f"규칙: 채널 {args.min_channels}곳 이상이 쓴 태그 · 빼는 말 제외 · 채널 수 순 {args.max_tags}개 → "
+         f"규칙: 채널 {args.min_channels}곳 이상이 쓴 태그 · 빼는 말 제외"
+         f"{' · 주제 낱말(TAG_REQUIRE: ' + ', '.join(args.require) + ') 중 하나가 든 태그만' if args.require else ''}"
+         f" · 채널 수 순 {args.max_tags}개 → "
          f"{'`keywords.txt` 검색어로 씀' if args.write_keywords else '표만 (keywords.txt 는 그대로 — --write-keywords 로 바꿈)'}", "",
          "| # | 태그 | 채널 수 | 영상 수 | 묶음 | 검색어로 씀 |", "|---|---|---|---|---|---|"]
     rank = {r["tag"]: k for k, r in enumerate(picked, 1)}
@@ -198,11 +206,12 @@ def main(argv=None):
     rules = load_rules(args.topic)
     args.max_tags = args.max_tags or rules["max_tags"]
     args.min_channels = args.min_channels or rules["min_channels"]
+    args.require = rules["require"]
     out = ROOT / args.topic / "result" / "outliers"
     (out / ".cache").mkdir(parents=True, exist_ok=True)
     _, exclude, topic_name, kw_file, rel = orr.load_keywords(args.topic, 0)
     log("START", topic=args.topic, name=topic_name, seeds=",".join(rules["seeds"]), max_tags=args.max_tags,
-        min_channels=args.min_channels, write_keywords=args.write_keywords, tool=f"tag_keywords.py {VERSION}")
+        min_channels=args.min_channels, require=len(rules["require"]), write_keywords=args.write_keywords, tool=f"tag_keywords.py {VERSION}")
     used = 0
     if rules["seeds"] and not args.no_seed_search:
         key, src = orr.load_api_key(args.topic)
@@ -220,6 +229,7 @@ def main(argv=None):
     stats = tag_stats(infos, rel)
     picked, rows = choose(stats, rules, args.max_tags, args.min_channels)
     log("TAGS", videos=len(infos), relevant=n_rel, distinct_tags=len(stats), picked=len(picked),
+        dropped_require=sum(1 for r in rows if r["why"].startswith("주제 낱말")),
         top=",".join(r["tag"] for r in picked[:15]))
     write_table(ROOT / args.topic, topic_name, picked, rows, len(infos), n_rel, rules["seeds"], args)
     if args.write_keywords and picked:

@@ -1,9 +1,12 @@
 # =====================================================================================================
 # YouTube 주제 분석기 설정 파일 — 주제: 주식 (폴더 stock)
-# VERSION: v1.0 — 2026-10-15 — 새로 만듦 (사용자 지시: "주식 주제로 유튜브 분석기 돌리기위한 세팅 좀 해줘 stock 폴더 만들고 검색어 설정 같은거 말이야").
+# VERSION: v3.0 — 2026-10-15 — FRESH_START 추가 (사용자 지시: "왜 예전 재테크 캐시가 남아 있어 이거 어떻게해"): PC 가 처음 이 설정을 받으면
+#          예전에 같은 stock 폴더로 돌린 PC 자료(2026-10-10~12 — run_analyzer.ps1 v1 의 기본 주제였음)를 .yt_work/old/ 로 한 번 옮김
+#          (tools/pc_analysis.py v1.13 fresh_start). 판 번호를 v3.0 으로 — PC 에 남은 옛 설정(v2.0)보다 높아야 실행기가 새 설정으로 바꿈
+# (v1.0 — 2026-10-15 — 새로 만듦 (사용자 지시: "주식 주제로 유튜브 분석기 돌리기위한 세팅 좀 해줘 stock 폴더 만들고 검색어 설정 같은거 말이야").
 #          값은 economic/analyzer_config.toml v1.1 과 같고 주제 이름·폴더만 다름 (성공 사례 영상 파일은 받지 않음, 자막 없는 영상 음성인식은
 #          결과를 먼저 올린 뒤 대기열에서). 검색어 = 같은 폴더 keywords.txt (한 줄에 하나), 관련어·제외어 = keywords.toml.
-#          예전 stock 폴더(사연형 주식 영상, 2026-10-13 지움 — 커밋 2a68307)와는 따로 새로 시작.
+#          예전 stock 폴더(사연형 주식 영상, 2026-10-13 지움 — 커밋 2a68307)와는 따로 새로 시작.)
 #
 # ▶ PC에서 (웹 화면 — 탐색 → 체크 → 승인 → 주별 분석): guides/pc_analysis.md
 #      powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Folder stock               (Windows)
@@ -17,6 +20,10 @@
 TOPIC = "주식"
 PROJECT_FOLDER = "stock"             # 결과 상위 폴더 → PC: output/stock/result/, GitHub: stock/result/
 RESULT_FOLDER = "result"
+FRESH_START = "2026-10-15"           # PC 실행기(tools/pc_analysis.py v1.13)가 이 값이 바뀔 때 한 번, 이 주제의 예전 PC 자료(<주제>/result/·output/stock/·
+                                     # 진행·음성인식 기록)를 지우지 않고 .yt_work/old/ 로 옮김 — 옛 stock 자료가 새 결과에 섞이지 않게.
+                                     # ⚠️ 승인한 결과가 생긴 뒤에는 바꾸지 않는다 (PC 자료만 옮겨져 GitHub 결과와 어긋남) — 캐시만 비우려면
+                                     #    run_analyzer.ps1 -ResetCache -Folder stock 또는 웹 화면 4번 칸 [캐시 비우기]
 
 [github]
 GITHUB_REPO = "yeomin1024/yeomin1024-ytb"

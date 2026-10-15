@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.6.1 — 2026-10-15 — 분석 칸의 'analysis.md 전문' 경로를 이 창의 주제로 (예전엔 economic 고정 — stock 창에서 틀린 경로)
+# VERSION: v1.6.2 — 2026-10-15 — 주제 캐시 (사용자 지시: "왜 예전 재테크 캐시가 남아 있어 이거 어떻게해"):
+#          ① 0번 칸에서 주제를 바꾸면 앞 주제의 끝난 작업 줄·쇼츠 분석 칸이 화면에 남던 것 — 작업 줄을 비우고 쇼츠 분석도 다시 읽음
+#          ② 켤 때·주제를 바꿀 때 pc_analysis.fresh_start — 설정에 FRESH_START 가 있는 새 주제(stock)면 예전 PC 자료를 한 번 옮김
+#          ③ 4번 칸 [캐시 비우기] → /api/cache/reset (pc_analysis.reset_topic_cache — 탐색 캐시·탐색 목록만, 지우지 않고 .yt_work/old/ 로)
+# (v1.6.1 — 2026-10-15 — 분석 칸의 'analysis.md 전문' 경로를 이 창의 주제로 (예전엔 economic 고정 — stock 창에서 틀린 경로))
 # (v1.6 — 2026-10-15 — 쇼츠 탐색·승인·분석 (사용자 지시: "깃허브 저장소에 유튜브 분석기 있지? 거기에 쇼츠 분석 기능도 추가해 목적은
 #          사람들의 니즈를 충족해주는 쇼츠를 만들어서 최대한 조회수를 높이기 위한 쇼츠를 만들기 위해 분석하는거야 전력을 다해서 해봐"):
 #          ① 4·5번 칸에 [롱폼 | 쇼츠] 전환 — 쇼츠 탐색 = 검색어마다 쇼츠 검색 1번(videoDuration=short, 100단위, 적응형 7일 캐시) + 추가한 채널의
@@ -117,7 +121,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import pc_analysis as pc                 # noqa: E402  할당량 장부·키 찾기·GitHub 동기화·패키지 준비
 
 ROOT = pc.ROOT
-VERSION = "v1.6.1"
+VERSION = "v1.6.2"
 LOG = logging.getLogger("web")
 KST = timezone(timedelta(hours=9))
 TOKEN = secrets.token_urlsafe(18)        # 화면이 요청마다 보내는 열쇠 (다른 사이트가 이 PC 의 화면을 조작하지 못하게)
@@ -1851,6 +1855,12 @@ class Handler(BaseHTTPRequestHandler):
                         raise UserError("음성인식이 도는 중 — 멈춘 뒤 주제를 바꾸세요. 동시에 하려면 [새 창으로 열기]")
                     claim_topic(nt)
                     STATE["topic"] = nt
+                    with JOB_LOCK:                                     # v1.6.2: 앞 주제의 끝난 작업 줄이 새 주제 화면에 남지 않게
+                        JOB.update(name=None, status="idle", step="", done=0, total=0, error=None, result=None)
+                    try:
+                        pc.fresh_start(nt)
+                    except Exception as e:
+                        log("RESET", logging.WARNING, topic=nt, note="옛 자료 옮기기 실패 — 그대로 계속", error=f"{type(e).__name__}: {e}"[:160])
                     log("TOPIC", topic=nt, note="이 창의 주제를 바꿈")
                 return self._send(200, state_view(STATE["topic"]))
             if path == "/api/topic/new":                               # v1.5: 새 주제 폴더
@@ -1865,6 +1875,12 @@ class Handler(BaseHTTPRequestHandler):
                     return self._send(200, {"ok": False, "url": w.get("url"), "message": "이미 열린 창이 있습니다"})
                 spawn_windows([nt])
                 return self._send(200, {"ok": True, "message": f"'{nt}' 새 창을 띄웠습니다 — 브라우저 탭이 하나 더 열립니다 (몇 초)"})
+            if path == "/api/cache/reset":                             # v1.6.2: [캐시 비우기] — 이 주제의 탐색 캐시·탐색 목록만
+                if JOB["status"] == "running":
+                    raise UserError(f"'{JOB['name']}' 작업이 도는 중 — 끝난 뒤(또는 [멈춤] 뒤)에 비우세요")
+                r = pc.reset_topic_cache(t, why="웹 화면 [캐시 비우기]")
+                return self._send(200, {"ok": True, **r, "message": (f"캐시 {len(r['moved'])}곳을 {r['to']} 로 옮겼습니다 — 다음 탐색은 처음부터 새로 검색합니다"
+                                                                      if r["moved"] else "치울 캐시가 없습니다")})
             if path == "/api/resume":                                  # v1.5: [지금 이어서] — 초기화를 기다리지 않고 남은 것을 이어서
                 ok, msg = start_job("남은 것 이어서", job_resume, t, "화면에서")
                 return self._send(200 if ok else 409, {"ok": ok, "message": msg})
@@ -2056,6 +2072,10 @@ def main(argv=None):
         print("\n  ▶ 고른 주제가 모두 다른 창에 열려 있습니다 — 그 창을 쓰세요\n", flush=True)
         return 0
     STATE["topic"] = mine
+    try:                                      # v1.6.2: 새로 시작하는 주제(설정 FRESH_START)면 예전 PC 자료를 한 번 옮김
+        pc.fresh_start(mine)
+    except Exception as e:
+        log("RESET", logging.WARNING, topic=mine, note="옛 자료 옮기기 실패 — 그대로 계속", error=f"{type(e).__name__}: {e}"[:160])
     url = f"http://127.0.0.1:{port}/"
     log("START", url=url, topics=",".join(topics), tool=f"web_ui.py {VERSION}",
         note="이 창을 닫으면 화면도 꺼집니다 (Ctrl+C 로 끝냄)")
@@ -2161,7 +2181,7 @@ details{border:1px solid var(--line);border-radius:8px;padding:8px 12px;margin-t
 <section class="card"><h2>4. 탐색 <span class="seg" id="modeSeg" title="롱폼(4분 넘음)과 쇼츠(3분 이하 세로)는 목록·자료·분석이 따로입니다"><button data-m="long">롱폼</button><button data-m="shorts">쇼츠</button></span> <small id="exploreSub">목록만 만듭니다 — 자료는 승인한 영상만 받습니다</small></h2>
  <div class="row">최근 <input type="number" id="weeks" min="1" max="52" value="8" style="width:70px"> 주
   <label><input type="checkbox" id="useKw" checked> 검색어로도 찾기</label>
-  <span class="mut" id="est"></span><button class="pri" id="explore">탐색</button></div>
+  <span class="mut" id="est"></span><button id="cacheReset" title="이 주제의 탐색 캐시·탐색 목록(체크 포함)을 .yt_work/old/ 로 옮김 — 승인한 자료·분석 결과는 그대로">캐시 비우기</button><button class="pri" id="explore">탐색</button></div>
 </section>
 <section class="card" id="listCard"><h2>5. <span id="listTitle">탐색 목록</span> <small id="listInfo">배수 높은 순 · 추천은 체크해 둠</small></h2>
  <div class="row" style="margin-bottom:8px"><input type="text" id="flt" class="grow" placeholder="제목·채널 거르기">
@@ -2264,7 +2284,7 @@ let chkT;function saveChk(){clearTimeout(chkT);const m=MODE,ids=[...CHECK];chkT=
 function showJob(j){if(j.quota)renderQuota(j.quota);if(j.resume)renderResume(j.resume);busy=j.status==='running';$('jobName').textContent=j.name?`${j.name} — ${({running:'도는 중',done:'끝',error:'오류',cancelled:'멈춤',idle:''})[j.status]||j.status}`:'';
  $('jobStep').innerHTML=j.status==='error'?`<span class=bad>${esc(j.error)}</span>`:esc(j.step||'쉬는 중');
  $('jobBar').style.width=j.total?Math.round(100*j.done/j.total)+'%':(busy?'15%':'0');$('cancel').disabled=!busy;
- ['explore','reanalyze','comments','resumeNow'].forEach(id=>$(id).disabled=busy);updChk();
+ ['explore','reanalyze','comments','resumeNow','cacheReset'].forEach(id=>$(id).disabled=busy);updChk();
  const r=j.result||{};$('jobRes').innerHTML=j.status==='done'&&(r.push_note||r.materials||r.whisper)?[r.push_note?`GitHub: ${esc(r.push_note)}`:'',
   r.description_fallback!=null?`자막 ${r.transcripts_ok}개 · 설명으로 대신 ${r.description_fallback}개${r.no_text?` · 글 없음 ${r.no_text}개`:''}`:'',
   r.materials?`<span class="${String(r.materials).startsWith('PC')?'warn':'ok'}">자료(사례 폴더): ${esc(r.materials)}</span>`:'',r.whisper?`음성인식: ${esc(r.whisper)}`:''].filter(Boolean).join('<br>'):'';
@@ -2331,7 +2351,9 @@ async function loadReport(){const r=await api('/api/report');if(!r.windows){$('r
  $('report').innerHTML=h}
 $('topic').onchange=async()=>{const nt=$('topic').value;const w=TOPICS.windows.find(x=>x.topic===nt&&!x.me);
  if(w){window.open(w.url,'_blank');await loadState();return}
- try{await api('/api/topic',{topic:nt});await loadState();await loadRows();await loadReport();await loadAnalysis()}catch(e){alert(e.message);await loadState()}};
+ try{await api('/api/topic',{topic:nt});ROWS=[];CHECK=new Set();renderRows();await loadState();await loadRows();await loadReport();await loadAnalysis();await loadShortsAnalysis()}catch(e){alert(e.message);await loadState()}};
+$('cacheReset').onclick=async()=>{if(!confirm('이 주제의 탐색 캐시(검색 결과·영상 정보)와 탐색 목록(체크 포함)을 치웁니다.\n지우지 않고 .yt_work/old/ 로 옮기며, 승인한 자료·분석 결과는 그대로입니다.\n다음 탐색은 처음부터 새로 검색합니다 (검색 1번 = 100단위).'))return;
+ try{const r=await api('/api/cache/reset',{});alert(r.message);ROWS=[];CHECK=new Set();renderRows();await loadRows();estimate()}catch(e){alert(e.message)}};
 $('winOpen').onclick=async()=>{const nt=$('winTopic').value;if(!nt)return;try{const r=await api('/api/window/new',{topic:nt});
  if(!r.ok&&r.url)window.open(r.url,'_blank');say('winMsg',r.message,r.ok?'ok':'');setTimeout(loadState,5000)}catch(e){say('winMsg',e.message,'bad')}};
 $('ntMake').onclick=async()=>{try{const r=await api('/api/topic/new',{folder:$('ntFolder').value.trim(),name:$('ntName').value.trim(),keywords:$('ntKw').value,push:$('ntPush').checked});

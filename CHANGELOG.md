@@ -1,5 +1,35 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-15 (13) — 주식 검색어는 주식 낱말만 (40개) · 주제 캐시 비우기 · 옛 stock PC 자료 자동으로 치움
+
+### 왜 (사용자 지시)
+- "아니 검색어 다 주식 관련으로 변경하고 그리고 왜 예전 재테크 캐시가 남아 있어 이거 어떻게해"
+
+### 바꾼 것
+| 파일 (버전) | 함수·항목 | 내용 |
+|---|---|---|
+| `tools/tag_keywords.py` (v1.3 → v1.4) | `load_rules`·`choose`·`write_table`·`main` | **`TAG_REQUIRE`** — 이 낱말 중 하나가 든 태그만 검색어로 (표에 '주제 낱말 없음'). 비면 예전처럼 (재테크 그대로) |
+| `stock/tag_rules.toml` (v1.0 → v1.1) | `TAG_REQUIRE`·`TAG_SEEDS`·`TAG_KEEP`·묶음 11 | 주식 낱말 33개(주식·주가·증시·증권·코스피·코스닥·나스닥·S&P·ETF·배당·미장·국장·주린이·종목·가치투자·장기투자·단타 …) · 씨앗 8개(+주식 공부·ETF 투자·배당주·국내주식) · 경제적자유 예외 없앰 · 묶음 '재테크 일반' → '투자 일반' |
+| `stock/keywords.txt` | 검색어 | **32 → 40개, 모두 주식 낱말** — 빠진 11개: 재테크·투자·부자·연금·노후준비·퇴직연금·ISA·연금저축·반도체·2차전지·투자전략. 새로 19개: 주식입문·ETF추천·배당ETF·월배당ETF·커버드콜ETF·미국ETF·나스닥100·배당주·배당·월배당·배당금·배당투자·미국증시·미장·코스피200·단타·증시·주식시장·주식 추천 (표 `stock/tag_candidates.md` — 영상 592개 중 관련 588개) |
+| `tools/pc_analysis.py` (v1.12 → v1.13) | `reset_topic_cache`·`fresh_start`·`_archive`·`--reset-cache`·`run` | 이 주제의 탐색 캐시·탐색 목록을 **지우지 않고 `.yt_work/old/<주제>_<시각>/` 로** (승인한 자료·결과는 그대로) · 설정 `FRESH_START` 가 PC 표시와 다르면 그 주제의 PC 자료 전부를 한 번 옮김 (회차마다 검사). VERSION 상수도 맞춤(v1.11 이던 것) |
+| `tools/web_ui.py` (v1.6.1 → v1.6.2) | `/api/topic`·`/api/cache/reset`·켤 때·4번 칸 | 주제를 바꾸면 앞 주제의 작업 줄·**쇼츠 분석 칸이 남던 것** 고침 (재테크 쇼츠 154개 분석이 주식 화면에 보일 수 있었음) · [캐시 비우기] 버튼 · 켤 때·주제 바꿀 때 `fresh_start` |
+| `run_analyzer.ps1` (v3.3 → v3.4) · `run_analyzer.sh` (v3.2 → v3.3) | `-ResetCache` / `--reset-cache` | 캐시를 치운 뒤 평소처럼 실행 (BOM·CRLF 유지, PowerShell 파서 오류 0) |
+| `stock/analyzer_config.toml` (v1.0 → **v3.0**) | `FRESH_START = "2026-10-15"` | 옛 stock PC 자료(2026-10-10~12 — 실행기 v1 의 기본 주제가 stock) 한 번 치움. 판 번호는 PC 에 남았을 옛 설정 v2.0 보다 높게 |
+| `youtube_topic_analyzer.py` (v2.11.0 → v2.11.1) | `CONFIG_OTHER_TOOLS` | `FRESH_START` 를 '모르는 설정' 경고 없이 넘김 (분석 동작 그대로) |
+| `tools/tests/test_stock_topic.py` (v1.0 → v1.1) | 시험 8개 | 검색어마다 주식 낱말 · 넓은 말 없음 · `TAG_REQUIRE` 규칙 · 분석기 `FRESH_START` · 캐시 비우기(승인 자료·다른 주제 그대로) · `fresh_start` 한 번만 |
+| `stock/README.md` (v1.1) · `guides/pc_analysis.md` (v2.9) · `guides/README.md` (v1.29) · `CLAUDE.md` | 안내 | '캐시' — 어디에 무엇이, 주제마다 따로인지, 비우는 법 |
+
+### 확인
+- `tag_keywords.py stock --write-keywords` 로그: `[TAGS] videos=592 relevant=588 distinct_tags=2924 picked=40 dropped_require=2051` · `[WRITE] keywords=40` · 할당량 808단위 (씨앗 4개 새로)
+- 임시 폴더에서 웹 화면을 띄워 확인: `/api/cache/reset`(재테크) → `moved=economic/result/outliers/.cache,economic/result/web` · 승인 자료 `W_abc` 그대로 / `/api/topic` → stock: 작업 줄 `idle`, `[RESET] folder=stock why="FRESH_START 2026-10-15 (PC 표시 없음)" moved=2 paths=stock/result,output/stock` / 켤 때도 같은 `[RESET]` 한 번
+- `pc_analysis.py stock --reset-cache` → `▶ stock: 캐시 2곳 치움 → .yt_work/old/stock_…`
+- `python3 -m unittest tools.tests.test_stock_topic tools.tests.test_shorts tools.tests.test_quota_saving` 31개 통과 · `pc_analysis.py --self-test` ALL PASS · 분석기 자가진단 34개 실패 0 (stock 설정, 모르는 설정 0)
+
+### 위험·할당량
+- 검색어 40개 × 300 = 한 바퀴 약 12,000단위 (하루 10,000 넘음 → 이틀, 자동으로 이어서). 오늘 클라우드에서 검색어 고르기에 쓴 양 합계 약 1,620단위.
+- 캐시를 비우면 다음 탐색이 모두 새 검색 (검색 1번 100단위). 옮긴 자료는 `.yt_work/old/` 에 있어 되돌릴 수 있음.
+- 연구·교육용 분석 도구이며 투자 권유가 아님.
+
 ## 2026-10-15 (12) — 주식 주제 폴더 `stock/` (분석기 설정 · 검색어 32개는 태그에서)
 
 ### 왜 (사용자 지시)

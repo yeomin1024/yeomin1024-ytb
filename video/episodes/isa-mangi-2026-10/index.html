@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ISA 만기 영상</title>
+<!-- VERSION: v1.0.1 — 2026-10-15 — 마지막 장면 글 "시청해주셔서 감사합니다" (script_guide v3.1 끝인사, 사용자 지시 2026-10-15).
+     (v1.0) 새 스타일 영상 (guides/video_guide.md v4.0). 대본 economic/source/isa-mangi-2026-10,
+     내레이션 tts_narration.py v1.7 (진행자 H04, 93문장, 7:00.7). 장면 시각 = 문장 시각(K.S·K.E)·낱말 시각(K.W).
+     숫자는 모두 내레이션 문장의 숫자. 색: 빨강 = 손해·세금 더 냄(A 씨), 청록 = 아낌·돌려받음(B 씨), 노랑 = 기준·방법.
+     연구·교육용 영상 — 투자·세무 권유 아님. -->
+<link rel="stylesheet" href="../../render/kit.css">
+</head>
+<body>
+<div id="wrap"><div id="stage"></div></div>
+<div id="ctrl"></div>
+<div id="now"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script id="ep-data">/*EP-DATA:BEGIN*/window.EP={"id":"isa-mangi-2026-10","topic":"economic","duration":421.32,"audio":"../../../economic/source/isa-mangi-2026-10/narration.mp3","synced":"2026-10-15T06:45:37Z","tts":"2026-10-15T05:52:17","script_sha1":"cb35e2bbc0c86673","sent":[{"n":1,"part":"같은 6,800만 원, 다른 세금","text":"ISA 만기를 앞두고 계시다면, 이 숫자부터 보세요.","start":0.3,"end":3.94},{"n":2,"part":"같은 6,800만 원, 다른 세금","text":"같은 ISA에서 6,800만 원을 받은 두 사람이 있습니다.","start":4.39,"end":8.23},{"n":3,"part":"같은 6,800만 원, 다른 세금","text":"그런데 3년 동안의 세금이 한 사람은 약 172만 원, 다른 사람은 약 76만 원입니다.","start":8.68,"end":14.43},{"n":4,"part":"같은 6,800만 원, 다른 세금","text":"왜 이렇게 차이가 날까요?","start":14.88,"end":16.22},{"n":5,"part":"같은 6,800만 원, 다른 세금","text":"만기 돈을 어디로 옮겼는지가 달랐을 뿐이에요.","start":16.67,"end":19.15},{"n":6,"part":"같은 6,800만 원, 다른 세금","text":"차이는 3년이면 90만 원이 넘고, 같은 방법을 은퇴 전에 두 번 하면 약 2백만 원이 됩니다.","start":19.6,"end":25.28},{"n":7,"part":"같은 6,800만 원, 다른 세금","text":"결론부터 말씀드리겠습니다.","start":25.73,"end":27.55},{"n":8,"part":"같은 6,800만 원, 다른 세금","text":"3,000만 원은 60일 안에 연금계좌로 옮기고, 그 돈은 연금으로 받고, 나머지는 새 ISA에 넣는다.","start":28,"end":35.12},{"n":9,"part":"같은 6,800만 원, 다른 세금","text":"이 세 가지입니다.","start":35.57,"end":36.59},{"n":10,"part":"같은 6,800만 원, 다른 세금","text":"세금을 내지 않는 분과 이미 만기가 지난 분이 할 일도 끝까지 보여드릴게요.","start":37.04,"end":41.28},{"n":11,"part":"같은 6,800만 원, 다른 세금","text":"숫자는 2026년 10월 기준입니다.","start":41.73,"end":44.15},{"n":12,"part":"같은 6,800만 원, 다른 세금","text":"먼저 두 사람의 경우를 통해 알아보겠습니다.","start":44.6,"end":47.11},{"n":13,"part":"두 사람의 ISA","text":"두 사람은 61세이고, 연봉 6,000만 원으로 65세까지 일할 생각이에요.","start":48.11,"end":52.75},{"n":14,"part":"두 사람의 ISA","text":"평소 연금저축과 개인형 퇴직연금인 IRP로, 1년 연금 공제 기준 900만 원은 채우고 있습니다.","start":53.2,"end":59.72},{"n":15,"part":"두 사람의 ISA","text":"ISA는 2023년 10월에 만들어서, 해마다 2,000만 원씩 3년 동안 넣었습니다.","start":60.17,"end":65.53},{"n":16,"part":"두 사람의 ISA","text":"이익이 800만 원 나서, 이번 달 만기에 6,800만 원이 됐습니다.","start":65.98,"end":70.13},{"n":17,"part":"두 사람의 ISA","text":"돈은 어디에 두든 1년에 3.5%씩 불어난다고 봤습니다.","start":70.58,"end":74.09},{"n":18,"part":"두 사람의 ISA","text":"A 씨는 만기 돈을 그냥 찾아서 정기예금에 넣습니다.","start":74.54,"end":77.65},{"n":19,"part":"두 사람의 ISA","text":"B 씨는 3,000만 원을 연금저축으로 옮기고, 나머지로 ISA를 새로 만듭니다.","start":78.1,"end":83.05},{"n":20,"part":"두 사람의 ISA","text":"두 사람의 차이는 세 가지 원칙에서 나옵니다.","start":83.5,"end":85.76},{"n":21,"part":"두 사람의 ISA","text":"하나씩 보겠습니다.","start":86.21,"end":87.44},{"n":22,"part":"원칙 하나, 공제는 낸 세금에서 돌려받는 돈","text":"첫 번째 원칙은, 연금계좌 공제는 그해 낸 세금에서 돌려받는 돈이라는 것입니다.","start":88.44,"end":93.96},{"n":23,"part":"원칙 하나, 공제는 낸 세금에서 돌려받는 돈","text":"ISA 만기 돈을 60일 안에 연금계좌로 옮기면, 옮긴 돈의 10%를 공제 대상에 더해 줍니다.","start":94.41,"end":100.25},{"n":24,"part":"원칙 하나, 공제는 낸 세금에서 돌려받는 돈","text":"이 추가 공제 기준 300만 원은 평소 연금 공제 기준 900만 원에 따로 더해집니다.","start":100.7,"end":106.39},{"n":25,"part":"원칙 하나, 공제는 낸 세금에서 돌려받는 돈","text":"3,000만 원만 옮겨도 그 10%가 300만 원이라 다 채워요.","start":106.84,"end":110.6},{"n":26,"part":"원칙 하나, 공제는 낸 세금에서 돌려받는 돈","text":"공제율은 연봉이 5,500만 원을 넘으면 13.2%입니다.","start":111.05,"end":114.88},{"n":27,"part":"원칙 하나, 공제는 낸 세금에서 돌려받는 돈","text":"그래서 B 씨는 300만 원의 13.2%인 39만 6천 원을 돌려받아요.","start":115.33,"end":120.21},{"n":28,"part":"원칙 하나, 공제는 낸 세금에서 돌려받는 돈","text":"연봉이 5,500만 원 이하라면 16.5%라서 49만 5천 원입니다.","start":120.66,"end":125.7},{"n":29,"part":"원칙 하나, 공제는 낸 세금에서 돌려받는 돈","text":"그런데 돌려받는 돈은 그해 낸 소득세보다 많을 수 없습니다.","start":126.15,"end":129.36},{"n":30,"part":"원칙 하나, 공제는 낸 세금에서 돌려받는 돈","text":"예를 들어 국민연금만 한 달 110만 원이면, 1년 세금이 30만 원도 안 돼 다 못 돌려받아요.","start":129.81,"end":135.16},{"n":31,"part":"원칙 하나, 공제는 낸 세금에서 돌려받는 돈","text":"공제는 세금을 내야 쓸 수 있는 할인 쿠폰이라고 보시면 됩니다.","start":135.61,"end":139.09},{"n":32,"part":"원칙 하나, 공제는 낸 세금에서 돌려받는 돈","text":"한마디로, 연금계좌로 옮기는 건 세금을 내는 동안 해야 돌려받습니다.","start":139.54,"end":143.84},{"n":33,"part":"원칙 둘, 공제받은 돈은 연금으로","text":"두 번째 원칙은, 공제받은 돈은 나중에 연금으로 받아야 남는다는 것입니다.","start":144.84,"end":149.76},{"n":34,"part":"원칙 둘, 공제받은 돈은 연금으로","text":"옮긴 3,000만 원 중 공제받지 않은 2,700만 원은, 언제든 세금 없이 꺼낼 수 있어요.","start":150.21,"end":155.69},{"n":35,"part":"원칙 둘, 공제받은 돈은 연금으로","text":"하지만 공제받은 300만 원과 불어난 이익은 꺼낼 때 세금을 냅니다.","start":156.14,"end":160.31},{"n":36,"part":"원칙 둘, 공제받은 돈은 연금으로","text":"55세가 넘어 연금으로 받으면 세금이 5.5%에서 3.3%이고, 한꺼번에 찾으면 16.5%예요.","start":160.76,"end":168.1},{"n":37,"part":"원칙 둘, 공제받은 돈은 연금으로","text":"300만 원을 한꺼번에 찾으면 49만 5천 원을 내서, 돌려받은 39만 6천 원보다 많습니다.","start":168.55,"end":175.11},{"n":38,"part":"원칙 둘, 공제받은 돈은 연금으로","text":"70세 전에 연금으로 받으면 16만 5천 원만 내서, 23만 1천 원이 남아요.","start":175.56,"end":180.58},{"n":39,"part":"원칙 둘, 공제받은 돈은 연금으로","text":"한마디로, 공제받은 돈은 연금으로 받아야 이득입니다.","start":181.03,"end":184.39},{"n":40,"part":"원칙 셋, ISA는 다시 열면 한도가 새로","text":"세 번째 원칙은, ISA는 해지하고 다시 열 때마다 비과세 한도가 새로 생긴다는 것입니다.","start":185.39,"end":191.36},{"n":41,"part":"원칙 셋, ISA는 다시 열면 한도가 새로","text":"ISA 이익은 비과세 기준 200만 원까지 세금이 없습니다.","start":191.81,"end":195.48},{"n":42,"part":"원칙 셋, ISA는 다시 열면 한도가 새로","text":"연봉 5,000만 원 이하 같은 서민형은 400만 원까지예요.","start":195.93,"end":199.21},{"n":43,"part":"원칙 셋, ISA는 다시 열면 한도가 새로","text":"넘는 이익에는 9.9%만 붙어서, 예금 이자에 붙는 15.4%보다 낮아요.","start":199.66,"end":205.66},{"n":44,"part":"원칙 셋, ISA는 다시 열면 한도가 새로","text":"두 사람도 첫 ISA 이익 800만 원 중, 200만 원을 넘는 600만 원에만 9.9%를 냈어요.","start":206.11,"end":212.5},{"n":45,"part":"원칙 셋, ISA는 다시 열면 한도가 새로","text":"세금 59만 4천 원을 빼고 손에 쥔 돈은 6,740만 원입니다.","start":212.95,"end":217.19},{"n":46,"part":"원칙 셋, ISA는 다시 열면 한도가 새로","text":"연장하면 비과세 기준 200만 원이 그대로입니다.","start":217.64,"end":220.36},{"n":47,"part":"원칙 셋, ISA는 다시 열면 한도가 새로","text":"3년마다 새로 열면, 세금 없는 바구니가 하나씩 더 생기는 셈이죠.","start":220.81,"end":225.94},{"n":48,"part":"원칙 셋, ISA는 다시 열면 한도가 새로","text":"다만 새 ISA에는 1년에 2,000만 원까지 넣을 수 있어요.","start":226.39,"end":229.95},{"n":49,"part":"원칙 셋, ISA는 다시 열면 한도가 새로","text":"그래서 B 씨는 남은 3,740만 원 중 2,000만 원은 지금, 나머지는 내년에 넣습니다.","start":230.4,"end":235.92},{"n":50,"part":"원칙 셋, ISA는 다시 열면 한도가 새로","text":"반대로 A 씨는 예금 6,740만 원에서 1년 이자가 236만 원 나옵니다.","start":236.37,"end":241.41},{"n":51,"part":"원칙 셋, ISA는 다시 열면 한도가 새로","text":"여기서 해마다 약 36만 원을 세금으로 냅니다.","start":241.86,"end":244.93},{"n":52,"part":"원칙 셋, ISA는 다시 열면 한도가 새로","text":"연장해서 계속 굴리는 게 낫다고 생각하시는 분도 계실 거예요.","start":245.38,"end":248.57},{"n":53,"part":"원칙 셋, ISA는 다시 열면 한도가 새로","text":"이 예에서는 연장만 할 때보다 B 씨가 3년 동안 세금이 약 57만 원 적어요.","start":249.02,"end":253.99},{"n":54,"part":"원칙 셋, ISA는 다시 열면 한도가 새로","text":"한마디로, ISA는 3년마다 새로 열고, 만기 돈은 예금에 두지 않습니다.","start":254.44,"end":259.72},{"n":55,"part":"원칙 셋, ISA는 다시 열면 한도가 새로","text":"그럼 이 세 가지 원칙으로 만기 때 할 일을 순서대로 정해 보겠습니다.","start":260.17,"end":263.99},{"n":56,"part":"만기 때 할 일, 확인 → 연금저축 → 새 ISA","text":"1단계, 만기 한 달 전에 연금저축 계좌부터 확인합니다.","start":264.99,"end":268.51},{"n":57,"part":"만기 때 할 일, 확인 → 연금저축 → 새 ISA","text":"이미 연금을 받기 시작한 계좌에는 돈을 더 넣을 수 없습니다.","start":268.96,"end":272.29},{"n":58,"part":"만기 때 할 일, 확인 → 연금저축 → 새 ISA","text":"계좌가 없으면 새로 만들어도 되지만, 연금으로 받으려면 만든 지 5년이 지나야 합니다.","start":272.74,"end":277.9},{"n":59,"part":"만기 때 할 일, 확인 → 연금저축 → 새 ISA","text":"2단계, 만기 뒤 60일 안에 3,000만 원을 연금저축으로 옮깁니다.","start":278.35,"end":282.91},{"n":60,"part":"만기 때 할 일, 확인 → 연금저축 → 새 ISA","text":"1년 1,800만 원인 연금계좌 납입 기준과 따로라서, 한 번에 넣을 수 있어요.","start":283.36,"end":288.48},{"n":61,"part":"만기 때 할 일, 확인 → 연금저축 → 새 ISA","text":"3단계, 같은 때 ISA를 새로 만들어 2,000만 원을 넣습니다.","start":288.93,"end":293.41},{"n":62,"part":"만기 때 할 일, 확인 → 연금저축 → 새 ISA","text":"다음 해 연말정산에서 공제도 꼭 확인하세요.","start":293.86,"end":296.6},{"n":63,"part":"만기 때 할 일, 확인 → 연금저축 → 새 ISA","text":"이렇게 한 두 사람의 결과는 얼마나 달라졌을까요?","start":297.05,"end":299.83},{"n":64,"part":"두 사람의 결과","text":"3년 뒤 다음 만기까지 따져 보면, A 씨의 세금은 약 172만 원, B 씨는 약 76만 원입니다.","start":300.83,"end":308.17},{"n":65,"part":"두 사람의 결과","text":"두 사람 모두 첫 ISA에서 낸 59만 4천 원이 들어 있어요.","start":308.62,"end":312.78},{"n":66,"part":"두 사람의 결과","text":"A 씨는 여기에 3년 동안 예금 이자 세금 112만 원을 더 냈습니다.","start":313.23,"end":317.22},{"n":67,"part":"두 사람의 결과","text":"B 씨는 이 세금을 거의 내지 않았고, 공제로 39만 6천 원을 돌려받았어요.","start":317.67,"end":322.89},{"n":68,"part":"두 사람의 결과","text":"B 씨가 새 ISA와 연금저축에서 나중에 낼 세금 약 53만 원까지 넣은 숫자입니다.","start":323.34,"end":328.94},{"n":69,"part":"두 사람의 결과","text":"그래서 3년 동안의 차이는 96만 원입니다.","start":329.39,"end":332.19},{"n":70,"part":"두 사람의 결과","text":"64세에 같은 방법을 한 번 더 하면, 6년 동안의 차이는 약 2백만 원이 됩니다.","start":332.64,"end":337.71},{"n":71,"part":"두 사람의 결과","text":"두 사람이 이미 은퇴해서 낼 세금이 없다면, 공제는 0원이에요.","start":338.16,"end":342.05},{"n":72,"part":"두 사람의 결과","text":"그래도 예금 이자 세금을 피한 몫이 남아서, 3년 동안 약 73만 원 차이가 납니다.","start":342.5,"end":347.2},{"n":73,"part":"두 사람의 결과","text":"그런데 이미 만기가 지났거나, 그냥 찾으신 분들도 계실 텐데요.","start":347.65,"end":351.1},{"n":74,"part":"두 사람의 결과","text":"그럼 어떻게 해야 할까요?","start":351.55,"end":352.88},{"n":75,"part":"이미 만기가 지났다면","text":"늦지 않았습니다.","start":353.88,"end":354.83},{"n":76,"part":"이미 만기가 지났다면","text":"만기 뒤 60일이 안 지났다면, 지금이라도 연금계좌로 옮길 수 있어요.","start":355.28,"end":359.39},{"n":77,"part":"이미 만기가 지났다면","text":"혹시 만기를 연장하셨나요?","start":359.84,"end":361.38},{"n":78,"part":"이미 만기가 지났다면","text":"가입한 지 3년이 지났다면 언제든 옮길 수 있습니다.","start":361.83,"end":364.79},{"n":79,"part":"이미 만기가 지났다면","text":"옮기는 날을 만기로 봐서, 똑같이 추가 공제를 받아요.","start":365.24,"end":368.36},{"n":80,"part":"이미 만기가 지났다면","text":"60일이 지나서 이미 찾으셨다면, 이번 ISA로 받는 추가 공제는 되돌릴 수 없어요.","start":368.81,"end":374.17},{"n":81,"part":"이미 만기가 지났다면","text":"대신 오늘 ISA를 새로 만들어서, 찾은 돈을 1년에 2,000만 원씩 옮기세요.","start":374.62,"end":379.3},{"n":82,"part":"이미 만기가 지났다면","text":"3년 뒤에 같은 기회가 다시 옵니다.","start":379.75,"end":381.59},{"n":83,"part":"이미 만기가 지났다면","text":"늦을수록 예금 이자 세금만 더 나갑니다.","start":382.04,"end":384.36},{"n":84,"part":"이미 만기가 지났다면","text":"자, 마지막으로 오늘 내용을 정리하겠습니다.","start":384.81,"end":387.78},{"n":85,"part":"정리, 바뀌어도 그대로인 것","text":"비과세 기준 200만 원과 공제 비율은 바뀔 수 있습니다.","start":388.78,"end":392.04},{"n":86,"part":"정리, 바뀌어도 그대로인 것","text":"국회에 올라간 ISA 개편안도 아직 정해지지 않았어요.","start":392.49,"end":395.9},{"n":87,"part":"정리, 바뀌어도 그대로인 것","text":"그래도 이 세 가지는 그대로입니다.","start":396.35,"end":398.24},{"n":88,"part":"정리, 바뀌어도 그대로인 것","text":"첫째, 공제는 낸 세금에서 돌려받는 돈입니다.","start":398.69,"end":401.78},{"n":89,"part":"정리, 바뀌어도 그대로인 것","text":"세금을 내는 동안 3,000만 원을 연금계좌로 옮기세요.","start":402.23,"end":405.25},{"n":90,"part":"정리, 바뀌어도 그대로인 것","text":"둘째, 공제받은 돈은 연금으로 받으세요.","start":405.7,"end":408.5},{"n":91,"part":"정리, 바뀌어도 그대로인 것","text":"셋째, ISA는 3년마다 새로 열고, 만기 돈을 예금에 두지 마세요.","start":408.95,"end":414.47},{"n":92,"part":"정리, 바뀌어도 그대로인 것","text":"오늘 내 ISA 만기일부터 확인해 보세요.","start":414.92,"end":417.96},{"n":93,"part":"정리, 바뀌어도 그대로인 것","text":"끝까지 봐 주셔서 감사합니다.","start":418.41,"end":419.92}],"subs":[[0.2,4.39,"ISA 만기를 앞두고 계시다면, 이 숫자부터 보세요."],[4.39,8.68,"같은 ISA에서 6,800만 원을 받은 두 사람이 있습니다."],[8.68,12.459,"그런데 3년 동안의 세금이 한 사람은 약 172만 원,"],[12.459,14.88,"다른 사람은 약 76만 원입니다."],[14.88,16.67,"왜 이렇게 차이가 날까요?"],[16.67,19.6,"만기 돈을 어디로 옮겼는지가 달랐을 뿐이에요."],[19.6,21.842,"차이는 3년이면 90만 원이 넘고,"],[21.842,25.73,"같은 방법을 은퇴 전에 두 번 하면 약 2백만 원이 됩니다."],[25.73,28,"결론부터 말씀드리겠습니다."],[28,31.29,"3,000만 원은 60일 안에 연금계좌로 옮기고,"],[31.29,35.57,"그 돈은 연금으로 받고, 나머지는 새 ISA에 넣는다."],[35.57,37.04,"이 세 가지입니다."],[37.04,41.73,"세금을 내지 않는 분과 이미 만기가 지난 분이 할 일도 끝까지 보여드릴게요."],[41.73,44.6,"숫자는 2026년 10월 기준입니다."],[44.6,48.11,"먼저 두 사람의 경우를 통해 알아보겠습니다."],[48.11,53.2,"두 사람은 61세이고, 연봉 6,000만 원으로 65세까지 일할 생각이에요."],[53.2,56.491,"평소 연금저축과 개인형 퇴직연금인 IRP로,"],[56.491,60.17,"1년 연금 공제 기준 900만 원은 채우고 있습니다."],[60.17,63.332,"ISA는 2023년 10월에 만들어서,"],[63.332,65.98,"해마다 2,000만 원씩 3년 동안 넣었습니다."],[65.98,70.58,"이익이 800만 원 나서, 이번 달 만기에 6,800만 원이 됐습니다."],[70.58,74.54,"돈은 어디에 두든 1년에 3.5%씩 불어난다고 봤습니다."],[74.54,78.1,"A 씨는 만기 돈을 그냥 찾아서 정기예금에 넣습니다."],[78.1,83.5,"B 씨는 3,000만 원을 연금저축으로 옮기고, 나머지로 ISA를 새로 만듭니다."],[83.5,86.21,"두 사람의 차이는 세 가지 원칙에서 나옵니다."],[86.21,88.44,"하나씩 보겠습니다."],[88.44,91.398,"첫 번째 원칙은, 연금계좌 공제는 그해 낸 세금에서"],[91.398,94.41,"돌려받는 돈이라는 것입니다."],[94.41,97.733,"ISA 만기 돈을 60일 안에 연금계좌로 옮기면,"],[97.733,100.7,"옮긴 돈의 10%를 공제 대상에 더해 줍니다."],[100.7,103.247,"이 추가 공제 기준 300만 원은 평소 연금"],[103.247,106.84,"공제 기준 900만 원에 따로 더해집니다."],[106.84,111.05,"3,000만 원만 옮겨도 그 10%가 300만 원이라 다 채워요."],[111.05,115.33,"공제율은 연봉이 5,500만 원을 넘으면 13.2%입니다."],[115.33,120.66,"그래서 B 씨는 300만 원의 13.2%인 39만 6천 원을 돌려받아요."],[120.66,126.15,"연봉이 5,500만 원 이하라면 16.5%라서 49만 5천 원입니다."],[126.15,129.81,"그런데 돌려받는 돈은 그해 낸 소득세보다 많을 수 없습니다."],[129.81,132.587,"예를 들어 국민연금만 한 달 110만 원이면,"],[132.587,135.61,"1년 세금이 30만 원도 안 돼 다 못 돌려받아요."],[135.61,139.54,"공제는 세금을 내야 쓸 수 있는 할인 쿠폰이라고 보시면 됩니다."],[139.54,144.84,"한마디로, 연금계좌로 옮기는 건 세금을 내는 동안 해야 돌려받습니다."],[144.84,150.21,"두 번째 원칙은, 공제받은 돈은 나중에 연금으로 받아야 남는다는 것입니다."],[150.21,153.794,"옮긴 3,000만 원 중 공제받지 않은 2,700만 원은,"],[153.794,156.14,"언제든 세금 없이 꺼낼 수 있어요."],[156.14,160.76,"하지만 공제받은 300만 원과 불어난 이익은 꺼낼 때 세금을 냅니다."],[160.76,165.646,"55세가 넘어 연금으로 받으면 세금이 5.5%에서 3.3%이고,"],[165.646,168.55,"한꺼번에 찾으면 16.5%예요."],[168.55,172.399,"300만 원을 한꺼번에 찾으면 49만 5천 원을 내서,"],[172.399,175.56,"돌려받은 39만 6천 원보다 많습니다."],[175.56,181.03,"70세 전에 연금으로 받으면 16만 5천 원만 내서, 23만 1천 원이 남아요."],[181.03,185.39,"한마디로, 공제받은 돈은 연금으로 받아야 이득입니다."],[185.39,188.224,"세 번째 원칙은, ISA는 해지하고"],[188.224,191.81,"다시 열 때마다 비과세 한도가 새로 생긴다는 것입니다."],[191.81,195.93,"ISA 이익은 비과세 기준 200만 원까지 세금이 없습니다."],[195.93,199.66,"연봉 5,000만 원 이하 같은 서민형은 400만 원까지예요."],[199.66,206.11,"넘는 이익에는 9.9%만 붙어서, 예금 이자에 붙는 15.4%보다 낮아요."],[206.11,209.249,"두 사람도 첫 ISA 이익 800만 원 중,"],[209.249,212.95,"200만 원을 넘는 600만 원에만 9.9%를 냈어요."],[212.95,217.64,"세금 59만 4천 원을 빼고 손에 쥔 돈은 6,740만 원입니다."],[217.64,220.81,"연장하면 비과세 기준 200만 원이 그대로입니다."],[220.81,226.39,"3년마다 새로 열면, 세금 없는 바구니가 하나씩 더 생기는 셈이죠."],[226.39,230.4,"다만 새 ISA에는 1년에 2,000만 원까지 넣을 수 있어요."],[230.4,234.559,"그래서 B 씨는 남은 3,740만 원 중 2,000만 원은 지금,"],[234.559,236.37,"나머지는 내년에 넣습니다."],[236.37,241.86,"반대로 A 씨는 예금 6,740만 원에서 1년 이자가 236만 원 나옵니다."],[241.86,245.38,"여기서 해마다 약 36만 원을 세금으로 냅니다."],[245.38,249.02,"연장해서 계속 굴리는 게 낫다고 생각하시는 분도 계실 거예요."],[249.02,254.44,"이 예에서는 연장만 할 때보다 B 씨가 3년 동안 세금이 약 57만 원 적어요."],[254.44,260.17,"한마디로, ISA는 3년마다 새로 열고, 만기 돈은 예금에 두지 않습니다."],[260.17,264.99,"그럼 이 세 가지 원칙으로 만기 때 할 일을 순서대로 정해 보겠습니다."],[264.99,268.96,"1단계, 만기 한 달 전에 연금저축 계좌부터 확인합니다."],[268.96,272.74,"이미 연금을 받기 시작한 계좌에는 돈을 더 넣을 수 없습니다."],[272.74,275.097,"계좌가 없으면 새로 만들어도 되지만,"],[275.097,278.35,"연금으로 받으려면 만든 지 5년이 지나야 합니다."],[278.35,283.36,"2단계, 만기 뒤 60일 안에 3,000만 원을 연금저축으로 옮깁니다."],[283.36,288.93,"1년 1,800만 원인 연금계좌 납입 기준과 따로라서, 한 번에 넣을 수 있어요."],[288.93,293.86,"3단계, 같은 때 ISA를 새로 만들어 2,000만 원을 넣습니다."],[293.86,297.05,"다음 해 연말정산에서 공제도 꼭 확인하세요."],[297.05,300.83,"이렇게 한 두 사람의 결과는 얼마나 달라졌을까요?"],[300.83,303.105,"3년 뒤 다음 만기까지 따져 보면,"],[303.105,308.62,"A 씨의 세금은 약 172만 원, B 씨는 약 76만 원입니다."],[308.62,313.23,"두 사람 모두 첫 ISA에서 낸 59만 4천 원이 들어 있어요."],[313.23,317.67,"A 씨는 여기에 3년 동안 예금 이자 세금 112만 원을 더 냈습니다."],[317.67,323.34,"B 씨는 이 세금을 거의 내지 않았고, 공제로 39만 6천 원을 돌려받았어요."],[323.34,325.845,"B 씨가 새 ISA와 연금저축에서"],[325.845,329.39,"나중에 낼 세금 약 53만 원까지 넣은 숫자입니다."],[329.39,332.64,"그래서 3년 동안의 차이는 96만 원입니다."],[332.64,338.16,"64세에 같은 방법을 한 번 더 하면, 6년 동안의 차이는 약 2백만 원이 됩니다."],[338.16,342.5,"두 사람이 이미 은퇴해서 낼 세금이 없다면, 공제는 0원이에요."],[342.5,345.028,"그래도 예금 이자 세금을 피한 몫이 남아서,"],[345.028,347.65,"3년 동안 약 73만 원 차이가 납니다."],[347.65,351.55,"그런데 이미 만기가 지났거나, 그냥 찾으신 분들도 계실 텐데요."],[351.55,353.88,"그럼 어떻게 해야 할까요?"],[353.88,355.28,"늦지 않았습니다."],[355.28,359.84,"만기 뒤 60일이 안 지났다면, 지금이라도 연금계좌로 옮길 수 있어요."],[359.84,361.83,"혹시 만기를 연장하셨나요?"],[361.83,365.24,"가입한 지 3년이 지났다면 언제든 옮길 수 있습니다."],[365.24,368.81,"옮기는 날을 만기로 봐서, 똑같이 추가 공제를 받아요."],[368.81,371.116,"60일이 지나서 이미 찾으셨다면,"],[371.116,374.62,"이번 ISA로 받는 추가 공제는 되돌릴 수 없어요."],[374.62,379.75,"대신 오늘 ISA를 새로 만들어서, 찾은 돈을 1년에 2,000만 원씩 옮기세요."],[379.75,382.04,"3년 뒤에 같은 기회가 다시 옵니다."],[382.04,384.81,"늦을수록 예금 이자 세금만 더 나갑니다."],[384.81,388.78,"자, 마지막으로 오늘 내용을 정리하겠습니다."],[388.78,392.49,"비과세 기준 200만 원과 공제 비율은 바뀔 수 있습니다."],[392.49,396.35,"국회에 올라간 ISA 개편안도 아직 정해지지 않았어요."],[396.35,398.69,"그래도 이 세 가지는 그대로입니다."],[398.69,402.23,"첫째, 공제는 낸 세금에서 돌려받는 돈입니다."],[402.23,405.7,"세금을 내는 동안 3,000만 원을 연금계좌로 옮기세요."],[405.7,408.95,"둘째, 공제받은 돈은 연금으로 받으세요."],[408.95,414.92,"셋째, ISA는 3년마다 새로 열고, 만기 돈을 예금에 두지 마세요."],[414.92,418.41,"오늘 내 ISA 만기일부터 확인해 보세요."],[418.41,420.32,"시청해주셔서 감사합니다."]]};/*EP-DATA:END*/</script>
+<script src="../../render/kit.js"></script>
+<script>
+(function () {
+"use strict";
+K.init(window.EP);
+const { S, E, W, el, pop, out, counter, scene, text, big, fmt, grow, strike } = K;
+const tl = K.tl;
+const R = "#FF4D3D", G = "#22C7B0", Y = "#FFD400", B1 = "#2E4470", B2 = "#3C5788", B3 = "#4A69A2", B4 = "#5B7DB8";
+const until = n => S(n) - 0.05;
+const man1 = v => { const m = Math.floor(v + 1e-6), r = Math.round((v - m) * 10); return r ? `${m}만 ${r}천` : `${m}만`; };   // 39.6 → 39만 6천
+
+// 그림 부품 (이 영상): 사람 한 명 + 배지 · 계좌 상자 · 쿠폰
+const who = (parent, cx, top, kind, h) => {
+  const g = K.one(parent, cx, top, kind === "A" ? "#DCE3EE" : "#AEB9CC", h || 140);
+  el(`<span class="badge k${kind}">${kind} 씨</span>`, g);
+  return g;
+};
+const acct = (parent, cx, top, w, h, name, color, sub) => el(`<div class="a cx c" style="left:${cx}px;top:${top}px;width:${w}px;height:${h}px;border-radius:24px;border:5px solid ${color};background:rgba(255,255,255,.04);display:grid;place-items:center;align-content:center;gap:8px"><div class="w9 nw" style="font-size:${Math.round(h * 0.3)}px;color:${color}">${name}</div>${sub ? `<div class="w7 nw" style="font-size:40px">${sub}</div>` : ""}</div>`, parent);
+const coupon = (parent, cx, top, html) => el(`<div class="a cx c" style="left:${cx}px;top:${top}px;width:860px;height:280px;border-radius:26px;border:6px dashed ${Y};background:rgba(255,214,0,.08);display:grid;place-items:center;align-content:center;gap:6px">${html}</div>`, parent);
+
+K.chapters([
+  { part: "같은 6,800만 원, 다른 세금", tag: "도입" },
+  { part: "두 사람의 ISA", tag: "사례", card: true, cardHold: 0.8 },
+  { part: "원칙 하나, 공제는 낸 세금에서 돌려받는 돈", tag: "원칙 1", chip: "공제는 낸 세금에서 돌려받는 돈", title: "공제는 낸 세금에서<br>돌려받는 돈", dots: [1, 3], card: true },
+  { part: "원칙 둘, 공제받은 돈은 연금으로", tag: "원칙 2", chip: "공제받은 돈은 연금으로", title: "공제받은 돈은<br>연금으로", dots: [2, 3], card: true },
+  { part: "원칙 셋, ISA는 다시 열면 한도가 새로", tag: "원칙 3", chip: "ISA는 다시 열면 한도가 새로", title: "ISA는 다시 열면<br>한도가 새로", dots: [3, 3], card: true },
+  { part: "만기 때 할 일, 확인 → 연금저축 → 새 ISA", tag: "할 일", chip: "확인 → 연금저축 → 새 ISA", title: "만기 때 할 일<br><span class='Y'>확인 → 연금저축 → 새 ISA</span>", card: true },
+  { part: "두 사람의 결과", tag: "결과", card: true, cardHold: 0.8 },
+  { part: "이미 만기가 지났다면", tag: "고치는 법", card: true, cardHold: 0.5 },
+  { part: "정리, 바뀌어도 그대로인 것", tag: "정리", card: true },
+]);
+
+// 3년 세금 A 약 172만 vs B 약 76만 — 도입과 결과에서 같은 모양
+function threeYearTax(sc, labelAt, aAt, bAt) {
+  const A = who(sc, 560, 150, "A", 110), B = who(sc, 1360, 150, "B", 110);
+  pop(A, labelAt - 0.4); pop(B, labelAt - 0.3);
+  const lab = text(sc, 960, 210, "3년 동안의 세금", 56, "w7 Y"); pop(lab, labelAt);
+  const mk = (cx, val, at, color) => {
+    const n = el(`<div class="a cx c w9 nw" style="left:${cx}px;top:440px;font-size:170px;line-height:1;letter-spacing:-4px;color:${color}">약 <span>0</span><span style="font-size:90px">만 원</span></div>`, sc);
+    pop(n, at - 0.15); counter(n.querySelector("span"), 0, val, at, 1.3);
+    const bar = el(`<div class="a" style="left:${cx - 300}px;top:670px;height:70px;width:${val * 3.3}px;border-radius:12px;background:${color};transform-origin:0 50%"></div>`, sc);
+    grow(bar, at, 1.3);
+  };
+  const base = el(`<div class="a" style="left:260px;top:760px;width:1400px;height:3px;background:rgba(255,255,255,.18)"></div>`, sc); pop(base, aAt - 0.2);
+  mk(560, 172, aAt, R); mk(1360, 76, bAt, G);
+}
+
+/* ───────────── 도입 ───────────── */
+// 1. ISA 만기 · 이 숫자부터 (s1)
+{ const sc = scene(0, until(2));
+  const isa = acct(sc, 760, 300, 380, 220, "ISA", B4); pop(isa, W(1, "ISA"));
+  const mt = el(`<div class="a cx pill nw" style="left:1240px;top:350px">만기</div>`, sc); pop(mt, W(1, "만기를"));
+  tl.to([isa, mt], { y: -100, opacity: 0, scale: 0.8, duration: 0.5, ease: "power2.in" }, W(1, "이 숫자부터") - 0.2);
+  const q = el(`<div class="a cx c w9 nw" style="left:960px;top:400px;font-size:230px;line-height:1;letter-spacing:-4px"><span class="Y">???</span><span style="font-size:120px">만 원</span></div>`, sc);
+  pop(q, W(1, "이 숫자부터") + 0.1);
+  K.cut(E(1) - 0.1, "이 숫자부터");
+}
+// 2. 같은 ISA 6,800만 원 · 3년 세금 172 vs 76 (s2–s3)
+{ const sc = scene(S(2) - 0.3, until(4));
+  const t = text(sc, 960, 170, `같은 ISA <span class="Y">6,800만 원</span>`, 84); pop(t, W(2, "6,800만"));
+  const A = who(sc, 560, 330, "A", 150), B = who(sc, 1360, 330, "B", 150);
+  pop(A, W(2, "두 사람")); pop(B, W(2, "두 사람") + 0.1);
+  const eq = el(`<div class="a cx w9 Y" style="left:960px;top:400px;font-size:170px;line-height:1">=</div>`, sc); pop(eq, W(2, "6,800만") + 0.3);
+  out([t, A, B, eq], S(3) - 0.1);
+  threeYearTax(sc, W(3, "3년"), W(3, "약 172만"), W(3, "약 76만"));
+  K.cut(E(3) - 0.05, "3년 세금 172 vs 76");
+}
+// 3. 왜? → 어디로 옮겼는지 (s4–s5)
+{ const sc = scene(S(4) - 0.3, until(6));
+  const q = text(sc, 960, 280, "왜?", 260); q.style.lineHeight = 1; pop(q, S(4), { from: { scale: 0.6 } });
+  out(q, S(5) - 0.1);
+  const isa = acct(sc, 500, 320, 360, 200, "만기 돈", B4); pop(isa, W(5, "만기"));
+  const ar = el(`<div class="a w9 Y" style="left:760px;top:350px;font-size:110px">→</div>`, sc); pop(ar, W(5, "어디로"));
+  const d = el(`<div class="a cx c w9 Y nw" style="left:1300px;top:350px;font-size:100px">어디로?</div>`, sc); pop(d, W(5, "어디로"));
+  const s = el(`<div class="a cx c w7 nw" style="left:960px;top:640px;font-size:60px">옮긴 곳이 달랐을 뿐</div>`, sc); pop(s, W(5, "달랐을"));
+  K.cut(E(5) - 0.05, "어디로 옮겼나");
+}
+// 4. 3년 90만 원 넘게 · 두 번이면 약 2백만 원 (s6)
+{ const sc = scene(S(6) - 0.3, until(7));
+  const a = el(`<div class="a cx c w9 nw" style="left:960px;top:200px;font-size:72px">3년이면 <span class="R">90만 원</span> 넘게</div>`, sc); pop(a, W(6, "3년이면"));
+  const two = el(`<div class="a cx c w7 nw" style="left:960px;top:360px;font-size:56px">은퇴 전에 <span class="Y">두 번</span> 하면</div>`, sc); pop(two, W(6, "두 번"));
+  const n = el(`<div class="a cx c w9 R nw" style="left:960px;top:470px;font-size:200px;line-height:1">약 2백만 원</div>`, sc); pop(n, W(6, "약 2백만"), { from: { scale: 0.8 } });
+  K.cut(E(6) - 0.05, "두 번이면 약 2백만 원");
+}
+// 5. 결론 (s7–s9)
+{ const sc = scene(S(7) - 0.3, until(10));
+  const t = text(sc, 960, 160, "결론부터", 72); pop(t, S(7));
+  const cards = K.cards(sc, [["1", "3,000만 원은<br>60일 안에<br>연금계좌로"], ["2", "그 돈은<br>연금으로"], ["3", "나머지는<br>새 ISA에"]], 260,
+    [W(8, "3,000만"), W(8, "그 돈은"), W(8, "나머지는")], 60, 520, 480);
+  tl.to(cards, { borderColor: "rgba(255,214,0,.75)", duration: 0.3, stagger: 0.08 }, S(9));
+  K.cut(E(9) - 0.05, "결론 세 가지");
+}
+// 6. 할 일까지 · 기준 날짜 · 두 사람 (s10–s12)
+{ const sc = scene(S(10) - 0.3, until(13) - 1.0);
+  const a = el(`<div class="a cx c w7 nw" style="left:960px;top:240px;font-size:60px;line-height:1.4">세금을 내지 않는 분 · 이미 만기가 지난 분</div>`, sc); pop(a, S(10));
+  const b = text(sc, 960, 380, "→ 할 일까지", 84, "w9 Y"); pop(b, W(10, "할 일도"));
+  out([a, b], S(11) - 0.1);
+  const cal = K.cal(sc, 750, 230, "기준", `<div class="w9" style="font-size:72px">2026년<br>10월</div>`, S(11));
+  out(cal, S(12) - 0.1);
+  const A = who(sc, 700, 300, "A", 180), B = who(sc, 1220, 300, "B", 180);
+  pop(A, W(12, "두 사람")); pop(B, W(12, "두 사람") + 0.1);
+  K.cut(E(11) - 0.2, "2026년 10월 기준");
+}
+
+/* ───────────── 사례: 두 사람의 ISA ───────────── */
+// 7. 61세 · 연봉 6,000만 · 65세까지 · 연금 공제 기준 900만 채움 (s13–s14)
+{ const sc = scene(S(13) - 0.4, until(15));
+  const A = who(sc, 360, 200, "A", 120), B = who(sc, 620, 200, "B", 120);
+  pop(A, S(13) + 0.4); pop(B, S(13) + 0.5);
+  const l1 = el(`<div class="a w9 nw" style="left:860px;top:200px;font-size:60px"><span class="Y">61세</span> · 연봉 <span class="Y">6,000만 원</span></div>`, sc); pop(l1, W(13, "61세"));
+  const l2 = el(`<div class="a w7 nw" style="left:860px;top:290px;font-size:52px">65세까지 일할 생각</div>`, sc); pop(l2, W(13, "65세까지"));
+  const t = el(`<div class="a w7 nw" style="left:300px;top:520px;font-size:52px">평소 연금저축 + IRP (1년)</div>`, sc); pop(t, S(14));
+  const U = 1.2;
+  const bar = K.seg(sc, 300, 600, 900 * U, B4, "900만 채움", W(14, "900만"), 0.9, 110);
+  const th = K.thr(sc, 300 + 900 * U, 570, 170, "", W(14, "기준"));
+  const thl = el(`<div class="a w9 Y nw" style="left:${300 + 900 * U + 24}px;top:620px;font-size:46px">연금 공제 기준<br>900만 원</div>`, sc); pop(thl, W(14, "기준"));
+  K.cut(E(14) - 0.05, "61세 · 900만 채움");
+}
+// 8. 2023년 10월 · 2,000만 × 3년 · 이익 800 → 6,800 · 3.5% (s15–s17)
+{ const sc = scene(S(15) - 0.3, until(18));
+  const isa = el(`<div class="a" style="left:300px;top:200px;width:1320px;height:440px;border-radius:30px;border:5px solid ${B4}"></div>`, sc); pop(isa, S(15));
+  const il = el(`<div class="a w9 nw" style="left:340px;top:220px;font-size:56px;color:${B4}">ISA <span class="w7" style="font-size:44px;color:#F4F6FA">2023년 10월에 만듦</span></div>`, sc); pop(il, W(15, "2023년"));
+  const blocks = [0, 1, 2].map(i => K.vbar(sc, 360 + i * 260, 600, 220, 240, B3, W(15, "2,000만") + i * 0.3, 0.6));
+  const bl = [0, 1, 2].map(i => { const b = text(sc, 470 + i * 260, 420, `${i + 1}년째<br>2,000만`, 40, "w7"); b.style.lineHeight = 1.3; pop(b, W(15, "2,000만") + i * 0.3); return b; });
+  const prof = K.vbar(sc, 1140, 600, 200, 96, G, W(16, "800만"), 0.7);
+  const pl = text(sc, 1240, 440, "이익 800만", 44, "w9 G"); pop(pl, W(16, "800만"));
+  const tot = el(`<div class="a cx c w9 nw" style="left:960px;top:680px;font-size:84px">만기 <span>0</span>만 원</div>`, sc);
+  pop(tot, W(16, "6,800만") - 0.1); counter(tot.querySelector("span"), 0, 6800, W(16, "6,800만"), 1.1);
+  const rate = el(`<div class="a cx c w7 N nw" style="left:960px;top:796px;font-size:40px">해마다 3.5%씩 불어난다고 봄</div>`, sc); pop(rate, W(17, "3.5%"));
+  K.cut(E(16) - 0.05, "ISA 2,000만 × 3 + 이익 800 = 6,800");
+}
+// 9. A: 정기예금 · B: 3,000만 → 연금저축, 나머지 → 새 ISA (s18–s19)
+{ const sc = scene(S(18) - 0.3, until(20));
+  const div = el(`<div class="a" style="left:958px;top:170px;width:4px;height:690px;background:rgba(255,255,255,.12)"></div>`, sc); pop(div, S(18));
+  const A = who(sc, 480, 170, "A", 110); pop(A, S(18));
+  const am = acct(sc, 300, 450, 280, 150, "만기 돈", B4); pop(am, W(18, "만기 돈을"));
+  const ad = acct(sc, 680, 450, 280, 150, "정기예금", R); pop(ad, W(18, "정기예금에"));
+  const aa = el(`<div class="a w9 N" style="left:445px;top:470px;font-size:72px">→</div>`, sc); pop(aa, W(18, "정기예금에"));
+  const al = text(sc, 480, 660, "그냥 찾아서 예금에", 48, "w7 R"); pop(al, W(18, "그냥"));
+  const B = who(sc, 1440, 170, "B", 110); pop(B, S(19));
+  const bp = acct(sc, 1240, 420, 300, 140, "연금저축", G, ""); pop(bp, W(19, "연금저축으로"));
+  const bpl = text(sc, 1240, 580, "3,000만 원", 48, "w9 G"); pop(bpl, W(19, "3,000만"));
+  const bn = acct(sc, 1640, 420, 300, 140, "새 ISA", G); pop(bn, W(19, "ISA를"));
+  const bnl = text(sc, 1640, 580, "나머지", 48, "w9 G"); pop(bnl, W(19, "나머지로"));
+  K.cut(E(19) - 0.05, "A 예금 vs B 연금저축 + 새 ISA");
+}
+// 10. 세 가지 원칙 (s20–s21)
+{ const sc = scene(S(20) - 0.3, until(22) - 1.0);
+  const t = text(sc, 960, 170, `차이는 <span class="Y">세 가지 원칙</span>에서`, 72); pop(t, S(20));
+  K.cards(sc, [["1", "원칙"], ["2", "원칙"], ["3", "원칙"]], 320, W(20, "세 가지"), 60, 420, 360);
+  K.cut(E(21) - 0.6, "세 가지 원칙");
+}
+
+/* ───────────── 원칙 1: 공제는 낸 세금에서 돌려받는 돈 ───────────── */
+// 11. 공제 = 그해 낸 세금에서 돌려받는 돈 (s22)
+{ const sc = scene(S(22) + 0.6, until(23));
+  const env = el(`<div class="env" style="left:420px;top:300px;width:360px;height:230px;font-size:52px"><span>낸 세금</span></div>`, sc); pop(env, W(22, "그해"));
+  const ar = el(`<div class="a w9 G" style="left:860px;top:350px;font-size:110px">→</div>`, sc); pop(ar, W(22, "돌려받는"));
+  const back = el(`<div class="a w9 G nw" style="left:1040px;top:330px;font-size:84px;line-height:1.2">돌려받는 돈<div class="w7" style="font-size:48px;color:#F4F6FA">= 연금계좌 공제</div></div>`, sc); pop(back, W(22, "돌려받는"));
+  K.cut(E(22) - 0.05, "공제 = 낸 세금에서 돌려받음");
+}
+// 12. 60일 안에 옮기면 10% 더 · 추가 기준 300만은 900만과 따로 · 3,000만이면 다 채움 (s23–s25)
+{ const sc = scene(S(23) - 0.3, until(26));
+  const cal = K.cal(sc, 160, 200, "만기 뒤", `<div class="w9 Y" style="font-size:84px">60일</div><div class="w7">안에</div>`, W(23, "60일"));
+  const a = el(`<div class="a w9 nw" style="left:660px;top:250px;font-size:56px">연금계좌로 옮기면</div>`, sc); pop(a, W(23, "연금계좌로"));
+  const b = el(`<div class="a w9 nw" style="left:660px;top:340px;font-size:56px">옮긴 돈의 <span class="Y">10%</span>를 공제 대상에 더함</div>`, sc); pop(b, W(23, "10%"));
+  out([cal, a, b], S(24) - 0.1);
+  const U = 1.1, X0 = 300;
+  const usual = K.seg(sc, X0, 330, 900 * U, B4, "평소 900만", W(24, "900만"), 0.8, 110);
+  const extra = el(`<div class="a" style="left:${X0 + 900 * U + 40}px;top:330px;width:${300 * U}px;height:110px;border-radius:12px;border:5px dashed ${Y}"></div>`, sc); pop(extra, W(24, "300만"));
+  const exl = text(sc, X0 + 900 * U + 40 + 150 * U, 460, "추가 300만", 48, "w9 Y"); pop(exl, W(24, "300만"));
+  const sep = text(sc, X0 + 450 * U, 460, "따로 더해짐", 44, "w7 N"); pop(sep, W(24, "따로"));
+  const fill = el(`<div class="a" style="left:${X0 + 900 * U + 40}px;top:330px;width:${300 * U}px;height:110px;border-radius:12px;background:${G};transform-origin:0 50%"></div>`, sc);
+  grow(fill, W(25, "300만"), 0.8);
+  const c = el(`<div class="a cx c w9 nw" style="left:960px;top:620px;font-size:64px"><span class="Y">3,000만 원</span>만 옮겨도 10% = 300만 → <span class="G">다 채움</span></div>`, sc); pop(c, W(25, "3,000만"));
+  K.cut(E(23) - 0.05, "60일 안 · 10% 더");
+  K.cut(E(25) - 0.05, "추가 300만 다 채움");
+}
+// 13. 공제율 13.2% → 39만 6천 원 · 5,500만 이하 16.5% → 49만 5천 원 (s26–s28)
+{ const sc = scene(S(26) - 0.3, until(29));
+  const a = el(`<div class="a w9 nw" style="left:240px;top:200px;font-size:60px">연봉 <span class="Y">5,500만 원 넘으면</span> 공제율 <span class="Y">13.2%</span></div>`, sc); pop(a, W(26, "5,500만"));
+  const B = who(sc, 360, 320, "B", 120); pop(B, S(27));
+  const f = el(`<div class="a w9 nw" style="left:560px;top:360px;font-size:56px">300만 원 × 13.2% =</div>`, sc); pop(f, W(27, "300만"));
+  const n = el(`<div class="a w9 G nw" style="left:1140px;top:340px;font-size:110px;line-height:1"><span>0</span> 원</div>`, sc);
+  pop(n, W(27, "39만") - 0.1); K.counter(n.querySelector("span"), 0, 39.6, W(27, "39만"), 1.0, man1);
+  const back = text(sc, 1360, 470, "돌려받음", 48, "w9 G"); pop(back, W(27, "돌려받아요"));
+  const c = el(`<div class="a w9 nw" style="left:240px;top:640px;font-size:56px">연봉 5,500만 원 이하면 <span class="Y">16.5%</span> → <span class="G">49만 5천 원</span></div>`, sc); pop(c, S(28));
+  K.cut(E(28) - 0.05, "13.2% → 39만 6천 · 16.5% → 49만 5천");
+}
+// 14. 낸 세금보다 많이 못 돌려받음 · 국민연금만 110만이면 · 할인 쿠폰 (s29–s31)
+{ const sc = scene(S(29) - 0.3, until(32));
+  const a = el(`<div class="a cx c w9 nw" style="left:960px;top:180px;font-size:64px">돌려받는 돈 ≤ <span class="Y">그해 낸 소득세</span></div>`, sc); pop(a, S(29));
+  const b = el(`<div class="a w9 nw" style="left:240px;top:320px;font-size:56px">예) 국민연금만 한 달 110만 원</div>`, sc); pop(b, W(30, "국민연금만"));
+  const c = el(`<div class="a w9 nw" style="left:240px;top:410px;font-size:56px">→ 1년 세금 <span class="R">30만 원도 안 돼</span></div>`, sc); pop(c, W(30, "30만"));
+  const d = el(`<div class="a w9 R nw" style="left:240px;top:500px;font-size:56px">→ 다 못 돌려받음</div>`, sc); pop(d, W(30, "다 못"));
+  out([b, c, d], S(31) - 0.1);
+  const cp = coupon(sc, 960, 360, `<div class="w9 Y nw" style="font-size:84px">공제 = 할인 쿠폰</div><div class="w7 nw" style="font-size:48px">세금을 내야 쓸 수 있음</div>`);
+  pop(cp, W(31, "할인 쿠폰"), { from: { scale: 0.85 } });
+  K.cut(E(30) - 0.05, "국민연금만이면 다 못 돌려받음");
+  K.cut(E(31) - 0.05, "할인 쿠폰");
+}
+// 15. 한마디로 (s32)
+{ const sc = scene(S(32) - 0.3, until(33) - 1.0);
+  const k = text(sc, 960, 260, "한마디로", 56, "w7 N"); pop(k, S(32));
+  const m = el(`<div class="a cx c w9 nw" style="left:960px;top:390px;font-size:84px;line-height:1.3">연금계좌로 옮기는 건<br><span class="Y">세금을 내는 동안</span> 해야 돌려받음</div>`, sc); pop(m, W(32, "연금계좌로"));
+  K.cut(E(32) - 0.6, "원칙 1 한마디로");
+}
+
+/* ───────────── 원칙 2: 공제받은 돈은 연금으로 ───────────── */
+// 16. 2,700만은 언제든 세금 없이 · 공제받은 300만과 이익은 꺼낼 때 세금 (s33–s35)
+{ const sc = scene(S(33) + 0.6, until(36));
+  const t = el(`<div class="a cx c w9 nw" style="left:960px;top:180px;font-size:60px">공제받은 돈은 <span class="Y">연금으로 받아야</span> 남음</div>`, sc); pop(t, S(33) + 0.7);
+  const U = 0.42, X0 = 300;
+  const whole = text(sc, 960, 300, "옮긴 3,000만 원", 52, "w7"); pop(whole, W(34, "3,000만"));
+  const s1 = K.seg(sc, X0, 380, 2700 * U, B4, "공제 안 받은 2,700만", W(34, "2,700만"), 0.8, 120);
+  const s2 = K.seg(sc, X0 + 2700 * U + 6, 380, 300 * U, Y, "", W(35, "300만"), 0.5, 120);
+  const s3 = K.seg(sc, X0 + 3000 * U + 12, 380, 100, B2, "이익", W(35, "이익"), 0.5, 120);
+  const l1 = el(`<div class="a w9 G nw" style="left:${X0}px;top:540px;font-size:52px">언제든 세금 없이 꺼냄</div>`, sc); pop(l1, W(34, "세금 없이"));
+  const l2 = el(`<div class="a w9 nw" style="left:${X0}px;top:630px;font-size:52px"><span class="Y">공제받은 300만</span> + 이익 → <span class="R">꺼낼 때 세금</span></div>`, sc); pop(l2, W(35, "꺼낼"));
+  K.cut(E(35) - 0.05, "2,700만 vs 300만 + 이익");
+}
+// 17. 연금으로 5.5~3.3% vs 한꺼번에 16.5% (s36)
+{ const sc = scene(S(36) - 0.3, until(37));
+  const base = 760, U = 26;
+  const a = K.vbar(sc, 520, base, 300, 5.5 * U, G, W(36, "연금으로"), 0.7);
+  const al = el(`<div class="a cx c w9 G nw" style="left:670px;top:${base - 5.5 * U - 130}px;font-size:84px;line-height:1">5.5~3.3%</div>`, sc); pop(al, W(36, "5.5%"));
+  const an = text(sc, 670, base + 14, "55세 넘어 연금으로", 48, "w7"); pop(an, W(36, "55세"));
+  const b = K.vbar(sc, 1100, base, 300, 16.5 * U, R, W(36, "한꺼번에"), 0.8);
+  const bl = el(`<div class="a cx c w9 R nw" style="left:1250px;top:${base - 16.5 * U - 110}px;font-size:84px;line-height:1">16.5%</div>`, sc); pop(bl, W(36, "16.5%"));
+  const bn = text(sc, 1250, base + 14, "한꺼번에 찾으면", 48, "w7"); pop(bn, W(36, "한꺼번에"));
+  K.cut(E(36) - 0.05, "5.5~3.3% vs 16.5%");
+}
+// 18. 300만 한꺼번에 49만 5천 > 39만 6천 · 연금으로 16만 5천 → 23만 1천 남음 (s37–s38)
+{ const sc = scene(S(37) - 0.3, until(39));
+  const row = (top, label, pay, payCls, note, at1, at2) => {
+    const l = el(`<div class="a w9 nw" style="left:200px;top:${top}px;font-size:56px">${label}</div>`, sc); pop(l, at1);
+    const p = el(`<div class="a w9 nw ${payCls}" style="left:200px;top:${top + 90}px;font-size:84px;line-height:1">${pay}</div>`, sc); pop(p, at1 + 0.3);
+    const n = el(`<div class="a w9 nw" style="left:940px;top:${top + 100}px;font-size:56px">${note}</div>`, sc); pop(n, at2);
+  };
+  row(190, "300만 원을 <span class=\"R\">한꺼번에</span> 찾으면", "49만 5천 원 냄", "R", `&gt; 돌려받은 <span class="G">39만 6천</span> → <span class="R">손해</span>`, W(37, "한꺼번에"), W(37, "돌려받은"));
+  row(480, "70세 전에 <span class=\"G\">연금으로</span> 받으면", "16만 5천 원만 냄", "G", `→ <span class="G">23만 1천 원 남음</span>`, W(38, "연금으로"), W(38, "23만"));
+  K.cut(E(38) - 0.05, "한꺼번에 손해 · 연금으로 23만 1천 남음");
+}
+// 19. 한마디로 (s39)
+{ const sc = scene(S(39) - 0.3, until(40) - 1.0);
+  const k = text(sc, 960, 280, "한마디로", 56, "w7 N"); pop(k, S(39));
+  const m = el(`<div class="a cx c w9 nw" style="left:960px;top:410px;font-size:92px">공제받은 돈은 <span class="Y">연금으로</span></div>`, sc); pop(m, W(39, "공제받은"));
+  K.cut(E(39) - 0.6, "원칙 2 한마디로");
+}
+
+/* ───────────── 원칙 3: ISA는 다시 열면 한도가 새로 ───────────── */
+// 20. 해지하고 다시 열 때마다 비과세 한도 새로 (s40)
+{ const sc = scene(S(40) + 0.6, until(41));
+  const a = acct(sc, 600, 300, 360, 220, "ISA", B4); pop(a, W(40, "ISA는"));
+  const x = el(`<div class="a w9 R nw" style="left:460px;top:560px;font-size:56px">해지</div>`, sc); pop(x, W(40, "해지하고"));
+  const ar = el(`<div class="a w9 N" style="left:860px;top:340px;font-size:100px">→</div>`, sc); pop(ar, W(40, "다시"));
+  const b = acct(sc, 1320, 300, 360, 220, "새 ISA", G); pop(b, W(40, "다시"));
+  const n = el(`<div class="a cx c w9 Y nw" style="left:1320px;top:560px;font-size:56px">비과세 한도 새로</div>`, sc); pop(n, W(40, "비과세"));
+  K.cut(E(40) - 0.05, "다시 열면 한도 새로");
+}
+// 21. 비과세 200만 (서민형 400만) · 넘는 이익 9.9% < 예금 15.4% (s41–s43)
+{ const sc = scene(S(41) - 0.3, until(44));
+  const a = el(`<div class="a w9 nw" style="left:240px;top:190px;font-size:60px">ISA 이익 비과세 기준 <span class="Y">200만 원</span>까지 세금 0</div>`, sc); pop(a, W(41, "200만"));
+  const b = el(`<div class="a w9 nw" style="left:240px;top:290px;font-size:56px">서민형 (연봉 5,000만 원 이하 등) <span class="Y">400만 원</span></div>`, sc); pop(b, W(42, "400만"));
+  const base = 770, U = 18;
+  const c = K.vbar(sc, 520, base, 280, 9.9 * U, G, W(43, "9.9%"), 0.7);
+  const cl = el(`<div class="a cx c w9 G nw" style="left:660px;top:${base - 9.9 * U - 80}px;font-size:72px;line-height:1">9.9%</div>`, sc); pop(cl, W(43, "9.9%"));
+  const cn = text(sc, 660, base + 10, "ISA 넘는 이익", 44, "w7"); pop(cn, W(43, "넘는"));
+  const d = K.vbar(sc, 1100, base, 280, 15.4 * U, R, W(43, "15.4%"), 0.7);
+  const dl = el(`<div class="a cx c w9 R nw" style="left:1240px;top:${base - 15.4 * U - 80}px;font-size:72px;line-height:1">15.4%</div>`, sc); pop(dl, W(43, "15.4%"));
+  const dn = text(sc, 1240, base + 10, "예금 이자", 44, "w7"); pop(dn, W(43, "예금"));
+  K.cut(E(43) - 0.05, "200만·400만 · 9.9% < 15.4%");
+}
+// 22. 이익 800 중 600에만 9.9% → 세금 59만 4천 · 손에 쥔 돈 6,740만 (s44–s45)
+{ const sc = scene(S(44) - 0.3, until(46));
+  const t = el(`<div class="a w9 nw" style="left:240px;top:190px;font-size:56px">첫 ISA 이익 <span class="Y">800만 원</span></div>`, sc); pop(t, W(44, "800만"));
+  const U = 1.5, X0 = 240;
+  const s1 = K.seg(sc, X0, 300, 200 * U, G, "200만 세금 0", W(44, "200만"), 0.6, 110);
+  const s2 = K.seg(sc, X0 + 200 * U + 6, 300, 600 * U, B3, "600만에만 9.9%", W(44, "600만"), 0.8, 110);
+  const tax = el(`<div class="a w9 nw" style="left:${X0}px;top:470px;font-size:64px">세금 <span class="R">59만 4천 원</span>을 빼고</div>`, sc); pop(tax, W(45, "59만"));
+  const n = el(`<div class="a w9 nw" style="left:${X0}px;top:580px;font-size:96px;line-height:1">손에 쥔 돈 <span class="Y">0</span><span class="Y">만 원</span></div>`, sc);
+  pop(n, W(45, "6,740만") - 0.1); counter(n.querySelector("span"), 0, 6740, W(45, "6,740만"), 1.1);
+  K.cut(E(45) - 0.05, "59만 4천 · 6,740만");
+}
+// 23. 연장하면 200만 그대로 · 3년마다 새로 열면 바구니가 하나씩 더 (s46–s47)
+{ const sc = scene(S(46) - 0.3, until(48));
+  const a = el(`<div class="a w9 nw" style="left:200px;top:190px;font-size:56px">연장하면 → 비과세 기준 <span class="Y">200만 원 그대로</span></div>`, sc); pop(a, S(46));
+  const b1 = K.basket(sc, 400, 360, 300, "연장"); pop(b1, S(46) + 0.3);
+  const b = el(`<div class="a w9 nw" style="left:760px;top:290px;font-size:56px">3년마다 <span class="G">새로 열면</span></div>`, sc); pop(b, W(47, "새로"));
+  const bs = [0, 1, 2].map(i => { const k = K.basket(sc, 900 + i * 330, 400, 260, `${i + 1}번째`); pop(k, W(47, "바구니가") + i * 0.35); return k; });
+  const n = el(`<div class="a cx c w9 G nw" style="left:1230px;top:700px;font-size:52px">세금 없는 바구니가 하나씩 더</div>`, sc); pop(n, W(47, "하나씩"));
+  K.cut(E(47) - 0.05, "연장 vs 새로 열기 바구니");
+}
+// 24. 새 ISA는 1년 2,000만까지 · B: 3,740만 중 2,000만 지금, 나머지 내년 (s48–s49)
+{ const sc = scene(S(48) - 0.3, until(50));
+  const a = el(`<div class="a w9 nw" style="left:240px;top:190px;font-size:56px">새 ISA에는 1년에 <span class="Y">2,000만 원</span>까지</div>`, sc); pop(a, W(48, "2,000만"));
+  const B = who(sc, 360, 320, "B", 120); pop(B, S(49));
+  const U = 0.3, X0 = 560;
+  const rest = el(`<div class="a w9 nw" style="left:${X0}px;top:320px;font-size:52px">남은 <span class="Y">3,740만 원</span></div>`, sc); pop(rest, W(49, "3,740만"));
+  const now = K.seg(sc, X0, 410, 2000 * U, G, "지금 2,000만", W(49, "2,000만"), 0.7, 110);
+  const next = K.seg(sc, X0 + 2000 * U + 6, 410, 1740 * U, B3, "나머지 내년", W(49, "내년"), 0.7, 110);
+  K.cut(E(49) - 0.05, "2,000만 지금 · 나머지 내년");
+}
+// 25. A: 예금 6,740만 → 이자 236만 → 해마다 약 36만 세금 (s50–s51)
+{ const sc = scene(S(50) - 0.3, until(52));
+  const A = who(sc, 300, 200, "A", 120); pop(A, S(50));
+  const d = acct(sc, 700, 230, 400, 200, "예금", R, "6,740만 원"); pop(d, W(50, "예금"));
+  const ar = el(`<div class="a w9 N" style="left:930px;top:270px;font-size:90px">→</div>`, sc); pop(ar, W(50, "1년 이자"));
+  const i = el(`<div class="a w9 nw" style="left:1060px;top:250px;font-size:72px;line-height:1.2">1년 이자<br><span class="Y">236만 원</span></div>`, sc); pop(i, W(50, "236만"));
+  const t = el(`<div class="a cx c w9 nw" style="left:960px;top:520px;font-size:72px">해마다 세금 약 <span class="R">36만 원</span></div>`, sc); pop(t, W(51, "약 36만"));
+  K.years(sc, 700, 640, 3, R, W(51, "해마다"), "해마다");
+  K.cut(E(51) - 0.05, "A 예금 이자 236만 → 세금 약 36만");
+}
+// 26. 연장해서 굴리면? → 이 예에서는 B가 3년 약 57만 원 적음 (s52–s53)
+{ const sc = scene(S(52) - 0.3, until(54));
+  const q = el(`<div class="a cx c w9 nw" style="left:960px;top:250px;font-size:72px">연장해서 계속 굴리는 게 <span class="Y">낫다?</span></div>`, sc); pop(q, S(52));
+  const B = who(sc, 560, 420, "B", 120); pop(B, S(53));
+  const n = el(`<div class="a w9 nw" style="left:760px;top:470px;font-size:72px;line-height:1.3">연장만 할 때보다<br>3년 세금 약 <span class="G">57만 원</span> 적음</div>`, sc); pop(n, W(53, "약 57만"));
+  K.cut(E(53) - 0.05, "연장보다 약 57만 원 적음");
+}
+// 27. 한마디로 (s54)
+{ const sc = scene(S(54) - 0.3, until(55));
+  const k = text(sc, 960, 230, "한마디로", 56, "w7 N"); pop(k, S(54));
+  const a = text(sc, 960, 360, `ISA는 <span class="Y">3년마다 새로</span>`, 92); pop(a, W(54, "ISA는"));
+  const b = text(sc, 960, 510, `만기 돈은 <span class="R">예금에 두지 않기</span>`, 92); pop(b, W(54, "만기 돈은"));
+  K.cut(E(54) - 0.05, "원칙 3 한마디로");
+}
+// 28. 만기 때 할 일 순서로 (s55)
+{ const sc = scene(S(55) - 0.3, until(56) - 1.0);
+  K.cards(sc, [["1", "공제는<br>낸 세금에서"], ["2", "공제받은 돈<br>연금으로"], ["3", "ISA<br>3년마다<br>새로"]], 170, S(55), 50, 440, 450);
+  const t = text(sc, 960, 670, `→ <span class="Y">만기 때 할 일</span> 순서대로`, 84); pop(t, W(55, "만기 때"));
+  K.cut(E(55) - 0.6, "할 일 순서로");
+}
+
+/* ───────────── 만기 때 할 일 ───────────── */
+{ const sc = scene(S(56) + 0.6, until(63));
+  const card = (i, k, t, at) => {
+    const c = el(`<div class="step" style="left:${120 + i * 580}px;top:200px;width:540px;height:340px"><div class="k">${k}</div><div class="t">${t}</div></div>`, sc);
+    pop(c, at);
+    return c;
+  };
+  const c1 = card(0, "1단계 · 만기 한 달 전", "연금저축 계좌<br>확인", W(56, "1단계"));
+  const c2 = card(1, "2단계 · 만기 뒤 60일 안", "3,000만 원<br>→ 연금저축", W(59, "2단계"));
+  const c3 = card(2, "3단계 · 같은 때", "새 ISA에<br>2,000만 원", W(61, "3단계"));
+  const note = (html, at, endAt) => { const n = el(`<div class="a cx c w7 nw" style="left:960px;top:620px;font-size:50px;line-height:1.35">${html}</div>`, sc); pop(n, at); if (endAt) out(n, endAt); return n; };
+  note(`이미 연금을 받기 시작한 계좌 → <span class="R">더 넣을 수 없음</span>`, S(57), S(58) - 0.1);
+  note(`계좌가 없으면 새로 만들어도 됨 · 연금으로 받으려면 <span class="Y">만든 지 5년</span>`, S(58), S(59) - 0.1);
+  tl.to(c1, { opacity: 0.45, duration: 0.3 }, S(59));
+  note(`1년 1,800만 원 납입 기준과 <span class="G">따로</span> → 한 번에 넣을 수 있음`, S(60), S(61) - 0.1);
+  tl.to(c2, { opacity: 0.45, duration: 0.3 }, S(61));
+  note(`다음 해 연말정산에서 <span class="Y">공제 꼭 확인</span>`, S(62), S(63) - 0.1);
+  tl.to([c1, c2], { opacity: 1, duration: 0.3 }, S(62));
+  K.cut(E(57) - 0.05, "1단계 연금저축 계좌 확인");
+  K.cut(E(60) - 0.05, "2단계 60일 안 3,000만");
+  K.cut(E(62) - 0.05, "3단계 새 ISA + 연말정산");
+}
+// 29. 결과는? (s63)
+{ const sc = scene(S(63) - 0.3, until(64) - 1.0);
+  const A = who(sc, 620, 280, "A", 170), B = who(sc, 1300, 280, "B", 170);
+  pop(A, S(63)); pop(B, S(63) + 0.1);
+  const q = text(sc, 960, 330, "?", 200, "w9 Y"); pop(q, W(63, "달라졌을까요"));
+  K.cut(E(63) - 0.6, "결과는?");
+}
+
+/* ───────────── 두 사람의 결과 ───────────── */
+// 30. 3년 세금 (s64)
+{ const sc = scene(S(64) + 0.4, until(65));
+  threeYearTax(sc, S(64) + 0.6, W(64, "약 172만"), W(64, "약 76만"));
+  K.cut(E(64) - 0.05, "결과: 3년 172 vs 76");
+}
+// 31. 내역 (s65–s68)
+{ const sc = scene(S(65) - 0.3, until(69));
+  const both = el(`<div class="a cx c w9 nw" style="left:960px;top:180px;font-size:56px">둘 다: 첫 ISA 세금 <span class="Y">59만 4천 원</span></div>`, sc); pop(both, W(65, "59만"));
+  const div = el(`<div class="a" style="left:958px;top:290px;width:4px;height:560px;background:rgba(255,255,255,.12)"></div>`, sc); pop(div, S(66));
+  const A = el(`<div class="a cx" style="left:480px;top:300px"><span class="badge kA">A 씨</span></div>`, sc); pop(A, S(66));
+  const a1 = el(`<div class="a cx c w9 nw" style="left:480px;top:420px;font-size:56px;line-height:1.35">+ 3년 예금 이자 세금<br><span class="R">112만 원</span></div>`, sc); pop(a1, W(66, "112만"));
+  const B = el(`<div class="a cx" style="left:1440px;top:300px"><span class="badge kB">B 씨</span></div>`, sc); pop(B, S(67));
+  const b1 = el(`<div class="a cx c w9 nw" style="left:1440px;top:420px;font-size:52px;line-height:1.35">이 세금은 거의 없음<br>공제로 <span class="G">39만 6천 원</span> 돌려받음</div>`, sc); pop(b1, W(67, "거의"));
+  const b2 = el(`<div class="a cx c w7 nw" style="left:1440px;top:630px;font-size:44px;line-height:1.35">나중에 낼 세금 <span class="Y">약 53만 원</span>까지<br>넣은 숫자</div>`, sc); pop(b2, W(68, "약 53만"));
+  K.cut(E(68) - 0.05, "결과 내역");
+}
+// 32. 3년 차이 96만 · 두 번이면 6년 약 2백만 (s69–s70)
+{ const sc = scene(S(69) - 0.3, until(71));
+  const a = el(`<div class="a cx c w9 nw" style="left:960px;top:200px;font-size:64px">3년 동안의 차이</div>`, sc); pop(a, S(69));
+  const n = el(`<div class="a cx c w9 R nw" style="left:960px;top:300px;font-size:180px;line-height:1"><span>0</span>만 원</div>`, sc);
+  pop(n, W(69, "96만") - 0.1); counter(n.querySelector("span"), 0, 96, W(69, "96만"), 1.0);
+  const b = el(`<div class="a cx c w9 nw" style="left:960px;top:540px;font-size:60px">64세에 한 번 더 → 6년 동안 <span class="R">약 2백만 원</span></div>`, sc); pop(b, W(70, "64세에"));
+  K.cut(E(70) - 0.05, "96만 · 6년 약 2백만");
+}
+// 33. 이미 은퇴해서 낼 세금이 없다면: 공제 0 · 그래도 약 73만 원 (s71–s72)
+{ const sc = scene(S(71) - 0.3, until(73));
+  const a = el(`<div class="a cx c w9 nw" style="left:960px;top:220px;font-size:64px">이미 은퇴해서 낼 세금이 없다면</div>`, sc); pop(a, S(71));
+  const z = el(`<div class="a cx c w9 nw" style="left:960px;top:340px;font-size:84px">공제 <span class="R">0원</span></div>`, sc); pop(z, W(71, "0원"));
+  const b = el(`<div class="a cx c w9 nw" style="left:960px;top:500px;font-size:60px;line-height:1.35">그래도 예금 이자 세금을 피한 몫<br>3년 동안 약 <span class="G">73만 원</span> 차이</div>`, sc); pop(b, W(72, "예금"));
+  K.cut(E(72) - 0.05, "은퇴자도 약 73만 원");
+}
+// 34. 이미 만기가 지났다면? (s73–s74)
+{ const sc = scene(S(73) - 0.3, until(75) - 1.0);
+  const q = el(`<div class="a cx c w9 nw" style="left:960px;top:330px;font-size:84px;line-height:1.35">이미 만기가 지났거나<br>그냥 찾았다면<span class="Y">?</span></div>`, sc); pop(q, S(73));
+  K.cut(E(74) - 0.6, "이미 지났다면?");
+}
+
+/* ───────────── 이미 만기가 지났다면 ───────────── */
+// 35. 늦지 않음 · 60일 안이면 지금이라도 (s75–s76)
+{ const sc = scene(S(75) - 0.2, until(77));
+  const n = text(sc, 960, 330, `<span class="G">늦지 않았습니다</span>`, 130); pop(n, S(75) + 0.3, { from: { scale: 0.85 } });
+  out(n, S(76) - 0.1);
+  const cal = K.cal(sc, 300, 230, "만기 뒤", `<div class="w9" style="font-size:84px">60일</div><div class="w7 G">안이라면</div>`, S(76));
+  const m = el(`<div class="a w9 nw" style="left:860px;top:380px;font-size:64px">지금이라도 <span class="G">연금계좌로</span></div>`, sc); pop(m, W(76, "지금이라도"));
+  K.cut(E(76) - 0.05, "60일 안이면 지금");
+}
+// 36. 연장했다면: 3년 지났으면 언제든 · 옮기는 날 = 만기 (s77–s79)
+{ const sc = scene(S(77) - 0.3, until(80));
+  const q = el(`<div class="a cx c w9 nw" style="left:960px;top:200px;font-size:72px">만기를 <span class="Y">연장</span>하셨나요?</div>`, sc); pop(q, S(77));
+  const a = el(`<div class="a cx c w9 nw" style="left:960px;top:350px;font-size:64px">가입 3년 지났다면 → <span class="G">언제든 옮길 수 있음</span></div>`, sc); pop(a, S(78));
+  const b = el(`<div class="a cx c w9 nw" style="left:960px;top:500px;font-size:64px">옮기는 날 = 만기 → <span class="G">추가 공제 똑같이</span></div>`, sc); pop(b, S(79));
+  K.cut(E(79) - 0.05, "연장했다면");
+}
+// 37. 60일 지나 찾았다면 → 이번 추가 공제 ✕ · 오늘 새 ISA · 3년 뒤 기회 · 늦을수록 (s80–s83)
+{ const sc = scene(S(80) - 0.3, until(84));
+  const a = el(`<div class="a w9 nw" style="left:200px;top:190px;font-size:56px">60일이 지나 이미 찾았다면 → 이번 추가 공제 <span class="R">✕</span></div>`, sc); pop(a, S(80));
+  const b = el(`<div class="a w9 nw" style="left:200px;top:320px;font-size:56px">오늘 <span class="Y">ISA를 새로</span> → 찾은 돈을 1년 2,000만 원씩</div>`, sc); pop(b, S(81));
+  const yrs = K.years(sc, 200, 420, 3, G, W(81, "2,000만"), "");
+  const c = el(`<div class="a w9 G nw" style="left:200px;top:560px;font-size:56px">3년 뒤 같은 기회가 다시</div>`, sc); pop(c, S(82));
+  const d = el(`<div class="a w9 R nw" style="left:200px;top:680px;font-size:56px">늦을수록 예금 이자 세금만 더 나감</div>`, sc); pop(d, S(83));
+  K.cut(E(83) - 0.05, "이미 찾았다면 할 일");
+}
+// 38. 정리로 (s84)
+{ const sc = scene(S(84) - 0.3, until(85) - 1.0);
+  const t = text(sc, 960, 400, `오늘 내용 <span class="Y">정리</span>`, 120); pop(t, W(84, "정리"));
+  K.cut(E(84) - 0.6, "정리로");
+}
+
+/* ───────────── 정리 ───────────── */
+// 39. 바뀔 수 있는 것 (s85–s86)
+{ const sc = scene(S(85) + 0.6, until(87));
+  const a = el(`<div class="a cx pill sm nw" style="left:960px;top:230px">비과세 기준 200만 원 · 공제 비율</div>`, sc); pop(a, W(85, "공제"));
+  const b = text(sc, 960, 360, "→ 바뀔 수 있음", 56, "w7 N"); pop(b, W(85, "바뀔"));
+  const c = el(`<div class="a cx pill sm nw" style="left:960px;top:500px">국회에 올라간 ISA 개편안</div>`, sc); pop(c, S(86));
+  const d = text(sc, 960, 630, "→ 아직 정해지지 않음", 56, "w7 N"); pop(d, W(86, "아직"));
+  K.cut(E(86) - 0.05, "바뀔 수 있는 것");
+}
+// 40. 그대로인 세 가지 (s87–s91)
+{ const sc = scene(S(87) - 0.3, until(92));
+  const t = text(sc, 960, 160, `그래도 <span class="Y">그대로</span>인 세 가지`, 64); pop(t, S(87));
+  K.cards(sc, [["1", "공제는<br>낸 세금에서<br>돌려받는 돈"], ["2", "공제받은 돈은<br>연금으로"], ["3", "ISA는<br>3년마다 새로"]], 270,
+    [S(88), S(90), S(91)], 60, 500, 560);
+  K.cut(E(91) - 0.05, "그대로인 세 가지");
+}
+// 41. 오늘 할 일 · 감사합니다 (s92–s93)
+{ const sc = scene(S(92) - 0.3, E(93) + 0.9, { keep: true });
+  const cal = K.cal(sc, 750, 200, "오늘", `<div class="w9" style="font-size:56px">내 ISA<br><span class="Y">만기일</span> 확인</div>`, S(92));
+  out(cal, S(93) - 0.1);
+  const bye = text(sc, 960, 400, `시청해주셔서 <span class="Y">감사합니다</span>`, 84); pop(bye, S(93));
+  K.cut(E(92) - 0.05, "만기일 확인");
+  K.cut(E(93) + 0.5, "감사합니다");
+}
+
+K.done();
+})();
+</script>
+</body>
+</html>

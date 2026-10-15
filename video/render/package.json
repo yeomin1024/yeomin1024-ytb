@@ -1,0 +1,6 @@
+{
+  "name": "video-render",
+  "private": true,
+  "description": "새 스타일 영상 렌더기 — 장면 HTML(GSAP 타임라인)을 Playwright로 멈춰 찍고 ffmpeg로 이어 내레이션을 붙임 (guides/video_guide.md v4.0 6번)",
+  "dependencies": { "gsap": "3.12.5" }
+}

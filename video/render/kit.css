@@ -1,0 +1,78 @@
+/* VERSION: v1.0 — 2026-10-15 — 새 스타일 영상 공통 무대·부품 (guides/video_guide.md v4.0 3번).
+   근거 시안 video/prototypes/storyboard-2026-10-15/storyboard.html 의 무대 CSS 를 옮김 + 자막 띠 52px(3-5) + 미리보기 재생기.
+   연구·교육용 영상 — 투자·세무 권유 아님. */
+@font-face{font-family:"Noto Sans KR";font-weight:500;src:url(../public/fonts/NotoSansKR-500.ttf) format("truetype")}
+@font-face{font-family:"Noto Sans KR";font-weight:700;src:url(../public/fonts/NotoSansKR-700.ttf) format("truetype")}
+@font-face{font-family:"Noto Sans KR";font-weight:900;src:url(../public/fonts/NotoSansKR-900.ttf) format("truetype")}
+
+:root{color-scheme:dark}
+html,body{margin:0;background:#05080F;color:#E7EBF2;font-family:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif}
+/* 미리보기: 무대를 창 너비에 맞춰 줄임 · 렌더(?render): 무대만 1920×1080 그대로 */
+#wrap{position:relative;width:100%;max-width:100%;aspect-ratio:16/9;overflow:hidden;background:#0C1424}
+body.render #wrap{width:1920px;height:1080px;aspect-ratio:auto}
+body.render #ctrl,body.render #now{display:none}
+#ctrl{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:10px 16px}
+#ctrl button{font:600 15px inherit;font-family:inherit;color:#E7EBF2;background:#1D2638;border:1px solid #273247;border-radius:8px;padding:8px 14px;cursor:pointer}
+#ctrl input[type=range]{flex:1 1 260px;min-width:0;accent-color:#FFD400}
+#ctrl .time{font-variant-numeric:tabular-nums;color:#98A3B8;min-width:120px}
+#now{padding:0 16px 16px;color:#98A3B8;font-size:15px}
+
+/* ===== 영상 무대 (1920×1080 고정 좌표) — 3-1 ===== */
+#stage{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:0 0;overflow:hidden;
+  background:radial-gradient(1300px 900px at 50% 38%,#17243D 0%,#0C1424 58%,#070C17 100%);
+  font-family:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;color:#F4F6FA;line-height:1.2;
+  --Y:#FFD400;--R:#FF4D3D;--G:#22C7B0;--N:#9AA7BF;--P:rgba(255,255,255,.06);--L:rgba(255,255,255,.14);
+  --B1:#2E4470;--B2:#3C5788;--B3:#4A69A2;--B4:#5B7DB8}
+#stage *{box-sizing:border-box}
+.sc{position:absolute;inset:0;opacity:0}
+.a{position:absolute}
+.c{text-align:center}
+.nw{white-space:nowrap}
+.w9{font-weight:900}.w7{font-weight:700}.w5{font-weight:500}
+.Y{color:var(--Y)}.R{color:var(--R)}.G{color:var(--G)}.N{color:var(--N)}
+/* 배지 (A 부부 빨강 · B 부부 청록 — 3-2) */
+.badge{display:inline-block;font-weight:900;font-size:40px;line-height:1;padding:14px 26px;border-radius:999px;color:#0C1424;white-space:nowrap}
+.badge.kA{background:var(--R);color:#fff}.badge.kB{background:var(--G)}.badge.kN{background:rgba(255,255,255,.12);color:#F4F6FA}
+.pill{font-weight:700;font-size:60px;line-height:1;padding:24px 40px;border-radius:999px;background:var(--P);border:2px solid var(--L);white-space:nowrap}
+.pill.sm{font-size:48px;padding:18px 32px}
+/* 장 이름표 (5번) */
+#chip{position:absolute;left:96px;top:60px;font-weight:700;font-size:36px;line-height:1;padding:16px 28px;border-radius:999px;background:rgba(255,255,255,.06);border:2px solid rgba(255,255,255,.12);display:flex;gap:16px;align-items:center;z-index:5;white-space:nowrap}
+#chip .dots{display:flex;gap:8px}#chip .dots:empty{display:none}#chip .dots i{width:14px;height:14px;border-radius:50%;background:rgba(255,255,255,.22);display:block}#chip .dots i.on{background:var(--Y)}
+/* 장 바뀜 카드 */
+.chapter{position:absolute;inset:0;display:grid;place-items:center;align-content:center;gap:26px;background:radial-gradient(1100px 700px at 50% 45%,#1A2946 0%,#0C1424 70%);z-index:4;opacity:0}
+.chapter .k{font-weight:700;font-size:48px;color:var(--Y);letter-spacing:2px}
+.chapter .t{font-weight:900;font-size:96px;line-height:1.15;text-align:center;max-width:1600px}
+/* 구운 자막 (3-5): 아래 끝에서 44px, 52px 700, 줄 간격 1.3, 띠 최대 1600px */
+#cc{position:absolute;left:50%;bottom:44px;transform:translateX(-50%);max-width:1600px;width:max-content;font-weight:700;font-size:52px;line-height:1.3;padding:12px 32px;border-radius:14px;background:rgba(5,9,18,.82);text-align:center;z-index:6;color:#F4F6FA;word-break:keep-all}
+#cc:empty{display:none}
+/* 부품 (3-6) */
+.strike{position:absolute;height:12px;background:var(--R);border-radius:6px;transform-origin:0 50%}
+.stack{position:absolute;border-radius:18px;overflow:hidden;display:grid}
+.stack div{display:flex;align-items:center;justify-content:center;font-weight:700;font-size:40px;color:#E9EEF7;white-space:nowrap}
+.coin{position:absolute;width:86px;height:22px;border-radius:50%;background:radial-gradient(ellipse at 50% 35%,#FF8A7E,#FF4D3D 55%,#B8261B);box-shadow:0 3px 0 #7E160E}
+.coin.g{background:radial-gradient(ellipse at 50% 35%,#7FF0DF,#22C7B0 55%,#11806F);box-shadow:0 3px 0 #0A574B}
+.coin.n{background:radial-gradient(ellipse at 50% 35%,#9DB4DA,#5B7DB8 55%,#34507F);box-shadow:0 3px 0 #22385C}
+.rain i{position:absolute;width:4px;height:60px;border-radius:2px;background:linear-gradient(rgba(159,182,218,0),rgba(159,182,218,.8))}
+.card3{position:absolute;width:500px;height:470px;border-radius:28px;background:rgba(255,255,255,.05);border:2px solid rgba(255,255,255,.12);padding:46px 48px;display:grid;align-content:start;gap:22px}
+.card3 .n{font-weight:900;font-size:150px;line-height:.9;color:var(--Y)}
+.card3 .t{font-weight:900;font-size:64px;line-height:1.18}
+.axis{position:absolute;height:4px;background:rgba(255,255,255,.28);border-radius:2px}
+.tick{position:absolute;font-weight:500;font-size:36px;color:var(--N);white-space:nowrap}
+.thr{position:absolute;width:0;border-left:6px dashed var(--Y)}
+.hthr{position:absolute;height:0;border-top:6px dashed var(--Y)}
+.seg{position:absolute;height:120px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:40px;white-space:nowrap;overflow:hidden;transform-origin:0 50%}
+.vbar{position:absolute;border-radius:14px 14px 4px 4px;transform-origin:50% 100%}
+.cal{position:absolute;width:420px;height:440px;border-radius:26px;background:rgba(255,255,255,.05);border:2px solid rgba(255,255,255,.14);overflow:hidden}
+.cal .h{height:96px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:52px;background:rgba(255,255,255,.08)}
+.cal .b{display:grid;place-items:center;align-content:center;gap:14px;height:344px;font-weight:700;font-size:44px;text-align:center;padding:0 24px}
+.env{position:absolute;width:300px;height:190px;border-radius:14px;background:#F4F6FA;color:#0C1424;display:grid;place-items:center;font-weight:900;font-size:44px;box-shadow:0 20px 40px -10px rgba(0,0,0,.6)}
+.env::before{content:"";position:absolute;inset:0;border-radius:14px;background:linear-gradient(160deg,transparent 49%,rgba(12,20,36,.18) 50%,transparent 51%),linear-gradient(20deg,transparent 49%,rgba(12,20,36,.18) 50%,transparent 51%)}
+.env span{position:relative}
+.ck{font-weight:900;font-size:64px;color:var(--G)}
+.panel{position:absolute;border-radius:24px;background:rgba(255,255,255,.05);border:2px solid rgba(255,255,255,.12)}
+.yrs{display:flex;gap:12px;align-items:center}
+.yrs i{width:72px;height:72px;border-radius:12px;border:3px solid currentColor;display:grid;place-items:center;font-style:normal;font-weight:900;font-size:38px}
+.step{position:absolute;width:520px;border-radius:26px;background:rgba(255,255,255,.05);border:2px solid rgba(255,255,255,.12);padding:34px 38px;display:grid;gap:16px;align-content:start}
+.step .k{font-weight:900;font-size:44px;color:var(--Y)}
+.step .t{font-weight:900;font-size:58px;line-height:1.15}
+.step .s{font-weight:700;font-size:40px;color:var(--N);line-height:1.25}

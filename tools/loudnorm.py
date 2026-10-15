@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-10-11 — 신규: 완성 영상 음량을 유튜브 기준(-14 LUFS, 트루 피크 -1.5 dBTP 이하)으로 맞춤 (사용자 지시 "음량 맞춰")
+# VERSION: v1.1 — 2026-10-15 — 새 스타일 첫 영상(은퇴 꺼내 쓰기)에서 3번 모두 기준 밖으로 실패한 것 고침: ① 트루 피크 때문에 리미터를 낮추면
+#          그만큼 음량도 줄어드는데 이득을 그대로 둬서 다음 번에 음량이 기준 밖(-14.35)으로 떨어짐 → 리미터를 낮춘 양의 40%만큼 이득을 미리 올림
+#          ② 최대 3번 → 5번 ③ 표본율이 44.1kHz 보다 낮은 소리(TTS 24kHz)는 48kHz 로 만듦 (리미터가 표본 사이 피크를 더 잘 누름 · 유튜브 권장)
+# (v1.0 — 2026-10-11 — 신규: 완성 영상 음량을 유튜브 기준(-14 LUFS, 트루 피크 -1.5 dBTP 이하)으로 맞춤 (사용자 지시 "음량 맞춰"))
 r"""
 렌더한 완성 영상(final_1080p.mp4)의 소리 크기를 유튜브 기준에 맞춥니다. 영상 스트림은 그대로 복사하고 오디오만 다시 만듭니다.
 
@@ -35,7 +38,8 @@ ROOT = Path(__file__).resolve().parent.parent
 TOL_SKIP = 0.5      # 이미 맞은 것으로 보는 범위 (LU)
 TOL_DONE = 0.3      # 처리 뒤 목표와의 허용 차이 (LU)
 TP_MARGIN = 0.5     # 리미터는 표본 피크 기준이라 트루 피크(표본 사이 피크)를 위해 한도보다 이만큼 낮게 (dB)
-MAX_TRIES = 3
+MAX_TRIES = 5
+LIMIT_GAIN_COMP = 0.4   # 리미터를 1 dB 낮추면 음량이 대략 이만큼 줄어듦 → 그만큼 이득을 미리 올림 (v1.1, 2026-10-15 실측 0.45 dB → 0.18 LU)
 
 log = logging.getLogger("loudnorm")
 
@@ -92,6 +96,8 @@ def encode(src, dst, afilter, info):
     br = int(info.get("bit_rate") or 320000)
     br_k = max(192, min(320, round(br / 1000)))
     sr = info.get("sample_rate") or "48000"
+    if int(sr) < 44100:                 # v1.1: TTS 24kHz 등 → 48kHz (트루 피크 제어·유튜브 권장)
+        sr = "48000"
     rc, _, err = run(["ffmpeg", "-hide_banner", "-nostats", "-nostdin", "-y", "-i", str(src),
                       "-map", "0:v:0", "-map", "0:a:0", "-c:v", "copy",
                       "-af", afilter, "-c:a", "aac", "-b:a", f"{br_k}k", "-ar", str(sr),
@@ -138,10 +144,12 @@ def normalize(path, target, tp, dry_run=False, force=False):
                         LRA=after["LRA"], ok_I=ok_i, ok_TP=ok_tp))
             if ok_i and ok_tp:
                 break
-            if not ok_tp:   # 트루 피크가 넘으면 리미터를 넘은 만큼 더 낮춤
-                limit = (limit if limit is not None else tp - TP_MARGIN) - (after["TP"] - tp) - 0.2
             if not ok_i:    # 리미터가 피크를 누른 만큼 음량이 덜 오름 → 차이만큼 이득 보정
                 gain += target - after["I"]
+            if not ok_tp:   # 트루 피크가 넘으면 리미터를 넘은 만큼 더 낮춤 + 그 때문에 줄 음량을 미리 보정 (v1.1)
+                drop = (after["TP"] - tp) + 0.2
+                limit = (limit if limit is not None else tp - TP_MARGIN) - drop
+                gain += LIMIT_GAIN_COMP * drop
         else:
             raise RuntimeError(f"{MAX_TRIES}번 해도 기준 밖 I={after['I']} TP={after['TP']} → 원본 그대로 둠")
         d0, d1 = duration(path), duration(tmp)

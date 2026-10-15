@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-10-14 — tools/content_research.py v1.0 시험 (임시 대본·가짜 비교 집단만 씀 — 네트워크·실제 분석 결과 없음)
+# VERSION: v1.0.1 — 2026-10-15 — 끝인사를 "시청해주셔서 감사합니다."로 (script_guide v3.1) — "끝까지" 약속은 첫 문장에서 잼. (v1.0 — 2026-10-14 — tools/content_research.py v1.0 시험 (임시 대본·가짜 비교 집단만 씀 — 네트워크·실제 분석 결과 없음))
 r"""
   python3 -m unittest tools.tests.test_content_research -v     (저장소 최상위에서)
 
@@ -17,7 +17,7 @@ sys.path.insert(0, str(TOOLS))
 import content_research as cr  # noqa: E402
 
 SCRIPT = """-같은 5억, 다른 세금
-지금 연금저축을 갖고 은퇴를 앞두고 계시다면, 이 숫자부터 보세요.
+지금 연금저축을 갖고 은퇴를 앞두고 계시다면, 이 숫자부터 끝까지 보세요.
 결론부터 말씀드리겠습니다. 예금부터 씁니다.
 왜 이렇게 차이가 날까요?
 [장면] 고지
@@ -25,7 +25,7 @@ SCRIPT = """-같은 5억, 다른 세금
 -두 부부
 -2,500만 원이 사라졌습니다.
 숫자는 2026년 10월 기준입니다.
-끝까지 봐 주셔서 감사합니다.
+시청해주셔서 감사합니다.
 """
 
 
@@ -40,7 +40,7 @@ class ContentResearchTest(unittest.TestCase):
 
     def test_sentences(self):
         s = cr.script_sentences(self.path)
-        self.assertEqual(s[0], "지금 연금저축을 갖고 은퇴를 앞두고 계시다면, 이 숫자부터 보세요.")
+        self.assertEqual(s[0], "지금 연금저축을 갖고 은퇴를 앞두고 계시다면, 이 숫자부터 끝까지 보세요.")
         self.assertIn("결론부터 말씀드리겠습니다.", s)          # 한 줄 두 문장 → 둘
         self.assertIn("예금부터 씁니다.", s)
         self.assertNotIn("이 카드 문구는 문장이 아닙니다.", s)  # [장면] 카드 문구 제외

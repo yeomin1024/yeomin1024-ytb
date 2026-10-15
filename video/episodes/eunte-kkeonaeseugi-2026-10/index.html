@@ -1,0 +1,771 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>은퇴 꺼내 쓰기 영상</title>
+<!-- VERSION: v1.0.1 — 2026-10-15 — 마지막 장면 글 "시청해주셔서 감사합니다" (script_guide v3.1 끝인사, 사용자 지시 2026-10-15).
+     (v1.0) 첫 새 스타일 영상 (guides/video_guide.md v4.0). 대본 economic/source/eunte-kkeonaeseugi-2026-10 v1.2,
+     내레이션 tts_narration.py v1.7 (진행자 H04, 99문장, 7:57.9). 장면 시각 = 문장 시각(K.S·K.E)·낱말 시각(K.W) — 손으로 적은 초 없음.
+     숫자는 모두 내레이션 문장의 숫자 (새 숫자 없음). 연구·교육용 영상 — 투자·세무 권유 아님. -->
+<link rel="stylesheet" href="../../render/kit.css">
+</head>
+<body>
+<div id="wrap"><div id="stage"></div></div>
+<div id="ctrl"></div>
+<div id="now"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script id="ep-data">/*EP-DATA:BEGIN*/window.EP={"id":"eunte-kkeonaeseugi-2026-10","topic":"economic","duration":478.48,"audio":"../../../economic/source/eunte-kkeonaeseugi-2026-10/narration.mp3","synced":"2026-10-15T06:45:37Z","tts":"2026-10-15T05:19:14","script_sha1":"68c2f0d8f13a667d","sent":[{"n":1,"part":"같은 5억, 다른 세금","text":"지금 퇴직금이나 연금저축을 갖고 은퇴를 앞두고 계시다면, 이 숫자부터 보세요.","start":0.3,"end":5.26},{"n":2,"part":"같은 5억, 다른 세금","text":"같은 5억 원을 가진 두 부부가 있습니다.","start":5.71,"end":7.86},{"n":3,"part":"같은 5억, 다른 세금","text":"그런데 65세 첫해 세금이 한 부부는 334만 원, 다른 부부는 108만 원입니다.","start":8.31,"end":13.98},{"n":4,"part":"같은 5억, 다른 세금","text":"왜 이렇게 차이가 날까요?","start":14.43,"end":15.77},{"n":5,"part":"같은 5억, 다른 세금","text":"상품이나 수익률 때문이 아닙니다.","start":16.22,"end":18.14},{"n":6,"part":"같은 5억, 다른 세금","text":"돈을 꺼내는 순서가 달랐을 뿐입니다.","start":18.59,"end":20.63},{"n":7,"part":"같은 5억, 다른 세금","text":"세금 차이는 은퇴 후 10년 동안 한 달에 15만 원이 넘고, 평생 합치면 약 2천만 원이 됩니다.","start":21.08,"end":26.62},{"n":8,"part":"같은 5억, 다른 세금","text":"게다가 한 부부는 5년 동안 자녀 건강보험의 피부양자에서도 빠집니다.","start":27.07,"end":31.52},{"n":9,"part":"같은 5억, 다른 세금","text":"결론부터 말씀드리겠습니다.","start":31.97,"end":33.79},{"n":10,"part":"같은 5억, 다른 세금","text":"예금부터 쓰고, 연금계좌는 나중에 쓰고, 부부가 나눠서 꺼낸다.","start":34.24,"end":38.61},{"n":11,"part":"같은 5억, 다른 세금","text":"이 세 가지입니다.","start":39.06,"end":40.08},{"n":12,"part":"같은 5억, 다른 세금","text":"이미 다르게 꺼내고 계신 분이 어떻게 고치면 되는지도 끝까지 보여드릴게요.","start":40.53,"end":44.59},{"n":13,"part":"같은 5억, 다른 세금","text":"숫자는 2026년 10월 기준입니다.","start":45.04,"end":47.46},{"n":14,"part":"같은 5억, 다른 세금","text":"먼저 두 부부의 경우를 통해 알아보겠습니다.","start":47.91,"end":50.2},{"n":15,"part":"두 부부의 통장","text":"두 부부는 모두 65세 동갑입니다.","start":51.2,"end":53.35},{"n":16,"part":"두 부부의 통장","text":"국민연금은 남편이 한 달에 110만 원, 아내가 40만 원, 합쳐서 150만 원이에요.","start":53.8,"end":59.32},{"n":17,"part":"두 부부의 통장","text":"생활비는 한 달에 300만 원이 들어서, 모자라는 150만 원은 모아 둔 돈에서 꺼냅니다.","start":59.77,"end":64.96},{"n":18,"part":"두 부부의 통장","text":"한 달 150만 원씩 12개월이니까, 1년에 1,800만 원이죠.","start":65.41,"end":69.52},{"n":19,"part":"두 부부의 통장","text":"모아 둔 5억 원은 남편 퇴직금 2억 원, 연금저축 1억 원, 정기예금 2억 원입니다.","start":69.97,"end":75.68},{"n":20,"part":"두 부부의 통장","text":"연금저축은 남편이 6천만 원, 아내가 4천만 원이고, 예금은 한 사람에 1억 원씩이에요.","start":76.13,"end":82.12},{"n":21,"part":"두 부부의 통장","text":"예금 금리는 3.5%이고, 물가도 그만큼 오른다고 봤습니다.","start":82.57,"end":86.89},{"n":22,"part":"두 부부의 통장","text":"A 부부는 퇴직금을 한 번에 받아 남편 이름의 예금에 넣고, 생활비는 남편 연금저축에서 먼저 꺼냅니다.","start":87.34,"end":93.9},{"n":23,"part":"두 부부의 통장","text":"B 부부는 퇴직금을 개인형 퇴직연금인 IRP에 그대로 두고, 꺼내는 순서를 정했습니다.","start":94.35,"end":99.8},{"n":24,"part":"두 부부의 통장","text":"두 부부의 차이는 세 가지 원칙에서 나옵니다.","start":100.25,"end":102.88},{"n":25,"part":"두 부부의 통장","text":"하나씩 보겠습니다.","start":103.33,"end":104.56},{"n":26,"part":"원칙 하나, 기준은 한 사람씩","text":"첫 번째 원칙은, 세금과 건보료는 부부가 아니라 한 사람씩, 1년 단위로 따진다는 것입니다.","start":105.56,"end":111.44},{"n":27,"part":"원칙 하나, 기준은 한 사람씩","text":"꼭 기억하실 기준은 세 가지입니다.","start":111.89,"end":113.7},{"n":28,"part":"원칙 하나, 기준은 한 사람씩","text":"먼저 이자와 배당 기준은 1년에 1,000만 원입니다.","start":114.15,"end":117.11},{"n":29,"part":"원칙 하나, 기준은 한 사람씩","text":"세금이 아니라 건보료 기준이에요.","start":117.56,"end":119.52},{"n":30,"part":"원칙 하나, 기준은 한 사람씩","text":"다음으로 연금저축에서 꺼내는 돈의 기준은 1년에 1,500만 원입니다.","start":119.97,"end":124.21},{"n":31,"part":"원칙 하나, 기준은 한 사람씩","text":"세액공제를 받은 돈과 그 수익만 셉니다.","start":124.66,"end":127.19},{"n":32,"part":"원칙 하나, 기준은 한 사람씩","text":"마지막으로 피부양자로 남을 수 있는 소득 기준은 1년에 2,000만 원입니다.","start":127.64,"end":131.88},{"n":33,"part":"원칙 하나, 기준은 한 사람씩","text":"국민연금은 전부 여기에 들어갑니다.","start":132.33,"end":134.41},{"n":34,"part":"원칙 하나, 기준은 한 사람씩","text":"재산이 많으면 이 피부양자 기준은 더 낮아집니다.","start":134.86,"end":137.58},{"n":35,"part":"원칙 하나, 기준은 한 사람씩","text":"그리고 이게 중요합니다.","start":138.03,"end":139.39},{"n":36,"part":"원칙 하나, 기준은 한 사람씩","text":"기준을 넘으면, 넘은 만큼이 아니라 전부가 소득으로 잡힙니다.","start":139.84,"end":144.07},{"n":37,"part":"원칙 하나, 기준은 한 사람씩","text":"예를 들어 이자가 1년에 1,010만 원이면, 넘은 10만 원이 아니라 1,010만 원이 전부 건보료 소득으로 잡힙니다.","start":144.52,"end":151.49},{"n":38,"part":"원칙 하나, 기준은 한 사람씩","text":"A 부부 남편은 퇴직금까지 넣은 예금 3억 원에서, 1년 이자가 1,050만 원 나옵니다.","start":151.94,"end":157.42},{"n":39,"part":"원칙 하나, 기준은 한 사람씩","text":"이자 기준 1,000만 원을 넘었으니, 1,050만 원이 전부 소득으로 잡힙니다.","start":157.87,"end":162.39},{"n":40,"part":"원칙 하나, 기준은 한 사람씩","text":"여기에 1년치 국민연금 1,320만 원을 더하면 2,370만 원이 되어, 피부양자 기준 2,000만 원을 넘습니다.","start":162.84,"end":170.61},{"n":41,"part":"원칙 하나, 기준은 한 사람씩","text":"연금저축에서 꺼낸 1,800만 원도 연금저축 기준 1,500만 원을 넘어서, 피부양자 소득에 또 더해집니다.","start":171.06,"end":177.37},{"n":42,"part":"원칙 하나, 기준은 한 사람씩","text":"부부는 두 사람 모두 피부양자 기준 2,000만 원을 넘지 않아야 해서, 남편 때문에 아내까지 같이 피부양자에서 빠집니다.","start":177.82,"end":185.02},{"n":43,"part":"원칙 하나, 기준은 한 사람씩","text":"게다가 건보료 고지서는 다음 해에 나와서, 모르고 지나가기 쉽습니다.","start":185.47,"end":189.62},{"n":44,"part":"원칙 하나, 기준은 한 사람씩","text":"기준은 사람마다 따로 있는 바구니라고 보시면 됩니다.","start":190.07,"end":192.97},{"n":45,"part":"원칙 하나, 기준은 한 사람씩","text":"한 바구니에 몰아 담으면 넘치고, 두 바구니에 나눠 담으면 넘치지 않습니다.","start":193.42,"end":198.37},{"n":46,"part":"원칙 하나, 기준은 한 사람씩","text":"세금도 마찬가지입니다.","start":198.82,"end":200.18},{"n":47,"part":"원칙 하나, 기준은 한 사람씩","text":"연금저축에서 1,800만 원을 남편 혼자 꺼내면 세금이 약 118만 원입니다.","start":200.63,"end":205.74},{"n":48,"part":"원칙 하나, 기준은 한 사람씩","text":"남편이 1,000만 원, 아내가 800만 원씩 나눠 꺼내면 약 78만 원입니다.","start":206.19,"end":211.15},{"n":49,"part":"원칙 하나, 기준은 한 사람씩","text":"한마디로, 돈은 부부 이름으로 나눠 넣고, 해마다 나눠 꺼내야 합니다.","start":211.6,"end":215.84},{"n":50,"part":"원칙 둘, 연금계좌 돈은 꺼낼 때 세금","text":"두 번째 원칙은, 연금계좌 안에 둔 돈은 꺼낼 때 세금을 낸다는 것입니다.","start":216.84,"end":221.79},{"n":51,"part":"원칙 둘, 연금계좌 돈은 꺼낼 때 세금","text":"연금저축이나 IRP 안에서는 이자와 배당이 생겨도, 그해에는 세금도 건보료도 붙지 않습니다.","start":222.24,"end":228.26},{"n":52,"part":"원칙 둘, 연금계좌 돈은 꺼낼 때 세금","text":"물론 꺼낼 때는 세금을 냅니다.","start":228.71,"end":230.39},{"n":53,"part":"원칙 둘, 연금계좌 돈은 꺼낼 때 세금","text":"하지만 한 사람이 1년에 1,500만 원 이하로 꺼내면, 세금은 나이에 따라 5.5%에서 3.3%뿐이고, 피부양자 소득에도 들어가지 않습니다.","start":230.84,"end":240.89},{"n":54,"part":"원칙 둘, 연금계좌 돈은 꺼낼 때 세금","text":"반대로 일반 예금은 1억 원이면 1년 이자가 350만 원이고, 여기서 해마다 세금이 약 54만 원 나갑니다.","start":241.34,"end":247.9},{"n":55,"part":"원칙 둘, 연금계좌 돈은 꺼낼 때 세금","text":"한마디로, 해마다 세금이 붙는 예금을 먼저 쓰고, 연금계좌는 나중에 씁니다.","start":248.35,"end":253.41},{"n":56,"part":"원칙 셋, 퇴직금은 연금으로 첫해부터","text":"세 번째 원칙은, 퇴직금은 연금으로 오래 나눠 받는다는 것입니다.","start":254.41,"end":258.6},{"n":57,"part":"원칙 셋, 퇴직금은 연금으로 첫해부터","text":"퇴직금을 연금으로 받으면 퇴직소득세를 깎아 주는데, 받은 지 10년째까지는 30%, 11년째부터는 40%, 21년째부터는 50%를 깎아 줍니다.","start":259.05,"end":269.55},{"n":58,"part":"원칙 셋, 퇴직금은 연금으로 첫해부터","text":"게다가 퇴직금으로 받는 연금은 금액과 상관없이, 연금저축 1,500만 원 기준에도, 피부양자 소득에도 들어가지 않습니다.","start":270,"end":278.04},{"n":59,"part":"원칙 셋, 퇴직금은 연금으로 첫해부터","text":"여기서 꼭 알아 두실 게 있어요.","start":278.49,"end":280.17},{"n":60,"part":"원칙 셋, 퇴직금은 연금으로 첫해부터","text":"이 햇수는 IRP에 넣은 해부터가 아니라, 실제로 연금을 받은 해만 셉니다.","start":280.62,"end":285.17},{"n":61,"part":"원칙 셋, 퇴직금은 연금으로 첫해부터","text":"그래서 당장 필요 없어도, 첫해부터 1년에 100만 원씩이라도 받아 두는 게 좋습니다.","start":285.62,"end":290.73},{"n":62,"part":"원칙 셋, 퇴직금은 연금으로 첫해부터","text":"A 부부는 퇴직금을 한 번에 받아서, 깎아 주는 혜택을 하나도 못 받았어요.","start":291.18,"end":295.18},{"n":63,"part":"원칙 셋, 퇴직금은 연금으로 첫해부터","text":"한마디로, 퇴직금은 한 번에 받지 말고 IRP에 두세요.","start":295.63,"end":299.14},{"n":64,"part":"원칙 셋, 퇴직금은 연금으로 첫해부터","text":"그럼 이 세 가지 원칙으로 꺼내는 순서를 정해 보겠습니다.","start":299.59,"end":302.74},{"n":65,"part":"꺼내는 순서, 예금 → 퇴직금 → 연금저축","text":"1단계, 65세부터 74세까지는 예금에서 1년에 1,700만 원, IRP에서 100만 원, 합쳐서 1,800만 원을 꺼냅니다.","start":303.74,"end":312.54},{"n":66,"part":"꺼내는 순서, 예금 → 퇴직금 → 연금저축","text":"예금은 1년치 생활비만 비상금으로 남깁니다.","start":312.99,"end":315.79},{"n":67,"part":"꺼내는 순서, 예금 → 퇴직금 → 연금저축","text":"2단계, 75세부터 84세까지는 IRP 퇴직금에서 1년에 1,800만 원씩 꺼냅니다.","start":316.24,"end":322.62},{"n":68,"part":"꺼내는 순서, 예금 → 퇴직금 → 연금저축","text":"연금을 받은 지 11년째부터라, 퇴직소득세를 40% 깎아 줍니다.","start":323.07,"end":327.8},{"n":69,"part":"꺼내는 순서, 예금 → 퇴직금 → 연금저축","text":"3단계, 85세쯤 남은 퇴직금과 비상금을 다 쓰면, 그다음에 연금저축을 꺼냅니다.","start":328.25,"end":334.17},{"n":70,"part":"꺼내는 순서, 예금 → 퇴직금 → 연금저축","text":"나이가 들수록 세율이 3.3%까지 낮아지니까, 연금저축은 맨 나중입니다.","start":334.62,"end":339.98},{"n":71,"part":"꺼내는 순서, 예금 → 퇴직금 → 연금저축","text":"이때도 남편이 1,000만 원, 아내가 800만 원씩 나눠 꺼내서, 한 사람 연금저축 기준 1,500만 원을 넘지 않게 합니다.","start":340.43,"end":348.23},{"n":72,"part":"꺼내는 순서, 예금 → 퇴직금 → 연금저축","text":"이렇게 꺼낸 두 부부의 결과는 얼마나 달라졌을까요?","start":348.68,"end":351.64},{"n":73,"part":"두 부부의 결과","text":"65세 첫해 세금은 A 부부가 334만 원, B 부부가 108만 원입니다.","start":352.64,"end":357.97},{"n":74,"part":"두 부부의 결과","text":"A 부부는 예금 4억 원의 이자 세금에 연금저축 세금까지 냈고, B 부부는 예금 2억 원의 이자 세금만 냈기 때문입니다.","start":358.42,"end":365.78},{"n":75,"part":"두 부부의 결과","text":"평생 합치면 A 부부가 약 3,890만 원, B 부부가 약 1,790만 원으로, 약 2,100만 원 차이입니다.","start":366.23,"end":373.72},{"n":76,"part":"두 부부의 결과","text":"B 부부가 나중에 낼 세금까지 넣고, 건보료와 퇴직소득세는 뺀 숫자예요.","start":374.17,"end":379.04},{"n":77,"part":"두 부부의 결과","text":"피부양자 기준은 A 부부만 5년 동안 넘었고, 아낀 세금만큼 통장도 B 부부가 1년 2개월 더 오래 갑니다.","start":379.49,"end":386.65},{"n":78,"part":"두 부부의 결과","text":"그런데 이미 A 부부처럼 꺼내고 계신 분들도 계실 텐데요.","start":387.1,"end":390.22},{"n":79,"part":"두 부부의 결과","text":"그럼 어떻게 해야 할까요?","start":390.67,"end":392},{"n":80,"part":"이미 A 부부처럼 하고 있다면","text":"늦지 않았습니다.","start":393,"end":393.95},{"n":81,"part":"이미 A 부부처럼 하고 있다면","text":"평생 2천만 원 차이는, 끝까지 같은 방식으로 꺼낼 때의 숫자거든요.","start":394.4,"end":398.57},{"n":82,"part":"이미 A 부부처럼 하고 있다면","text":"퇴직금을 받은 지 60일이 안 됐다면 IRP에 넣으세요.","start":399.02,"end":402.38},{"n":83,"part":"이미 A 부부처럼 하고 있다면","text":"이미 낸 퇴직소득세를 돌려받고, 연금으로 받을 수 있습니다.","start":402.83,"end":406.79},{"n":84,"part":"이미 A 부부처럼 하고 있다면","text":"60일이 지났어도, 꺼내는 순서는 지금 고칠 수 있습니다.","start":407.24,"end":410.85},{"n":85,"part":"이미 A 부부처럼 하고 있다면","text":"남편 이름의 예금을 아내와 나누고, 다음 해부터 예금을 먼저 쓰세요.","start":411.3,"end":415.38},{"n":86,"part":"이미 A 부부처럼 하고 있다면","text":"배우자에게는 10년에 6억 원까지 증여세가 없습니다.","start":415.83,"end":418.82},{"n":87,"part":"이미 A 부부처럼 하고 있다면","text":"A 부부가 65세 말에 이렇게 고치면, 평생 세금 차이는 2,100만 원에서 약 1,300만 원으로, 피부양자에서 빠지는 기간은 5년에서 1년으로 줄어요.","start":419.27,"end":429.22},{"n":88,"part":"이미 A 부부처럼 하고 있다면","text":"빨리 고칠수록 좋습니다.","start":429.67,"end":431.1},{"n":89,"part":"이미 A 부부처럼 하고 있다면","text":"이 예에서 70세에 고치면, 연금저축을 이미 다 꺼낸 뒤라 차이가 줄지 않거든요.","start":431.55,"end":437.06},{"n":90,"part":"이미 A 부부처럼 하고 있다면","text":"다만 건보료는 전년도 소득으로 정해서, 고친 다음 해에 고지서가 한 번 더 나올 수 있어요.","start":437.51,"end":442.47},{"n":91,"part":"이미 A 부부처럼 하고 있다면","text":"자, 마지막으로 오늘 내용을 정리하겠습니다.","start":442.92,"end":445.89},{"n":92,"part":"정리, 바뀌어도 그대로인 것","text":"기준 금액이나 깎아 주는 비율, 연금계좌에서 받는 돈에 건보료를 매길지는 앞으로 바뀔 수 있습니다.","start":446.89,"end":452.81},{"n":93,"part":"정리, 바뀌어도 그대로인 것","text":"그래도 이 세 가지는 그대로입니다.","start":453.26,"end":455.15},{"n":94,"part":"정리, 바뀌어도 그대로인 것","text":"첫째, 기준은 한 사람씩, 1년 단위입니다.","start":455.6,"end":459.24},{"n":95,"part":"정리, 바뀌어도 그대로인 것","text":"부부가 나눠 넣고 나눠 꺼내세요.","start":459.69,"end":461.55},{"n":96,"part":"정리, 바뀌어도 그대로인 것","text":"둘째, 세금이 해마다 붙는 예금을 먼저 쓰고, 연금계좌는 나중에 쓰세요.","start":462,"end":466.47},{"n":97,"part":"정리, 바뀌어도 그대로인 것","text":"셋째, 퇴직금은 연금으로, 첫해부터 조금씩 오래 받으세요.","start":466.92,"end":470.92},{"n":98,"part":"정리, 바뀌어도 그대로인 것","text":"오늘 부부 각자의 1년 이자가 얼마인지부터 한번 확인해 보세요.","start":471.37,"end":475.12},{"n":99,"part":"정리, 바뀌어도 그대로인 것","text":"끝까지 봐 주셔서 감사합니다.","start":475.57,"end":477.08}],"subs":[[0.2,2.437,"지금 퇴직금이나 연금저축을 갖고"],[2.437,5.71,"은퇴를 앞두고 계시다면, 이 숫자부터 보세요."],[5.71,8.31,"같은 5억 원을 가진 두 부부가 있습니다."],[8.31,14.43,"그런데 65세 첫해 세금이 한 부부는 334만 원, 다른 부부는 108만 원입니다."],[14.43,16.22,"왜 이렇게 차이가 날까요?"],[16.22,18.59,"상품이나 수익률 때문이 아닙니다."],[18.59,21.08,"돈을 꺼내는 순서가 달랐을 뿐입니다."],[21.08,24.652,"세금 차이는 은퇴 후 10년 동안 한 달에 15만 원이 넘고,"],[24.652,27.07,"평생 합치면 약 2천만 원이 됩니다."],[27.07,31.97,"게다가 한 부부는 5년 동안 자녀 건강보험의 피부양자에서도 빠집니다."],[31.97,34.24,"결론부터 말씀드리겠습니다."],[34.24,39.06,"예금부터 쓰고, 연금계좌는 나중에 쓰고, 부부가 나눠서 꺼낸다."],[39.06,40.53,"이 세 가지입니다."],[40.53,45.04,"이미 다르게 꺼내고 계신 분이 어떻게 고치면 되는지도 끝까지 보여드릴게요."],[45.04,47.91,"숫자는 2026년 10월 기준입니다."],[47.91,51.2,"먼저 두 부부의 경우를 통해 알아보겠습니다."],[51.2,53.8,"두 부부는 모두 65세 동갑입니다."],[53.8,56.42,"국민연금은 남편이 한 달에 110만 원,"],[56.42,59.77,"아내가 40만 원, 합쳐서 150만 원이에요."],[59.77,62.144,"생활비는 한 달에 300만 원이 들어서,"],[62.144,65.41,"모자라는 150만 원은 모아 둔 돈에서 꺼냅니다."],[65.41,69.97,"한 달 150만 원씩 12개월이니까, 1년에 1,800만 원이죠."],[69.97,72.806,"모아 둔 5억 원은 남편 퇴직금 2억 원,"],[72.806,76.13,"연금저축 1억 원, 정기예금 2억 원입니다."],[76.13,80.069,"연금저축은 남편이 6천만 원, 아내가 4천만 원이고,"],[80.069,82.57,"예금은 한 사람에 1억 원씩이에요."],[82.57,87.34,"예금 금리는 3.5%이고, 물가도 그만큼 오른다고 봤습니다."],[87.34,91.144,"A 부부는 퇴직금을 한 번에 받아 남편 이름의 예금에 넣고,"],[91.144,94.35,"생활비는 남편 연금저축에서 먼저 꺼냅니다."],[94.35,98.37,"B 부부는 퇴직금을 개인형 퇴직연금인 IRP에 그대로 두고,"],[98.37,100.25,"꺼내는 순서를 정했습니다."],[100.25,103.33,"두 부부의 차이는 세 가지 원칙에서 나옵니다."],[103.33,105.56,"하나씩 보겠습니다."],[105.56,109.747,"첫 번째 원칙은, 세금과 건보료는 부부가 아니라 한 사람씩,"],[109.747,111.89,"1년 단위로 따진다는 것입니다."],[111.89,114.15,"꼭 기억하실 기준은 세 가지입니다."],[114.15,117.56,"먼저 이자와 배당 기준은 1년에 1,000만 원입니다."],[117.56,119.97,"세금이 아니라 건보료 기준이에요."],[119.97,124.66,"다음으로 연금저축에서 꺼내는 돈의 기준은 1년에 1,500만 원입니다."],[124.66,127.64,"세액공제를 받은 돈과 그 수익만 셉니다."],[127.64,132.33,"마지막으로 피부양자로 남을 수 있는 소득 기준은 1년에 2,000만 원입니다."],[132.33,134.86,"국민연금은 전부 여기에 들어갑니다."],[134.86,138.03,"재산이 많으면 이 피부양자 기준은 더 낮아집니다."],[138.03,139.84,"그리고 이게 중요합니다."],[139.84,144.52,"기준을 넘으면, 넘은 만큼이 아니라 전부가 소득으로 잡힙니다."],[144.52,147.28,"예를 들어 이자가 1년에 1,010만 원이면,"],[147.28,151.94,"넘은 10만 원이 아니라 1,010만 원이 전부 건보료 소득으로 잡힙니다."],[151.94,155.451,"A 부부 남편은 퇴직금까지 넣은 예금 3억 원에서,"],[155.451,157.87,"1년 이자가 1,050만 원 나옵니다."],[157.87,162.84,"이자 기준 1,000만 원을 넘었으니, 1,050만 원이 전부 소득으로 잡힙니다."],[162.84,168.367,"여기에 1년치 국민연금 1,320만 원을 더하면 2,370만 원이 되어,"],[168.367,171.06,"피부양자 기준 2,000만 원을 넘습니다."],[171.06,175.641,"연금저축에서 꺼낸 1,800만 원도 연금저축 기준 1,500만 원을 넘어서,"],[175.641,177.82,"피부양자 소득에 또 더해집니다."],[177.82,182.093,"부부는 두 사람 모두 피부양자 기준 2,000만 원을 넘지 않아야 해서,"],[182.093,185.47,"남편 때문에 아내까지 같이 피부양자에서 빠집니다."],[185.47,190.07,"게다가 건보료 고지서는 다음 해에 나와서, 모르고 지나가기 쉽습니다."],[190.07,193.42,"기준은 사람마다 따로 있는 바구니라고 보시면 됩니다."],[193.42,198.82,"한 바구니에 몰아 담으면 넘치고, 두 바구니에 나눠 담으면 넘치지 않습니다."],[198.82,200.63,"세금도 마찬가지입니다."],[200.63,206.19,"연금저축에서 1,800만 원을 남편 혼자 꺼내면 세금이 약 118만 원입니다."],[206.19,211.6,"남편이 1,000만 원, 아내가 800만 원씩 나눠 꺼내면 약 78만 원입니다."],[211.6,216.84,"한마디로, 돈은 부부 이름으로 나눠 넣고, 해마다 나눠 꺼내야 합니다."],[216.84,222.24,"두 번째 원칙은, 연금계좌 안에 둔 돈은 꺼낼 때 세금을 낸다는 것입니다."],[222.24,225.999,"연금저축이나 IRP 안에서는 이자와 배당이 생겨도,"],[225.999,228.71,"그해에는 세금도 건보료도 붙지 않습니다."],[228.71,230.84,"물론 꺼낼 때는 세금을 냅니다."],[230.84,235.594,"하지만 한 사람이 1년에 1,500만 원 이하로 꺼내면, 세금은 나이에"],[235.594,241.34,"따라 5.5%에서 3.3%뿐이고, 피부양자 소득에도 들어가지 않습니다."],[241.34,245.405,"반대로 일반 예금은 1억 원이면 1년 이자가 350만 원이고,"],[245.405,248.35,"여기서 해마다 세금이 약 54만 원 나갑니다."],[248.35,254.41,"한마디로, 해마다 세금이 붙는 예금을 먼저 쓰고, 연금계좌는 나중에 씁니다."],[254.41,259.05,"세 번째 원칙은, 퇴직금은 연금으로 오래 나눠 받는다는 것입니다."],[259.05,264.978,"퇴직금을 연금으로 받으면 퇴직소득세를 깎아 주는데, 받은 지 10년째까지는"],[264.978,270,"30%, 11년째부터는 40%, 21년째부터는 50%를 깎아 줍니다."],[270,273.387,"게다가 퇴직금으로 받는 연금은 금액과 상관없이,"],[273.387,278.49,"연금저축 1,500만 원 기준에도, 피부양자 소득에도 들어가지 않습니다."],[278.49,280.62,"여기서 꼭 알아 두실 게 있어요."],[280.62,285.62,"이 햇수는 IRP에 넣은 해부터가 아니라, 실제로 연금을 받은 해만 셉니다."],[285.62,287.284,"그래서 당장 필요 없어도,"],[287.284,291.18,"첫해부터 1년에 100만 원씩이라도 받아 두는 게 좋습니다."],[291.18,295.63,"A 부부는 퇴직금을 한 번에 받아서, 깎아 주는 혜택을 하나도 못 받았어요."],[295.63,299.59,"한마디로, 퇴직금은 한 번에 받지 말고 IRP에 두세요."],[299.59,303.74,"그럼 이 세 가지 원칙으로 꺼내는 순서를 정해 보겠습니다."],[303.74,309.046,"1단계, 65세부터 74세까지는 예금에서 1년에 1,700만 원,"],[309.046,312.99,"IRP에서 100만 원, 합쳐서 1,800만 원을 꺼냅니다."],[312.99,316.24,"예금은 1년치 생활비만 비상금으로 남깁니다."],[316.24,320.59,"2단계, 75세부터 84세까지는 IRP 퇴직금에서"],[320.59,323.07,"1년에 1,800만 원씩 꺼냅니다."],[323.07,328.25,"연금을 받은 지 11년째부터라, 퇴직소득세를 40% 깎아 줍니다."],[328.25,332.405,"3단계, 85세쯤 남은 퇴직금과 비상금을 다 쓰면,"],[332.405,334.62,"그다음에 연금저축을 꺼냅니다."],[334.62,340.43,"나이가 들수록 세율이 3.3%까지 낮아지니까, 연금저축은 맨 나중입니다."],[340.43,344.324,"이때도 남편이 1,000만 원, 아내가 800만 원씩 나눠"],[344.324,348.68,"꺼내서, 한 사람 연금저축 기준 1,500만 원을 넘지 않게 합니다."],[348.68,352.64,"이렇게 꺼낸 두 부부의 결과는 얼마나 달라졌을까요?"],[352.64,358.42,"65세 첫해 세금은 A 부부가 334만 원, B 부부가 108만 원입니다."],[358.42,362.243,"A 부부는 예금 4억 원의 이자 세금에 연금저축 세금까지 냈고,"],[362.243,366.23,"B 부부는 예금 2억 원의 이자 세금만 냈기 때문입니다."],[366.23,369.747,"평생 합치면 A 부부가 약 3,890만 원,"],[369.747,374.17,"B 부부가 약 1,790만 원으로, 약 2,100만 원 차이입니다."],[374.17,379.49,"B 부부가 나중에 낼 세금까지 넣고, 건보료와 퇴직소득세는 뺀 숫자예요."],[379.49,382.869,"피부양자 기준은 A 부부만 5년 동안 넘었고,"],[382.869,387.1,"아낀 세금만큼 통장도 B 부부가 1년 2개월 더 오래 갑니다."],[387.1,390.67,"그런데 이미 A 부부처럼 꺼내고 계신 분들도 계실 텐데요."],[390.67,393,"그럼 어떻게 해야 할까요?"],[393,394.4,"늦지 않았습니다."],[394.4,399.02,"평생 2천만 원 차이는, 끝까지 같은 방식으로 꺼낼 때의 숫자거든요."],[399.02,402.83,"퇴직금을 받은 지 60일이 안 됐다면 IRP에 넣으세요."],[402.83,407.24,"이미 낸 퇴직소득세를 돌려받고, 연금으로 받을 수 있습니다."],[407.24,411.3,"60일이 지났어도, 꺼내는 순서는 지금 고칠 수 있습니다."],[411.3,415.83,"남편 이름의 예금을 아내와 나누고, 다음 해부터 예금을 먼저 쓰세요."],[415.83,419.27,"배우자에게는 10년에 6억 원까지 증여세가 없습니다."],[419.27,424.39,"A 부부가 65세 말에 이렇게 고치면, 평생 세금 차이는 2,100만 원에서"],[424.39,429.67,"약 1,300만 원으로, 피부양자에서 빠지는 기간은 5년에서 1년으로 줄어요."],[429.67,431.55,"빨리 고칠수록 좋습니다."],[431.55,433.456,"이 예에서 70세에 고치면,"],[433.456,437.51,"연금저축을 이미 다 꺼낸 뒤라 차이가 줄지 않거든요."],[437.51,440.058,"다만 건보료는 전년도 소득으로 정해서,"],[440.058,442.92,"고친 다음 해에 고지서가 한 번 더 나올 수 있어요."],[442.92,446.89,"자, 마지막으로 오늘 내용을 정리하겠습니다."],[446.89,448.803,"기준 금액이나 깎아 주는 비율, 연금계좌에서"],[448.803,453.26,"받는 돈에 건보료를 매길지는 앞으로 바뀔 수 있습니다."],[453.26,455.6,"그래도 이 세 가지는 그대로입니다."],[455.6,459.69,"첫째, 기준은 한 사람씩, 1년 단위입니다."],[459.69,462,"부부가 나눠 넣고 나눠 꺼내세요."],[462,466.92,"둘째, 세금이 해마다 붙는 예금을 먼저 쓰고, 연금계좌는 나중에 쓰세요."],[466.92,471.37,"셋째, 퇴직금은 연금으로, 첫해부터 조금씩 오래 받으세요."],[471.37,475.57,"오늘 부부 각자의 1년 이자가 얼마인지부터 한번 확인해 보세요."],[475.57,477.48,"시청해주셔서 감사합니다."]]};/*EP-DATA:END*/</script>
+<script src="../../render/kit.js"></script>
+<script>
+(function () {
+"use strict";
+K.init(window.EP);
+const { S, E, W, el, pop, out, dim, counter, scene, text, big, fmt, grow, strike } = K;
+const tl = K.tl;
+const R = "#FF4D3D", G = "#22C7B0", Y = "#FFD400", B1 = "#2E4470", B2 = "#3C5788", B3 = "#4A69A2", B4 = "#5B7DB8";
+const until = n => S(n) - 0.05;                 // 다음 장면 첫 문장 직전까지
+
+K.chapters([
+  { part: "같은 5억, 다른 세금", tag: "도입" },
+  { part: "두 부부의 통장", tag: "사례", card: true, cardHold: 0.6 },
+  { part: "원칙 하나, 기준은 한 사람씩", tag: "원칙 1", chip: "기준은 한 사람씩", title: "기준은 한 사람씩", dots: [1, 3], card: true },
+  { part: "원칙 둘, 연금계좌 돈은 꺼낼 때 세금", tag: "원칙 2", chip: "연금계좌 돈은 꺼낼 때 세금", title: "연금계좌 돈은<br>꺼낼 때 세금", dots: [2, 3], card: true },
+  { part: "원칙 셋, 퇴직금은 연금으로 첫해부터", tag: "원칙 3", chip: "퇴직금은 연금으로 첫해부터", title: "퇴직금은 연금으로<br>첫해부터", dots: [3, 3], card: true },
+  { part: "꺼내는 순서, 예금 → 퇴직금 → 연금저축", tag: "순서", chip: "예금 → 퇴직금 → 연금저축", title: "꺼내는 순서<br><span class='Y'>예금 → 퇴직금 → 연금저축</span>", card: true },
+  { part: "두 부부의 결과", tag: "결과", card: true, cardHold: 0.8 },
+  { part: "이미 A 부부처럼 하고 있다면", tag: "고치는 법", card: true, cardHold: 0.5 },
+  { part: "정리, 바뀌어도 그대로인 것", tag: "정리", card: true },
+]);
+
+// 두 부부 첫해 세금 (334만 vs 108만) — 도입과 결과에서 같은 모양
+function firstYearTax(sc, n, labelAt, aAt, bAt, top) {
+  const T = top || 0;
+  const A = K.couple(sc, 560, 170 + T, "A", 120), B = K.couple(sc, 1360, 170 + T, "B", 120);
+  pop(A, labelAt - 0.4); pop(B, labelAt - 0.3);
+  const lab = text(sc, 960, 210 + T, "65세 첫해 세금", 56, "w7 Y"); pop(lab, labelAt);
+  const mk = (cx, val, at, color) => {
+    const b = big(sc, cx, 430 + T, 190, color, "만 원", 96); pop(b.box, at - 0.15); counter(b.num, 0, val, at, 1.3);
+    const bar = el(`<div class="a" style="left:${cx - 300}px;top:${670 + T}px;height:70px;width:${val * 1.75}px;border-radius:12px;background:${color};transform-origin:0 50%"></div>`, sc);
+    grow(bar, at, 1.3);
+    return { b, bar };
+  };
+  const base = el(`<div class="a" style="left:260px;top:${760 + T}px;width:1400px;height:3px;background:rgba(255,255,255,.18)"></div>`, sc); pop(base, aAt - 0.2);
+  return { A, B, lab, a: mk(560, 334, aAt, R), b: mk(1360, 108, bAt, G), base };
+}
+
+/* ───────────── 도입 ───────────── */
+// 1. 이 숫자부터 (s1)
+{ const sc = scene(0, until(2));
+  const p1 = el(`<div class="a cx pill" style="left:700px;top:330px">퇴직금</div>`, sc), p2 = el(`<div class="a cx pill" style="left:1220px;top:330px">연금저축</div>`, sc);
+  pop(p1, W(1, "퇴직금")); pop(p2, W(1, "연금저축"));
+  const ret = text(sc, 960, 500, "은퇴 앞두고", 64, "w7"); pop(ret, W(1, "은퇴를"));
+  tl.to([p1, p2, ret], { y: -120, opacity: 0, scale: 0.8, duration: 0.5, ease: "power2.in" }, W(1, "이 숫자부터") - 0.2);
+  const q = el(`<div class="a cx c w9 nw" style="left:960px;top:430px;font-size:230px;line-height:1;letter-spacing:-4px"><span class="Y">???</span><span style="font-size:120px">만 원</span></div>`, sc);
+  pop(q, W(1, "이 숫자부터") + 0.1);
+  K.cut(E(1) - 0.2, "이 숫자부터 (??? 자리)");
+}
+// 2. 같은 5억 → 첫해 세금 (s2–s3)
+{ const sc = scene(S(2) - 0.3, until(4));
+  const title = text(sc, 960, 170, `같은 <span class="Y">5억 원</span>`, 84); pop(title, W(2, "같은"));
+  const eq = el(`<div class="a cx w9 Y" style="left:960px;top:470px;font-size:170px;line-height:1">=</div>`, sc); pop(eq, W(2, "5억") + 0.3);
+  const side = (cx, kind, d) => {
+    const cp = K.couple(sc, cx, 300, kind, 150); pop(cp, W(2, "두 부부") + d);
+    const st = K.stack(sc, cx, 600, 380, [["5억 원", 200, B3]], W(2, "5억") + d, 0);
+    return [cp, st];
+  };
+  const [ca, sa] = side(560, "A", 0), [cb, sb] = side(1360, "B", 0.15);
+  out([title, eq, sa, sb, ca, cb], S(3) - 0.1);
+  const r = firstYearTax(sc, 3, W(3, "65세"), W(3, "334만"), W(3, "108만"));
+  K.cut(E(3) - 0.1, "첫해 세금 334만 vs 108만");
+}
+// 3. 왜? → 꺼내는 순서 (s4–s6)
+{ const sc = scene(S(4) - 0.3, until(7));
+  const q = text(sc, 960, 230, "왜?", 260); q.style.lineHeight = 1; pop(q, S(4), { from: { scale: 0.6 } });
+  const p1 = el(`<div class="a cx pill" style="left:640px;top:610px">상품</div>`, sc), p2 = el(`<div class="a cx pill" style="left:1280px;top:610px">수익률</div>`, sc);
+  pop(p1, W(5, "상품")); pop(p2, W(5, "수익률"));
+  const s1 = strike(sc, 540, 658, 200, W(5, "아닙니다")), s2 = strike(sc, 1150, 658, 260, W(5, "아닙니다") + 0.2);
+  out([q, p1, p2, s1, s2], S(6) - 0.15);
+  const ans = text(sc, 960, 300, "꺼내는 순서", 170, "w9 Y"); ans.style.lineHeight = 1; pop(ans, W(6, "꺼내는"), { from: { scale: 1.15, y: 0 } });
+  const row = el(`<div class="a cx" style="left:960px;top:560px;display:flex;align-items:center;gap:40px"></div>`, sc);
+  [1, 2, 3].forEach((n, i) => { el(`<div style="width:170px;height:170px;border-radius:30px;border:4px solid rgba(255,214,0,.7);display:grid;place-items:center;font-weight:900;font-size:96px;color:#FFD400">${n}</div>`, row); if (i < 2) el(`<div class="w9 N" style="font-size:80px">→</div>`, row); });
+  tl.fromTo(row.children, { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.4, stagger: 0.1, ease: "power2.out" }, W(6, "순서") + 0.1);
+  K.cut(E(6) - 0.1, "왜? → 꺼내는 순서");
+}
+// 4. 한 달 15만 원 × 10년 → 평생 약 2천만 원 (s7)
+{ const sc = scene(S(7) - 0.3, until(8));
+  const head = el(`<div class="a cx c w9 nw" style="left:960px;top:160px;font-size:60px">세금 차이</div>`, sc); pop(head, S(7));
+  const sub = el(`<div class="a cx c w7 nw" style="left:960px;top:260px;font-size:58px">한 달에 <span class="Y">15만 원</span> 넘게 · <span class="Y">10년</span></div>`, sc); pop(sub, W(7, "10년"));
+  const cols = [], c0 = W(7, "15만"), span = Math.max(0.5, W(7, "평생") - 0.15 - c0 - 0.45);
+  for (let y = 0; y < 10; y++) {
+    const x = 330 + y * 140;
+    const lab = el(`<div class="a cx c w5 N nw" style="left:${x}px;top:800px;font-size:38px">${y + 1}년</div>`, sc);
+    pop(lab, W(7, "10년") + y * 0.05);
+    cols.push(lab, ...K.coins(sc, x, 760, 12, c0 + y * span / 10, "", 0.006));
+  }
+  tl.to(cols, { opacity: 0.12, duration: 0.4 }, W(7, "평생"));
+  tl.to(sub, { opacity: 0, duration: 0.3 }, W(7, "평생"));
+  const life = text(sc, 960, 330, "평생 합치면", 60, "w7 Y"); pop(life, W(7, "평생"));
+  const bigN = el(`<div class="a cx c w9 R nw" style="left:960px;top:430px;font-size:230px;line-height:1;letter-spacing:-5px">약 <span>0</span>만 원</div>`, sc);
+  pop(bigN, W(7, "약 2천만"));
+  const bn = bigN.querySelector("span"), o = { v: 0 };
+  tl.fromTo(o, { v: 0 }, { v: 2000, duration: 1.3, ease: "power2.out", onUpdate: () => { bn.textContent = o.v >= 1999.5 ? "2천" : fmt(o.v); } }, W(7, "약 2천만"));
+  K.cut(E(7) - 0.05, "평생 약 2천만 원");
+}
+// 5. 피부양자 = 자녀 건강보험 우산 (s8)
+{ const sc = scene(S(8) - 0.3, until(9));
+  const A = K.couple(sc, 770, 500, "A", 150), B = K.couple(sc, 1150, 500, "B", 150);
+  pop(A, S(8)); pop(B, S(8) + 0.1);
+  const yrs = K.years(sc, 640, 150, 5, R, W(8, "5년"), "5년");
+  tl.to(yrs, { opacity: 0, duration: 0.3 }, W(8, "자녀") - 0.1);
+  const lab = text(sc, 960, 140, "자녀 건강보험 · 피부양자", 60, "w9 Y"); pop(lab, W(8, "자녀"));
+  const um = K.umbrella(sc, 960, 1000, 230); pop(um, W(8, "자녀"));
+  tl.to(A, { x: -470, duration: 0.9, ease: "power2.inOut" }, W(8, "빠집니다") - 0.3);
+  K.rain(sc, 110, 380, W(8, "빠집니다"), 26, 2);
+  const outT = text(sc, 300, 780, "피부양자에서 빠짐", 52, "w9 R"); pop(outT, W(8, "빠집니다"));
+  K.cut(E(8) - 0.05, "우산 밖으로 (A 부부)");
+}
+// 6. 결론 세 가지 (s9–s11)
+{ const sc = scene(S(9) - 0.3, until(12));
+  const t = text(sc, 960, 170, "결론부터", 72); pop(t, S(9));
+  const cards = K.cards(sc, [["1", "예금부터<br>쓰고"], ["2", "연금계좌는<br>나중에"], ["3", "부부가<br>나눠서 꺼낸다"]], 300,
+    [W(10, "예금부터"), W(10, "연금계좌는"), W(10, "부부가")]);
+  tl.to(cards, { borderColor: "rgba(255,214,0,.75)", duration: 0.3, stagger: 0.08 }, S(11));
+  const end = text(sc, 960, 800, "이 세 가지", 56, "w7 Y"); pop(end, S(11));
+  K.cut(E(11), "결론 세 가지");
+}
+// 7. 고치는 법도 끝까지 · 2026년 10월 기준 · 두 부부 (s12–s14)
+{ const sc = scene(S(12) - 0.3, until(15) - 1.0);
+  const a = el(`<div class="a cx c nw" style="left:960px;top:260px"><div class="w7" style="font-size:60px">이미 다르게 꺼내고 있다면?</div></div>`, sc); pop(a, S(12));
+  const b = el(`<div class="a cx c nw w9 Y" style="left:960px;top:400px;font-size:84px">→ 고치는 법까지</div>`, sc); pop(b, W(12, "고치면"));
+  out([a, b], S(13) - 0.1);
+  const cal = K.cal(sc, 750, 230, "기준", `<div class="w9" style="font-size:72px">2026년<br>10월</div>`, S(13));
+  out(cal, S(14) - 0.1);
+  const A = K.couple(sc, 660, 330, "A", 170), B = K.couple(sc, 1260, 330, "B", 170);
+  pop(A, W(14, "두 부부")); pop(B, W(14, "두 부부") + 0.15);
+  K.cut(E(13) - 0.2, "2026년 10월 기준");
+}
+
+/* ───────────── 사례: 두 부부의 통장 ───────────── */
+// 8. 65세 동갑 · 국민연금 · 생활비 (s15–s18)
+{ const sc = scene(S(15) - 0.4, until(19));
+  const A = K.couple(sc, 660, 200, "A", 130), B = K.couple(sc, 1260, 200, "B", 130);
+  pop(A, S(15) + 0.4); pop(B, S(15) + 0.5);
+  const same = text(sc, 960, 560, `둘 다 <span class="Y">65세 동갑</span>`, 72); pop(same, W(15, "65세"));
+  out([A, B, same], S(16) - 0.1);
+  // 국민연금: 남편 110 + 아내 40 = 150 (한 달)
+  const t16 = text(sc, 960, 170, "국민연금 (한 달)", 60, "w7"); pop(t16, S(16));
+  const X0 = 360, U = 4.2;               // 1만 원 = 4.2px
+  const h = K.seg(sc, X0, 320, 110 * U, B3, "남편 110만", W(16, "110만"), 0.8);
+  const w = K.seg(sc, X0 + 110 * U + 6, 320, 40 * U, B4, "", W(16, "40만"), 0.6);
+  const wl = text(sc, X0 + 110 * U + 6 + 20 * U, 460, "아내 40만", 44, "w7"); pop(wl, W(16, "40만"));
+  const sum = el(`<div class="a w9 nw" style="left:${X0 + 150 * U + 40}px;top:330px;font-size:84px">= <span>0</span>만 원</div>`, sc);
+  pop(sum, W(16, "150만") - 0.1); counter(sum.querySelector("span"), 0, 150, W(16, "150만"), 0.9);
+  // 생활비 300 = 국민연금 150 + 모아 둔 돈 150
+  const t17 = text(sc, 960, 560, `생활비 <span class="Y">300만 원</span> (한 달)`, 56, "w7"); pop(t17, W(17, "300만"));
+  const life = el(`<div class="a" style="left:${X0}px;top:650px;width:${300 * U}px;height:110px;border-radius:12px;border:4px dashed rgba(255,214,0,.8)"></div>`, sc); pop(life, W(17, "300만"));
+  const gap = K.seg(sc, X0 + 150 * U + 6, 650, 150 * U - 6, B1, "모아 둔 돈에서 150만", W(17, "모자라는"), 0.8, 110);
+  const pen = K.seg(sc, X0, 650, 150 * U, B3, "국민연금 150만", W(17, "300만") + 0.5, 0.6, 110);
+  out([t16, h, w, wl, sum, t17, life, pen], S(18) - 0.1);
+  tl.to(gap, { x: -(150 * U + 6), y: -400, duration: 0.6, ease: "power2.inOut" }, S(18) - 0.1);
+  // 1년 1,800만 원 = 150만 × 12
+  const coins = [];
+  for (let m = 0; m < 12; m++) coins.push(...K.coins(sc, 400 + m * 102, 560, 1, W(18, "12개월") + m * 0.06, "n"));
+  const ml = text(sc, 960, 620, "150만 원 × 12개월", 52, "w7 N"); pop(ml, W(18, "12개월"));
+  const yr = el(`<div class="a cx c w9 nw" style="left:960px;top:690px;font-size:120px;line-height:1">1년 <span class="Y">0</span><span class="Y">만 원</span></div>`, sc);
+  pop(yr, W(18, "1,800만") - 0.1); counter(yr.querySelector("span"), 0, 1800, W(18, "1,800만"), 1.0);
+  K.cut(E(17) - 0.1, "생활비 300 = 연금 150 + 모아 둔 돈 150");
+  K.cut(E(18) - 0.05, "1년 1,800만 원");
+}
+// 9. 모아 둔 5억 원의 구성 (s19–s21)
+{ const sc = scene(S(19) - 0.3, until(22));
+  const t = text(sc, 960, 160, `모아 둔 <span class="Y">5억 원</span>`, 72); pop(t, S(19));
+  const HX = 700, WX = 1300, U = 120, BW = 280, BASE = 860;   // 1억 = 120px
+  const nh = text(sc, HX, 300, "남편", 56, "w9"), nw = text(sc, WX, 300, "아내", 56, "w9");
+  pop(nh, S(19) + 0.2); pop(nw, S(19) + 0.3);
+  const blk = (cx, top, h, color, label, at) => { const b = el(`<div class="a" style="left:${cx - BW / 2}px;top:${top}px;width:${BW}px;height:${h}px;border-radius:14px;background:${color};display:grid;place-items:center;font-weight:700;font-size:40px;white-space:nowrap;transform-origin:50% 100%">${label}</div>`, sc); K.grow(b, at, 0.5, "y"); return b; };
+  // 바닥에서 위로: 남편 = 예금 1억 · 연금저축 6천만 · 퇴직금 2억 / 아내 = 예금 1억 · 연금저축 4천만
+  blk(HX, BASE - 3.6 * U, 2 * U - 6, B2, "퇴직금 2억", W(19, "퇴직금"));
+  blk(HX, BASE - 1.6 * U, 0.6 * U - 6, B3, "", W(19, "연금저축"));
+  blk(WX, BASE - 1.4 * U, 0.4 * U - 6, B3, "", W(19, "연금저축") + 0.1);
+  const penL = text(sc, 1000, BASE - 1.6 * U + 4, `연금저축 1억`, 40, "w7"); pop(penL, W(19, "연금저축"));
+  const hDep = blk(HX, BASE - U, U, B4, "예금 1억", W(19, "정기예금"));
+  const wDep = blk(WX, BASE - U, U, B4, "예금 1억", W(19, "정기예금") + 0.1);
+  tl.to(penL, { opacity: 0, duration: 0.3 }, W(20, "남편이") - 0.1);
+  const hpl = el(`<div class="a w7 nw" style="left:${HX + BW / 2 + 16}px;top:${BASE - 1.6 * U}px;font-size:44px">← <span class="Y">6천만</span></div>`, sc); pop(hpl, W(20, "6천만"));
+  const wpl = el(`<div class="a w7 nw" style="left:${WX + BW / 2 + 16}px;top:${BASE - 1.4 * U - 8}px;font-size:44px">← <span class="Y">4천만</span></div>`, sc); pop(wpl, W(20, "4천만"));
+  tl.fromTo([hDep, wDep], { boxShadow: "0 0 0 0 rgba(255,214,0,0)" }, { boxShadow: "0 0 0 6px rgba(255,214,0,.85)", duration: 0.4 }, W(20, "예금은"));
+  const each = text(sc, 1000, BASE - U + 40, "한 사람에 1억씩", 40, "w7"); pop(each, W(20, "한 사람에"));
+  out([t], S(21) - 0.1);
+  const rate = el(`<div class="a cx pill nw" style="left:960px;top:150px">예금 금리 <span class="Y">3.5%</span> · 물가도 <span class="Y">3.5%</span></div>`, sc); pop(rate, W(21, "3.5%"));
+  K.cut(E(20) - 0.1, "5억 원 구성 (남편·아내)");
+}
+// 10. A 부부의 선택 · B 부부의 선택 (s22–s23)
+{ const sc = scene(S(22) - 0.3, until(24));
+  const div = el(`<div class="a" style="left:958px;top:170px;width:4px;height:690px;background:rgba(255,255,255,.12)"></div>`, sc); pop(div, S(22));
+  const A = K.couple(sc, 480, 170, "A", 110); pop(A, S(22));
+  const ret = el(`<div class="a cx c w7" style="left:330px;top:440px;width:260px;height:96px;border-radius:14px;background:${B2};display:grid;place-items:center;font-size:40px">퇴직금</div>`, sc);
+  pop(ret, W(22, "퇴직금을"));
+  const once = text(sc, 330, 560, "한 번에", 40, "w7 R"); pop(once, W(22, "한 번에"));
+  const dep = el(`<div class="a cx c w7 nw" style="left:660px;top:430px;width:300px;height:116px;border-radius:14px;background:${B4};display:grid;place-items:center;font-size:40px">남편 예금</div>`, sc);
+  pop(dep, W(22, "남편 이름의"));
+  tl.to(ret, { x: 330, scale: 0.6, opacity: 0, duration: 0.6, ease: "power2.in" }, W(22, "넣고") - 0.2);
+  tl.to(dep, { backgroundColor: R, duration: 0.4 }, W(22, "넣고"));
+  const first = el(`<div class="a cx c nw" style="left:480px;top:660px"><div class="w7 N" style="font-size:40px">생활비는 먼저</div><div class="w9" style="font-size:56px;margin-top:10px">남편 <span class="R">연금저축</span>에서</div></div>`, sc);
+  pop(first, W(22, "생활비는"));
+  const B = K.couple(sc, 1440, 170, "B", 110); pop(B, S(23));
+  const ret2 = el(`<div class="a cx c w7" style="left:1290px;top:440px;width:260px;height:96px;border-radius:14px;background:${B2};display:grid;place-items:center;font-size:40px">퇴직금</div>`, sc);
+  pop(ret2, W(23, "퇴직금을"));
+  const irp = el(`<div class="a cx c nw" style="left:1620px;top:420px;width:300px;height:136px;border-radius:18px;border:5px solid ${G};display:grid;place-items:center;align-content:center;gap:4px"><div class="w9 G" style="font-size:56px">IRP</div><div class="w5 N" style="font-size:36px">개인형 퇴직연금</div></div>`, sc);
+  pop(irp, W(23, "IRP"));
+  tl.to(ret2, { x: 330, scale: 0.6, opacity: 0, duration: 0.6, ease: "power2.in" }, W(23, "그대로") - 0.1);
+  const order = el(`<div class="a cx c nw" style="left:1440px;top:660px"><div class="w7 N" style="font-size:40px">꺼내는 순서를 정함</div><div class="w9 Y" style="font-size:64px;margin-top:10px">1 → 2 → 3</div></div>`, sc);
+  pop(order, W(23, "꺼내는"));
+  K.cut(E(23) - 0.1, "A 선택 vs B 선택");
+}
+// 11. 세 가지 원칙 (s24–s25)
+{ const sc = scene(S(24) - 0.3, until(26) - 1.0);
+  const t = text(sc, 960, 170, `차이는 <span class="Y">세 가지 원칙</span>에서`, 72); pop(t, S(24));
+  K.cards(sc, [["1", "원칙"], ["2", "원칙"], ["3", "원칙"]], 320, W(24, "세 가지"), 60, 420, 360);
+  K.cut(E(25) - 0.6, "세 가지 원칙");
+}
+
+/* ───────────── 원칙 1: 기준은 한 사람씩 ───────────── */
+// 12. 부부가 아니라 한 사람씩, 1년 단위 (s26)
+{ const sc = scene(S(26) + 0.6, until(27));
+  const c = K.couple(sc, 960, 230, null, 220); pop(c, S(26) + 0.7);
+  const tag = text(sc, 960, 560, "부부", 72, "w9"); pop(tag, W(26, "부부가"));
+  const st = strike(sc, 880, 600, 170, W(26, "아니라"));
+  tl.to(c.children[0].children[0], { x: -240, duration: 0.6, ease: "power2.inOut" }, W(26, "한 사람씩"));
+  tl.to(c.children[0].children[1], { x: 240, duration: 0.6, ease: "power2.inOut" }, W(26, "한 사람씩"));
+  out([tag, st], W(26, "한 사람씩"));
+  const one = text(sc, 960, 560, "한 사람씩", 96, "w9 Y"); pop(one, W(26, "한 사람씩") + 0.2);
+  const yr = el(`<div class="a cx pill nw" style="left:960px;top:720px">1년 단위</div>`, sc); pop(yr, W(26, "1년"));
+  K.cut(E(26) - 0.1, "한 사람씩 · 1년 단위");
+}
+// 13. 기억할 기준 세 가지 (s27–s34)
+{ const sc = scene(S(27) - 0.3, until(35));
+  const t = text(sc, 960, 160, `꼭 기억할 <span class="Y">기준 세 가지</span>`, 64); pop(t, S(27));
+  const card = (i, kind, amount, at) => {
+    const x = 150 + i * 560;
+    const c = el(`<div class="panel" style="left:${x}px;top:280px;width:500px;height:520px;padding:40px 38px;display:grid;align-content:start;gap:18px"></div>`, sc);
+    el(`<div class="w7 nw" style="font-size:40px">${kind}</div>`, c);
+    el(`<div style="border-top:6px dashed #FFD400;margin:6px 0 4px"></div>`, c);
+    el(`<div class="w9 Y nw" style="font-size:84px;line-height:1">${amount}</div>`, c);
+    el(`<div class="w5 N" style="font-size:38px">1년에</div>`, c);
+    pop(c, at);
+    return c;
+  };
+  const c1 = card(0, "이자·배당", "1,000만", W(28, "이자와"));
+  const n1 = el(`<div class="a w7 nw" style="left:188px;top:690px;font-size:40px">세금 ✕ · <span class="Y">건보료</span> 기준</div>`, sc); pop(n1, W(29, "건보료"));
+  const c2 = card(1, "연금저축에서 꺼낸 돈", "1,500만", W(30, "연금저축에서"));
+  const n2 = el(`<div class="a w7 nw" style="left:748px;top:640px;font-size:38px;line-height:1.3">세액공제 받은 돈과<br>그 수익만 셈</div>`, sc); pop(n2, W(31, "세액공제"));
+  const c3 = card(2, "피부양자 소득", "2,000만", W(32, "피부양자로"));
+  const n3 = el(`<div class="a w7 nw" style="left:1308px;top:640px;font-size:38px;line-height:1.3">국민연금은 <span class="Y">전부</span> 들어감</div>`, sc); pop(n3, W(33, "국민연금은"));
+  const n4 = el(`<div class="a w7 nw" style="left:1308px;top:710px;font-size:38px">재산 많으면 <span class="R">더 낮아짐</span></div>`, sc); pop(n4, W(34, "더 낮아"));
+  K.cut(E(34) - 0.1, "기준 세 가지 카드");
+}
+// 14. 넘으면 넘은 만큼이 아니라 전부 (s35–s36)
+{ const sc = scene(S(35) - 0.3, until(37));
+  const imp = el(`<div class="a cx c w9 nw" style="left:960px;top:400px;font-size:150px;line-height:1"><span class="Y">이게</span> 중요합니다</div>`, sc);
+  pop(imp, S(35), { from: { scale: 0.8 } });
+  out(imp, S(36) - 0.1);
+  const top = 200, H = 620;
+  const tank = el(`<div class="a" style="left:830px;top:${top}px;width:260px;height:${H}px;border-radius:26px;border:5px solid rgba(255,255,255,.35);overflow:hidden"></div>`, sc);
+  const water = el(`<div class="a" style="left:0;bottom:0;width:100%;height:100%;background:${G};transform-origin:50% 100%"></div>`, tank);
+  const thrY = top + H * 0.4;
+  const line = el(`<div class="a" style="left:700px;top:${thrY}px;width:420px;border-top:6px dashed #FFD400"></div>`, sc);
+  const lt = el(`<div class="a w9 Y nw" style="left:540px;top:${thrY - 40}px;font-size:60px">기준</div>`, sc);
+  pop(tank, S(36)); pop(line, W(36, "기준을")); pop(lt, W(36, "기준을"));
+  tl.fromTo(water, { scaleY: 0 }, { scaleY: 0.7, duration: 1.2, ease: "power2.out" }, W(36, "기준을"));
+  const overTop = top + H * 0.3;
+  const over = el(`<div class="a" style="left:1110px;top:${overTop}px;display:flex;align-items:center;gap:20px"><div style="width:22px;height:${H * 0.1}px;border:6px solid #FFD400;border-left:none;border-radius:0 10px 10px 0"></div><div class="w9 nw" style="font-size:60px">넘은 만큼?</div></div>`, sc);
+  pop(over, W(36, "넘은 만큼"));
+  const st = strike(sc, 1150, overTop + 26, 330, W(36, "아니라"));
+  tl.to(water, { backgroundColor: R, duration: 0.5 }, W(36, "전부"));
+  tl.to([over, st], { opacity: 0, duration: 0.3 }, W(36, "전부") + 0.1);
+  const all = el(`<div class="a w9 R nw" style="left:1160px;top:480px;font-size:150px;line-height:1">전부</div>`, sc); pop(all, W(36, "전부"), { from: { scale: 1.3, y: 0 } });
+  K.cut(E(36) - 0.05, "넘으면 전부");
+}
+// 15. 이자 1,010만 원 → 전부 건보료 소득 (s37)
+{ const sc = scene(S(37) - 0.3, until(38));
+  const ax = K.axis(sc, 260, 1400, 1200, 640, [[0, "0"], [500, "500만"], [1000, "1,000만"]], S(37));
+  const th = K.thr(sc, ax.px(1000), 360, 300, "이자·배당 기준 1,000만 원", S(37) + 0.1, 290);
+  const bar = K.seg(sc, 260, 480, ax.wd(1010), G, "", W(37, "1,010만"), 1.3);
+  const lab = el(`<div class="a w9 nw" style="left:260px;top:740px;font-size:72px">이자 1년 <span>0</span>만 원</div>`, sc);
+  pop(lab, W(37, "1,010만") - 0.1); counter(lab.querySelector("span"), 0, 1010, W(37, "1,010만"), 1.3);
+  const ten = el(`<div class="a w9 Y nw" style="left:${ax.px(1010) + 30}px;top:508px;font-size:46px">넘은 10만 원?</div>`, sc);
+  pop(ten, W(37, "넘은 10만"), { from: { x: -20, y: 0 } });
+  const st = strike(sc, ax.px(1010) + 22, 532, 310, W(37, "아니라"));
+  tl.to([ten, st], { opacity: 0, duration: 0.3 }, W(37, "아니라") + 0.5);
+  tl.to(bar, { backgroundColor: R, duration: 0.5 }, W(37, "1,010만", 1) - 0.1);
+  tl.to(lab, { opacity: 0, duration: 0.25 }, W(37, "1,010만", 1) - 0.1);
+  const lab2 = el(`<div class="a w9 nw" style="left:260px;top:740px;font-size:72px"><span class="R">1,010만 원 전부</span> → 건보료 소득</div>`, sc); pop(lab2, W(37, "1,010만", 1));
+  K.cut(E(37) - 0.05, "1,010만 원 전부");
+}
+// 16. A 남편: 1,050 + 1,320 = 2,370 > 2,000, 연금저축 1,800 도 더해짐 (s38–s41)
+{ const sc = scene(S(38) - 0.3, until(42));
+  const X0 = 230, Wd = 1460, MAX = 4400, px = v => X0 + v * Wd / MAX, wd = v => v * Wd / MAX;
+  const who = el(`<div class="a" style="left:230px;top:170px"><span class="badge kA">A 부부 · 남편</span></div>`, sc); pop(who, S(38));
+  const dep = el(`<div class="a pill nw" style="left:230px;top:260px;font-size:52px;padding:20px 34px">예금 3억 원 <span class="N" style="font-size:36px">(퇴직금 포함)</span></div>`, sc); pop(dep, W(38, "예금 3억"));
+  const arr = el(`<div class="a w9 N" style="left:880px;top:266px;font-size:70px">→</div>`, sc); pop(arr, W(38, "1년 이자"));
+  const intr = el(`<div class="a w9 nw" style="left:990px;top:252px;font-size:76px">1년 이자 <span class="R">0</span><span class="R">만 원</span></div>`, sc); pop(intr, W(38, "1년 이자"));
+  counter(intr.querySelector("span"), 0, 1050, W(38, "1,050만"), 1.1);
+  const axis = el(`<div class="axis" style="left:${X0}px;top:690px;width:${Wd}px"></div>`, sc); pop(axis, S(39));
+  pop(el(`<div class="tick" style="left:${px(0)}px;top:710px">0</div>`, sc), S(39));
+  const s1 = K.seg(sc, px(0), 550, wd(1050), R, "이자 1,050만", S(39), 0.8);
+  const note = el(`<div class="a w7 nw" style="left:${X0}px;top:430px;font-size:46px"><span class="Y">이자 기준 1,000만 원</span> 넘음 → <span class="R">1,050만 원 전부 소득</span></div>`, sc); pop(note, W(39, "1,050만"));
+  tl.to(note, { opacity: 0, duration: 0.3 }, S(40) - 0.1);
+  const s2 = K.seg(sc, px(1050) + 6, 550, wd(1320) - 6, B4, "국민연금 1,320만", W(40, "1,320만"), 0.8);
+  const tot = el(`<div class="a w9 nw" style="left:${px(2370) + 24}px;top:560px;font-size:84px">= <span>0</span>만 원</div>`, sc);
+  pop(tot, W(40, "2,370만") - 0.1, { from: { x: -20, y: 0 } }); counter(tot.querySelector("span"), 0, 2370, W(40, "2,370만"), 1.0);
+  const th = K.thr(sc, px(2000), 490, 230, "피부양자 기준 2,000만 원", W(40, "피부양자"), 420, true);
+  pop(el(`<div class="tick" style="left:${px(2000)}px;top:740px">2,000만</div>`, sc), W(40, "피부양자"));
+  tl.to(tot, { color: R, duration: 0.4 }, W(40, "넘습니다"));
+  const ov = el(`<div class="a w9 R nw" style="left:${px(2370) + 610}px;top:582px;font-size:56px">넘음</div>`, sc); pop(ov, W(40, "넘습니다"), { from: { x: -20, y: 0 } });
+  // 연금저축 1,800만 원
+  out([tot, ov, who, dep, arr, intr], S(41) - 0.1);
+  const mini = el(`<div class="panel" style="left:1150px;top:160px;width:600px;padding:22px 26px"></div>`, sc);
+  el(`<div class="w7 nw" style="font-size:40px;margin-bottom:18px">연금저축에서 꺼낸 돈 (1년)</div>`, mini);
+  const mb = el(`<div style="position:relative;height:56px;border-radius:10px;background:rgba(255,255,255,.08)"></div>`, mini);
+  const mfill = el(`<div style="position:absolute;left:0;top:0;bottom:0;width:${1800 / 2000 * 100}%;border-radius:10px;background:${R};transform-origin:0 50%"></div>`, mb);
+  const mth = el(`<div style="position:absolute;left:${1500 / 2000 * 100}%;top:-12px;bottom:-12px;border-left:5px dashed #FFD400"></div>`, mb);
+  const ml = el(`<div class="w7 nw" style="font-size:38px;margin-top:16px"><span class="R">1,800만</span> &gt; <span class="Y">기준 1,500만</span></div>`, mini);
+  pop(mini, S(41)); grow(mfill, W(41, "1,800만"), 0.9);
+  tl.fromTo([mth, ml], { opacity: 0 }, { opacity: 1, duration: 0.4 }, W(41, "1,500만"));
+  const s3 = K.seg(sc, px(2370) + 6, 550, wd(1800) - 6, `repeating-linear-gradient(135deg,${R} 0 26px,#D93A2B 26px 52px)`, "연금저축 1,800만", W(41, "피부양자"), 0.9);
+  const plus = el(`<div class="a cx w9 R nw" style="left:${px(2370) + wd(1800) / 2}px;top:482px;font-size:56px">또 더해짐</div>`, sc); pop(plus, W(41, "더해집니다"));
+  K.cut(E(40) - 0.1, "1,050 + 1,320 = 2,370 > 2,000");
+  K.cut(E(41) - 0.05, "연금저축 1,800만 원도 더해짐");
+}
+// 17. 남편 때문에 아내까지 (s42)
+{ const sc = scene(S(42) - 0.3, until(43));
+  const lab = text(sc, 960, 140, "자녀 건강보험 · 피부양자", 60, "w9 Y"); pop(lab, S(42));
+  const um = K.umbrella(sc, 960, 1000, 230); pop(um, S(42));
+  const grp = el(`<div class="a" style="left:0;top:0;width:1920px;height:1080px"></div>`, sc);
+  const H = K.one(grp, 800, 460, "#DCE3EE", 170, "남편"), Wf = K.one(grp, 1120, 475, "#AEB9CC", 155, "아내");
+  pop(H, S(42) + 0.2); pop(Wf, S(42) + 0.3);
+  const bars = (cx, frac, color) => { const b = el(`<div class="a" style="left:${cx - 120}px;top:760px;width:240px;height:40px;border-radius:8px;background:rgba(255,255,255,.08)"></div>`, grp); const f = el(`<div style="position:absolute;left:0;top:0;bottom:0;width:${frac * 100}%;border-radius:8px;background:${color};transform-origin:0 50%"></div>`, b); el(`<div style="position:absolute;left:40%;top:-12px;bottom:-12px;border-left:5px dashed #FFD400"></div>`, b); return [b, f]; };
+  const [hb, hf] = bars(800, 0.83, R), [wb, wf] = bars(1120, 0.17, G);
+  pop(hb, W(42, "두 사람")); pop(wb, W(42, "두 사람") + 0.1);
+  tl.fromTo([hf, wf], { scaleX: 0 }, { scaleX: 1, duration: 0.8, ease: "power2.out", stagger: 0.15 }, W(42, "두 사람") + 0.2);
+  const cond = el(`<div class="a cx c w7 nw" style="left:960px;top:786px;font-size:48px">두 사람 모두 <span class="Y">2,000만 원 이하</span>여야</div>`, sc); pop(cond, W(42, "2,000만"));
+  tl.to(cond, { opacity: 0, duration: 0.3 }, W(42, "남편 때문에") - 0.1);
+  tl.to(grp, { x: -560, duration: 0.9, ease: "power2.inOut" }, W(42, "남편 때문에"));
+  K.rain(sc, 110, 560, W(42, "같이"), 28, 1);
+  const t2 = el(`<div class="a cx c w9 nw" style="left:960px;top:786px;font-size:56px"><span class="R">남편 때문에</span> 아내까지</div>`, sc); pop(t2, W(42, "아내까지"));
+  K.cut(E(42) - 0.05, "남편 때문에 아내까지");
+}
+// 18. 고지서는 다음 해에 (s43)
+{ const sc = scene(S(43) - 0.3, until(44));
+  K.cal(sc, 380, 220, "올해", `<div class="w7">소득이 생김</div>`, S(43));
+  K.cal(sc, 1120, 220, "다음 해", `<div class="w7 R">건보료 고지서</div>`, W(43, "다음 해"));
+  const env = el(`<div class="env" style="left:460px;top:690px;width:260px;height:150px;font-size:40px"><span>고지서</span></div>`, sc);
+  pop(env, W(43, "고지서"));
+  tl.to(env, { x: 740, duration: 0.9, ease: "power2.inOut" }, W(43, "다음 해"));
+  const late = text(sc, 960, 136, "모르고 지나가기 쉬움", 56, "w9 R"); pop(late, W(43, "모르고"));
+  K.cut(E(43) - 0.05, "고지서는 다음 해");
+}
+// 19. 바구니: 몰아 담으면 넘치고, 나눠 담으면 안 넘친다 (s44–s45)
+{ const sc = scene(S(44) - 0.3, until(46));
+  const t = text(sc, 960, 160, `기준 = 사람마다 따로 있는 <span class="Y">바구니</span>`, 60); pop(t, S(44));
+  const bh = K.basket(sc, 600, 420, 400, "남편"), bw = K.basket(sc, 1320, 420, 400, "아내");
+  pop(bh, W(44, "바구니")); pop(bw, W(44, "바구니") + 0.15);
+  // 몰아 담기: 남편 바구니에 동전 22개 (2개씩 11줄) → 바구니 테두리(노란 점선) 위로 넘침
+  const N = 22, pos = (k, cx) => ({ x: cx - 43 + (k % 2 ? 40 : -40), y: 640 - Math.floor(k / 2) * 26 });
+  const pile = [];
+  for (let i = 0; i < N; i++) { const q = pos(i, 600); pile.push(el(`<div class="coin" style="left:${q.x}px;top:${q.y}px"></div>`, sc)); }
+  tl.fromTo(pile, { opacity: 0, y: -300 }, { opacity: 1, y: 0, duration: 0.25, ease: "bounce.out", stagger: 0.05 }, W(45, "한 바구니에"));
+  const over = text(sc, 600, 290, "넘침", 60, "w9 R"); pop(over, W(45, "넘치고"));
+  out(over, W(45, "두 바구니에") - 0.1);
+  // 나눠 담기: 짝수 번째는 남편, 홀수 번째는 아내 바구니로 (각 11개 → 6줄, 테두리 아래) · 청록
+  pile.forEach((c, i) => {
+    const toWife = i % 2 === 1, j = toWife ? (i - 1) / 2 : i / 2;
+    const from = pos(i, 600), to = pos(j, toWife ? 1320 : 600);
+    tl.to(c, { x: to.x - from.x, y: to.y - from.y, duration: 0.6, ease: "power2.inOut" }, W(45, "나눠") + i * 0.015);
+  });
+  tl.to(pile, { background: "radial-gradient(ellipse at 50% 35%,#7FF0DF,#22C7B0 55%,#11806F)", boxShadow: "0 3px 0 #0A574B", duration: 0.4 }, W(45, "넘치지"));
+  const ok = el(`<div class="a cx c w9 G nw" style="left:960px;top:330px;font-size:60px">나눠 담으면 안 넘침</div>`, sc); pop(ok, W(45, "넘치지"));
+  K.cut(E(44) - 0.05, "바구니 두 개");
+  K.cut(E(45) - 0.05, "나눠 담으면 안 넘침");
+}
+// 20. 세금도 마찬가지: 혼자 1,800 → 약 118만 / 나눠 1,000 + 800 → 약 78만 (s46–s48)
+{ const sc = scene(S(46) - 0.3, until(49));
+  const t = text(sc, 960, 140, `<span class="Y">세금</span>도 마찬가지`, 64); pop(t, S(46));
+  const U = 0.2, base = 780, L = 560, Rr = 1360;      // 1만 원 = 0.2px (세로)
+  // 연금저축 기준 1,500만 (한 사람) — 노란 점선
+  K.hthr(sc, L - 170, base - 1500 * U, 340, "", W(47, "1,800만") + 0.3);
+  K.hthr(sc, Rr - 270, base - 1500 * U, 540, "", W(48, "남편이"));
+  const thlab = el(`<div class="a w7 Y nw" style="left:${L + 185}px;top:${base - 1500 * U - 26}px;font-size:40px">기준 1,500만</div>`, sc); pop(thlab, W(47, "1,800만") + 0.4);
+  // 왼쪽: 남편 혼자 1,800
+  K.vbar(sc, L - 100, base, 200, 1800 * U, R, W(47, "1,800만"), 0.9);
+  const lbl = text(sc, L, base - 1800 * U - 60, "1,800만", 48, "w9 R"); pop(lbl, W(47, "1,800만"));
+  const ln = text(sc, L, base + 14, "남편 혼자", 44, "w7"); pop(ln, S(47));
+  const lt = el(`<div class="a cx c w9 nw" style="left:${L}px;top:240px;font-size:76px;line-height:1">세금 약 <span class="R">0</span><span class="R">만</span></div>`, sc);
+  pop(lt, W(47, "약 118만") - 0.1); counter(lt.querySelectorAll("span")[0], 0, 118, W(47, "약 118만"), 1.0);
+  // 오른쪽: 남편 1,000 + 아내 800
+  K.vbar(sc, Rr - 200, base, 160, 1000 * U, G, W(48, "1,000만"), 0.8);
+  K.vbar(sc, Rr + 40, base, 160, 800 * U, G, W(48, "800만"), 0.8);
+  const r1 = text(sc, Rr - 120, base - 1000 * U - 56, "1,000만", 44, "w9 G"); pop(r1, W(48, "1,000만"));
+  const r2 = text(sc, Rr + 120, base - 800 * U - 56, "800만", 44, "w9 G"); pop(r2, W(48, "800만"));
+  const rn1 = text(sc, Rr - 120, base + 14, "남편", 44, "w7"), rn2 = text(sc, Rr + 120, base + 14, "아내", 44, "w7");
+  pop(rn1, W(48, "남편이")); pop(rn2, W(48, "아내가"));
+  const rt = el(`<div class="a cx c w9 nw" style="left:${Rr}px;top:240px;font-size:76px;line-height:1">세금 약 <span class="G">0</span><span class="G">만</span></div>`, sc);
+  pop(rt, W(48, "약 78만") - 0.1); counter(rt.querySelectorAll("span")[0], 0, 78, W(48, "약 78만"), 1.0);
+  K.cut(E(48) - 0.05, "혼자 118만 vs 나눠 78만");
+}
+// 21. 한마디로 (s49)
+{ const sc = scene(S(49) - 0.3, until(50) - 1.0);
+  const k = text(sc, 960, 230, "한마디로", 56, "w7 N"); pop(k, S(49));
+  const a = text(sc, 960, 360, `부부 이름으로 <span class="Y">나눠 넣고</span>`, 92); pop(a, W(49, "부부"));
+  const b = text(sc, 960, 520, `해마다 <span class="Y">나눠 꺼낸다</span>`, 92); pop(b, W(49, "해마다"));
+  K.cut(E(49) - 0.6, "원칙 1 한마디로");
+}
+
+/* ───────────── 원칙 2: 연금계좌 돈은 꺼낼 때 세금 ───────────── */
+// 22. 연금계좌 안에서는 그해 세금·건보료 없음, 꺼낼 때 세금 (s50–s52)
+{ const sc = scene(S(50) + 0.6, until(53));
+  const box = el(`<div class="a" style="left:560px;top:250px;width:800px;height:470px;border-radius:30px;border:5px solid ${G};background:rgba(34,199,176,.06)"></div>`, sc);
+  const bl = el(`<div class="a cx c w9 nw" style="left:960px;top:166px;font-size:60px">연금계좌 <span class="N w7" style="font-size:44px">(연금저축 · IRP)</span></div>`, sc);
+  pop(box, S(50) + 0.7); pop(bl, W(50, "연금계좌") + 0.3);
+  const inside = [];
+  for (let i = 0; i < 6; i++) inside.push(...K.coins(sc, 720 + (i % 3) * 240, 640 - Math.floor(i / 3) * 140, 3, null, "n"));
+  tl.fromTo(inside, { opacity: 0, y: -60 }, { opacity: 1, y: 0, duration: 0.3, stagger: 0.03, ease: "power2.out" }, W(51, "이자와"));
+  const ib = text(sc, 960, 290, "이자·배당이 생겨도", 48, "w7"); pop(ib, W(51, "이자와"));
+  const z1 = el(`<div class="a w9 G nw" style="left:620px;top:745px;font-size:56px">그해 세금 0</div>`, sc); pop(z1, W(51, "세금도"));
+  const z2 = el(`<div class="a w9 G nw" style="left:1000px;top:745px;font-size:56px">건보료 0</div>`, sc); pop(z2, W(51, "건보료도"));
+  out([z1, z2, ib], S(52) - 0.1);
+  const outC = K.coins(sc, 960, 600, 3, null, "n");
+  tl.fromTo(outC, { opacity: 0 }, { opacity: 1, duration: 0.2 }, W(52, "꺼낼"));
+  tl.to(outC, { x: 560, y: 120, duration: 0.8, ease: "power2.inOut" }, W(52, "꺼낼"));
+  const tax = el(`<div class="a w9 R nw" style="left:1480px;top:760px;font-size:56px">꺼낼 때 세금</div>`, sc); pop(tax, W(52, "세금을"));
+  K.cut(E(51) - 0.05, "연금계좌 안: 그해 세금 0 · 건보료 0");
+  K.cut(E(52) - 0.05, "꺼낼 때 세금");
+}
+// 23. 한 사람 1년 1,500만 원 이하: 5.5%~3.3%, 피부양자 소득 안 들어감 (s53)
+{ const sc = scene(S(53) - 0.3, until(54));
+  const p = K.one(sc, 400, 220, "#DCE3EE", 140, "한 사람 · 1년"); pop(p, S(53));
+  const base = 760, U = 0.3;
+  const th = K.hthr(sc, 600, base - 1500 * U, 640, "연금저축 기준 1,500만 원", W(53, "1,500만"), 600, base - 1500 * U - 70);
+  const bar = K.vbar(sc, 700, base, 220, 1200 * U, G, W(53, "이하로"), 0.9);
+  const under = text(sc, 810, base - 1200 * U - 60, "이하", 48, "w9 G"); pop(under, W(53, "이하로"));
+  const rate = el(`<div class="a w9 nw" style="left:1010px;top:400px;font-size:56px;line-height:1.25">세금 <span class="G">5.5% → 3.3%</span><div class="w5 N" style="font-size:40px">나이에 따라</div></div>`, sc);
+  pop(rate, W(53, "5.5%"));
+  const dep = el(`<div class="a w9 nw" style="left:1010px;top:600px;font-size:56px">피부양자 소득 <span class="G">✕ 안 들어감</span></div>`, sc); pop(dep, W(53, "피부양자"));
+  K.cut(E(53) - 0.05, "1,500만 이하: 5.5~3.3%");
+}
+// 24. 일반 예금 1억 → 이자 350만 → 해마다 세금 약 54만 (s54)
+{ const sc = scene(S(54) - 0.3, until(55));
+  const d = el(`<div class="a cx c w9 nw" style="left:420px;top:330px;width:420px;height:220px;border-radius:24px;background:${B4};display:grid;place-items:center;font-size:72px">예금 1억</div>`, sc);
+  pop(d, W(54, "1억"));
+  const a1 = el(`<div class="a w9 N" style="left:660px;top:390px;font-size:80px">→</div>`, sc); pop(a1, W(54, "1년 이자"));
+  const i1 = big(sc, 960, 380, 130, "#F4F6FA", "만 원", 64); pop(i1.box, W(54, "1년 이자")); counter(i1.num, 0, 350, W(54, "350만"), 1.0);
+  const il = text(sc, 960, 300, "1년 이자", 48, "w7 N"); pop(il, W(54, "1년 이자"));
+  const a2 = el(`<div class="a w9 N" style="left:1230px;top:390px;font-size:80px">→</div>`, sc); pop(a2, W(54, "해마다"));
+  const t1 = big(sc, 1530, 380, 130, R, "만 원", 64); pop(t1.box, W(54, "세금이")); counter(t1.num, 0, 54, W(54, "약 54만"), 0.9);
+  const tlab = text(sc, 1530, 300, "세금 약", 48, "w7 R"); pop(tlab, W(54, "세금이"));
+  const yrs = K.years(sc, 560, 640, 10, R, W(54, "해마다"), "해마다");
+  K.cut(E(54) - 0.05, "예금 1억 → 이자 350만 → 세금 약 54만");
+}
+// 25. 한마디로: 예금 먼저, 연금계좌 나중 (s55)
+{ const sc = scene(S(55) - 0.3, until(56) - 1.0);
+  const k = text(sc, 960, 200, "한마디로", 56, "w7 N"); pop(k, S(55));
+  K.cards(sc, [["1", "해마다 세금 붙는<br>예금 먼저"], ["2", "연금계좌는<br>나중에"]], 320, [W(55, "예금을"), W(55, "연금계좌는")], 120, 680, 420);
+  K.cut(E(55) - 0.6, "원칙 2 한마디로");
+}
+
+/* ───────────── 원칙 3: 퇴직금은 연금으로 첫해부터 ───────────── */
+// 26. 퇴직금은 연금으로 오래 나눠 받는다 (s56)
+{ const sc = scene(S(56) + 0.6, until(57));
+  const blk = el(`<div class="a cx c w9 nw" style="left:960px;top:300px;width:520px;height:200px;border-radius:22px;background:${B2};display:grid;place-items:center;font-size:72px">퇴직금</div>`, sc);
+  pop(blk, W(56, "퇴직금은"));
+  const slices = [];
+  for (let i = 0; i < 20; i++) slices.push(el(`<div class="a" style="left:${300 + i * 66}px;top:600px;width:54px;height:110px;border-radius:8px;background:${B2}"></div>`, sc));
+  tl.to(blk, { opacity: 0.25, duration: 0.4 }, W(56, "연금으로"));
+  tl.fromTo(slices, { opacity: 0, y: -260 }, { opacity: 1, y: 0, duration: 0.3, stagger: 0.04, ease: "power2.out" }, W(56, "연금으로"));
+  const lab = text(sc, 960, 760, `연금으로 <span class="Y">오래 나눠</span> 받기`, 60); pop(lab, W(56, "오래"));
+  K.cut(E(56) - 0.05, "퇴직금 → 오래 나눠");
+}
+// 27. 퇴직소득세 깎아 줌: 10년째까지 30%, 11년째 40%, 21년째 50% (s57)
+{ const sc = scene(S(57) - 0.3, until(58));
+  const t = text(sc, 960, 160, `연금으로 받으면 <span class="G">퇴직소득세 깎아 줌</span>`, 60); pop(t, W(57, "퇴직소득세"));
+  const base = 790, U = 7;
+  const step = (cx, pct, label, at) => {
+    const b = K.vbar(sc, cx - 150, base, 300, pct * U, G, at, 0.7);
+    const n = text(sc, cx, base - pct * U - 120, `${pct}%`, 110, "w9 G"); pop(n, at);
+    const l = text(sc, cx, base - pct * U - 180, label, 44, "w7"); pop(l, at);
+    return [b, n, l];
+  };
+  step(520, 30, "받은 지 10년째까지", W(57, "30%"));
+  step(960, 40, "11년째부터", W(57, "40%"));
+  step(1400, 50, "21년째부터", W(57, "50%"));
+  K.cut(E(57) - 0.05, "30% · 40% · 50%");
+}
+// 28. 퇴직금 연금은 1,500만 기준에도, 피부양자 소득에도 안 들어감 (s58)
+{ const sc = scene(S(58) - 0.3, until(59));
+  const p = el(`<div class="a cx pill nw" style="left:960px;top:180px">퇴직금으로 받는 연금 <span class="N" style="font-size:44px">· 금액 상관없이</span></div>`, sc); pop(p, S(58));
+  const row = (top, html, at) => { const r = el(`<div class="a w9 nw" style="left:420px;top:${top}px;font-size:64px">${html}</div>`, sc); pop(r, at); return r; };
+  row(400, `연금저축 <span class="Y">1,500만 원 기준</span>에 <span class="G">✕ 안 들어감</span>`, W(58, "연금저축"));
+  row(560, `피부양자 소득에 <span class="G">✕ 안 들어감</span>`, W(58, "피부양자"));
+  K.cut(E(58) - 0.05, "기준·피부양자 소득에 안 들어감");
+}
+// 29. 햇수는 실제로 받은 해만 · 첫해부터 100만 원씩이라도 (s59–s61)
+{ const sc = scene(S(59) - 0.3, until(62));
+  const k = text(sc, 960, 380, `꼭 알아 두실 것`, 120, "w9 Y"); pop(k, S(59), { from: { scale: 0.85 } });
+  out(k, S(60) - 0.1);
+  const t = text(sc, 960, 160, `햇수 = <span class="Y">연금을 실제로 받은 해</span>만`, 64); pop(t, W(60, "햇수는"));
+  const bx = i => 410 + i * 220;
+  const yrs = [];
+  for (let i = 0; i < 6; i++) yrs.push(el(`<div class="a cx c" style="left:${bx(i)}px;top:420px;width:180px;height:180px;border-radius:22px;border:4px solid rgba(255,255,255,.25);display:grid;place-items:center;font-weight:900;font-size:44px;color:#9AA7BF">${["올해", "+1년", "+2년", "+3년", "+4년", "+5년"][i]}</div>`, sc));
+  tl.fromTo(yrs, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.35, stagger: 0.06 }, W(60, "IRP에"));
+  const put = el(`<div class="a cx c w7 nw" style="left:${bx(0)}px;top:320px;font-size:44px">IRP에 넣은 해</div>`, sc); pop(put, W(60, "IRP에"));
+  strike(sc, 300, 345, 230, W(60, "아니라"));
+  // 받은 해에만 동전·번호: 예) +2년부터 받으면 1년째·2년째 … (넣은 해부터 세지 않음)
+  const late = [2, 3, 4, 5].map(i => K.coins(sc, bx(i), 560, 2, null, "g")).flat();
+  tl.fromTo(late, { opacity: 0, y: -80 }, { opacity: 1, y: 0, duration: 0.25, stagger: 0.04 }, W(60, "실제로"));
+  const numA = [2, 3, 4, 5].map((i, k) => el(`<div class="a cx c w9 G nw" style="left:${bx(i)}px;top:640px;font-size:56px">${k + 1}년째</div>`, sc));
+  tl.fromTo(numA, { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.3, stagger: 0.15, ease: "back.out(2)" }, W(60, "받은 해만"));
+  tl.to([yrs[2], yrs[3], yrs[4], yrs[5]], { borderColor: G, color: "#F4F6FA", duration: 0.4, stagger: 0.05 }, W(60, "받은 해만"));
+  // 첫해부터 받으면: 올해·+1년에도 동전 → 번호를 1년째부터 다시
+  const early = [0, 1].map(i => K.coins(sc, bx(i), 560, 2, null, "g")).flat();
+  tl.fromTo(early, { opacity: 0, y: -80 }, { opacity: 1, y: 0, duration: 0.25, stagger: 0.05 }, W(61, "첫해부터"));
+  tl.to([yrs[0], yrs[1]], { borderColor: G, color: "#F4F6FA", duration: 0.4 }, W(61, "첫해부터"));
+  tl.to(numA, { opacity: 0, duration: 0.25 }, W(61, "첫해부터"));
+  const numB = yrs.map((y, i) => el(`<div class="a cx c w9 G nw" style="left:${bx(i)}px;top:640px;font-size:56px">${i + 1}년째</div>`, sc));
+  tl.fromTo(numB, { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.3, stagger: 0.1, ease: "back.out(2)" }, W(61, "첫해부터") + 0.3);
+  const cta = el(`<div class="a cx c w9 nw" style="left:960px;top:760px;font-size:64px">첫해부터 <span class="Y">1년에 100만 원씩</span>이라도</div>`, sc); pop(cta, W(61, "100만"));
+  K.cut(E(60) - 0.05, "받은 해만 셈");
+  K.cut(E(61) - 0.05, "첫해부터 100만 원씩");
+}
+// 30. A 부부는 혜택 0 · 한마디로 (s62–s63)
+{ const sc = scene(S(62) - 0.3, until(64));
+  const a = el(`<div class="a" style="left:300px;top:200px"><span class="badge kA">A 부부</span></div>`, sc); pop(a, S(62));
+  const blk = el(`<div class="a cx c w9 nw" style="left:560px;top:330px;width:480px;height:170px;border-radius:22px;background:${B2};display:grid;place-items:center;font-size:56px">퇴직금 한 번에</div>`, sc);
+  pop(blk, W(62, "한 번에"));
+  const zero = el(`<div class="a w9 nw" style="left:900px;top:350px;font-size:72px">깎아 주는 혜택 <span class="R">0</span></div>`, sc); pop(zero, W(62, "하나도"));
+  out([a, blk, zero], S(63) - 0.1);
+  const k = text(sc, 960, 240, "한마디로", 56, "w7 N"); pop(k, S(63));
+  const m = text(sc, 960, 370, `퇴직금은 한 번에 받지 말고`, 84); pop(m, W(63, "퇴직금은"));
+  const m2 = text(sc, 960, 520, `<span class="Y">IRP에 두세요</span>`, 110); pop(m2, W(63, "IRP에"));
+  K.cut(E(62) - 0.05, "A 부부 혜택 0");
+  K.cut(E(63) - 0.05, "원칙 3 한마디로");
+}
+// 31. 세 원칙으로 꺼내는 순서 (s64)
+{ const sc = scene(S(64) - 0.3, until(65) - 1.0);
+  K.cards(sc, [["1", "한 사람씩"], ["2", "연금계좌<br>나중"], ["3", "퇴직금<br>연금으로"]], 200, S(64), 50, 400, 330);
+  const t = text(sc, 960, 640, `→ <span class="Y">꺼내는 순서</span>`, 96); pop(t, W(64, "꺼내는"));
+  K.cut(E(64) - 0.6, "세 원칙 → 순서");
+}
+
+/* ───────────── 꺼내는 순서 ───────────── */
+{ const sc = scene(S(65) + 0.6, until(73) - 1.0);
+  // 나이 축 65 ~ 95
+  const X0 = 200, Wd = 1520, A0 = 65, A1 = 95, ax = a => X0 + (a - A0) * Wd / (A1 - A0);
+  const axis = el(`<div class="axis" style="left:${X0}px;top:380px;width:${Wd}px"></div>`, sc); pop(axis, S(65) + 0.7);
+  [65, 75, 85, 95].forEach(a => pop(el(`<div class="tick" style="left:${ax(a)}px;top:400px">${a}세</div>`, sc), S(65) + 0.8));
+  const stage = (a0, a1, color, k, name, at) => {
+    const s = el(`<div class="a" style="left:${ax(a0) + 4}px;top:220px;width:${ax(a1) - ax(a0) - 8}px;height:140px;border-radius:16px;background:${color};display:grid;align-content:center;justify-items:center;gap:6px;transform-origin:0 50%"><div class="w9 Y nw" style="font-size:40px">${k}</div><div class="w9 nw" style="font-size:48px">${name}</div></div>`, sc);
+    K.grow(s, at, 0.7);
+    return s;
+  };
+  const s1 = stage(65, 75, B4, "1단계", "예금", W(65, "1단계"));
+  const d1 = el(`<div class="a w9 nw" style="left:${X0}px;top:520px;font-size:56px">예금 <span class="Y">1,700만</span> + IRP <span class="Y">100만</span> = <span class="Y">1,800만 원</span> <span class="w5 N" style="font-size:40px">/ 1년</span></div>`, sc);
+  pop(d1, W(65, "1,700만"));
+  const e1 = el(`<div class="a w7 nw" style="left:${X0}px;top:620px;font-size:44px">예금은 <span class="Y">1년치 생활비</span>만 비상금으로 남김</div>`, sc); pop(e1, S(66));
+  out([d1, e1], S(67) - 0.1);
+  const s2 = stage(75, 85, B2, "2단계", "IRP 퇴직금", W(67, "2단계"));
+  const d2 = el(`<div class="a w9 nw" style="left:${X0}px;top:520px;font-size:56px">IRP 퇴직금에서 1년에 <span class="Y">1,800만 원</span>씩</div>`, sc); pop(d2, W(67, "1,800만"));
+  const e2 = el(`<div class="a w7 nw" style="left:${X0}px;top:620px;font-size:48px">받은 지 11년째부터 → 퇴직소득세 <span class="G">40% 깎아 줌</span></div>`, sc); pop(e2, W(68, "40%"));
+  out([d2, e2], S(69) - 0.1);
+  const s3 = stage(85, 95, B3, "3단계", "연금저축", W(69, "3단계"));
+  const d3 = el(`<div class="a w9 nw" style="left:${X0}px;top:520px;font-size:56px">남은 퇴직금·비상금을 다 쓰면 → <span class="Y">연금저축</span></div>`, sc); pop(d3, W(69, "연금저축을"));
+  const e3 = el(`<div class="a w7 nw" style="left:${X0}px;top:620px;font-size:48px">나이 들수록 세율 <span class="G">3.3%</span>까지 낮아짐 → 맨 나중</div>`, sc); pop(e3, W(70, "3.3%"));
+  out([d3, e3], S(71) - 0.1);
+  // 3단계도 나눠 꺼냄: 남편 1,000 + 아내 800, 한 사람 기준 1,500 아래
+  const base = 830, U = 0.16;
+  const thY = base - 1500 * U;
+  const th = K.hthr(sc, 640, thY, 640, "", W(71, "1,500만"));
+  const thl = el(`<div class="a w7 Y nw" style="left:1300px;top:${thY - 26}px;font-size:40px">한 사람 기준 1,500만</div>`, sc); pop(thl, W(71, "1,500만"));
+  const hb = K.vbar(sc, 720, base, 200, 1000 * U, G, W(71, "1,000만"), 0.7);
+  const wb = K.vbar(sc, 1020, base, 200, 800 * U, G, W(71, "800만"), 0.7);
+  const hl = el(`<div class="a cx c w7 nw" style="left:820px;top:${base - 1000 * U - 58}px;font-size:40px">남편 1,000만</div>`, sc); pop(hl, W(71, "1,000만"));
+  const wl = el(`<div class="a cx c w7 nw" style="left:1120px;top:${base - 800 * U - 58}px;font-size:40px">아내 800만</div>`, sc); pop(wl, W(71, "800만"));
+  out([hb, wb, hl, wl, th.line, thl, s1, s2, s3, axis], S(72) - 0.15);
+  tl.to(sc.querySelectorAll(".tick"), { opacity: 0, duration: 0.3 }, S(72) - 0.15);
+  const A = K.couple(sc, 600, 330, "A", 160), B = K.couple(sc, 1320, 330, "B", 160);
+  pop(A, S(72)); pop(B, S(72) + 0.1);
+  const q = text(sc, 960, 330, "?", 200, "w9 Y"); pop(q, W(72, "달라졌을까요"));
+  K.cut(E(65) - 0.05, "1단계 예금 1,700 + IRP 100");
+  K.cut(E(68) - 0.05, "2단계 IRP 퇴직금 · 40%");
+  K.cut(E(71) - 0.05, "3단계 연금저축 나눠 꺼냄");
+}
+
+/* ───────────── 두 부부의 결과 ───────────── */
+// 32. 첫해 세금 (s73)
+{ const sc = scene(S(73) + 0.4, until(74));
+  firstYearTax(sc, 73, S(73) + 0.6, W(73, "334만"), W(73, "108만"));
+  K.cut(E(73) - 0.05, "결과: 첫해 334만 vs 108만");
+}
+// 33. 까닭 (s74)
+{ const sc = scene(S(74) - 0.3, until(75));
+  const div = el(`<div class="a" style="left:958px;top:200px;width:4px;height:600px;background:rgba(255,255,255,.12)"></div>`, sc); pop(div, S(74));
+  const A = el(`<div class="a cx" style="left:480px;top:200px"><span class="badge kA">A 부부</span></div>`, sc); pop(A, S(74));
+  const a1 = el(`<div class="a cx c w9 nw" style="left:480px;top:330px;font-size:60px;line-height:1.35">예금 <span class="R">4억 원</span> 이자 세금<br>+ <span class="R">연금저축 세금</span></div>`, sc);
+  pop(a1, W(74, "예금 4억"));
+  const B = el(`<div class="a cx" style="left:1440px;top:200px"><span class="badge kB">B 부부</span></div>`, sc); pop(B, W(74, "B 부부"));
+  const b1 = el(`<div class="a cx c w9 nw" style="left:1440px;top:330px;font-size:60px;line-height:1.35">예금 <span class="G">2억 원</span> 이자 세금<span class="G">만</span></div>`, sc);
+  pop(b1, W(74, "예금 2억"));
+  K.cut(E(74) - 0.05, "까닭: A 4억 + 연금저축 / B 2억만");
+}
+// 34. 평생 합계와 차이 (s75–s76)
+{ const sc = scene(S(75) - 0.3, until(77));
+  const t = text(sc, 960, 160, "평생 합친 세금", 60, "w7 Y"); pop(t, S(75));
+  const X0 = 420, U = 0.24;
+  const row = (top, kind, val, color, at) => {
+    const bd = el(`<div class="a" style="left:120px;top:${top + 20}px"><span class="badge k${kind}">${kind} 부부</span></div>`, sc); pop(bd, at - 0.3);
+    const b = K.seg(sc, X0, top, val * U, color, "", at, 1.1, 110);
+    const n = el(`<div class="a w9 nw" style="left:${X0 + val * U + 30}px;top:${top + 10}px;font-size:84px;line-height:1">약 <span>0</span>만</div>`, sc);
+    pop(n, at - 0.1, { from: { x: -20, y: 0 } }); counter(n.querySelector("span"), 0, val, at, 1.1);
+    return [bd, b, n];
+  };
+  row(300, "A", 3890, R, W(75, "3,890만"));
+  row(470, "B", 1790, G, W(75, "1,790만"));
+  const diff = el(`<div class="a cx c w9 nw" style="left:960px;top:650px;font-size:96px">차이 약 <span class="R">0</span><span class="R">만 원</span></div>`, sc);
+  pop(diff, W(75, "2,100만") - 0.1); counter(diff.querySelector("span"), 0, 2100, W(75, "2,100만"), 1.0);
+  const note = el(`<div class="a cx c w7 N nw" style="left:960px;top:790px;font-size:40px">B 부부가 나중에 낼 세금까지 넣음 · 건보료·퇴직소득세는 뺌</div>`, sc); pop(note, S(76));
+  K.cut(E(75) - 0.05, "평생 3,890 vs 1,790 · 차이 2,100");
+}
+// 35. 피부양자 5년 · 통장 1년 2개월 더 (s77)
+{ const sc = scene(S(77) - 0.3, until(78));
+  const l1 = el(`<div class="a w9 nw" style="left:200px;top:200px;font-size:60px">피부양자 기준 넘음</div>`, sc); pop(l1, S(77));
+  const a = el(`<div class="a" style="left:200px;top:300px"><span class="badge kA">A 부부만</span></div>`, sc); pop(a, W(77, "A 부부만"));
+  K.years(sc, 520, 296, 5, R, W(77, "5년"), "5년");
+  const l2 = el(`<div class="a w9 nw" style="left:200px;top:470px;font-size:60px">통장이 가는 기간</div>`, sc); pop(l2, W(77, "통장도"));
+  const ba = K.seg(sc, 420, 580, 820, R, "A 부부", W(77, "통장도"), 0.9, 100);
+  const bb = K.seg(sc, 420, 710, 980, G, "B 부부", W(77, "통장도") + 0.15, 1.0, 100);
+  const more = el(`<div class="a w9 G nw" style="left:1430px;top:724px;font-size:60px">+1년 2개월</div>`, sc); pop(more, W(77, "1년 2개월"));
+  const br = el(`<div class="a" style="left:1240px;top:700px;width:160px;height:124px;border:5px solid ${G};border-left:none;border-radius:0 14px 14px 0"></div>`, sc); pop(br, W(77, "1년 2개월"));
+  K.cut(E(77) - 0.05, "피부양자 5년 · 통장 +1년 2개월");
+}
+// 36. 이미 A 부부처럼 꺼내고 있다면? (s78–s79)
+{ const sc = scene(S(78) - 0.3, until(80) - 1.0);
+  const a = K.couple(sc, 960, 220, "A", 180, "A 부부처럼"); pop(a, S(78));
+  const q = text(sc, 960, 640, `이미 꺼내고 있다면 <span class="Y">어떻게?</span>`, 80); pop(q, S(79));
+  K.cut(E(79) - 0.6, "이미 A 부부처럼?");
+}
+
+/* ───────────── 이미 A 부부처럼 하고 있다면 ───────────── */
+// 37. 늦지 않았다 · 2천만은 끝까지 같은 방식일 때 (s80–s81)
+{ const sc = scene(S(80) - 0.2, until(82));
+  const n = text(sc, 960, 330, `<span class="G">늦지 않았습니다</span>`, 130); pop(n, S(80) + 0.3, { from: { scale: 0.85 } });
+  out(n, S(81) - 0.1);
+  const big2 = el(`<div class="a cx c w9 R nw" style="left:960px;top:280px;font-size:160px;line-height:1">약 2천만 원</div>`, sc); pop(big2, W(81, "2천만"));
+  const cond = text(sc, 960, 500, `= <span class="Y">끝까지 같은 방식</span>으로 꺼낼 때`, 64); pop(cond, W(81, "끝까지"));
+  K.cut(E(81) - 0.05, "끝까지 같은 방식일 때의 숫자");
+}
+// 38. 60일 안이면 IRP에 → 퇴직소득세 돌려받음 (s82–s83)
+{ const sc = scene(S(82) - 0.3, until(84));
+  const cal = K.cal(sc, 220, 230, "퇴직금 받은 지", `<div class="w9" style="font-size:84px">60일</div><div class="w7 G">안이라면</div>`, S(82));
+  const arr = el(`<div class="a w9 N" style="left:700px;top:400px;font-size:90px">→</div>`, sc); pop(arr, W(82, "IRP에"));
+  const irp = el(`<div class="a cx c" style="left:1010px;top:330px;width:340px;height:220px;border-radius:24px;border:6px solid ${G};display:grid;place-items:center;align-content:center"><div class="w9 G" style="font-size:84px">IRP</div></div>`, sc);
+  pop(irp, W(82, "IRP에"));
+  const back = el(`<div class="a w9 nw" style="left:1240px;top:330px;font-size:56px;line-height:1.4">퇴직소득세<br><span class="G">돌려받음</span></div>`, sc); pop(back, W(83, "돌려받고"));
+  const pen = el(`<div class="a w9 nw" style="left:1240px;top:520px;font-size:56px">+ <span class="G">연금으로</span></div>`, sc); pop(pen, W(83, "연금으로"));
+  K.cut(E(83) - 0.05, "60일 안: IRP → 세금 돌려받음");
+}
+// 39. 60일이 지났어도 순서는 고칠 수 있음 · 예금 나누고 다음 해부터 예금 먼저 · 배우자 증여 (s84–s86)
+{ const sc = scene(S(84) - 0.3, until(87));
+  const a = el(`<div class="a cx c w9 nw" style="left:960px;top:200px;font-size:64px">60일이 지났어도 → <span class="Y">꺼내는 순서는 지금</span></div>`, sc); pop(a, S(84));
+  const H = K.one(sc, 560, 330, "#DCE3EE", 150, "남편"), Wf = K.one(sc, 1360, 345, "#AEB9CC", 135, "아내");
+  pop(H, S(85)); pop(Wf, S(85) + 0.1);
+  const dep = el(`<div class="a cx c w9 nw" style="left:560px;top:620px;width:420px;height:150px;border-radius:20px;background:${B4};display:grid;place-items:center;font-size:56px">남편 예금</div>`, sc);
+  pop(dep, W(85, "남편 이름의"));
+  const half = el(`<div class="a cx c w9 nw" style="left:560px;top:620px;width:200px;height:150px;border-radius:20px;background:${B4};display:grid;place-items:center;font-size:44px;opacity:0">나눔</div>`, sc);
+  tl.to(dep, { width: 220, x: -100, duration: 0.5 }, W(85, "나누고"));
+  tl.set(dep, { innerHTML: "예금" }, W(85, "나누고"));
+  tl.fromTo(half, { opacity: 1, x: 0 }, { x: 800, duration: 0.8, ease: "power2.inOut" }, W(85, "나누고"));
+  tl.set(half, { innerHTML: "예금" }, W(85, "나누고") + 0.8);
+  const nx = el(`<div class="a cx c w9 nw" style="left:960px;top:470px;font-size:56px">다음 해부터 <span class="Y">예금 먼저</span></div>`, sc); pop(nx, W(85, "다음 해부터"));
+  out([a, nx], S(86) - 0.1);
+  const gift = el(`<div class="a cx c w9 nw" style="left:960px;top:140px;font-size:60px;line-height:1.35">배우자에게 <span class="Y">10년에 6억 원</span>까지<br>증여세 <span class="G">0</span></div>`, sc);
+  pop(gift, W(86, "배우자에게"));
+  K.cut(E(85) - 0.05, "예금 나누기 · 다음 해부터 예금 먼저");
+  K.cut(E(86) - 0.05, "배우자 증여 6억까지 0");
+}
+// 40. 65세 말에 고치면: 2,100 → 1,300 · 5년 → 1년 (s87)
+{ const sc = scene(S(87) - 0.3, until(88));
+  const t = el(`<div class="a cx c w9 nw" style="left:960px;top:170px;font-size:60px"><span class="badge kA" style="font-size:44px;vertical-align:middle">A 부부</span>가 <span class="Y">65세 말</span>에 고치면</div>`, sc);
+  pop(t, S(87));
+  const row = (top, label, from, to, unit, at1, at2) => {
+    const l = el(`<div class="a w7 nw" style="left:220px;top:${top}px;font-size:48px">${label}</div>`, sc); pop(l, at1 - 0.3);
+    const f = el(`<div class="a w9 R nw" style="left:220px;top:${top + 70}px;font-size:110px;line-height:1">${from}</div>`, sc); pop(f, at1);
+    const ar = el(`<div class="a w9 N nw" style="left:900px;top:${top + 80}px;font-size:90px;line-height:1">→</div>`, sc); pop(ar, at2 - 0.2);
+    const tt = el(`<div class="a w9 G nw" style="left:1060px;top:${top + 70}px;font-size:110px;line-height:1">${to}</div>`, sc); pop(tt, at2);
+    tl.to(f, { opacity: 0.45, duration: 0.4 }, at2);
+  };
+  row(290, "평생 세금 차이", "2,100만", "약 1,300만", "", W(87, "2,100만"), W(87, "약 1,300만"));
+  row(560, "피부양자에서 빠지는 기간", "5년", "1년", "", W(87, "5년에서"), W(87, "1년으로"));
+  K.cut(E(87) - 0.05, "2,100 → 1,300 · 5년 → 1년");
+}
+// 41. 빨리 고칠수록 · 70세면 안 줄어듦 (s88–s89)
+{ const sc = scene(S(88) - 0.3, until(90));
+  const t = text(sc, 960, 190, `<span class="Y">빨리</span> 고칠수록 좋습니다`, 84); pop(t, S(88));
+  const X0 = 300, Wd = 1320, ax = a => X0 + (a - 65) * Wd / 10;
+  const axis = el(`<div class="axis" style="left:${X0}px;top:560px;width:${Wd}px"></div>`, sc); pop(axis, S(89));
+  [65, 70, 75].forEach(a => pop(el(`<div class="tick" style="left:${ax(a)}px;top:590px">${a}세</div>`, sc), S(89)));
+  const m65 = el(`<div class="a cx c w9 G nw" style="left:${ax(65)}px;top:400px;font-size:56px">65세 말 ✓</div>`, sc); pop(m65, S(89));
+  const m70 = el(`<div class="a cx c w9 R nw" style="left:${ax(70)}px;top:400px;font-size:56px">70세 ✕</div>`, sc); pop(m70, W(89, "70세"));
+  const why = el(`<div class="a cx c w7 nw" style="left:960px;top:680px;font-size:52px">연금저축을 이미 다 꺼낸 뒤 → <span class="R">차이가 안 줄어듦</span></div>`, sc);
+  pop(why, W(89, "연금저축을"));
+  K.cut(E(89) - 0.05, "70세에 고치면 안 줄어듦");
+}
+// 42. 건보료는 전년도 소득 → 고친 다음 해 고지서 한 번 더 (s90)
+{ const sc = scene(S(90) - 0.3, until(91));
+  const why = text(sc, 960, 136, `건보료 = <span class="Y">전년도 소득</span>으로 정함`, 56, "w7"); pop(why, W(90, "전년도"));
+  K.cal(sc, 380, 220, "고친 해", `<div class="w7">순서를 고침</div>`, W(90, "고친"));
+  K.cal(sc, 1120, 220, "다음 해", `<div class="w7 R">고지서<br>한 번 더</div>`, W(90, "다음 해"));
+  const env = el(`<div class="env" style="left:460px;top:690px;width:260px;height:150px;font-size:40px"><span>고지서</span></div>`, sc);
+  pop(env, W(90, "고지서가"));
+  tl.to(env, { x: 740, duration: 0.8, ease: "power2.inOut" }, W(90, "고지서가") + 0.2);
+  K.cut(E(90) - 0.05, "고친 다음 해 고지서 한 번 더");
+}
+// 43. 정리 (s91)
+{ const sc = scene(S(91) - 0.3, until(92) - 1.0);
+  const t = text(sc, 960, 400, `오늘 내용 <span class="Y">정리</span>`, 120); pop(t, W(91, "정리"));
+  K.cut(E(91) - 0.6, "정리로");
+}
+
+/* ───────────── 정리: 바뀌어도 그대로인 것 ───────────── */
+// 44. 바뀔 수 있는 것 (s92)
+{ const sc = scene(S(92) + 0.6, until(93));
+  const tags = ["기준 금액", "깎아 주는 비율", "연금계좌 돈의 건보료"].map((x, i) => el(`<div class="a cx pill sm nw" style="left:960px;top:${230 + i * 150}px">${x}</div>`, sc));
+  pop(tags[0], W(92, "기준 금액")); pop(tags[1], W(92, "깎아 주는")); pop(tags[2], W(92, "연금계좌에서"));
+  const may = text(sc, 960, 700, "→ 앞으로 바뀔 수 있음", 60, "w7 N"); pop(may, W(92, "바뀔"));
+  K.cut(E(92) - 0.05, "바뀔 수 있는 것");
+}
+// 45. 그대로인 세 가지 (s93–s97)
+{ const sc = scene(S(93) - 0.3, until(98));
+  const t = text(sc, 960, 160, `그래도 <span class="Y">그대로</span>인 세 가지`, 64); pop(t, S(93));
+  K.cards(sc, [["1", "기준은<br>한 사람씩<br>1년 단위"], ["2", "예금 먼저<br>연금계좌<br>나중"], ["3", "퇴직금은<br>연금으로<br>첫해부터"]], 270,
+    [S(94), S(96), S(97)], 60, 500, 560);
+  K.cut(E(95) - 0.05, "1 기준은 한 사람씩");
+  K.cut(E(97) - 0.05, "그대로인 세 가지");
+}
+// 46. 오늘 할 일 · 감사합니다 (s98–s99)
+{ const sc = scene(S(98) - 0.3, E(99) + 0.9, { keep: true });
+  const H = K.one(sc, 700, 260, "#DCE3EE", 170, "남편"), Wf = K.one(sc, 1220, 275, "#AEB9CC", 155, "아내");
+  pop(H, W(98, "부부 각자")); pop(Wf, W(98, "부부 각자") + 0.1);
+  const q1 = el(`<div class="a cx c w9 nw" style="left:700px;top:560px;font-size:56px">1년 이자 <span class="Y">?</span></div>`, sc), q2 = el(`<div class="a cx c w9 nw" style="left:1220px;top:560px;font-size:56px">1년 이자 <span class="Y">?</span></div>`, sc);
+  pop(q1, W(98, "1년 이자")); pop(q2, W(98, "1년 이자") + 0.1);
+  const ck = text(sc, 960, 690, `오늘 <span class="Y">확인해 보세요</span>`, 64); pop(ck, W(98, "확인해"));
+  out([H, Wf, q1, q2, ck], S(99) - 0.1);
+  const bye = text(sc, 960, 400, `시청해주셔서 <span class="Y">감사합니다</span>`, 84); pop(bye, S(99));
+  K.cut(E(98) - 0.05, "각자 1년 이자 확인");
+  K.cut(E(99) + 0.5, "감사합니다");
+}
+
+K.done();
+})();
+</script>
+</body>
+</html>

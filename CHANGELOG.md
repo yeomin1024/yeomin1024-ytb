@@ -1,5 +1,30 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-15 (8) — 끝인사 "시청해주셔서 감사합니다." · 내레이션은 바뀐 문장만 다시 · 새 스타일 렌더기
+
+### 왜 (사용자 지시)
+- "4개 영상 모두 맨 마지막 대사 끝까지 봐주셔서 감사합니다 가 아니라 시청해주셔서 감사합니다. 로 변경가능해? 지시사항이랑, 음성, 영상 등에 모두 반영해봐"
+
+### 바꾼 것
+| 파일 (버전) | 함수·항목 | 내용 |
+|---|---|---|
+| `economic/source/{eunte-kkeonaeseugi,gicho-yeongeum,isa-mangi,toejik-geonbo}-2026-10/` 대본 TXT·SRT·README (v1.2.1 · v1.0.1 · v1.0.1 · v1.0.2) | 마지막 문장 (99 · 98 · 93 · 94) | "끝까지 봐 주셔서 감사합니다." → **"시청해주셔서 감사합니다."** — SRT 는 글만 (시각 그대로, `srt_tool.py check` 4개 ✅) |
+| `guides/script_guide.md` v3.0 → v3.1 · `CLAUDE.md` | 0번 11 · 2번 7 | 마지막 문장 규칙을 "시청해주셔서 감사합니다." 로 |
+| `tools/tts_narration.py` v1.7 → v1.8 | `patch_candidate`·`patch_episode`·`decode_audio`·`patch_report`·`voices_meta`·`build_episode`·`discover`·`--full` | **바뀐 문장만 다시 만들기**: 문장 수·파트·카드·쉼·목소리가 같고 글이 바뀐 문장 ≤ 20% 면 그 문장만 새로 만들어 저장소 `narration.mp3` 의 그 자리에 끼움. 다른 문장 소리·시각 그대로(뒤 문장만 길이 차이만큼 밀림), 바뀐 문장 옆 쉼은 같은 길이의 무음, 새 문장 크기 = 다른 문장 말소리 크기 중간값. 메타 `patches`(예전·새 글, 이득), 보고 '부분 다시 만들기' 표. `--full`(또는 `--force`)이면 전부 다시. 로그 `[PLAN] mode="patch 99"` · `[PATCH] …` |
+| `tools/tests/test_tts_patch.py` v1.0 (새로) · `tools/tests/test_content_research.py` v1.0.1 | 3개 · 1개 | 가짜 소리로: 마지막 문장만 바꾸면 그 문장만(앞 문장 시각 그대로, 앞부분 소리 상관 > 0.99, 길이 = 끝 문장 끝 + 끝 쉼, check 통과) · 2개 바뀌면/`--full` 이면 전부 · 문장 수가 바뀌면 전부. 대본 시험의 끝인사도 새 문장으로 |
+| `guides/tts_guide.md` v1.9 → v1.10 · `guides/README.md` v1.24 | 3번 1 · 5번 | 바뀐 문장만 다시 (v1.23 변경 이력 줄도 채움) |
+| `video/render/` v1.0 (새로: `kit.css`·`kit.js`·`render.mjs`·`package.json`) · `video/episodes/{eunte-kkeonaeseugi,gicho-yeongeum,isa-mangi}-2026-10/index.html` v1.0.1 | — | 새 스타일 영상 렌더기(Playwright 프레임 → H.264 + 내레이션 → loudnorm)와 장면 파일 3개. 끝 장면 글 "시청해주셔서 감사합니다" |
+| `tools/loudnorm.py` v1.0 → v1.1 | 다시 맞추기 | 표본율 24 kHz → 48 kHz, 이득·리미터 함께 고쳐 I·TP 가 번갈아 벗어나던 것 해결 (최대 5번) |
+| `guides/video_guide.md` v4.0 → v4.1 | 6번 | 렌더기 사용법, 남은 할 일은 `publish.sh` 전환 |
+
+### 검사
+- `python3 -m unittest tools.tests.test_tts_patch tools.tests.test_content_research tools.tests.test_kaggle_tts_panel` OK (GITHUB_TOKEN 없이, 임시 폴더)
+- `tts_narration.py all --dry-run` (저장소 그대로): eunte·gicho·isa = `mode="patch 99/98/93"` (문장 하나씩, 읽을 소리 약 2초씩), toejik-geonbo = `mode=full` (오디오가 아직 없음, 약 8.5분)
+- isa 끝 장면 still: 가운데 "시청해주셔서 감사합니다"(감사합니다 노랑), 자막 띠 같은 글
+
+### 다음
+- Kaggle 셀을 한 번 다시 실행 → 세 영상은 끝 문장만, toejik-geonbo 는 전부 → Claude 가 align-audio → `render.mjs sync` → 렌더
+
 ## 2026-10-15 (7) — 분석기 할당량 아끼기 · 남은 할당량 표시 · 창마다 주제 하나 · 초기화 뒤 자동으로 이어서
 
 ### 왜 (사용자 지시)

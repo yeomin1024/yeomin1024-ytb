@@ -1,6 +1,6 @@
 # 영상 제작 지시사항 (공통)
 
-버전: v4.0 — 2026-10-15 — 전면 개정. 옛 v3.7(Remotion, 크림 종이 인포그래픽)은 `archive/video_guide_v3.md` — **그 스타일은 쓰지 않는다.**
+버전: v4.1 — 2026-10-15 — 렌더기 `video/render/` v1.0 (6번 '할 일' 중 렌더기 끝 — 공통 부품 `kit.js`·`kit.css`, `render.mjs` sync·check·stills·video), 첫 장면 파일 3개 `video/episodes/<영상ID>/index.html`. 끝 장면 글은 대본 끝인사 "시청해주셔서 감사합니다." (script_guide v3.1, 사용자 지시 2026-10-15). (v4.0 — 2026-10-15 — 전면 개정. 옛 v3.7(Remotion, 크림 종이 인포그래픽)은 `archive/video_guide_v3.md` — **그 스타일은 쓰지 않는다.**)
 - 사용자 지시 (2026-10-15):
   - "영상 만드는 것도 예전 스타일 하지말라고 어떻게 하면 설명의 이해를 최대한 도울지 필요한 최대한 고퀄리티 html 기반의 고퀄리티 도구 … 스토리보드 만들어서 보여줘봐"
   - "자막은 굽는걸로 하고 일단 영상 지시사항까지만 만들어 오디오를 먼저 만들고나서 영상 만들자 나머지는 너가 좋은쪽으로 판단해"
@@ -137,7 +137,11 @@
   - 렌더는 `<!doctype html>`을 붙인 파일로 한다 (없으면 quirks 모드라 클래스 대소문자가 섞인다 — 시안에서 겪음).
   - GSAP·폰트는 로컬 파일로 넘긴다 (렌더 환경은 CDN이 막혀 있을 수 있음). 폰트: `video/public/fonts/NotoSansKR-500·700·900.ttf` (`node video/scripts/get-fonts.mjs`).
   - 시안 기준 속도: 1280×720에서 초당 약 29장 (2분 7초 영상 3,819장에 131초).
-- **할 일 (첫 새 스타일 영상을 만들 때):** 시안의 `render.js`를 `video/render/`로 옮겨 1080p·오디오 붙이기·자막 굽기를 넣고, `tools/publish.sh`(지금 Remotion용 v1.3)가 이 렌더기를 부르게 바꾼다. 옛 Remotion 코드(`video/src/`)는 지난 영상 기록으로만 둔다.
+- **렌더기 `video/render/` (v4.1):** 공통 부품 `kit.css`(무대·자막 띠 52px·부품)·`kit.js`(`K.S(n)`·`K.E(n)` 문장 시각, `K.W(n, 낱말)` 낱말 시각, `K.scene`·`K.pop`·`K.counter`·그림 부품·`K.chapters`·`K.cut`), 장면 파일 맨 위 데이터 칸 `/*EP-DATA:BEGIN*/…/*EP-DATA:END*/` 는 손으로 쓰지 않는다. 처음 한 번 `cd video/render && npm ci` (GSAP 3.12.5 로컬).
+  - `node video/render/render.mjs sync <주제> <영상ID>` — 문장 시각(`tts_narration.json`)·자막(SRT)·길이를 데이터 칸에 (오디오·SRT가 바뀌면 다시)
+  - `… check …` — 대표 장면(`K.cut`)마다 글자 36px 이상·자막 띠 겹침·화면 밖 · `… stills …`(저장소 밖 still) · `… extra … --times 12.5,40`
+  - `… video … [--workers 3] [--from 0 --to 60]` → `<주제>/out/<영상ID>/final_1080p.mp4` (+ `tools/loudnorm.py` −14 LUFS). 속도: 3 workers 로 영상 1초에 약 0.8초
+- **할 일:** `tools/publish.sh`(지금 Remotion용 v1.3)가 이 렌더기를 부르게 바꾼다 — 그 전에는 위 명령을 직접 쓴다. 옛 Remotion 코드(`video/src/`)는 지난 영상 기록으로만 둔다.
 - 자막 맞추기는 지금 도구를 그대로 쓴다: `cd video && npm run align-audio -- <주제폴더> <영상ID>` (오디오의 쉼으로 SRT를 맞춤, 옛 SRT는 `.srt.bak-<시각>`).
 
 ## 7. 작업 순서 (오디오가 올라온 뒤)
@@ -162,5 +166,6 @@
 ## 변경 이력
 | 버전 | 날짜 | 변경 내용 |
 |---|---|---|
+| v4.1 | 2026-10-15 | 렌더기 `video/render/` v1.0(kit.js·kit.css·render.mjs)과 장면 파일 3개(eunte·gicho·isa). 끝 장면 글 = 대본 끝인사 "시청해주셔서 감사합니다." (사용자 지시). 6번 할 일 중 publish.sh 전환만 남음 |
 | v4.0 | 2026-10-15 | 전면 개정 (사용자 지시 "자막은 굽는걸로 하고 일단 영상 지시사항까지만 만들어 오디오를 먼저 만들고나서 영상 만들자 나머지는 너가 좋은쪽으로 판단해"): 오디오 뒤에만 영상, 이해를 돕는 장치 7가지, 어두운 무대·색 뜻(빨강 손해·청록 아낌·노랑 기준), 글자 크기, 구운 자막, 그림 부품, 대본 → 장면 표, HTML·SVG + GSAP + Playwright 렌더, 검수표. 근거 시안 `video/prototypes/storyboard-2026-10-15/` |
 | v3.7 이하 | 2026-10-05~15 | `archive/video_guide_v3.md` (Remotion, 크림 종이 인포그래픽 — 쓰지 않음) |

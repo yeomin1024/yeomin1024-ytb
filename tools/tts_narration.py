@@ -1,8 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.7 — 2026-10-15 — 사용자 지시 "오디오 코드도 진행자 목소리로만 대본 읽도록": 역할 설정 enabled(false 면 그 역할을 끔) —
+# VERSION: v1.8 — 2026-10-15 — 사용자 지시 "맨 마지막 대사 … 시청해주셔서 감사합니다. 로 변경 … 음성 … 에 모두 반영": 부분 다시 만들기 —
+#          대본의 글만 조금 바뀌면(문장 수·파트·카드·쉼·목소리가 같고 바뀐 문장 ≤ 20%) all·build 가 그 문장만 새로 만들어 저장소
+#          narration.mp3 의 그 자리에 끼운다. 다른 문장의 소리·시각은 그대로(뒤 문장만 길이 차이만큼 밀림), 새 문장 크기는 다른 문장
+#          말소리 크기 중간값에 맞춤, 메타 patches 에 기록, 보고에 '부분 다시 만들기' 절. --full 이면 예전처럼 전부 다시.
+# (v1.7 — 2026-10-15 — 사용자 지시 "오디오 코드도 진행자 목소리로만 대본 읽도록": 역할 설정 enabled(false 면 그 역할을 끔) —
 #          voices/storyteller.json enabled=false → 모든 문장(사연 파트 포함)을 진행자(H04 기준 목소리)가 읽는다. 꺼진 역할은 고르기·샘플·모델에서 빠진다.
-#          범위 버튼(전체 / 주제 하나)은 tools/kaggle_tts_panel.py 가 all --topics 로 넘긴다
+#          범위 버튼(전체 / 주제 하나)은 tools/kaggle_tts_panel.py 가 all --topics 로 넘긴다)
 # (v1.6 — 2026-10-12 — 사용자 지시: 사연자 S07(말 속도 조금 더 빠르게)·진행자 H04 로 고정 → pace 에 speed(모든 문장을 이 배수로
 #          빠르게 한 뒤 [min, max] 안으로, 음 높이 그대로 ±max_stretch 까지; 짧은 문장도 speed 만큼). speed 없으면 v1.5 와 같음.
 #          고른 뒤 current 후보(S01·H01) 샘플은 '고르기 전 목소리' 기록으로 두고 다시 만들지 않음 (frozen_current).
@@ -32,6 +36,7 @@ r"""
   python tools/tts_narration.py all --dry-run                          # 무엇을 만들지 목록만 (모델 안 불러옴)
   python tools/tts_narration.py build stock panicsell-2026-10 --push   # 영상 하나
   python tools/tts_narration.py build stock panicsell-2026-10 --redo 12,15 --push   # 12·15번 문장만 새 시드로 다시
+  (v1.8) 대본 글이 조금 바뀌면 all·build 가 바뀐 문장만 새로 만들어 저장소 오디오에 끼운다 — 전부 다시는 --full
   python tools/tts_narration.py push                                   # 만들어 두고 못 올린 결과를 GitHub에 올리기
   python tools/tts_narration.py check stock panicsell-2026-10          # 저장소의 narration 이 지금 대본·목소리로 만든 것인지
   python tools/tts_narration.py voice                                  # 진행자 기준 목소리 정보 (없으면 만들기, --push 로 올림)
@@ -106,7 +111,7 @@ ROOT = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 import srt_tool  # noqa: E402  (문장·카드 판정을 자막 도구와 똑같이 쓰기 위해)
 
-VERSION = "v1.7"
+VERSION = "v1.8"
 CACHE_VERSION = 1            # 생성 방식이 바뀌면 올린다 → 문장 파일을 모두 다시 만든다 (v1.1은 v1.0 캐시와 같은 키)
 DEFAULT_MODEL = "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice"     # 사연자 (화자 + 말투 지시)
 DEFAULT_CLONE_MODEL = "Qwen/Qwen3-TTS-12Hz-1.7B-Base"       # 진행자 (기준 목소리 복제)
@@ -124,6 +129,7 @@ TRIM_PAD = 0.06              # 앞뒤를 자를 때 남기는 여유(초) — �
 TARGET_RMS_DB = -18.0        # 말소리 구간 RMS 목표
 PEAK_DB = -1.0               # 최고점 한도
 RATE_REF = 4.8               # 검사를 모두 통과한 시도가 없을 때 이 속도에 가까운 것을 고른다
+PATCH_MAX_FRAC = 0.2         # v1.8: 글이 바뀐 문장이 이 비율 이하면 그 문장만 다시 만들어 저장소 오디오에 끼운다 (넘으면 전부 다시)
 MIN_GAP = 0.2                # 역할 설정 gap 하한 — align-audio 가 문장 경계로 보는 무음(0.12초)보다 넉넉하게
 
 VOICES_DIR = ROOT / "voices"           # 역할별 목소리 설정 (파일 이름 = 역할 = 결과 폴더 이름)
@@ -941,6 +947,193 @@ def repo_audio(topic, vid):
     return next((src / f"narration.{e}" for e in AUDIO_EXTS if (src / f"narration.{e}").is_file()), None)
 
 
+# ----------------------------------------------------------------------------- 부분 다시 만들기 (v1.8)
+def voices_meta(voices):
+    """메타에 적는 역할 설정 (build·patch 가 같은 모양으로)."""
+    return {r: {k: v.get(k) for k in ("name", "parts", "engine", "lock", "speaker", "instruct", "part_instruct", "seed",
+                                       "gap", "generation", "ref_audio", "ref_sha", "ref_f0", "files")} for r, v in voices.items()}
+
+
+def patch_candidate(topic, vid, rows, cards, args):
+    """저장소 오디오는 그대로 두고 글이 바뀐 문장만 다시 만들 수 있는지 (모델 없이 판단).
+    → (바뀐 문장 번호 목록, None) 또는 (None, 전부 다시 만드는 이유). 문장 수·파트·카드·쉼·목소리가 모두 같고 글만 바뀐 경우만."""
+    src = ROOT / topic / "source" / vid
+    mp3, meta_p = src / "narration.mp3", src / META_NAME
+    if getattr(args, "full", False) or getattr(args, "force", False):
+        return None, "--full/--force"
+    if not mp3.is_file() or not meta_p.is_file():
+        return None, "저장소에 narration.mp3·메타 없음"
+    meta = json.loads(meta_p.read_text("utf-8"))
+    if meta.get("script_sha1") == script_sha(rows, cards):
+        return None, "바뀐 문장 없음"
+    bad = voice_mismatch(meta, topic, vid)
+    if bad:
+        return None, f"목소리가 바뀜({','.join(bad)})"
+    old = meta.get("items") or []
+    if len(old) != len(rows):
+        return None, f"문장 수가 다름 ({len(old)} → {len(rows)})"
+    if any(o.get("part") != p for o, (_, p) in zip(old, rows)):
+        return None, "파트(챕터) 나눔이 다름"
+    if any(not isinstance(o.get("start"), (int, float)) or not isinstance(o.get("end"), (int, float)) for o in old):
+        return None, "메타에 문장 시각 없음"
+    g = meta.get("gaps") or {}
+    if g.get("cards", []) != [{"after": c["after"], "seconds": c["seconds"]} for c in cards]:
+        return None, "고지 카드가 바뀜"
+    if (g.get("lead_in"), g.get("part"), g.get("tail")) != (args.lead_in, args.part_gap, args.tail):
+        return None, "쉼 설정(--lead-in·--part-gap·--tail)이 다름"
+    voices = load_voices(topic, vid, args, quiet=True)
+    if any((meta.get("voices") or {}).get(r, {}).get("gap") != v["gap"] for r, v in voices.items()):
+        return None, "문장 쉼(gap) 설정이 다름"
+    changed = [i + 1 for i, (o, (t, _)) in enumerate(zip(old, rows)) if o.get("text") != t]
+    if not changed:
+        return None, "글은 같음 (해시만 다름)"
+    limit = max(1, int(len(rows) * PATCH_MAX_FRAC))
+    if len(changed) > limit:
+        return None, f"바뀐 문장 {len(changed)}개 > {limit}개 ({PATCH_MAX_FRAC:.0%})"
+    return changed, None
+
+
+def decode_audio(path, sr):
+    """오디오 파일 → float32 단일 채널 (sr 로). ffmpeg 가 없거나 실패하면 None."""
+    ff = find_ffmpeg()
+    if not ff:
+        return None
+    r = subprocess.run([ff, "-hide_banner", "-loglevel", "error", "-i", str(path), "-f", "s16le", "-acodec", "pcm_s16le",
+                        "-ac", "1", "-ar", str(sr), "-"], capture_output=True)
+    if r.returncode != 0 or not r.stdout:
+        log("PATCH", logging.WARNING, error=r.stderr.decode("utf-8", "replace").strip()[:200], path=path)
+        return None
+    return np.frombuffer(r.stdout, dtype="<i2").astype(np.float32) / 32767.0
+
+
+def patch_report(old_text, vid, items, timing, total, new, base, voices):
+    """옛 보고(tts_report.md)의 시작 시각을 새 시각으로, 다시 만든 문장 줄을 새 수치로 바꾸고 '부분 다시 만들기' 절을 붙인다."""
+    now = datetime.now().isoformat(timespec="seconds")
+    out = []
+    for ln in old_text.splitlines():
+        cells = [c.strip() for c in ln.split("|")[1:-1]] if ln.startswith("| ") else []
+        if len(cells) == 9 and cells[0].isdigit() and int(cells[0]) in timing:
+            n = int(cells[0])
+            cells[3] = mmss(timing[n][0])
+            if n in new:
+                m = new[n]["meta"]
+                flag = "; ".join(m["issues"] + m["warns"]) or "✅"
+                if abs(m.get("pace_factor", 1.0) - 1) > 1e-3:
+                    flag += f" · 속도 맞춤 ×{m['pace_factor']:.2f}"
+                cells[1:3] = [voices[items[n - 1]["role"]]["name"], items[n - 1]["part"]]
+                cells[4:9] = [f"{m['dur']:.2f}", f"{m['rate']:.1f}", f"{m.get('f0', 0):.0f}", str(m["attempt"]), flag + f" · 부분 다시 만듦 ({VERSION})"]
+            ln = "| " + " | ".join(cells) + " |"
+        elif ln.startswith("- 도구: "):
+            ln = (f"- 도구: tools/tts_narration.py {VERSION} · 고친 시각 {now} — 바뀐 문장만 다시 만듦 "
+                  f"(나머지는 {base.get('created', '-')} 에 {base.get('tool', '-')} 로 만든 오디오 그대로)")
+        elif ln.startswith("- 길이 "):
+            ln = re.sub(r"^- 길이 [0-9:.]+", f"- 길이 {mmss(total)}", ln)
+        out.append(ln)
+    sec = ["", f"## 부분 다시 만들기 ({VERSION} — {now[:10]})", "",
+           "글이 바뀐 문장만 새로 만들어 저장소 오디오의 그 자리에 넣었다. 다른 문장은 소리·길이·쉼이 예전 그대로이고, "
+           "뒤 문장의 시작 시각만 길이 차이만큼 밀린다. 새 문장 크기는 다른 문장들의 말소리 크기 중간값에 맞췄다.", "",
+           "| 번호 | 예전 글 | 새 글 | 길이(초) 예전 → 새 | 맞춘 이득(dB) | 확인 |", "|---|---|---|---|---|---|"]
+    for n, d in sorted(new.items()):
+        m = d["meta"]
+        sec.append(f"| {n} | {d['old_text']} | {items[n - 1]['text']} | {d['old_dur']:.2f} → {m['dur']:.2f} | {d['gain_db']:+.1f} | "
+                   f"{'; '.join(m['issues'] + m['warns']) or '✅'} |")
+    sec += ["", "귀로 확인: " + ", ".join(f"{n}번({mmss(timing[n][0])})" for n in sorted(new)) + " — 앞뒤 문장과 목소리·크기가 이어지는지.",
+            "전부 다시 만들려면 `python tools/tts_narration.py all --full --push` (또는 build … --full).", ""]
+    tail_at = next((i for i, ln in enumerate(out) if ln.startswith("다시 만들기: ")), len(out))
+    return "\n".join(out[:tail_at] + sec + out[tail_at:]) + "\n"
+
+
+def patch_episode(engine, topic, vid, args, P, rows, cards, items, voices, changed, txt):
+    """저장소 narration.mp3 에서 바뀐 문장(changed)만 새로 만든 문장으로 바꿔 넣는다 → build_episode 와 같은 결과 dict.
+    못 하면(디코드 실패·길이 불일치) None — 부르는 쪽이 전부 다시 만든다."""
+    src = ROOT / topic / "source" / vid
+    base = json.loads((src / META_NAME).read_text("utf-8"))
+    old_items = base["items"]
+    t0 = time.time()
+    log("PATCH", video=vid, mode="바뀐 문장만", changed=ranges(changed), of=len(items), base_created=base.get("created"),
+        base_tool=base.get("tool"), note="나머지 문장은 저장소 오디오 그대로 (--full 이면 전부 다시)")
+    new = {}
+    for n in changed:
+        it = items[n - 1]
+        log("PATCH", video=vid, n=n, old_text=old_items[n - 1]["text"], new_text=it["text"])
+        m = make_sentence(engine, P["cache"], f"S{n:03d}", it["tts"], it["spec"], it["syl"], args, role=it["role"])
+        x, sr = read_wav(m["wav"])
+        new[n] = {"meta": m, "x": x, "sr": sr, "old_text": old_items[n - 1]["text"],
+                  "old_dur": old_items[n - 1]["end"] - old_items[n - 1]["start"]}
+    srs = {d["sr"] for d in new.values()}
+    if len(srs) != 1:
+        log("PATCH", logging.WARNING, video=vid, note=f"새 문장 표본율이 여러 개 {sorted(srs)} → 전부 다시")
+        return None
+    sr = srs.pop()
+    old = decode_audio(src / "narration.mp3", sr)
+    if old is None:
+        log("PATCH", logging.WARNING, video=vid, note="저장소 narration.mp3 를 읽지 못함 (ffmpeg) → 전부 다시")
+        return None
+    old_s = len(old) / sr
+    if abs(old_s - float(base.get("seconds", 0))) > 0.15:
+        log("PATCH", logging.WARNING, video=vid, mp3_seconds=old_s, meta_seconds=base.get("seconds"),
+            note="저장소 오디오 길이가 메타와 다름 (메타와 다른 파일) → 전부 다시")
+        return None
+    se = [(int(round(o["start"] * sr)), int(round(o["end"] * sr))) for o in old_items]
+    # 새 문장 크기: 바뀌지 않은 문장들의 말소리 크기(같은 역할) 중간값에 맞춘다 — 전부 만들 때의 '이득 하나'와 같은 크기가 되게
+    for n, d in new.items():
+        role = items[n - 1]["role"]
+        ref_db = [voiced_rms_db(old[a:b], sr) for (a, b), it in zip(se, items) if it["n"] not in new and it["role"] == role]
+        ref_db = [v for v in ref_db if v > -100] or [TARGET_RMS_DB]
+        target, now_db = float(np.median(ref_db)), voiced_rms_db(d["x"], sr)
+        peak = float(np.max(np.abs(d["x"])) or 1e-9)
+        g_db = min(target - now_db, PEAK_DB - 20 * math.log10(peak))
+        d["x"], d["gain_db"] = d["x"] * 10 ** (g_db / 20), g_db
+        log("PATCH", video=vid, n=n, role=role, level_target_db=target, level_before_db=now_db, gain_db=g_db,
+            level_after_db=voiced_rms_db(d["x"], sr), ref_sentences=len(ref_db))
+    pieces, t, timing = [old[: se[0][0]]], se[0][0], {}
+    for i, it in enumerate(items):
+        n = it["n"]
+        clip = new[n]["x"] if n in new else old[se[i][0]: se[i][1]]
+        timing[n] = (t / sr, (t + len(clip)) / sr)
+        pieces.append(clip)
+        t += len(clip)
+        last = i == len(items) - 1
+        if last:                                     # 끝 쉼 = 메타의 tail (디지털 무음, 처음 만들 때와 같음)
+            gap = silence(float(base["gaps"]["tail"]), sr)
+        elif n in new or items[i + 1]["n"] in new:   # 바뀐 문장 옆 쉼은 같은 길이의 깨끗한 무음 (옛 문장의 mp3 잔향이 남지 않게)
+            gap = np.zeros(se[i + 1][0] - se[i][1], np.float32)
+        else:
+            gap = old[se[i][1]: se[i + 1][0]]
+        pieces.append(gap)
+        t += len(gap)
+    y = np.concatenate(pieces).astype(np.float32)
+    total = len(y) / sr
+    shift = {n: timing[n][0] - old_items[n - 1]["start"] for n in timing}
+    moved = [n for n in timing if abs(shift[n]) > 1e-3]
+    log("PATCH", video=vid, seconds_before=old_s, seconds_after=total, delta_s=total - old_s,
+        unchanged_timing=len(items) - len(moved), moved_from=min(moved) if moved else "-",
+        max_shift_s=max((abs(v) for v in shift.values()), default=0.0), gen_min=(time.time() - t0) / 60)
+    out = export(y, sr, P["narration"], keep_wav=args.keep_wav)
+    if Path(out).suffix != ".mp3":
+        die("EXPORT", "mp3 를 만들지 못함 (WAV만 있음)", "ffmpeg 확인: pip install imageio-ffmpeg", video=vid)
+    meta = dict(base)
+    meta.update({"tool": f"tts_narration.py {VERSION}", "created": datetime.now().isoformat(timespec="seconds"),
+                 "script": rel(txt), "script_sha1": script_sha(rows, cards), "sentences": len(items), "seconds": round(total, 2),
+                 "voices": voices_meta(voices), "voice_ids": voice_ids(voices, engine),
+                 "items": [{"n": it["n"], "role": it["role"], "part": it["part"], "text": it["text"],
+                            "start": round(timing[it["n"]][0], 3), "end": round(timing[it["n"]][1], 3)} for it in items]})
+    meta["voice_sha1"] = sha(meta["voices"])
+    meta["patches"] = list(base.get("patches", [])) + [{
+        "at": meta["created"], "tool": VERSION, "sentences": changed, "base_created": base.get("created"), "base_tool": base.get("tool"),
+        "texts": {str(n): {"old": d["old_text"], "new": items[n - 1]["text"]} for n, d in new.items()},
+        "gain_db": {str(n): round(d["gain_db"], 2) for n, d in new.items()}}]
+    P["meta"].write_text(json.dumps(meta, ensure_ascii=False, indent=1), "utf-8")
+    rep_old = src / REPORT_NAME
+    rep_txt = rep_old.read_text("utf-8") if rep_old.is_file() else f"# 내레이션 보고 — {vid}\n\n- 도구: -\n"
+    P["report"].write_text(patch_report(rep_txt, vid, items, timing, total, new, base, voices), "utf-8")
+    flagged = [n for n, d in new.items() if not d["meta"]["ok"] or d["meta"]["warns"]]
+    log("SUMMARY", video=vid, mode="patch", out=out, meta=P["meta"], minutes=total / 60, patched=ranges(changed),
+        flagged=ranges(flagged) or "-", report=P["report"], next="Claude: align-audio → 영상 sync·다시 렌더")
+    return {"video": vid, "topic": topic, "status": "made", "sentences": len(items), "minutes": total / 60,
+            "flagged": flagged, "out": str(out), "patched": changed}
+
+
 # ----------------------------------------------------------------------------- 영상 하나 (build·all 이 함께 씀)
 def build_episode(engine, topic, vid, args, root, txt=None):
     """대본 → 역할별 문장 → narration.mp3 하나 + tts_narration.json + tts_report.md (+ 작업 폴더에 역할별 문장 파일). → 결과 dict."""
@@ -971,6 +1164,15 @@ def build_episode(engine, topic, vid, args, root, txt=None):
 
     k, K = (int(v) for v in getattr(args, "shard", "0/1").split("/"))   # all 은 문장을 나누지 않는다(영상 단위 --split)
     redo = parse_nums(getattr(args, "redo", ""))
+    if K == 1 and not redo and not getattr(args, "assemble_only", False):
+        # v1.8: 글만 조금 바뀐 대본 → 바뀐 문장만 만들어 저장소 오디오에 끼운다 (다른 문장 소리·시각은 그대로, GPU 시간 절약)
+        changed, why = patch_candidate(topic, vid, rows, cards, args)
+        if changed:
+            res = patch_episode(engine, topic, vid, args, P, rows, cards, items, voices, changed, txt)
+            if res:
+                return res
+            why = "부분 다시 만들기 실패 (위 [PATCH] 경고)"
+        log("PATCH", video=vid, mode="전부 만들기", why=why)
     targets = [it for it in items if (it["n"] - 1) % K == k]
     metas = {}
     if not getattr(args, "assemble_only", False):
@@ -1059,8 +1261,7 @@ def build_episode(engine, topic, vid, args, root, txt=None):
             "topic": topic, "id": vid, "script": rel(txt), "script_sha1": script_sha(rows, cards),
             "sentences": len(items), "seconds": round(total, 2), "engine": engine.describe(items[0]["spec"]) if engine else
             {k: metas[items[0]["n"]].get(k) for k in ("engine", "model", "language", "dtype")},
-            "voices": {r: {k: v.get(k) for k in ("name", "parts", "engine", "lock", "speaker", "instruct", "part_instruct", "seed",
-                                                    "gap", "generation", "ref_audio", "ref_sha", "ref_f0", "files")} for r, v in voices.items()},
+            "voices": voices_meta(voices),
             "voice_ids": voice_ids(voices, engine),
             "gaps": {"lead_in": args.lead_in, "part": args.part_gap, "tail": args.tail,
                      "cards": [{"after": c["after"], "seconds": c["seconds"]} for c in cards]},
@@ -1203,11 +1404,17 @@ def discover(args, root):
         else:
             action, why = "make", note + (" → 지금 대본으로 다시 만듦" if st == "stale" else "")
         syl = sum(srt_tool.syllables(t) for t, _ in rows)
+        patch = None
+        if action == "make" and st == "stale":   # v1.8: 글만 조금 바뀌었으면 그 문장만
+            patch, pwhy = patch_candidate(topic, vid, rows, cards, args)
+            why += (f" — 바뀐 문장 {ranges(patch)}만 다시 (나머지는 저장소 오디오 그대로)" if patch else f" — 전부 다시 ({pwhy})")
+            if patch:
+                syl = sum(srt_tool.syllables(rows[n - 1][0]) for n in patch)
         plan.append({"topic": topic, "video": vid, "action": action, "status": st, "why": why, "sentences": len(rows),
-                     "est_min": syl / 4.8 / 60, "hold": hold})
+                     "est_min": syl / 4.8 / 60, "hold": hold, "patch": patch})
         lvl = logging.WARNING if st == "stale" else logging.INFO
         log("PLAN", level=lvl, video=vid, topic=topic, action=action, status=st, sentences=len(rows),
-            est_audio_min=syl / 4.8 / 60, why=why)
+            mode=("patch " + ranges(patch)) if patch else ("full" if action == "make" else "-"), est_audio_min=syl / 4.8 / 60, why=why)
     return plan
 
 
@@ -2124,6 +2331,8 @@ def main():
     bopt.add_argument("--lexicon", default=None, help="읽는 소리 사전 TSV 추가 (기본: <주제>/tts_lexicon.tsv, source/<영상ID>/tts_lexicon.tsv)")
     bopt.add_argument("--part-gap", type=float, default=1.0, help="파트가 바뀔 때 쉼(초)")
     bopt.add_argument("--tail", type=float, default=0.8, help="마지막 문장 뒤 쉼(초)")
+    bopt.add_argument("--full", action="store_true",
+                      help="v1.8: 글이 바뀐 문장만 다시 만들지 않고 영상 전체를 다시 만들기 (기본: 바뀐 문장이 20%% 이하면 그 문장만)")
     bopt.add_argument("--push", action="store_true",
                       help="영상이 끝날 때마다 결과(narration.mp3·tts_narration.json·tts_report.md)를 대본 폴더에 GitHub main 으로 올리기 (토큰: GITHUB_TOKEN)")
 

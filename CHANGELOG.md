@@ -1,5 +1,23 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-15 (6) — 썸네일 v5.0 이미지 3장 검수·저장 · ChatGPT가 못 올리면 Claude 대화로
+
+### 왜 (사용자 지시)
+- "썸네일 chatgpt가 안올렸대잖아 올리도록 지시사항 반영해" (+ v5.0 이미지 3장을 대화에 붙임)
+
+### 바꾼 것
+| 파일 (버전) | 함수·항목 | 내용 |
+|---|---|---|
+| `tools/make_summary.py` v1.4.1 → v1.4.2 | `CHATGPT_RULES` 8번, `chatgpt_file` | ChatGPT가 GitHub 에 못 쓰면(이 계정은 읽기만) 묻지 말고 그림을 번호 순서로 다시 보여 주고 "이 그림 N장을 Claude 대화창에 그대로 붙여 넣어 주세요…"로 끝냄 + 직접 올리는 링크. 모든 시안에 이미지가 있으면 '만들 것 없음' `chatgpt.md`, 프롬프트 파일이 없으면 오류 |
+| `tools/tests/test_make_summary_chatgpt.py` v1.1 → v1.2 | `test_all_images_present_writes_done_notice` 등 | 시험 5개 |
+| `guides/thumbnail_guide.md` v3.1 → v3.2 | 0, 1(7·7-1·8단계), 2(피드백 14), 9 | 기본 길 = ChatGPT가 만들고 → 사용자가 Claude 대화에 붙임 → Claude 검수·업로드 |
+| `economic/source/eunte-kkeonaeseugi-2026-10/thumbnails/` | `thumbnail_1~3.webp` (새로), `thumbnail_1~3.md` '2차 이미지 검수', `chatgpt.md` | v5.0 이미지 3장 검수 통과(1672×941·941·940, 16:9) → 저장. `chatgpt.md` = 만들 것 없음 |
+| `CLAUDE.md` | 썸네일 줄 | 위 기본 길 |
+
+### 검사
+- 그림 속 한글·하단 2줄 확대 검수 (thumbnail_N.md '2차 이미지 검수'), ffmpeg 로 1280×720 JPG 변환 시험 (137·179·236KB, 2MB 이하)
+- `python3 -m unittest tools.tests.test_make_summary_chatgpt` 5개 OK
+
 ## 2026-10-15 (5) — 내레이션 진행자 하나 · 범위 버튼 · 영상 지시사항 v4.0(자막 굽기) · 시청자층 낱말
 
 ### 왜 (사용자 지시)

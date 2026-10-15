@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-# VERSION: v1.1 — 2026-10-15 — tools/make_summary.py v1.4.1 --chatgpt 시험 (올리기 단계·이미지 있는 시안 빼기 추가)
+# VERSION: v1.2 — 2026-10-15 — tools/make_summary.py v1.4.2 --chatgpt 시험 (못 쓰면 Claude 대화에 붙이라는 안내, 모두 만들었을 때 '만들 것 없음')
+# (v1.1 — 2026-10-15 — v1.4.1: 올리기 단계·이미지 있는 시안 빼기)
 # (v1.0 — 2026-10-15 — v1.4.0 --chatgpt 시험)
 # (임시 폴더의 가짜 thumbnail_N.md 만 씀 — 네트워크 없음)
 r"""
@@ -57,6 +58,7 @@ class ChatgptFileTest(unittest.TestCase):
         self.assertIn("thumbnail_1, thumbnail_2, thumbnail_3)를 **차례로 모두**", text)
         self.assertIn(f"{ms.UPLOAD_BASE}/economic/source/vid/thumbnails", text)   # 올리기 링크
         self.assertIn("thumbnail_N.png", text)
+        self.assertIn("Claude 대화창에 그대로 붙여 넣어 주세요", text)   # ChatGPT 가 못 올릴 때 기본 길
         self.assertIn("가로형 16:9", text)
         self.assertIn("글자·띄어쓰기 그대로", text)
         self.assertIn(f"{ms.RAW_BASE}/economic/source/vid/thumbnails/chatgpt.md", text)
@@ -71,6 +73,15 @@ class ChatgptFileTest(unittest.TestCase):
         self.assertIn("## thumbnail_2", text)
         self.assertIn("thumbnail_2, thumbnail_3)를", text)
         self.assertIn("skip=thumbnail_1", log)
+
+    def test_all_images_present_writes_done_notice(self):
+        for i in (1, 2, 3):
+            (self.folder / f"thumbnail_{i}.md").write_text(thumb_md(i), "utf-8")
+            (self.folder / f"thumbnail_{i}.png").write_bytes(b"img")
+        text, log = self.run_tool()
+        self.assertIn("만들 것 없음", text)
+        self.assertNotIn("PROMPT", text)
+        self.assertIn("thumbnails=0", log)
 
     def test_missing_a_block_stops(self):
         (self.folder / "thumbnail_1.md").write_text(thumb_md(1, with_a=False), "utf-8")

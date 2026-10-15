@@ -1,0 +1,3000 @@
+{
+ "version": "v1.2",
+ "engine": "v1.1",
+ "generated": "2026-10-15T14:48:36Z",
+ "data": {
+  "url": "https://raw.githubusercontent.com/datasets/s-and-p-500/07b81e6af68239acd65b901a11844d6d95db6ead/data/data.csv",
+  "fetched_at": "2026-10-15T14:47:35Z",
+  "sha256": "3a45dffabc414afc298c12159abc84c2875f88175ff3d4473ef7417e725ecac6",
+  "rows": 1869,
+  "first": "1871-01-01",
+  "last": "2026-09-01",
+  "dividend_until": "2023-06-01",
+  "long_rate_until": "2023-09-01",
+  "complete_until": "2023-06-01",
+  "license": "datasets/s-and-p-500 는 ODC-PDDL-1.0 표기. 원자료: Robert Shiller · FRED(S&P Dow Jones Indices) — 저장소에 다시 올리지 않음",
+  "about": "Robert Shiller 자료 (월평균 가격·12개월 배당·10년 금리) + 2023-07 뒤 가격은 FRED SP500 일별 종가의 월평균 (github.com/datasets/s-and-p-500 scripts/update_from_fred.py)"
+ },
+ "params": {
+  "main_start": "2000-01-01",
+  "ext_start": "1950-01-01",
+  "drops": [
+   0.05,
+   0.1,
+   0.2,
+   0.3
+  ],
+  "horizons_y": [
+   10,
+   20
+  ],
+  "split_k": 12,
+  "lump_horizons_m": [
+   12,
+   60,
+   120
+  ],
+  "monthly_krw": 1000000,
+  "costs": "매매 수수료·세금·환율 넣지 않음 (두 방법 같은 자산). 현금 이자: 0 또는 10년 국채 금리(넉넉하게)",
+  "timing": "달 t 에 넣는 돈은 달 t 월평균 가격으로 · 신호는 달 t-1 까지 가격만 · 끝까지 못 산 현금은 현금으로 셈"
+ },
+ "results": {
+  "E1": {
+   "main_10y": {
+    "windows": 163,
+    "first_start": "2000-01",
+    "last_start": "2013-07",
+    "contributed_krw": 120000000,
+    "dca_median_krw": 209569910,
+    "drop5_cash0": {
+     "windows": 163,
+     "dca_wins": 116,
+     "dca_wins_share": 0.7117,
+     "ratio_median": 1.0172,
+     "ratio_p10": 0.9956,
+     "ratio_p90": 1.0592,
+     "ratio_min": 0.993,
+     "ratio_max": 1.0678,
+     "compare": "dca/dip",
+     "dip_median_krw": 204338328,
+     "median_gap_krw": 3606150,
+     "cash_left_share_median": 0.0176,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 5.05,
+     "dip_best": {
+      "start": "2000-01",
+      "ratio_dca_over_dip": 0.993
+     },
+     "dca_best": {
+      "start": "2013-02",
+      "ratio_dca_over_dip": 1.0678
+     }
+    },
+    "drop10_cash0": {
+     "windows": 163,
+     "dca_wins": 117,
+     "dca_wins_share": 0.7178,
+     "ratio_median": 1.0452,
+     "ratio_p10": 0.9932,
+     "ratio_p90": 1.219,
+     "ratio_min": 0.9884,
+     "ratio_max": 1.2529,
+     "compare": "dca/dip",
+     "dip_median_krw": 196779532,
+     "median_gap_krw": 8980718,
+     "cash_left_share_median": 0.0527,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 11.2417,
+     "dip_best": {
+      "start": "2000-01",
+      "ratio_dca_over_dip": 0.9884
+     },
+     "dca_best": {
+      "start": "2012-05",
+      "ratio_dca_over_dip": 1.2529
+     }
+    },
+    "drop20_cash0": {
+     "windows": 163,
+     "dca_wins": 79,
+     "dca_wins_share": 0.4847,
+     "ratio_median": 0.9846,
+     "ratio_p10": 0.9094,
+     "ratio_p90": 1.8126,
+     "ratio_min": 0.8966,
+     "ratio_max": 2.3408,
+     "compare": "dca/dip",
+     "dip_median_krw": 178588773,
+     "median_gap_krw": -3238978,
+     "cash_left_share_median": 0.2422,
+     "never_bought_windows": 11,
+     "avg_wait_months_median": 16.575,
+     "dip_best": {
+      "start": "2000-01",
+      "ratio_dca_over_dip": 0.8966
+     },
+     "dca_best": {
+      "start": "2012-01",
+      "ratio_dca_over_dip": 2.3408
+     }
+    },
+    "drop30_cash0": {
+     "windows": 163,
+     "dca_wins": 98,
+     "dca_wins_share": 0.6012,
+     "ratio_median": 1.0935,
+     "ratio_p10": 0.8491,
+     "ratio_p90": 2.0821,
+     "ratio_min": 0.8019,
+     "ratio_max": 2.3641,
+     "compare": "dca/dip",
+     "dip_median_krw": 174188163,
+     "median_gap_krw": 17747052,
+     "cash_left_share_median": 0.432,
+     "never_bought_windows": 44,
+     "avg_wait_months_median": 31.0667,
+     "dip_best": {
+      "start": "2000-01",
+      "ratio_dca_over_dip": 0.8019
+     },
+     "dca_best": {
+      "start": "2011-12",
+      "ratio_dca_over_dip": 2.3641
+     }
+    },
+    "drop5_cashRate": {
+     "windows": 163,
+     "dca_wins": 112,
+     "dca_wins_share": 0.6871,
+     "ratio_median": 1.0109,
+     "ratio_p10": 0.9943,
+     "ratio_p90": 1.0385,
+     "ratio_min": 0.9897,
+     "ratio_max": 1.0428,
+     "compare": "dca/dip",
+     "dip_median_krw": 206043254,
+     "median_gap_krw": 2346828,
+     "cash_left_share_median": 0.0174,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 5.05,
+     "dip_best": {
+      "start": "2000-01",
+      "ratio_dca_over_dip": 0.9897
+     },
+     "dca_best": {
+      "start": "2013-02",
+      "ratio_dca_over_dip": 1.0428
+     }
+    },
+    "drop10_cashRate": {
+     "windows": 163,
+     "dca_wins": 114,
+     "dca_wins_share": 0.6994,
+     "ratio_median": 1.0294,
+     "ratio_p10": 0.99,
+     "ratio_p90": 1.1593,
+     "ratio_min": 0.9826,
+     "ratio_max": 1.1858,
+     "compare": "dca/dip",
+     "dip_median_krw": 199655846,
+     "median_gap_krw": 5935107,
+     "cash_left_share_median": 0.0512,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 11.2417,
+     "dip_best": {
+      "start": "2000-01",
+      "ratio_dca_over_dip": 0.9826
+     },
+     "dca_best": {
+      "start": "2012-05",
+      "ratio_dca_over_dip": 1.1858
+     }
+    },
+    "drop20_cashRate": {
+     "windows": 163,
+     "dca_wins": 77,
+     "dca_wins_share": 0.4724,
+     "ratio_median": 0.9577,
+     "ratio_p10": 0.8853,
+     "ratio_p90": 1.6515,
+     "ratio_min": 0.8711,
+     "ratio_max": 2.1247,
+     "compare": "dca/dip",
+     "dip_median_krw": 185374726,
+     "median_gap_krw": -9163042,
+     "cash_left_share_median": 0.2452,
+     "never_bought_windows": 11,
+     "avg_wait_months_median": 16.575,
+     "dip_best": {
+      "start": "2000-01",
+      "ratio_dca_over_dip": 0.8711
+     },
+     "dca_best": {
+      "start": "2012-01",
+      "ratio_dca_over_dip": 2.1247
+     }
+    },
+    "drop30_cashRate": {
+     "windows": 163,
+     "dca_wins": 85,
+     "dca_wins_share": 0.5215,
+     "ratio_median": 1.0402,
+     "ratio_p10": 0.7968,
+     "ratio_p90": 1.8723,
+     "ratio_min": 0.7462,
+     "ratio_max": 2.1451,
+     "compare": "dca/dip",
+     "dip_median_krw": 184781677,
+     "median_gap_krw": 8027753,
+     "cash_left_share_median": 0.4432,
+     "never_bought_windows": 44,
+     "avg_wait_months_median": 31.0667,
+     "dip_best": {
+      "start": "2000-01",
+      "ratio_dca_over_dip": 0.7462
+     },
+     "dca_best": {
+      "start": "2011-12",
+      "ratio_dca_over_dip": 2.1451
+     }
+    }
+   },
+   "main_20y": {
+    "windows": 43,
+    "first_start": "2000-01",
+    "last_start": "2003-07",
+    "contributed_krw": 240000000,
+    "dca_median_krw": 767091569,
+    "drop5_cash0": {
+     "windows": 43,
+     "dca_wins": 43,
+     "dca_wins_share": 1.0,
+     "ratio_median": 1.0135,
+     "ratio_p10": 1.0098,
+     "ratio_p90": 1.0148,
+     "ratio_min": 1.0078,
+     "ratio_max": 1.0152,
+     "compare": "dca/dip",
+     "dip_median_krw": 756175046,
+     "median_gap_krw": 10621628,
+     "cash_left_share_median": 0.0028,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 5.4,
+     "dip_best": {
+      "start": "2000-04",
+      "ratio_dca_over_dip": 1.0078
+     },
+     "dca_best": {
+      "start": "2003-07",
+      "ratio_dca_over_dip": 1.0152
+     }
+    },
+    "drop10_cash0": {
+     "windows": 43,
+     "dca_wins": 43,
+     "dca_wins_share": 1.0,
+     "ratio_median": 1.0542,
+     "ratio_p10": 1.0466,
+     "ratio_p90": 1.0572,
+     "ratio_min": 1.0438,
+     "ratio_max": 1.0591,
+     "compare": "dca/dip",
+     "dip_median_krw": 727345687,
+     "median_gap_krw": 39980194,
+     "cash_left_share_median": 0.0081,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 13.5875,
+     "dip_best": {
+      "start": "2000-04",
+      "ratio_dca_over_dip": 1.0438
+     },
+     "dca_best": {
+      "start": "2003-07",
+      "ratio_dca_over_dip": 1.0591
+     }
+    },
+    "drop20_cash0": {
+     "windows": 43,
+     "dca_wins": 42,
+     "dca_wins_share": 0.9767,
+     "ratio_median": 1.0867,
+     "ratio_p10": 1.0266,
+     "ratio_p90": 1.1049,
+     "ratio_min": 0.9963,
+     "ratio_max": 1.112,
+     "compare": "dca/dip",
+     "dip_median_krw": 708256858,
+     "median_gap_krw": 62543655,
+     "cash_left_share_median": 0.1454,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 32.1792,
+     "dip_best": {
+      "start": "2000-04",
+      "ratio_dca_over_dip": 0.9963
+     },
+     "dca_best": {
+      "start": "2002-01",
+      "ratio_dca_over_dip": 1.112
+     }
+    },
+    "drop30_cash0": {
+     "windows": 43,
+     "dca_wins": 42,
+     "dca_wins_share": 0.9767,
+     "ratio_median": 1.1525,
+     "ratio_p10": 1.028,
+     "ratio_p90": 1.176,
+     "ratio_min": 0.9913,
+     "ratio_max": 1.2065,
+     "compare": "dca/dip",
+     "dip_median_krw": 684719696,
+     "median_gap_krw": 102887374,
+     "cash_left_share_median": 0.1935,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 49.8667,
+     "dip_best": {
+      "start": "2000-04",
+      "ratio_dca_over_dip": 0.9913
+     },
+     "dca_best": {
+      "start": "2003-07",
+      "ratio_dca_over_dip": 1.2065
+     }
+    },
+    "drop5_cashRate": {
+     "windows": 43,
+     "dca_wins": 43,
+     "dca_wins_share": 1.0,
+     "ratio_median": 1.0068,
+     "ratio_p10": 1.0035,
+     "ratio_p90": 1.0075,
+     "ratio_min": 1.0012,
+     "ratio_max": 1.008,
+     "compare": "dca/dip",
+     "dip_median_krw": 761506346,
+     "median_gap_krw": 5302961,
+     "cash_left_share_median": 0.0028,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 5.4,
+     "dip_best": {
+      "start": "2000-04",
+      "ratio_dca_over_dip": 1.0012
+     },
+     "dca_best": {
+      "start": "2002-01",
+      "ratio_dca_over_dip": 1.008
+     }
+    },
+    "drop10_cashRate": {
+     "windows": 43,
+     "dca_wins": 43,
+     "dca_wins_share": 1.0,
+     "ratio_median": 1.0374,
+     "ratio_p10": 1.0312,
+     "ratio_p90": 1.0398,
+     "ratio_min": 1.0282,
+     "ratio_max": 1.0403,
+     "compare": "dca/dip",
+     "dip_median_krw": 739494606,
+     "median_gap_krw": 28003105,
+     "cash_left_share_median": 0.008,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 13.5875,
+     "dip_best": {
+      "start": "2000-04",
+      "ratio_dca_over_dip": 1.0282
+     },
+     "dca_best": {
+      "start": "2002-01",
+      "ratio_dca_over_dip": 1.0403
+     }
+    },
+    "drop20_cashRate": {
+     "windows": 43,
+     "dca_wins": 35,
+     "dca_wins_share": 0.814,
+     "ratio_median": 1.0431,
+     "ratio_p10": 0.9909,
+     "ratio_p90": 1.0643,
+     "ratio_min": 0.96,
+     "ratio_max": 1.0726,
+     "compare": "dca/dip",
+     "dip_median_krw": 737872651,
+     "median_gap_krw": 31126948,
+     "cash_left_share_median": 0.1541,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 32.1792,
+     "dip_best": {
+      "start": "2000-04",
+      "ratio_dca_over_dip": 0.96
+     },
+     "dca_best": {
+      "start": "2002-01",
+      "ratio_dca_over_dip": 1.0726
+     }
+    },
+    "drop30_cashRate": {
+     "windows": 43,
+     "dca_wins": 31,
+     "dca_wins_share": 0.7209,
+     "ratio_median": 1.0569,
+     "ratio_p10": 0.9487,
+     "ratio_p90": 1.0816,
+     "ratio_min": 0.9137,
+     "ratio_max": 1.0881,
+     "compare": "dca/dip",
+     "dip_median_krw": 741830181,
+     "median_gap_krw": 41379521,
+     "cash_left_share_median": 0.2016,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 49.8667,
+     "dip_best": {
+      "start": "2000-04",
+      "ratio_dca_over_dip": 0.9137
+     },
+     "dca_best": {
+      "start": "2003-07",
+      "ratio_dca_over_dip": 1.0881
+     }
+    }
+   },
+   "ext_10y": {
+    "windows": 763,
+    "first_start": "1950-01",
+    "last_start": "2013-07",
+    "contributed_krw": 120000000,
+    "dca_median_krw": 211206259,
+    "drop5_cash0": {
+     "windows": 763,
+     "dca_wins": 639,
+     "dca_wins_share": 0.8375,
+     "ratio_median": 1.025,
+     "ratio_p10": 0.9973,
+     "ratio_p90": 1.1649,
+     "ratio_min": 0.9928,
+     "ratio_max": 1.2868,
+     "compare": "dca/dip",
+     "dip_median_krw": 204002842,
+     "median_gap_krw": 5538533,
+     "cash_left_share_median": 0.0054,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 6.5583,
+     "dip_best": {
+      "start": "1999-11",
+      "ratio_dca_over_dip": 0.9928
+     },
+     "dca_best": {
+      "start": "1994-06",
+      "ratio_dca_over_dip": 1.2868
+     }
+    },
+    "drop10_cash0": {
+     "windows": 763,
+     "dca_wins": 517,
+     "dca_wins_share": 0.6776,
+     "ratio_median": 1.0327,
+     "ratio_p10": 0.9899,
+     "ratio_p90": 1.3381,
+     "ratio_min": 0.978,
+     "ratio_max": 1.9499,
+     "compare": "dca/dip",
+     "dip_median_krw": 199765509,
+     "median_gap_krw": 7232719,
+     "cash_left_share_median": 0.0314,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 11.8583,
+     "dip_best": {
+      "start": "1961-01",
+      "ratio_dca_over_dip": 0.978
+     },
+     "dca_best": {
+      "start": "1991-01",
+      "ratio_dca_over_dip": 1.9499
+     }
+    },
+    "drop20_cash0": {
+     "windows": 763,
+     "dca_wins": 545,
+     "dca_wins_share": 0.7143,
+     "ratio_median": 1.1692,
+     "ratio_p10": 0.9335,
+     "ratio_p90": 1.8771,
+     "ratio_min": 0.8881,
+     "ratio_max": 3.0866,
+     "compare": "dca/dip",
+     "dip_median_krw": 170892121,
+     "median_gap_krw": 33560595,
+     "cash_left_share_median": 0.1893,
+     "never_bought_windows": 45,
+     "avg_wait_months_median": 29.3,
+     "dip_best": {
+      "start": "1999-01",
+      "ratio_dca_over_dip": 0.8881
+     },
+     "dca_best": {
+      "start": "1989-08",
+      "ratio_dca_over_dip": 3.0866
+     }
+    },
+    "drop30_cash0": {
+     "windows": 763,
+     "dca_wins": 576,
+     "dca_wins_share": 0.7549,
+     "ratio_median": 1.5744,
+     "ratio_p10": 0.919,
+     "ratio_p90": 2.4192,
+     "ratio_min": 0.7729,
+     "ratio_max": 3.1094,
+     "compare": "dca/dip",
+     "dip_median_krw": 120000000,
+     "median_gap_krw": 80702190,
+     "cash_left_share_median": 1.0,
+     "never_bought_windows": 409,
+     "avg_wait_months_median": 60.5,
+     "dip_best": {
+      "start": "1998-12",
+      "ratio_dca_over_dip": 0.7729
+     },
+     "dca_best": {
+      "start": "1977-09",
+      "ratio_dca_over_dip": 3.1094
+     }
+    },
+    "drop5_cashRate": {
+     "windows": 763,
+     "dca_wins": 362,
+     "dca_wins_share": 0.4744,
+     "ratio_median": 0.9982,
+     "ratio_p10": 0.9883,
+     "ratio_p90": 1.088,
+     "ratio_min": 0.9794,
+     "ratio_max": 1.2001,
+     "compare": "dca/dip",
+     "dip_median_krw": 208008321,
+     "median_gap_krw": -413548,
+     "cash_left_share_median": 0.0053,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 6.5583,
+     "dip_best": {
+      "start": "1986-02",
+      "ratio_dca_over_dip": 0.9794
+     },
+     "dca_best": {
+      "start": "1994-06",
+      "ratio_dca_over_dip": 1.2001
+     }
+    },
+    "drop10_cashRate": {
+     "windows": 763,
+     "dca_wins": 415,
+     "dca_wins_share": 0.5439,
+     "ratio_median": 1.0088,
+     "ratio_p10": 0.9528,
+     "ratio_p90": 1.2194,
+     "ratio_min": 0.9303,
+     "ratio_max": 1.5585,
+     "compare": "dca/dip",
+     "dip_median_krw": 206724108,
+     "median_gap_krw": 2030405,
+     "cash_left_share_median": 0.0304,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 11.8583,
+     "dip_best": {
+      "start": "1961-01",
+      "ratio_dca_over_dip": 0.9303
+     },
+     "dca_best": {
+      "start": "1991-01",
+      "ratio_dca_over_dip": 1.5585
+     }
+    },
+    "drop20_cashRate": {
+     "windows": 763,
+     "dca_wins": 461,
+     "dca_wins_share": 0.6042,
+     "ratio_median": 1.0538,
+     "ratio_p10": 0.8557,
+     "ratio_p90": 1.5129,
+     "ratio_min": 0.8031,
+     "ratio_max": 2.2225,
+     "compare": "dca/dip",
+     "dip_median_krw": 193371619,
+     "median_gap_krw": 10964720,
+     "cash_left_share_median": 0.182,
+     "never_bought_windows": 45,
+     "avg_wait_months_median": 29.3,
+     "dip_best": {
+      "start": "1964-03",
+      "ratio_dca_over_dip": 0.8031
+     },
+     "dca_best": {
+      "start": "1989-08",
+      "ratio_dca_over_dip": 2.2225
+     }
+    },
+    "drop30_cashRate": {
+     "windows": 763,
+     "dca_wins": 474,
+     "dca_wins_share": 0.6212,
+     "ratio_median": 1.207,
+     "ratio_p10": 0.7882,
+     "ratio_p90": 1.7775,
+     "ratio_min": 0.6888,
+     "ratio_max": 2.2225,
+     "compare": "dca/dip",
+     "dip_median_krw": 178662385,
+     "median_gap_krw": 36783650,
+     "cash_left_share_median": 1.0,
+     "never_bought_windows": 409,
+     "avg_wait_months_median": 60.5,
+     "dip_best": {
+      "start": "1964-09",
+      "ratio_dca_over_dip": 0.6888
+     },
+     "dca_best": {
+      "start": "1989-08",
+      "ratio_dca_over_dip": 2.2225
+     }
+    }
+   },
+   "ext_20y": {
+    "windows": 643,
+    "first_start": "1950-01",
+    "last_start": "2003-07",
+    "contributed_krw": 240000000,
+    "dca_median_krw": 720445794,
+    "drop5_cash0": {
+     "windows": 643,
+     "dca_wins": 630,
+     "dca_wins_share": 0.9798,
+     "ratio_median": 1.0211,
+     "ratio_p10": 1.0091,
+     "ratio_p90": 1.1306,
+     "ratio_min": 0.9985,
+     "ratio_max": 1.1669,
+     "compare": "dca/dip",
+     "dip_median_krw": 696419834,
+     "median_gap_krw": 17591804,
+     "cash_left_share_median": 0.0,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 5.6167,
+     "dip_best": {
+      "start": "1965-10",
+      "ratio_dca_over_dip": 0.9985
+     },
+     "dca_best": {
+      "start": "1994-06",
+      "ratio_dca_over_dip": 1.1669
+     }
+    },
+    "drop10_cash0": {
+     "windows": 643,
+     "dca_wins": 536,
+     "dca_wins_share": 0.8336,
+     "ratio_median": 1.0469,
+     "ratio_p10": 0.9918,
+     "ratio_p90": 1.3315,
+     "ratio_min": 0.9858,
+     "ratio_max": 1.5058,
+     "compare": "dca/dip",
+     "dip_median_krw": 635214187,
+     "median_gap_krw": 39589533,
+     "cash_left_share_median": 0.0058,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 11.2042,
+     "dip_best": {
+      "start": "1961-01",
+      "ratio_dca_over_dip": 0.9858
+     },
+     "dca_best": {
+      "start": "1991-01",
+      "ratio_dca_over_dip": 1.5058
+     }
+    },
+    "drop20_cash0": {
+     "windows": 643,
+     "dca_wins": 580,
+     "dca_wins_share": 0.902,
+     "ratio_median": 1.173,
+     "ratio_p10": 1.0002,
+     "ratio_p90": 1.8178,
+     "ratio_min": 0.983,
+     "ratio_max": 2.1137,
+     "compare": "dca/dip",
+     "dip_median_krw": 592761316,
+     "median_gap_krw": 103205480,
+     "cash_left_share_median": 0.0523,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 31.7542,
+     "dip_best": {
+      "start": "1999-01",
+      "ratio_dca_over_dip": 0.983
+     },
+     "dca_best": {
+      "start": "1979-02",
+      "ratio_dca_over_dip": 2.1137
+     }
+    },
+    "drop30_cash0": {
+     "windows": 643,
+     "dca_wins": 586,
+     "dca_wins_share": 0.9114,
+     "ratio_median": 1.4569,
+     "ratio_p10": 1.0177,
+     "ratio_p90": 5.6001,
+     "ratio_min": 0.9328,
+     "ratio_max": 8.3056,
+     "compare": "dca/dip",
+     "dip_median_krw": 388083596,
+     "median_gap_krw": 184286478,
+     "cash_left_share_median": 0.1834,
+     "never_bought_windows": 125,
+     "avg_wait_months_median": 73.0875,
+     "dip_best": {
+      "start": "1996-12",
+      "ratio_dca_over_dip": 0.9328
+     },
+     "dca_best": {
+      "start": "1979-05",
+      "ratio_dca_over_dip": 8.3056
+     }
+    },
+    "drop5_cashRate": {
+     "windows": 643,
+     "dca_wins": 385,
+     "dca_wins_share": 0.5988,
+     "ratio_median": 1.0064,
+     "ratio_p10": 0.9904,
+     "ratio_p90": 1.0669,
+     "ratio_min": 0.9854,
+     "ratio_max": 1.1191,
+     "compare": "dca/dip",
+     "dip_median_krw": 712507201,
+     "median_gap_krw": 5136458,
+     "cash_left_share_median": 0.0,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 5.6167,
+     "dip_best": {
+      "start": "1965-01",
+      "ratio_dca_over_dip": 0.9854
+     },
+     "dca_best": {
+      "start": "1994-06",
+      "ratio_dca_over_dip": 1.1191
+     }
+    },
+    "drop10_cashRate": {
+     "windows": 643,
+     "dca_wins": 371,
+     "dca_wins_share": 0.577,
+     "ratio_median": 1.0158,
+     "ratio_p10": 0.9563,
+     "ratio_p90": 1.1807,
+     "ratio_min": 0.9505,
+     "ratio_max": 1.3253,
+     "compare": "dca/dip",
+     "dip_median_krw": 685940798,
+     "median_gap_krw": 10456532,
+     "cash_left_share_median": 0.0054,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 11.2042,
+     "dip_best": {
+      "start": "1961-01",
+      "ratio_dca_over_dip": 0.9505
+     },
+     "dca_best": {
+      "start": "1991-01",
+      "ratio_dca_over_dip": 1.3253
+     }
+    },
+    "drop20_cashRate": {
+     "windows": 643,
+     "dca_wins": 400,
+     "dca_wins_share": 0.6221,
+     "ratio_median": 1.0428,
+     "ratio_p10": 0.8816,
+     "ratio_p90": 1.3308,
+     "ratio_min": 0.8588,
+     "ratio_max": 1.5523,
+     "compare": "dca/dip",
+     "dip_median_krw": 656319153,
+     "median_gap_krw": 30779193,
+     "cash_left_share_median": 0.0495,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 31.7542,
+     "dip_best": {
+      "start": "1962-09",
+      "ratio_dca_over_dip": 0.8588
+     },
+     "dca_best": {
+      "start": "1988-07",
+      "ratio_dca_over_dip": 1.5523
+     }
+    },
+    "drop30_cashRate": {
+     "windows": 643,
+     "dca_wins": 347,
+     "dca_wins_share": 0.5397,
+     "ratio_median": 1.0492,
+     "ratio_p10": 0.8025,
+     "ratio_p90": 2.178,
+     "ratio_min": 0.7501,
+     "ratio_max": 3.4931,
+     "compare": "dca/dip",
+     "dip_median_krw": 608114406,
+     "median_gap_krw": 27712099,
+     "cash_left_share_median": 0.1965,
+     "never_bought_windows": 125,
+     "avg_wait_months_median": 73.0875,
+     "dip_best": {
+      "start": "1962-09",
+      "ratio_dca_over_dip": 0.7501
+     },
+     "dca_best": {
+      "start": "1979-08",
+      "ratio_dca_over_dip": 3.4931
+     }
+    }
+   }
+  },
+  "E2": {
+   "main_10y": {
+    "windows": 13,
+    "first_start": "2000-01",
+    "last_start": "2013-06",
+    "contributed_krw": 120000000,
+    "dca_median_krw": 206307589,
+    "drop5_cash0": {
+     "windows": 13,
+     "dca_wins": 7,
+     "dca_wins_share": 0.5385,
+     "ratio_median": 1.0211,
+     "ratio_p10": 0.9935,
+     "ratio_p90": 1.0553,
+     "ratio_min": 0.993,
+     "ratio_max": 1.0596,
+     "compare": "dca/dip",
+     "dip_median_krw": 194705717,
+     "median_gap_krw": 4645845,
+     "cash_left_share_median": 0.0,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 5.625,
+     "dip_best": {
+      "start": "2000-01",
+      "ratio_dca_over_dip": 0.993
+     },
+     "dca_best": {
+      "start": "2013-04",
+      "ratio_dca_over_dip": 1.0596
+     }
+    },
+    "drop10_cash0": {
+     "windows": 13,
+     "dca_wins": 7,
+     "dca_wins_share": 0.5385,
+     "ratio_median": 1.083,
+     "ratio_p10": 0.9897,
+     "ratio_p90": 1.1807,
+     "ratio_min": 0.9884,
+     "ratio_max": 1.1894,
+     "compare": "dca/dip",
+     "dip_median_krw": 173454717,
+     "median_gap_krw": 17269855,
+     "cash_left_share_median": 0.0,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 14.1083,
+     "dip_best": {
+      "start": "2000-01",
+      "ratio_dca_over_dip": 0.9884
+     },
+     "dca_best": {
+      "start": "2013-04",
+      "ratio_dca_over_dip": 1.1894
+     }
+    },
+    "drop20_cash0": {
+     "windows": 13,
+     "dca_wins": 7,
+     "dca_wins_share": 0.5385,
+     "ratio_median": 1.0512,
+     "ratio_p10": 0.9001,
+     "ratio_p90": 1.6715,
+     "ratio_min": 0.8966,
+     "ratio_max": 1.6886,
+     "compare": "dca/dip",
+     "dip_median_krw": 142583175,
+     "median_gap_krw": 10984192,
+     "cash_left_share_median": 0.0327,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 19.3083,
+     "dip_best": {
+      "start": "2000-01",
+      "ratio_dca_over_dip": 0.8966
+     },
+     "dca_best": {
+      "start": "2013-04",
+      "ratio_dca_over_dip": 1.6886
+     }
+    },
+    "drop30_cash0": {
+     "windows": 13,
+     "dca_wins": 7,
+     "dca_wins_share": 0.5385,
+     "ratio_median": 1.2156,
+     "ratio_p10": 0.8108,
+     "ratio_p90": 1.7566,
+     "ratio_min": 0.8019,
+     "ratio_max": 1.77,
+     "compare": "dca/dip",
+     "dip_median_krw": 159430611,
+     "median_gap_krw": 39960662,
+     "cash_left_share_median": 0.4856,
+     "never_bought_windows": 3,
+     "avg_wait_months_median": 35.4,
+     "dip_best": {
+      "start": "2000-01",
+      "ratio_dca_over_dip": 0.8019
+     },
+     "dca_best": {
+      "start": "2013-05",
+      "ratio_dca_over_dip": 1.77
+     }
+    },
+    "drop5_cashRate": {
+     "windows": 13,
+     "dca_wins": 7,
+     "dca_wins_share": 0.5385,
+     "ratio_median": 1.0131,
+     "ratio_p10": 0.9913,
+     "ratio_p90": 1.0325,
+     "ratio_min": 0.9897,
+     "ratio_max": 1.036,
+     "compare": "dca/dip",
+     "dip_median_krw": 199134506,
+     "median_gap_krw": 2907044,
+     "cash_left_share_median": 0.0,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 5.625,
+     "dip_best": {
+      "start": "2000-01",
+      "ratio_dca_over_dip": 0.9897
+     },
+     "dca_best": {
+      "start": "2013-04",
+      "ratio_dca_over_dip": 1.036
+     }
+    },
+    "drop10_cashRate": {
+     "windows": 13,
+     "dca_wins": 7,
+     "dca_wins_share": 0.5385,
+     "ratio_median": 1.0663,
+     "ratio_p10": 0.9851,
+     "ratio_p90": 1.1246,
+     "ratio_min": 0.9826,
+     "ratio_max": 1.1314,
+     "compare": "dca/dip",
+     "dip_median_krw": 182348584,
+     "median_gap_krw": 14000677,
+     "cash_left_share_median": 0.0,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 14.1083,
+     "dip_best": {
+      "start": "2000-01",
+      "ratio_dca_over_dip": 0.9826
+     },
+     "dca_best": {
+      "start": "2013-04",
+      "ratio_dca_over_dip": 1.1314
+     }
+    },
+    "drop20_cashRate": {
+     "windows": 13,
+     "dca_wins": 7,
+     "dca_wins_share": 0.5385,
+     "ratio_median": 1.0252,
+     "ratio_p10": 0.8759,
+     "ratio_p90": 1.522,
+     "ratio_min": 0.8711,
+     "ratio_max": 1.5347,
+     "compare": "dca/dip",
+     "dip_median_krw": 146759712,
+     "median_gap_krw": 5534765,
+     "cash_left_share_median": 0.0299,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 19.3083,
+     "dip_best": {
+      "start": "2000-01",
+      "ratio_dca_over_dip": 0.8711
+     },
+     "dca_best": {
+      "start": "2013-04",
+      "ratio_dca_over_dip": 1.5347
+     }
+    },
+    "drop30_cashRate": {
+     "windows": 13,
+     "dca_wins": 7,
+     "dca_wins_share": 0.5385,
+     "ratio_median": 1.1566,
+     "ratio_p10": 0.7567,
+     "ratio_p90": 1.5749,
+     "ratio_min": 0.7462,
+     "ratio_max": 1.5878,
+     "compare": "dca/dip",
+     "dip_median_krw": 171332355,
+     "median_gap_krw": 30511929,
+     "cash_left_share_median": 0.502,
+     "never_bought_windows": 3,
+     "avg_wait_months_median": 35.4,
+     "dip_best": {
+      "start": "2000-01",
+      "ratio_dca_over_dip": 0.7462
+     },
+     "dca_best": {
+      "start": "2013-05",
+      "ratio_dca_over_dip": 1.5878
+     }
+    }
+   },
+   "main_20y": {
+    "windows": 6,
+    "first_start": "2000-01",
+    "last_start": "2000-09",
+    "contributed_krw": 240000000,
+    "dca_median_krw": 675172781,
+    "drop5_cash0": {
+     "windows": 6,
+     "dca_wins": 6,
+     "dca_wins_share": 1.0,
+     "ratio_median": 1.0096,
+     "ratio_p10": 1.0084,
+     "ratio_p90": 1.0104,
+     "ratio_min": 1.0078,
+     "ratio_max": 1.0107,
+     "compare": "dca/dip",
+     "dip_median_krw": 668767203,
+     "median_gap_krw": 6405578,
+     "cash_left_share_median": 0.0007,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 5.0271,
+     "dip_best": {
+      "start": "2000-04",
+      "ratio_dca_over_dip": 1.0078
+     },
+     "dca_best": {
+      "start": "2000-01",
+      "ratio_dca_over_dip": 1.0107
+     }
+    },
+    "drop10_cash0": {
+     "windows": 6,
+     "dca_wins": 6,
+     "dca_wins_share": 1.0,
+     "ratio_median": 1.0464,
+     "ratio_p10": 1.0446,
+     "ratio_p90": 1.0475,
+     "ratio_min": 1.0438,
+     "ratio_max": 1.0479,
+     "compare": "dca/dip",
+     "dip_median_krw": 645003323,
+     "median_gap_krw": 29952056,
+     "cash_left_share_median": 0.0022,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 13.2063,
+     "dip_best": {
+      "start": "2000-04",
+      "ratio_dca_over_dip": 1.0438
+     },
+     "dca_best": {
+      "start": "2000-09",
+      "ratio_dca_over_dip": 1.0479
+     }
+    },
+    "drop20_cash0": {
+     "windows": 6,
+     "dca_wins": 5,
+     "dca_wins_share": 0.8333,
+     "ratio_median": 1.024,
+     "ratio_p10": 1.0003,
+     "ratio_p90": 1.0382,
+     "ratio_min": 0.9963,
+     "ratio_max": 1.0434,
+     "compare": "dca/dip",
+     "dip_median_krw": 655686670,
+     "median_gap_krw": 15824116,
+     "cash_left_share_median": 0.1563,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 25.1542,
+     "dip_best": {
+      "start": "2000-04",
+      "ratio_dca_over_dip": 0.9963
+     },
+     "dca_best": {
+      "start": "2000-09",
+      "ratio_dca_over_dip": 1.0434
+     }
+    },
+    "drop30_cash0": {
+     "windows": 6,
+     "dca_wins": 5,
+     "dca_wins_share": 0.8333,
+     "ratio_median": 1.026,
+     "ratio_p10": 0.9971,
+     "ratio_p90": 1.0507,
+     "ratio_min": 0.9913,
+     "ratio_max": 1.0581,
+     "compare": "dca/dip",
+     "dip_median_krw": 650205704,
+     "median_gap_krw": 17034314,
+     "cash_left_share_median": 0.1961,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 42.0708,
+     "dip_best": {
+      "start": "2000-04",
+      "ratio_dca_over_dip": 0.9913
+     },
+     "dca_best": {
+      "start": "2000-09",
+      "ratio_dca_over_dip": 1.0581
+     }
+    },
+    "drop5_cashRate": {
+     "windows": 6,
+     "dca_wins": 6,
+     "dca_wins_share": 1.0,
+     "ratio_median": 1.0033,
+     "ratio_p10": 1.0019,
+     "ratio_p90": 1.0038,
+     "ratio_min": 1.0012,
+     "ratio_max": 1.004,
+     "compare": "dca/dip",
+     "dip_median_krw": 672887063,
+     "median_gap_krw": 2256900,
+     "cash_left_share_median": 0.0007,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 5.0271,
+     "dip_best": {
+      "start": "2000-04",
+      "ratio_dca_over_dip": 1.0012
+     },
+     "dca_best": {
+      "start": "2000-09",
+      "ratio_dca_over_dip": 1.004
+     }
+    },
+    "drop10_cashRate": {
+     "windows": 6,
+     "dca_wins": 6,
+     "dca_wins_share": 1.0,
+     "ratio_median": 1.0306,
+     "ratio_p10": 1.0291,
+     "ratio_p90": 1.0324,
+     "ratio_min": 1.0282,
+     "ratio_max": 1.0328,
+     "compare": "dca/dip",
+     "dip_median_krw": 654487035,
+     "median_gap_krw": 20063873,
+     "cash_left_share_median": 0.0022,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 13.2063,
+     "dip_best": {
+      "start": "2000-04",
+      "ratio_dca_over_dip": 1.0282
+     },
+     "dca_best": {
+      "start": "2000-09",
+      "ratio_dca_over_dip": 1.0328
+     }
+    },
+    "drop20_cashRate": {
+     "windows": 6,
+     "dca_wins": 1,
+     "dca_wins_share": 0.1667,
+     "ratio_median": 0.9884,
+     "ratio_p10": 0.9642,
+     "ratio_p90": 1.0027,
+     "ratio_min": 0.96,
+     "ratio_max": 1.0079,
+     "compare": "dca/dip",
+     "dip_median_krw": 679186488,
+     "median_gap_krw": -7956106,
+     "cash_left_share_median": 0.1658,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 25.1542,
+     "dip_best": {
+      "start": "2000-04",
+      "ratio_dca_over_dip": 0.96
+     },
+     "dca_best": {
+      "start": "2000-09",
+      "ratio_dca_over_dip": 1.0079
+     }
+    },
+    "drop30_cashRate": {
+     "windows": 6,
+     "dca_wins": 0,
+     "dca_wins_share": 0.0,
+     "ratio_median": 0.947,
+     "ratio_p10": 0.9193,
+     "ratio_p90": 0.9712,
+     "ratio_min": 0.9137,
+     "ratio_max": 0.9783,
+     "compare": "dca/dip",
+     "dip_median_krw": 703818393,
+     "median_gap_krw": -37922643,
+     "cash_left_share_median": 0.204,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 42.0708,
+     "dip_best": {
+      "start": "2000-04",
+      "ratio_dca_over_dip": 0.9137
+     },
+     "dca_best": {
+      "start": "2000-09",
+      "ratio_dca_over_dip": 0.9783
+     }
+    }
+   },
+   "ext_10y": {
+    "windows": 178,
+    "first_start": "1954-10",
+    "last_start": "2013-06",
+    "contributed_krw": 120000000,
+    "dca_median_krw": 171417425,
+    "drop5_cash0": {
+     "windows": 178,
+     "dca_wins": 141,
+     "dca_wins_share": 0.7921,
+     "ratio_median": 1.0233,
+     "ratio_p10": 0.9957,
+     "ratio_p90": 1.2156,
+     "ratio_min": 0.9928,
+     "ratio_max": 1.2695,
+     "compare": "dca/dip",
+     "dip_median_krw": 169707712,
+     "median_gap_krw": 4681430,
+     "cash_left_share_median": 0.0,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 7.1125,
+     "dip_best": {
+      "start": "1999-12",
+      "ratio_dca_over_dip": 0.9928
+     },
+     "dca_best": {
+      "start": "1994-02",
+      "ratio_dca_over_dip": 1.2695
+     }
+    },
+    "drop10_cash0": {
+     "windows": 178,
+     "dca_wins": 108,
+     "dca_wins_share": 0.6067,
+     "ratio_median": 1.0182,
+     "ratio_p10": 0.9862,
+     "ratio_p90": 1.48,
+     "ratio_min": 0.9789,
+     "ratio_max": 1.9088,
+     "compare": "dca/dip",
+     "dip_median_krw": 169785125,
+     "median_gap_krw": 3725822,
+     "cash_left_share_median": 0.0059,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 10.9667,
+     "dip_best": {
+      "start": "1961-03",
+      "ratio_dca_over_dip": 0.9789
+     },
+     "dca_best": {
+      "start": "1991-03",
+      "ratio_dca_over_dip": 1.9088
+     }
+    },
+    "drop20_cash0": {
+     "windows": 178,
+     "dca_wins": 122,
+     "dca_wins_share": 0.6854,
+     "ratio_median": 1.1481,
+     "ratio_p10": 0.938,
+     "ratio_p90": 1.7054,
+     "ratio_min": 0.8881,
+     "ratio_max": 3.0866,
+     "compare": "dca/dip",
+     "dip_median_krw": 159705042,
+     "median_gap_krw": 23899939,
+     "cash_left_share_median": 0.1445,
+     "never_bought_windows": 9,
+     "avg_wait_months_median": 29.3292,
+     "dip_best": {
+      "start": "1999-01",
+      "ratio_dca_over_dip": 0.8881
+     },
+     "dca_best": {
+      "start": "1989-08",
+      "ratio_dca_over_dip": 3.0866
+     }
+    },
+    "drop30_cash0": {
+     "windows": 178,
+     "dca_wins": 118,
+     "dca_wins_share": 0.6629,
+     "ratio_median": 1.3176,
+     "ratio_p10": 0.92,
+     "ratio_p90": 2.1819,
+     "ratio_min": 0.7745,
+     "ratio_max": 3.0866,
+     "compare": "dca/dip",
+     "dip_median_krw": 120000000,
+     "median_gap_krw": 44119818,
+     "cash_left_share_median": 1.0,
+     "never_bought_windows": 93,
+     "avg_wait_months_median": 60.5,
+     "dip_best": {
+      "start": "1999-01",
+      "ratio_dca_over_dip": 0.7745
+     },
+     "dca_best": {
+      "start": "1989-08",
+      "ratio_dca_over_dip": 3.0866
+     }
+    },
+    "drop5_cashRate": {
+     "windows": 178,
+     "dca_wins": 73,
+     "dca_wins_share": 0.4101,
+     "ratio_median": 0.995,
+     "ratio_p10": 0.9836,
+     "ratio_p90": 1.1169,
+     "ratio_min": 0.9794,
+     "ratio_max": 1.1878,
+     "compare": "dca/dip",
+     "dip_median_krw": 171600558,
+     "median_gap_krw": -790234,
+     "cash_left_share_median": 0.0,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 7.1125,
+     "dip_best": {
+      "start": "1986-02",
+      "ratio_dca_over_dip": 0.9794
+     },
+     "dca_best": {
+      "start": "1994-02",
+      "ratio_dca_over_dip": 1.1878
+     }
+    },
+    "drop10_cashRate": {
+     "windows": 178,
+     "dca_wins": 81,
+     "dca_wins_share": 0.4551,
+     "ratio_median": 0.9892,
+     "ratio_p10": 0.9449,
+     "ratio_p90": 1.3127,
+     "ratio_min": 0.9318,
+     "ratio_max": 1.5375,
+     "compare": "dca/dip",
+     "dip_median_krw": 173276393,
+     "median_gap_krw": -1556953,
+     "cash_left_share_median": 0.0057,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 10.9667,
+     "dip_best": {
+      "start": "1961-03",
+      "ratio_dca_over_dip": 0.9318
+     },
+     "dca_best": {
+      "start": "1991-03",
+      "ratio_dca_over_dip": 1.5375
+     }
+    },
+    "drop20_cashRate": {
+     "windows": 178,
+     "dca_wins": 103,
+     "dca_wins_share": 0.5787,
+     "ratio_median": 1.0429,
+     "ratio_p10": 0.8347,
+     "ratio_p90": 1.4505,
+     "ratio_min": 0.8031,
+     "ratio_max": 2.2225,
+     "compare": "dca/dip",
+     "dip_median_krw": 175349018,
+     "median_gap_krw": 7948849,
+     "cash_left_share_median": 0.1337,
+     "never_bought_windows": 9,
+     "avg_wait_months_median": 29.3292,
+     "dip_best": {
+      "start": "1964-03",
+      "ratio_dca_over_dip": 0.8031
+     },
+     "dca_best": {
+      "start": "1989-08",
+      "ratio_dca_over_dip": 2.2225
+     }
+    },
+    "drop30_cashRate": {
+     "windows": 178,
+     "dca_wins": 90,
+     "dca_wins_share": 0.5056,
+     "ratio_median": 1.0064,
+     "ratio_p10": 0.7395,
+     "ratio_p90": 1.5628,
+     "ratio_min": 0.6907,
+     "ratio_max": 2.2225,
+     "compare": "dca/dip",
+     "dip_median_krw": 175098718,
+     "median_gap_krw": 1020196,
+     "cash_left_share_median": 1.0,
+     "never_bought_windows": 93,
+     "avg_wait_months_median": 60.5,
+     "dip_best": {
+      "start": "1964-10",
+      "ratio_dca_over_dip": 0.6907
+     },
+     "dca_best": {
+      "start": "1989-08",
+      "ratio_dca_over_dip": 2.2225
+     }
+    }
+   },
+   "ext_20y": {
+    "windows": 171,
+    "first_start": "1954-10",
+    "last_start": "2000-09",
+    "contributed_krw": 240000000,
+    "dca_median_krw": 590241592,
+    "drop5_cash0": {
+     "windows": 171,
+     "dca_wins": 162,
+     "dca_wins_share": 0.9474,
+     "ratio_median": 1.0186,
+     "ratio_p10": 1.0069,
+     "ratio_p90": 1.1397,
+     "ratio_min": 0.9985,
+     "ratio_max": 1.16,
+     "compare": "dca/dip",
+     "dip_median_krw": 587899426,
+     "median_gap_krw": 10928336,
+     "cash_left_share_median": 0.0,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 5.2792,
+     "dip_best": {
+      "start": "1965-10",
+      "ratio_dca_over_dip": 0.9985
+     },
+     "dca_best": {
+      "start": "1991-03",
+      "ratio_dca_over_dip": 1.16
+     }
+    },
+    "drop10_cash0": {
+     "windows": 171,
+     "dca_wins": 128,
+     "dca_wins_share": 0.7485,
+     "ratio_median": 1.0445,
+     "ratio_p10": 0.9896,
+     "ratio_p90": 1.348,
+     "ratio_min": 0.986,
+     "ratio_max": 1.4826,
+     "compare": "dca/dip",
+     "dip_median_krw": 567205566,
+     "median_gap_krw": 28827349,
+     "cash_left_share_median": 0.0111,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 10.2042,
+     "dip_best": {
+      "start": "1961-03",
+      "ratio_dca_over_dip": 0.986
+     },
+     "dca_best": {
+      "start": "1991-03",
+      "ratio_dca_over_dip": 1.4826
+     }
+    },
+    "drop20_cash0": {
+     "windows": 171,
+     "dca_wins": 140,
+     "dca_wins_share": 0.8187,
+     "ratio_median": 1.0994,
+     "ratio_p10": 0.996,
+     "ratio_p90": 1.664,
+     "ratio_min": 0.983,
+     "ratio_max": 1.9669,
+     "compare": "dca/dip",
+     "dip_median_krw": 510246391,
+     "median_gap_krw": 44788609,
+     "cash_left_share_median": 0.0516,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 25.1583,
+     "dip_best": {
+      "start": "1999-01",
+      "ratio_dca_over_dip": 0.983
+     },
+     "dca_best": {
+      "start": "1980-08",
+      "ratio_dca_over_dip": 1.9669
+     }
+    },
+    "drop30_cash0": {
+     "windows": 171,
+     "dca_wins": 133,
+     "dca_wins_share": 0.7778,
+     "ratio_median": 1.2193,
+     "ratio_p10": 0.9541,
+     "ratio_p90": 2.4896,
+     "ratio_min": 0.9328,
+     "ratio_max": 7.6918,
+     "compare": "dca/dip",
+     "dip_median_krw": 472721872,
+     "median_gap_krw": 93684840,
+     "cash_left_share_median": 0.1337,
+     "never_bought_windows": 5,
+     "avg_wait_months_median": 57.2542,
+     "dip_best": {
+      "start": "1996-12",
+      "ratio_dca_over_dip": 0.9328
+     },
+     "dca_best": {
+      "start": "1980-08",
+      "ratio_dca_over_dip": 7.6918
+     }
+    },
+    "drop5_cashRate": {
+     "windows": 171,
+     "dca_wins": 110,
+     "dca_wins_share": 0.6433,
+     "ratio_median": 1.0051,
+     "ratio_p10": 0.9882,
+     "ratio_p90": 1.0761,
+     "ratio_min": 0.9856,
+     "ratio_max": 1.1123,
+     "compare": "dca/dip",
+     "dip_median_krw": 591679921,
+     "median_gap_krw": 3165672,
+     "cash_left_share_median": 0.0,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 5.2792,
+     "dip_best": {
+      "start": "1964-11",
+      "ratio_dca_over_dip": 0.9856
+     },
+     "dca_best": {
+      "start": "1994-02",
+      "ratio_dca_over_dip": 1.1123
+     }
+    },
+    "drop10_cashRate": {
+     "windows": 171,
+     "dca_wins": 106,
+     "dca_wins_share": 0.6199,
+     "ratio_median": 1.0245,
+     "ratio_p10": 0.9547,
+     "ratio_p90": 1.182,
+     "ratio_min": 0.9508,
+     "ratio_max": 1.3115,
+     "compare": "dca/dip",
+     "dip_median_krw": 588218314,
+     "median_gap_krw": 14523014,
+     "cash_left_share_median": 0.0103,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 10.2042,
+     "dip_best": {
+      "start": "1961-03",
+      "ratio_dca_over_dip": 0.9508
+     },
+     "dca_best": {
+      "start": "1991-03",
+      "ratio_dca_over_dip": 1.3115
+     }
+    },
+    "drop20_cashRate": {
+     "windows": 171,
+     "dca_wins": 71,
+     "dca_wins_share": 0.4152,
+     "ratio_median": 0.9815,
+     "ratio_p10": 0.8784,
+     "ratio_p90": 1.3334,
+     "ratio_min": 0.8668,
+     "ratio_max": 1.4694,
+     "compare": "dca/dip",
+     "dip_median_krw": 586780224,
+     "median_gap_krw": -10704772,
+     "cash_left_share_median": 0.0483,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 25.1583,
+     "dip_best": {
+      "start": "1964-08",
+      "ratio_dca_over_dip": 0.8668
+     },
+     "dca_best": {
+      "start": "1987-09",
+      "ratio_dca_over_dip": 1.4694
+     }
+    },
+    "drop30_cashRate": {
+     "windows": 171,
+     "dca_wins": 49,
+     "dca_wins_share": 0.2865,
+     "ratio_median": 0.9076,
+     "ratio_p10": 0.7983,
+     "ratio_p90": 1.425,
+     "ratio_min": 0.7777,
+     "ratio_max": 3.3602,
+     "compare": "dca/dip",
+     "dip_median_krw": 611410603,
+     "median_gap_krw": -53873314,
+     "cash_left_share_median": 0.1186,
+     "never_bought_windows": 5,
+     "avg_wait_months_median": 57.2542,
+     "dip_best": {
+      "start": "1964-08",
+      "ratio_dca_over_dip": 0.7777
+     },
+     "dca_best": {
+      "start": "1980-09",
+      "ratio_dca_over_dip": 3.3602
+     }
+    }
+   }
+  },
+  "E1p": {
+   "main_10y_price_only_to_2026-09": {
+    "windows": 202,
+    "first_start": "2000-01",
+    "last_start": "2016-10",
+    "contributed_krw": 120000000,
+    "dca_median_krw": 195961139,
+    "drop5_cash0": {
+     "windows": 202,
+     "dca_wins": 154,
+     "dca_wins_share": 0.7624,
+     "ratio_median": 1.0167,
+     "ratio_p10": 0.9951,
+     "ratio_p90": 1.0397,
+     "ratio_min": 0.9921,
+     "ratio_max": 1.0454,
+     "compare": "dca/dip",
+     "dip_median_krw": 190181288,
+     "median_gap_krw": 3725042,
+     "cash_left_share_median": 0.024,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 7.2667,
+     "dip_best": {
+      "start": "2000-01",
+      "ratio_dca_over_dip": 0.9921
+     },
+     "dca_best": {
+      "start": "2008-10",
+      "ratio_dca_over_dip": 1.0454
+     }
+    },
+    "drop10_cash0": {
+     "windows": 202,
+     "dca_wins": 156,
+     "dca_wins_share": 0.7723,
+     "ratio_median": 1.05,
+     "ratio_p10": 0.9921,
+     "ratio_p90": 1.1575,
+     "ratio_min": 0.9867,
+     "ratio_max": 1.188,
+     "compare": "dca/dip",
+     "dip_median_krw": 182097280,
+     "median_gap_krw": 10739682,
+     "cash_left_share_median": 0.0518,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 12.6542,
+     "dip_best": {
+      "start": "2000-01",
+      "ratio_dca_over_dip": 0.9867
+     },
+     "dca_best": {
+      "start": "2012-05",
+      "ratio_dca_over_dip": 1.188
+     }
+    },
+    "drop20_cash0": {
+     "windows": 202,
+     "dca_wins": 117,
+     "dca_wins_share": 0.5792,
+     "ratio_median": 1.1448,
+     "ratio_p10": 0.8988,
+     "ratio_p90": 1.5835,
+     "ratio_min": 0.8842,
+     "ratio_max": 2.0976,
+     "compare": "dca/dip",
+     "dip_median_krw": 165209614,
+     "median_gap_krw": 26704476,
+     "cash_left_share_median": 0.1973,
+     "never_bought_windows": 11,
+     "avg_wait_months_median": 25.1083,
+     "dip_best": {
+      "start": "2000-01",
+      "ratio_dca_over_dip": 0.8842
+     },
+     "dca_best": {
+      "start": "2012-01",
+      "ratio_dca_over_dip": 2.0976
+     }
+    },
+    "drop30_cash0": {
+     "windows": 202,
+     "dca_wins": 129,
+     "dca_wins_share": 0.6386,
+     "ratio_median": 1.3766,
+     "ratio_p10": 0.8322,
+     "ratio_p90": 2.003,
+     "ratio_min": 0.7799,
+     "ratio_max": 2.1172,
+     "compare": "dca/dip",
+     "dip_median_krw": 147913859,
+     "median_gap_krw": 57588097,
+     "cash_left_share_median": 0.6496,
+     "never_bought_windows": 83,
+     "avg_wait_months_median": 43.5,
+     "dip_best": {
+      "start": "2000-01",
+      "ratio_dca_over_dip": 0.7799
+     },
+     "dca_best": {
+      "start": "2011-12",
+      "ratio_dca_over_dip": 2.1172
+     }
+    }
+   },
+   "main_20y_price_only_to_2026-09": {
+    "windows": 82,
+    "first_start": "2000-01",
+    "last_start": "2006-10",
+    "contributed_krw": 240000000,
+    "dca_median_krw": 692111567,
+    "drop5_cash0": {
+     "windows": 82,
+     "dca_wins": 82,
+     "dca_wins_share": 1.0,
+     "ratio_median": 1.0107,
+     "ratio_p10": 1.0072,
+     "ratio_p90": 1.0136,
+     "ratio_min": 1.0042,
+     "ratio_max": 1.0149,
+     "compare": "dca/dip",
+     "dip_median_krw": 685609788,
+     "median_gap_krw": 6943331,
+     "cash_left_share_median": 0.0072,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 5.7542,
+     "dip_best": {
+      "start": "2000-04",
+      "ratio_dca_over_dip": 1.0042
+     },
+     "dca_best": {
+      "start": "2006-09",
+      "ratio_dca_over_dip": 1.0149
+     }
+    },
+    "drop10_cash0": {
+     "windows": 82,
+     "dca_wins": 82,
+     "dca_wins_share": 1.0,
+     "ratio_median": 1.049,
+     "ratio_p10": 1.0427,
+     "ratio_p90": 1.0621,
+     "ratio_min": 1.038,
+     "ratio_max": 1.0666,
+     "compare": "dca/dip",
+     "dip_median_krw": 658617702,
+     "median_gap_krw": 32170814,
+     "cash_left_share_median": 0.0125,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 14.2375,
+     "dip_best": {
+      "start": "2000-04",
+      "ratio_dca_over_dip": 1.038
+     },
+     "dca_best": {
+      "start": "2006-10",
+      "ratio_dca_over_dip": 1.0666
+     }
+    },
+    "drop20_cash0": {
+     "windows": 82,
+     "dca_wins": 80,
+     "dca_wins_share": 0.9756,
+     "ratio_median": 1.093,
+     "ratio_p10": 1.0374,
+     "ratio_p90": 1.1341,
+     "ratio_min": 0.983,
+     "ratio_max": 1.1707,
+     "compare": "dca/dip",
+     "dip_median_krw": 630662346,
+     "median_gap_krw": 59253335,
+     "cash_left_share_median": 0.0548,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 38.9708,
+     "dip_best": {
+      "start": "2000-04",
+      "ratio_dca_over_dip": 0.983
+     },
+     "dca_best": {
+      "start": "2006-10",
+      "ratio_dca_over_dip": 1.1707
+     }
+    },
+    "drop30_cash0": {
+     "windows": 82,
+     "dca_wins": 79,
+     "dca_wins_share": 0.9634,
+     "ratio_median": 1.1619,
+     "ratio_p10": 1.0415,
+     "ratio_p90": 1.5487,
+     "ratio_min": 0.9673,
+     "ratio_max": 1.7173,
+     "compare": "dca/dip",
+     "dip_median_krw": 550914549,
+     "median_gap_krw": 96891033,
+     "cash_left_share_median": 0.3043,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 62.05,
+     "dip_best": {
+      "start": "2000-04",
+      "ratio_dca_over_dip": 0.9673
+     },
+     "dca_best": {
+      "start": "2006-10",
+      "ratio_dca_over_dip": 1.7173
+     }
+    }
+   }
+  },
+  "E3": {
+   "main_12m_all_cash0": {
+    "windows": 271,
+    "lump_wins": 195,
+    "lump_wins_share": 0.7196,
+    "ratio_median": 1.0443,
+    "ratio_p10": 0.9065,
+    "ratio_p90": 1.1234,
+    "ratio_min": 0.7191,
+    "ratio_max": 1.3063,
+    "compare": "lump/split",
+    "first_start": "2000-01",
+    "last_start": "2022-07",
+    "lump_loss_windows": 69,
+    "split_loss_windows": 73,
+    "lump_worst": 0.5668,
+    "split_worst": 0.7175
+   },
+   "main_12m_all_cashRate": {
+    "windows": 271,
+    "lump_wins": 183,
+    "lump_wins_share": 0.6753,
+    "ratio_median": 1.0275,
+    "ratio_p10": 0.8858,
+    "ratio_p90": 1.1122,
+    "ratio_min": 0.7058,
+    "ratio_max": 1.2882,
+    "compare": "lump/split",
+    "first_start": "2000-01",
+    "last_start": "2022-07",
+    "lump_loss_windows": 69,
+    "split_loss_windows": 62,
+    "lump_worst": 0.5668,
+    "split_worst": 0.7313
+   },
+   "main_12m_after_high_cash0": {
+    "windows": 69,
+    "lump_wins": 47,
+    "lump_wins_share": 0.6812,
+    "ratio_median": 1.0516,
+    "ratio_p10": 0.937,
+    "ratio_p90": 1.1011,
+    "ratio_min": 0.8795,
+    "ratio_max": 1.1617,
+    "compare": "lump/split",
+    "first_start": "2000-01",
+    "last_start": "2022-01",
+    "lump_loss_windows": 21,
+    "split_loss_windows": 24,
+    "lump_worst": 0.6755,
+    "split_worst": 0.7502
+   },
+   "main_12m_after_high_cashRate": {
+    "windows": 69,
+    "lump_wins": 45,
+    "lump_wins_share": 0.6522,
+    "ratio_median": 1.0426,
+    "ratio_p10": 0.9196,
+    "ratio_p90": 1.0881,
+    "ratio_min": 0.8571,
+    "ratio_max": 1.1565,
+    "compare": "lump/split",
+    "first_start": "2000-01",
+    "last_start": "2022-01",
+    "lump_loss_windows": 21,
+    "split_loss_windows": 21,
+    "lump_worst": 0.6755,
+    "split_worst": 0.7644
+   },
+   "main_60m_all_cash0": {
+    "windows": 223,
+    "lump_wins": 161,
+    "lump_wins_share": 0.722,
+    "ratio_median": 1.0443,
+    "ratio_p10": 0.9008,
+    "ratio_p90": 1.1102,
+    "ratio_min": 0.7191,
+    "ratio_max": 1.3063,
+    "compare": "lump/split",
+    "first_start": "2000-01",
+    "last_start": "2018-07",
+    "lump_loss_windows": 31,
+    "split_loss_windows": 33,
+    "lump_worst": 0.7361,
+    "split_worst": 0.7238
+   },
+   "main_60m_all_cashRate": {
+    "windows": 223,
+    "lump_wins": 150,
+    "lump_wins_share": 0.6726,
+    "ratio_median": 1.0269,
+    "ratio_p10": 0.8799,
+    "ratio_p90": 1.0986,
+    "ratio_min": 0.7058,
+    "ratio_max": 1.2882,
+    "compare": "lump/split",
+    "first_start": "2000-01",
+    "last_start": "2018-07",
+    "lump_loss_windows": 31,
+    "split_loss_windows": 29,
+    "lump_worst": 0.7361,
+    "split_worst": 0.7383
+   },
+   "main_60m_after_high_cash0": {
+    "windows": 46,
+    "lump_wins": 33,
+    "lump_wins_share": 0.7174,
+    "ratio_median": 1.0646,
+    "ratio_p10": 0.9488,
+    "ratio_p90": 1.0916,
+    "ratio_min": 0.8795,
+    "ratio_max": 1.1034,
+    "compare": "lump/split",
+    "first_start": "2000-01",
+    "last_start": "2018-02",
+    "lump_loss_windows": 8,
+    "split_loss_windows": 4,
+    "lump_worst": 0.8811,
+    "split_worst": 0.9008
+   },
+   "main_60m_after_high_cashRate": {
+    "windows": 46,
+    "lump_wins": 32,
+    "lump_wins_share": 0.6957,
+    "ratio_median": 1.0527,
+    "ratio_p10": 0.926,
+    "ratio_p90": 1.079,
+    "ratio_min": 0.8571,
+    "ratio_max": 1.0919,
+    "compare": "lump/split",
+    "first_start": "2000-01",
+    "last_start": "2018-02",
+    "lump_loss_windows": 8,
+    "split_loss_windows": 4,
+    "lump_worst": 0.8811,
+    "split_worst": 0.9272
+   },
+   "main_120m_all_cash0": {
+    "windows": 163,
+    "lump_wins": 108,
+    "lump_wins_share": 0.6626,
+    "ratio_median": 1.0358,
+    "ratio_p10": 0.8837,
+    "ratio_p90": 1.1205,
+    "ratio_min": 0.7191,
+    "ratio_max": 1.3063,
+    "compare": "lump/split",
+    "first_start": "2000-01",
+    "last_start": "2013-07",
+    "lump_loss_windows": 9,
+    "split_loss_windows": 7,
+    "lump_worst": 0.8729,
+    "split_worst": 0.9195
+   },
+   "main_120m_all_cashRate": {
+    "windows": 163,
+    "lump_wins": 100,
+    "lump_wins_share": 0.6135,
+    "ratio_median": 1.017,
+    "ratio_p10": 0.8628,
+    "ratio_p90": 1.1072,
+    "ratio_min": 0.7058,
+    "ratio_max": 1.2882,
+    "compare": "lump/split",
+    "first_start": "2000-01",
+    "last_start": "2013-07",
+    "lump_loss_windows": 9,
+    "split_loss_windows": 4,
+    "lump_worst": 0.8729,
+    "split_worst": 0.9458
+   },
+   "main_120m_after_high_cash0": {
+    "windows": 13,
+    "lump_wins": 4,
+    "lump_wins_share": 0.3077,
+    "ratio_median": 0.9578,
+    "ratio_p10": 0.8886,
+    "ratio_p90": 1.0937,
+    "ratio_min": 0.8795,
+    "ratio_max": 1.1034,
+    "compare": "lump/split",
+    "first_start": "2000-01",
+    "last_start": "2013-06",
+    "lump_loss_windows": 5,
+    "split_loss_windows": 4,
+    "lump_worst": 0.8729,
+    "split_worst": 0.9259
+   },
+   "main_120m_after_high_cashRate": {
+    "windows": 13,
+    "lump_wins": 3,
+    "lump_wins_share": 0.2308,
+    "ratio_median": 0.9377,
+    "ratio_p10": 0.8669,
+    "ratio_p90": 1.081,
+    "ratio_min": 0.8571,
+    "ratio_max": 1.0919,
+    "compare": "lump/split",
+    "first_start": "2000-01",
+    "last_start": "2013-06",
+    "lump_loss_windows": 5,
+    "split_loss_windows": 2,
+    "lump_worst": 0.8729,
+    "split_worst": 0.953
+   },
+   "ext_12m_all_cash0": {
+    "windows": 871,
+    "lump_wins": 666,
+    "lump_wins_share": 0.7646,
+    "ratio_median": 1.0561,
+    "ratio_p10": 0.9442,
+    "ratio_p90": 1.1549,
+    "ratio_min": 0.7191,
+    "ratio_max": 1.3296,
+    "compare": "lump/split",
+    "first_start": "1950-01",
+    "last_start": "2022-07",
+    "lump_loss_windows": 190,
+    "split_loss_windows": 202,
+    "lump_worst": 0.5668,
+    "split_worst": 0.7175
+   },
+   "ext_12m_all_cashRate": {
+    "windows": 871,
+    "lump_wins": 592,
+    "lump_wins_share": 0.6797,
+    "ratio_median": 1.0292,
+    "ratio_p10": 0.9156,
+    "ratio_p90": 1.1274,
+    "ratio_min": 0.7058,
+    "ratio_max": 1.2882,
+    "compare": "lump/split",
+    "first_start": "1950-01",
+    "last_start": "2022-07",
+    "lump_loss_windows": 190,
+    "split_loss_windows": 135,
+    "lump_worst": 0.5668,
+    "split_worst": 0.7313
+   },
+   "ext_12m_after_high_cash0": {
+    "windows": 234,
+    "lump_wins": 177,
+    "lump_wins_share": 0.7564,
+    "ratio_median": 1.0547,
+    "ratio_p10": 0.9612,
+    "ratio_p90": 1.1301,
+    "ratio_min": 0.8273,
+    "ratio_max": 1.1868,
+    "compare": "lump/split",
+    "first_start": "1954-10",
+    "last_start": "2022-01",
+    "lump_loss_windows": 63,
+    "split_loss_windows": 66,
+    "lump_worst": 0.6755,
+    "split_worst": 0.7502
+   },
+   "ext_12m_after_high_cashRate": {
+    "windows": 234,
+    "lump_wins": 156,
+    "lump_wins_share": 0.6667,
+    "ratio_median": 1.0308,
+    "ratio_p10": 0.9285,
+    "ratio_p90": 1.1047,
+    "ratio_min": 0.7933,
+    "ratio_max": 1.1737,
+    "compare": "lump/split",
+    "first_start": "1954-10",
+    "last_start": "2022-01",
+    "lump_loss_windows": 63,
+    "split_loss_windows": 43,
+    "lump_worst": 0.6755,
+    "split_worst": 0.7644
+   },
+   "ext_60m_all_cash0": {
+    "windows": 823,
+    "lump_wins": 632,
+    "lump_wins_share": 0.7679,
+    "ratio_median": 1.057,
+    "ratio_p10": 0.945,
+    "ratio_p90": 1.1543,
+    "ratio_min": 0.7191,
+    "ratio_max": 1.3296,
+    "compare": "lump/split",
+    "first_start": "1950-01",
+    "last_start": "2018-07",
+    "lump_loss_windows": 68,
+    "split_loss_windows": 68,
+    "lump_worst": 0.7361,
+    "split_worst": 0.7238
+   },
+   "ext_60m_all_cashRate": {
+    "windows": 823,
+    "lump_wins": 559,
+    "lump_wins_share": 0.6792,
+    "ratio_median": 1.0291,
+    "ratio_p10": 0.9164,
+    "ratio_p90": 1.1241,
+    "ratio_min": 0.7058,
+    "ratio_max": 1.2882,
+    "compare": "lump/split",
+    "first_start": "1950-01",
+    "last_start": "2018-07",
+    "lump_loss_windows": 68,
+    "split_loss_windows": 63,
+    "lump_worst": 0.7361,
+    "split_worst": 0.7383
+   },
+   "ext_60m_after_high_cash0": {
+    "windows": 211,
+    "lump_wins": 163,
+    "lump_wins_share": 0.7725,
+    "ratio_median": 1.0568,
+    "ratio_p10": 0.9648,
+    "ratio_p90": 1.1291,
+    "ratio_min": 0.8273,
+    "ratio_max": 1.1868,
+    "compare": "lump/split",
+    "first_start": "1954-10",
+    "last_start": "2018-02",
+    "lump_loss_windows": 25,
+    "split_loss_windows": 21,
+    "lump_worst": 0.8148,
+    "split_worst": 0.7911
+   },
+   "ext_60m_after_high_cashRate": {
+    "windows": 211,
+    "lump_wins": 143,
+    "lump_wins_share": 0.6777,
+    "ratio_median": 1.031,
+    "ratio_p10": 0.9303,
+    "ratio_p90": 1.0971,
+    "ratio_min": 0.7933,
+    "ratio_max": 1.1737,
+    "compare": "lump/split",
+    "first_start": "1954-10",
+    "last_start": "2018-02",
+    "lump_loss_windows": 25,
+    "split_loss_windows": 20,
+    "lump_worst": 0.8148,
+    "split_worst": 0.81
+   },
+   "ext_120m_all_cash0": {
+    "windows": 763,
+    "lump_wins": 579,
+    "lump_wins_share": 0.7588,
+    "ratio_median": 1.0561,
+    "ratio_p10": 0.941,
+    "ratio_p90": 1.156,
+    "ratio_min": 0.7191,
+    "ratio_max": 1.3296,
+    "compare": "lump/split",
+    "first_start": "1950-01",
+    "last_start": "2013-07",
+    "lump_loss_windows": 23,
+    "split_loss_windows": 21,
+    "lump_worst": 0.6715,
+    "split_worst": 0.6532
+   },
+   "ext_120m_all_cashRate": {
+    "windows": 763,
+    "lump_wins": 509,
+    "lump_wins_share": 0.6671,
+    "ratio_median": 1.0266,
+    "ratio_p10": 0.9097,
+    "ratio_p90": 1.1283,
+    "ratio_min": 0.7058,
+    "ratio_max": 1.2882,
+    "compare": "lump/split",
+    "first_start": "1950-01",
+    "last_start": "2013-07",
+    "lump_loss_windows": 23,
+    "split_loss_windows": 18,
+    "lump_worst": 0.6715,
+    "split_worst": 0.6705
+   },
+   "ext_120m_after_high_cash0": {
+    "windows": 178,
+    "lump_wins": 134,
+    "lump_wins_share": 0.7528,
+    "ratio_median": 1.0503,
+    "ratio_p10": 0.9543,
+    "ratio_p90": 1.1372,
+    "ratio_min": 0.8273,
+    "ratio_max": 1.1868,
+    "compare": "lump/split",
+    "first_start": "1954-10",
+    "last_start": "2013-06",
+    "lump_loss_windows": 11,
+    "split_loss_windows": 10,
+    "lump_worst": 0.6715,
+    "split_worst": 0.6532
+   },
+   "ext_120m_after_high_cashRate": {
+    "windows": 178,
+    "lump_wins": 114,
+    "lump_wins_share": 0.6404,
+    "ratio_median": 1.0228,
+    "ratio_p10": 0.9254,
+    "ratio_p90": 1.1047,
+    "ratio_min": 0.7933,
+    "ratio_max": 1.1737,
+    "compare": "lump/split",
+    "first_start": "1954-10",
+    "last_start": "2013-06",
+    "lump_loss_windows": 11,
+    "split_loss_windows": 8,
+    "lump_worst": 0.6715,
+    "split_worst": 0.6705
+   }
+  },
+  "E4": {
+   "main_12m": {
+    "all_months": 270,
+    "all_median_annual": 0.1144,
+    "all_positive_share": 0.7333,
+    "high_months": 69,
+    "high_median_annual": 0.0902,
+    "high_positive_share": 0.6667
+   },
+   "main_60m": {
+    "all_months": 222,
+    "all_median_annual": 0.1058,
+    "all_positive_share": 0.8694,
+    "high_months": 46,
+    "high_median_annual": 0.1082,
+    "high_positive_share": 0.8261
+   },
+   "main_120m": {
+    "all_months": 162,
+    "all_median_annual": 0.0784,
+    "all_positive_share": 0.9444,
+    "high_months": 13,
+    "high_median_annual": 0.071,
+    "high_positive_share": 0.5385
+   },
+   "ext_12m": {
+    "all_months": 870,
+    "all_median_annual": 0.1337,
+    "all_positive_share": 0.7816,
+    "high_months": 234,
+    "high_median_annual": 0.1043,
+    "high_positive_share": 0.7179
+   },
+   "ext_60m": {
+    "all_months": 822,
+    "all_median_annual": 0.1168,
+    "all_positive_share": 0.9209,
+    "high_months": 211,
+    "high_median_annual": 0.1048,
+    "high_positive_share": 0.8815
+   },
+   "ext_120m": {
+    "all_months": 762,
+    "all_median_annual": 0.1079,
+    "all_positive_share": 0.9698,
+    "high_months": 178,
+    "high_median_annual": 0.0931,
+    "high_positive_share": 0.9326
+   }
+  },
+  "E5": {
+   "drop5_main": {
+    "signal_months": 162,
+    "months": 282,
+    "share": 0.5745,
+    "longest_no_signal_months": 32,
+    "longest_no_signal_until": "2015-09"
+   },
+   "drop5_ext": {
+    "signal_months": 436,
+    "months": 882,
+    "share": 0.4943,
+    "longest_no_signal_months": 51,
+    "longest_no_signal_until": "1998-08"
+   },
+   "drop10_main": {
+    "signal_months": 140,
+    "months": 282,
+    "share": 0.4965,
+    "longest_no_signal_months": 76,
+    "longest_no_signal_until": "2018-12"
+   },
+   "drop10_ext": {
+    "signal_months": 345,
+    "months": 882,
+    "share": 0.3912,
+    "longest_no_signal_months": 93,
+    "longest_no_signal_until": "1998-09"
+   },
+   "drop20_main": {
+    "signal_months": 76,
+    "months": 282,
+    "share": 0.2695,
+    "longest_no_signal_months": 130,
+    "longest_no_signal_until": "2022-10"
+   },
+   "drop20_ext": {
+    "signal_months": 165,
+    "months": 882,
+    "share": 0.1871,
+    "longest_no_signal_months": 153,
+    "longest_no_signal_until": "2001-03"
+   },
+   "drop30_main": {
+    "signal_months": 30,
+    "months": 282,
+    "share": 0.1064,
+    "longest_no_signal_months": 163,
+    "longest_no_signal_until": "2023-06"
+   },
+   "drop30_ext": {
+    "signal_months": 54,
+    "months": 882,
+    "share": 0.0612,
+    "longest_no_signal_months": 327,
+    "longest_no_signal_until": "2002-06"
+   }
+  },
+  "E6": {
+   "daily_first": "2016-02-12",
+   "daily_last": "2026-02-11",
+   "note": "일별: 그 달 어느 날 종가가 그날까지 최고 종가의 (1-x) 이하 · 월평균: 그 달 평균이 그때까지 최고 월평균의 (1-x) 이하. 일별 고점은 2016-02 부터만 셈 (그 전 고점은 모름 — 2016 년 초 몇 달은 덜 켜질 수 있음)",
+   "drop5": {
+    "daily_months": [
+     "2016-06",
+     "2018-02",
+     "2018-03",
+     "2018-04",
+     "2018-05",
+     "2018-06",
+     "2018-07",
+     "2018-10",
+     "2018-11",
+     "2018-12",
+     "2019-01",
+     "2019-02",
+     "2019-03",
+     "2019-05",
+     "2019-06",
+     "2019-08",
+     "2020-02",
+     "2020-03",
+     "2020-04",
+     "2020-05",
+     "2020-06",
+     "2020-07",
+     "2020-09",
+     "2020-10",
+     "2020-11",
+     "2021-09",
+     "2021-10",
+     "2022-01",
+     "2022-02",
+     "2022-03",
+     "2022-04",
+     "2022-05",
+     "2022-06",
+     "2022-07",
+     "2022-08",
+     "2022-09",
+     "2022-10",
+     "2022-11",
+     "2022-12",
+     "2023-01",
+     "2023-02",
+     "2023-03",
+     "2023-04",
+     "2023-05",
+     "2023-06",
+     "2023-07",
+     "2023-08",
+     "2023-09",
+     "2023-10",
+     "2023-11",
+     "2023-12",
+     "2024-04",
+     "2024-08",
+     "2025-03",
+     "2025-04",
+     "2025-05",
+     "2025-11"
+    ],
+    "monthly_avg_months": [
+     "2018-11",
+     "2018-12",
+     "2019-01",
+     "2019-02",
+     "2020-03",
+     "2020-04",
+     "2020-05",
+     "2020-06",
+     "2022-02",
+     "2022-03",
+     "2022-04",
+     "2022-05",
+     "2022-06",
+     "2022-07",
+     "2022-08",
+     "2022-09",
+     "2022-10",
+     "2022-11",
+     "2022-12",
+     "2023-01",
+     "2023-02",
+     "2023-03",
+     "2023-04",
+     "2023-05",
+     "2023-06",
+     "2023-10",
+     "2025-03",
+     "2025-04"
+    ],
+    "only_daily": [
+     "2016-06",
+     "2018-02",
+     "2018-03",
+     "2018-04",
+     "2018-05",
+     "2018-06",
+     "2018-07",
+     "2018-10",
+     "2019-03",
+     "2019-05",
+     "2019-06",
+     "2019-08",
+     "2020-02",
+     "2020-07",
+     "2020-09",
+     "2020-10",
+     "2020-11",
+     "2021-09",
+     "2021-10",
+     "2022-01",
+     "2023-07",
+     "2023-08",
+     "2023-09",
+     "2023-11",
+     "2023-12",
+     "2024-04",
+     "2024-08",
+     "2025-05",
+     "2025-11"
+    ]
+   },
+   "drop10": {
+    "daily_months": [
+     "2018-02",
+     "2018-04",
+     "2018-11",
+     "2018-12",
+     "2019-01",
+     "2020-02",
+     "2020-03",
+     "2020-04",
+     "2020-05",
+     "2020-06",
+     "2022-02",
+     "2022-03",
+     "2022-04",
+     "2022-05",
+     "2022-06",
+     "2022-07",
+     "2022-08",
+     "2022-09",
+     "2022-10",
+     "2022-11",
+     "2022-12",
+     "2023-01",
+     "2023-02",
+     "2023-03",
+     "2023-04",
+     "2023-05",
+     "2023-06",
+     "2023-09",
+     "2023-10",
+     "2023-11",
+     "2025-03",
+     "2025-04"
+    ],
+    "monthly_avg_months": [
+     "2018-12",
+     "2019-01",
+     "2020-03",
+     "2020-04",
+     "2020-05",
+     "2022-05",
+     "2022-06",
+     "2022-07",
+     "2022-08",
+     "2022-09",
+     "2022-10",
+     "2022-11",
+     "2022-12",
+     "2023-01",
+     "2023-02",
+     "2023-03",
+     "2023-04",
+     "2023-05",
+     "2025-04"
+    ],
+    "only_daily": [
+     "2018-02",
+     "2018-04",
+     "2018-11",
+     "2020-02",
+     "2020-06",
+     "2022-02",
+     "2022-03",
+     "2022-04",
+     "2023-06",
+     "2023-09",
+     "2023-10",
+     "2023-11",
+     "2025-03"
+    ]
+   },
+   "drop20": {
+    "daily_months": [
+     "2020-03",
+     "2020-04",
+     "2022-06",
+     "2022-07",
+     "2022-09",
+     "2022-10",
+     "2022-11",
+     "2022-12",
+     "2023-01"
+    ],
+    "monthly_avg_months": [
+     "2022-10"
+    ],
+    "only_daily": [
+     "2020-03",
+     "2020-04",
+     "2022-06",
+     "2022-07",
+     "2022-09",
+     "2022-11",
+     "2022-12",
+     "2023-01"
+    ]
+   },
+   "drop30": {
+    "daily_months": [
+     "2020-03"
+    ],
+    "monthly_avg_months": [],
+    "only_daily": [
+     "2020-03"
+    ]
+   }
+  },
+  "E1d": {
+   "main_10y_daily_signal_from_2016-03": {
+    "windows": 163,
+    "first_start": "2000-01",
+    "last_start": "2013-07",
+    "contributed_krw": 120000000,
+    "dca_median_krw": 209569910,
+    "drop5_cash0": {
+     "windows": 163,
+     "dca_wins": 116,
+     "dca_wins_share": 0.7117,
+     "ratio_median": 1.016,
+     "ratio_p10": 0.9956,
+     "ratio_p90": 1.0629,
+     "ratio_min": 0.993,
+     "ratio_max": 1.0744,
+     "compare": "dca/dip",
+     "dip_median_krw": 204338328,
+     "median_gap_krw": 3408843,
+     "cash_left_share_median": 0.0,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 4.975,
+     "dip_best": {
+      "start": "2000-01",
+      "ratio_dca_over_dip": 0.993
+     },
+     "dca_best": {
+      "start": "2013-02",
+      "ratio_dca_over_dip": 1.0744
+     }
+    },
+    "drop10_cash0": {
+     "windows": 163,
+     "dca_wins": 117,
+     "dca_wins_share": 0.7178,
+     "ratio_median": 1.0452,
+     "ratio_p10": 0.9932,
+     "ratio_p90": 1.2612,
+     "ratio_min": 0.9884,
+     "ratio_max": 1.3101,
+     "compare": "dca/dip",
+     "dip_median_krw": 195686294,
+     "median_gap_krw": 8980718,
+     "cash_left_share_median": 0.0292,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 11.2417,
+     "dip_best": {
+      "start": "2000-01",
+      "ratio_dca_over_dip": 0.9884
+     },
+     "dca_best": {
+      "start": "2012-09",
+      "ratio_dca_over_dip": 1.3101
+     }
+    },
+    "drop20_cash0": {
+     "windows": 163,
+     "dca_wins": 79,
+     "dca_wins_share": 0.4847,
+     "ratio_median": 0.9846,
+     "ratio_p10": 0.9094,
+     "ratio_p90": 1.3259,
+     "ratio_min": 0.8966,
+     "ratio_max": 1.417,
+     "compare": "dca/dip",
+     "dip_median_krw": 191720064,
+     "median_gap_krw": -3238978,
+     "cash_left_share_median": 0.1068,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 16.575,
+     "dip_best": {
+      "start": "2000-01",
+      "ratio_dca_over_dip": 0.8966
+     },
+     "dca_best": {
+      "start": "2010-03",
+      "ratio_dca_over_dip": 1.417
+     }
+    },
+    "drop30_cash0": {
+     "windows": 163,
+     "dca_wins": 98,
+     "dca_wins_share": 0.6012,
+     "ratio_median": 1.0935,
+     "ratio_p10": 0.8491,
+     "ratio_p90": 1.5976,
+     "ratio_min": 0.8019,
+     "ratio_max": 2.0485,
+     "compare": "dca/dip",
+     "dip_median_krw": 180497264,
+     "median_gap_krw": 17747052,
+     "cash_left_share_median": 0.2182,
+     "never_bought_windows": 4,
+     "avg_wait_months_median": 31.0667,
+     "dip_best": {
+      "start": "2000-01",
+      "ratio_dca_over_dip": 0.8019
+     },
+     "dca_best": {
+      "start": "2010-02",
+      "ratio_dca_over_dip": 2.0485
+     }
+    },
+    "drop5_cashRate": {
+     "windows": 163,
+     "dca_wins": 112,
+     "dca_wins_share": 0.6871,
+     "ratio_median": 1.0093,
+     "ratio_p10": 0.9943,
+     "ratio_p90": 1.049,
+     "ratio_min": 0.9897,
+     "ratio_max": 1.0577,
+     "compare": "dca/dip",
+     "dip_median_krw": 205649232,
+     "median_gap_krw": 2031102,
+     "cash_left_share_median": 0.0,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 4.975,
+     "dip_best": {
+      "start": "2000-01",
+      "ratio_dca_over_dip": 0.9897
+     },
+     "dca_best": {
+      "start": "2013-02",
+      "ratio_dca_over_dip": 1.0577
+     }
+    },
+    "drop10_cashRate": {
+     "windows": 163,
+     "dca_wins": 114,
+     "dca_wins_share": 0.6994,
+     "ratio_median": 1.0294,
+     "ratio_p10": 0.99,
+     "ratio_p90": 1.2184,
+     "ratio_min": 0.9826,
+     "ratio_max": 1.2581,
+     "compare": "dca/dip",
+     "dip_median_krw": 199098714,
+     "median_gap_krw": 5935107,
+     "cash_left_share_median": 0.0284,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 11.2417,
+     "dip_best": {
+      "start": "2000-01",
+      "ratio_dca_over_dip": 0.9826
+     },
+     "dca_best": {
+      "start": "2012-09",
+      "ratio_dca_over_dip": 1.2581
+     }
+    },
+    "drop20_cashRate": {
+     "windows": 163,
+     "dca_wins": 77,
+     "dca_wins_share": 0.4724,
+     "ratio_median": 0.9577,
+     "ratio_p10": 0.8853,
+     "ratio_p90": 1.2444,
+     "ratio_min": 0.8711,
+     "ratio_max": 1.339,
+     "compare": "dca/dip",
+     "dip_median_krw": 203855847,
+     "median_gap_krw": -9163042,
+     "cash_left_share_median": 0.1031,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 16.575,
+     "dip_best": {
+      "start": "2000-01",
+      "ratio_dca_over_dip": 0.8711
+     },
+     "dca_best": {
+      "start": "2010-03",
+      "ratio_dca_over_dip": 1.339
+     }
+    },
+    "drop30_cashRate": {
+     "windows": 163,
+     "dca_wins": 85,
+     "dca_wins_share": 0.5215,
+     "ratio_median": 1.0402,
+     "ratio_p10": 0.7968,
+     "ratio_p90": 1.4505,
+     "ratio_min": 0.7462,
+     "ratio_max": 1.8229,
+     "compare": "dca/dip",
+     "dip_median_krw": 191919722,
+     "median_gap_krw": 8027753,
+     "cash_left_share_median": 0.2105,
+     "never_bought_windows": 4,
+     "avg_wait_months_median": 31.0667,
+     "dip_best": {
+      "start": "2000-01",
+      "ratio_dca_over_dip": 0.7462
+     },
+     "dca_best": {
+      "start": "2010-02",
+      "ratio_dca_over_dip": 1.8229
+     }
+    }
+   },
+   "main_20y_daily_signal_from_2016-03": {
+    "windows": 43,
+    "first_start": "2000-01",
+    "last_start": "2003-07",
+    "contributed_krw": 240000000,
+    "dca_median_krw": 767091569,
+    "drop5_cash0": {
+     "windows": 43,
+     "dca_wins": 43,
+     "dca_wins_share": 1.0,
+     "ratio_median": 1.0148,
+     "ratio_p10": 1.0115,
+     "ratio_p90": 1.0164,
+     "ratio_min": 1.0106,
+     "ratio_max": 1.017,
+     "compare": "dca/dip",
+     "dip_median_krw": 754994687,
+     "median_gap_krw": 11876860,
+     "cash_left_share_median": 0.0,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 3.5292,
+     "dip_best": {
+      "start": "2000-01",
+      "ratio_dca_over_dip": 1.0106
+     },
+     "dca_best": {
+      "start": "2003-07",
+      "ratio_dca_over_dip": 1.017
+     }
+    },
+    "drop10_cash0": {
+     "windows": 43,
+     "dca_wins": 43,
+     "dca_wins_share": 1.0,
+     "ratio_median": 1.0621,
+     "ratio_p10": 1.0523,
+     "ratio_p90": 1.0695,
+     "ratio_min": 1.0497,
+     "ratio_max": 1.0718,
+     "compare": "dca/dip",
+     "dip_median_krw": 719405322,
+     "median_gap_krw": 47724306,
+     "cash_left_share_median": 0.0,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 10.3708,
+     "dip_best": {
+      "start": "2000-01",
+      "ratio_dca_over_dip": 1.0497
+     },
+     "dca_best": {
+      "start": "2003-07",
+      "ratio_dca_over_dip": 1.0718
+     }
+    },
+    "drop20_cash0": {
+     "windows": 43,
+     "dca_wins": 39,
+     "dca_wins_share": 0.907,
+     "ratio_median": 1.0111,
+     "ratio_p10": 1.0006,
+     "ratio_p90": 1.015,
+     "ratio_min": 0.9963,
+     "ratio_max": 1.0285,
+     "compare": "dca/dip",
+     "dip_median_krw": 758565624,
+     "median_gap_krw": 8334641,
+     "cash_left_share_median": 0.0093,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 24.2667,
+     "dip_best": {
+      "start": "2000-04",
+      "ratio_dca_over_dip": 0.9963
+     },
+     "dca_best": {
+      "start": "2000-03",
+      "ratio_dca_over_dip": 1.0285
+     }
+    },
+    "drop30_cash0": {
+     "windows": 43,
+     "dca_wins": 39,
+     "dca_wins_share": 0.907,
+     "ratio_median": 1.0385,
+     "ratio_p10": 1.0029,
+     "ratio_p90": 1.0554,
+     "ratio_min": 0.9913,
+     "ratio_max": 1.0621,
+     "compare": "dca/dip",
+     "dip_median_krw": 731581393,
+     "median_gap_krw": 33763505,
+     "cash_left_share_median": 0.0232,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 40.425,
+     "dip_best": {
+      "start": "2000-04",
+      "ratio_dca_over_dip": 0.9913
+     },
+     "dca_best": {
+      "start": "2003-07",
+      "ratio_dca_over_dip": 1.0621
+     }
+    },
+    "drop5_cashRate": {
+     "windows": 43,
+     "dca_wins": 43,
+     "dca_wins_share": 1.0,
+     "ratio_median": 1.0101,
+     "ratio_p10": 1.0067,
+     "ratio_p90": 1.0112,
+     "ratio_min": 1.005,
+     "ratio_max": 1.0115,
+     "compare": "dca/dip",
+     "dip_median_krw": 758716335,
+     "median_gap_krw": 8071584,
+     "cash_left_share_median": 0.0,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 3.5292,
+     "dip_best": {
+      "start": "2000-01",
+      "ratio_dca_over_dip": 1.005
+     },
+     "dca_best": {
+      "start": "2003-07",
+      "ratio_dca_over_dip": 1.0115
+     }
+    },
+    "drop10_cashRate": {
+     "windows": 43,
+     "dca_wins": 43,
+     "dca_wins_share": 1.0,
+     "ratio_median": 1.0504,
+     "ratio_p10": 1.0407,
+     "ratio_p90": 1.0561,
+     "ratio_min": 1.0372,
+     "ratio_max": 1.058,
+     "compare": "dca/dip",
+     "dip_median_krw": 728014134,
+     "median_gap_krw": 39053410,
+     "cash_left_share_median": 0.0,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 10.3708,
+     "dip_best": {
+      "start": "2000-01",
+      "ratio_dca_over_dip": 1.0372
+     },
+     "dca_best": {
+      "start": "2003-07",
+      "ratio_dca_over_dip": 1.058
+     }
+    },
+    "drop20_cashRate": {
+     "windows": 43,
+     "dca_wins": 0,
+     "dca_wins_share": 0.0,
+     "ratio_median": 0.9703,
+     "ratio_p10": 0.9646,
+     "ratio_p90": 0.9763,
+     "ratio_min": 0.96,
+     "ratio_max": 0.993,
+     "compare": "dca/dip",
+     "dip_median_krw": 791720551,
+     "median_gap_krw": -23779921,
+     "cash_left_share_median": 0.009,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 24.2667,
+     "dip_best": {
+      "start": "2000-04",
+      "ratio_dca_over_dip": 0.96
+     },
+     "dca_best": {
+      "start": "2000-03",
+      "ratio_dca_over_dip": 0.993
+     }
+    },
+    "drop30_cashRate": {
+     "windows": 43,
+     "dca_wins": 0,
+     "dca_wins_share": 0.0,
+     "ratio_median": 0.9582,
+     "ratio_p10": 0.9256,
+     "ratio_p90": 0.9661,
+     "ratio_min": 0.9137,
+     "ratio_max": 0.9675,
+     "compare": "dca/dip",
+     "dip_median_krw": 795861233,
+     "median_gap_krw": -38491036,
+     "cash_left_share_median": 0.0216,
+     "never_bought_windows": 0,
+     "avg_wait_months_median": 40.425,
+     "dip_best": {
+      "start": "2000-04",
+      "ratio_dca_over_dip": 0.9137
+     },
+     "dca_best": {
+      "start": "2002-05",
+      "ratio_dca_over_dip": 0.9675
+     }
+    }
+   }
+  }
+ },
+ "seconds": 0.64
+}

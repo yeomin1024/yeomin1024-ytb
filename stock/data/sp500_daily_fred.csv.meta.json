@@ -1,0 +1,16 @@
+{
+  "url": "https://raw.githubusercontent.com/datasets/s-and-p-500/07b81e6af68239acd65b901a11844d6d95db6ead/archive/fred_sp500.csv",
+  "fetched_at": "2026-10-15T14:47:36Z",
+  "license": "FRED SP500 (S&P Dow Jones Indices LLC 저작권) — 저장소에 다시 올리지 않음, 확인용으로만",
+  "about": "FRED SP500 일별 종가 (최근 약 10년, 가격만 — 배당 없음). 월평균이 짧은 폭락을 작게 보이는지 확인용",
+  "sha256": "1be28db4d187fc2abc35c89b9bdc93c60344f9cbc031dd5e914213a7b7ce0da0",
+  "rows": 2514,
+  "blank_days_dropped": 95,
+  "first": "2016-02-12",
+  "last": "2026-02-11",
+  "validate": {
+    "duplicates": 0,
+    "gaps_over_5_days": 0,
+    "nonpositive": 0
+  }
+}

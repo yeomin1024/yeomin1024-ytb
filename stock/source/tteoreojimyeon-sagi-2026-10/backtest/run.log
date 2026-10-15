@@ -1,0 +1,141 @@
+[START] 2026-10-15T14:48:35 version=v1.2 engine=v1.1 refresh=False
+[DATA] 2026-10-15T14:48:35 source=cache path=/home/user/yeomin1024-ytb/stock/data/sp500_monthly.csv bytes=123851 fetched_at=2026-10-15T14:47:35Z
+[VALIDATE] 2026-10-15T14:48:35 check=dividend_missing count=39
+[VALIDATE] 2026-10-15T14:48:35 check=long_rate_missing count=36
+[VALIDATE] 2026-10-15T14:48:35 rows=1869 first=1871-01-01 last=2026-09-01 duplicates=0 gaps=0 not_month_start=0 price_missing=0 price_nonpositive=0 dividend_missing=39 dividend_nonpositive=0 long_rate_missing=36 long_rate_nonpositive=0
+[DATA] 2026-10-15T14:48:35 rows=1869 first=1871-01-01 last=2026-09-01 dividend_until=2023-06-01 long_rate_until=2023-09-01 complete_until=2023-06-01 seconds=0.01
+[INDEX] 2026-10-15T14:48:35 kind=total_return months=1830 growth=6.418e+05
+[DATA] 2026-10-15T14:48:35 used_first=1871-01-01 used_last=2023-06-01 months=1830 dropped_tail_months=39 note=배당·금리가 비어 있는 끝 달은 총수익에서 뺌 (E1p 가격만에서는 씀)
+[SIGNAL] 2026-10-15T14:48:35 drop=0.05 period=main signal_months=162 months=282 share=0.574 longest_no_signal_months=32
+[SIGNAL] 2026-10-15T14:48:35 drop=0.05 period=ext signal_months=436 months=882 share=0.494 longest_no_signal_months=51
+[SIGNAL] 2026-10-15T14:48:35 drop=0.1 period=main signal_months=140 months=282 share=0.496 longest_no_signal_months=76
+[SIGNAL] 2026-10-15T14:48:35 drop=0.1 period=ext signal_months=345 months=882 share=0.391 longest_no_signal_months=93
+[SIGNAL] 2026-10-15T14:48:35 drop=0.2 period=main signal_months=76 months=282 share=0.270 longest_no_signal_months=130
+[SIGNAL] 2026-10-15T14:48:35 drop=0.2 period=ext signal_months=165 months=882 share=0.187 longest_no_signal_months=153
+[SIGNAL] 2026-10-15T14:48:35 drop=0.3 period=main signal_months=30 months=282 share=0.106 longest_no_signal_months=163
+[SIGNAL] 2026-10-15T14:48:35 drop=0.3 period=ext signal_months=54 months=882 share=0.061 longest_no_signal_months=327
+[TRADE] 2026-10-15T14:48:35 exp=E1_main horizon_m=120 key=drop5_cash0 windows=163 dca_wins=116 ratio_median=1.0172 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E1_main horizon_m=120 key=drop10_cash0 windows=163 dca_wins=117 ratio_median=1.0452 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E1_main horizon_m=120 key=drop20_cash0 windows=163 dca_wins=79 ratio_median=0.9846 never_bought=11
+[TRADE] 2026-10-15T14:48:35 exp=E1_main horizon_m=120 key=drop30_cash0 windows=163 dca_wins=98 ratio_median=1.0935 never_bought=44
+[TRADE] 2026-10-15T14:48:35 exp=E1_main horizon_m=120 key=drop5_cashRate windows=163 dca_wins=112 ratio_median=1.0109 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E1_main horizon_m=120 key=drop10_cashRate windows=163 dca_wins=114 ratio_median=1.0294 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E1_main horizon_m=120 key=drop20_cashRate windows=163 dca_wins=77 ratio_median=0.9577 never_bought=11
+[TRADE] 2026-10-15T14:48:35 exp=E1_main horizon_m=120 key=drop30_cashRate windows=163 dca_wins=85 ratio_median=1.0402 never_bought=44
+[TRADE] 2026-10-15T14:48:35 exp=E2_main horizon_m=120 key=drop5_cash0 windows=13 dca_wins=7 ratio_median=1.0211 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E2_main horizon_m=120 key=drop10_cash0 windows=13 dca_wins=7 ratio_median=1.0830 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E2_main horizon_m=120 key=drop20_cash0 windows=13 dca_wins=7 ratio_median=1.0512 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E2_main horizon_m=120 key=drop30_cash0 windows=13 dca_wins=7 ratio_median=1.2156 never_bought=3
+[TRADE] 2026-10-15T14:48:35 exp=E2_main horizon_m=120 key=drop5_cashRate windows=13 dca_wins=7 ratio_median=1.0131 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E2_main horizon_m=120 key=drop10_cashRate windows=13 dca_wins=7 ratio_median=1.0663 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E2_main horizon_m=120 key=drop20_cashRate windows=13 dca_wins=7 ratio_median=1.0252 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E2_main horizon_m=120 key=drop30_cashRate windows=13 dca_wins=7 ratio_median=1.1566 never_bought=3
+[TRADE] 2026-10-15T14:48:35 exp=E1_main horizon_m=240 key=drop5_cash0 windows=43 dca_wins=43 ratio_median=1.0135 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E1_main horizon_m=240 key=drop10_cash0 windows=43 dca_wins=43 ratio_median=1.0542 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E1_main horizon_m=240 key=drop20_cash0 windows=43 dca_wins=42 ratio_median=1.0867 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E1_main horizon_m=240 key=drop30_cash0 windows=43 dca_wins=42 ratio_median=1.1525 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E1_main horizon_m=240 key=drop5_cashRate windows=43 dca_wins=43 ratio_median=1.0068 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E1_main horizon_m=240 key=drop10_cashRate windows=43 dca_wins=43 ratio_median=1.0374 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E1_main horizon_m=240 key=drop20_cashRate windows=43 dca_wins=35 ratio_median=1.0431 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E1_main horizon_m=240 key=drop30_cashRate windows=43 dca_wins=31 ratio_median=1.0569 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E2_main horizon_m=240 key=drop5_cash0 windows=6 dca_wins=6 ratio_median=1.0096 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E2_main horizon_m=240 key=drop10_cash0 windows=6 dca_wins=6 ratio_median=1.0464 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E2_main horizon_m=240 key=drop20_cash0 windows=6 dca_wins=5 ratio_median=1.0240 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E2_main horizon_m=240 key=drop30_cash0 windows=6 dca_wins=5 ratio_median=1.0260 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E2_main horizon_m=240 key=drop5_cashRate windows=6 dca_wins=6 ratio_median=1.0033 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E2_main horizon_m=240 key=drop10_cashRate windows=6 dca_wins=6 ratio_median=1.0306 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E2_main horizon_m=240 key=drop20_cashRate windows=6 dca_wins=1 ratio_median=0.9884 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E2_main horizon_m=240 key=drop30_cashRate windows=6 dca_wins=0 ratio_median=0.9470 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E1_ext horizon_m=120 key=drop5_cash0 windows=763 dca_wins=639 ratio_median=1.0250 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E1_ext horizon_m=120 key=drop10_cash0 windows=763 dca_wins=517 ratio_median=1.0327 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E1_ext horizon_m=120 key=drop20_cash0 windows=763 dca_wins=545 ratio_median=1.1692 never_bought=45
+[TRADE] 2026-10-15T14:48:35 exp=E1_ext horizon_m=120 key=drop30_cash0 windows=763 dca_wins=576 ratio_median=1.5744 never_bought=409
+[TRADE] 2026-10-15T14:48:35 exp=E1_ext horizon_m=120 key=drop5_cashRate windows=763 dca_wins=362 ratio_median=0.9982 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E1_ext horizon_m=120 key=drop10_cashRate windows=763 dca_wins=415 ratio_median=1.0088 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E1_ext horizon_m=120 key=drop20_cashRate windows=763 dca_wins=461 ratio_median=1.0538 never_bought=45
+[TRADE] 2026-10-15T14:48:35 exp=E1_ext horizon_m=120 key=drop30_cashRate windows=763 dca_wins=474 ratio_median=1.2070 never_bought=409
+[TRADE] 2026-10-15T14:48:35 exp=E2_ext horizon_m=120 key=drop5_cash0 windows=178 dca_wins=141 ratio_median=1.0233 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E2_ext horizon_m=120 key=drop10_cash0 windows=178 dca_wins=108 ratio_median=1.0182 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E2_ext horizon_m=120 key=drop20_cash0 windows=178 dca_wins=122 ratio_median=1.1481 never_bought=9
+[TRADE] 2026-10-15T14:48:35 exp=E2_ext horizon_m=120 key=drop30_cash0 windows=178 dca_wins=118 ratio_median=1.3176 never_bought=93
+[TRADE] 2026-10-15T14:48:35 exp=E2_ext horizon_m=120 key=drop5_cashRate windows=178 dca_wins=73 ratio_median=0.9950 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E2_ext horizon_m=120 key=drop10_cashRate windows=178 dca_wins=81 ratio_median=0.9892 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E2_ext horizon_m=120 key=drop20_cashRate windows=178 dca_wins=103 ratio_median=1.0429 never_bought=9
+[TRADE] 2026-10-15T14:48:35 exp=E2_ext horizon_m=120 key=drop30_cashRate windows=178 dca_wins=90 ratio_median=1.0064 never_bought=93
+[TRADE] 2026-10-15T14:48:35 exp=E1_ext horizon_m=240 key=drop5_cash0 windows=643 dca_wins=630 ratio_median=1.0211 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E1_ext horizon_m=240 key=drop10_cash0 windows=643 dca_wins=536 ratio_median=1.0469 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E1_ext horizon_m=240 key=drop20_cash0 windows=643 dca_wins=580 ratio_median=1.1730 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E1_ext horizon_m=240 key=drop30_cash0 windows=643 dca_wins=586 ratio_median=1.4569 never_bought=125
+[TRADE] 2026-10-15T14:48:35 exp=E1_ext horizon_m=240 key=drop5_cashRate windows=643 dca_wins=385 ratio_median=1.0064 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E1_ext horizon_m=240 key=drop10_cashRate windows=643 dca_wins=371 ratio_median=1.0158 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E1_ext horizon_m=240 key=drop20_cashRate windows=643 dca_wins=400 ratio_median=1.0428 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E1_ext horizon_m=240 key=drop30_cashRate windows=643 dca_wins=347 ratio_median=1.0492 never_bought=125
+[TRADE] 2026-10-15T14:48:35 exp=E2_ext horizon_m=240 key=drop5_cash0 windows=171 dca_wins=162 ratio_median=1.0186 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E2_ext horizon_m=240 key=drop10_cash0 windows=171 dca_wins=128 ratio_median=1.0445 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E2_ext horizon_m=240 key=drop20_cash0 windows=171 dca_wins=140 ratio_median=1.0994 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E2_ext horizon_m=240 key=drop30_cash0 windows=171 dca_wins=133 ratio_median=1.2193 never_bought=5
+[TRADE] 2026-10-15T14:48:35 exp=E2_ext horizon_m=240 key=drop5_cashRate windows=171 dca_wins=110 ratio_median=1.0051 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E2_ext horizon_m=240 key=drop10_cashRate windows=171 dca_wins=106 ratio_median=1.0245 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E2_ext horizon_m=240 key=drop20_cashRate windows=171 dca_wins=71 ratio_median=0.9815 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E2_ext horizon_m=240 key=drop30_cashRate windows=171 dca_wins=49 ratio_median=0.9076 never_bought=5
+[TRADE] 2026-10-15T14:48:35 exp=E1p_main horizon_m=120 key=drop5_cash0 windows=202 dca_wins=154 ratio_median=1.0167 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E1p_main horizon_m=120 key=drop10_cash0 windows=202 dca_wins=156 ratio_median=1.0500 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E1p_main horizon_m=120 key=drop20_cash0 windows=202 dca_wins=117 ratio_median=1.1448 never_bought=11
+[TRADE] 2026-10-15T14:48:35 exp=E1p_main horizon_m=120 key=drop30_cash0 windows=202 dca_wins=129 ratio_median=1.3766 never_bought=83
+[TRADE] 2026-10-15T14:48:35 exp=E1p_main horizon_m=240 key=drop5_cash0 windows=82 dca_wins=82 ratio_median=1.0107 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E1p_main horizon_m=240 key=drop10_cash0 windows=82 dca_wins=82 ratio_median=1.0490 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E1p_main horizon_m=240 key=drop20_cash0 windows=82 dca_wins=80 ratio_median=1.0930 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E1p_main horizon_m=240 key=drop30_cash0 windows=82 dca_wins=79 ratio_median=1.1619 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E3 period=main horizon_m=12 subset=all cash=cash0 windows=271 lump_wins=195 ratio_median=1.0443
+[TRADE] 2026-10-15T14:48:35 exp=E3 period=main horizon_m=12 subset=all cash=cashRate windows=271 lump_wins=183 ratio_median=1.0275
+[TRADE] 2026-10-15T14:48:35 exp=E3 period=main horizon_m=12 subset=after_high cash=cash0 windows=69 lump_wins=47 ratio_median=1.0516
+[TRADE] 2026-10-15T14:48:35 exp=E3 period=main horizon_m=12 subset=after_high cash=cashRate windows=69 lump_wins=45 ratio_median=1.0426
+[TRADE] 2026-10-15T14:48:35 exp=E3 period=main horizon_m=60 subset=all cash=cash0 windows=223 lump_wins=161 ratio_median=1.0443
+[TRADE] 2026-10-15T14:48:35 exp=E3 period=main horizon_m=60 subset=all cash=cashRate windows=223 lump_wins=150 ratio_median=1.0269
+[TRADE] 2026-10-15T14:48:35 exp=E3 period=main horizon_m=60 subset=after_high cash=cash0 windows=46 lump_wins=33 ratio_median=1.0646
+[TRADE] 2026-10-15T14:48:35 exp=E3 period=main horizon_m=60 subset=after_high cash=cashRate windows=46 lump_wins=32 ratio_median=1.0527
+[TRADE] 2026-10-15T14:48:35 exp=E3 period=main horizon_m=120 subset=all cash=cash0 windows=163 lump_wins=108 ratio_median=1.0358
+[TRADE] 2026-10-15T14:48:35 exp=E3 period=main horizon_m=120 subset=all cash=cashRate windows=163 lump_wins=100 ratio_median=1.0170
+[TRADE] 2026-10-15T14:48:35 exp=E3 period=main horizon_m=120 subset=after_high cash=cash0 windows=13 lump_wins=4 ratio_median=0.9578
+[TRADE] 2026-10-15T14:48:35 exp=E3 period=main horizon_m=120 subset=after_high cash=cashRate windows=13 lump_wins=3 ratio_median=0.9377
+[TRADE] 2026-10-15T14:48:35 exp=E3 period=ext horizon_m=12 subset=all cash=cash0 windows=871 lump_wins=666 ratio_median=1.0561
+[TRADE] 2026-10-15T14:48:35 exp=E3 period=ext horizon_m=12 subset=all cash=cashRate windows=871 lump_wins=592 ratio_median=1.0292
+[TRADE] 2026-10-15T14:48:35 exp=E3 period=ext horizon_m=12 subset=after_high cash=cash0 windows=234 lump_wins=177 ratio_median=1.0547
+[TRADE] 2026-10-15T14:48:35 exp=E3 period=ext horizon_m=12 subset=after_high cash=cashRate windows=234 lump_wins=156 ratio_median=1.0308
+[TRADE] 2026-10-15T14:48:35 exp=E3 period=ext horizon_m=60 subset=all cash=cash0 windows=823 lump_wins=632 ratio_median=1.0570
+[TRADE] 2026-10-15T14:48:35 exp=E3 period=ext horizon_m=60 subset=all cash=cashRate windows=823 lump_wins=559 ratio_median=1.0291
+[TRADE] 2026-10-15T14:48:35 exp=E3 period=ext horizon_m=60 subset=after_high cash=cash0 windows=211 lump_wins=163 ratio_median=1.0568
+[TRADE] 2026-10-15T14:48:35 exp=E3 period=ext horizon_m=60 subset=after_high cash=cashRate windows=211 lump_wins=143 ratio_median=1.0310
+[TRADE] 2026-10-15T14:48:35 exp=E3 period=ext horizon_m=120 subset=all cash=cash0 windows=763 lump_wins=579 ratio_median=1.0561
+[TRADE] 2026-10-15T14:48:35 exp=E3 period=ext horizon_m=120 subset=all cash=cashRate windows=763 lump_wins=509 ratio_median=1.0266
+[TRADE] 2026-10-15T14:48:35 exp=E3 period=ext horizon_m=120 subset=after_high cash=cash0 windows=178 lump_wins=134 ratio_median=1.0503
+[TRADE] 2026-10-15T14:48:35 exp=E3 period=ext horizon_m=120 subset=after_high cash=cashRate windows=178 lump_wins=114 ratio_median=1.0228
+[RESULT] 2026-10-15T14:48:35 exp=E4 period=main horizon_m=12 all_months=270 all_median_annual=0.1144 all_positive_share=0.7333 high_months=69 high_median_annual=0.0902 high_positive_share=0.6667
+[RESULT] 2026-10-15T14:48:35 exp=E4 period=main horizon_m=60 all_months=222 all_median_annual=0.1058 all_positive_share=0.8694 high_months=46 high_median_annual=0.1082 high_positive_share=0.8261
+[RESULT] 2026-10-15T14:48:35 exp=E4 period=main horizon_m=120 all_months=162 all_median_annual=0.0784 all_positive_share=0.9444 high_months=13 high_median_annual=0.071 high_positive_share=0.5385
+[RESULT] 2026-10-15T14:48:35 exp=E4 period=ext horizon_m=12 all_months=870 all_median_annual=0.1337 all_positive_share=0.7816 high_months=234 high_median_annual=0.1043 high_positive_share=0.7179
+[RESULT] 2026-10-15T14:48:35 exp=E4 period=ext horizon_m=60 all_months=822 all_median_annual=0.1168 all_positive_share=0.9209 high_months=211 high_median_annual=0.1048 high_positive_share=0.8815
+[RESULT] 2026-10-15T14:48:35 exp=E4 period=ext horizon_m=120 all_months=762 all_median_annual=0.1079 all_positive_share=0.9698 high_months=178 high_median_annual=0.0931 high_positive_share=0.9326
+[DATA] 2026-10-15T14:48:35 source=cache path=/home/user/yeomin1024-ytb/stock/data/sp500_daily_fred.csv bytes=48929 fetched_at=2026-10-15T14:47:36Z
+[VALIDATE] 2026-10-15T14:48:35 data=sp500_daily rows=2514 first=2016-02-12 last=2026-02-11 blank_days_dropped=95 duplicates=0 gaps_over_5_days=0
+[SIGNAL] 2026-10-15T14:48:35 exp=E6 drop=0.05 daily_months=57 monthly_avg_months=28 only_daily=2016-06,2018-02,2018-03,2018-04,2018-05,2018-06,2018-07,2018-10,2019-03,2019-05,2019-06,2019-08,2020-02,2020-07,2020-09,2020-10,2020-11,2021-09,2021-10,2022-01,2023-07,2023-08,2023-09,2023-11,2023-12,2024-04,2024-08,2025-05,2025-11
+[SIGNAL] 2026-10-15T14:48:35 exp=E6 drop=0.1 daily_months=32 monthly_avg_months=19 only_daily=2018-02,2018-04,2018-11,2020-02,2020-06,2022-02,2022-03,2022-04,2023-06,2023-09,2023-10,2023-11,2025-03
+[SIGNAL] 2026-10-15T14:48:35 exp=E6 drop=0.2 daily_months=9 monthly_avg_months=1 only_daily=2020-03,2020-04,2022-06,2022-07,2022-09,2022-11,2022-12,2023-01
+[SIGNAL] 2026-10-15T14:48:35 exp=E6 drop=0.3 daily_months=1 monthly_avg_months=0 only_daily=2020-03
+[TRADE] 2026-10-15T14:48:35 exp=E1d_main horizon_m=120 key=drop5_cash0 windows=163 dca_wins=116 ratio_median=1.0160 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E1d_main horizon_m=120 key=drop10_cash0 windows=163 dca_wins=117 ratio_median=1.0452 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E1d_main horizon_m=120 key=drop20_cash0 windows=163 dca_wins=79 ratio_median=0.9846 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E1d_main horizon_m=120 key=drop30_cash0 windows=163 dca_wins=98 ratio_median=1.0935 never_bought=4
+[TRADE] 2026-10-15T14:48:35 exp=E1d_main horizon_m=120 key=drop5_cashRate windows=163 dca_wins=112 ratio_median=1.0093 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E1d_main horizon_m=120 key=drop10_cashRate windows=163 dca_wins=114 ratio_median=1.0294 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E1d_main horizon_m=120 key=drop20_cashRate windows=163 dca_wins=77 ratio_median=0.9577 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E1d_main horizon_m=120 key=drop30_cashRate windows=163 dca_wins=85 ratio_median=1.0402 never_bought=4
+[TRADE] 2026-10-15T14:48:35 exp=E1d_main horizon_m=240 key=drop5_cash0 windows=43 dca_wins=43 ratio_median=1.0148 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E1d_main horizon_m=240 key=drop10_cash0 windows=43 dca_wins=43 ratio_median=1.0621 never_bought=0
+[TRADE] 2026-10-15T14:48:35 exp=E1d_main horizon_m=240 key=drop20_cash0 windows=43 dca_wins=39 ratio_median=1.0111 never_bought=0
+[TRADE] 2026-10-15T14:48:36 exp=E1d_main horizon_m=240 key=drop30_cash0 windows=43 dca_wins=39 ratio_median=1.0385 never_bought=0
+[TRADE] 2026-10-15T14:48:36 exp=E1d_main horizon_m=240 key=drop5_cashRate windows=43 dca_wins=43 ratio_median=1.0101 never_bought=0
+[TRADE] 2026-10-15T14:48:36 exp=E1d_main horizon_m=240 key=drop10_cashRate windows=43 dca_wins=43 ratio_median=1.0504 never_bought=0
+[TRADE] 2026-10-15T14:48:36 exp=E1d_main horizon_m=240 key=drop20_cashRate windows=43 dca_wins=0 ratio_median=0.9703 never_bought=0
+[TRADE] 2026-10-15T14:48:36 exp=E1d_main horizon_m=240 key=drop30_cashRate windows=43 dca_wins=0 ratio_median=0.9582 never_bought=0
+[DONE] 2026-10-15T14:48:36 seconds=0.64 results=/home/user/yeomin1024-ytb/stock/source/tteoreojimyeon-sagi-2026-10/backtest/results.json

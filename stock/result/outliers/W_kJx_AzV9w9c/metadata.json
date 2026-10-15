@@ -1,0 +1,113 @@
+{
+ "id": "kJx_AzV9w9c",
+ "title": "적자인데 300억? 가능한 이유 | 회계사가 말아주는 리센느 소속사 더뮤즈엔터",
+ "channel": "전지적회계사시점",
+ "channel_id": "UCcpS0bWevd14oO-H5_Irz-A",
+ "subs": 864,
+ "views": 316778,
+ "ratio": 366.64,
+ "age_days": 41,
+ "views_per_day": 7726.3,
+ "minutes": 21.4,
+ "likes": 1271,
+ "comments": 219,
+ "published": "2026-09-03",
+ "queries": "검색:가치투자",
+ "url": "https://www.youtube.com/watch?v=kJx_AzV9w9c",
+ "flag": "",
+ "published_at": "2026-09-03T23:51:03Z",
+ "rank": "W2",
+ "set": "web",
+ "folder": "W_kJx_AzV9w9c",
+ "sources": [
+  "검색:가치투자"
+ ],
+ "source": "web",
+ "tags": [
+  "리센느",
+  "원이",
+  "미나미",
+  "더뮤즈엔터",
+  "러브어택",
+  "리센느소속사",
+  "거제야호",
+  "프리티걸",
+  "더뮤즈엔터테인먼트",
+  "제나",
+  "리브",
+  "메이",
+  "기업분석",
+  "회계사",
+  "재무제표",
+  "이선민",
+  "유영우"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝 하이라이트"
+  },
+  {
+   "start": 23,
+   "title": "거제 야호로 시작된 리센느 이야기"
+  },
+  {
+   "start": 73,
+   "title": "숫자로 보는 더뮤즈: 8억에서 300억까지"
+  },
+  {
+   "start": 140,
+   "title": "리센느의 인기, 어느 정도일까"
+  },
+  {
+   "start": 259,
+   "title": "더뮤즈엔터테인먼트는 어떤 회사인가"
+  },
+  {
+   "start": 366,
+   "title": "중소 엔터사가 VC 투자를 받는 이유"
+  },
+  {
+   "start": 491,
+   "title": "모태펀드가 만든 중소돌의 기적"
+  },
+  {
+   "start": 544,
+   "title": "투자 히스토리: 5천만 원에서 시리즈A까지"
+  },
+  {
+   "start": 704,
+   "title": "멀티플로 계산해 본 비상장 기업가치"
+  },
+  {
+   "start": 866,
+   "title": "이익배수로 다시 본 300억의 조건"
+  },
+  {
+   "start": 964,
+   "title": "300억이 되려면 매출은 얼마나 필요할까"
+  },
+  {
+   "start": 1080,
+   "title": "리센느 정산은 언제부터 가능할까"
+  },
+  {
+   "start": 1180,
+   "title": "결론: 300억은 가능한 숫자인가"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 219,
+ "comments_top_level": 131,
+ "comments_replies": 88,
+ "comments_by_creator": 2,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 219,
+ "tool": "outlier_research.py v2.4.1",
+ "collected": "2026-10-15T20:43:00",
+ "approved": "2026-10-15T20:43+09:00"
+}

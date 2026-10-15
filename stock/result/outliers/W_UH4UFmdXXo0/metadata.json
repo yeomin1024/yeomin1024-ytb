@@ -1,0 +1,133 @@
+{
+ "id": "UH4UFmdXXo0",
+ "title": "4200억 단타 일본 천재가 초간단 매매법, 죽어라 이것만하세요",
+ "channel": "세력시그널",
+ "channel_id": "UCdSWIJ2mSLQqFiVXoTlZm-w",
+ "subs": 3510,
+ "views": 85769,
+ "ratio": 24.44,
+ "age_days": 61,
+ "views_per_day": 1406.0,
+ "minutes": 20.6,
+ "likes": 2060,
+ "comments": 216,
+ "published": "2026-08-15",
+ "queries": "검색:단타",
+ "url": "https://www.youtube.com/watch?v=UH4UFmdXXo0",
+ "flag": "",
+ "published_at": "2026-08-15T07:00:12Z",
+ "rank": "W22",
+ "set": "web",
+ "folder": "W_UH4UFmdXXo0",
+ "sources": [
+  "검색:단타"
+ ],
+ "source": "web",
+ "tags": [
+  "BNF매매법",
+  "역추세매매법",
+  "주식단타",
+  "이동평균선",
+  "이격도매매법"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "BNF 코테카와 타카시 | 1,600만 원으로 시작한 일본 천재 트레이더"
+  },
+  {
+   "start": 155,
+   "title": "슈퍼 트레이더 자동매매 봇 안내"
+  },
+  {
+   "start": 166,
+   "title": "BNF의 은둔형 투자 생활 | 주식에 인생을 건 전업 트레이더"
+  },
+  {
+   "start": 221,
+   "title": "제이콤 주식 사건 | BNF가 16분 만에 200억 원을 번 거래"
+  },
+  {
+   "start": 349,
+   "title": "독학으로 성공한 BNF | 제시 리버모어와 실전 차트 공부법"
+  },
+  {
+   "start": 390,
+   "title": "BNF 투자 원칙 ① 가격 움직임과 시장 심리"
+  },
+  {
+   "start": 450,
+   "title": "BNF 투자 원칙 ② 기계적 손절과 리스크 관리"
+  },
+  {
+   "start": 492,
+   "title": "BNF 투자 원칙 ③ 거래량·캔들로 판단하는 익절 타이밍"
+  },
+  {
+   "start": 524,
+   "title": "BNF 투자 원칙 ④ 공포와 탐욕을 이용한 역발상 매매"
+  },
+  {
+   "start": 572,
+   "title": "BNF 투자 원칙 ⑤ 개장 후 첫 30분 관찰 전략"
+  },
+  {
+   "start": 617,
+   "title": "BNF 투자 원칙 ⑥ 감정을 배제한 확률 기반 매매"
+  },
+  {
+   "start": 660,
+   "title": "BNF 투자 원칙 ⑦ 거래량과 종목 선정 기준"
+  },
+  {
+   "start": 732,
+   "title": "BNF 역추세 매매법 | 급락주 바닥을 찾는 3가지 조건"
+  },
+  {
+   "start": 795,
+   "title": "25일 이동평균선 이격도 | BNF의 급락주 매수 기준"
+  },
+  {
+   "start": 861,
+   "title": "BNF 차트 세팅 | 25일 지수이동평균선·RSI·MACD"
+  },
+  {
+   "start": 925,
+   "title": "이격도 측정법 | 25일선 대비 -20~35% 과매도 구간"
+  },
+  {
+   "start": 972,
+   "title": "대형주·중소형주·상승장·하락장 이격도 기준"
+  },
+  {
+   "start": 1051,
+   "title": "BNF 매수 타이밍 4단계 | 이격도·RSI·MACD 진입 공식"
+  },
+  {
+   "start": 1105,
+   "title": "지지선·저항선 활용 | BNF 역추세 매매법 실전 응용"
+  },
+  {
+   "start": 1175,
+   "title": "상승장·하락장별 익절과 손절 전략"
+  },
+  {
+   "start": 1219,
+   "title": "BNF 트레이딩 비법 전자책 무료 신청 안내"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 216,
+ "comments_top_level": 124,
+ "comments_replies": 92,
+ "comments_by_creator": 68,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 216,
+ "tool": "outlier_research.py v2.4.1",
+ "collected": "2026-10-15T20:44:42",
+ "approved": "2026-10-15T20:44+09:00"
+}

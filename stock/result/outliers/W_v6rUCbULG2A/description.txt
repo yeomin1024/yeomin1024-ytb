@@ -1,0 +1,35 @@
+지수는 사상 최고를 찍었는데 왜 내 계좌만 파란색일까요. 
+개인 투자자 240만 명의 계좌를 열어본 자료에서 출발해, 물린 종목을 손실을 줄이며 정리하고 제대로 된 자리로 옮기는 순서를 정리했습니다.
+
+📌 이 영상에서 다루는 내용
+
+· 코스피가 사상 최고치를 갈아치운 그날, 한 대형 증권사 고객 240만 명 중 54.6%가 손실 상태였습니다. 1인당 평균 손실은 931만 원이었습니다 · 손실 비율이 가장 높았던 세대는 50대였고, 평균 손실액도 1,257만 원으로 가장 컸습니다 · 개인 투자자의 평균 보유기간은 열흘이 채 되지 않고, 연간 계좌 회전율은 1,600%를 넘습니다 · 이익이 난 종목을 파는 확률이 손실이 난 종목을 파는 확률의 두 배가 넘습니다. 계좌에는 못 판 것만 쌓입니다 · 코스피는 1989년 이후 여덟 번의 큰 하락을 모두 회복했지만, 코스닥은 2000년 고점을 26년째 되찾지 못했습니다 · 카카오, LG생활건강, 엔씨소프트는 망한 회사가 아닌데도 고점 대비 -76.9%, -84.6%, -77.3% 자리에 있습니다 · -30% 손실은 +42.9%가, -70% 손실은 +233%가 있어야 원금입니다. 연 8%로 계산하면 각각 4.6년과 15.6년이 걸립니다 · 남길 것과 옮길 것을 가르는 기준 네 가지 — 손실률로 가르지 않기, 살 때의 이유가 살아 있는가, 회복이 시장에 걸렸는가 한 회사에 걸렸는가, 비중이 작은 것부터 · 알면서도 못 파는 세 가지 장벽과, 전량이 아닌 분할 정리로 그 장벽을 낮추는 방법 · 뺀 돈을 어디에 세워둘 것인가 — 예금의 진짜 역할, 그리고 손실 정리가 세금을 줄여주는 경우
+
+🔗 출처 리스트
+
+연합뉴스 — [팩트체크] 코스피 '불장'이라는데…개인 54%는 평균 931만원 손실 중 (2025.11.10) https://v.daum.net/v/20251110063147841 
+자본시장연구원 — 국내 개인투자자의 행태적 편의와 거래행태 (연구보고서 22-02, 2022.2.3) https://www.kcmi.re.kr/report/report_view?report_no=1481 
+자본시장연구원 — 코로나19 국면의 개인투자자 (이슈보고서 21-11, 2021.6.14) https://www.kcmi.re.kr/report/report_view?report_no=1243 Barber & Odean — Trading Is Hazardous to Your Wealth (The Journal of Finance, 2000) https://onlinelibrary.wiley.com/doi/abs/10.1111/0022-1082.00226 
+시사저널 — 고점에 물린 투자자, 시간은 결국 당신의 편이었다 (신영증권 리서치센터 자료, 2026.6.28) https://www.sisajournal.com/news/articleView.html?idxno=377667
+ 미주중앙일보 — 코스피 3314.53 마감…종가 기준 사상 최고치 경신 (2025.9.9) https://www.koreadaily.com/article/20250909234041550 
+아주경제 — 코스피는 새 역사, 코스닥은 2000년 전성기 까마득 (2025.9.11) https://www.ajunews.com/view/20250911114906641 
+국민일보 — 우량기업 떠나고 천스닥도 버거워… 뒤로 간 '30살 코스닥' https://www.kmib.co.kr/article/view.asp?arcid=1782810010 
+헤럴드경제 — '17만→ 3만원' 역대급 실적에도 "또 속았다" 아우성…국민메신저, 왜? (2026.8.7) https://biz.heraldcorp.com/article/10834441 
+한국경제 — '왕년 황제株' LG생건, 뜨거운 바닥논쟁 (2026.5.7) https://www.hankyung.com/article/2026050724101
+ 머니투데이 — '104만원→19만원' 황제주 엔씨 몰락…"빨리 팔 걸" 개미들 한숨 (2024.1.18) https://www.mt.co.kr/stock/2024/01/18/2024011810264437326 
+파이낸셜뉴스 — 코스피, 2025년 상장폐지사유 발생사 12곳…코스닥 42곳 (2026.4.9) https://www.fnnews.com/news/202604091106023814 TKer — Most stock-picking pros underperformed in 2025's market rollercoaster (SPIVA U.S. Scorecard Year-End 2025 인용, 2026.3.3) https://www.tker.co/p/spiva-2025-active-manager-vs-benchmark EBN — 삼성전자에 울고 웃었다…액티브 펀드 '희비 교차' (2026.4.10) https://www.ebn.co.kr/news/articleView.html?idxno=1704995 
+조세일보 — "2025년 상장법인 주식 소유자 1456만명"…개인투자자 저변 확대 (한국예탁결제원 자료) https://m.joseilbo.com/news/view.htm?newsid=564821 Tversky & Kahneman — Advances in Prospect Theory: Cumulative Representation of Uncertainty (Journal of Risk and Uncertainty, 1992) 
+파이낸스투데이 — [분석] 코스피 5천·6천, 개미의 성적표는 달랐다 (2026.4.20) https://www.fntoday.co.kr/news/articleView.html?idxno=382649 
+파이낸셜뉴스 — "개미들 강제 청산, 반대매매 1조원 당했다"...빚투 '거대한 후폭풍' (2026.6.11) https://www.fnnews.com/news/202606111526075582 
+헤럴드경제 — [단독]'뭘 믿고 빚투까지' 주식 강제청산 피눈물…무려 '596%' 급증 https://biz.heraldcorp.com/article/10822900 
+한국일보 — 한은, 기준금리 연 2.75%로 전격 인상… 물가·환율·집값 잡는다 (2026.7.16) https://www.hankookilbo.com/news/article/A2026071608420005789 베타뉴스 — "예금 다시 3%대로" 5대 은행 예·적금 금리 줄인상…최고 연 3.25% (2026.7.24) https://www.betanews.net/article/view/beta202607240021 파이낸셜뉴스 — 기준금리 인상에 예금금리도 들썩…은행 3%대·저축은행 4%대 (2026.7.22) https://www.fnnews.com/news/202607220601065119 Summitward — Missing the Market's Best Days: What the Famous Chart Leaves Out (J.P. Morgan Guide to Retirement 인용) https://summitward.com/learn/missing-best-days 
+연합뉴스 — [2026 달라지는 것] 증권거래세율↑·배당소득 분리과세 최고세율 '30%' (2025.12.31) https://news.nate.com/view/20251231n05425 
+한경 매거진 머니 — 서학개미의 4월 숙제…양도 차익 250만 원 넘으면 22% 과세 (2026.3.16) https://magazine.hankyung.com/money/article/202603163454c 
+대한민국 정책브리핑 — 주식 양도세 대주주 기준, 현행 '종목당 50억 원 이상' 유지 https://www.korea.kr/news/policyNewsView.do?newsId=148949309
+
+영상에 나온 회복 필요 상승률과 소요 연수는 위 자료의 수치를 바탕으로 계산한 값입니다. 최종 판단과 책임은 각자의 몫입니다.
+
+🔔 돈의 흐름으로 세상을 읽습니다. 도움이 되셨다면 구독과 좋아요로 응원해주세요.
+
+
+#경제, #주식, #주식투자, #물린주식, #손절, #손절기준, #계좌관리, #코스피, #코스닥, #개인투자자, #반대매매, #장기투자, #인덱스투자, #재테크, #투자심리 #물린주식 #손절기준 #주식손실 #계좌관리 #코스피

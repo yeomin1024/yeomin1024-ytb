@@ -1,0 +1,87 @@
+{
+ "id": "uqsGXwRgP68",
+ "title": "주식투자 5년간 수익이 없던 내가 드디어 깨달은 '이것'",
+ "channel": "리채피 richappy",
+ "channel_id": "UCopbo8p9-a5XyT6k7o1zSwQ",
+ "subs": 4400,
+ "views": 166003,
+ "ratio": 37.73,
+ "age_days": 17,
+ "views_per_day": 9764.9,
+ "minutes": 27.8,
+ "likes": 2108,
+ "comments": 111,
+ "published": "2026-09-28",
+ "queries": "검색:주식공부 | 검색:가치투자",
+ "url": "https://www.youtube.com/watch?v=uqsGXwRgP68",
+ "flag": "",
+ "published_at": "2026-09-28T00:00:37Z",
+ "rank": "W15",
+ "set": "web",
+ "folder": "W_uqsGXwRgP68",
+ "sources": [
+  "검색:주식공부",
+  "검색:가치투자"
+ ],
+ "source": "web",
+ "tags": [
+  "경제적자유",
+  "리채피",
+  "상위0.1%자산가",
+  "주식공부",
+  "주식초보",
+  "주식투자",
+  "투자기준",
+  "투자원칙",
+  "한지우",
+  "행복한부자"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 70,
+   "title": "5년 동안 제가 주식으로 번 돈은 0원이었습니다"
+  },
+  {
+   "start": 181,
+   "title": "제일 괴로웠던 건 손실이 아니었습니다"
+  },
+  {
+   "start": 315,
+   "title": "2019년, 제가 모으던 건 정답이었습니다"
+  },
+  {
+   "start": 719,
+   "title": "기준을 배운 직후에 무너졌습니다"
+  },
+  {
+   "start": 1079,
+   "title": "코로나 폭락, 계좌가 70~80퍼센트 빠졌습니다"
+  },
+  {
+   "start": 1462,
+   "title": "드라마 제작사 투자로 자산이 3배가 됐습니다"
+  },
+  {
+   "start": 1616,
+   "title": "2022년 금리 인상기, 마이너스 30퍼센트"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 111,
+ "comments_top_level": 53,
+ "comments_replies": 58,
+ "comments_by_creator": 44,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 111,
+ "tool": "outlier_research.py v2.4.1",
+ "collected": "2026-10-15T20:44:13",
+ "approved": "2026-10-15T20:44+09:00"
+}

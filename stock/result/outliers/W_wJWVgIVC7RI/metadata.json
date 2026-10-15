@@ -1,0 +1,88 @@
+{
+ "id": "wJWVgIVC7RI",
+ "title": "206. 사지말아야 할 커버드콜 ETF가 있습니다",
+ "channel": "배당머니 : 숫자로 증명하는 ETF",
+ "channel_id": "UCCXx1gxPpdTV0kVw_JAnnEA",
+ "subs": 23800,
+ "views": 111730,
+ "ratio": 4.69,
+ "age_days": 47,
+ "views_per_day": 2377.2,
+ "minutes": 19.2,
+ "likes": 1449,
+ "comments": 140,
+ "published": "2026-08-28",
+ "queries": "검색:ETF추천 | 검색:월배당ETF | 검색:커버드콜ETF | 검색:미국ETF | 검색:나스닥100",
+ "url": "https://www.youtube.com/watch?v=wJWVgIVC7RI",
+ "flag": "",
+ "published_at": "2026-08-28T23:00:20Z",
+ "rank": "W63",
+ "set": "web",
+ "folder": "W_wJWVgIVC7RI",
+ "sources": [
+  "검색:ETF추천",
+  "검색:월배당ETF",
+  "검색:커버드콜ETF",
+  "검색:미국ETF",
+  "검색:나스닥100"
+ ],
+ "source": "web",
+ "tags": [
+  "커버드콜",
+  "커버드콜ETF",
+  "월배당",
+  "월배당ETF",
+  "고배당",
+  "고배당주",
+  "고배당ETF",
+  "KODEX 미국나스닥100데일리커버드콜OTM",
+  "배당투자",
+  "배당주",
+  "TIGER 미국배당다우존스",
+  "타겟커버드콜"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 178,
+   "title": "피해야 할 커버드콜 2개"
+  },
+  {
+   "start": 255,
+   "title": "미스매칭 커버드콜 사례"
+  },
+  {
+   "start": 447,
+   "title": "커버드콜의 옵션 자산"
+  },
+  {
+   "start": 712,
+   "title": "KODEX 미국나스닥100데일리커버드콜OTM"
+  },
+  {
+   "start": 774,
+   "title": "TIGER vs KODEX 커버드콜 비교"
+  },
+  {
+   "start": 1054,
+   "title": "결론"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 140,
+ "comments_top_level": 83,
+ "comments_replies": 57,
+ "comments_by_creator": 39,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 140,
+ "tool": "outlier_research.py v2.4.1",
+ "collected": "2026-10-15T20:47:37",
+ "approved": "2026-10-15T20:47+09:00"
+}

@@ -1,0 +1,67 @@
+{
+ "id": "O8ZlEWiJ0yI",
+ "title": "하이닉스 주주들만 호구인가?… 결국 6천피 찍은 코스피 폭락장",
+ "channel": "잘되라대한민국",
+ "channel_id": "UC1GeuioIW52kCX-v3mlDx9g",
+ "subs": 5910,
+ "views": 80984,
+ "ratio": 13.7,
+ "age_days": 2,
+ "views_per_day": 40492.0,
+ "minutes": 15.2,
+ "likes": 433,
+ "comments": 123,
+ "published": "2026-10-13",
+ "queries": "검색:코스피200",
+ "url": "https://www.youtube.com/watch?v=O8ZlEWiJ0yI",
+ "flag": "",
+ "published_at": "2026-10-13T09:06:20Z",
+ "rank": "W33",
+ "set": "web",
+ "folder": "W_O8ZlEWiJ0yI",
+ "sources": [
+  "검색:코스피200"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝 및 5단 지배구조로 평가받지 못하는 SK하이닉스"
+  },
+  {
+   "start": 420,
+   "title": "전 종목 무차별 폭락장과 꼬일 대로 꼬인 수급의 악순환"
+  },
+  {
+   "start": 540,
+   "title": "주식은 신뢰 자산인데, 가짜 정보와 떴다방이 판치는 정보 시장"
+  },
+  {
+   "start": 660,
+   "title": "SK하이닉스 '솔리다임' 나스닥 상장 추진 논란과 쪼개기 오해와 진실"
+  },
+  {
+   "start": 810,
+   "title": "\"주주 돈으로 버텨놓고 이제 와서?\" 5단 구조와 이율배반적 상장의 실체"
+  },
+  {
+   "start": 855,
+   "title": "\"여러분의 탓이 아닙니다\" 폭락에 지친 투자자들을 위한 위로와 억울한 하락 섹터 점검"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 123,
+ "comments_top_level": 115,
+ "comments_replies": 8,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 123,
+ "tool": "outlier_research.py v2.4.1",
+ "collected": "2026-10-15T20:45:28",
+ "approved": "2026-10-15T20:45+09:00"
+}

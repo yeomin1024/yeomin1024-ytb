@@ -1,0 +1,548 @@
+﻿id,parent,is_reply,likes,replies,creator,published,text
+UgxIdT23qB8-OUhT9WR4AaABAg,,False,205,3,True,2026-05-30T06:22:15,"이렇게 AI를 활용하는 법을 직접 배우고 싶다면? → https://www.supersquad.kr/lt/5
+
+작업 시작 전에, 아래 세팅을 먼저 체크해주세요!
+1. 설정 -> 기능 
+2. 아래 쪽 네트워크 송신 허용 on 
+3. 그 아래에 도메인 허용 목록 '모든 도메인'
+보안을 위해서는, '패키지 매니저'만 선택 후 직접 도메인 추가를 추천드립니다.
++ Cowork는 기본적으로 최소 요금제(pro) 이상부터 사용이 가능합니다.
+
+[ 단계별 프롬프트 ]
+1. pykrx와 yfinance를 활용해서 '내 포트폴리오 내 종목들'의 오늘자 가격을 가져와줘. 전일 종가 대비 변동률도 함께.
+2. Google News RSS의 when:1d 파라미터로 내 국내 종목들의 오늘자 뉴스를 종목당 3개씩 가져와줘. KST 기준 오늘 발행분만.
+yfinance의 Ticker("""").news로 내 해외 종목의 오늘자 뉴스 3개를 가져오고 영문 헤드라인을 한글로 번역해줘.
+3. 위 가격과 뉴스를 하나의 일일 브리핑 마크다운 파일로 정리해줘. 가격 요약 표 + 종목별 뉴스 + 오늘의 핵심 한 줄 + 오늘의 액션 포함.
+4. 이 브리핑의 핵심을 200자 이내로 압축해서 카카오톡 메모챗으로 보내줘.
+5. 위 작업을 매일 아침 7시(KST)에 자동 실행되도록 스케줄 등록해줘.
+
+[ 네이버 검색 API ]
+https://developers.naver.com/main/
+검색 API 신청 → Client ID/Secret 발급 → Claude에 전달"
+UgxwV60HCJIhYt9_9A54AaABAg,,False,110,9,False,2026-06-08T13:50:40,"아.. 컴 끄지 말라는 마지막 단어에.
+포기"
+UgyKIiaG7da1vafLKDV4AaABAg,,False,55,6,False,2026-05-30T23:26:35,주식 투자를 하는 사람으로서 정말 감사합니다. 혹시 텔레그램에 팔로우하는 채널들에 수많은 주식 정보가 있는데 그걸 요약해서 브리핑하는 것도 가능할까요? 검토 부탁드립니다.
+UgzRyBG36eTyCXWvd1R4AaABAg,,False,46,24,False,2026-06-03T01:22:39,머가 없어서 주식을 못하는게 아님 사람이 문제고 변동성이 문제임
+UgxyzT_2_AfQpWmVMW54AaABAg,,False,25,2,False,2026-06-07T08:19:21,Cowork 클로드 유료버전만 사용이 가능하군요..
+UgxwV60HCJIhYt9_9A54AaABAg.AXnS5os2AISAYhHoNdYL6v,UgxwV60HCJIhYt9_9A54AaABAg,True,19,0,True,2026-07-01T00:56:44,"PC 끄고도 돌아가게 하려면 아무래도 배포하는게 젤 좋은데,, 영상 준비해볼까요?"
+UgzLYXwmX_VKMr7AGQR4AaABAg,,False,19,5,False,2026-06-01T12:49:20,"토스증권 앱 내투자 종목 안에 종목뉴스 알림을 켜요. 여기 유튜브 모든 내용 토스증권만 켜면 그냥 다 됩니다. 
+왜 쉽고 잘만 듯 앱을 외면하고 어렵게 살아갈려고 애를 쓰는지."
+UgzRyBG36eTyCXWvd1R4AaABAg.AX_EWo7BAmjAXhrwcS1xMS,UgzRyBG36eTyCXWvd1R4AaABAg,True,16,0,False,2026-06-06T09:49:46,@user-swi 예측이 불가능한게 주식임
+Ugzfj-cw__flZKXnskt4AaABAg,,False,12,3,False,2026-06-10T07:41:57,클로드유료결제해야 cowork를 쓸수가있네요
+UgyZp1NXJgSfe0gVPbd4AaABAg,,False,11,1,False,2026-06-06T13:08:42,클로드 코웤.... 대단한 기능이네요. 꼭 주식이 아니더라도 회사 업무 관련 시장 분석에도 활용해봐야겠습니다. 좋은 정보 감사합니다
+UgxFRa4I35dFiiWoNvJ4AaABAg,,False,9,0,False,2026-05-31T12:42:38,오~!! 신기한거 ㅋㅋㅋㅋ
+UgyKIiaG7da1vafLKDV4AaABAg.AXSIr-xiToNAXS_gZf5hej,UgyKIiaG7da1vafLKDV4AaABAg,True,8,0,True,2026-05-31T02:02:26,좋은 아이디어 감사합니다. 탐구해봐야겠네요 ㅎㅎ
+Ugxuq5jZV1D8pUHJJ-l4AaABAg,,False,7,5,False,2026-05-28T17:26:34,"200자 무시하고 보내달라고 하면, 해줍니다. ^^ 해보세요~"
+UgzRyBG36eTyCXWvd1R4AaABAg.AX_EWo7BAmjAXiaUjiTozb,UgzRyBG36eTyCXWvd1R4AaABAg,True,7,0,False,2026-06-06T16:36:31,​@user-swi어차피 세력이 더빨라서 큰차이없다 전업하는거아니면
+Ugx0GM9vZ_dr0MfxHPB4AaABAg,,False,6,2,False,2026-05-28T15:07:52,와 이것도 신기허네요 ..! 만들어보겠습니다
+UgxUSi9nXvJdWw39BGd4AaABAg,,False,5,3,False,2026-06-02T11:16:48,세상에...어제 처음으로 클로드프로 결제하고 와 대박 이러면서 노트북에서 해볼려니까 노트북 4년전에 산 엄청 싼 델노트북이라 클로드 어플이 안돌아감 ㅋㅋ 결국 어플에 여기 프롬프트 복사해서 기억시키고 앞으로 오늘자 브리핑이라고 물어보면 전부다 실행시키게 만들었는데 이것만해도 나에겐 천지가 개벽한 수준.... 감사합니다 ㅋㅋㅋㅋ
+UgynLJkIb9Ma1RD_IXl4AaABAg,,False,5,1,False,2026-05-30T14:07:12,이게 아쉬운게 컴이 켜져 있어서 된다라는게 단점이네오
+UgxwV60HCJIhYt9_9A54AaABAg.AXnS5os2AISAYExuYMGuxB,UgxwV60HCJIhYt9_9A54AaABAg,True,4,0,False,2026-06-19T15:36:06,따라하니 되네요 신기 ㅎㅎ 뭔가 신 문명의 사람이 된듯 하하
+Ugz6UBpZFDgXyoz3FRN4AaABAg,,False,4,1,False,2026-06-11T08:56:52,컴맹인 제가 해냈어요 . 친절한 설명 감사드립니다.
+UgzJofJjVSrqZtWt8tZ4AaABAg,,False,4,0,False,2026-06-01T07:34:54,프로젝트젝팅으로 하는게 낫겠네요. ㅠㅠ
+UgyyuW8H0jQfuLQXGHF4AaABAg,,False,4,1,False,2026-05-28T23:26:35,좋은 정보 입니다 정말 감사드립니다
+UgyMCJ8tacmedCeESnx4AaABAg,,False,4,1,False,2026-06-02T11:19:32,컴터 계속 켜놔야 되잖아요. 저는 거래 프로그램도 만들었음 ㅎㅎ
+Ugw9rnmyMFyeA4KG1iF4AaABAg,,False,4,1,False,2026-05-31T14:34:59,차라리 카톡받은걸 공유하는게낳겠다
+UgzSLtniGJ7sZ95nwd94AaABAg,,False,4,0,False,2026-05-31T17:47:03,흠... 증권사 텔레그램에서 시황공유 잘 해주는데 굳이 개인적인 시간들이고 돈들여서 코딩까지해서 컴퓨터를 켜서 소식을받는다? ㅋㅋ
+UgzU_t4J79hgVHqJn9Z4AaABAg,,False,4,6,False,2026-05-30T21:03:26,"내용이 너무 좋아서 저도 해보고 싶은데, 컴퓨터가 켜져 있어야 한다는 부분이 가장 아쉬운 지점이네요... 근데 궁금한게 클로드는 기본적으로 서버에서 작동하는 거 아닌가요? 근데 왜 마치 로컬 프로그램인 것처럼 내 컴퓨터가 켜져 있어야 한다고 하는지 모르겠네요... 대부분의 AI 서비스들이 어떤 예약 작업 같은 걸 시킬 때 내 컴퓨터가 켜져 있어야 실행된다고 하는 말을 못 들어본 것 같은데, 클로드만 그런 건지 아니면 (이런 기능이 데스크탑 앱을 설치해야만 쓸 수 있는 기능이라면) 데스크탑 앱에서 돌아가는 기능이라서 그런 건지 궁금합니다. 그리고 만약 후자가 이유라면 클로드가 요즘 사용량 문제 때문에 애를 먹는 것 같던데, 자기네 서버 사용량 줄이려고 이런 작업은 사용자 PC에서 돌아가게 바꾼 건가? 하는 의문도 생기네요"
+Ugz7wcHhb3l7zWy27IZ4AaABAg,,False,3,0,False,2026-06-14T05:20:31,오~ 멋쥔데~^^
+Ugy0gOKQwLp15ukdA_p4AaABAg,,False,3,1,False,2026-06-04T22:09:26,"주식하기가 넘 편하고 조으네요
+신세계네요~"
+UgxFoY2HyCvSyQwWMqB4AaABAg,,False,3,1,False,2026-05-30T04:15:38,"내거는 ai가 하게 만듬!
+현재 14개월되엇고 지금 마무리단계임!
+과쥬아!"
+Ugzfj-cw__flZKXnskt4AaABAg.AXrwUtSzJKtAYFGvSXym37,Ugzfj-cw__flZKXnskt4AaABAg,True,3,0,False,2026-06-19T18:30:59,이런 기능을 무료로 사용할려고 하다니
+UgzLYXwmX_VKMr7AGQR4AaABAg.AXWJWRKCJ6sAXWTAyqX0p4,UgzLYXwmX_VKMr7AGQR4AaABAg,True,3,0,True,2026-06-01T14:13:47,틀린말씀은 아닙니다 ㅎㅎ 다만 해당 영상에서 만든 주식비서를 기반으로 LLM도 붙이고 내 매매패턴도 붙이는 등 고도화를 하게되면 더욱 나만의 비서가 되겠죠?
+UgwLdegbmmkcUT_TvkB4AaABAg,,False,3,2,False,2026-05-31T11:50:26,카카오톡 대신 텔레그램으로 사용 가능할까요?
+UgwZG4Vq5xSIaIwbkQ54AaABAg,,False,3,3,False,2026-05-31T08:20:04,"단계별 프롬프트 1번을 실행하니, “샌드박스 환경 자체가 외부 네트워크에 연결되지 않아서 패키지 설치 및 데이터 조회가 불가합니다.” 라고 나옵니다."
+UgzKw_6A93p9C-MhpzJ4AaABAg,,False,3,2,False,2026-05-29T06:11:12,클로드 샌드박스 규제때문에 되지 않습니다 ㅠㅠ
+UgxwV60HCJIhYt9_9A54AaABAg.AXnS5os2AISAZ1EZynlXJQ,UgxwV60HCJIhYt9_9A54AaABAg,True,2,0,False,2026-07-09T04:12:28,"깃허브로 돌리니까 컴 꺼도 되네요
+저는 텔레그렘으로 받고있어요"
+UgwUlnoLG_nB0JMEGvV4AaABAg,,False,2,0,False,2026-06-17T23:41:45,굿 입니다.
+Ugw06Yt0AHEi4zFwFCh4AaABAg,,False,2,0,False,2026-06-14T08:29:10,오 오 너무 대단해욤
+Ugw4WZ1k0j8thZm3KHB4AaABAg,,False,2,0,False,2026-06-03T22:01:12,nice
+Ugx-76YpE5H5VY_jijN4AaABAg,,False,2,1,False,2026-06-11T12:44:54,"선생님! 진심으로 감사드립니다.
+이런 혜택을 주셔서 참으로 감사하면서 죄송합니다.
+덕분에 엄청난 역사를 빌드업했습니다. 
+늘 건강하시고 행복하십시오~^^"
+UgxC-LDrwWqSEX2z0tJ4AaABAg,,False,2,1,False,2026-06-07T04:42:23,"정말 편하고 유용하네요
+전문가가 된 느낌입니다"
+UgyuwflonYp_XSVVrjB4AaABAg,,False,2,1,False,2026-06-03T22:38:44,Ai 9 개 사용중이예요.이렇게 친절하게 설명해주셔서 감사해요.여러분야로 응용해 잘사용 할게요😊
+UgzRyBG36eTyCXWvd1R4AaABAg.AX_EWo7BAmjAXeHrgUg-h9,UgzRyBG36eTyCXWvd1R4AaABAg,True,2,0,False,2026-06-05T00:28:04,그걸 정보뉴스로 미리예측하는게 주식임ㅋㅋ
+UgzRyBG36eTyCXWvd1R4AaABAg.AX_EWo7BAmjAXi5egR_XFs,UgzRyBG36eTyCXWvd1R4AaABAg,True,2,0,False,2026-06-06T11:58:24,​@오프103누군가는 금리를 선제적으로 알 수 있는 정보의 힘이 있듯이
+UgwhityLhUCRA3j-gb54AaABAg,,False,2,1,False,2026-06-24T01:33:02,끝까지 보는 시간이 아까워서 하던데로 해야겠다
+UgzQx4V5ngdt223LYgt4AaABAg,,False,2,1,False,2026-06-11T15:26:27,"유용한 정보 잘 배웠습니다. 처음인데 쉽게 배우고, 설치, 전송까지 정리되었네요. 앞부분이 조금 어려워서.. 주가 + 간단뉴스만 카톡으로 보내뒀는데 나쁘지 않은 것 같습니다.
+즐거운 주말 보내세요~"
+Ugww75-zbJEyvHKUZT94AaABAg,,False,2,4,False,2026-06-01T11:19:09,이러한 정보를 올려 주셔서 감사합니다. 구독과 좋아요 눌렀습니다. 스티브 유튜버 선생님 혹시 제미나이도 이러한 방식으로 사용 가능할까요?
+Ugzfj-cw__flZKXnskt4AaABAg.AXrwUtSzJKtAYrfPreRE_v,Ugzfj-cw__flZKXnskt4AaABAg,True,2,0,False,2026-07-05T01:44:06,대머리세요?
+Ugz0uIKHfJ7YDb3uNLF4AaABAg,,False,2,1,False,2026-05-31T22:23:20,PC 한시간만 켜면 뉴스가 제한저그로만 보여 주나요
+Ugx8xzc32skBHvJX9954AaABAg,,False,2,1,False,2026-06-08T08:59:11,유료버전만 되는거 아닌가요?
+UgzLYXwmX_VKMr7AGQR4AaABAg.AXWJWRKCJ6sAXZDm5RQkvz,UgzLYXwmX_VKMr7AGQR4AaABAg,True,2,0,False,2026-06-02T15:56:54,토스는 실시간 급상승같은걸 쉽게 볼수 있는만큼 뇌동매매의 위험이 있는데 그런걸 꺼려하는 사람이라면 이 방법이 정말 유용하겠죠
+UgynLJkIb9Ma1RD_IXl4AaABAg.AXRIpx6cgMAAXRLxoYd6KC,UgynLJkIb9Ma1RD_IXl4AaABAg,True,2,0,True,2026-05-30T14:34:29,"맞아요 ㅎㅎ 그래서 안쓰는 컴퓨터로 실행하는게 제일 편하고, 조금 실력이 느셨다면 클로드 코드나 코덱스로 프로그램 만들어서 클라우드 배포하시면 됩니다 :)"
+UgxwV60HCJIhYt9_9A54AaABAg.AXnS5os2AISA_ojBXZ3KMb,UgxwV60HCJIhYt9_9A54AaABAg,True,2,0,False,2026-08-22T15:22:10,깃허브로 돌리는 방법까지 영상 만들어주시면 감사하겠습니다!!ㅎㅎ
+UgzRyBG36eTyCXWvd1R4AaABAg.AX_EWo7BAmjAY0dwAw7Wdo,UgzRyBG36eTyCXWvd1R4AaABAg,True,2,0,False,2026-06-14T02:12:11,"​​​@kollau2025 그 정보가 일반인 귀에 들어왔을 땐 이미 기관이랑 외국인이 다 해 먹고 남은 설거지 매물임. 애초에 정보를 '미리' 알고 투자하는 건 자본시장법상 불법인 내부자 거래고, 주식 시장은 전쟁이나 금리처럼 예측 불가능한 변수가 널려있음. 워렌 버핏 같은 주식의 신들도 시장 예측은 불가능하다고 장담하는데 일개 개미가 예측을 논하고들 있음 ㅋㅋ 다들 예측한다라고 말을 하는 그 행동들은 예측이 아니라 대응이랑 리스크 관리의 영역이라 별개의 영역인데 뭘 예측을 논함"
+UgyKIiaG7da1vafLKDV4AaABAg.AXSIr-xiToNAXbSMIrSzlo,UgyKIiaG7da1vafLKDV4AaABAg,True,2,0,False,2026-06-03T22:02:02,가능합니다 그렇게 취합해서 진행되는 텔레있더라구요
+UgzU_t4J79hgVHqJn9Z4AaABAg.AXS2TaqaD_bAXSDd9VdMwr,UgzU_t4J79hgVHqJn9Z4AaABAg,True,2,0,False,2026-05-30T22:41:00,"클로드 서버에서 지원하는게 아니고
+클로드가 로컬의 프로그램들을 구동하는 방식이기 때문에 pc가 켜져있어야 합니다"
+UgxIdT23qB8-OUhT9WR4AaABAg.AXQTccuz4hEAYadNqEZCF0,UgxIdT23qB8-OUhT9WR4AaABAg,True,1,0,False,2026-06-28T10:59:16,"1번째 프롬프트를 던지면 제 클로드는 파이썬 코드를 주면서 직접 스크립트를 실행하라고 합니다.
+제 맥미니의 클로드는 까칠해서 그런걸까요? 아니면 준비가 덜 돼서 그런걸까요?"
+UgxIdT23qB8-OUhT9WR4AaABAg.AXQTccuz4hEAYaqHvNKBxc,UgxIdT23qB8-OUhT9WR4AaABAg,True,1,0,False,2026-06-28T12:52:03,"어렵네요 ㅜㅜ 네이버 검색 API를 신청해서 발급이 되면은 그 도메인을 패키지매니저에 직접 추가하라는건가요 ? 
+애초에 처음부터 화면도 다르네요 저랑 ㅜㅜ"
+UgxwV60HCJIhYt9_9A54AaABAg.AXnS5os2AISAYhHdYs23-E,UgxwV60HCJIhYt9_9A54AaABAg,True,1,0,True,2026-07-01T00:55:15,대단!!!!
+UgzGTjBT4DzJH1AE-bJ4AaABAg,,False,1,0,False,2026-09-05T12:31:40,그런거 찾으면서 공부가 저절로 됩니다
+UgwchKk818Il5pm2ooR4AaABAg,,False,1,1,False,2026-06-04T22:53:41,"너무편리하고 멋진비서를 만들수있겠습니다
+좋은정보 정말감사합니다 ~~"
+Ugx0GM9vZ_dr0MfxHPB4AaABAg.AXMGBa5GavYAXMI10aonfw,Ugx0GM9vZ_dr0MfxHPB4AaABAg,True,1,0,True,2026-05-28T15:23:54,직접 만들어보시면 더 신기하실거에요 :)
+Ugx0GM9vZ_dr0MfxHPB4AaABAg.AXMGBa5GavYAXsOfiduoEi,Ugx0GM9vZ_dr0MfxHPB4AaABAg,True,1,0,False,2026-06-10T11:56:58,저는 윈도우 노트북에서 작동이 안되는데. pykrk에서 주식가격 가지고 오는게 안됩니다. 어떻게 하신건가 궁금합니다.
+UgyZp1NXJgSfe0gVPbd4AaABAg.AXiDhh7ylzOAXjWhVsdan0,UgyZp1NXJgSfe0gVPbd4AaABAg,True,1,0,True,2026-06-07T01:13:57,업무에도 활용하시면 새로운 세상이 펼쳐질겁니다! ㅎㅎ
+UgwaDqE_ZJW_6Xh_HUZ4AaABAg,,False,1,1,False,2026-06-26T19:43:01,와.. 이건 천만조회수가 나와도 안이상한 꿀팁이네요 유료강의로 풀어도 될거같아요 감사합니다 구독좋아요 누르고갑니다
+UgzRyBG36eTyCXWvd1R4AaABAg.AX_EWo7BAmjAXiLMNYu6rg,UgzRyBG36eTyCXWvd1R4AaABAg,True,1,0,False,2026-06-06T14:15:34,"​@오프103넌 주식하지마라 예측으로 맞춘다는게 아니고
+예측해서 사전 대응으로 잃지 않기위해 끝없이 대응한다는 뜻을 이해 몬하노"
+UgxFoY2HyCvSyQwWMqB4AaABAg.AXQF8AycHZaAXQPlH6Nxya,UgxFoY2HyCvSyQwWMqB4AaABAg,True,1,0,True,2026-05-30T05:48:29,멋지십니다 ㅎㅎ 가쥬아!
+UgxLcU5sr29TtOpqFjl4AaABAg,,False,1,1,False,2026-06-09T23:08:06,구독 좋아요 꾹욱 ~~ 화면 끝날때 구독좋아요 요청후 화면유지좀 해주세요 너무 빨리 없어졌어 다시 찾아서 구독 좋아요 했습니다   대박나세요 ^^&
+Ugxuq5jZV1D8pUHJJ-l4AaABAg.AXMW3MuJ0miAXN9WfV26wn,Ugxuq5jZV1D8pUHJJ-l4AaABAg,True,1,0,True,2026-05-28T23:28:49,playMCP로 나챗방 연결하신 것 맞나요? 공식 설명은 200자라고 나와있는데.. 어떻게 하신거에요?!
+UgxxUNjfs-GLANS3mRF4AaABAg.AXjZZ4Il7ZKAXm-_OEkho1,UgxxUNjfs-GLANS3mRF4AaABAg,True,1,0,True,2026-06-08T00:22:12,감사합니다! 몽돌 키보드에요~
+Ugz_YtFUzThyaMZ_God4AaABAg.AXVqWc1rhpwAXxEFpYUg31,Ugz_YtFUzThyaMZ_God4AaABAg,True,1,0,False,2026-06-12T09:02:07,@까르마아-v8l 저도 여기서 막히는데.. 어떻게 신청하는건지 모르겠네요 ㅠ
+Ugxgb2y4MumrqCW7Kjl4AaABAg,,False,1,1,False,2026-06-01T07:52:26,드뎌 간신히 만듬... 틀리네 5월28일과 6월1일 사이 환경이...
+Ugww75-zbJEyvHKUZT94AaABAg.AXW9Bvrg4N6AXWJX9sJ0Sa,Ugww75-zbJEyvHKUZT94AaABAg,True,1,0,True,2026-06-01T12:49:26,일반 gemini앱은 어렵습니다 ㅠㅠ
+Ugy0RbF0VJGHoG5V0h14AaABAg,,False,1,1,False,2026-06-19T05:28:15,"잘봤습니다. 그런데 실제로 해보니 매일 아침 앱켜서 확인하는 것보다 나은게 없네요.;;; 그래도 영상을 따라 해보면서, 여러가지 아이디어를 얻어 실제 주식투자에 필요하도록 내용을 정리 중에 있습니다. 종종 좋은 영상 올려주세요~ ㅎㅎㅎ"
+UgySQErdf36VYtLAvYJ4AaABAg,,False,1,1,False,2026-06-08T07:52:23,220달러를 투자해서 코워크 기능을 활성화 시킬만큼 필요한 일일지 고민됨 ㅠ
+Ugx5a4fi_qwRpWaFBPp4AaABAg.AXl8NpureNSAXmn9TMkn9-,Ugx5a4fi_qwRpWaFBPp4AaABAg,True,1,0,True,2026-06-08T07:44:10,"네, API 활용하는 영상들도 차차 올려보겠습니다 :)"
+UgwuSPDIFlYIcEemSih4AaABAg,,False,1,1,False,2026-06-02T14:55:00,진짜 어렵네요.. 하라는데로 했는데.. 결국은 안됨 ㅠㅠ
+Ugx0u_48C8tUhOawVTp4AaABAg,,False,1,1,False,2026-06-01T09:37:25,주식종목 선정 하프롬포트도 잇을까요?
+UgwOxL1o0bIpdl_RpcJ4AaABAg,,False,1,0,False,2026-06-01T11:31:10,8ㅡ9시 정규장 전 주식가격 땡겨올수도?
+UgxyzT_2_AfQpWmVMW54AaABAg.AXkHOEV4yR2AYGwHGeqYxz,UgxyzT_2_AfQpWmVMW54AaABAg,True,1,0,False,2026-06-20T10:00:20,비서를 공짜로 부리려고 하신다면..
+UgxyzT_2_AfQpWmVMW54AaABAg.AXkHOEV4yR2AYNcoRYuI8a,UgxyzT_2_AfQpWmVMW54AaABAg,True,1,0,False,2026-06-23T00:24:55,​@레제-x1m유료라고 말해!!
+Ugz0uIKHfJ7YDb3uNLF4AaABAg.AXUlPa9wtioAXVAXwViLmp,Ugz0uIKHfJ7YDb3uNLF4AaABAg,True,1,0,True,2026-06-01T02:11:39,매일 정해놓은 시간에만 켜져있으면 됩니다!
+UgzhaM_1Zv8s6ifSTpx4AaABAg.AY6TgQEYdeWAY6U53WtTsH,UgzhaM_1Zv8s6ifSTpx4AaABAg,True,1,0,True,2026-06-16T08:32:52,그건 최고모델인 fable만이라 상관없습니다^^;
+UgyAG3kqjZTjfGfqzx14AaABAg,,False,1,1,False,2026-06-07T09:07:44,이 과정을 하기 위해서는 클로드 유로로 버전 업을 해줘야 하나요?
+UgzhOm_B421shNvPex54AaABAg,,False,1,1,False,2026-06-09T08:05:38,클로드 유료버전에서만 가능한건가요?
+UgxJz7WHSsy5UyUA-Op4AaABAg.AXVMmbQ_JyYAXVefcRnAM2,UgxJz7WHSsy5UyUA-Op4AaABAg,True,1,0,False,2026-06-01T06:43:44,​@stevesurfing pro버전 쓰고있습니다 좀 더 공부해보고 막히면 다시 질문할게요ㅎ;;
+UgyrCPtJN7Zj5bTzRbZ4AaABAg,,False,1,1,False,2026-05-31T21:40:33,클로드는 금방금방 사용량이 줄어들어서 일할때 쓰는데 하루에 몇번씩 기다려야하는데...이것까지하면 더 빨리 줄어들겠죠?
+UgxTm31uZLPmaNjQNKB4AaABAg,,False,1,1,False,2026-06-11T07:34:43,Ai가 사래서 사면 폭락
+UgyTGzW6RsHnB5T1pZR4AaABAg,,False,1,1,False,2026-06-16T12:30:08,걍 클로드 광고자나 ㅋㅋㅋㅋ  유료결제 유도하는 ㅋㅋㅋㅋㅋ 퉷
+UgzLYXwmX_VKMr7AGQR4AaABAg.AXWJWRKCJ6sAXoZoyoLm-s,UgzLYXwmX_VKMr7AGQR4AaABAg,True,1,0,False,2026-06-09T00:17:23,토스는 비틱질해대서 알람안씀
+UgzLYXwmX_VKMr7AGQR4AaABAg.AXWJWRKCJ6sAY6rM4BUIuu,UgzLYXwmX_VKMr7AGQR4AaABAg,True,1,0,False,2026-06-16T12:04:54,토스 뉴스가 꽤 느립니다 국장은 몰라도 미장은 느려요..
+UgwLdegbmmkcUT_TvkB4AaABAg.AXTcz9G8djRAXTdyDImcp3,UgwLdegbmmkcUT_TvkB4AaABAg,True,1,0,True,2026-05-31T11:59:03,"네 가능합니다. 텔레그램 봇 만들어서 연동하면 되는데, claude와 대화하면서 만들어보시면 어렵지 않을거에요~"
+UgxQr-2c9BLsWVR8sZp4AaABAg,,False,1,1,False,2026-05-31T11:24:34,종목수는 무제한인가요?
+UgyQTGayFWw0UMmzkx14AaABAg,,False,1,2,False,2026-05-31T06:10:47,"이제 여기서 매수매도만 하면 퀀트죠.
+글로벌 전세계 대국민 퀀트시대가 올듯요."
+UgyQTGayFWw0UMmzkx14AaABAg.AXT16U0VkPMAXT1ESomn7a,UgyQTGayFWw0UMmzkx14AaABAg,True,1,0,False,2026-05-31T06:11:52,컴퓨터 켜져있어야 한다 뭐 그러시는데 한달에 5만원정도 내고 아마존 서버 임대하면 24시간 내손안의 주식비서가 됩니다.
+UgyQTGayFWw0UMmzkx14AaABAg.AXT16U0VkPMAXT2nLxuGTe,UgyQTGayFWw0UMmzkx14AaABAg,True,1,0,True,2026-05-31T06:25:31,맞습니다 ㅎㅎ 그 매수매도 로직이 가장 어려운것같습니다.
+UgzVPu8dzfHLYCbilZd4AaABAg,,False,1,0,False,2026-05-31T03:38:08,샌드박스 환경에서는 yfinance 접속이 차단되어있다고 진행안됩니다..
+UgxYouGv2QkETKlO4Ot4AaABAg,,False,1,1,False,2026-05-31T01:17:07,저는 제미나이 프로를 쓰고 있는 사용자인데 요즘 제미나이가 좀 이상한거 같아서 그런데 주식에 대한 인사이트나 관련 뉴스 이런것들 에 대해 클로드가 더 객관적으로 잘 알려주나요?
+UgxYouGv2QkETKlO4Ot4AaABAg.AXSVVZX4N91AXS_corXqnd,UgxYouGv2QkETKlO4Ot4AaABAg,True,1,0,True,2026-05-31T02:01:56,"매번 업데이트마다 달라지지만, 요즘은 클로드가 성능 좋습니다 :)"
+UgyhkOzDUAltC6TwBvB4AaABAg,,False,1,1,False,2026-05-30T13:56:18,"클로드를 이용해 만들기는 했지만 구글 시트의 앱스 스크립트 기능을 통해 거의 비슷한 기능을 동작하도록 처리했습니다.
+지속적인 ai 이용에 따른 토큰 소비가 없어서 좋긴 하더라고요.
+보유 종목에 대하여 조사하여 매일 기록하고 분석 대시보드를 제공하고 일간, 주간, 월간, 분기별, 연도별 보고서 생성하여 메일로 송부하는 시스템입니다.
+생각보다 워낙 간단한 시스템이라 구축 당시 바이브 코딩을 위해 ai가 필요하고 운영단계에서는 전혀 ai가 불필요한 수준이더라고요.
+종목 변동사항도 반영이 훨씬 쉬웠습니다.
+
+기사 스크랩은 지금은 이용하지 않고 있으나 예전에 클로드 코워크로 구동한 적은 있는데 평소에 뉴스를 보니 불필요하다고 느껴지더라고요.
+그나마 밤새 있었던 해외 경제 뉴스 정도가 도움되었는데 그것도 요즘 폰의 기능이 좋아서 아침에 알림창으로 다 뜨더라고요.
+단순 기사 스크랩도 구동해보면 워낙 단순한 기능이라 ai가 불필요했습니다.
+하지만 그 중 알짜배기 정보를 판단해서 추천하려고 한다면 ai가 필요합니다.
+
+시스템 구축 당시 카카오톡 연동은 안되서 텔레그램봇이나 디스코드봇으로 연락하도록 했었는데 카카오톡도 이제 되나보네요.
+정보를 얻었으니 카카오톡 활용 방안을 고민해서 이용해봐야겠습니다."
+UgwD2YQ9kvPGLuWQirx4AaABAg,,False,1,1,False,2026-05-30T00:33:56,클로드 무료 로도 만들수 있나요?
+UgzKw_6A93p9C-MhpzJ4AaABAg.AXNsZq-t7FVAXVGA0Oow1f,UgzKw_6A93p9C-MhpzJ4AaABAg,True,1,0,False,2026-06-01T03:00:49,@stevesurfing 6월 중순 인가 부터 이제 샌드박스 규제 드가는거 모르시나요? 이제 앱 밖에서 토큰 쓰는거 완전 죽여놓음
+UgxwV60HCJIhYt9_9A54AaABAg.AXnS5os2AISAa4aw54HPeQ,UgxwV60HCJIhYt9_9A54AaABAg,True,1,0,False,2026-08-29T04:37:06,@usakorean 텔레그램으로 어떻게 받나요?
+UgzRyBG36eTyCXWvd1R4AaABAg.AX_EWo7BAmjAY6qjoorIx6,UgzRyBG36eTyCXWvd1R4AaABAg,True,1,0,False,2026-06-16T11:59:32,"@MkLaa-l1p그것도 무지성으로 오르는 불장이니까 그랬던거지
+ 장 안좋으면 좋은 회사든 뭐든 의미 없음"
+UgzRyBG36eTyCXWvd1R4AaABAg.AX_EWo7BAmjAYA_Q8bzqVk,UgzRyBG36eTyCXWvd1R4AaABAg,True,1,0,False,2026-06-17T22:45:08,문제가 아니라 그냥 본질이 그런거임. 그 안에서 저런 노력들을 통해서 본인만의 답을 찾는과정이지 누구나 올바르게 노력하면 성공할수 있음
+UgzRyBG36eTyCXWvd1R4AaABAg.AX_EWo7BAmjAYLcyczMTi2,UgzRyBG36eTyCXWvd1R4AaABAg,True,1,0,False,2026-06-22T05:47:50,@kollau2025 너는 주식하면 안되겠다 ㅋㅋㅋㅋㅋㅋ
+UgyKIiaG7da1vafLKDV4AaABAg.AXSIr-xiToNAXlfiQvW2ED,UgyKIiaG7da1vafLKDV4AaABAg,True,1,0,False,2026-06-07T21:19:56,아뇨 클로드가 텔레 내부를 볼순없아요. 텔레그램 그 채널내부에 봇을 설치하지않는이상
+UgxIdT23qB8-OUhT9WR4AaABAg.AXQTccuz4hEAYHOj0P8OFt,UgxIdT23qB8-OUhT9WR4AaABAg,True,0,0,False,2026-06-20T14:17:40,설정에서 도메인을 직접 추가하라는게 무슨 도메인을 추가하라는 말씀이신가요?
+UgxwV60HCJIhYt9_9A54AaABAg.AXnS5os2AISAY8xImbmarc,UgxwV60HCJIhYt9_9A54AaABAg,True,0,0,False,2026-06-17T07:35:21,흐미....이건 어찌 안되나요? 정말...
+UgyKwxGVH9pM5EUcvS94AaABAg,,False,0,0,False,2026-09-26T13:06:52,정말 좋은 방법을 알려주셔서 감사해요~!
+Ugy3UObEk4mvr8oIPFN4AaABAg,,False,0,1,False,2026-06-11T10:20:38,오~구독했습니다~바로 공유하고~좋아요^^  이런 유요한 꿀팁이 클로드 써보면서 이런정보가 있는지😅
+Ugy3UObEk4mvr8oIPFN4AaABAg.AXunS16zTWNAXzxCYgubFI,Ugy3UObEk4mvr8oIPFN4AaABAg,True,0,0,True,2026-06-13T10:22:06,유용하게 봐주셨다니 다행이에요^_^
+Ugx-76YpE5H5VY_jijN4AaABAg.AXv2xj47JR3AXxlipJ6dsy,Ugx-76YpE5H5VY_jijN4AaABAg,True,0,0,True,2026-06-12T14:03:18,죄송하다뇨 ㅎㅎ 멋진 결과물 만드셨다니 뿌듯하네요!! 화이팅입니다 ^^
+Ugy5GFlHJVdPDB1-45J4AaABAg,,False,0,0,False,2026-09-13T02:10:10,비서 생겨서 이제 다들 주식 수익률 향상에 도움 받으시겠네요?ㅎㅎ
+UgzRxjc3lEx_GZiXOsN4AaABAg,,False,0,0,False,2026-06-07T04:42:42,감사합니다
+Ugz6UBpZFDgXyoz3FRN4AaABAg.AXudrZHFjPpAXuivsn3zWk,Ugz6UBpZFDgXyoz3FRN4AaABAg,True,0,0,True,2026-06-11T09:41:09,와 대박!!! ㅎㅎ 야무지게 쓰시길 바랍니다
+UgwchKk818Il5pm2ooR4AaABAg.AXe73Ppr7MoAXeUn2GGeEs,UgwchKk818Il5pm2ooR4AaABAg,True,0,0,True,2026-06-05T02:21:01,좋게 봐주셔서 감사합니다 ^_^
+UgzRa5egdfArYfxPMVF4AaABAg,,False,0,1,False,2026-06-15T03:50:48,너무 좋은 정보 감사합니다. 구독하고 갑니다.~
+UgzRa5egdfArYfxPMVF4AaABAg.AY3P0OUJin0AY3zNkK1aM3,UgzRa5egdfArYfxPMVF4AaABAg,True,0,0,True,2026-06-15T09:17:18,좋게봐주셔서 감사합니다!!
+UgwIJvmhagtAMyXvNCV4AaABAg,,False,0,1,False,2026-06-12T03:50:26,꿀팁이네요 코워크 다운로드 받아서 써봐야겠네요 좋아요 구독완료했어여. 앞으로도 많은 꿀팁 알려주세요
+UgwIJvmhagtAMyXvNCV4AaABAg.AXwfa05xryLAXzFbKTX3JM,UgwIJvmhagtAMyXvNCV4AaABAg,True,0,0,True,2026-06-13T03:52:24,좋게 봐주셔서 감사합니다! 꿀팁 대방출 곧 갑니다 ㅎ.ㅎ
+Ugy0gOKQwLp15ukdA_p4AaABAg.AXe2-IOn6XVAXeUlvS-I7t,Ugy0gOKQwLp15ukdA_p4AaABAg,True,0,0,True,2026-06-05T02:20:52,좋게 봐주셔서 감사합니다 ^_^
+UgxC-LDrwWqSEX2z0tJ4AaABAg.AXjtZAw_MPEAXm5zS1sia8,UgxC-LDrwWqSEX2z0tJ4AaABAg,True,0,0,True,2026-06-08T01:18:11,도움되셨다니 다행입니다 :)
+UgwaDqE_ZJW_6Xh_HUZ4AaABAg.AYXQjCIbNagAYY3eE3PY8j,UgwaDqE_ZJW_6Xh_HUZ4AaABAg,True,0,0,True,2026-06-27T01:40:36,좋은 말씀 감사합니다 ㅎㅎ 무료로 알려드리니 많이 가져가시길!!!
+UgyuwflonYp_XSVVrjB4AaABAg.AXbWYxnI5r9AXcTDrjdKhU,UgyuwflonYp_XSVVrjB4AaABAg,True,0,0,True,2026-06-04T07:28:52,감사합니다 :) 멋진 툴 만드시길 바랍니다!
+UgzRyBG36eTyCXWvd1R4AaABAg.AX_EWo7BAmjAXi5ck3pSgM,UgzRyBG36eTyCXWvd1R4AaABAg,True,0,0,False,2026-06-06T11:58:08,​@오프103 불가능은 없음. 가능성이 낮은 거지.
+UgyyuW8H0jQfuLQXGHF4AaABAg.AXN9GH0h-H3AXN9dn9uoyG,UgyyuW8H0jQfuLQXGHF4AaABAg,True,0,0,True,2026-05-28T23:29:56,도움되셨다니 다행입니다^_^
+UgwhityLhUCRA3j-gb54AaABAg.AYQKPA_L1uRAYR1GCFwNEC,UgwhityLhUCRA3j-gb54AaABAg,True,0,0,True,2026-06-24T08:05:01,화이팅 ㅎㅎ
+Ugxrf1N7zkl2pS0aFVZ4AaABAg,,False,0,1,False,2026-06-17T03:21:29,"우수한 회사의 주식을 가지고 있다면 시간은 언제나 당신편이다
+ㅡ 월가의전설 피터린치"
+Ugxrf1N7zkl2pS0aFVZ4AaABAg.AY8VFLEOMSiAY9AoJoZ-0W,Ugxrf1N7zkl2pS0aFVZ4AaABAg,True,0,0,True,2026-06-17T09:42:08,명언!!!
+Ugxx3t2q_gaIC0y6I5t4AaABAg,,False,0,1,False,2026-07-11T08:03:50,성공~  200자가 적긴하네요 ㅎㅎ  감사 합니다
+Ugxx3t2q_gaIC0y6I5t4AaABAg.AZ6ndJPJZO0AZHHbImfAaW,Ugxx3t2q_gaIC0y6I5t4AaABAg,True,0,0,True,2026-07-15T09:46:50,이야~ 대단하십니다!!🎉
+UgyixKclOoU-09DtmnB4AaABAg,,False,0,1,False,2026-06-23T12:42:02,실제로 투자에 사용하기에는 과거데이터를 참고 해서 주거나 잘못된 정보를 주기도 하니 잘 걸러 내야 합니다..
+UgyixKclOoU-09DtmnB4AaABAg.AYOxACBYaz4AYR1OHX0hZF,UgyixKclOoU-09DtmnB4AaABAg,True,0,0,True,2026-06-24T08:06:08,맞아요. 처음 세팅할 때 제대로 만들고 결과도 꼭 직접 확인해야 정확합니다😊
+UgxLcU5sr29TtOpqFjl4AaABAg.AXr0gN2NUjHAXrbh6cF3o1,UgxLcU5sr29TtOpqFjl4AaABAg,True,0,0,True,2026-06-10T04:40:15,헛.. 알겠습니다 ㅎㅎ 좋게 봐주셔서 감사합니다 ^_^
+UgzQx4V5ngdt223LYgt4AaABAg.AXvLRxQFPE5AXzFXaxy-uu,UgzQx4V5ngdt223LYgt4AaABAg,True,0,0,True,2026-06-13T03:51:46,잘 쓰셨다니 멋지십니다 ㅎㅎ 어려운 점은 댓글 달아주시면 도와드릴게요 :)
+UgyHhtJ3O3AQ0InwqZ54AaABAg,,False,0,0,False,2026-10-02T02:09:59,나는 AI가 주식도 자동으로 알아서 매매했으면 좋겠다^
+Ugxuq5jZV1D8pUHJJ-l4AaABAg.AXMW3MuJ0miAXN6Yep6V58,Ugxuq5jZV1D8pUHJJ-l4AaABAg,True,0,0,True,2026-05-28T23:02:53,해보니까 여러 메세지로 쪼개서 보내주는군요? ㅎㅎ 몰랐던 건데 감사합니다!
+Ugxuq5jZV1D8pUHJJ-l4AaABAg.AXMW3MuJ0miAXN6gQK1TPc,Ugxuq5jZV1D8pUHJJ-l4AaABAg,True,0,0,False,2026-05-28T23:04:05,저는 통째로 보내줘요. ^^
+Ugxuq5jZV1D8pUHJJ-l4AaABAg.AXMW3MuJ0miAXPnXvnhRWi,Ugxuq5jZV1D8pUHJJ-l4AaABAg,True,0,0,False,2026-05-30T00:05:45,"@stevesurfing 클러드에게 그냥 무시하고 해도 된다고 이야기하면 그렇게 해주고요. 
+저는 처음에는 playMCP로 그렇게 했었고, 지금은 그냥 카톡 개발자로 들어가서 자체 세팅을 했습니다. ^^"
+Ugxuq5jZV1D8pUHJJ-l4AaABAg.AXMW3MuJ0miAXS_Mwc4xiq,Ugxuq5jZV1D8pUHJJ-l4AaABAg,True,0,0,True,2026-05-31T01:59:38,아 자체 커스텀 세팅하셨군요 ㅎㅎ 좋은 아이디어 공유 감사합니다
+Ugy2Ny8R8G2sYb7cTeF4AaABAg,,False,0,0,False,2026-09-02T08:18:49,pc가 꺼져있어도 일해야 진정한 ai 아닌가요??
+UgydJfiVX-cIZtrZfBl4AaABAg,,False,0,1,False,2026-07-04T10:53:19,이거 말고 제미나이로 삼성리마인더로 해서 세팅해서  주식 뉴스 볼수있음
+UgydJfiVX-cIZtrZfBl4AaABAg.AYq4TZ3t029A_ptSHzaAfL,UgydJfiVX-cIZtrZfBl4AaABAg,True,0,0,False,2026-08-23T02:11:04,제미나이로 하는게 더 나아요?
+UgxxUNjfs-GLANS3mRF4AaABAg,,False,0,2,False,2026-06-07T01:38:52,유익자료 감사드려요! 근데 키보드 뭐쓰세요? 타건소리가 너무 좋은데요!
+UgxxUNjfs-GLANS3mRF4AaABAg.AXjZZ4Il7ZKAXqj2HqyrYS,UgxxUNjfs-GLANS3mRF4AaABAg,True,0,0,False,2026-06-09T20:25:12,​@stevesurfing몽돌리니어스위치인가보네요. 감사합니다.
+UgxQ0-aX_c9TWNALmol4AaABAg,,False,0,1,False,2026-09-18T04:31:35,"와 제대로 배웠습니다 감사합니다 
+형님 혹시 이건 클로드로만 가능한 매커니즘인가요? 아니면 다른 AI로도 가능한 영역인가요?"
+UgxQ0-aX_c9TWNALmol4AaABAg.Aat5CB5aIw5Ab3MqybOR-i,UgxQ0-aX_c9TWNALmol4AaABAg,True,0,0,True,2026-09-22T13:37:29,코딩 에이전트로는 다 가능합니다 ㅎㅎ 코덱스로도 가능하단 뜻이죠~~!
+UgziOBOA9uRhIp6Le1l4AaABAg,,False,0,1,False,2026-07-30T07:54:27,현재는 이관하여 사용못합니다
+UgziOBOA9uRhIp6Le1l4AaABAg.AZshfD3WYEwAZwxS4KQo86,UgziOBOA9uRhIp6Le1l4AaABAg,True,0,0,True,2026-07-31T23:29:17,"네이버 api 말씀이시죠? 앞으로 여기에서 가능하다고 합니다! https://www.ncloud.com/product/applicationService/naverApiHub
+좋은 포인트 감사드려요 :)"
+UgyMCJ8tacmedCeESnx4AaABAg.AXYj1ZgJiStAXYo7e7-lVt,UgyMCJ8tacmedCeESnx4AaABAg,True,0,0,True,2026-06-02T12:04:03,이야 멋지십니다 ㅎㅎ
+UgxUSi9nXvJdWw39BGd4AaABAg.AXYiiajcRSNAXYo6GL7eyN,UgxUSi9nXvJdWw39BGd4AaABAg,True,0,0,True,2026-06-02T12:03:52,ㅎㅎ 새로운 세상에 눈을 뜨셨군요!
+UgxUSi9nXvJdWw39BGd4AaABAg.AXYiiajcRSNAXZWKACVMH3,UgxUSi9nXvJdWw39BGd4AaABAg,True,0,0,False,2026-06-02T18:38:59,@stevesurfing 심지어 지금 노트북 성능 보여주니 이건 충분히 가능하다면서 이것저것 건들여서 어플까지 구동해줫습니다 클로드가 ㅋㅋㅋ 시키는대로 노트북 만지니 어플이 되더라구요 그래서 지금 프롬프트 복사하러 노트북으로 다시 영상에 접속햇답니다
+UgxUSi9nXvJdWw39BGd4AaABAg.AXYiiajcRSNAX_CRD9-g8C,UgxUSi9nXvJdWw39BGd4AaABAg,True,0,0,True,2026-06-03T01:04:25,@zkwx47kpt5 오 다행이네요! 멋진 결과물 만들어보시길!!
+UgwPbj3NbOjaVXf19gN4AaABAg,,False,0,1,False,2026-06-08T15:51:39,터틀 트레이딩 정도는 알고리즘 돌려놔도 될 것 같긴 한데
+UgwPbj3NbOjaVXf19gN4AaABAg.AXnewpYUzIlAadw-W9pX-D,UgwPbj3NbOjaVXf19gN4AaABAg,True,0,0,False,2026-09-12T07:13:52,모의 자동매매로 돌려 봤는데 음... 수익률이 꽝이네요 ㅋㅋㅋ ... 실 매매시 적용하시면 안 될겁니다. 횡보장 하락장에서는 잘 안통합니다. 추세가 있어서 상승하는 종목이 많을 때나 통하지
+Ugx_FAyPk_GVS5tG3p54AaABAg,,False,0,1,False,2026-06-05T22:21:41,천재시다
+Ugx_FAyPk_GVS5tG3p54AaABAg.AXgdBvi739GAXgtiURCIxX,Ugx_FAyPk_GVS5tG3p54AaABAg,True,0,0,True,2026-06-06T00:46:04,^ 3 ^
+UgyCjFtfKY41jFZRvdZ4AaABAg,,False,0,1,False,2026-06-05T10:24:55,아이맥이 있긴한데 켜져있으면 된다는게 화면도 들어와있어야한다는 말씀이신가요? 아니면 언제든 켜지는 대기모드(잠자기모드)여도 되는건가요?
+UgyCjFtfKY41jFZRvdZ4AaABAg.AXfMAD5rhKiAXgu9SnRayH,UgyCjFtfKY41jFZRvdZ4AaABAg,True,0,0,True,2026-06-06T00:49:54,"대기모드일때는 실행이 안돼요, 그러다 전원 켜지면 놓쳤던 최근 schedule을 실행합니다. cowork에서 절전모드방지 토글을 on으로 해주세요!"
+UgzRA3chlMkrUEIj9454AaABAg,,False,0,0,False,2026-08-22T07:01:49,전혀 다른 화면이 나오네요
+Ugz_YtFUzThyaMZ_God4AaABAg,,False,0,3,False,2026-06-01T08:27:13,유익한 정보 감사합니다! 열심히 따라해보았네요 ㅎㅎ 혹시나 네이버 검색 API도 대략 사용하는 방법 알려주시면 감사하겠습니다~
+Ugz_YtFUzThyaMZ_God4AaABAg.AXVqWc1rhpwAXWJu6scKnc,Ugz_YtFUzThyaMZ_God4AaABAg,True,0,0,True,2026-06-01T12:52:42,멋지십니다 ㅎㅎ 간단하게는 개발자센터 - 서비스 API - 검색 - 오픈API 이용 신청 눌러서 신청 후 발급받아서 클로드에게 키를 주면 됩니다.
+Ugz_YtFUzThyaMZ_God4AaABAg.AXVqWc1rhpwAXWaANhZ_nu,Ugz_YtFUzThyaMZ_God4AaABAg,True,0,0,False,2026-06-01T15:23:37,"@stevesurfing 아 넵 감사합니다~  
+말씀하신대로 했을 때,  
+ 
+애플리케이션 등록 (API 이용신청) >>  
+애플리케이션 이름: 설정 >>  
+사용 api: 검색 설정 >> 
+비로그인 오픈 API 서비스 환경: web설정 >> 
+웹 서비스 URL 단계에서 어떻게 설정하면 될지 
+조언 구할 수 있을까요??"
+Ugxgb2y4MumrqCW7Kjl4AaABAg.AXVmXrvnrzDAXVr-STRyYM,Ugxgb2y4MumrqCW7Kjl4AaABAg,True,0,0,True,2026-06-01T08:31:26,와 👏 멋지십니다 ㅎㅎ 환경 어떻게 바뀌었던가요?
+Ugxt2wLgRkWWEZDpzI54AaABAg,,False,0,0,False,2026-08-29T02:06:05,"감사합니다.  위 내용 메일이나 카톡 받으려면 개인 컴퓨터를 켜 놓아야 한다고 말씀 하쎳는데, 개인 컴츄터 대신 아이패드를 켜놓고 카톡을 받아 볼 수는 없는지요?"
+Ugww75-zbJEyvHKUZT94AaABAg.AXW9Bvrg4N6AXWKUIiHj2I,Ugww75-zbJEyvHKUZT94AaABAg,True,0,0,False,2026-06-01T12:57:47,"@stevesurfing  답변 감사합니다. 다름이 아니라 클로드에서 실행 중인데 자꾸 ,네트워크 접근이 제한되어 있어서, 서버에서 직접 라이브러리를 설치하거나 API를 호출할 수 없는 환경입니다. 이런 식으로 답변하는데 무엇이 문제가되는 건가요??"
+Ugww75-zbJEyvHKUZT94AaABAg.AXW9Bvrg4N6AXWKlNlNZQ4,Ugww75-zbJEyvHKUZT94AaABAg,True,0,0,True,2026-06-01T13:00:15,@scott-z8p고정 댓글 설정 먼저 확인해주세요^^
+Ugww75-zbJEyvHKUZT94AaABAg.AXW9Bvrg4N6AXXPVbPD7qn,Ugww75-zbJEyvHKUZT94AaABAg,True,0,0,False,2026-06-01T23:00:54,@stevesurfing 친절한 답변 감사합니다. 꾸준하게 영상 시청 하겠습니다.
+Ugy3Vc93cgH4sT-A-Bh4AaABAg,,False,0,1,False,2026-06-03T15:51:57,좋은 정보 감사합니다. 그런데 이거 매일 실행하게되면 토큰 소모되는거죠? 미리 지정해놓은 작업 실행에 토큰 소모 어느 정도인가요?
+Ugy3Vc93cgH4sT-A-Bh4AaABAg.AXan-jMRvwxAXcTGt_0s75,Ugy3Vc93cgH4sT-A-Bh4AaABAg,True,0,0,True,2026-06-04T07:29:17,"네 맞습니다, 정확히 소모량은 모르지만 크진 않을 것 같아요~"
+UgzTPM-6QNk6JgOh4H94AaABAg,,False,0,1,False,2026-06-03T00:55:26,핸드폰 위젯으로도 바로 볼수있음
+UgzTPM-6QNk6JgOh4H94AaABAg.AX_BPQPDl73AXbZDdjCm0w,UgzTPM-6QNk6JgOh4H94AaABAg,True,0,0,False,2026-06-03T23:02:01,어떻데 하나요??
+UgyJ8d3WAMIA2E1WeQ94AaABAg,,False,0,0,False,2026-09-04T01:11:44,ai 자동 매매 시스템도 가능한가요? 당일 뉴스를 보고 한도 내에서 자동 판매 및 구매를 실시간으로 가능하게요
+Ugy0RbF0VJGHoG5V0h14AaABAg.AYDsLb0-0FdAYJ8XzzZLIQ,Ugy0RbF0VJGHoG5V0h14AaABAg,True,0,0,True,2026-06-21T06:34:42,"네 ㅎㅎ 기본 기능을 만들고나서는, 내게 딱 맞는 기능들을 추가로 붙이면 어디에도 없는 나만의 앱을 만들 수 있을거에요 :)"
+UgzXS_NnczjwNt6Qh314AaABAg,,False,0,1,False,2026-06-07T03:40:01,감사합나다.나누는 힘을 느낌입니다
+UgzXS_NnczjwNt6Qh314AaABAg.AXjmQOPiqrWAXm6CPPX9bX,UgzXS_NnczjwNt6Qh314AaABAg,True,0,0,True,2026-06-08T01:20:06,좋게 봐주셔서 감사합니다!!
+Ugy9AH362HgJqEIFe314AaABAg,,False,0,1,False,2026-07-12T23:42:00,오... 수익은 많이 올리셨는지도 궁금합니다.
+Ugy9AH362HgJqEIFe314AaABAg.AZB2nZ_mgv3AZHHgodeVft,Ugy9AH362HgJqEIFe314AaABAg,True,0,0,True,2026-07-15T09:47:36,수익은 AI랑 별개..!! ㅎㅎ
+UgwczHLpjSPDK5Ueztp4AaABAg,,False,0,1,False,2026-06-02T02:34:08,"Pykrx, 야후파이낸스 샌드박스 네트워크 제한이라고 나옵니다 혹시 따로 설정을 변경해야하나요?"
+UgwczHLpjSPDK5Ueztp4AaABAg.AXXmuRcpLrBAXXtckpjKTF,UgwczHLpjSPDK5Ueztp4AaABAg,True,0,0,True,2026-06-02T03:32:53,고정댓글에 설정법 정리해뒀습니다!
+UgySQErdf36VYtLAvYJ4AaABAg.AXmo5cB-vQ2AXmpQsPEffZ,UgySQErdf36VYtLAvYJ4AaABAg,True,0,0,True,2026-06-08T08:04:01,월 20달러 요금제부터 사용 가능합니다😅
+Ugx5a4fi_qwRpWaFBPp4AaABAg,,False,0,1,False,2026-06-07T16:19:53,넘신기한데......... 네이버 api적용하는 영상도 올려주시면 안되나요 ㅠㅠㅠㅠ
+UgwuSPDIFlYIcEemSih4AaABAg.AXZ6ghWa9CnAX_Bx1axEwo,UgwuSPDIFlYIcEemSih4AaABAg,True,0,0,True,2026-06-03T01:00:10,ㅠ 어디서 막히셨어요?
+UgxT_G2olKRhz12irpt4AaABAg,,False,0,1,False,2026-08-02T11:52:20,이제야 찾아보게 되내요 감사해요 그리고 자동 주문이나 그런건 안될까요 ?
+UgxT_G2olKRhz12irpt4AaABAg.A_-rH98O80MA_1JORRF5Tb,UgxT_G2olKRhz12irpt4AaABAg,True,0,0,True,2026-08-03T01:25:58,감사합니다 ㅎㅎ 어떤 자동 주문일까요? 자세한 프로세스 제 메일로 보내주시면 가능한지 디테일하게 봐드릴게요~
+Ugx0u_48C8tUhOawVTp4AaABAg.AXVyYnJdwZ0AXWU39ElFCE,Ugx0u_48C8tUhOawVTp4AaABAg,True,0,0,True,2026-06-01T14:21:27,그것은 매매의 영역이라.. 웬만하면 추천드리지 않습니다 ㅎㅎ
+Ugw9rnmyMFyeA4KG1iF4AaABAg.AXTvoHap7SLAX_rS25Bw-V,Ugw9rnmyMFyeA4KG1iF4AaABAg,True,0,0,False,2026-06-03T07:11:32,뭘 낳아 임마
+UgynLGFSNHil_lEGlHx4AaABAg,,False,0,1,False,2026-06-03T19:50:44,딱 만들어보고 싶은 거였는데  감사 합니다. 딱 한 종목씩만 가능 한가요? 아님 여러 종목도 가능한가요?
+UgynLGFSNHil_lEGlHx4AaABAg.AXbDKbj2fCMAXcTIWtKxn7,UgynLGFSNHil_lEGlHx4AaABAg,True,0,0,True,2026-06-04T07:29:30,당연히 여러 종목도 가능합니다!
+UgwPshc4dJr8U2ppbGF4AaABAg,,False,0,0,False,2026-08-22T16:21:07,"PC를 계속 돌리려면, 가정에도 전력기 하나 돌려야겠네요. 기왕이면 친환경 전력기로....."
+UgyX448n4MQ69LEBhaV4AaABAg,,False,0,1,False,2026-09-14T12:42:22,"이런거 할 생각으로 할꺼면
+그냥 주식하지말아야지"
+UgyX448n4MQ69LEBhaV4AaABAg.AajfBEp7UwKAbm6KTGuHDg,UgyX448n4MQ69LEBhaV4AaABAg,True,0,0,False,2026-10-10T07:58:10,머리가 나쁘면 몸이 고생한다고. 넌 고생 좀 해라 ㅋ
+UgzmhUrQtnvq5Bm93pJ4AaABAg,,False,0,1,False,2026-08-09T12:14:22,지피티로 하는 법도 알려주세요
+UgzmhUrQtnvq5Bm93pJ4AaABAg.A_HvMjGr0_AA_KcGMB2aHB,UgzmhUrQtnvq5Bm93pJ4AaABAg,True,0,0,True,2026-08-10T13:25:12,지피티 유료구독중이시면 Codex로 영상과 똑같이 만드실 수 있습니다!! ㅎㅎ
+Ugzfj-cw__flZKXnskt4AaABAg.AXrwUtSzJKtAY7MFzMMqSp,Ugzfj-cw__flZKXnskt4AaABAg,True,0,0,False,2026-06-16T16:43:41,님 덕분에 뒤로가기와 차단 누르고 갑니다...고마워요
+UgyDr04U7yylHmkaTWp4AaABAg,,False,0,1,False,2026-06-05T04:04:28,혹시 웹으로 사용 안하고 다운로드를 받은 후에 사용하시는 이유가 있으신지요??
+UgyDr04U7yylHmkaTWp4AaABAg.AXefcdGVnJZAXegfPc5Bs5,UgyDr04U7yylHmkaTWp4AaABAg,True,0,0,True,2026-06-05T04:13:35,기본적으로는 거의 동일한데 데스크탑 앱은 컴퓨터 내 파일 및 터미널에 접근할 수 있어요! 그렇다보니 확장성과 자율성이 더 높아서 선호합니다. (보안만 잘 챙긴다면)
+Ugwx1TvxgYtt3UE3U5p4AaABAg,,False,0,1,False,2026-06-11T08:13:31,"이거 진행중인데 저거 구독중이시죠?
+삼전은 55800원 닉스는 198500으로 설명해주네요.
+돈을 내야 정확한 정보를 주나 봅니다 ㅠㅠ"
+Ugwx1TvxgYtt3UE3U5p4AaABAg.AXuZtzLSa_eAXuipbMZwq4,Ugwx1TvxgYtt3UE3U5p4AaABAg,True,0,0,True,2026-06-11T09:40:18,"저는 구독중이긴 한데, 무료 모델도 오늘 날짜와 함께 최신 정보로 달라고 하시면 정확히 줄거에요!"
+Ugww5Fhe9qPe6gjoWJt4AaABAg,,False,0,1,False,2026-06-19T15:41:06,이 영상 알고리즘에 떠서 태어나서 처음으로 클로드 깔고 질문했더니 클로드가 LG전자 사라고해서 삿다가 -30% 12만원 손절함 채널주 이게 뭡니까..?!ㅜㅜ
+Ugww5Fhe9qPe6gjoWJt4AaABAg.AYEyUFBofmUAYG8g9ueYS-,Ugww5Fhe9qPe6gjoWJt4AaABAg,True,0,0,True,2026-06-20T02:38:14,아앗.. 매수매도는 AI말 듣고 하지마세요 ㅠㅠ
+UgyMKebbub1_OUM5b9x4AaABAg,,False,0,1,False,2026-06-11T09:21:33,형 너무너무 좋은데 항상 pc를 켜놔야한다는 단점이있네요 ㅠㅠ 등짝 스매싱 각인데 정보의양이 적어도 모바일로 받아볼수있는 방법읔 없을까요?
+UgyMKebbub1_OUM5b9x4AaABAg.AXuggHDxeGlAXzvPKA5nbu,UgyMKebbub1_OUM5b9x4AaABAg,True,0,0,True,2026-06-13T10:06:22,클로드 웹에서 코드기능 사용하면 로컬파일 접근은 안되지만 꺼놔도 될거같아요 :)
+UgxBgwO1tfkNbd0_O0t4AaABAg,,False,0,1,False,2026-06-29T22:18:30,"아쉽게도 제가 가진 도구들 중에는 ""매일 정해진 시간에 자동으로 실행""하는 스케줄링 기능이 없어요. 지금 이 대화창에서는 사용자가 메시지를 보낼 때만 제가 작업을 수행할 수 있고, 백그라운드에서 알아서 매일 7시 반에 깨어나서 작업하는 건 불가능합니다."
+UgxBgwO1tfkNbd0_O0t4AaABAg.AYeQuZMxFW0AYgwxvuV5yq,UgxBgwO1tfkNbd0_O0t4AaABAg,True,0,0,True,2026-06-30T21:45:48,유료 구독 중이신가요~?
+Ugzu5gcZutDSp4FuxDh4AaABAg,,False,0,1,False,2026-06-03T01:47:03,유료결제를 해야 하나요?
+Ugzu5gcZutDSp4FuxDh4AaABAg.AX_HJUESBY5AX_K0B43pI9,Ugzu5gcZutDSp4FuxDh4AaABAg,True,0,0,True,2026-06-03T02:10:38,네 Cowork는 유료 플랜이 필요합니다!
+UgxRCY80UlSw5ZnQkOV4AaABAg,,False,0,1,False,2026-06-18T14:21:24,혹시 유료 구독 리서치 사이트에서의 정보도 요약해서 가져올수 있나요?
+UgxRCY80UlSw5ZnQkOV4AaABAg.AYCFZYyi-WYAYJ8QXAAan0,UgxRCY80UlSw5ZnQkOV4AaABAg,True,0,0,True,2026-06-21T06:33:41,그건 별도의 크롤링 프로그램을 만들어야할것같아요~!
+UgzhaM_1Zv8s6ifSTpx4AaABAg,,False,0,1,False,2026-06-16T08:29:21,미국 정부의 클로드 해외접속 폐쇄 방침에 따라 6.12일부터 말씀하신 기능사용이 불가합니다. 유료가입도 마찬가지...
+UgxxPQ61nAEtS-d2leF4AaABAg,,False,0,1,False,2026-06-14T12:01:50,상단에 고양이 꼬리 살랑이는 거에 시선이 뺏김ㅋㅋㅋ 저건 어떤 기능인가요
+UgxxPQ61nAEtS-d2leF4AaABAg.AY1hPtW-dS-AY3zACkfQvM,UgxxPQ61nAEtS-d2leF4AaABAg,True,0,0,True,2026-06-15T09:15:28,귀엽죠? ㅋㅋㅋ runcat이라는 컴퓨터 사용량 알려주는 툴이에요
+UgxUrhZ-arIglahaX2B4AaABAg,,False,0,1,False,2026-05-31T06:35:04,아이패드로는 안되는걸까요..?
+UgxUrhZ-arIglahaX2B4AaABAg.AXT3tMWuG3UAXT8xZKCVN3,UgxUrhZ-arIglahaX2B4AaABAg,True,0,0,True,2026-05-31T07:19:20,네 아이패드는 어렵습니다 ㅠ
+UgyVpKvCtKqNdqPIEiZ4AaABAg,,False,0,1,False,2026-06-20T04:02:32,컴퓨터 절전모드로도켜두면 작동이 되나요?
+UgyVpKvCtKqNdqPIEiZ4AaABAg.AYGIKcPBSKpAYJAf_hN6G6,UgyVpKvCtKqNdqPIEiZ4AaABAg,True,0,0,True,2026-06-21T06:53:21,절전모드면 안합니다!
+Ugz2-J9pdluYR7jR4xN4AaABAg,,False,0,1,False,2026-06-03T07:07:24,아이패드도 가능한가요?
+Ugz2-J9pdluYR7jR4xN4AaABAg.AX_qyjzewMGAXaBiUqCtoN,Ugz2-J9pdluYR7jR4xN4AaABAg,True,0,0,True,2026-06-03T10:17:25,아이패드는 어렵습니다 ㅠㅠ
+UgwJw8M4HuOQ_aDc8ql4AaABAg,,False,0,2,False,2026-06-07T09:30:12,클로드 말고 제마나이로도 가능한가요? 클로드 무료버전으로도 제작이 가능한지 궁금합니다! 조금 하니까 크레딧이 다 사용돼서 만드는게 안되네요 ㅜㅜ
+UgwJw8M4HuOQ_aDc8ql4AaABAg.AXkPV7yIHwRAXmBtRvrw1w,UgwJw8M4HuOQ_aDc8ql4AaABAg,True,0,0,True,2026-06-08T02:09:48,"클로드 무료, 제미나이로는 어렵습니다 ㅠㅠ 혹시 chatgpt 유료 사용중이시면 코덱스로 가능해요!"
+UgwJw8M4HuOQ_aDc8ql4AaABAg.AXkPV7yIHwRAXo1jNY_IBP,UgwJw8M4HuOQ_aDc8ql4AaABAg,True,0,0,False,2026-06-08T19:19:31,@stevesurfing지피티 프로버전 월3만원 사용중인데 동일하게 하면 될까요??
+UgyvadpoZzq0FZQhBHV4AaABAg,,False,0,1,False,2026-07-24T04:13:38,"궁금한게, 컴터로 놓으면 전화로도 연동되는거죠? 그럼 전화는 계속  켜져있으니까 컴터는 안켜도 되는거 아니에요? 초보라 ㅠ"
+UgyvadpoZzq0FZQhBHV4AaABAg.AZcrcfcsypjAZnxtXf3yNK,UgyvadpoZzq0FZQhBHV4AaABAg,True,0,0,True,2026-07-28T11:40:00,컴퓨터가 '메세지를 보내주는 본체' 라고 생각하시면 이해가 되실겁니다^_^ 폰은 그걸 받는 역할이구요~
+Ugya7uSeRIaXm5etrxp4AaABAg,,False,0,1,False,2026-06-12T06:36:10,"혹시 이런걸 하려면컴퓨터사양이 좋아하할수잇나요?
+컴맹이라"
+Ugya7uSeRIaXm5etrxp4AaABAg.AXwyYvLoA16AXz83TFDVUl,Ugya7uSeRIaXm5etrxp4AaABAg,True,0,0,True,2026-06-13T02:46:29,컴퓨터 사양은 크게 상관없습니다 ㅎㅎ
+Ugwy8DnYu4_agLWAeSJ4AaABAg,,False,0,1,False,2026-06-29T12:33:42,유료버전만되겠죠ㅕ?
+Ugwy8DnYu4_agLWAeSJ4AaABAg.AYdNzR0O4VMAYfDVvaUqAb,Ugwy8DnYu4_agLWAeSJ4AaABAg,True,0,0,True,2026-06-30T05:40:38,네 현재는 그렇습니다 🥲
+UgyAG3kqjZTjfGfqzx14AaABAg.AXkMvcmIO42AXm63UPMhdC,UgyAG3kqjZTjfGfqzx14AaABAg,True,0,0,True,2026-06-08T01:18:53,네 맞습니다!
+UgzF3MJgxAPOUo5HhCR4AaABAg,,False,0,1,False,2026-06-09T05:45:12,구글 제미나이는 활용못하나요?
+UgzF3MJgxAPOUo5HhCR4AaABAg.AXp9KvZB4aSAXpWp3_WtmK,UgzF3MJgxAPOUo5HhCR4AaABAg,True,0,0,True,2026-06-09T09:10:25,제미나이는 에이전틱아지 않아서 어려워요 ㅠㅠ
+UgzhOm_B421shNvPex54AaABAg.AXpPPWkWAxOAXpWpgpai33,UgzhOm_B421shNvPex54AaABAg,True,0,0,True,2026-06-09T09:10:30,네 맞습니다..!!
+UgwL6UAPg4gviAMOLu94AaABAg,,False,0,1,False,2026-05-31T04:17:04,혹시 맥북으로 사용할때도 항상 열려있어야되나요?
+UgwL6UAPg4gviAMOLu94AaABAg.AXSp5YRIlEjAXT2imRfgd3,UgwL6UAPg4gviAMOLu94AaABAg,True,0,0,True,2026-05-31T06:24:53,Cowork로 만든 툴이면 맞습니다!
+UgzellK5nFuLWf8rugF4AaABAg,,False,0,0,False,2026-09-07T13:22:00,"제미나이한테 물어봐. 
+다 알려줘.
+
+무료"
+UgxJz7WHSsy5UyUA-Op4AaABAg,,False,0,2,False,2026-06-01T03:58:39,claude 스케줄 등록이 안된다고뜰땐 어떻게하나요?
+UgxJz7WHSsy5UyUA-Op4AaABAg.AXVMmbQ_JyYAXVcTIwqS9Y,UgxJz7WHSsy5UyUA-Op4AaABAg,True,0,0,True,2026-06-01T06:24:26,왜 안된다고 뜨던가요?? 유료 버전으로 cowork 쓰시는 거 맞죠?
+UgyN7w_xZ0lVq1cxxTx4AaABAg,,False,0,0,False,2026-08-30T18:10:38,구글 제미나이로는 못 하나요?
+UgwrIwxW1p4qN3_NmiR4AaABAg,,False,0,0,False,2026-08-30T13:04:44,폰으로 해도 아는데 궂이 카톡에 보내야하나요
+UgyrCPtJN7Zj5bTzRbZ4AaABAg.AXUgWJ6oMK3AXVA_2-EBnl,UgyrCPtJN7Zj5bTzRbZ4AaABAg,True,0,0,True,2026-06-01T02:11:57,아무래도 토큰을 소모하기에 그럴 수 있습니다^^;
+Ugyaor9t4OXW-bpBoaB4AaABAg,,False,0,1,False,2026-07-26T15:03:34,모바일로 가능한가요?
+Ugyaor9t4OXW-bpBoaB4AaABAg.AZjAajRGbxAAZnItryNsTp,Ugyaor9t4OXW-bpBoaB4AaABAg,True,0,0,True,2026-07-28T05:33:04,PC로 만들어놓으면 모바일로 받아보실 수 있슴다!!
+Ugw0qZyG44iCDYu6Xid4AaABAg,,False,0,1,False,2026-06-22T04:15:06,코워크는 무료로 가능한가요?>
+Ugw0qZyG44iCDYu6Xid4AaABAg.AYLTMTUBpQPAYLXuED-hjd,Ugw0qZyG44iCDYu6Xid4AaABAg,True,0,0,True,2026-06-22T04:54:48,코워크는 유료 구독이 필요합니다🥲
+UgxTm31uZLPmaNjQNKB4AaABAg.AXuVSsVdd-aAXuiqxPLSZW,UgxTm31uZLPmaNjQNKB4AaABAg,True,0,0,True,2026-06-11T09:40:29,AI한테 매수매도 추천받지 마세요!!
+Ugz9XCPRALNHBP4rvLB4AaABAg,,False,0,0,False,2026-08-24T13:54:58,무료 버전은 안되는군요 ㅠ
+UgyG14KteRWm5-YFUZh4AaABAg,,False,0,1,False,2026-10-13T22:12:43,이거하고 하닉에 물렸나요 안물렸나요?
+UgyG14KteRWm5-YFUZh4AaABAg.AbvMVyw552gAbw2_nEzfzk,UgyG14KteRWm5-YFUZh4AaABAg,True,0,0,True,2026-10-14T04:37:51,ㅋㅋㅋㅋ 🥲
+Ugy1KU5iHzF0v5m3NN14AaABAg,,False,0,0,False,2026-09-05T07:44:26,오선 아침 시항 뉴스 미만 잡ㅋㅋㅋㅋㅋ 심지어 오선은 무료!
+UgxgCldzSzVn1sf3MwB4AaABAg,,False,0,1,False,2026-09-01T16:35:43,이거 클로드 코워크 쓰려면 유료결재 해야하나요.??
+UgxgCldzSzVn1sf3MwB4AaABAg.AaDbYuoDK1GAbJqzn7DXR2,UgxgCldzSzVn1sf3MwB4AaABAg,True,0,0,True,2026-09-28T23:17:26,네 현재는 맞습니다!!
+UgzORclD2Ck7AX1AlGl4AaABAg,,False,0,0,False,2026-08-31T23:22:31,"그냥 네이버에서 관심종목 등록하고, 찾아보면 한방에 되는데. 컴퓨터를 왜 켜"
+UgymgPFZIe5lYPtpSHN4AaABAg,,False,0,0,False,2026-08-30T18:18:37,"윈도우11 pc
+맥북
+이런 컴 있어야 하군요.
+
+리눅스 컴 에서도 가능해요??"
+UgxmHJDr_wUFFEBFBaN4AaABAg,,False,0,0,False,2026-07-26T13:11:49,"그런데 클라우드가 좀느리던데....예전  기록으로 말해줌,.....최신정보가 아님"
+Ugy0yXjtIBFLbgJpx6h4AaABAg,,False,0,1,False,2026-07-25T08:27:18,playmcp 없는데 막혔나여?
+Ugy0yXjtIBFLbgJpx6h4AaABAg.AZftSUoXPgvAZnxpeQIUHS,Ugy0yXjtIBFLbgJpx6h4AaABAg,True,0,0,True,2026-07-28T11:39:29,안막혔습니다! 다시 한 번 들어가보세요 :)
+UgxrKZuCSKZsqTDqz954AaABAg,,False,0,0,False,2026-07-24T04:45:37,"유용한 영상 감사합니다~
+영상 보면서 따라하는 중인데 아래와 같은 메시지가 나오네용 혹시 우회 방법이 있을까요?
+
+참고: pykrx는 현재 KRX 로그인 자격증명(KRX_ID/KRX_PW 환경변수)을 요구해 실패"
+UgwaijytSGQsxNIy7TF4AaABAg,,False,0,1,False,2026-07-05T07:13:55,저는 pro로 업그레이드 했는데 왜 cowork가 메뉴에 안뜨네요.. ㅜㅜ
+UgwaijytSGQsxNIy7TF4AaABAg.AYsG9XLL7e2AYv6aa_1Zes,UgwaijytSGQsxNIy7TF4AaABAg,True,0,0,True,2026-07-06T09:48:06,데스크탑 앱 다운받으신거 맞나요??
+Ugx-IcA93ziAiis8QmV4AaABAg,,False,0,1,False,2026-06-29T10:42:31,오선 형님이 다 해주는데 굳이...?
+Ugx-IcA93ziAiis8QmV4AaABAg.AYdBG7HX8eLAYhHUB5pX7y,Ugx-IcA93ziAiis8QmV4AaABAg,True,0,0,True,2026-07-01T00:53:50,독립을 위하여..! ㅎㅎ
+UgySobQJ1FdbCIqERvx4AaABAg,,False,0,1,False,2026-06-28T00:36:57,pykrx는 막힌다고 뜨는데 ㅠㅠ
+UgySobQJ1FdbCIqERvx4AaABAg.AY_X9vWx_i3AYb-MixVTdi,UgySobQJ1FdbCIqERvx4AaABAg,True,0,0,True,2026-06-28T14:20:05,고정댓글 기본설정부터 확인해보셔요 :)
+UgxX2XTgtXWjNlpkuTR4AaABAg,,False,0,0,False,2026-06-23T02:47:17,국내 뉴스는 걸러야 kbs mbc 뉴스보고 행동 했어면 벌써 중국 기업이 지구정복햇음
+UgzbWILp732-zNCCOA14AaABAg,,False,0,2,False,2026-06-22T06:02:47,욱일기 연상 시키는 저 로고는 뭔가요?
+UgzbWILp732-zNCCOA14AaABAg.AYLeg6ZYDx-AYLiIE8GlqV,UgzbWILp732-zNCCOA14AaABAg,True,0,0,True,2026-06-22T06:34:20,저게 AI 도구 클로드입니다...^^
+UgzbWILp732-zNCCOA14AaABAg.AYLeg6ZYDx-AYbiEWBomD2,UgzbWILp732-zNCCOA14AaABAg,True,0,0,False,2026-06-28T21:00:55,와ㅜ아직도 반일 세뇌당한애가잇네 ㅋㅋ 한심
+Ugy5UmNQd05NSallNjV4AaABAg,,False,0,1,False,2026-06-22T03:58:26,별로네
+Ugy5UmNQd05NSallNjV4AaABAg.AYLRSJu_ngkAYLTHTh2i2W,Ugy5UmNQd05NSallNjV4AaABAg,True,0,0,True,2026-06-22T04:14:25,😂
+Ugz8pq2AvMYZwi_0CHt4AaABAg,,False,0,1,False,2026-06-21T06:54:58,"전 왜 자꾸 .py 파일을 실행해보라고 할까요? 그리고 GMAIL 로 보내기할때도 "" Gmail MCP는 현재 초안 생성까지만 지원하여 자동 발송은 불가합니다."" 라고 나오는데 이게 맞는건가요?"
+Ugz8pq2AvMYZwi_0CHt4AaABAg.AYJArRWGdROAYL6ilzoHf_,Ugz8pq2AvMYZwi_0CHt4AaABAg,True,0,0,True,2026-06-22T00:57:19,"1. 클로드에게 .py파일은 직접 실행하라고 하고 권한 승인 해줘보세요~
+2. Gmail MCP는 안전 때문에 초안 작성까지만 가능합니다 :)"
+Ugy8Jaj16cmrFNpgPWp4AaABAg,,False,0,3,False,2026-06-21T06:43:09,지피티로는 안되나요?
+Ugy8Jaj16cmrFNpgPWp4AaABAg.AYJ9VrQn5LlAYJ9uscV-sQ,Ugy8Jaj16cmrFNpgPWp4AaABAg,True,0,0,True,2026-06-21T06:46:42,챗지피티 유료 구독하시면 codex로도 가능합니다 :)
+Ugy8Jaj16cmrFNpgPWp4AaABAg.AYJ9VrQn5LlAYJB0XNOTZM,Ugy8Jaj16cmrFNpgPWp4AaABAg,True,0,0,False,2026-06-21T06:56:21,​@stevesurfing유료 지피티 구독중인데 혹시 코덱스가 먼가요?
+Ugy8Jaj16cmrFNpgPWp4AaABAg.AYJ9VrQn5LlAYJH_KIHq5_,Ugy8Jaj16cmrFNpgPWp4AaABAg,True,0,0,True,2026-06-21T07:53:39,클로드 코드같은 '에이전트 AI'입니다. 코덱스 검색해서 들어가면 바로 사용하실 수 있을거에요~
+UgyTppF-zidKTYEHJCh4AaABAg,,False,0,1,False,2026-06-21T05:55:55,영상 잘봤습니다😮 챗지피티나 제미나이에서는 아예안되는거겠죠? 클로드로 넘어가야하나....
+UgyTppF-zidKTYEHJCh4AaABAg.AYJ46-2anA4AYJ9tAO8OaJ,UgyTppF-zidKTYEHJCh4AaABAg,True,0,0,True,2026-06-21T06:46:28,챗지피티 유료 쓰시면 codex로도 가능합니다 :)
+UgwDsvFvhWy3H_z1EFd4AaABAg,,False,0,1,False,2026-06-20T10:01:56,pykrx 로그인이 필요할텐데??
+UgwDsvFvhWy3H_z1EFd4AaABAg.AYGwSyMDeneAYJAQPkOAMi,UgwDsvFvhWy3H_z1EFd4AaABAg,True,0,0,True,2026-06-21T06:51:08,가격 가져오는 건 필요없습니다 :) 매매동향이나 시총 가져올 때는 로그인 필요하더라구요~
+Ugyb51dDy2IAWayuJct4AaABAg,,False,0,1,False,2026-06-19T13:00:09,제미나이로는 안되나요?
+Ugyb51dDy2IAWayuJct4AaABAg.AYEg3RZtmcKAYJ8OTOTtoO,Ugyb51dDy2IAWayuJct4AaABAg,True,0,0,True,2026-06-21T06:33:24,네 제미나이는 안됩니다 ㅠ
+Ugx9vlqpyYqqtfDZsY94AaABAg,,False,0,1,False,2026-06-18T13:12:57,너무 좋은내용입니다 혹시 이렇게 쓰려면 맥os가 필수인가요?
+Ugx9vlqpyYqqtfDZsY94AaABAg.AYC7jC1OR_1AYDIZAkbfKs,Ugx9vlqpyYqqtfDZsY94AaABAg,True,0,0,True,2026-06-19T00:06:48,윈도우도 가능합니다! ㅎㅎ
+UgzDepc1XXkpV59XU6F4AaABAg,,False,0,1,False,2026-06-17T23:06:13,제미나이로는 못하는거죠? ㅠㅠ
+UgzDepc1XXkpV59XU6F4AaABAg.AYAbp_6RpxDAYAe4sH183b,UgzDepc1XXkpV59XU6F4AaABAg,True,0,0,True,2026-06-17T23:25:55,네 현재 제미나이로는 안됩니다 ㅠ
+UgyIljVbwcHi99fksYR4AaABAg,,False,0,0,False,2026-06-17T02:35:06,감사합니다
+UgyTGzW6RsHnB5T1pZR4AaABAg.AY6uEtcJbYdAY9AwL5bZbF,UgyTGzW6RsHnB5T1pZR4AaABAg,True,0,0,True,2026-06-17T09:43:14,클로드 광고 받는 날까지 열심히 해볼게요! ㅋㅋㅋ
+UgwPTrqN4lGS_5MFvkp4AaABAg,,False,0,2,False,2026-06-14T10:59:02,"pykrx와 yfinance를 활용해서 가져와달라는 명령어에서, ""이 작업 공간에서는 야후·KRX·스투크 등 모든 시세 서버가 막혀 있어 제가 직접 pykrx/yfinance를 돌릴 수는 없습니다.이 차단은 제 작업 공간(샌드박스)에 적용된 Anthropic 측 보안 정책이라, 켜고 끄는 버튼이 사용자 화면에 없습니다. 야후·KRX 같은 외부 데이터 서버를 허용 목록에 추가하는 기능은 제공되지 않습니다. 즉 제가 못 푸는 것이기도 하고, 회원님이 누를 수 있는 토글도 없습니다""라고 합니다.. ㅠㅠ"
+UgwPTrqN4lGS_5MFvkp4AaABAg.AY1aDvj7-rMAY5VFDGYGC_,UgwPTrqN4lGS_5MFvkp4AaABAg,True,0,0,True,2026-06-15T23:23:45,작업범위 이슈같은데 고정댓글의 설정 참고해주세요!
+UgwPTrqN4lGS_5MFvkp4AaABAg.AY1aDvj7-rMAYOAScJ08n7,UgwPTrqN4lGS_5MFvkp4AaABAg,True,0,0,False,2026-06-23T05:27:39,@stevesurfing 설정은 상관없는 거 같은데.. 여러 컴퓨터에서 해봐도 해결이 안되네요
+UgyIQhIo7ABtHxWnYsR4AaABAg,,False,0,0,False,2026-06-14T09:13:43,"좋은 정보 감사합니다. 다만 AI로 여러가지 정리 요약 자료를 만드면서 느끼는게 AI가 결국 토큰 제약이 있기 때문에 요약된 자료에서 빠지는 경우도 많다 입니다.
+그리고 요약자료가 판단의 근거로 쓰이기에는 좀 부족함 점도 있구요 원문을 보면서 AI한테 중간중간 물어보는게 시간은 좀 더 걸리더라도 내 지식이 되는 경우가 높아서 전 그걸 선호 합니다.
+요즘은 외산 SaaS솔루션에서도 MCP를 지원해서 아침에 출근해서 리포트 작성을 원클릭으로 끝내서 좋은데 문제는 씨바 내 토큰"
+UgwoqOi7fax3S7qGX-94AaABAg,,False,0,1,False,2026-06-14T03:59:33,"클로드 주식 분석쪽으로 딥하게 세팅해서 쓴결과...
+이번 이런 코스피 상승장에서 아예 못먹어요 ㅋㅋㅋ
+그냥 뉴스정도만 보세요.
+
+데이터기반이라 클로드로 투자는 하지 마세요. 2달전부터 모든 반도체 주식 다 과열이라고 매수 비추합니다.
+그거 믿고했다가 이득 낼수잇는거 다 날림 ㅋㅋㅋㅋㅋ"
+UgwoqOi7fax3S7qGX-94AaABAg.AY0qDXj3tbCAY4BmRVhXGF,UgwoqOi7fax3S7qGX-94AaABAg,True,0,0,True,2026-06-15T11:14:25,맞아요 ㅎㅎ AI에게 매수매도 조언 받는건 노노!!
+Ugzf9U6AluG53-u-SbF4AaABAg,,False,0,1,False,2026-06-12T14:26:12,핸드폰으로 설정 안되나요?
+Ugzf9U6AluG53-u-SbF4AaABAg.AXxoLVLMlMlAXz84QGYr7G,Ugzf9U6AluG53-u-SbF4AaABAg,True,0,0,True,2026-06-13T02:46:36,핸드폰은 어렵습니당 ㅠ
+Ugy9nCONt7ki3IEBxyV4AaABAg,,False,0,3,False,2026-06-12T06:38:22,해봤는데 주식 가격을 다 틀리게 가져오네요....
+Ugy9nCONt7ki3IEBxyV4AaABAg.AXwynyMyn1MAXzvRhH896-,Ugy9nCONt7ki3IEBxyV4AaABAg,True,0,0,True,2026-06-13T10:06:42,Pykrx 제대로 사용하셨을까요?
+Ugy9nCONt7ki3IEBxyV4AaABAg.AXwynyMyn1MAY-4X9kPtc0,Ugy9nCONt7ki3IEBxyV4AaABAg,True,0,0,False,2026-06-13T11:34:49,@stevesurfing  일단 클로드 다운 받고 들어가서  pykrx와 yfinance를 활용해서 '내 포트폴리오 내 종목들'의 오늘자 가격을 가져와줘. 전일 종가 대비 변동률도 함께.  포토폴리오에 제 포토폴리오 썼는데..그 pykrx 이것도 따로 뭐 다운을 받아야 하는건가요...?
+Ugy9nCONt7ki3IEBxyV4AaABAg.AXwynyMyn1MAY5VN7jywKB,Ugy9nCONt7ki3IEBxyV4AaABAg,True,0,0,True,2026-06-15T23:24:49,네 정확히는 파이썬 기반의 도구를 설치하는 개념입니다!
+UgxwJ7qCVbNAdFFClSN4AaABAg,,False,0,1,False,2026-06-11T23:06:10,이걸 왜 카톡이나 지메일로 받나요? 그냥 볼수는 없는건가요? 그리고 아래 댓글 보니까  이 기능 사용할려면 컴을 끄면 안된다?  그리고 유료다? 맞나요? 그러면 구지 쓸 필요 없어보이는데요....
+UgxwJ7qCVbNAdFFClSN4AaABAg.AXwA2yHNOrMAXzvd45NcOT,UgxwJ7qCVbNAdFFClSN4AaABAg,True,0,0,True,2026-06-13T10:08:23,그냥 볼수도 있는데 밖에 외출할때는 카톡이 편해서요 ㅎㅎ
+Ugzd6_IM2ziv53wb85F4AaABAg,,False,0,1,False,2026-06-11T00:30:07,"샌드박스 네트워크는 사용자 설정으로 변경되지 않습니다 라고합니다. 
+KRX/Yahoo Finance 도메인이 인프라 레벨에서 차단되어 있어 저는 직접 실행이 불가하고, 로컬에서만 돌아갑니다."
+Ugzd6_IM2ziv53wb85F4AaABAg.AXtjrvJf96_AXuiu1hRe1J,Ugzd6_IM2ziv53wb85F4AaABAg,True,0,0,True,2026-06-11T09:40:54,고정댓글에 있는 설정방법 확인해보실래요?
+Ugz4MMPuY4o5yVv2E754AaABAg,,False,0,1,False,2026-06-10T11:45:32,"KRX 도메인이 샌드박스에서 차단됩니다. 다른 소스 접근성을 확인하겠습니다.
+이렇게 나오는데 왜 그런거죠..?"
+Ugz4MMPuY4o5yVv2E754AaABAg.AXsNN-5lV4VAXsZMbl56QK,Ugz4MMPuY4o5yVv2E754AaABAg,True,0,0,True,2026-06-10T13:30:20,고정댓글 설정 확인해주세요~
+UgxR43qpr08HQF9VsfJ4AaABAg,,False,0,2,False,2026-06-10T11:34:15,"문제 요약:
+pykrx 1.2.8 → KRX 로그인 필요 + 프록시 차단
+yfinance → Yahoo Finance 프록시 차단 (403)
+이라고 나오네요. 좋은 내용이라 pro 가입하고 사용해 보려고 하는데, 자잘한 문재가 생기네요. 가능하면 조언 부탁합니다
+삼성노트북에서 작업하고 있습니다."
+UgxR43qpr08HQF9VsfJ4AaABAg.AXsM4MMhDxGAY5VUC_U87f,UgxR43qpr08HQF9VsfJ4AaABAg,True,0,0,True,2026-06-15T23:25:47,"고정댓글 설정 방법부터 확인해주세요! 
+krx 로그인도 필요없습니당"
+UgxR43qpr08HQF9VsfJ4AaABAg.AXsM4MMhDxGAY5YW_ws79A,UgxR43qpr08HQF9VsfJ4AaABAg,True,0,0,False,2026-06-15T23:52:20,​@stevesurfing해결 했습니다. 감사합니나
+UgxNGbW_KrAPSeydUQ94AaABAg,,False,0,1,False,2026-06-10T02:36:55,핸드폰에서도 가능한가요?
+UgxNGbW_KrAPSeydUQ94AaABAg.AXrO_l-BVOnAXrbk36oW_C,UgxNGbW_KrAPSeydUQ94AaABAg,True,0,0,True,2026-06-10T04:40:39,폰으로는 어렵고 PC로 세팅해두면 폰 카톡에서는 알림 받아볼 수 있어요~!
+Ugz8aG2YouAgDpUg5Z94AaABAg,,False,0,1,False,2026-06-09T07:47:59,Codex로는 안될까유 ㅜ ㅜ
+Ugz8aG2YouAgDpUg5Z94AaABAg.AXpNOGW5qmzAXpOMZYMx1z,Ugz8aG2YouAgDpUg5Z94AaABAg,True,0,0,True,2026-06-09T07:56:30,코덱스 완전 가능해요!! ㅎㅎ
+Ugx8xzc32skBHvJX9954AaABAg.AXmvjqf1uI_AXpWtTJODn9,Ugx8xzc32skBHvJX9954AaABAg,True,0,0,True,2026-06-09T09:11:01,네 맞습니다..!!
+UgwJ-2orwFT5OZXghBZ4AaABAg,,False,0,1,False,2026-06-07T15:09:23,이거 클로드 무료버젼인가요??
+UgwJ-2orwFT5OZXghBZ4AaABAg.AXl0JUVOOAiAXm-aGyz6wm,UgwJ-2orwFT5OZXghBZ4AaABAg,True,0,0,True,2026-06-08T00:22:19,유료입니다!
+UgybcnV2E-9ICUJqK8x4AaABAg,,False,0,2,False,2026-06-04T12:40:26,꼭 맥이어야만 하나요??
+UgybcnV2E-9ICUJqK8x4AaABAg.AXd0srBavErAXeRCb5UJ0H,UgybcnV2E-9ICUJqK8x4AaABAg,True,0,0,True,2026-06-05T01:49:42,아뇨 윈도우도 당근 가능입니다!
+UgybcnV2E-9ICUJqK8x4AaABAg.AXd0srBavErAa8eY09hxc2,UgybcnV2E-9ICUJqK8x4AaABAg,True,0,0,False,2026-08-30T18:25:36,​@stevesurfing리눅스도 되나요?
+Ugzw2fFruxgQBoLuVUh4AaABAg,,False,0,0,False,2026-06-04T06:35:51,"pykrx 최신 버전에서 KRX 로그인이 필요해졌네요. yfinance로 전환해서 조회할게요.  
+이렇게 뜨는데 pykrx 이제 안되는거 아닌가요?"
+UgxbzMxstrx3EIWuNgB4AaABAg,,False,0,1,False,2026-06-03T22:15:41,"포트폴리오의 종목을 바꾸려면 저 
+루틴을 처음부터 다시 해야 하는 건가요?"
+UgxbzMxstrx3EIWuNgB4AaABAg.AXbTvIojL8iAXbfICzdI-N,UgxbzMxstrx3EIWuNgB4AaABAg,True,0,0,True,2026-06-04T00:03:49,바뀐 종목만 다시 말해주면 됩니다!
+UgyNhKHCYnCpA-nHdSJ4AaABAg,,False,0,0,False,2026-06-03T14:17:47,"hmm. ,,eytytrttrtwUYYttttteuwwywuwssaussadsajssushdjx'kvzjs,,l1😊😊😊hỳ4"
+Ugy5F9bZ9IwpJbg1qMl4AaABAg,,False,0,1,False,2026-06-02T23:34:03,제미나이 유료 구독하고 있는데 코워크같은 기능이 제미나이엔 없나요?
+Ugy5F9bZ9IwpJbg1qMl4AaABAg.AX_25MTkvAEAX_C3CocG17,Ugy5F9bZ9IwpJbg1qMl4AaABAg,True,0,0,True,2026-06-03T01:01:08,제미나이에는 현재는 없습니다.!
+UgwYlCP7EPNRv0_HdVp4AaABAg,,False,0,1,False,2026-06-02T19:13:03,한번 스케줄보낼때마다 토큰은 얼마드는건가요??
+UgwYlCP7EPNRv0_HdVp4AaABAg.AXZ_Dkw2lLRAX_C2Atj4M8,UgwYlCP7EPNRv0_HdVp4AaABAg,True,0,0,True,2026-06-03T01:01:00,정확히는 모르겠지만 그렇게 많이 소모 안되는것같아요!
+Ugy3h8dNz4uccHvxHLd4AaABAg,,False,0,1,False,2026-06-02T19:02:51,"안녕하세요! 영상 매우 잘봤습니다
+혹시 나에게 보내는 카톡말고
+카톡 단톡방에 보낼수있는방법은 없을까요??"
+Ugy3h8dNz4uccHvxHLd4AaABAg.AXZZ32tXDhzAX_D6uLkovs,Ugy3h8dNz4uccHvxHLd4AaABAg,True,0,0,True,2026-06-03T01:10:23,단톡방은 공식 API가 열려있지 않아 우회를 해야해서 쉽지 않습니다^^;
+UgwfrSvFFyvX5eSbCIh4AaABAg,,False,0,1,False,2026-06-02T15:56:40,"전 codex로 했는데요, render로 클라우드 서버 구축하고 ai는 gemini api를 썼어요. 텔레그램으로 매 증시 개장일 장전, 장 마감 브리핑이 오게 해놨는데요. 만들땐 매일 볼것처럼 열심히 만들어놓고 요즘은 대충 흘겨보고 마네요. 영상 잘 봤습니다."
+UgwfrSvFFyvX5eSbCIh4AaABAg.AXZDkKZaNAFAY5VguTBuFO,UgwfrSvFFyvX5eSbCIh4AaABAg,True,0,0,True,2026-06-15T23:27:40,이야 호스팅까지 멋지십니다!! 맞아요 사실 저렇게 해놓고 안쓰게 되는게 더 많죠 ㅎ_ㅎ
+UgwQL_PpG-Drg0Ocq2p4AaABAg,,False,0,1,False,2026-06-02T12:52:12,"6/2에 해보니 지금은 pykrx와 yfinance를 바로 쓸수가 없네요... 설치를 해도 pykrx는 아이디랑 비번이 필요하고 yfinance는 ""샌드박스 환경의 프록시가 Yahoo Finance를 차단하고 있어 직접 실행이 불가합니다."" 라고 뜹니다"
+UgwQL_PpG-Drg0Ocq2p4AaABAg.AXYtdHpfVCOAX_3-uZWOi4,UgwQL_PpG-Drg0Ocq2p4AaABAg,True,0,0,False,2026-06-02T23:42:03,저도 그러네요. 막혀잇나본데요.
+Ugw3D4D8KCYraNc_JBV4AaABAg,,False,0,1,False,2026-06-02T12:43:09,모바일은 안되나요?
+Ugw3D4D8KCYraNc_JBV4AaABAg.AXYsb1HI7IbAX_BveeA_rD,Ugw3D4D8KCYraNc_JBV4AaABAg,True,0,0,True,2026-06-03T00:59:58,모바일은 안됩니다 ㅠㅠ
+UgyppShwx7WV12UIGLV4AaABAg,,False,0,1,False,2026-06-02T06:53:04,컴터가 켜져있어야 가능한건가요?
+UgyppShwx7WV12UIGLV4AaABAg.AXYFXxAkWqVAXYoALoesh1,UgyppShwx7WV12UIGLV4AaABAg,True,0,0,True,2026-06-02T12:04:25,네 cowork는 그렇습니다.!
+UgzLYXwmX_VKMr7AGQR4AaABAg.AXWJWRKCJ6sAXWNh-CVCwY,UgzLYXwmX_VKMr7AGQR4AaABAg,True,0,0,False,2026-06-01T13:25:52,"정답
+근데 이분은 주식초보라서 그런거고 
+방식자체는 활용하기 나름이예요"
+UgyqkIrtSVvKURKDeo14AaABAg,,False,0,0,False,2026-06-01T12:34:00,"pykrx가 이제 KRX로그인을 요구하도록 바뀌어 인증 없이는 빈 데이터를 반환한다는데, 다른 방식은 없나요? 샌드박스 네트워크가 화이트리스트 방식이라 KRX 서버와 Yahoo Finance 양쪽 다 403으로 막혀 있습니다...ㅠㅠ"
+Ugw0IFR3NWXGtOyUGsp4AaABAg,,False,0,1,False,2026-06-01T10:41:42,기능추가를 해도 와이파이낸스 프록시 차단되서 자료를 못가져온다고하네요 ㅠㅠ 혹시 도메인주소가 정확히 어떤거인지 알수있을까요?
+Ugw0IFR3NWXGtOyUGsp4AaABAg.AXW4ue2aHIwAXWTpfDDhzg,Ugw0IFR3NWXGtOyUGsp4AaABAg,True,0,0,True,2026-06-01T14:19:29,"yfinance가 가져오는 도메인은 다음 2개가 메인입니다.
+query1.finance.yahoo.com, query2.finance.yahoo.com"
+UgxqIQ5GUA9-AI0WROx4AaABAg,,False,0,1,False,2026-06-01T08:34:20,컴퓨터 안켜져도 가능하게 할수있을까요... 그 방법도 알려주시면 좋을거같습니다. ㅜㅜ
+UgxqIQ5GUA9-AI0WROx4AaABAg.AXVrKioFCRrAXWJPjI8gnW,UgxqIQ5GUA9-AI0WROx4AaABAg,True,0,0,True,2026-06-01T12:48:25,단순하게 클로드 코드 데스크탑 - Routine으로 만들면 MCP나 pykrx등이 잘 연동이 안될거에요. 직접 클로드코드나 코덱스로 바이브코딩해서 만들 순 있습니다! 다음에 한 번 소개드려볼게요 :)
+UgzspY5u74NK7O35JwV4AaABAg,,False,0,0,False,2026-05-31T13:55:48,"감사합니다. 주어진 자료 바탕으로 제가 이틀정도 더 씨름하면서 제 스타일로 변동하였습니다. 
+
+
+문제가 되었던 부분들과 제가 수정한 방안 모두 감사한 마음으로 정리해봅니다. 
+
+1. 먼저 큰 틀에서 이 영상대로 잘 따라하시면 됩니다 . 전 하루에 3번은 받았으면 해서 8시 12시 3시 이렇게 추가하였고 중간중간 자잘한 문제들 수정하였습니다.
+2. 분명히 뭔가 내가 받았는데 어색하고 이상하거나 필요한점 등등이 생길겁니다. 전 제미나이+ 클로드의 조합으로 서로 조언하며 수정완료하였습니다.
+
+
+① 카카오톡 링크 오류
+
+
+Google News RSS의 <link> 태그가 구글 내부 리다이렉트 URL이라 카카오톡에서 ""잘못된 요청 형식"" 오류 발생. → 연합뉴스·경향신문·SBS 자체 RSS로 바꿔 직접 URL을 얻는 방식으로 우회했다가, 이후 카카오톡 브라우저 설정 변경 후 Google News URL도 직접 열리는 것 확인.
+
+② URL이 너무 길다 [카카오톡에 url이 무슨 4줄 5줄 이렇게 왔던 문제]
+
+Google News RSS URL이 Base64 인코딩으로 170자+ → TinyURL 무료 API(api-create.php)로 단축 시도 → TinyURL 홈페이지만 열리는 문제. 원인은 해당 API가 deprecated 처리되어 프리뷰 페이지를 강제로 거치게 된 것. → 사용자가 TinyURL 계정에서 v1 API 토큰 발급 후 최신 API 연동으로 해결. 클릭 즉시 원문 이동 성공.
+
+④ 언론사 제외 [신뢰도 부족한 언론사 제외]
+Google News RSS가 조선·중앙·동아 등 보수 편향 언론과 천지일보(신천지), 스카이데일리, 세계일보(통일교) 등 종교단체 유관 매체 기사를 무분별하게 포함. 제외 로직 추가.
+
+⑤ 회차 간 뉴스 중복
+08:00에 나온 기사가 12:00, 15:00에도 반복 등장. → 발송된 URL을 /tmp 임시 파일에 저장하고 다음 회차 실행 시 자동 제외, 자정에 초기화하는 sent_urls 방어 로직 추가.
+
+말씀해주신 내용 바탕으로 좋은 ai 비서 만들어보았네요
+전원을 키고 프로그램에 로그인해야만 한다는 단점이 있지만
+
+
+한번 사용해 볼만한거 같습니다
+전 클로드 일단 프로로 결재하였습니다.
+
+좋은 영상 감사합니다"
+UgwLdegbmmkcUT_TvkB4AaABAg.AXTcz9G8djRAXTpOV28GEW,UgwLdegbmmkcUT_TvkB4AaABAg,True,0,0,False,2026-05-31T13:38:53,"@stevesurfing 텔레그램 봇이 뭔지 생소했는데, 대화하면서 텔레그램에 연동시켰습니다! 
+이후에 종목 추가, 삭제는 Scheduled tasks에서 편집 들어가서 종목 수정해야되나요?"
+UgxQr-2c9BLsWVR8sZp4AaABAg.AXTa0il3AYEAXTdv01rY8I,UgxQr-2c9BLsWVR8sZp4AaABAg,True,0,0,True,2026-05-31T11:58:36,네 종목수는 제한이 없습니다 :)
+UgzyZi4f_5uX6DHfjF94AaABAg,,False,0,1,False,2026-05-31T10:57:26,무료버전은 안되는거죠?
+UgzyZi4f_5uX6DHfjF94AaABAg.AXTXv0c_kGyAXTdtnsPxXQ,UgzyZi4f_5uX6DHfjF94AaABAg,True,0,0,True,2026-05-31T11:58:27,네 cowork는 최소유료구독제부터 가능합니다!
+UgxRc7apJavUu09FBit4AaABAg,,False,0,0,False,2026-05-31T10:17:56,"pykrx, yfinance가 외부 API 서버에 도달할 수 있는 경로 자체가 막혀있다고 나오면서 안되네요."
+UgwZG4Vq5xSIaIwbkQ54AaABAg.AXTFuKnp4R0AXTGB7-UwkX,UgwZG4Vq5xSIaIwbkQ54AaABAg,True,0,0,True,2026-05-31T08:22:29,고정댓글 설정 체크해보셔요!
+UgwZG4Vq5xSIaIwbkQ54AaABAg.AXTFuKnp4R0AXTGIWCRfVm,UgwZG4Vq5xSIaIwbkQ54AaABAg,True,0,0,False,2026-05-31T08:23:30,​@stevesurfing그대로 했는데 안됩니다
+UgwZG4Vq5xSIaIwbkQ54AaABAg.AXTFuKnp4R0AXVcgJ0ZTpk,UgwZG4Vq5xSIaIwbkQ54AaABAg,True,0,0,True,2026-06-01T06:26:21,에러가 뭐라고 뜨나요?? 그 에러 내용을 다시 클로드에게 넣고 해결해달라고 해보셔요!
+UgyhkOzDUAltC6TwBvB4AaABAg.AXRHaAUC47_AXRNDgENn90,UgyhkOzDUAltC6TwBvB4AaABAg,True,0,0,True,2026-05-30T14:45:32,AppsScript 그 정도로 활용하신다면 이미 꽤 숙련도가 있으시군요! 아주 훌륭하십니다 ㅎㅎ 사실 앱스스크립트만 잘 다뤄도 정말 많은 자동화가 가능하죠. 구글 생태계와 연동성도 뛰어나구요 :)
+UgzQPI6zdA7KNuYJwLZ4AaABAg,,False,0,3,False,2026-05-30T04:24:25,"알려주신대로 1단계 프롬프트를 사용했는데요. 
+
+""아쉽지만 솔직하게 먼저 알려드릴게요.pykrx와 yfinance는 사용하지 못했습니다. 
+제가 코드를 돌리는 작업 공간이 외부 인터넷(한국거래소·야후 파이낸스 서버)에 막혀 있어서, 두 라이브러리 모두 연결 단계에서 차단됐습니다(403 오류). 
+라이브러리 자체 문제가 아니라 보안상 네트워크가 잠겨 있는 환경 탓입니다."" 
+
+라고 안내가 나오네요. OPUS 4.8로 사용했는데도...조치할 방법이 있을까요?"
+UgzQPI6zdA7KNuYJwLZ4AaABAg.AXQG8WTc_I2AXQQQN7Q0Zq,UgzQPI6zdA7KNuYJwLZ4AaABAg,True,0,0,True,2026-05-30T05:54:14,"실제로 실행해보는 게 쉽지 않은데 멋지십니다!
+기본 권한 이슈인데, 이렇게 해보세요!
+1. 설정 -> 기능 
+2. 아래 쪽 네트워크 송신 허용 on 
+3. 그 아래에 도메인 허용 목록 '모든 도메인'
+*보안을 위해서는, '패키지 매니저'만 선택 후 직접 도메인 추가를 추천드립니다."
+UgzQPI6zdA7KNuYJwLZ4AaABAg.AXQG8WTc_I2AXQhOUuTOqV,UgzQPI6zdA7KNuYJwLZ4AaABAg,True,0,0,False,2026-05-30T08:31:16,@stevesurfing 안녕하세요. 이렇게 따라하고 있는데도 게속 같은오류가 뜨네요... 다른 방법은 없을까요?
+UgzQPI6zdA7KNuYJwLZ4AaABAg.AXQG8WTc_I2AXRMtfKurgy,UgzQPI6zdA7KNuYJwLZ4AaABAg,True,0,0,True,2026-05-30T14:42:39,어느 단계에서 어떤 오류가 뜨나요??
+UgwD2YQ9kvPGLuWQirx4AaABAg.AXPqlUDOqvyAXQ24XfvVOv,UgwD2YQ9kvPGLuWQirx4AaABAg,True,0,0,True,2026-05-30T02:21:32,무료로는 현실적으로 어려울거에요. 유료 추천드립니다!
+UgxkkUoWeTby02REJqt4AaABAg,,False,0,3,False,2026-05-29T22:10:24,"저는 그냥 PlayMCP에서 주식 정보, 네이버 검색 등을 활용하여 정보 수집 후 카톡은 메시지 제한으로 정보 보는게 더 불편해서 Slack 연결하여 받고 있습니다."
+UgxkkUoWeTby02REJqt4AaABAg.AXPaLBCWS3iAXQ5R-GJgJ4,UgxkkUoWeTby02REJqt4AaABAg,True,0,0,True,2026-05-30T02:50:49,아주 훌륭하십니다 ㅎㅎ 사실 내용을 좀 아신다면 슬랙이나 텔레그램 메세지도 정말 좋죠 ;)
+UgxkkUoWeTby02REJqt4AaABAg.AXPaLBCWS3iAXQ5riXPhcd,UgxkkUoWeTby02REJqt4AaABAg,True,0,0,False,2026-05-30T02:54:36,@stevesurfing그리고 알려주신 1단계 프롬프트는 코워크로 실행할 때 샌드박스 이슈가 발생하여 실시간 정보를 못 가져오더라고요 ㅠ 그래서 우회했습니다
+UgxkkUoWeTby02REJqt4AaABAg.AXPaLBCWS3iAXQQvsrZ_Qu,UgxkkUoWeTby02REJqt4AaABAg,True,0,0,True,2026-05-30T05:58:40,"cowork 권한 설정 이슈 같은데, 이 설정 체크해보세요!
+1. 설정 -> 기능 
+2. 아래 쪽 네트워크 송신 허용 on 
+3. 그 아래에 도메인 허용 목록 '모든 도메인'
+*보안을 위해서는, '패키지 매니저'만 선택 후 직접 도메인 추가를 추천드립니다."
+UgxyG7g7ZU1zZe4LblR4AaABAg,,False,0,1,False,2026-05-29T12:16:25,"안녕하세요 좋은 영상 감사합니다. 클로드에서 카톡으로 보내기 했는데 전송이 불가하다고 합니다 
+도메인차단, pc앱 제어 불가, api 인증필요라고 하는데 여기서 막혔습니다 ㅠ"
+UgxyG7g7ZU1zZe4LblR4AaABAg.AXOXMk4doftAXOa-n8XGJQ,UgxyG7g7ZU1zZe4LblR4AaABAg,True,0,0,True,2026-05-29T12:48:14,"기본 권한 이슈 같은데, 이 설정 체크해보세요!
+1. 설정 -> 기능 
+2. 아래 쪽 네트워크 송신 허용 on 
+3. 그 아래에 도메인 허용 목록 '모든 도메인'
+*보안을 위해서는, '패키지 매니저'만 선택 후 직접 도메인 추가를 추천드립니다."
+UgzKw_6A93p9C-MhpzJ4AaABAg.AXNsZq-t7FVAXOFUOLX6oo,UgzKw_6A93p9C-MhpzJ4AaABAg,True,0,0,True,2026-05-29T09:40:11,어느 단계에서 막히셨나요? 에러 메세지 주시면 같이 봐드릴게요 :)
+Ugx4Za3kfjafY01d4pB4AaABAg,,False,0,1,False,2026-05-28T22:41:59,"저도 해보았는데 이런 문구 나오고 있어요>>>>pykrx가 이 환경에서 KRX 서버에 접근하지 못하는 상황을 솔직히 말씀드리고, 검색으로 확인한 최신 데이터를 정리해 드립니다.<<
+서버에 접근 하지 못하고 있네요, 왜 그런지 알려 줄수 있는지요.
+
+영상은 정말 도움이 됩니다."
+Ugx4Za3kfjafY01d4pB4AaABAg.AXN49eLo6TMAXN9bI-Lp0F,Ugx4Za3kfjafY01d4pB4AaABAg,True,0,0,True,2026-05-28T23:29:35,pykrx가 파이썬 기반이라 컴퓨터에 파이썬을 먼저 깔아야 합니다! 클로드에게 설치해달라고하면 알아서 해줄거에요 :)
+UgxwV60HCJIhYt9_9A54AaABAg.AXnS5os2AISAa4b_NZ6fwE,UgxwV60HCJIhYt9_9A54AaABAg,True,0,0,False,2026-08-29T04:42:44,​@JohnLee-uy8yh 저는 botfather 이용했어요
+UgxwV60HCJIhYt9_9A54AaABAg.AXnS5os2AISAaQVfeMl8ja,UgxwV60HCJIhYt9_9A54AaABAg,True,0,0,False,2026-09-06T16:45:43,디코도 가능합니다
+UgzRyBG36eTyCXWvd1R4AaABAg.AX_EWo7BAmjAXiqyIwOMmM,UgzRyBG36eTyCXWvd1R4AaABAg,True,0,0,False,2026-06-06T19:00:30,​​@user-swi그럼 말을 그렇게해야지 님은 그렇게 말한적이 아예없고 다른말을 했는데 속뜻은 그게 아니라고 하면 같은말이됨?
+UgzRyBG36eTyCXWvd1R4AaABAg.AX_EWo7BAmjAXjgifpZbdC,UgzRyBG36eTyCXWvd1R4AaABAg,True,0,0,False,2026-06-07T02:50:14,​@오프103니 수준이 그정도인줄 몰랐다.. 다른댓글들 봐 이해하잖아ㅋㅋ
+UgzRyBG36eTyCXWvd1R4AaABAg.AX_EWo7BAmjAXm6Bj_g9qC,UgzRyBG36eTyCXWvd1R4AaABAg,True,0,0,False,2026-06-08T01:20:00,"공감합니다.
+다들이기능쓸텐데."
+UgzRyBG36eTyCXWvd1R4AaABAg.AX_EWo7BAmjAXunRB0UycW,UgzRyBG36eTyCXWvd1R4AaABAg,True,0,0,False,2026-06-11T10:20:31,"​@user-swi꼭 그런건 아님. 한참 할인찬스일때 하닉 사놓고 잊어먹고 있으면, 17배 수익임. 주식 정보도 별로 안찾아보고 저축하듯이 생각나면 매입만 함. 공부 못하는것들이 온갖짓 다 하고 별 성과없는거처럼,  주식도 비슷함."
+UgzRyBG36eTyCXWvd1R4AaABAg.AX_EWo7BAmjAXv7JQ6ACBg,UgzRyBG36eTyCXWvd1R4AaABAg,True,0,0,False,2026-06-11T13:22:57,"​@MkLaa-l1p뭔 개소리야ㅋㅋ 주식비서만드는 영상 댓글에서 사놓고 잊어먹는건ㅋㅋ. 그리고 그건 결과론적인거고 무슨
+알아보지도않고 적립식 매입을함?
+하이닉스라서 다행인거지 상폐당하면 어쩌려고ㅋㅋ"
+UgzRyBG36eTyCXWvd1R4AaABAg.AX_EWo7BAmjAXvLBNFA-uy,UgzRyBG36eTyCXWvd1R4AaABAg,True,0,0,False,2026-06-11T15:24:11,​@user-swi난 벌었으니까
+UgzRyBG36eTyCXWvd1R4AaABAg.AX_EWo7BAmjAXvLFxjuBLJ,UgzRyBG36eTyCXWvd1R4AaABAg,True,0,0,False,2026-06-11T15:24:49,​@user-swi어디서 개잡주만 사면 상폐각인거지
+UgzRyBG36eTyCXWvd1R4AaABAg.AX_EWo7BAmjAXvUPB7A-4L,UgzRyBG36eTyCXWvd1R4AaABAg,True,0,0,False,2026-06-11T16:44:43,"​@MkLaa-l1p니가벌었는지가 중요한게 아니잖아..아.. 진짜 체한것처럼 답답하다ㅋㅋ 
+그런식으로 매매할꺼면 이영상 왜봄?
+그리고 하닉 얼마넣어서 수익 얼마냄?
+서로 인증한번할까?
+오픈톡방 만들게"
+UgzRyBG36eTyCXWvd1R4AaABAg.AX_EWo7BAmjAY0PnlzMVUI,UgzRyBG36eTyCXWvd1R4AaABAg,True,0,0,False,2026-06-13T23:59:58,"@오프103 정보를 보고 미리 예측해서 하는게 주식 맞음. 그게 틀리면 손실보는거고 맞으면 수익내는거고, 그런걸 뉴스나 정보를 바탕으로 틀릴 확률을 줄이는게 핵심맞음."
+UgzRyBG36eTyCXWvd1R4AaABAg.AX_EWo7BAmjAYA_VkMWBwr,UgzRyBG36eTyCXWvd1R4AaABAg,True,0,0,False,2026-06-17T22:45:54,​@hun8706과연? 매일매일 뉴스수집하고 기업들 실적 팔로업하고 보고서읽고 생각정리하고 세미나도듣고 이렇게 하는사람이 전체에서 1%나 될까? ㅋㅋ
+UgzRyBG36eTyCXWvd1R4AaABAg.AX_EWo7BAmjAYJ7HR8x99p,UgzRyBG36eTyCXWvd1R4AaABAg,True,0,0,False,2026-06-21T06:23:42,@MkLaa-l1p슬슬 이런거 기어나오는거보니까 고점은 고점인데
+UgzRyBG36eTyCXWvd1R4AaABAg.AX_EWo7BAmjAaPEhnsXB3y,UgzRyBG36eTyCXWvd1R4AaABAg,True,0,0,False,2026-09-06T04:58:14,"피터 린치 : 예측하지마라, 못맞춘다."
+UgzRyBG36eTyCXWvd1R4AaABAg.AX_EWo7BAmjAanXT3rejhy,UgzRyBG36eTyCXWvd1R4AaABAg,True,0,0,False,2026-09-16T00:43:07,@user-swi 고급 찌라시는 일반 개미들은 못 받음 ㅋ 이미 일반 개미가 알게 된 정보는 쓰레기임ㅋ
+UgzRyBG36eTyCXWvd1R4AaABAg.AX_EWo7BAmjAanZDty4Sl7,UgzRyBG36eTyCXWvd1R4AaABAg,True,0,0,False,2026-09-16T00:58:31,​@bigcookman어차피 고급찌라시 못받는데 매크로랑 쓰레기로 맛있게 요리하는게 실력이지.. 느그는 만날 쓰레기만 무라ㅠㅠ
+UgyKIiaG7da1vafLKDV4AaABAg.AXSIr-xiToNAXSm6qeAYl4,UgyKIiaG7da1vafLKDV4AaABAg,True,0,0,False,2026-05-31T03:51:02,​@stevesurfing기대됩니다!!
+UgyKIiaG7da1vafLKDV4AaABAg.AXSIr-xiToNAY-2L-q9Ms8,UgyKIiaG7da1vafLKDV4AaABAg,True,0,0,False,2026-06-13T11:15:41,​@blueryan9909ARGT그 텔레는 이름이 뭔가요 ? 어떻게 접속하나요 ? 감사합니다
+UgyKIiaG7da1vafLKDV4AaABAg.AXSIr-xiToNAaONSrbp_Mr,UgyKIiaG7da1vafLKDV4AaABAg,True,0,0,False,2026-09-05T20:55:27,ㅋㅋㅋ 불법리딩방 취합해서 뭐하노 ㅋㅋㅋㅋㅋㅋ 병ㅋㅋㅋ
+UgzU_t4J79hgVHqJn9Z4AaABAg.AXS2TaqaD_bAXS_VU5uQAd,UgzU_t4J79hgVHqJn9Z4AaABAg,True,0,0,True,2026-05-31T02:00:47,윗 분의 댓글이 맞습니다. 유저의 PC에 접근하여 작업하는 것이기 때문에 클라우드 방식이 아니고 PC가 켜져있어야 해요!
+UgzU_t4J79hgVHqJn9Z4AaABAg.AXS2TaqaD_bAXSsrmFW6_S,UgzU_t4J79hgVHqJn9Z4AaABAg,True,0,0,False,2026-05-31T04:50:00,ai한테 내 컴퓨터의 api권한을 다 넘겨줘야하는거라서 개인정보 다 털릴 각오하고 시작해야됨. 아니면 안쓰는 컴퓨터로 돌리거나
+UgzU_t4J79hgVHqJn9Z4AaABAg.AXS2TaqaD_bAXSz_k7CMV4,UgzU_t4J79hgVHqJn9Z4AaABAg,True,0,0,False,2026-05-31T05:48:42,클로드웹에서 루틴으로 만들면 클라우드 기반으로 가능합니다
+UgzU_t4J79hgVHqJn9Z4AaABAg.AXS2TaqaD_bAXTYkJHDBpV,UgzU_t4J79hgVHqJn9Z4AaABAg,True,0,0,False,2026-05-31T11:04:43,??????? 유저의 PC에 접근? 제대로 알지도 못하면 답글을 달지 말던가..
+UgzU_t4J79hgVHqJn9Z4AaABAg.AXS2TaqaD_bAXTsCiZ8qbb,UgzU_t4J79hgVHqJn9Z4AaABAg,True,0,0,False,2026-05-31T14:03:30,지금 질문을 그대로 클로드한테 넣으면 잘 설명해줍니다. 굳이 컴퓨터 켜놓지 않아도 작동되는법도 알려주구요;

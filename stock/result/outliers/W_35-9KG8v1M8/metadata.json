@@ -1,0 +1,74 @@
+{
+ "id": "35-9KG8v1M8",
+ "title": "부동산 버블이 터지고, 주식 시장으로 몰려가는 중국인들",
+ "channel": "슈카월드",
+ "channel_id": "UCsJ6RuBiTVWRX156FVbeaGg",
+ "subs": 3730000,
+ "views": 1469206,
+ "ratio": 0.39,
+ "age_days": 46,
+ "views_per_day": 31939.3,
+ "minutes": 33.0,
+ "likes": 4998,
+ "comments": 431,
+ "published": "2026-08-29",
+ "queries": "검색:주식투자",
+ "url": "https://www.youtube.com/watch?v=35-9KG8v1M8",
+ "flag": "",
+ "published_at": "2026-08-29T11:44:57Z",
+ "rank": "W88",
+ "set": "web",
+ "folder": "W_35-9KG8v1M8",
+ "sources": [
+  "검색:주식투자"
+ ],
+ "source": "web",
+ "tags": [
+  "슈카",
+  "슈카월드",
+  "경제",
+  "시사",
+  "이슈",
+  "뉴스",
+  "상식",
+  "면접",
+  "논술",
+  "자소서",
+  "취업",
+  "주식",
+  "증시",
+  "주가",
+  "시장",
+  "자산",
+  "투자",
+  "금리"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "창신메모리 CXMT 공모가 대비 470% 폭등"
+  },
+  {
+   "start": 903,
+   "title": "PER 150을 넘는 과창판 지수"
+  },
+  {
+   "start": 1600,
+   "title": "중국의 꺼져버린 부동산 불패 신화"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 431,
+ "comments_top_level": 241,
+ "comments_replies": 190,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 431,
+ "tool": "outlier_research.py v2.4.1",
+ "collected": "2026-10-15T20:51:54",
+ "approved": "2026-10-15T20:51+09:00"
+}

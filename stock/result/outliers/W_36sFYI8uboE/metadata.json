@@ -1,0 +1,82 @@
+{
+ "id": "36sFYI8uboE",
+ "title": "주식 기초 강의 한번 배워서 평생 써먹는 주린이를 위한 주식 투자 방법",
+ "channel": "마이크로스콥 ",
+ "channel_id": "UCWJlSoUMhf8PlMp_lyp4b-Q",
+ "subs": 1390,
+ "views": 14966,
+ "ratio": 10.77,
+ "age_days": 6,
+ "views_per_day": 2494.3,
+ "minutes": 13.7,
+ "likes": 246,
+ "comments": 21,
+ "published": "2026-10-08",
+ "queries": "검색:주린이 | 검색:주식기초",
+ "url": "https://www.youtube.com/watch?v=36sFYI8uboE",
+ "flag": "",
+ "published_at": "2026-10-08T17:31:03Z",
+ "rank": "W39",
+ "set": "web",
+ "folder": "W_36sFYI8uboE",
+ "sources": [
+  "검색:주린이",
+  "검색:주식기초"
+ ],
+ "source": "web",
+ "tags": [
+  "경제",
+  "주식투자",
+  "앙드레코스톨라니",
+  "코스톨라니",
+  "돈 뜨겁게 사랑하고 차갑게 다루어라"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "주식 기초 강의를 접하게 된 계기"
+  },
+  {
+   "start": 55,
+   "title": "주식 기초 강의가 중요한 이유의 실제 연구와 그 결과"
+  },
+  {
+   "start": 160,
+   "title": "주식 기초 강의의 3요소"
+  },
+  {
+   "start": 295,
+   "title": "주식 기초 강의의 전설 소개"
+  },
+  {
+   "start": 380,
+   "title": "주식 기초 강의에서 가장 유명한 비유"
+  },
+  {
+   "start": 525,
+   "title": "주식 기초 강의 과열과 바닥 구분하는 방법"
+  },
+  {
+   "start": 595,
+   "title": "주식 기초 강의 추천도서"
+  },
+  {
+   "start": 695,
+   "title": "주식 기초 강의의 대가 앙드레 코스톨라니"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 21,
+ "comments_top_level": 11,
+ "comments_replies": 10,
+ "comments_by_creator": 10,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 21,
+ "tool": "outlier_research.py v2.4.1",
+ "collected": "2026-10-15T20:45:53",
+ "approved": "2026-10-15T20:45+09:00"
+}

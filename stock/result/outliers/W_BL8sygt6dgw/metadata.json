@@ -1,0 +1,75 @@
+{
+ "id": "BL8sygt6dgw",
+ "title": "수익 -60%에서 멘탈 관리하는 법..?? 주식 물린 사람들 들어오세요",
+ "channel": "룸넘버 ROOM NUMBER",
+ "channel_id": "UCG8vpo87t-FgJyq4GVRlWfQ",
+ "subs": 9990,
+ "views": 69331,
+ "ratio": 6.94,
+ "age_days": 95,
+ "views_per_day": 729.8,
+ "minutes": 24.1,
+ "likes": 1302,
+ "comments": 203,
+ "published": "2026-07-12",
+ "queries": "검색:주식하는법",
+ "url": "https://www.youtube.com/watch?v=BL8sygt6dgw",
+ "flag": "",
+ "published_at": "2026-07-12T01:00:01Z",
+ "rank": "W52",
+ "set": "web",
+ "folder": "W_BL8sygt6dgw",
+ "sources": [
+  "검색:주식하는법"
+ ],
+ "source": "web",
+ "tags": [
+  "슈카",
+  "슈카월드",
+  "현대백화점"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트"
+  },
+  {
+   "start": 30,
+   "title": "오프닝"
+  },
+  {
+   "start": 73,
+   "title": "사연1 - 대기업 강박증"
+  },
+  {
+   "start": 711,
+   "title": "사연자 선물 골라주기"
+  },
+  {
+   "start": 744,
+   "title": "사연2 - 주식중독"
+  },
+  {
+   "start": 1379,
+   "title": "사연자 선물 골라주기"
+  },
+  {
+   "start": 1356,
+   "title": "다음 이야기"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 203,
+ "comments_top_level": 170,
+ "comments_replies": 33,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 203,
+ "tool": "outlier_research.py v2.4.1",
+ "collected": "2026-10-15T20:46:46",
+ "approved": "2026-10-15T20:46+09:00"
+}

@@ -1,0 +1,119 @@
+{
+ "id": "9C7_sKVcPiQ",
+ "title": "40대 은퇴 후 월급 대신 배당 받으며 사는 법｜실제 포트폴리오 공개 | 최영민 작가",
+ "channel": "투자360",
+ "channel_id": "UCEJIw_FUvkxK7ZoiejSj7HA",
+ "subs": 15900,
+ "views": 225932,
+ "ratio": 14.21,
+ "age_days": 45,
+ "views_per_day": 5020.7,
+ "minutes": 20.6,
+ "likes": 1318,
+ "comments": 142,
+ "published": "2026-08-31",
+ "queries": "검색:ETF투자 | 검색:ETF추천 | 검색:배당ETF | 검색:월배당ETF | 검색:커버드콜ETF | 검색:미국ETF | 검색:배당주 | 검색:배당 | 검색:월배당 | 검색:배당금 | 검색:배당투자",
+ "url": "https://www.youtube.com/watch?v=9C7_sKVcPiQ",
+ "flag": "",
+ "published_at": "2026-08-31T09:05:53Z",
+ "rank": "W32",
+ "set": "web",
+ "folder": "W_9C7_sKVcPiQ",
+ "sources": [
+  "검색:ETF투자",
+  "검색:ETF추천",
+  "검색:배당ETF",
+  "검색:월배당ETF",
+  "검색:커버드콜ETF",
+  "검색:미국ETF",
+  "검색:배당주",
+  "검색:배당",
+  "검색:월배당",
+  "검색:배당금",
+  "검색:배당투자"
+ ],
+ "source": "web",
+ "tags": [
+  "월배당",
+  "월배당ETF",
+  "커버드콜",
+  "초고배당",
+  "초고배당커버드콜",
+  "미국ETF",
+  "배당ETF",
+  "파이어족",
+  "재테크",
+  "미국주식",
+  "JEPI",
+  "JEPQ",
+  "SCHD",
+  "NVDY",
+  "CONY",
+  "포트폴리오",
+  "조기은퇴",
+  "40대은퇴",
+  "월배당투자",
+  "노후준비",
+  "은퇴준비"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 44,
+   "title": "40대 은퇴하려면 월배당 얼마가 필요할까?"
+  },
+  {
+   "start": 108,
+   "title": "(⭐️계좌 공개) 실제 최영민 작가의 월배당 포트폴리오 공개"
+  },
+  {
+   "start": 278,
+   "title": "원금은 깎이는데 수익은 난다? 초고배당의 비밀"
+  },
+  {
+   "start": 363,
+   "title": "잠깐은 가능해도 고배당 분배금, 유지 가능할까?"
+  },
+  {
+   "start": 435,
+   "title": "커버드콜 ETF 딱 4개만 고른다면?"
+  },
+  {
+   "start": 634,
+   "title": "실제로 투자하며 생각이 바뀐 상품이 있나요?"
+  },
+  {
+   "start": 743,
+   "title": "(⭐️포트폴리오) 연 30%~7% 투자 포트폴리오 공개"
+  },
+  {
+   "start": 922,
+   "title": "월배당, 좋았던 점과 생각과는 달랐던 점"
+  },
+  {
+   "start": 1081,
+   "title": "배당 투자 리밸런싱은 얼마나 자주할까?"
+  },
+  {
+   "start": 1148,
+   "title": "(⭐️사이트 추천) 월배당 투자자라면 이 사이트 하나만 보세요"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 142,
+ "comments_top_level": 105,
+ "comments_replies": 37,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 142,
+ "tool": "outlier_research.py v2.4.1",
+ "collected": "2026-10-15T20:45:25",
+ "approved": "2026-10-15T20:45+09:00"
+}

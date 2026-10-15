@@ -1,0 +1,92 @@
+{
+ "id": "_zDHJjZ8PgU",
+ "title": "환율이 보내는 경고, 앞으로 돈 벌 자산은 따로 있습니다 (이선엽 대표 통합본)",
+ "channel": "지식한상 ",
+ "channel_id": "UCw8hsZYZcasyyLrfOFP8D-w",
+ "subs": 1460000,
+ "views": 1016568,
+ "ratio": 0.7,
+ "age_days": 45,
+ "views_per_day": 22590.4,
+ "minutes": 53.5,
+ "likes": 6511,
+ "comments": 152,
+ "published": "2026-08-31",
+ "queries": "검색:한국주식 | 검색:주식투자",
+ "url": "https://www.youtube.com/watch?v=_zDHJjZ8PgU",
+ "flag": "",
+ "published_at": "2026-08-31T11:00:02Z",
+ "rank": "W83",
+ "set": "web",
+ "folder": "W__zDHJjZ8PgU",
+ "sources": [
+  "검색:한국주식",
+  "검색:주식투자"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "환율 뒤집혔다…지금 사야 할 ‘이 자산’"
+  },
+  {
+   "start": 60,
+   "title": "“원화 망한다더니” 갑자기 뒤집힌 진짜 이유"
+  },
+  {
+   "start": 222,
+   "title": "환율 100원 바뀌면 내 자산도 ‘이만큼’ 달라집니다"
+  },
+  {
+   "start": 572,
+   "title": "환율 오르기 전 ‘이 자산’부터 모으세요"
+  },
+  {
+   "start": 917,
+   "title": "지금 1천만 원 있다면 저는 ‘이렇게’ 투자합니다"
+  },
+  {
+   "start": 1077,
+   "title": "엔화 폭락에 일본 초비상 다음은 원화다?"
+  },
+  {
+   "start": 1372,
+   "title": "환율 움직이기 전 ‘이 신호’에 주목하세요"
+  },
+  {
+   "start": 1744,
+   "title": "요동치는 증시, 돈은 ‘이곳’으로 갑니다"
+  },
+  {
+   "start": 1790,
+   "title": "한국 주식 시장은 대체 언제까지 요동치는 걸까?"
+  },
+  {
+   "start": 2013,
+   "title": "과거 데이터로 분석한 올해 코스피 반등 가능성"
+  },
+  {
+   "start": 2523,
+   "title": "짐이 되어버린 삼전닉스 대체 언제 처분해야 할까?"
+  },
+  {
+   "start": 2820,
+   "title": "“이 뉴스에 주목하라” 반도체 다음 대박날 주도주?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 152,
+ "comments_top_level": 95,
+ "comments_replies": 57,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 152,
+ "tool": "outlier_research.py v2.4.1",
+ "collected": "2026-10-15T20:51:18",
+ "approved": "2026-10-15T20:51+09:00"
+}

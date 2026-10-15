@@ -1,0 +1,79 @@
+{
+ "id": "5HkW_43tZPs",
+ "title": "배당으로 사는 은퇴자가 3년 동안 겪게 되는 일 (은퇴 현금흐름 설계)",
+ "channel": "은퇴머니 - 은퇴 현금흐름 설계",
+ "channel_id": "UCQrlX5mzcTICHZC1BMVKwhQ",
+ "subs": 30000,
+ "views": 104112,
+ "ratio": 3.47,
+ "age_days": 59,
+ "views_per_day": 1764.6,
+ "minutes": 21.9,
+ "likes": 1487,
+ "comments": 82,
+ "published": "2026-08-17",
+ "queries": "검색:배당ETF | 검색:배당주 | 검색:배당 | 검색:배당금 | 검색:배당투자",
+ "url": "https://www.youtube.com/watch?v=5HkW_43tZPs",
+ "flag": "",
+ "published_at": "2026-08-17T07:05:29Z",
+ "rank": "W72",
+ "set": "web",
+ "folder": "W_5HkW_43tZPs",
+ "sources": [
+  "검색:배당ETF",
+  "검색:배당주",
+  "검색:배당",
+  "검색:배당금",
+  "검색:배당투자"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "배당 세팅만 끝내면 은퇴 준비는 끝난 줄 알았습니다"
+  },
+  {
+   "start": 128,
+   "title": "종합과세 대상이 됐는데 세금은 0원이었습니다"
+  },
+  {
+   "start": 204,
+   "title": "5월에 낸 신고서가 11월에 건강보험료로 옵니다"
+  },
+  {
+   "start": 357,
+   "title": "소득은 줄었는데 보험료는 2.3배가 됐습니다"
+  },
+  {
+   "start": 463,
+   "title": "물어본 건 하나, 답도 딱 그만큼이었습니다"
+  },
+  {
+   "start": 595,
+   "title": "보험료는 줄었는데 관리비가 그만큼 새로 나갑니다"
+  },
+  {
+   "start": 782,
+   "title": "정해 주지 않은 칸에는 표준안이 들어갑니다"
+  },
+  {
+   "start": 1016,
+   "title": "3년 뒤가 아니라 시작 전에 봤어야 할 목록"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 82,
+ "comments_top_level": 55,
+ "comments_replies": 27,
+ "comments_by_creator": 3,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 82,
+ "tool": "outlier_research.py v2.4.1",
+ "collected": "2026-10-15T20:49:22",
+ "approved": "2026-10-15T20:49+09:00"
+}

@@ -1,0 +1,87 @@
+{
+ "id": "NW_PJ7iDbQI",
+ "title": "208. 국내 커버드콜 액티브 ETF, 최고는 이겁니다",
+ "channel": "배당머니 : 숫자로 증명하는 ETF",
+ "channel_id": "UCCXx1gxPpdTV0kVw_JAnnEA",
+ "subs": 23800,
+ "views": 76521,
+ "ratio": 3.22,
+ "age_days": 40,
+ "views_per_day": 1913.0,
+ "minutes": 18.2,
+ "likes": 1238,
+ "comments": 73,
+ "published": "2026-09-04",
+ "queries": "검색:배당ETF | 검색:월배당ETF | 검색:커버드콜ETF | 검색:월배당",
+ "url": "https://www.youtube.com/watch?v=NW_PJ7iDbQI",
+ "flag": "",
+ "published_at": "2026-09-04T23:00:02Z",
+ "rank": "W74",
+ "set": "web",
+ "folder": "W_NW_PJ7iDbQI",
+ "sources": [
+  "검색:배당ETF",
+  "검색:월배당ETF",
+  "검색:커버드콜ETF",
+  "검색:월배당"
+ ],
+ "source": "web",
+ "tags": [
+  "커버드콜",
+  "커버드콜etf",
+  "kodex200커버드콜액티브",
+  "tiger배당커버드콜액티브",
+  "kodex200타겟위클리커버드콜",
+  "RISE200위클리커버드콜",
+  "고배당주",
+  "고배당etf",
+  "월배당",
+  "월배당etf",
+  "커버드콜액티브",
+  "액티브커버드콜"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 159,
+   "title": "구성종목 비교"
+  },
+  {
+   "start": 210,
+   "title": "옵션자산 비교"
+  },
+  {
+   "start": 421,
+   "title": "상품설명서 비교"
+  },
+  {
+   "start": 594,
+   "title": "KODEX vs TIGER 성과 비교"
+  },
+  {
+   "start": 759,
+   "title": "저라면 이렇게합니다"
+  },
+  {
+   "start": 1019,
+   "title": "결론"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 73,
+ "comments_top_level": 44,
+ "comments_replies": 29,
+ "comments_by_creator": 25,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 73,
+ "tool": "outlier_research.py v2.4.1",
+ "collected": "2026-10-15T20:49:26",
+ "approved": "2026-10-15T20:49+09:00"
+}

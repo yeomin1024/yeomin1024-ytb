@@ -1,0 +1,96 @@
+{
+ "id": "If0yXj0qivU",
+ "title": "\"27년까지 오른다\" 현금 1천만원 있다면 '딱 3개만' 사모으세요 ㅣ Ep. 책과사람 131 (염승환 이사 2부)",
+ "channel": "책과삶",
+ "channel_id": "UCgUaqrLRGLL-dHislR1e2TA",
+ "subs": 1260000,
+ "views": 2052090,
+ "ratio": 1.63,
+ "age_days": 74,
+ "views_per_day": 27730.9,
+ "minutes": 25.9,
+ "likes": 18542,
+ "comments": 501,
+ "published": "2026-08-02",
+ "queries": "검색:주식기초 | 검색:ETF | 검색:ETF추천 | 검색:한국주식 | 검색:주식투자 | 검색:주식 | 검색:주식강의 | 검색:주가 | 검색:주식시장 | 검색:주식 추천",
+ "url": "https://www.youtube.com/watch?v=If0yXj0qivU",
+ "flag": "",
+ "published_at": "2026-08-02T01:00:36Z",
+ "rank": "W78",
+ "set": "web",
+ "folder": "W_If0yXj0qivU",
+ "sources": [
+  "검색:주식기초",
+  "검색:ETF",
+  "검색:ETF추천",
+  "검색:한국주식",
+  "검색:주식투자",
+  "검색:주식",
+  "검색:주식강의",
+  "검색:주가",
+  "검색:주식시장",
+  "검색:주식 추천"
+ ],
+ "source": "web",
+ "tags": [
+  "한국",
+  "대한민국",
+  "책추천",
+  "독서법",
+  "자기계발",
+  "교양",
+  "지식"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝"
+  },
+  {
+   "start": 165,
+   "title": "\"향후 한국 5년 책임진다\" 27년까지 '딱 5개만' 죽어라 사세요"
+  },
+  {
+   "start": 561,
+   "title": "\"로봇주 앞으로 무섭게 오른다\" 딱 이것만 사세요"
+  },
+  {
+   "start": 749,
+   "title": "\"AI 버블 진짜 터질까?\" 버블 터지기 직전 나타나는 징조"
+  },
+  {
+   "start": 936,
+   "title": "\"AI가 인간 대체한다?\" 절대 그렇지 않은 이유"
+  },
+  {
+   "start": 1009,
+   "title": "당장 돈 안 돼도 우주에 투자해야 하는 이유"
+  },
+  {
+   "start": 1099,
+   "title": "\"ESS가 싹 갈아엎는다\" 2차전지 주목해야 하는 이유"
+  },
+  {
+   "start": 1295,
+   "title": "\"조선주 무섭게 오른다\" 지금 안 사면 후회할 진짜 1등 주식"
+  },
+  {
+   "start": 1391,
+   "title": "목돈 1천만원 있다면 '이렇게' 투자하세요"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 501,
+ "comments_top_level": 381,
+ "comments_replies": 120,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 501,
+ "tool": "outlier_research.py v2.4.1",
+ "collected": "2026-10-15T20:50:04",
+ "approved": "2026-10-15T20:50+09:00"
+}

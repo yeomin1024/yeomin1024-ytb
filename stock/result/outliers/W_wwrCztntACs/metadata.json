@@ -1,0 +1,68 @@
+{
+ "id": "wwrCztntACs",
+ "title": "오늘부터 오후 8시까지 애프터마켓 오픈!! 주식패턴 ‘이렇게’ 완전히 바뀐다",
+ "channel": "잘되라대한민국",
+ "channel_id": "UC1GeuioIW52kCX-v3mlDx9g",
+ "subs": 5910,
+ "views": 243747,
+ "ratio": 41.24,
+ "age_days": 31,
+ "views_per_day": 7862.8,
+ "minutes": 8.2,
+ "likes": 964,
+ "comments": 253,
+ "published": "2026-09-14",
+ "queries": "검색:한국주식 | 검색:주식시장",
+ "url": "https://www.youtube.com/watch?v=wwrCztntACs",
+ "flag": "",
+ "published_at": "2026-09-14T07:17:53Z",
+ "rank": "W12",
+ "set": "web",
+ "folder": "W_wwrCztntACs",
+ "sources": [
+  "검색:한국주식",
+  "검색:주식시장"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오늘부터 열리는 주식 애프터마켓 전격 도입 배경"
+  },
+  {
+   "start": 60,
+   "title": "거래소 애프터마켓 이용 방법 및 주요 거래 규칙"
+  },
+  {
+   "start": 141,
+   "title": "정규장과 애프터마켓의 결정적 차이 (시장가 주문 불가 등)"
+  },
+  {
+   "start": 180,
+   "title": "넥스트레이드와 KRX 애프터마켓의 관계"
+  },
+  {
+   "start": 287,
+   "title": "한국거래소가 애프터마켓을 도입한 진짜 이유와 우려스러운 점"
+  },
+  {
+   "start": 385,
+   "title": "개인 투자자가 꼭 알아야 할 애프터마켓 투자 체크포인트"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 253,
+ "comments_top_level": 233,
+ "comments_replies": 20,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 253,
+ "tool": "outlier_research.py v2.4.1",
+ "collected": "2026-10-15T20:44:01",
+ "approved": "2026-10-15T20:44+09:00"
+}

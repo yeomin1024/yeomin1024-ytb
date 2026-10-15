@@ -1,0 +1,77 @@
+{
+ "id": "JtPJ9i91k5g",
+ "title": "삼성전자 100조 환원 발표 임박, 자사주 소각 못 하고 배당만 주는 '진짜 이유'",
+ "channel": "잘되라대한민국",
+ "channel_id": "UC1GeuioIW52kCX-v3mlDx9g",
+ "subs": 5910,
+ "views": 119188,
+ "ratio": 20.17,
+ "age_days": 55,
+ "views_per_day": 2167.1,
+ "minutes": 11.0,
+ "likes": 1489,
+ "comments": 178,
+ "published": "2026-08-21",
+ "queries": "검색:배당주 | 검색:배당 | 검색:배당금",
+ "url": "https://www.youtube.com/watch?v=JtPJ9i91k5g",
+ "flag": "",
+ "published_at": "2026-08-21T06:40:50Z",
+ "rank": "W25",
+ "set": "web",
+ "folder": "W_JtPJ9i91k5g",
+ "sources": [
+  "검색:배당주",
+  "검색:배당",
+  "검색:배당금"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "[하이라이트] 삼성전자 100조 주주환원과 숨겨진 비밀"
+  },
+  {
+   "start": 30,
+   "title": "외신 보도 폭발! 100조 환원설과 이사회 카더라의 진실"
+  },
+  {
+   "start": 88,
+   "title": "자사주 소각 vs 배당, 시장이 배당에 쏠리는 이유"
+  },
+  {
+   "start": 107,
+   "title": "자사주 소각의 덫! '금산분리(10% 규제)' 완벽 정리"
+  },
+  {
+   "start": 266,
+   "title": "[핵심 해법] 삼성물산이 열쇠? 지배구조 정면돌파 시나리오"
+  },
+  {
+   "start": 453,
+   "title": "대한민국 지배구조의 본질: 대주주의 이익과 삼성물산"
+  },
+  {
+   "start": 533,
+   "title": "삼성전자 우선주(우)가 8% 폭등한 진짜 이유 (배당수익률 10%?)"
+  },
+  {
+   "start": 607,
+   "title": "뇌동매매는 그만! 배당주 투자로 은퇴·연금 설계하는 법"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 178,
+ "comments_top_level": 159,
+ "comments_replies": 19,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 178,
+ "tool": "outlier_research.py v2.4.1",
+ "collected": "2026-10-15T20:44:50",
+ "approved": "2026-10-15T20:44+09:00"
+}

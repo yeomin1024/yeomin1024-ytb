@@ -1,0 +1,83 @@
+{
+ "id": "vsiHYXqZYw0",
+ "title": "매일 1조씩 산다! 사상최대규모 주주환원! 그런데, 하이닉스 호재 한발 남았다",
+ "channel": "잘되라대한민국",
+ "channel_id": "UC1GeuioIW52kCX-v3mlDx9g",
+ "subs": 5910,
+ "views": 109428,
+ "ratio": 18.52,
+ "age_days": 56,
+ "views_per_day": 1954.1,
+ "minutes": 13.4,
+ "likes": 1442,
+ "comments": 139,
+ "published": "2026-08-20",
+ "queries": "검색:국내주식",
+ "url": "https://www.youtube.com/watch?v=vsiHYXqZYw0",
+ "flag": "",
+ "published_at": "2026-08-20T09:17:36Z",
+ "rank": "W27",
+ "set": "web",
+ "folder": "W_vsiHYXqZYw0",
+ "sources": [
+  "검색:국내주식"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트 및 오프닝"
+  },
+  {
+   "start": 26,
+   "title": "SK하이닉스 역대급 40조 자사주 소각 발표 & 진행 상황"
+  },
+  {
+   "start": 92,
+   "title": "25~27년 주주환원 정책 변경 (50% 이하 ➡️ 50% 이상)"
+  },
+  {
+   "start": 155,
+   "title": "시장을 놀라게 한 타이밍과 전략의 힘"
+  },
+  {
+   "start": 241,
+   "title": "마이크론 100% vs 하이닉스 50%? '초과현금'과 'FCF'의 결정적 차이"
+  },
+  {
+   "start": 381,
+   "title": "글로벌 동종업계 최대 규모 주주환원의 진짜 의미"
+  },
+  {
+   "start": 463,
+   "title": "이번 발표에 숨겨진 2가지 의미 (시장의 목소리, 질적 변화)"
+  },
+  {
+   "start": 587,
+   "title": "40일간 매일 1조 매수 효과 & 정유사급 현금흐름 구조"
+  },
+  {
+   "start": 686,
+   "title": "자사주 다음으로 터질 '진짜 초대형 호재'? (액면분할 이슈)"
+  },
+  {
+   "start": 764,
+   "title": "주주들이 행동하고 목소리를 내야 기업이 바뀌는 이유"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 139,
+ "comments_top_level": 110,
+ "comments_replies": 29,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 139,
+ "tool": "outlier_research.py v2.4.1",
+ "collected": "2026-10-15T20:45:10",
+ "approved": "2026-10-15T20:45+09:00"
+}

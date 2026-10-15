@@ -1,0 +1,113 @@
+{
+ "id": "O4-jY0zyhDo",
+ "title": "레버리지 ETF 상장폐지 논란🔥도박판 코스피 알고도 레버리지 ETF 상폐 못하는 이유🔥위험 알고도 도장 찍은 사람🔥금리인상 악제🔥역대급 반도체 실적 국민돈증발🔥노후자금 날린뒤 대책",
+ "channel": "리얼경제",
+ "channel_id": "UC1RWSNK0zxf1V4w94NKtUwA",
+ "subs": 1340,
+ "views": 93654,
+ "ratio": 69.89,
+ "age_days": 90,
+ "views_per_day": 1040.6,
+ "minutes": 15.0,
+ "likes": 2368,
+ "comments": 648,
+ "published": "2026-07-17",
+ "queries": "검색:코스피200",
+ "url": "https://www.youtube.com/watch?v=O4-jY0zyhDo",
+ "flag": "",
+ "published_at": "2026-07-17T09:44:45Z",
+ "rank": "W8",
+ "set": "web",
+ "folder": "W_O4-jY0zyhDo",
+ "sources": [
+  "검색:코스피200"
+ ],
+ "source": "web",
+ "tags": [
+  "레버리지ETF",
+  "삼전닉스",
+  "삼전닉스 레버리지",
+  "단일종목 레버리지 ETF",
+  "단일종목레버리지",
+  "서킷브레이커",
+  "사이드카",
+  "상장폐지",
+  "상폐",
+  "기본예탁금",
+  "기본예탁금 3000만원",
+  "코스피",
+  "코스피 폭락",
+  "도박판 코스피",
+  "삼성전자",
+  "SK하이닉스",
+  "삼성전자 주가",
+  "SK하이닉스 주가",
+  "반도체 호황",
+  "삼성전자 89조",
+  "반도체 수출",
+  "금융위원회",
+  "금융위 대책",
+  "ETF 대책",
+  "레버리지 ETF 규제",
+  "복리손실",
+  "음의 복리",
+  "지수 착시",
+  "리밸런싱",
+  "반대매매",
+  "빚투",
+  "외국인 순매도",
+  "국민연금",
+  "연금 리밸런싱",
+  "노후자금",
+  "개미 투자자",
+  "증시 변동성",
+  "경제유튜브",
+  "리얼경제",
+  "경제뉴스",
+  "주식"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로 — 89조 잔치인데 국민 돈은 증발"
+  },
+  {
+   "start": 44,
+   "title": "검은 월요일 — 올해만 서킷브레이커 7번"
+  },
+  {
+   "start": 121,
+   "title": "범인의 등장 — 5월 27일 상장된 그 '상품'"
+  },
+  {
+   "start": 215,
+   "title": "세 개의 함정 — 왜 도박판이 됐나"
+  },
+  {
+   "start": 427,
+   "title": "대(大)아이러니 — 실적 최대인데 주가 최대 폭락, 그리고 더 깊은 뿌리"
+  },
+  {
+   "start": 584,
+   "title": "앞으로 어떻게 되나 — 상폐 못 하는 이유와 정부의 3,000만원 대책"
+  },
+  {
+   "start": 811,
+   "title": "착지 — 호황의 나라에서 국민이 죽는다"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 648,
+ "comments_top_level": 532,
+ "comments_replies": 116,
+ "comments_by_creator": 2,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 648,
+ "tool": "outlier_research.py v2.4.1",
+ "collected": "2026-10-15T20:43:20",
+ "approved": "2026-10-15T20:43+09:00"
+}

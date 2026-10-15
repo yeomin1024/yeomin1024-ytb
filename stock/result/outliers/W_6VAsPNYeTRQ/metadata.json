@@ -1,0 +1,124 @@
+{
+ "id": "6VAsPNYeTRQ",
+ "title": "\"역대급 저평가라던 코스피\" 하루 만에 620조 추락.. 그 뒤에 숨겨진 코스피의 잔혹한 진실",
+ "channel": "더 리치 - 돈의 흐름을 읽어라",
+ "channel_id": "UCkgE4a8KfN62-_VQ4YKdEGQ",
+ "subs": 8090,
+ "views": 116587,
+ "ratio": 14.41,
+ "age_days": 94,
+ "views_per_day": 1240.3,
+ "minutes": 21.2,
+ "likes": 3100,
+ "comments": 294,
+ "published": "2026-07-13",
+ "queries": "검색:코스피200",
+ "url": "https://www.youtube.com/watch?v=6VAsPNYeTRQ",
+ "flag": "",
+ "published_at": "2026-07-13T09:00:21Z",
+ "rank": "W30",
+ "set": "web",
+ "folder": "W_6VAsPNYeTRQ",
+ "sources": [
+  "검색:코스피200"
+ ],
+ "source": "web",
+ "tags": [
+  "돈의 흐름",
+  "자금 흐름",
+  "수급 분석",
+  "외국인 매매",
+  "기관 매매",
+  "거시경제",
+  "시장 심리",
+  "유동성",
+  "경제 흐름",
+  "글로벌 경제",
+  "매크로",
+  "증시 전망",
+  "코스피 폭락",
+  "8.95퍼센트 하락",
+  "사이드카 발동",
+  "서킷브레이커",
+  "신용융자 잔고",
+  "반대매매 비중",
+  "빚투 청산",
+  "강제 청산",
+  "레버리지 ETF",
+  "SK하이닉스 급락",
+  "삼성전자 주가",
+  "반도체 실적 전망",
+  "PER 6.4배",
+  "코리아 디스카운트",
+  "소비자물가지수",
+  "한국은행 금리인상",
+  "금융통화위원회",
+  "반도체 피크아웃",
+  "620조 증발",
+  "개인 순매수",
+  "프로그램 매도",
+  "담보 부족",
+  "미수금 반대매매",
+  "나스닥 ADR",
+  "시장 흐름",
+  "한국 증시 저평가",
+  "돈의흐름",
+  "더리치"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "역대급 저평가와 폭락의 모순"
+  },
+  {
+   "start": 131,
+   "title": "사이드카와 서킷브레이커 발동"
+  },
+  {
+   "start": 233,
+   "title": "개인이 받아낸 3.9조 매물 폭탄"
+  },
+  {
+   "start": 315,
+   "title": "폭락의 방아쇠 SK하이닉스"
+  },
+  {
+   "start": 410,
+   "title": "시장을 무너뜨린 진짜 원인 빚"
+  },
+  {
+   "start": 542,
+   "title": "반대매매와 레버리지의 함정"
+  },
+  {
+   "start": 651,
+   "title": "코스피가 역사상 가장 싼 이유"
+  },
+  {
+   "start": 857,
+   "title": "반도체 펀더멘털과 빚의 청산"
+  },
+  {
+   "start": 1004,
+   "title": "향후 증시 향방과 주요 변수"
+  },
+  {
+   "start": 1100,
+   "title": "반드시 확인해야 할 두 가지 지표"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 294,
+ "comments_top_level": 235,
+ "comments_replies": 59,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 294,
+ "tool": "outlier_research.py v2.4.1",
+ "collected": "2026-10-15T20:45:18",
+ "approved": "2026-10-15T20:45+09:00"
+}

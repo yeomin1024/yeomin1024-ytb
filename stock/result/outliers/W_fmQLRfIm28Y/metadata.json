@@ -1,0 +1,101 @@
+{
+ "id": "fmQLRfIm28Y",
+ "title": "\"S&P500 ETF, 종목보다 '계좌'가 20년 뒤를 바꾸는 진짜 이유 (연금·ISA)\"",
+ "channel": "야무진 경제학",
+ "channel_id": "UCdu6FZYHrnBKdyzRawLabmg",
+ "subs": 22500,
+ "views": 137193,
+ "ratio": 6.1,
+ "age_days": 99,
+ "views_per_day": 1385.8,
+ "minutes": 28.4,
+ "likes": 3514,
+ "comments": 115,
+ "published": "2026-07-07",
+ "queries": "검색:ETF투자 | 검색:ETF추천 | 검색:미국ETF",
+ "url": "https://www.youtube.com/watch?v=fmQLRfIm28Y",
+ "flag": "",
+ "published_at": "2026-07-07T22:00:23Z",
+ "rank": "W57",
+ "set": "web",
+ "folder": "W_fmQLRfIm28Y",
+ "sources": [
+  "검색:ETF투자",
+  "검색:ETF추천",
+  "검색:미국ETF"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "종목은 담았는데 왜 내 계좌만 이 모양일까"
+  },
+  {
+   "start": 139,
+   "title": "원칙 ① 짐을 줄여라 — 종목이 많을수록 위험한 이유"
+  },
+  {
+   "start": 302,
+   "title": "원칙 ② 오래 메고 걸어라 — 매달 30만원 20년의 결과"
+  },
+  {
+   "start": 506,
+   "title": "40세 시작 vs 50세 시작, 10년이 만든 격차"
+  },
+  {
+   "start": 603,
+   "title": "목돈 한 번에? 나눠서? 리밸런싱은 언제"
+  },
+  {
+   "start": 644,
+   "title": "우리가 가장 많이 하는 두 가지 오해"
+  },
+  {
+   "start": 709,
+   "title": "달콤한 함정 — 월배당·커버드콜의 진실 (금감원 경보)"
+  },
+  {
+   "start": 925,
+   "title": "반전 — 짐이 아니라 '배낭'을 바꾸는 고수들"
+  },
+  {
+   "start": 1002,
+   "title": "방수 배낭 ① 연금저축·IRP, 148만원 돌려받는 법"
+  },
+  {
+   "start": 1165,
+   "title": "방수 배낭 ② ISA, 3년 유연 + 비과세"
+  },
+  {
+   "start": 1259,
+   "title": "같은 상품 김 씨 vs 박 씨, 10년 뒤 잔고 차이"
+  },
+  {
+   "start": 1358,
+   "title": "ISA를 연금으로 갈아타 혜택 두 번 챙기는 기술"
+  },
+  {
+   "start": 1444,
+   "title": "꼭 알아야 할 주의점 — 중도해지 벌금 & ISA 한도 확대의 진실"
+  },
+  {
+   "start": 1547,
+   "title": "오늘 걸어온 길 정리 — 짐이 아니라 배낭이 결과를 바꾼다"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "zxx",
+ "foreign": false,
+ "comments_fetched": 115,
+ "comments_top_level": 53,
+ "comments_replies": 62,
+ "comments_by_creator": 16,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 115,
+ "tool": "outlier_research.py v2.4.1",
+ "collected": "2026-10-15T20:47:20",
+ "approved": "2026-10-15T20:47+09:00"
+}

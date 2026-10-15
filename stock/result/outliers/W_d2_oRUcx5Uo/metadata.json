@@ -1,0 +1,126 @@
+{
+ "id": "d2_oRUcx5Uo",
+ "title": "같은 TQQQ에 1억, 한 사람은 2만 원 한 사람은 388억 (실제 데이터)",
+ "channel": "머니언박싱",
+ "channel_id": "UCwq22yCnf8XSUHOUWJCo1UQ",
+ "subs": 2190,
+ "views": 188786,
+ "ratio": 86.2,
+ "age_days": 17,
+ "views_per_day": 11105.1,
+ "minutes": 8.1,
+ "likes": 859,
+ "comments": 144,
+ "published": "2026-09-27",
+ "queries": "검색:나스닥100",
+ "url": "https://www.youtube.com/watch?v=d2_oRUcx5Uo",
+ "flag": "",
+ "published_at": "2026-09-27T23:14:28Z",
+ "rank": "W6",
+ "set": "web",
+ "folder": "W_d2_oRUcx5Uo",
+ "sources": [
+  "검색:나스닥100"
+ ],
+ "source": "web",
+ "tags": [
+  "TQQQ",
+  "QQQ",
+  "QLD",
+  "레버리지ETF",
+  "3배레버리지",
+  "나스닥100",
+  "나스닥",
+  "미국주식",
+  "닷컴버블",
+  "금융위기",
+  "적립식투자",
+  "장기투자",
+  "변동성끌림",
+  "머니언박싱"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "두 개의 계좌"
+  },
+  {
+   "start": 24,
+   "title": "3배 레버리지는 어떻게 움직이나"
+  },
+  {
+   "start": 54,
+   "title": "박 부장, 2000년 3월 꼭대기에서 1억"
+  },
+  {
+   "start": 80,
+   "title": "1년 만에 496만 원"
+  },
+  {
+   "start": 102,
+   "title": "2만 원까지"
+  },
+  {
+   "start": 126,
+   "title": "지수는 돌아왔는데"
+  },
+  {
+   "start": 155,
+   "title": "26년 뒤 박 부장"
+  },
+  {
+   "start": 176,
+   "title": "만약 2009년 바닥에서 샀다면"
+  },
+  {
+   "start": 222,
+   "title": "이 대리, TQQQ 상장일에 1억"
+  },
+  {
+   "start": 240,
+   "title": "16년 뒤, 그러나"
+  },
+  {
+   "start": 265,
+   "title": "만약 2021년 11월에 들어갔다면"
+  },
+  {
+   "start": 305,
+   "title": "최 사원, 매달 50만 원"
+  },
+  {
+   "start": 332,
+   "title": "94억에서 20억으로"
+  },
+  {
+   "start": 356,
+   "title": "만약 2022년에 팔았다면"
+  },
+  {
+   "start": 389,
+   "title": "결과 공개"
+  },
+  {
+   "start": 416,
+   "title": "이 결과를 믿기 전에"
+  },
+  {
+   "start": 444,
+   "title": "레버리지를 산다면"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 144,
+ "comments_top_level": 80,
+ "comments_replies": 64,
+ "comments_by_creator": 16,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 144,
+ "tool": "outlier_research.py v2.4.1",
+ "collected": "2026-10-15T20:43:13",
+ "approved": "2026-10-15T20:43+09:00"
+}

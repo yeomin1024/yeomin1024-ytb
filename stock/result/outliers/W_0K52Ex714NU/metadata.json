@@ -1,0 +1,78 @@
+{
+ "id": "0K52Ex714NU",
+ "title": "인도 옵션 투자 광풍, 50조 털린 인도 개미들",
+ "channel": "슈카월드",
+ "channel_id": "UCsJ6RuBiTVWRX156FVbeaGg",
+ "subs": 3730000,
+ "views": 1876477,
+ "ratio": 0.5,
+ "age_days": 12,
+ "views_per_day": 156373.1,
+ "minutes": 27.1,
+ "likes": 7010,
+ "comments": 658,
+ "published": "2026-10-03",
+ "queries": "검색:주식투자",
+ "url": "https://www.youtube.com/watch?v=0K52Ex714NU",
+ "flag": "",
+ "published_at": "2026-10-03T10:22:25Z",
+ "rank": "W86",
+ "set": "web",
+ "folder": "W_0K52Ex714NU",
+ "sources": [
+  "검색:주식투자"
+ ],
+ "source": "web",
+ "tags": [
+  "슈카",
+  "슈카월드",
+  "경제",
+  "시사",
+  "이슈",
+  "뉴스",
+  "상식",
+  "면접",
+  "논술",
+  "자소서",
+  "취업",
+  "주식",
+  "증시",
+  "주가",
+  "시장",
+  "자산",
+  "투자",
+  "금리"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인도 증권거래소 상장"
+  },
+  {
+   "start": 285,
+   "title": "인도 정부는 왜 파생상품 시장을 규제하는가?"
+  },
+  {
+   "start": 821,
+   "title": "옵션을 주의해야하는 이유"
+  },
+  {
+   "start": 1162,
+   "title": "썰물 빠지듯 빠져나간 투자 열기"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 658,
+ "comments_top_level": 499,
+ "comments_replies": 159,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 658,
+ "tool": "outlier_research.py v2.4.1",
+ "collected": "2026-10-15T20:51:41",
+ "approved": "2026-10-15T20:51+09:00"
+}

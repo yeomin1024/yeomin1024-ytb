@@ -1,0 +1,65 @@
+{
+ "id": "VEq_V5USmRg",
+ "title": "'보기만 해도 피가되고 살이된다' EBS 레전드 명작 주식의 시대, 돈의 얼굴, 자본주의 핵심 몰아보기｜다큐프라임｜#골라듄다큐",
+ "channel": "EBSDocumentary (EBS 다큐)",
+ "channel_id": "UCFCtZJTuJhE18k8IXwmXTYQ",
+ "subs": 5470000,
+ "views": 2228528,
+ "ratio": 0.41,
+ "age_days": 41,
+ "views_per_day": 54354.3,
+ "minutes": 102.7,
+ "likes": 10947,
+ "comments": 294,
+ "published": "2026-09-04",
+ "queries": "검색:주식투자 | 검색:주가",
+ "url": "https://www.youtube.com/watch?v=VEq_V5USmRg",
+ "flag": "",
+ "published_at": "2026-09-04T10:00:04Z",
+ "rank": "W87",
+ "set": "web",
+ "folder": "W_VEq_V5USmRg",
+ "sources": [
+  "검색:주식투자",
+  "검색:주가"
+ ],
+ "source": "web",
+ "tags": [
+  "EBS",
+  "EBS documentary",
+  "EBS 다큐멘터리",
+  "다큐",
+  "docu",
+  "골라듄",
+  "골라듄다큐",
+  "골라둔다큐"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "주식의 시대 1부 우리는 왜 투자에 실패하는가"
+  },
+  {
+   "start": 1671,
+   "title": "돈의 얼굴 6부 고급 정보 드립니다"
+  },
+  {
+   "start": 2961,
+   "title": "자본주의 1부 돈은 빚이다"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 294,
+ "comments_top_level": 181,
+ "comments_replies": 113,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 294,
+ "tool": "outlier_research.py v2.4.1",
+ "collected": "2026-10-15T20:51:50",
+ "approved": "2026-10-15T20:51+09:00"
+}

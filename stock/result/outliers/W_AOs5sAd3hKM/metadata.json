@@ -1,0 +1,122 @@
+{
+ "id": "AOs5sAd3hKM",
+ "title": "\"안정을 기대한다\"더니 하루만에 코스피 -10.84%🔥올해 8번째 서킷브레이커🔥정부, 왜 손놓고 있나🔥증안펀드•리밸런싱•공매도🔥삼성전자 -14% SK하이닉스 -16%🔥중국반도체쇼크",
+ "channel": "리얼경제",
+ "channel_id": "UC1RWSNK0zxf1V4w94NKtUwA",
+ "subs": 1340,
+ "views": 19133,
+ "ratio": 14.28,
+ "age_days": 78,
+ "views_per_day": 245.3,
+ "minutes": 16.1,
+ "likes": 745,
+ "comments": 205,
+ "published": "2026-07-28",
+ "queries": "검색:코스피200",
+ "url": "https://www.youtube.com/watch?v=AOs5sAd3hKM",
+ "flag": "",
+ "published_at": "2026-07-28T15:36:24Z",
+ "rank": "W31",
+ "set": "web",
+ "folder": "W_AOs5sAd3hKM",
+ "sources": [
+  "검색:코스피200"
+ ],
+ "source": "web",
+ "tags": [
+  "코스피",
+  "코스피 폭락",
+  "증시폭락",
+  "주식폭락",
+  "서킷브레이커",
+  "코스피 서킷브레이커",
+  "6100선 붕괴",
+  "코스닥",
+  "코스피200",
+  "삼성전자",
+  "SK하이닉스",
+  "삼전닉스",
+  "반도체 폭락",
+  "중국 반도체",
+  "창신메모리",
+  "CXMT",
+  "DUV",
+  "ASML",
+  "메모리 반도체",
+  "증안펀드",
+  "증권시장안정펀드",
+  "공매도",
+  "공매도 금지",
+  "국민연금",
+  "국민연금 리밸런싱",
+  "리밸런싱 재개",
+  "채권시장안정펀드",
+  "레버리지 ETF",
+  "단일종목 레버리지",
+  "반대매매",
+  "기본예탁금",
+  "외국인 순매도",
+  "개인 순매수",
+  "금융위원회",
+  "금융당국",
+  "개미",
+  "주식 초보",
+  "노후자금",
+  "재테크",
+  "경제뉴스",
+  "경제유튜브",
+  "리얼경제"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로 — 어제는 \"안정을 기대한다\", 오늘은 서킷브레이커"
+  },
+  {
+   "start": 52,
+   "title": "오늘 벌어진 일 — 코스피 6,023.66 / -10.84% / 내린 종목 880개"
+  },
+  {
+   "start": 161,
+   "title": "방아쇠는 밖에서 — 중국 창신메모리 상장과 DUV 노광장비"
+  },
+  {
+   "start": 261,
+   "title": "왜 우리만 이렇게 무너지나 — 레버리지라는 확성기"
+  },
+  {
+   "start": 363,
+   "title": "그럼 누가 벌었나 — 외국인 지분율은 오히려 늘었다"
+  },
+  {
+   "start": 495,
+   "title": "스위치는 이미 있었다 — 국민연금 리밸런싱과 7월 1일"
+  },
+  {
+   "start": 609,
+   "title": "당국은 무엇을 했나 — 7/14부터 7/28까지 날짜만 순서대로"
+  },
+  {
+   "start": 708,
+   "title": "안 쓴 카드 — 증안펀드 10조·공매도 금지·리밸런싱 유예"
+  },
+  {
+   "start": 817,
+   "title": "그래서 지금이라도 — 요구 세 가지"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 205,
+ "comments_top_level": 187,
+ "comments_replies": 18,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 205,
+ "tool": "outlier_research.py v2.4.1",
+ "collected": "2026-10-15T20:45:23",
+ "approved": "2026-10-15T20:45+09:00"
+}

@@ -1,0 +1,78 @@
+{
+ "id": "kidc-Cza18s",
+ "title": "배당으로 사는 은퇴자가 법인을 만든 이유 5가지",
+ "channel": "은퇴머니 - 은퇴 현금흐름 설계",
+ "channel_id": "UCQrlX5mzcTICHZC1BMVKwhQ",
+ "subs": 30000,
+ "views": 137289,
+ "ratio": 4.58,
+ "age_days": 66,
+ "views_per_day": 2080.1,
+ "minutes": 10.7,
+ "likes": 1524,
+ "comments": 70,
+ "published": "2026-08-10",
+ "queries": "검색:배당주 | 검색:배당 | 검색:배당금 | 검색:배당투자",
+ "url": "https://www.youtube.com/watch?v=kidc-Cza18s",
+ "flag": "",
+ "published_at": "2026-08-10T07:39:07Z",
+ "rank": "W64",
+ "set": "web",
+ "folder": "W_kidc-Cza18s",
+ "sources": [
+  "검색:배당주",
+  "검색:배당",
+  "검색:배당금",
+  "검색:배당투자"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "은퇴 전에 법인을 만든 이유"
+  },
+  {
+   "start": 126,
+   "title": "금융소득 2,000만원 기준"
+  },
+  {
+   "start": 207,
+   "title": "건강보험료 차이"
+  },
+  {
+   "start": 280,
+   "title": "받는 시점을 정하는 방법"
+  },
+  {
+   "start": 339,
+   "title": "손실 이월"
+  },
+  {
+   "start": 385,
+   "title": "비용 인정"
+  },
+  {
+   "start": 478,
+   "title": "법인 투자에 대한 반론"
+  },
+  {
+   "start": 551,
+   "title": "다섯 가지 정리와 다음 편 예고"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 70,
+ "comments_top_level": 41,
+ "comments_replies": 29,
+ "comments_by_creator": 7,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 70,
+ "tool": "outlier_research.py v2.4.1",
+ "collected": "2026-10-15T20:47:40",
+ "approved": "2026-10-15T20:47+09:00"
+}

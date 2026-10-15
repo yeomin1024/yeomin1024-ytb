@@ -1,0 +1,78 @@
+{
+ "id": "V_RecmLncz4",
+ "title": "나스닥 2배 QLD 무지성 적립식매수 vs. 공포탐욕지수 활용 매수 I QQQ, QLD, TQQQ, SOXL",
+ "channel": "레버리지 하는 미국회계사 장기투자 여정",
+ "channel_id": "UCsOBK0F0M9yZqIdq2Dmez3Q",
+ "subs": 13100,
+ "views": 74483,
+ "ratio": 5.69,
+ "age_days": 55,
+ "views_per_day": 1354.2,
+ "minutes": 16.1,
+ "likes": 1354,
+ "comments": 181,
+ "published": "2026-08-20",
+ "queries": "검색:나스닥 | 검색:나스닥100",
+ "url": "https://www.youtube.com/watch?v=V_RecmLncz4",
+ "flag": "",
+ "published_at": "2026-08-20T23:25:42Z",
+ "rank": "W58",
+ "set": "web",
+ "folder": "W_V_RecmLncz4",
+ "sources": [
+  "검색:나스닥",
+  "검색:나스닥100"
+ ],
+ "source": "web",
+ "tags": [
+  "QQQ",
+  "QLD",
+  "TQQQ",
+  "SOXL",
+  "나스닥"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "공포탐욕지수 활용한 매수 질문"
+  },
+  {
+   "start": 105,
+   "title": "공포탐욕지수란? + 백테스트 가정"
+  },
+  {
+   "start": 317,
+   "title": "공포탐욕지수 활용 전략 결과"
+  },
+  {
+   "start": 393,
+   "title": "레니프 유니백 체어 프로 제품 지원 영상"
+  },
+  {
+   "start": 430,
+   "title": "공포탐욕지수 최대 활용전략?"
+  },
+  {
+   "start": 601,
+   "title": "공포탐욕지수 스윙 전략"
+  },
+  {
+   "start": 848,
+   "title": "공포탐욕지수 매수 결론"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 181,
+ "comments_top_level": 90,
+ "comments_replies": 91,
+ "comments_by_creator": 63,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 181,
+ "tool": "outlier_research.py v2.4.1",
+ "collected": "2026-10-15T20:47:23",
+ "approved": "2026-10-15T20:47+09:00"
+}

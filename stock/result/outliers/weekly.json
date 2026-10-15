@@ -1,0 +1,8301 @@
+{
+ "tool": "weekly_analysis.py v1.3",
+ "topic": "stock",
+ "name": "주식",
+ "generated": "2026-10-15T14:01:56+00:00",
+ "cases": 102,
+ "dated": 102,
+ "older_than_windows": 0,
+ "max_weeks": 52,
+ "text_sources": {
+  "자막": 0,
+  "음성인식": 12,
+  "설명": 84,
+  "없음": 6
+ },
+ "criteria": "성공 사례 = 구독자 50,000 이하 · 조회수 10,000 이상 · 조회수 ≥ 구독자 × 3",
+ "windows": [
+  {
+   "weeks": 1,
+   "label": "최근 1주",
+   "videos": 5,
+   "channels": 5,
+   "new_this_week": [
+    {
+     "id": "36sFYI8uboE",
+     "title": "주식 기초 강의 한번 배워서 평생 써먹는 주린이를 위한 주식 투자 방법",
+     "published": "2026-10-08"
+    },
+    {
+     "id": "amgqXbScFMY",
+     "title": "삼성전자·하이닉스 왜 급락? 코스피 6000 붕괴, 중국 CXMT 공포가 과도한 이유 3가지",
+     "published": "2026-10-13"
+    },
+    {
+     "id": "B6BWv1OZV7w",
+     "title": "코스피 다 맞춘 무당이 알려드립니다 ! 달러 환율 & 코인 전망 확인하세요 ! X월 이 금액이 보인다 ?! / 코인전망 , 환율전망",
+     "published": "2026-10-09"
+    },
+    {
+     "id": "hTRG4ehA6NU",
+     "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
+     "published": "2026-10-12"
+    },
+    {
+     "id": "O8ZlEWiJ0yI",
+     "title": "하이닉스 주주들만 호구인가?… 결국 6천피 찍은 코스피 폭락장",
+     "published": "2026-10-13"
+    }
+   ],
+   "views_median": 80984,
+   "views_per_day_median": 36722.7,
+   "ratio_median": 13.7,
+   "success": 4,
+   "minutes_median": 15.2,
+   "title_len_avg": 45.8,
+   "title_features": [
+    {
+     "name": "물음표 ?",
+     "count": 4,
+     "share": 0.8
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 4,
+     "share": 0.8
+    },
+    {
+     "name": "느낌표 !",
+     "count": 1,
+     "share": 0.2
+    },
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 1,
+     "share": 0.2
+    },
+    {
+     "name": "이유",
+     "count": 1,
+     "share": 0.2
+    },
+    {
+     "name": "N가지",
+     "count": 1,
+     "share": 0.2
+    },
+    {
+     "name": "과정·벌어진 일·결말·결국",
+     "count": 1,
+     "share": 0.2
+    }
+   ],
+   "title_words": [
+    {
+     "word": "코스피",
+     "count": 3
+    },
+    {
+     "word": "급락",
+     "count": 2
+    },
+    {
+     "word": "하이닉스",
+     "count": 2
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 4,
+    "없음": 1
+   },
+   "content_words": [
+    {
+     "word": "보세요",
+     "count": 2
+    }
+   ],
+   "chapters_share": 0.6,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "B6BWv1OZV7w",
+     "title": "코스피 다 맞춘 무당이 알려드립니다 ! 달러 환율 & 코인 전망 확인하세요 ! X월 이 금액이 보인다 ?! / 코인전망 , 환율전망",
+     "src": "설명",
+     "hook": "안녕하세요 , 대국신당 입니다 . 진실된 말씀으로 한분 한분 성심껏 도와드리겠습니다 . 🚩신당위치 : 서울시 강서구 📞상담예약 : 010-7113-0200 (전화/방문상담가능)"
+    },
+    {
+     "id": "O8ZlEWiJ0yI",
+     "title": "하이닉스 주주들만 호구인가?… 결국 6천피 찍은 코스피 폭락장",
+     "src": "설명",
+     "hook": "[겸공_12시에만나요 261013] 험한 세월 주주들의 돈으로 버텨내고 적자를 이겨냈더니, 알짜배기 자회사는 해외에서 따로 상장하겠다고요? SK하이닉스의 5단 지배구조 속에 숨겨진 쪼개기 상장 논란과, 주주들의 뒤통수를 치는 이율배반적인 현실을 파헤칩니다. 연이은 폭락장 속에서 내 탓이"
+    },
+    {
+     "id": "amgqXbScFMY",
+     "title": "삼성전자·하이닉스 왜 급락? 코스피 6000 붕괴, 중국 CXMT 공포가 과도한 이유 3가지",
+     "src": "설명",
+     "hook": "\"미국에서 어제 하이닉스 ADR은 4%밖에 안 빠졌거든요. 근데 지금 우리가 10% 빼고 있어요.\" 10월 13일 12시에 만나요에서 박시동 평론가가 한 말이다. 이날 코스피는 장중 6% 넘게 빠지며 6000선 아래로 밀렸고, 매도 사이드카까지 발동됐다. 방아쇠는 중국 창신메모리(CXM"
+    }
+   ],
+   "comments": 2145,
+   "comment_needs": [
+    {
+     "name": "질문",
+     "count": 452,
+     "share": 0.211
+    },
+    {
+     "name": "2026 시장(폭락·불장·서킷)",
+     "count": 314,
+     "share": 0.146
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 223,
+     "share": 0.104
+    },
+    {
+     "name": "빚·신용·미수",
+     "count": 161,
+     "share": 0.075
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 122,
+     "share": 0.057
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 105,
+     "share": 0.049
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "주가 상승을 천천히 올리고,국민연금이 5천정도에 리벨런싱 했어야 하는데 정부가 주가 상승에 취해서 막는 바람에 외국인들이 고가에 털고 나갔고 국민들만 고점에 쳐물렸다.정부가 욕쳐먹는 이유다.",
+     "likes": 1948
+    },
+    {
+     "text": "이창용.\nIMF에 인맥 많고 능력 좋다고 하더니만\n별 볼일 없이 끝남",
+     "likes": 754
+    },
+    {
+     "text": "국민연금  억지로 못 팔게 해서 \n외국인만  돈벌고 다 튀었습니다",
+     "likes": 721
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "hTRG4ehA6NU",
+     "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
+     "channel": "박종훈의 지식한방",
+     "views": 1500722,
+     "views_per_day": 483276.2,
+     "published": "2026-10-12",
+     "url": "https://www.youtube.com/watch?v=hTRG4ehA6NU"
+    },
+    {
+     "id": "B6BWv1OZV7w",
+     "title": "코스피 다 맞춘 무당이 알려드립니다 ! 달러 환율 & 코인 전망 확인하세요 ! X월 이 금액이 보인다 ?! / 코인전망 , 환율전망",
+     "channel": "대국신당 임장군",
+     "views": 248659,
+     "views_per_day": 40155.7,
+     "published": "2026-10-09",
+     "url": "https://www.youtube.com/watch?v=B6BWv1OZV7w"
+    },
+    {
+     "id": "O8ZlEWiJ0yI",
+     "title": "하이닉스 주주들만 호구인가?… 결국 6천피 찍은 코스피 폭락장",
+     "channel": "잘되라대한민국",
+     "views": 80984,
+     "views_per_day": 36722.7,
+     "published": "2026-10-13",
+     "url": "https://www.youtube.com/watch?v=O8ZlEWiJ0yI"
+    },
+    {
+     "id": "amgqXbScFMY",
+     "title": "삼성전자·하이닉스 왜 급락? 코스피 6000 붕괴, 중국 CXMT 공포가 과도한 이유 3가지",
+     "channel": "경제야! 놀자~",
+     "views": 61799,
+     "views_per_day": 25893.6,
+     "published": "2026-10-13",
+     "url": "https://www.youtube.com/watch?v=amgqXbScFMY"
+    },
+    {
+     "id": "36sFYI8uboE",
+     "title": "주식 기초 강의 한번 배워서 평생 써먹는 주린이를 위한 주식 투자 방법",
+     "channel": "마이크로스콥 ",
+     "views": 14966,
+     "views_per_day": 2183.3,
+     "published": "2026-10-08",
+     "url": "https://www.youtube.com/watch?v=36sFYI8uboE"
+    }
+   ]
+  },
+  {
+   "weeks": 2,
+   "label": "최근 2주",
+   "videos": 10,
+   "channels": 10,
+   "new_this_week": [
+    {
+     "id": "0JHEax_R7DE",
+     "title": "[차트 강의] 100조 운용역이 신입 펀드매니저에게 가르쳤던 차트 패턴 8가지 (박재훈)",
+     "published": "2026-10-03"
+    },
+    {
+     "id": "0K52Ex714NU",
+     "title": "인도 옵션 투자 광풍, 50조 털린 인도 개미들",
+     "published": "2026-10-03"
+    },
+    {
+     "id": "d4gqZGtuUxo",
+     "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
+     "published": "2026-10-08"
+    },
+    {
+     "id": "FRzyTNO9mNI",
+     "title": "50대 옥탑방 부부, \"그 나이에 왜 주식을...\"",
+     "published": "2026-10-03"
+    },
+    {
+     "id": "WfEK5IRkpE4",
+     "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
+     "published": "2026-10-02"
+    }
+   ],
+   "views_median": 218878.0,
+   "views_per_day_median": 38439.2,
+   "ratio_median": 12.23,
+   "success": 6,
+   "minutes_median": 15.85,
+   "title_len_avg": 46.2,
+   "title_features": [
+    {
+     "name": "물음표 ?",
+     "count": 6,
+     "share": 0.6
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 4,
+     "share": 0.4
+    },
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 2,
+     "share": 0.2
+    },
+    {
+     "name": "N가지",
+     "count": 2,
+     "share": 0.2
+    },
+    {
+     "name": "느낌표 !",
+     "count": 1,
+     "share": 0.1
+    },
+    {
+     "name": "이유",
+     "count": 1,
+     "share": 0.1
+    },
+    {
+     "name": "과정·벌어진 일·결말·결국",
+     "count": 1,
+     "share": 0.1
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 1,
+     "share": 0.1
+    },
+    {
+     "name": "vs 비교",
+     "count": 1,
+     "share": 0.1
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 1,
+     "share": 0.1
+    }
+   ],
+   "title_words": [
+    {
+     "word": "코스피",
+     "count": 3
+    },
+    {
+     "word": "강의",
+     "count": 2
+    },
+    {
+     "word": "투자",
+     "count": 2
+    },
+    {
+     "word": "급락",
+     "count": 2
+    },
+    {
+     "word": "하이닉스",
+     "count": 2
+    }
+   ],
+   "transcripts": 1,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 1,
+    "설명": 7,
+    "없음": 2
+   },
+   "content_words": [
+    {
+     "word": "투자",
+     "count": 4
+    },
+    {
+     "word": "안녕하세요",
+     "count": 3
+    },
+    {
+     "word": "보세요",
+     "count": 3
+    },
+    {
+     "word": "오늘은",
+     "count": 2
+    },
+    {
+     "word": "생각합니다",
+     "count": 2
+    },
+    {
+     "word": "그래서",
+     "count": 2
+    },
+    {
+     "word": "투자를",
+     "count": 2
+    },
+    {
+     "word": "분들은",
+     "count": 2
+    },
+    {
+     "word": "많은",
+     "count": 2
+    },
+    {
+     "word": "가장",
+     "count": 2
+    },
+    {
+     "word": "강의를",
+     "count": 2
+    },
+    {
+     "word": "제가",
+     "count": 2
+    }
+   ],
+   "chapters_share": 0.4,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "WfEK5IRkpE4",
+     "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
+     "src": "설명",
+     "hook": "결혼을 앞둔 친구의 다급한 상견례 고민부터 연령별 맞춤 자산 관리 전략까지! 프로미스나인 이채영과 함께하는 ACE 투자상담소 고수 선배들의 속 시원한 금융 꿀팁을 확인해 보세요. 💡 🎁 ACE 투자상담소 EP.03 댓글 이벤트 영상을 시청하고 [에/이/스/채/영] 5행시 댓글을 남겨주세"
+    },
+    {
+     "id": "d4gqZGtuUxo",
+     "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
+     "src": "설명",
+     "hook": "대한민국 대표 금융정보회사 연합인포맥스가 만든 경제·금융 교육 플랫폼 《연합인포맥스아카데미》 시장을 보는 눈, 이제 직접 확인하세요! 성상현•노근창과 함께하는 투자결전 (10/24일 13시) 오프라인 특별강연 멤버스 자세히 보기 클래스 자세히 보기 ☎️인포맥스아카데미 대표전화 02-78"
+    },
+    {
+     "id": "B6BWv1OZV7w",
+     "title": "코스피 다 맞춘 무당이 알려드립니다 ! 달러 환율 & 코인 전망 확인하세요 ! X월 이 금액이 보인다 ?! / 코인전망 , 환율전망",
+     "src": "설명",
+     "hook": "안녕하세요 , 대국신당 입니다 . 진실된 말씀으로 한분 한분 성심껏 도와드리겠습니다 . 🚩신당위치 : 서울시 강서구 📞상담예약 : 010-7113-0200 (전화/방문상담가능)"
+    }
+   ],
+   "comments": 3962,
+   "comment_needs": [
+    {
+     "name": "질문",
+     "count": 792,
+     "share": 0.2
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 483,
+     "share": 0.122
+    },
+    {
+     "name": "2026 시장(폭락·불장·서킷)",
+     "count": 370,
+     "share": 0.093
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 252,
+     "share": 0.064
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 251,
+     "share": 0.063
+    },
+    {
+     "name": "빚·신용·미수",
+     "count": 222,
+     "share": 0.056
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "갠지스강 정모 ㄷㄷ",
+     "likes": 2103
+    },
+    {
+     "text": "주가 상승을 천천히 올리고,국민연금이 5천정도에 리벨런싱 했어야 하는데 정부가 주가 상승에 취해서 막는 바람에 외국인들이 고가에 털고 나갔고 국민들만 고점에 쳐물렸다.정부가 욕쳐먹는 이유다.",
+     "likes": 1948
+    },
+    {
+     "text": "사람 사는 곳이 이렇게 똑같습니다",
+     "likes": 1660
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "hTRG4ehA6NU",
+     "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
+     "channel": "박종훈의 지식한방",
+     "views": 1500722,
+     "views_per_day": 483276.2,
+     "published": "2026-10-12",
+     "url": "https://www.youtube.com/watch?v=hTRG4ehA6NU"
+    },
+    {
+     "id": "WfEK5IRkpE4",
+     "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
+     "channel": "ACE ETF",
+     "views": 2304062,
+     "views_per_day": 174157.6,
+     "published": "2026-10-02",
+     "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
+    },
+    {
+     "id": "d4gqZGtuUxo",
+     "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
+     "channel": "연합뉴스경제TV",
+     "views": 1176049,
+     "views_per_day": 165135.5,
+     "published": "2026-10-08",
+     "url": "https://www.youtube.com/watch?v=d4gqZGtuUxo"
+    },
+    {
+     "id": "0K52Ex714NU",
+     "title": "인도 옵션 투자 광풍, 50조 털린 인도 개미들",
+     "channel": "슈카월드",
+     "views": 1876477,
+     "views_per_day": 154411.4,
+     "published": "2026-10-03",
+     "url": "https://www.youtube.com/watch?v=0K52Ex714NU"
+    },
+    {
+     "id": "B6BWv1OZV7w",
+     "title": "코스피 다 맞춘 무당이 알려드립니다 ! 달러 환율 & 코인 전망 확인하세요 ! X월 이 금액이 보인다 ?! / 코인전망 , 환율전망",
+     "channel": "대국신당 임장군",
+     "views": 248659,
+     "views_per_day": 40155.7,
+     "published": "2026-10-09",
+     "url": "https://www.youtube.com/watch?v=B6BWv1OZV7w"
+    }
+   ]
+  },
+  {
+   "weeks": 3,
+   "label": "최근 3주",
+   "videos": 13,
+   "channels": 13,
+   "new_this_week": [
+    {
+     "id": "d2_oRUcx5Uo",
+     "title": "같은 TQQQ에 1억, 한 사람은 2만 원 한 사람은 388억 (실제 데이터)",
+     "published": "2026-09-27"
+    },
+    {
+     "id": "uqsGXwRgP68",
+     "title": "주식투자 5년간 수익이 없던 내가 드디어 깨달은 '이것'",
+     "published": "2026-09-28"
+    },
+    {
+     "id": "Uuw517jwuRQ",
+     "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
+     "published": "2026-10-01"
+    }
+   ],
+   "views_median": 189097,
+   "views_per_day_median": 36722.7,
+   "ratio_median": 13.7,
+   "success": 8,
+   "minutes_median": 15.2,
+   "title_len_avg": 44.9,
+   "title_features": [
+    {
+     "name": "물음표 ?",
+     "count": 7,
+     "share": 0.538
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 5,
+     "share": 0.385
+    },
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 2,
+     "share": 0.154
+    },
+    {
+     "name": "N가지",
+     "count": 2,
+     "share": 0.154
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 1,
+     "share": 0.077
+    },
+    {
+     "name": "두 금액(반전)",
+     "count": 1,
+     "share": 0.077
+    },
+    {
+     "name": "느낌표 !",
+     "count": 1,
+     "share": 0.077
+    },
+    {
+     "name": "이유",
+     "count": 1,
+     "share": 0.077
+    },
+    {
+     "name": "과정·벌어진 일·결말·결국",
+     "count": 1,
+     "share": 0.077
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 1,
+     "share": 0.077
+    },
+    {
+     "name": "vs 비교",
+     "count": 1,
+     "share": 0.077
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 1,
+     "share": 0.077
+    }
+   ],
+   "title_words": [
+    {
+     "word": "코스피",
+     "count": 4
+    },
+    {
+     "word": "강의",
+     "count": 2
+    },
+    {
+     "word": "투자",
+     "count": 2
+    },
+    {
+     "word": "급락",
+     "count": 2
+    },
+    {
+     "word": "하이닉스",
+     "count": 2
+    }
+   ],
+   "transcripts": 2,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 2,
+    "설명": 9,
+    "없음": 2
+   },
+   "content_words": [
+    {
+     "word": "투자",
+     "count": 6
+    },
+    {
+     "word": "가장",
+     "count": 4
+    },
+    {
+     "word": "같은",
+     "count": 4
+    },
+    {
+     "word": "기간",
+     "count": 4
+    },
+    {
+     "word": "오늘은",
+     "count": 3
+    },
+    {
+     "word": "그래서",
+     "count": 3
+    },
+    {
+     "word": "투자를",
+     "count": 3
+    },
+    {
+     "word": "많은",
+     "count": 3
+    },
+    {
+     "word": "안녕하세요",
+     "count": 3
+    },
+    {
+     "word": "보세요",
+     "count": 3
+    },
+    {
+     "word": "실제",
+     "count": 3
+    },
+    {
+     "word": "오늘",
+     "count": 3
+    }
+   ],
+   "chapters_share": 0.462,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "WfEK5IRkpE4",
+     "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
+     "src": "설명",
+     "hook": "결혼을 앞둔 친구의 다급한 상견례 고민부터 연령별 맞춤 자산 관리 전략까지! 프로미스나인 이채영과 함께하는 ACE 투자상담소 고수 선배들의 속 시원한 금융 꿀팁을 확인해 보세요. 💡 🎁 ACE 투자상담소 EP.03 댓글 이벤트 영상을 시청하고 [에/이/스/채/영] 5행시 댓글을 남겨주세"
+    },
+    {
+     "id": "d4gqZGtuUxo",
+     "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
+     "src": "설명",
+     "hook": "대한민국 대표 금융정보회사 연합인포맥스가 만든 경제·금융 교육 플랫폼 《연합인포맥스아카데미》 시장을 보는 눈, 이제 직접 확인하세요! 성상현•노근창과 함께하는 투자결전 (10/24일 13시) 오프라인 특별강연 멤버스 자세히 보기 클래스 자세히 보기 ☎️인포맥스아카데미 대표전화 02-78"
+    },
+    {
+     "id": "Uuw517jwuRQ",
+     "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
+     "src": "설명",
+     "hook": "〈앵커〉 한 기자, 오늘(1일)은 국내 증시 얘기군요. 〈기자〉 잘 나가던 코스피가 외신에 세계 최악이라는 말까지 들었는데요. 지난 석 달간 코스피를 보면 20% 가까이 하락했습니다. 주요국 증시 중에 최하위를 기록한 겁니다. 7월부터 9월까지 3분기 동안 코스피가 18.8% 떨어졌는데"
+    }
+   ],
+   "comments": 6146,
+   "comment_needs": [
+    {
+     "name": "질문",
+     "count": 1301,
+     "share": 0.212
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 751,
+     "share": 0.122
+    },
+    {
+     "name": "2026 시장(폭락·불장·서킷)",
+     "count": 702,
+     "share": 0.114
+    },
+    {
+     "name": "빚·신용·미수",
+     "count": 575,
+     "share": 0.094
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 372,
+     "share": 0.061
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 337,
+     "share": 0.055
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "갠지스강 정모 ㄷㄷ",
+     "likes": 2103
+    },
+    {
+     "text": "주가 상승을 천천히 올리고,국민연금이 5천정도에 리벨런싱 했어야 하는데 정부가 주가 상승에 취해서 막는 바람에 외국인들이 고가에 털고 나갔고 국민들만 고점에 쳐물렸다.정부가 욕쳐먹는 이유다.",
+     "likes": 1948
+    },
+    {
+     "text": "사람 사는 곳이 이렇게 똑같습니다",
+     "likes": 1660
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "hTRG4ehA6NU",
+     "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
+     "channel": "박종훈의 지식한방",
+     "views": 1500722,
+     "views_per_day": 483276.2,
+     "published": "2026-10-12",
+     "url": "https://www.youtube.com/watch?v=hTRG4ehA6NU"
+    },
+    {
+     "id": "WfEK5IRkpE4",
+     "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
+     "channel": "ACE ETF",
+     "views": 2304062,
+     "views_per_day": 174157.6,
+     "published": "2026-10-02",
+     "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
+    },
+    {
+     "id": "d4gqZGtuUxo",
+     "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
+     "channel": "연합뉴스경제TV",
+     "views": 1176049,
+     "views_per_day": 165135.5,
+     "published": "2026-10-08",
+     "url": "https://www.youtube.com/watch?v=d4gqZGtuUxo"
+    },
+    {
+     "id": "0K52Ex714NU",
+     "title": "인도 옵션 투자 광풍, 50조 털린 인도 개미들",
+     "channel": "슈카월드",
+     "views": 1876477,
+     "views_per_day": 154411.4,
+     "published": "2026-10-03",
+     "url": "https://www.youtube.com/watch?v=0K52Ex714NU"
+    },
+    {
+     "id": "Uuw517jwuRQ",
+     "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
+     "channel": "SBS 뉴스",
+     "views": 1444127,
+     "views_per_day": 99438.1,
+     "published": "2026-10-01",
+     "url": "https://www.youtube.com/watch?v=Uuw517jwuRQ"
+    }
+   ]
+  },
+  {
+   "weeks": 4,
+   "label": "최근 4주",
+   "videos": 18,
+   "channels": 17,
+   "new_this_week": [
+    {
+     "id": "CI5yWWTjJfc",
+     "title": "'이 ETF 두 가지'만 하면 평생 부자로 살 수 있습니다.  (존리 대표 2부) #존리 #부자학교 #금융문맹 #투자일기",
+     "published": "2026-09-24"
+    },
+    {
+     "id": "Cs0UV9rTqg8",
+     "title": "예측할 수 없는 주식시장, 저는 '이렇게' 합니다. 존리의 장기투자 (존리 대표 1부) #존리 #부자학교 #금융문맹 #투자일기",
+     "published": "2026-09-18"
+    },
+    {
+     "id": "iGI_fzwOyoY",
+     "title": "배당금으로 혼자 사는 미혼남, 3억 파이어 미니멀라이프",
+     "published": "2026-09-19"
+    },
+    {
+     "id": "q1fYjAwma3s",
+     "title": "[풀영상] 월급 10%로 당장 시작하는 존리의 자산 증식 치트키",
+     "published": "2026-09-17"
+    },
+    {
+     "id": "SiYfqWdJ0uw",
+     "title": "자사주 매입 끝나는데, 추석연휴 전 삼전닉스를 사야 하는 이유 [염승환 이사]",
+     "published": "2026-09-21"
+    }
+   ],
+   "views_median": 198056.5,
+   "views_per_day_median": 20531.0,
+   "ratio_median": 10.04,
+   "success": 12,
+   "minutes_median": 16.3,
+   "title_len_avg": 46.1,
+   "title_features": [
+    {
+     "name": "물음표 ?",
+     "count": 7,
+     "share": 0.389
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 5,
+     "share": 0.278
+    },
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 3,
+     "share": 0.167
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 2,
+     "share": 0.111
+    },
+    {
+     "name": "이유",
+     "count": 2,
+     "share": 0.111
+    },
+    {
+     "name": "N가지",
+     "count": 2,
+     "share": 0.111
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 2,
+     "share": 0.111
+    },
+    {
+     "name": "두 금액(반전)",
+     "count": 1,
+     "share": 0.056
+    },
+    {
+     "name": "느낌표 !",
+     "count": 1,
+     "share": 0.056
+    },
+    {
+     "name": "과정·벌어진 일·결말·결국",
+     "count": 1,
+     "share": 0.056
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 1,
+     "share": 0.056
+    },
+    {
+     "name": "vs 비교",
+     "count": 1,
+     "share": 0.056
+    }
+   ],
+   "title_words": [
+    {
+     "word": "코스피",
+     "count": 4
+    },
+    {
+     "word": "강의",
+     "count": 2
+    },
+    {
+     "word": "투자",
+     "count": 2
+    },
+    {
+     "word": "평생",
+     "count": 2
+    },
+    {
+     "word": "이유",
+     "count": 2
+    },
+    {
+     "word": "급락",
+     "count": 2
+    },
+    {
+     "word": "하이닉스",
+     "count": 2
+    },
+    {
+     "word": "ETF",
+     "count": 2
+    },
+    {
+     "word": "존리",
+     "count": 2
+    },
+    {
+     "word": "투자일기",
+     "count": 2
+    }
+   ],
+   "transcripts": 3,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 3,
+    "설명": 13,
+    "없음": 2
+   },
+   "content_words": [
+    {
+     "word": "투자",
+     "count": 11
+    },
+    {
+     "word": "가장",
+     "count": 6
+    },
+    {
+     "word": "있습니다",
+     "count": 6
+    },
+    {
+     "word": "아니라",
+     "count": 6
+    },
+    {
+     "word": "그래서",
+     "count": 5
+    },
+    {
+     "word": "투자를",
+     "count": 5
+    },
+    {
+     "word": "투자에",
+     "count": 5
+    },
+    {
+     "word": "대한",
+     "count": 5
+    },
+    {
+     "word": "만든",
+     "count": 5
+    },
+    {
+     "word": "ETF",
+     "count": 5
+    },
+    {
+     "word": "같은",
+     "count": 5
+    },
+    {
+     "word": "많은",
+     "count": 4
+    }
+   ],
+   "chapters_share": 0.444,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "WfEK5IRkpE4",
+     "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
+     "src": "설명",
+     "hook": "결혼을 앞둔 친구의 다급한 상견례 고민부터 연령별 맞춤 자산 관리 전략까지! 프로미스나인 이채영과 함께하는 ACE 투자상담소 고수 선배들의 속 시원한 금융 꿀팁을 확인해 보세요. 💡 🎁 ACE 투자상담소 EP.03 댓글 이벤트 영상을 시청하고 [에/이/스/채/영] 5행시 댓글을 남겨주세"
+    },
+    {
+     "id": "d4gqZGtuUxo",
+     "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
+     "src": "설명",
+     "hook": "대한민국 대표 금융정보회사 연합인포맥스가 만든 경제·금융 교육 플랫폼 《연합인포맥스아카데미》 시장을 보는 눈, 이제 직접 확인하세요! 성상현•노근창과 함께하는 투자결전 (10/24일 13시) 오프라인 특별강연 멤버스 자세히 보기 클래스 자세히 보기 ☎️인포맥스아카데미 대표전화 02-78"
+    },
+    {
+     "id": "Uuw517jwuRQ",
+     "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
+     "src": "설명",
+     "hook": "〈앵커〉 한 기자, 오늘(1일)은 국내 증시 얘기군요. 〈기자〉 잘 나가던 코스피가 외신에 세계 최악이라는 말까지 들었는데요. 지난 석 달간 코스피를 보면 20% 가까이 하락했습니다. 주요국 증시 중에 최하위를 기록한 겁니다. 7월부터 9월까지 3분기 동안 코스피가 18.8% 떨어졌는데"
+    }
+   ],
+   "comments": 7267,
+   "comment_needs": [
+    {
+     "name": "질문",
+     "count": 1484,
+     "share": 0.204
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 886,
+     "share": 0.122
+    },
+    {
+     "name": "2026 시장(폭락·불장·서킷)",
+     "count": 757,
+     "share": 0.104
+    },
+    {
+     "name": "빚·신용·미수",
+     "count": 580,
+     "share": 0.08
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 511,
+     "share": 0.07
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 500,
+     "share": 0.069
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "갠지스강 정모 ㄷㄷ",
+     "likes": 2103
+    },
+    {
+     "text": "주가 상승을 천천히 올리고,국민연금이 5천정도에 리벨런싱 했어야 하는데 정부가 주가 상승에 취해서 막는 바람에 외국인들이 고가에 털고 나갔고 국민들만 고점에 쳐물렸다.정부가 욕쳐먹는 이유다.",
+     "likes": 1948
+    },
+    {
+     "text": "사람 사는 곳이 이렇게 똑같습니다",
+     "likes": 1660
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "hTRG4ehA6NU",
+     "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
+     "channel": "박종훈의 지식한방",
+     "views": 1500722,
+     "views_per_day": 483276.2,
+     "published": "2026-10-12",
+     "url": "https://www.youtube.com/watch?v=hTRG4ehA6NU"
+    },
+    {
+     "id": "WfEK5IRkpE4",
+     "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
+     "channel": "ACE ETF",
+     "views": 2304062,
+     "views_per_day": 174157.6,
+     "published": "2026-10-02",
+     "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
+    },
+    {
+     "id": "d4gqZGtuUxo",
+     "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
+     "channel": "연합뉴스경제TV",
+     "views": 1176049,
+     "views_per_day": 165135.5,
+     "published": "2026-10-08",
+     "url": "https://www.youtube.com/watch?v=d4gqZGtuUxo"
+    },
+    {
+     "id": "0K52Ex714NU",
+     "title": "인도 옵션 투자 광풍, 50조 털린 인도 개미들",
+     "channel": "슈카월드",
+     "views": 1876477,
+     "views_per_day": 154411.4,
+     "published": "2026-10-03",
+     "url": "https://www.youtube.com/watch?v=0K52Ex714NU"
+    },
+    {
+     "id": "Uuw517jwuRQ",
+     "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
+     "channel": "SBS 뉴스",
+     "views": 1444127,
+     "views_per_day": 99438.1,
+     "published": "2026-10-01",
+     "url": "https://www.youtube.com/watch?v=Uuw517jwuRQ"
+    }
+   ]
+  },
+  {
+   "weeks": 5,
+   "label": "최근 5주",
+   "videos": 23,
+   "channels": 20,
+   "new_this_week": [
+    {
+     "id": "1qlywudP2oY",
+     "title": "ETF 이 '2가지'만 사두면 됩니다. '나머지는 필요없어요' 100억 자산 관리자의 꿀팁(백승호 단장 풀버전) #ETF #배당주 #주식 #백승호",
+     "published": "2026-09-14"
+    },
+    {
+     "id": "S53CrrMgvss",
+     "title": "IMF 위기, 부산시민들이 뱅크런 대신 은행 주식을 산 이유 ❘ BNK 금융그룹 다큐멘터리 [1부]",
+     "published": "2026-09-11"
+    },
+    {
+     "id": "T4fyGyjVYbQ",
+     "title": "외벽부터 시작된 미장! 아무나 하는게 아니구나..?!",
+     "published": "2026-09-12"
+    },
+    {
+     "id": "wwrCztntACs",
+     "title": "오늘부터 오후 8시까지 애프터마켓 오픈!! 주식패턴 ‘이렇게’ 완전히 바뀐다",
+     "published": "2026-09-14"
+    },
+    {
+     "id": "xXBHBu6hnCc",
+     "title": "주식 거래시간 밤 8시까지?☑️KRX 애프터마켓 꼭 알아야 할 변화",
+     "published": "2026-09-13"
+    }
+   ],
+   "views_median": 224310,
+   "views_per_day_median": 14660.5,
+   "ratio_median": 9.32,
+   "success": 16,
+   "minutes_median": 16.5,
+   "title_len_avg": 46.7,
+   "title_features": [
+    {
+     "name": "물음표 ?",
+     "count": 9,
+     "share": 0.391
+    },
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 6,
+     "share": 0.261
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 5,
+     "share": 0.217
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 3,
+     "share": 0.13
+    },
+    {
+     "name": "느낌표 !",
+     "count": 3,
+     "share": 0.13
+    },
+    {
+     "name": "이유",
+     "count": 3,
+     "share": 0.13
+    },
+    {
+     "name": "N가지",
+     "count": 3,
+     "share": 0.13
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 3,
+     "share": 0.13
+    },
+    {
+     "name": "두 금액(반전)",
+     "count": 1,
+     "share": 0.043
+    },
+    {
+     "name": "과정·벌어진 일·결말·결국",
+     "count": 1,
+     "share": 0.043
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 1,
+     "share": 0.043
+    },
+    {
+     "name": "vs 비교",
+     "count": 1,
+     "share": 0.043
+    }
+   ],
+   "title_words": [
+    {
+     "word": "코스피",
+     "count": 4
+    },
+    {
+     "word": "ETF",
+     "count": 3
+    },
+    {
+     "word": "주식",
+     "count": 3
+    },
+    {
+     "word": "이유",
+     "count": 3
+    },
+    {
+     "word": "강의",
+     "count": 2
+    },
+    {
+     "word": "투자",
+     "count": 2
+    },
+    {
+     "word": "자산",
+     "count": 2
+    },
+    {
+     "word": "평생",
+     "count": 2
+    },
+    {
+     "word": "급락",
+     "count": 2
+    },
+    {
+     "word": "하이닉스",
+     "count": 2
+    }
+   ],
+   "transcripts": 4,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 4,
+    "설명": 16,
+    "없음": 3
+   },
+   "content_words": [
+    {
+     "word": "투자",
+     "count": 12
+    },
+    {
+     "word": "있습니다",
+     "count": 8
+    },
+    {
+     "word": "같은",
+     "count": 7
+    },
+    {
+     "word": "대한",
+     "count": 7
+    },
+    {
+     "word": "그래서",
+     "count": 6
+    },
+    {
+     "word": "가장",
+     "count": 6
+    },
+    {
+     "word": "반도체",
+     "count": 6
+    },
+    {
+     "word": "많이",
+     "count": 6
+    },
+    {
+     "word": "주식",
+     "count": 6
+    },
+    {
+     "word": "ETF",
+     "count": 6
+    },
+    {
+     "word": "오늘의",
+     "count": 6
+    },
+    {
+     "word": "아니라",
+     "count": 6
+    }
+   ],
+   "chapters_share": 0.391,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "WfEK5IRkpE4",
+     "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
+     "src": "설명",
+     "hook": "결혼을 앞둔 친구의 다급한 상견례 고민부터 연령별 맞춤 자산 관리 전략까지! 프로미스나인 이채영과 함께하는 ACE 투자상담소 고수 선배들의 속 시원한 금융 꿀팁을 확인해 보세요. 💡 🎁 ACE 투자상담소 EP.03 댓글 이벤트 영상을 시청하고 [에/이/스/채/영] 5행시 댓글을 남겨주세"
+    },
+    {
+     "id": "d4gqZGtuUxo",
+     "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
+     "src": "설명",
+     "hook": "대한민국 대표 금융정보회사 연합인포맥스가 만든 경제·금융 교육 플랫폼 《연합인포맥스아카데미》 시장을 보는 눈, 이제 직접 확인하세요! 성상현•노근창과 함께하는 투자결전 (10/24일 13시) 오프라인 특별강연 멤버스 자세히 보기 클래스 자세히 보기 ☎️인포맥스아카데미 대표전화 02-78"
+    },
+    {
+     "id": "Uuw517jwuRQ",
+     "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
+     "src": "설명",
+     "hook": "〈앵커〉 한 기자, 오늘(1일)은 국내 증시 얘기군요. 〈기자〉 잘 나가던 코스피가 외신에 세계 최악이라는 말까지 들었는데요. 지난 석 달간 코스피를 보면 20% 가까이 하락했습니다. 주요국 증시 중에 최하위를 기록한 겁니다. 7월부터 9월까지 3분기 동안 코스피가 18.8% 떨어졌는데"
+    }
+   ],
+   "comments": 8170,
+   "comment_needs": [
+    {
+     "name": "질문",
+     "count": 1624,
+     "share": 0.199
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 963,
+     "share": 0.118
+    },
+    {
+     "name": "2026 시장(폭락·불장·서킷)",
+     "count": 784,
+     "share": 0.096
+    },
+    {
+     "name": "빚·신용·미수",
+     "count": 607,
+     "share": 0.074
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 570,
+     "share": 0.07
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 538,
+     "share": 0.066
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "갠지스강 정모 ㄷㄷ",
+     "likes": 2103
+    },
+    {
+     "text": "주가 상승을 천천히 올리고,국민연금이 5천정도에 리벨런싱 했어야 하는데 정부가 주가 상승에 취해서 막는 바람에 외국인들이 고가에 털고 나갔고 국민들만 고점에 쳐물렸다.정부가 욕쳐먹는 이유다.",
+     "likes": 1948
+    },
+    {
+     "text": "사람 사는 곳이 이렇게 똑같습니다",
+     "likes": 1660
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "hTRG4ehA6NU",
+     "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
+     "channel": "박종훈의 지식한방",
+     "views": 1500722,
+     "views_per_day": 483276.2,
+     "published": "2026-10-12",
+     "url": "https://www.youtube.com/watch?v=hTRG4ehA6NU"
+    },
+    {
+     "id": "WfEK5IRkpE4",
+     "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
+     "channel": "ACE ETF",
+     "views": 2304062,
+     "views_per_day": 174157.6,
+     "published": "2026-10-02",
+     "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
+    },
+    {
+     "id": "d4gqZGtuUxo",
+     "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
+     "channel": "연합뉴스경제TV",
+     "views": 1176049,
+     "views_per_day": 165135.5,
+     "published": "2026-10-08",
+     "url": "https://www.youtube.com/watch?v=d4gqZGtuUxo"
+    },
+    {
+     "id": "0K52Ex714NU",
+     "title": "인도 옵션 투자 광풍, 50조 털린 인도 개미들",
+     "channel": "슈카월드",
+     "views": 1876477,
+     "views_per_day": 154411.4,
+     "published": "2026-10-03",
+     "url": "https://www.youtube.com/watch?v=0K52Ex714NU"
+    },
+    {
+     "id": "Uuw517jwuRQ",
+     "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
+     "channel": "SBS 뉴스",
+     "views": 1444127,
+     "views_per_day": 99438.1,
+     "published": "2026-10-01",
+     "url": "https://www.youtube.com/watch?v=Uuw517jwuRQ"
+    }
+   ]
+  },
+  {
+   "weeks": 6,
+   "label": "최근 6주",
+   "videos": 32,
+   "channels": 27,
+   "new_this_week": [
+    {
+     "id": "-5NhPWk2zF0",
+     "title": "\"당신이 주식으로 망할 수밖에 없던 이유\" 개미 99%의 피를 빨아먹는 잔인한 진짜 구조 | 교수 정선용 (통합본)",
+     "published": "2026-09-10"
+    },
+    {
+     "id": "0cS1EHLkDiQ",
+     "title": "주식 공부부터 하면 지칩니다. 6년 투자 후 깨달은 것) #50대투자 #월배당etf #레버리지etf",
+     "published": "2026-09-08"
+    },
+    {
+     "id": "grWKCtwarBA",
+     "title": "한국 주식에 단 1원이라도 있다면 무조건 보세요. 개미들 돈 털어가는 거대한 사기극 | 교수 정선용 (4부)",
+     "published": "2026-09-04"
+    },
+    {
+     "id": "kJx_AzV9w9c",
+     "title": "적자인데 300억? 가능한 이유 | 회계사가 말아주는 리센느 소속사 더뮤즈엔터",
+     "published": "2026-09-03"
+    },
+    {
+     "id": "NJtszuRxre8",
+     "title": "\"달러 약세라는데..\" S&P500 계속 사모아도 되는 걸까?ㅣ돈크라테스 EP. 27",
+     "published": "2026-09-07"
+    },
+    {
+     "id": "NW_PJ7iDbQI",
+     "title": "208. 국내 커버드콜 액티브 ETF, 최고는 이겁니다",
+     "published": "2026-09-04"
+    },
+    {
+     "id": "VEq_V5USmRg",
+     "title": "'보기만 해도 피가되고 살이된다' EBS 레전드 명작 주식의 시대, 돈의 얼굴, 자본주의 핵심 몰아보기｜다큐프라임｜#골라듄다큐",
+     "published": "2026-09-04"
+    },
+    {
+     "id": "YdmZDxBcYKE",
+     "title": "ETF는 이 '2개'로 충분합니다. 돈 있으면 무조건 여기부터 넣습니다. 노후 준비 끝납니다 (백승호 단장 3부) #백승호 #ETF #배당금 #커버드콜",
+     "published": "2026-09-07"
+    },
+    {
+     "id": "Z5vSAOiHkss",
+     "title": "#촌집수리#시골집수리#한옥수리#미장#매쉬미장#",
+     "published": "2026-09-09"
+    }
+   ],
+   "views_median": 215663.0,
+   "views_per_day_median": 9535.45,
+   "ratio_median": 7.18,
+   "success": 23,
+   "minutes_median": 17.3,
+   "title_len_avg": 48.5,
+   "title_features": [
+    {
+     "name": "물음표 ?",
+     "count": 11,
+     "share": 0.344
+    },
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 8,
+     "share": 0.25
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 7,
+     "share": 0.219
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 5,
+     "share": 0.156
+    },
+    {
+     "name": "이유",
+     "count": 5,
+     "share": 0.156
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 5,
+     "share": 0.156
+    },
+    {
+     "name": "느낌표 !",
+     "count": 3,
+     "share": 0.094
+    },
+    {
+     "name": "N가지",
+     "count": 3,
+     "share": 0.094
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 3,
+     "share": 0.094
+    },
+    {
+     "name": "두 금액(반전)",
+     "count": 1,
+     "share": 0.031
+    },
+    {
+     "name": "과정·벌어진 일·결말·결국",
+     "count": 1,
+     "share": 0.031
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 1,
+     "share": 0.031
+    },
+    {
+     "name": "vs 비교",
+     "count": 1,
+     "share": 0.031
+    },
+    {
+     "name": "빚투·신용·미수·레버리지·대출",
+     "count": 1,
+     "share": 0.031
+    }
+   ],
+   "title_words": [
+    {
+     "word": "이유",
+     "count": 5
+    },
+    {
+     "word": "ETF",
+     "count": 5
+    },
+    {
+     "word": "주식",
+     "count": 4
+    },
+    {
+     "word": "코스피",
+     "count": 4
+    },
+    {
+     "word": "투자",
+     "count": 3
+    },
+    {
+     "word": "교수",
+     "count": 2
+    },
+    {
+     "word": "정선용",
+     "count": 2
+    },
+    {
+     "word": "없던",
+     "count": 2
+    },
+    {
+     "word": "깨달은",
+     "count": 2
+    },
+    {
+     "word": "강의",
+     "count": 2
+    }
+   ],
+   "transcripts": 5,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 5,
+    "설명": 24,
+    "없음": 3
+   },
+   "content_words": [
+    {
+     "word": "투자",
+     "count": 15
+    },
+    {
+     "word": "같은",
+     "count": 9
+    },
+    {
+     "word": "있습니다",
+     "count": 9
+    },
+    {
+     "word": "대한",
+     "count": 9
+    },
+    {
+     "word": "가장",
+     "count": 8
+    },
+    {
+     "word": "많이",
+     "count": 8
+    },
+    {
+     "word": "주식",
+     "count": 8
+    },
+    {
+     "word": "ETF",
+     "count": 8
+    },
+    {
+     "word": "그래서",
+     "count": 7
+    },
+    {
+     "word": "투자를",
+     "count": 7
+    },
+    {
+     "word": "주식을",
+     "count": 7
+    },
+    {
+     "word": "오늘의",
+     "count": 7
+    }
+   ],
+   "chapters_share": 0.406,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "WfEK5IRkpE4",
+     "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
+     "src": "설명",
+     "hook": "결혼을 앞둔 친구의 다급한 상견례 고민부터 연령별 맞춤 자산 관리 전략까지! 프로미스나인 이채영과 함께하는 ACE 투자상담소 고수 선배들의 속 시원한 금융 꿀팁을 확인해 보세요. 💡 🎁 ACE 투자상담소 EP.03 댓글 이벤트 영상을 시청하고 [에/이/스/채/영] 5행시 댓글을 남겨주세"
+    },
+    {
+     "id": "d4gqZGtuUxo",
+     "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
+     "src": "설명",
+     "hook": "대한민국 대표 금융정보회사 연합인포맥스가 만든 경제·금융 교육 플랫폼 《연합인포맥스아카데미》 시장을 보는 눈, 이제 직접 확인하세요! 성상현•노근창과 함께하는 투자결전 (10/24일 13시) 오프라인 특별강연 멤버스 자세히 보기 클래스 자세히 보기 ☎️인포맥스아카데미 대표전화 02-78"
+    },
+    {
+     "id": "Uuw517jwuRQ",
+     "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
+     "src": "설명",
+     "hook": "〈앵커〉 한 기자, 오늘(1일)은 국내 증시 얘기군요. 〈기자〉 잘 나가던 코스피가 외신에 세계 최악이라는 말까지 들었는데요. 지난 석 달간 코스피를 보면 20% 가까이 하락했습니다. 주요국 증시 중에 최하위를 기록한 겁니다. 7월부터 9월까지 3분기 동안 코스피가 18.8% 떨어졌는데"
+    }
+   ],
+   "comments": 9939,
+   "comment_needs": [
+    {
+     "name": "질문",
+     "count": 1957,
+     "share": 0.197
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 1238,
+     "share": 0.125
+    },
+    {
+     "name": "2026 시장(폭락·불장·서킷)",
+     "count": 930,
+     "share": 0.094
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 714,
+     "share": 0.072
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 690,
+     "share": 0.069
+    },
+    {
+     "name": "빚·신용·미수",
+     "count": 635,
+     "share": 0.064
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "갠지스강 정모 ㄷㄷ",
+     "likes": 2103
+    },
+    {
+     "text": "주가 상승을 천천히 올리고,국민연금이 5천정도에 리벨런싱 했어야 하는데 정부가 주가 상승에 취해서 막는 바람에 외국인들이 고가에 털고 나갔고 국민들만 고점에 쳐물렸다.정부가 욕쳐먹는 이유다.",
+     "likes": 1948
+    },
+    {
+     "text": "사람 사는 곳이 이렇게 똑같습니다",
+     "likes": 1660
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "hTRG4ehA6NU",
+     "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
+     "channel": "박종훈의 지식한방",
+     "views": 1500722,
+     "views_per_day": 483276.2,
+     "published": "2026-10-12",
+     "url": "https://www.youtube.com/watch?v=hTRG4ehA6NU"
+    },
+    {
+     "id": "WfEK5IRkpE4",
+     "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
+     "channel": "ACE ETF",
+     "views": 2304062,
+     "views_per_day": 174157.6,
+     "published": "2026-10-02",
+     "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
+    },
+    {
+     "id": "d4gqZGtuUxo",
+     "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
+     "channel": "연합뉴스경제TV",
+     "views": 1176049,
+     "views_per_day": 165135.5,
+     "published": "2026-10-08",
+     "url": "https://www.youtube.com/watch?v=d4gqZGtuUxo"
+    },
+    {
+     "id": "0K52Ex714NU",
+     "title": "인도 옵션 투자 광풍, 50조 털린 인도 개미들",
+     "channel": "슈카월드",
+     "views": 1876477,
+     "views_per_day": 154411.4,
+     "published": "2026-10-03",
+     "url": "https://www.youtube.com/watch?v=0K52Ex714NU"
+    },
+    {
+     "id": "Uuw517jwuRQ",
+     "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
+     "channel": "SBS 뉴스",
+     "views": 1444127,
+     "views_per_day": 99438.1,
+     "published": "2026-10-01",
+     "url": "https://www.youtube.com/watch?v=Uuw517jwuRQ"
+    }
+   ]
+  },
+  {
+   "weeks": 7,
+   "label": "최근 7주",
+   "videos": 43,
+   "channels": 32,
+   "new_this_week": [
+    {
+     "id": "35-9KG8v1M8",
+     "title": "부동산 버블이 터지고, 주식 시장으로 몰려가는 중국인들",
+     "published": "2026-08-29"
+    },
+    {
+     "id": "3h7Di1vQHgY",
+     "title": "[주식차트보는법] 단타말고 이 '차트패턴' 하나로 꾸준히 수익낸 엄청난 비결 지금 딱 한번만 노출하겠습니다. 주식하는법중 이게 최고입니다 (종가베팅 매매기법 및 종목선별)",
+     "published": "2026-08-30"
+    },
+    {
+     "id": "4u3VzpSKE1g",
+     "title": "강제 장기투자로 들어간 K-개미들",
+     "published": "2026-08-31"
+    },
+    {
+     "id": "9C7_sKVcPiQ",
+     "title": "40대 은퇴 후 월급 대신 배당 받으며 사는 법｜실제 포트폴리오 공개 | 최영민 작가",
+     "published": "2026-08-31"
+    },
+    {
+     "id": "_zDHJjZ8PgU",
+     "title": "환율이 보내는 경고, 앞으로 돈 벌 자산은 따로 있습니다 (이선엽 대표 통합본)",
+     "published": "2026-08-31"
+    },
+    {
+     "id": "EkR5dj-diWw",
+     "title": "다음주 코스피 심상치 않습니다 '이때' 팔고 바로 현금 챙기세요 (이승조 대표 / 통합본 1부)",
+     "published": "2026-09-03"
+    },
+    {
+     "id": "Gwk2gkxpx3I",
+     "title": "'2가지' ETF만 모아도 됩니다. 100억 자산관리사의 꿀팁 (백승호 단장 2부) #ETF #배당주 #주식 #미국주식 #백승호",
+     "published": "2026-09-02"
+    },
+    {
+     "id": "HamGf6jGanE",
+     "title": "아마존 영화 43개국 1위🔥 CIA 국장의 죽음으로 시작된 미친 첩보 액션 영화",
+     "published": "2026-08-30"
+    },
+    {
+     "id": "JGzbftUZPXs",
+     "title": "[주식차트보는법] 슈퍼개미들이 절대 말 안해주는 '실전 최고의 단타기법' 제가 욕먹을 각오로 상한가 차트패턴 시원하게 오픈하겠습니다! (차트분석,주식하는법)",
+     "published": "2026-08-28"
+    },
+    {
+     "id": "KwvGol5A8m4",
+     "title": "와..미친.. 캔들 차트 보는 법 핵심을 공개한다고? (주식 강의 추천, 주식 초보 매매 방법)",
+     "published": "2026-08-30"
+    },
+    {
+     "id": "wJWVgIVC7RI",
+     "title": "206. 사지말아야 할 커버드콜 ETF가 있습니다",
+     "published": "2026-08-28"
+    }
+   ],
+   "views_median": 195140,
+   "views_per_day_median": 7963.0,
+   "ratio_median": 6.92,
+   "success": 31,
+   "minutes_median": 19.2,
+   "title_len_avg": 49.3,
+   "title_features": [
+    {
+     "name": "물음표 ?",
+     "count": 12,
+     "share": 0.279
+    },
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 11,
+     "share": 0.256
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 9,
+     "share": 0.209
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 6,
+     "share": 0.14
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 6,
+     "share": 0.14
+    },
+    {
+     "name": "이유",
+     "count": 5,
+     "share": 0.116
+    },
+    {
+     "name": "느낌표 !",
+     "count": 4,
+     "share": 0.093
+    },
+    {
+     "name": "N가지",
+     "count": 4,
+     "share": 0.093
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 4,
+     "share": 0.093
+    },
+    {
+     "name": "vs 비교",
+     "count": 3,
+     "share": 0.07
+    },
+    {
+     "name": "두 금액(반전)",
+     "count": 1,
+     "share": 0.023
+    },
+    {
+     "name": "과정·벌어진 일·결말·결국",
+     "count": 1,
+     "share": 0.023
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 1,
+     "share": 0.023
+    },
+    {
+     "name": "빚투·신용·미수·레버리지·대출",
+     "count": 1,
+     "share": 0.023
+    }
+   ],
+   "title_words": [
+    {
+     "word": "주식",
+     "count": 7
+    },
+    {
+     "word": "ETF",
+     "count": 6
+    },
+    {
+     "word": "이유",
+     "count": 5
+    },
+    {
+     "word": "코스피",
+     "count": 5
+    },
+    {
+     "word": "대표",
+     "count": 4
+    },
+    {
+     "word": "통합본",
+     "count": 3
+    },
+    {
+     "word": "투자",
+     "count": 3
+    },
+    {
+     "word": "강의",
+     "count": 3
+    },
+    {
+     "word": "개미들",
+     "count": 3
+    },
+    {
+     "word": "백승호",
+     "count": 3
+    }
+   ],
+   "transcripts": 6,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 6,
+    "설명": 32,
+    "없음": 5
+   },
+   "content_words": [
+    {
+     "word": "투자",
+     "count": 17
+    },
+    {
+     "word": "많이",
+     "count": 11
+    },
+    {
+     "word": "같은",
+     "count": 11
+    },
+    {
+     "word": "있습니다",
+     "count": 11
+    },
+    {
+     "word": "대한",
+     "count": 11
+    },
+    {
+     "word": "주식",
+     "count": 10
+    },
+    {
+     "word": "함께",
+     "count": 10
+    },
+    {
+     "word": "가장",
+     "count": 9
+    },
+    {
+     "word": "그리고",
+     "count": 9
+    },
+    {
+     "word": "ETF",
+     "count": 9
+    },
+    {
+     "word": "이번",
+     "count": 8
+    },
+    {
+     "word": "주식을",
+     "count": 8
+    }
+   ],
+   "chapters_share": 0.419,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "WfEK5IRkpE4",
+     "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
+     "src": "설명",
+     "hook": "결혼을 앞둔 친구의 다급한 상견례 고민부터 연령별 맞춤 자산 관리 전략까지! 프로미스나인 이채영과 함께하는 ACE 투자상담소 고수 선배들의 속 시원한 금융 꿀팁을 확인해 보세요. 💡 🎁 ACE 투자상담소 EP.03 댓글 이벤트 영상을 시청하고 [에/이/스/채/영] 5행시 댓글을 남겨주세"
+    },
+    {
+     "id": "d4gqZGtuUxo",
+     "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
+     "src": "설명",
+     "hook": "대한민국 대표 금융정보회사 연합인포맥스가 만든 경제·금융 교육 플랫폼 《연합인포맥스아카데미》 시장을 보는 눈, 이제 직접 확인하세요! 성상현•노근창과 함께하는 투자결전 (10/24일 13시) 오프라인 특별강연 멤버스 자세히 보기 클래스 자세히 보기 ☎️인포맥스아카데미 대표전화 02-78"
+    },
+    {
+     "id": "Uuw517jwuRQ",
+     "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
+     "src": "설명",
+     "hook": "〈앵커〉 한 기자, 오늘(1일)은 국내 증시 얘기군요. 〈기자〉 잘 나가던 코스피가 외신에 세계 최악이라는 말까지 들었는데요. 지난 석 달간 코스피를 보면 20% 가까이 하락했습니다. 주요국 증시 중에 최하위를 기록한 겁니다. 7월부터 9월까지 3분기 동안 코스피가 18.8% 떨어졌는데"
+    }
+   ],
+   "comments": 12055,
+   "comment_needs": [
+    {
+     "name": "질문",
+     "count": 2280,
+     "share": 0.189
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 1414,
+     "share": 0.117
+    },
+    {
+     "name": "2026 시장(폭락·불장·서킷)",
+     "count": 1133,
+     "share": 0.094
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 882,
+     "share": 0.073
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 807,
+     "share": 0.067
+    },
+    {
+     "name": "빚·신용·미수",
+     "count": 675,
+     "share": 0.056
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "내가 나가는 순간 삼전하닉 ㅈㄴ 날라갈꺼라서 못나감",
+     "likes": 2916
+    },
+    {
+     "text": "왜 제 허락도 없이 저에 대해 조사하셨나요?",
+     "likes": 2268
+    },
+    {
+     "text": "갠지스강 정모 ㄷㄷ",
+     "likes": 2103
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "hTRG4ehA6NU",
+     "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
+     "channel": "박종훈의 지식한방",
+     "views": 1500722,
+     "views_per_day": 483276.2,
+     "published": "2026-10-12",
+     "url": "https://www.youtube.com/watch?v=hTRG4ehA6NU"
+    },
+    {
+     "id": "WfEK5IRkpE4",
+     "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
+     "channel": "ACE ETF",
+     "views": 2304062,
+     "views_per_day": 174157.6,
+     "published": "2026-10-02",
+     "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
+    },
+    {
+     "id": "d4gqZGtuUxo",
+     "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
+     "channel": "연합뉴스경제TV",
+     "views": 1176049,
+     "views_per_day": 165135.5,
+     "published": "2026-10-08",
+     "url": "https://www.youtube.com/watch?v=d4gqZGtuUxo"
+    },
+    {
+     "id": "0K52Ex714NU",
+     "title": "인도 옵션 투자 광풍, 50조 털린 인도 개미들",
+     "channel": "슈카월드",
+     "views": 1876477,
+     "views_per_day": 154411.4,
+     "published": "2026-10-03",
+     "url": "https://www.youtube.com/watch?v=0K52Ex714NU"
+    },
+    {
+     "id": "Uuw517jwuRQ",
+     "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
+     "channel": "SBS 뉴스",
+     "views": 1444127,
+     "views_per_day": 99438.1,
+     "published": "2026-10-01",
+     "url": "https://www.youtube.com/watch?v=Uuw517jwuRQ"
+    }
+   ]
+  },
+  {
+   "weeks": 8,
+   "label": "최근 8주",
+   "videos": 50,
+   "channels": 36,
+   "new_this_week": [
+    {
+     "id": "2hEQ_7smoy8",
+     "title": "S&P500 ETF 좋다고 투자해도 90%가 망하는 이유 | 최영민 작가",
+     "published": "2026-08-26"
+    },
+    {
+     "id": "fPN8ENZl2Y8",
+     "title": "시골집 고치기 | 몰탈 30포대로 흙바닥 보수부터 콘크리트 미장까지 | 구옥 셀프 리모델링",
+     "published": "2026-08-27"
+    },
+    {
+     "id": "fRLt1WvUlZ4",
+     "title": "3억만 모으면 은퇴할 수 있습니다｜제가 만든 FIRE 시나리오",
+     "published": "2026-08-25"
+    },
+    {
+     "id": "JtPJ9i91k5g",
+     "title": "삼성전자 100조 환원 발표 임박, 자사주 소각 못 하고 배당만 주는 '진짜 이유'",
+     "published": "2026-08-21"
+    },
+    {
+     "id": "r0zwx3-J9RQ",
+     "title": "내가 일하지 않는 진짜 이유, 미국배당주식 3억 파이어 미니멀라이프",
+     "published": "2026-08-22"
+    },
+    {
+     "id": "v6rUCbULG2A",
+     "title": "마이너스 주식 계좌 가장 쉽게 탈출하는 방법 물타기? 존버? 고민하지 않아도 되는 물린 종목 최대한 손실을 줄이며 정리하는 현명한 방법",
+     "published": "2026-08-23"
+    },
+    {
+     "id": "V_RecmLncz4",
+     "title": "나스닥 2배 QLD 무지성 적립식매수 vs. 공포탐욕지수 활용 매수 I QQQ, QLD, TQQQ, SOXL",
+     "published": "2026-08-20"
+    }
+   ],
+   "views_median": 162302.5,
+   "views_per_day_median": 7451.1,
+   "ratio_median": 7.18,
+   "success": 38,
+   "minutes_median": 18.45,
+   "title_len_avg": 49.2,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 14,
+     "share": 0.28
+    },
+    {
+     "name": "물음표 ?",
+     "count": 13,
+     "share": 0.26
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 11,
+     "share": 0.22
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 8,
+     "share": 0.16
+    },
+    {
+     "name": "이유",
+     "count": 8,
+     "share": 0.16
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 6,
+     "share": 0.12
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 5,
+     "share": 0.1
+    },
+    {
+     "name": "느낌표 !",
+     "count": 4,
+     "share": 0.08
+    },
+    {
+     "name": "N가지",
+     "count": 4,
+     "share": 0.08
+    },
+    {
+     "name": "vs 비교",
+     "count": 4,
+     "share": 0.08
+    },
+    {
+     "name": "두 금액(반전)",
+     "count": 1,
+     "share": 0.02
+    },
+    {
+     "name": "과정·벌어진 일·결말·결국",
+     "count": 1,
+     "share": 0.02
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 1,
+     "share": 0.02
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 1,
+     "share": 0.02
+    },
+    {
+     "name": "빚투·신용·미수·레버리지·대출",
+     "count": 1,
+     "share": 0.02
+    }
+   ],
+   "title_words": [
+    {
+     "word": "이유",
+     "count": 8
+    },
+    {
+     "word": "주식",
+     "count": 8
+    },
+    {
+     "word": "ETF",
+     "count": 7
+    },
+    {
+     "word": "코스피",
+     "count": 5
+    },
+    {
+     "word": "있습니다",
+     "count": 4
+    },
+    {
+     "word": "대표",
+     "count": 4
+    },
+    {
+     "word": "통합본",
+     "count": 3
+    },
+    {
+     "word": "투자",
+     "count": 3
+    },
+    {
+     "word": "강의",
+     "count": 3
+    },
+    {
+     "word": "개미들",
+     "count": 3
+    }
+   ],
+   "transcripts": 7,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 7,
+    "설명": 38,
+    "없음": 5
+   },
+   "content_words": [
+    {
+     "word": "투자",
+     "count": 22
+    },
+    {
+     "word": "같은",
+     "count": 13
+    },
+    {
+     "word": "있습니다",
+     "count": 13
+    },
+    {
+     "word": "함께",
+     "count": 12
+    },
+    {
+     "word": "가장",
+     "count": 11
+    },
+    {
+     "word": "많이",
+     "count": 11
+    },
+    {
+     "word": "그리고",
+     "count": 11
+    },
+    {
+     "word": "대한",
+     "count": 11
+    },
+    {
+     "word": "주식",
+     "count": 10
+    },
+    {
+     "word": "바랍니다",
+     "count": 9
+    },
+    {
+     "word": "주식을",
+     "count": 9
+    },
+    {
+     "word": "ETF",
+     "count": 9
+    }
+   ],
+   "chapters_share": 0.42,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "WfEK5IRkpE4",
+     "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
+     "src": "설명",
+     "hook": "결혼을 앞둔 친구의 다급한 상견례 고민부터 연령별 맞춤 자산 관리 전략까지! 프로미스나인 이채영과 함께하는 ACE 투자상담소 고수 선배들의 속 시원한 금융 꿀팁을 확인해 보세요. 💡 🎁 ACE 투자상담소 EP.03 댓글 이벤트 영상을 시청하고 [에/이/스/채/영] 5행시 댓글을 남겨주세"
+    },
+    {
+     "id": "d4gqZGtuUxo",
+     "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
+     "src": "설명",
+     "hook": "대한민국 대표 금융정보회사 연합인포맥스가 만든 경제·금융 교육 플랫폼 《연합인포맥스아카데미》 시장을 보는 눈, 이제 직접 확인하세요! 성상현•노근창과 함께하는 투자결전 (10/24일 13시) 오프라인 특별강연 멤버스 자세히 보기 클래스 자세히 보기 ☎️인포맥스아카데미 대표전화 02-78"
+    },
+    {
+     "id": "Uuw517jwuRQ",
+     "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
+     "src": "설명",
+     "hook": "〈앵커〉 한 기자, 오늘(1일)은 국내 증시 얘기군요. 〈기자〉 잘 나가던 코스피가 외신에 세계 최악이라는 말까지 들었는데요. 지난 석 달간 코스피를 보면 20% 가까이 하락했습니다. 주요국 증시 중에 최하위를 기록한 겁니다. 7월부터 9월까지 3분기 동안 코스피가 18.8% 떨어졌는데"
+    }
+   ],
+   "comments": 13440,
+   "comment_needs": [
+    {
+     "name": "질문",
+     "count": 2573,
+     "share": 0.191
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 1587,
+     "share": 0.118
+    },
+    {
+     "name": "2026 시장(폭락·불장·서킷)",
+     "count": 1189,
+     "share": 0.088
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 1091,
+     "share": 0.081
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 1027,
+     "share": 0.076
+    },
+    {
+     "name": "빚·신용·미수",
+     "count": 701,
+     "share": 0.052
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "내가 나가는 순간 삼전하닉 ㅈㄴ 날라갈꺼라서 못나감",
+     "likes": 2916
+    },
+    {
+     "text": "왜 제 허락도 없이 저에 대해 조사하셨나요?",
+     "likes": 2268
+    },
+    {
+     "text": "갠지스강 정모 ㄷㄷ",
+     "likes": 2103
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "hTRG4ehA6NU",
+     "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
+     "channel": "박종훈의 지식한방",
+     "views": 1500722,
+     "views_per_day": 483276.2,
+     "published": "2026-10-12",
+     "url": "https://www.youtube.com/watch?v=hTRG4ehA6NU"
+    },
+    {
+     "id": "WfEK5IRkpE4",
+     "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
+     "channel": "ACE ETF",
+     "views": 2304062,
+     "views_per_day": 174157.6,
+     "published": "2026-10-02",
+     "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
+    },
+    {
+     "id": "d4gqZGtuUxo",
+     "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
+     "channel": "연합뉴스경제TV",
+     "views": 1176049,
+     "views_per_day": 165135.5,
+     "published": "2026-10-08",
+     "url": "https://www.youtube.com/watch?v=d4gqZGtuUxo"
+    },
+    {
+     "id": "0K52Ex714NU",
+     "title": "인도 옵션 투자 광풍, 50조 털린 인도 개미들",
+     "channel": "슈카월드",
+     "views": 1876477,
+     "views_per_day": 154411.4,
+     "published": "2026-10-03",
+     "url": "https://www.youtube.com/watch?v=0K52Ex714NU"
+    },
+    {
+     "id": "Uuw517jwuRQ",
+     "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
+     "channel": "SBS 뉴스",
+     "views": 1444127,
+     "views_per_day": 99438.1,
+     "published": "2026-10-01",
+     "url": "https://www.youtube.com/watch?v=Uuw517jwuRQ"
+    }
+   ]
+  },
+  {
+   "weeks": 9,
+   "label": "최근 9주",
+   "videos": 54,
+   "channels": 38,
+   "new_this_week": [
+    {
+     "id": "5HkW_43tZPs",
+     "title": "배당으로 사는 은퇴자가 3년 동안 겪게 되는 일 (은퇴 현금흐름 설계)",
+     "published": "2026-08-17"
+    },
+    {
+     "id": "SwW4n0ERlS8",
+     "title": "내 주변에 주식으로 돈 번 사람이 '진짜' 단 1명도 없는 소름 돋는 이유 | 교수 정선용 (통합본)",
+     "published": "2026-08-14"
+    },
+    {
+     "id": "UH4UFmdXXo0",
+     "title": "4200억 단타 일본 천재가 초간단 매매법, 죽어라 이것만하세요",
+     "published": "2026-08-15"
+    },
+    {
+     "id": "vsiHYXqZYw0",
+     "title": "매일 1조씩 산다! 사상최대규모 주주환원! 그런데, 하이닉스 호재 한발 남았다",
+     "published": "2026-08-20"
+    }
+   ],
+   "views_median": 154347.5,
+   "views_per_day_median": 6203.3,
+   "ratio_median": 8.1,
+   "success": 42,
+   "minutes_median": 18.95,
+   "title_len_avg": 48.8,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 15,
+     "share": 0.278
+    },
+    {
+     "name": "물음표 ?",
+     "count": 13,
+     "share": 0.241
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 11,
+     "share": 0.204
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 9,
+     "share": 0.167
+    },
+    {
+     "name": "이유",
+     "count": 9,
+     "share": 0.167
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 6,
+     "share": 0.111
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 6,
+     "share": 0.111
+    },
+    {
+     "name": "느낌표 !",
+     "count": 5,
+     "share": 0.093
+    },
+    {
+     "name": "N가지",
+     "count": 4,
+     "share": 0.074
+    },
+    {
+     "name": "vs 비교",
+     "count": 4,
+     "share": 0.074
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 2,
+     "share": 0.037
+    },
+    {
+     "name": "두 금액(반전)",
+     "count": 1,
+     "share": 0.019
+    },
+    {
+     "name": "과정·벌어진 일·결말·결국",
+     "count": 1,
+     "share": 0.019
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 1,
+     "share": 0.019
+    },
+    {
+     "name": "빚투·신용·미수·레버리지·대출",
+     "count": 1,
+     "share": 0.019
+    }
+   ],
+   "title_words": [
+    {
+     "word": "이유",
+     "count": 9
+    },
+    {
+     "word": "주식",
+     "count": 8
+    },
+    {
+     "word": "ETF",
+     "count": 7
+    },
+    {
+     "word": "코스피",
+     "count": 5
+    },
+    {
+     "word": "통합본",
+     "count": 4
+    },
+    {
+     "word": "있습니다",
+     "count": 4
+    },
+    {
+     "word": "대표",
+     "count": 4
+    },
+    {
+     "word": "교수",
+     "count": 3
+    },
+    {
+     "word": "정선용",
+     "count": 3
+    },
+    {
+     "word": "투자",
+     "count": 3
+    }
+   ],
+   "transcripts": 7,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 7,
+    "설명": 42,
+    "없음": 5
+   },
+   "content_words": [
+    {
+     "word": "투자",
+     "count": 22
+    },
+    {
+     "word": "있습니다",
+     "count": 14
+    },
+    {
+     "word": "같은",
+     "count": 13
+    },
+    {
+     "word": "가장",
+     "count": 12
+    },
+    {
+     "word": "많이",
+     "count": 12
+    },
+    {
+     "word": "그리고",
+     "count": 12
+    },
+    {
+     "word": "함께",
+     "count": 12
+    },
+    {
+     "word": "대한",
+     "count": 11
+    },
+    {
+     "word": "주식",
+     "count": 10
+    },
+    {
+     "word": "바랍니다",
+     "count": 9
+    },
+    {
+     "word": "주식을",
+     "count": 9
+    },
+    {
+     "word": "ETF",
+     "count": 9
+    }
+   ],
+   "chapters_share": 0.444,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "WfEK5IRkpE4",
+     "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
+     "src": "설명",
+     "hook": "결혼을 앞둔 친구의 다급한 상견례 고민부터 연령별 맞춤 자산 관리 전략까지! 프로미스나인 이채영과 함께하는 ACE 투자상담소 고수 선배들의 속 시원한 금융 꿀팁을 확인해 보세요. 💡 🎁 ACE 투자상담소 EP.03 댓글 이벤트 영상을 시청하고 [에/이/스/채/영] 5행시 댓글을 남겨주세"
+    },
+    {
+     "id": "d4gqZGtuUxo",
+     "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
+     "src": "설명",
+     "hook": "대한민국 대표 금융정보회사 연합인포맥스가 만든 경제·금융 교육 플랫폼 《연합인포맥스아카데미》 시장을 보는 눈, 이제 직접 확인하세요! 성상현•노근창과 함께하는 투자결전 (10/24일 13시) 오프라인 특별강연 멤버스 자세히 보기 클래스 자세히 보기 ☎️인포맥스아카데미 대표전화 02-78"
+    },
+    {
+     "id": "Uuw517jwuRQ",
+     "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
+     "src": "설명",
+     "hook": "〈앵커〉 한 기자, 오늘(1일)은 국내 증시 얘기군요. 〈기자〉 잘 나가던 코스피가 외신에 세계 최악이라는 말까지 들었는데요. 지난 석 달간 코스피를 보면 20% 가까이 하락했습니다. 주요국 증시 중에 최하위를 기록한 겁니다. 7월부터 9월까지 3분기 동안 코스피가 18.8% 떨어졌는데"
+    }
+   ],
+   "comments": 15499,
+   "comment_needs": [
+    {
+     "name": "질문",
+     "count": 2892,
+     "share": 0.187
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 1922,
+     "share": 0.124
+    },
+    {
+     "name": "2026 시장(폭락·불장·서킷)",
+     "count": 1401,
+     "share": 0.09
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 1336,
+     "share": 0.086
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 1258,
+     "share": 0.081
+    },
+    {
+     "name": "빚·신용·미수",
+     "count": 771,
+     "share": 0.05
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "내가 나가는 순간 삼전하닉 ㅈㄴ 날라갈꺼라서 못나감",
+     "likes": 2916
+    },
+    {
+     "text": "왜 제 허락도 없이 저에 대해 조사하셨나요?",
+     "likes": 2268
+    },
+    {
+     "text": "갠지스강 정모 ㄷㄷ",
+     "likes": 2103
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "hTRG4ehA6NU",
+     "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
+     "channel": "박종훈의 지식한방",
+     "views": 1500722,
+     "views_per_day": 483276.2,
+     "published": "2026-10-12",
+     "url": "https://www.youtube.com/watch?v=hTRG4ehA6NU"
+    },
+    {
+     "id": "WfEK5IRkpE4",
+     "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
+     "channel": "ACE ETF",
+     "views": 2304062,
+     "views_per_day": 174157.6,
+     "published": "2026-10-02",
+     "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
+    },
+    {
+     "id": "d4gqZGtuUxo",
+     "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
+     "channel": "연합뉴스경제TV",
+     "views": 1176049,
+     "views_per_day": 165135.5,
+     "published": "2026-10-08",
+     "url": "https://www.youtube.com/watch?v=d4gqZGtuUxo"
+    },
+    {
+     "id": "0K52Ex714NU",
+     "title": "인도 옵션 투자 광풍, 50조 털린 인도 개미들",
+     "channel": "슈카월드",
+     "views": 1876477,
+     "views_per_day": 154411.4,
+     "published": "2026-10-03",
+     "url": "https://www.youtube.com/watch?v=0K52Ex714NU"
+    },
+    {
+     "id": "Uuw517jwuRQ",
+     "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
+     "channel": "SBS 뉴스",
+     "views": 1444127,
+     "views_per_day": 99438.1,
+     "published": "2026-10-01",
+     "url": "https://www.youtube.com/watch?v=Uuw517jwuRQ"
+    }
+   ]
+  },
+  {
+   "weeks": 10,
+   "label": "최근 10주",
+   "videos": 58,
+   "channels": 41,
+   "new_this_week": [
+    {
+     "id": "kidc-Cza18s",
+     "title": "배당으로 사는 은퇴자가 법인을 만든 이유 5가지",
+     "published": "2026-08-10"
+    },
+    {
+     "id": "nCBMBYmFjOU",
+     "title": "라오어 무한매수법, 정말 계속 해도 될까? TQQQ·QLD로 12년 돌려보고 알게 된 의외의 결과",
+     "published": "2026-08-13"
+    },
+    {
+     "id": "WGkQ7wwHHlQ",
+     "title": "월 100만원 ETF 투자하면, 60대에 \"진짜 부자\"가 됩니다",
+     "published": "2026-08-11"
+    },
+    {
+     "id": "WnuVkKRjcuI",
+     "title": "단타 5년차가 알려준 ＂잃지 않는 법＂ 딱 3가지 ｜ 코스피 9000시대 생존법",
+     "published": "2026-08-09"
+    }
+   ],
+   "views_median": 146855.0,
+   "views_per_day_median": 4611.15,
+   "ratio_median": 8.8,
+   "success": 46,
+   "minutes_median": 18.05,
+   "title_len_avg": 48.2,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 17,
+     "share": 0.293
+    },
+    {
+     "name": "물음표 ?",
+     "count": 14,
+     "share": 0.241
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 12,
+     "share": 0.207
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 10,
+     "share": 0.172
+    },
+    {
+     "name": "이유",
+     "count": 10,
+     "share": 0.172
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 8,
+     "share": 0.138
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 7,
+     "share": 0.121
+    },
+    {
+     "name": "N가지",
+     "count": 6,
+     "share": 0.103
+    },
+    {
+     "name": "느낌표 !",
+     "count": 5,
+     "share": 0.086
+    },
+    {
+     "name": "vs 비교",
+     "count": 5,
+     "share": 0.086
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 3,
+     "share": 0.052
+    },
+    {
+     "name": "두 금액(반전)",
+     "count": 1,
+     "share": 0.017
+    },
+    {
+     "name": "과정·벌어진 일·결말·결국",
+     "count": 1,
+     "share": 0.017
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 1,
+     "share": 0.017
+    },
+    {
+     "name": "빚투·신용·미수·레버리지·대출",
+     "count": 1,
+     "share": 0.017
+    }
+   ],
+   "title_words": [
+    {
+     "word": "이유",
+     "count": 10
+    },
+    {
+     "word": "주식",
+     "count": 8
+    },
+    {
+     "word": "ETF",
+     "count": 8
+    },
+    {
+     "word": "코스피",
+     "count": 6
+    },
+    {
+     "word": "통합본",
+     "count": 4
+    },
+    {
+     "word": "사는",
+     "count": 4
+    },
+    {
+     "word": "있습니다",
+     "count": 4
+    },
+    {
+     "word": "대표",
+     "count": 4
+    },
+    {
+     "word": "교수",
+     "count": 3
+    },
+    {
+     "word": "정선용",
+     "count": 3
+    }
+   ],
+   "transcripts": 8,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 8,
+    "설명": 45,
+    "없음": 5
+   },
+   "content_words": [
+    {
+     "word": "투자",
+     "count": 23
+    },
+    {
+     "word": "있습니다",
+     "count": 17
+    },
+    {
+     "word": "가장",
+     "count": 14
+    },
+    {
+     "word": "같은",
+     "count": 14
+    },
+    {
+     "word": "그리고",
+     "count": 14
+    },
+    {
+     "word": "많이",
+     "count": 13
+    },
+    {
+     "word": "함께",
+     "count": 13
+    },
+    {
+     "word": "주식",
+     "count": 11
+    },
+    {
+     "word": "ETF",
+     "count": 11
+    },
+    {
+     "word": "대한",
+     "count": 11
+    },
+    {
+     "word": "제가",
+     "count": 10
+    },
+    {
+     "word": "바랍니다",
+     "count": 10
+    }
+   ],
+   "chapters_share": 0.431,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "WfEK5IRkpE4",
+     "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
+     "src": "설명",
+     "hook": "결혼을 앞둔 친구의 다급한 상견례 고민부터 연령별 맞춤 자산 관리 전략까지! 프로미스나인 이채영과 함께하는 ACE 투자상담소 고수 선배들의 속 시원한 금융 꿀팁을 확인해 보세요. 💡 🎁 ACE 투자상담소 EP.03 댓글 이벤트 영상을 시청하고 [에/이/스/채/영] 5행시 댓글을 남겨주세"
+    },
+    {
+     "id": "d4gqZGtuUxo",
+     "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
+     "src": "설명",
+     "hook": "대한민국 대표 금융정보회사 연합인포맥스가 만든 경제·금융 교육 플랫폼 《연합인포맥스아카데미》 시장을 보는 눈, 이제 직접 확인하세요! 성상현•노근창과 함께하는 투자결전 (10/24일 13시) 오프라인 특별강연 멤버스 자세히 보기 클래스 자세히 보기 ☎️인포맥스아카데미 대표전화 02-78"
+    },
+    {
+     "id": "Uuw517jwuRQ",
+     "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
+     "src": "설명",
+     "hook": "〈앵커〉 한 기자, 오늘(1일)은 국내 증시 얘기군요. 〈기자〉 잘 나가던 코스피가 외신에 세계 최악이라는 말까지 들었는데요. 지난 석 달간 코스피를 보면 20% 가까이 하락했습니다. 주요국 증시 중에 최하위를 기록한 겁니다. 7월부터 9월까지 3분기 동안 코스피가 18.8% 떨어졌는데"
+    }
+   ],
+   "comments": 15933,
+   "comment_needs": [
+    {
+     "name": "질문",
+     "count": 2976,
+     "share": 0.187
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 2040,
+     "share": 0.128
+    },
+    {
+     "name": "2026 시장(폭락·불장·서킷)",
+     "count": 1426,
+     "share": 0.089
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 1388,
+     "share": 0.087
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 1332,
+     "share": 0.084
+    },
+    {
+     "name": "빚·신용·미수",
+     "count": 790,
+     "share": 0.05
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "내가 나가는 순간 삼전하닉 ㅈㄴ 날라갈꺼라서 못나감",
+     "likes": 2916
+    },
+    {
+     "text": "왜 제 허락도 없이 저에 대해 조사하셨나요?",
+     "likes": 2268
+    },
+    {
+     "text": "갠지스강 정모 ㄷㄷ",
+     "likes": 2103
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "hTRG4ehA6NU",
+     "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
+     "channel": "박종훈의 지식한방",
+     "views": 1500722,
+     "views_per_day": 483276.2,
+     "published": "2026-10-12",
+     "url": "https://www.youtube.com/watch?v=hTRG4ehA6NU"
+    },
+    {
+     "id": "WfEK5IRkpE4",
+     "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
+     "channel": "ACE ETF",
+     "views": 2304062,
+     "views_per_day": 174157.6,
+     "published": "2026-10-02",
+     "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
+    },
+    {
+     "id": "d4gqZGtuUxo",
+     "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
+     "channel": "연합뉴스경제TV",
+     "views": 1176049,
+     "views_per_day": 165135.5,
+     "published": "2026-10-08",
+     "url": "https://www.youtube.com/watch?v=d4gqZGtuUxo"
+    },
+    {
+     "id": "0K52Ex714NU",
+     "title": "인도 옵션 투자 광풍, 50조 털린 인도 개미들",
+     "channel": "슈카월드",
+     "views": 1876477,
+     "views_per_day": 154411.4,
+     "published": "2026-10-03",
+     "url": "https://www.youtube.com/watch?v=0K52Ex714NU"
+    },
+    {
+     "id": "Uuw517jwuRQ",
+     "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
+     "channel": "SBS 뉴스",
+     "views": 1444127,
+     "views_per_day": 99438.1,
+     "published": "2026-10-01",
+     "url": "https://www.youtube.com/watch?v=Uuw517jwuRQ"
+    }
+   ]
+  },
+  {
+   "weeks": 11,
+   "label": "최근 11주",
+   "videos": 62,
+   "channels": 45,
+   "new_this_week": [
+    {
+     "id": "7FrJ3wuJDaY",
+     "title": "어떤 투자는 '도박'이다? 주식 투자 때문에 인생이 무너진 사람들 | 추적60분 KBS 방송",
+     "published": "2026-08-02"
+    },
+    {
+     "id": "If0yXj0qivU",
+     "title": "\"27년까지 오른다\" 현금 1천만원 있다면 '딱 3개만' 사모으세요 ㅣ Ep. 책과사람 131 (염승환 이사 2부)",
+     "published": "2026-08-02"
+    },
+    {
+     "id": "OKHm1gUNyPA",
+     "title": "물린 주식 10년, 결국 전부 팔았습니다 (feat. 복구 심리의 함정)",
+     "published": "2026-08-02"
+    },
+    {
+     "id": "Pel5gTXKRkQ",
+     "title": "불기둥 세운 코스피, 코스닥! 폭등한 이유와 향후 전략",
+     "published": "2026-07-31"
+    }
+   ],
+   "views_median": 146855.0,
+   "views_per_day_median": 4611.15,
+   "ratio_median": 8.8,
+   "success": 48,
+   "minutes_median": 18.45,
+   "title_len_avg": 48.0,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 18,
+     "share": 0.29
+    },
+    {
+     "name": "물음표 ?",
+     "count": 15,
+     "share": 0.242
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 12,
+     "share": 0.194
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 11,
+     "share": 0.177
+    },
+    {
+     "name": "이유",
+     "count": 11,
+     "share": 0.177
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 8,
+     "share": 0.129
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 8,
+     "share": 0.129
+    },
+    {
+     "name": "느낌표 !",
+     "count": 6,
+     "share": 0.097
+    },
+    {
+     "name": "N가지",
+     "count": 6,
+     "share": 0.097
+    },
+    {
+     "name": "vs 비교",
+     "count": 5,
+     "share": 0.081
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 3,
+     "share": 0.048
+    },
+    {
+     "name": "과정·벌어진 일·결말·결국",
+     "count": 2,
+     "share": 0.032
+    },
+    {
+     "name": "두 금액(반전)",
+     "count": 1,
+     "share": 0.016
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 1,
+     "share": 0.016
+    },
+    {
+     "name": "빚투·신용·미수·레버리지·대출",
+     "count": 1,
+     "share": 0.016
+    }
+   ],
+   "title_words": [
+    {
+     "word": "이유",
+     "count": 10
+    },
+    {
+     "word": "주식",
+     "count": 10
+    },
+    {
+     "word": "ETF",
+     "count": 8
+    },
+    {
+     "word": "코스피",
+     "count": 7
+    },
+    {
+     "word": "통합본",
+     "count": 4
+    },
+    {
+     "word": "투자",
+     "count": 4
+    },
+    {
+     "word": "사는",
+     "count": 4
+    },
+    {
+     "word": "있습니다",
+     "count": 4
+    },
+    {
+     "word": "대표",
+     "count": 4
+    },
+    {
+     "word": "2부",
+     "count": 4
+    }
+   ],
+   "transcripts": 9,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 9,
+    "설명": 48,
+    "없음": 5
+   },
+   "content_words": [
+    {
+     "word": "투자",
+     "count": 23
+    },
+    {
+     "word": "있습니다",
+     "count": 17
+    },
+    {
+     "word": "가장",
+     "count": 15
+    },
+    {
+     "word": "그리고",
+     "count": 15
+    },
+    {
+     "word": "같은",
+     "count": 14
+    },
+    {
+     "word": "함께",
+     "count": 14
+    },
+    {
+     "word": "많이",
+     "count": 13
+    },
+    {
+     "word": "ETF",
+     "count": 12
+    },
+    {
+     "word": "제가",
+     "count": 11
+    },
+    {
+     "word": "주식",
+     "count": 11
+    },
+    {
+     "word": "주식을",
+     "count": 11
+    },
+    {
+     "word": "대한",
+     "count": 11
+    }
+   ],
+   "chapters_share": 0.435,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "WfEK5IRkpE4",
+     "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
+     "src": "설명",
+     "hook": "결혼을 앞둔 친구의 다급한 상견례 고민부터 연령별 맞춤 자산 관리 전략까지! 프로미스나인 이채영과 함께하는 ACE 투자상담소 고수 선배들의 속 시원한 금융 꿀팁을 확인해 보세요. 💡 🎁 ACE 투자상담소 EP.03 댓글 이벤트 영상을 시청하고 [에/이/스/채/영] 5행시 댓글을 남겨주세"
+    },
+    {
+     "id": "d4gqZGtuUxo",
+     "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
+     "src": "설명",
+     "hook": "대한민국 대표 금융정보회사 연합인포맥스가 만든 경제·금융 교육 플랫폼 《연합인포맥스아카데미》 시장을 보는 눈, 이제 직접 확인하세요! 성상현•노근창과 함께하는 투자결전 (10/24일 13시) 오프라인 특별강연 멤버스 자세히 보기 클래스 자세히 보기 ☎️인포맥스아카데미 대표전화 02-78"
+    },
+    {
+     "id": "Uuw517jwuRQ",
+     "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
+     "src": "설명",
+     "hook": "〈앵커〉 한 기자, 오늘(1일)은 국내 증시 얘기군요. 〈기자〉 잘 나가던 코스피가 외신에 세계 최악이라는 말까지 들었는데요. 지난 석 달간 코스피를 보면 20% 가까이 하락했습니다. 주요국 증시 중에 최하위를 기록한 겁니다. 7월부터 9월까지 3분기 동안 코스피가 18.8% 떨어졌는데"
+    }
+   ],
+   "comments": 27035,
+   "comment_needs": [
+    {
+     "name": "질문",
+     "count": 5325,
+     "share": 0.197
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 3778,
+     "share": 0.14
+    },
+    {
+     "name": "빚·신용·미수",
+     "count": 3063,
+     "share": 0.113
+    },
+    {
+     "name": "도덕적 비난(도박·본인 책임)",
+     "count": 2633,
+     "share": 0.097
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 2409,
+     "share": 0.089
+    },
+    {
+     "name": "2026 시장(폭락·불장·서킷)",
+     "count": 1961,
+     "share": 0.073
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "엄청 사연있는것처럼 연출하지만 결국 빚내서한 도박",
+     "likes": 7419
+    },
+    {
+     "text": "무슨 이유이든 상관없이 빚내서 투자하는거 아니다\n본인 책임이니 인생 쓴 맛 봤다 생각하고 열심히 갚아내길",
+     "likes": 5291
+    },
+    {
+     "text": "불쌍하게 볼필요없고 욕할필요도 없다 자기선택이니",
+     "likes": 3012
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "hTRG4ehA6NU",
+     "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
+     "channel": "박종훈의 지식한방",
+     "views": 1500722,
+     "views_per_day": 483276.2,
+     "published": "2026-10-12",
+     "url": "https://www.youtube.com/watch?v=hTRG4ehA6NU"
+    },
+    {
+     "id": "WfEK5IRkpE4",
+     "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
+     "channel": "ACE ETF",
+     "views": 2304062,
+     "views_per_day": 174157.6,
+     "published": "2026-10-02",
+     "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
+    },
+    {
+     "id": "d4gqZGtuUxo",
+     "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
+     "channel": "연합뉴스경제TV",
+     "views": 1176049,
+     "views_per_day": 165135.5,
+     "published": "2026-10-08",
+     "url": "https://www.youtube.com/watch?v=d4gqZGtuUxo"
+    },
+    {
+     "id": "0K52Ex714NU",
+     "title": "인도 옵션 투자 광풍, 50조 털린 인도 개미들",
+     "channel": "슈카월드",
+     "views": 1876477,
+     "views_per_day": 154411.4,
+     "published": "2026-10-03",
+     "url": "https://www.youtube.com/watch?v=0K52Ex714NU"
+    },
+    {
+     "id": "Uuw517jwuRQ",
+     "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
+     "channel": "SBS 뉴스",
+     "views": 1444127,
+     "views_per_day": 99438.1,
+     "published": "2026-10-01",
+     "url": "https://www.youtube.com/watch?v=Uuw517jwuRQ"
+    }
+   ]
+  },
+  {
+   "weeks": 12,
+   "label": "최근 12주",
+   "videos": 69,
+   "channels": 51,
+   "new_this_week": [
+    {
+     "id": "3wDg-1Lso24",
+     "title": "남들 다 벌었다는데 나도 주식 한번 해봐..!?",
+     "published": "2026-07-24"
+    },
+    {
+     "id": "AOs5sAd3hKM",
+     "title": "\"안정을 기대한다\"더니 하루만에 코스피 -10.84%🔥올해 8번째 서킷브레이커🔥정부, 왜 손놓고 있나🔥증안펀드•리밸런싱•공매도🔥삼성전자 -14% SK하이닉스 -16%🔥중국반도체쇼크",
+     "published": "2026-07-28"
+    },
+    {
+     "id": "cqgVNBbMYew",
+     "title": "배당주 20년 vs S&P500 20년, 3억 원이 만든 충격적인 자산과 삶의 격차 [ 재테크/미국주식/ETF/배당주/노후준비 ]",
+     "published": "2026-07-30"
+    },
+    {
+     "id": "iMkvDXx86dE",
+     "title": "연금고수들이 연금저축계좌 반드시 담는 ETF 3가지",
+     "published": "2026-07-28"
+    },
+    {
+     "id": "k9be9TSs41s",
+     "title": "내 주변에 주식으로 돈 번 사람이 '진짜' 단 한 명도 없는 소름 돋는 이유 | 교수 정선용 (3부)",
+     "published": "2026-07-30"
+    },
+    {
+     "id": "SrwNTk6GT9U",
+     "title": "'5천피' 예언적중한 문남중 \"코스피 저점? 5040 봅니다, 지금은 아무것도 하지 마세요\" #문남중 _260730",
+     "published": "2026-07-30"
+    },
+    {
+     "id": "WYqO4w43Rns",
+     "title": "본격 실전투자! 주린이 탈출하기 「주식투자는 처음이라 EP.2」 #곽범 #슈카",
+     "published": "2026-07-27"
+    }
+   ],
+   "views_median": 150093,
+   "views_per_day_median": 4485.8,
+   "ratio_median": 8.85,
+   "success": 53,
+   "minutes_median": 18.7,
+   "title_len_avg": 48.8,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 20,
+     "share": 0.29
+    },
+    {
+     "name": "물음표 ?",
+     "count": 17,
+     "share": 0.246
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 14,
+     "share": 0.203
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 12,
+     "share": 0.174
+    },
+    {
+     "name": "이유",
+     "count": 12,
+     "share": 0.174
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 10,
+     "share": 0.145
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 9,
+     "share": 0.13
+    },
+    {
+     "name": "느낌표 !",
+     "count": 8,
+     "share": 0.116
+    },
+    {
+     "name": "N가지",
+     "count": 7,
+     "share": 0.101
+    },
+    {
+     "name": "vs 비교",
+     "count": 6,
+     "share": 0.087
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 3,
+     "share": 0.043
+    },
+    {
+     "name": "과정·벌어진 일·결말·결국",
+     "count": 2,
+     "share": 0.029
+    },
+    {
+     "name": "두 금액(반전)",
+     "count": 1,
+     "share": 0.014
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 1,
+     "share": 0.014
+    },
+    {
+     "name": "빚투·신용·미수·레버리지·대출",
+     "count": 1,
+     "share": 0.014
+    }
+   ],
+   "title_words": [
+    {
+     "word": "이유",
+     "count": 11
+    },
+    {
+     "word": "주식",
+     "count": 11
+    },
+    {
+     "word": "ETF",
+     "count": 10
+    },
+    {
+     "word": "코스피",
+     "count": 9
+    },
+    {
+     "word": "통합본",
+     "count": 4
+    },
+    {
+     "word": "교수",
+     "count": 4
+    },
+    {
+     "word": "정선용",
+     "count": 4
+    },
+    {
+     "word": "투자",
+     "count": 4
+    },
+    {
+     "word": "사는",
+     "count": 4
+    },
+    {
+     "word": "있습니다",
+     "count": 4
+    }
+   ],
+   "transcripts": 9,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 9,
+    "설명": 55,
+    "없음": 5
+   },
+   "content_words": [
+    {
+     "word": "투자",
+     "count": 24
+    },
+    {
+     "word": "있습니다",
+     "count": 19
+    },
+    {
+     "word": "그리고",
+     "count": 17
+    },
+    {
+     "word": "가장",
+     "count": 15
+    },
+    {
+     "word": "같은",
+     "count": 15
+    },
+    {
+     "word": "함께",
+     "count": 15
+    },
+    {
+     "word": "많이",
+     "count": 14
+    },
+    {
+     "word": "주식",
+     "count": 13
+    },
+    {
+     "word": "주식을",
+     "count": 13
+    },
+    {
+     "word": "ETF",
+     "count": 13
+    },
+    {
+     "word": "제가",
+     "count": 11
+    },
+    {
+     "word": "바랍니다",
+     "count": 11
+    }
+   ],
+   "chapters_share": 0.406,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "WfEK5IRkpE4",
+     "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
+     "src": "설명",
+     "hook": "결혼을 앞둔 친구의 다급한 상견례 고민부터 연령별 맞춤 자산 관리 전략까지! 프로미스나인 이채영과 함께하는 ACE 투자상담소 고수 선배들의 속 시원한 금융 꿀팁을 확인해 보세요. 💡 🎁 ACE 투자상담소 EP.03 댓글 이벤트 영상을 시청하고 [에/이/스/채/영] 5행시 댓글을 남겨주세"
+    },
+    {
+     "id": "d4gqZGtuUxo",
+     "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
+     "src": "설명",
+     "hook": "대한민국 대표 금융정보회사 연합인포맥스가 만든 경제·금융 교육 플랫폼 《연합인포맥스아카데미》 시장을 보는 눈, 이제 직접 확인하세요! 성상현•노근창과 함께하는 투자결전 (10/24일 13시) 오프라인 특별강연 멤버스 자세히 보기 클래스 자세히 보기 ☎️인포맥스아카데미 대표전화 02-78"
+    },
+    {
+     "id": "Uuw517jwuRQ",
+     "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
+     "src": "설명",
+     "hook": "〈앵커〉 한 기자, 오늘(1일)은 국내 증시 얘기군요. 〈기자〉 잘 나가던 코스피가 외신에 세계 최악이라는 말까지 들었는데요. 지난 석 달간 코스피를 보면 20% 가까이 하락했습니다. 주요국 증시 중에 최하위를 기록한 겁니다. 7월부터 9월까지 3분기 동안 코스피가 18.8% 떨어졌는데"
+    }
+   ],
+   "comments": 32665,
+   "comment_needs": [
+    {
+     "name": "질문",
+     "count": 6170,
+     "share": 0.189
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 5085,
+     "share": 0.156
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 3278,
+     "share": 0.1
+    },
+    {
+     "name": "빚·신용·미수",
+     "count": 3255,
+     "share": 0.1
+    },
+    {
+     "name": "도덕적 비난(도박·본인 책임)",
+     "count": 2843,
+     "share": 0.087
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 2616,
+     "share": 0.08
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "엄청 사연있는것처럼 연출하지만 결국 빚내서한 도박",
+     "likes": 7419
+    },
+    {
+     "text": "무슨 이유이든 상관없이 빚내서 투자하는거 아니다\n본인 책임이니 인생 쓴 맛 봤다 생각하고 열심히 갚아내길",
+     "likes": 5291
+    },
+    {
+     "text": "그냥 꾸준히 돈벌자....",
+     "likes": 3108
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "hTRG4ehA6NU",
+     "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
+     "channel": "박종훈의 지식한방",
+     "views": 1500722,
+     "views_per_day": 483276.2,
+     "published": "2026-10-12",
+     "url": "https://www.youtube.com/watch?v=hTRG4ehA6NU"
+    },
+    {
+     "id": "WfEK5IRkpE4",
+     "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
+     "channel": "ACE ETF",
+     "views": 2304062,
+     "views_per_day": 174157.6,
+     "published": "2026-10-02",
+     "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
+    },
+    {
+     "id": "d4gqZGtuUxo",
+     "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
+     "channel": "연합뉴스경제TV",
+     "views": 1176049,
+     "views_per_day": 165135.5,
+     "published": "2026-10-08",
+     "url": "https://www.youtube.com/watch?v=d4gqZGtuUxo"
+    },
+    {
+     "id": "0K52Ex714NU",
+     "title": "인도 옵션 투자 광풍, 50조 털린 인도 개미들",
+     "channel": "슈카월드",
+     "views": 1876477,
+     "views_per_day": 154411.4,
+     "published": "2026-10-03",
+     "url": "https://www.youtube.com/watch?v=0K52Ex714NU"
+    },
+    {
+     "id": "Uuw517jwuRQ",
+     "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
+     "channel": "SBS 뉴스",
+     "views": 1444127,
+     "views_per_day": 99438.1,
+     "published": "2026-10-01",
+     "url": "https://www.youtube.com/watch?v=Uuw517jwuRQ"
+    }
+   ]
+  },
+  {
+   "weeks": 13,
+   "label": "최근 13주",
+   "videos": 76,
+   "channels": 54,
+   "new_this_week": [
+    {
+     "id": "3IqzhX-8yhY",
+     "title": "5년째 마이너스인데 왜 안 파나요? 배당투자, 커버드콜의 비밀 (조윤진 2부) #세미파이어 #배당투자",
+     "published": "2026-07-21"
+    },
+    {
+     "id": "h_sI7zIdZLI",
+     "title": "수학 천재가 찾아냈다 절대 잃지 않는 투자법 | 북언더스탠딩 | 독하게 돈 공부 | 신영증권 박소연 이사",
+     "published": "2026-07-21"
+    },
+    {
+     "id": "JExUQaROk40",
+     "title": "복리가 부를 만드는 진짜 시작점｜언제부터 돈이 스스로 일하기 시작할까",
+     "published": "2026-07-22"
+    },
+    {
+     "id": "l4MAizC_l20",
+     "title": "2030 자산성장, 어떻게 시작해야 할까? 「주식투자는 처음이라 EP.1」 #곽범 #슈카",
+     "published": "2026-07-20"
+    },
+    {
+     "id": "O4-jY0zyhDo",
+     "title": "레버리지 ETF 상장폐지 논란🔥도박판 코스피 알고도 레버리지 ETF 상폐 못하는 이유🔥위험 알고도 도장 찍은 사람🔥금리인상 악제🔥역대급 반도체 실적 국민돈증발🔥노후자금 날린뒤 대책",
+     "published": "2026-07-17"
+    },
+    {
+     "id": "Wc52vsC6q4U",
+     "title": "생활비 한 달 5만원..10년 만에 배당금 월 300만원 받는 이유  (조윤진 1부) #세미파이어 #배당투자",
+     "published": "2026-07-17"
+    },
+    {
+     "id": "WGCZYnwacuo",
+     "title": "S&P500 하나로 채운 ISA 3년 투자 총정리 | 5년 연장 대신 지금 해지한 이유 | 직접 경험한 이전 절차 포함",
+     "published": "2026-07-19"
+    }
+   ],
+   "views_median": 149441.5,
+   "views_per_day_median": 4350.3,
+   "ratio_median": 8.8,
+   "success": 58,
+   "minutes_median": 19.4,
+   "title_len_avg": 49.9,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 23,
+     "share": 0.303
+    },
+    {
+     "name": "물음표 ?",
+     "count": 19,
+     "share": 0.25
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 16,
+     "share": 0.211
+    },
+    {
+     "name": "이유",
+     "count": 15,
+     "share": 0.197
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 13,
+     "share": 0.171
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 11,
+     "share": 0.145
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 10,
+     "share": 0.132
+    },
+    {
+     "name": "느낌표 !",
+     "count": 8,
+     "share": 0.105
+    },
+    {
+     "name": "N가지",
+     "count": 7,
+     "share": 0.092
+    },
+    {
+     "name": "vs 비교",
+     "count": 7,
+     "share": 0.092
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 4,
+     "share": 0.053
+    },
+    {
+     "name": "두 금액(반전)",
+     "count": 2,
+     "share": 0.026
+    },
+    {
+     "name": "과정·벌어진 일·결말·결국",
+     "count": 2,
+     "share": 0.026
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 2,
+     "share": 0.026
+    },
+    {
+     "name": "빚투·신용·미수·레버리지·대출",
+     "count": 2,
+     "share": 0.026
+    }
+   ],
+   "title_words": [
+    {
+     "word": "이유",
+     "count": 14
+    },
+    {
+     "word": "주식",
+     "count": 11
+    },
+    {
+     "word": "ETF",
+     "count": 11
+    },
+    {
+     "word": "코스피",
+     "count": 10
+    },
+    {
+     "word": "투자",
+     "count": 5
+    },
+    {
+     "word": "2부",
+     "count": 5
+    },
+    {
+     "word": "통합본",
+     "count": 4
+    },
+    {
+     "word": "교수",
+     "count": 4
+    },
+    {
+     "word": "정선용",
+     "count": 4
+    },
+    {
+     "word": "S&P500",
+     "count": 4
+    }
+   ],
+   "transcripts": 10,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 10,
+    "설명": 61,
+    "없음": 5
+   },
+   "content_words": [
+    {
+     "word": "투자",
+     "count": 29
+    },
+    {
+     "word": "있습니다",
+     "count": 24
+    },
+    {
+     "word": "그리고",
+     "count": 20
+    },
+    {
+     "word": "가장",
+     "count": 18
+    },
+    {
+     "word": "같은",
+     "count": 16
+    },
+    {
+     "word": "함께",
+     "count": 16
+    },
+    {
+     "word": "주식",
+     "count": 15
+    },
+    {
+     "word": "바랍니다",
+     "count": 14
+    },
+    {
+     "word": "많이",
+     "count": 14
+    },
+    {
+     "word": "ETF",
+     "count": 14
+    },
+    {
+     "word": "국내",
+     "count": 14
+    },
+    {
+     "word": "따라",
+     "count": 13
+    }
+   ],
+   "chapters_share": 0.382,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "WfEK5IRkpE4",
+     "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
+     "src": "설명",
+     "hook": "결혼을 앞둔 친구의 다급한 상견례 고민부터 연령별 맞춤 자산 관리 전략까지! 프로미스나인 이채영과 함께하는 ACE 투자상담소 고수 선배들의 속 시원한 금융 꿀팁을 확인해 보세요. 💡 🎁 ACE 투자상담소 EP.03 댓글 이벤트 영상을 시청하고 [에/이/스/채/영] 5행시 댓글을 남겨주세"
+    },
+    {
+     "id": "d4gqZGtuUxo",
+     "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
+     "src": "설명",
+     "hook": "대한민국 대표 금융정보회사 연합인포맥스가 만든 경제·금융 교육 플랫폼 《연합인포맥스아카데미》 시장을 보는 눈, 이제 직접 확인하세요! 성상현•노근창과 함께하는 투자결전 (10/24일 13시) 오프라인 특별강연 멤버스 자세히 보기 클래스 자세히 보기 ☎️인포맥스아카데미 대표전화 02-78"
+    },
+    {
+     "id": "Uuw517jwuRQ",
+     "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
+     "src": "설명",
+     "hook": "〈앵커〉 한 기자, 오늘(1일)은 국내 증시 얘기군요. 〈기자〉 잘 나가던 코스피가 외신에 세계 최악이라는 말까지 들었는데요. 지난 석 달간 코스피를 보면 20% 가까이 하락했습니다. 주요국 증시 중에 최하위를 기록한 겁니다. 7월부터 9월까지 3분기 동안 코스피가 18.8% 떨어졌는데"
+    }
+   ],
+   "comments": 37946,
+   "comment_needs": [
+    {
+     "name": "질문",
+     "count": 7049,
+     "share": 0.186
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 6116,
+     "share": 0.161
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 4260,
+     "share": 0.112
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 4220,
+     "share": 0.111
+    },
+    {
+     "name": "빚·신용·미수",
+     "count": 3372,
+     "share": 0.089
+    },
+    {
+     "name": "도덕적 비난(도박·본인 책임)",
+     "count": 3026,
+     "share": 0.08
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "엄청 사연있는것처럼 연출하지만 결국 빚내서한 도박",
+     "likes": 7419
+    },
+    {
+     "text": "무슨 이유이든 상관없이 빚내서 투자하는거 아니다\n본인 책임이니 인생 쓴 맛 봤다 생각하고 열심히 갚아내길",
+     "likes": 5291
+    },
+    {
+     "text": "그냥 꾸준히 돈벌자....",
+     "likes": 3108
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "hTRG4ehA6NU",
+     "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
+     "channel": "박종훈의 지식한방",
+     "views": 1500722,
+     "views_per_day": 483276.2,
+     "published": "2026-10-12",
+     "url": "https://www.youtube.com/watch?v=hTRG4ehA6NU"
+    },
+    {
+     "id": "WfEK5IRkpE4",
+     "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
+     "channel": "ACE ETF",
+     "views": 2304062,
+     "views_per_day": 174157.6,
+     "published": "2026-10-02",
+     "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
+    },
+    {
+     "id": "d4gqZGtuUxo",
+     "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
+     "channel": "연합뉴스경제TV",
+     "views": 1176049,
+     "views_per_day": 165135.5,
+     "published": "2026-10-08",
+     "url": "https://www.youtube.com/watch?v=d4gqZGtuUxo"
+    },
+    {
+     "id": "0K52Ex714NU",
+     "title": "인도 옵션 투자 광풍, 50조 털린 인도 개미들",
+     "channel": "슈카월드",
+     "views": 1876477,
+     "views_per_day": 154411.4,
+     "published": "2026-10-03",
+     "url": "https://www.youtube.com/watch?v=0K52Ex714NU"
+    },
+    {
+     "id": "Uuw517jwuRQ",
+     "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
+     "channel": "SBS 뉴스",
+     "views": 1444127,
+     "views_per_day": 99438.1,
+     "published": "2026-10-01",
+     "url": "https://www.youtube.com/watch?v=Uuw517jwuRQ"
+    }
+   ]
+  },
+  {
+   "weeks": 14,
+   "label": "최근 14주",
+   "videos": 82,
+   "channels": 58,
+   "new_this_week": [
+    {
+     "id": "0T0eTmqUDBo",
+     "title": "사형수 박정희, 그를 살린 28세 정보국장 백선엽의 위험한 도박 | 1948년 숙군의 비밀",
+     "published": "2026-07-10"
+    },
+    {
+     "id": "6VAsPNYeTRQ",
+     "title": "\"역대급 저평가라던 코스피\" 하루 만에 620조 추락.. 그 뒤에 숨겨진 코스피의 잔혹한 진실",
+     "published": "2026-07-13"
+    },
+    {
+     "id": "BL8sygt6dgw",
+     "title": "수익 -60%에서 멘탈 관리하는 법..?? 주식 물린 사람들 들어오세요",
+     "published": "2026-07-12"
+    },
+    {
+     "id": "PKjvQsEwLIQ",
+     "title": "일 안하고, 배당금으로 살아가는 현실",
+     "published": "2026-07-11"
+    },
+    {
+     "id": "r6YwLBtCXXQ",
+     "title": "' 코스피 폭락 ‘ 삼성전자 & 하이닉스 하반기 X만원 갑니다 ?! 용한 애동 무당이 신점으로 본 반도체 관련주!/ 삼성전자주가전망 , 하이닉스주가전망 , 코스피전망",
+     "published": "2026-07-14"
+    },
+    {
+     "id": "WXgAtzIynMk",
+     "title": "32살 부부 동반 퇴사 후, 배당투자로 세계여행 시작합니다",
+     "published": "2026-07-10"
+    }
+   ],
+   "views_median": 148728.5,
+   "views_per_day_median": 3643.7,
+   "ratio_median": 8.96,
+   "success": 64,
+   "minutes_median": 19.4,
+   "title_len_avg": 49.8,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 23,
+     "share": 0.28
+    },
+    {
+     "name": "물음표 ?",
+     "count": 21,
+     "share": 0.256
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 16,
+     "share": 0.195
+    },
+    {
+     "name": "이유",
+     "count": 15,
+     "share": 0.183
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 13,
+     "share": 0.159
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 13,
+     "share": 0.159
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 10,
+     "share": 0.122
+    },
+    {
+     "name": "느낌표 !",
+     "count": 9,
+     "share": 0.11
+    },
+    {
+     "name": "N가지",
+     "count": 7,
+     "share": 0.085
+    },
+    {
+     "name": "vs 비교",
+     "count": 7,
+     "share": 0.085
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 4,
+     "share": 0.049
+    },
+    {
+     "name": "두 금액(반전)",
+     "count": 2,
+     "share": 0.024
+    },
+    {
+     "name": "과정·벌어진 일·결말·결국",
+     "count": 2,
+     "share": 0.024
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 2,
+     "share": 0.024
+    },
+    {
+     "name": "빚투·신용·미수·레버리지·대출",
+     "count": 2,
+     "share": 0.024
+    }
+   ],
+   "title_words": [
+    {
+     "word": "이유",
+     "count": 14
+    },
+    {
+     "word": "주식",
+     "count": 12
+    },
+    {
+     "word": "코스피",
+     "count": 12
+    },
+    {
+     "word": "ETF",
+     "count": 11
+    },
+    {
+     "word": "투자",
+     "count": 5
+    },
+    {
+     "word": "2부",
+     "count": 5
+    },
+    {
+     "word": "통합본",
+     "count": 4
+    },
+    {
+     "word": "교수",
+     "count": 4
+    },
+    {
+     "word": "정선용",
+     "count": 4
+    },
+    {
+     "word": "S&P500",
+     "count": 4
+    }
+   ],
+   "transcripts": 11,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 11,
+    "설명": 66,
+    "없음": 5
+   },
+   "content_words": [
+    {
+     "word": "투자",
+     "count": 30
+    },
+    {
+     "word": "있습니다",
+     "count": 26
+    },
+    {
+     "word": "그리고",
+     "count": 22
+    },
+    {
+     "word": "가장",
+     "count": 18
+    },
+    {
+     "word": "같은",
+     "count": 17
+    },
+    {
+     "word": "함께",
+     "count": 17
+    },
+    {
+     "word": "바랍니다",
+     "count": 15
+    },
+    {
+     "word": "주식",
+     "count": 15
+    },
+    {
+     "word": "이번",
+     "count": 15
+    },
+    {
+     "word": "대한",
+     "count": 14
+    },
+    {
+     "word": "많이",
+     "count": 14
+    },
+    {
+     "word": "따라",
+     "count": 14
+    }
+   ],
+   "chapters_share": 0.378,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "WfEK5IRkpE4",
+     "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
+     "src": "설명",
+     "hook": "결혼을 앞둔 친구의 다급한 상견례 고민부터 연령별 맞춤 자산 관리 전략까지! 프로미스나인 이채영과 함께하는 ACE 투자상담소 고수 선배들의 속 시원한 금융 꿀팁을 확인해 보세요. 💡 🎁 ACE 투자상담소 EP.03 댓글 이벤트 영상을 시청하고 [에/이/스/채/영] 5행시 댓글을 남겨주세"
+    },
+    {
+     "id": "d4gqZGtuUxo",
+     "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
+     "src": "설명",
+     "hook": "대한민국 대표 금융정보회사 연합인포맥스가 만든 경제·금융 교육 플랫폼 《연합인포맥스아카데미》 시장을 보는 눈, 이제 직접 확인하세요! 성상현•노근창과 함께하는 투자결전 (10/24일 13시) 오프라인 특별강연 멤버스 자세히 보기 클래스 자세히 보기 ☎️인포맥스아카데미 대표전화 02-78"
+    },
+    {
+     "id": "Uuw517jwuRQ",
+     "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
+     "src": "설명",
+     "hook": "〈앵커〉 한 기자, 오늘(1일)은 국내 증시 얘기군요. 〈기자〉 잘 나가던 코스피가 외신에 세계 최악이라는 말까지 들었는데요. 지난 석 달간 코스피를 보면 20% 가까이 하락했습니다. 주요국 증시 중에 최하위를 기록한 겁니다. 7월부터 9월까지 3분기 동안 코스피가 18.8% 떨어졌는데"
+    }
+   ],
+   "comments": 40985,
+   "comment_needs": [
+    {
+     "name": "질문",
+     "count": 7735,
+     "share": 0.189
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 6286,
+     "share": 0.153
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 4651,
+     "share": 0.113
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 4512,
+     "share": 0.11
+    },
+    {
+     "name": "빚·신용·미수",
+     "count": 3456,
+     "share": 0.084
+    },
+    {
+     "name": "도덕적 비난(도박·본인 책임)",
+     "count": 3117,
+     "share": 0.076
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "엄청 사연있는것처럼 연출하지만 결국 빚내서한 도박",
+     "likes": 7419
+    },
+    {
+     "text": "무슨 이유이든 상관없이 빚내서 투자하는거 아니다\n본인 책임이니 인생 쓴 맛 봤다 생각하고 열심히 갚아내길",
+     "likes": 5291
+    },
+    {
+     "text": "그냥 꾸준히 돈벌자....",
+     "likes": 3108
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "hTRG4ehA6NU",
+     "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
+     "channel": "박종훈의 지식한방",
+     "views": 1500722,
+     "views_per_day": 483276.2,
+     "published": "2026-10-12",
+     "url": "https://www.youtube.com/watch?v=hTRG4ehA6NU"
+    },
+    {
+     "id": "WfEK5IRkpE4",
+     "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
+     "channel": "ACE ETF",
+     "views": 2304062,
+     "views_per_day": 174157.6,
+     "published": "2026-10-02",
+     "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
+    },
+    {
+     "id": "d4gqZGtuUxo",
+     "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
+     "channel": "연합뉴스경제TV",
+     "views": 1176049,
+     "views_per_day": 165135.5,
+     "published": "2026-10-08",
+     "url": "https://www.youtube.com/watch?v=d4gqZGtuUxo"
+    },
+    {
+     "id": "0K52Ex714NU",
+     "title": "인도 옵션 투자 광풍, 50조 털린 인도 개미들",
+     "channel": "슈카월드",
+     "views": 1876477,
+     "views_per_day": 154411.4,
+     "published": "2026-10-03",
+     "url": "https://www.youtube.com/watch?v=0K52Ex714NU"
+    },
+    {
+     "id": "Uuw517jwuRQ",
+     "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
+     "channel": "SBS 뉴스",
+     "views": 1444127,
+     "views_per_day": 99438.1,
+     "published": "2026-10-01",
+     "url": "https://www.youtube.com/watch?v=Uuw517jwuRQ"
+    }
+   ]
+  },
+  {
+   "weeks": 15,
+   "label": "최근 15주",
+   "videos": 85,
+   "channels": 60,
+   "new_this_week": [
+    {
+     "id": "fmQLRfIm28Y",
+     "title": "\"S&P500 ETF, 종목보다 '계좌'가 20년 뒤를 바꾸는 진짜 이유 (연금·ISA)\"",
+     "published": "2026-07-07"
+    },
+    {
+     "id": "mcd_S953Gno",
+     "title": "월급없는 현실, 일하지않고 배당금만 받고 살아가는 미혼남 생존기",
+     "published": "2026-07-04"
+    },
+    {
+     "id": "ZYcLMbx2t0Y",
+     "title": "[월가아재] 수익률 2% 차이? 40년 뒤에는 140억이 됩니다.",
+     "published": "2026-07-07"
+    }
+   ],
+   "views_median": 148790,
+   "views_per_day_median": 3512.7,
+   "ratio_median": 8.85,
+   "success": 66,
+   "minutes_median": 19.6,
+   "title_len_avg": 49.4,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 24,
+     "share": 0.282
+    },
+    {
+     "name": "물음표 ?",
+     "count": 22,
+     "share": 0.259
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 17,
+     "share": 0.2
+    },
+    {
+     "name": "이유",
+     "count": 16,
+     "share": 0.188
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 14,
+     "share": 0.165
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 13,
+     "share": 0.153
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 10,
+     "share": 0.118
+    },
+    {
+     "name": "느낌표 !",
+     "count": 9,
+     "share": 0.106
+    },
+    {
+     "name": "N가지",
+     "count": 7,
+     "share": 0.082
+    },
+    {
+     "name": "vs 비교",
+     "count": 7,
+     "share": 0.082
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 4,
+     "share": 0.047
+    },
+    {
+     "name": "두 금액(반전)",
+     "count": 2,
+     "share": 0.024
+    },
+    {
+     "name": "과정·벌어진 일·결말·결국",
+     "count": 2,
+     "share": 0.024
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 2,
+     "share": 0.024
+    },
+    {
+     "name": "빚투·신용·미수·레버리지·대출",
+     "count": 2,
+     "share": 0.024
+    }
+   ],
+   "title_words": [
+    {
+     "word": "이유",
+     "count": 15
+    },
+    {
+     "word": "주식",
+     "count": 12
+    },
+    {
+     "word": "ETF",
+     "count": 12
+    },
+    {
+     "word": "코스피",
+     "count": 12
+    },
+    {
+     "word": "투자",
+     "count": 5
+    },
+    {
+     "word": "S&P500",
+     "count": 5
+    },
+    {
+     "word": "2부",
+     "count": 5
+    },
+    {
+     "word": "통합본",
+     "count": 4
+    },
+    {
+     "word": "교수",
+     "count": 4
+    },
+    {
+     "word": "정선용",
+     "count": 4
+    }
+   ],
+   "transcripts": 11,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 11,
+    "설명": 69,
+    "없음": 5
+   },
+   "content_words": [
+    {
+     "word": "투자",
+     "count": 32
+    },
+    {
+     "word": "있습니다",
+     "count": 28
+    },
+    {
+     "word": "그리고",
+     "count": 24
+    },
+    {
+     "word": "가장",
+     "count": 18
+    },
+    {
+     "word": "같은",
+     "count": 17
+    },
+    {
+     "word": "함께",
+     "count": 17
+    },
+    {
+     "word": "바랍니다",
+     "count": 16
+    },
+    {
+     "word": "따라",
+     "count": 15
+    },
+    {
+     "word": "주식",
+     "count": 15
+    },
+    {
+     "word": "이번",
+     "count": 15
+    },
+    {
+     "word": "ETF",
+     "count": 15
+    },
+    {
+     "word": "대한",
+     "count": 14
+    }
+   ],
+   "chapters_share": 0.388,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "WfEK5IRkpE4",
+     "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
+     "src": "설명",
+     "hook": "결혼을 앞둔 친구의 다급한 상견례 고민부터 연령별 맞춤 자산 관리 전략까지! 프로미스나인 이채영과 함께하는 ACE 투자상담소 고수 선배들의 속 시원한 금융 꿀팁을 확인해 보세요. 💡 🎁 ACE 투자상담소 EP.03 댓글 이벤트 영상을 시청하고 [에/이/스/채/영] 5행시 댓글을 남겨주세"
+    },
+    {
+     "id": "d4gqZGtuUxo",
+     "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
+     "src": "설명",
+     "hook": "대한민국 대표 금융정보회사 연합인포맥스가 만든 경제·금융 교육 플랫폼 《연합인포맥스아카데미》 시장을 보는 눈, 이제 직접 확인하세요! 성상현•노근창과 함께하는 투자결전 (10/24일 13시) 오프라인 특별강연 멤버스 자세히 보기 클래스 자세히 보기 ☎️인포맥스아카데미 대표전화 02-78"
+    },
+    {
+     "id": "Uuw517jwuRQ",
+     "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
+     "src": "설명",
+     "hook": "〈앵커〉 한 기자, 오늘(1일)은 국내 증시 얘기군요. 〈기자〉 잘 나가던 코스피가 외신에 세계 최악이라는 말까지 들었는데요. 지난 석 달간 코스피를 보면 20% 가까이 하락했습니다. 주요국 증시 중에 최하위를 기록한 겁니다. 7월부터 9월까지 3분기 동안 코스피가 18.8% 떨어졌는데"
+    }
+   ],
+   "comments": 42465,
+   "comment_needs": [
+    {
+     "name": "질문",
+     "count": 8074,
+     "share": 0.19
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 6509,
+     "share": 0.153
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 4733,
+     "share": 0.111
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 4698,
+     "share": 0.111
+    },
+    {
+     "name": "빚·신용·미수",
+     "count": 3484,
+     "share": 0.082
+    },
+    {
+     "name": "도덕적 비난(도박·본인 책임)",
+     "count": 3128,
+     "share": 0.074
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "엄청 사연있는것처럼 연출하지만 결국 빚내서한 도박",
+     "likes": 7419
+    },
+    {
+     "text": "무슨 이유이든 상관없이 빚내서 투자하는거 아니다\n본인 책임이니 인생 쓴 맛 봤다 생각하고 열심히 갚아내길",
+     "likes": 5291
+    },
+    {
+     "text": "그냥 꾸준히 돈벌자....",
+     "likes": 3108
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "hTRG4ehA6NU",
+     "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
+     "channel": "박종훈의 지식한방",
+     "views": 1500722,
+     "views_per_day": 483276.2,
+     "published": "2026-10-12",
+     "url": "https://www.youtube.com/watch?v=hTRG4ehA6NU"
+    },
+    {
+     "id": "WfEK5IRkpE4",
+     "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
+     "channel": "ACE ETF",
+     "views": 2304062,
+     "views_per_day": 174157.6,
+     "published": "2026-10-02",
+     "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
+    },
+    {
+     "id": "d4gqZGtuUxo",
+     "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
+     "channel": "연합뉴스경제TV",
+     "views": 1176049,
+     "views_per_day": 165135.5,
+     "published": "2026-10-08",
+     "url": "https://www.youtube.com/watch?v=d4gqZGtuUxo"
+    },
+    {
+     "id": "0K52Ex714NU",
+     "title": "인도 옵션 투자 광풍, 50조 털린 인도 개미들",
+     "channel": "슈카월드",
+     "views": 1876477,
+     "views_per_day": 154411.4,
+     "published": "2026-10-03",
+     "url": "https://www.youtube.com/watch?v=0K52Ex714NU"
+    },
+    {
+     "id": "Uuw517jwuRQ",
+     "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
+     "channel": "SBS 뉴스",
+     "views": 1444127,
+     "views_per_day": 99438.1,
+     "published": "2026-10-01",
+     "url": "https://www.youtube.com/watch?v=Uuw517jwuRQ"
+    }
+   ]
+  },
+  {
+   "weeks": 16,
+   "label": "최근 16주",
+   "videos": 92,
+   "channels": 65,
+   "new_this_week": [
+    {
+     "id": "2G0epuL2UbI",
+     "title": "원금 손실 우려 없는 최고의 커버드콜 ETF를 드디어 찾았습니다",
+     "published": "2026-06-28"
+    },
+    {
+     "id": "JJG1mtkTN6g",
+     "title": "삼성전자 지금 시작인가? 노무라가 목표주가 67만원 제시한 이유가 소름입니다... 여기서 90% 더 오를 수 있다? 상승 전망 전부 분석했습니다 #삼성전자 #삼성전자주가전망",
+     "published": "2026-06-27"
+    },
+    {
+     "id": "knblsnwXsfg",
+     "title": "단타 천재가 개발한 초간단 매매법(기본 차트 분석법)",
+     "published": "2026-06-26"
+    },
+    {
+     "id": "KTtJsYSySo8",
+     "title": "한국 아파트 싹 다 물갈이 된다, 2027년부터 집값 무서울 겁니다 (김진 앵커 풀버전)",
+     "published": "2026-06-28"
+    },
+    {
+     "id": "QTrCmMxmAdg",
+     "title": "라오어님의 TQQQ, SOXL 무한매수법 정말 좋아합니다(QQQ, QLD, TQQQ, SOXL)",
+     "published": "2026-07-01"
+    },
+    {
+     "id": "SKogeS0bYpM",
+     "title": "코스피 9,000에도 웃지 못하는 | 고독한 ITZY(있지) 팬미팅 [ENG]",
+     "published": "2026-06-26"
+    },
+    {
+     "id": "yGuybuoroRI",
+     "title": "\"원금 안 깎여요\" 진화형 커버드콜 ETF 황금 포트폴리오 공개",
+     "published": "2026-07-02"
+    }
+   ],
+   "views_median": 148728.5,
+   "views_per_day_median": 3118.65,
+   "ratio_median": 8.29,
+   "success": 72,
+   "minutes_median": 19.65,
+   "title_len_avg": 49.4,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 25,
+     "share": 0.272
+    },
+    {
+     "name": "물음표 ?",
+     "count": 23,
+     "share": 0.25
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 19,
+     "share": 0.207
+    },
+    {
+     "name": "이유",
+     "count": 17,
+     "share": 0.185
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 15,
+     "share": 0.163
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 14,
+     "share": 0.152
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 10,
+     "share": 0.109
+    },
+    {
+     "name": "느낌표 !",
+     "count": 9,
+     "share": 0.098
+    },
+    {
+     "name": "N가지",
+     "count": 7,
+     "share": 0.076
+    },
+    {
+     "name": "vs 비교",
+     "count": 7,
+     "share": 0.076
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 4,
+     "share": 0.043
+    },
+    {
+     "name": "두 금액(반전)",
+     "count": 2,
+     "share": 0.022
+    },
+    {
+     "name": "과정·벌어진 일·결말·결국",
+     "count": 2,
+     "share": 0.022
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 2,
+     "share": 0.022
+    },
+    {
+     "name": "빚투·신용·미수·레버리지·대출",
+     "count": 2,
+     "share": 0.022
+    }
+   ],
+   "title_words": [
+    {
+     "word": "이유",
+     "count": 15
+    },
+    {
+     "word": "ETF",
+     "count": 13
+    },
+    {
+     "word": "코스피",
+     "count": 13
+    },
+    {
+     "word": "주식",
+     "count": 12
+    },
+    {
+     "word": "투자",
+     "count": 5
+    },
+    {
+     "word": "커버드콜",
+     "count": 5
+    },
+    {
+     "word": "S&P500",
+     "count": 5
+    },
+    {
+     "word": "2부",
+     "count": 5
+    },
+    {
+     "word": "삼성전자",
+     "count": 5
+    },
+    {
+     "word": "통합본",
+     "count": 4
+    }
+   ],
+   "transcripts": 11,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 11,
+    "설명": 75,
+    "없음": 6
+   },
+   "content_words": [
+    {
+     "word": "투자",
+     "count": 33
+    },
+    {
+     "word": "있습니다",
+     "count": 30
+    },
+    {
+     "word": "그리고",
+     "count": 24
+    },
+    {
+     "word": "함께",
+     "count": 19
+    },
+    {
+     "word": "가장",
+     "count": 18
+    },
+    {
+     "word": "같은",
+     "count": 17
+    },
+    {
+     "word": "바랍니다",
+     "count": 16
+    },
+    {
+     "word": "주식",
+     "count": 16
+    },
+    {
+     "word": "이번",
+     "count": 16
+    },
+    {
+     "word": "ETF",
+     "count": 16
+    },
+    {
+     "word": "대한",
+     "count": 15
+    },
+    {
+     "word": "따라",
+     "count": 15
+    }
+   ],
+   "chapters_share": 0.38,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "WfEK5IRkpE4",
+     "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
+     "src": "설명",
+     "hook": "결혼을 앞둔 친구의 다급한 상견례 고민부터 연령별 맞춤 자산 관리 전략까지! 프로미스나인 이채영과 함께하는 ACE 투자상담소 고수 선배들의 속 시원한 금융 꿀팁을 확인해 보세요. 💡 🎁 ACE 투자상담소 EP.03 댓글 이벤트 영상을 시청하고 [에/이/스/채/영] 5행시 댓글을 남겨주세"
+    },
+    {
+     "id": "d4gqZGtuUxo",
+     "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
+     "src": "설명",
+     "hook": "대한민국 대표 금융정보회사 연합인포맥스가 만든 경제·금융 교육 플랫폼 《연합인포맥스아카데미》 시장을 보는 눈, 이제 직접 확인하세요! 성상현•노근창과 함께하는 투자결전 (10/24일 13시) 오프라인 특별강연 멤버스 자세히 보기 클래스 자세히 보기 ☎️인포맥스아카데미 대표전화 02-78"
+    },
+    {
+     "id": "Uuw517jwuRQ",
+     "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
+     "src": "설명",
+     "hook": "〈앵커〉 한 기자, 오늘(1일)은 국내 증시 얘기군요. 〈기자〉 잘 나가던 코스피가 외신에 세계 최악이라는 말까지 들었는데요. 지난 석 달간 코스피를 보면 20% 가까이 하락했습니다. 주요국 증시 중에 최하위를 기록한 겁니다. 7월부터 9월까지 3분기 동안 코스피가 18.8% 떨어졌는데"
+    }
+   ],
+   "comments": 46874,
+   "comment_needs": [
+    {
+     "name": "질문",
+     "count": 8816,
+     "share": 0.188
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 6906,
+     "share": 0.147
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 4954,
+     "share": 0.106
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 4912,
+     "share": 0.105
+    },
+    {
+     "name": "빚·신용·미수",
+     "count": 3580,
+     "share": 0.076
+    },
+    {
+     "name": "도덕적 비난(도박·본인 책임)",
+     "count": 3172,
+     "share": 0.068
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "엄청 사연있는것처럼 연출하지만 결국 빚내서한 도박",
+     "likes": 7419
+    },
+    {
+     "text": "국회의원 월급을 최저시급으로 하면  많은 문제가 해결될것 같아요.",
+     "likes": 6063
+    },
+    {
+     "text": "무슨 이유이든 상관없이 빚내서 투자하는거 아니다\n본인 책임이니 인생 쓴 맛 봤다 생각하고 열심히 갚아내길",
+     "likes": 5291
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "hTRG4ehA6NU",
+     "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
+     "channel": "박종훈의 지식한방",
+     "views": 1500722,
+     "views_per_day": 483276.2,
+     "published": "2026-10-12",
+     "url": "https://www.youtube.com/watch?v=hTRG4ehA6NU"
+    },
+    {
+     "id": "WfEK5IRkpE4",
+     "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
+     "channel": "ACE ETF",
+     "views": 2304062,
+     "views_per_day": 174157.6,
+     "published": "2026-10-02",
+     "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
+    },
+    {
+     "id": "d4gqZGtuUxo",
+     "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
+     "channel": "연합뉴스경제TV",
+     "views": 1176049,
+     "views_per_day": 165135.5,
+     "published": "2026-10-08",
+     "url": "https://www.youtube.com/watch?v=d4gqZGtuUxo"
+    },
+    {
+     "id": "0K52Ex714NU",
+     "title": "인도 옵션 투자 광풍, 50조 털린 인도 개미들",
+     "channel": "슈카월드",
+     "views": 1876477,
+     "views_per_day": 154411.4,
+     "published": "2026-10-03",
+     "url": "https://www.youtube.com/watch?v=0K52Ex714NU"
+    },
+    {
+     "id": "Uuw517jwuRQ",
+     "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
+     "channel": "SBS 뉴스",
+     "views": 1444127,
+     "views_per_day": 99438.1,
+     "published": "2026-10-01",
+     "url": "https://www.youtube.com/watch?v=Uuw517jwuRQ"
+    }
+   ]
+  },
+  {
+   "weeks": 17,
+   "label": "최근 17주",
+   "videos": 93,
+   "channels": 66,
+   "new_this_week": [
+    {
+     "id": "9E9OrcoMCjk",
+     "title": "AI로 주식 자동 매매하면 어떻게 될까?",
+     "published": "2026-06-20"
+    }
+   ],
+   "views_median": 148790,
+   "views_per_day_median": 3288.9,
+   "ratio_median": 8.75,
+   "success": 73,
+   "minutes_median": 19.6,
+   "title_len_avg": 49.1,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 25,
+     "share": 0.269
+    },
+    {
+     "name": "물음표 ?",
+     "count": 24,
+     "share": 0.258
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 19,
+     "share": 0.204
+    },
+    {
+     "name": "이유",
+     "count": 17,
+     "share": 0.183
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 15,
+     "share": 0.161
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 14,
+     "share": 0.151
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 10,
+     "share": 0.108
+    },
+    {
+     "name": "느낌표 !",
+     "count": 9,
+     "share": 0.097
+    },
+    {
+     "name": "N가지",
+     "count": 7,
+     "share": 0.075
+    },
+    {
+     "name": "vs 비교",
+     "count": 7,
+     "share": 0.075
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 4,
+     "share": 0.043
+    },
+    {
+     "name": "두 금액(반전)",
+     "count": 2,
+     "share": 0.022
+    },
+    {
+     "name": "과정·벌어진 일·결말·결국",
+     "count": 2,
+     "share": 0.022
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 2,
+     "share": 0.022
+    },
+    {
+     "name": "빚투·신용·미수·레버리지·대출",
+     "count": 2,
+     "share": 0.022
+    },
+    {
+     "name": "AI",
+     "count": 1,
+     "share": 0.011
+    }
+   ],
+   "title_words": [
+    {
+     "word": "이유",
+     "count": 15
+    },
+    {
+     "word": "주식",
+     "count": 13
+    },
+    {
+     "word": "ETF",
+     "count": 13
+    },
+    {
+     "word": "코스피",
+     "count": 13
+    },
+    {
+     "word": "투자",
+     "count": 5
+    },
+    {
+     "word": "커버드콜",
+     "count": 5
+    },
+    {
+     "word": "S&P500",
+     "count": 5
+    },
+    {
+     "word": "2부",
+     "count": 5
+    },
+    {
+     "word": "삼성전자",
+     "count": 5
+    },
+    {
+     "word": "통합본",
+     "count": 4
+    }
+   ],
+   "transcripts": 12,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 12,
+    "설명": 75,
+    "없음": 6
+   },
+   "content_words": [
+    {
+     "word": "투자",
+     "count": 33
+    },
+    {
+     "word": "있습니다",
+     "count": 30
+    },
+    {
+     "word": "그리고",
+     "count": 25
+    },
+    {
+     "word": "함께",
+     "count": 20
+    },
+    {
+     "word": "가장",
+     "count": 19
+    },
+    {
+     "word": "같은",
+     "count": 18
+    },
+    {
+     "word": "주식",
+     "count": 17
+    },
+    {
+     "word": "바랍니다",
+     "count": 16
+    },
+    {
+     "word": "이번",
+     "count": 16
+    },
+    {
+     "word": "ETF",
+     "count": 16
+    },
+    {
+     "word": "대한",
+     "count": 15
+    },
+    {
+     "word": "많이",
+     "count": 15
+    }
+   ],
+   "chapters_share": 0.376,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "WfEK5IRkpE4",
+     "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
+     "src": "설명",
+     "hook": "결혼을 앞둔 친구의 다급한 상견례 고민부터 연령별 맞춤 자산 관리 전략까지! 프로미스나인 이채영과 함께하는 ACE 투자상담소 고수 선배들의 속 시원한 금융 꿀팁을 확인해 보세요. 💡 🎁 ACE 투자상담소 EP.03 댓글 이벤트 영상을 시청하고 [에/이/스/채/영] 5행시 댓글을 남겨주세"
+    },
+    {
+     "id": "d4gqZGtuUxo",
+     "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
+     "src": "설명",
+     "hook": "대한민국 대표 금융정보회사 연합인포맥스가 만든 경제·금융 교육 플랫폼 《연합인포맥스아카데미》 시장을 보는 눈, 이제 직접 확인하세요! 성상현•노근창과 함께하는 투자결전 (10/24일 13시) 오프라인 특별강연 멤버스 자세히 보기 클래스 자세히 보기 ☎️인포맥스아카데미 대표전화 02-78"
+    },
+    {
+     "id": "Uuw517jwuRQ",
+     "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
+     "src": "설명",
+     "hook": "〈앵커〉 한 기자, 오늘(1일)은 국내 증시 얘기군요. 〈기자〉 잘 나가던 코스피가 외신에 세계 최악이라는 말까지 들었는데요. 지난 석 달간 코스피를 보면 20% 가까이 하락했습니다. 주요국 증시 중에 최하위를 기록한 겁니다. 7월부터 9월까지 3분기 동안 코스피가 18.8% 떨어졌는데"
+    }
+   ],
+   "comments": 47452,
+   "comment_needs": [
+    {
+     "name": "질문",
+     "count": 8938,
+     "share": 0.188
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 6951,
+     "share": 0.146
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 4984,
+     "share": 0.105
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 4968,
+     "share": 0.105
+    },
+    {
+     "name": "빚·신용·미수",
+     "count": 3583,
+     "share": 0.076
+    },
+    {
+     "name": "도덕적 비난(도박·본인 책임)",
+     "count": 3174,
+     "share": 0.067
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "엄청 사연있는것처럼 연출하지만 결국 빚내서한 도박",
+     "likes": 7419
+    },
+    {
+     "text": "국회의원 월급을 최저시급으로 하면  많은 문제가 해결될것 같아요.",
+     "likes": 6063
+    },
+    {
+     "text": "무슨 이유이든 상관없이 빚내서 투자하는거 아니다\n본인 책임이니 인생 쓴 맛 봤다 생각하고 열심히 갚아내길",
+     "likes": 5291
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "hTRG4ehA6NU",
+     "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
+     "channel": "박종훈의 지식한방",
+     "views": 1500722,
+     "views_per_day": 483276.2,
+     "published": "2026-10-12",
+     "url": "https://www.youtube.com/watch?v=hTRG4ehA6NU"
+    },
+    {
+     "id": "WfEK5IRkpE4",
+     "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
+     "channel": "ACE ETF",
+     "views": 2304062,
+     "views_per_day": 174157.6,
+     "published": "2026-10-02",
+     "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
+    },
+    {
+     "id": "d4gqZGtuUxo",
+     "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
+     "channel": "연합뉴스경제TV",
+     "views": 1176049,
+     "views_per_day": 165135.5,
+     "published": "2026-10-08",
+     "url": "https://www.youtube.com/watch?v=d4gqZGtuUxo"
+    },
+    {
+     "id": "0K52Ex714NU",
+     "title": "인도 옵션 투자 광풍, 50조 털린 인도 개미들",
+     "channel": "슈카월드",
+     "views": 1876477,
+     "views_per_day": 154411.4,
+     "published": "2026-10-03",
+     "url": "https://www.youtube.com/watch?v=0K52Ex714NU"
+    },
+    {
+     "id": "Uuw517jwuRQ",
+     "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
+     "channel": "SBS 뉴스",
+     "views": 1444127,
+     "views_per_day": 99438.1,
+     "published": "2026-10-01",
+     "url": "https://www.youtube.com/watch?v=Uuw517jwuRQ"
+    }
+   ]
+  },
+  {
+   "weeks": 18,
+   "label": "최근 18주",
+   "videos": 93,
+   "channels": 66,
+   "new_this_week": [],
+   "views_median": 148790,
+   "views_per_day_median": 3288.9,
+   "ratio_median": 8.75,
+   "success": 73,
+   "minutes_median": 19.6,
+   "title_len_avg": 49.1,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 25,
+     "share": 0.269
+    },
+    {
+     "name": "물음표 ?",
+     "count": 24,
+     "share": 0.258
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 19,
+     "share": 0.204
+    },
+    {
+     "name": "이유",
+     "count": 17,
+     "share": 0.183
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 15,
+     "share": 0.161
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 14,
+     "share": 0.151
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 10,
+     "share": 0.108
+    },
+    {
+     "name": "느낌표 !",
+     "count": 9,
+     "share": 0.097
+    },
+    {
+     "name": "N가지",
+     "count": 7,
+     "share": 0.075
+    },
+    {
+     "name": "vs 비교",
+     "count": 7,
+     "share": 0.075
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 4,
+     "share": 0.043
+    },
+    {
+     "name": "두 금액(반전)",
+     "count": 2,
+     "share": 0.022
+    },
+    {
+     "name": "과정·벌어진 일·결말·결국",
+     "count": 2,
+     "share": 0.022
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 2,
+     "share": 0.022
+    },
+    {
+     "name": "빚투·신용·미수·레버리지·대출",
+     "count": 2,
+     "share": 0.022
+    },
+    {
+     "name": "AI",
+     "count": 1,
+     "share": 0.011
+    }
+   ],
+   "title_words": [
+    {
+     "word": "이유",
+     "count": 15
+    },
+    {
+     "word": "주식",
+     "count": 13
+    },
+    {
+     "word": "ETF",
+     "count": 13
+    },
+    {
+     "word": "코스피",
+     "count": 13
+    },
+    {
+     "word": "투자",
+     "count": 5
+    },
+    {
+     "word": "커버드콜",
+     "count": 5
+    },
+    {
+     "word": "S&P500",
+     "count": 5
+    },
+    {
+     "word": "2부",
+     "count": 5
+    },
+    {
+     "word": "삼성전자",
+     "count": 5
+    },
+    {
+     "word": "통합본",
+     "count": 4
+    }
+   ],
+   "transcripts": 12,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 12,
+    "설명": 75,
+    "없음": 6
+   },
+   "content_words": [
+    {
+     "word": "투자",
+     "count": 33
+    },
+    {
+     "word": "있습니다",
+     "count": 30
+    },
+    {
+     "word": "그리고",
+     "count": 25
+    },
+    {
+     "word": "함께",
+     "count": 20
+    },
+    {
+     "word": "가장",
+     "count": 19
+    },
+    {
+     "word": "같은",
+     "count": 18
+    },
+    {
+     "word": "주식",
+     "count": 17
+    },
+    {
+     "word": "바랍니다",
+     "count": 16
+    },
+    {
+     "word": "이번",
+     "count": 16
+    },
+    {
+     "word": "ETF",
+     "count": 16
+    },
+    {
+     "word": "대한",
+     "count": 15
+    },
+    {
+     "word": "많이",
+     "count": 15
+    }
+   ],
+   "chapters_share": 0.376,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "WfEK5IRkpE4",
+     "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
+     "src": "설명",
+     "hook": "결혼을 앞둔 친구의 다급한 상견례 고민부터 연령별 맞춤 자산 관리 전략까지! 프로미스나인 이채영과 함께하는 ACE 투자상담소 고수 선배들의 속 시원한 금융 꿀팁을 확인해 보세요. 💡 🎁 ACE 투자상담소 EP.03 댓글 이벤트 영상을 시청하고 [에/이/스/채/영] 5행시 댓글을 남겨주세"
+    },
+    {
+     "id": "d4gqZGtuUxo",
+     "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
+     "src": "설명",
+     "hook": "대한민국 대표 금융정보회사 연합인포맥스가 만든 경제·금융 교육 플랫폼 《연합인포맥스아카데미》 시장을 보는 눈, 이제 직접 확인하세요! 성상현•노근창과 함께하는 투자결전 (10/24일 13시) 오프라인 특별강연 멤버스 자세히 보기 클래스 자세히 보기 ☎️인포맥스아카데미 대표전화 02-78"
+    },
+    {
+     "id": "Uuw517jwuRQ",
+     "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
+     "src": "설명",
+     "hook": "〈앵커〉 한 기자, 오늘(1일)은 국내 증시 얘기군요. 〈기자〉 잘 나가던 코스피가 외신에 세계 최악이라는 말까지 들었는데요. 지난 석 달간 코스피를 보면 20% 가까이 하락했습니다. 주요국 증시 중에 최하위를 기록한 겁니다. 7월부터 9월까지 3분기 동안 코스피가 18.8% 떨어졌는데"
+    }
+   ],
+   "comments": 47452,
+   "comment_needs": [
+    {
+     "name": "질문",
+     "count": 8938,
+     "share": 0.188
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 6951,
+     "share": 0.146
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 4984,
+     "share": 0.105
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 4968,
+     "share": 0.105
+    },
+    {
+     "name": "빚·신용·미수",
+     "count": 3583,
+     "share": 0.076
+    },
+    {
+     "name": "도덕적 비난(도박·본인 책임)",
+     "count": 3174,
+     "share": 0.067
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "엄청 사연있는것처럼 연출하지만 결국 빚내서한 도박",
+     "likes": 7419
+    },
+    {
+     "text": "국회의원 월급을 최저시급으로 하면  많은 문제가 해결될것 같아요.",
+     "likes": 6063
+    },
+    {
+     "text": "무슨 이유이든 상관없이 빚내서 투자하는거 아니다\n본인 책임이니 인생 쓴 맛 봤다 생각하고 열심히 갚아내길",
+     "likes": 5291
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "hTRG4ehA6NU",
+     "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
+     "channel": "박종훈의 지식한방",
+     "views": 1500722,
+     "views_per_day": 483276.2,
+     "published": "2026-10-12",
+     "url": "https://www.youtube.com/watch?v=hTRG4ehA6NU"
+    },
+    {
+     "id": "WfEK5IRkpE4",
+     "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
+     "channel": "ACE ETF",
+     "views": 2304062,
+     "views_per_day": 174157.6,
+     "published": "2026-10-02",
+     "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
+    },
+    {
+     "id": "d4gqZGtuUxo",
+     "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
+     "channel": "연합뉴스경제TV",
+     "views": 1176049,
+     "views_per_day": 165135.5,
+     "published": "2026-10-08",
+     "url": "https://www.youtube.com/watch?v=d4gqZGtuUxo"
+    },
+    {
+     "id": "0K52Ex714NU",
+     "title": "인도 옵션 투자 광풍, 50조 털린 인도 개미들",
+     "channel": "슈카월드",
+     "views": 1876477,
+     "views_per_day": 154411.4,
+     "published": "2026-10-03",
+     "url": "https://www.youtube.com/watch?v=0K52Ex714NU"
+    },
+    {
+     "id": "Uuw517jwuRQ",
+     "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
+     "channel": "SBS 뉴스",
+     "views": 1444127,
+     "views_per_day": 99438.1,
+     "published": "2026-10-01",
+     "url": "https://www.youtube.com/watch?v=Uuw517jwuRQ"
+    }
+   ]
+  },
+  {
+   "weeks": 19,
+   "label": "최근 19주",
+   "videos": 94,
+   "channels": 67,
+   "new_this_week": [
+    {
+     "id": "fFURFeLTdAg",
+     "title": "주식 상위 2%만 아는 10가지 절대 생존 원칙 (돈의 원리)",
+     "published": "2026-06-10"
+    }
+   ],
+   "views_median": 149441.5,
+   "views_per_day_median": 3118.65,
+   "ratio_median": 8.8,
+   "success": 74,
+   "minutes_median": 19.65,
+   "title_len_avg": 48.9,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 26,
+     "share": 0.277
+    },
+    {
+     "name": "물음표 ?",
+     "count": 24,
+     "share": 0.255
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 19,
+     "share": 0.202
+    },
+    {
+     "name": "이유",
+     "count": 17,
+     "share": 0.181
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 15,
+     "share": 0.16
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 14,
+     "share": 0.149
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 10,
+     "share": 0.106
+    },
+    {
+     "name": "느낌표 !",
+     "count": 9,
+     "share": 0.096
+    },
+    {
+     "name": "N가지",
+     "count": 8,
+     "share": 0.085
+    },
+    {
+     "name": "vs 비교",
+     "count": 8,
+     "share": 0.085
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 4,
+     "share": 0.043
+    },
+    {
+     "name": "두 금액(반전)",
+     "count": 2,
+     "share": 0.021
+    },
+    {
+     "name": "과정·벌어진 일·결말·결국",
+     "count": 2,
+     "share": 0.021
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 2,
+     "share": 0.021
+    },
+    {
+     "name": "빚투·신용·미수·레버리지·대출",
+     "count": 2,
+     "share": 0.021
+    },
+    {
+     "name": "AI",
+     "count": 1,
+     "share": 0.011
+    }
+   ],
+   "title_words": [
+    {
+     "word": "이유",
+     "count": 15
+    },
+    {
+     "word": "주식",
+     "count": 14
+    },
+    {
+     "word": "ETF",
+     "count": 13
+    },
+    {
+     "word": "코스피",
+     "count": 13
+    },
+    {
+     "word": "투자",
+     "count": 5
+    },
+    {
+     "word": "커버드콜",
+     "count": 5
+    },
+    {
+     "word": "S&P500",
+     "count": 5
+    },
+    {
+     "word": "2부",
+     "count": 5
+    },
+    {
+     "word": "삼성전자",
+     "count": 5
+    },
+    {
+     "word": "통합본",
+     "count": 4
+    }
+   ],
+   "transcripts": 12,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 12,
+    "설명": 76,
+    "없음": 6
+   },
+   "content_words": [
+    {
+     "word": "투자",
+     "count": 34
+    },
+    {
+     "word": "있습니다",
+     "count": 30
+    },
+    {
+     "word": "그리고",
+     "count": 25
+    },
+    {
+     "word": "함께",
+     "count": 21
+    },
+    {
+     "word": "가장",
+     "count": 19
+    },
+    {
+     "word": "같은",
+     "count": 18
+    },
+    {
+     "word": "주식",
+     "count": 18
+    },
+    {
+     "word": "바랍니다",
+     "count": 16
+    },
+    {
+     "word": "이번",
+     "count": 16
+    },
+    {
+     "word": "ETF",
+     "count": 16
+    },
+    {
+     "word": "대한",
+     "count": 15
+    },
+    {
+     "word": "많이",
+     "count": 15
+    }
+   ],
+   "chapters_share": 0.383,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "WfEK5IRkpE4",
+     "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
+     "src": "설명",
+     "hook": "결혼을 앞둔 친구의 다급한 상견례 고민부터 연령별 맞춤 자산 관리 전략까지! 프로미스나인 이채영과 함께하는 ACE 투자상담소 고수 선배들의 속 시원한 금융 꿀팁을 확인해 보세요. 💡 🎁 ACE 투자상담소 EP.03 댓글 이벤트 영상을 시청하고 [에/이/스/채/영] 5행시 댓글을 남겨주세"
+    },
+    {
+     "id": "d4gqZGtuUxo",
+     "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
+     "src": "설명",
+     "hook": "대한민국 대표 금융정보회사 연합인포맥스가 만든 경제·금융 교육 플랫폼 《연합인포맥스아카데미》 시장을 보는 눈, 이제 직접 확인하세요! 성상현•노근창과 함께하는 투자결전 (10/24일 13시) 오프라인 특별강연 멤버스 자세히 보기 클래스 자세히 보기 ☎️인포맥스아카데미 대표전화 02-78"
+    },
+    {
+     "id": "Uuw517jwuRQ",
+     "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
+     "src": "설명",
+     "hook": "〈앵커〉 한 기자, 오늘(1일)은 국내 증시 얘기군요. 〈기자〉 잘 나가던 코스피가 외신에 세계 최악이라는 말까지 들었는데요. 지난 석 달간 코스피를 보면 20% 가까이 하락했습니다. 주요국 증시 중에 최하위를 기록한 겁니다. 7월부터 9월까지 3분기 동안 코스피가 18.8% 떨어졌는데"
+    }
+   ],
+   "comments": 47641,
+   "comment_needs": [
+    {
+     "name": "질문",
+     "count": 8962,
+     "share": 0.188
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 6973,
+     "share": 0.146
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 5022,
+     "share": 0.105
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 4985,
+     "share": 0.105
+    },
+    {
+     "name": "빚·신용·미수",
+     "count": 3583,
+     "share": 0.075
+    },
+    {
+     "name": "도덕적 비난(도박·본인 책임)",
+     "count": 3178,
+     "share": 0.067
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "엄청 사연있는것처럼 연출하지만 결국 빚내서한 도박",
+     "likes": 7419
+    },
+    {
+     "text": "국회의원 월급을 최저시급으로 하면  많은 문제가 해결될것 같아요.",
+     "likes": 6063
+    },
+    {
+     "text": "무슨 이유이든 상관없이 빚내서 투자하는거 아니다\n본인 책임이니 인생 쓴 맛 봤다 생각하고 열심히 갚아내길",
+     "likes": 5291
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "hTRG4ehA6NU",
+     "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
+     "channel": "박종훈의 지식한방",
+     "views": 1500722,
+     "views_per_day": 483276.2,
+     "published": "2026-10-12",
+     "url": "https://www.youtube.com/watch?v=hTRG4ehA6NU"
+    },
+    {
+     "id": "WfEK5IRkpE4",
+     "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
+     "channel": "ACE ETF",
+     "views": 2304062,
+     "views_per_day": 174157.6,
+     "published": "2026-10-02",
+     "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
+    },
+    {
+     "id": "d4gqZGtuUxo",
+     "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
+     "channel": "연합뉴스경제TV",
+     "views": 1176049,
+     "views_per_day": 165135.5,
+     "published": "2026-10-08",
+     "url": "https://www.youtube.com/watch?v=d4gqZGtuUxo"
+    },
+    {
+     "id": "0K52Ex714NU",
+     "title": "인도 옵션 투자 광풍, 50조 털린 인도 개미들",
+     "channel": "슈카월드",
+     "views": 1876477,
+     "views_per_day": 154411.4,
+     "published": "2026-10-03",
+     "url": "https://www.youtube.com/watch?v=0K52Ex714NU"
+    },
+    {
+     "id": "Uuw517jwuRQ",
+     "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
+     "channel": "SBS 뉴스",
+     "views": 1444127,
+     "views_per_day": 99438.1,
+     "published": "2026-10-01",
+     "url": "https://www.youtube.com/watch?v=Uuw517jwuRQ"
+    }
+   ]
+  },
+  {
+   "weeks": 20,
+   "label": "최근 20주",
+   "videos": 96,
+   "channels": 68,
+   "new_this_week": [
+    {
+     "id": "ITzgH6CeZns",
+     "title": "매일 아침 7시, 내 포트폴리오를 관리해주는 AI 주식 비서를 만들어봤습니다",
+     "published": "2026-05-28"
+    },
+    {
+     "id": "yRDpbgaZahc",
+     "title": "월배당 ETF 10억 투자하면 정말 배당금 얼마? | 종합소득세·건강보험료 계산법 (은퇴 현금흐름 설계)",
+     "published": "2026-05-31"
+    }
+   ],
+   "views_median": 151650.0,
+   "views_per_day_median": 3400.8,
+   "ratio_median": 8.95,
+   "success": 76,
+   "minutes_median": 19.4,
+   "title_len_avg": 48.9,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 26,
+     "share": 0.271
+    },
+    {
+     "name": "물음표 ?",
+     "count": 25,
+     "share": 0.26
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 20,
+     "share": 0.208
+    },
+    {
+     "name": "이유",
+     "count": 17,
+     "share": 0.177
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 16,
+     "share": 0.167
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 14,
+     "share": 0.146
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 11,
+     "share": 0.115
+    },
+    {
+     "name": "느낌표 !",
+     "count": 9,
+     "share": 0.094
+    },
+    {
+     "name": "N가지",
+     "count": 8,
+     "share": 0.083
+    },
+    {
+     "name": "vs 비교",
+     "count": 8,
+     "share": 0.083
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 5,
+     "share": 0.052
+    },
+    {
+     "name": "두 금액(반전)",
+     "count": 2,
+     "share": 0.021
+    },
+    {
+     "name": "과정·벌어진 일·결말·결국",
+     "count": 2,
+     "share": 0.021
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 2,
+     "share": 0.021
+    },
+    {
+     "name": "빚투·신용·미수·레버리지·대출",
+     "count": 2,
+     "share": 0.021
+    },
+    {
+     "name": "AI",
+     "count": 2,
+     "share": 0.021
+    }
+   ],
+   "title_words": [
+    {
+     "word": "이유",
+     "count": 15
+    },
+    {
+     "word": "주식",
+     "count": 15
+    },
+    {
+     "word": "ETF",
+     "count": 14
+    },
+    {
+     "word": "코스피",
+     "count": 13
+    },
+    {
+     "word": "투자",
+     "count": 5
+    },
+    {
+     "word": "커버드콜",
+     "count": 5
+    },
+    {
+     "word": "S&P500",
+     "count": 5
+    },
+    {
+     "word": "2부",
+     "count": 5
+    },
+    {
+     "word": "삼성전자",
+     "count": 5
+    },
+    {
+     "word": "통합본",
+     "count": 4
+    }
+   ],
+   "transcripts": 12,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 12,
+    "설명": 78,
+    "없음": 6
+   },
+   "content_words": [
+    {
+     "word": "투자",
+     "count": 34
+    },
+    {
+     "word": "있습니다",
+     "count": 31
+    },
+    {
+     "word": "그리고",
+     "count": 25
+    },
+    {
+     "word": "함께",
+     "count": 21
+    },
+    {
+     "word": "가장",
+     "count": 20
+    },
+    {
+     "word": "같은",
+     "count": 19
+    },
+    {
+     "word": "주식",
+     "count": 19
+    },
+    {
+     "word": "ETF",
+     "count": 17
+    },
+    {
+     "word": "바랍니다",
+     "count": 16
+    },
+    {
+     "word": "이번",
+     "count": 16
+    },
+    {
+     "word": "제가",
+     "count": 15
+    },
+    {
+     "word": "대한",
+     "count": 15
+    }
+   ],
+   "chapters_share": 0.396,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "WfEK5IRkpE4",
+     "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
+     "src": "설명",
+     "hook": "결혼을 앞둔 친구의 다급한 상견례 고민부터 연령별 맞춤 자산 관리 전략까지! 프로미스나인 이채영과 함께하는 ACE 투자상담소 고수 선배들의 속 시원한 금융 꿀팁을 확인해 보세요. 💡 🎁 ACE 투자상담소 EP.03 댓글 이벤트 영상을 시청하고 [에/이/스/채/영] 5행시 댓글을 남겨주세"
+    },
+    {
+     "id": "d4gqZGtuUxo",
+     "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
+     "src": "설명",
+     "hook": "대한민국 대표 금융정보회사 연합인포맥스가 만든 경제·금융 교육 플랫폼 《연합인포맥스아카데미》 시장을 보는 눈, 이제 직접 확인하세요! 성상현•노근창과 함께하는 투자결전 (10/24일 13시) 오프라인 특별강연 멤버스 자세히 보기 클래스 자세히 보기 ☎️인포맥스아카데미 대표전화 02-78"
+    },
+    {
+     "id": "Uuw517jwuRQ",
+     "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
+     "src": "설명",
+     "hook": "〈앵커〉 한 기자, 오늘(1일)은 국내 증시 얘기군요. 〈기자〉 잘 나가던 코스피가 외신에 세계 최악이라는 말까지 들었는데요. 지난 석 달간 코스피를 보면 20% 가까이 하락했습니다. 주요국 증시 중에 최하위를 기록한 겁니다. 7월부터 9월까지 3분기 동안 코스피가 18.8% 떨어졌는데"
+    }
+   ],
+   "comments": 48996,
+   "comment_needs": [
+    {
+     "name": "질문",
+     "count": 9312,
+     "share": 0.19
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 7144,
+     "share": 0.146
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 5168,
+     "share": 0.105
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 5078,
+     "share": 0.104
+    },
+    {
+     "name": "빚·신용·미수",
+     "count": 3594,
+     "share": 0.073
+    },
+    {
+     "name": "도덕적 비난(도박·본인 책임)",
+     "count": 3185,
+     "share": 0.065
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "엄청 사연있는것처럼 연출하지만 결국 빚내서한 도박",
+     "likes": 7419
+    },
+    {
+     "text": "국회의원 월급을 최저시급으로 하면  많은 문제가 해결될것 같아요.",
+     "likes": 6063
+    },
+    {
+     "text": "무슨 이유이든 상관없이 빚내서 투자하는거 아니다\n본인 책임이니 인생 쓴 맛 봤다 생각하고 열심히 갚아내길",
+     "likes": 5291
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "hTRG4ehA6NU",
+     "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
+     "channel": "박종훈의 지식한방",
+     "views": 1500722,
+     "views_per_day": 483276.2,
+     "published": "2026-10-12",
+     "url": "https://www.youtube.com/watch?v=hTRG4ehA6NU"
+    },
+    {
+     "id": "WfEK5IRkpE4",
+     "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
+     "channel": "ACE ETF",
+     "views": 2304062,
+     "views_per_day": 174157.6,
+     "published": "2026-10-02",
+     "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
+    },
+    {
+     "id": "d4gqZGtuUxo",
+     "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
+     "channel": "연합뉴스경제TV",
+     "views": 1176049,
+     "views_per_day": 165135.5,
+     "published": "2026-10-08",
+     "url": "https://www.youtube.com/watch?v=d4gqZGtuUxo"
+    },
+    {
+     "id": "0K52Ex714NU",
+     "title": "인도 옵션 투자 광풍, 50조 털린 인도 개미들",
+     "channel": "슈카월드",
+     "views": 1876477,
+     "views_per_day": 154411.4,
+     "published": "2026-10-03",
+     "url": "https://www.youtube.com/watch?v=0K52Ex714NU"
+    },
+    {
+     "id": "Uuw517jwuRQ",
+     "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
+     "channel": "SBS 뉴스",
+     "views": 1444127,
+     "views_per_day": 99438.1,
+     "published": "2026-10-01",
+     "url": "https://www.youtube.com/watch?v=Uuw517jwuRQ"
+    }
+   ]
+  },
+  {
+   "weeks": 21,
+   "label": "최근 21주",
+   "videos": 96,
+   "channels": 68,
+   "new_this_week": [],
+   "views_median": 151650.0,
+   "views_per_day_median": 3400.8,
+   "ratio_median": 8.95,
+   "success": 76,
+   "minutes_median": 19.4,
+   "title_len_avg": 48.9,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 26,
+     "share": 0.271
+    },
+    {
+     "name": "물음표 ?",
+     "count": 25,
+     "share": 0.26
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 20,
+     "share": 0.208
+    },
+    {
+     "name": "이유",
+     "count": 17,
+     "share": 0.177
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 16,
+     "share": 0.167
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 14,
+     "share": 0.146
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 11,
+     "share": 0.115
+    },
+    {
+     "name": "느낌표 !",
+     "count": 9,
+     "share": 0.094
+    },
+    {
+     "name": "N가지",
+     "count": 8,
+     "share": 0.083
+    },
+    {
+     "name": "vs 비교",
+     "count": 8,
+     "share": 0.083
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 5,
+     "share": 0.052
+    },
+    {
+     "name": "두 금액(반전)",
+     "count": 2,
+     "share": 0.021
+    },
+    {
+     "name": "과정·벌어진 일·결말·결국",
+     "count": 2,
+     "share": 0.021
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 2,
+     "share": 0.021
+    },
+    {
+     "name": "빚투·신용·미수·레버리지·대출",
+     "count": 2,
+     "share": 0.021
+    },
+    {
+     "name": "AI",
+     "count": 2,
+     "share": 0.021
+    }
+   ],
+   "title_words": [
+    {
+     "word": "이유",
+     "count": 15
+    },
+    {
+     "word": "주식",
+     "count": 15
+    },
+    {
+     "word": "ETF",
+     "count": 14
+    },
+    {
+     "word": "코스피",
+     "count": 13
+    },
+    {
+     "word": "투자",
+     "count": 5
+    },
+    {
+     "word": "커버드콜",
+     "count": 5
+    },
+    {
+     "word": "S&P500",
+     "count": 5
+    },
+    {
+     "word": "2부",
+     "count": 5
+    },
+    {
+     "word": "삼성전자",
+     "count": 5
+    },
+    {
+     "word": "통합본",
+     "count": 4
+    }
+   ],
+   "transcripts": 12,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 12,
+    "설명": 78,
+    "없음": 6
+   },
+   "content_words": [
+    {
+     "word": "투자",
+     "count": 34
+    },
+    {
+     "word": "있습니다",
+     "count": 31
+    },
+    {
+     "word": "그리고",
+     "count": 25
+    },
+    {
+     "word": "함께",
+     "count": 21
+    },
+    {
+     "word": "가장",
+     "count": 20
+    },
+    {
+     "word": "같은",
+     "count": 19
+    },
+    {
+     "word": "주식",
+     "count": 19
+    },
+    {
+     "word": "ETF",
+     "count": 17
+    },
+    {
+     "word": "바랍니다",
+     "count": 16
+    },
+    {
+     "word": "이번",
+     "count": 16
+    },
+    {
+     "word": "제가",
+     "count": 15
+    },
+    {
+     "word": "대한",
+     "count": 15
+    }
+   ],
+   "chapters_share": 0.396,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "WfEK5IRkpE4",
+     "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
+     "src": "설명",
+     "hook": "결혼을 앞둔 친구의 다급한 상견례 고민부터 연령별 맞춤 자산 관리 전략까지! 프로미스나인 이채영과 함께하는 ACE 투자상담소 고수 선배들의 속 시원한 금융 꿀팁을 확인해 보세요. 💡 🎁 ACE 투자상담소 EP.03 댓글 이벤트 영상을 시청하고 [에/이/스/채/영] 5행시 댓글을 남겨주세"
+    },
+    {
+     "id": "d4gqZGtuUxo",
+     "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
+     "src": "설명",
+     "hook": "대한민국 대표 금융정보회사 연합인포맥스가 만든 경제·금융 교육 플랫폼 《연합인포맥스아카데미》 시장을 보는 눈, 이제 직접 확인하세요! 성상현•노근창과 함께하는 투자결전 (10/24일 13시) 오프라인 특별강연 멤버스 자세히 보기 클래스 자세히 보기 ☎️인포맥스아카데미 대표전화 02-78"
+    },
+    {
+     "id": "Uuw517jwuRQ",
+     "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
+     "src": "설명",
+     "hook": "〈앵커〉 한 기자, 오늘(1일)은 국내 증시 얘기군요. 〈기자〉 잘 나가던 코스피가 외신에 세계 최악이라는 말까지 들었는데요. 지난 석 달간 코스피를 보면 20% 가까이 하락했습니다. 주요국 증시 중에 최하위를 기록한 겁니다. 7월부터 9월까지 3분기 동안 코스피가 18.8% 떨어졌는데"
+    }
+   ],
+   "comments": 48996,
+   "comment_needs": [
+    {
+     "name": "질문",
+     "count": 9312,
+     "share": 0.19
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 7144,
+     "share": 0.146
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 5168,
+     "share": 0.105
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 5078,
+     "share": 0.104
+    },
+    {
+     "name": "빚·신용·미수",
+     "count": 3594,
+     "share": 0.073
+    },
+    {
+     "name": "도덕적 비난(도박·본인 책임)",
+     "count": 3185,
+     "share": 0.065
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "엄청 사연있는것처럼 연출하지만 결국 빚내서한 도박",
+     "likes": 7419
+    },
+    {
+     "text": "국회의원 월급을 최저시급으로 하면  많은 문제가 해결될것 같아요.",
+     "likes": 6063
+    },
+    {
+     "text": "무슨 이유이든 상관없이 빚내서 투자하는거 아니다\n본인 책임이니 인생 쓴 맛 봤다 생각하고 열심히 갚아내길",
+     "likes": 5291
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "hTRG4ehA6NU",
+     "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
+     "channel": "박종훈의 지식한방",
+     "views": 1500722,
+     "views_per_day": 483276.2,
+     "published": "2026-10-12",
+     "url": "https://www.youtube.com/watch?v=hTRG4ehA6NU"
+    },
+    {
+     "id": "WfEK5IRkpE4",
+     "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
+     "channel": "ACE ETF",
+     "views": 2304062,
+     "views_per_day": 174157.6,
+     "published": "2026-10-02",
+     "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
+    },
+    {
+     "id": "d4gqZGtuUxo",
+     "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
+     "channel": "연합뉴스경제TV",
+     "views": 1176049,
+     "views_per_day": 165135.5,
+     "published": "2026-10-08",
+     "url": "https://www.youtube.com/watch?v=d4gqZGtuUxo"
+    },
+    {
+     "id": "0K52Ex714NU",
+     "title": "인도 옵션 투자 광풍, 50조 털린 인도 개미들",
+     "channel": "슈카월드",
+     "views": 1876477,
+     "views_per_day": 154411.4,
+     "published": "2026-10-03",
+     "url": "https://www.youtube.com/watch?v=0K52Ex714NU"
+    },
+    {
+     "id": "Uuw517jwuRQ",
+     "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
+     "channel": "SBS 뉴스",
+     "views": 1444127,
+     "views_per_day": 99438.1,
+     "published": "2026-10-01",
+     "url": "https://www.youtube.com/watch?v=Uuw517jwuRQ"
+    }
+   ]
+  },
+  {
+   "weeks": 22,
+   "label": "최근 22주",
+   "videos": 97,
+   "channels": 69,
+   "new_this_week": [
+    {
+     "id": "4Gy4lBNuebE",
+     "title": "배당 10%를 주면서 동시에 주가도 20% 오른 단 6개의 ETF [1,099개 ETF 모두 뒤져봤습니다.]",
+     "published": "2026-05-15"
+    }
+   ],
+   "views_median": 150704,
+   "views_per_day_median": 3288.9,
+   "ratio_median": 8.85,
+   "success": 77,
+   "minutes_median": 19.2,
+   "title_len_avg": 49.0,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 26,
+     "share": 0.268
+    },
+    {
+     "name": "물음표 ?",
+     "count": 25,
+     "share": 0.258
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 21,
+     "share": 0.216
+    },
+    {
+     "name": "이유",
+     "count": 17,
+     "share": 0.175
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 16,
+     "share": 0.165
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 14,
+     "share": 0.144
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 11,
+     "share": 0.113
+    },
+    {
+     "name": "느낌표 !",
+     "count": 9,
+     "share": 0.093
+    },
+    {
+     "name": "N가지",
+     "count": 8,
+     "share": 0.082
+    },
+    {
+     "name": "vs 비교",
+     "count": 8,
+     "share": 0.082
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 5,
+     "share": 0.052
+    },
+    {
+     "name": "두 금액(반전)",
+     "count": 2,
+     "share": 0.021
+    },
+    {
+     "name": "과정·벌어진 일·결말·결국",
+     "count": 2,
+     "share": 0.021
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 2,
+     "share": 0.021
+    },
+    {
+     "name": "빚투·신용·미수·레버리지·대출",
+     "count": 2,
+     "share": 0.021
+    },
+    {
+     "name": "AI",
+     "count": 2,
+     "share": 0.021
+    }
+   ],
+   "title_words": [
+    {
+     "word": "이유",
+     "count": 15
+    },
+    {
+     "word": "주식",
+     "count": 15
+    },
+    {
+     "word": "ETF",
+     "count": 15
+    },
+    {
+     "word": "코스피",
+     "count": 13
+    },
+    {
+     "word": "투자",
+     "count": 5
+    },
+    {
+     "word": "커버드콜",
+     "count": 5
+    },
+    {
+     "word": "S&P500",
+     "count": 5
+    },
+    {
+     "word": "2부",
+     "count": 5
+    },
+    {
+     "word": "삼성전자",
+     "count": 5
+    },
+    {
+     "word": "통합본",
+     "count": 4
+    }
+   ],
+   "transcripts": 12,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 12,
+    "설명": 79,
+    "없음": 6
+   },
+   "content_words": [
+    {
+     "word": "투자",
+     "count": 34
+    },
+    {
+     "word": "있습니다",
+     "count": 31
+    },
+    {
+     "word": "그리고",
+     "count": 25
+    },
+    {
+     "word": "함께",
+     "count": 21
+    },
+    {
+     "word": "가장",
+     "count": 20
+    },
+    {
+     "word": "같은",
+     "count": 20
+    },
+    {
+     "word": "주식",
+     "count": 19
+    },
+    {
+     "word": "ETF",
+     "count": 18
+    },
+    {
+     "word": "바랍니다",
+     "count": 16
+    },
+    {
+     "word": "많이",
+     "count": 16
+    },
+    {
+     "word": "이번",
+     "count": 16
+    },
+    {
+     "word": "국내",
+     "count": 16
+    }
+   ],
+   "chapters_share": 0.392,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "WfEK5IRkpE4",
+     "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
+     "src": "설명",
+     "hook": "결혼을 앞둔 친구의 다급한 상견례 고민부터 연령별 맞춤 자산 관리 전략까지! 프로미스나인 이채영과 함께하는 ACE 투자상담소 고수 선배들의 속 시원한 금융 꿀팁을 확인해 보세요. 💡 🎁 ACE 투자상담소 EP.03 댓글 이벤트 영상을 시청하고 [에/이/스/채/영] 5행시 댓글을 남겨주세"
+    },
+    {
+     "id": "d4gqZGtuUxo",
+     "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
+     "src": "설명",
+     "hook": "대한민국 대표 금융정보회사 연합인포맥스가 만든 경제·금융 교육 플랫폼 《연합인포맥스아카데미》 시장을 보는 눈, 이제 직접 확인하세요! 성상현•노근창과 함께하는 투자결전 (10/24일 13시) 오프라인 특별강연 멤버스 자세히 보기 클래스 자세히 보기 ☎️인포맥스아카데미 대표전화 02-78"
+    },
+    {
+     "id": "Uuw517jwuRQ",
+     "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
+     "src": "설명",
+     "hook": "〈앵커〉 한 기자, 오늘(1일)은 국내 증시 얘기군요. 〈기자〉 잘 나가던 코스피가 외신에 세계 최악이라는 말까지 들었는데요. 지난 석 달간 코스피를 보면 20% 가까이 하락했습니다. 주요국 증시 중에 최하위를 기록한 겁니다. 7월부터 9월까지 3분기 동안 코스피가 18.8% 떨어졌는데"
+    }
+   ],
+   "comments": 49312,
+   "comment_needs": [
+    {
+     "name": "질문",
+     "count": 9374,
+     "share": 0.19
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 7244,
+     "share": 0.147
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 5362,
+     "share": 0.109
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 5152,
+     "share": 0.104
+    },
+    {
+     "name": "빚·신용·미수",
+     "count": 3594,
+     "share": 0.073
+    },
+    {
+     "name": "도덕적 비난(도박·본인 책임)",
+     "count": 3187,
+     "share": 0.065
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "엄청 사연있는것처럼 연출하지만 결국 빚내서한 도박",
+     "likes": 7419
+    },
+    {
+     "text": "국회의원 월급을 최저시급으로 하면  많은 문제가 해결될것 같아요.",
+     "likes": 6063
+    },
+    {
+     "text": "무슨 이유이든 상관없이 빚내서 투자하는거 아니다\n본인 책임이니 인생 쓴 맛 봤다 생각하고 열심히 갚아내길",
+     "likes": 5291
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "hTRG4ehA6NU",
+     "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
+     "channel": "박종훈의 지식한방",
+     "views": 1500722,
+     "views_per_day": 483276.2,
+     "published": "2026-10-12",
+     "url": "https://www.youtube.com/watch?v=hTRG4ehA6NU"
+    },
+    {
+     "id": "WfEK5IRkpE4",
+     "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
+     "channel": "ACE ETF",
+     "views": 2304062,
+     "views_per_day": 174157.6,
+     "published": "2026-10-02",
+     "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
+    },
+    {
+     "id": "d4gqZGtuUxo",
+     "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
+     "channel": "연합뉴스경제TV",
+     "views": 1176049,
+     "views_per_day": 165135.5,
+     "published": "2026-10-08",
+     "url": "https://www.youtube.com/watch?v=d4gqZGtuUxo"
+    },
+    {
+     "id": "0K52Ex714NU",
+     "title": "인도 옵션 투자 광풍, 50조 털린 인도 개미들",
+     "channel": "슈카월드",
+     "views": 1876477,
+     "views_per_day": 154411.4,
+     "published": "2026-10-03",
+     "url": "https://www.youtube.com/watch?v=0K52Ex714NU"
+    },
+    {
+     "id": "Uuw517jwuRQ",
+     "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
+     "channel": "SBS 뉴스",
+     "views": 1444127,
+     "views_per_day": 99438.1,
+     "published": "2026-10-01",
+     "url": "https://www.youtube.com/watch?v=Uuw517jwuRQ"
+    }
+   ]
+  },
+  {
+   "weeks": 23,
+   "label": "최근 23주",
+   "videos": 99,
+   "channels": 70,
+   "new_this_week": [
+    {
+     "id": "KGOC_mfphu4",
+     "title": "배당 ETF 10억 투자하면 진짜 배당금 얼마? | 공식분배금·실수령 차이 (무료 전자책 제공)",
+     "published": "2026-05-08"
+    },
+    {
+     "id": "PIiGnsoTl7I",
+     "title": "경제신문 무료로 보는법 📰 (경제공부 초보 읽는 방법 👀)",
+     "published": "2026-05-10"
+    }
+   ],
+   "views_median": 150093,
+   "views_per_day_median": 2948.4,
+   "ratio_median": 8.75,
+   "success": 79,
+   "minutes_median": 18.8,
+   "title_len_avg": 48.9,
+   "title_features": [
+    {
+     "name": "물음표 ?",
+     "count": 26,
+     "share": 0.263
+    },
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 26,
+     "share": 0.263
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 22,
+     "share": 0.222
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 17,
+     "share": 0.172
+    },
+    {
+     "name": "이유",
+     "count": 17,
+     "share": 0.172
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 14,
+     "share": 0.141
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 11,
+     "share": 0.111
+    },
+    {
+     "name": "느낌표 !",
+     "count": 9,
+     "share": 0.091
+    },
+    {
+     "name": "N가지",
+     "count": 8,
+     "share": 0.081
+    },
+    {
+     "name": "vs 비교",
+     "count": 8,
+     "share": 0.081
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 5,
+     "share": 0.051
+    },
+    {
+     "name": "두 금액(반전)",
+     "count": 2,
+     "share": 0.02
+    },
+    {
+     "name": "과정·벌어진 일·결말·결국",
+     "count": 2,
+     "share": 0.02
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 2,
+     "share": 0.02
+    },
+    {
+     "name": "빚투·신용·미수·레버리지·대출",
+     "count": 2,
+     "share": 0.02
+    },
+    {
+     "name": "AI",
+     "count": 2,
+     "share": 0.02
+    }
+   ],
+   "title_words": [
+    {
+     "word": "ETF",
+     "count": 16
+    },
+    {
+     "word": "이유",
+     "count": 15
+    },
+    {
+     "word": "주식",
+     "count": 15
+    },
+    {
+     "word": "코스피",
+     "count": 13
+    },
+    {
+     "word": "투자",
+     "count": 5
+    },
+    {
+     "word": "커버드콜",
+     "count": 5
+    },
+    {
+     "word": "S&P500",
+     "count": 5
+    },
+    {
+     "word": "2부",
+     "count": 5
+    },
+    {
+     "word": "삼성전자",
+     "count": 5
+    },
+    {
+     "word": "통합본",
+     "count": 4
+    }
+   ],
+   "transcripts": 12,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 12,
+    "설명": 81,
+    "없음": 6
+   },
+   "content_words": [
+    {
+     "word": "투자",
+     "count": 34
+    },
+    {
+     "word": "있습니다",
+     "count": 32
+    },
+    {
+     "word": "그리고",
+     "count": 25
+    },
+    {
+     "word": "함께",
+     "count": 21
+    },
+    {
+     "word": "가장",
+     "count": 20
+    },
+    {
+     "word": "같은",
+     "count": 20
+    },
+    {
+     "word": "주식",
+     "count": 19
+    },
+    {
+     "word": "ETF",
+     "count": 18
+    },
+    {
+     "word": "바랍니다",
+     "count": 16
+    },
+    {
+     "word": "많이",
+     "count": 16
+    },
+    {
+     "word": "이번",
+     "count": 16
+    },
+    {
+     "word": "국내",
+     "count": 16
+    }
+   ],
+   "chapters_share": 0.404,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "WfEK5IRkpE4",
+     "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
+     "src": "설명",
+     "hook": "결혼을 앞둔 친구의 다급한 상견례 고민부터 연령별 맞춤 자산 관리 전략까지! 프로미스나인 이채영과 함께하는 ACE 투자상담소 고수 선배들의 속 시원한 금융 꿀팁을 확인해 보세요. 💡 🎁 ACE 투자상담소 EP.03 댓글 이벤트 영상을 시청하고 [에/이/스/채/영] 5행시 댓글을 남겨주세"
+    },
+    {
+     "id": "d4gqZGtuUxo",
+     "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
+     "src": "설명",
+     "hook": "대한민국 대표 금융정보회사 연합인포맥스가 만든 경제·금융 교육 플랫폼 《연합인포맥스아카데미》 시장을 보는 눈, 이제 직접 확인하세요! 성상현•노근창과 함께하는 투자결전 (10/24일 13시) 오프라인 특별강연 멤버스 자세히 보기 클래스 자세히 보기 ☎️인포맥스아카데미 대표전화 02-78"
+    },
+    {
+     "id": "Uuw517jwuRQ",
+     "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
+     "src": "설명",
+     "hook": "〈앵커〉 한 기자, 오늘(1일)은 국내 증시 얘기군요. 〈기자〉 잘 나가던 코스피가 외신에 세계 최악이라는 말까지 들었는데요. 지난 석 달간 코스피를 보면 20% 가까이 하락했습니다. 주요국 증시 중에 최하위를 기록한 겁니다. 7월부터 9월까지 3분기 동안 코스피가 18.8% 떨어졌는데"
+    }
+   ],
+   "comments": 49907,
+   "comment_needs": [
+    {
+     "name": "질문",
+     "count": 9499,
+     "share": 0.19
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 7313,
+     "share": 0.147
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 5508,
+     "share": 0.11
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 5188,
+     "share": 0.104
+    },
+    {
+     "name": "빚·신용·미수",
+     "count": 3595,
+     "share": 0.072
+    },
+    {
+     "name": "도덕적 비난(도박·본인 책임)",
+     "count": 3187,
+     "share": 0.064
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "엄청 사연있는것처럼 연출하지만 결국 빚내서한 도박",
+     "likes": 7419
+    },
+    {
+     "text": "국회의원 월급을 최저시급으로 하면  많은 문제가 해결될것 같아요.",
+     "likes": 6063
+    },
+    {
+     "text": "무슨 이유이든 상관없이 빚내서 투자하는거 아니다\n본인 책임이니 인생 쓴 맛 봤다 생각하고 열심히 갚아내길",
+     "likes": 5291
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "hTRG4ehA6NU",
+     "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
+     "channel": "박종훈의 지식한방",
+     "views": 1500722,
+     "views_per_day": 483276.2,
+     "published": "2026-10-12",
+     "url": "https://www.youtube.com/watch?v=hTRG4ehA6NU"
+    },
+    {
+     "id": "WfEK5IRkpE4",
+     "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
+     "channel": "ACE ETF",
+     "views": 2304062,
+     "views_per_day": 174157.6,
+     "published": "2026-10-02",
+     "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
+    },
+    {
+     "id": "d4gqZGtuUxo",
+     "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
+     "channel": "연합뉴스경제TV",
+     "views": 1176049,
+     "views_per_day": 165135.5,
+     "published": "2026-10-08",
+     "url": "https://www.youtube.com/watch?v=d4gqZGtuUxo"
+    },
+    {
+     "id": "0K52Ex714NU",
+     "title": "인도 옵션 투자 광풍, 50조 털린 인도 개미들",
+     "channel": "슈카월드",
+     "views": 1876477,
+     "views_per_day": 154411.4,
+     "published": "2026-10-03",
+     "url": "https://www.youtube.com/watch?v=0K52Ex714NU"
+    },
+    {
+     "id": "Uuw517jwuRQ",
+     "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
+     "channel": "SBS 뉴스",
+     "views": 1444127,
+     "views_per_day": 99438.1,
+     "published": "2026-10-01",
+     "url": "https://www.youtube.com/watch?v=Uuw517jwuRQ"
+    }
+   ]
+  },
+  {
+   "weeks": 24,
+   "label": "최근 24주",
+   "videos": 100,
+   "channels": 70,
+   "new_this_week": [
+    {
+     "id": "z7fHe2Og-zE",
+     "title": "경제공부 시작하는 법 | 하루 10분이면 됩니다! (해야하는 이유) 🗞️ 📊 💸",
+     "published": "2026-05-03"
+    }
+   ],
+   "views_median": 149441.5,
+   "views_per_day_median": 2888.6,
+   "ratio_median": 8.29,
+   "success": 80,
+   "minutes_median": 18.8,
+   "title_len_avg": 48.9,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 27,
+     "share": 0.27
+    },
+    {
+     "name": "물음표 ?",
+     "count": 26,
+     "share": 0.26
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 22,
+     "share": 0.22
+    },
+    {
+     "name": "이유",
+     "count": 18,
+     "share": 0.18
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 17,
+     "share": 0.17
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 14,
+     "share": 0.14
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 11,
+     "share": 0.11
+    },
+    {
+     "name": "느낌표 !",
+     "count": 10,
+     "share": 0.1
+    },
+    {
+     "name": "N가지",
+     "count": 8,
+     "share": 0.08
+    },
+    {
+     "name": "vs 비교",
+     "count": 8,
+     "share": 0.08
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 5,
+     "share": 0.05
+    },
+    {
+     "name": "두 금액(반전)",
+     "count": 2,
+     "share": 0.02
+    },
+    {
+     "name": "과정·벌어진 일·결말·결국",
+     "count": 2,
+     "share": 0.02
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 2,
+     "share": 0.02
+    },
+    {
+     "name": "빚투·신용·미수·레버리지·대출",
+     "count": 2,
+     "share": 0.02
+    },
+    {
+     "name": "AI",
+     "count": 2,
+     "share": 0.02
+    }
+   ],
+   "title_words": [
+    {
+     "word": "이유",
+     "count": 16
+    },
+    {
+     "word": "ETF",
+     "count": 16
+    },
+    {
+     "word": "주식",
+     "count": 15
+    },
+    {
+     "word": "코스피",
+     "count": 13
+    },
+    {
+     "word": "투자",
+     "count": 5
+    },
+    {
+     "word": "됩니다",
+     "count": 5
+    },
+    {
+     "word": "커버드콜",
+     "count": 5
+    },
+    {
+     "word": "S&P500",
+     "count": 5
+    },
+    {
+     "word": "2부",
+     "count": 5
+    },
+    {
+     "word": "삼성전자",
+     "count": 5
+    }
+   ],
+   "transcripts": 12,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 12,
+    "설명": 82,
+    "없음": 6
+   },
+   "content_words": [
+    {
+     "word": "투자",
+     "count": 35
+    },
+    {
+     "word": "있습니다",
+     "count": 32
+    },
+    {
+     "word": "그리고",
+     "count": 25
+    },
+    {
+     "word": "함께",
+     "count": 21
+    },
+    {
+     "word": "가장",
+     "count": 20
+    },
+    {
+     "word": "같은",
+     "count": 20
+    },
+    {
+     "word": "주식",
+     "count": 19
+    },
+    {
+     "word": "ETF",
+     "count": 18
+    },
+    {
+     "word": "제가",
+     "count": 16
+    },
+    {
+     "word": "바랍니다",
+     "count": 16
+    },
+    {
+     "word": "많이",
+     "count": 16
+    },
+    {
+     "word": "이번",
+     "count": 16
+    }
+   ],
+   "chapters_share": 0.41,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "WfEK5IRkpE4",
+     "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
+     "src": "설명",
+     "hook": "결혼을 앞둔 친구의 다급한 상견례 고민부터 연령별 맞춤 자산 관리 전략까지! 프로미스나인 이채영과 함께하는 ACE 투자상담소 고수 선배들의 속 시원한 금융 꿀팁을 확인해 보세요. 💡 🎁 ACE 투자상담소 EP.03 댓글 이벤트 영상을 시청하고 [에/이/스/채/영] 5행시 댓글을 남겨주세"
+    },
+    {
+     "id": "d4gqZGtuUxo",
+     "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
+     "src": "설명",
+     "hook": "대한민국 대표 금융정보회사 연합인포맥스가 만든 경제·금융 교육 플랫폼 《연합인포맥스아카데미》 시장을 보는 눈, 이제 직접 확인하세요! 성상현•노근창과 함께하는 투자결전 (10/24일 13시) 오프라인 특별강연 멤버스 자세히 보기 클래스 자세히 보기 ☎️인포맥스아카데미 대표전화 02-78"
+    },
+    {
+     "id": "Uuw517jwuRQ",
+     "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
+     "src": "설명",
+     "hook": "〈앵커〉 한 기자, 오늘(1일)은 국내 증시 얘기군요. 〈기자〉 잘 나가던 코스피가 외신에 세계 최악이라는 말까지 들었는데요. 지난 석 달간 코스피를 보면 20% 가까이 하락했습니다. 주요국 증시 중에 최하위를 기록한 겁니다. 7월부터 9월까지 3분기 동안 코스피가 18.8% 떨어졌는데"
+    }
+   ],
+   "comments": 50054,
+   "comment_needs": [
+    {
+     "name": "질문",
+     "count": 9532,
+     "share": 0.19
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 7322,
+     "share": 0.146
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 5548,
+     "share": 0.111
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 5199,
+     "share": 0.104
+    },
+    {
+     "name": "빚·신용·미수",
+     "count": 3596,
+     "share": 0.072
+    },
+    {
+     "name": "도덕적 비난(도박·본인 책임)",
+     "count": 3188,
+     "share": 0.064
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "엄청 사연있는것처럼 연출하지만 결국 빚내서한 도박",
+     "likes": 7419
+    },
+    {
+     "text": "국회의원 월급을 최저시급으로 하면  많은 문제가 해결될것 같아요.",
+     "likes": 6063
+    },
+    {
+     "text": "무슨 이유이든 상관없이 빚내서 투자하는거 아니다\n본인 책임이니 인생 쓴 맛 봤다 생각하고 열심히 갚아내길",
+     "likes": 5291
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "hTRG4ehA6NU",
+     "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
+     "channel": "박종훈의 지식한방",
+     "views": 1500722,
+     "views_per_day": 483276.2,
+     "published": "2026-10-12",
+     "url": "https://www.youtube.com/watch?v=hTRG4ehA6NU"
+    },
+    {
+     "id": "WfEK5IRkpE4",
+     "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
+     "channel": "ACE ETF",
+     "views": 2304062,
+     "views_per_day": 174157.6,
+     "published": "2026-10-02",
+     "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
+    },
+    {
+     "id": "d4gqZGtuUxo",
+     "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
+     "channel": "연합뉴스경제TV",
+     "views": 1176049,
+     "views_per_day": 165135.5,
+     "published": "2026-10-08",
+     "url": "https://www.youtube.com/watch?v=d4gqZGtuUxo"
+    },
+    {
+     "id": "0K52Ex714NU",
+     "title": "인도 옵션 투자 광풍, 50조 털린 인도 개미들",
+     "channel": "슈카월드",
+     "views": 1876477,
+     "views_per_day": 154411.4,
+     "published": "2026-10-03",
+     "url": "https://www.youtube.com/watch?v=0K52Ex714NU"
+    },
+    {
+     "id": "Uuw517jwuRQ",
+     "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
+     "channel": "SBS 뉴스",
+     "views": 1444127,
+     "views_per_day": 99438.1,
+     "published": "2026-10-01",
+     "url": "https://www.youtube.com/watch?v=Uuw517jwuRQ"
+    }
+   ]
+  },
+  {
+   "weeks": 25,
+   "label": "최근 25주",
+   "videos": 101,
+   "channels": 71,
+   "new_this_week": [
+    {
+     "id": "7rtO_hfLvF8",
+     "title": "국민연금 빈칸 메우는 한국 ETF 3개 — 월 200만 원 평생 월급 만들기",
+     "published": "2026-04-29"
+    }
+   ],
+   "views_median": 150093,
+   "views_per_day_median": 2948.4,
+   "ratio_median": 8.75,
+   "success": 81,
+   "minutes_median": 18.8,
+   "title_len_avg": 48.8,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 27,
+     "share": 0.267
+    },
+    {
+     "name": "물음표 ?",
+     "count": 26,
+     "share": 0.257
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 23,
+     "share": 0.228
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 18,
+     "share": 0.178
+    },
+    {
+     "name": "이유",
+     "count": 18,
+     "share": 0.178
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 14,
+     "share": 0.139
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 11,
+     "share": 0.109
+    },
+    {
+     "name": "느낌표 !",
+     "count": 10,
+     "share": 0.099
+    },
+    {
+     "name": "N가지",
+     "count": 8,
+     "share": 0.079
+    },
+    {
+     "name": "vs 비교",
+     "count": 8,
+     "share": 0.079
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 5,
+     "share": 0.05
+    },
+    {
+     "name": "두 금액(반전)",
+     "count": 2,
+     "share": 0.02
+    },
+    {
+     "name": "과정·벌어진 일·결말·결국",
+     "count": 2,
+     "share": 0.02
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 2,
+     "share": 0.02
+    },
+    {
+     "name": "빚투·신용·미수·레버리지·대출",
+     "count": 2,
+     "share": 0.02
+    },
+    {
+     "name": "AI",
+     "count": 2,
+     "share": 0.02
+    }
+   ],
+   "title_words": [
+    {
+     "word": "ETF",
+     "count": 17
+    },
+    {
+     "word": "이유",
+     "count": 16
+    },
+    {
+     "word": "주식",
+     "count": 15
+    },
+    {
+     "word": "코스피",
+     "count": 13
+    },
+    {
+     "word": "투자",
+     "count": 5
+    },
+    {
+     "word": "됩니다",
+     "count": 5
+    },
+    {
+     "word": "커버드콜",
+     "count": 5
+    },
+    {
+     "word": "S&P500",
+     "count": 5
+    },
+    {
+     "word": "2부",
+     "count": 5
+    },
+    {
+     "word": "삼성전자",
+     "count": 5
+    }
+   ],
+   "transcripts": 12,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 12,
+    "설명": 83,
+    "없음": 6
+   },
+   "content_words": [
+    {
+     "word": "투자",
+     "count": 36
+    },
+    {
+     "word": "있습니다",
+     "count": 33
+    },
+    {
+     "word": "그리고",
+     "count": 25
+    },
+    {
+     "word": "같은",
+     "count": 21
+    },
+    {
+     "word": "함께",
+     "count": 21
+    },
+    {
+     "word": "가장",
+     "count": 20
+    },
+    {
+     "word": "주식",
+     "count": 19
+    },
+    {
+     "word": "ETF",
+     "count": 19
+    },
+    {
+     "word": "바랍니다",
+     "count": 17
+    },
+    {
+     "word": "제가",
+     "count": 16
+    },
+    {
+     "word": "많이",
+     "count": 16
+    },
+    {
+     "word": "따라",
+     "count": 16
+    }
+   ],
+   "chapters_share": 0.406,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "WfEK5IRkpE4",
+     "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
+     "src": "설명",
+     "hook": "결혼을 앞둔 친구의 다급한 상견례 고민부터 연령별 맞춤 자산 관리 전략까지! 프로미스나인 이채영과 함께하는 ACE 투자상담소 고수 선배들의 속 시원한 금융 꿀팁을 확인해 보세요. 💡 🎁 ACE 투자상담소 EP.03 댓글 이벤트 영상을 시청하고 [에/이/스/채/영] 5행시 댓글을 남겨주세"
+    },
+    {
+     "id": "d4gqZGtuUxo",
+     "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
+     "src": "설명",
+     "hook": "대한민국 대표 금융정보회사 연합인포맥스가 만든 경제·금융 교육 플랫폼 《연합인포맥스아카데미》 시장을 보는 눈, 이제 직접 확인하세요! 성상현•노근창과 함께하는 투자결전 (10/24일 13시) 오프라인 특별강연 멤버스 자세히 보기 클래스 자세히 보기 ☎️인포맥스아카데미 대표전화 02-78"
+    },
+    {
+     "id": "Uuw517jwuRQ",
+     "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
+     "src": "설명",
+     "hook": "〈앵커〉 한 기자, 오늘(1일)은 국내 증시 얘기군요. 〈기자〉 잘 나가던 코스피가 외신에 세계 최악이라는 말까지 들었는데요. 지난 석 달간 코스피를 보면 20% 가까이 하락했습니다. 주요국 증시 중에 최하위를 기록한 겁니다. 7월부터 9월까지 3분기 동안 코스피가 18.8% 떨어졌는데"
+    }
+   ],
+   "comments": 50338,
+   "comment_needs": [
+    {
+     "name": "질문",
+     "count": 9598,
+     "share": 0.191
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 7415,
+     "share": 0.147
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 5622,
+     "share": 0.112
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 5225,
+     "share": 0.104
+    },
+    {
+     "name": "빚·신용·미수",
+     "count": 3596,
+     "share": 0.071
+    },
+    {
+     "name": "도덕적 비난(도박·본인 책임)",
+     "count": 3203,
+     "share": 0.064
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "엄청 사연있는것처럼 연출하지만 결국 빚내서한 도박",
+     "likes": 7419
+    },
+    {
+     "text": "국회의원 월급을 최저시급으로 하면  많은 문제가 해결될것 같아요.",
+     "likes": 6063
+    },
+    {
+     "text": "무슨 이유이든 상관없이 빚내서 투자하는거 아니다\n본인 책임이니 인생 쓴 맛 봤다 생각하고 열심히 갚아내길",
+     "likes": 5291
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "hTRG4ehA6NU",
+     "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
+     "channel": "박종훈의 지식한방",
+     "views": 1500722,
+     "views_per_day": 483276.2,
+     "published": "2026-10-12",
+     "url": "https://www.youtube.com/watch?v=hTRG4ehA6NU"
+    },
+    {
+     "id": "WfEK5IRkpE4",
+     "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
+     "channel": "ACE ETF",
+     "views": 2304062,
+     "views_per_day": 174157.6,
+     "published": "2026-10-02",
+     "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
+    },
+    {
+     "id": "d4gqZGtuUxo",
+     "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
+     "channel": "연합뉴스경제TV",
+     "views": 1176049,
+     "views_per_day": 165135.5,
+     "published": "2026-10-08",
+     "url": "https://www.youtube.com/watch?v=d4gqZGtuUxo"
+    },
+    {
+     "id": "0K52Ex714NU",
+     "title": "인도 옵션 투자 광풍, 50조 털린 인도 개미들",
+     "channel": "슈카월드",
+     "views": 1876477,
+     "views_per_day": 154411.4,
+     "published": "2026-10-03",
+     "url": "https://www.youtube.com/watch?v=0K52Ex714NU"
+    },
+    {
+     "id": "Uuw517jwuRQ",
+     "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
+     "channel": "SBS 뉴스",
+     "views": 1444127,
+     "views_per_day": 99438.1,
+     "published": "2026-10-01",
+     "url": "https://www.youtube.com/watch?v=Uuw517jwuRQ"
+    }
+   ]
+  },
+  {
+   "weeks": 26,
+   "label": "최근 26주",
+   "videos": 102,
+   "channels": 72,
+   "new_this_week": [
+    {
+     "id": "EyCVdx8IFyg",
+     "title": "'외국인 프로그램 매매' 원리 모르고 주식 투자하면 호갱되는 이유",
+     "published": "2026-04-20"
+    }
+   ],
+   "views_median": 150398.5,
+   "views_per_day_median": 2888.6,
+   "ratio_median": 8.8,
+   "success": 82,
+   "minutes_median": 18.75,
+   "title_len_avg": 48.7,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 28,
+     "share": 0.275
+    },
+    {
+     "name": "물음표 ?",
+     "count": 26,
+     "share": 0.255
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 23,
+     "share": 0.225
+    },
+    {
+     "name": "이유",
+     "count": 19,
+     "share": 0.186
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 18,
+     "share": 0.176
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 14,
+     "share": 0.137
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 11,
+     "share": 0.108
+    },
+    {
+     "name": "느낌표 !",
+     "count": 10,
+     "share": 0.098
+    },
+    {
+     "name": "N가지",
+     "count": 8,
+     "share": 0.078
+    },
+    {
+     "name": "vs 비교",
+     "count": 8,
+     "share": 0.078
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 5,
+     "share": 0.049
+    },
+    {
+     "name": "두 금액(반전)",
+     "count": 2,
+     "share": 0.02
+    },
+    {
+     "name": "과정·벌어진 일·결말·결국",
+     "count": 2,
+     "share": 0.02
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 2,
+     "share": 0.02
+    },
+    {
+     "name": "빚투·신용·미수·레버리지·대출",
+     "count": 2,
+     "share": 0.02
+    },
+    {
+     "name": "AI",
+     "count": 2,
+     "share": 0.02
+    }
+   ],
+   "title_words": [
+    {
+     "word": "이유",
+     "count": 17
+    },
+    {
+     "word": "ETF",
+     "count": 17
+    },
+    {
+     "word": "주식",
+     "count": 16
+    },
+    {
+     "word": "코스피",
+     "count": 13
+    },
+    {
+     "word": "투자",
+     "count": 5
+    },
+    {
+     "word": "됩니다",
+     "count": 5
+    },
+    {
+     "word": "커버드콜",
+     "count": 5
+    },
+    {
+     "word": "S&P500",
+     "count": 5
+    },
+    {
+     "word": "2부",
+     "count": 5
+    },
+    {
+     "word": "삼성전자",
+     "count": 5
+    }
+   ],
+   "transcripts": 12,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 12,
+    "설명": 84,
+    "없음": 6
+   },
+   "content_words": [
+    {
+     "word": "투자",
+     "count": 36
+    },
+    {
+     "word": "있습니다",
+     "count": 34
+    },
+    {
+     "word": "그리고",
+     "count": 26
+    },
+    {
+     "word": "같은",
+     "count": 22
+    },
+    {
+     "word": "가장",
+     "count": 21
+    },
+    {
+     "word": "함께",
+     "count": 21
+    },
+    {
+     "word": "주식",
+     "count": 20
+    },
+    {
+     "word": "ETF",
+     "count": 19
+    },
+    {
+     "word": "바랍니다",
+     "count": 18
+    },
+    {
+     "word": "제가",
+     "count": 16
+    },
+    {
+     "word": "많이",
+     "count": 16
+    },
+    {
+     "word": "따라",
+     "count": 16
+    }
+   ],
+   "chapters_share": 0.402,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "WfEK5IRkpE4",
+     "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
+     "src": "설명",
+     "hook": "결혼을 앞둔 친구의 다급한 상견례 고민부터 연령별 맞춤 자산 관리 전략까지! 프로미스나인 이채영과 함께하는 ACE 투자상담소 고수 선배들의 속 시원한 금융 꿀팁을 확인해 보세요. 💡 🎁 ACE 투자상담소 EP.03 댓글 이벤트 영상을 시청하고 [에/이/스/채/영] 5행시 댓글을 남겨주세"
+    },
+    {
+     "id": "d4gqZGtuUxo",
+     "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
+     "src": "설명",
+     "hook": "대한민국 대표 금융정보회사 연합인포맥스가 만든 경제·금융 교육 플랫폼 《연합인포맥스아카데미》 시장을 보는 눈, 이제 직접 확인하세요! 성상현•노근창과 함께하는 투자결전 (10/24일 13시) 오프라인 특별강연 멤버스 자세히 보기 클래스 자세히 보기 ☎️인포맥스아카데미 대표전화 02-78"
+    },
+    {
+     "id": "Uuw517jwuRQ",
+     "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
+     "src": "설명",
+     "hook": "〈앵커〉 한 기자, 오늘(1일)은 국내 증시 얘기군요. 〈기자〉 잘 나가던 코스피가 외신에 세계 최악이라는 말까지 들었는데요. 지난 석 달간 코스피를 보면 20% 가까이 하락했습니다. 주요국 증시 중에 최하위를 기록한 겁니다. 7월부터 9월까지 3분기 동안 코스피가 18.8% 떨어졌는데"
+    }
+   ],
+   "comments": 50532,
+   "comment_needs": [
+    {
+     "name": "질문",
+     "count": 9626,
+     "share": 0.19
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 7437,
+     "share": 0.147
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 5673,
+     "share": 0.112
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 5239,
+     "share": 0.104
+    },
+    {
+     "name": "빚·신용·미수",
+     "count": 3596,
+     "share": 0.071
+    },
+    {
+     "name": "도덕적 비난(도박·본인 책임)",
+     "count": 3207,
+     "share": 0.063
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "엄청 사연있는것처럼 연출하지만 결국 빚내서한 도박",
+     "likes": 7419
+    },
+    {
+     "text": "국회의원 월급을 최저시급으로 하면  많은 문제가 해결될것 같아요.",
+     "likes": 6063
+    },
+    {
+     "text": "무슨 이유이든 상관없이 빚내서 투자하는거 아니다\n본인 책임이니 인생 쓴 맛 봤다 생각하고 열심히 갚아내길",
+     "likes": 5291
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "hTRG4ehA6NU",
+     "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
+     "channel": "박종훈의 지식한방",
+     "views": 1500722,
+     "views_per_day": 483276.2,
+     "published": "2026-10-12",
+     "url": "https://www.youtube.com/watch?v=hTRG4ehA6NU"
+    },
+    {
+     "id": "WfEK5IRkpE4",
+     "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
+     "channel": "ACE ETF",
+     "views": 2304062,
+     "views_per_day": 174157.6,
+     "published": "2026-10-02",
+     "url": "https://www.youtube.com/watch?v=WfEK5IRkpE4"
+    },
+    {
+     "id": "d4gqZGtuUxo",
+     "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
+     "channel": "연합뉴스경제TV",
+     "views": 1176049,
+     "views_per_day": 165135.5,
+     "published": "2026-10-08",
+     "url": "https://www.youtube.com/watch?v=d4gqZGtuUxo"
+    },
+    {
+     "id": "0K52Ex714NU",
+     "title": "인도 옵션 투자 광풍, 50조 털린 인도 개미들",
+     "channel": "슈카월드",
+     "views": 1876477,
+     "views_per_day": 154411.4,
+     "published": "2026-10-03",
+     "url": "https://www.youtube.com/watch?v=0K52Ex714NU"
+    },
+    {
+     "id": "Uuw517jwuRQ",
+     "title": "코스피 급락에 \"세계 최악\"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부",
+     "channel": "SBS 뉴스",
+     "views": 1444127,
+     "views_per_day": 99438.1,
+     "published": "2026-10-01",
+     "url": "https://www.youtube.com/watch?v=Uuw517jwuRQ"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,63 @@
+{
+ "id": "knblsnwXsfg",
+ "title": "단타 천재가 개발한 초간단 매매법(기본 차트 분석법)",
+ "channel": "차트9단",
+ "channel_id": "UCTEOFRE3VOusPJ43N9nv__g",
+ "subs": 469,
+ "views": 16253,
+ "ratio": 34.65,
+ "age_days": 111,
+ "views_per_day": 146.4,
+ "minutes": 20.0,
+ "likes": 416,
+ "comments": 7,
+ "published": "2026-06-26",
+ "queries": "검색:단타",
+ "url": "https://www.youtube.com/watch?v=knblsnwXsfg",
+ "flag": "",
+ "published_at": "2026-06-26T09:30:02Z",
+ "rank": "W16",
+ "set": "web",
+ "folder": "W_knblsnwXsfg",
+ "sources": [
+  "검색:단타"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "시작"
+  },
+  {
+   "start": 28,
+   "title": "이평선 하나면 된다"
+  },
+  {
+   "start": 141,
+   "title": "이평선 사용법"
+  },
+  {
+   "start": 304,
+   "title": "탑다운 매매법"
+  },
+  {
+   "start": 530,
+   "title": "이평선 단타매매법"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 7,
+ "comments_top_level": 7,
+ "comments_replies": 0,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 7,
+ "tool": "outlier_research.py v2.4.1",
+ "collected": "2026-10-15T20:44:14",
+ "approved": "2026-10-15T20:44+09:00"
+}

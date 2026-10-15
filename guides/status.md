@@ -1,6 +1,6 @@
 # 지금 상태·다음 할 일 (인수인계)
 
-버전: v1.1 — 2026-10-15 — 주식 1번 주제 백테스트·결론 끝 (`tools/backtest/` v1.1). (v1.0 — 2026-10-15 — 최초. 사용자 지시: "이제 이 대화 지울건데 남겨둬야 할 정보 있으면 저장소에 남겨놔".)
+버전: v1.2 — 2026-10-15 — 주식 1번: 제목(10개 언어)·대본 143문장·글자 없는 썸네일 프롬프트·업로드 시트·장면 파일(추정 시각) 끝, 오디오만 남음. (v1.1 — 주식 1번 주제 백테스트·결론 끝 (`tools/backtest/` v1.1).) (v1.0 — 2026-10-15 — 최초. 사용자 지시: "이제 이 대화 지울건데 남겨둬야 할 정보 있으면 저장소에 남겨놔".)
 
 - 대화가 지워져도 다음 대화가 여기서 이어 가도록 남긴다.
 - 규칙은 `CLAUDE.md`, 지시사항 목록은 `guides/README.md`, 전체 순서는 `guides/pipeline.md`에 있다.
@@ -12,7 +12,7 @@
 | 주제 | 지금 단계 | 다음 할 일 |
 |---|---|---|
 | **재테크** `economic/` | 롱폼 4편 끝: 대본·오디오(Kaggle)·영상 렌더·업로드 시트(`upload.md`). 쇼츠 4편 제목·대본(`shorts/`, `0f6276e`) | ① 업로드 확인 ② 썸네일 3편 ③ 쇼츠 오디오·영상 (아래 2-2) |
-| **주식** `stock/` | 분석 결과 올라옴. 주제 4개·채널 컨셉. **1번 백테스트·결론 끝** (`stock/source/tteoreojimyeon-sagi-2026-10/README.md`) | 1번 제목·대본 → 오디오 → 영상 / 2~4번은 일별 ETF 자료 필요 (아래 2-1) |
+| **주식** `stock/` | 1번 `tteoreojimyeon-sagi-2026-10`: 백테스트·제목(10개 언어)·대본·썸네일 프롬프트(글자 없음)·업로드 시트·**장면 파일(추정 시각)** 끝 | ① 사용자: Kaggle 내레이션(범위 `stock`) ② 오디오가 오면 sync → check → video → Drive ③ 썸네일 ChatGPT ④ 다른 언어 오디오 여부(사용자 답) / 2~4번은 일별 ETF 자료 필요 (아래 2-1) |
 
 ## 2. 다음 대화에서 할 일 (순서대로)
 
@@ -40,12 +40,20 @@
   - −20% 이상 폭락을 기다리는 것은 폭락이 언제 오느냐에 따라 갈린다.
   - 목돈은 한 번에가 3번 중 2번 더 많지만, 최악 1년 −43%를 못 버티면 12달에 나눈다 (최악 −28%).
 
+**끝난 것 (2026-10-15, 이어서)**
+- 주식 전용 지시사항 `stock/guides/` (README v1.1 = 전 세계 대상: 제목 10개 언어·글자 없는 썸네일·자막 없음·언어 없는 화면·실시간 비교 애니메이션, data_insights v1.1).
+- 1번 제목 `titles.md`(한국어 R1~R3 + 9개 언어), 대본 v1.1 143문장(숫자 50개 `checklist.md` ✅), 썸네일 프롬프트 3개(`thumbnails/`, 글자 없음), 업로드 시트 `upload.md`(언어별 제목·설명 JSON, 자막 올리기 아니요).
+- 장면 파일 `video/episodes/tteoreojimyeon-sagi-2026-10/index.html` v1.0 — 자막 없음·낱말 없음, 실시간 경주 3개(2000.01 · 2006.10 · 목돈 2008.04)·163번 토너먼트 막대 등. 숫자는 `backtest/anim.js`(← `anim_data.py`)만.
+  - 지금 데이터 칸은 **추정 시각**(`render.mjs sync --estimate`, 9분 21초) — `check` 문제 0, still 78장 점검. 이 시각으로는 `video`가 거부된다.
+
 **할 일**
-1. 1번 제목(`guides/title_guide.md`) → 대본(`guides/script_guide.md` + `stock/guides/concept.md` 1번 모양).
-   - 숫자는 README 3번(= `results.json` 키)에서만 가져온다.
-   - 그다음 `stock/source/used_content.md`.
-2. 그다음 오디오(Kaggle) → 영상(`video/episodes/<영상ID>/index.html`) → 업로드 시트. 순서는 재테크와 같다.
-   - 차트 자료는 `backtest/windows_main_10y.csv`.
+1. 사용자: Kaggle 셀에서 범위 `stock` → `narration.mp3`·`tts_narration.json` 이 `stock/source/tteoreojimyeon-sagi-2026-10/`에 올라옴.
+   - 읽는 소리 `stock/tts_lexicon.tsv` (S&P500 → 에스앤피 오백).
+2. 오디오가 오면: `git pull` → `python tools/tts_narration.py check stock tteoreojimyeon-sagi-2026-10` → `cd video && npm run align-audio -- stock tteoreojimyeon-sagi-2026-10`
+   → `node video/render/render.mjs sync stock tteoreojimyeon-sagi-2026-10` → `check` → `stills`(점검) → `video` → `python tools/drive_videos.py upload stock tteoreojimyeon-sagi-2026-10` (Drive 권한이 없으면 원본을 대화로).
+   - 실제 오디오 길이가 9~12분(`stock/guides/README.md` 5번)인지 본다. 추정은 9분 21초.
+3. 썸네일: ChatGPT 메시지는 `thumbnails/README.md` 5번. 그림이 대화에 오면 검수(글자·숫자가 하나도 없는지 확대) → `thumbnail_N.*`.
+4. 사용자 답 기다림: 내레이션을 한국어 하나로 둘지, 다른 언어 오디오(자동 더빙 말고)를 만들지 (`stock/guides/README.md` 5번).
 3. 2~4번 주제(커버드콜·배당 vs 지수·레버리지)는 **일별 ETF 수정주가·분배금**이 필요하다.
    - Yahoo가 클라우드에서 막혀 있다 (4번 참고).
    - 사용자가 Network access에 `query1.finance.yahoo.com`·`query2.finance.yahoo.com`·`fc.yahoo.com`을 더하거나, PC에서 받은 자료를 `stock/data/`에 둔다.

@@ -1,9 +1,13 @@
-// VERSION: v1.0 — 2026-10-15 — 새 스타일 영상 렌더기 (guides/video_guide.md v4.0 6번 '할 일': 시안 render.js 를 옮겨 1080p·오디오 붙이기·자막 굽기)
+// VERSION: v1.1 — 2026-10-15 — sync --estimate (오디오 전 추정 시각 — 장면 배치·still 점검용, video 모드는 거부), 자막 없는 영상(#cc 없음)은
+//   검사 아래 한계를 y 1020(유튜브 진행 막대 60px 비움 — stock/guides/README.md 4번), K.init opts.noWords 면 화면 글자에 낱말(한글·가나·한자·영어 2글자 이상, S&P·코드 카드 .code 빼고)이
+//   있는지도 검사. 사용자 지시 2026-10-15 "영상에 자막 달지말고".
+// v1.0 — 2026-10-15 — 새 스타일 영상 렌더기 (guides/video_guide.md v4.0 6번 '할 일': 시안 render.js 를 옮겨 1080p·오디오 붙이기·자막 굽기)
 //   장면 파일 video/episodes/<영상ID>/index.html (GSAP 타임라인, kit.js) 을 Playwright 로 열어 1/30초마다 SB.seek(t) → 찍은 장면을 ffmpeg 로
 //   이어 H.264 → narration.mp3 를 붙임 → tools/loudnorm.py (-14 LUFS, 트루 피크 -1.5 dBTP 이하). 오디오는 고치지 않는다.
 //   연구·교육용 영상 — 투자·세무 권유 아님.
 // 사용 (저장소 최상위에서):
 //   node video/render/render.mjs sync   <주제> <영상ID>     # 문장 시각(tts_narration.json)·자막(SRT)·길이를 index.html 데이터 칸에 넣음
+//   node video/render/render.mjs sync   <주제> <영상ID> --estimate   # 오디오 전: 대본 음절로 추정한 시각 (EP.estimated — 렌더 안 됨)
 //   node video/render/render.mjs check  <주제> <영상ID>     # 대표 장면(K.cut)마다 글자 크기·자막 띠 겹침·화면 밖 검사 (+ 0.5초마다 겹침만)
 //   node video/render/render.mjs stills <주제> <영상ID> [--out <폴더>] [--w 1280]   # 대표 장면 still (저장소 밖 — 기본 임시 폴더)
 //   node video/render/render.mjs extra  <주제> <영상ID> --times 12.5,40 [--out <폴더>]
@@ -18,7 +22,7 @@ import { fileURLToPath } from "node:url";
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, "..", "..");
-const VERSION = "v1.0";
+const VERSION = "v1.1";
 const log = (stage, kv) => console.log(`[${stage}] [${new Date().toISOString().slice(0, 19)}Z] ` +
   Object.entries(kv).map(([k, v]) => `${k}=${typeof v === "string" && /\s/.test(v) ? JSON.stringify(v) : v}`).join(" "));
 
@@ -59,7 +63,58 @@ function probeDuration(f) {
   const r = spawnSync("ffprobe", ["-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", f], { encoding: "utf-8" });
   return parseFloat(r.stdout);
 }
+// 추정 시각 모델 (2026-10-15, 진행자 H04 실제 오디오 4개 — 재테크 toejik·isa·eunte·gicho — 문장 길이 최소제곱):
+//   문장 길이 ≈ 0.151초 × 읽는 음절(srt_tool.syllables) + 0.25초 × 쉼표 − 0.08초 (평균 오차 0.2초), 쉼 = tts_narration 기본값.
+const EST = { perSyl: 0.151, comma: 0.25, base: -0.08, min: 0.8, lead: 0.3, gap: 0.45, part: 1.0, tail: 0.8 };
+function estimateSync() {
+  const txt = path.join(SRC, `${ID}.txt`);
+  if (!fs.existsSync(txt)) fail("SYNC", `대본 없음 ${path.relative(ROOT, txt)}`);
+  const py = `import sys, json
+sys.path.insert(0, sys.argv[2])
+import srt_tool
+from pathlib import Path
+rows, part, card = [], "", False
+for raw in Path(sys.argv[1]).read_text("utf-8-sig").splitlines():
+    line = raw.strip()
+    if not line:
+        continue
+    if srt_tool.is_label(line):
+        part, card = line.lstrip("-").strip(), False
+        continue
+    if line.startswith("[장면]"):
+        card = True
+        continue
+    if not card:
+        rows.append([line, part, srt_tool.syllables(line)])
+assert [r[0] for r in rows] == srt_tool.parse_txt(sys.argv[1]), "문장 판정이 srt_tool 과 다름"
+print(json.dumps({"rows": rows, "cards": len(srt_tool.parse_cards(sys.argv[1]))}, ensure_ascii=False))`;
+  const r = spawnSync("python3", ["-c", py, txt, path.join(ROOT, "tools")], { encoding: "utf-8" });
+  if (r.status !== 0) fail("SYNC", "대본 읽기 실패: " + (r.stderr || "").trim().split("\n").pop(), "python3 tools/srt_tool.py check 로 대본 확인");
+  const { rows, cards } = JSON.parse(r.stdout);
+  if (cards) log("SYNC", { level: "warn", note: "고지 카드 쉼은 추정에 넣지 않음", cards });
+  let t = EST.lead;
+  const sent = rows.map(([text, part, syl], i) => {
+    const d = Math.max(EST.min, EST.perSyl * syl + EST.comma * (text.match(/,/g) || []).length + EST.base);
+    const it = { n: i + 1, part, text, start: +t.toFixed(3), end: +(t + d).toFixed(3) };
+    t += d + (i === rows.length - 1 ? EST.tail : rows[i + 1][1] !== part ? EST.part : EST.gap);
+    return it;
+  });
+  const D = +t.toFixed(2);
+  const ep = { id: ID, topic: TOPIC, duration: D, audio: null, estimated: true, est_model: EST,
+    synced: new Date().toISOString().slice(0, 19) + "Z", sent, subs: [] };
+  writeEp(ep);
+  log("SYNC", { video: ID, mode: "estimate", sentences: sent.length, syllables: rows.reduce((a, x) => a + x[2], 0), duration_s: D,
+    note: "오디오가 생기면 sync 로 다시 (이 시각으로는 video 를 만들지 않음)", file: path.relative(ROOT, PAGE) });
+}
+function writeEp(ep) {
+  if (!fs.existsSync(PAGE)) fail("SYNC", `장면 파일 없음 ${path.relative(ROOT, PAGE)}`, "Claude 가 장면 파일을 먼저 만든다 (video_guide 7번)");
+  const html = fs.readFileSync(PAGE, "utf-8");
+  const re = /\/\*EP-DATA:BEGIN\*\/[\s\S]*?\/\*EP-DATA:END\*\//;
+  if (!re.test(html)) fail("SYNC", "index.html 에 /*EP-DATA:BEGIN*/ … /*EP-DATA:END*/ 칸이 없음");
+  fs.writeFileSync(PAGE, html.replace(re, `/*EP-DATA:BEGIN*/window.EP=${JSON.stringify(ep)};/*EP-DATA:END*/`));
+}
 function sync() {
+  if (argv.includes("--estimate")) return estimateSync();
   if (!AUDIO) fail("SYNC", `오디오 없음 (${path.relative(ROOT, SRC)}/narration.*)`, "오디오가 생긴 뒤에만 영상 (video_guide 0번)");
   const meta = JSON.parse(fs.readFileSync(path.join(SRC, "tts_narration.json"), "utf-8"));
   const srt = parseSrt(fs.readFileSync(path.join(SRC, `${ID}.srt`), "utf-8"));
@@ -69,11 +124,7 @@ function sync() {
   if (Math.abs(meta.seconds - aDur) > 0.5) log("SYNC", { level: "warn", note: "tts_narration.json 길이와 오디오 길이가 다름", meta_s: meta.seconds, audio_s: aDur.toFixed(2) });
   const ep = { id: ID, topic: TOPIC, duration: D, audio: path.relative(EPDIR, AUDIO).split(path.sep).join("/"),
     synced: new Date().toISOString().slice(0, 19) + "Z", tts: meta.created, script_sha1: meta.script_sha1, sent, subs: srt };
-  if (!fs.existsSync(PAGE)) fail("SYNC", `장면 파일 없음 ${path.relative(ROOT, PAGE)}`, "Claude 가 장면 파일을 먼저 만든다 (video_guide 7번)");
-  const html = fs.readFileSync(PAGE, "utf-8");
-  const re = /\/\*EP-DATA:BEGIN\*\/[\s\S]*?\/\*EP-DATA:END\*\//;
-  if (!re.test(html)) fail("SYNC", "index.html 에 /*EP-DATA:BEGIN*/ … /*EP-DATA:END*/ 칸이 없음");
-  fs.writeFileSync(PAGE, html.replace(re, `/*EP-DATA:BEGIN*/window.EP=${JSON.stringify(ep)};/*EP-DATA:END*/`));
+  writeEp(ep);
   log("SYNC", { video: ID, sentences: sent.length, subs: srt.length, audio_s: aDur.toFixed(2), duration_s: D, file: path.relative(ROOT, PAGE) });
 }
 
@@ -107,6 +158,9 @@ async function openPage(pw, width) {
 const CHECK_FN = () => {
   const st = document.getElementById("stage");
   const out = [];
+  const cc0 = document.getElementById("cc");
+  const LOW = cc0 ? 884 : 1020;
+  const NOWORDS = !!(window.K && window.K.opt && window.K.opt.noWords);                // 자막 띠 위 · 자막 없는 영상은 맨 아래 60px(진행 막대·자동 자막) 위
   const op = el => { let o = 1; for (let e = el; e && e !== st; e = e.parentElement) { const cs = getComputedStyle(e); o *= +cs.opacity; if (cs.display === "none" || cs.visibility === "hidden") return 0; } return o; };
   const walker = document.createTreeWalker(st, NodeFilter.SHOW_TEXT);
   for (let n = walker.nextNode(); n; n = walker.nextNode()) {
@@ -121,7 +175,9 @@ const CHECK_FN = () => {
     const fs = parseFloat(getComputedStyle(el).fontSize);
     const txt = n.textContent.trim().slice(0, 24);
     if (fs < 36) out.push({ kind: "글자 36px 미만", txt, fs });
-    if (b.bottom > 884 && !el.closest("#chip")) out.push({ kind: "자막 띠(y 880 아래)와 겹침", txt, bottom: Math.round(b.bottom) });
+    if (NOWORDS && !el.closest(".code") && (/[가-힣ぁ-んァ-ン一-龥]/.test(n.textContent) || /[A-Za-z]{2,}/.test(n.textContent.replace(/S&P/g, ""))))
+      out.push({ kind: "낱말(언어 없는 화면)", txt });   // K.init opts.noWords — 숫자·기호·A·B·S&P 만 (stock/guides/README.md 4번)
+    if (b.bottom > LOW && !el.closest("#chip")) out.push({ kind: cc0 ? "자막 띠(y 880 아래)와 겹침" : "맨 아래 60px(y 1020 아래)", txt, bottom: Math.round(b.bottom) });
     if (b.left < 40 || b.right > 1880 || b.top < 30) out.push({ kind: "화면 가장자리 밖", txt, left: Math.round(b.left), right: Math.round(b.right), top: Math.round(b.top) });
   }
   // 자막 띠 줄 수
@@ -191,6 +247,7 @@ async function video() {
   const m = html.match(/window\.EP=(\{[\s\S]*?\});\/\*EP-DATA:END\*\//);
   if (!m) fail("RENDER", "데이터 칸이 비었음", `node video/render/render.mjs sync ${TOPIC} ${ID}`);
   const ep = JSON.parse(m[1]);
+  if (ep.estimated) fail("RENDER", "추정 시각(오디오 전)으로는 영상을 만들지 않음", `오디오가 생기면 node video/render/render.mjs sync ${TOPIC} ${ID}`);
   const from = opt("from") ? Number(opt("from")) : 0, to = opt("to") ? Number(opt("to")) : ep.duration;
   const preview = opt("from") != null || opt("to") != null;
   const F0 = Math.round(from * fps), F1 = Math.ceil(to * fps);

@@ -1,4 +1,6 @@
-// VERSION: v1.0 — 2026-10-15 — 새 스타일 영상 공통 부품 (guides/video_guide.md v4.0 6번). 근거 시안 video/prototypes/storyboard-2026-10-15/
+// VERSION: v1.1 — 2026-10-15 — K.init(ep, {subtitles, chip}) 로 구운 자막·장 이름표를 끌 수 있음 (주식 = 전 세계 대상 — stock/guides/README.md 4번,
+//   사용자 지시 2026-10-15 "영상에 자막 달지말고"), 오디오 없는 추정 시각(EP.estimated — render.mjs sync --estimate)은 시계로 미리보기.
+// v1.0 — 2026-10-15 — 새 스타일 영상 공통 부품 (guides/video_guide.md v4.0 6번). 근거 시안 video/prototypes/storyboard-2026-10-15/
 //   장면 파일(video/episodes/<영상ID>/index.html)이 window.EP(문장 시각·자막 — render.mjs sync 가 넣음)와 이 파일의 K 를 써서
 //   GSAP 타임라인 하나를 만든다. 렌더기(render.mjs)는 ?render 로 열어 SB.seek(t) 로 장면을 멈춰 찍는다.
 //   연구·교육용 영상 — 투자·세무 권유 아님.
@@ -6,7 +8,7 @@
   "use strict";
   const K = (window.K = {});
   const RENDER = /[?&]render\b/.test(location.search);
-  let EP, tl, stage, chipEl, ccEl;
+  let EP, OPT, tl, stage, chipEl, ccEl;
   const CHAPTERS = [];        // [{start, tag, title, dots:[n,total]}]
   const CUTS = [];            // 점검용 대표 장면 [{t, name}]
 
@@ -214,6 +216,7 @@
     CHAPTERS.sort((x, y) => x.start - y.start);
   };
   function chipAt(t) {
+    if (!chipEl) return;                     // 장 이름표를 끈 영상 (K.init opts.chip=false)
     let c = null;
     for (const x of CHAPTERS) if (t >= x.start - 1.0) c = x;
     if (!c) c = CHAPTERS[0];
@@ -227,6 +230,7 @@
   // ---------- 구운 자막 (3-5) — SRT 그대로 ----------
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   function ccAt(t) {
+    if (!ccEl) return;                       // 자막을 굽지 않는 영상 (K.init opts.subtitles=false)
     let txt = "";
     for (const [a, b, s] of EP.subs) { if (t >= a && t < b) { txt = s; break; } }
     if (ccEl._t === txt) return;
@@ -236,19 +240,20 @@
   K.cut = (t, name) => CUTS.push({ t: +(+t).toFixed(2), name });   // 점검용 대표 장면
 
   // ---------- 시작·끝 ----------
-  K.init = ep => {
+  K.init = (ep, opts) => {                   // opts: {subtitles: 구운 자막(기본 true), chip: 장 이름표(기본 true)}
     EP = ep;
+    OPT = K.opt = Object.assign({ subtitles: true, chip: true }, opts);
     document.body.classList.toggle("render", RENDER);
     stage = document.getElementById("stage");
     tl = K.tl = gsap.timeline({ paused: true });
-    chipEl = K.el(`<div id="chip"><span class="Y"></span><span></span><span class="dots"></span></div>`);
-    ccEl = K.el(`<div id="cc"></div>`);
+    chipEl = OPT.chip ? K.el(`<div id="chip"><span class="Y"></span><span></span><span class="dots"></span></div>`) : null;
+    ccEl = OPT.subtitles ? K.el(`<div id="cc"></div>`) : null;
     K.D = EP.duration;
   };
   K.done = () => {
     tl.set({}, {}, EP.duration);
     const seek = t => { tl.seek(t, false); chipAt(t); ccAt(t); };
-    window.SB = { D: EP.duration, seek, cuts: CUTS, ep: EP.id, ready: true };
+    window.SB = { D: EP.duration, seek, cuts: CUTS, ep: EP.id, estimated: !!EP.estimated, subtitles: !!ccEl, ready: true };
     seek(0);
     if (!RENDER) player(seek);
   };
@@ -256,7 +261,7 @@
     const wrap = document.getElementById("wrap");
     const fit = () => { stage.style.transform = `scale(${wrap.clientWidth / 1920})`; };
     addEventListener("resize", fit); fit();
-    const audio = new Audio(EP.audio);
+    const audio = EP.audio ? new Audio(EP.audio) : clock(EP.duration);   // 추정 시각(오디오 전)은 소리 없이 시계로
     const ctrl = document.getElementById("ctrl"), now = document.getElementById("now");
     ctrl.innerHTML = `<button id="pp" type="button">▶ 재생</button><span class="time" id="tm">0:00.0</span><input id="sk" type="range" min="0" max="${EP.duration}" step="0.01" value="0" aria-label="재생 위치">`;
     const pp = ctrl.querySelector("#pp"), tm = ctrl.querySelector("#tm"), sk = ctrl.querySelector("#sk");
@@ -264,7 +269,7 @@
     const show = t => {
       seek(t); sk.value = t; tm.textContent = `${f(t)} / ${f(EP.duration)}`;
       const s = EP.sent.find(x => t >= x.start - 0.2 && t < x.end + 0.45);
-      now.textContent = s ? `문장 ${s.n} · ${s.part} — ${s.text}` : "";
+      now.textContent = (EP.estimated ? "[추정 시각 — 오디오 전] " : "") + (s ? `문장 ${s.n} · ${s.part} — ${s.text}` : "");
     };
     let raf = 0;
     const loop = () => { show(audio.currentTime); if (!audio.paused) raf = requestAnimationFrame(loop); };
@@ -273,5 +278,15 @@
     const q = new URLSearchParams(location.search).get("t");
     show(q ? +q : 0);
     if (q) audio.currentTime = +q;
+  }
+  function clock(D) {                          // Audio 와 같은 모양(paused·currentTime·play·pause)의 소리 없는 시계
+    let t0 = 0, at = 0, paused = true;
+    return {
+      get paused() { return paused; },
+      get currentTime() { return paused ? at : Math.min(D, at + (performance.now() - t0) / 1000); },
+      set currentTime(v) { at = +v; t0 = performance.now(); },
+      play() { if (paused) { t0 = performance.now(); paused = false; } return Promise.resolve(); },
+      pause() { at = this.currentTime; paused = true; },
+    };
   }
 })();

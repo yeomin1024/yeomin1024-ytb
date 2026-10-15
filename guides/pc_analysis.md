@@ -1,6 +1,8 @@
 # PC에서 분석 돌리기 — 재테크(`economic`)·주식(`stock`) 폴더
 
-버전: v3.3 — 2026-10-15 — 사용자 보고 "RuntimeError: HTTP 429 search: … Quota exceeded for quota metric 'Search Queries' and limit 'Search Queries per day' … 왜 이래 사용량 3000 남았는데": Google 의 **하루 검색 횟수 한도**(단위와 따로) — 이제 탐색이 멈추지 않고 검색만 초기화 뒤로 (아래 '문제 해결' 첫 줄)
+버전: v3.4 — 2026-10-15 — 사용자 보고 "[JOB] stock 승인 — 자료 받고 분석 실패 … PermissionError: [WinError 5] 액세스가 거부되었습니다: …quota_key_….json.tmp -> …quota_key_….json 왜이래": Windows 에서 파일 바꿔치기가 잠깐 막히면 다시 하고, 그래도 안 되면 작업은 계속 (아래 '문제 해결')
+
+(v3.3 — 2026-10-15 — 사용자 보고 "RuntimeError: HTTP 429 search: … Quota exceeded for quota metric 'Search Queries' and limit 'Search Queries per day' … 왜 이래 사용량 3000 남았는데": Google 의 **하루 검색 횟수 한도**(단위와 따로) — 이제 탐색이 멈추지 않고 검색만 초기화 뒤로 (아래 '문제 해결' 첫 줄))
 
 (v3.2 — 2026-10-15 — 사용자 지시 "아니 어떻게 실행해 그리고 주식은 영어 주식 검색어도 추가해": 외국 영상을 켠 주제는 **영어 검색어 `<주제>/keywords_foreign.txt`** 도 검색 (주식 15개 — 실제 외국 영상 태그에서, `tag_keywords.py --foreign`), 웹 화면 2번 칸 '영어(외국 영상) 검색어' (아래 '외국 영상'))
 
@@ -288,6 +290,7 @@ macOS/Linux: `bash run_analyzer.sh --folder economic,health`
 
 ## 문제 해결
 
+- **`PermissionError: [WinError 5] 액세스가 거부되었습니다: …quota_key_….json.tmp -> …quota_key_….json`** (2026-10-15 승인 중) → Windows 는 다른 쪽(웹 화면이 몇 초마다 할당량 장부를 읽음·백신·검색 색인)이 파일을 잠깐 열고 있으면 바꿔치기를 거부합니다. 예전 판은 그 한 번으로 승인 작업이 멈췄습니다. **웹 화면 v2.3.1 · pc_analysis v1.18 부터** 조금씩 늘려 12번(약 4초)까지 다시 하고, 그래도 안 되면 경고(`[QUOTA] … 이번 한 번은 못 적음`)만 남기고 작업은 계속합니다. → 창을 닫고 다시 켠 뒤 **[승인]을 한 번 더** 누르면 이어서 합니다 (이미 받은 설명·자막·썸네일은 다시 받지 않음). 자주 나오면 백신 예외에 분석기 폴더(`.yt_work`)를 넣으세요.
 - **`HTTP 429 search: Quota exceeded for quota metric 'Search Queries' and limit 'Search Queries per day'` — 남은 할당량이 3,000 인데?** (2026-10-15 사용자 PC) → Google 은 **단위(하루 10,000)와 따로 '하루 검색 횟수'** 를 셉니다. 단위가 남아도 검색 횟수 한도에 닿으면 **검색만** 막힙니다 (HTTP 429 — 영상 정보·댓글 같은 1단위 요청은 됨). 한도 값은 Google 이 문서에 적어 두지 않았고, 이 저장소 기록으로는 2026-10-09 에 검색 **40번째 뒤**로 막혔습니다 (같은 프로젝트를 쓰는 다른 PC·클라우드 검색도 함께 셈). 화면의 '남은 할당량'은 단위만 세므로 이 한도는 보이지 않았습니다.
   - **웹 화면 v2.3 부터:** 탐색이 오류로 멈추지 않고, 못 한 검색은 남겨 두었다가 **한국 시간 오후 4~5시(태평양 자정) 초기화 뒤 저절로 이어서** 합니다. 그사이 캐시된 검색·영상 정보·댓글·채널 기준선은 계속. 같은 키의 다른 탭도 그날은 검색을 보내지 않습니다.
   - 0번 칸 **'검색 오늘 N번 · 검색 횟수 한도에 닿음 (N번째)'**, 그다음부터는 **'알려진 검색 한도 약 N번/일'** (이 PC 에서 센 수 — 클라우드 등에서 쓴 검색은 몰라 실제보다 작을 수 있음). 4번 칸 예상에도 '검색 횟수 한도를 넘는 만큼은 초기화 뒤'.
@@ -312,6 +315,7 @@ macOS/Linux: `bash run_analyzer.sh --folder economic,health`
 
 | 버전 | 날짜 | 내용 |
 |---|---|---|
+| v3.4 | 2026-10-15 | 사용자 보고 "[JOB] stock 승인 — 자료 받고 분석 실패 … PermissionError: [WinError 5] 액세스가 거부되었습니다: …quota_key_….json.tmp -> …quota_key_….json 왜이래": Windows 파일 막힘 — 다시 하고 작업은 계속 (문제 해결) |
 | v3.3 | 2026-10-15 | 사용자 보고 "RuntimeError: HTTP 429 search: … Quota exceeded for quota metric 'Search Queries' and limit 'Search Queries per day' … 왜 이래 사용량 3000 남았는데": 하루 검색 횟수 한도(429) — 검색만 초기화 뒤로, 화면에 검색 수·한도 (문제 해결) |
 | v3.2 | 2026-10-15 | 사용자 지시 "아니 어떻게 실행해 그리고 주식은 영어 주식 검색어도 추가해": 영어 검색어 `keywords_foreign.txt`(외국 영상을 켠 주제만), 웹 화면 2번 칸, `tag_keywords.py --foreign` |
 | v3.1 | 2026-10-15 | 사용자 지시 "야 키도 나눠서 쓸수 있게해 주제별로 다른키 넣을거니까 그리고 주식은 외국 영상도 다 분석할 건데 확인해봐 on/off 기능(default off) 있는지 확인하고 없으면 추가해": '주제마다 다른 키'(0번 칸 이 탭 키·같은 키 탭, 키마다 할당량), '외국 영상 켜고 끄기'(`INCLUDE_FOREIGN` 기본 false, 4번 칸 [외국 영상도], 언어 지정 없는 검색·원래 언어 자막·음성인식 언어 자동) |

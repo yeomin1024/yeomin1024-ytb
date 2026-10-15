@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v2.5 — 2026-10-15 — 하루 검색 횟수 한도 429 를 알아봄 (사용자 보고 2026-10-15: "RuntimeError: HTTP 429 search: … Quota exceeded for quota metric 'Search Queries' and limit 'Search Queries per day' … 왜 이래 사용량 3000 남았는데"):
+# VERSION: v2.5.1 — 2026-10-15 — 자동완성 캐시를 바꿔 끼울 때 Windows 에서 잠깐 막히면 다시 (_replace_retry — 사용자 보고 2026-10-15: "PermissionError: [WinError 5] 액세스가 거부되었습니다 … 왜이래")
+# (v2.5 — 2026-10-15 — 하루 검색 횟수 한도 429 를 알아봄 (사용자 보고 2026-10-15: "RuntimeError: HTTP 429 search: … Quota exceeded for quota metric 'Search Queries' and limit 'Search Queries per day' … 왜 이래 사용량 3000 남았는데"):
 #          Google 은 단위(10,000)와 따로 **'Search Queries per day'(하루 검색 횟수)** 를 셈 — 넘으면 HTTP 429 RESOURCE_EXHAUSTED (예전 판은
 #          403 만 할당량으로 봐서 RuntimeError 로 탐색이 통째로 멈춤. 분석기는 v2.2.0 부터 알았음 — 2026-10-09 검색 74번 중 40번째 뒤로 막힘).
 #          ① daily_limit_kind(): 403·429 + 'per day'·quotaExceeded·dailyLimitExceeded → 'Search Queries' 면 search_daily, 아니면 daily
 #          ② search_daily = **검색만** 그날 멈춤 (QuotaStop kind='search_daily') — 영상 정보·채널·댓글(1단위)은 계속, 못 한 검색은 pending 으로
 #             초기화 뒤 저절로 이어서. 키 장부(pc_analysis v1.17)에 적어 같은 키의 다른 창·주제도 그날은 검색을 요청하지 않음
 #          ③ 'per day' 가 아닌 429(분당 제한)는 2·4초 쉬고 다시 (예전: 바로 오류)
-#          ④ 받은 검색은 장부에 셈 (count_search — 몇 번째 검색에서 막혔는지 = 이 키의 검색 한도 추정)
+#          ④ 받은 검색은 장부에 셈 (count_search — 몇 번째 검색에서 막혔는지 = 이 키의 검색 한도 추정))
 # (v2.4.1 — 2026-10-15 — 영어 검색어 <주제>/keywords_foreign.txt (사용자 지시: "주식은 영어 주식 검색어도 추가해"): load_keywords 가 외국 영상을 켠 주제
 #          (INCLUDE_FOREIGN)에서만 '외국 검색어' 묶음으로 더함 (끄면 검색하지 않음 — 빼게 될 결과에 할당량을 쓰지 않게). collect_api 는
 #          a.search_lang 이 있으면 그것 (tag_keywords v1.5 --foreign 의 영어 씨앗 검색))
@@ -182,7 +183,7 @@ except ModuleNotFoundError:             # Python 3.10 → tomli (분석기가 �
     import tomli as tomllib
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v2.5"
+VERSION = "v2.5.1"
 LOG = logging.getLogger("outlier")
 HANGUL = re.compile(r"[가-힣]")
 SEARCH_TTL_HOURS = 168
@@ -293,6 +294,18 @@ COST = {"search": 100, "videos": 1, "channels": 1, "commentThreads": 1, "comment
 DAILY_LIMIT_RX = re.compile(r"per\s+day|daily|quotaExceeded|dailyLimitExceeded", re.I)
 SEARCH_DAILY_MSG = ("오늘 검색 횟수 한도(Google 'Search Queries per day' — 단위 10,000 과 따로)에 닿음 → 검색만 태평양 자정(한국 오후 4~5시) 뒤에 "
                     "저절로 이어서 (영상 정보·댓글은 계속, 캐시된 검색은 그대로 씀)")
+
+
+def _replace_retry(tmp, dst, tries=12, wait=0.05):
+    """v2.5.1: os.replace — Windows 에서 다른 쪽이 dst 를 잠깐 열고 있으면 PermissionError → 조금씩 늘려 다시 (pc_analysis.replace_retry 와 같음)."""
+    for i in range(tries):
+        try:
+            os.replace(tmp, dst)
+            return
+        except PermissionError:
+            if i == tries - 1:
+                raise
+            time.sleep(wait * (i + 1))
 
 
 def daily_limit_kind(code, body):
@@ -1061,7 +1074,10 @@ def fetch_autocomplete(q, cache_dir, refresh=False, fetch=None):
     d[q] = {"s": sugg, "fetched": datetime.now(timezone.utc).isoformat()}
     tmp = p.with_name(p.name + f".{os.getpid()}.tmp")
     tmp.write_text(json.dumps(d, ensure_ascii=False), "utf-8")
-    os.replace(tmp, p)
+    try:
+        _replace_retry(tmp, p)
+    except PermissionError:                     # v2.5.1: 캐시만 못 씀 — 답은 그대로 돌려줌
+        tmp.unlink(missing_ok=True)
     return sugg, False
 
 

@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v2.3 — 2026-10-15 — 하루 검색 횟수 한도 (사용자 보고 2026-10-15: "HTTP 429 search: Quota exceeded for quota metric 'Search Queries' and limit 'Search Queries per day' … 왜 이래 사용량 3000 남았는데"): 단위가 남아도 Google 의 'Search Queries per day'(HTTP 429)에 닿으면 검색만 막힘
+# VERSION: v2.3.1 — 2026-10-15 — Windows 파일 막힘 (사용자 보고 2026-10-15: "PermissionError: [WinError 5] 액세스가 거부되었습니다 … 왜이래"): _read_json·_write_json 이 잠깐 막히면 다시 (pc_analysis v1.18
+#          read_text_retry·replace_retry) — 예전엔 읽기가 막히면 '없음'으로 보고 탐색 목록·체크를 빈 것으로 덮어쓸 수 있었음. 임시 파일 이름은
+#          프로세스·스레드마다 따로 (같은 파일을 두 작업이 동시에 써도 부딪히지 않게)
+# (v2.3 — 2026-10-15 — 하루 검색 횟수 한도 (사용자 보고 2026-10-15: "HTTP 429 search: Quota exceeded for quota metric 'Search Queries' and limit 'Search Queries per day' … 왜 이래 사용량 3000 남았는데"): 단위가 남아도 Google 의 'Search Queries per day'(HTTP 429)에 닿으면 검색만 막힘
 #          (예전 판은 이것을 몰라 탐색이 RuntimeError 로 멈춤 — outlier_research v2.5 가 이제 '검색만 멈춤'으로 받음).
 #          ① 0번 칸: 오늘 검색 수 · '검색 횟수 한도에 닿음 (N번째)' · 알려진 검색 한도 (pc_analysis v1.17 장부)
 #          ② 4번 칸 예상: 검색이 막힌 날은 '검색은 초기화 뒤' 로 · 알려진 검색 한도보다 많으면 알림
-#          ③ 탐색 결과에 search_stop (못 한 검색은 그대로 pending → 초기화 뒤 저절로 이어서), 이어서 하기는 검색이 막힌 날 검색을 건너뜀
+#          ③ 탐색 결과에 search_stop (못 한 검색은 그대로 pending → 초기화 뒤 저절로 이어서), 이어서 하기는 검색이 막힌 날 검색을 건너뜀)
 # (v2.2 — 2026-10-15 — 2번 칸 '영어(외국 영상) 검색어' — <주제>/keywords_foreign.txt 고치기 (사용자 지시: "주식은 영어 주식 검색어도 추가해"). 외국 영상을 켠 탭에서만
 #          검색 (outlier_research.load_keywords 가 더함 — 예상 할당량·탐색·쇼츠 탐색 모두), 몇 개·켜짐/꺼짐 표시. POST /api/keywords file=foreign.
 #          [외국 영상도]를 켜면 영어 검색어 수도 알려 줌)
@@ -144,7 +147,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import pc_analysis as pc                 # noqa: E402  할당량 장부·키 찾기·GitHub 동기화·패키지 준비
 
 ROOT = pc.ROOT
-VERSION = "v2.3"
+VERSION = "v2.3.1"
 LOG = logging.getLogger("web")
 KST = timezone(timedelta(hours=9))
 TOKEN = secrets.token_urlsafe(18)        # 화면이 요청마다 보내는 열쇠 (다른 사이트가 이 PC 의 화면을 조작하지 못하게)
@@ -241,8 +244,10 @@ def web_dir(t):
 
 
 def _read_json(p, default):
+    """v2.3.1: Windows 에서 쓰는 쪽과 부딪혀 잠깐 막히면 다시 읽음 (pc.read_text_retry). 없거나 깨졌으면 default."""
     try:
-        return json.loads(Path(p).read_text("utf-8"))
+        raw = pc.read_text_retry(p)
+        return json.loads(raw) if raw is not None else default
     except (OSError, ValueError):
         return default
 
@@ -250,9 +255,13 @@ def _read_json(p, default):
 def _write_json(p, data):
     p = Path(p)
     p.parent.mkdir(parents=True, exist_ok=True)
-    tmp = p.with_name(p.name + ".tmp")
+    tmp = p.with_name(p.name + f".{os.getpid()}.{threading.get_ident()}.tmp")    # v2.3.1: 작업마다 따로
     tmp.write_text(json.dumps(data, ensure_ascii=False, indent=1), "utf-8")
-    os.replace(tmp, p)
+    try:
+        pc.replace_retry(tmp, p)                       # v2.3.1: Windows 에서 화면이 읽는 중이면 다시
+    except PermissionError:
+        tmp.unlink(missing_ok=True)
+        raise
 
 
 def find_topics():
@@ -428,7 +437,7 @@ def set_include_foreign(t, on):
     data = text.encode("utf-8")
     tmp = p.with_name(p.name + ".tmp")
     tmp.write_bytes(data)
-    os.replace(tmp, p)
+    pc.replace_retry(tmp, p)                           # v2.3.1
     return data
 
 

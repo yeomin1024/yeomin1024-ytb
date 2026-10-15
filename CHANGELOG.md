@@ -1,5 +1,27 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-15 (18) — Windows 파일 바꿔치기 막힘(WinError 5)으로 승인이 멈추던 것
+
+### 왜 (사용자 보고)
+- 사용자 보고 "[JOB] stock 승인 — 자료 받고 분석 실패 … PermissionError: [WinError 5] 액세스가 거부되었습니다: …quota_key_….json.tmp -> …quota_key_….json 왜이래"
+
+### 원인
+- Windows 는 다른 쪽이 대상 파일을 열고 있으면 `os.replace`(임시 파일 → 진짜 파일)를 거부함 (WinError 5·32). 할당량 장부(`.yt_work/quota_key_<지문>.json`)는 승인 작업이 **요청마다** 쓰고, 웹 화면이 **몇 초마다** 읽음 → 둘이 부딪힘. 백신·검색 색인도 잠깐 잡음. 예전 판은 이 한 번으로 승인 작업 전체가 멈춤. v1.17(검색 횟수 확인)로 장부 읽기가 늘어 더 자주 부딪혔을 것
+- 함께 찾은 위험: 장부 읽기가 막히면 '빈 장부'로 보고, 쓰는 쪽이면 오늘 사용량을 0 으로 덮어쓸 수 있었음 · 웹 화면 `_read_json` 도 막히면 '없음'으로 보고 탐색 목록·체크를 빈 것으로 덮어쓸 수 있었음
+
+### 바꾼 것
+| 파일 (버전) | 함수 | 내용 |
+|---|---|---|
+| `tools/pc_analysis.py` (v1.17 → v1.18) | `replace_retry`·`read_text_retry`(새로)·`KeyLedger._load(strict)`·`_save`·`_locked(fallback)`·`reserve`·`mark_search_blocked`·`search_cap`·`_write_atomic` | 바꿔치기·읽기가 막히면 조금씩 늘려 다시(12번 ≈ 4초). 쓰는 쪽은 읽기 실패 시 덮어쓰지 않음, 화면은 마지막으로 읽은 값. 끝까지 못 적으면 경고만 남기고 작업은 계속(reserve 는 요청을 함 — 진짜 한도는 Google 이 셈). 임시 파일은 프로세스·스레드마다 따로, 실패하면 지움 |
+| `tools/web_ui.py` (v2.3 → v2.3.1) | `_read_json`·`_write_json`·`set_include_foreign` | 같은 다시 하기, 임시 파일 이름 작업마다 따로 |
+| `tools/outlier_research.py` (v2.5 → v2.5.1) | `_replace_retry`·`fetch_autocomplete` | 자동완성 캐시 바꿔치기 다시 하기 (끝까지 막히면 캐시만 건너뜀) |
+| 시험 `test_windows_files.py` (5, 새로) | | 3번 막혔다 풀림 → 적힘 / 끝까지 막힘 → 작업 계속·장부 그대로·임시 파일 없음 / 읽기 막힘 → 0 으로 덮어쓰지 않음 / 읽기 다시 / 웹 JSON |
+| `guides/pc_analysis.md` (v3.4) | 문제 해결 | 이 오류와 할 일 |
+
+### 확인
+- `python3 -m unittest` 104개 중 99 통과 — 실패 5개는 예전부터인 `test_youtube_feedback`(지운 옛 파일 필요). `pc_analysis.py --self-test` ALL PASS · Python 3.11 컴파일
+- ⚠️ 진짜 Windows 에서는 돌려 보지 못함 (클라우드는 리눅스) — 리눅스에서 `os.replace`·읽기를 가짜로 막아 시험
+
 ## 2026-10-15 (17) — 하루 검색 횟수 한도(HTTP 429) — 탐색이 멈추지 않고 검색만 초기화 뒤로
 
 ### 왜 (사용자 보고)

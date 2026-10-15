@@ -1,9 +1,16 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.17 — 2026-10-15 — 검색 횟수 한도 (사용자 보고 2026-10-15: "HTTP 429 search: Quota exceeded for quota metric 'Search Queries' and limit 'Search Queries per day' … 왜 이래 사용량 3000 남았는데"): Google 은 단위(10,000)와 따로 **하루 검색 횟수 한도**('Search Queries per day',
+# VERSION: v1.18 — 2026-10-15 — Windows 파일 바꿔치기 실패로 승인이 멈추던 것 (사용자 보고 2026-10-15: "[JOB] stock 승인 — 자료 받고 분석 실패 … PermissionError: [WinError 5] 액세스가 거부되었습니다: …quota_key_….json.tmp -> …quota_key_….json 왜이래"):
+#          원인 = Windows 는 다른 쪽(웹 화면이 몇 초마다 장부를 읽음·백신·색인)이 대상 파일을 잠깐 열고 있으면 os.replace 가 WinError 5·32.
+#          예전엔 그 한 번의 실패가 승인 작업 전체를 멈춤 (v1.17 의 검색 횟수 확인으로 장부 읽기가 늘어 더 자주 부딪힘).
+#          ① replace_retry(): 조금씩 늘려 12번까지 다시 (약 4초) — 장부·설정 동기화(_write_atomic)·웹 화면 JSON 이 함께 씀
+#          ② KeyLedger 읽기도 잠깐 막히면 다시 읽고, 그래도 안 되면 '마지막으로 읽은 값' (예전: 빈 장부로 보고 — 쓰는 쪽이면 오늘 사용량을
+#             0 으로 덮어쓸 수 있었음 → 이제 쓰는 쪽은 읽기 실패 시 덮어쓰지 않음)
+#          ③ 그래도 장부에 못 적으면 경고만 남기고 작업은 계속 (요청 한두 개를 덜 세는 것이 작업 전체를 멈추는 것보다 나음)
+# (v1.17 — 2026-10-15 — 검색 횟수 한도 (사용자 보고 2026-10-15: "HTTP 429 search: Quota exceeded for quota metric 'Search Queries' and limit 'Search Queries per day' … 왜 이래 사용량 3000 남았는데"): Google 은 단위(10,000)와 따로 **하루 검색 횟수 한도**('Search Queries per day',
 #          HTTP 429)를 둠 — 단위가 남아도 검색만 막힘. KeyLedger 가 ① 오늘 검색 수(searches)를 세고 ② 막히면 search_blocked(몇 번째에서·
 #          까닭)를 적어 같은 키의 다른 창·주제도 그날은 검색을 쉬게 하고 ③ 막힌 날의 검색 수를 .yt_work/search_cap_<지문>.json 에 남겨
-#          '알려진 검색 한도'(가장 작은 값)를 보여 줌. snapshot 에 searches·search_blocked·search_cap
+#          '알려진 검색 한도'(가장 작은 값)를 보여 줌. snapshot 에 searches·search_blocked·search_cap)
 # (v1.16 — 2026-10-15 — 영어 검색어 <주제>/keywords_foreign.txt (사용자 지시: "주식은 영어 주식 검색어도 추가해"): 외국 영상을 켠 주제(INCLUDE_FOREIGN)만
 #          keyword_list(할당량 계산·검색어 지문 — 바뀌면 분석기 다시)에 더함, 회차마다 GitHub 에서 받음(SYNC_CONFIG))
 # (v1.15 — 2026-10-15 — 주제마다 다른 키 (사용자 지시: "키도 나눠서 쓸수 있게해 주제별로 다른키 넣을거니까"): 키 찾는 순서는 그대로
@@ -129,7 +136,7 @@ from datetime import date, datetime, time as dtime, timedelta, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v1.17"
+VERSION = "v1.18"
 LOG = logging.getLogger("pc_analysis")
 KST = timezone(timedelta(hours=9))
 LOCK_STALE_MIN = 30          # 잠금 파일이 이 시간 넘게 갱신되지 않으면 이전 실행이 죽은 것으로 봄
@@ -266,6 +273,35 @@ def os_unlock(f):
         f.close()
 
 
+def replace_retry(tmp, dst, tries=12, wait=0.05):
+    """os.replace — Windows 에서 다른 쪽(웹 화면 읽기·백신·색인)이 dst 를 잠깐 열고 있으면 PermissionError(WinError 5·32) → 조금씩 늘려
+    다시 (v1.18, 12번 ≈ 4초). 마지막에도 안 되면 그 오류를 그대로 (부른 쪽이 정함)."""
+    for i in range(tries):
+        try:
+            os.replace(tmp, dst)
+            return
+        except PermissionError:
+            if i == tries - 1:
+                raise
+            time.sleep(wait * (i + 1))
+
+
+def read_text_retry(path, tries=8, wait=0.05):
+    """파일 읽기 — 없으면 None, Windows 에서 바꿔치기와 부딪혀 잠깐 막히면 다시 (v1.18). 끝까지 막히면 PermissionError."""
+    for i in range(tries):
+        try:
+            return Path(path).read_text("utf-8")
+        except FileNotFoundError:
+            return None
+        except PermissionError:
+            if i == tries - 1:
+                raise
+            time.sleep(wait * (i + 1))
+
+
+_LEDGER_LAST = {}      # v1.18: 장부 파일 → 마지막으로 읽은 내용 (읽기가 끝까지 막혀도 화면이 0 으로 보이지 않게)
+
+
 def key_fingerprint(key):
     """API 키 → 장부 파일 이름에 쓸 지문 (sha256 앞 12자리 — 키 자체는 어디에도 쓰지 않음)."""
     return hashlib.sha256(str(key).encode("utf-8")).hexdigest()[:12]
@@ -297,29 +333,46 @@ class KeyLedger:
         return {"day": day, "used": 0, "by_topic": {}, "by_what": {}, "exhausted": False, "runs": [], "updated": None,
                 "searches": 0, "search_blocked": None}                       # v1.17: 오늘 검색 수 · 검색 횟수 한도에 닿았나
 
-    def _load(self):
+    def _load(self, strict=False):
+        """오늘 장부. v1.18: 읽기가 잠깐 막히면 다시 — 끝까지 막히면 strict(쓰는 쪽)는 PermissionError, 아니면(화면) 마지막으로 읽은 값."""
         day = pacific_day(self.now_fn())
         try:
-            d = json.loads(self.p.read_text("utf-8"))
-        except (OSError, ValueError):
+            raw = read_text_retry(self.p)
+            d = json.loads(raw) if raw else {}
+            _LEDGER_LAST[str(self.p)] = d
+        except PermissionError:
+            if strict:
+                raise
+            d = _LEDGER_LAST.get(str(self.p)) or {}
+        except ValueError:
             d = {}
         return d if d.get("day") == day else self._empty(day)
 
     def _save(self, d):
         d["updated"] = datetime.now(KST).isoformat(timespec="seconds")
-        tmp = self.p.with_name(self.p.name + f".{os.getpid()}.tmp")
+        tmp = self.p.with_name(self.p.name + f".{os.getpid()}.{threading.get_ident()}.tmp")   # v1.18: 스레드마다 따로
         tmp.write_text(json.dumps(d, ensure_ascii=False, indent=1), "utf-8")
-        os.replace(tmp, self.p)
+        try:
+            replace_retry(tmp, self.p)
+        except PermissionError:
+            tmp.unlink(missing_ok=True)
+            raise
+        _LEDGER_LAST[str(self.p)] = d
 
-    def _locked(self, fn):
+    def _locked(self, fn, fallback=None):
+        """잠그고 읽고(fn)·쓰기. v1.18: Windows 파일 막힘이 다시 해도 안 풀리면 경고만 남기고 fallback (작업은 계속)."""
         f = os_lock(self.lock_p, wait_sec=15)
         if f is None:                      # 15초 넘게 못 얻음 (거의 없음) — 잠금 없이라도 진행 (세는 것이 조금 틀릴 수 있음)
             log("QUOTA", logging.WARNING, note="할당량 장부 잠금을 15초 안에 못 얻음 — 잠금 없이 적음", file=self.p.name)
         try:
-            d = self._load()
+            d = self._load(strict=True)
             out = fn(d)
             self._save(d)
             return out
+        except PermissionError as e:
+            log("QUOTA", logging.WARNING, file=self.p.name, error=str(e)[:160],
+                note="할당량 장부 파일이 다른 프로그램에 잠깐 잡혀 있어 이번 한 번은 못 적음 — 작업은 계속 (Windows 백신·색인·다른 창)")
+            return fallback
         finally:
             os_unlock(f)
 
@@ -344,7 +397,7 @@ class KeyLedger:
                 return False
             self._bump(d, units, what, topic)
             return True
-        return self._locked(fn)
+        return self._locked(fn, fallback=True)          # v1.18: 장부에 못 적어도 요청은 함 (Google 이 진짜 한도는 따로 셈)
 
     def refund(self, units, what="", topic=""):
         self._locked(lambda d: self._bump(d, -int(units), what, topic))
@@ -382,14 +435,22 @@ class KeyLedger:
                 d["search_blocked"] = {"at": int(d.get("searches") or 0), "kst": datetime.now(KST).isoformat(timespec="minutes"),
                                        "why": str(why)[:160]}
             return d["search_blocked"], d["day"]
-        blk, day = self._locked(fn)
+        got = self._locked(fn)
+        if not got:                                     # v1.18: 장부가 잠깐 막혀 못 적음 — 이번 실행(Api.search_stopped)은 그래도 검색을 멈춤
+            return None
+        blk, day = got
         cap_p = self.p.with_name(f"search_cap_{self.fp}.json")
         try:
-            hist = json.loads(cap_p.read_text("utf-8"))
+            hist = json.loads(read_text_retry(cap_p) or "{}") or {}
         except (OSError, ValueError):
-            hist = {"days": {}}
+            hist = {}
         hist.setdefault("days", {})[day] = blk["at"]
-        cap_p.write_text(json.dumps(hist, ensure_ascii=False, indent=1), "utf-8")
+        tmp = cap_p.with_name(cap_p.name + f".{os.getpid()}.{threading.get_ident()}.tmp")
+        tmp.write_text(json.dumps(hist, ensure_ascii=False, indent=1), "utf-8")
+        try:
+            replace_retry(tmp, cap_p)
+        except PermissionError:
+            tmp.unlink(missing_ok=True)
         log("QUOTA", logging.WARNING, note="하루 검색 횟수 한도(Search Queries per day)에 닿음 — 검색만 초기화 뒤에 (영상 정보·댓글은 계속)",
             searches_today_on_this_pc=blk["at"], key=self.fp)
         return blk
@@ -397,7 +458,7 @@ class KeyLedger:
     def search_cap(self):
         """v1.17: 막힌 날들의 '이 PC 에서 센 검색 수' 중 가장 작은 값 (다른 PC·클라우드에서 쓴 검색은 몰라 실제 한도보다 작을 수 있음). 모르면 None."""
         try:
-            days = json.loads(self.p.with_name(f"search_cap_{self.fp}.json").read_text("utf-8")).get("days") or {}
+            days = json.loads(read_text_retry(self.p.with_name(f"search_cap_{self.fp}.json")) or "{}").get("days") or {}
         except (OSError, ValueError):
             return None
         vals = [int(v) for v in days.values() if int(v or 0) > 0]
@@ -795,7 +856,7 @@ def _write_atomic(path, data):
     path.parent.mkdir(parents=True, exist_ok=True)
     tmp = path.with_name(path.name + ".sync")
     tmp.write_bytes(data)
-    os.replace(tmp, path)          # 새 파일로 바꿔 끼움 — 돌고 있는 bash 실행기도 예전 파일을 끝까지 읽음
+    replace_retry(tmp, path)       # 새 파일로 바꿔 끼움 — 돌고 있는 bash 실행기도 예전 파일을 끝까지 읽음 (v1.18: Windows 에서 막히면 다시)
 
 
 def sync_from_github(folder, code=False, dry=False, fetch=None):

@@ -1,5 +1,35 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-15 (11) — 압축본·Colab 없앰 → 원본은 Google Drive, 업로드는 PC 업로더 (예약 공개·자동 업로드)
+
+### 왜 (사용자 지시)
+- "압축본 올린거 삭제하고 구글 드라이브 내 드라이브에 youtube 폴더에 주제 (예: economic)맞는 폴더에 원본 영상 올리고 pc에서 영상 및 환경설정을 받아서 업로드 하는 코드 만들어서 올리는 걸로 하자 자동 예약 기능도 있어야해 지시사항에도 그렇게 하도록 반영해"
+
+### 바꾼 것
+| 파일 (버전) | 함수·항목 | 내용 |
+|---|---|---|
+| `economic/source/*/final_1080p.mp4`·`.json` (4개씩) | 지움 | 압축본 삭제 (git 기록에는 남음 — 기록까지 지우려면 강제 푸시가 필요해 하지 않음) |
+| `tools/compress_video.py` · `tools/colab_youtube.py` · `tools/tests/test_colab_youtube.py` | 지움 | 압축본·Colab 방식 없앰 |
+| `tools/drive_videos.py` v1.0 (새로) | `upload`·`download`·`find_video`·`topic_folder`·`list_videos`·`local_video`·`local_roots`·`check` | 원본 ↔ Drive `내 드라이브/youtube/<주제>/<영상ID>.mp4` (이어 올리기 8MB, 같은 md5 면 건너뜀·다르면 같은 파일을 새 내용으로, 받기 md5 확인), 기록 `source/<영상ID>/drive.json`, PC 의 Google Drive 데스크톱 폴더(`DRIVE_DIR`·`X:\내 드라이브`·macOS CloudStorage) 찾기. 권한 없음·API 꺼짐은 할 일을 알려 주는 오류 |
+| `tools/pc_upload.py` v1.0 (새로) | `GitHub`·`find_candidates`·`fetch_settings`·`locate_video`·`check_sheet`·`load_env`·`main` | PC: GitHub API 로 준비된 영상(시트 있고 youtube.json 없음)·설정(upload.md·txt·srt·titles·drive.json·thumbnail_N 이미지) 받기 → Drive 원본(데스크톱 폴더 또는 API) → `youtube_upload.run` 비공개 + **예약 공개**(`--delay 1h` 기본·`--at` 한국 시간·`--gap`) → youtube.json 을 GitHub Contents API 로 새 파일 기록 → 받은 사본 지움. 하루 최대 4개, 할당량 초과면 멈춤, `--dry-run` |
+| `run_uploader.ps1` v1.0 (새로) | — | 윈도 실행기: 코드 6개(pc_upload·drive_videos·youtube_upload·srt_tool·subtitle_widths.json·youtube_auth)를 매번 최신으로, `.env` 에 업로드 키 줄 더하기(있는 값은 그대로), .venv + Pillow, `-Auth`(토큰 발급 → .env), `-DryRun`·`-Delay`·`-At`·`-Gap`·`-Ids`·`-Max`, `-RegisterTask`(1시간마다 자동 업로드)·`-UnregisterTask`, 로그 `logs\uploader_<날짜>.log`. UTF-8 BOM·CRLF (PowerShell 5.1) |
+| `tools/youtube_auth.py` v1.1 → v1.2 | `SCOPES`·`save_env`·`--save-env` | 권한에 Google Drive(`drive` — 사용자가 만든 youtube/economic 폴더도 써야 해서) 추가, PC `.env` 에 바로 저장 |
+| `tools/youtube_upload.py` v1.4 → v1.5 | `find_video`·`prepare_thumbnail`·`_thumb_with_pillow`·`run` | 압축본 찾기 없앰(원본 out/ 또는 --video), ffmpeg 없는 PC 는 Pillow 로 썸네일 1280×720 JPG, 둘 다 없으면 png·jpg 2MB 이하만 그대로·아니면 썸네일 없이 |
+| `tools/tests/test_pc_upload.py` v1.0 (새로) | 7개 | 아래 |
+| `economic/source/*/upload.md` v1.1 (4개) | 머리 | 올릴 영상 = Drive 원본, 업로드 = PC `run_uploader.ps1` |
+| `guides/upload_guide.md` v1.7 (11번 다시) · `pipeline.md` v1.27 (4단계·처음 한 번 B) · `video_guide.md` v4.3 · `guides/README.md` v1.27 · `CLAUDE.md` · `.gitignore` (`**/source/**/*.mp4`·`logs/`·`*.mp4.part`) | — | 위 흐름 |
+
+### 검사
+- `python3 -m unittest tools.tests.test_pc_upload tools.tests.test_tts_patch tools.tests.test_content_research tools.tests.test_kaggle_tts_panel` OK (GITHUB_TOKEN 없이, 가짜 GitHub·Drive·유튜브): .env 읽기(있는 환경 변수 그대로), 준비된 영상 고르기·설정 받기(thumbnail_N 이미지만), 전체 흐름(데스크톱 폴더 원본은 그대로·API 로 받은 사본은 지움, `--at` + `--gap 24h` 예약 시각, youtube.json 새 파일 기록), 할당량 초과 멈춤·Drive 에 영상 없음, Drive 올리기(폴더 → 이어 올리기 → drive.json, 같은 md5 면 건너뜀), `DRIVE_DIR`, ffmpeg 없는 PC 의 Pillow 썸네일(1672×941 webp → 1280×720 JPG)
+- 진짜 GitHub(읽기만, 토큰 없이)로 PC 흐름 dry-run (임시 폴더): 영상 4개 설정 받기·시트 검사 문제 없음·챕터 9개, `--gap 24h` 예약 시각 하루씩. `srt_tool.py` 가 `tools/subtitle_widths.json` 을 읽어서 실행기 받을 목록에 넣음
+- PowerShell 7.4 파서: `run_uploader.ps1`·`run_analyzer.ps1` 문법 오류 0
+- `drive_videos.py check` (지금 클라우드 키): "Drive 권한 없음" 안내가 나옴 — 사용자가 `run_uploader.ps1 -Auth` 로 새 토큰을 받아 클라우드 환경에 넣기 전까지 Claude 는 원본을 Drive 에 직접 못 올림
+
+### 한계
+- 압축본 4개(약 73MB)는 git 기록에 남아 있다 (main 기록을 고쳐 쓰지 않음).
+- Drive 권한은 `drive`(전체) — 사용자가 만든 폴더를 찾기 위해서다. 토큰은 `.env`·클라우드 환경에만.
+- 진짜 Windows 에서는 아직 실행해 보지 않았다 (리눅스 PowerShell 7 로 문법만, 흐름은 파이썬 시험으로).
+
 ## 2026-10-15 (10) — 쇼츠 분석 (웹 화면 [롱폼 | 쇼츠] · tools/shorts_analysis.py · 음성인식 쇼츠 먼저)
 
 ### 왜 (사용자 지시)

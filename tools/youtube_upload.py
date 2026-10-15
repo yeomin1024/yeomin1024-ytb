@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.4 — 2026-10-15 — 사용자 지시 "각 영상 압축해서 저장소에 올리고 … colab 코드": 올릴 영상을 out/<영상ID>/final_1080p.mp4 (렌더 원본)
-#          가 없으면 저장소의 압축본 source/<영상ID>/final_1080p.mp4 (tools/compress_video.py) 에서 찾는다 — Colab 은 저장소만 받으므로.
-#          Colab 일괄 업로드 tools/colab_youtube.py 가 run()·find_video()·check_auth() 를 부른다 (업로드 실패는 예전처럼 RuntimeError).
+# VERSION: v1.5 — 2026-10-15 — 사용자 지시 "압축본 올린거 삭제하고 구글 드라이브 … youtube 폴더에 주제 맞는 폴더에 원본 영상 올리고 pc에서 영상 및
+#          환경설정을 받아서 업로드 하는 코드": 압축본(source/) 찾기를 없앰 — 올릴 영상은 out/<영상ID>/final_1080p.mp4 또는 --video
+#          (PC 업로더 tools/pc_upload.py 가 Drive 원본을 받아 넘김). 썸네일 변환: ffmpeg 가 없으면(윈도 PC) Pillow 로, 둘 다 없으면
+#          png·jpg 2MB 이하만 그대로·아니면 썸네일 없이 (업로드는 계속).
+# (v1.4 — 2026-10-15 — 저장소 압축본 찾기·Colab 일괄 업로드 — v1.5 에서 없앰)
 # (v1.3 — 2026-10-11 — '변경되거나 합성된 콘텐츠'를 업로드 시트에서 읽어 status.containsSyntheticMedia로 등록 (사용자 지시: 합성 콘텐츠 "예" — 내레이션이 AI 음성). 시트에 줄이 없으면 "예"
 #          (v1.2: 예약 공개(--publish-at, 사용자 지시 '렌더 완료 1시간 뒤'); v1.1: 사용자가 만든 썸네일 이미지를 1280×720·2MB 이하로 맞춤, 채택 제목의 짝 썸네일; v1.0: 비공개 업로드 — 제목·설명란·태그·카테고리·자막·썸네일 1개, 표준 라이브러리만)
 r"""
@@ -21,7 +23,7 @@ r"""
   source/<영상ID>/upload.md          1번 제목 · 2번 설명란 · 3번 챕터 명령(--chapters) · 4번 태그 (각 섹션의 첫 코드 블록)
                                     · 업로드 설정 표의 '변경되거나 합성된 콘텐츠' 줄(예/아니요) → status.containsSyntheticMedia (줄이 없으면 예)
   source/<영상ID>/<영상ID>.txt·.srt  챕터를 지금 SRT(= 영상 시간)로 다시 계산해 설명란 "■ 챕터"를 바꿔 넣음
-  out/<영상ID>/final_1080p.mp4       올릴 영상 (없으면 저장소의 압축본 source/<영상ID>/final_1080p.mp4 — v1.4, Colab 업로드)
+  out/<영상ID>/final_1080p.mp4       올릴 영상 (렌더 원본. PC 에서는 tools/pc_upload.py 가 Google Drive 내 드라이브/youtube/<주제>/<영상ID>.mp4 를 받아 --video 로 넘김)
   source/<영상ID>/thumbnails/thumbnail_N.png·jpg·webp   이미지 AI로 만든 썸네일 (N = titles.md 채택 제목의 짝, 기본 1)
                                     → 1280×720이 아니거나 2MB를 넘으면 ffmpeg로 가운데 기준 16:9 자르기·JPG 변환해 올림
 
@@ -283,16 +285,48 @@ def find_thumbnail(topic, vid, n):
     return None
 
 
+def _thumb_with_pillow(img, out):
+    """ffmpeg 가 없는 PC: Pillow 로 가운데 기준 16:9 → 1280×720 JPG (2MB 이하가 될 때까지 품질을 낮춤). → (경로, 원래 크기) 또는 None."""
+    try:
+        from PIL import Image
+    except ImportError:
+        return None
+    with Image.open(img) as im:
+        dims = f"{im.width}x{im.height}"
+        im = im.convert("RGB")
+        r = max(1280 / im.width, 720 / im.height)
+        im = im.resize((round(im.width * r), round(im.height * r)), Image.LANCZOS)
+        left, top = (im.width - 1280) // 2, (im.height - 720) // 2
+        im = im.crop((left, top, left + 1280, top + 720))
+        for q in (92, 85, 75):
+            im.save(out, "JPEG", quality=q)
+            if out.stat().st_size <= THUMB_MAX:
+                break
+    return out, dims
+
+
 def prepare_thumbnail(img, out_dir):
-    """유튜브 규격(1280×720, 2MB 이하)이 아니면 가운데 기준 16:9로 잘라 JPG로 만든다. 원본은 그대로 둔다."""
-    probe = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=width,height",
-                            "-of", "csv=p=0:s=x", str(img)], capture_output=True, text=True)
+    """유튜브 규격(1280×720, 2MB 이하)이 아니면 가운데 기준 16:9로 잘라 JPG로 만든다. 원본은 그대로 둔다.
+    ffmpeg 가 없으면 Pillow, 둘 다 없으면 png·jpg 2MB 이하만 그대로 (아니면 None — 썸네일 없이 올림)."""
+    out_dir.mkdir(parents=True, exist_ok=True)
+    out = out_dir / f"{img.stem}_upload.jpg"
+    try:
+        probe = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=width,height",
+                                "-of", "csv=p=0:s=x", str(img)], capture_output=True, text=True)
+    except FileNotFoundError:                      # 윈도 PC 등 ffmpeg 없음
+        res = _thumb_with_pillow(img, out)
+        if res:
+            log("THUMBNAIL", file=img.name, size=res[1], action=f"1280x720 JPG로 변환(Pillow) → {out.name} ({out.stat().st_size / 1e6:.2f}MB)")
+            return out
+        if img.suffix.lower() in (".png", ".jpg", ".jpeg") and img.stat().st_size <= THUMB_MAX:
+            log("THUMBNAIL", file=img.name, action="그대로 (ffmpeg·Pillow 없음 — 크기 확인 못 함)")
+            return img
+        log("THUMBNAIL", file=img.name, action="건너뜀 (ffmpeg·Pillow 없음, webp 또는 2MB 초과) → pip install pillow 또는 스튜디오에서 등록")
+        return None
     dims = probe.stdout.strip()
     if dims == "1280x720" and img.stat().st_size <= THUMB_MAX and img.suffix.lower() in (".png", ".jpg", ".jpeg"):
         log("THUMBNAIL", file=img.name, size=dims, action="그대로")
         return img
-    out_dir.mkdir(parents=True, exist_ok=True)
-    out = out_dir / f"{img.stem}_upload.jpg"
     for q in (3, 5, 8):
         subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(img), "-vf",
                         "scale=1280:720:force_original_aspect_ratio=increase,crop=1280:720", "-q:v", str(q), str(out)], check=True)
@@ -303,10 +337,7 @@ def prepare_thumbnail(img, out_dir):
 
 
 def find_video(topic, vid):
-    """올릴 영상: 렌더 원본(out/, git 에 없음)이 있으면 그것, 없으면 저장소의 압축본(source/, tools/compress_video.py). 둘 다 없으면 원본 경로."""
-    for p in (ROOT / topic / "out" / vid / "final_1080p.mp4", ROOT / topic / "source" / vid / "final_1080p.mp4"):
-        if p.exists():
-            return p
+    """올릴 영상 기본 경로: 렌더 원본 out/<영상ID>/final_1080p.mp4 (git 에 없음 — PC 는 Drive 에서 받아 --video 로)."""
     return ROOT / topic / "out" / vid / "final_1080p.mp4"
 
 
@@ -332,7 +363,7 @@ def run(topic, vid, dry_run=False, privacy="private", force=False, no_captions=F
     srt_path = src / f"{vid}.srt"
     thumb_n = paired_thumbnail(topic, vid)
     thumb_src = find_thumbnail(topic, vid, thumb_n)
-    thumbs = [prepare_thumbnail(thumb_src, out / "thumbnails")] if thumb_src else []
+    thumbs = [t for t in [prepare_thumbnail(thumb_src, out / "thumbnails")] if t] if thumb_src else []
     meta = read_sheet(topic, vid)
     meta["description"], chapter_lines = recompute_chapters(topic, vid, meta["description"], meta["chapter_spec"])
     problems = validate(meta)
@@ -401,7 +432,7 @@ def main(argv=None):
     ap.add_argument("--check-auth", action="store_true", help="키로 채널 이름만 확인")
     ap.add_argument("--privacy", default="private", choices=["private", "unlisted", "public"])
     ap.add_argument("--force", action="store_true", help="youtube.json이 있어도 다시 올림")
-    ap.add_argument("--video", help="영상 파일 경로 (기본: <주제>/out/<영상ID>/final_1080p.mp4, 없으면 source/<영상ID>/final_1080p.mp4)")
+    ap.add_argument("--video", help="영상 파일 경로 (기본: <주제>/out/<영상ID>/final_1080p.mp4)")
     ap.add_argument("--no-captions", action="store_true")
     ap.add_argument("--no-thumbnail", action="store_true")
     ap.add_argument("--publish-at", help="예약 공개 시각: '+1h'·'+90m' 또는 ISO 8601 (예: 2026-10-11T18:00:00+09:00). 비공개로 올리고 그 시각에 공개")

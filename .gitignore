@@ -17,7 +17,11 @@ node_modules/
 **/out/**/*.mov
 # 업로드 도구가 만드는 썸네일 변환본 (원본은 source/<영상ID>/thumbnails/)
 **/out/**/*_upload.jpg
-# 완성 영상 원본(out/)은 올리지 않고, 압축본 <주제>/source/<영상ID>/final_1080p.mp4 만 올림 (tools/compress_video.py, 사용자 지시 2026-10-15)
+# 영상 파일은 git 에 넣지 않음 — 완성 영상 원본은 Google Drive 내 드라이브/youtube/<주제>/ (tools/drive_videos.py, 사용자 지시 2026-10-15)
+**/source/**/*.mp4
+# PC 업로더 로그·Drive 받는 중 파일
+logs/
+*.mp4.part
 video/.remotion/
 # 실행기(run_analyzer)가 받는 중인 임시 파일·설정 백업
 *.download

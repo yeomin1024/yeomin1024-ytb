@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.4.2 — 2026-10-15 — 사용자 지시 "썸네일 chatgpt가 안올렸대잖아 올리도록 지시사항 반영해": ChatGPT 가 저장소에 못 쓰면(이 계정은 읽기만)
-#          그림을 'Claude 대화에 붙여 넣으라'고 안내 → Claude 가 검수해 올린다 (기본 길). 모든 시안에 이미지가 있으면 '만들 것 없음' 파일을 쓴다
+# VERSION: v1.4.3 — 2026-10-15 — 글자 없는 썸네일: thumbnail_N.md 표에 '| 글자 | 없음' 이 있으면 chatgpt.md 규칙을 '글자·숫자 하나도 없이,
+#          가짜 글자가 없는지 확대해 보기'로 바꿈 (사용자 지시 2026-10-15 "주식 주제는 전세계 사람들 대상 … 썸네일도 문구 달지 말고 이미지로만").
+# (v1.4.2 — 2026-10-15 — 사용자 지시 "썸네일 chatgpt가 안올렸대잖아 올리도록 지시사항 반영해": ChatGPT 가 저장소에 못 쓰면(이 계정은 읽기만)
+#          그림을 'Claude 대화에 붙여 넣으라'고 안내 → Claude 가 검수해 올린다 (기본 길). 모든 시안에 이미지가 있으면 '만들 것 없음' 파일을 쓴다)
 #          (v1.4.1 — 2026-10-15 — 사용자 지시 "chatgpt가 저장소 경로에 업로드하라고": chatgpt.md 에 저장소 올리기 단계(GitHub 앱 커밋, 안 되면 업로드 링크),
 #          이미 이미지가 있는 시안은 빼고 남은 것만, 한글 획 확대 확인 (1차: 입체 '건보료' 획 틀림))
 #          (v1.4.0 — 2026-10-15 — 사용자 지시 "한번에 3개 다 읽어서 만들라고 하면 되잖아": --chatgpt 주제 영상ID → thumbnails/chatgpt.md
@@ -280,10 +282,8 @@ CHATGPT_RULES = """## ChatGPT에게 — 이 파일을 읽으면 할 일
 1. 아래 썸네일 {n}개({names})를 **차례로 모두** 만든다. 질문하지 말고, 한 장을 만든 뒤 멈추지 말고 다음 장으로 넘어간다.
 2. 각 장은 그 칸의 **프롬프트(``` 안)를 한 글자도 바꾸지 않고 그대로** 쓴다. 장마다 서로 다른 그림이다 — 앞 장의 인물·구도·색을 이어 쓰지 않는다.
 3. 크기는 가로형 16:9 (1280×720). 16:9가 안 되면 가장 넓은 가로형으로 만들고, 글자와 얼굴은 가운데에 두고 위아래 가장자리 8%는 비운다.
-4. 그림 속 글자는 프롬프트의 따옴표 안 한글만, 글자·띄어쓰기 그대로 쓴다. 다른 글자·숫자·로고·워터마크는 넣지 않는다.
-5. 사람은 실존 인물이나 유명인을 닮지 않은 가상 인물이다.
-6. 한 장을 만들 때마다 그 칸의 '문구' 표와 그림 속 한글을 한 글자씩 맞춰 본다. 크게 확대해서 받침과 모음 획(예: '료'의 ㄹ, '보'의 ㅗ)이 빠지거나 가려지지 않았는지도 본다. 다르면 그림은 그대로 두고 글자만 고쳐 다시 만든다.
-7. 그림마다 위에 'thumbnail_N'이라고 한 줄 적어 어느 시안인지 알려 준다 (그림 안에는 쓰지 않는다).
+{rule4}5. 사람은 실존 인물이나 유명인을 닮지 않은 가상 인물이다.
+{rule6}7. 그림마다 위에 'thumbnail_N'이라고 한 줄 적어 어느 시안인지 알려 준다 (그림 안에는 쓰지 않는다).
 8. **다 만들면 저장소에 넣는다.**
    - 올릴 곳: 저장소 `{repo}` main 브랜치의 `{folder}/` 폴더, 파일 이름 `thumbnail_N.png` (N = 시안 번호).
    - GitHub 에 쓸 수 있으면(쓰기 권한이 있는 GitHub 앱) 그 폴더에 커밋한다. 커밋 메시지: `[썸네일] {vid} thumbnail_N 이미지`
@@ -292,6 +292,12 @@ CHATGPT_RULES = """## ChatGPT에게 — 이 파일을 읽으면 할 일
      2. 마지막에 이 문장을 그대로 쓴다: **"이 그림 {n}장을 Claude 대화창에 그대로 붙여 넣어 주세요. Claude가 검수한 뒤 저장소({folder}/thumbnail_N)에 올립니다."**
      3. 그 아래 줄에 직접 올리는 길도 적는다: "직접 올리려면: 그림을 thumbnail_N.png 이름으로 내려받아 {upload} 에 끌어다 놓고 Commit changes"
 """
+
+
+TEXT_RULES = ("4. 그림 속 글자는 프롬프트의 따옴표 안 한글만, 글자·띄어쓰기 그대로 쓴다. 다른 글자·숫자·로고·워터마크는 넣지 않는다.\n",
+              "6. 한 장을 만들 때마다 그 칸의 '문구' 표와 그림 속 한글을 한 글자씩 맞춰 본다. 크게 확대해서 받침과 모음 획(예: '료'의 ㄹ, '보'의 ㅗ)이 빠지거나 가려지지 않았는지도 본다. 다르면 그림은 그대로 두고 글자만 고쳐 다시 만든다.\n")
+NO_TEXT_RULES = ("4. **그림 속에 글자·숫자·기호·로고·워터마크를 하나도 넣지 않는다** — 전 세계 시청자용이라 그림만으로 뜻을 전한다. 지폐·화면·간판·그래프 눈금에도 글자나 숫자가 없어야 한다.\n",
+                 "6. 한 장을 만들 때마다 그림을 크게 확대해 **글자처럼 보이는 것**(가짜 글자, 숫자, 지폐 무늬 속 숫자, 화면 속 글)이 없는지 본다. 있으면 그 부분만 지운 그림으로 다시 만든다.\n")
 
 
 def chatgpt_file(topic, vid, root=ROOT):
@@ -312,7 +318,8 @@ def chatgpt_file(topic, vid, root=ROOT):
         words = re.search(r"## 문구[^\n]*\n(.*?)(?=\n## )", md, re.S)
         if not a:
             raise SystemExit(f"[CHATGPT] level=error file={md_path.name} reason=[A] 프롬프트 칸 없음 — '## [A] …' 아래 ``` 블록 필요")
-        items.append((i, md.splitlines()[0].lstrip("# ").strip(), a.group(1), words.group(1).strip() if words else ""))
+        no_text = bool(re.search(r"^\|\s*글자\s*\|\s*\**\s*없음", md, re.M))       # v1.4.3 글자 없는 썸네일
+        items.append((i, md.splitlines()[0].lstrip("# ").strip(), a.group(1), "" if no_text else (words.group(1).strip() if words else ""), no_text))
     rel = folder.relative_to(root).as_posix()
     if not items:
         if not any((folder / f"thumbnail_{i}.md").exists() for i in (1, 2, 3)):
@@ -328,8 +335,10 @@ def chatgpt_file(topic, vid, root=ROOT):
            f"이 파일은 고치지 말고 `thumbnail_N.md`를 고친 뒤 다시 만든다.", "",
            f"이 파일 주소: {RAW_BASE}/{rel}/chatgpt.md", "",
            CHATGPT_RULES.format(n=len(items), names=", ".join(f"thumbnail_{i}" for i, *_ in items), repo=REPO,
-                                folder=rel, vid=vid, upload=f"{UPLOAD_BASE}/{rel}")]
-    for i, head, prompt, words in items:
+                                folder=rel, vid=vid, upload=f"{UPLOAD_BASE}/{rel}",
+                                rule4=(NO_TEXT_RULES if all(x[4] for x in items) else TEXT_RULES)[0],
+                                rule6=(NO_TEXT_RULES if all(x[4] for x in items) else TEXT_RULES)[1])]
+    for i, head, prompt, words, _no_text in items:
         out += [f"## thumbnail_{i} — {head.split('—', 1)[-1].strip()}", ""]
         if words:
             out += ["문구 (그림 속 한글은 이것과 한 글자도 다르면 안 됨):", "", words, ""]

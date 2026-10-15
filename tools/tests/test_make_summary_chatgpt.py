@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
-# VERSION: v1.2 — 2026-10-15 — tools/make_summary.py v1.4.2 --chatgpt 시험 (못 쓰면 Claude 대화에 붙이라는 안내, 모두 만들었을 때 '만들 것 없음')
-# (v1.1 — 2026-10-15 — v1.4.1: 올리기 단계·이미지 있는 시안 빼기)
+# VERSION: v1.3 — 2026-10-15 — v1.4.3 글자 없는 썸네일('| 글자 | 없음') 규칙 시험 추가.
+# (v1.2 — 2026-10-15 — tools/make_summary.py v1.4.2 --chatgpt 시험 (못 쓰면 Claude 대화에 붙이라는 안내, 모두 만들었을 때 '만들 것 없음')
+# (v1.1 — 2026-10-15 — v1.4.1: 올리기 단계·이미지 있는 시안 빼기))
 # (v1.0 — 2026-10-15 — v1.4.0 --chatgpt 시험)
 # (임시 폴더의 가짜 thumbnail_N.md 만 씀 — 네트워크 없음)
 r"""
@@ -91,6 +92,20 @@ class ChatgptFileTest(unittest.TestCase):
     def test_no_files_stops(self):
         with redirect_stdout(io.StringIO()), self.assertRaises(SystemExit):
             ms.chatgpt_file("economic", "vid", root=self.root)
+
+    def test_no_text_rules(self):                       # v1.4.3 — 주식(전 세계 대상) 글자 없는 썸네일
+        for i in (1, 2, 3):
+            md = thumb_md(i).replace("| 시험하는 가설 | h", "| 글자 | **없음** (그림만) |\n| 시험하는 가설 | h")
+            (self.folder / f"thumbnail_{i}.md").write_text(md, "utf-8")
+        text, _ = self.run_tool()
+        self.assertIn("글자·숫자·기호·로고·워터마크를 하나도 넣지 않는다", text)
+        self.assertIn("글자처럼 보이는 것", text)
+        self.assertNotIn("받침과 모음 획", text)
+        self.assertNotIn("문구 (그림 속 한글", text)            # 문구표를 넣지 않음
+        for n in ("4.", "5.", "6.", "7."):                      # 규칙 번호 차례
+            self.assertIn("\n" + n, text)
+        self.assertLess(text.index("\n4."), text.index("\n5."))
+        self.assertLess(text.index("\n5."), text.index("\n6."))
 
 
 if __name__ == "__main__":

@@ -1,10 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.2 — 2026-10-15 — E1d 추가: 2016-03 부터는 일별 종가로 켜진 달에 그 달 평균 가격으로 사기 (월평균이 2020-03 같은 짧은 폭락을
+# VERSION: v1.5 — 2026-10-15 — E3 가장 나쁜 때를 같은 시작 달끼리 (한 번에 최악의 달에 나눠서는 얼마) — 서로 다른 달의 최악끼리 견주지 않게.
+# (v1.4 — 2026-10-15 — E8 추가: 떨어지면 기준(5·10·20%)마다 이긴 쪽이 바뀌는 시작 달·가장 큰 차이 (월평균·일별 신호 둘 다),
+#          사상 최고치 다음 달 수, 1년 뒤 오른 달 수 — 대본 숫자를 모두 결과 파일에서.
+# (v1.3 — 2026-10-15 — E7 추가: −10% 규칙의 산 기록 (기간마다 평균 산 값 A vs B, 대본 사례 기간의 산 달·남은 현금) —
+#          대본 '왜 그런가' 근거 (사용자 지시 2026-10-15 "제목, 대본, 썸네일 프롬프트, 영상까지 다 만들어봐").
+# (v1.2 — 2026-10-15 — E1d 추가: 2016-03 부터는 일별 종가로 켜진 달에 그 달 평균 가격으로 사기 (월평균이 2020-03 같은 짧은 폭락을
 #          놓치는 것 보정 — 떨어지면 사기에 유리한 쪽으로). (v1.1 — 2026-10-15 — E6 추가: 월평균이 짧은 폭락을 작게 보이는지 — FRED 일별 종가로 켜진 달 비교 (2016~).
 #          (v1.0 — 2026-10-15 — 최초. 주식 1번 주제 "너무 올랐으니 떨어지면 사겠다" 가설 백테스트 (사용자 지시 2026-10-15 "주식 채널 컨셉은
 #          ai로 코드 만들어서 가설을 백테스트해서 검증해보는거니까 고려해서 주제 4가지 정해봐 계속해" → stock/source/topic_candidates.md 1번).
-#          규칙: stock/guides/concept.md 2번. 엔진: tools/backtest v1.0 (시험 tools/tests/test_backtest.py).))
+#          규칙: stock/guides/concept.md 2번. 엔진: tools/backtest v1.0 (시험 tools/tests/test_backtest.py).)))))
 """
 가설 (시청자 댓글): "S&P500 이 너무 올랐다 → 떨어지면 사겠다(현금으로 기다리기)" · "환율도 높고 S&P500 이 너무 올랐을 때
 한꺼번에 너무 많이 샀다 — 후회" · "폭락장 대비는 어떻게?" (topic_candidates.md 1-2)
@@ -19,6 +24,8 @@
   E4  사상 최고치 다음 달에 산 뒤 1·5·10년 수익률 vs 아무 달에 산 뒤
   E5  '떨어지면' 신호가 얼마나 자주 켜지나 · 가장 오래 안 켜진 기간
   E1d E1 본 분석을 다시 — 2016-03 부터는 '일별 종가가 고점 대비 x%' 가 켜진 달에 그 달 평균 가격으로 산다 (그 전은 월평균 신호)
+  E7  −10% 규칙의 산 기록: 기간마다 평균 산 값(A 매달 vs B 떨어지면), 사례 기간(가장 최근 10년·2000-01 시작·차이 중앙값 기간)의 산 달·남은 현금
+  E8  떨어지면 기준마다 이긴 쪽이 바뀌는 시작 달·가장 큰 차이(월평균·일별 신호), 사상 최고치 다음 달 수, 1년 뒤 오른 달 수
   E6  월평균 가격이 짧은 폭락(예: 2020-03)을 작게 보이는지 — FRED 일별 종가(2016~, 가격만)로 '고점 대비 x%' 가 켜진 달 비교
 
 결과: results.json (모든 숫자) · results.md (표) · windows_main_10y.csv (기간마다 끝 값 — 차트용) · run.log
@@ -45,7 +52,7 @@ from backtest import VERSION as ENGINE_VERSION  # noqa: E402
 from backtest import data as bd  # noqa: E402
 from backtest import monthly as bm  # noqa: E402
 
-VERSION = "v1.2"
+VERSION = "v1.5"
 MAIN_START = "2000-01-01"        # 본 분석 시작 (CLAUDE.md: 사례·자료는 되도록 최신 — 2000년 닷컴 고점부터)
 EXT_START = "1950-01-01"         # 넓혀 보기 (같은 결론인지 확인용 — 대본에서는 한 줄)
 DROPS = [0.05, 0.10, 0.20, 0.30]
@@ -201,6 +208,11 @@ def main(argv=None):
                     sm["split_loss_windows"] = int((split < 1).sum())
                     sm["lump_worst"] = r4(lump.min())
                     sm["split_worst"] = r4(split.min())
+                    li, si = int(np.argmin(lump)), int(np.argmin(split))      # v1.5 같은 시작 달끼리
+                    sm["lump_worst_start"] = bm.month_labels(idx, [ss[li]])[0]
+                    sm["split_at_lump_worst"] = r4(split[li])
+                    sm["split_worst_start"] = bm.month_labels(idx, [ss[si]])[0]
+                    sm["lump_at_split_worst"] = r4(lump[si])
                     res["E3"][f"{name}_{hm}m_{subset}_{cname}"] = {k: (r4(v) if isinstance(v, float) else v) for k, v in sm.items()}
                     log("TRADE", exp="E3", period=name, horizon_m=hm, subset=subset, cash=cname, windows=len(ss),
                         lump_wins=sm["lump_wins"], ratio_median=f"{sm['ratio_median']:.4f}")
@@ -222,6 +234,18 @@ def main(argv=None):
             log("RESULT", exp="E4", period=name, horizon_m=hm, **{k: v for k, v in res["E4"][f"{name}_{hm}m"].items()})
 
     res["E5"] = e5
+    fwd12 = bm.forward_return(tri, 12)
+    seg12 = np.arange(main_first, len(tri))
+    ok12 = ~np.isnan(fwd12[seg12])
+    res["E8_base"] = {"main_months": int(len(tri) - main_first), "after_high_months": int(high[main_first:].sum()),
+                      "fwd12_months": int(ok12.sum()), "fwd12_up": int((fwd12[seg12][ok12] > 0).sum())}
+    log("RESULT", exp="E8_base", **res["E8_base"])
+
+    # 6-1. E7 −10% 규칙의 산 기록 (현금 이자 0, 본 분석 10년 기간) — 월평균 신호 (E7) · 2016~ 일별 신호 (E7d, 아래)
+    res["E7"] = e7(tri, cashes["cash0"], bm.dip_signal(price, 0.10), idx, main_first)
+    log("RESULT", exp="E7", windows=res["E7"]["windows"], dip_avg_cost_higher=res["E7"]["dip_avg_cost_higher_windows"],
+        avg_cost_ratio_median=res["E7"]["avg_cost_ratio_median"], avg_wait_months_median=res["E7"]["avg_wait_months_median"],
+        latest_gap_krw=res["E7"]["latest"]["gap_krw"], median_gap_window=res["E7"]["median_gap"]["start"])
 
     # 7. E6 일별 종가 vs 월평균 — 같은 '고점 대비 x%' 가 켜진 달 (2016~, 가격만)
     try:
@@ -264,6 +288,25 @@ def main(argv=None):
         for hy in HORIZONS_Y:
             r, _ = e1(tri, price, cashes, idx, main_first, len(tri) - 1, hy * 12, label="E1d_main", sig_for=sig_hybrid)
             res["E1d"][f"main_{hy}y_daily_signal_from_{hybrid_from}"] = r
+        res["E7d"] = e7(tri, cashes["cash0"], sig_hybrid(0.10), idx, main_first)
+        # E8 이긴 쪽이 바뀌는 시작 달 (10년, 현금 이자 0)
+        s8, e8 = bm.windows(len(tri), 120, first=main_first)
+        dca8 = bm.dca_wealth(tri, s8, e8)
+        res["E8"] = {}
+        for drop in (0.05, 0.10, 0.20):
+            for vname, sg in (("monthly", bm.dip_signal(price, drop)), ("daily_from_2016_03", sig_hybrid(drop))):
+                w8 = bm.dip_wealth(tri, cashes["cash0"], bm.next_true(sg), s8, e8)["wealth"]
+                bw, aw = s8[dca8 < w8], s8[dca8 > w8]
+                rr = dca8 / w8
+                res["E8"][f"drop{int(drop * 100)}_{vname}"] = {
+                    "a_wins": int(len(aw)), "b_wins": int(len(bw)),
+                    "b_win_starts": bm.month_labels(idx, [bw[0], bw[-1]]) if len(bw) else [],
+                    "a_win_first_start": bm.month_labels(idx, [aw[0]])[0] if len(aw) else None,
+                    "a_win_all_after_first": bool(len(aw) and (aw == s8[s8 >= aw[0]]).all()),
+                    "a_max_ratio": r4(rr.max()), "b_max_ratio": r4(1 / rr.min())}
+                log("RESULT", exp="E8", drop=drop, variant=vname, **res["E8"][f"drop{int(drop * 100)}_{vname}"])
+        log("RESULT", exp="E7d", dip_avg_cost_higher=res["E7d"]["dip_avg_cost_higher_windows"],
+            avg_cost_ratio_median=res["E7d"]["avg_cost_ratio_median"], avg_wait_months_median=res["E7d"]["avg_wait_months_median"])
     out = {
         "version": VERSION, "engine": ENGINE_VERSION, "generated": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "data": {k: meta[k] for k in ("url", "fetched_at", "sha256", "rows", "first", "last", "dividend_until",
@@ -280,6 +323,45 @@ def main(argv=None):
         win_csv.to_csv(HERE / "windows_main_10y.csv", index=False, float_format="%.6f")
     (HERE / "results.md").write_text(render_md(out), "utf-8")
     log("DONE", seconds=out["seconds"], results=HERE / "results.json")
+    return out
+
+
+def e7(tri, cash0, sig10, idx, main_first):
+    """−10% 규칙의 산 기록 — 기간마다 평균 산 값 A vs B, 기다린 달 수, 사례 기간 3개."""
+    s10, e10 = bm.windows(len(tri), 120, first=main_first)
+    dca10 = bm.dca_wealth(tri, s10, e10)
+    rows7 = []
+    for a_, b_ in zip(s10, e10):
+        tr = bm.dip_trades(tri, cash0, sig10, int(a_), int(b_))
+        rows7.append({"s": int(a_), "e": int(b_), "avg_cost_ratio": tr["avg_cost"] / bm.dca_avg_cost(tri, int(a_), int(b_)),
+                      "buys": len(tr["trades"]), "cash_left": tr["cash_left"], "wealth": tr["wealth"], "trades": tr["trades"]})
+    ratios = np.array([r["avg_cost_ratio"] for r in rows7])
+    gaps = dca10 - np.array([r["wealth"] for r in rows7])
+    med_i = int(np.argmin(np.abs(gaps - np.median(gaps))))
+
+    def detail(i):
+        r = rows7[i]
+        return {"start": bm.month_labels(idx, [r["s"]])[0], "end": bm.month_labels(idx, [r["e"]])[0],
+                "dca_krw": int(round(dca10[i] * MONTHLY_KRW)), "dip_krw": int(round(r["wealth"] * MONTHLY_KRW)),
+                "gap_krw": int(round(gaps[i] * MONTHLY_KRW)), "buy_months": r["buys"],
+                "first_buy": bm.month_labels(idx, [r["trades"][0][0]])[0] if r["trades"] else None,
+                "first_buy_amount_krw": int(round(r["trades"][0][1] * MONTHLY_KRW)) if r["trades"] else None,
+                "trades": [{"month": bm.month_labels(idx, [t])[0], "amount_krw": int(round(amt * MONTHLY_KRW))} for t, amt, _ in r["trades"]],
+                "cash_left_krw": int(round(r["cash_left"] * MONTHLY_KRW)),
+                "avg_cost_dip_over_dca": r4(r["avg_cost_ratio"])}
+    out = {
+        "rule": "drop10_cash0_main_10y", "windows": len(rows7),
+        "dip_avg_cost_higher_windows": int((ratios > 1).sum()), "avg_cost_ratio_median": r4(np.median(ratios)),
+        "buy_months_median": float(np.median([r["buys"] for r in rows7])),
+        "latest": detail(len(rows7) - 1), "first": detail(0), "median_gap": detail(med_i)}
+    waits = []
+    for r in rows7:
+        w = 0.0
+        for t in range(r["s"], r["e"] + 1):
+            nxt = next((tt for tt, _, _ in r["trades"] if tt >= t), r["e"] + 1)
+            w += nxt - t
+        waits.append(w / (r["e"] - r["s"] + 1))
+    out["avg_wait_months_median"] = r4(np.median(waits))
     return out
 
 
@@ -332,6 +414,16 @@ def render_md(o):
     L += ["", "## E5. '떨어지면' 신호가 켜진 달", "", "| 경우 | 켜진 달 / 전체 | 가장 오래 안 켜진 기간 (끝난 달) |", "|---|---|---|"]
     for k, v in R["E5"].items():
         L.append(f"| {k} | {v['signal_months']}/{v['months']} ({v['share'] * 100:.0f}%) | {v['longest_no_signal_months']}달 ({v['longest_no_signal_until']}) |")
+    e7 = R.get("E7") or {}
+    if e7:
+        L += ["", "## E7. −10% 규칙의 산 기록 (현금 이자 0, 2000~ 10년 기간)", "",
+              f"- 떨어지면 사기(B)의 평균 산 값이 매달 사기(A)보다 **높았던** 기간: {e7['dip_avg_cost_higher_windows']}/{e7['windows']}, "
+              f"평균 산 값 비율(B/A) 중앙값 {e7['avg_cost_ratio_median']:.3f} · B가 산 달 수 중앙값 {e7['buy_months_median']:.0f}", ""]
+        for name in ("latest", "first", "median_gap"):
+            d = e7[name]
+            L.append(f"- {name}: {d['start']}~{d['end']} — A {won(d['dca_krw'])} / B {won(d['dip_krw'])} (차이 {won(d['gap_krw'])}), "
+                     f"B 산 달 {d['buy_months']}번 (처음 {d['first_buy']}, {won(d['first_buy_amount_krw'] or 0)}), 끝에 남은 현금 {won(d['cash_left_krw'])}, "
+                     f"평균 산 값 B/A {d['avg_cost_dip_over_dca']}")
     e6 = R.get("E6") or {}
     L += ["", f"## E6. 월평균 vs 일별 종가 — '고점 대비 x%'가 켜진 달 ({e6.get('daily_first', '?')[:7]}~{e6.get('daily_last', '?')[:7]}, 가격만)", "",
           f"- {e6.get('note', e6.get('error', ''))}", "", "| 떨어지면 | 일별 종가로 켜진 달 | 월평균으로 켜진 달 | 일별로만 켜진 달 |", "|---|---|---|---|"]

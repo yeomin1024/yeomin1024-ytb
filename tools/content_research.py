@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.1 — 2026-10-15 — 성공 사례를 지금 `<주제>/analysis_rules.toml` [exclude] OFF_TOPIC(제목 낱말)으로 다시 거름 — PC 가 다시 분석하기 전에도
-#          새로 더한 '뺀 주제'(예: 주식 결과의 영화·시골집 미장·팬미팅·무당 영상)가 질문 묶음에 섞이지 않게 (사용자 지시 2026-10-15 "계속해" — 주식 주제 고르기)
+# VERSION: v1.1.1 — 2026-10-15 — 묶음 접두어가 비면 표에 NUL 글자를 찍던 것 (주식 research 파일이 'binary'로 보임).
+# (v1.1 — 2026-10-15 — 성공 사례를 지금 `<주제>/analysis_rules.toml` [exclude] OFF_TOPIC(제목 낱말)으로 다시 거름 — PC 가 다시 분석하기 전에도
+#          새로 더한 '뺀 주제'(예: 주식 결과의 영화·시골집 미장·팬미팅·무당 영상)가 질문 묶음에 섞이지 않게 (사용자 지시 2026-10-15 "계속해" — 주식 주제 고르기))
 # (v1.0 — 2026-10-14 — 최초 작성 (사용자 지시 "지금까지 했던 주제 탐색, 제목 생성, 대본 생성을 어떻게 했는지와 피드백을 반영해서
 #          각각 지시사항 파일을 만들고"): 2026-10-14 대화에서 임시 스크립트로 한 분석(시청자 나이·질문 묶음, 제목 형식·낱말·맨 앞 말,
 #          성공 대본 말투·전개 장치, 댓글 칭찬·불만, 새 대본 측정)을 명령 하나로 모음. 지시사항: guides/topic_guide.md · title_guide.md · script_guide.md)
@@ -46,7 +47,7 @@ try:
 except ImportError:  # pragma: no cover - 3.11 미만
     tomllib = None
 
-VERSION = "v1.1"
+VERSION = "v1.1.1"
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
 
@@ -258,7 +259,8 @@ def cmd_needs(d, top=6):
     prefix = rules.get("CORE_THEME_PREFIX") or "\0"
     core = [x for x in want if x["theme"].startswith(prefix) or core_rx.search(x["t"])]
     print(f"\n## 시청자가 원하는 정보 — 질문·요청·'궁금' 댓글 {len(want):,}개 중 핵심 시청자 질문 {len(core)}개\n")
-    print(f"- 핵심 시청자 = 주제 묶음 '{prefix}…' 영상에 달렸거나, `{rules.get('CORE_CONTEXT')}` 가 든 질문. 한 질문이 여러 묶음에 들 수 있다.\n")
+    shown = f"주제 묶음 '{prefix}…' 영상에 달렸거나" if prefix != "\0" else "(주제 묶음으로 고르지 않음)"   # v1.1.1: 빈 접두어면 NUL 을 찍지 않음
+    print(f"- 핵심 시청자 = {shown}, `{rules.get('CORE_CONTEXT')}` 가 든 질문. 한 질문이 여러 묶음에 들 수 있다.\n")
     res = []
     for k, rx in clusters.items():
         hits = [x for x in core if re.search(rx, x["t"])]

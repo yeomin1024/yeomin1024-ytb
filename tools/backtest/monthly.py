@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-10-15 — 최초 (사용자 지시 2026-10-15 "주식 채널 컨셉은 ai로 코드 만들어서 가설을 백테스트해서 검증해보는거니까").
+# VERSION: v1.1 — 2026-10-15 — dip_trades·dca_avg_cost: 떨어지면 사기의 산 달·금액·평균 산 값 (대본 '왜 그런가' 근거, 사용자 지시 2026-10-15
+#          "제목, 대본, 썸네일 프롬프트, 영상까지 다 만들어봐").
+# (v1.0 — 2026-10-15 — 최초 (사용자 지시 2026-10-15 "주식 채널 컨셉은 ai로 코드 만들어서 가설을 백테스트해서 검증해보는거니까").
 #          월별 자료 백테스트: 총수익 지수·현금 지수·'떨어지면 사기' 신호(전달까지 자료만)·매달 사기 vs 떨어지면 사기·한 번에 vs 나눠서,
-#          여러 시작 시점(굴리는 기간)을 numpy 로 한 번에. 느린 반복 계산(naive_*)과 같은 값인지 시험 tools/tests/test_backtest.py.
+#          여러 시작 시점(굴리는 기간)을 numpy 로 한 번에. 느린 반복 계산(naive_*)과 같은 값인지 시험 tools/tests/test_backtest.py.)
 """월별 백테스트 (연구·교육용 — 투자 권유가 아니다. 과거 결과는 미래를 보장하지 않는다).
 
 시점 약속 (미래 정보 금지):
@@ -182,3 +184,27 @@ def naive_dip(tri, cash, sig, s, e):
             units += cash_amt / tri[t]
             cash_amt = 0.0
     return units * tri[e] + cash_amt
+
+
+# ----------------------------------------------------------------------------- v1.1 산 기록 (기간 하나 — 대본 사례·평균 산 값)
+def dip_trades(tri, cash, sig, s, e):
+    """기간 [s, e] 하나를 한 달씩: 떨어지면 사기의 산 기록. → dict(trades=[(t, 산 금액, tri[t])], cash_left, units, wealth, invested).
+    산 금액 = 그달까지 모은 현금(이자 포함). invested = 실제로 주식에 들어간 돈. 평균 산 값 = invested / units (tri 단위)."""
+    units, cash_amt, trades, invested = 0.0, 0.0, [], 0.0
+    for t in range(s, e + 1):
+        if t > s:
+            cash_amt *= cash[t] / cash[t - 1]
+        cash_amt += 1.0
+        if sig[t]:
+            trades.append((t, cash_amt, tri[t]))
+            units += cash_amt / tri[t]
+            invested += cash_amt
+            cash_amt = 0.0
+    return {"trades": trades, "cash_left": cash_amt, "units": units, "wealth": units * tri[e] + cash_amt, "invested": invested,
+            "avg_cost": (invested / units) if units else float("nan")}
+
+
+def dca_avg_cost(tri, s, e):
+    """매달 1씩 산 평균 산 값 (tri 단위) = 넣은 돈 / 산 주식 수."""
+    t = np.arange(s, e + 1)
+    return len(t) / np.sum(1.0 / tri[t])

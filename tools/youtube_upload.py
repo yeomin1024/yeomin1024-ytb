@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.5 — 2026-10-15 — 사용자 지시 "압축본 올린거 삭제하고 구글 드라이브 … youtube 폴더에 주제 맞는 폴더에 원본 영상 올리고 pc에서 영상 및
+# VERSION: v1.6 — 2026-10-15 — 언어별 제목·설명(localizations)·기본 언어·자막 올리기 여부를 업로드 시트에서 읽음 (사용자 지시 2026-10-15
+#          "주식 주제는 전세계 사람들 대상으로 할거니까 영상에 자막 달지말고 … 유튜브 이용자가 가장 많은 국가 선정(영어, 한국어 포함)해서
+#          그 언어로 제목 각각 만들어"): upload.md '언어별 제목·설명' 섹션의 JSON 코드 블록 → snippet.defaultLanguage + localizations
+#          (part=snippet,status,localizations), 업로드 설정 '| 자막 올리기 | 아니요 |' → 자막을 올리지 않음, '| 기본 언어 | ko |'.
+# (v1.5 — 2026-10-15 — 사용자 지시 "압축본 올린거 삭제하고 구글 드라이브 … youtube 폴더에 주제 맞는 폴더에 원본 영상 올리고 pc에서 영상 및
 #          환경설정을 받아서 업로드 하는 코드": 압축본(source/) 찾기를 없앰 — 올릴 영상은 out/<영상ID>/final_1080p.mp4 또는 --video
 #          (PC 업로더 tools/pc_upload.py 가 Drive 원본을 받아 넘김). 썸네일 변환: ffmpeg 가 없으면(윈도 PC) Pillow 로, 둘 다 없으면
-#          png·jpg 2MB 이하만 그대로·아니면 썸네일 없이 (업로드는 계속).
+#          png·jpg 2MB 이하만 그대로·아니면 썸네일 없이 (업로드는 계속).)
 # (v1.4 — 2026-10-15 — 저장소 압축본 찾기·Colab 일괄 업로드 — v1.5 에서 없앰)
 # (v1.3 — 2026-10-11 — '변경되거나 합성된 콘텐츠'를 업로드 시트에서 읽어 status.containsSyntheticMedia로 등록 (사용자 지시: 합성 콘텐츠 "예" — 내레이션이 AI 음성). 시트에 줄이 없으면 "예"
 #          (v1.2: 예약 공개(--publish-at, 사용자 지시 '렌더 완료 1시간 뒤'); v1.1: 사용자가 만든 썸네일 이미지를 1280×720·2MB 이하로 맞춤, 채택 제목의 짝 썸네일; v1.0: 비공개 업로드 — 제목·설명란·태그·카테고리·자막·썸네일 1개, 표준 라이브러리만)
@@ -22,6 +26,8 @@ r"""
 읽는 파일 (<주제폴더>/ 기준):
   source/<영상ID>/upload.md          1번 제목 · 2번 설명란 · 3번 챕터 명령(--chapters) · 4번 태그 (각 섹션의 첫 코드 블록)
                                     · 업로드 설정 표의 '변경되거나 합성된 콘텐츠' 줄(예/아니요) → status.containsSyntheticMedia (줄이 없으면 예)
+                                    · (v1.6) '언어별 제목·설명' 섹션의 JSON 코드 블록 {"en": {"title": …, "description": …}, …} → localizations
+                                      업로드 설정 '| 기본 언어 | ko |'(없으면 ko) · '| 자막 올리기 | 아니요 |'(없으면 예)
   source/<영상ID>/<영상ID>.txt·.srt  챕터를 지금 SRT(= 영상 시간)로 다시 계산해 설명란 "■ 챕터"를 바꿔 넣음
   out/<영상ID>/final_1080p.mp4       올릴 영상 (렌더 원본. PC 에서는 tools/pc_upload.py 가 Google Drive 내 드라이브/youtube/<주제>/<영상ID>.mp4 를 받아 --video 로 넘김)
   source/<영상ID>/thumbnails/thumbnail_N.png·jpg·webp   이미지 AI로 만든 썸네일 (N = titles.md 채택 제목의 짝, 기본 1)
@@ -82,7 +88,32 @@ def read_sheet(topic, vid):
     spec = re.search(r'--chapters\s+"([^"]+)"', cmd)
     tags = [t.strip() for t in tags_raw.replace("\n", ",").split(",") if t.strip()]
     return {"title": title, "description": desc, "tags": tags, "chapter_spec": spec.group(1) if spec else None,
-            "synthetic": read_synthetic(md)}
+            "synthetic": read_synthetic(md), "default_language": read_setting(md, "기본 언어", "ko"),
+            "captions": read_setting(md, "자막 올리기", "예") != "아니요", "localizations": read_localizations(md)}
+
+
+def read_setting(md, name, default):
+    """업로드 설정 표 '| <name> | <값> …|' 의 값 첫 낱말 (굵게 ** 무시). 줄이 없으면 default."""
+    m = re.search(rf"^\|\s*{re.escape(name)}\s*\|\s*\**\s*([^|*\s]+)", md, re.M)
+    return m.group(1).strip() if m else default
+
+
+def read_localizations(md):
+    """v1.6: '## N. 언어별 제목·설명' 섹션의 첫 코드 블록(JSON) → {언어: {title, description}}. 섹션이 없으면 {}.
+    JSON 이 깨졌으면 멈춘다 (조용히 한국어만 올리지 않음)."""
+    raw = _section_code(md, "언어별")
+    if raw is None:
+        return {}
+    try:
+        data = json.loads(raw)
+    except json.JSONDecodeError as e:
+        raise SystemExit(f"[SHEET] ❌ upload.md '언어별 제목·설명' JSON 이 깨짐: {e} → 따옴표·쉼표 확인")
+    out = {}
+    for lang, v in data.items():
+        if not isinstance(v, dict) or not str(v.get("title", "")).strip():
+            raise SystemExit(f"[SHEET] ❌ 언어별 제목·설명: '{lang}' 에 title 이 없음")
+        out[lang] = {"title": str(v["title"]).strip(), "description": str(v.get("description", ""))}
+    return out
 
 
 def read_synthetic(md):
@@ -135,6 +166,15 @@ def validate(meta):
             problems.append(f"{field}에 < > 문자 (유튜브가 거부)")
     if tags_length(meta["tags"]) > MAX_TAGS:
         problems.append(f"태그 {tags_length(meta['tags'])}자 > {MAX_TAGS}")
+    for lang, loc in (meta.get("localizations") or {}).items():          # v1.6
+        if len(loc["title"]) > MAX_TITLE:
+            problems.append(f"{lang} 제목 {len(loc['title'])}자 > {MAX_TITLE}")
+        if len(loc["description"]) > MAX_DESC:
+            problems.append(f"{lang} 설명란 {len(loc['description'])}자 > {MAX_DESC}")
+        if re.search(r"[<>]", loc["title"] + loc["description"]):
+            problems.append(f"{lang} 제목·설명에 < > 문자 (유튜브가 거부)")
+    if meta.get("localizations") and meta.get("default_language") in meta["localizations"]:
+        problems.append(f"기본 언어({meta['default_language']})는 1번 제목·2번 설명란에 쓰고 언어별 목록에서는 뺀다")
     return problems
 
 
@@ -209,11 +249,16 @@ def upload_video(token, path, meta, privacy, publish_at=None):
               "containsSyntheticMedia": bool(meta.get("synthetic", True))}   # 변경되거나 합성된 콘텐츠 (AI 음성 내레이션)
     if publish_at:                                   # 예약 공개는 반드시 private + publishAt
         status.update(privacyStatus="private", publishAt=publish_at)
+    lang = meta.get("default_language") or "ko"
     body = {"snippet": {"title": meta["title"], "description": meta["description"], "tags": meta["tags"],
-                        "categoryId": CATEGORY_EDUCATION, "defaultLanguage": "ko", "defaultAudioLanguage": "ko"},
+                        "categoryId": CATEGORY_EDUCATION, "defaultLanguage": lang, "defaultAudioLanguage": lang},
             "status": status}
+    parts = "snippet,status"
+    if meta.get("localizations"):                    # v1.6 언어별 제목·설명 (defaultLanguage 가 있어야 받음)
+        body["localizations"] = meta["localizations"]
+        parts += ",localizations"
     size = path.stat().st_size
-    status, headers, _ = request("POST", f"{UPLOAD_API}/videos?uploadType=resumable&part=snippet,status", token,
+    status, headers, _ = request("POST", f"{UPLOAD_API}/videos?uploadType=resumable&part={parts}", token,
                                  data=json.dumps(body).encode(),
                                  headers={"Content-Type": "application/json; charset=UTF-8",
                                           "X-Upload-Content-Type": "video/mp4", "X-Upload-Content-Length": str(size)})
@@ -369,7 +414,8 @@ def run(topic, vid, dry_run=False, privacy="private", force=False, no_captions=F
     problems = validate(meta)
     log("SHEET", video=vid, title_chars=len(meta["title"]), desc_chars=len(meta["description"]),
         tags=len(meta["tags"]), tags_chars=tags_length(meta["tags"]),
-        synthetic="예" if meta["synthetic"] else "아니요")
+        synthetic="예" if meta["synthetic"] else "아니요", default_language=meta["default_language"],
+        localizations=",".join(meta["localizations"]) or "없음", captions="예" if meta["captions"] else "아니요")
     log("FILES", video_file=f"{video_path.relative_to(ROOT) if video_path.is_relative_to(ROOT) else video_path}"
         f"({'있음' if video_path.exists() else '없음'})", srt="있음" if srt_path.exists() else "없음",
         thumbnail=thumbs[0].name if thumbs else f"없음(thumbnail_{thumb_n} — 이미지 AI로 만든 파일을 source/{vid}/thumbnails/ 에)")
@@ -386,6 +432,8 @@ def run(topic, vid, dry_run=False, privacy="private", force=False, no_captions=F
             note="비공개로 올리고 이 시각에 자동 공개 (감사 전 API 프로젝트는 비공개 잠금이라 공개되지 않을 수 있음)")
     if dry_run:
         print(f"\n제목: {meta['title']}\n태그: {', '.join(meta['tags'])}\n--- 설명란 ---\n{meta['description']}\n---")
+        for lang, loc in meta["localizations"].items():
+            print(f"[{lang}] {loc['title']}")
         log("DRY-RUN", result="문제 없음" if not problems else f"문제 {len(problems)}개", uploaded="안 함")
         return None
     if problems:
@@ -399,11 +447,13 @@ def run(topic, vid, dry_run=False, privacy="private", force=False, no_captions=F
               "studio": f"https://studio.youtube.com/video/{video_id}/edit", "privacy": "private" if publish_at else privacy,
               "publishAt": publish_at, "containsSyntheticMedia": bool(meta["synthetic"]),
               "uploadedAt": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
-              "title": meta["title"], "videoFile": str(video_path.name), "videoSha256": sha256(video_path),
+              "title": meta["title"], "localizations": sorted(meta["localizations"]), "videoFile": str(video_path.name), "videoSha256": sha256(video_path),
               "chapters": chapter_lines, "captions": None, "thumbnail": None, "warnings": [],
               "studioTodo": ["공개 전(예약 시각 전) 스튜디오에서 확인: 영상·자막·썸네일, 자동 더빙(언어), 최종 화면",
                              "공개된 뒤 '테스트 및 비교'에 썸네일 3개 등록 — 비공개 영상은 테스트 불가"]}
-    if not no_captions and srt_path.exists():
+    if not meta["captions"]:
+        log("CAPTIONS", status="skip", reason="업로드 시트 '자막 올리기: 아니요' (주식 — 전 세계 대상, 사용자 지시 2026-10-15)")
+    if not no_captions and meta["captions"] and srt_path.exists():
         try:
             result["captions"] = upload_captions(token, video_id, srt_path)
             log("CAPTIONS", status="ok", file=srt_path.name)

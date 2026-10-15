@@ -1,7 +1,7 @@
 {
- "version": "v1.2",
+ "version": "v1.5",
  "engine": "v1.1",
- "generated": "2026-10-15T14:48:36Z",
+ "generated": "2026-10-15T17:38:44Z",
  "data": {
   "url": "https://raw.githubusercontent.com/datasets/s-and-p-500/07b81e6af68239acd65b901a11844d6d95db6ead/data/data.csv",
   "fetched_at": "2026-10-15T14:47:35Z",
@@ -1859,7 +1859,11 @@
     "lump_loss_windows": 69,
     "split_loss_windows": 73,
     "lump_worst": 0.5668,
-    "split_worst": 0.7175
+    "split_worst": 0.7175,
+    "lump_worst_start": "2008-04",
+    "split_at_lump_worst": 0.7415,
+    "split_worst_start": "2007-12",
+    "lump_at_split_worst": 0.6098
    },
    "main_12m_all_cashRate": {
     "windows": 271,
@@ -1876,7 +1880,11 @@
     "lump_loss_windows": 69,
     "split_loss_windows": 62,
     "lump_worst": 0.5668,
-    "split_worst": 0.7313
+    "split_worst": 0.7313,
+    "lump_worst_start": "2008-04",
+    "split_at_lump_worst": 0.7559,
+    "split_worst_start": "2007-12",
+    "lump_at_split_worst": 0.6098
    },
    "main_12m_after_high_cash0": {
     "windows": 69,
@@ -1893,7 +1901,11 @@
     "lump_loss_windows": 21,
     "split_loss_windows": 24,
     "lump_worst": 0.6755,
-    "split_worst": 0.7502
+    "split_worst": 0.7502,
+    "lump_worst_start": "2007-11",
+    "split_at_lump_worst": 0.7502,
+    "split_worst_start": "2007-11",
+    "lump_at_split_worst": 0.6755
    },
    "main_12m_after_high_cashRate": {
     "windows": 69,
@@ -1910,7 +1922,11 @@
     "lump_loss_windows": 21,
     "split_loss_windows": 21,
     "lump_worst": 0.6755,
-    "split_worst": 0.7644
+    "split_worst": 0.7644,
+    "lump_worst_start": "2007-11",
+    "split_at_lump_worst": 0.7644,
+    "split_worst_start": "2007-11",
+    "lump_at_split_worst": 0.6755
    },
    "main_60m_all_cash0": {
     "windows": 223,
@@ -1927,7 +1943,11 @@
     "lump_loss_windows": 31,
     "split_loss_windows": 33,
     "lump_worst": 0.7361,
-    "split_worst": 0.7238
+    "split_worst": 0.7238,
+    "lump_worst_start": "2004-04",
+    "split_at_lump_worst": 0.7238,
+    "split_worst_start": "2004-04",
+    "lump_at_split_worst": 0.7361
    },
    "main_60m_all_cashRate": {
     "windows": 223,
@@ -1944,7 +1964,11 @@
     "lump_loss_windows": 31,
     "split_loss_windows": 29,
     "lump_worst": 0.7361,
-    "split_worst": 0.7383
+    "split_worst": 0.7383,
+    "lump_worst_start": "2004-04",
+    "split_at_lump_worst": 0.7383,
+    "split_worst_start": "2004-04",
+    "lump_at_split_worst": 0.7361
    },
    "main_60m_after_high_cash0": {
     "windows": 46,
@@ -1961,7 +1985,11 @@
     "lump_loss_windows": 8,
     "split_loss_windows": 4,
     "lump_worst": 0.8811,
-    "split_worst": 0.9008
+    "split_worst": 0.9008,
+    "lump_worst_start": "2000-07",
+    "split_at_lump_worst": 0.9703,
+    "split_worst_start": "2000-01",
+    "lump_at_split_worst": 0.9056
    },
    "main_60m_after_high_cashRate": {
     "windows": 46,
@@ -1978,7 +2006,11 @@
     "lump_loss_windows": 8,
     "split_loss_windows": 4,
     "lump_worst": 0.8811,
-    "split_worst": 0.9272
+    "split_worst": 0.9272,
+    "lump_worst_start": "2000-07",
+    "split_at_lump_worst": 0.9967,
+    "split_worst_start": "2000-01",
+    "lump_at_split_worst": 0.9056
    },
    "main_120m_all_cash0": {
     "windows": 163,
@@ -1995,7 +2027,11 @@
     "lump_loss_windows": 9,
     "split_loss_windows": 7,
     "lump_worst": 0.8729,
-    "split_worst": 0.9195
+    "split_worst": 0.9195,
+    "lump_worst_start": "2000-08",
+    "split_at_lump_worst": 0.9855,
+    "split_worst_start": "2000-03",
+    "lump_at_split_worst": 0.9038
    },
    "main_120m_all_cashRate": {
     "windows": 163,
@@ -2012,7 +2048,11 @@
     "lump_loss_windows": 9,
     "split_loss_windows": 4,
     "lump_worst": 0.8729,
-    "split_worst": 0.9458
+    "split_worst": 0.9458,
+    "lump_worst_start": "2000-08",
+    "split_at_lump_worst": 1.0118,
+    "split_worst_start": "2000-03",
+    "lump_at_split_worst": 0.9038
    },
    "main_120m_after_high_cash0": {
     "windows": 13,
@@ -2029,7 +2069,11 @@
     "lump_loss_windows": 5,
     "split_loss_windows": 4,
     "lump_worst": 0.8729,
-    "split_worst": 0.9259
+    "split_worst": 0.9259,
+    "lump_worst_start": "2000-08",
+    "split_at_lump_worst": 0.9855,
+    "split_worst_start": "2000-01",
+    "lump_at_split_worst": 0.9309
    },
    "main_120m_after_high_cashRate": {
     "windows": 13,
@@ -2046,7 +2090,11 @@
     "lump_loss_windows": 5,
     "split_loss_windows": 2,
     "lump_worst": 0.8729,
-    "split_worst": 0.953
+    "split_worst": 0.953,
+    "lump_worst_start": "2000-08",
+    "split_at_lump_worst": 1.0118,
+    "split_worst_start": "2000-01",
+    "lump_at_split_worst": 0.9309
    },
    "ext_12m_all_cash0": {
     "windows": 871,
@@ -2063,7 +2111,11 @@
     "lump_loss_windows": 190,
     "split_loss_windows": 202,
     "lump_worst": 0.5668,
-    "split_worst": 0.7175
+    "split_worst": 0.7175,
+    "lump_worst_start": "2008-04",
+    "split_at_lump_worst": 0.7415,
+    "split_worst_start": "2007-12",
+    "lump_at_split_worst": 0.6098
    },
    "ext_12m_all_cashRate": {
     "windows": 871,
@@ -2080,7 +2132,11 @@
     "lump_loss_windows": 190,
     "split_loss_windows": 135,
     "lump_worst": 0.5668,
-    "split_worst": 0.7313
+    "split_worst": 0.7313,
+    "lump_worst_start": "2008-04",
+    "split_at_lump_worst": 0.7559,
+    "split_worst_start": "2007-12",
+    "lump_at_split_worst": 0.6098
    },
    "ext_12m_after_high_cash0": {
     "windows": 234,
@@ -2097,7 +2153,11 @@
     "lump_loss_windows": 63,
     "split_loss_windows": 66,
     "lump_worst": 0.6755,
-    "split_worst": 0.7502
+    "split_worst": 0.7502,
+    "lump_worst_start": "2007-11",
+    "split_at_lump_worst": 0.7502,
+    "split_worst_start": "2007-11",
+    "lump_at_split_worst": 0.6755
    },
    "ext_12m_after_high_cashRate": {
     "windows": 234,
@@ -2114,7 +2174,11 @@
     "lump_loss_windows": 63,
     "split_loss_windows": 43,
     "lump_worst": 0.6755,
-    "split_worst": 0.7644
+    "split_worst": 0.7644,
+    "lump_worst_start": "2007-11",
+    "split_at_lump_worst": 0.7644,
+    "split_worst_start": "2007-11",
+    "lump_at_split_worst": 0.6755
    },
    "ext_60m_all_cash0": {
     "windows": 823,
@@ -2131,7 +2195,11 @@
     "lump_loss_windows": 68,
     "split_loss_windows": 68,
     "lump_worst": 0.7361,
-    "split_worst": 0.7238
+    "split_worst": 0.7238,
+    "lump_worst_start": "2004-04",
+    "split_at_lump_worst": 0.7238,
+    "split_worst_start": "2004-04",
+    "lump_at_split_worst": 0.7361
    },
    "ext_60m_all_cashRate": {
     "windows": 823,
@@ -2148,7 +2216,11 @@
     "lump_loss_windows": 68,
     "split_loss_windows": 63,
     "lump_worst": 0.7361,
-    "split_worst": 0.7383
+    "split_worst": 0.7383,
+    "lump_worst_start": "2004-04",
+    "split_at_lump_worst": 0.7383,
+    "split_worst_start": "2004-04",
+    "lump_at_split_worst": 0.7361
    },
    "ext_60m_after_high_cash0": {
     "windows": 211,
@@ -2165,7 +2237,11 @@
     "lump_loss_windows": 25,
     "split_loss_windows": 21,
     "lump_worst": 0.8148,
-    "split_worst": 0.7911
+    "split_worst": 0.7911,
+    "lump_worst_start": "1998-04",
+    "split_at_lump_worst": 0.7911,
+    "split_worst_start": "1998-04",
+    "lump_at_split_worst": 0.8148
    },
    "ext_60m_after_high_cashRate": {
     "windows": 211,
@@ -2182,7 +2258,11 @@
     "lump_loss_windows": 25,
     "split_loss_windows": 20,
     "lump_worst": 0.8148,
-    "split_worst": 0.81
+    "split_worst": 0.81,
+    "lump_worst_start": "1998-04",
+    "split_at_lump_worst": 0.81,
+    "split_worst_start": "1998-04",
+    "lump_at_split_worst": 0.8148
    },
    "ext_120m_all_cash0": {
     "windows": 763,
@@ -2199,7 +2279,11 @@
     "lump_loss_windows": 23,
     "split_loss_windows": 21,
     "lump_worst": 0.6715,
-    "split_worst": 0.6532
+    "split_worst": 0.6532,
+    "lump_worst_start": "1999-04",
+    "split_at_lump_worst": 0.6532,
+    "split_worst_start": "1999-04",
+    "lump_at_split_worst": 0.6715
    },
    "ext_120m_all_cashRate": {
     "windows": 763,
@@ -2216,7 +2300,11 @@
     "lump_loss_windows": 23,
     "split_loss_windows": 18,
     "lump_worst": 0.6715,
-    "split_worst": 0.6705
+    "split_worst": 0.6705,
+    "lump_worst_start": "1999-04",
+    "split_at_lump_worst": 0.6705,
+    "split_worst_start": "1999-04",
+    "lump_at_split_worst": 0.6715
    },
    "ext_120m_after_high_cash0": {
     "windows": 178,
@@ -2233,7 +2321,11 @@
     "lump_loss_windows": 11,
     "split_loss_windows": 10,
     "lump_worst": 0.6715,
-    "split_worst": 0.6532
+    "split_worst": 0.6532,
+    "lump_worst_start": "1999-04",
+    "split_at_lump_worst": 0.6532,
+    "split_worst_start": "1999-04",
+    "lump_at_split_worst": 0.6715
    },
    "ext_120m_after_high_cashRate": {
     "windows": 178,
@@ -2250,7 +2342,11 @@
     "lump_loss_windows": 11,
     "split_loss_windows": 8,
     "lump_worst": 0.6715,
-    "split_worst": 0.6705
+    "split_worst": 0.6705,
+    "lump_worst_start": "1999-04",
+    "split_at_lump_worst": 0.6705,
+    "split_worst_start": "1999-04",
+    "lump_at_split_worst": 0.6715
    }
   },
   "E4": {
@@ -2360,6 +2456,714 @@
     "longest_no_signal_months": 327,
     "longest_no_signal_until": "2002-06"
    }
+  },
+  "E8_base": {
+   "main_months": 282,
+   "after_high_months": 69,
+   "fwd12_months": 270,
+   "fwd12_up": 198
+  },
+  "E7": {
+   "rule": "drop10_cash0_main_10y",
+   "windows": 163,
+   "dip_avg_cost_higher_windows": 54,
+   "avg_cost_ratio_median": 0.9905,
+   "buy_months_median": 53.0,
+   "latest": {
+    "start": "2013-07",
+    "end": "2023-06",
+    "dca_krw": 220164570,
+    "dip_krw": 188423198,
+    "gap_krw": 31741372,
+    "buy_months": 18,
+    "first_buy": "2019-01",
+    "first_buy_amount_krw": 67000000,
+    "trades": [
+     {
+      "month": "2019-01",
+      "amount_krw": 67000000
+     },
+     {
+      "month": "2019-02",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2020-04",
+      "amount_krw": 14000000
+     },
+     {
+      "month": "2020-05",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2020-06",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2022-06",
+      "amount_krw": 24000000
+     },
+     {
+      "month": "2022-07",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2022-08",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2022-09",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2022-10",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2022-11",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2022-12",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2023-01",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2023-02",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2023-03",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2023-04",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2023-05",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2023-06",
+      "amount_krw": 1000000
+     }
+    ],
+    "cash_left_krw": 0,
+    "avg_cost_dip_over_dca": 1.1685
+   },
+   "first": {
+    "start": "2000-01",
+    "end": "2009-12",
+    "dca_krw": 127846004,
+    "dip_krw": 129342141,
+    "gap_krw": -1496137,
+    "buy_months": 92,
+    "first_buy": "2001-01",
+    "first_buy_amount_krw": 13000000,
+    "trades": [
+     {
+      "month": "2001-01",
+      "amount_krw": 13000000
+     },
+     {
+      "month": "2001-02",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2001-03",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2001-04",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2001-05",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2001-06",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2001-07",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2001-08",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2001-09",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2001-10",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2001-11",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2001-12",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2002-01",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2002-02",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2002-03",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2002-04",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2002-05",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2002-06",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2002-07",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2002-08",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2002-09",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2002-10",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2002-11",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2002-12",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2003-01",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2003-02",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2003-03",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2003-04",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2003-05",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2003-06",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2003-07",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2003-08",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2003-09",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2003-10",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2003-11",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2003-12",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2004-01",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2004-02",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2004-03",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2004-04",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2004-05",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2004-06",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2004-07",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2004-08",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2004-09",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2004-10",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2004-11",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2004-12",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2005-01",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2005-02",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2005-03",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2005-04",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2005-05",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2005-06",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2005-07",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2005-08",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2005-09",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2005-10",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2005-11",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2005-12",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2006-01",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2006-02",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2006-03",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2006-04",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2006-05",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2006-06",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2006-07",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2006-08",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2006-09",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2006-10",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2008-02",
+      "amount_krw": 16000000
+     },
+     {
+      "month": "2008-03",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2008-04",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2008-05",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2008-07",
+      "amount_krw": 2000000
+     },
+     {
+      "month": "2008-08",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2008-09",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2008-10",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2008-11",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2008-12",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2009-01",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2009-02",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2009-03",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2009-04",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2009-05",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2009-06",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2009-07",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2009-08",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2009-09",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2009-10",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2009-11",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2009-12",
+      "amount_krw": 1000000
+     }
+    ],
+    "cash_left_krw": 0,
+    "avg_cost_dip_over_dca": 0.9884
+   },
+   "median_gap": {
+    "start": "2006-10",
+    "end": "2016-09",
+    "dca_krw": 207567804,
+    "dip_krw": 198587086,
+    "gap_krw": 8980718,
+    "buy_months": 53,
+    "first_buy": "2006-10",
+    "first_buy_amount_krw": 1000000,
+    "trades": [
+     {
+      "month": "2006-10",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2008-02",
+      "amount_krw": 16000000
+     },
+     {
+      "month": "2008-03",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2008-04",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2008-05",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2008-07",
+      "amount_krw": 2000000
+     },
+     {
+      "month": "2008-08",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2008-09",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2008-10",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2008-11",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2008-12",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2009-01",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2009-02",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2009-03",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2009-04",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2009-05",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2009-06",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2009-07",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2009-08",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2009-09",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2009-10",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2009-11",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2009-12",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2010-01",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2010-02",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2010-03",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2010-04",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2010-05",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2010-06",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2010-07",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2010-08",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2010-09",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2010-10",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2010-11",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2010-12",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2011-01",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2011-02",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2011-03",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2011-04",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2011-05",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2011-06",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2011-07",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2011-08",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2011-09",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2011-10",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2011-11",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2011-12",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2012-01",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2012-02",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2012-03",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2012-06",
+      "amount_krw": 3000000
+     },
+     {
+      "month": "2012-07",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2012-08",
+      "amount_krw": 1000000
+     }
+    ],
+    "cash_left_krw": 49000000,
+    "avg_cost_dip_over_dca": 0.821
+   },
+   "avg_wait_months_median": 11.2417
   },
   "E6": {
    "daily_first": "2016-02-12",
@@ -2994,7 +3798,819 @@
      }
     }
    }
+  },
+  "E7d": {
+   "rule": "drop10_cash0_main_10y",
+   "windows": 163,
+   "dip_avg_cost_higher_windows": 65,
+   "avg_cost_ratio_median": 0.9934,
+   "buy_months_median": 53.0,
+   "latest": {
+    "start": "2013-07",
+    "end": "2023-06",
+    "dca_krw": 220164570,
+    "dip_krw": 179810439,
+    "gap_krw": 40354131,
+    "buy_months": 27,
+    "first_buy": "2018-02",
+    "first_buy_amount_krw": 56000000,
+    "trades": [
+     {
+      "month": "2018-02",
+      "amount_krw": 56000000
+     },
+     {
+      "month": "2018-04",
+      "amount_krw": 2000000
+     },
+     {
+      "month": "2018-11",
+      "amount_krw": 7000000
+     },
+     {
+      "month": "2018-12",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2019-01",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2020-02",
+      "amount_krw": 13000000
+     },
+     {
+      "month": "2020-03",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2020-04",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2020-05",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2020-06",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2022-02",
+      "amount_krw": 20000000
+     },
+     {
+      "month": "2022-03",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2022-04",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2022-05",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2022-06",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2022-07",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2022-08",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2022-09",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2022-10",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2022-11",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2022-12",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2023-01",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2023-02",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2023-03",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2023-04",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2023-05",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2023-06",
+      "amount_krw": 1000000
+     }
+    ],
+    "cash_left_krw": 0,
+    "avg_cost_dip_over_dca": 1.2244
+   },
+   "first": {
+    "start": "2000-01",
+    "end": "2009-12",
+    "dca_krw": 127846004,
+    "dip_krw": 129342141,
+    "gap_krw": -1496137,
+    "buy_months": 92,
+    "first_buy": "2001-01",
+    "first_buy_amount_krw": 13000000,
+    "trades": [
+     {
+      "month": "2001-01",
+      "amount_krw": 13000000
+     },
+     {
+      "month": "2001-02",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2001-03",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2001-04",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2001-05",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2001-06",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2001-07",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2001-08",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2001-09",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2001-10",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2001-11",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2001-12",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2002-01",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2002-02",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2002-03",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2002-04",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2002-05",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2002-06",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2002-07",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2002-08",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2002-09",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2002-10",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2002-11",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2002-12",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2003-01",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2003-02",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2003-03",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2003-04",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2003-05",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2003-06",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2003-07",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2003-08",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2003-09",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2003-10",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2003-11",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2003-12",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2004-01",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2004-02",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2004-03",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2004-04",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2004-05",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2004-06",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2004-07",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2004-08",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2004-09",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2004-10",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2004-11",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2004-12",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2005-01",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2005-02",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2005-03",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2005-04",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2005-05",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2005-06",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2005-07",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2005-08",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2005-09",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2005-10",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2005-11",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2005-12",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2006-01",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2006-02",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2006-03",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2006-04",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2006-05",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2006-06",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2006-07",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2006-08",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2006-09",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2006-10",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2008-02",
+      "amount_krw": 16000000
+     },
+     {
+      "month": "2008-03",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2008-04",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2008-05",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2008-07",
+      "amount_krw": 2000000
+     },
+     {
+      "month": "2008-08",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2008-09",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2008-10",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2008-11",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2008-12",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2009-01",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2009-02",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2009-03",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2009-04",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2009-05",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2009-06",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2009-07",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2009-08",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2009-09",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2009-10",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2009-11",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2009-12",
+      "amount_krw": 1000000
+     }
+    ],
+    "cash_left_krw": 0,
+    "avg_cost_dip_over_dca": 0.9884
+   },
+   "median_gap": {
+    "start": "2006-10",
+    "end": "2016-09",
+    "dca_krw": 207567804,
+    "dip_krw": 198587086,
+    "gap_krw": 8980718,
+    "buy_months": 53,
+    "first_buy": "2006-10",
+    "first_buy_amount_krw": 1000000,
+    "trades": [
+     {
+      "month": "2006-10",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2008-02",
+      "amount_krw": 16000000
+     },
+     {
+      "month": "2008-03",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2008-04",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2008-05",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2008-07",
+      "amount_krw": 2000000
+     },
+     {
+      "month": "2008-08",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2008-09",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2008-10",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2008-11",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2008-12",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2009-01",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2009-02",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2009-03",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2009-04",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2009-05",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2009-06",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2009-07",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2009-08",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2009-09",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2009-10",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2009-11",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2009-12",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2010-01",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2010-02",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2010-03",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2010-04",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2010-05",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2010-06",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2010-07",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2010-08",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2010-09",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2010-10",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2010-11",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2010-12",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2011-01",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2011-02",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2011-03",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2011-04",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2011-05",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2011-06",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2011-07",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2011-08",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2011-09",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2011-10",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2011-11",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2011-12",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2012-01",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2012-02",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2012-03",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2012-06",
+      "amount_krw": 3000000
+     },
+     {
+      "month": "2012-07",
+      "amount_krw": 1000000
+     },
+     {
+      "month": "2012-08",
+      "amount_krw": 1000000
+     }
+    ],
+    "cash_left_krw": 49000000,
+    "avg_cost_dip_over_dca": 0.821
+   },
+   "avg_wait_months_median": 11.2417
+  },
+  "E8": {
+   "drop5_monthly": {
+    "a_wins": 116,
+    "b_wins": 47,
+    "b_win_starts": [
+     "2000-01",
+     "2003-11"
+    ],
+    "a_win_first_start": "2003-12",
+    "a_win_all_after_first": true,
+    "a_max_ratio": 1.0678,
+    "b_max_ratio": 1.0071
+   },
+   "drop5_daily_from_2016_03": {
+    "a_wins": 116,
+    "b_wins": 47,
+    "b_win_starts": [
+     "2000-01",
+     "2003-11"
+    ],
+    "a_win_first_start": "2003-12",
+    "a_win_all_after_first": true,
+    "a_max_ratio": 1.0744,
+    "b_max_ratio": 1.0071
+   },
+   "drop10_monthly": {
+    "a_wins": 117,
+    "b_wins": 46,
+    "b_win_starts": [
+     "2000-01",
+     "2003-10"
+    ],
+    "a_win_first_start": "2003-11",
+    "a_win_all_after_first": true,
+    "a_max_ratio": 1.2529,
+    "b_max_ratio": 1.0117
+   },
+   "drop10_daily_from_2016_03": {
+    "a_wins": 117,
+    "b_wins": 46,
+    "b_win_starts": [
+     "2000-01",
+     "2003-10"
+    ],
+    "a_win_first_start": "2003-11",
+    "a_win_all_after_first": true,
+    "a_max_ratio": 1.3101,
+    "b_max_ratio": 1.0117
+   },
+   "drop20_monthly": {
+    "a_wins": 79,
+    "b_wins": 84,
+    "b_win_starts": [
+     "2000-01",
+     "2006-12"
+    ],
+    "a_win_first_start": "2007-01",
+    "a_win_all_after_first": true,
+    "a_max_ratio": 2.3408,
+    "b_max_ratio": 1.1153
+   },
+   "drop20_daily_from_2016_03": {
+    "a_wins": 79,
+    "b_wins": 84,
+    "b_win_starts": [
+     "2000-01",
+     "2006-12"
+    ],
+    "a_win_first_start": "2007-01",
+    "a_win_all_after_first": true,
+    "a_max_ratio": 1.417,
+    "b_max_ratio": 1.1153
+   }
   }
  },
- "seconds": 0.64
+ "seconds": 0.92
 }

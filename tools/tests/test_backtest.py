@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.1 — 2026-10-15 — data v1.1 일별 종가(sp500_daily) 시험 추가. (v1.0 — 2026-10-15 — tools/backtest v1.0 시험 (주식 채널 컨셉 — 사용자 지시 2026-10-15 "주식 채널 컨셉은 ai로 코드 만들어서
-#          가설을 백테스트해서 검증해보는거니까"). 가짜 가격으로만 — 네트워크 없음 (자료 받기는 가짜 fetch).)
+# VERSION: v1.2 — 2026-10-15 — monthly v1.1 dip_trades·dca_avg_cost 시험 추가. (v1.1 — 2026-10-15 — data v1.1 일별 종가(sp500_daily) 시험 추가. (v1.0 — 2026-10-15 — tools/backtest v1.0 시험 (주식 채널 컨셉 — 사용자 지시 2026-10-15 "주식 채널 컨셉은 ai로 코드 만들어서
+#          가설을 백테스트해서 검증해보는거니까"). 가짜 가격으로만 — 네트워크 없음 (자료 받기는 가짜 fetch).))
 """cd tools/tests && python3 -m unittest test_backtest -v
 
 - 벡터 계산(dca_wealth·dip_wealth)이 한 달씩 실제로 사고 모으는 느린 계산(naive_*)과 같은지
@@ -103,6 +103,20 @@ class TestMonthly(unittest.TestCase):
         r = bm.summarize([2, 1, 3], [1, 2, 3], "a", "b")
         self.assertEqual((r["windows"], r["a_wins"]), (3, 1))
         self.assertAlmostEqual(r["ratio_median"], 1.0)
+
+    def test_dip_trades_matches_wealth(self):
+        cash = bm.cash_index(len(self.p), self.rate)
+        sig = bm.dip_signal(self.p, 0.10)
+        nxt = bm.next_true(sig)
+        s, e = bm.windows(len(self.tri), 120, first=1)
+        out = bm.dip_wealth(self.tri, cash, nxt, s, e)
+        for i in (0, 40, len(s) - 1):
+            tr = bm.dip_trades(self.tri, cash, sig, s[i], e[i])
+            self.assertAlmostEqual(tr["wealth"], out["wealth"][i], places=9)
+            self.assertAlmostEqual(tr["cash_left"], out["cash_left"][i], places=9)
+            self.assertEqual(len({t for t, _, _ in tr["trades"]}), out["buy_months"][i])
+        tri = np.array([1.0, 2.0, 4.0])
+        self.assertAlmostEqual(bm.dca_avg_cost(tri, 0, 2), 3 / (1 + 0.5 + 0.25))     # 조화 평균
 
 
 class TestData(unittest.TestCase):

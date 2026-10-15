@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v2.13.0 — 2026-10-15 — 외국 영상 켜고 끄기 (사용자 지시: "주식은 외국 영상도 다 분석할 건데 확인해봐 on/off 기능(default off) 있는지
+# VERSION: v2.14.0 — 2026-10-15 — 영어 검색어 keywords_foreign.txt (사용자 지시: "주식은 영어 주식 검색어도 추가해"): INCLUDE_FOREIGN 이면 '외국 검색어' 묶음으로 더함
+#          (끈 주제는 읽지 않음)
+# (v2.13.0 — 2026-10-15 — 외국 영상 켜고 끄기 (사용자 지시: "주식은 외국 영상도 다 분석할 건데 확인해봐 on/off 기능(default off) 있는지
 #          확인하고 없으면 추가해"): 설정 INCLUDE_FOREIGN ([search], 기본 false — 웹 화면·tools/outlier_research.py v2.4 와 같은 값).
 #          ① 켜면 검색을 언어 지정 없이 (relevanceLanguage 를 보내지 않음 — search_language) · 끄면 예전 그대로 LANGUAGE(ko)
 #          ② 음성인식: 외국 영상(영상 언어가 한국어가 아님 · 언어 표시가 없으면 제목에 한글 없음 — video_is_foreign)은 언어를 Whisper 가
 #             알아내게 (예전: 늘 LANGUAGE=ko 로 받아써서 영어 영상이 엉터리 한국어가 됨) — 대기열(W_·S_·01_ 의 metadata foreign·video_lang)과
-#             분석기 성공 사례 모두. 끈 주제에도 적용 (주소로 직접 넣은 외국 영상이 있을 수 있음)
+#             분석기 성공 사례 모두. 끈 주제에도 적용 (주소로 직접 넣은 외국 영상이 있을 수 있음))
 # (v2.12.0 — 2026-10-15 — API 응답 캐시를 주제마다 따로 .yt_work/cache_<폴더> (topic_cache_dir — 사용자 지시: "하나의 사이트에서 그냥 탭
 #          만들어서 다른 주제 볼 수 있게 하자 서로 캐시는 공유하지 않도록 하고"). 예전 공동 캐시 .yt_work/cache 는 안 씀 — 첫 실행은 이 주제 요청을 새로 받음)
 # (v2.11.1 — 2026-10-15 — 설정 파일의 FRESH_START(PC 실행기 tools/pc_analysis.py v1.13 가 읽음 — 새로 시작하는 주제의 옛 PC 자료 옮기기)를
@@ -379,7 +381,7 @@ import numpy as np
 import pandas as pd
 import requests
 
-NOTEBOOK_VERSION = "v2.13.0"
+NOTEBOOK_VERSION = "v2.14.0"
 KST = dt.timezone(dt.timedelta(hours=9))
 UTC = dt.timezone.utc
 IS_WINDOWS = os.name == "nt"
@@ -691,6 +693,7 @@ def keywords_path_for(cfg, config_path):
 
 
 KEYWORD_LIST_FILE = "keywords.txt"      # 검색어만 한 줄에 하나씩 (v2.8.0) — 있으면 KEYWORD_GROUPS 대신
+FOREIGN_KEYWORD_FILE = "keywords_foreign.txt"   # v2.14.0: 영어(외국 영상) 검색어 — INCLUDE_FOREIGN 일 때만
 
 
 def read_keyword_list(path):
@@ -5299,6 +5302,11 @@ def load_config(args, create_missing=True):
         print(f"[CONFIG] 검색어 목록 적용: {txt_path} (검색어 {len(kws)}개 — keywords.toml 의 KEYWORD_GROUPS 대신)")
     elif kws is not None:
         print(f"[CONFIG] ⚠️ {txt_path} 에 검색어가 없습니다 → keywords.toml 의 KEYWORD_GROUPS 를 씁니다")
+    fk = read_keyword_list(txt_path.parent / FOREIGN_KEYWORD_FILE) if cfg.get("INCLUDE_FOREIGN") else None
+    if fk:                                                    # v2.14.0: 외국 영상을 켠 주제만 영어 검색어도
+        cfg["KEYWORD_GROUPS"] = {**(cfg.get("KEYWORD_GROUPS") or {}), "외국 검색어": fk}
+        info.update(foreign_keyword_list=len(fk))
+        print(f"[CONFIG] 영어(외국 영상) 검색어 적용: {txt_path.parent / FOREIGN_KEYWORD_FILE} ({len(fk)}개 — INCLUDE_FOREIGN = true)")
     changes = apply_cli(cfg, args)
     return cfg, info, changes
 

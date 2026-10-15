@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v2.4 — 2026-10-15 — 외국 영상 켜고 끄기 (사용자 지시: "주식은 외국 영상도 다 분석할 건데 확인해봐 on/off 기능(default off) 있는지
+# VERSION: v2.4.1 — 2026-10-15 — 영어 검색어 <주제>/keywords_foreign.txt (사용자 지시: "주식은 영어 주식 검색어도 추가해"): load_keywords 가 외국 영상을 켠 주제
+#          (INCLUDE_FOREIGN)에서만 '외국 검색어' 묶음으로 더함 (끄면 검색하지 않음 — 빼게 될 결과에 할당량을 쓰지 않게). collect_api 는
+#          a.search_lang 이 있으면 그것 (tag_keywords v1.5 --foreign 의 영어 씨앗 검색)
+# (v2.4 — 2026-10-15 — 외국 영상 켜고 끄기 (사용자 지시: "주식은 외국 영상도 다 분석할 건데 확인해봐 on/off 기능(default off) 있는지
 #          확인하고 없으면 추가해"). 주제마다 <주제>/analyzer_config.toml [search] INCLUDE_FOREIGN (없거나 false = 예전처럼 뺌 — 기본 꺼짐):
 #          ① include_foreign(topic) — 설정 읽기 · is_foreign(info) — 외국 영상 판별(예전 exclusion_reason 의 규칙 그대로)
 #          ② exclusion_reason(info, foreign_ok) · build_rows(foreign_ok) — 켜면 외국 영상을 빼지 않고 flag '외국 영상'(표시만)
@@ -10,7 +13,7 @@
 #             한국어로 억지로 받아씀). metadata 에 video_lang·foreign 을 적어 음성인식 대기열(분석기 v2.13.0)이 언어를 고름
 #          ⑤ 쓸 만한 새 영상 수(적응형 검색 캐시)도 켠 검색은 외국 영상을 셈
 #          ⑥ 고침: 언어 표시가 없는 영상의 '제목에 한글' 판별을 NFC 로 모아서 — 맥에서 쓴 제목(풀어쓴 자모 NFD)의 한국어 영상이 외국 영상으로
-#             빠지던 것 (끈 주제에도 적용 — 재테크 분석에서 성공 기준을 넘은 롱폼 2·쇼츠 1 이 이것 때문에 빠져 있었음)
+#             빠지던 것 (끈 주제에도 적용 — 재테크 분석에서 성공 기준을 넘은 롱폼 2·쇼츠 1 이 이것 때문에 빠져 있었음))
 # (v2.3 — 2026-10-15 — 쇼츠 자료 받기 (사용자 지시: "유튜브 분석기 … 쇼츠 분석 기능도 추가해 목적은 사람들의 니즈를 충족해주는
 #          쇼츠를 만들어서 최대한 조회수를 높이기 위한 쇼츠를 만들기 위해 분석하는거야 전력을 다해서 해봐"). 롱폼 동작은 그대로:
 #          ① 쇼츠 판별 is_short(): 3분(180초) 이하 + 세로·정사각 (YouTube 쇼츠 규칙 — 2024-10-15 부터 3분까지). 화면비는 videos.list 에
@@ -171,7 +174,7 @@ except ModuleNotFoundError:             # Python 3.10 → tomli (분석기가 �
     import tomli as tomllib
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v2.4"
+VERSION = "v2.4.1"
 LOG = logging.getLogger("outlier")
 HANGUL = re.compile(r"[가-힣]")
 SEARCH_TTL_HOURS = 168
@@ -196,6 +199,7 @@ CAPTION_COOLDOWN_H = 6        # 이 시간 동안 모든 도구가 자막 요청
 CAPTION_PACE_SEC = (1.5, 3.0)  # 자막 요청 사이 쉬는 시간 (초, 무작위)
 FOREIGN = "외국 영상"          # v2.4: 외국 영상 표시·뺄 까닭
 ANY_LANG = "any"              # v2.4: 언어 지정 없는 검색의 캐시 열쇠 (INCLUDE_FOREIGN = true)
+FOREIGN_KEYWORD_FILE = "keywords_foreign.txt"   # v2.4: 영어(외국 영상) 검색어 — 외국 영상을 켠 주제에서만 검색
 
 
 def log(stage, level=logging.INFO, **kv):
@@ -257,6 +261,9 @@ def load_keywords(topic, per_group):
     extra = [str(k) for k in (src.get("EXTRA_KEYWORDS") or cfg.get("EXTRA_KEYWORDS") or []) if str(k).strip()]
     if extra:
         groups = {**groups, "기타": list(groups.get("기타", [])) + extra}
+    foreign = read_keyword_list(cfg_p.parent / FOREIGN_KEYWORD_FILE) if cfg.get("INCLUDE_FOREIGN") is True else None
+    if foreign:                                                    # v2.4: 외국 영상을 켠 주제만 영어 검색어도
+        groups = {**groups, "외국 검색어": foreign}
     kws, seen = [], set()
     for g, ks in groups.items():
         for k in (ks if per_group <= 0 else ks[:per_group]):          # 0 이하 = 그룹의 검색어 전부 (v1.7)
@@ -1135,7 +1142,7 @@ def collect_api(topic, a, api, kws, exclude, out, state):
     """검색(최근·조회수 순) → 영상·채널 정보 → 후보 행 목록. 캐시: out/.cache/. 할당량이 끝나면 캐시만으로 계속하고 state 에 남김."""
     cache_dir = out / ".cache"
     since = (datetime.now(timezone.utc) - timedelta(days=a.fallback_days)).strftime("%Y-%m-%dT00:00:00Z")
-    lang = search_lang(include_foreign(topic))          # v2.4: 외국 영상을 넣는 주제는 언어 지정 없이 검색
+    lang = a.search_lang if hasattr(a, "search_lang") else search_lang(include_foreign(topic))   # v2.4: 외국 영상을 넣는 주제는 언어 지정 없이
     found = {}
     for g, q in kws:
         for dur in (("medium", "long") if a.long else ("medium",)):

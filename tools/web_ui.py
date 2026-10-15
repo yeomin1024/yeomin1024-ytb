@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v2.1 — 2026-10-15 — 주제마다 다른 키 · 외국 영상 켜고 끄기 (사용자 지시: "키도 나눠서 쓸수 있게해 주제별로 다른키 넣을거니까 그리고
+# VERSION: v2.2 — 2026-10-15 — 2번 칸 '영어(외국 영상) 검색어' — <주제>/keywords_foreign.txt 고치기 (사용자 지시: "주식은 영어 주식 검색어도 추가해"). 외국 영상을 켠 탭에서만
+#          검색 (outlier_research.load_keywords 가 더함 — 예상 할당량·탐색·쇼츠 탐색 모두), 몇 개·켜짐/꺼짐 표시. POST /api/keywords file=foreign.
+#          [외국 영상도]를 켜면 영어 검색어 수도 알려 줌
+# (v2.1 — 2026-10-15 — 주제마다 다른 키 · 외국 영상 켜고 끄기 (사용자 지시: "키도 나눠서 쓸수 있게해 주제별로 다른키 넣을거니까 그리고
 #          주식은 외국 영상도 다 분석할 건데 확인해봐 on/off 기능(default off) 있는지 확인하고 없으면 추가해"):
 #          ① 4번 칸 [외국 영상도] — 이 주제의 analyzer_config.toml [search] INCLUDE_FOREIGN 을 고침 (POST /api/foreign — PC 파일 + GitHub 토큰이
 #             있으면 GitHub 에도, 작업 중엔 못 바꿈). 기본 꺼짐 = 예전처럼 외국 영상을 뺌. 켜면 탐색이 외국 영상을 빼지 않고 '외국 영상' 표시만,
 #             검색은 언어 지정 없이 (outlier_research v2.4 — 검색 캐시가 따로라 켠 뒤 첫 탐색은 새로 검색), 분석(success·shorts)도 넣음
-#          ② 0번 칸 할당량에 '이 탭 키'(지문 끝 4자리)·같은 키를 쓰는 다른 주제 — 주제마다 다른 키면 할당량도 따로 보임 (키 장부가 키마다 하나)
+#          ② 0번 칸 할당량에 '이 탭 키'(지문 끝 4자리)·같은 키를 쓰는 다른 주제 — 주제마다 다른 키면 할당량도 따로 보임 (키 장부가 키마다 하나))
 # (v2.0 — 2026-10-15 — 한 화면에 주제 탭 (사용자 지시: "헷갈리니까 하나의 사이트에서 그냥 탭 만들어서 다른 주제 볼 수 있게 하자 서로
 #          캐시는 공유하지 않도록 하고" · "설정도 다 따로써야해"):
 #          ① 창(포트)을 주제마다 띄우던 것 → 한 화면(http://127.0.0.1:8765/) 위쪽 탭으로 주제를 고름. 요청마다 X-Topic 머리글로 주제를 보냄
@@ -136,7 +139,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import pc_analysis as pc                 # noqa: E402  할당량 장부·키 찾기·GitHub 동기화·패키지 준비
 
 ROOT = pc.ROOT
-VERSION = "v2.1"
+VERSION = "v2.2"
 LOG = logging.getLogger("web")
 KST = timezone(timedelta(hours=9))
 TOKEN = secrets.token_urlsafe(18)        # 화면이 요청마다 보내는 열쇠 (다른 사이트가 이 PC 의 화면을 조작하지 못하게)
@@ -294,6 +297,11 @@ def set_env_value(path, name, value):
 # ---------------------------------------------------------------- 검색어·직접 추가
 def keywords_path(t):
     return ROOT / t / pc.KEYWORD_LIST_FILE
+
+
+def foreign_keywords_path(t):
+    """v2.2: 영어(외국 영상) 검색어 — 외국 영상을 켠 주제에서만 검색."""
+    return ROOT / t / orr.FOREIGN_KEYWORD_FILE
 
 
 def targets_path(t):
@@ -1831,6 +1839,7 @@ def shorts_view(t):
 def state_view(t):
     ex = _read_json(web_dir(t) / "explore.json", {})
     kp = keywords_path(t)
+    fkp = foreign_keywords_path(t)
     text = kp.read_text("utf-8-sig") if kp.is_file() else ""
     until = orr.caption_blocked()
     STATE["topics"] = sorted(set(find_topics()) | {t}, key=lambda x: (x != "economic", x))     # v1.5: 새로 만든 주제 폴더도
@@ -1843,6 +1852,8 @@ def state_view(t):
             "include_foreign": foreign_ok(t),                                                       # v2.1: 이 주제 설정 (기본 꺼짐)
             "resume": {**resume_view(t), "plan": resume_plan(t)},
             "keywords_text": text, "keywords_count": len(pc.read_keyword_list(kp) or []), "targets": load_targets(t),
+            "keywords_foreign_text": fkp.read_text("utf-8-sig") if fkp.is_file() else "",                  # v2.2: 영어 검색어
+            "keywords_foreign_count": len(pc.read_keyword_list(fkp) or []) if fkp.is_file() else 0,
             "explore": {"generated": ex.get("generated"), "weeks": ex.get("weeks"), "videos": len(ex.get("rows") or []),
                         "checked": len(ex.get("checked") or []), "pending": ex.get("pending") or []},
             "shorts": {"available": sh is not None, "approved": len(used_shorts_ids(t)),
@@ -1985,7 +1996,9 @@ class Handler(BaseHTTPRequestHandler):
                 ok, note = github_put(t, f"{t}/analyzer_config.toml", data,
                                       f"[{topic_name(t)}] 외국 영상 {'켬' if on else '끔'} — INCLUDE_FOREIGN = {'true' if on else 'false'} (웹 화면)")
                 log("SETTINGS", topic=t, include_foreign=on, file=f"{t}/analyzer_config.toml", github=note)
-                msg = (("켬 — 다음 탐색부터 외국 영상도 목록·분석에 넣습니다 (검색은 언어 지정 없이 새로 — 첫 탐색은 캐시 없음)" if on
+                nf = len(pc.read_keyword_list(foreign_keywords_path(t)) or []) if foreign_keywords_path(t).is_file() else 0
+                msg = (("켬 — 다음 탐색부터 외국 영상도 목록·분석에 넣습니다 (검색은 언어 지정 없이 새로 — 첫 탐색은 캐시 없음)"
+                        + (f" · 영어 검색어 {nf}개도 검색" if nf else " · 영어 검색어는 2번 칸 '영어(외국 영상) 검색어'에") if on
                         else "끔 — 다음 탐색부터 외국 영상을 뺍니다 (주소로 직접 넣은 영상만 남김)") + f" · PC 설정 저장 · {note}")
                 return self._send(200, {"ok": True, "include_foreign": foreign_ok(t), "github": ok, "message": msg})
             if path == "/api/cache/reset":                             # v1.6.2: [캐시 비우기] — 이 주제의 탐색 캐시·탐색 목록만
@@ -2012,16 +2025,19 @@ class Handler(BaseHTTPRequestHandler):
                 log("ENV", topic=t, file=f"{t}/.env", changed=",".join(changed) or "-", note="값은 로그에 쓰지 않음")
                 return self._send(200, {"changed": changed, "env": env_view(t)})
             if path == "/api/keywords":
+                foreign = body.get("file") == "foreign"                # v2.2: 영어(외국 영상) 검색어 파일
                 text = str(body.get("text") or "")
                 data = (text.replace("\r\n", "\n").rstrip("\n") + "\n").encode("utf-8")
-                kp = keywords_path(t)
+                kp = foreign_keywords_path(t) if foreign else keywords_path(t)
+                fname = orr.FOREIGN_KEYWORD_FILE if foreign else pc.KEYWORD_LIST_FILE
                 kp.write_bytes(data)
                 kws = pc.read_keyword_list(kp) or []
-                msg = f"PC 에 저장 ({len(kws)}개)"
+                msg = f"PC 에 저장 ({len(kws)}개)" + ("" if not foreign or foreign_ok(t) else " — 외국 영상이 꺼져 있어 지금은 검색하지 않음 (4번 칸 [외국 영상도])")
                 if body.get("push"):
-                    ok, note = github_put(t, f"{t}/{pc.KEYWORD_LIST_FILE}", data, f"[{topic_name(t)}] 검색어 고침 (웹 화면, {len(kws)}개)")
+                    ok, note = github_put(t, f"{t}/{fname}", data,
+                                          f"[{topic_name(t)}] {'영어 ' if foreign else ''}검색어 고침 (웹 화면, {len(kws)}개)")
                     msg += " · " + note
-                log("KEYWORDS", topic=t, keywords=len(kws), note=msg)
+                log("KEYWORDS", topic=t, file=fname, keywords=len(kws), note=msg)
                 return self._send(200, {"count": len(kws), "message": msg})
             if path == "/api/targets/add":
                 return self._send(200, {"results": add_targets(t, body.get("text")), "targets": load_targets(t)})
@@ -2278,6 +2294,10 @@ nav.tabs .dot.running{background:var(--ok)}nav.tabs .dot.error{background:var(--
   <textarea id="kw" spellcheck="false"></textarea>
   <div class="row" style="margin-top:8px"><button class="pri" id="saveKw">검색어 저장</button>
    <label><input type="checkbox" id="kwPush" checked> GitHub 에도 저장</label><span class="mut" id="kwCount"></span><span class="msg" id="kwMsg"></span></div>
+  <details id="kwfBox" style="margin-top:8px"><summary><b>영어(외국 영상) 검색어</b> <span class="mut" id="kwfCount"></span></summary>
+   <div class="mut" style="margin:4px 0">이 탭에서 4번 칸 [외국 영상도]를 켰을 때만 검색 (<code>keywords_foreign.txt</code> — 한 줄에 하나). 1개 = 롱폼 200 + 쇼츠 100단위</div>
+   <textarea id="kwf" spellcheck="false" style="min-height:90px"></textarea>
+   <div class="row" style="margin-top:6px"><button id="saveKwf">영어 검색어 저장</button><span class="msg" id="kwfMsg"></span></div></details>
  </section>
 </div>
 <section class="card"><h2>3. 직접 추가 <small>영상 주소 → 그 영상 · 채널 주소나 @이름 → 그 채널에 올라온 영상 전부 · 여러 개는 한 줄에 하나</small></h2>
@@ -2341,6 +2361,7 @@ async function loadState(){const s=await api('/api/state');if(TOPIC!==s.topic){T
  const e=s.env;$('ytkey_now').innerHTML=e.YOUTUBE_API_KEY.set?`<span class=ok>설정됨</span> ${esc(e.YOUTUBE_API_KEY.tail)} · ${esc(e.YOUTUBE_API_KEY.source)}`:'<span class=bad>없음</span> — 넣어야 탐색할 수 있습니다';
  $('ghtok_now').innerHTML=e.GITHUB_TOKEN.set?`<span class=ok>설정됨</span> ${esc(e.GITHUB_TOKEN.tail)} · ${esc(e.GITHUB_TOKEN.source)}`:'없음 — 결과는 PC 에만 저장';
  if(document.activeElement!==$('kw'))$('kw').value=s.keywords_text;$('kwCount').textContent=`검색어 ${s.keywords_count}개`;
+ if(document.activeElement!==$('kwf'))$('kwf').value=s.keywords_foreign_text||'';$('kwfCount').textContent=`${s.keywords_foreign_count||0}개 · `+(s.include_foreign?'켜짐 — 검색함':'외국 영상 꺼짐 — 검색 안 함');
  $('foreign').checked=!!s.include_foreign;renderTargets(s.targets);showJob(s.job);SHORTS_OK=!!(s.shorts&&s.shorts.available);if(!SHORTS_OK&&MODE==='shorts')MODE='long';renderMode();estimate();return s}
 function renderMode(){document.querySelectorAll('#modeSeg button').forEach(b=>{b.classList.toggle('on',b.dataset.m===MODE);if(b.dataset.m==='shorts'){b.disabled=!SHORTS_OK;b.title=SHORTS_OK?'':'쇼츠 분석 도구가 없음 — 창을 닫고 다시 켜면 받음'}});
  const sh=MODE==='shorts';$('listTitle').textContent=sh?'쇼츠 목록':'탐색 목록';$('fShortLbl').style.display=sh?'none':'';
@@ -2482,6 +2503,7 @@ $('ntMake').onclick=async()=>{try{const r=await api('/api/topic/new',{folder:$('
 $('resumeNow').onclick=()=>startJob('/api/resume',{});
 $('saveEnv').onclick=async()=>{try{const r=await api('/api/env',{YOUTUBE_API_KEY:$('ytkey').value,GITHUB_TOKEN:$('ghtok').value});$('ytkey').value='';$('ghtok').value='';
  say('envMsg',r.changed.length?`저장함: ${r.changed.join(', ')}`:'바뀐 것 없음 (넣은 칸만 저장)','ok');loadState()}catch(e){say('envMsg',e.message,'bad')}};
+$('saveKwf').onclick=async()=>{try{const r=await api('/api/keywords',{text:$('kwf').value,push:$('kwPush').checked,file:'foreign'});say('kwfMsg',r.message,'ok');estimate();loadState()}catch(e){say('kwfMsg',e.message,'bad')}};
 $('saveKw').onclick=async()=>{try{const r=await api('/api/keywords',{text:$('kw').value,push:$('kwPush').checked});say('kwMsg',r.message,'ok');$('kwCount').textContent=`검색어 ${r.count}개`;estimate()}catch(e){say('kwMsg',e.message,'bad')}};
 $('tgAdd').onclick=async()=>{const v=$('tgIn').value.trim();if(!v)return;say('tgMsg','확인 중…');try{const r=await api('/api/targets/add',{text:v});
  const ok=r.results.filter(x=>x.ok),bad=r.results.filter(x=>!x.ok);
@@ -2490,7 +2512,7 @@ $('tgAdd').onclick=async()=>{const v=$('tgIn').value.trim();if(!v)return;say('tg
  $('tgIn').value=bad.map(x=>x.input).join('\n');renderTargets(r.targets);estimate()}catch(e){say('tgMsg',e.message,'bad')}};
 $('tgIn').onkeydown=e=>{if(e.key==='Enter'&&(e.ctrlKey||e.metaKey))$('tgAdd').click()};
 $('weeks').oninput=()=>{lsSet('ytWeeks',$('weeks').value);estimate()};
-$('foreign').onchange=async()=>{const on=$('foreign').checked;try{const r=await api('/api/foreign',{on});$('foreign').checked=!!r.include_foreign;say('foreignMsg','외국 영상 '+r.message,'ok');estimate()}catch(e){$('foreign').checked=!on;say('foreignMsg',e.message,'bad')}};$('useKw').onchange=()=>{lsSet('ytUseKw',$('useKw').checked?'1':'0');estimate()};
+$('foreign').onchange=async()=>{const on=$('foreign').checked;try{const r=await api('/api/foreign',{on});$('foreign').checked=!!r.include_foreign;say('foreignMsg','외국 영상 '+r.message,'ok');estimate();loadState()}catch(e){$('foreign').checked=!on;say('foreignMsg',e.message,'bad')}};$('useKw').onchange=()=>{lsSet('ytUseKw',$('useKw').checked?'1':'0');estimate()};
 async function startJob(p,b){try{waitDone=true;await api(p,b);busy=true;showJob(await api('/api/job'))}catch(e){waitDone=false;alert(e.message)}}
 $('explore').onclick=()=>startJob('/api/explore',{weeks:+$('weeks').value,keywords:$('useKw').checked,mode:MODE});
 $('approve').onclick=async()=>{const ids=ROWS.filter(r=>CHECK.has(r.id)).map(r=>r.id);if(!ids.length)return;

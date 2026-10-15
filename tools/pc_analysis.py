@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.15 — 2026-10-15 — 주제마다 다른 키 (사용자 지시: "키도 나눠서 쓸수 있게해 주제별로 다른키 넣을거니까"): 키 찾는 순서는 그대로
+# VERSION: v1.16 — 2026-10-15 — 영어 검색어 <주제>/keywords_foreign.txt (사용자 지시: "주식은 영어 주식 검색어도 추가해"): 외국 영상을 켠 주제(INCLUDE_FOREIGN)만
+#          keyword_list(할당량 계산·검색어 지문 — 바뀌면 분석기 다시)에 더함, 회차마다 GitHub 에서 받음(SYNC_CONFIG)
+# (v1.15 — 2026-10-15 — 주제마다 다른 키 (사용자 지시: "키도 나눠서 쓸수 있게해 주제별로 다른키 넣을거니까"): 키 찾는 순서는 그대로
 #          (<주제>/.env → 환경 변수 YOUTUBE_API_KEY_<주제> → 맨 위 .env → YOUTUBE_API_KEY), 할당량 장부도 키마다 따로(KeyLedger — 키 지문).
 #          ① <주제>/.env 틀(TOPIC_ENV_TEMPLATE)의 안내를 '보통 비워 둠' → '이 주제 전용 키 (주제마다 달라도 됨 — 다르면 할당량도 따로)'
 #          ② 맨 위 .env 가 없으면 그 틀로 <주제>/.env 를 만듦 (예전: 아무것도 안 만듦 — 주제 키를 어디에 넣는지 안 보였음)
-#          ③ 앞쪽에 남아 있던 예전 ensure_topic_env(뒤의 v1.14 판에 가려져 쓰이지 않던 것)를 지움
+#          ③ 앞쪽에 남아 있던 예전 ensure_topic_env(뒤의 v1.14 판에 가려져 쓰이지 않던 것)를 지움)
 # (v1.14 — 2026-10-15 — 주제마다 캐시·설정 따로 (사용자 지시: "하나의 사이트에서 그냥 탭 만들어서 다른 주제 볼 수 있게 하자 서로 캐시는
 #          공유하지 않도록 하고" · "설정도 다 따로써야해"): ① retire_shared_cache — 분석기 v2.12.0 부터 API 캐시가 주제마다(.yt_work/cache_<주제>)라
 #          예전 공동 캐시 .yt_work/cache 를 .yt_work/old/ 로 한 번 옮김 ② ensure_topic_env — <주제>/.env 가 없으면 맨 위 .env 를 복사해 주제마다
@@ -123,7 +125,7 @@ from datetime import date, datetime, time as dtime, timedelta, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v1.15"
+VERSION = "v1.16"
 LOG = logging.getLogger("pc_analysis")
 KST = timezone(timedelta(hours=9))
 LOCK_STALE_MIN = 30          # 잠금 파일이 이 시간 넘게 갱신되지 않으면 이전 실행이 죽은 것으로 봄
@@ -463,6 +465,7 @@ GITHUB_TOKEN=
 
 
 KEYWORD_LIST_FILE = "keywords.txt"      # 검색어만 한 줄에 하나씩 (v1.7) — 있으면 keywords.toml 의 KEYWORD_GROUPS 대신
+FOREIGN_KEYWORD_FILE = "keywords_foreign.txt"   # v1.16: 영어(외국 영상) 검색어 — 외국 영상을 켠 주제에서만 (INCLUDE_FOREIGN)
 
 
 def read_keyword_list(path):
@@ -499,6 +502,8 @@ def keyword_list(folder, per_group=0):
             return None
         groups = {}
     raw = flat if flat else [k for v in groups.values() for k in (v if per_group <= 0 else v[:per_group])]
+    if (ROOT / folder / "analyzer_config.toml").is_file() and _topic_flat(folder).get("INCLUDE_FOREIGN") is True:   # v1.16: 켠 주제만 영어도
+        extra = extra + (read_keyword_list(ROOT / folder / FOREIGN_KEYWORD_FILE) or [])
     out = []
     for k in list(raw) + extra:
         n = "".join(str(k).split()).lower()
@@ -705,7 +710,7 @@ def analyzer_summary(run_info_p, started_utc):
 
 
 # ---------------------------------------------------------------- GitHub 에서 고친 설정·검색어를 PC 로 (v1.7)
-SYNC_CONFIG = ("keywords.txt", "keywords.toml", "analyzer_config.toml", "tag_rules.toml", "analysis_rules.toml")   # <주제>/ 아래 — PC 에서 고친 것은 지킴
+SYNC_CONFIG = ("keywords.txt", "keywords.toml", "analyzer_config.toml", "tag_rules.toml", "analysis_rules.toml", "keywords_foreign.txt")   # <주제>/ 아래 — PC 에서 고친 것은 지킴
 SYNC_CODE = ("youtube_topic_analyzer.py", "tools/outlier_research.py", "tools/outlier_stats.py", "tools/tag_keywords.py",
              "tools/pc_analysis.py", "tools/web_ui.py", "tools/weekly_analysis.py", "tools/success_analysis.py",
              "tools/shorts_analysis.py", "run_analyzer.ps1", "run_analyzer.sh")   # 언제나 GitHub 최신 (v1.12: 쇼츠 분석 도구)

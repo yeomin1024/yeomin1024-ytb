@@ -1,8 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.4 — 2026-10-15 — TAG_REQUIRE: 태그에 이 낱말 중 하나가 들어 있어야 검색어로 씀 (주제 낱말 필수 — 사용자 지시 "아니 검색어 다
+# VERSION: v1.5 — 2026-10-15 — 영어 검색어 고르기 --foreign (사용자 지시: "주식은 영어 주식 검색어도 추가해"): tag_rules.toml 의 [foreign] 표
+#          (TAG_SEEDS·TAG_REQUIRE·TAG_EXCLUDE·MIN_CHANNELS·MAX_TAGS·TAG_THEMES·TAG_OTHER) 로 — 씨앗 검색은 언어 지정 없이(outlier_research v2.4
+#          search_lang(True), 캐시 열쇠 '…|any'), 태그는 **외국 영상(is_foreign)** 중 주제 관련 영상에서만, 결과는 <주제>/keywords_foreign.txt
+#          (외국 영상을 켠 주제만 검색 — INCLUDE_FOREIGN) · 표 tag_candidates_foreign.md·.csv. 한국어 검색어(keywords.txt)는 건드리지 않음
+# (v1.4 — 2026-10-15 — TAG_REQUIRE: 태그에 이 낱말 중 하나가 들어 있어야 검색어로 씀 (주제 낱말 필수 — 사용자 지시 "아니 검색어 다
 #          주식 관련으로 변경하고": 주식 주제에 재테크·연금·노후준비·부자·반도체 같은 넓은 태그가 들어가던 것). 빈 목록이면 예전처럼 (economic 그대로).
-#          표의 '검색어로 씀' 칸에 '주제 낱말 없음 (TAG_REQUIRE)'
+#          표의 '검색어로 씀' 칸에 '주제 낱말 없음 (TAG_REQUIRE)')
 # (v1.3 — 2026-10-15 — 남는 태그 묶음 이름을 주제마다 (tag_rules.toml TAG_OTHER, 없으면 예전처럼 '기타 재테크') — 주식 주제(stock)에서
 #          '기타 재테크'로 나오던 것 (사용자 지시 "주식 주제로 유튜브 분석기 돌리기위한 세팅 좀 해줘"))
 # (v1.2 — 2026-10-14 — 캐시에서 영상 정보 파일(<영상ID>.json)만 읽음 — 웹 화면의 채널 업로드 목록(uploads_*.json)·자동완성)
@@ -22,6 +26,7 @@ r"""
   python tools/tag_keywords.py economic                       # 씨앗 검색 + 태그 표만 (검색어 목록은 그대로)
   python tools/tag_keywords.py economic --write-keywords      # 표 + 검색어 목록 economic/keywords.txt 를 고른 태그로 바꿈 (.bak 남김)
   python tools/tag_keywords.py economic --no-seed-search      # 검색 없이 이미 받은 영상의 태그로만 (할당량 0)
+  python tools/tag_keywords.py stock --foreign --write-keywords   # 영어 검색어 → stock/keywords_foreign.txt (tag_rules.toml [foreign], v1.5)
   옵션: --max-tags 40 --min-channels 5 (tag_rules.toml 값 대신), --quota 1000 (씨앗 검색 한도)
 할당량: 씨앗 1개 = 검색 2번 = 200단위 (+ 영상 정보 50개에 1단위). 이미 받은 검색은 7일 동안 캐시(0단위).
 로그: [STAGE] [시각] key=value (START·SEED·TAGS·WRITE·DONE)
@@ -41,7 +46,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import outlier_research as orr          # noqa: E402  같은 캐시·같은 관련어 규칙을 씀
 
 ROOT = orr.ROOT
-VERSION = "v1.4"
+VERSION = "v1.5"
 OTHER_DEFAULT = "기타 재테크"     # TAG_THEMES 어디에도 안 맞는 태그의 묶음 (tag_rules.toml TAG_OTHER 로 바꿈)
 LOG = logging.getLogger("tag_keywords")
 
@@ -51,14 +56,20 @@ def log(stage, level=logging.INFO, **kv):
             " ".join(f"{k}={json.dumps(v, ensure_ascii=False) if isinstance(v, str) and ' ' in v else v}" for k, v in kv.items()))
 
 
-def load_rules(topic):
+def load_rules(topic, foreign=False):
+    """foreign=True (v1.5): [foreign] 표 (영어 검색어 — keywords_foreign.txt). 없으면 SystemExit."""
     p = ROOT / topic / "tag_rules.toml"
     if not p.is_file():
         raise SystemExit(f"[START] ❌ {p} 없음 — 태그 규칙 파일을 먼저 만드세요 (예: economic/tag_rules.toml)")
     d = orr.tomllib.loads(p.read_text("utf-8"))
+    if foreign:
+        if not isinstance(d.get("foreign"), dict):
+            raise SystemExit(f"[START] ❌ {p} 에 [foreign] 표가 없음 — 영어 씨앗·주제 낱말을 먼저 적으세요 (예: stock/tag_rules.toml)")
+        d = d["foreign"]
     return {"seeds": list(d.get("TAG_SEEDS") or []), "min_channels": int(d.get("MIN_CHANNELS") or 5),
             "max_tags": int(d.get("MAX_TAGS") or 40), "exclude": [str(x) for x in d.get("TAG_EXCLUDE") or []],
             "require": [str(x) for x in d.get("TAG_REQUIRE") or []],          # v1.4: 비면 검사 안 함
+            "max_len": int(d.get("MAX_LEN") or 20),                            # v1.5: 태그 길이 상한 (영어 구절은 길어 [foreign] 에서 늘림)
             "keep": [orr._norm(x) for x in d.get("TAG_KEEP") or []],
             "themes": {str(k): [str(x) for x in v] for k, v in (d.get("TAG_THEMES") or {}).items()},
             "other": str(d.get("TAG_OTHER") or OTHER_DEFAULT), "path": p}
@@ -123,7 +134,9 @@ def choose(stats, rules, max_tags, min_channels):
             why = "빼는 말 (TAG_EXCLUDE)"
         elif not keep and rules.get("require") and not any(x.lower() in t.lower() for x in rules["require"]):
             why = "주제 낱말 없음 (TAG_REQUIRE)"
-        elif not (2 <= len(t) <= 20):
+        elif orr._norm(t) in rules.get("skip", ()):                           # v1.5 --foreign: 한국어 목록에 이미 있음 (자리 낭비 막기)
+            why = "keywords.txt 에 이미 있음"
+        elif not (2 <= len(t) <= rules.get("max_len", 20)):
             why = "길이"
         elif s["channels"] < min_channels:
             why = f"채널 {min_channels}곳 미만"
@@ -136,22 +149,26 @@ def choose(stats, rules, max_tags, min_channels):
     return picked, rows
 
 
-def write_table(dst, topic_name, picked, rows, n_videos, n_relevant, seeds, args):
-    """dst = <주제> 폴더 (keywords.toml·tag_rules.toml 옆) → tag_candidates.md (GitHub 에서 바로 보이는 표) + tag_candidates.csv."""
-    L = [f"# {topic_name} — 태그로 고른 검색어", "",
+def write_table(dst, topic_name, picked, rows, n_videos, n_relevant, seeds, args, suffix="", list_file="keywords.txt"):
+    """dst = <주제> 폴더 (keywords.toml·tag_rules.toml 옆) → tag_candidates{suffix}.md (GitHub 에서 바로 보이는 표) + .csv.
+    v1.5: suffix='_foreign' · list_file='keywords_foreign.txt' (영어 검색어)."""
+    L = [f"# {topic_name} — 태그로 고른 {'영어 ' if suffix else ''}검색어", "",
          f"자동 생성 — `tools/tag_keywords.py` {VERSION} ({datetime.now().strftime('%Y-%m-%d %H:%M')}). "
          f"영상 {n_videos:,}개 중 주제 관련 {n_relevant:,}개의 태그 · 씨앗 검색: {', '.join(seeds) or '없음'}", "",
          f"규칙: 채널 {args.min_channels}곳 이상이 쓴 태그 · 빼는 말 제외"
          f"{' · 주제 낱말(TAG_REQUIRE: ' + ', '.join(args.require) + ') 중 하나가 든 태그만' if args.require else ''}"
          f" · 채널 수 순 {args.max_tags}개 → "
-         f"{'`keywords.txt` 검색어로 씀' if args.write_keywords else '표만 (keywords.txt 는 그대로 — --write-keywords 로 바꿈)'}", "",
+         f"{f'`{list_file}` 검색어로 씀' if args.write_keywords else f'표만 ({list_file} 는 그대로 — --write-keywords 로 바꿈)'}", "",
          "| # | 태그 | 채널 수 | 영상 수 | 묶음 | 검색어로 씀 |", "|---|---|---|---|---|---|"]
     rank = {r["tag"]: k for k, r in enumerate(picked, 1)}
     for r in rows[:200]:
         L.append(f"| {rank.get(r['tag'], '')} | {r['tag']} | {r['channels']} | {r['videos']} | {r['theme']} | "
                  f"{'✅' if r['tag'] in rank else '– ' + r['why']} |")
-    (dst / "tag_candidates.md").write_text("\n".join(L) + "\n", "utf-8")
-    with open(dst / "tag_candidates.csv", "w", newline="", encoding="utf-8-sig") as f:
+    if suffix:
+        L[3:3] = ["영어 태그 — **외국 영상**(영상 언어가 한국어가 아님) 중 주제 관련 영상에서만 모음. 이 검색어는 그 주제에서 외국 영상을 켰을 때만"
+                  " 검색 (`analyzer_config.toml` `INCLUDE_FOREIGN` — 웹 화면 4번 칸 [외국 영상도]).", ""]
+    (dst / f"tag_candidates{suffix}.md").write_text("\n".join(L) + "\n", "utf-8")
+    with open(dst / f"tag_candidates{suffix}.csv", "w", newline="", encoding="utf-8-sig") as f:
         w = csv.DictWriter(f, fieldnames=["rank", "tag", "channels", "videos", "views", "theme", "why"])
         w.writeheader()
         for r in rows:
@@ -166,14 +183,21 @@ KEYWORD_LIST_HEAD = """# 검색어 목록 — {name} ({topic})
 """
 
 
-def write_keyword_list(path, picked, note, name, topic):
+FOREIGN_LIST_HEAD = """# 영어(외국 영상) 검색어 — {name} ({topic})
+# 이 주제에서 외국 영상을 켰을 때만 검색 (analyzer_config.toml [search] INCLUDE_FOREIGN = true — 웹 화면 4번 칸 [외국 영상도]). 끄면 쓰지 않음.
+# 한 줄에 검색어 하나, '#' 줄은 메모. GitHub 에서 고치면 PC 가 다음 회차에 받아 씀. 한국어 검색어는 keywords.txt (따로).
+# 할당량: 검색어 1개 = 롱폼 탐색 2번(200) + 쇼츠 1번(100) + 분석기 1번(100). 다시 고르기: python tools/tag_keywords.py {topic} --foreign --write-keywords
+"""
+
+
+def write_keyword_list(path, picked, note, name, topic, head=KEYWORD_LIST_HEAD):
     """검색어 목록 <주제>/keywords.txt 를 고른 태그로 씀 (묶음 이름은 '# ── 이름 ──' 메모 줄). 있던 파일은 .bak.
     쓴 뒤 다시 읽어(outlier_research.read_keyword_list) 고른 태그 그대로인지 검사. → {묶음: 개수}"""
     groups = {}
     for r in picked:
         groups.setdefault(r["theme"], []).append(r["tag"])
     order = sorted(groups, key=lambda g: (g.startswith("기타"), [int(x) for x in re.findall(r"^\d+", g)] or [99], g))
-    lines = [KEYWORD_LIST_HEAD.format(name=name, topic=topic).rstrip("\n"), f"# {note}"]
+    lines = [head.format(name=name, topic=topic).rstrip("\n"), f"# {note}"]
     for g in order:
         label = re.sub(r"^\d+\.\s*", "", g)                  # 묶음 번호는 빼고 이름만
         lines += ["", f"# ── {label} ──"] + groups[g]
@@ -199,11 +223,14 @@ def main(argv=None):
     ap.add_argument("--max-tags", type=int, help="검색어로 쓸 태그 수 (tag_rules.toml MAX_TAGS 대신)")
     ap.add_argument("--min-channels", type=int, help="이만큼 다른 채널이 쓴 태그만 (MIN_CHANNELS 대신)")
     ap.add_argument("--quota", type=int, default=1000, help="씨앗 검색 할당량 한도")
+    ap.add_argument("--foreign", action="store_true", help="영어 검색어 (v1.5): tag_rules.toml [foreign] → <주제>/keywords_foreign.txt")
     ap.add_argument("--log-level", default="INFO", choices=["DEBUG", "INFO", "WARNING"])
     args = ap.parse_args(argv)
     logging.basicConfig(level=getattr(logging, args.log_level), format="%(message)s", stream=sys.stdout)
     orr.logging.getLogger("outlier").setLevel(getattr(logging, args.log_level))
-    rules = load_rules(args.topic)
+    rules = load_rules(args.topic, foreign=args.foreign)
+    if args.foreign:                                                     # v1.5: 한국어 검색어(keywords.txt)와 겹치는 태그는 빼고 고름
+        rules["skip"] = {orr._norm(k) for k in orr.read_keyword_list(ROOT / args.topic / orr.KEYWORD_LIST_FILE) or []}
     args.max_tags = args.max_tags or rules["max_tags"]
     args.min_channels = args.min_channels or rules["min_channels"]
     args.require = rules["require"]
@@ -211,7 +238,8 @@ def main(argv=None):
     (out / ".cache").mkdir(parents=True, exist_ok=True)
     _, exclude, topic_name, kw_file, rel = orr.load_keywords(args.topic, 0)
     log("START", topic=args.topic, name=topic_name, seeds=",".join(rules["seeds"]), max_tags=args.max_tags,
-        min_channels=args.min_channels, require=len(rules["require"]), write_keywords=args.write_keywords, tool=f"tag_keywords.py {VERSION}")
+        min_channels=args.min_channels, require=len(rules["require"]), write_keywords=args.write_keywords, foreign=args.foreign,
+        tool=f"tag_keywords.py {VERSION}")
     used = 0
     if rules["seeds"] and not args.no_seed_search:
         key, src = orr.load_api_key(args.topic)
@@ -219,27 +247,36 @@ def main(argv=None):
             raise SystemExit("[SEED] ❌ YOUTUBE_API_KEY 없음 — 키를 넣거나 --no-seed-search")
         api = orr.Api(key, args.quota)
         a = types.SimpleNamespace(fallback_days=365, long=True, search_ttl_hours=orr.SEARCH_TTL_HOURS, refresh=False)
+        if args.foreign:
+            a.search_lang = orr.search_lang(True)                        # v1.5: 영어 씨앗은 언어 지정 없이 (주제 설정과 상관없이)
         state = orr.new_state()
         orr.collect_api(args.topic, a, api, [("씨앗", s) for s in rules["seeds"]], exclude, out, state)
         used = api.used
         log("SEED", searches_new=state["searched"], searches_cached=state["search_cached"], pending=len(state["pending_searches"]),
             quota_used=used, key_source=src)
     infos = cached_infos(out)
+    if args.foreign:                                                     # v1.5: 영어 태그는 외국 영상에서만
+        infos = [i for i in infos if orr.is_foreign(i)]
     n_rel = sum(1 for i in infos if orr.relevant(i, rel))
     stats = tag_stats(infos, rel)
     picked, rows = choose(stats, rules, args.max_tags, args.min_channels)
     log("TAGS", videos=len(infos), relevant=n_rel, distinct_tags=len(stats), picked=len(picked),
         dropped_require=sum(1 for r in rows if r["why"].startswith("주제 낱말")),
         top=",".join(r["tag"] for r in picked[:15]))
-    write_table(ROOT / args.topic, topic_name, picked, rows, len(infos), n_rel, rules["seeds"], args)
+    suffix = "_foreign" if args.foreign else ""
+    list_name = orr.FOREIGN_KEYWORD_FILE if args.foreign else orr.KEYWORD_LIST_FILE
+    write_table(ROOT / args.topic, topic_name, picked, rows, len(infos), n_rel, rules["seeds"], args, suffix=suffix, list_file=list_name)
     if args.write_keywords and picked:
-        note = (f"태그에서 고른 검색어 {len(picked)}개 — tools/tag_keywords.py {VERSION} {datetime.now().strftime('%Y-%m-%d')} "
-                f"(관련 영상 {n_rel:,}개·채널 {args.min_channels}곳 이상·표: tag_candidates.md). 손으로 고쳐도 됨")
-        txt = ROOT / args.topic / orr.KEYWORD_LIST_FILE
-        groups = write_keyword_list(txt, picked, note, topic_name, args.topic)
+        note = (f"태그에서 고른 {'영어 ' if args.foreign else ''}검색어 {len(picked)}개 — tools/tag_keywords.py {VERSION} "
+                f"{datetime.now().strftime('%Y-%m-%d')} (관련 {'외국 ' if args.foreign else ''}영상 {n_rel:,}개·채널 {args.min_channels}곳 이상·"
+                f"표: tag_candidates{suffix}.md). 손으로 고쳐도 됨")
+        txt = ROOT / args.topic / list_name
+        groups = write_keyword_list(txt, picked, note, topic_name, args.topic,
+                                    head=FOREIGN_LIST_HEAD if args.foreign else KEYWORD_LIST_HEAD)
         log("WRITE", file=str(txt.relative_to(ROOT)), groups=len(groups), keywords=sum(groups.values()),
             themes=",".join(f"{g}:{n}" for g, n in groups.items()))
-    log("DONE", topic=args.topic, picked=len(picked), quota_used=used, table=str((ROOT / args.topic / "tag_candidates.md").relative_to(ROOT)))
+    log("DONE", topic=args.topic, picked=len(picked), quota_used=used,
+        table=str((ROOT / args.topic / f"tag_candidates{suffix}.md").relative_to(ROOT)))
     return 0
 
 

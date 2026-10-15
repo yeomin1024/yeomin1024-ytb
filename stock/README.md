@@ -1,6 +1,8 @@
 # 주식 주제 폴더 (`stock/`) — 새로 시작 (2026-10-15)
 
-VERSION: v1.3 — 2026-10-15 — 주식 탭만 쓰는 키 · 외국 영상 켜고 끄기(기본 꺼짐) (사용자 지시: "야 키도 나눠서 쓸수 있게해 주제별로 다른키 넣을거니까 그리고 주식은 외국 영상도 다 분석할 건데 확인해봐 on/off 기능(default off) 있는지 확인하고 없으면 추가해")
+VERSION: v1.4 — 2026-10-15 — 실행 순서를 단계별로 · **영어 검색어 15개** `keywords_foreign.txt` (외국 영상을 켰을 때만 검색) (사용자 지시: "아니 어떻게 실행해 그리고 주식은 영어 주식 검색어도 추가해")
+
+(v1.3 — 2026-10-15 — 주식 탭만 쓰는 키 · 외국 영상 켜고 끄기(기본 꺼짐) (사용자 지시: "야 키도 나눠서 쓸수 있게해 주제별로 다른키 넣을거니까 그리고 주식은 외국 영상도 다 분석할 건데 확인해봐 on/off 기능(default off) 있는지 확인하고 없으면 추가해"))
 
 (v1.2 — 2026-10-15 — 웹 화면은 한 화면·주제 탭 (재테크·주식), 설정·캐시는 주제마다 따로 (사용자 지시 "헷갈리니까 하나의 사이트에서 그냥 탭 만들어서 다른 주제 볼 수 있게 하자 서로 캐시는 공유하지 않도록 하고" · "설정도 다 따로써야해"))
 
@@ -17,19 +19,30 @@ VERSION: v1.3 — 2026-10-15 — 주식 탭만 쓰는 키 · 외국 영상 켜�
 
 ## 실행 (집 PC — PowerShell)
 
+**① 켜기** — 분석기 폴더(예: `문서\ytb` — 처음이면 `guides/pc_analysis.md` '처음 한 번')에서 탐색기 주소창에 `powershell` 입력 → Enter → 아래 두 줄:
+
 ```powershell
-# 처음 한 번 (또는 실행기가 바뀌었을 때) — 실행기 받기
 curl.exe -L -o run_analyzer.ps1 https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/run_analyzer.ps1
-
-# 웹 화면 (브라우저가 http://127.0.0.1:8765/ 로 열림) — 위쪽 탭에서 [재테크] [주식]
-powershell -ExecutionPolicy Bypass -File run_analyzer.ps1
-
-# 주식 탭부터 열기 (재테크 탭도 보임)
 powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Folder stock
 ```
 
+(첫 줄 = 실행기 새로 받기 — 실행기가 바뀌었을 때만 필요하지만 매번 해도 됨. 둘째 줄 = 켜기 — 켤 때마다 최신 코드·설정을 받음. 예전 분석기 창이 켜져 있으면 **먼저 닫기**)
+
+**② 브라우저**에 `http://127.0.0.1:8765/` 가 뜸 → 위쪽 **[주식]** 탭.
+
+**③ (처음만) 1번 칸 키** — YouTube API 키를 붙여넣고 [키 저장] (`stock/.env` 에만 — 재테크와 다른 키여도 됨).
+
+**④ (외국 영상까지 볼 때) 4번 칸 [외국 영상도] 체크** — 외국 영상을 목록·분석에 넣고 **영어 검색어 15개**(2번 칸 아래 '영어(외국 영상) 검색어')도 검색. 안 켜면 한국어 영상·한국어 검색어 40개만.
+
+**⑤ [탐색]** → 5번 칸 목록(배수 높은 순, 추천은 체크돼 있음)을 보고 체크 고치기 → **[승인]** → 승인한 영상 자료 + 분석(`stock/result/outliers/analysis.md`) → GitHub. 음성인식은 그 뒤 저절로.
+
+**⑥ 쇼츠** — 4번 칸 **[쇼츠]** 로 바꾸고 [탐색] → 체크 → [쇼츠 승인] (`shorts/analysis.md`).
+
+- 할당량이 모자라면 남은 것은 **한국 시간 오후 4~5시(초기화) 뒤 저절로 이어서** (창을 켜 둔 동안). 화면 위 '남은 할당량'·4번 칸 '약 ○○단위'에 보임.
+- 두 주제를 한 화면에: `-Folder stock` 없이 켜면 재테크·주식 탭 둘 다 (탭은 언제든 바꿀 수 있음).
+
 - 한 화면에 주제 탭 (웹 화면 v2.0) — 예전처럼 주제마다 창이 뜨지 않음. 예전 창이 켜져 있으면 닫고 다시 켜기. 탭마다 키(`stock/.env`)·검색어·캐시·작업이 따로, 할당량만 같은 키에서 함께 (주식 탭에 다른 키를 넣으면 할당량도 따로 — 아래 '키').
-- 실행기가 켤 때마다 최신 코드와 이 폴더의 설정(`analyzer_config.toml`·`keywords.toml`·`keywords.txt`·`tag_rules.toml`·`analysis_rules.toml`)을 받는다. 키는 PC 의 맨 위 `.env` (또는 `stock/.env`) — git 에 올리지 않는다.
+- 실행기가 켤 때마다 최신 코드와 이 폴더의 설정(`analyzer_config.toml`·`keywords.toml`·`keywords.txt`·`keywords_foreign.txt`·`tag_rules.toml`·`analysis_rules.toml`)을 받는다. 키는 PC 의 맨 위 `.env` (또는 `stock/.env`) — git 에 올리지 않는다.
 - 웹 화면 순서: **[탐색] → 목록(배수 높은 순)에서 체크 → [승인]** → 승인한 영상 자료 + 주별 분석 + `result/outliers/analysis.md` → GitHub. 쇼츠는 4번 칸 [쇼츠].
 - 예전 자동 실행(화면 없이): `-Auto -Folder stock` · 작업 스케줄러 등록: `-RegisterTask -Folder stock` · 설정을 GitHub 것으로 덮기: `-UpdateConfig -Folder stock`. 자세히 `guides/pc_analysis.md`.
 
@@ -43,9 +56,10 @@ powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Folder stock
 
 - **지금: 꺼짐** (`analyzer_config.toml` `[search]` `INCLUDE_FOREIGN = false`) — 예전 그대로 외국 영상은 목록·분석에서 뺌.
 - **켜기:** 웹 화면 주식 탭 → **4. 탐색**의 **[외국 영상도]** 체크 (재테크 탭은 그대로). 또는 GitHub 에서 `stock/analyzer_config.toml` 의 `INCLUDE_FOREIGN = true`.
-- 켜면: 외국 영상도 목록(‘외국 영상’ 표시)·승인·분석(`analysis.md`·쇼츠)에 들어감, 검색은 언어 지정 없이 — 검색 캐시가 언어별이라 **켠 뒤 첫 탐색은 새로 검색 (롱폼 약 8,000단위 + 쇼츠 약 4,000단위)**. 외국 영상 자막은 원래 언어로, 음성인식은 언어를 스스로 알아냄. 라이브 방송은 그대로 뺌.
+- 켜면: 외국 영상도 목록(‘외국 영상’ 표시)·승인·분석(`analysis.md`·쇼츠)에 들어감, **영어 검색어 15개(`keywords_foreign.txt`)도 검색**, 검색은 언어 지정 없이 — 검색 캐시가 언어별이라 **켠 뒤 첫 탐색은 새로 검색 (롱폼 검색 110번 약 11,000단위 + 쇼츠 55번 약 5,500단위 — 하루 할당량을 넘는 만큼은 다음 날 저절로 이어서)**. 외국 영상 자막은 원래 언어로, 음성인식은 언어를 스스로 알아냄. 라이브 방송은 그대로 뺌.
 - 영어 주식 영상이 '주제 밖'으로 빠지지 않게 `keywords.toml` v1.1 에 영어 관련어(stocks·stock market·dividend·nasdaq·S&P·wall street, 약한 말 investing·trading·portfolio …)를 넣음.
-- 검색어가 한국어라 켜도 외국 영상은 많지 않을 수 있음 — 많이 보려면 영어 검색어를 `keywords.txt` 에 더하거나 외국 채널 주소를 3번 칸에.
+- **영어 검색어 (2026-10-15):** `keywords_foreign.txt` 15개 — 실제 외국 주식 영상 태그에서 고름 (`python tools/tag_keywords.py stock --foreign --write-keywords`, 규칙 `tag_rules.toml` `[foreign]`: 영어 씨앗 4개 검색 → 외국 영상 299개의 태그 중 채널 5곳 이상·**주식 낱말**(stock·etf·dividend·nasdaq·s&p·index fund …)이 든 것, 소식(news·today·crash)·종목 이름·코인·부동산 뺌, 한국어 목록과 겹치는 ETF·S&P 500 뺌 — 표 `tag_candidates_foreign.md`). 배당 6 · 주식 일반 4(stock market·stocks …) · ETF·지수 3 · 초보 1 · 종목 고르기 1. 외국 영상을 **끄면 검색하지 않음** (빼게 될 결과에 할당량을 쓰지 않게). 고치기: 웹 화면 2번 칸 '영어(외국 영상) 검색어' 또는 GitHub.
+- 외국 채널·영상 주소는 3번 칸에 넣어도 됨.
 - 자세히 `guides/pc_analysis.md` '외국 영상 켜고 끄기'.
 
 ## 할당량
@@ -60,8 +74,9 @@ powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Folder stock
 |---|---|
 | `analyzer_config.toml` | 분석기 설정 v3.1 (`FRESH_START` — 아래 '캐시' · **`INCLUDE_FOREIGN = false`** — 위 '외국 영상'): 주제 이름 **주식**·폴더 `stock`·할당량 `QUOTA_BUDGET = 6000`·**영상 파일 안 받음**(`DOWNLOAD_VIDEOS = false`) — 값은 `economic/` v1.1 과 같음 |
 | **`keywords.txt`** | **검색어 목록 40개 — 모두 주식 낱말이 든 말** (주식·주가·증시·코스피·코스닥·나스닥·S&P·ETF·배당·미장·국장·주린이·가치투자·장기투자·단타 …). 한 줄에 하나, `#` 줄은 메모. 실제 영상 태그에서 고름(`tools/tag_keywords.py` v1.4). **GitHub 에서 고치면 PC 가 다음 회차에 자동으로 받아 씀** |
+| **`keywords_foreign.txt`** | **영어 검색어 15개** — 외국 영상을 켰을 때만 검색 (위 '외국 영상'). 표 [`tag_candidates_foreign.md`](tag_candidates_foreign.md) |
 | `keywords.toml` | v1.1 — 주제 관련어 54개(주식·코스피·ETF·배당주·공매도·반대매매·연금저축·ISA … + 영어 stocks·stock market·dividend·nasdaq …) · 약한 관련어 34개(투자·종목·개미·손절·물타기 … + investing·trading·portfolio …) · 제외어(주식회사·(주)·㈜) — 탐색한 영상이 주식 영상인지 가름 |
-| `tag_rules.toml` | 태그 → 검색어 규칙 v1.1: 씨앗 검색어 8개(주식·주식 투자·주식 초보·미국주식·주식 공부·ETF 투자·배당주·국내주식) · 채널 5곳 이상 · 40개 · **주식 낱말 필수**(`TAG_REQUIRE` 33개 — 재테크·투자·연금·노후준비·부자·반도체·2차전지 같은 넓은 태그는 빠짐) · **빼는 말**(뉴스·시황·전망·라이브·쇼츠·경제·금리·환율·정치·**종목 이름**·부동산·코인·자기계발·AI·금융·달러) · 묶음 13개 · 묶음 밖은 '기타 주식' |
+| `tag_rules.toml` | 태그 → 검색어 규칙 v1.2 (`[foreign]` = 영어 검색어 규칙): 씨앗 검색어 8개(주식·주식 투자·주식 초보·미국주식·주식 공부·ETF 투자·배당주·국내주식) · 채널 5곳 이상 · 40개 · **주식 낱말 필수**(`TAG_REQUIRE` 33개 — 재테크·투자·연금·노후준비·부자·반도체·2차전지 같은 넓은 태그는 빠짐) · **빼는 말**(뉴스·시황·전망·라이브·쇼츠·경제·금리·환율·정치·**종목 이름**·부동산·코인·자기계발·AI·금융·달러) · 묶음 13개 · 묶음 밖은 '기타 주식' |
 | [`tag_candidates.md`](tag_candidates.md) | **고른 태그 표**: 태그마다 채널 수·영상 수·묶음·검색어로 썼는지(안 쓴 까닭) — `.csv` 도 |
 | `analysis_rules.toml` | 분석 기준 v1.0 — `economic/` v1.4 와 같고 뺄 주제만 **부동산·코인** (`OFF_TOPIC_THEMES`) |
 | `.env` | (PC에만, git 제외) 주식 탭 전용 키 — 재테크와 다른 키를 넣어도 됨 (다르면 할당량 따로), 비우면 맨 위 `.env` 키 |

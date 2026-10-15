@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-10-15 — 외국 영상 켜고 끄기 · 주제마다 다른 키 시험 (사용자 지시: "야 키도 나눠서 쓸수 있게해 주제별로 다른키 넣을거니까
+# VERSION: v1.1 — 2026-10-15 — 영어 검색어 keywords_foreign.txt 시험 (사용자 지시: "주식은 영어 주식 검색어도 추가해"): 켠 주제만 검색·
+#          웹 화면 2번 칸 저장·tag_keywords v1.5 --foreign 규칙·저장소 stock/keywords_foreign.txt 가 모두 주식 낱말
+# (v1.0 — 2026-10-15 — 외국 영상 켜고 끄기 · 주제마다 다른 키 시험 (사용자 지시: "야 키도 나눠서 쓸수 있게해 주제별로 다른키 넣을거니까
 #          그리고 주식은 외국 영상도 다 분석할 건데 확인해봐 on/off 기능(default off) 있는지 확인하고 없으면 추가해").
 #          outlier_research v2.4 · web_ui v2.1 · success_analysis v1.4 · shorts_analysis v1.2 · 분석기 v2.13.0 · pc_analysis v1.15.
-#          진짜 YouTube·GitHub 에 요청하지 않는다 (test_quota_saving 의 Base — 임시 폴더를 ROOT 로, urlopen 가짜, GITHUB_TOKEN 류 지움).
+#          진짜 YouTube·GitHub 에 요청하지 않는다 (test_quota_saving 의 Base — 임시 폴더를 ROOT 로, urlopen 가짜, GITHUB_TOKEN 류 지움).)
 """cd tools/tests && python3 -m unittest test_foreign_and_keys -v"""
 import hashlib
 import json
@@ -322,6 +324,72 @@ class TestKeysPerTopic(Base):
         self.assertEqual(sent["code"], 200, sent)
         self.assertEqual(pc.find_secret("YOUTUBE_API_KEY", "stock"), ("KEY-STOCK-0003", "stock/.env"))
         self.assertEqual(pc.find_secret("YOUTUBE_API_KEY", "economic")[0], "")  # 다른 주제에는 안 들어감
+
+
+class TestForeignKeywords(Base):
+    """v1.1: 영어 검색어 — 외국 영상을 켠 주제에서만."""
+
+    def setUp(self):
+        super().setUp()
+        web.orr = orr
+        d = self.root / "stock"
+        d.mkdir()
+        (d / "analyzer_config.toml").write_text(CONFIG.format(t="stock"), "utf-8")
+        (d / "keywords.txt").write_text("주식\nETF\n", "utf-8")
+        (d / "keywords_foreign.txt").write_text("# 영어\nstock market\ndividend stocks\nETF\n", "utf-8")   # ETF 는 겹침 → 한 번
+        web.STATE.update(topic="stock", topics=["stock"], port=8765)
+        web.release_topic()
+        web.JOBS.clear()
+
+    def tearDown(self):
+        web.release_topic()
+        super().tearDown()
+
+    def test_only_when_foreign_on(self):
+        kw = [q for _, q in orr.load_keywords("stock", 0)[0]]
+        self.assertEqual(kw, ["주식", "ETF"])                                   # 꺼짐 = 한국어 검색어만
+        self.assertEqual(pc.keyword_list("stock"), ["주식", "etf"])
+        self.assertEqual(web.estimate("stock", 8, True)["searches"], 4)
+        web.set_include_foreign("stock", True)
+        got = orr.load_keywords("stock", 0)[0]
+        self.assertEqual([q for _, q in got], ["주식", "ETF", "stock market", "dividend stocks"])
+        self.assertEqual({g for g, _ in got}, {"검색어", "외국 검색어"})
+        self.assertEqual(pc.keyword_list("stock"), ["주식", "etf", "stockmarket", "dividendstocks"])   # 검색어 지문도 바뀜 → 분석기 다시
+        self.assertEqual(web.estimate("stock", 8, True)["searches"], 8)          # 롱폼 2번씩
+        st = web.state_view("stock")
+        self.assertEqual((st["keywords_count"], st["keywords_foreign_count"]), (2, 3))
+
+    def test_web_save_foreign_keywords(self):
+        h, sent = handler("/api/keywords", "stock", {"text": "stocks\r\nindex funds", "file": "foreign"})
+        h.do_POST()
+        self.assertEqual(sent["code"], 200, sent)
+        self.assertIn("외국 영상이 꺼져 있어", sent["body"]["message"])
+        self.assertEqual((self.root / "stock" / "keywords_foreign.txt").read_text("utf-8"), "stocks\nindex funds\n")
+        self.assertEqual((self.root / "stock" / "keywords.txt").read_text("utf-8"), "주식\nETF\n")      # 한국어 검색어는 그대로
+
+
+class TestForeignKeywordRules(unittest.TestCase):
+    def test_stock_foreign_rules_and_list(self):
+        import tag_keywords as tk
+        r = tk.load_rules("stock", foreign=True)
+        self.assertTrue(r["seeds"] and r["require"])
+        self.assertEqual(r["max_len"], 40)
+        self.assertEqual(tk.load_rules("stock")["max_len"], 20)                 # 한국어 규칙은 그대로
+        picked, rows = tk.choose({"investing": {"channels": 30, "videos": 9, "views": 1},
+                                  "stock market for beginners": {"channels": 9, "videos": 9, "views": 1},
+                                  "stock market news": {"channels": 9, "videos": 9, "views": 1}}, r, 15, 5)
+        self.assertEqual([x["tag"] for x in picked], ["stock market for beginners"])    # 넓은 말·소식은 빠짐, 긴 구절은 됨
+        why = {x["tag"]: x["why"] for x in rows}
+        self.assertTrue(why["investing"].startswith("주제 낱말 없음"))
+        self.assertTrue(why["stock market news"].startswith("빼는 말"))
+        with self.assertRaises(SystemExit):
+            tk.load_rules("economic", foreign=True)                               # 재테크에는 영어 규칙 없음
+        terms = orr.read_keyword_list(REPO / "stock" / orr.FOREIGN_KEYWORD_FILE)
+        self.assertGreaterEqual(len(terms), 10)
+        for t in terms:                                                           # 모두 주식 낱말 (사용자 지시 "검색어 다 주식 관련으로")
+            self.assertTrue(any(w in t.lower() for w in r["require"]), t)
+            self.assertFalse(any(w.lower() in t.lower() for w in r["exclude"]), t)
+        self.assertFalse(set(map(orr._norm, terms)) & set(map(orr._norm, orr.read_keyword_list(REPO / "stock" / "keywords.txt"))))
 
 
 if __name__ == "__main__":

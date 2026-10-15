@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.4 — 2026-10-15 — 외국 영상 켜고 끄기 (사용자 지시: "주식은 외국 영상도 다 분석할 건데 확인해봐 on/off 기능(default off) 있는지
+# VERSION: v1.4.1 — 2026-10-15 — 켠 주제는 '지금 검색어'에 영어 검색어(keywords_foreign.txt)도 (사용자 지시: "주식은 영어 주식 검색어도 추가해")
+# (v1.4 — 2026-10-15 — 외국 영상 켜고 끄기 (사용자 지시: "주식은 외국 영상도 다 분석할 건데 확인해봐 on/off 기능(default off) 있는지
 #          확인하고 없으면 추가해"): 주제 설정 INCLUDE_FOREIGN (outlier_research v2.4 include_foreign — 기본 꺼짐)을 읽어 켜면 외국 영상을
 #          성공 사례·비교 집단·같은 채널 비교에서 빼지 않음 (라이브는 그대로 뺌). 사례마다 foreign 표시 · 말 속도(한글 음절)는 한국어 영상만으로
-#          셈 (외국 대본은 한글 0 음절이라 중앙값을 끌어내림) · 0번 표에 '외국 영상' 줄과 한계 글
+#          셈 (외국 대본은 한글 0 음절이라 중앙값을 끌어내림) · 0번 표에 '외국 영상' 줄과 한계 글)
 # (v1.3 — 2026-10-14 — PC 결과(v1.2, 같은 채널 기준선 155/162)를 점검해 고침 (사용자 지시 "지금 됐어? 확인해봐"):
 #          ① 비교 집단에서 올린 지 7일 안 된 영상 뺌 ([compare] MIN_AGE_DAYS — 채널 평소 영상을 받은 뒤 700개 중 180개가 조회수가 덜 쌓인
 #             새 영상이라 '성공 아님'으로 셈) · 한계 글에 비교 집단 구성(검색·채널 평소 영상 몇 개) 적음
@@ -85,7 +86,7 @@ from outlier_stats import TITLE_FEATURES                          # noqa: E402  
 from weekly_analysis import _published, _write_atomic, clean_description   # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v1.4"
+VERSION = "v1.4.1"
 LOG = logging.getLogger("success")
 CASE_DIR_RX = re.compile(r"^(W_|P?\d\d_)")
 NON_VIDEO_CACHE = ("search_", "supply_", "uploads_", "channels.json", "autocomplete.json")   # 영상 정보가 아닌 캐시 파일
@@ -205,6 +206,8 @@ def load_rules(root, topic):
     rules["file"] = f"{topic}/analysis_rules.toml" if (root / topic / "analysis_rules.toml").is_file() else "(기본값)"
     rules["keywords"] = orr.read_keyword_list(root / topic / "keywords.txt") or []
     rules["include_foreign"] = orr.include_foreign(topic, root)        # v1.4: 주제 설정 INCLUDE_FOREIGN (기본 꺼짐)
+    if rules["include_foreign"]:                                        # 켠 주제는 영어 검색어도 '지금 검색어'
+        rules["keywords"] += orr.read_keyword_list(root / topic / orr.FOREIGN_KEYWORD_FILE) or []
     fm = {str(k): str(v) for k, v in (d.get("format") or {}).items() if isinstance(v, str)}
     rules["format"] = fm or dict(DEFAULT_FORMATS)
     for k, rx in list(rules["format"].items()):           # 깨진 정규식은 빼고 알림 (분석은 계속)

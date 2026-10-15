@@ -1,5 +1,37 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-15 (16) — 주식 영어 검색어 15개 (외국 영상을 켰을 때만) · 실행 순서 안내
+
+### 왜 (사용자 지시)
+- "아니 어떻게 실행해 그리고 주식은 영어 주식 검색어도 추가해"
+
+### 어떻게 정했나
+- 영어 검색어를 `keywords.txt` 에 바로 넣지 않음 — 외국 영상이 꺼진 동안(기본) 영어 검색은 결과 대부분이 '외국 영상'으로 빠져 할당량만 쓰고, `tag_keywords.py --write-keywords` 로 한국어 목록을 다시 고르면 지워짐 → **따로 `stock/keywords_foreign.txt`, 외국 영상을 켠 주제에서만 검색**
+- 사람이 정하지 않고 **실제 외국 주식 영상의 태그**에서 고름 (CLAUDE.md '검색어는 실제 영상 태그로') — 한국어 규칙과 같은 기준(주식 낱말 필수 — 사용자 지시 "검색어 다 주식 관련으로", 그날그날 소식·종목 이름·코인·부동산 뺌)
+
+### 바꾼 것
+| 파일 (버전) | 함수·항목 | 내용 |
+|---|---|---|
+| `tools/tag_keywords.py` (v1.4 → v1.5) | `load_rules(foreign)`·`choose`(MAX_LEN·skip)·`write_table(suffix)`·`write_keyword_list(head)`·`--foreign` | `tag_rules.toml` `[foreign]` 으로 영어 씨앗을 언어 지정 없이 검색 → **외국 영상** 중 주제 관련 영상의 태그 → `keywords_foreign.txt` + 표 `tag_candidates_foreign.md`·`.csv`. 영어 구절이 길어 길이 상한 40(한국어는 20 그대로), 한국어 목록과 겹치는 태그는 뺌 |
+| `stock/tag_rules.toml` (v1.1 → v1.2) | `[foreign]` | 씨앗 4개(stock market investing·stocks for beginners·dividend investing·ETF investing), 주식 낱말 10개(stock·etf·dividend·nasdaq·s&p·dow jones·index fund·wall street·shares·equity — investing·trading 같은 넓은 말은 혼자 안 됨), 빼는 말(news·today·live·crash·종목 이름·crypto·real estate·economy·fed …), 15개, 묶음 7개 |
+| `stock/keywords_foreign.txt` (새로) · `stock/tag_candidates_foreign.md`·`.csv` (새로) | 영어 검색어 15개 | 배당 6(dividend investing·dividend stocks·dividend income·dividend portfolio·dividends·best dividend stocks) · 주식 일반 4(stock market·stocks·stock market investing·stock market for beginners) · ETF·지수 3(etf investing·index funds·ETFs) · 초보 1(how to invest in stocks) · 종목 고르기 1(stocks to buy) |
+| `tools/outlier_research.py` (v2.4 → v2.4.1) | `load_keywords`·`collect_api`·`FOREIGN_KEYWORD_FILE` | 켠 주제만 '외국 검색어' 묶음으로 더함 (같은 검색어는 한 번) · `a.search_lang` 이 있으면 그것으로 검색 |
+| `tools/web_ui.py` (v2.1 → v2.2) | `foreign_keywords_path`·`POST /api/keywords file=foreign`·`state_view`·화면 2번 칸 | '영어(외국 영상) 검색어' 접는 칸 — 몇 개·켜짐/꺼짐, 저장(+GitHub). [외국 영상도]를 켜면 '영어 검색어 15개도 검색' |
+| `tools/pc_analysis.py` (v1.15 → v1.16) | `keyword_list`·`SYNC_CONFIG` | 켠 주제만 할당량 계산·검색어 지문에 더함 (바꾸면 분석기 다시) · 회차마다 GitHub 에서 받음 |
+| `youtube_topic_analyzer.py` (v2.13.0 → v2.14.0) | 설정 읽기 | `INCLUDE_FOREIGN` 이면 '외국 검색어' 묶음 |
+| `tools/success_analysis.py` (v1.4 → v1.4.1) | `load_rules` | 켠 주제는 '지금 검색어'에 영어 검색어도 |
+| 시험 `test_foreign_and_keys.py` (v1.0 → v1.1) | 3개 더함 | 꺼짐 = 한국어만(검색 4번) / 켬 = 영어 더함(8번)·검색어 지문 바뀜 / 웹 화면 저장 / 영어 규칙(넓은 말·소식 빠짐, 긴 구절 됨) / 저장소 목록 15개 모두 주식 낱말·한국어 목록과 안 겹침 |
+| `stock/README.md` (v1.4) · `guides/pc_analysis.md` (v3.2) · `guides/README.md` (v1.32) · `CLAUDE.md` | 안내 | 주식 README '실행' 을 ①켜기 ②주식 탭 ③키 ④[외국 영상도] ⑤탐색·승인 ⑥쇼츠 단계로 |
+
+### 확인
+- 고르기 (클라우드, 할당량 **811단위** — 씨앗 검색 8번 + 영상 정보): 외국 영상 341개 중 주식 관련 299개, 태그 2,730개 → 15개. 처음 규칙(invest·trading 도 인정, 20자 상한)은 investing·trading·how to invest 같은 넓은 말이 들어가고 'stock market for beginners' 같은 긴 구절이 빠져서 고침 (캐시로 다시 — 0단위)
+- 웹 화면 (임시 폴더, Playwright): 주식 탭 2번 칸 '15개 · 외국 영상 꺼짐 — 검색 안 함', 예상 검색 80번 → [외국 영상도] 켜면 '15개 · 켜짐 — 검색함'·110번(약 11,020단위) → 끄면 80번, 화면 오류 0
+- `python3 -m unittest` 94개 중 89 통과 — 실패 5개는 예전부터인 `test_youtube_feedback`(지운 옛 파일 필요). `pc_analysis.py --self-test` ALL PASS · Python 3.11 컴파일 · 화면 JS `node --check`
+
+### 위험
+- 켜면 검색이 늘어남: 롱폼 110번(약 11,000단위) + 쇼츠 55번(약 5,500단위) — 하루 할당량(10,000)을 넘는 만큼은 다음 날 저절로 이어서. 줄이려면 2번 칸 영어 검색어에서 줄을 지움
+- 클라우드에서 같은 키로 811단위를 씀 — PC 장부에는 안 잡혀 오늘 PC 화면의 '남은 할당량'이 실제보다 많게 보일 수 있음 (Google 이 한도라고 답하면 그때 멈추고 다음 날 이어서)
+
 ## 2026-10-15 (15) — 주제마다 다른 키 · 외국 영상 켜고 끄기 (기본 꺼짐)
 
 ### 왜 (사용자 지시)

@@ -1,16 +1,21 @@
 # -*- coding: utf-8 -*-
-# VERSION: v1.0.1 — 2026-10-15 — 끝인사를 "시청해주셔서 감사합니다."로 (script_guide v3.1) — "끝까지" 약속은 첫 문장에서 잼. (v1.0 — 2026-10-14 — tools/content_research.py v1.0 시험 (임시 대본·가짜 비교 집단만 씀 — 네트워크·실제 분석 결과 없음))
+# VERSION: v1.1 — 2026-10-15 — content_research v1.1 drop_off_topic 시험 추가: analysis.json 이 옛 규칙으로 만들어졌어도 지금
+#          <주제>/analysis_rules.toml [exclude] OFF_TOPIC 낱말이 제목에 든 성공 사례를 빼는지 (주식 결과의 영화·시골집 미장·팬미팅·무당 영상)
+# (v1.0.1 — 2026-10-15 — 끝인사를 "시청해주셔서 감사합니다."로 (script_guide v3.1) — "끝까지" 약속은 첫 문장에서 잼. (v1.0 — 2026-10-14 — tools/content_research.py v1.0 시험 (임시 대본·가짜 비교 집단만 씀 — 네트워크·실제 분석 결과 없음)))
 r"""
   python3 -m unittest tools.tests.test_content_research -v     (저장소 최상위에서)
 
 - 대본 문장 나누기: 파트 라벨('-…')·'[챕터]'·'[장면]' 카드 제외, 한 줄 두 문장은 둘로, '-2,500만 원…'은 문장
 - measure: 읽는 음절·말투 비율·처음 나오는 시점·장치 판정
 - 비교 집단 성공 비율(rate)과 표 칸 이스케이프(md)
+- (v1.1) 지금 규칙으로 성공 사례 다시 거르기(drop_off_topic) — 규칙 파일 없음·깨짐이면 그대로
 """
+import json
 import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
 
 TOOLS = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(TOOLS))
@@ -66,6 +71,45 @@ class ContentResearchTest(unittest.TestCase):
         n, with_, without = cr.rate(rows, lambda x: "월" in x["title"])
         self.assertEqual((n, with_, without), (2, 0.5, 0.5))
         self.assertEqual(cr.md("a|b"), "a\\|b")
+
+
+class DropOffTopicTest(unittest.TestCase):
+    """v1.1: 지금 analysis_rules.toml [exclude] OFF_TOPIC 으로 성공 사례를 다시 거름."""
+
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.root = Path(self.tmp.name)
+        self.patch = mock.patch.object(cr, "ROOT", self.root)
+        self.patch.start()
+        out = self.root / "stock" / "result" / "outliers"
+        out.mkdir(parents=True)
+        self.cases = [{"no": 1, "id": "a", "title": "시골집 고치기 | 몰탈 30포대로 미장까지", "folder": "W_a"},
+                      {"no": 2, "id": "b", "title": "같은 TQQQ에 1억 (실제 데이터)", "folder": "W_b"},
+                      {"no": 3, "id": "c", "title": "미장 지금 들어가도 될까? 나스닥 10년", "folder": "W_c"}]
+        (out / "analysis.json").write_text(json.dumps({"generated": "t", "success_cases": self.cases}), "utf-8")
+
+    def tearDown(self):
+        self.patch.stop()
+        self.tmp.cleanup()
+
+    def rules(self, text):
+        (self.root / "stock" / "analysis_rules.toml").write_text(text, "utf-8")
+
+    def test_drops_by_current_rules(self):
+        self.rules('[exclude]\nOFF_TOPIC = ["코인", "시골집", "몰탈"]\n')
+        keep, dropped = cr.drop_off_topic("stock", self.cases)
+        self.assertEqual([c["id"] for c in keep], ["b", "c"])       # '미장'(미국장 줄임말)만 든 #3 은 남음
+        self.assertEqual(dropped, [{"id": "a", "title": self.cases[0]["title"], "why": "뺀 주제(시골집)"}])
+        self.assertEqual([c["id"] for c in cr.Data("stock").cases], ["b", "c"])   # 불러올 때 적용
+
+    def test_no_rules_file_keeps_all(self):
+        keep, dropped = cr.drop_off_topic("stock", self.cases)
+        self.assertEqual((len(keep), dropped), (3, []))
+
+    def test_broken_rules_keeps_all(self):
+        self.rules("[exclude\nOFF_TOPIC = [")
+        keep, dropped = cr.drop_off_topic("stock", self.cases)
+        self.assertEqual((len(keep), dropped), (3, []))
 
 
 if __name__ == "__main__":

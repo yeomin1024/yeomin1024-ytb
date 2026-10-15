@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-10-14 — 최초 작성 (사용자 지시 "지금까지 했던 주제 탐색, 제목 생성, 대본 생성을 어떻게 했는지와 피드백을 반영해서
+# VERSION: v1.1 — 2026-10-15 — 성공 사례를 지금 `<주제>/analysis_rules.toml` [exclude] OFF_TOPIC(제목 낱말)으로 다시 거름 — PC 가 다시 분석하기 전에도
+#          새로 더한 '뺀 주제'(예: 주식 결과의 영화·시골집 미장·팬미팅·무당 영상)가 질문 묶음에 섞이지 않게 (사용자 지시 2026-10-15 "계속해" — 주식 주제 고르기)
+# (v1.0 — 2026-10-14 — 최초 작성 (사용자 지시 "지금까지 했던 주제 탐색, 제목 생성, 대본 생성을 어떻게 했는지와 피드백을 반영해서
 #          각각 지시사항 파일을 만들고"): 2026-10-14 대화에서 임시 스크립트로 한 분석(시청자 나이·질문 묶음, 제목 형식·낱말·맨 앞 말,
-#          성공 대본 말투·전개 장치, 댓글 칭찬·불만, 새 대본 측정)을 명령 하나로 모음. 지시사항: guides/topic_guide.md · title_guide.md · script_guide.md
+#          성공 대본 말투·전개 장치, 댓글 칭찬·불만, 새 대본 측정)을 명령 하나로 모음. 지시사항: guides/topic_guide.md · title_guide.md · script_guide.md)
 """
 콘텐츠 연구 — 분석 결과(PC 가 올린 `<주제>/result/outliers/`)로 주제·제목·대본 지시사항의 숫자를 다시 낸다. 할당량 0, 네트워크 없음.
 
@@ -44,7 +46,7 @@ try:
 except ImportError:  # pragma: no cover - 3.11 미만
     tomllib = None
 
-VERSION = "v1.0"
+VERSION = "v1.1"
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
 
@@ -71,7 +73,11 @@ class Data:
             raise SystemExit(f"[LOAD] ❌ {path} 읽기 실패: {e} → 파일이 잘렸으면 PC 에서 다시 올려 주세요")
         self.cases = self.a.get("success_cases") or []
         self.rules = load_rules(topic)
-        log("LOAD", topic=topic, generated=self.a.get("generated"), success_cases=len(self.cases), rules=bool(self.rules))
+        self.cases, dropped = drop_off_topic(topic, self.cases)
+        log("LOAD", topic=topic, generated=self.a.get("generated"), success_cases=len(self.cases), rules=bool(self.rules),
+            dropped_off_topic=len(dropped))
+        for c in dropped:
+            log("LOAD", logging.DEBUG, dropped=c["id"], why=c["why"], title=c["title"][:60])
         self._comments = None
         self._compare = None
 
@@ -140,6 +146,27 @@ class Data:
             narrow=len(narrow), channels=nch, hits=len(hits), normal=len(normal))
         self._compare = dict(group=group, narrow=narrow, hits=hits, normal=normal, channels=nch)
         return self._compare
+
+
+def drop_off_topic(topic, cases):
+    """v1.1: 지금 analysis_rules.toml [exclude] OFF_TOPIC 낱말이 제목에 든 성공 사례를 뺀다 (analysis.json 이 옛 규칙으로 만들어졌어도).
+    → (남은 사례, 뺀 사례[{id, title, why}]). 규칙 파일이 없거나 읽지 못하면 그대로 (경고)."""
+    f = ROOT / topic / "analysis_rules.toml"
+    if not f.is_file() or tomllib is None:
+        return cases, []
+    try:
+        words = [w for w in (tomllib.loads(f.read_text("utf-8")).get("exclude") or {}).get("OFF_TOPIC") or [] if w]
+    except Exception as e:  # noqa: BLE001
+        log("RULES", logging.WARNING, file=f, error=e, note="OFF_TOPIC 다시 거르기 건너뜀")
+        return cases, []
+    keep, dropped = [], []
+    for c in cases:
+        hit = next((w for w in words if w in (c.get("title") or "")), None)
+        if hit:
+            dropped.append({"id": c.get("id"), "title": c.get("title") or "", "why": f"뺀 주제({hit})"})
+        else:
+            keep.append(c)
+    return keep, dropped
 
 
 def load_rules(topic):

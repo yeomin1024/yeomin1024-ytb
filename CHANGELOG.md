@@ -1,5 +1,46 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-15 (21) — 주식 채널 컨셉(AI 코드로 가설 백테스트)·주제 4개 · 인수인계 문서 `guides/status.md`
+
+### 왜 (사용자 지시)
+- "다 올렸어 계속하고 그리고 이제 이 대화 지울건데 남겨둬야 할 정보 있으면 저장소에 남겨놔"
+- "주식 채널 컨셉은 ai로 코드 만들어서 가설을 백테스트해서 검증해보는거니까 고려해서 주제 4가지 정해봐 계속해"
+
+### 확인한 것
+- 주식 분석 결과(`stock/result/outliers/analysis.json`, 2026-10-15T14:13Z):
+  - 성공 67개 중 7개가 주식이 아니었다 (영화·역사·시골집 미장 3개·아이돌 팬미팅·무당 신점).
+  - 이 7개를 빼고 질문·요청 669개를 묶었다 (`content_research.py needs stock`).
+  - 백테스트로 검증할 수 있는 질문은 합쳐서 176개·👍234·영상 27곳이다.
+  - 그중 지수 적립이 66개로 가장 많고, 레버리지 56·커버드콜 50·사는 때 42(영상 19곳으로 가장 널리 퍼짐)가 뒤를 잇는다.
+  - 백테스트를 직접 요청한 댓글이 4개다.
+- 자료·실험형 성공 사례가 있다:
+  - #6 「같은 TQQQ에 1억 … (실제 데이터)」 ×86.2 (채널 평소 대비 ×50.7)
+  - #13 「배당주 20년 vs S&P500 20년」 ×40.8
+  - #27 「… TQQQ·QLD로 12년 돌려보고」 ×22.9
+  - #56 · #65
+- 클라우드 네트워크에서 막힌 곳: Yahoo Finance·Stooq·FRED·KRX·ECOS·law.go.kr (프록시 403 정책 거부).
+  - GitHub raw는 된다 → S&P500 월별 자료(1871~)는 클라우드에서 받을 수 있다.
+
+### 바꾼 것
+| 파일 (버전) | 내용 |
+|---|---|
+| `stock/guides/concept.md` (v1.0, 새로) | 채널 컨셉. 한 편의 모양: 가설 → 확인 방법 → 결과 → 원리 → 할 일 → 한계. 백테스트 규칙: 결론은 결과 뒤에, 숫자는 코드 출력만, 미래 정보 금지, 총수익, 비용, 여러 시작 시점, 생존 편향, 재현·로그. 그 밖에 파일 위치, 자료 길, 하지 않는 것 |
+| `stock/source/topic_candidates.md` (새로) | 1-1 시청자(50대 이상 54%), 1-2 질문 묶음표와 원문, 1-3 시장·컨셉 근거, 1-4 후보 5개 중 4개: ① 떨어지면 사기 vs 매달 vs 한 번에 ② "원금 안 깎여요" 커버드콜 ③ 배당 ETF vs 지수 세후 ④ 레버리지 1·2·3배 25년. 고르지 않은 것과 이유 |
+| `stock/research_rules.toml` (v1.0, 새로) | 주식 질문 묶음(백테스트 가설 8 / 계산·제도 3 / 그 밖 2)·합집합·제목 낱말·검색 |
+| `stock/analysis_rules.toml` (v1.1 → v1.2) | `[exclude] OFF_TOPIC` += 첩보·액션 영화·숙군·사형수·촌집·시골집·한옥수리·몰탈·외벽·리모델링·팬미팅·무당·신점 ('미장'은 미국장 줄임말이라 넣지 않음). PC가 다음에 분석할 때 반영된다 |
+| `tools/content_research.py` (v1.0 → v1.1) | `drop_off_topic`: 지금 규칙의 OFF_TOPIC으로 성공 사례를 다시 거른다 (옛 규칙으로 만든 analysis.json도). 로그 `dropped_off_topic=N` |
+| `tools/tests/test_content_research.py` (v1.0.1 → v1.1) | drop_off_topic 시험 3개 (지금 규칙 / 파일 없음 / 깨진 파일) |
+| `guides/status.md` (v1.0, 새로) | **인수인계**: 주제마다 지금 단계, 다음 할 일 순서, PC 명령, 알려진 문제, 이 대화에서 정한 것 |
+| `guides/README.md` (v1.35) · `CLAUDE.md` · `stock/README.md` (v1.5) | 위 안내 |
+
+### 검증
+- `python3 tools/content_research.py needs stock`: success_cases=60, dropped_off_topic=7. 표는 topic_candidates.md 1-2와 같다.
+- `python3 -m unittest tools.tests.test_content_research -v`: 6개 통과.
+- 시험 전체(`cd tools/tests && python3 -m unittest discover -p "test_*.py"`): 106개 중 오류 5개.
+  - 5개 모두 예전부터 있던 `test_youtube_feedback`이다 (지운 옛 `stock/source/bittu-2026-10`).
+
+※ 연구·교육용 — 투자 권유가 아님. 결론은 백테스트 결과를 본 뒤 정한다 (아직 결과 없음).
+
 ## 2026-10-15 (20) — 노후 영상 4편의 롱폼으로 보내는 쇼츠 (제목·대본) · 쇼츠 근거를 지금 규칙으로 다시 셈
 
 ### 왜 (사용자 지시)

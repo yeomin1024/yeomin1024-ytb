@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.6 — 2026-10-12 — 사용자 지시: 사연자 S07(말 속도 조금 더 빠르게)·진행자 H04 로 고정 → pace 에 speed(모든 문장을 이 배수로
+# VERSION: v1.7 — 2026-10-15 — 사용자 지시 "오디오 코드도 진행자 목소리로만 대본 읽도록": 역할 설정 enabled(false 면 그 역할을 끔) —
+#          voices/storyteller.json enabled=false → 모든 문장(사연 파트 포함)을 진행자(H04 기준 목소리)가 읽는다. 꺼진 역할은 고르기·샘플·모델에서 빠진다.
+#          범위 버튼(전체 / 주제 하나)은 tools/kaggle_tts_panel.py 가 all --topics 로 넘긴다
+# (v1.6 — 2026-10-12 — 사용자 지시: 사연자 S07(말 속도 조금 더 빠르게)·진행자 H04 로 고정 → pace 에 speed(모든 문장을 이 배수로
 #          빠르게 한 뒤 [min, max] 안으로, 음 높이 그대로 ±max_stretch 까지; 짧은 문장도 speed 만큼). speed 없으면 v1.5 와 같음.
 #          고른 뒤 current 후보(S01·H01) 샘플은 '고르기 전 목소리' 기록으로 두고 다시 만들지 않음 (frozen_current).
-#          두 역할 모두 clone 이면 화자 확인용 CustomVoice 모델을 불러오지 않음 (check_speakers)
+#          두 역할 모두 clone 이면 화자 확인용 CustomVoice 모델을 불러오지 않음 (check_speakers))
 # (v1.5.1 — 2026-10-12 — check: 올린 영상(youtube.json)은 대본이 달라도 '다시 만든다'고 하지 않음 — 스튜디오에서 사연을
 #          잘라 낸 영상(studio_trim.md)은 대본이 잘라 낸 영상 기준이고 오디오는 원본 렌더 기록 (all 은 원래 올린 영상을 건드리지 않음))
 # (v1.5 — 2026-10-12 — 사용자 지시: 사연자를 남자 목소리로(손실을 보고 억울해하며 자책하는 연기 톤), 말 속도를 자연스럽게 맞추고,
@@ -48,6 +51,8 @@ r"""
   - 두 역할 모두 voices/<역할>.json 에 picked 가 생기기 전에는 all 이 오디오를 만들지 않고 샘플만 만든다 (build 는 멈춘다)
 
 역할 (사용자 지시 2026-10-10) — 말투는 설정 파일 하나로 정해져 있고 고르지 않는다 (사용자 지시 2026-10-11)
+  - ★ 2026-10-15 사용자 지시 "진행자 목소리로만": voices/storyteller.json 의 enabled=false → 사연자 역할을 끄고 모든 문장을 진행자가 읽는다.
+    다시 켜려면 enabled 를 지우거나 true (그러면 사연 파트는 다시 사연자 S07).
   - 사연자(storyteller): 파트 라벨에 '사연'이 든 문장 — 1인칭 고백. 설정 voices/storyteller.json
   - 진행자(host): 나머지 모든 파트(진행자·문제 분석·올바른 방법·마무리). 설정 voices/host.json — 중저음 남성, lock(덮어쓰기 없음)
   - 설정은 voices/<역할>.json → <주제>/voices/<역할>.json → <주제>/source/<영상ID>/voices/<역할>.json 순서로 덮어쓴다.
@@ -101,7 +106,7 @@ ROOT = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 import srt_tool  # noqa: E402  (문장·카드 판정을 자막 도구와 똑같이 쓰기 위해)
 
-VERSION = "v1.6"
+VERSION = "v1.7"
 CACHE_VERSION = 1            # 생성 방식이 바뀌면 올린다 → 문장 파일을 모두 다시 만든다 (v1.1은 v1.0 캐시와 같은 키)
 DEFAULT_MODEL = "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice"     # 사연자 (화자 + 말투 지시)
 DEFAULT_CLONE_MODEL = "Qwen/Qwen3-TTS-12Hz-1.7B-Base"       # 진행자 (기준 목소리 복제)
@@ -123,7 +128,7 @@ MIN_GAP = 0.2                # 역할 설정 gap 하한 — align-audio 가 문�
 
 VOICES_DIR = ROOT / "voices"           # 역할별 목소리 설정 (파일 이름 = 역할 = 결과 폴더 이름)
 VOICE_KEYS = {"role", "name", "parts", "engine", "lock", "speaker", "instruct", "part_instruct", "seed", "gap", "generation",
-              "ref_audio", "ref_meta", "design", "f0_tolerance", "picked", "pace"}
+              "ref_audio", "ref_meta", "design", "f0_tolerance", "picked", "pace", "enabled"}
 SAMPLES_DIR = VOICES_DIR / "samples"   # 목소리 후보 샘플 (하위 폴더라 역할 설정과 섞이지 않음)
 SAMPLES_CFG = SAMPLES_DIR / "samples.json"
 SAMPLE_HOW = ("current", "custom_voice", "design")
@@ -279,7 +284,11 @@ def load_voices(topic=None, vid=None, args=None, quiet=False):
                 log("VOICE", logging.WARNING, role=role, ignored=",".join(ignored), note="lock: 이 역할은 모든 대본에서 같은 목소리 — 덮어쓰기 무시")
         cfg = {"name": role, "parts": ["*"], "engine": "custom_voice", "lock": False, "speaker": "Sohee", "instruct": "",
                "part_instruct": {}, "seed": 1234, "gap": 0.45, "generation": {}, "f0_tolerance": F0_TOL, "picked": None, "pace": None,
-               **cfg, "role": role, "files": files}
+               "enabled": True, **cfg, "role": role, "files": files}
+        if cfg["enabled"] is False:   # 꺼진 역할 (사용자 지시 2026-10-15: 진행자 목소리로만) — 그 파트는 "*" 역할(진행자)이 읽는다
+            if not quiet:
+                log("VOICE", role=role, enabled=False, files=",".join(files), note="꺼진 역할 — 이 역할 문장은 진행자가 읽음 (고르기·샘플·모델에서 빠짐)")
+            continue
         voices[role] = cfg
     # 명령줄 덮어쓰기 (설정 파일을 고치지 않고 시험할 때) — 바꾼 것은 로그에 남긴다
     if args is not None:

@@ -1,8 +1,8 @@
 # 내레이션 만들기 — 오픈소스 음성 AI(Qwen3-TTS)를 Kaggle에서 (모든 주제 공통)
 
-버전: v1.8 — 2026-10-13 — 저장소를 비공개로 돌려도 되게: 노트북 셀이 Kaggle Secrets 의 토큰으로 저장소를 받음 (사용자 지시 "비공개로 돌릴테니까") (v1.7 — 2026-10-12 — 사용자 지시: **사연자 S07(말 속도 조금 더 빠르게)·진행자 H04로 고정** — `pace.speed`(모든 문장을 이 배수로) 추가 (v1.6 — 2026-10-12 — 사용자 지시: 사연자 남성 후보(억울·자책 연기 톤) S07·S08, 말 속도 맞추기(pace), 터미널에서 바로 듣기(listen) (v1.5 — 2026-10-12 — 사용자 지시: **사연자·진행자 목소리 샘플을 각각 여러 개 만들고, 사용자가 고르면 그 목소리로 일관되게** (4-0). 고르기 전에는 셀이 오디오 대신 샘플만 만든다 (v1.4 — 2026-10-11 — 사용자 지시: 진행자 목소리는 중저음 남성(귀에 쏙쏙 들어오고 신뢰감 있게), 대본마다 달라지면 안 됨 → 기준 목소리 하나를 저장소에 고정하고 모든 대본이 복제 (1번, 4-1번) (v1.3.1: 셀이 `git pull` 대신 Kaggle 사본을 main과 똑같이 맞춤 (`Your local changes ... would be overwritten by merge` 오류 해결) (v1.3: 사용자 지시: 오디오는 고르지 않고 하나로(말투 시험·선택 단계 삭제, 영상마다 `narration.mp3` 하나), 결과 파일은 GitHub의 대본 폴더마다 자동으로 올린다(`--push`), Kaggle 셀 하나 (v1.2: 사연자·진행자 목소리 설정 파일, 대본 전부 한 번에 `all`; v1.1: 셀에 도구 파일을 붙여 넣지 말 것; v1.0: 사용자 지시: edge-tts는 어색하다 → 오픈소스 음성 AI로, Kaggle에서, 사연은 억울하고 후회하는 톤))))))
+버전: v1.9 — 2026-10-15 — 사용자 지시 "오디오 코드도 진행자 목소리로만 대본 읽도록 하고 오디오를 생성할 경로를 전체 경로 또는 economic 같은 단일 주제 경로를 버튼으로 선택할수 있게해 디폴트는 전체야": **진행자(H04) 목소리 하나로 모든 문장**(사연자 역할 끔 — `voices/storyteller.json` enabled=false, tts_narration v1.7), 노트북 셀에 **범위 버튼**(전체 · 주제 폴더, 기본 전체 — `tools/kaggle_tts_panel.py`) (v1.8 — 2026-10-13 — 저장소를 비공개로 돌려도 되게: 노트북 셀이 Kaggle Secrets 의 토큰으로 저장소를 받음 (사용자 지시 "비공개로 돌릴테니까") (v1.7 — 2026-10-12 — 사용자 지시: **사연자 S07(말 속도 조금 더 빠르게)·진행자 H04로 고정** — `pace.speed`(모든 문장을 이 배수로) 추가 (v1.6 — 2026-10-12 — 사용자 지시: 사연자 남성 후보(억울·자책 연기 톤) S07·S08, 말 속도 맞추기(pace), 터미널에서 바로 듣기(listen) (v1.5 — 2026-10-12 — 사용자 지시: **사연자·진행자 목소리 샘플을 각각 여러 개 만들고, 사용자가 고르면 그 목소리로 일관되게** (4-0). 고르기 전에는 셀이 오디오 대신 샘플만 만든다 (v1.4 — 2026-10-11 — 사용자 지시: 진행자 목소리는 중저음 남성(귀에 쏙쏙 들어오고 신뢰감 있게), 대본마다 달라지면 안 됨 → 기준 목소리 하나를 저장소에 고정하고 모든 대본이 복제 (1번, 4-1번) (v1.3.1: 셀이 `git pull` 대신 Kaggle 사본을 main과 똑같이 맞춤 (`Your local changes ... would be overwritten by merge` 오류 해결) (v1.3: 사용자 지시: 오디오는 고르지 않고 하나로(말투 시험·선택 단계 삭제, 영상마다 `narration.mp3` 하나), 결과 파일은 GitHub의 대본 폴더마다 자동으로 올린다(`--push`), Kaggle 셀 하나 (v1.2: 사연자·진행자 목소리 설정 파일, 대본 전부 한 번에 `all`; v1.1: 셀에 도구 파일을 붙여 넣지 말 것; v1.0: 사용자 지시: edge-tts는 어색하다 → 오픈소스 음성 AI로, Kaggle에서, 사연은 억울하고 후회하는 톤)))))))
 
-도구: `tools/tts_narration.py` v1.6 · 목소리 후보: `voices/samples/samples.json` → 샘플 `voices/samples/README.md` · 목소리 설정: `voices/storyteller.json`(사연자, **S07 남성 — 고정**), `voices/host.json`(진행자, **H04 — 고정**) · 진행자 기준 목소리: `voices/ref/host.wav`
+도구: `tools/tts_narration.py` v1.7 · 범위 버튼 `tools/kaggle_tts_panel.py` v1.0 · 목소리: **진행자 하나** `voices/host.json`(**H04 — 고정**, 기준 목소리 `voices/ref/host.wav`) — 사연자 `voices/storyteller.json`(S07)은 **꺼 둠**(enabled=false, 사용자 지시 2026-10-15) · 목소리 후보: `voices/samples/samples.json`
 결과: 영상마다 오디오 **하나** — `<주제폴더>/source/<영상ID>/narration.mp3`가 **대본 폴더마다 각각** GitHub main에 자동으로 올라가고, 4단계(`guides/pipeline.md`)가 이어진다.
 ※ 연구·교육용 도구다. 주식 영상 내용은 투자 권유가 아니다.
 
@@ -17,7 +17,7 @@
 
 | 역할 | 모델 | 하는 일 |
 |---|---|---|
-| 사연자 | `Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice` | 화자 Sohee + 말투 지시(억울·후회 고백) |
+| 사연자 (**꺼 둠** — 2026-10-15부터 진행자가 모든 문장) | `Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice` | 화자 Sohee + 말투 지시(억울·후회 고백) |
 | 진행자 | `Qwen/Qwen3-TTS-12Hz-1.7B-Base` | 저장소의 **기준 목소리** `voices/ref/host.wav`를 복제해 읽는다 → 모든 대본·모든 세션에서 같은 남성 목소리 |
 | (처음 한 번) | `Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign` | 기준 목소리가 없을 때만: `voices/host.json`의 묘사(30대 후반 남성, 따뜻한 중저음 바리톤, 뉴스 앵커·다큐 내레이터처럼 신뢰감, 또렷한 발음, 숫자에 힘을 주는 보통 속도)로 만든다 |
 
@@ -54,16 +54,24 @@ edge-tts와 다른 점: 문장 뜻을 읽고 억양·쉼을 스스로 정한다.
 
 ```
 from kaggle_secrets import UserSecretsClient
-import os, base64
+import os, sys, base64, importlib
 os.environ["GITHUB_TOKEN"] = UserSecretsClient().get_secret("GITHUB_TOKEN")
 os.environ.update(GIT_CONFIG_COUNT="1", GIT_CONFIG_KEY_0="http.https://github.com/.extraheader",
                   GIT_CONFIG_VALUE_0="AUTHORIZATION: basic " + base64.b64encode(("x-access-token:" + os.environ["GITHUB_TOKEN"]).encode()).decode())
 !pip install -q -U qwen-tts
 !test -d /kaggle/working/yeomin1024-ytb || git clone -q --depth 1 https://github.com/yeomin1024/yeomin1024-ytb.git /kaggle/working/yeomin1024-ytb
-!cd /kaggle/working/yeomin1024-ytb && git config core.fileMode false && git fetch -q origin main && git reset -q --hard origin/main && python tools/tts_narration.py all --push
+!cd /kaggle/working/yeomin1024-ytb && git config core.fileMode false && git fetch -q origin main && git reset -q --hard origin/main
+sys.path.insert(0, "/kaggle/working/yeomin1024-ytb/tools")
+import kaggle_tts_panel; importlib.reload(kaggle_tts_panel).panel()
 ```
+- 셀을 실행하면 맨 아래에 **범위 버튼**이 나온다 (사용자 지시 2026-10-15):
+  - `전체 (대본 N개)` — **기본** (모든 주제 폴더) · `economic (대본 N개)` 처럼 주제 폴더 하나
+  - **[오디오 만들기]**: 고른 범위로 `tools/tts_narration.py all --push` (주제 하나면 `--topics 주제`). 그대로 누르면 전체
+  - **[목록만 보기]**: 같은 범위로 `all --dry-run` — 모델을 불러오지 않고 무엇을 만들지만
+  - 로그는 버튼 아래 칸과 `/kaggle/working/tts_panel.log`에 남는다. 실행 중에는 버튼이 잠긴다.
+  - 버튼이 안 보이면(위젯이 없는 환경) 기본 범위(전체)로 바로 실행한다. 터미널: `python tools/kaggle_tts_panel.py --topic economic`
 - 넷째·다섯째 줄(`GIT_CONFIG_…`)은 **저장소가 비공개여도** `git clone`·`git fetch`가 되게 Secrets 의 토큰을 git 에 머리글로 넘긴다 (2026-10-13). 값은 셀·출력·파일에 나오지 않는다. 공개 저장소에서도 그대로 쓴다.
-- 마지막 줄 뒤쪽은 Kaggle의 저장소 사본을 main과 **똑같이** 맞춘다 (`git pull` 대신). 이 사본은 도구를 돌리는 용도라 고쳐 쓰지 않는다. 사본에서 실행 권한만 바뀐 파일이 있으면 `git pull`이 `Your local changes to the following files would be overwritten by merge`로 멈췄다.
+- `git fetch … reset --hard origin/main` 줄은 Kaggle의 저장소 사본을 main과 **똑같이** 맞춘다 (`git pull` 대신). 이 사본은 도구를 돌리는 용도라 고쳐 쓰지 않는다. 사본에서 실행 권한만 바뀐 파일이 있으면 `git pull`이 `Your local changes to the following files would be overwritten by merge`로 멈췄다.
 - 올리기가 실패해 사본에만 남은 커밋은 이 줄로 지워져도 괜찮다 — 결과는 `/kaggle/working/tts_out/upload/`에 있어 다음 실행이 다시 올린다.
 
 하는 일:
@@ -71,7 +79,7 @@ os.environ.update(GIT_CONFIG_COUNT="1", GIT_CONFIG_KEY_0="http.https://github.co
 1. 저장소를 받고(이미 있으면 main과 똑같이 맞추고), 대본(`<주제폴더>/source/<영상ID>/<영상ID>.txt`)을 **모두 읽어** 오디오가 없는 영상을 고른다. 로그 `[PLAN] video=… action=make|skip`
    - 건너뜀: 보류 주제(README에 ⏸), 이미 업로드한 영상(`youtube.json`), 지금 대본으로 만든 오디오가 이미 저장소에 있는 영상
    - 다시 만듦: 저장소의 오디오가 옛 대본으로 만든 것일 때 (Claude가 대본을 고친 뒤)
-2. 영상마다 사연자·진행자 목소리로 문장을 만들어 **오디오 하나**(`narration.mp3`)로 잇는다.
+2. 영상마다 **진행자 목소리(H04) 하나로** 모든 문장을 만들어 **오디오 하나**(`narration.mp3`)로 잇는다 (사연 파트도 진행자가 읽는다 — 사용자 지시 2026-10-15).
 3. **영상 하나가 끝날 때마다** 그 영상의 결과 3개를 그 영상의 대본 폴더에 넣어 main에 커밋·푸시한다. 로그 `[PUSH] … ok=True note="대본 폴더마다 올라감: stock/source/<영상ID>/"`
    - `narration.mp3` — 영상에 쓰는 오디오
    - `tts_narration.json` — 문장별 역할·시작·끝 시각, 대본 해시 (오디오가 지금 대본으로 만든 것인지 확인용)
@@ -79,8 +87,8 @@ os.environ.update(GIT_CONFIG_COUNT="1", GIT_CONFIG_KEY_0="http.https://github.co
 4. 끝나면 Claude에게 **"오디오 올렸어"** → 영상 코드가 없으면 만들고, 렌더·비공개 업로드까지 승인 없이 진행한다 (`pipeline.md` 4단계).
 
 - 걸리는 시간은 로그 `[PROGRESS] … eta_min=`에 나온다. 브라우저 탭을 열어 둔다. 중간에 끊기면 같은 셀을 다시 실행한다 — 이미 올라간 영상은 건너뛰고, 같은 세션이면 만든 문장은 cache에서 그대로 쓴다.
-- 일부만: 마지막 줄 끝에 `--ids bittu-2026-10,panicsell-2026-10` · `--topics stock` · `--max 2`
-- 무엇을 만들지 목록만 보기: `all --dry-run`
+- 일부만: 주제 하나는 **범위 버튼**. 영상 몇 개만이면 셀 대신 `!cd /kaggle/working/yeomin1024-ytb && python tools/tts_narration.py all --push --ids eunte-kkeonaeseugi-2026-10` · `--max 2`
+- 무엇을 만들지 목록만 보기: **[목록만 보기]** 버튼 (= `all --dry-run`)
 
 **문제가 생겼을 때 (같은 노트북에서 셀 하나 더)**
 
@@ -94,6 +102,8 @@ os.environ.update(GIT_CONFIG_COUNT="1", GIT_CONFIG_KEY_0="http.https://github.co
 | GPU 2개로 빠르게 (선택) | `!cd /kaggle/working/yeomin1024-ytb && (python tools/tts_narration.py all --push --gpu 0 --split 0/2 > /kaggle/working/log0.txt 2>&1 & python tools/tts_narration.py all --push --gpu 1 --split 1/2 > /kaggle/working/log1.txt 2>&1 & wait); grep -hE "PUSH\|BATCH\|ERROR" /kaggle/working/log0.txt /kaggle/working/log1.txt` (올리기는 잠금 파일로 차례로) |
 
 ## 4. 사연자·진행자와 결과 경로
+
+> **2026-10-15부터 진행자(H04) 하나로 모든 문장을 읽는다** (사용자 지시 "진행자 목소리로만"). 사연자는 `voices/storyteller.json`의 `"enabled": false`로 꺼 두었다 — 고른 기록(S07)·기준 소리는 남겨 두어, `enabled`를 지우면 다시 켜진다. 꺼진 역할은 고르기·샘플·모델에서 빠진다. 아래 4-0은 목소리를 처음 고를 때의 기록이다.
 
 ### 4-0. 목소리 고르기 — 샘플을 듣고 하나씩 (사용자 지시 2026-10-12)
 1. **샘플 만들기 (Kaggle, 3번 셀 그대로):** 두 역할 중 하나라도 고르지 않았으면 셀이 후보마다 같은 문장을 읽힌 샘플을 만든다. 후보는 `voices/samples/samples.json`:
@@ -194,6 +204,7 @@ os.environ.update(GIT_CONFIG_COUNT="1", GIT_CONFIG_KEY_0="http.https://github.co
 
 | 버전 | 날짜 | 변경 내용 |
 |---|---|---|
+| v1.9 | 2026-10-15 | 사용자 지시: 진행자 목소리 하나로 모든 문장(사연자 역할 끔, tts_narration v1.7 `enabled`), 노트북 셀에 범위 버튼(전체 기본 · 주제 폴더 — `tools/kaggle_tts_panel.py`) |
 | v1.8 | 2026-10-13 | 사용자 지시 "비공개로 돌릴테니까 전부 다 업로드되게": 3번 셀이 Kaggle Secrets 토큰으로 저장소를 받음(`GIT_CONFIG_*` 환경 변수 — 비공개 저장소의 `git clone`·`fetch`), 공개 저장소에서도 같은 셀 |
 | v1.7 | 2026-10-12 | 사용자 지시: 사연자 S07(말 속도 조금 더 빠르게)·진행자 H04 고정 (`pick S07 H04`), `pace.speed` 1.1 (`tts_narration.py` v1.6) |
 | v1.6 | 2026-10-12 | 사용자 지시: 사연자를 남자로(손실로 억울해하며 자책하는 연기 톤), 자연스러운 속도, 터미널에서 바로 듣기 — 후보 S07·S08, `pace`(속도 맞추기), `listen`·`samples --play` (4-0) |

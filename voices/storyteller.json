@@ -1,6 +1,6 @@
 {
   "_설명": "사연자 목소리 설정 — 대본에서 파트 라벨에 '사연'이 든 문장(1인칭 고백)을 읽는다. tools/tts_narration.py v1.3 이 읽는다. 사용법: guides/tts_guide.md 6번",
-  "_버전": "v2.1 — 2026-10-12 — 사용자 지시 \"사연자는 말하는 속도 조금 더 빠르게 해서 S07\": pace {\"min\": 4.2, \"max\": 5.2, \"max_stretch\": 0.15} → speed 1.1(모든 문장 약 10% 빠르게, 음 높이 그대로) · 범위 4.6~5.8음절/초 · 최대 ±15% (tts_narration v1.6) (picked S07 — 2026-10-12 — 사용자가 샘플 S07(40대 초반 남성 직장인 — 손실에 억울해하다 자책으로 가라앉는 연기 톤, 자연스러운 속도)를 고름 → 모든 대본 이 목소리 (v1.2 — 2026-10-11 — engine custom_voice 를 적어 둠 (진행자는 clone 으로 바뀜, 사연자는 그대로 Sohee) (v1.1: preset 삭제, v1.0: 최초 작성)))",
+  "_버전": "v2.2 — 2026-10-15 — 사용자 지시 \"오디오 코드도 진행자 목소리로만 대본 읽도록\": enabled=false → 사연자 역할을 끄고 모든 문장을 진행자(H04)가 읽는다 (tts_narration v1.7). 고른 기록(picked S07)·기준 소리는 다시 켤 때를 위해 그대로 둔다 (v2.1 — 2026-10-12 — 사용자 지시 \"사연자는 말하는 속도 조금 더 빠르게 해서 S07\": pace {\"min\": 4.2, \"max\": 5.2, \"max_stretch\": 0.15} → speed 1.1(모든 문장 약 10% 빠르게, 음 높이 그대로) · 범위 4.6~5.8음절/초 · 최대 ±15% (tts_narration v1.6) (picked S07 — 2026-10-12 — 사용자가 샘플 S07(40대 초반 남성 직장인 — 손실에 억울해하다 자책으로 가라앉는 연기 톤, 자연스러운 속도)를 고름 → 모든 대본 이 목소리 (v1.2 — 2026-10-11 — engine custom_voice 를 적어 둠 (진행자는 clone 으로 바뀜, 사연자는 그대로 Sohee) (v1.1: preset 삭제, v1.0: 최초 작성))))",
   "_항목": {
     "picked": "사용자가 고른 목소리 샘플 {id, label, date, sample} — tools/tts_narration.py pick 이 쓴다. 두 역할 모두 있어야 오디오를 만든다 (guides/tts_guide.md 4-0)",
     "parts": "이 역할이 읽는 파트 — 파트 라벨에 이 낱말이 들어 있으면 사연자",
@@ -11,9 +11,11 @@
     "gap": "이 역할의 문장 사이 쉼(초). 0.2 이상 — align-audio 가 이 쉼으로 문장 경계를 찾는다",
     "generation": "생성 설정 {temperature, top_p, top_k, repetition_penalty} — 비우면 모델 기본값",
     "engine": "custom_voice = 화자(speaker) + 말투 지시(instruct)로 읽는다 (Qwen3-TTS CustomVoice)",
-    "pace": "말 속도 {speed, min, max, max_stretch} — 문장마다 speed 배로 빠르게 한 뒤 [min, max](음절/초) 안으로, 음 높이는 그대로(ffmpeg atempo), 한 문장 최대 ±max_stretch. 바꾸면 이 역할 문장을 다시 만든다 (tts_narration v1.6)"
+    "pace": "말 속도 {speed, min, max, max_stretch} — 문장마다 speed 배로 빠르게 한 뒤 [min, max](음절/초) 안으로, 음 높이는 그대로(ffmpeg atempo), 한 문장 최대 ±max_stretch. 바꾸면 이 역할 문장을 다시 만든다 (tts_narration v1.6)",
+    "enabled": "false 면 이 역할을 끈다 — 이 역할이 읽던 문장은 진행자(\"*\")가 읽는다. 지우거나 true 로 하면 다시 켜진다 (tts_narration v1.7)"
   },
   "role": "storyteller",
+  "enabled": false,
   "name": "사연자",
   "parts": [
     "사연"

@@ -1,5 +1,30 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-15 (5) — 내레이션 진행자 하나 · 범위 버튼 · 영상 지시사항 v4.0(자막 굽기) · 시청자층 낱말
+
+### 왜 (사용자 지시)
+- "자막은 굽는걸로 하고 일단 영상 지시사항까지만 만들어 오디오를 먼저 만들고나서 영상 만들자 나머지는 너가 좋은쪽으로 판단해 그리고 그냥 연금이 아니라 50,60대 노후 연금처럼 주요 시청자층에 맞는 핵심 단어들 왜 사용안했어 사용하도록 지시사항 수정해"
+- "그리고 오디오 코드도 진행자 목소리로만 대본 읽도록 하고 오디오를 생성할 경로를 전체 경로 또는 economic 같은 단일 주제 경로를 버튼으로 선택할수 있게해 디폴트는 전체야 계속 진행해"
+
+### 바꾼 것
+| 파일 (버전) | 함수·항목 | 내용 |
+|---|---|---|
+| `tools/tts_narration.py` v1.6 → v1.7 | `load_voices`, `VOICE_KEYS` | 역할 설정 `enabled` — false 면 그 역할을 끄고 그 문장은 진행자("*")가 읽음. 꺼진 역할은 고르기·샘플·모델에서 빠짐 |
+| `voices/storyteller.json` v2.1 → v2.2 | `enabled: false` | 사연자 끔 → 모든 문장 진행자 H04 (picked S07·기준 소리는 그대로 둠) |
+| `tools/kaggle_tts_panel.py` v1.0 (새로) | `panel`·`run`·`topics`·`command` | Kaggle 셀의 범위 버튼(전체 기본 · 주제 폴더) + [오디오 만들기]·[목록만 보기], 로그 파일 `/kaggle/working/tts_panel.log`, 위젯이 없으면 전체로 바로 |
+| `tools/tests/test_kaggle_tts_panel.py` v1.0 (새로) | — | 시험 3개 (범위 목록·명령·버튼 기본값과 잠금) |
+| `guides/tts_guide.md` v1.8 → v1.9 | 3번 셀, 4번 | 새 셀(범위 버튼), 진행자 하나 |
+| `guides/video_guide.md` v3.7 → **v4.0** (옛 것 `archive/video_guide_v3.md`) | 전체 | 오디오 뒤에만 영상, 이해를 돕는 장치 7가지(구운 자막 포함), 어두운 무대·색 뜻·글자 크기·움직임·그림 부품, 대본 → 장면 표, HTML·SVG + GSAP + Playwright 렌더 (publish.sh 연결은 첫 새 스타일 영상 때), 검수표 |
+| `guides/thumbnail_guide.md` v3.0 → v3.1 · `guides/title_guide.md` v3.0.1 → v3.0.2 | 4번 1항, 피드백 13 | 시청자층 낱말(50·60대·노후·은퇴)은 빼지 않고 넣는다, '어르신·노인' 금지 |
+| 썸네일 `thumbnail_1~3.md` v5.0 · `README.md` v5.0 · `chatgpt.md` | 하단 2줄 | '50·60대 노후 연금 꺼내는 순서 / 모르면 평생 2천만 원 손해'. 1차 thumbnail_1 → `old/thumbnail_1_v4.webp` (세 장 다시) |
+| `CLAUDE.md` · `guides/README.md` v1.22 · `guides/pipeline.md` v1.24 · 시안 README | — | 위 내용 |
+
+### 검사
+- `tts_narration.py all --dry-run --topics economic`: 역할 host 하나, 영상 4개 make
+- `tts_narration.py build economic eunte-kkeonaeseugi-2026-10 --fake` (GITHUB_TOKEN 없이, 결과는 저장소 밖): 99문장 모두 host
+- `kaggle_tts_panel.py --list` → 전체, economic(4) · `--topic nope` → 오류 2 · `--dry-run`·`--topic economic --dry-run` 정상
+- `python3 -m unittest tools.tests.test_kaggle_tts_panel tools.tests.test_make_summary_chatgpt` 7개 OK
+
 ## 2026-10-15 (4) — 영상 예전 스타일 금지 · 새 스타일 시안 스토리보드 (컷 14개, GSAP + Playwright)
 
 ### 왜 (사용자 지시)

@@ -1,12 +1,12 @@
 {
- "tool": "tts_narration.py v1.7",
- "created": "2026-10-15T05:19:14",
+ "tool": "tts_narration.py v1.8",
+ "created": "2026-10-15T07:13:26",
  "topic": "economic",
  "id": "eunte-kkeonaeseugi-2026-10",
  "script": "economic/source/eunte-kkeonaeseugi-2026-10/eunte-kkeonaeseugi-2026-10.txt",
- "script_sha1": "68c2f0d8f13a667d",
+ "script_sha1": "b5c158ff1d9f2f7a",
  "sentences": 99,
- "seconds": 477.88,
+ "seconds": 477.92,
  "engine": {
   "engine": "qwen3-tts-clone",
   "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
@@ -836,10 +836,30 @@
    "n": 99,
    "role": "host",
    "part": "정리, 바뀌어도 그대로인 것",
-   "text": "끝까지 봐 주셔서 감사합니다.",
+   "text": "시청해주셔서 감사합니다.",
    "start": 475.57,
-   "end": 477.08
+   "end": 477.12
   }
  ],
- "voice_sha1": "f0d0f801940b36b1"
+ "voice_sha1": "f0d0f801940b36b1",
+ "patches": [
+  {
+   "at": "2026-10-15T07:13:26",
+   "tool": "v1.8",
+   "sentences": [
+    99
+   ],
+   "base_created": "2026-10-15T05:19:14",
+   "base_tool": "tts_narration.py v1.7",
+   "texts": {
+    "99": {
+     "old": "끝까지 봐 주셔서 감사합니다.",
+     "new": "시청해주셔서 감사합니다."
+    }
+   },
+   "gain_db": {
+    "99": 0.84
+   }
+  }
+ ]
 }

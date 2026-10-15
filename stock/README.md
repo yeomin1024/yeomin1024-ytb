@@ -1,6 +1,8 @@
 # 주식 주제 폴더 (`stock/`) — 새로 시작 (2026-10-15)
 
-VERSION: v1.1 — 2026-10-15 — 검색어 40개 모두 주식 낱말 · 캐시 안내 (사용자 지시: "아니 검색어 다 주식 관련으로 변경하고 그리고 왜 예전 재테크 캐시가 남아 있어 이거 어떻게해")
+VERSION: v1.2 — 2026-10-15 — 웹 화면은 한 화면·주제 탭 (재테크·주식), 설정·캐시는 주제마다 따로 (사용자 지시 "헷갈리니까 하나의 사이트에서 그냥 탭 만들어서 다른 주제 볼 수 있게 하자 서로 캐시는 공유하지 않도록 하고" · "설정도 다 따로써야해")
+
+(v1.1 — 2026-10-15 — 검색어 40개 모두 주식 낱말 · 캐시 안내 (사용자 지시: "아니 검색어 다 주식 관련으로 변경하고 그리고 왜 예전 재테크 캐시가 남아 있어 이거 어떻게해"))
 
 (v1.0 — 2026-10-15 — 최초 (사용자 지시: "주식 주제로 유튜브 분석기 돌리기위한 세팅 좀 해줘 stock 폴더 만들고 검색어 설정 같은거 말이야 그리고 내가 어떻게 실행해야하는지도 명령 알려줘"))
 
@@ -17,13 +19,14 @@ VERSION: v1.1 — 2026-10-15 — 검색어 40개 모두 주식 낱말 · 캐시 
 # 처음 한 번 (또는 실행기가 바뀌었을 때) — 실행기 받기
 curl.exe -L -o run_analyzer.ps1 https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/run_analyzer.ps1
 
-# 주식만 (웹 화면 — 브라우저가 http://127.0.0.1:8765/ 로 열림)
-powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Folder stock
+# 웹 화면 (브라우저가 http://127.0.0.1:8765/ 로 열림) — 위쪽 탭에서 [재테크] [주식]
+powershell -ExecutionPolicy Bypass -File run_analyzer.ps1
 
-# 재테크·주식 둘 다 (주제마다 창 하나씩, 할당량은 같은 키에서 함께 셈)
-powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Folder economic,stock
+# 주식 탭부터 열기 (재테크 탭도 보임)
+powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Folder stock
 ```
 
+- 한 화면에 주제 탭 (웹 화면 v2.0) — 예전처럼 주제마다 창이 뜨지 않음. 예전 창이 켜져 있으면 닫고 다시 켜기. 탭마다 키(`stock/.env`)·검색어·캐시·작업이 따로, 할당량만 같은 키에서 함께.
 - 실행기가 켤 때마다 최신 코드와 이 폴더의 설정(`analyzer_config.toml`·`keywords.toml`·`keywords.txt`·`tag_rules.toml`·`analysis_rules.toml`)을 받는다. 키는 PC 의 맨 위 `.env` (또는 `stock/.env`) — git 에 올리지 않는다.
 - 웹 화면 순서: **[탐색] → 목록(배수 높은 순)에서 체크 → [승인]** → 승인한 영상 자료 + 주별 분석 + `result/outliers/analysis.md` → GitHub. 쇼츠는 4번 칸 [쇼츠].
 - 예전 자동 실행(화면 없이): `-Auto -Folder stock` · 작업 스케줄러 등록: `-RegisterTask -Folder stock` · 설정을 GitHub 것으로 덮기: `-UpdateConfig -Folder stock`. 자세히 `guides/pc_analysis.md`.
@@ -54,10 +57,11 @@ powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Folder economic,stock
 |---|---|---|
 | 웹 화면 탐색 캐시 (검색 결과·영상 정보·채널·자동완성·쇼츠) | PC `stock/result/outliers/.cache/` | **주식 것만** — 재테크 캐시(`economic/…`)는 쓰지 않음 |
 | 탐색 목록·체크 | PC `stock/result/web/` | 주식 것만 |
-| 분석기(`-Auto`)의 API 응답 캐시 | PC `.yt_work/cache/` | 모든 주제가 함께 씀 — **같은 요청(같은 검색어·같은 영상)의 같은 답**만 다시 씀. 재테크 영상이 주식 결과에 들어가지 않음 (주식 관련어로 거름) |
+| 분석기(`-Auto`)의 API 응답 캐시 | PC `.yt_work/cache_stock/` (분석기 v2.12.0) | **주식 것만** — 예전 공동 캐시 `.yt_work/cache` 는 켤 때 `.yt_work/old/` 로 옮김 |
+| 키 | PC `stock/.env` | **주식 것만** — 처음 켤 때 맨 위 `.env` 를 복사, 그 뒤 주식 탭에서 고치면 이 파일만 |
 
 - **예전 stock 자료가 PC 에 남아 있으면 자동으로 치움**: 2026-10-10~12 에 `run_analyzer.ps1` 의 기본 주제가 stock 이었음 → 그때 PC 에 생긴 `stock/result/`·`output/stock/` 이 새 주식 결과에 섞일 수 있었음. 설정의 `FRESH_START = "2026-10-15"` 를 PC 가 처음 받으면(웹 화면 켤 때·주제 바꿀 때·자동 실행 회차마다 검사) **한 번** `.yt_work/old/stock_<시각>/` 로 옮긴다 (지우지 않음 — 화면 로그 `[RESET]` 줄).
-- **직접 비우기** (어느 주제나 — 탐색 캐시·탐색 목록만, 승인한 자료·분석 결과·GitHub 은 그대로): 웹 화면 4번 칸 **[캐시 비우기]**, 또는
+- **직접 비우기** (어느 주제나 — 탐색 캐시·탐색 목록·분석기 캐시만, 승인한 자료·분석 결과·GitHub 은 그대로): 웹 화면 4번 칸 **[캐시 비우기]**, 또는
   `powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -ResetCache -Folder stock` (재테크는 `-Folder economic`). 다음 탐색은 처음부터 새로 검색한다 (검색 1번 = 100단위).
 - 옮긴 것은 `.yt_work/old/` 폴더 — 필요 없으면 통째로 지워도 된다.
 

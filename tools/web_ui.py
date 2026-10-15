@@ -1,9 +1,18 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.6.2 — 2026-10-15 — 주제 캐시 (사용자 지시: "왜 예전 재테크 캐시가 남아 있어 이거 어떻게해"):
+# VERSION: v2.0 — 2026-10-15 — 한 화면에 주제 탭 (사용자 지시: "헷갈리니까 하나의 사이트에서 그냥 탭 만들어서 다른 주제 볼 수 있게 하자 서로
+#          캐시는 공유하지 않도록 하고" · "설정도 다 따로써야해"):
+#          ① 창(포트)을 주제마다 띄우던 것 → 한 화면(http://127.0.0.1:8765/) 위쪽 탭으로 주제를 고름. 요청마다 X-Topic 머리글로 주제를 보냄
+#          ② 작업(JOB)도 주제마다 따로 — 재테크 탭에서 승인하는 동안 주식 탭에서 탐색 가능 (할당량은 같은 키 장부로 함께 셈)
+#          ③ 이 화면이 모든 주제를 잠금 (다른 화면·예전 창이 쓰는 주제는 그 탭을 보기만, 동작은 막음)
+#          ④ 설정 따로: 키는 그 주제 .env 에만 저장(처음엔 맨 위 .env 복사 — pc_analysis v1.14), 화면의 롱폼/쇼츠·최근 N주도 탭마다 기억
+#          ⑤ 캐시 따로: 탐색 캐시·목록은 주제 폴더, 분석기 API 캐시는 .yt_work/cache_<주제>(분석기 v2.12.0) — 예전 공동 캐시는 켤 때 .yt_work/old/ 로
+#          ⑥ 음성인식은 PC 에서 한 번에 하나 — 다른 탭에서 누르면 줄을 세워 앞 주제가 끝나면 이어서
+#          ⑦ 할당량 초기화 뒤 이어서 — 탭(주제)마다 남은 것을 차례로
+# (v1.6.2 — 2026-10-15 — 주제 캐시 (사용자 지시: "왜 예전 재테크 캐시가 남아 있어 이거 어떻게해"):
 #          ① 0번 칸에서 주제를 바꾸면 앞 주제의 끝난 작업 줄·쇼츠 분석 칸이 화면에 남던 것 — 작업 줄을 비우고 쇼츠 분석도 다시 읽음
 #          ② 켤 때·주제를 바꿀 때 pc_analysis.fresh_start — 설정에 FRESH_START 가 있는 새 주제(stock)면 예전 PC 자료를 한 번 옮김
-#          ③ 4번 칸 [캐시 비우기] → /api/cache/reset (pc_analysis.reset_topic_cache — 탐색 캐시·탐색 목록만, 지우지 않고 .yt_work/old/ 로)
+#          ③ 4번 칸 [캐시 비우기] → /api/cache/reset (pc_analysis.reset_topic_cache — 탐색 캐시·탐색 목록만, 지우지 않고 .yt_work/old/ 로))
 # (v1.6.1 — 2026-10-15 — 분석 칸의 'analysis.md 전문' 경로를 이 창의 주제로 (예전엔 economic 고정 — stock 창에서 틀린 경로))
 # (v1.6 — 2026-10-15 — 쇼츠 탐색·승인·분석 (사용자 지시: "깃허브 저장소에 유튜브 분석기 있지? 거기에 쇼츠 분석 기능도 추가해 목적은
 #          사람들의 니즈를 충족해주는 쇼츠를 만들어서 최대한 조회수를 높이기 위한 쇼츠를 만들기 위해 분석하는거야 전력을 다해서 해봐"):
@@ -121,7 +130,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import pc_analysis as pc                 # noqa: E402  할당량 장부·키 찾기·GitHub 동기화·패키지 준비
 
 ROOT = pc.ROOT
-VERSION = "v1.6.2"
+VERSION = "v2.0"
 LOG = logging.getLogger("web")
 KST = timezone(timedelta(hours=9))
 TOKEN = secrets.token_urlsafe(18)        # 화면이 요청마다 보내는 열쇠 (다른 사이트가 이 PC 의 화면을 조작하지 못하게)
@@ -134,17 +143,39 @@ SHORTS_POPULAR_N = 20                    # v1.6: 쇼츠 검색 결과 중 조회
 SHORTS_BASELINE_VIDEOS = 50              # v1.6: 채널 평소 쇼츠 — 채널 쇼츠 목록(UUSH) 최근 몇 개 (목록 1단위 + 영상 정보 1단위)
 SHORTS_BASELINE_TTL_H = 168
 SHORTS_CASE_RX = re.compile(r"^S_([0-9A-Za-z_-]{11})$")
-STATE = {"topic": None, "topics": [], "port": None}
-WINDOW = {"lock": None, "topic": None}     # v1.5: 이 창이 잠근 주제 (OS 잠금 — 창이 꺼지면 풀림)
+STATE = {"topic": None, "topics": [], "port": None}     # v2.0: topic = 처음 열 탭, topics = 화면의 탭(주제 폴더)
+LOCKS = {}                                # v2.0: 이 화면이 잠근 주제 {주제: 잠금 파일} (OS 잠금 — 화면이 꺼지면 풀림)
+RESUME_T = {}                             # v2.0: 주제마다 지난 이어서 {"last", "last_result", "note"}
 RESUME = {"next": None, "last": None, "last_result": None, "status": "idle", "note": ""}   # v1.5: 초기화 뒤 자동으로 이어서
 RESUME_MARGIN_MIN = 10                   # 태평양 자정 + 이 분 뒤에 이어서 (Google 쪽 초기화가 조금 늦을 때)
 RESUME_JOB_WAIT_H = 6                    # 그때 다른 작업이 도는 중이면 끝나길 기다리는 최대 시간
 TOPIC_RX = re.compile(r"^[a-z][a-z0-9_-]{1,30}$")
-JOB = {"name": None, "status": "idle", "step": "", "done": 0, "total": 0, "started": None, "finished": None, "error": None,
-       "result": None, "cancel": False, "log": collections.deque(maxlen=500), "proc": None}
+def new_job():
+    return {"name": None, "status": "idle", "step": "", "done": 0, "total": 0, "started": None, "finished": None, "error": None,
+            "result": None, "cancel": False, "log": collections.deque(maxlen=500), "proc": None}
+
+
+JOBS = {}                                 # v2.0: 주제마다 작업 하나 {주제: 작업} — 다른 주제 작업은 동시에
+_TL = threading.local()                   # 작업 스레드가 자기 작업(진행 칸)을 앎 — step()·run_subprocess·로그 줄
+_SCRATCH = new_job()                      # 작업 밖에서 부른 step() 이 쓰는 빈 자리 (화면에 안 보임)
+
+
+def job_of(t):
+    return JOBS.setdefault(t, new_job())
+
+
+def cur_job():
+    """지금 스레드의 작업 (작업 밖이면 도는 작업이 하나뿐일 때 그것 — 작업이 띄운 일꾼 스레드의 로그도 진행 칸에)."""
+    j = getattr(_TL, "job", None)
+    if j is not None:
+        return j
+    running = [x for x in JOBS.values() if x["status"] == "running"]
+    return running[0] if len(running) == 1 else _SCRATCH
+
+
 JOB_LOCK = threading.Lock()
 # 음성인식 (v1.2) — 작업(JOB)과 따로 뒤에서: 탐색·승인을 하는 동안에도 돎. 분석기 --whisper-queue 를 돌리고 출력 줄로 진행을 읽음
-WHISPER = {"status": "idle", "topic": None, "proc": None, "started": None, "finished": None, "current": "", "done": 0, "failed": 0,
+WHISPER = {"queued": [], "status": "idle", "topic": None, "proc": None, "started": None, "finished": None, "current": "", "done": 0, "failed": 0,
            "total": 0, "pass": "", "rerun": False, "stop": False, "last_exit": None, "note": "", "log": collections.deque(maxlen=300)}
 WHISPER_LOCK = threading.Lock()
 WHISPER_LINE_RX = re.compile(r"\[(?:INFO|WARNING)\] (\d+)/(\d+) (시작|끝|실패|올림|올리기 실패)(.*)$")
@@ -165,7 +196,9 @@ class _JobLogHandler(logging.Handler):
 
     def emit(self, record):
         try:
-            JOB["log"].append(self.format(record))
+            j = cur_job()
+            if j is not _SCRATCH:
+                j["log"].append(self.format(record))
         except Exception:
             pass
 
@@ -345,7 +378,7 @@ def quota_view(t):
     return q
 
 
-# ---------------------------------------------------------------- 창 여러 개 (v1.5): 창마다 주제 하나를 잠금
+# ---------------------------------------------------------------- 주제 잠금 (v2.0: 한 화면이 주제 탭 전부를 잠금)
 def _window_tag(t):
     return re.sub(r"[^0-9A-Za-z_-]+", "_", str(t)) or "topic"
 
@@ -356,56 +389,52 @@ def _window_paths(t):
 
 
 def topic_window(t):
-    """다른 창이 이 주제를 쓰는 중이면 그 창 정보 {url, pid, since}, 아니면 None (잠금을 잠깐 잡아 보고 바로 놓음)."""
-    lock_p, info_p = _window_paths(t)
-    if WINDOW["topic"] == t:
+    """다른 화면(예전 창 포함)이 이 주제를 쓰는 중이면 그 화면 정보 {url, pid, since}, 아니면 None (잠금을 잠깐 잡아 보고 바로 놓음)."""
+    if t in LOCKS:
         return None
+    lock_p, info_p = _window_paths(t)
     if not lock_p.is_file():
         return None
     f = pc.os_lock(lock_p, 0)
-    if f is not None:                 # 아무도 안 잡고 있음 (예전 창이 꺼짐)
+    if f is not None:                 # 아무도 안 잡고 있음 (예전 화면이 꺼짐)
         pc.os_unlock(f)
         return None
     return _read_json(info_p, {}) or {"url": "", "pid": None}
 
 
 def claim_topic(t):
-    """이 창이 주제 t 를 씀 — 다른 창이 쓰는 중이면 UserError (그 창 주소와 함께). 예전 주제의 잠금은 놓음."""
-    if WINDOW["topic"] == t and WINDOW["lock"] is not None:
+    """이 화면이 주제 t 를 씀 (v2.0: 여러 주제를 함께 잠금) — 다른 화면이 쓰는 중이면 UserError (그 화면 주소와 함께)."""
+    if t in LOCKS:
         return
     lock_p, info_p = _window_paths(t)
+    lock_p.parent.mkdir(parents=True, exist_ok=True)
     f = pc.os_lock(lock_p, 0)
     if f is None:
         other = _read_json(info_p, {})
-        raise UserError(f"'{t}' 주제는 다른 분석기 창이 쓰는 중입니다 — {other.get('url') or '그 창'} (한 주제는 창 하나에서만, 다른 주제는 동시에 돼요)")
-    old_lock, old_t = WINDOW["lock"], WINDOW["topic"]
-    WINDOW.update(lock=f, topic=t)
+        raise UserError(f"'{t}' 주제는 다른 분석기 화면이 쓰는 중입니다 — {other.get('url') or '그 창'} 을 닫으면 이 탭에서 쓸 수 있어요 "
+                        "(예전 판은 주제마다 창이 따로 떴음 — 그 창을 닫으세요)")
+    LOCKS[t] = f
     _write_json(info_p, {"topic": t, "url": f"http://127.0.0.1:{STATE['port']}/" if STATE.get("port") else "", "pid": os.getpid(),
                          "since": datetime.now(KST).isoformat(timespec="seconds")})
-    if old_lock is not None:
-        pc.os_unlock(old_lock)
-        try:
-            _window_paths(old_t)[1].unlink()
-        except OSError:
-            pass
-    log("WINDOW", topic=t, port=STATE.get("port"), note="이 창이 이 주제를 씀 (다른 창은 다른 주제만)")
+    log("WINDOW", topic=t, port=STATE.get("port"), note="이 화면의 탭으로 씀 (다른 화면은 이 주제를 못 씀)")
 
 
-def release_topic():
-    if WINDOW["lock"] is not None:
-        pc.os_unlock(WINDOW["lock"])
-        try:
-            _window_paths(WINDOW["topic"])[1].unlink()
-        except OSError:
-            pass
-        WINDOW.update(lock=None, topic=None)
+def release_topic(t=None):
+    for x in ([t] if t else list(LOCKS)):
+        f = LOCKS.pop(x, None)
+        if f is not None:
+            pc.os_unlock(f)
+            try:
+                _window_paths(x)[1].unlink()
+            except OSError:
+                pass
 
 
 def open_windows():
-    """열린 분석기 창 전부 (이 창 포함) → [{topic, url, me}] (v1.5)."""
+    """주제마다 누가 쓰나 → [{topic, url, me}] (me = 이 화면의 탭)."""
     out = []
     for t in find_topics():
-        if t == WINDOW["topic"]:
+        if t in LOCKS:
             out.append({"topic": t, "url": f"http://127.0.0.1:{STATE['port']}/", "me": True})
             continue
         w = topic_window(t)
@@ -558,64 +587,70 @@ def remove_target(t, kind, tid):
 
 
 # ---------------------------------------------------------------- 작업 (한 번에 하나, 뒤에서)
-def job_view():
-    return {k: (list(v)[-200:] if k == "log" else v) for k, v in JOB.items() if k not in ("proc", "cancel")}
+def job_view(t):
+    return {k: (list(v)[-200:] if k == "log" else v) for k, v in job_of(t).items() if k not in ("proc", "cancel")}
 
 
-def start_job(name, fn, *args):
+def start_job(name, fn, t, *args):
+    """v2.0: 주제 t 의 작업 (주제마다 하나 — 다른 주제 작업은 동시에). fn(t, *args)."""
+    job = job_of(t)
     with JOB_LOCK:
-        if JOB["status"] == "running":
-            return False, f"'{JOB['name']}' 작업이 아직 도는 중입니다 — 끝난 뒤 다시"
-        JOB.update(name=name, status="running", step="시작", done=0, total=0, started=datetime.now(KST).isoformat(timespec="seconds"),
+        if job["status"] == "running":
+            return False, f"'{job['name']}' 작업이 아직 도는 중입니다 — 끝난 뒤 다시"
+        job.update(name=name, status="running", step="시작", done=0, total=0, started=datetime.now(KST).isoformat(timespec="seconds"),
                    finished=None, error=None, result=None, cancel=False, proc=None)
-        JOB["log"].clear()
+        job["log"].clear()
 
     def runner():
+        _TL.job = job
         try:
-            JOB["result"] = fn(*args)
-            JOB["status"] = "done"
+            job["result"] = fn(t, *args)
+            job["status"] = "done"
         except Cancelled:
-            JOB["status"] = "cancelled"
-            log("JOB", logging.WARNING, name=name, note="사용자가 멈춤 — 받은 것은 캐시·폴더에 남음")
+            job["status"] = "cancelled"
+            log("JOB", logging.WARNING, topic=t, name=name, note="사용자가 멈춤 — 받은 것은 캐시·폴더에 남음")
         except UserError as e:
-            JOB.update(status="error", error=str(e))
-            log("JOB", logging.WARNING, name=name, error=str(e))
+            job.update(status="error", error=str(e))
+            log("JOB", logging.WARNING, topic=t, name=name, error=str(e))
         except Exception as e:
-            JOB.update(status="error", error=f"{type(e).__name__}: {e}"[:300])
-            LOG.exception("[JOB] %s 실패", name)
+            job.update(status="error", error=f"{type(e).__name__}: {e}"[:300])
+            LOG.exception("[JOB] %s %s 실패", t, name)
         finally:
-            JOB["finished"] = datetime.now(KST).isoformat(timespec="seconds")
-            JOB["proc"] = None
-    threading.Thread(target=runner, daemon=True, name=f"job-{name}").start()
+            job["finished"] = datetime.now(KST).isoformat(timespec="seconds")
+            job["proc"] = None
+            _TL.job = None
+    threading.Thread(target=runner, daemon=True, name=f"job-{t}-{name}").start()
     return True, "시작"
 
 
 def step(text, done=None, total=None):
-    if JOB["cancel"]:
+    job = cur_job()
+    if job["cancel"]:
         raise Cancelled()
-    JOB["step"] = text
+    job["step"] = text
     if done is not None:
-        JOB["done"] = done
+        job["done"] = done
     if total is not None:
-        JOB["total"] = total
+        job["total"] = total
 
 
 def run_subprocess(cmd, label, capture=None):
     """도구를 따로 돌리고 출력 줄을 '진행' 칸으로 (멈춤을 누르면 끝냄). capture(목록)가 있으면 출력 줄을 거기에도. → 종료 코드."""
     env = {**os.environ, "PYTHONIOENCODING": "utf-8", "PYTHONUTF8": "1"}
     log("JOB", step=label, cmd=" ".join(str(c) for c in cmd[1:]))
+    job = cur_job()
     p = subprocess.Popen(cmd, cwd=ROOT, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-    JOB["proc"] = p
+    job["proc"] = p
     for raw in p.stdout:
         line = raw.decode("utf-8", errors="replace").rstrip()
-        JOB["log"].append(line)
+        job["log"].append(line)
         if capture is not None:
             capture.append(line)
-        if JOB["cancel"]:
+        if job["cancel"]:
             p.terminate()
     code = p.wait()
-    JOB["proc"] = None
-    if JOB["cancel"]:
+    job["proc"] = None
+    if job["cancel"]:
         raise Cancelled()
     return code
 
@@ -1165,12 +1200,19 @@ def job_resume(t, why="할당량 초기화"):
     after = resume_plan(t)
     res["left_after"] = {k: v for k, v in after.items() if k != "any"}
     RESUME.update(last=datetime.now(KST).isoformat(timespec="minutes"), last_result=res["left_after"])
+    RESUME_T.setdefault(t, {}).update(last=RESUME["last"], last_result=res["left_after"])
     step("끝 — " + ("남은 것 없음" if not after["any"] else "아직 남은 것은 다음 초기화 뒤에 또 이어서"))
     return res
 
 
+def resume_view(t):
+    """v2.0: 화면의 '자동 이어서' — 다음 시각·상태는 모두 같고, 지난번 결과는 탭(주제)마다."""
+    return {**RESUME, **RESUME_T.get(t, {})}
+
+
 def _resume_loop():
-    """태평양 자정 + RESUME_MARGIN_MIN 분마다 남은 것을 저절로 이어서 (이 창이 켜져 있는 동안). PC 가 잠들었다 깨도 벽시계로 다시 셈."""
+    """태평양 자정 + RESUME_MARGIN_MIN 분마다 남은 것을 저절로 이어서 (이 화면이 켜져 있는 동안). PC 가 잠들었다 깨도 벽시계로 다시 셈.
+    v2.0: 화면의 탭(주제)마다 차례로 — 그 주제 작업이 도는 중이면 끝나길 기다림."""
     while True:
         try:
             nxt, how = pc.next_quota_reset(datetime.now(timezone.utc), margin_min=RESUME_MARGIN_MIN)
@@ -1180,22 +1222,23 @@ def _resume_loop():
                 if left_s <= 0:
                     break
                 time.sleep(min(60.0, left_s))
-            t = STATE["topic"]
-            plan = resume_plan(t)
-            if not plan["any"]:
-                RESUME.update(last=datetime.now(KST).isoformat(timespec="minutes"), last_result={}, note="초기화 — 남은 것 없음")
-                log("RESUME", topic=t, note="할당량 초기화 — 이어서 할 것 없음")
-                time.sleep(90)
-                continue
-            RESUME.update(status="waiting_job")
-            waited = 0
-            while JOB["status"] == "running" and waited < RESUME_JOB_WAIT_H * 3600:
-                time.sleep(30)
-                waited += 30
-            RESUME.update(status="started", note="시작")      # v1.6: 작업을 띄우기 전에 적음 (작업이 바로 끝나도 상태가 맞게)
-            ok, msg = start_job("할당량 초기화 — 남은 것 이어서", job_resume, t, "할당량 초기화")
-            RESUME.update(status="started" if ok else "skipped", note=msg)
-            log("RESUME", topic=t, started=ok, note=msg, waited_min=waited // 60)
+            for t in [x for x in (STATE["topics"] or [STATE["topic"]]) if x and (x in LOCKS or not LOCKS)]:
+                plan = resume_plan(t)
+                if not plan["any"]:
+                    RESUME_T.setdefault(t, {}).update(last=datetime.now(KST).isoformat(timespec="minutes"), last_result={},
+                                                      note="초기화 — 남은 것 없음")
+                    log("RESUME", topic=t, note="할당량 초기화 — 이어서 할 것 없음")
+                    continue
+                RESUME.update(status="waiting_job")
+                waited = 0
+                while job_of(t)["status"] == "running" and waited < RESUME_JOB_WAIT_H * 3600:
+                    time.sleep(30)
+                    waited += 30
+                RESUME.update(status="started", note="시작")      # v1.6: 작업을 띄우기 전에 적음 (작업이 바로 끝나도 상태가 맞게)
+                ok, msg = start_job("할당량 초기화 — 남은 것 이어서", job_resume, t, "할당량 초기화")
+                RESUME.update(status="started" if ok else "skipped", note=msg)
+                RESUME_T.setdefault(t, {}).update(note=msg)
+                log("RESUME", topic=t, started=ok, note=msg, waited_min=waited // 60)
             time.sleep(90)                   # 같은 초기화로 두 번 돌지 않게
         except Exception as e:               # 이어서 하기가 죽지 않게 — 기록하고 다음 초기화에
             LOG.exception("[RESUME] 실패")
@@ -1235,13 +1278,15 @@ def whisper_pending(t, fresh=False):
     return n
 
 
-def whisper_view():
+def whisper_view(t=None):
+    """v2.0: 음성인식은 PC 에서 하나 — topic = 지금 도는 주제, pending = 이 탭(t) 주제의 남은 수, queued = 기다리는 주제."""
     w = {k: (list(v)[-120:] if k == "log" else v) for k, v in WHISPER.items() if k not in ("proc", "stop")}
-    t = WHISPER["topic"] or STATE["topic"]
+    t = t or WHISPER["topic"] or STATE["topic"]
     try:
         w["pending"] = whisper_pending(t) if t else 0
     except Exception:
         w["pending"] = None
+    w["queued"] = list(WHISPER.get("queued") or [])
     return w
 
 
@@ -1249,8 +1294,12 @@ def start_whisper(t, why=""):
     """음성인식을 뒤에서 시작. 이미 도는 중이면 '끝나면 다시'만 표시 (새로 승인한 영상도 이어서). → (시작했나, 설명)."""
     with WHISPER_LOCK:
         if WHISPER["status"] in ("running", "stopping"):
-            WHISPER["rerun"] = True
-            return False, "음성인식이 이미 도는 중 — 지금 대기열이 끝나면 새 영상도 이어서"
+            if WHISPER["topic"] == t:
+                WHISPER["rerun"] = True
+                return False, "음성인식이 이미 도는 중 — 지금 대기열이 끝나면 새 영상도 이어서"
+            if t not in WHISPER["queued"]:                       # v2.0: 다른 주제는 줄을 세움 (PC 에서 한 번에 하나)
+                WHISPER["queued"].append(t)
+            return False, f"음성인식은 PC 에서 한 번에 하나 — '{WHISPER['topic']}' 이 끝나면 '{t}' 를 이어서 합니다"
         WHISPER.update(status="running", topic=t, started=datetime.now(KST).isoformat(timespec="seconds"), finished=None, current="",
                        done=0, failed=0, total=0, rerun=False, stop=False, last_exit=None, note=why, proc=None, **{"pass": ""})
         WHISPER["log"].clear()
@@ -1263,7 +1312,7 @@ def stop_whisper():
     with WHISPER_LOCK:
         if WHISPER["status"] != "running":
             return False
-        WHISPER.update(stop=True, status="stopping", rerun=False)
+        WHISPER.update(stop=True, status="stopping", rerun=False, queued=[])      # v2.0: 줄 선 다른 주제도 멈춤
         p = WHISPER.get("proc")
     if p:
         p.terminate()
@@ -1297,6 +1346,12 @@ def _whisper_loop(t):
                            current="")
         log("WHISPER", topic=t, done=WHISPER["done"], failed=WHISPER["failed"], exit=WHISPER["last_exit"],
             note="멈춤" if stopped else "대기열 끝")
+        nxt = None
+        with WHISPER_LOCK:                   # v2.0: 줄 선 다른 주제가 있으면 이어서
+            if not stopped and WHISPER["queued"]:
+                nxt = WHISPER["queued"].pop(0)
+        if nxt:
+            start_whisper(nxt, f"'{t}' 다음 차례")
 
 
 def _whisper_run(cmd):
@@ -1731,9 +1786,12 @@ def state_view(t):
     until = orr.caption_blocked()
     STATE["topics"] = sorted(set(find_topics()) | {t}, key=lambda x: (x != "economic", x))     # v1.5: 새로 만든 주제 폴더도
     wins = open_windows()
+    other = next((w for w in wins if w["topic"] == t and not w["me"]), None)
     return {"version": VERSION, "topic": t, "name": topic_name(t), "topics": STATE["topics"], "env": env_view(t),
             "topic_names": {x: topic_name(x) for x in STATE["topics"]}, "windows": wins, "port": STATE.get("port"),
-            "resume": {**{k: v for k, v in RESUME.items()}, "plan": resume_plan(t)},
+            "locked_elsewhere": (other or {}).get("url") or (bool(other) or None),                  # v2.0: 다른 화면이 쓰는 주제 — 보기만
+            "env_file": f"{t}/.env",
+            "resume": {**resume_view(t), "plan": resume_plan(t)},
             "keywords_text": text, "keywords_count": len(pc.read_keyword_list(kp) or []), "targets": load_targets(t),
             "explore": {"generated": ex.get("generated"), "weeks": ex.get("weeks"), "videos": len(ex.get("rows") or []),
                         "checked": len(ex.get("checked") or []), "pending": ex.get("pending") or []},
@@ -1742,7 +1800,12 @@ def state_view(t):
             "quota": quota_view(t),
             "caption_block": until.astimezone(KST).strftime("%m-%d %H:%M") if until else None,
             "approved": len(_read_json(web_dir(t) / "approved.json", {"approved": []})["approved"]),
-            "job": job_view()}
+            "job": job_view(t), "tabs": tabs_view()}
+
+
+def tabs_view():
+    """v2.0: 탭마다 작업 상태 (탭 이름 옆 점) — {주제: running|done|error|idle}."""
+    return {x: job_of(x)["status"] for x in STATE["topics"]}
 
 
 PAGE = None      # 아래 HTML (파일 끝)
@@ -1771,6 +1834,14 @@ class Handler(BaseHTTPRequestHandler):
     def _authorized(self):
         return self._host_ok() and secrets.compare_digest(self.headers.get("X-Token") or "", TOKEN)
 
+    def _topic(self):
+        """v2.0: 요청의 탭(주제) — X-Topic 머리글 (없거나 틀리면 처음 탭)."""
+        hdr = getattr(self, "headers", None)
+        want = ((hdr.get("X-Topic") if hdr is not None else "") or "").strip()
+        if want and TOPIC_RX.match(want) and (ROOT / want / "analyzer_config.toml").is_file():
+            return want
+        return STATE["topic"]
+
     def do_GET(self):
         if not self._host_ok():
             return self._send(403, {"error": "이 PC 에서만 열 수 있습니다"})
@@ -1783,14 +1854,14 @@ class Handler(BaseHTTPRequestHandler):
             return
         if not self._authorized():
             return self._send(403, {"error": "열쇠가 맞지 않음 — 화면을 새로 고침"})
-        t = STATE["topic"]
+        t = self._topic()
         q = urllib.parse.parse_qs(u.query)
         try:
             if u.path == "/api/state":
                 return self._send(200, state_view(t))
             if u.path == "/api/job":                                   # v1.5: 남은 할당량·자동 이어서도 (화면이 1~3초마다 물음)
-                return self._send(200, {**job_view(), "whisper": whisper_view(), "quota": quota_view(t),
-                                        "resume": {k: v for k, v in RESUME.items()}})
+                return self._send(200, {**job_view(t), "whisper": whisper_view(t), "quota": quota_view(t),
+                                        "resume": resume_view(t), "tabs": tabs_view(), "topic": t})
             if u.path == "/api/explore":
                 shorts = (q.get("mode") or [""])[0] == "shorts"        # v1.6: 쇼츠 목록
                 ex = _read_json(web_dir(t) / ("shorts_explore.json" if shorts else "explore.json"), {})
@@ -1841,43 +1912,22 @@ class Handler(BaseHTTPRequestHandler):
             body = json.loads(self.rfile.read(n).decode("utf-8") or "{}")
         except ValueError:
             return self._send(400, {"error": "JSON 이 아님"})
-        t = STATE["topic"]
+        t = self._topic()
         path = urllib.parse.urlparse(self.path).path
         try:
-            if path == "/api/topic":                                   # v1.5: 창마다 주제 하나 (다른 창이 쓰는 주제는 못 고름)
-                nt = str(body.get("topic") or "")
-                if nt not in find_topics():
-                    raise UserError("없는 주제 폴더 (<폴더>/analyzer_config.toml 이 있어야 함)")
-                if nt != t:
-                    if JOB["status"] == "running":
-                        raise UserError(f"'{JOB['name']}' 작업이 도는 중 — 끝난 뒤(또는 [멈춤] 뒤)에 주제를 바꾸세요. 동시에 하려면 [새 창으로 열기]")
-                    if WHISPER["status"] in ("running", "stopping"):
-                        raise UserError("음성인식이 도는 중 — 멈춘 뒤 주제를 바꾸세요. 동시에 하려면 [새 창으로 열기]")
-                    claim_topic(nt)
-                    STATE["topic"] = nt
-                    with JOB_LOCK:                                     # v1.6.2: 앞 주제의 끝난 작업 줄이 새 주제 화면에 남지 않게
-                        JOB.update(name=None, status="idle", step="", done=0, total=0, error=None, result=None)
-                    try:
-                        pc.fresh_start(nt)
-                    except Exception as e:
-                        log("RESET", logging.WARNING, topic=nt, note="옛 자료 옮기기 실패 — 그대로 계속", error=f"{type(e).__name__}: {e}"[:160])
-                    log("TOPIC", topic=nt, note="이 창의 주제를 바꿈")
-                return self._send(200, state_view(STATE["topic"]))
+            if path != "/api/topic/new" and t not in LOCKS:           # v2.0: 이 화면이 아직 안 잡은 탭(새로 만든 주제 등)은 지금 잡음
+                claim_topic(t)                                         # 다른 화면이 쓰는 중이면 UserError — 그 탭은 보기만
             if path == "/api/topic/new":                               # v1.5: 새 주제 폴더
                 r = create_topic(body.get("folder"), body.get("name"), body.get("keywords"), bool(body.get("push")))
+                try:                                                   # v2.0: 새 주제도 탭으로 — 키 파일 따로·잠금
+                    pc.ensure_topic_env(r["folder"])
+                    claim_topic(r["folder"])
+                except Exception as e:
+                    log("TOPIC", logging.WARNING, topic=r.get("folder"), note="새 주제 탭 준비 실패", error=f"{type(e).__name__}: {e}"[:160])
                 return self._send(200, r)
-            if path == "/api/window/new":                              # v1.5: 다른 주제를 새 창(다른 포트)으로 — 동시에 탐색
-                nt = str(body.get("topic") or "")
-                if nt not in find_topics():
-                    raise UserError("없는 주제 폴더")
-                w = topic_window(nt) if nt != t else {"url": f"http://127.0.0.1:{STATE['port']}/"}
-                if w is not None:
-                    return self._send(200, {"ok": False, "url": w.get("url"), "message": "이미 열린 창이 있습니다"})
-                spawn_windows([nt])
-                return self._send(200, {"ok": True, "message": f"'{nt}' 새 창을 띄웠습니다 — 브라우저 탭이 하나 더 열립니다 (몇 초)"})
             if path == "/api/cache/reset":                             # v1.6.2: [캐시 비우기] — 이 주제의 탐색 캐시·탐색 목록만
-                if JOB["status"] == "running":
-                    raise UserError(f"'{JOB['name']}' 작업이 도는 중 — 끝난 뒤(또는 [멈춤] 뒤)에 비우세요")
+                if job_of(t)["status"] == "running":
+                    raise UserError(f"'{job_of(t)['name']}' 작업이 도는 중 — 끝난 뒤(또는 [멈춤] 뒤)에 비우세요")
                 r = pc.reset_topic_cache(t, why="웹 화면 [캐시 비우기]")
                 return self._send(200, {"ok": True, **r, "message": (f"캐시 {len(r['moved'])}곳을 {r['to']} 로 옮겼습니다 — 다음 탐색은 처음부터 새로 검색합니다"
                                                                       if r["moved"] else "치울 캐시가 없습니다")})
@@ -1892,11 +1942,11 @@ class Handler(BaseHTTPRequestHandler):
                         continue
                     if re.search(r"\s", v):
                         raise UserError(f"{name}: 값에 띄어쓰기·줄바꿈이 있으면 안 됩니다")
-                    src = pc.find_secret(name, t)[1]             # 지금 쓰는 파일에 저장 (주제 .env 가 먼저 읽히므로)
-                    set_env_value(ROOT / t / ".env" if src == f"{t}/.env" else ROOT / ".env", name, v)
+                    pc.ensure_topic_env(t)                         # v2.0: 키는 주제마다 따로 — 이 주제 .env 에만 저장 (다른 주제 키는 그대로)
+                    set_env_value(ROOT / t / ".env", name, v)
                     os.environ.pop(name, None)                   # 예전 환경 변수보다 .env 를 쓰게
                     changed.append(name)
-                log("ENV", changed=",".join(changed) or "-", note="값은 로그에 쓰지 않음")
+                log("ENV", topic=t, file=f"{t}/.env", changed=",".join(changed) or "-", note="값은 로그에 쓰지 않음")
                 return self._send(200, {"changed": changed, "env": env_view(t)})
             if path == "/api/keywords":
                 text = str(body.get("text") or "")
@@ -1953,8 +2003,9 @@ class Handler(BaseHTTPRequestHandler):
             if path == "/api/whisper/stop":
                 return self._send(200, {"ok": stop_whisper()})
             if path == "/api/cancel":
-                JOB["cancel"] = True
-                p = JOB.get("proc")
+                job = job_of(t)
+                job["cancel"] = True
+                p = job.get("proc")
                 if p:
                     p.terminate()
                 return self._send(200, {"ok": True})
@@ -1964,22 +2015,6 @@ class Handler(BaseHTTPRequestHandler):
             LOG.exception("POST %s", path)
             return self._send(500, {"error": f"{type(e).__name__}: {e}"[:300]})
         return self._send(404, {"error": "없는 주소"})
-
-
-CHILDREN = []          # v1.5: 이 창이 띄운 다른 주제 창 (이 창을 끄면 같이 끔)
-SPAWN_OPTS = {"flags": []}
-
-
-def spawn_windows(topics):
-    """다른 주제를 새 창(프로세스·포트)으로 (v1.5). 출력은 .yt_work/web_ui_<주제>.log. 같은 키의 할당량은 키 장부로 함께 셈."""
-    for t in topics:
-        logp = ROOT / ".yt_work" / f"web_ui_{_window_tag(t)}.log"
-        cmd = [sys.executable, str(Path(__file__).resolve()), t, "--port", str((STATE.get("port") or 8765) + 1), "--no-sync",
-               "--skip-install", "--log-file", str(logp)] + SPAWN_OPTS["flags"]
-        env = {**os.environ, "PYTHONIOENCODING": "utf-8", "PYTHONUTF8": "1"}
-        err = open(logp.with_suffix(".err.log"), "a", encoding="utf-8")
-        CHILDREN.append(subprocess.Popen(cmd, cwd=ROOT, env=env, stdout=subprocess.DEVNULL, stderr=err))
-        log("WINDOW", topic=t, note="이 주제는 새 창(다른 포트)으로 — 브라우저 탭이 하나 더 열림", log_file=str(logp.relative_to(ROOT)))
 
 
 def serve(port, host="127.0.0.1"):
@@ -1994,7 +2029,7 @@ def serve(port, host="127.0.0.1"):
 def main(argv=None):
     global orr, wa, sh
     ap = argparse.ArgumentParser(description="분석기 웹 화면 — 키·검색어 고치기, 탐색 → 체크 → 승인 → 자료 받기·주별 분석")
-    ap.add_argument("topics", nargs="*", help="주제 폴더 (없으면 설정 파일이 있는 폴더 — economic 먼저)")
+    ap.add_argument("topics", nargs="*", help="먼저 열 주제 폴더 (v2.0: 설정 파일이 있는 폴더는 모두 탭으로 — economic 먼저)")
     ap.add_argument("--port", type=int, default=8765)
     ap.add_argument("--no-browser", action="store_true")
     ap.add_argument("--no-sync", action="store_true", help="GitHub 에서 설정·검색어를 받지 않음")
@@ -2002,7 +2037,7 @@ def main(argv=None):
     ap.add_argument("--no-whisper", action="store_true", help="켤 때 음성인식을 뒤에서 시작하지 않음 (화면의 [음성인식 시작]으로)")
     ap.add_argument("--no-startup", action="store_true", help="켤 때 주별 분석 다시 만들기·올리기를 하지 않음")
     ap.add_argument("--log-level", default="INFO", choices=["DEBUG", "INFO", "WARNING"])
-    ap.add_argument("--log-file", default="", help=argparse.SUPPRESS)          # v1.5: 다른 주제 창(spawn_windows)이 따로 쓰는 기록 파일
+    ap.add_argument("--log-file", default="", help=argparse.SUPPRESS)          # 기록 파일 (기본 .yt_work/web_ui.log)
     ap.add_argument("--no-resume", action="store_true", help="할당량 초기화 뒤 남은 것을 저절로 이어서 하지 않음")
     a = ap.parse_args(argv)
     for s in (sys.stdout, sys.stderr):
@@ -2020,21 +2055,21 @@ def main(argv=None):
     fh = logging.FileHandler(Path(a.log_file) if a.log_file else ROOT / ".yt_work" / "web_ui.log", encoding="utf-8")
     fh.setFormatter(fmt)
     root_log.addHandler(fh)
-    topics = a.topics or find_topics()
+    local = find_topics()
+    remote = [] if a.no_sync else pc.remote_topics((a.topics or local or ["economic"])[0])   # v2.0: 저장소 topics.txt — PC 에 없는 주제도 받아 탭으로
+    topics = list(dict.fromkeys([x for x in (a.topics or []) if x] + local + remote))    # v2.0: -Folder 로 준 주제 먼저 + PC 주제 + 저장소 주제 = 탭
     if not topics:
         raise SystemExit("[START] ❌ 주제 폴더(<폴더>/analyzer_config.toml)가 없음 — run_analyzer.ps1 로 받거나 폴더 이름 확인")
-    if "economic" in topics:
+    if not a.topics and "economic" in topics:
         topics = ["economic"] + [x for x in topics if x != "economic"]
     STATE.update(topic=topics[0], topics=topics)
-    SPAWN_OPTS["flags"] = ["--log-level", a.log_level] + [f for f, on in (("--no-browser", a.no_browser), ("--no-whisper", a.no_whisper),
-                                                                           ("--no-startup", a.no_startup), ("--no-resume", a.no_resume)) if on]
-    # v1.5: 창마다 주제 하나 — 같은 주제가 이미 다른 창에 열려 있으면 그 창을 열고 끝 (같은 주제를 두 창이 동시에 쓰지 않게)
-    free = [t for t in topics if topic_window(t) is None]
-    if not free:
+    # 한 화면에 탭 전부 — 같은 주제를 다른 화면(예전 창 포함)이 쓰는 중이면 그 탭은 보기만. 전부 다른 화면이 쓰면 그 화면을 엶
+    if all(topic_window(t) is not None for t in topics if (ROOT / t / "analyzer_config.toml").is_file()) and any(
+            (ROOT / t / "analyzer_config.toml").is_file() for t in topics):
         other = topic_window(topics[0]) or {}
         url = other.get("url") or ""
-        log("START", topics=",".join(topics), note="이 주제는 이미 다른 분석기 창에 열려 있음 — 그 창을 씀", url=url or "-")
-        print(f"\n  ▶ '{topics[0]}' 분석기 화면은 이미 열려 있습니다: {url or '(다른 창)'}\n    다른 주제를 동시에 하려면: run_analyzer.ps1 -Folder <주제>\n", flush=True)
+        log("START", topics=",".join(topics), note="모든 주제를 이미 다른 분석기 화면이 쓰는 중 — 그 화면을 씀", url=url or "-")
+        print(f"\n  ▶ 분석기 화면이 이미 열려 있습니다: {url or '(다른 창)'}\n", flush=True)
         if url and not a.no_browser:
             webbrowser.open(url)
         return 0
@@ -2048,6 +2083,10 @@ def main(argv=None):
                 log("SYNC", topic=t, updated=",".join(got) or "-", note="GitHub 최신 설정·코드 (이 화면 자신은 다음 실행부터)")
             except Exception as e:
                 log("SYNC", logging.WARNING, topic=t, note="GitHub 에서 설정·코드를 받지 못함 — PC 파일로", error=f"{type(e).__name__}"[:80])
+    topics = [t for t in topics if (ROOT / t / "analyzer_config.toml").is_file()]       # 받지 못한 주제는 탭에서 뺌
+    if not topics:
+        raise SystemExit("[START] ❌ 주제 설정(<폴더>/analyzer_config.toml)을 하나도 받지 못함 — 인터넷 연결 확인 뒤 다시")
+    STATE.update(topic=topics[0], topics=topics)
     import outlier_research as _orr
     import weekly_analysis as _wa
     orr, wa = _orr, _wa
@@ -2059,37 +2098,41 @@ def main(argv=None):
             error=f"{type(e).__name__}: {e}"[:160])
     srv, port = serve(a.port)
     STATE["port"] = port
-    mine = None
-    for t in free:                            # v1.5: 이 창의 주제 (잠금) — 켜는 사이 다른 창이 먼저 잡았으면 다음 주제
+    try:                                      # v2.0: 캐시·설정을 주제마다 — 예전 공동 캐시는 옮김
+        pc.retire_shared_cache()
+    except Exception as e:
+        log("RESET", logging.WARNING, note="예전 공동 캐시 옮기기 실패 — 그대로 계속 (아무도 안 읽음)", error=f"{type(e).__name__}: {e}"[:160])
+    mine = []
+    for t in topics:                          # v2.0: 이 화면이 탭 전부를 잠금 — 켜는 사이 다른 화면이 잡은 주제는 보기만
         try:
             claim_topic(t)
-            mine = t
-            break
+            mine.append(t)
         except UserError as e:
             log("START", logging.WARNING, topic=t, note=str(e))
-    if mine is None:
+            continue
+        for fn, what in ((pc.ensure_topic_env, "주제 전용 키 파일"), (pc.fresh_start, "새 주제의 옛 자료 옮기기")):
+            try:
+                fn(t)
+            except Exception as e:
+                log("START", logging.WARNING, topic=t, note=f"{what} 실패 — 그대로 계속", error=f"{type(e).__name__}: {e}"[:160])
+    if not mine:
         srv.server_close()
-        print("\n  ▶ 고른 주제가 모두 다른 창에 열려 있습니다 — 그 창을 쓰세요\n", flush=True)
+        print("\n  ▶ 고른 주제가 모두 다른 화면에 열려 있습니다 — 그 화면을 쓰세요\n", flush=True)
         return 0
-    STATE["topic"] = mine
-    try:                                      # v1.6.2: 새로 시작하는 주제(설정 FRESH_START)면 예전 PC 자료를 한 번 옮김
-        pc.fresh_start(mine)
-    except Exception as e:
-        log("RESET", logging.WARNING, topic=mine, note="옛 자료 옮기기 실패 — 그대로 계속", error=f"{type(e).__name__}: {e}"[:160])
+    STATE["topic"] = mine[0]
     url = f"http://127.0.0.1:{port}/"
-    log("START", url=url, topics=",".join(topics), tool=f"web_ui.py {VERSION}",
-        note="이 창을 닫으면 화면도 꺼집니다 (Ctrl+C 로 끝냄)")
-    print(f"\n  ▶ 분석기 화면: {url}\n    (브라우저가 안 열리면 위 주소를 복사해 여세요. 끝내려면 이 창에서 Ctrl+C)\n", flush=True)
+    log("START", url=url, tabs=",".join(topics), mine=",".join(mine), tool=f"web_ui.py {VERSION}",
+        note="이 창을 닫으면 화면도 꺼집니다 (Ctrl+C 로 끝냄) — 주제는 화면 위쪽 탭으로")
+    print(f"\n  ▶ 분석기 화면: {url}  (주제 탭: {', '.join(topics)})\n    (브라우저가 안 열리면 위 주소를 복사해 여세요. 끝내려면 이 창에서 Ctrl+C)\n", flush=True)
     if not a.no_browser:
         threading.Timer(0.8, lambda: webbrowser.open(url)).start()
-    if not a.no_startup:                      # v1.2: 승인한 영상 결과를 새로 만들어 올리고, 남은 음성인식은 뒤에서
-        start_job("켤 때 — 분석 결과 올리기", job_startup, STATE["topic"], not a.no_whisper)
+    if not a.no_startup:                      # v1.2: 승인한 영상 결과를 새로 만들어 올리고, 남은 음성인식은 뒤에서 (v2.0: 탭마다)
+        for t in mine:
+            start_job("켤 때 — 분석 결과 올리기", job_startup, t, not a.no_whisper)
     if not a.no_resume:                       # v1.5: 할당량 초기화(태평양 자정 +10분) 뒤 남은 것을 저절로 이어서
         threading.Thread(target=_resume_loop, daemon=True, name="resume").start()
-        log("RESUME", topic=STATE["topic"], next_kst=pc.next_quota_reset(datetime.now(timezone.utc), RESUME_MARGIN_MIN)[0].astimezone(KST)
-            .strftime("%m-%d %H:%M"), note="할당량이 끝나 남은 것은 초기화 뒤 저절로 이어서 (이 창을 켜 둔 동안)")
-    if a.topics and len(a.topics) > 1:        # v1.5: 주제를 여러 개 주면 나머지 주제는 창을 하나씩 (동시에 탐색)
-        spawn_windows([t for t in free if t != mine])
+        log("RESUME", topics=",".join(mine), next_kst=pc.next_quota_reset(datetime.now(timezone.utc), RESUME_MARGIN_MIN)[0].astimezone(KST)
+            .strftime("%m-%d %H:%M"), note="할당량이 끝나 남은 것은 초기화 뒤 저절로 이어서 (이 화면을 켜 둔 동안, 탭마다)")
     try:
         srv.serve_forever()
     except KeyboardInterrupt:
@@ -2097,10 +2140,7 @@ def main(argv=None):
     finally:
         srv.server_close()
         release_topic()
-        for c in CHILDREN:                    # 이 창이 띄운 다른 주제 창도 끔
-            if c.poll() is None:
-                c.terminate()
-        for holder in (WHISPER, JOB):          # 음성인식·올리기도 같이 끝냄 (하던 영상은 다음에 처음부터)
+        for holder in [WHISPER] + list(JOBS.values()):    # 음성인식·올리기도 같이 끝냄 (하던 영상은 다음에 처음부터)
             p = holder.get("proc")
             if p and p.poll() is None:
                 p.terminate()
@@ -2141,18 +2181,22 @@ details{border:1px solid var(--line);border-radius:8px;padding:8px 12px;margin-t
 @media (max-width:600px){.k{grid-template-columns:1fr}}
 .seg{display:inline-flex;border:1px solid var(--line);border-radius:9px;overflow:hidden;margin-left:8px;vertical-align:middle}.seg button{border:0;border-radius:0;padding:4px 14px;font-size:13px}
 .seg button.on{background:var(--acc);color:#fff;font-weight:600}.seg button:disabled{opacity:.4}
+nav.tabs{display:flex;gap:4px;flex-wrap:wrap}nav.tabs button{border-radius:8px 8px 0 0;border-bottom:3px solid transparent;padding:6px 14px;font-weight:600;background:var(--bg)}
+nav.tabs button.on{border-bottom-color:var(--acc);color:var(--acc);background:var(--card)}nav.tabs .dot{display:inline-block;width:8px;height:8px;border-radius:9px;margin-left:6px;background:transparent;vertical-align:middle}
+nav.tabs .dot.running{background:var(--ok)}nav.tabs .dot.error{background:var(--bad)}nav.tabs .dot.other{background:var(--warn)}
+.banner{background:var(--chip);border:1px solid var(--line);border-radius:10px;padding:8px 12px}
 </style></head><body>
-<header><h1 id="title">분석기</h1><select id="topic" title="주제 폴더 — 창 하나에 주제 하나 (다른 주제는 새 창으로 동시에)"></select>
+<header><h1 id="title">분석기</h1><nav class="tabs" id="tabs" title="주제 탭 — 탭마다 검색어·키·캐시·작업·분석 결과가 따로 (할당량만 같은 키에서 함께)"></nav>
 <span class="pill" id="quota">할당량 …</span><span class="pill" id="caption">자막 서버 …</span><span class="pill" id="wPill">음성인식 …</span><span class="pill" id="ver"></span></header>
 <main>
-<section class="card"><h2>0. 주제 · 할당량 <small>창 하나에 주제 하나 — 다른 주제는 새 창으로 동시에 탐색 · 할당량은 같은 키를 쓰는 모든 창·주제가 함께</small></h2>
+<div class="banner warn" id="otherBanner" style="display:none"></div>
+<section class="card"><h2>0. 주제 · 할당량 <small>위쪽 탭으로 주제를 고름 — 탭마다 검색어·키(.env)·캐시·작업·결과가 따로, 다른 탭 작업도 동시에 돎 · 할당량만 같은 키를 쓰는 모든 탭이 함께</small></h2>
  <div class="row"><b id="qBig">할당량 …</b><span class="mut" id="qReset"></span></div>
  <div class="bar" style="margin-top:6px"><i id="qBar"></i></div>
  <div class="mut" id="qBy" style="margin-top:6px"></div>
  <div class="row" style="margin-top:6px"><span class="grow mut" id="resumeInfo"></span><button id="resumeNow" title="초기화를 기다리지 않고 남은 탐색·댓글·채널 기준선을 지금 이어서 (남은 할당량만큼)">지금 이어서</button></div>
  <div class="mut" id="winInfo" style="margin-top:4px"></div>
- <details><summary>다른 주제를 새 창으로 · 새 주제 만들기</summary>
-  <div class="row" style="margin-top:8px"><select id="winTopic"></select><button id="winOpen">새 창으로 열기</button><span class="msg" id="winMsg"></span></div>
+ <details><summary>새 주제 만들기 (새 탭)</summary>
   <h3 class="sub">새 주제 만들기 <small class="mut">— economic 설정을 틀로 <code>&lt;폴더&gt;/analyzer_config.toml · keywords.txt · keywords.toml</code></small></h3>
   <div class="k"><label for="ntFolder">폴더 이름 (영어 소문자)</label><input type="text" id="ntFolder" placeholder="예: health"></div>
   <div class="k"><label for="ntName">주제 이름</label><input type="text" id="ntName" placeholder="예: 건강"></div>
@@ -2162,7 +2206,7 @@ details{border:1px solid var(--line);border-radius:8px;padding:8px 12px;margin-t
  </details>
 </section>
 <div class="two">
- <section class="card"><h2>1. 키 설정 <small>.env — 끝 4자리만 보입니다</small></h2>
+ <section class="card"><h2>1. 키 설정 <small id="envFile">이 주제 전용 .env — 끝 4자리만 보입니다</small></h2>
   <div class="k"><label for="ytkey">YouTube API 키</label><div><input type="password" id="ytkey" class="grow" style="width:100%" placeholder="바꿀 때만 붙여넣기" autocomplete="off"><div class="mut" id="ytkey_now"></div></div></div>
   <div class="k"><label for="ghtok">GitHub 토큰</label><div><input type="password" id="ghtok" style="width:100%" placeholder="바꿀 때만 붙여넣기" autocomplete="off"><div class="mut" id="ghtok_now"></div></div></div>
   <div class="row"><button class="pri" id="saveEnv">키 저장</button><span class="msg" id="envMsg"></span></div>
@@ -2212,15 +2256,22 @@ details{border:1px solid var(--line);border-radius:8px;padding:8px 12px;margin-t
  <div id="report" class="mut">승인한 영상이 생기면 여기에 나옵니다</div></section>
 </main>
 <script>
-const T=document.querySelector('meta[name=t]').content;let ROWS=[],CHECK=new Set(),REC=new Set(),busy=false,lastJob=null,waitDone=false,lastWDone=null,TOPICS={names:{},windows:[]},PLAN=null;
-let MODE='long',SHORTS_OK=true;try{MODE=localStorage.getItem('ytMode')==='shorts'?'shorts':'long'}catch(e){}
+const T=document.querySelector('meta[name=t]').content;let ROWS=[],CHECK=new Set(),REC=new Set(),busy=false,lastJob=null,waitDone=false,lastWDone=null,TOPICS={names:{},windows:[],list:[]},PLAN=null,TABS={};
+// v2.0: 주제 탭 — 요청마다 X-Topic. 탭마다 롱폼/쇼츠·최근 N주를 따로 기억 (사용자 지시 "설정도 다 따로써야해")
+let TOPIC='';try{TOPIC=decodeURIComponent(location.hash.slice(1))||localStorage.getItem('ytTopic')||''}catch(e){}
+function lsGet(k,d){try{const v=localStorage.getItem(k+':'+TOPIC);return v==null?d:v}catch(e){return d}}
+function lsSet(k,v){try{localStorage.setItem(k+':'+TOPIC,v)}catch(e){}}
+let MODE='long',SHORTS_OK=true;
 const $=id=>document.getElementById(id);const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const num=x=>x==null?'–':(typeof x==='number'?x.toLocaleString('ko-KR',{maximumFractionDigits:1}):x);
-async function api(p,b){const r=await fetch(p,{method:b?'POST':'GET',headers:{'X-Token':T,'Content-Type':'application/json'},body:b?JSON.stringify(b):undefined});
+async function api(p,b){const h={'X-Token':T,'Content-Type':'application/json'};if(TOPIC)h['X-Topic']=TOPIC;
+ const r=await fetch(p,{method:b?'POST':'GET',headers:h,body:b?JSON.stringify(b):undefined});
  const j=await r.json().catch(()=>({error:'응답 오류'}));if(!r.ok)throw new Error(j.error||j.message||r.status);return j}
 function say(id,t,cls){const e=$(id);e.textContent=t;e.className='msg '+(cls||'')}
-async function loadState(){const s=await api('/api/state');$('title').textContent=s.name+' 분석기';$('ver').textContent='web_ui '+s.version;
- renderTopics(s);PLAN=s.resume&&s.resume.plan;renderQuota(s.quota);renderResume(s.resume);
+async function loadState(){const s=await api('/api/state');if(TOPIC!==s.topic){TOPIC=s.topic;applyTabPrefs()}
+ $('title').textContent='분석기';$('ver').textContent='web_ui '+s.version;document.title=s.name+' — 분석기';
+ renderTopics(s);$('envFile').textContent=`이 주제 전용 ${s.env_file||'.env'} — 다른 탭 키는 안 바뀜 · 끝 4자리만 보입니다`;
+ const ob=$('otherBanner');if(s.locked_elsewhere){ob.style.display='';ob.innerHTML=`⚠️ 이 주제(${esc(s.topic)})는 다른 분석기 화면이 쓰는 중이라 이 탭은 보기만 됩니다 — ${typeof s.locked_elsewhere==='string'?`<a href="${esc(s.locked_elsewhere)}" target=_blank rel=noopener>${esc(s.locked_elsewhere)}</a>`:'그 창'} 을 닫고 이 창을 다시 켜세요 (예전 판은 주제마다 창이 따로 떴음)`}else ob.style.display='none';PLAN=s.resume&&s.resume.plan;renderQuota(s.quota);renderResume(s.resume);
  $('caption').textContent=s.caption_block?`자막 서버 차단 — ${s.caption_block}까지 쉬는 중 (음성인식으로)`:'자막 서버 정상';$('caption').className='pill '+(s.caption_block?'warn':'');
  const e=s.env;$('ytkey_now').innerHTML=e.YOUTUBE_API_KEY.set?`<span class=ok>설정됨</span> ${esc(e.YOUTUBE_API_KEY.tail)} · ${esc(e.YOUTUBE_API_KEY.source)}`:'<span class=bad>없음</span> — 넣어야 탐색할 수 있습니다';
  $('ghtok_now').innerHTML=e.GITHUB_TOKEN.set?`<span class=ok>설정됨</span> ${esc(e.GITHUB_TOKEN.tail)} · ${esc(e.GITHUB_TOKEN.source)}`:'없음 — 결과는 PC 에만 저장';
@@ -2232,7 +2283,9 @@ function renderMode(){document.querySelectorAll('#modeSeg button').forEach(b=>{b
  $('approve').textContent=sh?'쇼츠 승인 — 자료 받고 분석해서 바로 올리기':'승인 — 자료 받고 분석해서 바로 올리기';
  $('approveNote').textContent=sh?'순서: 쇼츠 자료(설명·자막·세로 표지·댓글 전부) 받기 → 채널 평소 쇼츠(채널 쇼츠 목록, 채널 하나 약 2단위) → 쇼츠 분석(shorts/analysis.md) → GitHub 에 바로 올림 → 음성인식은 뒤에서 (쇼츠 먼저 — 하나에 1~2분)'
   :'순서: 자료(설명·자막·썸네일·댓글) 받기 → 채널 평소 영상(같은 채널 기준선, 채널 하나 약 2단위) → 분석 (자막을 못 받은 영상은 영상 설명으로 대신) → GitHub 에 바로 올림 → 음성인식은 뒤에서 (성공 사례부터 앞 5분 → 전체)'}
-function setMode(m){if(m===MODE||(m==='shorts'&&!SHORTS_OK))return;MODE=m;try{localStorage.setItem('ytMode',m)}catch(e){}renderMode();ROWS=[];CHECK=new Set();renderRows();estimate();loadRows().then(()=>{loadAnalysis();loadShortsAnalysis()})}
+function applyTabPrefs(){MODE=lsGet('ytMode','long')==='shorts'?'shorts':'long';$('weeks').value=lsGet('ytWeeks','8');$('useKw').checked=lsGet('ytUseKw','1')==='1';
+ try{localStorage.setItem('ytTopic',TOPIC)}catch(e){}if(TOPIC&&location.hash.slice(1)!==TOPIC)history.replaceState(null,'','#'+TOPIC)}
+function setMode(m){if(m===MODE||(m==='shorts'&&!SHORTS_OK))return;MODE=m;lsSet('ytMode',m);renderMode();ROWS=[];CHECK=new Set();renderRows();estimate();loadRows().then(()=>{loadAnalysis();loadShortsAnalysis()})}
 function hm(m){return m>=60?`${Math.floor(m/60)}시간 ${m%60}분`:`${m}분`}
 function renderQuota(q){if(!q)return;
  if(q.key===null){$('quota').textContent='할당량 — 키 없음';$('quota').className='pill warn';$('qBig').textContent='YouTube API 키를 넣으면 남은 할당량이 보입니다';$('qBy').textContent='';return}
@@ -2249,12 +2302,15 @@ function renderResume(r){if(!r)return;const p=PLAN||{};
  const parts=[p.explore_searches?`검색 ${p.explore_searches}개`:'',p.explore_videos?`영상 정보 ${p.explore_videos}개`:'',p.comments?`댓글 못 받은 영상 ${p.comments}개`:'',p.baseline?`채널 기준선 ${p.baseline}곳`:''].filter(Boolean);
  const nx=r.next?`다음 자동 이어서: 한국 시간 ${r.next.slice(5,16).replace('T',' ')}`:'자동 이어서 꺼짐 (--no-resume)';
  $('resumeInfo').textContent=(parts.length?`할당량 때문에 남은 것: ${parts.join(' · ')} → ${nx}`:`남은 것 없음 · ${nx}`)+(r.status==='waiting_job'?' · 지금 작업이 끝나길 기다리는 중':'')+(r.last?` · 지난번 ${r.last.slice(5,16).replace('T',' ')}`:'')}
-function renderTopics(s){TOPICS={names:s.topic_names||{},windows:s.windows||[]};
- const other=Object.fromEntries(TOPICS.windows.filter(w=>!w.me).map(w=>[w.topic,w.url]));
- $('topic').innerHTML=s.topics.map(t=>`<option value="${esc(t)}" ${t===s.topic?'selected':''}>${esc(t)}/ · ${esc(TOPICS.names[t]||t)}${other[t]?' (다른 창에 열림)':''}</option>`).join('');
- const rest=s.topics.filter(t=>t!==s.topic);
- $('winTopic').innerHTML=rest.length?rest.map(t=>`<option value="${esc(t)}">${esc(t)}/ · ${esc(TOPICS.names[t]||t)}${other[t]?' (이미 열림 — 그 창으로)':''}</option>`).join(''):'<option value="">다른 주제 없음 — 아래에서 만들기</option>';
- $('winInfo').innerHTML='열린 창: '+TOPICS.windows.map(w=>w.me?`<b>${esc(w.topic)}</b> (이 창)`:`<a href="${esc(w.url)}" target=_blank rel=noopener>${esc(w.topic)}</a>`).join(' · ')}
+function renderTopics(s){TOPICS={names:s.topic_names||{},windows:s.windows||[],list:s.topics||[]};if(s.tabs)TABS=s.tabs;renderTabs();
+ const other=TOPICS.windows.filter(w=>!w.me);
+ $('winInfo').innerHTML=other.length?'다른 화면이 쓰는 주제: '+other.map(w=>`${esc(w.topic)}${w.url?` (<a href="${esc(w.url)}" target=_blank rel=noopener>${esc(w.url)}</a>)`:''}`).join(' · ')+' — 그 창을 닫으면 이 화면의 탭에서 씁니다':''}
+function renderTabs(){const other=new Set(TOPICS.windows.filter(w=>!w.me).map(w=>w.topic));
+ $('tabs').innerHTML=TOPICS.list.map(t=>{const st=other.has(t)?'other':(TABS[t]||'');return `<button data-t="${esc(t)}" class="${t===TOPIC?'on':''}" title="${esc(t)}/ 폴더${other.has(t)?' — 다른 화면이 쓰는 중 (보기만)':st==='running'?' — 작업 도는 중':''}">${esc(TOPICS.names[t]||t)}<span class="dot ${st}"></span></button>`}).join('');
+ $('tabs').querySelectorAll('button').forEach(b=>b.onclick=()=>switchTab(b.dataset.t))}
+async function switchTab(t){if(!t||t===TOPIC)return;TOPIC=t;applyTabPrefs();ROWS=[];CHECK=new Set();REC=new Set();lastJob=null;waitDone=false;lastWDone=null;busy=false;
+ MISSING=[];SMISSING=[];renderRows();renderTabs();$('jobLog').textContent='';$('jobRes').innerHTML='';
+ try{await loadState();await loadRows();loadAnalysis();loadShortsAnalysis();loadReport();showJob(await api('/api/job'))}catch(e){alert(e.message)}}
 function renderTargets(tg){const c=tg.channels.map(x=>`<span class=chip>📺 ${esc(x.title||x.id)} <span class=mut>영상 ${num(x.videos)}개</span><button data-k=channel data-id="${esc(x.id)}" title="빼기">✕</button></span>`);
  const v=tg.videos.map(x=>`<span class=chip>▶ ${esc((x.title||x.id).slice(0,40))}<button data-k=video data-id="${esc(x.id)}" title="빼기">✕</button></span>`);
  $('tgList').innerHTML=(c.concat(v).join(''))||'<span class=mut>추가한 영상·채널 없음</span>';
@@ -2281,7 +2337,7 @@ function renderRows(){if(!ROWS.length){$('rowsOn').innerHTML=`<tr><td colspan=10
  document.querySelectorAll('#rowsOn input[type=checkbox],#rowsOff input[type=checkbox]').forEach(c=>c.onchange=()=>{c.checked?CHECK.add(c.dataset.id):CHECK.delete(c.dataset.id);renderRows();saveChk()});updChk()}
 function updChk(){$('chkInfo').textContent=`체크 ${CHECK.size.toLocaleString()}개 / 목록 ${ROWS.length.toLocaleString()}개`;$('approve').disabled=busy||!CHECK.size}
 let chkT;function saveChk(){clearTimeout(chkT);const m=MODE,ids=[...CHECK];chkT=setTimeout(()=>api('/api/checked',{ids,mode:m}).catch(()=>{}),700)}
-function showJob(j){if(j.quota)renderQuota(j.quota);if(j.resume)renderResume(j.resume);busy=j.status==='running';$('jobName').textContent=j.name?`${j.name} — ${({running:'도는 중',done:'끝',error:'오류',cancelled:'멈춤',idle:''})[j.status]||j.status}`:'';
+function showJob(j){if(j.topic&&j.topic!==TOPIC)return;if(j.tabs){TABS=j.tabs;renderTabs()}if(j.quota)renderQuota(j.quota);if(j.resume)renderResume(j.resume);busy=j.status==='running';$('jobName').textContent=j.name?`${j.name} — ${({running:'도는 중',done:'끝',error:'오류',cancelled:'멈춤',idle:''})[j.status]||j.status}`:'';
  $('jobStep').innerHTML=j.status==='error'?`<span class=bad>${esc(j.error)}</span>`:esc(j.step||'쉬는 중');
  $('jobBar').style.width=j.total?Math.round(100*j.done/j.total)+'%':(busy?'15%':'0');$('cancel').disabled=!busy;
  ['explore','reanalyze','comments','resumeNow','cacheReset'].forEach(id=>$(id).disabled=busy);updChk();
@@ -2291,7 +2347,11 @@ function showJob(j){if(j.quota)renderQuota(j.quota);if(j.resume)renderResume(j.r
  const L=$('jobLog'),atEnd=L.scrollTop+L.clientHeight>=L.scrollHeight-20;L.textContent=(j.log||[]).join('\n');if(atEnd)L.scrollTop=L.scrollHeight;
  if(j.whisper)showWhisper(j.whisper);
  if((lastJob==='running'||waitDone)&&j.status!=='running'){waitDone=false;loadState();loadRows().then(()=>{loadAnalysis();loadShortsAnalysis()});loadReport()}lastJob=j.status}
-function showWhisper(w){const run=w.status==='running'||w.status==='stopping';const left=w.pending==null?'':` · 남은 ${num(w.pending)}개`;
+function showWhisper(w){const run=w.status==='running'||w.status==='stopping';const left=w.pending==null?'':` · 이 탭 남은 ${num(w.pending)}개`;
+ const elsewhere=run&&w.topic&&w.topic!==TOPIC,queued=(w.queued||[]).includes(TOPIC);
+ if(elsewhere){$('wPill').textContent=`음성인식 — ${TOPICS.names[w.topic]||w.topic} 탭에서 도는 중`;$('wPill').className='pill';
+  $('wStep').innerHTML=`<span class=mut>음성인식은 PC 에서 한 번에 하나 — 지금 ${esc(TOPICS.names[w.topic]||w.topic)} 탭(${w.done}/${w.total||'…'})${queued?' · 끝나면 이 탭 차례':' · [음성인식 시작]을 누르면 그다음 차례로 줄을 섬'}${left}</span>`;
+  $('wBar').style.width='0';$('wStart').disabled=queued;$('wStop').disabled=true;lastWDone=null;return}
  $('wPill').textContent=run?`음성인식${w.pass?' '+w.pass:''} ${w.done}/${w.total||'…'}${w.failed?` (실패 ${w.failed})`:''}`:`음성인식 쉬는 중${left}`;$('wPill').className='pill '+(run?'ok':'');
  $('wStep').innerHTML=run?`${w.status==='stopping'?'멈추는 중… ':''}${esc(w.current||'준비 중 (소리 받기·모델 불러오기)')} <span class=mut>${w.pass?esc(w.pass)+' — ':''}끝 ${w.done} · 실패 ${w.failed} / 이번 대기열 ${w.total||'…'}${left}${w.rerun?' · 끝나면 새로 승인한 영상도':''}</span>`
   :`${w.status==='stopped'?'멈춤':'쉬는 중'}${left}${w.finished?` <span class=mut>(마지막 ${esc(w.finished.slice(5,16).replace('T',' '))} — 끝 ${w.done} · 실패 ${w.failed})</span>`:''}${w.note?` <span class=mut>${esc(w.note)}</span>`:''}`;
@@ -2316,7 +2376,7 @@ async function loadAnalysis(){let a;try{a=await api('/api/analysis')}catch(e){re
   <div>빨리 크는 작은 채널: ${num(a.fast_channels)}곳 <span class=mut>(analysis.md 7번)</span></div>
   ${a.missing_success_total?`<div class=warn style="margin-top:4px">자료를 받지 않은 성공 후보 ${a.missing_success_total}개 — 승인하면 분석에 들어갑니다 <button id="chkMissing" ${inList?'':'disabled'}>성공 후보 체크 (지금 목록에 ${inList}개)</button></div>`:''}
   <details><summary>한계 ${(a.limits||[]).length}개</summary><ul>${(a.limits||[]).map(x=>`<li>${esc(x)}</li>`).join('')}</ul></details>
-  <div class=mut>전문(주제·제목·썸네일·구성·니즈·사례별): GitHub 의 ${esc((TOPICS.windows.find(w=>w.me)||{}).topic||'<주제>')}/result/outliers/analysis.md</div>`;
+  <div class=mut>전문(주제·제목·썸네일·구성·니즈·사례별): GitHub 의 ${esc(TOPIC||'<주제>')}/result/outliers/analysis.md</div>`;
  const sb=$('supply');if(sb)sb.onclick=()=>{const n=(a.gap_candidates||[]).length;if(!confirm(`수요는 있는데 영상이 적어 보이는 말 ${n}개를 직접 검색합니다 (최근 90일).\n말 하나 = 검색 1번 100단위 → 약 ${n*100+20}단위`))return;startJob('/api/supply',{n})};
  const b=$('chkMissing');if(b){b.disabled=MODE!=='long'||!inList;b.onclick=()=>{MISSING.forEach(id=>{if(ROWS.some(r=>r.id===id))CHECK.add(id)});renderRows();saveChk();$('listCard').scrollIntoView({behavior:'smooth'})}}}
 let SMISSING=[];
@@ -2349,15 +2409,10 @@ async function loadReport(){const r=await api('/api/report');if(!r.windows){$('r
   ${w.comment_needs.length?`<p><b>댓글 ${num(w.comments)}개 니즈</b> ${w.comment_needs.map(n=>esc(n.name)+' '+pct(n.share)).join(' · ')}</p><ul>${w.top_comments.map(c=>`<li>👍${num(c.likes)} “${esc(c.text)}”</li>`).join('')}</ul>`:''}
   <p><b>상위 영상</b> (하루 조회수 순)</p><ol>${w.top_videos.map(v=>`<li><a href="${v.url}" target=_blank rel=noopener>${esc(v.title)}</a> <span class=mut>${esc(v.channel)} · ${num(v.views)}회 · 하루 ${num(v.views_per_day)} · ${v.published}</span></li>`).join('')}</ol></details>`).join('');
  $('report').innerHTML=h}
-$('topic').onchange=async()=>{const nt=$('topic').value;const w=TOPICS.windows.find(x=>x.topic===nt&&!x.me);
- if(w){window.open(w.url,'_blank');await loadState();return}
- try{await api('/api/topic',{topic:nt});ROWS=[];CHECK=new Set();renderRows();await loadState();await loadRows();await loadReport();await loadAnalysis();await loadShortsAnalysis()}catch(e){alert(e.message);await loadState()}};
 $('cacheReset').onclick=async()=>{if(!confirm('이 주제의 탐색 캐시(검색 결과·영상 정보)와 탐색 목록(체크 포함)을 치웁니다.\n지우지 않고 .yt_work/old/ 로 옮기며, 승인한 자료·분석 결과는 그대로입니다.\n다음 탐색은 처음부터 새로 검색합니다 (검색 1번 = 100단위).'))return;
  try{const r=await api('/api/cache/reset',{});alert(r.message);ROWS=[];CHECK=new Set();renderRows();await loadRows();estimate()}catch(e){alert(e.message)}};
-$('winOpen').onclick=async()=>{const nt=$('winTopic').value;if(!nt)return;try{const r=await api('/api/window/new',{topic:nt});
- if(!r.ok&&r.url)window.open(r.url,'_blank');say('winMsg',r.message,r.ok?'ok':'');setTimeout(loadState,5000)}catch(e){say('winMsg',e.message,'bad')}};
 $('ntMake').onclick=async()=>{try{const r=await api('/api/topic/new',{folder:$('ntFolder').value.trim(),name:$('ntName').value.trim(),keywords:$('ntKw').value,push:$('ntPush').checked});
- say('ntMsg',r.message+' — 위 주제 목록에서 고르거나 [새 창으로 열기]','ok');$('ntFolder').value='';$('ntName').value='';$('ntKw').value='';await loadState()}catch(e){say('ntMsg',e.message,'bad')}};
+ say('ntMsg',r.message+' — 위쪽에 새 탭이 생겼습니다','ok');$('ntFolder').value='';$('ntName').value='';$('ntKw').value='';await loadState();switchTab(r.folder)}catch(e){say('ntMsg',e.message,'bad')}};
 $('resumeNow').onclick=()=>startJob('/api/resume',{});
 $('saveEnv').onclick=async()=>{try{const r=await api('/api/env',{YOUTUBE_API_KEY:$('ytkey').value,GITHUB_TOKEN:$('ghtok').value});$('ytkey').value='';$('ghtok').value='';
  say('envMsg',r.changed.length?`저장함: ${r.changed.join(', ')}`:'바뀐 것 없음 (넣은 칸만 저장)','ok');loadState()}catch(e){say('envMsg',e.message,'bad')}};
@@ -2368,7 +2423,7 @@ $('tgAdd').onclick=async()=>{const v=$('tgIn').value.trim();if(!v)return;say('tg
   bad.map(x=>`<span class=bad>✕ ${esc(x.input.slice(0,60))} — ${esc(x.error)}</span>`)).join('<br>');$('tgMsg').className='msg';
  $('tgIn').value=bad.map(x=>x.input).join('\n');renderTargets(r.targets);estimate()}catch(e){say('tgMsg',e.message,'bad')}};
 $('tgIn').onkeydown=e=>{if(e.key==='Enter'&&(e.ctrlKey||e.metaKey))$('tgAdd').click()};
-$('weeks').oninput=estimate;$('useKw').onchange=estimate;
+$('weeks').oninput=()=>{lsSet('ytWeeks',$('weeks').value);estimate()};$('useKw').onchange=()=>{lsSet('ytUseKw',$('useKw').checked?'1':'0');estimate()};
 async function startJob(p,b){try{waitDone=true;await api(p,b);busy=true;showJob(await api('/api/job'))}catch(e){waitDone=false;alert(e.message)}}
 $('explore').onclick=()=>startJob('/api/explore',{weeks:+$('weeks').value,keywords:$('useKw').checked,mode:MODE});
 $('approve').onclick=async()=>{const ids=ROWS.filter(r=>CHECK.has(r.id)).map(r=>r.id);if(!ids.length)return;
@@ -2383,7 +2438,7 @@ $('wStop').onclick=async()=>{if(!confirm('음성인식을 멈출까요? (끝난 
 ['flt','fShort','fRel'].forEach(id=>$(id).addEventListener('input',renderRows));
 $('chkAll').onclick=()=>{visible().forEach(r=>CHECK.add(r.id));renderRows();saveChk()};$('chkNone').onclick=()=>{CHECK.clear();renderRows();saveChk()};
 $('chkRec').onclick=()=>{CHECK=new Set(REC);renderRows();saveChk()};
-loadState().then(()=>{loadRows().then(()=>{loadAnalysis();loadShortsAnalysis()});loadReport()}).catch(e=>document.body.insertAdjacentHTML('afterbegin',`<p class=bad style="padding:16px">${esc(e.message)}</p>`));poll();
+applyTabPrefs();loadState().then(()=>{loadRows().then(()=>{loadAnalysis();loadShortsAnalysis()});loadReport()}).catch(e=>document.body.insertAdjacentHTML('afterbegin',`<p class=bad style="padding:16px">${esc(e.message)}</p>`));poll();
 </script></body></html>
 """
 

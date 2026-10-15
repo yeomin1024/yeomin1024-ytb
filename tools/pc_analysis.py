@@ -1,13 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.13 — 2026-10-15 — 주제 캐시 치우기 (사용자 지시: "왜 예전 재테크 캐시가 남아 있어 이거 어떻게해"):
+# VERSION: v1.14 — 2026-10-15 — 주제마다 캐시·설정 따로 (사용자 지시: "하나의 사이트에서 그냥 탭 만들어서 다른 주제 볼 수 있게 하자 서로 캐시는
+#          공유하지 않도록 하고" · "설정도 다 따로써야해"): ① retire_shared_cache — 분석기 v2.12.0 부터 API 캐시가 주제마다(.yt_work/cache_<주제>)라
+#          예전 공동 캐시 .yt_work/cache 를 .yt_work/old/ 로 한 번 옮김 ② ensure_topic_env — <주제>/.env 가 없으면 맨 위 .env 를 복사해 주제마다
+#          키 파일을 따로 씀 (그 뒤 웹 화면의 키 저장은 그 주제 .env 에만) ③ reset_topic_cache 가 이 주제의 분석기 캐시(.yt_work/cache_<주제>)도 치움
+# (v1.13 — 2026-10-15 — 주제 캐시 치우기 (사용자 지시: "왜 예전 재테크 캐시가 남아 있어 이거 어떻게해"):
 #          ① reset_topic_cache(주제) — 다시 받을 수 있는 이 주제 캐시(탐색 검색·영상 정보·쇼츠 캐시 <주제>/result/outliers/.cache, 탐색 목록
 #             <주제>/result/web/)를 지우지 않고 .yt_work/old/<주제>_<시각>/ 로 옮김. 승인한 자료·분석 결과·GitHub 은 그대로.
 #             --reset-cache <주제> (run_analyzer.ps1 -ResetCache) · 웹 화면 [캐시 비우기]
 #          ② fresh_start(주제) — 설정 analyzer_config.toml 의 FRESH_START(날짜)가 PC 표시(.yt_work/fresh_start_<주제>.txt)와 다르면
 #             이 주제의 PC 자료 전부(<주제>/result/·분석기 결과 output/<폴더>/·진행·음성인식 기록)를 한 번 옮김 — 예전에 같은 폴더 이름으로
 #             돌린 자료(2026-10-10~12 옛 stock — run_analyzer.ps1 v1 의 기본 주제였음)가 새 주식 결과에 섞이지 않게. 회차마다·웹 화면 켤 때 검사.
-#          VERSION 상수도 맞춤 (머리는 v1.12 인데 상수는 v1.11 이던 것)
+#          VERSION 상수도 맞춤 (머리는 v1.12 인데 상수는 v1.11 이던 것))
 # (v1.12 — 2026-10-15 — 쇼츠 분석 도구(tools/shorts_analysis.py)도 GitHub 최신으로 받는 코드 목록에 (SYNC_CODE — 사용자 지시:
 #          "깃허브 저장소에 유튜브 분석기 있지? 거기에 쇼츠 분석 기능도 추가해 … 전력을 다해서 해봐". 웹 화면 v1.6 이 켤 때 이 목록으로 받은 뒤 불러옴))
 # (v1.11 — 2026-10-15 — 할당량을 키 하나로 함께 셈 (사용자 지시: "웹 ui에 사용량 얼마나 남았는지 표시하고 그리고 분석기 여러개 열어서
@@ -114,7 +118,7 @@ from datetime import date, datetime, time as dtime, timedelta, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v1.13"
+VERSION = "v1.14"
 LOG = logging.getLogger("pc_analysis")
 KST = timezone(timedelta(hours=9))
 LOCK_STALE_MIN = 30          # 잠금 파일이 이 시간 넘게 갱신되지 않으면 이전 실행이 죽은 것으로 봄
@@ -853,20 +857,20 @@ def _archive(paths, folder, why, dry=False):
 def reset_topic_cache(folder, full=False, dry=False, why="손으로"):
     """이 주제의 PC 캐시를 치움 (지우지 않고 .yt_work/old/ 로 옮김). → {"moved": [상대 경로], "to": 경로|None, "full": bool}
     full=False (어느 주제나 안전 — --reset-cache · 웹 화면 [캐시 비우기]): 다시 받을 수 있는 것만 — 탐색 검색·영상 정보·채널·자동완성·
-      쇼츠 캐시(<주제>/result/outliers/.cache)와 탐색 목록·체크(<주제>/result/web/). 승인한 자료(W_·S_)·analysis.md·GitHub 은 그대로.
+      쇼츠 캐시(<주제>/result/outliers/.cache)와 탐색 목록·체크(<주제>/result/web/) · 분석기 API 캐시(.yt_work/cache_<주제>, v1.14). 승인한 자료(W_·S_)·analysis.md·GitHub 은 그대로.
       다음 탐색은 처음부터 새로 검색한다 (할당량을 씀 — 검색 1번 100단위).
     full=True (fresh_start 로만 — 새로 시작하는 주제): <주제>/result/ 전부 + 분석기 결과(output/<폴더>/) + 이 주제 진행·음성인식 기록.
-    분석기의 API 응답 캐시(.yt_work/cache)는 모든 주제가 함께 쓰는 '같은 요청 = 같은 답' 캐시라 여기서 건드리지 않는다
-    (주제 결과가 섞이지 않음 — 주제마다 관련어로 거름)."""
+    v1.14: 분석기 API 캐시도 주제마다라(.yt_work/cache_<주제>) 함께 치움. 예전 공동 캐시(.yt_work/cache)는 retire_shared_cache 가 옮김."""
     _, an_out, od = read_paths(folder)
+    tag = re.sub(r"[^0-9A-Za-z가-힣]+", "_", str(folder)).strip("_") or "topic"     # outlier_research._folder_tag 와 같음
+    an_cache = ROOT / ".yt_work" / f"cache_{tag}"                                  # v1.14: 분석기 API 캐시 (주제마다 — 분석기 v2.12.0)
     if full:
-        tag = re.sub(r"[^0-9A-Za-z가-힣]+", "_", str(folder)).strip("_") or "topic"     # outlier_research._folder_tag 와 같음
         an_dir = an_out.parent                                   # output/<PROJECT_FOLDER>/ (분석기가 매 실행 새로 만드는 결과)
         if an_dir.resolve() in (ROOT.resolve(), (ROOT / folder).resolve()):   # OUTPUT_DIR = "." 같은 설정이면 결과 폴더만
             an_dir = an_out
-        paths = [ROOT / folder / "result", an_dir, ROOT / ".yt_work" / f"pc_progress_{folder}.json", ROOT / ".yt_work" / f"whisper_{tag}.json"]
+        paths = [ROOT / folder / "result", an_dir, an_cache, ROOT / ".yt_work" / f"pc_progress_{folder}.json", ROOT / ".yt_work" / f"whisper_{tag}.json"]
     else:
-        paths = [od / ".cache", ROOT / folder / "result" / "web"]
+        paths = [od / ".cache", ROOT / folder / "result" / "web", an_cache]
     moved, to = _archive(paths, folder, why, dry)
     return {"moved": moved, "to": to.relative_to(ROOT).as_posix() if to else None, "full": full}
 
@@ -889,6 +893,52 @@ def fresh_start(folder, dry=False):
         mark.parent.mkdir(parents=True, exist_ok=True)
         mark.write_text(want + "\n", "utf-8")
     return r
+
+TOPICS_FILE = "topics.txt"      # v1.14: 저장소의 주제 폴더 목록 (한 줄에 하나) — 웹 화면 탭·실행기가 받을 주제
+
+
+def remote_topics(folder="economic", fetch=None):
+    """v1.14: 저장소 topics.txt 의 주제 폴더 → [폴더] (못 받으면 []). 웹 화면이 켤 때 PC 에 없는 주제 설정도 받아 탭으로 보이게."""
+    repo, branch = repo_of(folder)
+    token = find_secret("GITHUB_TOKEN", folder)[0]
+    try:
+        raw = (fetch or (lambda rel: fetch_repo_file(rel, repo, branch, token)))(TOPICS_FILE)
+    except Exception as e:
+        log("SYNC", logging.WARNING, note="topics.txt 를 받지 못함 — PC 에 있는 주제만 탭으로", error=f"{type(e).__name__}"[:80])
+        return []
+    if not raw:
+        return []
+    text = raw.decode("utf-8-sig", errors="replace") if isinstance(raw, bytes) else str(raw)
+    return [x.strip() for x in text.splitlines() if re.fullmatch(r"[a-z][a-z0-9_-]{1,30}", x.strip())]
+
+def retire_shared_cache(dry=False):
+    """v1.14: 예전 공동 API 캐시 .yt_work/cache (분석기 v2.11 까지 — 모든 주제가 함께 씀)를 .yt_work/old/shared_cache_<시각>/ 로 한 번 옮김.
+    분석기 v2.12.0 부터는 주제마다 .yt_work/cache_<주제> 를 쓰므로 아무도 읽지 않음 (사용자 지시 "서로 캐시는 공유하지 않도록"). → 옮긴 곳 또는 None"""
+    old = ROOT / ".yt_work" / "cache"
+    if not old.is_dir():
+        return None
+    dst = ROOT / ".yt_work" / "old" / f"shared_cache_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
+    if not dry:
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        shutil.move(str(old), str(dst))
+    log("RESET", why="예전 공동 캐시 (분석기 v2.12.0 부터 주제마다 따로)", moved=".yt_work/cache", to=dst.relative_to(ROOT).as_posix(), dry_run=dry,
+        note="지우지 않고 옮김 — 필요 없으면 .yt_work/old 폴더를 지워도 됨")
+    return dst
+
+
+def ensure_topic_env(folder, dry=False):
+    """v1.14 (사용자 지시 "설정도 다 따로써야해"): <주제>/.env 가 없고 맨 위 .env 가 있으면 복사해 주제마다 키 파일을 따로 둔다
+    (그 뒤 웹 화면의 키 저장은 그 주제 .env 에만 — 다른 주제 키는 안 바뀜). 값은 출력하지 않음. 같은 키를 여러 주제가 쓰는 것은 괜찮다
+    (할당량은 키 장부로 함께 셈) — 할당량을 늘리려고 Google Cloud 프로젝트를 주제마다 만드는 것은 정책 위반('sharding'). → 만들었으면 True"""
+    dst, src = ROOT / folder / ".env", ROOT / ".env"
+    if dst.exists() or not src.is_file() or not (ROOT / folder / "analyzer_config.toml").is_file():
+        return False
+    if not dry:
+        head = (f"# 이 주제({folder}) 전용 키 — {datetime.now().strftime('%Y-%m-%d')} 맨 위 .env 를 복사해 만듦 (tools/pc_analysis.py {VERSION}).\n"
+                "# 웹 화면에서 이 주제 탭의 키를 고치면 이 파일만 바뀝니다. 절대 GitHub 에 올리거나 공유하지 마세요.\n")
+        _write_atomic(dst, (head + src.read_text("utf-8-sig")).encode("utf-8"))
+    log("SETUP", folder=folder, note="주제 전용 키 파일을 만듦 (맨 위 .env 복사 — 값은 출력하지 않음)", file=f"{folder}/.env", dry_run=dry)
+    return True
 
 def analyzer_done_recently(folder, days=7):
     """앞 회차(이 실행 또는 --once 로 부른 예전 실행)에서 분석기가 이월 검색어 없이 끝났으면 그 시각 (days 일 안), 아니면 None.
@@ -1108,6 +1158,8 @@ def run(opts, runner=run_child, now_fn=lambda: datetime.now(timezone.utc), sleep
                 except Exception as e:
                     log("SYNC", logging.WARNING, note="GitHub 에서 설정을 받지 못함 — PC 에 있는 파일로 계속", error=f"{type(e).__name__}: {e}"[:200])
             try:                                                # v1.13: 새로 시작하는 주제(FRESH_START)면 예전 PC 자료를 한 번 옮김
+                retire_shared_cache(dry=opts.dry_run)            # v1.14: 예전 공동 캐시는 안 씀
+                ensure_topic_env(folder, dry=opts.dry_run)       # v1.14: 주제마다 키 파일 따로
                 fresh_start(folder, dry=opts.dry_run)
             except Exception as e:
                 log("RESET", logging.WARNING, folder=folder, note="옛 자료 옮기기 실패 — 그대로 계속", error=f"{type(e).__name__}: {e}"[:200])

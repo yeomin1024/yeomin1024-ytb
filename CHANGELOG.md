@@ -1,5 +1,37 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-15 (14) — 쇼츠 '돈 이야기 아님' 빼기 · 웹 화면 한 화면·주제 탭 · 캐시·설정 주제마다 따로
+
+### 왜 (사용자 지시)
+- "고쳐서 다시 분석해보자" (쇼츠 분석 검토 결과 — 성공 쇼츠 103개 중 40여 개가 연예·운세·명언·정치·다른 뜻)
+- "그리고 헷갈리니까 하나의 사이트에서 그냥 탭 만들어서 다른 주제 볼 수 있게 하자 서로 캐시는 공유하지 않도록 하고 계속 진행해"
+- "설정도 다 따로써야해 알겠지? 계속 진행해"
+
+### 바꾼 것
+| 파일 (버전) | 함수·항목 | 내용 |
+|---|---|---|
+| `tools/shorts_analysis.py` (v1.0 → v1.1) | `load_exclude`·`off_kind`·`flags`·`channel_baseline`·`comment_needs`·10번 표 | 돈 이야기가 아닌 쇼츠를 성공·비교·시장·같은 채널 기준선에서 뺌 (까닭 '돈 이야기 아님 — 갈래') · 채널 유형 '모름'은 비율에서 뺌 · 정보 요청이 아닌 부탁 댓글은 질문·요청에서 뺌 |
+| `economic/analysis_rules.toml` (v1.4 → v1.5) · `stock/analysis_rules.toml` (v1.0 → v1.1) | `[shorts_exclude]`·`[shorts_exclude_videos]`·`[shorts_needs]` | 주제마다 따로 (코드 기본값 없음): 운세·사주 / 연예·예능·드라마 / 명언·인생조언(돈 낱말이 있으면 남김) / 정치(해시태그 뺀 제목) / 다른 뜻 — 정규식, 찾는 곳은 제목·설명 앞 300자·채널 이름(영상 태그는 안 봄). 재테크에만 눈으로 본 4개 |
+| `tools/web_ui.py` (v1.6.2 → **v2.0**) | 전체 | **한 화면에 주제 탭** — 요청마다 `X-Topic`, 작업 `JOBS[주제]`(다른 주제 동시에, 스레드마다 자기 진행 칸), 잠금 `LOCKS`(한 화면이 주제 전부), 할당량 초기화 뒤 이어서도 탭마다, 음성인식은 PC 에서 하나(다른 탭은 줄 `queued`), 키는 `<주제>/.env` 에만 저장, 켤 때 저장소 `topics.txt` 주제도 받아 탭으로, 예전 창 띄우기(`spawn_windows`·`/api/topic`·`/api/window/new`) 없앰. 화면: 위쪽 탭(초록 점 = 작업 중, 주황 = 다른 화면이 씀), 롱폼/쇼츠·최근 N주를 탭마다 기억, 주소 `#stock` |
+| `youtube_topic_analyzer.py` (v2.11.1 → v2.12.0) | `topic_cache_dir` | API 응답 캐시를 주제마다 `.yt_work/cache_<주제>` (예전 공동 `.yt_work/cache` 는 안 씀) |
+| `tools/pc_analysis.py` (v1.13 → v1.14) | `retire_shared_cache`·`ensure_topic_env`·`remote_topics`·`reset_topic_cache` | 예전 공동 캐시를 `.yt_work/old/shared_cache_<시각>` 로 한 번 · 주제 키 파일이 없으면 맨 위 `.env` 복사 · `topics.txt` 읽기 · [캐시 비우기]가 분석기 캐시도 |
+| `run_analyzer.ps1` (v3.4 → v3.5) · `run_analyzer.sh` (v3.3 → v3.4) · `topics.txt` (새로) | 주제 목록 | `-Folder` 없이 켜면 `topics.txt` 주제 전부(economic·stock)를 받아 한 화면의 탭으로 (자동 실행은 그대로 `-Folder`) — BOM·CRLF 유지, PowerShell 파서 오류 0 |
+| 시험 | `test_web_tabs.py`(6, 새로) · `test_shorts_exclude.py`(5, 새로) · `test_quota_saving.py` v1.1 | 주제 탭·작업 동시·X-Topic·키 따로·캐시 옮기기·음성인식 줄·분석기 캐시 주제마다 / 실제 제목으로 빼기·오탐(자사주·단타로·사주신·#이재명) / 한 화면이 여러 주제 잠금 |
+| `guides/pc_analysis.md` (v3.0) · `guides/shorts_guide.md` (v1.1) · `guides/README.md` (v1.30) · `stock/README.md` (v1.2) · `CLAUDE.md` | 안내 | '주제 탭' 절 — 따로인 것·함께인 것(할당량·음성인식·자막 차단), 빼는 쇼츠 3-1 |
+
+### 확인
+- 쇼츠 빼기 (저장소의 쇼츠 154개, 클라우드에서 임시 폴더로 다시 분석): 성공 쇼츠 **103 → 66** (뺀 37: 연예·예능·드라마 20 · 운세·사주 7 · 명언·인생조언 6 · 정치 2 · 다른 뜻 2), 남은 66개 주제 = 주식·ETF 44 · 노후·연금 11 · 기타 5 · 재테크 일반 3 · 돈 모으기 3. 요청 댓글 63 → 42 (정보 요청 아닌 부탁 5개 뺌). 비교 집단·시장·기준선은 PC 캐시가 있어야 해서 PC 가 다시 분석해 올림
+- 오탐 확인: '자사주'(사주)·'단타로'(타로)·'사주신 아파트'·'#이재명' 붙은 증시 방송·'세계 8대 불가사의 #복리 #투자' 는 남음 (시험)
+- 웹 화면: 임시 폴더에서 켜서 Playwright(크로미움)로 — 탭 2개, 탭을 바꾸면 검색어 36↔40개·키 파일 `economic/.env`↔`stock/.env`·쇼츠 분석이 바뀜, 요청 머리글 `X-Topic` 이 탭대로, 롱폼/쇼츠가 탭마다 따로 기억, 화면 오류 0. 재테크만 있는 PC 에서 켜도 `topics.txt` 로 주식 설정을 받아 탭 2개
+- `run_analyzer.ps1` 을 PowerShell 7.4 로 실제 실행(RAW_BASE = 저장소 사본): `topics.txt` → economic·stock 설정 10개 받음 → 웹 화면 탭 2개
+- `python3 -m unittest` 49개 통과 (test_web_tabs·test_quota_saving·test_shorts·test_shorts_exclude·test_stock_topic·test_pc_upload) · `pc_analysis.py --self-test` ALL PASS · Python 3.11 컴파일 · 화면 JS `node --check`
+
+### 위험
+- 예전 판 창(주제마다 따로 뜬 창)이 켜져 있으면 새 화면에서 그 주제는 보기만 — 닫고 다시 켜야 함
+- 분석기 캐시가 주제마다라 같은 검색어(재테크·주식 겹침 11개)는 주제마다 따로 받음 (할당량 조금 더 — 사용자 지시 '공유하지 않도록')
+- 키 파일이 주제마다라 맨 위 `.env` 를 고쳐도 주제 키는 그대로 — 탭의 '1. 키 설정'에서 고침
+- 연구·교육용 분석 도구이며 투자 권유가 아님
+
 ## 2026-10-15 (13) — 주식 검색어는 주식 낱말만 (40개) · 주제 캐시 비우기 · 옛 stock PC 자료 자동으로 치움
 
 ### 왜 (사용자 지시)

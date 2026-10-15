@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v2.11.1 — 2026-10-15 — 설정 파일의 FRESH_START(PC 실행기 tools/pc_analysis.py v1.13 가 읽음 — 새로 시작하는 주제의 옛 PC 자료 옮기기)를
-#          '모르는 설정' 경고 없이 넘김 (CONFIG_OTHER_TOOLS). 분석 동작은 그대로 (사용자 지시: "왜 예전 재테크 캐시가 남아 있어 이거 어떻게해")
+# VERSION: v2.12.0 — 2026-10-15 — API 응답 캐시를 주제마다 따로 .yt_work/cache_<폴더> (topic_cache_dir — 사용자 지시: "하나의 사이트에서 그냥 탭
+#          만들어서 다른 주제 볼 수 있게 하자 서로 캐시는 공유하지 않도록 하고"). 예전 공동 캐시 .yt_work/cache 는 안 씀 — 첫 실행은 이 주제 요청을 새로 받음
+# (v2.11.1 — 2026-10-15 — 설정 파일의 FRESH_START(PC 실행기 tools/pc_analysis.py v1.13 가 읽음 — 새로 시작하는 주제의 옛 PC 자료 옮기기)를
+#          '모르는 설정' 경고 없이 넘김 (CONFIG_OTHER_TOOLS). 분석 동작은 그대로 (사용자 지시: "왜 예전 재테크 캐시가 남아 있어 이거 어떻게해"))
 # (v2.11.0 — 2026-10-15 — 음성인식 대기열에 쇼츠 (사용자 지시: "깃허브 저장소에 유튜브 분석기 있지? 거기에 쇼츠 분석 기능도 추가해 …
 #          전력을 다해서 해봐" — 웹 화면 v1.6 이 쇼츠를 <주제>/result/outliers/shorts/S_<영상ID>/ 에 받음):
 #          ① speech_queue_items 가 쇼츠(S_) 폴더도 — 쇼츠 먼저 (WHISPER_QUEUE_SHORTS_FIRST, 쇼츠는 3분 이하라 하나에 1~2분 · 성공 쇼츠
@@ -370,7 +372,7 @@ import numpy as np
 import pandas as pd
 import requests
 
-NOTEBOOK_VERSION = "v2.11.1"
+NOTEBOOK_VERSION = "v2.12.0"
 KST = dt.timezone(dt.timedelta(hours=9))
 UTC = dt.timezone.utc
 IS_WINDOWS = os.name == "nt"
@@ -888,6 +890,12 @@ def close_log_files():
             LOGGER.removeHandler(h)
 
 
+def topic_cache_dir(work, cfg):
+    """v2.12.0: API 응답 캐시는 주제마다 따로 (.yt_work/cache_<폴더>) — 사용자 지시 "서로 캐시는 공유하지 않도록". 예전 공동 캐시
+    .yt_work/cache 는 더 쓰지 않음 (PC 실행기 tools/pc_analysis.py v1.14 가 .yt_work/old/ 로 옮김)."""
+    return Path(work) / f"cache_{folder_tag(cfg['PROJECT_FOLDER'])}"
+
+
 def init_run(cfg, youtube_api_key, github_token):
     cfg = dict(cfg)
     if not youtube_api_key:     # 뒤 단계까지 가지 않고 즉시 멈춤
@@ -897,7 +905,7 @@ def init_run(cfg, youtube_api_key, github_token):
     cfg["TOPIC"] = str(cfg["TOPIC"]).strip()
     cfg["PROJECT_FOLDER"] = sanitize_folder(cfg["PROJECT_FOLDER"], "PROJECT_FOLDER")
     cfg["RESULT_FOLDER"] = sanitize_folder(cfg["RESULT_FOLDER"], "RESULT_FOLDER")
-    work = BASE_DIR / ".yt_work"                         # 캐시·임시파일·git 작업폴더 (재실행 시 캐시 재사용)
+    work = BASE_DIR / ".yt_work"                         # 캐시(주제마다 cache_<폴더>)·임시파일·git 작업폴더 (재실행 시 캐시 재사용)
     output_root = Path(cfg["OUTPUT_DIR"]).expanduser()
     if not output_root.is_absolute():
         output_root = BASE_DIR / output_root
@@ -917,7 +925,7 @@ def init_run(cfg, youtube_api_key, github_token):
     started = dt.datetime.now(UTC)
     run_id = started.astimezone(KST).strftime("%Y%m%d_%H%M%S")
     ctx = RunContext(cfg=cfg, run_id=run_id, started_at=started, work_dir=work, out_dir=out_dir,
-                     cache=JsonCache(work / "cache", cfg["CACHE_TTL_HOURS"]), output_root=output_root)
+                     cache=JsonCache(topic_cache_dir(work, cfg), cfg["CACHE_TTL_HOURS"]), output_root=output_root)
     log("INIT", "실행 시작", version=NOTEBOOK_VERSION, run_id=run_id, os=platform.platform(), out_dir=str(out_dir),
         work_dir=str(work), python=sys.version.split()[0], pandas=pd.__version__, numpy=np.__version__,
         ffmpeg=find_ffmpeg(), git=shutil.which("git"))
@@ -4948,7 +4956,7 @@ def push_only(cfg, keys, message=None):
     except Exception:
         pass
     ctx = RunContext(cfg=cfg, run_id=run_id, started_at=dt.datetime.now(UTC), work_dir=work, out_dir=out_dir,
-                     cache=JsonCache(work / "cache", cfg["CACHE_TTL_HOURS"]), output_root=output_root)
+                     cache=JsonCache(topic_cache_dir(work, cfg), cfg["CACHE_TTL_HOURS"]), output_root=output_root)
     if message:
         ctx.data["push_message"] = message
     log("GITHUB", "푸시 전용 실행 (--push-only)", out_dir=str(out_dir), run_id=run_id, outliers_only=outliers_only)
@@ -5095,7 +5103,7 @@ def _whisper_queue_run(cfg, keys, push=True):
     except (OSError, ValueError):
         state = {}
     ctx = RunContext(cfg=cfg, run_id=dt.datetime.now(KST).strftime("%Y%m%d_%H%M%S"), started_at=dt.datetime.now(UTC), work_dir=work,
-                     out_dir=out_dir, cache=JsonCache(work / "cache", cfg["CACHE_TTL_HOURS"]), output_root=output_root)
+                     out_dir=out_dir, cache=JsonCache(topic_cache_dir(work, cfg), cfg["CACHE_TTL_HOURS"]), output_root=output_root)
     first_sec = int(cfg.get("WHISPER_QUEUE_FIRST_SEC") or 0)
     every_sec = max(0.0, float(cfg.get("WHISPER_QUEUE_PUSH_EVERY_MIN") or 0)) * 60
     totals = {"done": 0, "failed": 0, "pushed_at": time.monotonic(), "unpushed": 0}

@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 # ================================================================================================
 #  YouTube 분석 PC 실행기 (macOS / Linux)
-#  VERSION: v3.3 — 2026-10-15 — --reset-cache: 이 주제의 탐색 캐시·탐색 목록을 치운 뒤 평소처럼 실행 (.yt_work/old/ 로 옮김 — 사용자 지시:
-#           "왜 예전 재테크 캐시가 남아 있어 이거 어떻게해", tools/pc_analysis.py v1.13)
+#  VERSION: v3.4 — 2026-10-15 — 웹 화면 v2.0 (한 화면·주제 탭): --folder 없이 켜면 저장소 topics.txt 의 주제 전부를 받아 탭으로 (자동 실행은 economic 그대로)
+#  (v3.3 — 2026-10-15 — --reset-cache: 이 주제의 탐색 캐시·탐색 목록을 치운 뒤 평소처럼 실행 (.yt_work/old/ 로 옮김 — 사용자 지시:
+#           "왜 예전 재테크 캐시가 남아 있어 이거 어떻게해", tools/pc_analysis.py v1.13))
 #  (v3.2 — 2026-10-15 — 코드 목록에 tools/shorts_analysis.py (사용자 지시: "… 쇼츠 분석 기능도 추가해 … 전력을 다해서 해봐"))
 #  (v3.1 — 2026-10-14 — 코드 목록에 tools/success_analysis.py, 설정 목록에 <주제>/analysis_rules.toml (사용자 지시: "… 올바른 분석 결과까지만 내도록 수정해"))
 #  (v3.0 — 2026-10-14 — 실행하면 웹 화면이 뜸 (사용자 지시: "이거 분석기 웹 ui 형식으로 만들어 실행하면 바로 웹 ui가 나와서"):
@@ -72,6 +73,7 @@ cd "$(dirname "$0")" || exit 1
 BASE="${RAW_BASE:-https://raw.githubusercontent.com/$REPO/$BRANCH}"
 CODE_FILES=(youtube_topic_analyzer.py tools/pc_analysis.py tools/outlier_research.py tools/outlier_stats.py tools/tag_keywords.py
             tools/web_ui.py tools/weekly_analysis.py tools/success_analysis.py tools/shorts_analysis.py)
+FOLDER_GIVEN=${#FOLDERS[@]}     # v3.4: 안 주면 웹 화면은 topics.txt 주제 전부 (탭) — 아래 ①-1
 [ ${#FOLDERS[@]} -eq 0 ] && FOLDERS=(economic)
 CONFIG_FILES=()
 for f in "${FOLDERS[@]}"; do CONFIG_FILES+=("$f/analyzer_config.toml" "$f/keywords.toml" "$f/keywords.txt" "$f/tag_rules.toml" "$f/analysis_rules.toml"); done
@@ -140,6 +142,19 @@ version_gt() {     # $1 > $2 ? (숫자 마디별로 비교, sort -V 없이)
   awk -v a="$1" -v b="$2" 'BEGIN { n = split(a, x, "."); m = split(b, y, "."); k = (n > m ? n : m)
     for (i = 1; i <= k; i++) { if ((x[i] + 0) > (y[i] + 0)) exit 0; if ((x[i] + 0) < (y[i] + 0)) exit 1 } exit 1 }'
 }
+
+# ①-1 주제 목록 (v3.4) — --folder 없이 웹 화면을 켜면 저장소 topics.txt 의 주제 전부를 받아 탭으로 (자동 실행은 --folder 그대로)
+if [ "$FOLDER_GIVEN" = 0 ] && [ "$AUTO" != 1 ] && [ "$ONCE" != 1 ] && [ "$ANALYZER_ONLY" != 1 ]; then
+  if fetch "topics.txt" "topics.txt"; then
+    mapfile -t _tl < <(grep -E '^[a-z][a-z0-9_-]{1,30}[[:space:]]*$' topics.txt | tr -d '[:space:]')
+    if [ ${#_tl[@]} -gt 0 ]; then
+      FOLDERS=("${_tl[@]}"); CONFIG_FILES=()
+      for f in "${FOLDERS[@]}"; do CONFIG_FILES+=("$f/analyzer_config.toml" "$f/keywords.toml" "$f/keywords.txt" "$f/tag_rules.toml" "$f/analysis_rules.toml"); done
+      FOLDER_CSV="$(IFS=,; echo "${FOLDERS[*]}")"
+    fi
+  fi
+  step "주제 탭: ${FOLDERS[*]} (저장소 topics.txt — 한 주제부터 열려면 --folder stock)"
+fi
 
 # ② 설정·검색어 파일 (없을 때만, --update-config 면 백업 후 최신으로, GitHub 쪽 VERSION 이 더 높으면 백업 후 새 판으로 — v2.3)
 for c in "${CONFIG_FILES[@]}"; do

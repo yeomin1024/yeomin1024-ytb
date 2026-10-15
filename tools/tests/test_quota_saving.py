@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-10-15 — 할당량 아끼기·키 장부·창 잠금·초기화 뒤 이어서 시험 (사용자 지시: "유튜브 분석 코드를 최대한 api 사용량
+# VERSION: v1.1 — 2026-10-15 — 웹 화면 v2.0 (주제 탭): 창 잠금 시험을 '한 화면이 여러 주제를 잠금'으로 (WINDOW·JOB → LOCKS·JOBS)
+# (v1.0 — 2026-10-15 — 할당량 아끼기·키 장부·창 잠금·초기화 뒤 이어서 시험 (사용자 지시: "유튜브 분석 코드를 최대한 api 사용량
 #          덜쓰는 방법(단어 줄이는 방법 말고) 찾아서 수정해보고 웹 ui에 사용량 얼마나 남았는지 표시하고 그리고 분석기 여러개 열어서 각자 다른
 #          주제로 탐색해도 되지? … 사용량 초기화되면 자동으로 다시 분석 마저 하는거지? 그렇게 되야해").
-#          진짜 YouTube·GitHub 에 요청하지 않는다: urlopen 을 가짜로 바꾸고, 저장소 대신 임시 폴더를 ROOT 로, GITHUB_TOKEN 류는 지움.
+#          진짜 YouTube·GitHub 에 요청하지 않는다: urlopen 을 가짜로 바꾸고, 저장소 대신 임시 폴더를 ROOT 로, GITHUB_TOKEN 류는 지움.)
 """python3 -m unittest tools.tests.test_quota_saving -v"""
 import io
 import json
@@ -318,14 +319,15 @@ class TestWindowsAndResume(Base):
             (d / "analyzer_config.toml").write_text(f'[topic]\nTOPIC = "{t}"\nPROJECT_FOLDER = "{t}"\n', "utf-8")
             (d / "keywords.txt").write_text("연금\n", "utf-8")
         web.STATE.update(topic="economic", topics=["economic", "health"], port=8765)
-        web.WINDOW.update(lock=None, topic=None)
-        web.JOB.update(status="idle", cancel=False)
+        web.release_topic()                                                  # v2.0: 화면 하나가 주제 탭 전부를 잠금
+        web.JOBS.clear()
 
     def tearDown(self):
         web.release_topic()
         super().tearDown()
 
-    def test_one_topic_per_window(self):
+    def test_tabs_lock_topics(self):
+        """v2.0: 한 화면이 여러 주제를 잠금 — 다른 화면(예전 창)이 쓰는 주제만 못 잡음."""
         web.claim_topic("economic")
         lock_p = self.root / ".yt_work" / "web_health.lock"
         holder = subprocess.Popen([sys.executable, "-c", (
@@ -338,7 +340,7 @@ class TestWindowsAndResume(Base):
             with self.assertRaises(web.UserError) as cm:
                 web.claim_topic("health")
             self.assertIn("8766", str(cm.exception))
-            self.assertEqual(WINDOW_TOPIC(), "economic")                  # 실패하면 원래 주제 그대로
+            self.assertEqual(sorted(web.LOCKS), ["economic"])               # 실패해도 잡은 주제는 그대로
             wins = {w["topic"]: w for w in web.open_windows()}
             self.assertTrue(wins["economic"]["me"])
             self.assertFalse(wins["health"]["me"])
@@ -348,7 +350,7 @@ class TestWindowsAndResume(Base):
             holder.stdout.close()
         self.assertIsNone(web.topic_window("health"))                      # 그 창이 꺼지면 OS 가 잠금을 풂
         web.claim_topic("health")
-        self.assertEqual(WINDOW_TOPIC(), "health")
+        self.assertEqual(sorted(web.LOCKS), ["economic", "health"])          # 두 주제를 한 화면이 함께
 
     def test_explore_resume_keeps_checks_and_finishes_pending(self):
         self.yt.search_ids[("연금", "medium")] = ["aaaaaaaaaa1", "aaaaaaaaaa2"]
@@ -422,9 +424,6 @@ class TestWindowsAndResume(Base):
         with self.assertRaises(web.UserError):
             web.create_topic("ok-name", 'a"b', "")                        # 설정 파일을 깨는 이름
 
-
-def WINDOW_TOPIC():
-    return web.WINDOW["topic"]
 
 
 if __name__ == "__main__":

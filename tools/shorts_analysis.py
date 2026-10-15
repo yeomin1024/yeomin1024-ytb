@@ -1,6 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-10-15 — 신규: 쇼츠 분석 (사용자 지시: "깃허브 저장소에 유튜브 분석기 있지? 거기에 쇼츠 분석 기능도 추가해 목적은
+# VERSION: v1.1 — 2026-10-15 — 돈 이야기가 아닌 쇼츠 빼기 · 채널 유형 '모름' 빼고 셈 · 정보 요청이 아닌 댓글 거름 (사용자 지시: "고쳐서 다시 분석해보자"
+#          — 2026-10-15 결과 검토: 성공 쇼츠 103개 중 40여 개가 연예·예능 클립·운세·명언·정치·'노후차' 같은 다른 뜻이라 주제·형식 통계가 흐려짐):
+#          ① [shorts_exclude] (주제마다 analysis_rules.toml — 코드 기본값 없음) 갈래별 정규식: where = text(제목·설명 앞 300자·채널 이름 — 영상 태그는
+#             안 봄: '명언'·'이재명' 태그가 붙은 주식 쇼츠까지 빠져서) 또는 title(제목만). keep_if_money = true 면 제목(해시태그 포함)에 돈 낱말
+#             (MONEY_RX)이 있으면 빼지 않음 — '투자 원칙 10가지 #명언' 은 남김. [shorts_exclude_videos] = 눈으로 보고 뺀 쇼츠(까닭과 함께).
+#             성공·비교 집단·시장(수요와 공급)·같은 채널 기준선에서 모두 뺌, 까닭은 '돈 이야기 아님 — <갈래>' 로 0번에 수
+#          ② 10번 채널 유형 — 채널 쇼츠 수를 모르는 채널(평소 쇼츠를 안 받은 채널 = 거의 성공 아닌 채널)은 비율에서 빼고 수만 적음
+#          ③ 11번 '더 알고 싶은 것' — [shorts_needs] NOT_INFO_RX(띠·년생·재물복·로또·영입·노래·팬 …)가 든 댓글은 질문·요청에서 뺌
+# (v1.0 — 2026-10-15 — 신규: 쇼츠 분석 (사용자 지시: "깃허브 저장소에 유튜브 분석기 있지? 거기에 쇼츠 분석 기능도 추가해 목적은
 #          사람들의 니즈를 충족해주는 쇼츠를 만들어서 최대한 조회수를 높이기 위한 쇼츠를 만들기 위해 분석하는거야 전력을 다해서 해봐").
 #          롱폼 분석(tools/success_analysis.py → analysis.md)과 같은 원칙 — AI 가 쇼츠 지시사항을 만들 재료, 숫자·원문만(해석·규칙 없음):
 #          ① 성공 쇼츠 = 웹 화면 [쇼츠]에서 승인해 자료를 받은 쇼츠 중 기준(analysis_rules.toml [shorts] — 올린 지 3~180일·구독자 5만 이하·
@@ -12,7 +20,7 @@
 #          ⑤ 대본으로: 첫 3초(첫 말까지 걸린 시간·3초 안 음절·첫 줄 유형) · 말 속도 · 말이 차지한 비율 · 끝 문장(구독·댓글·풀영상 안내·질문·
 #             끝맺음 없이 끝남) · 말 없는 쇼츠 · 설명란의 롱폼 연결
 #          ⑥ 시청자 니즈 (성공 쇼츠 댓글 — 롱폼과 같은 갈래 + '더 자세히·긴 영상 요청')
-#          ※ 쇼츠 조회수는 2025-03-31 부터 '재생·다시 재생 횟수'(시청 시간 하한 없음) — 시청 지속률·스와이프 비율은 API 로 볼 수 없다 (한계에 적음)
+#          ※ 쇼츠 조회수는 2025-03-31 부터 '재생·다시 재생 횟수'(시청 시간 하한 없음) — 시청 지속률·스와이프 비율은 API 로 볼 수 없다 (한계에 적음))
 r"""
 사용법 (저장소 최상위 또는 PC 실행 폴더 — 웹 화면이 쇼츠 승인·다시 분석 때, 분석기 음성인식 대기열이 쇼츠 하나 끝날 때마다 저절로 부름):
   python tools/shorts_analysis.py economic                 # 할당량 0 (같은 채널 평소 쇼츠 표지 그림만 받음 — --no-thumbs 로 끔)
@@ -49,7 +57,7 @@ from outlier_stats import TITLE_FEATURES                            # noqa: E402
 from weekly_analysis import _published, _write_atomic, clean_description   # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v1.0"
+VERSION = "v1.1"
 LOG = logging.getLogger("shorts")
 KST = timezone(timedelta(hours=9))
 SHORTS_DIR = "shorts"
@@ -140,7 +148,60 @@ def load_rules(root, topic):
             log("START", logging.WARNING, note=f"[shorts_format] '{k}' 정규식 오류 — 뺌", error=str(e)[:80])
             rules["shorts_format"].pop(k)
     rules["shorts_defaults"] = not any(d.get(s) for s in DEFAULT_RULES)
+    rules["shorts_exclude"] = load_exclude(d)
+    na = d.get("shorts_needs") or {}
+    rules["shorts_needs"] = {"NOT_INFO_RX": _compile(na.get("NOT_INFO_RX"), "[shorts_needs] NOT_INFO_RX")}
     return rules
+
+
+def _compile(rx, label):
+    if not rx:
+        return None
+    try:
+        return re.compile(str(rx), re.I)
+    except re.error as e:
+        log("START", logging.WARNING, note=f"{label} 정규식 오류 — 쓰지 않음", error=str(e)[:80])
+        return None
+
+
+def load_exclude(d):
+    """v1.1 [shorts_exclude] (+ [shorts_exclude_videos]) → {"money": rx, "kinds": [{name, rx, where, keep_if_money}], "videos": {id: 까닭}}.
+    주제마다 analysis_rules.toml 에만 있음 (코드 기본값 없음 — 사용자 지시 '설정도 다 따로')."""
+    ex = d.get("shorts_exclude") or {}
+    kinds = []
+    for k in ex.get("kind") or []:
+        if not isinstance(k, dict) or not k.get("name"):
+            continue
+        rx = _compile(k.get("rx"), f"[shorts_exclude] '{k.get('name')}'")
+        if rx:
+            kinds.append({"name": str(k["name"]), "rx": rx, "where": "title" if k.get("where") == "title" else "text",
+                          "keep_if_money": bool(k.get("keep_if_money"))})
+    videos = {str(k): str(v) for k, v in (d.get("shorts_exclude_videos") or {}).items()}
+    return {"money": _compile(ex.get("MONEY_RX"), "[shorts_exclude] MONEY_RX"), "kinds": kinds, "videos": videos}
+
+
+HASHTAG_RX = re.compile(r"#\S+")
+OFF_KIND = "돈 이야기 아님"
+
+
+def off_kind(x, rules):
+    """v1.1: 돈 이야기가 아닌 쇼츠 → '돈 이야기 아님 — <갈래>(<맞은 말>)' 또는 ''. 찾는 곳: text = 제목·설명 앞 300자·채널 이름 (영상 태그는 안 봄),
+    title = 제목만(해시태그 뺌). keep_if_money 갈래는 제목(해시태그 포함)에 돈 낱말이 있으면 빼지 않음. 눈으로 본 목록([shorts_exclude_videos])이 먼저."""
+    E = rules.get("shorts_exclude") or {}
+    why = (E.get("videos") or {}).get(x.get("id"))
+    if why:
+        return f"{OFF_KIND} — {why.split('—')[0].strip()}(눈으로 봄: {why})"
+    title = str(x.get("title") or "")
+    text = " | ".join([title, str(x.get("description") or "")[:300], str(x.get("channel") or "")])
+    plain = HASHTAG_RX.sub(" ", title)
+    for k in E.get("kinds") or []:
+        m = k["rx"].search(plain if k["where"] == "title" else text)        # title = 해시태그 뺀 제목 ('#이재명' 붙은 증시 방송 클립은 남김)
+        if not m:
+            continue
+        if k["keep_if_money"] and E.get("money") and E["money"].search(title):     # 해시태그 포함 ('… #복리 #투자' 는 돈 이야기)
+            continue
+        return f"{OFF_KIND} — {k['name']}({m.group(0).strip()})"
+    return ""
 
 
 def format_of(x, formats):
@@ -346,7 +407,7 @@ def flags(x, rules, rel):
         why = f"{INFLATED}(좋아요 {rules['shorts']['AD_SUSPECT_MAX_LIKE_RATE']:.1%} 미만 — 광고 또는 반복 재생)"
     elif why.startswith("광고 의심"):
         why = f"{INFLATED}(좋아요·댓글 거의 없음 — 광고 또는 반복 재생)"
-    return why
+    return why or off_kind(x, rules)
 
 
 def _median(xs):
@@ -523,7 +584,8 @@ def analyze(topic, name, cases, infos, uploads, searches, channels, ac, rules, r
                                ("success_cases", success))}
     # 10) 채널 유형·빨리 크는 쇼츠 채널
     ctype_rows = []
-    for nm in [n for _, n in CHANNEL_TYPES] + ["모름 (채널 쇼츠 수 없음)"]:
+    ctype_unknown = sum(1 for x in group if x["channel_type"].startswith("모름"))       # v1.1: 비율에서 뺌 (평소 쇼츠를 안 받은 채널 = 거의 성공 아닌 채널)
+    for nm in [n for _, n in CHANNEL_TYPES]:
         g = [x for x in group if x["channel_type"] == nm]
         sc_ = [c["no"] for c in success if (pool.get(c["id"]) or c).get("channel_type") == nm]
         if g or sc_:
@@ -548,7 +610,7 @@ def analyze(topic, name, cases, infos, uploads, searches, channels, ac, rules, r
                          "likes_per_1k": round(1000 * x["likes"] / max(x["views"], 1), 2), "inflated": bool(x["exclude"])}
                         for x in sorted((x for x in base_ok if 0 < x["seconds"] < TINY_SECONDS), key=lambda x: -x["views"])[:12]]
     # 11) 시청자 니즈
-    needs = comment_needs(success)
+    needs = comment_needs(success, rules)
     fetched = sum(c["comments_fetched"] for c in success)
     reported = sum(c["comments_total"] for c in success)
     limits = []
@@ -606,7 +668,7 @@ def analyze(topic, name, cases, infos, uploads, searches, channels, ac, rules, r
             "title_words_up": [r for r in word_rows if (r["diff"] or 0) > 0][:15],
             "title_words_down": [r for r in reversed(word_rows) if (r["diff"] or 0) < 0][:10], "title_length": len_rows,
             "hashtag_count": tag_rows, "hashtags_top": top_tags, "seconds": sec_rows, "weekdays": wd_rows, "hours": hour_rows,
-            "engagement": engagement, "tiny": tiny, "channel_types": ctype_rows, "growth": {k: v for k, v in growth.items() if k != "limits"},
+            "engagement": engagement, "tiny": tiny, "channel_types": ctype_rows, "channel_types_unknown": ctype_unknown, "growth": {k: v for k, v in growth.items() if k != "limits"},
             "baseline": {k: v for k, v in baseline.items() if k != "limits"}, "market": {k: v for k, v in market.items() if k != "limits"},
             "speech": {k: v for k, v in speech.items() if k != "limits"}, "needs": needs,
             "long_link_share": {"success": _share(success, lambda c: c["long_link"]), "others": _share(others, lambda c: c["long_link"]),
@@ -679,7 +741,8 @@ def channel_baseline(cases, success, infos, uploads, subs_map, rules, themes, re
             x["theme"] = sa.theme_of(x["title"], x["tags"], themes)
             x["format"] = format_of(x, formats)
             ex_ = rules["exclude"]
-            x["off"] = bool(orr.exclusion_reason(x) or any(w and w in x["title"] for w in ex_["OFF_TOPIC"]) or x["theme"] in ex_["OFF_TOPIC_THEMES"])
+            x["off"] = bool(orr.exclusion_reason(x) or any(w and w in x["title"] for w in ex_["OFF_TOPIC"]) or x["theme"] in ex_["OFF_TOPIC_THEMES"]
+                            or off_kind(x, rules))                  # v1.1: 돈 이야기가 아닌 쇼츠는 잘된/평소 비교에서 뺌
             rows.append(x)
         if rows:
             chan_rows[cid] = rows
@@ -851,8 +914,11 @@ def speech_compare(success, others):
     return {"success": a, "others": b, "limits": limits}
 
 
-def comment_needs(success):
-    """성공 쇼츠 댓글 — 롱폼과 같은 갈래(success_analysis.classify_comment) + '더 자세히·긴 영상 요청'. 채널 주인·도배 댓글 뺌."""
+def comment_needs(success, rules=None):
+    """성공 쇼츠 댓글 — 롱폼과 같은 갈래(success_analysis.classify_comment) + '더 자세히·긴 영상 요청'. 채널 주인·도배 댓글 뺌.
+    v1.1: [shorts_needs] NOT_INFO_RX(띠·년생·재물복·로또·영입·노래·팬 …)가 든 댓글은 '더 알고 싶은 것'(질문·요청)에서 뺌 — 정보 요청이 아님."""
+    not_info = ((rules or {}).get("shorts_needs") or {}).get("NOT_INFO_RX")
+    n_not_info = 0
     def spam_key(t):
         k = re.sub(r"[^가-힣A-Za-z]", "", t)
         return k[-50:] if len(k) >= 30 else None
@@ -877,6 +943,9 @@ def comment_needs(success):
                 continue
             n_viewer += 1
             found = sa.classify_comment(m["text"]) + ([CAT_MORE] if re.search(MORE_RX, m["text"]) else [])
+            if sa.CAT_ASK in found and not_info and not_info.search(m["text"]):
+                found.remove(sa.CAT_ASK)
+                n_not_info += 1
             for cat in found:
                 cat_count[cat] += 1
                 cat_likes[cat] += m["likes"]
@@ -887,9 +956,9 @@ def comment_needs(success):
                 if cat == sa.CAT_ASK and re.search(sa.EXPLICIT_ASK, m["text"]):
                     requests_q.append(q)
     req_ids = {id(q) for q in requests_q}
-    log("COMMENTS", success=len(success), viewer_comments=n_viewer, spam_excluded=n_spam, requests=len(requests_q),
+    log("COMMENTS", success=len(success), viewer_comments=n_viewer, spam_excluded=n_spam, requests=len(requests_q), not_info_asks=n_not_info,
         more=cat_count[CAT_MORE])
-    return {"viewer_comments": n_viewer, "spam_excluded": n_spam, "requests_total": len(requests_q),
+    return {"viewer_comments": n_viewer, "spam_excluded": n_spam, "requests_total": len(requests_q), "not_info_asks": n_not_info,
             "requests": sa.top_quotes(requests_q, 40),
             "categories": [{"name": k, "count": cat_count[k], "share": round(cat_count[k] / n_viewer, 3) if n_viewer else None,
                             "likes": cat_likes[k]} for k in cats],
@@ -1152,7 +1221,9 @@ def write_md(out, data, success):
     L += ["", "| 시각 | 비교 집단 (성공 비율) | 성공 쇼츠 # |", "|---|---|---|"]
     L += [f"| {r['label']} | {_rate_txt(r)}{' (표본 적음)' if r['small_sample'] else ''} | {', '.join(map(str, r['success_cases'][:12])) or '–'} |" for r in data["hours"]]
     # 10
-    L += ["", "## 10. 채널 유형 · 빨리 크는 쇼츠 채널", "", "채널 유형 = 채널 쇼츠 수(UUSH 목록) ÷ 채널 영상 수", "",
+    L += ["", "## 10. 채널 유형 · 빨리 크는 쇼츠 채널", "", "채널 유형 = 채널 쇼츠 수(UUSH 목록) ÷ 채널 영상 수. "
+          f"채널 쇼츠 수를 모르는 비교 집단 쇼츠 {data.get('channel_types_unknown', 0):,}개는 비율에서 뺐다 (평소 쇼츠는 승인한 쇼츠의 채널만 받으므로 "
+          "모르는 채널은 거의 다 성공이 아님 — 넣으면 '쇼츠만 하는 채널'이 잘 되는 것처럼 보임). 아래도 승인한 쇼츠의 채널 쪽으로 치우쳐 있다", "",
           "| 채널 유형 | 비교 집단 (성공 비율) | 채널 | 성공 쇼츠 # |", "|---|---|---|---|"]
     L += [f"| {r['type']} | {_rate_txt(r)}{' (표본 적음)' if r['small_sample'] else ''} | {r['channels']} | {', '.join(map(str, r['success_cases'][:12])) or '–'} |"
           for r in data["channel_types"]]
@@ -1166,7 +1237,7 @@ def write_md(out, data, success):
               for r in g["fast"]]
     # 11
     nd = data["needs"]
-    L += ["", f"## 11. 시청자 니즈 (성공 쇼츠 댓글 — 시청자 댓글 {nd['viewer_comments']:,}개, 도배 {nd['spam_excluded']}개 뺌, 채널 주인 댓글 뺌)", "",
+    L += ["", f"## 11. 시청자 니즈 (성공 쇼츠 댓글 — 시청자 댓글 {nd['viewer_comments']:,}개, 도배 {nd['spam_excluded']}개 뺌, 채널 주인 댓글 뺌, 정보 요청이 아닌 부탁(띠·로또·노래 등) {nd.get('not_info_asks', 0)}개는 질문·요청에서 뺌)", "",
           "| 갈래 | 댓글 | 몫 | 좋아요 합 |", "|---|---|---|---|"]
     L += [f"| {r['name']} | {r['count']:,} | {_pct(r['share'])} | {r['likes']:,} |" for r in nd["categories"]]
     L += ["", f"### 11-1. 요청 — '다뤄 주세요·알려 주세요' {nd['requests_total']}개 (다음 쇼츠·롱폼 주제 후보)", ""]

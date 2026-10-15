@@ -1,8 +1,11 @@
 ﻿<#
 ================================================================================================
  YouTube 분석 PC 실행기 (Windows PowerShell)
- VERSION: v3.4 — 2026-10-15 — -ResetCache: 이 주제의 탐색 캐시·탐색 목록을 치운 뒤 평소처럼 실행 (지우지 않고 .yt_work/old/ 로 옮김 —
-          승인한 자료·분석 결과는 그대로. 사용자 지시: "왜 예전 재테크 캐시가 남아 있어 이거 어떻게해"). tools/pc_analysis.py v1.13
+ VERSION: v3.5 — 2026-10-15 — 웹 화면 v2.0 (한 화면·주제 탭 — 사용자 지시: "하나의 사이트에서 그냥 탭 만들어서 다른 주제 볼 수 있게 하자"):
+          -Folder 없이 켜면 저장소의 topics.txt 주제 전부(지금 economic·stock)를 받아 한 화면의 탭으로. -Folder economic,stock 도 창 하나에 탭 둘
+          (예전처럼 주제마다 창이 뜨지 않음 — 예전 창은 닫고 다시). 자동 실행(-Auto·-Once·-RegisterTask)은 그대로 -Folder (기본 economic)
+ (v3.4 — 2026-10-15 — -ResetCache: 이 주제의 탐색 캐시·탐색 목록을 치운 뒤 평소처럼 실행 (지우지 않고 .yt_work/old/ 로 옮김 —
+          승인한 자료·분석 결과는 그대로. 사용자 지시: "왜 예전 재테크 캐시가 남아 있어 이거 어떻게해"). tools/pc_analysis.py v1.13)
  (v3.3 — 2026-10-15 — 코드 목록에 tools/shorts_analysis.py (쇼츠 분석 — 사용자 지시: "… 쇼츠 분석 기능도 추가해 … 전력을 다해서
           해봐"). 웹 화면 v1.6 의 4번 칸 [롱폼 | 쇼츠]. 실행 명령은 같음)
  (v3.2 — 2026-10-15 — 안내만 (사용자 지시: "분석기 여러개 열어서 각자 다른 주제로 탐색해도 되지? … economic 같은 주제 경로를
@@ -45,8 +48,8 @@
    3) 처음 실행하면 .env 파일이 생깁니다 → 메모장으로 열어 YOUTUBE_API_KEY(필수)·GITHUB_TOKEN(권장) 입력·저장 → 2)의 둘째 줄 다시 실행
 
  자주 쓰는 실행:
-   powershell -ExecutionPolicy Bypass -File run_analyzer.ps1                 # ★ 웹 화면 (키·검색어 고치기 → 탐색 → 체크 → 승인 → 주별 분석)
-   powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Folder economic,health   # 웹 화면 주제마다 창 하나씩 (동시에 탐색, 할당량은 함께 셈)
+   powershell -ExecutionPolicy Bypass -File run_analyzer.ps1                 # ★ 웹 화면 — 주제(재테크·주식 …)는 위쪽 탭 (topics.txt 전부)
+   powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Folder stock   # 웹 화면을 주식 탭부터 (PC 에 있는 다른 주제도 탭으로 보임)
    powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Auto           # 예전 자동 실행 — 끝날 때까지 (남으면 다음 날 이어서, 창을 열어 두기)
    powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Auto -Folder economic,health   # 자동 실행 여러 주제 동시에
    powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Once           # 자동 실행 한 회차만 (남은 부분은 다음에 실행할 때)
@@ -79,6 +82,7 @@ param(
     [string]$TaskTime = "17:15",
     [Parameter(ValueFromRemainingArguments = $true)][string[]]$ExtraArgs
 )
+$FolderGiven = $PSBoundParameters.ContainsKey("Folder")    # v3.5: 안 주면 웹 화면은 topics.txt 주제 전부 (탭)
 $ErrorActionPreference = "Continue"           # 외부 명령(python)의 경고 출력 때문에 멈추지 않게 — 오류는 직접 확인
 $ProgressPreference = "SilentlyContinue"      # Invoke-WebRequest 진행 표시 끄기 (PowerShell 5.1에서 다운로드가 매우 느려지는 문제)
 try { [Console]::OutputEncoding = [System.Text.Encoding]::UTF8 } catch {}
@@ -207,6 +211,17 @@ foreach ($f in $CodeFiles) {
     }
 }
 
+# ①-1 주제 목록 (v3.5) — -Folder 없이 웹 화면을 켜면 저장소 topics.txt 의 주제 전부를 받아 탭으로 (자동 실행은 -Folder 그대로)
+if (-not $FolderGiven -and -not ($Auto -or $Once -or $AnalyzerOnly)) {
+    if (Get-Remote "topics.txt" "topics.txt") {
+        $list = @(Get-Content -Path "topics.txt" -Encoding UTF8 | ForEach-Object { $_.Trim() } |
+                  Where-Object { $_ -and -not $_.StartsWith("#") -and $_ -match '^[a-z][a-z0-9_-]{1,30}$' })
+        if ($list) { $Folder = $list }
+    }
+    $ConfigFiles = @($Folder | ForEach-Object { "$_/analyzer_config.toml"; "$_/keywords.toml"; "$_/keywords.txt"; "$_/tag_rules.toml"; "$_/analysis_rules.toml" })
+    Write-Step "주제 탭: $($Folder -join ', ') (저장소 topics.txt — 한 주제부터 열려면 -Folder stock)"
+}
+
 # ② 설정·검색어 파일 (없을 때만, -UpdateConfig 면 백업 후 최신으로, GitHub 쪽 VERSION 이 더 높으면 백업 후 새 판으로 — v2.3)
 foreach ($c in $ConfigFiles) {
     if (-not $UpdateConfig -and (Test-Path $c)) {
@@ -305,7 +320,7 @@ if ($AnalyzerOnly) {    # 예전 방식: 분석기만, 주제마다 차례로
 } else {                         # 기본: 웹 화면 (v3.0) — 브라우저가 저절로 열림, 이 창을 닫으면 화면도 꺼짐
     $runArgs = @("tools/web_ui.py") + $Folder
     if ($ExtraArgs) { $runArgs += $ExtraArgs }
-    Write-Step "웹 화면 실행: python $($runArgs -join ' ') — 브라우저가 저절로 열림 (주소는 아래 ▶ 줄, 끝내려면 이 창에서 Ctrl+C)"
+    Write-Step "웹 화면 실행: python $($runArgs -join ' ') — 브라우저가 저절로 열림 (주제는 화면 위쪽 탭, 주소는 아래 ▶ 줄, 끝내려면 이 창에서 Ctrl+C)"
     & $pyExe @pyPre @runArgs
     $code = $LASTEXITCODE
 }

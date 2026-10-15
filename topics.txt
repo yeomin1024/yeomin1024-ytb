@@ -1,0 +1,4 @@
+# 분석 주제 폴더 — 한 줄에 하나 (run_analyzer.ps1 / run_analyzer.sh 가 -Folder 없이 켜면 이 주제 전부를 받아 웹 화면 탭으로)
+# 새 주제를 만들면 여기에 더한다 (Claude 가 <폴더>/analyzer_config.toml·keywords.toml·keywords.txt 와 함께)
+economic
+stock

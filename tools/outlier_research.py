@@ -1,8 +1,16 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v2.4.1 — 2026-10-15 — 영어 검색어 <주제>/keywords_foreign.txt (사용자 지시: "주식은 영어 주식 검색어도 추가해"): load_keywords 가 외국 영상을 켠 주제
+# VERSION: v2.5 — 2026-10-15 — 하루 검색 횟수 한도 429 를 알아봄 (사용자 보고 2026-10-15: "RuntimeError: HTTP 429 search: … Quota exceeded for quota metric 'Search Queries' and limit 'Search Queries per day' … 왜 이래 사용량 3000 남았는데"):
+#          Google 은 단위(10,000)와 따로 **'Search Queries per day'(하루 검색 횟수)** 를 셈 — 넘으면 HTTP 429 RESOURCE_EXHAUSTED (예전 판은
+#          403 만 할당량으로 봐서 RuntimeError 로 탐색이 통째로 멈춤. 분석기는 v2.2.0 부터 알았음 — 2026-10-09 검색 74번 중 40번째 뒤로 막힘).
+#          ① daily_limit_kind(): 403·429 + 'per day'·quotaExceeded·dailyLimitExceeded → 'Search Queries' 면 search_daily, 아니면 daily
+#          ② search_daily = **검색만** 그날 멈춤 (QuotaStop kind='search_daily') — 영상 정보·채널·댓글(1단위)은 계속, 못 한 검색은 pending 으로
+#             초기화 뒤 저절로 이어서. 키 장부(pc_analysis v1.17)에 적어 같은 키의 다른 창·주제도 그날은 검색을 요청하지 않음
+#          ③ 'per day' 가 아닌 429(분당 제한)는 2·4초 쉬고 다시 (예전: 바로 오류)
+#          ④ 받은 검색은 장부에 셈 (count_search — 몇 번째 검색에서 막혔는지 = 이 키의 검색 한도 추정)
+# (v2.4.1 — 2026-10-15 — 영어 검색어 <주제>/keywords_foreign.txt (사용자 지시: "주식은 영어 주식 검색어도 추가해"): load_keywords 가 외국 영상을 켠 주제
 #          (INCLUDE_FOREIGN)에서만 '외국 검색어' 묶음으로 더함 (끄면 검색하지 않음 — 빼게 될 결과에 할당량을 쓰지 않게). collect_api 는
-#          a.search_lang 이 있으면 그것 (tag_keywords v1.5 --foreign 의 영어 씨앗 검색)
+#          a.search_lang 이 있으면 그것 (tag_keywords v1.5 --foreign 의 영어 씨앗 검색))
 # (v2.4 — 2026-10-15 — 외국 영상 켜고 끄기 (사용자 지시: "주식은 외국 영상도 다 분석할 건데 확인해봐 on/off 기능(default off) 있는지
 #          확인하고 없으면 추가해"). 주제마다 <주제>/analyzer_config.toml [search] INCLUDE_FOREIGN (없거나 false = 예전처럼 뺌 — 기본 꺼짐):
 #          ① include_foreign(topic) — 설정 읽기 · is_foreign(info) — 외국 영상 판별(예전 exclusion_reason 의 규칙 그대로)
@@ -174,7 +182,7 @@ except ModuleNotFoundError:             # Python 3.10 → tomli (분석기가 �
     import tomli as tomllib
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v2.4.1"
+VERSION = "v2.5"
 LOG = logging.getLogger("outlier")
 HANGUL = re.compile(r"[가-힣]")
 SEARCH_TTL_HOURS = 168
@@ -282,8 +290,26 @@ API = "https://www.googleapis.com/youtube/v3/"
 COST = {"search": 100, "videos": 1, "channels": 1, "commentThreads": 1, "comments": 1, "playlistItems": 1}
 
 
+DAILY_LIMIT_RX = re.compile(r"per\s+day|daily|quotaExceeded|dailyLimitExceeded", re.I)
+SEARCH_DAILY_MSG = ("오늘 검색 횟수 한도(Google 'Search Queries per day' — 단위 10,000 과 따로)에 닿음 → 검색만 태평양 자정(한국 오후 4~5시) 뒤에 "
+                    "저절로 이어서 (영상 정보·댓글은 계속, 캐시된 검색은 그대로 씀)")
+
+
+def daily_limit_kind(code, body):
+    """v2.5: 하루 한도 답인가 → 'search_daily'(검색 횟수 한도 — 검색만) / 'daily'(단위 할당량) / None(분당 제한·다른 오류).
+    Google 은 2026 년부터 할당량 소진을 403 대신 429 RESOURCE_EXHAUSTED 로도 답함 — 상태 코드보다 메시지를 봄."""
+    if code not in (403, 429):
+        return None
+    b = str(body or "")
+    if "Search Queries" in b and DAILY_LIMIT_RX.search(b):
+        return "search_daily"
+    if DAILY_LIMIT_RX.search(b) or (code == 403 and "quota" in b.lower()):
+        return "daily"
+    return None
+
+
 class QuotaStop(Exception):
-    """kind: run_budget(이번 실행 한도 --quota) / daily(하루 할당량 소진)."""
+    """kind: run_budget(이번 실행 한도 --quota) / daily(하루 할당량 소진) / shared(같은 키 장부) / search_daily(v2.5 — 하루 검색 횟수 한도, 검색만)."""
 
     def __init__(self, msg, kind):
         super().__init__(msg)
@@ -301,10 +327,15 @@ class Api:
         self.channel_meta = {}        # 채널ID → 개설일·영상 수·총 조회수·이름 (v2.1 — 채널 성장)
         self.ledger, self.what, self.topic = ledger, what, topic   # v2.2: 키 장부(pc_analysis.KeyLedger) — 요청마다 먼저 잡고 실패하면 돌려줌
         self.calls = collections.Counter()                         # v2.2: 종류별 요청 수 (로그·시험용)
+        self.search_stopped = None                                 # v2.5: 하루 검색 횟수 한도 — 검색만 멈춤 (다른 요청은 계속)
 
     def get(self, kind, **params):
         if self.stopped in ("daily", "offline"):
             raise QuotaStop("새 요청 안 함 (" + ("하루 할당량 소진" if self.stopped == "daily" else "--offline") + ")", self.stopped)
+        if kind == "search" and not self.search_stopped and self.ledger is not None and self.ledger.search_blocked():
+            self.search_stopped = "search_daily"                   # v2.5: 같은 키의 다른 창·주제가 오늘 이미 막힘 → 요청하지 않음
+        if kind == "search" and self.search_stopped:
+            raise QuotaStop(SEARCH_DAILY_MSG, "search_daily")
         limit = self.quota - (SEARCH_RESERVE if kind == "search" else 0)
         if self.used + COST[kind] > limit:
             self.stopped = self.stopped or "run_budget"
@@ -325,14 +356,29 @@ class Api:
                         self.used += COST[kind]
                         self.calls[kind] += 1
                         ok = True
+                        if kind == "search" and self.ledger is not None:
+                            self.ledger.count_search()             # v2.5: 하루 검색 횟수 (몇 번째에서 막히나)
                         return data
                 except urllib.error.HTTPError as e:
-                    body = e.read().decode("utf-8", "replace")[:300]
-                    if e.code == 403 and ("quota" in body.lower()):
+                    full = e.read().decode("utf-8", "replace")
+                    body = full[:300]
+                    lim = daily_limit_kind(e.code, full)            # v2.5: 403·429 하루 한도 (메시지로 가름)
+                    if lim == "search_daily":
+                        self.search_stopped = "search_daily"
+                        if self.ledger is not None:
+                            self.ledger.mark_search_blocked(f"{kind} {e.code} Search Queries per day")
+                        log("QUOTA", logging.WARNING, kind=kind, status=e.code, limit="Search Queries per day", searches_this_run=self.calls["search"],
+                            note="검색만 멈춤 — 영상 정보·댓글은 계속, 못 한 검색은 초기화 뒤 저절로 이어서")
+                        raise QuotaStop(SEARCH_DAILY_MSG, "search_daily")
+                    if lim == "daily":
                         self.stopped = "daily"
                         if self.ledger is not None:
-                            self.ledger.mark_exhausted(f"{kind} 403 quota")
+                            self.ledger.mark_exhausted(f"{kind} {e.code} quota")
                         raise QuotaStop("하루 할당량(10,000단위) 소진 — 태평양 자정(한국 오후 4~5시) 뒤 다시 (캐시는 남음)", "daily")
+                    if e.code == 429 and attempt < 2:                 # v2.5: 분당 제한 — 잠깐 쉬고 다시
+                        log("QUOTA", logging.WARNING, kind=kind, status=429, attempt=attempt + 1, note="분당 요청 제한 — 잠깐 쉬고 다시", body=body[:120])
+                        time.sleep(2 ** (attempt + 1))
+                        continue
                     if e.code in (403, 404) and kind in ("commentThreads", "comments"):   # 댓글 막힌 영상·지워진 댓글
                         self.used += COST[kind]          # Google 은 오류 답도 센다 (v2.2: 장부와 맞춤)
                         self.calls[kind] += 1

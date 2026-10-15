@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.16 — 2026-10-15 — 영어 검색어 <주제>/keywords_foreign.txt (사용자 지시: "주식은 영어 주식 검색어도 추가해"): 외국 영상을 켠 주제(INCLUDE_FOREIGN)만
-#          keyword_list(할당량 계산·검색어 지문 — 바뀌면 분석기 다시)에 더함, 회차마다 GitHub 에서 받음(SYNC_CONFIG)
+# VERSION: v1.17 — 2026-10-15 — 검색 횟수 한도 (사용자 보고 2026-10-15: "HTTP 429 search: Quota exceeded for quota metric 'Search Queries' and limit 'Search Queries per day' … 왜 이래 사용량 3000 남았는데"): Google 은 단위(10,000)와 따로 **하루 검색 횟수 한도**('Search Queries per day',
+#          HTTP 429)를 둠 — 단위가 남아도 검색만 막힘. KeyLedger 가 ① 오늘 검색 수(searches)를 세고 ② 막히면 search_blocked(몇 번째에서·
+#          까닭)를 적어 같은 키의 다른 창·주제도 그날은 검색을 쉬게 하고 ③ 막힌 날의 검색 수를 .yt_work/search_cap_<지문>.json 에 남겨
+#          '알려진 검색 한도'(가장 작은 값)를 보여 줌. snapshot 에 searches·search_blocked·search_cap
+# (v1.16 — 2026-10-15 — 영어 검색어 <주제>/keywords_foreign.txt (사용자 지시: "주식은 영어 주식 검색어도 추가해"): 외국 영상을 켠 주제(INCLUDE_FOREIGN)만
+#          keyword_list(할당량 계산·검색어 지문 — 바뀌면 분석기 다시)에 더함, 회차마다 GitHub 에서 받음(SYNC_CONFIG))
 # (v1.15 — 2026-10-15 — 주제마다 다른 키 (사용자 지시: "키도 나눠서 쓸수 있게해 주제별로 다른키 넣을거니까"): 키 찾는 순서는 그대로
 #          (<주제>/.env → 환경 변수 YOUTUBE_API_KEY_<주제> → 맨 위 .env → YOUTUBE_API_KEY), 할당량 장부도 키마다 따로(KeyLedger — 키 지문).
 #          ① <주제>/.env 틀(TOPIC_ENV_TEMPLATE)의 안내를 '보통 비워 둠' → '이 주제 전용 키 (주제마다 달라도 됨 — 다르면 할당량도 따로)'
@@ -125,7 +129,7 @@ from datetime import date, datetime, time as dtime, timedelta, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v1.16"
+VERSION = "v1.17"
 LOG = logging.getLogger("pc_analysis")
 KST = timezone(timedelta(hours=9))
 LOCK_STALE_MIN = 30          # 잠금 파일이 이 시간 넘게 갱신되지 않으면 이전 실행이 죽은 것으로 봄
@@ -290,7 +294,8 @@ class KeyLedger:
         return cls(key, now_fn) if key else None
 
     def _empty(self, day):
-        return {"day": day, "used": 0, "by_topic": {}, "by_what": {}, "exhausted": False, "runs": [], "updated": None}
+        return {"day": day, "used": 0, "by_topic": {}, "by_what": {}, "exhausted": False, "runs": [], "updated": None,
+                "searches": 0, "search_blocked": None}                       # v1.17: 오늘 검색 수 · 검색 횟수 한도에 닿았나
 
     def _load(self):
         day = pacific_day(self.now_fn())
@@ -362,6 +367,42 @@ class KeyLedger:
                                        "kst": datetime.now(KST).isoformat(timespec="minutes")}])[-self.RUNS_KEEP:]
         self._locked(fn)
 
+    def count_search(self, n=1):
+        """v1.17: 받은 검색 수 (Google 의 '하루 검색 횟수 한도'는 단위와 따로 셈)."""
+        self._locked(lambda d: d.__setitem__("searches", int(d.get("searches") or 0) + int(n)))
+
+    def search_blocked(self):
+        """v1.17: 오늘 이 키의 검색이 '하루 검색 횟수 한도'에 닿았나 (같은 키의 모든 창·주제가 함께 쉼). → dict 또는 None."""
+        return self._load().get("search_blocked")
+
+    def mark_search_blocked(self, why=""):
+        """v1.17: 검색만 오늘 끝 — 몇 번째 검색에서 막혔는지 적고, 막힌 날의 검색 수를 search_cap 파일에 남김 (단위·다른 요청은 그대로)."""
+        def fn(d):
+            if not d.get("search_blocked"):
+                d["search_blocked"] = {"at": int(d.get("searches") or 0), "kst": datetime.now(KST).isoformat(timespec="minutes"),
+                                       "why": str(why)[:160]}
+            return d["search_blocked"], d["day"]
+        blk, day = self._locked(fn)
+        cap_p = self.p.with_name(f"search_cap_{self.fp}.json")
+        try:
+            hist = json.loads(cap_p.read_text("utf-8"))
+        except (OSError, ValueError):
+            hist = {"days": {}}
+        hist.setdefault("days", {})[day] = blk["at"]
+        cap_p.write_text(json.dumps(hist, ensure_ascii=False, indent=1), "utf-8")
+        log("QUOTA", logging.WARNING, note="하루 검색 횟수 한도(Search Queries per day)에 닿음 — 검색만 초기화 뒤에 (영상 정보·댓글은 계속)",
+            searches_today_on_this_pc=blk["at"], key=self.fp)
+        return blk
+
+    def search_cap(self):
+        """v1.17: 막힌 날들의 '이 PC 에서 센 검색 수' 중 가장 작은 값 (다른 PC·클라우드에서 쓴 검색은 몰라 실제 한도보다 작을 수 있음). 모르면 None."""
+        try:
+            days = json.loads(self.p.with_name(f"search_cap_{self.fp}.json").read_text("utf-8")).get("days") or {}
+        except (OSError, ValueError):
+            return None
+        vals = [int(v) for v in days.values() if int(v or 0) > 0]
+        return min(vals) if vals else None
+
     def mark_exhausted(self, why=""):
         def fn(d):
             if not d.get("exhausted"):
@@ -377,6 +418,7 @@ class KeyLedger:
         mins = max(0, int((reset_utc - now).total_seconds() // 60))
         return {"key": self.fp, "day": d["day"], "used": int(d["used"]), "left": self.left(d), "limit": self.limit, "margin": self.margin,
                 "exhausted": bool(d.get("exhausted")), "by_topic": d.get("by_topic") or {}, "by_what": d.get("by_what") or {},
+                "searches": int(d.get("searches") or 0), "search_blocked": d.get("search_blocked"), "search_cap": self.search_cap(),   # v1.17
                 "reset_kst": reset_utc.astimezone(KST).strftime("%m-%d %H:%M"), "reset_in_min": mins, "updated": d.get("updated")}
 
 

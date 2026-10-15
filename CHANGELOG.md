@@ -1,5 +1,31 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-15 (17) — 하루 검색 횟수 한도(HTTP 429) — 탐색이 멈추지 않고 검색만 초기화 뒤로
+
+### 왜 (사용자 보고)
+- 사용자 보고 "RuntimeError: HTTP 429 search: … Quota exceeded for quota metric 'Search Queries' and limit 'Search Queries per day' … 왜 이래 사용량 3000 남았는데"
+
+### 원인
+1. **Google 이 단위와 따로 '하루 검색 횟수'를 셈** — 메시지 그대로 `quota metric 'Search Queries'`·`limit 'Search Queries per day'`. 단위(10,000)가 남아도 검색만 막힘. Google 문서에 값이 없음 — 이 저장소 기록(2026-10-09 분석기 실행: 검색 74번 중 34번 실패 = **40번째 뒤로** 막힘). 같은 프로젝트를 쓰는 다른 PC·클라우드의 검색도 함께 셈 (오늘 클라우드에서 영어 검색어를 고르느라 같은 키로 검색 8번). 화면의 '남은 할당량'은 **단위만** 세서 보이지 않았음
+2. **탐색 도구가 이 답을 몰랐음** — Google 은 2026 년부터 할당량 소진을 403 대신 **429** RESOURCE_EXHAUSTED 로 답함 ([ryos PR #1988](https://github.com/ryokun6/ryos/pull/1988), 2026-10). `outlier_research.py` 는 403 만 할당량으로 봐서 `RuntimeError` 로 탐색이 통째로 멈춤 (분석기는 v2.2.0 부터 알았음 — 탐색 도구에 같은 처리가 없었음)
+
+### 바꾼 것
+| 파일 (버전) | 함수·항목 | 내용 |
+|---|---|---|
+| `tools/outlier_research.py` (v2.4.1 → v2.5) | `daily_limit_kind`·`Api.get`·`QuotaStop` kind `search_daily`·`SEARCH_DAILY_MSG` | 403·429 + 'per day'·quotaExceeded → `Search Queries` 면 **검색만** 그날 멈춤(영상 정보·채널·댓글은 계속, 못 한 검색은 pending), 아니면 단위 소진(예전 그대로). 'per day' 아닌 429(분당 제한)는 2·4초 쉬고 다시. 거부된 요청은 장부에서 돌려줌 |
+| `tools/pc_analysis.py` (v1.16 → v1.17) | `KeyLedger.count_search`·`search_blocked`·`mark_search_blocked`·`search_cap`·`snapshot` | 오늘 검색 수 · 막힘(몇 번째·시각) — 같은 키의 다른 탭·주제도 그날은 검색을 보내지 않음 · 막힌 날의 검색 수를 `.yt_work/search_cap_<지문>.json` 에 남겨 '알려진 검색 한도'(가장 작은 값) |
+| `tools/web_ui.py` (v2.2 → v2.3) | `quota_view`·`estimate`·`job_explore`·`job_shorts_explore`·`_resume_explore`·`_resume_shorts_explore`·화면 | 0번 칸 '검색 오늘 N번 · 검색 횟수 한도에 닿음 (N번째) · 알려진 검색 한도', 4번 칸 예상에 경고, 탐색 결과 `search_stop`, 남은 것이 검색뿐이면 그날은 이어서 하기를 건너뜀 (초기화 뒤 저절로) |
+| 시험 `test_search_limit.py` (5, 새로) | | 판정(검색 횟수·단위·분당) / 탐색: 3번째 검색에서 막혀도 영상 정보는 받고 남은 검색은 pending·막힌 뒤 검색 안 보냄·장부 검색 2번·한도 2·단위는 받은 것만 / 다른 Api(다른 탭)도 검색 안 보냄 / 이어서 하기 건너뜀 / 다음 날 다시·알려진 한도 남음 / 분당 429 는 다시 / 단위 429 는 모두 멈춤 |
+| `guides/pc_analysis.md` (v3.3) · `guides/README.md` (v1.33) · `CLAUDE.md` | 안내 | 문제 해결 첫 줄 |
+
+### 확인
+- `python3 -m unittest` 99개 중 94 통과 — 실패 5개는 예전부터인 `test_youtube_feedback`(지운 옛 파일 필요). `pc_analysis.py --self-test` ALL PASS · Python 3.11 컴파일 · 화면 JS `node --check`
+- 웹 화면 (임시 폴더, 장부에 '검색 41번째에서 막힘'을 넣고 Playwright): 0번 칸 '검색 오늘 41번 · 검색 횟수 한도에 닿음 (41번째, 20:20) — 검색만 초기화 뒤, 영상 정보·댓글은 계속 · 알려진 검색 한도 약 41번/일', 4번 칸 '⚠️ 오늘 검색 횟수 한도에 닿음 — 새 검색 72번은 초기화 뒤', 화면 오류 0
+
+### 위험
+- 한도 값은 Google 이 알려 주지 않음 — '알려진 검색 한도'는 이 PC 가 센 값이라 다른 PC·클라우드 검색이 있던 날은 실제보다 작게 잡힘
+- 주식 한 바퀴(한국어 40 + 영어 15 검색어 × 롱폼 2 = 110번 + 쇼츠 55번)는 검색 횟수 한도 때문에 며칠에 나눠 감 (검색 캐시 7~21일이라 둘째 바퀴부터는 새 검색이 적음)
+
 ## 2026-10-15 (16) — 주식 영어 검색어 15개 (외국 영상을 켰을 때만) · 실행 순서 안내
 
 ### 왜 (사용자 지시)

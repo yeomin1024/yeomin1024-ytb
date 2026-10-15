@@ -1,6 +1,8 @@
 # PC에서 분석 돌리기 — 재테크(`economic`)·주식(`stock`) 폴더
 
-버전: v3.2 — 2026-10-15 — 사용자 지시 "아니 어떻게 실행해 그리고 주식은 영어 주식 검색어도 추가해": 외국 영상을 켠 주제는 **영어 검색어 `<주제>/keywords_foreign.txt`** 도 검색 (주식 15개 — 실제 외국 영상 태그에서, `tag_keywords.py --foreign`), 웹 화면 2번 칸 '영어(외국 영상) 검색어' (아래 '외국 영상')
+버전: v3.3 — 2026-10-15 — 사용자 보고 "RuntimeError: HTTP 429 search: … Quota exceeded for quota metric 'Search Queries' and limit 'Search Queries per day' … 왜 이래 사용량 3000 남았는데": Google 의 **하루 검색 횟수 한도**(단위와 따로) — 이제 탐색이 멈추지 않고 검색만 초기화 뒤로 (아래 '문제 해결' 첫 줄)
+
+(v3.2 — 2026-10-15 — 사용자 지시 "아니 어떻게 실행해 그리고 주식은 영어 주식 검색어도 추가해": 외국 영상을 켠 주제는 **영어 검색어 `<주제>/keywords_foreign.txt`** 도 검색 (주식 15개 — 실제 외국 영상 태그에서, `tag_keywords.py --foreign`), 웹 화면 2번 칸 '영어(외국 영상) 검색어' (아래 '외국 영상'))
 
 (v3.1 — 2026-10-15 — 사용자 지시 "야 키도 나눠서 쓸수 있게해 주제별로 다른키 넣을거니까 그리고 주식은 외국 영상도 다 분석할 건데 확인해봐 on/off 기능(default off) 있는지 확인하고 없으면 추가해": **주제마다 다른 키** — 탭마다 `<주제>/.env` 에 다른 키를 넣으면 할당량도 따로 셈 (0번 칸 '이 탭 키', 아래 '주제마다 다른 키') · **외국 영상 켜고 끄기(기본 꺼짐)** — 4번 칸 [외국 영상도] = 그 주제 `analyzer_config.toml` 의 `INCLUDE_FOREIGN` (아래 '외국 영상'))
 
@@ -286,6 +288,10 @@ macOS/Linux: `bash run_analyzer.sh --folder economic,health`
 
 ## 문제 해결
 
+- **`HTTP 429 search: Quota exceeded for quota metric 'Search Queries' and limit 'Search Queries per day'` — 남은 할당량이 3,000 인데?** (2026-10-15 사용자 PC) → Google 은 **단위(하루 10,000)와 따로 '하루 검색 횟수'** 를 셉니다. 단위가 남아도 검색 횟수 한도에 닿으면 **검색만** 막힙니다 (HTTP 429 — 영상 정보·댓글 같은 1단위 요청은 됨). 한도 값은 Google 이 문서에 적어 두지 않았고, 이 저장소 기록으로는 2026-10-09 에 검색 **40번째 뒤**로 막혔습니다 (같은 프로젝트를 쓰는 다른 PC·클라우드 검색도 함께 셈). 화면의 '남은 할당량'은 단위만 세므로 이 한도는 보이지 않았습니다.
+  - **웹 화면 v2.3 부터:** 탐색이 오류로 멈추지 않고, 못 한 검색은 남겨 두었다가 **한국 시간 오후 4~5시(태평양 자정) 초기화 뒤 저절로 이어서** 합니다. 그사이 캐시된 검색·영상 정보·댓글·채널 기준선은 계속. 같은 키의 다른 탭도 그날은 검색을 보내지 않습니다.
+  - 0번 칸 **'검색 오늘 N번 · 검색 횟수 한도에 닿음 (N번째)'**, 그다음부터는 **'알려진 검색 한도 약 N번/일'** (이 PC 에서 센 수 — 클라우드 등에서 쓴 검색은 몰라 실제보다 작을 수 있음). 4번 칸 예상에도 '검색 횟수 한도를 넘는 만큼은 초기화 뒤'.
+  - 줄이는 법: 검색어 줄이기, 외국 영상 끄기(영어 검색어 15개 = 롱폼 30번), 쇼츠 탐색은 다른 날. 검색 캐시(적응형 7~21일)가 있어 다음 탐색은 새 검색이 적습니다. 한도를 늘리려면 Google Cloud 콘솔 → API 및 서비스 → YouTube Data API v3 → **할당량** 에서 확인·증가 신청 (프로젝트를 늘리는 것은 정책 위반).
 - **`-File 매개 변수에 대한 인수 '.run_analyzer.ps1'이(가) 없습니다`** (2026-10-13 사용자 PC) → 경로의 `\`가 사라진 것입니다. **Git Bash**(또는 WSL·VS Code 의 bash 터미널)는 `\`를 지워 `.\run_analyzer.ps1`이 `.run_analyzer.ps1`이 됩니다. 그 창에서는 받기 줄(`wget … -OutFile`)도 PowerShell 문법이라 안 돼서 파일이 없을 수도 있습니다.
   1. 창이 **PowerShell**인지 확인 (프롬프트가 `PS C:\…>`로 시작). 아니면 시작 메뉴에서 "Windows PowerShell"을 열고 `cd` 로 작업 폴더로 이동
   2. 파일이 있는지: `dir run_analyzer.ps1` (Git Bash 면 `ls run_analyzer.ps1`). 없으면 `curl.exe -L -o run_analyzer.ps1 https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/run_analyzer.ps1`
@@ -306,6 +312,7 @@ macOS/Linux: `bash run_analyzer.sh --folder economic,health`
 
 | 버전 | 날짜 | 내용 |
 |---|---|---|
+| v3.3 | 2026-10-15 | 사용자 보고 "RuntimeError: HTTP 429 search: … Quota exceeded for quota metric 'Search Queries' and limit 'Search Queries per day' … 왜 이래 사용량 3000 남았는데": 하루 검색 횟수 한도(429) — 검색만 초기화 뒤로, 화면에 검색 수·한도 (문제 해결) |
 | v3.2 | 2026-10-15 | 사용자 지시 "아니 어떻게 실행해 그리고 주식은 영어 주식 검색어도 추가해": 영어 검색어 `keywords_foreign.txt`(외국 영상을 켠 주제만), 웹 화면 2번 칸, `tag_keywords.py --foreign` |
 | v3.1 | 2026-10-15 | 사용자 지시 "야 키도 나눠서 쓸수 있게해 주제별로 다른키 넣을거니까 그리고 주식은 외국 영상도 다 분석할 건데 확인해봐 on/off 기능(default off) 있는지 확인하고 없으면 추가해": '주제마다 다른 키'(0번 칸 이 탭 키·같은 키 탭, 키마다 할당량), '외국 영상 켜고 끄기'(`INCLUDE_FOREIGN` 기본 false, 4번 칸 [외국 영상도], 언어 지정 없는 검색·원래 언어 자막·음성인식 언어 자동) |
 | v3.0 | 2026-10-15 | 사용자 지시 "헷갈리니까 하나의 사이트에서 그냥 탭 만들어서 다른 주제 볼 수 있게 하자 서로 캐시는 공유하지 않도록 하고" · "설정도 다 따로써야해" · "고쳐서 다시 분석해보자": 웹 화면 v2.0 한 화면·주제 탭('주제 탭' 절), 탭마다 키·검색어·캐시·작업 따로, 분석기 캐시 주제마다(v2.12.0), `topics.txt`, 쇼츠 '돈 이야기 아님' 빼기 |

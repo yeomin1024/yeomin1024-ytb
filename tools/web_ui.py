@@ -1,8 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v2.2 — 2026-10-15 — 2번 칸 '영어(외국 영상) 검색어' — <주제>/keywords_foreign.txt 고치기 (사용자 지시: "주식은 영어 주식 검색어도 추가해"). 외국 영상을 켠 탭에서만
+# VERSION: v2.3 — 2026-10-15 — 하루 검색 횟수 한도 (사용자 보고 2026-10-15: "HTTP 429 search: Quota exceeded for quota metric 'Search Queries' and limit 'Search Queries per day' … 왜 이래 사용량 3000 남았는데"): 단위가 남아도 Google 의 'Search Queries per day'(HTTP 429)에 닿으면 검색만 막힘
+#          (예전 판은 이것을 몰라 탐색이 RuntimeError 로 멈춤 — outlier_research v2.5 가 이제 '검색만 멈춤'으로 받음).
+#          ① 0번 칸: 오늘 검색 수 · '검색 횟수 한도에 닿음 (N번째)' · 알려진 검색 한도 (pc_analysis v1.17 장부)
+#          ② 4번 칸 예상: 검색이 막힌 날은 '검색은 초기화 뒤' 로 · 알려진 검색 한도보다 많으면 알림
+#          ③ 탐색 결과에 search_stop (못 한 검색은 그대로 pending → 초기화 뒤 저절로 이어서), 이어서 하기는 검색이 막힌 날 검색을 건너뜀
+# (v2.2 — 2026-10-15 — 2번 칸 '영어(외국 영상) 검색어' — <주제>/keywords_foreign.txt 고치기 (사용자 지시: "주식은 영어 주식 검색어도 추가해"). 외국 영상을 켠 탭에서만
 #          검색 (outlier_research.load_keywords 가 더함 — 예상 할당량·탐색·쇼츠 탐색 모두), 몇 개·켜짐/꺼짐 표시. POST /api/keywords file=foreign.
-#          [외국 영상도]를 켜면 영어 검색어 수도 알려 줌
+#          [외국 영상도]를 켜면 영어 검색어 수도 알려 줌)
 # (v2.1 — 2026-10-15 — 주제마다 다른 키 · 외국 영상 켜고 끄기 (사용자 지시: "키도 나눠서 쓸수 있게해 주제별로 다른키 넣을거니까 그리고
 #          주식은 외국 영상도 다 분석할 건데 확인해봐 on/off 기능(default off) 있는지 확인하고 없으면 추가해"):
 #          ① 4번 칸 [외국 영상도] — 이 주제의 analyzer_config.toml [search] INCLUDE_FOREIGN 을 고침 (POST /api/foreign — PC 파일 + GitHub 토큰이
@@ -139,7 +144,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import pc_analysis as pc                 # noqa: E402  할당량 장부·키 찾기·GitHub 동기화·패키지 준비
 
 ROOT = pc.ROOT
-VERSION = "v2.2"
+VERSION = "v2.3"
 LOG = logging.getLogger("web")
 KST = timezone(timedelta(hours=9))
 TOKEN = secrets.token_urlsafe(18)        # 화면이 요청마다 보내는 열쇠 (다른 사이트가 이 PC 의 화면을 조작하지 못하게)
@@ -719,7 +724,8 @@ def estimate(t, weeks, use_keywords):
     ch_units = sum(max(1, -(-int(c.get("videos") or 50) // 50)) * 2 for c in tg["channels"])   # 목록 + 영상 정보
     q = quota_view(t)
     return {"keywords": len(kws), "searches": total, "cached": cached, "units": (total - cached) * 100 + ch_units + 20,
-            "channels": len(tg["channels"]), "videos": len(tg["videos"]), "left": q.get("left"), "reset_kst": q.get("reset_kst")}
+            "channels": len(tg["channels"]), "videos": len(tg["videos"]), "left": q.get("left"), "reset_kst": q.get("reset_kst"),
+            "searches_today": q.get("searches"), "search_blocked": q.get("search_blocked"), "search_cap": q.get("search_cap")}   # v2.3
 
 
 def ratio_key(r):
@@ -846,14 +852,15 @@ def job_explore(t, weeks, use_keywords):
     data = {"topic": t, "generated": datetime.now(KST).isoformat(timespec="seconds"), "weeks": weeks, "use_keywords": use_keywords,
             "rows": rows, "checked": checked, "pending": pending, "quota_used": api.used,
             "pending_videos": state["pending_videos"], "pending_channels": state["pending_channels"],
-            "searched_new": searched_new, "excluded": dict(excluded)}
+            "searched_new": searched_new, "excluded": dict(excluded), "search_stop": api.search_stopped}   # v2.3: 검색 횟수 한도
     _write_json(web_dir(t) / "explore.json", data)
     log("EXPLORE", topic=t, videos=len(rows), checked=len(data["checked"]), kept_checks=len(prev_rows & {r["id"] for r in rows}),
         pending=len(pending), pending_videos=state["pending_videos"], searched_new=searched_new, quota_used=api.used,
-        excluded=",".join(f"{k}:{v}" for k, v in excluded.items()) or "-", note="체크만 해 둠 — [승인]을 눌러야 자료를 받음")
-    step("끝", total, total)
+        excluded=",".join(f"{k}:{v}" for k, v in excluded.items()) or "-", search_stop=api.search_stopped or "-",
+        note="체크만 해 둠 — [승인]을 눌러야 자료를 받음")
+    step("끝" + (" — 검색 횟수 한도로 못 한 검색은 초기화 뒤 저절로" if api.search_stopped else ""), total, total)
     return {"videos": len(rows), "checked": len(data["checked"]), "pending": pending, "pending_videos": state["pending_videos"],
-            "quota_used": api.used}
+            "quota_used": api.used, **({"search_stop": orr.SEARCH_DAILY_MSG} if api.search_stopped else {})}
 
 
 # ---------------------------------------------------------------- 승인 → 자료 받기 → 주별 분석 → 음성인식 → 다시 분석 → GitHub
@@ -1228,6 +1235,9 @@ def _resume_explore(t, why):
     if not kl or kl.left() < need:
         log("RESUME", topic=t, why=why, note="남은 탐색이 있지만 할당량이 모자람 — 다음 초기화 뒤에", left=kl.left() if kl else "-")
         return {"explore_resume": "할당량 모자람 — 다음 초기화 뒤"}
+    if ex.get("pending") and not (ex.get("pending_videos") or ex.get("pending_channels")) and kl.search_blocked():   # v2.3
+        log("RESUME", topic=t, why=why, note="남은 것은 검색뿐인데 오늘 검색 횟수 한도에 닿음 — 다음 초기화 뒤에")
+        return {"explore_resume": "검색 횟수 한도 — 다음 초기화 뒤"}
     log("RESUME", topic=t, why=why, pending=len(ex.get("pending") or []), pending_videos=ex.get("pending_videos") or 0,
         note="할당량 때문에 남은 탐색을 이어서 (캐시된 검색은 0단위, 체크는 그대로)")
     r = job_explore(t, int(ex.get("weeks") or 8), bool(ex.get("use_keywords", True)))
@@ -1501,7 +1511,8 @@ def estimate_shorts(t, weeks, use_keywords):
     ch_units = len(tg["channels"]) * 2
     q = quota_view(t)
     return {"keywords": len(kws), "searches": len(kws), "cached": cached, "units": (len(kws) - cached) * 100 + ch_units + 20,
-            "channels": len(tg["channels"]), "videos": len(tg["videos"]), "left": q.get("left"), "reset_kst": q.get("reset_kst")}
+            "channels": len(tg["channels"]), "videos": len(tg["videos"]), "left": q.get("left"), "reset_kst": q.get("reset_kst"),
+            "searches_today": q.get("searches"), "search_blocked": q.get("search_blocked"), "search_cap": q.get("search_cap")}   # v2.3
 
 
 def _is_success_short(r, S):
@@ -1643,7 +1654,8 @@ def job_shorts_explore(t, weeks, use_keywords):
         pending=len(pending), pending_videos=state["pending_videos"], searched_new=searched_new, quota_used=api.used,
         excluded=",".join(f"{k}:{v}" for k, v in (excluded + excluded_note).items()) or "-", note="체크만 해 둠 — [승인]을 눌러야 자료를 받음")
     step("끝", total, total)
-    return {"videos": len(rows), "checked": len(checked), "pending": pending, "pending_videos": state["pending_videos"], "quota_used": api.used}
+    return {"videos": len(rows), "checked": len(checked), "pending": pending, "pending_videos": state["pending_videos"], "quota_used": api.used,
+            **({"search_stop": orr.SEARCH_DAILY_MSG} if api.search_stopped else {})}
 
 
 def job_shorts_approve(t, ids, auto_whisper=True):
@@ -1806,6 +1818,9 @@ def _resume_shorts_explore(t, why):
     if not kl or kl.left() < need:
         log("RESUME", topic=t, why=why, note="남은 쇼츠 탐색이 있지만 할당량이 모자람 — 다음 초기화 뒤에", left=kl.left() if kl else "-")
         return {"shorts_explore_resume": "할당량 모자람 — 다음 초기화 뒤"}
+    if ex.get("pending") and not (ex.get("pending_videos") or ex.get("pending_channels")) and kl.search_blocked():   # v2.3
+        log("RESUME", topic=t, why=why, note="남은 것은 쇼츠 검색뿐인데 오늘 검색 횟수 한도에 닿음 — 다음 초기화 뒤에")
+        return {"shorts_explore_resume": "검색 횟수 한도 — 다음 초기화 뒤"}
     log("RESUME", topic=t, why=why, pending=len(ex.get("pending") or []), note="할당량 때문에 남은 쇼츠 탐색을 이어서 (체크는 그대로)")
     r = job_shorts_explore(t, int(ex.get("weeks") or 8), bool(ex.get("use_keywords", True)))
     return {"shorts_explore_resumed": True, "shorts_explore_pending_after": len(r.get("pending") or [])}
@@ -2383,8 +2398,11 @@ function renderQuota(q){if(!q)return;
  $('qBar').style.width=pct+'%';$('qBar').style.background=q.left<=0?'var(--bad)':q.left<1000?'var(--warn)':'var(--acc)';
  const bt=Object.entries(q.by_topic||{}).filter(x=>x[1]).map(([k,v])=>`${esc(k)} ${num(v)}`).join(' · ');
  const bw=Object.entries(q.by_what||{}).filter(x=>x[1]).sort((a,b)=>b[1]-a[1]).slice(0,6).map(([k,v])=>`${esc(k)} ${num(v)}`).join(' · ');
+ const sb=q.search_blocked,sc=q.search_cap;
+ const sl=`<b>검색</b> 오늘 ${num(q.searches||0)}번`+(sb?` · <span class=bad>검색 횟수 한도에 닿음 (${sb.at}번째, ${esc(String(sb.kst||'').slice(11,16))}) — 검색만 초기화 뒤, 영상 정보·댓글은 계속</span>`:'')
+  +(sc?` · 알려진 검색 한도 약 ${num(sc)}번/일 (이 PC 에서 센 수)`:' · 검색 횟수 한도는 Google 이 따로 셈 (단위가 남아도 막힐 수 있음)');
  const sk=(q.same_key||[]).length?`같은 키를 쓰는 다른 탭: ${q.same_key.map(esc).join(' · ')} (할당량을 함께 씀)`:'이 탭만 쓰는 키 (할당량 따로)';
- $('qBy').innerHTML=`<b>이 탭 키</b> 지문 …${esc(String(q.key).slice(-4))} — ${sk}<br>주제별 ${bt||'—'} · 작업별 ${bw||'—'} <span class=mut>(같은 키를 쓰는 이 PC 의 모든 창·자동 실행 합계 — 다른 PC·클라우드에서 쓴 양은 모름, 그때는 Google 의 한도 답으로 멈춤)</span>`}
+ $('qBy').innerHTML=`<b>이 탭 키</b> 지문 …${esc(String(q.key).slice(-4))} — ${sk}<br>${sl}<br>주제별 ${bt||'—'} · 작업별 ${bw||'—'} <span class=mut>(같은 키를 쓰는 이 PC 의 모든 창·자동 실행 합계 — 다른 PC·클라우드에서 쓴 양은 모름, 그때는 Google 의 한도 답으로 멈춤)</span>`}
 function renderResume(r){if(!r)return;const p=PLAN||{};
  const parts=[p.explore_searches?`검색 ${p.explore_searches}개`:'',p.explore_videos?`영상 정보 ${p.explore_videos}개`:'',p.comments?`댓글 못 받은 영상 ${p.comments}개`:'',p.baseline?`채널 기준선 ${p.baseline}곳`:''].filter(Boolean);
  const nx=r.next?`다음 자동 이어서: 한국 시간 ${r.next.slice(5,16).replace('T',' ')}`:'자동 이어서 꺼짐 (--no-resume)';
@@ -2403,7 +2421,9 @@ function renderTargets(tg){const c=tg.channels.map(x=>`<span class=chip>📺 ${e
  $('tgList').innerHTML=(c.concat(v).join(''))||'<span class=mut>추가한 영상·채널 없음</span>';
  $('tgList').querySelectorAll('button').forEach(b=>b.onclick=async()=>{const r=await api('/api/targets/remove',{kind:b.dataset.k,id:b.dataset.id});renderTargets(r.targets);estimate()})}
 let estT;function estimate(){clearTimeout(estT);estT=setTimeout(async()=>{try{const e=await api(`/api/estimate?weeks=${$('weeks').value}&kw=${$('useKw').checked?1:0}&mode=${MODE}`);
- $('est').textContent=`${MODE==='shorts'?'쇼츠 검색':'검색'} ${e.searches}번 (캐시 ${e.cached}) + 채널 ${e.channels}·영상 ${e.videos} → 약 ${num(e.units)}단위`+(e.left!=null?` · 오늘 남은 ${num(e.left)}`+(e.units>e.left?' (모자라는 만큼은 초기화 뒤 저절로 이어서)':''):'')}catch(x){$('est').textContent=x.message}},250)}
+ const nw=e.searches-e.cached,room=e.search_cap?Math.max(0,e.search_cap-(e.searches_today||0)):null;
+ $('est').textContent=`${MODE==='shorts'?'쇼츠 검색':'검색'} ${e.searches}번 (캐시 ${e.cached}) + 채널 ${e.channels}·영상 ${e.videos} → 약 ${num(e.units)}단위`+(e.left!=null?` · 오늘 남은 ${num(e.left)}`+(e.units>e.left?' (모자라는 만큼은 초기화 뒤 저절로 이어서)':''):'')
+  +(e.search_blocked?` · ⚠️ 오늘 검색 횟수 한도에 닿음 — 새 검색 ${nw}번은 초기화 뒤 (캐시된 것·영상 정보는 지금)`:(room!=null&&nw>room?` · ⚠️ 검색 횟수 한도(알려진 약 ${e.search_cap}번, 오늘 ${e.searches_today||0}번 함)를 넘는 만큼은 초기화 뒤`:''))}catch(x){$('est').textContent=x.message}},250)}
 async function loadRows(){const m=MODE,d=await api(`/api/explore?mode=${m}`);if(m!==MODE)return;ROWS=d.rows;CHECK=new Set(d.checked);REC=new Set(ROWS.filter(r=>r.reason).map(r=>r.id));
  const ex=Object.entries(d.excluded||{}).map(([k,v])=>`${k} ${v}개`);if(d.used_hidden)ex.unshift(`이미 분석에 쓴 ${m==='shorts'?'쇼츠':'영상'} ${d.used_hidden}개`);
  const what=m==='shorts'?'쇼츠':'영상';

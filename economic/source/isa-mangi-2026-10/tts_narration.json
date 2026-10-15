@@ -1,12 +1,12 @@
 {
- "tool": "tts_narration.py v1.7",
- "created": "2026-10-15T05:52:17",
+ "tool": "tts_narration.py v1.8",
+ "created": "2026-10-15T07:13:52",
  "topic": "economic",
  "id": "isa-mangi-2026-10",
  "script": "economic/source/isa-mangi-2026-10/isa-mangi-2026-10.txt",
- "script_sha1": "cb35e2bbc0c86673",
+ "script_sha1": "c8e7d10f04f2ad98",
  "sentences": 93,
- "seconds": 420.72,
+ "seconds": 420.76,
  "engine": {
   "engine": "qwen3-tts-clone",
   "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
@@ -788,10 +788,30 @@
    "n": 93,
    "role": "host",
    "part": "정리, 바뀌어도 그대로인 것",
-   "text": "끝까지 봐 주셔서 감사합니다.",
+   "text": "시청해주셔서 감사합니다.",
    "start": 418.41,
-   "end": 419.92
+   "end": 419.96
   }
  ],
- "voice_sha1": "f0d0f801940b36b1"
+ "voice_sha1": "f0d0f801940b36b1",
+ "patches": [
+  {
+   "at": "2026-10-15T07:13:52",
+   "tool": "v1.8",
+   "sentences": [
+    93
+   ],
+   "base_created": "2026-10-15T05:52:17",
+   "base_tool": "tts_narration.py v1.7",
+   "texts": {
+    "93": {
+     "old": "끝까지 봐 주셔서 감사합니다.",
+     "new": "시청해주셔서 감사합니다."
+    }
+   },
+   "gain_db": {
+    "93": 0.86
+   }
+  }
+ ]
 }

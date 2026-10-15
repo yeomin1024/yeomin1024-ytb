@@ -1,7 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v2.14.0 — 2026-10-15 — 영어 검색어 keywords_foreign.txt (사용자 지시: "주식은 영어 주식 검색어도 추가해"): INCLUDE_FOREIGN 이면 '외국 검색어' 묶음으로 더함
-#          (끈 주제는 읽지 않음)
+# VERSION: v2.14.1 — 2026-10-15 — git '소유자가 다름'(dubious ownership)으로 GitHub 올리기가 멈추던 것 (사용자 보고 2026-10-15: "[GITHUB] ❌ 푸시 실패 error=\"RuntimeError: git add 실패 (code=128): fatal: detected dubious ownership in repository at 'D:/유튜브 분석기/.yt_work/_github_clone_stock'\" 왜이래"):
+#          Windows 에서 관리자 권한 창·드라이브 설정에 따라 새로 만든 폴더의 소유자가 사용자 대신 Administrators 그룹이 되면, git(2.35.2+)이
+#          방금 clone 한 작업 폴더(.yt_work/_github_clone_<주제>)조차 '남의 폴더'로 보고 add·commit 을 거부함. run_git 이 분석기 자신의
+#          작업 폴더(.yt_work 아래)에서만 '-c safe.directory=<그 폴더>' 를 붙임 (사용자 git 설정은 건드리지 않음, 다른 폴더는 그대로 검사).
+#          그래도 막히면 오류에 손으로 고치는 한 줄을 적음
+# (v2.14.0 — 2026-10-15 — 영어 검색어 keywords_foreign.txt (사용자 지시: "주식은 영어 주식 검색어도 추가해"): INCLUDE_FOREIGN 이면 '외국 검색어' 묶음으로 더함
+#          (끈 주제는 읽지 않음))
 # (v2.13.0 — 2026-10-15 — 외국 영상 켜고 끄기 (사용자 지시: "주식은 외국 영상도 다 분석할 건데 확인해봐 on/off 기능(default off) 있는지
 #          확인하고 없으면 추가해"): 설정 INCLUDE_FOREIGN ([search], 기본 false — 웹 화면·tools/outlier_research.py v2.4 와 같은 값).
 #          ① 켜면 검색을 언어 지정 없이 (relevanceLanguage 를 보내지 않음 — search_language) · 끄면 예전 그대로 LANGUAGE(ko)
@@ -381,7 +386,7 @@ import numpy as np
 import pandas as pd
 import requests
 
-NOTEBOOK_VERSION = "v2.14.0"
+NOTEBOOK_VERSION = "v2.14.1"
 KST = dt.timezone(dt.timedelta(hours=9))
 UTC = dt.timezone.utc
 IS_WINDOWS = os.name == "nt"
@@ -3989,9 +3994,26 @@ def github_api(path, token, method="GET", **kw):
     return r
 
 
+def _safe_dir_args(cwd):
+    """v2.14.1: 분석기가 만든 작업 폴더(BASE_DIR/.yt_work 아래 — _github_clone_<주제> 등)만 git 이 소유자 검사로 거부하지 않게
+    '-c safe.directory=<폴더>' (명령줄 설정 — 사용자 git 설정은 그대로). 다른 폴더는 빈 목록 (git 검사 그대로)."""
+    try:
+        raw = Path(cwd).absolute()
+        real = raw.resolve()
+        work = (BASE_DIR / ".yt_work").resolve()
+    except OSError:
+        return []
+    if not (real == work or work in real.parents):
+        return []
+    out = []
+    for p in dict.fromkeys((real.as_posix(), raw.as_posix())):     # git 이 보는 경로 모양 (D:/…/…) — 둘 다
+        out += ["-c", f"safe.directory={p}"]
+    return out
+
+
 def run_git(args, cwd, auth_b64=None, check=True, timeout=900):
     # core.longpaths: Windows 260자 경로 제한 회피 / quotepath: 한글 파일명 그대로 / credential.helper 비움: 로그인 팝업 방지
-    cmd = ["git", "-c", "core.longpaths=true", "-c", "core.quotepath=false", "-c", "credential.helper="]
+    cmd = ["git", "-c", "core.longpaths=true", "-c", "core.quotepath=false", "-c", "credential.helper="] + _safe_dir_args(cwd)
     if auth_b64:   # 토큰을 URL/설정 파일에 남기지 않고 요청 헤더로만 전달
         cmd += ["-c", f"http.https://github.com/.extraheader=AUTHORIZATION: basic {auth_b64}"]
     cmd += args
@@ -3999,7 +4021,11 @@ def run_git(args, cwd, auth_b64=None, check=True, timeout=900):
                        env={**os.environ, "GIT_TERMINAL_PROMPT": "0", "GCM_INTERACTIVE": "never"})
     out = mask_secrets((r.stdout or "") + (r.stderr or ""))
     if check and r.returncode != 0:
-        raise RuntimeError(f"git {args[0]} 실패 (code={r.returncode}): {out[-800:]}")
+        hint = ""
+        if "dubious ownership" in out:          # v2.14.1: 아주 옛 git 은 명령줄 safe.directory 를 안 봄 → 손으로 한 줄
+            hint = (f" → git 을 새로 설치(git-scm.com)하거나 PowerShell 에서 한 번: git config --global --add safe.directory "
+                    f"\"{Path(cwd).absolute().as_posix()}\"")
+        raise RuntimeError(f"git {args[0]} 실패 (code={r.returncode}): {out[-800:]}{hint}")
     return r.returncode, out
 
 

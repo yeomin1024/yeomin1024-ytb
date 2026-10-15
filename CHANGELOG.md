@@ -1,5 +1,25 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-15 (19) — git '소유자가 다름'(dubious ownership)으로 GitHub 올리기가 멈추던 것
+
+### 왜 (사용자 보고)
+- 사용자 보고 "[GITHUB] ❌ 푸시 실패 … git add 실패 (code=128): fatal: detected dubious ownership in repository at 'D:/유튜브 분석기/.yt_work/_github_clone_stock' 왜이래"
+
+### 원인
+- git(2.35.2 부터)은 저장소 폴더의 주인이 지금 사용자와 다르면 명령을 거부함. 분석기는 올릴 때마다 `.yt_work/_github_clone_<주제>` 를 새로 받는데(clone), Windows 에서 관리자 권한 창·드라이브 설정에 따라 새 폴더의 주인이 사용자 대신 Administrators 그룹이 되면 **방금 받은 폴더도** '남의 폴더'가 됨 → `git add` 128. 재테크는 그동안 올라갔으니 이번에 다른 권한(예: 관리자 PowerShell)으로 켰을 가능성이 큼
+- 클라우드(리눅스)에서 같은 상황(다른 사용자 소유 폴더)을 만들어 재현: `fatal: detected dubious ownership` → `-c safe.directory=<폴더>` 를 붙이면 됨 (git 2.43)
+
+### 바꾼 것
+| 파일 (버전) | 함수 | 내용 |
+|---|---|---|
+| `youtube_topic_analyzer.py` (v2.14.0 → v2.14.1) | `_safe_dir_args`(새로)·`run_git` | 분석기 자신의 작업 폴더(`BASE_DIR/.yt_work` 아래)에서만 `-c safe.directory=<폴더>` (명령줄 설정 — 사용자 git 설정은 그대로, 다른 폴더는 git 검사 그대로). 그래도 막히면(아주 옛 git) 오류 끝에 손으로 고치는 한 줄 |
+| 시험 `test_git_ownership.py` (2, 새로) | | 다른 사용자 소유 작업 폴더 → add 됨 / 작업 폴더 밖 → 그대로 거부·고치는 한 줄 (리눅스 root 에서만) |
+| `guides/pc_analysis.md` (v3.5) | 문제 해결 | 이 오류와 할 일 |
+
+### 확인
+- `python3 -m unittest` 106개 중 101 통과 — 실패 5개는 예전부터인 `test_youtube_feedback`(지운 옛 파일 필요). Python 3.11 컴파일
+- ⚠️ 진짜 Windows 에서는 돌려 보지 못함 — 리눅스에서 다른 사용자 소유 폴더로 재현·확인
+
 ## 2026-10-15 (18) — Windows 파일 바꿔치기 막힘(WinError 5)으로 승인이 멈추던 것
 
 ### 왜 (사용자 보고)

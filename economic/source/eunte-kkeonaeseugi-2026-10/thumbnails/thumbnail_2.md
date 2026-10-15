@@ -1,6 +1,6 @@
 # eunte-kkeonaeseugi-2026-10 썸네일 2 — 실험안 ①: 거대한 '세금'·'건보료' 글자에 짓눌린 50대 부부
 
-버전: v4.0 — 2026-10-15 — 대본 eunte-kkeonaeseugi-2026-10.txt v1.2 기준. 사용자 지시(`thumbnail_1.md` 버전 줄과 같음) "나머지 2개는 좀 실험적인걸로". 근거: `README.md`.
+버전: v4.1 — 2026-10-15 — [A]에 '16:9가 안 되면 가장 넓은 가로형'·'글자·띄어쓰기 그대로'를 넣음 (사용자 지시 "가로형 ~ 이 내용은 프롬프트에 다 있어야지"). v4.0 — 2026-10-15 — 대본 eunte-kkeonaeseugi-2026-10.txt v1.2 기준. 사용자 지시(`thumbnail_1.md` 버전 줄과 같음) "나머지 2개는 좀 실험적인걸로". 근거: `README.md`.
 
 | 항목 | 값 |
 |---|---|
@@ -37,8 +37,8 @@ Bottom title: in the lower third, over a dark band that fades upward from the bo
 line 1 "연금 꺼내는 순서 모르면" — "연금 꺼내는 순서" in bright yellow #FFD400 and "모르면" in white, both with a thick black outline;
 line 2 "평생 2천만 원 손해", slightly larger than line 1 — "평생" in white with a thick black outline, and "2천만 원 손해" in bright red #FF2A2A with a thick white outline.
 The second line ends well before the bottom-right corner; keep the bottom-right corner empty for the video length badge. Keep the couple and the 3D words in the upper part so they never cover the bottom title.
-If the canvas is not exactly 16:9, keep all text and faces inside the central 16:9 area, at least 8% away from the top and bottom edges.
-Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font. No other text, letters, numbers, watermarks or logos anywhere.
+If 16:9 is not available, use the widest landscape canvas; in any case keep all text and faces inside the central 16:9 area, at least 8% away from the top and bottom edges.
+Render ONLY the Korean text given in quotes, exactly as written with the same letters and spacing, in a heavy bold sans-serif Korean font. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 
 ## [B] 글자 없는 프롬프트 (한글이 틀릴 때)

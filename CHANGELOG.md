@@ -1,5 +1,24 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-15 (2) — 썸네일: ChatGPT에 주소 하나로 3장 (make_summary v1.4.0 --chatgpt)
+
+### 왜 (사용자 지시)
+- "가로형 ~ 이 내용은 프롬프트에 다 있어야지 그리고 한번에 3개 다 읽어서 만들라고 하면 되잖아 수정할거 있으면 수정하고 다시 알려줘"
+
+### 바꾼 것
+| 파일 (버전) | 함수·항목 | 내용 |
+|---|---|---|
+| `tools/make_summary.py` v1.3.3 → v1.4.0 | `chatgpt_file`, `--chatgpt 주제 영상ID` | `thumbnails/chatgpt.md` 생성: ChatGPT가 할 일(1번부터 차례로 모두·묻지 않기·프롬프트 그대로·장마다 다른 그림·한글 맞춰 보고 글자만 고치기) + 시안별 문구표·[A]. [A] 없으면 멈춤 |
+| `tools/tests/test_make_summary_chatgpt.py` v1.0 (새로) | — | 3개 시험: 글자 그대로·차례·[B]/검수 제외·주소, [A] 없음, 파일 없음 |
+| 썸네일 `thumbnail_1~3.md` v4.0 → v4.1 | [A] | '16:9가 안 되면 가장 넓은 가로형' · '글자·띄어쓰기 그대로' |
+| 썸네일 `README.md` v4.1 → v4.2 · `chatgpt.md` (새로) | 5번 | 주소 한 줄 메시지 |
+| `guides/thumbnail_guide.md` v2.1 → v2.2 | 5·6번 | Claude가 `chatgpt.md`를 만들어 올리고 주소 메시지를 알려 줌, 규칙은 [A] 안에 |
+
+### 결과 (검사)
+- `python3 -m unittest tools.tests.test_make_summary_chatgpt` 3개 OK
+- `make_summary.py economic eunte-kkeonaeseugi-2026-10`(요약) 그대로 돎 — 썸네일 3개 제목·가설 읽힘 (시험만 하고 summary.md 는 올리지 않음)
+- raw 주소 200 확인 (저장소 공개)
+
 ## 2026-10-15 — 썸네일 지시사항 v2.0 · 은퇴 꺼내 쓰기 영상 썸네일 프롬프트 3개 (본안 1 + 실험안 2)
 
 ### 왜 (사용자 지시)

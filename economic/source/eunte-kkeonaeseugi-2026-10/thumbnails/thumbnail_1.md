@@ -1,6 +1,6 @@
 # eunte-kkeonaeseugi-2026-10 썸네일 1 — 본안(클릭률 최대): 좌절한 50대 남성 + '세금'·'건보료' 낱말
 
-버전: v4.0 — 2026-10-15 — 대본 eunte-kkeonaeseugi-2026-10.txt v1.2 기준. 사용자 지시 "썸네일 문구는 제목에서 더 줄일 수 있는 부분을 줄이고(월 15만원 씩) 나쁜 상황은 빨간색으로 강조(2000만원 손해), 중요한 부분은 노란색으로 표시하고 (연금 꺼내는 순서) 하단에 두줄로 … 세금, 건보료 2000만원 손해봐서 좌절하고 있는 50대(되도록 젊은 나이대로) … 하나는 정말로 썸네일 클릭율이 높도록". 고친 이유와 근거: `README.md`.
+버전: v4.1 — 2026-10-15 — [A]에 '16:9가 안 되면 가장 넓은 가로형'·'글자·띄어쓰기 그대로'를 넣음 (사용자 지시 "가로형 ~ 이 내용은 프롬프트에 다 있어야지"). v4.0 — 2026-10-15 — 대본 eunte-kkeonaeseugi-2026-10.txt v1.2 기준. 사용자 지시 "썸네일 문구는 제목에서 더 줄일 수 있는 부분을 줄이고(월 15만원 씩) 나쁜 상황은 빨간색으로 강조(2000만원 손해), 중요한 부분은 노란색으로 표시하고 (연금 꺼내는 순서) 하단에 두줄로 … 세금, 건보료 2000만원 손해봐서 좌절하고 있는 50대(되도록 젊은 나이대로) … 하나는 정말로 썸네일 클릭율이 높도록". 고친 이유와 근거: `README.md`.
 
 | 항목 | 값 |
 |---|---|
@@ -42,8 +42,8 @@ Bottom title: in the lower third, over a dark band that fades upward from the bo
 line 1 "연금 꺼내는 순서 모르면" — "연금 꺼내는 순서" in bright yellow #FFD400 and "모르면" in white, both with a thick black outline;
 line 2 "평생 2천만 원 손해", slightly larger than line 1 — "평생" in white with a thick black outline, and "2천만 원 손해" in bright red #FF2A2A with a thick white outline.
 The second line ends well before the bottom-right corner; keep the bottom-right corner empty for the video length badge. Keep the man and the word tags in the upper part so they never cover the bottom title.
-If the canvas is not exactly 16:9, keep all text and the face inside the central 16:9 area, at least 8% away from the top and bottom edges.
-Render ONLY the Korean text given in quotes, exactly as written, in a heavy bold sans-serif Korean font. No other text, letters, numbers, watermarks or logos anywhere.
+If 16:9 is not available, use the widest landscape canvas; in any case keep all text and the face inside the central 16:9 area, at least 8% away from the top and bottom edges.
+Render ONLY the Korean text given in quotes, exactly as written with the same letters and spacing, in a heavy bold sans-serif Korean font. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 
 ## [B] 글자 없는 프롬프트 (한글이 틀릴 때 — 글자는 편집 프로그램으로)

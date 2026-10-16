@@ -1,0 +1,110 @@
+{
+ "id": "GSpc5rimqk4",
+ "title": "Playlist | 잘 때 듣는 조용한 재즈 음악 모음 😴🛏️ | 듣기만해도 스르르 잠이드는 편안한 수면유도 BGM | Sleep Jazz",
+ "channel": "JazzNe",
+ "channel_id": "UCbsHYIZwk9pZIMp53ciDjOw",
+ "subs": 382000,
+ "views": 326213,
+ "ratio": 0.85,
+ "age_days": 98,
+ "views_per_day": 3328.7,
+ "minutes": 172.8,
+ "likes": 2965,
+ "comments": 18,
+ "published": "2026-07-10",
+ "queries": "검색:잠잘때 듣는",
+ "url": "https://www.youtube.com/watch?v=GSpc5rimqk4",
+ "flag": "",
+ "published_at": "2026-07-10T11:00:02Z",
+ "rank": "W20",
+ "set": "web",
+ "folder": "W_GSpc5rimqk4",
+ "sources": [
+  "검색:잠잘때 듣는"
+ ],
+ "source": "web",
+ "tags": [
+  "기분째즈네",
+  "기분재즈네",
+  "재즈네",
+  "moodisjazz",
+  "재즈피아노",
+  "재즈란무엇인가",
+  "재즈음악",
+  "재즈가뭐라고생각하십니까",
+  "재즈플레이리스트",
+  "JAZZNE",
+  "음악",
+  "재즈",
+  "jazz",
+  "#jazz"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Pure Imagination"
+  },
+  {
+   "start": 305,
+   "title": "When I Fall In Love"
+  },
+  {
+   "start": 565,
+   "title": "The Nearness Of You"
+  },
+  {
+   "start": 984,
+   "title": "Spring Rain"
+  },
+  {
+   "start": 1269,
+   "title": "Autumn In New York"
+  },
+  {
+   "start": 1545,
+   "title": "Moon River"
+  },
+  {
+   "start": 1828,
+   "title": "Smoke Gets In Your Eyes"
+  },
+  {
+   "start": 2103,
+   "title": "Under The Tree"
+  },
+  {
+   "start": 2391,
+   "title": "Polka Dots And Moonbeams"
+  },
+  {
+   "start": 2812,
+   "title": "Daydream"
+  },
+  {
+   "start": 3034,
+   "title": "When Sunny Gets Blue"
+  },
+  {
+   "start": 3455,
+   "title": "🔄 2회차 반복 재생(처음부터 다시 듣기)"
+  },
+  {
+   "start": 6910,
+   "title": "🔄 3회차 반복 재생(처음부터 다시 듣기)"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 17:37까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 18,
+ "comments_top_level": 17,
+ "comments_replies": 1,
+ "comments_by_creator": 2,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 18,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T11:37:45",
+ "approved": "2026-10-16T20:37+09:00"
+}

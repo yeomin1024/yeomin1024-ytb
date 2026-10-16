@@ -1,0 +1,44 @@
+# =====================================================================================================
+# YouTube 주제 분석기 설정 파일 — 주제: 음악 (폴더 music)
+# VERSION: v1.0 — 2026-10-16 — 새로 만듦 (사용자 지시 2026-10-16: "이 환경은 이제 저장소에 있는 음악 주제 (music 경로 없으면 폴더 만들것)를
+#          유튜브 분석 코드 실행해서 분석하는 환경이야 기존 분석 결과에 이어서 한번 해보고 사용량 초기화 될때마다 분석을 계속 이어서하면 돼
+#          캐시를 저장소에 남겨서 분석 이어서 할 수 있게 하고").
+#          값은 history/analyzer_config.toml v1.1 (= new v1.0 = stock v3.2) 과 같고 다른 것: 주제 이름·폴더만.
+#          외국 영상 꺼짐 (기본 — 한국어 시장. 음악은 말이 없는 연주곡이 많아 세계 시장도 볼 만함 → 사용자가 정하면 켬:
+#          python3 tools/cloud_run.py music foreign on  — 그때는 검색이 언어 지정 없이 새로 + keywords_foreign.txt 필요).
+#          FRESH_START 없음 (이 폴더로 PC 에서 돌린 예전 자료가 없음).
+#          '기존 분석 결과' = new/ 분야 탐색(2026-10-16)의 '15. 수면·힐링 듣기' — 그 검색('잠잘때 듣는'·'수면 명상')·영상 정보 캐시를 이어 받아 씀
+#          (music/README.md). 별도 저장소 yeomin1024/music-ytb 는 작곡 도구(YuE2)뿐 — 유튜브 분석 결과는 없음.
+#
+# ▶ 클라우드 (이 환경): python3 tools/cloud_run.py music <status|explore|list|approve|baseline|analyze|resume> (music/README.md)
+# ▶ PC (웹 화면): ⚠️ 켜지 않음 — 클라우드가 분석 중 (PC 가 켜면 자기 결과로 GitHub 의 music/result/outliers/ 를 바꿈)
+# ※ 연구·교육용 분석 — 투자·의료·법률 권유가 아니다.
+# =====================================================================================================
+
+[topic]
+TOPIC = "음악"
+PROJECT_FOLDER = "music"             # 결과 상위 폴더 → PC: output/music/result/, GitHub: music/result/
+RESULT_FOLDER = "result"
+
+[github]
+GITHUB_REPO = "yeomin1024/yeomin1024-ytb"
+GITHUB_BRANCH = "main"
+
+[search]
+REGION_CODE = "KR"
+LANGUAGE = "ko"
+INCLUDE_FOREIGN = false              # 한국어 영상만 (기본). 세계 시장까지 보려면 true + keywords_foreign.txt — 그때는 검색이 언어 지정 없이 새로
+
+[keywords]
+KEYWORD_MODE = "curated"
+KEYWORDS_FILE = "keywords.toml"      # 관련어·제외어 목록 파일. 검색어는 keywords.txt (tools/tag_keywords.py 가 실제 영상 태그로 고름)
+
+[ads]
+AD_SUSPECT_FILTER = true             # 조회수는 많은데 좋아요·댓글이 거의 없는 영상(광고로 조회수를 산 것으로 의심) 제외
+AD_SUSPECT_MIN_VIEWS = 50000
+AD_SUSPECT_MAX_LIKE_RATE = 0.0025
+AD_SUSPECT_MAX_COMMENT_RATE = 0.00005
+
+[advanced]
+QUOTA_BUDGET = 6000                  # ⚠️ 비용 관련 (분석기 youtube_topic_analyzer.py 몫 — 클라우드 탐색은 cloud_run 이 남은 만큼)
+DOWNLOAD_VIDEOS = false              # ⚠️ 성공사례 영상 파일은 받지 않음 (사용자 지시 2026-10-13) — 자막·썸네일·댓글·메타데이터만

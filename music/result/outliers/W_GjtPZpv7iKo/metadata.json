@@ -1,0 +1,83 @@
+{
+ "id": "GjtPZpv7iKo",
+ "title": "🌿 𝑯𝒆𝒂𝒍𝒊𝒎𝒂𝒍𝒔 | 🧘 숲속 호텔의 저녁 명상 클래스 | 싱잉볼 & 잔잔한 피아노 | Meditation Music",
+ "channel": "힐리멀스",
+ "channel_id": "UC5rTFeHyoeWPBUjhc8kGqqg",
+ "subs": 23000,
+ "views": 117666,
+ "ratio": 5.12,
+ "age_days": 64,
+ "views_per_day": 1838.5,
+ "minutes": 148.0,
+ "likes": 1722,
+ "comments": 122,
+ "published": "2026-08-13",
+ "queries": "검색:수면 명상",
+ "url": "https://www.youtube.com/watch?v=GjtPZpv7iKo",
+ "flag": "",
+ "published_at": "2026-08-13T06:15:28Z",
+ "rank": "W16",
+ "set": "web",
+ "folder": "W_GjtPZpv7iKo",
+ "sources": [
+  "검색:수면 명상"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Slow Inhale"
+  },
+  {
+   "start": 281,
+   "title": "Soft Rising Tide"
+  },
+  {
+   "start": 428,
+   "title": "Between Two Breaths"
+  },
+  {
+   "start": 618,
+   "title": "Falling Into Stillness"
+  },
+  {
+   "start": 815,
+   "title": "Where the Waves Slow"
+  },
+  {
+   "start": 1001,
+   "title": "A Quiet Turning"
+  },
+  {
+   "start": 1161,
+   "title": "Breathing in the Dark"
+  },
+  {
+   "start": 1390,
+   "title": "The Calm Beneath"
+  },
+  {
+   "start": 1535,
+   "title": "Endless Soft Tide"
+  },
+  {
+   "start": 1777,
+   "title": "🔁"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 17:37까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 122,
+ "comments_top_level": 57,
+ "comments_replies": 65,
+ "comments_by_creator": 56,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 122,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T11:37:37",
+ "approved": "2026-10-16T20:37+09:00"
+}

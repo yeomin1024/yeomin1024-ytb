@@ -1,0 +1,3622 @@
+{
+ "tool": "weekly_analysis.py v1.3",
+ "topic": "music",
+ "name": "음악",
+ "generated": "2026-10-16T11:39:04+00:00",
+ "cases": 20,
+ "dated": 20,
+ "older_than_windows": 0,
+ "max_weeks": 52,
+ "text_sources": {
+  "자막": 0,
+  "음성인식": 0,
+  "설명": 20,
+  "없음": 0
+ },
+ "criteria": "성공 사례 = 구독자 50,000 이하 · 조회수 10,000 이상 · 조회수 ≥ 구독자 × 3",
+ "windows": [
+  {
+   "weeks": 1,
+   "label": "최근 1주",
+   "videos": 0,
+   "channels": 0,
+   "new_this_week": [],
+   "views_median": null,
+   "views_per_day_median": null,
+   "ratio_median": null,
+   "success": 0,
+   "minutes_median": null,
+   "title_len_avg": null,
+   "title_features": [],
+   "title_words": [],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 0,
+    "없음": 0
+   },
+   "content_words": [],
+   "chapters_share": null,
+   "syl_per_sec_median": null,
+   "hooks": [],
+   "comments": 0,
+   "comment_needs": [],
+   "top_comments": [],
+   "top_videos": []
+  },
+  {
+   "weeks": 2,
+   "label": "최근 2주",
+   "videos": 0,
+   "channels": 0,
+   "new_this_week": [],
+   "views_median": null,
+   "views_per_day_median": null,
+   "ratio_median": null,
+   "success": 0,
+   "minutes_median": null,
+   "title_len_avg": null,
+   "title_features": [],
+   "title_words": [],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 0,
+    "없음": 0
+   },
+   "content_words": [],
+   "chapters_share": null,
+   "syl_per_sec_median": null,
+   "hooks": [],
+   "comments": 0,
+   "comment_needs": [],
+   "top_comments": [],
+   "top_videos": []
+  },
+  {
+   "weeks": 3,
+   "label": "최근 3주",
+   "videos": 0,
+   "channels": 0,
+   "new_this_week": [],
+   "views_median": null,
+   "views_per_day_median": null,
+   "ratio_median": null,
+   "success": 0,
+   "minutes_median": null,
+   "title_len_avg": null,
+   "title_features": [],
+   "title_words": [],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 0,
+    "없음": 0
+   },
+   "content_words": [],
+   "chapters_share": null,
+   "syl_per_sec_median": null,
+   "hooks": [],
+   "comments": 0,
+   "comment_needs": [],
+   "top_comments": [],
+   "top_videos": []
+  },
+  {
+   "weeks": 4,
+   "label": "최근 4주",
+   "videos": 0,
+   "channels": 0,
+   "new_this_week": [],
+   "views_median": null,
+   "views_per_day_median": null,
+   "ratio_median": null,
+   "success": 0,
+   "minutes_median": null,
+   "title_len_avg": null,
+   "title_features": [],
+   "title_words": [],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 0,
+    "없음": 0
+   },
+   "content_words": [],
+   "chapters_share": null,
+   "syl_per_sec_median": null,
+   "hooks": [],
+   "comments": 0,
+   "comment_needs": [],
+   "top_comments": [],
+   "top_videos": []
+  },
+  {
+   "weeks": 5,
+   "label": "최근 5주",
+   "videos": 0,
+   "channels": 0,
+   "new_this_week": [],
+   "views_median": null,
+   "views_per_day_median": null,
+   "ratio_median": null,
+   "success": 0,
+   "minutes_median": null,
+   "title_len_avg": null,
+   "title_features": [],
+   "title_words": [],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 0,
+    "없음": 0
+   },
+   "content_words": [],
+   "chapters_share": null,
+   "syl_per_sec_median": null,
+   "hooks": [],
+   "comments": 0,
+   "comment_needs": [],
+   "top_comments": [],
+   "top_videos": []
+  },
+  {
+   "weeks": 6,
+   "label": "최근 6주",
+   "videos": 0,
+   "channels": 0,
+   "new_this_week": [],
+   "views_median": null,
+   "views_per_day_median": null,
+   "ratio_median": null,
+   "success": 0,
+   "minutes_median": null,
+   "title_len_avg": null,
+   "title_features": [],
+   "title_words": [],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 0,
+    "없음": 0
+   },
+   "content_words": [],
+   "chapters_share": null,
+   "syl_per_sec_median": null,
+   "hooks": [],
+   "comments": 0,
+   "comment_needs": [],
+   "top_comments": [],
+   "top_videos": []
+  },
+  {
+   "weeks": 7,
+   "label": "최근 7주",
+   "videos": 0,
+   "channels": 0,
+   "new_this_week": [],
+   "views_median": null,
+   "views_per_day_median": null,
+   "ratio_median": null,
+   "success": 0,
+   "minutes_median": null,
+   "title_len_avg": null,
+   "title_features": [],
+   "title_words": [],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 0,
+    "없음": 0
+   },
+   "content_words": [],
+   "chapters_share": null,
+   "syl_per_sec_median": null,
+   "hooks": [],
+   "comments": 0,
+   "comment_needs": [],
+   "top_comments": [],
+   "top_videos": []
+  },
+  {
+   "weeks": 8,
+   "label": "최근 8주",
+   "videos": 0,
+   "channels": 0,
+   "new_this_week": [],
+   "views_median": null,
+   "views_per_day_median": null,
+   "ratio_median": null,
+   "success": 0,
+   "minutes_median": null,
+   "title_len_avg": null,
+   "title_features": [],
+   "title_words": [],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 0,
+    "없음": 0
+   },
+   "content_words": [],
+   "chapters_share": null,
+   "syl_per_sec_median": null,
+   "hooks": [],
+   "comments": 0,
+   "comment_needs": [],
+   "top_comments": [],
+   "top_videos": []
+  },
+  {
+   "weeks": 9,
+   "label": "최근 9주",
+   "videos": 0,
+   "channels": 0,
+   "new_this_week": [],
+   "views_median": null,
+   "views_per_day_median": null,
+   "ratio_median": null,
+   "success": 0,
+   "minutes_median": null,
+   "title_len_avg": null,
+   "title_features": [],
+   "title_words": [],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 0,
+    "없음": 0
+   },
+   "content_words": [],
+   "chapters_share": null,
+   "syl_per_sec_median": null,
+   "hooks": [],
+   "comments": 0,
+   "comment_needs": [],
+   "top_comments": [],
+   "top_videos": []
+  },
+  {
+   "weeks": 10,
+   "label": "최근 10주",
+   "videos": 2,
+   "channels": 2,
+   "new_this_week": [
+    {
+     "id": "GjtPZpv7iKo",
+     "title": "🌿 𝑯𝒆𝒂𝒍𝒊𝒎𝒂𝒍𝒔 | 🧘 숲속 호텔의 저녁 명상 클래스 | 싱잉볼 & 잔잔한 피아노 | Meditation Music",
+     "published": "2026-08-13"
+    },
+    {
+     "id": "r2KhFJXQh-4",
+     "title": "🙏 기도가 잘되는 평안한 오보에 찬송가 3시간 | 마음이 고요해지는 기도음악 · 묵상 · 수면 | Peaceful Oboe Hymns · Prayer Music",
+     "published": "2026-08-12"
+    }
+   ],
+   "views_median": 131804.0,
+   "views_per_day_median": 2038.95,
+   "ratio_median": 4.57,
+   "success": 2,
+   "minutes_median": 166.65,
+   "title_len_avg": 78.0,
+   "title_features": [],
+   "title_words": [
+    {
+     "word": "Music",
+     "count": 2
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 2,
+    "없음": 0
+   },
+   "content_words": [
+    {
+     "word": "잔잔한",
+     "count": 2
+    },
+    {
+     "word": "있도록",
+     "count": 2
+    },
+    {
+     "word": "있습니다",
+     "count": 2
+    },
+    {
+     "word": "머무는",
+     "count": 2
+    },
+    {
+     "word": "보세요",
+     "count": 2
+    }
+   ],
+   "chapters_share": 1.0,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "r2KhFJXQh-4",
+     "title": "🙏 기도가 잘되는 평안한 오보에 찬송가 3시간 | 마음이 고요해지는 기도음악 · 묵상 · 수면 | Peaceful Oboe Hymns · Prayer Music",
+     "src": "설명",
+     "hook": "🎁 히솝워십 찬송가 USB 안내 인터넷 연결 없이 찬송가를 듣고 싶으신 분들을 위해 USB도 준비되어 있습니다. 차량이나 가정에서 편안하게 이용하실 수 있습니다. 🙏 기도가 잘되는 평안한 오보에 찬송가 3시간 바쁜 하루를 내려놓고 조용히 하나님 앞에 머무는 시간, 따뜻하고 평안한 오보에"
+    },
+    {
+     "id": "GjtPZpv7iKo",
+     "title": "🌿 𝑯𝒆𝒂𝒍𝒊𝒎𝒂𝒍𝒔 | 🧘 숲속 호텔의 저녁 명상 클래스 | 싱잉볼 & 잔잔한 피아노 | Meditation Music",
+     "src": "설명",
+     "hook": "🌙 숲속 호텔의 저녁 명상시간 매일 저녁, 힐리멀스에서 작은 명상 클래스가 열립니다. 🧘🌿 해가 천천히 저물고 숲속에 풀벌레 소리가 들려오기 시작하면, 친구들도 하나둘 매트 위에 자리를 잡아요. 오늘의 명상 가이드는 티앙. 🐥 티앙이 싱잉볼을 가만히 울리면 잔잔한 피아노 선율과 함께 맑"
+    }
+   ],
+   "comments": 321,
+   "comment_needs": [
+    {
+     "name": "칭찬·감사",
+     "count": 132,
+     "share": 0.411
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 20,
+     "share": 0.062
+    },
+    {
+     "name": "요청",
+     "count": 14,
+     "share": 0.044
+    },
+    {
+     "name": "질문",
+     "count": 9,
+     "share": 0.028
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 6,
+     "share": 0.019
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "싱잉볼 소리가 더 컸으면 좋겠어요 ㅎㅎㅎㅎㅎ",
+     "likes": 48
+    },
+    {
+     "text": "오늘 찬양이 은혜가 되셨다면 댓글에 ‘아멘’으로 함께 마음 나눠주세요. 🙏 \n구독과 좋아요, 새로 생긴 ‘하이프’는 더 많은 분들에게 찬송가를 전하는 큰 힘이 됩니다. \n오늘도 주님의 평안과 은혜가 함께하시길 기도합",
+     "likes": 37
+    },
+    {
+     "text": "싱잉볼 치는 친구도, 앉아서 졸고있는 친구도, 누워서 입벌리고 자는 친구들도 너무 귀엽네요\n여기 채널은 그림이랑 음악 듣고 있으면 마음이 평온해지는 기분이라 너무 좋아요 ^_^\n항상 좋은 컨텐츠 감사합니다",
+     "likes": 33
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "r2KhFJXQh-4",
+     "title": "🙏 기도가 잘되는 평안한 오보에 찬송가 3시간 | 마음이 고요해지는 기도음악 · 묵상 · 수면 | Peaceful Oboe Hymns · Prayer Music",
+     "channel": "히솝워십 | Hyssop Worship",
+     "views": 145942,
+     "views_per_day": 2245.8,
+     "published": "2026-08-12",
+     "url": "https://www.youtube.com/watch?v=r2KhFJXQh-4"
+    },
+    {
+     "id": "GjtPZpv7iKo",
+     "title": "🌿 𝑯𝒆𝒂𝒍𝒊𝒎𝒂𝒍𝒔 | 🧘 숲속 호텔의 저녁 명상 클래스 | 싱잉볼 & 잔잔한 피아노 | Meditation Music",
+     "channel": "힐리멀스",
+     "views": 117666,
+     "views_per_day": 1832.1,
+     "published": "2026-08-13",
+     "url": "https://www.youtube.com/watch?v=GjtPZpv7iKo"
+    }
+   ]
+  },
+  {
+   "weeks": 11,
+   "label": "최근 11주",
+   "videos": 3,
+   "channels": 3,
+   "new_this_week": [
+    {
+     "id": "4Xl4kMOmGY8",
+     "title": "숲속에 내리는 잔잔한 빗소리 🌧️ 명상, 깊은 수면, 편안한 소리",
+     "published": "2026-08-02"
+    }
+   ],
+   "views_median": 117666,
+   "views_per_day_median": 1832.1,
+   "ratio_median": 5.12,
+   "success": 3,
+   "minutes_median": 185.3,
+   "title_len_avg": 64.0,
+   "title_features": [],
+   "title_words": [
+    {
+     "word": "명상",
+     "count": 2
+    },
+    {
+     "word": "수면",
+     "count": 2
+    },
+    {
+     "word": "잔잔한",
+     "count": 2
+    },
+    {
+     "word": "Music",
+     "count": 2
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 3,
+    "없음": 0
+   },
+   "content_words": [
+    {
+     "word": "잔잔한",
+     "count": 3
+    },
+    {
+     "word": "있습니다",
+     "count": 3
+    },
+    {
+     "word": "들려오는",
+     "count": 2
+    },
+    {
+     "word": "명상",
+     "count": 2
+    },
+    {
+     "word": "숲속에",
+     "count": 2
+    },
+    {
+     "word": "함께",
+     "count": 2
+    },
+    {
+     "word": "마음의",
+     "count": 2
+    },
+    {
+     "word": "있도록",
+     "count": 2
+    },
+    {
+     "word": "머무는",
+     "count": 2
+    },
+    {
+     "word": "보세요",
+     "count": 2
+    }
+   ],
+   "chapters_share": 0.667,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "r2KhFJXQh-4",
+     "title": "🙏 기도가 잘되는 평안한 오보에 찬송가 3시간 | 마음이 고요해지는 기도음악 · 묵상 · 수면 | Peaceful Oboe Hymns · Prayer Music",
+     "src": "설명",
+     "hook": "🎁 히솝워십 찬송가 USB 안내 인터넷 연결 없이 찬송가를 듣고 싶으신 분들을 위해 USB도 준비되어 있습니다. 차량이나 가정에서 편안하게 이용하실 수 있습니다. 🙏 기도가 잘되는 평안한 오보에 찬송가 3시간 바쁜 하루를 내려놓고 조용히 하나님 앞에 머무는 시간, 따뜻하고 평안한 오보에"
+    },
+    {
+     "id": "GjtPZpv7iKo",
+     "title": "🌿 𝑯𝒆𝒂𝒍𝒊𝒎𝒂𝒍𝒔 | 🧘 숲속 호텔의 저녁 명상 클래스 | 싱잉볼 & 잔잔한 피아노 | Meditation Music",
+     "src": "설명",
+     "hook": "🌙 숲속 호텔의 저녁 명상시간 매일 저녁, 힐리멀스에서 작은 명상 클래스가 열립니다. 🧘🌿 해가 천천히 저물고 숲속에 풀벌레 소리가 들려오기 시작하면, 친구들도 하나둘 매트 위에 자리를 잡아요. 오늘의 명상 가이드는 티앙. 🐥 티앙이 싱잉볼을 가만히 울리면 잔잔한 피아노 선율과 함께 맑"
+    },
+    {
+     "id": "4Xl4kMOmGY8",
+     "title": "숲속에 내리는 잔잔한 빗소리 🌧️ 명상, 깊은 수면, 편안한 소리",
+     "src": "설명",
+     "hook": "숲속에 내리는 잔잔한 빗소리 🌧️ 명상, 깊은 수면, 편안한 소리 고요한 숲속에 내리는 부드러운 빗소리와 함께 몸과 마음의 긴장을 풀어보세요. 숲속에 부드럽게 내리는 빗소리와 나뭇잎 사이로 스치는 잔잔한 바람, 멀리서 들려오는 자연스러운 천둥소리와 함께 깊은 평온함을 느껴보세요. 이 편"
+    }
+   ],
+   "comments": 362,
+   "comment_needs": [
+    {
+     "name": "칭찬·감사",
+     "count": 132,
+     "share": 0.365
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 22,
+     "share": 0.061
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 20,
+     "share": 0.055
+    },
+    {
+     "name": "요청",
+     "count": 14,
+     "share": 0.039
+    },
+    {
+     "name": "질문",
+     "count": 13,
+     "share": 0.036
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "싱잉볼 소리가 더 컸으면 좋겠어요 ㅎㅎㅎㅎㅎ",
+     "likes": 48
+    },
+    {
+     "text": "오늘 찬양이 은혜가 되셨다면 댓글에 ‘아멘’으로 함께 마음 나눠주세요. 🙏 \n구독과 좋아요, 새로 생긴 ‘하이프’는 더 많은 분들에게 찬송가를 전하는 큰 힘이 됩니다. \n오늘도 주님의 평안과 은혜가 함께하시길 기도합",
+     "likes": 37
+    },
+    {
+     "text": "싱잉볼 치는 친구도, 앉아서 졸고있는 친구도, 누워서 입벌리고 자는 친구들도 너무 귀엽네요\n여기 채널은 그림이랑 음악 듣고 있으면 마음이 평온해지는 기분이라 너무 좋아요 ^_^\n항상 좋은 컨텐츠 감사합니다",
+     "likes": 33
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "r2KhFJXQh-4",
+     "title": "🙏 기도가 잘되는 평안한 오보에 찬송가 3시간 | 마음이 고요해지는 기도음악 · 묵상 · 수면 | Peaceful Oboe Hymns · Prayer Music",
+     "channel": "히솝워십 | Hyssop Worship",
+     "views": 145942,
+     "views_per_day": 2245.8,
+     "published": "2026-08-12",
+     "url": "https://www.youtube.com/watch?v=r2KhFJXQh-4"
+    },
+    {
+     "id": "GjtPZpv7iKo",
+     "title": "🌿 𝑯𝒆𝒂𝒍𝒊𝒎𝒂𝒍𝒔 | 🧘 숲속 호텔의 저녁 명상 클래스 | 싱잉볼 & 잔잔한 피아노 | Meditation Music",
+     "channel": "힐리멀스",
+     "views": 117666,
+     "views_per_day": 1832.1,
+     "published": "2026-08-13",
+     "url": "https://www.youtube.com/watch?v=GjtPZpv7iKo"
+    },
+    {
+     "id": "4Xl4kMOmGY8",
+     "title": "숲속에 내리는 잔잔한 빗소리 🌧️ 명상, 깊은 수면, 편안한 소리",
+     "channel": "숲 속 빗소리",
+     "views": 100192,
+     "views_per_day": 1336.9,
+     "published": "2026-08-02",
+     "url": "https://www.youtube.com/watch?v=4Xl4kMOmGY8"
+    }
+   ]
+  },
+  {
+   "weeks": 12,
+   "label": "최근 12주",
+   "videos": 3,
+   "channels": 3,
+   "new_this_week": [],
+   "views_median": 117666,
+   "views_per_day_median": 1832.1,
+   "ratio_median": 5.12,
+   "success": 3,
+   "minutes_median": 185.3,
+   "title_len_avg": 64.0,
+   "title_features": [],
+   "title_words": [
+    {
+     "word": "명상",
+     "count": 2
+    },
+    {
+     "word": "수면",
+     "count": 2
+    },
+    {
+     "word": "잔잔한",
+     "count": 2
+    },
+    {
+     "word": "Music",
+     "count": 2
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 3,
+    "없음": 0
+   },
+   "content_words": [
+    {
+     "word": "잔잔한",
+     "count": 3
+    },
+    {
+     "word": "있습니다",
+     "count": 3
+    },
+    {
+     "word": "들려오는",
+     "count": 2
+    },
+    {
+     "word": "명상",
+     "count": 2
+    },
+    {
+     "word": "숲속에",
+     "count": 2
+    },
+    {
+     "word": "함께",
+     "count": 2
+    },
+    {
+     "word": "마음의",
+     "count": 2
+    },
+    {
+     "word": "있도록",
+     "count": 2
+    },
+    {
+     "word": "머무는",
+     "count": 2
+    },
+    {
+     "word": "보세요",
+     "count": 2
+    }
+   ],
+   "chapters_share": 0.667,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "r2KhFJXQh-4",
+     "title": "🙏 기도가 잘되는 평안한 오보에 찬송가 3시간 | 마음이 고요해지는 기도음악 · 묵상 · 수면 | Peaceful Oboe Hymns · Prayer Music",
+     "src": "설명",
+     "hook": "🎁 히솝워십 찬송가 USB 안내 인터넷 연결 없이 찬송가를 듣고 싶으신 분들을 위해 USB도 준비되어 있습니다. 차량이나 가정에서 편안하게 이용하실 수 있습니다. 🙏 기도가 잘되는 평안한 오보에 찬송가 3시간 바쁜 하루를 내려놓고 조용히 하나님 앞에 머무는 시간, 따뜻하고 평안한 오보에"
+    },
+    {
+     "id": "GjtPZpv7iKo",
+     "title": "🌿 𝑯𝒆𝒂𝒍𝒊𝒎𝒂𝒍𝒔 | 🧘 숲속 호텔의 저녁 명상 클래스 | 싱잉볼 & 잔잔한 피아노 | Meditation Music",
+     "src": "설명",
+     "hook": "🌙 숲속 호텔의 저녁 명상시간 매일 저녁, 힐리멀스에서 작은 명상 클래스가 열립니다. 🧘🌿 해가 천천히 저물고 숲속에 풀벌레 소리가 들려오기 시작하면, 친구들도 하나둘 매트 위에 자리를 잡아요. 오늘의 명상 가이드는 티앙. 🐥 티앙이 싱잉볼을 가만히 울리면 잔잔한 피아노 선율과 함께 맑"
+    },
+    {
+     "id": "4Xl4kMOmGY8",
+     "title": "숲속에 내리는 잔잔한 빗소리 🌧️ 명상, 깊은 수면, 편안한 소리",
+     "src": "설명",
+     "hook": "숲속에 내리는 잔잔한 빗소리 🌧️ 명상, 깊은 수면, 편안한 소리 고요한 숲속에 내리는 부드러운 빗소리와 함께 몸과 마음의 긴장을 풀어보세요. 숲속에 부드럽게 내리는 빗소리와 나뭇잎 사이로 스치는 잔잔한 바람, 멀리서 들려오는 자연스러운 천둥소리와 함께 깊은 평온함을 느껴보세요. 이 편"
+    }
+   ],
+   "comments": 362,
+   "comment_needs": [
+    {
+     "name": "칭찬·감사",
+     "count": 132,
+     "share": 0.365
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 22,
+     "share": 0.061
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 20,
+     "share": 0.055
+    },
+    {
+     "name": "요청",
+     "count": 14,
+     "share": 0.039
+    },
+    {
+     "name": "질문",
+     "count": 13,
+     "share": 0.036
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "싱잉볼 소리가 더 컸으면 좋겠어요 ㅎㅎㅎㅎㅎ",
+     "likes": 48
+    },
+    {
+     "text": "오늘 찬양이 은혜가 되셨다면 댓글에 ‘아멘’으로 함께 마음 나눠주세요. 🙏 \n구독과 좋아요, 새로 생긴 ‘하이프’는 더 많은 분들에게 찬송가를 전하는 큰 힘이 됩니다. \n오늘도 주님의 평안과 은혜가 함께하시길 기도합",
+     "likes": 37
+    },
+    {
+     "text": "싱잉볼 치는 친구도, 앉아서 졸고있는 친구도, 누워서 입벌리고 자는 친구들도 너무 귀엽네요\n여기 채널은 그림이랑 음악 듣고 있으면 마음이 평온해지는 기분이라 너무 좋아요 ^_^\n항상 좋은 컨텐츠 감사합니다",
+     "likes": 33
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "r2KhFJXQh-4",
+     "title": "🙏 기도가 잘되는 평안한 오보에 찬송가 3시간 | 마음이 고요해지는 기도음악 · 묵상 · 수면 | Peaceful Oboe Hymns · Prayer Music",
+     "channel": "히솝워십 | Hyssop Worship",
+     "views": 145942,
+     "views_per_day": 2245.8,
+     "published": "2026-08-12",
+     "url": "https://www.youtube.com/watch?v=r2KhFJXQh-4"
+    },
+    {
+     "id": "GjtPZpv7iKo",
+     "title": "🌿 𝑯𝒆𝒂𝒍𝒊𝒎𝒂𝒍𝒔 | 🧘 숲속 호텔의 저녁 명상 클래스 | 싱잉볼 & 잔잔한 피아노 | Meditation Music",
+     "channel": "힐리멀스",
+     "views": 117666,
+     "views_per_day": 1832.1,
+     "published": "2026-08-13",
+     "url": "https://www.youtube.com/watch?v=GjtPZpv7iKo"
+    },
+    {
+     "id": "4Xl4kMOmGY8",
+     "title": "숲속에 내리는 잔잔한 빗소리 🌧️ 명상, 깊은 수면, 편안한 소리",
+     "channel": "숲 속 빗소리",
+     "views": 100192,
+     "views_per_day": 1336.9,
+     "published": "2026-08-02",
+     "url": "https://www.youtube.com/watch?v=4Xl4kMOmGY8"
+    }
+   ]
+  },
+  {
+   "weeks": 13,
+   "label": "최근 13주",
+   "videos": 3,
+   "channels": 3,
+   "new_this_week": [],
+   "views_median": 117666,
+   "views_per_day_median": 1832.1,
+   "ratio_median": 5.12,
+   "success": 3,
+   "minutes_median": 185.3,
+   "title_len_avg": 64.0,
+   "title_features": [],
+   "title_words": [
+    {
+     "word": "명상",
+     "count": 2
+    },
+    {
+     "word": "수면",
+     "count": 2
+    },
+    {
+     "word": "잔잔한",
+     "count": 2
+    },
+    {
+     "word": "Music",
+     "count": 2
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 3,
+    "없음": 0
+   },
+   "content_words": [
+    {
+     "word": "잔잔한",
+     "count": 3
+    },
+    {
+     "word": "있습니다",
+     "count": 3
+    },
+    {
+     "word": "들려오는",
+     "count": 2
+    },
+    {
+     "word": "명상",
+     "count": 2
+    },
+    {
+     "word": "숲속에",
+     "count": 2
+    },
+    {
+     "word": "함께",
+     "count": 2
+    },
+    {
+     "word": "마음의",
+     "count": 2
+    },
+    {
+     "word": "있도록",
+     "count": 2
+    },
+    {
+     "word": "머무는",
+     "count": 2
+    },
+    {
+     "word": "보세요",
+     "count": 2
+    }
+   ],
+   "chapters_share": 0.667,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "r2KhFJXQh-4",
+     "title": "🙏 기도가 잘되는 평안한 오보에 찬송가 3시간 | 마음이 고요해지는 기도음악 · 묵상 · 수면 | Peaceful Oboe Hymns · Prayer Music",
+     "src": "설명",
+     "hook": "🎁 히솝워십 찬송가 USB 안내 인터넷 연결 없이 찬송가를 듣고 싶으신 분들을 위해 USB도 준비되어 있습니다. 차량이나 가정에서 편안하게 이용하실 수 있습니다. 🙏 기도가 잘되는 평안한 오보에 찬송가 3시간 바쁜 하루를 내려놓고 조용히 하나님 앞에 머무는 시간, 따뜻하고 평안한 오보에"
+    },
+    {
+     "id": "GjtPZpv7iKo",
+     "title": "🌿 𝑯𝒆𝒂𝒍𝒊𝒎𝒂𝒍𝒔 | 🧘 숲속 호텔의 저녁 명상 클래스 | 싱잉볼 & 잔잔한 피아노 | Meditation Music",
+     "src": "설명",
+     "hook": "🌙 숲속 호텔의 저녁 명상시간 매일 저녁, 힐리멀스에서 작은 명상 클래스가 열립니다. 🧘🌿 해가 천천히 저물고 숲속에 풀벌레 소리가 들려오기 시작하면, 친구들도 하나둘 매트 위에 자리를 잡아요. 오늘의 명상 가이드는 티앙. 🐥 티앙이 싱잉볼을 가만히 울리면 잔잔한 피아노 선율과 함께 맑"
+    },
+    {
+     "id": "4Xl4kMOmGY8",
+     "title": "숲속에 내리는 잔잔한 빗소리 🌧️ 명상, 깊은 수면, 편안한 소리",
+     "src": "설명",
+     "hook": "숲속에 내리는 잔잔한 빗소리 🌧️ 명상, 깊은 수면, 편안한 소리 고요한 숲속에 내리는 부드러운 빗소리와 함께 몸과 마음의 긴장을 풀어보세요. 숲속에 부드럽게 내리는 빗소리와 나뭇잎 사이로 스치는 잔잔한 바람, 멀리서 들려오는 자연스러운 천둥소리와 함께 깊은 평온함을 느껴보세요. 이 편"
+    }
+   ],
+   "comments": 362,
+   "comment_needs": [
+    {
+     "name": "칭찬·감사",
+     "count": 132,
+     "share": 0.365
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 22,
+     "share": 0.061
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 20,
+     "share": 0.055
+    },
+    {
+     "name": "요청",
+     "count": 14,
+     "share": 0.039
+    },
+    {
+     "name": "질문",
+     "count": 13,
+     "share": 0.036
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "싱잉볼 소리가 더 컸으면 좋겠어요 ㅎㅎㅎㅎㅎ",
+     "likes": 48
+    },
+    {
+     "text": "오늘 찬양이 은혜가 되셨다면 댓글에 ‘아멘’으로 함께 마음 나눠주세요. 🙏 \n구독과 좋아요, 새로 생긴 ‘하이프’는 더 많은 분들에게 찬송가를 전하는 큰 힘이 됩니다. \n오늘도 주님의 평안과 은혜가 함께하시길 기도합",
+     "likes": 37
+    },
+    {
+     "text": "싱잉볼 치는 친구도, 앉아서 졸고있는 친구도, 누워서 입벌리고 자는 친구들도 너무 귀엽네요\n여기 채널은 그림이랑 음악 듣고 있으면 마음이 평온해지는 기분이라 너무 좋아요 ^_^\n항상 좋은 컨텐츠 감사합니다",
+     "likes": 33
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "r2KhFJXQh-4",
+     "title": "🙏 기도가 잘되는 평안한 오보에 찬송가 3시간 | 마음이 고요해지는 기도음악 · 묵상 · 수면 | Peaceful Oboe Hymns · Prayer Music",
+     "channel": "히솝워십 | Hyssop Worship",
+     "views": 145942,
+     "views_per_day": 2245.8,
+     "published": "2026-08-12",
+     "url": "https://www.youtube.com/watch?v=r2KhFJXQh-4"
+    },
+    {
+     "id": "GjtPZpv7iKo",
+     "title": "🌿 𝑯𝒆𝒂𝒍𝒊𝒎𝒂𝒍𝒔 | 🧘 숲속 호텔의 저녁 명상 클래스 | 싱잉볼 & 잔잔한 피아노 | Meditation Music",
+     "channel": "힐리멀스",
+     "views": 117666,
+     "views_per_day": 1832.1,
+     "published": "2026-08-13",
+     "url": "https://www.youtube.com/watch?v=GjtPZpv7iKo"
+    },
+    {
+     "id": "4Xl4kMOmGY8",
+     "title": "숲속에 내리는 잔잔한 빗소리 🌧️ 명상, 깊은 수면, 편안한 소리",
+     "channel": "숲 속 빗소리",
+     "views": 100192,
+     "views_per_day": 1336.9,
+     "published": "2026-08-02",
+     "url": "https://www.youtube.com/watch?v=4Xl4kMOmGY8"
+    }
+   ]
+  },
+  {
+   "weeks": 14,
+   "label": "최근 14주",
+   "videos": 5,
+   "channels": 5,
+   "new_this_week": [
+    {
+     "id": "es3vIWdiyZA",
+     "title": "\"가장 포근했던 여름밤처럼\" 마음이 쉬는 수면음악",
+     "published": "2026-07-16"
+    },
+    {
+     "id": "ri10d9TXXGE",
+     "title": "눈 뜨면 아침인 숲속 평온한 빗소리 | 🌲 깊은 수면을 위한 평온한 백색소음 (Rain Sounds for Sleeping)",
+     "published": "2026-07-15"
+    }
+   ],
+   "views_median": 145942,
+   "views_per_day_median": 2245.8,
+   "ratio_median": 5.12,
+   "success": 4,
+   "minutes_median": 187.7,
+   "title_len_avg": 57.6,
+   "title_features": [
+    {
+     "name": "AI",
+     "count": 1,
+     "share": 0.2
+    }
+   ],
+   "title_words": [
+    {
+     "word": "명상",
+     "count": 2
+    },
+    {
+     "word": "빗소리",
+     "count": 2
+    },
+    {
+     "word": "깊은",
+     "count": 2
+    },
+    {
+     "word": "수면",
+     "count": 2
+    },
+    {
+     "word": "잔잔한",
+     "count": 2
+    },
+    {
+     "word": "숲속",
+     "count": 2
+    },
+    {
+     "word": "Music",
+     "count": 2
+    },
+    {
+     "word": "마음이",
+     "count": 2
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 5,
+    "없음": 0
+   },
+   "content_words": [
+    {
+     "word": "잔잔한",
+     "count": 3
+    },
+    {
+     "word": "있습니다",
+     "count": 3
+    },
+    {
+     "word": "오늘",
+     "count": 3
+    },
+    {
+     "word": "보세요",
+     "count": 3
+    },
+    {
+     "word": "들려오는",
+     "count": 2
+    },
+    {
+     "word": "자연의",
+     "count": 2
+    },
+    {
+     "word": "명상",
+     "count": 2
+    },
+    {
+     "word": "숲속에",
+     "count": 2
+    },
+    {
+     "word": "스치는",
+     "count": 2
+    },
+    {
+     "word": "함께",
+     "count": 2
+    },
+    {
+     "word": "빗소리와",
+     "count": 2
+    },
+    {
+     "word": "깊은",
+     "count": 2
+    }
+   ],
+   "chapters_share": 0.4,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "es3vIWdiyZA",
+     "title": "\"가장 포근했던 여름밤처럼\" 마음이 쉬는 수면음악",
+     "src": "설명",
+     "hook": "🎵손끝으로 그린 그림과 직접 작곡한 음악, 이 공간은 AI가 아닌 사람의 온도로 채워집니다:) 선풍기 바람, 반딧불의 작은 빛 창문을 스치는 여름바람.. 아무 걱정 없던 그 여름밤의 기억처럼 잊고 있던 평온이, 오늘 밤 당신의 마음에도 조용히 내려앉기를.. 🎵곡 제목 01.여름밤 02."
+    },
+    {
+     "id": "ri10d9TXXGE",
+     "title": "눈 뜨면 아침인 숲속 평온한 빗소리 | 🌲 깊은 수면을 위한 평온한 백색소음 (Rain Sounds for Sleeping)",
+     "src": "설명",
+     "hook": "싱그러운 초록 잎사귀 위로 떨어지는 맑고 깨끗한 자연의 빗소리입니다. 복잡한 하루의 소음을 지우고, 자연이 주는 가장 평온한 빗소리에 귀를 기울여 보세요. 깊고 편안한 잠이 필요할 때, 혹은 학업과 업무에 집중하고 싶을 때 이 포근한 빗소리와 함께해 보세요. 오늘 밤도 눈 뜨면 아침이 "
+    },
+    {
+     "id": "r2KhFJXQh-4",
+     "title": "🙏 기도가 잘되는 평안한 오보에 찬송가 3시간 | 마음이 고요해지는 기도음악 · 묵상 · 수면 | Peaceful Oboe Hymns · Prayer Music",
+     "src": "설명",
+     "hook": "🎁 히솝워십 찬송가 USB 안내 인터넷 연결 없이 찬송가를 듣고 싶으신 분들을 위해 USB도 준비되어 있습니다. 차량이나 가정에서 편안하게 이용하실 수 있습니다. 🙏 기도가 잘되는 평안한 오보에 찬송가 3시간 바쁜 하루를 내려놓고 조용히 하나님 앞에 머무는 시간, 따뜻하고 평안한 오보에"
+    }
+   ],
+   "comments": 956,
+   "comment_needs": [
+    {
+     "name": "칭찬·감사",
+     "count": 210,
+     "share": 0.22
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 51,
+     "share": 0.053
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 46,
+     "share": 0.048
+    },
+    {
+     "name": "질문",
+     "count": 43,
+     "share": 0.045
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 21,
+     "share": 0.022
+    },
+    {
+     "name": "요청",
+     "count": 18,
+     "share": 0.019
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "버티자 언젠가는 잊혀진다 과거에 얽매이지말자",
+     "likes": 1330
+    },
+    {
+     "text": "낯선 당신에게, 어디에 계시든…\n계속 나아갈 수 있는 힘을 찾으시길 바랍니다.\n그리고 오랫동안 기다려 온 행복이 마침내 당신을 찾아오기를 진심으로 바랍니다. ✨",
+     "likes": 733
+    },
+    {
+     "text": "저 그림처럼 편안하게 삽시다. 안해도 되고. 다 안가져도 되고. 적당히 해야 할것만 해도 잘못된거 아니니깐. 부담갖지 말고 내려놓고 삽시다. 행복하시요 다들.",
+     "likes": 382
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "es3vIWdiyZA",
+     "title": "\"가장 포근했던 여름밤처럼\" 마음이 쉬는 수면음악",
+     "channel": "Music Drawing",
+     "views": 1353255,
+     "views_per_day": 14710.0,
+     "published": "2026-07-16",
+     "url": "https://www.youtube.com/watch?v=es3vIWdiyZA"
+    },
+    {
+     "id": "ri10d9TXXGE",
+     "title": "눈 뜨면 아침인 숲속 평온한 빗소리 | 🌲 깊은 수면을 위한 평온한 백색소음 (Rain Sounds for Sleeping)",
+     "channel": "Cozy Rain on Leaves",
+     "views": 514147,
+     "views_per_day": 5529.3,
+     "published": "2026-07-15",
+     "url": "https://www.youtube.com/watch?v=ri10d9TXXGE"
+    },
+    {
+     "id": "r2KhFJXQh-4",
+     "title": "🙏 기도가 잘되는 평안한 오보에 찬송가 3시간 | 마음이 고요해지는 기도음악 · 묵상 · 수면 | Peaceful Oboe Hymns · Prayer Music",
+     "channel": "히솝워십 | Hyssop Worship",
+     "views": 145942,
+     "views_per_day": 2245.8,
+     "published": "2026-08-12",
+     "url": "https://www.youtube.com/watch?v=r2KhFJXQh-4"
+    },
+    {
+     "id": "GjtPZpv7iKo",
+     "title": "🌿 𝑯𝒆𝒂𝒍𝒊𝒎𝒂𝒍𝒔 | 🧘 숲속 호텔의 저녁 명상 클래스 | 싱잉볼 & 잔잔한 피아노 | Meditation Music",
+     "channel": "힐리멀스",
+     "views": 117666,
+     "views_per_day": 1832.1,
+     "published": "2026-08-13",
+     "url": "https://www.youtube.com/watch?v=GjtPZpv7iKo"
+    },
+    {
+     "id": "4Xl4kMOmGY8",
+     "title": "숲속에 내리는 잔잔한 빗소리 🌧️ 명상, 깊은 수면, 편안한 소리",
+     "channel": "숲 속 빗소리",
+     "views": 100192,
+     "views_per_day": 1336.9,
+     "published": "2026-08-02",
+     "url": "https://www.youtube.com/watch?v=4Xl4kMOmGY8"
+    }
+   ]
+  },
+  {
+   "weeks": 15,
+   "label": "최근 15주",
+   "videos": 6,
+   "channels": 6,
+   "new_this_week": [
+    {
+     "id": "GSpc5rimqk4",
+     "title": "Playlist | 잘 때 듣는 조용한 재즈 음악 모음 😴🛏️ | 듣기만해도 스르르 잠이드는 편안한 수면유도 BGM | Sleep Jazz",
+     "published": "2026-07-10"
+    }
+   ],
+   "views_median": 236077.5,
+   "views_per_day_median": 2786.8,
+   "ratio_median": 4.57,
+   "success": 4,
+   "minutes_median": 186.5,
+   "title_len_avg": 60.8,
+   "title_features": [
+    {
+     "name": "AI",
+     "count": 1,
+     "share": 0.167
+    }
+   ],
+   "title_words": [
+    {
+     "word": "명상",
+     "count": 2
+    },
+    {
+     "word": "빗소리",
+     "count": 2
+    },
+    {
+     "word": "깊은",
+     "count": 2
+    },
+    {
+     "word": "수면",
+     "count": 2
+    },
+    {
+     "word": "편안한",
+     "count": 2
+    },
+    {
+     "word": "잔잔한",
+     "count": 2
+    },
+    {
+     "word": "숲속",
+     "count": 2
+    },
+    {
+     "word": "Music",
+     "count": 2
+    },
+    {
+     "word": "마음이",
+     "count": 2
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 6,
+    "없음": 0
+   },
+   "content_words": [
+    {
+     "word": "잔잔한",
+     "count": 3
+    },
+    {
+     "word": "있습니다",
+     "count": 3
+    },
+    {
+     "word": "함께",
+     "count": 3
+    },
+    {
+     "word": "마음의",
+     "count": 3
+    },
+    {
+     "word": "편안한",
+     "count": 3
+    },
+    {
+     "word": "음악",
+     "count": 3
+    },
+    {
+     "word": "직접",
+     "count": 3
+    },
+    {
+     "word": "오늘",
+     "count": 3
+    },
+    {
+     "word": "보세요",
+     "count": 3
+    },
+    {
+     "word": "들려오는",
+     "count": 2
+    },
+    {
+     "word": "자연의",
+     "count": 2
+    },
+    {
+     "word": "명상",
+     "count": 2
+    }
+   ],
+   "chapters_share": 0.5,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "es3vIWdiyZA",
+     "title": "\"가장 포근했던 여름밤처럼\" 마음이 쉬는 수면음악",
+     "src": "설명",
+     "hook": "🎵손끝으로 그린 그림과 직접 작곡한 음악, 이 공간은 AI가 아닌 사람의 온도로 채워집니다:) 선풍기 바람, 반딧불의 작은 빛 창문을 스치는 여름바람.. 아무 걱정 없던 그 여름밤의 기억처럼 잊고 있던 평온이, 오늘 밤 당신의 마음에도 조용히 내려앉기를.. 🎵곡 제목 01.여름밤 02."
+    },
+    {
+     "id": "ri10d9TXXGE",
+     "title": "눈 뜨면 아침인 숲속 평온한 빗소리 | 🌲 깊은 수면을 위한 평온한 백색소음 (Rain Sounds for Sleeping)",
+     "src": "설명",
+     "hook": "싱그러운 초록 잎사귀 위로 떨어지는 맑고 깨끗한 자연의 빗소리입니다. 복잡한 하루의 소음을 지우고, 자연이 주는 가장 평온한 빗소리에 귀를 기울여 보세요. 깊고 편안한 잠이 필요할 때, 혹은 학업과 업무에 집중하고 싶을 때 이 포근한 빗소리와 함께해 보세요. 오늘 밤도 눈 뜨면 아침이 "
+    },
+    {
+     "id": "GSpc5rimqk4",
+     "title": "Playlist | 잘 때 듣는 조용한 재즈 음악 모음 😴🛏️ | 듣기만해도 스르르 잠이드는 편안한 수면유도 BGM | Sleep Jazz",
+     "src": "설명",
+     "hook": "📢 모든 음원은 직접 작곡 또는 편곡 및 연주한 창작물입니다. 잘 때 듣기 좋은 편안한 Sleep Jazz 플레이리스트 😴🛏 잠 안 올 때, 잠들기 전, 집에서 편안하게 틀어두기 좋은 부드러운 Sleep Jazz BGM 연주곡을 감상해보세요 🤍 안녕하세요! 기분Jazz네 입니다 😌 무더"
+    }
+   ],
+   "comments": 974,
+   "comment_needs": [
+    {
+     "name": "칭찬·감사",
+     "count": 214,
+     "share": 0.22
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 51,
+     "share": 0.052
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 49,
+     "share": 0.05
+    },
+    {
+     "name": "질문",
+     "count": 43,
+     "share": 0.044
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 21,
+     "share": 0.022
+    },
+    {
+     "name": "요청",
+     "count": 19,
+     "share": 0.02
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "버티자 언젠가는 잊혀진다 과거에 얽매이지말자",
+     "likes": 1330
+    },
+    {
+     "text": "낯선 당신에게, 어디에 계시든…\n계속 나아갈 수 있는 힘을 찾으시길 바랍니다.\n그리고 오랫동안 기다려 온 행복이 마침내 당신을 찾아오기를 진심으로 바랍니다. ✨",
+     "likes": 733
+    },
+    {
+     "text": "저 그림처럼 편안하게 삽시다. 안해도 되고. 다 안가져도 되고. 적당히 해야 할것만 해도 잘못된거 아니니깐. 부담갖지 말고 내려놓고 삽시다. 행복하시요 다들.",
+     "likes": 382
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "es3vIWdiyZA",
+     "title": "\"가장 포근했던 여름밤처럼\" 마음이 쉬는 수면음악",
+     "channel": "Music Drawing",
+     "views": 1353255,
+     "views_per_day": 14710.0,
+     "published": "2026-07-16",
+     "url": "https://www.youtube.com/watch?v=es3vIWdiyZA"
+    },
+    {
+     "id": "ri10d9TXXGE",
+     "title": "눈 뜨면 아침인 숲속 평온한 빗소리 | 🌲 깊은 수면을 위한 평온한 백색소음 (Rain Sounds for Sleeping)",
+     "channel": "Cozy Rain on Leaves",
+     "views": 514147,
+     "views_per_day": 5529.3,
+     "published": "2026-07-15",
+     "url": "https://www.youtube.com/watch?v=ri10d9TXXGE"
+    },
+    {
+     "id": "GSpc5rimqk4",
+     "title": "Playlist | 잘 때 듣는 조용한 재즈 음악 모음 😴🛏️ | 듣기만해도 스르르 잠이드는 편안한 수면유도 BGM | Sleep Jazz",
+     "channel": "JazzNe",
+     "views": 326213,
+     "views_per_day": 3327.8,
+     "published": "2026-07-10",
+     "url": "https://www.youtube.com/watch?v=GSpc5rimqk4"
+    },
+    {
+     "id": "r2KhFJXQh-4",
+     "title": "🙏 기도가 잘되는 평안한 오보에 찬송가 3시간 | 마음이 고요해지는 기도음악 · 묵상 · 수면 | Peaceful Oboe Hymns · Prayer Music",
+     "channel": "히솝워십 | Hyssop Worship",
+     "views": 145942,
+     "views_per_day": 2245.8,
+     "published": "2026-08-12",
+     "url": "https://www.youtube.com/watch?v=r2KhFJXQh-4"
+    },
+    {
+     "id": "GjtPZpv7iKo",
+     "title": "🌿 𝑯𝒆𝒂𝒍𝒊𝒎𝒂𝒍𝒔 | 🧘 숲속 호텔의 저녁 명상 클래스 | 싱잉볼 & 잔잔한 피아노 | Meditation Music",
+     "channel": "힐리멀스",
+     "views": 117666,
+     "views_per_day": 1832.1,
+     "published": "2026-08-13",
+     "url": "https://www.youtube.com/watch?v=GjtPZpv7iKo"
+    }
+   ]
+  },
+  {
+   "weeks": 16,
+   "label": "최근 16주",
+   "videos": 6,
+   "channels": 6,
+   "new_this_week": [],
+   "views_median": 236077.5,
+   "views_per_day_median": 2786.8,
+   "ratio_median": 4.57,
+   "success": 4,
+   "minutes_median": 186.5,
+   "title_len_avg": 60.8,
+   "title_features": [
+    {
+     "name": "AI",
+     "count": 1,
+     "share": 0.167
+    }
+   ],
+   "title_words": [
+    {
+     "word": "명상",
+     "count": 2
+    },
+    {
+     "word": "빗소리",
+     "count": 2
+    },
+    {
+     "word": "깊은",
+     "count": 2
+    },
+    {
+     "word": "수면",
+     "count": 2
+    },
+    {
+     "word": "편안한",
+     "count": 2
+    },
+    {
+     "word": "잔잔한",
+     "count": 2
+    },
+    {
+     "word": "숲속",
+     "count": 2
+    },
+    {
+     "word": "Music",
+     "count": 2
+    },
+    {
+     "word": "마음이",
+     "count": 2
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 6,
+    "없음": 0
+   },
+   "content_words": [
+    {
+     "word": "잔잔한",
+     "count": 3
+    },
+    {
+     "word": "있습니다",
+     "count": 3
+    },
+    {
+     "word": "함께",
+     "count": 3
+    },
+    {
+     "word": "마음의",
+     "count": 3
+    },
+    {
+     "word": "편안한",
+     "count": 3
+    },
+    {
+     "word": "음악",
+     "count": 3
+    },
+    {
+     "word": "직접",
+     "count": 3
+    },
+    {
+     "word": "오늘",
+     "count": 3
+    },
+    {
+     "word": "보세요",
+     "count": 3
+    },
+    {
+     "word": "들려오는",
+     "count": 2
+    },
+    {
+     "word": "자연의",
+     "count": 2
+    },
+    {
+     "word": "명상",
+     "count": 2
+    }
+   ],
+   "chapters_share": 0.5,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "es3vIWdiyZA",
+     "title": "\"가장 포근했던 여름밤처럼\" 마음이 쉬는 수면음악",
+     "src": "설명",
+     "hook": "🎵손끝으로 그린 그림과 직접 작곡한 음악, 이 공간은 AI가 아닌 사람의 온도로 채워집니다:) 선풍기 바람, 반딧불의 작은 빛 창문을 스치는 여름바람.. 아무 걱정 없던 그 여름밤의 기억처럼 잊고 있던 평온이, 오늘 밤 당신의 마음에도 조용히 내려앉기를.. 🎵곡 제목 01.여름밤 02."
+    },
+    {
+     "id": "ri10d9TXXGE",
+     "title": "눈 뜨면 아침인 숲속 평온한 빗소리 | 🌲 깊은 수면을 위한 평온한 백색소음 (Rain Sounds for Sleeping)",
+     "src": "설명",
+     "hook": "싱그러운 초록 잎사귀 위로 떨어지는 맑고 깨끗한 자연의 빗소리입니다. 복잡한 하루의 소음을 지우고, 자연이 주는 가장 평온한 빗소리에 귀를 기울여 보세요. 깊고 편안한 잠이 필요할 때, 혹은 학업과 업무에 집중하고 싶을 때 이 포근한 빗소리와 함께해 보세요. 오늘 밤도 눈 뜨면 아침이 "
+    },
+    {
+     "id": "GSpc5rimqk4",
+     "title": "Playlist | 잘 때 듣는 조용한 재즈 음악 모음 😴🛏️ | 듣기만해도 스르르 잠이드는 편안한 수면유도 BGM | Sleep Jazz",
+     "src": "설명",
+     "hook": "📢 모든 음원은 직접 작곡 또는 편곡 및 연주한 창작물입니다. 잘 때 듣기 좋은 편안한 Sleep Jazz 플레이리스트 😴🛏 잠 안 올 때, 잠들기 전, 집에서 편안하게 틀어두기 좋은 부드러운 Sleep Jazz BGM 연주곡을 감상해보세요 🤍 안녕하세요! 기분Jazz네 입니다 😌 무더"
+    }
+   ],
+   "comments": 974,
+   "comment_needs": [
+    {
+     "name": "칭찬·감사",
+     "count": 214,
+     "share": 0.22
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 51,
+     "share": 0.052
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 49,
+     "share": 0.05
+    },
+    {
+     "name": "질문",
+     "count": 43,
+     "share": 0.044
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 21,
+     "share": 0.022
+    },
+    {
+     "name": "요청",
+     "count": 19,
+     "share": 0.02
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "버티자 언젠가는 잊혀진다 과거에 얽매이지말자",
+     "likes": 1330
+    },
+    {
+     "text": "낯선 당신에게, 어디에 계시든…\n계속 나아갈 수 있는 힘을 찾으시길 바랍니다.\n그리고 오랫동안 기다려 온 행복이 마침내 당신을 찾아오기를 진심으로 바랍니다. ✨",
+     "likes": 733
+    },
+    {
+     "text": "저 그림처럼 편안하게 삽시다. 안해도 되고. 다 안가져도 되고. 적당히 해야 할것만 해도 잘못된거 아니니깐. 부담갖지 말고 내려놓고 삽시다. 행복하시요 다들.",
+     "likes": 382
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "es3vIWdiyZA",
+     "title": "\"가장 포근했던 여름밤처럼\" 마음이 쉬는 수면음악",
+     "channel": "Music Drawing",
+     "views": 1353255,
+     "views_per_day": 14710.0,
+     "published": "2026-07-16",
+     "url": "https://www.youtube.com/watch?v=es3vIWdiyZA"
+    },
+    {
+     "id": "ri10d9TXXGE",
+     "title": "눈 뜨면 아침인 숲속 평온한 빗소리 | 🌲 깊은 수면을 위한 평온한 백색소음 (Rain Sounds for Sleeping)",
+     "channel": "Cozy Rain on Leaves",
+     "views": 514147,
+     "views_per_day": 5529.3,
+     "published": "2026-07-15",
+     "url": "https://www.youtube.com/watch?v=ri10d9TXXGE"
+    },
+    {
+     "id": "GSpc5rimqk4",
+     "title": "Playlist | 잘 때 듣는 조용한 재즈 음악 모음 😴🛏️ | 듣기만해도 스르르 잠이드는 편안한 수면유도 BGM | Sleep Jazz",
+     "channel": "JazzNe",
+     "views": 326213,
+     "views_per_day": 3327.8,
+     "published": "2026-07-10",
+     "url": "https://www.youtube.com/watch?v=GSpc5rimqk4"
+    },
+    {
+     "id": "r2KhFJXQh-4",
+     "title": "🙏 기도가 잘되는 평안한 오보에 찬송가 3시간 | 마음이 고요해지는 기도음악 · 묵상 · 수면 | Peaceful Oboe Hymns · Prayer Music",
+     "channel": "히솝워십 | Hyssop Worship",
+     "views": 145942,
+     "views_per_day": 2245.8,
+     "published": "2026-08-12",
+     "url": "https://www.youtube.com/watch?v=r2KhFJXQh-4"
+    },
+    {
+     "id": "GjtPZpv7iKo",
+     "title": "🌿 𝑯𝒆𝒂𝒍𝒊𝒎𝒂𝒍𝒔 | 🧘 숲속 호텔의 저녁 명상 클래스 | 싱잉볼 & 잔잔한 피아노 | Meditation Music",
+     "channel": "힐리멀스",
+     "views": 117666,
+     "views_per_day": 1832.1,
+     "published": "2026-08-13",
+     "url": "https://www.youtube.com/watch?v=GjtPZpv7iKo"
+    }
+   ]
+  },
+  {
+   "weeks": 17,
+   "label": "최근 17주",
+   "videos": 7,
+   "channels": 7,
+   "new_this_week": [
+    {
+     "id": "QPa9L5TDD-4",
+     "title": "머리가 맑아지고🌳마음이 평온해져요. 피아노와 플루트 선율 | 3시간, 힐링음악, 명상음악 | Relaxing Music, Healing Music",
+     "published": "2026-06-22"
+    }
+   ],
+   "views_median": 222049,
+   "views_per_day_median": 2245.8,
+   "ratio_median": 5.12,
+   "success": 5,
+   "minutes_median": 187.7,
+   "title_len_avg": 63.7,
+   "title_features": [
+    {
+     "name": "AI",
+     "count": 1,
+     "share": 0.143
+    }
+   ],
+   "title_words": [
+    {
+     "word": "Music",
+     "count": 3
+    },
+    {
+     "word": "마음이",
+     "count": 3
+    },
+    {
+     "word": "명상",
+     "count": 2
+    },
+    {
+     "word": "빗소리",
+     "count": 2
+    },
+    {
+     "word": "깊은",
+     "count": 2
+    },
+    {
+     "word": "수면",
+     "count": 2
+    },
+    {
+     "word": "편안한",
+     "count": 2
+    },
+    {
+     "word": "잔잔한",
+     "count": 2
+    },
+    {
+     "word": "숲속",
+     "count": 2
+    },
+    {
+     "word": "3시간",
+     "count": 2
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 7,
+    "없음": 0
+   },
+   "content_words": [
+    {
+     "word": "편안한",
+     "count": 4
+    },
+    {
+     "word": "음악",
+     "count": 4
+    },
+    {
+     "word": "잔잔한",
+     "count": 3
+    },
+    {
+     "word": "있습니다",
+     "count": 3
+    },
+    {
+     "word": "함께",
+     "count": 3
+    },
+    {
+     "word": "마음의",
+     "count": 3
+    },
+    {
+     "word": "직접",
+     "count": 3
+    },
+    {
+     "word": "없이",
+     "count": 3
+    },
+    {
+     "word": "오늘",
+     "count": 3
+    },
+    {
+     "word": "보세요",
+     "count": 3
+    },
+    {
+     "word": "들려오는",
+     "count": 2
+    },
+    {
+     "word": "자연의",
+     "count": 2
+    }
+   ],
+   "chapters_share": 0.429,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "es3vIWdiyZA",
+     "title": "\"가장 포근했던 여름밤처럼\" 마음이 쉬는 수면음악",
+     "src": "설명",
+     "hook": "🎵손끝으로 그린 그림과 직접 작곡한 음악, 이 공간은 AI가 아닌 사람의 온도로 채워집니다:) 선풍기 바람, 반딧불의 작은 빛 창문을 스치는 여름바람.. 아무 걱정 없던 그 여름밤의 기억처럼 잊고 있던 평온이, 오늘 밤 당신의 마음에도 조용히 내려앉기를.. 🎵곡 제목 01.여름밤 02."
+    },
+    {
+     "id": "ri10d9TXXGE",
+     "title": "눈 뜨면 아침인 숲속 평온한 빗소리 | 🌲 깊은 수면을 위한 평온한 백색소음 (Rain Sounds for Sleeping)",
+     "src": "설명",
+     "hook": "싱그러운 초록 잎사귀 위로 떨어지는 맑고 깨끗한 자연의 빗소리입니다. 복잡한 하루의 소음을 지우고, 자연이 주는 가장 평온한 빗소리에 귀를 기울여 보세요. 깊고 편안한 잠이 필요할 때, 혹은 학업과 업무에 집중하고 싶을 때 이 포근한 빗소리와 함께해 보세요. 오늘 밤도 눈 뜨면 아침이 "
+    },
+    {
+     "id": "GSpc5rimqk4",
+     "title": "Playlist | 잘 때 듣는 조용한 재즈 음악 모음 😴🛏️ | 듣기만해도 스르르 잠이드는 편안한 수면유도 BGM | Sleep Jazz",
+     "src": "설명",
+     "hook": "📢 모든 음원은 직접 작곡 또는 편곡 및 연주한 창작물입니다. 잘 때 듣기 좋은 편안한 Sleep Jazz 플레이리스트 😴🛏 잠 안 올 때, 잠들기 전, 집에서 편안하게 틀어두기 좋은 부드러운 Sleep Jazz BGM 연주곡을 감상해보세요 🤍 안녕하세요! 기분Jazz네 입니다 😌 무더"
+    }
+   ],
+   "comments": 1103,
+   "comment_needs": [
+    {
+     "name": "칭찬·감사",
+     "count": 260,
+     "share": 0.236
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 56,
+     "share": 0.051
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 49,
+     "share": 0.044
+    },
+    {
+     "name": "질문",
+     "count": 46,
+     "share": 0.042
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 22,
+     "share": 0.02
+    },
+    {
+     "name": "요청",
+     "count": 19,
+     "share": 0.017
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "버티자 언젠가는 잊혀진다 과거에 얽매이지말자",
+     "likes": 1330
+    },
+    {
+     "text": "낯선 당신에게, 어디에 계시든…\n계속 나아갈 수 있는 힘을 찾으시길 바랍니다.\n그리고 오랫동안 기다려 온 행복이 마침내 당신을 찾아오기를 진심으로 바랍니다. ✨",
+     "likes": 733
+    },
+    {
+     "text": "저 그림처럼 편안하게 삽시다. 안해도 되고. 다 안가져도 되고. 적당히 해야 할것만 해도 잘못된거 아니니깐. 부담갖지 말고 내려놓고 삽시다. 행복하시요 다들.",
+     "likes": 382
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "es3vIWdiyZA",
+     "title": "\"가장 포근했던 여름밤처럼\" 마음이 쉬는 수면음악",
+     "channel": "Music Drawing",
+     "views": 1353255,
+     "views_per_day": 14710.0,
+     "published": "2026-07-16",
+     "url": "https://www.youtube.com/watch?v=es3vIWdiyZA"
+    },
+    {
+     "id": "ri10d9TXXGE",
+     "title": "눈 뜨면 아침인 숲속 평온한 빗소리 | 🌲 깊은 수면을 위한 평온한 백색소음 (Rain Sounds for Sleeping)",
+     "channel": "Cozy Rain on Leaves",
+     "views": 514147,
+     "views_per_day": 5529.3,
+     "published": "2026-07-15",
+     "url": "https://www.youtube.com/watch?v=ri10d9TXXGE"
+    },
+    {
+     "id": "GSpc5rimqk4",
+     "title": "Playlist | 잘 때 듣는 조용한 재즈 음악 모음 😴🛏️ | 듣기만해도 스르르 잠이드는 편안한 수면유도 BGM | Sleep Jazz",
+     "channel": "JazzNe",
+     "views": 326213,
+     "views_per_day": 3327.8,
+     "published": "2026-07-10",
+     "url": "https://www.youtube.com/watch?v=GSpc5rimqk4"
+    },
+    {
+     "id": "r2KhFJXQh-4",
+     "title": "🙏 기도가 잘되는 평안한 오보에 찬송가 3시간 | 마음이 고요해지는 기도음악 · 묵상 · 수면 | Peaceful Oboe Hymns · Prayer Music",
+     "channel": "히솝워십 | Hyssop Worship",
+     "views": 145942,
+     "views_per_day": 2245.8,
+     "published": "2026-08-12",
+     "url": "https://www.youtube.com/watch?v=r2KhFJXQh-4"
+    },
+    {
+     "id": "QPa9L5TDD-4",
+     "title": "머리가 맑아지고🌳마음이 평온해져요. 피아노와 플루트 선율 | 3시간, 힐링음악, 명상음악 | Relaxing Music, Healing Music",
+     "channel": "살구사운드 SalguSound",
+     "views": 222049,
+     "views_per_day": 1922.2,
+     "published": "2026-06-22",
+     "url": "https://www.youtube.com/watch?v=QPa9L5TDD-4"
+    }
+   ]
+  },
+  {
+   "weeks": 18,
+   "label": "최근 18주",
+   "videos": 7,
+   "channels": 7,
+   "new_this_week": [],
+   "views_median": 222049,
+   "views_per_day_median": 2245.8,
+   "ratio_median": 5.12,
+   "success": 5,
+   "minutes_median": 187.7,
+   "title_len_avg": 63.7,
+   "title_features": [
+    {
+     "name": "AI",
+     "count": 1,
+     "share": 0.143
+    }
+   ],
+   "title_words": [
+    {
+     "word": "Music",
+     "count": 3
+    },
+    {
+     "word": "마음이",
+     "count": 3
+    },
+    {
+     "word": "명상",
+     "count": 2
+    },
+    {
+     "word": "빗소리",
+     "count": 2
+    },
+    {
+     "word": "깊은",
+     "count": 2
+    },
+    {
+     "word": "수면",
+     "count": 2
+    },
+    {
+     "word": "편안한",
+     "count": 2
+    },
+    {
+     "word": "잔잔한",
+     "count": 2
+    },
+    {
+     "word": "숲속",
+     "count": 2
+    },
+    {
+     "word": "3시간",
+     "count": 2
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 7,
+    "없음": 0
+   },
+   "content_words": [
+    {
+     "word": "편안한",
+     "count": 4
+    },
+    {
+     "word": "음악",
+     "count": 4
+    },
+    {
+     "word": "잔잔한",
+     "count": 3
+    },
+    {
+     "word": "있습니다",
+     "count": 3
+    },
+    {
+     "word": "함께",
+     "count": 3
+    },
+    {
+     "word": "마음의",
+     "count": 3
+    },
+    {
+     "word": "직접",
+     "count": 3
+    },
+    {
+     "word": "없이",
+     "count": 3
+    },
+    {
+     "word": "오늘",
+     "count": 3
+    },
+    {
+     "word": "보세요",
+     "count": 3
+    },
+    {
+     "word": "들려오는",
+     "count": 2
+    },
+    {
+     "word": "자연의",
+     "count": 2
+    }
+   ],
+   "chapters_share": 0.429,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "es3vIWdiyZA",
+     "title": "\"가장 포근했던 여름밤처럼\" 마음이 쉬는 수면음악",
+     "src": "설명",
+     "hook": "🎵손끝으로 그린 그림과 직접 작곡한 음악, 이 공간은 AI가 아닌 사람의 온도로 채워집니다:) 선풍기 바람, 반딧불의 작은 빛 창문을 스치는 여름바람.. 아무 걱정 없던 그 여름밤의 기억처럼 잊고 있던 평온이, 오늘 밤 당신의 마음에도 조용히 내려앉기를.. 🎵곡 제목 01.여름밤 02."
+    },
+    {
+     "id": "ri10d9TXXGE",
+     "title": "눈 뜨면 아침인 숲속 평온한 빗소리 | 🌲 깊은 수면을 위한 평온한 백색소음 (Rain Sounds for Sleeping)",
+     "src": "설명",
+     "hook": "싱그러운 초록 잎사귀 위로 떨어지는 맑고 깨끗한 자연의 빗소리입니다. 복잡한 하루의 소음을 지우고, 자연이 주는 가장 평온한 빗소리에 귀를 기울여 보세요. 깊고 편안한 잠이 필요할 때, 혹은 학업과 업무에 집중하고 싶을 때 이 포근한 빗소리와 함께해 보세요. 오늘 밤도 눈 뜨면 아침이 "
+    },
+    {
+     "id": "GSpc5rimqk4",
+     "title": "Playlist | 잘 때 듣는 조용한 재즈 음악 모음 😴🛏️ | 듣기만해도 스르르 잠이드는 편안한 수면유도 BGM | Sleep Jazz",
+     "src": "설명",
+     "hook": "📢 모든 음원은 직접 작곡 또는 편곡 및 연주한 창작물입니다. 잘 때 듣기 좋은 편안한 Sleep Jazz 플레이리스트 😴🛏 잠 안 올 때, 잠들기 전, 집에서 편안하게 틀어두기 좋은 부드러운 Sleep Jazz BGM 연주곡을 감상해보세요 🤍 안녕하세요! 기분Jazz네 입니다 😌 무더"
+    }
+   ],
+   "comments": 1103,
+   "comment_needs": [
+    {
+     "name": "칭찬·감사",
+     "count": 260,
+     "share": 0.236
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 56,
+     "share": 0.051
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 49,
+     "share": 0.044
+    },
+    {
+     "name": "질문",
+     "count": 46,
+     "share": 0.042
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 22,
+     "share": 0.02
+    },
+    {
+     "name": "요청",
+     "count": 19,
+     "share": 0.017
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "버티자 언젠가는 잊혀진다 과거에 얽매이지말자",
+     "likes": 1330
+    },
+    {
+     "text": "낯선 당신에게, 어디에 계시든…\n계속 나아갈 수 있는 힘을 찾으시길 바랍니다.\n그리고 오랫동안 기다려 온 행복이 마침내 당신을 찾아오기를 진심으로 바랍니다. ✨",
+     "likes": 733
+    },
+    {
+     "text": "저 그림처럼 편안하게 삽시다. 안해도 되고. 다 안가져도 되고. 적당히 해야 할것만 해도 잘못된거 아니니깐. 부담갖지 말고 내려놓고 삽시다. 행복하시요 다들.",
+     "likes": 382
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "es3vIWdiyZA",
+     "title": "\"가장 포근했던 여름밤처럼\" 마음이 쉬는 수면음악",
+     "channel": "Music Drawing",
+     "views": 1353255,
+     "views_per_day": 14710.0,
+     "published": "2026-07-16",
+     "url": "https://www.youtube.com/watch?v=es3vIWdiyZA"
+    },
+    {
+     "id": "ri10d9TXXGE",
+     "title": "눈 뜨면 아침인 숲속 평온한 빗소리 | 🌲 깊은 수면을 위한 평온한 백색소음 (Rain Sounds for Sleeping)",
+     "channel": "Cozy Rain on Leaves",
+     "views": 514147,
+     "views_per_day": 5529.3,
+     "published": "2026-07-15",
+     "url": "https://www.youtube.com/watch?v=ri10d9TXXGE"
+    },
+    {
+     "id": "GSpc5rimqk4",
+     "title": "Playlist | 잘 때 듣는 조용한 재즈 음악 모음 😴🛏️ | 듣기만해도 스르르 잠이드는 편안한 수면유도 BGM | Sleep Jazz",
+     "channel": "JazzNe",
+     "views": 326213,
+     "views_per_day": 3327.8,
+     "published": "2026-07-10",
+     "url": "https://www.youtube.com/watch?v=GSpc5rimqk4"
+    },
+    {
+     "id": "r2KhFJXQh-4",
+     "title": "🙏 기도가 잘되는 평안한 오보에 찬송가 3시간 | 마음이 고요해지는 기도음악 · 묵상 · 수면 | Peaceful Oboe Hymns · Prayer Music",
+     "channel": "히솝워십 | Hyssop Worship",
+     "views": 145942,
+     "views_per_day": 2245.8,
+     "published": "2026-08-12",
+     "url": "https://www.youtube.com/watch?v=r2KhFJXQh-4"
+    },
+    {
+     "id": "QPa9L5TDD-4",
+     "title": "머리가 맑아지고🌳마음이 평온해져요. 피아노와 플루트 선율 | 3시간, 힐링음악, 명상음악 | Relaxing Music, Healing Music",
+     "channel": "살구사운드 SalguSound",
+     "views": 222049,
+     "views_per_day": 1922.2,
+     "published": "2026-06-22",
+     "url": "https://www.youtube.com/watch?v=QPa9L5TDD-4"
+    }
+   ]
+  },
+  {
+   "weeks": 19,
+   "label": "최근 19주",
+   "videos": 9,
+   "channels": 9,
+   "new_this_week": [
+    {
+     "id": "8KGuQMhnb14",
+     "title": "[𝙥𝙡𝙖𝙮𝙡𝙞𝙨𝙩] 삶에 무뎌지는 법",
+     "published": "2026-06-08"
+    },
+    {
+     "id": "9TqDVzWADgQ",
+     "title": "쏟아지는 빗소리에 복잡한 생각은 내려 놓으세요 | 수면유도 백색소음 힐링 ASMR",
+     "published": "2026-06-06"
+    }
+   ],
+   "views_median": 297201,
+   "views_per_day_median": 2290.3,
+   "ratio_median": 20.75,
+   "success": 7,
+   "minutes_median": 187.7,
+   "title_len_avg": 56.8,
+   "title_features": [
+    {
+     "name": "AI",
+     "count": 1,
+     "share": 0.111
+    }
+   ],
+   "title_words": [
+    {
+     "word": "Music",
+     "count": 3
+    },
+    {
+     "word": "마음이",
+     "count": 3
+    },
+    {
+     "word": "명상",
+     "count": 2
+    },
+    {
+     "word": "빗소리",
+     "count": 2
+    },
+    {
+     "word": "깊은",
+     "count": 2
+    },
+    {
+     "word": "수면",
+     "count": 2
+    },
+    {
+     "word": "편안한",
+     "count": 2
+    },
+    {
+     "word": "잔잔한",
+     "count": 2
+    },
+    {
+     "word": "백색소음",
+     "count": 2
+    },
+    {
+     "word": "수면유도",
+     "count": 2
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 9,
+    "없음": 0
+   },
+   "content_words": [
+    {
+     "word": "함께",
+     "count": 4
+    },
+    {
+     "word": "편안한",
+     "count": 4
+    },
+    {
+     "word": "직접",
+     "count": 4
+    },
+    {
+     "word": "보세요",
+     "count": 4
+    },
+    {
+     "word": "음악",
+     "count": 4
+    },
+    {
+     "word": "잔잔한",
+     "count": 3
+    },
+    {
+     "word": "명상",
+     "count": 3
+    },
+    {
+     "word": "있습니다",
+     "count": 3
+    },
+    {
+     "word": "빗소리와",
+     "count": 3
+    },
+    {
+     "word": "깊은",
+     "count": 3
+    },
+    {
+     "word": "복잡한",
+     "count": 3
+    },
+    {
+     "word": "마음의",
+     "count": 3
+    }
+   ],
+   "chapters_share": 0.444,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "es3vIWdiyZA",
+     "title": "\"가장 포근했던 여름밤처럼\" 마음이 쉬는 수면음악",
+     "src": "설명",
+     "hook": "🎵손끝으로 그린 그림과 직접 작곡한 음악, 이 공간은 AI가 아닌 사람의 온도로 채워집니다:) 선풍기 바람, 반딧불의 작은 빛 창문을 스치는 여름바람.. 아무 걱정 없던 그 여름밤의 기억처럼 잊고 있던 평온이, 오늘 밤 당신의 마음에도 조용히 내려앉기를.. 🎵곡 제목 01.여름밤 02."
+    },
+    {
+     "id": "ri10d9TXXGE",
+     "title": "눈 뜨면 아침인 숲속 평온한 빗소리 | 🌲 깊은 수면을 위한 평온한 백색소음 (Rain Sounds for Sleeping)",
+     "src": "설명",
+     "hook": "싱그러운 초록 잎사귀 위로 떨어지는 맑고 깨끗한 자연의 빗소리입니다. 복잡한 하루의 소음을 지우고, 자연이 주는 가장 평온한 빗소리에 귀를 기울여 보세요. 깊고 편안한 잠이 필요할 때, 혹은 학업과 업무에 집중하고 싶을 때 이 포근한 빗소리와 함께해 보세요. 오늘 밤도 눈 뜨면 아침이 "
+    },
+    {
+     "id": "GSpc5rimqk4",
+     "title": "Playlist | 잘 때 듣는 조용한 재즈 음악 모음 😴🛏️ | 듣기만해도 스르르 잠이드는 편안한 수면유도 BGM | Sleep Jazz",
+     "src": "설명",
+     "hook": "📢 모든 음원은 직접 작곡 또는 편곡 및 연주한 창작물입니다. 잘 때 듣기 좋은 편안한 Sleep Jazz 플레이리스트 😴🛏 잠 안 올 때, 잠들기 전, 집에서 편안하게 틀어두기 좋은 부드러운 Sleep Jazz BGM 연주곡을 감상해보세요 🤍 안녕하세요! 기분Jazz네 입니다 😌 무더"
+    }
+   ],
+   "comments": 1563,
+   "comment_needs": [
+    {
+     "name": "칭찬·감사",
+     "count": 298,
+     "share": 0.191
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 168,
+     "share": 0.107
+    },
+    {
+     "name": "질문",
+     "count": 117,
+     "share": 0.075
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 67,
+     "share": 0.043
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 58,
+     "share": 0.037
+    },
+    {
+     "name": "요청",
+     "count": 32,
+     "share": 0.02
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "버티자 언젠가는 잊혀진다 과거에 얽매이지말자",
+     "likes": 1330
+    },
+    {
+     "text": "요즘 옥상문이 잠겨있네요 더워서 그런가 벌써 네 건물 가봤는데 잠겨서 죽고싶은데 마음데로 죽지도 못하네요 얼마전에 울다가 깨닳았어요 아 나 안죽고싶은데.. 내가 죽고싶은게 아니라 지금이 너무 힘들어서 차라리 죽고싶은",
+     "likes": 1069
+    },
+    {
+     "text": "낯선 당신에게, 어디에 계시든…\n계속 나아갈 수 있는 힘을 찾으시길 바랍니다.\n그리고 오랫동안 기다려 온 행복이 마침내 당신을 찾아오기를 진심으로 바랍니다. ✨",
+     "likes": 733
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "es3vIWdiyZA",
+     "title": "\"가장 포근했던 여름밤처럼\" 마음이 쉬는 수면음악",
+     "channel": "Music Drawing",
+     "views": 1353255,
+     "views_per_day": 14710.0,
+     "published": "2026-07-16",
+     "url": "https://www.youtube.com/watch?v=es3vIWdiyZA"
+    },
+    {
+     "id": "ri10d9TXXGE",
+     "title": "눈 뜨면 아침인 숲속 평온한 빗소리 | 🌲 깊은 수면을 위한 평온한 백색소음 (Rain Sounds for Sleeping)",
+     "channel": "Cozy Rain on Leaves",
+     "views": 514147,
+     "views_per_day": 5529.3,
+     "published": "2026-07-15",
+     "url": "https://www.youtube.com/watch?v=ri10d9TXXGE"
+    },
+    {
+     "id": "GSpc5rimqk4",
+     "title": "Playlist | 잘 때 듣는 조용한 재즈 음악 모음 😴🛏️ | 듣기만해도 스르르 잠이드는 편안한 수면유도 BGM | Sleep Jazz",
+     "channel": "JazzNe",
+     "views": 326213,
+     "views_per_day": 3327.8,
+     "published": "2026-07-10",
+     "url": "https://www.youtube.com/watch?v=GSpc5rimqk4"
+    },
+    {
+     "id": "9TqDVzWADgQ",
+     "title": "쏟아지는 빗소리에 복잡한 생각은 내려 놓으세요 | 수면유도 백색소음 힐링 ASMR",
+     "channel": "Cozy Rainy Days ASMR",
+     "views": 313193,
+     "views_per_day": 2372.9,
+     "published": "2026-06-06",
+     "url": "https://www.youtube.com/watch?v=9TqDVzWADgQ"
+    },
+    {
+     "id": "8KGuQMhnb14",
+     "title": "[𝙥𝙡𝙖𝙮𝙡𝙞𝙨𝙩] 삶에 무뎌지는 법",
+     "channel": "꾹팅",
+     "views": 297201,
+     "views_per_day": 2290.3,
+     "published": "2026-06-08",
+     "url": "https://www.youtube.com/watch?v=8KGuQMhnb14"
+    }
+   ]
+  },
+  {
+   "weeks": 20,
+   "label": "최근 20주",
+   "videos": 14,
+   "channels": 13,
+   "new_this_week": [
+    {
+     "id": "22G-TOPeEXw",
+     "title": "자율신경 안정을 위한 부교감신경을 활성화하는 음이온 에너지 여행",
+     "published": "2026-06-01"
+    },
+    {
+     "id": "8Fiore1srWM",
+     "title": "@노노뮤직#피아노연주곡 #플루트연주곡#명상음악 #휴식음악 #뉴에이지 #감성음악 #숲길 #자연음악 #마음치유 #힐링BGM #피아노플루트 #평화로운음악#InstrumentalMusic",
+     "published": "2026-06-03"
+    },
+    {
+     "id": "ViCEPJCOgy4",
+     "title": "새벽 2시, 잠이 깼다면 다시 자세요 | 6분 후 다시 잠드는 피아노 명상음악 for Deep Sleep [중간광고없음]",
+     "published": "2026-05-30"
+    },
+    {
+     "id": "berSZ8YAKP8",
+     "title": "듣자 마자 바로 잠드는 숲속 시원한 빗소리 ASMR (Rain Sounds), 불면증 완화, 힐링 빗소리",
+     "published": "2026-06-02"
+    },
+    {
+     "id": "mkpa_vCH-Aw",
+     "title": "선선한 가을 밤 잠잘때 듣는  메이플 브금 (풀벌래 ASMR ) | 수면유도음악 8시간",
+     "published": "2026-05-30"
+    }
+   ],
+   "views_median": 305197.0,
+   "views_per_day_median": 2331.6,
+   "ratio_median": 27.18,
+   "success": 11,
+   "minutes_median": 183.5,
+   "title_len_avg": 58.5,
+   "title_features": [
+    {
+     "name": "AI",
+     "count": 2,
+     "share": 0.143
+    }
+   ],
+   "title_words": [
+    {
+     "word": "빗소리",
+     "count": 3
+    },
+    {
+     "word": "명상음악",
+     "count": 3
+    },
+    {
+     "word": "ASMR",
+     "count": 3
+    },
+    {
+     "word": "숲속",
+     "count": 3
+    },
+    {
+     "word": "Music",
+     "count": 3
+    },
+    {
+     "word": "마음이",
+     "count": 3
+    },
+    {
+     "word": "위한",
+     "count": 2
+    },
+    {
+     "word": "명상",
+     "count": 2
+    },
+    {
+     "word": "깊은",
+     "count": 2
+    },
+    {
+     "word": "수면",
+     "count": 2
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 14,
+    "없음": 0
+   },
+   "content_words": [
+    {
+     "word": "편안한",
+     "count": 7
+    },
+    {
+     "word": "음악",
+     "count": 6
+    },
+    {
+     "word": "직접",
+     "count": 6
+    },
+    {
+     "word": "깊은",
+     "count": 6
+    },
+    {
+     "word": "보세요",
+     "count": 6
+    },
+    {
+     "word": "바랍니다",
+     "count": 5
+    },
+    {
+     "word": "있습니다",
+     "count": 5
+    },
+    {
+     "word": "함께",
+     "count": 5
+    },
+    {
+     "word": "오늘도",
+     "count": 5
+    },
+    {
+     "word": "없이",
+     "count": 4
+    },
+    {
+     "word": "명상",
+     "count": 4
+    },
+    {
+     "word": "마음을",
+     "count": 4
+    }
+   ],
+   "chapters_share": 0.357,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "es3vIWdiyZA",
+     "title": "\"가장 포근했던 여름밤처럼\" 마음이 쉬는 수면음악",
+     "src": "설명",
+     "hook": "🎵손끝으로 그린 그림과 직접 작곡한 음악, 이 공간은 AI가 아닌 사람의 온도로 채워집니다:) 선풍기 바람, 반딧불의 작은 빛 창문을 스치는 여름바람.. 아무 걱정 없던 그 여름밤의 기억처럼 잊고 있던 평온이, 오늘 밤 당신의 마음에도 조용히 내려앉기를.. 🎵곡 제목 01.여름밤 02."
+    },
+    {
+     "id": "ViCEPJCOgy4",
+     "title": "새벽 2시, 잠이 깼다면 다시 자세요 | 6분 후 다시 잠드는 피아노 명상음악 for Deep Sleep [중간광고없음]",
+     "src": "설명",
+     "hook": "새벽에 잠이 깨면 시계를 보지 마세요. 잠깐 눈을 뜬 것뿐입니다. 이 음악은 다시 잠들 수 있도록 만들어진 조용한 피아노 명상곡입니다. 따뜻한 펠트 피아노와 은은한 현악기가 마음을 천천히 가라앉히고 깊은 휴식으로 안내합니다. 이어폰 없이도 편안하게 들을 수 있도록 부드러운 음역과 안정적"
+    },
+    {
+     "id": "ri10d9TXXGE",
+     "title": "눈 뜨면 아침인 숲속 평온한 빗소리 | 🌲 깊은 수면을 위한 평온한 백색소음 (Rain Sounds for Sleeping)",
+     "src": "설명",
+     "hook": "싱그러운 초록 잎사귀 위로 떨어지는 맑고 깨끗한 자연의 빗소리입니다. 복잡한 하루의 소음을 지우고, 자연이 주는 가장 평온한 빗소리에 귀를 기울여 보세요. 깊고 편안한 잠이 필요할 때, 혹은 학업과 업무에 집중하고 싶을 때 이 포근한 빗소리와 함께해 보세요. 오늘 밤도 눈 뜨면 아침이 "
+    }
+   ],
+   "comments": 2108,
+   "comment_needs": [
+    {
+     "name": "칭찬·감사",
+     "count": 448,
+     "share": 0.213
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 188,
+     "share": 0.089
+    },
+    {
+     "name": "질문",
+     "count": 140,
+     "share": 0.066
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 98,
+     "share": 0.046
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 62,
+     "share": 0.029
+    },
+    {
+     "name": "요청",
+     "count": 39,
+     "share": 0.019
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "버티자 언젠가는 잊혀진다 과거에 얽매이지말자",
+     "likes": 1330
+    },
+    {
+     "text": "요즘 옥상문이 잠겨있네요 더워서 그런가 벌써 네 건물 가봤는데 잠겨서 죽고싶은데 마음데로 죽지도 못하네요 얼마전에 울다가 깨닳았어요 아 나 안죽고싶은데.. 내가 죽고싶은게 아니라 지금이 너무 힘들어서 차라리 죽고싶은",
+     "likes": 1069
+    },
+    {
+     "text": "낯선 당신에게, 어디에 계시든…\n계속 나아갈 수 있는 힘을 찾으시길 바랍니다.\n그리고 오랫동안 기다려 온 행복이 마침내 당신을 찾아오기를 진심으로 바랍니다. ✨",
+     "likes": 733
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "es3vIWdiyZA",
+     "title": "\"가장 포근했던 여름밤처럼\" 마음이 쉬는 수면음악",
+     "channel": "Music Drawing",
+     "views": 1353255,
+     "views_per_day": 14710.0,
+     "published": "2026-07-16",
+     "url": "https://www.youtube.com/watch?v=es3vIWdiyZA"
+    },
+    {
+     "id": "ViCEPJCOgy4",
+     "title": "새벽 2시, 잠이 깼다면 다시 자세요 | 6분 후 다시 잠드는 피아노 명상음악 for Deep Sleep [중간광고없음]",
+     "channel": "단잠TV",
+     "views": 782463,
+     "views_per_day": 5631.1,
+     "published": "2026-05-30",
+     "url": "https://www.youtube.com/watch?v=ViCEPJCOgy4"
+    },
+    {
+     "id": "ri10d9TXXGE",
+     "title": "눈 뜨면 아침인 숲속 평온한 빗소리 | 🌲 깊은 수면을 위한 평온한 백색소음 (Rain Sounds for Sleeping)",
+     "channel": "Cozy Rain on Leaves",
+     "views": 514147,
+     "views_per_day": 5529.3,
+     "published": "2026-07-15",
+     "url": "https://www.youtube.com/watch?v=ri10d9TXXGE"
+    },
+    {
+     "id": "22G-TOPeEXw",
+     "title": "자율신경 안정을 위한 부교감신경을 활성화하는 음이온 에너지 여행",
+     "channel": "브레인소다 ",
+     "views": 556907,
+     "views_per_day": 4065.8,
+     "published": "2026-06-01",
+     "url": "https://www.youtube.com/watch?v=22G-TOPeEXw"
+    },
+    {
+     "id": "GSpc5rimqk4",
+     "title": "Playlist | 잘 때 듣는 조용한 재즈 음악 모음 😴🛏️ | 듣기만해도 스르르 잠이드는 편안한 수면유도 BGM | Sleep Jazz",
+     "channel": "JazzNe",
+     "views": 326213,
+     "views_per_day": 3327.8,
+     "published": "2026-07-10",
+     "url": "https://www.youtube.com/watch?v=GSpc5rimqk4"
+    }
+   ]
+  },
+  {
+   "weeks": 21,
+   "label": "최근 21주",
+   "videos": 14,
+   "channels": 13,
+   "new_this_week": [],
+   "views_median": 305197.0,
+   "views_per_day_median": 2331.6,
+   "ratio_median": 27.18,
+   "success": 11,
+   "minutes_median": 183.5,
+   "title_len_avg": 58.5,
+   "title_features": [
+    {
+     "name": "AI",
+     "count": 2,
+     "share": 0.143
+    }
+   ],
+   "title_words": [
+    {
+     "word": "빗소리",
+     "count": 3
+    },
+    {
+     "word": "명상음악",
+     "count": 3
+    },
+    {
+     "word": "ASMR",
+     "count": 3
+    },
+    {
+     "word": "숲속",
+     "count": 3
+    },
+    {
+     "word": "Music",
+     "count": 3
+    },
+    {
+     "word": "마음이",
+     "count": 3
+    },
+    {
+     "word": "위한",
+     "count": 2
+    },
+    {
+     "word": "명상",
+     "count": 2
+    },
+    {
+     "word": "깊은",
+     "count": 2
+    },
+    {
+     "word": "수면",
+     "count": 2
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 14,
+    "없음": 0
+   },
+   "content_words": [
+    {
+     "word": "편안한",
+     "count": 7
+    },
+    {
+     "word": "음악",
+     "count": 6
+    },
+    {
+     "word": "직접",
+     "count": 6
+    },
+    {
+     "word": "깊은",
+     "count": 6
+    },
+    {
+     "word": "보세요",
+     "count": 6
+    },
+    {
+     "word": "바랍니다",
+     "count": 5
+    },
+    {
+     "word": "있습니다",
+     "count": 5
+    },
+    {
+     "word": "함께",
+     "count": 5
+    },
+    {
+     "word": "오늘도",
+     "count": 5
+    },
+    {
+     "word": "없이",
+     "count": 4
+    },
+    {
+     "word": "명상",
+     "count": 4
+    },
+    {
+     "word": "마음을",
+     "count": 4
+    }
+   ],
+   "chapters_share": 0.357,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "es3vIWdiyZA",
+     "title": "\"가장 포근했던 여름밤처럼\" 마음이 쉬는 수면음악",
+     "src": "설명",
+     "hook": "🎵손끝으로 그린 그림과 직접 작곡한 음악, 이 공간은 AI가 아닌 사람의 온도로 채워집니다:) 선풍기 바람, 반딧불의 작은 빛 창문을 스치는 여름바람.. 아무 걱정 없던 그 여름밤의 기억처럼 잊고 있던 평온이, 오늘 밤 당신의 마음에도 조용히 내려앉기를.. 🎵곡 제목 01.여름밤 02."
+    },
+    {
+     "id": "ViCEPJCOgy4",
+     "title": "새벽 2시, 잠이 깼다면 다시 자세요 | 6분 후 다시 잠드는 피아노 명상음악 for Deep Sleep [중간광고없음]",
+     "src": "설명",
+     "hook": "새벽에 잠이 깨면 시계를 보지 마세요. 잠깐 눈을 뜬 것뿐입니다. 이 음악은 다시 잠들 수 있도록 만들어진 조용한 피아노 명상곡입니다. 따뜻한 펠트 피아노와 은은한 현악기가 마음을 천천히 가라앉히고 깊은 휴식으로 안내합니다. 이어폰 없이도 편안하게 들을 수 있도록 부드러운 음역과 안정적"
+    },
+    {
+     "id": "ri10d9TXXGE",
+     "title": "눈 뜨면 아침인 숲속 평온한 빗소리 | 🌲 깊은 수면을 위한 평온한 백색소음 (Rain Sounds for Sleeping)",
+     "src": "설명",
+     "hook": "싱그러운 초록 잎사귀 위로 떨어지는 맑고 깨끗한 자연의 빗소리입니다. 복잡한 하루의 소음을 지우고, 자연이 주는 가장 평온한 빗소리에 귀를 기울여 보세요. 깊고 편안한 잠이 필요할 때, 혹은 학업과 업무에 집중하고 싶을 때 이 포근한 빗소리와 함께해 보세요. 오늘 밤도 눈 뜨면 아침이 "
+    }
+   ],
+   "comments": 2108,
+   "comment_needs": [
+    {
+     "name": "칭찬·감사",
+     "count": 448,
+     "share": 0.213
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 188,
+     "share": 0.089
+    },
+    {
+     "name": "질문",
+     "count": 140,
+     "share": 0.066
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 98,
+     "share": 0.046
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 62,
+     "share": 0.029
+    },
+    {
+     "name": "요청",
+     "count": 39,
+     "share": 0.019
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "버티자 언젠가는 잊혀진다 과거에 얽매이지말자",
+     "likes": 1330
+    },
+    {
+     "text": "요즘 옥상문이 잠겨있네요 더워서 그런가 벌써 네 건물 가봤는데 잠겨서 죽고싶은데 마음데로 죽지도 못하네요 얼마전에 울다가 깨닳았어요 아 나 안죽고싶은데.. 내가 죽고싶은게 아니라 지금이 너무 힘들어서 차라리 죽고싶은",
+     "likes": 1069
+    },
+    {
+     "text": "낯선 당신에게, 어디에 계시든…\n계속 나아갈 수 있는 힘을 찾으시길 바랍니다.\n그리고 오랫동안 기다려 온 행복이 마침내 당신을 찾아오기를 진심으로 바랍니다. ✨",
+     "likes": 733
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "es3vIWdiyZA",
+     "title": "\"가장 포근했던 여름밤처럼\" 마음이 쉬는 수면음악",
+     "channel": "Music Drawing",
+     "views": 1353255,
+     "views_per_day": 14710.0,
+     "published": "2026-07-16",
+     "url": "https://www.youtube.com/watch?v=es3vIWdiyZA"
+    },
+    {
+     "id": "ViCEPJCOgy4",
+     "title": "새벽 2시, 잠이 깼다면 다시 자세요 | 6분 후 다시 잠드는 피아노 명상음악 for Deep Sleep [중간광고없음]",
+     "channel": "단잠TV",
+     "views": 782463,
+     "views_per_day": 5631.1,
+     "published": "2026-05-30",
+     "url": "https://www.youtube.com/watch?v=ViCEPJCOgy4"
+    },
+    {
+     "id": "ri10d9TXXGE",
+     "title": "눈 뜨면 아침인 숲속 평온한 빗소리 | 🌲 깊은 수면을 위한 평온한 백색소음 (Rain Sounds for Sleeping)",
+     "channel": "Cozy Rain on Leaves",
+     "views": 514147,
+     "views_per_day": 5529.3,
+     "published": "2026-07-15",
+     "url": "https://www.youtube.com/watch?v=ri10d9TXXGE"
+    },
+    {
+     "id": "22G-TOPeEXw",
+     "title": "자율신경 안정을 위한 부교감신경을 활성화하는 음이온 에너지 여행",
+     "channel": "브레인소다 ",
+     "views": 556907,
+     "views_per_day": 4065.8,
+     "published": "2026-06-01",
+     "url": "https://www.youtube.com/watch?v=22G-TOPeEXw"
+    },
+    {
+     "id": "GSpc5rimqk4",
+     "title": "Playlist | 잘 때 듣는 조용한 재즈 음악 모음 😴🛏️ | 듣기만해도 스르르 잠이드는 편안한 수면유도 BGM | Sleep Jazz",
+     "channel": "JazzNe",
+     "views": 326213,
+     "views_per_day": 3327.8,
+     "published": "2026-07-10",
+     "url": "https://www.youtube.com/watch?v=GSpc5rimqk4"
+    }
+   ]
+  },
+  {
+   "weeks": 22,
+   "label": "최근 22주",
+   "videos": 16,
+   "channels": 14,
+   "new_this_week": [
+    {
+     "id": "Tt9qwuoMPtI",
+     "title": "[찬송가 연속듣기] 마음이 복잡할 때 듣는 잔잔한 찬송가 20곡 | 잠들기 전 평안을 주는 찬양 메들리 (깊은 울림 바리톤 찬양) | 중간광고 없음 | HYMN",
+     "published": "2026-05-19"
+    },
+    {
+     "id": "giFgcjlR4Co",
+     "title": "[찬송가 모음]주님 앞에 펑펑 울고 싶을 때 듣는 찬양ㅣ눈물의 찬송가 10곡ㅣ깊은 울림 바리톤 찬양ㅣHYMNㅣ찬송가 연속듣기",
+     "published": "2026-05-15"
+    }
+   ],
+   "views_median": 319703.0,
+   "views_per_day_median": 2524.55,
+   "ratio_median": 20.66,
+   "success": 13,
+   "minutes_median": 183.5,
+   "title_len_avg": 61.1,
+   "title_features": [
+    {
+     "name": "AI",
+     "count": 2,
+     "share": 0.125
+    }
+   ],
+   "title_words": [
+    {
+     "word": "깊은",
+     "count": 4
+    },
+    {
+     "word": "듣는",
+     "count": 4
+    },
+    {
+     "word": "마음이",
+     "count": 4
+    },
+    {
+     "word": "빗소리",
+     "count": 3
+    },
+    {
+     "word": "잔잔한",
+     "count": 3
+    },
+    {
+     "word": "명상음악",
+     "count": 3
+    },
+    {
+     "word": "ASMR",
+     "count": 3
+    },
+    {
+     "word": "숲속",
+     "count": 3
+    },
+    {
+     "word": "Music",
+     "count": 3
+    },
+    {
+     "word": "찬송가",
+     "count": 3
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 16,
+    "없음": 0
+   },
+   "content_words": [
+    {
+     "word": "깊은",
+     "count": 8
+    },
+    {
+     "word": "보세요",
+     "count": 8
+    },
+    {
+     "word": "편안한",
+     "count": 7
+    },
+    {
+     "word": "있습니다",
+     "count": 7
+    },
+    {
+     "word": "음악",
+     "count": 6
+    },
+    {
+     "word": "직접",
+     "count": 6
+    },
+    {
+     "word": "바랍니다",
+     "count": 6
+    },
+    {
+     "word": "마음을",
+     "count": 5
+    },
+    {
+     "word": "마음의",
+     "count": 5
+    },
+    {
+     "word": "함께",
+     "count": 5
+    },
+    {
+     "word": "잠들기",
+     "count": 5
+    },
+    {
+     "word": "편안하게",
+     "count": 5
+    }
+   ],
+   "chapters_share": 0.438,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "es3vIWdiyZA",
+     "title": "\"가장 포근했던 여름밤처럼\" 마음이 쉬는 수면음악",
+     "src": "설명",
+     "hook": "🎵손끝으로 그린 그림과 직접 작곡한 음악, 이 공간은 AI가 아닌 사람의 온도로 채워집니다:) 선풍기 바람, 반딧불의 작은 빛 창문을 스치는 여름바람.. 아무 걱정 없던 그 여름밤의 기억처럼 잊고 있던 평온이, 오늘 밤 당신의 마음에도 조용히 내려앉기를.. 🎵곡 제목 01.여름밤 02."
+    },
+    {
+     "id": "ViCEPJCOgy4",
+     "title": "새벽 2시, 잠이 깼다면 다시 자세요 | 6분 후 다시 잠드는 피아노 명상음악 for Deep Sleep [중간광고없음]",
+     "src": "설명",
+     "hook": "새벽에 잠이 깨면 시계를 보지 마세요. 잠깐 눈을 뜬 것뿐입니다. 이 음악은 다시 잠들 수 있도록 만들어진 조용한 피아노 명상곡입니다. 따뜻한 펠트 피아노와 은은한 현악기가 마음을 천천히 가라앉히고 깊은 휴식으로 안내합니다. 이어폰 없이도 편안하게 들을 수 있도록 부드러운 음역과 안정적"
+    },
+    {
+     "id": "ri10d9TXXGE",
+     "title": "눈 뜨면 아침인 숲속 평온한 빗소리 | 🌲 깊은 수면을 위한 평온한 백색소음 (Rain Sounds for Sleeping)",
+     "src": "설명",
+     "hook": "싱그러운 초록 잎사귀 위로 떨어지는 맑고 깨끗한 자연의 빗소리입니다. 복잡한 하루의 소음을 지우고, 자연이 주는 가장 평온한 빗소리에 귀를 기울여 보세요. 깊고 편안한 잠이 필요할 때, 혹은 학업과 업무에 집중하고 싶을 때 이 포근한 빗소리와 함께해 보세요. 오늘 밤도 눈 뜨면 아침이 "
+    }
+   ],
+   "comments": 4048,
+   "comment_needs": [
+    {
+     "name": "칭찬·감사",
+     "count": 1736,
+     "share": 0.429
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 372,
+     "share": 0.092
+    },
+    {
+     "name": "질문",
+     "count": 201,
+     "share": 0.05
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 122,
+     "share": 0.03
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 88,
+     "share": 0.022
+    },
+    {
+     "name": "요청",
+     "count": 86,
+     "share": 0.021
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "버티자 언젠가는 잊혀진다 과거에 얽매이지말자",
+     "likes": 1330
+    },
+    {
+     "text": "요즘 옥상문이 잠겨있네요 더워서 그런가 벌써 네 건물 가봤는데 잠겨서 죽고싶은데 마음데로 죽지도 못하네요 얼마전에 울다가 깨닳았어요 아 나 안죽고싶은데.. 내가 죽고싶은게 아니라 지금이 너무 힘들어서 차라리 죽고싶은",
+     "likes": 1069
+    },
+    {
+     "text": "낯선 당신에게, 어디에 계시든…\n계속 나아갈 수 있는 힘을 찾으시길 바랍니다.\n그리고 오랫동안 기다려 온 행복이 마침내 당신을 찾아오기를 진심으로 바랍니다. ✨",
+     "likes": 733
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "es3vIWdiyZA",
+     "title": "\"가장 포근했던 여름밤처럼\" 마음이 쉬는 수면음악",
+     "channel": "Music Drawing",
+     "views": 1353255,
+     "views_per_day": 14710.0,
+     "published": "2026-07-16",
+     "url": "https://www.youtube.com/watch?v=es3vIWdiyZA"
+    },
+    {
+     "id": "ViCEPJCOgy4",
+     "title": "새벽 2시, 잠이 깼다면 다시 자세요 | 6분 후 다시 잠드는 피아노 명상음악 for Deep Sleep [중간광고없음]",
+     "channel": "단잠TV",
+     "views": 782463,
+     "views_per_day": 5631.1,
+     "published": "2026-05-30",
+     "url": "https://www.youtube.com/watch?v=ViCEPJCOgy4"
+    },
+    {
+     "id": "ri10d9TXXGE",
+     "title": "눈 뜨면 아침인 숲속 평온한 빗소리 | 🌲 깊은 수면을 위한 평온한 백색소음 (Rain Sounds for Sleeping)",
+     "channel": "Cozy Rain on Leaves",
+     "views": 514147,
+     "views_per_day": 5529.3,
+     "published": "2026-07-15",
+     "url": "https://www.youtube.com/watch?v=ri10d9TXXGE"
+    },
+    {
+     "id": "22G-TOPeEXw",
+     "title": "자율신경 안정을 위한 부교감신경을 활성화하는 음이온 에너지 여행",
+     "channel": "브레인소다 ",
+     "views": 556907,
+     "views_per_day": 4065.8,
+     "published": "2026-06-01",
+     "url": "https://www.youtube.com/watch?v=22G-TOPeEXw"
+    },
+    {
+     "id": "giFgcjlR4Co",
+     "title": "[찬송가 모음]주님 앞에 펑펑 울고 싶을 때 듣는 찬양ㅣ눈물의 찬송가 10곡ㅣ깊은 울림 바리톤 찬양ㅣHYMNㅣ찬송가 연속듣기",
+     "channel": "골방 찬양",
+     "views": 534541,
+     "views_per_day": 3479.8,
+     "published": "2026-05-15",
+     "url": "https://www.youtube.com/watch?v=giFgcjlR4Co"
+    }
+   ]
+  },
+  {
+   "weeks": 23,
+   "label": "최근 23주",
+   "videos": 17,
+   "channels": 15,
+   "new_this_week": [
+    {
+     "id": "-u98Ob6R8AU",
+     "title": "🌌 t=𝜏C 상대성이론으로 초-회복 수면하세요. 5시간 자고도 9시간 잔 것 같은 우주 시공간 수면실 & 우주 앰비언스 음악 [기상 알람 없음]",
+     "published": "2026-05-12"
+    }
+   ],
+   "views_median": 326213,
+   "views_per_day_median": 2676.2,
+   "ratio_median": 20.56,
+   "success": 13,
+   "minutes_median": 185.3,
+   "title_len_avg": 62.2,
+   "title_features": [
+    {
+     "name": "AI",
+     "count": 2,
+     "share": 0.118
+    }
+   ],
+   "title_words": [
+    {
+     "word": "깊은",
+     "count": 4
+    },
+    {
+     "word": "듣는",
+     "count": 4
+    },
+    {
+     "word": "마음이",
+     "count": 4
+    },
+    {
+     "word": "빗소리",
+     "count": 3
+    },
+    {
+     "word": "잔잔한",
+     "count": 3
+    },
+    {
+     "word": "명상음악",
+     "count": 3
+    },
+    {
+     "word": "ASMR",
+     "count": 3
+    },
+    {
+     "word": "숲속",
+     "count": 3
+    },
+    {
+     "word": "Music",
+     "count": 3
+    },
+    {
+     "word": "찬송가",
+     "count": 3
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 17,
+    "없음": 0
+   },
+   "content_words": [
+    {
+     "word": "있습니다",
+     "count": 8
+    },
+    {
+     "word": "편안한",
+     "count": 8
+    },
+    {
+     "word": "깊은",
+     "count": 8
+    },
+    {
+     "word": "보세요",
+     "count": 8
+    },
+    {
+     "word": "바랍니다",
+     "count": 7
+    },
+    {
+     "word": "음악",
+     "count": 7
+    },
+    {
+     "word": "직접",
+     "count": 6
+    },
+    {
+     "word": "오늘",
+     "count": 5
+    },
+    {
+     "word": "마음을",
+     "count": 5
+    },
+    {
+     "word": "마음의",
+     "count": 5
+    },
+    {
+     "word": "함께",
+     "count": 5
+    },
+    {
+     "word": "잠들기",
+     "count": 5
+    }
+   ],
+   "chapters_share": 0.471,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "es3vIWdiyZA",
+     "title": "\"가장 포근했던 여름밤처럼\" 마음이 쉬는 수면음악",
+     "src": "설명",
+     "hook": "🎵손끝으로 그린 그림과 직접 작곡한 음악, 이 공간은 AI가 아닌 사람의 온도로 채워집니다:) 선풍기 바람, 반딧불의 작은 빛 창문을 스치는 여름바람.. 아무 걱정 없던 그 여름밤의 기억처럼 잊고 있던 평온이, 오늘 밤 당신의 마음에도 조용히 내려앉기를.. 🎵곡 제목 01.여름밤 02."
+    },
+    {
+     "id": "-u98Ob6R8AU",
+     "title": "🌌 t=𝜏C 상대성이론으로 초-회복 수면하세요. 5시간 자고도 9시간 잔 것 같은 우주 시공간 수면실 & 우주 앰비언스 음악 [기상 알람 없음]",
+     "src": "설명",
+     "hook": "지구보다 1.8배 시간이 빠르게 흐르는 우주 시공간 수면실에서 '적게 자도 오래 잔 듯한 개운함'을 만나보세요. 본 BSS 수면 사운드는 누적 4000만 뷰 이상의 NASA 수면실 시리즈의 스핀-오프(spin-off)로, 물리학자 아인슈타인의 일반 상대성이론과 시간의 왜곡 이론에서 영감"
+    },
+    {
+     "id": "ViCEPJCOgy4",
+     "title": "새벽 2시, 잠이 깼다면 다시 자세요 | 6분 후 다시 잠드는 피아노 명상음악 for Deep Sleep [중간광고없음]",
+     "src": "설명",
+     "hook": "새벽에 잠이 깨면 시계를 보지 마세요. 잠깐 눈을 뜬 것뿐입니다. 이 음악은 다시 잠들 수 있도록 만들어진 조용한 피아노 명상곡입니다. 따뜻한 펠트 피아노와 은은한 현악기가 마음을 천천히 가라앉히고 깊은 휴식으로 안내합니다. 이어폰 없이도 편안하게 들을 수 있도록 부드러운 음역과 안정적"
+    }
+   ],
+   "comments": 4240,
+   "comment_needs": [
+    {
+     "name": "칭찬·감사",
+     "count": 1763,
+     "share": 0.416
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 383,
+     "share": 0.09
+    },
+    {
+     "name": "질문",
+     "count": 219,
+     "share": 0.052
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 123,
+     "share": 0.029
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 91,
+     "share": 0.021
+    },
+    {
+     "name": "요청",
+     "count": 89,
+     "share": 0.021
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "폰부터 내려놓자 제발",
+     "likes": 1683
+    },
+    {
+     "text": "버티자 언젠가는 잊혀진다 과거에 얽매이지말자",
+     "likes": 1330
+    },
+    {
+     "text": "요즘 옥상문이 잠겨있네요 더워서 그런가 벌써 네 건물 가봤는데 잠겨서 죽고싶은데 마음데로 죽지도 못하네요 얼마전에 울다가 깨닳았어요 아 나 안죽고싶은데.. 내가 죽고싶은게 아니라 지금이 너무 힘들어서 차라리 죽고싶은",
+     "likes": 1069
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "es3vIWdiyZA",
+     "title": "\"가장 포근했던 여름밤처럼\" 마음이 쉬는 수면음악",
+     "channel": "Music Drawing",
+     "views": 1353255,
+     "views_per_day": 14710.0,
+     "published": "2026-07-16",
+     "url": "https://www.youtube.com/watch?v=es3vIWdiyZA"
+    },
+    {
+     "id": "-u98Ob6R8AU",
+     "title": "🌌 t=𝜏C 상대성이론으로 초-회복 수면하세요. 5시간 자고도 9시간 잔 것 같은 우주 시공간 수면실 & 우주 앰비언스 음악 [기상 알람 없음]",
+     "channel": "브레이너 제이의 숙면 여행",
+     "views": 988718,
+     "views_per_day": 6301.9,
+     "published": "2026-05-12",
+     "url": "https://www.youtube.com/watch?v=-u98Ob6R8AU"
+    },
+    {
+     "id": "ViCEPJCOgy4",
+     "title": "새벽 2시, 잠이 깼다면 다시 자세요 | 6분 후 다시 잠드는 피아노 명상음악 for Deep Sleep [중간광고없음]",
+     "channel": "단잠TV",
+     "views": 782463,
+     "views_per_day": 5631.1,
+     "published": "2026-05-30",
+     "url": "https://www.youtube.com/watch?v=ViCEPJCOgy4"
+    },
+    {
+     "id": "ri10d9TXXGE",
+     "title": "눈 뜨면 아침인 숲속 평온한 빗소리 | 🌲 깊은 수면을 위한 평온한 백색소음 (Rain Sounds for Sleeping)",
+     "channel": "Cozy Rain on Leaves",
+     "views": 514147,
+     "views_per_day": 5529.3,
+     "published": "2026-07-15",
+     "url": "https://www.youtube.com/watch?v=ri10d9TXXGE"
+    },
+    {
+     "id": "22G-TOPeEXw",
+     "title": "자율신경 안정을 위한 부교감신경을 활성화하는 음이온 에너지 여행",
+     "channel": "브레인소다 ",
+     "views": 556907,
+     "views_per_day": 4065.8,
+     "published": "2026-06-01",
+     "url": "https://www.youtube.com/watch?v=22G-TOPeEXw"
+    }
+   ]
+  },
+  {
+   "weeks": 24,
+   "label": "최근 24주",
+   "videos": 20,
+   "channels": 18,
+   "new_this_week": [
+    {
+     "id": "9qbqShZRPYw",
+     "title": "그레고리오성가*한국어* 주여 자비를 베푸소서  #가톨릭성가#그레고리오성가#성가미사#기도음악#묵상음악#천주교성가#미사음악#수면명상음악#힐링음악",
+     "published": "2026-05-03"
+    },
+    {
+     "id": "HWIXfRNa4Dw",
+     "title": "역대급 효과! 기절 수면 음악 (+ 갓벽 빗소리)🎵 딥슬립 100%, 중간에 안 깨요, 잡념이 사라지는 밤",
+     "published": "2026-05-03"
+    },
+    {
+     "id": "aY-zdL2QUBk",
+     "title": "🎵그냥 틀어놨는데 눈물이 났네요...주님은 다 아시죠ㅣ은혜로운 찬양모음 ㅣCCM플레이리스트 ㅣ위로CCM ㅣA Song of Worship Through Melody#은혜찬양#묵상",
+     "published": "2026-05-02"
+    }
+   ],
+   "views_median": 319703.0,
+   "views_per_day_median": 2524.55,
+   "ratio_median": 17.98,
+   "success": 15,
+   "minutes_median": 183.5,
+   "title_len_avg": 64.7,
+   "title_features": [
+    {
+     "name": "AI",
+     "count": 2,
+     "share": 0.1
+    },
+    {
+     "name": "느낌표 !",
+     "count": 1,
+     "share": 0.05
+    }
+   ],
+   "title_words": [
+    {
+     "word": "빗소리",
+     "count": 4
+    },
+    {
+     "word": "깊은",
+     "count": 4
+    },
+    {
+     "word": "듣는",
+     "count": 4
+    },
+    {
+     "word": "마음이",
+     "count": 4
+    },
+    {
+     "word": "음악",
+     "count": 3
+    },
+    {
+     "word": "수면",
+     "count": 3
+    },
+    {
+     "word": "잔잔한",
+     "count": 3
+    },
+    {
+     "word": "명상음악",
+     "count": 3
+    },
+    {
+     "word": "ASMR",
+     "count": 3
+    },
+    {
+     "word": "숲속",
+     "count": 3
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 20,
+    "없음": 0
+   },
+   "content_words": [
+    {
+     "word": "편안한",
+     "count": 10
+    },
+    {
+     "word": "깊은",
+     "count": 10
+    },
+    {
+     "word": "바랍니다",
+     "count": 9
+    },
+    {
+     "word": "있습니다",
+     "count": 9
+    },
+    {
+     "word": "보세요",
+     "count": 9
+    },
+    {
+     "word": "음악",
+     "count": 8
+    },
+    {
+     "word": "마음을",
+     "count": 8
+    },
+    {
+     "word": "직접",
+     "count": 7
+    },
+    {
+     "word": "마음의",
+     "count": 7
+    },
+    {
+     "word": "작은",
+     "count": 6
+    },
+    {
+     "word": "오늘",
+     "count": 6
+    },
+    {
+     "word": "마음이",
+     "count": 6
+    }
+   ],
+   "chapters_share": 0.45,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "es3vIWdiyZA",
+     "title": "\"가장 포근했던 여름밤처럼\" 마음이 쉬는 수면음악",
+     "src": "설명",
+     "hook": "🎵손끝으로 그린 그림과 직접 작곡한 음악, 이 공간은 AI가 아닌 사람의 온도로 채워집니다:) 선풍기 바람, 반딧불의 작은 빛 창문을 스치는 여름바람.. 아무 걱정 없던 그 여름밤의 기억처럼 잊고 있던 평온이, 오늘 밤 당신의 마음에도 조용히 내려앉기를.. 🎵곡 제목 01.여름밤 02."
+    },
+    {
+     "id": "-u98Ob6R8AU",
+     "title": "🌌 t=𝜏C 상대성이론으로 초-회복 수면하세요. 5시간 자고도 9시간 잔 것 같은 우주 시공간 수면실 & 우주 앰비언스 음악 [기상 알람 없음]",
+     "src": "설명",
+     "hook": "지구보다 1.8배 시간이 빠르게 흐르는 우주 시공간 수면실에서 '적게 자도 오래 잔 듯한 개운함'을 만나보세요. 본 BSS 수면 사운드는 누적 4000만 뷰 이상의 NASA 수면실 시리즈의 스핀-오프(spin-off)로, 물리학자 아인슈타인의 일반 상대성이론과 시간의 왜곡 이론에서 영감"
+    },
+    {
+     "id": "ViCEPJCOgy4",
+     "title": "새벽 2시, 잠이 깼다면 다시 자세요 | 6분 후 다시 잠드는 피아노 명상음악 for Deep Sleep [중간광고없음]",
+     "src": "설명",
+     "hook": "새벽에 잠이 깨면 시계를 보지 마세요. 잠깐 눈을 뜬 것뿐입니다. 이 음악은 다시 잠들 수 있도록 만들어진 조용한 피아노 명상곡입니다. 따뜻한 펠트 피아노와 은은한 현악기가 마음을 천천히 가라앉히고 깊은 휴식으로 안내합니다. 이어폰 없이도 편안하게 들을 수 있도록 부드러운 음역과 안정적"
+    }
+   ],
+   "comments": 5298,
+   "comment_needs": [
+    {
+     "name": "칭찬·감사",
+     "count": 2122,
+     "share": 0.401
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 447,
+     "share": 0.084
+    },
+    {
+     "name": "질문",
+     "count": 268,
+     "share": 0.051
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 143,
+     "share": 0.027
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 121,
+     "share": 0.023
+    },
+    {
+     "name": "요청",
+     "count": 115,
+     "share": 0.022
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "폰부터 내려놓자 제발",
+     "likes": 1683
+    },
+    {
+     "text": "버티자 언젠가는 잊혀진다 과거에 얽매이지말자",
+     "likes": 1330
+    },
+    {
+     "text": "요즘 옥상문이 잠겨있네요 더워서 그런가 벌써 네 건물 가봤는데 잠겨서 죽고싶은데 마음데로 죽지도 못하네요 얼마전에 울다가 깨닳았어요 아 나 안죽고싶은데.. 내가 죽고싶은게 아니라 지금이 너무 힘들어서 차라리 죽고싶은",
+     "likes": 1069
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "es3vIWdiyZA",
+     "title": "\"가장 포근했던 여름밤처럼\" 마음이 쉬는 수면음악",
+     "channel": "Music Drawing",
+     "views": 1353255,
+     "views_per_day": 14710.0,
+     "published": "2026-07-16",
+     "url": "https://www.youtube.com/watch?v=es3vIWdiyZA"
+    },
+    {
+     "id": "-u98Ob6R8AU",
+     "title": "🌌 t=𝜏C 상대성이론으로 초-회복 수면하세요. 5시간 자고도 9시간 잔 것 같은 우주 시공간 수면실 & 우주 앰비언스 음악 [기상 알람 없음]",
+     "channel": "브레이너 제이의 숙면 여행",
+     "views": 988718,
+     "views_per_day": 6301.9,
+     "published": "2026-05-12",
+     "url": "https://www.youtube.com/watch?v=-u98Ob6R8AU"
+    },
+    {
+     "id": "ViCEPJCOgy4",
+     "title": "새벽 2시, 잠이 깼다면 다시 자세요 | 6분 후 다시 잠드는 피아노 명상음악 for Deep Sleep [중간광고없음]",
+     "channel": "단잠TV",
+     "views": 782463,
+     "views_per_day": 5631.1,
+     "published": "2026-05-30",
+     "url": "https://www.youtube.com/watch?v=ViCEPJCOgy4"
+    },
+    {
+     "id": "ri10d9TXXGE",
+     "title": "눈 뜨면 아침인 숲속 평온한 빗소리 | 🌲 깊은 수면을 위한 평온한 백색소음 (Rain Sounds for Sleeping)",
+     "channel": "Cozy Rain on Leaves",
+     "views": 514147,
+     "views_per_day": 5529.3,
+     "published": "2026-07-15",
+     "url": "https://www.youtube.com/watch?v=ri10d9TXXGE"
+    },
+    {
+     "id": "22G-TOPeEXw",
+     "title": "자율신경 안정을 위한 부교감신경을 활성화하는 음이온 에너지 여행",
+     "channel": "브레인소다 ",
+     "views": 556907,
+     "views_per_day": 4065.8,
+     "published": "2026-06-01",
+     "url": "https://www.youtube.com/watch?v=22G-TOPeEXw"
+    }
+   ]
+  }
+ ]
+}

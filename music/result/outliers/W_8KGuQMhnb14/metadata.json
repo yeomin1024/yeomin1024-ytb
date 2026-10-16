@@ -1,0 +1,63 @@
+{
+ "id": "8KGuQMhnb14",
+ "title": "[𝙥𝙡𝙖𝙮𝙡𝙞𝙨𝙩] 삶에 무뎌지는 법",
+ "channel": "꾹팅",
+ "channel_id": "UCxRTzWpPxg0ygx8sxTZ7gzA",
+ "subs": 1220,
+ "views": 297201,
+ "ratio": 243.61,
+ "age_days": 129,
+ "views_per_day": 2303.9,
+ "minutes": 19.4,
+ "likes": 0,
+ "comments": 363,
+ "published": "2026-06-08",
+ "queries": "검색:잠잘때 듣는",
+ "url": "https://www.youtube.com/watch?v=8KGuQMhnb14",
+ "flag": "",
+ "published_at": "2026-06-08T17:21:15Z",
+ "rank": "W2",
+ "set": "web",
+ "folder": "W_8KGuQMhnb14",
+ "sources": [
+  "검색:잠잘때 듣는"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "03:36  서영주 of 너드커넥션 | 나란한 밤"
+  },
+  {
+   "start": 219,
+   "title": "07:05  한강  | 언젠가 이 슬픔도 사라지겠지"
+  },
+  {
+   "start": 427,
+   "title": "11:18  선우정아  | 보통사람"
+  },
+  {
+   "start": 679,
+   "title": "15:36  sondia | 어른"
+  },
+  {
+   "start": 937,
+   "title": "19:16  이무진 | 쉼표"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 363,
+ "comments_top_level": 252,
+ "comments_replies": 111,
+ "comments_by_creator": 5,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 363,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T11:36:39",
+ "approved": "2026-10-16T20:36+09:00"
+}

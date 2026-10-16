@@ -1,0 +1,18 @@
+{
+ "tool": "cloud_run.py v1.3",
+ "topic": "music",
+ "saved": "2026-10-16T20:43:04+09:00",
+ "why": "손으로",
+ "files": 1098,
+ "bytes_raw": 2945309,
+ "bytes_tgz": 1051628,
+ "sha256": "90c30ee73b82c8d8f041ec6c42711acf4411648bd519873d33a61365556d0c13",
+ "kinds": {
+  "autocomplete.json": 1,
+  "channels.json": 1,
+  "search": 10,
+  "uploads": 13,
+  "video": 1071,
+  "web": 2
+ }
+}

@@ -1,0 +1,101 @@
+{
+ "id": "mkpa_vCH-Aw",
+ "title": "선선한 가을 밤 잠잘때 듣는  메이플 브금 (풀벌래 ASMR ) | 수면유도음악 8시간",
+ "channel": "DOKANG",
+ "channel_id": "UCF8lN82V_wjKKDUS5CRDgYQ",
+ "subs": 20400,
+ "views": 185367,
+ "ratio": 9.09,
+ "age_days": 139,
+ "views_per_day": 1333.6,
+ "minutes": 480.0,
+ "likes": 2007,
+ "comments": 61,
+ "published": "2026-05-30",
+ "queries": "검색:잠잘때 듣는",
+ "url": "https://www.youtube.com/watch?v=mkpa_vCH-Aw",
+ "flag": "",
+ "published_at": "2026-05-30T10:00:11Z",
+ "rank": "W14",
+ "set": "web",
+ "folder": "W_mkpa_vCH-Aw",
+ "sources": [
+  "검색:잠잘때 듣는"
+ ],
+ "source": "web",
+ "tags": [
+  "메이플스토리",
+  "메이플",
+  "maple",
+  "playlist",
+  "vmffl"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "엘리니아 나무줄기던전"
+  },
+  {
+   "start": 194,
+   "title": "오르비스"
+  },
+  {
+   "start": 379,
+   "title": "리스항구"
+  },
+  {
+   "start": 551,
+   "title": "해네시스 동쪽필드"
+  },
+  {
+   "start": 772,
+   "title": "엘나스"
+  },
+  {
+   "start": 940,
+   "title": "에우렐"
+  },
+  {
+   "start": 1109,
+   "title": "루디브리엄 뒤틀린 시간의길 1.2"
+  },
+  {
+   "start": 1274,
+   "title": "루디브리엄 하늘"
+  },
+  {
+   "start": 1460,
+   "title": "도원경"
+  },
+  {
+   "start": 1649,
+   "title": "에스페라 거울빛에 물든 바다"
+  },
+  {
+   "start": 1823,
+   "title": "중국상해 와이탄 (구버전)"
+  },
+  {
+   "start": 2013,
+   "title": "카트라이더 캐시샵"
+  },
+  {
+   "start": 2173,
+   "title": "loop"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 17:37까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 61,
+ "comments_top_level": 40,
+ "comments_replies": 21,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 61,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T11:37:35",
+ "approved": "2026-10-16T20:37+09:00"
+}

@@ -1,0 +1,105 @@
+{
+ "id": "giFgcjlR4Co",
+ "title": "[찬송가 모음]주님 앞에 펑펑 울고 싶을 때 듣는 찬양ㅣ눈물의 찬송가 10곡ㅣ깊은 울림 바리톤 찬양ㅣHYMNㅣ찬송가 연속듣기",
+ "channel": "골방 찬양",
+ "channel_id": "UCtv57fvdciMTPr1QVaiqUiw",
+ "subs": 26000,
+ "views": 534541,
+ "ratio": 20.56,
+ "age_days": 153,
+ "views_per_day": 3493.7,
+ "minutes": 81.4,
+ "likes": 10783,
+ "comments": 1318,
+ "published": "2026-05-15",
+ "queries": "검색:잠잘때 듣는",
+ "url": "https://www.youtube.com/watch?v=giFgcjlR4Co",
+ "flag": "",
+ "published_at": "2026-05-15T21:00:08Z",
+ "rank": "W10",
+ "set": "web",
+ "folder": "W_giFgcjlR4Co",
+ "sources": [
+  "검색:잠잘때 듣는"
+ ],
+ "source": "web",
+ "tags": [
+  "골방찬양",
+  "찬송가",
+  "찬송가모음",
+  "눈물의찬송가",
+  "은혜로운찬양",
+  "바리톤찬양",
+  "기도찬양",
+  "새벽기도찬양",
+  "찬양모음",
+  "복음성가",
+  "은혜찬양",
+  "찬송가연속듣기",
+  "주님찬양",
+  "치유찬양",
+  "위로의찬양",
+  "믿음의찬양",
+  "눈물나는찬양",
+  "기도음악",
+  "찬양기도",
+  "예배찬양",
+  "시니어찬송가"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "지금까지 지내온 것(찬송가 301장)"
+  },
+  {
+   "start": 212,
+   "title": "주안에 있는 나에게 (찬송가 370장)"
+  },
+  {
+   "start": 451,
+   "title": "내 평생에 가는 길 (찬송가 413장)"
+  },
+  {
+   "start": 720,
+   "title": "예수 나를 위하여 (찬송가 144장)"
+  },
+  {
+   "start": 1013,
+   "title": "죄짐맡은 우리 구주 (찬송가 369장)"
+  },
+  {
+   "start": 1234,
+   "title": "나의 갈 길 다가도록 (찬송가 384장)"
+  },
+  {
+   "start": 1439,
+   "title": "내 영혼이 은총입어 (찬송가 438장)"
+  },
+  {
+   "start": 1678,
+   "title": "나 같은 죄인 살리신 (찬송가 305장)"
+  },
+  {
+   "start": 1907,
+   "title": "주 하나님 지으신 모든 세계 (찬송가 79장)"
+  },
+  {
+   "start": 2180,
+   "title": "주 예수보다 더 귀한 것은 없네 (찬송가 94장)"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 17:37까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 1318,
+ "comments_top_level": 616,
+ "comments_replies": 702,
+ "comments_by_creator": 576,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 1318,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T11:37:20",
+ "approved": "2026-10-16T20:37+09:00"
+}

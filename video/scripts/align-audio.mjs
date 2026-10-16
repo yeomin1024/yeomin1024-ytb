@@ -1,4 +1,5 @@
-// VERSION: v1.2 — 2026-10-11 — 내레이션 옆에 tts_narration.json(tools/tts_narration.py)이 있고 대본·길이가 맞으면 문장 경계를 그 정확한 시각으로 (쉼 추측은 문장 안 쉼을 경계로 잘못 잡아 최대 6.9초 어긋남), 문장 경계마다 실제 무음인지 확인. --ignore-tts-meta 로 예전 방식
+// VERSION: v1.3 — 2026-10-16 — 영상ID '<영상ID>-shorts' 면 대본 폴더를 source/<영상ID>/shorts 로 (세로 쇼츠 — 사용자 지시 2026-10-16 "일단 이 쇼츠만 영상 만들어봐"). 쇼츠는 --no-export 로 (새 스타일 장면 파일은 remotion 내보내기를 쓰지 않음).
+// (v1.2 — 2026-10-11 — 내레이션 옆에 tts_narration.json(tools/tts_narration.py)이 있고 대본·길이가 맞으면 문장 경계를 그 정확한 시각으로 (쉼 추측은 문장 안 쉼을 경계로 잘못 잡아 최대 6.9초 어긋남), 문장 경계마다 실제 무음인지 확인. --ignore-tts-meta 로 예전 방식)
 // (v1.1 — 2026-10-10 — 파트 라벨 판정을 srt_tool.is_label과 같게: '-숫자'로 시작하는 줄은 문장 (v1.0: 내레이션 오디오에 SRT 타이밍 맞추기, 오디오는 고치지 않음))
 // 사용 (video/ 폴더에서):
 //   npm run align-audio -- <주제폴더> <영상ID>                예) npm run align-audio -- stock molppang-2026-10
@@ -45,7 +46,9 @@ if (!topic || !id) {
   console.error("사용법: npm run align-audio -- <주제폴더> <영상ID> [--audio 파일] [--noise -35] [--min-pause 0.12] [--dry-run]");
   process.exit(1);
 }
-const dir = path.join(ROOT, topic, "source", id);
+const dir = id.endsWith("-shorts")                       // v1.3 쇼츠: 대본 폴더 = source/<롱폼 영상ID>/shorts (render.mjs v1.8 · tts_narration v1.9 와 같음)
+  ? path.join(ROOT, topic, "source", id.slice(0, -"-shorts".length), "shorts")
+  : path.join(ROOT, topic, "source", id);
 const txtPath = opt("txt", path.join(dir, `${id}.txt`));
 const srtPath = opt("srt", path.join(dir, `${id}.srt`));
 const audioPath = opt("audio", ["mp3", "wav", "m4a"].map((e) => path.join(dir, `narration.${e}`)).find((p) => fs.existsSync(p)));

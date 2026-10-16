@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>은퇴 꺼내 쓰기 쇼츠</title>
+<!-- VERSION: v1.0 — 2026-10-16 — 첫 세로 쇼츠 장면 (사용자 지시 2026-10-16 "일단 이 쇼츠만 영상 만들어봐").
+     대본 economic/source/eunte-kkeonaeseugi-2026-10/shorts/ v2.1 (프롤로그형 · 각색 — 김씨 부부 = 롱폼 A 부부, 글쓴이 부부 = B 부부).
+     세로 1080×1920 (render.mjs v1.8 이 아래 meta 를 읽음). 안전 구역 = 위 250px · 오른쪽 150px(좋아요·댓글 버튼) · 장면은 y 1270 위 ·
+     자막 띠 y 1300~1520 · 그 아래(제목·채널·관련 동영상 링크 자리)는 비움 — shorts.md 3번.
+     장면 시각 = 문장 시각(K.S·K.E)·낱말 시각(K.W) — 손으로 적은 초 없음. 숫자는 모두 쇼츠 내레이션 문장의 숫자 (새 숫자 없음).
+     핵심 정보(예금·연금저축·IRP, 꺼내는 순서, 기준 금액 선)는 그리지 않는다 — 롱폼에서 처음 나온다.
+     연구·교육용 영상 — 투자·세무 권유 아님. -->
+<meta name="video-size" content="1080x1920">
+<meta name="video-safe" content="250 150 1270 60">
+<link rel="stylesheet" href="../../render/kit.css">
+<style>
+/* 세로 무대 (kit.css 의 16:9 값을 덮음) */
+#wrap{max-width:420px;margin:0 auto;aspect-ratio:9/16}
+body.render #wrap{width:1080px;height:1920px;max-width:none;margin:0}
+#stage{width:1080px;height:1920px;background:radial-gradient(1100px 1500px at 50% 34%,#17243D 0%,#0C1424 58%,#070C17 100%)}
+/* 자막 띠: y 1300~1520 (아래 끝 = 1920-400), 오른쪽 버튼(x 930 오른쪽)을 피해 가운데 x 500 · 2줄 고르게 */
+#cc{left:500px;bottom:400px;max-width:860px;font-size:48px;padding:12px 24px;text-wrap:balance}
+.post{position:absolute;border-radius:56px;border:6px solid #C9D2E2;background:#101B30;overflow:hidden}
+.post .bar{position:absolute;height:26px;border-radius:13px;background:rgba(201,210,226,.22)}
+.arrow{position:absolute}
+</style>
+</head>
+<body>
+<div id="wrap"><div id="stage"></div></div>
+<div id="ctrl"></div>
+<div id="now"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script id="ep-data">/*EP-DATA:BEGIN*/window.EP={"id":"eunte-kkeonaeseugi-2026-10-shorts","topic":"economic","duration":47.66,"audio":null,"estimated":true,"est_model":{"perSyl":0.151,"comma":0.25,"base":-0.08,"min":0.8,"lead":0.3,"gap":0.45,"part":1,"tail":0.8},"synced":"2026-10-16T17:34:07Z","sent":[{"n":1,"part":"같은 5억, 다른 세금","text":"김씨 부부는 은퇴 첫해에만 세금과 건보료로 200만 원 넘게 손해 본 걸 알게 됐습니다.","start":0.3,"end":5.354},{"n":2,"part":"같은 5억, 다른 세금","text":"올해 세금만 334만 원을 낸 김씨는, 한 은퇴자 커뮤니티에서 글 하나를 봤는데요.","start":5.804,"end":11.259},{"n":3,"part":"같은 5억, 다른 세금","text":"나이도 같은 65세 부부, 모은 돈도 똑같이 5억 원.","start":11.709,"end":15.05},{"n":4,"part":"같은 5억, 다른 세금","text":"그런데 세금은 108만 원밖에 안 냈다는 글이었습니다.","start":15.5,"end":18.742},{"n":5,"part":"같은 5억, 다른 세금","text":"국민연금도, 한 달 생활비도 김씨네와 똑같았어요.","start":19.192,"end":22.382},{"n":6,"part":"같은 5억, 다른 세금","text":"김씨는 처음엔 잘못 읽은 줄 알았습니다.","start":22.832,"end":25.168},{"n":7,"part":"같은 5억, 다른 세금","text":"그리고 다음 해, 건보료 고지서까지 날아왔습니다.","start":25.618,"end":28.808},{"n":8,"part":"같은 5억, 다른 세금","text":"부부 둘 다 자녀 건강보험 피부양자에서 빠졌다는 거예요.","start":29.258,"end":32.651},{"n":9,"part":"같은 5억, 다른 세금","text":"그것도 5년 동안이요.","start":33.101,"end":34.38},{"n":10,"part":"같은 5억, 다른 세금","text":"이대로 가면 김씨 부부는 평생 세금만 약 2천만 원을 더 냅니다.","start":34.83,"end":38.525},{"n":11,"part":"같은 5억, 다른 세금","text":"김씨 부부, 지금이라도 되돌릴 수 있을까요?","start":38.975,"end":41.712},{"n":12,"part":"같은 5억, 다른 세금","text":"두 부부가 무엇이 달랐는지, 지금 고치는 법까지 아래 영상에서 확인하세요.","start":42.162,"end":46.862}],"subs":[[0.3,2.976,"김씨 부부는 은퇴 첫해에만 세금과 건보료로"],[2.976,5.354,"200만 원 넘게 손해 본 걸 알게 됐습니다."],[5.804,9.108,"올해 세금만 334만 원을 낸 김씨는, 한 은퇴자"],[9.108,11.259,"커뮤니티에서 글 하나를 봤는데요."],[11.709,15.05,"나이도 같은 65세 부부, 모은 돈도 똑같이 5억 원."],[15.5,18.742,"그런데 세금은 108만 원밖에 안 냈다는 글이었습니다."],[19.192,22.382,"국민연금도, 한 달 생활비도 김씨네와 똑같았어요."],[22.832,25.168,"김씨는 처음엔 잘못 읽은 줄 알았습니다."],[25.618,28.808,"그리고 다음 해, 건보료 고지서까지 날아왔습니다."],[29.258,32.651,"부부 둘 다 자녀 건강보험 피부양자에서 빠졌다는 거예요."],[33.101,34.38,"그것도 5년 동안이요."],[34.83,38.525,"이대로 가면 김씨 부부는 평생 세금만 약 2천만 원을 더 냅니다."],[38.975,41.712,"김씨 부부, 지금이라도 되돌릴 수 있을까요?"],[42.162,46.862,"두 부부가 무엇이 달랐는지, 지금 고치는 법까지 아래 영상에서 확인하세요."]],"subs_estimated":true};/*EP-DATA:END*/</script>
+<script src="../../render/kit.js"></script>
+<script>
+(function () {
+"use strict";
+K.init(window.EP, { chip: false, w: 1080 });
+const { S, E, W, el, pop, out, dim, counter, scene, text, big, fmt, grow } = K;
+const tl = K.tl;
+const R = "#FF4D3D", G = "#22C7B0", Y = "#FFD400";
+const CX = 500;                                  // 장면 가운데 (오른쪽 150px 버튼 자리를 빼고 가운데 — x 60~930)
+const until = n => S(n) - 0.05;
+const pill = (sc, cx, top, html, color) =>
+  el(`<div class="a cx pill sm" style="left:${cx}px;top:${top}px;color:${color};border-color:${color}">${html}</div>`, sc);
+
+/* 1. 핵심 한 문장 (s1) — 김씨 부부 · 세금·건보료 · 200만 원 넘게 손해 */
+{ const sc = scene(0, until(2));
+  const A = K.couple(sc, CX, 290, "A", 160, "A 김씨 부부"); pop(A, S(1));
+  const t1 = pill(sc, CX - 160, 590, "세금", R), t2 = pill(sc, CX + 150, 590, "건보료", R);
+  pop(t1, W(1, "세금")); pop(t2, W(1, "건보료"));
+  const b = big(sc, CX, 760, 200, R, "만 원", 100); pop(b.box, W(1, "200만") - 0.15); counter(b.num, 0, 200, W(1, "200만"), 0.9);
+  const loss = text(sc, CX, 1010, `넘게 <span class="R">손해</span>`, 84); pop(loss, W(1, "넘게"));
+  K.cut(E(1) - 0.1, "김씨 부부 200만 원 넘게 손해");
+}
+
+/* 2. 커뮤니티 글 하나 (s2) — 김씨 올해 세금 334만 원 · 휴대폰에 글 */
+{ const sc = scene(S(2) - 0.3, until(3));
+  const kim = K.one(sc, 230, 290, "#DCE3EE", 160, "김씨"); pop(kim, S(2));
+  const lab = text(sc, 650, 300, "올해 세금", 52, "w7"); pop(lab, W(2, "세금만"));
+  const b = big(sc, 650, 380, 140, R, "만 원", 70); pop(b.box, W(2, "334만") - 0.15); counter(b.num, 0, 334, W(2, "334만"), 0.9);
+  const ph = el(`<div class="post" style="left:${CX - 270}px;top:620px;width:540px;height:620px"></div>`, sc);
+  const head = el(`<div class="a cx c w7 N nw" style="left:270px;top:44px;font-size:38px">은퇴자 커뮤니티</div>`, ph);
+  const who = el(`<div class="a" style="left:52px;top:130px">${K.person("#5B7DB8", 90)}</div>`, ph);
+  const bars = [[130, 300, 150], [180, 230, 150], [270, 430, 52], [330, 400, 52], [390, 430, 52], [450, 300, 52]]
+    .map(([top, w, left]) => el(`<div class="bar" style="left:${left}px;top:${top}px;width:${w}px"></div>`, ph));
+  tl.fromTo(ph, { opacity: 0, y: 260 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, W(2, "커뮤니티") - 0.2);
+  tl.fromTo([head, who, ...bars], { opacity: 0 }, { opacity: 1, duration: 0.3, stagger: 0.08 }, W(2, "글 하나"));
+  K.cut(E(2) - 0.1, "김씨 334만 원 · 커뮤니티 글");
+}
+
+/* 3. 같은 조건, 다른 세금 (s3–s6) — 왼쪽 김씨 부부(A) · 오른쪽 글쓴이 부부(B) */
+{ const sc = scene(S(3) - 0.3, until(7));
+  const LX = 270, RX = 730;
+  const A = K.couple(sc, LX, 262, "A", 110, "A 김씨 부부"), B = K.couple(sc, RX, 262, "B", 110, "B 글쓴이 부부");
+  pop(A, S(3)); pop(B, S(3) + 0.1);
+  const row = (top, l, r, at) => {
+    const n = [el(`<div class="a cx c w9 nw" style="left:${LX}px;top:${top}px;font-size:58px">${l}</div>`, sc),
+      el(`<div class="a cx c w9 Y nw" style="left:${CX}px;top:${top - 4}px;font-size:66px">=</div>`, sc),
+      el(`<div class="a cx c w9 nw" style="left:${RX}px;top:${top}px;font-size:58px">${r}</div>`, sc)];
+    tl.fromTo(n, { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out", stagger: 0.06 }, at);
+    return n;
+  };
+  const r1 = row(490, "65세", "65세", W(3, "65세")), r2 = row(580, "5억 원", "5억 원", W(3, "5억"));
+  const r3 = row(670, "국민연금", "국민연금", W(5, "국민연금")), r4 = row(760, "생활비", "생활비", W(5, "생활비"));
+  const line = el(`<div class="a" style="left:110px;top:862px;width:780px;height:3px;background:rgba(255,255,255,.18)"></div>`, sc); pop(line, S(4));
+  const tax = text(sc, CX, 884, "세금", 52, "w7"); pop(tax, W(4, "세금은"));
+  const barA = el(`<div class="a" style="left:110px;top:960px;width:735px;height:100px;border-radius:14px;background:${R};transform-origin:0 50%"></div>`, sc);
+  const numA = el(`<div class="a w9 nw" style="left:140px;top:976px;font-size:56px;color:#fff">334만 원</div>`, sc);
+  grow(barA, W(4, "세금은"), 0.9); pop(numA, W(4, "세금은") + 0.5);
+  const barB = el(`<div class="a" style="left:110px;top:1090px;width:238px;height:100px;border-radius:14px;background:${G};transform-origin:0 50%"></div>`, sc);
+  const numB = el(`<div class="a w9 G nw" style="left:378px;top:1106px;font-size:56px;transform-origin:0 50%">108만 원</div>`, sc);
+  grow(barB, W(4, "108만"), 0.6); pop(numB, W(4, "108만") + 0.2);
+  K.cut(E(4) - 0.1, "세금 334만 vs 108만");
+  K.cut(E(5) - 0.1, "같은 조건 (65세·5억·국민연금·생활비)");
+  // s6 잘못 읽은 줄 — 다른 줄은 흐리게, 108만 원을 다시 보듯 크게 + 물음표
+  dim([...r1, ...r2, ...r3, ...r4, A, B, line, tax, barA, numA], W(6, "잘못"));
+  tl.to(numB, { scale: 1.35, duration: 0.5, ease: "power2.out" }, W(6, "잘못"));
+  const q = el(`<div class="a w9 nw" style="left:700px;top:1050px;font-size:120px;line-height:1;color:#F4F6FA">?</div>`, sc);
+  pop(q, W(6, "잘못") + 0.2, { from: { scale: 1.5, y: 0 } });
+  K.cut(E(6) - 0.1, "잘못 읽은 줄 (108만 원?)");
+}
+
+/* 4. 다음 해 · 건보료 고지서 · 피부양자에서 빠짐 · 5년 (s7–s9) */
+{ const sc = scene(S(7) - 0.3, until(10));
+  const cal = K.cal(sc, CX - 210, 300, `<span class="Y">다음 해</span>`, "", W(7, "다음 해"));
+  const env = el(`<div class="env" style="left:${CX - 170}px;top:470px;width:340px;height:200px;font-size:46px"><span>건보료<br>고지서</span></div>`, sc);
+  tl.fromTo(env, { opacity: 0, x: 380, y: -420, rotate: 24 }, { opacity: 1, x: 0, y: 0, rotate: -4, duration: 0.8, ease: "bounce.out" }, W(7, "고지서") - 0.25);
+  out([cal, env], S(8) - 0.15);
+  const lab = text(sc, CX, 300, "자녀 건강보험 · 피부양자", 56, "w9 Y"); pop(lab, W(8, "자녀"));
+  const panel = el(`<div class="panel" style="left:${CX - 360}px;top:400px;width:720px;height:460px"></div>`, sc); pop(panel, W(8, "자녀"));
+  const A = K.couple(sc, CX, 470, "A", 230, "A 김씨 부부"); pop(A, W(8, "부부 둘 다") + 0.05);
+  const x1 = el(`<div class="a cx w9 R nw" style="left:${CX - 70}px;top:470px;font-size:170px;line-height:1">✕</div>`, sc);
+  const x2 = el(`<div class="a cx w9 R nw" style="left:${CX + 70}px;top:490px;font-size:150px;line-height:1">✕</div>`, sc);
+  pop(x1, W(8, "빠졌다"), { from: { scale: 1.6, y: 0 } }); pop(x2, W(8, "빠졌다") + 0.15, { from: { scale: 1.6, y: 0 } });
+  const outT = text(sc, CX, 900, "피부양자에서 빠짐", 60, "w9 R"); pop(outT, W(8, "빠졌다") + 0.25);
+  const yrs = K.years(sc, CX - 262, 1060, 5, R, S(9) - 0.1, "5년");   // 칸 다섯 + '5년' — 짧은 문장이라 문장 시작에
+  gsap.set(yrs, { scale: 1.4, transformOrigin: "50% 50%" });
+  K.cut(E(7) - 0.1, "다음 해 · 건보료 고지서");
+  K.cut(E(9) - 0.05, "피부양자에서 빠짐 · 5년");
+}
+
+/* 5. 이대로 가면 평생 세금 약 2천만 원 더 (s10) */
+{ const sc = scene(S(10) - 0.3, until(11));
+  const A = K.couple(sc, CX, 280, "A", 120, "A 김씨 부부"); pop(A, S(10));
+  const lab = text(sc, CX, 520, `평생 세금 <span class="R">더</span>`, 64, "w7"); pop(lab, W(10, "평생"));
+  const n = el(`<div class="a cx c w9 R nw" style="left:${CX}px;top:615px;font-size:132px;line-height:1;letter-spacing:-4px">약 <span>0</span>만 원</div>`, sc);
+  pop(n, W(10, "약 2천만") - 0.15);
+  const ns = n.querySelector("span"), o = { v: 0 };
+  tl.fromTo(o, { v: 0 }, { v: 2000, duration: 1.2, ease: "power2.out", onUpdate: () => { ns.textContent = o.v >= 1999.5 ? "2천" : fmt(o.v); } }, W(10, "약 2천만"));
+  const sub = text(sc, CX, 800, "건보료 별도", 40, "w5 N"); pop(sub, W(10, "냅니다"));
+  [260, 380, 500, 620, 740].forEach((x, i) => K.coins(sc, x, 1180, 9, W(10, "평생") + i * 0.18, "", 0.025));
+  K.cut(E(10) - 0.05, "평생 약 2천만 원 더");
+}
+
+/* 6. 지금이라도 되돌릴 수 있을까? (s11) */
+{ const sc = scene(S(11) - 0.3, until(12));
+  const q = el(`<div class="a cx c w9 Y nw" style="left:${CX}px;top:330px;font-size:300px;line-height:1">?</div>`, sc);
+  const A = K.couple(sc, CX, 700, "A", 170, "A 김씨 부부"); pop(A, S(11));
+  pop(q, W(11, "되돌릴") - 0.1, { from: { scale: 0.5, y: 0 } });
+  const t = text(sc, CX, 1040, `<span class="Y">되돌릴</span> 수 있을까?`, 72); pop(t, W(11, "되돌릴"));
+  K.cut(E(11) - 0.05, "되돌릴 수 있을까?");
+}
+
+/* 7. 아래 영상에서 확인 (s12) — A·B 두 부부 · 무엇이 달랐을까? · ⬇ (관련 동영상 링크 자리) */
+{ const sc = scene(S(12) - 0.3, K.D, { keep: true });
+  const A = K.couple(sc, 280, 280, "A", 140, "A 김씨 부부"), B = K.couple(sc, 720, 280, "B", 140, "B 글쓴이 부부");
+  pop(A, S(12)); pop(B, S(12) + 0.1);
+  const t1 = text(sc, CX, 560, `무엇이 <span class="Y">달랐을까?</span>`, 76); pop(t1, W(12, "무엇이"));
+  const t2 = text(sc, CX, 670, "지금 고치는 법", 64, "w7"); pop(t2, W(12, "고치는"));
+  const t3 = text(sc, CX, 820, `<span class="Y">아래 영상</span>에서 확인`, 64); pop(t3, W(12, "아래"));
+  const ar = el(`<svg class="arrow" viewBox="0 0 120 160" width="120" height="160" style="left:${CX - 60}px;top:950px" aria-hidden="true">
+    <path d="M60 6 L60 120 M14 78 L60 124 L106 78" fill="none" stroke="${Y}" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/></svg>`, sc);
+  pop(ar, W(12, "아래") + 0.1);
+  tl.fromTo(ar, { y: 0 }, { y: 36, duration: 0.45, ease: "sine.inOut", repeat: 7, yoyo: true }, W(12, "아래") + 0.7);
+  K.cut(E(12) - 0.1, "아래 영상에서 확인 ⬇");
+}
+
+K.done();
+})();
+</script>
+</body>
+</html>

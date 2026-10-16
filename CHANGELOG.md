@@ -1,5 +1,24 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-16 (52) — 재테크 쇼츠 4편 프롤로그형·각색 · 1편 쇼츠 세로 장면 + 소리 없는 미리보기 · 쇼츠 내레이션·세로 렌더 도구
+
+### 왜 (사용자 지시)
+- "좋아 나머지도 세 편도 대본은 같은 방식으로 만들고 일단 이 쇼츠만 영상 만들어봐"
+
+### 한 것
+| 파일 (버전) | 내용 |
+|---|---|
+| `economic/source/{gicho-yeongeum,isa-mangi,toejik-geonbo}-2026-10/shorts/shorts.md` (v1.0 → v2.0) · `…-shorts.txt` | 1편 v2.1 꼴(첫 문장 하나에 핵심 · 경위 각색 · 핵심 정보 뺌 · '영상에서 확인'). 기초연금 박씨 부부·이웃 부부(11문장 269음절 약 46.8초) · ISA 이씨·동갑 동료(12문장 304음절 약 53.2초) · 건보료 최씨 부부·입사 동기 부부(13문장 303음절 약 53.2초). 숫자는 롱폼 README 근거와 맞춰 봄 (ISA 171.7−75.5=96.1, 6년 203.9 · 기초연금 41만 9,640원 ×12 · 건보료 3년 860만 원) |
+| `tools/tts_narration.py` (v1.8 → v1.9) · `tools/tests/test_tts_shorts.py` (새로, 4개 통과) | 쇼츠 대본 `<영상ID>/shorts/<영상ID>-shorts.txt` 도 찾음(`script_entries`), 영상ID `<영상ID>-shorts` → 결과 경로 `shorts/`(`src_dir`), 올리기 폴더도 같은 모양, 낱말 사전은 롱폼 폴더 것도 |
+| `video/render/render.mjs` (v1.7 → v1.8) | 장면 파일 `<meta name="video-size">`·`<meta name="video-safe">` → 세로 1080×1920 렌더·안전 구역 check(위·오른쪽 버튼·아래) · 쇼츠 폴더 · `sync --estimate` 추정 자막(srt_tool 줄 나누기·음절 비율). 롱폼 check 그대로 문제 0 |
+| `video/render/kit.js` (v1.2 → v1.3) · `video/scripts/align-audio.mjs` (v1.2 → v1.3) | `K.init(ep, {w})` 무대 너비(미리보기 맞춤) · align-audio 쇼츠 폴더(`--no-export`) |
+| `video/episodes/eunte-kkeonaeseugi-2026-10-shorts/index.html` (v1.0 새로) · `…/shorts/eunte-kkeonaeseugi-2026-10-shorts.srt` | 1편 쇼츠 장면 7개 (김씨 부부 200만 원 넘게 손해 → 커뮤니티 글 → 같은 조건·세금 334 vs 108 → 잘못 읽은 줄 → 고지서·피부양자·5년 → 평생 약 2천만 원 → 되돌릴 수 있을까 → ⬇ 아래 영상). check 문제 0, still 10장 점검, 소리 없는 미리보기 47.7초(1,430장 43초 — git 에 넣지 않음) |
+| `guides/shorts_guide.md` (v1.4 → v1.5) · `guides/video_guide.md` (v4.9 → v4.10) · `guides/tts_guide.md` (v1.10 → v1.11) | 쇼츠 내레이션·세로 장면(화면 자리·meta·CSS·명령) |
+| `guides/status.md` (v1.26 → v1.27) | 1번 표 · 2-2 3번 쇼츠 |
+
+### 남은 것
+- 사용자: Kaggle 셀(범위 `economic`)로 쇼츠 4편 내레이션 → 1편 쇼츠 최종 렌더 · 2~4편 쇼츠 장면 파일 · 롱폼 공개 뒤 업로드.
+
 ## 2026-10-16 (51) — 재테크 1편 쇼츠 v2.1: 각색(김씨 부부·은퇴자 커뮤니티 글) + 첫 문장 하나에 핵심 · 쇼츠 지시사항 v1.4
 
 ### 왜 (사용자 피드백)

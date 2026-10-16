@@ -1,4 +1,8 @@
-// VERSION: v1.7 — 2026-10-16 — check: `data-small="<이유>"` 속성이 있는 칸 안의 글자는 '36px 미만' 에서 뺌 (화면 밖·맨 아래 60px·낱말 검사는 그대로).
+// VERSION: v1.8 — 2026-10-16 — 세로 쇼츠: 장면 파일의 <meta name="video-size" content="1080x1920"> 로 무대 크기(창·찍는 크기·점검),
+//   <meta name="video-safe" content="위 오른쪽 아래 왼쪽"> 로 점검 안전 구역(아래 = 장면 글자가 넘지 않을 y), 영상ID '<영상ID>-shorts' 는
+//   대본 폴더 <주제>/source/<영상ID>/shorts/ (tts_narration v1.9 와 같음). 추정 시각(--estimate)도 자막을 만든다(srt_tool 앞줄·뒷줄 나눔). 사용자 지시 2026-10-16 "좋아 나머지도 세 편도 대본은 같은 방식으로 만들고 일단 이 쇼츠만 영상 만들어봐".
+//   meta 가 없는 장면 파일은 예전과 같다 (1920×1080).
+// v1.7 — 2026-10-16 — check: `data-small="<이유>"` 속성이 있는 칸 안의 글자는 '36px 미만' 에서 뺌 (화면 밖·맨 아래 60px·낱말 검사는 그대로).
 //   주식 1번 오른쪽 카드 2개 = 시안 race3d.html v1.1 그대로 (글자 15~40px) — 사용자 지시 2026-10-16 "오른쪽 2개 박스들 디자인 이미지 그대로 사용 안했어? 그게 나은데 다시 수정하고".
 // v1.6 — 2026-10-16 — three.js(jsdelivr three@0.160.0) 를 로컬 node_modules 로 (gsap 처럼) · 낱말 검사 예외에 SPY (주식 1번 v2 3D 장면).
 // v1.5 — 2026-10-16 — 낱말 검사 예외에 HOLD (계좌 칸 'BUY & HOLD' — 사용자 지시 2026-10-16 "1번째 박스에는 맨처음에 매수하고 그냥 냅둔 수익도 표시해").
@@ -31,7 +35,7 @@ import { fileURLToPath } from "node:url";
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, "..", "..");
-const VERSION = "v1.7";                        // 로그 [RENDER] tool= 에 찍힘 (v1.4~v1.6 때 올리지 않았던 것을 맞춤)
+const VERSION = "v1.8";                        // 로그 [RENDER] tool= 에 찍힘 (v1.4~v1.6 때 올리지 않았던 것을 맞춤)
 const log = (stage, kv) => console.log(`[${stage}] [${new Date().toISOString().slice(0, 19)}Z] ` +
   Object.entries(kv).map(([k, v]) => `${k}=${typeof v === "string" && /\s/.test(v) ? JSON.stringify(v) : v}`).join(" "));
 
@@ -43,10 +47,16 @@ if (!MODE || !TOPIC || !ID) {
   console.error("사용: node video/render/render.mjs <sync|check|stills|extra|video> <주제> <영상ID> [옵션]");
   process.exit(2);
 }
-const SRC = path.join(ROOT, TOPIC, "source", ID);
+const SHORTS = ID.endsWith("-shorts");                           // v1.8 쇼츠: 대본 폴더 = source/<롱폼 영상ID>/shorts
+const SRC = SHORTS ? path.join(ROOT, TOPIC, "source", ID.slice(0, -"-shorts".length), "shorts") : path.join(ROOT, TOPIC, "source", ID);
 const EPDIR = path.join(ROOT, "video", "episodes", ID);
 const PAGE = path.join(EPDIR, "index.html");
 const AUDIO = ["mp3", "wav", "m4a"].map(e => path.join(SRC, `narration.${e}`)).find(f => fs.existsSync(f));
+// v1.8 무대 크기·점검 안전 구역 (장면 파일 meta — 없으면 1920×1080 · 예전 점검 값)
+const PAGE_HTML = fs.existsSync(PAGE) ? fs.readFileSync(PAGE, "utf-8") : "";
+const SIZE = (m => (m ? [+m[1], +m[2]] : [1920, 1080]))(PAGE_HTML.match(/<meta name="video-size" content="(\d+)x(\d+)"/));
+const SAFE = (m => (m ? m[1].trim().split(/\s+/).map(Number) : null))(PAGE_HTML.match(/<meta name="video-safe" content="([\d\s]+)"/));
+const [W0, H0] = SIZE;
 
 function fail(stage, msg, next) {
   log(stage, { level: "error", msg, next: next || "-" });
@@ -94,25 +104,30 @@ for raw in Path(sys.argv[1]).read_text("utf-8-sig").splitlines():
         card = True
         continue
     if not card:
-        rows.append([line, part, srt_tool.syllables(line)])
+        rows.append([line, part, srt_tool.syllables(line), srt_tool.split_px(line)])
 assert [r[0] for r in rows] == srt_tool.parse_txt(sys.argv[1]), "문장 판정이 srt_tool 과 다름"
+for r in rows: r.append([max(1, srt_tool.syllables(x)) + 0.5 * x.count(",") for x in r[3]])
 print(json.dumps({"rows": rows, "cards": len(srt_tool.parse_cards(sys.argv[1]))}, ensure_ascii=False))`;
   const r = spawnSync("python3", ["-c", py, txt, path.join(ROOT, "tools")], { encoding: "utf-8" });
   if (r.status !== 0) fail("SYNC", "대본 읽기 실패: " + (r.stderr || "").trim().split("\n").pop(), "python3 tools/srt_tool.py check 로 대본 확인");
   const { rows, cards } = JSON.parse(r.stdout);
   if (cards) log("SYNC", { level: "warn", note: "고지 카드 쉼은 추정에 넣지 않음", cards });
   let t = EST.lead;
-  const sent = rows.map(([text, part, syl], i) => {
+  const subs = [];                                              // v1.8 추정 자막 (srt_tool 앞줄·뒷줄 · 길이는 음절 비율 — srt_tool._split_durs 와 같음)
+  const sent = rows.map(([text, part, syl, parts, w], i) => {
     const d = Math.max(EST.min, EST.perSyl * syl + EST.comma * (text.match(/,/g) || []).length + EST.base);
     const it = { n: i + 1, part, text, start: +t.toFixed(3), end: +(t + d).toFixed(3) };
+    const ws = w.reduce((a, x) => a + x, 0);
+    let a0 = t;
+    parts.forEach((x, k) => { const b0 = a0 + d * w[k] / ws; subs.push([+a0.toFixed(3), +b0.toFixed(3), x]); a0 = b0; });
     t += d + (i === rows.length - 1 ? EST.tail : rows[i + 1][1] !== part ? EST.part : EST.gap);
     return it;
   });
   const D = +t.toFixed(2);
   const ep = { id: ID, topic: TOPIC, duration: D, audio: null, estimated: true, est_model: EST,
-    synced: new Date().toISOString().slice(0, 19) + "Z", sent, subs: [] };
+    synced: new Date().toISOString().slice(0, 19) + "Z", sent, subs, subs_estimated: true };
   writeEp(ep);
-  log("SYNC", { video: ID, mode: "estimate", sentences: sent.length, syllables: rows.reduce((a, x) => a + x[2], 0), duration_s: D,
+  log("SYNC", { video: ID, mode: "estimate", sentences: sent.length, subs: subs.length, syllables: rows.reduce((a, x) => a + x[2], 0), duration_s: D,
     note: "오디오가 생기면 sync 로 다시 (이 시각으로는 video 를 만들지 않음)", file: path.relative(ROOT, PAGE) });
 }
 function writeEp(ep) {
@@ -147,7 +162,8 @@ async function openPage(pw, width) {
   let browser;
   try { browser = await pw.chromium.launch(); }
   catch { browser = await pw.chromium.launch({ executablePath: "/opt/pw-browsers/chromium" }); }
-  const page = await browser.newPage({ viewport: { width: width || 1920, height: Math.round((width || 1920) * 9 / 16) }, deviceScaleFactor: 1 });
+  const vw = width || W0;
+  const page = await browser.newPage({ viewport: { width: vw, height: Math.round(vw * H0 / W0) }, deviceScaleFactor: 1 });
   const GSAP = path.join(HERE, "node_modules", "gsap", "dist", "gsap.min.js");
   if (!fs.existsSync(GSAP)) fail("RENDER", "gsap 없음", "cd video/render && npm install");
   const THREE_JS = path.join(HERE, "node_modules", "three", "build", "three.min.js");   // v1.6
@@ -166,16 +182,16 @@ async function openPage(pw, width) {
   await page.goto("file://" + PAGE + "?render=1");
   await page.waitForFunction(() => window.SB && window.SB.ready, null, { timeout: 30000 }).catch(() => fail("RENDER", "장면 파일이 준비되지 않음 (SB.ready)", "브라우저 오류 줄 확인: " + errs.join(" | ")));
   await page.evaluate(async () => { await Promise.all([500, 700, 900].map(w => document.fonts.load(`${w} 100px "Noto Sans KR"`, "가나다0"))); await document.fonts.ready; });
-  if (width && width !== 1920) await page.evaluate(w => { document.getElementById("stage").style.transform = `scale(${w / 1920})`; document.getElementById("wrap").style.cssText = `width:${w}px;height:${Math.round(w * 9 / 16)}px`; }, width);
+  if (width && width !== W0) await page.evaluate(([w, W, H]) => { document.getElementById("stage").style.transform = `scale(${w / W})`; document.getElementById("wrap").style.cssText = `width:${w}px;height:${Math.round(w * H / W)}px`; }, [width, W0, H0]);
   return { browser, page, errs };
 }
 
 // ---------- check: 글자 크기·자막 띠·화면 밖 ----------
-const CHECK_FN = () => {
+const CHECK_FN = ([W, H, SAFE]) => {           // v1.8 무대 크기 W×H · 안전 구역 SAFE=[위, 오른쪽 여백, 아래 y, 왼쪽] (없으면 예전 값)
   const st = document.getElementById("stage");
   const out = [];
   const cc0 = document.getElementById("cc");
-  const LOW = cc0 ? 884 : 1020;                // 자막 띠 위 · 자막 없는 영상은 맨 아래 60px(진행 막대·자동 자막) 위
+  const LOW = SAFE ? SAFE[2] : (cc0 ? H - 196 : H - 60);   // 자막 띠 위(1080p: 884) · 자막 없는 영상은 맨 아래 60px(진행 막대·자동 자막) 위 · 쇼츠는 meta
   const NOWORDS = !!(window.K && window.K.opt && window.K.opt.noWords);
   const op = el => { let o = 1; for (let e = el; e && e !== st; e = e.parentElement) { const cs = getComputedStyle(e); o *= +cs.opacity; if (cs.display === "none" || cs.visibility === "hidden") return 0; } return o; };
   const walker = document.createTreeWalker(st, NodeFilter.SHOW_TEXT);
@@ -193,24 +209,26 @@ const CHECK_FN = () => {
     if (fs < 36 && !el.closest("[data-small]")) out.push({ kind: "글자 36px 미만", txt, fs });   // v1.7: data-small = 사용자가 고른 작은 글자 칸 (이유를 속성 값에)
     if (NOWORDS && !el.closest(".code") && (/[가-힣ぁ-んァ-ン一-龥]/.test(n.textContent) || /[A-Za-z]{2,}/.test(n.textContent.replace(/S&P|NASDAQ|BUY|SELL|HOLD|RSI|VIX|SPY/g, ""))))
       out.push({ kind: "낱말(언어 없는 화면)", txt });   // K.init opts.noWords — 숫자·기호·A·B·S&P·NASDAQ 만 (stock/guides/README.md 4번)
-    if (b.bottom > LOW && !el.closest("#chip")) out.push({ kind: cc0 ? "자막 띠(y 880 아래)와 겹침" : "맨 아래 60px(y 1020 아래)", txt, bottom: Math.round(b.bottom) });
-    if (b.left < 40 || b.right > 1880 || b.top < 30) out.push({ kind: "화면 가장자리 밖", txt, left: Math.round(b.left), right: Math.round(b.right), top: Math.round(b.top) });
+    if (b.bottom > LOW && !el.closest("#chip")) out.push({ kind: SAFE ? `안전 구역 아래(y ${LOW} 아래)` : cc0 ? "자막 띠(y 880 아래)와 겹침" : "맨 아래 60px(y 1020 아래)", txt, bottom: Math.round(b.bottom) });
+    const [T0, R0, L0] = SAFE ? [SAFE[0], SAFE[1], SAFE[3]] : [30, 40, 40];
+    if (b.left < L0 || b.right > W - R0 || b.top < T0) out.push({ kind: SAFE ? "안전 구역 밖(위·오른쪽 버튼·왼쪽)" : "화면 가장자리 밖", txt, left: Math.round(b.left), right: Math.round(b.right), top: Math.round(b.top) });
   }
   // 자막 띠 줄 수
   const cc = document.getElementById("cc");
-  if (cc && cc.textContent.trim()) { const lines = Math.round(cc.getBoundingClientRect().height / (52 * 1.3)); if (lines > 2) out.push({ kind: "자막 3줄 이상", txt: cc.textContent.slice(0, 24), lines }); }
+  if (cc && cc.textContent.trim()) { const cs = getComputedStyle(cc), lh = parseFloat(cs.fontSize) * 1.3, pad = parseFloat(cs.paddingTop) + parseFloat(cs.paddingBottom);
+    const lines = Math.round((cc.getBoundingClientRect().height - pad) / lh); if (lines > 2) out.push({ kind: "자막 3줄 이상", txt: cc.textContent.slice(0, 24), lines }); }
   return out;
 };
 async function check() {
   const pw = await loadPlaywright();
-  const { browser, page, errs } = await openPage(pw, 1920);
+  const { browser, page, errs } = await openPage(pw, W0);
   const { D, cuts } = await page.evaluate(() => ({ D: window.SB.D, cuts: window.SB.cuts }));
   let bad = 0;
   const seen = new Set();
   const times = [...cuts.map(c => [c.t, c.name]), ...Array.from({ length: Math.floor(D / 0.5) }, (_, i) => [i * 0.5, ""])];
   for (const [t, name] of times) {
     await page.evaluate(x => window.SB.seek(x), t);
-    for (const p of await page.evaluate(CHECK_FN)) {
+    for (const p of await page.evaluate(CHECK_FN, [W0, H0, SAFE])) {
       const key = p.kind + "|" + p.txt;
       if (seen.has(key)) continue;
       seen.add(key);
@@ -226,7 +244,7 @@ async function check() {
 // ---------- stills / extra ----------
 async function stills(times) {
   const pw = await loadPlaywright();
-  const W = Number(opt("w", 1280));
+  const W = Number(opt("w", Math.round(W0 * 2 / 3)));       // 기본: 무대 너비의 2/3 (1920 → 1280, 1080 → 720)
   const { browser, page } = await openPage(pw, W);
   const outDir = opt("out", path.join(os.tmpdir(), "video_stills", ID));
   fs.mkdirSync(outDir, { recursive: true });
@@ -242,7 +260,7 @@ async function stills(times) {
 
 // ---------- video ----------
 async function renderChunk(pw, from, to, fps, file, crf, tag) {
-  const { browser, page } = await openPage(pw, 1920);
+  const { browser, page } = await openPage(pw, W0);
   const ff = spawn("ffmpeg", ["-y", "-v", "error", "-f", "image2pipe", "-framerate", String(fps), "-i", "-", "-c:v", "libx264", "-preset", "fast",
     "-crf", String(crf), "-pix_fmt", "yuv420p", "-r", String(fps), file], { stdio: ["pipe", "inherit", "inherit"] });
   const t0 = Date.now();

@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.8 — 2026-10-15 — 사용자 지시 "맨 마지막 대사 … 시청해주셔서 감사합니다. 로 변경 … 음성 … 에 모두 반영": 부분 다시 만들기 —
+# VERSION: v1.9 — 2026-10-16 — 쇼츠 대본도 읽는다: <주제>/source/<영상ID>/shorts/<영상ID>-shorts.txt → 같은 쇼츠 폴더에 narration.mp3 ·
+#          tts_narration.json · tts_report.md (영상ID 는 '<영상ID>-shorts'). all·check·push·pick 이 롱폼과 같은 방식으로 다룬다 (src_dir).
+#          사용자 지시 2026-10-16 "좋아 나머지도 세 편도 대본은 같은 방식으로 만들고 일단 이 쇼츠만 영상 만들어봐" — 쇼츠 영상도 오디오 먼저 (CLAUDE.md).
+# (v1.8 — 2026-10-15 — 사용자 지시 "맨 마지막 대사 … 시청해주셔서 감사합니다. 로 변경 … 음성 … 에 모두 반영": 부분 다시 만들기 —
 #          대본의 글만 조금 바뀌면(문장 수·파트·카드·쉼·목소리가 같고 바뀐 문장 ≤ 20%) all·build 가 그 문장만 새로 만들어 저장소
 #          narration.mp3 의 그 자리에 끼운다. 다른 문장의 소리·시각은 그대로(뒤 문장만 길이 차이만큼 밀림), 새 문장 크기는 다른 문장
-#          말소리 크기 중간값에 맞춤, 메타 patches 에 기록, 보고에 '부분 다시 만들기' 절. --full 이면 예전처럼 전부 다시.
+#          말소리 크기 중간값에 맞춤, 메타 patches 에 기록, 보고에 '부분 다시 만들기' 절. --full 이면 예전처럼 전부 다시.)
 # (v1.7 — 2026-10-15 — 사용자 지시 "오디오 코드도 진행자 목소리로만 대본 읽도록": 역할 설정 enabled(false 면 그 역할을 끔) —
 #          voices/storyteller.json enabled=false → 모든 문장(사연 파트 포함)을 진행자(H04 기준 목소리)가 읽는다. 꺼진 역할은 고르기·샘플·모델에서 빠진다.
 #          범위 버튼(전체 / 주제 하나)은 tools/kaggle_tts_panel.py 가 all --topics 로 넘긴다)
@@ -64,6 +67,7 @@ r"""
 
 결과 (영상마다 오디오 하나)
   저장소 <주제>/source/<영상ID>/narration.mp3      ← 영상에 쓰는 오디오 (--push 가 대본 폴더에 각각 올린다)
+  (v1.9) 쇼츠: <주제>/source/<영상ID>/shorts/<영상ID>-shorts.txt → 같은 shorts/ 폴더에 narration.mp3 · tts_narration.json (영상ID = <영상ID>-shorts)
   저장소 <주제>/source/<영상ID>/tts_narration.json ← 문장별 역할·시작·끝, 대본 해시(check 용), 목소리 설정
   저장소 <주제>/source/<영상ID>/tts_report.md      ← 문장별 길이·속도·귀로 확인할 문장
   작업 폴더 OUT(= /kaggle/working/tts_out, Kaggle 밖에서는 output/tts): OUT/upload/… (위 세 파일, 올리기 전 원본),
@@ -111,7 +115,7 @@ ROOT = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 import srt_tool  # noqa: E402  (문장·카드 판정을 자막 도구와 똑같이 쓰기 위해)
 
-VERSION = "v1.8"
+VERSION = "v1.9"
 CACHE_VERSION = 1            # 생성 방식이 바뀌면 올린다 → 문장 파일을 모두 다시 만든다 (v1.1은 v1.0 캐시와 같은 키)
 DEFAULT_MODEL = "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice"     # 사연자 (화자 + 말투 지시)
 DEFAULT_CLONE_MODEL = "Qwen/Qwen3-TTS-12Hz-1.7B-Base"       # 진행자 (기준 목소리 복제)
@@ -267,7 +271,7 @@ def load_voices(topic=None, vid=None, args=None, quiet=False):
         if topic and not locked:   # lock: 주제·영상 폴더의 덮어쓰기를 받지 않는다 (진행자 목소리는 모든 대본에서 같게)
             layers.append(ROOT / topic / "voices" / p.name)
             if vid:
-                layers.append(ROOT / topic / "source" / vid / "voices" / p.name)
+                layers.append(src_dir(topic, vid) / "voices" / p.name)
         for q in layers:
             if not q.is_file():
                 continue
@@ -284,7 +288,7 @@ def load_voices(topic=None, vid=None, args=None, quiet=False):
                 cfg[k] = {**cfg.get(k, {}), **v} if k in ("part_instruct", "generation") and isinstance(v, dict) else v
             files.append(rel(q))
         if locked and topic:
-            ignored = [rel(q) for q in (ROOT / topic / "voices" / p.name, ROOT / topic / "source" / (vid or "-") / "voices" / p.name)
+            ignored = [rel(q) for q in (ROOT / topic / "voices" / p.name, src_dir(topic, vid or "-") / "voices" / p.name)
                        if q.is_file()]
             if ignored and not quiet:
                 log("VOICE", logging.WARNING, role=role, ignored=",".join(ignored), note="lock: 이 역할은 모든 대본에서 같은 목소리 — 덮어쓰기 무시")
@@ -934,16 +938,38 @@ def out_root(args):
     return (kaggle / "tts_out") if kaggle.is_dir() else (ROOT / "output" / "tts")
 
 
+SHORTS_SUFFIX = "-shorts"   # v1.9: 영상ID 가 이렇게 끝나면 쇼츠 — 대본 폴더는 source/<롱폼 영상ID>/shorts/
+
+
+def src_dir(topic, vid):
+    """대본 폴더: 롱폼 <주제>/source/<영상ID> · 쇼츠(<영상ID>-shorts) <주제>/source/<영상ID>/shorts (v1.9)."""
+    if vid and vid.endswith(SHORTS_SUFFIX):
+        return ROOT / topic / "source" / vid[: -len(SHORTS_SUFFIX)] / "shorts"
+    return ROOT / topic / "source" / vid
+
+
+def script_entries():
+    """저장소의 모든 대본 TXT → [(주제, 영상ID, TXT)] — 롱폼 <영상ID>/<영상ID>.txt 와 쇼츠 <영상ID>/shorts/<영상ID>-shorts.txt (v1.9)."""
+    out = []
+    for txt in sorted(ROOT.glob("*/source/*/*.txt")):
+        if txt.stem == txt.parent.name:
+            out.append((txt.parents[2].name, txt.stem, txt))
+    for txt in sorted(ROOT.glob("*/source/*/shorts/*.txt")):
+        if txt.stem == txt.parents[1].name + SHORTS_SUFFIX:
+            out.append((txt.parents[3].name, txt.stem, txt))
+    return out
+
+
 def episode_paths(root, topic, vid):
     """정해진 결과 경로. upload/ 아래는 저장소와 같은 경로라 그대로 올리면 된다."""
-    up = root / "upload" / topic / "source" / vid
+    up = root / "upload" / src_dir(topic, vid).relative_to(ROOT)
     work = root / vid
     return {"upload": up, "narration": up / "narration.mp3", "meta": up / META_NAME,
             "work": work, "cache": work / "cache", "report": up / REPORT_NAME}
 
 
 def repo_audio(topic, vid):
-    src = ROOT / topic / "source" / vid
+    src = src_dir(topic, vid)
     return next((src / f"narration.{e}" for e in AUDIO_EXTS if (src / f"narration.{e}").is_file()), None)
 
 
@@ -957,7 +983,7 @@ def voices_meta(voices):
 def patch_candidate(topic, vid, rows, cards, args):
     """저장소 오디오는 그대로 두고 글이 바뀐 문장만 다시 만들 수 있는지 (모델 없이 판단).
     → (바뀐 문장 번호 목록, None) 또는 (None, 전부 다시 만드는 이유). 문장 수·파트·카드·쉼·목소리가 모두 같고 글만 바뀐 경우만."""
-    src = ROOT / topic / "source" / vid
+    src = src_dir(topic, vid)
     mp3, meta_p = src / "narration.mp3", src / META_NAME
     if getattr(args, "full", False) or getattr(args, "force", False):
         return None, "--full/--force"
@@ -1046,7 +1072,7 @@ def patch_report(old_text, vid, items, timing, total, new, base, voices):
 def patch_episode(engine, topic, vid, args, P, rows, cards, items, voices, changed, txt):
     """저장소 narration.mp3 에서 바뀐 문장(changed)만 새로 만든 문장으로 바꿔 넣는다 → build_episode 와 같은 결과 dict.
     못 하면(디코드 실패·길이 불일치) None — 부르는 쪽이 전부 다시 만든다."""
-    src = ROOT / topic / "source" / vid
+    src = src_dir(topic, vid)
     base = json.loads((src / META_NAME).read_text("utf-8"))
     old_items = base["items"]
     t0 = time.time()
@@ -1137,13 +1163,14 @@ def patch_episode(engine, topic, vid, args, P, rows, cards, items, voices, chang
 # ----------------------------------------------------------------------------- 영상 하나 (build·all 이 함께 씀)
 def build_episode(engine, topic, vid, args, root, txt=None):
     """대본 → 역할별 문장 → narration.mp3 하나 + tts_narration.json + tts_report.md (+ 작업 폴더에 역할별 문장 파일). → 결과 dict."""
-    src = ROOT / topic / "source" / vid
+    src = src_dir(topic, vid)
     txt = Path(txt) if txt else src / f"{vid}.txt"
     if not txt.is_file():
         die("INPUT", "대본 TXT 없음", "주제 폴더·영상ID 확인 (Kaggle: 저장소를 git clone·pull 했는지)", path=txt)
     rows, cards = read_script(txt)
     card_after = {c["after"]: c for c in cards}
-    lex = load_lexicon([getattr(args, "lexicon", None), ROOT / topic / "tts_lexicon.tsv", src / "tts_lexicon.tsv"])
+    lex = load_lexicon([getattr(args, "lexicon", None), ROOT / topic / "tts_lexicon.tsv"]
+                       + ([src.parent / "tts_lexicon.tsv"] if vid.endswith(SHORTS_SUFFIX) else []) + [src / "tts_lexicon.tsv"])   # v1.9 쇼츠는 롱폼 것도
     voices = load_voices(topic, vid, args)
     P = episode_paths(root, topic, vid)
     P["cache"].mkdir(parents=True, exist_ok=True)
@@ -1349,7 +1376,7 @@ def topic_on_hold(topic):
 
 def repo_status(topic, vid, rows, cards):
     """저장소 상태 → (상태, 메모). made 여부는 따로 본다."""
-    src = ROOT / topic / "source" / vid
+    src = src_dir(topic, vid)
     if (src / "youtube.json").is_file():
         return "uploaded", "이미 업로드(youtube.json)"
     audio = repo_audio(topic, vid)
@@ -1379,9 +1406,8 @@ def discover(args, root):
     want_topics = {t.strip() for t in (args.topics or "").split(",") if t.strip()}
     want_ids = {t.strip() for t in (args.ids or "").split(",") if t.strip()}
     plan = []
-    for txt in sorted(ROOT.glob("*/source/*/*.txt")):
-        vid, topic = txt.parent.name, txt.parent.parent.parent.name
-        if txt.stem != vid or (want_topics and topic not in want_topics) or (want_ids and vid not in want_ids):
+    for topic, vid, txt in script_entries():                  # v1.9 롱폼 + 쇼츠
+        if (want_topics and topic not in want_topics) or (want_ids and vid not in want_ids):
             continue
         rows, cards = read_script(txt)
         st, note = repo_status(topic, vid, rows, cards)
@@ -1634,7 +1660,7 @@ def push_results(root, entries, token, args):
         paths, vids = [], []
         for topic, vid in entries:
             P = episode_paths(root, topic, vid)
-            dst = ROOT / topic / "source" / vid
+            dst = src_dir(topic, vid)
             if not (dst / f"{vid}.txt").is_file():
                 log("PUSH", logging.WARNING, video=vid, note="저장소에 이 영상의 대본 폴더가 없음 — 건너뜀", dst=rel(dst))
                 continue
@@ -1671,7 +1697,7 @@ def push_results(root, entries, token, args):
         msg = (f"내레이션: {', '.join(vids)} (tts_narration {VERSION}, Kaggle)\n\n"
                f"자동 생성 — 대본 폴더마다 narration.mp3 · {META_NAME} · {REPORT_NAME}. 연구·교육용, 투자 권유 아님.")
         return commit_and_push(g, paths, msg, ",".join(vids),
-                               "대본 폴더마다 올라감: " + ", ".join(f"{t}/source/{v}/" for t, v in entries if v in vids))
+                               "대본 폴더마다 올라감: " + ", ".join(f"{src_dir(t, v).relative_to(ROOT)}/" for t, v in entries if v in vids))
     finally:
         g.close()
         if lock:
@@ -1820,7 +1846,9 @@ def cmd_push(args):
     root = out_root(args)
     args.push = True
     token = push_preflight(args)
-    entries = sorted({(p.parents[1].name, p.name) for p in (root / "upload").glob("*/source/*") if (p / "narration.mp3").is_file()})
+    entries = sorted({(p.parents[1].name, p.name) for p in (root / "upload").glob("*/source/*") if (p / "narration.mp3").is_file()}
+                     | {(p.parents[2].name, p.parent.name + SHORTS_SUFFIX) for p in (root / "upload").glob("*/source/*/shorts")
+                        if (p / "narration.mp3").is_file()})   # v1.9 쇼츠
     if not entries:
         log("PUSH", logging.WARNING, note="올릴 결과 없음", dir=root / "upload")
         return
@@ -2224,10 +2252,9 @@ def cmd_pick(args):
         (VOICES_DIR / f"{role}.json").write_text(json.dumps(new, ensure_ascii=False, indent=2) + "\n", "utf-8")
     after = load_voices(quiet=True)   # 다시 읽어 검사 (clone 이면 해시·기준 소리 확인)
     stale, kept = [], []
-    for txt in sorted(ROOT.glob("*/source/*/*.txt")):
-        vid, topic = txt.parent.name, txt.parent.parent.parent.name
+    for topic, vid, txt in script_entries():                  # v1.9 롱폼 + 쇼츠
         mp = txt.parent / META_NAME
-        if txt.stem == vid and mp.is_file() and repo_audio(topic, vid):
+        if mp.is_file() and repo_audio(topic, vid):
             bad = voice_mismatch(json.loads(mp.read_text("utf-8")), topic, vid)
             if bad and (txt.parent / "youtube.json").is_file():
                 kept.append(vid)            # 이미 올린 영상은 all 이 건드리지 않는다 (repo_status=uploaded)
@@ -2245,7 +2272,7 @@ def cmd_pick(args):
 
 # ----------------------------------------------------------------------------- 명령: check (저장소 오디오 ↔ 지금 대본)
 def cmd_check(args):
-    src = ROOT / args.topic / "source" / args.id
+    src = src_dir(args.topic, args.id)
     txt = src / f"{args.id}.txt"
     if not txt.is_file():
         die("CHECK", "대본 TXT 없음", "주제 폴더·영상ID 확인", path=rel(txt))

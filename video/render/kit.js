@@ -1,4 +1,6 @@
-// VERSION: v1.2 — 2026-10-16 — K.onSeek(fn): 프레임마다(SB.seek(t)) 타임라인 다음에 부르는 함수 — 시각 t 로 그리는 Three.js(WebGL) 3D 장면용
+// VERSION: v1.3 — 2026-10-16 — K.init(ep, {w}) 무대 너비 (세로 쇼츠 1080 — 미리보기 재생기가 창에 맞춰 줄일 때 씀, 기본 1920). 렌더(?render)는 그대로.
+//   사용자 지시 2026-10-16 "일단 이 쇼츠만 영상 만들어봐" (세로 장면 video/episodes/<영상ID>-shorts/).
+// v1.2 — 2026-10-16 — K.onSeek(fn): 프레임마다(SB.seek(t)) 타임라인 다음에 부르는 함수 — 시각 t 로 그리는 Three.js(WebGL) 3D 장면용
 //   (주식 1번 v2 — 사용자 지시 2026-10-16 "좀 입체적으로 표현 하는 도구 없어?"). 예전 장면 파일은 그대로 돈다.
 // v1.1 — 2026-10-15 — K.init(ep, {subtitles, chip}) 로 구운 자막·장 이름표를 끌 수 있음 (주식 = 전 세계 대상 — stock/guides/README.md 4번,
 //   사용자 지시 2026-10-15 "영상에 자막 달지말고"), 오디오 없는 추정 시각(EP.estimated — render.mjs sync --estimate)은 시계로 미리보기.
@@ -244,9 +246,9 @@
   K.onSeek = fn => HOOKS.push(fn);           // v1.2
 
   // ---------- 시작·끝 ----------
-  K.init = (ep, opts) => {                   // opts: {subtitles: 구운 자막(기본 true), chip: 장 이름표(기본 true)}
+  K.init = (ep, opts) => {                   // opts: {subtitles: 구운 자막(기본 true), chip: 장 이름표(기본 true), w: 무대 너비(기본 1920 — v1.3)}
     EP = ep;
-    OPT = K.opt = Object.assign({ subtitles: true, chip: true }, opts);
+    OPT = K.opt = Object.assign({ subtitles: true, chip: true, w: 1920 }, opts);
     document.body.classList.toggle("render", RENDER);
     stage = document.getElementById("stage");
     tl = K.tl = gsap.timeline({ paused: true });
@@ -263,7 +265,7 @@
   };
   function player(seek) {
     const wrap = document.getElementById("wrap");
-    const fit = () => { stage.style.transform = `scale(${wrap.clientWidth / 1920})`; };
+    const fit = () => { stage.style.transform = `scale(${wrap.clientWidth / OPT.w})`; };
     addEventListener("resize", fit); fit();
     const audio = EP.audio ? new Audio(EP.audio) : clock(EP.duration);   // 추정 시각(오디오 전)은 소리 없이 시계로
     const ctrl = document.getElementById("ctrl"), now = document.getElementById("now");

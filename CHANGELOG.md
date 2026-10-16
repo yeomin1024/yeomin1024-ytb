@@ -1,5 +1,51 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-16 (37) — 재테크 4편 완성 점검: 완성 렌더 4편 · 썸네일 프롬프트 3편(기초연금·ISA·건보료) · 업로드 시트 v1.2 (클라우드에서 바로 올림)
+
+### 왜 (사용자 지시)
+- "앞으로 여기서 재테크 영상 업로드 할거니까 영상 4개 완성하기 위해 뭐가 필요한지 확인하고 없으면 만들어"
+
+### 점검 (무엇이 있고 무엇이 없었나)
+| 확인 | 명령 | 결과 |
+|---|---|---|
+| 이미 올렸나 | `channels`·`playlistItems`(부자백서 업로드 목록) | 시험 영상 `CGuiF0dP6Bw` 1개뿐 — 4편은 안 올라감 |
+| 오디오 = 대본 | `python3 tools/tts_narration.py check economic <영상ID>` | 4편 ok=True |
+| 장면 시각 | index.html `EP.script_sha1` = `tts_narration.json` | 4편 같음, 추정 아님 |
+| SRT | `python3 tools/srt_tool.py check …` | 4편 ✅ |
+| 장면 배치 | `node video/render/render.mjs check economic <영상ID>` | 4편 problems=0 |
+| 업로드 시트 | `python3 tools/youtube_upload.py economic <영상ID> --dry-run` | 챕터 9개 통과·채널 부자백서. **없던 것: 완성 mp4 (4편), 썸네일 (2~4편 — 프롬프트도 없었음)** |
+
+### 만든 것
+| 무엇 | 결과 |
+|---|---|
+| 완성 렌더 4편 | `node video/render/render.mjs video economic <영상ID>` (음량 맞춤 포함) — 아래 표. 파일은 이 컨테이너 `economic/out/<영상ID>/final_1080p.mp4` (git·Drive 아님) |
+| 썸네일 프롬프트 3편 | `economic/source/{gicho-yeongeum,isa-mangi,toejik-geonbo}-2026-10/thumbnails/` — `README.md`(근거) · `thumbnail_1~3.md`(본안 + 실험안 2) · `chatgpt.md`(자동) · `analysis/codes.csv`·`group_examples.jpg`(좁힌 묶음 4·15·6개 눈으로 표시) |
+| 썸네일 근거 다시 셈 | `python3 tools/thumbnail_metrics.py economic --group 노후,연금,절세` (승인 311 = 성공 182) — 밝기 P 0.60, 노후·연금·절세 빨강 1.8% vs 0.8%. 댓글 나이(영상 묶음별): 기초연금 60대 54%·70대 35% / ISA 50대 47% / 건보료 50·60대 34%씩 |
+
+| 영상 | 길이 | 음량 / 트루 피크 | 크기 | 걸린 시간 |
+|---|---|---|---|---|
+| eunte-kkeonaeseugi-2026-10 | 7:58.5 | -14.24 LUFS / -1.69 dBTP | 30MB | 11분 |
+| gicho-yeongeum-2026-10 | 7:12.1 | -14.25 LUFS / -1.59 dBTP | 25MB | 9분 |
+| isa-mangi-2026-10 | 7:01.4 | -14.15 LUFS / -1.59 dBTP | 25MB | 9분 |
+| toejik-geonbo-2026-10 | 7:08.7 | -14.29 LUFS / -1.7 dBTP | 25MB | 9분 |
+
+### 바꾼 파일
+| 파일 (버전) | 내용 |
+|---|---|
+| `economic/source/<4편>/upload.md` (v1.1 → v1.2) | 업로드 = 이 클라우드 환경 `youtube_upload.py … --publish-at`, 올릴 영상 = 컨테이너 렌더 원본. 2~4편 썸네일 칸: 프롬프트 있음·**이미지 오기 전에는 올리지 않음** |
+| `economic/source/<2~4편>/titles.md` | 짝 썸네일 줄을 새 프롬프트(`thumbnails/README.md` v1.0, 지시사항 v3.2)로 |
+| `tools/make_summary.py` (v1.4.3 → v1.4.4) | `chatgpt.md` 규칙 4 '따옴표 안 한글만' → '따옴표 안 글자(한글, 프롬프트가 적은 영문 — 예: ISA)만' (ISA 문구가 규칙과 어긋남). 시험 `test_make_summary_chatgpt` 6개 OK |
+| `tools/make_summary.py` (v1.4.4 → v1.5.0) | 사용자 지시 "모든 썸네일은 chatgpt가 프롬프트 읽고 만들어서 맞는 경로에 업로드 해줘야하는데 뭐라고 해야하는지 알려줘 지시사항 변경 필요하면 변경하고": `--chatgpt-all <주제>` → `<주제>/thumbnails_chatgpt.md` (남은 썸네일 전부 — 영상 ID 순·시안 번호 순, 장마다 번호 + 저장 경로, 못 쓰면 그 순서대로 Claude 대화에). 영상별 `chatgpt.md` 도 그림 위에 저장 경로. 시험 `test_make_summary_chatgpt` v1.4 9개 OK |
+| `economic/thumbnails_chatgpt.md` (새로, 자동) | 재테크 남은 썸네일 9장 (기초연금·ISA·건보료 각 3) |
+| `guides/thumbnail_guide.md` (v3.2 → v3.3) | 1번 6·7·7-1단계, 9번 메시지(모아 보기 주소 한 줄), 피드백 15 |
+| `CLAUDE.md` | 새 줄: 재테크 영상은 재테크 클라우드 환경에서 바로 올린다 (키 = 부자백서, 올리기 전 업로드 목록 확인, 채널 확인, Drive 권한 없음) · 썸네일 줄: 기본은 모아 보기 `<주제>/thumbnails_chatgpt.md` 주소 한 줄 |
+| `guides/status.md` (v1.11 → v1.12) | 1번 표·2-2 점검표·렌더 표·업로드·썸네일 |
+
+### 남은 것
+- 사용자: 시험 영상 `CGuiF0dP6Bw` 비공개 잠금 확인 → 1편 공개 시각 → 업로드 (Claude).
+- 사용자: 2~4편 썸네일 9장을 ChatGPT로 (모아 보기 `economic/thumbnails_chatgpt.md` 주소 한 줄) → 못 올리면 번호 순서대로 대화에 붙임 → Claude 검수 → 각 경로 → 업로드.
+- 쇼츠 4편 오디오·영상, 채널 설정 (status 2-2 3·4번).
+
 ## 2026-10-16 (36) — 새 채널 분야 탐색 `new/`: 분야 27개를 같은 잣대로 견줌 · `tools/niche_scan.py` v1.0 · 첫 탐색(8,918단위)
 
 ### 왜 (사용자 지시)

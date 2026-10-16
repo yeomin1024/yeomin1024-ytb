@@ -62,7 +62,7 @@
   }
  ],
  "transcript_lang": "-",
- "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
  "video_lang": "ko",
  "foreign": false,
  "comments_fetched": 658,
@@ -74,5 +74,6 @@
  "comments_reported": 658,
  "tool": "outlier_research.py v2.4.1",
  "collected": "2026-10-15T20:51:41",
- "approved": "2026-10-15T20:51+09:00"
+ "approved": "2026-10-15T20:51+09:00",
+ "transcript_retried": "2026-10-16T16:22+09:00"
 }

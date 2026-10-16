@@ -91,7 +91,8 @@ bash run_analyzer.sh
 |---|---|
 | 올리기: 분석기 `--push-only`(따로 clone) 대신 **작업 폴더에 남김** → Claude 가 git 으로 main 에 (`--push analyzer` 면 예전처럼) | 클라우드 작업 폴더가 곧 저장소 — 올리기 전에 바뀐 것을 보고 커밋 |
 | `FRESH_START` 보호: 사례 폴더가 이미 있으면 옮기지 않고 표시(`.yt_work/fresh_start_<주제>.txt`)만 씀 | 새 컨테이너엔 PC 표시가 없어 그대로면 git 의 승인 결과를 `.yt_work/old/` 로 옮김 |
-| 음성인식을 시작하지 않음 (남은 수만 로그) | 소리 받기(`*.googlevideo.com`)가 막혀 있고 Whisper 가 없음 |
+| 음성인식을 시작하지 않음 (남은 수만 로그) | 소리 받기가 막혀 있고(유튜브가 클라우드 주소에 로봇 확인 로그인 요구) Whisper 가 없음 — 2026-10-16 사용자 지시로 보류 |
+| `captions` (v1.3): 승인한 영상 중 대본 없는 것의 **자막만 다시** (할당량 0) | 웹 화면은 승인한 영상을 목록에서 숨겨 자막을 다시 시도할 길이 음성인식뿐. 같은 `outlier_research.transcript()`·같은 파일·같은 metadata 칸, 연결 실패·시도 못 함(`ModuleNotFoundError`)만 — 자막 서버 차단은 음성인식 몫이라 건너뜀 |
 | 목록·체크는 표로 출력 (`list`), 체크는 `check`·`uncheck` | 화면 대신 |
 
 - **캐시가 없는 새 컨테이너는 순서가 중요:** `explore`(검색 캐시·영상 정보) → `approve` → `baseline`(채널 평소 영상) → `demand`(자동완성) → `analyze`. 캐시 없이 `analyze` 하면 비교 집단(성공 비율 1.0)·수요와 공급(검색어 0)·같은 채널 기준선(0)이 비어 PC 결과보다 나쁜 `analysis.md` 로 덮어씀 (2026-10-16 복사본에서 확인).

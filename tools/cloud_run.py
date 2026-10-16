@@ -1,6 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.2 — 2026-10-16 — 탐색 캐시를 저장소에 (사용자 지시 2026-10-16 "저장소에 올려"): 클라우드 컨테이너가 새로 뜨면 .cache(검색 결과·영상 정보·
+# VERSION: v1.3 — 2026-10-16 — captions: 승인한 영상 중 대본이 없는 것의 자막만 다시 (할당량 0, 사용자 지시 2026-10-16 "일단 음성인식은 보류하고
+#          시간되면 이어서 진행해"). 웹 화면은 승인한 영상을 목록에서 숨겨 자막을 다시 시도할 길이 음성인식뿐인데, 승인 185개 중 78개는 PC 에
+#          자막 도구가 없어(ModuleNotFoundError) 시도조차 못 했고 59개는 연결 실패(유튜브 로봇 확인 → www.google.com/sorry 로 넘김 — 막힌 주소)
+#          였음. 같은 outlier_research.transcript() (요청 사이 1.5~3초·연속 2번 막히면 6시간 쉼)로 받고, 받으면 deep_case 와 같은
+#          파일(transcript.json·transcript.txt)과 metadata 칸(transcript_lang·transcript_status·말 속도 등 speech_stats)만 고침. 자막 서버 차단
+#          (IpBlocked·RequestBlocked·429)은 규칙대로 음성인식 몫이라 다시 요청하지 않음. 쉬기가 시작되면 멈추고 남은 것은 상태를 그대로 둠
+# (v1.2 — 2026-10-16 — 탐색 캐시를 저장소에 (사용자 지시 2026-10-16 "저장소에 올려"): 클라우드 컨테이너가 새로 뜨면 .cache(검색 결과·영상 정보·
 #          채널 목록 — 주식 탐색 한 바퀴 ≈ 11,000단위)가 사라져 검색을 다시 해야 했음 → <주제>/cloud_cache/cache.tgz (+ cache.json 목록)
 #          · 켤 때 .cache 가 비어 있으면 저절로 풂 · 할당량을 쓰는 명령(explore·approve·baseline·comments·demand·resume·startup·wait-reset)과
 #          check·uncheck 뒤에 저절로 묶음 · cache-save / cache-load 명령. result/ 밖에 두는 까닭: PC 분석기 올리기(_copy_local_outliers full)가
@@ -27,6 +33,7 @@
   python3 tools/cloud_run.py stock approve                 # [승인] — 체크한 영상 (ID 를 주면 그 영상만)
   python3 tools/cloud_run.py stock baseline | comments | demand | analyze | resume | startup
   python3 tools/cloud_run.py stock explore --shorts / list --shorts / approve --shorts   # 쇼츠
+  python3 tools/cloud_run.py stock captions [--limit N]     # 대본 없는 승인 영상의 자막만 다시 (할당량 0 — 연결 실패·시도 못 한 것만)
   python3 tools/cloud_run.py stock cache-save | cache-load  # 탐색 캐시 ↔ <주제>/cloud_cache/cache.tgz (보통은 저절로)
   python3 tools/cloud_run.py stock foreign on|off          # [외국 영상도] (analyzer_config.toml INCLUDE_FOREIGN)
   python3 tools/cloud_run.py stock wait-reset [--then resume]   # 태평양 자정 +10분까지 기다림 (할당량 초기화)
@@ -49,7 +56,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import pc_analysis as pc                 # noqa: E402
 import web_ui as w                       # noqa: E402
 
-VERSION = "v1.2"
+VERSION = "v1.3"
 ROOT = pc.ROOT
 LOG = logging.getLogger("cloud")
 _STEP = {"text": None, "at": 0.0}
@@ -315,6 +322,51 @@ def cmd_foreign(t, a):
     return {"include_foreign": w.foreign_ok(t), "foreign_keywords": nf}
 
 
+CAPTION_NEVER_TRIED = ("ModuleNotFoundError",)   # v1.3: 자막 도구가 없어 요청조차 안 한 것 (PC 2026-10-14~15 승인분)
+
+
+def caption_retry_ok(st):
+    """다시 요청해도 되는 자막 상태: 연결 실패(orr.is_network_failure)·시도 못 함. 자막 서버 차단은 아님 (음성인식 몫 — CLAUDE.md)."""
+    st = str(st or "")
+    return not w.orr.is_caption_block(st) and (w.orr.is_network_failure(st) or any(x in st for x in CAPTION_NEVER_TRIED))
+
+
+def cmd_captions(t, a):
+    todo = []
+    for d in sorted(w.out_dir(t).glob("W_*")) + sorted(w.shorts_out(t).glob("S_*")):
+        m = w._read_json(d / "metadata.json", None)
+        if m and m.get("id") and not (d / "transcript.json").is_file() and caption_retry_ok(m.get("transcript_status")):
+            todo.append((d, m))
+    if a.limit:
+        todo = todo[: a.limit]
+    log("CAPTIONS", topic=t, todo=len(todo), note="자막만 다시 (할당량 0) — 연결 실패·시도 못 한 것만, 자막 서버 차단은 음성인식 몫이라 건너뜀")
+    got, block, fail = [], 0, 0
+    for n, (d, m) in enumerate(todo, 1):
+        if w.orr.caption_blocked():
+            log("CAPTIONS", logging.WARNING, topic=t, note="자막 요청 쉬는 중 (연속으로 막힘) — 멈춤, 남은 것은 상태 그대로 (다음에 다시)", left=len(todo) - n + 1)
+            break
+        w.step(f"자막 {n}/{len(todo)} — {str(m.get('title') or '')[:40]}", n - 1, len(todo))
+        snips, lang, st = w.orr.transcript(m["id"], any_lang=bool(m.get("foreign")))
+        if not snips and w.orr.caption_blocked() and "쉼" in str(st):        # 요청하기 전에 쉬기가 시작됨 — 기록하지 않음
+            log("CAPTIONS", logging.WARNING, topic=t, note="자막 요청 쉬기 시작 — 멈춤", left=len(todo) - n + 1)
+            break
+        if snips:                                                           # deep_case 와 같은 파일
+            (d / "transcript.json").write_text(json.dumps({"lang": lang, "snippets": snips}, ensure_ascii=False), "utf-8")
+            (d / "transcript.txt").write_text("\n".join(f"[{x['start']:7.1f}] {x['text']}" for x in snips), "utf-8")
+            m.update(transcript_lang=lang, transcript_status=st, **w.orr.speech_stats(snips))
+            got.append(m["id"])
+        else:
+            m.update(transcript_lang=lang, transcript_status=st)
+            block += w.orr.is_caption_block(st)
+            fail += not w.orr.is_caption_block(st)
+        m["transcript_retried"] = datetime.now(w.KST).isoformat(timespec="minutes")
+        w._write_json(d / "metadata.json", m)
+        log("CAPTIONS", n=f"{n}/{len(todo)}", id=m["id"], result=lang if snips else str(st)[:90])
+    res = {"captions_todo": len(todo), "captions_got": len(got), "captions_blocked": block, "captions_failed": fail}
+    log("CAPTIONS", topic=t, **res, note="받은 영상은 다음 analyze 부터 글 출처 '자막'")
+    return res
+
+
 def cmd_wait_reset(t, a):
     nxt, how = pc.next_quota_reset(datetime.now(timezone.utc), margin_min=w.RESUME_MARGIN_MIN)
     log("WAIT", topic=t, until_kst=nxt.astimezone(w.KST).isoformat(timespec="minutes"), how=how,
@@ -332,14 +384,14 @@ def main(argv=None):
     ap = argparse.ArgumentParser(description="클라우드 분석 실행기 — 웹 화면(tools/web_ui.py) 작업을 명령으로")
     ap.add_argument("topic", help="주제 폴더 (예: stock)")
     ap.add_argument("cmd", choices=["status", "explore", "list", "check", "uncheck", "approve", "baseline", "comments", "demand",
-                                    "analyze", "resume", "startup", "foreign", "wait-reset", "cache-save", "cache-load"])
+                                    "analyze", "resume", "startup", "foreign", "wait-reset", "cache-save", "cache-load", "captions"])
     ap.add_argument("ids", nargs="*", help="check·uncheck·approve 할 영상 ID (foreign 은 on|off)")
     ap.add_argument("--weeks", type=int, default=8, help="explore: 최근 몇 주 (웹 화면 기본 8, 1~52)")
     ap.add_argument("--no-keywords", action="store_true", help="explore: 검색어 없이 추가한 채널·영상만")
     ap.add_argument("--shorts", action="store_true", help="쇼츠 (explore·list·check·approve)")
     ap.add_argument("--checked", action="store_true", help="list: 체크한 것만")
     ap.add_argument("--unchecked", action="store_true", help="list: 체크 안 한 것만")
-    ap.add_argument("--limit", type=int, default=0, help="list: 몇 줄 (0 = 전부)")
+    ap.add_argument("--limit", type=int, default=0, help="list: 몇 줄 · captions: 몇 개 (0 = 전부)")
     ap.add_argument("--push", choices=["none", "analyzer"], default="none",
                     help="none(기본) = 작업 폴더에만 (git 으로 직접) · analyzer = 웹 화면처럼 분석기 --push-only")
     ap.add_argument("--then", choices=["none", "resume"], default="none", help="wait-reset 뒤에 할 일")
@@ -403,6 +455,8 @@ def main(argv=None):
             res = w.job_startup(t, whisper=False)
         elif a.cmd == "foreign":
             res = cmd_foreign(t, a)
+        elif a.cmd == "captions":
+            res = cmd_captions(t, a)
         elif a.cmd == "cache-save":
             res = cache_save(t, "손으로")
         elif a.cmd == "cache-load":

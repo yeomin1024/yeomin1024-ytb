@@ -1,9 +1,9 @@
 # eunte-kkeonaeseugi-2026-10 업로드 시트
 
-버전: v1.1 — 2026-10-15 — 업로드 방법을 'Drive 원본 + PC 업로더'로 (사용자 지시 2026-10-15 "압축본 올린거 삭제하고 구글 드라이브 … pc에서 영상 및 환경설정을 받아서 업로드"). (v1.0 — 2026-10-15 — 최초 작성 (`guides/upload_guide.md` v1.5 8번 형식). 사용자 지시 2026-10-15 "영상 만들었으면 각 영상 압축해서 저장소에 올리고 실행하면 해당 영상 유튜브에 자동 예약으로 1시간 후 업로드하는 colab 코드".)
-기준 파일: 대본 v1.2.1 (99문장) · SRT 문장 99 / 자막 130 · 내레이션 tts_narration v1.8 (7:57.9) · 영상 7:58.5 · 올릴 영상 = 렌더 원본 → Google Drive `내 드라이브/youtube/economic/eunte-kkeonaeseugi-2026-10.mp4`
+버전: v1.2 — 2026-10-16 — 업로드를 **이 클라우드 환경에서 바로** (사용자 지시 2026-10-16 "앞으로 여기서 재테크 영상 업로드 할거니까 영상 4개 완성하기 위해 뭐가 필요한지 확인하고 없으면 만들어" — 이 환경의 키 = 부자백서, `youtube_upload.py` v1.7 이 채널 확인). (v1.1 — 2026-10-15 — 업로드 방법을 'Drive 원본 + PC 업로더'로 (사용자 지시 2026-10-15 "압축본 올린거 삭제하고 구글 드라이브 … pc에서 영상 및 환경설정을 받아서 업로드"). (v1.0 — 2026-10-15 — 최초 작성 (`guides/upload_guide.md` v1.5 8번 형식). 사용자 지시 2026-10-15 "영상 만들었으면 각 영상 압축해서 저장소에 올리고 실행하면 해당 영상 유튜브에 자동 예약으로 1시간 후 업로드하는 colab 코드".))
+기준 파일: 대본 v1.2.1 (99문장) · SRT 문장 99 / 자막 130 · 내레이션 tts_narration v1.8 (7:57.9) · 영상 7:58.5 · 올릴 영상 = 렌더 원본 `economic/out/eunte-kkeonaeseugi-2026-10/final_1080p.mp4` (이 클라우드 컨테이너에만 — git·Drive 에 없음, 컨테이너가 바뀌면 `node video/render/render.mjs video economic eunte-kkeonaeseugi-2026-10` 로 다시)
 
-> 업로드: PC 의 `run_uploader.ps1` (`guides/upload_guide.md` 11번) — GitHub 의 이 시트 + Drive 원본으로 비공개 업로드, **1시간 뒤 예약 공개**. 제목은 아래 1번 코드 블록을 바꾸면 그대로 올라간다.
+> 업로드: **이 클라우드 환경**에서 `python tools/youtube_upload.py economic eunte-kkeonaeseugi-2026-10 --dry-run` → `python tools/youtube_upload.py economic eunte-kkeonaeseugi-2026-10 --publish-at <공개 시각>` — 비공개로 올리고 그 시각에 공개 (키의 채널이 부자백서가 아니면 도구가 멈춤). 제목은 아래 1번 코드 블록을 바꾸면 그대로 올라간다. (PC 업로더 `run_uploader.ps1`은 Drive 원본이 있을 때의 다른 길 — `guides/upload_guide.md` 11번)
 > 연구·교육용 콘텐츠 — 세무·보험·투자 상담이나 권유가 아님.
 
 ## 1. 제목 (`titles.md` R1 (추천안, 44자))

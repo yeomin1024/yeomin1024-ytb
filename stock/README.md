@@ -46,7 +46,8 @@ python3 tools/cloud_run.py stock wait-reset --then resume   # 할당량 초기�
 - 결과는 이 작업 폴더(`stock/result/outliers/`)에 쓰고 Claude 가 git 으로 main 에 올린다 (`--push analyzer` 면 웹 화면처럼 분석기 `--push-only`).
 - 음성인식은 하지 않는다 (클라우드에 Whisper·소리 받기 길 없음 — `*.googlevideo.com` 막힘). 남은 수는 `status` 의 `whisper_pending` → PC 웹 화면 [음성인식 시작].
 - 클라우드 네트워크 (2026-10-16 사용자가 허용): `www.youtube.com`(자막)·`i.ytimg.com`(썸네일)·`suggestqueries.google.com`(자동완성) 됨, `*.googlevideo.com` 안 됨.
-- ⚠️ 탐색 캐시(`result/outliers/.cache/`)는 git 에 없다 — 클라우드 컨테이너가 새로 뜨면 캐시가 없어 검색을 다시 한다 (주식 110번 ≈ 11,000단위). 캐시 없이 `analyze` 하면 비교 집단·수요공급·채널 기준선이 비어 결과가 나빠지므로 **탐색·기준선을 먼저** 한다.
+- **탐색 캐시는 저장소에 묶어 둔다** (사용자 지시 2026-10-16 "저장소에 올려" — `cloud_run.py` v1.2): `stock/cloud_cache/cache.tgz`(+ 목록 `cache.json`) = `result/outliers/.cache`(검색·영상 정보·채널·업로드 목록·자동완성 — 썸네일은 뺌) + `result/web`(탐색 목록·체크·승인 목록). 할당량을 쓰는 명령 뒤에 저절로 묶고, 새 컨테이너에서 켜면 `.cache` 가 비었을 때 저절로 푼다 → git 으로 main 에 같이 올린다. 묶음이 없는데 캐시 없이 `analyze` 하면 비교 집단·수요공급·채널 기준선이 비어 결과가 나빠지므로 **탐색·기준선을 먼저**.
+- ⚠️ **클라우드가 주식을 분석하는 동안 PC 웹 화면에서 주식 탭을 켜지 않는다**: PC 는 켤 때(그리고 음성인식 뒤 15분마다) 자기 `stock/result/outliers/` 로 GitHub 것을 **통째로 바꿔** 올린다 (분석기 `_copy_local_outliers` — PC 에 없는 사례 폴더는 지움). PC 는 `-Folder economic` 처럼 재테크만 켠다 (`-Folder` 없이 켜면 주식 탭도 열림).
 - 클라우드 컨테이너에는 PC 표시 `.yt_work/fresh_start_stock.txt` 가 없어 웹 화면·`pc_analysis` 를 그대로 켜면 `FRESH_START` 가 git 의 승인 결과를 `.yt_work/old/` 로 옮긴다 → `cloud_run.py` 는 사례 폴더가 있으면 옮기지 않고 표시만 쓴다.
 
 ## 실행 (집 PC — PowerShell)

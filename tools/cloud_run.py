@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.1 — 2026-10-16 — ① list·approve 가 웹 화면처럼 이미 분석에 쓴 영상(W_·01_·P01_ / 쇼츠 S_)을 뺌 (GET /api/explore 와 같은 규칙 —
+# VERSION: v1.2 — 2026-10-16 — 탐색 캐시를 저장소에 (사용자 지시 2026-10-16 "저장소에 올려"): 클라우드 컨테이너가 새로 뜨면 .cache(검색 결과·영상 정보·
+#          채널 목록 — 주식 탐색 한 바퀴 ≈ 11,000단위)가 사라져 검색을 다시 해야 했음 → <주제>/cloud_cache/cache.tgz (+ cache.json 목록)
+#          · 켤 때 .cache 가 비어 있으면 저절로 풂 · 할당량을 쓰는 명령(explore·approve·baseline·comments·demand·resume·startup·wait-reset)과
+#          check·uncheck 뒤에 저절로 묶음 · cache-save / cache-load 명령. result/ 밖에 두는 까닭: PC 분석기 올리기(_copy_local_outliers full)가
+#          저장소의 result/outliers 를 PC 것과 똑같이 덮어씀. 썸네일 캐시(.cache/thumbs)는 i.ytimg.com 에서 할당량 0 으로 다시 받으므로 뺌
+# (v1.1 — 2026-10-16 — ① list·approve 가 웹 화면처럼 이미 분석에 쓴 영상(W_·01_·P01_ / 쇼츠 S_)을 뺌 (GET /api/explore 와 같은 규칙 —
 #          v1.0 은 목록에 승인한 102개가 섞였고, 그대로 승인하면 이미 받은 자료를 다시 받았음) ② foreign on|off — 웹 화면 [외국 영상도]와 같음
 #          (사용자 지시 2026-10-16 "잠깐 주식 주제는 외국 영상도 포함해" — 설정 파일만 고치고 GitHub 에는 Claude 가 git 으로)
 # (v1.0 — 2026-10-16 — 신규: 클라우드(Claude Code)에서 웹 화면 없이 분석 돌리기 (사용자 지시 2026-10-16: "이 환경은 이제 저장소에 있는
@@ -22,6 +27,7 @@
   python3 tools/cloud_run.py stock approve                 # [승인] — 체크한 영상 (ID 를 주면 그 영상만)
   python3 tools/cloud_run.py stock baseline | comments | demand | analyze | resume | startup
   python3 tools/cloud_run.py stock explore --shorts / list --shorts / approve --shorts   # 쇼츠
+  python3 tools/cloud_run.py stock cache-save | cache-load  # 탐색 캐시 ↔ <주제>/cloud_cache/cache.tgz (보통은 저절로)
   python3 tools/cloud_run.py stock foreign on|off          # [외국 영상도] (analyzer_config.toml INCLUDE_FOREIGN)
   python3 tools/cloud_run.py stock wait-reset [--then resume]   # 태평양 자정 +10분까지 기다림 (할당량 초기화)
 
@@ -29,9 +35,12 @@
 끝 줄: [RESULT] [시각] cmd=… result={JSON}
 """
 import argparse
+import hashlib
 import json
 import logging
+import os
 import sys
+import tarfile
 import time
 from datetime import datetime, timezone
 from pathlib import Path
@@ -40,10 +49,13 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import pc_analysis as pc                 # noqa: E402
 import web_ui as w                       # noqa: E402
 
-VERSION = "v1.1"
+VERSION = "v1.2"
 ROOT = pc.ROOT
 LOG = logging.getLogger("cloud")
 _STEP = {"text": None, "at": 0.0}
+CACHE_DIR = "cloud_cache"               # v1.2: <주제>/cloud_cache/cache.tgz — result/ 밖 (PC 올리기가 result/outliers 를 PC 것으로 덮어씀)
+CACHE_SKIP = ("thumbs",)               # .cache/thumbs — 할당량 0 으로 다시 받음
+CACHE_SAVE_AFTER = ("explore", "approve", "baseline", "comments", "demand", "resume", "startup", "wait-reset", "check", "uncheck")
 STEP_EVERY_S = 5.0                       # 진행 줄은 바뀔 때마다가 아니라 5초에 한 번 (검색·댓글 줄이 수백 개라 — 끝 줄은 늘 남김)
 
 
@@ -124,6 +136,83 @@ def no_whisper(t, why=""):
     log("WHISPER", logging.WARNING, topic=t, pending=n, why=why or "-",
         note="클라우드에서는 음성인식을 시작하지 않음 (Whisper·소리 받기 없음) — PC 웹 화면의 [음성인식 시작]으로")
     return False, f"클라우드 — 음성인식 안 함 (남은 {n}개)"
+
+
+# ---------------------------------------------------------------- 탐색 캐시 ↔ 저장소 (v1.2)
+def cache_sources(t):
+    """(PC 폴더, 묶음 안 이름) — 탐색 캐시(검색·영상 정보·채널·업로드 목록·자동완성·공급 확인·쇼츠)와 탐색 목록·체크·승인 목록."""
+    return [(w.out_dir(t) / ".cache", "result/outliers/.cache"), (ROOT / t / "result" / "web", "result/web")]
+
+
+def cache_kind(name, rel):
+    """목록(cache.json)에 적을 갈래: web/… · .cache 의 하위 폴더 · search_/uploads_/supply_ · 영상 정보(이름 11자) · 그 밖 파일 이름."""
+    if name.endswith("web"):
+        return "web"
+    if len(rel.parts) > 1:
+        return rel.parts[0]
+    stem = rel.stem
+    for pre in ("search_", "uploads_", "supply_"):
+        if stem.startswith(pre):
+            return pre.rstrip("_")
+    return "video" if len(stem) == 11 else rel.name
+
+
+def cache_paths(t):
+    d = ROOT / t / CACHE_DIR
+    return d / "cache.tgz", d / "cache.json"
+
+
+def cache_save(t, why=""):
+    arc, man = cache_paths(t)
+    files, kinds = [], {}
+    for base, name in cache_sources(t):
+        for f in sorted(base.rglob("*")) if base.is_dir() else []:
+            rel = f.relative_to(base)
+            if not f.is_file() or ".tmp" in f.name or (name.endswith(".cache") and rel.parts[0] in CACHE_SKIP):
+                continue
+            files.append((f, f"{name}/{rel.as_posix()}"))
+            k = cache_kind(name, rel)
+            kinds[k] = kinds.get(k, 0) + 1
+    if not files:
+        log("CACHE", logging.WARNING, topic=t, note="묶을 캐시 없음 — 건너뜀")
+        return {"cache_saved": False}
+    arc.parent.mkdir(parents=True, exist_ok=True)
+    tmp = arc.with_name(arc.name + f".{os.getpid()}.tmp")
+    with tarfile.open(tmp, "w:gz", compresslevel=9) as tf:
+        for f, name in files:
+            tf.add(f, arcname=name, recursive=False)
+    data = tmp.read_bytes()
+    os.replace(tmp, arc)
+    info = {"tool": f"cloud_run.py {VERSION}", "topic": t, "saved": datetime.now(w.KST).isoformat(timespec="seconds"), "why": why,
+            "files": len(files), "bytes_raw": sum(f.stat().st_size for f, _ in files), "bytes_tgz": len(data),
+            "sha256": hashlib.sha256(data).hexdigest(), "kinds": dict(sorted(kinds.items()))}
+    w._write_json(man, info)
+    log("CACHE", topic=t, saved=arc.relative_to(ROOT).as_posix(), files=len(files), mb_raw=round(info["bytes_raw"] / 1e6, 1),
+        mb_tgz=round(len(data) / 1e6, 2), why=why or "-", note="git 으로 main 에 올리면 새 컨테이너도 이어서 씀")
+    return {"cache_saved": True, "cache_files": len(files), "cache_mb": round(len(data) / 1e6, 2)}
+
+
+def cache_load(t, force=False):
+    """새 컨테이너: .cache 가 비어 있으면 저장소의 묶음을 풂 (force 면 덮어씀). 묶음 안 이름은 cache_sources 두 곳만 받음."""
+    arc, man = cache_paths(t)
+    if not arc.is_file():
+        return {"cache_loaded": False, "why": "묶음 없음"}
+    have = sum(1 for _ in (w.out_dir(t) / ".cache").glob("*.json")) if (w.out_dir(t) / ".cache").is_dir() else 0
+    if have and not force:
+        return {"cache_loaded": False, "why": f"이미 캐시 {have}개"}
+    info = w._read_json(man, {})
+    data = arc.read_bytes()
+    if info.get("sha256") and hashlib.sha256(data).hexdigest() != info["sha256"]:
+        log("CACHE", logging.WARNING, topic=t, note="묶음 sha256 이 목록(cache.json)과 다름 — 그래도 풂 (목록이 예전 것일 수 있음)")
+    allowed = tuple(name + "/" for _, name in cache_sources(t))
+    n = 0
+    with tarfile.open(arc, "r:gz") as tf:
+        members = [m for m in tf.getmembers() if m.isfile() and m.name.startswith(allowed) and ".." not in m.name.split("/")]
+        tf.extractall(ROOT / t, members=members, filter="data")
+        n = len(members)
+    log("CACHE", topic=t, loaded=arc.relative_to(ROOT).as_posix(), files=n, saved=info.get("saved") or "-", force=force,
+        note="저장소의 탐색 캐시를 풂 — 받은 검색·영상 정보는 할당량 0 으로 다시 씀")
+    return {"cache_loaded": True, "cache_files": n, "cache_saved_at": info.get("saved")}
 
 
 # ---------------------------------------------------------------- 목록·체크
@@ -243,7 +332,7 @@ def main(argv=None):
     ap = argparse.ArgumentParser(description="클라우드 분석 실행기 — 웹 화면(tools/web_ui.py) 작업을 명령으로")
     ap.add_argument("topic", help="주제 폴더 (예: stock)")
     ap.add_argument("cmd", choices=["status", "explore", "list", "check", "uncheck", "approve", "baseline", "comments", "demand",
-                                    "analyze", "resume", "startup", "foreign", "wait-reset"])
+                                    "analyze", "resume", "startup", "foreign", "wait-reset", "cache-save", "cache-load"])
     ap.add_argument("ids", nargs="*", help="check·uncheck·approve 할 영상 ID (foreign 은 on|off)")
     ap.add_argument("--weeks", type=int, default=8, help="explore: 최근 몇 주 (웹 화면 기본 8, 1~52)")
     ap.add_argument("--no-keywords", action="store_true", help="explore: 검색어 없이 추가한 채널·영상만")
@@ -254,6 +343,8 @@ def main(argv=None):
     ap.add_argument("--push", choices=["none", "analyzer"], default="none",
                     help="none(기본) = 작업 폴더에만 (git 으로 직접) · analyzer = 웹 화면처럼 분석기 --push-only")
     ap.add_argument("--then", choices=["none", "resume"], default="none", help="wait-reset 뒤에 할 일")
+    ap.add_argument("--force", action="store_true", help="cache-load: 있는 캐시를 덮어씀")
+    ap.add_argument("--no-cache-save", action="store_true", help="명령 뒤에 캐시를 묶지 않음")
     ap.add_argument("--log-level", default="INFO", choices=["DEBUG", "INFO", "WARNING"])
     a = ap.parse_args(argv)
     t = a.topic
@@ -272,6 +363,11 @@ def main(argv=None):
     except w.UserError as e:
         raise SystemExit(f"[START] ❌ {e}")
     weeks = max(1, min(52, a.weeks))
+    if a.cmd != "cache-load":
+        try:
+            cache_load(t)                    # v1.2: 새 컨테이너면 저장소의 탐색 캐시부터
+        except (OSError, tarfile.TarError, ValueError) as e:
+            log("CACHE", logging.WARNING, topic=t, note="캐시 묶음 풀기 실패 — 캐시 없이 계속 (탐색이 새로 검색함)", error=f"{type(e).__name__}: {e}"[:160])
     log("START", tool=f"cloud_run.py {VERSION}", web_ui=w.VERSION, topic=t, cmd=a.cmd, push=a.push, weeks=weeks if a.cmd == "explore" else "-",
         include_foreign=w.foreign_ok(t), key_source=w.orr.load_api_key(t)[1])
     t0 = time.monotonic()
@@ -307,6 +403,10 @@ def main(argv=None):
             res = w.job_startup(t, whisper=False)
         elif a.cmd == "foreign":
             res = cmd_foreign(t, a)
+        elif a.cmd == "cache-save":
+            res = cache_save(t, "손으로")
+        elif a.cmd == "cache-load":
+            res = cache_load(t, force=a.force)
         elif a.cmd == "wait-reset":
             res = cmd_wait_reset(t, a)
         else:
@@ -317,6 +417,13 @@ def main(argv=None):
     except w.Cancelled:
         res, code = {"error": "멈춤"}, 130
     finally:
+        if a.cmd in CACHE_SAVE_AFTER and not a.no_cache_save:
+            try:
+                res_c = cache_save(t, a.cmd)
+                if isinstance(locals().get("res"), dict):
+                    res.update(res_c)
+            except (OSError, tarfile.TarError) as e:
+                log("CACHE", logging.WARNING, topic=t, note="캐시 묶기 실패 — 결과는 그대로", error=f"{type(e).__name__}: {e}"[:160])
         w.release_topic(t)
     log("RESULT", cmd=a.cmd, seconds=round(time.monotonic() - t0, 1), result=json.dumps(res, ensure_ascii=False, default=str)[:4000])
     return code

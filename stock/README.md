@@ -1,6 +1,8 @@
 # 주식 주제 폴더 (`stock/`) — 새로 시작 (2026-10-15)
 
-VERSION: v1.5 — 2026-10-15 — **채널 컨셉(AI 코드로 가설 백테스트)·주제 4개·주식 질문 묶음 규칙** (사용자 지시: "다 올렸어 계속하고" · "주식 채널 컨셉은 ai로 코드 만들어서 가설을 백테스트해서 검증해보는거니까 고려해서 주제 4가지 정해봐") — 아래 '채널 컨셉과 주제'
+VERSION: v1.6 — 2026-10-16 — **외국 영상 켬**(사용자 지시: "잠깐 주식 주제는 외국 영상도 포함해") · **클라우드에서 분석**(`tools/cloud_run.py` — 사용자 지시: "이 환경은 이제 저장소에 있는 주식 주제 (stock 경로)를 유튜브 분석 코드 실행해서 분석하는 환경이야") — 아래 '외국 영상'·'클라우드에서 분석'
+
+(v1.5 — 2026-10-15 — **채널 컨셉(AI 코드로 가설 백테스트)·주제 4개·주식 질문 묶음 규칙** (사용자 지시: "다 올렸어 계속하고" · "주식 채널 컨셉은 ai로 코드 만들어서 가설을 백테스트해서 검증해보는거니까 고려해서 주제 4가지 정해봐") — 아래 '채널 컨셉과 주제')
 
 (v1.4 — 2026-10-15 — 실행 순서를 단계별로 · **영어 검색어 15개** `keywords_foreign.txt` (외국 영상을 켰을 때만 검색) (사용자 지시: "아니 어떻게 실행해 그리고 주식은 영어 주식 검색어도 추가해"))
 
@@ -26,6 +28,26 @@ VERSION: v1.5 — 2026-10-15 — **채널 컨셉(AI 코드로 가설 백테스�
 - 질문 묶음·제목 낱말 규칙: `research_rules.toml` v1.0 (`python3 tools/content_research.py needs stock` · `titles stock`).
 - 성공 사례에서 주식이 아닌 영상(영화·시골집 미장·팬미팅·무당)을 빼는 낱말: `analysis_rules.toml` v1.2 `[exclude] OFF_TOPIC` — PC가 다음에 분석할 때 반영.
 - 지금 상태·다음 할 일: `../guides/status.md`.
+
+## 클라우드에서 분석 (2026-10-16 — `tools/cloud_run.py`)
+
+이 저장소의 클라우드 환경(Claude Code)에서 웹 화면 없이 같은 작업을 돌린다. 웹 화면(`tools/web_ui.py`)의 작업 함수를 그대로 부르므로 **분석·추천(체크)·할당량 계산은 PC 와 같다.** 키는 환경 변수 `YOUTUBE_API_KEY`(주제 키 `stock/.env` 가 있으면 그것).
+
+```bash
+python3 tools/cloud_run.py stock status                 # 할당량·탐색 목록·승인 수·남은 것
+python3 tools/cloud_run.py stock explore --weeks 26     # [탐색] (PC 결과와 같은 26주)
+python3 tools/cloud_run.py stock list --checked         # 체크(추천)한 영상 — 이미 분석에 쓴 영상은 숨김
+python3 tools/cloud_run.py stock check ID … / uncheck ID …
+python3 tools/cloud_run.py stock approve                # [승인] 체크한 영상
+python3 tools/cloud_run.py stock baseline | comments | demand | analyze | resume
+python3 tools/cloud_run.py stock wait-reset --then resume   # 할당량 초기화(한국 16~17시) +10분 뒤 남은 것 이어서
+```
+
+- 결과는 이 작업 폴더(`stock/result/outliers/`)에 쓰고 Claude 가 git 으로 main 에 올린다 (`--push analyzer` 면 웹 화면처럼 분석기 `--push-only`).
+- 음성인식은 하지 않는다 (클라우드에 Whisper·소리 받기 길 없음 — `*.googlevideo.com` 막힘). 남은 수는 `status` 의 `whisper_pending` → PC 웹 화면 [음성인식 시작].
+- 클라우드 네트워크 (2026-10-16 사용자가 허용): `www.youtube.com`(자막)·`i.ytimg.com`(썸네일)·`suggestqueries.google.com`(자동완성) 됨, `*.googlevideo.com` 안 됨.
+- ⚠️ 탐색 캐시(`result/outliers/.cache/`)는 git 에 없다 — 클라우드 컨테이너가 새로 뜨면 캐시가 없어 검색을 다시 한다 (주식 110번 ≈ 11,000단위). 캐시 없이 `analyze` 하면 비교 집단·수요공급·채널 기준선이 비어 결과가 나빠지므로 **탐색·기준선을 먼저** 한다.
+- 클라우드 컨테이너에는 PC 표시 `.yt_work/fresh_start_stock.txt` 가 없어 웹 화면·`pc_analysis` 를 그대로 켜면 `FRESH_START` 가 git 의 승인 결과를 `.yt_work/old/` 로 옮긴다 → `cloud_run.py` 는 사례 폴더가 있으면 옮기지 않고 표시만 쓴다.
 
 ## 실행 (집 PC — PowerShell)
 
@@ -62,9 +84,9 @@ powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Folder stock
 - 0번 칸 아래 **'이 탭 키 지문 …abcd'** 가 재테크 탭과 다르면 할당량도 따로 셈 ('이 탭만 쓰는 키 (할당량 따로)'). 같은 키면 '같은 키를 쓰는 다른 탭: economic'.
 - `stock/.env` 의 키 칸을 비우면 맨 위 `.env` 키를 씀. ⚠️ YouTube API 정책: 같은 도구의 할당량을 늘리려고 Google Cloud 프로젝트를 여러 개 만들어 나눠 쓰는 것은 금지('sharding') — 할당량이 더 필요하면 할당량 증가 신청.
 
-## 외국 영상 (켜고 끄기 — 기본 꺼짐, 2026-10-15)
+## 외국 영상 (켜고 끄기 — 기본 꺼짐, 주식은 2026-10-16부터 켬)
 
-- **지금: 꺼짐** (`analyzer_config.toml` `[search]` `INCLUDE_FOREIGN = false`) — 예전 그대로 외국 영상은 목록·분석에서 뺌.
+- **지금: 켜짐** (`analyzer_config.toml` v3.2 `[search]` `INCLUDE_FOREIGN = true` — 사용자 지시 2026-10-16 "잠깐 주식 주제는 외국 영상도 포함해") — 외국 영상도 목록·분석에 넣고 영어 검색어 15개도 검색.
 - **켜기:** 웹 화면 주식 탭 → **4. 탐색**의 **[외국 영상도]** 체크 (재테크 탭은 그대로). 또는 GitHub 에서 `stock/analyzer_config.toml` 의 `INCLUDE_FOREIGN = true`.
 - 켜면: 외국 영상도 목록(‘외국 영상’ 표시)·승인·분석(`analysis.md`·쇼츠)에 들어감, **영어 검색어 15개(`keywords_foreign.txt`)도 검색**, 검색은 언어 지정 없이 — 검색 캐시가 언어별이라 **켠 뒤 첫 탐색은 새로 검색 (롱폼 검색 110번 약 11,000단위 + 쇼츠 55번 약 5,500단위 — 하루 할당량을 넘는 만큼은 다음 날 저절로 이어서)**. 외국 영상 자막은 원래 언어로, 음성인식은 언어를 스스로 알아냄. 라이브 방송은 그대로 뺌.
 - 영어 주식 영상이 '주제 밖'으로 빠지지 않게 `keywords.toml` v1.1 에 영어 관련어(stocks·stock market·dividend·nasdaq·S&P·wall street, 약한 말 investing·trading·portfolio …)를 넣음.
@@ -82,7 +104,7 @@ powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Folder stock
 
 | 위치 | 내용 |
 |---|---|
-| `analyzer_config.toml` | 분석기 설정 v3.1 (`FRESH_START` — 아래 '캐시' · **`INCLUDE_FOREIGN = false`** — 위 '외국 영상'): 주제 이름 **주식**·폴더 `stock`·할당량 `QUOTA_BUDGET = 6000`·**영상 파일 안 받음**(`DOWNLOAD_VIDEOS = false`) — 값은 `economic/` v1.1 과 같음 |
+| `analyzer_config.toml` | 분석기 설정 v3.2 (`FRESH_START` — 아래 '캐시' · **`INCLUDE_FOREIGN = true`**(2026-10-16) — 위 '외국 영상'): 주제 이름 **주식**·폴더 `stock`·할당량 `QUOTA_BUDGET = 6000`·**영상 파일 안 받음**(`DOWNLOAD_VIDEOS = false`) — 값은 `economic/` v1.1 과 같음 |
 | **`keywords.txt`** | **검색어 목록 40개 — 모두 주식 낱말이 든 말** (주식·주가·증시·코스피·코스닥·나스닥·S&P·ETF·배당·미장·국장·주린이·가치투자·장기투자·단타 …). 한 줄에 하나, `#` 줄은 메모. 실제 영상 태그에서 고름(`tools/tag_keywords.py` v1.4). **GitHub 에서 고치면 PC 가 다음 회차에 자동으로 받아 씀** |
 | **`keywords_foreign.txt`** | **영어 검색어 15개** — 외국 영상을 켰을 때만 검색 (위 '외국 영상'). 표 [`tag_candidates_foreign.md`](tag_candidates_foreign.md) |
 | `keywords.toml` | v1.1 — 주제 관련어 54개(주식·코스피·ETF·배당주·공매도·반대매매·연금저축·ISA … + 영어 stocks·stock market·dividend·nasdaq …) · 약한 관련어 34개(투자·종목·개미·손절·물타기 … + investing·trading·portfolio …) · 제외어(주식회사·(주)·㈜) — 탐색한 영상이 주식 영상인지 가름 |

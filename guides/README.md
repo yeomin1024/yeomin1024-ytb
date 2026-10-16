@@ -13,7 +13,7 @@
 |---|---|---|
 | **`status.md`** (v1.0) | **지금 상태·다음 할 일 (인수인계)** — 새 대화는 이것부터 읽는다: 주제마다 지금 단계, 다음 할 일 순서, PC 명령, 알려진 문제(클라우드에서 막힌 자료 사이트·하루 검색 횟수 한도 등) | `stock/guides/concept.md`(주식 컨셉 — AI 코드로 가설 백테스트), `<주제>/source/topic_candidates.md` |
 | **`pipeline.md`** | **전체 진행 순서 1~4단계, 사용자가 처음 한 번 할 일(키 설정), Claude에게 하는 말 예시** | — |
-| **`pc_analysis.md`** v3.3 | **집 PC에서 분석 돌리기**: `run_analyzer.ps1` → **웹 화면**(한 화면·주제 탭 — 탭마다 키(다른 키면 할당량 따로)·검색어·캐시, 키·검색어·영상/채널 추가·탐색→체크→승인→주별 분석 1·2·3…주, **외국 영상 켜고 끄기 — 기본 꺼짐**). 화면 위 **남은 할당량·초기화 시각**, 창마다 주제 하나(다른 주제는 동시에 — `-Folder economic,health`), 할당량 때문에 남은 것은 **초기화 뒤 저절로 이어서**. **분석 결과 = `<주제폴더>/result/outliers/analysis.md`** (성공 사례·주제·수요와 공급·제목·썸네일·구성·구독자·시청자 니즈 — 2단계 지시사항 재료). 자동 실행(`-Auto`):  성공 사례 + 조회수 상위(구독자 무관)의 자막·썸네일·**댓글 전부** + 주제 분석 → GitHub(비공개 저장소면 사례 폴더까지), 할당량이 모자라면 초기화(한국 오후 4~5시) 뒤 남은 부분만 자동으로 이어서. 저장소를 비공개로 바꾸는 법 | `<주제폴더>/keywords.txt`(검색어, 한 줄에 하나) · `keywords.toml`(관련어) · `analyzer_config.toml` |
+| **`pc_analysis.md`** v3.6 | **집 PC에서 분석 돌리기** (클라우드는 '클라우드에서 돌리기' — `tools/cloud_run.py`, 음성인식만 PC): `run_analyzer.ps1` → **웹 화면**(한 화면·주제 탭 — 탭마다 키(다른 키면 할당량 따로)·검색어·캐시, 키·검색어·영상/채널 추가·탐색→체크→승인→주별 분석 1·2·3…주, **외국 영상 켜고 끄기 — 기본 꺼짐**). 화면 위 **남은 할당량·초기화 시각**, 창마다 주제 하나(다른 주제는 동시에 — `-Folder economic,health`), 할당량 때문에 남은 것은 **초기화 뒤 저절로 이어서**. **분석 결과 = `<주제폴더>/result/outliers/analysis.md`** (성공 사례·주제·수요와 공급·제목·썸네일·구성·구독자·시청자 니즈 — 2단계 지시사항 재료). 자동 실행(`-Auto`):  성공 사례 + 조회수 상위(구독자 무관)의 자막·썸네일·**댓글 전부** + 주제 분석 → GitHub(비공개 저장소면 사례 폴더까지), 할당량이 모자라면 초기화(한국 오후 4~5시) 뒤 남은 부분만 자동으로 이어서. 저장소를 비공개로 바꾸는 법 | `<주제폴더>/keywords.txt`(검색어, 한 줄에 하나) · `keywords.toml`(관련어) · `analyzer_config.toml` |
 | **`topic_guide.md`** (v1.0) | **주제 탐색**: 시청자층(댓글 나이) → 시청자가 가장 원하는 정보(질문 묶음) = 결론 → 시장(수요·공급·같은 채널) → 후보 표 → 결론·오래가는 원칙·바뀔 수 있는 것 (`tools/content_research.py audience·needs`) | `<주제>/guides/data_insights.md` 1번, `<주제>/research_rules.toml` |
 | **`title_guide.md`** (v3.0) | **제목**: 호기심 구절 + 해소 구절, 형식·낱말·맨 앞 말·금액 표현을 비교 집단·좁힌 주제·같은 채널로 확인, 60자 이하, 숫자는 대본이 증명 (`content_research.py titles`) | `data_insights.md` 2번 |
 | **`script_guide.md`** (v3.1) | **대본**: 사용자 피드백 18개(0번), 7챕터 구성(도입 50초에 결론·약속·기준 날짜 → 예시 인물 → 원칙 2~3개 → 순서 → 결과 → 이미 하고 있다면 → 정리·감사 인사), 사실은 오늘 시행 중인 법령 원문(`tools/law_text.py`), 숫자는 계산 코드, 측정(`content_research.py measure`), SRT. 사연 파트는 선택 | `data_insights.md` 3·4번, 완성 예 `economic/source/eunte-kkeonaeseugi-2026-10/` |
@@ -30,7 +30,7 @@
 
 | 단계 | 할 일 | 지시사항·명령 | 결과물 (`<주제폴더>/` 기준) |
 |---|---|---|---|
-| 1 | 분석 결과가 없으면 분석 — **집 PC**(자막·썸네일까지, 남으면 다음 날 자동으로 이어서) 또는 클라우드(분석기만) | `pc_analysis.md` (`run_analyzer.ps1`), 클라우드 `bash tools/run_analysis.sh <주제폴더>` | `result/`, `result/outliers/` |
+| 1 | 분석 결과가 없으면 분석 — **집 PC**(자막·썸네일까지, 남으면 다음 날 자동으로 이어서) 또는 클라우드(웹 화면 작업을 명령으로 — 음성인식만 빼고) | `pc_analysis.md` (`run_analyzer.ps1`), 클라우드 `python3 tools/cloud_run.py <주제폴더> explore …` (`pc_analysis.md` '클라우드에서 돌리기') | `result/`, `result/outliers/` |
 | 2 | 분석 결과로 `data_insights.md` 만들기·고치기(`content_research.py all`) → 주제 탐색 | `topic_guide.md` | `guides/`, `source/topic_candidates.md` |
 | 3 ① | 대본 TXT·SRT·README·확인표·계산 코드 — 7~8분, 결론 먼저, 오늘 시행 중인 법령으로 사실 확인, 숫자는 계산 코드(사연 파트를 넣으면 20~30초). SRT 검사 ✅. 사례·연구는 되도록 최신(2020년대 먼저) | `script_guide.md` v3.0 | `source/<영상ID>/` |
 | 3 ② | 제목 3개 (R1 추천, 근거 표, 짝 썸네일) | `title_guide.md` v3.0 | `source/<영상ID>/titles.md` |

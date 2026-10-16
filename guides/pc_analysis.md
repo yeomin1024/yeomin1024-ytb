@@ -1,6 +1,8 @@
 # PC에서 분석 돌리기 — 재테크(`economic`)·주식(`stock`) 폴더
 
-버전: v3.5 — 2026-10-15 — 사용자 보고 "[GITHUB] ❌ 푸시 실패 … git add 실패 (code=128): fatal: detected dubious ownership in repository at 'D:/유튜브 분석기/.yt_work/_github_clone_stock' 왜이래": 분석기 v2.14.1 이 자기 작업 폴더를 git 에 '믿을 폴더'로 알려 줌 (아래 '문제 해결')
+버전: v3.6 — 2026-10-16 — 사용자 지시 "이 환경은 이제 저장소에 있는 주식 주제 (stock 경로)를 유튜브 분석 코드 실행해서 분석하는 환경이야 한번 해봐" · "너가 분석하기 쉽도록 수정해도 돼 분석 로직은 변경하지말고": **클라우드에서 돌리기** — `tools/cloud_run.py`(웹 화면 작업을 명령으로, 아래 '클라우드에서 돌리기'), 클라우드 네트워크 표 고침 (자막·썸네일·자동완성 됨, 소리 받기 안 됨)
+
+(v3.5 — 2026-10-15 — 사용자 보고 "[GITHUB] ❌ 푸시 실패 … git add 실패 (code=128): fatal: detected dubious ownership in repository at 'D:/유튜브 분석기/.yt_work/_github_clone_stock' 왜이래": 분석기 v2.14.1 이 자기 작업 폴더를 git 에 '믿을 폴더'로 알려 줌 (아래 '문제 해결'))
 
 (v3.4 — 2026-10-15 — 사용자 보고 "[JOB] stock 승인 — 자료 받고 분석 실패 … PermissionError: [WinError 5] 액세스가 거부되었습니다: …quota_key_….json.tmp -> …quota_key_….json 왜이래": Windows 에서 파일 바꿔치기가 잠깐 막히면 다시 하고, 그래도 안 되면 작업은 계속 (아래 '문제 해결'))
 
@@ -25,10 +27,12 @@
 | 받는 것 | 클라우드(Claude Code) | 집 PC |
 |---|---|---|
 | 검색·영상 정보·구독자 수·댓글 (YouTube Data API, `www.googleapis.com`) | 됨 | 됨 |
-| 자막 (`www.youtube.com`) | **안 됨** — 네트워크 정책 때문에 ProxyError 403 (2026-10-12·13 확인) | 됨 (2026-10-09 PC 실행 8/8 성공) |
-| 썸네일 이미지 (`i.ytimg.com`) | **안 됨** — 같은 이유 | 됨 |
+| 자막 (`www.youtube.com`) | **됨 (2026-10-16 사용자가 Network access 에 허용)** — 그 전엔 ProxyError 403 (2026-10-12·13) | 됨 (2026-10-09 PC 실행 8/8 성공, 2026-10-14부터 자막 서버 429) |
+| 썸네일 이미지 (`i.ytimg.com`) | **됨 (2026-10-16 허용)** | 됨 |
+| 자동완성 (`suggestqueries.google.com`) | **됨 (2026-10-16 허용)** | 됨 |
+| 음성인식용 소리 (`*.googlevideo.com`) · Whisper | **안 됨** (2026-10-16 확인 — 소리 받기 막힘, Whisper 없음) | 됨 |
 
-성공 사례를 대본 내용까지 분석하려면 자막이 필요해서 PC에서 돌립니다.
+자막 없는 영상의 음성인식만 PC 에서 합니다. 나머지(탐색·승인·기준선·분석)는 클라우드에서도 됩니다 — 아래 '클라우드에서 돌리기'.
 
 ## 공개 저장소에도 사례 폴더까지 올림 (2026-10-14부터)
 
@@ -78,6 +82,21 @@ wget -O run_analyzer.sh https://raw.githubusercontent.com/yeomin1024/yeomin1024-
 # 비공개 저장소일 때: read -rsp "GitHub 토큰: " T; echo; printf 'header = "Authorization: Bearer %s"\n' "$T" | curl -fsSL -K - -H "Accept: application/vnd.github.raw" -o run_analyzer.sh "https://api.github.com/repos/yeomin1024/yeomin1024-ytb/contents/run_analyzer.sh?ref=main"; unset T
 bash run_analyzer.sh
 ```
+
+## 클라우드에서 돌리기 (`tools/cloud_run.py` — 2026-10-16)
+
+웹 화면의 작업 함수(`tools/web_ui.py` `job_explore`·`job_approve`·`job_baseline`·`job_comments`·`job_demand`·`job_analyze`·`job_resume`·쇼츠)를 **그대로** 부르는 명령줄 껍데기 — 분석·추천(체크)·할당량 계산·캐시 규칙은 웹 화면과 같습니다. 명령은 `stock/README.md` '클라우드에서 분석'.
+
+| 웹 화면과 다른 것 | 까닭 |
+|---|---|
+| 올리기: 분석기 `--push-only`(따로 clone) 대신 **작업 폴더에 남김** → Claude 가 git 으로 main 에 (`--push analyzer` 면 예전처럼) | 클라우드 작업 폴더가 곧 저장소 — 올리기 전에 바뀐 것을 보고 커밋 |
+| `FRESH_START` 보호: 사례 폴더가 이미 있으면 옮기지 않고 표시(`.yt_work/fresh_start_<주제>.txt`)만 씀 | 새 컨테이너엔 PC 표시가 없어 그대로면 git 의 승인 결과를 `.yt_work/old/` 로 옮김 |
+| 음성인식을 시작하지 않음 (남은 수만 로그) | 소리 받기(`*.googlevideo.com`)가 막혀 있고 Whisper 가 없음 |
+| 목록·체크는 표로 출력 (`list`), 체크는 `check`·`uncheck` | 화면 대신 |
+
+- **캐시가 없는 새 컨테이너는 순서가 중요:** `explore`(검색 캐시·영상 정보) → `approve` → `baseline`(채널 평소 영상) → `demand`(자동완성) → `analyze`. 캐시 없이 `analyze` 하면 비교 집단(성공 비율 1.0)·수요와 공급(검색어 0)·같은 채널 기준선(0)이 비어 PC 결과보다 나쁜 `analysis.md` 로 덮어씀 (2026-10-16 복사본에서 확인).
+- 할당량은 컨테이너 안의 키 장부(`.yt_work/quota_key_<지문>.json`)로 셈 — 같은 키를 PC 에서도 쓰면 실제보다 많이 남은 것으로 보임 (Google 이 '다 씀'이라고 답하면 멈추고 초기화 뒤 이어서).
+- 초기화 뒤 이어서: `wait-reset --then resume` (태평양 자정 +10분까지 기다렸다가 못 받은 댓글 → 채널 기준선 → 남은 탐색).
 
 ## 웹 화면 (실행하면 뜸 — 실행기 v3.0)
 
@@ -318,6 +337,7 @@ macOS/Linux: `bash run_analyzer.sh --folder economic,health`
 
 | 버전 | 날짜 | 내용 |
 |---|---|---|
+| v3.6 | 2026-10-16 | 사용자 지시 "이 환경은 이제 저장소에 있는 주식 주제 (stock 경로)를 유튜브 분석 코드 실행해서 분석하는 환경이야 한번 해봐" · "분석 로직은 변경하지말고": '클라우드에서 돌리기'(`tools/cloud_run.py`), 클라우드 네트워크 표 (자막·썸네일·자동완성 허용됨, 소리 받기 안 됨) |
 | v3.5 | 2026-10-15 | 사용자 보고 "[GITHUB] ❌ 푸시 실패 … git add 실패 (code=128): fatal: detected dubious ownership in repository at 'D:/유튜브 분석기/.yt_work/_github_clone_stock' 왜이래": 문제 해결 — git dubious ownership |
 | v3.4 | 2026-10-15 | 사용자 보고 "[JOB] stock 승인 — 자료 받고 분석 실패 … PermissionError: [WinError 5] 액세스가 거부되었습니다: …quota_key_….json.tmp -> …quota_key_….json 왜이래": Windows 파일 막힘 — 다시 하고 작업은 계속 (문제 해결) |
 | v3.3 | 2026-10-15 | 사용자 보고 "RuntimeError: HTTP 429 search: … Quota exceeded for quota metric 'Search Queries' and limit 'Search Queries per day' … 왜 이래 사용량 3000 남았는데": 하루 검색 횟수 한도(429) — 검색만 초기화 뒤로, 화면에 검색 수·한도 (문제 해결) |

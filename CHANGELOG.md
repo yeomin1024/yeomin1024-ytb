@@ -1,5 +1,24 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-16 (31) — 클라우드에서 주식 분석: `tools/cloud_run.py` v1.1 (웹 화면 작업을 명령으로) · 주식 외국 영상 켬
+
+### 왜 (사용자 지시)
+- "이 환경은 이제 저장소에 있는 주식 주제 (stock 경로)를 유튜브 분석 코드 실행해서 분석하는 환경이야 한번 해봐"
+- "youtube.com, i.ytimg.com 허용했어 다시해보고 아마 분석 코드가 ui로 되어 있을텐데 너가 분석하기 쉽도록 수정해도 돼 분석 로직은 변경하지말고 계속 진행해"
+- "잠깐 주식 주제는 외국 영상도 포함해"
+
+### 바꾼 것
+| 파일 (버전) | 내용 |
+|---|---|
+| `tools/cloud_run.py` (새로, v1.0 → v1.1) | 웹 화면(`tools/web_ui.py` v2.3.1)의 작업 함수 `job_explore`·`job_approve`·`job_baseline`·`job_comments`·`job_demand`·`job_analyze`·`job_resume`·`job_startup`·쇼츠를 그대로 부르는 명령줄 (`status`·`explore`·`list`·`check`·`uncheck`·`approve`·`baseline`·`comments`·`demand`·`analyze`·`resume`·`foreign on/off`·`wait-reset`). 분석 로직은 그대로. 클라우드에서 바꾼 것: ① 올리기는 작업 폴더에 남기고 git 으로 (`--push analyzer` 면 분석기 `--push-only`) ② `FRESH_START` 보호 — 새 컨테이너엔 PC 표시가 없어 `web_ui`·`pc_analysis` 가 git 의 승인 결과 102개를 `.yt_work/old/` 로 옮기려 함 → 사례 폴더가 있으면 표시만 ③ 음성인식 안 함 (소리 받기 막힘·Whisper 없음). v1.1: `list`·`approve` 가 웹 화면 GET `/api/explore` 처럼 이미 분석에 쓴 영상(W_·01_·P01_·S_)을 뺌 (v1.0 목록에 승인한 72개가 섞였음) · `foreign on/off` |
+| `stock/analyzer_config.toml` (v3.1 → v3.2) | **`INCLUDE_FOREIGN = true`** — 외국 영상도 탐색·분석, 영어 검색어 15개도 검색 (언어 지정 없는 검색 — 언어별 검색 캐시라 첫 탐색은 새로 110번). 판 번호를 올려 PC 실행기도 받게 |
+| `stock/README.md` (v1.6) · `guides/pc_analysis.md` (v3.6) · `guides/README.md` · `CLAUDE.md` | '클라우드에서 분석/돌리기' 절, 클라우드 네트워크 표(자막·썸네일·자동완성 됨, `*.googlevideo.com` 안 됨), 주식 외국 영상 켬 |
+
+### 검증
+- 작업 폴더 복사본(scratchpad, 키·토큰 없이)에서 `cloud_run.py stock analyze` 끝까지 돎 (10초). 캐시 없이 분석하면 비교 집단 성공 비율 1.0·채널 기준선 0·검색어별 수요공급 0 — 그래서 탐색·기준선을 먼저 하고 분석함 (`stock/README.md` '클라우드에서 분석').
+- `cloud_run.py stock status` · `foreign on` (`stock/analyzer_config.toml` 38번 줄만 바뀜, TOML 읽기 확인).
+- 탐색 1차 (한국어만, 26주): 검색 80번·8,056단위 — 영상 1,637 · 추천 105 (그중 이미 승인 65) · 외국 165·라이브 402 뺌. 그 뒤 외국 영상을 켜서 언어 지정 없이 다시 (아래 결과는 status.md).
+
 ## 2026-10-16 (30) — 재테크 채널 키워드 다시: 범용 재테크 핵심어 23개 (`economic/channel.md` v1.0 → v1.1)
 
 ### 왜 (사용자 피드백)

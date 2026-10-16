@@ -1,5 +1,10 @@
 # -*- coding: utf-8 -*-
-# VERSION: v1.2 — 2026-10-16 — 공통 매도 규칙에 '산 뒤 최고 종가에서 n% 떨어지면 매도'(trail) 더함 (사용자 지시 2026-10-16 "매도 조건을 1년뒤로
+# VERSION: v1.3 — 2026-10-16 — 성공 판정 매도 'barrier=(m, n)' + 자주 나오는 매수 방법 10가지(RULES_V4·ORDER_V4) + 기준 'any'(매도 다음 날 바로 다시 매수).
+#          사용자 지시 2026-10-16 "수익률로 비교하지말고 성공 기준을 매수 후 해당 지점에서 m%이하로 떨어지지 않고 매수 지점에서 n% 이상 상승하면
+#          성공으로 하자" · 앞선 지시 "조건 발생이 너무 희소해서 거래 횟수가 없고 현금 가지고 있는 기간이 많아서 그런것 같아 매수 방법으로 다 변경해보고
+#          매도 규칙도 변경해봐": 산 뒤 종가가 산 값 × (1+n) 이상이 먼저 나오면 성공(win), 산 값 × (1−m) 이하가 먼저 나오면 실패(loss) — 그 날 종가를 보고
+#          다음 거래일 종가에 매도 (다른 규칙과 같은 '다음 날' 약속). 거래 기록에 result·hit_i·target·stop. 예전 규칙(RULES)·trail·hold 는 그대로.
+# (v1.2 — 2026-10-16 — 공통 매도 규칙에 '산 뒤 최고 종가에서 n% 떨어지면 매도'(trail) 더함 (사용자 지시 2026-10-16 "매도 조건을 1년뒤로
 #          하지말고 매수 이후 고점에서 n%하락할 때로 해봐 n은 너가 적당히 설정하고"): simulate(trail=0.10) — 그날 종가가 산 뒤 최고 종가 × (1−n) 이하면
 #          다음 거래일 종가에 매도 (매수와 같은 '다음 날' 약속). 거래 기록에 최고 종가·그날·매도 신호 날. hold(보유 기간)는 trail=None 일 때만 (예전 그대로).
 # (v1.1 — 2026-10-16 — buy_and_hold(): 첫날 전부 매수 후 끝까지 보유한 값 (사용자 지시 2026-10-16 "1번째 박스에는 맨처음에 매수하고
@@ -32,6 +37,19 @@
   gc      골든 크로스: 50일 평균이 200일 평균 아래에서 위로 올라선 날 → 다음 날 매수
   hi52    신고가 돌파: 종가가 지난 252 거래일(오늘 빼고)의 최고 종가를 넘으면 매수
   mom12   12개월 모멘텀: 종가가 252 거래일 전 종가보다 높으면 매수
+
+자주 나오는 매수 방법 (v1.3 — RULES_V4, 같은 이름 짝: 예전 규칙을 문턱만 넓힘 — 문턱은 '10년 동안 신호 묶음 수·거래 수'만 보고 정함, 성공률은 보지 않음):
+  any     기준: 매도한 다음 날 바로 다시 매수 (신호 없음 — '아무 날 매수')
+  m1      매달 첫 거래일 (그대로)
+  hi20    20일 신고가 돌파: 종가 > 지난 20 거래일(오늘 빼고) 최고 종가
+  mom21   1개월 모멘텀: 종가 > 21 거래일 전 종가
+  x20     20일선 위로 돌파: 종가가 20일 평균 아래 → 위
+  gc520   골든 크로스(5·20일): 5일 평균이 20일 평균 아래 → 위
+  drop1   −1% 하락 다음 날: 그날 하루 수익률 ≤ −1%
+  rsi40   RSI(14) 40 아래
+  vix20   VIX 종가 20 이상
+  dd20_5  단기 저점: 종가 ≤ 최근 20 거래일(오늘 포함) 최고 종가 × 0.95
+  dd5     최고가 −5%: 종가 ≤ 그때까지 최고 종가 × 0.95
 """
 import logging
 import time
@@ -43,7 +61,7 @@ import pandas as pd
 from . import daily as dl
 
 LOG = logging.getLogger("backtest.entry")
-VERSION = "v1.2"
+VERSION = "v1.3"
 HOLD_DAYS = 252                                                  # 기본 공통 매도: 산 날부터 252 거래일(약 1년) 뒤 종가
 _TOL = 1e-12                                                     # 문턱 비교 허용 오차 (0.9×100 = 90.00000000000001 같은 부동소수 끝자리)
 
@@ -66,6 +84,10 @@ def indicators(close, vix=None):
         "rsi14": dl.rsi_wilder(p, 14),
         "hi252": dl.prior_max(p, 252),                               # 지난 252 거래일 최고 종가 (오늘 빼고)
         "mom252": np.r_[np.full(252, np.nan), p[252:] / p[:-252] - 1.0],
+        "sma5": dl.sma(p, 5), "sma20": dl.sma(p, 20),                # v1.3
+        "hi20": dl.prior_max(p, 20),                                 # 지난 20 거래일 최고 종가 (오늘 빼고)
+        "max20": pd.Series(p).rolling(20, min_periods=20).max().to_numpy(),   # 최근 20 거래일 최고 종가 (오늘 포함)
+        "mom21": np.r_[np.full(21, np.nan), p[21:] / p[:-21] - 1.0],
         "month_first": np.r_[True, month[1:] != month[:-1]],        # 새 달 첫 거래일 (달력 — 미리 앎)
         "vix": np.full(len(p), np.nan),
     }
@@ -145,6 +167,28 @@ RULES = {
 ORDER = list(RULES)
 
 
+# v1.3 — 자주 나오는 매수 방법 (예전 규칙과 같은 집안, 문턱만 넓힘)
+def _nz(x):
+    return not np.isnan(x)
+
+
+RULES_V4 = {
+    "any":    (lambda i, d: True,                                                         "아무 날 (매도 다음 날 바로 다시 매수)", "신호 없음"),
+    "m1":     (_m1,                                                                       "매달 첫 거래일 매수",        "새 달 첫 거래일"),
+    "hi20":   (lambda i, d: _nz(i["hi20"][d]) and i["close"][d] > i["hi20"][d],           "20일 신고가 돌파 매수",      "종가 > 지난 20 거래일 최고 종가"),
+    "mom21":  (lambda i, d: _nz(i["mom21"][d]) and i["mom21"][d] > 0.0,                   "1개월 모멘텀 매수",          "종가 > 21 거래일 전 종가"),
+    "x20":    (lambda i, d: _cross_up(i["close"], i["sma20"], d),                         "20일선 위로 돌파 매수",      "종가가 20일 평균 아래 → 위"),
+    "gc520":  (lambda i, d: _cross_up(i["sma5"], i["sma20"], d),                          "골든 크로스(5·20일) 매수",  "5일 평균이 20일 평균 아래 → 위"),
+    "drop1":  (lambda i, d: _nz(i["ret1"][d]) and i["ret1"][d] <= -0.01 + _TOL,           "−1% 하락 다음 날 매수",      "그날 하루 수익률 ≤ −1%"),
+    "rsi40":  (lambda i, d: _nz(i["rsi14"][d]) and i["rsi14"][d] < 40.0,                  "RSI 40 아래 매수",           "RSI(14) < 40"),
+    "vix20":  (lambda i, d: _nz(i["vix"][d]) and i["vix"][d] >= 20.0 - _TOL,              "공포지수 VIX 20 이상 매수",  "VIX 종가 ≥ 20"),
+    "dd20_5": (lambda i, d: _nz(i["max20"][d]) and i["close"][d] <= 0.95 * i["max20"][d] * (1 + _TOL), "단기 저점 매수 (20일 고점 −5%)", "종가 ≤ 최근 20 거래일 최고 종가 × 0.95"),
+    "dd5":    (_dip(0.05),                                                                "최고가 −5% 매수",            "종가 ≤ 그때까지 최고 종가 × 0.95"),
+}
+ORDER_V4 = ["m1", "hi20", "mom21", "x20", "gc520", "drop1", "rsi40", "vix20", "dd20_5", "dd5"]     # 영상 순서 (any 는 기준)
+ALL_RULES = {**RULES, **RULES_V4}
+
+
 # ----------------------------------------------------------------------------- 시뮬레이션
 @dataclass
 class Run:
@@ -156,11 +200,12 @@ class Run:
     hold: object = HOLD_DAYS            # 매도 규칙 설명: 정수 = 보유 거래일, ('trail', n) = 최고점에서 n% 하락
 
 
-def simulate(key, ind, s, e, hold=HOLD_DAYS, capital=10_000.0, cost=0.001, px=None, cash_ret=None, dates=None, trail=None):
+def simulate(key, ind, s, e, hold=HOLD_DAYS, capital=10_000.0, cost=0.001, px=None, cash_ret=None, dates=None, trail=None, barrier=None):
     """규칙 key 로 s..e (거래일 위치, 둘 다 포함) 를 돌린다 → Run.
-    px: 사고파는 값 (기본 ind['close']). 신호·최고 종가는 늘 ind['close'](가격)로 본다.
-    trail: 0~1 이면 '최고 종가에서 trail 만큼 떨어지면 다음 날 매도', None 이면 hold 거래일 뒤 매도."""
-    sig = RULES[key][0]
+    px: 사고파는 값 (기본 ind['close']). 신호·최고 종가·성공 판정은 늘 ind['close'](가격)로 본다.
+    trail: 0~1 이면 '최고 종가에서 trail 만큼 떨어지면 다음 날 매도', None 이면 hold 거래일 뒤 매도.
+    barrier: (m, n) 이면 (v1.3) 산 뒤 종가가 산 값 × (1+n) 이상 → 성공 / × (1−m) 이하 → 실패, 먼저 나온 쪽으로 판정하고 다음 날 매도 (trail·hold 보다 먼저)."""
+    sig = ALL_RULES[key][0]
     price = ind["close"] if px is None else np.asarray(px, float)
     n = e - s + 1
     val, held = np.empty(n), np.zeros(n, bool)
@@ -179,7 +224,10 @@ def simulate(key, ind, s, e, hold=HOLD_DAYS, capital=10_000.0, cost=0.001, px=No
             peak, peak_i = float(close[d]), d
             trades.append({"rule": key, "buy_i": d, "buy_price": float(close[d]), "buy_px": float(price[d]),
                            "buy_cash": float(buy_cash)})
-        elif units > 0.0 and (sell_pending if trail is not None else d - buy_i >= hold):   # 공통 매도
+            if barrier is not None:
+                m_, n_ = barrier
+                trades[-1].update({"target": float(close[d]) * (1 + n_), "stop": float(close[d]) * (1 - m_), "result": None, "hit_i": None})
+        elif units > 0.0 and (sell_pending if (trail is not None or barrier is not None) else d - buy_i >= hold):   # 공통 매도
             cash, sell_px = units * price[d] * (1.0 - cost), float(price[d])
             t = trades[-1]
             t.update({"sell_i": d, "sell_price": float(close[d]), "sell_px": sell_px, "sell_cash": float(cash),
@@ -188,7 +236,15 @@ def simulate(key, ind, s, e, hold=HOLD_DAYS, capital=10_000.0, cost=0.001, px=No
             units, buy_i, sell_pending = 0.0, None, False
         val[j] = cash + units * price[d]
         held[j] = units > 0.0
-        if units > 0.0 and trail is not None and not sell_pending and d < e:
+        if units > 0.0 and barrier is not None and not sell_pending and trades[-1].get("result") is None and d > buy_i:   # v1.3 성공 판정
+            t = trades[-1]
+            if close[d] >= t["target"] * (1 - _TOL):
+                t["result"], t["hit_i"] = "win", d
+            elif close[d] <= t["stop"] * (1 + _TOL):
+                t["result"], t["hit_i"] = "loss", d
+            if t.get("result") is not None and d < e:            # 끝날(e)에 판정되면 판정만 적고 '보유 중'으로 둠 (팔 다음 날이 없음)
+                sell_pending = True
+        if units > 0.0 and trail is not None and barrier is None and not sell_pending and d < e:
             if close[d] > peak:
                 peak, peak_i = float(close[d]), d
             if close[d] <= (1.0 - trail) * peak * (1 + _TOL):    # 최고에서 trail 이상 하락 → 다음 날 매도
@@ -207,7 +263,10 @@ def simulate(key, ind, s, e, hold=HOLD_DAYS, capital=10_000.0, cost=0.001, px=No
     if dates is not None:
         for t in trades:
             t["buy_date"], t["sell_date"] = str(dates[t["buy_i"]].date()), str(dates[t["sell_i"]].date())
-    return Run(key, idx, val, held, trades, ("trail", trail) if trail is not None else hold)
+    for t in trades:
+        if barrier is not None and dates is not None:
+            t["hit_date"] = str(dates[t["hit_i"]].date()) if t.get("hit_i") is not None else None
+    return Run(key, idx, val, held, trades, ("barrier", barrier) if barrier is not None else ("trail", trail) if trail is not None else hold)
 
 
 def stats(run, capital=10_000.0):
@@ -231,7 +290,11 @@ def stats(run, capital=10_000.0):
         waits.append(k)
     op = [t for t in run.trades if t["open"]]
     return {
-        "rule": run.key, "sell_rule": (f"trail{run.hold[1]:.4g}" if isinstance(run.hold, tuple) else f"hold{run.hold}d"), "final": float(v[-1]), "total_return": float(v[-1] / capital - 1.0),
+        "rule": run.key, "sell_rule": (f"{run.hold[0]}{run.hold[1]}" if isinstance(run.hold, tuple) else f"hold{run.hold}d"), "final": float(v[-1]), "total_return": float(v[-1] / capital - 1.0),
+        "wins": sum(t.get("result") == "win" for t in run.trades), "losses": sum(t.get("result") == "loss" for t in run.trades),
+        "undecided": sum(t.get("result") is None for t in run.trades) if isinstance(run.hold, tuple) and run.hold[0] == "barrier" else None,
+        "success_rate": (lambda w, l: w / (w + l) if w + l else float("nan"))(sum(t.get("result") == "win" for t in run.trades), sum(t.get("result") == "loss" for t in run.trades)),
+        "avg_days_to_decide": float(np.mean([t["hit_i"] - t["buy_i"] for t in run.trades if t.get("hit_i") is not None])) if any(t.get("hit_i") is not None for t in run.trades) else None,
         "cagr": float((v[-1] / capital) ** (1 / yrs) - 1.0) if yrs > 0 else float("nan"),
         "trades_closed": len(closed), "trades_open": len(op), "buys": len(run.trades),
         "win_rate": float((rets > 0).mean()) if len(rets) else float("nan"),

@@ -1,0 +1,44 @@
+[DATA] 2026-10-16T16:28:40 source=cache key=yahoo_spy path=/home/user/yeomin1024-ytb/stock/data/yahoo_spy_daily.csv bytes=350200 fetched_at=2026-10-16T12:51:20Z
+[VALIDATE] 2026-10-16T16:28:40 data=yahoo_spy gaps_over_5_days=2001-09-17 moves_over_12pct=2008-10-13:+14.5%
+[VALIDATE] 2026-10-16T16:28:40 data=yahoo_spy rows=8486 first=1993-01-29 last=2026-10-15 duplicates=0
+[VALIDATE] 2026-10-16T16:28:40 data=yahoo_spy vs=yahoo_adjclose max_daily_diff=0.0002519351615632992 days_over_0_01pct=5 tr_vs_adj_growth_ratio=1.0007264390999866
+[DATA] 2026-10-16T16:28:40 source=cache key=yahoo_vix path=/home/user/yeomin1024-ytb/stock/data/yahoo_vix_daily.csv bytes=340208 fetched_at=2026-10-16T12:51:20Z
+[VALIDATE] 2026-10-16T16:28:40 data=yahoo_vix gaps_over_5_days=2001-09-17 moves_over_12pct=2018-02-05:+115.6%
+[VALIDATE] 2026-10-16T16:28:40 data=yahoo_vix rows=8508 first=1993-01-04 last=2026-10-16 duplicates=0
+[DATA] 2026-10-16T16:28:40 spy=1993-01-29~2026-10-15 rows=8486 vix=1993-01-04~2026-10-16 use=2016-01-01~2026-10-15 sell=+5% 성공 / −5% 실패 (종가) → 다음 날 종가 cost=0.0025
+[SIGNAL] 2026-10-16T16:28:40 data=vix_aligned days=8486 missing_days=0 vix_last=2026-10-16 note=VIX 가 없는 날은 vix30 신호 없음
+[SIGNAL] 2026-10-16T16:28:40 indicators=ath,ret1,sma50,sma200,rsi14,hi252,mom252,month_first,vix days=8486 first=1993-01-29 last=2026-10-15 first_sma200=1993-11-11
+[RESULT] 2026-10-16T16:28:40 label=main m=0.05 n=0.05 start=2016-01-04 end=2026-10-15 rates=any:68%(57/84),m1:68%(43/63),hi20:69%(36/52),mom21:69%(42/61),x20:67%(36/54),gc520:69%(27/39),drop1:67%(47/70),rsi40:68%(28/41),vix20:68%(44/65),dd20_5:67%(26/39),dd5:67%(38/57)
+[RESULT] 2026-10-16T16:28:40 base_sequential=67.9% base_every_day=70.9% (2626 days)
+[RESULT] 2026-10-16T16:28:40 rule=any trades=85 decided=84 wins=57 losses=27 undecided=1 rate=67.9% vs_every_day=-3.0%p p=0.55 event_rate=70.9%(2626) invested=97% days_to_decide=30
+[RESULT] 2026-10-16T16:28:40 rule=m1 trades=64 decided=63 wins=43 losses=20 undecided=1 rate=68.3% vs_every_day=-2.7%p p=0.68 event_rate=67.2%(125) invested=75% days_to_decide=30
+[RESULT] 2026-10-16T16:28:40 rule=hi20 trades=53 decided=52 wins=36 losses=16 undecided=1 rate=69.2% vs_every_day=-1.7%p p=0.76 event_rate=70.0%(601) invested=76% days_to_decide=37
+[RESULT] 2026-10-16T16:28:40 rule=mom21 trades=62 decided=61 wins=42 losses=19 undecided=1 rate=68.9% vs_every_day=-2.1%p p=0.78 event_rate=71.5%(1799) invested=86% days_to_decide=37
+[RESULT] 2026-10-16T16:28:40 rule=x20 trades=55 decided=54 wins=36 losses=18 undecided=1 rate=66.7% vs_every_day=-4.2%p p=0.55 event_rate=69.2%(133) invested=60% days_to_decide=27
+[RESULT] 2026-10-16T16:28:40 rule=gc520 trades=40 decided=39 wins=27 losses=12 undecided=1 rate=69.2% vs_every_day=-1.7%p p=0.86 event_rate=70.4%(71) invested=48% days_to_decide=32
+[RESULT] 2026-10-16T16:28:40 rule=drop1 trades=71 decided=70 wins=47 losses=23 undecided=1 rate=67.1% vs_every_day=-3.8%p p=0.51 event_rate=66.2%(296) invested=67% days_to_decide=25
+[RESULT] 2026-10-16T16:28:40 rule=rsi40 trades=41 decided=41 wins=28 losses=13 undecided=0 rate=68.3% vs_every_day=-2.6%p p=0.73 event_rate=68.8%(263) invested=40% days_to_decide=25
+[RESULT] 2026-10-16T16:28:40 rule=vix20 trades=65 decided=65 wins=44 losses=21 undecided=0 rate=67.7% vs_every_day=-3.2%p p=0.59 event_rate=71.2%(822) invested=56% days_to_decide=22
+[RESULT] 2026-10-16T16:28:40 rule=dd20_5 trades=39 decided=39 wins=26 losses=13 undecided=0 rate=66.7% vs_every_day=-4.2%p p=0.60 event_rate=68.2%(314) invested=29% days_to_decide=19
+[RESULT] 2026-10-16T16:28:40 rule=dd5 trades=57 decided=57 wins=38 losses=19 undecided=0 rate=66.7% vs_every_day=-4.2%p p=0.47 event_rate=67.8%(866) invested=44% days_to_decide=20
+[SIGNAL] 2026-10-16T16:28:40 data=vix_aligned days=8486 missing_days=0 vix_last=2026-10-16 note=VIX 가 없는 날은 vix30 신호 없음
+[SIGNAL] 2026-10-16T16:28:40 indicators=ath,ret1,sma50,sma200,rsi14,hi252,mom252,month_first,vix days=8486 first=1993-01-29 last=2026-10-15 first_sma200=1993-11-11
+[RESULT] 2026-10-16T16:28:40 label=grid3_3 m=0.03 n=0.03 start=2016-01-04 end=2026-10-15 rates=any:64%(104/162),m1:66%(63/96),hi20:70%(57/82),mom21:65%(64/99),x20:65%(48/74),gc520:70%(35/50),drop1:66%(78/118),rsi40:63%(40/63),vix20:65%(74/114),dd20_5:56%(35/63),dd5:62%(66/107)
+[SIGNAL] 2026-10-16T16:28:40 data=vix_aligned days=8486 missing_days=0 vix_last=2026-10-16 note=VIX 가 없는 날은 vix30 신호 없음
+[SIGNAL] 2026-10-16T16:28:40 indicators=ath,ret1,sma50,sma200,rsi14,hi252,mom252,month_first,vix days=8486 first=1993-01-29 last=2026-10-15 first_sma200=1993-11-11
+[RESULT] 2026-10-16T16:28:40 label=grid5_5 m=0.05 n=0.05 start=2016-01-04 end=2026-10-15 rates=any:68%(57/84),m1:68%(43/63),hi20:69%(36/52),mom21:69%(42/61),x20:67%(36/54),gc520:69%(27/39),drop1:67%(47/70),rsi40:68%(28/41),vix20:68%(44/65),dd20_5:67%(26/39),dd5:67%(38/57)
+[SIGNAL] 2026-10-16T16:28:41 data=vix_aligned days=8486 missing_days=0 vix_last=2026-10-16 note=VIX 가 없는 날은 vix30 신호 없음
+[SIGNAL] 2026-10-16T16:28:41 indicators=ath,ret1,sma50,sma200,rsi14,hi252,mom252,month_first,vix days=8486 first=1993-01-29 last=2026-10-15 first_sma200=1993-11-11
+[RESULT] 2026-10-16T16:28:41 label=grid10_10 m=0.1 n=0.1 start=2016-01-04 end=2026-10-15 rates=any:77%(20/26),m1:75%(18/24),hi20:78%(18/23),mom21:77%(20/26),x20:72%(18/25),gc520:76%(16/21),drop1:77%(20/26),rsi40:75%(15/20),vix20:74%(17/23),dd20_5:75%(15/20),dd5:77%(17/22)
+[SIGNAL] 2026-10-16T16:28:41 data=vix_aligned days=8486 missing_days=0 vix_last=2026-10-16 note=VIX 가 없는 날은 vix30 신호 없음
+[SIGNAL] 2026-10-16T16:28:41 indicators=ath,ret1,sma50,sma200,rsi14,hi252,mom252,month_first,vix days=8486 first=1993-01-29 last=2026-10-15 first_sma200=1993-11-11
+[RESULT] 2026-10-16T16:28:41 label=grid5_10 m=0.05 n=0.1 start=2016-01-04 end=2026-10-15 rates=any:55%(24/44),m1:61%(22/36),hi20:60%(18/30),mom21:55%(21/38),x20:54%(20/37),gc520:68%(17/25),drop1:59%(22/37),rsi40:52%(16/31),vix20:58%(19/33),dd20_5:55%(16/29),dd5:54%(19/35)
+[SIGNAL] 2026-10-16T16:28:41 data=vix_aligned days=8486 missing_days=0 vix_last=2026-10-16 note=VIX 가 없는 날은 vix30 신호 없음
+[SIGNAL] 2026-10-16T16:28:41 indicators=ath,ret1,sma50,sma200,rsi14,hi252,mom252,month_first,vix days=8486 first=1993-01-29 last=2026-10-15 first_sma200=1993-11-11
+[RESULT] 2026-10-16T16:28:41 label=grid10_5 m=0.1 n=0.05 start=2016-01-04 end=2026-10-15 rates=any:83%(45/54),m1:84%(37/44),hi20:85%(35/41),mom21:85%(41/48),x20:82%(33/40),gc520:82%(27/33),drop1:84%(41/49),rsi40:83%(24/29),vix20:83%(38/46),dd20_5:79%(23/29),dd5:81%(30/37)
+[SIGNAL] 2026-10-16T16:28:41 data=vix_aligned days=8486 missing_days=0 vix_last=2026-10-16 note=VIX 가 없는 날은 vix30 신호 없음
+[SIGNAL] 2026-10-16T16:28:41 indicators=ath,ret1,sma50,sma200,rsi14,hi252,mom252,month_first,vix days=8486 first=1993-01-29 last=2026-10-15 first_sma200=1993-11-11
+[RESULT] 2026-10-16T16:28:41 label=long1994_2015 m=0.05 n=0.05 start=1994-03-01 end=2015-12-31 rates=any:60%(107/179),m1:60%(67/111),hi20:61%(59/96),mom21:59%(75/127),x20:56%(58/103),gc520:59%(50/85),drop1:55%(75/136),rsi40:67%(64/96),vix20:57%(85/149),dd20_5:59%(64/109),dd5:58%(85/146)
+[RESULT] 2026-10-16T16:28:41 rank=hi20,gc520,mom21,rsi40,m1,vix20,drop1,dd5,x20,dd20_5 spearman={"3_3": 0.65, "5_5": 1.0, "10_10": 0.36, "5_10": 0.53, "10_5": 0.65, "long1994_2015": 0.66}
+[RESULT] 2026-10-16T16:28:41 anim=anim.js days=2712 kb=570
+[DONE] 2026-10-16T16:28:41 files=results.json,results.md,trades.csv,anim.js,run.log sec=1.3

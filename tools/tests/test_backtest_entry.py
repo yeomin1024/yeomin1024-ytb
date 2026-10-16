@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# VERSION: v1.2 — 2026-10-16 — 최고점 −n% 매도(trail) 시험 더함. (v1.1 — 2026-10-16 — buy_and_hold 시험 더함.) (v1.0 — 2026-10-16 — tools/backtest/entry.py v1.0 시험 (매수 신호 10가지 × 같은 매도 규칙). 네트워크 없이 만든 자료로.)
+# VERSION: v1.3 — 2026-10-16 — 성공 판정 매도 barrier(m, n)·새 매수 방법(RULES_V4) 시험 더함. (v1.2 — 2026-10-16 — 최고점 −n% 매도(trail) 시험 더함.) (v1.1 — 2026-10-16 — buy_and_hold 시험 더함.) (v1.0 — 2026-10-16 — tools/backtest/entry.py v1.0 시험 (매수 신호 10가지 × 같은 매도 규칙). 네트워크 없이 만든 자료로.)
 """python3 -m unittest test_backtest_entry  (tools/tests 에서)"""
 import sys
 import unittest
@@ -139,6 +139,71 @@ class EntryTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             en.run_all(self.close, self.close.index[100], self.close.index[-1], vix=self.vix)
 
+
+
+
+class BarrierTest(unittest.TestCase):
+    """v1.3 성공 판정 매도: 산 값 × (1+n) 이상이 먼저면 성공, × (1−m) 이하가 먼저면 실패 — 그날 종가로 판정, 다음 날 종가에 매도."""
+    def setUp(self):
+        rng = np.random.default_rng(11)                                 # 시드 고정 (재현)
+        self.close = series(100 * np.exp(np.cumsum(rng.normal(0.0003, 0.011, 900))))
+        self.vix = series(18 + 6 * np.abs(rng.normal(0, 1, 900)))
+
+    def sim(self, key, close=None, mn=(0.05, 0.05)):
+        c = self.close if close is None else close
+        ind = en.indicators(c, self.vix)
+        return en.simulate(key, ind, 300, len(c) - 1, cost=0.001, dates=c.index, barrier=mn), ind
+
+    def test_first_barrier_decides(self):
+        """판정 = 산 뒤 먼저 닿은 쪽 · 그 전에는 두 선 사이 · 매도는 판정 다음 날."""
+        for k in en.ORDER_V4 + ["any"]:
+            r, ind = self.sim(k)
+            p = ind["close"]
+            self.assertTrue(r.trades, k)
+            for t in r.trades:
+                if t["result"] is None:
+                    continue
+                h = t["hit_i"]
+                between = p[t["buy_i"] + 1:h]
+                self.assertTrue(np.all((between < t["target"]) & (between > t["stop"])), (k, t["buy_date"]))
+                if t["result"] == "win":
+                    self.assertGreaterEqual(p[h], t["target"] * (1 - 1e-12))
+                else:
+                    self.assertLessEqual(p[h], t["stop"] * (1 + 1e-12))
+                if not t["open"]:
+                    self.assertEqual(t["sell_i"], h + 1, (k, t["buy_date"]))
+
+    def test_target_and_stop_from_buy_price(self):
+        r, _ = self.sim("m1", mn=(0.04, 0.07))
+        for t in r.trades:
+            self.assertAlmostEqual(t["target"], t["buy_price"] * 1.07, places=9)
+            self.assertAlmostEqual(t["stop"], t["buy_price"] * 0.96, places=9)
+
+    def test_any_rebuys_next_day(self):
+        """기준 'any' = 매도한 다음 날 바로 다시 매수."""
+        r, _ = self.sim("any")
+        for a, b in zip(r.trades, r.trades[1:]):
+            self.assertEqual(b["buy_i"], a["sell_i"] + 1)
+
+    def test_no_lookahead_barrier(self):
+        """d 뒤 가격을 바꿔도 d 까지 판정·매도가 끝난 거래는 같다."""
+        cut = 650
+        alt = self.close.copy()
+        alt.iloc[cut + 1:] *= np.linspace(0.5, 1.8, len(alt) - cut - 1)
+        for k in en.ORDER_V4 + ["any"]:
+            a, _ = self.sim(k)
+            b, _ = self.sim(k, close=alt)
+            fa = [(t["buy_i"], t["sell_i"], t["result"]) for t in a.trades if not t["open"] and t["sell_i"] <= cut]
+            fb = [(t["buy_i"], t["sell_i"], t["result"]) for t in b.trades if not t["open"] and t["sell_i"] <= cut]
+            self.assertEqual(fa, fb, k)
+            self.assertTrue(np.allclose(a.value[:cut - 300 + 1], b.value[:cut - 300 + 1]), k)
+
+    def test_stats_success_rate(self):
+        r, _ = self.sim("drop1")
+        st = en.stats(r)
+        w = sum(t["result"] == "win" for t in r.trades); l = sum(t["result"] == "loss" for t in r.trades)
+        self.assertEqual((st["wins"], st["losses"]), (w, l))
+        self.assertAlmostEqual(st["success_rate"], w / (w + l))
 
 if __name__ == "__main__":
     unittest.main()

@@ -1,0 +1,13 @@
+[PACE] 2026-10-16T16:37:33.831Z vBase=50 A=1.5 sigma=4 vKey=10 vMin=25 vMax=75 keys=2020-02-19~2020-04-17,2022-01-03~2022-03-01
+[PACE] 2026-10-16T16:37:33.847Z rule=m1 trades=64 T_s=83.3 vBase=50.0 vEvent=20.0 key_s=8.0 event_days_pct=38 event_time_pct=48 uniform_dps=32.6
+[PACE] 2026-10-16T16:37:33.851Z rule=hi20 trades=53 T_s=78.2 vBase=50.0 vEvent=20.0 key_s=8.0 event_days_pct=28 event_time_pct=39 uniform_dps=34.7
+[PACE] 2026-10-16T16:37:33.853Z rule=mom21 trades=62 T_s=78.6 vBase=50.0 vEvent=20.0 key_s=8.0 event_days_pct=29 event_time_pct=40 uniform_dps=34.5
+[PACE] 2026-10-16T16:37:33.856Z rule=x20 trades=55 T_s=81.5 vBase=50.0 vEvent=20.0 key_s=8.0 event_days_pct=35 event_time_pct=45 uniform_dps=33.3
+[PACE] 2026-10-16T16:37:33.858Z rule=gc520 trades=40 T_s=75.7 vBase=50.0 vEvent=20.0 key_s=8.0 event_days_pct=25 event_time_pct=35 uniform_dps=35.8
+[PACE] 2026-10-16T16:37:33.860Z rule=drop1 trades=71 T_s=82.4 vBase=50.0 vEvent=20.0 key_s=8.0 event_days_pct=36 event_time_pct=47 uniform_dps=32.9
+[PACE] 2026-10-16T16:37:33.863Z rule=rsi40 trades=41 T_s=72.8 vBase=50.0 vEvent=20.0 key_s=8.0 event_days_pct=21 event_time_pct=29 uniform_dps=37.2
+[PACE] 2026-10-16T16:37:33.864Z rule=vix20 trades=65 T_s=77.5 vBase=50.0 vEvent=20.0 key_s=8.0 event_days_pct=28 event_time_pct=38 uniform_dps=35.0
+[PACE] 2026-10-16T16:37:33.866Z rule=dd20_5 trades=39 T_s=71.6 vBase=50.0 vEvent=20.0 key_s=8.0 event_days_pct=19 event_time_pct=27 uniform_dps=37.9
+[PACE] 2026-10-16T16:37:33.868Z rule=dd5 trades=57 T_s=75.4 vBase=50.0 vEvent=20.0 key_s=8.0 event_days_pct=25 event_time_pct=34 uniform_dps=36.0
+[PACE] 2026-10-16T16:37:33.868Z all10_s=777 all10_min=12.9
+[TEST] 2026-10-16T16:37:33.874Z total_eq_T=true monotonic=true key_speed=10.00 warp_hits_anchors=true

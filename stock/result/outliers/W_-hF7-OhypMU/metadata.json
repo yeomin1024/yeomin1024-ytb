@@ -1,0 +1,89 @@
+{
+ "id": "-hF7-OhypMU",
+ "title": "\"환율 완전히 뒤집혔다\" 지금부터 봐야할 수혜주ㅣ지식인초대석 EP.170 (곽상준 대표 2부)",
+ "channel": "지식인사이드",
+ "channel_id": "UCA_hgsFzmynpv1zkvA5A7jA",
+ "subs": 4120000,
+ "views": 4035937,
+ "ratio": 0.98,
+ "age_days": 33,
+ "views_per_day": 122301.1,
+ "minutes": 29.3,
+ "likes": 15982,
+ "comments": 861,
+ "published": "2026-09-13",
+ "queries": "검색:주식투자 | 검색:주식 | 검색:주가",
+ "url": "https://www.youtube.com/watch?v=-hF7-OhypMU",
+ "flag": "외국 영상",
+ "published_at": "2026-09-13T01:00:39Z",
+ "rank": "W75",
+ "set": "web",
+ "folder": "W_-hF7-OhypMU",
+ "sources": [
+  "검색:주식투자",
+  "검색:주식",
+  "검색:주가"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 35,
+   "title": "구독자 인사"
+  },
+  {
+   "start": 50,
+   "title": "1500원까지 치솟던 환율이 갑자기 꺾인 이유"
+  },
+  {
+   "start": 252,
+   "title": "“금리 인상 더 남았다” 채권시장이 예고한 한국 미래"
+  },
+  {
+   "start": 561,
+   "title": "미국이 엔화를 어떻게든 살리려는 진짜 이유"
+  },
+  {
+   "start": 935,
+   "title": "엔화 850원대, 지금부터 봐야할 ‘수혜주’"
+  },
+  {
+   "start": 1060,
+   "title": "환율 1300원대, 반도체 투자자가 걱정해야 하는 것"
+  },
+  {
+   "start": 1153,
+   "title": "미장 지금 들어간다면 ‘주가’만 보면 안 되는 이유"
+  },
+  {
+   "start": 1370,
+   "title": "S&P500 투자자가 ‘코스피’를 봐야하는 이유"
+  },
+  {
+   "start": 1458,
+   "title": "지금 가장 주목 못받는 업종에 투자해야 하는 이유"
+  },
+  {
+   "start": 1682,
+   "title": "수없이 깨지고도, 결국 투자에서 살아남은 방법"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 861,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T07:19:11",
+ "approved": "2026-10-16T16:19+09:00"
+}

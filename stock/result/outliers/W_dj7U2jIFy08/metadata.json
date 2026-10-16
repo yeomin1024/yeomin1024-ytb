@@ -1,0 +1,111 @@
+{
+ "id": "dj7U2jIFy08",
+ "title": "Was passiert im WORST CASE mit deinem MSCI World ETF?",
+ "channel": "Finanzfluss",
+ "channel_id": "UCeARcCUiZg79SQQ-2_XNlXQ",
+ "subs": 1650000,
+ "views": 904745,
+ "ratio": 0.55,
+ "age_days": 53,
+ "views_per_day": 17070.7,
+ "minutes": 15.2,
+ "likes": 9742,
+ "comments": 630,
+ "published": "2026-08-23",
+ "queries": "검색:ETF | 검색:ETFs",
+ "url": "https://www.youtube.com/watch?v=dj7U2jIFy08",
+ "flag": "외국 영상",
+ "published_at": "2026-08-23T08:00:30Z",
+ "rank": "W81",
+ "set": "web",
+ "folder": "W_dj7U2jIFy08",
+ "sources": [
+  "검색:ETF",
+  "검색:ETFs"
+ ],
+ "source": "web",
+ "tags": [
+  "finanzfluss",
+  "etf",
+  "etf sicherheit",
+  "msci world etf",
+  "etf risiken",
+  "sondervermögen",
+  "broker pleite",
+  "etf anbieter insolvenz",
+  "ist mein etf sicher",
+  "einlagensicherung",
+  "etf worst case",
+  "marktcrash etf",
+  "etf geschlossen",
+  "etf schließung",
+  "etf verschmelzung",
+  "depotübertrag",
+  "bafin regulierung",
+  "etn unterschied etf",
+  "etf pleite szenario",
+  "sicher investieren",
+  "etf für anfänger",
+  "geldanlage",
+  "börsencrash",
+  "lehman brothers",
+  "etf sparplan",
+  "investieren 2026"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Intro"
+  },
+  {
+   "start": 31,
+   "title": "Stell dir vor, du hast im März 2000 investiert"
+  },
+  {
+   "start": 82,
+   "title": "Rechtliche Risiken"
+  },
+  {
+   "start": 88,
+   "title": "1. Dein ETF-Anbieter geht pleite"
+  },
+  {
+   "start": 208,
+   "title": "2. Dein Broker geht pleite oder betrügt dich"
+  },
+  {
+   "start": 428,
+   "title": "3. Dein ETF wird einfach geschlossen"
+  },
+  {
+   "start": 537,
+   "title": "Marktrisiken - Verlustrisiken"
+  },
+  {
+   "start": 583,
+   "title": "1. Der Doppelcrash ab 2000"
+  },
+  {
+   "start": 638,
+   "title": "2. Große Depression & Zweiter Weltkrieg"
+  },
+  {
+   "start": 788,
+   "title": "3. 30 Jahre Stagnation in Japan"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "de-DE",
+ "foreign": true,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 630,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T07:19:28",
+ "approved": "2026-10-16T16:19+09:00"
+}

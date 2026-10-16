@@ -1,0 +1,108 @@
+{
+ "id": "02hqxRMURPs",
+ "title": "주식 AI 비서 4명 만들었더니 공부가 쉬워졌어요 (제미나이 활용법)",
+ "channel": "공부하는 주린이",
+ "channel_id": "UCiKQigg-4SdI5bcsMZCBtvA",
+ "subs": 1310,
+ "views": 31176,
+ "ratio": 23.8,
+ "age_days": 157,
+ "views_per_day": 198.6,
+ "minutes": 7.1,
+ "likes": 1002,
+ "comments": 36,
+ "published": "2026-05-11",
+ "queries": "검색:주식공부 | 검색:주린이 | 검색:주식하는법",
+ "url": "https://www.youtube.com/watch?v=02hqxRMURPs",
+ "flag": "",
+ "published_at": "2026-05-11T09:00:00Z",
+ "rank": "W14",
+ "set": "web",
+ "folder": "W_02hqxRMURPs",
+ "sources": [
+  "검색:주식공부",
+  "검색:주린이",
+  "검색:주식하는법"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "예고"
+  },
+  {
+   "start": 11,
+   "title": "영끌 실패한 썰"
+  },
+  {
+   "start": 25,
+   "title": "AI 비서 4인방 공개"
+  },
+  {
+   "start": 62,
+   "title": "AI에게 역할 부여하기"
+  },
+  {
+   "start": 90,
+   "title": "AI 비서1. 단어 의미 설명가 / AI 비서 만드는 법"
+  },
+  {
+   "start": 206,
+   "title": "AI 비서2. 20년 경력의 수석 애널리스트"
+  },
+  {
+   "start": 305,
+   "title": "AI 비서 3,4 및 고정하기"
+  },
+  {
+   "start": 358,
+   "title": "마무리"
+  },
+  {
+   "start": 384,
+   "title": "주린이 투자 한 주 브리핑"
+  }
+ ],
+ "transcript_lang": "ko(자동)",
+ "transcript_status": "ok",
+ "syl": 2691,
+ "syl_per_sec": 6.38,
+ "hook20": "저 집 결국 못 썼어요. 이제 주식 진짜 더 열심히 할 거예요. 오늘은 저희 투자 전담 AI네 명 세팅했거든요. 그 꿀팁을 아낌없이 공개할게요. 저는 부동산 때문에 폭풍 같은 한 주를 보냈는데요. 저희 집 한 여섯 일곱 번 보여줬나? 그러고 팔려고 하는데 제가 사려던 금매가 갑자기 먼저 팔려 버려서 다 무선됐어요. 갈아타기 실패해서 좀 속상한데 주식",
+ "first60": "저 집 결국 못 썼어요. 이제 주식 진짜 더 열심히 할 거예요. 오늘은 저희 투자 전담 AI네 명 세팅했거든요. 그 꿀팁을 아낌없이 공개할게요. 저는 부동산 때문에 폭풍 같은 한 주를 보냈는데요. 저희 집 한 여섯 일곱 번 보여줬나? 그러고 팔려고 하는데 제가 사려던 금매가 갑자기 먼저 팔려 버려서 다 무선됐어요. 갈아타기 실패해서 좀 속상한데 주식 공부 더 열심히 하라는 신호 같기도 하더라고요. 그래서 앞으로 진짜 열심히 공부하는 모습 보여 드릴게요. 오늘은 본격적으로 저희 투자를 위해서 AI 비서네 명을 만들었거든요. 그럼 제가 엄한 비서 사인을 공개할게요. [음악] 짜잔. 단어 임의 설명과 20년 경력의 소석 주식 애널리스트, 리스크 관리 [음악] 전문가 그리고 뉴스 분석가입니다. 뭔지 모르시겠죠? 저",
+ "first60_syl": 422,
+ "outline": [
+  {
+   "t": 0,
+   "text": "저 집 결국 못 썼어요. 이제 주식"
+  },
+  {
+   "t": 90,
+   "text": "템플릿까지 말씀드릴게요. 먼저 단어"
+  },
+  {
+   "t": 182,
+   "text": "맞게 정리를 해줬어요. 한줄 정의"
+  },
+  {
+   "t": 270,
+   "text": "투자에 좀 적합한 방식인데 이거 둘"
+  },
+  {
+   "t": 361,
+   "text": "같아요. 이제 공부만 하면 되는데"
+  }
+ ],
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 36,
+ "comments_top_level": 25,
+ "comments_replies": 11,
+ "comments_by_creator": 10,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 36,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T07:14:37",
+ "approved": "2026-10-16T16:14+09:00"
+}

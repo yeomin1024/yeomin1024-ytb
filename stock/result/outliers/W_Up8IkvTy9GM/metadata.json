@@ -1,0 +1,85 @@
+{
+ "id": "Up8IkvTy9GM",
+ "title": "『텍사스 촬영』버핏에게 직접 배운 투자 원칙 3가지 | 글로벌초대석 EP.8",
+ "channel": "지식인사이드",
+ "channel_id": "UCA_hgsFzmynpv1zkvA5A7jA",
+ "subs": 4120000,
+ "views": 3277495,
+ "ratio": 0.8,
+ "age_days": 44,
+ "views_per_day": 74488.5,
+ "minutes": 23.5,
+ "likes": 20064,
+ "comments": 830,
+ "published": "2026-09-01",
+ "queries": "검색:S&P500 | 검색:가치투자 | 검색:주식투자",
+ "url": "https://www.youtube.com/watch?v=Up8IkvTy9GM",
+ "flag": "외국 영상",
+ "published_at": "2026-09-01T12:36:17Z",
+ "rank": "W78",
+ "set": "web",
+ "folder": "W_Up8IkvTy9GM",
+ "sources": [
+  "검색:S&P500",
+  "검색:가치투자",
+  "검색:주식투자"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 26,
+   "title": "구독자 인사"
+  },
+  {
+   "start": 65,
+   "title": "억만장자가 한국에 올 때마다 놀라는 이유"
+  },
+  {
+   "start": 195,
+   "title": "제가 한국인이라면 ‘이 주식’에 투자 합니다"
+  },
+  {
+   "start": 335,
+   "title": "S&P 500 투자하고도 돈을 잃는 진짜 이유"
+  },
+  {
+   "start": 457,
+   "title": "버핏 제자가 목숨 걸고 지키는 '3가지' 투자 원칙"
+  },
+  {
+   "start": 723,
+   "title": "2조 4천억을 벌고 깨달은 투자의 본질"
+  },
+  {
+   "start": 980,
+   "title": "개인이 기관보다 더 잘할 수 있는 투자법"
+  },
+  {
+   "start": 1130,
+   "title": "듣기만해도 부자되는 거물들의 투자 일화"
+  },
+  {
+   "start": 1275,
+   "title": "전설적 투자자가 30년 투자하며 가장 후회한 실수"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 830,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T07:19:19",
+ "approved": "2026-10-16T16:19+09:00"
+}

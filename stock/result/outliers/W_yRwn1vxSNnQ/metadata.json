@@ -1,0 +1,101 @@
+{
+ "id": "yRwn1vxSNnQ",
+ "title": "주식 고수들이 돈 되는 기업을 알아보는 '2가지' 방법ㅣ지식인초대석 EP.146 (이선엽 대표 2부)",
+ "channel": "지식인사이드",
+ "channel_id": "UCA_hgsFzmynpv1zkvA5A7jA",
+ "subs": 4120000,
+ "views": 989308,
+ "ratio": 0.24,
+ "age_days": 118,
+ "views_per_day": 8384.0,
+ "minutes": 33.9,
+ "likes": 17656,
+ "comments": 903,
+ "published": "2026-06-20",
+ "queries": "검색:주식초보 | 검색:한국주식 | 검색:국내주식 | 검색:주식투자 | 검색:주식 | 검색:주식강의 | 검색:주식하는법",
+ "url": "https://www.youtube.com/watch?v=yRwn1vxSNnQ",
+ "flag": "외국 영상",
+ "published_at": "2026-06-20T01:00:37Z",
+ "rank": "W83",
+ "set": "web",
+ "folder": "W_yRwn1vxSNnQ",
+ "sources": [
+  "검색:주식초보",
+  "검색:한국주식",
+  "검색:국내주식",
+  "검색:주식투자",
+  "검색:주식",
+  "검색:주식강의",
+  "검색:주식하는법"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 31,
+   "title": "구독자 인사"
+  },
+  {
+   "start": 48,
+   "title": "2026년 하반기 세계 경제를 뒤흔들 가장 큰 변수"
+  },
+  {
+   "start": 140,
+   "title": "올해 하반기, 돈이 몰릴 나라는 이미 정해졌습니다"
+  },
+  {
+   "start": 205,
+   "title": "코스피는 역대급 호황인데, 코스닥 지지부진한 이유"
+  },
+  {
+   "start": 471,
+   "title": "코스닥 시장이 잘 되려면 ‘이것’을 고쳐야 합니다"
+  },
+  {
+   "start": 641,
+   "title": "스페이스X, 한 달 뒤가 진짜 중요합니다"
+  },
+  {
+   "start": 887,
+   "title": "스페이스X 상장 이후 주목해야 할 한국 주식 ‘1가지’"
+  },
+  {
+   "start": 972,
+   "title": "미국 연준이 금리 인상 당장 안 하는 이유"
+  },
+  {
+   "start": 1287,
+   "title": "한국 증시의 방향은 결국 ‘미국 금리’가 정합니다"
+  },
+  {
+   "start": 1447,
+   "title": "‘금리 인상’ 돈 회수 나선 일본이 불러올 후폭풍"
+  },
+  {
+   "start": 1620,
+   "title": "앞으로 인플레이션은 변수 아닌 ‘상수’가 될 겁니다"
+  },
+  {
+   "start": 1768,
+   "title": "주식 초보를 위한 ‘돈 되는 기업’ 한눈에 알아보는 법"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 903,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T07:19:35",
+ "approved": "2026-10-16T16:19+09:00"
+}

@@ -1,0 +1,104 @@
+{
+ "id": "4qpBzE19WRs",
+ "title": "股市最愛修理聰明人？華爾街操盤手教你「最笨卻最賺」的投資法｜【初日會客室】闕又上老師",
+ "channel": "Cofit x 宋晏仁醫師 - 初日醫學",
+ "channel_id": "UCzOblez4o3mZEkpOeFZdHWQ",
+ "subs": 1100000,
+ "views": 2229826,
+ "ratio": 2.03,
+ "age_days": 134,
+ "views_per_day": 16640.5,
+ "minutes": 20.5,
+ "likes": 30999,
+ "comments": 1007,
+ "published": "2026-06-03",
+ "queries": "검색:ETF | 검색:stock market",
+ "url": "https://www.youtube.com/watch?v=4qpBzE19WRs",
+ "flag": "외국 영상",
+ "published_at": "2026-06-03T10:00:14Z",
+ "rank": "W70",
+ "set": "web",
+ "folder": "W_4qpBzE19WRs",
+ "sources": [
+  "검색:ETF",
+  "검색:stock market"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "精彩預告：你以為安全，其實最虧？"
+  },
+  {
+   "start": 59,
+   "title": "華爾街操盤手的反直覺告白"
+  },
+  {
+   "start": 130,
+   "title": "不聰明，反而更賺？"
+  },
+  {
+   "start": 158,
+   "title": "存錢，正在被通膨吃掉"
+  },
+  {
+   "start": 202,
+   "title": "聰明人最容易被股市修理"
+  },
+  {
+   "start": 267,
+   "title": "最笨的投資法，為什麼有效？"
+  },
+  {
+   "start": 318,
+   "title": "0050 和 0056，差在哪？"
+  },
+  {
+   "start": 444,
+   "title": "你領的是股息，還是本金？"
+  },
+  {
+   "start": 550,
+   "title": "想等低點？你可能等不到"
+  },
+  {
+   "start": 616,
+   "title": "新手別急著挑股票"
+  },
+  {
+   "start": 680,
+   "title": "阿甘投資法不是沒有缺點"
+  },
+  {
+   "start": 730,
+   "title": "股債配置，真正的避震器"
+  },
+  {
+   "start": 871,
+   "title": "第一桶金，該買房還是投資？"
+  },
+  {
+   "start": 1025,
+   "title": "財務自由，是拿回選擇權"
+  },
+  {
+   "start": 1147,
+   "title": "快問快答：投資新手必聽"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "zh-TW",
+ "foreign": true,
+ "comments_fetched": 1007,
+ "comments_top_level": 558,
+ "comments_replies": 449,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 1007,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T07:18:39",
+ "approved": "2026-10-16T16:18+09:00"
+}

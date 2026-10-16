@@ -1,0 +1,93 @@
+{
+ "id": "2uJq7OQhpGg",
+ "title": "Ben Felix: Stock Picking Is Dead | Investi (Ep. 59)",
+ "channel": "Investi",
+ "channel_id": "UCfCJWpm5-ju5XNG-JSBxdzQ",
+ "subs": 24400,
+ "views": 86395,
+ "ratio": 3.54,
+ "age_days": 70,
+ "views_per_day": 1234.2,
+ "minutes": 80.6,
+ "likes": 1651,
+ "comments": 191,
+ "published": "2026-08-06",
+ "queries": "검색:dividend investing | 검색:dividend stocks",
+ "url": "https://www.youtube.com/watch?v=2uJq7OQhpGg",
+ "flag": "외국 영상",
+ "published_at": "2026-08-06T19:00:02Z",
+ "rank": "W63",
+ "set": "web",
+ "folder": "W_2uJq7OQhpGg",
+ "sources": [
+  "검색:dividend investing",
+  "검색:dividend stocks"
+ ],
+ "source": "web",
+ "tags": [
+  "Investing",
+  "ETF",
+  "Index Investing",
+  "Ben felix",
+  "covered call",
+  "Wealth Management",
+  "Investi",
+  "Finance"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Welcome Ben Felix to our first English-language episode"
+  },
+  {
+   "start": 110,
+   "title": "Why most investors underperform the market"
+  },
+  {
+   "start": 1449,
+   "title": "AI, bubbles, and investing"
+  },
+  {
+   "start": 1669,
+   "title": "Are young investors saving too early?"
+  },
+  {
+   "start": 2164,
+   "title": "Understanding covered-call ETFs and dividends"
+  },
+  {
+   "start": 3324,
+   "title": "100% equity portfolios vs. adding bonds"
+  },
+  {
+   "start": 3728,
+   "title": "What would change Ben's mind about Bitcoin"
+  },
+  {
+   "start": 4203,
+   "title": "Private equity: volatility and exit strategies"
+  },
+  {
+   "start": 4538,
+   "title": "Dealing with scams and protecting your online credibility"
+  },
+  {
+   "start": 4813,
+   "title": "Closing remarks and episode wrap-up"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "fr-CA",
+ "foreign": true,
+ "comments_fetched": 191,
+ "comments_top_level": 118,
+ "comments_replies": 73,
+ "comments_by_creator": 27,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 191,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T07:18:14",
+ "approved": "2026-10-16T16:18+09:00"
+}

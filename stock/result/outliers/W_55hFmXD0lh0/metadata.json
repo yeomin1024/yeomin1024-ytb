@@ -1,0 +1,118 @@
+{
+ "id": "55hFmXD0lh0",
+ "title": "단타 천재가 개발한 하이킨아시 스캘핑 매매법, 죽어라 이것만 하세요.",
+ "channel": "알파개미",
+ "channel_id": "UCs5Wv65c90QaO22ChCipD5g",
+ "subs": 2800,
+ "views": 53836,
+ "ratio": 19.23,
+ "age_days": 135,
+ "views_per_day": 398.8,
+ "minutes": 19.6,
+ "likes": 1762,
+ "comments": 1049,
+ "published": "2026-06-02",
+ "queries": "검색:단타",
+ "url": "https://www.youtube.com/watch?v=55hFmXD0lh0",
+ "flag": "",
+ "published_at": "2026-06-02T10:00:29Z",
+ "rank": "W17",
+ "set": "web",
+ "folder": "W_55hFmXD0lh0",
+ "sources": [
+  "검색:단타"
+ ],
+ "source": "web",
+ "tags": [
+  "비트코인",
+  "이더리움",
+  "차트분석",
+  "보조지표",
+  "보조지표강의",
+  "매매저략",
+  "단타지표",
+  "스캘핑",
+  "지표매매",
+  "차트공부",
+  "단타매매",
+  "차트패턴",
+  "바이낸스",
+  "트레이딩뷰",
+  "리플",
+  "주식투자",
+  "코인투자",
+  "기술적분석"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 86,
+   "title": "하이킨아시 개요"
+  },
+  {
+   "start": 189,
+   "title": "하이킨아시 캔들 3가지"
+  },
+  {
+   "start": 227,
+   "title": "일반 캔들 vs 하이킨아시"
+  },
+  {
+   "start": 279,
+   "title": "추세 전환 기준 3가지"
+  },
+  {
+   "start": 377,
+   "title": "추세 반전 신호"
+  },
+  {
+   "start": 441,
+   "title": "실전 하이킨아시 패턴 5가지"
+  },
+  {
+   "start": 522,
+   "title": "전략 1.지지/저항 및 돌파 매매법"
+  },
+  {
+   "start": 582,
+   "title": "전략 2.돌파 매매법"
+  },
+  {
+   "start": 615,
+   "title": "전략 3.이동평균선(EMA) 결합 매매법"
+  },
+  {
+   "start": 711,
+   "title": "전략 4.추세반전 매매법"
+  },
+  {
+   "start": 750,
+   "title": "전략 5.RSI 지표 결합 매매법"
+  },
+  {
+   "start": 823,
+   "title": "전략 6.알파 하이킨아시 매매법"
+  },
+  {
+   "start": 1125,
+   "title": "마무리 정리[지표 신청방법] / 아웃트로"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 1049,
+ "comments_top_level": 497,
+ "comments_replies": 552,
+ "comments_by_creator": 504,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 1049,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T07:14:50",
+ "approved": "2026-10-16T16:14+09:00"
+}

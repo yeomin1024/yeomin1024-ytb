@@ -1,0 +1,259 @@
+[    0.0] What if I told you there's a way to
+[    1.5] access cash from your portfolio without
+[    3.8] selling a single share and without
+[    5.7] paying a dollar in capital gains tax?
+[    8.6] This is not a loophole. This is how the
+[   10.9] ultra-wealthy have been doing it for
+[   12.5] decades. And recently, I started doing
+[   14.9] this myself. So, today I'm going to
+[   17.1] break down the full strategy, what it
+[   19.1] is, how I personally set it up, and the
+[   21.4] stuff that nobody tells you about the
+[   23.1] risks. So, you've probably heard those
+[   25.4] headlines, Elon Musk, Jeff Bezos, some
+[   28.2] billionaire made $5 billion last year
+[   30.8] and paid almost nothing in taxes. And
+[   33.4] you're sitting there thinking, how is
+[   34.8] that even legal? And probably, I want to
+[   36.8] do that, too.
+[   38.2] I used to think the same thing. And the
+[   40.4] answer is something called buy, borrow,
+[   43.0] die.
+[   44.1] And once you understand how this
+[   45.6] actually works, and I mean really
+[   47.4] understand it, I transferred a
+[   49.7] significant chunk of my portfolio to
+[   51.9] make it happen. So, let me explain this.
+[   55.3] Here's the core idea. You buy assets,
+[   58.5] stocks, ETFs, mutual funds, and you hold
+[   61.9] them. You don't sell them. Instead of
+[   64.0] selling, you borrow against them. The
+[   66.9] assets sit in your account, they
+[   68.8] continue to grow, and you pay interest
+[   70.9] on whatever you borrow. That borrowed
+[   73.4] money is not a taxable event. You're not
+[   75.9] realizing a gain, you're taking a loan.
+[   78.8] So, you're living off borrowed cash
+[   80.6] while your portfolio quietly compounds
+[   83.2] in the background. Now, here's the part
+[   85.4] that tripped me up for a long time.
+[   87.4] Yeah, but at some point you have to pay
+[   89.6] the loan back, right?
+[   91.7] And here's the answer. Yes, you do. But
+[   93.8] there's a key insight that I was
+[   95.2] missing. Because you're never selling,
+[   97.5] that portfolio keeps growing. A few
+[  100.0] years go by, your assets are worth more
+[  102.9] than when you took the initial loan out.
+[  105.0] Then you take out a new loan at the
+[  107.0] higher value, and you use that to pay
+[  109.4] off the old one, and you just keep
+[  111.6] rotating. That's the machine. And the
+[  114.0] die part of this, which is the final
+[  115.8] piece, when you eventually pass away,
+[  118.2] those assets go to your family, your
+[  120.6] heirs inherit them at the current market
+[  122.6] value, and not at your original cost
+[  125.1] basis. That step-up in basis effectively
+[  128.1] wipes out capital gains that built up
+[  130.2] over your lifetime. And that's the full
+[  132.5] picture. Buy assets, borrow against
+[  135.0] them, and pass them on. Now, let me get
+[  137.1] into exactly how I did this, because
+[  139.2] this is where it gets real. As my
+[  141.0] portfolio has grown, taxes have become
+[  143.3] my number one financial problem. I was
+[  145.4] selling roughly $60,000 a year to cover
+[  147.9] expenses, and every single dollar of
+[  150.0] that was a taxable event for me. And
+[  152.0] when I got hit with that tax bill last
+[  153.8] year, the biggest one of my life,
+[  155.5] something clicked. I said, I am done
+[  157.8] selling. So, instead of selling, I'm now
+[  160.1] borrowing. I pay interest on the
+[  162.1] borrowed amount, my assets continue to
+[  164.3] grow, and in a few years, I'm going to
+[  166.5] rotate the loan. Now, this strategy
+[  168.5] really only makes sense at a certain
+[  170.0] scale. I'd say you need $500,000,
+[  172.9] minimum $100,000,
+[  175.0] in a portfolio of long-term holdings
+[  177.1] you're not actively trading. So, we're
+[  179.1] talking about ETFs, index funds, maybe
+[  181.9] some blue-chip positions you plan to
+[  183.5] hold for the long haul. But, if you're
+[  185.6] actively trading in and out, this
+[  187.2] becomes a lot more complicated and a lot
+[  189.3] harder to manage. So, after shopping
+[  191.4] around, Interactive Brokers offered the
+[  193.4] best borrowing rate I could find
+[  195.2] anywhere. Now, IBKR offers two versions.
+[  198.6] There's IBKR Lite and IBKR Pro. IBKR
+[  202.6] Lite is free commissions. It's a lighter
+[  204.8] platform and simpler experience. IBKR
+[  208.0] Pro gives you a near institutional level
+[  210.4] trading platform and a significantly
+[  212.5] lower margin rate. But, you pay
+[  214.6] commissions on your trades. But, because
+[  216.7] this is a long-term buy and hold
+[  218.4] portfolio, I went with IBKR Pro purely
+[  222.0] for the lower rates.
+[  223.7] And here's how the current rate
+[  224.9] structure actually works, and this is
+[  226.7] important. They don't charge one flat
+[  229.3] rate. They use a tiered system. On the
+[  231.6] first $100,000 you borrow, the current
+[  234.4] rate is 5.12%.
+[  236.9] Borrow between 100,000 and a million,
+[  239.5] that drops to 4.62%.
+[  242.0] Above a million, you're looking at
+[  243.7] roughly 4.37%.
+[  246.1] So, if you're borrowing a meaningful
+[  247.7] amount, your blended rate is
+[  249.3] meaningfully lower than that first tier
+[  251.4] number. Compare that to what most
+[  253.3] traditional brokerages charge, some are
+[  255.6] running 8 to 10% on comparable balances.
+[  258.9] IBKR is less than half the cost. That
+[  261.7] difference matters a lot when you're
+[  263.3] talking about a multi-year loan. Now, I
+[  265.4] want to be honest about something here.
+[  267.1] What I originally was looking for was a
+[  269.4] securities backed line of credit, a
+[  271.7] dedicated structured credit facility
+[  273.8] like what private banks offer their high
+[  275.5] net worth clients. I couldn't actually
+[  277.7] find one with a decent rate that was
+[  279.4] accessible at my portfolio size. So,
+[  282.2] what Interactive Brokers offers instead
+[  284.2] is a margin account. A margin account is
+[  286.6] a brokerage account that allows you to
+[  288.0] borrow money from the broker using your
+[  290.0] portfolio as collateral. And here's what
+[  292.7] makes it different from a traditional
+[  293.9] loan. There's no application, there's no
+[  296.1] credit check, there's no fixed repayment
+[  298.5] schedule. When your cash balance goes
+[  300.6] negative, that's your loan. That's how
+[  302.5] simple it is. You hold $100,000 in ETFs,
+[  306.2] you pull out 30,000 in cash, your
+[  308.2] account now shows a negative $30,000
+[  310.8] cash balance, and that's your margin
+[  312.9] loan. Interest accrues daily, posts
+[  315.7] monthly, and floats with short-term Fed
+[  318.1] benchmark rates.
+[  319.7] Interactive Brokers requires 50% initial
+[  322.7] margin, meaning you need at least $2 in
+[  325.4] portfolio value for every dollar you
+[  327.7] borrow to start. The maintenance margin
+[  330.2] is 25%. That's the floor you cannot fall
+[  333.3] below. If your portfolio drops enough
+[  336.0] that your equity dips under that 25%
+[  338.5] threshold, Interactive Brokers does not
+[  341.0] call you. They don't give you a warning
+[  342.7] window to deposit more cash, they
+[  344.6] liquidate your positions automatically.
+[  347.2] And that's the most important thing to
+[  348.6] understand about the strategy. It's not
+[  350.6] a traditional line of credit. It's
+[  352.3] margin. And if the market drops hard and
+[  354.5] fast, your broker will sell the holdings
+[  357.0] for you at whatever price they can get
+[  359.0] before you even pick up the phone.
+[  361.2] That's why sizing matters enormously.
+[  363.8] Now, I'm not borrowing anywhere near the
+[  365.5] maximum that the account allows. If your
+[  367.5] portfolio is worth $1 million, they
+[  369.8] might technically let you borrow
+[  371.1] 500,000, but I would not do that. When
+[  373.9] you're running this as a long-term
+[  375.4] wealth strategy, you want a significant
+[  377.4] cushion. Enough that even a 30 or 40%
+[  380.3] market correction doesn't push you
+[  381.9] anywhere near that maintenance
+[  383.6] threshold. The sweet spot most people
+[  385.6] talk about is borrowing no more than 10
+[  387.4] to 20% of your portfolio value. That
+[  390.2] keeps you safe through normal market
+[  392.0] volatility and gives you room to
+[  393.9] breathe. So, let me walk you through a
+[  395.5] simple example because the numbers need
+[  397.3] to make sense. Say you have a
+[  398.9] million-dollar portfolio, mostly broad
+[  401.1] ETFs like the SPY or QQQ. You borrow
+[  404.2] $100,000 at roughly 4.6% interest.
+[  407.9] That's approximately $4,600
+[  410.4] per year in interest. Your portfolio
+[  413.1] historically returns somewhere around 7
+[  415.2] to 10% annualized. On a million dollars,
+[  418.2] 7% is 70,000. You're paying 4,600 in
+[  422.2] interest to keep that million working
+[  424.1] for you rather than selling a chunk of
+[  425.8] it and locking in a capital gains bill.
+[  428.3] And here's the compounding angle. That
+[  430.5] 100,000 you didn't sell is still in the
+[  433.0] market, still growing, and still
+[  435.0] compounding. At 7% over 5 years,
+[  438.2] $100,000 becomes $140,000.
+[  441.4] The loan doesn't grow, but the
+[  443.1] collateral does. And that is the whole
+[  445.2] game. So, I want to be completely
+[  446.8] straight with you on the risks because
+[  448.2] this strategy is not for everyone, and
+[  450.3] it can go sideways fast if you are not
+[  452.3] careful. Risk number one is going to be
+[  454.2] the forced liquidation. I already
+[  455.7] mentioned this, but it bears repeating.
+[  457.6] Interactive Brokers will liquidate your
+[  459.4] positions immediately if your equity
+[  461.2] drops below the maintenance margin.
+[  463.1] There's no warning, no grace period.
+[  465.0] This is not a bank, it's a brokerage.
+[  467.6] Risk number two is going to be interest
+[  469.1] costs in a flat or down market. If your
+[  471.6] portfolio stagnates or falls while
+[  473.6] you're carrying a loan, you're paying
+[  475.6] interest on borrowed money against
+[  477.4] assets that are not growing. The math
+[  479.4] only works when your portfolio return
+[  481.5] exceeds your borrowing costs over time.
+[  484.4] And risk number three is this is a long
+[  486.2] game. This is not a strategy you run on
+[  488.2] a concentrated actively traded
+[  490.1] portfolio. It requires stable,
+[  492.4] diversified, long-term holdings. The
+[  494.8] minute you start actively moving in and
+[  496.9] out of positions, you introduce timing
+[  499.2] risk that can blow up the whole
+[  500.6] structure. And risk number four is going
+[  502.8] to be tax complexity. The interest you
+[  505.2] pay may or may not be tax deductible
+[  507.2] depending on your situation. This is
+[  509.0] where a CPA or someone who understands
+[  511.4] investment interest expenses becomes
+[  513.4] valuable. Don't skip that conversation,
+[  515.9] but I'm not that person. So, here's the
+[  517.6] bottom line. The wealthy don't get rich
+[  519.7] by selling their assets every time they
+[  521.6] need cash. They build, they borrow, and
+[  524.2] they let time do the work. This strategy
+[  526.5] is not new, but the access to it has
+[  528.4] never been cheaper or more available to
+[  530.4] regular investors than it is right now.
+[  532.6] And personally, I'm still figuring this
+[  534.6] out myself. This is something I just
+[  536.6] started, but I'm going to keep
+[  537.6] documenting the journey on this channel.
+[  540.0] The rates, the loan structure, how I'm
+[  542.0] sizing it, and how the strategy evolves.
+[  544.6] If you want to follow along, hit
+[  546.2] subscribe and turn on notifications. And
+[  548.5] drop a comment. Are you currently
+[  550.1] borrowing against your portfolio, or is
+[  552.1] this something you consider? I'm
+[  553.9] genuinely curious where you all are on
+[  556.0] this. This is not financial advice,
+[  558.0] always do your own research before
+[  559.7] investing. I'm not a financial advisor,
+[  562.0] just someone teaching my personal
+[  563.9] finance in public.

@@ -1,0 +1,75 @@
+{
+ "id": "nXvljAM2D_8",
+ "title": "【あの投信は今!?】一歩テック・メガ10・インド株・SOX・S&P10・楽天SCHDは今…S&P500・オルカン・NASDAQ100と比較した結果",
+ "channel": "ぎゅうぎゅうマネー日記帳",
+ "channel_id": "UCZZTDFAaiYBASFHiIvK9ucA",
+ "subs": 15700,
+ "views": 144666,
+ "ratio": 9.21,
+ "age_days": 159,
+ "views_per_day": 909.8,
+ "minutes": 44.6,
+ "likes": 2837,
+ "comments": 456,
+ "published": "2026-05-09",
+ "queries": "검색:나스닥100",
+ "url": "https://www.youtube.com/watch?v=nXvljAM2D_8",
+ "flag": "외국 영상",
+ "published_at": "2026-05-09T10:30:27Z",
+ "rank": "W36",
+ "set": "web",
+ "folder": "W_nXvljAM2D_8",
+ "sources": [
+  "검색:나스닥100"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "オープニング"
+  },
+  {
+   "start": 213,
+   "title": "メガ10 vs FANG+｜低コスト版FANG+なのか？"
+  },
+  {
+   "start": 493,
+   "title": "Tracers S&P500トップ10 vs FANG+｜S&P500の上澄み10社"
+  },
+  {
+   "start": 956,
+   "title": "一歩先いくUSテック・トップ20 vs NASDAQ100｜10社と100社の間"
+  },
+  {
+   "start": 1312,
+   "title": "インド株 vs オルカン｜インドを単体で持つ意味"
+  },
+  {
+   "start": 1708,
+   "title": "楽天SCHD vs S&P500｜分配金の安心感"
+  },
+  {
+   "start": 2162,
+   "title": "SOX vs NASDAQ100｜AI時代の本丸、半導体"
+  },
+  {
+   "start": 2368,
+   "title": "最終結論｜王道ファンドが強い本当の理由"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ja",
+ "foreign": true,
+ "comments_fetched": 456,
+ "comments_top_level": 211,
+ "comments_replies": 245,
+ "comments_by_creator": 213,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 456,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T07:16:16",
+ "approved": "2026-10-16T16:16+09:00"
+}

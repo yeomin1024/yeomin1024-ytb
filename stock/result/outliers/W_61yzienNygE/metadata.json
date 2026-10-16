@@ -1,0 +1,88 @@
+{
+ "id": "61yzienNygE",
+ "title": "【オルカンvsS&P500】2026年どっちが正解？｜乗り換えた人、50年ぶりの罠にハマってます",
+ "channel": "シンガポール投資家KAZ",
+ "channel_id": "UC2IqcWpl7Hs_NKrCFVQ_TrQ",
+ "subs": 36900,
+ "views": 140225,
+ "ratio": 3.8,
+ "age_days": 145,
+ "views_per_day": 967.1,
+ "minutes": 16.9,
+ "likes": 1288,
+ "comments": 44,
+ "published": "2026-05-23",
+ "queries": "검색:S&P500",
+ "url": "https://www.youtube.com/watch?v=61yzienNygE",
+ "flag": "외국 영상",
+ "published_at": "2026-05-23T09:00:21Z",
+ "rank": "W60",
+ "set": "web",
+ "folder": "W_61yzienNygE",
+ "sources": [
+  "검색:S&P500"
+ ],
+ "source": "web",
+ "tags": [
+  "50代",
+  "資産運用",
+  "s&p500",
+  "オルカン"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "ハイライト"
+  },
+  {
+   "start": 10,
+   "title": "本日のテーマ"
+  },
+  {
+   "start": 73,
+   "title": "背景にある構造的変化"
+  },
+  {
+   "start": 254,
+   "title": "2つの理由について"
+  },
+  {
+   "start": 361,
+   "title": "2025年は統計的に異常な年だった"
+  },
+  {
+   "start": 419,
+   "title": "ドル安が終わったらどうなる？"
+  },
+  {
+   "start": 515,
+   "title": "今後の考え方"
+  },
+  {
+   "start": 690,
+   "title": "世界の株式市場200年の覇権推移"
+  },
+  {
+   "start": 790,
+   "title": "オルカンの7割はアメリカという事実"
+  },
+  {
+   "start": 900,
+   "title": "本日のまとめ"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ja",
+ "foreign": true,
+ "comments_fetched": 44,
+ "comments_top_level": 36,
+ "comments_replies": 8,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 44,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T07:18:04",
+ "approved": "2026-10-16T16:18+09:00"
+}

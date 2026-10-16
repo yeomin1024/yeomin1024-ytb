@@ -1,0 +1,93 @@
+{
+ "id": "8GzhXhRZsn0",
+ "title": "What Happens If You Invest $10k In The 4 Best Fidelity Index Funds?",
+ "channel": "Jacob Wade (Roadmap Money)",
+ "channel_id": "UCQZgCU3n7mTUME_fIKgE2PA",
+ "subs": 25100,
+ "views": 215773,
+ "ratio": 8.6,
+ "age_days": 101,
+ "views_per_day": 2136.4,
+ "minutes": 16.4,
+ "likes": 5491,
+ "comments": 390,
+ "published": "2026-07-06",
+ "queries": "검색:etf investing | 검색:index funds | 검색:dividend portfolio",
+ "url": "https://www.youtube.com/watch?v=8GzhXhRZsn0",
+ "flag": "외국 영상",
+ "published_at": "2026-07-06T17:15:56Z",
+ "rank": "W38",
+ "set": "web",
+ "folder": "W_8GzhXhRZsn0",
+ "sources": [
+  "검색:etf investing",
+  "검색:index funds",
+  "검색:dividend portfolio"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Why Investing $10k Into Fidelity Could Change Your Life"
+  },
+  {
+   "start": 45,
+   "title": "4 Fidelity Funds to Consider"
+  },
+  {
+   "start": 92,
+   "title": "Fidelity Fund # 1"
+  },
+  {
+   "start": 178,
+   "title": "Fidelity Fund # 2"
+  },
+  {
+   "start": 272,
+   "title": "Fidelity Fund # 3"
+  },
+  {
+   "start": 367,
+   "title": "Fidelity Fund # 4"
+  },
+  {
+   "start": 469,
+   "title": "Sample Portfolio # 1"
+  },
+  {
+   "start": 502,
+   "title": "Sample Portfolio # 1"
+  },
+  {
+   "start": 590,
+   "title": "What Your $10k Could Turn In To"
+  },
+  {
+   "start": 762,
+   "title": "Monthly Income in Retirement From $10k Investment"
+  },
+  {
+   "start": 813,
+   "title": "Portfolio I Would Personally Choose"
+  },
+  {
+   "start": 879,
+   "title": "What To Do Next"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 390,
+ "comments_top_level": 129,
+ "comments_replies": 261,
+ "comments_by_creator": 6,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 390,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T07:16:24",
+ "approved": "2026-10-16T16:16+09:00"
+}

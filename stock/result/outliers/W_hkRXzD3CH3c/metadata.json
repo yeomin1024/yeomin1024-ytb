@@ -1,0 +1,92 @@
+{
+ "id": "hkRXzD3CH3c",
+ "title": "Stop Guessing! Growth vs Dividend Stocks Explained in 20 Minutes",
+ "channel": "Finance Simplified",
+ "channel_id": "UCogYxvdGc8i7qfjPct1c-Bg",
+ "subs": 3520,
+ "views": 116658,
+ "ratio": 33.14,
+ "age_days": 83,
+ "views_per_day": 1405.5,
+ "minutes": 21.2,
+ "likes": 2055,
+ "comments": 191,
+ "published": "2026-07-24",
+ "queries": "검색:dividend investing | 검색:dividend stocks | 검색:dividend income | 검색:dividend portfolio | 검색:dividends | 검색:best dividend stocks",
+ "url": "https://www.youtube.com/watch?v=hkRXzD3CH3c",
+ "flag": "외국 영상",
+ "published_at": "2026-07-24T11:47:06Z",
+ "rank": "W13",
+ "set": "web",
+ "folder": "W_hkRXzD3CH3c",
+ "sources": [
+  "검색:dividend investing",
+  "검색:dividend stocks",
+  "검색:dividend income",
+  "검색:dividend portfolio",
+  "검색:dividends",
+  "검색:best dividend stocks"
+ ],
+ "source": "web",
+ "tags": [
+  "best investment strategy",
+  "dividend income",
+  "growth stocks vs dividend stocks"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "The Truth Nobody Tells You About Dividends"
+  },
+  {
+   "start": 25,
+   "title": "The Biggest Investing Myth"
+  },
+  {
+   "start": 180,
+   "title": "What Is a Growth Stock? ($10,000 Example)"
+  },
+  {
+   "start": 345,
+   "title": "What Is a Dividend Stock? (4% Yield Example)"
+  },
+  {
+   "start": 510,
+   "title": "The $100,000 Challenge: 30-Year Showdown"
+  },
+  {
+   "start": 735,
+   "title": "Who Should Buy Growth Stocks?"
+  },
+  {
+   "start": 855,
+   "title": "Who Should Buy Dividend Stocks?"
+  },
+  {
+   "start": 975,
+   "title": "The Millionaire Strategy (80/20, 60/40, 40/60)"
+  },
+  {
+   "start": 1095,
+   "title": "The 6 Biggest Mistakes Investors Make"
+  },
+  {
+   "start": 1230,
+   "title": "The Final Verdict"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 191,
+ "comments_top_level": 90,
+ "comments_replies": 101,
+ "comments_by_creator": 5,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 191,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T07:14:31",
+ "approved": "2026-10-16T16:14+09:00"
+}

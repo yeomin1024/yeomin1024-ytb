@@ -1,0 +1,79 @@
+{
+ "id": "3fmFpSlxHIc",
+ "title": "주식으로 전재산 날리는 사람들이 공통적으로 하는 착각 4가지",
+ "channel": "마르지 않는 투자",
+ "channel_id": "UCR4R3u3RFdjLlCWlOeg8I8A",
+ "subs": 19600,
+ "views": 76276,
+ "ratio": 3.89,
+ "age_days": 133,
+ "views_per_day": 573.5,
+ "minutes": 12.0,
+ "likes": 1360,
+ "comments": 122,
+ "published": "2026-06-05",
+ "queries": "검색:주식기초 | 검색:주식강의 | 검색:주식하는법",
+ "url": "https://www.youtube.com/watch?v=3fmFpSlxHIc",
+ "flag": "",
+ "published_at": "2026-06-05T05:00:01Z",
+ "rank": "W57",
+ "set": "web",
+ "folder": "W_3fmFpSlxHIc",
+ "sources": [
+  "검색:주식기초",
+  "검색:주식강의",
+  "검색:주식하는법"
+ ],
+ "source": "web",
+ "tags": [
+  "#주식투자",
+  "#주식공부",
+  "#주식기초",
+  "#주식초보",
+  "#경제적자유"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "전 재산 날린 사람들의 4가지 공통점"
+  },
+  {
+   "start": 50,
+   "title": "단타 매매가 실패하는 구조적 이유"
+  },
+  {
+   "start": 219,
+   "title": "과거 차트 패턴 맹신의 치명적 함정"
+  },
+  {
+   "start": 374,
+   "title": "호재 뉴스 맹신이 부르는 투자 실패"
+  },
+  {
+   "start": 478,
+   "title": "물타기가 계좌를 망치는 치명적 원리"
+  },
+  {
+   "start": 587,
+   "title": "물타기와 추가 매수의 결정적 차이점"
+  },
+  {
+   "start": 659,
+   "title": "계좌를 지켜내는 확실한 투자 원칙"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 122,
+ "comments_top_level": 81,
+ "comments_replies": 41,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 122,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T07:17:42",
+ "approved": "2026-10-16T16:17+09:00"
+}

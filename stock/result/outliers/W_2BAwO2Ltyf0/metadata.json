@@ -1,0 +1,138 @@
+{
+ "id": "2BAwO2Ltyf0",
+ "title": "最先端のイノベーションを先取る⁉　インベスコTV　「インベスコQQQ」チャンネル",
+ "channel": "インベスコ・アセット・マネジメント株式会社 公式チャンネル",
+ "channel_id": "UCG7dN3W_GVfW_fZ0J6OBcOw",
+ "subs": 25900,
+ "views": 9298146,
+ "ratio": 359.0,
+ "age_days": 71,
+ "views_per_day": 130959.8,
+ "minutes": 16.2,
+ "likes": 171,
+ "comments": 0,
+ "published": "2026-08-05",
+ "queries": "검색:나스닥100",
+ "url": "https://www.youtube.com/watch?v=2BAwO2Ltyf0",
+ "flag": "외국 영상",
+ "published_at": "2026-08-05T09:15:05Z",
+ "rank": "W2",
+ "set": "web",
+ "folder": "W_2BAwO2Ltyf0",
+ "sources": [
+  "검색:나스닥100"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "～　ダイジェスト"
+  },
+  {
+   "start": 21,
+   "title": "～　オープニング"
+  },
+  {
+   "start": 137,
+   "title": "～　インベスコについて"
+  },
+  {
+   "start": 185,
+   "title": "～　インベスコQQQがついに日本上場！"
+  },
+  {
+   "start": 244,
+   "title": "～　投資信託と株のいいとこどりであるETFとは？"
+  },
+  {
+   "start": 377,
+   "title": "～　インベスコQQQの長い運用実績と高い認知度"
+  },
+  {
+   "start": 428,
+   "title": "～　運用資産額78兆円！インベスコQQQの実績"
+  },
+  {
+   "start": 569,
+   "title": "～　ETFの投資で重要な流動性の高さ"
+  },
+  {
+   "start": 645,
+   "title": "～　インベスコQQQの2025年の取引総額は？"
+  },
+  {
+   "start": 755,
+   "title": "～　実は簡単！ETFの購入の仕方"
+  },
+  {
+   "start": 809,
+   "title": "～　最先端のイノベーションを先取りできる投資！"
+  }
+ ],
+ "transcript_lang": "en-US(자동)",
+ "transcript_status": "ok",
+ "syl": 0,
+ "syl_per_sec": 0.0,
+ "hook20": "I'm Aoi, the super AI publicity rep.  AI is all the rage these days.  Invesco QQQ has over 78 trillion yen in  assets under management, the largest in  the world.  78 trillion yen.  You can stay ahead of cutting-edge  innovation. Invesco TV, Invesco QQQ",
+ "first60": "I'm Aoi, the super AI publicity rep.  AI is all the rage these days.  Invesco QQQ has over 78 trillion yen in  assets under management, the largest in  the world.  78 trillion yen.  You can stay ahead of cutting-edge  innovation. Invesco TV, Invesco QQQ  Channel.  All right, Invesco TV is officially  starting. I'm Tomo Muto. Nice to meet  you.  I'm Hide Sato, President of Invesco  Asset Management",
+ "first60_syl": 0,
+ "outline": [
+  {
+   "t": 0,
+   "text": "I'm Aoi, the super AI publicity rep."
+  },
+  {
+   "t": 90,
+   "text": "By the way, 999 is such an interesting"
+  },
+  {
+   "t": 184,
+   "text": "That is impressively specific. The"
+  },
+  {
+   "t": 272,
+   "text": "both worlds is that, like mutual funds,"
+  },
+  {
+   "t": 361,
+   "text": "consistently lead the world."
+  },
+  {
+   "t": 450,
+   "text": "78 trillion yen. It’s amazing that it"
+  },
+  {
+   "t": 543,
+   "text": "Generally, ETFs with high trading"
+  },
+  {
+   "t": 631,
+   "text": "investors. Indeed, high liquidity is an"
+  },
+  {
+   "t": 720,
+   "text": "Yes. Please."
+  },
+  {
+   "t": 811,
+   "text": "Invesco QQQ is about investing in"
+  },
+  {
+   "t": 901,
+   "text": "Invesco QQQ might be an interesting"
+  }
+ ],
+ "video_lang": "ja",
+ "foreign": true,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": true,
+ "comments_reported": 0,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T07:13:44",
+ "approved": "2026-10-16T16:13+09:00"
+}

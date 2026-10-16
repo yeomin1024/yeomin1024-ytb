@@ -1,0 +1,126 @@
+{
+ "id": "oZqWOuMZwdA",
+ "title": "I Reinvested Dividends for 30 Years — Here's What Actually Happened",
+ "channel": "BudgetMoney",
+ "channel_id": "UCSebj5HfEAGXSAllATXuAaA",
+ "subs": 2550,
+ "views": 163259,
+ "ratio": 64.02,
+ "age_days": 126,
+ "views_per_day": 1295.7,
+ "minutes": 11.3,
+ "likes": 2202,
+ "comments": 336,
+ "published": "2026-06-11",
+ "queries": "검색:dividends",
+ "url": "https://www.youtube.com/watch?v=oZqWOuMZwdA",
+ "flag": "외국 영상",
+ "published_at": "2026-06-11T21:15:18Z",
+ "rank": "W7",
+ "set": "web",
+ "folder": "W_oZqWOuMZwdA",
+ "sources": [
+  "검색:dividends"
+ ],
+ "source": "web",
+ "tags": [
+  "dividend growth investing",
+  "dividend investing for beginners",
+  "dividend reinvesting",
+  "dividend compounding",
+  "how to build wealth",
+  "passive income",
+  "investing for beginners",
+  "personal finance",
+  "dividend investing strategy",
+  "how to live off dividends",
+  "payout ratio",
+  "DRIP investing",
+  "financial education",
+  "long term investing",
+  "dividend reinvestment plan"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "What 30 Years Actually Taught Me"
+  },
+  {
+   "start": 79,
+   "title": "What a Dividend Actually Is"
+  },
+  {
+   "start": 133,
+   "title": "The Three Choices: Spend, Reinvest, or Redirect"
+  },
+  {
+   "start": 183,
+   "title": "30-Year Proof: Dividend Growth vs. Savings Account"
+  },
+  {
+   "start": 415,
+   "title": "The Tax Reality Nobody Warns You About"
+  },
+  {
+   "start": 502,
+   "title": "The One Number Nobody Checks: Payout Ratio"
+  },
+  {
+   "start": 607,
+   "title": "Rich vs. Wealth — The Real Difference"
+  }
+ ],
+ "transcript_lang": "en(자동)",
+ "transcript_status": "ok",
+ "syl": 0,
+ "syl_per_sec": 0.0,
+ "hook20": "I started investing in 1995. I was 26 years old. I'd read about compound interest. I'd read about dividend reinvesting. I understood the math. But understanding it on paper and watching it work for 30 years, those are not the same thing. And after three decades, I can tell you there's a difference b",
+ "first60": "I started investing in 1995. I was 26 years old. I'd read about compound interest. I'd read about dividend reinvesting. I understood the math. But understanding it on paper and watching it work for 30 years, those are not the same thing. And after three decades, I can tell you there's a difference between reading about compounding and watching it happen in your own account. Here's an early McDonal",
+ "first60_syl": 0,
+ "outline": [
+  {
+   "t": 0,
+   "text": "I started investing in 1995. I was 26"
+  },
+  {
+   "t": 92,
+   "text": "business or pay some of it out to the"
+  },
+  {
+   "t": 180,
+   "text": "came from."
+  },
+  {
+   "t": 272,
+   "text": "Let me Let me show you what that"
+  },
+  {
+   "t": 362,
+   "text": "roughly around 3%, 3 and 1/2% over the"
+  },
+  {
+   "t": 451,
+   "text": "what it is, and then they move on."
+  },
+  {
+   "t": 541,
+   "text": "that dividend is at risk. But here's"
+  },
+  {
+   "t": 630,
+   "text": "that's what builds wealth."
+  }
+ ],
+ "video_lang": "en-US",
+ "foreign": true,
+ "comments_fetched": 336,
+ "comments_top_level": 120,
+ "comments_replies": 216,
+ "comments_by_creator": 123,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 336,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T07:14:03",
+ "approved": "2026-10-16T16:14+09:00"
+}

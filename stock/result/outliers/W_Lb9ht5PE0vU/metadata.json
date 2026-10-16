@@ -1,0 +1,80 @@
+{
+ "id": "Lb9ht5PE0vU",
+ "title": "【資産公開】S&P500に1000万入れて5年間放置した結果（めちゃ増えた）｜31歳会社員・新NISA",
+ "channel": "ぼんじり【平凡会社員のずぼら投資術】",
+ "channel_id": "UCJqfacCQDdSTyRPdJNsEi1w",
+ "subs": 4470,
+ "views": 360182,
+ "ratio": 80.58,
+ "age_days": 89,
+ "views_per_day": 4047.0,
+ "minutes": 13.9,
+ "likes": 2166,
+ "comments": 141,
+ "published": "2026-07-18",
+ "queries": "검색:S&P500",
+ "url": "https://www.youtube.com/watch?v=Lb9ht5PE0vU",
+ "flag": "외국 영상",
+ "published_at": "2026-07-18T09:38:05Z",
+ "rank": "W5",
+ "set": "web",
+ "folder": "W_Lb9ht5PE0vU",
+ "sources": [
+  "검색:S&P500"
+ ],
+ "source": "web",
+ "tags": [
+  "資産形成",
+  "投資",
+  "副業",
+  "会社員",
+  "新NISA",
+  "S＆P500",
+  "日経平均",
+  "オルカン"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "今日のテーマ"
+  },
+  {
+   "start": 64,
+   "title": "結論:5年でこれだけ増えました"
+  },
+  {
+   "start": 107,
+   "title": "5年間の全記録（2021~2026）"
+  },
+  {
+   "start": 443,
+   "title": "そもそも最初の元手をどうやって作った？"
+  },
+  {
+   "start": 513,
+   "title": "5年の運用で理解したインデックス投資の3つの本質"
+  },
+  {
+   "start": 660,
+   "title": "S&P500への積立を辞めた理由"
+  },
+  {
+   "start": 776,
+   "title": "まとめ"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ja",
+ "foreign": true,
+ "comments_fetched": 141,
+ "comments_top_level": 66,
+ "comments_replies": 75,
+ "comments_by_creator": 35,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 141,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T07:13:54",
+ "approved": "2026-10-16T16:13+09:00"
+}

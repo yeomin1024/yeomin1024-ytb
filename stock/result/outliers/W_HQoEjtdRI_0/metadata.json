@@ -1,0 +1,93 @@
+{
+ "id": "HQoEjtdRI_0",
+ "title": "The BEST 3 ETF Portfolio for F.I.R.E. (Hold FOREVER!)",
+ "channel": "Jacob Wade (Roadmap Money)",
+ "channel_id": "UCQZgCU3n7mTUME_fIKgE2PA",
+ "subs": 25100,
+ "views": 238189,
+ "ratio": 9.49,
+ "age_days": 141,
+ "views_per_day": 1689.3,
+ "minutes": 25.0,
+ "likes": 3809,
+ "comments": 388,
+ "published": "2026-05-27",
+ "queries": "검색:ETF | 검색:etf investing | 검색:index funds | 검색:ETFs | 검색:dividend investing | 검색:dividend portfolio | 검색:best dividend stocks",
+ "url": "https://www.youtube.com/watch?v=HQoEjtdRI_0",
+ "flag": "외국 영상",
+ "published_at": "2026-05-27T10:49:29Z",
+ "rank": "W34",
+ "set": "web",
+ "folder": "W_HQoEjtdRI_0",
+ "sources": [
+  "검색:ETF",
+  "검색:etf investing",
+  "검색:index funds",
+  "검색:ETFs",
+  "검색:dividend investing",
+  "검색:dividend portfolio",
+  "검색:best dividend stocks"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Why your portfolio choice matters ($850k vs $1.62M)"
+  },
+  {
+   "start": 214,
+   "title": "What is an ETF?"
+  },
+  {
+   "start": 264,
+   "title": "ETF #1: Core ETF"
+  },
+  {
+   "start": 574,
+   "title": "ETF #2: Growth ETF"
+  },
+  {
+   "start": 806,
+   "title": "Coinbase sponsor"
+  },
+  {
+   "start": 926,
+   "title": "ETF #3: Quality ETF"
+  },
+  {
+   "start": 1102,
+   "title": "Portfolio # 1"
+  },
+  {
+   "start": 1166,
+   "title": "Portfolio # 2"
+  },
+  {
+   "start": 1196,
+   "title": "Portfolio # 3"
+  },
+  {
+   "start": 1277,
+   "title": "Bonus ETF for cash holdings"
+  },
+  {
+   "start": 1368,
+   "title": "How to Start Investing in These ETFs"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 388,
+ "comments_top_level": 179,
+ "comments_replies": 209,
+ "comments_by_creator": 19,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 388,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T07:16:07",
+ "approved": "2026-10-16T16:16+09:00"
+}

@@ -1,0 +1,93 @@
+{
+ "id": "hasms3By6pA",
+ "title": "The 5 Levels of SCHD — What Level Are You?",
+ "channel": "Mikey Moran",
+ "channel_id": "UC6ZIPyig2TwYapaIeiNykPQ",
+ "subs": 11900,
+ "views": 104727,
+ "ratio": 8.8,
+ "age_days": 23,
+ "views_per_day": 4553.3,
+ "minutes": 9.6,
+ "likes": 1409,
+ "comments": 484,
+ "published": "2026-09-22",
+ "queries": "검색:dividend investing | 검색:dividend income | 검색:dividend portfolio",
+ "url": "https://www.youtube.com/watch?v=hasms3By6pA",
+ "flag": "외국 영상",
+ "published_at": "2026-09-22T22:00:20Z",
+ "rank": "W37",
+ "set": "web",
+ "folder": "W_hasms3By6pA",
+ "sources": [
+  "검색:dividend investing",
+  "검색:dividend income",
+  "검색:dividend portfolio"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "The First Goal in SCHD Isn't a Dollar Amount"
+  },
+  {
+   "start": 68,
+   "title": "The Dividend Math Formula Explained"
+  },
+  {
+   "start": 124,
+   "title": "Level 1: 34 Shares (The Self-Funding Flywheel)"
+  },
+  {
+   "start": 168,
+   "title": "Level 2: 100 Shares (Building a Real Position)"
+  },
+  {
+   "start": 204,
+   "title": "Level 3: 500 Shares (Paying Real-World Bills)"
+  },
+  {
+   "start": 254,
+   "title": "Level 4: 1,000 Shares (4-Figure Dividend Income)"
+  },
+  {
+   "start": 295,
+   "title": "How SCHD Price Run-Ups & Yield Shift the Levels"
+  },
+  {
+   "start": 377,
+   "title": "SCHD Dividend Growth Rate Reality Check"
+  },
+  {
+   "start": 418,
+   "title": "Level 5: My Current SCHD Milestone (2,500 Shares)"
+  },
+  {
+   "start": 472,
+   "title": "How Many SCHD Shares for $1,000/Month in Dividends?"
+  },
+  {
+   "start": 506,
+   "title": "The 2 Simple Rules to Level Up Your Portfolio"
+  },
+  {
+   "start": 544,
+   "title": "Which SCHD Level Are You On?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "en-US",
+ "foreign": true,
+ "comments_fetched": 484,
+ "comments_top_level": 245,
+ "comments_replies": 239,
+ "comments_by_creator": 182,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 484,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T07:16:20",
+ "approved": "2026-10-16T16:16+09:00"
+}

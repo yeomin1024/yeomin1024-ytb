@@ -1,0 +1,67 @@
+{
+ "id": "CfG6P6nuf60",
+ "title": "스페이스X 상장 전 주가 '10배' 터질 수혜주 TOP3",
+ "channel": "분석의금",
+ "channel_id": "UCi2UaUMkg8vETXqORbu0OnQ",
+ "subs": 5890,
+ "views": 45839,
+ "ratio": 7.78,
+ "age_days": 181,
+ "views_per_day": 253.3,
+ "minutes": 14.3,
+ "likes": 1375,
+ "comments": 153,
+ "published": "2026-04-17",
+ "queries": "검색:주식 추천",
+ "url": "https://www.youtube.com/watch?v=CfG6P6nuf60",
+ "flag": "",
+ "published_at": "2026-04-17T08:57:28Z",
+ "rank": "W40",
+ "set": "web",
+ "folder": "W_CfG6P6nuf60",
+ "sources": [
+  "검색:주식 추천"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "[인트로] 스페이스X 상장 임박에 따른 잘못된 투자 이해"
+  },
+  {
+   "start": 90,
+   "title": "스페이스X 상장이 국내 주식시장에 미칠 영향력"
+  },
+  {
+   "start": 174,
+   "title": "스페이스X IPO의 실체"
+  },
+  {
+   "start": 275,
+   "title": "스페이스X 수혜주 TOP3 분석"
+  },
+  {
+   "start": 513,
+   "title": "아무도 모르는 스페이스X 수혜 '히든' 종목"
+  },
+  {
+   "start": 800,
+   "title": "스페이스X 수혜로 급등 임박한 종목&대응 방법 받는 방법"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 153,
+ "comments_top_level": 100,
+ "comments_replies": 53,
+ "comments_by_creator": 39,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 153,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T07:16:35",
+ "approved": "2026-10-16T16:16+09:00"
+}

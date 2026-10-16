@@ -1,0 +1,102 @@
+{
+ "id": "g5v83RNywMQ",
+ "title": "[🚨긴급진단] 코스피 7000 붕괴...충격의 오늘 시장 왜 이러나?ㅣ이권희 대표 전화연결ㅣ경제시그널",
+ "channel": "경제시그널",
+ "channel_id": "UCdErKhSSwQcVSC4PEp6soZQ",
+ "subs": 27800,
+ "views": 115135,
+ "ratio": 4.14,
+ "age_days": 95,
+ "views_per_day": 1211.9,
+ "minutes": 9.0,
+ "likes": 1770,
+ "comments": 409,
+ "published": "2026-07-13",
+ "queries": "검색:주식시장",
+ "url": "https://www.youtube.com/watch?v=g5v83RNywMQ",
+ "flag": "외국 영상",
+ "published_at": "2026-07-13T02:49:09Z",
+ "rank": "W56",
+ "set": "web",
+ "folder": "W_g5v83RNywMQ",
+ "sources": [
+  "검색:주식시장"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Q. 오늘 주식시장 왜이러나?"
+  },
+  {
+   "start": 125,
+   "title": "Q. SK하이닉스 미국 상장, 국내 시장 영향은?"
+  },
+  {
+   "start": 157,
+   "title": "Q. SK하이닉스 아직도 매수 기회?"
+  },
+  {
+   "start": 213,
+   "title": "Q. 상장 조달금, 원화 달러 낮추는 역할하나?"
+  },
+  {
+   "start": 260,
+   "title": "Q. 반도체 ETF 투자 이대로 괜찮나?"
+  },
+  {
+   "start": 337,
+   "title": "Q. 지정학 충돌, 시장 여파는?"
+  },
+  {
+   "start": 396,
+   "title": "Q. 이번 주 투자 전략은?"
+  }
+ ],
+ "transcript_lang": "ko(자동)",
+ "transcript_status": "ok",
+ "syl": 3288,
+ "syl_per_sec": 6.11,
+ "hook20": "그런 이유는 없는데 일단 지금 일단 뭐 SK하이닉스가 ADR 상장은 잘 됐는데 그래서 미국 시장에서 급등을 했는데 오히려 이제 우리 시장에서 이제 급락이 나오고 있잖아요. 일단 예전에 UPBS 보고서에서 국내 주식보다는 ADR를 집중해야 된다. 이런 얘기들이 좀 있었죠. 예. 그런 부분들이 일부 좀 이제 과하게 반영되는 거 같고 그리고 지금",
+ "first60": "그런 이유는 없는데 일단 지금 일단 뭐 SK하이닉스가 ADR 상장은 잘 됐는데 그래서 미국 시장에서 급등을 했는데 오히려 이제 우리 시장에서 이제 급락이 나오고 있잖아요. 일단 예전에 UPBS 보고서에서 국내 주식보다는 ADR를 집중해야 된다. 이런 얘기들이 좀 있었죠. 예. 그런 부분들이 일부 좀 이제 과하게 반영되는 거 같고 그리고 지금 에스케하닉스 관련돼서 한국 투자 증권에서 보고서가 나왔는데 보고서 내용을 보면 일단 2분기 실적 추정치가 어 생각보다 이제 가이던스보다 좀 적게 나올 거다. 한 60조 후반대를 예상하고 있었는데 어 한 60조 초반대가 나오지 않겠냐라는 이제 얘기가 좀 나오면서 그 부분 좀 작을 좀 시킨 걸로 보이고요. 그리고 또 이제 글로벌리 보면은 이제 그 우리 MSC 관련된 신흥국 ",
+ "first60_syl": 343,
+ "outline": [
+  {
+   "t": 0,
+   "text": "그런 이유는 없는데 일단 지금 일단"
+  },
+  {
+   "t": 90,
+   "text": "영향일 걸로 보입니다. 그래서 지금"
+  },
+  {
+   "t": 181,
+   "text": "하면 지금 그 투자가 어 다른"
+  },
+  {
+   "t": 271,
+   "text": "이제 빠졌다가 제자리 간 이제 주가는"
+  },
+  {
+   "t": 360,
+   "text": "되고 있는 상황인데"
+  },
+  {
+   "t": 451,
+   "text": "이내에서 움직여야"
+  }
+ ],
+ "video_lang": "en-US",
+ "foreign": true,
+ "comments_fetched": 409,
+ "comments_top_level": 333,
+ "comments_replies": 76,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 409,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T07:17:37",
+ "approved": "2026-10-16T16:17+09:00"
+}

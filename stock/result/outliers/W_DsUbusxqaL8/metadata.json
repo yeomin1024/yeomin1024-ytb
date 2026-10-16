@@ -1,0 +1,112 @@
+{
+ "id": "DsUbusxqaL8",
+ "title": "5월 나스닥 폭락설? 아무도 안 알려준 돈의 이동설",
+ "channel": "한알경제",
+ "channel_id": "UCYio5R8qijGAhyrJYieHBuw",
+ "subs": 1590,
+ "views": 88509,
+ "ratio": 55.67,
+ "age_days": 170,
+ "views_per_day": 520.6,
+ "minutes": 8.5,
+ "likes": 825,
+ "comments": 100,
+ "published": "2026-04-28",
+ "queries": "검색:나스닥",
+ "url": "https://www.youtube.com/watch?v=DsUbusxqaL8",
+ "flag": "",
+ "published_at": "2026-04-28T10:30:12Z",
+ "rank": "W10",
+ "set": "web",
+ "folder": "W_DsUbusxqaL8",
+ "sources": [
+  "검색:나스닥"
+ ],
+ "source": "web",
+ "tags": [
+  "삼성전자",
+  "엔비디아",
+  "테슬라",
+  "일론머스크",
+  "스페이스X",
+  "SpaceX",
+  "스타링크",
+  "Starlink",
+  "나스닥",
+  "미국주식",
+  "주식투자",
+  "AI주식",
+  "빅테크",
+  "주식분석",
+  "경제",
+  "투자전략"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "5월 나스닥 위기, 진짜 범인은 일론 머스크?"
+  },
+  {
+   "start": 23,
+   "title": "나스닥을 흔드는 거대한 '다이아몬드 알'의 정체"
+  },
+  {
+   "start": 46,
+   "title": "삼성전자 12개 체급, SpaceX 상장 소식"
+  },
+  {
+   "start": 75,
+   "title": "스타링크: 머스크의 진짜 돈 버는 엔진"
+  },
+  {
+   "start": 118,
+   "title": "SpaceX와 xAI의 결합, 엔비디아가 긴장하는 이유"
+  },
+  {
+   "start": 157,
+   "title": "역대급 몸값, 왜 고작 75억 달러만 조달할까?"
+  },
+  {
+   "start": 198,
+   "title": "5월 텍사스, 스타쉽 12차 발사가 중요한 이유"
+  },
+  {
+   "start": 232,
+   "title": "머스크가 일반인에게 주식 30%를 주는 진짜 의도"
+  },
+  {
+   "start": 264,
+   "title": "나스닥 대이동: 우량주 폭락이 기회인 이유"
+  },
+  {
+   "start": 310,
+   "title": "반드시 알아야 할 SpaceX 투자 리스크 3가지"
+  },
+  {
+   "start": 374,
+   "title": "머스크의 독단적 결정권과 '도지코인' 변수"
+  },
+  {
+   "start": 435,
+   "title": "한국에서 SpaceX 주식 청약하는 방법 (미래에셋)"
+  },
+  {
+   "start": 462,
+   "title": "결론: 광풍 속에서 진짜 '황금 알'을 줍는 법"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 100,
+ "comments_top_level": 45,
+ "comments_replies": 55,
+ "comments_by_creator": 40,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 100,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T07:14:19",
+ "approved": "2026-10-16T16:14+09:00"
+}

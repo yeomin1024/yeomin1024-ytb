@@ -1,0 +1,195 @@
+{
+ "id": "M7l-A6Mk9zQ",
+ "title": "I've Invested in Dividends for 30 Years. Here's What Most People Get Wrong",
+ "channel": "BudgetMoney",
+ "channel_id": "UCSebj5HfEAGXSAllATXuAaA",
+ "subs": 2550,
+ "views": 52727,
+ "ratio": 20.68,
+ "age_days": 87,
+ "views_per_day": 606.1,
+ "minutes": 27.4,
+ "likes": 1044,
+ "comments": 233,
+ "published": "2026-07-21",
+ "queries": "검색:dividend income | 검색:dividend portfolio | 검색:dividends",
+ "url": "https://www.youtube.com/watch?v=M7l-A6Mk9zQ",
+ "flag": "외국 영상",
+ "published_at": "2026-07-21T00:30:29Z",
+ "rank": "W16",
+ "set": "web",
+ "folder": "W_M7l-A6Mk9zQ",
+ "sources": [
+  "검색:dividend income",
+  "검색:dividend portfolio",
+  "검색:dividends"
+ ],
+ "source": "web",
+ "tags": [
+  "dividend investing",
+  "dividend stocks",
+  "how to evaluate dividend stocks",
+  "dividend growth investing",
+  "dividend yield trap",
+  "dividend investing mistakes",
+  "investing for income",
+  "payout ratio",
+  "dividend portfolio",
+  "stock market investing",
+  "personal finance",
+  "passive income investing",
+  "value investing",
+  "retirement investing",
+  "dividend safety",
+  "best dividend stocks",
+  "dividend investing for beginners",
+  "financial education"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Why yield alone can fool you"
+  },
+  {
+   "start": 105,
+   "title": "The investor-first approach: my son vs. me"
+  },
+  {
+   "start": 103,
+   "title": "Free tools I use (Value Line reports)"
+  },
+  {
+   "start": 180,
+   "title": "Case study: sorting six Dow stocks by yield"
+  },
+  {
+   "start": 239,
+   "title": "Dividend growth rates: what the percentages hide"
+  },
+  {
+   "start": 572,
+   "title": "case study"
+  },
+  {
+   "start": 695,
+   "title": "McDonald's case study"
+  },
+  {
+   "start": 786,
+   "title": "Home Depot case study"
+  },
+  {
+   "start": 995,
+   "title": "Chevron case study"
+  },
+  {
+   "start": 1126,
+   "title": "Microsoft case study"
+  },
+  {
+   "start": 1243,
+   "title": "Nvidia case study"
+  },
+  {
+   "start": 1381,
+   "title": "Earnings predictability"
+  }
+ ],
+ "transcript_lang": "en(자동)",
+ "transcript_status": "ok",
+ "syl": 0,
+ "syl_per_sec": 0.0,
+ "hook20": "Chevron pays 3.9% dividend. Microsoft pays under 1%. Most people would call Chevron the better dividend play. Its own earnings history though says otherwise. I've been investing in dividend stocks for over 30 years and yield alone still doesn't tell you if the company can keep paying it or if that d",
+ "first60": "Chevron pays 3.9% dividend. Microsoft pays under 1%. Most people would call Chevron the better dividend play. Its own earnings history though says otherwise. I've been investing in dividend stocks for over 30 years and yield alone still doesn't tell you if the company can keep paying it or if that dividend even fits your life. And here's what I mean by fits. My son is 28 and I'm 57. When he mentio",
+ "first60_syl": 0,
+ "outline": [
+  {
+   "t": 0,
+   "text": "Chevron pays 3.9% dividend. Microsoft"
+  },
+  {
+   "t": 90,
+   "text": "30-year-old and a 60-year-old can both"
+  },
+  {
+   "t": 180,
+   "text": "On these Value Line sheets, Chevron"
+  },
+  {
+   "t": 270,
+   "text": "McDonald's is 7 and 1/2%. Coca-Cola, 4"
+  },
+  {
+   "t": 360,
+   "text": "out um from these growth rates."
+  },
+  {
+   "t": 450,
+   "text": "out as dividends. If a company earns $2"
+  },
+  {
+   "t": 540,
+   "text": "Home Depot is different again. It has"
+  },
+  {
+   "t": 631,
+   "text": "But because the business is so"
+  },
+  {
+   "t": 720,
+   "text": "period shown here on the sheet."
+  },
+  {
+   "t": 811,
+   "text": "interest rates are high and people"
+  },
+  {
+   "t": 900,
+   "text": "another."
+  },
+  {
+   "t": 990,
+   "text": "large-ticket spending."
+  },
+  {
+   "t": 1080,
+   "text": "The page shows A++ financial strength"
+  },
+  {
+   "t": 1170,
+   "text": "all dividends to net profit around the"
+  },
+  {
+   "t": 1261,
+   "text": "The dividend grew dramatically after the"
+  },
+  {
+   "t": 1352,
+   "text": "The questions here are different. Can"
+  },
+  {
+   "t": 1441,
+   "text": "different industries, but they may all"
+  },
+  {
+   "t": 1531,
+   "text": "Now, in this video, I'm focused on"
+  },
+  {
+   "t": 1621,
+   "text": "dividend stock?\" Ask, \"What am I trying"
+  }
+ ],
+ "video_lang": "en-US",
+ "foreign": true,
+ "comments_fetched": 233,
+ "comments_top_level": 52,
+ "comments_replies": 181,
+ "comments_by_creator": 50,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 233,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T07:14:45",
+ "approved": "2026-10-16T16:14+09:00"
+}

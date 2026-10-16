@@ -1,0 +1,92 @@
+{
+ "id": "Z_-PJGzUdD4",
+ "title": "I Own 300 Shares of SCHD - Here's My Dividend Payout",
+ "channel": "Cade Invests",
+ "channel_id": "UCdcXLJt34VO_7Khd7j5DSpQ",
+ "subs": 1800,
+ "views": 154597,
+ "ratio": 85.89,
+ "age_days": 77,
+ "views_per_day": 2007.8,
+ "minutes": 10.5,
+ "likes": 1991,
+ "comments": 338,
+ "published": "2026-07-30",
+ "queries": "검색:dividend investing | 검색:dividend income | 검색:dividend portfolio | 검색:dividends",
+ "url": "https://www.youtube.com/watch?v=Z_-PJGzUdD4",
+ "flag": "외국 영상",
+ "published_at": "2026-07-30T16:30:32Z",
+ "rank": "W4",
+ "set": "web",
+ "folder": "W_Z_-PJGzUdD4",
+ "sources": [
+  "검색:dividend investing",
+  "검색:dividend income",
+  "검색:dividend portfolio",
+  "검색:dividends"
+ ],
+ "source": "web",
+ "tags": [
+  "schd",
+  "schd etf",
+  "schd dividend",
+  "schd dividend payout",
+  "schd dividend growth",
+  "schd dividend etf",
+  "schd vs voo",
+  "schd vs qqq",
+  "schd vs vug",
+  "schd etf dividend",
+  "schd etf explained",
+  "schd etf vs voo",
+  "dividend investing income",
+  "dividend etf investing",
+  "etf for dividends",
+  "best dividend etfs",
+  "investing in dividend etf"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Intro"
+  },
+  {
+   "start": 37,
+   "title": "SCHD ETF Overview"
+  },
+  {
+   "start": 125,
+   "title": "SCHD Holdings"
+  },
+  {
+   "start": 180,
+   "title": "My SCHD Position"
+  },
+  {
+   "start": 255,
+   "title": "SCHD Dividend Income"
+  },
+  {
+   "start": 398,
+   "title": "SCHD vs VOO vs QQQ"
+  },
+  {
+   "start": 550,
+   "title": "My SCHD Plan"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 338,
+ "comments_top_level": 106,
+ "comments_replies": 232,
+ "comments_by_creator": 103,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 338,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T07:13:50",
+ "approved": "2026-10-16T16:13+09:00"
+}

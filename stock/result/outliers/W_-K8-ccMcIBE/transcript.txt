@@ -1,0 +1,247 @@
+[    0.4] Picture this. It's a Friday afternoon.
+[    2.8] Your phone buzzes. A dividend just hit
+[    5.1] your account. $47.83.
+[    8.8] Not monthly, not quarterly, weekly. Now,
+[   12.1] here's the problem most people run into
+[   14.3] with weekly dividend ETFs. By the time
+[   17.0] they've collected 6 months of those
+[   19.0] Friday payouts, their share price has
+[   21.4] quietly bled out 18%, 22%,
+[   25.1] sometimes more. The income looked real,
+[   28.0] the math didn't add up. I've been
+[   30.2] watching this pattern play out since
+[   32.0] October 2020, when SoFi launched the
+[   35.0] very first weekly paying ETF, ticker
+[   38.0] TGIF,
+[   39.6] literally [music] TGIF. And I've seen
+[   42.5] most of these funds make the same
+[   44.4] structural mistake over and over. But
+[   47.3] two funds just launched that are
+[   49.2] actually doing something different,
+[   51.1] [music] something that's working. And
+[   52.9] the part most people miss, one of them
+[   55.2] is completely free to own until 2027.
+[   59.3] I'll explain exactly what's happening
+[   61.5] and whether these two ETFs deserve a
+[   63.7] spot in your portfolio right now. Today,
+[   66.8] we're breaking down two brand new ETFs
+[   69.4] from Global X. These are weekly paying
+[   71.9] covered call funds targeting the S&P 500
+[   75.0] and Nasdaq 100, respectively. Launched
+[   77.9] on February 18th of this year, they've
+[   80.4] already done something almost no other
+[   82.9] weekly dividend ETF has managed, keep
+[   85.8] pace with the best monthly dividend
+[   87.9] funds on NAV performance, while still
+[   90.6] paying you every single Friday. We're
+[   93.0] going to look at how they work, what the
+[   94.8] real yield numbers look like, the one
+[   97.4] major red flag buried in the prospectus,
+[  100.1] and whether the weekly payout is
+[  101.9] actually worth the tradeoff compared to
+[  104.0] holding something like SPYI or QQQYI.
+[  108.1] >> [music]
+[  108.3] >> The NAV erosion problem. Here's the
+[  111.2] thing about weekly dividend ETFs, and I
+[  113.8] want you to really sit with this for a
+[  115.4] second. There are currently three ETFs
+[  118.3] that run covered call strategies on the
+[  120.5] S&P 500 and pay you weekly. Defiance's
+[  124.0] WDTE,
+[  125.6] Roundhill's XDTE, [music] launched in
+[  128.0] March 2024, and YieldMax's SDTY. All
+[  132.5] three have suffered significant NAV
+[  135.0] erosion compared to a monthly
+[  136.8] alternative like SPYI from Neos. And
+[  140.3] here's a detail that should stop you
+[  142.1] cold. SDTY's most recent distribution,
+[  145.8] as of this week, was classified as 100%
+[  149.4] return of capital, not income from
+[  152.2] options premiums, return of capital.
+[  155.2] That means the fund literally sold its
+[  157.6] own holdings to pay you your Friday
+[  159.9] dividend. Now, total returns still look
+[  162.6] positive for most of these if you've
+[  164.4] been reinvesting, but here's the real
+[  166.6] world impact for people who actually
+[  168.6] need the income and can't reinvest. The
+[  171.4] retirees, the passive income builders,
+[  174.3] the share price decline is very real.
+[  177.0] You're getting paid weekly while your
+[  178.5] principal quietly walks out the back
+[  180.7] door. That's the gap. That's the problem
+[  183.6] these two new Global X funds are trying
+[  186.1] to solve. The two new funds.
+[  188.6] >> [music]
+[  188.8] >> So, let's talk about what Global X
+[  190.8] actually built here. EDGX is the Global
+[  194.2] X US 500 Income Edge ETF. Tracks the S&P
+[  198.4] 500, pays weekly. EDGQ is the Nasdaq 100
+[  202.9] version, same structure. Both launched
+[  205.2] on February 18th of 2026, so we're
+[  208.3] [music] about 10 weeks in, and both are
+[  210.6] actively managed, meaning a fund manager
+[  212.9] is making real-time decisions rather
+[  215.3] than mechanically selling calls on the
+[  217.3] full portfolio, the way older covered
+[  219.6] call funds do.
+[  220.7] >> [music]
+[  220.8] >> Here's what stands out in their
+[  222.0] strategy. They only write covered call
+[  224.4] options on a portion of their holdings.
+[  226.8] The filings require at least 80% of the
+[  229.6] portfolio to maintain direct index
+[  232.1] exposure at all times. That's the key
+[  234.7] distinction. The more of a portfolio you
+[  237.2] cap with options, the more income you
+[  239.6] generate, but the more upside you
+[  241.7] sacrifice and the harder it becomes to
+[  243.9] recover from a drawdown. These funds are
+[  246.3] deliberately threading that needle more
+[  248.6] carefully. The 10 weeks results, EDGX
+[  252.0] has kept pace with SPYI, widely
+[  255.0] considered the gold standard for S&P 500
+[  258.0] covered call ETFs on NAV basis, and EDGQ
+[  262.4] has not only matched QQQYI from Neos, it
+[  266.3] recently pulled ahead slightly on share
+[  268.6] price performance. Early days, but
+[  271.1] genuinely promising. Now, look, I always
+[  273.9] read the fine print, and I need you to
+[  275.9] know about something that's easy to
+[  277.6] miss. Both EDGX and EDGQ have target
+[  282.1] distribution rates. EDGX targets 9%
+[  285.6] annually. EDGQ targets 13% annually.
+[  289.8] That sounds great, but two paragraphs
+[  292.3] into their filings, there's this line.
+[  294.8] If the fund cannot generate enough
+[  297.0] income from options premiums alone to
+[  299.7] fully meet its target yield, it will
+[  302.1] make up the difference by returning
+[  304.0] capital, meaning it will sell holdings
+[  306.4] to pay you. That's the exact mechanism
+[  308.9] behind NAV erosion. It doesn't mean it
+[  311.8] will happen here, it just means it can
+[  314.2] happen, and we haven't been through a
+[  316.0] seriously challenging options
+[  318.0] environment yet with these two funds.
+[  320.3] Bullish markets with moderate volatility
+[  322.8] are actually favorable conditions for
+[  325.0] covered call funds. 10 weeks of good
+[  327.4] results doesn't tell you how these funds
+[  329.4] behave when volatility spikes or the
+[  331.9] market drops hard. Keep that in mind.
+[  334.4] The story is positive so far, but
+[  336.8] incomplete. The yield math, is weekly
+[  339.8] really worth it? This is where it gets
+[  342.1] really interesting, and honestly a
+[  344.2] little frustrating depending on how you
+[  346.2] look at it. Let's put EDGX against SPYI
+[  350.4] head-to-head. EDGX targets 9%. SPYI
+[  355.3] currently yields approximately 12.3%.
+[  359.1] That's about 27% less income per dollar
+[  362.4] invested if you choose the weekly paying
+[  364.7] option. So, if both funds deliver
+[  367.1] similar NAV performance going forward,
+[  369.8] which early data suggests is possible,
+[  372.5] why would you accept 27% less income
+[  375.7] just to get paid on Fridays instead of
+[  377.8] once a month? For most people, the
+[  380.1] honest answer is you probably wouldn't.
+[  382.8] Now, EDGQ is a much closer call. It
+[  386.4] targets 13% versus QQQI's current yield
+[  390.3] of approximately 14%. That's only about
+[  393.6] 7% less income, a gap that's genuinely
+[  396.9] much easier to justify, especially when
+[  399.5] you factor in what we're about to talk
+[  401.2] about. Here's the question I want you to
+[  403.4] actually sit with. Why do you want
+[  406.1] weekly income? If the answer is because
+[  408.8] I need it to cover weekly expenses,
+[  411.0] that's a completely valid reason. If the
+[  413.4] answer is because it sounds exciting and
+[  415.8] I like seeing money hit my account every
+[  418.1] Friday, that's not a strategy, and the
+[  420.7] lower yield is probably working against
+[  422.8] you. Here's what most people don't
+[  424.8] realize about these two ETFs right now,
+[  427.4] and it genuinely does shift the math.
+[  429.9] Global X is running a promotional
+[  431.9] expense ratio of zero on both EDGX and
+[  435.7] EDGQ until March 1st of 2027. Not 0.10%,
+[  441.3] not 0.05%,
+[  443.2] zero. You pay nothing in management fees
+[  446.1] to hold these funds for the next 10
+[  448.0] months. After that, the expense ratio
+[  450.5] steps up to 50 basis points, which is
+[  453.0] still cheaper than SPYI and QQQI, which
+[  456.8] both charge 68 basis points. So, even
+[  459.8] after the promotion ends, these become
+[  462.0] some of the most cost-efficient covered
+[  464.1] call ETFs in the market. Now, here's the
+[  466.9] one meaningful tax disadvantage worth
+[  469.3] knowing. SPYI and QQQI use SPX index
+[  474.4] options, which are classified as Section
+[  476.8] 1256 contracts. That means 60% of gains
+[  480.9] are taxed at long-term capital gains
+[  483.4] rates, even if you've held the fund for
+[  485.6] just a few months. EDGX and EDGQ don't
+[  489.8] use that same structure. So, in a
+[  491.8] taxable account, your tax bill will
+[  494.1] likely be higher. If you're holding
+[  496.0] these inside an IRA or a Roth IRA, that
+[  499.4] distinction disappears entirely, and the
+[  501.9] zero expense ratio starts to look very
+[  504.5] attractive. So, where does this actually
+[  507.0] leave us? These two Global X funds are
+[  509.8] genuinely worth watching. 10 weeks of
+[  512.4] NAV performance data is encouraging. The
+[  515.1] zero expense ratio is real money in your
+[  517.7] pocket right now. The weekly payment
+[  520.1] structure is working so far without the
+[  522.4] kind of principal bleed we've seen from
+[  524.7] SDTY, XDTE, and WDTE.
+[  529.3] But, and I want to be completely clear
+[  531.3] about this, 10 weeks is not enough data
+[  534.2] to declare these funds definitively
+[  536.0] superior to SPYI or QQQI. What we can
+[  540.5] say is that they're credible
+[  541.7] competitors, and right now you're being
+[  543.9] paid to test drive them with zero
+[  545.9] management fees. Here's my practical
+[  548.2] take. For the Nasdaq exposure, EDGQ is
+[  551.8] worth serious consideration, especially
+[  554.5] inside a tax-advantaged account. The
+[  557.0] yield gap versus QQQI is small enough
+[  560.1] that the free expense ratio window could
+[  562.4] realistically close it. For the S&P 500
+[  565.6] side, the math is harder. EDGX's 9%
+[  569.6] target versus SPYI's 12.3% actual yield
+[  574.4] is a meaningful gap [music] that NAV
+[  576.4] performance alone would need to
+[  577.9] compensate for significantly over time.
+[  580.8] Set a reminder 6 months from now.
+[  583.0] >> [music]
+[  583.0] >> If the NAV story holds through a more
+[  585.2] volatile market environment, the
+[  587.0] calculus changes. If it doesn't, you'll
+[  589.5] have learned something important without
+[  591.3] paying a management fee to find out.
+[  593.4] Look, the point of income investing
+[  595.4] isn't to find the most exciting sounding
+[  597.9] fund. It's to build a system that pays
+[  600.4] you reliably, preserves your capital,
+[  602.8] and compounds over time. Most people
+[  605.4] chase yield and watch their principal
+[  607.4] quietly disappear. You're here because
+[  609.8] you want to do it smarter than that.
+[  612.0] EDGX and EDGQ are two funds that seem to
+[  615.9] understand the problem. Whether they
+[  617.9] fully solve it, we'll know soon enough.
+[  620.4] Drop a comment. Are you prioritizing
+[  622.6] weekly income or does monthly work just
+[  625.0] fine for you? And if you want a 6-month
+[  627.2] follow-up on these two when we have real
+[  629.2] data across different market conditions,
+[  631.5] give this video a like. It tells me
+[  633.4] that's what you want more of. Thanks for
+[  635.4] watching.

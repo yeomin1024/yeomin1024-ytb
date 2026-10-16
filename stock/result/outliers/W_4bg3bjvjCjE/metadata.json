@@ -1,0 +1,92 @@
+{
+ "id": "4bg3bjvjCjE",
+ "title": "Dividend Stocks vs. Growth Stocks: The Math Most Investors Ignore",
+ "channel": "Finance Simplified",
+ "channel_id": "UCogYxvdGc8i7qfjPct1c-Bg",
+ "subs": 3520,
+ "views": 201113,
+ "ratio": 57.13,
+ "age_days": 45,
+ "views_per_day": 4469.2,
+ "minutes": 20.2,
+ "likes": 1189,
+ "comments": 321,
+ "published": "2026-08-31",
+ "queries": "검색:dividend investing | 검색:dividend stocks | 검색:dividend income | 검색:dividend portfolio | 검색:dividends | 검색:best dividend stocks",
+ "url": "https://www.youtube.com/watch?v=4bg3bjvjCjE",
+ "flag": "외국 영상",
+ "published_at": "2026-08-31T14:30:43Z",
+ "rank": "W8",
+ "set": "web",
+ "folder": "W_4bg3bjvjCjE",
+ "sources": [
+  "검색:dividend investing",
+  "검색:dividend stocks",
+  "검색:dividend income",
+  "검색:dividend portfolio",
+  "검색:dividends",
+  "검색:best dividend stocks"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "The $54,000 Question"
+  },
+  {
+   "start": 13,
+   "title": "Yield vs. Appreciation vs. Total Return"
+  },
+  {
+   "start": 150,
+   "title": "Where Every $1 of Profit Actually Goes"
+  },
+  {
+   "start": 300,
+   "title": "The $32,000 Head-to-Head Test"
+  },
+  {
+   "start": 480,
+   "title": "The Dividend Reinvestment Effect"
+  },
+  {
+   "start": 630,
+   "title": "The Tax Drag Most Comparisons Ignore"
+  },
+  {
+   "start": 780,
+   "title": "The High-Yield Trap"
+  },
+  {
+   "start": 900,
+   "title": "The Growth-Stock Trap"
+  },
+  {
+   "start": 1020,
+   "title": "The Fair Test: Total Return vs. Total Return"
+  },
+  {
+   "start": 1110,
+   "title": "Who Each Approach Actually Suits"
+  },
+  {
+   "start": 1170,
+   "title": "Final Verdict"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 321,
+ "comments_top_level": 94,
+ "comments_replies": 227,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 321,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T07:14:08",
+ "approved": "2026-10-16T16:14+09:00"
+}

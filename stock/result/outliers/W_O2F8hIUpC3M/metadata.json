@@ -1,0 +1,94 @@
+{
+ "id": "O2F8hIUpC3M",
+ "title": "삼전닉스 이 '2가지' 뜨면 진짜 반등 시작입니다ㅣ지식인초대석 EP.169 (곽상준 대표 1부)",
+ "channel": "지식인사이드",
+ "channel_id": "UCA_hgsFzmynpv1zkvA5A7jA",
+ "subs": 4120000,
+ "views": 2284999,
+ "ratio": 0.55,
+ "age_days": 34,
+ "views_per_day": 67205.9,
+ "minutes": 32.8,
+ "likes": 14407,
+ "comments": 674,
+ "published": "2026-09-12",
+ "queries": "검색:주식 | 검색:주가 | 검색:증시 | 검색:주식시장",
+ "url": "https://www.youtube.com/watch?v=O2F8hIUpC3M",
+ "flag": "외국 영상",
+ "published_at": "2026-09-12T01:00:14Z",
+ "rank": "W80",
+ "set": "web",
+ "folder": "W_O2F8hIUpC3M",
+ "sources": [
+  "검색:주식",
+  "검색:주가",
+  "검색:증시",
+  "검색:주식시장"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 25,
+   "title": "구독자 인사"
+  },
+  {
+   "start": 61,
+   "title": "연봉 10억 증권맨이 여의도에서 배운 투자 원칙"
+  },
+  {
+   "start": 155,
+   "title": "2026년 한국 증시의 체급을 바꾼 결정적 변화"
+  },
+  {
+   "start": 402,
+   "title": "‘1년 뒤 장담 못한다’ 한국 노리는 중국 반도체의 역습"
+  },
+  {
+   "start": 582,
+   "title": "데이터센터에 전 세계 돈이 몰린 진짜 이유"
+  },
+  {
+   "start": 820,
+   "title": "막대한 인프라 투자가 불러온 세계 경제 나비효과"
+  },
+  {
+   "start": 934,
+   "title": "반도체 수요는 늘어나는데 주가는 빠지는 이유"
+  },
+  {
+   "start": 1248,
+   "title": "AI 버블은 ‘이 시점’이 올 때 터질 겁니다"
+  },
+  {
+   "start": 1434,
+   "title": "삼전닉스 반등을 결정할 ‘2가지’ 조건"
+  },
+  {
+   "start": 1607,
+   "title": "‘180조 주주환원’ 한 번으로 끝나면 안 됩니다"
+  },
+  {
+   "start": 1739,
+   "title": "같은 시장에서 부자들의 수익률이 더 좋은 이유"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 674,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T07:19:25",
+ "approved": "2026-10-16T16:19+09:00"
+}

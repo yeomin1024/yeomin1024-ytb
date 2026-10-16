@@ -1,0 +1,86 @@
+{
+ "id": "BRFRMfkGfpM",
+ "title": "The ONLY 5 ETFs You Need for F.I.R.E (Retire Early)",
+ "channel": "Jacob Wade (Roadmap Money)",
+ "channel_id": "UCQZgCU3n7mTUME_fIKgE2PA",
+ "subs": 25100,
+ "views": 375463,
+ "ratio": 14.96,
+ "age_days": 169,
+ "views_per_day": 2221.7,
+ "minutes": 17.6,
+ "likes": 6925,
+ "comments": 434,
+ "published": "2026-04-29",
+ "queries": "검색:ETF | 검색:etf investing | 검색:index funds | 검색:ETFs",
+ "url": "https://www.youtube.com/watch?v=BRFRMfkGfpM",
+ "flag": "외국 영상",
+ "published_at": "2026-04-29T16:49:47Z",
+ "rank": "W23",
+ "set": "web",
+ "folder": "W_BRFRMfkGfpM",
+ "sources": [
+  "검색:ETF",
+  "검색:etf investing",
+  "검색:index funds",
+  "검색:ETFs"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Intro"
+  },
+  {
+   "start": 20,
+   "title": "Vanguard Total Stock Market Index Fund (VTI)"
+  },
+  {
+   "start": 146,
+   "title": "Vanguard Total International Stock Market Index Fund (VXUS)"
+  },
+  {
+   "start": 248,
+   "title": "Invesco QQQ Trust (QQQ)"
+  },
+  {
+   "start": 435,
+   "title": "Fidelity Wise Origin Bitcoin Trust (FBTC)"
+  },
+  {
+   "start": 655,
+   "title": "Vanguard Total Bond Market Index Fund (BND)"
+  },
+  {
+   "start": 767,
+   "title": "Example Portfolio # 1"
+  },
+  {
+   "start": 806,
+   "title": "Example Portfolio # 1"
+  },
+  {
+   "start": 844,
+   "title": "Example Portfolio # 3"
+  },
+  {
+   "start": 891,
+   "title": "How to Use These ETFs for F.I.R.E."
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 434,
+ "comments_top_level": 169,
+ "comments_replies": 265,
+ "comments_by_creator": 23,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 434,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T07:15:16",
+ "approved": "2026-10-16T16:15+09:00"
+}

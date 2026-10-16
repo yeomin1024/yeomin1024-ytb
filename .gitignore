@@ -38,3 +38,4 @@ video/public/audio/
 */result/web/
 # 백테스트 가격 자료 캐시 (tools/backtest/data.py) — 지수 값은 다시 배포하지 않음, 출처·sha256 은 *.meta.json 으로 올림
 stock/data/*.csv
+stock/data/*.csv.gz

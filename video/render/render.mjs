@@ -1,4 +1,5 @@
-// VERSION: v1.2 — 2026-10-16 — video --estimated-preview: 추정 시각(오디오 전)으로 소리 없는 미리보기만 렌더 (<주제>/out/<영상ID>/preview_estimated_silent.mp4 —
+// VERSION: v1.3 — 2026-10-16 — 낱말 검사에서 지수 이름 'NASDAQ' 도 뺌 (S&P 와 같은 고유 이름 — 주식 1번 v2 확인 장면 '나스닥 2000·2003 시작', stock/guides/README.md 4번).
+// v1.2 — 2026-10-16 — video --estimated-preview: 추정 시각(오디오 전)으로 소리 없는 미리보기만 렌더 (<주제>/out/<영상ID>/preview_estimated_silent.mp4 —
 //   final_1080p.mp4·음량 맞춤·Drive 는 하지 않음). 옵션 없이는 예전처럼 거부. 사용자 지시 2026-10-16 "영상도 렌더링 해봐" (오디오 아직 없음).
 // v1.1 — 2026-10-15 — sync --estimate (오디오 전 추정 시각 — 장면 배치·still 점검용, video 모드는 거부), 자막 없는 영상(#cc 없음)은
 //   검사 아래 한계를 y 1020(유튜브 진행 막대 60px 비움 — stock/guides/README.md 4번), K.init opts.noWords 면 화면 글자에 낱말(한글·가나·한자·영어 2글자 이상, S&P·코드 카드 .code 빼고)이
@@ -25,7 +26,7 @@ import { fileURLToPath } from "node:url";
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, "..", "..");
-const VERSION = "v1.2";
+const VERSION = "v1.3";
 const log = (stage, kv) => console.log(`[${stage}] [${new Date().toISOString().slice(0, 19)}Z] ` +
   Object.entries(kv).map(([k, v]) => `${k}=${typeof v === "string" && /\s/.test(v) ? JSON.stringify(v) : v}`).join(" "));
 
@@ -178,8 +179,8 @@ const CHECK_FN = () => {
     const fs = parseFloat(getComputedStyle(el).fontSize);
     const txt = n.textContent.trim().slice(0, 24);
     if (fs < 36) out.push({ kind: "글자 36px 미만", txt, fs });
-    if (NOWORDS && !el.closest(".code") && (/[가-힣ぁ-んァ-ン一-龥]/.test(n.textContent) || /[A-Za-z]{2,}/.test(n.textContent.replace(/S&P/g, ""))))
-      out.push({ kind: "낱말(언어 없는 화면)", txt });   // K.init opts.noWords — 숫자·기호·A·B·S&P 만 (stock/guides/README.md 4번)
+    if (NOWORDS && !el.closest(".code") && (/[가-힣ぁ-んァ-ン一-龥]/.test(n.textContent) || /[A-Za-z]{2,}/.test(n.textContent.replace(/S&P|NASDAQ/g, ""))))
+      out.push({ kind: "낱말(언어 없는 화면)", txt });   // K.init opts.noWords — 숫자·기호·A·B·S&P·NASDAQ 만 (stock/guides/README.md 4번)
     if (b.bottom > LOW && !el.closest("#chip")) out.push({ kind: cc0 ? "자막 띠(y 880 아래)와 겹침" : "맨 아래 60px(y 1020 아래)", txt, bottom: Math.round(b.bottom) });
     if (b.left < 40 || b.right > 1880 || b.top < 30) out.push({ kind: "화면 가장자리 밖", txt, left: Math.round(b.left), right: Math.round(b.right), top: Math.round(b.top) });
   }

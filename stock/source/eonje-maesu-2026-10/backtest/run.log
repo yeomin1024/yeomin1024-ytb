@@ -1,0 +1,136 @@
+[START] 2026-10-16T09:28:51 tool=run.py v1.2 engine=daily.py v1.0 capital=10000.0 cost=0.001 main=1991-01-02~2023-06-30 note=연구·교육용 — 투자 권유 아님
+[DATA] 2026-10-16T09:28:51 source=cache key=sp500_daily_skfolio path=/home/user/yeomin1024-ytb/stock/data/sp500_daily_skfolio.csv.gz bytes=41898 fetched_at=?
+[DATA] 2026-10-16T09:28:51 source=cache key=sp500_daily_arch path=/home/user/yeomin1024-ytb/stock/data/sp500_daily_arch.csv.gz bytes=102735 fetched_at=?
+[DATA] 2026-10-16T09:28:51 source=cache path=/home/user/yeomin1024-ytb/stock/data/sp500_daily_fred.csv bytes=48929 fetched_at=2026-10-16T09:13:31Z
+[VALIDATE] 2026-10-16T09:28:51 data=sp500_daily rows=2514 first=2016-02-12 last=2026-02-11 blank_days_dropped=95 duplicates=0 gaps_over_5_days=0
+[VALIDATE] 2026-10-16T09:28:51 overlap=skfolio~FRED common_days=1732 only_a=0 only_b=0 max_rel_diff=0.0011893787800436595 days_over_0_01pct=2 from=2016-02-12 to=2022-12-28
+[VALIDATE] 2026-10-16T09:28:51 overlap=skfolio~arch common_days=5031 only_a=0 only_b=0 max_rel_diff=5.738964314883077e-08 days_over_0_01pct=0 from=1999-01-04 to=2018-12-31
+[VALIDATE] 2026-10-16T09:28:51 splice=겹치는 기간은 FRED(공식 종가) 값을 씀 days=2019-08-12,2021-08-11
+[VALIDATE] 2026-10-16T09:28:51 data=sp500_daily_long gaps_over_5_days=2001-09-17 moves_over_12pct=-
+[VALIDATE] 2026-10-16T09:28:51 data=sp500_daily_long rows=9095 first=1990-01-02 last=2026-02-11 duplicates=0
+[DATA] 2026-10-16T09:28:51 data=sp500_daily_long rows=9095 first=1990-01-02 last=2026-02-11 splice=skfolio~2016-02-11+FRED2514
+[DATA] 2026-10-16T09:28:51 source=cache path=/home/user/yeomin1024-ytb/stock/data/sp500_monthly.csv bytes=123851 fetched_at=2026-10-16T09:18:21Z
+[VALIDATE] 2026-10-16T09:28:51 check=dividend_missing count=39
+[VALIDATE] 2026-10-16T09:28:51 check=long_rate_missing count=36
+[VALIDATE] 2026-10-16T09:28:51 rows=1869 first=1871-01-01 last=2026-09-01 duplicates=0 gaps=0 not_month_start=0 price_missing=0 price_nonpositive=0 dividend_missing=39 dividend_nonpositive=0 long_rate_missing=36 long_rate_nonpositive=0
+[DATA] 2026-10-16T09:28:51 rows=1869 first=1871-01-01 last=2026-09-01 dividend_until=2023-06-01 long_rate_until=2023-09-01 complete_until=2023-06-01 seconds=0.01
+[DATA] 2026-10-16T09:28:51 source=cache key=ff_factors_monthly_arch path=/home/user/yeomin1024-ytb/stock/data/ff_factors_monthly_arch.csv.gz bytes=10817 fetched_at=2026-10-16T09:14:00Z
+[VALIDATE] 2026-10-16T09:28:51 check=rf_pct_month_nonpositive count=94
+[VALIDATE] 2026-10-16T09:28:51 rows=1109 first=1926-07-01 last=2018-11-01 duplicates=0 gaps=0 not_month_start=0 rf_pct_month_missing=0 rf_pct_month_nonpositive=94
+[DATA] 2026-10-16T09:28:51 source=cache key=nasdaq_daily_arch path=/home/user/yeomin1024-ytb/stock/data/nasdaq_daily_arch.csv.gz bytes=114929 fetched_at=2026-10-16T09:14:00Z
+[VALIDATE] 2026-10-16T09:28:51 data=nasdaq_daily gaps_over_5_days=2001-09-17 moves_over_12pct=2001-01-03:+14.2%
+[VALIDATE] 2026-10-16T09:28:51 data=nasdaq_daily rows=5031 first=1999-01-04 last=2018-12-31 duplicates=0
+[INDEX] 2026-10-16T09:28:51 kind=total_return_daily days=8439 growth=24.38 price_growth=12.37 tr_cagr=10.0064% price_cagr=7.8006%
+[DATA] 2026-10-16T09:28:51 sp500_daily=1990-01-02~2026-02-11 rows=9095 tr_until=2023-06-30 nasdaq=1999-01-04~2018-12-31 rf=1926-07-01~2018-11-01
+[INDEX] 2026-10-16T09:28:51 kind=total_return months=390 growth=25.31
+[VALIDATE] 2026-10-16T09:28:51 check=일별 총수익 vs 월별 총수익 (1991~2023-06) daily_cagr=10.540% monthly_cagr=10.481% diff_pp=+0.059
+[SIGNAL] 2026-10-16T09:28:51 indicators=ath,sma50,sma200,hi55,lo20,rsi14,mom12 days=8439 first_sma200=1990-10-15 month_ends=401
+[TRADE] 2026-10-16T09:28:51 label=main start=1991-01-02 end=2023-06-30 days=8186 cost=0.001 cash=0 hold_final=259164 seconds=0.12
+[RESULT] 2026-10-16T09:28:51 label=main strategy=dca12 final=223034 vs_hold=-13.9% cagr=10.03% mdd=-55.2% exposure=99% buys=12 sells=0
+[RESULT] 2026-10-16T09:28:51 label=main strategy=dip10 final=259164 vs_hold=+0.0% cagr=10.54% mdd=-55.2% exposure=100% buys=1 sells=0
+[RESULT] 2026-10-16T09:28:51 label=main strategy=ladder final=159991 vs_hold=-38.3% cagr=8.91% mdd=-55.2% exposure=90% buys=3 sells=0
+[RESULT] 2026-10-16T09:28:51 label=main strategy=stop10 final=303475 vs_hold=+17.1% cagr=11.08% mdd=-31.1% exposure=85% buys=25 sells=24
+[RESULT] 2026-10-16T09:28:51 label=main strategy=tp10 final=42018 vs_hold=-83.8% cagr=4.52% mdd=-53.9% exposure=51% buys=12 sells=11
+[RESULT] 2026-10-16T09:28:51 label=main strategy=sma200 final=125292 vs_hold=-51.7% cagr=8.09% mdd=-24.4% exposure=75% buys=113 sells=112
+[RESULT] 2026-10-16T09:28:51 label=main strategy=gc50_200 final=181905 vs_hold=-29.8% cagr=9.34% mdd=-33.8% exposure=75% buys=15 sells=14
+[RESULT] 2026-10-16T09:28:51 label=main strategy=brk55_20 final=18460 vs_hold=-92.9% cagr=1.90% mdd=-34.6% exposure=46% buys=101 sells=100
+[RESULT] 2026-10-16T09:28:51 label=main strategy=rsi30_70 final=46718 vs_hold=-82.0% cagr=4.86% mdd=-51.5% exposure=35% buys=27 sells=27
+[RESULT] 2026-10-16T09:28:51 label=main strategy=mom12 final=165453 vs_hold=-36.2% cagr=9.02% mdd=-33.8% exposure=78% buys=14 sells=13
+[SIGNAL] 2026-10-16T09:28:51 indicators=ath,sma50,sma200,hi55,lo20,rsi14,mom12 days=8439 first_sma200=1990-10-15 month_ends=401
+[TRADE] 2026-10-16T09:28:52 label=cost0 start=1991-01-02 end=2023-06-30 days=8186 cost=0.0 cash=0 hold_final=259423 seconds=0.13
+[RESULT] 2026-10-16T09:28:52 label=cost0 strategy=dca12 final=223257 vs_hold=-13.9% cagr=10.03% mdd=-55.2% exposure=99% buys=12 sells=0
+[RESULT] 2026-10-16T09:28:52 label=cost0 strategy=dip10 final=259423 vs_hold=+0.0% cagr=10.54% mdd=-55.2% exposure=100% buys=1 sells=0
+[RESULT] 2026-10-16T09:28:52 label=cost0 strategy=ladder final=160151 vs_hold=-38.3% cagr=8.91% mdd=-55.2% exposure=90% buys=3 sells=0
+[RESULT] 2026-10-16T09:28:52 label=cost0 strategy=stop10 final=318724 vs_hold=+22.9% cagr=11.24% mdd=-30.3% exposure=85% buys=25 sells=24
+[RESULT] 2026-10-16T09:28:52 label=cost0 strategy=tp10 final=42996 vs_hold=-83.4% cagr=4.59% mdd=-53.9% exposure=51% buys=12 sells=11
+[RESULT] 2026-10-16T09:28:52 label=cost0 strategy=sma200 final=156923 vs_hold=-39.5% cagr=8.84% mdd=-22.7% exposure=75% buys=113 sells=112
+[RESULT] 2026-10-16T09:28:52 label=cost0 strategy=gc50_200 final=187260 vs_hold=-27.8% cagr=9.44% mdd=-33.8% exposure=75% buys=15 sells=14
+[RESULT] 2026-10-16T09:28:52 label=cost0 strategy=brk55_20 final=22572 vs_hold=-91.3% cagr=2.54% mdd=-33.4% exposure=46% buys=101 sells=100
+[RESULT] 2026-10-16T09:28:52 label=cost0 strategy=rsi30_70 final=49311 vs_hold=-81.0% cagr=5.03% mdd=-51.5% exposure=35% buys=27 sells=27
+[RESULT] 2026-10-16T09:28:52 label=cost0 strategy=mom12 final=169984 vs_hold=-34.5% cagr=9.11% mdd=-33.8% exposure=78% buys=14 sells=13
+[SIGNAL] 2026-10-16T09:28:52 indicators=ath,sma50,sma200,hi55,lo20,rsi14,mom12 days=7288 first_sma200=1990-10-15 month_ends=346
+[TRADE] 2026-10-16T09:28:52 label=sub_cash0 start=1991-01-02 end=2018-11-30 days=7035 cost=0.001 cash=0 hold_final=148753 seconds=0.12
+[RESULT] 2026-10-16T09:28:52 label=sub_cash0 strategy=dca12 final=128015 vs_hold=-13.9% cagr=9.57% mdd=-55.2% exposure=98% buys=12 sells=0
+[RESULT] 2026-10-16T09:28:52 label=sub_cash0 strategy=dip10 final=148753 vs_hold=+0.0% cagr=10.16% mdd=-55.2% exposure=100% buys=1 sells=0
+[RESULT] 2026-10-16T09:28:52 label=sub_cash0 strategy=ladder final=91831 vs_hold=-38.3% cagr=8.27% mdd=-55.2% exposure=89% buys=3 sells=0
+[RESULT] 2026-10-16T09:28:52 label=sub_cash0 strategy=stop10 final=165131 vs_hold=+11.0% cagr=10.57% mdd=-31.1% exposure=85% buys=20 sells=20
+[RESULT] 2026-10-16T09:28:52 label=sub_cash0 strategy=tp10 final=32760 vs_hold=-78.0% cagr=4.34% mdd=-53.9% exposure=52% buys=10 sells=9
+[RESULT] 2026-10-16T09:28:52 label=sub_cash0 strategy=sma200 final=87545 vs_hold=-41.1% cagr=8.08% mdd=-24.4% exposure=76% buys=94 sells=94
+[RESULT] 2026-10-16T09:28:52 label=sub_cash0 strategy=gc50_200 final=140223 vs_hold=-5.7% cagr=9.92% mdd=-19.2% exposure=77% buys=12 sells=11
+[RESULT] 2026-10-16T09:28:52 label=sub_cash0 strategy=brk55_20 final=15511 vs_hold=-89.6% cagr=1.59% mdd=-34.6% exposure=45% buys=87 sells=87
+[RESULT] 2026-10-16T09:28:52 label=sub_cash0 strategy=rsi30_70 final=32731 vs_hold=-78.0% cagr=4.34% mdd=-51.5% exposure=33% buys=22 sells=21
+[RESULT] 2026-10-16T09:28:52 label=sub_cash0 strategy=mom12 final=135547 vs_hold=-8.9% cagr=9.79% mdd=-22.7% exposure=79% buys=11 sells=10
+[SIGNAL] 2026-10-16T09:28:52 indicators=ath,sma50,sma200,hi55,lo20,rsi14,mom12 days=7288 first_sma200=1990-10-15 month_ends=346
+[TRADE] 2026-10-16T09:28:52 label=sub_cashRF start=1991-01-02 end=2018-11-30 days=7035 cost=0.001 cash=rate hold_final=148753 seconds=0.16
+[RESULT] 2026-10-16T09:28:52 label=sub_cashRF strategy=dca12 final=131305 vs_hold=-11.7% cagr=9.66% mdd=-55.2% exposure=98% buys=12 sells=0
+[RESULT] 2026-10-16T09:28:52 label=sub_cashRF strategy=dip10 final=148753 vs_hold=+0.0% cagr=10.16% mdd=-55.2% exposure=100% buys=1 sells=0
+[RESULT] 2026-10-16T09:28:52 label=sub_cashRF strategy=ladder final=102690 vs_hold=-31.0% cagr=8.70% mdd=-55.2% exposure=87% buys=3 sells=0
+[RESULT] 2026-10-16T09:28:52 label=sub_cashRF strategy=stop10 final=184913 vs_hold=+24.3% cagr=11.02% mdd=-28.1% exposure=85% buys=20 sells=20
+[RESULT] 2026-10-16T09:28:52 label=sub_cashRF strategy=tp10 final=49442 vs_hold=-66.8% cagr=5.89% mdd=-53.9% exposure=52% buys=10 sells=9
+[RESULT] 2026-10-16T09:28:52 label=sub_cashRF strategy=sma200 final=101907 vs_hold=-31.5% cagr=8.67% mdd=-22.3% exposure=76% buys=94 sells=94
+[RESULT] 2026-10-16T09:28:52 label=sub_cashRF strategy=gc50_200 final=159381 vs_hold=+7.1% cagr=10.43% mdd=-19.2% exposure=77% buys=12 sells=11
+[RESULT] 2026-10-16T09:28:52 label=sub_cashRF strategy=brk55_20 final=22959 vs_hold=-84.6% cagr=3.02% mdd=-26.7% exposure=45% buys=87 sells=87
+[RESULT] 2026-10-16T09:28:52 label=sub_cashRF strategy=rsi30_70 final=54452 vs_hold=-63.4% cagr=6.26% mdd=-51.5% exposure=33% buys=22 sells=21
+[RESULT] 2026-10-16T09:28:52 label=sub_cashRF strategy=mom12 final=150344 vs_hold=+1.1% cagr=10.20% mdd=-22.7% exposure=79% buys=11 sells=10
+[SIGNAL] 2026-10-16T09:28:52 indicators=ath,sma50,sma200,hi55,lo20,rsi14,mom12 days=8439 first_sma200=1990-10-15 month_ends=401
+[TRADE] 2026-10-16T09:28:52 label=cash_gs10 start=1991-01-02 end=2023-06-30 days=8186 cost=0.001 cash=rate hold_final=259164 seconds=0.23
+[RESULT] 2026-10-16T09:28:52 label=cash_gs10 strategy=dca12 final=231135 vs_hold=-10.8% cagr=10.15% mdd=-55.2% exposure=99% buys=12 sells=0
+[RESULT] 2026-10-16T09:28:52 label=cash_gs10 strategy=dip10 final=259164 vs_hold=+0.0% cagr=10.54% mdd=-55.2% exposure=100% buys=1 sells=0
+[RESULT] 2026-10-16T09:28:52 label=cash_gs10 strategy=ladder final=188613 vs_hold=-27.2% cagr=9.46% mdd=-55.2% exposure=88% buys=3 sells=0
+[RESULT] 2026-10-16T09:28:52 label=cash_gs10 strategy=stop10 final=367621 vs_hold=+41.8% cagr=11.73% mdd=-27.6% exposure=85% buys=25 sells=24
+[RESULT] 2026-10-16T09:28:52 label=cash_gs10 strategy=tp10 final=85355 vs_hold=-67.1% cagr=6.82% mdd=-53.9% exposure=51% buys=12 sells=11
+[RESULT] 2026-10-16T09:28:52 label=cash_gs10 strategy=sma200 final=173326 vs_hold=-33.1% cagr=9.18% mdd=-22.1% exposure=75% buys=113 sells=112
+[RESULT] 2026-10-16T09:28:52 label=cash_gs10 strategy=gc50_200 final=247301 vs_hold=-4.6% cagr=10.38% mdd=-33.8% exposure=75% buys=15 sells=14
+[RESULT] 2026-10-16T09:28:52 label=cash_gs10 strategy=brk55_20 final=39080 vs_hold=-84.9% cagr=4.28% mdd=-23.7% exposure=46% buys=101 sells=100
+[RESULT] 2026-10-16T09:28:52 label=cash_gs10 strategy=rsi30_70 final=116513 vs_hold=-55.0% cagr=7.85% mdd=-51.5% exposure=35% buys=27 sells=27
+[RESULT] 2026-10-16T09:28:52 label=cash_gs10 strategy=mom12 final=218430 vs_hold=-15.7% cagr=9.96% mdd=-33.8% exposure=78% buys=14 sells=13
+[SIGNAL] 2026-10-16T09:28:52 indicators=ath,sma50,sma200,hi55,lo20,rsi14,mom12 days=9095 first_sma200=1990-10-15 month_ends=433
+[TRADE] 2026-10-16T09:28:52 label=price_only_2026 start=1991-01-02 end=2026-02-11 days=8842 cost=0.001 cash=0 hold_final=212422 seconds=0.16
+[RESULT] 2026-10-16T09:28:52 label=price_only_2026 strategy=dca12 final=185518 vs_hold=-12.7% cagr=8.67% mdd=-56.8% exposure=99% buys=12 sells=0
+[RESULT] 2026-10-16T09:28:52 label=price_only_2026 strategy=dip10 final=212422 vs_hold=+0.0% cagr=9.09% mdd=-56.8% exposure=100% buys=1 sells=0
+[RESULT] 2026-10-16T09:28:52 label=price_only_2026 strategy=ladder final=137473 vs_hold=-35.3% cagr=7.75% mdd=-56.8% exposure=90% buys=3 sells=0
+[RESULT] 2026-10-16T09:28:52 label=price_only_2026 strategy=stop10 final=251977 vs_hold=+18.6% cagr=9.63% mdd=-32.6% exposure=86% buys=27 sells=26
+[RESULT] 2026-10-16T09:28:52 label=price_only_2026 strategy=tp10 final=35778 vs_hold=-83.2% cagr=3.70% mdd=-55.4% exposure=50% buys=13 sells=13
+[RESULT] 2026-10-16T09:28:52 label=price_only_2026 strategy=sma200 final=106845 vs_hold=-49.7% cagr=6.98% mdd=-25.4% exposure=76% buys=117 sells=116
+[RESULT] 2026-10-16T09:28:52 label=price_only_2026 strategy=gc50_200 final=151266 vs_hold=-28.8% cagr=8.04% mdd=-33.9% exposure=77% buys=16 sells=15
+[RESULT] 2026-10-16T09:28:52 label=price_only_2026 strategy=brk55_20 final=17037 vs_hold=-92.0% cagr=1.53% mdd=-35.1% exposure=47% buys=108 sells=107
+[RESULT] 2026-10-16T09:28:52 label=price_only_2026 strategy=rsi30_70 final=44270 vs_hold=-79.2% cagr=4.33% mdd=-52.6% exposure=33% buys=29 sells=29
+[RESULT] 2026-10-16T09:28:52 label=price_only_2026 strategy=mom12 final=156844 vs_hold=-26.2% cagr=8.16% mdd=-33.9% exposure=80% buys=14 sells=13
+[SIGNAL] 2026-10-16T09:28:52 indicators=ath,sma50,sma200,hi55,lo20,rsi14,mom12 days=5031 first_sma200=1999-10-18 month_ends=239
+[TRADE] 2026-10-16T09:28:52 label=nasdaq start=2000-01-03 end=2018-12-31 days=4779 cost=0.001 cash=0 hold_final=16046 seconds=0.07
+[RESULT] 2026-10-16T09:28:52 label=nasdaq strategy=dca12 final=17581 vs_hold=+9.6% cagr=3.02% mdd=-71.7% exposure=98% buys=12 sells=0
+[RESULT] 2026-10-16T09:28:52 label=nasdaq strategy=dip10 final=14496 vs_hold=-9.7% cagr=1.97% mdd=-75.7% exposure=99% buys=1 sells=0
+[RESULT] 2026-10-16T09:28:52 label=nasdaq strategy=ladder final=16825 vs_hold=+4.9% cagr=2.78% mdd=-73.9% exposure=99% buys=4 sells=0
+[RESULT] 2026-10-16T09:28:52 label=nasdaq strategy=stop10 final=25416 vs_hold=+58.4% cagr=5.03% mdd=-44.7% exposure=76% buys=31 sells=31
+[RESULT] 2026-10-16T09:28:52 label=nasdaq strategy=tp10 final=13058 vs_hold=-18.6% cagr=1.41% mdd=-76.4% exposure=85% buys=5 sells=4
+[RESULT] 2026-10-16T09:28:52 label=nasdaq strategy=sma200 final=13952 vs_hold=-13.0% cagr=1.77% mdd=-57.7% exposure=67% buys=73 sells=73
+[RESULT] 2026-10-16T09:28:52 label=nasdaq strategy=gc50_200 final=29011 vs_hold=+80.8% cagr=5.77% mdd=-37.3% exposure=66% buys=12 sells=12
+[RESULT] 2026-10-16T09:28:52 label=nasdaq strategy=brk55_20 final=16975 vs_hold=+5.8% cagr=2.83% mdd=-34.4% exposure=46% buys=53 sells=53
+[RESULT] 2026-10-16T09:28:52 label=nasdaq strategy=rsi30_70 final=14954 vs_hold=-6.8% cagr=2.14% mdd=-61.6% exposure=42% buys=17 sells=16
+[RESULT] 2026-10-16T09:28:52 label=nasdaq strategy=mom12 final=19874 vs_hold=+23.9% cagr=3.68% mdd=-53.5% exposure=73% buys=9 sells=8
+[SIGNAL] 2026-10-16T09:28:52 indicators=ath,sma50,sma200,hi55,lo20,rsi14,mom12 days=5031 first_sma200=1999-10-18 month_ends=239
+[TRADE] 2026-10-16T09:28:52 label=nasdaq_2003 start=2003-01-02 end=2018-12-31 days=4027 cost=0.001 cash=0 hold_final=47865 seconds=0.05
+[RESULT] 2026-10-16T09:28:52 label=nasdaq_2003 strategy=dca12 final=41852 vs_hold=-12.6% cagr=9.36% mdd=-55.6% exposure=97% buys=12 sells=0
+[RESULT] 2026-10-16T09:28:52 label=nasdaq_2003 strategy=dip10 final=47865 vs_hold=+0.0% cagr=10.28% mdd=-55.6% exposure=100% buys=1 sells=0
+[RESULT] 2026-10-16T09:28:52 label=nasdaq_2003 strategy=ladder final=47865 vs_hold=+0.0% cagr=10.28% mdd=-55.6% exposure=100% buys=1 sells=0
+[RESULT] 2026-10-16T09:28:52 label=nasdaq_2003 strategy=stop10 final=30816 vs_hold=-35.6% cagr=7.29% mdd=-44.2% exposure=80% buys=19 sells=19
+[RESULT] 2026-10-16T09:28:52 label=nasdaq_2003 strategy=tp10 final=23909 vs_hold=-50.0% cagr=5.60% mdd=-53.4% exposure=42% buys=11 sells=10
+[RESULT] 2026-10-16T09:28:52 label=nasdaq_2003 strategy=sma200 final=23904 vs_hold=-50.1% cagr=5.60% mdd=-25.1% exposure=75% buys=63 sells=63
+[RESULT] 2026-10-16T09:28:52 label=nasdaq_2003 strategy=gc50_200 final=35418 vs_hold=-26.0% cagr=8.23% mdd=-26.4% exposure=75% buys=10 sells=10
+[RESULT] 2026-10-16T09:28:52 label=nasdaq_2003 strategy=brk55_20 final=19498 vs_hold=-59.3% cagr=4.26% mdd=-20.2% exposure=51% buys=48 sells=48
+[RESULT] 2026-10-16T09:28:52 label=nasdaq_2003 strategy=rsi30_70 final=21063 vs_hold=-56.0% cagr=4.77% mdd=-50.2% exposure=35% buys=14 sells=13
+[RESULT] 2026-10-16T09:28:52 label=nasdaq_2003 strategy=mom12 final=33938 vs_hold=-29.1% cagr=7.94% mdd=-23.6% exposure=81% buys=7 sells=6
+[SIGNAL] 2026-10-16T09:28:52 indicators=ath,sma50,sma200,hi55,lo20,rsi14,mom12 days=8439 first_sma200=1990-10-15 month_ends=401
+[TRADE] 2026-10-16T09:29:03 label=rolling_10y windows=271 years=10 first=1991-01-02 last=2013-07-01 seconds=10.2
+[SIGNAL] 2026-10-16T09:29:03 indicators=ath,sma50,sma200,hi55,lo20,rsi14,mom12 days=8439 first_sma200=1990-10-15 month_ends=401
+[TRADE] 2026-10-16T09:29:14 label=rolling_20y windows=151 years=20 first=1991-01-02 last=2003-07-01 seconds=10.8
+[SIGNAL] 2026-10-16T09:29:14 indicators=ath,sma50,sma200,hi55,lo20,rsi14,mom12 days=5031 first_sma200=1999-10-18 month_ends=239
+[TRADE] 2026-10-16T09:29:17 label=rolling_nasdaq_10y windows=109 years=10 first=2000-01-03 last=2009-01-02 seconds=3.7
+[RESULT] 2026-10-16T09:29:17 crash=1998-07-17→1998-08-31 hold=-19.2% dca12=-19.2% dip10=-19.2% ladder=-15.6% stop10=-8.7% tp10=-11.7% sma200=-13.4% gc50_200=-19.2% brk55_20=-5.2% rsi30_70=-11.5% mom12=-19.2%
+[RESULT] 2026-10-16T09:29:17 crash=2000-09-01→2002-10-09 hold=-47.4% dca12=-47.4% dip10=-47.4% ladder=-44.6% stop10=-23.8% tp10=-47.4% sma200=-9.0% gc50_200=-5.9% brk55_20=-14.5% rsi30_70=-29.9% mom12=-13.4%
+[RESULT] 2026-10-16T09:29:17 crash=2007-10-09→2009-03-09 hold=-55.2% dca12=-55.2% dip10=-55.2% ladder=-55.2% stop10=-26.1% tp10=-51.1% sma200=-11.3% gc50_200=-4.1% brk55_20=-4.6% rsi30_70=-47.5% mom12=-10.4%
+[RESULT] 2026-10-16T09:29:17 crash=2018-09-20→2018-12-24 hold=-19.4% dca12=-19.4% dip10=-19.4% ladder=-19.4% stop10=-8.6% tp10=-12.0% sma200=-9.0% gc50_200=-9.7% brk55_20=-4.9% rsi30_70=-13.6% mom12=-19.4%
+[RESULT] 2026-10-16T09:29:17 crash=2020-02-19→2020-03-23 hold=-33.8% dca12=-33.8% dip10=-33.8% ladder=-33.8% stop10=-12.8% tp10=-24.2% sma200=-11.0% gc50_200=-33.8% brk55_20=-8.0% rsi30_70=-28.2% mom12=-33.8%
+[RESULT] 2026-10-16T09:29:17 crash=2022-01-03→2022-10-12 hold=-24.5% dca12=-24.5% dip10=-24.5% ladder=-24.5% stop10=-24.9% tp10=-14.6% sma200=-15.3% gc50_200=-11.0% brk55_20=-10.6% rsi30_70=-4.0% mom12=-13.1%
+[RESULT] 2026-10-16T09:29:17 facts=cash_spells,fills_2020,dca12,ladder,worst_best_10y_start dca_1991=+27.8% ladder_wait_growth=×4.59 tp10_longest_cash={'from': '1991-02-11', 'to': '1997-10-27', 'trading_days': 1698, 'calendar_days': 2451}
+[DONE] 2026-10-16T09:29:17 seconds=26.2 files=results.json,results.md,trades.csv,rolling_10y.csv,run.log

@@ -1,0 +1,33 @@
+{
+  "url": "https://query1.finance.yahoo.com/v8/finance/chart/QYLD?period1=725846400&period2=1792108800&interval=1d&events=div%2Csplit",
+  "fetched_at": "2026-10-16T18:04:17Z",
+  "symbol": "QYLD",
+  "exchange_tz": "America/New_York",
+  "null_closes_dropped": 0,
+  "dividends": 148,
+  "splits": [],
+  "from": "1993-01-01",
+  "until": "2026-10-16",
+  "license": "Yahoo Finance 자료 — 저장소에 다시 올리지 않음 (연구용 계산만, meta 만 올림)",
+  "about": "QYLD 일별 종가·배당 (Yahoo chart API v8). tr = 배당 재투자 총수익 지수 (우리 계산)",
+  "sha256": "294cf8cbbb7e6d234a22a050df9d763bdb2cd374668512e60e07c80d8afb03f2",
+  "rows": 3229,
+  "first": "2013-12-12",
+  "last": "2026-10-15",
+  "validate": {
+    "rows": 3229,
+    "first": "2013-12-12",
+    "last": "2026-10-15",
+    "duplicates": 0,
+    "nonpositive": 0,
+    "missing": 0,
+    "gaps_over_5_days": [],
+    "moves_over_12pct": []
+  },
+  "tr_vs_yahoo_adjclose": {
+    "max_daily_diff": 0.00038514179886717237,
+    "days_over_0_01pct": 17,
+    "tr_vs_adj_growth_ratio": 0.9993534106882994
+  },
+  "div_sum": 28.361
+}

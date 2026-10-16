@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
-# VERSION: v1.4 — 2026-10-16 — Yahoo 일별 (사용자가 클라우드 Network access 에 Yahoo 를 허용 — 사용자 지시 2026-10-16 "허용했으니 기간 늘려"):
+# VERSION: v1.5 — 2026-10-16 — 주식 2·3·4번 자료 (사용자 지시 2026-10-16 "같은 방식으로 필요한 소스 생성해서 3개 영상 미리보기 영상 만들어봐"):
+#          yahoo_daily 가 주식 분할이 있는 심볼(QQQ·QLD·TQQQ·SCHD)도 받음 — Yahoo chart v8 의 close·배당은 이미 분할 반영(분할 날 앞뒤 종가가 이어짐을 2026-10-16 확인).
+#          받을 때 분할 날 하루 변화가 분할 비율만큼 튀지 않는지 검사해 튀면 멈춤(분할 미반영 자료로 계산하지 않음), meta 에 splits 기록.
+#          from_date 인자(기본 1993-01-01 — ^NDX 처럼 더 오래된 지수는 1985-10-01) · 오늘 장중 값은 until 로 뺌.
+# (v1.4 — 2026-10-16 — Yahoo 일별 (사용자가 클라우드 Network access 에 Yahoo 를 허용 — 사용자 지시 2026-10-16 "허용했으니 기간 늘려"):
 #          yahoo_daily(symbol) → 종가·배당(그날 배당락) → 총수익 지수(배당 재투자)를 우리가 직접 셈 (Yahoo adjclose 는 대조만).
 #          SPY·^GSPC·^VIX·^IRX. 캐시 stock/data/yahoo_<심볼>_daily.csv(git 밖) + meta(sha256·받은 시각·검사). Yahoo 는 커밋 고정이 안 되므로
 #          받은 날·sha256 을 남기고 FRED·datasets/finance-vix 와 겹치는 날을 대조한다.
@@ -31,6 +35,10 @@ v1.2 긴 일별 자료 (pypi 휠 안의 자료 — 휠 sha256·파일 sha256 고
     close, meta = data.sp500_daily_long()   # S&P500 일별 종가 1990-01-02~2026-02-11 (가격만)
     close, meta = data.nasdaq_daily()       # 나스닥 종합 일별 종가 1999-01-04~2018-12-31 (가격만)
     rf, meta = data.ff_rf_monthly()         # 1개월 T-bill 월 수익률 % (Fama-French RF) 1926-07~2018-11
+
+v1.5 (분할 있는 ETF·오래된 지수):
+    df, meta = data.yahoo_daily("TQQQ", until="2026-10-16")              # 분할 반영 종가 (검사함) · 2026-10-15 까지
+    df, meta = data.yahoo_daily("^NDX", from_date="1985-10-01", until="2026-10-16")
 
 v1.4 (Yahoo — 사용자가 허용):
     df, meta = data.yahoo_daily("SPY")      # 열: close(종가) · div(그날 배당락 배당) · tr(총수익 지수, 배당 재투자) · adjclose(Yahoo, 대조용)
@@ -426,10 +434,12 @@ def _yahoo_fetch(url, timeout=60, tries=3):
                        f"fc.yahoo.com 이 있는지 확인, 없으면 refresh=False 로 캐시를 씀")
 
 
-def yahoo_daily(symbol, refresh=False, data_dir=None, fetch=_yahoo_fetch, until=None):
+def yahoo_daily(symbol, refresh=False, data_dir=None, fetch=_yahoo_fetch, until=None, from_date=None):
     """Yahoo 일별 → (DataFrame[close, div, tr, adjclose], meta). 날짜 = 거래소(뉴욕) 날짜.
     tr: tr[t] = tr[t-1] × (close[t] + div[t]) / close[t-1] — 그날이 배당락일이면 그 배당을 다시 투자 (배당 재투자 총수익).
-    캐시가 있으면 그대로 (refresh=True 로 다시 받음). 분할이 있으면 멈춤 (SPY 는 없음 — 다른 심볼은 분할 처리 뒤 쓰기)."""
+    캐시가 있으면 그대로 (refresh=True 로 다시 받음).
+    v1.5 분할: Yahoo close·배당은 분할 반영 값 → 그대로 씀. 단, 분할 날 하루 변화가 '분할 비율로 나눈 값' 쪽에 더 가까우면(미반영) 멈춤.
+    until: 이 날짜(UTC 0시) 앞까지만 (오늘 장중 값을 빼려면 오늘 날짜). from_date: 받기 시작 날짜 (기본 YAHOO_FROM)."""
     d = Path(data_dir) if data_dir else DATA_DIR
     key = symbol.replace("^", "").lower()
     path, meta_path = d / f"yahoo_{key}_daily.csv", d / f"yahoo_{key}_daily.csv.meta.json"
@@ -439,7 +449,7 @@ def yahoo_daily(symbol, refresh=False, data_dir=None, fetch=_yahoo_fetch, until=
         log("DATA", source="cache", key=f"yahoo_{key}", path=path, bytes=len(raw_csv), fetched_at=meta.get("fetched_at", "?"))
         df = pd.read_csv(io.BytesIO(raw_csv), parse_dates=["date"]).set_index("date")
     else:
-        p1 = int(pd.Timestamp(YAHOO_FROM, tz="UTC").timestamp())
+        p1 = int(pd.Timestamp(from_date or YAHOO_FROM, tz="UTC").timestamp())
         p2 = int((pd.Timestamp(until, tz="UTC") if until else pd.Timestamp.now(tz="UTC")).timestamp())
         url = YAHOO_URL.format(sym=urllib.parse.quote(symbol), p1=p1, p2=p2)
         raw = fetch(url)
@@ -452,8 +462,20 @@ def yahoo_daily(symbol, refresh=False, data_dir=None, fetch=_yahoo_fetch, until=
         q = res["indicators"]["quote"][0]
         adj = (res["indicators"].get("adjclose") or [{}])[0].get("adjclose") or [None] * len(idx)
         df = pd.DataFrame({"close": q["close"], "adjclose": adj}, index=pd.DatetimeIndex(idx, name="date"), dtype=float)
-        if (res.get("events") or {}).get("splits"):
-            raise RuntimeError(f"[DATA] {symbol} 에 주식 분할이 있음 {res['events']['splits']} → 분할 처리 뒤 쓰기 (지금 코드는 분할을 다루지 않음)")
+        splits = []
+        for v in ((res.get("events") or {}).get("splits") or {}).values():   # v1.5: close 가 분할 반영인지 분할 날마다 검사
+            sd = pd.Timestamp(v["date"], unit="s", tz="UTC").tz_convert(tz).normalize().tz_localize(None)
+            ratio = float(v["numerator"]) / float(v["denominator"])
+            if sd in df.index and df.index.get_loc(sd) > 0:
+                k = df.index.get_loc(sd)
+                move = df["close"].iloc[k] / df["close"].iloc[k - 1]
+                if abs(np.log(move * ratio)) < abs(np.log(move)):            # 1/ratio 쪽에 더 가까움 = 분할 미반영
+                    raise RuntimeError(f"[DATA] {symbol} 분할 {sd.date()} {v['splitRatio']} 이 종가에 반영되지 않은 것 같음 (하루 변화 ×{move:.3f}) → 분할 처리 뒤 쓰기")
+                splits.append({"date": str(sd.date()), "ratio": v["splitRatio"], "day_move": round(float(move), 4)})
+            else:
+                splits.append({"date": str(sd.date()), "ratio": v["splitRatio"], "day_move": None})
+        if splits:
+            log("DATA", symbol=symbol, splits=len(splits), adjusted="yes", days=",".join(f"{x['date']}:{x['ratio']}:x{x['day_move']}" for x in splits))
         divs = (res.get("events") or {}).get("dividends") or {}
         div = pd.Series(0.0, index=df.index)
         for v in divs.values():
@@ -469,14 +491,14 @@ def yahoo_daily(symbol, refresh=False, data_dir=None, fetch=_yahoo_fetch, until=
         raw_csv = df[["close", "div", "adjclose"]].to_csv(float_format="%.6f").encode()
         path.write_bytes(raw_csv)
         meta = {"url": url, "fetched_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"), "symbol": symbol, "exchange_tz": tz,
-                "null_closes_dropped": nulls, "dividends": int(len(divs)),
+                "null_closes_dropped": nulls, "dividends": int(len(divs)), "splits": splits, "from": from_date or YAHOO_FROM, "until": str(until) if until else None,
                 "license": "Yahoo Finance 자료 — 저장소에 다시 올리지 않음 (연구용 계산만, meta 만 올림)",
                 "about": f"{symbol} 일별 종가·배당 (Yahoo chart API v8). tr = 배당 재투자 총수익 지수 (우리 계산)"}
         log("DATA", source="download", key=f"yahoo_{key}", url=url, rows=len(df), dividends=len(divs), null_closes_dropped=nulls)
     close = df["close"].astype(float)
     tr = (close + df["div"]).div(close.shift(1)).fillna(1.0).cumprod()
     df["tr"] = tr
-    rep = _validate_daily(close, f"yahoo_{key}", big_move=1.0 if key in ("vix", "irx") else 0.12)
+    rep = _validate_daily(close, f"yahoo_{key}", big_move=1.0 if key in ("vix", "irx") else (0.40 if key in ("qld", "tqqq") else 0.12))
     adj_note = "-"
     if df["adjclose"].notna().all() and df["div"].sum() > 0:                 # Yahoo adjclose 와 하루 수익률 대조 (배당 방식이 조금 다름)
         a = df["adjclose"].pct_change().dropna()

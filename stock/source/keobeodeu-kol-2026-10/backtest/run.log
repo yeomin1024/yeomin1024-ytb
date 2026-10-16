@@ -1,0 +1,46 @@
+[RUN] 2026-10-16T18:18:25 version=v1.0 income=v1.0 initial=100000.0 fee=0.0025 end=2026-10-15 note=연구·교육용 — 투자 권유 아님
+[DATA] 2026-10-16T18:18:25 source=cache key=yahoo_jepi path=/home/user/yeomin1024-ytb/stock/data/yahoo_jepi_daily.csv bytes=64384 fetched_at=2026-10-16T18:04:17Z
+[VALIDATE] 2026-10-16T18:18:25 data=yahoo_jepi rows=1609 first=2020-05-21 last=2026-10-15 duplicates=0
+[VALIDATE] 2026-10-16T18:18:25 data=yahoo_jepi vs=yahoo_adjclose max_daily_diff=0.0002217779862889735 days_over_0_01pct=4 tr_vs_adj_growth_ratio=0.9994074650084097
+[DATA] 2026-10-16T18:18:25 symbol=JEPI rows=1609 first=2020-05-21 last=2026-10-15 dividends=76 sha256=f9e5daf922cc
+[DATA] 2026-10-16T18:18:25 source=cache key=yahoo_qqq path=/home/user/yeomin1024-ytb/stock/data/yahoo_qqq_daily.csv bytes=283576 fetched_at=2026-10-16T18:04:15Z
+[VALIDATE] 2026-10-16T18:18:25 data=yahoo_qqq gaps_over_5_days=2001-09-17 moves_over_12pct=2000-01-07:+12.4%,2001-01-03:+16.8%,2008-10-13:+12.2%,2025-04-09:+12.0%
+[VALIDATE] 2026-10-16T18:18:25 data=yahoo_qqq rows=6944 first=1999-03-10 last=2026-10-15 duplicates=0
+[VALIDATE] 2026-10-16T18:18:25 data=yahoo_qqq vs=yahoo_adjclose max_daily_diff=7.066410173628412e-05 days_over_0_01pct=0 tr_vs_adj_growth_ratio=1.0000033992968433
+[DATA] 2026-10-16T18:18:25 symbol=QQQ rows=6944 first=1999-03-10 last=2026-10-15 dividends=90 sha256=813981a93199
+[DATA] 2026-10-16T18:18:25 source=cache key=yahoo_qyld path=/home/user/yeomin1024-ytb/stock/data/yahoo_qyld_daily.csv bytes=127572 fetched_at=2026-10-16T18:04:17Z
+[VALIDATE] 2026-10-16T18:18:25 data=yahoo_qyld rows=3229 first=2013-12-12 last=2026-10-15 duplicates=0
+[VALIDATE] 2026-10-16T18:18:25 data=yahoo_qyld vs=yahoo_adjclose max_daily_diff=0.00038514179886717237 days_over_0_01pct=17 tr_vs_adj_growth_ratio=0.9993534106882994
+[DATA] 2026-10-16T18:18:25 symbol=QYLD rows=3229 first=2013-12-12 last=2026-10-15 dividends=148 sha256=294cf8cbbb7e
+[DATA] 2026-10-16T18:18:25 source=cache key=yahoo_spy path=/home/user/yeomin1024-ytb/stock/data/yahoo_spy_daily.csv bytes=350200 fetched_at=2026-10-16T12:51:20Z
+[VALIDATE] 2026-10-16T18:18:25 data=yahoo_spy gaps_over_5_days=2001-09-17 moves_over_12pct=2008-10-13:+14.5%
+[VALIDATE] 2026-10-16T18:18:25 data=yahoo_spy rows=8486 first=1993-01-29 last=2026-10-15 duplicates=0
+[VALIDATE] 2026-10-16T18:18:25 data=yahoo_spy vs=yahoo_adjclose max_daily_diff=0.0002519351615632992 days_over_0_01pct=5 tr_vs_adj_growth_ratio=1.0007264390999866
+[DATA] 2026-10-16T18:18:25 symbol=SPY rows=8486 first=1993-01-29 last=2026-10-15 dividends=136 sha256=8a11f99aff73
+[DATA] 2026-10-16T18:18:25 source=cache key=yahoo_xyld path=/home/user/yeomin1024-ytb/stock/data/yahoo_xyld_daily.csv bytes=133984 fetched_at=2026-10-16T18:04:17Z
+[VALIDATE] 2026-10-16T18:18:25 data=yahoo_xyld rows=3349 first=2013-06-24 last=2026-10-15 duplicates=0
+[VALIDATE] 2026-10-16T18:18:25 data=yahoo_xyld vs=yahoo_adjclose max_daily_diff=0.0002565337280857616 days_over_0_01pct=12 tr_vs_adj_growth_ratio=0.999422444386808
+[DATA] 2026-10-16T18:18:25 symbol=XYLD rows=3349 first=2013-06-24 last=2026-10-15 dividends=159 sha256=78705ffe8355
+[PROPS] 2026-10-16T18:18:26 symbol=QYLD yearly_yield=2014:9.3%,2015:8.6%,2016:7.2%,2017:7.8%,2018:10.7%,2019:10.9%,2020:10.7%,2021:12.6%,2022:9.8%,2023:12.9%,2024:13.2%,2025:11.2%
+[PROPS] 2026-10-16T18:18:26 symbol=XYLD yearly_yield=2014:4.3%,2015:4.5%,2016:3.4%,2017:5.7%,2018:6.2%,2019:6.6%,2020:7.2%,2021:9.9%,2022:10.4%,2023:10.5%,2024:12.3%,2025:10.2%
+[PROPS] 2026-10-16T18:18:26 symbol=JEPI yearly_yield=2021:7.5%,2022:10.1%,2023:8.5%,2024:7.6%,2025:8.2%
+[PROPS] 2026-10-16T18:18:26 symbol=QQQ yearly_yield=1999:0.0%,2000:0.0%,2001:0.0%,2002:0.0%,2003:0.1%,2004:1.0%,2005:0.3%,2006:0.3%,2007:0.3%,2008:0.3%,2009:0.7%,2010:1.0%,2011:0.9%,2012:1.5%,2013:1.3%,2014:1.7%,2015:1.1%,2016:1.1%,2017:1.1%,2018:0.9%,2019:1.0%,2020:0.6%,2021:0.5%,2022:0.5%,2023:1.0%,2024:0.7%,2025:0.5%
+[PROPS] 2026-10-16T18:18:26 symbol=SPY yearly_yield=1993:2.6%,1994:2.6%,1995:2.8%,1996:2.2%,1997:1.9%,1998:1.5%,1999:1.2%,2000:1.0%,2001:1.1%,2002:1.3%,2003:1.8%,2004:2.0%,2005:1.8%,2006:1.9%,2007:1.9%,2008:1.9%,2009:2.3%,2010:2.0%,2011:2.0%,2012:2.4%,2013:2.3%,2014:2.1%,2015:2.1%,2016:2.3%,2017:2.1%,2018:1.9%,2019:2.2%,2020:1.8%,2021:1.6%,2022:1.3%,2023:1.7%,2024:1.5%,2025:1.2%
+[PROPS] 2026-10-16T18:18:26 down_ref_expected=2021-11-19 down_ref_from_data=2021-11-19 qqq_2022_low=2022-12-28
+[INCOME] 2026-10-16T18:18:26 kind=withdraw_pair start=2013-12-12 end=2026-10-15 days=3229 withdrawals=148 out_total=112979.62 a_end=74653.15 b_end=510214.85 fee=0.0025 tax=0.0
+[RESULT] 2026-10-16T18:18:26 label=QYLD vs QQQ start=2013-12-12 end=2026-10-15 years=12.84 withdrawals=148 out_total=112979.62 a_end=74653.15 b_end=510214.85 a_vs_initial=0.7465 b_vs_initial=5.1021 b_over_a=6.8345 a_min=59634.88 a_min_date=2025-04-08 b_min=97255.24 b_min_date=2014-04-11 a_below_initial_days_share=0.947 b_below_initial_days_share=0.0093 a_price_start=25.04 a_price_end=18.74 first_month_out=1023.79 last_12m_out=8497.07 b_broke=None
+[DOWN] 2026-10-16T18:18:26 ref=2021-11-19 a_ref=91822.58 a_low=61308.0 a_low_date=2022-10-14 a_drop=-0.3323 a_recovered=None a_recover_days=None a_end_vs_ref=-0.187 b_ref=316140.83 b_low=196569.66 b_low_date=2022-12-28 b_drop=-0.3782 b_recovered=2024-02-07 b_recover_days=810 b_end_vs_ref=0.6139
+[FACTS] 2026-10-16T18:18:26 first_out={'date': '2014-01-22', 'amount': 1023.79} a_max={'date': '2014-03-18', 'a': 103375.1, 'vs_initial': 0.0338} q4_2018={'from': '2018-03-15', 'to': '2018-12-24', 'a_from': 100945.08, 'a_to': 79752.19, 'b_from': 159048.63, 'b_to': 127516.5, 'a_chg': -0.2099, 'b_chg': -0.1983} covid={'b_high_date': '2020-02-19', 'b_high': 198531.74, 'a_on_b_high': 96204.57, 'low_date': '2020-03-16', 'b_low': 141105.48, 'a_on_low': 71665.43, 'a_low_q1': 71665.43, 'a_low_q1_date': '2020-03-16'} qqq_high_on_ref=True
+[INCOME] 2026-10-16T18:18:26 kind=withdraw_pair start=2013-12-12 end=2026-10-15 days=3229 withdrawals=148 out_total=96032.68 a_end=74653.15 b_end=564468.95 fee=0.0025 tax=0.15
+[RESULT] 2026-10-16T18:18:26 label=QYLD vs QQQ 원천징수 15% start=2013-12-12 end=2026-10-15 years=12.84 withdrawals=148 out_total=96032.68 a_end=74653.15 b_end=564468.95 a_vs_initial=0.7465 b_vs_initial=5.6447 b_over_a=7.5612 a_min=59634.88 a_min_date=2025-04-08 b_min=97480.77 b_min_date=2014-04-11 a_below_initial_days_share=0.947 b_below_initial_days_share=0.0065 a_price_start=25.04 a_price_end=18.74 first_month_out=870.22 last_12m_out=7222.51 b_broke=None
+[REINVEST] 2026-10-16T18:18:26 a_end=292143.81 b_end=948718.91 a_price_only_end=74653.15 b_over_a=3.2474
+[CAPTURE] 2026-10-16T18:18:26 qqq_up_days_over_1pct=595 a_on_up_mean=0.00945 b_on_up_mean=0.0184 qqq_down_days_over_1pct=498 a_on_down_mean=-0.0128 b_on_down_mean=-0.02042 up_capture=0.5134 down_capture=0.6269
+[INCOME] 2026-10-16T18:18:26 kind=withdraw_pair start=2013-06-24 end=2026-10-15 days=3349 withdrawals=159 out_total=113391.28 a_end=105396.23 b_end=332984.64 fee=0.0025 tax=0.0
+[RESULT] 2026-10-16T18:18:26 label=XYLD vs SPY start=2013-06-24 end=2026-10-15 years=13.31 withdrawals=159 out_total=113391.28 a_end=105396.23 b_end=332984.64 a_vs_initial=1.054 b_vs_initial=3.3298 b_over_a=3.1594 a_min=86776.23 a_min_date=2020-03-23 b_min=99750.0 b_min_date=2013-06-24 a_below_initial_days_share=0.106 b_below_initial_days_share=0.0003 a_price_start=39.75 a_price_end=42.0 first_month_out=97.87 last_12m_out=10848.28 b_broke=None
+[INCOME] 2026-10-16T18:18:26 kind=withdraw_pair start=2020-05-21 end=2026-10-15 days=1609 withdrawals=76 out_total=61378.16 a_end=114182.64 b_end=179014.92 fee=0.0025 tax=0.0
+[RESULT] 2026-10-16T18:18:26 label=JEPI vs SPY start=2020-05-21 end=2026-10-15 years=6.4 withdrawals=76 out_total=61378.16 a_end=114182.64 b_end=179014.92 a_vs_initial=1.1418 b_vs_initial=1.7901 b_over_a=1.5678 a_min=99290.55 a_min_date=2020-06-26 b_min=99750.0 b_min_date=2020-05-21 a_below_initial_days_share=0.0019 b_below_initial_days_share=0.0012 a_price_start=49.935 a_price_end=57.16 first_month_out=986.81 last_12m_out=9115.03 b_broke=None
+[ROLL] 2026-10-16T18:18:26 years=5 windows=94 first_start=2014-01-02 last_start=2021-10-01 a_below_initial=83 b_below_initial=0 b_gt_a=94 a_min=64096.22 a_min_start=2018-01-02 a_max=106127.76 a_max_start=2016-02-01 b_min=107585.96 b_min_start=2021-09-01 b_max=242573.95 a_median=81338.42 b_median=149147.33
+[ROLL] 2026-10-16T18:18:26 years=3 windows=118 first_start=2014-01-02 last_start=2023-10-02 a_below_initial=81 b_below_initial=19 b_gt_a=118 a_min=66864.23 a_min_start=2020-01-02 a_max=115178.94 a_max_start=2015-09-01 b_min=86514.19 b_min_start=2021-08-02 b_max=202884.69 a_median=92602.18 b_median=128633.96
+[ROLL] 2026-10-16T18:18:26 years=5 windows=100 first_start=2013-07-01 last_start=2021-10-01 a_below_initial=60 b_below_initial=0 b_gt_a=100 a_min=74159.38 a_min_start=2018-10-01 a_max=128340.92 a_max_start=2013-09-03 b_min=103260.63 b_min_start=2015-04-01 b_max=180452.25 a_median=91030.35 b_median=133100.98
+[ANIM] 2026-10-16T18:18:26 days=3229 bytes=221241
+[RUN] 2026-10-16T18:18:26 done=True sec=1.0

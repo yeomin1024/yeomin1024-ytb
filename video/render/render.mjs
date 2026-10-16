@@ -1,4 +1,6 @@
-// VERSION: v1.8 — 2026-10-16 — 세로 쇼츠: 장면 파일의 <meta name="video-size" content="1080x1920"> 로 무대 크기(창·찍는 크기·점검),
+// VERSION: v1.9 — 2026-10-16 — 낱말 검사 예외에 ETF 티커 TQQQ·QYLD·XYLD·JEPI·SCHD·QQQ·QLD·VYM·NDX (SPY 와 같은 고유 이름 — 주식 2·3·4번 계좌 이름표,
+//   사용자 지시 2026-10-16 "같은 방식으로 필요한 소스 생성해서 3개 영상 미리보기 영상 만들어봐", stock/guides/README.md 4번).
+// v1.8 — 2026-10-16 — 세로 쇼츠: 장면 파일의 <meta name="video-size" content="1080x1920"> 로 무대 크기(창·찍는 크기·점검),
 //   <meta name="video-safe" content="위 오른쪽 아래 왼쪽"> 로 점검 안전 구역(아래 = 장면 글자가 넘지 않을 y), 영상ID '<영상ID>-shorts' 는
 //   대본 폴더 <주제>/source/<영상ID>/shorts/ (tts_narration v1.9 와 같음). 추정 시각(--estimate)도 자막을 만든다(srt_tool 앞줄·뒷줄 나눔). 사용자 지시 2026-10-16 "좋아 나머지도 세 편도 대본은 같은 방식으로 만들고 일단 이 쇼츠만 영상 만들어봐".
 //   meta 가 없는 장면 파일은 예전과 같다 (1920×1080).
@@ -35,7 +37,7 @@ import { fileURLToPath } from "node:url";
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, "..", "..");
-const VERSION = "v1.8";                        // 로그 [RENDER] tool= 에 찍힘 (v1.4~v1.6 때 올리지 않았던 것을 맞춤)
+const VERSION = "v1.9";                        // 로그 [RENDER] tool= 에 찍힘 (v1.4~v1.6 때 올리지 않았던 것을 맞춤)
 const log = (stage, kv) => console.log(`[${stage}] [${new Date().toISOString().slice(0, 19)}Z] ` +
   Object.entries(kv).map(([k, v]) => `${k}=${typeof v === "string" && /\s/.test(v) ? JSON.stringify(v) : v}`).join(" "));
 
@@ -207,7 +209,7 @@ const CHECK_FN = ([W, H, SAFE]) => {           // v1.8 무대 크기 W×H · 안
     const fs = parseFloat(getComputedStyle(el).fontSize);
     const txt = n.textContent.trim().slice(0, 24);
     if (fs < 36 && !el.closest("[data-small]")) out.push({ kind: "글자 36px 미만", txt, fs });   // v1.7: data-small = 사용자가 고른 작은 글자 칸 (이유를 속성 값에)
-    if (NOWORDS && !el.closest(".code") && (/[가-힣ぁ-んァ-ン一-龥]/.test(n.textContent) || /[A-Za-z]{2,}/.test(n.textContent.replace(/S&P|NASDAQ|BUY|SELL|HOLD|RSI|VIX|SPY/g, ""))))
+    if (NOWORDS && !el.closest(".code") && (/[가-힣ぁ-んァ-ン一-龥]/.test(n.textContent) || /[A-Za-z]{2,}/.test(n.textContent.replace(/S&P|NASDAQ|BUY|SELL|HOLD|RSI|VIX|SPY|TQQQ|QYLD|XYLD|JEPI|SCHD|QQQ|QLD|VYM|NDX/g, ""))))
       out.push({ kind: "낱말(언어 없는 화면)", txt });   // K.init opts.noWords — 숫자·기호·A·B·S&P·NASDAQ 만 (stock/guides/README.md 4번)
     if (b.bottom > LOW && !el.closest("#chip")) out.push({ kind: SAFE ? `안전 구역 아래(y ${LOW} 아래)` : cc0 ? "자막 띠(y 880 아래)와 겹침" : "맨 아래 60px(y 1020 아래)", txt, bottom: Math.round(b.bottom) });
     const [T0, R0, L0] = SAFE ? [SAFE[0], SAFE[1], SAFE[3]] : [30, 40, 40];

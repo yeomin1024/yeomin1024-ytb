@@ -1,0 +1,727 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>커버드콜 원금 백테스트</title>
+<!-- VERSION: v1.0 — 2026-10-16 — 최초. 주식 2번 '커버드콜 분배금을 꺼내 써도 원금이 지켜질까' 장면 (대본 keobeodeu-kol-2026-10.txt 131문장 ·
+     숫자 = stock/source/keobeodeu-kol-2026-10/backtest/anim.js ← run.py v1.0). 사용자 지시 2026-10-16 "이제 니즈에 따라 어떻게 테스트 계획 세우고 하는지
+     알겠지? 같은 방식으로 필요한 소스 생성해서 3개 영상 미리보기 영상 만들어봐" · 2026-10-15 "날짜가 지남에 따라 백테스트 수치를 실시간 비교하는 과정을
+     애니메이션으로":
+     ① 도입·규칙 = 두 계좌(QYLD·QQQ), 같은 날 같은 금액을 꺼냄(동전) · ② 구조 = 콜옵션 그림 + 실제 하루 움직임 막대 ·
+     ③ 경주 = 날짜가 흐르며 두 계좌 선(캔버스 race2d.js v1.0) + 꺼낸 돈 누적 + 원금 상자(10만 달러 = 상자 1개) + 동전이 두 계좌에서 같이 나감 ·
+        문장이 말하는 날에 그 값 칩 · 속도 = 문장 기준점 사이 같은 속도 ([PACE] 로그) · 긴 하락 = 2021-11-19 값 흰 점선 · 회복 표시
+     ④ 결과 · 시작 시점(5년 94개·3년 118개 점) · 다른 커버드콜(XYLD·JEPI vs SPY) · 세금 15%·다시 매수 · 정리 · 한계 · 마무리.
+     화면 글자: 숫자·$·연도·기호·아이콘 + 티커(QYLD·QQQ·XYLD·JEPI·SPY)·SELL·BUY·S&P 500·NASDAQ (stock/guides/README.md 4번, render.mjs v1.9).
+     자막 없음. 모든 DOM 글자 36px 이상. 연구·교육용 영상 — 투자 권유 아님. -->
+<link rel="stylesheet" href="../../render/kit.css">
+<style>
+#stage{--OR:#FF8A3D;--BL:#5AB4FF;--RD:#FF4D5E;--MI:#2BE0A0;--GR:#93A0B8}
+#cv{position:absolute;left:0;top:0;width:1920px;height:1080px;z-index:1;pointer-events:none}
+.sc{z-index:2}
+.tab{font-variant-numeric:tabular-nums}
+.big{font-weight:900;line-height:1;white-space:nowrap;letter-spacing:-2px}
+.flexc{display:flex;align-items:center;justify-content:center;gap:24px}
+.row{display:flex;align-items:center;gap:16px}
+.tk{display:inline-block;font:900 40px/1 "Noto Sans KR";padding:10px 16px 9px;border-radius:14px;color:#140A00;white-space:nowrap;letter-spacing:.5px}
+.tk.q{background:var(--OR)}.tk.i{background:var(--BL);color:#03121F}.tk.s{background:#C9D2E2;color:#0C1424}
+.tag{display:inline-block;font:900 36px/1 "Noto Sans KR";padding:9px 14px 8px;border-radius:12px;white-space:nowrap}
+.tag.b{background:var(--MI);color:#03231A}.tag.s{background:#FF8A3D;color:#2A1100}
+.card2{position:absolute;border-radius:28px;background:linear-gradient(160deg,rgba(255,255,255,.08),rgba(255,255,255,.025));border:2px solid rgba(255,255,255,.12);box-shadow:0 30px 60px rgba(0,0,0,.45)}
+.code{position:absolute;font-family:"DejaVu Sans Mono","Consolas",monospace;font-size:38px;line-height:1.5;white-space:pre;padding:30px 40px;border-radius:24px;background:#0A1020;border:2px solid rgba(255,255,255,.14);color:#D6E0EF;box-shadow:0 30px 60px rgba(0,0,0,.5)}
+.code .k{color:#FF8AD8}.code .f{color:#7FD4FF}.code .n{color:#FFD400}.code .o{color:#2BE0A0}
+/* 경주 */
+.date{position:absolute;left:60px;top:54px;font:900 68px/1 "Noto Sans KR";letter-spacing:1px;text-shadow:0 6px 30px rgba(0,0,0,.5)}
+.outc{position:absolute;left:560px;top:30px;width:720px;display:flex;align-items:center;justify-content:center;gap:18px;padding:12px 22px;border-radius:22px;background:rgba(255,212,0,.08);border:2px solid rgba(255,212,0,.35)}
+.outc .v{font:900 64px/1 "Noto Sans KR";color:#FFE680}
+.outc .n{font:900 44px/1 "Noto Sans KR";color:#C9D2E2}
+.acc{position:absolute;left:1330px;width:556px;border-radius:26px;padding:22px 26px;background:linear-gradient(160deg,rgba(255,255,255,.09),rgba(255,255,255,.03));border:2px solid rgba(255,255,255,.13);box-shadow:0 24px 50px rgba(0,0,0,.45)}
+.acc .hd{display:flex;align-items:center;justify-content:space-between}
+.acc .v{font:900 64px/1 "Noto Sans KR";margin-top:16px;letter-spacing:-1px}
+.acc .p{font:900 44px/1 "Noto Sans KR"}
+.boxes{display:flex;gap:12px;margin-top:20px}
+.boxes i{position:relative;width:74px;height:74px;border-radius:12px;border:4px dashed #FFD400;overflow:hidden;display:block}
+.boxes i b{position:absolute;left:0;right:0;bottom:0;height:0}
+.sellf{opacity:0}
+.bub{position:absolute;left:560px;top:132px;width:720px;text-align:center;font:900 44px/1 "Noto Sans KR";color:#FFE680;text-shadow:0 4px 18px rgba(0,0,0,.8)}
+.dim{position:absolute;inset:0;background:rgba(5,8,15,.86)}
+.solid{background:linear-gradient(160deg,#1C2840,#121A2C)!important}
+.lg{display:flex;align-items:center;gap:12px;font:900 36px/1 "Noto Sans KR";color:#C9D2E2}
+.sw{display:inline-block;width:44px;height:10px;border-radius:5px}
+.hl{box-shadow:0 0 0 4px #FFD400,0 0 30px rgba(255,212,0,.45)!important}
+</style>
+</head>
+<body>
+<div id="wrap"><div id="stage"><canvas id="cv" width="1920" height="1080"></canvas></div></div>
+<div id="ctrl"></div>
+<div id="now"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script id="ep-data">/*EP-DATA:BEGIN*/window.EP={"id":"keobeodeu-kol-2026-10","topic":"stock","duration":575.13,"audio":null,"estimated":true,"est_model":{"perSyl":0.151,"comma":0.25,"base":-0.08,"min":0.8,"lead":0.3,"gap":0.45,"part":1,"tail":0.8},"synced":"2026-10-16T18:26:41Z","sent":[{"n":1,"part":"도입","text":"매달 분배금이 나오는데, 원금은 잘 안 깎인다는 커버드콜 ETF.","start":0.3,"end":4.547},{"n":2,"part":"도입","text":"은퇴 뒤 생활비로 꺼내 쓰려고 보시는 분이 많죠.","start":4.997,"end":7.786},{"n":3,"part":"도입","text":"그런데 분배금을 매달 꺼내 써도, 원금이 정말 지켜질까요?","start":8.236,"end":11.879},{"n":4,"part":"도입","text":"같은 돈을 지수 ETF에 넣고, 같은 금액을 매도해서 꺼내 쓰면 어떨까요?","start":12.329,"end":17.029},{"n":5,"part":"도입","text":"백테스트로 확인해 보겠습니다.","start":17.479,"end":19.362},{"n":6,"part":"규칙","text":"비교할 계좌는 두 개입니다.","start":20.362,"end":21.943},{"n":7,"part":"규칙","text":"하나는 나스닥100 커버드콜 ETF, QYLD예요.","start":22.393,"end":25.885},{"n":8,"part":"규칙","text":"다른 하나는 같은 나스닥100을 따라가는 QQQ입니다.","start":26.335,"end":29.577},{"n":9,"part":"규칙","text":"두 계좌 모두 2013년 12월 12일, 10만 달러로 매수해요.","start":30.027,"end":33.972},{"n":10,"part":"규칙","text":"QYLD 계좌는 분배금이 나올 때마다 전부 꺼내 씁니다.","start":34.422,"end":37.966},{"n":11,"part":"규칙","text":"QQQ 계좌는 같은 날, 같은 금액만큼 매도해서 꺼내 써요.","start":38.416,"end":42.059},{"n":12,"part":"규칙","text":"그래서 두 계좌가 꺼낸 돈은 날짜도 금액도 똑같습니다.","start":42.509,"end":45.751},{"n":13,"part":"규칙","text":"QQQ에서 나오는 작은 배당은 다시 매수하고요.","start":46.201,"end":49.141},{"n":14,"part":"규칙","text":"수수료는 사고팔 때마다 0.25%, 세금은 넣지 않았어요.","start":49.591,"end":53.687},{"n":15,"part":"규칙","text":"노란 점선이 처음 넣은 10만 달러, 원금입니다.","start":54.137,"end":57.025},{"n":16,"part":"구조","text":"먼저 커버드콜이 분배금을 어떻게 만드는지 보겠습니다.","start":58.025,"end":61.418},{"n":17,"part":"구조","text":"커버드콜 ETF는 주식을 들고, 그 주식을 정해진 값에 매수할 권리를 매도해요.","start":61.868,"end":67.021},{"n":18,"part":"구조","text":"이 권리를 콜옵션이라고 합니다.","start":67.471,"end":69.354},{"n":19,"part":"구조","text":"권리를 매도한 값이 매달 들어오고, 이게 분배금의 재료가 돼요.","start":69.804,"end":73.749},{"n":20,"part":"구조","text":"대신 주가가 정해진 값보다 오르면, 그 위의 몫은 권리를 매수한 사람이 가져갑니다.","start":74.199,"end":79.352},{"n":21,"part":"구조","text":"떨어질 때는 받은 값만큼만 덜 떨어지고, 거의 같이 떨어지고요.","start":79.802,"end":83.747},{"n":22,"part":"구조","text":"실제로 그런지, 하루 움직임으로 확인해 봤어요.","start":84.197,"end":87.236},{"n":23,"part":"구조","text":"QQQ가 하루에 1% 넘게 오른 날은 595일이었습니다.","start":87.686,"end":91.834},{"n":24,"part":"구조","text":"그날들 평균은 QQQ 1.84%, QYLD 0.95% 상승이었어요.","start":92.284,"end":97.588},{"n":25,"part":"구조","text":"QQQ가 하루에 1% 넘게 떨어진 날은 498일이었고요.","start":98.038,"end":102.186},{"n":26,"part":"구조","text":"그날들 평균은 QQQ 2.04%, QYLD 1.28% 하락이었습니다.","start":102.636,"end":108.091},{"n":27,"part":"구조","text":"오른 날은 QQQ의 51.3%만, 떨어진 날은 62.7%를 따라간 거예요.","start":108.541,"end":114.298},{"n":28,"part":"경주","text":"이제 날짜를 흘려 보겠습니다.","start":115.298,"end":117.03},{"n":29,"part":"경주","text":"주황 선이 QYLD 계좌, 파란 선이 QQQ 계좌예요.","start":117.48,"end":120.972},{"n":30,"part":"경주","text":"가운데 위 숫자는 두 계좌가 지금까지 꺼낸 돈입니다.","start":121.422,"end":124.513},{"n":31,"part":"경주","text":"첫 분배금은 2014년 1월, 1,024달러였어요.","start":124.963,"end":128.554},{"n":32,"part":"경주","text":"2014년 3월에는 QYLD 계좌가 원금보다 3.4% 많았습니다.","start":129.004,"end":133.756},{"n":33,"part":"경주","text":"2014년 한 해 꺼낸 돈은 9,461달러였어요.","start":134.206,"end":137.849},{"n":34,"part":"경주","text":"그해 말 QYLD 계좌는 9만 5,647달러, QQQ 계좌는 11만 2,842달러였고요.","start":138.299,"end":145.462},{"n":35,"part":"경주","text":"2015년 8월 급락 때, QYLD 계좌는 처음으로 9만 달러 아래로 내려갔어요.","start":145.912,"end":151.216},{"n":36,"part":"경주","text":"2016년 2월에는 8만 2,501달러까지 줄었습니다.","start":151.666,"end":155.611},{"n":37,"part":"경주","text":"QQQ 계좌도 다음 날, 9만 8,985달러로 잠깐 원금 아래였어요.","start":156.061,"end":161.011},{"n":38,"part":"경주","text":"2017년 2월 분배금은 398달러였습니다.","start":161.461,"end":164.703},{"n":39,"part":"경주","text":"그달 꺼낸 돈이 2만 5천 달러를 넘었어요.","start":165.153,"end":167.64},{"n":40,"part":"경주","text":"2017년 말 QYLD 계좌는 9만 7,722달러로 올라왔습니다.","start":168.09,"end":173.092},{"n":41,"part":"경주","text":"QQQ 계좌는 14만 6,289달러였고요.","start":173.542,"end":176.883},{"n":42,"part":"경주","text":"2018년 3월 15일, QYLD 계좌는 10만 945달러로 다시 원금 위였어요.","start":177.333,"end":182.939},{"n":43,"part":"경주","text":"그런데 12월 24일, 7만 9,752달러까지 떨어졌습니다.","start":183.389,"end":188.188},{"n":44,"part":"경주","text":"21% 줄어든 거예요.","start":188.638,"end":190.37},{"n":45,"part":"경주","text":"같은 기간 QQQ 계좌는 15만 9,049달러에서 12만 7,517달러가 됐어요.","start":190.82,"end":196.827},{"n":46,"part":"경주","text":"19.8% 줄었습니다.","start":197.277,"end":199.009},{"n":47,"part":"경주","text":"2019년 11월, 꺼낸 돈이 5만 달러를 넘었습니다.","start":199.459,"end":202.951},{"n":48,"part":"경주","text":"2020년 2월 19일, QQQ 계좌는 19만 8,532달러였어요.","start":203.401,"end":208.502},{"n":49,"part":"경주","text":"코로나 폭락이 오고, 3월 16일 QYLD 계좌는 7만 1,665달러까지 내려갔습니다.","start":208.952,"end":215.261},{"n":50,"part":"경주","text":"같은 날 QQQ 계좌는 14만 1,105달러였고요.","start":215.711,"end":218.901},{"n":51,"part":"경주","text":"2020년 6월, QQQ 계좌는 20만 달러를 넘었어요.","start":219.351,"end":222.994},{"n":52,"part":"경주","text":"QYLD 계좌는 2020년 말 9만 827달러였습니다.","start":223.444,"end":227.441},{"n":53,"part":"경주","text":"2021년 9월, QQQ 계좌는 30만 달러를 넘었어요.","start":227.891,"end":231.685},{"n":54,"part":"긴 하락","text":"2021년 11월 19일, QQQ 값이 그때까지 가장 높았던 날입니다.","start":232.685,"end":237.385},{"n":55,"part":"긴 하락","text":"이날 QYLD 계좌는 9만 1,823달러, QQQ 계좌는 31만 6,141달러였어요.","start":237.835,"end":244.696},{"n":56,"part":"긴 하락","text":"흰 점선이 이날의 두 계좌 값입니다.","start":245.146,"end":247.18},{"n":57,"part":"긴 하락","text":"2021년 12월에는 분배금이 1,988달러 나왔어요.","start":247.63,"end":251.877},{"n":58,"part":"긴 하락","text":"그해 꺼낸 돈은 1만 1,357달러였습니다.","start":252.327,"end":255.517},{"n":59,"part":"긴 하락","text":"그리고 2022년, 긴 하락이 시작됐어요.","start":255.967,"end":258.855},{"n":60,"part":"긴 하락","text":"4월에는 꺼낸 돈이 7만 5천 달러를 넘었고요.","start":259.305,"end":262.094},{"n":61,"part":"긴 하락","text":"QYLD 계좌는 10월 14일, 6만 1,308달러까지 내려갔습니다.","start":262.544,"end":267.343},{"n":62,"part":"긴 하락","text":"11월 19일보다 33.2% 줄었어요.","start":267.793,"end":270.733},{"n":63,"part":"긴 하락","text":"QQQ 계좌는 12월 28일, 19만 6,570달러까지 내려갔습니다.","start":271.183,"end":276.435},{"n":64,"part":"긴 하락","text":"37.8% 줄어서, 떨어진 폭은 QQQ 쪽이 조금 더 컸어요.","start":276.885,"end":281.132},{"n":65,"part":"긴 하락","text":"2022년에도 두 계좌는 같은 돈을 꺼냈습니다.","start":281.582,"end":284.673},{"n":66,"part":"긴 하락","text":"그해에만 8,720달러예요.","start":285.123,"end":287.407},{"n":67,"part":"긴 하락","text":"회복은 어땠을까요?","start":287.857,"end":288.985},{"n":68,"part":"긴 하락","text":"QQQ 계좌는 2024년 2월 7일, 11월 19일 값을 다시 넘었어요.","start":289.435,"end":294.135},{"n":69,"part":"긴 하락","text":"810일 걸렸습니다.","start":294.585,"end":295.864},{"n":70,"part":"끝까지","text":"2024년 12월에는 분배금이 1,350달러 나왔습니다.","start":296.864,"end":301.111},{"n":71,"part":"끝까지","text":"2025년 3월, 꺼낸 돈이 10만 달러를 넘었어요.","start":301.561,"end":304.902},{"n":72,"part":"끝까지","text":"처음 넣은 원금만큼을 꺼낸 거예요.","start":305.352,"end":307.386},{"n":73,"part":"끝까지","text":"4월 8일 급락 때, QYLD 계좌는 5만 9,635달러까지 내려갔습니다.","start":307.836,"end":313.39},{"n":74,"part":"끝까지","text":"같은 날 QQQ 계좌는 29만 8,099달러였고요.","start":313.84,"end":317.483},{"n":75,"part":"끝까지","text":"2025년 7월, QQQ 계좌는 40만 달러를 넘었어요.","start":317.933,"end":321.727},{"n":76,"part":"끝까지","text":"2026년 5월에는 50만 달러를 넘었습니다.","start":322.177,"end":325.268},{"n":77,"part":"결과","text":"2026년 10월 15일, 결과입니다.","start":326.268,"end":328.854},{"n":78,"part":"결과","text":"두 계좌가 꺼낸 돈은 똑같이 148번, 11만 2,980달러였어요.","start":329.304,"end":334.254},{"n":79,"part":"결과","text":"QYLD 계좌에 남은 돈은 7만 4,653달러입니다.","start":334.704,"end":338.8},{"n":80,"part":"결과","text":"원금 10만 달러보다 25.3% 적어요.","start":339.25,"end":342.039},{"n":81,"part":"결과","text":"2021년 11월 19일 값도, 끝까지 다시 넘지 못했고요.","start":342.489,"end":346.434},{"n":82,"part":"결과","text":"QQQ 계좌에 남은 돈은 51만 215달러였습니다.","start":346.884,"end":350.428},{"n":83,"part":"결과","text":"같은 돈을 꺼냈는데, QQQ 계좌가 6.83배 많았어요.","start":350.878,"end":354.521},{"n":84,"part":"결과","text":"QYLD 1주 값은 25.04달러에서 18.74달러가 됐습니다.","start":354.971,"end":359.572},{"n":85,"part":"결과","text":"전체 거래일의 94.7%는 QYLD 계좌가 원금 아래였어요.","start":360.022,"end":364.472},{"n":86,"part":"시작 시점","text":"시작한 날이 나빴던 건 아닐까요?","start":365.472,"end":367.355},{"n":87,"part":"시작 시점","text":"2014년 1월부터 2021년 10월까지, 매달 새로 시작한 계좌를 만들었어요.","start":367.805,"end":373.109},{"n":88,"part":"시작 시점","text":"매달 첫 거래일에 시작한 계좌, 모두 94개입니다.","start":373.559,"end":376.9},{"n":89,"part":"시작 시점","text":"각 계좌는 5년 동안 같은 규칙으로 꺼내 씁니다.","start":377.35,"end":380.139},{"n":90,"part":"시작 시점","text":"5년 뒤 QYLD 계좌가 원금 아래였던 건 94개 중 83개였어요.","start":380.589,"end":385.039},{"n":91,"part":"시작 시점","text":"QQQ 계좌는 원금 아래가 하나도 없었습니다.","start":385.489,"end":388.278},{"n":92,"part":"시작 시점","text":"94개 모두 QQQ 계좌가 더 많이 남았어요.","start":388.728,"end":391.517},{"n":93,"part":"시작 시점","text":"가운데 값은 QYLD 8만 1,338달러, QQQ 14만 9,147달러입니다.","start":391.967,"end":398.224},{"n":94,"part":"시작 시점","text":"가장 적게 남은 건 2018년 1월에 시작한 QYLD 계좌, 6만 4,096달러였어요.","start":398.674,"end":404.681},{"n":95,"part":"시작 시점","text":"기간을 3년으로 줄이면, 2022년 하락에 걸린 계좌가 많아집니다.","start":405.131,"end":409.68},{"n":96,"part":"시작 시점","text":"이때는 QQQ 계좌도 118개 중 19개가 원금 아래였어요.","start":410.13,"end":413.976},{"n":97,"part":"시작 시점","text":"QYLD 계좌는 81개가 원금 아래였고요.","start":414.426,"end":417.366},{"n":98,"part":"시작 시점","text":"그래도 118개 모두 QQQ 계좌가 더 많이 남았습니다.","start":417.816,"end":421.209},{"n":99,"part":"다른 커버드콜","text":"다른 커버드콜 ETF도 같을까요?","start":422.209,"end":424.394},{"n":100,"part":"다른 커버드콜","text":"S&P 500 커버드콜 XYLD를, SPY와 같은 방법으로 비교했어요.","start":424.844,"end":430.148},{"n":101,"part":"다른 커버드콜","text":"2013년 6월부터 13.3년 동안, 꺼낸 돈은 11만 3,391달러입니다.","start":430.598,"end":436.303},{"n":102,"part":"다른 커버드콜","text":"XYLD 계좌는 10만 5,396달러로, 원금보다 5.4% 많았어요.","start":436.753,"end":442.458},{"n":103,"part":"다른 커버드콜","text":"SPY 계좌는 33만 2,985달러였습니다.","start":442.908,"end":446.853},{"n":104,"part":"다른 커버드콜","text":"시작 달을 바꾼 5년 계좌 100개에서도, 모두 SPY 쪽이 더 많았어요.","start":447.303,"end":451.852},{"n":105,"part":"다른 커버드콜","text":"XYLD는 100개 중 60개가 원금 아래였고요.","start":452.302,"end":455.393},{"n":106,"part":"다른 커버드콜","text":"이번엔 JEPI입니다.","start":455.843,"end":457.575},{"n":107,"part":"다른 커버드콜","text":"주식에, 콜옵션을 매도한 것과 같은 효과를 내는 채권을 섞은 상품이에요.","start":458.025,"end":462.574},{"n":108,"part":"다른 커버드콜","text":"2020년 5월부터 6.4년 동안, 꺼낸 돈은 6만 1,378달러였습니다.","start":463.024,"end":468.427},{"n":109,"part":"다른 커버드콜","text":"JEPI 계좌는 11만 4,183달러로, 원금보다 14.2% 많았어요.","start":468.877,"end":474.733},{"n":110,"part":"다른 커버드콜","text":"SPY 계좌는 17만 9,015달러였고요.","start":475.183,"end":478.373},{"n":111,"part":"다른 조건","text":"세금을 넣으면 어떨까요?","start":479.373,"end":480.803},{"n":112,"part":"다른 조건","text":"미국 ETF 분배금에서 15%를 원천징수하는 나라가 많아요.","start":481.253,"end":485.552},{"n":113,"part":"다른 조건","text":"15%를 떼면, QYLD에서 손에 쥔 돈은 9만 6,033달러로 줄어듭니다.","start":486.002,"end":491.707},{"n":114,"part":"다른 조건","text":"QQQ 계좌도 그만큼만 매도하니, 56만 4,469달러가 남았어요.","start":492.157,"end":497.409},{"n":115,"part":"다른 조건","text":"QYLD 계좌는 주식 수가 같아서, 그대로 7만 4,653달러고요.","start":497.859,"end":502.96},{"n":116,"part":"다른 조건","text":"분배금을 꺼내 쓰지 않고 다시 매수했다면 어떨까요?","start":503.41,"end":506.501},{"n":117,"part":"다른 조건","text":"QYLD는 29만 2,144달러, QQQ는 94만 8,719달러였어요.","start":506.951,"end":513.208},{"n":118,"part":"다른 조건","text":"다시 매수해도, QQQ 쪽이 3.25배였습니다.","start":513.658,"end":516.848},{"n":119,"part":"정리","text":"정리하겠습니다.","start":517.848,"end":518.825},{"n":120,"part":"정리","text":"분배금을 매달 꺼내 쓴 QYLD 계좌는, 12.8년 뒤 원금이 25.3% 줄었어요.","start":519.275,"end":525.183},{"n":121,"part":"정리","text":"같은 돈을 매도해서 꺼낸 QQQ 계좌는, 원금의 5.1배가 남았습니다.","start":525.633,"end":530.182},{"n":122,"part":"정리","text":"시작 달을 바꾼 계좌에서도, 모두 QQQ 쪽이 더 많이 남았어요.","start":530.632,"end":534.577},{"n":123,"part":"정리","text":"XYLD와 JEPI는 원금이 줄지 않았지만, 같은 돈을 꺼낸 SPY 계좌보다 적었습니다.","start":535.027,"end":541.69},{"n":124,"part":"정리","text":"오를 때는 덜 오르고, 떨어질 때는 많이 따라 떨어진 차이가 쌓인 거예요.","start":542.14,"end":546.538},{"n":125,"part":"한계","text":"이 기간 나스닥100과 S&P 500은 크게 올랐습니다.","start":547.538,"end":550.78},{"n":126,"part":"한계","text":"주가가 오래 제자리였던 기간이라면, 결과가 다를 수 있어요.","start":551.23,"end":555.024},{"n":127,"part":"한계","text":"분배금은 지급일이 아니라, 배당락일에 꺼낸 것으로 계산했습니다.","start":555.474,"end":559.721},{"n":128,"part":"한계","text":"물가와 환율, 나라마다 다른 세금은 넣지 않았어요.","start":560.171,"end":563.361},{"n":129,"part":"한계","text":"투자 권유가 아니라, 규칙을 코드로 확인해 본 결과입니다.","start":563.811,"end":567.454},{"n":130,"part":"마무리","text":"다음에 백테스트로 확인해 볼 가설이 있다면 댓글로 알려 주세요.","start":568.454,"end":572.3},{"n":131,"part":"마무리","text":"시청해주셔서 감사합니다.","start":572.75,"end":574.331}],"subs":[[0.3,4.547,"매달 분배금이 나오는데, 원금은 잘 안 깎인다는 커버드콜 ETF."],[4.997,7.786,"은퇴 뒤 생활비로 꺼내 쓰려고 보시는 분이 많죠."],[8.236,11.879,"그런데 분배금을 매달 꺼내 써도, 원금이 정말 지켜질까요?"],[12.329,17.029,"같은 돈을 지수 ETF에 넣고, 같은 금액을 매도해서 꺼내 쓰면 어떨까요?"],[17.479,19.362,"백테스트로 확인해 보겠습니다."],[20.362,21.943,"비교할 계좌는 두 개입니다."],[22.393,25.885,"하나는 나스닥100 커버드콜 ETF, QYLD예요."],[26.335,29.577,"다른 하나는 같은 나스닥100을 따라가는 QQQ입니다."],[30.027,33.972,"두 계좌 모두 2013년 12월 12일, 10만 달러로 매수해요."],[34.422,37.966,"QYLD 계좌는 분배금이 나올 때마다 전부 꺼내 씁니다."],[38.416,42.059,"QQQ 계좌는 같은 날, 같은 금액만큼 매도해서 꺼내 써요."],[42.509,45.751,"그래서 두 계좌가 꺼낸 돈은 날짜도 금액도 똑같습니다."],[46.201,49.141,"QQQ에서 나오는 작은 배당은 다시 매수하고요."],[49.591,53.687,"수수료는 사고팔 때마다 0.25%, 세금은 넣지 않았어요."],[54.137,57.025,"노란 점선이 처음 넣은 10만 달러, 원금입니다."],[58.025,61.418,"먼저 커버드콜이 분배금을 어떻게 만드는지 보겠습니다."],[61.868,64.098,"커버드콜 ETF는 주식을 들고,"],[64.098,67.021,"그 주식을 정해진 값에 매수할 권리를 매도해요."],[67.471,69.354,"이 권리를 콜옵션이라고 합니다."],[69.804,73.749,"권리를 매도한 값이 매달 들어오고, 이게 분배금의 재료가 돼요."],[74.199,76.429,"대신 주가가 정해진 값보다 오르면,"],[76.429,79.352,"그 위의 몫은 권리를 매수한 사람이 가져갑니다."],[79.802,83.747,"떨어질 때는 받은 값만큼만 덜 떨어지고, 거의 같이 떨어지고요."],[84.197,87.236,"실제로 그런지, 하루 움직임으로 확인해 봤어요."],[87.686,91.834,"QQQ가 하루에 1% 넘게 오른 날은 595일이었습니다."],[92.284,97.588,"그날들 평균은 QQQ 1.84%, QYLD 0.95% 상승이었어요."],[98.038,102.186,"QQQ가 하루에 1% 넘게 떨어진 날은 498일이었고요."],[102.636,108.091,"그날들 평균은 QQQ 2.04%, QYLD 1.28% 하락이었습니다."],[108.541,114.298,"오른 날은 QQQ의 51.3%만, 떨어진 날은 62.7%를 따라간 거예요."],[115.298,117.03,"이제 날짜를 흘려 보겠습니다."],[117.48,120.972,"주황 선이 QYLD 계좌, 파란 선이 QQQ 계좌예요."],[121.422,124.513,"가운데 위 숫자는 두 계좌가 지금까지 꺼낸 돈입니다."],[124.963,128.554,"첫 분배금은 2014년 1월, 1,024달러였어요."],[129.004,133.756,"2014년 3월에는 QYLD 계좌가 원금보다 3.4% 많았습니다."],[134.206,137.849,"2014년 한 해 꺼낸 돈은 9,461달러였어요."],[138.299,142.001,"그해 말 QYLD 계좌는 9만 5,647달러,"],[142.001,145.462,"QQQ 계좌는 11만 2,842달러였고요."],[145.912,151.216,"2015년 8월 급락 때, QYLD 계좌는 처음으로 9만 달러 아래로 내려갔어요."],[151.666,155.611,"2016년 2월에는 8만 2,501달러까지 줄었습니다."],[156.061,161.011,"QQQ 계좌도 다음 날, 9만 8,985달러로 잠깐 원금 아래였어요."],[161.461,164.703,"2017년 2월 분배금은 398달러였습니다."],[165.153,167.64,"그달 꺼낸 돈이 2만 5천 달러를 넘었어요."],[168.09,173.092,"2017년 말 QYLD 계좌는 9만 7,722달러로 올라왔습니다."],[173.542,176.883,"QQQ 계좌는 14만 6,289달러였고요."],[177.333,182.939,"2018년 3월 15일, QYLD 계좌는 10만 945달러로 다시 원금 위였어요."],[183.389,188.188,"그런데 12월 24일, 7만 9,752달러까지 떨어졌습니다."],[188.638,190.37,"21% 줄어든 거예요."],[190.82,196.827,"같은 기간 QQQ 계좌는 15만 9,049달러에서 12만 7,517달러가 됐어요."],[197.277,199.009,"19.8% 줄었습니다."],[199.459,202.951,"2019년 11월, 꺼낸 돈이 5만 달러를 넘었습니다."],[203.401,208.502,"2020년 2월 19일, QQQ 계좌는 19만 8,532달러였어요."],[208.952,210.293,"코로나 폭락이 오고,"],[210.293,215.261,"3월 16일 QYLD 계좌는 7만 1,665달러까지 내려갔습니다."],[215.711,218.901,"같은 날 QQQ 계좌는 14만 1,105달러였고요."],[219.351,222.994,"2020년 6월, QQQ 계좌는 20만 달러를 넘었어요."],[223.444,227.441,"QYLD 계좌는 2020년 말 9만 827달러였습니다."],[227.891,231.685,"2021년 9월, QQQ 계좌는 30만 달러를 넘었어요."],[232.685,237.385,"2021년 11월 19일, QQQ 값이 그때까지 가장 높았던 날입니다."],[237.835,244.696,"이날 QYLD 계좌는 9만 1,823달러, QQQ 계좌는 31만 6,141달러였어요."],[245.146,247.18,"흰 점선이 이날의 두 계좌 값입니다."],[247.63,251.877,"2021년 12월에는 분배금이 1,988달러 나왔어요."],[252.327,255.517,"그해 꺼낸 돈은 1만 1,357달러였습니다."],[255.967,258.855,"그리고 2022년, 긴 하락이 시작됐어요."],[259.305,262.094,"4월에는 꺼낸 돈이 7만 5천 달러를 넘었고요."],[262.544,267.343,"QYLD 계좌는 10월 14일, 6만 1,308달러까지 내려갔습니다."],[267.793,270.733,"11월 19일보다 33.2% 줄었어요."],[271.183,276.435,"QQQ 계좌는 12월 28일, 19만 6,570달러까지 내려갔습니다."],[276.885,281.132,"37.8% 줄어서, 떨어진 폭은 QQQ 쪽이 조금 더 컸어요."],[281.582,284.673,"2022년에도 두 계좌는 같은 돈을 꺼냈습니다."],[285.123,287.407,"그해에만 8,720달러예요."],[287.857,288.985,"회복은 어땠을까요?"],[289.435,294.135,"QQQ 계좌는 2024년 2월 7일, 11월 19일 값을 다시 넘었어요."],[294.585,295.864,"810일 걸렸습니다."],[296.864,301.111,"2024년 12월에는 분배금이 1,350달러 나왔습니다."],[301.561,304.902,"2025년 3월, 꺼낸 돈이 10만 달러를 넘었어요."],[305.352,307.386,"처음 넣은 원금만큼을 꺼낸 거예요."],[307.836,313.39,"4월 8일 급락 때, QYLD 계좌는 5만 9,635달러까지 내려갔습니다."],[313.84,317.483,"같은 날 QQQ 계좌는 29만 8,099달러였고요."],[317.933,321.727,"2025년 7월, QQQ 계좌는 40만 달러를 넘었어요."],[322.177,325.268,"2026년 5월에는 50만 달러를 넘었습니다."],[326.268,328.854,"2026년 10월 15일, 결과입니다."],[329.304,334.254,"두 계좌가 꺼낸 돈은 똑같이 148번, 11만 2,980달러였어요."],[334.704,338.8,"QYLD 계좌에 남은 돈은 7만 4,653달러입니다."],[339.25,342.039,"원금 10만 달러보다 25.3% 적어요."],[342.489,346.434,"2021년 11월 19일 값도, 끝까지 다시 넘지 못했고요."],[346.884,350.428,"QQQ 계좌에 남은 돈은 51만 215달러였습니다."],[350.878,354.521,"같은 돈을 꺼냈는데, QQQ 계좌가 6.83배 많았어요."],[354.971,359.572,"QYLD 1주 값은 25.04달러에서 18.74달러가 됐습니다."],[360.022,364.472,"전체 거래일의 94.7%는 QYLD 계좌가 원금 아래였어요."],[365.472,367.355,"시작한 날이 나빴던 건 아닐까요?"],[367.805,373.109,"2014년 1월부터 2021년 10월까지, 매달 새로 시작한 계좌를 만들었어요."],[373.559,376.9,"매달 첫 거래일에 시작한 계좌, 모두 94개입니다."],[377.35,380.139,"각 계좌는 5년 동안 같은 규칙으로 꺼내 씁니다."],[380.589,385.039,"5년 뒤 QYLD 계좌가 원금 아래였던 건 94개 중 83개였어요."],[385.489,388.278,"QQQ 계좌는 원금 아래가 하나도 없었습니다."],[388.728,391.517,"94개 모두 QQQ 계좌가 더 많이 남았어요."],[391.967,398.224,"가운데 값은 QYLD 8만 1,338달러, QQQ 14만 9,147달러입니다."],[398.674,404.681,"가장 적게 남은 건 2018년 1월에 시작한 QYLD 계좌, 6만 4,096달러였어요."],[405.131,409.68,"기간을 3년으로 줄이면, 2022년 하락에 걸린 계좌가 많아집니다."],[410.13,413.976,"이때는 QQQ 계좌도 118개 중 19개가 원금 아래였어요."],[414.426,417.366,"QYLD 계좌는 81개가 원금 아래였고요."],[417.816,421.209,"그래도 118개 모두 QQQ 계좌가 더 많이 남았습니다."],[422.209,424.394,"다른 커버드콜 ETF도 같을까요?"],[424.844,430.148,"S&P 500 커버드콜 XYLD를, SPY와 같은 방법으로 비교했어요."],[430.598,436.303,"2013년 6월부터 13.3년 동안, 꺼낸 돈은 11만 3,391달러입니다."],[436.753,442.458,"XYLD 계좌는 10만 5,396달러로, 원금보다 5.4% 많았어요."],[442.908,446.853,"SPY 계좌는 33만 2,985달러였습니다."],[447.303,451.852,"시작 달을 바꾼 5년 계좌 100개에서도, 모두 SPY 쪽이 더 많았어요."],[452.302,455.393,"XYLD는 100개 중 60개가 원금 아래였고요."],[455.843,457.575,"이번엔 JEPI입니다."],[458.025,462.574,"주식에, 콜옵션을 매도한 것과 같은 효과를 내는 채권을 섞은 상품이에요."],[463.024,468.427,"2020년 5월부터 6.4년 동안, 꺼낸 돈은 6만 1,378달러였습니다."],[468.877,474.733,"JEPI 계좌는 11만 4,183달러로, 원금보다 14.2% 많았어요."],[475.183,478.373,"SPY 계좌는 17만 9,015달러였고요."],[479.373,480.803,"세금을 넣으면 어떨까요?"],[481.253,485.552,"미국 ETF 분배금에서 15%를 원천징수하는 나라가 많아요."],[486.002,491.707,"15%를 떼면, QYLD에서 손에 쥔 돈은 9만 6,033달러로 줄어듭니다."],[492.157,497.409,"QQQ 계좌도 그만큼만 매도하니, 56만 4,469달러가 남았어요."],[497.859,502.96,"QYLD 계좌는 주식 수가 같아서, 그대로 7만 4,653달러고요."],[503.41,506.501,"분배금을 꺼내 쓰지 않고 다시 매수했다면 어떨까요?"],[506.951,513.208,"QYLD는 29만 2,144달러, QQQ는 94만 8,719달러였어요."],[513.658,516.848,"다시 매수해도, QQQ 쪽이 3.25배였습니다."],[517.848,518.825,"정리하겠습니다."],[519.275,525.183,"분배금을 매달 꺼내 쓴 QYLD 계좌는, 12.8년 뒤 원금이 25.3% 줄었어요."],[525.633,530.182,"같은 돈을 매도해서 꺼낸 QQQ 계좌는, 원금의 5.1배가 남았습니다."],[530.632,534.577,"시작 달을 바꾼 계좌에서도, 모두 QQQ 쪽이 더 많이 남았어요."],[535.027,538.627,"XYLD와 JEPI는 원금이 줄지 않았지만,"],[538.627,541.69,"같은 돈을 꺼낸 SPY 계좌보다 적었습니다."],[542.14,546.538,"오를 때는 덜 오르고, 떨어질 때는 많이 따라 떨어진 차이가 쌓인 거예요."],[547.538,550.78,"이 기간 나스닥100과 S&P 500은 크게 올랐습니다."],[551.23,555.024,"주가가 오래 제자리였던 기간이라면, 결과가 다를 수 있어요."],[555.474,559.721,"분배금은 지급일이 아니라, 배당락일에 꺼낸 것으로 계산했습니다."],[560.171,563.361,"물가와 환율, 나라마다 다른 세금은 넣지 않았어요."],[563.811,567.454,"투자 권유가 아니라, 규칙을 코드로 확인해 본 결과입니다."],[568.454,572.3,"다음에 백테스트로 확인해 볼 가설이 있다면 댓글로 알려 주세요."],[572.75,574.331,"시청해주셔서 감사합니다."]],"subs_estimated":true};/*EP-DATA:END*/</script>
+<script src="../../../stock/source/keobeodeu-kol-2026-10/backtest/anim.js"></script>
+<script src="../../render/kit.js"></script>
+<script src="../../render/race2d.js"></script>
+<script>
+(function () {
+"use strict";
+K.init(window.EP, { subtitles: false, chip: false, noWords: true });
+const tl = K.tl, el = K.el, pop = K.pop;
+const CC = window.CC, N = CC.dates.length, SUM = CC.summary, F = CC.facts;
+const OR = "#FF8A3D", BL = "#5AB4FF", YE = "#FFD400", RD = "#FF4D5E", MI = "#2BE0A0", GRY = "#93A0B8";
+const INIT = 100000;
+const cv = document.getElementById("cv"), ctx = cv.getContext("2d");
+const LAYERS = [];
+const add = (a, b, f) => LAYERS.push([a, b, f]);
+K.onSeek(t => { ctx.clearRect(0, 0, 1920, 1080); for (const [a, b, f] of LAYERS) if (t >= a && t < b) f(t); });
+
+// ---------- 시각 (문장을 글자로 찾음) ----------
+const SN = a => { const h = EP.sent.filter(s => s.text.includes(a)); if (h.length !== 1) throw new Error(`문장 찾기 '${a}' → ${h.length}개`); return h[0]; };
+const S = a => SN(a).start, E = a => SN(a).end, W = (a, w) => K.W(SN(a).n, w);
+const PS = p => { const s = EP.sent.find(x => x.part === p); if (!s) throw new Error(`파트 '${p}' 없음`); return s.start; };
+const PE = p => { const ss = EP.sent.filter(x => x.part === p); return ss[ss.length - 1].end; };
+const CUTQ = [];
+const cut = (t, name) => CUTQ.push([t, name]);
+
+// ---------- 숫자 모양 ----------
+const f0 = n => Math.round(n).toLocaleString("en-US");
+const money = v => "$" + f0(v);
+const f2 = n => n.toFixed(2);
+const pc = (r, d = 1) => { const v = Math.abs(r * 100).toFixed(d); return (r < 0 && +v ? "−" : "+") + v + "%"; };
+const pcu = (r, d = 1) => Math.abs(r * 100).toFixed(d) + "%";
+const ymd = d => d.replace(/-/g, ".");
+const idx = d => { const i = CC.dates.findIndex(x => x >= d); return i < 0 ? N - 1 : i; };
+const clamp = (x, a, b) => Math.max(a, Math.min(b, x));
+const lerp = (a, b, u) => a + (b - a) * u;
+const ease = u => u < 0.5 ? 2 * u * u : 1 - Math.pow(-2 * u + 2, 2) / 2;
+
+// ---------- 아이콘 (SVG — 글자 없음) ----------
+const IC = {
+  cal: (s = 48) => `<svg viewBox="0 0 48 48" width="${s}" height="${s}"><rect x="5" y="9" width="38" height="34" rx="7" fill="#22324F" stroke="#9FB1CF" stroke-width="3.5"/><path d="M5 19h38M16 5v8M32 5v8" stroke="#9FB1CF" stroke-width="3.5" stroke-linecap="round"/></svg>`,
+  coin: (s = 48) => `<svg viewBox="0 0 48 48" width="${s}" height="${s}"><circle cx="24" cy="24" r="20" fill="#E8B800" stroke="#7A5A00" stroke-width="3"/><circle cx="24" cy="24" r="14" fill="none" stroke="#FFF3A6" stroke-width="2.5" opacity=".7"/><path d="M24 13v22M29 17.5c-1.5-1.6-3.3-2.3-5.2-2.3-3 0-5 1.6-5 3.9 0 5.4 10.6 3 10.6 8.5 0 2.4-2.2 4.1-5.4 4.1-2.3 0-4.3-.9-5.8-2.6" fill="none" stroke="#5A4200" stroke-width="3" stroke-linecap="round"/></svg>`,
+  person: (s = 140, c = "#DCE3EE") => `<svg viewBox="0 0 120 200" width="${s * 0.6}" height="${s}"><circle cx="60" cy="42" r="34" fill="${c}"/><path d="M6 198 C6 124 24 90 60 90 C96 90 114 124 114 198 Z" fill="${c}"/></svg>`,
+  old: (s = 200) => `<svg viewBox="0 0 140 200" width="${s * 0.7}" height="${s}"><circle cx="62" cy="40" r="32" fill="#DCE3EE"/><path d="M40 26 Q62 4 84 26" fill="none" stroke="#AEB9CC" stroke-width="10" stroke-linecap="round"/><path d="M8 198 C8 124 26 88 62 88 C98 88 116 124 116 198 Z" fill="#DCE3EE"/><path d="M118 110 L132 196" stroke="#C9A36A" stroke-width="9" stroke-linecap="round"/><path d="M118 110 q-12 -8 -20 2" fill="none" stroke="#C9A36A" stroke-width="9" stroke-linecap="round"/></svg>`,
+  box: (s = 200, c = OR) => `<svg viewBox="0 0 120 120" width="${s}" height="${s}"><rect x="10" y="22" width="100" height="88" rx="16" fill="#1E2C48" stroke="${c}" stroke-width="5"/><path d="M24 88 L44 66 L60 76 L78 50 L96 58" fill="none" stroke="${c}" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  ticket: (s = 200) => `<svg viewBox="0 0 160 100" width="${s}" height="${s * 0.625}"><path d="M10 14 h140 v22 a14 14 0 0 0 0 28 v22 h-140 v-22 a14 14 0 0 0 0 -28 z" fill="#2A3B5E" stroke="#FFD400" stroke-width="4"/><path d="M40 62 L62 44 L78 54 L104 30" fill="none" stroke="#7FD4FF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M30 40 H130" stroke="#FFD400" stroke-width="4" stroke-dasharray="10 7"/></svg>`,
+  receipt: `<path d="M14 6h20v36l-4-3-3 3-3-3-3 3-3-3-4 3z" fill="none" stroke="#FFD400" stroke-width="2.6" stroke-linejoin="round"/><path d="M19 15h10M19 21h10M19 27h6" stroke="#FFD400" stroke-width="2.4" stroke-linecap="round"/>`,
+  ban: (s = 110, inner = "") => `<svg viewBox="0 0 48 48" width="${s}" height="${s}">${inner}<circle cx="24" cy="24" r="19" fill="none" stroke="#FF4D5E" stroke-width="4"/><path d="M11 37 L37 11" stroke="#FF4D5E" stroke-width="4" stroke-linecap="round"/></svg>`,
+  up: (s = 44, c = MI) => `<svg viewBox="0 0 48 48" width="${s}" height="${s}"><path d="M6 36 L18 22 L27 30 L42 12" fill="none" stroke="${c}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M33 12h9v9" fill="none" stroke="${c}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  dn: (s = 44, c = RD) => `<svg viewBox="0 0 48 48" width="${s}" height="${s}"><path d="M6 12 L18 26 L27 18 L42 36" fill="none" stroke="${c}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M33 36h9v-9" fill="none" stroke="${c}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  flat: (s = 44, c = "#C9D2E2") => `<svg viewBox="0 0 48 48" width="${s}" height="${s}"><path d="M4 26 L12 20 L20 28 L28 20 L36 27 L44 22" fill="none" stroke="${c}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  loop: (s = 60, c = MI) => `<svg viewBox="0 0 48 48" width="${s}" height="${s}"><path d="M38 20a15 15 0 1 0 1 10" fill="none" stroke="${c}" stroke-width="5" stroke-linecap="round"/><path d="M40 8v13H27" fill="none" stroke="${c}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  chat: (s = 120) => `<svg viewBox="0 0 48 48" width="${s}" height="${s}"><path d="M6 10a6 6 0 0 1 6-6h24a6 6 0 0 1 6 6v16a6 6 0 0 1-6 6H20l-9 9v-9h1a6 6 0 0 1-6-6z" fill="#22324F" stroke="#9FB1CF" stroke-width="3"/><circle cx="16" cy="18" r="3" fill="#FFD400"/><circle cx="24" cy="18" r="3" fill="#FFD400"/><circle cx="32" cy="18" r="3" fill="#FFD400"/></svg>`,
+  fx: `<circle cx="17" cy="20" r="9" fill="none" stroke="#FFD400" stroke-width="2.6"/><circle cx="31" cy="28" r="9" fill="none" stroke="#FFD400" stroke-width="2.6"/>`,
+  cpi: `<path d="M10 34 L20 24 L28 30 L38 14" fill="none" stroke="#FFD400" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M31 14h7v7" fill="none" stroke="#FFD400" stroke-width="3" stroke-linecap="round"/>`,
+};
+const TK = (s, cls, size) => `<span class="tk ${cls}"${size ? ` style="font-size:${size}px"` : ""}>${s}</span>`;
+const QY = (sz) => TK("QYLD", "q", sz), QQ = (sz) => TK("QQQ", "i", sz);
+
+// ---------- 동전이 흐르는 그림 (반복) ----------
+function coinFlow(parent, x0, y0, x1, y1, at, until, n, size) {
+  const cs = [];
+  for (let i = 0; i < n; i++) cs.push(el(`<div class="a" style="left:${x0}px;top:${y0}px">${IC.coin(size || 60)}</div>`, parent));
+  const per = 0.9, gap = 0.45, reps = Math.max(0, Math.floor((until - at - per) / (gap * n)));
+  cs.forEach((c, i) => tl.fromTo(c, { x: 0, y: 0, opacity: 0 }, { x: x1 - x0, y: y1 - y0, opacity: 1, duration: per, ease: "power1.in", repeat: reps, repeatDelay: gap * n - per }, at + i * gap));
+  return cs;
+}
+
+// =====================================================================================================================
+// 도입 (s1~s5)
+// =====================================================================================================================
+{
+  const a = PS("도입"), s2 = S("은퇴 뒤 생활비로"), s3 = S("원금이 정말 지켜질까요"), s4 = S("같은 금액을 매도해서 꺼내 쓰면"), s5 = S("백테스트로 확인해 보겠습니다"), b = PE("도입");
+  // s1: QYLD 상자 → 달마다 동전 · 원금 상자 (노란 점선)
+  const sc = K.scene(a, s3 - 0.1);
+  const bx = el(`<div class="a" style="left:300px;top:250px;display:grid;justify-items:center;gap:18px">${IC.box(300)}${QY(56)}</div>`, sc);
+  pop(bx, a + 0.1);
+  const pr = el(`<div class="a" style="left:330px;top:720px;width:240px;height:150px;border:6px dashed #FFD400;border-radius:18px;background:rgba(34,199,176,.35)"></div>`, sc);
+  pop(pr, a + 0.5);
+  const cal = el(`<div class="a row" style="left:1000px;top:200px;gap:20px">${IC.cal(110)}<span class="big tab" style="font-size:90px;color:#FFE680">× 12</span></div>`, sc);
+  pop(cal, a + 0.6);
+  coinFlow(sc, 560, 420, 1300, 560, a + 0.7, s3 - 0.2, 3, 70);
+  const hand = el(`<div class="a" style="left:1300px;top:470px">${IC.coin(150)}</div>`, sc);
+  pop(hand, a + 1.0);
+  // s2: 은퇴한 사람 + 생활비
+  const pp = el(`<div class="a" style="left:1560px;top:380px">${IC.old(330)}</div>`, sc);
+  pop(pp, s2 + 0.05);
+  cut(s2 + 1.2, "도입 — QYLD 상자 · 동전 · 원금 상자 · 은퇴");
+  // s3: 원금 상자에 ?
+  const sc3 = K.scene(s3 - 0.15, s4 - 0.1);
+  const pr3 = el(`<div class="a" style="left:610px;top:300px;width:420px;height:420px;border:8px dashed #FFD400;border-radius:30px;background:rgba(34,199,176,.30)"></div>`, sc3);
+  pop(pr3, s3);
+  const lab3 = el(`<div class="a big tab" style="left:610px;top:200px;width:420px;text-align:center;font-size:72px;color:#FFD400">$100,000</div>`, sc3);
+  pop(lab3, s3 + 0.1);
+  const q3 = el(`<div class="a big" style="left:1150px;top:300px;font-size:320px;color:#FFD400;text-shadow:0 20px 60px rgba(0,0,0,.6)">?</div>`, sc3);
+  pop(q3, W("원금이 정말 지켜질까요", "원금"), { from: { scale: 0.5, y: 0 } });
+  coinFlow(sc3, 760, 260, 760, -80, s3 + 0.2, s4 - 0.2, 2, 70);
+  tl.to(pr3, { height: 330, y: 90, duration: 1.4, ease: "power2.inOut" }, W("원금이 정말 지켜질까요", "지켜질까요"));
+  cut(s4 - 0.4, "도입 — 원금 상자 ?");
+  // s4: 두 계좌 — 같은 금액 꺼냄
+  const sc4 = K.scene(s4 - 0.15, s5 - 0.1);
+  const L = el(`<div class="a" style="left:330px;top:170px;display:grid;justify-items:center;gap:16px">${IC.box(240)}${QY(56)}</div>`, sc4);
+  const Rr = el(`<div class="a" style="left:1350px;top:170px;display:grid;justify-items:center;gap:16px">${IC.box(240, BL)}${QQ(56)}</div>`, sc4);
+  pop(L, s4); pop(Rr, s4 + 0.25);
+  const sell = el(`<div class="a" style="left:1395px;top:560px"><span class="tag s" style="font-size:52px">SELL</span></div>`, sc4);
+  pop(sell, W("같은 금액을 매도해서 꺼내 쓰면", "매도"));
+  const cL = el(`<div class="a" style="left:380px;top:690px">${IC.coin(130)}</div>`, sc4), cR = el(`<div class="a" style="left:1400px;top:690px">${IC.coin(130)}</div>`, sc4);
+  pop(cL, W("같은 금액을 매도해서 꺼내 쓰면", "같은"), { from: { y: -200, scale: 1 } }); pop(cR, W("같은 금액을 매도해서 꺼내 쓰면", "매도") + 0.3, { from: { y: -200, scale: 1 } });
+  const eq = el(`<div class="a big" style="left:880px;top:690px;font-size:140px;color:#FFD400">=</div>`, sc4);
+  pop(eq, W("같은 금액을 매도해서 꺼내 쓰면", "꺼내"));
+  cut(s5 - 0.4, "도입 — QYLD vs QQQ · 같은 금액");
+  // s5: 백테스트 (코드)
+  const sc5 = K.scene(s5 - 0.15, b + 0.6);
+  const code = el(`<div class="code" style="left:360px;top:250px"><span class="k">for</span> day <span class="k">in</span> days:\n  cash <span class="o">=</span> qyld.<span class="f">dividend</span>(day)\n  qqq.<span class="f">sell</span>(cash)        <span class="n"># same $</span>\n  <span class="f">compare</span>(qyld, qqq)</div>`, sc5);
+  pop(code, s5);
+  cut(b - 0.2, "도입 — 코드");
+}
+
+// =====================================================================================================================
+// 규칙 (s6~s15)
+// =====================================================================================================================
+{
+  const a = PS("규칙"), b = PE("규칙");
+  const sc = K.scene(a - 0.1, b + 0.6);
+  const cardL = el(`<div class="card2" style="left:170px;top:150px;width:700px;height:470px"></div>`, sc);
+  const cardR = el(`<div class="card2" style="left:1050px;top:150px;width:700px;height:470px"></div>`, sc);
+  pop(cardL, a + 0.05); pop(cardR, a + 0.3);
+  const hL = el(`<div class="a row" style="left:210px;top:190px;gap:20px">${QY(60)}${IC.box(90)}</div>`, sc);
+  const hR = el(`<div class="a row" style="left:1090px;top:190px;gap:20px">${QQ(60)}${IC.box(90, BL)}</div>`, sc);
+  pop(hL, S("하나는 나스닥100 커버드콜")); pop(hR, S("다른 하나는 같은 나스닥100"));
+  const nL = el(`<div class="a row" style="left:210px;top:320px;gap:14px;font:900 46px/1 'Noto Sans KR';color:#C9D2E2"><span>NASDAQ 100</span>${IC.ticket(110)}</div>`, sc);
+  const nR = el(`<div class="a row" style="left:1090px;top:320px;gap:14px;font:900 46px/1 'Noto Sans KR';color:#C9D2E2"><span>NASDAQ 100</span></div>`, sc);
+  pop(nL, W("하나는 나스닥100 커버드콜", "커버드콜")); pop(nR, W("다른 하나는 같은 나스닥100", "나스닥100"));
+  const s9 = S("10만 달러로 매수해요");
+  const dt = el(`<div class="a big tab" style="left:0;width:1920px;top:56px;text-align:center;font-size:64px">${ymd(SUM.start)}</div>`, sc);
+  pop(dt, s9);
+  const vL = el(`<div class="a row" style="left:210px;top:440px;gap:18px"><span class="tag b" style="font-size:48px">BUY</span><span class="big tab" style="font-size:80px">${money(INIT)}</span></div>`, sc);
+  const vR = el(`<div class="a row" style="left:1090px;top:440px;gap:18px"><span class="tag b" style="font-size:48px">BUY</span><span class="big tab" style="font-size:80px">${money(INIT)}</span></div>`, sc);
+  pop(vL, W("10만 달러로 매수해요", "10만")); pop(vR, W("10만 달러로 매수해요", "10만") + 0.2);
+  // s10: QYLD 분배금 → 동전 꺼냄 · s11: QQQ SELL → 동전
+  const s10 = S("분배금이 나올 때마다 전부"), s11 = S("같은 날, 같은 금액만큼 매도해서"), s12 = S("날짜도 금액도 똑같습니다");
+  const cL = el(`<div class="a" style="left:455px;top:650px">${IC.coin(120)}</div>`, sc);
+  pop(cL, s10 + 0.2, { from: { y: -260, scale: 1 } });
+  const arL = el(`<div class="a big" style="left:600px;top:670px;font-size:80px;color:#93A0B8">↓</div>`, sc);
+  pop(arL, s10 + 0.1);
+  const sR = el(`<div class="a" style="left:1150px;top:670px"><span class="tag s" style="font-size:52px">SELL</span></div>`, sc);
+  pop(sR, W("같은 날, 같은 금액만큼 매도해서", "매도"));
+  const cR = el(`<div class="a" style="left:1340px;top:650px">${IC.coin(120)}</div>`, sc);
+  pop(cR, W("같은 날, 같은 금액만큼 매도해서", "매도") + 0.25, { from: { y: -260, scale: 1 } });
+  const eq = el(`<div class="a row" style="left:770px;top:660px;gap:20px">${IC.cal(90)}<span class="big" style="font-size:110px;color:#FFD400">=</span>${IC.coin(90)}</div>`, sc);
+  pop(eq, s12);
+  // s13: QQQ 작은 배당 → 다시 BUY
+  const s13 = S("작은 배당은 다시 매수하고요");
+  const re = el(`<div class="a row" style="left:1480px;top:330px;gap:10px">${IC.coin(64)}${IC.loop(60)}<span class="tag b" style="font-size:40px">BUY</span></div>`, sc);
+  pop(re, s13 + 0.1);
+  // s14: 수수료 · 세금 없음
+  const s14 = S("수수료는 사고팔 때마다");
+  const fee = el(`<div class="a row" style="left:300px;top:830px;gap:22px"><span class="tag b" style="font-size:44px">BUY</span><span class="tag s" style="font-size:44px">SELL</span><span class="big tab" style="font-size:70px;color:#FF6B78">−0.25%</span></div>`, sc);
+  pop(fee, s14);
+  const tax = el(`<div class="a" style="left:1200px;top:800px">${IC.ban(130, IC.receipt)}</div>`, sc);
+  pop(tax, W("수수료는 사고팔 때마다", "세금"));
+  // s15: 노란 점선 = 원금
+  const s15 = S("노란 점선이 처음 넣은");
+  const line = el(`<div class="a" style="left:120px;top:970px;width:1680px;border-top:7px dashed #FFD400"></div>`, sc);
+  const ll = el(`<div class="a big tab" style="left:1480px;top:890px;font-size:56px;color:#FFD400">${money(INIT)}</div>`, sc);
+  tl.fromTo(line, { scaleX: 0, transformOrigin: "0 50%" }, { scaleX: 1, duration: 0.8, ease: "power2.out" }, s15);
+  pop(ll, s15 + 0.3);
+  K.dim([fee, tax], s15 - 0.1);
+  cut(S("다른 하나는 같은 나스닥100") + 1.2, "규칙 — QYLD · QQQ");
+  cut(s12 + 1.0, "규칙 — 같은 날 같은 금액");
+  cut(b - 0.2, "규칙 — 수수료 · 세금 없음 · 원금 점선");
+}
+
+// =====================================================================================================================
+// 구조 (s16~s27): 콜옵션 그림 + 실제 하루 움직임
+// =====================================================================================================================
+{
+  const a = PS("구조"), s22 = S("하루 움직임으로 확인해"), b = PE("구조");
+  const sc = K.scene(a - 0.1, s22 - 0.1);
+  // 그림: 주가(파랑) · 정해진 값(노란 점선) · 커버드콜(주황) — 숫자 없는 개념 그림
+  const PX = [[0, 520], [80, 500], [160, 470], [240, 420], [320, 360], [400, 300], [480, 250], [560, 230], [640, 300], [720, 380], [800, 470], [880, 560], [960, 610]];
+  const strike = 380, prem = 22;
+  const toPath = pts => pts.map((p, i) => (i ? "L" : "M") + (p[0] + 120) + " " + (p[1] + 130)).join(" ");
+  const cc = PX.map(([x, y]) => [x, (y < strike ? strike : y) - prem]);       // 위는 정해진 값에서 멈춤, 아래는 받은 값만큼 덜
+  const svg = el(`<svg class="a" style="left:0;top:0" width="1300" height="900" viewBox="0 0 1300 900">
+    <path id="up" d="M${120} ${130 + strike} L${1080} ${130 + strike}" stroke="#FFD400" stroke-width="6" stroke-dasharray="20 12"/>
+    <path class="sk" d="${toPath(PX)}" fill="none" stroke="${BL}" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <path class="cut" d="${toPath(PX.slice(3, 10).map(([x, y]) => [x, Math.min(y, strike)]))} L${120 + 720} ${130 + strike} L${120 + 240} ${130 + strike} Z" fill="rgba(90,180,255,.30)"/>
+    <path class="cc" d="${toPath(cc)}" fill="none" stroke="${OR}" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>`, sc);
+  const sk = svg.querySelector(".sk"), ccp = svg.querySelector(".cc"), cutp = svg.querySelector(".cut"), upl = svg.querySelector("#up");
+  const len = p => p.getTotalLength();
+  tl.set([sk, ccp], { strokeDasharray: i => len([sk, ccp][i]), strokeDashoffset: i => len([sk, ccp][i]) }, 0);
+  tl.set([cutp, upl, sk, ccp], { opacity: 0 }, 0);
+  // s17: ETF 상자가 주식을 들고 · 권리를 매도
+  const s17 = S("그 주식을 정해진 값에 매수할 권리를"), s18 = S("이 권리를 콜옵션이라고"), s19 = S("권리를 매도한 값이 매달"), s20 = S("그 위의 몫은 권리를 매수한 사람이"), s21 = S("떨어질 때는 받은 값만큼만");
+  const bx = el(`<div class="a" style="left:1330px;top:150px;display:grid;justify-items:center;gap:12px">${IC.box(200)}${QY(48)}</div>`, sc);
+  pop(bx, a + 0.2);
+  const shares = el(`<div class="a row" style="left:1580px;top:200px;gap:8px">${[0, 1, 2].map(() => `<div style="width:64px;height:84px;border-radius:12px;background:${BL};opacity:.85"></div>`).join("")}</div>`, sc);
+  pop(shares, s17);
+  tl.to(upl, { opacity: 1, duration: 0.4 }, W("그 주식을 정해진 값에 매수할 권리를", "정해진"));
+  const tik = el(`<div class="a" style="left:1400px;top:470px">${IC.ticket(300)}</div>`, sc);
+  pop(tik, W("그 주식을 정해진 값에 매수할 권리를", "매도해요"));
+  const sellT = el(`<div class="a" style="left:1720px;top:500px"><span class="tag s" style="font-size:44px">SELL</span></div>`, sc);
+  pop(sellT, W("그 주식을 정해진 값에 매수할 권리를", "매도해요") + 0.2);
+  tl.to(tik, { scale: 1.12, duration: 0.3, yoyo: true, repeat: 1 }, s18 + 0.2);
+  // s19: 권리 값 → 동전 → 분배금
+  coinFlow(sc, 1500, 640, 1500, 780, s19 + 0.2, s20 - 0.1, 2, 70);
+  const cal = el(`<div class="a row" style="left:1600px;top:790px;gap:16px">${IC.cal(80)}<span class="big" style="font-size:64px;color:#FFE680">× 12</span></div>`, sc);
+  pop(cal, W("권리를 매도한 값이 매달", "매달"));
+  // s20: 주가가 오름 → 위 몫은 권리를 산 사람에게
+  tl.set([sk, ccp], { opacity: 1 }, s20);
+  tl.to(sk, { strokeDashoffset: () => len(sk) * (1 - 7 / 12), duration: 2.2, ease: "none" }, s20);
+  tl.to(ccp, { strokeDashoffset: () => len(ccp) * (1 - 7 / 12), duration: 2.2, ease: "none" }, s20 + 0.1);
+  tl.to(cutp, { opacity: 1, duration: 0.5 }, W("그 위의 몫은 권리를 매수한 사람이", "몫은"));
+  const buyer = el(`<div class="a row" style="left:920px;top:150px;gap:10px">${IC.person(150, "#7FD4FF")}<span class="big" style="font-size:80px;color:#7FD4FF">←</span></div>`, sc);
+  pop(buyer, W("그 위의 몫은 권리를 매수한 사람이", "매수한"));
+  // s21: 떨어질 때 — 거의 같이
+  tl.to(sk, { strokeDashoffset: 0, duration: 2.0, ease: "none" }, s21);
+  tl.to(ccp, { strokeDashoffset: 0, duration: 2.0, ease: "none" }, s21 + 0.1);
+  const eqd = el(`<div class="a big" style="left:1110px;top:640px;font-size:100px;color:#FF6B78">≈</div>`, sc);
+  pop(eqd, W("떨어질 때는 받은 값만큼만", "거의"));
+  const lg = el(`<div class="a row" style="left:140px;top:930px;gap:40px"><span class="lg"><i class="sw" style="background:${BL}"></i>${QQ(40)}</span><span class="lg"><i class="sw" style="background:${OR}"></i>${QY(40)}</span><span class="lg"><i class="sw" style="background:none;border-top:5px dashed #FFD400;height:0"></i></span></div>`, sc);
+  pop(lg, s17 + 0.3);
+  cut(s19 + 1.2, "구조 — 권리 매도 · 동전");
+  cut(E("그 위의 몫은 권리를 매수한 사람이") - 0.2, "구조 — 오를 때 위 몫은 넘김");
+  cut(E("떨어질 때는 받은 값만큼만") - 0.2, "구조 — 떨어질 때 거의 같이");
+  // s22~s27: 실제 하루 움직임 막대
+  const cap = CC.capture;
+  const sc2 = K.scene(s22 - 0.15, b + 0.6);
+  const s23 = S("하루에 1% 넘게 오른 날은"), s24 = S("상승이었어요"), s25 = S("하루에 1% 넘게 떨어진 날은"), s26 = S("하락이었습니다"), s27 = S("오른 날은 QQQ의");
+  const H = 300, sc0 = 0.025;                                  // 막대 2.5% = 300px
+  const base = 560;
+  const grp = (x, sign, n, at) => {
+    const g = el(`<div class="a row" style="left:${x}px;top:150px;gap:16px">${sign > 0 ? IC.up(80) : IC.dn(80)}<span class="big tab" style="font-size:64px">${QQ(48)} ${sign > 0 ? "> +1%" : "< −1%"}</span></div>`, sc2);
+    pop(g, at);
+    const c = el(`<div class="a row" style="left:${x}px;top:260px;gap:14px">${IC.cal(64)}<span class="big tab" style="font-size:60px">${f0(n)}</span></div>`, sc2);
+    pop(c, at + 0.3);
+    return g;
+  };
+  grp(150, 1, cap.qqq_up_days_over_1pct, s23);
+  grp(1010, -1, cap.qqq_down_days_over_1pct, s25);
+  const bar = (x, v, col, at, lab) => {
+    const h = Math.abs(v) / sc0 * H, top = v > 0 ? base + 300 - h : base + 300 - h;
+    const bb = el(`<div class="vbar" style="left:${x}px;top:${top}px;width:150px;height:${h}px;background:${col}"></div>`, sc2);
+    K.grow(bb, at, 0.9, "y");
+    const t = el(`<div class="a big tab c" style="left:${x - 40}px;width:230px;top:${top - 70}px;font-size:56px;color:${v > 0 ? MI : "#FF6B78"}">${pc(v, 2)}</div>`, sc2);
+    pop(t, at + 0.4);
+    const l = el(`<div class="a c" style="left:${x - 40}px;width:230px;top:${base + 320}px">${lab}</div>`, sc2);
+    pop(l, at + 0.1);
+  };
+  bar(230, cap.b_on_up_mean, BL, W("상승이었어요", "QQQ"), QQ(44));
+  bar(470, cap.a_on_up_mean, OR, W("상승이었어요", "QYLD"), QY(44));
+  bar(1090, cap.b_on_down_mean, BL, W("하락이었습니다", "QQQ"), QQ(44));
+  bar(1330, cap.a_on_down_mean, OR, W("하락이었습니다", "QYLD"), QY(44));
+  const r1 = el(`<div class="a row" style="left:680px;top:600px;gap:10px">${IC.up(70)}<span class="big tab" style="font-size:84px;color:#FFD400">${pcu(cap.up_capture)}</span></div>`, sc2);
+  const r2 = el(`<div class="a row" style="left:1540px;top:600px;gap:10px">${IC.dn(70)}<span class="big tab" style="font-size:84px;color:#FFD400">${pcu(cap.down_capture)}</span></div>`, sc2);
+  pop(r1, W("오른 날은 QQQ의", "51.3%")); pop(r2, W("오른 날은 QQQ의", "62.7%"));
+  cut(E("상승이었어요") - 0.2, "구조 — 오른 날 막대");
+  cut(b - 0.2, "구조 — 떨어진 날 막대 · 51.3% · 62.7%");
+}
+// =====================================================================================================================
+// 경주 (s28~s76) · 긴 하락 · 결과 (s77~s85): 두 계좌 선 + 꺼낸 돈 + 원금 상자 (10만 달러 = 상자 1개)
+// =====================================================================================================================
+{
+  const a = PS("경주"), bEnd = PE("결과"), tRes = S("2026년 10월 15일, 결과입니다");
+  const yearsT = []; let py = CC.dates[0].slice(0, 4);
+  CC.dates.forEach((d, i) => { if (d.slice(0, 4) !== py) { py = d.slice(0, 4); yearsT.push([i, py]); } });
+  const ch = new R2.Chart({ x: 200, y: 210, w: 1070, h: 640, n: N, years: yearsT, yearGap: 130, maxMin: 115000,
+    series: [{ vals: CC.b, color: BL, width: 6 }, { vals: CC.a, color: OR, width: 7 }], baselines: [{ v: INIT, color: YE, dash: [18, 12], width: 4 }] });
+  // ---- 속도: 문장이 말하는 날 = 그 숫자를 말하는 순간 (기준점 사이 같은 속도)
+  const RA = [
+    ["첫 분배금은", "1,024", "2014-01-22"], ["원금보다 3.4% 많았습니다", "3.4%", "2014-03-18"], ["2014년 한 해 꺼낸 돈", "9,461", "2014-12-31"],
+    ["그해 말 QYLD 계좌는 9만", "9만", "2014-12-31"], ["처음으로 9만 달러 아래로", "9만", "2015-08-21"], ["2016년 2월에는", "8만", "2016-02-08"],
+    ["QQQ 계좌도 다음 날", "9만", "2016-02-09"], ["2017년 2월 분배금은", "398", "2017-02-22"], ["그달 꺼낸 돈이", "2만", "2017-02-22"],
+    ["2017년 말 QYLD 계좌는", "9만", "2017-12-29"], ["QQQ 계좌는 14만 6", "14만", "2017-12-29"], ["다시 원금 위였어요", "10만", "2018-03-15"],
+    ["12월 24일, 7만", "7만", "2018-12-24"], ["19.8% 줄었습니다", "19.8%", "2018-12-24"], ["꺼낸 돈이 5만 달러를 넘었습니다", "5만", "2019-11-20"],
+    ["2020년 2월 19일", "19만", "2020-02-19"], ["코로나 폭락이 오고", "7만", "2020-03-16"], ["같은 날 QQQ 계좌는 14만", "14만", "2020-03-16"],
+    ["QQQ 계좌는 20만 달러를", "20만", "2020-06-09"], ["QYLD 계좌는 2020년 말", "9만", "2020-12-31"], ["QQQ 계좌는 30만 달러를", "30만", "2021-09-07"],
+    ["그때까지 가장 높았던 날", "가장", "2021-11-19"], ["흰 점선이 이날의", "두", "2021-11-19"], ["2021년 12월에는 분배금이", "1,988", "2021-12-30"],
+    ["그해 꺼낸 돈은 1만", "1만", "2021-12-31"], ["4월에는 꺼낸 돈이", "7만", "2022-04-18"], ["QYLD 계좌는 10월 14일", "6만", "2022-10-14"],
+    ["11월 19일보다", "33.2%", "2022-10-14"], ["QQQ 계좌는 12월 28일", "19만", "2022-12-28"], ["그해에만", "8,720", "2022-12-30"],
+    ["11월 19일 값을 다시 넘었어요", "2024년", "2024-02-07"], ["810일 걸렸습니다", "810", "2024-02-07"], ["2024년 12월에는 분배금이", "1,350", "2024-12-30"],
+    ["꺼낸 돈이 10만 달러를 넘었어요", "10만", "2025-03-24"], ["처음 넣은 원금만큼을", "원금", "2025-03-24"], ["4월 8일 급락 때", "5만", "2025-04-08"],
+    ["같은 날 QQQ 계좌는 29만", "29만", "2025-04-08"], ["QQQ 계좌는 40만 달러를", "40만", "2025-07-17"], ["2026년 5월에는 50만", "50만", "2026-05-08"],
+  ];
+  const anc = [[a, 0]];
+  RA.forEach(([s, w, d], k) => {
+    const t = W(s, w), di = idx(d);
+    if (CC.dates[di] !== d) throw new Error(`거래일 아님 ${d}`);
+    anc.push([t, di]);
+    const nt = k + 1 < RA.length ? W(RA[k + 1][0], RA[k + 1][1]) : tRes, nd = k + 1 < RA.length ? idx(RA[k + 1][2]) : N - 1;
+    if (nt - t > 2.0 && nd > di + 0.4) anc.push([t + 1.1, di + 0.4]);  // 말한 값을 1.1초 붙잡음 (다음 기준점이 같은 날이면 그대로 멈춤)
+  });
+  anc.push([W("2026년 10월 15일, 결과입니다", "결과"), N - 1]);
+  const pace = R2.warp(anc, "경주 QYLD vs QQQ", 120);
+  // ---- DOM: 날짜 · 꺼낸 돈 · 계좌 칸 2개
+  const sc = K.scene(a - 0.1, bEnd + 0.5);
+  const dateEl = el(`<div class="date tab"></div>`, sc);
+  const outc = el(`<div class="outc">${IC.coin(64)}<span class="v tab">$0</span><span class="n tab">× 0</span></div>`, sc);
+  const outV = outc.querySelector(".v"), outN = outc.querySelector(".n");
+  const card = (top, tk, col) => {
+    const c = el(`<div class="acc" style="top:${top}px"><div class="hd">${tk}<span class="tag s sellf">SELL</span></div>
+      <div class="row" style="justify-content:space-between;margin-top:16px"><span class="v tab" style="margin-top:0">$0</span><span class="p tab"></span></div>
+      <div class="boxes">${Array.from({ length: 6 }, () => `<i><b style="background:${col}"></b></i>`).join("")}</div></div>`, sc);
+    return { c, v: c.querySelector(".v"), p: c.querySelector(".p"), b: [...c.querySelectorAll(".boxes b")], sell: c.querySelector(".sellf") };
+  };
+  const cA = card(200, QY(46), "rgba(255,138,61,.85)"), cB = card(550, QQ(46), "rgba(90,180,255,.85)");
+  cA.sell.remove();
+  pop(dateEl, a); pop(outc, S("가운데 위 숫자는")); pop(cA.c, S("주황 선이 QYLD 계좌")); pop(cB.c, W("주황 선이 QYLD 계좌", "파란"));
+  // 꺼낸 횟수 (날마다)
+  const evN = new Int32Array(N); { let k = 0; for (let i = 0; i < N; i++) { while (k < CC.ev.length && CC.ev[k][0] <= i) k++; evN[i] = k; } }
+  const evT = CC.ev.map(([i]) => pace.tOf(i));
+  // ---- 값 칩 (말하는 순간)
+  const PINS = [
+    ["원금보다 3.4% 많았습니다", "3.4%", "a", "2014-03-18", pc(F.a_max.vs_initial), MI],
+    ["그해 말 QYLD 계좌는 9만", "9만", "a", "2014-12-31", money(CC.by_year["2014"].a), OR], ["그해 말 QYLD 계좌는 9만", "11만", "b", "2014-12-31", money(CC.by_year["2014"].b), BL],
+    ["처음으로 9만 달러 아래로", "9만", "a", F.a_lt["90000"].date, "▼ $90,000", RD],
+    ["2016년 2월에는", "8만", "a", F.year["2016"].a_low_date, money(F.year["2016"].a_low), OR],
+    ["QQQ 계좌도 다음 날", "9만", "b", F.year["2016"].b_low_date, money(F.year["2016"].b_low), BL],
+    ["2017년 말 QYLD 계좌는", "9만", "a", "2017-12-29", money(CC.by_year["2017"].a), OR], ["QQQ 계좌는 14만 6", "14만", "b", "2017-12-29", money(CC.by_year["2017"].b), BL],
+    ["다시 원금 위였어요", "10만", "a", F.q4_2018.from, money(F.q4_2018.a_from), OR],
+    ["12월 24일, 7만", "7만", "a", F.q4_2018.to, money(F.q4_2018.a_to), OR], ["21% 줄어든 거예요", "21%", "a", F.q4_2018.to, pc(F.q4_2018.a_chg, 0), RD],
+    ["같은 기간 QQQ 계좌는 15만", "15만", "b", F.q4_2018.from, money(F.q4_2018.b_from), BL], ["같은 기간 QQQ 계좌는 15만", "12만", "b", F.q4_2018.to, money(F.q4_2018.b_to), BL],
+    ["19.8% 줄었습니다", "19.8%", "b", F.q4_2018.to, pc(F.q4_2018.b_chg), RD],
+    ["2020년 2월 19일", "19만", "b", F.covid.b_high_date, money(F.covid.b_high), BL],
+    ["코로나 폭락이 오고", "7만", "a", F.covid.low_date, money(F.covid.a_on_low), OR], ["같은 날 QQQ 계좌는 14만", "14만", "b", F.covid.low_date, money(F.covid.b_low), BL],
+    ["QQQ 계좌는 20만 달러를", "20만", "b", F.b_ge["200000"].date, "▲ $200,000", MI], ["QYLD 계좌는 2020년 말", "9만", "a", "2020-12-31", money(CC.by_year["2020"].a), OR],
+    ["QQQ 계좌는 30만 달러를", "30만", "b", F.b_ge["300000"].date, "▲ $300,000", MI],
+    ["이날 QYLD 계좌는", "9만", "a", "2021-11-19", money(CC.down2022.a.ref), OR], ["이날 QYLD 계좌는", "31만", "b", "2021-11-19", money(CC.down2022.b.ref), BL],
+    ["QYLD 계좌는 10월 14일", "6만", "a", CC.down2022.a.low_date, money(CC.down2022.a.low), OR],
+    ["QQQ 계좌는 12월 28일", "19만", "b", CC.down2022.b.low_date, money(CC.down2022.b.low), BL],
+    ["4월 8일 급락 때", "5만", "a", F.year["2025"].a_low_date, money(F.year["2025"].a_low), OR], ["같은 날 QQQ 계좌는 29만", "29만", "b", F.year["2025"].a_low_date, money(F.year["2025"].b_on_a_low), BL],
+    ["QQQ 계좌는 40만 달러를", "40만", "b", F.b_ge["400000"].date, "▲ $400,000", MI], ["2026년 5월에는 50만", "50만", "b", F.b_ge["500000"].date, "▲ $500,000", MI],
+  ].map(([s, w, ser, d, txt, col]) => ({ t: W(s, w), ser, i: idx(d), txt, col }));
+  // 꺼낸 돈 말풍선 (가운데 위 칸 아래)
+  const BUB = [
+    ["첫 분배금은", "1,024", "+" + money(F.first_out.amount)], ["2014년 한 해 꺼낸 돈", "9,461", "2014 : " + money(CC.by_year["2014"].out)],
+    ["2017년 2월 분배금은", "398", "+" + money(F.out_month["2017"].min)], ["그달 꺼낸 돈이", "2만", "≥ $25,000"], ["꺼낸 돈이 5만 달러를 넘었습니다", "5만", "≥ $50,000"],
+    ["2021년 12월에는 분배금이", "1,988", "+" + money(F.out_month["2021"].max)], ["그해 꺼낸 돈은 1만", "1만", "2021 : " + money(CC.by_year["2021"].out)],
+    ["4월에는 꺼낸 돈이", "7만", "≥ $75,000"], ["그해에만", "8,720", "2022 : " + money(CC.by_year["2022"].out)],
+    ["2024년 12월에는 분배금이", "1,350", "+" + money(F.out_month["2024"].max)], ["꺼낸 돈이 10만 달러를 넘었어요", "10만", "≥ $100,000"], ["처음 넣은 원금만큼을", "원금", "= $100,000"],
+  ];
+  BUB.forEach(([s, w, txt], k) => {
+    const t = W(s, w), nt = k + 1 < BUB.length ? W(BUB[k + 1][0], BUB[k + 1][1]) : t + 3;
+    const b = el(`<div class="bub tab">${txt}</div>`, sc);
+    tl.fromTo(b, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.3 }, t - 0.1);
+    tl.to(b, { opacity: 0, duration: 0.3 }, Math.min(t + 2.8, nt - 0.35));
+  });
+  // 긴 하락: 2021-11-19 값 흰 점선 · 떨어진 폭 · 회복
+  const iRef = idx("2021-11-19"), D2 = CC.down2022, tRef = W("흰 점선이 이날의", "흰");
+  const iLoA = idx(D2.a.low_date), iLoB = idx(D2.b.low_date), iRec = idx(D2.b.recovered);
+  const tDropA = W("11월 19일보다", "33.2%"), tDropB = W("37.8% 줄어서", "37.8%"), tRec = W("11월 19일 값을 다시 넘었어요", "다시"), t810 = W("810일 걸렸습니다", "810");
+  const tNoRec = S("끝까지 다시 넘지 못했고요");
+  // 결과 칩
+  const tA = W("QYLD 계좌에 남은 돈은", "7만"), tAp = W("원금 10만 달러보다", "25.3%"), tB = W("QQQ 계좌에 남은 돈은", "51만");
+  add(a - 0.1, bEnd + 0.5, t => {
+    const d = pace(t), k = Math.max(0, Math.min(N - 1, Math.floor(d + 1e-6)));
+    ch.draw(ctx, d);
+    const Y = ch.Y;
+    // 흰 점선 (2021-11-19 값)
+    if (t >= tRef - 0.3 && d >= iRef) {
+      const al = clamp((t - tRef + 0.3) / 0.4, 0, 1);
+      ctx.save(); ctx.globalAlpha = al; ctx.setLineDash([10, 9]); ctx.lineWidth = 3; ctx.strokeStyle = "rgba(255,255,255,.85)";
+      for (const v of [D2.a.ref, D2.b.ref]) { ctx.beginPath(); ctx.moveTo(ch.X(iRef), Y(v)); ctx.lineTo(ch.X(Math.max(iRef, d)), Y(v)); ctx.stroke(); }
+      if (t >= tNoRec - 0.2) { ctx.lineWidth = 6; ctx.strokeStyle = OR; ctx.shadowColor = OR; ctx.shadowBlur = 16; ctx.beginPath(); ctx.moveTo(ch.X(iRef), Y(D2.a.ref)); ctx.lineTo(ch.X(d), Y(D2.a.ref)); ctx.stroke(); }
+      ctx.restore();
+    }
+    const big = (txt, x, y, col, al, size) => { ctx.save(); ctx.globalAlpha = al; ctx.font = `900 ${size || 44}px ${R2.FONT}`; ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.lineWidth = 8; ctx.strokeStyle = "rgba(5,8,15,.9)"; ctx.strokeText(txt, x, y); ctx.fillStyle = col; ctx.fillText(txt, x, y); ctx.restore(); };
+    if (t >= tDropA && d >= iLoA) big(pc(D2.a.drop), ch.X(iLoA), Y(D2.a.low) + 46, RD, clamp((t - tDropA) / 0.3, 0, 1) * (t > tRec + 2 ? 0.35 : 1));
+    if (t >= tDropB && d >= iLoB) big(pc(D2.b.drop), ch.X(iLoB), Y(D2.b.low) + 46, RD, clamp((t - tDropB) / 0.3, 0, 1) * (t > tRec + 2 ? 0.35 : 1));
+    if (t >= tRec - 0.2 && d >= iRec) {
+      const al = clamp((t - tRec + 0.2) / 0.3, 0, 1) * (t > t810 + 4 ? 0.4 : 1), x0 = ch.X(iRef), x1 = ch.X(iRec), y = Y(D2.b.ref);
+      ctx.save(); ctx.globalAlpha = al; ctx.strokeStyle = MI; ctx.lineWidth = 6;
+      ctx.beginPath(); ctx.arc(x1, y, 16, 0, Math.PI * 2); ctx.stroke();
+      if (t >= t810 - 0.2) { ctx.beginPath(); ctx.moveTo(x0, y - 30); ctx.lineTo(x0, y - 44); ctx.lineTo(x1, y - 44); ctx.lineTo(x1, y - 30); ctx.stroke(); }
+      ctx.restore();
+      if (t >= t810 - 0.2) big(f0(D2.b.recover_days), (x0 + x1) / 2, y - 76, MI, al, 46);
+    }
+    // 동전: 꺼낸 날 두 계좌에서 같이 나감
+    for (let q = 0; q < evT.length; q++) {
+      const u = (t - evT[q]) / 0.85;
+      if (u < 0 || u > 1 || t > tRes) continue;
+      const e = ease(u), tx = 920, ty = 66;
+      for (const [sx, sy] of [[1330, 300], [1330, 650]]) {
+        const x = lerp(sx, tx, e), y = lerp(sy, ty, e) - Math.sin(Math.PI * e) * 120;
+        R2.coin(ctx, x, y, 22, u < 0.85 ? 1 : (1 - u) / 0.15);
+      }
+    }
+    // 값 칩
+    for (const p of PINS) {
+      if (t < p.t - 0.15 || t > p.t + 3.0) continue;
+      const al = Math.min(clamp((t - p.t + 0.15) / 0.2, 0, 1), clamp((p.t + 3.0 - t) / 0.5, 0, 1));
+      const v = p.ser === "a" ? CC.a[p.i] : CC.b[p.i];
+      R2.pin(ctx, ch.X(p.i), Y(v), p.txt, p.col, al, p.ser === "b", 36, [60, 1300]);
+    }
+    if (t >= tA - 0.2) R2.pin(ctx, ch.X(N - 1), Y(CC.a[N - 1]), t >= tAp ? pc(CC.a[N - 1] / INIT - 1) : money(CC.a[N - 1]), t >= tAp ? RD : OR, clamp((t - tA + 0.2) / 0.3, 0, 1), false, 40, [60, 1300]);
+    if (t >= tB - 0.2) R2.pin(ctx, ch.X(N - 1), Y(CC.b[N - 1]), money(CC.b[N - 1]), BL, clamp((t - tB + 0.2) / 0.3, 0, 1), true, 40, [60, 1300]);
+    // DOM
+    dateEl.textContent = ymd(CC.dates[k]);
+    outV.textContent = money(CC.out[k]); outN.textContent = "× " + evN[k];
+    for (const [c, v] of [[cA, CC.a[k]], [cB, CC.b[k]]]) {
+      c.v.textContent = money(v);
+      const r = v / INIT - 1;
+      c.p.textContent = pc(r); c.p.style.color = r < 0 ? "#FF6B78" : MI;
+      c.b.forEach((bx, j) => { bx.style.height = (clamp(v / INIT - j, 0, 1) * 100).toFixed(1) + "%"; });
+    }
+    let te = -1e9; for (const x of evT) { if (x <= t) te = x; else break; }
+    cB.sell.style.opacity = t > tRes ? 0 : clamp(1 - (t - te) / 0.8, 0, 1).toFixed(2);
+  });
+  // 결과 (s77~s85)
+  const s78 = S("두 계좌가 꺼낸 돈은 똑같이"), s83 = S("QQQ 계좌가 6.83배"), s84 = S("QYLD 1주 값은"), s85 = S("전체 거래일의");
+  const glow = el(`<div class="a" style="left:556px;top:26px;width:728px;height:96px;border-radius:24px;box-shadow:0 0 0 5px #FFD400,0 0 40px rgba(255,212,0,.5)"></div>`, sc);
+  pop(glow, s78, { from: { scale: 1.1, y: 0 } }); tl.to(glow, { opacity: 0, duration: 0.4 }, s78 + 3.5);
+  const x683 = el(`<div class="a big tab" style="left:250px;top:250px;font-size:130px;color:#FFD400;text-shadow:0 10px 40px rgba(0,0,0,.7)">×${f2(SUM.b_over_a)}</div>`, sc);
+  pop(x683, W("QQQ 계좌가 6.83배", "6.83"), { from: { scale: 0.6, y: 0 } });
+  const dim = el(`<div class="dim"></div>`, sc);
+  tl.fromTo(dim, { opacity: 0 }, { opacity: 1, duration: 0.4 }, s84 - 0.1);
+  tl.to(x683, { opacity: 0, duration: 0.3 }, s84 - 0.1);
+  const sh = el(`<div class="card2 solid" style="left:260px;top:220px;width:1400px;height:300px;display:flex;align-items:center;justify-content:center;gap:40px">
+    ${QY(64)}<span class="big" style="font-size:70px;color:#93A0B8">× 1</span><span class="big tab" style="font-size:96px">$${f2(SUM.a_price_start)}</span><span class="big" style="font-size:80px;color:#93A0B8">→</span><span class="big tab" style="font-size:96px;color:#FF6B78">$${f2(SUM.a_price_end)}</span></div>`, sc);
+  pop(sh, s84);
+  const share = SUM.a_below_initial_days_share;
+  const bar = el(`<div class="card2 solid" style="left:260px;top:580px;width:1400px;height:300px;padding:40px 50px">
+    <div class="row" style="gap:20px">${QY(48)}<span class="big" style="font-size:56px">&lt; $100,000</span><span class="big tab" style="font-size:72px;color:#FF6B78;margin-left:auto">${pcu(share)}</span></div>
+    <div style="position:relative;margin-top:44px;height:70px;border-radius:16px;background:rgba(43,224,160,.35);overflow:hidden"><div class="b94" style="position:absolute;left:0;top:0;bottom:0;width:${(share * 100).toFixed(1)}%;background:#FF4D5E"></div></div></div>`, sc);
+  pop(bar, s85); K.grow(bar.querySelector(".b94"), s85 + 0.3, 1.2);
+  cut(S("주황 선이 QYLD 계좌") + 1.5, "경주 — 시작");
+  cut(W("2016년 2월에는", "8만") + 0.6, "경주 — 2016 · 원금 상자");
+  cut(W("12월 24일, 7만", "7만") + 0.6, "경주 — 2018-12-24 칩");
+  cut(W("코로나 폭락이 오고", "7만") + 0.6, "경주 — 2020-03-16");
+  cut(W("이날 QYLD 계좌는", "31만") + 0.8, "긴 하락 — 기준일 칩");
+  cut(tDropB + 0.6, "긴 하락 — −33.2% · −37.8%");
+  cut(t810 + 0.6, "긴 하락 — 회복 810");
+  cut(W("4월 8일 급락 때", "5만") + 0.6, "끝까지 — 2025-04-08");
+  cut(W("QQQ 계좌가 6.83배", "6.83") + 0.8, "결과 — ×6.83 · 끝 칩");
+  cut(s84 + 1.2, "결과 — QYLD 1주 값");
+  cut(bEnd - 0.2, "결과 — 원금 아래 날 94.7%");
+}
+
+// =====================================================================================================================
+// 시작 시점 (s86~s98): 달마다 시작한 5년 계좌 94개 · 3년 118개 (점)
+// =====================================================================================================================
+{
+  const a = PS("시작 시점"), b = PE("시작 시점");
+  const R5 = CC.rolling["5y"], R3 = CC.rolling["3y"];
+  const X0 = 210, Y0 = 200, WW = 1060, HH = 640, VMAX = 260000;
+  const dt = s => new Date(s + "T00:00:00Z").getTime();
+  const D0 = dt("2014-01-01"), D1 = dt("2024-01-01");
+  const px = s => X0 + (dt(s) - D0) / (D1 - D0) * WW, py = v => Y0 + HH - v / VMAX * HH;
+  const s87 = S("매달 새로 시작한 계좌를"), s89e = E("각 계좌는 5년 동안"), s90 = S("5년 뒤 QYLD 계좌가"), s91 = S("원금 아래가 하나도 없었습니다"), s92 = S("94개 모두 QQQ"),
+        s93 = S("가운데 값은"), s94 = S("가장 적게 남은 건"), s95 = S("기간을 3년으로 줄이면"), s96 = S("이때는 QQQ 계좌도"), s97 = S("QYLD 계좌는 81개가"), s98 = S("그래도 118개 모두");
+  const t3a = W("기간을 3년으로 줄이면", "3년"), t3b = s96 - 0.2;
+  const tMed = W("가운데 값은", "QYLD"), tMin = W("가장 적게 남은 건", "6만");
+  add(a - 0.1, b + 0.5, t => {
+    const al = clamp((t - a + 0.1) / 0.35, 0, 1) * clamp((b + 0.5 - t) / 0.35, 0, 1);
+    ctx.save(); ctx.globalAlpha = al;
+    // 눈금
+    ctx.font = `700 32px ${R2.FONT}`; ctx.fillStyle = "#7F8BA3"; ctx.textAlign = "right"; ctx.textBaseline = "middle";
+    for (let v = 0; v <= 250000; v += 50000) { const y = py(v); ctx.strokeStyle = "rgba(160,176,204,.13)"; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(X0, y); ctx.lineTo(X0 + WW, y); ctx.stroke(); ctx.fillText(R2.fmtMoney(v), X0 - 14, y); }
+    ctx.textAlign = "center"; ctx.textBaseline = "top";
+    for (let y = 2014; y <= 2023; y++) ctx.fillText(String(y), px(`${y}-01-01`) + 20, Y0 + HH + 14);
+    ctx.setLineDash([18, 12]); ctx.lineWidth = 4; ctx.strokeStyle = YE; ctx.beginPath(); ctx.moveTo(X0, py(INIT)); ctx.lineTo(X0 + WW, py(INIT)); ctx.stroke(); ctx.setLineDash([]);
+    const draw = (R, show, fade) => {
+      const n = Math.floor(R.pts.length * show);
+      for (let q = 0; q < n; q++) {
+        const [s, va, vb] = R.pts[q];
+        ctx.globalAlpha = al * fade;
+        ctx.beginPath(); ctx.arc(px(s), py(vb), 9, 0, Math.PI * 2); ctx.fillStyle = BL; ctx.fill();
+        ctx.beginPath(); ctx.arc(px(s), py(va), 9, 0, Math.PI * 2); ctx.fillStyle = OR; ctx.fill();
+        if (t >= s90 && va < INIT && R === R5 && t < t3a) { ctx.lineWidth = 3; ctx.strokeStyle = RD; ctx.beginPath(); ctx.arc(px(s), py(va), 14, 0, Math.PI * 2); ctx.stroke(); }
+      }
+    };
+    if (t < t3a + 0.6) draw(R5, clamp((t - s87) / Math.max(1, s89e - s87), 0, 1), t < t3a ? 1 : clamp(1 - (t - t3a) / 0.6, 0, 1));
+    if (t >= t3a) draw(R3, clamp((t - t3a) / Math.max(1, t3b - t3a), 0, 1), 1);
+    ctx.globalAlpha = al;
+    if (t >= tMed && t < t3a) {
+      ctx.setLineDash([8, 8]); ctx.lineWidth = 3;
+      for (const [v, c] of [[R5.a_median, OR], [R5.b_median, BL]]) { ctx.strokeStyle = c; ctx.beginPath(); ctx.moveTo(X0, py(v)); ctx.lineTo(X0 + WW, py(v)); ctx.stroke(); }
+      ctx.setLineDash([]);
+      R2.pin(ctx, X0 + WW - 120, py(R5.a_median), money(R5.a_median), OR, clamp((t - tMed) / 0.3, 0, 1), false, 36);
+      R2.pin(ctx, X0 + WW - 120, py(R5.b_median), money(R5.b_median), BL, clamp((t - tMed - 0.8) / 0.3, 0, 1), true, 36);
+    }
+    if (t >= tMin && t < t3a) {
+      const m = R5.pts.find(p => p[0] === R5.a_min_start);
+      ctx.lineWidth = 5; ctx.strokeStyle = RD; ctx.beginPath(); ctx.arc(px(m[0]), py(m[1]), 20, 0, Math.PI * 2); ctx.stroke();
+      R2.pin(ctx, px(m[0]), py(m[1]), `${m[0].slice(0, 7).replace("-", ".")}  ${money(m[1])}`, RD, clamp((t - tMin) / 0.3, 0, 1), false, 36);
+    }
+    ctx.restore();
+  });
+  const sc = K.scene(a - 0.1, b + 0.5);
+  const hd = el(`<div class="a row" style="left:60px;top:50px;gap:20px">${IC.cal(70)}<span class="big tab" style="font-size:64px" id="rollhd">× ${R5.windows}</span><span class="big tab" style="font-size:56px;color:#C9D2E2" id="rollyr">→ +5</span></div>`, sc);
+  pop(hd, s87 + 0.2);
+  const lg = el(`<div class="a row" style="left:900px;top:60px;gap:30px"><span class="lg"><i class="sw" style="background:${OR};height:24px;width:24px;border-radius:50%"></i>${QY(40)}</span><span class="lg"><i class="sw" style="background:${BL};height:24px;width:24px;border-radius:50%"></i>${QQ(40)}</span></div>`, sc);
+  pop(lg, s87 + 0.4);
+  const row = (top, html, at) => { const r = el(`<div class="card2" style="left:1340px;top:${top}px;width:540px;height:180px;display:grid;align-content:center;gap:18px;padding:0 30px">${html}</div>`, sc); pop(r, at); return r; };
+  const v5 = (R) => [
+    `<div class="row" style="gap:14px">${QY(40)}<span class="big" style="font-size:44px">&lt; $100K</span></div><div class="big tab" style="font-size:64px;color:#FF6B78">${R.a_below_initial} / ${R.windows}</div>`,
+    `<div class="row" style="gap:14px">${QQ(40)}<span class="big" style="font-size:44px">&lt; $100K</span></div><div class="big tab" style="font-size:64px;color:${R.b_below_initial ? "#FF6B78" : MI}">${R.b_below_initial} / ${R.windows}</div>`,
+    `<div class="row" style="gap:14px">${QQ(40)}<span class="big" style="font-size:44px">&gt;</span>${QY(40)}</div><div class="big tab" style="font-size:64px;color:${MI}">${R.b_gt_a} / ${R.windows} ✓</div>`];
+  const A5 = v5(R5), A3 = v5(R3);
+  const r1 = row(200, A5[0], W("5년 뒤 QYLD 계좌가", "83개")), r2 = row(410, A5[1], s91), r3 = row(620, A5[2], s92);
+  tl.to([r1, r2, r3], { opacity: 0, duration: 0.3 }, t3a - 0.1);
+  const q1 = row(200, A3[1], W("이때는 QQQ 계좌도", "19개")), q2 = row(410, A3[0], W("QYLD 계좌는 81개가", "81개")), q3 = row(620, A3[2], s98);
+  const hdN = hd.querySelector("#rollhd"), hdY = hd.querySelector("#rollyr");
+  tl.call(() => { hdN.textContent = "× " + R5.windows; hdY.textContent = "→ +5"; }, null, t3a - 0.05);
+  tl.call(() => { hdN.textContent = "× " + R3.windows; hdY.textContent = "→ +3"; }, null, t3a);
+  tl.set(hdN, { color: "#F4F6FA" }, 0);
+  cut(s89e - 0.2, "시작 시점 — 5년 94개 점");
+  cut(s93 + 1.8, "시작 시점 — 83/94 · 0/94 · 94/94 · 가운데 값");
+  cut(s94 + 2.2, "시작 시점 — 가장 적게 남은 계좌");
+  cut(b - 0.2, "시작 시점 — 3년 118개");
+}
+
+// =====================================================================================================================
+// 다른 커버드콜 (s99~s110): XYLD vs SPY · JEPI vs SPY
+// =====================================================================================================================
+{
+  const a = PS("다른 커버드콜"), b = PE("다른 커버드콜");
+  const P = CC.pairs_daily, CK = CC.checks;
+  const mk = (pd, x) => {
+    const ys = []; let p0 = pd.dates[0].slice(0, 4);
+    pd.dates.forEach((d, i) => { if (d.slice(0, 4) !== p0) { p0 = d.slice(0, 4); ys.push([i, p0]); } });
+    const mx = Math.max(...pd.b) * 1.1;
+    return new R2.Chart({ x, y: 330, w: 700, h: 520, n: pd.dates.length, years: ys, yearGap: 130, max: mx, labelSize: 30,
+      series: [{ vals: pd.b, color: "#C9D2E2", width: 5 }, { vals: pd.a, color: OR, width: 6 }], baselines: [{ v: INIT, color: YE, dash: [14, 10], width: 4 }] });
+  };
+  const cx = mk(P.xyld, 190), cj = mk(P.jepi, 1110);
+  const tx0 = S("S&P 500 커버드콜 XYLD를"), tx1 = W("SPY 계좌는 33만", "33만"), tj0 = S("2020년 5월부터"), tj1 = W("SPY 계좌는 17만", "17만");
+  const tXa = W("XYLD 계좌는 10만", "10만"), tJa = W("JEPI 계좌는 11만", "11만"), tXp = W("XYLD 계좌는 10만", "5.4%"), tJp = W("JEPI 계좌는 11만", "14.2%");
+  add(a - 0.1, b + 0.5, t => {
+    const al = clamp((t - a + 0.1) / 0.35, 0, 1) * clamp((b + 0.5 - t) / 0.35, 0, 1);
+    ctx.save(); ctx.globalAlpha = al;
+    const dx = clamp((t - tx0) / Math.max(1, tx1 - tx0), 0, 1) * (P.xyld.dates.length - 1);
+    if (t >= tx0 - 0.4) cx.draw(ctx, dx);
+    const dj = clamp((t - tj0) / Math.max(1, tj1 - tj0), 0, 1) * (P.jepi.dates.length - 1);
+    if (t >= S("이번엔 JEPI입니다") - 0.2) cj.draw(ctx, dj);
+    ctx.restore();
+    const nx = P.xyld.dates.length - 1, nj = P.jepi.dates.length - 1;
+    if (t >= tXa - 0.2) R2.pin(ctx, cx.X(nx), cx.Y(P.xyld.a[nx]), money(CK.xyld.a_end) + (t >= tXp ? "  " + pc(CK.xyld.a_end / INIT - 1) : ""), OR, al * clamp((t - tXa + 0.2) / 0.3, 0, 1), false, 36);
+    if (t >= tx1 - 0.2) R2.pin(ctx, cx.X(nx), cx.Y(P.xyld.b[nx]), money(CK.xyld.b_end), "#C9D2E2", al * clamp((t - tx1 + 0.2) / 0.3, 0, 1), false, 36);
+    if (t >= tJa - 0.2) R2.pin(ctx, cj.X(nj), cj.Y(P.jepi.a[nj]), money(CK.jepi.a_end) + (t >= tJp ? "  " + pc(CK.jepi.a_end / INIT - 1) : ""), OR, al * clamp((t - tJa + 0.2) / 0.3, 0, 1), false, 36);
+    if (t >= tj1 - 0.2) R2.pin(ctx, cj.X(nj), cj.Y(P.jepi.b[nj]), money(CK.jepi.b_end), "#C9D2E2", al * clamp((t - tj1 + 0.2) / 0.3, 0, 1), false, 36);
+  });
+  const sc = K.scene(a - 0.1, b + 0.5);
+  const q = el(`<div class="a flexc" style="left:0;width:1920px;top:380px;gap:40px">${IC.box(180)}<span class="big" style="font-size:200px;color:#FFD400">?</span>${IC.box(180, "#C9D2E2")}</div>`, sc);
+  pop(q, a); tl.to(q, { opacity: 0, duration: 0.3 }, tx0 - 0.3);
+  const hx = el(`<div class="a row" style="left:110px;top:60px;gap:16px">${TK("XYLD", "q", 48)}<span class="big" style="font-size:52px;color:#93A0B8">↔</span>${TK("SPY", "s", 48)}</div>`, sc);
+  const hj = el(`<div class="a row" style="left:1030px;top:60px;gap:16px">${TK("JEPI", "q", 48)}<span class="big" style="font-size:52px;color:#93A0B8">↔</span>${TK("SPY", "s", 48)}</div>`, sc);
+  pop(hx, tx0); pop(hj, S("이번엔 JEPI입니다"));
+  const ox = el(`<div class="a row" style="left:110px;top:150px;gap:14px">${IC.coin(56)}<span class="big tab" style="font-size:56px;color:#FFE680">${money(CK.xyld.out_total)}</span><span class="big tab" style="font-size:44px;color:#C9D2E2">${CK.xyld.start.slice(0, 4)} → ${CK.xyld.end.slice(0, 4)}</span></div>`, sc);
+  const oj = el(`<div class="a row" style="left:1030px;top:150px;gap:14px">${IC.coin(56)}<span class="big tab" style="font-size:56px;color:#FFE680">${money(CK.jepi.out_total)}</span><span class="big tab" style="font-size:44px;color:#C9D2E2">${CK.jepi.start.slice(0, 4)} → ${CK.jepi.end.slice(0, 4)}</span></div>`, sc);
+  pop(ox, W("2013년 6월부터", "꺼낸")); pop(oj, W("2020년 5월부터", "꺼낸"));
+  const RX = CC.rolling_xyld_5y;
+  const rx = el(`<div class="card2" style="left:1030px;top:420px;width:820px;height:150px;display:flex;align-items:center;justify-content:center;gap:26px">${IC.cal(64)}<span class="big tab" style="font-size:50px">× ${RX.windows}</span><span class="big tab" style="font-size:50px;color:${MI}">SPY ${RX.b_gt_a}/${RX.windows} ✓</span><span class="big tab" style="font-size:50px;color:#FF6B78">&lt; $100K ${RX.a_below_initial}</span></div>`, sc);
+  pop(rx, S("시작 달을 바꾼 5년 계좌 100개에서도")); tl.to(rx, { opacity: 0, duration: 0.3 }, S("이번엔 JEPI입니다") - 0.2);
+  const sh = el(`<div class="a" style="left:1700px;top:120px">${IC.ticket(150)}</div>`, sc);
+  pop(sh, S("콜옵션을 매도한 것과 같은 효과를"));
+  tl.to(sh, { opacity: 0, duration: 0.3 }, W("2020년 5월부터", "꺼낸") - 0.3);
+  cut(tx1 + 1.0, "다른 커버드콜 — XYLD vs SPY");
+  cut(S("XYLD는 100개 중") + 1.2, "다른 커버드콜 — XYLD 5년 100개");
+  cut(b - 0.2, "다른 커버드콜 — JEPI vs SPY");
+}
+
+// =====================================================================================================================
+// 다른 조건 (s111~s118): 원천징수 15% · 다시 매수
+// =====================================================================================================================
+{
+  const a = PS("다른 조건"), b = PE("다른 조건"), TX = CC.tax15, RV = CC.reinvest;
+  const s116 = S("분배금을 꺼내 쓰지 않고 다시 매수했다면");
+  const sc = K.scene(a - 0.1, s116 - 0.1);
+  const ic = el(`<div class="a row" style="left:120px;top:120px;gap:20px"><svg viewBox="0 0 48 48" width="130" height="130">${IC.receipt}</svg><span class="big tab" style="font-size:110px;color:#FF6B78">−15%</span></div>`, sc);
+  pop(ic, a); 
+  const outBox = el(`<div class="card2" style="left:120px;top:360px;width:760px;height:420px;display:grid;align-content:center;justify-items:center;gap:30px">
+    <div class="row" style="gap:16px">${IC.coin(80)}<span class="big tab" style="font-size:70px;color:#93A0B8;text-decoration:line-through" id="o1">${money(SUM.out_total)}</span></div>
+    <div class="big tab" style="font-size:96px;color:#FFE680" id="o2">${money(TX.out_total)}</div></div>`, sc);
+  pop(outBox, S("15%를 떼면")); tl.fromTo(outBox.querySelector("#o2"), { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.4 }, W("15%를 떼면", "9만"));
+  const H = 600, MX = 600000, base = 900;
+  const vb = (x, v, col, at, tk) => {
+    const h = v / MX * H;
+    const bb = el(`<div class="vbar" style="left:${x}px;top:${base - h}px;width:240px;height:${h}px;background:${col}"></div>`, sc);
+    K.grow(bb, at, 0.8, "y");
+    const lab = el(`<div class="a big tab c" style="left:${x - 60}px;width:360px;top:${base - h - 74}px;font-size:56px">${money(v)}</div>`, sc);
+    pop(lab, at + 0.3);
+    const tkx = el(`<div class="a c" style="left:${x - 60}px;width:360px;top:${base + 20}px">${tk}</div>`, sc);
+    pop(tkx, at);
+  };
+  vb(1060, TX.b_end, BL, W("QQQ 계좌도 그만큼만", "56만"), QQ(48));
+  vb(1480, TX.a_end, OR, W("주식 수가 같아서", "7만"), QY(48));
+  cut(E("주식 수가 같아서") - 0.2, "다른 조건 — 원천징수 15%");
+  const sc2 = K.scene(s116 - 0.15, b + 0.5);
+  const hd = el(`<div class="a row" style="left:120px;top:120px;gap:20px">${IC.coin(110)}${IC.loop(110)}<span class="tag b" style="font-size:64px">BUY</span></div>`, sc2);
+  pop(hd, s116);
+  const MX2 = 1000000, H2 = 640, base2 = 920;
+  const vb2 = (x, v, col, at, tk) => {
+    const h = v / MX2 * H2;
+    const bb = el(`<div class="vbar" style="left:${x}px;top:${base2 - h}px;width:260px;height:${h}px;background:${col}"></div>`, sc2);
+    K.grow(bb, at, 0.8, "y");
+    const lab = el(`<div class="a big tab c" style="left:${x - 60}px;width:380px;top:${base2 - h - 74}px;font-size:60px">${money(v)}</div>`, sc2);
+    pop(lab, at + 0.3);
+    const tkx = el(`<div class="a c" style="left:${x - 60}px;width:380px;top:${base2 + 18}px">${tk}</div>`, sc2);
+    pop(tkx, at);
+  };
+  vb2(820, RV.a_end, OR, W("QYLD는 29만", "29만"), QY(48));
+  vb2(1300, RV.b_end, BL, W("QYLD는 29만", "94만"), QQ(48));
+  const x3 = el(`<div class="a big tab" style="left:200px;top:420px;font-size:130px;color:#FFD400">×${f2(RV.b_over_a)}</div>`, sc2);
+  pop(x3, W("다시 매수해도, QQQ 쪽이", "3.25배"), { from: { scale: 0.6, y: 0 } });
+  cut(b - 0.2, "다른 조건 — 다시 매수");
+}
+
+// =====================================================================================================================
+// 정리 (s119~s124)
+// =====================================================================================================================
+{
+  const a = PS("정리"), b = PS("한계");
+  const sc = K.scene(a - 0.2, b - 0.4);
+  const boxes = (v, col) => `<div class="boxes" style="margin-top:0">${Array.from({ length: 6 }, (_, j) => `<i><b style="background:${col};height:${(clamp(v / INIT - j, 0, 1) * 100).toFixed(1)}%"></b></i>`).join("")}</div>`;
+  const c1 = el(`<div class="card2" style="left:70px;top:110px;width:860px;height:360px;display:grid;align-content:center;justify-items:center;gap:26px">
+    <div class="row" style="gap:20px">${QY(52)}<span class="big tab" style="font-size:90px;color:#FF6B78">${pc(SUM.a_vs_initial - 1)}</span></div>${boxes(SUM.a_end, "rgba(255,138,61,.85)")}
+    <div class="big tab" style="font-size:44px;color:#C9D2E2">${SUM.start.slice(0, 4)} → ${SUM.end.slice(0, 4)}</div></div>`, sc);
+  const c2 = el(`<div class="card2" style="left:990px;top:110px;width:860px;height:360px;display:grid;align-content:center;justify-items:center;gap:26px">
+    <div class="row" style="gap:20px">${QQ(52)}<span class="big tab" style="font-size:90px;color:${MI}">×${SUM.b_vs_initial.toFixed(1)}</span></div>${boxes(SUM.b_end, "rgba(90,180,255,.85)")}
+    <div class="row" style="gap:12px">${IC.coin(48)}<span class="big tab" style="font-size:44px;color:#FFE680">= ${money(SUM.out_total)}</span></div></div>`, sc);
+  const R5 = CC.rolling["5y"], R3 = CC.rolling["3y"], CK = CC.checks;
+  const c3 = el(`<div class="card2" style="left:70px;top:520px;width:560px;height:380px;display:grid;align-content:center;justify-items:center;gap:24px">${IC.cal(80)}
+    <div class="big tab" style="font-size:54px;color:${MI}">${R5.b_gt_a}/${R5.windows} ✓</div><div class="big tab" style="font-size:54px;color:${MI}">${R3.b_gt_a}/${R3.windows} ✓</div></div>`, sc);
+  const c4 = el(`<div class="card2" style="left:680px;top:520px;width:560px;height:380px;display:grid;align-content:center;gap:26px;padding:0 40px">
+    <div class="row" style="gap:14px">${TK("XYLD", "q", 40)}<span class="big tab" style="font-size:52px;color:${MI}">${pc(CK.xyld.a_end / INIT - 1)}</span><span class="big" style="font-size:52px">&lt;</span>${TK("SPY", "s", 40)}</div>
+    <div class="row" style="gap:14px">${TK("JEPI", "q", 40)}<span class="big tab" style="font-size:52px;color:${MI}">${pc(CK.jepi.a_end / INIT - 1)}</span><span class="big" style="font-size:52px">&lt;</span>${TK("SPY", "s", 40)}</div></div>`, sc);
+  const cap = CC.capture;
+  const c5 = el(`<div class="card2" style="left:1290px;top:520px;width:560px;height:380px;display:grid;align-content:center;gap:34px;padding:0 40px">
+    <div class="row" style="gap:16px">${IC.up(70)}<span class="big tab" style="font-size:64px">${pcu(cap.up_capture)}</span></div>
+    <div class="row" style="gap:16px">${IC.dn(70)}<span class="big tab" style="font-size:64px">${pcu(cap.down_capture)}</span></div></div>`, sc);
+  pop(c1, S("분배금을 매달 꺼내 쓴 QYLD 계좌는")); pop(c2, S("같은 돈을 매도해서 꺼낸 QQQ 계좌는")); pop(c3, S("시작 달을 바꾼 계좌에서도, 모두"));
+  pop(c4, S("XYLD와 JEPI는 원금이 줄지 않았지만")); pop(c5, S("오를 때는 덜 오르고"));
+  cut(E("오를 때는 덜 오르고") - 0.2, "정리 — 카드 5개");
+}
+// =====================================================================================================================
+// 한계 (s125~s129)
+// =====================================================================================================================
+{
+  const a = PS("한계"), b = PS("마무리");
+  const sc = K.scene(a - 0.2, b - 0.4);
+  const c = (x, html, at) => { const n = el(`<div class="card2" style="left:${x}px;top:250px;width:400px;height:440px;display:grid;place-items:center;align-content:center;gap:28px">${html}</div>`, sc); pop(n, at); return n; };
+  c(90, `${IC.up(130, MI)}<span class="big tab" style="font-size:52px">${SUM.start.slice(0, 4)} → ${SUM.end.slice(0, 4)}</span>`, a);
+  c(540, `<span class="row" style="gap:8px">${IC.flat(130)}<span class="big" style="font-size:110px;color:#FFD400">?</span></span>`, S("주가가 오래 제자리였던 기간이라면"));
+  c(990, `<span class="row" style="gap:14px">${IC.cal(100)}<span class="big" style="font-size:70px;color:#93A0B8">≈</span>${IC.cal(100)}</span><span class="row" style="gap:10px">${IC.coin(60)}</span>`, S("분배금은 지급일이 아니라"));
+  c(1440, `<span class="row" style="gap:6px">${IC.ban(110, IC.cpi)}${IC.ban(110, IC.fx)}</span>${IC.ban(110, IC.receipt)}`, S("물가와 환율, 나라마다 다른 세금은"));
+  cut(S("투자 권유가 아니라") + 1.2, "한계");
+}
+// =====================================================================================================================
+// 마무리
+// =====================================================================================================================
+{
+  const a = PS("마무리");
+  const sc = K.scene(a - 0.2, EP.duration + 1, { keep: true });
+  const c = el(`<div class="a flexc" style="left:0;width:1920px;top:330px;gap:40px">${IC.chat(220)}<span class="big" style="font-size:200px;color:#FFD400">?</span></div>`, sc);
+  pop(c, a);
+  const end = el(`<div class="a flexc" style="left:0;width:1920px;top:690px;gap:30px">${QY(64)}${IC.coin(90)}${QQ(64)}</div>`, sc);
+  pop(end, S("시청해주셔서 감사합니다"));
+  cut(S("시청해주셔서 감사합니다") + 0.8, "마무리");
+}
+
+CUTQ.sort((x, y) => x[0] - y[0]).forEach(([t, n]) => K.cut(t, n));
+K.done();
+})();
+
+</script>
+</body>
+</html>

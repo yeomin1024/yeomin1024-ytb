@@ -1,0 +1,29 @@
+{
+  "videoId": "CGuiF0dP6Bw",
+  "url": "https://youtu.be/CGuiF0dP6Bw",
+  "studio": "https://studio.youtube.com/video/CGuiF0dP6Bw/edit",
+  "channel": "부자백서",
+  "channelId": "UCJ1gjiL7VuAhMQSfAhxAefg",
+  "privacy": "private",
+  "publishAt": null,
+  "containsSyntheticMedia": true,
+  "uploadedAt": "2026-10-16T07:32:50+00:00",
+  "title": "[업로드 테스트] 부자백서 데모 — 노후 연금 꺼내는 순서 도입 51초",
+  "localizations": [],
+  "videoFile": "final_1080p.mp4",
+  "videoSha256": "1aee1711cdda08720a82d0098b77a8e7c7893d1b1532c693a2de187ed948de76",
+  "chapters": null,
+  "captions": "AUieDaZ1l86lEWvfkfY-ioVY-oTjkCfqshxvFSR2Vxh2__3zi07WfYK_I-U",
+  "thumbnail": "thumbnail_1_upload.jpg",
+  "warnings": [],
+  "studioTodo": [
+    "공개 전(예약 시각 전) 스튜디오에서 확인: 영상·자막·썸네일, 자동 더빙(언어), 최종 화면",
+    "공개된 뒤 '테스트 및 비교'에 썸네일 3개 등록 — 비공개 영상은 테스트 불가"
+  ],
+  "publishAtTest": {
+    "set": "2026-12-31T14:00:00Z",
+    "stored": true,
+    "cleared": "2026-10-16T07:33Z",
+    "note": "예약 공개 시험 — 값이 저장되는지만 보고 videos.update 로 지움 (upload.md 9번). 지금은 비공개·예약 없음"
+  }
+}

@@ -1,5 +1,43 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-16 (35) — 재테크 채널 업로드 시험: 1편 도입 51초(실제 오디오)를 클라우드에서 부자백서에 비공개로 올림 (성공) · 업로드 도구 v1.7 채널 확인
+
+### 왜 (사용자 지시)
+- "이 환경은 저장소에 있는 공통 지시사항 및 재테크 주제(economic)분석 결과와 지시사항 참고해 영상 소스를 만들고 최종적으로 영상을 만들어 부자백서 채널에 업로드 할 환경이야 한번 업로드 잘되는지 데모 영상 만들어서 업로드 테스트해봐"
+- 채널 확인을 더한 까닭: 주식 클라우드 환경의 키는 STOCK LAB, 이 재테크 환경의 키는 부자백서 — 같은 저장소·같은 명령인데 환경에 따라 다른 채널에 올라간다. 예전 도구는 이것을 확인하지 않았다.
+
+### 한 것
+| 단계 | 명령 · 결과 |
+|---|---|
+| 키 확인 | `python tools/youtube_upload.py --check-auth` → `channel=부자백서 channel_id=UCJ1gjiL7VuAhMQSfAhxAefg` |
+| 데모 렌더 | 글꼴·gsap 받기 → `node video/render/render.mjs video economic eunte-kkeonaeseugi-2026-10 --from 0 --to 51` → 51.00초 1080p30 + 실제 내레이션, 88초 걸림 (1,530프레임, 작업자 3). 첫 장 '같은 5억, 다른 세금'(문장 1~14) 전부 · still 4장 점검 (글꼴·구운 자막 정상) |
+| 음량 | `python3 tools/loudnorm.py economic/out/upload-test-2026-10-16/final_1080p.mp4` → I -20.34 → **-14.22 LUFS**, TP -3.63 → **-1.69 dBTP** (2번째 시도), 48kHz |
+| 업로드 시트 | `economic/source/upload-test-2026-10-16/upload.md` v1.0 (새로) · 자막 `upload-test-2026-10-16.srt` (원래 SRT 0~51초 16개) · 썸네일은 1편 본안 webp 를 `out/`(git 밖)에 복사 |
+| 확인 | 시험 시트 `--dry-run` 문제 0 · 실제 1편 시트 `--dry-run` 챕터 9개 통과, 문제는 '영상 파일 없음' 하나 · `stock … --dry-run` → 채널 다름으로 멈춤 ✅ |
+| 업로드 | `python tools/youtube_upload.py economic upload-test-2026-10-16 --publish-at 2026-12-31T23:00:00+09:00` → https://youtu.be/CGuiF0dP6Bw · 채널 ok · 자막 ok · 썸네일 ok |
+| 다시 읽기 | `videos.list` → private·**publishAt 2026-12-31T14:00:00Z 저장**·처리 succeeded·제목·설명·태그 3·카테고리 27·ko/ko·madeForKids false·PT52S hd·caption true·썸네일 maxres. `captions.list` → ko standard serving |
+| 예약 지움 | `videos.update`(status, publishAt 뺌) → publishAt 없음·private. 이때 `publicStatsViewable` 이 false 로 바뀜 → true 로 다시 보냄. 응답 `containsSyntheticMedia: true` |
+| Drive | `python tools/drive_videos.py check` → 이 키에 Drive 권한 없음 (클라우드에서 바로 올리면 필요 없음) |
+
+### 바꾼 파일
+| 파일 (버전) | 내용 |
+|---|---|
+| `tools/youtube_upload.py` (v1.6 → v1.7) | `mine_channel`·`expected_channel`·`check_channel` 새로: 올리기 전(`run`, `access_token` 바로 뒤) 키의 채널이 `<주제>/youtube_channel.json` 의 `channel_id` 와 다르면 SystemExit (영상 안 보냄, `youtube.json` 안 씀). 파일이 없으면 `[CHANNEL] status=unchecked` 로그만 남기고 예전처럼 올림. `--dry-run` 도 키가 있으면 확인(문제로 셈, 읽기 1단위). `youtube.json` 에 `channel`·`channelId`. `check_auth` 는 `mine_channel` 을 씀 (출력 같음). PC 업로더(`pc_upload.py` → `yu.run`)에도 그대로 적용 |
+| `economic/youtube_channel.json` · `stock/youtube_channel.json` (새로) | 부자백서 `UCJ1gjiL7VuAhMQSfAhxAefg` · STOCK LAB `UC7Rw5HWgKz5njCCciX8IVJQ` (2026-10-16 각 환경 `--check-auth`) |
+| `tools/tests/test_upload_channel.py` (v1.0, 새로) | 5개: 같으면 올리고 채널 기록·확인이 올리기보다 먼저 / 다르면 영상을 보내기 전에 멈춤 / 파일 없으면 올림(unchecked) / dry-run 은 문제로 셈·읽기 1번 / 깨진 파일 멈춤. 예전 v1.6 코드로는 5개 모두 실패, v1.7 로 통과 |
+| `economic/source/upload-test-2026-10-16/` (새로) | `upload.md` v1.0 (9번 결과 표) · `upload-test-2026-10-16.srt` · `youtube.json` (업로드 도구가 씀 — 예약은 지웠으므로 `publishAt: null`, `publishAtTest` 에 기록) |
+| `guides/upload_guide.md` (v1.7 → v1.8) | 9번: 채널 확인, 예약 지울 때 status 칸 전체를 보낼 것 |
+| `guides/status.md` (v1.9 → v1.10) | 1번 표·2-1(환경마다 키가 다름)·2-2 '업로드 시험'·이 환경에서 실제 영상 올리는 길 |
+
+### 검증
+- `cd tools/tests && python3 -m unittest test_upload_channel test_upload_localizations test_pc_upload` → 17개 OK.
+- 전체 `discover`(GITHUB_TOKEN·YouTube 키 지우고): 130개 중 실패 1·오류 9 — **바꾸기 전과 같은 목록** (test_youtube_feedback 5개 = 지운 옛 stock 폴더, analyzer setUpClass 2개·stock_topic·web_tabs = 분석기 시험 환경, `test_configs_default_off(stock)` = 2026-10-16 주식 외국 영상 켬 뒤 낡은 시험). 이번 변경으로 늘어난 실패 없음.
+
+### 못 한 것 · 남은 것
+- 감사 전 API 프로젝트의 '비공개 잠금'은 API 값으로 안 보임 → 사용자가 스튜디오에서 확인. 잠겨 있으면 예약 공개 값은 걸려도 공개되지 않는다.
+- 사용자: 스튜디오에서 확인 뒤 이 영상 지우기. `youtube.json` 은 기록으로 둠.
+- 실제 4편: PC 로 이미 올렸는지 사용자 답을 받은 뒤, 안 올렸으면 이 환경에서 전편 렌더 → `--publish-at +1h`.
+
 ## 2026-10-16 (34) — 재테크 분석을 클라우드에서: 첫 회차 · 캐시 저장소에 · 매일 예약 작업
 
 ### 왜 (사용자 지시)

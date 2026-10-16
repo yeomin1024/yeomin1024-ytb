@@ -1,0 +1,5 @@
+{
+  "channel_id": "UCJ1gjiL7VuAhMQSfAhxAefg",
+  "name": "부자백서",
+  "note": "재테크(economic) 영상을 올릴 채널. tools/youtube_upload.py v1.7 이 키의 채널과 비교해 다르면 올리지 않는다. 확인: 2026-10-16 재테크 클라우드 환경 키 --check-auth"
+}

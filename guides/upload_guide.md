@@ -1,6 +1,6 @@
 # 사연형 설명 영상 — 업로드 지시사항 (공통)
 
-버전: v1.7 — 2026-10-15 — 사용자 지시 "압축본 올린거 삭제하고 구글 드라이브 내 드라이브에 youtube 폴더에 주제 맞는 폴더에 원본 영상 올리고 pc에서 영상 및 환경설정을 받아서 업로드 하는 코드 … 자동 예약 기능도": **11번 = 원본은 Google Drive, 업로드는 PC (`run_uploader.ps1` → `tools/pc_upload.py`, 예약 공개)**, 압축본·Colab(v1.6) 없앰 (v1.6 — 2026-10-15 — 사용자 지시 "영상 만들었으면 각 영상 압축해서 저장소에 올리고 실행하면 해당 영상 유튜브에 자동 예약으로 1시간 후 업로드하는 colab 코드 전체 하나로": **11번 Colab 셀 하나로 예약 업로드** (압축본 `source/<영상ID>/final_1080p.mp4` — `tools/compress_video.py`, 일괄 업로드 `tools/colab_youtube.py`, `youtube_upload.py` v1.4) (v1.5 — 2026-10-12 — 사용자 지시: 올린 영상의 사연을 줄일 때 자를 구간 알려 주기·대본 고치기 → **10번 올린 영상 줄이기 (스튜디오 컷, `tools/studio_trim.py`)** (v1.4 — 2026-10-11 — 사용자 지시: '변경되거나 합성된 콘텐츠'는 **예** (내레이션이 AI 음성, 업로드 도구가 자동 등록) (v1.3: 렌더 완료 1시간 뒤 **예약 공개** (9번); v1.2: API 비공개 자동 업로드, 썸네일 이미지 위치; v1.1: SRT 그대로 업로드, 챕터는 문장 번호))))
+버전: v1.8 — 2026-10-16 — 9번: **올리기 전 채널 확인** — 키 하나 = 채널 하나라서, 키의 채널이 `<주제>/youtube_channel.json` 과 다르면 올리지 않음 (`youtube_upload.py` v1.7 — 재테크 = 부자백서, 주식 = STOCK LAB). 사용자 지시 2026-10-16 "… 부자백서 채널에 업로드 할 환경이야 한번 업로드 잘되는지 데모 영상 만들어서 업로드 테스트해봐". (v1.7 — 2026-10-15 — 사용자 지시 "압축본 올린거 삭제하고 구글 드라이브 내 드라이브에 youtube 폴더에 주제 맞는 폴더에 원본 영상 올리고 pc에서 영상 및 환경설정을 받아서 업로드 하는 코드 … 자동 예약 기능도": **11번 = 원본은 Google Drive, 업로드는 PC (`run_uploader.ps1` → `tools/pc_upload.py`, 예약 공개)**, 압축본·Colab(v1.6) 없앰 (v1.6 — 2026-10-15 — 사용자 지시 "영상 만들었으면 각 영상 압축해서 저장소에 올리고 실행하면 해당 영상 유튜브에 자동 예약으로 1시간 후 업로드하는 colab 코드 전체 하나로": **11번 Colab 셀 하나로 예약 업로드** (압축본 `source/<영상ID>/final_1080p.mp4` — `tools/compress_video.py`, 일괄 업로드 `tools/colab_youtube.py`, `youtube_upload.py` v1.4) (v1.5 — 2026-10-12 — 사용자 지시: 올린 영상의 사연을 줄일 때 자를 구간 알려 주기·대본 고치기 → **10번 올린 영상 줄이기 (스튜디오 컷, `tools/studio_trim.py`)** (v1.4 — 2026-10-11 — 사용자 지시: '변경되거나 합성된 콘텐츠'는 **예** (내레이션이 AI 음성, 업로드 도구가 자동 등록) (v1.3: 렌더 완료 1시간 뒤 **예약 공개** (9번); v1.2: API 비공개 자동 업로드, 썸네일 이미지 위치; v1.1: SRT 그대로 업로드, 챕터는 문장 번호))))
 
 영상이 완성되면 Claude Code가 이 순서대로 **업로드 시트 `<주제폴더>/source/<영상ID>/upload.md`** 를 만든다. 사용자는 이 시트를 보고 YouTube 스튜디오에 그대로 붙여 넣는다.
 주제 전용 규칙 `<주제폴더>/guides/upload_rules.md`(예: `stock/guides/upload_rules.md`)를 함께 읽는다. **이 파일과 다르면 주제 규칙을 따른다.**
@@ -122,6 +122,8 @@ YouTube는 설명란 첫 2줄(약 100자)만 "더보기" 전에 보여 준다. �
 
 - 먼저 `--dry-run`으로 읽은 값과 규칙(제목 100자, 설명란 5,000자, `< >` 금지, 태그 500자)을 확인한다. 문제가 있으면 올리지 않는다.
 - 키: 환경변수 `YOUTUBE_CLIENT_ID`·`YOUTUBE_CLIENT_SECRET`·`YOUTUBE_REFRESH_TOKEN` (`guides/pipeline.md` "처음 한 번 할 일" B). 확인만: `--check-auth`
+- **채널 확인 (v1.7)**: 키(refresh token) 하나는 채널 하나에 올린다. 업로드 도구가 올리기 전에 키의 채널을 `<주제>/youtube_channel.json`(`channel_id`)과 비교해 **다르면 멈춘다** (`--dry-run` 도 키가 있으면 확인). 재테크 `economic` = **부자백서** `UCJ1gjiL7VuAhMQSfAhxAefg`, 주식 `stock` = **STOCK LAB** `UC7Rw5HWgKz5njCCciX8IVJQ`. 클라우드 환경마다 넣은 키가 다르다 (2026-10-16: 재테크 환경 키 = 부자백서, 주식 환경 키 = STOCK LAB). 기록 `youtube.json` 에 `channel`·`channelId`.
+- 예약 공개를 API 로 없애려면 `videos.update`(part=status)에 `publishAt` 을 빼고 보낸다 — 이때 status 칸 전체가 바뀌므로 `publicStatsViewable: true` 등 나머지 값도 함께 보낸다 (2026-10-16 시험: 빼먹으면 `publicStatsViewable` 이 false 로 바뀜).
 - 한 번에 최대 3개 (업로드 할당량).
 - **API로 안 되는 것:** 테스트 및 비교(썸네일 3개·제목), 최종 화면, 자동 더빙 확인 → 스튜디오에서 사용자가 한다. 예약 공개 전 1시간 안에 확인한다.
 - ⚠️ Google 감사를 받지 않은 API 프로젝트로 올린 영상은 비공개로 잠긴다. 공개하려면 감사를 신청하거나, 스튜디오에서 mp4를 직접 올린다.
@@ -189,6 +191,7 @@ powershell -ExecutionPolicy Bypass -File run_uploader.ps1 -UnregisterTask       
 
 | 버전 | 날짜 | 변경 내용 |
 |---|---|---|
+| v1.8 | 2026-10-16 | 사용자 지시(재테크 업로드 시험): 올리기 전 채널 확인 `<주제>/youtube_channel.json` (`youtube_upload.py` v1.7), 예약 지우기 주의 | 9 |
 | v1.7 | 2026-10-15 | 사용자 지시: 압축본·Colab 없앰 → 원본은 Google Drive `youtube/<주제>/`, PC 업로더(`run_uploader.ps1`·`tools/pc_upload.py` v1.0, `drive_videos.py` v1.0, `youtube_auth.py` v1.2 Drive 권한, `youtube_upload.py` v1.5)가 GitHub 설정 + Drive 원본으로 비공개 업로드·예약 공개·자동 업로드(-RegisterTask) | 11 |
 | v1.6 | 2026-10-15 | 사용자 지시: 압축본을 저장소에 올리고 Colab 셀 하나로 비공개 업로드 + 1시간 뒤 예약 공개 (`compress_video.py` v1.0, `colab_youtube.py` v1.0, `youtube_upload.py` v1.4) | 11 |
 | v1.5 | 2026-10-12 | 사용자 지시: 올린 영상의 사연 줄이기 — 스튜디오 '새 컷'으로 문장 빼기, 자를 시각 계산·대본/SRT/챕터 맞추기 (`tools/studio_trim.py` v1.0) | 10 |

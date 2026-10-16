@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.6 — 2026-10-15 — 언어별 제목·설명(localizations)·기본 언어·자막 올리기 여부를 업로드 시트에서 읽음 (사용자 지시 2026-10-15
+# VERSION: v1.7 — 2026-10-16 — 올리기 전 채널 확인: 키의 채널(channels?mine=true)이 <주제>/youtube_channel.json 의 channel_id 와 다르면
+#          멈춘다 (업로드 안 함). 클라우드 환경마다 키가 달라서(주식 환경 = STOCK LAB, 재테크 환경 = 부자백서 — 2026-10-16 확인) 재테크 영상이
+#          다른 채널에 올라갈 수 있었음. 사용자 지시 2026-10-16 "재테크 … 영상을 만들어 부자백서 채널에 업로드 할 환경이야 한번 업로드 잘되는지
+#          데모 영상 만들어서 업로드 테스트해봐". --dry-run 도 키가 있으면 확인(읽기 1단위). youtube.json 에 channel·channelId 를 적음.
+# (v1.6 — 2026-10-15 — 언어별 제목·설명(localizations)·기본 언어·자막 올리기 여부를 업로드 시트에서 읽음 (사용자 지시 2026-10-15
 #          "주식 주제는 전세계 사람들 대상으로 할거니까 영상에 자막 달지말고 … 유튜브 이용자가 가장 많은 국가 선정(영어, 한국어 포함)해서
 #          그 언어로 제목 각각 만들어"): upload.md '언어별 제목·설명' 섹션의 JSON 코드 블록 → snippet.defaultLanguage + localizations
-#          (part=snippet,status,localizations), 업로드 설정 '| 자막 올리기 | 아니요 |' → 자막을 올리지 않음, '| 기본 언어 | ko |'.
+#          (part=snippet,status,localizations), 업로드 설정 '| 자막 올리기 | 아니요 |' → 자막을 올리지 않음, '| 기본 언어 | ko |'.)
 # (v1.5 — 2026-10-15 — 사용자 지시 "압축본 올린거 삭제하고 구글 드라이브 … youtube 폴더에 주제 맞는 폴더에 원본 영상 올리고 pc에서 영상 및
 #          환경설정을 받아서 업로드 하는 코드": 압축본(source/) 찾기를 없앰 — 올릴 영상은 out/<영상ID>/final_1080p.mp4 또는 --video
 #          (PC 업로더 tools/pc_upload.py 가 Drive 원본을 받아 넘김). 썸네일 변환: ffmpeg 가 없으면(윈도 PC) Pillow 로, 둘 다 없으면
@@ -22,6 +26,8 @@ r"""
 
 필요한 환경변수 (클라우드 환경 설정 — 값은 출력·커밋하지 않음):
   YOUTUBE_CLIENT_ID, YOUTUBE_CLIENT_SECRET, YOUTUBE_REFRESH_TOKEN   ← tools/youtube_auth.py 로 한 번 발급
+  키 하나 = 채널 하나. (v1.7) <주제>/youtube_channel.json {"channel_id": "UC…", "name": "…"} 와 키의 채널이 다르면 올리지 않는다
+  (파일이 없으면 확인 없이 올리고 로그에 'unchecked').
 
 읽는 파일 (<주제폴더>/ 기준):
   source/<영상ID>/upload.md          1번 제목 · 2번 설명란 · 3번 챕터 명령(--chapters) · 4번 태그 (각 섹션의 첫 코드 블록)
@@ -301,13 +307,48 @@ def upload_thumbnail(token, video_id, img):
             data=img.read_bytes(), headers={"Content-Type": ctype})
 
 
-def check_auth():
-    token = access_token()
+def mine_channel(token):
+    """키(refresh token)가 올릴 채널 → (channel_id, 채널 이름). channels.list 1단위."""
     _, _, resp = request("GET", f"{API}/channels?part=snippet&mine=true", token)
     items = resp.get("items", [])
     if not items:
         raise SystemExit("[AUTH] ❌ 이 계정에 유튜브 채널이 없습니다")
-    log("AUTH", status="ok", channel=items[0]["snippet"]["title"], channel_id=items[0]["id"])
+    return items[0]["id"], items[0]["snippet"]["title"]
+
+
+def check_auth():
+    cid, title = mine_channel(access_token())
+    log("AUTH", status="ok", channel=title, channel_id=cid)
+
+
+def expected_channel(topic):
+    """v1.7: <주제>/youtube_channel.json → {"channel_id": "UC…", "name": …} 또는 None(파일 없음 — 확인 안 함)."""
+    p = ROOT / topic / "youtube_channel.json"
+    if not p.exists():
+        return None
+    try:
+        data = json.loads(p.read_text("utf-8"))
+    except json.JSONDecodeError as e:
+        raise SystemExit(f"[CHANNEL] ❌ {p.relative_to(ROOT)} JSON 이 깨짐: {e}")
+    if not str(data.get("channel_id", "")).startswith("UC"):
+        raise SystemExit(f"[CHANNEL] ❌ {p.relative_to(ROOT)} 에 channel_id(UC…)가 없음")
+    return data
+
+
+def check_channel(topic, token):
+    """v1.7: 키의 채널이 이 주제의 채널인지. 다르면 멈춘다 (다른 채널에 올라가는 것을 막음). → (channel_id, 이름)."""
+    cid, title = mine_channel(token)
+    want = expected_channel(topic)
+    if want is None:
+        log("CHANNEL", status="unchecked", topic=topic, channel=title, channel_id=cid,
+            note=f"{topic}/youtube_channel.json 없음 → 이 주제 채널이 맞는지 확인 안 함")
+        return cid, title
+    if cid != want["channel_id"]:
+        raise SystemExit(f"[CHANNEL] ❌ 키의 채널 = {title} ({cid}), {topic} 채널 = {want.get('name', '?')} ({want['channel_id']}) "
+                         f"→ 다른 채널에 올라가므로 멈춤 (업로드 안 함). {want.get('name', topic)} 채널 키로 바꾸거나 "
+                         f"{topic}/youtube_channel.json 을 확인")
+    log("CHANNEL", status="ok", topic=topic, channel=title, channel_id=cid)
+    return cid, title
 
 
 def paired_thumbnail(topic, vid):
@@ -431,6 +472,14 @@ def run(topic, vid, dry_run=False, privacy="private", force=False, no_captions=F
             publish_at_kst=dt.datetime.fromisoformat(publish_at.replace("Z", "+00:00")).astimezone(kst).strftime("%Y-%m-%d %H:%M"),
             note="비공개로 올리고 이 시각에 자동 공개 (감사 전 API 프로젝트는 비공개 잠금이라 공개되지 않을 수 있음)")
     if dry_run:
+        if all(os.environ.get(k, "").strip() for k in ("YOUTUBE_CLIENT_ID", "YOUTUBE_CLIENT_SECRET", "YOUTUBE_REFRESH_TOKEN")):
+            try:                                     # v1.7 키가 있으면 채널도 확인 (읽기만)
+                check_channel(topic, access_token())
+            except SystemExit as e:
+                problems.append(str(e))
+                log("CHECK", problem=str(e))
+        else:
+            log("CHANNEL", status="skip", reason="dry-run · 키 없음 → 채널 확인 안 함")
         print(f"\n제목: {meta['title']}\n태그: {', '.join(meta['tags'])}\n--- 설명란 ---\n{meta['description']}\n---")
         for lang, loc in meta["localizations"].items():
             print(f"[{lang}] {loc['title']}")
@@ -440,11 +489,13 @@ def run(topic, vid, dry_run=False, privacy="private", force=False, no_captions=F
         raise SystemExit(f"[CHECK] ❌ 문제 {len(problems)}개 → 고친 뒤 다시 실행 (업로드 안 함)")
 
     token = access_token()
+    channel_id, channel_title = check_channel(topic, token)      # v1.7 다른 채널이면 여기서 멈춤
     log("UPLOAD", video=vid, privacy="private(예약 공개)" if publish_at else privacy, size_mb=f"{video_path.stat().st_size / 1e6:.1f}")
     video_id = upload_video(token, video_path, meta, privacy, publish_at)
     log("UPLOAD", status="ok", youtube_id=video_id, url=f"https://youtu.be/{video_id}")
     result = {"videoId": video_id, "url": f"https://youtu.be/{video_id}",
-              "studio": f"https://studio.youtube.com/video/{video_id}/edit", "privacy": "private" if publish_at else privacy,
+              "studio": f"https://studio.youtube.com/video/{video_id}/edit", "channel": channel_title, "channelId": channel_id,
+              "privacy": "private" if publish_at else privacy,
               "publishAt": publish_at, "containsSyntheticMedia": bool(meta["synthetic"]),
               "uploadedAt": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
               "title": meta["title"], "localizations": sorted(meta["localizations"]), "videoFile": str(video_path.name), "videoSha256": sha256(video_path),

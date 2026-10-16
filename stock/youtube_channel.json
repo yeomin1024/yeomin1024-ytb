@@ -1,0 +1,5 @@
+{
+  "channel_id": "UC7Rw5HWgKz5njCCciX8IVJQ",
+  "name": "STOCK LAB",
+  "note": "주식(stock) 영상을 올릴 채널 (2026-10-16 채널 이름은 아직 '편안한 음악 Relaxing Music' — 사용자: 이름을 아직 안 바꿈). tools/youtube_upload.py v1.7 이 키의 채널과 비교해 다르면 올리지 않는다. 확인: 2026-10-16 주식 클라우드 환경 키 --check-auth (stock/source/upload-test-2026-10-16/upload.md 9번)"
+}

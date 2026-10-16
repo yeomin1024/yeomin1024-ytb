@@ -1,0 +1,97 @@
+{
+ "id": "lm2URqHD1nY",
+ "title": "\"지금이 가장 저렴하다\" 전쟁 직후 의외로 수혜 볼 국내 주식ㅣ지식인초대석 EP.123 (이선엽 대표 1부)",
+ "channel": "지식인사이드",
+ "channel_id": "UCA_hgsFzmynpv1zkvA5A7jA",
+ "subs": 4120000,
+ "views": 3156961,
+ "ratio": 0.77,
+ "age_days": 181,
+ "views_per_day": 17441.8,
+ "minutes": 35.7,
+ "likes": 44000,
+ "comments": 1510,
+ "published": "2026-04-18",
+ "queries": "검색:주식 | 검색:주식투자 | 검색:주식초보",
+ "url": "https://www.youtube.com/watch?v=lm2URqHD1nY",
+ "flag": "",
+ "published_at": "2026-04-18T01:00:47Z",
+ "rank": "W29",
+ "set": "web",
+ "folder": "W_lm2URqHD1nY",
+ "sources": [
+  "검색:주식",
+  "검색:주식투자",
+  "검색:주식초보"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 27,
+   "title": "구독자 인사"
+  },
+  {
+   "start": 122,
+   "title": "롤러코스터 장세 곧 끝나는 ‘3가지’ 이유"
+  },
+  {
+   "start": 293,
+   "title": "중동 전쟁에서 미국이 손해볼 수밖에 없는 이유"
+  },
+  {
+   "start": 474,
+   "title": "변동성장에서 개인 투자자가 살아남는 법"
+  },
+  {
+   "start": 532,
+   "title": "강세장에서도 돈 지키는 ‘1가지’ 철칙"
+  },
+  {
+   "start": 632,
+   "title": "전쟁 끝나면 주식 오를 수밖에 없는 이유"
+  },
+  {
+   "start": 824,
+   "title": "이란 전쟁보다 AI가 1,000배는 더 중요합니다"
+  },
+  {
+   "start": 1033,
+   "title": "한국 반도체 비싸졌어도 아직 고점 아닌 이유"
+  },
+  {
+   "start": 1347,
+   "title": "전쟁 직후 의외로 수혜를 볼 국내 주식 종목"
+  },
+  {
+   "start": 1573,
+   "title": "외국인 투자자들 국장 돌아올 수밖에 없는 이유"
+  },
+  {
+   "start": 1777,
+   "title": "전쟁 났는데 금값 떨어진 진짜 이유"
+  },
+  {
+   "start": 1942,
+   "title": "불확실한 시장에도 돈 버는 길은 있습니다"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 1510,
+ "comments_top_level": 1006,
+ "comments_replies": 504,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 1510,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T07:20:19",
+ "approved": "2026-10-16T16:20+09:00"
+}

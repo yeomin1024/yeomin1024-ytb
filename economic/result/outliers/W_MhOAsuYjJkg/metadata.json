@@ -1,0 +1,81 @@
+{
+ "id": "MhOAsuYjJkg",
+ "title": "10억이 되면 생기는 일(누구도 알려주지 않는 진짜 현실)",
+ "channel": "탐구하는 변호사 송현영",
+ "channel_id": "UCJj9szk711WNfha-ukbaWQw",
+ "subs": 9680,
+ "views": 507851,
+ "ratio": 52.46,
+ "age_days": 170,
+ "views_per_day": 2987.4,
+ "minutes": 14.0,
+ "likes": 9556,
+ "comments": 1146,
+ "published": "2026-04-28",
+ "queries": "검색:1억모으기",
+ "url": "https://www.youtube.com/watch?v=MhOAsuYjJkg",
+ "flag": "",
+ "published_at": "2026-04-28T10:00:00Z",
+ "rank": "W4",
+ "set": "web",
+ "folder": "W_MhOAsuYjJkg",
+ "sources": [
+  "검색:1억모으기"
+ ],
+ "source": "web",
+ "tags": [
+  "부자",
+  "부자되기",
+  "10덩ㄱ",
+  "10억ㅇ",
+  "100억",
+  "100억ㅂ주",
+  "100억부잗",
+  "순자산",
+  "자산관리",
+  "자산모으기",
+  "10억주식",
+  "10억쥬식",
+  "10어구탖"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "10억 원, 생각보다 작은 돈일까?"
+  },
+  {
+   "start": 36,
+   "title": "순자산 vs 금융자산, 10억의 진짜 위치"
+  },
+  {
+   "start": 151,
+   "title": "왜 10억이 작게 느껴지는가"
+  },
+  {
+   "start": 242,
+   "title": "10억이 되면 생기는 인생의 변화"
+  },
+  {
+   "start": 528,
+   "title": "부자들이 자산을 키우는 실제 경로"
+  },
+  {
+   "start": 755,
+   "title": "10억을 만드는 과정에서 절대 놓치면 안 되는 것"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "zxx",
+ "foreign": false,
+ "comments_fetched": 1146,
+ "comments_top_level": 593,
+ "comments_replies": 553,
+ "comments_by_creator": 3,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 1146,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T07:17:58",
+ "approved": "2026-10-16T16:18+09:00"
+}

@@ -31,6 +31,39 @@
 | `guides/` | (분석 뒤) 주제 규칙 `data_insights.md`·`script_rules.md`·`title_rules.md`·`thumbnail_rules.md`·`upload_rules.md` |
 | `source/<영상ID>/` | (주제를 고른 뒤) 영상별 대본·자막·제목·썸네일 프롬프트·업로드 시트·요약 |
 
+## 클라우드에서 분석 (2026-10-16 — `tools/cloud_run.py`)
+
+사용자 지시 2026-10-16: "이 환경은 이제 저장소에 있는 재테크 주제 (economic 경로)를 유튜브 분석 코드 실행해서 분석하는 환경이야 기존 분석 결과에 이어서 한번 해보고 사용량 초기화 될때마다 분석을 계속 이어서하면 돼 캐시를 저장소에 남겨서 분석 이어서 할 수 있게 하고"
+
+웹 화면(`tools/web_ui.py`)의 작업 함수를 그대로 부르므로 분석·추천(체크)·할당량 계산은 PC 와 같다. 명령 설명은 `stock/README.md` '클라우드에서 분석' (주제 이름만 `economic`).
+
+```bash
+python3 tools/cloud_run.py economic status                      # 할당량·탐색 목록·승인 수·남은 것
+python3 tools/cloud_run.py economic resume                      # 할당량 때문에 남은 탐색·댓글·채널 기준선
+python3 tools/cloud_run.py economic explore --weeks 26          # 롱폼 탐색 (PC 결과와 같은 26주 — 승인 영상이 25주에 걸침)
+python3 tools/cloud_run.py economic explore --shorts --weeks 26 # 쇼츠 탐색
+python3 tools/cloud_run.py economic list --checked              # 새 추천 (이미 분석에 쓴 영상은 숨김)
+python3 tools/cloud_run.py economic approve                     # 추천 승인 → 자료·주별·성공 사례 분석
+python3 tools/cloud_run.py economic analyze                     # 롱폼·쇼츠 분석 다시 (할당량 0)
+```
+
+- **매일 이어서**: 예약 작업 '재테크 분석 이어서 (할당량 초기화 뒤 매일)' — 태평양 자정 +15분(한국 16:15, 서머타임 끝나면 17:15)에 이 클라우드 세션을 깨워 위 순서로 돌리고 main 에 올린다 (`guides/status.md` 2-3).
+- **캐시**: `economic/cloud_cache/cache.tgz` (+ 목록 `cache.json`) = `result/outliers/.cache`(검색·영상 정보·채널 업로드 목록·자동완성·쇼츠) + `result/web`(탐색 목록·체크·승인 목록). 명령 뒤 저절로 묶고 새 컨테이너에서 저절로 풂.
+- ⚠️ **PC 웹 화면에서 재테크 탭을 켜지 않는다** — PC 가 자기 `economic/result/outliers/` 로 GitHub 것을 통째로 바꿔 클라우드가 받은 사례 폴더(`W_…`)가 지워짐 (`guides/pc_analysis.md` '클라우드에서 돌리기'). 음성인식은 그래서 보류.
+- 자막은 클라우드에서 대부분 못 받는다 (YouTube 가 `www.google.com/sorry` 봇 확인으로 돌려보냄 → `ProxyError`) — 영상 설명으로 대신 분석 (글 출처 '설명' = 대본 근거로 쓰지 않음).
+
+### 첫 회차 기록 (2026-10-16 16:11~16:24 한국, 할당량 9,800 중 9,624단위)
+
+| 단계 | 결과 | 단위 |
+|---|---|---|
+| 시작 상태 | git 에 PC 결과(승인 롱폼 280·쇼츠 154, 성공 사례 162)만 있고 탐색 목록·캐시(`result/web`·`.cache`)는 PC 에만 → 새로 만듦 | — |
+| `baseline` | 채널 평소 영상 141곳 + 채널 평소 쇼츠 102곳 | 486 |
+| `explore --weeks 26` | 검색 72번(36개 × 4~20분·20분 넘음) 모두, 영상 1,907개, 뺀 것 외국 233·라이브 264, 체크 223 (이미 분석에 쓴 232개 숨기면 새 추천 31) | 7,261 |
+| `approve` (새 추천 31) | 자막 4 · 영상 설명으로 대신 26 · 글 없음 1, 댓글 전부(받기 끝남), 새 채널 기준선 18곳 | 358 |
+| `analyze` | 롱폼: 승인 311 · **성공 사례 162 → 182** · 비교 집단 689 → 743 · 같은 채널 기준선 성공 사례 174/182 · 수요공급 시장 754 → 711 · 자동완성 말 282 → 285 | 0 |
+| `explore --shorts --weeks 26` | 쇼츠 검색 36개 중 15개 (남은 21개는 다음 초기화 뒤), 쇼츠 548개 | 1,519 |
+| 쇼츠 분석 | **PC 결과 그대로 둠** — 쇼츠 탐색 캐시 없이 다시 세면 비교 집단 574 → 97 (성공 비율 75%)·수요공급 '자료 없음'이 되어 되돌림. 쇼츠 탐색이 끝난 날 다시 | 0 |
+
 ## 다음 할 일
-1. **분석 (사용자, 집 PC):** [`guides/pc_analysis.md`](../guides/pc_analysis.md) — `run_analyzer.ps1` 한 번 실행. 할당량이 모자라면 다음 날(한국 오후 4~5시 초기화 뒤) 자동으로 이어서 돈다. 자막·썸네일은 PC에서만 받힌다.
+1. **분석:** 2026-10-16 부터 **클라우드가 매일 이어서** (위 '클라우드에서 분석' — 예약 작업). PC `run_analyzer.ps1` 은 그동안 켜지 않는다. (예전: [`guides/pc_analysis.md`](../guides/pc_analysis.md) — PC 에서 한 번 실행, 할당량이 모자라면 다음 날 한국 오후 4~5시 초기화 뒤 자동으로 이어서.)
 2. 분석이 끝나면(GitHub `economic/result/pc_progress.json`의 `complete: true`) Claude에게: "economic 분석 끝났어, 결과로 지시사항이랑 주제 만들어줘" → `guides/pipeline.md` 2단계부터.

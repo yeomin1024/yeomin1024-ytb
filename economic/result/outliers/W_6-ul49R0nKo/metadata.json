@@ -1,0 +1,115 @@
+{
+ "id": "6-ul49R0nKo",
+ "title": "요즘 대세 이선민, 강남 아파트는 77세에?! | 돈쭐청문회 EP.1",
+ "channel": "채널크크",
+ "channel_id": "UCoIWFmdeqJ3Jm--aURISNVA",
+ "subs": 19000,
+ "views": 79137,
+ "ratio": 4.17,
+ "age_days": 7,
+ "views_per_day": 11305.3,
+ "minutes": 14.2,
+ "likes": 199,
+ "comments": 25,
+ "published": "2026-10-08",
+ "queries": "검색:자산관리",
+ "url": "https://www.youtube.com/watch?v=6-ul49R0nKo",
+ "flag": "",
+ "published_at": "2026-10-08T09:00:38Z",
+ "rank": "W26",
+ "set": "web",
+ "folder": "W_6-ul49R0nKo",
+ "sources": [
+  "검색:자산관리"
+ ],
+ "source": "web",
+ "tags": [
+  "이선민",
+  "대세 이선민",
+  "퍼스트펭귄",
+  "강남아파트",
+  "부동산",
+  "투자",
+  "주식",
+  "절세",
+  "연금저축",
+  "펀드",
+  "절세계좌",
+  "키움증권",
+  "채널크크",
+  "절약",
+  "자산관리",
+  "연말정산",
+  "재테크",
+  "박영진",
+  "남현승",
+  "돈쭐청문회",
+  "임장",
+  "IRP",
+  "ISA"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "돈쭐청문회 개회!"
+  },
+  {
+   "start": 74,
+   "title": "SBS vs KBS, 공채 개그맨 신경전"
+  },
+  {
+   "start": 103,
+   "title": "SBS 공채 합격의 비밀, 과거가 화려한 목사님"
+  },
+  {
+   "start": 271,
+   "title": "이선민이 생각하는 본인의 매력 포인트"
+  },
+  {
+   "start": 290,
+   "title": "아버지 밭 300평, 이선민은 금수저?"
+  },
+  {
+   "start": 326,
+   "title": "유튜브 고정만 10개! 요즘 대세 이선민"
+  },
+  {
+   "start": 356,
+   "title": "강남 아파트는 언제쯤..? 계산해보니 77세?"
+  },
+  {
+   "start": 411,
+   "title": "이선민의 시계 가격은?"
+  },
+  {
+   "start": 470,
+   "title": "돈쭐 개념 체크! 밸런스 게임"
+  },
+  {
+   "start": 492,
+   "title": "이선민의 재산 포트폴리오 공개"
+  },
+  {
+   "start": 604,
+   "title": "ISA는 뭐의 약자?"
+  },
+  {
+   "start": 742,
+   "title": "ISA 비과세 혜택과 분리과세"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 25,
+ "comments_top_level": 22,
+ "comments_replies": 3,
+ "comments_by_creator": 2,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 25,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T07:20:10",
+ "approved": "2026-10-16T16:20+09:00"
+}

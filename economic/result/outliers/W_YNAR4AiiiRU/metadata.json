@@ -1,0 +1,101 @@
+{
+ "id": "YNAR4AiiiRU",
+ "title": "\"강세장에 취하지 마세요.\" 주식 고수들이 주목하는 시그널ㅣ지식인초대석: 합석 EP.5 (이선엽 X 윤지호)",
+ "channel": "지식인사이드",
+ "channel_id": "UCA_hgsFzmynpv1zkvA5A7jA",
+ "subs": 4120000,
+ "views": 1860904,
+ "ratio": 0.45,
+ "age_days": 139,
+ "views_per_day": 13387.8,
+ "minutes": 41.9,
+ "likes": 33225,
+ "comments": 1365,
+ "published": "2026-05-29",
+ "queries": "검색:주식 | 검색:투자 | 검색:주식투자",
+ "url": "https://www.youtube.com/watch?v=YNAR4AiiiRU",
+ "flag": "",
+ "published_at": "2026-05-29T09:00:15Z",
+ "rank": "W31",
+ "set": "web",
+ "folder": "W_YNAR4AiiiRU",
+ "sources": [
+  "검색:주식",
+  "검색:투자",
+  "검색:주식투자"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 31,
+   "title": "구독자 인사"
+  },
+  {
+   "start": 92,
+   "title": "코스피 1만이 정말 먼 미래가 아닌 이유"
+  },
+  {
+   "start": 210,
+   "title": "‘이미 많이 올랐는데..’ 지금 국장 들어가도 될까?"
+  },
+  {
+   "start": 474,
+   "title": "초 강세장에서의 전략은 ‘이렇게’ 가져가세요"
+  },
+  {
+   "start": 696,
+   "title": "‘휴가는 포기하세요’ 올여름 역대급 투자 기회 온다"
+  },
+  {
+   "start": 859,
+   "title": "주식이 고점인지 아닌지 판단하는 ‘1가지’ 신호"
+  },
+  {
+   "start": 1048,
+   "title": "‘상승장에 취하지 마세요’ 모두가 신났을 때 봐야할 것"
+  },
+  {
+   "start": 1399,
+   "title": "호르무즈 다음은 대만? 미중 회담이 준 시그널"
+  },
+  {
+   "start": 1661,
+   "title": "200만원 하이닉스가 30만원 삼전보다 싼 이유"
+  },
+  {
+   "start": 1849,
+   "title": "오를 기업은 이 ‘2가지’ 지표에서 딱 보입니다"
+  },
+  {
+   "start": 1980,
+   "title": "3년 뒤, 크게 먹을 사람이 지금 보는 ‘1가지’"
+  },
+  {
+   "start": 2059,
+   "title": "초보자가 1천만원으로 할 수 있는 최고의 투자"
+  },
+  {
+   "start": 2326,
+   "title": "‘제발 상식적으로 하세요’ 의외로 단순한 투자의 본질"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 1365,
+ "comments_top_level": 948,
+ "comments_replies": 417,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 1365,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T07:20:36",
+ "approved": "2026-10-16T16:20+09:00"
+}

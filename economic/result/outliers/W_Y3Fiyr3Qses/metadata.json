@@ -1,0 +1,94 @@
+{
+ "id": "Y3Fiyr3Qses",
+ "title": "시흥 배곧 신도시의 몰락? 대출 없던 내 집 팔고 5억 빚 냈다가 4년 만에 전재산 날린 택시기사 이야기! | 노후자금사연 | 오디오북",
+ "channel": "은빛시나리오",
+ "channel_id": "UCowMNQXcxSJJ7Kyc41Q4Pzw",
+ "subs": 29300,
+ "views": 141473,
+ "ratio": 4.83,
+ "age_days": 170,
+ "views_per_day": 832.2,
+ "minutes": 43.7,
+ "likes": 3188,
+ "comments": 512,
+ "published": "2026-04-28",
+ "queries": "검색:노후자금",
+ "url": "https://www.youtube.com/watch?v=Y3Fiyr3Qses",
+ "flag": "",
+ "published_at": "2026-04-28T22:00:45Z",
+ "rank": "W24",
+ "set": "web",
+ "folder": "W_Y3Fiyr3Qses",
+ "sources": [
+  "검색:노후자금"
+ ],
+ "source": "web",
+ "tags": [
+  "시흥아파트",
+  "배곧신도시",
+  "노후파산",
+  "부동산투자",
+  "은퇴자금",
+  "은퇴후삶",
+  "노후대비",
+  "노후사연",
+  "노후준비",
+  "은빛시나리오",
+  "오디오북",
+  "노후자금사연",
+  "시니어사연",
+  "시니어드라마"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 120,
+   "title": "Chapter 1. 2억짜리 내 집, 그 소박했던 천국"
+  },
+  {
+   "start": 480,
+   "title": "Chapter 2. \"제2의 송도\"라는 달콤한 유혹"
+  },
+  {
+   "start": 840,
+   "title": "Chapter 3. 5억 원의 족쇄, 승부수를 던지다"
+  },
+  {
+   "start": 1200,
+   "title": "Chapter 4. 32층 바다 뷰, 신기루의 시작"
+  },
+  {
+   "start": 1560,
+   "title": "Chapter 5. 학생들이 없는 대학로, 멈춰버린 호재"
+  },
+  {
+   "start": 1920,
+   "title": "Chapter 6. 퍼펙트 스톰, 이자의 습격"
+  },
+  {
+   "start": 2400,
+   "title": "Chapter 7. 10억이 5억으로.. 4년 만에 증발한 인생"
+  },
+  {
+   "start": 2820,
+   "title": "Chapter 8. 낡은 내 집 한 채가 천국이었습니다"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 512,
+ "comments_top_level": 236,
+ "comments_replies": 276,
+ "comments_by_creator": 217,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 512,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T07:20:03",
+ "approved": "2026-10-16T16:20+09:00"
+}

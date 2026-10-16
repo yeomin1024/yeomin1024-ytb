@@ -1,0 +1,19 @@
+{
+ "tool": "cloud_run.py v1.2",
+ "topic": "economic",
+ "saved": "2026-10-16T16:23:37+09:00",
+ "why": "explore",
+ "files": 14782,
+ "bytes_raw": 33857288,
+ "bytes_tgz": 16393477,
+ "sha256": "b671bc623cde87e8c5963153d901b40dfd39a85facb2c7ebd90e8c489771d701",
+ "kinds": {
+  "autocomplete.json": 1,
+  "channels.json": 1,
+  "search": 72,
+  "shorts": 5585,
+  "uploads": 159,
+  "video": 8961,
+  "web": 3
+ }
+}

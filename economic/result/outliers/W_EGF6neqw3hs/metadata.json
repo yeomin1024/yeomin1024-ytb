@@ -1,0 +1,113 @@
+{
+ "id": "EGF6neqw3hs",
+ "title": "2026년 대한민국 자산별 8계급, 여러분은 몇 층에 계신가요?",
+ "channel": "경제왕토끼",
+ "channel_id": "UCAjzp7zDnyxMqR3kOfFd78g",
+ "subs": 32000,
+ "views": 379678,
+ "ratio": 11.86,
+ "age_days": 173,
+ "views_per_day": 2194.7,
+ "minutes": 27.6,
+ "likes": 5446,
+ "comments": 655,
+ "published": "2026-04-26",
+ "queries": "검색:부자",
+ "url": "https://www.youtube.com/watch?v=EGF6neqw3hs",
+ "flag": "",
+ "published_at": "2026-04-26T02:53:35Z",
+ "rank": "W13",
+ "set": "web",
+ "folder": "W_EGF6neqw3hs",
+ "sources": [
+  "검색:부자"
+ ],
+ "source": "web",
+ "tags": [
+  "#한국자산등급",
+  "#순자산",
+  "#상위10퍼센트",
+  "#가계금융복지조사",
+  "#부자기준",
+  "#노후현금흐름",
+  "#노인빈곤율",
+  "#강남3구",
+  "#30대자산",
+  "#서울아파트",
+  "#자산양극화",
+  "#한국부자",
+  "#월배당",
+  "#노후준비",
+  "#경제유튜브",
+  "#50대자산",
+  "#노후"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "\"통장에 얼마 있어야 부자죠?\""
+  },
+  {
+   "start": 36,
+   "title": "측정 기준은 단 한 줄, 순자산"
+  },
+  {
+   "start": 84,
+   "title": "평균 4.7억 vs 중위 2.4억의 함정"
+  },
+  {
+   "start": 136,
+   "title": "1~3층, 한국 가구 절반이 사는 자리"
+  },
+  {
+   "start": 242,
+   "title": "4~6층, 절벽이 시작되는 자리"
+  },
+  {
+   "start": 412,
+   "title": "2025년, 30대만 자산이 줄었습니다"
+  },
+  {
+   "start": 591,
+   "title": "7~8층, 한국 부자 1%의 풍경"
+  },
+  {
+   "start": 775,
+   "title": "자산이 많은데 왜 다들 빠듯할까"
+  },
+  {
+   "start": 873,
+   "title": "OECD 1위, 노인 빈곤율 36.1%"
+  },
+  {
+   "start": 989,
+   "title": "진짜 부자의 기준 — 현금흐름"
+  },
+  {
+   "start": 1216,
+   "title": "A씨 vs B씨 60대, 같은 자산층 다른 노후"
+  },
+  {
+   "start": 1490,
+   "title": "오늘 영상 핵심 4가지 정리"
+  },
+  {
+   "start": 1533,
+   "title": "본인 등급 다시 점검하는 3가지 행동지침"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 655,
+ "comments_top_level": 375,
+ "comments_replies": 280,
+ "comments_by_creator": 36,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 655,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T07:19:16",
+ "approved": "2026-10-16T16:19+09:00"
+}

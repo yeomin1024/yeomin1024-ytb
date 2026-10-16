@@ -1,0 +1,77 @@
+{
+ "id": "Lq9aJXT9UiY",
+ "title": "상위 1% 자산가들의 은퇴 시나리오, 30년 동안 마르지 않는 현금 창출의 비밀",
+ "channel": "맛스토리",
+ "channel_id": "UCl0FrjxBbrAhjqMi3UUOOoQ",
+ "subs": 3000,
+ "views": 29078,
+ "ratio": 9.69,
+ "age_days": 178,
+ "views_per_day": 163.4,
+ "minutes": 15.7,
+ "likes": 404,
+ "comments": 5,
+ "published": "2026-04-20",
+ "queries": "검색:자산배분",
+ "url": "https://www.youtube.com/watch?v=Lq9aJXT9UiY",
+ "flag": "",
+ "published_at": "2026-04-20T22:00:32Z",
+ "rank": "W16",
+ "set": "web",
+ "folder": "W_Lq9aJXT9UiY",
+ "sources": [
+  "검색:자산배분"
+ ],
+ "source": "web",
+ "tags": [
+  "퇴직금",
+  "은퇴후 삶",
+  "은퇴",
+  "투자",
+  "경제"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "은퇴 후 주식을 다 팔면 벌어지는 끔찍한 일"
+  },
+  {
+   "start": 98,
+   "title": "수명 100세 시대, 주식 비중 '최소 40%'의 비밀"
+  },
+  {
+   "start": 171,
+   "title": "평생 마르지 않는 현금흐름 만들기 (채권+바벨 전략)"
+  },
+  {
+   "start": 262,
+   "title": "은퇴 후 30년 버티는 생존율 98%의 비밀 '현금 버퍼'"
+  },
+  {
+   "start": 350,
+   "title": "내 자산 규모에 맞는 완벽한 황금 비율 찾기"
+  },
+  {
+   "start": 435,
+   "title": "2026년 필수 대체자산 (금, 비트코인)과 리밸런싱"
+  },
+  {
+   "start": 515,
+   "title": "상위 1% 투자자들이 지키는 절대 원칙 3가지"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 5,
+ "comments_top_level": 3,
+ "comments_replies": 2,
+ "comments_by_creator": 2,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 5,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T07:19:29",
+ "approved": "2026-10-16T16:19+09:00"
+}

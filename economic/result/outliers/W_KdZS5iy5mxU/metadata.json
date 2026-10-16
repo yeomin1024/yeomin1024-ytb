@@ -1,0 +1,96 @@
+{
+ "id": "KdZS5iy5mxU",
+ "title": "1억 모으는 동안 제가 절대 안 쓴 것들",
+ "channel": "돈모으는 단곰",
+ "channel_id": "UC1g62GjxCa1qgc1KuPbjfYQ",
+ "subs": 17900,
+ "views": 426314,
+ "ratio": 23.82,
+ "age_days": 57,
+ "views_per_day": 7479.2,
+ "minutes": 9.9,
+ "likes": 6136,
+ "comments": 525,
+ "published": "2026-08-19",
+ "queries": "검색:돈모으기 | 검색:1억모으기",
+ "url": "https://www.youtube.com/watch?v=KdZS5iy5mxU",
+ "flag": "",
+ "published_at": "2026-08-19T11:35:50Z",
+ "rank": "W11",
+ "set": "web",
+ "folder": "W_KdZS5iy5mxU",
+ "sources": [
+  "검색:돈모으기",
+  "검색:1억모으기"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "안녕하세요!"
+  },
+  {
+   "start": 35,
+   "title": "화장품"
+  },
+  {
+   "start": 120,
+   "title": "옷"
+  },
+  {
+   "start": 165,
+   "title": "다이소"
+  },
+  {
+   "start": 195,
+   "title": "6개월 동안 냉동볶음밥만 먹었던 이유"
+  },
+  {
+   "start": 275,
+   "title": "고정비 ㅜ"
+  },
+  {
+   "start": 320,
+   "title": "인간 이불이 되어버린 이유"
+  },
+  {
+   "start": 360,
+   "title": "운동"
+  },
+  {
+   "start": 410,
+   "title": "그런데 저도 쓸 때는 씁니다"
+  },
+  {
+   "start": 460,
+   "title": "저만의 소비 기준"
+  },
+  {
+   "start": 510,
+   "title": "여행·술보다 집"
+  },
+  {
+   "start": 540,
+   "title": "절약만으로 1억은 아님요"
+  },
+  {
+   "start": 560,
+   "title": "다음엔 진짜 부업 이야기"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 525,
+ "comments_top_level": 240,
+ "comments_replies": 285,
+ "comments_by_creator": 123,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 525,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T07:19:08",
+ "approved": "2026-10-16T16:19+09:00"
+}

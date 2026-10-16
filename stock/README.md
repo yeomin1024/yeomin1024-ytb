@@ -48,7 +48,7 @@ python3 tools/cloud_run.py stock captions               # 대본 없는 승인 �
 - 음성인식은 하지 않는다 (클라우드에 Whisper·소리 받기 길 없음 — 유튜브가 클라우드 주소에 로봇 확인 로그인을 요구). **2026-10-16 사용자 지시로 보류** ("일단 음성인식은 보류하고"). 대본은 자막으로만 — `captions` 가 대본 없는 승인 영상의 자막을 다시 시도 (자막 서버 차단은 규칙대로 건너뜀, 연속 2번 막히면 6시간 쉼).
 - 클라우드 네트워크 (2026-10-16 사용자가 허용): `www.youtube.com`(자막)·`i.ytimg.com`(썸네일)·`suggestqueries.google.com`(자동완성) 됨, `*.googlevideo.com` 안 됨.
 - **탐색 캐시는 저장소에 묶어 둔다** (사용자 지시 2026-10-16 "저장소에 올려" — `cloud_run.py` v1.2): `stock/cloud_cache/cache.tgz`(+ 목록 `cache.json`) = `result/outliers/.cache`(검색·영상 정보·채널·업로드 목록·자동완성 — 썸네일은 뺌) + `result/web`(탐색 목록·체크·승인 목록). 할당량을 쓰는 명령 뒤에 저절로 묶고, 새 컨테이너에서 켜면 `.cache` 가 비었을 때 저절로 푼다 → git 으로 main 에 같이 올린다. 묶음이 없는데 캐시 없이 `analyze` 하면 비교 집단·수요공급·채널 기준선이 비어 결과가 나빠지므로 **탐색·기준선을 먼저**.
-- ⚠️ **클라우드가 주식을 분석하는 동안 PC 웹 화면에서 주식 탭을 켜지 않는다**: PC 는 켤 때(그리고 음성인식 뒤 15분마다) 자기 `stock/result/outliers/` 로 GitHub 것을 **통째로 바꿔** 올린다 (분석기 `_copy_local_outliers` — PC 에 없는 사례 폴더는 지움). PC 는 `-Folder economic` 처럼 재테크만 켠다 (`-Folder` 없이 켜면 주식 탭도 열림).
+- ⚠️ **클라우드가 주식을 분석하는 동안 PC 웹 화면에서 주식 탭을 켜지 않는다**: PC 는 켤 때(그리고 음성인식 뒤 15분마다) 자기 `stock/result/outliers/` 로 GitHub 것을 **통째로 바꿔** 올린다 (분석기 `_copy_local_outliers` — PC 에 없는 사례 폴더는 지움). 2026-10-16 부터 재테크(`economic/`)도 클라우드가 맡으므로(`economic/README.md` '클라우드에서 분석') **PC 웹 화면은 아예 켜지 않는다** (`-Folder` 없이 켜면 두 탭 다 열림).
 - 클라우드 컨테이너에는 PC 표시 `.yt_work/fresh_start_stock.txt` 가 없어 웹 화면·`pc_analysis` 를 그대로 켜면 `FRESH_START` 가 git 의 승인 결과를 `.yt_work/old/` 로 옮긴다 → `cloud_run.py` 는 사례 폴더가 있으면 옮기지 않고 표시만 쓴다.
 
 ## 실행 (집 PC — PowerShell)

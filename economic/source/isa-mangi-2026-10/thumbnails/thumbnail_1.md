@@ -1,6 +1,6 @@
 # isa-mangi-2026-10 썸네일 1 — 본안(클릭률 최대): 밤 사무실에서 머리를 감싸 쥔 60세 안팎 직장인 + '세금' 낱말
 
-버전: v1.0 — 2026-10-16 — 대본 isa-mangi-2026-10.txt v1.0 기준. 사용자 지시 2026-10-16 "영상 4개 완성하기 위해 뭐가 필요한지 확인하고 없으면 만들어". `guides/thumbnail_guide.md` v3.2. 근거: `README.md`.
+버전: v1.1 — 2026-10-16 — [A] 2줄째 끝 자리를 숫자로 (가로 80% 앞에서 끝, 오른쪽 18%·아래 15% 칸은 글자 없음) — 1차 이미지에서 2줄째 마지막 글자가 영상 길이 표시에 가려짐 (`guides/thumbnail_guide.md` 10번 4 · 1차 이미지는 `rejected/`). (v1.0 — 2026-10-16 — 대본 isa-mangi-2026-10.txt v1.0 기준. 사용자 지시 2026-10-16 "영상 4개 완성하기 위해 뭐가 필요한지 확인하고 없으면 만들어". `guides/thumbnail_guide.md` v3.2. 근거: `README.md`.)
 
 | 항목 | 값 |
 |---|---|
@@ -40,7 +40,7 @@ Upper 62% of the frame:
 Bottom title: in the lower third, over a dark band that fades upward from the bottom edge, two lines of huge heavy bold text, left-aligned near the left edge, both lines the same size:
 line 1 "50·60대 ISA 만기 돈 연금저축" — "50·60대" in white and "ISA 만기 돈 연금저축" in bright yellow #FFD400, all with a thick black outline (keep the middle dot "·" between 50 and 60, and write ISA in capital Latin letters);
 line 2 "안 옮기면 3년에 96만 원 손해" — "안 옮기면" in white with a thick black outline, and "3년에 96만 원 손해" in bright red #FF2A2A with a thick white outline.
-The second line ends well before the bottom-right corner; keep the bottom-right corner empty for the video length badge. Keep the man and the word tag in the upper part so they never cover the bottom title.
+The second line MUST end at or before 80% of the image width (x ≤ 1024 px of 1280): the right 18% of the width in the bottom 15% of the height must contain no text at all, because YouTube's video length badge covers that corner. If the second line does not fit, make both lines a little smaller rather than letting it run into that corner. Keep the man and the word tag in the upper part so they never cover the bottom title.
 If 16:9 is not available, use the widest landscape canvas; in any case keep all text and the face inside the central 16:9 area, at least 8% away from the top and bottom edges.
 Render ONLY the text given in quotes (Korean, plus the Latin letters ISA), exactly as written with the same letters and spacing, in a heavy bold sans-serif Korean font. No other text, letters, numbers, watermarks or logos anywhere.
 ```
@@ -64,6 +64,18 @@ Absolutely no text, letters, numbers, logos or watermarks. Leave clean empty spa
 - [ ] 실존 인물을 닮지 않았는가 · 노트북 화면·벽에 글자·로고가 없는가
 
 ## 이미지 검수 (Claude — 지시사항 10번)
+
+### 1차 이미지 검수 (2026-10-16, ChatGPT가 저장소에 올림 — Claude 확인)
+| 항목 | 결과 |
+|---|---|
+| 크기 | 1672×941 (1.777, 16:9) ✅ — JPG 변환 시험 202KB |
+| 한글 | 꼬리표 「세금」, 하단 「50·60대 ISA 만기 돈 연금저축」 / 「안 옮기면 3년에 96만 원 손해」 — 대문자 ISA·가운뎃점, '옮'(ㅇ·ㅗ·ㄻ)·'에'(세로획 2개)·'축'·'손'·'해'까지 확대 확인, 문구표와 같음 ✅ |
+| 색 | '50·60대'·'안 옮기면' 흰색, 'ISA 만기 돈 연금저축'만 노랑, '3년에 96만 원 손해'만 빨강+흰 외곽선, 「세금」 빨강 상자+흰 평면 글자 ✅ |
+| 자리 | 1줄 윗선 = 아래 39%, 2줄 아랫선 = 6.9% (16:9라 잘림 없음) · **❌ 2줄째가 오른쪽 아래 구석 앞에서 끝나지 않음** — 마지막 '해'가 원본 오른쪽 가장자리에서 43px까지 감 (1280 기준 x 1246 → 구석 칸 가로 220px 중 186px 안). 길이 표시 시험: '해'의 약 36% 가려짐 (360px 27%, 400px 18%) |
+| 인물·물건 | 60세 안팎 직장인, 실존 인물 닮음 없음으로 보임 — 흰 셔츠·느슨한 남색 넥타이, 두 손으로 머리를 감싸 쥐고 눈을 질끈 감음 → 문구와 맞음 ✅ · 노트북은 뒷면만 보이고 로고·글자 없음, 뒤 서류·연필꽂이에도 글자 없음 ✅ |
+| 320px | 2줄과 「세금」 모두 읽힘 ✅ (단 길이 표시가 얹히면 '해' 오른쪽 아래가 가려짐) |
+| **판정** | ❌ 다시 — 한글·색·인물은 맞음. 2줄째 「…손해」가 오른쪽 아래 구석(영상 길이 표시 자리)까지 들어가 '해'가 가려진다. 다시 만들 때 2줄을 조금 작게 하거나 왼쪽으로 당겨, 2줄째가 오른쪽 가장자리에서 가로의 약 17%(1280 기준 220px) 앞에서 끝나게 |
+- 재는 법: 원본에서 하단 2줄과 그림 속 낱말을 잘라 3~4배로 키워 한 글자씩 봄. '구석 칸' = 1280×720 기준 오른쪽 아래 220×70 (x 1060~, y 650~). '길이 표시 시험' = 가로 320·360·400px로 줄인 뒤 영상 길이 표시(320px 기준 약 38×18px, 가장자리 4px)를 얹어 2줄째 마지막 글자가 가려지는 비율을 셈.
 
 ## 결과 (업로드 후)
 | 날짜 | 테스트 및 비교 결과 (시청 시간 비율) | 메모 |

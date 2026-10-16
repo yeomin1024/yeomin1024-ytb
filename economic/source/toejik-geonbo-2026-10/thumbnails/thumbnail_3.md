@@ -1,6 +1,6 @@
 # toejik-geonbo-2026-10 썸네일 3 — 실험안 ②: 사람 없이, '지역가입자'가 거실 탁자 위 지폐 더미를 내리누름
 
-버전: v1.0 — 2026-10-16 — 대본 toejik-geonbo-2026-10.txt v1.0 기준. 사용자 지시(`thumbnail_1.md` 버전 줄과 같음). 근거: `README.md`.
+버전: v1.1 — 2026-10-16 — [A] 2줄째 끝 자리를 숫자로 (가로 80% 앞에서 끝, 오른쪽 18%·아래 15% 칸은 글자 없음) — 1차 이미지에서 2줄째 마지막 글자가 영상 길이 표시에 가려짐 (`guides/thumbnail_guide.md` 10번 4 · 1차 이미지는 `rejected/`). (v1.0 — 2026-10-16 — 대본 toejik-geonbo-2026-10.txt v1.0 기준. 사용자 지시(`thumbnail_1.md` 버전 줄과 같음). 근거: `README.md`.)
 
 | 항목 | 값 |
 |---|---|
@@ -37,7 +37,7 @@ Upper 62% of the frame:
 Bottom title: in the lower third, over a dark band that fades upward from the bottom edge, two lines of huge heavy bold Korean text, left-aligned near the left edge, both lines the same size:
 line 1 "50·60대 건보료 0원 되는 순서" — "50·60대" in white and "건보료 0원 되는 순서" in bright yellow #FFD400, all with a thick black outline (keep the middle dot "·" between 50 and 60);
 line 2 "은퇴 후 그냥 두면 월 30만 원" — "은퇴 후 그냥 두면" in white with a thick black outline, and "월 30만 원" in bright red #FF2A2A with a thick white outline.
-The second line ends well before the bottom-right corner; keep the bottom-right corner empty for the video length badge. Keep the banknotes and the word tag in the upper part so they never cover the bottom title.
+The second line MUST end at or before 80% of the image width (x ≤ 1024 px of 1280): the right 18% of the width in the bottom 15% of the height must contain no text at all, because YouTube's video length badge covers that corner. If the second line does not fit, make both lines a little smaller rather than letting it run into that corner. Keep the banknotes and the word tag in the upper part so they never cover the bottom title.
 If 16:9 is not available, use the widest landscape canvas; in any case keep all text inside the central 16:9 area, at least 8% away from the top and bottom edges.
 Render ONLY the Korean text given in quotes, exactly as written with the same letters and spacing, in a heavy bold sans-serif Korean font. No other text, letters, numbers, watermarks or logos anywhere.
 ```
@@ -57,6 +57,18 @@ Absolutely no text, letters, numbers, logos or watermarks. Leave clean empty spa
 - [ ] 가로 320px로 줄여도 2줄과 '지역가입자'가 읽히는가 · 글자가 가운데 16:9 안 · 오른쪽 아래 구석 비움
 
 ## 이미지 검수 (Claude — 지시사항 10번)
+
+### 1차 이미지 검수 (2026-10-16, ChatGPT가 저장소에 올림 — Claude 확인)
+| 항목 | 결과 |
+|---|---|
+| 크기 | 1672×941 (1.777, 16:9) ✅ — JPG 변환 시험 237KB |
+| 한글 | 꼬리표 「지역가입자」, 하단 「50·60대 건보료 0원 되는 순서」 / 「은퇴 후 그냥 두면 월 30만 원」 — 문구표와 같음 ✅ |
+| 색 | '건보료 0원 되는 순서'만 노랑, '월 30만 원'만 빨강+흰 외곽선, 꼬리표 빨강, 화살표 빨강 ✅ |
+| 자리 | 1줄 윗선 = 아래 38%, 2줄 아랫선 = 7.7% · **❌ 2줄째가 오른쪽 아래 구석 앞에서 끝나지 않음** — 마지막 '원'이 원본 오른쪽 가장자리에서 100px (1280 기준 x 1203 → 구석 칸 가로 143px 안). 길이 표시 시험: '원'의 약 33% 가려짐 (360px 19%, 400px 13%) |
+| 인물·물건 | 사람 없음 ✅ · 밤 거실 낮은 탁자 위 지폐 더미가 위에서 눌려 지폐가 옆으로 튀어 나감 ✅, 옆에 안경·소파 끝 ✅ · 프롬프트에 없던 큰 검은 쇳덩이가 더미를 누르고 있음 (글자·로고 없고 '짓누름'과 맞아 문제로 보지 않음) · 지폐는 움직임으로 번진 초록 무늬만, 초상·숫자 안 보임 ✅ |
+| 320px | 2줄과 「지역가입자」 모두 읽힘 ✅ (단 길이 표시가 얹히면 마지막 '원'이 가려짐) |
+| **판정** | ❌ 다시 — 한글·색·장면은 맞음. 2줄째 「…월 30만 원」이 오른쪽 아래 구석 칸 안으로 들어가 마지막 '원'이 길이 표시에 가려짐. 2줄째를 구석 앞에서 끝나게 다시 |
+- 재는 법: 원본에서 하단 2줄과 그림 속 낱말을 잘라 3~4배로 키워 한 글자씩 봄. '구석 칸' = 1280×720 기준 오른쪽 아래 220×70 (x 1060~, y 650~). '길이 표시 시험' = 가로 320·360·400px로 줄인 뒤 영상 길이 표시(320px 기준 약 38×18px, 가장자리 4px)를 얹어 2줄째 마지막 글자가 가려지는 비율을 셈.
 
 ## 결과 (업로드 후)
 | 날짜 | 테스트 및 비교 결과 (시청 시간 비율) | 메모 |

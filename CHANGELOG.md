@@ -1,5 +1,23 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-16 (56) — 재테크 2~4편 롱폼 썸네일 9장 검수 (통과 5 · 다시 4) · 쇼츠 썸네일 프롬프트 4장 · ChatGPT 모아 보기 8장
+
+### 왜
+- ChatGPT 가 롱폼 2~4편 썸네일 9장을 저장소에 바로 올림 → `guides/thumbnail_guide.md` 10번 검수 (CLAUDE.md: 통과한 것만 씀).
+- 사용자 지시 2026-10-16 "이거 쇼츠 영상 썸네일 이미지 프롬프트 만들어서 영상 처음에만 그걸 포함 시키고 … 이미지 프롬프트 4개 다 만들도록 하고" — 쇼츠 프롬프트 4장 (커밋 8f33676).
+
+### 한 것
+| 파일 (버전) | 내용 |
+|---|---|
+| `economic/source/{gicho-yeongeum,isa-mangi,toejik-geonbo}-2026-10/thumbnails/thumbnail_1~3.md` | '1차 이미지 검수' 표 (크기 1672×941 — 16:9 · 한글 9장 모두 문구표와 같음 · 색·인물 맞음). 판정: 기초연금 1·2·3 · ISA 3 · 건보료 2 통과 / ISA 1·2 · 건보료 1·3 다시 — 2줄째 마지막 글자가 길이 표시에 가려짐 (320px 축소본에 길이 표시를 얹어 잼: 21~36%) |
+| 같은 폴더 ISA 1·2 · 건보료 1·3 (v1.0 → v1.1) | [A] "2줄째는 가로 80% 앞에서 끝 · 오른쪽 18%·아래 15% 칸에 글자 없음 · 안 맞으면 두 줄을 조금 작게". 1차 이미지는 `thumbnails/rejected/thumbnail_N_try1_2026-10-16.png` (git mv) |
+| `guides/thumbnail_guide.md` (v3.4) | 2번 '결과에서 배운 것'에 이 실패 원인 |
+| `economic/thumbnails_chatgpt.md` · `…/{gicho-yeongeum,isa-mangi,toejik-geonbo}-2026-10/thumbnails/chatgpt.md` | 다시 만듦 — 모아 보기 8장 (롱폼 다시 4 + 쇼츠 4, 크기 줄이 장마다) |
+| `guides/status.md` (v1.30 → v1.31) | 2-2 2번 썸네일 |
+
+### 남은 것
+- 사용자: ChatGPT 에 같은 메시지 → 8장 → Claude 검수. 1편 `thumbnail_1.webp` 도 같은 문제(41%) — 다시 만들지 사용자가 정함.
+
 ## 2026-10-16 (55) — 주식 2·3·4번 소스 + 소리 없는 미리보기 (커버드콜 원금 · 배당 ETF vs 지수 세후 · 레버리지 1·2·3배)
 
 ### 왜 (사용자 지시)

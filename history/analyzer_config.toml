@@ -1,0 +1,44 @@
+# =====================================================================================================
+# YouTube 주제 분석기 설정 파일 — 주제: 역사 (폴더 history)
+# VERSION: v1.0 — 2026-10-16 — 새로 만듦 (사용자 지시 2026-10-16: "이 환경은 이제 저장소에 있는 역사 주제 (history경로 없으면 만들것)를
+#          유튜브 분석 코드 실행해서 분석하는 환경이야 사용량 초기화 될때마다 분석을 계속 이어서하면 돼 캐시를 저장소에 남겨서 분석 이어서
+#          할 수 있게 하고"). 근거: new/channel_ideas.md 1순위 '역사 해설' (new/result/niche/niche_scan.md — 성공 비율 41%).
+#          값은 new/analyzer_config.toml v1.0 · stock/analyzer_config.toml v3.2 와 같고 다른 것: 주제 이름·폴더 · 외국 영상 꺼짐(기본 —
+#          한국어 시장부터, 사용자가 켜라고 하면 true + keywords_foreign.txt) · FRESH_START 없음 (이 폴더로 PC 에서 돌린 예전 자료가 없음).
+#          검색어 = 같은 폴더 keywords.txt (실제 영상 태그로 고름 — tools/tag_keywords.py history --write-keywords, 규칙 tag_rules.toml),
+#          관련어·제외어 = keywords.toml, 성공 사례 분석 기준 = analysis_rules.toml.
+#
+# ▶ 클라우드 (이 환경): python3 tools/cloud_run.py history <status|explore|list|approve|baseline|comments|analyze|resume>   (history/README.md)
+# ▶ PC (웹 화면): powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Folder history
+#      ⚠️ 클라우드가 역사를 분석하는 동안 PC 웹 화면에서 역사 탭을 켜지 않는다 (PC 결과로 GitHub 의 history/result/outliers/ 를 통째로 바꿈)
+# ※ 연구·교육용 분석.
+# =====================================================================================================
+
+[topic]
+TOPIC = "역사"
+PROJECT_FOLDER = "history"           # 결과 상위 폴더 → PC: output/history/result/, GitHub: history/result/
+RESULT_FOLDER = "result"
+
+[github]
+GITHUB_REPO = "yeomin1024/yeomin1024-ytb"
+GITHUB_BRANCH = "main"
+
+[search]
+REGION_CODE = "KR"
+LANGUAGE = "ko"
+INCLUDE_FOREIGN = false              # 한국어 영상만 (기본). 세계 시장까지 보려면 true + keywords_foreign.txt — 그때는 검색이 언어 지정 없이 새로
+
+[keywords]
+KEYWORD_MODE = "curated"             # 검색어는 keywords.txt (한 줄에 하나)
+KEYWORDS_FILE = "keywords.toml"      # 관련어·제외어 목록 파일 (이 파일과 같은 폴더)
+
+[ads]
+AD_SUSPECT_FILTER = true             # 조회수는 많은데 좋아요·댓글이 거의 없는 영상(광고로 조회수를 산 것으로 의심) 제외
+AD_SUSPECT_MIN_VIEWS = 50000
+AD_SUSPECT_MAX_LIKE_RATE = 0.0025
+AD_SUSPECT_MAX_COMMENT_RATE = 0.00005
+
+[advanced]
+# 하루 할당량 10,000단위. 다 못 한 검색·댓글·채널 기준선은 할당량이 초기화되면(태평양 자정) 이어서 (클라우드: 매일 예약 작업)
+QUOTA_BUDGET = 6000                  # ⚠️ 비용 관련 (분석기 youtube_topic_analyzer.py 몫 — 클라우드 탐색은 cloud_run 이 남은 만큼)
+DOWNLOAD_VIDEOS = false              # ⚠️ 성공사례 영상 파일은 받지 않음 (사용자 지시 2026-10-13) — 자막·썸네일·댓글·메타데이터만

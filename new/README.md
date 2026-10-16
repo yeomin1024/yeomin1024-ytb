@@ -68,6 +68,7 @@ python3 tools/cloud_run.py new status                # 할당량·탐색 목록
 ## 다음 할 일
 
 1. 사용자가 [`channel_ideas.md`](channel_ideas.md) 를 보고 분야 1~2개를 고른다.
+   - 2026-10-16 사용자가 **역사**를 고름 → [`history/`](../history/README.md) (클라우드에서 매일 이어서 분석). 건강·심리는 아직.
 2. Claude 가 그 분야 폴더(예: `history/`)를 만든다: `tag_rules.toml`(씨앗·빼는 말) → `tools/tag_keywords.py <폴더> --write-keywords` → `cloud_run.py <폴더> explore` → 승인(성공 사례 자료·댓글) → `analysis.md` → 지시사항·주제 (`guides/pipeline.md`).
 3. (사용자) 이 클라우드 환경 Network access 에 `www.youtube.com`·`i.ytimg.com`·`suggestqueries.google.com` 을 더하면 자막·썸네일·자동완성도 받는다.
 

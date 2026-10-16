@@ -1,5 +1,36 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-16 (38) — 역사 분석 폴더 `history/` (클라우드에서 매일 이어서) · 첫날은 설정만 (하루 검색 횟수 한도)
+
+### 왜 (사용자 지시)
+- "이 환경은 이제 저장소에 있는 역사 주제 (history경로 없으면 만들것)를 유튜브 분석 코드 실행해서 분석하는 환경이야 사용량 초기화 될때마다 분석을 계속 이어서하면 돼 캐시를 저장소에 남겨서 분석 이어서 할 수 있게 하고"
+- 근거: `new/channel_ideas.md` 1순위 '역사 해설' (성공 비율 41%, 재테크·주식 2%).
+
+### 만든 것 (분석 로직·코드는 그대로 — 설정과 문서만)
+| 파일 (버전) | 내용 |
+|---|---|
+| `history/analyzer_config.toml` (v1.0) | 주제 '역사', 외국 영상 꺼짐, 값은 `new/`·`stock/` 과 같음 |
+| `history/keywords.toml` (v1.0) | 관련어 강한 59 · 약한 45 · 지우는 말 13 (흑역사·역사적 신고가·조선업·조선주·고대하던·황제주 …). '고려'·'가야'는 '고려하다'·'가야 할'과 겹쳐 시대 이름으로만 |
+| `history/tag_rules.toml` (v1.0) | 씨앗 8 (역사·세계사·한국사·역사 이야기·조선 역사·전쟁사·중국 역사·고대 문명) · 역사 낱말 필수(TAG_REQUIRE 55 — '전쟁' 혼자는 뺌) · 빼는 말 45 (지금 소식·시험 강의·게임·야담·방송 프로그램 이름·재테크) · 묶음 12 |
+| `history/analysis_rules.toml` (v1.0) | `new/` v1.0 과 같고 [format] 역사 모양 5가지 · [exclude] 도박 + 시험 강의·게임 · AC_EXCLUDE 시험·게임·드라마 · BRAND_HINT 박물관·재단·연구소 |
+| `history/keywords.txt` | 아직 비어 있음 — 첫 회차에 `tag_keywords.py history --write-keywords` 가 채움 |
+| `history/README.md` (v1.0) | 명령·네트워크·파일·규칙 근거·기록 |
+| `topics.txt` | `history` 더함 |
+| 예약 작업 `trig_01TEbPHqXpzYY3hj6LhyBb7q` | '역사 분석 이어서 (할당량 초기화 뒤 매일)' — `CRON_TZ=America/Los_Angeles 20 0 * * *`, 이 세션을 깨움 |
+| `CLAUDE.md` · `guides/status.md` (v1.13) · `new/README.md` | 역사 규칙·인수인계 2-5·'사용자가 역사를 고름' |
+
+### 확인 (할당량 0)
+| 확인 | 결과 |
+|---|---|
+| 규칙 파일 읽기 | `success_analysis.load_rules` — format 5 · OFF_TOPIC 11 · TAG_THEMES 12, `orr.load_keywords('history')` — 강한 59 · 약한 45 · 지우는 말 13 |
+| 관련어 (new/ 캐시를 스크래치 폴더에 풀어 읽기만) | `new/` '03. 역사' 표본 139개 중 **136개** 관련 (놓친 3개 = 오디세이아 신화), 다른 분야 2,388개 중 106개(4%) 관련 — 대부분 조선 배경 야담·사극 오디오 드라마 |
+| 태그 미리 고르기 (같은 자료) | 역사·세계사·역사이야기·한국사·조선시대·역사다큐·조선왕조실록 … → '조선야담'·'벌거벗은세계사 …'(방송 이름)·'전쟁'(지금 전쟁 소식) 이 섞여 규칙을 고침 |
+| `cloud_run.py history status` | 됨 — 승인 0, 캐시 0, 키 `env:YOUTUBE_API_KEY` (지문 `58333e86…` = new/ 탐색과 같은 키) |
+| 네트워크 | `www.googleapis.com` 됨 · `www.youtube.com`·`i.ytimg.com`·`suggestqueries.google.com` 프록시 403 (자막·썸네일·자동완성 없음) |
+
+### 못 한 것
+- `tag_keywords.py history` 씨앗 검색 — 첫 요청에서 HTTP 429 `Search Queries per day` (같은 키로 18:21~18:27 한국 `new/` 검색 88번). 할당량 0 사용, 검색 16번은 초기화(한국 10-17 16:00) 뒤 예약 작업이 함.
+
 ## 2026-10-16 (37) — 재테크 4편 완성 점검: 완성 렌더 4편 · 썸네일 프롬프트 3편(기초연금·ISA·건보료) · 업로드 시트 v1.2 (클라우드에서 바로 올림)
 
 ### 왜 (사용자 지시)

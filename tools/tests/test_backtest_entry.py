@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# VERSION: v1.1 — 2026-10-16 — buy_and_hold 시험 더함. (v1.0 — 2026-10-16 — tools/backtest/entry.py v1.0 시험 (매수 신호 10가지 × 같은 매도 규칙). 네트워크 없이 만든 자료로.)
+# VERSION: v1.2 — 2026-10-16 — 최고점 −n% 매도(trail) 시험 더함. (v1.1 — 2026-10-16 — buy_and_hold 시험 더함.) (v1.0 — 2026-10-16 — tools/backtest/entry.py v1.0 시험 (매수 신호 10가지 × 같은 매도 규칙). 네트워크 없이 만든 자료로.)
 """python3 -m unittest test_backtest_entry  (tools/tests 에서)"""
 import sys
 import unittest
@@ -104,6 +104,36 @@ class EntryTest(unittest.TestCase):
         r = en.simulate("m1", ind, 300, len(c) - 1, hold=60, dates=c.index)
         if r.trades and r.trades[0]["buy_i"] == 300:
             np.testing.assert_allclose(r.value[:60], v[:60])
+
+    def test_trail_sells_next_day_after_drop_from_peak(self):
+        """trail: 종가 ≤ 산 뒤 최고 종가 × 0.9 가 된 다음 거래일 종가에 판다. 그 전에는 팔지 않는다."""
+        path = [100, 105, 110, 104, 99.5, 98, 97, 115, 125]
+        c = series([120.0] * 100 + [100.0] * 199 + path + [125.0] * 50)   # 앞의 120 = 그때까지 최고 → 100 은 −16.7% (dip10 신호)
+        ind = en.indicators(c)
+        s = 299
+        r = en.simulate("dip10", ind, s, len(c) - 1, trail=0.10, dates=c.index, cost=0.0)
+        t = r.trades[0]
+        self.assertEqual(t["buy_i"], s)                                       # s-1 종가 신호 → s 종가 매수
+        self.assertEqual(t["stop_i"], s + 5)                                  # 98 ≤ 110 × 0.9 = 99 (99.5 는 아님)
+        self.assertEqual(t["sell_i"], s + 6)                                  # 다음 날 97 에 매도
+        self.assertAlmostEqual(t["peak_price"], 110.0)
+        self.assertAlmostEqual(t["ret"], 97 / 100 - 1)
+        self.assertEqual(r.trades[1]["buy_i"], s + 7)                         # 판 날도 신호(97 ≤ 108) → 다음 날 다시 매수
+
+    def test_trail_no_lookahead_and_no_overlap(self):
+        cut = 600
+        alt = self.close.copy()
+        alt.iloc[cut + 1:] *= np.linspace(0.6, 1.7, len(alt) - cut - 1)
+        for k in en.ORDER:
+            ia, ib = en.indicators(self.close, self.vix), en.indicators(alt, self.vix)
+            ra = en.simulate(k, ia, 300, len(alt) - 1, trail=0.08, dates=self.close.index)
+            rb = en.simulate(k, ib, 300, len(alt) - 1, trail=0.08, dates=alt.index)
+            j = cut - 300
+            np.testing.assert_allclose(ra.value[:j + 1], rb.value[:j + 1], err_msg=k)
+            for x, y in zip(ra.trades, ra.trades[1:]):
+                self.assertGreater(y["buy_i"], x["sell_i"], k)
+            prod = np.prod([1 + t["ret"] for t in ra.trades]) if ra.trades else 1.0
+            self.assertAlmostEqual(ra.value[-1], 10_000 * prod, places=6, msg=k)
 
     def test_run_all_needs_history(self):
         with self.assertRaises(ValueError):

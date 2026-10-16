@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
-# VERSION: v1.1 — 2026-10-16 — buy_and_hold(): 첫날 전부 매수 후 끝까지 보유한 값 (사용자 지시 2026-10-16 "1번째 박스에는 맨처음에 매수하고
-#          그냥 냅둔 수익도 표시해" — 경주로 견주지 않고 계좌 칸에 참고로 함께 보임). 매수 규칙·시뮬레이션은 그대로.
+# VERSION: v1.2 — 2026-10-16 — 공통 매도 규칙에 '산 뒤 최고 종가에서 n% 떨어지면 매도'(trail) 더함 (사용자 지시 2026-10-16 "매도 조건을 1년뒤로
+#          하지말고 매수 이후 고점에서 n%하락할 때로 해봐 n은 너가 적당히 설정하고"): simulate(trail=0.10) — 그날 종가가 산 뒤 최고 종가 × (1−n) 이하면
+#          다음 거래일 종가에 매도 (매수와 같은 '다음 날' 약속). 거래 기록에 최고 종가·그날·매도 신호 날. hold(보유 기간)는 trail=None 일 때만 (예전 그대로).
+# (v1.1 — 2026-10-16 — buy_and_hold(): 첫날 전부 매수 후 끝까지 보유한 값 (사용자 지시 2026-10-16 "1번째 박스에는 맨처음에 매수하고
+#          그냥 냅둔 수익도 표시해" — 경주로 견주지 않고 계좌 칸에 참고로 함께 보임). 매수 규칙·시뮬레이션은 그대로.)
 # (v1.0 — 2026-10-16 — 최초. 사용자 지시 2026-10-16 "2016년부터 현재까지로 설정하고 지금은 매수만 보는 거니까 매수에 관련된 것만
 #          테스트해야지 왜 손절이 있어 매도 규칙은 똑같이 해 그리고 buy and hold랑 비교하지말고 주가 차트에서 매수/매도 지점을 표시하는 걸로 하자":
 #          매수 신호 10가지 × 같은 매도 규칙(산 날부터 정해진 거래일 뒤 종가에 매도) — 매수 신호만 다르게 해서 '언제 매수'만 견준다.)
@@ -9,7 +12,9 @@
 시점 약속 (미래 정보 금지):
   - 신호는 거래일 d 의 종가까지(그날 종가·지표)만 본다. 그 신호로 사는 것은 다음 거래일 d+1 의 종가.
     (예외: '매달 첫 거래일' 은 달력이라 미리 안다 — d 에서 '내일이 새 달 첫 거래일인가'를 본다.)
-  - 매도 규칙 (모든 규칙 같음): 산 날부터 hold 거래일 뒤 그날 종가에 전부 판다 (산 날에 이미 정해짐 — 가격을 보지 않음).
+  - 매도 규칙 (모든 규칙 같음):
+      trail=n (v1.2, 기본으로 부르는 쪽이 정함) — 산 날부터 그날까지 최고 종가(산 날 포함)를 따라가다가, 종가가 최고 × (1−n) 이하가 된 날 → 다음 거래일 종가에 전부 매도.
+      trail=None — 산 날부터 hold 거래일 뒤 그날 종가에 전부 매도 (v1.0).
   - 판 날 종가로 다시 신호를 본다 → 신호가 있으면 다음 날 산다. 보유 중에 나온 신호는 쓰지 않는다 (돈이 이미 들어가 있음).
   - 돈: 모두 같은 capital(기본 $10,000)으로 시작, 더 넣거나 빼지 않는다. 살 때는 가진 현금 전부, 팔 때는 전부.
   - 매매 비용: 사고팔 때마다 거래 금액의 cost (기본 0.1%). 세금·환율은 넣지 않는다 (부르는 쪽이 한계에 적음).
@@ -38,7 +43,7 @@ import pandas as pd
 from . import daily as dl
 
 LOG = logging.getLogger("backtest.entry")
-VERSION = "v1.1"
+VERSION = "v1.2"
 HOLD_DAYS = 252                                                  # 기본 공통 매도: 산 날부터 252 거래일(약 1년) 뒤 종가
 _TOL = 1e-12                                                     # 문턱 비교 허용 오차 (0.9×100 = 90.00000000000001 같은 부동소수 끝자리)
 
@@ -148,17 +153,20 @@ class Run:
     value: np.ndarray                 # 그날 종가 기준 계좌 가치
     holding: np.ndarray               # 그날 종가 뒤 주식을 들고 있나 (bool)
     trades: list = field(default_factory=list)
-    hold: int = HOLD_DAYS
+    hold: object = HOLD_DAYS            # 매도 규칙 설명: 정수 = 보유 거래일, ('trail', n) = 최고점에서 n% 하락
 
 
-def simulate(key, ind, s, e, hold=HOLD_DAYS, capital=10_000.0, cost=0.001, px=None, cash_ret=None, dates=None):
+def simulate(key, ind, s, e, hold=HOLD_DAYS, capital=10_000.0, cost=0.001, px=None, cash_ret=None, dates=None, trail=None):
     """규칙 key 로 s..e (거래일 위치, 둘 다 포함) 를 돌린다 → Run.
-    px: 사고파는 값 (기본 ind['close']). 신호는 늘 ind 지표(가격)로 본다."""
+    px: 사고파는 값 (기본 ind['close']). 신호·최고 종가는 늘 ind['close'](가격)로 본다.
+    trail: 0~1 이면 '최고 종가에서 trail 만큼 떨어지면 다음 날 매도', None 이면 hold 거래일 뒤 매도."""
     sig = RULES[key][0]
     price = ind["close"] if px is None else np.asarray(px, float)
     n = e - s + 1
     val, held = np.empty(n), np.zeros(n, bool)
+    close = ind["close"]
     cash, units, buy_i, buy_cash = float(capital), 0.0, None, 0.0
+    peak, peak_i, sell_pending = 0.0, None, False
     trades = []
     pending = s >= 1 and sig(ind, s - 1)                         # 시작일 s 의 매수는 s-1 종가까지 본 신호
     for j in range(n):
@@ -168,27 +176,38 @@ def simulate(key, ind, s, e, hold=HOLD_DAYS, capital=10_000.0, cost=0.001, px=No
         if pending:                                              # d 종가에 전부 매수
             buy_cash, units = cash, cash * (1.0 - cost) / price[d]
             cash, buy_i, pending = 0.0, d, False
-            trades.append({"rule": key, "buy_i": d, "buy_price": float(ind["close"][d]), "buy_px": float(price[d]),
+            peak, peak_i = float(close[d]), d
+            trades.append({"rule": key, "buy_i": d, "buy_price": float(close[d]), "buy_px": float(price[d]),
                            "buy_cash": float(buy_cash)})
-        elif units > 0.0 and d - buy_i >= hold:                  # 공통 매도: 산 날부터 hold 거래일 뒤 종가
+        elif units > 0.0 and (sell_pending if trail is not None else d - buy_i >= hold):   # 공통 매도
             cash, sell_px = units * price[d] * (1.0 - cost), float(price[d])
             t = trades[-1]
-            t.update({"sell_i": d, "sell_price": float(ind["close"][d]), "sell_px": sell_px, "sell_cash": float(cash),
-                      "ret": float(cash / t["buy_cash"] - 1.0), "days": int(d - buy_i), "open": False})
-            units, buy_i = 0.0, None
+            t.update({"sell_i": d, "sell_price": float(close[d]), "sell_px": sell_px, "sell_cash": float(cash),
+                      "ret": float(cash / t["buy_cash"] - 1.0), "days": int(d - buy_i), "open": False,
+                      "peak_price": peak, "peak_i": int(peak_i)})
+            units, buy_i, sell_pending = 0.0, None, False
         val[j] = cash + units * price[d]
         held[j] = units > 0.0
+        if units > 0.0 and trail is not None and not sell_pending and d < e:
+            if close[d] > peak:
+                peak, peak_i = float(close[d]), d
+            if close[d] <= (1.0 - trail) * peak * (1 + _TOL):    # 최고에서 trail 이상 하락 → 다음 날 매도
+                sell_pending = True
+                trades[-1]["stop_i"] = d
         if units == 0.0 and not pending and d < e and sig(ind, d):
             pending = True
     if units > 0.0:                                              # 끝날까지 들고 있음 → 끝날 종가로 평가 (판 것으로 세지 않음)
         t = trades[-1]
-        t.update({"sell_i": e, "sell_price": float(ind["close"][e]), "sell_px": float(price[e]), "sell_cash": float(val[-1]),
-                  "ret": float(val[-1] / t["buy_cash"] - 1.0), "days": int(e - buy_i), "open": True})
+        if close[e] > peak:
+            peak, peak_i = float(close[e]), e
+        t.update({"sell_i": e, "sell_price": float(close[e]), "sell_px": float(price[e]), "sell_cash": float(val[-1]),
+                  "ret": float(val[-1] / t["buy_cash"] - 1.0), "days": int(e - buy_i), "open": True,
+                  "peak_price": peak, "peak_i": int(peak_i)})
     idx = dates[s:e + 1] if dates is not None else pd.RangeIndex(n)
     if dates is not None:
         for t in trades:
             t["buy_date"], t["sell_date"] = str(dates[t["buy_i"]].date()), str(dates[t["sell_i"]].date())
-    return Run(key, idx, val, held, trades, hold)
+    return Run(key, idx, val, held, trades, ("trail", trail) if trail is not None else hold)
 
 
 def stats(run, capital=10_000.0):
@@ -212,7 +231,7 @@ def stats(run, capital=10_000.0):
         waits.append(k)
     op = [t for t in run.trades if t["open"]]
     return {
-        "rule": run.key, "hold_days": run.hold, "final": float(v[-1]), "total_return": float(v[-1] / capital - 1.0),
+        "rule": run.key, "sell_rule": (f"trail{run.hold[1]:.4g}" if isinstance(run.hold, tuple) else f"hold{run.hold}d"), "final": float(v[-1]), "total_return": float(v[-1] / capital - 1.0),
         "cagr": float((v[-1] / capital) ** (1 / yrs) - 1.0) if yrs > 0 else float("nan"),
         "trades_closed": len(closed), "trades_open": len(op), "buys": len(run.trades),
         "win_rate": float((rets > 0).mean()) if len(rets) else float("nan"),
@@ -230,7 +249,7 @@ def stats(run, capital=10_000.0):
 
 
 def run_all(close, start, end, vix=None, keys=None, hold=HOLD_DAYS, capital=10_000.0, cost=0.001, px=None, cash_ret=None,
-            label="main"):
+            label="main", trail=None):
     """규칙 전부를 같은 기간·같은 돈·같은 매도 규칙으로 → {key: (Run, stats)}. 단계 로그를 남긴다."""
     t0 = time.time()
     ind = indicators(close, vix)
@@ -238,11 +257,12 @@ def run_all(close, start, end, vix=None, keys=None, hold=HOLD_DAYS, capital=10_0
     s, e = int(dates.searchsorted(pd.Timestamp(start))), int(dates.searchsorted(pd.Timestamp(end), side="right") - 1)
     if s < 252:
         raise ValueError(f"[SIGNAL] 시작 전 자료가 252 거래일보다 짧음 (s={s}) → 지표(200일선·52주·12개월)가 비어 있음. 자료를 더 앞에서부터 넣으세요")
-    log("SIGNAL", label=label, start=str(dates[s].date()), end=str(dates[e].date()), days=e - s + 1, hold_days=hold,
+    log("SIGNAL", label=label, start=str(dates[s].date()), end=str(dates[e].date()), days=e - s + 1,
+        sell=f"trail{trail:.0%}" if trail is not None else f"hold{hold}d",
         cost=cost, capital=capital, px="close(가격만)" if px is None else "given", cash="0" if cash_ret is None else "given")
     out = {}
     for k in keys or ORDER:
-        r = simulate(k, ind, s, e, hold, capital, cost, px, cash_ret, dates)
+        r = simulate(k, ind, s, e, hold, capital, cost, px, cash_ret, dates, trail=trail)
         st = stats(r, capital)
         out[k] = (r, st)
         log("TRADE", label=label, rule=k, buys=st["buys"], closed=st["trades_closed"], open=st["trades_open"],

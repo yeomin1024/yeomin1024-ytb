@@ -1,95 +1,153 @@
-[DATA] 2026-10-16T12:24:53 source=cache key=sp500_daily_skfolio path=/home/user/yeomin1024-ytb/stock/data/sp500_daily_skfolio.csv.gz bytes=41898 fetched_at=?
-[DATA] 2026-10-16T12:24:53 source=cache key=sp500_daily_arch path=/home/user/yeomin1024-ytb/stock/data/sp500_daily_arch.csv.gz bytes=102735 fetched_at=?
-[DATA] 2026-10-16T12:24:54 source=cache path=/home/user/yeomin1024-ytb/stock/data/sp500_daily_fred.csv bytes=48929 fetched_at=2026-10-16T09:13:31Z
-[VALIDATE] 2026-10-16T12:24:54 data=sp500_daily rows=2514 first=2016-02-12 last=2026-02-11 blank_days_dropped=95 duplicates=0 gaps_over_5_days=0
-[VALIDATE] 2026-10-16T12:24:54 overlap=skfolio~FRED common_days=1732 only_a=0 only_b=0 max_rel_diff=0.0011893787800436595 days_over_0_01pct=2 from=2016-02-12 to=2022-12-28
-[VALIDATE] 2026-10-16T12:24:54 overlap=skfolio~arch common_days=5031 only_a=0 only_b=0 max_rel_diff=5.738964314883077e-08 days_over_0_01pct=0 from=1999-01-04 to=2018-12-31
-[VALIDATE] 2026-10-16T12:24:54 splice=겹치는 기간은 FRED(공식 종가) 값을 씀 days=2019-08-12,2021-08-11
-[VALIDATE] 2026-10-16T12:24:54 data=sp500_daily_long gaps_over_5_days=2001-09-17 moves_over_12pct=-
-[VALIDATE] 2026-10-16T12:24:54 data=sp500_daily_long rows=9095 first=1990-01-02 last=2026-02-11 duplicates=0
-[DATA] 2026-10-16T12:24:54 data=sp500_daily_long rows=9095 first=1990-01-02 last=2026-02-11 splice=skfolio~2016-02-11+FRED2514
-[DATA] 2026-10-16T12:24:54 source=cache key=vix_daily path=/home/user/yeomin1024-ytb/stock/data/vix_daily.csv bytes=482200 fetched_at=2026-10-16T11:20:08Z
-[VALIDATE] 2026-10-16T12:24:54 data=vix_daily gaps_over_5_days=2001-09-17 moves_over_12pct=2018-02-05:+115.6%
-[VALIDATE] 2026-10-16T12:24:54 data=vix_daily rows=9278 first=1990-01-02 last=2026-09-22 duplicates=0
-[DATA] 2026-10-16T12:24:54 sp500=1990-01-02~2026-02-11 rows=9095 vix=1990-01-02~2026-09-22 rows=9278 use=2016-01-01~2026-02-11 note=S&P 500 일별 자료는 2026-02-11 까지 (FRED 사본 — 클라우드에서 Yahoo·FRED 직접 받기는 막힘)
-[SIGNAL] 2026-10-16T12:24:54 data=vix_aligned days=9095 missing_days=4 vix_last=2026-09-22 note=VIX 가 없는 날은 vix30 신호 없음
-[SIGNAL] 2026-10-16T12:24:54 indicators=ath,ret1,sma50,sma200,rsi14,hi252,mom252,month_first,vix days=9095 first=1990-01-02 last=2026-02-11 first_sma200=1990-10-15
-[SIGNAL] 2026-10-16T12:24:54 label=main start=2016-01-04 end=2026-02-11 days=2542 hold_days=252 cost=0.001 capital=10000.0 px=close(가격만) cash=0
-[TRADE] 2026-10-16T12:24:54 label=main rule=m1 buys=10 closed=9 open=1 first_buy=2016-01-04 invested=93.7% win=78% avg_trade=+14.95%
-[TRADE] 2026-10-16T12:24:54 label=main rule=dip10 buys=6 closed=5 open=1 first_buy=2016-01-14 invested=58.6% win=80% avg_trade=+15.06%
-[TRADE] 2026-10-16T12:24:54 label=main rule=dip20 buys=2 closed=2 open=0 first_buy=2020-03-13 invested=19.8% win=100% avg_trade=+32.18%
-[TRADE] 2026-10-16T12:24:54 label=main rule=drop2 buys=8 closed=7 open=1 first_buy=2016-01-08 invested=72.7% win=71% avg_trade=+11.21%
-[TRADE] 2026-10-16T12:24:54 label=main rule=vix30 buys=4 closed=4 open=0 first_buy=2018-02-06 invested=39.7% win=75% avg_trade=+10.62%
-[TRADE] 2026-10-16T12:24:54 label=main rule=rsi30 buys=6 closed=5 open=1 first_buy=2016-01-11 invested=58.7% win=80% avg_trade=+10.92%
-[TRADE] 2026-10-16T12:24:54 label=main rule=ma200 buys=7 closed=6 open=1 first_buy=2016-03-14 invested=68.3% win=83% avg_trade=+16.23%
-[TRADE] 2026-10-16T12:24:54 label=main rule=gc buys=5 closed=4 open=1 first_buy=2016-04-26 invested=45.8% win=75% avg_trade=+14.20%
-[TRADE] 2026-10-16T12:24:54 label=main rule=hi52 buys=9 closed=8 open=1 first_buy=2016-07-11 invested=85.5% win=75% avg_trade=+10.19%
-[TRADE] 2026-10-16T12:24:54 label=main rule=mom12 buys=9 closed=8 open=1 first_buy=2016-04-04 invested=86.6% win=75% avg_trade=+13.90%
-[RESULT] 2026-10-16T12:24:54 label=main rules=10 best=m1 best_final=33,547 finals=m1:33,547,dip10:23,853,dip20:17,276,drop2:20,238,vix30:14,270,rsi30:19,967,ma200:28,037,gc:17,912,hi52:22,854,mom12:30,966 sec=0.04
-[RESULT] 2026-10-16T12:24:54 reference=any_day_buy hold_days=252 n_days=2290 from=2016-01-04 to_last_buy=2025-02-10 mean=+13.51% median=+14.42% win_rate=+84.59% p10=-6.59% p90=+30.31%
-[RESULT] 2026-10-16T12:24:54 reference=buy_and_hold buy=2016-01-04 final=34,455 total=+244.55% max_dd=-33.9% note=경주로 견주지 않음 — 계좌 칸 참고값
-[SIGNAL] 2026-10-16T12:24:54 data=vix_aligned days=9095 missing_days=4 vix_last=2026-09-22 note=VIX 가 없는 날은 vix30 신호 없음
-[SIGNAL] 2026-10-16T12:24:54 indicators=ath,ret1,sma50,sma200,rsi14,hi252,mom252,month_first,vix days=9095 first=1990-01-02 last=2026-02-11 first_sma200=1990-10-15
-[SIGNAL] 2026-10-16T12:24:54 label=hold21 start=2016-01-04 end=2026-02-11 days=2542 hold_days=21 cost=0.001 capital=10000.0 px=close(가격만) cash=0
-[TRADE] 2026-10-16T12:24:54 label=hold21 rule=m1 buys=72 closed=72 open=0 first_buy=2016-01-04 invested=59.5% win=65% avg_trade=+1.19%
-[TRADE] 2026-10-16T12:24:54 label=hold21 rule=dip10 buys=28 closed=28 open=0 first_buy=2016-01-14 invested=23.1% win=61% avg_trade=+1.81%
-[TRADE] 2026-10-16T12:24:54 label=hold21 rule=dip20 buys=6 closed=6 open=0 first_buy=2020-03-13 invested=5.0% win=83% avg_trade=+4.37%
-[TRADE] 2026-10-16T12:24:54 label=hold21 rule=drop2 buys=34 closed=33 open=1 first_buy=2016-01-08 invested=27.9% win=67% avg_trade=+1.33%
-[TRADE] 2026-10-16T12:24:54 label=hold21 rule=vix30 buys=17 closed=17 open=0 first_buy=2018-02-06 invested=14.0% win=82% avg_trade=+4.03%
-[TRADE] 2026-10-16T12:24:54 label=hold21 rule=rsi30 buys=13 closed=13 open=0 first_buy=2016-01-11 invested=10.7% win=62% avg_trade=+0.36%
-[TRADE] 2026-10-16T12:24:54 label=hold21 rule=ma200 buys=18 closed=18 open=0 first_buy=2016-03-14 invested=14.9% win=50% avg_trade=-0.33%
-[TRADE] 2026-10-16T12:24:54 label=hold21 rule=gc buys=5 closed=5 open=0 first_buy=2016-04-26 invested=4.1% win=40% avg_trade=+0.55%
-[TRADE] 2026-10-16T12:24:54 label=hold21 rule=hi52 buys=48 closed=47 open=1 first_buy=2016-07-11 invested=39.3% win=77% avg_trade=+0.54%
-[TRADE] 2026-10-16T12:24:54 label=hold21 rule=mom12 buys=98 closed=97 open=1 first_buy=2016-04-04 invested=80.5% win=65% avg_trade=+0.86%
-[RESULT] 2026-10-16T12:24:54 label=hold21 rules=10 best=m1 best_final=21,558 finals=m1:21,558,dip10:15,537,dip20:12,898,drop2:14,499,vix30:19,053,rsi30:10,227,ma200:9,095,gc:10,255,hi52:12,392,mom12:21,063 sec=0.06
-[RESULT] 2026-10-16T12:24:54 reference=any_day_buy hold_days=21 n_days=2521 from=2016-01-04 to_last_buy=2026-01-12 mean=+0.98% median=+1.57% win_rate=+68.27% p10=-4.45% p90=+5.28%
-[SIGNAL] 2026-10-16T12:24:54 data=vix_aligned days=9095 missing_days=4 vix_last=2026-09-22 note=VIX 가 없는 날은 vix30 신호 없음
-[SIGNAL] 2026-10-16T12:24:54 indicators=ath,ret1,sma50,sma200,rsi14,hi252,mom252,month_first,vix days=9095 first=1990-01-02 last=2026-02-11 first_sma200=1990-10-15
-[SIGNAL] 2026-10-16T12:24:54 label=hold63 start=2016-01-04 end=2026-02-11 days=2542 hold_days=63 cost=0.001 capital=10000.0 px=close(가격만) cash=0
-[TRADE] 2026-10-16T12:24:54 label=hold63 rule=m1 buys=33 closed=32 open=1 first_buy=2016-01-04 invested=80.4% win=81% avg_trade=+4.04%
-[TRADE] 2026-10-16T12:24:54 label=hold63 rule=dip10 buys=13 closed=13 open=0 first_buy=2016-01-14 invested=32.2% win=77% avg_trade=+4.52%
-[TRADE] 2026-10-16T12:24:54 label=hold63 rule=dip20 buys=4 closed=4 open=0 first_buy=2020-03-13 invested=9.9% win=100% avg_trade=+5.87%
-[TRADE] 2026-10-16T12:24:54 label=hold63 rule=drop2 buys=21 closed=20 open=1 first_buy=2016-01-08 invested=50.2% win=75% avg_trade=+4.76%
-[TRADE] 2026-10-16T12:24:54 label=hold63 rule=vix30 buys=12 closed=12 open=0 first_buy=2018-02-06 invested=29.7% win=75% avg_trade=+7.34%
-[TRADE] 2026-10-16T12:24:54 label=hold63 rule=rsi30 buys=10 closed=10 open=0 first_buy=2016-01-11 invested=24.8% win=60% avg_trade=+3.09%
-[TRADE] 2026-10-16T12:24:54 label=hold63 rule=ma200 buys=13 closed=13 open=0 first_buy=2016-03-14 invested=32.2% win=77% avg_trade=+3.79%
-[TRADE] 2026-10-16T12:24:54 label=hold63 rule=gc buys=5 closed=5 open=0 first_buy=2016-04-26 invested=12.4% win=80% avg_trade=+4.47%
-[TRADE] 2026-10-16T12:24:54 label=hold63 rule=hi52 buys=25 closed=24 open=1 first_buy=2016-07-11 invested=60.5% win=79% avg_trade=+2.28%
-[TRADE] 2026-10-16T12:24:54 label=hold63 rule=mom12 buys=35 closed=34 open=1 first_buy=2016-04-04 invested=86.3% win=76% avg_trade=+3.20%
-[RESULT] 2026-10-16T12:24:54 label=hold63 rules=10 best=m1 best_final=34,304 finals=m1:34,304,dip10:17,469,dip20:12,532,drop2:24,373,vix30:22,627,rsi30:13,373,ma200:15,816,gc:12,415,hi52:16,522,mom12:27,589 sec=0.05
-[RESULT] 2026-10-16T12:24:54 reference=any_day_buy hold_days=63 n_days=2479 from=2016-01-04 to_last_buy=2025-11-10 mean=+3.28% median=+4.09% win_rate=+76.52% p10=-5.80% p90=+10.42%
-[SIGNAL] 2026-10-16T12:24:54 data=vix_aligned days=9095 missing_days=4 vix_last=2026-09-22 note=VIX 가 없는 날은 vix30 신호 없음
-[SIGNAL] 2026-10-16T12:24:54 indicators=ath,ret1,sma50,sma200,rsi14,hi252,mom252,month_first,vix days=9095 first=1990-01-02 last=2026-02-11 first_sma200=1990-10-15
-[SIGNAL] 2026-10-16T12:24:54 label=hold126 start=2016-01-04 end=2026-02-11 days=2542 hold_days=126 cost=0.001 capital=10000.0 px=close(가격만) cash=0
-[TRADE] 2026-10-16T12:24:54 label=hold126 rule=m1 buys=19 closed=18 open=1 first_buy=2016-01-04 invested=91.9% win=72% avg_trade=+5.75%
-[TRADE] 2026-10-16T12:24:54 label=hold126 rule=dip10 buys=9 closed=9 open=0 first_buy=2016-01-14 invested=44.6% win=78% avg_trade=+9.70%
-[TRADE] 2026-10-16T12:24:54 label=hold126 rule=dip20 buys=3 closed=3 open=0 first_buy=2020-03-13 invested=14.9% win=100% avg_trade=+14.65%
-[TRADE] 2026-10-16T12:24:54 label=hold126 rule=drop2 buys=14 closed=13 open=1 first_buy=2016-01-08 invested=67.7% win=92% avg_trade=+8.33%
-[TRADE] 2026-10-16T12:24:54 label=hold126 rule=vix30 buys=8 closed=8 open=0 first_buy=2018-02-06 invested=39.7% win=88% avg_trade=+13.19%
-[TRADE] 2026-10-16T12:24:54 label=hold126 rule=rsi30 buys=10 closed=10 open=0 first_buy=2016-01-11 invested=49.6% win=90% avg_trade=+9.56%
-[TRADE] 2026-10-16T12:24:54 label=hold126 rule=ma200 buys=9 closed=9 open=0 first_buy=2016-03-14 invested=44.6% win=89% avg_trade=+8.87%
-[TRADE] 2026-10-16T12:24:54 label=hold126 rule=gc buys=5 closed=5 open=0 first_buy=2016-04-26 invested=24.8% win=100% avg_trade=+8.71%
-[TRADE] 2026-10-16T12:24:54 label=hold126 rule=hi52 buys=15 closed=15 open=0 first_buy=2016-07-11 invested=74.4% win=73% avg_trade=+5.93%
-[TRADE] 2026-10-16T12:24:54 label=hold126 rule=mom12 buys=18 closed=17 open=1 first_buy=2016-04-04 invested=86.5% win=82% avg_trade=+6.70%
-[RESULT] 2026-10-16T12:24:54 label=hold126 rules=10 best=mom12 best_final=29,958 finals=m1:25,508,dip10:22,321,dip20:14,999,drop2:28,654,vix30:25,703,rsi30:24,156,ma200:20,935,gc:15,056,hi52:22,927,mom12:29,958 sec=0.05
-[RESULT] 2026-10-16T12:24:54 reference=any_day_buy hold_days=126 n_days=2416 from=2016-01-04 to_last_buy=2025-08-12 mean=+6.69% median=+7.52% win_rate=+79.30% p10=-4.90% p90=+16.93%
-[SIGNAL] 2026-10-16T12:24:54 data=vix_aligned days=9095 missing_days=4 vix_last=2026-09-22 note=VIX 가 없는 날은 vix30 신호 없음
-[SIGNAL] 2026-10-16T12:24:54 indicators=ath,ret1,sma50,sma200,rsi14,hi252,mom252,month_first,vix days=9095 first=1990-01-02 last=2026-02-11 first_sma200=1990-10-15
-[SIGNAL] 2026-10-16T12:24:54 label=cost0 start=2016-01-04 end=2026-02-11 days=2542 hold_days=252 cost=0.0 capital=10000.0 px=close(가격만) cash=0
-[TRADE] 2026-10-16T12:24:54 label=cost0 rule=m1 buys=10 closed=9 open=1 first_buy=2016-01-04 invested=93.7% win=78% avg_trade=+15.18%
-[TRADE] 2026-10-16T12:24:54 label=cost0 rule=dip10 buys=6 closed=5 open=1 first_buy=2016-01-14 invested=58.6% win=80% avg_trade=+15.30%
-[TRADE] 2026-10-16T12:24:54 label=cost0 rule=dip20 buys=2 closed=2 open=0 first_buy=2020-03-13 invested=19.8% win=100% avg_trade=+32.44%
-[TRADE] 2026-10-16T12:24:54 label=cost0 rule=drop2 buys=8 closed=7 open=1 first_buy=2016-01-08 invested=72.7% win=71% avg_trade=+11.43%
-[TRADE] 2026-10-16T12:24:54 label=cost0 rule=vix30 buys=4 closed=4 open=0 first_buy=2018-02-06 invested=39.7% win=75% avg_trade=+10.84%
-[TRADE] 2026-10-16T12:24:54 label=cost0 rule=rsi30 buys=6 closed=5 open=1 first_buy=2016-01-11 invested=58.7% win=80% avg_trade=+11.14%
-[TRADE] 2026-10-16T12:24:54 label=cost0 rule=ma200 buys=7 closed=6 open=1 first_buy=2016-03-14 invested=68.3% win=83% avg_trade=+16.46%
-[TRADE] 2026-10-16T12:24:54 label=cost0 rule=gc buys=5 closed=4 open=1 first_buy=2016-04-26 invested=45.8% win=75% avg_trade=+14.43%
-[TRADE] 2026-10-16T12:24:54 label=cost0 rule=hi52 buys=9 closed=8 open=1 first_buy=2016-07-11 invested=85.5% win=75% avg_trade=+10.42%
-[TRADE] 2026-10-16T12:24:54 label=cost0 rule=mom12 buys=9 closed=8 open=1 first_buy=2016-04-04 invested=86.6% win=75% avg_trade=+14.13%
-[RESULT] 2026-10-16T12:24:54 label=cost0 rules=10 best=m1 best_final=34,190 finals=m1:34,190,dip10:24,117,dip20:17,346,drop2:20,544,vix30:14,384,rsi30:20,188,ma200:28,404,gc:18,074,hi52:23,246,mom12:31,498 sec=0.06
-[RESULT] 2026-10-16T12:24:54 check=hold21 top3=m1,mom12,vix30 bottom=ma200 main_top3=m1,mom12,ma200
-[RESULT] 2026-10-16T12:24:54 check=hold63 top3=m1,mom12,drop2 bottom=gc main_top3=m1,mom12,ma200
-[RESULT] 2026-10-16T12:24:54 check=hold126 top3=mom12,drop2,vix30 bottom=dip20 main_top3=m1,mom12,ma200
-[RESULT] 2026-10-16T12:24:54 check=cost0 top3=m1,mom12,ma200 bottom=vix30 main_top3=m1,mom12,ma200
-[RESULT] 2026-10-16T12:24:54 anim=anim.js days=2542 kb=468
-[RESULT] 2026-10-16T12:24:54 file=results.json,results.md,trades.csv,anim.js rank=m1,mom12,ma200,dip10,hi52,drop2,rsi30,gc,dip20,vix30 sec=0.4
+[DATA] 2026-10-16T13:07:30 source=cache key=yahoo_spy path=/home/user/yeomin1024-ytb/stock/data/yahoo_spy_daily.csv bytes=350200 fetched_at=2026-10-16T12:51:20Z
+[VALIDATE] 2026-10-16T13:07:30 data=yahoo_spy gaps_over_5_days=2001-09-17 moves_over_12pct=2008-10-13:+14.5%
+[VALIDATE] 2026-10-16T13:07:30 data=yahoo_spy rows=8486 first=1993-01-29 last=2026-10-15 duplicates=0
+[VALIDATE] 2026-10-16T13:07:30 data=yahoo_spy vs=yahoo_adjclose max_daily_diff=0.0002519351615632992 days_over_0_01pct=5 tr_vs_adj_growth_ratio=1.0007264390999866
+[DATA] 2026-10-16T13:07:30 source=cache key=yahoo_vix path=/home/user/yeomin1024-ytb/stock/data/yahoo_vix_daily.csv bytes=340208 fetched_at=2026-10-16T12:51:20Z
+[VALIDATE] 2026-10-16T13:07:30 data=yahoo_vix gaps_over_5_days=2001-09-17 moves_over_12pct=2018-02-05:+115.6%
+[VALIDATE] 2026-10-16T13:07:30 data=yahoo_vix rows=8508 first=1993-01-04 last=2026-10-16 duplicates=0
+[DATA] 2026-10-16T13:07:30 source=cache key=yahoo_irx path=/home/user/yeomin1024-ytb/stock/data/yahoo_irx_daily.csv bytes=322430 fetched_at=2026-10-16T12:51:21Z
+[VALIDATE] 2026-10-16T13:07:30 data=yahoo_irx check=nonpositive count=7
+[VALIDATE] 2026-10-16T13:07:30 data=yahoo_irx gaps_over_5_days=2001-09-17 moves_over_12pct=2008-03-24:+103.0%,2008-09-18:+250.0%,2008-09-19:+1214.3%,2008-10-16:+117.5%,2008-11-25:+900.0%,2008-12-02:+400.0%,2008-12-16:+400.0%,2008-12-30:+800.0%,2011-05-10:+400.0%,2011-07-07:+300.0%,2011-07-19:+400.0%,2011-08-16:+300.0%,2011-08-30:+200.0%,2011-10-12:+200.0%,2011-10-25:+200.0%,2011-11-22:+200.0%,2012-12-18:+150.0%,2012-12-31:+250.0%,2013-07-02:+250.0%,2013-07-23:+300.0%,2013-08-27:+153.8%,2013-09-24:+200.0%,2013-10-01:+160.0%,2013-10-08:+150.0%,2014-02-04:+175.0%,2014-02-19:+200.0%,2014-04-29:+400.0%,2014-06-24:+340.0%,2014-07-07:+133.3%,2014-07-08:+257.1%,2014-09-23:+133.3%,2014-09-30:+160.0%,2014-10-28:+200.0%,2014-11-04:+633.3%,2014-11-17:+233.3%,2014-11-25:+260.0%,2014-12-02:+114.3%,2014-12-04:+160.0%,2014-12-09:+460.0%,2014-12-16:+200.0%,2014-12-30:+566.7%,2015-01-06:+566.7%,2015-01-21:+150.0%,2015-01-27:+260.0%,2015-02-03:+200.0%,2015-03-03:+160.0%,2015-03-24:+400.0%,2015-04-07:+400.0%,2015-05-05:+166.7%,2015-05-12:+160.0%,2015-06-01:+166.7%,2015-06-16:+166.7%,2015-06-23:+166.7%,2015-08-25:+253.3%,2015-09-01:+1166.7%,2015-09-15:+132.0%,2015-09-18:+233.3%,2015-09-25:+300.0%,2015-10-01:+260.0%,2015-10-12:+233.3%,2015-10-26:+166.7%,2015-10-28:+250.0%,2020-03-19:-1033.3%,2020-03-25:+112.1%,2020-03-30:-122.4%,2020-03-31:+130.8%,2020-04-01:+110.0%,2020-04-07:+113.3%,2021-04-12:+233.3%,2021-05-25:+233.3%
+[VALIDATE] 2026-10-16T13:07:30 data=yahoo_irx rows=8484 first=1993-01-04 last=2026-10-16 duplicates=0
+[DATA] 2026-10-16T13:07:30 source=cache key=vix_daily path=/home/user/yeomin1024-ytb/stock/data/vix_daily.csv bytes=482200 fetched_at=2026-10-16T11:20:08Z
+[VALIDATE] 2026-10-16T13:07:30 data=vix_daily gaps_over_5_days=2001-09-17 moves_over_12pct=2018-02-05:+115.6%
+[VALIDATE] 2026-10-16T13:07:30 data=vix_daily rows=9278 first=1990-01-02 last=2026-09-22 duplicates=0
+[VALIDATE] 2026-10-16T13:07:30 vix_yahoo_vs_datasets=days=2697 max_rel=14.6960% over_0.1pct=3
+[DATA] 2026-10-16T13:07:30 spy=1993-01-29~2026-10-15 rows=8486 divs=136 vix=1993-01-04~2026-10-16 irx=1993-01-04~2026-10-16 use=2016-01-01~2026-10-15
+[SIGNAL] 2026-10-16T13:07:30 data=vix_aligned days=8486 missing_days=0 vix_last=2026-10-16 note=VIX 가 없는 날은 vix30 신호 없음
+[SIGNAL] 2026-10-16T13:07:30 indicators=ath,ret1,sma50,sma200,rsi14,hi252,mom252,month_first,vix days=8486 first=1993-01-29 last=2026-10-15 first_sma200=1993-11-11
+[SIGNAL] 2026-10-16T13:07:30 label=main start=2016-01-04 end=2026-10-15 days=2712 sell=trail10% cost=0.0025 capital=10000.0 px=given cash=0
+[TRADE] 2026-10-16T13:07:30 label=main rule=m1 buys=13 closed=12 open=1 first_buy=2016-01-04 invested=95.7% win=58% avg_trade=+11.76%
+[TRADE] 2026-10-16T13:07:30 label=main rule=dip10 buys=13 closed=12 open=1 first_buy=2016-01-11 invested=97.1% win=58% avg_trade=+13.43%
+[TRADE] 2026-10-16T13:07:30 label=main rule=dip20 buys=5 closed=5 open=0 first_buy=2018-12-26 invested=41.6% win=80% avg_trade=+22.52%
+[TRADE] 2026-10-16T13:07:30 label=main rule=drop2 buys=14 closed=13 open=1 first_buy=2016-01-08 invested=89.3% win=62% avg_trade=+10.43%
+[TRADE] 2026-10-16T13:07:30 label=main rule=vix30 buys=11 closed=10 open=1 first_buy=2018-02-06 invested=71.1% win=60% avg_trade=+10.59%
+[TRADE] 2026-10-16T13:07:30 label=main rule=rsi30 buys=9 closed=8 open=1 first_buy=2016-01-11 invested=79.0% win=62% avg_trade=+16.69%
+[TRADE] 2026-10-16T13:07:30 label=main rule=ma200 buys=11 closed=10 open=1 first_buy=2016-03-14 invested=85.9% win=60% avg_trade=+8.60%
+[TRADE] 2026-10-16T13:07:30 label=main rule=gc buys=5 closed=4 open=1 first_buy=2016-04-26 invested=59.0% win=100% avg_trade=+17.52%
+[TRADE] 2026-10-16T13:07:30 label=main rule=hi52 buys=7 closed=6 open=1 first_buy=2016-07-11 invested=65.6% win=67% avg_trade=+11.28%
+[TRADE] 2026-10-16T13:07:30 label=main rule=mom12 buys=13 closed=12 open=1 first_buy=2016-04-04 invested=86.3% win=50% avg_trade=+6.30%
+[RESULT] 2026-10-16T13:07:30 label=main rules=10 best=dip10 best_final=52,997 finals=m1:41,072,dip10:52,997,dip20:24,100,drop2:40,376,vix30:33,898,rsi30:43,991,ma200:26,241,gc:23,246,hi52:22,710,mom12:25,716 sec=0.05
+[RESULT] 2026-10-16T13:07:30 reference=buy_and_hold buy=2016-01-04 final=45,571 total=+355.71% max_dd=-33.7% note=경주로 견주지 않음 — 계좌 칸 참고값
+[SIGNAL] 2026-10-16T13:07:30 data=vix_aligned days=8486 missing_days=0 vix_last=2026-10-16 note=VIX 가 없는 날은 vix30 신호 없음
+[SIGNAL] 2026-10-16T13:07:30 indicators=ath,ret1,sma50,sma200,rsi14,hi252,mom252,month_first,vix days=8486 first=1993-01-29 last=2026-10-15 first_sma200=1993-11-11
+[SIGNAL] 2026-10-16T13:07:30 label=trail5% start=2016-01-04 end=2026-10-15 days=2712 sell=trail5% cost=0.0025 capital=10000.0 px=given cash=0
+[TRADE] 2026-10-16T13:07:30 label=trail5% rule=m1 buys=35 closed=34 open=1 first_buy=2016-01-04 invested=86.3% win=50% avg_trade=+3.27%
+[TRADE] 2026-10-16T13:07:30 label=trail5% rule=dip10 buys=29 closed=29 open=0 first_buy=2016-01-11 invested=45.9% win=48% avg_trade=+2.96%
+[TRADE] 2026-10-16T13:07:30 label=trail5% rule=dip20 buys=9 closed=9 open=0 first_buy=2018-12-26 invested=12.0% win=78% avg_trade=+4.65%
+[TRADE] 2026-10-16T13:07:30 label=trail5% rule=drop2 buys=33 closed=32 open=1 first_buy=2016-01-08 invested=68.0% win=50% avg_trade=+2.36%
+[TRADE] 2026-10-16T13:07:30 label=trail5% rule=vix30 buys=21 closed=20 open=1 first_buy=2018-02-06 invested=43.1% win=55% avg_trade=+5.91%
+[TRADE] 2026-10-16T13:07:30 label=trail5% rule=rsi30 buys=18 closed=17 open=1 first_buy=2016-01-11 invested=37.9% win=35% avg_trade=+1.92%
+[TRADE] 2026-10-16T13:07:30 label=trail5% rule=ma200 buys=20 closed=19 open=1 first_buy=2016-03-14 invested=52.7% win=47% avg_trade=+2.58%
+[TRADE] 2026-10-16T13:07:30 label=trail5% rule=gc buys=5 closed=5 open=0 first_buy=2016-04-26 invested=9.2% win=40% avg_trade=-0.02%
+[TRADE] 2026-10-16T13:07:30 label=trail5% rule=hi52 buys=15 closed=14 open=1 first_buy=2016-07-11 invested=54.8% win=50% avg_trade=+3.35%
+[TRADE] 2026-10-16T13:07:30 label=trail5% rule=mom12 buys=31 closed=30 open=1 first_buy=2016-04-04 invested=84.3% win=50% avg_trade=+4.13%
+[RESULT] 2026-10-16T13:07:30 label=trail5% rules=10 best=vix30 best_final=35,326 finals=m1:29,810,dip10:21,013,dip20:14,637,drop2:19,569,vix30:35,326,rsi30:15,175,ma200:16,793,gc:9,923,hi52:16,468,mom12:34,348 sec=0.05
+[SIGNAL] 2026-10-16T13:07:31 data=vix_aligned days=8486 missing_days=0 vix_last=2026-10-16 note=VIX 가 없는 날은 vix30 신호 없음
+[SIGNAL] 2026-10-16T13:07:31 indicators=ath,ret1,sma50,sma200,rsi14,hi252,mom252,month_first,vix days=8486 first=1993-01-29 last=2026-10-15 first_sma200=1993-11-11
+[SIGNAL] 2026-10-16T13:07:31 label=trail15% start=2016-01-04 end=2026-10-15 days=2712 sell=trail15% cost=0.0025 capital=10000.0 px=given cash=0
+[TRADE] 2026-10-16T13:07:31 label=trail15% rule=m1 buys=6 closed=5 open=1 first_buy=2016-01-04 invested=97.9% win=80% avg_trade=+28.06%
+[TRADE] 2026-10-16T13:07:31 label=trail15% rule=dip10 buys=7 closed=6 open=1 first_buy=2016-01-11 invested=99.6% win=67% avg_trade=+23.29%
+[TRADE] 2026-10-16T13:07:31 label=trail15% rule=dip20 buys=5 closed=5 open=0 first_buy=2018-12-26 invested=57.1% win=60% avg_trade=+21.54%
+[TRADE] 2026-10-16T13:07:31 label=trail15% rule=drop2 buys=7 closed=6 open=1 first_buy=2016-01-08 invested=99.2% win=67% avg_trade=+25.76%
+[TRADE] 2026-10-16T13:07:31 label=trail15% rule=vix30 buys=7 closed=6 open=1 first_buy=2018-02-06 invested=80.3% win=50% avg_trade=+16.36%
+[TRADE] 2026-10-16T13:07:31 label=trail15% rule=rsi30 buys=6 closed=5 open=1 first_buy=2016-01-11 invested=96.1% win=80% avg_trade=+30.17%
+[TRADE] 2026-10-16T13:07:31 label=trail15% rule=ma200 buys=5 closed=4 open=1 first_buy=2016-03-14 invested=88.8% win=100% avg_trade=+23.61%
+[TRADE] 2026-10-16T13:07:31 label=trail15% rule=gc buys=5 closed=4 open=1 first_buy=2016-04-26 invested=82.5% win=100% avg_trade=+19.13%
+[TRADE] 2026-10-16T13:07:31 label=trail15% rule=hi52 buys=5 closed=4 open=1 first_buy=2016-07-11 invested=75.7% win=75% avg_trade=+14.12%
+[TRADE] 2026-10-16T13:07:31 label=trail15% rule=mom12 buys=6 closed=5 open=1 first_buy=2016-04-04 invested=85.9% win=80% avg_trade=+15.42%
+[RESULT] 2026-10-16T13:07:31 label=trail15% rules=10 best=rsi30 best_final=51,764 finals=m1:43,436,dip10:46,382,dip20:22,656,drop2:49,941,vix30:31,795,rsi30:51,764,ma200:30,661,gc:24,932,hi52:21,149,mom12:28,173 sec=0.04
+[SIGNAL] 2026-10-16T13:07:31 data=vix_aligned days=8486 missing_days=0 vix_last=2026-10-16 note=VIX 가 없는 날은 vix30 신호 없음
+[SIGNAL] 2026-10-16T13:07:31 indicators=ath,ret1,sma50,sma200,rsi14,hi252,mom252,month_first,vix days=8486 first=1993-01-29 last=2026-10-15 first_sma200=1993-11-11
+[SIGNAL] 2026-10-16T13:07:31 label=trail20% start=2016-01-04 end=2026-10-15 days=2712 sell=trail20% cost=0.0025 capital=10000.0 px=given cash=0
+[TRADE] 2026-10-16T13:07:31 label=trail20% rule=m1 buys=4 closed=3 open=1 first_buy=2016-01-04 invested=98.9% win=100% avg_trade=+31.35%
+[TRADE] 2026-10-16T13:07:31 label=trail20% rule=dip10 buys=4 closed=3 open=1 first_buy=2016-01-11 invested=99.7% win=100% avg_trade=+35.35%
+[TRADE] 2026-10-16T13:07:31 label=trail20% rule=dip20 buys=3 closed=2 open=1 first_buy=2018-12-26 invested=72.3% win=100% avg_trade=+35.79%
+[TRADE] 2026-10-16T13:07:31 label=trail20% rule=drop2 buys=4 closed=3 open=1 first_buy=2016-01-08 invested=99.4% win=100% avg_trade=+32.02%
+[TRADE] 2026-10-16T13:07:31 label=trail20% rule=vix30 buys=4 closed=3 open=1 first_buy=2018-02-06 invested=80.5% win=67% avg_trade=+21.16%
+[TRADE] 2026-10-16T13:07:31 label=trail20% rule=rsi30 buys=4 closed=3 open=1 first_buy=2016-01-11 invested=91.3% win=67% avg_trade=+28.94%
+[TRADE] 2026-10-16T13:07:31 label=trail20% rule=ma200 buys=4 closed=3 open=1 first_buy=2016-03-14 invested=90.7% win=67% avg_trade=+18.03%
+[TRADE] 2026-10-16T13:07:31 label=trail20% rule=gc buys=4 closed=3 open=1 first_buy=2016-04-26 invested=85.7% win=67% avg_trade=+12.97%
+[TRADE] 2026-10-16T13:07:31 label=trail20% rule=hi52 buys=4 closed=3 open=1 first_buy=2016-07-11 invested=78.8% win=67% avg_trade=+8.70%
+[TRADE] 2026-10-16T13:07:31 label=trail20% rule=mom12 buys=4 closed=3 open=1 first_buy=2016-04-04 invested=86.8% win=100% avg_trade=+19.15%
+[RESULT] 2026-10-16T13:07:31 label=trail20% rules=10 best=dip10 best_final=51,608 finals=m1:46,906,dip10:51,608,dip20:38,433,drop2:49,716,vix30:35,377,rsi30:44,600,ma200:32,076,gc:27,659,hi52:23,364,mom12:32,386 sec=0.05
+[SIGNAL] 2026-10-16T13:07:31 data=vix_aligned days=8486 missing_days=0 vix_last=2026-10-16 note=VIX 가 없는 날은 vix30 신호 없음
+[SIGNAL] 2026-10-16T13:07:31 indicators=ath,ret1,sma50,sma200,rsi14,hi252,mom252,month_first,vix days=8486 first=1993-01-29 last=2026-10-15 first_sma200=1993-11-11
+[SIGNAL] 2026-10-16T13:07:31 label=cost0.07% start=2016-01-04 end=2026-10-15 days=2712 sell=trail10% cost=0.0007 capital=10000.0 px=given cash=0
+[TRADE] 2026-10-16T13:07:31 label=cost0.07% rule=m1 buys=13 closed=12 open=1 first_buy=2016-01-04 invested=95.7% win=58% avg_trade=+12.17%
+[TRADE] 2026-10-16T13:07:31 label=cost0.07% rule=dip10 buys=13 closed=12 open=1 first_buy=2016-01-11 invested=97.1% win=58% avg_trade=+13.84%
+[TRADE] 2026-10-16T13:07:31 label=cost0.07% rule=dip20 buys=5 closed=5 open=0 first_buy=2018-12-26 invested=41.6% win=80% avg_trade=+22.96%
+[TRADE] 2026-10-16T13:07:31 label=cost0.07% rule=drop2 buys=14 closed=13 open=1 first_buy=2016-01-08 invested=89.3% win=62% avg_trade=+10.83%
+[TRADE] 2026-10-16T13:07:31 label=cost0.07% rule=vix30 buys=11 closed=10 open=1 first_buy=2018-02-06 invested=71.1% win=60% avg_trade=+10.99%
+[TRADE] 2026-10-16T13:07:31 label=cost0.07% rule=rsi30 buys=9 closed=8 open=1 first_buy=2016-01-11 invested=79.0% win=62% avg_trade=+17.11%
+[TRADE] 2026-10-16T13:07:31 label=cost0.07% rule=ma200 buys=11 closed=10 open=1 first_buy=2016-03-14 invested=85.9% win=60% avg_trade=+8.99%
+[TRADE] 2026-10-16T13:07:31 label=cost0.07% rule=gc buys=5 closed=4 open=1 first_buy=2016-04-26 invested=59.0% win=100% avg_trade=+17.95%
+[TRADE] 2026-10-16T13:07:31 label=cost0.07% rule=hi52 buys=7 closed=6 open=1 first_buy=2016-07-11 invested=65.6% win=67% avg_trade=+11.68%
+[TRADE] 2026-10-16T13:07:31 label=cost0.07% rule=mom12 buys=13 closed=12 open=1 first_buy=2016-04-04 invested=86.3% win=50% avg_trade=+6.69%
+[RESULT] 2026-10-16T13:07:31 label=cost0.07% rules=10 best=dip10 best_final=55,440 finals=m1:42,965,dip10:55,440,dip20:24,538,drop2:42,390,vix30:35,206,rsi30:45,360,ma200:27,253,gc:23,626,hi52:23,249,mom12:26,901 sec=0.05
+[RESULT] 2026-10-16T13:07:31 reference=buy_and_hold buy=2016-01-04 final=45,654 total=+356.54% max_dd=-33.7% note=경주로 견주지 않음 — 계좌 칸 참고값
+[SIGNAL] 2026-10-16T13:07:31 data=vix_aligned days=8486 missing_days=0 vix_last=2026-10-16 note=VIX 가 없는 날은 vix30 신호 없음
+[SIGNAL] 2026-10-16T13:07:31 indicators=ath,ret1,sma50,sma200,rsi14,hi252,mom252,month_first,vix days=8486 first=1993-01-29 last=2026-10-15 first_sma200=1993-11-11
+[SIGNAL] 2026-10-16T13:07:31 label=cost0.00% start=2016-01-04 end=2026-10-15 days=2712 sell=trail10% cost=0.0 capital=10000.0 px=given cash=0
+[TRADE] 2026-10-16T13:07:31 label=cost0.00% rule=m1 buys=13 closed=12 open=1 first_buy=2016-01-04 invested=95.7% win=58% avg_trade=+12.32%
+[TRADE] 2026-10-16T13:07:31 label=cost0.00% rule=dip10 buys=13 closed=12 open=1 first_buy=2016-01-11 invested=97.1% win=58% avg_trade=+14.00%
+[TRADE] 2026-10-16T13:07:31 label=cost0.00% rule=dip20 buys=5 closed=5 open=0 first_buy=2018-12-26 invested=41.6% win=80% avg_trade=+23.14%
+[TRADE] 2026-10-16T13:07:31 label=cost0.00% rule=drop2 buys=14 closed=13 open=1 first_buy=2016-01-08 invested=89.3% win=62% avg_trade=+10.99%
+[TRADE] 2026-10-16T13:07:31 label=cost0.00% rule=vix30 buys=11 closed=10 open=1 first_buy=2018-02-06 invested=71.1% win=60% avg_trade=+11.15%
+[TRADE] 2026-10-16T13:07:31 label=cost0.00% rule=rsi30 buys=9 closed=8 open=1 first_buy=2016-01-11 invested=79.0% win=62% avg_trade=+17.28%
+[TRADE] 2026-10-16T13:07:31 label=cost0.00% rule=ma200 buys=11 closed=10 open=1 first_buy=2016-03-14 invested=85.9% win=60% avg_trade=+9.14%
+[TRADE] 2026-10-16T13:07:31 label=cost0.00% rule=gc buys=5 closed=4 open=1 first_buy=2016-04-26 invested=59.0% win=100% avg_trade=+18.11%
+[TRADE] 2026-10-16T13:07:31 label=cost0.00% rule=hi52 buys=7 closed=6 open=1 first_buy=2016-07-11 invested=65.6% win=67% avg_trade=+11.84%
+[TRADE] 2026-10-16T13:07:31 label=cost0.00% rule=mom12 buys=13 closed=12 open=1 first_buy=2016-04-04 invested=86.3% win=50% avg_trade=+6.84%
+[RESULT] 2026-10-16T13:07:31 label=cost0.00% rules=10 best=dip10 best_final=56,419 finals=m1:43,724,dip10:56,419,dip20:24,711,drop2:43,200,vix30:35,728,rsi30:45,904,ma200:27,657,gc:23,776,hi52:23,461,mom12:27,377 sec=0.04
+[RESULT] 2026-10-16T13:07:31 reference=buy_and_hold buy=2016-01-04 final=45,686 total=+356.86% max_dd=-33.7% note=경주로 견주지 않음 — 계좌 칸 참고값
+[SIGNAL] 2026-10-16T13:07:31 data=vix_aligned days=8486 missing_days=0 vix_last=2026-10-16 note=VIX 가 없는 날은 vix30 신호 없음
+[SIGNAL] 2026-10-16T13:07:31 indicators=ath,ret1,sma50,sma200,rsi14,hi252,mom252,month_first,vix days=8486 first=1993-01-29 last=2026-10-15 first_sma200=1993-11-11
+[SIGNAL] 2026-10-16T13:07:31 label=cash_tbill start=2016-01-04 end=2026-10-15 days=2712 sell=trail10% cost=0.0025 capital=10000.0 px=given cash=given
+[TRADE] 2026-10-16T13:07:31 label=cash_tbill rule=m1 buys=13 closed=12 open=1 first_buy=2016-01-04 invested=95.7% win=58% avg_trade=+11.76%
+[TRADE] 2026-10-16T13:07:31 label=cash_tbill rule=dip10 buys=13 closed=12 open=1 first_buy=2016-01-11 invested=97.1% win=58% avg_trade=+13.43%
+[TRADE] 2026-10-16T13:07:31 label=cash_tbill rule=dip20 buys=5 closed=5 open=0 first_buy=2018-12-26 invested=41.6% win=80% avg_trade=+22.52%
+[TRADE] 2026-10-16T13:07:31 label=cash_tbill rule=drop2 buys=14 closed=13 open=1 first_buy=2016-01-08 invested=89.3% win=62% avg_trade=+10.43%
+[TRADE] 2026-10-16T13:07:31 label=cash_tbill rule=vix30 buys=11 closed=10 open=1 first_buy=2018-02-06 invested=71.1% win=60% avg_trade=+10.59%
+[TRADE] 2026-10-16T13:07:31 label=cash_tbill rule=rsi30 buys=9 closed=8 open=1 first_buy=2016-01-11 invested=79.0% win=62% avg_trade=+16.69%
+[TRADE] 2026-10-16T13:07:31 label=cash_tbill rule=ma200 buys=11 closed=10 open=1 first_buy=2016-03-14 invested=85.9% win=60% avg_trade=+8.60%
+[TRADE] 2026-10-16T13:07:31 label=cash_tbill rule=gc buys=5 closed=4 open=1 first_buy=2016-04-26 invested=59.0% win=100% avg_trade=+17.52%
+[TRADE] 2026-10-16T13:07:31 label=cash_tbill rule=hi52 buys=7 closed=6 open=1 first_buy=2016-07-11 invested=65.6% win=67% avg_trade=+11.28%
+[TRADE] 2026-10-16T13:07:31 label=cash_tbill rule=mom12 buys=13 closed=12 open=1 first_buy=2016-04-04 invested=86.3% win=50% avg_trade=+6.30%
+[RESULT] 2026-10-16T13:07:31 label=cash_tbill rules=10 best=dip10 best_final=53,358 finals=m1:41,472,dip10:53,358,dip20:28,233,drop2:42,262,vix30:35,959,rsi30:47,602,ma200:26,985,gc:26,340,hi52:24,594,mom12:26,716 sec=0.05
+[SIGNAL] 2026-10-16T13:07:31 data=vix_aligned days=8486 missing_days=0 vix_last=2026-10-16 note=VIX 가 없는 날은 vix30 신호 없음
+[SIGNAL] 2026-10-16T13:07:31 indicators=ath,ret1,sma50,sma200,rsi14,hi252,mom252,month_first,vix days=8486 first=1993-01-29 last=2026-10-15 first_sma200=1993-11-11
+[SIGNAL] 2026-10-16T13:07:31 label=price_only start=2016-01-04 end=2026-10-15 days=2712 sell=trail10% cost=0.0025 capital=10000.0 px=close(가격만) cash=0
+[TRADE] 2026-10-16T13:07:31 label=price_only rule=m1 buys=13 closed=12 open=1 first_buy=2016-01-04 invested=95.7% win=50% avg_trade=+10.25%
+[TRADE] 2026-10-16T13:07:31 label=price_only rule=dip10 buys=13 closed=12 open=1 first_buy=2016-01-11 invested=97.1% win=58% avg_trade=+11.79%
+[TRADE] 2026-10-16T13:07:31 label=price_only rule=dip20 buys=5 closed=5 open=0 first_buy=2018-12-26 invested=41.6% win=80% avg_trade=+20.40%
+[TRADE] 2026-10-16T13:07:31 label=price_only rule=drop2 buys=14 closed=13 open=1 first_buy=2016-01-08 invested=89.3% win=62% avg_trade=+9.03%
+[TRADE] 2026-10-16T13:07:31 label=price_only rule=vix30 buys=11 closed=10 open=1 first_buy=2018-02-06 invested=71.1% win=50% avg_trade=+9.29%
+[TRADE] 2026-10-16T13:07:31 label=price_only rule=rsi30 buys=9 closed=8 open=1 first_buy=2016-01-11 invested=79.0% win=62% avg_trade=+14.68%
+[TRADE] 2026-10-16T13:07:31 label=price_only rule=ma200 buys=11 closed=10 open=1 first_buy=2016-03-14 invested=85.9% win=60% avg_trade=+7.02%
+[TRADE] 2026-10-16T13:07:31 label=price_only rule=gc buys=5 closed=4 open=1 first_buy=2016-04-26 invested=59.0% win=100% avg_trade=+15.03%
+[TRADE] 2026-10-16T13:07:31 label=price_only rule=hi52 buys=7 closed=6 open=1 first_buy=2016-07-11 invested=65.6% win=67% avg_trade=+9.43%
+[TRADE] 2026-10-16T13:07:31 label=price_only rule=mom12 buys=13 closed=12 open=1 first_buy=2016-04-04 invested=86.3% win=50% avg_trade=+5.03%
+[RESULT] 2026-10-16T13:07:31 label=price_only rules=10 best=dip10 best_final=45,118 finals=m1:35,191,dip10:45,118,dip20:22,355,drop2:34,676,vix30:30,244,rsi30:38,417,ma200:22,737,gc:21,118,hi52:20,380,mom12:22,361 sec=0.04
+[RESULT] 2026-10-16T13:07:31 reference=buy_and_hold buy=2016-01-04 final=38,298 total=+282.98% max_dd=-34.1% note=경주로 견주지 않음 — 계좌 칸 참고값
+[RESULT] 2026-10-16T13:07:31 rule=m1 reentries=12 mean_rebuy_vs_sell=+0.38% median_wait=11d
+[RESULT] 2026-10-16T13:07:31 rule=dip10 reentries=12 mean_rebuy_vs_sell=-1.41% median_wait=1d
+[RESULT] 2026-10-16T13:07:31 rule=dip20 reentries=4 mean_rebuy_vs_sell=-7.31% median_wait=6d
+[RESULT] 2026-10-16T13:07:31 rule=drop2 reentries=13 mean_rebuy_vs_sell=+1.06% median_wait=4d
+[RESULT] 2026-10-16T13:07:31 rule=vix30 reentries=10 mean_rebuy_vs_sell=-0.58% median_wait=1d
+[RESULT] 2026-10-16T13:07:31 rule=rsi30 reentries=8 mean_rebuy_vs_sell=+0.85% median_wait=18d
+[RESULT] 2026-10-16T13:07:31 rule=ma200 reentries=10 mean_rebuy_vs_sell=+4.87% median_wait=22d
+[RESULT] 2026-10-16T13:07:31 rule=gc reentries=4 mean_rebuy_vs_sell=+15.89% median_wait=262d
+[RESULT] 2026-10-16T13:07:31 rule=hi52 reentries=6 mean_rebuy_vs_sell=+9.49% median_wait=122d
+[RESULT] 2026-10-16T13:07:31 rule=mom12 reentries=12 mean_rebuy_vs_sell=+3.97% median_wait=1d
+[RESULT] 2026-10-16T13:07:31 facts={"spy_2020_bottom": {"date": "2020-03-23", "close": 222.949997}, "dip20_after_last_sale": {"last_sale": "2023-10-30", "min_dd": -0.189989041701211, "min_dd_date": "2025-04-08", "years_to_end": 2.9596167008898013}}
+[RESULT] 2026-10-16T13:07:31 main_rank=dip10,rsi30,m1,drop2,vix30,ma200,mom12,dip20,gc,hi52 buy_and_hold=45,571 rules_above_bh=1
+[RESULT] 2026-10-16T13:07:31 check=trail5 top3=vix30,mom12,m1 bottom=gc above_bh=0
+[RESULT] 2026-10-16T13:07:31 check=trail15 top3=rsi30,drop2,dip10 bottom=hi52 above_bh=3
+[RESULT] 2026-10-16T13:07:31 check=trail20 top3=dip10,drop2,m1 bottom=hi52 above_bh=3
+[RESULT] 2026-10-16T13:07:31 check=cost0.07 top3=dip10,rsi30,m1 bottom=hi52 above_bh=1
+[RESULT] 2026-10-16T13:07:31 check=cost0 top3=dip10,rsi30,m1 bottom=hi52 above_bh=2
+[RESULT] 2026-10-16T13:07:31 check=cash_tbill top3=dip10,rsi30,drop2 bottom=hi52 above_bh=2
+[RESULT] 2026-10-16T13:07:31 check=price_only top3=dip10,rsi30,m1 bottom=hi52 above_bh=2
+[RESULT] 2026-10-16T13:07:31 anim=anim.js days=2712 kb=492
+[RESULT] 2026-10-16T13:07:31 file=results.json,results.md,trades.csv,anim.js sec=0.5

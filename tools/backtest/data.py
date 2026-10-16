@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
-# VERSION: v1.3 — 2026-10-16 — VIX 일별 종가 (공포지수 매수 규칙 — 사용자 지시 2026-10-16 "지금은 매수만 보는 거니까 매수에 관련된 것만 테스트해야지"):
-#          GitHub datasets/finance-vix 커밋 3dbea23(2026-09-23) 고정 + 파일 sha256 고정 → vix_daily(). 다르면 멈춤 (조용히 다른 자료로 계산하지 않음).
+# VERSION: v1.4 — 2026-10-16 — Yahoo 일별 (사용자가 클라우드 Network access 에 Yahoo 를 허용 — 사용자 지시 2026-10-16 "허용했으니 기간 늘려"):
+#          yahoo_daily(symbol) → 종가·배당(그날 배당락) → 총수익 지수(배당 재투자)를 우리가 직접 셈 (Yahoo adjclose 는 대조만).
+#          SPY·^GSPC·^VIX·^IRX. 캐시 stock/data/yahoo_<심볼>_daily.csv(git 밖) + meta(sha256·받은 시각·검사). Yahoo 는 커밋 고정이 안 되므로
+#          받은 날·sha256 을 남기고 FRED·datasets/finance-vix 와 겹치는 날을 대조한다.
+# (v1.3 — 2026-10-16 — VIX 일별 종가 (공포지수 매수 규칙 — 사용자 지시 2026-10-16 "지금은 매수만 보는 거니까 매수에 관련된 것만 테스트해야지"):
+#          GitHub datasets/finance-vix 커밋 3dbea23(2026-09-23) 고정 + 파일 sha256 고정 → vix_daily(). 다르면 멈춤 (조용히 다른 자료로 계산하지 않음).)
 # (v1.2 — 2026-10-16 — 긴 일별 자료 (사용자 지시 2026-10-16 "흔히 사용하는 매수 전략을 10가지 정도 골라서 그냥 매수하고 관망하는거랑
 #          비교 … 이걸 위한 티커, 테스트 기간을 적당하게 잡아보고"): 클라우드는 GitHub·pypi 만 열려 있어 pypi 휠에 든 자료를 버전·sha256 고정으로 받음 —
 #          skfolio 1.9.0 S&P500 일별 종가 1990-01-02~2022-12-28, arch 8.0.0 S&P500·나스닥 종합 일별 1999~2018·Fama-French 월별 T-bill(RF) 1926~2018-11.
@@ -28,6 +32,9 @@ v1.2 긴 일별 자료 (pypi 휠 안의 자료 — 휠 sha256·파일 sha256 고
     close, meta = data.nasdaq_daily()       # 나스닥 종합 일별 종가 1999-01-04~2018-12-31 (가격만)
     rf, meta = data.ff_rf_monthly()         # 1개월 T-bill 월 수익률 % (Fama-French RF) 1926-07~2018-11
 
+v1.4 (Yahoo — 사용자가 허용):
+    df, meta = data.yahoo_daily("SPY")      # 열: close(종가) · div(그날 배당락 배당) · tr(총수익 지수, 배당 재투자) · adjclose(Yahoo, 대조용)
+
 v1.3:
     vix, meta = data.vix_daily()            # CBOE VIX 일별 종가 1990-01-02~2026-09-22 (datasets/finance-vix 커밋·sha256 고정)
 """
@@ -39,6 +46,7 @@ import logging
 import time
 import zipfile
 import urllib.error
+import urllib.parse
 import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
@@ -396,3 +404,90 @@ def vix_daily(refresh=False, data_dir=None, fetch=_fetch):
                  "rows": rep["rows"], "first": rep["first"], "last": rep["last"], "validate": rep})
     meta_path.write_text(json.dumps(meta, ensure_ascii=False, indent=2), "utf-8")
     return s, meta
+
+
+# ----------------------------------------------------------------------------- v1.4 Yahoo 일별
+YAHOO_URL = "https://query1.finance.yahoo.com/v8/finance/chart/{sym}?period1={p1}&period2={p2}&interval=1d&events=div%2Csplit"
+YAHOO_FROM = "1993-01-01"                                         # SPY 상장 1993-01-29 — 지표(200일·52주·12개월) 준비 기간을 넉넉히
+
+
+def _yahoo_fetch(url, timeout=60, tries=3):
+    last = None
+    for k in range(tries):
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (research backtest; stock channel)"})
+            with urllib.request.urlopen(req, timeout=timeout) as r:
+                return r.read()
+        except (urllib.error.URLError, TimeoutError, OSError) as e:  # noqa: PERF203
+            last = e
+            log("DATA", logging.WARNING, source="yahoo", url=url, try_=k + 1, error=repr(e)[:160])
+            time.sleep(2 ** (k + 1))
+    raise RuntimeError(f"[DATA] Yahoo 받기 실패: {url} ({last!r}) → 클라우드 Network access 에 query1.finance.yahoo.com·query2.finance.yahoo.com·"
+                       f"fc.yahoo.com 이 있는지 확인, 없으면 refresh=False 로 캐시를 씀")
+
+
+def yahoo_daily(symbol, refresh=False, data_dir=None, fetch=_yahoo_fetch, until=None):
+    """Yahoo 일별 → (DataFrame[close, div, tr, adjclose], meta). 날짜 = 거래소(뉴욕) 날짜.
+    tr: tr[t] = tr[t-1] × (close[t] + div[t]) / close[t-1] — 그날이 배당락일이면 그 배당을 다시 투자 (배당 재투자 총수익).
+    캐시가 있으면 그대로 (refresh=True 로 다시 받음). 분할이 있으면 멈춤 (SPY 는 없음 — 다른 심볼은 분할 처리 뒤 쓰기)."""
+    d = Path(data_dir) if data_dir else DATA_DIR
+    key = symbol.replace("^", "").lower()
+    path, meta_path = d / f"yahoo_{key}_daily.csv", d / f"yahoo_{key}_daily.csv.meta.json"
+    if path.is_file() and not refresh:
+        raw_csv = path.read_bytes()
+        meta = json.loads(meta_path.read_text("utf-8")) if meta_path.is_file() else {}
+        log("DATA", source="cache", key=f"yahoo_{key}", path=path, bytes=len(raw_csv), fetched_at=meta.get("fetched_at", "?"))
+        df = pd.read_csv(io.BytesIO(raw_csv), parse_dates=["date"]).set_index("date")
+    else:
+        p1 = int(pd.Timestamp(YAHOO_FROM, tz="UTC").timestamp())
+        p2 = int((pd.Timestamp(until, tz="UTC") if until else pd.Timestamp.now(tz="UTC")).timestamp())
+        url = YAHOO_URL.format(sym=urllib.parse.quote(symbol), p1=p1, p2=p2)
+        raw = fetch(url)
+        try:
+            res = json.loads(raw)["chart"]["result"][0]
+        except Exception as e:  # noqa: BLE001
+            raise RuntimeError(f"[DATA] Yahoo 응답 형식이 다름 ({symbol}): {raw[:200]!r} → 심볼·주소 확인") from e
+        tz = res["meta"].get("exchangeTimezoneName", "America/New_York")
+        idx = pd.to_datetime(res["timestamp"], unit="s", utc=True).tz_convert(tz).normalize().tz_localize(None)
+        q = res["indicators"]["quote"][0]
+        adj = (res["indicators"].get("adjclose") or [{}])[0].get("adjclose") or [None] * len(idx)
+        df = pd.DataFrame({"close": q["close"], "adjclose": adj}, index=pd.DatetimeIndex(idx, name="date"), dtype=float)
+        if (res.get("events") or {}).get("splits"):
+            raise RuntimeError(f"[DATA] {symbol} 에 주식 분할이 있음 {res['events']['splits']} → 분할 처리 뒤 쓰기 (지금 코드는 분할을 다루지 않음)")
+        divs = (res.get("events") or {}).get("dividends") or {}
+        div = pd.Series(0.0, index=df.index)
+        for v in divs.values():
+            dd = pd.Timestamp(v["date"], unit="s", tz="UTC").tz_convert(tz).normalize().tz_localize(None)
+            if dd not in div.index:
+                raise RuntimeError(f"[DATA] {symbol} 배당락일 {dd.date()} 이 거래일에 없음 → 자료 확인")
+            div.loc[dd] += float(v["amount"])
+        df["div"] = div
+        nulls = int(df["close"].isna().sum())
+        df = df.dropna(subset=["close"])
+        df = df[~df.index.duplicated(keep="last")].sort_index()
+        d.mkdir(parents=True, exist_ok=True)
+        raw_csv = df[["close", "div", "adjclose"]].to_csv(float_format="%.6f").encode()
+        path.write_bytes(raw_csv)
+        meta = {"url": url, "fetched_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"), "symbol": symbol, "exchange_tz": tz,
+                "null_closes_dropped": nulls, "dividends": int(len(divs)),
+                "license": "Yahoo Finance 자료 — 저장소에 다시 올리지 않음 (연구용 계산만, meta 만 올림)",
+                "about": f"{symbol} 일별 종가·배당 (Yahoo chart API v8). tr = 배당 재투자 총수익 지수 (우리 계산)"}
+        log("DATA", source="download", key=f"yahoo_{key}", url=url, rows=len(df), dividends=len(divs), null_closes_dropped=nulls)
+    close = df["close"].astype(float)
+    tr = (close + df["div"]).div(close.shift(1)).fillna(1.0).cumprod()
+    df["tr"] = tr
+    rep = _validate_daily(close, f"yahoo_{key}", big_move=1.0 if key in ("vix", "irx") else 0.12)
+    adj_note = "-"
+    if df["adjclose"].notna().all() and df["div"].sum() > 0:                 # Yahoo adjclose 와 하루 수익률 대조 (배당 방식이 조금 다름)
+        a = df["adjclose"].pct_change().dropna()
+        b = tr.pct_change().dropna()
+        diff = (a - b).abs()
+        adj_note = {"max_daily_diff": float(diff.max()), "days_over_0_01pct": int((diff > 1e-4).sum()),
+                    "tr_vs_adj_growth_ratio": float((tr.iloc[-1] / tr.iloc[0]) / (df["adjclose"].iloc[-1] / df["adjclose"].iloc[0]))}
+        lvl = logging.WARNING if adj_note["max_daily_diff"] > 2e-3 else logging.INFO
+        log("VALIDATE", lvl, data=f"yahoo_{key}", vs="yahoo_adjclose", **adj_note)
+    meta.update({"sha256": hashlib.sha256(raw_csv).hexdigest(), "rows": rep["rows"], "first": rep["first"], "last": rep["last"],
+                 "validate": rep, "tr_vs_yahoo_adjclose": adj_note, "div_sum": float(df["div"].sum())})
+    meta_path.write_text(json.dumps(meta, ensure_ascii=False, indent=2), "utf-8")
+    return df, meta
+

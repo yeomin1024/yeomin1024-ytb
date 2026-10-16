@@ -1,0 +1,28 @@
+{
+  "url": "https://query1.finance.yahoo.com/v8/finance/chart/%5EGSPC?period1=725846400&period2=1792155080&interval=1d&events=div%2Csplit",
+  "fetched_at": "2026-10-16T12:51:20Z",
+  "symbol": "^GSPC",
+  "exchange_tz": "America/New_York",
+  "null_closes_dropped": 0,
+  "dividends": 0,
+  "license": "Yahoo Finance 자료 — 저장소에 다시 올리지 않음 (연구용 계산만, meta 만 올림)",
+  "about": "^GSPC 일별 종가·배당 (Yahoo chart API v8). tr = 배당 재투자 총수익 지수 (우리 계산)",
+  "sha256": "f369088cc84723ead4c0f3e6e0415c5bf48abe927d51f5e859418e4d3f2d26ed",
+  "rows": 8505,
+  "first": "1993-01-04",
+  "last": "2026-10-15",
+  "validate": {
+    "rows": 8505,
+    "first": "1993-01-04",
+    "last": "2026-10-15",
+    "duplicates": 0,
+    "nonpositive": 0,
+    "missing": 0,
+    "gaps_over_5_days": [
+      "2001-09-17"
+    ],
+    "moves_over_12pct": []
+  },
+  "tr_vs_yahoo_adjclose": "-",
+  "div_sum": 0.0
+}

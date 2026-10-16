@@ -1,4 +1,5 @@
-// VERSION: v1.5 — 2026-10-16 — 낱말 검사 예외에 HOLD (계좌 칸 'BUY & HOLD' — 사용자 지시 2026-10-16 "1번째 박스에는 맨처음에 매수하고 그냥 냅둔 수익도 표시해").
+// VERSION: v1.6 — 2026-10-16 — three.js(jsdelivr three@0.160.0) 를 로컬 node_modules 로 (gsap 처럼) · 낱말 검사 예외에 SPY (주식 1번 v2 3D 장면).
+// v1.5 — 2026-10-16 — 낱말 검사 예외에 HOLD (계좌 칸 'BUY & HOLD' — 사용자 지시 2026-10-16 "1번째 박스에는 맨처음에 매수하고 그냥 냅둔 수익도 표시해").
 // v1.4 — 2026-10-16 — 낱말 검사에서 BUY·SELL(사용자 지시 2026-10-16 "buy, sell 문구 붙여서 표시하고")과 지표 이름 RSI·VIX 도 뺌 (stock/guides/README.md 4번).
 // v1.3 — 2026-10-16 — 낱말 검사에서 지수 이름 'NASDAQ' 도 뺌 (S&P 와 같은 고유 이름 — 주식 1번 v2 확인 장면 '나스닥 2000·2003 시작', stock/guides/README.md 4번).
 // v1.2 — 2026-10-16 — video --estimated-preview: 추정 시각(오디오 전)으로 소리 없는 미리보기만 렌더 (<주제>/out/<영상ID>/preview_estimated_silent.mp4 —
@@ -28,7 +29,7 @@ import { fileURLToPath } from "node:url";
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, "..", "..");
-const VERSION = "v1.3";
+const VERSION = "v1.6";                        // 로그 [RENDER] tool= 에 찍힘 (v1.4~v1.6 때 올리지 않았던 것을 맞춤)
 const log = (stage, kv) => console.log(`[${stage}] [${new Date().toISOString().slice(0, 19)}Z] ` +
   Object.entries(kv).map(([k, v]) => `${k}=${typeof v === "string" && /\s/.test(v) ? JSON.stringify(v) : v}`).join(" "));
 
@@ -147,9 +148,16 @@ async function openPage(pw, width) {
   const page = await browser.newPage({ viewport: { width: width || 1920, height: Math.round((width || 1920) * 9 / 16) }, deviceScaleFactor: 1 });
   const GSAP = path.join(HERE, "node_modules", "gsap", "dist", "gsap.min.js");
   if (!fs.existsSync(GSAP)) fail("RENDER", "gsap 없음", "cd video/render && npm install");
-  await page.route(/^https?:\/\//, r =>                       // gsap(CDN)은 로컬 파일로, 그 밖의 인터넷 요청은 막음 (렌더는 로컬 파일만)
-    /cdnjs\.cloudflare\.com\/ajax\/libs\/gsap\//.test(r.request().url())
-      ? r.fulfill({ path: GSAP, contentType: "application/javascript" }) : r.abort());
+  const THREE_JS = path.join(HERE, "node_modules", "three", "build", "three.min.js");   // v1.6
+  await page.route(/^https?:\/\//, r => {                     // gsap·three(CDN)은 로컬 파일로, 그 밖의 인터넷 요청은 막음 (렌더는 로컬 파일만)
+    const u = r.request().url();
+    if (/cdnjs\.cloudflare\.com\/ajax\/libs\/gsap\//.test(u)) return r.fulfill({ path: GSAP, contentType: "application/javascript" });
+    if (/three@0\.160\.0\/build\/three\.min\.js/.test(u)) {
+      if (!fs.existsSync(THREE_JS)) fail("RENDER", "three 없음", "cd video/render && npm install");
+      return r.fulfill({ path: THREE_JS, contentType: "application/javascript" });
+    }
+    return r.abort();
+  });
   const errs = [];
   page.on("pageerror", e => { errs.push(e.message); log("PAGEERROR", { msg: JSON.stringify(e.message) }); });
   page.on("console", m => { if (m.type() === "error") { errs.push(m.text()); log("CONSOLE", { msg: JSON.stringify(m.text()) }); } });
@@ -181,7 +189,7 @@ const CHECK_FN = () => {
     const fs = parseFloat(getComputedStyle(el).fontSize);
     const txt = n.textContent.trim().slice(0, 24);
     if (fs < 36) out.push({ kind: "글자 36px 미만", txt, fs });
-    if (NOWORDS && !el.closest(".code") && (/[가-힣ぁ-んァ-ン一-龥]/.test(n.textContent) || /[A-Za-z]{2,}/.test(n.textContent.replace(/S&P|NASDAQ|BUY|SELL|HOLD|RSI|VIX/g, ""))))
+    if (NOWORDS && !el.closest(".code") && (/[가-힣ぁ-んァ-ン一-龥]/.test(n.textContent) || /[A-Za-z]{2,}/.test(n.textContent.replace(/S&P|NASDAQ|BUY|SELL|HOLD|RSI|VIX|SPY/g, ""))))
       out.push({ kind: "낱말(언어 없는 화면)", txt });   // K.init opts.noWords — 숫자·기호·A·B·S&P·NASDAQ 만 (stock/guides/README.md 4번)
     if (b.bottom > LOW && !el.closest("#chip")) out.push({ kind: cc0 ? "자막 띠(y 880 아래)와 겹침" : "맨 아래 60px(y 1020 아래)", txt, bottom: Math.round(b.bottom) });
     if (b.left < 40 || b.right > 1880 || b.top < 30) out.push({ kind: "화면 가장자리 밖", txt, left: Math.round(b.left), right: Math.round(b.right), top: Math.round(b.top) });

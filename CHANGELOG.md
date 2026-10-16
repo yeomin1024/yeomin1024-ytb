@@ -1,5 +1,42 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-16 (45) — 주식 1번 v3: 매도 = 산 뒤 최고 종가 −10% → 다음 날 · 수수료 0.25% · SPY 총수익 2016-01-04~2026-10-15 · 대본 111문장 · 3D 장면 v2.1 · 제목 10개 언어 · 업로드 시트 · 썸네일 프롬프트 · 소리 없는 미리보기
+
+### 왜 (사용자 지시)
+- 2026-10-16: "매도 조건을 1년뒤로 하지말고 매수 이후 고점에서 n%하락할 때로 해봐 n은 너가 적당히 설정하고 그리고 수수료도 평균으로 설정해 그리고 허용했으니 기간 늘려 2는 너가 알아서하고 2번째 박스 하단에 개수 표현하는 숫자에 총합도 같이 표시해 이렇게 수정하고 영상 만들어봐"
+  - n = **10%** (주식 분석 댓글 73,272개에서 '손절·스탑·stop loss·트레일링' 앞뒤 % 숫자 중 가장 많음 — 10% 12번 · 50% 6 · 30% 4, 표본 작음 → 5·15·20% 도 영상에서 보여 줌)
+  - 수수료 = 국내 주요 증권사 미국 주식 온라인 **기본** 약 0.25% (이벤트 0.03~0.09% → 확인용 0.07%·0)
+  - 기간 = Yahoo 허용으로 **SPY 총수익(종가 + 배당, 우리 계산) 2016-01-04 ~ 2026-10-15**
+  - 2번('아무 날 매수' 참고값) = 넣지 않음 (매도 규칙이 바뀌어 같은 잣대가 아님)
+  - 2번째 박스(거래 기록) 아래 = ▲ 번 거래 수 + 번 돈 합 · ▼ 잃은 거래 수 + 잃은 돈 합 · ⌛ 들고 있는 거래 평가 손익 · Σ = 계좌 − $10,000
+
+### 바꾼 파일
+| 파일 | 버전 | 내용 |
+|---|---|---|
+| `tools/backtest/data.py` | v1.4 | `yahoo_daily(심볼)` — Yahoo 차트 API v8 종가·배당(분할 있으면 멈춤), 캐시 `stock/data/yahoo_<심볼>_daily.csv`(git 밖) + `*.meta.json`(받은 시각·sha256 — 올림), 총수익 ↔ Yahoo 수정주가 대조, `_validate_daily(big_move=)` |
+| `tools/backtest/entry.py` | v1.2 | `simulate(trail=n)` — 산 뒤 최고 종가 × (1−n) 이하인 날 → 다음 거래일 종가 매도 · 거래 기록에 최고 종가·그날·매도 신호 날 · `run_all(trail=)` |
+| `tools/tests/test_backtest_entry.py` | v1.2 | 12개 (trail 다음 날 매도·미래 정보 없음·겹치는 거래 없음·값 항등식·BUY & HOLD) — 모두 38개 OK |
+| `stock/source/eonje-maesu-2026-10/backtest/run.py` | v3.0 | SPY 총수익·0.25%·trail 0.10 · 확인 n 5·15·20%·수수료 0.07%·0·T-bill(^IRX)·가격만 · 다시 매수 값·기다린 날 · `anim.js`(매도선·최고점·BUY & HOLD) |
+| `…/backtest/verify.py` | v2.0 | 캐시 CSV 를 손으로 짠 반복문으로 따로 다시 계산 — 10개 끝 값·매수 날짜 + BUY & HOLD 같음 |
+| `…/backtest/check_numbers.py` | v2.1 | 대본 숫자 154/154 (`checklist.md`) |
+| `…/eonje-maesu-2026-10.txt` · `.srt` | v2.0 | 111문장 (도입 결말 없음, 끝인사 "시청해주셔서 감사합니다.") · SRT 추정 시각 |
+| `stock/tts_lexicon.tsv` | v1.2 | S&P 500 · SPY · VIX · ETF 읽는 소리 |
+| `video/render/kit.js` | v1.2 | `K.onSeek(fn)` — 프레임마다 시각 t 로 3D 를 그림 |
+| `video/render/render.mjs` | v1.6 | three@0.160.0 CDN → 로컬 `node_modules` · 낱말 예외 SPY · 로그 VERSION 상수를 머리와 맞춤 |
+| `video/episodes/eonje-maesu-2026-10/index.html` | v2.1 | 새 장면 (Three.js 3D 경주 10개 · 3D 규칙 설명 · 끝 막대·보유 기간·다시 산 값·매도 기준 타일·정리·한계) · check 문제 1,031 → 0 |
+| `…/titles.md` · `upload.md` | v2.0 | R1 「매수 타이밍, 저점·RSI·200일선 등 매수 신호 10가지 중 1만 달러로 10년 뒤 가장 많이 번 건?」 + 9개 언어 (모두 100자 이하) · 설명란·챕터 16개·태그·고정 댓글 — 결말 없음, `--dry-run` 영상 파일만 없음 |
+| `…/thumbnails/` · `stock/thumbnails_chatgpt.md` | v2.0 | 글자 없음 · 같은 버튼 10개 + 오르는 3D 가격 벽 + 닫힌 상자 (본안 · 사람 없음 · 클로즈업) |
+| `…/README.md` | v3.0 | 정한 것·결과·장면·한계 (^GSPC ↔ FRED 2,514일 최대 0.119%) |
+| `stock/guides/README.md` | v1.7 | 3번 신호 여러 개 썸네일 · 4번 경주 장면 v2.1(카드·합계·격자 앞면·36px SVG·kit.css 이름) · 5번 예 |
+| `stock/guides/concept.md` | v1.4 | 매도 = 트레일링 스탑 · 수수료 = 기본(평균) · Yahoo 열림 |
+| `guides/video_guide.md` | v4.8 | `K.onSeek` · three 로컬 경로 · 3D 글자 주의 3가지 |
+| `stock/source/topic_candidates.md` · `used_content.md` | v1.3 | 1번 v3 |
+| `guides/status.md` | v1.20 | 1번 표·2-1·4번 |
+
+### 확인
+- `python3 -m unittest test_backtest_entry test_backtest_daily test_backtest` → 38 OK · `verify.py` → ok · `check_numbers.py` → 154/154 · `render.mjs check` → problems=0 page_errors=0 (cuts 57, samples 958) · `youtube_upload.py --dry-run` → 문제 1개(영상 파일 없음 — 오디오 전이라 맞음).
+- 렌더: `render.mjs video stock eonje-maesu-2026-10 --estimated-preview` → `stock/out/eonje-maesu-2026-10/preview_estimated_silent.mp4` (git 밖, 소리 없음 — 최종본 아님). 이 커밋 때 렌더 중 (13,516프레임, 워커 3) — 6초 시험 조각(320~326초)은 성공.
+
 ## 2026-10-16 (44) — 음악 분석 둘째 회차 (새 세션이 이어 맡음): 남은 태그 씨앗 → 검색어 다시 고르기 · 롱폼 탐색 끝(검색 86번) · 승인 462 → 성공 사례 15 → 360 · 예약 작업을 이 세션 것 하나로
 
 ### 왜 (사용자 지시)

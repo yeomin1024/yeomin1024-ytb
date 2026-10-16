@@ -1,4 +1,6 @@
-// VERSION: v1.1 — 2026-10-15 — K.init(ep, {subtitles, chip}) 로 구운 자막·장 이름표를 끌 수 있음 (주식 = 전 세계 대상 — stock/guides/README.md 4번,
+// VERSION: v1.2 — 2026-10-16 — K.onSeek(fn): 프레임마다(SB.seek(t)) 타임라인 다음에 부르는 함수 — 시각 t 로 그리는 Three.js(WebGL) 3D 장면용
+//   (주식 1번 v2 — 사용자 지시 2026-10-16 "좀 입체적으로 표현 하는 도구 없어?"). 예전 장면 파일은 그대로 돈다.
+// v1.1 — 2026-10-15 — K.init(ep, {subtitles, chip}) 로 구운 자막·장 이름표를 끌 수 있음 (주식 = 전 세계 대상 — stock/guides/README.md 4번,
 //   사용자 지시 2026-10-15 "영상에 자막 달지말고"), 오디오 없는 추정 시각(EP.estimated — render.mjs sync --estimate)은 시계로 미리보기.
 // v1.0 — 2026-10-15 — 새 스타일 영상 공통 부품 (guides/video_guide.md v4.0 6번). 근거 시안 video/prototypes/storyboard-2026-10-15/
 //   장면 파일(video/episodes/<영상ID>/index.html)이 window.EP(문장 시각·자막 — render.mjs sync 가 넣음)와 이 파일의 K 를 써서
@@ -11,6 +13,7 @@
   let EP, OPT, tl, stage, chipEl, ccEl;
   const CHAPTERS = [];        // [{start, tag, title, dots:[n,total]}]
   const CUTS = [];            // 점검용 대표 장면 [{t, name}]
+  const HOOKS = [];           // v1.2 K.onSeek — seek(t) 때마다 부름 (3D 장면)
 
   // ---------- 시각 ----------
   const SYL_DIGIT = { "0": 0, "1": 1, "2": 1, "3": 1, "4": 1, "5": 1, "6": 1, "7": 1, "8": 1, "9": 1 };
@@ -238,6 +241,7 @@
     ccEl.innerHTML = txt ? txt.split("\n").map(esc).join("<br>") : "";
   }
   K.cut = (t, name) => CUTS.push({ t: +(+t).toFixed(2), name });   // 점검용 대표 장면
+  K.onSeek = fn => HOOKS.push(fn);           // v1.2
 
   // ---------- 시작·끝 ----------
   K.init = (ep, opts) => {                   // opts: {subtitles: 구운 자막(기본 true), chip: 장 이름표(기본 true)}
@@ -252,7 +256,7 @@
   };
   K.done = () => {
     tl.set({}, {}, EP.duration);
-    const seek = t => { tl.seek(t, false); chipAt(t); ccAt(t); };
+    const seek = t => { tl.seek(t, false); chipAt(t); ccAt(t); for (const f of HOOKS) f(t); };
     window.SB = { D: EP.duration, seek, cuts: CUTS, ep: EP.id, estimated: !!EP.estimated, subtitles: !!ccEl, ready: true };
     seek(0);
     if (!RENDER) player(seek);

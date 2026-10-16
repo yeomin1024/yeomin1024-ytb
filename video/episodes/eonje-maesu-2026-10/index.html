@@ -1,0 +1,857 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>매수 신호 10가지 백테스트</title>
+<!-- VERSION: v2.1 — 2026-10-16 — render.mjs check 정리 (문제 1,031 → 0): 오른쪽 카드를 화면 안(기울임 없앰, 위 142~아래 1012) · 카드 1 = 값·% 를 오른쪽에
+     위아래로(계좌 그래프 뺌) · 카드 2 = 한 줄에 거래 하나(최근 5) + 합계 ▲·▼·⌛·Σ(▲+▼+⌛ = Σ) · 날짜·머리 위 30px 안 · 지표 지금 값을 머리 줄 안으로 ·
+     오늘 값 꼬리표·기준선 이름은 카드 쪽이면 왼쪽으로, 축 글자와 겹치면 그 프레임만 숨김 · 가격 격자·축을 벽 앞면에(원근 착시) · 아이콘 속 SVG 글자를
+     선으로(36px) · 기준선 글자 class .thr → .thl (kit.css .thr 와 겹쳐 6px 폭으로 재짐) · 끝 막대 카메라 가까이(값 글자 겹침) · 다시 산 값 막대
+     길이·'다시 산 날' 장면 시각 · 한계 카드 글자 크기.
+     v2.0 — 2026-10-16 — 주식 1번 v2 영상 장면 (대본 eonje-maesu-2026-10.txt 111문장 · 숫자 = backtest/anim.js ← run.py v3.0).
+     사용자 지시 2026-10-16: "매도 조건을 1년뒤로 하지말고 매수 이후 고점에서 n%하락할 때로 해봐 … 수수료도 평균으로 … 기간 늘려 … 2번째 박스 하단에
+     개수 표현하는 숫자에 총합도 같이 표시해 이렇게 수정하고 영상 만들어봐" · 앞선 지시 "buy and hold랑 비교하지말고 주가 차트에서 매수/매도 지점을
+     표시하는 걸로 하자 buy, sell 문구 붙여서 표시하고" · "상단에 매도 조건 … 빼 … 1번째 박스에는 맨처음에 매수하고 그냥 냅둔 수익도 표시해" ·
+     "설명할 때 영상이 왤케 부실해 아니 좀 입체적으로 표현 하는 도구 없어?" → Three.js(WebGL) 3D: 경주 = 3D 가격 벽(초록 = BUY~SELL, 회색 = 현금) +
+     BUY/SELL 핀 + 매도선(산 뒤 최고 × 0.9, 빨간 점선), 규칙 설명 = 실제 신호 날 앞뒤 3D 확대, 끝 통계 = 3D 막대 + BUY & HOLD 판.
+     화면 글자: 숫자·기호·아이콘 + BUY·SELL·BUY & HOLD·SPY·S&P 500·RSI·VIX (stock/guides/README.md 4번). 자막 없음. 모든 글자 36px 이상.
+     시안: video/prototypes/stock-entry-2026-10-16/race3d.html v1.1. 연구·교육용 영상 — 투자 권유 아님. -->
+<link rel="stylesheet" href="../../render/kit.css">
+<style>
+#stage{--MI:#2BE0A0;--OR:#FF8A3D;--GR:#93A0B8;--C:#EAF0F8}
+#gl{position:absolute;left:0;top:0;width:1920px;height:1080px;z-index:0}
+#ov{position:absolute;left:0;top:0;width:1920px;height:1080px;z-index:1;pointer-events:none}
+.sc{z-index:2}
+.tab{font-variant-numeric:tabular-nums}
+.tag{display:inline-block;font:900 36px/1 "Noto Sans KR";padding:9px 14px 8px;border-radius:12px;letter-spacing:.5px;white-space:nowrap}
+.tag.b{background:var(--MI);color:#03231A}.tag.s{background:var(--OR);color:#2A1100}.tag.h{background:transparent;border:3px solid #AFC0DA;color:#D6E0EF;padding:6px 11px 5px}
+.lab{position:absolute;transform:translate(-50%,-50%);white-space:nowrap}
+.pin{display:flex;align-items:center;gap:8px;filter:drop-shadow(0 6px 14px rgba(0,0,0,.6))}
+.pin .v{font:900 36px/1 "Noto Sans KR";padding:8px 11px;border-radius:10px;background:rgba(5,10,22,.86);border:2px solid rgba(255,255,255,.14)}
+.up{color:var(--MI)}.dn{color:#FF4D5E}
+.stem{position:absolute;width:3px;transform:translateX(-50%);border-radius:2px}
+.ax{font:700 36px/1 "Noto Sans KR";color:#7F8BA3}
+.cur{position:absolute;transform:translate(-50%,-100%);font:900 38px/1 "Noto Sans KR";color:#fff;padding:9px 14px;border-radius:12px;background:rgba(255,212,0,.16);border:2px solid rgba(255,212,0,.65);white-space:nowrap}
+.thl{position:absolute;transform:translate(0,-50%);font:900 36px/1 "Noto Sans KR";color:var(--Y);white-space:nowrap;text-shadow:0 2px 10px rgba(0,0,0,.85)}
+.thl.r{color:#FF6B6B}   /* kit.css .thr(노란 점선 눈금)와 이름이 겹치지 않게 */
+/* 경주 머리·카드 */
+.no{width:84px;height:84px;border-radius:24px;background:linear-gradient(160deg,#FFE24D,#E8B800);color:#1A1300;font:900 50px/84px "Noto Sans KR";text-align:center;box-shadow:0 10px 26px rgba(255,212,0,.25),inset 0 -5px 0 rgba(0,0,0,.18)}
+.rule{display:flex;align-items:center;gap:16px;height:84px;padding:0 28px;border-radius:24px;background:rgba(255,255,255,.06);border:2px solid rgba(255,255,255,.12);font:900 44px/1 "Noto Sans KR";white-space:nowrap}
+.date{position:absolute;left:1290px;top:50px;width:590px;text-align:right;font:900 68px/1 "Noto Sans KR";letter-spacing:1px;text-shadow:0 6px 30px rgba(0,0,0,.5)}
+.side{position:absolute;left:1296px;top:142px;width:584px;display:flex;flex-direction:column;gap:14px}
+.card{position:relative;border-radius:26px;padding:18px 24px;background:linear-gradient(160deg,rgba(255,255,255,.09),rgba(255,255,255,.03));border:1.5px solid rgba(255,255,255,.13);
+  box-shadow:0 24px 50px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.12)}
+.ch{display:flex;align-items:center;gap:12px;font:700 36px/1 "Noto Sans KR";color:var(--GR);margin-bottom:12px}
+.ic{width:44px;height:44px;flex:0 0 44px}
+.acc{display:flex;align-items:center;gap:14px}
+.acc .vv{margin-left:auto;display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.acc.bh{margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,.08)}
+.rb{display:inline-block;width:56px;height:56px;border-radius:16px;background:linear-gradient(160deg,#FFE24D,#E8B800);color:#1A1300;font:900 36px/56px "Noto Sans KR";text-align:center;flex:0 0 56px}
+.bigv{font:900 60px/1 "Noto Sans KR";letter-spacing:-.5px}
+.midv{font:900 38px/1 "Noto Sans KR"}
+.bhv{font:900 48px/1 "Noto Sans KR";color:#D6E0EF}
+/* 거래 기록 = 한 줄에 거래 하나 (BUY 날짜 → SELL 날짜 · 수익률) */
+.tr{display:grid;grid-template-columns:156px 30px 156px 1fr;column-gap:12px;align-items:center;padding:7px 8px;border-top:1px solid rgba(255,255,255,.08);font:900 36px/1 "Noto Sans KR";color:#E6ECF5}
+.tr.hd{border-top:0;padding-top:0;padding-bottom:9px}
+.tr.hd .tag{font-size:36px;padding:5px 9px 4px;border-radius:8px;justify-self:start}
+.tr.open{background:rgba(43,224,160,.08);border-radius:12px}
+.tr .pct{text-align:right}
+.foot{margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,.12)}
+.foot .r1{display:flex;justify-content:space-between;font:900 36px/1 "Noto Sans KR"}
+.foot .r2{display:flex;justify-content:flex-end;align-items:center;gap:14px;margin-top:10px;font:900 44px/1 "Noto Sans KR";color:#fff}
+.legend{position:absolute;left:44px;top:958px;display:flex;align-items:center;gap:12px;font:900 36px/1 "Noto Sans KR";color:#C9D2E2}
+.sw{display:inline-block;width:40px;height:20px;border-radius:6px}
+/* 장면 공통 */
+.card2{position:absolute;border-radius:28px;background:linear-gradient(160deg,rgba(255,255,255,.08),rgba(255,255,255,.025));border:2px solid rgba(255,255,255,.12);box-shadow:0 30px 60px rgba(0,0,0,.45)}
+.flexc{display:flex;align-items:center;justify-content:center;gap:24px}
+.big{font-weight:900;line-height:1;white-space:nowrap;letter-spacing:-2px}
+.code{position:absolute;font-family:"DejaVu Sans Mono","Consolas",monospace;font-size:38px;line-height:1.5;white-space:pre;padding:30px 40px;border-radius:24px;background:#0A1020;border:2px solid rgba(255,255,255,.14);color:#D6E0EF;box-shadow:0 30px 60px rgba(0,0,0,.5)}
+.code .k{color:#FF8AD8}.code .f{color:#7FD4FF}.code .n{color:#FFD400}.code .o{color:#2BE0A0}
+.tile{width:150px;height:150px;border-radius:30px;display:grid;place-items:center;background:linear-gradient(160deg,rgba(255,255,255,.1),rgba(255,255,255,.03));border:2px solid rgba(255,255,255,.14);box-shadow:0 20px 40px rgba(0,0,0,.45)}
+.badge2{display:inline-grid;place-items:center;min-width:60px;height:60px;padding:0 10px;border-radius:18px;background:linear-gradient(160deg,#FFE24D,#E8B800);color:#1A1300;font:900 38px/1 "Noto Sans KR"}
+.row{display:flex;align-items:center;gap:16px}
+</style>
+</head>
+<body>
+<div id="wrap"><div id="stage"><canvas id="gl" width="1920" height="1080"></canvas><div id="ov"></div></div></div>
+<div id="ctrl"></div>
+<div id="now"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+<script>window.THREE || document.write('<script src="../../render/node_modules/three/build/three.min.js"><\/script>');</script>
+<script id="ep-data">/*EP-DATA:BEGIN*/window.EP={"id":"eonje-maesu-2026-10","topic":"stock","duration":450.52,"audio":null,"estimated":true,"est_model":{"perSyl":0.151,"comma":0.25,"base":-0.08,"min":0.8,"lead":0.3,"gap":0.45,"part":1,"tail":0.8},"synced":"2026-10-16T13:15:07Z","sent":[{"n":1,"part":"도입","text":"주식은 언제 매수해야 할까요?","start":0.3,"end":2.032},{"n":2,"part":"도입","text":"쌀 때, 공포가 클 때, 신고가를 뚫을 때, 사람마다 답이 다릅니다.","start":2.482,"end":6.776},{"n":3,"part":"도입","text":"그래서 많이 쓰는 매수 신호 10가지를 같은 조건으로 시험해 보겠습니다.","start":7.226,"end":11.525},{"n":4,"part":"도입","text":"2016년부터 지금까지, AI가 짠 코드로 백테스트해서 확인해 보겠습니다.","start":11.975,"end":17.279},{"n":5,"part":"규칙","text":"시험하는 건 S&P 500을 따라가는 ETF, SPY입니다.","start":18.279,"end":22.677},{"n":6,"part":"규칙","text":"모두 1만 달러로 시작하고, 배당은 다시 투자합니다.","start":23.127,"end":26.468},{"n":7,"part":"규칙","text":"사고팔 때마다 수수료 0.25%를 뗍니다.","start":26.918,"end":29.858},{"n":8,"part":"규칙","text":"매도 규칙은 10가지 모두 같습니다.","start":30.308,"end":32.342},{"n":9,"part":"규칙","text":"산 뒤 가장 높았던 종가보다 10% 떨어지면, 다음 날 매도합니다.","start":32.792,"end":37.039},{"n":10,"part":"규칙","text":"판 뒤에 매수 신호가 다시 나오면, 그때 다시 매수합니다.","start":37.489,"end":40.981},{"n":11,"part":"규칙","text":"오른쪽 위에는 첫날 사서 그대로 둔 계좌도 함께 보여 드릴게요.","start":41.431,"end":45.126},{"n":12,"part":"매달 첫 거래일","text":"첫 번째는 가장 단순한 규칙, 매달 첫 거래일 매수입니다.","start":46.126,"end":49.618},{"n":13,"part":"매달 첫 거래일","text":"신호를 기다리지 않고, 새 달이 시작되면 바로 매수해요.","start":50.068,"end":53.56},{"n":14,"part":"매달 첫 거래일","text":"2016년 1월 4일 첫 매수가 2018년 2월까지 34.8% 올랐습니다.","start":54.01,"end":59.215},{"n":15,"part":"매달 첫 거래일","text":"2020년 3월 코로나 폭락 때는 7.2% 손해를 보고 매도했어요.","start":59.665,"end":64.115},{"n":16,"part":"매달 첫 거래일","text":"다음 달 첫날 다시 매수했고, 이 거래가 75.1% 올랐습니다.","start":64.565,"end":68.963},{"n":17,"part":"매달 첫 거래일","text":"판 거래 12번 중 7번이 수익이었어요.","start":69.413,"end":71.749},{"n":18,"part":"매달 첫 거래일","text":"13번 매수해서, 끝 값은 4만 1천 달러입니다.","start":72.199,"end":75.238},{"n":19,"part":"매달 첫 거래일","text":"그대로 둔 계좌 4만 6천 달러보다는 적어요.","start":75.688,"end":78.326},{"n":20,"part":"신고가 돌파","text":"두 번째, 52주 신고가 돌파 매수입니다.","start":79.326,"end":82.063},{"n":21,"part":"신고가 돌파","text":"지난 1년 가장 높았던 종가를 넘어서는 날, 매수합니다.","start":82.513,"end":86.005},{"n":22,"part":"신고가 돌파","text":"오를 때 따라 타는 추세 매수예요.","start":86.455,"end":88.338},{"n":23,"part":"신고가 돌파","text":"2020년 2월 28일에 매도한 뒤, 다시 산 건 8월 19일이었어요.","start":88.788,"end":93.337},{"n":24,"part":"신고가 돌파","text":"판 값보다 13.8% 비싸게 다시 산 셈입니다.","start":93.787,"end":96.878},{"n":25,"part":"신고가 돌파","text":"2022년 2월에 판 뒤로는 1년 넘게 신호가 없었고요.","start":97.328,"end":100.872},{"n":26,"part":"신고가 돌파","text":"판 거래 6번 중 4번이 수익이었고, 주식을 든 날은 66%였어요.","start":101.322,"end":105.871},{"n":27,"part":"신고가 돌파","text":"7번 매수해서, 끝 값은 2만 3천 달러입니다.","start":106.321,"end":109.209},{"n":28,"part":"모멘텀","text":"세 번째, 12개월 모멘텀 매수입니다.","start":110.209,"end":112.644},{"n":29,"part":"모멘텀","text":"오늘 종가가 1년 전 종가보다 높으면 매수합니다.","start":113.094,"end":116.034},{"n":30,"part":"모멘텀","text":"오르는 해에는 거의 쉬지 않고 주식을 들고 있어요.","start":116.484,"end":119.424},{"n":31,"part":"모멘텀","text":"2020년 3월에는 두 번 연속 손해를 보고 매도했어요.","start":119.874,"end":123.267},{"n":32,"part":"모멘텀","text":"2022년 5월에 산 주식은 13.3% 손해를 보고 매도했어요.","start":123.717,"end":128.167},{"n":33,"part":"모멘텀","text":"1년 전보다 낮은 날이 이어져, 다시 산 건 2023년 5월이었습니다.","start":128.617,"end":133.166},{"n":34,"part":"모멘텀","text":"판 거래 12번 중 6번만 수익이었습니다.","start":133.616,"end":136.103},{"n":35,"part":"모멘텀","text":"13번 매수해서, 끝 값은 2만 6천 달러입니다.","start":136.553,"end":139.592},{"n":36,"part":"이동평균선","text":"네 번째, 200일 이동평균선 돌파 매수입니다.","start":140.592,"end":143.48},{"n":37,"part":"이동평균선","text":"종가가 200일 평균을 아래에서 위로 뚫는 날, 매수합니다.","start":143.93,"end":147.573},{"n":38,"part":"이동평균선","text":"2018년 11월에 산 주식은 12.3% 손해를 보고 매도했어요.","start":148.023,"end":152.473},{"n":39,"part":"이동평균선","text":"2020년 3월에 매도하고, 평균선을 다시 넘은 5월 말에 샀어요.","start":152.923,"end":157.17},{"n":40,"part":"이동평균선","text":"이 거래가 42.2% 올라, 이 규칙에서 가장 큰 수익이었습니다.","start":157.62,"end":162.169},{"n":41,"part":"이동평균선","text":"판 값보다는 평균 4.9% 비싸게 다시 샀어요.","start":162.619,"end":165.71},{"n":42,"part":"이동평균선","text":"11번 매수해서, 끝 값은 2만 6천 달러입니다.","start":166.16,"end":169.199},{"n":43,"part":"골든 크로스","text":"다섯 번째, 골든 크로스 매수입니다.","start":170.199,"end":172.483},{"n":44,"part":"골든 크로스","text":"50일 평균선이 200일 평균선을 위로 뚫으면 매수합니다.","start":172.933,"end":176.477},{"n":45,"part":"골든 크로스","text":"판 거래 4번이 모두 수익이었어요.","start":176.927,"end":178.961},{"n":46,"part":"골든 크로스","text":"하지만 신호가 드물었습니다.","start":179.411,"end":181.143},{"n":47,"part":"골든 크로스","text":"2023년 10월에 판 뒤, 다시 산 건 2025년 7월이었어요.","start":181.593,"end":185.84},{"n":48,"part":"골든 크로스","text":"판 값보다 49.3% 비싼 값이었습니다.","start":186.29,"end":189.23},{"n":49,"part":"골든 크로스","text":"그래서 주식을 든 날이 59%뿐이었어요.","start":189.68,"end":192.62},{"n":50,"part":"골든 크로스","text":"5번 매수해서, 끝 값은 2만 3천 달러입니다.","start":193.07,"end":195.958},{"n":51,"part":"급락 다음 날","text":"여섯 번째부터는 떨어질 때 사는 규칙입니다.","start":196.958,"end":199.596},{"n":52,"part":"급락 다음 날","text":"하루에 2% 넘게 떨어지면, 다음 날 매수합니다.","start":200.046,"end":203.387},{"n":53,"part":"급락 다음 날","text":"10가지 가운데 가장 많은 14번을 매수했어요.","start":203.837,"end":206.626},{"n":54,"part":"급락 다음 날","text":"2018년 12월에는 산 뒤 13.1% 떨어져 매도했고요.","start":207.076,"end":211.073},{"n":55,"part":"급락 다음 날","text":"2020년 3월에는 보름 사이 세 번이나 매수했어요.","start":211.523,"end":214.765},{"n":56,"part":"급락 다음 날","text":"2020년 3월 19일에 다시 산 거래는 80.3% 올랐습니다.","start":215.215,"end":219.514},{"n":57,"part":"급락 다음 날","text":"끝 값은 4만 달러입니다.","start":219.964,"end":221.394},{"n":58,"part":"과매도","text":"일곱 번째, RSI 30 아래 과매도 매수입니다.","start":222.394,"end":225.735},{"n":59,"part":"과매도","text":"RSI는 최근 14일 동안 오른 폭과 내린 폭을 견준 숫자예요.","start":226.185,"end":230.182},{"n":60,"part":"과매도","text":"30 아래면 많이 팔린 상태로 보고, 매수합니다.","start":230.632,"end":233.671},{"n":61,"part":"과매도","text":"2020년 3월 24일, 바닥 다음 날 매수한 거래가 77.2% 올랐어요.","start":234.121,"end":239.425},{"n":62,"part":"과매도","text":"2023년 10월에 판 뒤로는 1년 넘게 기다렸고요.","start":239.875,"end":243.117},{"n":63,"part":"과매도","text":"판 거래 8번 중 5번이 수익이었어요.","start":243.567,"end":245.752},{"n":64,"part":"과매도","text":"9번 매수해서, 끝 값은 4만 4천 달러입니다.","start":246.202,"end":249.09},{"n":65,"part":"공포지수","text":"여덟 번째, 공포지수 VIX 30 이상 매수입니다.","start":250.09,"end":253.733},{"n":66,"part":"공포지수","text":"VIX가 높을수록 시장이 크게 흔들릴 거라고 보는 사람이 많다는 뜻이에요.","start":254.183,"end":259.237},{"n":67,"part":"공포지수","text":"첫 매수가 2018년 2월이라, 처음 2년은 현금으로 기다렸습니다.","start":259.687,"end":264.085},{"n":68,"part":"공포지수","text":"2020년 3월 18일에 산 거래는 80.7% 올랐어요.","start":264.535,"end":268.381},{"n":69,"part":"공포지수","text":"2024년 8월에도 VIX가 30을 넘어 매수했고, 7.9% 올랐어요.","start":268.831,"end":274.437},{"n":70,"part":"공포지수","text":"11번 매수해서, 끝 값은 3만 4천 달러입니다.","start":274.887,"end":277.926},{"n":71,"part":"큰 하락 매수","text":"아홉 번째, 고점보다 20% 떨어지면 사는 큰 하락 매수입니다.","start":278.926,"end":283.173},{"n":72,"part":"큰 하락 매수","text":"그때까지 가장 높았던 종가보다 20% 이상 낮으면 매수해요.","start":283.623,"end":287.62},{"n":73,"part":"큰 하락 매수","text":"2020년 3월 18일에 산 거래가 80.7% 올랐습니다.","start":288.07,"end":292.067},{"n":74,"part":"큰 하락 매수","text":"판 거래 5번 중 4번이 수익이었습니다.","start":292.517,"end":294.853},{"n":75,"part":"큰 하락 매수","text":"그런데 2023년 10월에 판 뒤로는 한 번도 사지 못했어요.","start":295.303,"end":298.998},{"n":76,"part":"큰 하락 매수","text":"2025년 4월에도 고점보다 19.0%까지만 떨어졌기 때문입니다.","start":299.448,"end":304.351},{"n":77,"part":"큰 하락 매수","text":"3년 가까이 현금으로 기다려, 끝 값은 2만 4천 달러입니다.","start":304.801,"end":308.595},{"n":78,"part":"저점 매수","text":"마지막 열 번째, 고점보다 10% 떨어지면 사는 저점 매수입니다.","start":309.595,"end":313.842},{"n":79,"part":"저점 매수","text":"판 뒤에도 고점보다 10% 아래면, 바로 다음 날 다시 매수해요.","start":314.292,"end":318.388},{"n":80,"part":"저점 매수","text":"2020년 3월에는 7.2%, 8.3% 손해로 두 번 매도했어요.","start":318.838,"end":323.689},{"n":81,"part":"저점 매수","text":"3월 18일에 또 매수했고, 이 거래가 80.7% 올랐습니다.","start":324.139,"end":328.386},{"n":82,"part":"저점 매수","text":"2025년 4월 급락 때도 매수해서, 지금 54.9% 수익 중이에요.","start":328.836,"end":333.838},{"n":83,"part":"저점 매수","text":"2022년 하락장에서는 한 해에 네 번 매수했어요.","start":334.288,"end":337.53},{"n":84,"part":"저점 매수","text":"13번 매수해서, 끝 값은 5만 3천 달러입니다.","start":337.98,"end":341.019},{"n":85,"part":"저점 매수","text":"그대로 둔 계좌 4만 6천 달러보다 많아요.","start":341.469,"end":343.956},{"n":86,"part":"종합","text":"10가지 결과를 한 번에 보겠습니다.","start":344.956,"end":346.99},{"n":87,"part":"종합","text":"1위는 고점보다 10% 떨어지면 사는 저점 매수, 5만 3천 달러입니다.","start":347.44,"end":352.14},{"n":88,"part":"종합","text":"2위 RSI 4만 4천, 3위 매달 첫 거래일 4만 1천 달러예요.","start":352.59,"end":356.837},{"n":89,"part":"종합","text":"그대로 둔 계좌 4만 6천 달러를 넘은 건 하나뿐이었습니다.","start":357.287,"end":360.831},{"n":90,"part":"종합","text":"아래 다섯 개 중 네 개는, 오를 때 사는 추세 규칙이었어요.","start":361.281,"end":364.773},{"n":91,"part":"종합","text":"차이는 매도한 다음에 생겼습니다.","start":365.223,"end":367.257},{"n":92,"part":"종합","text":"2020년 2월 28일, 10가지 모두 같은 날 매도했어요.","start":367.707,"end":371.501},{"n":93,"part":"종합","text":"매도 규칙이 같으니, 파는 날은 거의 같았던 거죠.","start":371.951,"end":374.99},{"n":94,"part":"종합","text":"다시 살 때가 달랐습니다.","start":375.44,"end":376.87},{"n":95,"part":"종합","text":"추세 규칙 네 개는 판 값보다 평균 4.0%에서 15.9% 비싸게 다시 샀어요.","start":377.32,"end":382.676},{"n":96,"part":"종합","text":"저점 매수는 평균 1.4% 싸게, 대부분 다음 날 바로 다시 샀고요.","start":383.126,"end":387.524},{"n":97,"part":"종합","text":"큰 하락 매수는 7.3% 싸게 샀지만, 주식을 든 날이 42%뿐이었습니다.","start":387.974,"end":393.429},{"n":98,"part":"다른 조건","text":"매도 기준을 바꾸면 어떨까요?","start":394.429,"end":396.161},{"n":99,"part":"다른 조건","text":"5%로 바꾸면, 그대로 둔 계좌를 넘은 규칙이 하나도 없었어요.","start":396.611,"end":400.858},{"n":100,"part":"다른 조건","text":"15%나 20%로 하면 세 개씩 넘었습니다.","start":401.308,"end":404.55},{"n":101,"part":"다른 조건","text":"수수료를 0으로 해도 두 개뿐이었고요.","start":405,"end":407.336},{"n":102,"part":"정리","text":"정리하겠습니다.","start":408.336,"end":409.313},{"n":103,"part":"정리","text":"이번 10년 동안, 신호를 기다린 규칙 10개 중 9개는 그대로 둔 계좌보다 적었습니다.","start":409.763,"end":415.067},{"n":104,"part":"정리","text":"넘은 하나도, 떨어지면 바로 다시 사서 주식을 97% 들고 있던 규칙이었어요.","start":415.517,"end":420.821},{"n":105,"part":"정리","text":"그대로 둔 계좌는 2020년 3월에 33.7% 떨어지는 걸 견뎌야 했고요.","start":421.271,"end":426.325},{"n":106,"part":"정리","text":"언제 사느냐만큼, 팔고 나서 언제 다시 사느냐가 결과를 갈랐습니다.","start":426.775,"end":431.022},{"n":107,"part":"한계","text":"이 결과는 지난 10년의 자료입니다.","start":432.022,"end":434.056},{"n":108,"part":"한계","text":"세금과 환전 비용은 넣지 않았고, 매도는 종가를 보고 다음 날 했어요.","start":434.506,"end":438.753},{"n":109,"part":"한계","text":"투자 권유가 아니라, 규칙을 코드로 확인해 본 결과입니다.","start":439.203,"end":442.846},{"n":110,"part":"마무리","text":"다음에 백테스트로 확인해 볼 가설이 있다면 댓글로 알려 주세요.","start":443.846,"end":447.692},{"n":111,"part":"마무리","text":"시청해주셔서 감사합니다.","start":448.142,"end":449.723}],"subs":[]};/*EP-DATA:END*/</script>
+<script src="../../../stock/source/eonje-maesu-2026-10/backtest/anim.js"></script>
+<script src="../../render/kit.js"></script>
+<script>
+(function () {
+"use strict";
+K.init(window.EP, { subtitles: false, chip: false, noWords: true });
+const tl = K.tl, el = K.el, pop = K.pop, out = K.out;
+const AN = window.AN, N = AN.dates.length, CAP = AN.capital, TRAIL = AN.trail;
+const SUM = AN.summary;
+// 영상 순서 (대본 장 순서 — 계산 순서 AN.order 와 다름): 정해진 날 → 오를 때 사기(추세) → 떨어질 때 사기
+const VORDER = ["m1", "hi52", "mom12", "ma200", "gc", "drop2", "rsi30", "vix30", "dip20", "dip10"];
+if (VORDER.slice().sort().join() !== AN.order.slice().sort().join()) throw new Error("규칙 목록이 anim.js 와 다름");
+const VNO = k => VORDER.indexOf(k) + 1;
+const TREND = new Set(["hi52", "mom12", "ma200", "gc"]);
+
+// ---------- 시각 (문장을 글자로 찾음 — 대본을 고쳐도 엉뚱한 문장을 보지 않게) ----------
+const SN = a => { const h = EP.sent.filter(s => s.text.includes(a)); if (h.length !== 1) throw new Error(`문장 찾기 '${a}' → ${h.length}개`); return h[0]; };
+const S = a => SN(a).start, E = a => SN(a).end, W = (a, w) => K.W(SN(a).n, w);
+const PS = p => { const s = EP.sent.find(x => x.part === p); if (!s) throw new Error(`파트 '${p}' 없음`); return s.start; };
+const PE = p => { const ss = EP.sent.filter(x => x.part === p); return ss[ss.length - 1].end; };
+const CUTQ = [];
+const cut = (t, name) => CUTQ.push([t, name]);
+
+// ---------- 숫자 모양 ----------
+const f0 = n => Math.round(n).toLocaleString("en-US");
+const f2 = n => n.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+const usd = v => (v < 0 ? "−$" : "$") + f0(Math.abs(v));
+const susd = v => (v >= 0 ? "+$" : "−$") + f0(Math.abs(v));
+const pc = (r, d = 1) => (r >= 0 ? "+" : "−") + Math.abs(r * 100).toFixed(d) + "%";
+const pcu = (r, d = 1) => (r < 0 ? "−" : "") + Math.abs(r * 100).toFixed(d) + "%";
+const ymd = i => AN.dates[i].replace(/-/g, ".");
+const ymd2 = i => AN.dates[i].slice(2).replace(/-/g, ".");
+const idx = d => { const i = AN.dates.findIndex(x => x >= d); return i < 0 ? N - 1 : i; };
+const R = k => AN.rules[k];
+const clamp = (x, a, b) => Math.max(a, Math.min(b, x));
+const lerp = (a, b, u) => a + (b - a) * u;
+const ease = u => u < 0.5 ? 2 * u * u : 1 - Math.pow(-2 * u + 2, 2) / 2;
+
+// ---------- 아이콘 (SVG — 글자 없음) ----------
+const IC = {
+  cal: (s = 48, n = "") => `<svg viewBox="0 0 48 48" width="${s}" height="${s}"><rect x="5" y="9" width="38" height="34" rx="7" fill="#22324F" stroke="#9FB1CF" stroke-width="3.5"/><path d="M5 19h38M16 5v8M32 5v8" stroke="#9FB1CF" stroke-width="3.5" stroke-linecap="round"/>${n ? `<path d="M19.5 27 L25 23 V39" fill="none" stroke="#FFD400" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>` : ""}</svg>`,
+  star: (s = 44) => `<svg viewBox="0 0 48 48" width="${s}" height="${s}"><path d="M24 4l6 13 14 1.5-10.5 9.6 3 14-12.5-7.2-12.5 7.2 3-14L4 18.5 18 17z" fill="#FFD400"/></svg>`,
+  up: (s = 44, c = "#2BE0A0") => `<svg viewBox="0 0 48 48" width="${s}" height="${s}"><path d="M6 36 L18 22 L27 30 L42 12" fill="none" stroke="${c}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M33 12h9v9" fill="none" stroke="${c}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  dn: (s = 44, c = "#FF4D5E") => `<svg viewBox="0 0 48 48" width="${s}" height="${s}"><path d="M6 12 L18 26 L27 18 L42 36" fill="none" stroke="${c}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M33 36h9v-9" fill="none" stroke="${c}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  cross: (s = 44) => `<svg viewBox="0 0 48 48" width="${s}" height="${s}"><path d="M4 34 C16 30 26 20 44 10" fill="none" stroke="#2BE0A0" stroke-width="4.5" stroke-linecap="round"/><path d="M4 16 C18 20 30 26 44 28" fill="none" stroke="#FFD400" stroke-width="4.5" stroke-linecap="round"/></svg>`,
+  gauge: (s = 44) => `<svg viewBox="0 0 48 48" width="${s}" height="${s}"><path d="M6 36a18 18 0 0 1 36 0" fill="none" stroke="#9FB1CF" stroke-width="5" stroke-linecap="round"/><path d="M6 36a18 18 0 0 1 6-13" fill="none" stroke="#2BE0A0" stroke-width="5" stroke-linecap="round"/><path d="M24 36 L14 22" stroke="#fff" stroke-width="4" stroke-linecap="round"/></svg>`,
+  fear: (s = 44) => `<svg viewBox="0 0 48 48" width="${s}" height="${s}"><path d="M8 40 L16 24 L22 32 L30 10 L40 40" fill="none" stroke="#FF6B6B" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round"/><circle cx="30" cy="10" r="4" fill="#FFD400"/></svg>`,
+  flag: (s = 44) => `<svg viewBox="0 0 48 48" width="${s}" height="${s}"><path d="M10 44V6" stroke="#9FB1CF" stroke-width="4" stroke-linecap="round"/><path d="M12 7h24l-6 8 6 8H12z" fill="#FFD400"/></svg>`,
+  wallet: `<svg class="ic" viewBox="0 0 48 48"><rect x="4" y="12" width="40" height="28" rx="7" fill="#22324F" stroke="#9FB1CF" stroke-width="3"/><path d="M8 12 L32 5 L35 12" fill="none" stroke="#9FB1CF" stroke-width="3" stroke-linejoin="round"/><rect x="30" y="21" width="14" height="10" rx="4" fill="#FFD400"/></svg>`,
+  log: `<svg class="ic" viewBox="0 0 48 48"><rect x="8" y="5" width="32" height="38" rx="6" fill="none" stroke="#9FB1CF" stroke-width="3.5"/><path d="M15 16h18M15 24h18M15 32h11" stroke="#9FB1CF" stroke-width="3.5" stroke-linecap="round"/></svg>`,
+  hour: (s = 60) => `<svg viewBox="0 0 48 48" width="${s}" height="${s}"><path d="M12 5h24M12 43h24M14 5c0 12 20 12 20 19S14 31 14 43M34 5c0 12-20 12-20 19s20 7 20 19" fill="none" stroke="#9FB1CF" stroke-width="3.5" stroke-linecap="round"/></svg>`,
+  coin: (s = 60) => `<svg viewBox="0 0 48 48" width="${s}" height="${s}"><ellipse cx="24" cy="34" rx="18" ry="7" fill="#B8860B"/><ellipse cx="24" cy="28" rx="18" ry="7" fill="#E8B800"/><ellipse cx="24" cy="22" rx="18" ry="7" fill="#FFD400"/><ellipse cx="24" cy="22" rx="10" ry="3.6" fill="none" stroke="#B8860B" stroke-width="2.5"/></svg>`,
+  chat: (s = 120) => `<svg viewBox="0 0 48 48" width="${s}" height="${s}"><path d="M6 10a6 6 0 0 1 6-6h24a6 6 0 0 1 6 6v16a6 6 0 0 1-6 6H20l-9 9v-9h1a6 6 0 0 1-6-6z" fill="#22324F" stroke="#9FB1CF" stroke-width="3"/><circle cx="16" cy="18" r="3" fill="#FFD400"/><circle cx="24" cy="18" r="3" fill="#FFD400"/><circle cx="32" cy="18" r="3" fill="#FFD400"/></svg>`,
+  warn: (s = 110) => `<svg viewBox="0 0 48 48" width="${s}" height="${s}"><path d="M24 5 L45 42 H3 Z" fill="#2A2410" stroke="#FFD400" stroke-width="3.5" stroke-linejoin="round"/><path d="M24 18v12" stroke="#FFD400" stroke-width="4.5" stroke-linecap="round"/><circle cx="24" cy="36" r="2.6" fill="#FFD400"/></svg>`,
+  ban: (s = 110, inner = "") => `<svg viewBox="0 0 48 48" width="${s}" height="${s}">${inner}<circle cx="24" cy="24" r="19" fill="none" stroke="#FF4D5E" stroke-width="4"/><path d="M11 37 L37 11" stroke="#FF4D5E" stroke-width="4" stroke-linecap="round"/></svg>`,
+};
+// 규칙 머리 그림 (언어 없이)
+const HEAD = {
+  m1: () => `${IC.cal(56, "1")}<span style="color:var(--GR)">→</span><span class="tag b">BUY</span>`,
+  hi52: () => `${IC.flag(54)}<span>★</span><span style="color:var(--Y)">1Y</span><span style="color:var(--GR)">↑ →</span><span class="tag b">BUY</span>`,
+  mom12: () => `${IC.up(54)}<span>&gt;</span>${IC.cal(52)}<span style="color:var(--Y)">−1Y</span><span style="color:var(--GR)">→</span><span class="tag b">BUY</span>`,
+  ma200: () => `${IC.up(54)}<span style="color:var(--Y)">200</span><span style="color:var(--GR)">↗ →</span><span class="tag b">BUY</span>`,
+  gc: () => `${IC.cross(54)}<span style="color:var(--MI)">50</span><span style="color:var(--GR)">↗</span><span style="color:var(--Y)">200</span><span style="color:var(--GR)">→</span><span class="tag b">BUY</span>`,
+  drop2: () => `${IC.dn(54)}<span style="color:#FF6B6B">−2%</span><span style="color:var(--GR)">→</span><span class="tag b">BUY</span>`,
+  rsi30: () => `${IC.gauge(54)}<span>RSI &lt; 30</span><span style="color:var(--GR)">→</span><span class="tag b">BUY</span>`,
+  vix30: () => `${IC.fear(54)}<span>VIX ≥ 30</span><span style="color:var(--GR)">→</span><span class="tag b">BUY</span>`,
+  dip20: () => `${IC.star(50)}<span style="color:var(--Y)">−20%</span><span style="color:var(--GR)">→</span><span class="tag b">BUY</span>`,
+  dip10: () => `${IC.star(50)}<span style="color:var(--Y)">−10%</span><span style="color:var(--GR)">→</span><span class="tag b">BUY</span>`,
+};
+const MINI = { m1: IC.cal(46, "1"), hi52: IC.flag(46), mom12: IC.up(46), ma200: IC.up(46, "#FFD400"), gc: IC.cross(46), drop2: IC.dn(46), rsi30: IC.gauge(46), vix30: IC.fear(46), dip20: IC.star(44), dip10: IC.star(44) };
+const MINIT = { m1: "", hi52: "", mom12: "", ma200: "200", gc: "", drop2: "−2%", rsi30: "RSI", vix30: "VIX", dip20: "−20%", dip10: "−10%" };
+const badge = (k, big) => `<span class="row" style="gap:10px"><span class="badge2"${big ? ' style="height:72px;min-width:72px;font-size:44px"' : ""}>${VNO(k)}</span>${MINI[k]}${MINIT[k] ? `<span class="tab" style="font:900 36px/1 'Noto Sans KR'">${MINIT[k]}</span>` : ""}</span>`;
+
+// =====================================================================================================================
+// 3D 공통
+// =====================================================================================================================
+const canvas = document.getElementById("gl"), ov = document.getElementById("ov"), stageEl = document.getElementById("stage");
+const ren = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, preserveDrawingBuffer: true });
+ren.setPixelRatio(1); ren.setSize(1920, 1080, false); ren.setClearColor(0x000000, 0); ren.autoClear = false;
+function clearGL() { ren.setScissorTest(false); ren.setViewport(0, 0, 1920, 1080); ren.clear(); }
+function drawIn(scene, cam, vp) {
+  ren.setScissorTest(true);
+  ren.setViewport(vp.x, 1080 - vp.y - vp.h, vp.w, vp.h); ren.setScissor(vp.x, 1080 - vp.y - vp.h, vp.w, vp.h);
+  ren.render(scene, cam);
+}
+function projector(cam, vp) {
+  const v = new THREE.Vector3();
+  return (x, y, z) => { v.set(x, y, z).project(cam); return [vp.x + (v.x + 1) / 2 * vp.w, vp.y + (1 - v.y) / 2 * vp.h]; };
+}
+function mat(color, op, extra) { return new THREE.MeshBasicMaterial(Object.assign({ color, transparent: op < 1, opacity: op, side: THREE.DoubleSide, depthWrite: op >= 1 }, extra)); }
+function ribbonGeo(xs, ys, mask, w, z, dash) {           // 굵은 선 (y 폭) — cnt[i] = 점 i 까지 그릴 꼭짓점 수 (drawRange)
+  const pos = [], cnt = new Int32Array(xs.length + 1);
+  let acc = 0, v = 0;
+  for (let k = 0; k < xs.length - 1; k++) {
+    cnt[k] = v;
+    const ok = ys[k] != null && ys[k + 1] != null && (!mask || (mask[k] && mask[k + 1]));
+    if (!ok) continue;
+    const len = Math.hypot(xs[k + 1] - xs[k], ys[k + 1] - ys[k]);
+    const on = !dash || Math.floor(acc / dash) % 2 === 0;
+    acc += len;
+    if (!on) continue;
+    const [ax, ay, bx, by] = [xs[k], ys[k], xs[k + 1], ys[k + 1]];
+    pos.push(ax, ay - w / 2, z, ax, ay + w / 2, z, bx, by + w / 2, z, ax, ay - w / 2, z, bx, by + w / 2, z, bx, by - w / 2, z);
+    v += 6;
+  }
+  cnt[xs.length - 1] = v; cnt[xs.length] = v;
+  const g = new THREE.BufferGeometry(); g.setAttribute("position", new THREE.Float32BufferAttribute(pos, 3));
+  return { g, cnt };
+}
+function sphere(r, color, halo) {
+  const grp = new THREE.Group();
+  grp.add(new THREE.Mesh(new THREE.SphereGeometry(r, 24, 16), mat(color, 1)));
+  if (halo !== false) grp.add(new THREE.Mesh(new THREE.SphereGeometry(r * 2.1, 24, 16), mat(color, 0.18)));
+  return grp;
+}
+// 글자 자리 잡기 — 겹치면 더 멀리, 그래도 겹치면 뺌 (최근 것부터 놓음)
+let PLACED = [];
+function boxOf(n) { const r = n.getBoundingClientRect(), s = stageEl.getBoundingClientRect(), k = s.width / 1920; return { l: (r.left - s.left) / k, t: (r.top - s.top) / k, r: (r.right - s.left) / k, b: (r.bottom - s.top) / k }; }
+const hit = a => PLACED.some(b => !(a.r + 6 < b.l || a.l - 6 > b.r || a.b + 6 < b.t || a.t - 6 > b.b));
+function ovEl(html, x, y, cls, style) { const e = document.createElement("div"); e.className = cls || "lab"; e.innerHTML = html; e.style.left = x + "px"; e.style.top = y + "px"; if (style) e.style.cssText += style; ov.appendChild(e); return e; }
+function stemEl(x, y0, y1, color) { const e = document.createElement("div"); e.className = "stem"; e.style.left = x + "px"; e.style.top = Math.min(y0, y1) + "px"; e.style.height = Math.abs(y1 - y0) + "px"; e.style.background = color; ov.appendChild(e); }
+function bounds(b, box) { return b.t > box.t && b.b < box.b && b.l > box.l && b.r < box.r; }
+
+// =====================================================================================================================
+// 경주 (3D 가격 벽)
+// =====================================================================================================================
+const RACE = (() => {
+  const VP = { x: 0, y: 112, w: 1290, h: 912 };
+  const scene = new THREE.Scene();
+  const cam = new THREE.PerspectiveCamera(27, VP.w / VP.h, 0.1, 200);
+  cam.position.set(2.0, 7.4, 27.5); cam.lookAt(0.15, 4.0, 0); cam.updateMatrixWorld(); cam.updateProjectionMatrix();
+  const proj = projector(cam, VP);
+  const P0 = 150, P1 = 830, XW = 15.6, YH = 9.0, HZ = 0.7;
+  const X = i => -XW / 2 - 0.55 + XW * i / (N - 1), Y = p => (p - P0) / (P1 - P0) * YH;
+  const xs = AN.dates.map((_, i) => X(i)), ysP = AN.close.map(Y);
+  // 바닥·격자
+  const fl = new THREE.Mesh(new THREE.PlaneGeometry(XW + 2.4, 4), mat("#0E1A31", 0.85));
+  fl.rotation.x = -Math.PI / 2; fl.position.set(0, -0.01, 1.0); scene.add(fl);
+  for (let p = 200; p <= 800; p += 100) { const r = ribbonGeo([-XW / 2 - 0.6, XW / 2 + 0.2], [Y(p), Y(p)], null, 0.022, HZ + 0.012); scene.add(new THREE.Mesh(r.g, mat("#5A6C90", 0.5))); }
+  const YEARS = [];
+  AN.dates.forEach((d, i) => { if (i && d.slice(0, 4) !== AN.dates[i - 1].slice(0, 4)) { YEARS.push([i, d.slice(0, 4)]);
+    scene.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(X(i), 0, -HZ), new THREE.Vector3(X(i), 0, 2.6)]), new THREE.LineBasicMaterial({ color: "#2A3958", transparent: true, opacity: 0.9 }))); } });
+  // 가격 벽 (앞면 + 지붕) — 색은 규칙마다
+  const fp = [], rp = [];
+  for (let i = 0; i < N - 1; i++) {
+    const x0 = xs[i], x1 = xs[i + 1], y0 = ysP[i], y1 = ysP[i + 1];
+    fp.push(x0, 0, HZ, x0, y0, HZ, x1, y1, HZ, x0, 0, HZ, x1, y1, HZ, x1, 0, HZ);
+    rp.push(x0, y0, HZ, x0, y0, -HZ, x1, y1, -HZ, x0, y0, HZ, x1, y1, -HZ, x1, y1, HZ);
+  }
+  const gF = new THREE.BufferGeometry(); gF.setAttribute("position", new THREE.Float32BufferAttribute(fp, 3));
+  const gR = new THREE.BufferGeometry(); gR.setAttribute("position", new THREE.Float32BufferAttribute(rp, 3));
+  const mF = new THREE.Mesh(gF, new THREE.MeshBasicMaterial({ vertexColors: true, transparent: true, opacity: 0.93, side: THREE.DoubleSide }));
+  const mR = new THREE.Mesh(gR, new THREE.MeshBasicMaterial({ vertexColors: true, side: THREE.DoubleSide }));
+  const mRef = new THREE.Mesh(gF, new THREE.MeshBasicMaterial({ vertexColors: true, transparent: true, opacity: 0.13, depthWrite: false, side: THREE.DoubleSide }));
+  mRef.scale.y = -0.32; mRef.position.y = -0.02;
+  scene.add(mF, mR, mRef);
+  const COL = {};
+  function colors(k) {                                       // 규칙마다 색 (보유 = 초록, 현금 = 회색) — 처음 한 번만 셈
+    if (COL[k]) return COL[k];
+    const H = R(k).holding;
+    const cG = [new THREE.Color("#0B3D33"), new THREE.Color("#22C79A")], cN = [new THREE.Color("#1A2336"), new THREE.Color("#4A5875")];
+    const rG = new THREE.Color("#B9FFE8"), rN = new THREE.Color("#C9D3E6");
+    const fc = new Float32Array((N - 1) * 18), rc = new Float32Array((N - 1) * 18);
+    const put = (arr, o, c) => { arr[o] = c.r; arr[o + 1] = c.g; arr[o + 2] = c.b; };
+    for (let i = 0; i < N - 1; i++) {
+      const h = H[i + 1] === "1", c = h ? cG : cN, r = h ? rG : rN;
+      const tb = y => c[0].clone().lerp(c[1], Math.min(1, y / YH * 1.25));
+      [c[0], tb(ysP[i]), tb(ysP[i + 1]), c[0], tb(ysP[i + 1]), c[0]].forEach((cc, j) => put(fc, i * 18 + j * 3, cc));
+      const rr = r.clone().multiplyScalar(0.92), rb = r.clone().multiplyScalar(0.62);
+      [rr, rb, rb, rr, rb, rr].forEach((cc, j) => put(rc, i * 18 + j * 3, cc));
+    }
+    return (COL[k] = { f: new THREE.BufferAttribute(fc, 3), r: new THREE.BufferAttribute(rc, 3) });
+  }
+  // 가격 선 (앞 모서리)
+  const edge = ribbonGeo(xs, ysP, null, 0.045, HZ + 0.01);
+  const mEdge = new THREE.Mesh(edge.g, mat("#FFFFFF", 0.95)); scene.add(mEdge);
+  // 오늘 막대·점
+  const curPl = new THREE.Mesh(new THREE.PlaneGeometry(0.05, YH + 0.6), mat("#FFD400", 0.45)); scene.add(curPl);
+  const curDot = sphere(0.16, "#FFFFFF"); scene.add(curDot);
+  // 규칙마다: 지표 선 · 매도선(산 뒤 최고 × (1 − trail)) · 핀 공
+  const RULE3D = {};
+  function lineOf(name) { return AN.lines[name].map(v => (v == null ? null : Y(v))); }
+  function build(k) {
+    if (RULE3D[k]) return RULE3D[k];
+    const g = new THREE.Group(), lines = [];
+    const add = (ys, color, w, op, dash) => { const r = ribbonGeo(xs, ys, null, w, HZ + 0.03, dash); const m = new THREE.Mesh(r.g, mat(color, op)); g.add(m); lines.push({ m, cnt: r.cnt }); };
+    if (k === "dip10" || k === "dip20") {
+      const q = k === "dip10" ? 0.9 : 0.8;
+      add(lineOf("ath"), "#FFD400", 0.03, 0.55);
+      add(AN.lines.ath.map(v => Y(v * q)), "#FFD400", 0.04, 0.95, 0.22);
+    }
+    if (k === "ma200") add(lineOf("sma200"), "#FFD400", 0.045, 0.9);
+    if (k === "gc") { add(lineOf("sma200"), "#FFD400", 0.045, 0.9); add(lineOf("sma50"), "#7FD4FF", 0.04, 0.9); }
+    if (k === "hi52") add(lineOf("hi252"), "#FFD400", 0.04, 0.9, 0.22);
+    if (k === "mom12") add(lineOf("close_252ago"), "#FFD400", 0.04, 0.8, 0.22);
+    // 매도선: 들고 있는 날의 (산 뒤 최고 종가) × (1 − trail)
+    const stop = new Array(N).fill(null), mask = new Array(N).fill(false);
+    for (const t of R(k).trades) {
+      let pk = 0;
+      const end = t.open ? N - 1 : t.s;
+      for (let i = t.b; i <= end; i++) { pk = Math.max(pk, AN.close[i]); stop[i] = Y(pk * (1 - TRAIL)); mask[i] = i < end || t.open; }
+    }
+    const sr = ribbonGeo(xs, stop, mask, 0.05, HZ + 0.04, 0.16);
+    const sm = new THREE.Mesh(sr.g, mat("#FF5A5A", 0.95)); g.add(sm); lines.push({ m: sm, cnt: sr.cnt });
+    const pins = R(k).trades.map(t => {
+      const b = sphere(0.12, "#2BE0A0"); b.position.set(xs[t.b], ysP[t.b], HZ + 0.06); g.add(b);
+      const s = sphere(0.12, "#FF8A3D"); s.position.set(xs[t.s], ysP[t.s], HZ + 0.06); g.add(s);
+      return { t, b, s };
+    });
+    g.visible = false; scene.add(g);
+    return (RULE3D[k] = { g, lines, pins });
+  }
+  function thrEl(html, pp, style) {                          // 기준선 이름: 오늘 막대 오른쪽 — 카드 쪽(x 1262 넘음)이면 왼쪽
+    const e = ovEl(html, pp[0] + 10, pp[1], "thl", style);
+    if (boxOf(e).r > 1262) { e.style.left = (pp[0] - 22) + "px"; e.style.transform = "translate(-100%,-50%)"; }
+    return e;
+  }
+  let active = null;
+  function draw(k, fi, hdr) {
+    const c = colors(k);
+    if (active !== k) {
+      gF.setAttribute("color", c.f); gR.setAttribute("color", c.r);
+      for (const kk in RULE3D) RULE3D[kk].g.visible = false;
+      active = k;
+    }
+    const o = build(k); o.g.visible = true;
+    const cur = clamp(Math.floor(fi), 0, N - 1);
+    gF.setDrawRange(0, cur * 6); gR.setDrawRange(0, cur * 6);
+    mEdge.geometry.setDrawRange(0, edge.cnt[cur]);
+    for (const l of o.lines) l.m.geometry.setDrawRange(0, l.cnt[cur]);
+    for (const p of o.pins) { p.b.visible = p.t.b <= cur; p.s.visible = !p.t.open && p.t.s <= cur; }
+    curPl.position.set(xs[cur], (YH + 0.6) / 2, HZ + 0.02);
+    curDot.position.set(xs[cur], ysP[cur], HZ + 0.08);
+    drawIn(scene, cam, VP);
+    // ---- 글자 (오버레이)
+    PLACED = [];
+    const cp = proj(xs[cur], YH + 0.6, HZ + 0.02);
+    const cl = ovEl(`<span class="tab">$${f2(AN.close[cur])}</span>`, cp[0], cp[1] - 4, "cur");
+    { const b0 = boxOf(cl), dx = b0.l < 46 ? 46 - b0.l : b0.r > 1270 ? 1270 - b0.r : 0; if (dx) cl.style.left = (cp[0] + dx) + "px"; }
+    PLACED.push(boxOf(cl));
+    const axEls = [];                                        // 축 글자는 움직이는 글자(꼬리표·핀)와 겹치면 그 프레임만 숨김
+    for (let p = 200; p <= 800; p += 100) { const q = proj(XW / 2 + 0.25, Y(p), HZ); axEls.push(ovEl(`$${p}`, q[0] + 54, q[1], "lab ax")); }
+    for (const [i, yy] of YEARS) { const q = proj(X(i), 0, 2.2); axEls.push(ovEl(yy, q[0] + 34, q[1], "lab ax")); }
+    if (k === "dip10" || k === "dip20") {
+      const q = k === "dip10" ? 0.9 : 0.8, pp = proj(xs[cur] + 0.18, Y(AN.lines.ath[cur] * q), HZ);
+      const e = thrEl(`★ −${k === "dip10" ? 10 : 20}%`, pp); PLACED.push(boxOf(e));
+    }
+    if (k === "ma200" || k === "gc") { const pp = proj(xs[cur] + 0.18, Y(AN.lines.sma200[cur]), HZ); const e = thrEl("200", pp); if (!hit(boxOf(e))) PLACED.push(boxOf(e)); else e.remove(); }
+    if (k === "gc") { const pp = proj(xs[cur] + 0.18, Y(AN.lines.sma50[cur]), HZ); const e = thrEl("50", pp, "color:#7FD4FF"); if (!hit(boxOf(e))) PLACED.push(boxOf(e)); else e.remove(); }
+    const BOX = { l: 40, t: 205, r: 1270, b: 905 };
+    const tries = (dir) => (dir > 0 ? [[1, 1.0], [1, 1.6], [1, 2.2], [-1, 1.0], [-1, 1.6]] : [[-1, 1.0], [-1, 1.6], [-1, 2.2], [1, 1.0], [1, 1.6]]);
+    const place = (html, x, y0, dir, color) => {
+      const base = proj(x, y0, HZ + 0.06);
+      for (const [d, off] of tries(dir)) {
+        const ly = y0 + d * off;
+        if (d < 0 && ly < 0.75) continue;
+        const pt = proj(x, ly, HZ + 0.06);
+        const e = ovEl(html, pt[0], pt[1] + (d > 0 ? -22 : 22), "lab");
+        const b = boxOf(e);
+        if (!hit(b) && bounds(b, BOX)) { PLACED.push(b); stemEl(base[0], base[1], d > 0 ? b.b : b.t, color); return true; }
+        e.remove();
+      }
+      return false;
+    };
+    const shown = R(k).trades.filter(t => t.b <= cur).slice().reverse();
+    for (const t of shown) {
+      if (!t.open && t.s <= cur) place(`<div class="pin"><span class="tag s">SELL</span><span class="v ${t.r >= 0 ? "up" : "dn"} tab">${pc(t.r)}</span></div>`, xs[t.s], ysP[t.s], 1, "#FF8A3D");
+      place(`<div class="pin"><span class="tag b">BUY</span><span class="v tab">$${f0(t.bp)}</span></div>`, xs[t.b], ysP[t.b], -1, "#2BE0A0");
+    }
+    for (const e of axEls) if (hit(boxOf(e))) e.style.visibility = "hidden";
+    if (hdr) hdr(cur);
+    return cur;
+  }
+  return { draw, VP };
+})();
+
+// 경주 DOM (머리·카드) — 규칙마다 장면 안에 만들고, 프레임마다 값만 바꿈
+function raceDom(k, sc) {
+  const hd = el(`<div class="a row" style="left:44px;top:34px;gap:18px"><div class="no">${VNO(k)}</div><div class="rule">${HEAD[k]()}</div><div class="lv tab row" style="gap:8px;margin-left:6px;font:900 40px/1 'Noto Sans KR';color:#C9D2E2"></div></div>`, sc);
+  const dt = el(`<div class="date tab"></div>`, sc);
+  const live = hd.querySelector(".lv");
+  const side = el(`<div class="side"><div class="card c1"></div><div class="card c2"></div></div>`, sc);
+  el(`<div class="legend"><span class="sw" style="background:linear-gradient(180deg,#22C79A,#0B3D33)"></span><span class="tag b">BUY</span><span>~</span><span class="tag s">SELL</span><span class="sw" style="margin-left:26px;background:linear-gradient(180deg,#4A5875,#1A2336)"></span><span>$</span><span style="margin-left:26px;display:inline-block;width:46px;border-top:5px dashed #FF5A5A"></span><span class="tag s">SELL</span></div>`, sc);
+  const c1 = side.children[0], c2 = side.children[1];
+  const T = R(k).trades, ROWS = 5;
+  return cur => {
+    dt.textContent = ymd(cur);
+    // 지표 지금 값
+    const L = AN.lines;
+    const lv = {
+      dip10: () => `★ ${pcu(AN.close[cur] / L.ath[cur] - 1)}`, dip20: () => `★ ${pcu(AN.close[cur] / L.ath[cur] - 1)}`,
+      rsi30: () => `RSI ${L.rsi14[cur].toFixed(1)}`, vix30: () => (L.vix[cur] == null ? "" : `VIX ${L.vix[cur].toFixed(1)}`),
+      drop2: () => `${IC.cal(40)} ${pc(L.ret1[cur] / 100, 1)}`, mom12: () => `−1Y ${pc(AN.close[cur] / L.close_252ago[cur] - 1)}`,
+    }[k];
+    live.innerHTML = lv ? lv() : "";
+    // 카드 1: 계좌 + BUY & HOLD (첫날 매수하고 그대로 둔 계좌)
+    const v = R(k).value[cur], bv = AN.bh[cur];
+    c1.innerHTML = `<div class="ch">${IC.wallet}<span class="tab">$${f0(CAP)} →</span></div>
+      <div class="acc"><span class="rb">${VNO(k)}</span><span class="vv"><span class="bigv tab">$${f0(v)}</span><span class="midv tab ${v >= CAP ? "up" : "dn"}">${pc(v / CAP - 1)}</span></span></div>
+      <div class="acc bh"><span class="tag h">BUY &amp; HOLD</span><span class="vv"><span class="bhv tab">$${f0(bv)}</span><span class="midv tab" style="color:#D6E0EF">${pc(bv / CAP - 1)}</span></span></div>`;
+    // 카드 2: 거래 기록 (최근 ROWS개, 한 줄에 하나) + 합계 (▲ 번 거래 · ▼ 잃은 거래 · ⌛ 들고 있는 거래 · Σ = 계좌 − $10,000)
+    const done = T.filter(t => t.b <= cur);
+    const isOpen = t => t.open || t.s > cur;
+    const pnl = t => (isOpen(t) ? v - t.bc : t.sc - t.bc);
+    const rows = done.slice(-ROWS).map(t => {
+      const op = isOpen(t), r = op ? v / t.bc - 1 : t.r;
+      return `<div class="tr ${op ? "open" : ""}"><span class="tab">${ymd2(t.b)}</span><span style="color:var(--GR)">→</span>${op ? `<span>${IC.hour(40)}</span>` : `<span class="tab">${ymd2(t.s)}</span>`}<span class="pct tab ${r >= 0 ? "up" : "dn"}">${pc(r)}</span></div>`;
+    }).join("");
+    const closed = done.filter(t => !isOpen(t)), openT = done.filter(isOpen);
+    const W_ = closed.filter(t => t.r > 0), L_ = closed.filter(t => t.r <= 0);
+    const sum = a => a.reduce((s, t) => s + pnl(t), 0);
+    c2.innerHTML = `<div class="ch">${IC.log}<span class="tab">${done.length}</span>${done.length > ROWS ? `<span class="tab" style="margin-left:auto">${done.length - ROWS} ↑</span>` : ""}</div>
+      <div class="tr hd"><span class="tag b">BUY</span><span></span><span class="tag s">SELL</span><span></span></div>${rows}
+      <div class="foot"><div class="r1 tab"><span class="up">▲ ${W_.length} ${susd(sum(W_))}</span><span class="dn">▼ ${L_.length} ${susd(sum(L_))}</span></div>
+      <div class="r2 tab">${openT.length ? `<span class="row" style="gap:6px;margin-right:auto;font-size:36px">${IC.hour(40)}<span class="${sum(openT) >= 0 ? "up" : "dn"}">${susd(sum(openT))}</span></span>` : ""}<span style="color:var(--GR)">Σ</span><span class="${v - CAP >= 0 ? "up" : "dn"}">${susd(v - CAP)}</span></div></div>`;
+  };
+}
+
+// =====================================================================================================================
+// 3D 확대 (규칙 설명 · 매도 규칙 예) — 실제 자료의 짧은 구간
+// =====================================================================================================================
+function makeZoom(opt) {
+  // opt: {i0, i1, lines:[[array, color, dash]], low:{arr, thr, max}, stop:{buyI}, sig, buyI, hl:[i,j] }
+  const VP = { x: 140, y: 150, w: 1640, h: 820 };
+  const scene = new THREE.Scene();
+  const cam = new THREE.PerspectiveCamera(30, VP.w / VP.h, 0.1, 200);
+  const n = opt.i1 - opt.i0 + 1;
+  const pr = AN.close.slice(opt.i0, opt.i1 + 1);
+  const extra = (opt.lines || []).flatMap(([a]) => a.slice(opt.i0, opt.i1 + 1).filter(v => v != null));
+  const stopVals = [];
+  let lo = Math.min(...pr, ...extra), hi = Math.max(...pr, ...extra);
+  if (opt.stop) { let pk = Math.max(...AN.close.slice(opt.stop.buyI, opt.i0 + 1)); for (let i = opt.i0; i <= opt.i1; i++) { pk = Math.max(pk, AN.close[i]); stopVals.push(pk * (1 - TRAIL)); } lo = Math.min(lo, ...stopVals); }
+  const pad = (hi - lo) * 0.08; lo -= pad; hi += pad;
+  const top = opt.low ? 6.2 : 5.6, base = opt.low ? 1.4 : 0;
+  const X = j => -8 + 16 * j / (n - 1), Y = p => base + (p - lo) / (hi - lo) * (top - base);
+  const xs = Array.from({ length: n }, (_, j) => X(j));
+  const yP = pr.map(Y);
+  const grid = new THREE.Mesh(new THREE.PlaneGeometry(17.2, 0.02), mat("#3B4C6E", 0.8));
+  const panel = new THREE.Mesh(new THREE.PlaneGeometry(17.4, top - base + 0.8), mat("#13213C", 0.55)); panel.position.set(0, (top + base) / 2, -0.4); scene.add(panel);
+  // 가격 관 (3D)
+  const pts = xs.map((x, j) => new THREE.Vector3(x, yP[j], 0));
+  const curve = new THREE.CatmullRomCurve3(pts);
+  const SEG = n * 3;
+  const tube = new THREE.Mesh(new THREE.TubeGeometry(curve, SEG, 0.075, 10, false), new THREE.MeshStandardMaterial({ color: "#F4F8FF", emissive: "#4F6A99", emissiveIntensity: 0.5, roughness: 0.35, metalness: 0.2 }));
+  scene.add(tube);
+  scene.add(new THREE.AmbientLight(0xffffff, 0.55)); const dl = new THREE.DirectionalLight(0xffffff, 1.1); dl.position.set(3, 6, 8); scene.add(dl);
+  // 그림자 띠 (관 아래)
+  const shp = []; for (let j = 0; j < n - 1; j++) shp.push(xs[j], base, -0.05, xs[j], yP[j], -0.05, xs[j + 1], yP[j + 1], -0.05, xs[j], base, -0.05, xs[j + 1], yP[j + 1], -0.05, xs[j + 1], base, -0.05);
+  const gS = new THREE.BufferGeometry(); gS.setAttribute("position", new THREE.Float32BufferAttribute(shp, 3));
+  const mS = new THREE.Mesh(gS, mat("#22C79A", 0.16)); scene.add(mS);
+  const lines = [];
+  for (const [arr, color, dash, w] of opt.lines || []) {
+    const r = ribbonGeo(xs, arr.slice(opt.i0, opt.i1 + 1).map(v => (v == null ? null : Y(v))), null, w || 0.06, 0.05, dash);
+    const m = new THREE.Mesh(r.g, mat(color, 0.95)); scene.add(m); lines.push({ m, cnt: r.cnt });
+  }
+  let stopL = null;
+  if (opt.stop) { const r = ribbonGeo(xs, stopVals.map(Y), null, 0.07, 0.06, 0.2); stopL = { m: new THREE.Mesh(r.g, mat("#FF5A5A", 1)), cnt: r.cnt }; scene.add(stopL.m); }
+  let low = null;
+  if (opt.low) {
+    const a = opt.low.arr.slice(opt.i0, opt.i1 + 1), LY = v => -2.6 + (v / opt.low.max) * 3.2;
+    const r = ribbonGeo(xs, a.map(v => (v == null ? null : LY(v))), null, 0.07, 0.05);
+    const m = new THREE.Mesh(r.g, mat(opt.low.color || "#7FD4FF", 1)); scene.add(m);
+    const th = ribbonGeo([-8.2, 8.2], [LY(opt.low.thr), LY(opt.low.thr)], null, 0.05, 0.04, 0.3); scene.add(new THREE.Mesh(th.g, mat("#FFD400", 0.95)));
+    const zone = new THREE.Mesh(new THREE.PlaneGeometry(16.4, Math.abs(LY(opt.low.thr) - LY(opt.low.zoneEnd))), mat(opt.low.zoneColor || "#2BE0A0", 0.12));
+    zone.position.set(0, (LY(opt.low.thr) + LY(opt.low.zoneEnd)) / 2, -0.05); scene.add(zone);
+    low = { m, cnt: r.cnt, LY };
+  }
+  const hl = opt.hl ? (() => { const [a, b] = opt.hl; const r = ribbonGeo(xs.slice(a - opt.i0, b - opt.i0 + 1), yP.slice(a - opt.i0, b - opt.i0 + 1), null, 0.12, 0.08); const m = new THREE.Mesh(r.g, mat("#FF4D5E", 1)); m.visible = false; scene.add(m); return m; })() : null;
+  const buy = sphere(0.18, "#2BE0A0"); scene.add(buy);
+  const sell = opt.sellI != null ? sphere(0.18, "#FF8A3D") : null; if (sell) scene.add(sell);
+  const peak = opt.stop ? sphere(0.15, "#FFD400") : null; if (peak) scene.add(peak);
+  function draw(u, orbit, show) {                            // u: 0..1 그린 몫 · orbit: 카메라 각 · show: {buy, sell, labels}
+    const a = -0.28 + 0.4 * orbit;
+    cam.position.set(Math.sin(a) * 22, 5.4, Math.cos(a) * 22); cam.lookAt(0, opt.low ? 1.7 : 2.9, 0); cam.updateMatrixWorld(); cam.updateProjectionMatrix();
+    const proj = projector(cam, VP);
+    const j = clamp(Math.floor(u * (n - 1)), 0, n - 1);
+    tube.geometry.setDrawRange(0, Math.max(0, Math.floor(u * SEG)) * 10 * 6);
+    gS.setDrawRange(0, j * 6);
+    for (const l of lines) l.m.geometry.setDrawRange(0, l.cnt[j]);
+    if (stopL) stopL.m.geometry.setDrawRange(0, stopL.cnt[j]);
+    if (low) low.m.geometry.setDrawRange(0, low.cnt[j]);
+    const bj = opt.buyI - opt.i0;
+    buy.visible = !!show.buy && j >= bj; buy.position.set(xs[bj], yP[bj], 0.1);
+    if (sell) { const sj = opt.sellI - opt.i0; sell.visible = !!show.sell && j >= sj; sell.position.set(xs[sj], yP[sj], 0.1); }
+    if (hl) hl.visible = j >= opt.hl[1] - opt.i0;
+    let pkj = 0;
+    if (peak) { let m = -1; for (let q = 0; q <= j; q++) if (pr[q] >= m) { m = pr[q]; pkj = q; } peak.position.set(xs[pkj], yP[pkj], 0.12); }
+    drawIn(scene, cam, VP);
+    PLACED = [];
+    const BOX = { l: 40, t: 40, r: 1880, b: 1010 };
+    const put = (html, x, y, z, dy, cls) => { const p = proj(x, y, z); const e = ovEl(html, p[0], p[1] + (dy || 0), cls || "lab"); const b = boxOf(e); if (hit(b) || !bounds(b, BOX)) { e.remove(); return null; } PLACED.push(b); return e; };
+    put(`<span class="tab" style="font:900 40px/1 'Noto Sans KR';color:#AFC0DA">${AN.dates[opt.i0].slice(0, 7).replace("-", ".")}</span>`, xs[0], base - 0.1, 0, 40);
+    put(`<span class="tab" style="font:900 40px/1 'Noto Sans KR';color:#AFC0DA">${AN.dates[opt.i1].slice(0, 7).replace("-", ".")}</span>`, xs[n - 1], base - 0.1, 0, 40);
+    if (show.buy && j >= bj) {
+      const p = proj(xs[bj], yP[bj], 0.1); const e = ovEl(`<div class="pin"><span class="tag b" style="font-size:44px">BUY</span><span class="v tab" style="font-size:40px">$${f0(AN.close[opt.buyI])}</span></div>`, p[0], p[1] + 70, "lab");
+      PLACED.push(boxOf(e)); stemEl(p[0], p[1], boxOf(e).t, "#2BE0A0");
+    }
+    if (sell && show.sell && j >= opt.sellI - opt.i0) {
+      const sj = opt.sellI - opt.i0, p = proj(xs[sj], yP[sj], 0.1);
+      const e = ovEl(`<div class="pin"><span class="tag s" style="font-size:44px">SELL</span><span class="v tab" style="font-size:40px">$${f0(AN.close[opt.sellI])}</span></div>`, p[0] + 40, p[1] + 80, "lab");
+      PLACED.push(boxOf(e)); stemEl(p[0], p[1], boxOf(e).t, "#FF8A3D");
+    }
+    if (peak && show.labels) { const e = put(`<span class="tab" style="font:900 40px/1 'Noto Sans KR';color:#FFD400">★ $${f0(pr[pkj])}</span>`, xs[pkj], yP[pkj] + 0.5, 0.1, -10); }
+    if (stopL && show.labels) put(`<span class="tab" style="font:900 40px/1 'Noto Sans KR';color:#FF6B6B">★ × 0.9</span>`, xs[j], Y(stopVals[j]) - 0.45, 0.1, 10);
+    for (const lab of opt.labels || []) if (j >= lab.from - opt.i0 && show.labels) {
+      const jj = clamp(j, 0, n - 1);
+      const y = lab.arr ? Y(lab.arr[opt.i0 + jj] * (lab.mul || 1)) : low.LY(lab.y);
+      put(`<span class="tab" style="font:900 40px/1 'Noto Sans KR';color:${lab.color || "#FFD400"}">${lab.html}</span>`, lab.x != null ? lab.x : xs[jj] + 0.3, y, 0.1, lab.dy || 0, "lab");
+    }
+    if (low && show.labels) {
+      const v = opt.low.arr[opt.i0 + j]; if (v != null) put(`<span class="tab" style="font:900 40px/1 'Noto Sans KR';color:${opt.low.color || "#7FD4FF"}">${opt.low.name} ${v.toFixed(1)}</span>`, xs[j] + 0.3, low.LY(v), 0.1, -40);
+    }
+  }
+  return { draw };
+}
+
+// =====================================================================================================================
+// 3D 막대 (끝 통계)
+// =====================================================================================================================
+const BARS = (() => {
+  const VP = { x: 0, y: 70, w: 1920, h: 900 };
+  const scene = new THREE.Scene();
+  const cam = new THREE.PerspectiveCamera(30, VP.w / VP.h, 0.1, 200);
+  scene.add(new THREE.AmbientLight(0xffffff, 0.6)); const dl = new THREE.DirectionalLight(0xffffff, 1.0); dl.position.set(-4, 10, 8); scene.add(dl);
+  const order = SUM.rank, H = v => v / 60000 * 7.2;
+  const fl = new THREE.Mesh(new THREE.PlaneGeometry(26, 8), mat("#0E1A31", 0.9)); fl.rotation.x = -Math.PI / 2; fl.position.y = -0.01; scene.add(fl);
+  const bars = order.map((k, i) => {
+    const m = new THREE.Mesh(new THREE.BoxGeometry(1.25, 1, 1.25), new THREE.MeshStandardMaterial({ color: k === "dip10" ? "#22C79A" : TREND.has(k) ? "#5B6B8A" : "#3F7FB8", roughness: 0.45, metalness: 0.15, transparent: true, opacity: 1 }));
+    m.position.set(-11.25 + i * 2.5, 0.5, 0); scene.add(m); return { k, m, h: H(SUM.finals[k]) };
+  });
+  const bhH = H(SUM.bh.final);
+  const plane = new THREE.Mesh(new THREE.PlaneGeometry(25.5, 3.4), mat("#AFC0DA", 0.16)); plane.rotation.x = -Math.PI / 2; plane.position.y = bhH; scene.add(plane);
+  const edge = new THREE.Mesh(new THREE.PlaneGeometry(25.5, 0.05), mat("#D6E0EF", 0.9)); edge.position.set(0, bhH, 1.7); scene.add(edge);
+  function draw(grow, orbit, st) {                          // grow 0..1, st: {plane, hi:[keys], dim:bool}
+    const a = -0.22 + 0.3 * orbit;
+    cam.position.set(Math.sin(a) * 25, 8.6, Math.cos(a) * 25); cam.lookAt(0, 3.2, 0); cam.updateMatrixWorld(); cam.updateProjectionMatrix();
+    const proj = projector(cam, VP);
+    bars.forEach((b, i) => { const g = ease(clamp(grow * 1.6 - i * 0.06, 0, 1)); const h = Math.max(0.001, b.h * g); b.m.scale.y = h; b.m.position.y = h / 2;
+      const dim = st.hi && st.hi.length && !st.hi.includes(b.k); b.m.material.opacity = dim ? 0.35 : 1; });
+    plane.visible = edge.visible = !!st.plane;
+    drawIn(scene, cam, VP);
+    PLACED = [];
+    bars.forEach((b, i) => {
+      const g = ease(clamp(grow * 1.6 - i * 0.06, 0, 1)); if (g <= 0) return;
+      const dim = st.hi && st.hi.length && !st.hi.includes(b.k);
+      const p = proj(b.m.position.x, b.h * g + 0.35, 0.6);
+      ovEl(`<span class="tab" style="font:900 36px/1 'Noto Sans KR';color:${b.k === "dip10" ? "#2BE0A0" : "#EAF0F8"};opacity:${dim ? 0.35 : 1}">$${f0(SUM.finals[b.k] * g)}</span>`, p[0], p[1] - 14, "lab");
+      const q = proj(b.m.position.x, 0, 1.6);
+      ovEl(`<span style="opacity:${dim ? 0.35 : 1}">${`<span class="badge2">${VNO(b.k)}</span>`}</span>`, q[0], q[1] + 40, "lab");
+      if (st.trend && TREND.has(b.k)) ovEl(IC.up(46, "#FFD400"), q[0], q[1] + 104, "lab");
+    });
+    if (st.plane) { const p = proj(12.6, bhH, 1.7); const x = Math.min(p[0] - 120, 1740); ovEl(`<span class="tag h">BUY &amp; HOLD</span>`, x, p[1] - 70, "lab"); ovEl(`<span class="tab" style="font:900 40px/1 'Noto Sans KR';color:#D6E0EF">$${f0(SUM.bh.final)}</span>`, x, p[1] - 18, "lab"); }
+  }
+  return { draw };
+})();
+
+// =====================================================================================================================
+// 3D 장면 목록 — 시각 t 에 하나를 그림 (겹치면 나중 것)
+// =====================================================================================================================
+const G3 = [];                                               // {a, b, f(t)}
+const add3 = (a, b, f) => G3.push({ a, b, f });
+K.onSeek(t => {
+  ov.innerHTML = "";
+  clearGL();
+  let g = null;
+  for (const x of G3) if (t >= x.a && t < x.b) g = x;
+  if (!g) { canvas.style.opacity = 0; ov.style.opacity = 0; return; }
+  const al = clamp(Math.min((t - g.a) / 0.35, (g.b - t) / 0.35), 0, 1);
+  canvas.style.opacity = al; ov.style.opacity = al;
+  g.f(t);
+});
+
+// ---------- 시각 → 날짜 (조각 직선) ----------
+function timeMap(anchors) {                                  // [[t, i]] → t → 실수 날짜 위치
+  const A = anchors.slice().sort((x, y) => x[0] - y[0]);
+  for (let q = 1; q < A.length; q++) if (A[q][1] < A[q - 1][1]) A[q][1] = A[q - 1][1];
+  return t => {
+    if (t <= A[0][0]) return A[0][1];
+    for (let q = 1; q < A.length; q++) if (t <= A[q][0]) { const u = (t - A[q - 1][0]) / Math.max(1e-6, A[q][0] - A[q - 1][0]); return lerp(A[q - 1][1], A[q][1], u); }
+    return A[A.length - 1][1];
+  };
+}
+const END = "9999-12-31";
+const anc = list => list.map(([ts, d]) => [ts, d === END ? N - 1 : idx(d)]);
+const sAt = a => S(a), eAt = a => E(a), wAt = (a, w) => W(a, w);
+
+// =====================================================================================================================
+// 장면
+// =====================================================================================================================
+// ---------- 도입 ----------
+{
+  const a = PS("도입"), b = PE("도입") + 0.6;
+  const full = timeMap([[a, 0], [b, N - 1]]);
+  // 3D: 회색 가격 벽이 흐름 (규칙 없음 → 매달 첫 거래일 색을 쓰지 않고 BUY & HOLD 처럼 전부 초록)
+  add3(a, S("그래서 많이 쓰는 매수 신호 10가지"), t => RACE.draw("m1", full(t), null));
+  const sc = K.scene(a, S("그래서 많이 쓰는 매수 신호 10가지"));
+  const q = el(`<div class="a big" style="left:1440px;top:330px;font-size:420px;color:#FFD400;text-shadow:0 20px 60px rgba(0,0,0,.6)">?</div>`, sc);
+  pop(q, a + 0.2, { from: { scale: 0.6, y: 0 } });
+  const ic = el(`<div class="a row" style="left:1180px;top:860px;gap:40px">${IC.dn(90)}${IC.fear(90)}<span class="row" style="gap:6px">${IC.star(80)}${IC.up(90)}</span></div>`, sc);
+  pop(ic, S("쌀 때, 공포가 클 때"));
+  cut(S("쌀 때, 공포가 클 때") + 1, "도입 — 물음표");
+  // 10가지 타일
+  const sc2 = K.scene(S("그래서 많이 쓰는 매수 신호 10가지") - 0.2, PE("도입") + 0.4);
+  const tiles = el(`<div class="a" style="left:160px;top:200px;width:1600px;display:grid;grid-template-columns:repeat(5,1fr);gap:40px 30px;justify-items:center"></div>`, sc2);
+  const tl10 = VORDER.map(k => el(`<div class="tile"><div style="display:grid;justify-items:center;gap:8px"><span class="badge2">${VNO(k)}</span>${MINI[k]}</div></div>`, tiles));
+  tl.fromTo(tl10, { opacity: 0, y: 50, rotateX: 50 }, { opacity: 1, y: 0, rotateX: 0, duration: 0.5, stagger: 0.12, ease: "back.out(1.6)" }, S("그래서 많이 쓰는 매수 신호 10가지") + 0.2);
+  const yr = el(`<div class="a flexc tab" style="left:0;width:1920px;top:690px;font:900 84px/1 'Noto Sans KR'"><span>2016</span><span style="color:var(--GR)">→</span><span>2026</span></div>`, sc2);
+  pop(yr, S("2016년부터 지금까지"));
+  const code = el(`<div class="code" style="left:470px;top:820px;font-size:38px;padding:18px 34px"><span class="k">if</span> close <span class="o">&lt;=</span> peak <span class="o">*</span> <span class="n">0.9</span>: <span class="f">sell</span>()</div>`, sc2);
+  pop(code, W("2016년부터 지금까지", "AI가"));
+  cut(S("2016년부터 지금까지") + 2, "도입 — 10가지 · 2016→2026 · 코드");
+}
+
+// ---------- 규칙 (같은 조건) ----------
+{
+  const a = PS("규칙");
+  const sc = K.scene(a - 0.2, S("매도 규칙은 10가지 모두 같습니다") - 0.1);
+  const spy = el(`<div class="card2 flexc" style="left:560px;top:180px;width:800px;height:240px;gap:30px"><span class="big" style="font-size:150px">SPY</span><span style="font:900 54px/1 'Noto Sans KR';color:#AFC0DA">S&amp;P 500</span></div>`, sc);
+  pop(spy, a);
+  const money = el(`<div class="a flexc" style="left:0;width:1920px;top:500px;gap:30px">${IC.coin(120)}<span class="big tab" style="font-size:130px">$10,000</span><span class="row" style="font:900 64px/1 'Noto Sans KR';color:#2BE0A0">${IC.coin(70)}↻</span></div>`, sc);
+  pop(money, S("모두 1만 달러로 시작하고"));
+  const fee = el(`<div class="a flexc" style="left:0;width:1920px;top:750px;gap:60px"><span class="row"><span class="tag b" style="font-size:56px">BUY</span><span class="big tab" style="font-size:80px;color:#FF6B6B">−0.25%</span></span><span class="row"><span class="tag s" style="font-size:56px">SELL</span><span class="big tab" style="font-size:80px;color:#FF6B6B">−0.25%</span></span></div>`, sc);
+  pop(fee, S("사고팔 때마다 수수료 0.25%"));
+  cut(S("사고팔 때마다 수수료 0.25%") + 1.5, "규칙 — SPY · $10,000 · 0.25%");
+  // 매도 규칙: 2020년 2월 실제 예 (매달 첫 거래일 규칙의 2019-01-02 매수 → 최고 2020-02-19 → 2020-02-27 종가가 최고 × 0.9 아래 → 2020-02-28 매도)
+  const tr = R("m1").trades.find(t => AN.dates[t.s] === "2020-02-28");
+  const z = makeZoom({ i0: idx("2019-12-02"), i1: idx("2020-03-13"), stop: { buyI: tr.b }, buyI: idx("2019-12-02"), sellI: tr.s });
+  const z0 = S("매도 규칙은 10가지 모두 같습니다"), z1 = PE("규칙") - 0.0;
+  const zs = S("산 뒤 가장 높았던 종가보다 10%"), zse = W("산 뒤 가장 높았던 종가보다 10%", "매도합니다");
+  add3(z0, S("오른쪽 위에는 첫날 사서"), t => {
+    const u = t < zs ? lerp(0.05, 0.55, (t - z0) / Math.max(0.1, zs - z0)) : lerp(0.55, 0.88, clamp((t - zs) / Math.max(0.1, zse - zs), 0, 1)) + clamp((t - zse) / 6, 0, 0.12);
+    z.draw(clamp(u, 0, 1), (t - z0) / Math.max(1, z1 - z0), { buy: false, sell: t >= zse - 0.2, labels: true });
+  });
+  const sc3 = K.scene(z0 - 0.1, S("오른쪽 위에는 첫날 사서") - 0.05);
+  const head = el(`<div class="a row" style="left:60px;top:58px;gap:20px">${IC.star(70)}<span class="big tab" style="font-size:80px;color:#FF6B6B">−10%</span><span style="font:900 70px/1 'Noto Sans KR';color:var(--GR)">→</span><span class="tag s" style="font-size:60px">SELL</span><span style="font:900 52px/1 'Noto Sans KR';color:#AFC0DA">+1D</span></div>`, sc3);
+  pop(head, z0 + 0.3);
+  const again = el(`<div class="a row" style="left:1180px;top:880px;gap:16px"><span class="tag s" style="font-size:48px">SELL</span><span style="font:900 52px/1 'Noto Sans KR';color:var(--GR)">→</span>${IC.hour(64)}<span style="font:900 52px/1 'Noto Sans KR';color:var(--GR)">→</span><span class="tag b" style="font-size:48px">BUY</span></div>`, sc3);
+  pop(again, S("판 뒤에 매수 신호가 다시 나오면"));
+  cut(zse + 0.8, "규칙 — 매도선 (2020년 2월 실제 예)");
+  // BUY & HOLD 카드 미리 보기
+  const sc4 = K.scene(S("오른쪽 위에는 첫날 사서") - 0.1, PE("규칙") + 0.5);
+  const bhc = el(`<div class="card2" style="left:560px;top:300px;width:800px;padding:40px 50px"><div class="row" style="gap:20px;font:900 44px/1 'Noto Sans KR';color:var(--GR)">${IC.wallet}<span class="tab">$10,000 →</span></div>
+    <div class="row" style="margin-top:30px;gap:24px"><span class="tag h" style="font-size:52px">BUY &amp; HOLD</span>${IC.cal(70, "1")}<span class="tag b" style="font-size:48px">BUY</span><span style="font:900 60px/1 'Noto Sans KR';color:var(--GR)">→ …</span></div></div>`, sc4);
+  pop(bhc, S("오른쪽 위에는 첫날 사서"));
+  cut(S("오른쪽 위에는 첫날 사서") + 1.5, "규칙 — BUY & HOLD 카드");
+}
+
+// ---------- 규칙 10가지 ----------
+// 설명(3D 확대: 실제 신호 날) → 경주(3D 가격 벽). 문장 → 날짜 기준점은 대본 숫자와 같은 날을 지나도록.
+const PLAN = {
+  m1: { part: "매달 첫 거래일", race: "2016년 1월 4일 첫 매수가",
+    zoom: () => ({ i0: idx("2020-02-03"), i1: idx("2020-05-15"), buyI: idx("2020-04-01"), labels: [], months: true }),
+    anchors: () => [[sAt("2016년 1월 4일 첫 매수가"), "2016-01-04"], [wAt("2016년 1월 4일 첫 매수가", "34.8%"), "2018-02-12"], [sAt("2020년 3월 코로나 폭락"), "2020-02-18"],
+      [wAt("2020년 3월 코로나 폭락", "매도했어요"), "2020-03-11"], [sAt("다음 달 첫날 다시 매수했고"), "2020-03-26"], [wAt("다음 달 첫날 다시 매수했고", "75.1%"), "2022-02-24"],
+      [sAt("판 거래 12번 중 7번"), "2022-06-01"], [eAt("판 거래 12번 중 7번"), "2025-05-01"], [wAt("13번 매수해서, 끝 값은 4만 1천", "끝 값은"), END]] },
+  hi52: { part: "신고가 돌파", race: "오를 때 따라 타는 추세 매수예요",
+    zoom: () => ({ i0: idx("2020-05-20"), i1: idx("2020-09-30"), buyI: idx("2020-08-19"), lines: [[AN.lines.hi252, "#FFD400", 0.3]], labels: [{ arr: AN.lines.hi252, html: "★ 1Y", from: idx("2020-05-20"), dy: -36 }] }),
+    anchors: () => [[sAt("오를 때 따라 타는 추세 매수예요"), "2016-01-04"], [eAt("오를 때 따라 타는 추세 매수예요"), "2019-06-03"], [sAt("2020년 2월 28일에 매도한 뒤"), "2020-02-10"],
+      [wAt("2020년 2월 28일에 매도한 뒤", "매도한"), "2020-03-02"], [wAt("2020년 2월 28일에 매도한 뒤", "8월 19일"), "2020-08-20"], [sAt("판 값보다 13.8% 비싸게"), "2020-09-01"],
+      [sAt("2022년 2월에 판 뒤로는 1년 넘게"), "2022-02-01"], [wAt("2022년 2월에 판 뒤로는 1년 넘게", "1년"), "2022-03-01"], [eAt("2022년 2월에 판 뒤로는 1년 넘게"), "2023-06-14"],
+      [eAt("판 거래 6번 중 4번이 수익이었고"), "2025-07-01"], [wAt("7번 매수해서, 끝 값은 2만 3천", "끝 값은"), END]] },
+  mom12: { part: "모멘텀", race: "오르는 해에는 거의 쉬지 않고",
+    zoom: () => ({ i0: idx("2020-03-02"), i1: idx("2020-06-30"), buyI: idx("2020-05-08"), lines: [[AN.lines.close_252ago, "#FFD400", 0.3]], labels: [{ arr: AN.lines.close_252ago, html: "−1Y", from: idx("2020-03-02"), dy: 36 }] }),
+    anchors: () => [[sAt("오르는 해에는 거의 쉬지 않고"), "2016-01-04"], [eAt("오르는 해에는 거의 쉬지 않고"), "2019-10-01"], [sAt("2020년 3월에는 두 번 연속"), "2020-02-18"],
+      [eAt("2020년 3월에는 두 번 연속"), "2020-03-19"], [sAt("2022년 5월에 산 주식은"), "2022-04-25"], [eAt("2022년 5월에 산 주식은"), "2022-06-16"],
+      [sAt("1년 전보다 낮은 날이 이어져"), "2022-07-15"], [wAt("1년 전보다 낮은 날이 이어져", "2023년"), "2023-05-12"], [sAt("판 거래 12번 중 6번만"), "2023-06-15"],
+      [eAt("판 거래 12번 중 6번만"), "2025-06-02"], [wAt("13번 매수해서, 끝 값은 2만 6천", "끝 값은"), END]] },
+  ma200: { part: "이동평균선", race: "2018년 11월에 산 주식은",
+    zoom: () => ({ i0: idx("2020-03-02"), i1: idx("2020-07-15"), buyI: idx("2020-05-28"), lines: [[AN.lines.sma200, "#FFD400"]], labels: [{ arr: AN.lines.sma200, html: "200", from: idx("2020-03-02"), dy: -34 }] }),
+    anchors: () => [[sAt("2018년 11월에 산 주식은"), "2016-01-04"], [wAt("2018년 11월에 산 주식은", "12.3%"), "2018-12-21"], [sAt("2020년 3월에 매도하고, 평균선을"), "2020-02-24"],
+      [wAt("2020년 3월에 매도하고, 평균선을", "평균선을"), "2020-03-12"], [wAt("2020년 3월에 매도하고, 평균선을", "샀어요"), "2020-05-29"], [sAt("이 거래가 42.2% 올라"), "2020-06-05"],
+      [wAt("이 거래가 42.2% 올라", "이 규칙에서"), "2022-02-24"], [sAt("판 값보다는 평균 4.9%"), "2022-04-01"], [eAt("판 값보다는 평균 4.9%"), "2024-06-03"],
+      [wAt("11번 매수해서, 끝 값은 2만 6천", "끝 값은"), END]] },
+  gc: { part: "골든 크로스", race: "판 거래 4번이 모두 수익이었어요",
+    zoom: () => ({ i0: idx("2020-04-15"), i1: idx("2020-08-31"), buyI: idx("2020-07-10"), lines: [[AN.lines.sma200, "#FFD400"], [AN.lines.sma50, "#7FD4FF"]],
+      labels: [{ arr: AN.lines.sma200, html: "200", from: idx("2020-04-15"), dy: -34 }, { arr: AN.lines.sma50, html: "50", from: idx("2020-04-15"), dy: 34, color: "#7FD4FF" }] }),
+    anchors: () => [[sAt("판 거래 4번이 모두 수익이었어요"), "2016-01-04"], [eAt("판 거래 4번이 모두 수익이었어요"), "2020-01-02"], [sAt("하지만 신호가 드물었습니다"), "2020-02-03"],
+      [eAt("하지만 신호가 드물었습니다"), "2023-06-01"], [sAt("2023년 10월에 판 뒤, 다시 산 건 2025년 7월"), "2023-09-01"],
+      [wAt("2023년 10월에 판 뒤, 다시 산 건 2025년 7월", "다시"), "2023-11-01"], [wAt("2023년 10월에 판 뒤, 다시 산 건 2025년 7월", "2025년"), "2025-07-03"],
+      [sAt("그래서 주식을 든 날이 59%"), "2025-08-01"], [wAt("5번 매수해서, 끝 값은 2만 3천", "끝 값은"), END]] },
+  drop2: { part: "급락 다음 날", race: "10가지 가운데 가장 많은 14번",
+    zoom: () => ({ i0: idx("2018-10-01"), i1: idx("2019-01-31"), buyI: idx("2018-12-06"), hl: [idx("2018-12-04") - 1, idx("2018-12-04")], labels: [] }),
+    anchors: () => [[sAt("10가지 가운데 가장 많은 14번"), "2016-01-04"], [eAt("10가지 가운데 가장 많은 14번"), "2018-10-15"], [sAt("2018년 12월에는 산 뒤 13.1%"), "2018-11-20"],
+      [eAt("2018년 12월에는 산 뒤 13.1%"), "2018-12-27"], [sAt("2020년 3월에는 보름 사이"), "2020-02-24"], [eAt("2020년 3월에는 보름 사이"), "2020-03-19"],
+      [sAt("2020년 3월 19일에 다시 산 거래는"), "2020-03-20"], [wAt("2020년 3월 19일에 다시 산 거래는", "80.3%"), "2022-02-24"], [eAt("2020년 3월 19일에 다시 산 거래는"), "2024-01-02"],
+      [eAt("끝 값은 4만 달러입니다"), END]] },
+  rsi30: { part: "과매도", race: "30 아래면 많이 팔린 상태로 보고",
+    zoom: () => ({ i0: idx("2020-01-15"), i1: idx("2020-05-15"), buyI: idx("2020-03-24"), low: { arr: AN.lines.rsi14, thr: 30, max: 100, zoneEnd: 0, name: "RSI", color: "#7FD4FF" }, labels: [] }),
+    anchors: () => [[sAt("30 아래면 많이 팔린 상태로 보고"), "2016-01-04"], [eAt("30 아래면 많이 팔린 상태로 보고"), "2020-02-05"], [sAt("2020년 3월 24일, 바닥 다음 날"), "2020-03-02"],
+      [wAt("2020년 3월 24일, 바닥 다음 날", "매수한"), "2020-03-25"], [wAt("2020년 3월 24일, 바닥 다음 날", "77.2%"), "2022-02-24"], [sAt("2023년 10월에 판 뒤로는 1년 넘게"), "2022-06-01"],
+      [wAt("2023년 10월에 판 뒤로는 1년 넘게", "판"), "2023-10-31"], [eAt("2023년 10월에 판 뒤로는 1년 넘게"), "2025-03-13"], [sAt("판 거래 8번 중 5번"), "2025-04-01"],
+      [wAt("9번 매수해서, 끝 값은 4만 4천", "끝 값은"), END]] },
+  vix30: { part: "공포지수", race: "첫 매수가 2018년 2월이라",
+    zoom: () => ({ i0: idx("2020-01-15"), i1: idx("2020-04-30"), buyI: idx("2020-03-18"), low: { arr: AN.lines.vix, thr: 30, max: 90, zoneEnd: 90, name: "VIX", color: "#FF8A8A", zoneColor: "#FF4D5E" }, labels: [] }),
+    anchors: () => [[sAt("첫 매수가 2018년 2월이라"), "2016-01-04"], [wAt("첫 매수가 2018년 2월이라", "처음"), "2018-02-07"], [eAt("첫 매수가 2018년 2월이라"), "2019-06-03"],
+      [sAt("2020년 3월 18일에 산 거래는 80.7%"), "2020-03-02"], [wAt("2020년 3월 18일에 산 거래는 80.7%", "80.7%"), "2022-02-24"], [eAt("2020년 3월 18일에 산 거래는 80.7%"), "2022-06-15"],
+      [sAt("2024년 8월에도 VIX가"), "2024-07-15"], [wAt("2024년 8월에도 VIX가", "7.9%"), "2025-03-17"], [wAt("11번 매수해서, 끝 값은 3만 4천", "끝 값은"), END]] },
+  dip20: { part: "큰 하락 매수", race: "2020년 3월 18일에 산 거래가 80.7% 올랐습니다",
+    zoom: () => ({ i0: idx("2018-09-04"), i1: idx("2019-01-31"), buyI: idx("2018-12-26"), lines: [[AN.lines.ath, "#FFD400"], [AN.lines.ath.map(v => v * 0.8), "#FFD400", 0.3]],
+      labels: [{ arr: AN.lines.ath, html: "★", from: idx("2018-09-04"), dy: -34 }, { arr: AN.lines.ath, mul: 0.8, html: "★ −20%", from: idx("2018-09-04"), dy: 34 }] }),
+    anchors: () => [[sAt("2020년 3월 18일에 산 거래가 80.7% 올랐습니다"), "2016-01-04"], [wAt("2020년 3월 18일에 산 거래가 80.7% 올랐습니다", "산"), "2020-03-19"],
+      [wAt("2020년 3월 18일에 산 거래가 80.7% 올랐습니다", "80.7%"), "2022-02-24"], [sAt("판 거래 5번 중 4번"), "2022-03-15"], [eAt("판 거래 5번 중 4번"), "2023-06-01"],
+      [sAt("그런데 2023년 10월에 판 뒤로는 한 번도"), "2023-08-15"], [wAt("그런데 2023년 10월에 판 뒤로는 한 번도", "뒤로는"), "2023-10-31"], [eAt("그런데 2023년 10월에 판 뒤로는 한 번도"), "2024-12-02"],
+      [sAt("2025년 4월에도 고점보다 19.0%"), "2025-02-20"], [wAt("2025년 4월에도 고점보다 19.0%", "19.0%"), "2025-04-08"], [eAt("2025년 4월에도 고점보다 19.0%"), "2025-06-02"],
+      [wAt("3년 가까이 현금으로 기다려", "끝 값은"), END]] },
+  dip10: { part: "저점 매수", race: "판 뒤에도 고점보다 10% 아래면",
+    zoom: () => ({ i0: idx("2025-01-15"), i1: idx("2025-05-30"), buyI: idx("2025-04-04"), lines: [[AN.lines.ath, "#FFD400"], [AN.lines.ath.map(v => v * 0.9), "#FFD400", 0.3]],
+      labels: [{ arr: AN.lines.ath, html: "★", from: idx("2025-01-15"), dy: -34 }, { arr: AN.lines.ath, mul: 0.9, html: "★ −10%", from: idx("2025-01-15"), dy: 34 }] }),
+    anchors: () => [[sAt("판 뒤에도 고점보다 10% 아래면"), "2016-01-04"], [eAt("판 뒤에도 고점보다 10% 아래면"), "2019-12-02"], [sAt("2020년 3월에는 7.2%, 8.3%"), "2020-02-20"],
+      [eAt("2020년 3월에는 7.2%, 8.3%"), "2020-03-18"], [sAt("3월 18일에 또 매수했고"), "2020-03-19"], [wAt("3월 18일에 또 매수했고", "80.7%"), "2022-02-24"],
+      [sAt("2022년 하락장에서는 한 해에"), "2022-02-25"], [eAt("2022년 하락장에서는 한 해에"), "2022-12-30"], [sAt("2025년 4월 급락 때도 매수해서"), "2025-03-03"],
+      [wAt("2025년 4월 급락 때도 매수해서", "매수해서"), "2025-04-07"], [wAt("2025년 4월 급락 때도 매수해서", "지금"), END]] },
+};
+for (const k of VORDER) {
+  const p = PLAN[k];
+  const a = PS(p.part), rs = S(p.race), next = VORDER.indexOf(k) < 9 ? PS(PLAN[VORDER[VORDER.indexOf(k) + 1]].part) : PS("종합");
+  // 설명: 실제 신호 날 앞뒤 3D 확대
+  const zo = p.zoom(), z = makeZoom(zo);
+  const sigT = Math.max(a + 1.2, rs - 1.6);
+  add3(a - 0.15, rs, t => {
+    const u = clamp((t - a) / Math.max(0.5, sigT - a), 0, 1);
+    const bj = (zo.buyI - zo.i0) / (zo.i1 - zo.i0);
+    z.draw(t < sigT ? u * bj : lerp(bj, 1, clamp((t - sigT) / 1.5, 0, 1)), (t - a) / Math.max(1, rs - a), { buy: t >= sigT - 0.05, labels: true });
+  });
+  const scz = K.scene(a - 0.2, rs - 0.05);
+  el(`<div class="a row" style="left:60px;top:40px;gap:20px"><div class="no">${VNO(k)}</div><div class="rule">${HEAD[k]()}</div></div>`, scz);
+  if (zo.months) {                                         // 매달 첫 거래일: 달 첫날 표시
+    const m = el(`<div class="a row" style="left:1180px;top:60px;gap:16px">${IC.cal(70, "1")}${IC.cal(70, "1")}${IC.cal(70, "1")}</div>`, scz);
+    pop(m, a + 0.6);
+  }
+  if (k === "drop2") pop(el(`<div class="a row" style="left:1260px;top:60px;gap:14px">${IC.dn(70)}<span class="big tab" style="font-size:70px;color:#FF6B6B">−2%</span><span style="font:900 56px/1 'Noto Sans KR';color:var(--GR)">→ +1D</span></div>`, scz), a + 0.6);
+  cut(sigT + 0.9, `${VNO(k)} 설명 — 실제 신호 BUY`);
+  // 경주
+  const fmap = timeMap(anc(p.anchors()));
+  const scr = K.scene(rs - 0.1, next - 0.5);
+  const upd = raceDom(k, scr);
+  add3(rs - 0.1, next - 0.45, t => RACE.draw(k, fmap(t), upd));
+  const midT = (rs + next) / 2;
+  cut(rs + 2.2, `${VNO(k)} 경주 — 시작`);
+  cut(midT, `${VNO(k)} 경주 — 가운데`);
+  cut(next - 1.2, `${VNO(k)} 경주 — 끝 값`);
+}
+
+// ---------- 종합: 3D 막대 ----------
+{
+  const a = PS("종합"), b1 = S("차이는 매도한 다음에 생겼습니다");
+  const g0 = a, g1 = S("1위는 고점보다 10%");
+  add3(a - 0.15, b1 - 0.05, t => {
+    const hi = t >= S("아래 다섯 개 중 네 개는") ? SUM.rank.slice(-5) : t >= S("2위 RSI 4만 4천") && t < S("그대로 둔 계좌 4만 6천 달러를 넘은 건") ? SUM.rank.slice(0, 3) : t >= S("1위는 고점보다 10%") && t < S("2위 RSI 4만 4천") ? [SUM.rank[0]] : [];
+    BARS.draw(clamp((t - g0) / Math.max(0.5, g1 - g0 + 0.8), 0, 1), (t - a) / Math.max(1, b1 - a), { plane: t >= S("그대로 둔 계좌 4만 6천 달러를 넘은 건"), hi, trend: t >= S("아래 다섯 개 중 네 개는") });
+  });
+  cut(S("1위는 고점보다 10%") + 1.5, "종합 — 1위");
+  cut(S("그대로 둔 계좌 4만 6천 달러를 넘은 건") + 1.5, "종합 — BUY & HOLD 판");
+  cut(S("아래 다섯 개 중 네 개는") + 2, "종합 — 추세 규칙");
+}
+// ---------- 종합: 같은 날 매도 → 다시 산 때 ----------
+{
+  const a = S("차이는 매도한 다음에 생겼습니다"), b = S("추세 규칙 네 개는 판 값보다");
+  const sc = K.scene(a - 0.2, b - 0.1);
+  const L0 = 300, LW = 1500, top0 = 120, RH = 82;
+  const xi = i => L0 + LW * i / (N - 1);
+  let svg = `<svg class="a" style="left:0;top:0" width="1920" height="1080" viewBox="0 0 1920 1080">`;
+  VORDER.forEach((k, r) => {
+    const y = top0 + r * RH, H = R(k).holding;
+    svg += `<rect x="${L0}" y="${y}" width="${LW}" height="${RH - 26}" rx="10" fill="#1A2336"/>`;
+    let s0 = -1;
+    for (let i = 0; i <= N; i++) { const h = i < N && H[i] === "1"; if (h && s0 < 0) s0 = i; if (!h && s0 >= 0) { svg += `<rect x="${xi(s0)}" y="${y}" width="${Math.max(2, xi(i) - xi(s0))}" height="${RH - 26}" rx="6" fill="#22C79A"/>`; s0 = -1; } }
+  });
+  svg += `</svg>`;
+  const gantt = el(`<div class="a" style="left:0;top:0;width:1920px;height:1080px">${svg}</div>`, sc);
+  VORDER.forEach((k, r) => el(`<div class="a" style="left:110px;top:${top0 + r * RH + 2}px">${`<span class="badge2" style="height:52px;min-width:52px;font-size:34px;font-size:36px">${VNO(k)}</span>`}</div>`, sc));
+  const yrs = el(`<div class="a" style="left:0;top:0;width:1920px;height:1080px"></div>`, sc);
+  for (const y of ["2016", "2018", "2020", "2022", "2024", "2026"]) el(`<div class="a ax cx" style="left:${xi(idx(y + "-01-04"))}px;top:${top0 + 10 * RH - 10}px;transform:translateX(-50%)">${y}</div>`, yrs);
+  pop(gantt, a); pop(yrs, a + 0.2);
+  const x0228 = xi(idx("2020-02-28"));
+  const v = el(`<div class="a" style="left:${x0228 - 3}px;top:${top0 - 20}px;width:6px;height:${10 * RH}px;background:#FF8A3D;box-shadow:0 0 20px #FF8A3D"></div>`, sc);
+  const vl = el(`<div class="a tab" style="left:${x0228 + 16}px;top:40px;font:900 44px/1 'Noto Sans KR';color:#FF8A3D"><span class="tag s">SELL</span> 2020.02.28</div>`, sc);
+  pop(v, S("2020년 2월 28일, 10가지 모두"), { from: { y: -40 } }); pop(vl, S("2020년 2월 28일, 10가지 모두") + 0.1);
+  // 다시 산 날: 2020-02-28 뒤 첫 매수
+  const dots = VORDER.map((k, r) => { const t = R(k).trades.find(q => AN.dates[q.b] > "2020-02-28"); return el(`<div class="a" style="left:${xi(t.b) - 14}px;top:${top0 + r * RH + 14}px;width:28px;height:28px;border-radius:50%;background:#2BE0A0;box-shadow:0 0 18px #2BE0A0"></div>`, sc); });
+  tl.fromTo(dots, { opacity: 0, scale: 0.3 }, { opacity: 1, scale: 1, duration: 0.4, stagger: 0.08, ease: "back.out(2)" }, S("다시 살 때가 달랐습니다"));
+  cut(S("2020년 2월 28일, 10가지 모두") + 1.5, "종합 — 같은 날 매도");
+  cut(Math.min(S("다시 살 때가 달랐습니다") + 1.8, S("추세 규칙 네 개는 판 값보다") - 0.5), "종합 — 다시 산 날");
+}
+// ---------- 종합: 판 값 대비 다시 산 값 (막대) ----------
+{
+  const a = S("추세 규칙 네 개는 판 값보다"), b = PS("다른 조건");
+  const sc = K.scene(a - 0.2, b - 0.4);
+  const ks = VORDER.slice().sort((x, y) => SUM.reentry[y].mean - SUM.reentry[x].mean);
+  const cx = 1040, sc1 = 660 / Math.max(...VORDER.map(k => Math.abs(SUM.reentry[k].mean)));   // 가장 긴 막대 = 660px (글자까지 화면 안)
+  el(`<div class="a" style="left:${cx - 2}px;top:90px;width:4px;height:880px;background:#FFD400;opacity:.7"></div>`, sc);
+  const head = el(`<div class="a row tab" style="left:${cx - 330}px;top:42px;gap:14px;font:900 44px/1 'Noto Sans KR'"><span class="tag s">SELL</span><span style="color:var(--GR)">→</span><span class="tag b">BUY</span><span style="color:var(--GR)">%</span></div>`, sc);
+  pop(head, a);
+  const rows = ks.map((k, r) => {
+    const m = SUM.reentry[k].mean, w = Math.abs(m) * sc1, y = 110 + r * 86;
+    const bar = el(`<div class="a" style="left:${m >= 0 ? cx : cx - w}px;top:${y}px;width:${w}px;height:58px;border-radius:12px;background:${m >= 0 ? "linear-gradient(90deg,#FF4D5E,#FF8A8A)" : "linear-gradient(270deg,#16A87A,#2BE0A0)"};transform-origin:${m >= 0 ? "left" : "right"} center;box-shadow:0 10px 24px rgba(0,0,0,.35)"></div>`, sc);
+    const lab = el(`<div class="a tab" style="left:${m >= 0 ? cx + w + 16 : cx - w - 16}px;top:${y + 10}px;transform:translateX(${m >= 0 ? 0 : -100}%);font:900 38px/1 'Noto Sans KR';color:${m >= 0 ? "#FF8A8A" : "#2BE0A0"}">${pc(m)}</div>`, sc);
+    const bd = el(`<div class="a" style="left:${m >= 0 ? cx - 30 : cx + 30}px;top:${y + 2}px;transform:translateX(${m >= 0 ? -100 : 0}%)">${badge(k)}</div>`, sc);
+    return { k, bar, lab, bd };
+  });
+  rows.forEach((o, r) => { tl.fromTo(o.bar, { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: "power3.out" }, a + 0.2 + r * 0.08); pop([o.lab, o.bd], a + 0.3 + r * 0.08); });
+  const dimExcept = (keys, at) => rows.forEach(o => tl.to([o.bar, o.lab, o.bd], { opacity: keys.includes(o.k) ? 1 : 0.25, duration: 0.4 }, at));
+  dimExcept([...TREND], W("추세 규칙 네 개는 판 값보다", "비싸게"));
+  dimExcept(["dip10"], S("저점 매수는 평균 1.4% 싸게"));
+  dimExcept(["dip20"], S("큰 하락 매수는 7.3% 싸게"));
+  const inv = el(`<div class="a row tab" style="left:1300px;top:900px;gap:16px;font:900 56px/1 'Noto Sans KR'">${badge("dip20")}<span class="sw" style="width:60px;height:30px;background:#22C79A"></span><span>${(SUM.invested.dip20 * 100).toFixed(0)}%</span></div>`, sc);
+  pop(inv, W("큰 하락 매수는 7.3% 싸게", "주식을"));
+  cut(W("추세 규칙 네 개는 판 값보다", "비싸게") + 1.2, "종합 — 다시 산 값 (추세)");
+  cut(S("큰 하락 매수는 7.3% 싸게") + 2.5, "종합 — 큰 하락 42%");
+}
+// ---------- 다른 조건 ----------
+{
+  const a = PS("다른 조건"), b = PS("정리");
+  const sc = K.scene(a - 0.2, b - 0.4);
+  const q = el(`<div class="a flexc" style="left:0;width:1920px;top:90px;gap:20px">${IC.star(70)}<span class="big tab" style="font-size:90px;color:#FF6B6B">−?%</span><span style="font:900 70px/1 'Noto Sans KR';color:var(--GR)">→</span><span class="tag s" style="font-size:60px">SELL</span></div>`, sc);
+  pop(q, a);
+  const T4 = [["5", SUM.above.trail5], ["10", SUM.above.trail10], ["15", SUM.above.trail15], ["20", SUM.above.trail20]];
+  const tiles = T4.map(([n, c], i) => el(`<div class="card2" style="left:${150 + i * 420}px;top:330px;width:360px;height:360px;display:grid;place-items:center;align-content:center;gap:26px;${n === "10" ? "border-color:rgba(255,212,0,.6)" : ""}">
+    <span class="big tab" style="font-size:80px;color:#FF6B6B">−${n}%</span><span class="big tab" style="font-size:110px;color:${c ? "#2BE0A0" : "#93A0B8"}">${c}<span style="font-size:60px;color:#93A0B8">/10</span></span>
+    <span class="tag h" style="font-size:36px">&gt; BUY &amp; HOLD</span></div>`, sc));
+  pop(tiles[1], a + 0.4);
+  pop(tiles[0], S("5%로 바꾸면"));
+  pop([tiles[2], tiles[3]], S("15%나 20%로 하면"));
+  const fee = el(`<div class="a flexc tab" style="left:0;width:1920px;top:770px;gap:30px;font:900 70px/1 'Noto Sans KR'"><span class="tag b" style="font-size:52px">BUY</span><span class="tag s" style="font-size:52px">SELL</span><span style="color:#FF6B6B">0%</span><span style="color:var(--GR)">→</span><span style="color:#2BE0A0">${SUM.above.cost0}</span><span style="color:#93A0B8;font-size:50px">/10</span></div>`, sc);
+  pop(fee, S("수수료를 0으로 해도"));
+  cut(S("15%나 20%로 하면") + 1.5, "다른 조건 — 매도 기준");
+  cut(S("수수료를 0으로 해도") + 1.2, "다른 조건 — 수수료 0");
+}
+// ---------- 정리 ----------
+{
+  const a = PS("정리"), b = PS("한계");
+  const sc = K.scene(a - 0.2, b - 0.4);
+  const c1 = el(`<div class="card2" style="left:110px;top:170px;width:820px;height:330px;display:grid;place-items:center;align-content:center;gap:24px">
+    <span class="big tab" style="font-size:150px">${10 - SUM.above.trail10}<span style="font-size:80px;color:#93A0B8">/10</span></span><span class="row" style="font:900 56px/1 'Noto Sans KR'"><span>&lt;</span><span class="tag h" style="font-size:44px">BUY &amp; HOLD</span></span></div>`, sc);
+  pop(c1, S("이번 10년 동안, 신호를 기다린 규칙"));
+  const c2 = el(`<div class="card2" style="left:990px;top:170px;width:820px;height:330px;display:grid;place-items:center;align-content:center;gap:24px">
+    <span class="row" style="gap:20px">${badge("dip10", true)}</span><span class="row" style="gap:18px;font:900 110px/1 'Noto Sans KR'"><span class="sw" style="width:90px;height:44px;background:#22C79A"></span><span class="tab">${(SUM.invested.dip10 * 100).toFixed(0)}%</span></span></div>`, sc);
+  pop(c2, S("넘은 하나도, 떨어지면 바로 다시 사서"));
+  const c3 = el(`<div class="card2" style="left:110px;top:560px;width:820px;height:330px;display:grid;place-items:center;align-content:center;gap:24px">
+    <span class="tag h" style="font-size:48px">BUY &amp; HOLD</span><span class="row" style="gap:20px">${IC.dn(80)}<span class="big tab" style="font-size:110px;color:#FF4D5E">${pcu(SUM.bh.max_dd)}</span></span><span class="tab" style="font:900 48px/1 'Noto Sans KR';color:#AFC0DA">${SUM.bh.max_dd_date.slice(0, 7).replace("-", ".")}</span></div>`, sc);
+  pop(c3, S("그대로 둔 계좌는 2020년 3월에 33.7%"));
+  const c4 = el(`<div class="card2 flexc" style="left:990px;top:560px;width:820px;height:330px;gap:22px"><span class="tag s" style="font-size:56px">SELL</span><span style="font:900 64px/1 'Noto Sans KR';color:var(--GR)">→</span>${IC.hour(90)}<span style="font:900 64px/1 'Noto Sans KR';color:var(--GR)">→</span><span class="tag b" style="font-size:56px">BUY</span><span class="big" style="font-size:96px;color:#FFD400">?</span></div>`, sc);
+  pop(c4, S("언제 사느냐만큼, 팔고 나서"));
+  cut(S("언제 사느냐만큼, 팔고 나서") + 1.5, "정리 — 카드 4개");
+}
+// ---------- 한계 ----------
+{
+  const a = PS("한계"), b = PS("마무리");
+  const sc = K.scene(a - 0.2, b - 0.4);
+  const items = [
+    el(`<div class="card2" style="left:150px;top:260px;width:460px;height:420px;display:grid;place-items:center;align-content:center;gap:30px">${IC.cal(130)}<span class="big tab" style="font-size:64px">2016 → 2026</span></div>`, sc),
+    el(`<div class="card2" style="left:730px;top:260px;width:460px;height:420px;display:grid;place-items:center;align-content:center;gap:24px"><span class="row" style="gap:16px">${IC.ban(110, `<circle cx="17.5" cy="18" r="3.4" fill="none" stroke="#FFD400" stroke-width="2.8"/><circle cx="30.5" cy="30" r="3.4" fill="none" stroke="#FFD400" stroke-width="2.8"/><path d="M31 15 L17 33" stroke="#FFD400" stroke-width="2.8" stroke-linecap="round"/>`)}${IC.ban(110, `<ellipse cx="24" cy="29" rx="10" ry="4.2" fill="#B8860B"/><ellipse cx="24" cy="25" rx="10" ry="4.2" fill="#E8B800"/><ellipse cx="24" cy="21" rx="10" ry="4.2" fill="#FFD400"/>`)}</span><span class="row" style="gap:12px;font:900 50px/1 'Noto Sans KR'"><span class="tag s" style="font-size:44px">SELL</span><span style="color:#AFC0DA">+1D</span></span></div>`, sc),
+    el(`<div class="card2" style="left:1310px;top:260px;width:460px;height:420px;display:grid;place-items:center;align-content:center">${IC.warn(200)}</div>`, sc),
+  ];
+  pop(items[0], a); pop(items[1], S("세금과 환전 비용은 넣지 않았고")); pop(items[2], S("투자 권유가 아니라"));
+  cut(S("투자 권유가 아니라") + 1.2, "한계");
+}
+// ---------- 마무리 ----------
+{
+  const a = PS("마무리");
+  const sc = K.scene(a - 0.2, EP.duration + 1, { keep: true });
+  const c = el(`<div class="a flexc" style="left:0;width:1920px;top:330px;gap:40px">${IC.chat(220)}<span class="big" style="font-size:200px;color:#FFD400">?</span></div>`, sc);
+  pop(c, a);
+  const end = el(`<div class="a flexc" style="left:0;width:1920px;top:690px;gap:24px"><span class="tag b" style="font-size:60px">BUY</span><span class="tag s" style="font-size:60px">SELL</span><span class="tag h" style="font-size:52px">BUY &amp; HOLD</span></div>`, sc);
+  pop(end, S("시청해주셔서 감사합니다"));
+  cut(S("시청해주셔서 감사합니다") + 0.8, "마무리");
+}
+
+CUTQ.sort((x, y) => x[0] - y[0]).forEach(([t, n]) => K.cut(t, n));
+K.done();
+})();
+</script>
+</body>
+</html>

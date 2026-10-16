@@ -1,6 +1,6 @@
 # 지금 상태·다음 할 일 (인수인계)
 
-버전: v1.6 — 2026-10-16 — 재테크 채널 설정 문서 `economic/channel.md`(채널 설명·키워드). (v1.5 — 2026-10-16 — 주식 1번 소리 없는 미리보기 영상 렌더(추정 시각, `render.mjs` v1.2 `--estimated-preview` — 최종본 아님). (v1.4 — 2026-10-16 — 주식 1번 썸네일 프롬프트 v2.0(결말을 가림 — 두 선택 대치 + 닫힌 상자). (v1.3 — 2026-10-16 — 주식 1번 제목·대본 도입을 사용자 피드백대로 다시(결말 없음·맨 앞 니즈 낱말 '저점 매수'·'최고점보다 10%'·매수/매도, 대본 v1.2 141문장, 장면 파일 v1.1). (v1.2 — 2026-10-15 — 주식 1번: 제목(10개 언어)·대본 143문장·글자 없는 썸네일 프롬프트·업로드 시트·장면 파일(추정 시각) 끝, 오디오만 남음. (v1.1 — 주식 1번 주제 백테스트·결론 끝 (`tools/backtest/` v1.1).) (v1.0 — 2026-10-15 — 최초. 사용자 지시: "이제 이 대화 지울건데 남겨둬야 할 정보 있으면 저장소에 남겨놔".)
+버전: v1.7 — 2026-10-16 — 주식 채널 **업로드 시험 성공** (클라우드에서 데모 40초 비공개 업로드, `stock/source/upload-test-2026-10-16/`). (v1.6 — 2026-10-16 — 재테크 채널 설정 문서 `economic/channel.md`(채널 설명·키워드). (v1.5 — 2026-10-16 — 주식 1번 소리 없는 미리보기 영상 렌더(추정 시각, `render.mjs` v1.2 `--estimated-preview` — 최종본 아님). (v1.4 — 2026-10-16 — 주식 1번 썸네일 프롬프트 v2.0(결말을 가림 — 두 선택 대치 + 닫힌 상자). (v1.3 — 2026-10-16 — 주식 1번 제목·대본 도입을 사용자 피드백대로 다시(결말 없음·맨 앞 니즈 낱말 '저점 매수'·'최고점보다 10%'·매수/매도, 대본 v1.2 141문장, 장면 파일 v1.1). (v1.2 — 2026-10-15 — 주식 1번: 제목(10개 언어)·대본 143문장·글자 없는 썸네일 프롬프트·업로드 시트·장면 파일(추정 시각) 끝, 오디오만 남음. (v1.1 — 주식 1번 주제 백테스트·결론 끝 (`tools/backtest/` v1.1).) (v1.0 — 2026-10-15 — 최초. 사용자 지시: "이제 이 대화 지울건데 남겨둬야 할 정보 있으면 저장소에 남겨놔".)
 
 - 대화가 지워져도 다음 대화가 여기서 이어 가도록 남긴다.
 - 규칙은 `CLAUDE.md`, 지시사항 목록은 `guides/README.md`, 전체 순서는 `guides/pipeline.md`에 있다.
@@ -12,7 +12,7 @@
 | 주제 | 지금 단계 | 다음 할 일 |
 |---|---|---|
 | **재테크** `economic/` | 롱폼 4편 끝: 대본·오디오(Kaggle)·영상 렌더·업로드 시트(`upload.md`). 쇼츠 4편 제목·대본(`shorts/`, `0f6276e`) | ① 업로드 확인 ② 썸네일 3편 ③ 쇼츠 오디오·영상 ④ 채널 설정 붙였는지·결과로 키워드 고치기 (아래 2-2) |
-| **주식** `stock/` | 1번 `tteoreojimyeon-sagi-2026-10`: 백테스트·제목 v2.0(10개 언어, 결말 없음)·대본 v1.2(도입에 결말 없음)·썸네일 프롬프트 v2.0(글자 없음·결말 가림)·업로드 시트 v2.0·**장면 파일 v1.1(추정 시각)** 끝 | ① 사용자: Kaggle 내레이션(범위 `stock`) ② 오디오가 오면 sync → check → video → Drive ③ 썸네일 ChatGPT ④ 다른 언어 오디오 여부(사용자 답) / 2~4번은 일별 ETF 자료 필요 (아래 2-1) |
+| **주식** `stock/` | 1번 `tteoreojimyeon-sagi-2026-10`: 백테스트·제목 v2.0(10개 언어, 결말 없음)·대본 v1.2(도입에 결말 없음)·썸네일 프롬프트 v2.0(글자 없음·결말 가림)·업로드 시트 v2.0·**장면 파일 v1.1(추정 시각)** 끝 · **업로드 시험 성공**(클라우드 → STOCK LAB 채널, 비공개 데모 `3FJPCemQ0fw`) | ① 사용자: Kaggle 내레이션(범위 `stock`) ② 오디오가 오면 sync → check → video → Drive ③ 썸네일 ChatGPT ④ 다른 언어 오디오 여부(사용자 답) / 2~4번은 일별 ETF 자료 필요 (아래 2-1) |
 
 ## 2. 다음 대화에서 할 일 (순서대로)
 
@@ -47,6 +47,14 @@
   - 2026-10-16 사용자 요청으로 **소리 없는 미리보기**를 렌더해 대화로 보냄 (`stock/out/tteoreojimyeon-sagi-2026-10/preview_estimated_silent.mp4` — 컨테이너에만, git·Drive 아님). 최종본은 오디오 뒤.
   - 지금 데이터 칸은 **추정 시각**(`render.mjs sync --estimate`, 9분 28초 — 대본 v1.2) — `check` 문제 0, still 78장 점검. 이 시각으로는 `video`가 거부된다.
 
+**업로드 시험 (2026-10-16, 사용자 지시 "한번 업로드 잘되는지 데모 영상 만들어서 업로드 테스트해봐")**
+- 데모 = 1번 장면 파일 도입 0~40초, 추정 시각·소리 없음 (`render.mjs video … --estimated-preview --from 0 --to 40`, 33초). 시트 `stock/source/upload-test-2026-10-16/upload.md`, 기록 `youtube.json`.
+- 클라우드 환경 변수 키(`YOUTUBE_CLIENT_ID`·`SECRET`·`REFRESH_TOKEN`)의 채널 = **`편안한 음악 Relaxing Music` (UC7Rw5HWgKz5njCCciX8IVJQ)** — 사용자: "내가 아직 채널명 변경안해서 그래" → 이 채널이 STOCK LAB.
+  - ⚠️ 그래서 클라우드 키로 **재테크(economic) 영상을 올리면 STOCK LAB 에 올라간다.** 클라우드에서 economic 을 올리지 않는다 (재테크는 PC 업로더·PC `.env` 키).
+- 결과: https://youtu.be/3FJPCemQ0fw (비공개, 예약 없음) — 올리기·처리 성공, 언어별 제목·설명 9개 + ko, 기본·오디오 언어 ko, 교육, 아동용 아님, 자막 안 올림, 썸네일 등록 성공, 합성 콘텐츠 예(`videos.update` 응답으로 확인 — `videos.list` 는 이 칸을 안 보여 줌). 표는 시트 9번.
+- 아직 모르는 것: 예약 공개(`publishAt`)는 시험 영상이 공개되면 안 돼서 걸지 않았다 · **비공개 잠금**(감사 전 API 프로젝트)은 API 로 안 보인다 → 사용자가 스튜디오에서 이 영상 공개 상태에 잠금 표시가 있는지 본다. 잠겨 있으면 예약 공개도 안 되니 `pipeline.md` '업로드 주의'.
+- 사용자 할 일: 스튜디오에서 이 영상 확인 → 지우기 (`youtube.json` 은 기록으로 둔다 — 지우면 PC 업로더가 다시 올릴 영상으로 봄).
+
 **할 일**
 1. 사용자: Kaggle 셀에서 범위 `stock` → `narration.mp3`·`tts_narration.json` 이 `stock/source/tteoreojimyeon-sagi-2026-10/`에 올라옴.
    - 읽는 소리 `stock/tts_lexicon.tsv` (S&P500 → 에스앤피 오백).
@@ -54,6 +62,7 @@
    → `node video/render/render.mjs sync stock tteoreojimyeon-sagi-2026-10` → `check` → `stills`(점검) → `video` → `python tools/drive_videos.py upload stock tteoreojimyeon-sagi-2026-10` (Drive 권한이 없으면 원본을 대화로).
    - 실제 오디오 길이가 9~12분(`stock/guides/README.md` 5번)인지 본다. 추정은 9분 28초.
 3. 썸네일: ChatGPT 메시지는 `thumbnails/README.md` 5번. 그림이 대화에 오면 검수(글자·숫자가 하나도 없는지 확대) → `thumbnail_N.*`.
+   - **업로드는 클라우드에서 바로 된다** (2026-10-16 시험 — 아래 '업로드 시험'). 오디오 뒤 렌더가 끝나면 `python tools/youtube_upload.py stock tteoreojimyeon-sagi-2026-10 --dry-run` → `--publish-at +1h` (업로드 시트 7번). PC 업로더(`run_uploader.ps1 -Topic stock`)는 Drive 원본이 있을 때의 다른 길.
 4. 사용자 답 기다림: 내레이션을 한국어 하나로 둘지, 다른 언어 오디오(자동 더빙 말고)를 만들지 (`stock/guides/README.md` 5번).
 3. 2~4번 주제(커버드콜·배당 vs 지수·레버리지)는 **일별 ETF 수정주가·분배금**이 필요하다.
    - Yahoo가 클라우드에서 막혀 있다 (4번 참고).
@@ -100,6 +109,9 @@
 - 되는 곳: GitHub(raw 포함), pypi.
 - 사용자가 클라우드 환경 설정 → Network access에서 도메인을 더하면 된다.
 
+**새 컨테이너에서 렌더하기 전** (2026-10-16)
+- 글꼴·gsap 이 git 에 없다 → `node video/scripts/get-fonts.mjs` (Noto Sans·Serif KR → `video/public/fonts/`) + `cd video/render && npm install`. 글꼴이 없으면 `render.mjs` 가 `page.evaluate: NetworkError` 로 멈춘다.
+
 **YouTube API**
 - 하루 10,000단위와 따로 **'하루 검색 횟수' 한도**가 있다 (HTTP 429).
   - 2026-10-09에 40번째 검색 뒤 막혔다.
@@ -135,5 +147,6 @@
 ## 변경 이력
 | 버전 | 날짜 | 내용 |
 |---|---|---|
+| v1.7 | 2026-10-16 | 주식 업로드 시험 성공 (클라우드 키 = STOCK LAB 채널, 지금 이름 '편안한 음악 Relaxing Music'), 렌더 전 글꼴 받기 |
 | v1.1 | 2026-10-15 | 주식 1번 백테스트·결론 끝, 2~4번 자료 길 |
 | v1.0 | 2026-10-15 | 최초 (대화를 지우기 전 인수인계) |

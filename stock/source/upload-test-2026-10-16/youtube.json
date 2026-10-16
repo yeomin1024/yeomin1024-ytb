@@ -1,0 +1,31 @@
+{
+  "videoId": "3FJPCemQ0fw",
+  "url": "https://youtu.be/3FJPCemQ0fw",
+  "studio": "https://studio.youtube.com/video/3FJPCemQ0fw/edit",
+  "privacy": "private",
+  "publishAt": null,
+  "containsSyntheticMedia": true,
+  "uploadedAt": "2026-10-16T06:37:46+00:00",
+  "title": "[업로드 테스트] STOCK LAB 데모 — 저점 매수 백테스트 도입 40초",
+  "localizations": [
+    "de",
+    "en",
+    "es-419",
+    "hi",
+    "id",
+    "ja",
+    "pt",
+    "tr",
+    "vi"
+  ],
+  "videoFile": "final_1080p.mp4",
+  "videoSha256": "1eb0cb66c383c8ca0e8cec5d29098e15cc45dfd7ec00903d3b865c5cce8e4e2a",
+  "chapters": null,
+  "captions": null,
+  "thumbnail": "thumbnail_1.jpg",
+  "warnings": [],
+  "studioTodo": [
+    "공개 전(예약 시각 전) 스튜디오에서 확인: 영상·자막·썸네일, 자동 더빙(언어), 최종 화면",
+    "공개된 뒤 '테스트 및 비교'에 썸네일 3개 등록 — 비공개 영상은 테스트 불가"
+  ]
+}

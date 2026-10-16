@@ -1,5 +1,34 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-16 (32) — 주식 채널 업로드 시험: 데모 40초를 클라우드에서 비공개로 올림 (성공)
+
+### 왜 (사용자 지시)
+- "이 환경은 … 최종적으로 영상을 만들어 STOCK LAB 채널에 업로드 할 환경이야 한번 업로드 잘되는지 데모 영상 만들어서 업로드 테스트해봐"
+- 키의 채널 이름이 `편안한 음악 Relaxing Music` 으로 나와 멈췄더니: "아니야 내가 아직 채널명 변경안해서 그래 한번 올려봐"
+
+### 한 것
+| 단계 | 명령 · 결과 |
+|---|---|
+| 키 확인 | `python tools/youtube_upload.py --check-auth` → `channel=편안한 음악 Relaxing Music channel_id=UC7Rw5HWgKz5njCCciX8IVJQ` (= STOCK LAB, 이름 바꾸기 전) |
+| 데모 렌더 | `node video/scripts/get-fonts.mjs` (글꼴이 없어 첫 렌더가 `NetworkError` 로 멈춤) → `node video/render/render.mjs video stock tteoreojimyeon-sagi-2026-10 --estimated-preview --from 0 --to 40` → 40.00초 1080p30 0.9MB, 소리 없음, 33초 걸림. 도입이라 결과 숫자 없음 |
+| 업로드 시트 | `stock/source/upload-test-2026-10-16/upload.md` v1.0 (새로) — 제목 `[업로드 테스트] …`, 언어별 제목·설명 9개, 자막 아니요, 합성 콘텐츠 예, **비공개·예약 없음**. 썸네일은 시험용 장면 한 장(0:04, git 에 없음) |
+| 확인 | `--dry-run` 문제 0 · 실제 1번 시트도 `--dry-run` → 챕터 10개 규칙 통과, 언어 9개, 문제는 '영상 파일 없음'(오디오 전) 하나뿐 |
+| 업로드 | `python tools/youtube_upload.py stock upload-test-2026-10-16` → https://youtu.be/3FJPCemQ0fw · 자막 skip · 썸네일 ok · `youtube.json` |
+| 다시 읽기 | `videos.list` → private·processed, 제목·설명·태그·카테고리 27·기본/오디오 언어 ko·localizations 10개(ko 포함)·madeForKids false·PT40S hd·caption false·썸네일 maxres. `containsSyntheticMedia` 는 list 가 돌려주지 않아 같은 status 로 `videos.update` → 응답 `containsSyntheticMedia: true` |
+
+### 못 한 것 · 남은 것
+- 예약 공개(`publishAt`)는 걸지 않음 — 시험 영상이 공개되면 안 되므로.
+- 감사 전 API 프로젝트의 '비공개 잠금'은 API 값으로 안 보임 → 사용자가 스튜디오에서 확인.
+- ⚠️ 클라우드 키 = STOCK LAB 채널 → 클라우드에서 재테크 영상을 올리면 안 됨 (`guides/status.md` v1.7 2-1).
+- 사용자: 스튜디오에서 확인 뒤 이 영상 지우기. `youtube.json` 은 기록으로 둠.
+
+### 바꾼 파일
+| 파일 (버전) | 내용 |
+|---|---|
+| `stock/source/upload-test-2026-10-16/upload.md` (v1.0, 새로) · `youtube.json` (업로드 도구가 씀) | 위 |
+| `guides/status.md` (v1.6 → v1.7) | 2-1 '업로드 시험', 클라우드에서 바로 올리는 길, 4번 '새 컨테이너에서 렌더하기 전'(글꼴·gsap) |
+- 코드는 바꾸지 않음.
+
 ## 2026-10-16 (31) — 클라우드에서 주식 분석: `tools/cloud_run.py` v1.1 (웹 화면 작업을 명령으로) · 주식 외국 영상 켬
 
 ### 왜 (사용자 지시)

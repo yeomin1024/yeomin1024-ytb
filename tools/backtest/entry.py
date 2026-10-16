@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-10-16 — 최초. 사용자 지시 2026-10-16 "2016년부터 현재까지로 설정하고 지금은 매수만 보는 거니까 매수에 관련된 것만
+# VERSION: v1.1 — 2026-10-16 — buy_and_hold(): 첫날 전부 매수 후 끝까지 보유한 값 (사용자 지시 2026-10-16 "1번째 박스에는 맨처음에 매수하고
+#          그냥 냅둔 수익도 표시해" — 경주로 견주지 않고 계좌 칸에 참고로 함께 보임). 매수 규칙·시뮬레이션은 그대로.
+# (v1.0 — 2026-10-16 — 최초. 사용자 지시 2026-10-16 "2016년부터 현재까지로 설정하고 지금은 매수만 보는 거니까 매수에 관련된 것만
 #          테스트해야지 왜 손절이 있어 매도 규칙은 똑같이 해 그리고 buy and hold랑 비교하지말고 주가 차트에서 매수/매도 지점을 표시하는 걸로 하자":
-#          매수 신호 10가지 × 같은 매도 규칙(산 날부터 정해진 거래일 뒤 종가에 매도) — 매수 신호만 다르게 해서 '언제 매수'만 견준다.
+#          매수 신호 10가지 × 같은 매도 규칙(산 날부터 정해진 거래일 뒤 종가에 매도) — 매수 신호만 다르게 해서 '언제 매수'만 견준다.)
 """매수 신호 시험 — 매수 규칙만 다르고 매도 규칙은 모두 같다 (연구·교육용 — 투자 권유가 아니다. 과거 결과는 미래를 보장하지 않는다).
 
 시점 약속 (미래 정보 금지):
@@ -36,7 +38,7 @@ import pandas as pd
 from . import daily as dl
 
 LOG = logging.getLogger("backtest.entry")
-VERSION = "v1.0"
+VERSION = "v1.1"
 HOLD_DAYS = 252                                                  # 기본 공통 매도: 산 날부터 252 거래일(약 1년) 뒤 종가
 _TOL = 1e-12                                                     # 문턱 비교 허용 오차 (0.9×100 = 90.00000000000001 같은 부동소수 끝자리)
 
@@ -265,3 +267,22 @@ def forward_returns(close, start, end, hold=HOLD_DAYS, cost=0.001):
            "p10": float(np.percentile(r, 10)), "p90": float(np.percentile(r, 90))}
     log("RESULT", reference="any_day_buy", **{k: (f"{v:+.2%}" if isinstance(v, float) else v) for k, v in rep.items()})
     return rep
+
+
+def buy_and_hold(close, start, end, capital=10_000.0, cost=0.001, px=None):
+    """참고값 — 시작일(s) 종가에 전부 사서 끝(e)까지 그대로 둔 계좌 (Buy and Hold). 판 적이 없으므로 끝 값은 평가 값 (매도 비용 없음).
+    규칙과 같은 날·같은 돈·같은 매수 비용. → (값 배열 s..e, stats dict)."""
+    dates = close.index
+    s, e = int(dates.searchsorted(pd.Timestamp(start))), int(dates.searchsorted(pd.Timestamp(end), side="right") - 1)
+    price = close.to_numpy(float) if px is None else np.asarray(px, float)
+    units = capital * (1.0 - cost) / price[s]
+    v = units * price[s:e + 1]
+    dd = v / np.maximum.accumulate(v) - 1.0
+    yrs = (dates[e] - dates[s]).days / 365.25
+    st = {"rule": "buy_and_hold", "buy_date": str(dates[s].date()), "buy_price": float(close.iloc[s]), "end_date": str(dates[e].date()),
+          "final": float(v[-1]), "total_return": float(v[-1] / capital - 1.0), "cagr": float((v[-1] / capital) ** (1 / yrs) - 1.0),
+          "max_dd": float(dd.min()), "max_dd_date": str(dates[s + int(np.argmin(dd))].date())}
+    log("RESULT", reference="buy_and_hold", buy=st["buy_date"], final=f"{st['final']:,.0f}", total=f"{st['total_return']:+.2%}",
+        max_dd=f"{st['max_dd']:.1%}", note="경주로 견주지 않음 — 계좌 칸 참고값")
+    return v, st
+

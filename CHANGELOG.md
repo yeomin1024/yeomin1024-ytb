@@ -1,5 +1,22 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-16 (43) — 주식 1번 v2 시험 장면 시안 v1.1: 머리 매도 조건 뺌 · 카드 2개 · 계좌 칸에 BUY & HOLD 참고값
+
+### 왜 (사용자 지시)
+- "상단에 매도 조건이 있는데 이건 어차피 초반에 설명할거니까 그냥 빼 그럼 오른쪽 2번째 박스는 없어져야 겠지 3번째 박스 내용을 더 보여주는 걸로 하고 1번째 박스에는 맨처음에 매수하고 그냥 냅둔 수익도 표시해 (buy and hold 문구가 맞나? 확인 필요) 수정하고 다시 이미지 보여줘봐"
+- 'buy and hold' = 투자 용어 그대로 (사서 오래 들고 있는 전략 — Wikipedia 'Buy and hold', 2026-10-16 확인) → 화면 글자 `BUY & HOLD`.
+
+### 바꾼 파일
+| 파일 (버전) | 내용 |
+|---|---|
+| `tools/backtest/entry.py` (v1.0 → v1.1) | `buy_and_hold()` — 시작일 종가에 전부 매수(비용 0.1%) 후 끝까지 (판 적 없음 → 평가 값). 매수 규칙·시뮬레이션은 그대로 |
+| `tools/tests/test_backtest_entry.py` (v1.0 → v1.1) | Buy and Hold 시험 1개 더함 (10개 통과) |
+| `stock/source/eonje-maesu-2026-10/backtest/run.py` (v2.0 → v2.1) | `results.json` `buy_and_hold` · `results.md` 참고 줄 · `anim.js` `bh` (assert 로 결과 파일과 맞춤). 규칙 결과·`trades.csv` 는 그대로 — BUY & HOLD 끝 $34,455 (+244.5%, 최대 낙폭 −33.9% 2020-03-23) |
+| `video/prototypes/stock-entry-2026-10-16/race3d.html` (v1.0 → v1.1) | 머리 매도 조건 뺌 · '지금 상태' 카드 뺌 · 계좌 카드에 BUY & HOLD 줄·회색 선 · 거래 기록 = 그날까지 전부(최근 8개, 날짜·지수 값·수익률·손익 $, 들고 있는 거래 며칠/252) · 핀 글자 겹침 피하기(최근 거래 먼저, 안 되면 점만) · 지수 이름을 차트 왼쪽 위로 · 글꼴이 온 뒤 글자 크기를 재고 그림. 촘촘한 규칙(매달 첫 거래일 10번)으로도 확인 |
+| `video/prototypes/stock-entry-2026-10-16/still_dip10_2023-09-29.png` | 새 한 장 (숫자 = `trades.csv`·`anim.js`) |
+| `video/render/render.mjs` (v1.4 → v1.5) | 낱말 검사 예외에 HOLD |
+| 문서 | `stock/guides/README.md` v1.6 · `guides/video_guide.md` v4.7(같은 판 안 보충) · `stock/source/eonje-maesu-2026-10/README.md` v2.1 · `guides/status.md` v1.18 |
+
 ## 2026-10-16 (42) — 음악 분석 `music/` 새로 (클라우드): new/ '15. 수면·힐링 듣기' 캐시 이어 받기 · 태그 검색어 40(음악 낱말 필수)+2 · 첫 회차 승인 20 → 성공 사례 15 · 매일 예약 작업
 
 ### 왜 (사용자 지시)

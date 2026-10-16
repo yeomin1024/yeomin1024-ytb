@@ -1,4 +1,5 @@
-// VERSION: v1.4 — 2026-10-16 — 낱말 검사에서 BUY·SELL(사용자 지시 2026-10-16 "buy, sell 문구 붙여서 표시하고")과 지표 이름 RSI·VIX 도 뺌 (stock/guides/README.md 4번).
+// VERSION: v1.5 — 2026-10-16 — 낱말 검사 예외에 HOLD (계좌 칸 'BUY & HOLD' — 사용자 지시 2026-10-16 "1번째 박스에는 맨처음에 매수하고 그냥 냅둔 수익도 표시해").
+// v1.4 — 2026-10-16 — 낱말 검사에서 BUY·SELL(사용자 지시 2026-10-16 "buy, sell 문구 붙여서 표시하고")과 지표 이름 RSI·VIX 도 뺌 (stock/guides/README.md 4번).
 // v1.3 — 2026-10-16 — 낱말 검사에서 지수 이름 'NASDAQ' 도 뺌 (S&P 와 같은 고유 이름 — 주식 1번 v2 확인 장면 '나스닥 2000·2003 시작', stock/guides/README.md 4번).
 // v1.2 — 2026-10-16 — video --estimated-preview: 추정 시각(오디오 전)으로 소리 없는 미리보기만 렌더 (<주제>/out/<영상ID>/preview_estimated_silent.mp4 —
 //   final_1080p.mp4·음량 맞춤·Drive 는 하지 않음). 옵션 없이는 예전처럼 거부. 사용자 지시 2026-10-16 "영상도 렌더링 해봐" (오디오 아직 없음).
@@ -180,7 +181,7 @@ const CHECK_FN = () => {
     const fs = parseFloat(getComputedStyle(el).fontSize);
     const txt = n.textContent.trim().slice(0, 24);
     if (fs < 36) out.push({ kind: "글자 36px 미만", txt, fs });
-    if (NOWORDS && !el.closest(".code") && (/[가-힣ぁ-んァ-ン一-龥]/.test(n.textContent) || /[A-Za-z]{2,}/.test(n.textContent.replace(/S&P|NASDAQ|BUY|SELL|RSI|VIX/g, ""))))
+    if (NOWORDS && !el.closest(".code") && (/[가-힣ぁ-んァ-ン一-龥]/.test(n.textContent) || /[A-Za-z]{2,}/.test(n.textContent.replace(/S&P|NASDAQ|BUY|SELL|HOLD|RSI|VIX/g, ""))))
       out.push({ kind: "낱말(언어 없는 화면)", txt });   // K.init opts.noWords — 숫자·기호·A·B·S&P·NASDAQ 만 (stock/guides/README.md 4번)
     if (b.bottom > LOW && !el.closest("#chip")) out.push({ kind: cc0 ? "자막 띠(y 880 아래)와 겹침" : "맨 아래 60px(y 1020 아래)", txt, bottom: Math.round(b.bottom) });
     if (b.left < 40 || b.right > 1880 || b.top < 30) out.push({ kind: "화면 가장자리 밖", txt, left: Math.round(b.left), right: Math.round(b.right), top: Math.round(b.top) });

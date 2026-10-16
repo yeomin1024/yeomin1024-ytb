@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-10-16 — tools/backtest/entry.py v1.0 시험 (매수 신호 10가지 × 같은 매도 규칙). 네트워크 없이 만든 자료로.
+# VERSION: v1.1 — 2026-10-16 — buy_and_hold 시험 더함. (v1.0 — 2026-10-16 — tools/backtest/entry.py v1.0 시험 (매수 신호 10가지 × 같은 매도 규칙). 네트워크 없이 만든 자료로.)
 """python3 -m unittest test_backtest_entry  (tools/tests 에서)"""
 import sys
 import unittest
@@ -92,6 +92,18 @@ class EntryTest(unittest.TestCase):
         ind = en.indicators(self.close, v)
         self.assertFalse(en.RULES["vix30"][0](ind, 400))
         self.assertTrue(en.RULES["vix30"][0](ind, 401))
+
+    def test_buy_and_hold_matches_m1_first_trade(self):
+        """Buy and Hold = 첫날 매수(비용 포함) 뒤 그대로. 첫날 매수하는 규칙(m1)의 첫 거래가 팔기 전까지 같은 값."""
+        c = self.close
+        s = c.index[300]
+        v, st = en.buy_and_hold(c, s, c.index[-1], cost=0.001)
+        self.assertAlmostEqual(v[0], 10_000 * 0.999, places=9)
+        self.assertAlmostEqual(st["final"], 10_000 * 0.999 * c.iloc[-1] / c.iloc[300], places=6)
+        ind = en.indicators(c, self.vix)
+        r = en.simulate("m1", ind, 300, len(c) - 1, hold=60, dates=c.index)
+        if r.trades and r.trades[0]["buy_i"] == 300:
+            np.testing.assert_allclose(r.value[:60], v[:60])
 
     def test_run_all_needs_history(self):
         with self.assertRaises(ValueError):

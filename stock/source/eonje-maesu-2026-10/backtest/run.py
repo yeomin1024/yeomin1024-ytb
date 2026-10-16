@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
-# VERSION: v2.0 — 2026-10-16 — 다시 만듦 (사용자 지시 2026-10-16 "기간이 너무 긴거 아니야? 그리고 왜 현재는 포함 안했어 2016년부터 현재까지로
+# VERSION: v2.1 — 2026-10-16 — Buy and Hold 참고값 (사용자 지시 2026-10-16 "1번째 박스에는 맨처음에 매수하고 그냥 냅둔 수익도 표시해"):
+#          entry.buy_and_hold() → results.json buy_and_hold · results.md · anim.js bh (경주로 견주지 않고 계좌 칸 참고값). 매수 규칙 결과는 그대로.
+# (v2.0 — 2026-10-16 — 다시 만듦 (사용자 지시 2026-10-16 "기간이 너무 긴거 아니야? 그리고 왜 현재는 포함 안했어 2016년부터 현재까지로
 #          설정하고 지금은 매수만 보는 거니까 매수에 관련된 것만 테스트해야지 왜 손절이 있어 매도 규칙은 똑같이 해 그리고 buy and hold랑
 #          비교하지말고 주가 차트에서 매수/매도 지점을 표시하는 걸로 하자"): 매수 신호 10가지 × 같은 매도 규칙(산 날부터 252 거래일 뒤 매도),
 #          S&P 500 일별 2016-01-04 ~ 자료 끝(2026-02-11), 같은 $10,000. 엔진 tools/backtest/entry.py v1.0. 관망과 견주지 않는다.
-#          (v1.x — 매수 규칙 10가지 vs 관망 32년 — stock/source/_old/eonje-maesu-2026-10-v1/backtest/)
+#          (v1.x — 매수 규칙 10가지 vs 관망 32년 — stock/source/_old/eonje-maesu-2026-10-v1/backtest/))
 """매수 신호 10가지 — 같은 돈 · 같은 매도 규칙 (연구·교육용 — 투자 권유가 아니다. 과거 결과는 미래를 보장하지 않는다).
 
 실행:  python3 stock/source/eonje-maesu-2026-10/backtest/run.py
@@ -34,7 +36,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 from backtest import data as bd          # noqa: E402
 from backtest import entry as en         # noqa: E402
 
-VERSION = "v2.0"
+VERSION = "v2.1"
 START, END = "2016-01-01", "2026-02-11"
 CAPITAL, COST, HOLD = 10_000.0, 0.001, en.HOLD_DAYS
 CHECK_HOLDS = [21, 63, 126]
@@ -80,6 +82,7 @@ def main():
     out, ind, (s, e) = en.run_all(close, START, END, vix=vix, hold=HOLD, capital=CAPITAL, cost=COST)
     dates = close.index
     ref = en.forward_returns(close, START, END, hold=HOLD, cost=COST)
+    bh_v, bh = en.buy_and_hold(close, START, END, capital=CAPITAL, cost=COST)
 
     # 확인: 다른 보유 기간 · 비용 0
     checks = {}
@@ -107,6 +110,7 @@ def main():
         "trades": {k: out[k][0].trades for k in en.ORDER},
         "rank_by_final": rank,
         "reference_any_day": ref,
+        "buy_and_hold": bh,
         "checks": checks,
         "index": {"start_close": float(close.iloc[s]), "end_close": float(close.iloc[e]),
                   "max": float(close.iloc[s:e + 1].max()), "max_date": str(close.iloc[s:e + 1].idxmax().date())},
@@ -122,7 +126,7 @@ def main():
     pd.DataFrame(rows).to_csv(HERE / "trades.csv", index=False)
 
     write_md(res, out)
-    write_anim(close, vix, ind, out, s, e, res)
+    write_anim(close, vix, ind, out, s, e, res, bh_v)
     log("RESULT", file="results.json,results.md,trades.csv,anim.js", rank=",".join(rank), sec=f"{time.time() - t0:.1f}")
 
 
@@ -142,6 +146,8 @@ def write_md(res, out):
                  f"{r['trades_closed']}{' + 보유 중 1' if r['trades_open'] else ''} | {(r['win_rate'] * 100):.0f}% | {pct(r['avg_trade'])} | "
                  f"{pct(r['best_trade'])} · {pct(r['worst_trade'])} | {r['invested_share'] * 100:.0f}% | {r['longest_wait_days']}일 | {r['first_buy']} |")
     ref = res["reference_any_day"]
+    b = res["buy_and_hold"]
+    L += ["", f"- 참고값 **Buy and Hold** (첫날 {b['buy_date']} 종가 {b['buy_price']:,.2f} 에 전부 매수 → 그대로, 경주로 견주지 않음): 끝 값 ${b['final']:,.0f} · {pct(b['total_return'])} · 최대 낙폭 {pct(b['max_dd'])} ({b['max_dd_date']})"]
     L += ["", f"- 참고값 (관망 아님): **아무 날** {ref['from']} ~ {ref['to_last_buy']} 에 사서 252 거래일 뒤 판 {ref['n_days']}번 — 평균 {pct(ref['mean'])} · 가운데 {pct(ref['median'])} · 이긴 비율 {ref['win_rate'] * 100:.0f}% · 아래 10% {pct(ref['p10'])} · 위 10% {pct(ref['p90'])}", "",
           "## 2. 거래 (BUY → SELL)", ""]
     for k in en.ORDER:
@@ -161,7 +167,7 @@ def write_md(res, out):
     (HERE / "results.md").write_text("\n".join(L) + "\n", "utf-8")
 
 
-def write_anim(close, vix, ind, out, s, e, res):
+def write_anim(close, vix, ind, out, s, e, res, bh_v):
     """장면 파일 자료 (window.AN). 날짜는 s..e 거래일 전부, 값은 코드 출력을 반올림만."""
     d = close.index[s:e + 1]
     AN = {"v": VERSION, "made_at": res["made_at"], "dates": [x.strftime("%Y-%m-%d") for x in d],
@@ -175,6 +181,7 @@ def write_anim(close, vix, ind, out, s, e, res):
                     "ret1": [round(float(x) * 100, 3) for x in ind["ret1"][s:e + 1]],
                     "close_252ago": [round(float(close.iloc[i - 252]), 2) for i in range(s, e + 1)]},
           "hold_days": HOLD, "capital": CAPITAL, "order": en.ORDER,
+          "bh": [round(float(x), 2) for x in bh_v],                  # Buy and Hold 계좌 값 (참고)
           "rules": {}}
     for k in en.ORDER:
         r, st = out[k]
@@ -186,6 +193,7 @@ def write_anim(close, vix, ind, out, s, e, res):
         # 장면 숫자 = 결과 파일 숫자 (반올림만) 확인
         assert abs(AN["rules"][k]["value"][-1] - res["rules"][k]["final"]) < 0.01, k
         assert len(AN["rules"][k]["value"]) == len(AN["dates"]), k
+    assert abs(AN["bh"][-1] - res["buy_and_hold"]["final"]) < 0.01 and len(AN["bh"]) == len(AN["dates"])
     txt = ("// 자동 생성 — stock/source/eonje-maesu-2026-10/backtest/run.py " + VERSION + " (손으로 고치지 않음). 연구·교육용 — 투자 권유 아님.\n"
            "window.AN = " + json.dumps(AN, ensure_ascii=False, separators=(",", ":")) + ";\n")
     (HERE / "anim.js").write_text(txt, "utf-8")

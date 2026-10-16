@@ -1,5 +1,8 @@
 <!doctype html>
-<!-- VERSION: v1.0 — 2026-10-16 — 주식 1번 v2 '시험 장면' 시안 (한 장 확인용). 사용자 지시 2026-10-16 "buy and hold랑 비교하지말고 주가 차트에서
+<!-- VERSION: v1.1 — 2026-10-16 — 사용자 지시 "상단에 매도 조건이 있는데 이건 어차피 초반에 설명할거니까 그냥 빼 그럼 오른쪽 2번째 박스는 없어져야
+     겠지 3번째 박스 내용을 더 보여주는 걸로 하고 1번째 박스에는 맨처음에 매수하고 그냥 냅둔 수익도 표시해": 머리의 매도 조건 뺌 · 카드 2(지금 상태) 뺌 ·
+     거래 기록 = 그날까지 모든 거래(BUY 날·값 → SELL 날·값 · 수익률 · 손익 $, 들고 있는 거래는 며칠/252) · 계좌 카드에 BUY & HOLD(첫날 매수 후 그대로).
+     v1.0 — 2026-10-16 — 주식 1번 v2 '시험 장면' 시안 (한 장 확인용). 사용자 지시 2026-10-16 "buy and hold랑 비교하지말고 주가 차트에서
      매수/매도 지점을 표시하는 걸로 하자 buy, sell 문구 붙여서 표시하고 오른쪽 A,B 박스 밑에 있는 박스 3개는 뭔 내용인지 모르겠어 그리고 설명할 때
      영상이 왤케 부실해 아니 좀 입체적으로 표현 하는 도구 없어? … 일단 이미지만 1개만 나한테 보여줘봐 테스트 영상 부분만".
      Three.js(WebGL) 3D 가격 벽 (보유 = 초록 · 현금 = 회색) + BUY/SELL 핀 + 오른쪽 카드 3개(계좌 · 지금 상태 · 거래 기록).
@@ -26,7 +29,6 @@ html,body{margin:0;background:#05080F}
 .rule{display:flex;align-items:center;gap:14px;height:72px;padding:0 26px;border-radius:22px;background:rgba(255,255,255,.06);border:2px solid rgba(255,255,255,.12);font:900 40px/1 "Noto Sans KR"}
 .tag{display:inline-block;font:900 30px/1 "Noto Sans KR";padding:10px 16px 9px;border-radius:12px;letter-spacing:.5px}
 .tag.b{background:var(--G);color:#03231A}.tag.s{background:var(--O);color:#2A1100}
-.sellrule{display:flex;align-items:center;gap:12px;height:72px;padding:0 22px;border-radius:22px;background:rgba(255,255,255,.04);border:2px dashed rgba(255,255,255,.16);font:700 30px/1 "Noto Sans KR";color:var(--N)}
 #date{position:absolute;left:1352px;top:22px;width:540px;text-align:right;font:900 76px/1 "Noto Sans KR";letter-spacing:1px;text-shadow:0 6px 30px rgba(0,0,0,.5)}
 #date small{display:block;font:700 26px/1.4 "Noto Sans KR";color:var(--N);letter-spacing:0}
 /* 차트 위 글자 */
@@ -62,6 +64,28 @@ html,body{margin:0;background:#05080F}
 .tr .r{text-align:right;font:900 25px/1 "Noto Sans KR"}
 .tr.open{background:rgba(43,224,160,.07);border-radius:10px}
 .foot{display:flex;gap:22px;margin-top:12px;font:900 26px/1 "Noto Sans KR"}
+.acc{display:flex;align-items:center;gap:14px}
+.acc .who{flex:0 0 auto}
+.rb{display:inline-block;width:46px;height:46px;border-radius:14px;background:linear-gradient(160deg,#FFE24D,#E8B800);color:#1A1300;font:900 30px/46px "Noto Sans KR";text-align:center}
+.acc .big{flex:1}
+.acc.bh{margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.08)}
+.bhp{display:inline-block;font:900 19px/1 "Noto Sans KR";padding:8px 10px 7px;border-radius:9px;border:2px solid #AFC0DA;color:#D6E0EF;letter-spacing:.3px}
+.acc.bh .bv{flex:1;font:900 40px/1 "Noto Sans KR";color:#D6E0EF}
+.acc.bh .bp{font:900 30px/1 "Noto Sans KR";color:#D6E0EF}
+.t2{display:grid;grid-template-columns:30px 1fr 18px 1fr 104px;align-items:center;gap:8px;padding:5px 6px;border-top:1px solid rgba(255,255,255,.07)}
+.t2:first-of-type{border-top:0}
+.t2 .k{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.08);font:900 16px/28px "Noto Sans KR";text-align:center;color:var(--N)}
+.t2 .cl{display:grid;grid-template-columns:auto 1fr;column-gap:7px;row-gap:3px;align-items:center}
+.t2 .cl b{grid-row:1/3;font:900 15px/1 "Noto Sans KR";padding:5px 6px 4px;border-radius:6px}
+.t2 .cl b.b{background:var(--G);color:#03231A}.t2 .cl b.s{background:var(--O);color:#2A1100}
+.t2 .dt{font:900 19px/1 "Noto Sans KR";color:#E6ECF5}
+.t2 .px{font:700 16px/1 "Noto Sans KR";color:#8E9BB4}
+.t2 .ar{color:var(--N);font:700 18px/1 "Noto Sans KR";text-align:center}
+.t2 .rs{text-align:right;display:flex;flex-direction:column;gap:3px}
+.t2 .rs .r{font:900 23px/1 "Noto Sans KR"}
+.t2 .rs .u{font:700 16px/1 "Noto Sans KR"}
+.t2.open{background:rgba(43,224,160,.08);border-radius:10px}
+.t2.open .cl b.s{opacity:.45}
 </style></head>
 <body><div id="stage">
   <canvas id="gl" width="1330" height="950"></canvas>
@@ -183,22 +207,38 @@ if (RULE === "dip10" || RULE === "dip20") {
   ribbon(thr, 0.04, "#FFD400", HZ + 0.03, 0.22, .95);
   lab(`★ −${RULE === "dip10" ? 10 : 20}%`, X(cur) + 0.15, Y(AN.lines.ath[cur] * k), HZ, "thr", 10, 0);
 }
-// 거래 핀: BUY 는 선 아래, SELL 은 선 위 (붙어 있어도 겹치지 않게)
-R.trades.forEach((t, n) => {
-  if (t.b > cur) return;
-  const xb = X(t.b), yb = Y(t.bp);
-  sphere(xb, yb, HZ + 0.06, 0.12, "#2BE0A0");
-  const low = yb - 1.25 < 1.25;                               // 바닥(연도 글자) 가까이면 위로
-  const ly = low ? yb + 1.05 : yb - 1.25;
-  stem(xb, low ? yb + 0.12 : yb - 0.12, ly, HZ + 0.06, "#2BE0A0");
-  lab(`<div class="pin">${low ? "" : ""}<span class="tag b">BUY</span><span class="v px tab">${f0(t.bp)}</span></div>`, xb, ly, HZ + 0.06, "lab", 0, low ? -34 : 34);
-  if (t.s <= cur && !(t.open && t.s >= cur)) {
-    const xs = X(t.s), ys = Y(t.sp);
-    sphere(xs, ys, HZ + 0.06, 0.12, "#FF8A3D");
-    stem(xs, ys + 0.12, ys + 1.25, HZ + 0.06, "#FF8A3D");
-    lab(`<div class="pin"><span class="v ${t.r >= 0 ? "up" : "dn"} tab">${pc(t.r)}</span><span class="tag s">SELL</span></div>`, xs, ys + 1.25, HZ + 0.06, "lab", 0, -34);
+// 글자 자리 잡기 (v1.1): 이미 놓인 글자와 겹치면 더 멀리 → 그래도 겹치면 그 글자는 빼고 점만 둔다 (최근 거래 먼저 놓음)
+const placed = [];
+const boxOf = el => { const r = el.getBoundingClientRect(); return { l: r.left, t: r.top, r: r.right, b: r.bottom }; };
+const hit = a => placed.some(b => !(a.r + 6 < b.l || a.l - 6 > b.r || a.b + 6 < b.t || a.t - 6 > b.b));
+function put(html, x, y0, tries, color) {                   // tries = [[방향(+1 위 / −1 아래), 거리], …]
+  for (const [dir, off] of tries) {
+    const ly = y0 + dir * off;
+    if (dir < 0 && ly < 0.9) continue;                      // 바닥(연도 글자) 아래로는 안 감
+    const e = lab(html, x, ly, HZ + 0.06, "lab", 0, dir > 0 ? -34 : 34);
+    const b = boxOf(e);
+    if (!hit(b) && b.t > 132 && b.b < 872) { placed.push(b); stem(x, y0 + dir * 0.12, ly, HZ + 0.06, color); return true; }
+    e.remove();
   }
-});
+  return false;
+}
+function pins() {
+  // 고정 글자 먼저 (오늘 값 · 규칙 문턱 · 지수 이름)
+  document.querySelectorAll("#ov .cur, #ov .thr, #ov .ttl").forEach(el => placed.push(boxOf(el)));
+  const UP = [[1, 1.25], [1, 1.9], [1, 2.55]], DOWN = [[-1, 1.25], [-1, 1.9], [-1, 2.55]];
+  let hidden = 0;
+  R.trades.filter(t => t.b <= cur).slice().reverse().forEach(t => {
+    if (t.s <= cur && !(t.open && t.s >= cur)) {            // 판 거래: SELL 점 + 위에 수익률
+      const xs = X(t.s), ys = Y(t.sp);
+      sphere(xs, ys, HZ + 0.06, 0.12, "#FF8A3D");
+      if (!put(`<div class="pin"><span class="v ${t.r >= 0 ? "up" : "dn"} tab">${pc(t.r)}</span><span class="tag s">SELL</span></div>`, xs, ys, UP.concat(DOWN), "#FF8A3D")) hidden++;
+    }
+    const xb = X(t.b), yb = Y(t.bp);
+    sphere(xb, yb, HZ + 0.06, 0.12, "#2BE0A0");
+    if (!put(`<div class="pin"><span class="tag b">BUY</span><span class="v px tab">${f0(t.bp)}</span></div>`, xb, yb, DOWN.concat(UP), "#2BE0A0")) hidden++;
+  });
+  if (hidden) console.log(`[STILL] labels_hidden=${hidden} (점만 남김 — 겹침)`);
+}
 // 지금 날짜: 노란 세로 막 + 점
 {
   const xc = X(cur), yc = Y(AN.close[cur]);
@@ -207,10 +247,11 @@ R.trades.forEach((t, n) => {
   sphere(xc, yc, HZ + 0.08, 0.16, "#FFFFFF");
   lab(`<span class="tab">${f2(AN.close[cur])}</span>`, xc, YH + 0.6, HZ + 0.02, "cur", 0, -4);
 }
-// 축 글자
+// 축 글자 (값 = 오른쪽, 연도 = 바닥, 지수 이름 = 차트 왼쪽 위)
 for (let y = 2000; y <= 7000; y += 1000) lab(f0(y), XW / 2 + 0.25, Y(y), -HZ, "lab axy", 62, 0);
 AN.dates.forEach((d, i) => { if (i && d.slice(0, 4) !== AN.dates[i - 1].slice(0, 4)) lab(d.slice(0, 4), X(i), 0, 2.2, "lab ax", 30, 0); });
-lab(`<span style="font:900 26px/1 'Noto Sans KR';color:#AFC0DA">S&amp;P 500</span>`, XW / 2 - 0.4, Y(7000) + 0.55, -HZ, "lab");
+{ const e = document.createElement("div"); e.className = "ttl"; e.style.cssText = "position:absolute;left:44px;top:26px;font:900 28px/1 'Noto Sans KR';color:#AFC0DA";
+  e.innerHTML = "S&amp;P 500"; ov.appendChild(e); }
 // 범례: 초록 = BUY~SELL 사이 (주식), 회색 = 현금 ($)
 {
   const lg = document.createElement("div"); lg.className = "legend"; lg.style.left = "48px"; lg.style.top = "898px";
@@ -218,7 +259,6 @@ lab(`<span style="font:900 26px/1 'Noto Sans KR';color:#AFC0DA">S&amp;P 500</spa
     <span class="sw" style="margin-left:30px;background:linear-gradient(180deg,#4A5875,#1A2336)"></span><span style="font:900 26px/1 'Noto Sans KR'">$</span>`;
   ov.appendChild(lg);
 }
-ren.render(scene, cam);
 
 // ---------- 머리 ----------
 const ICON = {
@@ -229,51 +269,48 @@ const ICON = {
   log: `<svg class="ic" viewBox="0 0 48 48"><rect x="8" y="5" width="32" height="38" rx="6" fill="none" stroke="#9FB1CF" stroke-width="3.5"/><path d="M15 16h18M15 24h18M15 32h11" stroke="#9FB1CF" stroke-width="3.5" stroke-linecap="round"/></svg>`,
 };
 document.getElementById("hd").innerHTML = `<div class="no">${NO}</div>
-  <div class="rule">${ICON.dip}<span>★</span><span style="color:var(--Y)">−10%</span><span style="color:var(--N)">→</span><span class="tag b">BUY</span></div>
-  <div class="sellrule"><span class="tag b" style="font-size:22px;padding:7px 10px">BUY</span>${ICON.cal}<span style="color:#DDE5F2">1Y</span><span>→</span><span class="tag s" style="font-size:22px;padding:7px 10px">SELL</span></div>`;
+  <div class="rule">${ICON.dip}<span>★</span><span style="color:var(--Y)">−10%</span><span style="color:var(--N)">→</span><span class="tag b">BUY</span></div>`;
 const D = AN.dates[cur];
 document.getElementById("date").innerHTML = `${D.slice(0, 4)}.${D.slice(5, 7)}.${D.slice(8, 10)}`;
 
-// ---------- 오른쪽 카드 ----------
-const v = R.value[cur], tot = v / AN.capital - 1;
-const spark = (() => {                                       // 계좌 가치 작은 그래프 (그날까지)
-  const w = 480, h = 92, lo = Math.min(...R.value.slice(0, cur + 1)), hi = Math.max(...R.value.slice(0, cur + 1));
+// ---------- 오른쪽 카드 (계좌 · 거래 기록) ----------
+const v = R.value[cur], tot = v / AN.capital - 1, bv = AN.bh[cur], btot = bv / AN.capital - 1;
+const spark = (() => {                                       // 계좌 그래프: 이 규칙(초록) · BUY & HOLD(회색) · $10,000(노란 점선)
+  const w = 480, h = 104, all = R.value.slice(0, cur + 1).concat(AN.bh.slice(0, cur + 1));
+  const lo = Math.min(...all, AN.capital), hi = Math.max(...all);
   const sx = i => i / Math.max(1, N - 1) * w, sy = y => h - 6 - (y - lo) / Math.max(1, hi - lo) * (h - 12);
-  let d = ""; for (let i = 0; i <= cur; i += 3) d += (i ? "L" : "M") + sx(i).toFixed(1) + " " + sy(R.value[i]).toFixed(1);
-  d += "L" + sx(cur).toFixed(1) + " " + sy(R.value[cur]).toFixed(1);
+  const path = arr => { let d = ""; for (let i = 0; i <= cur; i += 3) d += (i ? "L" : "M") + sx(i).toFixed(1) + " " + sy(arr[i]).toFixed(1);
+    return d + "L" + sx(cur).toFixed(1) + " " + sy(arr[cur]).toFixed(1); };
   const base = sy(AN.capital);
   return `<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" style="display:block;margin-top:14px">
     <line x1="0" x2="${w}" y1="${base}" y2="${base}" stroke="#FFD400" stroke-dasharray="7 7" stroke-width="2" opacity=".6"/>
-    <path d="${d}" fill="none" stroke="#2BE0A0" stroke-width="4" stroke-linejoin="round"/>
+    <path d="${path(AN.bh)}" fill="none" stroke="#AFC0DA" stroke-width="3" stroke-linejoin="round" opacity=".75"/>
+    <path d="${path(R.value)}" fill="none" stroke="#2BE0A0" stroke-width="4" stroke-linejoin="round"/>
+    <circle cx="${sx(cur)}" cy="${sy(AN.bh[cur])}" r="6" fill="#AFC0DA"/>
     <circle cx="${sx(cur)}" cy="${sy(R.value[cur])}" r="7" fill="#fff"/></svg>`;
 })();
-const open = R.trades.find(t => t.b <= cur && (t.s > cur || (t.open && t.s >= cur)));
-let state;
-if (open) {
-  const dd = cur - open.b, ur = (AN.close[cur] / open.bp) * (1 - 0.001) - 1;   // 그날 종가로 평가 (산 비용 포함)
-  state = `<div class="row"><span class="tag b" style="font-size:34px;padding:12px 18px">BUY</span>
-      <span class="mid tab" style="color:#DDE5F2">${f0(open.bp)} <span style="color:var(--N)">→</span> ${f0(AN.close[cur])}</span></div>
-    <div class="bar"><i style="width:${(dd / AN.hold_days * 100).toFixed(1)}%"></i></div>
-    <div class="row"><span class="sm tab" style="display:flex;align-items:center;gap:8px">${ICON.cal}${dd} / ${AN.hold_days}</span><span class="mid tab ${ur >= 0 ? "up" : "dn"}">${pc(ur)}</span>
-      <span class="tag s" style="font-size:22px;padding:7px 10px;opacity:.55">SELL</span></div>`;
-} else {
-  state = `<div class="row"><span class="mid" style="color:var(--N)">$ ⌛</span><span class="sm">★ −10% ?</span></div>`;
-}
+const isOpen = t => t.s > cur || (t.open && t.s >= cur);
 const done = R.trades.filter(t => t.b <= cur);
-const rows = done.slice(-4).map((t, k) => {
-  const n = done.length - Math.min(4, done.length) + k + 1, isOpen = t.s > cur || (t.open && t.s >= cur);
-  const bd = AN.dates[t.b].slice(2).replace(/-/g, "."), sd = isOpen ? "…" : AN.dates[t.s].slice(2).replace(/-/g, ".");
-  const r = isOpen ? (AN.close[cur] / t.bp) * (1 - 0.001) - 1 : t.r;
-  return `<div class="tr ${isOpen ? "open" : ""}"><span class="k">${n}</span><span class="d tab"><b class="b">BUY</b>${bd}</span><span style="color:var(--N)">→</span>
-    <span class="d tab">${isOpen ? `<b class="s" style="opacity:.45">SELL</b>…` : `<b class="s">SELL</b>${sd}`}</span><span class="r tab ${r >= 0 ? "up" : "dn"}">${pc(r)}</span></div>`;
+const usd = x => (x >= 0 ? "+$" : "−$") + f0(Math.abs(x));
+const ds = i => AN.dates[i].slice(2).replace(/-/g, ".");
+const SHOW = 8, skip = Math.max(0, done.length - SHOW);  // 칸에 들어가는 만큼 (최근 8개)
+const rows = done.slice(skip).map((t, kk) => { const k = kk + skip;
+  const op = isOpen(t);
+  const r = op ? (AN.close[cur] / t.bp) * (1 - 0.001) - 1 : t.r;          // 들고 있으면 그날 종가로 평가 (산 비용 포함)
+  const pnl = op ? R.value[cur] - t.bc : t.sc - t.bc;
+  const sell = op ? `<div class="cl"><b class="s">SELL</b><span class="dt tab" style="display:flex;align-items:center;gap:5px">${ICON.cal.replace('width="40" height="40"', 'width="20" height="20"')}${cur - t.b}/${AN.hold_days}</span><span class="px tab">…</span></div>`
+                  : `<div class="cl"><b class="s">SELL</b><span class="dt tab">${ds(t.s)}</span><span class="px tab">${f0(t.sp)}</span></div>`;
+  return `<div class="t2 ${op ? "open" : ""}"><span class="k">${k + 1}</span>
+    <div class="cl"><b class="b">BUY</b><span class="dt tab">${ds(t.b)}</span><span class="px tab">${f0(t.bp)}</span></div><span class="ar">→</span>${sell}
+    <div class="rs"><span class="r tab ${r >= 0 ? "up" : "dn"}">${pc(r)}</span><span class="u tab ${pnl >= 0 ? "up" : "dn"}">${usd(pnl)}</span></div></div>`;
 }).join("");
-const closed = done.filter(t => !(t.s > cur || (t.open && t.s >= cur)));
+const closed = done.filter(t => !isOpen(t));
 const wins = closed.filter(t => t.r > 0).length;
 document.getElementById("side").innerHTML = `
   <div class="card"><div class="ch">${ICON.wallet}<span class="tab">$${f0(AN.capital)}</span><span>→</span></div>
-    <div class="row"><span class="big tab">$${f0(v)}</span><span class="mid tab ${tot >= 0 ? "up" : "dn"}">${pc(tot)}</span></div>${spark}</div>
-  <div class="card"><div class="ch">${ICON.now}</div>${state}</div>
-  <div class="card"><div class="ch">${ICON.log}<span class="tab">${done.length}</span></div>${rows}
+    <div class="acc"><span class="who rb">${NO}</span><span class="big tab">$${f0(v)}</span><span class="mid tab ${tot >= 0 ? "up" : "dn"}">${pc(tot)}</span></div>
+    <div class="acc bh"><span class="who bhp">BUY &amp; HOLD</span><span class="bv tab">$${f0(bv)}</span><span class="bp tab">${pc(btot)}</span></div>${spark}</div>
+  <div class="card"><div class="ch">${ICON.log}<span class="tab">${done.length}</span>${skip ? `<span class="tab" style="margin-left:auto;font-size:20px">1~${skip} ↑</span>` : ""}</div>${rows}
     <div class="foot tab"><span class="up">▲ ${wins}</span><span class="dn">▼ ${closed.length - wins}</span></div></div>`;
-window.READY = true;
+document.fonts.ready.then(() => { pins(); ren.render(scene, cam); window.READY = true; });
 </script></body></html>

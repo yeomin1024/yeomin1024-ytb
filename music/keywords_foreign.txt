@@ -1,0 +1,30 @@
+# 영어(외국 영상) 검색어 — 음악 (music)
+# 이 주제에서 외국 영상을 켰을 때만 검색 (analyzer_config.toml [search] INCLUDE_FOREIGN = true — 웹 화면 4번 칸 [외국 영상도]). 끄면 쓰지 않음.
+# 한 줄에 검색어 하나, '#' 줄은 메모. GitHub 에서 고치면 PC 가 다음 회차에 받아 씀. 한국어 검색어는 keywords.txt (따로).
+# 할당량: 검색어 1개 = 롱폼 탐색 2번(200) + 쇼츠 1번(100) + 분석기 1번(100). 다시 고르기: python tools/tag_keywords.py music --foreign --write-keywords
+# 태그에서 고른 영어 검색어 15개 — tools/tag_keywords.py v1.5 2026-10-16 (관련 외국 영상 1,261개·채널 5곳 이상·표: tag_candidates_foreign.md). 손으로 고쳐도 됨
+
+# ── 수면·명상·힐링 ──
+calming music
+relaxing piano music
+relaxation music
+relaxing piano
+
+# ── 자연 소리·백색소음 ──
+ambient music
+
+# ── 공부·집중·작업 ──
+focus music
+work music
+
+# ── 피아노·클래식·연주곡 ──
+piano
+instrumental music
+
+# ── 기타 영어 음악 ──
+peaceful music
+stress relief music
+soothing music
+yoga music
+spiritual music
+mindfulness music

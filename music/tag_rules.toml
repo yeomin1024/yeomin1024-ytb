@@ -1,6 +1,8 @@
 # =====================================================================================================
 # 태그 → 검색어 규칙 — 주제: 음악 (폴더 music)
-# VERSION: v1.2 — 2026-10-16 — 첫 분석 뒤 TAG_THEMES(= 분석 '주제 묶음')에서 모양 낱말(메들리·노래모음·명곡·히트곡·추억의·asmr)을 빼고 찬송·성가·워십·묵상을 15번에, 수면음악·수면유도를 1번에 — '찬송가 20곡 메들리'가 '가요·트로트'로, '메이플 브금 … ASMR 수면유도음악'이 '자연 소리'로 잡히던 것 (검색어 40개는 그대로)
+# VERSION: v1.3 — 2026-10-16 — [foreign] 표 새로 (사용자 지시 2026-10-16 "외국 영상도 포함하고") — 영어 검색어 → keywords_foreign.txt.
+#          처음 고르기는 씨앗 검색 없이(할당량이 그날 끝남) 둘째 회차 탐색에 걸린 외국 영상 캐시에서 (--foreign --no-seed-search, 0단위)
+# (v1.2 — 2026-10-16 — 첫 분석 뒤 TAG_THEMES(= 분석 '주제 묶음')에서 모양 낱말(메들리·노래모음·명곡·히트곡·추억의·asmr)을 빼고 찬송·성가·워십·묵상을 15번에, 수면음악·수면유도를 1번에 — '찬송가 20곡 메들리'가 '가요·트로트'로, '메이플 브금 … ASMR 수면유도음악'이 '자연 소리'로 잡히던 것 (검색어 40개는 그대로))
 # (v1.1 — 2026-10-16 — TAG_REQUIRE 를 음악 낱말로만 좁힘 (첫 고르기가 수면·명상 쪽으로 치우침 — 아래 TAG_REQUIRE 메모) · 'k-pop' 빼는 말)
 # (v1.0 — 2026-10-16 — 새로 만듦 (사용자 지시 2026-10-16 "이 환경은 이제 저장소에 있는 음악 주제 (music 경로 없으면 폴더 만들것)를
 #          유튜브 분석 코드 실행해서 분석하는 환경이야 …"). 검색어는 사람이 정하지 않고 실제 영상 태그에서 고른다 (CLAUDE.md —
@@ -67,3 +69,43 @@ TAG_OTHER = "기타 음악"   # TAG_THEMES 어디에도 안 맞는 태그의 묶
 "13. OST·사운드트랙" = ["드라마ost", "드라마 ost", "영화 ost", "영화ost", "ost모음", "ost 모음", "애니ost", "애니 ost", "ost playlist", "ost 플레이리스트", "사운드트랙", "soundtrack"]
 "14. AI 음악" = ["ai음악", "ai 음악", "ai노래", "ai 노래", "ai music", "ai song", "ai cover", "ai커버", "ai 커버", "ai가 만든", "ai로 만든", "suno", "수노", "인공지능"]
 "15. CCM·찬양·국악·동요" = ["ccm", "찬양", "찬송", "성가", "워십", "worship", "hymn", "가스펠", "gospel", "기도음악", "묵상", "국악", "판소리", "가곡", "동요", "캐롤", "캐럴"]
+
+
+# ───────────────────────────── 영어 검색어 (외국 영상) — v1.3 ─────────────────────────────
+# 외국 영상을 켠 주제만 씀 (analyzer_config.toml [search] INCLUDE_FOREIGN = true). 결과 keywords_foreign.txt · 표 tag_candidates_foreign.md
+# 태그는 외국 영상(is_foreign) 중 음악 관련 영상에서만 · 한국어 목록(keywords.txt)에 이미 있는 말은 뺌 (keywords.txt 에도 영어 태그가 14개 있음 —
+# 외국 영상을 켜면 그것도 언어 지정 없이 검색됨).
+#   ⚖️ 판단 (빼는 말): 남의 곡을 다시 올리는 꼴(가사 영상 lyrics·sped up·slowed·reverb·nightcore)·공식 뮤직비디오(official·mv)·
+#   저작권 없는 음악 배포(no copyright·copyright free — 영상 제작자용 시장)·강좌·게임·생방송·쇼츠는 검색어로 고르지 않음
+#   (사용자 채널 = AI 로 만든 곡의 플레이리스트 — 2026-10-16 "플레이리스트니까"). 분석에서 빼는 것은 아님.
+[foreign]
+TAG_SEEDS = ["relaxing music", "lofi hip hop", "jazz playlist", "piano music"]   # 다시 고를 때 씨앗 (1개 = 검색 2번 = 200단위). 2026-10-16 처음은 검색 안 함
+MIN_CHANNELS = 5
+MAX_TAGS = 15             # 영어 검색어 수 (1개 = 롱폼 탐색 200 + 쇼츠 100단위 — 켰을 때만)
+MAX_LEN = 40              # 태그 길이 상한 (영어 구절이 길어서)
+TAG_EXCLUDE = ["live", "news", "shorts", "yt:", "vlog", "reaction", "karaoke", "tutorial", "lesson", "how to", "fancam", "concert",
+               "game", "gaming", "minecraft", "fortnite", "roblox",
+               "lyrics", "lyric", "sped up", "speed up", "slowed", "reverb", "nightcore", "official", "music video", " mv",
+               "no copyright", "copyright free", "royalty free", "free download", "ncs",
+               "asmr", "guided meditation", "hypnosis", "affirmation", "audiobook", "story"]
+# 음악 낱말 (한국어 TAG_REQUIRE 와 같은 까닭 — 'sleep'·'relaxing'·'meditation'·'study' 혼자는 안 됨)
+TAG_REQUIRE = ["music", "playlist", "song", "bgm", "lofi", "lo-fi", "jazz", "bossa", "piano", "guitar", "instrumental", "beats",
+               "classical", "ambient", "chillhop", "r&b", "hip hop", "hiphop", "edm", "kpop", "jpop", "j-pop", "city pop", "ballad",
+               "ost", "soundtrack", "worship", "hymn", "lullaby", "cover", "acoustic", "orchestra", "violin", "cello", "synthwave", "phonk", "melod"]
+TAG_KEEP = []
+TAG_OTHER = "기타 영어 음악"
+
+[foreign.TAG_THEMES]   # 가장 긴 글자가 맞는 묶음 (같으면 위쪽) — 한국어 묶음과 같은 장르·쓰임새
+"1. 수면·명상·힐링" = ["sleep", "meditation", "healing", "relax", "calm", "lullaby", "spa", "zen", "hz"]
+"2. 자연 소리·백색소음" = ["rain", "nature", "ocean", "white noise", "ambience", "ambient"]
+"3. 공부·집중·작업" = ["study", "focus", "work", "concentration", "reading", "coding"]
+"4. 카페·매장·라운지" = ["cafe", "café", "coffee", "lounge", "restaurant", "shop"]
+"5. 운동·드라이브·신나는" = ["workout", "gym", "running", "drive", "driving", "energy", "upbeat", "motivation"]
+"6. 피아노·클래식·연주곡" = ["piano", "classical", "instrumental", "guitar", "violin", "cello", "orchestra", "acoustic"]
+"7. 재즈·보사노바" = ["jazz", "bossa"]
+"8. 로파이·시티팝·칠" = ["lofi", "lo-fi", "chill", "city pop", "chillhop", "synthwave"]
+"10. 팝송·K팝·J팝" = ["pop", "kpop", "jpop", "j-pop", "anime"]
+"11. 힙합·R&B·EDM" = ["hip hop", "hiphop", "r&b", "rnb", "edm", "house", "phonk", "beats"]
+"13. OST·사운드트랙" = ["ost", "soundtrack", "film score"]
+"14. AI 음악" = ["ai music", "ai song", "suno", "ai generated"]
+"15. CCM·찬양·국악·동요" = ["worship", "hymn", "gospel", "christian"]

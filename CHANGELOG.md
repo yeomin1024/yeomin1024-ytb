@@ -1,5 +1,43 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-16 (46) — 음악: 외국 영상 켬 · 짧은 영상 빼기 확인 · 무엇을 올릴지 추천 (곡 출처 나누기 `tools/song_source.py` v1.0)
+
+### 왜 (사용자 지시)
+- "외국 영상도 포함하고 플레이리스트니까 짧은 영상을 포함안해야하는게 맞어 어떤 음악 영상 올려야 하는지 알려줘봐"
+
+### 바꾼 것 (분석 로직은 그대로 — 설정·읽기 도구·문서)
+| 파일 | 버전 | 내용 |
+|---|---|---|
+| `music/analyzer_config.toml` | v1.0 → v1.1 | `INCLUDE_FOREIGN = true` (`cloud_run.py music foreign on`) |
+| `music/tag_rules.toml` | v1.2 → v1.3 | `[foreign]` 표 새로 — 씨앗 4 · 음악 낱말 필수 37 · 빼는 말(가사 영상·sped up·slowed·nightcore·공식 MV·저작권 없는 음악 배포·강좌·게임·guided meditation 등) · 묶음 13 |
+| `music/keywords_foreign.txt`·`tag_candidates_foreign.*` | 새로 | 영어 검색어 15개 — 씨앗 검색 없이 캐시의 외국 영상 1,352개(음악 관련 1,261)에서 (0단위). 휴식·명상 쪽으로 쏠림 → 예약 작업이 다음 회차에 씨앗으로 다시 |
+| `tools/song_source.py` | v1.0 새로 | 성공 사례 곡 출처를 설명란·제목 낱말로 나눔 (AI 음악 · 직접 만든 곡 · 기존 곡 모음 · 기존 곡으로 보임 · 커버 · 곡 목록만 · 알 수 없음) → `music/result/outliers/song_source.csv`·`.md`·`song_source_thumbs.jpg` (할당량 0) |
+| `tools/tests/test_song_source.py` | v1.0 새로 | `classify()` 시험 7개 (AI·NoAI·기존 곡 목록·저작권 표시·커버·해시태그만·모름) — 통과 |
+| `music/guides/data_insights.md` | v1.0 새로 | 지시사항 재료 — 숫자·원문만 (곡 출처 · 주제 묶음 · 빨리 크는 '만든 곡' 채널 · 길이 · 제목 · 썸네일 · 댓글 니즈 · 정책) |
+| `music/source/topic_candidates.md` | v1.0 새로 | 추천 — ①레트로 감성 가요 ②클래식풍 앙상블·피아노 ③계절·장면 재즈 카페 · 실험 영어 팝 · 하지 말 것 · 공통 규칙 · 사용자가 정할 것 |
+| 예약 작업 `trig_01RR9ppiEXLNHmhFotDPNPzV` | — | 순서 고침: 영어 씨앗(첫 회) → resume → 언어 지정 없는 재탐색 → 끝나면 한국어 검색 캐시 `.yt_work/old/` → 외국 추천도 남김 → song_source → 외국 결과로 data_insights v1.1·추천 5번 |
+| 문서 | — | `music/README.md` v1.2 · `guides/status.md` v1.20 · `CLAUDE.md`(음악 줄·외국 영상 줄) |
+
+### 실행 기록 (2026-10-16 22:40~22:50 한국, 할당량 0)
+| 단계 | 결과 |
+|---|---|
+| `tag_keywords.py music --foreign --no-seed-search --write-keywords` | 외국 영상 1,352 · 관련 1,261 · 태그 9,738종 → 15개 (peaceful·focus·stress relief·calming·work·soothing music · piano · instrumental · ambient · relaxing piano(music) · yoga · spiritual · relaxation · mindfulness music) |
+| `cloud_run.py music foreign on` | include_foreign=True · foreign_keywords=15 |
+| `song_source.py music` | 성공 사례 360 → AI 음악 90 · 직접 만든 곡 53 (= 만든 곡 143) · 기존 곡 모음 42 · 기존 곡으로 보임 38 · 커버 18 · 곡 목록만 48 · 알 수 없음 71. 표본을 눈으로 확인 — 'NoAI'·'AI 학습 금지' 같은 부정은 AI 에서 뺌 |
+| 댓글 낱말 세기 (만든 곡 17,652개) | 쓰임새 3.6% · AI 말함 3.5% · 추억·나이 2.1% · 곡 제목 물음 1.0% · 광고 0.3% |
+| 정책 확인 (웹 검색) | YouTube 파트너 프로그램 2025-07-15 대량 생산·반복 콘텐츠 수익 창출 제외 (AI 사용 자체는 허용) — 2차 자료, 공식 도움말로 다시 확인할 것 |
+
+### 판단 근거 (요약 — 자세히 `music/source/topic_candidates.md`)
+- 짧은 영상 빼기: 비교 집단 성공 비율 40분 이상 78% vs 4~8분 37% · 8~15분 18%. 만든 곡 조회수 중앙값 40분 이상 31~36만 vs 4~15분 16.5만.
+- ① 가요·발라드·트로트: 시장 지수 3.6(1위) · 성공 비율 70% · 만든 곡 사례 31(1위).
+- ② 피아노·클래식: 지수 1.2 · 빨리 크는 만든 곡 채널 2곳(The Clavis·okply).
+- ③ 재즈: 성공 비율 80%(1위) · 만든 곡 조회수 중앙값 57.5만(1위) — 표본 적음.
+- 하지 말 것: 수면·명상 성공 비율 15% · 지수 0.1.
+
+### 아직 안 된 것
+- 외국 영상 탐색·승인·분석 (1~2일) → 추천 5번.
+- 컨셉·YuE2 시험 곡·채널은 사용자가 정한다.
+
 ## 2026-10-16 (45) — 주식 1번 v3: 매도 = 산 뒤 최고 종가 −10% → 다음 날 · 수수료 0.25% · SPY 총수익 2016-01-04~2026-10-15 · 대본 111문장 · 3D 장면 v2.1 · 제목 10개 언어 · 업로드 시트 · 썸네일 프롬프트 · 소리 없는 미리보기
 
 ### 왜 (사용자 지시)

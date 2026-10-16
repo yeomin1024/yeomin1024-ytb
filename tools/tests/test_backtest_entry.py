@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# VERSION: v1.3 — 2026-10-16 — 성공 판정 매도 barrier(m, n)·새 매수 방법(RULES_V4) 시험 더함. (v1.2 — 2026-10-16 — 최고점 −n% 매도(trail) 시험 더함.) (v1.1 — 2026-10-16 — buy_and_hold 시험 더함.) (v1.0 — 2026-10-16 — tools/backtest/entry.py v1.0 시험 (매수 신호 10가지 × 같은 매도 규칙). 네트워크 없이 만든 자료로.)
+# VERSION: v1.4 — 2026-10-16 — 무작위 매수 기준(barrier_table·method_waits·random_entry) 시험 더함. (v1.3 — 2026-10-16 — 성공 판정 매도 barrier(m, n)·새 매수 방법(RULES_V4) 시험 더함.) (v1.2 — 2026-10-16 — 최고점 −n% 매도(trail) 시험 더함.) (v1.1 — 2026-10-16 — buy_and_hold 시험 더함.) (v1.0 — 2026-10-16 — tools/backtest/entry.py v1.0 시험 (매수 신호 10가지 × 같은 매도 규칙). 네트워크 없이 만든 자료로.)
 """python3 -m unittest test_backtest_entry  (tools/tests 에서)"""
 import sys
 import unittest
@@ -204,6 +204,79 @@ class BarrierTest(unittest.TestCase):
         w = sum(t["result"] == "win" for t in r.trades); l = sum(t["result"] == "loss" for t in r.trades)
         self.assertEqual((st["wins"], st["losses"]), (w, l))
         self.assertAlmostEqual(st["success_rate"], w / (w + l))
+
+class RandomEntryTest(unittest.TestCase):
+    """v1.4 무작위 매수 기준: 판정 표 = simulate 판정 · 기다림을 그대로 다시 쓰면 방법 거래가 그대로 나옴 · 기다림 0 = any · 시드 고정."""
+    S = 300
+
+    def setUp(self):
+        rng = np.random.default_rng(23)                                 # 시드 고정 (재현)
+        self.close = series(100 * np.exp(np.cumsum(rng.normal(0.0003, 0.011, 900))))
+        self.vix = series(18 + 6 * np.abs(rng.normal(0, 1, 900)))
+        self.ind = en.indicators(self.close, self.vix)
+        self.e = len(self.close) - 1
+        self.mn = (0.02, 0.05)
+        self.table = en.barrier_table(self.ind["close"], self.S, self.e, *self.mn)
+
+    def sim(self, key):
+        return en.simulate(key, self.ind, self.S, self.e, cost=0.001, dates=self.close.index, barrier=self.mn)
+
+    def test_table_matches_simulate(self):
+        res, hit = self.table
+        for k in en.ORDER_V4 + ["any"]:
+            for t in self.sim(k).trades:
+                b = t["buy_i"]
+                if t["result"] is None:
+                    self.assertEqual(res[b], -1, (k, b))
+                else:
+                    self.assertEqual(int(res[b]), 1 if t["result"] == "win" else 0, (k, b))
+                    self.assertEqual(int(hit[b]), t["hit_i"], (k, b))
+
+    def test_replay_waits_gives_same_trades(self):
+        """방법의 기다림을 차례대로 다시 쓰면 같은 매수 날·판정이 나온다 (기다림 정의가 simulate 와 같음)."""
+        res, hit = self.table
+        for k in en.ORDER_V4:
+            r = self.sim(k)
+            w = en.method_waits(r, self.S)
+            last, got = self.S - 1, []
+            for x in w:
+                b = last + int(x) + 1
+                got.append(b)
+                if res[b] < 0 or hit[b] + 1 > self.e:
+                    break
+                last = int(hit[b]) + 1
+            self.assertEqual(got, [t["buy_i"] for t in r.trades], k)
+
+    def test_zero_wait_equals_any(self):
+        r = self.sim("any")
+        out = en.random_entry(self.table, [0], self.S, self.e, runs=3, seed=1)
+        st = en.stats(r)
+        for q in range(3):
+            self.assertEqual(int(out["wins"][q, -1]), st["wins"])
+            self.assertEqual(int(out["losses"][q, -1]), st["losses"])
+        # 그날까지 판정 난 것만 셈 (판정 날에 +1)
+        hits = sorted(t["hit_i"] for t in r.trades if t["result"] is not None)
+        cum = out["wins"][0] + out["losses"][0]
+        for j, h in enumerate(hits):
+            self.assertEqual(int(cum[h - self.S]), j + 1)
+
+    def test_seed_reproducible(self):
+        w = en.method_waits(self.sim("drop1"), self.S)
+        a = en.random_entry(self.table, w, self.S, self.e, runs=50, seed=7)
+        b = en.random_entry(self.table, w, self.S, self.e, runs=50, seed=7)
+        c = en.random_entry(self.table, w, self.S, self.e, runs=50, seed=8)
+        self.assertTrue(np.array_equal(a["wins"], b["wins"]) and np.array_equal(a["losses"], b["losses"]))
+        self.assertFalse(np.array_equal(a["wins"], c["wins"]))
+
+    def test_table_no_lookahead_before_hit(self):
+        """판정 날 h 뒤 가격을 바꿔도 b 의 판정은 같다 (h 까지의 종가로만 정해짐)."""
+        res, hit = self.table
+        b = next(x for x in range(self.S, self.e) if res[x] >= 0 and hit[x] < self.e - 5)
+        alt = self.ind["close"].copy()
+        alt[hit[b] + 1:] *= 3.0
+        r2, h2 = en.barrier_table(alt, self.S, self.e, *self.mn)
+        self.assertEqual((int(res[b]), int(hit[b])), (int(r2[b]), int(h2[b])))
+
 
 if __name__ == "__main__":
     unittest.main()

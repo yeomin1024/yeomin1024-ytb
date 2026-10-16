@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v2.2 — 2026-10-16 — 대본 v2.1 (도입+규칙을 5문장 약 20초로 · 사다/팔다 → 매수/매도 · BUY & HOLD 설명은 1번 장으로) 앵커를 새 문장으로.
-# (v2.1 — 2026-10-16 — 문장 번호 대신 문장 안 글자(앵커)로 찾음 + 대본 v2.0 에 더한 문장 11개 검사.)
-# (v2.0 — 2026-10-16 — 대본 v2.0(매수 신호 10가지 × 같은 매도 규칙, SPY 2016~2026-10) 숫자 검사. 문장마다 results.json(run.py v3.0)에서
-#          글자를 다시 만들어 그 문장에 그대로 있는지 + 대본의 모든 숫자가 검사표나 '규칙 값' 목록에 있는지 → ../checklist.md
-#          (stock/guides/concept.md 2번 '숫자는 코드 출력만'). (v1.0 — v1 대본용 — stock/source/_old/eonje-maesu-2026-10-v1/))
+# VERSION: v3.0 — 2026-10-16 — 대본 v3.0 (성공률 — +5% 가 −2% 보다 먼저 · 무작위 매수 2천 개와 견줌) 숫자 검사. 결과 = barrier/results.json (barrier/run.py v2.0).
+#          사용자 지시 2026-10-16 "그럼 신호 없이 무작위로 매수 했을 때랑 비교하는 거지? 그게 맞는거 같은데 그리고 m을 1~2%로 해야 엄격하게 봐서 성공 확률이
+#          줄지 m은 내가 말한 범위에서 적절하게 정해서 영상 만들어봐". 문장마다 results.json 에서 글자를 다시 만들어 그 문장에 그대로 있는지 + 조건 검사 +
+#          대본의 모든 숫자가 검사표에 있는지 → ../checklist.md (stock/guides/concept.md 2번 '숫자는 코드 출력만').
+# (v2.2 — 2026-10-16 — 대본 v2.1 (끝 값 비교, results.json = run.py v3.0) — 커밋 28e1b7b 에 그대로.)
 """cd stock/source/eonje-maesu-2026-10/backtest && python3 check_numbers.py   # 하나라도 다르면 끝 코드 1
 
-말로 읽는 금액은 천 달러 단위 반올림 ('5만 3천 달러' = $52,997), %는 소수 한 자리.
+%는 소수 한 자리 (반올림). 날짜 사실(연속 성공·실패, 신호가 없던 기간, 해마다 판정)은 results.json rules.<방법>.facts 에서.
 """
 import json
 import re
@@ -19,63 +19,33 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parents[3] / "tools"))
 import srt_tool  # noqa: E402
 
-R = json.loads((HERE / "results.json").read_text("utf-8"))
+R = json.loads((HERE / "barrier" / "results.json").read_text("utf-8"))
 SENT = srt_tool.parse_txt(HERE.parent / "eonje-maesu-2026-10.txt")
-RU, TR, BH, RE, F, CK = R["rules"], R["trades"], R["buy_and_hold"], R["reentry"], R["facts"], R["checks"]
+P, RU, CK, CM = R["params"], R["rules"], R["checks"], R["choose_m"]
+ORDER = ["m1", "hi20", "mom21", "x20", "gc520", "drop1", "rsi40", "vix20", "dd20_5", "dd5"]
+TREND = {"hi20", "mom21", "x20", "gc520"}
+NATIVE = {2: "두", 3: "세", 4: "네", 5: "다섯", 6: "여섯", 7: "일곱", 8: "여덟", 9: "아홉", 10: "열"}
+assert set(ORDER) == set(P["rules"]) - {"any"}, "방법 목록이 results.json 과 다름"
 
 
 def p1(x):
     return f"{abs(x) * 100:.1f}%"
 
 
-def usd(v):
-    t = int(round(v / 1000.0))
-    man, cheon = divmod(t, 10)
-    return f"{man}만 {cheon}천 달러" if cheon else f"{man}만 달러"
-
-
-def usd_short(v):                                # '4만 4천' (뒤에 '달러' 없이 이어 말할 때)
-    return usd(v).replace(" 달러", "")
-
-
-def kdate(d, year=True):
-    y, m, dd = d.split("-")
-    return (f"{int(y)}년 " if year else "") + f"{int(m)}월 {int(dd)}일"
-
-
-def kym(d):
+def ym(d):
     y, m, _ = d.split("-")
     return f"{int(y)}년 {int(m)}월"
 
 
-def years(a, b):
-    return (date.fromisoformat(b) - date.fromisoformat(a)).days / 365.25
-
-
-def tr_of(rule, buy=None, sell=None):
-    for t in TR[rule]:
-        if (buy is None or t["buy_date"] == buy) and (sell is None or t["sell_date"] == sell):
-            return t
-    raise KeyError((rule, buy, sell))
-
-
-def next_buy(rule, sell_date):
-    T = TR[rule]
-    for a, b in zip(T, T[1:]):
-        if a["sell_date"] == sell_date:
-            return b
-    raise KeyError((rule, sell_date))
-
-
-def rank(k):
-    return R["rank_by_final"].index(k) + 1
+def days(a, b):
+    return (date.fromisoformat(b) - date.fromisoformat(a)).days
 
 
 checks = []                                       # (문장 번호, 기대 글자, 근거, 맞나 — 글자가 아니라 조건일 때)
 
 
 def S(anchor):
-    """anchor 가 든 문장 번호 (하나만 있어야 함 — 대본을 고쳐도 검사가 엉뚱한 문장을 보지 않게, v2.1)."""
+    """anchor 가 든 문장 번호 (하나만 있어야 함)."""
     hits = [i + 1 for i, s in enumerate(SENT) if anchor in s]
     if len(hits) != 1:
         raise SystemExit(f"[CHECK] 문장 찾기 '{anchor}' → {len(hits)}개 {hits} (하나여야 함)")
@@ -90,244 +60,352 @@ def cond(n, ok, why, token=""):
     checks.append((n, token, why, bool(ok)))
 
 
-# ---- 규칙 (값이 아니라 정한 조건 — 결과가 아님)
-P = R["params"]
-cond(S('2016년부터 지금까지, 모두 1만 달러'), P["start"].startswith("2016"), "기간 시작 2016", "2016년")
-cond(S('2016년부터 지금까지, 모두 1만 달러'), P["capital"] == 10000, "시작 돈 $10,000", "1만 달러")
-need(S('2016년부터 지금까지, 모두 1만 달러'), f"{P['cost'] * 100:.2f}%", "수수료 params.cost")
-need(S('매수한 뒤 최고 종가보다 10% 떨어지면'), f"{P['trail'] * 100:.0f}%", "매도 params.trail")
-need(S('많이 쓰는 매수 신호 10가지를 SPY로'), f"{len(P['rules'])}가지", "규칙 수")
-cond(S('지난 1년 가장 높았던 종가를 넘어서는 날, 매수합니다.'), True, "52주 = 252 거래일 = 1년", "1년")
+def F(k):
+    return RU[k]["facts"]
+
+
+def year(k, y):
+    v = F(k)["by_year"][str(y)]
+    return v["wins"], v["losses"]
+
+
+def yrs(k, years):
+    w = l = 0
+    for y in years:
+        v = F(k)["by_year"].get(str(y), {"wins": 0, "losses": 0}); w += v["wins"]; l += v["losses"]
+    return w, l
+
+
+def yr_count(k, anchor, years, fmt, tokens=()):
+    """연도별 판정 문장: fmt 의 {d}=판정 수 {w}=성공 {l}=실패 → 문장에 그대로 있어야 함."""
+    w, l = yrs(k, years)
+    n = S(anchor)
+    need(n, fmt.format(d=w + l, w=w, l=l), f"{k} {'+'.join(map(str, years))} 판정 {w}-{l}")
+    for tok in tokens:
+        cond(n, True, "", tok)
+
+
+def yr_words(k, anchor, years, fmt, tokens=()):
+    w, l = yrs(k, years)
+    n = S(anchor)
+    need(n, fmt.format(D=NATIVE[w + l], Wn=NATIVE[w]), f"{k} {'+'.join(map(str, years))} 판정 {w}-{l}")
+    for tok in tokens:
+        cond(n, True, "", tok)
+
+
+def yr_all(k, anchor, years, cnt):
+    w, l = yrs(k, years)
+    n = S(anchor)
+    need(n, f"{NATIVE[cnt]} 번", f"{k} {years} 판정 수"); cond(n, (w, l) == (cnt, 0), f"{k} {years} {w}-{l} (모두 성공)", f"{years[0]}년")
+
+
+def ye_rate(k, anchor, y):
+    ye = F(k)["year_end"][y]
+    n = S(anchor)
+    need(n, p1(ye["rate"]), f"{k} {ye['date']} 성공률"); need(n, p1(ye["rand"]), f"{k} {ye['date']} 무작위 평균"); cond(n, True, "", f"{y}년")
+
+
+def lead_lag(k, which, anchor, ym_, token):
+    x = F(k)[which]
+    n = S(anchor)
+    need(n, p1(x["rate"]), f"{k} {'가장 앞선' if which == 'lead' else '가장 뒤진'} 날 {x['date']} 성공률"); need(n, p1(x["rand"]), "그날 무작위 평균")
+    cond(n, x["date"].startswith(ym_), x["date"], token)
+    return x
+
+
+def cash(k, anchor, ym_, dmin, dmax, tokens):
+    c = F(k)["longest_cash"]
+    n = S(anchor)
+    cond(n, c["after"].startswith(ym_) and dmin <= days(c["after"], c["buy"]) - 1 < dmax, f"{k} 가장 긴 현금 {c} (달력 {days(c['after'], c['buy']) - 1}일)", tokens[0])
+    for tok in tokens[1:]:
+        cond(n, True, "", tok)
+
+
+def covid(k, anchor, fmt):
+    cv = F(k)["covid"]
+    n = S(anchor)
+    need(n, fmt.format(d=cv["wins"] + cv["losses"], w=cv["wins"], l=cv["losses"]), f"{k} {cv['from']}~{cv['to']} 판정"); cond(n, True, "", "2020년")
+
+
+def streak(k, which, anchor, cnt, a_ym, b_ym, tokens):
+    st = F(k)["streak"][which]
+    n = S(anchor)
+    cond(n, st["n"] == cnt and st["from_buy"].startswith(a_ym) and st["to_hit"].startswith(b_ym), f"{k} 연속 {which} {st}", tokens[0])
+    for tok in tokens[1:]:
+        cond(n, True, "", tok)
+
+
+def result(k, a_res, a_rand):
+    """결과 문장 (판정 N번 중 W번 성공, X%) + 무작위 문장 (평균 · 90% 범위 · 범위 안)."""
+    r = RU[k]
+    n = S(a_res)
+    need(n, f"판정 {r['decided']}번 중 {r['wins']}번 성공", f"{k} 판정·성공 수")
+    need(n, p1(r["success_rate"]), f"{k} 성공률")
+    m = S(a_rand)
+    need(m, p1(r["rand_mean"]), f"{k} 무작위 평균 (계좌 {P['runs']}개)")
+    need(m, p1(r["rand_p5"]), f"{k} 무작위 5번째")
+    need(m, p1(r["rand_p95"]), f"{k} 무작위 95번째")
+    cond(m, not r["outside_90"], f"{k} 무작위 90% 범위 안")
+
+
+# ---- 도입 (규칙 — 정한 조건)
+n = S("많이 쓰는 매수 신호 10가지가")
+need(n, f"{len(ORDER)}가지", "매수 방법 수")
+n = S("성공은 매수한 값보다 5% 오르는 것")
+need(n, f"{P['n'] * 100:.0f}%", "성공 +n")
+need(n, f"{P['m'] * 100:.0f}%", "실패 −m")
+n = S("비교 상대는 신호 없이")
+cond(n, P["runs"] == 2000, f"무작위 계좌 {P['runs']}개", "2천")
+n = S("2016년부터 지금까지, 수수료는")
+cond(n, P["start"].startswith("2016"), f"기간 시작 {P['start']}", "2016년")
+need(n, f"{P['cost'] * 100:.2f}%", "수수료 params.cost")
 
 # ---- 1 매달 첫 거래일
-t = tr_of("m1", buy=TR["m1"][0]["buy_date"])
-need(S('2016년 1월 4일 첫 매수가 2018년 2월까지 34.8% 올랐습니다.'), kdate(t["buy_date"]), "m1 첫 매수 날")
-need(S('2016년 1월 4일 첫 매수가 2018년 2월까지 34.8% 올랐습니다.'), kym(t["sell_date"]), "m1 첫 거래 판 달")
-need(S('2016년 1월 4일 첫 매수가 2018년 2월까지 34.8% 올랐습니다.'), p1(t["ret"]), "m1 첫 거래 수익률")
-t = next(t for t in TR["m1"] if t["buy_date"].startswith("2020-03"))
-need(S('2020년 3월 코로나 폭락 때는 7.2% 손해를 보고 매도했어요.'), kym(t["buy_date"]), "m1 2020-03 매수")
-need(S('2020년 3월 코로나 폭락 때는 7.2% 손해를 보고 매도했어요.'), p1(t["ret"]), "m1 2020-03 거래 손해")
-cond(S('2020년 3월 코로나 폭락 때는 7.2% 손해를 보고 매도했어요.'), t["ret"] < 0, "손해")
-t2 = next_buy("m1", t["sell_date"])
-cond(S('다음 달 첫날 다시 매수했고, 이 거래가 75.1% 올랐습니다.'), t2["buy_date"] == "2020-04-01", "다음 달 첫날 다시 매수 (2020-04-01)")
-need(S('다음 달 첫날 다시 매수했고, 이 거래가 75.1% 올랐습니다.'), p1(t2["ret"]), "m1 2020-04 거래 수익률")
-need(S('13번 매수해서, 끝 값은 4만 1천 달러입니다.'), f"{RU['m1']['buys']}번", "m1 매수 수")
-need(S('13번 매수해서, 끝 값은 4만 1천 달러입니다.'), usd(RU["m1"]["final"]), "m1 끝 값")
-need(S('그대로 둔 계좌 4만 6천 달러보다는 적어요.'), usd(BH["final"]), "BUY & HOLD 끝 값")
-cond(S('그대로 둔 계좌 4만 6천 달러보다는 적어요.'), RU["m1"]["final"] < BH["final"], "m1 < BUY & HOLD")
+k = "m1"; f = F(k)
+st = f["streak"]["win"]
+n = S("2020년 4월부터 8월까지는 다섯 번 연속 성공")
+cond(n, st["n"] == 5 and st["from_buy"].startswith("2020-04") and st["to_hit"].startswith("2020-08"), f"m1 연속 성공 {st}", "2020년 4월")
+cond(n, True, "(같은 검사)", "8월")
+ye = f["year_end"]["2021"]
+n = S("2021년 말에는 성공률 56.1%로")
+need(n, p1(ye["rate"]), f"m1 {ye['date']} 성공률"); need(n, p1(ye["rand"]), f"m1 {ye['date']} 무작위 평균")
+cond(n, ye["rate"] > ye["rand"], "높았다", "2021년")
+w, l = year(k, 2022)
+n = S("그런데 2022년에는 판정 12번 중 11번이 실패")
+need(n, f"판정 {w + l}번 중 {l}번이 실패", "m1 2022 판정"); cond(n, True, "", "2022년")
+n = S("2023년부터는 무작위 평균과 거의 붙어서")
+cond(n, f["max_abs_diff_since_2023"] <= 0.02, f"2023년부터 무작위 평균과 차이 최대 {f['max_abs_diff_since_2023'] * 100:.2f}%p (≤ 2)", "2023년")
+yr_count(k, "2023년에는 판정 7번 중 3번 성공했고요", [2023], "판정 {d}번 중 {w}번 성공", ["2023년"])
+w, l = year(k, 2024)
+n = S("2024년에는 판정 9번 중 5번 성공했어요")
+need(n, f"판정 {w + l}번 중 {w}번 성공", "m1 2024"); cond(n, True, "", "2024년")
+t = next(t for t in R["trades"][k] if t["buy_date"] == "2025-04-01")
+n = S("2025년 4월 1일에 매수한 건")
+cond(n, t["result"] == "loss" and days(t["buy_date"], t["hit_date"]) == 2, f"m1 2025-04-01 매수 → {t['hit_date']} 실패 (이틀)", "2025년 4월 1일")
+need(n, f"{P['m'] * 100:.0f}%", "실패 −m")
+result(k, "결과는 판정 80번 중 37번", "무작위 계좌 평균은 47.1%였어요")
+n = S("회색 띠는 무작위 계좌 90%가 들어간 범위, 41.5%")
+cond(n, True, "90% 범위 = 5번째~95번째", "90%")
+need(n, p1(RU[k]["rand_p5"]), "m1 무작위 5번째"); need(n, p1(RU[k]["rand_p95"]), "m1 무작위 95번째")
+n = S("매달 첫 거래일 매수는 이 범위 안에")
+cond(n, not RU[k]["outside_90"], "m1 범위 안")
+# 결과 문장의 무작위 범위는 '회색 띠' 문장에 있음 → result() 의 범위 검사는 다른 문장이라 따로
+checks[:] = [c for c in checks if not (c[0] == S("무작위 계좌 평균은 47.1%였어요") and c[2].startswith("m1 무작위 ") and "평균" not in c[2])]
 
-# ---- 2 52주 신고가
-need(S('두 번째, 52주 신고가 돌파 매수입니다.'), "52주", "규칙 이름 (252 거래일)")
-t = tr_of("hi52", sell="2020-02-28")
-b = next_buy("hi52", "2020-02-28")
-need(S('2020년 2월 28일에 매도한 뒤, 다시 매수한 건 8월 19일이었어요.'), kdate(t["sell_date"]), "hi52 2020 매도 날")
-need(S('2020년 2월 28일에 매도한 뒤, 다시 매수한 건 8월 19일이었어요.'), kdate(b["buy_date"], year=False), "hi52 다시 매수 날")
-need(S('매도한 값보다 13.8% 비싸게 다시 매수한 셈입니다.'), p1(b["buy_price"] / t["sell_price"] - 1), "hi52 판 값 대비 다시 산 값")
-b2 = next_buy("hi52", "2022-02-23")
-need(S('2022년 2월에 매도한 뒤로는 1년 넘게 신호가 없었고요.'), "2022년 2월", "hi52 2022-02 매도")
-cond(S('2022년 2월에 매도한 뒤로는 1년 넘게 신호가 없었고요.'), years("2022-02-23", b2["buy_date"]) > 1.0, f"1년 넘게 신호 없음 (다음 매수 {b2['buy_date']})", "1년")
-need(S('7번 매수해서, 끝 값은 2만 3천 달러입니다.'), f"{RU['hi52']['buys']}번", "hi52 매수 수")
-need(S('7번 매수해서, 끝 값은 2만 3천 달러입니다.'), usd(RU["hi52"]["final"]), "hi52 끝 값")
+# ---- 2 20일 신고가 (추세 신호 시작)
+n = S("두 번째부터 다섯 번째까지는 오를 때")
+cond(n, ORDER[1:5] == ["hi20", "mom21", "x20", "gc520"] and all(x in TREND for x in ORDER[1:5]), "2~5번 = 추세 신호")
+k = "hi20"; f = F(k)
+cond(S("두 번째, 20일 신고가 돌파 매수"), "20 거래일" in P["rules"][k]["condition"], P["rules"][k]["condition"], "20")
+cond(S("종가가 지난 20 거래일의 가장 높은 종가를"), "20" in P["rules"][k]["condition"], P["rules"][k]["condition"], "20")
+yr_all(k, "2017년에는 판정 세 번이 모두 성공이었어요", [2017], 3)
+ye_rate(k, "2019년 말 성공률은 58.8%", "2019")
+yr_count(k, "2020년과 2021년에는 판정 17번 중 9번이 성공", [2020, 2021], "판정 {d}번 중 {w}번이 성공", ["2020년", "2021년"])
+cash(k, "2022년 4월에 매도한 뒤로는 석 달 가까이", "2022-04", 75, 92, ["2022년 4월"])
+yr_count(k, "그해 판정은 6번 중 5번이 실패였어요", [2022], "{d}번 중 {l}번이 실패")
+yr_count(k, "2024년에는 7번 중 4번 성공했습니다", [2024], "{d}번 중 {w}번 성공", ["2024년"])
+cond(S("판정이 20번 쌓인 뒤로는, 성공률이 무작위 평균보다 낮은 날이"), f["share_days_ahead"] == 1.0, f"hi20 판정 20번 뒤 무작위보다 앞선 날 몫 {f['share_days_ahead']}", "20번")
+result(k, "결과는 판정 63번 중 31번", "무작위 평균은 47.1%, 범위는 41.3%")
 
-# ---- 3 12개월 모멘텀
-need(S('세 번째, 12개월 모멘텀 매수입니다.'), "12개월", "규칙 이름")
-cond(S('오늘 종가가 1년 전 종가보다 높으면 매수합니다.'), True, "규칙 조건 252 거래일 = 1년", "1년")
-t = next(t for t in TR["mom12"] if t["buy_date"].startswith("2022-05"))
-need(S('2022년 5월에 매수한 주식은 13.3% 손해를 보고 매도했어요.'), kym(t["buy_date"]), "mom12 2022-05 매수")
-need(S('2022년 5월에 매수한 주식은 13.3% 손해를 보고 매도했어요.'), p1(t["ret"]), "mom12 2022-05 거래 손해")
-b = next_buy("mom12", t["sell_date"])
-need(S('1년 전보다 낮은 날이 이어져, 다시 매수한 건 2023년 5월이었습니다.'), kym(b["buy_date"]), "mom12 다시 매수 달")
-cond(S('1년 전보다 낮은 날이 이어져, 다시 매수한 건 2023년 5월이었습니다.'), True, "규칙 조건 1년", "1년")
-need(S('13번 매수해서, 끝 값은 2만 6천 달러입니다.'), f"{RU['mom12']['buys']}번", "mom12 매수 수")
-need(S('13번 매수해서, 끝 값은 2만 6천 달러입니다.'), usd(RU["mom12"]["final"]), "mom12 끝 값")
+# ---- 3 1개월 모멘텀
+k = "mom21"; f = F(k)
+cond(S("오늘 종가가 21 거래일 전 종가보다"), "21" in P["rules"][k]["condition"], P["rules"][k]["condition"], "21")
+cond(S("세 번째, 1개월 모멘텀"), "21" in P["rules"][k]["condition"], "21 거래일 ≈ 1개월", "1개월")
+yr_all(k, "2017년에는 판정 네 번이 모두 성공했어요", [2017], 4)
+yr_count(k, "2018년에는 9번 중 6번이 실패였고요", [2018], "{d}번 중 {l}번이 실패", ["2018년"])
+lead_lag(k, "lead", "2020년 6월에는 성공률 63.0%", "2020-06", "2020년 6월")
+yr_count(k, "2021년에는 8번 중 5번 성공했어요", [2021], "{d}번 중 {w}번 성공", ["2021년"])
+yr_count(k, "2022년에는 판정 12번 중 10번이 실패", [2022], "판정 {d}번 중 {l}번이 실패", ["2022년"])
+yr_count(k, "2023년과 2024년에는 판정 13번 중 7번 성공", [2023, 2024], "판정 {d}번 중 {w}번 성공", ["2023년", "2024년"])
+cash(k, "2025년 2월 말에 매도한 뒤로는 두 달 넘게", "2025-02", 60, 90, ["2025년 2월"])
+yr_count(k, "그해 판정은 7번 중 5번이 성공이었습니다", [2025], "{d}번 중 {w}번이 성공")
+result(k, "결과는 판정 81번 중 42번", "무작위 평균은 47.8%, 범위는 43.3%")
+cond(S("범위 위쪽 끝에 가까웠지만"), RU[k]["rand_p95"] - RU[k]["success_rate"] < 0.01 and not RU[k]["outside_90"], "95번째와 1%p 안 · 범위 안")
 
-# ---- 4 200일선
-need(S('네 번째, 200일 이동평균선 돌파 매수입니다.'), "200일", "규칙 이름")
-need(S('종가가 200일 평균을 아래에서 위로 뚫는 날, 매수합니다.'), "200일", "규칙 조건")
-t = tr_of("ma200", sell="2020-03-10")
-b = next_buy("ma200", "2020-03-10")
-need(S('2020년 3월에 매도하고, 평균선을 다시 넘은 5월 말에 매수했어요.'), kym(t["sell_date"]), "ma200 2020-03 매도")
-cond(S('2020년 3월에 매도하고, 평균선을 다시 넘은 5월 말에 매수했어요.'), b["buy_date"] >= "2020-05-20" and b["buy_date"][:7] == "2020-05", f"5월 말 다시 매수 ({b['buy_date']})", "5월")
-need(S('이 거래가 42.2% 올라, 이 신호에서 가장 큰 수익이었습니다.'), p1(b["ret"]), "ma200 그 거래 수익률")
-cond(S('이 거래가 42.2% 올라, 이 신호에서 가장 큰 수익이었습니다.'), abs(b["ret"] - RU["ma200"]["best_trade"]) < 1e-12, "이 규칙에서 가장 큰 수익")
-need(S('매도한 값보다는 평균 4.9% 비싸게 다시 매수했어요.'), p1(RE["ma200"]["mean_change"]), "ma200 다시 산 값 평균")
-need(S('11번 매수해서, 끝 값은 2만 6천 달러입니다.'), f"{RU['ma200']['buys']}번", "ma200 매수 수")
-need(S('11번 매수해서, 끝 값은 2만 6천 달러입니다.'), usd(RU["ma200"]["final"]), "ma200 끝 값")
+# ---- 4 20일선 돌파
+k = "x20"; f = F(k)
+cond(S("네 번째, 20일 이동평균선 돌파"), "20일" in P["rules"][k]["condition"], P["rules"][k]["condition"], "20일")
+cond(S("종가가 20일 평균을 아래에서 위로"), "20일" in P["rules"][k]["condition"], "", "20일")
+streak(k, "win", "2016년 7월부터 2018년 1월까지 다섯 번 연속 성공", 5, "2016-07", "2018-01", ["2016년 7월", "2018년 1월"])
+yr_count(k, "2018년에는 판정 9번 중 6번이 실패였고요", [2018], "판정 {d}번 중 {l}번이 실패", ["2018년"])
+yr_count(k, "2019년과 2020년에는 판정 13번 중 10번이 성공", [2019, 2020], "판정 {d}번 중 {w}번이 성공", ["2019년", "2020년"])
+lead_lag(k, "lead", "2021년 12월에는 성공률 64.7%", "2021-12", "2021년 12월")
+st = f["streak"]["loss"]
+cond(S("그 뒤 2022년 7월까지 여섯 번 연속 실패"), st["n"] == 6 and st["to_hit"].startswith("2022-07") and st["from_buy"] >= "2021-12-01", f"x20 연속 실패 {st}", "2022년 7월")
+cash(k, "2023년 6월에 매도한 뒤로는 두 달 넘게", "2023-06", 60, 90, ["2023년 6월"])
+yr_count(k, "2024년과 2025년에는 판정 14번 중 7번이 성공", [2024, 2025], "판정 {d}번 중 {w}번이 성공", ["2024년", "2025년"])
+cond(S("판정이 20번 쌓인 뒤로는, 무작위 평균보다 낮은 날이 없었습니다"), f["share_days_ahead"] == 1.0, f"x20 앞선 날 몫 {f['share_days_ahead']}", "20번")
+result(k, "결과는 판정 71번 중 37번", "무작위 평균은 47.3%, 범위는 40.3%")
+cond(S("지금까지 본 네 가지 중 가장 높아요"), max(ORDER[:4], key=lambda x: RU[x]["success_rate"]) == "x20", "1~4번 중 x20 가장 높음")
 
-# ---- 5 골든 크로스
-need(S('50일 평균선이 200일 평균선을 위로 뚫으면 매수합니다.'), "50일", "규칙 조건")
-need(S('50일 평균선이 200일 평균선을 위로 뚫으면 매수합니다.'), "200일", "규칙 조건")
-need(S('매도한 거래 4번이 모두 수익이었어요.'), f"{RU['gc']['trades_closed']}번", "gc 판 거래 수")
-cond(S('매도한 거래 4번이 모두 수익이었어요.'), RU["gc"]["win_rate"] == 1.0, "모두 수익")
-b = next_buy("gc", "2023-10-30")
-need(S('2023년 10월에 매도한 뒤, 다시 매수한 건 2025년 7월이었어요.'), "2023년 10월", "gc 2023-10 매도")
-need(S('2023년 10월에 매도한 뒤, 다시 매수한 건 2025년 7월이었어요.'), kym(b["buy_date"]), "gc 다시 매수 달")
-need(S('매도한 값보다 49.3% 비싼 값이었습니다.'), p1(b["buy_price"] / tr_of("gc", sell="2023-10-30")["sell_price"] - 1), "gc 판 값 대비 다시 산 값")
-need(S('5번 매수해서, 끝 값은 2만 3천 달러입니다.'), f"{RU['gc']['buys']}번", "gc 매수 수")
-need(S('5번 매수해서, 끝 값은 2만 3천 달러입니다.'), usd(RU["gc"]["final"]), "gc 끝 값")
+# ---- 5 골든 크로스 5·20
+k = "gc520"; f = F(k)
+n = S("다섯 번째, 5일선과 20일선의 골든 크로스")
+cond(n, "5일" in P["rules"][k]["condition"] and "20일" in P["rules"][k]["condition"], P["rules"][k]["condition"], "5일선"); cond(n, True, "", "20일선")
+n = S("5일 평균이 20일 평균을 아래에서 위로")
+cond(n, True, P["rules"][k]["condition"], "5일"); cond(n, True, "", "20일")
+c = f["longest_cash"]
+n = S("2017년 9월에 매도한 뒤, 다음 매수는 2018년 2월")
+cond(n, c["after"].startswith("2017-09") and c["buy"].startswith("2018-02"), f"gc520 가장 긴 현금 {c}", "2017년 9월"); cond(n, True, "", "2018년 2월")
+yr_count(k, "2018년에는 판정 5번 중 4번이 실패", [2018], "판정 {d}번 중 {l}번이 실패", ["2018년"])
+yr_words(k, "2019년에는 판정 세 번 중 두 번이 성공", [2019], "판정 {D} 번 중 {Wn} 번이 성공", ["2019년"])
+yr_count(k, "2020년과 2021년에는 11번 중 5번 성공", [2020, 2021], "{d}번 중 {w}번 성공", ["2020년", "2021년"])
+lg = lead_lag(k, "lag", "2022년 7월에는 성공률 40.0%로", "2022-07", "2022년 7월")
+st = f["streak"]["loss"]
+cond(S("바로 전에 여섯 번 연속 실패가"), st["n"] == 6 and st["to_hit"] <= lg["date"], f"gc520 연속 실패 {st}")
+st = f["streak"]["win"]
+cond(S("그 뒤로는 2023년 6월까지 다섯 번 연속 성공"), st["n"] == 5 and st["to_hit"].startswith("2023-06") and st["from_buy"] >= lg["date"][:7], f"gc520 연속 성공 {st}", "2023년 6월")
+yr_count(k, "2024년에는 판정 4번 중 3번이 성공", [2024], "판정 {d}번 중 {w}번이 성공", ["2024년"])
+yr_count(k, "2025년부터는 판정 8번 중 4번 성공", [2025, 2026], "판정 {d}번 중 {w}번 성공", ["2025년"])
+result(k, "결과는 판정 50번 중 25번", "무작위 평균은 47.4%, 범위는 38.6%")
+cond(S("결과는 판정 50번 중 25번"), abs(RU[k]["success_rate"] - 0.5) < 1e-12, "딱 50%")
+n = S("판정 수가 10가지 중 가장 적어서")
+cond(n, min(ORDER, key=lambda x: RU[x]["decided"]) == k and (RU[k]["rand_p95"] - RU[k]["rand_p5"]) > (RU["m1"]["rand_p95"] - RU["m1"]["rand_p5"]), "판정 수 가장 적음 · 범위가 m1 보다 넓음", "10가지")
 
-# ---- 6 급락 다음 날
-need(S('하루에 2% 넘게 떨어지면, 다음 날 매수합니다.'), "2%", "규칙 조건")
-need(S('10가지 가운데 가장 많은 14번을 매수했어요.'), "10가지", "규칙 수")
-need(S('10가지 가운데 가장 많은 14번을 매수했어요.'), f"{RU['drop2']['buys']}번", "drop2 매수 수")
-cond(S('10가지 가운데 가장 많은 14번을 매수했어요.'), RU["drop2"]["buys"] == max(r["buys"] for r in RU.values()), "가장 많음")
-t = next(t for t in TR["drop2"] if t["buy_date"].startswith("2018-12"))
-need(S('2018년 12월에는 매수한 뒤 13.1% 떨어져 매도했고요.'), kym(t["buy_date"]), "drop2 2018-12 매수")
-need(S('2018년 12월에는 매수한 뒤 13.1% 떨어져 매도했고요.'), p1(t["ret"]), "drop2 2018-12 거래 손해")
-t = tr_of("drop2", buy="2020-03-19")
-need(S('2020년 3월 19일에 다시 매수한 거래는 80.3% 올랐습니다.'), kdate(t["buy_date"]), "drop2 2020-03-19 매수")
-need(S('2020년 3월 19일에 다시 매수한 거래는 80.3% 올랐습니다.'), p1(t["ret"]), "drop2 그 거래 수익률")
-need(S('끝 값은 4만 달러입니다.'), usd(RU["drop2"]["final"]), "drop2 끝 값")
+# ---- 6 하루 −1%
+cond(S("여섯 번째부터는 떨어질 때 매수하는"), all(x not in TREND for x in ORDER[5:]), "6~10번 = 떨어질 때 매수")
+k = "drop1"; f = F(k)
+cond(S("여섯 번째, 하루에 1% 이상 떨어지면"), "−1%" in P["rules"][k]["condition"], P["rules"][k]["condition"], "1%")
+yr_count(k, "2016년에는 판정 6번 중 5번이 실패로", [2016], "판정 {d}번 중 {l}번이 실패", ["2016년"])
+yr_all(k, "2017년에는 판정 두 번이 모두 성공했고요", [2017], 2)
+yr_count(k, "2018년 한 해에만 12번 중 8번이 실패", [2018], "{d}번 중 {l}번이 실패", ["2018년"])
+lead_lag(k, "lag", "2019년 1월에는 성공률 35.0%", "2019-01", "2019년 1월")
+cond(S("판정이 20번 쌓인 뒤로는, 무작위 평균보다 높은 날이 하루도"), f["share_days_ahead"] == 0.0, f"drop1 앞선 날 몫 {f['share_days_ahead']}", "20번")
+covid(k, "2020년 코로나 폭락 때는 판정 9번 중 4번이 성공", "판정 {d}번 중 {w}번이 성공")
+yr_count(k, "2021년에는 7번 중 5번 성공했어요", [2021], "{d}번 중 {w}번 성공", ["2021년"])
+yr_count(k, "2022년에는 20번 중 13번이 실패", [2022], "{d}번 중 {l}번이 실패", ["2022년"])
+yr_count(k, "2023년에는 8번 중 3번만 성공했고요", [2023], "{d}번 중 {w}번만 성공", ["2023년"])
+yr_count(k, "2024년에는 6번 중 4번 성공했지만", [2024], "{d}번 중 {w}번 성공", ["2024년"])
+cond(S("2024년에는 6번 중 4번 성공했지만"), f["share_days_ahead"] == 0.0, "따라잡지 못함")
+result(k, "결과는 판정 95번 중 44번", "무작위 평균은 46.8%, 범위는 40.7%")
 
-# ---- 7 RSI
-need(S('일곱 번째, RSI 30 아래 과매도 매수입니다.'), "30", "규칙 조건")
-need(S('RSI는 최근 14일 동안 오른 폭과 내린 폭을 견준 숫자예요.'), "14일", "RSI(14)")
-need(S('30 아래면 매도가 많이 몰린 상태로 보고, 매수합니다.'), "30", "규칙 조건")
-t = tr_of("rsi30", buy="2020-03-24")
-need(S('2020년 3월 24일, 바닥 다음 날 매수한 거래가 77.2% 올랐어요.'), kdate(t["buy_date"]), "rsi30 2020-03-24 매수")
-cond(S('2020년 3월 24일, 바닥 다음 날 매수한 거래가 77.2% 올랐어요.'), F["spy_2020_bottom"]["date"] == "2020-03-23", "바닥 다음 날 (2020 바닥 = 2020-03-23)")
-need(S('2020년 3월 24일, 바닥 다음 날 매수한 거래가 77.2% 올랐어요.'), p1(t["ret"]), "rsi30 그 거래 수익률")
-b = next_buy("rsi30", "2023-10-30")
-need(S('2023년 10월에 매도한 뒤로는 1년 넘게 기다렸고요.'), "2023년 10월", "rsi30 2023-10 매도")
-cond(S('2023년 10월에 매도한 뒤로는 1년 넘게 기다렸고요.'), years("2023-10-30", b["buy_date"]) > 1.0, f"1년 넘게 기다림 ({b['buy_date']})", "1년")
-need(S('9번 매수해서, 끝 값은 4만 4천 달러입니다.'), f"{RU['rsi30']['buys']}번", "rsi30 매수 수")
-need(S('9번 매수해서, 끝 값은 4만 4천 달러입니다.'), usd(RU["rsi30"]["final"]), "rsi30 끝 값")
+# ---- 7 RSI 40
+k = "rsi40"; f = F(k)
+cond(S("일곱 번째, RSI 40 아래 매수"), "< 40" in P["rules"][k]["condition"], P["rules"][k]["condition"], "40")
+cond(S("RSI는 최근 14일 동안"), "(14)" in P["rules"][k]["condition"], "RSI(14)", "14일")
+cond(S("40 아래면 많이 떨어진 상태로"), "< 40" in P["rules"][k]["condition"], "", "40")
+lead_lag(k, "lead", "2019년 11월에는 성공률 61.9%", "2019-11", "2019년 11월")
+covid(k, "2020년 코로나 폭락 때는 판정 7번 중 5번이 실패", "판정 {d}번 중 {l}번이 실패")
+cash(k, "2020년 11월에 매도한 뒤로는 10달 넘게", "2020-11", 304, 335, ["2020년 11월", "10달"])
+need(S("그래서 주식을 든 날은 35%뿐이었습니다"), f"{RU[k]['invested_share'] * 100:.0f}%", "rsi40 주식 보유 비율")
+yr_count(k, "2022년에는 판정 14번 중 11번이 실패", [2022], "판정 {d}번 중 {l}번이 실패", ["2022년"])
+yr_count(k, "2023년에는 5번 중 3번 성공했어요", [2023], "{d}번 중 {w}번 성공", ["2023년"])
+yr_count(k, "2024년과 2025년에는 7번 중 4번 성공", [2024, 2025], "{d}번 중 {w}번 성공", ["2024년", "2025년"])
+result(k, "결과는 판정 62번 중 30번", "무작위 평균은 46.7%, 범위는 38.0%")
 
-# ---- 8 VIX
-need(S('여덟 번째, 공포지수 VIX 30 이상 매수입니다.'), "30", "규칙 조건")
-need(S('첫 매수가 2018년 2월이라, 처음 2년은 현금으로 기다렸습니다.'), kym(RU["vix30"]["first_buy"]), "vix30 첫 매수 달")
-cond(S('첫 매수가 2018년 2월이라, 처음 2년은 현금으로 기다렸습니다.'), 1.9 < years(P["start"], RU["vix30"]["first_buy"]) < 2.3, "처음 2년 현금", "2년")
-t = tr_of("vix30", buy="2020-03-18")
-need(S('2020년 3월 18일에 매수한 거래는 80.7% 올랐어요.'), kdate(t["buy_date"]), "vix30 2020-03-18 매수")
-need(S('2020년 3월 18일에 매수한 거래는 80.7% 올랐어요.'), p1(t["ret"]), "vix30 그 거래 수익률")
-need(S('11번 매수해서, 끝 값은 3만 4천 달러입니다.'), f"{RU['vix30']['buys']}번", "vix30 매수 수")
-need(S('11번 매수해서, 끝 값은 3만 4천 달러입니다.'), usd(RU["vix30"]["final"]), "vix30 끝 값")
+# ---- 8 VIX 20
+k = "vix20"; f = F(k)
+cond(S("여덟 번째, 공포지수 VIX 20 이상"), "≥ 20" in P["rules"][k]["condition"], P["rules"][k]["condition"], "20")
+c = f["longest_cash"]
+n = S("2016년 11월에 매도한 뒤로는 1년 넘게")
+cond(n, c["after"].startswith("2016-11") and days(c["after"], c["buy"]) - 1 > 365, f"vix20 가장 긴 현금 {c}", "2016년 11월"); cond(n, True, "", "1년")
+yr_count(k, "2018년과 2019년에는 판정 14번 중 7번이 성공", [2018, 2019], "판정 {d}번 중 {w}번이 성공", ["2018년", "2019년"])
+w, l = yrs(k, [2020])
+n = S("2020년에는 판정 22번 중 11번이 성공, 딱 절반")
+need(n, f"판정 {w + l}번 중 {w}번이 성공", "vix20 2020"); cond(n, w == l, "절반", "2020년")
+yr_count(k, "2021년에는 11번 중 6번 성공했어요", [2021], "{d}번 중 {w}번 성공", ["2021년"])
+streak(k, "loss", "2022년 8월부터 10월까지는 여섯 번 연속 실패", 6, "2022-08", "2022-10", ["2022년 8월", "10월"])
+yr_count(k, "그해에는 24번 중 18번이 실패였습니다", [2022], "{d}번 중 {l}번이 실패")
+yr_count(k, "2023년과 2024년에는 판정 11번 중 7번이 성공", [2023, 2024], "판정 {d}번 중 {w}번이 성공", ["2023년", "2024년"])
+yr_count(k, "2025년에는 판정 8번 중 5번 성공했고요", [2025], "판정 {d}번 중 {w}번 성공", ["2025년"])
+result(k, "결과는 판정 101번 중 48번", "무작위 평균은 47.3%, 범위는 41.3%")
+cond(S("무작위와 거의 같았습니다"), abs(RU[k]["vs_rand_pp"]) < 0.005, f"vix20 무작위 평균과 차이 {RU[k]['vs_rand_pp'] * 100:+.2f}%p")
 
-# ---- 9 고점 −20%
-need(S('아홉 번째, 고점보다 20% 떨어지면 매수하는 큰 하락 매수입니다.'), "20%", "규칙 조건")
-need(S('그때까지 가장 높았던 종가보다 20% 이상 낮으면 매수해요.'), "20%", "규칙 조건")
-t = tr_of("dip20", buy="2020-03-18")
-need(S('2020년 3월 18일에 매수한 거래가 80.7% 올랐습니다.'), kdate(t["buy_date"]), "dip20 2020-03-18 매수")
-need(S('2020년 3월 18일에 매수한 거래가 80.7% 올랐습니다.'), p1(t["ret"]), "dip20 그 거래 수익률")
-cond(S('그런데 2023년 10월에 매도한 뒤로는 한 번도 매수하지 못했어요.'), F["dip20_after_last_sale"]["last_sale"] == "2023-10-30" and not TR["dip20"][-1]["open"], "2023-10 판 뒤 매수 없음", "2023년 10월")
-need(S('그런데 2023년 10월에 매도한 뒤로는 한 번도 매수하지 못했어요.'), "2023년 10월", "dip20 마지막 매도")
-need(S('2025년 4월에도 고점보다 19.0%까지만 떨어졌기 때문입니다.'), kym(F["dip20_after_last_sale"]["min_dd_date"]), "그 뒤 가장 깊은 하락 달")
-need(S('2025년 4월에도 고점보다 19.0%까지만 떨어졌기 때문입니다.'), p1(F["dip20_after_last_sale"]["min_dd"]), "그 뒤 가장 깊은 하락")
-cond(S('3년 가까이 현금으로 기다려, 끝 값은 2만 4천 달러입니다.'), 2.75 < F["dip20_after_last_sale"]["years_to_end"] < 3.0, "3년 가까이", "3년")
-need(S('3년 가까이 현금으로 기다려, 끝 값은 2만 4천 달러입니다.'), usd(RU["dip20"]["final"]), "dip20 끝 값")
+# ---- 9 20일 고점 −5%
+k = "dd20_5"; f = F(k)
+n = S("아홉 번째, 최근 20 거래일 고점보다 5%")
+cond(n, "20 거래일" in P["rules"][k]["condition"] and "0.95" in P["rules"][k]["condition"], P["rules"][k]["condition"], "20"); cond(n, True, "", "5%")
+c = f["longest_cash"]
+n = S("2016년 7월에 매도한 뒤, 다음 신호는 2018년 2월")
+cond(n, c["after"].startswith("2016-07") and c["buy"].startswith("2018-02"), f"dd20_5 가장 긴 현금 {c}", "2016년 7월"); cond(n, True, "", "2018년 2월")
+yr_count(k, "2018년에는 판정 8번 중 4번이 성공했고요", [2018], "판정 {d}번 중 {w}번이 성공", ["2018년"])
+yr_all(k, "2019년에는 판정 세 번이 모두 성공이었습니다", [2019], 3)
+covid(k, "2020년 코로나 폭락 때는 9번 중 6번이 실패", "{d}번 중 {l}번이 실패")
+w, l = yrs(k, [2021])
+cond(S("2021년에는 판정이 한 번뿐이었고요"), w + l == 1, f"dd20_5 2021 판정 {w + l}", "2021년")
+yr_count(k, "2022년에는 15번 중 11번이 실패였습니다", [2022], "{d}번 중 {l}번이 실패", ["2022년"])
+yr_count(k, "2023년에는 판정 5번 중 3번이 성공했고요", [2023], "판정 {d}번 중 {w}번이 성공", ["2023년"])
+yr_all(k, "2024년에는 판정 두 번이 모두 성공했어요", [2024], 2)
+n = S("주식을 든 날은 23%로, 10가지 중 가장 적었습니다")
+need(n, f"{RU[k]['invested_share'] * 100:.0f}%", "dd20_5 주식 보유 비율")
+cond(n, min(ORDER, key=lambda x: RU[x]["invested_share"]) == k, "보유 비율 가장 적음", "10가지")
+result(k, "결과는 판정 59번 중 29번", "무작위 평균은 46.5%, 범위는 38.0%")
 
-# ---- 10 고점 −10%
-need(S('마지막 열 번째, 고점보다 10% 떨어지면 매수하는 저점 매수입니다.'), "10%", "규칙 조건")
-need(S('매도한 뒤에도 고점보다 10% 아래면, 바로 다음 날 다시 매수해요.'), "10%", "규칙 조건")
-m = [t for t in TR["dip10"] if t["buy_date"].startswith("2020-03") and t["ret"] < 0]
-cond(S('2020년 3월에는 7.2%, 8.3% 손해로 두 번 매도했어요.'), len(m) == 2, "2020-03 두 번 손해 매도")
-need(S('2020년 3월에는 7.2%, 8.3% 손해로 두 번 매도했어요.'), "2020년 3월", "dip10 2020-03")
-for t in m:
-    need(S('2020년 3월에는 7.2%, 8.3% 손해로 두 번 매도했어요.'), p1(t["ret"]), f"dip10 {t['buy_date']} 거래 손해")
-t = tr_of("dip10", buy="2020-03-18")
-need(S('3월 18일에 또 매수했고, 이 거래가 80.7% 올랐습니다.'), kdate(t["buy_date"], year=False), "dip10 2020-03-18 매수")
-need(S('3월 18일에 또 매수했고, 이 거래가 80.7% 올랐습니다.'), p1(t["ret"]), "dip10 그 거래 수익률")
-t = TR["dip10"][-1]
-cond(S('2025년 4월 급락 때도 매수해서, 지금 54.9% 수익 중이에요.'), t["open"] and t["buy_date"].startswith("2025-04"), "2025-04 매수 · 보유 중")
-need(S('2025년 4월 급락 때도 매수해서, 지금 54.9% 수익 중이에요.'), kym(t["buy_date"]), "dip10 2025-04 매수")
-need(S('2025년 4월 급락 때도 매수해서, 지금 54.9% 수익 중이에요.'), p1(t["ret"]), "dip10 보유 중 수익률")
-need(S('13번 매수해서, 끝 값은 5만 3천 달러입니다.'), f"{RU['dip10']['buys']}번", "dip10 매수 수")
-need(S('13번 매수해서, 끝 값은 5만 3천 달러입니다.'), usd(RU["dip10"]["final"]), "dip10 끝 값")
-need(S('그대로 둔 계좌 4만 6천 달러보다 많아요.'), usd(BH["final"]), "BUY & HOLD 끝 값")
-cond(S('그대로 둔 계좌 4만 6천 달러보다 많아요.'), RU["dip10"]["final"] > BH["final"], "dip10 > BUY & HOLD")
+# ---- 10 고점 −5%
+k = "dd5"; f = F(k)
+cond(S("마지막 열 번째, 그때까지 최고 종가보다 5%"), "0.95" in P["rules"][k]["condition"], P["rules"][k]["condition"], "5%")
+c = f["longest_cash"]
+n = S("이 방법도 2016년 7월에 매도한 뒤로는 1년 반 넘게")
+cond(n, c["after"].startswith("2016-07") and 1.5 < (days(c["after"], c["buy"]) - 1) / 365.25 < 2.0, f"dd5 가장 긴 현금 {c}", "2016년 7월"); cond(n, True, "", "1년")
+yr_count(k, "2018년에는 판정 13번 중 8번이 실패였고요", [2018], "판정 {d}번 중 {l}번이 실패", ["2018년"])
+yr_all(k, "2019년에는 판정 다섯 번이 모두 성공했어요", [2019], 5)
+ye_rate(k, "그 덕분에 2019년 말 성공률은 56.5%", "2019")
+covid(k, "2020년 코로나 폭락 때는 10번 중 6번이 실패", "{d}번 중 {l}번이 실패")
+w, l = yrs(k, [2021])
+cond(S("2021년에는 판정이 단 한 번, 성공이었어요"), (w, l) == (1, 0), f"dd5 2021 {w}-{l}", "2021년")
+yr_count(k, "2022년에는 26번 중 19번이 실패였습니다", [2022], "{d}번 중 {l}번이 실패", ["2022년"])
+n = S("10가지 중 2022년 실패가 가장 많았습니다")
+cond(n, max(ORDER, key=lambda x: yrs(x, [2022])[1]) == k, "2022 실패 수 가장 많음", "10가지"); cond(n, True, "", "2022년")
+yr_count(k, "2023년에는 11번 중 6번 성공했고요", [2023], "{d}번 중 {w}번 성공", ["2023년"])
+yr_all(k, "2024년 판정 두 번도 모두 성공이었고요", [2024], 2)
+yr_count(k, "2025년부터는 판정 10번 중 6번 성공", [2025, 2026], "판정 {d}번 중 {w}번 성공", ["2025년"])
+result(k, "결과는 판정 94번 중 45번", "무작위 평균은 47.1%, 범위는 40.8%")
 
 # ---- 종합
-need(S('10가지 결과를 한 번에 보겠습니다.'), "10가지", "규칙 수")
-cond(S('1위는 고점보다 10% 떨어지면 매수하는 저점 매수, 5만 3천 달러입니다.'), R["rank_by_final"][0] == "dip10", "1위 = dip10", "1위")
-need(S('1위는 고점보다 10% 떨어지면 매수하는 저점 매수, 5만 3천 달러입니다.'), "10%", "dip10 조건")
-need(S('1위는 고점보다 10% 떨어지면 매수하는 저점 매수, 5만 3천 달러입니다.'), usd(RU["dip10"]["final"]), "dip10 끝 값")
-cond(S('2위 RSI 4만 4천, 3위 매달 첫 거래일 4만 1천 달러예요.'), R["rank_by_final"][1] == "rsi30" and R["rank_by_final"][2] == "m1", "2위 rsi30, 3위 m1", "2위")
-need(S('2위 RSI 4만 4천, 3위 매달 첫 거래일 4만 1천 달러예요.'), "3위", "순위")
-need(S('2위 RSI 4만 4천, 3위 매달 첫 거래일 4만 1천 달러예요.'), usd_short(RU["rsi30"]["final"]), "rsi30 끝 값")
-need(S('2위 RSI 4만 4천, 3위 매달 첫 거래일 4만 1천 달러예요.'), usd(RU["m1"]["final"]), "m1 끝 값")
-need(S('그대로 둔 계좌 4만 6천 달러를 넘은 건 하나뿐이었습니다.'), usd(BH["final"]), "BUY & HOLD 끝 값")
-cond(S('그대로 둔 계좌 4만 6천 달러를 넘은 건 하나뿐이었습니다.'), R["rules_above_buy_and_hold"] == ["dip10"], "넘은 건 하나")
-bottom = R["rank_by_final"][-5:]
-trend = {"hi52", "mom12", "ma200", "gc"}
-cond(S('아래 다섯 개 중 네 개는, 오를 때 매수하는 추세 신호였어요.'), sum(k in trend for k in bottom) == 4, f"아래 5개 {bottom} 중 추세 4개", "다섯")
-cond(S('2020년 2월 28일, 10가지 모두 같은 날 매도했어요.'), all(any(t["sell_date"] == "2020-02-28" for t in TR[k]) for k in TR), "2020-02-28 10가지 모두 매도", "10가지")
-need(S('2020년 2월 28일, 10가지 모두 같은 날 매도했어요.'), kdate("2020-02-28"), "같은 매도 날")
-ch = sorted(RE[k]["mean_change"] for k in trend)
-need(S('추세 신호 네 개는 매도한 값보다 평균 4.0%에서 15.9% 비싸게 다시 매수했어요.'), p1(ch[0]), "추세 규칙 다시 산 값 평균 (가장 작은)")
-need(S('추세 신호 네 개는 매도한 값보다 평균 4.0%에서 15.9% 비싸게 다시 매수했어요.'), p1(ch[-1]), "추세 규칙 다시 산 값 평균 (가장 큰)")
-cond(S('추세 신호 네 개는 매도한 값보다 평균 4.0%에서 15.9% 비싸게 다시 매수했어요.'), ch[0] > 0, "모두 비싸게", "네 개")
-need(S('저점 매수는 평균 1.4% 싸게, 대부분 다음 날 바로 다시 매수했고요.'), p1(RE["dip10"]["mean_change"]), "dip10 다시 산 값 평균")
-cond(S('저점 매수는 평균 1.4% 싸게, 대부분 다음 날 바로 다시 매수했고요.'), RE["dip10"]["mean_change"] < 0, "싸게")
-gaps = [b["buy_i"] - a["sell_i"] for a, b in zip(TR["dip10"], TR["dip10"][1:])]
-cond(S('저점 매수는 평균 1.4% 싸게, 대부분 다음 날 바로 다시 매수했고요.'), sum(g == 1 for g in gaps) > len(gaps) / 2, f"대부분 다음 날 ({sum(g == 1 for g in gaps)}/{len(gaps)})")
-need(S('큰 하락 매수는 7.3% 싸게 매수했지만, 주식을 든 날이 42%뿐이었습니다.'), p1(RE["dip20"]["mean_change"]), "dip20 다시 산 값 평균")
-need(S('큰 하락 매수는 7.3% 싸게 매수했지만, 주식을 든 날이 42%뿐이었습니다.'), f"{RU['dip20']['invested_share'] * 100:.0f}%", "dip20 주식 보유 비율")
+cond(S("10가지 결과를 한 번에"), len(ORDER) == 10, "", "10가지")
+cond(S("점은 각 방법의 성공률, 회색 띠는"), True, "90% 범위", "90%")
+rk = R["rank_by_success"]
+n = S("가장 높은 건 20일선 돌파 매수")
+cond(n, rk[0] == "x20", f"1위 {rk[0]}", "20일선"); need(n, p1(RU["x20"]["success_rate"]), "x20 성공률")
+n = S("가장 낮은 건 매달 첫 거래일 매수")
+cond(n, rk[-1] == "m1", f"10위 {rk[-1]}"); need(n, p1(RU["m1"]["success_rate"]), "m1 성공률")
+cond(S("위쪽 다섯 개 중 네 개는"), sum(x in TREND for x in rk[:5]) == 4, f"위 5개 {rk[:5]}")
+n = S("하지만 10가지 모두 무작위 범위 안이었어요")
+cond(n, not any(RU[x]["outside_90"] for x in ORDER), "모두 범위 안", "10가지")
+n = S("가장 높은 20일선 돌파도, 무작위 계좌 가운데 13%는")
+need(n, f"{RU['x20']['share_random_ge'] * 100:.0f}%", "x20 이상인 무작위 계좌 몫"); cond(n, True, "", "20일선")
 
 # ---- 다른 조건
-def above(name):
-    c = CK[name]
-    bh = c.get("_buy_and_hold", BH)["final"]
-    return sum(c[k]["final"] > bh for k in c if not k.startswith("_"))
-
-
-need(S('5%로 바꾸면, 그대로 둔 계좌를 넘은 신호가 하나도 없었어요.'), "5%", "확인 trail5")
-cond(S('5%로 바꾸면, 그대로 둔 계좌를 넘은 신호가 하나도 없었어요.'), above("trail5") == 0, "−5% 넘은 규칙 0", "하나도")
-need(S('15%나 20%로 하면 세 개씩 넘었습니다.'), "15%", "확인 trail15")
-need(S('15%나 20%로 하면 세 개씩 넘었습니다.'), "20%", "확인 trail20")
-cond(S('15%나 20%로 하면 세 개씩 넘었습니다.'), above("trail15") == 3 and above("trail20") == 3, "−15%·−20% 세 개씩", "세 개")
-cond(S('수수료를 0으로 해도 두 개뿐이었고요.'), above("cost0") == 2, "수수료 0 두 개", "0으로")
+c1, c15, cl = CK["m0.010"], CK["m0.015"], CK["long1994_2015"]
+above = lambda c: [x for x in ORDER if c[x]["outside_90"] and c[x]["rate"] > c[x]["rand_p95"]]
+below = lambda c: [x for x in ORDER if c[x]["outside_90"] and c[x]["rate"] < c[x]["rand_p5"]]
+n = S("1%로 더 엄격하게 하면")
+need(n, p1(c1["every_day"]), "m 1% 아무 날 매수 성공률"); cond(n, True, "m = 1%", "1%")
+n = S("이때는 20일선 돌파만 범위 위로")
+cond(n, above(c1) == ["x20"] and not below(c1), f"m 1%: 위 {above(c1)} 아래 {below(c1)}", "20일선")
+n = S("1.5%에서는 범위를 벗어난 방법이 없었고요")
+cond(n, not above(c15) and not below(c15), "m 1.5%: 범위 밖 없음", "1.5%")
+n = S("기간을 1994년부터 2015년으로 바꿔 봤어요")
+cond(n, cl["start"].startswith("1994") and cl["end"].startswith("2015"), f"{cl['start']}~{cl['end']}", "1994년"); cond(n, True, "", "2015년")
+n = S("이 기간엔 20일선 돌파가 33.3%로")
+need(n, p1(cl["x20"]["rate"]), "1994~2015 x20 성공률")
+cond(n, min(ORDER, key=lambda x: cl[x]["rate"]) == "x20", "1994~2015 x20 가장 낮음", "10가지"); cond(n, True, "", "20일선")
+n = S("이 기간에도 10가지 모두 무작위 범위 안")
+cond(n, not above(cl) and not below(cl), "1994~2015 범위 밖 없음", "10가지")
 
 # ---- 정리
-cond(S('이번 10년 동안, 매수 신호 10가지 중 9가지는'), True, "기간 약 10년", "10년")
-need(S('이번 10년 동안, 매수 신호 10가지 중 9가지는'), f"{len(P['rules'])}가지", "규칙 수")
-cond(S('이번 10년 동안, 매수 신호 10가지 중 9가지는'), len(P["rules"]) - len(R["rules_above_buy_and_hold"]) == 9, "9가지는 적음", "9가지")
-need(S('넘은 하나도, 떨어지면 바로 다시 매수해서 주식을 97% 들고 있던 신호였어요.'), f"{RU['dip10']['invested_share'] * 100:.0f}%", "dip10 주식 보유 비율")
-need(S('그대로 둔 계좌는 2020년 3월에 33.7% 떨어지는 걸 견뎌야 했고요.'), kym(BH["max_dd_date"]), "BUY & HOLD 최대 낙폭 달")
-need(S('그대로 둔 계좌는 2020년 3월에 33.7% 떨어지는 걸 견뎌야 했고요.'), p1(BH["max_dd"]), "BUY & HOLD 최대 낙폭")
-cond(S('이 결과는 지난 10년의 자료입니다.'), True, "기간 약 10년", "10년")
+n = S("추세 신호가 이번 10년에는 조금 앞섰어요")
+cond(n, all(RU[x]["vs_rand_pp"] > 0 for x in TREND), "2016~ 추세 4개 무작위 평균보다 위", "10년")
+n = S("하지만 그 전 22년에는")
+cond(n, round(days(cl["start"], cl["end"]) / 365.25) == 22, f"{cl['start']}~{cl['end']} ≈ 22년", "22년")
+cond(n, sum(cl[x]["rate"] < cl[x]["rand_mean"] for x in TREND) == 2, "1994~2015 추세 4개 중 2개 무작위 평균보다 낮음")
+cond(S("2022년처럼 계속 떨어진 해에는"), all(year(x, 2022)[1] > year(x, 2022)[0] for x in ORDER), "2022 모든 방법 실패 > 성공", "2022년")
+n = S("성공률을 크게 바꾼 건 매수 신호가 아니라")
+spread = max(RU[x]["success_rate"] for x in ORDER) - min(RU[x]["success_rate"] for x in ORDER)
+ev2, ev1 = CM["m"]["0.0200"]["every_day"], CM["m"]["0.0100"]["every_day"]
+cond(n, (ev2 - ev1) > spread, f"m 2%→1% 아무 날 성공률 {ev2:.3f}→{ev1:.3f} 차이 > 방법 사이 차이 {spread:.3f}")
 
-# ---- v2.1 더한 문장
-def wins(k):
-    c = [t for t in TR[k] if not t["open"]]
-    return len(c), sum(t["ret"] > 0 for t in c)
-
-
-n_, w_ = wins("m1")
-need(S("매도한 거래 12번 중 7번이 수익이었어요."), f"{n_}번 중 {w_}번", "m1 판 거래·이긴 거래")
-n_, w_ = wins("hi52")
-need(S("매도한 거래 6번 중 4번이 수익이었고"), f"{n_}번 중 {w_}번", "hi52 판 거래·이긴 거래")
-need(S("매도한 거래 6번 중 4번이 수익이었고"), f"{RU['hi52']['invested_share'] * 100:.0f}%", "hi52 주식 보유 비율")
-m20 = [t for t in TR["mom12"] if t["buy_date"].startswith("2020-03")]
-cond(S("2020년 3월에는 두 번 연속 손해를"), len(m20) == 2 and all(t["ret"] < 0 for t in m20)
-     and TR["mom12"].index(m20[1]) == TR["mom12"].index(m20[0]) + 1, "mom12 2020-03 두 거래 연속 손해", "2020년 3월")
-n_, w_ = wins("mom12")
-need(S("매도한 거래 12번 중 6번만"), f"{n_}번 중 {w_}번", "mom12 판 거래·이긴 거래")
-t = next(t for t in TR["ma200"] if t["buy_date"].startswith("2018-11"))
-need(S("2018년 11월에 매수한 주식은"), kym(t["buy_date"]), "ma200 2018-11 매수")
-need(S("2018년 11월에 매수한 주식은"), p1(t["ret"]), "ma200 그 거래 손해")
-need(S("그래서 주식을 든 날이"), f"{RU['gc']['invested_share'] * 100:.0f}%", "gc 주식 보유 비율")
-b20 = [t["buy_date"] for t in TR["drop2"] if t["buy_date"].startswith("2020-03")]
-cond(S("보름 사이 세 번이나"), len(b20) == 3 and (date.fromisoformat(b20[-1]) - date.fromisoformat(b20[0])).days <= 15,
-     f"drop2 2020-03 매수 {b20}", "2020년 3월")
-n_, w_ = wins("rsi30")
-need(S("매도한 거래 8번 중 5번"), f"{n_}번 중 {w_}번", "rsi30 판 거래·이긴 거래")
-t = next(t for t in TR["vix30"] if t["buy_date"].startswith("2024-08"))
-need(S("2024년 8월에도 VIX가"), kym(t["buy_date"]), "vix30 2024-08 매수")
-need(S("2024년 8월에도 VIX가"), "30", "규칙 조건")
-need(S("2024년 8월에도 VIX가"), p1(t["ret"]), "vix30 그 거래 수익률")
-n_, w_ = wins("dip20")
-need(S("매도한 거래 5번 중 4번"), f"{n_}번 중 {w_}번", "dip20 판 거래·이긴 거래")
-b22 = [t for t in TR["dip10"] if t["buy_date"].startswith("2022")]
-cond(S("한 해에 네 번 매수"), len(b22) == 4, f"dip10 2022 매수 {len(b22)}번", "2022년")
+# ---- 한계
+cond(S("이 결과는 SPY 하나, 2016년부터의 자료"), P["start"].startswith("2016"), "", "2016년")
+cond(S("그래서 성공인데 손해, 실패인데 이익인 거래도"), sum(RU[x]["label_ret_mismatch"] for x in ORDER) > 0, f"판정과 수익 부호가 다른 거래 {sum(RU[x]['label_ret_mismatch'] for x in ORDER)}개")
 
 # ---- 검사
 rows, bad = [], 0
 for n, text, why, ok in checks:
     s = SENT[n - 1]
-    hit = (text in s) if ok is None else ok
+    hit = (text in s) if ok is None else (ok and (not text or text in s))
     bad += not hit
     rows.append(f"| {n} | {s} | `{text}` | {why} | {'✅' if hit else '❌'} |")
-# 대본의 모든 숫자가 검사표에 있나
 nums_bad = []
 covered = {}
 for n, text, _, _ in checks:
@@ -337,15 +415,15 @@ for n, s in enumerate(SENT, 1):
         tok = tok.rstrip(",.")
         if tok not in covered.get(n, set()):
             nums_bad.append(f"문장 {n}: '{tok}' — {s}")
-L = ["# eonje-maesu-2026-10 숫자 검사 (`backtest/check_numbers.py` v2.2)", "",
-     f"- 대본 `eonje-maesu-2026-10.txt` {len(SENT)}문장 · 결과 `backtest/results.json` ({R['version']}, {R['made_at']})",
+L = ["# eonje-maesu-2026-10 숫자 검사 (`backtest/check_numbers.py` v3.0)", "",
+     f"- 대본 `eonje-maesu-2026-10.txt` {len(SENT)}문장 · 결과 `backtest/barrier/results.json` ({R['version']}, {R['made_at']})",
      f"- 검사 {len(checks)}개 · 맞음 {len(checks) - bad} · 틀림 {bad} · 검사표에 없는 숫자 {len(nums_bad)}", "",
      "| 문장 | 대본 | 찾는 글자 | 근거 | 결과 |", "|---:|---|---|---|---|"] + rows
 if nums_bad:
     L += ["", "## 검사표에 없는 숫자", ""] + [f"- {x}" for x in nums_bad]
 (HERE.parent / "checklist.md").write_text("\n".join(L) + "\n", "utf-8")
-print(f"[CHECK] numbers={len(checks)} ok={len(checks) - bad} bad={bad} uncovered={len(nums_bad)} → ../checklist.md")
-for x in nums_bad[:30]:
+print(f"[CHECK] sentences={len(SENT)} numbers={len(checks)} ok={len(checks) - bad} bad={bad} uncovered={len(nums_bad)} → ../checklist.md")
+for x in nums_bad[:40]:
     print("  ", x)
 for r in rows:
     if "❌" in r:

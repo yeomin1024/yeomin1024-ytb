@@ -1,6 +1,6 @@
 # eonje-maesu-2026-10 썸네일 3장 — ChatGPT용 (읽고 그대로 만들고 저장소에 올리기)
 
-자동 생성 — `python tools/make_summary.py --chatgpt stock eonje-maesu-2026-10` (2026-10-16 14:27). 이 파일은 고치지 말고 `thumbnail_N.md`를 고친 뒤 다시 만든다.
+자동 생성 — `python tools/make_summary.py --chatgpt stock eonje-maesu-2026-10` (2026-10-16 17:46). 이 파일은 고치지 말고 `thumbnail_N.md`를 고친 뒤 다시 만든다.
 
 이 파일 주소: https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/stock/source/eonje-maesu-2026-10/thumbnails/chatgpt.md
 
@@ -20,52 +20,50 @@
      2. 마지막에 이 문장을 그대로 쓴다: **"이 그림 3장을 Claude 대화창에 그대로 붙여 넣어 주세요. Claude가 검수한 뒤 저장소(stock/source/eonje-maesu-2026-10/thumbnails/thumbnail_N)에 올립니다."**
      3. 그 아래 줄에 직접 올리는 길도 적는다: "직접 올리려면: 그림을 thumbnail_N.png 이름으로 내려받아 https://github.com/yeomin1024/yeomin1024-ytb/upload/main/stock/source/eonje-maesu-2026-10/thumbnails 에 끌어다 놓고 Commit changes"
 
-## thumbnail_1 — 본안(클릭률 최대): 같은 크기의 매수 버튼 10개 앞에서 망설이는 사람, 뒤로 오르는 3D 가격 벽, 끝에 빛이 새는 닫힌 상자 — 어느 버튼이 가장 많이 남았을까
+## thumbnail_1 — 본안(클릭률 최대): 같은 크기의 두 받침대 — 매수 신호 버튼 10개 vs 주사위 — 사이에서 망설이는 사람, 뒤에는 초록(+5%)·빨강(−2%) 점선 사이의 가격 선, 위에 닫힌 상자
 
 프롬프트:
 
 ```
 YouTube thumbnail, 16:9 landscape (1280x720), semi-realistic digital illustration with cinematic lighting, deep dark navy background (#0C1424) with a soft glow behind the center.
-Background: a huge three-dimensional stock-price wall seen in perspective, rising from the lower left to the upper right across the image like a mountain ridge with two deep dips. The wall's front face is glowing teal-green (#22C79A) fading to dark at the bottom, its top edge is a bright white glowing line, and a few small glowing orange dots sit on the top edge. There are no axes, no grid lines and no labels.
-At the far upper-right end of the wall sits a heavy closed wooden treasure chest, its lid shut tight, with warm golden light leaking out through the gaps; what is inside cannot be seen.
-Foreground, lower center (about 45% of the width): a gently curved row of ten identical round glowing buttons on identical small pedestals, all exactly the same size, the same height and the same brightness. Above each button floats one small glowing icon: a blank calendar square, a small flag on a pole, an arrow bending upward, a line rising over a smooth yellow line, two smooth lines crossing each other, a red arrow bending downward, a semicircle gauge dial with a needle and no markings, a sharp red mountain-shaped zigzag line, a yellow star high above a dashed yellow line, and a yellow star just above a dashed yellow line.
-Left side (about 35% of the width): a fictional person in their late thirties in a dark jacket leans toward the row of buttons, one index finger hovering just above the buttons without touching any of them, eyes moving along the row; the expression is thoughtful and hesitant — not happy, not worried.
-No button is highlighted or pressed; nobody is winning. The mood is suspense: which button would have ended with the most?
-Color accents: teal-green only on the price wall, orange only on the small dots on the wall, red only on the down arrow and the zigzag icon, yellow only on the stars and dashed lines, warm gold only from the chest. Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
-If 16:9 is not available, use the widest landscape canvas; in any case keep the face, the buttons and the chest inside the central 16:9 area, at least 8% away from the top and bottom edges.
+Background: a huge three-dimensional stock-price wall seen in perspective, rising gently from the left to the right with several small dips. The wall's front face is glowing deep blue (#3E8FE0) fading to dark at the bottom and its top edge is a bright white glowing line. Just above the end of the wall floats a glowing green dashed horizontal line (#2BE0A0), and just below it a glowing red dashed horizontal line (#FF4D5E) — the price line runs between the two dashed lines and has not touched either one yet. There are no axes, no grid lines and no labels.
+Between the green dashed line and the top of the image floats a heavy closed wooden treasure chest, its lid shut tight, with warm golden light leaking out through the gaps; what is inside cannot be seen.
+Foreground, bottom: two identical glowing pedestals of exactly the same size and height, side by side. On the left pedestal: ten small identical round glowing buttons in two rows of five, and above each button floats one small glowing icon: a blank calendar square, a small flag on a pole, an arrow bending upward, a line rising over a smooth yellow line, two smooth lines crossing each other, a red arrow bending downward, a semicircle gauge dial with a needle and no markings, a sharp red mountain-shaped zigzag line, a yellow star above a dashed yellow line, and a yellow star just above a dashed yellow line. On the right pedestal: one big glowing white die with only round pips, taking up exactly the same space as the group of ten buttons.
+Center: a fictional person in their late thirties in a dark jacket stands between the two pedestals, one hand hovering above the buttons and the other hand hovering above the die, touching neither; the face looks from one to the other, thoughtful and hesitant — not happy, not worried.
+Neither side is highlighted, pressed or brighter; nobody is winning. The mood is suspense: which one reaches the green line first?
+Color accents: green only on the upper dashed line, red only on the lower dashed line, the down arrow and the zigzag icon, yellow only on the stars and dashed icon lines, blue on the price wall, warm gold only from the chest. Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
+If 16:9 is not available, use the widest landscape canvas; in any case keep the face, the pedestals and the chest inside the central 16:9 area, at least 8% away from the top and bottom edges.
 Fictional person, not resembling any real or famous person.
-Absolutely no text, no letters, no numbers, no symbols, no percent signs, no question marks, no logos and no watermarks anywhere in the image. The buttons are plain with nothing written on them; the calendar is an empty square; the gauge has no numbers or tick labels; the price wall has no labels; there are no screens, no papers and no signs.
+Absolutely no text, no letters, no numbers, no symbols, no percent signs, no question marks, no logos and no watermarks anywhere in the image. The buttons are plain with nothing written on them; the die shows only round pips; the calendar is an empty square; the gauge has no numbers or tick labels; the price wall and the dashed lines have no labels; there are no screens, no papers and no signs.
 ```
 
-## thumbnail_2 — 실험안 ①(사람 없음): 같은 크기의 매수 버튼 10개 줄, 뒤로 오르는 3D 가격 벽, 끝에 빛이 새는 닫힌 상자
+## thumbnail_2 — 실험안 ①(사람 없음): 같은 크기의 두 받침대 — 매수 신호 버튼 10개 vs 주사위 — 와 두 점선 사이의 가격 선, 위에 닫힌 상자
 
 프롬프트:
 
 ```
 YouTube thumbnail, 16:9 landscape (1280x720), semi-realistic digital illustration with cinematic lighting, deep dark navy background (#0C1424) with a soft glow behind the center.
-Background: a huge three-dimensional stock-price wall seen in perspective, rising from the lower left to the upper right across the image like a mountain ridge with two deep dips. The wall's front face is glowing teal-green (#22C79A) fading to dark at the bottom, its top edge is a bright white glowing line, and a few small glowing orange dots sit on the top edge. There are no axes, no grid lines and no labels.
-At the far upper-right end of the wall sits a heavy closed wooden treasure chest, its lid shut tight, with warm golden light leaking out through the gaps; what is inside cannot be seen.
-Foreground, lower center (about 60% of the width): a gently curved row of ten identical round glowing buttons on identical small pedestals, all exactly the same size, the same height and the same brightness. Above each button floats one small glowing icon: a blank calendar square, a small flag on a pole, an arrow bending upward, a line rising over a smooth yellow line, two smooth lines crossing each other, a red arrow bending downward, a semicircle gauge dial with a needle and no markings, a sharp red mountain-shaped zigzag line, a yellow star high above a dashed yellow line, and a yellow star just above a dashed yellow line.
-There are no people in the image.
-No button is highlighted or pressed; nobody is winning. The mood is suspense: which button would have ended with the most?
-Color accents: teal-green only on the price wall, orange only on the small dots on the wall, red only on the down arrow and the zigzag icon, yellow only on the stars and dashed lines, warm gold only from the chest. Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
-If 16:9 is not available, use the widest landscape canvas; in any case keep the buttons and the chest inside the central 16:9 area, at least 8% away from the top and bottom edges.
-Absolutely no text, no letters, no numbers, no symbols, no percent signs, no question marks, no logos and no watermarks anywhere in the image. The buttons are plain with nothing written on them; the calendar is an empty square; the gauge has no numbers or tick labels; the price wall has no labels; there are no screens, no papers and no signs.
+Background: a huge three-dimensional stock-price wall seen in perspective, rising gently from the left to the right with several small dips. The wall's front face is glowing deep blue (#3E8FE0) fading to dark at the bottom and its top edge is a bright white glowing line. Just above the end of the wall floats a glowing green dashed horizontal line (#2BE0A0), and just below it a glowing red dashed horizontal line (#FF4D5E) — the price line runs between the two dashed lines and has not touched either one yet. There are no axes, no grid lines and no labels.
+Between the green dashed line and the top of the image floats a heavy closed wooden treasure chest, its lid shut tight, with warm golden light leaking out through the gaps; what is inside cannot be seen.
+Foreground, bottom: two identical glowing pedestals of exactly the same size and height, side by side. On the left pedestal: ten small identical round glowing buttons in two rows of five, and above each button floats one small glowing icon: a blank calendar square, a small flag on a pole, an arrow bending upward, a line rising over a smooth yellow line, two smooth lines crossing each other, a red arrow bending downward, a semicircle gauge dial with a needle and no markings, a sharp red mountain-shaped zigzag line, a yellow star above a dashed yellow line, and a yellow star just above a dashed yellow line. On the right pedestal: one big glowing white die with only round pips, taking up exactly the same space as the group of ten buttons.
+There is no person in the image.
+Neither side is highlighted, pressed or brighter; nobody is winning. The mood is suspense: which one reaches the green line first?
+Color accents: green only on the upper dashed line, red only on the lower dashed line, the down arrow and the zigzag icon, yellow only on the stars and dashed icon lines, blue on the price wall, warm gold only from the chest. Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
+If 16:9 is not available, use the widest landscape canvas; in any case keep the pedestals and the chest inside the central 16:9 area, at least 8% away from the top and bottom edges.
+Absolutely no text, no letters, no numbers, no symbols, no percent signs, no question marks, no logos and no watermarks anywhere in the image. The buttons are plain with nothing written on them; the die shows only round pips; the calendar is an empty square; the gauge has no numbers or tick labels; the price wall and the dashed lines have no labels; there are no screens, no papers and no signs.
 ```
 
-## thumbnail_3 — 실험안 ②(클로즈업): 매수 버튼 10개 위에 뜬 손가락과 망설이는 얼굴을 크게, 가격 벽과 닫힌 상자는 뒤에 작게
+## thumbnail_3 — 실험안 ②(클로즈업): 신호 버튼과 주사위 위에 떠 있는 두 손과 망설이는 얼굴, 뒤로 흐린 두 점선 사이의 가격 선과 닫힌 상자
 
 프롬프트:
 
 ```
-YouTube thumbnail, 16:9 landscape (1280x720), semi-realistic digital illustration with cinematic lighting, deep dark navy background (#0C1424) with a soft glow behind the center.
-Background: a huge three-dimensional stock-price wall seen in perspective, rising from the lower left to the upper right across the image like a mountain ridge with two deep dips. The wall's front face is glowing teal-green (#22C79A) fading to dark at the bottom, its top edge is a bright white glowing line, and a few small glowing orange dots sit on the top edge. There are no axes, no grid lines and no labels.
-At the far upper-right end of the wall sits a heavy closed wooden treasure chest, its lid shut tight, with warm golden light leaking out through the gaps; what is inside cannot be seen.
-Foreground, along the bottom edge (about 30% of the height), seen up close: a gently curved row of ten identical round glowing buttons on identical small pedestals, all exactly the same size, the same height and the same brightness. Above each button floats one small glowing icon: a blank calendar square, a small flag on a pole, an arrow bending upward, a line rising over a smooth yellow line, two smooth lines crossing each other, a red arrow bending downward, a semicircle gauge dial with a needle and no markings, a sharp red mountain-shaped zigzag line, a yellow star high above a dashed yellow line, and a yellow star just above a dashed yellow line.
-Left half: a close-up of a fictional person in their late thirties in a dark jacket — face, shoulder and one hand fill the left half of the frame; the index finger hovers just above the buttons without touching any of them, eyes moving along the row; the expression is thoughtful and hesitant — not happy, not worried. The price wall and the chest are smaller and softly out of focus behind them.
-No button is highlighted or pressed; nobody is winning. The mood is suspense: which button would have ended with the most?
-Color accents: teal-green only on the price wall, orange only on the small dots on the wall, red only on the down arrow and the zigzag icon, yellow only on the stars and dashed lines, warm gold only from the chest. Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
-If 16:9 is not available, use the widest landscape canvas; in any case keep the face, the buttons and the chest inside the central 16:9 area, at least 8% away from the top and bottom edges.
+YouTube thumbnail, 16:9 landscape (1280x720), semi-realistic digital illustration, close-up composition with shallow depth of field, deep dark navy background (#0C1424).
+Center foreground, large: two hands of a fictional person hovering in the air, touching nothing. Under the left hand: a cluster of small round glowing buttons, each with one small glowing icon floating above it (a blank calendar square, a small flag on a pole, an arrow bending upward, a line rising over a smooth yellow line, two smooth lines crossing each other, a red arrow bending downward, a semicircle gauge dial with a needle and no markings, a sharp red mountain-shaped zigzag line, a yellow star above a dashed yellow line, and a yellow star just above a dashed yellow line). Under the right hand: one big glowing white die with only round pips, the same overall size as the button cluster.
+Upper left: the side of the person's face, thoughtful and hesitant, eyes moving between the buttons and the die — not happy, not worried.
+Blurred background: a white glowing price line running to the right between a glowing green dashed line above (#2BE0A0) and a glowing red dashed line below (#FF4D5E), touching neither; small and far away near the top, a closed wooden treasure chest with warm golden light leaking from its lid.
+Neither choice is highlighted, pressed or brighter; nobody is winning. Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
+If 16:9 is not available, use the widest landscape canvas; in any case keep the hands, the face, the die and the buttons inside the central 16:9 area, at least 8% away from the top and bottom edges.
 Fictional person, not resembling any real or famous person.
-Absolutely no text, no letters, no numbers, no symbols, no percent signs, no question marks, no logos and no watermarks anywhere in the image. The buttons are plain with nothing written on them; the calendar is an empty square; the gauge has no numbers or tick labels; the price wall has no labels; there are no screens, no papers and no signs.
+Absolutely no text, no letters, no numbers, no symbols, no percent signs, no question marks, no logos and no watermarks anywhere in the image. The buttons are plain with nothing written on them; the die shows only round pips; the calendar is an empty square; the gauge has no numbers or tick labels; the price wall and the dashed lines have no labels; there are no screens, no papers and no signs.
 ```

@@ -1,8 +1,12 @@
 # -*- coding: utf-8 -*-
-# VERSION: v1.3 — 2026-10-16 — 성공 판정 매도 'barrier=(m, n)' + 자주 나오는 매수 방법 10가지(RULES_V4·ORDER_V4) + 기준 'any'(매도 다음 날 바로 다시 매수).
+# VERSION: v1.4 — 2026-10-16 — 무작위 매수 기준 (사용자 지시 2026-10-16 "그럼 신호 없이 무작위로 매수 했을 때랑 비교하는 거지? 그게 맞는거 같은데"):
+#          barrier_table() = 거래일마다 그날 종가에 샀다면 먼저 닿는 쪽(성공·실패)과 그 날 · random_entry() = 신호 없이 날짜만 무작위로 산 계좌 R 개
+#          (방법과 같은 규칙: 매도한 날 뒤 기다리는 거래일 수를 그 방법의 실제 기다림에서 무작위로 뽑음 → 같은 횟수·같은 쉬는 기간, 날짜만 무작위)
+#          — 시드 고정·로그. 판정은 simulate(barrier=…) 와 같은 종가·같은 허용 오차 (시험이 같은지 확인). 매수 규칙·simulate 는 그대로.
+# (v1.3 — 2026-10-16 — 성공 판정 매도 'barrier=(m, n)' + 자주 나오는 매수 방법 10가지(RULES_V4·ORDER_V4) + 기준 'any'(매도 다음 날 바로 다시 매수).
 #          사용자 지시 2026-10-16 "수익률로 비교하지말고 성공 기준을 매수 후 해당 지점에서 m%이하로 떨어지지 않고 매수 지점에서 n% 이상 상승하면
 #          성공으로 하자" · 앞선 지시 "조건 발생이 너무 희소해서 거래 횟수가 없고 현금 가지고 있는 기간이 많아서 그런것 같아 매수 방법으로 다 변경해보고
-#          매도 규칙도 변경해봐": 산 뒤 종가가 산 값 × (1+n) 이상이 먼저 나오면 성공(win), 산 값 × (1−m) 이하가 먼저 나오면 실패(loss) — 그 날 종가를 보고
+#          매도 규칙도 변경해봐": 산 뒤 종가가 산 값 × (1+n) 이상이 먼저 나오면 성공(win), 산 값 × (1−m) 이하가 먼저 나오면 실패(loss) — 그 날 종가를 보고)
 #          다음 거래일 종가에 매도 (다른 규칙과 같은 '다음 날' 약속). 거래 기록에 result·hit_i·target·stop. 예전 규칙(RULES)·trail·hold 는 그대로.
 # (v1.2 — 2026-10-16 — 공통 매도 규칙에 '산 뒤 최고 종가에서 n% 떨어지면 매도'(trail) 더함 (사용자 지시 2026-10-16 "매도 조건을 1년뒤로
 #          하지말고 매수 이후 고점에서 n%하락할 때로 해봐 n은 너가 적당히 설정하고"): simulate(trail=0.10) — 그날 종가가 산 뒤 최고 종가 × (1−n) 이하면
@@ -61,7 +65,7 @@ import pandas as pd
 from . import daily as dl
 
 LOG = logging.getLogger("backtest.entry")
-VERSION = "v1.3"
+VERSION = "v1.4"
 HOLD_DAYS = 252                                                  # 기본 공통 매도: 산 날부터 252 거래일(약 1년) 뒤 종가
 _TOL = 1e-12                                                     # 문턱 비교 허용 오차 (0.9×100 = 90.00000000000001 같은 부동소수 끝자리)
 
@@ -267,6 +271,75 @@ def simulate(key, ind, s, e, hold=HOLD_DAYS, capital=10_000.0, cost=0.001, px=No
         if barrier is not None and dates is not None:
             t["hit_date"] = str(dates[t["hit_i"]].date()) if t.get("hit_i") is not None else None
     return Run(key, idx, val, held, trades, ("barrier", barrier) if barrier is not None else ("trail", trail) if trail is not None else hold)
+
+
+# ----------------------------------------------------------------------------- 무작위 매수 기준 (v1.4)
+def barrier_table(close, s, e, m, n):
+    """거래일 b(s..e)의 종가에 샀다면: 산 뒤 처음으로 종가 ≥ 산 값 × (1+n) → 성공(1) / ≤ × (1−m) → 실패(0) 가 나온 날 h.
+    → (res, hit) 길이 len(close) — b 의 값만 채움 (e 까지 판정 없으면 res = -1, hit = -1). simulate(barrier=…) 와 같은 비교·허용 오차.
+    미래 정보: b 의 판정은 b 뒤 종가로 '나중에' 정해지는 결과이고, 무작위 매수 날짜를 고를 때는 쓰지 않는다 (날짜는 기다림 수로만 정함)."""
+    p = np.asarray(close, float)
+    res, hit = np.full(len(p), -1, np.int8), np.full(len(p), -1, np.int64)
+    for b in range(s, e + 1):
+        up, dn = p[b] * (1 + n) * (1 - _TOL), p[b] * (1 - m) * (1 + _TOL)
+        seg = p[b + 1:e + 1]
+        if not len(seg):
+            continue
+        iu, idn = np.flatnonzero(seg >= up), np.flatnonzero(seg <= dn)
+        ju, jd = (iu[0] if len(iu) else 1 << 60), (idn[0] if len(idn) else 1 << 60)
+        if ju == jd == 1 << 60:
+            continue
+        if ju < jd:
+            res[b], hit[b] = 1, b + 1 + ju
+        else:                                                    # 같은 날 둘 다는 불가능 (n, m > 0)
+            res[b], hit[b] = 0, b + 1 + jd
+    return res, hit
+
+
+def method_waits(run, s):
+    """그 방법이 실제로 기다린 거래일 수: 첫 매수는 (신호 날 − (s−1)), 그 뒤는 (신호 날 − 매도한 날). 신호 날 = 매수 날 − 1."""
+    out, prev = [], s - 1
+    for t in run.trades:
+        out.append(int(t["buy_i"] - 1 - prev))
+        if t["open"]:
+            break
+        prev = t["sell_i"]
+    return np.array(out, np.int64)
+
+
+def random_entry(table, waits, s, e, runs=2000, seed=20261016):
+    """신호 없이 날짜만 무작위로 산 계좌 runs 개 (같은 매도 규칙). 기다림 = waits 에서 복원 추출 (방법과 같은 분포 → 비슷한 횟수·쉬는 기간).
+    signal 날 d = 마지막 매도 날 + 기다림 → d+1 종가 매수 → table 판정 날 h → h+1 매도 (h = e 이면 판정만 세고 보유 중).
+    → dict: wins·losses (runs × (e−s+1), 그날까지 판정 난 누적 — int32), rates (runs,), trades (runs,), seed."""
+    res, hit = table
+    rng = np.random.default_rng(seed)
+    L = e - s + 1
+    W, Lo = np.zeros((runs, L), np.int32), np.zeros((runs, L), np.int32)
+    nt = np.zeros(runs, np.int64)
+    waits = np.asarray(waits, np.int64)
+    if not len(waits):
+        raise ValueError("[TRADE] random_entry: 방법의 기다림이 비어 있음 (거래 0) → 무작위 기준을 만들 수 없음")
+    for r in range(runs):
+        last = s - 1
+        while True:
+            d = last + int(waits[rng.integers(len(waits))])
+            b = d + 1
+            if b > e:
+                break
+            nt[r] += 1
+            if res[b] < 0:                                       # 끝까지 판정 없음 (보유 중)
+                break
+            h = int(hit[b])
+            (W if res[b] == 1 else Lo)[r, h - s] += 1
+            if h + 1 > e:
+                break
+            last = h + 1
+    W, Lo = np.cumsum(W, axis=1, dtype=np.int32), np.cumsum(Lo, axis=1, dtype=np.int32)
+    dec = W[:, -1] + Lo[:, -1]
+    rates = np.where(dec > 0, W[:, -1] / np.maximum(dec, 1), np.nan)
+    log("TRADE", random_runs=runs, seed=seed, waits=len(waits), wait_median=float(np.median(waits)),
+        trades_median=float(np.median(nt)), rate_mean=f"{np.nanmean(rates):.3f}", rate_p5=f"{np.nanpercentile(rates, 5):.3f}", rate_p95=f"{np.nanpercentile(rates, 95):.3f}")
+    return {"wins": W, "losses": Lo, "rates": rates, "trades": nt, "seed": seed, "runs": runs}
 
 
 def stats(run, capital=10_000.0):

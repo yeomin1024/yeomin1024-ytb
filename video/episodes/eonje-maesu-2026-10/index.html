@@ -3,87 +3,80 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>매수 신호 10가지 백테스트</title>
-<!-- VERSION: v3.0 — 2026-10-16 — 사용자 지시 2026-10-16 "왜 오른쪽 2개 박스들 디자인 이미지 그대로 사용 안했어? 그게 나은데 다시 수정하고 메인 차트는 고정된 화면에서
-     다 보여줄려면 잘 표현안되니까 스크롤하면서 여유있게 보여주도록 해 그리고 메인인 실시간 비교 전 도입부가 너무 길어 20초 안으로 다 설명하게 해 그리고 차트 선 위에 하얀
-     영역이 작게 붙여서 나오는게 그렇게 하지말고 단일 선으로 해" · "내가 말한 도입은 도입 + 규칙 설명이야 무리면 적어도 30초안에는 끝내도록 해":
-     ① 오른쪽 카드 2개 = 시안 race3d.html v1.1 그대로(계좌 + BUY & HOLD + 계좌 그래프 · 거래 기록 번호·BUY 날·값 → SELL 날·값·수익률·손익, 들고 있으면 ⌛ + 매도선 값)
-        + 아래 합계(▲·▼ 개수 옆 돈 합 · ⌛ · Σ), 글자 15~40px 은 시안 그대로라 check 의 36px 검사에서 뺌(data-small, render.mjs v1.7) · 최근 6줄
-     ② 경주 = 보이는 창 약 2년(504 거래일)이 날짜를 따라 옆으로 흐름, 값 범위도 창에 맞춤(지난 값만, 커질 땐 바로·줄 땐 천천히) · 분기 바닥 선·연도
-     ③ 지붕(흰 띠) 없앰 → 가격 선 하나 · 빨간 매도선을 벽보다 나중에 그림(벽 뒤에 비쳐 흐리던 것) · 매도선 이름 −10%
-     ④ 도입 + 같은 조건 = 대본 v2.1 s1~s6 (추정 20.2초) → 바로 1번 경주 (1번 장은 3D 확대 설명 없이, BUY & HOLD 줄을 노란 테두리로)
-     v2.1 — 2026-10-16 — render.mjs check 정리 (문제 1,031 → 0): 오른쪽 카드를 화면 안(기울임 없앰, 위 142~아래 1012) · 카드 1 = 값·% 를 오른쪽에
-     위아래로(계좌 그래프 뺌) · 카드 2 = 한 줄에 거래 하나(최근 5) + 합계 ▲·▼·⌛·Σ(▲+▼+⌛ = Σ) · 날짜·머리 위 30px 안 · 지표 지금 값을 머리 줄 안으로 ·
-     오늘 값 꼬리표·기준선 이름은 카드 쪽이면 왼쪽으로, 축 글자와 겹치면 그 프레임만 숨김 · 가격 격자·축을 벽 앞면에(원근 착시) · 아이콘 속 SVG 글자를
-     선으로(36px) · 기준선 글자 class .thr → .thl (kit.css .thr 와 겹쳐 6px 폭으로 재짐) · 끝 막대 카메라 가까이(값 글자 겹침) · 다시 산 값 막대
-     길이·'다시 산 날' 장면 시각 · 한계 카드 글자 크기.
-     v2.0 — 2026-10-16 — 주식 1번 v2 영상 장면 (대본 eonje-maesu-2026-10.txt 111문장 · 숫자 = backtest/anim.js ← run.py v3.0).
-     사용자 지시 2026-10-16: "매도 조건을 1년뒤로 하지말고 매수 이후 고점에서 n%하락할 때로 해봐 … 수수료도 평균으로 … 기간 늘려 … 2번째 박스 하단에
-     개수 표현하는 숫자에 총합도 같이 표시해 이렇게 수정하고 영상 만들어봐" · 앞선 지시 "buy and hold랑 비교하지말고 주가 차트에서 매수/매도 지점을
-     표시하는 걸로 하자 buy, sell 문구 붙여서 표시하고" · "상단에 매도 조건 … 빼 … 1번째 박스에는 맨처음에 매수하고 그냥 냅둔 수익도 표시해" ·
-     "설명할 때 영상이 왤케 부실해 아니 좀 입체적으로 표현 하는 도구 없어?" → Three.js(WebGL) 3D: 경주 = 3D 가격 벽(초록 = BUY~SELL, 회색 = 현금) +
-     BUY/SELL 핀 + 매도선(산 뒤 최고 × 0.9, 빨간 점선), 규칙 설명 = 실제 신호 날 앞뒤 3D 확대, 끝 통계 = 3D 막대 + BUY & HOLD 판.
-     화면 글자: 숫자·기호·아이콘 + BUY·SELL·BUY & HOLD·SPY·S&P 500·RSI·VIX (stock/guides/README.md 4번). 자막 없음. 모든 글자 36px 이상.
-     시안: video/prototypes/stock-entry-2026-10-16/race3d.html v1.1. 연구·교육용 영상 — 투자 권유 아님. -->
+<title>매수 신호 10가지 성공률 백테스트</title>
+<!-- VERSION: v4.0 — 2026-10-16 — 주식 1번 v4 '성공률' 장면 (대본 eonje-maesu-2026-10.txt v3.0 163문장 · 숫자 = backtest/barrier/anim.js ← barrier/run.py v2.0).
+     사용자 지시 2026-10-16 "그럼 신호 없이 무작위로 매수 했을 때랑 비교하는 거지? 그게 맞는거 같은데 그리고 m을 1~2%로 해야 엄격하게 봐서 성공 확률이 줄지
+     m은 내가 말한 범위에서 적절하게 정해서 영상 만들어봐" · 앞선 지시 "수익률로 비교하지말고 성공 기준을 매수 후 해당 지점에서 m%이하로 떨어지지 않고 매수 지점에서
+     n% 이상 상승하면 성공으로 하자" · "조건 발생이 너무 희소해서 … 매수 방법으로 다 변경해보고 매도 규칙도 변경해봐 그리고 차트에 나오는 buy, sell 글자 때문에
+     차트를 다 가려서 지점이 잘 안보여 그리고 buy, sell 이 없는 구간만 빠르게 넘겨 있는 부분도 빠르게 넘기니까 중요한 부분이 있으면 느리게 그외는 적당한 속도로":
+     ① 경주 (시안 race3d_v4.html v1.0 을 옮김): 차트 위 BUY/SELL 글자 없음 — 매수 = 흰 고리, 판정 = 색 점(초록 성공·빨강 실패), 거래 구간 = 벽 색(초록 ✓ · 빨강 ✗ ·
+        파랑 판정 전 · 회색 현금 — 그날까지 판정 난 것만 색), 판정 전 거래만 +5%(초록)·−2%(빨강) 점선, 글자는 가장 최근 판정 칩 하나(약 1.5초 뒤 흐려짐)
+     ② 오른쪽 카드 = 시안 모양: 성공률(이 방법 vs 🎲 무작위 2천 개 평균·90% 범위, 그날까지 판정 난 것만) + 그래프(회색 띠 = 무작위 90%) · 거래 기록(✓/✗ · 실제 %)
+     ③ 속도: 문장 기준점 사이를 날마다 무게로 나눔 — 매수·판정 앞뒤 ±4일은 느리게(가장 느릴 때 1/2.5), 그 밖은 같은 몫 (pace.js v1.0 을 옮김, [PACE] 로그)
+     ④ 도입 + 규칙 = 대본 s1~s7 (추정 28초) · 대본 v3.0 163문장 (추정 11분 40초) · 종합 = 성공률 점 + 무작위 띠 · 다른 조건 = 실패 −1%·−1.5%·1994~2015 · 정리 · 한계.
+     (v3.0 — 끝 값 비교·산 뒤 최고 −10% 매도 — 커밋 28e1b7b.) 화면 글자: 숫자·기호·아이콘 + BUY·SELL·SPY·S&P 500·RSI·VIX (stock/guides/README.md 4번).
+     자막 없음. 오른쪽 카드 글자 15~40px 은 시안 그대로(data-small), 그 밖 모든 글자 36px 이상. 연구·교육용 영상 — 투자 권유 아님. -->
 <link rel="stylesheet" href="../../render/kit.css">
 <style>
-#stage{--MI:#2BE0A0;--OR:#FF8A3D;--GR:#93A0B8;--C:#EAF0F8}
+#stage{--MI:#2BE0A0;--OR:#FF8A3D;--GR:#93A0B8;--C:#EAF0F8;--RD:#FF4D5E;--BL:#5AB4FF}
 #gl{position:absolute;left:0;top:0;width:1920px;height:1080px;z-index:0}
 #ov{position:absolute;left:0;top:0;width:1920px;height:1080px;z-index:1;pointer-events:none}
 .sc{z-index:2}
 .tab{font-variant-numeric:tabular-nums}
 .tag{display:inline-block;font:900 36px/1 "Noto Sans KR";padding:9px 14px 8px;border-radius:12px;letter-spacing:.5px;white-space:nowrap}
-.tag.b{background:var(--MI);color:#03231A}.tag.s{background:var(--OR);color:#2A1100}.tag.h{background:transparent;border:3px solid #AFC0DA;color:#D6E0EF;padding:6px 11px 5px}
+.tag.b{background:var(--MI);color:#03231A}.tag.s{background:var(--OR);color:#2A1100}
 .lab{position:absolute;transform:translate(-50%,-50%);white-space:nowrap}
-.pin{display:flex;align-items:center;gap:8px;filter:drop-shadow(0 6px 14px rgba(0,0,0,.6))}
-.pin .v{font:900 36px/1 "Noto Sans KR";padding:8px 11px;border-radius:10px;background:rgba(5,10,22,.86);border:2px solid rgba(255,255,255,.14)}
-.up{color:var(--MI)}.dn{color:#FF4D5E}
+.up{color:var(--MI)}.dn{color:var(--RD)}
 .stem{position:absolute;width:3px;transform:translateX(-50%);border-radius:2px}
 .ax{font:700 36px/1 "Noto Sans KR";color:#7F8BA3}
 .cur{position:absolute;transform:translate(-50%,-100%);font:900 38px/1 "Noto Sans KR";color:#fff;padding:9px 14px;border-radius:12px;background:rgba(255,212,0,.16);border:2px solid rgba(255,212,0,.65);white-space:nowrap}
 .thl{position:absolute;transform:translate(0,-50%);font:900 36px/1 "Noto Sans KR";color:var(--Y);white-space:nowrap;text-shadow:0 2px 10px rgba(0,0,0,.85)}
-.thl.r{color:#FF6B6B}   /* kit.css .thr(노란 점선 눈금)와 이름이 겹치지 않게 */
-/* 경주 머리·카드 */
+.bar{position:absolute;transform:translate(0,-50%);font:900 36px/1 "Noto Sans KR";white-space:nowrap;padding:5px 10px;border-radius:10px;background:rgba(5,10,22,.72);border:2px solid}
+.chip{position:absolute;transform:translate(-50%,-100%);display:flex;align-items:center;gap:8px;font:900 38px/1 "Noto Sans KR";padding:8px 13px;border-radius:12px;background:rgba(5,10,22,.86);border:2px solid;white-space:nowrap;filter:drop-shadow(0 6px 14px rgba(0,0,0,.55))}
+/* 경주 머리 */
 .no{width:84px;height:84px;border-radius:24px;background:linear-gradient(160deg,#FFE24D,#E8B800);color:#1A1300;font:900 50px/84px "Noto Sans KR";text-align:center;box-shadow:0 10px 26px rgba(255,212,0,.25),inset 0 -5px 0 rgba(0,0,0,.18)}
 .rule{display:flex;align-items:center;gap:16px;height:84px;padding:0 28px;border-radius:24px;background:rgba(255,255,255,.06);border:2px solid rgba(255,255,255,.12);font:900 44px/1 "Noto Sans KR";white-space:nowrap}
 .date{position:absolute;left:1290px;top:46px;width:590px;text-align:right;font:900 68px/1 "Noto Sans KR";letter-spacing:1px;text-shadow:0 6px 30px rgba(0,0,0,.5)}
-/* 오른쪽 카드 2개 = 시안 race3d.html v1.1 그대로 (사용자 지시 2026-10-16 "오른쪽 2개 박스들 디자인 이미지 그대로 사용 안했어? 그게 나은데 다시 수정하고")
-   — 글자 15~40px 은 시안 그대로라 render.mjs check 의 36px 검사에서 뺌 (data-small, render.mjs v1.7). 다른 장면 class 와 겹치지 않게 .side 아래로만. */
-.side{position:absolute;left:1352px;top:124px;width:540px;display:flex;flex-direction:column;gap:22px;perspective:1600px}
-.side .card{position:relative;border-radius:26px;padding:24px 28px;background:linear-gradient(160deg,rgba(255,255,255,.09),rgba(255,255,255,.03));
+/* 오른쪽 카드 2개 = 시안 race3d_v4.html v1.0 (글자 15~40px — render.mjs check 의 36px 검사에서 뺌: data-small). .side 아래로만. */
+.side{position:absolute;left:1352px;top:132px;width:540px;display:flex;flex-direction:column;gap:22px;perspective:1600px}
+.side .card{position:relative;border-radius:26px;padding:22px 26px;background:linear-gradient(160deg,rgba(255,255,255,.09),rgba(255,255,255,.03));
   border:1.5px solid rgba(255,255,255,.13);box-shadow:0 24px 50px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.12);transform:rotateY(-7deg);transform-origin:left center}
-.side .ch{display:flex;align-items:center;gap:12px;font:700 24px/1 "Noto Sans KR";color:var(--GR);margin-bottom:14px}
+.side .ch{display:flex;align-items:center;gap:12px;font:900 24px/1 "Noto Sans KR";color:var(--GR);margin-bottom:14px}
 .side .ic{width:40px;height:40px;flex:0 0 40px}
 .side .big{font:900 64px/1 "Noto Sans KR";letter-spacing:-.5px}
-.side .mid{font:900 34px/1 "Noto Sans KR"}
-.side .acc{display:flex;align-items:center;gap:14px}
-.side .acc .who{flex:0 0 auto}
-.side .rb{display:inline-block;width:46px;height:46px;border-radius:14px;background:linear-gradient(160deg,#FFE24D,#E8B800);color:#1A1300;font:900 30px/46px "Noto Sans KR";text-align:center}
+.side .cri{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:9px;font:900 22px/1 "Noto Sans KR"}
+.side .cri.w{background:rgba(43,224,160,.14);color:var(--MI)}.side .cri.l{background:rgba(255,77,94,.14);color:var(--RD)}
+.side .acc{position:relative;display:flex;align-items:center;gap:14px}
+.side .rb{display:inline-block;width:46px;height:46px;border-radius:14px;background:linear-gradient(160deg,#FFE24D,#E8B800);color:#1A1300;font:900 30px/46px "Noto Sans KR";text-align:center;flex:0 0 46px}
 .side .acc .big{flex:1}
+.side .wl{display:flex;flex-direction:column;align-items:flex-end;gap:6px;font:900 24px/1 "Noto Sans KR"}
 .side .acc.bh{margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.08)}
-.side .bhp{display:inline-block;font:900 19px/1 "Noto Sans KR";padding:8px 10px 7px;border-radius:9px;border:2px solid #AFC0DA;color:#D6E0EF;letter-spacing:.3px}
-.side .acc.bh .bv{flex:1;font:900 40px/1 "Noto Sans KR";color:#D6E0EF}
-.side .acc.bh .bp{font:900 30px/1 "Noto Sans KR";color:#D6E0EF}
-.side .bh-hl{position:absolute;inset:-6px -8px;border-radius:14px;border:3px solid #FFD400;box-shadow:0 0 24px rgba(255,212,0,.45);pointer-events:none}
-.side .t2{display:grid;grid-template-columns:30px 1fr 18px 1fr 104px;align-items:center;gap:8px;padding:5px 6px;border-top:1px solid rgba(255,255,255,.07)}
+.side .bhp{display:inline-flex;align-items:center;gap:6px;font:900 20px/1 "Noto Sans KR";padding:6px 9px 5px;border-radius:9px;border:2px solid #AFC0DA;color:#D6E0EF;flex:0 0 auto}
+.side .acc.bh .bv{flex:1;font:900 44px/1 "Noto Sans KR";color:#D6E0EF}
+.side .acc.bh .bd{font:900 22px/1.25 "Noto Sans KR";color:#AFC0DA;text-align:right}
+.side .hl{position:absolute;inset:-8px -10px;border-radius:14px;border:3px solid #FFD400;box-shadow:0 0 24px rgba(255,212,0,.45);pointer-events:none}
+.side .sp{position:relative;margin-top:12px}
+.side .t2{display:grid;grid-template-columns:30px 1fr 18px 1fr 92px;align-items:center;gap:8px;padding:6px 6px;border-top:1px solid rgba(255,255,255,.07)}
 .side .t2:first-of-type{border-top:0}
-.side .t2 .k{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.08);font:900 16px/28px "Noto Sans KR";text-align:center;color:var(--GR)}
+.side .t2 .k{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.08);font:900 15px/28px "Noto Sans KR";text-align:center;color:var(--GR)}
 .side .t2 .cl{display:grid;grid-template-columns:auto 1fr;column-gap:7px;row-gap:3px;align-items:center}
-.side .t2 .cl b{grid-row:1/3;font:900 15px/1 "Noto Sans KR";padding:5px 6px 4px;border-radius:6px}
-.side .t2 .cl b.b{background:var(--MI);color:#03231A}.side .t2 .cl b.s{background:var(--OR);color:#2A1100}
+.side .t2 .cl b{grid-row:1/3;font:900 15px/1 "Noto Sans KR";padding:5px 6px 4px;border-radius:6px;text-align:center;min-width:30px}
+.side .t2 .cl b.b{background:var(--MI);color:#03231A}
+.side .t2 .cl b.w{background:rgba(43,224,160,.16);color:var(--MI);font-size:20px;padding:3px 6px}
+.side .t2 .cl b.l{background:rgba(255,77,94,.16);color:var(--RD);font-size:20px;padding:3px 6px}
 .side .t2 .dt{font:900 19px/1 "Noto Sans KR";color:#E6ECF5}
 .side .t2 .px{font:700 16px/1 "Noto Sans KR";color:#8E9BB4}
 .side .t2 .ar{color:var(--GR);font:700 18px/1 "Noto Sans KR";text-align:center}
-.side .t2 .rs{text-align:right;display:flex;flex-direction:column;gap:3px}
-.side .t2 .rs .r{font:900 23px/1 "Noto Sans KR"}
-.side .t2 .rs .u{font:700 16px/1 "Noto Sans KR"}
-.side .t2.open{background:rgba(43,224,160,.08);border-radius:10px}
-.side .t2.open .cl b.s{opacity:.45}
-.side .foot{display:flex;gap:22px;margin-top:12px;font:900 26px/1 "Noto Sans KR"}
-/* (시안 + 사용자 지시 2026-10-16 "2번째 박스 하단에 개수 표현하는 숫자에 총합도 같이 표시해") 개수 옆에 합계 · 둘째 줄 ⌛ 들고 있는 거래 · Σ */
-.side .foot2{display:flex;align-items:center;gap:22px;margin-top:10px;font:900 26px/1 "Noto Sans KR"}
-.side .foot2 .sum{margin-left:auto;font-size:30px;color:#fff}
-.legend{position:absolute;left:44px;top:958px;display:flex;align-items:center;gap:12px;font:900 36px/1 "Noto Sans KR";color:#C9D2E2}
+.side .t2 .r{text-align:right;font:900 23px/1 "Noto Sans KR"}
+.side .t2.open{background:rgba(90,180,255,.09);border-radius:10px}
+.side .gauge{position:relative;height:36px}
+.side .gauge .bx{position:absolute;left:24px;right:24px;top:0;bottom:0}
+.side .gauge .tr{position:absolute;left:0;right:0;top:15px;height:7px;border-radius:4px;background:linear-gradient(90deg,#FF4D5E 0%,#3A4560 28.6%,#2BE0A0 100%)}
+.side .gauge .z{position:absolute;top:9px;width:2px;height:19px;background:#AFC0DA;opacity:.7}
+.side .gauge .m{position:absolute;top:6px;width:24px;height:24px;margin-left:-12px;border-radius:50%;background:#fff;box-shadow:0 0 0 4px rgba(90,180,255,.45)}
+.side .gauge .e{position:absolute;top:7px;font:900 22px/1 "Noto Sans KR"}
+.legend{position:absolute;left:44px;top:958px;display:flex;align-items:center;gap:12px;font:900 36px/1 "Noto Sans KR";color:#C9D2E2;padding:6px 10px;border-radius:14px}
+.legend.on{box-shadow:0 0 0 3px #FFD400,0 0 24px rgba(255,212,0,.45)}
 .sw{display:inline-block;width:40px;height:20px;border-radius:6px}
 /* 장면 공통 */
 .card2{position:absolute;border-radius:28px;background:linear-gradient(160deg,rgba(255,255,255,.08),rgba(255,255,255,.025));border:2px solid rgba(255,255,255,.12);box-shadow:0 30px 60px rgba(0,0,0,.45)}
@@ -94,6 +87,10 @@
 .tile{width:150px;height:150px;border-radius:30px;display:grid;place-items:center;background:linear-gradient(160deg,rgba(255,255,255,.1),rgba(255,255,255,.03));border:2px solid rgba(255,255,255,.14);box-shadow:0 20px 40px rgba(0,0,0,.45)}
 .badge2{display:inline-grid;place-items:center;min-width:60px;height:60px;padding:0 10px;border-radius:18px;background:linear-gradient(160deg,#FFE24D,#E8B800);color:#1A1300;font:900 38px/1 "Noto Sans KR"}
 .row{display:flex;align-items:center;gap:16px}
+.fr{position:absolute;height:64px}
+.fr .band{position:absolute;top:18px;height:28px;border-radius:14px;background:rgba(175,192,218,.28);border:2px solid rgba(175,192,218,.45)}
+.fr .mean{position:absolute;top:10px;width:4px;height:44px;margin-left:-2px;background:#D6E0EF;border-radius:2px}
+.fr .dot{position:absolute;top:12px;width:40px;height:40px;margin-left:-20px;border-radius:50%;border:4px solid #05080F;box-shadow:0 0 18px rgba(0,0,0,.6)}
 </style>
 </head>
 <body>
@@ -103,23 +100,24 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
 <script>window.THREE || document.write('<script src="../../render/node_modules/three/build/three.min.js"><\/script>');</script>
-<script id="ep-data">/*EP-DATA:BEGIN*/window.EP={"id":"eonje-maesu-2026-10","topic":"stock","duration":444.49,"audio":null,"estimated":true,"est_model":{"perSyl":0.151,"comma":0.25,"base":-0.08,"min":0.8,"lead":0.3,"gap":0.45,"part":1,"tail":0.8},"synced":"2026-10-16T14:20:14Z","sent":[{"n":1,"part":"도입","text":"주식은 언제 매수해야 할까요?","start":0.3,"end":2.032},{"n":2,"part":"도입","text":"많이 쓰는 매수 신호 10가지를 SPY로 백테스트해 보겠습니다.","start":2.482,"end":6.63},{"n":3,"part":"도입","text":"2016년부터 지금까지, 모두 1만 달러, 수수료 0.25%예요.","start":7.08,"end":11.879},{"n":4,"part":"도입","text":"매도는 모두 같습니다.","start":12.329,"end":13.608},{"n":5,"part":"도입","text":"매수한 뒤 최고 종가보다 10% 떨어지면 다음 날 매도해요.","start":14.058,"end":17.753},{"n":6,"part":"도입","text":"신호가 다시 나오면 또 매수합니다.","start":18.203,"end":20.237},{"n":7,"part":"매달 첫 거래일","text":"첫 번째는 가장 단순한 신호, 매달 첫 거래일 매수입니다.","start":21.237,"end":24.729},{"n":8,"part":"매달 첫 거래일","text":"신호를 기다리지 않고, 새 달이 시작되면 바로 매수해요.","start":25.179,"end":28.671},{"n":9,"part":"매달 첫 거래일","text":"오른쪽 위 BUY & HOLD는 첫날 매수하고 그대로 둔 계좌예요.","start":29.121,"end":33.571},{"n":10,"part":"매달 첫 거래일","text":"2016년 1월 4일 첫 매수가 2018년 2월까지 34.8% 올랐습니다.","start":34.021,"end":39.226},{"n":11,"part":"매달 첫 거래일","text":"2020년 3월 코로나 폭락 때는 7.2% 손해를 보고 매도했어요.","start":39.676,"end":44.126},{"n":12,"part":"매달 첫 거래일","text":"다음 달 첫날 다시 매수했고, 이 거래가 75.1% 올랐습니다.","start":44.576,"end":48.974},{"n":13,"part":"매달 첫 거래일","text":"매도한 거래 12번 중 7번이 수익이었어요.","start":49.424,"end":52.062},{"n":14,"part":"매달 첫 거래일","text":"13번 매수해서, 끝 값은 4만 1천 달러입니다.","start":52.512,"end":55.551},{"n":15,"part":"매달 첫 거래일","text":"그대로 둔 계좌 4만 6천 달러보다는 적어요.","start":56.001,"end":58.639},{"n":16,"part":"신고가 돌파","text":"두 번째, 52주 신고가 돌파 매수입니다.","start":59.639,"end":62.376},{"n":17,"part":"신고가 돌파","text":"지난 1년 가장 높았던 종가를 넘어서는 날, 매수합니다.","start":62.826,"end":66.318},{"n":18,"part":"신고가 돌파","text":"오를 때 따라 타는 추세 매수예요.","start":66.768,"end":68.651},{"n":19,"part":"신고가 돌파","text":"2020년 2월 28일에 매도한 뒤, 다시 매수한 건 8월 19일이었어요.","start":69.101,"end":73.952},{"n":20,"part":"신고가 돌파","text":"매도한 값보다 13.8% 비싸게 다시 매수한 셈입니다.","start":74.402,"end":78.097},{"n":21,"part":"신고가 돌파","text":"2022년 2월에 매도한 뒤로는 1년 넘게 신호가 없었고요.","start":78.547,"end":82.393},{"n":22,"part":"신고가 돌파","text":"매도한 거래 6번 중 4번이 수익이었고, 주식을 든 날은 66%였어요.","start":82.843,"end":87.694},{"n":23,"part":"신고가 돌파","text":"7번 매수해서, 끝 값은 2만 3천 달러입니다.","start":88.144,"end":91.032},{"n":24,"part":"모멘텀","text":"세 번째, 12개월 모멘텀 매수입니다.","start":92.032,"end":94.467},{"n":25,"part":"모멘텀","text":"오늘 종가가 1년 전 종가보다 높으면 매수합니다.","start":94.917,"end":97.857},{"n":26,"part":"모멘텀","text":"오르는 해에는 거의 쉬지 않고 주식을 들고 있어요.","start":98.307,"end":101.247},{"n":27,"part":"모멘텀","text":"2020년 3월에는 두 번 연속 손해를 보고 매도했어요.","start":101.697,"end":105.09},{"n":28,"part":"모멘텀","text":"2022년 5월에 매수한 주식은 13.3% 손해를 보고 매도했어요.","start":105.54,"end":110.292},{"n":29,"part":"모멘텀","text":"1년 전보다 낮은 날이 이어져, 다시 매수한 건 2023년 5월이었습니다.","start":110.742,"end":115.593},{"n":30,"part":"모멘텀","text":"매도한 거래 12번 중 6번만 수익이었습니다.","start":116.043,"end":118.832},{"n":31,"part":"모멘텀","text":"13번 매수해서, 끝 값은 2만 6천 달러입니다.","start":119.282,"end":122.321},{"n":32,"part":"이동평균선","text":"네 번째, 200일 이동평균선 돌파 매수입니다.","start":123.321,"end":126.209},{"n":33,"part":"이동평균선","text":"종가가 200일 평균을 아래에서 위로 뚫는 날, 매수합니다.","start":126.659,"end":130.302},{"n":34,"part":"이동평균선","text":"2018년 11월에 매수한 주식은 12.3% 손해를 보고 매도했어요.","start":130.752,"end":135.504},{"n":35,"part":"이동평균선","text":"2020년 3월에 매도하고, 평균선을 다시 넘은 5월 말에 매수했어요.","start":135.954,"end":140.503},{"n":36,"part":"이동평균선","text":"이 거래가 42.2% 올라, 이 신호에서 가장 큰 수익이었습니다.","start":140.953,"end":145.502},{"n":37,"part":"이동평균선","text":"매도한 값보다는 평균 4.9% 비싸게 다시 매수했어요.","start":145.952,"end":149.647},{"n":38,"part":"이동평균선","text":"11번 매수해서, 끝 값은 2만 6천 달러입니다.","start":150.097,"end":153.136},{"n":39,"part":"골든 크로스","text":"다섯 번째, 골든 크로스 매수입니다.","start":154.136,"end":156.42},{"n":40,"part":"골든 크로스","text":"50일 평균선이 200일 평균선을 위로 뚫으면 매수합니다.","start":156.87,"end":160.414},{"n":41,"part":"골든 크로스","text":"매도한 거래 4번이 모두 수익이었어요.","start":160.864,"end":163.2},{"n":42,"part":"골든 크로스","text":"하지만 신호가 드물었습니다.","start":163.65,"end":165.382},{"n":43,"part":"골든 크로스","text":"2023년 10월에 매도한 뒤, 다시 매수한 건 2025년 7월이었어요.","start":165.832,"end":170.683},{"n":44,"part":"골든 크로스","text":"매도한 값보다 49.3% 비싼 값이었습니다.","start":171.133,"end":174.375},{"n":45,"part":"골든 크로스","text":"그래서 주식을 든 날이 59%뿐이었어요.","start":174.825,"end":177.765},{"n":46,"part":"골든 크로스","text":"5번 매수해서, 끝 값은 2만 3천 달러입니다.","start":178.215,"end":181.103},{"n":47,"part":"급락 다음 날","text":"여섯 번째부터는 떨어질 때 매수하는 신호입니다.","start":182.103,"end":185.043},{"n":48,"part":"급락 다음 날","text":"하루에 2% 넘게 떨어지면, 다음 날 매수합니다.","start":185.493,"end":188.834},{"n":49,"part":"급락 다음 날","text":"10가지 가운데 가장 많은 14번을 매수했어요.","start":189.284,"end":192.073},{"n":50,"part":"급락 다음 날","text":"2018년 12월에는 매수한 뒤 13.1% 떨어져 매도했고요.","start":192.523,"end":196.822},{"n":51,"part":"급락 다음 날","text":"2020년 3월에는 보름 사이 세 번이나 매수했어요.","start":197.272,"end":200.514},{"n":52,"part":"급락 다음 날","text":"2020년 3월 19일에 다시 매수한 거래는 80.3% 올랐습니다.","start":200.964,"end":205.565},{"n":53,"part":"급락 다음 날","text":"끝 값은 4만 달러입니다.","start":206.015,"end":207.445},{"n":54,"part":"과매도","text":"일곱 번째, RSI 30 아래 과매도 매수입니다.","start":208.445,"end":211.786},{"n":55,"part":"과매도","text":"RSI는 최근 14일 동안 오른 폭과 내린 폭을 견준 숫자예요.","start":212.236,"end":216.233},{"n":56,"part":"과매도","text":"30 아래면 매도가 많이 몰린 상태로 보고, 매수합니다.","start":216.683,"end":220.175},{"n":57,"part":"과매도","text":"2020년 3월 24일, 바닥 다음 날 매수한 거래가 77.2% 올랐어요.","start":220.625,"end":225.929},{"n":58,"part":"과매도","text":"2023년 10월에 매도한 뒤로는 1년 넘게 기다렸고요.","start":226.379,"end":229.923},{"n":59,"part":"과매도","text":"매도한 거래 8번 중 5번이 수익이었어요.","start":230.373,"end":232.86},{"n":60,"part":"과매도","text":"9번 매수해서, 끝 값은 4만 4천 달러입니다.","start":233.31,"end":236.198},{"n":61,"part":"공포지수","text":"여덟 번째, 공포지수 VIX 30 이상 매수입니다.","start":237.198,"end":240.841},{"n":62,"part":"공포지수","text":"VIX가 높을수록 시장이 크게 흔들릴 거라고 보는 사람이 많다는 뜻이에요.","start":241.291,"end":246.345},{"n":63,"part":"공포지수","text":"첫 매수가 2018년 2월이라, 처음 2년은 현금으로 기다렸습니다.","start":246.795,"end":251.193},{"n":64,"part":"공포지수","text":"2020년 3월 18일에 매수한 거래는 80.7% 올랐어요.","start":251.643,"end":255.791},{"n":65,"part":"공포지수","text":"2024년 8월에도 VIX가 30을 넘어 매수했고, 7.9% 올랐어요.","start":256.241,"end":261.847},{"n":66,"part":"공포지수","text":"11번 매수해서, 끝 값은 3만 4천 달러입니다.","start":262.297,"end":265.336},{"n":67,"part":"큰 하락 매수","text":"아홉 번째, 고점보다 20% 떨어지면 매수하는 큰 하락 매수입니다.","start":266.336,"end":270.885},{"n":68,"part":"큰 하락 매수","text":"그때까지 가장 높았던 종가보다 20% 이상 낮으면 매수해요.","start":271.335,"end":275.332},{"n":69,"part":"큰 하락 매수","text":"2020년 3월 18일에 매수한 거래가 80.7% 올랐습니다.","start":275.782,"end":280.081},{"n":70,"part":"큰 하락 매수","text":"매도한 거래 5번 중 4번이 수익이었습니다.","start":280.531,"end":283.169},{"n":71,"part":"큰 하락 매수","text":"그런데 2023년 10월에 매도한 뒤로는 한 번도 매수하지 못했어요.","start":283.619,"end":287.918},{"n":72,"part":"큰 하락 매수","text":"2025년 4월에도 고점보다 19.0%까지만 떨어졌기 때문입니다.","start":288.368,"end":293.271},{"n":73,"part":"큰 하락 매수","text":"3년 가까이 현금으로 기다려, 끝 값은 2만 4천 달러입니다.","start":293.721,"end":297.515},{"n":74,"part":"저점 매수","text":"마지막 열 번째, 고점보다 10% 떨어지면 매수하는 저점 매수입니다.","start":298.515,"end":303.064},{"n":75,"part":"저점 매수","text":"매도한 뒤에도 고점보다 10% 아래면, 바로 다음 날 다시 매수해요.","start":303.514,"end":307.912},{"n":76,"part":"저점 매수","text":"2020년 3월에는 7.2%, 8.3% 손해로 두 번 매도했어요.","start":308.362,"end":313.213},{"n":77,"part":"저점 매수","text":"3월 18일에 또 매수했고, 이 거래가 80.7% 올랐습니다.","start":313.663,"end":317.91},{"n":78,"part":"저점 매수","text":"2025년 4월 급락 때도 매수해서, 지금 54.9% 수익 중이에요.","start":318.36,"end":323.362},{"n":79,"part":"저점 매수","text":"2022년 하락장에서는 한 해에 네 번 매수했어요.","start":323.812,"end":327.054},{"n":80,"part":"저점 매수","text":"13번 매수해서, 끝 값은 5만 3천 달러입니다.","start":327.504,"end":330.543},{"n":81,"part":"저점 매수","text":"그대로 둔 계좌 4만 6천 달러보다 많아요.","start":330.993,"end":333.48},{"n":82,"part":"종합","text":"10가지 결과를 한 번에 보겠습니다.","start":334.48,"end":336.514},{"n":83,"part":"종합","text":"1위는 고점보다 10% 떨어지면 매수하는 저점 매수, 5만 3천 달러입니다.","start":336.964,"end":341.966},{"n":84,"part":"종합","text":"2위 RSI 4만 4천, 3위 매달 첫 거래일 4만 1천 달러예요.","start":342.416,"end":346.663},{"n":85,"part":"종합","text":"그대로 둔 계좌 4만 6천 달러를 넘은 건 하나뿐이었습니다.","start":347.113,"end":350.657},{"n":86,"part":"종합","text":"아래 다섯 개 중 네 개는, 오를 때 매수하는 추세 신호였어요.","start":351.107,"end":354.75},{"n":87,"part":"종합","text":"차이는 매도한 다음에 생겼습니다.","start":355.2,"end":357.234},{"n":88,"part":"종합","text":"2020년 2월 28일, 10가지 모두 같은 날 매도했어요.","start":357.684,"end":361.478},{"n":89,"part":"종합","text":"매도 규칙이 같으니, 매도한 날은 거의 같았던 거죠.","start":361.928,"end":365.118},{"n":90,"part":"종합","text":"다시 매수할 때가 달랐습니다.","start":365.568,"end":367.3},{"n":91,"part":"종합","text":"추세 신호 네 개는 매도한 값보다 평균 4.0%에서 15.9% 비싸게 다시 매수했어요.","start":367.75,"end":373.71},{"n":92,"part":"종합","text":"저점 매수는 평균 1.4% 싸게, 대부분 다음 날 바로 다시 매수했고요.","start":374.16,"end":378.86},{"n":93,"part":"종합","text":"큰 하락 매수는 7.3% 싸게 매수했지만, 주식을 든 날이 42%뿐이었습니다.","start":379.31,"end":385.067},{"n":94,"part":"다른 조건","text":"매도 기준을 바꾸면 어떨까요?","start":386.067,"end":387.799},{"n":95,"part":"다른 조건","text":"5%로 바꾸면, 그대로 둔 계좌를 넘은 신호가 하나도 없었어요.","start":388.249,"end":392.496},{"n":96,"part":"다른 조건","text":"15%나 20%로 하면 세 개씩 넘었습니다.","start":392.946,"end":396.188},{"n":97,"part":"다른 조건","text":"수수료를 0으로 해도 두 개뿐이었고요.","start":396.638,"end":398.974},{"n":98,"part":"정리","text":"정리하겠습니다.","start":399.974,"end":400.951},{"n":99,"part":"정리","text":"이번 10년 동안, 매수 신호 10가지 중 9가지는 그대로 둔 계좌보다 적었습니다.","start":401.401,"end":406.252},{"n":100,"part":"정리","text":"넘은 하나도, 떨어지면 바로 다시 매수해서 주식을 97% 들고 있던 신호였어요.","start":406.702,"end":412.157},{"n":101,"part":"정리","text":"그대로 둔 계좌는 2020년 3월에 33.7% 떨어지는 걸 견뎌야 했고요.","start":412.607,"end":417.661},{"n":102,"part":"정리","text":"언제 매수하느냐만큼, 매도한 뒤 언제 다시 매수하느냐가 결과를 갈랐습니다.","start":418.111,"end":422.962},{"n":103,"part":"한계","text":"이 결과는 지난 10년의 자료입니다.","start":423.962,"end":425.996},{"n":104,"part":"한계","text":"배당은 다시 투자했고, 세금과 환전 비용은 넣지 않았어요.","start":426.446,"end":430.089},{"n":105,"part":"한계","text":"매도는 종가를 보고 다음 날 했습니다.","start":430.539,"end":432.724},{"n":106,"part":"한계","text":"투자 권유가 아니라, 규칙을 코드로 확인해 본 결과입니다.","start":433.174,"end":436.817},{"n":107,"part":"마무리","text":"다음에 백테스트로 확인해 볼 가설이 있다면 댓글로 알려 주세요.","start":437.817,"end":441.663},{"n":108,"part":"마무리","text":"시청해주셔서 감사합니다.","start":442.113,"end":443.694}],"subs":[]};/*EP-DATA:END*/</script>
-<script src="../../../stock/source/eonje-maesu-2026-10/backtest/anim.js"></script>
+<script id="ep-data">/*EP-DATA:BEGIN*/window.EP={"id":"eonje-maesu-2026-10","topic":"stock","duration":716.29,"audio":null,"estimated":true,"est_model":{"perSyl":0.151,"comma":0.25,"base":-0.08,"min":0.8,"lead":0.3,"gap":0.45,"part":1,"tail":0.8},"synced":"2026-10-16T17:36:09Z","sent":[{"n":1,"part":"도입","text":"매수하자마자 떨어지면, 타이밍을 잘못 잡았나 싶죠.","start":0.3,"end":3.641},{"n":2,"part":"도입","text":"많이 쓰는 매수 신호 10가지가 정말 성공 확률을 높일까요?","start":4.091,"end":7.484},{"n":3,"part":"도입","text":"SPY로 백테스트해 보겠습니다.","start":7.934,"end":10.27},{"n":4,"part":"도입","text":"성공은 매수한 값보다 5% 오르는 것, 그 전에 2% 떨어지면 실패예요.","start":10.72,"end":15.722},{"n":5,"part":"도입","text":"판정이 나면 다음 날 매도하고, 신호가 나오면 다시 매수합니다.","start":16.172,"end":20.117},{"n":6,"part":"도입","text":"비교 상대는 신호 없이 무작위 날짜에 매수한 계좌 2천 개예요.","start":20.567,"end":24.262},{"n":7,"part":"도입","text":"2016년부터 지금까지, 수수료는 0.25%입니다.","start":24.712,"end":28.657},{"n":8,"part":"매달 첫 거래일","text":"첫 번째, 매달 첫 거래일 매수입니다.","start":29.657,"end":31.941},{"n":9,"part":"매달 첫 거래일","text":"신호를 기다리지 않고, 새 달 첫 거래일에 매수해요.","start":32.391,"end":35.581},{"n":10,"part":"매달 첫 거래일","text":"초록은 성공, 빨강은 실패한 거래예요.","start":36.031,"end":38.466},{"n":11,"part":"매달 첫 거래일","text":"오른쪽 위 숫자는 지금까지의 성공률, 그 아래는 무작위 계좌 평균입니다.","start":38.916,"end":43.465},{"n":12,"part":"매달 첫 거래일","text":"2020년 4월부터 8월까지는 다섯 번 연속 성공했어요.","start":43.915,"end":47.459},{"n":13,"part":"매달 첫 거래일","text":"2021년 말에는 성공률 56.1%로, 무작위 평균 51.7%보다 높았습니다.","start":47.909,"end":54.27},{"n":14,"part":"매달 첫 거래일","text":"그런데 2022년에는 판정 12번 중 11번이 실패였어요.","start":54.72,"end":58.566},{"n":15,"part":"매달 첫 거래일","text":"2023년에는 판정 7번 중 3번 성공했고요.","start":59.016,"end":61.956},{"n":16,"part":"매달 첫 거래일","text":"2024년에는 판정 9번 중 5번 성공했어요.","start":62.406,"end":65.346},{"n":17,"part":"매달 첫 거래일","text":"2025년 4월 1일에 매수한 건, 이틀 만에 2% 떨어져 실패했습니다.","start":65.796,"end":70.798},{"n":18,"part":"매달 첫 거래일","text":"2023년부터는 무작위 평균과 거의 붙어서 움직였어요.","start":71.248,"end":74.943},{"n":19,"part":"매달 첫 거래일","text":"결과는 판정 80번 중 37번 성공, 성공률 46.2%입니다.","start":75.393,"end":79.942},{"n":20,"part":"매달 첫 거래일","text":"무작위 계좌 평균은 47.1%였어요.","start":80.392,"end":83.181},{"n":21,"part":"매달 첫 거래일","text":"회색 띠는 무작위 계좌 90%가 들어간 범위, 41.5%에서 53.2%입니다.","start":83.631,"end":89.992},{"n":22,"part":"매달 첫 거래일","text":"매달 첫 거래일 매수는 이 범위 안에 있었어요.","start":90.442,"end":93.08},{"n":23,"part":"신고가 돌파","text":"두 번째부터 다섯 번째까지는 오를 때 따라 매수하는 추세 신호입니다.","start":94.08,"end":98.228},{"n":24,"part":"신고가 돌파","text":"두 번째, 20일 신고가 돌파 매수입니다.","start":98.678,"end":101.264},{"n":25,"part":"신고가 돌파","text":"종가가 지난 20 거래일의 가장 높은 종가를 넘으면 매수해요.","start":101.714,"end":105.409},{"n":26,"part":"신고가 돌파","text":"2017년에는 판정 세 번이 모두 성공이었어요.","start":105.859,"end":108.799},{"n":27,"part":"신고가 돌파","text":"2019년 말 성공률은 58.8%, 무작위 평균은 50.3%였습니다.","start":109.249,"end":114.704},{"n":28,"part":"신고가 돌파","text":"2020년과 2021년에는 판정 17번 중 9번이 성공이었어요.","start":115.154,"end":119.453},{"n":29,"part":"신고가 돌파","text":"2022년 4월에 매도한 뒤로는 석 달 가까이 신호가 없었고요.","start":119.903,"end":123.9},{"n":30,"part":"신고가 돌파","text":"그해 판정은 6번 중 5번이 실패였어요.","start":124.35,"end":126.686},{"n":31,"part":"신고가 돌파","text":"2024년에는 7번 중 4번 성공했습니다.","start":127.136,"end":129.925},{"n":32,"part":"신고가 돌파","text":"판정이 20번 쌓인 뒤로는, 성공률이 무작위 평균보다 낮은 날이 없었어요.","start":130.375,"end":135.075},{"n":33,"part":"신고가 돌파","text":"결과는 판정 63번 중 31번 성공, 49.2%입니다.","start":135.525,"end":139.772},{"n":34,"part":"신고가 돌파","text":"무작위 평균은 47.1%, 범위는 41.3%에서 53.2%로, 그 안이었어요.","start":140.222,"end":146.984},{"n":35,"part":"모멘텀","text":"세 번째, 1개월 모멘텀 매수입니다.","start":147.984,"end":150.268},{"n":36,"part":"모멘텀","text":"오늘 종가가 21 거래일 전 종가보다 높으면 매수해요.","start":150.718,"end":154.111},{"n":37,"part":"모멘텀","text":"2017년에는 판정 네 번이 모두 성공했어요.","start":154.561,"end":157.35},{"n":38,"part":"모멘텀","text":"2018년에는 9번 중 6번이 실패였고요.","start":157.8,"end":160.438},{"n":39,"part":"모멘텀","text":"2020년 6월에는 성공률 63.0%, 무작위 평균 50.9%까지 벌어졌습니다.","start":160.888,"end":167.098},{"n":40,"part":"모멘텀","text":"2021년에는 8번 중 5번 성공했어요.","start":167.548,"end":170.186},{"n":41,"part":"모멘텀","text":"2022년에는 판정 12번 중 10번이 실패했고요.","start":170.636,"end":173.878},{"n":42,"part":"모멘텀","text":"2023년과 2024년에는 판정 13번 중 7번 성공했습니다.","start":174.328,"end":178.627},{"n":43,"part":"모멘텀","text":"2025년 2월 말에 매도한 뒤로는 두 달 넘게 신호가 없었어요.","start":179.077,"end":183.074},{"n":44,"part":"모멘텀","text":"그해 판정은 7번 중 5번이 성공이었습니다.","start":183.524,"end":186.162},{"n":45,"part":"모멘텀","text":"결과는 판정 81번 중 42번 성공, 51.9%입니다.","start":186.612,"end":190.859},{"n":46,"part":"모멘텀","text":"무작위 평균은 47.8%, 범위는 43.3%에서 52.6%였어요.","start":191.309,"end":197.217},{"n":47,"part":"모멘텀","text":"범위 위쪽 끝에 가까웠지만, 그 안이었습니다.","start":197.667,"end":200.555},{"n":48,"part":"이동평균선","text":"네 번째, 20일 이동평균선 돌파 매수입니다.","start":201.555,"end":204.443},{"n":49,"part":"이동평균선","text":"종가가 20일 평균을 아래에서 위로 넘는 날, 매수해요.","start":204.893,"end":208.385},{"n":50,"part":"이동평균선","text":"2016년 7월부터 2018년 1월까지 다섯 번 연속 성공했어요.","start":208.835,"end":212.983},{"n":51,"part":"이동평균선","text":"2018년에는 판정 9번 중 6번이 실패였고요.","start":213.433,"end":216.373},{"n":52,"part":"이동평균선","text":"2019년과 2020년에는 판정 13번 중 10번이 성공했어요.","start":216.823,"end":220.82},{"n":53,"part":"이동평균선","text":"2021년 12월에는 성공률 64.7%, 무작위 평균은 51.8%였습니다.","start":221.27,"end":227.48},{"n":54,"part":"이동평균선","text":"그 뒤 2022년 7월까지 여섯 번 연속 실패했어요.","start":227.93,"end":231.172},{"n":55,"part":"이동평균선","text":"2023년 6월에 매도한 뒤로는 두 달 넘게 신호가 없었고요.","start":231.622,"end":235.468},{"n":56,"part":"이동평균선","text":"2024년과 2025년에는 판정 14번 중 7번이 성공했어요.","start":235.918,"end":240.217},{"n":57,"part":"이동평균선","text":"판정이 20번 쌓인 뒤로는, 무작위 평균보다 낮은 날이 없었습니다.","start":240.667,"end":244.914},{"n":58,"part":"이동평균선","text":"결과는 판정 71번 중 37번 성공, 52.1%입니다.","start":245.364,"end":249.611},{"n":59,"part":"이동평균선","text":"지금까지 본 네 가지 중 가장 높아요.","start":250.061,"end":252.095},{"n":60,"part":"이동평균선","text":"무작위 평균은 47.3%, 범위는 40.3%에서 54.3%로, 이번에도 그 안이었어요.","start":252.545,"end":259.76},{"n":61,"part":"골든 크로스","text":"다섯 번째, 5일선과 20일선의 골든 크로스 매수입니다.","start":260.76,"end":264.403},{"n":62,"part":"골든 크로스","text":"5일 평균이 20일 평균을 아래에서 위로 넘으면 매수해요.","start":264.853,"end":268.397},{"n":63,"part":"골든 크로스","text":"2017년 9월에 매도한 뒤, 다음 매수는 2018년 2월이었어요.","start":268.847,"end":273.245},{"n":64,"part":"골든 크로스","text":"2018년에는 판정 5번 중 4번이 실패였고요.","start":273.695,"end":276.635},{"n":65,"part":"골든 크로스","text":"2019년에는 판정 세 번 중 두 번이 성공했어요.","start":277.085,"end":280.025},{"n":66,"part":"골든 크로스","text":"2020년과 2021년에는 11번 중 5번 성공했고요.","start":280.475,"end":284.17},{"n":67,"part":"골든 크로스","text":"2022년 7월에는 성공률 40.0%로, 무작위 평균 48.5%보다 낮았습니다.","start":284.62,"end":290.981},{"n":68,"part":"골든 크로스","text":"바로 전에 여섯 번 연속 실패가 있었거든요.","start":291.431,"end":293.918},{"n":69,"part":"골든 크로스","text":"그 뒤로는 2023년 6월까지 다섯 번 연속 성공했어요.","start":294.368,"end":297.912},{"n":70,"part":"골든 크로스","text":"2024년에는 판정 4번 중 3번이 성공이었고요.","start":298.362,"end":301.604},{"n":71,"part":"골든 크로스","text":"2025년부터는 판정 8번 중 4번 성공했습니다.","start":302.054,"end":305.296},{"n":72,"part":"골든 크로스","text":"결과는 판정 50번 중 25번 성공, 딱 50.0%입니다.","start":305.746,"end":309.842},{"n":73,"part":"골든 크로스","text":"무작위 평균은 47.4%, 범위는 38.6%에서 56.2%였어요.","start":310.292,"end":316.2},{"n":74,"part":"골든 크로스","text":"판정 수가 10가지 중 가장 적어서, 범위도 넓었습니다.","start":316.65,"end":319.991},{"n":75,"part":"하루 하락","text":"여섯 번째부터는 떨어질 때 매수하는 신호입니다.","start":320.991,"end":323.931},{"n":76,"part":"하루 하락","text":"여섯 번째, 하루에 1% 이상 떨어지면 다음 날 매수합니다.","start":324.381,"end":328.326},{"n":77,"part":"하루 하락","text":"2016년에는 판정 6번 중 5번이 실패로 시작했어요.","start":328.776,"end":332.169},{"n":78,"part":"하루 하락","text":"2017년에는 판정 두 번이 모두 성공했고요.","start":332.619,"end":335.408},{"n":79,"part":"하루 하락","text":"2019년 1월에는 성공률 35.0%, 무작위 평균은 46.9%였습니다.","start":335.858,"end":341.766},{"n":80,"part":"하루 하락","text":"2018년 한 해에만 12번 중 8번이 실패했거든요.","start":342.216,"end":345.458},{"n":81,"part":"하루 하락","text":"2020년 코로나 폭락 때는 판정 9번 중 4번이 성공했고요.","start":345.908,"end":349.603},{"n":82,"part":"하루 하락","text":"2021년에는 7번 중 5번 성공했어요.","start":350.053,"end":352.691},{"n":83,"part":"하루 하락","text":"2022년에는 20번 중 13번이 실패였습니다.","start":353.141,"end":356.383},{"n":84,"part":"하루 하락","text":"2023년에는 8번 중 3번만 성공했고요.","start":356.833,"end":359.622},{"n":85,"part":"하루 하락","text":"2024년에는 6번 중 4번 성공했지만, 따라잡지는 못했어요.","start":360.072,"end":364.319},{"n":86,"part":"하루 하락","text":"판정이 20번 쌓인 뒤로는, 무작위 평균보다 높은 날이 하루도 없었습니다.","start":364.769,"end":369.469},{"n":87,"part":"하루 하락","text":"결과는 판정 95번 중 44번 성공, 46.3%입니다.","start":369.919,"end":374.166},{"n":88,"part":"하루 하락","text":"무작위 평균은 46.8%, 범위는 40.7%에서 52.8%로, 그 안이었어요.","start":374.616,"end":381.227},{"n":89,"part":"RSI","text":"일곱 번째, RSI 40 아래 매수입니다.","start":382.227,"end":385.115},{"n":90,"part":"RSI","text":"RSI는 최근 14일 동안 오른 폭과 내린 폭을 견준 숫자예요.","start":385.565,"end":389.562},{"n":91,"part":"RSI","text":"40 아래면 많이 떨어진 상태로 보고 매수합니다.","start":390.012,"end":392.952},{"n":92,"part":"RSI","text":"2019년 11월에는 성공률 61.9%, 무작위 평균은 49.3%였어요.","start":393.402,"end":399.31},{"n":93,"part":"RSI","text":"2020년 코로나 폭락 때는 판정 7번 중 5번이 실패였고요.","start":399.76,"end":403.455},{"n":94,"part":"RSI","text":"2020년 11월에 매도한 뒤로는 10달 넘게 신호가 없었습니다.","start":403.905,"end":407.902},{"n":95,"part":"RSI","text":"2022년에는 판정 14번 중 11번이 실패였고요.","start":408.352,"end":411.745},{"n":96,"part":"RSI","text":"2023년에는 5번 중 3번 성공했어요.","start":412.195,"end":414.833},{"n":97,"part":"RSI","text":"2024년과 2025년에는 7번 중 4번 성공했고요.","start":415.283,"end":418.978},{"n":98,"part":"RSI","text":"그래서 주식을 든 날은 35%뿐이었습니다.","start":419.428,"end":422.519},{"n":99,"part":"RSI","text":"결과는 판정 62번 중 30번 성공, 48.4%입니다.","start":422.969,"end":427.065},{"n":100,"part":"RSI","text":"무작위 평균은 46.7%, 범위는 38.0%에서 56.0%로, 역시 그 안이었어요.","start":427.515,"end":434.579},{"n":101,"part":"VIX","text":"여덟 번째, 공포지수 VIX 20 이상 매수입니다.","start":435.579,"end":439.222},{"n":102,"part":"VIX","text":"VIX가 높을수록 시장이 크게 흔들릴 거라고 보는 사람이 많다는 뜻이에요.","start":439.672,"end":444.726},{"n":103,"part":"VIX","text":"2016년 11월에 매도한 뒤로는 1년 넘게 신호가 없었어요.","start":445.176,"end":449.022},{"n":104,"part":"VIX","text":"2018년과 2019년에는 판정 14번 중 7번이 성공했고요.","start":449.472,"end":453.469},{"n":105,"part":"VIX","text":"2020년에는 판정 22번 중 11번이 성공, 딱 절반이었습니다.","start":453.919,"end":458.317},{"n":106,"part":"VIX","text":"2021년에는 11번 중 6번 성공했어요.","start":458.767,"end":461.556},{"n":107,"part":"VIX","text":"2022년 8월부터 10월까지는 여섯 번 연속 실패했고요.","start":462.006,"end":465.701},{"n":108,"part":"VIX","text":"그해에는 24번 중 18번이 실패였습니다.","start":466.151,"end":468.94},{"n":109,"part":"VIX","text":"2023년과 2024년에는 판정 11번 중 7번이 성공했어요.","start":469.39,"end":473.689},{"n":110,"part":"VIX","text":"2025년에는 판정 8번 중 5번 성공했고요.","start":474.139,"end":477.079},{"n":111,"part":"VIX","text":"결과는 판정 101번 중 48번 성공, 47.5%입니다.","start":477.529,"end":481.625},{"n":112,"part":"VIX","text":"무작위 평균은 47.3%, 범위는 41.3%에서 53.6%였어요.","start":482.075,"end":487.983},{"n":113,"part":"VIX","text":"무작위와 거의 같았습니다.","start":488.433,"end":490.014},{"n":114,"part":"단기 저점","text":"아홉 번째, 최근 20 거래일 고점보다 5% 떨어지면 매수합니다.","start":491.014,"end":495.412},{"n":115,"part":"단기 저점","text":"짧은 하락을 노리는 저점 매수예요.","start":495.862,"end":497.896},{"n":116,"part":"단기 저점","text":"2016년 7월에 매도한 뒤, 다음 신호는 2018년 2월이었어요.","start":498.346,"end":502.744},{"n":117,"part":"단기 저점","text":"2018년에는 판정 8번 중 4번이 성공했고요.","start":503.194,"end":506.134},{"n":118,"part":"단기 저점","text":"2019년에는 판정 세 번이 모두 성공이었습니다.","start":506.584,"end":509.675},{"n":119,"part":"단기 저점","text":"2020년 코로나 폭락 때는 9번 중 6번이 실패였어요.","start":510.125,"end":513.518},{"n":120,"part":"단기 저점","text":"2021년에는 판정이 한 번뿐이었고요.","start":513.968,"end":516.606},{"n":121,"part":"단기 저점","text":"2022년에는 15번 중 11번이 실패였습니다.","start":517.056,"end":520.298},{"n":122,"part":"단기 저점","text":"2023년에는 판정 5번 중 3번이 성공했고요.","start":520.748,"end":523.839},{"n":123,"part":"단기 저점","text":"2024년에는 판정 두 번이 모두 성공했어요.","start":524.289,"end":527.229},{"n":124,"part":"단기 저점","text":"주식을 든 날은 23%로, 10가지 중 가장 적었습니다.","start":527.679,"end":531.473},{"n":125,"part":"단기 저점","text":"결과는 판정 59번 중 29번 성공, 49.2%입니다.","start":531.923,"end":536.17},{"n":126,"part":"단기 저점","text":"무작위 평균은 46.5%, 범위는 38.0%에서 55.8%로, 그 안이었어요.","start":536.62,"end":543.382},{"n":127,"part":"고점 대비 하락","text":"마지막 열 번째, 그때까지 최고 종가보다 5% 떨어지면 매수합니다.","start":544.382,"end":548.931},{"n":128,"part":"고점 대비 하락","text":"이 방법도 2016년 7월에 매도한 뒤로는 1년 반 넘게 신호가 없었어요.","start":549.381,"end":553.831},{"n":129,"part":"고점 대비 하락","text":"2018년에는 판정 13번 중 8번이 실패였고요.","start":554.281,"end":557.372},{"n":130,"part":"고점 대비 하락","text":"2019년에는 판정 다섯 번이 모두 성공했어요.","start":557.822,"end":560.762},{"n":131,"part":"고점 대비 하락","text":"그 덕분에 2019년 말 성공률은 56.5%, 무작위 평균은 49.8%였습니다.","start":561.212,"end":567.422},{"n":132,"part":"고점 대비 하락","text":"2020년 코로나 폭락 때는 10번 중 6번이 실패였고요.","start":567.872,"end":571.265},{"n":133,"part":"고점 대비 하락","text":"2021년에는 판정이 단 한 번, 성공이었어요.","start":571.715,"end":574.905},{"n":134,"part":"고점 대비 하락","text":"2022년에는 26번 중 19번이 실패였습니다.","start":575.355,"end":578.748},{"n":135,"part":"고점 대비 하락","text":"10가지 중 2022년 실패가 가장 많았습니다.","start":579.198,"end":582.138},{"n":136,"part":"고점 대비 하락","text":"2023년에는 11번 중 6번 성공했고요.","start":582.588,"end":585.377},{"n":137,"part":"고점 대비 하락","text":"2024년 판정 두 번도 모두 성공이었고요.","start":585.827,"end":588.616},{"n":138,"part":"고점 대비 하락","text":"2025년부터는 판정 10번 중 6번 성공했어요.","start":589.066,"end":592.157},{"n":139,"part":"고점 대비 하락","text":"결과는 판정 94번 중 45번 성공, 47.9%입니다.","start":592.607,"end":596.854},{"n":140,"part":"고점 대비 하락","text":"무작위 평균은 47.1%, 범위는 40.8%에서 53.6%로, 이것도 그 안이었어요.","start":597.304,"end":604.368},{"n":141,"part":"종합","text":"10가지 결과를 한 번에 보겠습니다.","start":605.368,"end":607.402},{"n":142,"part":"종합","text":"점은 각 방법의 성공률, 회색 띠는 무작위 계좌 90%가 들어간 범위예요.","start":607.852,"end":612.703},{"n":143,"part":"종합","text":"가장 높은 건 20일선 돌파 매수, 52.1%였어요.","start":613.153,"end":616.947},{"n":144,"part":"종합","text":"가장 낮은 건 매달 첫 거래일 매수, 46.2%였고요.","start":617.397,"end":621.191},{"n":145,"part":"종합","text":"위쪽 다섯 개 중 네 개는 오를 때 매수하는 추세 신호였습니다.","start":621.641,"end":625.185},{"n":146,"part":"종합","text":"하지만 10가지 모두 무작위 범위 안이었어요.","start":625.635,"end":628.273},{"n":147,"part":"종합","text":"가장 높은 20일선 돌파도, 무작위 계좌 가운데 13%는 성공률이 그 이상이었습니다.","start":628.723,"end":634.48},{"n":148,"part":"다른 조건","text":"실패 기준을 바꾸면 어떨까요?","start":635.48,"end":637.212},{"n":149,"part":"다른 조건","text":"1%로 더 엄격하게 하면, 아무 날이나 매수한 성공률이 33.6%로 떨어져요.","start":637.662,"end":643.419},{"n":150,"part":"다른 조건","text":"이때는 20일선 돌파만 범위 위로 나왔습니다.","start":643.869,"end":646.658},{"n":151,"part":"다른 조건","text":"1.5%에서는 범위를 벗어난 방법이 없었고요.","start":647.108,"end":650.35},{"n":152,"part":"다른 조건","text":"기간을 1994년부터 2015년으로 바꿔 봤어요.","start":650.8,"end":654.344},{"n":153,"part":"다른 조건","text":"이 기간엔 20일선 돌파가 33.3%로, 10가지 중 가장 낮았습니다.","start":654.794,"end":659.645},{"n":154,"part":"다른 조건","text":"이 기간에도 10가지 모두 무작위 범위 안이었습니다.","start":660.095,"end":663.186},{"n":155,"part":"정리","text":"정리하겠습니다.","start":664.186,"end":665.163},{"n":156,"part":"정리","text":"이번 백테스트에서, 무작위로 매수한 것보다 성공률이 확실히 높은 매수 신호는 없었어요.","start":665.613,"end":671.219},{"n":157,"part":"정리","text":"추세 신호가 이번 10년에는 조금 앞섰어요.","start":671.669,"end":674.156},{"n":158,"part":"정리","text":"하지만 그 전 22년에는 네 개 중 두 개가 무작위 평균보다 낮았습니다.","start":674.606,"end":678.905},{"n":159,"part":"정리","text":"2022년처럼 계속 떨어진 해에는, 어떤 신호든 실패가 더 많았고요.","start":679.355,"end":683.904},{"n":160,"part":"정리","text":"성공률을 크게 바꾼 건 매수 신호가 아니라, 실패 기준이었습니다.","start":684.354,"end":688.45},{"n":161,"part":"한계","text":"이 결과는 SPY 하나, 2016년부터의 자료입니다.","start":689.45,"end":693.244},{"n":162,"part":"한계","text":"성공과 실패는 종가로만 판정했고, 판정 다음 날 매도했어요.","start":693.694,"end":697.488},{"n":163,"part":"한계","text":"그래서 성공인데 손해, 실패인데 이익인 거래도 몇 번 있었습니다.","start":697.938,"end":702.034},{"n":164,"part":"한계","text":"세금과 환전 비용은 넣지 않았어요.","start":702.484,"end":704.518},{"n":165,"part":"한계","text":"투자 권유가 아니라, 규칙을 코드로 확인해 본 결과입니다.","start":704.968,"end":708.611},{"n":166,"part":"마무리","text":"다음에 백테스트로 확인해 볼 가설이 있다면 댓글로 알려 주세요.","start":709.611,"end":713.457},{"n":167,"part":"마무리","text":"시청해주셔서 감사합니다.","start":713.907,"end":715.488}],"subs":[]};/*EP-DATA:END*/</script>
+<script src="../../../stock/source/eonje-maesu-2026-10/backtest/barrier/anim.js"></script>
 <script src="../../render/kit.js"></script>
 <script>
 (function () {
 "use strict";
 K.init(window.EP, { subtitles: false, chip: false, noWords: true });
-const tl = K.tl, el = K.el, pop = K.pop, out = K.out;
-const AN = window.AN, N = AN.dates.length, CAP = AN.capital, TRAIL = AN.trail;
-const SUM = AN.summary;
-// 영상 순서 (대본 장 순서 — 계산 순서 AN.order 와 다름): 정해진 날 → 오를 때 사기(추세) → 떨어질 때 사기
-const VORDER = ["m1", "hi52", "mom12", "ma200", "gc", "drop2", "rsi30", "vix30", "dip20", "dip10"];
-if (VORDER.slice().sort().join() !== AN.order.slice().sort().join()) throw new Error("규칙 목록이 anim.js 와 다름");
+const tl = K.tl, el = K.el, pop = K.pop;
+const AN = window.AN, N = AN.dates.length, M = AN.m, NN = AN.n, RUNS = AN.runs;
+const SUM = AN.summary, L = AN.lines;
+// 영상 순서 = AN.order (대본 장 순서와 같음): 정해진 날 → 오를 때 매수(추세) → 떨어질 때 매수
+const VORDER = AN.order.slice();
+const PARTS = { m1: "매달 첫 거래일", hi20: "신고가 돌파", mom21: "모멘텀", x20: "이동평균선", gc520: "골든 크로스", drop1: "하루 하락", rsi40: "RSI", vix20: "VIX", dd20_5: "단기 저점", dd5: "고점 대비 하락" };
+if (VORDER.join() !== Object.keys(PARTS).join()) throw new Error("방법 순서가 anim.js 와 다름");
 const VNO = k => VORDER.indexOf(k) + 1;
-const TREND = new Set(["hi52", "mom12", "ma200", "gc"]);
+const TREND = new Set(["hi20", "mom21", "x20", "gc520"]);
 
-// ---------- 시각 (문장을 글자로 찾음 — 대본을 고쳐도 엉뚱한 문장을 보지 않게) ----------
+// ---------- 시각 (문장을 글자로 찾음) ----------
 const SN = a => { const h = EP.sent.filter(s => s.text.includes(a)); if (h.length !== 1) throw new Error(`문장 찾기 '${a}' → ${h.length}개`); return h[0]; };
 const S = a => SN(a).start, E = a => SN(a).end, W = (a, w) => K.W(SN(a).n, w);
 const PS = p => { const s = EP.sent.find(x => x.part === p); if (!s) throw new Error(`파트 '${p}' 없음`); return s.start; };
@@ -130,17 +128,15 @@ const cut = (t, name) => CUTQ.push([t, name]);
 // ---------- 숫자 모양 ----------
 const f0 = n => Math.round(n).toLocaleString("en-US");
 const f2 = n => n.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-const usd = v => (v < 0 ? "−$" : "$") + f0(Math.abs(v));
-const susd = v => (v >= 0 ? "+$" : "−$") + f0(Math.abs(v));
-const pc = (r, d = 1) => { const v = Math.abs(r * 100).toFixed(d); return (r < 0 && +v ? "−" : "+") + v + "%"; };    // 반올림해 0 이면 '−0.0%' 대신 '+0.0%'
+const pc = (r, d = 1) => { const v = Math.abs(r * 100).toFixed(d); return (r < 0 && +v ? "−" : "+") + v + "%"; };
 const pcu = (r, d = 1) => { const v = Math.abs(r * 100).toFixed(d); return (r < 0 && +v ? "−" : "") + v + "%"; };
+const rt = (r, d = 1) => (r == null || isNaN(r)) ? "—" : (r * 100).toFixed(d) + "%";
 const ymd = i => AN.dates[i].replace(/-/g, ".");
-const ymd2 = i => AN.dates[i].slice(2).replace(/-/g, ".");
 const idx = d => { const i = AN.dates.findIndex(x => x >= d); return i < 0 ? N - 1 : i; };
 const R = k => AN.rules[k];
 const clamp = (x, a, b) => Math.max(a, Math.min(b, x));
 const lerp = (a, b, u) => a + (b - a) * u;
-const ease = u => u < 0.5 ? 2 * u * u : 1 - Math.pow(-2 * u + 2, 2) / 2;
+const pm = v => (v == null ? null : v / 1000);                 // anim.js 무작위 = 천분율 정수
 
 // ---------- 아이콘 (SVG — 글자 없음) ----------
 const IC = {
@@ -148,34 +144,96 @@ const IC = {
   star: (s = 44) => `<svg viewBox="0 0 48 48" width="${s}" height="${s}"><path d="M24 4l6 13 14 1.5-10.5 9.6 3 14-12.5-7.2-12.5 7.2 3-14L4 18.5 18 17z" fill="#FFD400"/></svg>`,
   up: (s = 44, c = "#2BE0A0") => `<svg viewBox="0 0 48 48" width="${s}" height="${s}"><path d="M6 36 L18 22 L27 30 L42 12" fill="none" stroke="${c}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M33 12h9v9" fill="none" stroke="${c}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
   dn: (s = 44, c = "#FF4D5E") => `<svg viewBox="0 0 48 48" width="${s}" height="${s}"><path d="M6 12 L18 26 L27 18 L42 36" fill="none" stroke="${c}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M33 36h9v-9" fill="none" stroke="${c}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
-  cross: (s = 44) => `<svg viewBox="0 0 48 48" width="${s}" height="${s}"><path d="M4 34 C16 30 26 20 44 10" fill="none" stroke="#2BE0A0" stroke-width="4.5" stroke-linecap="round"/><path d="M4 16 C18 20 30 26 44 28" fill="none" stroke="#FFD400" stroke-width="4.5" stroke-linecap="round"/></svg>`,
+  cross: (s = 44) => `<svg viewBox="0 0 48 48" width="${s}" height="${s}"><path d="M4 34 C16 30 26 20 44 10" fill="none" stroke="#7FD4FF" stroke-width="4.5" stroke-linecap="round"/><path d="M4 16 C18 20 30 26 44 28" fill="none" stroke="#FFD400" stroke-width="4.5" stroke-linecap="round"/></svg>`,
   gauge: (s = 44) => `<svg viewBox="0 0 48 48" width="${s}" height="${s}"><path d="M6 36a18 18 0 0 1 36 0" fill="none" stroke="#9FB1CF" stroke-width="5" stroke-linecap="round"/><path d="M6 36a18 18 0 0 1 6-13" fill="none" stroke="#2BE0A0" stroke-width="5" stroke-linecap="round"/><path d="M24 36 L14 22" stroke="#fff" stroke-width="4" stroke-linecap="round"/></svg>`,
   fear: (s = 44) => `<svg viewBox="0 0 48 48" width="${s}" height="${s}"><path d="M8 40 L16 24 L22 32 L30 10 L40 40" fill="none" stroke="#FF6B6B" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round"/><circle cx="30" cy="10" r="4" fill="#FFD400"/></svg>`,
   flag: (s = 44) => `<svg viewBox="0 0 48 48" width="${s}" height="${s}"><path d="M10 44V6" stroke="#9FB1CF" stroke-width="4" stroke-linecap="round"/><path d="M12 7h24l-6 8 6 8H12z" fill="#FFD400"/></svg>`,
-  wallet: `<svg class="ic" viewBox="0 0 48 48"><rect x="4" y="12" width="40" height="28" rx="7" fill="#22324F" stroke="#9FB1CF" stroke-width="3"/><path d="M8 12 L32 5 L35 12" fill="none" stroke="#9FB1CF" stroke-width="3" stroke-linejoin="round"/><rect x="30" y="21" width="14" height="10" rx="4" fill="#FFD400"/></svg>`,
+  dice: (s = 44, c = "#D6E0EF") => `<svg viewBox="0 0 48 48" width="${s}" height="${s}"><rect x="5" y="5" width="38" height="38" rx="9" fill="#22324F" stroke="${c}" stroke-width="3.5"/><circle cx="15" cy="15" r="3.6" fill="${c}"/><circle cx="33" cy="15" r="3.6" fill="${c}"/><circle cx="24" cy="24" r="3.6" fill="${c}"/><circle cx="15" cy="33" r="3.6" fill="${c}"/><circle cx="33" cy="33" r="3.6" fill="${c}"/></svg>`,
+  target: `<svg class="ic" viewBox="0 0 48 48"><circle cx="24" cy="24" r="18" fill="none" stroke="#9FB1CF" stroke-width="3.5"/><circle cx="24" cy="24" r="10" fill="none" stroke="#9FB1CF" stroke-width="3.5"/><circle cx="24" cy="24" r="3.5" fill="#FFD400"/></svg>`,
   log: `<svg class="ic" viewBox="0 0 48 48"><rect x="8" y="5" width="32" height="38" rx="6" fill="none" stroke="#9FB1CF" stroke-width="3.5"/><path d="M15 16h18M15 24h18M15 32h11" stroke="#9FB1CF" stroke-width="3.5" stroke-linecap="round"/></svg>`,
-  hour: (s = 60) => `<svg viewBox="0 0 48 48" width="${s}" height="${s}"><path d="M12 5h24M12 43h24M14 5c0 12 20 12 20 19S14 31 14 43M34 5c0 12-20 12-20 19s20 7 20 19" fill="none" stroke="#9FB1CF" stroke-width="3.5" stroke-linecap="round"/></svg>`,
-  coin: (s = 60) => `<svg viewBox="0 0 48 48" width="${s}" height="${s}"><ellipse cx="24" cy="34" rx="18" ry="7" fill="#B8860B"/><ellipse cx="24" cy="28" rx="18" ry="7" fill="#E8B800"/><ellipse cx="24" cy="22" rx="18" ry="7" fill="#FFD400"/><ellipse cx="24" cy="22" rx="10" ry="3.6" fill="none" stroke="#B8860B" stroke-width="2.5"/></svg>`,
   chat: (s = 120) => `<svg viewBox="0 0 48 48" width="${s}" height="${s}"><path d="M6 10a6 6 0 0 1 6-6h24a6 6 0 0 1 6 6v16a6 6 0 0 1-6 6H20l-9 9v-9h1a6 6 0 0 1-6-6z" fill="#22324F" stroke="#9FB1CF" stroke-width="3"/><circle cx="16" cy="18" r="3" fill="#FFD400"/><circle cx="24" cy="18" r="3" fill="#FFD400"/><circle cx="32" cy="18" r="3" fill="#FFD400"/></svg>`,
   warn: (s = 110) => `<svg viewBox="0 0 48 48" width="${s}" height="${s}"><path d="M24 5 L45 42 H3 Z" fill="#2A2410" stroke="#FFD400" stroke-width="3.5" stroke-linejoin="round"/><path d="M24 18v12" stroke="#FFD400" stroke-width="4.5" stroke-linecap="round"/><circle cx="24" cy="36" r="2.6" fill="#FFD400"/></svg>`,
   ban: (s = 110, inner = "") => `<svg viewBox="0 0 48 48" width="${s}" height="${s}">${inner}<circle cx="24" cy="24" r="19" fill="none" stroke="#FF4D5E" stroke-width="4"/><path d="M11 37 L37 11" stroke="#FF4D5E" stroke-width="4" stroke-linecap="round"/></svg>`,
+  ring: (s = 30) => `<svg width="${s}" height="${s}" viewBox="0 0 26 26"><circle cx="13" cy="13" r="8" fill="#0B1428" stroke="#fff" stroke-width="4"/></svg>`,
 };
-// 규칙 머리 그림 (언어 없이)
+// 방법 머리 그림 (언어 없이)
+const G = s => `<span style="color:var(--GR)">${s}</span>`, Yw = s => `<span style="color:var(--Y)">${s}</span>`, BUY = `<span class="tag b">BUY</span>`;
 const HEAD = {
-  m1: () => `${IC.cal(56, "1")}<span style="color:var(--GR)">→</span><span class="tag b">BUY</span>`,
-  hi52: () => `${IC.flag(54)}<span>★</span><span style="color:var(--Y)">1Y</span><span style="color:var(--GR)">↑ →</span><span class="tag b">BUY</span>`,
-  mom12: () => `${IC.up(54)}<span>&gt;</span>${IC.cal(52)}<span style="color:var(--Y)">−1Y</span><span style="color:var(--GR)">→</span><span class="tag b">BUY</span>`,
-  ma200: () => `${IC.up(54)}<span style="color:var(--Y)">200</span><span style="color:var(--GR)">↗ →</span><span class="tag b">BUY</span>`,
-  gc: () => `${IC.cross(54)}<span style="color:var(--MI)">50</span><span style="color:var(--GR)">↗</span><span style="color:var(--Y)">200</span><span style="color:var(--GR)">→</span><span class="tag b">BUY</span>`,
-  drop2: () => `${IC.dn(54)}<span style="color:#FF6B6B">−2%</span><span style="color:var(--GR)">→</span><span class="tag b">BUY</span>`,
-  rsi30: () => `${IC.gauge(54)}<span>RSI &lt; 30</span><span style="color:var(--GR)">→</span><span class="tag b">BUY</span>`,
-  vix30: () => `${IC.fear(54)}<span>VIX ≥ 30</span><span style="color:var(--GR)">→</span><span class="tag b">BUY</span>`,
-  dip20: () => `${IC.star(50)}<span style="color:var(--Y)">−20%</span><span style="color:var(--GR)">→</span><span class="tag b">BUY</span>`,
-  dip10: () => `${IC.star(50)}<span style="color:var(--Y)">−10%</span><span style="color:var(--GR)">→</span><span class="tag b">BUY</span>`,
+  m1: () => `${IC.cal(56, "1")}${G("→")}${BUY}`,
+  hi20: () => `${IC.flag(54)}<span>★</span>${Yw("20D")}${G("↑ →")}${BUY}`,
+  mom21: () => `${IC.up(54)}<span>&gt;</span>${IC.cal(52)}${Yw("−21D")}${G("→")}${BUY}`,
+  x20: () => `${IC.up(54)}${Yw("20")}${G("↗ →")}${BUY}`,
+  gc520: () => `${IC.cross(54)}<span style="color:#7FD4FF">5</span>${G("↗")}${Yw("20")}${G("→")}${BUY}`,
+  drop1: () => `${IC.dn(54)}<span style="color:#FF6B6B">−1%</span>${G("→")}${BUY}`,
+  rsi40: () => `${IC.gauge(54)}<span>RSI &lt; 40</span>${G("→")}${BUY}`,
+  vix20: () => `${IC.fear(54)}<span>VIX ≥ 20</span>${G("→")}${BUY}`,
+  dd20_5: () => `${IC.star(50)}${Yw("20D −5%")}${G("→")}${BUY}`,
+  dd5: () => `${IC.star(50)}${Yw("−5%")}${G("→")}${BUY}`,
 };
-const MINI = { m1: IC.cal(46, "1"), hi52: IC.flag(46), mom12: IC.up(46), ma200: IC.up(46, "#FFD400"), gc: IC.cross(46), drop2: IC.dn(46), rsi30: IC.gauge(46), vix30: IC.fear(46), dip20: IC.star(44), dip10: IC.star(44) };
-const MINIT = { m1: "", hi52: "", mom12: "", ma200: "200", gc: "", drop2: "−2%", rsi30: "RSI", vix30: "VIX", dip20: "−20%", dip10: "−10%" };
+const MINI = { m1: IC.cal(46, "1"), hi20: IC.flag(46), mom21: IC.up(46), x20: IC.up(46, "#FFD400"), gc520: IC.cross(46), drop1: IC.dn(46), rsi40: IC.gauge(46), vix20: IC.fear(46), dd20_5: IC.star(44), dd5: IC.star(44) };
+const MINIT = { m1: "", hi20: "20D", mom21: "−21D", x20: "20", gc520: "5·20", drop1: "−1%", rsi40: "RSI", vix20: "VIX", dd20_5: "20D −5%", dd5: "−5%" };
 const badge = (k, big) => `<span class="row" style="gap:10px"><span class="badge2"${big ? ' style="height:72px;min-width:72px;font-size:44px"' : ""}>${VNO(k)}</span>${MINI[k]}${MINIT[k] ? `<span class="tab" style="font:900 36px/1 'Noto Sans KR'">${MINIT[k]}</span>` : ""}</span>`;
+
+// ---------- 그날(c)까지 판정 난 것만 셈 ----------
+const judged = (t, c) => t.h != null && t.h <= c && t.res != null;
+const RUNR = {};                                               // 방법마다 날짜별 누적 성공·실패 (판정 날에 +1)
+function runr(k) {
+  if (RUNR[k]) return RUNR[k];
+  const w = new Int32Array(N), l = new Int32Array(N);
+  for (const t of R(k).trades) if (t.h != null && t.res) (t.res === "w" ? w : l)[t.h]++;
+  for (let i = 1; i < N; i++) { w[i] += w[i - 1]; l[i] += l[i - 1]; }
+  return (RUNR[k] = { w, l });
+}
+
+// ---------- 속도 (pace.js v1.0 을 옮김): 문장 기준점 사이를 날마다 무게로 나눔 ----------
+const PACE = { A: 1.5, sigma: 4 };
+function paceW(k) {
+  const ev = []; for (const t of R(k).trades) { ev.push(t.b); if (t.h != null) ev.push(t.h); }
+  ev.sort((a, b) => a - b);
+  const w = new Float64Array(N); let j = 0;
+  for (let i = 0; i < N; i++) {
+    while (j + 1 < ev.length && Math.abs(ev[j + 1] - i) <= Math.abs(ev[j] - i)) j++;
+    const d = ev.length ? Math.abs(ev[j] - i) : 1e9;
+    w[i] = 1 + PACE.A * Math.exp(-((d / PACE.sigma) ** 2));
+  }
+  return w;
+}
+window.PACE_LOG = [];
+function warp(anchors, w, name) {                             // [[t, 날짜 위치]] → t → 실수 날짜 위치 (구간 안에서 시간 ∝ 무게)
+  const A = anchors.slice().sort((x, y) => x[0] - y[0]);
+  for (let q = 1; q < A.length; q++) if (A[q][1] < A[q - 1][1]) A[q][1] = A[q - 1][1];
+  const seg = [];
+  for (let q = 1; q < A.length; q++) {
+    const [ta, ia] = A[q - 1], [tb, ib] = A[q]; let s = 0;
+    for (let i = Math.floor(ia); i < Math.ceil(ib); i++) s += w[i];
+    seg.push({ ta, tb, ia, ib, sw: s, v: s / Math.max(1e-6, tb - ta), days: ib - ia });
+  }
+  if (name) {
+    const vs = seg.filter(g => g.days > 0).map(g => g.v);
+    const log = { name, segments: seg.length, vBase_max: +Math.max(...vs).toFixed(1), vBase_min: +Math.min(...vs).toFixed(1),
+      days_per_s_avg: +((A[A.length - 1][1] - A[0][1]) / (A[A.length - 1][0] - A[0][0])).toFixed(1), slowest_event: +(Math.min(...vs) / (1 + PACE.A)).toFixed(1),
+      seg_v: seg.map(g => Math.round(g.v)).join("/"), seg_dps: seg.map(g => Math.round(g.days / Math.max(1e-6, g.tb - g.ta))).join("/"),
+      dps_max: Math.max(...seg.map(g => g.days / Math.max(1e-6, g.tb - g.ta))).toFixed(0) };
+    window.PACE_LOG.push(log);
+    console.log(`[PACE] ${new Date().toISOString()} ` + Object.entries(log).map(([a, b]) => `${a}=${b}`).join(" "));
+  }
+  const f = t => {
+    if (t <= A[0][0]) return A[0][1];
+    for (const g of seg) if (t <= g.tb) {
+      let need = (t - g.ta) / Math.max(1e-6, g.tb - g.ta) * g.sw, i = Math.floor(g.ia);
+      while (i < g.ib - 1 && need > w[i]) { need -= w[i]; i++; }
+      return Math.min(g.ib, i + need / w[i]);
+    }
+    return A[A.length - 1][1];
+  };
+  return f;
+}
+function dayTimes(f, ta, tb) {                                 // 날짜 위치 i 에 처음 닿는 시각 (칩이 나타난 뒤 흐려지는 데 씀)
+  const out = new Float64Array(N).fill(Infinity);
+  for (let t = ta; t <= tb; t += 1 / 60) { const i = Math.floor(f(t)); if (i >= 0 && i < N && out[i] === Infinity) out[i] = t; }
+  for (let i = N - 2; i >= 0; i--) if (out[i] === Infinity && out[i + 1] !== Infinity) out[i] = out[i + 1];
+  return out;
+}
 
 // =====================================================================================================================
 // 3D 공통
@@ -194,13 +252,12 @@ function projector(cam, vp) {
   return (x, y, z) => { v.set(x, y, z).project(cam); return [vp.x + (v.x + 1) / 2 * vp.w, vp.y + (1 - v.y) / 2 * vp.h]; };
 }
 function mat(color, op, extra) { return new THREE.MeshBasicMaterial(Object.assign({ color, transparent: op < 1, opacity: op, side: THREE.DoubleSide, depthWrite: op >= 1 }, extra)); }
-function ribbonGeo(xs, ys, mask, w, z, dash) {           // 굵은 선 (y 폭) — cnt[i] = 점 i 까지 그릴 꼭짓점 수 (drawRange)
+function ribbonGeo(xs, ys, w, z, dash) {
   const pos = [], cnt = new Int32Array(xs.length + 1);
   let acc = 0, v = 0;
   for (let k = 0; k < xs.length - 1; k++) {
     cnt[k] = v;
-    const ok = ys[k] != null && ys[k + 1] != null && (!mask || (mask[k] && mask[k + 1]));
-    if (!ok) continue;
+    if (ys[k] == null || ys[k + 1] == null) continue;
     const len = Math.hypot(xs[k + 1] - xs[k], ys[k + 1] - ys[k]);
     const on = !dash || Math.floor(acc / dash) % 2 === 0;
     acc += len;
@@ -219,21 +276,17 @@ function sphere(r, color, halo) {
   if (halo !== false) grp.add(new THREE.Mesh(new THREE.SphereGeometry(r * 2.1, 24, 16), mat(color, 0.18)));
   return grp;
 }
-// 글자 자리 잡기 — 겹치면 더 멀리, 그래도 겹치면 뺌 (최근 것부터 놓음)
 let PLACED = [];
 function boxOf(n) { const r = n.getBoundingClientRect(), s = stageEl.getBoundingClientRect(), k = s.width / 1920; return { l: (r.left - s.left) / k, t: (r.top - s.top) / k, r: (r.right - s.left) / k, b: (r.bottom - s.top) / k }; }
 const hit = a => PLACED.some(b => !(a.r + 6 < b.l || a.l - 6 > b.r || a.b + 6 < b.t || a.t - 6 > b.b));
 function ovEl(html, x, y, cls, style) { const e = document.createElement("div"); e.className = cls || "lab"; e.innerHTML = html; e.style.left = x + "px"; e.style.top = y + "px"; if (style) e.style.cssText += style; ov.appendChild(e); return e; }
-function stemEl(x, y0, y1, color) { const e = document.createElement("div"); e.className = "stem"; e.style.left = x + "px"; e.style.top = Math.min(y0, y1) + "px"; e.style.height = Math.abs(y1 - y0) + "px"; e.style.background = color; ov.appendChild(e); }
+function stemEl(x, y0, y1, color, op) { const e = document.createElement("div"); e.className = "stem"; e.style.left = x + "px"; e.style.top = Math.min(y0, y1) + "px"; e.style.height = Math.abs(y1 - y0) + "px"; e.style.background = color; if (op != null) e.style.opacity = op; ov.appendChild(e); }
 function bounds(b, box) { return b.t > box.t && b.b < box.b && b.l > box.l && b.r < box.r; }
 
 // =====================================================================================================================
-// 경주 (3D 가격 벽)
+// 경주 (3D 가격 벽) — 시안 race3d_v4.html v1.0
 // =====================================================================================================================
 const RACE = (() => {
-  // v3.0 (사용자 지시 2026-10-16 "메인 차트는 고정된 화면에서 다 보여줄려면 잘 표현안되니까 스크롤하면서 여유있게 보여주도록 해" · "차트 선 위에 하얀 영역이 작게
-  // 붙여서 나오는게 그렇게 하지말고 단일 선으로 해"): 화면에는 약 2년(WIN 거래일)만 — 오늘 막대가 왼쪽에서 FR 자리에 오면 그 뒤로는 날짜를 따라 옆으로 흐름.
-  // 값 범위도 보이는 창(지난 날만 — 미래 값 없음)에 맞추고, 커질 때는 바로 · 줄 때는 천천히. 지붕(흰 띠)은 없애고 가격 선 하나. 프레임마다 보이는 창만 다시 그림.
   const VP = { x: 0, y: 118, w: 1330, h: 950 };
   const scene = new THREE.Scene();
   const cam = new THREE.PerspectiveCamera(27, VP.w / VP.h, 0.1, 200);
@@ -241,11 +294,10 @@ const RACE = (() => {
   const proj = projector(cam, VP);
   const XW = 15.6, HZ = 0.7, XL = -XW / 2 - 0.55, XR = XW / 2 + 0.2;
   const WIN = 504, FR = 0.78;                                // 보이는 거래일(약 2년) · 오늘 막대 자리 (왼쪽에서 78%)
-  const YB = 1.25, YT = 7.6;                                 // 보이는 값 범위를 놓는 높이 (아래 = BUY 글자, 위 = SELL 글자 자리)
-  const MAXS = WIN + 120;
+  const YB = 1.25, YT = 7.6, MAXS = WIN + 120;
   const fl = new THREE.Mesh(new THREE.PlaneGeometry(XW + 2.4, 4), mat("#0E1A31", 0.85));
   fl.rotation.x = -Math.PI / 2; fl.position.set(0, -0.01, 1.0); scene.add(fl);
-  function dyn(nv, color, op, vcol) {                        // 프레임마다 다시 채우는 모양
+  function dyn(nv, color, op, vcol) {
     const g = new THREE.BufferGeometry();
     g.setAttribute("position", new THREE.BufferAttribute(new Float32Array(nv * 3), 3));
     if (vcol) g.setAttribute("color", new THREE.BufferAttribute(new Float32Array(nv * 3), 3));
@@ -258,27 +310,33 @@ const RACE = (() => {
   reflM.scale.y = -0.32; reflM.position.y = -0.02; reflM.frustumCulled = false; scene.add(reflM);
   const gridM = dyn(14 * 6, "#5A6C90", 0.5);
   const ruleM = [dyn(MAXS * 6, "#FFD400", 0.9), dyn(MAXS * 6, "#FFD400", 0.9)];
-  const stopM = dyn(MAXS * 6, "#FF5A5A", 0.95);
+  const tgM = dyn(MAXS * 6, "#2BE0A0", 0.95), slM = dyn(MAXS * 6, "#FF4D5E", 0.95), bpM = dyn(MAXS * 6, "#FFFFFF", 0.45);
   const lineM = dyn(MAXS * 6, "#FFFFFF", 0.95);
   const qG = new THREE.BufferGeometry(); qG.setAttribute("position", new THREE.BufferAttribute(new Float32Array(80 * 6), 3)); qG.setDrawRange(0, 0);
   const qM = new THREE.LineSegments(qG, new THREE.LineBasicMaterial({ color: "#2A3958", transparent: true, opacity: 0.9 })); qM.frustumCulled = false; scene.add(qM);
-  // 그리는 차례 = 벽 → 격자 → 신호 선 → 매도선 → 가격 선 (같은 자리의 반투명끼리 순서가 바뀌면 빨간 점선이 벽 뒤에 비쳐 흐려짐 — v2.1 still)
-  wallM.renderOrder = 0; reflM.renderOrder = 0; gridM.renderOrder = 1; ruleM.forEach(m => (m.renderOrder = 2)); stopM.renderOrder = 3; lineM.renderOrder = 4;
-  const curPl = new THREE.Mesh(new THREE.PlaneGeometry(0.05, YT + 1.2), mat("#FFD400", 0.45)); curPl.renderOrder = 5; scene.add(curPl);
-  const curDot = sphere(0.16, "#FFFFFF"); scene.add(curDot);
-  const BUYP = Array.from({ length: 24 }, () => { const s = sphere(0.12, "#2BE0A0"); s.visible = false; scene.add(s); return s; });
-  const SELP = Array.from({ length: 24 }, () => { const s = sphere(0.12, "#FF8A3D"); s.visible = false; scene.add(s); return s; });
-  const CG = [new THREE.Color("#0B3D33"), new THREE.Color("#22C79A")], CN = [new THREE.Color("#1A2336"), new THREE.Color("#4A5875")];
-  function ribbon(m, pts, w, z, dash) {                      // pts = [[x, y, 거래일]] — 굵기는 선에 수직(이웃 평균), 거래일이 끊기면 선도 끊김, dash = 거래일 수
+  wallM.renderOrder = 0; reflM.renderOrder = 0; gridM.renderOrder = 1; ruleM.forEach(m => (m.renderOrder = 2)); [tgM, slM, bpM].forEach(m => (m.renderOrder = 3)); lineM.renderOrder = 4;
+  const curPl = new THREE.Mesh(new THREE.PlaneGeometry(0.05, YT + 1.2), mat("#FFD400", 0.45)); curPl.renderOrder = 9; scene.add(curPl);
+  const curDot = sphere(0.16, "#FFFFFF"); curDot.children.forEach(m => (m.renderOrder = 10)); scene.add(curDot);
+  // 표시: 매수 = 흰 고리(검은 테) · 판정 = 색 점(검은 테 + 번짐) · 가장 최근 판정 = 퍼지는 고리
+  const disc = (r, c, op, ord) => { const m = new THREE.Mesh(new THREE.CircleGeometry(r, 32), mat(c, op == null ? 0.999 : op)); m.material.depthWrite = false; m.renderOrder = ord; return m; };
+  const ringObj = () => { const g = new THREE.Group(); const a = disc(0.2, "#05080F", null, 5), b = disc(0.165, "#FFFFFF", null, 6), c = disc(0.095, "#0B1428", null, 7);
+    b.position.z = 0.002; c.position.z = 0.004; g.add(a, b, c); g.visible = false; scene.add(g); return g; };
+  const dotObj = () => { const g = new THREE.Group(); const h = disc(0.3, "#2BE0A0", 0.22, 5), a = disc(0.19, "#05080F", null, 6), b = disc(0.15, "#2BE0A0", null, 7);
+    a.position.z = 0.002; b.position.z = 0.004; g.add(h, a, b); g.userData = { h, b }; g.visible = false; scene.add(g); return g; };
+  const RINGS = Array.from({ length: 48 }, ringObj), DOTS = Array.from({ length: 48 }, dotObj);
+  const pulse = new THREE.Mesh(new THREE.RingGeometry(0.22, 0.3, 40), mat("#2BE0A0", 0.8)); pulse.material.depthWrite = false; pulse.renderOrder = 8; pulse.visible = false; scene.add(pulse);
+  const COL = { w: ["#0B3D33", "#22C79A"], l: ["#3D0F18", "#E0475A"], o: ["#0D2A4A", "#3E8FE0"], n: ["#1A2336", "#4A5875"] };
+  for (const k in COL) COL[k] = COL[k].map(h => new THREE.Color(h));
+  function ribbon(m, pts, w, z, dash) {                      // pts = [[x, y, 거래일]] — 굵기는 선에 수직, 거래일이 끊기면 선도 끊김, dash = 거래일 수
     const a = m.geometry.attributes.position.array, n = pts.length;
     const nx = new Float32Array(n), ny = new Float32Array(n);
     for (let k = 0; k < n; k++) {
       let sx = 0, sy = 0;
       for (const [p, q] of [[pts[k - 1], pts[k]], [pts[k], pts[k + 1]]]) {
         if (!p || !q || q[2] !== p[2] + 1) continue;
-        const dx = q[0] - p[0], dy = q[1] - p[1], L = Math.hypot(dx, dy) || 1; sx += -dy / L; sy += dx / L;
+        const dx = q[0] - p[0], dy = q[1] - p[1], Ln = Math.hypot(dx, dy) || 1; sx += -dy / Ln; sy += dx / Ln;
       }
-      const L = Math.hypot(sx, sy) || 1; nx[k] = sx / L * w / 2; ny[k] = sy / L * w / 2;
+      const Ln = Math.hypot(sx, sy) || 1; nx[k] = sx / Ln * w / 2; ny[k] = sy / Ln * w / 2;
     }
     let v = 0;
     for (let k = 0; k < n - 1 && v + 18 <= a.length; k++) {
@@ -290,76 +348,85 @@ const RACE = (() => {
     m.geometry.attributes.position.needsUpdate = true; m.geometry.setDrawRange(0, v / 3);
   }
   const niceStep = raw => { const e = Math.pow(10, Math.floor(Math.log10(raw))); for (const f of [1, 2, 2.5, 5, 10]) if (f * e >= raw) return f * e; return 10 * e; };
-  // 규칙마다 한 번: 매도선(산 뒤 최고 × (1 − trail)) · 이 신호가 보는 선 · 보이는 값 범위(날마다)
+  const RL = k => ({                                         // [값, 색, 굵기, 불투명, 점선 거래일, 이름]
+    hi20: [[L.hi20, "#FFD400", 0.04, 0.9, 5, "★20D"]],
+    mom21: [[L.close_21ago, "#FFD400", 0.04, 0.8, 5, "−21D"]],
+    x20: [[L.sma20, "#FFD400", 0.045, 0.9, 0, "20"]],
+    gc520: [[L.sma20, "#FFD400", 0.045, 0.9, 0, "20"], [L.sma5, "#7FD4FF", 0.04, 0.9, 0, "5"]],
+    dd20_5: [[L.max20, "#FFD400", 0.03, 0.5, 0, ""], [L.max20.map(v => (v == null ? null : v * 0.95)), "#FFD400", 0.04, 0.95, 5, "−5%"]],
+    dd5: [[L.ath, "#FFD400", 0.03, 0.5, 0, ""], [L.ath.map(v => (v == null ? null : v * 0.95)), "#FFD400", 0.04, 0.95, 5, "★ −5%"]],
+  })[k] || [];
+  // 방법마다 한 번: 거래 번호(날마다) · 신호가 보는 선 · 보이는 값 범위(날마다 — 지난 날만)
   const PRE = {};
   function pre(k) {
     if (PRE[k]) return PRE[k];
-    const L = AN.lines, stop = new Array(N).fill(null);
-    for (const t of R(k).trades) { let pk = 0; const end = t.open ? N - 1 : t.s; for (let i = t.b; i <= end; i++) { pk = Math.max(pk, AN.close[i]); if (i < end || t.open) stop[i] = pk * (1 - TRAIL); } }
-    const lines = ({                                         // [값, 색, 굵기, 불투명, 점선 거래일]
-      dip10: [[L.ath, "#FFD400", 0.03, 0.55, 0], [L.ath.map(v => v * 0.9), "#FFD400", 0.04, 0.95, 5]],
-      dip20: [[L.ath, "#FFD400", 0.03, 0.55, 0], [L.ath.map(v => v * 0.8), "#FFD400", 0.04, 0.95, 5]],
-      ma200: [[L.sma200, "#FFD400", 0.045, 0.9, 0]],
-      gc: [[L.sma200, "#FFD400", 0.045, 0.9, 0], [L.sma50, "#7FD4FF", 0.04, 0.9, 0]],
-      hi52: [[L.hi252, "#FFD400", 0.04, 0.9, 5]],
-      mom12: [[L.close_252ago, "#FFD400", 0.04, 0.8, 5]],
-    })[k] || [];
+    const T = R(k).trades, ti = new Int32Array(N).fill(-1);
+    T.forEach((t, j) => { const end = t.open ? N : t.s; for (let i = t.b; i < end; i++) ti[i] = j; });     // b ≤ i < s = 주식을 든 구간
+    const lines = RL(k);
     const dlo = new Float64Array(N), dhi = new Float64Array(N);
     for (let i = 0; i < N; i++) {
       let a = AN.close[i], b = a;
-      if (stop[i] != null) { a = Math.min(a, stop[i]); b = Math.max(b, stop[i]); }
       for (const l of lines) { const v = l[0][i]; if (v != null) { a = Math.min(a, v); b = Math.max(b, v); } }
       dlo[i] = a; dhi[i] = b;
     }
     const back = Math.round(FR * WIN), lo = new Float64Array(N), hi = new Float64Array(N);
-    for (let c = 0; c < N; c++) { let a = Infinity, b = -Infinity; for (let i = Math.max(0, c - back); i <= c; i++) { if (dlo[i] < a) a = dlo[i]; if (dhi[i] > b) b = dhi[i]; } lo[c] = a; hi[c] = b; }
-    for (let c = 1; c < N; c++) {                            // 커질 때는 바로, 줄 때는 하루 4%씩 (범위가 덜컥거리지 않게 — 지난 값만 씀)
+    for (let c = 0; c < N; c++) {
+      let a = Infinity, b = -Infinity; for (let i = Math.max(0, c - back); i <= c; i++) { if (dlo[i] < a) a = dlo[i]; if (dhi[i] > b) b = dhi[i]; }
+      const j = ti[c]; if (j >= 0 && (T[j].h == null || c <= T[j].h)) { a = Math.min(a, T[j].sl); b = Math.max(b, T[j].tg); }   // 판정 전 거래의 목표·실패선
+      lo[c] = a; hi[c] = b;
+    }
+    for (let c = 1; c < N; c++) {                            // 커질 때는 바로, 줄 때는 하루 4%씩
       hi[c] = Math.max(hi[c], hi[c - 1] + (hi[c] - hi[c - 1]) * 0.04);
       lo[c] = Math.min(lo[c], lo[c - 1] + (lo[c] - lo[c - 1]) * 0.04);
     }
-    for (let c = 0; c < N; c++) {                            // 너무 좁으면(16% 아래) 가운데로 넓힘 · 위아래 여유
+    for (let c = 0; c < N; c++) {
       let a = lo[c], b = hi[c]; const ms = 0.16 * b;
       if (b - a < ms) { const m = (a + b) / 2; a = m - ms / 2; b = m + ms / 2; }
       const sp = b - a; lo[c] = a - 0.04 * sp; hi[c] = b + 0.06 * sp;
     }
-    return (PRE[k] = { stop, lines, lo, hi });
+    return (PRE[k] = { T, ti, lines, lo, hi });
   }
-  function thrEl(html, pp, style) {                          // 기준선 이름: 오늘 막대 오른쪽 — 값 눈금 쪽(x 1222 넘음)이면 왼쪽
+  function thrEl(html, pp, style) {                          // 선 이름: 오늘 막대 오른쪽 — 값 눈금 쪽(x 1222 넘음)이면 왼쪽
     const e = ovEl(html, pp[0] + 10, pp[1], "thl", style);
     if (boxOf(e).r > 1222) { e.style.left = (pp[0] - 22) + "px"; e.style.transform = "translate(-100%,-50%)"; }
     return e;
   }
-  function draw(k, fi, hdr) {
-    const P = pre(k), H = R(k).holding;
+  function draw(k, fi, hdr, t, dayT) {
+    const P = pre(k), T = P.T;
     fi = clamp(fi, 0, N - 1);
     const cur = Math.floor(fi), c1 = Math.min(N - 1, cur + 1), fr = fi - cur;
     const lo = lerp(P.lo[cur], P.lo[c1], fr), hi = lerp(P.hi[cur], P.hi[c1], fr);
-    const i0 = Math.max(0, fi - FR * WIN);                   // 창 왼쪽 끝 (거래일, 소수)
+    const i0 = Math.max(0, fi - FR * WIN);
     const X = i => XL + XW * (i - i0) / WIN, Y = p => YB + (p - lo) / (hi - lo) * (YT - YB);
     const a0 = Math.max(0, Math.floor(i0) - 45), aEnd = Math.min(N - 1, Math.ceil(i0 + WIN) + 6);
-    // 가격 벽 앞면 (보유 = 초록, 현금 = 회색) — 지붕 없음
+    const state = i => { const j = P.ti[i]; if (j < 0) return "n"; const tr = T[j]; return judged(tr, cur) ? tr.res : "o"; };
+    // 가격 벽 앞면 (초록 ✓ · 빨강 ✗ · 파랑 판정 전 · 회색 현금 — 그날까지 판정 난 거래만 색)
     {
       const pa = wallM.geometry.attributes.position.array, ca = wallM.geometry.attributes.color.array; let v = 0;
       for (let i = a0; i < cur && v + 18 <= pa.length; i++) {
         const x0 = X(i), x1 = X(i + 1), y0 = Y(AN.close[i]), y1 = Y(AN.close[i + 1]);
-        const c = H[i + 1] === "1" ? CG : CN, t0 = Math.min(1, y0 / YT * 1.15), t1 = Math.min(1, y1 / YT * 1.15);
-        for (const [x, y, t] of [[x0, 0, 0], [x0, y0, t0], [x1, y1, t1], [x0, 0, 0], [x1, y1, t1], [x1, 0, 0]]) {
+        const c = COL[state(i)], t0 = Math.min(1, y0 / YT * 1.15), t1 = Math.min(1, y1 / YT * 1.15);
+        for (const [x, y, u] of [[x0, 0, 0], [x0, y0, t0], [x1, y1, t1], [x0, 0, 0], [x1, y1, t1], [x1, 0, 0]]) {
           pa[v] = x; pa[v + 1] = y; pa[v + 2] = HZ;
-          ca[v] = c[0].r + (c[1].r - c[0].r) * t; ca[v + 1] = c[0].g + (c[1].g - c[0].g) * t; ca[v + 2] = c[0].b + (c[1].b - c[0].b) * t; v += 3;
+          ca[v] = c[0].r + (c[1].r - c[0].r) * u; ca[v + 1] = c[0].g + (c[1].g - c[0].g) * u; ca[v + 2] = c[0].b + (c[1].b - c[0].b) * u; v += 3;
         }
       }
       wallM.geometry.attributes.position.needsUpdate = true; wallM.geometry.attributes.color.needsUpdate = true; wallM.geometry.setDrawRange(0, v / 3);
     }
-    // 선: 가격(흰 선 하나) · 매도선(빨간 점선) · 이 신호가 보는 선
     const pts = (arr, f) => { const o = []; for (let i = a0; i <= cur; i++) { const v = arr[i]; if (v != null) o.push([X(i), Y(f ? f(v) : v), i]); } return o; };
     ribbon(lineM, pts(AN.close), 0.05, HZ + 0.01, 0);
-    ribbon(stopM, pts(P.stop), 0.05, HZ + 0.04, 5);
     ruleM.forEach((m, j) => {
       const l = P.lines[j];
       if (!l) { m.geometry.setDrawRange(0, 0); return; }
       m.material.color.set(l[1]); m.material.opacity = l[3]; ribbon(m, pts(l[0]), l[2], HZ + 0.03, l[4]);
     });
-    // 값 격자 (벽 앞면) · 분기 바닥 선
+    // 판정 전 거래 (오늘 들고 있고 아직 어느 쪽에도 안 닿음 — 닿은 날까지 보임)
+    const jo = P.ti[cur], ot = jo >= 0 ? T[jo] : null, showBar = !!ot && (ot.h == null || cur <= ot.h);
+    if (showBar) {
+      const span = v => { const o = []; for (let i = Math.max(ot.b, a0); i <= cur; i++) o.push([X(i), Y(v), i]); o.push([X(cur) + 0.35, Y(v), cur + 1]); return o; };
+      ribbon(tgM, span(ot.tg), 0.05, HZ + 0.04, 3); ribbon(slM, span(ot.sl), 0.05, HZ + 0.04, 3); ribbon(bpM, span(ot.bp), 0.018, HZ + 0.035, 0);
+    } else [tgM, slM, bpM].forEach(m => m.geometry.setDrawRange(0, 0));
+    // 값 격자 · 분기 바닥 선
     const step = niceStep((hi - lo) / 5), ticks = [];
     for (let p = Math.ceil(lo / step) * step; p <= hi && ticks.length < 14; p += step) ticks.push(p);
     {
@@ -379,17 +446,26 @@ const RACE = (() => {
       }
       qG.attributes.position.needsUpdate = true; qG.setDrawRange(0, v / 3);
     }
-    // 오늘 막대·점 · 매매 점
     curPl.position.set(X(cur), (YT + 1.2) / 2, HZ + 0.02);
     curDot.position.set(X(cur), Y(AN.close[cur]), HZ + 0.08);
-    const T = R(k).trades;
-    let nb = 0, ns = 0;
+    // 매수 고리 · 판정 점 · 가장 최근 판정
+    let nr = 0, nd = 0, last = null;
     for (const t of T) {
-      if (t.b <= cur && t.b >= a0 && nb < BUYP.length) { BUYP[nb].position.set(X(t.b), Y(AN.close[t.b]), HZ + 0.06); BUYP[nb++].visible = true; }
-      if (!t.open && t.s <= cur && t.s >= a0 && ns < SELP.length) { SELP[ns].position.set(X(t.s), Y(AN.close[t.s]), HZ + 0.06); SELP[ns++].visible = true; }
+      if (t.b > cur) break;
+      if (t.b >= a0 && nr < RINGS.length) { RINGS[nr].position.set(X(t.b), Y(AN.close[t.b]), HZ + 0.07); RINGS[nr++].visible = true; }
+      if (judged(t, cur)) {
+        last = t;
+        if (t.h >= a0 && nd < DOTS.length) {
+          const d = DOTS[nd++], c = t.res === "w" ? "#2BE0A0" : "#FF4D5E";
+          d.position.set(X(t.h), Y(AN.close[t.h]), HZ + 0.075); d.userData.h.material.color.set(c); d.userData.b.material.color.set(c); d.visible = true;
+        }
+      }
     }
-    for (let j = nb; j < BUYP.length; j++) BUYP[j].visible = false;
-    for (let j = ns; j < SELP.length; j++) SELP[j].visible = false;
+    for (let j = nr; j < RINGS.length; j++) RINGS[j].visible = false;
+    for (let j = nd; j < DOTS.length; j++) DOTS[j].visible = false;
+    const age = last && dayT ? t - dayT[last.h] : Infinity;
+    pulse.visible = age >= 0 && age < 0.7;
+    if (pulse.visible) { const u = age / 0.7; pulse.position.set(X(last.h), Y(AN.close[last.h]), HZ + 0.08); pulse.scale.setScalar(1 + 2.2 * u); pulse.material.opacity = 0.85 * (1 - u); pulse.material.color.set(last.res === "w" ? "#2BE0A0" : "#FF4D5E"); }
     drawIn(scene, cam, VP);
     // ---- 글자 (오버레이)
     PLACED = [];
@@ -397,41 +473,32 @@ const RACE = (() => {
     const cl = ovEl(`<span class="tab">$${f2(AN.close[cur])}</span>`, cp[0], cp[1] - 4, "cur");
     { const b0 = boxOf(cl), dx = b0.l < 46 ? 46 - b0.l : b0.r > 1222 ? 1222 - b0.r : 0; if (dx) cl.style.left = (cp[0] + dx) + "px"; }
     PLACED.push(boxOf(cl));
-    const axEls = [];                                        // 축 글자는 움직이는 글자(꼬리표·핀)와 겹치면 그 프레임만 숨김
-    for (const p of ticks) { const q = proj(XR + 0.05, Y(p), HZ); axEls.push(ovEl(`$${f0(p)}`, q[0] + 30, q[1], "lab ax")); }
-    for (const [x, yy] of YRS) { const q = proj(x, 0, 2.2), e = ovEl(yy, q[0] + 34, q[1], "lab ax"); if (boxOf(e).l < 46) e.remove(); else axEls.push(e); }   // 왼쪽으로 흘러 나간 연도는 뺌
-    if (k === "dip10" || k === "dip20") {
-      const q = k === "dip10" ? 0.9 : 0.8, pp = proj(X(cur) + 0.18, Y(AN.lines.ath[cur] * q), HZ);
-      const e = thrEl(`★ −${k === "dip10" ? 10 : 20}%`, pp); PLACED.push(boxOf(e));
+    if (showBar) for (const [v, txt, c] of [[ot.tg, `+${Math.round(NN * 100)}%`, "#2BE0A0"], [ot.sl, `−${Math.round(M * 100)}%`, "#FF6B78"]]) {
+      const pp = proj(X(cur) + 0.42, Y(v), HZ + 0.04), e = ovEl(txt, pp[0], pp[1], "bar tab", `color:${c};border-color:${c}66`);
+      if (boxOf(e).r > 1222) { e.style.left = (pp[0] - 50) + "px"; e.style.transform = "translate(-100%,-50%)"; }
+      PLACED.push(boxOf(e));
     }
-    if (k === "ma200" || k === "gc") { const pp = proj(X(cur) + 0.18, Y(AN.lines.sma200[cur]), HZ); const e = thrEl("200", pp); if (!hit(boxOf(e))) PLACED.push(boxOf(e)); else e.remove(); }
-    if (k === "gc") { const pp = proj(X(cur) + 0.18, Y(AN.lines.sma50[cur]), HZ); const e = thrEl("50", pp, "color:#7FD4FF"); if (!hit(boxOf(e))) PLACED.push(boxOf(e)); else e.remove(); }
-    if (P.stop[cur] != null) { const pp = proj(X(cur) + 0.18, Y(P.stop[cur]), HZ); const e = thrEl(`−${Math.round(TRAIL * 100)}%`, pp, "color:#FF6B6B"); if (!hit(boxOf(e))) PLACED.push(boxOf(e)); else e.remove(); }
-    const BOX = { l: 46, t: 140, r: 1222, b: 905 };
-    const tries = (dir) => (dir > 0 ? [[1, 1.0], [1, 1.6], [1, 2.2], [-1, 1.0], [-1, 1.6]] : [[-1, 1.0], [-1, 1.6], [-1, 2.2], [1, 1.0], [1, 1.6]]);
-    const place = (html, x, y0, dir, color) => {
-      const base = proj(x, y0, HZ + 0.06);
-      for (const [d, off] of tries(dir)) {
-        const ly = y0 + d * off;
-        if (d < 0 && ly < 0.75) continue;
-        const pt = proj(x, ly, HZ + 0.06);
-        const e = ovEl(html, pt[0], pt[1] + (d > 0 ? -22 : 22), "lab");
-        let b = boxOf(e);
-        if (b.l < 50 && i0 === 0) { e.style.left = (pt[0] + 50 - b.l) + "px"; b = boxOf(e); }   // 시작 쪽 첫 매수 글자는 오른쪽으로 밀어 보임 (흘러 나가는 글자는 그대로)
-        if (!hit(b) && bounds(b, BOX)) {
-          PLACED.push(b); stemEl(base[0], base[1], d > 0 ? b.b : b.t, color);
-          if (i0 > 0 && b.l < 170) e.style.opacity = clamp((b.l - 46) / 124, 0.3, 1);     // 왼쪽 끝으로 흘러 나가는 글자는 흐리게
-          return true;
-        }
-        e.remove();
+    P.lines.forEach(l => {
+      if (!l[5] || l[0][cur] == null) return;
+      const pp = proj(X(cur) + 0.18, Y(l[0][cur]), HZ), e = thrEl(l[5], pp, `color:${l[1]}`);
+      if (!hit(boxOf(e))) PLACED.push(boxOf(e)); else e.remove();
+    });
+    if (last && age < 2.2 && last.h >= a0) {                 // 가장 최근 판정 칩: 판정 순간 나타나 약 1.5초 뒤 흐려짐
+      const w = last.res === "w", c = w ? "#2BE0A0" : "#FF4D5E";
+      let top = AN.close[last.h]; for (let i = Math.max(a0, last.h - 10); i <= Math.min(cur, last.h + 25); i++) top = Math.max(top, AN.close[i]);
+      const pp = proj(X(last.h), Y(AN.close[last.h]), HZ + 0.07), pt = proj(X(last.h), Y(top) + 0.8, HZ + 0.07);
+      const e = ovEl(`<span>${w ? "✓" : "✗"}</span><span class="tab">${pc(last.r)}</span>`, pt[0], pt[1], "chip", `color:${c};border-color:${c}99`);
+      let b = boxOf(e);
+      if (b.r > 1222) { e.style.left = (pt[0] - (b.r - 1222)) + "px"; b = boxOf(e); }
+      if (b.l < 50) { e.style.left = (pt[0] + (50 - b.l)) + "px"; b = boxOf(e); }       // 왼쪽 끝 (경주 처음 · 흘러 나가는 판정)
+      if (b.t < 150) { e.remove(); } else {
+        const op = age < 1.5 ? 1 : clamp(1 - (age - 1.5) / 0.7, 0, 1);
+        e.style.opacity = op; PLACED.push(b); stemEl(pp[0], b.b, pp[1] - 14, c, 0.7 * op);
       }
-      return false;
-    };
-    const shown = T.filter(t => t.b <= cur && (t.open || t.s >= a0)).slice().reverse();
-    for (const t of shown) {
-      if (!t.open && t.s <= cur && X(t.s) > XL - 0.2) place(`<div class="pin"><span class="tag s">SELL</span><span class="v ${t.r >= 0 ? "up" : "dn"} tab">${pc(t.r)}</span></div>`, X(t.s), Y(AN.close[t.s]), 1, "#FF8A3D");
-      if (t.b >= a0 && X(t.b) > XL - 0.2) place(`<div class="pin"><span class="tag b">BUY</span><span class="v tab">$${f0(t.bp)}</span></div>`, X(t.b), Y(AN.close[t.b]), -1, "#2BE0A0");
     }
+    const axEls = [];
+    for (const p of ticks) { const q = proj(XR + 0.05, Y(p), HZ); axEls.push(ovEl(`$${f0(p)}`, q[0] + 30, q[1], "lab ax")); }
+    for (const [x, yy] of YRS) { const q = proj(x, 0, 2.2), e = ovEl(yy, q[0] + 34, q[1], "lab ax"); if (boxOf(e).l < 46) e.remove(); else axEls.push(e); }
     for (const e of axEls) if (hit(boxOf(e))) e.style.visibility = "hidden";
     if (hdr) hdr(cur);
     return cur;
@@ -439,210 +506,141 @@ const RACE = (() => {
   return { draw, VP };
 })();
 
-// 경주 DOM (머리·카드) — 규칙마다 장면 안에 만들고, 프레임마다 값만 바꿈. 카드 2개 = 시안 race3d.html v1.1 그대로 (+ 아래 합계)
+// 경주 DOM (머리·카드) — 방법마다 장면 안에 만들고, 프레임마다 값만 바꿈. 카드 2개 = 시안 race3d_v4.html v1.0
 function raceDom(k, sc, opt) {
   const hd = el(`<div class="a row" style="left:44px;top:34px;gap:18px"><div class="no">${VNO(k)}</div><div class="rule">${HEAD[k]()}</div><div class="lv tab row" style="gap:8px;margin-left:6px;font:900 40px/1 'Noto Sans KR';color:#C9D2E2"></div></div>`, sc);
   const dt = el(`<div class="date tab"></div>`, sc);
   const live = hd.querySelector(".lv");
   const side = el(`<div class="side" data-small="사용자 지시 2026-10-16 — 시안 카드 그대로 (글자 15~40px)"><div class="card c1"></div><div class="card c2"></div></div>`, sc);
-  el(`<div class="legend"><span style="display:inline-block;width:46px;border-top:5px solid #fff"></span><span>SPY</span><span class="sw" style="margin-left:26px;background:linear-gradient(180deg,#22C79A,#0B3D33)"></span><span class="tag b">BUY</span><span>~</span><span class="tag s">SELL</span><span class="sw" style="margin-left:26px;background:linear-gradient(180deg,#4A5875,#1A2336)"></span><span>$</span><span style="margin-left:26px;display:inline-block;width:46px;border-top:5px dashed #FF5A5A"></span><span class="tag s">SELL</span></div>`, sc);
+  const lg = el(`<div class="legend">${IC.ring(34)}<span class="tag b">BUY</span><span class="sw" style="margin-left:22px;background:linear-gradient(180deg,#22C79A,#0B3D33)"></span><span class="up">✓</span><span class="sw" style="margin-left:16px;background:linear-gradient(180deg,#E0475A,#3D0F18)"></span><span class="dn">✗</span><span class="sw" style="margin-left:16px;background:linear-gradient(180deg,#3E8FE0,#0D2A4A)"></span><span style="color:#8CC8FF">…</span><span class="sw" style="margin-left:16px;background:linear-gradient(180deg,#4A5875,#1A2336)"></span><span>$</span></div>`, sc);
   const c1 = side.children[0], c2 = side.children[1];
-  const T = R(k).trades, SHOW = 6;                     // 6줄 = 카드가 y 1020(유튜브 진행 막대 자리) 위에서 끝남 (7줄은 1054)
-  const hlOn = opt && opt.bhHL;                               // (1번 장) 'BUY & HOLD' 줄을 노란 테두리로 — [시작, 끝] 시각
+  const T = R(k).trades, RN = R(k).rnd, RR = runr(k), SHOW = 6;
+  const on = (key, now) => opt && opt[key] && now >= opt[key][0] && now < opt[key][1];
   const ds = i => AN.dates[i].slice(2).replace(/-/g, ".");
-  const spark = (v, bv, cur) => {                             // 계좌 그래프: 이 규칙(초록) · BUY & HOLD(회색) · $10,000(노란 점선) — 시안 그대로
-    const w = 480, h = 104, val = R(k).value;
-    let lo = CAP, hi = -Infinity;
-    for (let i = 0; i <= cur; i++) { lo = Math.min(lo, val[i], AN.bh[i]); hi = Math.max(hi, val[i], AN.bh[i]); }
-    const sx = i => i / Math.max(1, N - 1) * w, sy = y => h - 6 - (y - lo) / Math.max(1, hi - lo) * (h - 12);
-    const path = arr => { let d = ""; for (let i = 0; i <= cur; i += 3) d += (i ? "L" : "M") + sx(i).toFixed(1) + " " + sy(arr[i]).toFixed(1); return d + "L" + sx(cur).toFixed(1) + " " + sy(arr[cur]).toFixed(1); };
-    const base = sy(CAP);
-    return `<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" style="display:block;margin-top:14px">
-      <line x1="0" x2="${w}" y1="${base}" y2="${base}" stroke="#FFD400" stroke-dasharray="7 7" stroke-width="2" opacity=".6"/>
-      <path d="${path(AN.bh)}" fill="none" stroke="#AFC0DA" stroke-width="3" stroke-linejoin="round" opacity=".75"/>
-      <path d="${path(val)}" fill="none" stroke="#2BE0A0" stroke-width="4" stroke-linejoin="round"/>
-      <circle cx="${sx(cur)}" cy="${sy(bv)}" r="6" fill="#AFC0DA"/><circle cx="${sx(cur)}" cy="${sy(v)}" r="7" fill="#fff"/></svg>`;
+  const spark = cur => {                                      // 그날까지 성공률: 이 방법(초록) · 무작위 평균(회색 선) · 무작위 90%(회색 띠) — 세로 25~75% 고정 (미래 값으로 축을 정하지 않음)
+    const w = 480, h = 100, V0 = 0.25, V1 = 0.75;
+    const sx = i => i / (N - 1) * w, sy = v => h - 4 - (clamp(v, V0, V1) - V0) / (V1 - V0) * (h - 8);
+    let band = "", top = [], bot = [], mean = "", me = "";
+    for (let i = 0; i <= cur; i += 4) {
+      const a = pm(RN.p5[i]), b = pm(RN.p95[i]), m = pm(RN.mean[i]);
+      if (a != null && b != null) { top.push(`${sx(i).toFixed(1)},${sy(b).toFixed(1)}`); bot.push(`${sx(i).toFixed(1)},${sy(a).toFixed(1)}`); }
+      if (m != null) mean += (mean ? "L" : "M") + sx(i).toFixed(1) + " " + sy(m).toFixed(1);
+      const d = RR.w[i] + RR.l[i]; if (d >= 5) me += (me ? "L" : "M") + sx(i).toFixed(1) + " " + sy(RR.w[i] / d).toFixed(1);
+    }
+    if (top.length) band = `<polygon points="${top.join(" ")} ${bot.reverse().join(" ")}" fill="#AFC0DA" opacity=".22"/>`;
+    const d = RR.w[cur] + RR.l[cur], r = d ? RR.w[cur] / d : null, m = pm(RN.mean[cur]);
+    return `<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" style="display:block">${band}
+      <line x1="0" x2="${w}" y1="${sy(0.5)}" y2="${sy(0.5)}" stroke="#93A0B8" stroke-dasharray="4 8" stroke-width="1.5" opacity=".5"/>
+      ${mean ? `<path d="${mean}" fill="none" stroke="#AFC0DA" stroke-width="3" opacity=".8"/>` : ""}${me ? `<path d="${me}" fill="none" stroke="#2BE0A0" stroke-width="4" stroke-linejoin="round"/>` : ""}
+      ${m != null ? `<circle cx="${sx(cur)}" cy="${sy(m)}" r="6" fill="#AFC0DA"/>` : ""}${r != null && d >= 5 ? `<circle cx="${sx(cur)}" cy="${sy(r)}" r="7" fill="#fff"/>` : ""}</svg>`;
   };
-  const stopAt = (t, cur) => { let pk = 0; for (let i = t.b; i <= cur; i++) pk = Math.max(pk, AN.close[i]); return pk * (1 - TRAIL); };
   return (cur, now) => {
     dt.textContent = ymd(cur);
-    const L = AN.lines;
     const lv = {
-      dip10: () => `★ ${pcu(AN.close[cur] / L.ath[cur] - 1)}`, dip20: () => `★ ${pcu(AN.close[cur] / L.ath[cur] - 1)}`,
-      rsi30: () => `RSI ${L.rsi14[cur].toFixed(1)}`, vix30: () => (L.vix[cur] == null ? "" : `VIX ${L.vix[cur].toFixed(1)}`),
-      drop2: () => `${IC.cal(40)} ${pc(L.ret1[cur] / 100, 1)}`, mom12: () => `−1Y ${pc(AN.close[cur] / L.close_252ago[cur] - 1)}`,
+      hi20: () => (L.hi20[cur] == null ? "" : `★20D ${pc(AN.close[cur] / L.hi20[cur] - 1)}`),
+      mom21: () => `−21D ${pc(AN.close[cur] / L.close_21ago[cur] - 1)}`,
+      x20: () => (L.sma20[cur] == null ? "" : `20 ${pc(AN.close[cur] / L.sma20[cur] - 1)}`),
+      gc520: () => (L.sma5[cur] == null || L.sma20[cur] == null ? "" : `5/20 ${pc(L.sma5[cur] / L.sma20[cur] - 1)}`),
+      drop1: () => (L.ret1[cur] == null ? "" : `${IC.cal(40)} ${pc(L.ret1[cur] / 100)}`),
+      rsi40: () => (L.rsi14[cur] == null ? "" : `RSI ${L.rsi14[cur].toFixed(1)}`),
+      vix20: () => (L.vix[cur] == null ? "" : `VIX ${L.vix[cur].toFixed(1)}`),
+      dd20_5: () => (L.max20[cur] == null ? "" : `★20D ${pcu(AN.close[cur] / L.max20[cur] - 1)}`),
+      dd5: () => `★ ${pcu(AN.close[cur] / L.ath[cur] - 1)}`,
     }[k];
     live.innerHTML = lv ? lv() : "";
-    // 카드 1: 계좌 (+ BUY & HOLD — 첫날 매수하고 그대로 둔 계좌) + 계좌 그래프
-    const v = R(k).value[cur], bv = AN.bh[cur];
-    const hl = hlOn && now >= hlOn[0] && now < hlOn[1];
-    c1.innerHTML = `<div class="ch">${IC.wallet}<span class="tab">$${f0(CAP)}</span><span>→</span></div>
-      <div class="acc"><span class="who rb">${VNO(k)}</span><span class="big tab">$${f0(v)}</span><span class="mid tab ${v >= CAP ? "up" : "dn"}">${pc(v / CAP - 1)}</span></div>
-      <div class="acc bh" style="position:relative">${hl ? `<span class="bh-hl"></span>` : ""}<span class="who bhp">BUY &amp; HOLD</span><span class="bv tab">$${f0(bv)}</span><span class="bp tab">${pc(bv / CAP - 1)}</span></div>${spark(v, bv, cur)}`;
-    // 카드 2: 거래 기록 (최근 SHOW개) — 번호 · BUY 날·값 → SELL 날·값 · 수익률·손익 $ · 들고 있으면 흐린 SELL + ⌛ + 매도선 값
-    const done = T.filter(t => t.b <= cur);
-    const isOpen = t => t.open || t.s > cur;
-    const pnl = t => (isOpen(t) ? v - t.bc : t.sc - t.bc);
-    const skip = Math.max(0, done.length - SHOW);
+    lg.classList.toggle("on", !!on("legend", now));
+    // 카드 1: 성공률 (그날까지 판정 난 것) · 무작위 2천 개 평균 · 90% 범위 · 그래프
+    const w = RR.w[cur], l = RR.l[cur], r = w + l ? w / (w + l) : null;
+    const m = pm(RN.mean[cur]), a = pm(RN.p5[cur]), b = pm(RN.p95[cur]);
+    c1.innerHTML = `<div class="ch">${IC.target}<span class="cri w">▲ +${Math.round(NN * 100)}% ✓</span><span class="cri l">▼ −${Math.round(M * 100)}% ✗</span></div>
+      <div class="acc">${on("rate", now) ? `<span class="hl"></span>` : ""}<span class="rb">${VNO(k)}</span><span class="big tab">${rt(r)}</span><span class="wl tab"><span class="up">✓ ${w}</span><span class="dn">✗ ${l}</span></span></div>
+      <div class="acc bh">${on("rand", now) ? `<span class="hl"></span>` : ""}<span class="bhp">${IC.dice(22)}<span class="tab">×${f0(RUNS)}</span></span><span class="bv tab">${rt(m)}</span><span class="bd tab">${a != null ? `${rt(a)}<br>~ ${rt(b)}` : ""}</span></div>
+      <div class="sp">${on("band", now) ? `<span class="hl"></span>` : ""}${spark(cur)}</div>`;
+    // 카드 2: 거래 기록 (최근 SHOW개) — 번호 · BUY 날·값 → ✓/✗ 매도 날·값 · 실제 수익률 · 판정 전은 ✗~✓ 막대 위 지금 자리
+    const done = T.filter(t => t.b <= cur), skip = Math.max(0, done.length - SHOW);
     const rows = done.slice(skip).map((t, kk) => {
-      const op = isOpen(t), r = op ? v / t.bc - 1 : t.r, u = pnl(t);
-      const sell = op ? `<div class="cl"><b class="s">SELL</b><span class="dt tab" style="display:flex;align-items:center;gap:5px">${IC.hour(20)}</span><span class="px tab">≤ ${f0(stopAt(t, cur))}</span></div>`
-                      : `<div class="cl"><b class="s">SELL</b><span class="dt tab">${ds(t.s)}</span><span class="px tab">${f0(t.sp)}</span></div>`;
-      return `<div class="t2 ${op ? "open" : ""}"><span class="k">${kk + skip + 1}</span>
-        <div class="cl"><b class="b">BUY</b><span class="dt tab">${ds(t.b)}</span><span class="px tab">${f0(t.bp)}</span></div><span class="ar">→</span>${sell}
-        <div class="rs"><span class="r tab ${r >= 0 ? "up" : "dn"}">${pc(r)}</span><span class="u tab ${u >= 0 ? "up" : "dn"}">${susd(u)}</span></div></div>`;
+      const buy = `<div class="cl"><b class="b">BUY</b><span class="dt tab">${ds(t.b)}</span><span class="px tab">$${f0(t.bp)}</span></div>`;
+      if (!judged(t, cur)) {
+        const now_ = AN.close[cur] / t.bp - 1, u = clamp((now_ + M) / (M + NN), 0, 1);
+        return `<div class="t2 open"><span class="k">${kk + skip + 1}</span>${buy}<span class="ar">→</span>
+          <div class="gauge"><span class="e dn" style="left:0">✗</span><span class="e up" style="right:0">✓</span><div class="bx"><div class="tr"></div><div class="z" style="left:${(M / (M + NN) * 100).toFixed(1)}%"></div><div class="m" style="left:${(u * 100).toFixed(1)}%"></div></div></div>
+          <span class="r tab" style="color:#8CC8FF">${pc(now_)}</span></div>`;
+      }
+      const ww = t.res === "w", sold = t.s <= cur && !t.open;
+      return `<div class="t2"><span class="k">${kk + skip + 1}</span>${buy}<span class="ar">→</span>
+        <div class="cl"><b class="${ww ? "w" : "l"}">${ww ? "✓" : "✗"}</b><span class="dt tab">${ds(sold ? t.s : t.h)}</span><span class="px tab">$${f0(sold ? t.sp : AN.close[t.h])}</span></div>
+        <span class="r tab ${sold ? (t.r >= 0 ? "up" : "dn") : ""}" style="${sold ? "" : "color:#93A0B8"}">${sold ? pc(t.r) : "+1D"}</span></div>`;
     }).join("");
-    const closed = done.filter(t => !isOpen(t)), openT = done.filter(isOpen);
-    const W_ = closed.filter(t => t.r > 0), L_ = closed.filter(t => t.r <= 0);
-    const sum = a => a.reduce((s, t) => s + pnl(t), 0);
-    c2.innerHTML = `<div class="ch">${IC.log}<span class="tab">${done.length}</span>${skip ? `<span class="tab" style="margin-left:auto;font-size:20px">1~${skip} ↑</span>` : ""}</div>${rows}
-      <div class="foot tab"><span class="up">▲ ${W_.length} <span style="font-size:24px">${susd(sum(W_))}</span></span><span class="dn">▼ ${L_.length} <span style="font-size:24px">${susd(sum(L_))}</span></span></div>
-      <div class="foot2 tab">${openT.length ? `<span class="row" style="gap:6px">${IC.hour(26)}<span class="${sum(openT) >= 0 ? "up" : "dn"}">${susd(sum(openT))}</span></span>` : ""}<span class="sum"><span style="color:var(--GR)">Σ</span> <span class="${v - CAP >= 0 ? "up" : "dn"}">${susd(v - CAP)}</span></span></div>`;
+    c2.innerHTML = `<div class="ch">${IC.log}<span class="tab">${done.length}</span>${skip ? `<span class="tab" style="margin-left:auto;font-size:20px">1~${skip} ↑</span>` : ""}</div>${rows}`;
   };
 }
 
 // =====================================================================================================================
-// 3D 확대 (규칙 설명 · 매도 규칙 예) — 실제 자료의 짧은 구간
+// 3D 확대 — 실제 거래 2개 (성공 = +5% 먼저 · 실패 = −2% 먼저)
 // =====================================================================================================================
-function makeZoom(opt) {
-  // opt: {i0, i1, lines:[[array, color, dash]], low:{arr, thr, max}, stop:{buyI}, sig, buyI, hl:[i,j] }
-  const VP = { x: 140, y: 150, w: 1640, h: 820 };
+function makeTradeZoom(i0, i1, trades) {
+  const VP = { x: 120, y: 150, w: 1680, h: 830 };
   const scene = new THREE.Scene();
   const cam = new THREE.PerspectiveCamera(30, VP.w / VP.h, 0.1, 200);
-  const n = opt.i1 - opt.i0 + 1;
-  const pr = AN.close.slice(opt.i0, opt.i1 + 1);
-  const extra = (opt.lines || []).flatMap(([a]) => a.slice(opt.i0, opt.i1 + 1).filter(v => v != null));
-  const stopVals = [];
-  let lo = Math.min(...pr, ...extra), hi = Math.max(...pr, ...extra);
-  if (opt.stop) { let pk = Math.max(...AN.close.slice(opt.stop.buyI, opt.i0 + 1)); for (let i = opt.i0; i <= opt.i1; i++) { pk = Math.max(pk, AN.close[i]); stopVals.push(pk * (1 - TRAIL)); } lo = Math.min(lo, ...stopVals); }
+  const n = i1 - i0 + 1, pr = AN.close.slice(i0, i1 + 1);
+  let lo = Math.min(...pr, ...trades.map(t => t.sl)), hi = Math.max(...pr, ...trades.map(t => t.tg));
   const pad = (hi - lo) * 0.08; lo -= pad; hi += pad;
-  const top = opt.low ? 6.2 : 5.6, base = opt.low ? 1.4 : 0;
-  const X = j => -8 + 16 * j / (n - 1), Y = p => base + (p - lo) / (hi - lo) * (top - base);
-  const xs = Array.from({ length: n }, (_, j) => X(j));
-  const yP = pr.map(Y);
-  const grid = new THREE.Mesh(new THREE.PlaneGeometry(17.2, 0.02), mat("#3B4C6E", 0.8));
-  const panel = new THREE.Mesh(new THREE.PlaneGeometry(17.4, top - base + 0.8), mat("#13213C", 0.55)); panel.position.set(0, (top + base) / 2, -0.4); scene.add(panel);
-  // 가격 관 (3D)
-  const pts = xs.map((x, j) => new THREE.Vector3(x, yP[j], 0));
-  const curve = new THREE.CatmullRomCurve3(pts);
+  const X = j => -8 + 16 * j / (n - 1), Y = p => (p - lo) / (hi - lo) * 5.8;
+  const xs = Array.from({ length: n }, (_, j) => X(j)), yP = pr.map(Y);
+  const panel = new THREE.Mesh(new THREE.PlaneGeometry(17.4, 6.8), mat("#13213C", 0.55)); panel.position.set(0, 2.9, -0.4); scene.add(panel);
+  const curve = new THREE.CatmullRomCurve3(xs.map((x, j) => new THREE.Vector3(x, yP[j], 0)));
   const SEG = n * 3;
   const tube = new THREE.Mesh(new THREE.TubeGeometry(curve, SEG, 0.075, 10, false), new THREE.MeshStandardMaterial({ color: "#F4F8FF", emissive: "#4F6A99", emissiveIntensity: 0.5, roughness: 0.35, metalness: 0.2 }));
   scene.add(tube);
   scene.add(new THREE.AmbientLight(0xffffff, 0.55)); const dl = new THREE.DirectionalLight(0xffffff, 1.1); dl.position.set(3, 6, 8); scene.add(dl);
-  // 그림자 띠 (관 아래)
-  const shp = []; for (let j = 0; j < n - 1; j++) shp.push(xs[j], base, -0.05, xs[j], yP[j], -0.05, xs[j + 1], yP[j + 1], -0.05, xs[j], base, -0.05, xs[j + 1], yP[j + 1], -0.05, xs[j + 1], base, -0.05);
-  const gS = new THREE.BufferGeometry(); gS.setAttribute("position", new THREE.Float32BufferAttribute(shp, 3));
-  const mS = new THREE.Mesh(gS, mat("#22C79A", 0.16)); scene.add(mS);
-  const lines = [];
-  for (const [arr, color, dash, w] of opt.lines || []) {
-    const r = ribbonGeo(xs, arr.slice(opt.i0, opt.i1 + 1).map(v => (v == null ? null : Y(v))), null, w || 0.06, 0.05, dash);
-    const m = new THREE.Mesh(r.g, mat(color, 0.95)); scene.add(m); lines.push({ m, cnt: r.cnt });
-  }
-  let stopL = null;
-  if (opt.stop) { const r = ribbonGeo(xs, stopVals.map(Y), null, 0.07, 0.06, 0.2); stopL = { m: new THREE.Mesh(r.g, mat("#FF5A5A", 1)), cnt: r.cnt }; scene.add(stopL.m); }
-  let low = null;
-  if (opt.low) {
-    const a = opt.low.arr.slice(opt.i0, opt.i1 + 1), LY = v => -2.6 + (v / opt.low.max) * 3.2;
-    const r = ribbonGeo(xs, a.map(v => (v == null ? null : LY(v))), null, 0.07, 0.05);
-    const m = new THREE.Mesh(r.g, mat(opt.low.color || "#7FD4FF", 1)); scene.add(m);
-    const th = ribbonGeo([-8.2, 8.2], [LY(opt.low.thr), LY(opt.low.thr)], null, 0.05, 0.04, 0.3); scene.add(new THREE.Mesh(th.g, mat("#FFD400", 0.95)));
-    const zone = new THREE.Mesh(new THREE.PlaneGeometry(16.4, Math.abs(LY(opt.low.thr) - LY(opt.low.zoneEnd))), mat(opt.low.zoneColor || "#2BE0A0", 0.12));
-    zone.position.set(0, (LY(opt.low.thr) + LY(opt.low.zoneEnd)) / 2, -0.05); scene.add(zone);
-    low = { m, cnt: r.cnt, LY };
-  }
-  const hl = opt.hl ? (() => { const [a, b] = opt.hl; const r = ribbonGeo(xs.slice(a - opt.i0, b - opt.i0 + 1), yP.slice(a - opt.i0, b - opt.i0 + 1), null, 0.12, 0.08); const m = new THREE.Mesh(r.g, mat("#FF4D5E", 1)); m.visible = false; scene.add(m); return m; })() : null;
-  const buy = sphere(0.18, "#2BE0A0"); scene.add(buy);
-  const sell = opt.sellI != null ? sphere(0.18, "#FF8A3D") : null; if (sell) scene.add(sell);
-  const peak = opt.stop ? sphere(0.15, "#FFD400") : null; if (peak) scene.add(peak);
-  function draw(u, orbit, show) {                            // u: 0..1 그린 몫 · orbit: 카메라 각 · show: {buy, sell, labels}
-    const a = -0.28 + 0.4 * orbit;
-    cam.position.set(Math.sin(a) * 22, 5.4, Math.cos(a) * 22); cam.lookAt(0, opt.low ? 1.7 : 2.9, 0); cam.updateMatrixWorld(); cam.updateProjectionMatrix();
+  const TR = trades.map(t => {
+    const b = t.b - i0, h = t.h - i0, s = t.s - i0, xb = xs.slice(b, Math.min(n, h + 2));
+    const tg = ribbonGeo(xb, xb.map(() => Y(t.tg)), 0.07, 0.05, 0.25), sl = ribbonGeo(xb, xb.map(() => Y(t.sl)), 0.07, 0.05, 0.25);
+    const mt = new THREE.Mesh(tg.g, mat("#2BE0A0", 0.95)), ms = new THREE.Mesh(sl.g, mat("#FF4D5E", 0.95)); scene.add(mt, ms);
+    const fill = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), mat(t.res === "w" ? "#22C79A" : "#E0475A", 0.16)); scene.add(fill);
+    const buy = sphere(0.18, "#FFFFFF"); scene.add(buy);
+    const dot = sphere(0.2, t.res === "w" ? "#2BE0A0" : "#FF4D5E"); scene.add(dot);
+    const sell = sphere(0.15, "#FF8A3D"); scene.add(sell);
+    return { t, b, h, s, mt, ms, tgc: tg.cnt, slc: sl.cnt, fill, buy, dot, sell };
+  });
+  function draw(u, orbit) {
+    const a = -0.26 + 0.36 * orbit;
+    cam.position.set(Math.sin(a) * 22, 5.2, Math.cos(a) * 22); cam.lookAt(0, 2.8, 0); cam.updateMatrixWorld(); cam.updateProjectionMatrix();
     const proj = projector(cam, VP);
     const j = clamp(Math.floor(u * (n - 1)), 0, n - 1);
     tube.geometry.setDrawRange(0, Math.max(0, Math.floor(u * SEG)) * 10 * 6);
-    gS.setDrawRange(0, j * 6);
-    for (const l of lines) l.m.geometry.setDrawRange(0, l.cnt[j]);
-    if (stopL) stopL.m.geometry.setDrawRange(0, stopL.cnt[j]);
-    if (low) low.m.geometry.setDrawRange(0, low.cnt[j]);
-    const bj = opt.buyI - opt.i0;
-    buy.visible = !!show.buy && j >= bj; buy.position.set(xs[bj], yP[bj], 0.1);
-    if (sell) { const sj = opt.sellI - opt.i0; sell.visible = !!show.sell && j >= sj; sell.position.set(xs[sj], yP[sj], 0.1); }
-    if (hl) hl.visible = j >= opt.hl[1] - opt.i0;
-    let pkj = 0;
-    if (peak) { let m = -1; for (let q = 0; q <= j; q++) if (pr[q] >= m) { m = pr[q]; pkj = q; } peak.position.set(xs[pkj], yP[pkj], 0.12); }
+    for (const o of TR) {
+      const vis = j >= o.b;
+      const jj = clamp(j - o.b, 0, o.h + 1 - o.b);
+      o.mt.geometry.setDrawRange(0, vis ? o.tgc[jj] : 0); o.ms.geometry.setDrawRange(0, vis ? o.slc[jj] : 0);
+      o.buy.visible = vis; o.buy.position.set(xs[o.b], yP[o.b], 0.12);
+      o.dot.visible = j >= o.h; o.dot.position.set(xs[o.h], yP[o.h], 0.14);
+      o.sell.visible = j >= o.s && o.s < n; if (o.s < n) o.sell.position.set(xs[o.s], yP[o.s], 0.12);
+      const done = j >= o.h; o.fill.visible = done;
+      if (done) { const x0 = xs[o.b], x1 = xs[o.h]; o.fill.scale.set(x1 - x0, Y(o.t.tg) - Y(o.t.sl), 1); o.fill.position.set((x0 + x1) / 2, (Y(o.t.tg) + Y(o.t.sl)) / 2, -0.06); }
+    }
     drawIn(scene, cam, VP);
     PLACED = [];
     const BOX = { l: 40, t: 40, r: 1880, b: 1010 };
-    const put = (html, x, y, z, dy, cls) => { const p = proj(x, y, z); const e = ovEl(html, p[0], p[1] + (dy || 0), cls || "lab"); const b = boxOf(e); if (hit(b) || !bounds(b, BOX)) { e.remove(); return null; } PLACED.push(b); return e; };
-    put(`<span class="tab" style="font:900 40px/1 'Noto Sans KR';color:#AFC0DA">${AN.dates[opt.i0].slice(0, 7).replace("-", ".")}</span>`, xs[0], base - 0.1, 0, 40);
-    put(`<span class="tab" style="font:900 40px/1 'Noto Sans KR';color:#AFC0DA">${AN.dates[opt.i1].slice(0, 7).replace("-", ".")}</span>`, xs[n - 1], base - 0.1, 0, 40);
-    if (show.buy && j >= bj) {
-      const p = proj(xs[bj], yP[bj], 0.1); const e = ovEl(`<div class="pin"><span class="tag b" style="font-size:44px">BUY</span><span class="v tab" style="font-size:40px">$${f0(AN.close[opt.buyI])}</span></div>`, p[0], p[1] + 70, "lab");
-      PLACED.push(boxOf(e)); stemEl(p[0], p[1], boxOf(e).t, "#2BE0A0");
-    }
-    if (sell && show.sell && j >= opt.sellI - opt.i0) {
-      const sj = opt.sellI - opt.i0, p = proj(xs[sj], yP[sj], 0.1);
-      const e = ovEl(`<div class="pin"><span class="tag s" style="font-size:44px">SELL</span><span class="v tab" style="font-size:40px">$${f0(AN.close[opt.sellI])}</span></div>`, p[0] + 40, p[1] + 80, "lab");
-      PLACED.push(boxOf(e)); stemEl(p[0], p[1], boxOf(e).t, "#FF8A3D");
-    }
-    if (peak && show.labels) { const e = put(`<span class="tab" style="font:900 40px/1 'Noto Sans KR';color:#FFD400">★ $${f0(pr[pkj])}</span>`, xs[pkj], yP[pkj] + 0.5, 0.1, -10); }
-    if (stopL && show.labels) put(`<span class="tab" style="font:900 40px/1 'Noto Sans KR';color:#FF6B6B">★ × 0.9</span>`, xs[j], Y(stopVals[j]) - 0.45, 0.1, 10);
-    for (const lab of opt.labels || []) if (j >= lab.from - opt.i0 && show.labels) {
-      const jj = clamp(j, 0, n - 1);
-      const y = lab.arr ? Y(lab.arr[opt.i0 + jj] * (lab.mul || 1)) : low.LY(lab.y);
-      put(`<span class="tab" style="font:900 40px/1 'Noto Sans KR';color:${lab.color || "#FFD400"}">${lab.html}</span>`, lab.x != null ? lab.x : xs[jj] + 0.3, y, 0.1, lab.dy || 0, "lab");
-    }
-    if (low && show.labels) {
-      const v = opt.low.arr[opt.i0 + j]; if (v != null) put(`<span class="tab" style="font:900 40px/1 'Noto Sans KR';color:${opt.low.color || "#7FD4FF"}">${opt.low.name} ${v.toFixed(1)}</span>`, xs[j] + 0.3, low.LY(v), 0.1, -40);
+    const put = (html, x, y, z, dx, dy, cls) => { const p = proj(x, y, z); const e = ovEl(html, p[0] + (dx || 0), p[1] + (dy || 0), cls || "lab"); const b = boxOf(e); if (hit(b) || !bounds(b, BOX)) { e.remove(); return null; } PLACED.push(b); return e; };
+    put(`<span class="tab" style="font:900 40px/1 'Noto Sans KR';color:#AFC0DA">${AN.dates[i0].slice(0, 7).replace("-", ".")}</span>`, xs[0], -0.1, 0, 0, 40);
+    put(`<span class="tab" style="font:900 40px/1 'Noto Sans KR';color:#AFC0DA">${AN.dates[i1].slice(0, 7).replace("-", ".")}</span>`, xs[n - 1], -0.1, 0, 0, 40);
+    for (const o of TR) {
+      if (j < o.b) continue;
+      put(`<span class="tab" style="font:900 40px/1 'Noto Sans KR';color:#2BE0A0">+${Math.round(NN * 100)}%</span>`, xs[o.b], Y(o.t.tg), 0.1, -62, -2);     // 선 이름은 선 왼쪽 끝 (✓·SELL 자리와 겹치지 않게)
+      put(`<span class="tab" style="font:900 40px/1 'Noto Sans KR';color:#FF6B78">−${Math.round(M * 100)}%</span>`, xs[o.b], Y(o.t.sl), 0.1, -62, 2);
+      put(`<span class="tag b" style="font-size:40px">BUY</span>`, xs[o.b], yP[o.b], 0.12, 0, 64);
+      if (j >= o.h) put(`<span style="font:900 64px/1 'Noto Sans KR';color:${o.t.res === "w" ? "#2BE0A0" : "#FF4D5E"};text-shadow:0 4px 18px rgba(0,0,0,.7)">${o.t.res === "w" ? "✓" : "✗"}</span>`, xs[o.h], yP[o.h], 0.14, 0, o.t.res === "w" ? -62 : 66);
+      if (o.s < n && j >= o.s) put(`<span class="row" style="gap:8px"><span class="tag s" style="font-size:36px">SELL</span><span style="font:900 36px/1 'Noto Sans KR';color:#AFC0DA">+1D</span></span>`, xs[o.s], yP[o.s], 0.12, 110, o.t.res === "w" ? 40 : -50);
     }
   }
   return { draw };
 }
 
 // =====================================================================================================================
-// 3D 막대 (끝 통계)
-// =====================================================================================================================
-const BARS = (() => {
-  const VP = { x: 0, y: 70, w: 1920, h: 900 };
-  const scene = new THREE.Scene();
-  const cam = new THREE.PerspectiveCamera(30, VP.w / VP.h, 0.1, 200);
-  scene.add(new THREE.AmbientLight(0xffffff, 0.6)); const dl = new THREE.DirectionalLight(0xffffff, 1.0); dl.position.set(-4, 10, 8); scene.add(dl);
-  const order = SUM.rank, H = v => v / 60000 * 7.2;
-  const fl = new THREE.Mesh(new THREE.PlaneGeometry(26, 8), mat("#0E1A31", 0.9)); fl.rotation.x = -Math.PI / 2; fl.position.y = -0.01; scene.add(fl);
-  const bars = order.map((k, i) => {
-    const m = new THREE.Mesh(new THREE.BoxGeometry(1.25, 1, 1.25), new THREE.MeshStandardMaterial({ color: k === "dip10" ? "#22C79A" : TREND.has(k) ? "#5B6B8A" : "#3F7FB8", roughness: 0.45, metalness: 0.15, transparent: true, opacity: 1 }));
-    m.position.set(-11.25 + i * 2.5, 0.5, 0); scene.add(m); return { k, m, h: H(SUM.finals[k]) };
-  });
-  const bhH = H(SUM.bh.final);
-  const plane = new THREE.Mesh(new THREE.PlaneGeometry(25.5, 3.4), mat("#AFC0DA", 0.16)); plane.rotation.x = -Math.PI / 2; plane.position.y = bhH; scene.add(plane);
-  const edge = new THREE.Mesh(new THREE.PlaneGeometry(25.5, 0.05), mat("#D6E0EF", 0.9)); edge.position.set(0, bhH, 1.7); scene.add(edge);
-  function draw(grow, orbit, st) {                          // grow 0..1, st: {plane, hi:[keys], dim:bool}
-    const a = -0.22 + 0.3 * orbit;
-    cam.position.set(Math.sin(a) * 25, 8.6, Math.cos(a) * 25); cam.lookAt(0, 3.2, 0); cam.updateMatrixWorld(); cam.updateProjectionMatrix();
-    const proj = projector(cam, VP);
-    bars.forEach((b, i) => { const g = ease(clamp(grow * 1.6 - i * 0.06, 0, 1)); const h = Math.max(0.001, b.h * g); b.m.scale.y = h; b.m.position.y = h / 2;
-      const dim = st.hi && st.hi.length && !st.hi.includes(b.k); b.m.material.opacity = dim ? 0.35 : 1; });
-    plane.visible = edge.visible = !!st.plane;
-    drawIn(scene, cam, VP);
-    PLACED = [];
-    bars.forEach((b, i) => {
-      const g = ease(clamp(grow * 1.6 - i * 0.06, 0, 1)); if (g <= 0) return;
-      const dim = st.hi && st.hi.length && !st.hi.includes(b.k);
-      const p = proj(b.m.position.x, b.h * g + 0.35, 0.6);
-      ovEl(`<span class="tab" style="font:900 36px/1 'Noto Sans KR';color:${b.k === "dip10" ? "#2BE0A0" : "#EAF0F8"};opacity:${dim ? 0.35 : 1}">$${f0(SUM.finals[b.k] * g)}</span>`, p[0], p[1] - 14, "lab");
-      const q = proj(b.m.position.x, 0, 1.6);
-      ovEl(`<span style="opacity:${dim ? 0.35 : 1}">${`<span class="badge2">${VNO(b.k)}</span>`}</span>`, q[0], q[1] + 40, "lab");
-      if (st.trend && TREND.has(b.k)) ovEl(IC.up(46, "#FFD400"), q[0], q[1] + 104, "lab");
-    });
-    if (st.plane) { const p = proj(12.6, bhH, 1.7); const x = Math.min(p[0] - 120, 1740); ovEl(`<span class="tag h">BUY &amp; HOLD</span>`, x, p[1] - 70, "lab"); ovEl(`<span class="tab" style="font:900 40px/1 'Noto Sans KR';color:#D6E0EF">$${f0(SUM.bh.final)}</span>`, x, p[1] - 18, "lab"); }
-  }
-  return { draw };
-})();
-
-// =====================================================================================================================
 // 3D 장면 목록 — 시각 t 에 하나를 그림 (겹치면 나중 것)
 // =====================================================================================================================
-const G3 = [];                                               // {a, b, f(t)}
+const G3 = [];
 const add3 = (a, b, f) => G3.push({ a, b, f });
 K.onSeek(t => {
   ov.innerHTML = "";
@@ -655,278 +653,277 @@ K.onSeek(t => {
   g.f(t);
 });
 
-// ---------- 시각 → 날짜 (조각 직선) ----------
-function timeMap(anchors) {                                  // [[t, i]] → t → 실수 날짜 위치
-  const A = anchors.slice().sort((x, y) => x[0] - y[0]);
-  for (let q = 1; q < A.length; q++) if (A[q][1] < A[q - 1][1]) A[q][1] = A[q - 1][1];
-  return t => {
-    if (t <= A[0][0]) return A[0][1];
-    for (let q = 1; q < A.length; q++) if (t <= A[q][0]) { const u = (t - A[q - 1][0]) / Math.max(1e-6, A[q][0] - A[q - 1][0]); return lerp(A[q - 1][1], A[q][1], u); }
-    return A[A.length - 1][1];
-  };
-}
 const END = "9999-12-31";
-const anc = list => list.map(([ts, d]) => [ts, d === END ? N - 1 : idx(d)]);
-const sAt = a => S(a), eAt = a => E(a), wAt = (a, w) => W(a, w);
+const at = d => (d === END ? N - 1 : typeof d === "number" ? d : idx(d));
 
 // =====================================================================================================================
 // 장면
 // =====================================================================================================================
-// ---------- 도입 + 같은 조건 (v3.0 — 사용자 지시 2026-10-16 "메인인 실시간 비교 전 도입부가 너무 길어 20초 안으로 다 설명하게 해" · "내가 말한 도입은
-//            도입 + 규칙 설명이야 무리면 적어도 30초안에는 끝내도록 해") — 대본 s1~s6 (추정 약 20초) → 바로 1번 경주
+// ---------- 도입 + 규칙 (대본 s1~s7, 추정 약 28초 — 사용자 지시 "도입 + 규칙 설명 … 적어도 30초안에") ----------
 {
-  const a = PS("도입"), s2 = S("많이 쓰는 매수 신호 10가지를 SPY로"), s3 = S("2016년부터 지금까지, 모두 1만 달러"), s4 = S("매도는 모두 같습니다"),
-        s5 = S("매수한 뒤 최고 종가보다 10% 떨어지면"), s6 = S("신호가 다시 나오면 또 매수합니다"), b = PE("도입");
-  // s1: 물음표 (뒤에 3D 가격 벽이 빠르게 흐름)
-  const full = timeMap([[a, 0], [s2, 700]]);
-  add3(a, s2 - 0.05, t => RACE.draw("m1", full(t), null));
+  const a = PS("도입"), s2 = S("많이 쓰는 매수 신호 10가지가"), s3 = S("SPY로 백테스트해 보겠습니다"), s4 = S("성공은 매수한 값보다 5% 오르는 것"),
+        s5 = S("판정이 나면 다음 날 매도하고"), s6 = S("비교 상대는 신호 없이"), s7 = S("2016년부터 지금까지, 수수료는"), b = PE("도입");
+  // s1: 뒤에 3D 가격 벽이 흐름 + BUY → ↘ ?
+  const full = warp([[a, 0], [s2, 260]], paceW("m1"));
+  const dtf = dayTimes(full, a, s2);
+  add3(a, s2 - 0.05, t => RACE.draw("m1", full(t), null, t, dtf));
   const sc = K.scene(a, s2 - 0.1);
-  const q = el(`<div class="a big" style="left:1440px;top:300px;font-size:420px;color:#FFD400;text-shadow:0 20px 60px rgba(0,0,0,.6)">?</div>`, sc);
+  const q = el(`<div class="a row" style="left:1220px;top:300px;gap:24px"><span class="tag b" style="font-size:72px">BUY</span>${IC.dn(150)}<span class="big" style="font-size:300px;color:#FFD400;text-shadow:0 20px 60px rgba(0,0,0,.6)">?</span></div>`, sc);
   pop(q, a + 0.15, { from: { scale: 0.6, y: 0 } });
-  cut(a + 1.4, "도입 — 물음표");
-  // s2: 신호 10가지 + SPY
+  cut(a + 1.6, "도입 — BUY ↘ ?");
+  // s2: 신호 10가지 → 성공 확률?
   const sc2 = K.scene(s2 - 0.15, s3 - 0.1);
-  const tiles = el(`<div class="a" style="left:160px;top:150px;width:1600px;display:grid;grid-template-columns:repeat(5,1fr);gap:40px 30px;justify-items:center"></div>`, sc2);
+  const tiles = el(`<div class="a" style="left:160px;top:120px;width:1600px;display:grid;grid-template-columns:repeat(5,1fr);gap:40px 30px;justify-items:center"></div>`, sc2);
   const tl10 = VORDER.map(k => el(`<div class="tile"><div style="display:grid;justify-items:center;gap:8px"><span class="badge2">${VNO(k)}</span>${MINI[k]}</div></div>`, tiles));
   tl.fromTo(tl10, { opacity: 0, y: 50, rotateX: 50 }, { opacity: 1, y: 0, rotateX: 0, duration: 0.45, stagger: 0.07, ease: "back.out(1.6)" }, s2 + 0.1);
-  const spy = el(`<div class="card2 flexc" style="left:560px;top:640px;width:800px;height:220px;gap:30px"><span class="big" style="font-size:140px">SPY</span><span style="font:900 50px/1 'Noto Sans KR';color:#AFC0DA">S&amp;P 500</span></div>`, sc2);
-  pop(spy, W("많이 쓰는 매수 신호 10가지를 SPY로", "SPY로"));
-  cut(s3 - 0.4, "도입 — 10가지 · SPY");
-  // s3: 기간 · 돈 · 수수료
+  const qq = el(`<div class="a flexc" style="left:0;width:1920px;top:620px;gap:40px"><span class="big" style="font-size:150px;color:#2BE0A0">✓</span><span class="big tab" style="font-size:150px">%</span><span class="big" style="font-size:150px;color:#2BE0A0">↑</span><span class="big" style="font-size:170px;color:#FFD400">?</span></div>`, sc2);
+  pop(qq, W("많이 쓰는 매수 신호 10가지가", "성공"));
+  cut(s3 - 0.4, "도입 — 10가지 · 성공 확률?");
+  // s3: SPY + 코드
   const sc3 = K.scene(s3 - 0.15, s4 - 0.1);
-  const yr = el(`<div class="a flexc tab" style="left:0;width:1920px;top:170px;font:900 110px/1 'Noto Sans KR'"><span>2016</span><span style="color:var(--GR)">→</span><span>2026</span></div>`, sc3);
-  pop(yr, s3 + 0.05);
-  const money = el(`<div class="a flexc" style="left:0;width:1920px;top:430px;gap:30px">${IC.coin(120)}<span class="big tab" style="font-size:130px">$10,000</span></div>`, sc3);
-  pop(money, W("2016년부터 지금까지, 모두 1만 달러", "모두"));
-  const fee = el(`<div class="a flexc" style="left:0;width:1920px;top:720px;gap:60px"><span class="row"><span class="tag b" style="font-size:56px">BUY</span><span class="big tab" style="font-size:80px;color:#FF6B6B">−0.25%</span></span><span class="row"><span class="tag s" style="font-size:56px">SELL</span><span class="big tab" style="font-size:80px;color:#FF6B6B">−0.25%</span></span></div>`, sc3);
-  pop(fee, W("2016년부터 지금까지, 모두 1만 달러", "수수료"));
-  cut(s4 - 0.3, "도입 — 2016→2026 · $10,000 · 0.25%");
-  // s4~s6: 매도 규칙 — 2020년 2월 실제 예 (매달 첫 거래일 규칙의 2019-01-02 매수 → 최고 2020-02-19 → 2020-02-27 종가가 최고 × 0.9 아래 → 2020-02-28 매도)
-  const tr = R("m1").trades.find(t => AN.dates[t.s] === "2020-02-28");
-  const z = makeZoom({ i0: idx("2019-12-02"), i1: idx("2020-03-13"), stop: { buyI: tr.b }, buyI: idx("2019-12-02"), sellI: tr.s });
-  const zse = W("매수한 뒤 최고 종가보다 10% 떨어지면", "매도해요");
-  add3(s4 - 0.1, b + 0.35, t => {
-    const u = t < s5 ? lerp(0.05, 0.5, (t - s4) / Math.max(0.1, s5 - s4)) : lerp(0.5, 0.88, clamp((t - s5) / Math.max(0.1, zse - s5), 0, 1)) + clamp((t - zse) / 5, 0, 0.12);
-    z.draw(clamp(u, 0, 1), (t - s4) / Math.max(1, b - s4), { buy: false, sell: t >= zse - 0.2, labels: true });
+  const spy = el(`<div class="card2 flexc" style="left:160px;top:330px;width:700px;height:280px;gap:30px"><span class="big" style="font-size:150px">SPY</span><span style="font:900 50px/1 'Noto Sans KR';color:#AFC0DA">S&amp;P 500</span></div>`, sc3);
+  pop(spy, s3);
+  const code = el(`<div class="code" style="left:960px;top:300px"><span class="k">for</span> day <span class="k">in</span> days:\n  <span class="k">if</span> <span class="f">signal</span>(day):\n    <span class="f">buy</span>(day <span class="o">+</span> <span class="n">1</span>)</div>`, sc3);
+  pop(code, s3 + 0.4);
+  cut(s4 - 0.4, "도입 — SPY · 코드");
+  // s4~s5: 성공 = +5% 먼저 · 실패 = −2% 먼저 — 실제 거래 2개 (매달 첫 거래일 2021-06-01 매수 ✓ · 2021-08-02 매수 ✗)
+  const t1 = R("m1").trades.find(t => AN.dates[t.b] === "2021-06-01"), t2 = R("m1").trades.find(t => AN.dates[t.b] === "2021-08-02");
+  const z0 = idx("2021-05-24"), z1 = idx("2021-10-12");
+  const z = makeTradeZoom(z0, z1, [t1, t2]);
+  const uOf = d => (idx(d) - z0) / (z1 - z0);
+  const zw = W("성공은 매수한 값보다 5% 오르는 것", "실패예요");
+  add3(s4 - 0.1, s6 - 0.05, t => {
+    const u = t < zw ? lerp(0.02, uOf("2021-07-28"), clamp((t - s4) / Math.max(0.3, zw - s4 - 0.3), 0, 1))
+                     : lerp(uOf("2021-07-28"), 1, clamp((t - zw) / Math.max(0.5, s6 - zw - 0.6), 0, 1));
+    z.draw(u, (t - s4) / Math.max(1, s6 - s4));
   });
-  const sc4 = K.scene(s4 - 0.1, b + 0.3);
-  const head = el(`<div class="a row" style="left:60px;top:58px;gap:20px">${IC.star(70)}<span class="big tab" style="font-size:80px;color:#FF6B6B">−10%</span><span style="font:900 70px/1 'Noto Sans KR';color:var(--GR)">→</span><span class="tag s" style="font-size:60px">SELL</span><span style="font:900 52px/1 'Noto Sans KR';color:#AFC0DA">+1D</span></div>`, sc4);
-  pop(head, s4 + 0.1);
-  const code = el(`<div class="code" style="left:1040px;top:58px;font-size:38px;padding:14px 30px"><span class="k">if</span> close <span class="o">&lt;=</span> peak <span class="o">*</span> <span class="n">0.9</span>: <span class="f">sell</span>()</div>`, sc4);
-  pop(code, s5);
-  const again = el(`<div class="a row" style="left:1180px;top:880px;gap:16px"><span class="tag s" style="font-size:48px">SELL</span><span style="font:900 52px/1 'Noto Sans KR';color:var(--GR)">→</span>${IC.hour(64)}<span style="font:900 52px/1 'Noto Sans KR';color:var(--GR)">→</span><span class="tag b" style="font-size:48px">BUY</span></div>`, sc4);
-  pop(again, s6);
-  cut(zse + 0.6, "도입 — 매도선 (2020년 2월 실제 예)");
-  cut(s6 + 1.0, "도입 — 다시 매수");
+  const sc4 = K.scene(s4 - 0.1, s6 - 0.1);
+  const crit = el(`<div class="a row" style="left:60px;top:46px;gap:26px"><span class="row" style="gap:12px;padding:10px 20px;border-radius:18px;background:rgba(43,224,160,.14)"><span class="big tab" style="font-size:64px;color:#2BE0A0">+${Math.round(NN * 100)}%</span><span class="big" style="font-size:64px;color:#2BE0A0">✓</span></span><span class="row" style="gap:12px;padding:10px 20px;border-radius:18px;background:rgba(255,77,94,.14)"><span class="big tab" style="font-size:64px;color:#FF6B78">−${Math.round(M * 100)}%</span><span class="big" style="font-size:64px;color:#FF4D5E">✗</span></span></div>`, sc4);
+  pop(crit, s4 + 0.1);
+  const flow = el(`<div class="a row" style="left:1010px;top:52px;gap:16px"><span class="big" style="font-size:56px;color:#2BE0A0">✓</span><span class="big" style="font-size:56px;color:#FF4D5E">✗</span><span style="font:900 52px/1 'Noto Sans KR';color:var(--GR)">→</span><span class="tag s" style="font-size:48px">SELL</span><span style="font:900 44px/1 'Noto Sans KR';color:#AFC0DA">+1D</span><span style="font:900 52px/1 'Noto Sans KR';color:var(--GR)">→</span><span class="tag b" style="font-size:48px">BUY</span></div>`, sc4);
+  pop(flow, s5);
+  cut(zw + 0.3, "도입 — +5% 먼저 ✓ (2021-06)");
+  cut(s6 - 0.4, "도입 — −2% 먼저 ✗ · 다음 날 매도");
+  // s6: 무작위 2천 개
+  const sc6 = K.scene(s6 - 0.15, s7 - 0.1);
+  const dz = el(`<div class="a flexc" style="left:0;width:1920px;top:110px;gap:40px">${IC.dice(170)}<span class="big tab" style="font-size:150px">× ${f0(RUNS)}</span></div>`, sc6);
+  pop(dz, s6 + 0.05);
+  let grid = `<svg class="a" style="left:360px;top:400px" width="1200" height="480" viewBox="0 0 1200 480">`;
+  for (let q2 = 0; q2 < RUNS; q2++) { const cx = (q2 % 80) * 15 + 6, cy = Math.floor(q2 / 80) * 19 + 6; grid += `<rect x="${cx - 5}" y="${cy - 6}" width="10" height="12" rx="3" fill="${q2 % 7 === 0 ? "#2BE0A0" : q2 % 5 === 0 ? "#FF4D5E" : "#5A6C90"}" opacity=".85"/>`; }
+  grid += `</svg>`;
+  const gr = el(grid, sc6);
+  tl.fromTo(gr, { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.8, ease: "power2.out" }, W("비교 상대는 신호 없이", "계좌"));
+  cut(s7 - 0.4, "도입 — 무작위 × 2,000");
+  // s7: 기간 · 수수료
+  const sc7 = K.scene(s7 - 0.15, b + 0.6);
+  const yr = el(`<div class="a flexc tab" style="left:0;width:1920px;top:250px;font:900 120px/1 'Noto Sans KR'"><span>${AN.dates[0].slice(0, 4)}</span><span style="color:var(--GR)">→</span><span>${AN.dates[N - 1].slice(0, 4)}</span></div>`, sc7);
+  pop(yr, s7 + 0.05);
+  const fee = el(`<div class="a flexc" style="left:0;width:1920px;top:560px;gap:60px"><span class="row"><span class="tag b" style="font-size:60px">BUY</span><span class="big tab" style="font-size:90px;color:#FF6B6B">−${(AN.cost * 100).toFixed(2)}%</span></span><span class="row"><span class="tag s" style="font-size:60px">SELL</span><span class="big tab" style="font-size:90px;color:#FF6B6B">−${(AN.cost * 100).toFixed(2)}%</span></span></div>`, sc7);
+  pop(fee, W("2016년부터 지금까지, 수수료는", "수수료는"));
+  cut(b - 0.3, "도입 — 2016→2026 · 0.25%");
 }
 
-// ---------- 규칙 10가지 ----------
-// 설명(3D 확대: 실제 신호 날) → 경주(3D 가격 벽). 문장 → 날짜 기준점은 대본 숫자와 같은 날을 지나도록.
+// ---------- 방법 10가지 경주 ----------
+// 기준점 = [시각, 날짜] — 대본이 말하는 사실(연속 성공·실패, 그해 판정, 신호 없던 때)의 날을 그 문장에 지나도록. 끝 = 결과 문장의 성공률 낱말에 마지막 날.
+// 기준점: must = 그 문장 끝에 정확히 그날 (카드 숫자를 읽는 문장 · 전체 기간을 말하는 문장 = 마지막 날) ·
+//         min = 그 문장이 끝날 때 차트가 적어도 그날까지 와 있어야 함 ('그해 판정' 을 차트보다 먼저 말하지 않게 — 어기면 그 문장 끝을 그날로 고정)
+// 그 밖은 매수·판정 앞뒤만 느리게(무게) 고르게 흐름. 문장 사이 틈(약 0.45초)에 몇 년을 건너뛰지 않도록 기준점은 문장 끝에만.
 const PLAN = {
-  m1: { part: "매달 첫 거래일", raceAt: () => PE("도입") + 0.4, zoom: null, bhHL: () => [S("오른쪽 위 BUY & HOLD는"), E("오른쪽 위 BUY & HOLD는") + 0.3],
-    anchors: () => [[sAt("첫 번째는 가장 단순한 신호"), "2016-01-04"], [eAt("오른쪽 위 BUY & HOLD는"), "2017-11-01"], [wAt("2016년 1월 4일 첫 매수가", "34.8%"), "2018-02-12"],
-      [sAt("2020년 3월 코로나 폭락"), "2020-02-18"], [wAt("2020년 3월 코로나 폭락", "매도했어요"), "2020-03-11"], [sAt("다음 달 첫날 다시 매수했고"), "2020-03-26"],
-      [wAt("다음 달 첫날 다시 매수했고", "75.1%"), "2022-02-24"], [sAt("매도한 거래 12번 중 7번"), "2022-06-01"], [eAt("매도한 거래 12번 중 7번"), "2025-05-01"],
-      [wAt("13번 매수해서, 끝 값은 4만 1천", "끝 값은"), END]] },
-  hi52: { part: "신고가 돌파", race: "오를 때 따라 타는 추세 매수예요",
-    zoom: () => ({ i0: idx("2020-05-20"), i1: idx("2020-09-30"), buyI: idx("2020-08-19"), lines: [[AN.lines.hi252, "#FFD400", 0.3]], labels: [{ arr: AN.lines.hi252, html: "★ 1Y", from: idx("2020-05-20"), dy: -36 }] }),
-    anchors: () => [[sAt("오를 때 따라 타는 추세 매수예요"), "2016-01-04"], [eAt("오를 때 따라 타는 추세 매수예요"), "2019-06-03"], [sAt("2020년 2월 28일에 매도한 뒤"), "2020-02-10"],
-      [wAt("2020년 2월 28일에 매도한 뒤", "매도한"), "2020-03-02"], [wAt("2020년 2월 28일에 매도한 뒤", "8월 19일"), "2020-08-20"], [sAt("매도한 값보다 13.8% 비싸게"), "2020-09-01"],
-      [sAt("2022년 2월에 매도한 뒤로는 1년 넘게"), "2022-02-01"], [wAt("2022년 2월에 매도한 뒤로는 1년 넘게", "1년"), "2022-03-01"], [eAt("2022년 2월에 매도한 뒤로는 1년 넘게"), "2023-06-14"],
-      [eAt("매도한 거래 6번 중 4번이 수익이었고"), "2025-07-01"], [wAt("7번 매수해서, 끝 값은 2만 3천", "끝 값은"), END]] },
-  mom12: { part: "모멘텀", race: "오르는 해에는 거의 쉬지 않고",
-    zoom: () => ({ i0: idx("2020-03-02"), i1: idx("2020-06-30"), buyI: idx("2020-05-08"), lines: [[AN.lines.close_252ago, "#FFD400", 0.3]], labels: [{ arr: AN.lines.close_252ago, html: "−1Y", from: idx("2020-03-02"), dy: 36 }] }),
-    anchors: () => [[sAt("오르는 해에는 거의 쉬지 않고"), "2016-01-04"], [eAt("오르는 해에는 거의 쉬지 않고"), "2019-10-01"], [sAt("2020년 3월에는 두 번 연속"), "2020-02-18"],
-      [eAt("2020년 3월에는 두 번 연속"), "2020-03-19"], [sAt("2022년 5월에 매수한 주식은"), "2022-04-25"], [eAt("2022년 5월에 매수한 주식은"), "2022-06-16"],
-      [sAt("1년 전보다 낮은 날이 이어져"), "2022-07-15"], [wAt("1년 전보다 낮은 날이 이어져", "2023년"), "2023-05-12"], [sAt("매도한 거래 12번 중 6번만"), "2023-06-15"],
-      [eAt("매도한 거래 12번 중 6번만"), "2025-06-02"], [wAt("13번 매수해서, 끝 값은 2만 6천", "끝 값은"), END]] },
-  ma200: { part: "이동평균선", race: "2018년 11월에 매수한 주식은",
-    zoom: () => ({ i0: idx("2020-03-02"), i1: idx("2020-07-15"), buyI: idx("2020-05-28"), lines: [[AN.lines.sma200, "#FFD400"]], labels: [{ arr: AN.lines.sma200, html: "200", from: idx("2020-03-02"), dy: -34 }] }),
-    anchors: () => [[sAt("2018년 11월에 매수한 주식은"), "2016-01-04"], [wAt("2018년 11월에 매수한 주식은", "12.3%"), "2018-12-21"], [sAt("2020년 3월에 매도하고, 평균선을"), "2020-02-24"],
-      [wAt("2020년 3월에 매도하고, 평균선을", "평균선을"), "2020-03-12"], [wAt("2020년 3월에 매도하고, 평균선을", "매수했어요"), "2020-05-29"], [sAt("이 거래가 42.2% 올라"), "2020-06-05"],
-      [wAt("이 거래가 42.2% 올라", "이 신호에서"), "2022-02-24"], [sAt("매도한 값보다는 평균 4.9%"), "2022-04-01"], [eAt("매도한 값보다는 평균 4.9%"), "2024-06-03"],
-      [wAt("11번 매수해서, 끝 값은 2만 6천", "끝 값은"), END]] },
-  gc: { part: "골든 크로스", race: "매도한 거래 4번이 모두 수익이었어요",
-    zoom: () => ({ i0: idx("2020-04-15"), i1: idx("2020-08-31"), buyI: idx("2020-07-10"), lines: [[AN.lines.sma200, "#FFD400"], [AN.lines.sma50, "#7FD4FF"]],
-      labels: [{ arr: AN.lines.sma200, html: "200", from: idx("2020-04-15"), dy: -34 }, { arr: AN.lines.sma50, html: "50", from: idx("2020-04-15"), dy: 34, color: "#7FD4FF" }] }),
-    anchors: () => [[sAt("매도한 거래 4번이 모두 수익이었어요"), "2016-01-04"], [eAt("매도한 거래 4번이 모두 수익이었어요"), "2020-01-02"], [sAt("하지만 신호가 드물었습니다"), "2020-02-03"],
-      [eAt("하지만 신호가 드물었습니다"), "2023-06-01"], [sAt("2023년 10월에 매도한 뒤, 다시 매수한 건 2025년 7월"), "2023-09-01"],
-      [wAt("2023년 10월에 매도한 뒤, 다시 매수한 건 2025년 7월", "다시"), "2023-11-01"], [wAt("2023년 10월에 매도한 뒤, 다시 매수한 건 2025년 7월", "2025년"), "2025-07-03"],
-      [sAt("그래서 주식을 든 날이 59%"), "2025-08-01"], [wAt("5번 매수해서, 끝 값은 2만 3천", "끝 값은"), END]] },
-  drop2: { part: "급락 다음 날", race: "10가지 가운데 가장 많은 14번",
-    zoom: () => ({ i0: idx("2018-10-01"), i1: idx("2019-01-31"), buyI: idx("2018-12-06"), hl: [idx("2018-12-04") - 1, idx("2018-12-04")], labels: [] }),
-    anchors: () => [[sAt("10가지 가운데 가장 많은 14번"), "2016-01-04"], [eAt("10가지 가운데 가장 많은 14번"), "2018-10-15"], [sAt("2018년 12월에는 매수한 뒤 13.1%"), "2018-11-20"],
-      [eAt("2018년 12월에는 매수한 뒤 13.1%"), "2018-12-27"], [sAt("2020년 3월에는 보름 사이"), "2020-02-24"], [eAt("2020년 3월에는 보름 사이"), "2020-03-19"],
-      [sAt("2020년 3월 19일에 다시 매수한 거래는"), "2020-03-20"], [wAt("2020년 3월 19일에 다시 매수한 거래는", "80.3%"), "2022-02-24"], [eAt("2020년 3월 19일에 다시 매수한 거래는"), "2024-01-02"],
-      [eAt("끝 값은 4만 달러입니다"), END]] },
-  rsi30: { part: "과매도", race: "30 아래면 매도가 많이 몰린 상태로 보고",
-    zoom: () => ({ i0: idx("2020-01-15"), i1: idx("2020-05-15"), buyI: idx("2020-03-24"), low: { arr: AN.lines.rsi14, thr: 30, max: 100, zoneEnd: 0, name: "RSI", color: "#7FD4FF" }, labels: [] }),
-    anchors: () => [[sAt("30 아래면 매도가 많이 몰린 상태로 보고"), "2016-01-04"], [eAt("30 아래면 매도가 많이 몰린 상태로 보고"), "2020-02-05"], [sAt("2020년 3월 24일, 바닥 다음 날"), "2020-03-02"],
-      [wAt("2020년 3월 24일, 바닥 다음 날", "매수한"), "2020-03-25"], [wAt("2020년 3월 24일, 바닥 다음 날", "77.2%"), "2022-02-24"], [sAt("2023년 10월에 매도한 뒤로는 1년 넘게"), "2022-06-01"],
-      [wAt("2023년 10월에 매도한 뒤로는 1년 넘게", "매도한"), "2023-10-31"], [eAt("2023년 10월에 매도한 뒤로는 1년 넘게"), "2025-03-13"], [sAt("매도한 거래 8번 중 5번"), "2025-04-01"],
-      [wAt("9번 매수해서, 끝 값은 4만 4천", "끝 값은"), END]] },
-  vix30: { part: "공포지수", race: "첫 매수가 2018년 2월이라",
-    zoom: () => ({ i0: idx("2020-01-15"), i1: idx("2020-04-30"), buyI: idx("2020-03-18"), low: { arr: AN.lines.vix, thr: 30, max: 90, zoneEnd: 90, name: "VIX", color: "#FF8A8A", zoneColor: "#FF4D5E" }, labels: [] }),
-    anchors: () => [[sAt("첫 매수가 2018년 2월이라"), "2016-01-04"], [wAt("첫 매수가 2018년 2월이라", "처음"), "2018-02-07"], [eAt("첫 매수가 2018년 2월이라"), "2019-06-03"],
-      [sAt("2020년 3월 18일에 매수한 거래는 80.7%"), "2020-03-02"], [wAt("2020년 3월 18일에 매수한 거래는 80.7%", "80.7%"), "2022-02-24"], [eAt("2020년 3월 18일에 매수한 거래는 80.7%"), "2022-06-15"],
-      [sAt("2024년 8월에도 VIX가"), "2024-07-15"], [wAt("2024년 8월에도 VIX가", "7.9%"), "2025-03-17"], [wAt("11번 매수해서, 끝 값은 3만 4천", "끝 값은"), END]] },
-  dip20: { part: "큰 하락 매수", race: "2020년 3월 18일에 매수한 거래가 80.7% 올랐습니다",
-    zoom: () => ({ i0: idx("2018-09-04"), i1: idx("2019-01-31"), buyI: idx("2018-12-26"), lines: [[AN.lines.ath, "#FFD400"], [AN.lines.ath.map(v => v * 0.8), "#FFD400", 0.3]],
-      labels: [{ arr: AN.lines.ath, html: "★", from: idx("2018-09-04"), dy: -34 }, { arr: AN.lines.ath, mul: 0.8, html: "★ −20%", from: idx("2018-09-04"), dy: 34 }] }),
-    anchors: () => [[sAt("2020년 3월 18일에 매수한 거래가 80.7% 올랐습니다"), "2016-01-04"], [wAt("2020년 3월 18일에 매수한 거래가 80.7% 올랐습니다", "매수한"), "2020-03-19"],
-      [wAt("2020년 3월 18일에 매수한 거래가 80.7% 올랐습니다", "80.7%"), "2022-02-24"], [sAt("매도한 거래 5번 중 4번"), "2022-03-15"], [eAt("매도한 거래 5번 중 4번"), "2023-06-01"],
-      [sAt("그런데 2023년 10월에 매도한 뒤로는 한 번도"), "2023-08-15"], [wAt("그런데 2023년 10월에 매도한 뒤로는 한 번도", "뒤로는"), "2023-10-31"], [eAt("그런데 2023년 10월에 매도한 뒤로는 한 번도"), "2024-12-02"],
-      [sAt("2025년 4월에도 고점보다 19.0%"), "2025-02-20"], [wAt("2025년 4월에도 고점보다 19.0%", "19.0%"), "2025-04-08"], [eAt("2025년 4월에도 고점보다 19.0%"), "2025-06-02"],
-      [wAt("3년 가까이 현금으로 기다려", "끝 값은"), END]] },
-  dip10: { part: "저점 매수", race: "매도한 뒤에도 고점보다 10% 아래면",
-    zoom: () => ({ i0: idx("2025-01-15"), i1: idx("2025-05-30"), buyI: idx("2025-04-04"), lines: [[AN.lines.ath, "#FFD400"], [AN.lines.ath.map(v => v * 0.9), "#FFD400", 0.3]],
-      labels: [{ arr: AN.lines.ath, html: "★", from: idx("2025-01-15"), dy: -34 }, { arr: AN.lines.ath, mul: 0.9, html: "★ −10%", from: idx("2025-01-15"), dy: 34 }] }),
-    anchors: () => [[sAt("매도한 뒤에도 고점보다 10% 아래면"), "2016-01-04"], [eAt("매도한 뒤에도 고점보다 10% 아래면"), "2019-12-02"], [sAt("2020년 3월에는 7.2%, 8.3%"), "2020-02-20"],
-      [eAt("2020년 3월에는 7.2%, 8.3%"), "2020-03-18"], [sAt("3월 18일에 또 매수했고"), "2020-03-19"], [wAt("3월 18일에 또 매수했고", "80.7%"), "2022-02-24"],
-      [sAt("2022년 하락장에서는 한 해에"), "2022-02-25"], [eAt("2022년 하락장에서는 한 해에"), "2022-12-30"], [sAt("2025년 4월 급락 때도 매수해서"), "2025-03-03"],
-      [wAt("2025년 4월 급락 때도 매수해서", "매수해서"), "2025-04-07"], [wAt("2025년 4월 급락 때도 매수해서", "지금"), END]] },
+  m1: { hl: () => ({ legend: [S("초록은 성공, 빨강은 실패한"), E("초록은 성공, 빨강은 실패한") + 0.4],
+                    rate: [S("오른쪽 위 숫자는 지금까지의 성공률"), W("오른쪽 위 숫자는 지금까지의 성공률", "그")],
+                    rand: [W("오른쪽 위 숫자는 지금까지의 성공률", "그"), E("오른쪽 위 숫자는 지금까지의 성공률") + 0.4],
+                    band: [S("회색 띠는 무작위 계좌 90%가 들어간 범위, 41.5%"), E("매달 첫 거래일 매수는 이 범위 안에") + 0.3] }),
+    must: [["2021년 말에는 성공률 56.1%로", "2021-12-31"], ["2025년 4월 1일에 매수한 건", "2025-04-08"], ["2023년부터는 무작위 평균과", END], ["결과는 판정 80번 중 37번", END]],
+    min: [["2020년 4월부터 8월까지는", "2020-08-26"], ["그런데 2022년에는 판정 12번 중 11번", "Y:2022"], ["2023년에는 판정 7번 중 3번", "Y:2023"], ["2024년에는 판정 9번 중 5번", "Y:2024"]] },
+  hi20: { must: [["2019년 말 성공률은 58.8%", "2019-12-31"], ["판정이 20번 쌓인 뒤로는, 성공률이", END], ["결과는 판정 63번 중 31번", END]],
+    min: [["2017년에는 판정 세 번이 모두 성공이었어요", "Y:2017"], ["2020년과 2021년에는 판정 17번", "Y:2020-2021"], ["2022년 4월에 매도한 뒤로는 석 달", "2022-07-20"],
+      ["그해 판정은 6번 중 5번이 실패였어요", "Y:2022"], ["2024년에는 7번 중 4번 성공했습니다", "Y:2024"]] },
+  mom21: { must: [["2020년 6월에는 성공률 63.0%", "2020-06-03"], ["결과는 판정 81번 중 42번", END]],
+    min: [["2017년에는 판정 네 번이 모두", "Y:2017"], ["2018년에는 9번 중 6번이 실패였고요", "Y:2018"], ["2021년에는 8번 중 5번 성공했어요", "Y:2021"],
+      ["2022년에는 판정 12번 중 10번", "Y:2022"], ["2023년과 2024년에는 판정 13번 중 7번", "Y:2023-2024"], ["2025년 2월 말에 매도한 뒤로는", "2025-05-05"], ["그해 판정은 7번 중 5번이 성공", "Y:2025"]] },
+  x20: { must: [["2021년 12월에는 성공률 64.7%", "2021-12-01"], ["판정이 20번 쌓인 뒤로는, 무작위 평균보다 낮은", END], ["결과는 판정 71번 중 37번", END]],
+    min: [["2016년 7월부터 2018년 1월까지", "2018-01-04"], ["2018년에는 판정 9번 중 6번이 실패였고요", "Y:2018"], ["2019년과 2020년에는 판정 13번", "Y:2019-2020"],
+      ["그 뒤 2022년 7월까지 여섯 번", "2022-07-12"], ["2023년 6월에 매도한 뒤로는 두 달", "2023-08-30"], ["2024년과 2025년에는 판정 14번 중 7번", "Y:2024-2025"]] },
+  gc520: { must: [["2022년 7월에는 성공률 40.0%로", "2022-07-29"], ["2025년부터는 판정 8번 중 4번", END], ["결과는 판정 50번 중 25번", END]],
+    min: [["2017년 9월에 매도한 뒤, 다음 매수는", "2018-02-27"], ["2018년에는 판정 5번 중 4번이 실패", "Y:2018"], ["2019년에는 판정 세 번 중 두 번", "Y:2019"],
+      ["2020년과 2021년에는 11번 중 5번", "Y:2020-2021"], ["그 뒤로는 2023년 6월까지 다섯 번", "2023-06-08"], ["2024년에는 판정 4번 중 3번이 성공", "Y:2024"]] },
+  drop1: { must: [["2019년 1월에는 성공률 35.0%", "2019-01-16"], ["판정이 20번 쌓인 뒤로는, 무작위 평균보다 높은", END], ["결과는 판정 95번 중 44번", END]],
+    min: [["2016년에는 판정 6번 중 5번이 실패로", "Y:2016"], ["2017년에는 판정 두 번이 모두 성공했고요", "Y:2017"], ["2018년 한 해에만 12번 중 8번이 실패", "Y:2018"],
+      ["2020년 코로나 폭락 때는 판정 9번 중 4번", "2020-04-30"], ["2021년에는 7번 중 5번 성공했어요", "Y:2021"], ["2022년에는 20번 중 13번이 실패", "Y:2022"],
+      ["2023년에는 8번 중 3번만 성공했고요", "Y:2023"], ["2024년에는 6번 중 4번 성공했지만", "Y:2024"]] },
+  rsi40: { must: [["2019년 11월에는 성공률 61.9%", "2019-11-01"], ["그래서 주식을 든 날은 35%뿐이었습니다", END], ["결과는 판정 62번 중 30번", END]],
+    min: [["2020년 코로나 폭락 때는 판정 7번 중 5번", "2020-04-30"], ["2020년 11월에 매도한 뒤로는 10달", "2021-09-21"], ["2022년에는 판정 14번 중 11번", "Y:2022"],
+      ["2023년에는 5번 중 3번 성공했어요", "Y:2023"], ["2024년과 2025년에는 7번 중 4번", "Y:2024-2025"]] },
+  vix20: { must: [["결과는 판정 101번 중 48번", END]],
+    min: [["2016년 11월에 매도한 뒤로는 1년", "2018-02-06"], ["2018년과 2019년에는 판정 14번 중 7번", "Y:2018-2019"], ["2020년에는 판정 22번 중 11번", "Y:2020"],
+      ["2021년에는 11번 중 6번 성공했어요", "Y:2021"], ["2022년 8월부터 10월까지는 여섯 번", "2022-10-07"], ["그해에는 24번 중 18번이 실패", "Y:2022"],
+      ["2023년과 2024년에는 판정 11번 중 7번", "Y:2023-2024"], ["2025년에는 판정 8번 중 5번", "Y:2025"]] },
+  dd20_5: { must: [["주식을 든 날은 23%로, 10가지 중 가장 적었습니다", END], ["결과는 판정 59번 중 29번", END]],
+    min: [["2016년 7월에 매도한 뒤, 다음 신호는", "2018-02-06"], ["2018년에는 판정 8번 중 4번이 성공", "Y:2018"], ["2019년에는 판정 세 번이 모두 성공이었습니다", "Y:2019"],
+      ["2020년 코로나 폭락 때는 9번 중 6번", "2020-04-30"], ["2021년에는 판정이 한 번뿐이었고요", "Y:2021"], ["2022년에는 15번 중 11번이 실패", "Y:2022"],
+      ["2023년에는 판정 5번 중 3번이 성공", "Y:2023"], ["2024년에는 판정 두 번이 모두 성공했어요", "Y:2024"]] },
+  dd5: { must: [["그 덕분에 2019년 말 성공률은 56.5%", "2019-12-31"], ["2025년부터는 판정 10번 중 6번", END], ["결과는 판정 94번 중 45번", END]],
+    min: [["이 방법도 2016년 7월에 매도한 뒤로는", "2018-02-06"], ["2018년에는 판정 13번 중 8번이 실패", "Y:2018"], ["2019년에는 판정 다섯 번이 모두", "Y:2019"],
+      ["2020년 코로나 폭락 때는 10번 중 6번", "2020-04-30"], ["2021년에는 판정이 단 한 번", "Y:2021"], ["2022년에는 26번 중 19번", "Y:2022"], ["2023년에는 11번 중 6번 성공했고요", "Y:2023"], ["2024년 판정 두 번도 모두", "Y:2024"]] },
 };
-for (const k of VORDER) {
-  const p = PLAN[k];
-  const a = PS(p.part), rs = p.raceAt ? p.raceAt() : S(p.race), next = VORDER.indexOf(k) < 9 ? PS(PLAN[VORDER[VORDER.indexOf(k) + 1]].part) : PS("종합");
-  if (p.zoom) {
-    // 설명: 실제 신호 날 앞뒤 3D 확대
-    const zo = p.zoom(), z = makeZoom(zo);
-    const sigT = Math.max(a + 1.2, rs - 1.6);
-    add3(a - 0.15, rs, t => {
-      const u = clamp((t - a) / Math.max(0.5, sigT - a), 0, 1);
-      const bj = (zo.buyI - zo.i0) / (zo.i1 - zo.i0);
-      z.draw(t < sigT ? u * bj : lerp(bj, 1, clamp((t - sigT) / 1.5, 0, 1)), (t - a) / Math.max(1, rs - a), { buy: t >= sigT - 0.05, labels: true });
-    });
-    const scz = K.scene(a - 0.2, rs - 0.05);
-    el(`<div class="a row" style="left:60px;top:40px;gap:20px"><div class="no">${VNO(k)}</div><div class="rule">${HEAD[k]()}</div></div>`, scz);
-    if (k === "drop2") pop(el(`<div class="a row" style="left:1260px;top:60px;gap:14px">${IC.dn(70)}<span class="big tab" style="font-size:70px;color:#FF6B6B">−2%</span><span style="font:900 56px/1 'Noto Sans KR';color:var(--GR)">→ +1D</span></div>`, scz), a + 0.6);
-    cut(sigT + 0.9, `${VNO(k)} 설명 — 실제 신호 BUY`);
+function planMap(k, part) {
+  // must 를 놓고, min 문장마다 [그날, 그날 + 약 넉 달] 창을 둠 — 문장 끝의 차트 날짜가 창보다 이르면(미래를 먼저 말함) 또는 늦으면(한참 지난 뒤 말함)
+  // 그 문장 끝을 창 끝으로 고정 → 다시 (가장 크게 벗어난 것부터, 최대 60번). 'Y:2018' = 그 방법의 2018년 마지막 판정 날 (없으면 그해 마지막 거래일).
+  const p = PLAN[k], w = paceW(k), T = R(k).trades;
+  const dateOf = d => {
+    if (typeof d === "string" && d.startsWith("Y:")) {
+      const ys = d.slice(2).split("-"), y1 = ys[0], y2 = ys[ys.length - 1];
+      const hs = T.filter(t => t.h != null && AN.dates[t.h].slice(0, 4) >= y1 && AN.dates[t.h].slice(0, 4) <= y2).map(t => t.h);
+      return hs.length ? Math.max(...hs) : idx(`${+y2 + 1}-01-01`) - 1;
+    }
+    return at(d);
+  };
+  const A = [[PS(part), 0], ...p.must.map(([x, d]) => [E(x), at(d)])];
+  const mins = p.min.map(([x, d]) => { const i = dateOf(d); return [E(x), i, Math.min(N - 1, i + 85)]; });
+  for (let it = 0; it < 60; it++) {
+    const f = warp(A, w);
+    let worst = null, gap = 0.5;
+    for (const [t, lo, hi] of mins) {
+      if (A.some(a => Math.abs(a[0] - t) < 1e-6)) continue;
+      const v = f(t);
+      if (lo - v > gap) { gap = lo - v; worst = [t, lo]; }
+      if (v - hi > gap) { gap = v - hi; worst = [t, hi]; }
+    }
+    if (!worst) break;
+    A.push(worst); A.sort((x, y) => x[0] - y[0]);
   }
-  // 경주 (보이는 창이 날짜를 따라 흐름)
-  const fmap = timeMap(anc(p.anchors()));
-  const scr = K.scene(rs - 0.1, next - 0.5);
-  const upd = raceDom(k, scr, p.bhHL ? { bhHL: p.bhHL() } : null);
-  add3(rs - 0.1, next - 0.45, t => RACE.draw(k, fmap(t), c => upd(c, t)));
-  const midT = (rs + next) / 2;
-  cut(rs + 2.2, `${VNO(k)} 경주 — 시작`);
-  if (p.bhHL) cut(p.bhHL()[0] + 1.5, `${VNO(k)} 경주 — BUY & HOLD 줄`);
-  cut(midT, `${VNO(k)} 경주 — 가운데`);
-  cut(next - 1.2, `${VNO(k)} 경주 — 끝 값`);
+  return { f: warp(A, w, k), anchors: A };
+}
+for (const k of VORDER) {
+  const part = PARTS[k];
+  const a = PS(part), next = VORDER.indexOf(k) < 9 ? PS(PARTS[VORDER[VORDER.indexOf(k) + 1]]) : PS("종합");
+  const { f: fmap, anchors } = planMap(k, part);
+  const rs = a - 0.1, re = next - 0.45;
+  window.RACE_DBG = window.RACE_DBG || {};                     // 점검용: 문장 끝에 차트가 가 있는 날짜 (대본의 'YYYY년'과 맞는지)
+  window.RACE_DBG[k] = EP.sent.filter(x => x.part === part).map(x => [x.text.slice(0, 26), AN.dates[Math.min(N - 1, Math.floor(fmap(x.end)))]]);
+  const dtf = dayTimes(fmap, rs, re);
+  const scr = K.scene(a - 0.1, next - 0.5);
+  const upd = raceDom(k, scr, PLAN[k].hl ? PLAN[k].hl() : null);
+  add3(rs, re, t => RACE.draw(k, fmap(t), c => upd(c, t), t, dtf));
+  cut(a + 2.2, `${VNO(k)} 경주 — 시작`);
+  for (const [t, d] of anchors) if (d > 0 && d < N - 1) cut(t + 0.2, `${VNO(k)} 경주 — ${AN.dates[d]}`);
+  cut(next - 1.2, `${VNO(k)} 경주 — 끝`);
 }
 
-// ---------- 종합: 3D 막대 ----------
+// ---------- 종합: 성공률 점 + 무작위 90% 띠 (성공률 순) ----------
 {
-  const a = PS("종합"), b1 = S("차이는 매도한 다음에 생겼습니다");
-  const g0 = a, g1 = S("1위는 고점보다 10%");
-  add3(a - 0.15, b1 - 0.05, t => {
-    const hi = t >= S("아래 다섯 개 중 네 개는") ? SUM.rank.slice(-5) : t >= S("2위 RSI 4만 4천") && t < S("그대로 둔 계좌 4만 6천 달러를 넘은 건") ? SUM.rank.slice(0, 3) : t >= S("1위는 고점보다 10%") && t < S("2위 RSI 4만 4천") ? [SUM.rank[0]] : [];
-    BARS.draw(clamp((t - g0) / Math.max(0.5, g1 - g0 + 0.8), 0, 1), (t - a) / Math.max(1, b1 - a), { plane: t >= S("그대로 둔 계좌 4만 6천 달러를 넘은 건"), hi, trend: t >= S("아래 다섯 개 중 네 개는") });
-  });
-  cut(S("1위는 고점보다 10%") + 1.5, "종합 — 1위");
-  cut(S("그대로 둔 계좌 4만 6천 달러를 넘은 건") + 1.5, "종합 — BUY & HOLD 판");
-  cut(S("아래 다섯 개 중 네 개는") + 2, "종합 — 추세 규칙");
-}
-// ---------- 종합: 같은 날 매도 → 다시 산 때 ----------
-{
-  const a = S("차이는 매도한 다음에 생겼습니다"), b = S("추세 신호 네 개는 매도한 값보다");
-  const sc = K.scene(a - 0.2, b - 0.1);
-  const L0 = 300, LW = 1500, top0 = 120, RH = 82;
-  const xi = i => L0 + LW * i / (N - 1);
-  let svg = `<svg class="a" style="left:0;top:0" width="1920" height="1080" viewBox="0 0 1920 1080">`;
-  VORDER.forEach((k, r) => {
-    const y = top0 + r * RH, H = R(k).holding;
-    svg += `<rect x="${L0}" y="${y}" width="${LW}" height="${RH - 26}" rx="10" fill="#1A2336"/>`;
-    let s0 = -1;
-    for (let i = 0; i <= N; i++) { const h = i < N && H[i] === "1"; if (h && s0 < 0) s0 = i; if (!h && s0 >= 0) { svg += `<rect x="${xi(s0)}" y="${y}" width="${Math.max(2, xi(i) - xi(s0))}" height="${RH - 26}" rx="6" fill="#22C79A"/>`; s0 = -1; } }
-  });
-  svg += `</svg>`;
-  const gantt = el(`<div class="a" style="left:0;top:0;width:1920px;height:1080px">${svg}</div>`, sc);
-  VORDER.forEach((k, r) => el(`<div class="a" style="left:110px;top:${top0 + r * RH + 2}px">${`<span class="badge2" style="height:52px;min-width:52px;font-size:34px;font-size:36px">${VNO(k)}</span>`}</div>`, sc));
-  const yrs = el(`<div class="a" style="left:0;top:0;width:1920px;height:1080px"></div>`, sc);
-  for (const y of ["2016", "2018", "2020", "2022", "2024", "2026"]) el(`<div class="a ax cx" style="left:${xi(idx(y + "-01-04"))}px;top:${top0 + 10 * RH - 10}px;transform:translateX(-50%)">${y}</div>`, yrs);
-  pop(gantt, a); pop(yrs, a + 0.2);
-  const x0228 = xi(idx("2020-02-28"));
-  const v = el(`<div class="a" style="left:${x0228 - 3}px;top:${top0 - 20}px;width:6px;height:${10 * RH}px;background:#FF8A3D;box-shadow:0 0 20px #FF8A3D"></div>`, sc);
-  const vl = el(`<div class="a tab" style="left:${x0228 + 16}px;top:40px;font:900 44px/1 'Noto Sans KR';color:#FF8A3D"><span class="tag s">SELL</span> 2020.02.28</div>`, sc);
-  pop(v, S("2020년 2월 28일, 10가지 모두"), { from: { y: -40 } }); pop(vl, S("2020년 2월 28일, 10가지 모두") + 0.1);
-  // 다시 산 날: 2020-02-28 뒤 첫 매수
-  const dots = VORDER.map((k, r) => { const t = R(k).trades.find(q => AN.dates[q.b] > "2020-02-28"); return el(`<div class="a" style="left:${xi(t.b) - 14}px;top:${top0 + r * RH + 14}px;width:28px;height:28px;border-radius:50%;background:#2BE0A0;box-shadow:0 0 18px #2BE0A0"></div>`, sc); });
-  tl.fromTo(dots, { opacity: 0, scale: 0.3 }, { opacity: 1, scale: 1, duration: 0.4, stagger: 0.08, ease: "back.out(2)" }, S("다시 매수할 때가 달랐습니다"));
-  cut(S("2020년 2월 28일, 10가지 모두") + 1.5, "종합 — 같은 날 매도");
-  cut(Math.min(S("다시 매수할 때가 달랐습니다") + 1.8, S("추세 신호 네 개는 매도한 값보다") - 0.5), "종합 — 다시 산 날");
-}
-// ---------- 종합: 판 값 대비 다시 산 값 (막대) ----------
-{
-  const a = S("추세 신호 네 개는 매도한 값보다"), b = PS("다른 조건");
+  const a = PS("종합"), b = PS("다른 조건");
   const sc = K.scene(a - 0.2, b - 0.4);
-  const ks = VORDER.slice().sort((x, y) => SUM.reentry[y].mean - SUM.reentry[x].mean);
-  const cx = 1040, sc1 = 660 / Math.max(...VORDER.map(k => Math.abs(SUM.reentry[k].mean)));   // 가장 긴 막대 = 660px (글자까지 화면 안)
-  el(`<div class="a" style="left:${cx - 2}px;top:90px;width:4px;height:880px;background:#FFD400;opacity:.7"></div>`, sc);
-  const head = el(`<div class="a row tab" style="left:${cx - 330}px;top:42px;gap:14px;font:900 44px/1 'Noto Sans KR'"><span class="tag s">SELL</span><span style="color:var(--GR)">→</span><span class="tag b">BUY</span><span style="color:var(--GR)">%</span></div>`, sc);
-  pop(head, a);
+  const ks = SUM.rank.slice(), V0 = 0.36, V1 = 0.60, X0 = 640, X1 = 1700;
+  const xv = v => X0 + (v - V0) / (V1 - V0) * (X1 - X0), top0 = 140, RH = 78;
+  const axis = el(`<div class="a" style="left:0;top:0;width:1920px;height:1080px"></div>`, sc);
+  for (const v of [0.4, 0.45, 0.5, 0.55]) {
+    el(`<div class="a" style="left:${xv(v) - 1}px;top:${top0 - 20}px;width:2px;height:${10 * RH + 10}px;background:rgba(147,160,184,.18)"></div>`, axis);
+    el(`<div class="a ax tab" style="left:${xv(v)}px;top:${top0 - 74}px;transform:translateX(-50%)">${Math.round(v * 100)}%</div>`, axis);
+  }
+  pop(axis, a);
   const rows = ks.map((k, r) => {
-    const m = SUM.reentry[k].mean, w = Math.abs(m) * sc1, y = 110 + r * 86;
-    const bar = el(`<div class="a" style="left:${m >= 0 ? cx : cx - w}px;top:${y}px;width:${w}px;height:58px;border-radius:12px;background:${m >= 0 ? "linear-gradient(90deg,#FF4D5E,#FF8A8A)" : "linear-gradient(270deg,#16A87A,#2BE0A0)"};transform-origin:${m >= 0 ? "left" : "right"} center;box-shadow:0 10px 24px rgba(0,0,0,.35)"></div>`, sc);
-    const lab = el(`<div class="a tab" style="left:${m >= 0 ? cx + w + 16 : cx - w - 16}px;top:${y + 10}px;transform:translateX(${m >= 0 ? 0 : -100}%);font:900 38px/1 'Noto Sans KR';color:${m >= 0 ? "#FF8A8A" : "#2BE0A0"}">${pc(m)}</div>`, sc);
-    const bd = el(`<div class="a" style="left:${m >= 0 ? cx - 30 : cx + 30}px;top:${y + 2}px;transform:translateX(${m >= 0 ? -100 : 0}%)">${badge(k)}</div>`, sc);
-    return { k, bar, lab, bd };
+    const x = R(k), rf = x.rndFinal, y = top0 + r * RH;
+    const lab = el(`<div class="a" style="left:60px;top:${y + 6}px">${badge(k)}</div>`, sc);
+    const fr = el(`<div class="fr" style="left:0;top:${y}px;width:1920px">
+      <div class="band" style="left:${xv(rf.rand_p5)}px;width:${xv(rf.rand_p95) - xv(rf.rand_p5)}px"></div>
+      <div class="mean" style="left:${xv(rf.rand_mean)}px"></div>
+      <div class="dot" style="left:${xv(x.rate)}px;background:${x.rate >= rf.rand_mean ? "#2BE0A0" : "#FF6B78"}"></div></div>`, sc);
+    const val = el(`<div class="a tab" style="left:1740px;top:${y + 12}px;font:900 40px/1 'Noto Sans KR';color:${x.rate >= rf.rand_mean ? "#2BE0A0" : "#FF6B78"}">${rt(x.rate)}</div>`, sc);
+    return { k, lab, fr, val, y };
   });
-  rows.forEach((o, r) => { tl.fromTo(o.bar, { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: "power3.out" }, a + 0.2 + r * 0.08); pop([o.lab, o.bd], a + 0.3 + r * 0.08); });
-  const dimExcept = (keys, at) => rows.forEach(o => tl.to([o.bar, o.lab, o.bd], { opacity: keys.includes(o.k) ? 1 : 0.25, duration: 0.4 }, at));
-  dimExcept([...TREND], W("추세 신호 네 개는 매도한 값보다", "비싸게"));
-  dimExcept(["dip10"], S("저점 매수는 평균 1.4% 싸게"));
-  dimExcept(["dip20"], S("큰 하락 매수는 7.3% 싸게"));
-  const inv = el(`<div class="a row tab" style="left:1300px;top:900px;gap:16px;font:900 56px/1 'Noto Sans KR'">${badge("dip20")}<span class="sw" style="width:60px;height:30px;background:#22C79A"></span><span>${(SUM.invested.dip20 * 100).toFixed(0)}%</span></div>`, sc);
-  pop(inv, W("큰 하락 매수는 7.3% 싸게", "주식을"));
-  cut(W("추세 신호 네 개는 매도한 값보다", "비싸게") + 1.2, "종합 — 다시 산 값 (추세)");
-  cut(S("큰 하락 매수는 7.3% 싸게") + 2.5, "종합 — 큰 하락 42%");
+  rows.forEach((o, r) => pop([o.lab, o.fr, o.val], a + 0.3 + r * 0.08));
+  const legend = el(`<div class="a row" style="left:640px;top:${top0 + 10 * RH + 6}px;gap:18px;font:900 36px/1 'Noto Sans KR';color:#C9D2E2"><span style="display:inline-block;width:80px;height:26px;border-radius:13px;background:rgba(175,192,218,.28);border:2px solid rgba(175,192,218,.45)"></span>${IC.dice(40)}<span class="tab">90%</span><span style="display:inline-block;width:4px;height:40px;background:#D6E0EF;margin-left:20px"></span>${IC.dice(40)}<span style="display:inline-block;width:30px;height:30px;border-radius:50%;background:#2BE0A0;margin-left:20px"></span><span>/</span><span style="display:inline-block;width:30px;height:30px;border-radius:50%;background:#FF6B78"></span></div>`, sc);
+  pop(legend, S("점은 각 방법의 성공률"));
+  const glow = (o, t0) => { const g = el(`<div class="a" style="left:40px;top:${o.y - 6}px;width:1840px;height:76px;border-radius:20px;border:3px solid #FFD400;box-shadow:0 0 24px #FFD40066"></div>`, sc); pop(g, t0); return g; };
+  const g1 = glow(rows[0], S("가장 높은 건 20일선 돌파 매수"));
+  K.out(g1, S("가장 낮은 건 매달 첫 거래일"));
+  const g2 = glow(rows[9], S("가장 낮은 건 매달 첫 거래일"));
+  K.out(g2, S("위쪽 다섯 개 중 네 개는"));
+  const trendMarks = rows.slice(0, 5).filter(o => TREND.has(o.k)).map(o => el(`<div class="a" style="left:372px;top:${o.y + 8}px">${IC.up(52, "#FFD400")}</div>`, sc));
+  pop(trendMarks, S("위쪽 다섯 개 중 네 개는"));
+  const allIn = el(`<div class="a row" style="left:1500px;top:${top0 + 10 * RH + 4}px;gap:14px;font:900 52px/1 'Noto Sans KR'"><span class="tab">${VORDER.filter(k => !R(k).rndFinal.outside_90).length}/10</span>${IC.dice(54)}<span style="color:#2BE0A0">✓</span></div>`, sc);
+  pop(allIn, S("하지만 10가지 모두 무작위 범위 안"));
+  const x20 = rows.find(o => o.k === "x20"), rf = R("x20").rndFinal;
+  const tail = el(`<div class="a" style="left:${xv(R("x20").rate)}px;top:${x20.y + 18}px;width:${Math.max(4, xv(rf.rand_p95) - xv(R("x20").rate))}px;height:28px;background:repeating-linear-gradient(45deg,#FFD400 0 6px,transparent 6px 12px);opacity:.75;border-radius:0 14px 14px 0"></div>`, sc);
+  const tailL = el(`<div class="a row tab" style="left:${xv(rf.rand_p95) + 18}px;top:${x20.y + 10}px;gap:10px;font:900 44px/1 'Noto Sans KR';color:#FFD400">${IC.dice(44, "#FFD400")}<span>${Math.round(SUM.share_random_ge.x20 * 100)}%</span><span>≥</span></div>`, sc);
+  pop([tail, tailL], S("가장 높은 20일선 돌파도"));
+  cut(S("점은 각 방법의 성공률") + 1.5, "종합 — 점 · 띠");
+  cut(S("위쪽 다섯 개 중 네 개는") + 1.2, "종합 — 추세 4/5");
+  cut(S("가장 높은 20일선 돌파도") + 1.5, "종합 — 20일선 13%");
 }
-// ---------- 다른 조건 ----------
+// ---------- 다른 조건: 실패 −1% · −1.5% · 1994~2015 ----------
 {
   const a = PS("다른 조건"), b = PS("정리");
   const sc = K.scene(a - 0.2, b - 0.4);
-  const q = el(`<div class="a flexc" style="left:0;width:1920px;top:90px;gap:20px">${IC.star(70)}<span class="big tab" style="font-size:90px;color:#FF6B6B">−?%</span><span style="font:900 70px/1 'Noto Sans KR';color:var(--GR)">→</span><span class="tag s" style="font-size:60px">SELL</span></div>`, sc);
-  pop(q, a);
-  const T4 = [["5", SUM.above.trail5], ["10", SUM.above.trail10], ["15", SUM.above.trail15], ["20", SUM.above.trail20]];
-  const tiles = T4.map(([n, c], i) => el(`<div class="card2" style="left:${150 + i * 420}px;top:330px;width:360px;height:360px;display:grid;place-items:center;align-content:center;gap:26px;${n === "10" ? "border-color:rgba(255,212,0,.6)" : ""}">
-    <span class="big tab" style="font-size:80px;color:#FF6B6B">−${n}%</span><span class="big tab" style="font-size:110px;color:${c ? "#2BE0A0" : "#93A0B8"}">${c}<span style="font-size:60px;color:#93A0B8">/10</span></span>
-    <span class="tag h" style="font-size:36px">&gt; BUY &amp; HOLD</span></div>`, sc));
-  pop(tiles[1], a + 0.4);
-  pop(tiles[0], S("5%로 바꾸면"));
-  pop([tiles[2], tiles[3]], S("15%나 20%로 하면"));
-  const fee = el(`<div class="a flexc tab" style="left:0;width:1920px;top:770px;gap:30px;font:900 70px/1 'Noto Sans KR'"><span class="tag b" style="font-size:52px">BUY</span><span class="tag s" style="font-size:52px">SELL</span><span style="color:#FF6B6B">0%</span><span style="color:var(--GR)">→</span><span style="color:#2BE0A0">${SUM.above.cost0}</span><span style="color:#93A0B8;font-size:50px">/10</span></div>`, sc);
-  pop(fee, S("수수료를 0으로 해도"));
-  cut(S("15%나 20%로 하면") + 1.5, "다른 조건 — 매도 기준");
-  cut(S("수수료를 0으로 해도") + 1.2, "다른 조건 — 수수료 0");
+  const ks = SUM.rank.slice(), RH = 64, top0 = 240;
+  ks.forEach((k, r) => el(`<div class="a" style="left:40px;top:${top0 + r * RH + 2}px"><span class="badge2" style="height:56px;min-width:56px;font-size:36px">${VNO(k)}</span></div>`, sc));
+  const cols = [["m0.010", `▼ −1% ✗`, S("1%로 더 엄격하게 하면")], ["m0.015", `▼ −1.5% ✗`, S("1.5%에서는 범위를")], ["long1994_2015", "1994 → 2015", S("기간을 1994년부터 2015년으로")]];
+  const colEls = cols.map(([g, head, t0], ci) => {
+    const c = SUM.checks[g], L0 = 170 + ci * 580, LW = 520;
+    const vals = ks.flatMap(k => [c[k].rate, c[k].rand_p5, c[k].rand_p95]);
+    const V0 = Math.min(...vals) - 0.02, V1 = Math.max(...vals) + 0.02, xv = v => L0 + (v - V0) / (V1 - V0) * LW;
+    const hd = el(`<div class="a row tab" style="left:${L0}px;top:150px;gap:12px;font:900 48px/1 'Noto Sans KR';color:${ci < 2 ? "#FF6B78" : "#EAF0F8"}">${head}</div>`, sc);
+    const body = el(`<div class="a" style="left:0;top:0;width:1920px;height:1080px"></div>`, sc);
+    ks.forEach((k, r) => {
+      const x = c[k], y = top0 + r * RH, col = x.outside_90 ? (x.rate > x.rand_p95 ? "#FFD400" : "#FF4D5E") : x.rate >= x.rand_mean ? "#2BE0A0" : "#FF6B78";
+      el(`<div class="fr" style="left:0;top:${y}px;width:1920px;height:60px"><div class="band" style="left:${xv(x.rand_p5)}px;width:${xv(x.rand_p95) - xv(x.rand_p5)}px;top:16px"></div>
+        <div class="mean" style="left:${xv(x.rand_mean)}px;top:8px"></div><div class="dot" style="left:${xv(x.rate)}px;top:10px;background:${col}"></div></div>`, body);
+    });
+    pop(hd, t0); pop(body, t0 + 0.2);
+    return { c, xv, L0 };
+  });
+  const ed = el(`<div class="a row tab" style="left:170px;top:${top0 + 10 * RH + 20}px;gap:12px;font:900 48px/1 'Noto Sans KR'">${IC.dice(50)}<span>${rt(SUM.checks["m0.010"].every_day)}</span></div>`, sc);
+  pop(ed, W("1%로 더 엄격하게 하면", "33.6%로"));
+  const rx = ks.indexOf("x20");
+  const up1 = el(`<div class="a row tab" style="left:${colEls[0].xv(SUM.checks["m0.010"].x20.rate) + 30}px;top:${top0 + rx * RH + 6}px;gap:8px;font:900 44px/1 'Noto Sans KR';color:#FFD400">▲</div>`, sc);
+  pop(up1, S("이때는 20일선 돌파만 범위 위로"));
+  const zero = el(`<div class="a row tab" style="left:${colEls[1].L0}px;top:${top0 + 10 * RH + 20}px;gap:12px;font:900 48px/1 'Noto Sans KR'"><span>0/10</span><span style="color:#93A0B8">▲▼</span></div>`, sc);
+  pop(zero, W("1.5%에서는 범위를", "없었고요"));
+  const lowL = el(`<div class="a tab" style="left:${colEls[2].xv(SUM.checks.long1994_2015.x20.rate) - 30}px;top:${top0 + rx * RH + 8}px;transform:translateX(-100%);font:900 44px/1 'Noto Sans KR';color:#FF6B78">${rt(SUM.checks.long1994_2015.x20.rate)}</div>`, sc);
+  pop(lowL, S("이 기간엔 20일선 돌파가 33.3%로"));
+  const allL = el(`<div class="a row tab" style="left:${colEls[2].L0}px;top:${top0 + 10 * RH + 20}px;gap:12px;font:900 48px/1 'Noto Sans KR'"><span>${VORDER.filter(k => !SUM.checks.long1994_2015[k].outside_90).length}/10</span>${IC.dice(46)}<span style="color:#2BE0A0">✓</span></div>`, sc);
+  pop(allL, S("이 기간에도 10가지 모두 무작위 범위 안"));
+  cut(S("이때는 20일선 돌파만 범위 위로") + 1.2, "다른 조건 — −1% · 20일선 ▲");
+  cut(S("이 기간에도 10가지 모두 무작위 범위 안") + 1.2, "다른 조건 — 1994~2015");
 }
 // ---------- 정리 ----------
 {
   const a = PS("정리"), b = PS("한계");
   const sc = K.scene(a - 0.2, b - 0.4);
-  const c1 = el(`<div class="card2" style="left:110px;top:170px;width:820px;height:330px;display:grid;place-items:center;align-content:center;gap:24px">
-    <span class="big tab" style="font-size:150px">${10 - SUM.above.trail10}<span style="font-size:80px;color:#93A0B8">/10</span></span><span class="row" style="font:900 56px/1 'Noto Sans KR'"><span>&lt;</span><span class="tag h" style="font-size:44px">BUY &amp; HOLD</span></span></div>`, sc);
-  pop(c1, S("이번 10년 동안, 매수 신호 10가지 중"));
-  const c2 = el(`<div class="card2" style="left:990px;top:170px;width:820px;height:330px;display:grid;place-items:center;align-content:center;gap:24px">
-    <span class="row" style="gap:20px">${badge("dip10", true)}</span><span class="row" style="gap:18px;font:900 110px/1 'Noto Sans KR'"><span class="sw" style="width:90px;height:44px;background:#22C79A"></span><span class="tab">${(SUM.invested.dip10 * 100).toFixed(0)}%</span></span></div>`, sc);
-  pop(c2, S("넘은 하나도, 떨어지면 바로 다시 매수해서"));
-  const c3 = el(`<div class="card2" style="left:110px;top:560px;width:820px;height:330px;display:grid;place-items:center;align-content:center;gap:24px">
-    <span class="tag h" style="font-size:48px">BUY &amp; HOLD</span><span class="row" style="gap:20px">${IC.dn(80)}<span class="big tab" style="font-size:110px;color:#FF4D5E">${pcu(SUM.bh.max_dd)}</span></span><span class="tab" style="font:900 48px/1 'Noto Sans KR';color:#AFC0DA">${SUM.bh.max_dd_date.slice(0, 7).replace("-", ".")}</span></div>`, sc);
-  pop(c3, S("그대로 둔 계좌는 2020년 3월에 33.7%"));
-  const c4 = el(`<div class="card2 flexc" style="left:990px;top:560px;width:820px;height:330px;gap:22px"><span class="tag s" style="font-size:56px">SELL</span><span style="font:900 64px/1 'Noto Sans KR';color:var(--GR)">→</span>${IC.hour(90)}<span style="font:900 64px/1 'Noto Sans KR';color:var(--GR)">→</span><span class="tag b" style="font-size:56px">BUY</span><span class="big" style="font-size:96px;color:#FFD400">?</span></div>`, sc);
-  pop(c4, S("언제 매수하느냐만큼, 매도한 뒤"));
-  cut(S("언제 매수하느냐만큼, 매도한 뒤") + 1.5, "정리 — 카드 4개");
+  const above = VORDER.filter(k => R(k).rndFinal.outside_90 && R(k).rate > R(k).rndFinal.rand_p95).length;
+  const c1 = el(`<div class="card2" style="left:110px;top:150px;width:820px;height:360px;display:grid;place-items:center;align-content:center;gap:24px">
+    <span class="big tab" style="font-size:150px">${above}<span style="font-size:80px;color:#93A0B8">/10</span></span><span class="row" style="font:900 60px/1 'Noto Sans KR'"><span>&gt;</span>${IC.dice(70)}<span class="tab">90%</span></span></div>`, sc);
+  pop(c1, S("이번 백테스트에서, 무작위로 매수한 것보다"));
+  const tr = [...TREND], lu = tr.filter(k => SUM.checks.long1994_2015[k].rate < SUM.checks.long1994_2015[k].rand_mean).length, nu = tr.filter(k => R(k).rate > R(k).rndFinal.rand_mean).length;
+  const c2 = el(`<div class="card2" style="left:990px;top:150px;width:820px;height:360px;display:grid;align-content:center;justify-items:center;gap:30px">${IC.up(80, "#FFD400")}
+    <span class="row tab" style="gap:20px;font:900 56px/1 'Noto Sans KR'"><span>${AN.dates[0].slice(0, 4)} →</span><span style="color:#2BE0A0">${nu}/4 ▲</span></span>
+    <span class="row tab c2b" style="gap:20px;font:900 56px/1 'Noto Sans KR'"><span>1994 → 2015</span><span style="color:#FF6B78">${lu}/4 ▼</span></span></div>`, sc);
+  pop(c2, S("추세 신호가 이번 10년에는 조금 앞섰어요"));
+  tl.fromTo(c2.querySelector(".c2b"), { opacity: 0 }, { opacity: 1, duration: 0.4 }, S("하지만 그 전 22년에는"));
+  const y22 = VORDER.filter(k => SUM.by_year[k]["2022"].losses > SUM.by_year[k]["2022"].wins).length;
+  const c3 = el(`<div class="card2" style="left:110px;top:570px;width:820px;height:360px;display:grid;place-items:center;align-content:center;gap:26px">
+    <span class="row tab" style="gap:20px">${IC.dn(90)}<span class="big" style="font-size:110px">2022</span></span><span class="row tab" style="gap:18px;font:900 64px/1 'Noto Sans KR'"><span class="dn">✗</span><span>&gt;</span><span class="up">✓</span><span style="margin-left:24px">${y22}/10</span></span></div>`, sc);
+  pop(c3, S("2022년처럼 계속 떨어진 해에는"));
+  const sp = VORDER.map(k => R(k).rate), cm = SUM.choose_m.m;
+  const c4 = el(`<div class="card2" style="left:990px;top:570px;width:820px;height:360px;display:grid;align-content:center;gap:34px;padding:0 40px">
+    <span class="row tab" style="gap:12px;font:900 42px/1 'Noto Sans KR';white-space:nowrap"><span class="tag b" style="font-size:38px">BUY</span><span>×10</span><span style="color:#93A0B8">:</span><span>${rt(Math.min(...sp))} ~ ${rt(Math.max(...sp))}</span></span>
+    <span class="row tab" style="gap:12px;font:900 42px/1 'Noto Sans KR';color:#FFD400;white-space:nowrap"><span style="color:#FF6B78">▼ −2% → −1%</span><span style="color:#93A0B8">:</span>${IC.dice(40, "#FFD400")}<span>${rt(cm["0.0200"].every_day)} → ${rt(cm["0.0100"].every_day)}</span></span></div>`, sc);
+  pop(c4, S("성공률을 크게 바꾼 건 매수 신호가 아니라"));
+  cut(S("성공률을 크게 바꾼 건 매수 신호가 아니라") + 1.5, "정리 — 카드 4개");
 }
 // ---------- 한계 ----------
 {
   const a = PS("한계"), b = PS("마무리");
   const sc = K.scene(a - 0.2, b - 0.4);
+  const mis = VORDER.reduce((s, k) => s + SUM.mismatch[k], 0);
   const items = [
-    el(`<div class="card2" style="left:150px;top:260px;width:460px;height:420px;display:grid;place-items:center;align-content:center;gap:30px">${IC.cal(130)}<span class="big tab" style="font-size:64px">2016 → 2026</span></div>`, sc),
-    el(`<div class="card2" style="left:730px;top:260px;width:460px;height:420px;display:grid;place-items:center;align-content:center;gap:24px"><span class="row" style="gap:16px">${IC.ban(110, `<circle cx="17.5" cy="18" r="3.4" fill="none" stroke="#FFD400" stroke-width="2.8"/><circle cx="30.5" cy="30" r="3.4" fill="none" stroke="#FFD400" stroke-width="2.8"/><path d="M31 15 L17 33" stroke="#FFD400" stroke-width="2.8" stroke-linecap="round"/>`)}${IC.ban(110, `<ellipse cx="24" cy="29" rx="10" ry="4.2" fill="#B8860B"/><ellipse cx="24" cy="25" rx="10" ry="4.2" fill="#E8B800"/><ellipse cx="24" cy="21" rx="10" ry="4.2" fill="#FFD400"/>`)}</span><span class="row" style="gap:12px;font:900 50px/1 'Noto Sans KR'"><span class="tag s" style="font-size:44px">SELL</span><span style="color:#AFC0DA">+1D</span></span></div>`, sc),
-    el(`<div class="card2" style="left:1310px;top:260px;width:460px;height:420px;display:grid;place-items:center;align-content:center">${IC.warn(200)}</div>`, sc),
+    el(`<div class="card2" style="left:90px;top:260px;width:400px;height:420px;display:grid;place-items:center;align-content:center;gap:30px"><span class="big" style="font-size:90px">SPY</span><span class="big tab" style="font-size:56px">${AN.dates[0].slice(0, 4)} →</span></div>`, sc),
+    el(`<div class="card2" style="left:540px;top:260px;width:400px;height:420px;display:grid;place-items:center;align-content:center;gap:26px"><span class="row" style="gap:12px"><span class="big" style="font-size:70px;color:#2BE0A0">✓</span><span class="big" style="font-size:70px;color:#FF4D5E">✗</span></span><span class="row" style="gap:12px;font:900 48px/1 'Noto Sans KR'"><span class="tag s" style="font-size:44px">SELL</span><span style="color:#AFC0DA">+1D</span></span></div>`, sc),
+    el(`<div class="card2" style="left:990px;top:260px;width:400px;height:420px;display:grid;place-items:center;align-content:center;gap:24px"><span class="row tab" style="gap:14px;font:900 56px/1 'Noto Sans KR'"><span class="up">✓</span><span class="dn">−</span><span style="color:#93A0B8">/</span><span class="dn">✗</span><span class="up">+</span></span><span class="big tab" style="font-size:90px">${mis}</span></div>`, sc),
+    el(`<div class="card2" style="left:1440px;top:260px;width:400px;height:420px;display:grid;place-items:center;align-content:center;gap:24px"><span class="row" style="gap:10px">${IC.ban(110, `<circle cx="17.5" cy="18" r="3.4" fill="none" stroke="#FFD400" stroke-width="2.8"/><circle cx="30.5" cy="30" r="3.4" fill="none" stroke="#FFD400" stroke-width="2.8"/><path d="M31 15 L17 33" stroke="#FFD400" stroke-width="2.8" stroke-linecap="round"/>`)}${IC.ban(110, `<ellipse cx="24" cy="29" rx="10" ry="4.2" fill="#B8860B"/><ellipse cx="24" cy="25" rx="10" ry="4.2" fill="#E8B800"/><ellipse cx="24" cy="21" rx="10" ry="4.2" fill="#FFD400"/>`)}</span>${IC.warn(120)}</div>`, sc),
   ];
-  pop(items[0], a); pop(items[1], S("세금과 환전 비용은 넣지 않았어요")); pop(items[2], S("투자 권유가 아니라"));
+  pop(items[0], a); pop(items[1], S("성공과 실패는 종가로만 판정했고")); pop(items[2], S("그래서 성공인데 손해")); pop(items[3], S("세금과 환전 비용은 넣지 않았어요"));
   cut(S("투자 권유가 아니라") + 1.2, "한계");
 }
 // ---------- 마무리 ----------
@@ -935,7 +932,7 @@ for (const k of VORDER) {
   const sc = K.scene(a - 0.2, EP.duration + 1, { keep: true });
   const c = el(`<div class="a flexc" style="left:0;width:1920px;top:330px;gap:40px">${IC.chat(220)}<span class="big" style="font-size:200px;color:#FFD400">?</span></div>`, sc);
   pop(c, a);
-  const end = el(`<div class="a flexc" style="left:0;width:1920px;top:690px;gap:24px"><span class="tag b" style="font-size:60px">BUY</span><span class="tag s" style="font-size:60px">SELL</span><span class="tag h" style="font-size:52px">BUY &amp; HOLD</span></div>`, sc);
+  const end = el(`<div class="a flexc" style="left:0;width:1920px;top:690px;gap:24px"><span class="tag b" style="font-size:60px">BUY</span><span class="tag s" style="font-size:60px">SELL</span>${IC.dice(84)}</div>`, sc);
   pop(end, S("시청해주셔서 감사합니다"));
   cut(S("시청해주셔서 감사합니다") + 0.8, "마무리");
 }

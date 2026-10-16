@@ -1,22 +1,22 @@
-# eonje-maesu-2026-10 썸네일 1 — 본안(클릭률 최대): 같은 크기의 매수 버튼 10개 앞에서 망설이는 사람, 뒤로 오르는 3D 가격 벽, 끝에 빛이 새는 닫힌 상자 — 어느 버튼이 가장 많이 남았을까
+# eonje-maesu-2026-10 썸네일 1 — 본안(클릭률 최대): 같은 크기의 두 받침대 — 매수 신호 버튼 10개 vs 주사위 — 사이에서 망설이는 사람, 뒤에는 초록(+5%)·빨강(−2%) 점선 사이의 가격 선, 위에 닫힌 상자
 
-버전: v2.0 — 2026-10-16 — 다시 만듦 (영상 v2 — 매수 신호 10가지 × 같은 매도 규칙 · 3D 가격 벽). 대본 v2.1 기준 (문장 번호만 바뀜 — 그림 그대로).
+버전: v3.0 — 2026-10-16 — 다시 만듦: 영상 v4 (잣대 = 성공률 — +5% 가 −2% 보다 먼저 · 비교 상대 = 무작위로 매수한 계좌 2천 개). 두 선택(신호 10개 / 주사위)을 같은 크기로, 결과는 닫힌 상자로 가림 (`stock/guides/README.md` 3번 · 사용자 지시 2026-10-16 "그래 결말 궁금해하도록 변경해"). (v2.0 — 버튼 10개 + 닫힌 상자 — 커밋 28e1b7b)
 
 | 항목 | 값 |
 |---|---|
 | 역할 | 본안 |
 | 글자 | **없음** (그림만 — 전 세계 대상, `stock/guides/README.md` 3번) |
-| 결말 | **보여 주지 않음** — 어느 신호가 1위인지는 영상에서 (사용자 지시 2026-10-16) |
-| 시험하는 가설 | 같은 크기의 선택지 10개 앞에서 망설이는 장면 + 결과를 닫힌 상자로 가리면, '어느 것?'이 궁금해서 누른다 |
-| 짝 제목 | titles.md R1 「매수 타이밍, 저점·RSI·200일선 등 매수 신호 10가지 중 1만 달러로 10년 뒤 가장 많이 번 건?」 |
-| 근거 | 그림·캐릭터 23% vs 10% · 빨강·어두운 쪽 P 0.58·0.61 · 같은 채널 잘된 쪽 = 대비. '결과를 가린 그림'의 근거는 없다 (사용자 지시) |
-| 숫자 근거 | 그림에 숫자 없음. 뜻은 대본 문장 1(언제 매수)·2(매수 신호 10가지를 SPY로 백테스트)·3(2016년부터 지금까지, 같은 1만 달러) |
+| 결말 | **보여 주지 않음** — 무작위보다 성공 확률이 높은 신호가 있었는지는 영상에서 (사용자 지시 2026-10-16) |
+| 시험하는 가설 | 같은 크기의 두 선택(신호 vs 주사위) 앞에서 망설이는 장면 + 두 점선 사이에서 아직 판정 나지 않은 가격 선 + 닫힌 상자면, '신호가 주사위보다 나을까?'가 궁금해서 누른다 |
+| 짝 제목 | titles.md R1 「매수 타이밍, 저점·RSI·신고가 신호는 2% 떨어지기 전 5% 오를 확률이 무작위 매수보다 높을까?」 |
+| 근거 | 그림·캐릭터 23% vs 10% · 빨강·어두운 쪽 P 0.58·0.61 · 같은 채널 잘된 쪽 = 대비. '결과를 가린 그림'·'주사위'의 근거는 없다 (사용자 지시·영상 화면에 맞춤) |
+| 숫자 근거 | 그림에 숫자 없음. 뜻은 대본 문장 2(매수 신호 10가지가 정말 성공 확률을 높일까요?)·4(5% 오르면 성공, 그 전에 2% 떨어지면 실패)·6(신호 없이 무작위 날짜에 매수한 계좌 2천 개) |
 
 ## 화면 구성
-- 가운데 아래 약 45%: 빛나는 둥근 버튼 10개가 같은 높이로 살짝 휜 한 줄 (모두 같은 크기·밝기). 버튼마다 위에 작은 빛나는 아이콘 하나 (빈 달력 · 깃발 · 위로 꺾인 화살표 · 노란 선을 넘는 선 · 엇갈리는 두 선 · 아래로 꺾인 빨간 화살표 · 반원 계기판 · 뾰족한 빨간 산 모양 선 · 별과 먼 점선 · 별과 가까운 점선)
-- 왼쪽 약 35%: 30대 후반 사람(가상 인물, 짙은 재킷)이 버튼 줄 쪽으로 몸을 숙이고 검지를 버튼 위에 띄운 채 고르는 중 (망설이는 표정)
-- 뒤 배경: 왼쪽 아래에서 오른쪽 위로 길게 올라가는 3D 청록-초록 가격 벽(두 번 크게 꺾임, 위 모서리는 흰 빛 선, 주황 점 몇 개), 눈금·숫자 없음
-- 오른쪽 위, 가격 벽 끝: 빛이 새는 닫힌 보물 상자 (결과를 가림)
+- 아래 가운데: 같은 높이·같은 크기의 받침대 두 개. 왼쪽 받침대 = 빛나는 작은 둥근 버튼 10개(2줄 5개, 버튼마다 위에 작은 아이콘 — 영상 머리 카드 아이콘과 같은 모양), 오른쪽 받침대 = 같은 크기로 빛나는 큰 주사위 하나(둥근 점만)
+- 가운데: 30대 후반 가상 인물(짙은 재킷)이 두 받침대 사이에 서서 두 손을 양쪽 위에 띄운 채 고르는 중 (망설이는 표정)
+- 뒤 배경: 왼쪽에서 오른쪽으로 오르는 3D 파랑 가격 벽(판정 전 색), 벽 끝 위에 초록 점선(+5%)·아래에 빨강 점선(−2%) — 가격 선이 두 점선 사이에 있고 어느 쪽에도 닿지 않음 (결말 가림)
+- 위 가운데: 빛이 새는 닫힌 보물 상자
 - 오른쪽 아래 약 220×70: 비움
 
 ## 문구 (그대로 사용)
@@ -27,34 +27,34 @@
 ## [A] 완성형 프롬프트 (이미지 AI에 그대로 붙여 넣기)
 ```
 YouTube thumbnail, 16:9 landscape (1280x720), semi-realistic digital illustration with cinematic lighting, deep dark navy background (#0C1424) with a soft glow behind the center.
-Background: a huge three-dimensional stock-price wall seen in perspective, rising from the lower left to the upper right across the image like a mountain ridge with two deep dips. The wall's front face is glowing teal-green (#22C79A) fading to dark at the bottom, its top edge is a bright white glowing line, and a few small glowing orange dots sit on the top edge. There are no axes, no grid lines and no labels.
-At the far upper-right end of the wall sits a heavy closed wooden treasure chest, its lid shut tight, with warm golden light leaking out through the gaps; what is inside cannot be seen.
-Foreground, lower center (about 45% of the width): a gently curved row of ten identical round glowing buttons on identical small pedestals, all exactly the same size, the same height and the same brightness. Above each button floats one small glowing icon: a blank calendar square, a small flag on a pole, an arrow bending upward, a line rising over a smooth yellow line, two smooth lines crossing each other, a red arrow bending downward, a semicircle gauge dial with a needle and no markings, a sharp red mountain-shaped zigzag line, a yellow star high above a dashed yellow line, and a yellow star just above a dashed yellow line.
-Left side (about 35% of the width): a fictional person in their late thirties in a dark jacket leans toward the row of buttons, one index finger hovering just above the buttons without touching any of them, eyes moving along the row; the expression is thoughtful and hesitant — not happy, not worried.
-No button is highlighted or pressed; nobody is winning. The mood is suspense: which button would have ended with the most?
-Color accents: teal-green only on the price wall, orange only on the small dots on the wall, red only on the down arrow and the zigzag icon, yellow only on the stars and dashed lines, warm gold only from the chest. Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
-If 16:9 is not available, use the widest landscape canvas; in any case keep the face, the buttons and the chest inside the central 16:9 area, at least 8% away from the top and bottom edges.
+Background: a huge three-dimensional stock-price wall seen in perspective, rising gently from the left to the right with several small dips. The wall's front face is glowing deep blue (#3E8FE0) fading to dark at the bottom and its top edge is a bright white glowing line. Just above the end of the wall floats a glowing green dashed horizontal line (#2BE0A0), and just below it a glowing red dashed horizontal line (#FF4D5E) — the price line runs between the two dashed lines and has not touched either one yet. There are no axes, no grid lines and no labels.
+Between the green dashed line and the top of the image floats a heavy closed wooden treasure chest, its lid shut tight, with warm golden light leaking out through the gaps; what is inside cannot be seen.
+Foreground, bottom: two identical glowing pedestals of exactly the same size and height, side by side. On the left pedestal: ten small identical round glowing buttons in two rows of five, and above each button floats one small glowing icon: a blank calendar square, a small flag on a pole, an arrow bending upward, a line rising over a smooth yellow line, two smooth lines crossing each other, a red arrow bending downward, a semicircle gauge dial with a needle and no markings, a sharp red mountain-shaped zigzag line, a yellow star above a dashed yellow line, and a yellow star just above a dashed yellow line. On the right pedestal: one big glowing white die with only round pips, taking up exactly the same space as the group of ten buttons.
+Center: a fictional person in their late thirties in a dark jacket stands between the two pedestals, one hand hovering above the buttons and the other hand hovering above the die, touching neither; the face looks from one to the other, thoughtful and hesitant — not happy, not worried.
+Neither side is highlighted, pressed or brighter; nobody is winning. The mood is suspense: which one reaches the green line first?
+Color accents: green only on the upper dashed line, red only on the lower dashed line, the down arrow and the zigzag icon, yellow only on the stars and dashed icon lines, blue on the price wall, warm gold only from the chest. Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
+If 16:9 is not available, use the widest landscape canvas; in any case keep the face, the pedestals and the chest inside the central 16:9 area, at least 8% away from the top and bottom edges.
 Fictional person, not resembling any real or famous person.
-Absolutely no text, no letters, no numbers, no symbols, no percent signs, no question marks, no logos and no watermarks anywhere in the image. The buttons are plain with nothing written on them; the calendar is an empty square; the gauge has no numbers or tick labels; the price wall has no labels; there are no screens, no papers and no signs.
+Absolutely no text, no letters, no numbers, no symbols, no percent signs, no question marks, no logos and no watermarks anywhere in the image. The buttons are plain with nothing written on them; the die shows only round pips; the calendar is an empty square; the gauge has no numbers or tick labels; the price wall and the dashed lines have no labels; there are no screens, no papers and no signs.
 ```
 
 ## [B] 단순한 구도 (가짜 글자·숫자가 계속 생길 때)
 ```
 YouTube thumbnail, 16:9 landscape (1280x720), clean semi-realistic illustration, deep dark navy background (#0C1424).
-Background: a large glowing teal-green 3D wall rising from lower left to upper right with two dips, a white glowing top edge and a few orange dots, no labels; a closed wooden chest with golden light leaking from its lid at the wall's upper-right end.
-Foreground: a row of ten identical plain glowing round buttons, each with a different simple glowing shape floating above it (empty square, flag, up arrow, rising line, two crossing lines, red down arrow, semicircle gauge, red zigzag, star over a dashed line, star over a dashed line); all ten exactly the same size and brightness.
-Left: a fictional person in a dark jacket with one finger hovering above the buttons, thoughtful and hesitant.
-Keep the face, buttons and chest inside the central 16:9 area, 8% away from the top and bottom edges; leave the bottom-right corner empty.
+Background: a glowing blue 3D price wall rising left to right with small dips, a white glowing top edge, a green dashed line above its end and a red dashed line below it (the price touches neither), no labels; a closed wooden chest with golden light leaking from its lid near the top center.
+Foreground: two identical pedestals of the same size — left: ten plain glowing round buttons, each with a different simple glowing shape above it (empty square, flag, up arrow, rising line, two crossing lines, red down arrow, semicircle gauge, red zigzag, star over a dashed line, star over a dashed line); right: one big glowing die with round pips only.
+Center: a fictional person in a dark jacket between the pedestals, hands hovering over both, thoughtful and hesitant.
+Keep the face, pedestals and chest inside the central 16:9 area, 8% away from the top and bottom edges; leave the bottom-right corner empty.
 Absolutely no text, letters, numbers, symbols, question marks, logos, watermarks, labels or screens anywhere.
 ```
 
 ## 검수
-- [ ] 그림 속에 글자·숫자·기호(물음표·% 포함)처럼 보이는 것이 없다 (버튼 표면·달력·계기판·가격 벽 주변 확대)
-- [ ] **결말이 보이지 않는다**: 버튼 10개가 같은 크기·밝기, 눌린 버튼 없음, 상자는 닫혀 있음, 표정이 망설임
-- [ ] 청록-초록 = 가격 벽, 주황 = 벽 위 점, 노랑 = 별·점선
-- [ ] 16:9, 얼굴이 가운데 16:9 안, 오른쪽 아래 비움
-- [ ] 가상 인물
-- [ ] 가로 320px로 줄여도 '버튼 10개 앞에서 고르는 사람, 오르는 가격 벽, 끝의 닫힌 상자'가 읽힘
+- [ ] 그림 속에 글자·숫자·기호(물음표·% 포함)처럼 보이는 것이 없다 (버튼 표면·주사위 면·달력·계기판·점선 주변 확대 — 주사위는 둥근 점만)
+- [ ] **결말이 보이지 않는다**: 신호 버튼 묶음과 주사위가 같은 크기·같은 높이·같은 밝기, 어느 쪽도 눌리거나 빛나지 않음, 가격 선이 초록·빨강 점선 어느 쪽에도 닿지 않음, 상자는 닫혀 있음
+- [ ] 초록 = 위 점선(+5%), 빨강 = 아래 점선(−2%), 파랑 = 판정 전 가격 벽 (영상 색과 같음)
+- [ ] 16:9, 중요한 그림이 가운데 16:9 안, 오른쪽 아래 비움
+- [ ] (사람이 있으면) 가상 인물, 표정 = 망설임 (웃음·좌절 아님)
+- [ ] 가로 320px로 줄여도 '신호 버튼 10개 vs 주사위, 두 점선 사이의 가격 선, 닫힌 상자'가 읽힘
 
 ## 이미지 검수 (Claude — 10번)
 - (이미지가 올라오면 결과를 적는다)

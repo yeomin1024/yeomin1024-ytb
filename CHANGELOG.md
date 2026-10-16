@@ -1,5 +1,33 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-16 (55) — 주식 2·3·4번 소스 + 소리 없는 미리보기 (커버드콜 원금 · 배당 ETF vs 지수 세후 · 레버리지 1·2·3배)
+
+### 왜 (사용자 지시)
+- "이제 니즈에 따라 어떻게 테스트 계획 세우고 하는지 알겠지? 같은 방식으로 필요한 소스 생성해서 3개 영상 미리보기 영상 만들어봐 한도 다되면 초기화 될때 다시 진행하고"
+
+### 한 것
+| 파일 (버전) | 내용 |
+|---|---|
+| `tools/backtest/data.py` (v1.4 → v1.5) | `yahoo_daily` 가 주식 분할이 있는 ETF(QQQ·QLD·TQQQ·SCHD)도 받음 — Yahoo 종가는 분할 반영(분할 날 앞뒤 종가 이어짐을 확인), 분할 날 하루 변화가 비율 쪽이면 멈춤 · `from_date`(^NDX 1985~) · 오늘 장중 값은 `until` 로 뺌 |
+| `tools/backtest/income.py` (v1.0 새) | `withdraw_pair`(분배금을 꺼내 쓴 계좌 vs 같은 날 같은 금액을 매도한 계좌) · `reinvest`(배당 세후 다시 매수, 한 번에/매달) · `liquidate` |
+| `tools/backtest/leverage.py` (v1.0 새) | L배 하루 수익률(L × 지수 − (L−1) × (전날 금리 + 웃돈) − 보수, 달력 날) · `track`(실제 ETF 와 대조) · `grow`(한 번에/매달) |
+| `tools/backtest/numcheck.py` (v1.0 새) | 대본 숫자 검사 공통 부품 (금액 '9만 5,647달러' 꼴 · % · 날짜 · 모든 숫자가 검사표에 있는지) |
+| `tools/tests/test_backtest_income.py` (v1.0 새) | 15개 — 꺼낸 돈 같음·미래 정보 없음·바닥남·세금 0 = 총수익·적립·매일 배수(+10%·−10%)·전날 금리·달력 날·바닥 (모두 OK, entry 시험과 함께 37개 OK) |
+| `video/render/race2d.js` (v1.0 새) | 2D 캔버스 경주 그래프 — 그날까지 선·로그/선형 눈금·날마다 다른 기준선(넣은 돈)·값 칩(가로 범위)·동전·문장 기준점 속도(`[PACE]` 로그) |
+| `video/render/render.mjs` (v1.9 → v1.10) | 낱말 검사 예외에 ETF 티커 (다른 세션의 v1.9 쇼츠 그림과 합침) |
+| `stock/source/keobeodeu-kol-2026-10/` (v1.0 새) | ② 커버드콜: `backtest/run.py`·`results.json`·`anim.js`·`check_numbers.py`(164/164)·대본 131문장·SRT·README·제목·업로드 시트·썸네일 프롬프트 3장 |
+| `stock/source/baedang-etf-2026-10/` (v1.0 새) | ③ 배당: run.py·숫자 187/187·대본 116문장·… 같은 묶음 |
+| `stock/source/reobeoriji-2026-10/` (v1.0 새) | ④ 레버리지: run.py(웃돈 s 를 실제 QLD 로 정하고 TQQQ 로 확인)·숫자 262/262·대본 122문장·… 같은 묶음 |
+| `video/episodes/{keobeodeu-kol,baedang-etf,reobeoriji}-2026-10/index.html` (v1.0 새) | 날짜가 흐르며 계좌를 견주는 경주 + 확인 장면 · `render.mjs check` 문제 0 · still 점검 · 소리 없는 미리보기 렌더 |
+| `stock/guides/README.md` (v1.9 → v1.10) | 4번 티커 예외 · 6번 테스트 계획 순서 (니즈 → 공정한 비교 → 결과 전에 정한 확인 → 숫자 검사 → 날짜는 앞으로만) |
+| `stock/source/topic_candidates.md` v1.5 · `used_content.md` v1.5 · `guides/status.md` v1.30 · `stock/thumbnails_chatgpt.md` | 만든 것·다룬 숫자·인수인계·ChatGPT 썸네일 모음(4편 12장) |
+
+### 확인
+- 시험: `python3 -m unittest test_backtest_income test_backtest_entry` (tools/tests) → 37 OK.
+- 숫자 검사: ② 164/164 · ③ 187/187 · ④ 262/262 (검사표에 없는 숫자 0).
+- 장면: `render.mjs check` 세 편 모두 문제 0 · 경주 속도 최대 120·120·160 거래일/초.
+- 업로드 시트: `youtube_upload.py stock <영상ID> --dry-run` 세 편 모두 시트 읽기 통과 (남은 '문제 1개' = 아직 없는 최종 영상·썸네일).
+
 ## 2026-10-16 (54) — 재테크 쇼츠 4편 세로 장면 + 소리 없는 미리보기 · 첫 문장 = 쇼츠 썸네일 이미지 · 관련 동영상 거는 법
 
 ### 왜 (사용자 지시)

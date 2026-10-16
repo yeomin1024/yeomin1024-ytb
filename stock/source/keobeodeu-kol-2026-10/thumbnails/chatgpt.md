@@ -1,0 +1,65 @@
+# keobeodeu-kol-2026-10 썸네일 3장 — ChatGPT용 (읽고 그대로 만들고 저장소에 올리기)
+
+자동 생성 — `python tools/make_summary.py --chatgpt stock keobeodeu-kol-2026-10` (2026-10-16 19:02). 이 파일은 고치지 말고 `thumbnail_N.md`를 고친 뒤 다시 만든다.
+
+이 파일 주소: https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/stock/source/keobeodeu-kol-2026-10/thumbnails/chatgpt.md
+
+## ChatGPT에게 — 이 파일을 읽으면 할 일
+1. 아래 썸네일 3개(thumbnail_1, thumbnail_2, thumbnail_3)를 **차례로 모두** 만든다. 질문하지 말고, 한 장을 만든 뒤 멈추지 말고 다음 장으로 넘어간다.
+2. 각 장은 그 칸의 **프롬프트(``` 안)를 한 글자도 바꾸지 않고 그대로** 쓴다. 장마다 서로 다른 그림이다 — 앞 장의 인물·구도·색을 이어 쓰지 않는다.
+3. 크기는 가로형 16:9 (1280×720). 16:9가 안 되면 가장 넓은 가로형으로 만들고, 글자와 얼굴은 가운데에 두고 위아래 가장자리 8%는 비운다.
+4. **그림 속에 글자·숫자·기호·로고·워터마크를 하나도 넣지 않는다** — 전 세계 시청자용이라 그림만으로 뜻을 전한다. 지폐·화면·간판·그래프 눈금에도 글자나 숫자가 없어야 한다.
+5. 사람은 실존 인물이나 유명인을 닮지 않은 가상 인물이다.
+6. 한 장을 만들 때마다 그림을 크게 확대해 **글자처럼 보이는 것**(가짜 글자, 숫자, 지폐 무늬 속 숫자, 화면 속 글)이 없는지 본다. 있으면 그 부분만 지운 그림으로 다시 만든다.
+7. 그림마다 바로 위에 그 장의 저장 경로 `stock/source/keobeodeu-kol-2026-10/thumbnails/thumbnail_N.png`를 한 줄 적어 어느 시안인지 알려 준다 (그림 안에는 쓰지 않는다).
+8. **다 만들면 저장소에 넣는다.**
+   - 올릴 곳: 저장소 `yeomin1024/yeomin1024-ytb` main 브랜치의 `stock/source/keobeodeu-kol-2026-10/thumbnails/` 폴더, 파일 이름 `thumbnail_N.png` (N = 시안 번호).
+   - GitHub 에 쓸 수 있으면(쓰기 권한이 있는 GitHub 앱) 그 폴더에 커밋한다. 커밋 메시지: `[썸네일] keobeodeu-kol-2026-10 thumbnail_N 이미지`
+   - **쓸 수 없으면 (이 계정의 ChatGPT 는 GitHub 를 읽기만 함 — 2026-10-15 확인)** 묻지 말고 아래처럼 끝낸다:
+     1. 만든 그림을 thumbnail 번호 순서로 다시 한 번씩 보여 준다 (그림마다 위에 저장 경로 `stock/source/keobeodeu-kol-2026-10/thumbnails/thumbnail_N.png`).
+     2. 마지막에 이 문장을 그대로 쓴다: **"이 그림 3장을 Claude 대화창에 그대로 붙여 넣어 주세요. Claude가 검수한 뒤 저장소(stock/source/keobeodeu-kol-2026-10/thumbnails/thumbnail_N)에 올립니다."**
+     3. 그 아래 줄에 직접 올리는 길도 적는다: "직접 올리려면: 그림을 thumbnail_N.png 이름으로 내려받아 https://github.com/yeomin1024/yeomin1024-ytb/upload/main/stock/source/keobeodeu-kol-2026-10/thumbnails 에 끌어다 놓고 Commit changes"
+
+## thumbnail_1 — 본안(클릭률 최대): 같은 크기의 선택 사이에서 망설이는 사람 + 가린 결과(흐린 유리·닫힌 상자)
+
+프롬프트:
+
+```
+YouTube thumbnail, 16:9 landscape (1280x720), semi-realistic digital illustration with cinematic lighting, deep dark navy background (#0C1424).
+Background: deep dark navy (#0C1424) with a soft glow behind the center and faint thin rising price lines far behind, no axes and no labels.
+Foreground center: two identical tall glass treasure boxes of exactly the same size and height standing on two identical glowing pedestals, side by side. The left box has a glowing orange rim (#FF8A3D), the right box has a glowing blue rim (#5AB4FF). The front glass of both boxes is frosted, so how much gold is inside cannot be seen. A glowing yellow dashed horizontal line (#FFD400) crosses both boxes at exactly the same height (the starting level). From a small golden tap at the bottom of each box, an identical stream of plain gold coins pours out at the same rate into one shared tray in front, the two streams equally thick. Above the boxes floats a heavy closed wooden treasure chest with warm golden light leaking out of the lid; what is inside cannot be seen.
+Center: A fictional person in their early sixties in a warm cardigan stands between the two boxes holding a small empty purse, looking from one box to the other, thoughtful and hesitant — not happy, not worried. 
+Neither side is highlighted or brighter; nobody is winning. The mood is suspense.
+Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
+If 16:9 is not available, use the widest landscape canvas; in any case keep the main objects inside the central 16:9 area, at least 8% away from the top and bottom edges.
+Fictional person, not resembling any real or famous person.
+Absolutely no text, no letters, no numbers, no symbols, no percent signs, no dollar signs, no question marks, no logos and no watermarks anywhere in the image. Coins are plain gold discs with no symbols; boxes, jars, pedestals and screens have nothing written on them.
+```
+
+## thumbnail_2 — 실험안 ①: 같은 장면에서 사람만 뺌
+
+프롬프트:
+
+```
+YouTube thumbnail, 16:9 landscape (1280x720), semi-realistic digital illustration with cinematic lighting, deep dark navy background (#0C1424).
+Background: deep dark navy (#0C1424) with a soft glow behind the center and faint thin rising price lines far behind, no axes and no labels.
+Foreground center: two identical tall glass treasure boxes of exactly the same size and height standing on two identical glowing pedestals, side by side. The left box has a glowing orange rim (#FF8A3D), the right box has a glowing blue rim (#5AB4FF). The front glass of both boxes is frosted, so how much gold is inside cannot be seen. A glowing yellow dashed horizontal line (#FFD400) crosses both boxes at exactly the same height (the starting level). From a small golden tap at the bottom of each box, an identical stream of plain gold coins pours out at the same rate into one shared tray in front, the two streams equally thick. Above the boxes floats a heavy closed wooden treasure chest with warm golden light leaking out of the lid; what is inside cannot be seen.
+No people. Neither side is highlighted or brighter; nobody is winning. The mood is suspense.
+Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
+If 16:9 is not available, use the widest landscape canvas; in any case keep the main objects inside the central 16:9 area, at least 8% away from the top and bottom edges.
+Absolutely no text, no letters, no numbers, no symbols, no percent signs, no dollar signs, no question marks, no logos and no watermarks anywhere in the image. Coins are plain gold discs with no symbols; boxes, jars, pedestals and screens have nothing written on them.
+```
+
+## thumbnail_3 — 실험안 ②: 손·얼굴 클로즈업 (구도)
+
+프롬프트:
+
+```
+YouTube thumbnail, 16:9 landscape (1280x720), semi-realistic digital illustration with cinematic lighting and shallow depth of field, deep dark navy background (#0C1424).
+Close-up: two hands under the two golden taps, one under the orange-rimmed box and one under the blue-rimmed box, each catching an identical stream of plain gold coins; behind them the frosted glass of both boxes hides how much gold is left, and a yellow dashed line runs across both at the same height. 
+The face of a fictional person is partly visible at the edge, thoughtful and hesitant. Neither side is highlighted or brighter; nobody is winning.
+Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
+If 16:9 is not available, use the widest landscape canvas; in any case keep the main objects inside the central 16:9 area, at least 8% away from the top and bottom edges.
+Fictional person, not resembling any real or famous person.
+Absolutely no text, no letters, no numbers, no symbols, no percent signs, no dollar signs, no question marks, no logos and no watermarks anywhere in the image. Coins are plain gold discs with no symbols; boxes, jars, pedestals and screens have nothing written on them.
+```

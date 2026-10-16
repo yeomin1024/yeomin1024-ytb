@@ -66,9 +66,9 @@
     "moves_over_12pct": []
   },
   "tr_vs_yahoo_adjclose": {
-    "max_daily_diff": 0.00036695477672754606,
+    "max_daily_diff": 0.00036692182276565344,
     "days_over_0_01pct": 8,
-    "tr_vs_adj_growth_ratio": 1.000877427516178
+    "tr_vs_adj_growth_ratio": 1.0008765972888785
   },
   "div_sum": 1.6248330000000002
 }

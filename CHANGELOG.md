@@ -1,5 +1,23 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-16 (28) — 렌더기 v1.2 `--estimated-preview` · 주식 1번 소리 없는 미리보기 렌더
+
+### 왜 (사용자 지시)
+- "영상도 렌더링 해봐" — 내레이션 오디오는 아직 없음 (main 에 `narration.mp3` 없음 확인).
+- 규칙 "오디오 없이 영상을 만들지 않음"은 최종본에 그대로 둔다 → 최종본과 다른 이름의 **소리 없는 미리보기**만 만든다.
+
+### 바꾼 것
+| 파일 (버전) | 내용 |
+|---|---|
+| `video/render/render.mjs` (v1.1 → v1.2) | `video --estimated-preview`: 추정 시각(EP.estimated)이어도 렌더하되 `<주제>/out/<영상ID>/preview_estimated_silent.mp4` 로만 (소리·음량 맞춤 없음, `final_1080p.mp4` 아님). 옵션 없이는 예전처럼 거부 (확인함) |
+| `guides/video_guide.md` (v4.5) · `guides/README.md` · `guides/status.md` (v1.5) | 미리보기 옵션 명령, 지금 상태 |
+
+### 검증
+- 옵션 없이 `video` → "추정 시각(오디오 전)으로는 영상을 만들지 않음" 으로 멈춤 ✅
+- 미리보기 렌더: 진행 중 (결과는 다음 커밋에 적음)
+
+※ 연구·교육용 — 투자 권유가 아님.
+
 ## 2026-10-16 (27) — 주식 1번 썸네일 v2.0: 결말을 가린다
 
 ### 왜 (사용자 지시)

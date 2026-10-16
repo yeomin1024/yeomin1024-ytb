@@ -1,4 +1,6 @@
-// VERSION: v1.1 — 2026-10-15 — sync --estimate (오디오 전 추정 시각 — 장면 배치·still 점검용, video 모드는 거부), 자막 없는 영상(#cc 없음)은
+// VERSION: v1.2 — 2026-10-16 — video --estimated-preview: 추정 시각(오디오 전)으로 소리 없는 미리보기만 렌더 (<주제>/out/<영상ID>/preview_estimated_silent.mp4 —
+//   final_1080p.mp4·음량 맞춤·Drive 는 하지 않음). 옵션 없이는 예전처럼 거부. 사용자 지시 2026-10-16 "영상도 렌더링 해봐" (오디오 아직 없음).
+// v1.1 — 2026-10-15 — sync --estimate (오디오 전 추정 시각 — 장면 배치·still 점검용, video 모드는 거부), 자막 없는 영상(#cc 없음)은
 //   검사 아래 한계를 y 1020(유튜브 진행 막대 60px 비움 — stock/guides/README.md 4번), K.init opts.noWords 면 화면 글자에 낱말(한글·가나·한자·영어 2글자 이상, S&P·코드 카드 .code 빼고)이
 //   있는지도 검사. 사용자 지시 2026-10-15 "영상에 자막 달지말고".
 // v1.0 — 2026-10-15 — 새 스타일 영상 렌더기 (guides/video_guide.md v4.0 6번 '할 일': 시안 render.js 를 옮겨 1080p·오디오 붙이기·자막 굽기)
@@ -13,6 +15,7 @@
 //   node video/render/render.mjs extra  <주제> <영상ID> --times 12.5,40 [--out <폴더>]
 //   node video/render/render.mjs video  <주제> <영상ID> [--workers 3] [--from 0 --to 60] [--crf 18]
 //        → <주제>/out/<영상ID>/final_1080p.mp4 (--from/--to 면 preview_<from>-<to>.mp4, 음량 맞춤 없음)
+//   node video/render/render.mjs video  <주제> <영상ID> --estimated-preview   # 오디오 전 추정 시각 — 소리 없는 미리보기만 (최종본 아님)
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
@@ -22,7 +25,7 @@ import { fileURLToPath } from "node:url";
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, "..", "..");
-const VERSION = "v1.1";
+const VERSION = "v1.2";
 const log = (stage, kv) => console.log(`[${stage}] [${new Date().toISOString().slice(0, 19)}Z] ` +
   Object.entries(kv).map(([k, v]) => `${k}=${typeof v === "string" && /\s/.test(v) ? JSON.stringify(v) : v}`).join(" "));
 
@@ -247,9 +250,11 @@ async function video() {
   const m = html.match(/window\.EP=(\{[\s\S]*?\});\/\*EP-DATA:END\*\//);
   if (!m) fail("RENDER", "데이터 칸이 비었음", `node video/render/render.mjs sync ${TOPIC} ${ID}`);
   const ep = JSON.parse(m[1]);
-  if (ep.estimated) fail("RENDER", "추정 시각(오디오 전)으로는 영상을 만들지 않음", `오디오가 생기면 node video/render/render.mjs sync ${TOPIC} ${ID}`);
+  const estPreview = !!ep.estimated && argv.includes("--estimated-preview");
+  if (ep.estimated && !estPreview) fail("RENDER", "추정 시각(오디오 전)으로는 영상을 만들지 않음", `오디오가 생기면 node video/render/render.mjs sync ${TOPIC} ${ID} (미리보기만: --estimated-preview)`);
+  if (estPreview) log("RENDER", { level: "warn", note: "추정 시각 미리보기 — 소리 없음, 최종본 아님 (오디오가 오면 sync 뒤 다시 렌더)" });
   const from = opt("from") ? Number(opt("from")) : 0, to = opt("to") ? Number(opt("to")) : ep.duration;
-  const preview = opt("from") != null || opt("to") != null;
+  const preview = opt("from") != null || opt("to") != null || estPreview;
   const F0 = Math.round(from * fps), F1 = Math.ceil(to * fps);
   const workers = Math.max(1, Math.min(Number(opt("workers", Math.max(1, os.cpus().length - 1))), 6));
   const outDir = path.join(ROOT, TOPIC, "out", ID);
@@ -261,9 +266,9 @@ async function video() {
   const chunks = Array.from({ length: workers }, (_, k) => [F0 + k * per, Math.min(F1, F0 + (k + 1) * per), path.join(tmp, `chunk_${k}.mp4`)]).filter(c => c[0] < c[1]);
   await Promise.all(chunks.map(([a, b, f], k) => renderChunk(pw, a, b, fps, f, crf, k)));
   fs.writeFileSync(path.join(tmp, "list.txt"), chunks.map(c => `file '${c[2]}'`).join("\n"));
-  const out = path.join(outDir, preview ? `preview_${from}-${Math.round(to)}.mp4` : "final_1080p.mp4");
+  const out = path.join(outDir, estPreview ? "preview_estimated_silent.mp4" : preview ? `preview_${from}-${Math.round(to)}.mp4` : "final_1080p.mp4");
   const args = ["-y", "-v", "error", "-f", "concat", "-safe", "0", "-i", path.join(tmp, "list.txt")];
-  if (AUDIO) args.push("-ss", String(from), "-t", String(to - from), "-i", AUDIO, "-map", "0:v", "-map", "1:a", "-c:a", "aac", "-b:a", "192k");
+  if (AUDIO && !estPreview) args.push("-ss", String(from), "-t", String(to - from), "-i", AUDIO, "-map", "0:v", "-map", "1:a", "-c:a", "aac", "-b:a", "192k");
   args.push("-c:v", "copy", "-movflags", "+faststart", out);
   const r = spawnSync("ffmpeg", args, { stdio: "inherit" });
   if (r.status !== 0) fail("RENDER", "ffmpeg 이어 붙이기 실패", `조각은 ${tmp} 에 남음`);

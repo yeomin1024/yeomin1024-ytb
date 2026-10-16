@@ -1,6 +1,6 @@
 # 영상 제작 지시사항 (공통)
 
-버전: v4.4 — 2026-10-15 — 6번 렌더기 v1.1: `kit.js` `K.init(ep, {subtitles, chip, noWords})`(주식 = 자막 없음), `render.mjs sync --estimate`(오디오 전 배치 점검용 — `video`는 거부), 자막 없는 영상은 아래 60px만 비움·낱말 검사. 장면 파일 5개째 `tteoreojimyeon-sagi-2026-10`(주식). (v4.3 — 2026-10-15 — 7번 6: 원본은 Google Drive, 업로드는 PC 업로더 (압축본·Colab 없앰 — 사용자 지시 2026-10-15 "압축본 올린거 삭제하고 구글 드라이브 내 드라이브에 youtube 폴더에 주제 맞는 폴더에 원본 영상 올리고 pc에서 영상 및 환경설정을 받아서 업로드 하는 코드 … 자동 예약 기능도"). (v4.2 — 2026-10-15 — 7번 6: 렌더 뒤 압축본을 저장소에 올리고 Colab 셀 하나로 예약 업로드 (사용자 지시 "각 영상 압축해서 저장소에 올리고 … colab 코드"). 장면 파일 4개째 `toejik-geonbo-2026-10`. (v4.1 — 2026-10-15 — 렌더기 `video/render/` v1.0 (6번 '할 일' 중 렌더기 끝 — 공통 부품 `kit.js`·`kit.css`, `render.mjs` sync·check·stills·video), 첫 장면 파일 3개 `video/episodes/<영상ID>/index.html`. 끝 장면 글은 대본 끝인사 "시청해주셔서 감사합니다." (script_guide v3.1, 사용자 지시 2026-10-15). (v4.0 — 2026-10-15 — 전면 개정. 옛 v3.7(Remotion, 크림 종이 인포그래픽)은 `archive/video_guide_v3.md` — **그 스타일은 쓰지 않는다.**)))
+버전: v4.5 — 2026-10-16 — 6번 렌더기 v1.2: `video --estimated-preview` (오디오 전 추정 시각으로 소리 없는 미리보기만 — 사용자 지시 2026-10-16 "영상도 렌더링 해봐"). (v4.4 — 2026-10-15 — 6번 렌더기 v1.1: `kit.js` `K.init(ep, {subtitles, chip, noWords})`(주식 = 자막 없음), `render.mjs sync --estimate`(오디오 전 배치 점검용 — `video`는 거부), 자막 없는 영상은 아래 60px만 비움·낱말 검사. 장면 파일 5개째 `tteoreojimyeon-sagi-2026-10`(주식). (v4.3 — 2026-10-15 — 7번 6: 원본은 Google Drive, 업로드는 PC 업로더 (압축본·Colab 없앰 — 사용자 지시 2026-10-15 "압축본 올린거 삭제하고 구글 드라이브 내 드라이브에 youtube 폴더에 주제 맞는 폴더에 원본 영상 올리고 pc에서 영상 및 환경설정을 받아서 업로드 하는 코드 … 자동 예약 기능도"). (v4.2 — 2026-10-15 — 7번 6: 렌더 뒤 압축본을 저장소에 올리고 Colab 셀 하나로 예약 업로드 (사용자 지시 "각 영상 압축해서 저장소에 올리고 … colab 코드"). 장면 파일 4개째 `toejik-geonbo-2026-10`. (v4.1 — 2026-10-15 — 렌더기 `video/render/` v1.0 (6번 '할 일' 중 렌더기 끝 — 공통 부품 `kit.js`·`kit.css`, `render.mjs` sync·check·stills·video), 첫 장면 파일 3개 `video/episodes/<영상ID>/index.html`. 끝 장면 글은 대본 끝인사 "시청해주셔서 감사합니다." (script_guide v3.1, 사용자 지시 2026-10-15). (v4.0 — 2026-10-15 — 전면 개정. 옛 v3.7(Remotion, 크림 종이 인포그래픽)은 `archive/video_guide_v3.md` — **그 스타일은 쓰지 않는다.**)))
 - 사용자 지시 (2026-10-15):
   - "영상 만드는 것도 예전 스타일 하지말라고 어떻게 하면 설명의 이해를 최대한 도울지 필요한 최대한 고퀄리티 html 기반의 고퀄리티 도구 … 스토리보드 만들어서 보여줘봐"
   - "자막은 굽는걸로 하고 일단 영상 지시사항까지만 만들어 오디오를 먼저 만들고나서 영상 만들자 나머지는 너가 좋은쪽으로 판단해"
@@ -140,6 +140,7 @@
 - **렌더기 `video/render/` (v4.1):** 공통 부품 `kit.css`(무대·자막 띠 52px·부품)·`kit.js`(`K.S(n)`·`K.E(n)` 문장 시각, `K.W(n, 낱말)` 낱말 시각, `K.scene`·`K.pop`·`K.counter`·그림 부품·`K.chapters`·`K.cut`), 장면 파일 맨 위 데이터 칸 `/*EP-DATA:BEGIN*/…/*EP-DATA:END*/` 는 손으로 쓰지 않는다. 처음 한 번 `cd video/render && npm ci` (GSAP 3.12.5 로컬).
   - `node video/render/render.mjs sync <주제> <영상ID>` — 문장 시각(`tts_narration.json`)·자막(SRT)·길이를 데이터 칸에 (오디오·SRT가 바뀌면 다시)
   - `… sync … --estimate` (v1.1) — 오디오 전, 대본 음절로 추정한 시각 (문장 길이 ≈ 0.151초 × 음절 + 0.25초 × 쉼표 − 0.08초, H04 실제 오디오 4개에서 문장 길이 평균 오차 0.2초, 전체 길이 차이 0.3~1.4%). 장면 배치·still 점검용이고 **`video`는 거부**한다 — 영상은 오디오 뒤에만 (0번)
+  - `… video … --estimated-preview` (v1.2) — 사용자가 오디오 전에 영상을 보고 싶을 때만: 추정 시각 그대로 **소리 없는 미리보기** `<주제>/out/<영상ID>/preview_estimated_silent.mp4` (git·Drive·업로드에 쓰지 않음, 음량 맞춤 없음). 오디오가 오면 `sync` 뒤 `video`로 최종본을 다시 만든다
   - 자막을 굽지 않는 영상(주식 — `stock/guides/README.md` 4번): 장면 파일에서 `K.init(window.EP, { subtitles: false, chip: false, noWords: true })`. `check`는 아래 한계를 y 1020(진행 막대 60px)으로 보고, `noWords`면 화면 글자의 낱말도 센다
   - `… check …` — 대표 장면(`K.cut`)마다 글자 36px 이상·자막 띠 겹침·화면 밖 · `… stills …`(저장소 밖 still) · `… extra … --times 12.5,40`
   - `… video … [--workers 3] [--from 0 --to 60]` → `<주제>/out/<영상ID>/final_1080p.mp4` (+ `tools/loudnorm.py` −14 LUFS). 속도: 3 workers 로 영상 1초에 약 0.8초
@@ -168,6 +169,7 @@
 ## 변경 이력
 | 버전 | 날짜 | 변경 내용 |
 |---|---|---|
+| v4.5 | 2026-10-16 | 렌더기 v1.2 `video --estimated-preview` — 오디오 전 소리 없는 미리보기 (최종본·업로드 아님, 사용자 지시) |
 | v4.4 | 2026-10-15 | 렌더기 v1.1 (`kit.js` 자막·장 이름표 끄기·소리 없는 미리보기, `render.mjs` `sync --estimate`·자막 없는 영상 검사·낱말 검사). 장면 파일 `tteoreojimyeon-sagi-2026-10` (주식, 자막 없음, 실시간 경주 3개·토너먼트 막대) |
 | v4.3 | 2026-10-15 | 7번 6: 원본 Google Drive(`tools/drive_videos.py`) + PC 업로더(`run_uploader.ps1`), 압축본·Colab 없앰 |
 | v4.2 | 2026-10-15 | 7번 6: 압축본(`tools/compress_video.py`)·Colab 예약 업로드(`upload_guide.md` 11번). 장면 파일 toejik-geonbo (still 61장 점검 뒤 배치 4곳 고침) |

@@ -59,8 +59,8 @@ python3 tools/tag_keywords.py history --write-keywords          # 검색어를 �
 
 ## 두 세션 합친 내력 (2026-10-16)
 
-- 같은 지시("이 환경은 이제 저장소에 있는 역사 주제 …")를 받은 다른 세션(`session_01Nd9n754WdtaqPq45t3uPSZ`)이 9:58 UTC 에 이 폴더 설정 v1.0 과 **같은 시각(태평양 0:20) 예약 작업** `trig_01TEbPHqXpzYY3hj6LhyBb7q` 를 먼저 main 에 올렸다. 그 환경은 `www.youtube.com`·`i.ytimg.com`·`suggestqueries.google.com` 이 막혀 있고(자막·썸네일·자동완성 없음) 씨앗 검색은 429 로 못 했다.
-- 이 세션(`session_01D4BoyyPJfL3eZ1FuafHM7o` — 세 주소가 열려 있음)은 같은 시각에 실제 첫 회차(태그 고르기·탐색·승인 76·분석)를 했다 → **결과가 이 세션 규칙으로 만들어졌으므로 이 세션 설정을 남기고**, 그쪽의 좋은 규칙을 더함:
+- 같은 지시("이 환경은 이제 저장소에 있는 역사 주제 …")를 받은 다른 세션(`session_01Nd9n754WdtaqPq45t3uPSZ`)이 9:58 UTC 에 이 폴더 설정 v1.0 과 **같은 시각(태평양 0:20) 예약 작업** `trig_01TEbPHqXpzYY3hj6LhyBb7q` 를 먼저 main 에 올렸다. 그 세션이 확인했을 때(9:5x UTC)는 `www.youtube.com`·`i.ytimg.com`·`suggestqueries.google.com` 이 막혀 있었고(두 예약 작업 모두 같은 클라우드 환경 `env_01BwtaC4kHpoqrtADiKLt7Y9` — 이 세션이 10:00 UTC 쯤 확인했을 때는 세 곳 모두 열려 자동완성·썸네일을 받음) 씨앗 검색은 429 로 못 했다.
+- 이 세션(`session_01D4BoyyPJfL3eZ1FuafHM7o`)은 같은 시각에 실제 첫 회차(태그 고르기·탐색·승인 76·분석)를 했다 → **결과가 이 세션 규칙으로 만들어졌으므로 이 세션 설정을 남기고**, 그쪽의 좋은 규칙을 더함:
   - `keywords.toml` v1.1: '고대하던·고대했던·고대하는'(동사)·'황제주'(주식 말)·'조선기자재' 지움.
   - `tag_rules.toml` v1.2: 빼는 말 시사·국회·인강·내신·토탈워·드라마/영화 리뷰·결말·방송 프로그램 이름('벌거벗은')·다시보기·야담·민담·비트코인 (지금 검색어 40개에는 영향 없음 — 다시 고르지 않음).
   - `analysis_rules.toml` v1.2: [exclude] 시험 강의·게임 플레이 ('공략'은 '평양성 공략' 같은 전쟁 말이라 안 씀) · [format] '애니메이션·지도'·'몰아보기·통합본'.

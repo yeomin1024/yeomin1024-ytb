@@ -1,0 +1,66 @@
+{
+ "id": "_y66a40gBHg",
+ "title": "광개토대왕 무덤이 아직까지도 미스터리인 이유(무덤이 두개..?)ㅣ역사를 보다 EP.152",
+ "channel": "보다 BODA",
+ "channel_id": "UCoCvTlU0KpNYwnMIgs7MPrA",
+ "subs": 3220000,
+ "views": 1468410,
+ "ratio": 0.46,
+ "age_days": 68,
+ "views_per_day": 21594.3,
+ "minutes": 39.9,
+ "likes": 10352,
+ "comments": 816,
+ "published": "2026-08-09",
+ "queries": "검색:역사 이야기",
+ "url": "https://www.youtube.com/watch?v=_y66a40gBHg",
+ "flag": "",
+ "published_at": "2026-08-09T01:59:07Z",
+ "rank": "W73",
+ "set": "web",
+ "folder": "W__y66a40gBHg",
+ "sources": [
+  "검색:역사 이야기"
+ ],
+ "source": "web",
+ "tags": [
+  "보다",
+  "boda",
+  "직업",
+  "인터뷰",
+  "전문가",
+  "레전드"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트"
+  },
+  {
+   "start": 98,
+   "title": "갑자기 흔적도 없이 사라진 유령 국가의 실체"
+  },
+  {
+   "start": 1142,
+   "title": "중국이 광개토대왕 무덤 발굴을 목숨 걸고 막는 이유"
+  },
+  {
+   "start": 1739,
+   "title": "'삼족을 멸하라'는 명령은 실제로 이뤄졌을까?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 16:07까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 816,
+ "comments_top_level": 384,
+ "comments_replies": 432,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 816,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T10:09:44",
+ "approved": "2026-10-16T19:09+09:00"
+}

@@ -1,0 +1,110 @@
+{
+ "id": "XI61XGQiilU",
+ "title": "칭기즈칸보다 잔혹했던 절름발이 몸으로 유라시아를 떨게 한 공포의 정복자 티무르",
+ "channel": "역사를읽다",
+ "channel_id": "UCIzgvMqm6eKYijuA6IT4dWg",
+ "subs": 15800,
+ "views": 561644,
+ "ratio": 35.55,
+ "age_days": 176,
+ "views_per_day": 3191.2,
+ "minutes": 36.9,
+ "likes": 6463,
+ "comments": 383,
+ "published": "2026-04-22",
+ "queries": "검색:세계사",
+ "url": "https://www.youtube.com/watch?v=XI61XGQiilU",
+ "flag": "",
+ "published_at": "2026-04-22T11:00:58Z",
+ "rank": "W27",
+ "set": "web",
+ "folder": "W_XI61XGQiilU",
+ "sources": [
+  "검색:세계사"
+ ],
+ "source": "web",
+ "tags": [
+  "티무르",
+  "태멀레인",
+  "이스파한학살",
+  "앙카라전투",
+  "사마르칸트",
+  "해골탑",
+  "바예지드",
+  "오스만제국",
+  "몽골제국",
+  "칭기즈칸후계자",
+  "이븐할둔",
+  "티무르의저주",
+  "중앙아시아역사",
+  "역사",
+  "세계사",
+  "한국사",
+  "역사이야기",
+  "역사채널",
+  "역사공부",
+  "역사스토리",
+  "역사다큐",
+  "역사교육",
+  "역사상식",
+  "역사읽기",
+  "역사를읽다",
+  "지정학",
+  "역사정리",
+  "역사요약",
+  "역사총정리",
+  "역사탐구",
+  "역사인물",
+  "역사의진실",
+  "세계사이야기",
+  "인문학"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 42,
+   "title": "친기즈칸을 넘어선 공포"
+  },
+  {
+   "start": 138,
+   "title": "절름발이 전사의 탄생"
+  },
+  {
+   "start": 275,
+   "title": "배신과 권력 장악"
+  },
+  {
+   "start": 380,
+   "title": "해골탑의 진짜 목적"
+  },
+  {
+   "start": 550,
+   "title": "학살과 창조의 두 얼굴"
+  },
+  {
+   "start": 765,
+   "title": "번개 술탄과의 세기의 대결"
+  },
+  {
+   "start": 1020,
+   "title": "저주받은 무덤의 비밀"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 383,
+ "comments_top_level": 209,
+ "comments_replies": 174,
+ "comments_by_creator": 52,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 383,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T10:06:36",
+ "approved": "2026-10-16T19:06+09:00"
+}

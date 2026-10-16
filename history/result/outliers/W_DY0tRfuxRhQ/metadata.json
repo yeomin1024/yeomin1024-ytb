@@ -1,0 +1,105 @@
+{
+ "id": "DY0tRfuxRhQ",
+ "title": "조선 왕조 실록 1대 태조부터 27대 순종까지 한번에 몰아보기 | 27명의 임금 중 진짜 왕이 단 5명뿐인 소름 돋는 이유",
+ "channel": "새벽이 깨운 역사",
+ "channel_id": "UCyu-XgE2sXmLLoawIkXlzTg",
+ "subs": 9750,
+ "views": 424229,
+ "ratio": 43.51,
+ "age_days": 126,
+ "views_per_day": 3366.9,
+ "minutes": 64.6,
+ "likes": 7355,
+ "comments": 319,
+ "published": "2026-06-11",
+ "queries": "검색:역사 이야기",
+ "url": "https://www.youtube.com/watch?v=DY0tRfuxRhQ",
+ "flag": "",
+ "published_at": "2026-06-11T11:00:20Z",
+ "rank": "W24",
+ "set": "web",
+ "folder": "W_DY0tRfuxRhQ",
+ "sources": [
+  "검색:역사 이야기"
+ ],
+ "source": "web",
+ "tags": [
+  "조선왕조실록",
+  "조선 27명 왕",
+  "한국사 정주행",
+  "조선역사",
+  "한국사"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝 — 왕은 27명, 진짜 왕은 몇 명일까"
+  },
+  {
+   "start": 153,
+   "title": "태조 이성계 · 정도전과 1차 왕자의 난"
+  },
+  {
+   "start": 395,
+   "title": "태종 이방원 — 피로 닦은 왕좌"
+  },
+  {
+   "start": 600,
+   "title": "세종과 문종 — 두 저울을 다 채운 왕"
+  },
+  {
+   "start": 930,
+   "title": "단종과 세조 · 사육신의 죽음"
+  },
+  {
+   "start": 1299,
+   "title": "성종과 연산군 — 두 얼굴의 권력"
+  },
+  {
+   "start": 1581,
+   "title": "중종 · 명종 · 외척 문정왕후"
+  },
+  {
+   "start": 1833,
+   "title": "선조 · 임진왜란과 이순신"
+  },
+  {
+   "start": 2163,
+   "title": "광해군 · 인조 · 삼전도의 굴욕"
+  },
+  {
+   "start": 2504,
+   "title": "효종 · 숙종 · 경종"
+  },
+  {
+   "start": 2793,
+   "title": "영조 · 사도세자의 뒤주 · 정조"
+  },
+  {
+   "start": 3067,
+   "title": "순조 · 철종 · 세도정치 60년"
+  },
+  {
+   "start": 3299,
+   "title": "고종 · 대한제국 · 순종, 그리고 1910년"
+  },
+  {
+   "start": 3661,
+   "title": "결론 — 진짜 왕은 단 5명이었다"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 319,
+ "comments_top_level": 228,
+ "comments_replies": 91,
+ "comments_by_creator": 37,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 319,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T10:06:27",
+ "approved": "2026-10-16T19:06+09:00"
+}

@@ -1,0 +1,75 @@
+{
+ "id": "XVqIvyIzZXs",
+ "title": "\"세계사적 미스터리예요\" 중국이 수천년간 단 한번도 한국을 흡수 못한 이유 | Ep . 책과사람 106 (이다지 선생님 2부)",
+ "channel": "책과삶",
+ "channel_id": "UCgUaqrLRGLL-dHislR1e2TA",
+ "subs": 1260000,
+ "views": 1906655,
+ "ratio": 1.51,
+ "age_days": 117,
+ "views_per_day": 16296.2,
+ "minutes": 19.0,
+ "likes": 8270,
+ "comments": 1038,
+ "published": "2026-06-21",
+ "queries": "검색:세계사",
+ "url": "https://www.youtube.com/watch?v=XVqIvyIzZXs",
+ "flag": "",
+ "published_at": "2026-06-21T01:00:08Z",
+ "rank": "W67",
+ "set": "web",
+ "folder": "W_XVqIvyIzZXs",
+ "sources": [
+  "검색:세계사"
+ ],
+ "source": "web",
+ "tags": [
+  "한국",
+  "대한민국",
+  "책추천",
+  "독서법",
+  "자기계발",
+  "교양",
+  "지식"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝"
+  },
+  {
+   "start": 117,
+   "title": "전세계에서 유독 한국만 중국을 무시하는 진짜 이유"
+  },
+  {
+   "start": 301,
+   "title": "중국이 수천년간 단 한번도 한국을 흡수 못한 이유"
+  },
+  {
+   "start": 365,
+   "title": "“이게 나타나면 진짜 끝이다” 나라가 서서히 망하기 전 결정적 신호"
+  },
+  {
+   "start": 559,
+   "title": "14억 명이 사는 나라, 인도는 왜 이렇게 극단적일까"
+  },
+  {
+   "start": 761,
+   "title": "천재가 넘치는 인도가 여전히 가난을 벗어날 수 없는 진짜 이유"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 16:07까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 1037,
+ "comments_top_level": 498,
+ "comments_replies": 539,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 1038,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T10:08:55",
+ "approved": "2026-10-16T19:09+09:00"
+}

@@ -1,0 +1,68 @@
+{
+ "id": "l8yHqJy1Ops",
+ "title": "썬킴이 들려주는 중국사 1편 (고대사)",
+ "channel": "이강민의 잡지사",
+ "channel_id": "UC1PqFAlePcXy419VNXVOqCA",
+ "subs": 373000,
+ "views": 996330,
+ "ratio": 2.67,
+ "age_days": 153,
+ "views_per_day": 6512.0,
+ "minutes": 229.6,
+ "likes": 4860,
+ "comments": 178,
+ "published": "2026-05-16",
+ "queries": "검색:역사 이야기 | 검색:세계사",
+ "url": "https://www.youtube.com/watch?v=l8yHqJy1Ops",
+ "flag": "",
+ "published_at": "2026-05-16T00:00:30Z",
+ "rank": "W64",
+ "set": "web",
+ "folder": "W_l8yHqJy1Ops",
+ "sources": [
+  "검색:역사 이야기",
+  "검색:세계사"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "의외로(?) 꿀잼인 중국 창조신화 ~ 요순 시대 ~ 하나라/상나라 역사 50분 만에 배우기!"
+  },
+  {
+   "start": 2928,
+   "title": "700회 특집이라 폼이 절정에 오른 썬킴의 중국사 시리즈! - 주나라 편"
+  },
+  {
+   "start": 4809,
+   "title": "혼자 1인 몇 역을 하는 거야 형... 썬킴의 춘추전국시대 강해 / 와신상담, 토사구팽의 유래"
+  },
+  {
+   "start": 7538,
+   "title": "이것도 고사성어였다고..? 썬킴과 중국 역사+고사성어 한 번에 알아보기"
+  },
+  {
+   "start": 8975,
+   "title": "‘상사병’의 유래는? | 썬킴과 고사성어+중국역사 보기 2탄!"
+  },
+  {
+   "start": 10668,
+   "title": "최초로 중국을 통일하다 - 진시황 생애 50분 요약🫅🏻 / 만리장성을 쌓은 '진짜' 이유?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 16:07까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 178,
+ "comments_top_level": 143,
+ "comments_replies": 35,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 178,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T10:08:45",
+ "approved": "2026-10-16T19:08+09:00"
+}

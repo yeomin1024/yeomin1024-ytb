@@ -1,0 +1,93 @@
+{
+ "id": "o-x6sIGANPY",
+ "title": "잊혀진 문명, 세계 최강이 사라진 이유",
+ "channel": "인류의서재",
+ "channel_id": "UCH_meKfR5VBaLT4Dwo-cfIg",
+ "subs": 83200,
+ "views": 1257307,
+ "ratio": 15.11,
+ "age_days": 107,
+ "views_per_day": 11750.5,
+ "minutes": 24.0,
+ "likes": 9150,
+ "comments": 496,
+ "published": "2026-07-01",
+ "queries": "검색:역사 이야기",
+ "url": "https://www.youtube.com/watch?v=o-x6sIGANPY",
+ "flag": "",
+ "published_at": "2026-07-01T00:00:40Z",
+ "rank": "W45",
+ "set": "web",
+ "folder": "W_o-x6sIGANPY",
+ "sources": [
+  "검색:역사 이야기"
+ ],
+ "source": "web",
+ "tags": [
+  "이집트",
+  "피라미드",
+  "고대문명",
+  "파라오",
+  "나일강",
+  "클레오파트라",
+  "상형문자",
+  "로제타석",
+  "역사",
+  "멸망",
+  "이집트 역사",
+  "이집트 문명",
+  "람세스",
+  "투탕카멘",
+  "아케나텐",
+  "바다민족",
+  "스핑크스",
+  "고대 이집트",
+  "문명의 몰락",
+  "세계사",
+  "인류의서재"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "마지막 상형문자"
+  },
+  {
+   "start": 30,
+   "title": "3천 년이라는 시간"
+  },
+  {
+   "start": 75,
+   "title": "강 하나가 만든 나라"
+  },
+  {
+   "start": 315,
+   "title": "피라미드가 이집트를 지었다"
+  },
+  {
+   "start": 615,
+   "title": "전성기 속의 균열"
+  },
+  {
+   "start": 870,
+   "title": "너무 오래 버틴 대가"
+  },
+  {
+   "start": 1140,
+   "title": "1400년의 침묵과 부활"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 16:07까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 496,
+ "comments_top_level": 304,
+ "comments_replies": 192,
+ "comments_by_creator": 6,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 496,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T10:07:45",
+ "approved": "2026-10-16T19:07+09:00"
+}

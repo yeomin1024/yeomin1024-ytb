@@ -1,0 +1,111 @@
+{
+ "id": "X46M1yoKC8s",
+ "title": "CCTV 없던 조선, 주모는 어떻게 그많은 사람들을 만족시켰을까? l 역사이야기 l 조선시대 한국사",
+ "channel": "역사원탑",
+ "channel_id": "UCmJpeF8nRg9gNkyQ0VhxaPA",
+ "subs": 5520,
+ "views": 523437,
+ "ratio": 94.83,
+ "age_days": 124,
+ "views_per_day": 4221.3,
+ "minutes": 29.0,
+ "likes": 6246,
+ "comments": 327,
+ "published": "2026-06-13",
+ "queries": "검색:역사 이야기",
+ "url": "https://www.youtube.com/watch?v=X46M1yoKC8s",
+ "flag": "",
+ "published_at": "2026-06-13T12:00:14Z",
+ "rank": "W16",
+ "set": "web",
+ "folder": "W_X46M1yoKC8s",
+ "sources": [
+  "검색:역사 이야기"
+ ],
+ "source": "web",
+ "tags": [
+  "조선 주막",
+  "주모",
+  "조선시대 주막",
+  "주막 정보",
+  "주막 역사",
+  "장국밥",
+  "삼강주막",
+  "봉놋방",
+  "색주가 들병이",
+  "역사",
+  "한국사"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 39,
+   "title": "도입 - 술집인 줄 알았던 주막, 그리고 모든 걸 본 주모"
+  },
+  {
+   "start": 133,
+   "title": "주모의 진짜 정체"
+  },
+  {
+   "start": 317,
+   "title": "주모가 본 하루"
+  },
+  {
+   "start": 455,
+   "title": "주막이란 어떤 곳이었나 + 기원"
+  },
+  {
+   "start": 593,
+   "title": "길 위의 주막 - 스무 날 여정"
+  },
+  {
+   "start": 684,
+   "title": "정보·소문·범죄의 길목"
+  },
+  {
+   "start": 851,
+   "title": "주막의 밥상, 국밥의 정체"
+  },
+  {
+   "start": 1015,
+   "title": "사극 속 주모 로맨스의 진실"
+  },
+  {
+   "start": 1133,
+   "title": "봉놋방 하룻밤"
+  },
+  {
+   "start": 1261,
+   "title": "떠도는 썰 검증 (10만 개·은행설)"
+  },
+  {
+   "start": 1435,
+   "title": "마지막 주막, 삼강주막"
+  },
+  {
+   "start": 1543,
+   "title": "현대 연결"
+  },
+  {
+   "start": 1656,
+   "title": "결론 - 정보의 길목"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 327,
+ "comments_top_level": 150,
+ "comments_replies": 177,
+ "comments_by_creator": 69,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 327,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T10:05:57",
+ "approved": "2026-10-16T19:05+09:00"
+}

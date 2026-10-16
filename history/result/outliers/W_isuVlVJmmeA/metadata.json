@@ -1,0 +1,83 @@
+{
+ "id": "isuVlVJmmeA",
+ "title": "왕이 수저를 놓는 순간, 궁궐의 진짜 전쟁이 시작된다. '궁녀들의 서열' | 한국사 | 조선역사",
+ "channel": "역사빚다",
+ "channel_id": "UC5wlt5KVn-NwK4E9nQo9pFQ",
+ "subs": 3550,
+ "views": 359294,
+ "ratio": 101.21,
+ "age_days": 171,
+ "views_per_day": 2101.1,
+ "minutes": 11.4,
+ "likes": 2359,
+ "comments": 349,
+ "published": "2026-04-28",
+ "queries": "검색:역사",
+ "url": "https://www.youtube.com/watch?v=isuVlVJmmeA",
+ "flag": "",
+ "published_at": "2026-04-28T08:00:49Z",
+ "rank": "W15",
+ "set": "web",
+ "folder": "W_isuVlVJmmeA",
+ "sources": [
+  "검색:역사"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝"
+  },
+  {
+   "start": 28,
+   "title": "왕의 하루 5끼와 수라상의 위엄"
+  },
+  {
+   "start": 122,
+   "title": "기미상궁"
+  },
+  {
+   "start": 212,
+   "title": "'퇴선(退膳)'"
+  },
+  {
+   "start": 279,
+   "title": "퇴선간"
+  },
+  {
+   "start": 325,
+   "title": "밥상 앞에서 드러나는 궁녀들의 서열"
+  },
+  {
+   "start": 396,
+   "title": "'사찬(賜饌)'"
+  },
+  {
+   "start": 491,
+   "title": "나라의 안위와 직결된 왕의 밥상"
+  },
+  {
+   "start": 544,
+   "title": "수백 명 나인들의 위계와 궁중의 삶"
+  },
+  {
+   "start": 615,
+   "title": "아웃트로"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 349,
+ "comments_top_level": 181,
+ "comments_replies": 168,
+ "comments_by_creator": 64,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 349,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T10:05:54",
+ "approved": "2026-10-16T19:05+09:00"
+}

@@ -1,0 +1,83 @@
+{
+ "id": "sq8Un9KgH9g",
+ "title": "이거 하나면 그리스 신화 아는 척 가능 ⚡ 신들의 막장 족보 총정리 (제우스부터 오디세우스까지)",
+ "channel": "재미난 역사여행",
+ "channel_id": "UCkhPnB6utg3aLiOgkRXSqwQ",
+ "subs": 5220,
+ "views": 591711,
+ "ratio": 113.35,
+ "age_days": 59,
+ "views_per_day": 10029.0,
+ "minutes": 49.8,
+ "likes": 5150,
+ "comments": 295,
+ "published": "2026-08-17",
+ "queries": "검색:역사 이야기",
+ "url": "https://www.youtube.com/watch?v=sq8Un9KgH9g",
+ "flag": "",
+ "published_at": "2026-08-17T22:29:42Z",
+ "rank": "W13",
+ "set": "web",
+ "folder": "W_sq8Un9KgH9g",
+ "sources": [
+  "검색:역사 이야기"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝 — 세상에서 가장 막장인 집안 족보"
+  },
+  {
+   "start": 150,
+   "title": "태초의 어둠 카오스, 그리고 하늘과 땅의 시작"
+  },
+  {
+   "start": 287,
+   "title": "자식을 삼킨 아버지, 그 끔찍한 이유"
+  },
+  {
+   "start": 566,
+   "title": "하늘·바다·저승, 세 형제의 제비뽑기"
+  },
+  {
+   "start": 642,
+   "title": "올림포스로 — 신들의 왕과 여왕의 결혼"
+  },
+  {
+   "start": 1140,
+   "title": "반은 신, 반은 인간 — 영웅들의 시대"
+  },
+  {
+   "start": 1238,
+   "title": "최고의 영웅, 그가 짊어진 무거운 죄"
+  },
+  {
+   "start": 1700,
+   "title": "사과 한 알에서 시작된 트로이 전쟁"
+  },
+  {
+   "start": 2219,
+   "title": "지혜의 장수 오디세우스와 트로이 목마"
+  },
+  {
+   "start": 2762,
+   "title": "모든 족보를 한 줄로 — 그리고 마지막 질문"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 295,
+ "comments_top_level": 138,
+ "comments_replies": 157,
+ "comments_by_creator": 127,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 295,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T10:05:50",
+ "approved": "2026-10-16T19:05+09:00"
+}

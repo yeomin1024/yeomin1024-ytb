@@ -1,0 +1,93 @@
+{
+ "id": "EjRxsCOhmGY",
+ "title": "유럽을 공포에 떨게 한 600년 이슬람 제국은 왜 흔적도 없이 사라졌을까? | 오스만 제국사 풀스토리",
+ "channel": "달빛 세계사",
+ "channel_id": "UC8cs_ZKc6AUwbQTNa9_XQ_Q",
+ "subs": 18000,
+ "views": 735547,
+ "ratio": 40.86,
+ "age_days": 49,
+ "views_per_day": 15011.2,
+ "minutes": 77.4,
+ "likes": 2697,
+ "comments": 65,
+ "published": "2026-08-27",
+ "queries": "검색:세계사",
+ "url": "https://www.youtube.com/watch?v=EjRxsCOhmGY",
+ "flag": "",
+ "published_at": "2026-08-27T12:00:36Z",
+ "rank": "W26",
+ "set": "web",
+ "folder": "W_EjRxsCOhmGY",
+ "sources": [
+  "검색:세계사"
+ ],
+ "source": "web",
+ "tags": [
+  "오스만제국",
+  "오스만",
+  "세계사",
+  "이스탄불",
+  "콘스탄티노플",
+  "이슬람",
+  "달빛세계사",
+  "오디오북",
+  "수면오디오북"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로: 세 대륙을 호령한 푸른 눈의 이슬람 제국"
+  },
+  {
+   "start": 89,
+   "title": "아나톨리아의 유목민에서 발칸의 패자로"
+  },
+  {
+   "start": 733,
+   "title": "앙카라 전투의 파멸과 부활"
+  },
+  {
+   "start": 1222,
+   "title": "1453년 콘스탄티노플 함락과 메흐메트 2세"
+  },
+  {
+   "start": 1775,
+   "title": "이슬람 세계를 하나로 묶은 셀림 1세"
+  },
+  {
+   "start": 2249,
+   "title": "쉴레이만 대제와 록셀라나의 암투"
+  },
+  {
+   "start": 2931,
+   "title": "빈의 성벽과 윙드 후사르, 꺾여버린 초승달"
+  },
+  {
+   "start": 3464,
+   "title": "'유럽의 병자'와 피의 개혁"
+  },
+  {
+   "start": 4025,
+   "title": "갈리폴리의 기적과 제국의 장례식"
+  },
+  {
+   "start": 4507,
+   "title": "에필로그: 역사 속에서 마주한 질문"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 66,
+ "comments_top_level": 39,
+ "comments_replies": 27,
+ "comments_by_creator": 5,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 65,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T10:06:33",
+ "approved": "2026-10-16T19:06+09:00"
+}

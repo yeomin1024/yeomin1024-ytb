@@ -1,0 +1,113 @@
+{
+ "id": "_QrSVpBd6Tg",
+ "title": "조선 왕실 최악의 비극 | 삼대가 죽어야 왕이 될 수 있었던 남자, 철종",
+ "channel": "역사아카이브 - History Archive KR",
+ "channel_id": "UCKiqiw16qAhVgxKZRXiRUvA",
+ "subs": 24200,
+ "views": 343173,
+ "ratio": 14.18,
+ "age_days": 108,
+ "views_per_day": 3177.5,
+ "minutes": 75.3,
+ "likes": 10170,
+ "comments": 192,
+ "published": "2026-06-29",
+ "queries": "검색:역사 이야기",
+ "url": "https://www.youtube.com/watch?v=_QrSVpBd6Tg",
+ "flag": "",
+ "published_at": "2026-06-29T12:15:08Z",
+ "rank": "W48",
+ "set": "web",
+ "folder": "W__QrSVpBd6Tg",
+ "sources": [
+  "검색:역사 이야기"
+ ],
+ "source": "web",
+ "tags": [
+  "역사채널",
+  "조선역사",
+  "한국사",
+  "권력",
+  "역사다큐",
+  "조선왕조",
+  "인문비화",
+  "야사",
+  "인물열전"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "도입부 - 강화도의 나무꾼"
+  },
+  {
+   "start": 75,
+   "title": "구독 안내"
+  },
+  {
+   "start": 90,
+   "title": "비극의 시작, 사도세자의 죽음"
+  },
+  {
+   "start": 220,
+   "title": "은언군의 빚과 첫 유배"
+  },
+  {
+   "start": 350,
+   "title": "상계군 옹립 사건과 죽음"
+  },
+  {
+   "start": 490,
+   "title": "신유박해, 일가의 몰락"
+  },
+  {
+   "start": 660,
+   "title": "원범의 탄생과 강화도 유배"
+  },
+  {
+   "start": 860,
+   "title": "헌종의 죽음과 왕실 혈통의 위기"
+  },
+  {
+   "start": 1020,
+   "title": "강화도령, 즉위하다"
+  },
+  {
+   "start": 1170,
+   "title": "안동 김씨의 세도정치"
+  },
+  {
+   "start": 1380,
+   "title": "이하전 사건"
+  },
+  {
+   "start": 1530,
+   "title": "임술농민봉기와 개혁의 좌절"
+  },
+  {
+   "start": 1720,
+   "title": "동학의 등장"
+  },
+  {
+   "start": 1850,
+   "title": "철종의 죽음과 고종의 즉위"
+  },
+  {
+   "start": 1980,
+   "title": "마무리 - 비극의 본질"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 16:07까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 192,
+ "comments_top_level": 127,
+ "comments_replies": 65,
+ "comments_by_creator": 6,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 192,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T10:07:59",
+ "approved": "2026-10-16T19:08+09:00"
+}

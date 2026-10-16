@@ -1,0 +1,96 @@
+{
+ "id": "e6jRgQdtI8M",
+ "title": "미국도 무너질까? 2000년동안 무너진 패권국들의 공통점 (10분 요약하려다 20분 요약 된 세계사)",
+ "channel": "잡식이냥",
+ "channel_id": "UCm8qcPNkGDqFeH60EHT6Svw",
+ "subs": 2220,
+ "views": 1079330,
+ "ratio": 486.18,
+ "age_days": 21,
+ "views_per_day": 51396.7,
+ "minutes": 21.1,
+ "likes": 2382,
+ "comments": 438,
+ "published": "2026-09-25",
+ "queries": "검색:세계사",
+ "url": "https://www.youtube.com/watch?v=e6jRgQdtI8M",
+ "flag": "",
+ "published_at": "2026-09-25T09:25:09Z",
+ "rank": "W1",
+ "set": "web",
+ "folder": "W_e6jRgQdtI8M",
+ "sources": [
+  "검색:세계사"
+ ],
+ "source": "web",
+ "tags": [
+  "잡식이냥",
+  "경제",
+  "지식",
+  "정보",
+  "상식",
+  "교육",
+  "교양",
+  "알쓸신잡",
+  "지식정보",
+  "정보전달",
+  "핵심정리",
+  "쉽게정리",
+  "요약",
+  "세계패권",
+  "패권국",
+  "역사",
+  "세계패권역사",
+  "로마",
+  "페트로달러",
+  "로마에서미국까지"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로 (세계패권의 역사)"
+  },
+  {
+   "start": 31,
+   "title": "로마제국의 패권과 몰락"
+  },
+  {
+   "start": 317,
+   "title": "로마제국 이후 천년의 세월"
+  },
+  {
+   "start": 421,
+   "title": "스페인과 포루투갈의 패권과 몰락"
+  },
+  {
+   "start": 570,
+   "title": "네덜란드의 패권과 몰락"
+  },
+  {
+   "start": 791,
+   "title": "영국의 패권과 몰락"
+  },
+  {
+   "start": 972,
+   "title": "다음 세계 패권국이자 현재의 패권국 미국"
+  },
+  {
+   "start": 1212,
+   "title": "마무리 정리 (세계패권은 이렇게 무너졌다.. 그럼 미국은?)"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 438,
+ "comments_top_level": 194,
+ "comments_replies": 244,
+ "comments_by_creator": 16,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 438,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T10:05:13",
+ "approved": "2026-10-16T19:05+09:00"
+}

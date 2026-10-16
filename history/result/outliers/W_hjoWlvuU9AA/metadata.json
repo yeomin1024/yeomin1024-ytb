@@ -1,0 +1,100 @@
+{
+ "id": "hjoWlvuU9AA",
+ "title": "400년 전 명나라에서 건너온 성씨들, 지금 10만 명입니다",
+ "channel": "교과서엔 없는 역사",
+ "channel_id": "UCSzI6kWNoUIg5CYqIpn3nJg",
+ "subs": 38100,
+ "views": 650794,
+ "ratio": 17.08,
+ "age_days": 163,
+ "views_per_day": 3992.6,
+ "minutes": 9.9,
+ "likes": 5143,
+ "comments": 790,
+ "published": "2026-05-05",
+ "queries": "검색:역사 이야기",
+ "url": "https://www.youtube.com/watch?v=hjoWlvuU9AA",
+ "flag": "",
+ "published_at": "2026-05-05T13:15:05Z",
+ "rank": "W41",
+ "set": "web",
+ "folder": "W_hjoWlvuU9AA",
+ "sources": [
+  "검색:역사 이야기"
+ ],
+ "source": "web",
+ "tags": [
+  "역사",
+  "한국사",
+  "임진왜란",
+  "명나라",
+  "조선",
+  "귀화인",
+  "귀화 성씨",
+  "성씨",
+  "해주 석씨",
+  "광동 진씨",
+  "두릉 두씨",
+  "절강 편씨",
+  "영양 천씨",
+  "이순신",
+  "진린",
+  "두사충",
+  "천만리",
+  "숨겨진 역사",
+  "교과서에 없는 역사",
+  "조선시대"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "10만 한국인의 뿌리, 임진왜란"
+  },
+  {
+   "start": 29,
+   "title": "전쟁 후 조선에 남은 사람들"
+  },
+  {
+   "start": 60,
+   "title": "임진왜란 귀화 5대 성씨 대공개"
+  },
+  {
+   "start": 77,
+   "title": "비극의 해주 석(石)씨, 조선을 구하고..."
+  },
+  {
+   "start": 163,
+   "title": "이순신과 싸운 장수의 후손, 진(陳)씨"
+  },
+  {
+   "start": 225,
+   "title": "시성 두보 후손, 고국을 그리워하다"
+  },
+  {
+   "start": 306,
+   "title": "본관에 새긴 고국, 절강 편(片)씨"
+  },
+  {
+   "start": 405,
+   "title": "10만 후손의 시작, 영양 천(千)씨"
+  },
+  {
+   "start": 528,
+   "title": "400년의 시간, 명나라에서 한국인으로"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 16:07까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 790,
+ "comments_top_level": 386,
+ "comments_replies": 404,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 790,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T10:07:28",
+ "approved": "2026-10-16T19:07+09:00"
+}

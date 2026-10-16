@@ -1,0 +1,74 @@
+{
+ "id": "0y_c_-Ik_GQ",
+ "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
+ "channel": "보다 BODA",
+ "channel_id": "UCoCvTlU0KpNYwnMIgs7MPrA",
+ "subs": 3220000,
+ "views": 1329432,
+ "ratio": 0.41,
+ "age_days": 5,
+ "views_per_day": 265886.4,
+ "minutes": 43.3,
+ "likes": 9198,
+ "comments": 242,
+ "published": "2026-10-11",
+ "queries": "검색:역사 이야기",
+ "url": "https://www.youtube.com/watch?v=0y_c_-Ik_GQ",
+ "flag": "",
+ "published_at": "2026-10-11T01:59:47Z",
+ "rank": "W74",
+ "set": "web",
+ "folder": "W_0y_c_-Ik_GQ",
+ "sources": [
+  "검색:역사 이야기"
+ ],
+ "source": "web",
+ "tags": [
+  "보다",
+  "boda",
+  "직업",
+  "인터뷰",
+  "전문가",
+  "레전드"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝"
+  },
+  {
+   "start": 158,
+   "title": "세계에서 제일 비가 많이 오는 도시의 실상"
+  },
+  {
+   "start": 475,
+   "title": "직접 목격한 네팔 대홍수의 참상"
+  },
+  {
+   "start": 745,
+   "title": "기독교 최대 성지의 감춰진 뒷골목"
+  },
+  {
+   "start": 1255,
+   "title": "죽은 자를 부활시키는 미지의 고대 축제"
+  },
+  {
+   "start": 1849,
+   "title": "지구에 남은 마지막 사냥 부족"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 16:07까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 242,
+ "comments_top_level": 232,
+ "comments_replies": 10,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 242,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T10:09:49",
+ "approved": "2026-10-16T19:09+09:00"
+}

@@ -1,0 +1,7767 @@
+{
+ "tool": "weekly_analysis.py v1.3",
+ "topic": "history",
+ "name": "역사",
+ "generated": "2026-10-16T10:16:53+00:00",
+ "cases": 76,
+ "dated": 76,
+ "older_than_windows": 0,
+ "max_weeks": 52,
+ "text_sources": {
+  "자막": 0,
+  "음성인식": 0,
+  "설명": 73,
+  "없음": 3
+ },
+ "criteria": "성공 사례 = 구독자 50,000 이하 · 조회수 10,000 이상 · 조회수 ≥ 구독자 × 3",
+ "windows": [
+  {
+   "weeks": 1,
+   "label": "최근 1주",
+   "videos": 4,
+   "channels": 3,
+   "new_this_week": [
+    {
+     "id": "0y_c_-Ik_GQ",
+     "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
+     "published": "2026-10-11"
+    },
+    {
+     "id": "BF7Kb1zcVTo",
+     "title": "📸 역사책에서 찾을 수 없었던 놀라운 순간들 | 희귀 역사 사진들",
+     "published": "2026-10-11"
+    },
+    {
+     "id": "UmJpb4Bco8g",
+     "title": "[역사 이야기] 흑염소 찾는 사람은 늘었는데 가격은 폭락? 한국인이 염소고기를 덜 먹는 충격적인 이유",
+     "published": "2026-10-11"
+    },
+    {
+     "id": "hf9t-gKqdjg",
+     "title": "돼지는 114일, 토끼는 단 한 달… 그런데 한국인은 왜 안 먹을까? 충격적인 5가지 이유 | 역사 이야기",
+     "published": "2026-10-10"
+    }
+   ],
+   "views_median": 112847.5,
+   "views_per_day_median": 19367.95,
+   "ratio_median": 19.96,
+   "success": 3,
+   "minutes_median": 10.8,
+   "title_len_avg": 47.5,
+   "title_features": [
+    {
+     "name": "물음표 ?",
+     "count": 2,
+     "share": 0.5
+    },
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 2,
+     "share": 0.5
+    },
+    {
+     "name": "이유",
+     "count": 2,
+     "share": 0.5
+    },
+    {
+     "name": "N가지",
+     "count": 1,
+     "share": 0.25
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 1,
+     "share": 0.25
+    }
+   ],
+   "title_words": [
+    {
+     "word": "역사",
+     "count": 3
+    },
+    {
+     "word": "이야기",
+     "count": 2
+    },
+    {
+     "word": "이유",
+     "count": 2
+    },
+    {
+     "word": "충격적인",
+     "count": 2
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 4,
+    "없음": 0
+   },
+   "content_words": [
+    {
+     "word": "이야기",
+     "count": 4
+    },
+    {
+     "word": "역사와",
+     "count": 3
+    },
+    {
+     "word": "특별한",
+     "count": 3
+    },
+    {
+     "word": "오신",
+     "count": 3
+    },
+    {
+     "word": "문화",
+     "count": 3
+    },
+    {
+     "word": "것을",
+     "count": 3
+    },
+    {
+     "word": "작은",
+     "count": 3
+    },
+    {
+     "word": "그리고",
+     "count": 3
+    },
+    {
+     "word": "시청자",
+     "count": 3
+    },
+    {
+     "word": "우리가",
+     "count": 3
+    },
+    {
+     "word": "환영합니다",
+     "count": 3
+    },
+    {
+     "word": "숨겨진",
+     "count": 3
+    }
+   ],
+   "chapters_share": 0.75,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "0y_c_-Ik_GQ",
+     "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
+     "src": "설명",
+     "hook": "오늘은 '예루살렘 뒷골목'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 다큐멘터리PD(역마살로드) 장준호 PD님 역사를 보다 시리즈의 세계관을 담아낸 2026년 프리미엄 가죽 다이어리 출시!! 하"
+    },
+    {
+     "id": "hf9t-gKqdjg",
+     "title": "돼지는 114일, 토끼는 단 한 달… 그런데 한국인은 왜 안 먹을까? 충격적인 5가지 이유 | 역사 이야기",
+     "src": "설명",
+     "hook": "토끼는 번식력이 뛰어나고 단백질도 풍부한데, 왜 한국인의 밥상에서는 보기 어려울까요? 이번 역사 이야기에서는 토끼고기가 한국에서 대중화되지 못한 5가지 이유를 살펴봅니다. 닭고기와 돼지고기의 강력한 경쟁, 까다로운 사육 환경, 부족한 요리 문화부터 토끼를 바라보는 인식과 기름기 적은 고"
+    },
+    {
+     "id": "UmJpb4Bco8g",
+     "title": "[역사 이야기] 흑염소 찾는 사람은 늘었는데 가격은 폭락? 한국인이 염소고기를 덜 먹는 충격적인 이유",
+     "src": "설명",
+     "hook": "흑염소를 찾는 사람은 늘었는데, 왜 농가의 염소 가격은 오히려 폭락했을까요? 삼겹살과 치킨은 익숙하지만 염소고기는 낯선 한국의 식문화. 그 뒤에는 사육의 어려움, 유통 구조, 소비자의 입맛, 수입산 염소고기 증가라는 복잡한 이유가 숨어 있습니다. 📚 이번 역사 이야기에서는 전 세계 염소"
+    }
+   ],
+   "comments": 647,
+   "comment_needs": [
+    {
+     "name": "질문",
+     "count": 96,
+     "share": 0.148
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 76,
+     "share": 0.117
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 47,
+     "share": 0.073
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 17,
+     "share": 0.026
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 13,
+     "share": 0.02
+    },
+    {
+     "name": "요청",
+     "count": 11,
+     "share": 0.017
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "와 역마살로드를 보다에서 보다니!!",
+     "likes": 312
+    },
+    {
+     "text": "와 장준호 피디님 굿굿",
+     "likes": 170
+    },
+    {
+     "text": "<역사를 보다> 토크 콘서트 in 부산 티켓이 오픈되었습니다!  \n \n• 예매 링크: https://nol.yanolja.com/ticket/products/26014590 \n \n• 행사 일시: 11월 28일(토) ",
+     "likes": 121
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "0y_c_-Ik_GQ",
+     "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
+     "channel": "보다 BODA",
+     "views": 1329432,
+     "views_per_day": 248714.6,
+     "published": "2026-10-11",
+     "url": "https://www.youtube.com/watch?v=0y_c_-Ik_GQ"
+    },
+    {
+     "id": "hf9t-gKqdjg",
+     "title": "돼지는 114일, 토끼는 단 한 달… 그런데 한국인은 왜 안 먹을까? 충격적인 5가지 이유 | 역사 이야기",
+     "channel": "몰랐던 세상",
+     "views": 183318,
+     "views_per_day": 30328.7,
+     "published": "2026-10-10",
+     "url": "https://www.youtube.com/watch?v=hf9t-gKqdjg"
+    },
+    {
+     "id": "UmJpb4Bco8g",
+     "title": "[역사 이야기] 흑염소 찾는 사람은 늘었는데 가격은 폭락? 한국인이 염소고기를 덜 먹는 충격적인 이유",
+     "channel": "몰랐던 세상",
+     "views": 42377,
+     "views_per_day": 8407.2,
+     "published": "2026-10-11",
+     "url": "https://www.youtube.com/watch?v=UmJpb4Bco8g"
+    },
+    {
+     "id": "BF7Kb1zcVTo",
+     "title": "📸 역사책에서 찾을 수 없었던 놀라운 순간들 | 희귀 역사 사진들",
+     "channel": "고대의 메아리",
+     "views": 13550,
+     "views_per_day": 2689.5,
+     "published": "2026-10-11",
+     "url": "https://www.youtube.com/watch?v=BF7Kb1zcVTo"
+    }
+   ]
+  },
+  {
+   "weeks": 2,
+   "label": "최근 2주",
+   "videos": 8,
+   "channels": 7,
+   "new_this_week": [
+    {
+     "id": "F-tooKrghZ0",
+     "title": "크메르 제국의 앙코르와트는 왜 밀림에 묻혔나?:세계에서 가장 넓었던 신의 도시가 버려진 이유!",
+     "published": "2026-10-07"
+    },
+    {
+     "id": "JU4AtsLwYPQ",
+     "title": "어떻게 이 나라 하나가 전 세계 80억명을 먹여살리는걸까?｜인산염｜역사｜지리학｜세계사",
+     "published": "2026-10-03"
+    },
+    {
+     "id": "earKPFklnV8",
+     "title": "13분만에 보는 518년의 조선 역사",
+     "published": "2026-10-06"
+    },
+    {
+     "id": "mcOVtFOj-jk",
+     "title": "역사는 사실대로 기억해야 합니다｜「암살자들」논란에 대한 생각 #임동진 #암살자들  #영화",
+     "published": "2026-10-07"
+    }
+   ],
+   "views_median": 82175.0,
+   "views_per_day_median": 9396.3,
+   "ratio_median": 47.69,
+   "success": 7,
+   "minutes_median": 15.7,
+   "title_len_avg": 44.8,
+   "title_features": [
+    {
+     "name": "물음표 ?",
+     "count": 4,
+     "share": 0.5
+    },
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 3,
+     "share": 0.375
+    },
+    {
+     "name": "이유",
+     "count": 3,
+     "share": 0.375
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 1,
+     "share": 0.125
+    },
+    {
+     "name": "느낌표 !",
+     "count": 1,
+     "share": 0.125
+    },
+    {
+     "name": "N가지",
+     "count": 1,
+     "share": 0.125
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 1,
+     "share": 0.125
+    }
+   ],
+   "title_words": [
+    {
+     "word": "역사",
+     "count": 5
+    },
+    {
+     "word": "이유",
+     "count": 3
+    },
+    {
+     "word": "이야기",
+     "count": 2
+    },
+    {
+     "word": "충격적인",
+     "count": 2
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 8,
+    "없음": 0
+   },
+   "content_words": [
+    {
+     "word": "역사",
+     "count": 5
+    },
+    {
+     "word": "이야기",
+     "count": 4
+    },
+    {
+     "word": "역사와",
+     "count": 4
+    },
+    {
+     "word": "있습니다",
+     "count": 4
+    },
+    {
+     "word": "그리고",
+     "count": 4
+    },
+    {
+     "word": "이야기를",
+     "count": 4
+    },
+    {
+     "word": "특별한",
+     "count": 3
+    },
+    {
+     "word": "오신",
+     "count": 3
+    },
+    {
+     "word": "문화",
+     "count": 3
+    },
+    {
+     "word": "것을",
+     "count": 3
+    },
+    {
+     "word": "작은",
+     "count": 3
+    },
+    {
+     "word": "시청자",
+     "count": 3
+    }
+   ],
+   "chapters_share": 0.5,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "0y_c_-Ik_GQ",
+     "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
+     "src": "설명",
+     "hook": "오늘은 '예루살렘 뒷골목'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 다큐멘터리PD(역마살로드) 장준호 PD님 역사를 보다 시리즈의 세계관을 담아낸 2026년 프리미엄 가죽 다이어리 출시!! 하"
+    },
+    {
+     "id": "JU4AtsLwYPQ",
+     "title": "어떻게 이 나라 하나가 전 세계 80억명을 먹여살리는걸까?｜인산염｜역사｜지리학｜세계사",
+     "src": "설명",
+     "hook": "전 세계 식량의 운명을 쥐고 있는 하얀 가루가 있습니다. 바로 '인산염'입니다. 그리고 이 자원의 무려 70%가 단 하나의 나라, 모로코 땅속에 묻혀 있습니다. 비료의 핵심 원료인 인은 생명과 농업에 반드시 필요하지만 다른 것으로 대체할 수 없는 자원입니다. 그렇다면 왜 하필 모로코일까"
+    },
+    {
+     "id": "hf9t-gKqdjg",
+     "title": "돼지는 114일, 토끼는 단 한 달… 그런데 한국인은 왜 안 먹을까? 충격적인 5가지 이유 | 역사 이야기",
+     "src": "설명",
+     "hook": "토끼는 번식력이 뛰어나고 단백질도 풍부한데, 왜 한국인의 밥상에서는 보기 어려울까요? 이번 역사 이야기에서는 토끼고기가 한국에서 대중화되지 못한 5가지 이유를 살펴봅니다. 닭고기와 돼지고기의 강력한 경쟁, 까다로운 사육 환경, 부족한 요리 문화부터 토끼를 바라보는 인식과 기름기 적은 고"
+    }
+   ],
+   "comments": 1224,
+   "comment_needs": [
+    {
+     "name": "칭찬·감사",
+     "count": 210,
+     "share": 0.172
+    },
+    {
+     "name": "질문",
+     "count": 175,
+     "share": 0.143
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 85,
+     "share": 0.069
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 43,
+     "share": 0.035
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 34,
+     "share": 0.028
+    },
+    {
+     "name": "요청",
+     "count": 19,
+     "share": 0.016
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "와 역마살로드를 보다에서 보다니!!",
+     "likes": 312
+    },
+    {
+     "text": "저 영화는 분명 간첩들의 농간입니다.",
+     "likes": 304
+    },
+    {
+     "text": "어릴적부터 제일 좋아하는 남자탈렌트였던 분에서 지금은 정의로운 자유우파 목사님으로 그자리에 계시고 실망시키지 않으셨습니다.존경합니다.고맙고 감사드립니다.오래도록 건강하시기 바랍니다.",
+     "likes": 254
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "0y_c_-Ik_GQ",
+     "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
+     "channel": "보다 BODA",
+     "views": 1329432,
+     "views_per_day": 248714.6,
+     "published": "2026-10-11",
+     "url": "https://www.youtube.com/watch?v=0y_c_-Ik_GQ"
+    },
+    {
+     "id": "JU4AtsLwYPQ",
+     "title": "어떻게 이 나라 하나가 전 세계 80억명을 먹여살리는걸까?｜인산염｜역사｜지리학｜세계사",
+     "channel": "다시만난역사",
+     "views": 528123,
+     "views_per_day": 42218.7,
+     "published": "2026-10-03",
+     "url": "https://www.youtube.com/watch?v=JU4AtsLwYPQ"
+    },
+    {
+     "id": "hf9t-gKqdjg",
+     "title": "돼지는 114일, 토끼는 단 한 달… 그런데 한국인은 왜 안 먹을까? 충격적인 5가지 이유 | 역사 이야기",
+     "channel": "몰랐던 세상",
+     "views": 183318,
+     "views_per_day": 30328.7,
+     "published": "2026-10-10",
+     "url": "https://www.youtube.com/watch?v=hf9t-gKqdjg"
+    },
+    {
+     "id": "mcOVtFOj-jk",
+     "title": "역사는 사실대로 기억해야 합니다｜「암살자들」논란에 대한 생각 #임동진 #암살자들  #영화",
+     "channel": "임동진TV",
+     "views": 94251,
+     "views_per_day": 10385.4,
+     "published": "2026-10-07",
+     "url": "https://www.youtube.com/watch?v=mcOVtFOj-jk"
+    },
+    {
+     "id": "UmJpb4Bco8g",
+     "title": "[역사 이야기] 흑염소 찾는 사람은 늘었는데 가격은 폭락? 한국인이 염소고기를 덜 먹는 충격적인 이유",
+     "channel": "몰랐던 세상",
+     "views": 42377,
+     "views_per_day": 8407.2,
+     "published": "2026-10-11",
+     "url": "https://www.youtube.com/watch?v=UmJpb4Bco8g"
+    }
+   ]
+  },
+  {
+   "weeks": 3,
+   "label": "최근 3주",
+   "videos": 10,
+   "channels": 7,
+   "new_this_week": [
+    {
+     "id": "nE1aAbOYw0I",
+     "title": "다 같은 '스탄'인데 뭐가 다른걸까? 중앙아시아 5개 스탄국의 비밀｜역사｜세계사｜소련",
+     "published": "2026-09-28"
+    },
+    {
+     "id": "tlVSuaOykFk",
+     "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
+     "published": "2026-09-27"
+    }
+   ],
+   "views_median": 138784.5,
+   "views_per_day_median": 20357.05,
+   "ratio_median": 47.69,
+   "success": 8,
+   "minutes_median": 18.0,
+   "title_len_avg": 44.4,
+   "title_features": [
+    {
+     "name": "물음표 ?",
+     "count": 5,
+     "share": 0.5
+    },
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 3,
+     "share": 0.3
+    },
+    {
+     "name": "이유",
+     "count": 3,
+     "share": 0.3
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 1,
+     "share": 0.1
+    },
+    {
+     "name": "느낌표 !",
+     "count": 1,
+     "share": 0.1
+    },
+    {
+     "name": "N가지",
+     "count": 1,
+     "share": 0.1
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 1,
+     "share": 0.1
+    }
+   ],
+   "title_words": [
+    {
+     "word": "역사",
+     "count": 6
+    },
+    {
+     "word": "이유",
+     "count": 3
+    },
+    {
+     "word": "역사를",
+     "count": 2
+    },
+    {
+     "word": "EP",
+     "count": 2
+    },
+    {
+     "word": "보다",
+     "count": 2
+    },
+    {
+     "word": "세계사",
+     "count": 2
+    },
+    {
+     "word": "이야기",
+     "count": 2
+    },
+    {
+     "word": "충격적인",
+     "count": 2
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 10,
+    "없음": 0
+   },
+   "content_words": [
+    {
+     "word": "이야기",
+     "count": 5
+    },
+    {
+     "word": "그리고",
+     "count": 5
+    },
+    {
+     "word": "역사",
+     "count": 5
+    },
+    {
+     "word": "역사와",
+     "count": 4
+    },
+    {
+     "word": "있습니다",
+     "count": 4
+    },
+    {
+     "word": "이야기를",
+     "count": 4
+    },
+    {
+     "word": "세계",
+     "count": 4
+    },
+    {
+     "word": "이번",
+     "count": 4
+    },
+    {
+     "word": "역사를",
+     "count": 3
+    },
+    {
+     "word": "오늘의",
+     "count": 3
+    },
+    {
+     "word": "특별한",
+     "count": 3
+    },
+    {
+     "word": "감사합니다",
+     "count": 3
+    }
+   ],
+   "chapters_share": 0.5,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "0y_c_-Ik_GQ",
+     "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
+     "src": "설명",
+     "hook": "오늘은 '예루살렘 뒷골목'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 다큐멘터리PD(역마살로드) 장준호 PD님 역사를 보다 시리즈의 세계관을 담아낸 2026년 프리미엄 가죽 다이어리 출시!! 하"
+    },
+    {
+     "id": "tlVSuaOykFk",
+     "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
+     "src": "설명",
+     "hook": "오늘 역사를보다는 '천사의 언어 에녹어'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 📖 [역사를 보다2] 📖 [역사를 보다] 📺강인욱 교수님의 개인채널 [고고한 강교수] 📖 박현도 교수님의 저서"
+    },
+    {
+     "id": "nE1aAbOYw0I",
+     "title": "다 같은 '스탄'인데 뭐가 다른걸까? 중앙아시아 5개 스탄국의 비밀｜역사｜세계사｜소련",
+     "src": "설명",
+     "hook": "카자흐스탄, 우즈베키스탄, 타지키스탄, 키르기스스탄, 투르크메니스탄. 이름 끝이 하나같이 '스탄'으로 끝나는 중앙아시아 다섯 나라. 우리는 흔히 이들을 '한 뿌리에서 나온 형제 나라'라고 생각합니다. 하지만 이 다섯 나라는 사는 방식도, 언어도, 심지어 민족의 뿌리마저 서로 다른 사람들"
+    }
+   ],
+   "comments": 1874,
+   "comment_needs": [
+    {
+     "name": "질문",
+     "count": 294,
+     "share": 0.157
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 234,
+     "share": 0.125
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 108,
+     "share": 0.058
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 77,
+     "share": 0.041
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 55,
+     "share": 0.029
+    },
+    {
+     "name": "요청",
+     "count": 26,
+     "share": 0.014
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "아 천사의 언어라고? 이건 못 참지",
+     "likes": 315
+    },
+    {
+     "text": "와 역마살로드를 보다에서 보다니!!",
+     "likes": 312
+    },
+    {
+     "text": "저 영화는 분명 간첩들의 농간입니다.",
+     "likes": 304
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "0y_c_-Ik_GQ",
+     "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
+     "channel": "보다 BODA",
+     "views": 1329432,
+     "views_per_day": 248714.6,
+     "published": "2026-10-11",
+     "url": "https://www.youtube.com/watch?v=0y_c_-Ik_GQ"
+    },
+    {
+     "id": "tlVSuaOykFk",
+     "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
+     "channel": "보다 BODA",
+     "views": 2832900,
+     "views_per_day": 146447.0,
+     "published": "2026-09-27",
+     "url": "https://www.youtube.com/watch?v=tlVSuaOykFk"
+    },
+    {
+     "id": "nE1aAbOYw0I",
+     "title": "다 같은 '스탄'인데 뭐가 다른걸까? 중앙아시아 5개 스탄국의 비밀｜역사｜세계사｜소련",
+     "channel": "다시만난역사",
+     "views": 993716,
+     "views_per_day": 56875.5,
+     "published": "2026-09-28",
+     "url": "https://www.youtube.com/watch?v=nE1aAbOYw0I"
+    },
+    {
+     "id": "JU4AtsLwYPQ",
+     "title": "어떻게 이 나라 하나가 전 세계 80억명을 먹여살리는걸까?｜인산염｜역사｜지리학｜세계사",
+     "channel": "다시만난역사",
+     "views": 528123,
+     "views_per_day": 42218.7,
+     "published": "2026-10-03",
+     "url": "https://www.youtube.com/watch?v=JU4AtsLwYPQ"
+    },
+    {
+     "id": "hf9t-gKqdjg",
+     "title": "돼지는 114일, 토끼는 단 한 달… 그런데 한국인은 왜 안 먹을까? 충격적인 5가지 이유 | 역사 이야기",
+     "channel": "몰랐던 세상",
+     "views": 183318,
+     "views_per_day": 30328.7,
+     "published": "2026-10-10",
+     "url": "https://www.youtube.com/watch?v=hf9t-gKqdjg"
+    }
+   ]
+  },
+  {
+   "weeks": 4,
+   "label": "최근 4주",
+   "videos": 13,
+   "channels": 10,
+   "new_this_week": [
+    {
+     "id": "QftIZGkR9MM",
+     "title": "세계 3분의 1이 왼쪽으로 달리는 이유",
+     "published": "2026-09-21"
+    },
+    {
+     "id": "e6jRgQdtI8M",
+     "title": "미국도 무너질까? 2000년동안 무너진 패권국들의 공통점 (10분 요약하려다 20분 요약 된 세계사)",
+     "published": "2026-09-25"
+    },
+    {
+     "id": "soiH5GMxOqk",
+     "title": "왜 경기도 곤지암은 곤지암일까? | 우리가 몰랐던 진짜이야기 | 신립 | 허난설헌 | 탄금대 | 나들목 | 임진왜란 | 조총 | 문경새재 | 남한산성 #민담 #지명유래 #역사",
+     "published": "2026-09-23"
+    }
+   ],
+   "views_median": 208150,
+   "views_per_day_median": 30328.7,
+   "ratio_median": 62.68,
+   "success": 11,
+   "minutes_median": 18.3,
+   "title_len_avg": 47.5,
+   "title_features": [
+    {
+     "name": "물음표 ?",
+     "count": 7,
+     "share": 0.538
+    },
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 5,
+     "share": 0.385
+    },
+    {
+     "name": "이유",
+     "count": 4,
+     "share": 0.308
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 1,
+     "share": 0.077
+    },
+    {
+     "name": "느낌표 !",
+     "count": 1,
+     "share": 0.077
+    },
+    {
+     "name": "공통점",
+     "count": 1,
+     "share": 0.077
+    },
+    {
+     "name": "N가지",
+     "count": 1,
+     "share": 0.077
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 1,
+     "share": 0.077
+    },
+    {
+     "name": "vs 비교",
+     "count": 1,
+     "share": 0.077
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 1,
+     "share": 0.077
+    }
+   ],
+   "title_words": [
+    {
+     "word": "역사",
+     "count": 7
+    },
+    {
+     "word": "이유",
+     "count": 4
+    },
+    {
+     "word": "세계사",
+     "count": 3
+    },
+    {
+     "word": "역사를",
+     "count": 2
+    },
+    {
+     "word": "EP",
+     "count": 2
+    },
+    {
+     "word": "보다",
+     "count": 2
+    },
+    {
+     "word": "세계",
+     "count": 2
+    },
+    {
+     "word": "이야기",
+     "count": 2
+    },
+    {
+     "word": "충격적인",
+     "count": 2
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 13,
+    "없음": 0
+   },
+   "content_words": [
+    {
+     "word": "이야기",
+     "count": 6
+    },
+    {
+     "word": "역사",
+     "count": 6
+    },
+    {
+     "word": "역사와",
+     "count": 5
+    },
+    {
+     "word": "있습니다",
+     "count": 5
+    },
+    {
+     "word": "그리고",
+     "count": 5
+    },
+    {
+     "word": "이야기를",
+     "count": 5
+    },
+    {
+     "word": "세계",
+     "count": 5
+    },
+    {
+     "word": "이번",
+     "count": 5
+    },
+    {
+     "word": "특별한",
+     "count": 4
+    },
+    {
+     "word": "문화",
+     "count": 4
+    },
+    {
+     "word": "우리가",
+     "count": 4
+    },
+    {
+     "word": "함께",
+     "count": 4
+    }
+   ],
+   "chapters_share": 0.538,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "0y_c_-Ik_GQ",
+     "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
+     "src": "설명",
+     "hook": "오늘은 '예루살렘 뒷골목'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 다큐멘터리PD(역마살로드) 장준호 PD님 역사를 보다 시리즈의 세계관을 담아낸 2026년 프리미엄 가죽 다이어리 출시!! 하"
+    },
+    {
+     "id": "tlVSuaOykFk",
+     "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
+     "src": "설명",
+     "hook": "오늘 역사를보다는 '천사의 언어 에녹어'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 📖 [역사를 보다2] 📖 [역사를 보다] 📺강인욱 교수님의 개인채널 [고고한 강교수] 📖 박현도 교수님의 저서"
+    },
+    {
+     "id": "nE1aAbOYw0I",
+     "title": "다 같은 '스탄'인데 뭐가 다른걸까? 중앙아시아 5개 스탄국의 비밀｜역사｜세계사｜소련",
+     "src": "설명",
+     "hook": "카자흐스탄, 우즈베키스탄, 타지키스탄, 키르기스스탄, 투르크메니스탄. 이름 끝이 하나같이 '스탄'으로 끝나는 중앙아시아 다섯 나라. 우리는 흔히 이들을 '한 뿌리에서 나온 형제 나라'라고 생각합니다. 하지만 이 다섯 나라는 사는 방식도, 언어도, 심지어 민족의 뿌리마저 서로 다른 사람들"
+    }
+   ],
+   "comments": 2795,
+   "comment_needs": [
+    {
+     "name": "질문",
+     "count": 477,
+     "share": 0.171
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 282,
+     "share": 0.101
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 169,
+     "share": 0.06
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 112,
+     "share": 0.04
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 112,
+     "share": 0.04
+    },
+    {
+     "name": "요청",
+     "count": 29,
+     "share": 0.01
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "아 천사의 언어라고? 이건 못 참지",
+     "likes": 315
+    },
+    {
+     "text": "와 역마살로드를 보다에서 보다니!!",
+     "likes": 312
+    },
+    {
+     "text": "저 영화는 분명 간첩들의 농간입니다.",
+     "likes": 304
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "0y_c_-Ik_GQ",
+     "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
+     "channel": "보다 BODA",
+     "views": 1329432,
+     "views_per_day": 248714.6,
+     "published": "2026-10-11",
+     "url": "https://www.youtube.com/watch?v=0y_c_-Ik_GQ"
+    },
+    {
+     "id": "tlVSuaOykFk",
+     "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
+     "channel": "보다 BODA",
+     "views": 2832900,
+     "views_per_day": 146447.0,
+     "published": "2026-09-27",
+     "url": "https://www.youtube.com/watch?v=tlVSuaOykFk"
+    },
+    {
+     "id": "nE1aAbOYw0I",
+     "title": "다 같은 '스탄'인데 뭐가 다른걸까? 중앙아시아 5개 스탄국의 비밀｜역사｜세계사｜소련",
+     "channel": "다시만난역사",
+     "views": 993716,
+     "views_per_day": 56875.5,
+     "published": "2026-09-28",
+     "url": "https://www.youtube.com/watch?v=nE1aAbOYw0I"
+    },
+    {
+     "id": "QftIZGkR9MM",
+     "title": "세계 3분의 1이 왼쪽으로 달리는 이유",
+     "channel": "세계사쇼",
+     "views": 1391510,
+     "views_per_day": 56096.8,
+     "published": "2026-09-21",
+     "url": "https://www.youtube.com/watch?v=QftIZGkR9MM"
+    },
+    {
+     "id": "e6jRgQdtI8M",
+     "title": "미국도 무너질까? 2000년동안 무너진 패권국들의 공통점 (10분 요약하려다 20분 요약 된 세계사)",
+     "channel": "잡식이냥",
+     "views": 1079330,
+     "views_per_day": 51308.9,
+     "published": "2026-09-25",
+     "url": "https://www.youtube.com/watch?v=e6jRgQdtI8M"
+    }
+   ]
+  },
+  {
+   "weeks": 5,
+   "label": "최근 5주",
+   "videos": 14,
+   "channels": 10,
+   "new_this_week": [
+    {
+     "id": "i8zHObvItK8",
+     "title": "일본 가정집들에 숨겨져 있는 비밀스러운 공간의 정체(가족을..?)ㅣ역사를 보다 EP.159",
+     "published": "2026-09-13"
+    }
+   ],
+   "views_median": 368136.5,
+   "views_per_day_median": 32309.25,
+   "ratio_median": 44.66,
+   "success": 11,
+   "minutes_median": 18.3,
+   "title_len_avg": 47.7,
+   "title_features": [
+    {
+     "name": "물음표 ?",
+     "count": 8,
+     "share": 0.571
+    },
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 5,
+     "share": 0.357
+    },
+    {
+     "name": "이유",
+     "count": 4,
+     "share": 0.286
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 1,
+     "share": 0.071
+    },
+    {
+     "name": "느낌표 !",
+     "count": 1,
+     "share": 0.071
+    },
+    {
+     "name": "공통점",
+     "count": 1,
+     "share": 0.071
+    },
+    {
+     "name": "N가지",
+     "count": 1,
+     "share": 0.071
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 1,
+     "share": 0.071
+    },
+    {
+     "name": "vs 비교",
+     "count": 1,
+     "share": 0.071
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 1,
+     "share": 0.071
+    }
+   ],
+   "title_words": [
+    {
+     "word": "역사",
+     "count": 7
+    },
+    {
+     "word": "이유",
+     "count": 4
+    },
+    {
+     "word": "역사를",
+     "count": 3
+    },
+    {
+     "word": "EP",
+     "count": 3
+    },
+    {
+     "word": "보다",
+     "count": 3
+    },
+    {
+     "word": "세계사",
+     "count": 3
+    },
+    {
+     "word": "세계",
+     "count": 2
+    },
+    {
+     "word": "이야기",
+     "count": 2
+    },
+    {
+     "word": "충격적인",
+     "count": 2
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 14,
+    "없음": 0
+   },
+   "content_words": [
+    {
+     "word": "이야기",
+     "count": 7
+    },
+    {
+     "word": "역사와",
+     "count": 6
+    },
+    {
+     "word": "역사",
+     "count": 6
+    },
+    {
+     "word": "특별한",
+     "count": 5
+    },
+    {
+     "word": "있습니다",
+     "count": 5
+    },
+    {
+     "word": "그리고",
+     "count": 5
+    },
+    {
+     "word": "이야기를",
+     "count": 5
+    },
+    {
+     "word": "세계",
+     "count": 5
+    },
+    {
+     "word": "이번",
+     "count": 5
+    },
+    {
+     "word": "역사를",
+     "count": 4
+    },
+    {
+     "word": "오늘의",
+     "count": 4
+    },
+    {
+     "word": "감사합니다",
+     "count": 4
+    }
+   ],
+   "chapters_share": 0.571,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "0y_c_-Ik_GQ",
+     "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
+     "src": "설명",
+     "hook": "오늘은 '예루살렘 뒷골목'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 다큐멘터리PD(역마살로드) 장준호 PD님 역사를 보다 시리즈의 세계관을 담아낸 2026년 프리미엄 가죽 다이어리 출시!! 하"
+    },
+    {
+     "id": "tlVSuaOykFk",
+     "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
+     "src": "설명",
+     "hook": "오늘 역사를보다는 '천사의 언어 에녹어'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 📖 [역사를 보다2] 📖 [역사를 보다] 📺강인욱 교수님의 개인채널 [고고한 강교수] 📖 박현도 교수님의 저서"
+    },
+    {
+     "id": "nE1aAbOYw0I",
+     "title": "다 같은 '스탄'인데 뭐가 다른걸까? 중앙아시아 5개 스탄국의 비밀｜역사｜세계사｜소련",
+     "src": "설명",
+     "hook": "카자흐스탄, 우즈베키스탄, 타지키스탄, 키르기스스탄, 투르크메니스탄. 이름 끝이 하나같이 '스탄'으로 끝나는 중앙아시아 다섯 나라. 우리는 흔히 이들을 '한 뿌리에서 나온 형제 나라'라고 생각합니다. 하지만 이 다섯 나라는 사는 방식도, 언어도, 심지어 민족의 뿌리마저 서로 다른 사람들"
+    }
+   ],
+   "comments": 3058,
+   "comment_needs": [
+    {
+     "name": "질문",
+     "count": 530,
+     "share": 0.173
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 298,
+     "share": 0.097
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 186,
+     "share": 0.061
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 122,
+     "share": 0.04
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 116,
+     "share": 0.038
+    },
+    {
+     "name": "요청",
+     "count": 31,
+     "share": 0.01
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "일욜날 집 청소를 하는데, 누가 막 수다를 떨어요. \n그런데, 그게 일본 역사 전문가, 고고학자, 이집트 전문가, 이슬람 전문가, 일본 대중 문화 전문가들이에요.\n그게 또 딱딱하지 않고 계속 그 수다를 듣고 있는 게",
+     "likes": 475
+    },
+    {
+     "text": "아 천사의 언어라고? 이건 못 참지",
+     "likes": 315
+    },
+    {
+     "text": "와 역마살로드를 보다에서 보다니!!",
+     "likes": 312
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "0y_c_-Ik_GQ",
+     "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
+     "channel": "보다 BODA",
+     "views": 1329432,
+     "views_per_day": 248714.6,
+     "published": "2026-10-11",
+     "url": "https://www.youtube.com/watch?v=0y_c_-Ik_GQ"
+    },
+    {
+     "id": "tlVSuaOykFk",
+     "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
+     "channel": "보다 BODA",
+     "views": 2832900,
+     "views_per_day": 146447.0,
+     "published": "2026-09-27",
+     "url": "https://www.youtube.com/watch?v=tlVSuaOykFk"
+    },
+    {
+     "id": "nE1aAbOYw0I",
+     "title": "다 같은 '스탄'인데 뭐가 다른걸까? 중앙아시아 5개 스탄국의 비밀｜역사｜세계사｜소련",
+     "channel": "다시만난역사",
+     "views": 993716,
+     "views_per_day": 56875.5,
+     "published": "2026-09-28",
+     "url": "https://www.youtube.com/watch?v=nE1aAbOYw0I"
+    },
+    {
+     "id": "QftIZGkR9MM",
+     "title": "세계 3분의 1이 왼쪽으로 달리는 이유",
+     "channel": "세계사쇼",
+     "views": 1391510,
+     "views_per_day": 56096.8,
+     "published": "2026-09-21",
+     "url": "https://www.youtube.com/watch?v=QftIZGkR9MM"
+    },
+    {
+     "id": "e6jRgQdtI8M",
+     "title": "미국도 무너질까? 2000년동안 무너진 패권국들의 공통점 (10분 요약하려다 20분 요약 된 세계사)",
+     "channel": "잡식이냥",
+     "views": 1079330,
+     "views_per_day": 51308.9,
+     "published": "2026-09-25",
+     "url": "https://www.youtube.com/watch?v=e6jRgQdtI8M"
+    }
+   ]
+  },
+  {
+   "weeks": 6,
+   "label": "최근 6주",
+   "videos": 17,
+   "channels": 12,
+   "new_this_week": [
+    {
+     "id": "6fbGbhdbteE",
+     "title": "같은 민족인 독일과 오스트리아는 왜 다른 나라로 갈라졌을까?",
+     "published": "2026-09-10"
+    },
+    {
+     "id": "HYG8K7ajpGg",
+     "title": "인간을 위해 끔찍한 형벌을 견딘 그리스판 예수 그리스도의 정체(제우스랑 맞짱..)ㅣ역사를 보다 EP.157",
+     "published": "2026-09-06"
+    },
+    {
+     "id": "PmKbdO0FcnE",
+     "title": "조선 선비는 과거 보러 400km를 어떻게 걸어갔을까 | 국밥·엿·주막에 숨은 놀라운 이야기|사극은 거짓말? 과거 보러 가는 조선의 길에는 산적도 호랑이도 없었다",
+     "published": "2026-09-07"
+    }
+   ],
+   "views_median": 993716,
+   "views_per_day_median": 34289.8,
+   "ratio_median": 26.65,
+   "success": 12,
+   "minutes_median": 18.3,
+   "title_len_avg": 50.0,
+   "title_features": [
+    {
+     "name": "물음표 ?",
+     "count": 10,
+     "share": 0.588
+    },
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 5,
+     "share": 0.294
+    },
+    {
+     "name": "이유",
+     "count": 4,
+     "share": 0.235
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 1,
+     "share": 0.059
+    },
+    {
+     "name": "느낌표 !",
+     "count": 1,
+     "share": 0.059
+    },
+    {
+     "name": "공통점",
+     "count": 1,
+     "share": 0.059
+    },
+    {
+     "name": "N가지",
+     "count": 1,
+     "share": 0.059
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 1,
+     "share": 0.059
+    },
+    {
+     "name": "vs 비교",
+     "count": 1,
+     "share": 0.059
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 1,
+     "share": 0.059
+    }
+   ],
+   "title_words": [
+    {
+     "word": "역사",
+     "count": 7
+    },
+    {
+     "word": "역사를",
+     "count": 4
+    },
+    {
+     "word": "EP",
+     "count": 4
+    },
+    {
+     "word": "보다",
+     "count": 4
+    },
+    {
+     "word": "이유",
+     "count": 4
+    },
+    {
+     "word": "세계사",
+     "count": 3
+    },
+    {
+     "word": "이야기",
+     "count": 3
+    },
+    {
+     "word": "같은",
+     "count": 2
+    },
+    {
+     "word": "놀라운",
+     "count": 2
+    },
+    {
+     "word": "정체",
+     "count": 2
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 17,
+    "없음": 0
+   },
+   "content_words": [
+    {
+     "word": "이야기",
+     "count": 9
+    },
+    {
+     "word": "역사와",
+     "count": 9
+    },
+    {
+     "word": "역사",
+     "count": 8
+    },
+    {
+     "word": "특별한",
+     "count": 6
+    },
+    {
+     "word": "세계",
+     "count": 6
+    },
+    {
+     "word": "있습니다",
+     "count": 6
+    },
+    {
+     "word": "역사를",
+     "count": 5
+    },
+    {
+     "word": "오늘의",
+     "count": 5
+    },
+    {
+     "word": "감사합니다",
+     "count": 5
+    },
+    {
+     "word": "대해",
+     "count": 5
+    },
+    {
+     "word": "문화",
+     "count": 5
+    },
+    {
+     "word": "그리고",
+     "count": 5
+    }
+   ],
+   "chapters_share": 0.588,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "0y_c_-Ik_GQ",
+     "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
+     "src": "설명",
+     "hook": "오늘은 '예루살렘 뒷골목'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 다큐멘터리PD(역마살로드) 장준호 PD님 역사를 보다 시리즈의 세계관을 담아낸 2026년 프리미엄 가죽 다이어리 출시!! 하"
+    },
+    {
+     "id": "tlVSuaOykFk",
+     "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
+     "src": "설명",
+     "hook": "오늘 역사를보다는 '천사의 언어 에녹어'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 📖 [역사를 보다2] 📖 [역사를 보다] 📺강인욱 교수님의 개인채널 [고고한 강교수] 📖 박현도 교수님의 저서"
+    },
+    {
+     "id": "nE1aAbOYw0I",
+     "title": "다 같은 '스탄'인데 뭐가 다른걸까? 중앙아시아 5개 스탄국의 비밀｜역사｜세계사｜소련",
+     "src": "설명",
+     "hook": "카자흐스탄, 우즈베키스탄, 타지키스탄, 키르기스스탄, 투르크메니스탄. 이름 끝이 하나같이 '스탄'으로 끝나는 중앙아시아 다섯 나라. 우리는 흔히 이들을 '한 뿌리에서 나온 형제 나라'라고 생각합니다. 하지만 이 다섯 나라는 사는 방식도, 언어도, 심지어 민족의 뿌리마저 서로 다른 사람들"
+    }
+   ],
+   "comments": 3913,
+   "comment_needs": [
+    {
+     "name": "질문",
+     "count": 702,
+     "share": 0.179
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 339,
+     "share": 0.087
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 225,
+     "share": 0.058
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 144,
+     "share": 0.037
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 137,
+     "share": 0.035
+    },
+    {
+     "name": "요청",
+     "count": 41,
+     "share": 0.01
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "그리스 로마 신화 보면서 느꼈던것......... 신이라는 것들이 더 개판에 막장임...........",
+     "likes": 593
+    },
+    {
+     "text": "일욜날 집 청소를 하는데, 누가 막 수다를 떨어요. \n그런데, 그게 일본 역사 전문가, 고고학자, 이집트 전문가, 이슬람 전문가, 일본 대중 문화 전문가들이에요.\n그게 또 딱딱하지 않고 계속 그 수다를 듣고 있는 게",
+     "likes": 475
+    },
+    {
+     "text": "독일 오스트리아 통합하려는 사람 등장하면 \"너 히틀러냐\" 소리가 나오게 되서 문제 ㅋㅋㅋ 대놓고 부정적 이미지가 생김",
+     "likes": 382
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "0y_c_-Ik_GQ",
+     "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
+     "channel": "보다 BODA",
+     "views": 1329432,
+     "views_per_day": 248714.6,
+     "published": "2026-10-11",
+     "url": "https://www.youtube.com/watch?v=0y_c_-Ik_GQ"
+    },
+    {
+     "id": "tlVSuaOykFk",
+     "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
+     "channel": "보다 BODA",
+     "views": 2832900,
+     "views_per_day": 146447.0,
+     "published": "2026-09-27",
+     "url": "https://www.youtube.com/watch?v=tlVSuaOykFk"
+    },
+    {
+     "id": "nE1aAbOYw0I",
+     "title": "다 같은 '스탄'인데 뭐가 다른걸까? 중앙아시아 5개 스탄국의 비밀｜역사｜세계사｜소련",
+     "channel": "다시만난역사",
+     "views": 993716,
+     "views_per_day": 56875.5,
+     "published": "2026-09-28",
+     "url": "https://www.youtube.com/watch?v=nE1aAbOYw0I"
+    },
+    {
+     "id": "QftIZGkR9MM",
+     "title": "세계 3분의 1이 왼쪽으로 달리는 이유",
+     "channel": "세계사쇼",
+     "views": 1391510,
+     "views_per_day": 56096.8,
+     "published": "2026-09-21",
+     "url": "https://www.youtube.com/watch?v=QftIZGkR9MM"
+    },
+    {
+     "id": "e6jRgQdtI8M",
+     "title": "미국도 무너질까? 2000년동안 무너진 패권국들의 공통점 (10분 요약하려다 20분 요약 된 세계사)",
+     "channel": "잡식이냥",
+     "views": 1079330,
+     "views_per_day": 51308.9,
+     "published": "2026-09-25",
+     "url": "https://www.youtube.com/watch?v=e6jRgQdtI8M"
+    }
+   ]
+  },
+  {
+   "weeks": 7,
+   "label": "최근 7주",
+   "videos": 20,
+   "channels": 14,
+   "new_this_week": [
+    {
+     "id": "N9zFttW2fco",
+     "title": "근친혼을 하면 나타나는 얼굴의 변화 | 의학의 역사 근친혼 편",
+     "published": "2026-08-30"
+    },
+    {
+     "id": "TH488u7SLYs",
+     "title": "오디세이 관람 전후 필수로 시청해야 하는 영상(영웅의 반전 정체;)ㅣ역사를 보다 EP.155",
+     "published": "2026-08-30"
+    },
+    {
+     "id": "ymyvysUivBw",
+     "title": "세계를 지배했던 로마제국은 왜 멸망했을까?",
+     "published": "2026-08-29"
+    }
+   ],
+   "views_median": 1079334.0,
+   "views_per_day_median": 38093.55,
+   "ratio_median": 16.7,
+   "success": 12,
+   "minutes_median": 18.0,
+   "title_len_avg": 47.9,
+   "title_features": [
+    {
+     "name": "물음표 ?",
+     "count": 11,
+     "share": 0.55
+    },
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 5,
+     "share": 0.25
+    },
+    {
+     "name": "이유",
+     "count": 4,
+     "share": 0.2
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 1,
+     "share": 0.05
+    },
+    {
+     "name": "느낌표 !",
+     "count": 1,
+     "share": 0.05
+    },
+    {
+     "name": "공통점",
+     "count": 1,
+     "share": 0.05
+    },
+    {
+     "name": "N가지",
+     "count": 1,
+     "share": 0.05
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 1,
+     "share": 0.05
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 1,
+     "share": 0.05
+    },
+    {
+     "name": "vs 비교",
+     "count": 1,
+     "share": 0.05
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 1,
+     "share": 0.05
+    }
+   ],
+   "title_words": [
+    {
+     "word": "역사",
+     "count": 8
+    },
+    {
+     "word": "역사를",
+     "count": 5
+    },
+    {
+     "word": "EP",
+     "count": 5
+    },
+    {
+     "word": "보다",
+     "count": 5
+    },
+    {
+     "word": "이유",
+     "count": 4
+    },
+    {
+     "word": "정체",
+     "count": 3
+    },
+    {
+     "word": "세계사",
+     "count": 3
+    },
+    {
+     "word": "이야기",
+     "count": 3
+    },
+    {
+     "word": "같은",
+     "count": 2
+    },
+    {
+     "word": "놀라운",
+     "count": 2
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 20,
+    "없음": 0
+   },
+   "content_words": [
+    {
+     "word": "이야기",
+     "count": 10
+    },
+    {
+     "word": "역사와",
+     "count": 10
+    },
+    {
+     "word": "역사",
+     "count": 9
+    },
+    {
+     "word": "함께",
+     "count": 8
+    },
+    {
+     "word": "특별한",
+     "count": 7
+    },
+    {
+     "word": "역사를",
+     "count": 6
+    },
+    {
+     "word": "감사합니다",
+     "count": 6
+    },
+    {
+     "word": "대해",
+     "count": 6
+    },
+    {
+     "word": "세계",
+     "count": 6
+    },
+    {
+     "word": "있습니다",
+     "count": 6
+    },
+    {
+     "word": "읽는",
+     "count": 5
+    },
+    {
+     "word": "부분들을",
+     "count": 5
+    }
+   ],
+   "chapters_share": 0.6,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "0y_c_-Ik_GQ",
+     "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
+     "src": "설명",
+     "hook": "오늘은 '예루살렘 뒷골목'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 다큐멘터리PD(역마살로드) 장준호 PD님 역사를 보다 시리즈의 세계관을 담아낸 2026년 프리미엄 가죽 다이어리 출시!! 하"
+    },
+    {
+     "id": "tlVSuaOykFk",
+     "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
+     "src": "설명",
+     "hook": "오늘 역사를보다는 '천사의 언어 에녹어'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 📖 [역사를 보다2] 📖 [역사를 보다] 📺강인욱 교수님의 개인채널 [고고한 강교수] 📖 박현도 교수님의 저서"
+    },
+    {
+     "id": "N9zFttW2fco",
+     "title": "근친혼을 하면 나타나는 얼굴의 변화 | 의학의 역사 근친혼 편",
+     "src": "설명",
+     "hook": "닥터프렌즈의 구사일생 세계사 닥터프렌즈 영상 보시고 기분 좋은 하루 되세요 😁 닥프의 유튜브 영상 제작은 디토커뮤니케이션즈 와 함께 합니다. 닥프 스튜디오의 공기가 남다른 이유!? 핀란드에서 온 스마트 공기정화 시스템, 나아바(NAAVA) 덕분이죠. 63개 식물이 4,000개 식물만큼 "
+    }
+   ],
+   "comments": 5334,
+   "comment_needs": [
+    {
+     "name": "질문",
+     "count": 947,
+     "share": 0.178
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 399,
+     "share": 0.075
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 324,
+     "share": 0.061
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 184,
+     "share": 0.034
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 178,
+     "share": 0.033
+    },
+    {
+     "name": "요청",
+     "count": 68,
+     "share": 0.013
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "닥터프렌즈는 세명이서 하는게 맞는 거 같아요ㅋㅋㅋㅋㅋㅋ 옆에서 세상 심각한 표정으로 듣고있어ㅋㅋㅋㅋㅋㅋㅋㅋㅋ",
+     "likes": 3889
+    },
+    {
+     "text": "가끔 여동생한테 욕정을 느끼거나 하는 놈들은 정신병임\n근친에 대한 본능적인 거부감도 느껴지지 않을만큼 포르노에 뇌가 망가졌거나 성욕이 조절이 안 되는 거\n모든 페티쉬가 존중받아야 하는 건 아니다 꼭 병원 가봐라",
+     "likes": 2422
+    },
+    {
+     "text": "내 혈육은 나만괴롭힐 수있지만 대체적으로 혈육혐관이 깔려있는게 사실이었어ㅋㅋㅋㅋ",
+     "likes": 2255
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "0y_c_-Ik_GQ",
+     "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
+     "channel": "보다 BODA",
+     "views": 1329432,
+     "views_per_day": 248714.6,
+     "published": "2026-10-11",
+     "url": "https://www.youtube.com/watch?v=0y_c_-Ik_GQ"
+    },
+    {
+     "id": "tlVSuaOykFk",
+     "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
+     "channel": "보다 BODA",
+     "views": 2832900,
+     "views_per_day": 146447.0,
+     "published": "2026-09-27",
+     "url": "https://www.youtube.com/watch?v=tlVSuaOykFk"
+    },
+    {
+     "id": "N9zFttW2fco",
+     "title": "근친혼을 하면 나타나는 얼굴의 변화 | 의학의 역사 근친혼 편",
+     "channel": "닥터프렌즈",
+     "views": 3289899,
+     "views_per_day": 69857.1,
+     "published": "2026-08-30",
+     "url": "https://www.youtube.com/watch?v=N9zFttW2fco"
+    },
+    {
+     "id": "nE1aAbOYw0I",
+     "title": "다 같은 '스탄'인데 뭐가 다른걸까? 중앙아시아 5개 스탄국의 비밀｜역사｜세계사｜소련",
+     "channel": "다시만난역사",
+     "views": 993716,
+     "views_per_day": 56875.5,
+     "published": "2026-09-28",
+     "url": "https://www.youtube.com/watch?v=nE1aAbOYw0I"
+    },
+    {
+     "id": "QftIZGkR9MM",
+     "title": "세계 3분의 1이 왼쪽으로 달리는 이유",
+     "channel": "세계사쇼",
+     "views": 1391510,
+     "views_per_day": 56096.8,
+     "published": "2026-09-21",
+     "url": "https://www.youtube.com/watch?v=QftIZGkR9MM"
+    }
+   ]
+  },
+  {
+   "weeks": 8,
+   "label": "최근 8주",
+   "videos": 21,
+   "channels": 15,
+   "new_this_week": [
+    {
+     "id": "EjRxsCOhmGY",
+     "title": "유럽을 공포에 떨게 한 600년 이슬람 제국은 왜 흔적도 없이 사라졌을까? | 오스만 제국사 풀스토리",
+     "published": "2026-08-27"
+    }
+   ],
+   "views_median": 1079330,
+   "views_per_day_median": 34289.8,
+   "ratio_median": 20.13,
+   "success": 13,
+   "minutes_median": 18.3,
+   "title_len_avg": 48.3,
+   "title_features": [
+    {
+     "name": "물음표 ?",
+     "count": 12,
+     "share": 0.571
+    },
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 5,
+     "share": 0.238
+    },
+    {
+     "name": "이유",
+     "count": 4,
+     "share": 0.19
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 1,
+     "share": 0.048
+    },
+    {
+     "name": "느낌표 !",
+     "count": 1,
+     "share": 0.048
+    },
+    {
+     "name": "공통점",
+     "count": 1,
+     "share": 0.048
+    },
+    {
+     "name": "N가지",
+     "count": 1,
+     "share": 0.048
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 1,
+     "share": 0.048
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 1,
+     "share": 0.048
+    },
+    {
+     "name": "vs 비교",
+     "count": 1,
+     "share": 0.048
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 1,
+     "share": 0.048
+    }
+   ],
+   "title_words": [
+    {
+     "word": "역사",
+     "count": 8
+    },
+    {
+     "word": "역사를",
+     "count": 5
+    },
+    {
+     "word": "EP",
+     "count": 5
+    },
+    {
+     "word": "보다",
+     "count": 5
+    },
+    {
+     "word": "이유",
+     "count": 4
+    },
+    {
+     "word": "정체",
+     "count": 3
+    },
+    {
+     "word": "세계사",
+     "count": 3
+    },
+    {
+     "word": "이야기",
+     "count": 3
+    },
+    {
+     "word": "같은",
+     "count": 2
+    },
+    {
+     "word": "놀라운",
+     "count": 2
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 21,
+    "없음": 0
+   },
+   "content_words": [
+    {
+     "word": "이야기",
+     "count": 10
+    },
+    {
+     "word": "역사와",
+     "count": 10
+    },
+    {
+     "word": "역사",
+     "count": 9
+    },
+    {
+     "word": "함께",
+     "count": 8
+    },
+    {
+     "word": "특별한",
+     "count": 7
+    },
+    {
+     "word": "역사를",
+     "count": 6
+    },
+    {
+     "word": "감사합니다",
+     "count": 6
+    },
+    {
+     "word": "대해",
+     "count": 6
+    },
+    {
+     "word": "세계",
+     "count": 6
+    },
+    {
+     "word": "있습니다",
+     "count": 6
+    },
+    {
+     "word": "그리고",
+     "count": 6
+    },
+    {
+     "word": "읽는",
+     "count": 5
+    }
+   ],
+   "chapters_share": 0.619,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "0y_c_-Ik_GQ",
+     "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
+     "src": "설명",
+     "hook": "오늘은 '예루살렘 뒷골목'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 다큐멘터리PD(역마살로드) 장준호 PD님 역사를 보다 시리즈의 세계관을 담아낸 2026년 프리미엄 가죽 다이어리 출시!! 하"
+    },
+    {
+     "id": "tlVSuaOykFk",
+     "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
+     "src": "설명",
+     "hook": "오늘 역사를보다는 '천사의 언어 에녹어'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 📖 [역사를 보다2] 📖 [역사를 보다] 📺강인욱 교수님의 개인채널 [고고한 강교수] 📖 박현도 교수님의 저서"
+    },
+    {
+     "id": "N9zFttW2fco",
+     "title": "근친혼을 하면 나타나는 얼굴의 변화 | 의학의 역사 근친혼 편",
+     "src": "설명",
+     "hook": "닥터프렌즈의 구사일생 세계사 닥터프렌즈 영상 보시고 기분 좋은 하루 되세요 😁 닥프의 유튜브 영상 제작은 디토커뮤니케이션즈 와 함께 합니다. 닥프 스튜디오의 공기가 남다른 이유!? 핀란드에서 온 스마트 공기정화 시스템, 나아바(NAAVA) 덕분이죠. 63개 식물이 4,000개 식물만큼 "
+    }
+   ],
+   "comments": 5400,
+   "comment_needs": [
+    {
+     "name": "질문",
+     "count": 961,
+     "share": 0.178
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 416,
+     "share": 0.077
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 326,
+     "share": 0.06
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 186,
+     "share": 0.034
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 182,
+     "share": 0.034
+    },
+    {
+     "name": "요청",
+     "count": 68,
+     "share": 0.013
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "닥터프렌즈는 세명이서 하는게 맞는 거 같아요ㅋㅋㅋㅋㅋㅋ 옆에서 세상 심각한 표정으로 듣고있어ㅋㅋㅋㅋㅋㅋㅋㅋㅋ",
+     "likes": 3889
+    },
+    {
+     "text": "가끔 여동생한테 욕정을 느끼거나 하는 놈들은 정신병임\n근친에 대한 본능적인 거부감도 느껴지지 않을만큼 포르노에 뇌가 망가졌거나 성욕이 조절이 안 되는 거\n모든 페티쉬가 존중받아야 하는 건 아니다 꼭 병원 가봐라",
+     "likes": 2422
+    },
+    {
+     "text": "내 혈육은 나만괴롭힐 수있지만 대체적으로 혈육혐관이 깔려있는게 사실이었어ㅋㅋㅋㅋ",
+     "likes": 2255
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "0y_c_-Ik_GQ",
+     "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
+     "channel": "보다 BODA",
+     "views": 1329432,
+     "views_per_day": 248714.6,
+     "published": "2026-10-11",
+     "url": "https://www.youtube.com/watch?v=0y_c_-Ik_GQ"
+    },
+    {
+     "id": "tlVSuaOykFk",
+     "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
+     "channel": "보다 BODA",
+     "views": 2832900,
+     "views_per_day": 146447.0,
+     "published": "2026-09-27",
+     "url": "https://www.youtube.com/watch?v=tlVSuaOykFk"
+    },
+    {
+     "id": "N9zFttW2fco",
+     "title": "근친혼을 하면 나타나는 얼굴의 변화 | 의학의 역사 근친혼 편",
+     "channel": "닥터프렌즈",
+     "views": 3289899,
+     "views_per_day": 69857.1,
+     "published": "2026-08-30",
+     "url": "https://www.youtube.com/watch?v=N9zFttW2fco"
+    },
+    {
+     "id": "nE1aAbOYw0I",
+     "title": "다 같은 '스탄'인데 뭐가 다른걸까? 중앙아시아 5개 스탄국의 비밀｜역사｜세계사｜소련",
+     "channel": "다시만난역사",
+     "views": 993716,
+     "views_per_day": 56875.5,
+     "published": "2026-09-28",
+     "url": "https://www.youtube.com/watch?v=nE1aAbOYw0I"
+    },
+    {
+     "id": "QftIZGkR9MM",
+     "title": "세계 3분의 1이 왼쪽으로 달리는 이유",
+     "channel": "세계사쇼",
+     "views": 1391510,
+     "views_per_day": 56096.8,
+     "published": "2026-09-21",
+     "url": "https://www.youtube.com/watch?v=QftIZGkR9MM"
+    }
+   ]
+  },
+  {
+   "weeks": 9,
+   "label": "최근 9주",
+   "videos": 23,
+   "channels": 17,
+   "new_this_week": [
+    {
+     "id": "NoE9j2eaocE",
+     "title": "[세계사] 고대 이집트인들은 폭염 속에서도 왜 가발을 쓰고 다녔을까?💡",
+     "published": "2026-08-21"
+    },
+    {
+     "id": "sq8Un9KgH9g",
+     "title": "이거 하나면 그리스 신화 아는 척 가능 ⚡ 신들의 막장 족보 총정리 (제우스부터 오디세우스까지)",
+     "published": "2026-08-17"
+    }
+   ],
+   "views_median": 993716,
+   "views_per_day_median": 30349.5,
+   "ratio_median": 26.65,
+   "success": 15,
+   "minutes_median": 18.3,
+   "title_len_avg": 48.1,
+   "title_features": [
+    {
+     "name": "물음표 ?",
+     "count": 13,
+     "share": 0.565
+    },
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 5,
+     "share": 0.217
+    },
+    {
+     "name": "이유",
+     "count": 4,
+     "share": 0.174
+    },
+    {
+     "name": "vs 비교",
+     "count": 2,
+     "share": 0.087
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 1,
+     "share": 0.043
+    },
+    {
+     "name": "느낌표 !",
+     "count": 1,
+     "share": 0.043
+    },
+    {
+     "name": "공통점",
+     "count": 1,
+     "share": 0.043
+    },
+    {
+     "name": "N가지",
+     "count": 1,
+     "share": 0.043
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 1,
+     "share": 0.043
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 1,
+     "share": 0.043
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 1,
+     "share": 0.043
+    }
+   ],
+   "title_words": [
+    {
+     "word": "역사",
+     "count": 8
+    },
+    {
+     "word": "역사를",
+     "count": 5
+    },
+    {
+     "word": "EP",
+     "count": 5
+    },
+    {
+     "word": "보다",
+     "count": 5
+    },
+    {
+     "word": "이유",
+     "count": 4
+    },
+    {
+     "word": "세계사",
+     "count": 4
+    },
+    {
+     "word": "정체",
+     "count": 3
+    },
+    {
+     "word": "이야기",
+     "count": 3
+    },
+    {
+     "word": "같은",
+     "count": 2
+    },
+    {
+     "word": "놀라운",
+     "count": 2
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 23,
+    "없음": 0
+   },
+   "content_words": [
+    {
+     "word": "이야기",
+     "count": 10
+    },
+    {
+     "word": "역사와",
+     "count": 10
+    },
+    {
+     "word": "역사",
+     "count": 9
+    },
+    {
+     "word": "함께",
+     "count": 8
+    },
+    {
+     "word": "특별한",
+     "count": 7
+    },
+    {
+     "word": "있습니다",
+     "count": 7
+    },
+    {
+     "word": "그리고",
+     "count": 7
+    },
+    {
+     "word": "역사를",
+     "count": 6
+    },
+    {
+     "word": "감사합니다",
+     "count": 6
+    },
+    {
+     "word": "대해",
+     "count": 6
+    },
+    {
+     "word": "세계",
+     "count": 6
+    },
+    {
+     "word": "우리가",
+     "count": 6
+    }
+   ],
+   "chapters_share": 0.652,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "0y_c_-Ik_GQ",
+     "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
+     "src": "설명",
+     "hook": "오늘은 '예루살렘 뒷골목'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 다큐멘터리PD(역마살로드) 장준호 PD님 역사를 보다 시리즈의 세계관을 담아낸 2026년 프리미엄 가죽 다이어리 출시!! 하"
+    },
+    {
+     "id": "tlVSuaOykFk",
+     "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
+     "src": "설명",
+     "hook": "오늘 역사를보다는 '천사의 언어 에녹어'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 📖 [역사를 보다2] 📖 [역사를 보다] 📺강인욱 교수님의 개인채널 [고고한 강교수] 📖 박현도 교수님의 저서"
+    },
+    {
+     "id": "N9zFttW2fco",
+     "title": "근친혼을 하면 나타나는 얼굴의 변화 | 의학의 역사 근친혼 편",
+     "src": "설명",
+     "hook": "닥터프렌즈의 구사일생 세계사 닥터프렌즈 영상 보시고 기분 좋은 하루 되세요 😁 닥프의 유튜브 영상 제작은 디토커뮤니케이션즈 와 함께 합니다. 닥프 스튜디오의 공기가 남다른 이유!? 핀란드에서 온 스마트 공기정화 시스템, 나아바(NAAVA) 덕분이죠. 63개 식물이 4,000개 식물만큼 "
+    }
+   ],
+   "comments": 5779,
+   "comment_needs": [
+    {
+     "name": "질문",
+     "count": 1007,
+     "share": 0.174
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 555,
+     "share": 0.096
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 344,
+     "share": 0.06
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 191,
+     "share": 0.033
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 191,
+     "share": 0.033
+    },
+    {
+     "name": "요청",
+     "count": 83,
+     "share": 0.014
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "닥터프렌즈는 세명이서 하는게 맞는 거 같아요ㅋㅋㅋㅋㅋㅋ 옆에서 세상 심각한 표정으로 듣고있어ㅋㅋㅋㅋㅋㅋㅋㅋㅋ",
+     "likes": 3889
+    },
+    {
+     "text": "가끔 여동생한테 욕정을 느끼거나 하는 놈들은 정신병임\n근친에 대한 본능적인 거부감도 느껴지지 않을만큼 포르노에 뇌가 망가졌거나 성욕이 조절이 안 되는 거\n모든 페티쉬가 존중받아야 하는 건 아니다 꼭 병원 가봐라",
+     "likes": 2422
+    },
+    {
+     "text": "내 혈육은 나만괴롭힐 수있지만 대체적으로 혈육혐관이 깔려있는게 사실이었어ㅋㅋㅋㅋ",
+     "likes": 2255
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "0y_c_-Ik_GQ",
+     "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
+     "channel": "보다 BODA",
+     "views": 1329432,
+     "views_per_day": 248714.6,
+     "published": "2026-10-11",
+     "url": "https://www.youtube.com/watch?v=0y_c_-Ik_GQ"
+    },
+    {
+     "id": "tlVSuaOykFk",
+     "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
+     "channel": "보다 BODA",
+     "views": 2832900,
+     "views_per_day": 146447.0,
+     "published": "2026-09-27",
+     "url": "https://www.youtube.com/watch?v=tlVSuaOykFk"
+    },
+    {
+     "id": "N9zFttW2fco",
+     "title": "근친혼을 하면 나타나는 얼굴의 변화 | 의학의 역사 근친혼 편",
+     "channel": "닥터프렌즈",
+     "views": 3289899,
+     "views_per_day": 69857.1,
+     "published": "2026-08-30",
+     "url": "https://www.youtube.com/watch?v=N9zFttW2fco"
+    },
+    {
+     "id": "nE1aAbOYw0I",
+     "title": "다 같은 '스탄'인데 뭐가 다른걸까? 중앙아시아 5개 스탄국의 비밀｜역사｜세계사｜소련",
+     "channel": "다시만난역사",
+     "views": 993716,
+     "views_per_day": 56875.5,
+     "published": "2026-09-28",
+     "url": "https://www.youtube.com/watch?v=nE1aAbOYw0I"
+    },
+    {
+     "id": "QftIZGkR9MM",
+     "title": "세계 3분의 1이 왼쪽으로 달리는 이유",
+     "channel": "세계사쇼",
+     "views": 1391510,
+     "views_per_day": 56096.8,
+     "published": "2026-09-21",
+     "url": "https://www.youtube.com/watch?v=QftIZGkR9MM"
+    }
+   ]
+  },
+  {
+   "weeks": 10,
+   "label": "최근 10주",
+   "videos": 26,
+   "channels": 19,
+   "new_this_week": [
+    {
+     "id": "DeMJlexGzfU",
+     "title": "제우스의 법? 바다 사람들? 영화 [오디세이]에 숨겨진 역사 배경 총정리",
+     "published": "2026-08-08"
+    },
+    {
+     "id": "_y66a40gBHg",
+     "title": "광개토대왕 무덤이 아직까지도 미스터리인 이유(무덤이 두개..?)ㅣ역사를 보다 EP.152",
+     "published": "2026-08-09"
+    },
+    {
+     "id": "z4-vBeFor6g",
+     "title": "조선 내명부의 서열에 숨겨진 비밀 #조선시대 #역사이야기 #조선역사",
+     "published": "2026-08-10"
+    }
+   ],
+   "views_median": 1036523.0,
+   "views_per_day_median": 29188.9,
+   "ratio_median": 16.7,
+   "success": 16,
+   "minutes_median": 18.0,
+   "title_len_avg": 47.4,
+   "title_features": [
+    {
+     "name": "물음표 ?",
+     "count": 15,
+     "share": 0.577
+    },
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 6,
+     "share": 0.231
+    },
+    {
+     "name": "이유",
+     "count": 5,
+     "share": 0.192
+    },
+    {
+     "name": "vs 비교",
+     "count": 3,
+     "share": 0.115
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 1,
+     "share": 0.038
+    },
+    {
+     "name": "느낌표 !",
+     "count": 1,
+     "share": 0.038
+    },
+    {
+     "name": "공통점",
+     "count": 1,
+     "share": 0.038
+    },
+    {
+     "name": "N가지",
+     "count": 1,
+     "share": 0.038
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 1,
+     "share": 0.038
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 1,
+     "share": 0.038
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 1,
+     "share": 0.038
+    }
+   ],
+   "title_words": [
+    {
+     "word": "역사",
+     "count": 9
+    },
+    {
+     "word": "역사를",
+     "count": 6
+    },
+    {
+     "word": "EP",
+     "count": 6
+    },
+    {
+     "word": "보다",
+     "count": 6
+    },
+    {
+     "word": "이유",
+     "count": 5
+    },
+    {
+     "word": "세계사",
+     "count": 4
+    },
+    {
+     "word": "정체",
+     "count": 3
+    },
+    {
+     "word": "조선",
+     "count": 3
+    },
+    {
+     "word": "이야기",
+     "count": 3
+    },
+    {
+     "word": "같은",
+     "count": 2
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 26,
+    "없음": 0
+   },
+   "content_words": [
+    {
+     "word": "역사와",
+     "count": 11
+    },
+    {
+     "word": "이야기",
+     "count": 10
+    },
+    {
+     "word": "역사",
+     "count": 9
+    },
+    {
+     "word": "함께",
+     "count": 9
+    },
+    {
+     "word": "특별한",
+     "count": 8
+    },
+    {
+     "word": "그리고",
+     "count": 8
+    },
+    {
+     "word": "역사를",
+     "count": 7
+    },
+    {
+     "word": "감사합니다",
+     "count": 7
+    },
+    {
+     "word": "대해",
+     "count": 7
+    },
+    {
+     "word": "있습니다",
+     "count": 7
+    },
+    {
+     "word": "부분들을",
+     "count": 6
+    },
+    {
+     "word": "이집트",
+     "count": 6
+    }
+   ],
+   "chapters_share": 0.615,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "0y_c_-Ik_GQ",
+     "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
+     "src": "설명",
+     "hook": "오늘은 '예루살렘 뒷골목'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 다큐멘터리PD(역마살로드) 장준호 PD님 역사를 보다 시리즈의 세계관을 담아낸 2026년 프리미엄 가죽 다이어리 출시!! 하"
+    },
+    {
+     "id": "tlVSuaOykFk",
+     "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
+     "src": "설명",
+     "hook": "오늘 역사를보다는 '천사의 언어 에녹어'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 📖 [역사를 보다2] 📖 [역사를 보다] 📺강인욱 교수님의 개인채널 [고고한 강교수] 📖 박현도 교수님의 저서"
+    },
+    {
+     "id": "N9zFttW2fco",
+     "title": "근친혼을 하면 나타나는 얼굴의 변화 | 의학의 역사 근친혼 편",
+     "src": "설명",
+     "hook": "닥터프렌즈의 구사일생 세계사 닥터프렌즈 영상 보시고 기분 좋은 하루 되세요 😁 닥프의 유튜브 영상 제작은 디토커뮤니케이션즈 와 함께 합니다. 닥프 스튜디오의 공기가 남다른 이유!? 핀란드에서 온 스마트 공기정화 시스템, 나아바(NAAVA) 덕분이죠. 63개 식물이 4,000개 식물만큼 "
+    }
+   ],
+   "comments": 7076,
+   "comment_needs": [
+    {
+     "name": "질문",
+     "count": 1225,
+     "share": 0.173
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 632,
+     "share": 0.089
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 419,
+     "share": 0.059
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 233,
+     "share": 0.033
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 230,
+     "share": 0.033
+    },
+    {
+     "name": "요청",
+     "count": 100,
+     "share": 0.014
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "닥터프렌즈는 세명이서 하는게 맞는 거 같아요ㅋㅋㅋㅋㅋㅋ 옆에서 세상 심각한 표정으로 듣고있어ㅋㅋㅋㅋㅋㅋㅋㅋㅋ",
+     "likes": 3889
+    },
+    {
+     "text": "가끔 여동생한테 욕정을 느끼거나 하는 놈들은 정신병임\n근친에 대한 본능적인 거부감도 느껴지지 않을만큼 포르노에 뇌가 망가졌거나 성욕이 조절이 안 되는 거\n모든 페티쉬가 존중받아야 하는 건 아니다 꼭 병원 가봐라",
+     "likes": 2422
+    },
+    {
+     "text": "내 혈육은 나만괴롭힐 수있지만 대체적으로 혈육혐관이 깔려있는게 사실이었어ㅋㅋㅋㅋ",
+     "likes": 2255
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "0y_c_-Ik_GQ",
+     "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
+     "channel": "보다 BODA",
+     "views": 1329432,
+     "views_per_day": 248714.6,
+     "published": "2026-10-11",
+     "url": "https://www.youtube.com/watch?v=0y_c_-Ik_GQ"
+    },
+    {
+     "id": "tlVSuaOykFk",
+     "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
+     "channel": "보다 BODA",
+     "views": 2832900,
+     "views_per_day": 146447.0,
+     "published": "2026-09-27",
+     "url": "https://www.youtube.com/watch?v=tlVSuaOykFk"
+    },
+    {
+     "id": "N9zFttW2fco",
+     "title": "근친혼을 하면 나타나는 얼굴의 변화 | 의학의 역사 근친혼 편",
+     "channel": "닥터프렌즈",
+     "views": 3289899,
+     "views_per_day": 69857.1,
+     "published": "2026-08-30",
+     "url": "https://www.youtube.com/watch?v=N9zFttW2fco"
+    },
+    {
+     "id": "nE1aAbOYw0I",
+     "title": "다 같은 '스탄'인데 뭐가 다른걸까? 중앙아시아 5개 스탄국의 비밀｜역사｜세계사｜소련",
+     "channel": "다시만난역사",
+     "views": 993716,
+     "views_per_day": 56875.5,
+     "published": "2026-09-28",
+     "url": "https://www.youtube.com/watch?v=nE1aAbOYw0I"
+    },
+    {
+     "id": "QftIZGkR9MM",
+     "title": "세계 3분의 1이 왼쪽으로 달리는 이유",
+     "channel": "세계사쇼",
+     "views": 1391510,
+     "views_per_day": 56096.8,
+     "published": "2026-09-21",
+     "url": "https://www.youtube.com/watch?v=QftIZGkR9MM"
+    }
+   ]
+  },
+  {
+   "weeks": 11,
+   "label": "최근 11주",
+   "videos": 31,
+   "channels": 22,
+   "new_this_week": [
+    {
+     "id": "6eo5h71aB1Q",
+     "title": "13살 조선 왕이 된 소년, 자기를 왕으로 만든 한명회를 무너뜨린 방법",
+     "published": "2026-08-02"
+    },
+    {
+     "id": "KKDzQPaZCao",
+     "title": "[세계사] 이슬람은 왜 돼지고기를 절대 안 먹을까? 1400년 금기의 진실과 역사 | 이슬람 돼지고기 꾸란 할랄 하람",
+     "published": "2026-08-05"
+    },
+    {
+     "id": "PTsYhKaew-o",
+     "title": "백제는 정말 거대한 중국 영토를 정벌했을까?(중국 정사에 계속 나옴...) ㅣ역사를 보다 EP.151",
+     "published": "2026-08-02"
+    },
+    {
+     "id": "PgkTnWeBMyA",
+     "title": "조선시대 주막의 충격적인 하룻밤, 사극에서 절대 안 보여준 진짜 모습",
+     "published": "2026-08-05"
+    },
+    {
+     "id": "_KdSJr42TXI",
+     "title": "그리스 로마 신화 완벽 정리 : 태초의 창세부터 올림포스 12신, 트로이 전쟁의 종말까지 [🌙꿀잠 오디오북]",
+     "published": "2026-07-31"
+    }
+   ],
+   "views_median": 814787,
+   "views_per_day_median": 17667.7,
+   "ratio_median": 14.46,
+   "success": 20,
+   "minutes_median": 18.3,
+   "title_len_avg": 48.1,
+   "title_features": [
+    {
+     "name": "물음표 ?",
+     "count": 17,
+     "share": 0.548
+    },
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 6,
+     "share": 0.194
+    },
+    {
+     "name": "이유",
+     "count": 5,
+     "share": 0.161
+    },
+    {
+     "name": "vs 비교",
+     "count": 5,
+     "share": 0.161
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 1,
+     "share": 0.032
+    },
+    {
+     "name": "느낌표 !",
+     "count": 1,
+     "share": 0.032
+    },
+    {
+     "name": "공통점",
+     "count": 1,
+     "share": 0.032
+    },
+    {
+     "name": "N가지",
+     "count": 1,
+     "share": 0.032
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 1,
+     "share": 0.032
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 1,
+     "share": 0.032
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 1,
+     "share": 0.032
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 1,
+     "share": 0.032
+    }
+   ],
+   "title_words": [
+    {
+     "word": "역사",
+     "count": 10
+    },
+    {
+     "word": "역사를",
+     "count": 7
+    },
+    {
+     "word": "EP",
+     "count": 7
+    },
+    {
+     "word": "보다",
+     "count": 7
+    },
+    {
+     "word": "이유",
+     "count": 5
+    },
+    {
+     "word": "세계사",
+     "count": 5
+    },
+    {
+     "word": "조선",
+     "count": 4
+    },
+    {
+     "word": "정체",
+     "count": 3
+    },
+    {
+     "word": "충격적인",
+     "count": 3
+    },
+    {
+     "word": "이야기",
+     "count": 3
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 31,
+    "없음": 0
+   },
+   "content_words": [
+    {
+     "word": "역사와",
+     "count": 12
+    },
+    {
+     "word": "함께",
+     "count": 12
+    },
+    {
+     "word": "이야기",
+     "count": 10
+    },
+    {
+     "word": "그리고",
+     "count": 10
+    },
+    {
+     "word": "역사",
+     "count": 10
+    },
+    {
+     "word": "특별한",
+     "count": 9
+    },
+    {
+     "word": "이집트",
+     "count": 8
+    },
+    {
+     "word": "역사를",
+     "count": 8
+    },
+    {
+     "word": "감사합니다",
+     "count": 8
+    },
+    {
+     "word": "대해",
+     "count": 8
+    },
+    {
+     "word": "있습니다",
+     "count": 8
+    },
+    {
+     "word": "부분들을",
+     "count": 7
+    }
+   ],
+   "chapters_share": 0.613,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "0y_c_-Ik_GQ",
+     "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
+     "src": "설명",
+     "hook": "오늘은 '예루살렘 뒷골목'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 다큐멘터리PD(역마살로드) 장준호 PD님 역사를 보다 시리즈의 세계관을 담아낸 2026년 프리미엄 가죽 다이어리 출시!! 하"
+    },
+    {
+     "id": "tlVSuaOykFk",
+     "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
+     "src": "설명",
+     "hook": "오늘 역사를보다는 '천사의 언어 에녹어'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 📖 [역사를 보다2] 📖 [역사를 보다] 📺강인욱 교수님의 개인채널 [고고한 강교수] 📖 박현도 교수님의 저서"
+    },
+    {
+     "id": "N9zFttW2fco",
+     "title": "근친혼을 하면 나타나는 얼굴의 변화 | 의학의 역사 근친혼 편",
+     "src": "설명",
+     "hook": "닥터프렌즈의 구사일생 세계사 닥터프렌즈 영상 보시고 기분 좋은 하루 되세요 😁 닥프의 유튜브 영상 제작은 디토커뮤니케이션즈 와 함께 합니다. 닥프 스튜디오의 공기가 남다른 이유!? 핀란드에서 온 스마트 공기정화 시스템, 나아바(NAAVA) 덕분이죠. 63개 식물이 4,000개 식물만큼 "
+    }
+   ],
+   "comments": 10315,
+   "comment_needs": [
+    {
+     "name": "질문",
+     "count": 2127,
+     "share": 0.206
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 793,
+     "share": 0.077
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 741,
+     "share": 0.072
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 479,
+     "share": 0.046
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 421,
+     "share": 0.041
+    },
+    {
+     "name": "요청",
+     "count": 136,
+     "share": 0.013
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "닥터프렌즈는 세명이서 하는게 맞는 거 같아요ㅋㅋㅋㅋㅋㅋ 옆에서 세상 심각한 표정으로 듣고있어ㅋㅋㅋㅋㅋㅋㅋㅋㅋ",
+     "likes": 3889
+    },
+    {
+     "text": "가끔 여동생한테 욕정을 느끼거나 하는 놈들은 정신병임\n근친에 대한 본능적인 거부감도 느껴지지 않을만큼 포르노에 뇌가 망가졌거나 성욕이 조절이 안 되는 거\n모든 페티쉬가 존중받아야 하는 건 아니다 꼭 병원 가봐라",
+     "likes": 2422
+    },
+    {
+     "text": "내 혈육은 나만괴롭힐 수있지만 대체적으로 혈육혐관이 깔려있는게 사실이었어ㅋㅋㅋㅋ",
+     "likes": 2255
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "0y_c_-Ik_GQ",
+     "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
+     "channel": "보다 BODA",
+     "views": 1329432,
+     "views_per_day": 248714.6,
+     "published": "2026-10-11",
+     "url": "https://www.youtube.com/watch?v=0y_c_-Ik_GQ"
+    },
+    {
+     "id": "tlVSuaOykFk",
+     "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
+     "channel": "보다 BODA",
+     "views": 2832900,
+     "views_per_day": 146447.0,
+     "published": "2026-09-27",
+     "url": "https://www.youtube.com/watch?v=tlVSuaOykFk"
+    },
+    {
+     "id": "N9zFttW2fco",
+     "title": "근친혼을 하면 나타나는 얼굴의 변화 | 의학의 역사 근친혼 편",
+     "channel": "닥터프렌즈",
+     "views": 3289899,
+     "views_per_day": 69857.1,
+     "published": "2026-08-30",
+     "url": "https://www.youtube.com/watch?v=N9zFttW2fco"
+    },
+    {
+     "id": "nE1aAbOYw0I",
+     "title": "다 같은 '스탄'인데 뭐가 다른걸까? 중앙아시아 5개 스탄국의 비밀｜역사｜세계사｜소련",
+     "channel": "다시만난역사",
+     "views": 993716,
+     "views_per_day": 56875.5,
+     "published": "2026-09-28",
+     "url": "https://www.youtube.com/watch?v=nE1aAbOYw0I"
+    },
+    {
+     "id": "QftIZGkR9MM",
+     "title": "세계 3분의 1이 왼쪽으로 달리는 이유",
+     "channel": "세계사쇼",
+     "views": 1391510,
+     "views_per_day": 56096.8,
+     "published": "2026-09-21",
+     "url": "https://www.youtube.com/watch?v=QftIZGkR9MM"
+    }
+   ]
+  },
+  {
+   "weeks": 12,
+   "label": "최근 12주",
+   "videos": 34,
+   "channels": 25,
+   "new_this_week": [
+    {
+     "id": "VYoPhgs3WfU",
+     "title": "중국도 일본도 아닙니다 단군과 고조선의 기록을 지우려한 정체",
+     "published": "2026-07-30"
+    },
+    {
+     "id": "gwmPtcxsmYE",
+     "title": "15살에 66세 영조와 결혼한 정순왕후, 그날 밤 영조가 잠을 못 잤다 [조선왕조실록]",
+     "published": "2026-07-30"
+    },
+    {
+     "id": "ma9nDAg_3mY",
+     "title": "《중국 역사》 거지에서 명나라 황제가 되기까지, 주원장의 파란만장한 삶 l 역사 인물 l 고전",
+     "published": "2026-07-30"
+    }
+   ],
+   "views_median": 705487.5,
+   "views_per_day_median": 15201.95,
+   "ratio_median": 21.48,
+   "success": 23,
+   "minutes_median": 18.3,
+   "title_len_avg": 47.7,
+   "title_features": [
+    {
+     "name": "물음표 ?",
+     "count": 17,
+     "share": 0.5
+    },
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 6,
+     "share": 0.176
+    },
+    {
+     "name": "이유",
+     "count": 5,
+     "share": 0.147
+    },
+    {
+     "name": "vs 비교",
+     "count": 5,
+     "share": 0.147
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 1,
+     "share": 0.029
+    },
+    {
+     "name": "느낌표 !",
+     "count": 1,
+     "share": 0.029
+    },
+    {
+     "name": "공통점",
+     "count": 1,
+     "share": 0.029
+    },
+    {
+     "name": "N가지",
+     "count": 1,
+     "share": 0.029
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 1,
+     "share": 0.029
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 1,
+     "share": 0.029
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 1,
+     "share": 0.029
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 1,
+     "share": 0.029
+    }
+   ],
+   "title_words": [
+    {
+     "word": "역사",
+     "count": 11
+    },
+    {
+     "word": "역사를",
+     "count": 7
+    },
+    {
+     "word": "EP",
+     "count": 7
+    },
+    {
+     "word": "보다",
+     "count": 7
+    },
+    {
+     "word": "이유",
+     "count": 5
+    },
+    {
+     "word": "세계사",
+     "count": 5
+    },
+    {
+     "word": "조선",
+     "count": 4
+    },
+    {
+     "word": "정체",
+     "count": 4
+    },
+    {
+     "word": "충격적인",
+     "count": 3
+    },
+    {
+     "word": "이야기",
+     "count": 3
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 33,
+    "없음": 1
+   },
+   "content_words": [
+    {
+     "word": "역사와",
+     "count": 12
+    },
+    {
+     "word": "그리고",
+     "count": 12
+    },
+    {
+     "word": "함께",
+     "count": 12
+    },
+    {
+     "word": "이야기",
+     "count": 10
+    },
+    {
+     "word": "역사",
+     "count": 10
+    },
+    {
+     "word": "특별한",
+     "count": 9
+    },
+    {
+     "word": "있습니다",
+     "count": 9
+    },
+    {
+     "word": "이집트",
+     "count": 8
+    },
+    {
+     "word": "역사를",
+     "count": 8
+    },
+    {
+     "word": "감사합니다",
+     "count": 8
+    },
+    {
+     "word": "대해",
+     "count": 8
+    },
+    {
+     "word": "영상은",
+     "count": 8
+    }
+   ],
+   "chapters_share": 0.588,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "0y_c_-Ik_GQ",
+     "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
+     "src": "설명",
+     "hook": "오늘은 '예루살렘 뒷골목'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 다큐멘터리PD(역마살로드) 장준호 PD님 역사를 보다 시리즈의 세계관을 담아낸 2026년 프리미엄 가죽 다이어리 출시!! 하"
+    },
+    {
+     "id": "tlVSuaOykFk",
+     "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
+     "src": "설명",
+     "hook": "오늘 역사를보다는 '천사의 언어 에녹어'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 📖 [역사를 보다2] 📖 [역사를 보다] 📺강인욱 교수님의 개인채널 [고고한 강교수] 📖 박현도 교수님의 저서"
+    },
+    {
+     "id": "N9zFttW2fco",
+     "title": "근친혼을 하면 나타나는 얼굴의 변화 | 의학의 역사 근친혼 편",
+     "src": "설명",
+     "hook": "닥터프렌즈의 구사일생 세계사 닥터프렌즈 영상 보시고 기분 좋은 하루 되세요 😁 닥프의 유튜브 영상 제작은 디토커뮤니케이션즈 와 함께 합니다. 닥프 스튜디오의 공기가 남다른 이유!? 핀란드에서 온 스마트 공기정화 시스템, 나아바(NAAVA) 덕분이죠. 63개 식물이 4,000개 식물만큼 "
+    }
+   ],
+   "comments": 14809,
+   "comment_needs": [
+    {
+     "name": "칭찬·감사",
+     "count": 2634,
+     "share": 0.178
+    },
+    {
+     "name": "질문",
+     "count": 2466,
+     "share": 0.167
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 960,
+     "share": 0.065
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 557,
+     "share": 0.038
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 524,
+     "share": 0.035
+    },
+    {
+     "name": "요청",
+     "count": 208,
+     "share": 0.014
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "닥터프렌즈는 세명이서 하는게 맞는 거 같아요ㅋㅋㅋㅋㅋㅋ 옆에서 세상 심각한 표정으로 듣고있어ㅋㅋㅋㅋㅋㅋㅋㅋㅋ",
+     "likes": 3889
+    },
+    {
+     "text": "가끔 여동생한테 욕정을 느끼거나 하는 놈들은 정신병임\n근친에 대한 본능적인 거부감도 느껴지지 않을만큼 포르노에 뇌가 망가졌거나 성욕이 조절이 안 되는 거\n모든 페티쉬가 존중받아야 하는 건 아니다 꼭 병원 가봐라",
+     "likes": 2422
+    },
+    {
+     "text": "내 혈육은 나만괴롭힐 수있지만 대체적으로 혈육혐관이 깔려있는게 사실이었어ㅋㅋㅋㅋ",
+     "likes": 2255
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "0y_c_-Ik_GQ",
+     "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
+     "channel": "보다 BODA",
+     "views": 1329432,
+     "views_per_day": 248714.6,
+     "published": "2026-10-11",
+     "url": "https://www.youtube.com/watch?v=0y_c_-Ik_GQ"
+    },
+    {
+     "id": "tlVSuaOykFk",
+     "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
+     "channel": "보다 BODA",
+     "views": 2832900,
+     "views_per_day": 146447.0,
+     "published": "2026-09-27",
+     "url": "https://www.youtube.com/watch?v=tlVSuaOykFk"
+    },
+    {
+     "id": "N9zFttW2fco",
+     "title": "근친혼을 하면 나타나는 얼굴의 변화 | 의학의 역사 근친혼 편",
+     "channel": "닥터프렌즈",
+     "views": 3289899,
+     "views_per_day": 69857.1,
+     "published": "2026-08-30",
+     "url": "https://www.youtube.com/watch?v=N9zFttW2fco"
+    },
+    {
+     "id": "nE1aAbOYw0I",
+     "title": "다 같은 '스탄'인데 뭐가 다른걸까? 중앙아시아 5개 스탄국의 비밀｜역사｜세계사｜소련",
+     "channel": "다시만난역사",
+     "views": 993716,
+     "views_per_day": 56875.5,
+     "published": "2026-09-28",
+     "url": "https://www.youtube.com/watch?v=nE1aAbOYw0I"
+    },
+    {
+     "id": "QftIZGkR9MM",
+     "title": "세계 3분의 1이 왼쪽으로 달리는 이유",
+     "channel": "세계사쇼",
+     "views": 1391510,
+     "views_per_day": 56096.8,
+     "published": "2026-09-21",
+     "url": "https://www.youtube.com/watch?v=QftIZGkR9MM"
+    }
+   ]
+  },
+  {
+   "weeks": 13,
+   "label": "최근 13주",
+   "videos": 36,
+   "channels": 26,
+   "new_this_week": [
+    {
+     "id": "BL2vtVh5qWg",
+     "title": "조선시대에 유배를 당한 사람들은 어떻게 살았을까? #역사 #조선시대 #역사이야기",
+     "published": "2026-07-22"
+    },
+    {
+     "id": "BrJfH7HySwo",
+     "title": "13살 소년왕이 조선 최고 책사 한명회를 손끝 하나 안 대고 무너뜨린 방법 | 조선왕조실록이 감춘 성종의 진짜 얼굴 | 한국사이야기 |  조선역사 | 조선왕  | 시니어역사",
+     "published": "2026-07-18"
+    }
+   ],
+   "views_median": 661689.5,
+   "views_per_day_median": 14591.15,
+   "ratio_median": 23.51,
+   "success": 25,
+   "minutes_median": 18.65,
+   "title_len_avg": 49.0,
+   "title_features": [
+    {
+     "name": "물음표 ?",
+     "count": 18,
+     "share": 0.5
+    },
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 6,
+     "share": 0.167
+    },
+    {
+     "name": "vs 비교",
+     "count": 6,
+     "share": 0.167
+    },
+    {
+     "name": "이유",
+     "count": 5,
+     "share": 0.139
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 1,
+     "share": 0.028
+    },
+    {
+     "name": "느낌표 !",
+     "count": 1,
+     "share": 0.028
+    },
+    {
+     "name": "공통점",
+     "count": 1,
+     "share": 0.028
+    },
+    {
+     "name": "N가지",
+     "count": 1,
+     "share": 0.028
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 1,
+     "share": 0.028
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 1,
+     "share": 0.028
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 1,
+     "share": 0.028
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 1,
+     "share": 0.028
+    }
+   ],
+   "title_words": [
+    {
+     "word": "역사",
+     "count": 12
+    },
+    {
+     "word": "역사를",
+     "count": 7
+    },
+    {
+     "word": "EP",
+     "count": 7
+    },
+    {
+     "word": "보다",
+     "count": 7
+    },
+    {
+     "word": "조선",
+     "count": 5
+    },
+    {
+     "word": "이유",
+     "count": 5
+    },
+    {
+     "word": "세계사",
+     "count": 5
+    },
+    {
+     "word": "정체",
+     "count": 4
+    },
+    {
+     "word": "조선시대",
+     "count": 3
+    },
+    {
+     "word": "어떻게",
+     "count": 3
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 35,
+    "없음": 1
+   },
+   "content_words": [
+    {
+     "word": "그리고",
+     "count": 13
+    },
+    {
+     "word": "역사와",
+     "count": 12
+    },
+    {
+     "word": "함께",
+     "count": 12
+    },
+    {
+     "word": "이야기",
+     "count": 10
+    },
+    {
+     "word": "역사",
+     "count": 10
+    },
+    {
+     "word": "있습니다",
+     "count": 10
+    },
+    {
+     "word": "특별한",
+     "count": 9
+    },
+    {
+     "word": "영상은",
+     "count": 9
+    },
+    {
+     "word": "이집트",
+     "count": 8
+    },
+    {
+     "word": "역사를",
+     "count": 8
+    },
+    {
+     "word": "감사합니다",
+     "count": 8
+    },
+    {
+     "word": "대해",
+     "count": 8
+    }
+   ],
+   "chapters_share": 0.556,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "0y_c_-Ik_GQ",
+     "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
+     "src": "설명",
+     "hook": "오늘은 '예루살렘 뒷골목'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 다큐멘터리PD(역마살로드) 장준호 PD님 역사를 보다 시리즈의 세계관을 담아낸 2026년 프리미엄 가죽 다이어리 출시!! 하"
+    },
+    {
+     "id": "tlVSuaOykFk",
+     "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
+     "src": "설명",
+     "hook": "오늘 역사를보다는 '천사의 언어 에녹어'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 📖 [역사를 보다2] 📖 [역사를 보다] 📺강인욱 교수님의 개인채널 [고고한 강교수] 📖 박현도 교수님의 저서"
+    },
+    {
+     "id": "N9zFttW2fco",
+     "title": "근친혼을 하면 나타나는 얼굴의 변화 | 의학의 역사 근친혼 편",
+     "src": "설명",
+     "hook": "닥터프렌즈의 구사일생 세계사 닥터프렌즈 영상 보시고 기분 좋은 하루 되세요 😁 닥프의 유튜브 영상 제작은 디토커뮤니케이션즈 와 함께 합니다. 닥프 스튜디오의 공기가 남다른 이유!? 핀란드에서 온 스마트 공기정화 시스템, 나아바(NAAVA) 덕분이죠. 63개 식물이 4,000개 식물만큼 "
+    }
+   ],
+   "comments": 15121,
+   "comment_needs": [
+    {
+     "name": "칭찬·감사",
+     "count": 2731,
+     "share": 0.181
+    },
+    {
+     "name": "질문",
+     "count": 2505,
+     "share": 0.166
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 970,
+     "share": 0.064
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 566,
+     "share": 0.037
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 536,
+     "share": 0.035
+    },
+    {
+     "name": "요청",
+     "count": 216,
+     "share": 0.014
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "닥터프렌즈는 세명이서 하는게 맞는 거 같아요ㅋㅋㅋㅋㅋㅋ 옆에서 세상 심각한 표정으로 듣고있어ㅋㅋㅋㅋㅋㅋㅋㅋㅋ",
+     "likes": 3889
+    },
+    {
+     "text": "가끔 여동생한테 욕정을 느끼거나 하는 놈들은 정신병임\n근친에 대한 본능적인 거부감도 느껴지지 않을만큼 포르노에 뇌가 망가졌거나 성욕이 조절이 안 되는 거\n모든 페티쉬가 존중받아야 하는 건 아니다 꼭 병원 가봐라",
+     "likes": 2422
+    },
+    {
+     "text": "내 혈육은 나만괴롭힐 수있지만 대체적으로 혈육혐관이 깔려있는게 사실이었어ㅋㅋㅋㅋ",
+     "likes": 2255
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "0y_c_-Ik_GQ",
+     "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
+     "channel": "보다 BODA",
+     "views": 1329432,
+     "views_per_day": 248714.6,
+     "published": "2026-10-11",
+     "url": "https://www.youtube.com/watch?v=0y_c_-Ik_GQ"
+    },
+    {
+     "id": "tlVSuaOykFk",
+     "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
+     "channel": "보다 BODA",
+     "views": 2832900,
+     "views_per_day": 146447.0,
+     "published": "2026-09-27",
+     "url": "https://www.youtube.com/watch?v=tlVSuaOykFk"
+    },
+    {
+     "id": "N9zFttW2fco",
+     "title": "근친혼을 하면 나타나는 얼굴의 변화 | 의학의 역사 근친혼 편",
+     "channel": "닥터프렌즈",
+     "views": 3289899,
+     "views_per_day": 69857.1,
+     "published": "2026-08-30",
+     "url": "https://www.youtube.com/watch?v=N9zFttW2fco"
+    },
+    {
+     "id": "nE1aAbOYw0I",
+     "title": "다 같은 '스탄'인데 뭐가 다른걸까? 중앙아시아 5개 스탄국의 비밀｜역사｜세계사｜소련",
+     "channel": "다시만난역사",
+     "views": 993716,
+     "views_per_day": 56875.5,
+     "published": "2026-09-28",
+     "url": "https://www.youtube.com/watch?v=nE1aAbOYw0I"
+    },
+    {
+     "id": "QftIZGkR9MM",
+     "title": "세계 3분의 1이 왼쪽으로 달리는 이유",
+     "channel": "세계사쇼",
+     "views": 1391510,
+     "views_per_day": 56096.8,
+     "published": "2026-09-21",
+     "url": "https://www.youtube.com/watch?v=QftIZGkR9MM"
+    }
+   ]
+  },
+  {
+   "weeks": 14,
+   "label": "최근 14주",
+   "videos": 37,
+   "channels": 27,
+   "new_this_week": [
+    {
+     "id": "XBePem4Xz2g",
+     "title": "집을 반으로 갈라버린 조선의 노부부, 그런데 할아버지가 사라졌다",
+     "published": "2026-07-17"
+    }
+   ],
+   "views_median": 647951,
+   "views_per_day_median": 14450.1,
+   "ratio_median": 22.84,
+   "success": 26,
+   "minutes_median": 18.3,
+   "title_len_avg": 48.6,
+   "title_features": [
+    {
+     "name": "물음표 ?",
+     "count": 18,
+     "share": 0.486
+    },
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 6,
+     "share": 0.162
+    },
+    {
+     "name": "vs 비교",
+     "count": 6,
+     "share": 0.162
+    },
+    {
+     "name": "이유",
+     "count": 5,
+     "share": 0.135
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 1,
+     "share": 0.027
+    },
+    {
+     "name": "느낌표 !",
+     "count": 1,
+     "share": 0.027
+    },
+    {
+     "name": "공통점",
+     "count": 1,
+     "share": 0.027
+    },
+    {
+     "name": "N가지",
+     "count": 1,
+     "share": 0.027
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 1,
+     "share": 0.027
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 1,
+     "share": 0.027
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 1,
+     "share": 0.027
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 1,
+     "share": 0.027
+    }
+   ],
+   "title_words": [
+    {
+     "word": "역사",
+     "count": 12
+    },
+    {
+     "word": "역사를",
+     "count": 7
+    },
+    {
+     "word": "EP",
+     "count": 7
+    },
+    {
+     "word": "보다",
+     "count": 7
+    },
+    {
+     "word": "조선",
+     "count": 5
+    },
+    {
+     "word": "이유",
+     "count": 5
+    },
+    {
+     "word": "세계사",
+     "count": 5
+    },
+    {
+     "word": "정체",
+     "count": 4
+    },
+    {
+     "word": "조선시대",
+     "count": 3
+    },
+    {
+     "word": "어떻게",
+     "count": 3
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 36,
+    "없음": 1
+   },
+   "content_words": [
+    {
+     "word": "그리고",
+     "count": 13
+    },
+    {
+     "word": "함께",
+     "count": 13
+    },
+    {
+     "word": "역사와",
+     "count": 12
+    },
+    {
+     "word": "이야기",
+     "count": 10
+    },
+    {
+     "word": "역사",
+     "count": 10
+    },
+    {
+     "word": "있습니다",
+     "count": 10
+    },
+    {
+     "word": "특별한",
+     "count": 9
+    },
+    {
+     "word": "영상은",
+     "count": 9
+    },
+    {
+     "word": "이집트",
+     "count": 8
+    },
+    {
+     "word": "역사를",
+     "count": 8
+    },
+    {
+     "word": "감사합니다",
+     "count": 8
+    },
+    {
+     "word": "대해",
+     "count": 8
+    }
+   ],
+   "chapters_share": 0.541,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "0y_c_-Ik_GQ",
+     "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
+     "src": "설명",
+     "hook": "오늘은 '예루살렘 뒷골목'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 다큐멘터리PD(역마살로드) 장준호 PD님 역사를 보다 시리즈의 세계관을 담아낸 2026년 프리미엄 가죽 다이어리 출시!! 하"
+    },
+    {
+     "id": "tlVSuaOykFk",
+     "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
+     "src": "설명",
+     "hook": "오늘 역사를보다는 '천사의 언어 에녹어'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 📖 [역사를 보다2] 📖 [역사를 보다] 📺강인욱 교수님의 개인채널 [고고한 강교수] 📖 박현도 교수님의 저서"
+    },
+    {
+     "id": "N9zFttW2fco",
+     "title": "근친혼을 하면 나타나는 얼굴의 변화 | 의학의 역사 근친혼 편",
+     "src": "설명",
+     "hook": "닥터프렌즈의 구사일생 세계사 닥터프렌즈 영상 보시고 기분 좋은 하루 되세요 😁 닥프의 유튜브 영상 제작은 디토커뮤니케이션즈 와 함께 합니다. 닥프 스튜디오의 공기가 남다른 이유!? 핀란드에서 온 스마트 공기정화 시스템, 나아바(NAAVA) 덕분이죠. 63개 식물이 4,000개 식물만큼 "
+    }
+   ],
+   "comments": 15160,
+   "comment_needs": [
+    {
+     "name": "칭찬·감사",
+     "count": 2739,
+     "share": 0.181
+    },
+    {
+     "name": "질문",
+     "count": 2507,
+     "share": 0.165
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 971,
+     "share": 0.064
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 567,
+     "share": 0.037
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 537,
+     "share": 0.035
+    },
+    {
+     "name": "요청",
+     "count": 216,
+     "share": 0.014
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "닥터프렌즈는 세명이서 하는게 맞는 거 같아요ㅋㅋㅋㅋㅋㅋ 옆에서 세상 심각한 표정으로 듣고있어ㅋㅋㅋㅋㅋㅋㅋㅋㅋ",
+     "likes": 3889
+    },
+    {
+     "text": "가끔 여동생한테 욕정을 느끼거나 하는 놈들은 정신병임\n근친에 대한 본능적인 거부감도 느껴지지 않을만큼 포르노에 뇌가 망가졌거나 성욕이 조절이 안 되는 거\n모든 페티쉬가 존중받아야 하는 건 아니다 꼭 병원 가봐라",
+     "likes": 2422
+    },
+    {
+     "text": "내 혈육은 나만괴롭힐 수있지만 대체적으로 혈육혐관이 깔려있는게 사실이었어ㅋㅋㅋㅋ",
+     "likes": 2255
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "0y_c_-Ik_GQ",
+     "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
+     "channel": "보다 BODA",
+     "views": 1329432,
+     "views_per_day": 248714.6,
+     "published": "2026-10-11",
+     "url": "https://www.youtube.com/watch?v=0y_c_-Ik_GQ"
+    },
+    {
+     "id": "tlVSuaOykFk",
+     "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
+     "channel": "보다 BODA",
+     "views": 2832900,
+     "views_per_day": 146447.0,
+     "published": "2026-09-27",
+     "url": "https://www.youtube.com/watch?v=tlVSuaOykFk"
+    },
+    {
+     "id": "N9zFttW2fco",
+     "title": "근친혼을 하면 나타나는 얼굴의 변화 | 의학의 역사 근친혼 편",
+     "channel": "닥터프렌즈",
+     "views": 3289899,
+     "views_per_day": 69857.1,
+     "published": "2026-08-30",
+     "url": "https://www.youtube.com/watch?v=N9zFttW2fco"
+    },
+    {
+     "id": "nE1aAbOYw0I",
+     "title": "다 같은 '스탄'인데 뭐가 다른걸까? 중앙아시아 5개 스탄국의 비밀｜역사｜세계사｜소련",
+     "channel": "다시만난역사",
+     "views": 993716,
+     "views_per_day": 56875.5,
+     "published": "2026-09-28",
+     "url": "https://www.youtube.com/watch?v=nE1aAbOYw0I"
+    },
+    {
+     "id": "QftIZGkR9MM",
+     "title": "세계 3분의 1이 왼쪽으로 달리는 이유",
+     "channel": "세계사쇼",
+     "views": 1391510,
+     "views_per_day": 56096.8,
+     "published": "2026-09-21",
+     "url": "https://www.youtube.com/watch?v=QftIZGkR9MM"
+    }
+   ]
+  },
+  {
+   "weeks": 15,
+   "label": "최근 15주",
+   "videos": 39,
+   "channels": 29,
+   "new_this_week": [
+    {
+     "id": "RdzPp1O7PW8",
+     "title": "조선의 역대급 변절자 신숙주, 성삼문 아내를 노비로 들인 충격적인 이유",
+     "published": "2026-07-04"
+    },
+    {
+     "id": "tMIab7lVg88",
+     "title": "역사에 기록된 가장 멋있었던 죽음들",
+     "published": "2026-07-04"
+    }
+   ],
+   "views_median": 591711,
+   "views_per_day_median": 10385.4,
+   "ratio_median": 22.84,
+   "success": 28,
+   "minutes_median": 19.0,
+   "title_len_avg": 47.6,
+   "title_features": [
+    {
+     "name": "물음표 ?",
+     "count": 18,
+     "share": 0.462
+    },
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 7,
+     "share": 0.179
+    },
+    {
+     "name": "이유",
+     "count": 6,
+     "share": 0.154
+    },
+    {
+     "name": "vs 비교",
+     "count": 6,
+     "share": 0.154
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 1,
+     "share": 0.026
+    },
+    {
+     "name": "느낌표 !",
+     "count": 1,
+     "share": 0.026
+    },
+    {
+     "name": "공통점",
+     "count": 1,
+     "share": 0.026
+    },
+    {
+     "name": "N가지",
+     "count": 1,
+     "share": 0.026
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 1,
+     "share": 0.026
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 1,
+     "share": 0.026
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 1,
+     "share": 0.026
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 1,
+     "share": 0.026
+    }
+   ],
+   "title_words": [
+    {
+     "word": "역사",
+     "count": 12
+    },
+    {
+     "word": "역사를",
+     "count": 7
+    },
+    {
+     "word": "EP",
+     "count": 7
+    },
+    {
+     "word": "보다",
+     "count": 7
+    },
+    {
+     "word": "이유",
+     "count": 6
+    },
+    {
+     "word": "조선",
+     "count": 5
+    },
+    {
+     "word": "세계사",
+     "count": 5
+    },
+    {
+     "word": "정체",
+     "count": 4
+    },
+    {
+     "word": "충격적인",
+     "count": 4
+    },
+    {
+     "word": "조선시대",
+     "count": 3
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 37,
+    "없음": 2
+   },
+   "content_words": [
+    {
+     "word": "그리고",
+     "count": 14
+    },
+    {
+     "word": "함께",
+     "count": 13
+    },
+    {
+     "word": "역사와",
+     "count": 12
+    },
+    {
+     "word": "역사",
+     "count": 11
+    },
+    {
+     "word": "있습니다",
+     "count": 11
+    },
+    {
+     "word": "이야기",
+     "count": 10
+    },
+    {
+     "word": "특별한",
+     "count": 9
+    },
+    {
+     "word": "영상은",
+     "count": 9
+    },
+    {
+     "word": "이야기를",
+     "count": 9
+    },
+    {
+     "word": "이집트",
+     "count": 8
+    },
+    {
+     "word": "역사를",
+     "count": 8
+    },
+    {
+     "word": "감사합니다",
+     "count": 8
+    }
+   ],
+   "chapters_share": 0.538,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "0y_c_-Ik_GQ",
+     "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
+     "src": "설명",
+     "hook": "오늘은 '예루살렘 뒷골목'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 다큐멘터리PD(역마살로드) 장준호 PD님 역사를 보다 시리즈의 세계관을 담아낸 2026년 프리미엄 가죽 다이어리 출시!! 하"
+    },
+    {
+     "id": "tlVSuaOykFk",
+     "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
+     "src": "설명",
+     "hook": "오늘 역사를보다는 '천사의 언어 에녹어'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 📖 [역사를 보다2] 📖 [역사를 보다] 📺강인욱 교수님의 개인채널 [고고한 강교수] 📖 박현도 교수님의 저서"
+    },
+    {
+     "id": "N9zFttW2fco",
+     "title": "근친혼을 하면 나타나는 얼굴의 변화 | 의학의 역사 근친혼 편",
+     "src": "설명",
+     "hook": "닥터프렌즈의 구사일생 세계사 닥터프렌즈 영상 보시고 기분 좋은 하루 되세요 😁 닥프의 유튜브 영상 제작은 디토커뮤니케이션즈 와 함께 합니다. 닥프 스튜디오의 공기가 남다른 이유!? 핀란드에서 온 스마트 공기정화 시스템, 나아바(NAAVA) 덕분이죠. 63개 식물이 4,000개 식물만큼 "
+    }
+   ],
+   "comments": 15360,
+   "comment_needs": [
+    {
+     "name": "칭찬·감사",
+     "count": 2755,
+     "share": 0.179
+    },
+    {
+     "name": "질문",
+     "count": 2537,
+     "share": 0.165
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 977,
+     "share": 0.064
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 578,
+     "share": 0.038
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 539,
+     "share": 0.035
+    },
+    {
+     "name": "요청",
+     "count": 221,
+     "share": 0.014
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "닥터프렌즈는 세명이서 하는게 맞는 거 같아요ㅋㅋㅋㅋㅋㅋ 옆에서 세상 심각한 표정으로 듣고있어ㅋㅋㅋㅋㅋㅋㅋㅋㅋ",
+     "likes": 3889
+    },
+    {
+     "text": "가끔 여동생한테 욕정을 느끼거나 하는 놈들은 정신병임\n근친에 대한 본능적인 거부감도 느껴지지 않을만큼 포르노에 뇌가 망가졌거나 성욕이 조절이 안 되는 거\n모든 페티쉬가 존중받아야 하는 건 아니다 꼭 병원 가봐라",
+     "likes": 2422
+    },
+    {
+     "text": "내 혈육은 나만괴롭힐 수있지만 대체적으로 혈육혐관이 깔려있는게 사실이었어ㅋㅋㅋㅋ",
+     "likes": 2255
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "0y_c_-Ik_GQ",
+     "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
+     "channel": "보다 BODA",
+     "views": 1329432,
+     "views_per_day": 248714.6,
+     "published": "2026-10-11",
+     "url": "https://www.youtube.com/watch?v=0y_c_-Ik_GQ"
+    },
+    {
+     "id": "tlVSuaOykFk",
+     "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
+     "channel": "보다 BODA",
+     "views": 2832900,
+     "views_per_day": 146447.0,
+     "published": "2026-09-27",
+     "url": "https://www.youtube.com/watch?v=tlVSuaOykFk"
+    },
+    {
+     "id": "N9zFttW2fco",
+     "title": "근친혼을 하면 나타나는 얼굴의 변화 | 의학의 역사 근친혼 편",
+     "channel": "닥터프렌즈",
+     "views": 3289899,
+     "views_per_day": 69857.1,
+     "published": "2026-08-30",
+     "url": "https://www.youtube.com/watch?v=N9zFttW2fco"
+    },
+    {
+     "id": "nE1aAbOYw0I",
+     "title": "다 같은 '스탄'인데 뭐가 다른걸까? 중앙아시아 5개 스탄국의 비밀｜역사｜세계사｜소련",
+     "channel": "다시만난역사",
+     "views": 993716,
+     "views_per_day": 56875.5,
+     "published": "2026-09-28",
+     "url": "https://www.youtube.com/watch?v=nE1aAbOYw0I"
+    },
+    {
+     "id": "QftIZGkR9MM",
+     "title": "세계 3분의 1이 왼쪽으로 달리는 이유",
+     "channel": "세계사쇼",
+     "views": 1391510,
+     "views_per_day": 56096.8,
+     "published": "2026-09-21",
+     "url": "https://www.youtube.com/watch?v=QftIZGkR9MM"
+    }
+   ]
+  },
+  {
+   "weeks": 16,
+   "label": "최근 16주",
+   "videos": 43,
+   "channels": 32,
+   "new_this_week": [
+    {
+     "id": "YfPUeVAhmfw",
+     "title": "1시간이면 완벽 이해 조선왕조실록 1대부터 27대까지 몰아보기ㅣ건국부터 멸망까지 한번에 자면서 들으세요",
+     "published": "2026-06-30"
+    },
+    {
+     "id": "_QrSVpBd6Tg",
+     "title": "조선 왕실 최악의 비극 | 삼대가 죽어야 왕이 될 수 있었던 남자, 철종",
+     "published": "2026-06-29"
+    },
+    {
+     "id": "nxTN1r6q7FE",
+     "title": "제자 4명이 전국시대를 지배했다ㅣ2500년간 금서였던 귀곡자 완전해부 | 역사 | 세계사 | 숨겨진 중국역사 | 귀곡자 | 손자병법 | 역사인물 | 오디오북",
+     "published": "2026-07-01"
+    },
+    {
+     "id": "o-x6sIGANPY",
+     "title": "잊혀진 문명, 세계 최강이 사라진 이유",
+     "published": "2026-07-01"
+    }
+   ],
+   "views_median": 626376,
+   "views_per_day_median": 9946.2,
+   "ratio_median": 20.13,
+   "success": 31,
+   "minutes_median": 19.1,
+   "title_len_avg": 47.9,
+   "title_features": [
+    {
+     "name": "물음표 ?",
+     "count": 18,
+     "share": 0.419
+    },
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 8,
+     "share": 0.186
+    },
+    {
+     "name": "이유",
+     "count": 7,
+     "share": 0.163
+    },
+    {
+     "name": "vs 비교",
+     "count": 6,
+     "share": 0.14
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 2,
+     "share": 0.047
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 1,
+     "share": 0.023
+    },
+    {
+     "name": "느낌표 !",
+     "count": 1,
+     "share": 0.023
+    },
+    {
+     "name": "공통점",
+     "count": 1,
+     "share": 0.023
+    },
+    {
+     "name": "N가지",
+     "count": 1,
+     "share": 0.023
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 1,
+     "share": 0.023
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 1,
+     "share": 0.023
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 1,
+     "share": 0.023
+    }
+   ],
+   "title_words": [
+    {
+     "word": "역사",
+     "count": 13
+    },
+    {
+     "word": "역사를",
+     "count": 7
+    },
+    {
+     "word": "EP",
+     "count": 7
+    },
+    {
+     "word": "보다",
+     "count": 7
+    },
+    {
+     "word": "이유",
+     "count": 7
+    },
+    {
+     "word": "조선",
+     "count": 6
+    },
+    {
+     "word": "세계사",
+     "count": 6
+    },
+    {
+     "word": "정체",
+     "count": 4
+    },
+    {
+     "word": "충격적인",
+     "count": 4
+    },
+    {
+     "word": "조선시대",
+     "count": 3
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 41,
+    "없음": 2
+   },
+   "content_words": [
+    {
+     "word": "그리고",
+     "count": 16
+    },
+    {
+     "word": "함께",
+     "count": 13
+    },
+    {
+     "word": "역사와",
+     "count": 12
+    },
+    {
+     "word": "역사",
+     "count": 12
+    },
+    {
+     "word": "있습니다",
+     "count": 12
+    },
+    {
+     "word": "이야기",
+     "count": 11
+    },
+    {
+     "word": "이야기를",
+     "count": 11
+    },
+    {
+     "word": "가장",
+     "count": 10
+    },
+    {
+     "word": "어떻게",
+     "count": 10
+    },
+    {
+     "word": "영상은",
+     "count": 10
+    },
+    {
+     "word": "바탕으로",
+     "count": 10
+    },
+    {
+     "word": "이집트",
+     "count": 9
+    }
+   ],
+   "chapters_share": 0.558,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "0y_c_-Ik_GQ",
+     "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
+     "src": "설명",
+     "hook": "오늘은 '예루살렘 뒷골목'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 다큐멘터리PD(역마살로드) 장준호 PD님 역사를 보다 시리즈의 세계관을 담아낸 2026년 프리미엄 가죽 다이어리 출시!! 하"
+    },
+    {
+     "id": "tlVSuaOykFk",
+     "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
+     "src": "설명",
+     "hook": "오늘 역사를보다는 '천사의 언어 에녹어'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 📖 [역사를 보다2] 📖 [역사를 보다] 📺강인욱 교수님의 개인채널 [고고한 강교수] 📖 박현도 교수님의 저서"
+    },
+    {
+     "id": "N9zFttW2fco",
+     "title": "근친혼을 하면 나타나는 얼굴의 변화 | 의학의 역사 근친혼 편",
+     "src": "설명",
+     "hook": "닥터프렌즈의 구사일생 세계사 닥터프렌즈 영상 보시고 기분 좋은 하루 되세요 😁 닥프의 유튜브 영상 제작은 디토커뮤니케이션즈 와 함께 합니다. 닥프 스튜디오의 공기가 남다른 이유!? 핀란드에서 온 스마트 공기정화 시스템, 나아바(NAAVA) 덕분이죠. 63개 식물이 4,000개 식물만큼 "
+    }
+   ],
+   "comments": 16457,
+   "comment_needs": [
+    {
+     "name": "칭찬·감사",
+     "count": 2849,
+     "share": 0.173
+    },
+    {
+     "name": "질문",
+     "count": 2691,
+     "share": 0.164
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 1003,
+     "share": 0.061
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 611,
+     "share": 0.037
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 572,
+     "share": 0.035
+    },
+    {
+     "name": "요청",
+     "count": 226,
+     "share": 0.014
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "닥터프렌즈는 세명이서 하는게 맞는 거 같아요ㅋㅋㅋㅋㅋㅋ 옆에서 세상 심각한 표정으로 듣고있어ㅋㅋㅋㅋㅋㅋㅋㅋㅋ",
+     "likes": 3889
+    },
+    {
+     "text": "가끔 여동생한테 욕정을 느끼거나 하는 놈들은 정신병임\n근친에 대한 본능적인 거부감도 느껴지지 않을만큼 포르노에 뇌가 망가졌거나 성욕이 조절이 안 되는 거\n모든 페티쉬가 존중받아야 하는 건 아니다 꼭 병원 가봐라",
+     "likes": 2422
+    },
+    {
+     "text": "내 혈육은 나만괴롭힐 수있지만 대체적으로 혈육혐관이 깔려있는게 사실이었어ㅋㅋㅋㅋ",
+     "likes": 2255
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "0y_c_-Ik_GQ",
+     "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
+     "channel": "보다 BODA",
+     "views": 1329432,
+     "views_per_day": 248714.6,
+     "published": "2026-10-11",
+     "url": "https://www.youtube.com/watch?v=0y_c_-Ik_GQ"
+    },
+    {
+     "id": "tlVSuaOykFk",
+     "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
+     "channel": "보다 BODA",
+     "views": 2832900,
+     "views_per_day": 146447.0,
+     "published": "2026-09-27",
+     "url": "https://www.youtube.com/watch?v=tlVSuaOykFk"
+    },
+    {
+     "id": "N9zFttW2fco",
+     "title": "근친혼을 하면 나타나는 얼굴의 변화 | 의학의 역사 근친혼 편",
+     "channel": "닥터프렌즈",
+     "views": 3289899,
+     "views_per_day": 69857.1,
+     "published": "2026-08-30",
+     "url": "https://www.youtube.com/watch?v=N9zFttW2fco"
+    },
+    {
+     "id": "nE1aAbOYw0I",
+     "title": "다 같은 '스탄'인데 뭐가 다른걸까? 중앙아시아 5개 스탄국의 비밀｜역사｜세계사｜소련",
+     "channel": "다시만난역사",
+     "views": 993716,
+     "views_per_day": 56875.5,
+     "published": "2026-09-28",
+     "url": "https://www.youtube.com/watch?v=nE1aAbOYw0I"
+    },
+    {
+     "id": "QftIZGkR9MM",
+     "title": "세계 3분의 1이 왼쪽으로 달리는 이유",
+     "channel": "세계사쇼",
+     "views": 1391510,
+     "views_per_day": 56096.8,
+     "published": "2026-09-21",
+     "url": "https://www.youtube.com/watch?v=QftIZGkR9MM"
+    }
+   ]
+  },
+  {
+   "weeks": 17,
+   "label": "최근 17주",
+   "videos": 46,
+   "channels": 34,
+   "new_this_week": [
+    {
+     "id": "XVqIvyIzZXs",
+     "title": "\"세계사적 미스터리예요\" 중국이 수천년간 단 한번도 한국을 흡수 못한 이유 | Ep . 책과사람 106 (이다지 선생님 2부)",
+     "published": "2026-06-21"
+    },
+    {
+     "id": "utBggJ670VU",
+     "title": "중국 역사상 최대 미스터리 왜 한국만은 정복하지 못했나",
+     "published": "2026-06-21"
+    },
+    {
+     "id": "xhC-7TrEdrg",
+     "title": "[세계사] \"1분은 왜 하필 60초일까?\" 오늘 아침 당신의 시계 속에 잠든 인류 최초의 문명, 수메르가 사라진 진짜 이유 l 60진법 길가메시 메소포타미아 노아의방주",
+     "published": "2026-06-19"
+    }
+   ],
+   "views_median": 637163.5,
+   "views_per_day_median": 9596.3,
+   "ratio_median": 20.57,
+   "success": 33,
+   "minutes_median": 19.5,
+   "title_len_avg": 49.0,
+   "title_features": [
+    {
+     "name": "물음표 ?",
+     "count": 19,
+     "share": 0.413
+    },
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 10,
+     "share": 0.217
+    },
+    {
+     "name": "이유",
+     "count": 9,
+     "share": 0.196
+    },
+    {
+     "name": "vs 비교",
+     "count": 7,
+     "share": 0.152
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 2,
+     "share": 0.043
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 1,
+     "share": 0.022
+    },
+    {
+     "name": "느낌표 !",
+     "count": 1,
+     "share": 0.022
+    },
+    {
+     "name": "공통점",
+     "count": 1,
+     "share": 0.022
+    },
+    {
+     "name": "N가지",
+     "count": 1,
+     "share": 0.022
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 1,
+     "share": 0.022
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 1,
+     "share": 0.022
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 1,
+     "share": 0.022
+    }
+   ],
+   "title_words": [
+    {
+     "word": "역사",
+     "count": 13
+    },
+    {
+     "word": "이유",
+     "count": 9
+    },
+    {
+     "word": "역사를",
+     "count": 7
+    },
+    {
+     "word": "EP",
+     "count": 7
+    },
+    {
+     "word": "보다",
+     "count": 7
+    },
+    {
+     "word": "세계사",
+     "count": 7
+    },
+    {
+     "word": "조선",
+     "count": 6
+    },
+    {
+     "word": "정체",
+     "count": 4
+    },
+    {
+     "word": "충격적인",
+     "count": 4
+    },
+    {
+     "word": "조선시대",
+     "count": 3
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 44,
+    "없음": 2
+   },
+   "content_words": [
+    {
+     "word": "그리고",
+     "count": 17
+    },
+    {
+     "word": "함께",
+     "count": 14
+    },
+    {
+     "word": "역사",
+     "count": 13
+    },
+    {
+     "word": "있습니다",
+     "count": 13
+    },
+    {
+     "word": "역사와",
+     "count": 12
+    },
+    {
+     "word": "이야기",
+     "count": 11
+    },
+    {
+     "word": "어떻게",
+     "count": 11
+    },
+    {
+     "word": "이야기를",
+     "count": 11
+    },
+    {
+     "word": "가장",
+     "count": 10
+    },
+    {
+     "word": "영상은",
+     "count": 10
+    },
+    {
+     "word": "바탕으로",
+     "count": 10
+    },
+    {
+     "word": "이집트",
+     "count": 9
+    }
+   ],
+   "chapters_share": 0.565,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "0y_c_-Ik_GQ",
+     "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
+     "src": "설명",
+     "hook": "오늘은 '예루살렘 뒷골목'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 다큐멘터리PD(역마살로드) 장준호 PD님 역사를 보다 시리즈의 세계관을 담아낸 2026년 프리미엄 가죽 다이어리 출시!! 하"
+    },
+    {
+     "id": "tlVSuaOykFk",
+     "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
+     "src": "설명",
+     "hook": "오늘 역사를보다는 '천사의 언어 에녹어'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 📖 [역사를 보다2] 📖 [역사를 보다] 📺강인욱 교수님의 개인채널 [고고한 강교수] 📖 박현도 교수님의 저서"
+    },
+    {
+     "id": "N9zFttW2fco",
+     "title": "근친혼을 하면 나타나는 얼굴의 변화 | 의학의 역사 근친혼 편",
+     "src": "설명",
+     "hook": "닥터프렌즈의 구사일생 세계사 닥터프렌즈 영상 보시고 기분 좋은 하루 되세요 😁 닥프의 유튜브 영상 제작은 디토커뮤니케이션즈 와 함께 합니다. 닥프 스튜디오의 공기가 남다른 이유!? 핀란드에서 온 스마트 공기정화 시스템, 나아바(NAAVA) 덕분이죠. 63개 식물이 4,000개 식물만큼 "
+    }
+   ],
+   "comments": 18770,
+   "comment_needs": [
+    {
+     "name": "질문",
+     "count": 3080,
+     "share": 0.164
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 2955,
+     "share": 0.157
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 1105,
+     "share": 0.059
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 707,
+     "share": 0.038
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 693,
+     "share": 0.037
+    },
+    {
+     "name": "요청",
+     "count": 238,
+     "share": 0.013
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "닥터프렌즈는 세명이서 하는게 맞는 거 같아요ㅋㅋㅋㅋㅋㅋ 옆에서 세상 심각한 표정으로 듣고있어ㅋㅋㅋㅋㅋㅋㅋㅋㅋ",
+     "likes": 3889
+    },
+    {
+     "text": "가끔 여동생한테 욕정을 느끼거나 하는 놈들은 정신병임\n근친에 대한 본능적인 거부감도 느껴지지 않을만큼 포르노에 뇌가 망가졌거나 성욕이 조절이 안 되는 거\n모든 페티쉬가 존중받아야 하는 건 아니다 꼭 병원 가봐라",
+     "likes": 2422
+    },
+    {
+     "text": "내 혈육은 나만괴롭힐 수있지만 대체적으로 혈육혐관이 깔려있는게 사실이었어ㅋㅋㅋㅋ",
+     "likes": 2255
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "0y_c_-Ik_GQ",
+     "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
+     "channel": "보다 BODA",
+     "views": 1329432,
+     "views_per_day": 248714.6,
+     "published": "2026-10-11",
+     "url": "https://www.youtube.com/watch?v=0y_c_-Ik_GQ"
+    },
+    {
+     "id": "tlVSuaOykFk",
+     "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
+     "channel": "보다 BODA",
+     "views": 2832900,
+     "views_per_day": 146447.0,
+     "published": "2026-09-27",
+     "url": "https://www.youtube.com/watch?v=tlVSuaOykFk"
+    },
+    {
+     "id": "N9zFttW2fco",
+     "title": "근친혼을 하면 나타나는 얼굴의 변화 | 의학의 역사 근친혼 편",
+     "channel": "닥터프렌즈",
+     "views": 3289899,
+     "views_per_day": 69857.1,
+     "published": "2026-08-30",
+     "url": "https://www.youtube.com/watch?v=N9zFttW2fco"
+    },
+    {
+     "id": "nE1aAbOYw0I",
+     "title": "다 같은 '스탄'인데 뭐가 다른걸까? 중앙아시아 5개 스탄국의 비밀｜역사｜세계사｜소련",
+     "channel": "다시만난역사",
+     "views": 993716,
+     "views_per_day": 56875.5,
+     "published": "2026-09-28",
+     "url": "https://www.youtube.com/watch?v=nE1aAbOYw0I"
+    },
+    {
+     "id": "QftIZGkR9MM",
+     "title": "세계 3분의 1이 왼쪽으로 달리는 이유",
+     "channel": "세계사쇼",
+     "views": 1391510,
+     "views_per_day": 56096.8,
+     "published": "2026-09-21",
+     "url": "https://www.youtube.com/watch?v=QftIZGkR9MM"
+    }
+   ]
+  },
+  {
+   "weeks": 18,
+   "label": "최근 18주",
+   "videos": 49,
+   "channels": 36,
+   "new_this_week": [
+    {
+     "id": "C4QbgaRMmt0",
+     "title": "조선 최악의 역적이 백범 김구 집안의 검은 역사가 된 이유",
+     "published": "2026-06-15"
+    },
+    {
+     "id": "X46M1yoKC8s",
+     "title": "CCTV 없던 조선, 주모는 어떻게 그많은 사람들을 만족시켰을까? l 역사이야기 l 조선시대 한국사",
+     "published": "2026-06-13"
+    },
+    {
+     "id": "n_nHYw8fWkY",
+     "title": "영의정만 6번 지낸 조선 최고의 천재가 죽기 직전 자신을 '죄인'이라 부른 진짜 이유|오리 이원익,청백리,조선사",
+     "published": "2026-06-15"
+    }
+   ],
+   "views_median": 591711,
+   "views_per_day_median": 8662.7,
+   "ratio_median": 21.02,
+   "success": 36,
+   "minutes_median": 21.1,
+   "title_len_avg": 49.0,
+   "title_features": [
+    {
+     "name": "물음표 ?",
+     "count": 20,
+     "share": 0.408
+    },
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 12,
+     "share": 0.245
+    },
+    {
+     "name": "이유",
+     "count": 11,
+     "share": 0.224
+    },
+    {
+     "name": "vs 비교",
+     "count": 8,
+     "share": 0.163
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 2,
+     "share": 0.041
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 1,
+     "share": 0.02
+    },
+    {
+     "name": "느낌표 !",
+     "count": 1,
+     "share": 0.02
+    },
+    {
+     "name": "공통점",
+     "count": 1,
+     "share": 0.02
+    },
+    {
+     "name": "N가지",
+     "count": 1,
+     "share": 0.02
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 1,
+     "share": 0.02
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 1,
+     "share": 0.02
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 1,
+     "share": 0.02
+    }
+   ],
+   "title_words": [
+    {
+     "word": "역사",
+     "count": 13
+    },
+    {
+     "word": "이유",
+     "count": 11
+    },
+    {
+     "word": "조선",
+     "count": 9
+    },
+    {
+     "word": "역사를",
+     "count": 7
+    },
+    {
+     "word": "EP",
+     "count": 7
+    },
+    {
+     "word": "보다",
+     "count": 7
+    },
+    {
+     "word": "세계사",
+     "count": 7
+    },
+    {
+     "word": "조선시대",
+     "count": 4
+    },
+    {
+     "word": "어떻게",
+     "count": 4
+    },
+    {
+     "word": "정체",
+     "count": 4
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 47,
+    "없음": 2
+   },
+   "content_words": [
+    {
+     "word": "그리고",
+     "count": 19
+    },
+    {
+     "word": "함께",
+     "count": 14
+    },
+    {
+     "word": "역사",
+     "count": 13
+    },
+    {
+     "word": "있습니다",
+     "count": 13
+    },
+    {
+     "word": "역사와",
+     "count": 12
+    },
+    {
+     "word": "조선",
+     "count": 12
+    },
+    {
+     "word": "가장",
+     "count": 12
+    },
+    {
+     "word": "어떻게",
+     "count": 12
+    },
+    {
+     "word": "이야기를",
+     "count": 12
+    },
+    {
+     "word": "이야기",
+     "count": 11
+    },
+    {
+     "word": "영상은",
+     "count": 11
+    },
+    {
+     "word": "바탕으로",
+     "count": 11
+    }
+   ],
+   "chapters_share": 0.571,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "0y_c_-Ik_GQ",
+     "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
+     "src": "설명",
+     "hook": "오늘은 '예루살렘 뒷골목'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 다큐멘터리PD(역마살로드) 장준호 PD님 역사를 보다 시리즈의 세계관을 담아낸 2026년 프리미엄 가죽 다이어리 출시!! 하"
+    },
+    {
+     "id": "tlVSuaOykFk",
+     "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
+     "src": "설명",
+     "hook": "오늘 역사를보다는 '천사의 언어 에녹어'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 📖 [역사를 보다2] 📖 [역사를 보다] 📺강인욱 교수님의 개인채널 [고고한 강교수] 📖 박현도 교수님의 저서"
+    },
+    {
+     "id": "N9zFttW2fco",
+     "title": "근친혼을 하면 나타나는 얼굴의 변화 | 의학의 역사 근친혼 편",
+     "src": "설명",
+     "hook": "닥터프렌즈의 구사일생 세계사 닥터프렌즈 영상 보시고 기분 좋은 하루 되세요 😁 닥프의 유튜브 영상 제작은 디토커뮤니케이션즈 와 함께 합니다. 닥프 스튜디오의 공기가 남다른 이유!? 핀란드에서 온 스마트 공기정화 시스템, 나아바(NAAVA) 덕분이죠. 63개 식물이 4,000개 식물만큼 "
+    }
+   ],
+   "comments": 21290,
+   "comment_needs": [
+    {
+     "name": "질문",
+     "count": 3580,
+     "share": 0.168
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 3166,
+     "share": 0.149
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 1179,
+     "share": 0.055
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 814,
+     "share": 0.038
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 782,
+     "share": 0.037
+    },
+    {
+     "name": "요청",
+     "count": 259,
+     "share": 0.012
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "닥터프렌즈는 세명이서 하는게 맞는 거 같아요ㅋㅋㅋㅋㅋㅋ 옆에서 세상 심각한 표정으로 듣고있어ㅋㅋㅋㅋㅋㅋㅋㅋㅋ",
+     "likes": 3889
+    },
+    {
+     "text": "가끔 여동생한테 욕정을 느끼거나 하는 놈들은 정신병임\n근친에 대한 본능적인 거부감도 느껴지지 않을만큼 포르노에 뇌가 망가졌거나 성욕이 조절이 안 되는 거\n모든 페티쉬가 존중받아야 하는 건 아니다 꼭 병원 가봐라",
+     "likes": 2422
+    },
+    {
+     "text": "내 혈육은 나만괴롭힐 수있지만 대체적으로 혈육혐관이 깔려있는게 사실이었어ㅋㅋㅋㅋ",
+     "likes": 2255
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "0y_c_-Ik_GQ",
+     "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
+     "channel": "보다 BODA",
+     "views": 1329432,
+     "views_per_day": 248714.6,
+     "published": "2026-10-11",
+     "url": "https://www.youtube.com/watch?v=0y_c_-Ik_GQ"
+    },
+    {
+     "id": "tlVSuaOykFk",
+     "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
+     "channel": "보다 BODA",
+     "views": 2832900,
+     "views_per_day": 146447.0,
+     "published": "2026-09-27",
+     "url": "https://www.youtube.com/watch?v=tlVSuaOykFk"
+    },
+    {
+     "id": "N9zFttW2fco",
+     "title": "근친혼을 하면 나타나는 얼굴의 변화 | 의학의 역사 근친혼 편",
+     "channel": "닥터프렌즈",
+     "views": 3289899,
+     "views_per_day": 69857.1,
+     "published": "2026-08-30",
+     "url": "https://www.youtube.com/watch?v=N9zFttW2fco"
+    },
+    {
+     "id": "nE1aAbOYw0I",
+     "title": "다 같은 '스탄'인데 뭐가 다른걸까? 중앙아시아 5개 스탄국의 비밀｜역사｜세계사｜소련",
+     "channel": "다시만난역사",
+     "views": 993716,
+     "views_per_day": 56875.5,
+     "published": "2026-09-28",
+     "url": "https://www.youtube.com/watch?v=nE1aAbOYw0I"
+    },
+    {
+     "id": "QftIZGkR9MM",
+     "title": "세계 3분의 1이 왼쪽으로 달리는 이유",
+     "channel": "세계사쇼",
+     "views": 1391510,
+     "views_per_day": 56096.8,
+     "published": "2026-09-21",
+     "url": "https://www.youtube.com/watch?v=QftIZGkR9MM"
+    }
+   ]
+  },
+  {
+   "weeks": 19,
+   "label": "최근 19주",
+   "videos": 52,
+   "channels": 39,
+   "new_this_week": [
+    {
+     "id": "5vBTGmcYA5w",
+     "title": "조선시대 사람들이 30살에 이가 다 빠져버린 소름돋는 이유는? | 조선역사 | 한국사 | 조선왕조실록 |",
+     "published": "2026-06-06"
+    },
+    {
+     "id": "DY0tRfuxRhQ",
+     "title": "조선 왕조 실록 1대 태조부터 27대 순종까지 한번에 몰아보기 | 27명의 임금 중 진짜 왕이 단 5명뿐인 소름 돋는 이유",
+     "published": "2026-06-11"
+    },
+    {
+     "id": "kHamu2oW_1g",
+     "title": "\"조선을 병들게 한 장본인\" 조선 역사는 이 사람 이전과 이후로 나뉩니다",
+     "published": "2026-06-06"
+    }
+   ],
+   "views_median": 549630.0,
+   "views_per_day_median": 8262.8,
+   "ratio_median": 21.52,
+   "success": 39,
+   "minutes_median": 20.5,
+   "title_len_avg": 49.4,
+   "title_features": [
+    {
+     "name": "물음표 ?",
+     "count": 21,
+     "share": 0.404
+    },
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 14,
+     "share": 0.269
+    },
+    {
+     "name": "이유",
+     "count": 13,
+     "share": 0.25
+    },
+    {
+     "name": "vs 비교",
+     "count": 10,
+     "share": 0.192
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 2,
+     "share": 0.038
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 1,
+     "share": 0.019
+    },
+    {
+     "name": "느낌표 !",
+     "count": 1,
+     "share": 0.019
+    },
+    {
+     "name": "공통점",
+     "count": 1,
+     "share": 0.019
+    },
+    {
+     "name": "N가지",
+     "count": 1,
+     "share": 0.019
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 1,
+     "share": 0.019
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 1,
+     "share": 0.019
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 1,
+     "share": 0.019
+    }
+   ],
+   "title_words": [
+    {
+     "word": "역사",
+     "count": 13
+    },
+    {
+     "word": "이유",
+     "count": 12
+    },
+    {
+     "word": "조선",
+     "count": 11
+    },
+    {
+     "word": "역사를",
+     "count": 7
+    },
+    {
+     "word": "EP",
+     "count": 7
+    },
+    {
+     "word": "보다",
+     "count": 7
+    },
+    {
+     "word": "세계사",
+     "count": 7
+    },
+    {
+     "word": "조선시대",
+     "count": 5
+    },
+    {
+     "word": "어떻게",
+     "count": 4
+    },
+    {
+     "word": "정체",
+     "count": 4
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 50,
+    "없음": 2
+   },
+   "content_words": [
+    {
+     "word": "그리고",
+     "count": 19
+    },
+    {
+     "word": "조선",
+     "count": 14
+    },
+    {
+     "word": "함께",
+     "count": 14
+    },
+    {
+     "word": "있습니다",
+     "count": 14
+    },
+    {
+     "word": "가장",
+     "count": 13
+    },
+    {
+     "word": "역사",
+     "count": 13
+    },
+    {
+     "word": "이야기",
+     "count": 12
+    },
+    {
+     "word": "역사와",
+     "count": 12
+    },
+    {
+     "word": "어떻게",
+     "count": 12
+    },
+    {
+     "word": "영상은",
+     "count": 12
+    },
+    {
+     "word": "이야기를",
+     "count": 12
+    },
+    {
+     "word": "타임라인",
+     "count": 11
+    }
+   ],
+   "chapters_share": 0.596,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "0y_c_-Ik_GQ",
+     "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
+     "src": "설명",
+     "hook": "오늘은 '예루살렘 뒷골목'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 다큐멘터리PD(역마살로드) 장준호 PD님 역사를 보다 시리즈의 세계관을 담아낸 2026년 프리미엄 가죽 다이어리 출시!! 하"
+    },
+    {
+     "id": "tlVSuaOykFk",
+     "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
+     "src": "설명",
+     "hook": "오늘 역사를보다는 '천사의 언어 에녹어'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 📖 [역사를 보다2] 📖 [역사를 보다] 📺강인욱 교수님의 개인채널 [고고한 강교수] 📖 박현도 교수님의 저서"
+    },
+    {
+     "id": "N9zFttW2fco",
+     "title": "근친혼을 하면 나타나는 얼굴의 변화 | 의학의 역사 근친혼 편",
+     "src": "설명",
+     "hook": "닥터프렌즈의 구사일생 세계사 닥터프렌즈 영상 보시고 기분 좋은 하루 되세요 😁 닥프의 유튜브 영상 제작은 디토커뮤니케이션즈 와 함께 합니다. 닥프 스튜디오의 공기가 남다른 이유!? 핀란드에서 온 스마트 공기정화 시스템, 나아바(NAAVA) 덕분이죠. 63개 식물이 4,000개 식물만큼 "
+    }
+   ],
+   "comments": 23274,
+   "comment_needs": [
+    {
+     "name": "질문",
+     "count": 3873,
+     "share": 0.166
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 3386,
+     "share": 0.145
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 1322,
+     "share": 0.057
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 923,
+     "share": 0.04
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 841,
+     "share": 0.036
+    },
+    {
+     "name": "요청",
+     "count": 297,
+     "share": 0.013
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "닥터프렌즈는 세명이서 하는게 맞는 거 같아요ㅋㅋㅋㅋㅋㅋ 옆에서 세상 심각한 표정으로 듣고있어ㅋㅋㅋㅋㅋㅋㅋㅋㅋ",
+     "likes": 3889
+    },
+    {
+     "text": "가끔 여동생한테 욕정을 느끼거나 하는 놈들은 정신병임\n근친에 대한 본능적인 거부감도 느껴지지 않을만큼 포르노에 뇌가 망가졌거나 성욕이 조절이 안 되는 거\n모든 페티쉬가 존중받아야 하는 건 아니다 꼭 병원 가봐라",
+     "likes": 2422
+    },
+    {
+     "text": "내 혈육은 나만괴롭힐 수있지만 대체적으로 혈육혐관이 깔려있는게 사실이었어ㅋㅋㅋㅋ",
+     "likes": 2255
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "0y_c_-Ik_GQ",
+     "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
+     "channel": "보다 BODA",
+     "views": 1329432,
+     "views_per_day": 248714.6,
+     "published": "2026-10-11",
+     "url": "https://www.youtube.com/watch?v=0y_c_-Ik_GQ"
+    },
+    {
+     "id": "tlVSuaOykFk",
+     "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
+     "channel": "보다 BODA",
+     "views": 2832900,
+     "views_per_day": 146447.0,
+     "published": "2026-09-27",
+     "url": "https://www.youtube.com/watch?v=tlVSuaOykFk"
+    },
+    {
+     "id": "N9zFttW2fco",
+     "title": "근친혼을 하면 나타나는 얼굴의 변화 | 의학의 역사 근친혼 편",
+     "channel": "닥터프렌즈",
+     "views": 3289899,
+     "views_per_day": 69857.1,
+     "published": "2026-08-30",
+     "url": "https://www.youtube.com/watch?v=N9zFttW2fco"
+    },
+    {
+     "id": "nE1aAbOYw0I",
+     "title": "다 같은 '스탄'인데 뭐가 다른걸까? 중앙아시아 5개 스탄국의 비밀｜역사｜세계사｜소련",
+     "channel": "다시만난역사",
+     "views": 993716,
+     "views_per_day": 56875.5,
+     "published": "2026-09-28",
+     "url": "https://www.youtube.com/watch?v=nE1aAbOYw0I"
+    },
+    {
+     "id": "QftIZGkR9MM",
+     "title": "세계 3분의 1이 왼쪽으로 달리는 이유",
+     "channel": "세계사쇼",
+     "views": 1391510,
+     "views_per_day": 56096.8,
+     "published": "2026-09-21",
+     "url": "https://www.youtube.com/watch?v=QftIZGkR9MM"
+    }
+   ]
+  },
+  {
+   "weeks": 20,
+   "label": "최근 20주",
+   "videos": 53,
+   "channels": 40,
+   "new_this_week": [
+    {
+     "id": "cE8_zCNVONE",
+     "title": "사극에는 절대 나올 수 없는 조선 주막의 적나라한 민낯",
+     "published": "2026-05-29"
+    }
+   ],
+   "views_median": 571137,
+   "views_per_day_median": 8118.4,
+   "ratio_median": 22.01,
+   "success": 40,
+   "minutes_median": 21.1,
+   "title_len_avg": 49.0,
+   "title_features": [
+    {
+     "name": "물음표 ?",
+     "count": 21,
+     "share": 0.396
+    },
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 14,
+     "share": 0.264
+    },
+    {
+     "name": "이유",
+     "count": 13,
+     "share": 0.245
+    },
+    {
+     "name": "vs 비교",
+     "count": 11,
+     "share": 0.208
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 2,
+     "share": 0.038
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 1,
+     "share": 0.019
+    },
+    {
+     "name": "느낌표 !",
+     "count": 1,
+     "share": 0.019
+    },
+    {
+     "name": "공통점",
+     "count": 1,
+     "share": 0.019
+    },
+    {
+     "name": "N가지",
+     "count": 1,
+     "share": 0.019
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 1,
+     "share": 0.019
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 1,
+     "share": 0.019
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 1,
+     "share": 0.019
+    }
+   ],
+   "title_words": [
+    {
+     "word": "역사",
+     "count": 13
+    },
+    {
+     "word": "조선",
+     "count": 12
+    },
+    {
+     "word": "이유",
+     "count": 12
+    },
+    {
+     "word": "역사를",
+     "count": 7
+    },
+    {
+     "word": "EP",
+     "count": 7
+    },
+    {
+     "word": "보다",
+     "count": 7
+    },
+    {
+     "word": "세계사",
+     "count": 7
+    },
+    {
+     "word": "조선시대",
+     "count": 5
+    },
+    {
+     "word": "어떻게",
+     "count": 4
+    },
+    {
+     "word": "정체",
+     "count": 4
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 51,
+    "없음": 2
+   },
+   "content_words": [
+    {
+     "word": "그리고",
+     "count": 19
+    },
+    {
+     "word": "조선",
+     "count": 15
+    },
+    {
+     "word": "함께",
+     "count": 14
+    },
+    {
+     "word": "있습니다",
+     "count": 14
+    },
+    {
+     "word": "가장",
+     "count": 13
+    },
+    {
+     "word": "역사",
+     "count": 13
+    },
+    {
+     "word": "이야기",
+     "count": 12
+    },
+    {
+     "word": "역사와",
+     "count": 12
+    },
+    {
+     "word": "타임라인",
+     "count": 12
+    },
+    {
+     "word": "어떻게",
+     "count": 12
+    },
+    {
+     "word": "그런데",
+     "count": 12
+    },
+    {
+     "word": "영상은",
+     "count": 12
+    }
+   ],
+   "chapters_share": 0.585,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "0y_c_-Ik_GQ",
+     "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
+     "src": "설명",
+     "hook": "오늘은 '예루살렘 뒷골목'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 다큐멘터리PD(역마살로드) 장준호 PD님 역사를 보다 시리즈의 세계관을 담아낸 2026년 프리미엄 가죽 다이어리 출시!! 하"
+    },
+    {
+     "id": "tlVSuaOykFk",
+     "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
+     "src": "설명",
+     "hook": "오늘 역사를보다는 '천사의 언어 에녹어'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 📖 [역사를 보다2] 📖 [역사를 보다] 📺강인욱 교수님의 개인채널 [고고한 강교수] 📖 박현도 교수님의 저서"
+    },
+    {
+     "id": "N9zFttW2fco",
+     "title": "근친혼을 하면 나타나는 얼굴의 변화 | 의학의 역사 근친혼 편",
+     "src": "설명",
+     "hook": "닥터프렌즈의 구사일생 세계사 닥터프렌즈 영상 보시고 기분 좋은 하루 되세요 😁 닥프의 유튜브 영상 제작은 디토커뮤니케이션즈 와 함께 합니다. 닥프 스튜디오의 공기가 남다른 이유!? 핀란드에서 온 스마트 공기정화 시스템, 나아바(NAAVA) 덕분이죠. 63개 식물이 4,000개 식물만큼 "
+    }
+   ],
+   "comments": 23545,
+   "comment_needs": [
+    {
+     "name": "질문",
+     "count": 3939,
+     "share": 0.167
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 3421,
+     "share": 0.145
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 1332,
+     "share": 0.057
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 930,
+     "share": 0.039
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 855,
+     "share": 0.036
+    },
+    {
+     "name": "요청",
+     "count": 300,
+     "share": 0.013
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "닥터프렌즈는 세명이서 하는게 맞는 거 같아요ㅋㅋㅋㅋㅋㅋ 옆에서 세상 심각한 표정으로 듣고있어ㅋㅋㅋㅋㅋㅋㅋㅋㅋ",
+     "likes": 3889
+    },
+    {
+     "text": "가끔 여동생한테 욕정을 느끼거나 하는 놈들은 정신병임\n근친에 대한 본능적인 거부감도 느껴지지 않을만큼 포르노에 뇌가 망가졌거나 성욕이 조절이 안 되는 거\n모든 페티쉬가 존중받아야 하는 건 아니다 꼭 병원 가봐라",
+     "likes": 2422
+    },
+    {
+     "text": "내 혈육은 나만괴롭힐 수있지만 대체적으로 혈육혐관이 깔려있는게 사실이었어ㅋㅋㅋㅋ",
+     "likes": 2255
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "0y_c_-Ik_GQ",
+     "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
+     "channel": "보다 BODA",
+     "views": 1329432,
+     "views_per_day": 248714.6,
+     "published": "2026-10-11",
+     "url": "https://www.youtube.com/watch?v=0y_c_-Ik_GQ"
+    },
+    {
+     "id": "tlVSuaOykFk",
+     "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
+     "channel": "보다 BODA",
+     "views": 2832900,
+     "views_per_day": 146447.0,
+     "published": "2026-09-27",
+     "url": "https://www.youtube.com/watch?v=tlVSuaOykFk"
+    },
+    {
+     "id": "N9zFttW2fco",
+     "title": "근친혼을 하면 나타나는 얼굴의 변화 | 의학의 역사 근친혼 편",
+     "channel": "닥터프렌즈",
+     "views": 3289899,
+     "views_per_day": 69857.1,
+     "published": "2026-08-30",
+     "url": "https://www.youtube.com/watch?v=N9zFttW2fco"
+    },
+    {
+     "id": "nE1aAbOYw0I",
+     "title": "다 같은 '스탄'인데 뭐가 다른걸까? 중앙아시아 5개 스탄국의 비밀｜역사｜세계사｜소련",
+     "channel": "다시만난역사",
+     "views": 993716,
+     "views_per_day": 56875.5,
+     "published": "2026-09-28",
+     "url": "https://www.youtube.com/watch?v=nE1aAbOYw0I"
+    },
+    {
+     "id": "QftIZGkR9MM",
+     "title": "세계 3분의 1이 왼쪽으로 달리는 이유",
+     "channel": "세계사쇼",
+     "views": 1391510,
+     "views_per_day": 56096.8,
+     "published": "2026-09-21",
+     "url": "https://www.youtube.com/watch?v=QftIZGkR9MM"
+    }
+   ]
+  },
+  {
+   "weeks": 21,
+   "label": "최근 21주",
+   "videos": 55,
+   "channels": 41,
+   "new_this_week": [
+    {
+     "id": "NRtLHrlkspU",
+     "title": "조선왕조실록에 3000번 등장하는 단 한 사람ㅣ숙종의 사약을 세 사발이나 마신 노론 영수ㅣ우암 송시열",
+     "published": "2026-05-25"
+    },
+    {
+     "id": "ZkhFBxzJFsM",
+     "title": "한국이 중국 속국이라는 역사왜곡 MBC 드라마 [21세기 대군부인] 레전드 ㅋㅋㅋㅋㅋㅋ 진짜 골때리는 드라마 모음집 ㅋㅋㅋㅋㅋㅋ",
+     "published": "2026-05-23"
+    }
+   ],
+   "views_median": 591711,
+   "views_per_day_median": 8118.4,
+   "ratio_median": 21.02,
+   "success": 41,
+   "minutes_median": 21.1,
+   "title_len_avg": 49.6,
+   "title_features": [
+    {
+     "name": "물음표 ?",
+     "count": 21,
+     "share": 0.382
+    },
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 14,
+     "share": 0.255
+    },
+    {
+     "name": "이유",
+     "count": 13,
+     "share": 0.236
+    },
+    {
+     "name": "vs 비교",
+     "count": 11,
+     "share": 0.2
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 2,
+     "share": 0.036
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 1,
+     "share": 0.018
+    },
+    {
+     "name": "느낌표 !",
+     "count": 1,
+     "share": 0.018
+    },
+    {
+     "name": "공통점",
+     "count": 1,
+     "share": 0.018
+    },
+    {
+     "name": "N가지",
+     "count": 1,
+     "share": 0.018
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 1,
+     "share": 0.018
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 1,
+     "share": 0.018
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 1,
+     "share": 0.018
+    }
+   ],
+   "title_words": [
+    {
+     "word": "역사",
+     "count": 13
+    },
+    {
+     "word": "조선",
+     "count": 12
+    },
+    {
+     "word": "이유",
+     "count": 12
+    },
+    {
+     "word": "역사를",
+     "count": 7
+    },
+    {
+     "word": "EP",
+     "count": 7
+    },
+    {
+     "word": "보다",
+     "count": 7
+    },
+    {
+     "word": "세계사",
+     "count": 7
+    },
+    {
+     "word": "조선시대",
+     "count": 5
+    },
+    {
+     "word": "어떻게",
+     "count": 4
+    },
+    {
+     "word": "정체",
+     "count": 4
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 53,
+    "없음": 2
+   },
+   "content_words": [
+    {
+     "word": "그리고",
+     "count": 20
+    },
+    {
+     "word": "조선",
+     "count": 16
+    },
+    {
+     "word": "함께",
+     "count": 15
+    },
+    {
+     "word": "있습니다",
+     "count": 15
+    },
+    {
+     "word": "가장",
+     "count": 13
+    },
+    {
+     "word": "역사",
+     "count": 13
+    },
+    {
+     "word": "이야기",
+     "count": 12
+    },
+    {
+     "word": "역사와",
+     "count": 12
+    },
+    {
+     "word": "타임라인",
+     "count": 12
+    },
+    {
+     "word": "어떻게",
+     "count": 12
+    },
+    {
+     "word": "그런데",
+     "count": 12
+    },
+    {
+     "word": "영상은",
+     "count": 12
+    }
+   ],
+   "chapters_share": 0.564,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "0y_c_-Ik_GQ",
+     "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
+     "src": "설명",
+     "hook": "오늘은 '예루살렘 뒷골목'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 다큐멘터리PD(역마살로드) 장준호 PD님 역사를 보다 시리즈의 세계관을 담아낸 2026년 프리미엄 가죽 다이어리 출시!! 하"
+    },
+    {
+     "id": "tlVSuaOykFk",
+     "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
+     "src": "설명",
+     "hook": "오늘 역사를보다는 '천사의 언어 에녹어'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 📖 [역사를 보다2] 📖 [역사를 보다] 📺강인욱 교수님의 개인채널 [고고한 강교수] 📖 박현도 교수님의 저서"
+    },
+    {
+     "id": "N9zFttW2fco",
+     "title": "근친혼을 하면 나타나는 얼굴의 변화 | 의학의 역사 근친혼 편",
+     "src": "설명",
+     "hook": "닥터프렌즈의 구사일생 세계사 닥터프렌즈 영상 보시고 기분 좋은 하루 되세요 😁 닥프의 유튜브 영상 제작은 디토커뮤니케이션즈 와 함께 합니다. 닥프 스튜디오의 공기가 남다른 이유!? 핀란드에서 온 스마트 공기정화 시스템, 나아바(NAAVA) 덕분이죠. 63개 식물이 4,000개 식물만큼 "
+    }
+   ],
+   "comments": 29748,
+   "comment_needs": [
+    {
+     "name": "질문",
+     "count": 5172,
+     "share": 0.174
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 3507,
+     "share": 0.118
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 1530,
+     "share": 0.051
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 1170,
+     "share": 0.039
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 971,
+     "share": 0.033
+    },
+    {
+     "name": "요청",
+     "count": 320,
+     "share": 0.011
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "이제는 딱히 숨길 생각도 없는 놈들...",
+     "likes": 14837
+    },
+    {
+     "text": "MBC JTBC는 이제 숨길생각도 안함",
+     "likes": 12122
+    },
+    {
+     "text": "21세기 테무부인 되버림ㅋ\n뇌 빼고 생각하지 않았더니 마지막화에 중국 속국엔딩ㅋㅋㅋㅋㅋ",
+     "likes": 6310
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "0y_c_-Ik_GQ",
+     "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
+     "channel": "보다 BODA",
+     "views": 1329432,
+     "views_per_day": 248714.6,
+     "published": "2026-10-11",
+     "url": "https://www.youtube.com/watch?v=0y_c_-Ik_GQ"
+    },
+    {
+     "id": "tlVSuaOykFk",
+     "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
+     "channel": "보다 BODA",
+     "views": 2832900,
+     "views_per_day": 146447.0,
+     "published": "2026-09-27",
+     "url": "https://www.youtube.com/watch?v=tlVSuaOykFk"
+    },
+    {
+     "id": "N9zFttW2fco",
+     "title": "근친혼을 하면 나타나는 얼굴의 변화 | 의학의 역사 근친혼 편",
+     "channel": "닥터프렌즈",
+     "views": 3289899,
+     "views_per_day": 69857.1,
+     "published": "2026-08-30",
+     "url": "https://www.youtube.com/watch?v=N9zFttW2fco"
+    },
+    {
+     "id": "nE1aAbOYw0I",
+     "title": "다 같은 '스탄'인데 뭐가 다른걸까? 중앙아시아 5개 스탄국의 비밀｜역사｜세계사｜소련",
+     "channel": "다시만난역사",
+     "views": 993716,
+     "views_per_day": 56875.5,
+     "published": "2026-09-28",
+     "url": "https://www.youtube.com/watch?v=nE1aAbOYw0I"
+    },
+    {
+     "id": "QftIZGkR9MM",
+     "title": "세계 3분의 1이 왼쪽으로 달리는 이유",
+     "channel": "세계사쇼",
+     "views": 1391510,
+     "views_per_day": 56096.8,
+     "published": "2026-09-21",
+     "url": "https://www.youtube.com/watch?v=QftIZGkR9MM"
+    }
+   ]
+  },
+  {
+   "weeks": 22,
+   "label": "최근 22주",
+   "videos": 59,
+   "channels": 44,
+   "new_this_week": [
+    {
+     "id": "R57hAxs7SQ4",
+     "title": "부자 90%가 3대에 망할 때 로스차일드만 250년 간 진짜 이유",
+     "published": "2026-05-22"
+    },
+    {
+     "id": "eY_TrTKsIJ0",
+     "title": "[역사한줄] 조선시대 실제군인이 작성한 일기내용 #조선역사 #한국사  #부북일기",
+     "published": "2026-05-20"
+    },
+    {
+     "id": "l8yHqJy1Ops",
+     "title": "썬킴이 들려주는 중국사 1편 (고대사)",
+     "published": "2026-05-16"
+    },
+    {
+     "id": "tYhezr6EsTo",
+     "title": "광해군은 성군일까 폭군일까 | 단종보다 비참했던 19년의 생지옥 | 영웅에서 패륜아가 되기까지",
+     "published": "2026-05-18"
+    }
+   ],
+   "views_median": 571137,
+   "views_per_day_median": 7618.2,
+   "ratio_median": 20.13,
+   "success": 44,
+   "minutes_median": 21.1,
+   "title_len_avg": 48.8,
+   "title_features": [
+    {
+     "name": "물음표 ?",
+     "count": 21,
+     "share": 0.356
+    },
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 15,
+     "share": 0.254
+    },
+    {
+     "name": "이유",
+     "count": 14,
+     "share": 0.237
+    },
+    {
+     "name": "vs 비교",
+     "count": 12,
+     "share": 0.203
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 2,
+     "share": 0.034
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 1,
+     "share": 0.017
+    },
+    {
+     "name": "느낌표 !",
+     "count": 1,
+     "share": 0.017
+    },
+    {
+     "name": "공통점",
+     "count": 1,
+     "share": 0.017
+    },
+    {
+     "name": "N가지",
+     "count": 1,
+     "share": 0.017
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 1,
+     "share": 0.017
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 1,
+     "share": 0.017
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 1,
+     "share": 0.017
+    }
+   ],
+   "title_words": [
+    {
+     "word": "역사",
+     "count": 13
+    },
+    {
+     "word": "이유",
+     "count": 13
+    },
+    {
+     "word": "조선",
+     "count": 12
+    },
+    {
+     "word": "역사를",
+     "count": 7
+    },
+    {
+     "word": "EP",
+     "count": 7
+    },
+    {
+     "word": "보다",
+     "count": 7
+    },
+    {
+     "word": "세계사",
+     "count": 7
+    },
+    {
+     "word": "조선시대",
+     "count": 6
+    },
+    {
+     "word": "조선역사",
+     "count": 4
+    },
+    {
+     "word": "어떻게",
+     "count": 4
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 56,
+    "없음": 3
+   },
+   "content_words": [
+    {
+     "word": "그리고",
+     "count": 21
+    },
+    {
+     "word": "조선",
+     "count": 17
+    },
+    {
+     "word": "있습니다",
+     "count": 17
+    },
+    {
+     "word": "함께",
+     "count": 15
+    },
+    {
+     "word": "그런데",
+     "count": 14
+    },
+    {
+     "word": "영상은",
+     "count": 14
+    },
+    {
+     "word": "타임라인",
+     "count": 13
+    },
+    {
+     "word": "가장",
+     "count": 13
+    },
+    {
+     "word": "역사",
+     "count": 13
+    },
+    {
+     "word": "이야기",
+     "count": 12
+    },
+    {
+     "word": "역사와",
+     "count": 12
+    },
+    {
+     "word": "어떻게",
+     "count": 12
+    }
+   ],
+   "chapters_share": 0.559,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "0y_c_-Ik_GQ",
+     "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
+     "src": "설명",
+     "hook": "오늘은 '예루살렘 뒷골목'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 다큐멘터리PD(역마살로드) 장준호 PD님 역사를 보다 시리즈의 세계관을 담아낸 2026년 프리미엄 가죽 다이어리 출시!! 하"
+    },
+    {
+     "id": "tlVSuaOykFk",
+     "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
+     "src": "설명",
+     "hook": "오늘 역사를보다는 '천사의 언어 에녹어'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 📖 [역사를 보다2] 📖 [역사를 보다] 📺강인욱 교수님의 개인채널 [고고한 강교수] 📖 박현도 교수님의 저서"
+    },
+    {
+     "id": "N9zFttW2fco",
+     "title": "근친혼을 하면 나타나는 얼굴의 변화 | 의학의 역사 근친혼 편",
+     "src": "설명",
+     "hook": "닥터프렌즈의 구사일생 세계사 닥터프렌즈 영상 보시고 기분 좋은 하루 되세요 😁 닥프의 유튜브 영상 제작은 디토커뮤니케이션즈 와 함께 합니다. 닥프 스튜디오의 공기가 남다른 이유!? 핀란드에서 온 스마트 공기정화 시스템, 나아바(NAAVA) 덕분이죠. 63개 식물이 4,000개 식물만큼 "
+    }
+   ],
+   "comments": 30720,
+   "comment_needs": [
+    {
+     "name": "질문",
+     "count": 5364,
+     "share": 0.175
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 3560,
+     "share": 0.116
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 1572,
+     "share": 0.051
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 1203,
+     "share": 0.039
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 1006,
+     "share": 0.033
+    },
+    {
+     "name": "요청",
+     "count": 323,
+     "share": 0.011
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "이제는 딱히 숨길 생각도 없는 놈들...",
+     "likes": 14837
+    },
+    {
+     "text": "MBC JTBC는 이제 숨길생각도 안함",
+     "likes": 12122
+    },
+    {
+     "text": "21세기 테무부인 되버림ㅋ\n뇌 빼고 생각하지 않았더니 마지막화에 중국 속국엔딩ㅋㅋㅋㅋㅋ",
+     "likes": 6310
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "0y_c_-Ik_GQ",
+     "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
+     "channel": "보다 BODA",
+     "views": 1329432,
+     "views_per_day": 248714.6,
+     "published": "2026-10-11",
+     "url": "https://www.youtube.com/watch?v=0y_c_-Ik_GQ"
+    },
+    {
+     "id": "tlVSuaOykFk",
+     "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
+     "channel": "보다 BODA",
+     "views": 2832900,
+     "views_per_day": 146447.0,
+     "published": "2026-09-27",
+     "url": "https://www.youtube.com/watch?v=tlVSuaOykFk"
+    },
+    {
+     "id": "N9zFttW2fco",
+     "title": "근친혼을 하면 나타나는 얼굴의 변화 | 의학의 역사 근친혼 편",
+     "channel": "닥터프렌즈",
+     "views": 3289899,
+     "views_per_day": 69857.1,
+     "published": "2026-08-30",
+     "url": "https://www.youtube.com/watch?v=N9zFttW2fco"
+    },
+    {
+     "id": "nE1aAbOYw0I",
+     "title": "다 같은 '스탄'인데 뭐가 다른걸까? 중앙아시아 5개 스탄국의 비밀｜역사｜세계사｜소련",
+     "channel": "다시만난역사",
+     "views": 993716,
+     "views_per_day": 56875.5,
+     "published": "2026-09-28",
+     "url": "https://www.youtube.com/watch?v=nE1aAbOYw0I"
+    },
+    {
+     "id": "QftIZGkR9MM",
+     "title": "세계 3분의 1이 왼쪽으로 달리는 이유",
+     "channel": "세계사쇼",
+     "views": 1391510,
+     "views_per_day": 56096.8,
+     "published": "2026-09-21",
+     "url": "https://www.youtube.com/watch?v=QftIZGkR9MM"
+    }
+   ]
+  },
+  {
+   "weeks": 23,
+   "label": "최근 23주",
+   "videos": 62,
+   "channels": 46,
+   "new_this_week": [
+    {
+     "id": "F708KFpG_5U",
+     "title": "충격실화! 조선시대 꿀보직 TOP5 — 일 안 해도 나라에서 월급 줬습니다",
+     "published": "2026-05-14"
+    },
+    {
+     "id": "Ozd6iz453pc",
+     "title": "왕건의 건국부터 이성계의 조선 건국까지｜고려거란전쟁·귀주대첩 포함 고려 역사 500년 몰아보기",
+     "published": "2026-05-08"
+    },
+    {
+     "id": "if6WN6ejRYo",
+     "title": "인류 최초의 문명 수메르, 그들은 대체 어디서 왔을까? l 세계사 l 역사 l 메소포타미아",
+     "published": "2026-05-11"
+    }
+   ],
+   "views_median": 525780.0,
+   "views_per_day_median": 7150.0,
+   "ratio_median": 20.57,
+   "success": 47,
+   "minutes_median": 20.5,
+   "title_len_avg": 48.7,
+   "title_features": [
+    {
+     "name": "물음표 ?",
+     "count": 22,
+     "share": 0.355
+    },
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 15,
+     "share": 0.242
+    },
+    {
+     "name": "이유",
+     "count": 14,
+     "share": 0.226
+    },
+    {
+     "name": "vs 비교",
+     "count": 13,
+     "share": 0.21
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 3,
+     "share": 0.048
+    },
+    {
+     "name": "느낌표 !",
+     "count": 2,
+     "share": 0.032
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 1,
+     "share": 0.016
+    },
+    {
+     "name": "공통점",
+     "count": 1,
+     "share": 0.016
+    },
+    {
+     "name": "N가지",
+     "count": 1,
+     "share": 0.016
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 1,
+     "share": 0.016
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 1,
+     "share": 0.016
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 1,
+     "share": 0.016
+    }
+   ],
+   "title_words": [
+    {
+     "word": "역사",
+     "count": 15
+    },
+    {
+     "word": "조선",
+     "count": 13
+    },
+    {
+     "word": "이유",
+     "count": 13
+    },
+    {
+     "word": "세계사",
+     "count": 8
+    },
+    {
+     "word": "역사를",
+     "count": 7
+    },
+    {
+     "word": "EP",
+     "count": 7
+    },
+    {
+     "word": "보다",
+     "count": 7
+    },
+    {
+     "word": "조선시대",
+     "count": 7
+    },
+    {
+     "word": "조선역사",
+     "count": 4
+    },
+    {
+     "word": "어떻게",
+     "count": 4
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 59,
+    "없음": 3
+   },
+   "content_words": [
+    {
+     "word": "그리고",
+     "count": 23
+    },
+    {
+     "word": "조선",
+     "count": 19
+    },
+    {
+     "word": "있습니다",
+     "count": 18
+    },
+    {
+     "word": "함께",
+     "count": 15
+    },
+    {
+     "word": "그런데",
+     "count": 14
+    },
+    {
+     "word": "영상은",
+     "count": 14
+    },
+    {
+     "word": "타임라인",
+     "count": 13
+    },
+    {
+     "word": "가장",
+     "count": 13
+    },
+    {
+     "word": "역사",
+     "count": 13
+    },
+    {
+     "word": "이야기",
+     "count": 12
+    },
+    {
+     "word": "역사와",
+     "count": 12
+    },
+    {
+     "word": "댓글로",
+     "count": 12
+    }
+   ],
+   "chapters_share": 0.532,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "0y_c_-Ik_GQ",
+     "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
+     "src": "설명",
+     "hook": "오늘은 '예루살렘 뒷골목'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 다큐멘터리PD(역마살로드) 장준호 PD님 역사를 보다 시리즈의 세계관을 담아낸 2026년 프리미엄 가죽 다이어리 출시!! 하"
+    },
+    {
+     "id": "tlVSuaOykFk",
+     "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
+     "src": "설명",
+     "hook": "오늘 역사를보다는 '천사의 언어 에녹어'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 📖 [역사를 보다2] 📖 [역사를 보다] 📺강인욱 교수님의 개인채널 [고고한 강교수] 📖 박현도 교수님의 저서"
+    },
+    {
+     "id": "N9zFttW2fco",
+     "title": "근친혼을 하면 나타나는 얼굴의 변화 | 의학의 역사 근친혼 편",
+     "src": "설명",
+     "hook": "닥터프렌즈의 구사일생 세계사 닥터프렌즈 영상 보시고 기분 좋은 하루 되세요 😁 닥프의 유튜브 영상 제작은 디토커뮤니케이션즈 와 함께 합니다. 닥프 스튜디오의 공기가 남다른 이유!? 핀란드에서 온 스마트 공기정화 시스템, 나아바(NAAVA) 덕분이죠. 63개 식물이 4,000개 식물만큼 "
+    }
+   ],
+   "comments": 31074,
+   "comment_needs": [
+    {
+     "name": "질문",
+     "count": 5429,
+     "share": 0.175
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 3580,
+     "share": 0.115
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 1585,
+     "share": 0.051
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 1214,
+     "share": 0.039
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 1019,
+     "share": 0.033
+    },
+    {
+     "name": "요청",
+     "count": 324,
+     "share": 0.01
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "이제는 딱히 숨길 생각도 없는 놈들...",
+     "likes": 14837
+    },
+    {
+     "text": "MBC JTBC는 이제 숨길생각도 안함",
+     "likes": 12122
+    },
+    {
+     "text": "21세기 테무부인 되버림ㅋ\n뇌 빼고 생각하지 않았더니 마지막화에 중국 속국엔딩ㅋㅋㅋㅋㅋ",
+     "likes": 6310
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "0y_c_-Ik_GQ",
+     "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
+     "channel": "보다 BODA",
+     "views": 1329432,
+     "views_per_day": 248714.6,
+     "published": "2026-10-11",
+     "url": "https://www.youtube.com/watch?v=0y_c_-Ik_GQ"
+    },
+    {
+     "id": "tlVSuaOykFk",
+     "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
+     "channel": "보다 BODA",
+     "views": 2832900,
+     "views_per_day": 146447.0,
+     "published": "2026-09-27",
+     "url": "https://www.youtube.com/watch?v=tlVSuaOykFk"
+    },
+    {
+     "id": "N9zFttW2fco",
+     "title": "근친혼을 하면 나타나는 얼굴의 변화 | 의학의 역사 근친혼 편",
+     "channel": "닥터프렌즈",
+     "views": 3289899,
+     "views_per_day": 69857.1,
+     "published": "2026-08-30",
+     "url": "https://www.youtube.com/watch?v=N9zFttW2fco"
+    },
+    {
+     "id": "nE1aAbOYw0I",
+     "title": "다 같은 '스탄'인데 뭐가 다른걸까? 중앙아시아 5개 스탄국의 비밀｜역사｜세계사｜소련",
+     "channel": "다시만난역사",
+     "views": 993716,
+     "views_per_day": 56875.5,
+     "published": "2026-09-28",
+     "url": "https://www.youtube.com/watch?v=nE1aAbOYw0I"
+    },
+    {
+     "id": "QftIZGkR9MM",
+     "title": "세계 3분의 1이 왼쪽으로 달리는 이유",
+     "channel": "세계사쇼",
+     "views": 1391510,
+     "views_per_day": 56096.8,
+     "published": "2026-09-21",
+     "url": "https://www.youtube.com/watch?v=QftIZGkR9MM"
+    }
+   ]
+  },
+  {
+   "weeks": 24,
+   "label": "최근 24주",
+   "videos": 66,
+   "channels": 49,
+   "new_this_week": [
+    {
+     "id": "P9nHouyJ1Hg",
+     "title": "단종보다 10배 더 슬픈 광해군의 19년 생지옥… 원수의 파멸을 두 눈으로 지켜본 늙은 왕!",
+     "published": "2026-05-06"
+    },
+    {
+     "id": "Yg9WfFY9xlc",
+     "title": "24년 인내 끝에 왕이 된 정조, 즉위 20일 만에 숙의 문씨를 처형한 역사적 비극",
+     "published": "2026-05-03"
+    },
+    {
+     "id": "YqDWoNyHmgI",
+     "title": "[세계사] 교회(개신교)와 성당(카톨릭)의 진짜 차이, 그들이 500년 전 나뉜 진짜 이유  | 천주교 정교회 개신교 기독교",
+     "published": "2026-05-07"
+    },
+    {
+     "id": "hjoWlvuU9AA",
+     "title": "400년 전 명나라에서 건너온 성씨들, 지금 10만 명입니다",
+     "published": "2026-05-05"
+    }
+   ],
+   "views_median": 525780.0,
+   "views_per_day_median": 6792.5,
+   "ratio_median": 20.57,
+   "success": 51,
+   "minutes_median": 19.5,
+   "title_len_avg": 48.8,
+   "title_features": [
+    {
+     "name": "물음표 ?",
+     "count": 22,
+     "share": 0.333
+    },
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 16,
+     "share": 0.242
+    },
+    {
+     "name": "이유",
+     "count": 15,
+     "share": 0.227
+    },
+    {
+     "name": "vs 비교",
+     "count": 13,
+     "share": 0.197
+    },
+    {
+     "name": "느낌표 !",
+     "count": 3,
+     "share": 0.045
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 3,
+     "share": 0.045
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 1,
+     "share": 0.015
+    },
+    {
+     "name": "공통점",
+     "count": 1,
+     "share": 0.015
+    },
+    {
+     "name": "N가지",
+     "count": 1,
+     "share": 0.015
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 1,
+     "share": 0.015
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 1,
+     "share": 0.015
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 1,
+     "share": 0.015
+    }
+   ],
+   "title_words": [
+    {
+     "word": "역사",
+     "count": 15
+    },
+    {
+     "word": "이유",
+     "count": 14
+    },
+    {
+     "word": "조선",
+     "count": 13
+    },
+    {
+     "word": "세계사",
+     "count": 9
+    },
+    {
+     "word": "역사를",
+     "count": 7
+    },
+    {
+     "word": "EP",
+     "count": 7
+    },
+    {
+     "word": "보다",
+     "count": 7
+    },
+    {
+     "word": "조선시대",
+     "count": 7
+    },
+    {
+     "word": "조선역사",
+     "count": 4
+    },
+    {
+     "word": "왕이",
+     "count": 4
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 63,
+    "없음": 3
+   },
+   "content_words": [
+    {
+     "word": "그리고",
+     "count": 24
+    },
+    {
+     "word": "조선",
+     "count": 21
+    },
+    {
+     "word": "있습니다",
+     "count": 21
+    },
+    {
+     "word": "역사",
+     "count": 17
+    },
+    {
+     "word": "영상은",
+     "count": 17
+    },
+    {
+     "word": "함께",
+     "count": 16
+    },
+    {
+     "word": "바탕으로",
+     "count": 15
+    },
+    {
+     "word": "이야기",
+     "count": 14
+    },
+    {
+     "word": "타임라인",
+     "count": 14
+    },
+    {
+     "word": "가장",
+     "count": 14
+    },
+    {
+     "word": "그런데",
+     "count": 14
+    },
+    {
+     "word": "역사와",
+     "count": 13
+    }
+   ],
+   "chapters_share": 0.545,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "0y_c_-Ik_GQ",
+     "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
+     "src": "설명",
+     "hook": "오늘은 '예루살렘 뒷골목'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 다큐멘터리PD(역마살로드) 장준호 PD님 역사를 보다 시리즈의 세계관을 담아낸 2026년 프리미엄 가죽 다이어리 출시!! 하"
+    },
+    {
+     "id": "tlVSuaOykFk",
+     "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
+     "src": "설명",
+     "hook": "오늘 역사를보다는 '천사의 언어 에녹어'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 📖 [역사를 보다2] 📖 [역사를 보다] 📺강인욱 교수님의 개인채널 [고고한 강교수] 📖 박현도 교수님의 저서"
+    },
+    {
+     "id": "N9zFttW2fco",
+     "title": "근친혼을 하면 나타나는 얼굴의 변화 | 의학의 역사 근친혼 편",
+     "src": "설명",
+     "hook": "닥터프렌즈의 구사일생 세계사 닥터프렌즈 영상 보시고 기분 좋은 하루 되세요 😁 닥프의 유튜브 영상 제작은 디토커뮤니케이션즈 와 함께 합니다. 닥프 스튜디오의 공기가 남다른 이유!? 핀란드에서 온 스마트 공기정화 시스템, 나아바(NAAVA) 덕분이죠. 63개 식물이 4,000개 식물만큼 "
+    }
+   ],
+   "comments": 33484,
+   "comment_needs": [
+    {
+     "name": "질문",
+     "count": 5942,
+     "share": 0.177
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 3889,
+     "share": 0.116
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 1743,
+     "share": 0.052
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 1372,
+     "share": 0.041
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 1144,
+     "share": 0.034
+    },
+    {
+     "name": "요청",
+     "count": 353,
+     "share": 0.011
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "이제는 딱히 숨길 생각도 없는 놈들...",
+     "likes": 14837
+    },
+    {
+     "text": "MBC JTBC는 이제 숨길생각도 안함",
+     "likes": 12122
+    },
+    {
+     "text": "21세기 테무부인 되버림ㅋ\n뇌 빼고 생각하지 않았더니 마지막화에 중국 속국엔딩ㅋㅋㅋㅋㅋ",
+     "likes": 6310
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "0y_c_-Ik_GQ",
+     "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
+     "channel": "보다 BODA",
+     "views": 1329432,
+     "views_per_day": 248714.6,
+     "published": "2026-10-11",
+     "url": "https://www.youtube.com/watch?v=0y_c_-Ik_GQ"
+    },
+    {
+     "id": "tlVSuaOykFk",
+     "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
+     "channel": "보다 BODA",
+     "views": 2832900,
+     "views_per_day": 146447.0,
+     "published": "2026-09-27",
+     "url": "https://www.youtube.com/watch?v=tlVSuaOykFk"
+    },
+    {
+     "id": "N9zFttW2fco",
+     "title": "근친혼을 하면 나타나는 얼굴의 변화 | 의학의 역사 근친혼 편",
+     "channel": "닥터프렌즈",
+     "views": 3289899,
+     "views_per_day": 69857.1,
+     "published": "2026-08-30",
+     "url": "https://www.youtube.com/watch?v=N9zFttW2fco"
+    },
+    {
+     "id": "nE1aAbOYw0I",
+     "title": "다 같은 '스탄'인데 뭐가 다른걸까? 중앙아시아 5개 스탄국의 비밀｜역사｜세계사｜소련",
+     "channel": "다시만난역사",
+     "views": 993716,
+     "views_per_day": 56875.5,
+     "published": "2026-09-28",
+     "url": "https://www.youtube.com/watch?v=nE1aAbOYw0I"
+    },
+    {
+     "id": "QftIZGkR9MM",
+     "title": "세계 3분의 1이 왼쪽으로 달리는 이유",
+     "channel": "세계사쇼",
+     "views": 1391510,
+     "views_per_day": 56096.8,
+     "published": "2026-09-21",
+     "url": "https://www.youtube.com/watch?v=QftIZGkR9MM"
+    }
+   ]
+  },
+  {
+   "weeks": 25,
+   "label": "최근 25주",
+   "videos": 71,
+   "channels": 53,
+   "new_this_week": [
+    {
+     "id": "MlHcNPc7h-A",
+     "title": "[세계사] 한 아버지의 한 손짓이 유대교, 기독교, 이슬람교인 43억 명의 운명을 가른 충격적 이유 | 아브라함, 이삭, 이스마엘, 43억 | 종교사",
+     "published": "2026-05-01"
+    },
+    {
+     "id": "dg8J-vvh6ZM",
+     "title": "\"야, 이 자식아. 전쟁 지면 너도 책임 있어\" '산보하듯' 남침하자던 박헌영에게 잉크병 던진 김일성 [호준석의 역사전쟁 EP.30]",
+     "published": "2026-04-25"
+    },
+    {
+     "id": "gbQwCONfulQ",
+     "title": "[한국사] 조선의 노비들은 어떻게 살았을까? 대부분의 사람들은 몰랐던 충격적인 노비의 삶 | 정사 | 야사",
+     "published": "2026-04-25"
+    },
+    {
+     "id": "isuVlVJmmeA",
+     "title": "왕이 수저를 놓는 순간, 궁궐의 진짜 전쟁이 시작된다. '궁녀들의 서열' | 한국사 | 조선역사",
+     "published": "2026-04-28"
+    },
+    {
+     "id": "sTVP1T4HjKU",
+     "title": "💥💥💥저작권등록💥💥💥인생에서 10번은 반복해야 할 손자병법 풀스토리입니다'🌙수면용 세계사",
+     "published": "2026-04-24"
+    }
+   ],
+   "views_median": 523437,
+   "views_per_day_median": 5854.0,
+   "ratio_median": 21.02,
+   "success": 56,
+   "minutes_median": 19.1,
+   "title_len_avg": 49.8,
+   "title_features": [
+    {
+     "name": "물음표 ?",
+     "count": 23,
+     "share": 0.324
+    },
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 17,
+     "share": 0.239
+    },
+    {
+     "name": "이유",
+     "count": 16,
+     "share": 0.225
+    },
+    {
+     "name": "vs 비교",
+     "count": 13,
+     "share": 0.183
+    },
+    {
+     "name": "느낌표 !",
+     "count": 3,
+     "share": 0.042
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 3,
+     "share": 0.042
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 2,
+     "share": 0.028
+    },
+    {
+     "name": "두 금액(반전)",
+     "count": 1,
+     "share": 0.014
+    },
+    {
+     "name": "공통점",
+     "count": 1,
+     "share": 0.014
+    },
+    {
+     "name": "N가지",
+     "count": 1,
+     "share": 0.014
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 1,
+     "share": 0.014
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 1,
+     "share": 0.014
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 1,
+     "share": 0.014
+    }
+   ],
+   "title_words": [
+    {
+     "word": "역사",
+     "count": 15
+    },
+    {
+     "word": "이유",
+     "count": 15
+    },
+    {
+     "word": "조선",
+     "count": 13
+    },
+    {
+     "word": "세계사",
+     "count": 11
+    },
+    {
+     "word": "EP",
+     "count": 8
+    },
+    {
+     "word": "역사를",
+     "count": 7
+    },
+    {
+     "word": "보다",
+     "count": 7
+    },
+    {
+     "word": "조선시대",
+     "count": 7
+    },
+    {
+     "word": "조선역사",
+     "count": 5
+    },
+    {
+     "word": "한국사",
+     "count": 5
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 68,
+    "없음": 3
+   },
+   "content_words": [
+    {
+     "word": "그리고",
+     "count": 25
+    },
+    {
+     "word": "조선",
+     "count": 22
+    },
+    {
+     "word": "있습니다",
+     "count": 22
+    },
+    {
+     "word": "역사",
+     "count": 18
+    },
+    {
+     "word": "함께",
+     "count": 17
+    },
+    {
+     "word": "영상은",
+     "count": 17
+    },
+    {
+     "word": "타임라인",
+     "count": 16
+    },
+    {
+     "word": "그런데",
+     "count": 16
+    },
+    {
+     "word": "가장",
+     "count": 15
+    },
+    {
+     "word": "바탕으로",
+     "count": 15
+    },
+    {
+     "word": "이야기",
+     "count": 14
+    },
+    {
+     "word": "댓글로",
+     "count": 14
+    }
+   ],
+   "chapters_share": 0.549,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "0y_c_-Ik_GQ",
+     "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
+     "src": "설명",
+     "hook": "오늘은 '예루살렘 뒷골목'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 다큐멘터리PD(역마살로드) 장준호 PD님 역사를 보다 시리즈의 세계관을 담아낸 2026년 프리미엄 가죽 다이어리 출시!! 하"
+    },
+    {
+     "id": "tlVSuaOykFk",
+     "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
+     "src": "설명",
+     "hook": "오늘 역사를보다는 '천사의 언어 에녹어'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 📖 [역사를 보다2] 📖 [역사를 보다] 📺강인욱 교수님의 개인채널 [고고한 강교수] 📖 박현도 교수님의 저서"
+    },
+    {
+     "id": "N9zFttW2fco",
+     "title": "근친혼을 하면 나타나는 얼굴의 변화 | 의학의 역사 근친혼 편",
+     "src": "설명",
+     "hook": "닥터프렌즈의 구사일생 세계사 닥터프렌즈 영상 보시고 기분 좋은 하루 되세요 😁 닥프의 유튜브 영상 제작은 디토커뮤니케이션즈 와 함께 합니다. 닥프 스튜디오의 공기가 남다른 이유!? 핀란드에서 온 스마트 공기정화 시스템, 나아바(NAAVA) 덕분이죠. 63개 식물이 4,000개 식물만큼 "
+    }
+   ],
+   "comments": 35953,
+   "comment_needs": [
+    {
+     "name": "질문",
+     "count": 6366,
+     "share": 0.177
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 4063,
+     "share": 0.113
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 1835,
+     "share": 0.051
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 1462,
+     "share": 0.041
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 1259,
+     "share": 0.035
+    },
+    {
+     "name": "요청",
+     "count": 367,
+     "share": 0.01
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "이제는 딱히 숨길 생각도 없는 놈들...",
+     "likes": 14837
+    },
+    {
+     "text": "MBC JTBC는 이제 숨길생각도 안함",
+     "likes": 12122
+    },
+    {
+     "text": "21세기 테무부인 되버림ㅋ\n뇌 빼고 생각하지 않았더니 마지막화에 중국 속국엔딩ㅋㅋㅋㅋㅋ",
+     "likes": 6310
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "0y_c_-Ik_GQ",
+     "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
+     "channel": "보다 BODA",
+     "views": 1329432,
+     "views_per_day": 248714.6,
+     "published": "2026-10-11",
+     "url": "https://www.youtube.com/watch?v=0y_c_-Ik_GQ"
+    },
+    {
+     "id": "tlVSuaOykFk",
+     "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
+     "channel": "보다 BODA",
+     "views": 2832900,
+     "views_per_day": 146447.0,
+     "published": "2026-09-27",
+     "url": "https://www.youtube.com/watch?v=tlVSuaOykFk"
+    },
+    {
+     "id": "N9zFttW2fco",
+     "title": "근친혼을 하면 나타나는 얼굴의 변화 | 의학의 역사 근친혼 편",
+     "channel": "닥터프렌즈",
+     "views": 3289899,
+     "views_per_day": 69857.1,
+     "published": "2026-08-30",
+     "url": "https://www.youtube.com/watch?v=N9zFttW2fco"
+    },
+    {
+     "id": "nE1aAbOYw0I",
+     "title": "다 같은 '스탄'인데 뭐가 다른걸까? 중앙아시아 5개 스탄국의 비밀｜역사｜세계사｜소련",
+     "channel": "다시만난역사",
+     "views": 993716,
+     "views_per_day": 56875.5,
+     "published": "2026-09-28",
+     "url": "https://www.youtube.com/watch?v=nE1aAbOYw0I"
+    },
+    {
+     "id": "QftIZGkR9MM",
+     "title": "세계 3분의 1이 왼쪽으로 달리는 이유",
+     "channel": "세계사쇼",
+     "views": 1391510,
+     "views_per_day": 56096.8,
+     "published": "2026-09-21",
+     "url": "https://www.youtube.com/watch?v=QftIZGkR9MM"
+    }
+   ]
+  },
+  {
+   "weeks": 26,
+   "label": "최근 26주",
+   "videos": 76,
+   "channels": 55,
+   "new_this_week": [
+    {
+     "id": "76GoBExdKA8",
+     "title": "[김역사의 한국사] 사극이 철저히 숨긴 조선시대 '주막'의 충격적인 진짜 모습 정사 ㅣ 야사",
+     "published": "2026-04-23"
+    },
+    {
+     "id": "IRlbfWj2tLQ",
+     "title": "이스라엘 모사드는 어떻게 가장 무서운 첩보기관이 되었나? 60년 기다려도 반드시 복수한다",
+     "published": "2026-04-19"
+    },
+    {
+     "id": "SfyXkieRomg",
+     "title": "조선 궁궐의 그림자 정부: 상궁들의 치열한 서열과 권력 관계 | 한국사 | 조선역사",
+     "published": "2026-04-22"
+    },
+    {
+     "id": "XI61XGQiilU",
+     "title": "칭기즈칸보다 잔혹했던 절름발이 몸으로 유라시아를 떨게 한 공포의 정복자 티무르",
+     "published": "2026-04-22"
+    },
+    {
+     "id": "_Q9IE-9yuLQ",
+     "title": "2000년간 쫓겨다닌 민족은 어떻게 세계를 주무르게 되었나",
+     "published": "2026-04-20"
+    }
+   ],
+   "views_median": 498335.5,
+   "views_per_day_median": 5101.75,
+   "ratio_median": 21.52,
+   "success": 61,
+   "minutes_median": 19.1,
+   "title_len_avg": 49.5,
+   "title_features": [
+    {
+     "name": "물음표 ?",
+     "count": 24,
+     "share": 0.316
+    },
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 17,
+     "share": 0.224
+    },
+    {
+     "name": "이유",
+     "count": 16,
+     "share": 0.211
+    },
+    {
+     "name": "vs 비교",
+     "count": 14,
+     "share": 0.184
+    },
+    {
+     "name": "느낌표 !",
+     "count": 3,
+     "share": 0.039
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 3,
+     "share": 0.039
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 2,
+     "share": 0.026
+    },
+    {
+     "name": "두 금액(반전)",
+     "count": 1,
+     "share": 0.013
+    },
+    {
+     "name": "공통점",
+     "count": 1,
+     "share": 0.013
+    },
+    {
+     "name": "N가지",
+     "count": 1,
+     "share": 0.013
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 1,
+     "share": 0.013
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 1,
+     "share": 0.013
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 1,
+     "share": 0.013
+    }
+   ],
+   "title_words": [
+    {
+     "word": "역사",
+     "count": 15
+    },
+    {
+     "word": "이유",
+     "count": 15
+    },
+    {
+     "word": "조선",
+     "count": 14
+    },
+    {
+     "word": "세계사",
+     "count": 11
+    },
+    {
+     "word": "EP",
+     "count": 8
+    },
+    {
+     "word": "조선시대",
+     "count": 8
+    },
+    {
+     "word": "역사를",
+     "count": 7
+    },
+    {
+     "word": "보다",
+     "count": 7
+    },
+    {
+     "word": "한국사",
+     "count": 7
+    },
+    {
+     "word": "어떻게",
+     "count": 7
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 73,
+    "없음": 3
+   },
+   "content_words": [
+    {
+     "word": "그리고",
+     "count": 28
+    },
+    {
+     "word": "조선",
+     "count": 23
+    },
+    {
+     "word": "있습니다",
+     "count": 22
+    },
+    {
+     "word": "타임라인",
+     "count": 20
+    },
+    {
+     "word": "역사",
+     "count": 20
+    },
+    {
+     "word": "영상은",
+     "count": 20
+    },
+    {
+     "word": "그런데",
+     "count": 19
+    },
+    {
+     "word": "가장",
+     "count": 18
+    },
+    {
+     "word": "함께",
+     "count": 18
+    },
+    {
+     "word": "이야기",
+     "count": 16
+    },
+    {
+     "word": "바탕으로",
+     "count": 16
+    },
+    {
+     "word": "조선의",
+     "count": 15
+    }
+   ],
+   "chapters_share": 0.566,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "0y_c_-Ik_GQ",
+     "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
+     "src": "설명",
+     "hook": "오늘은 '예루살렘 뒷골목'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 다큐멘터리PD(역마살로드) 장준호 PD님 역사를 보다 시리즈의 세계관을 담아낸 2026년 프리미엄 가죽 다이어리 출시!! 하"
+    },
+    {
+     "id": "tlVSuaOykFk",
+     "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
+     "src": "설명",
+     "hook": "오늘 역사를보다는 '천사의 언어 에녹어'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 📖 [역사를 보다2] 📖 [역사를 보다] 📺강인욱 교수님의 개인채널 [고고한 강교수] 📖 박현도 교수님의 저서"
+    },
+    {
+     "id": "N9zFttW2fco",
+     "title": "근친혼을 하면 나타나는 얼굴의 변화 | 의학의 역사 근친혼 편",
+     "src": "설명",
+     "hook": "닥터프렌즈의 구사일생 세계사 닥터프렌즈 영상 보시고 기분 좋은 하루 되세요 😁 닥프의 유튜브 영상 제작은 디토커뮤니케이션즈 와 함께 합니다. 닥프 스튜디오의 공기가 남다른 이유!? 핀란드에서 온 스마트 공기정화 시스템, 나아바(NAAVA) 덕분이죠. 63개 식물이 4,000개 식물만큼 "
+    }
+   ],
+   "comments": 38641,
+   "comment_needs": [
+    {
+     "name": "질문",
+     "count": 6882,
+     "share": 0.178
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 4253,
+     "share": 0.11
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 1930,
+     "share": 0.05
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 1558,
+     "share": 0.04
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 1376,
+     "share": 0.036
+    },
+    {
+     "name": "요청",
+     "count": 403,
+     "share": 0.01
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "이제는 딱히 숨길 생각도 없는 놈들...",
+     "likes": 14837
+    },
+    {
+     "text": "MBC JTBC는 이제 숨길생각도 안함",
+     "likes": 12122
+    },
+    {
+     "text": "21세기 테무부인 되버림ㅋ\n뇌 빼고 생각하지 않았더니 마지막화에 중국 속국엔딩ㅋㅋㅋㅋㅋ",
+     "likes": 6310
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "0y_c_-Ik_GQ",
+     "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
+     "channel": "보다 BODA",
+     "views": 1329432,
+     "views_per_day": 248714.6,
+     "published": "2026-10-11",
+     "url": "https://www.youtube.com/watch?v=0y_c_-Ik_GQ"
+    },
+    {
+     "id": "tlVSuaOykFk",
+     "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
+     "channel": "보다 BODA",
+     "views": 2832900,
+     "views_per_day": 146447.0,
+     "published": "2026-09-27",
+     "url": "https://www.youtube.com/watch?v=tlVSuaOykFk"
+    },
+    {
+     "id": "N9zFttW2fco",
+     "title": "근친혼을 하면 나타나는 얼굴의 변화 | 의학의 역사 근친혼 편",
+     "channel": "닥터프렌즈",
+     "views": 3289899,
+     "views_per_day": 69857.1,
+     "published": "2026-08-30",
+     "url": "https://www.youtube.com/watch?v=N9zFttW2fco"
+    },
+    {
+     "id": "nE1aAbOYw0I",
+     "title": "다 같은 '스탄'인데 뭐가 다른걸까? 중앙아시아 5개 스탄국의 비밀｜역사｜세계사｜소련",
+     "channel": "다시만난역사",
+     "views": 993716,
+     "views_per_day": 56875.5,
+     "published": "2026-09-28",
+     "url": "https://www.youtube.com/watch?v=nE1aAbOYw0I"
+    },
+    {
+     "id": "QftIZGkR9MM",
+     "title": "세계 3분의 1이 왼쪽으로 달리는 이유",
+     "channel": "세계사쇼",
+     "views": 1391510,
+     "views_per_day": 56096.8,
+     "published": "2026-09-21",
+     "url": "https://www.youtube.com/watch?v=QftIZGkR9MM"
+    }
+   ]
+  }
+ ]
+}

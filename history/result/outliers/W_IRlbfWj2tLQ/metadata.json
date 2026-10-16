@@ -1,0 +1,83 @@
+{
+ "id": "IRlbfWj2tLQ",
+ "title": "이스라엘 모사드는 어떻게 가장 무서운 첩보기관이 되었나? 60년 기다려도 반드시 복수한다",
+ "channel": "역사명탐정",
+ "channel_id": "UCTFgiQHMEWyrbnWQcfEN1Xg",
+ "subs": 23300,
+ "views": 355167,
+ "ratio": 15.24,
+ "age_days": 180,
+ "views_per_day": 1973.2,
+ "minutes": 16.6,
+ "likes": 5271,
+ "comments": 584,
+ "published": "2026-04-19",
+ "queries": "검색:역사 이야기",
+ "url": "https://www.youtube.com/watch?v=IRlbfWj2tLQ",
+ "flag": "",
+ "published_at": "2026-04-19T03:28:31Z",
+ "rank": "W44",
+ "set": "web",
+ "folder": "W_IRlbfWj2tLQ",
+ "sources": [
+  "검색:역사 이야기"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "[인트로] CIA보다 무서운 조직, 모사드의 실체"
+  },
+  {
+   "start": 72,
+   "title": "고립된 섬 이스라엘: 국가 생존을 위한 첩보전의 시작"
+  },
+  {
+   "start": 208,
+   "title": "아돌프 아이히만 납치 작전: 나치 전범을 끝까지 단죄하다"
+  },
+  {
+   "start": 405,
+   "title": "시리아 사령부에 침투한 '그림자', 엘리 코헨의 대담한 행보"
+  },
+  {
+   "start": 632,
+   "title": "골란 고원의 유칼립투스: 나무 뒤에 숨겨진 정찰의 비밀"
+  },
+  {
+   "start": 768,
+   "title": "발각된 전설: 엘리 코헨의 최후와 60년 뒤의 기록"
+  },
+  {
+   "start": 860,
+   "title": "뮌헨 올림픽의 비극과 피의 복수, '신의 분노 작전'"
+  },
+  {
+   "start": 1055,
+   "title": "타협 없는 응징: 모사드가 실패해도 끝까지 완수하는 이유"
+  },
+  {
+   "start": 1190,
+   "title": "[최신 첩보전] 2년을 설계한 치명적 공격, 5,000개의 삐삐"
+  },
+  {
+   "start": 1335,
+   "title": "결론: CIA와 모사드, 정보 패권을 다투는 두 조직의 결정적 차이"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 16:07까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "zxx",
+ "foreign": false,
+ "comments_fetched": 584,
+ "comments_top_level": 408,
+ "comments_replies": 176,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 584,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T10:07:41",
+ "approved": "2026-10-16T19:07+09:00"
+}

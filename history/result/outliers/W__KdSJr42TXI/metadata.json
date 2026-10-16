@@ -1,0 +1,89 @@
+{
+ "id": "_KdSJr42TXI",
+ "title": "그리스 로마 신화 완벽 정리 : 태초의 창세부터 올림포스 12신, 트로이 전쟁의 종말까지 [🌙꿀잠 오디오북]",
+ "channel": "달빛 세계사",
+ "channel_id": "UC8cs_ZKc6AUwbQTNa9_XQ_Q",
+ "subs": 18000,
+ "views": 411168,
+ "ratio": 22.84,
+ "age_days": 76,
+ "views_per_day": 5410.1,
+ "minutes": 80.3,
+ "likes": 2826,
+ "comments": 91,
+ "published": "2026-07-31",
+ "queries": "검색:역사 이야기 | 검색:세계사",
+ "url": "https://www.youtube.com/watch?v=_KdSJr42TXI",
+ "flag": "",
+ "published_at": "2026-07-31T11:00:16Z",
+ "rank": "W36",
+ "set": "web",
+ "folder": "W__KdSJr42TXI",
+ "sources": [
+  "검색:역사 이야기",
+  "검색:세계사"
+ ],
+ "source": "web",
+ "tags": [
+  "세계사",
+  "그리스신화",
+  "트로이전쟁",
+  "헤라클레스",
+  "제우스",
+  "신화정리",
+  "수면오디오북",
+  "달빛세계사"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "아버지를 삼킨 신들 : 카오스, 우라노스, 그리고 크로노스의 낫"
+  },
+  {
+   "start": 509,
+   "title": "거인들의 대격돌 : 티타노마키아와 올림포스 핵심 신들의 탄생"
+  },
+  {
+   "start": 1016,
+   "title": "인간의 탄생과 대홍수 : 프로메테우스의 불꽃과 데우칼리온의 돌"
+  },
+  {
+   "start": 1640,
+   "title": "올림포스의 밀실 : 사계절의 기원과 디오니소스의 비극"
+  },
+  {
+   "start": 2108,
+   "title": "신의 영역을 침범한 자들 : 메두사, 아라크네, 그리고 시지프스"
+  },
+  {
+   "start": 2600,
+   "title": "영웅들의 수난사 (상) : 페르세우스의 모험과 헤라클레스의 12과업"
+  },
+  {
+   "start": 3263,
+   "title": "영웅들의 수난사 (하) : 테세우스의 미궁과 이아손의 황금 양털"
+  },
+  {
+   "start": 3906,
+   "title": "황금사과와 10년의 전쟁 : 불화의 여신과 트로이의 불꽃"
+  },
+  {
+   "start": 4298,
+   "title": "트로이의 목마와 영웅들의 종말 : 아킬레우스의 비극과 제국의 파멸"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 16:07까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 91,
+ "comments_top_level": 59,
+ "comments_replies": 32,
+ "comments_by_creator": 20,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 91,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T10:07:19",
+ "approved": "2026-10-16T19:07+09:00"
+}

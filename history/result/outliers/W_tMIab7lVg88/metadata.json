@@ -1,0 +1,67 @@
+{
+ "id": "tMIab7lVg88",
+ "title": "역사에 기록된 가장 멋있었던 죽음들",
+ "channel": "쉽게 설명해서!",
+ "channel_id": "UC2NGcjESL6OeYM-GW24QcBg",
+ "subs": 18100,
+ "views": 168628,
+ "ratio": 9.32,
+ "age_days": 104,
+ "views_per_day": 1621.4,
+ "minutes": 19.1,
+ "likes": 1398,
+ "comments": 109,
+ "published": "2026-07-04",
+ "queries": "검색:역사 이야기",
+ "url": "https://www.youtube.com/watch?v=tMIab7lVg88",
+ "flag": "",
+ "published_at": "2026-07-04T06:38:43Z",
+ "rank": "W54",
+ "set": "web",
+ "folder": "W_tMIab7lVg88",
+ "sources": [
+  "검색:역사 이야기"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "벤케이, 서서 죽은 전설"
+  },
+  {
+   "start": 274,
+   "title": "레오니다스의 최후"
+  },
+  {
+   "start": 515,
+   "title": "두 눈을 잃은 지슈카"
+  },
+  {
+   "start": 640,
+   "title": "마지막 북소리와 이순신"
+  },
+  {
+   "start": 939,
+   "title": "벤 살로몬의 최후"
+  },
+  {
+   "start": 1115,
+   "title": "아웃트로"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 16:07까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 109,
+ "comments_top_level": 89,
+ "comments_replies": 20,
+ "comments_by_creator": 3,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 109,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T10:08:18",
+ "approved": "2026-10-16T19:08+09:00"
+}

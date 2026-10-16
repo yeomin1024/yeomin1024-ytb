@@ -1,0 +1,66 @@
+{
+ "id": "PTsYhKaew-o",
+ "title": "백제는 정말 거대한 중국 영토를 정벌했을까?(중국 정사에 계속 나옴...) ㅣ역사를 보다 EP.151",
+ "channel": "보다 BODA",
+ "channel_id": "UCoCvTlU0KpNYwnMIgs7MPrA",
+ "subs": 3220000,
+ "views": 1180773,
+ "ratio": 0.37,
+ "age_days": 75,
+ "views_per_day": 15743.6,
+ "minutes": 41.6,
+ "likes": 10878,
+ "comments": 2429,
+ "published": "2026-08-02",
+ "queries": "검색:역사 이야기",
+ "url": "https://www.youtube.com/watch?v=PTsYhKaew-o",
+ "flag": "",
+ "published_at": "2026-08-02T02:00:56Z",
+ "rank": "W75",
+ "set": "web",
+ "folder": "W_PTsYhKaew-o",
+ "sources": [
+  "검색:역사 이야기"
+ ],
+ "source": "web",
+ "tags": [
+  "보다",
+  "boda",
+  "직업",
+  "인터뷰",
+  "전문가",
+  "레전드"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 86,
+   "title": "주몽이 아닌 진짜 동명왕의 정체"
+  },
+  {
+   "start": 1220,
+   "title": "중국 정사에 기록된 백제 거대 대륙의 진실"
+  },
+  {
+   "start": 2141,
+   "title": "역사에 존재하는 가장 말도 안되는 침공 경로"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 16:07까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 2429,
+ "comments_top_level": 1203,
+ "comments_replies": 1226,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 2429,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T10:09:51",
+ "approved": "2026-10-16T19:10+09:00"
+}

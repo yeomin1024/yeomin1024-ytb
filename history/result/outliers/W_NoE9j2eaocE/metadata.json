@@ -1,0 +1,96 @@
+{
+ "id": "NoE9j2eaocE",
+ "title": "[세계사] 고대 이집트인들은 폭염 속에서도 왜 가발을 쓰고 다녔을까?💡",
+ "channel": "역사리뷰룸",
+ "channel_id": "UCcJCwhFEQY0Kth4tA9UyZFw",
+ "subs": 3140,
+ "views": 814787,
+ "ratio": 259.49,
+ "age_days": 56,
+ "views_per_day": 14549.8,
+ "minutes": 16.8,
+ "likes": 2243,
+ "comments": 84,
+ "published": "2026-08-21",
+ "queries": "검색:세계사",
+ "url": "https://www.youtube.com/watch?v=NoE9j2eaocE",
+ "flag": "",
+ "published_at": "2026-08-21T01:00:34Z",
+ "rank": "W5",
+ "set": "web",
+ "folder": "W_NoE9j2eaocE",
+ "sources": [
+  "검색:세계사"
+ ],
+ "source": "web",
+ "tags": [
+  "세계사",
+  "역사미스터리",
+  "한국사",
+  "역사",
+  "지식영상",
+  "역사비하인드",
+  "역사뒷이야기",
+  "역사다큐",
+  "역사채널",
+  "지식교양",
+  "교양채널",
+  "정치",
+  "이스라엘",
+  "유대교",
+  "이슬람교",
+  "기독교",
+  "종교",
+  "클레오파트라",
+  "이집트",
+  "파라오",
+  "고대",
+  "절세미인",
+  "투탕카멘",
+  "더위"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "뜨거운 사막과 가발의 수수께끼"
+  },
+  {
+   "start": 123,
+   "title": "이집트의 환경과 머리 관리"
+  },
+  {
+   "start": 317,
+   "title": "머리를 밀고 다시 가발을 쓴 이유"
+  },
+  {
+   "start": 404,
+   "title": "고대 가발의 제작 과정과 유물"
+  },
+  {
+   "start": 542,
+   "title": "기록으로 살펴본 이집트 풍습"
+  },
+  {
+   "start": 621,
+   "title": "연회와 독특한 머리 장식"
+  },
+  {
+   "start": 809,
+   "title": "가발로 드러낸 신분과 권위"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 84,
+ "comments_top_level": 44,
+ "comments_replies": 40,
+ "comments_by_creator": 33,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 84,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T10:05:24",
+ "approved": "2026-10-16T19:05+09:00"
+}

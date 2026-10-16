@@ -1,0 +1,143 @@
+{
+ "id": "YfPUeVAhmfw",
+ "title": "1시간이면 완벽 이해 조선왕조실록 1대부터 27대까지 몰아보기ㅣ건국부터 멸망까지 한번에 자면서 들으세요",
+ "channel": "한밤의 한국사",
+ "channel_id": "UCqh5YPXODSRW_G5lJwGq2kg",
+ "subs": 46600,
+ "views": 768087,
+ "ratio": 16.48,
+ "age_days": 107,
+ "views_per_day": 7178.4,
+ "minutes": 69.5,
+ "likes": 7776,
+ "comments": 126,
+ "published": "2026-06-30",
+ "queries": "검색:역사 이야기",
+ "url": "https://www.youtube.com/watch?v=YfPUeVAhmfw",
+ "flag": "",
+ "published_at": "2026-06-30T11:00:04Z",
+ "rank": "W42",
+ "set": "web",
+ "folder": "W_YfPUeVAhmfw",
+ "sources": [
+  "검색:역사 이야기"
+ ],
+ "source": "web",
+ "tags": [
+  "조선왕조",
+  "조선역사",
+  "조선왕조실록",
+  "한국사",
+  "조선",
+  "조선왕조 500년",
+  "조선 건국",
+  "조선 멸망",
+  "자면서 듣는 한국사",
+  "잠잘오는 역사",
+  "수면 한국사",
+  "역사 몰아보기",
+  "한국사 정리",
+  "조선 임금",
+  "27명의 임금",
+  "이성계",
+  "정도전",
+  "태종 이방원",
+  "세종대왕",
+  "단종 세조",
+  "연산군",
+  "임진왜란",
+  "선조",
+  "광해군",
+  "병자호란",
+  "인조",
+  "영조",
+  "정조",
+  "사도세자",
+  "세도정치",
+  "흥선대원군",
+  "고종",
+  "대한제국",
+  "명성황후",
+  "한일병합",
+  "역사 이야기",
+  "한국사 인물",
+  "조선시대",
+  "역사 다큐",
+  "잠잘때 듣는 이야기",
+  "역사다큐",
+  "자면서듣는",
+  "잘때듣는",
+  "수면영상",
+  "왕사남",
+  "왕과사는남자",
+  "조선왕조실록 몰아보기"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝 – 27명의 임금, 519년의 드라마"
+  },
+  {
+   "start": 56,
+   "title": "건국 – 이성계와 정도전"
+  },
+  {
+   "start": 562,
+   "title": "형제의 피로 쌓은 왕좌 – 태종"
+  },
+  {
+   "start": 936,
+   "title": "조선의 황금기 – 세종"
+  },
+  {
+   "start": 1285,
+   "title": "빼앗긴 왕좌 – 단종과 세조"
+  },
+  {
+   "start": 1645,
+   "title": "폭군과 개혁가 – 연산군과 조광조"
+  },
+  {
+   "start": 1961,
+   "title": "임금이 도망친 전쟁 – 선조와 임진왜란"
+  },
+  {
+   "start": 2276,
+   "title": "능력 있는 왕의 몰락 – 광해군 0"
+  },
+  {
+   "start": 2547,
+   "title": "임금이 무릎 꿇은 날 – 인조와 병자호란"
+  },
+  {
+   "start": 2864,
+   "title": "마지막 르네상스 – 영조와 정조"
+  },
+  {
+   "start": 3174,
+   "title": "왕이 사라진 시대 – 세도 정치"
+  },
+  {
+   "start": 3472,
+   "title": "저무는 나라 – 고종과 개항"
+  },
+  {
+   "start": 3790,
+   "title": "500년의 끝 – 대한제국 멸망"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 16:07까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 126,
+ "comments_top_level": 109,
+ "comments_replies": 17,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 126,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T10:07:35",
+ "approved": "2026-10-16T19:07+09:00"
+}

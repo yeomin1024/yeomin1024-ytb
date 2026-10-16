@@ -1,0 +1,95 @@
+{
+ "id": "SfyXkieRomg",
+ "title": "조선 궁궐의 그림자 정부: 상궁들의 치열한 서열과 권력 관계 | 한국사 | 조선역사",
+ "channel": "역사빚다",
+ "channel_id": "UC5wlt5KVn-NwK4E9nQo9pFQ",
+ "subs": 3550,
+ "views": 115974,
+ "ratio": 32.67,
+ "age_days": 177,
+ "views_per_day": 655.2,
+ "minutes": 15.6,
+ "likes": 670,
+ "comments": 76,
+ "published": "2026-04-22",
+ "queries": "검색:역사 이야기",
+ "url": "https://www.youtube.com/watch?v=SfyXkieRomg",
+ "flag": "",
+ "published_at": "2026-04-22T08:00:35Z",
+ "rank": "W30",
+ "set": "web",
+ "folder": "W_SfyXkieRomg",
+ "sources": [
+  "검색:역사 이야기"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "도입: 왕의 그림자"
+  },
+  {
+   "start": 40,
+   "title": "궁궐의 여인들"
+  },
+  {
+   "start": 69,
+   "title": "첫 번째 문: 아기나인"
+  },
+  {
+   "start": 139,
+   "title": "15년의 인내와 관례"
+  },
+  {
+   "start": 193,
+   "title": "두 번째 문: 상궁의 무게"
+  },
+  {
+   "start": 226,
+   "title": "상궁의 5대 핵심 보직"
+  },
+  {
+   "start": 363,
+   "title": "특별한 존재, 승은상궁"
+  },
+  {
+   "start": 380,
+   "title": "세 번째 문: 처소 권력"
+  },
+  {
+   "start": 456,
+   "title": "네 번째 문: 보이지 않는 기싸움"
+  },
+  {
+   "start": 610,
+   "title": "다섯 번째 문: 왕을 움직인 여인"
+  },
+  {
+   "start": 743,
+   "title": "김개시의 몰락과 최후"
+  },
+  {
+   "start": 775,
+   "title": "여섯 번째 문: 화려한 감옥"
+  },
+  {
+   "start": 864,
+   "title": "맺음말: 이름 없는 묘비"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "RequestBlocked: \nCould not retrieve a transcript for the video https://www.youtube.com/watch?v=SfyXkieRomg! This is most likely caused b",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 76,
+ "comments_top_level": 38,
+ "comments_replies": 38,
+ "comments_by_creator": 21,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 76,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T10:07:03",
+ "approved": "2026-10-16T19:07+09:00"
+}

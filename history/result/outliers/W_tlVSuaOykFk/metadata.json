@@ -1,0 +1,66 @@
+{
+ "id": "tlVSuaOykFk",
+ "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
+ "channel": "보다 BODA",
+ "channel_id": "UCoCvTlU0KpNYwnMIgs7MPrA",
+ "subs": 3220000,
+ "views": 2832900,
+ "ratio": 0.88,
+ "age_days": 19,
+ "views_per_day": 149100.0,
+ "minutes": 37.6,
+ "likes": 9828,
+ "comments": 392,
+ "published": "2026-09-27",
+ "queries": "검색:세계사",
+ "url": "https://www.youtube.com/watch?v=tlVSuaOykFk",
+ "flag": "",
+ "published_at": "2026-09-27T02:01:14Z",
+ "rank": "W69",
+ "set": "web",
+ "folder": "W_tlVSuaOykFk",
+ "sources": [
+  "검색:세계사"
+ ],
+ "source": "web",
+ "tags": [
+  "보다",
+  "boda",
+  "직업",
+  "인터뷰",
+  "전문가",
+  "레전드"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트"
+  },
+  {
+   "start": 91,
+   "title": "천사가 전해준 최초의 언어 에녹어 미스터리"
+  },
+  {
+   "start": 618,
+   "title": "고대 이집트를 멸망시킨 최악의 자연재해"
+  },
+  {
+   "start": 1675,
+   "title": "세계사를 통째로 바꾼 역사적 변곡점"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 16:07까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 392,
+ "comments_top_level": 280,
+ "comments_replies": 112,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 392,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T10:09:34",
+ "approved": "2026-10-16T19:09+09:00"
+}

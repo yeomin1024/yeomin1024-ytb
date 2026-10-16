@@ -1,0 +1,99 @@
+{
+ "id": "5vBTGmcYA5w",
+ "title": "조선시대 사람들이 30살에 이가 다 빠져버린 소름돋는 이유는? | 조선역사 | 한국사 | 조선왕조실록 |",
+ "channel": "시대를 훔친 이야기",
+ "channel_id": "UCPX1Y9Hzb9DoZG5xibIw8ag",
+ "subs": 3250,
+ "views": 184553,
+ "ratio": 56.79,
+ "age_days": 131,
+ "views_per_day": 1408.8,
+ "minutes": 18.4,
+ "likes": 2468,
+ "comments": 522,
+ "published": "2026-06-06",
+ "queries": "검색:역사 이야기",
+ "url": "https://www.youtube.com/watch?v=5vBTGmcYA5w",
+ "flag": "",
+ "published_at": "2026-06-06T11:06:31Z",
+ "rank": "W22",
+ "set": "web",
+ "folder": "W_5vBTGmcYA5w",
+ "sources": [
+  "검색:역사 이야기"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "👑 영조의 한숨 \"양치할 때마다 한숨이 나온다\""
+  },
+  {
+   "start": 60,
+   "title": "⚰️ 조선 충치율 단 1~5%의 충격"
+  },
+  {
+   "start": 96,
+   "title": "🌿 '양치질' 어원과 버드나무 가지의 비밀"
+  },
+  {
+   "start": 220,
+   "title": "🎎 신분별 양치 도구 (왕실·양반·평민·빈민)"
+  },
+  {
+   "start": 346,
+   "title": "🍚 진짜 범인은 '매일 먹던 밥'이었다"
+  },
+  {
+   "start": 441,
+   "title": "💎 에나멜질도 못 이긴 모래의 위력"
+  },
+  {
+   "start": 489,
+   "title": "🔥 풍치(風齒)의 정체, 현대의 치주염"
+  },
+  {
+   "start": 559,
+   "title": "👑 임금 영조는 왜 같은 시기에 무너졌을까"
+  },
+  {
+   "start": 642,
+   "title": "📖 동의보감 속 충격의 치통 처방"
+  },
+  {
+   "start": 720,
+   "title": "🔨 대장간 집게로 이를 뽑던 조선의 치과"
+  },
+  {
+   "start": 798,
+   "title": "🤔 21세기 우리는 정말 이기고 있을까?"
+  },
+  {
+   "start": 915,
+   "title": "🍰 우리의 적은 '너무 부드러운 음식'"
+  },
+  {
+   "start": 981,
+   "title": "🧠 조선은 몰라서 졌고, 우리는 알면서도 진다"
+  },
+  {
+   "start": 1031,
+   "title": "🪞 오늘 밤 거울 앞에서 30초만…"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 522,
+ "comments_top_level": 219,
+ "comments_replies": 303,
+ "comments_by_creator": 153,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 522,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T10:06:15",
+ "approved": "2026-10-16T19:06+09:00"
+}

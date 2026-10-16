@@ -1,0 +1,110 @@
+{
+ "id": "F-tooKrghZ0",
+ "title": "크메르 제국의 앙코르와트는 왜 밀림에 묻혔나?:세계에서 가장 넓었던 신의 도시가 버려진 이유!",
+ "channel": "율리의역사 [YULY'S HISTORY]",
+ "channel_id": "UCeDdXaWo35mfLcZfrtPdNsg",
+ "subs": 1020,
+ "views": 70099,
+ "ratio": 68.72,
+ "age_days": 8,
+ "views_per_day": 8762.4,
+ "minutes": 18.3,
+ "likes": 220,
+ "comments": 30,
+ "published": "2026-10-07",
+ "queries": "검색:역사 이야기",
+ "url": "https://www.youtube.com/watch?v=F-tooKrghZ0",
+ "flag": "",
+ "published_at": "2026-10-07T11:00:04Z",
+ "rank": "W18",
+ "set": "web",
+ "folder": "W_F-tooKrghZ0",
+ "sources": [
+  "검색:역사 이야기"
+ ],
+ "source": "web",
+ "tags": [
+  "앙코르와트",
+  "앙코르",
+  "캄보디아",
+  "캄보디아 역사",
+  "아유타야",
+  "시엠립",
+  "문명의 몰락",
+  "잃어버린 도시",
+  "세계사",
+  "중세사",
+  "역사 다큐",
+  "역사 미스터리",
+  "역사 이야기",
+  "율리의역사",
+  "흥미로운 역사 이야기",
+  "크메르제국",
+  "캄보디아 여행",
+  "역사"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "정글 속의 기적"
+  },
+  {
+   "start": 91,
+   "title": "오늘의 이야기"
+  },
+  {
+   "start": 125,
+   "title": "살아 있는 신"
+  },
+  {
+   "start": 206,
+   "title": "코끼리 위로 뛰어오른 왕"
+  },
+  {
+   "start": 330,
+   "title": "40킬로미터의 돌"
+  },
+  {
+   "start": 436,
+   "title": "더 큰 사원, 더 무거운 짐"
+  },
+  {
+   "start": 485,
+   "title": "주달관이 본 황금의 도시"
+  },
+  {
+   "start": 566,
+   "title": "새로운 불교"
+  },
+  {
+   "start": 687,
+   "title": "1431년, 아유타야의 침공"
+  },
+  {
+   "start": 835,
+   "title": "마지막 폭우"
+  },
+  {
+   "start": 935,
+   "title": "밀림과 미소"
+  },
+  {
+   "start": 1053,
+   "title": "마무리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 30,
+ "comments_top_level": 14,
+ "comments_replies": 16,
+ "comments_by_creator": 14,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 30,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T10:06:02",
+ "approved": "2026-10-16T19:06+09:00"
+}

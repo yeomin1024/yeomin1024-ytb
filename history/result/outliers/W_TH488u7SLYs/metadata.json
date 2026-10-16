@@ -1,0 +1,66 @@
+{
+ "id": "TH488u7SLYs",
+ "title": "오디세이 관람 전후 필수로 시청해야 하는 영상(영웅의 반전 정체;)ㅣ역사를 보다 EP.155",
+ "channel": "보다 BODA",
+ "channel_id": "UCoCvTlU0KpNYwnMIgs7MPrA",
+ "subs": 3220000,
+ "views": 2529698,
+ "ratio": 0.79,
+ "age_days": 47,
+ "views_per_day": 53823.4,
+ "minutes": 41.9,
+ "likes": 11527,
+ "comments": 340,
+ "published": "2026-08-30",
+ "queries": "검색:역사 이야기",
+ "url": "https://www.youtube.com/watch?v=TH488u7SLYs",
+ "flag": "",
+ "published_at": "2026-08-30T01:59:18Z",
+ "rank": "W70",
+ "set": "web",
+ "folder": "W_TH488u7SLYs",
+ "sources": [
+  "검색:역사 이야기"
+ ],
+ "source": "web",
+ "tags": [
+  "보다",
+  "boda",
+  "직업",
+  "인터뷰",
+  "전문가",
+  "레전드"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트"
+  },
+  {
+   "start": 249,
+   "title": "2000년 동안 숨겨진 오디세이아의 진짜 주인"
+  },
+  {
+   "start": 1255,
+   "title": "트로이 전쟁은 역사일까? 신화일까?"
+  },
+  {
+   "start": 2094,
+   "title": "오디세우스가 10년 동안 집에 못 간 진짜 이유"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 16:07까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 340,
+ "comments_top_level": 267,
+ "comments_replies": 73,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 340,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T10:09:36",
+ "approved": "2026-10-16T19:09+09:00"
+}

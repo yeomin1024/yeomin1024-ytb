@@ -1,0 +1,94 @@
+{
+ "id": "QftIZGkR9MM",
+ "title": "세계 3분의 1이 왼쪽으로 달리는 이유",
+ "channel": "세계사쇼",
+ "channel_id": "UCgSbCC1hcT0FDI4ocACckKg",
+ "subs": 22200,
+ "views": 1391510,
+ "ratio": 62.68,
+ "age_days": 24,
+ "views_per_day": 57979.6,
+ "minutes": 18.3,
+ "likes": 2632,
+ "comments": 437,
+ "published": "2026-09-21",
+ "queries": "검색:세계사",
+ "url": "https://www.youtube.com/watch?v=QftIZGkR9MM",
+ "flag": "",
+ "published_at": "2026-09-21T14:56:56Z",
+ "rank": "W20",
+ "set": "web",
+ "folder": "W_QftIZGkR9MM",
+ "sources": [
+  "검색:세계사"
+ ],
+ "source": "web",
+ "tags": [
+  "나폴레옹",
+  "다겐H",
+  "세계사",
+  "세계사쇼",
+  "영국 좌측통행",
+  "우측통행",
+  "일본 좌측통행",
+  "자동차 역사",
+  "좌측통행",
+  "통행방향"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "세계 3분의 1은 왼쪽으로 달린다"
+  },
+  {
+   "start": 65,
+   "title": "원래 기본값은 왼쪽, 칼과 말의 시대"
+  },
+  {
+   "start": 150,
+   "title": "미국의 대형 마차가 오른쪽을 만들다"
+  },
+  {
+   "start": 245,
+   "title": "나폴레옹 왼손잡이설과 프랑스 혁명의 진실"
+  },
+  {
+   "start": 345,
+   "title": "오스트리아와 체코슬로바키아, 점령군이 끝낸 전환"
+  },
+  {
+   "start": 454,
+   "title": "판을 굳힌 미국산 자동차, 일본이 왼쪽인 이유"
+  },
+  {
+   "start": 570,
+   "title": "스웨덴 다겐 H, 83% 반대를 뚫은 10분"
+  },
+  {
+   "start": 702,
+   "title": "사모아, 중고차 값 때문에 반대로 바꾸다"
+  },
+  {
+   "start": 820,
+   "title": "어느 쪽이 더 안전한가, 엇갈린 연구"
+  },
+  {
+   "start": 948,
+   "title": "왜 세계는 하나로 통일하지 않는가"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 437,
+ "comments_top_level": 243,
+ "comments_replies": 194,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 437,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T10:06:10",
+ "approved": "2026-10-16T19:06+09:00"
+}

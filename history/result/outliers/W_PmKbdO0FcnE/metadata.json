@@ -1,0 +1,71 @@
+{
+ "id": "PmKbdO0FcnE",
+ "title": "조선 선비는 과거 보러 400km를 어떻게 걸어갔을까 | 국밥·엿·주막에 숨은 놀라운 이야기|사극은 거짓말? 과거 보러 가는 조선의 길에는 산적도 호랑이도 없었다",
+ "channel": "어게인역사",
+ "channel_id": "UCTpc5hLEz8isB3rkTDnY5KA",
+ "subs": 5640,
+ "views": 1079338,
+ "ratio": 191.37,
+ "age_days": 38,
+ "views_per_day": 28403.6,
+ "minutes": 12.0,
+ "likes": 1654,
+ "comments": 202,
+ "published": "2026-09-07",
+ "queries": "검색:역사 이야기",
+ "url": "https://www.youtube.com/watch?v=PmKbdO0FcnE",
+ "flag": "",
+ "published_at": "2026-09-07T22:45:16Z",
+ "rank": "W7",
+ "set": "web",
+ "folder": "W_PmKbdO0FcnE",
+ "sources": [
+  "검색:역사 이야기"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "천 리 길, 걸어서 보름의 여정"
+  },
+  {
+   "start": 172,
+   "title": "조선의 길과 문경새재의 비밀"
+  },
+  {
+   "start": 172,
+   "title": "나라가 세운 숙소 '원'과 지명의 유래"
+  },
+  {
+   "start": 298,
+   "title": "나그네를 재운 주막과 조선의 인심"
+  },
+  {
+   "start": 379,
+   "title": "밤샘 공부와 합격을 비는 엿"
+  },
+  {
+   "start": 464,
+   "title": "길 위에서 태어난 국밥과 토렴"
+  },
+  {
+   "start": 601,
+   "title": "서양인이 놀란 온돌, 그리고 남겨진 발자국"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 202,
+ "comments_top_level": 128,
+ "comments_replies": 74,
+ "comments_by_creator": 31,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 202,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T10:05:29",
+ "approved": "2026-10-16T19:05+09:00"
+}

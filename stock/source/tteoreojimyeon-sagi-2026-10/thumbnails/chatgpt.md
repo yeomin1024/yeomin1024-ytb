@@ -1,6 +1,6 @@
 # tteoreojimyeon-sagi-2026-10 썸네일 3장 — ChatGPT용 (읽고 그대로 만들고 저장소에 올리기)
 
-자동 생성 — `python tools/make_summary.py --chatgpt stock tteoreojimyeon-sagi-2026-10` (2026-10-16 02:28). 이 파일은 고치지 말고 `thumbnail_N.md`를 고친 뒤 다시 만든다.
+자동 생성 — `python tools/make_summary.py --chatgpt stock tteoreojimyeon-sagi-2026-10` (2026-10-16 02:49). 이 파일은 고치지 말고 `thumbnail_N.md`를 고친 뒤 다시 만든다.
 
 이 파일 주소: https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/stock/source/tteoreojimyeon-sagi-2026-10/thumbnails/chatgpt.md
 
@@ -20,44 +20,51 @@
      2. 마지막에 이 문장을 그대로 쓴다: **"이 그림 3장을 Claude 대화창에 그대로 붙여 넣어 주세요. Claude가 검수한 뒤 저장소(stock/source/tteoreojimyeon-sagi-2026-10/thumbnails/thumbnail_N)에 올립니다."**
      3. 그 아래 줄에 직접 올리는 길도 적는다: "직접 올리려면: 그림을 thumbnail_N.png 이름으로 내려받아 https://github.com/yeomin1024/yeomin1024-ytb/upload/main/stock/source/tteoreojimyeon-sagi-2026-10/thumbnails 에 끌어다 놓고 Commit changes"
 
-## thumbnail_1 — 본안(클릭률 최대): 현금 더미를 안고 기다리는 사람 위로 올라가 버린 청록 계단
+## thumbnail_1 — 본안(클릭률 최대): 현금을 안고 하락을 기다리는 사람 vs 매달 동전을 넣는 사람, 가운데 빛이 새는 닫힌 상자 — 누가 더 벌었을까
 
 프롬프트:
 
 ```
 YouTube thumbnail, 16:9 landscape (1280x720), semi-realistic digital illustration with cinematic lighting, deep dark navy background (#0C1424) with a soft radial glow behind the center.
-Left side (about 40% of the width): a man in his early fifties who looks a little younger, short dark hair, simple dark jacket, sitting on the ground and hugging a large pile of plain paper cash bundles tied with bright red bands; in one hand he holds a small hourglass with glowing red sand. His face shows quiet regret and worry as he looks up toward the upper right.
-From the bottom center to the top right corner, a bold glowing teal (#22C7B0) staircase made of neat stacks of plain gold-teal coins rises steeply, every step higher than the last, and a thick glowing teal line runs along the top of the steps and keeps climbing out of the frame. The staircase is far above the man and clearly out of his reach.
-Strong color contrast: warm red accents only on his cash bands and hourglass, cool teal glow only on the rising staircase and line. Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
-If 16:9 is not available, use the widest landscape canvas; in any case keep all faces and key objects inside the central 16:9 area, at least 8% away from the top and bottom edges.
-Fictional person, not resembling any real or famous person.
-Absolutely no text, no letters, no numbers, no symbols, no logos and no watermarks anywhere in the image. The banknotes are plain with no portraits, no numbers and no patterns; the coins are plain with no engravings; there are no charts with axis labels, no grid numbers, no screens and no signs.
-```
-
-## thumbnail_2 — 실험안 ①: 사람 없이, 혼자 남은 현금 더미와 올라가 버린 청록 계단
-
-프롬프트:
-
-```
-YouTube thumbnail, 16:9 landscape (1280x720), semi-realistic digital illustration with cinematic lighting, deep dark navy background (#0C1424) with a soft radial glow behind the center.
-Bottom left (about 35% of the width), in cool shadow: a large pile of plain paper cash bundles tied with bright red bands, sitting alone on the ground, with a small hourglass of glowing red sand placed on top of the pile, half of the sand already fallen.
-From the bottom center to the top right corner, a bold glowing teal (#22C7B0) staircase made of neat stacks of plain coins rises steeply, every step higher than the last, and a thick glowing teal line runs along the top of the steps and keeps climbing out of the frame. The staircase towers far above the waiting cash pile.
-No people at all. Strong color contrast: warm red accents only on the cash bands and hourglass, cool teal glow only on the rising staircase and line. Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
-If 16:9 is not available, use the widest landscape canvas; in any case keep all key objects inside the central 16:9 area, at least 8% away from the top and bottom edges.
-Absolutely no text, no letters, no numbers, no symbols, no logos and no watermarks anywhere in the image. The banknotes are plain with no portraits, no numbers and no patterns; the coins are plain with no engravings; there are no charts with axis labels, no grid numbers, no screens and no signs.
-```
-
-## thumbnail_3 — 실험안 ②: 기다리는 사람과, 계단 위에 올라선 매달 산 사람 (두 사람 대비)
-
-프롬프트:
-
-```
-YouTube thumbnail, 16:9 landscape (1280x720), semi-realistic digital illustration with cinematic lighting, deep dark navy background (#0C1424) with a soft radial glow behind the center.
-Left side (about 35% of the width): a man in his early fifties who looks a little younger, short dark hair, simple dark jacket, sitting on the ground and hugging a large pile of plain paper cash bundles tied with bright red bands; in one hand he holds a small hourglass with glowing red sand. His face shows quiet regret and worry as he looks up toward the upper right.
-From the bottom center to the top right corner, a bold glowing teal (#22C7B0) staircase made of neat stacks of plain coins rises steeply, every step higher than the last, and a thick glowing teal line runs along the top of the steps and keeps climbing out of the frame.
-On one of the highest steps near the upper right stands a second person: a calm woman in her forties in a teal jacket, standing upright and looking forward with a small relaxed smile; she is clearly much higher than the man below.
-Strong color contrast: warm red accents only on his cash bands and hourglass, cool teal on the staircase, the line and her jacket. Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
+In the upper background, a single bold glowing white stock-price line climbs from left to right to a sharp peak marked by a small bright yellow star, and one thin yellow dashed horizontal line is drawn a little below that peak.
+Left side (about 40% of the width): a man in his early fifties who looks a little younger, short dark hair, simple dark jacket, sitting tense on a pile of plain paper cash bundles tied with bright red bands, holding a small hourglass with glowing red sand; his eyes are narrowed and fixed on the yellow dashed line with a hesitant, thinking expression, as if waiting for the price to fall to it.
+Right side (about 40% of the width): a calm woman in her forties in a teal jacket, dropping one shiny plain coin into a large clear glass jar, with a big blank wall calendar of empty squares behind her.
+At the bottom center between the two sides sits a heavy closed wooden treasure chest, its lid shut tight, with warm golden light leaking out through the gaps — what is inside cannot be seen.
+Both sides are shown at the same height and the same size; neither side is winning or losing. The mood is suspense: which choice ends with more?
+Color accents: warm red only on the cash bands and hourglass, teal only on the woman's jacket and the coin glow, yellow on the star and the dashed line. Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
 If 16:9 is not available, use the widest landscape canvas; in any case keep all faces and key objects inside the central 16:9 area, at least 8% away from the top and bottom edges.
 Fictional people, not resembling any real or famous person.
-Absolutely no text, no letters, no numbers, no symbols, no logos and no watermarks anywhere in the image. The banknotes are plain with no portraits, no numbers and no patterns; the coins are plain with no engravings; there are no charts with axis labels, no grid numbers, no screens and no signs.
+Absolutely no text, no letters, no numbers, no symbols, no question marks, no logos and no watermarks anywhere in the image. The banknotes are plain with no portraits, no numbers and no patterns; the coins are plain with no engravings; the calendar is a blank grid of empty squares with no numbers or words; the chart is a single line with no axes, no labels and no grid numbers; there are no screens and no signs.
+```
+
+## thumbnail_2 — 실험안 ①: 사람 없이 — 붉은 띠 현금 더미·모래시계 vs 동전이 떨어지는 유리병·빈 달력, 가운데 닫힌 상자
+
+프롬프트:
+
+```
+YouTube thumbnail, 16:9 landscape (1280x720), semi-realistic digital illustration with cinematic lighting, deep dark navy background (#0C1424) with a soft radial glow behind the center.
+In the upper background, a single bold glowing white stock-price line climbs from left to right to a sharp peak marked by a small bright yellow star, and one thin yellow dashed horizontal line is drawn a little below that peak.
+Left side (about 35% of the width), on the ground: a large pile of plain paper cash bundles tied with bright red bands, with a small hourglass of glowing red sand standing on top of the pile.
+Right side (about 35% of the width): a large clear glass jar on the ground with one shiny plain coin falling into it, and a big blank wall calendar of empty squares behind it.
+At the bottom center between the two sides sits a heavy closed wooden treasure chest, its lid shut tight, with warm golden light leaking out through the gaps — what is inside cannot be seen.
+No people at all. Both sides are the same height and the same size; neither side is winning or losing. The mood is suspense: which pile ends with more?
+Color accents: warm red only on the cash bands and hourglass, teal glow only around the glass jar and the coin, yellow on the star and the dashed line. Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
+If 16:9 is not available, use the widest landscape canvas; in any case keep all key objects inside the central 16:9 area, at least 8% away from the top and bottom edges.
+Absolutely no text, no letters, no numbers, no symbols, no question marks, no logos and no watermarks anywhere in the image. The banknotes are plain with no portraits, no numbers and no patterns; the coins are plain with no engravings; the calendar is a blank grid of empty squares with no numbers or words; the chart is a single line with no axes, no labels and no grid numbers; there are no screens and no signs.
+```
+
+## thumbnail_3 — 실험안 ②: 기다리는 사람의 결정 순간을 크게 — 최고점 아래 노란 점선을 노려보는 50대 (A와 상자는 뒤에 작게)
+
+프롬프트:
+
+```
+YouTube thumbnail, 16:9 landscape (1280x720), semi-realistic digital illustration with cinematic lighting, deep dark navy background (#0C1424) with a soft radial glow behind the center.
+Close-up composition. Left and center (about 55% of the width), large in the foreground: a man in his early fifties who looks a little younger, short dark hair, simple dark jacket, hugging a stack of plain paper cash bundles tied with bright red bands, holding a small hourglass with glowing red sand; his eyes are narrowed and fixed on the yellow dashed line with a hesitant, thinking expression, as if waiting for the price to fall to it. His face is large and clearly visible, lit from the glowing chart.
+Upper right background, large: a single bold glowing white stock-price line climbing to a sharp peak marked by a small bright yellow star, with one thin yellow dashed horizontal line drawn a little below that peak — the man is staring at that dashed line.
+Lower right background, small and softly blurred: a calm woman in a teal jacket dropping a plain coin into a clear glass jar, and next to her a closed wooden treasure chest with golden light leaking from its lid — what is inside cannot be seen.
+The mood is suspense and hesitation: should he keep waiting or buy now? Nobody is shown winning or losing.
+Color accents: warm red only on the cash bands and hourglass, teal only on the woman's jacket and the coin glow, yellow on the star and the dashed line. Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
+If 16:9 is not available, use the widest landscape canvas; in any case keep all faces and key objects inside the central 16:9 area, at least 8% away from the top and bottom edges.
+Fictional people, not resembling any real or famous person.
+Absolutely no text, no letters, no numbers, no symbols, no question marks, no logos and no watermarks anywhere in the image. The banknotes are plain with no portraits, no numbers and no patterns; the coins are plain with no engravings; the calendar is a blank grid of empty squares with no numbers or words; the chart is a single line with no axes, no labels and no grid numbers; there are no screens and no signs.
 ```

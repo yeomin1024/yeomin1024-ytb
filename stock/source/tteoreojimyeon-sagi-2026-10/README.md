@@ -176,7 +176,7 @@
 ## 7. 다음
 - [x] 제목 (`titles.md` v2.0) — 한국어 + 9개 언어, 결말 없음
 - [x] 대본·SRT·숫자 확인표
-- [x] 썸네일 프롬프트 3개 — 글자 없이 그림만 (`thumbnails/`, ChatGPT 메시지 `thumbnails/README.md` 5번)
+- [x] 썸네일 프롬프트 3개 v2.0 — 글자 없이 그림만, **결말은 닫힌 상자로 가림** (`thumbnails/`, ChatGPT 메시지 `thumbnails/README.md` 5번)
 - [x] 업로드 시트 `upload.md` — 언어별 제목·설명, 자막 올리기 '아니요'
 - [ ] 내레이션: Kaggle 셀에서 범위 `stock` → `narration.mp3`
 - [x] 장면 파일: `video/episodes/tteoreojimyeon-sagi-2026-10/index.html` v1.0 — 자막 없이, 날짜가 흐르는 실시간 비교 애니메이션 (`backtest/anim.js` ← `backtest/anim_data.py`, 숫자를 손으로 적지 않음). 지금은 추정 시각 (아래 8번)

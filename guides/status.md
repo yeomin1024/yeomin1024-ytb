@@ -37,7 +37,7 @@
 - 외국 영상 켜기 전 한국어 검색 캐시 80개는 `.yt_work/old/` 로 옮겼다 (시장표의 검색어별 결과 수가 두 번 더해지지 않게).
 
 **남은 일 (순서대로)**
-1. **2026-10-16 22:23 KST 뒤** (자막 요청 6시간 쉼이 끝난 뒤): `python3 tools/cloud_run.py stock captions` — 대본 없는 승인 영상 130개의 자막만 다시 (할당량 0). 새 컨테이너면 쉼 기록이 없으므로 바로 됨. 받은 게 있으면 `analyze` → 커밋.
+1. ~~2026-10-16 22:23 KST 뒤 자막 다시~~ → **22:31 KST 해 봄: 0개** — 2번째 요청에서 RequestBlocked, 다시 6시간 쉼(2026-10-17 04:32 KST까지). 유튜브가 이 클라우드 주소의 자막 요청을 막고 있음. 다음 시도는 2번과 함께 (`captions` — 쉼이 끝났을 때만, 할당량 0). 남은 133개는 상태 그대로.
    - 연속 2번 막히면 저절로 6시간 쉼 (`orr.transcript`). 유튜브가 클라우드 주소를 로봇 확인(www.google.com/sorry — 막힌 주소 → ProxyError)이나 RequestBlocked 로 자주 막음 — 첫 승인 때 83개 중 24개만 받힘.
 2. **2026-10-17 16:10 KST 뒤** (할당량 초기화): `python3 tools/cloud_run.py stock resume` — 못 받은 댓글 10개 · 새 채널 기준선 47곳 + 채널 정보 15곳 · 남은 검색 4번 → `python3 tools/cloud_run.py stock analyze` → `git add stock/result/outliers stock/cloud_cache` → main.
 3. 그 뒤 새로 볼 것: `list --unchecked` 로 추천 밖의 좋은 영상, 쇼츠(`explore --shorts` — 검색 55번 ≈ 5,500단위·하루 검색 횟수 한도 주의).

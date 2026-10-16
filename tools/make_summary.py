@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.4.4 — 2026-10-16 — chatgpt.md 규칙 4: '따옴표 안 한글만' → '따옴표 안 글자(한글, 그리고 프롬프트가 적은 영문 — 예: ISA)만'.
-#          ISA 영상 썸네일 문구에 영문 'ISA'가 있어 '한글만'이라는 규칙과 어긋났음 (사용자 지시 2026-10-16 "영상 4개 완성하기 위해 뭐가 필요한지 확인하고 없으면 만들어").
+# VERSION: v1.5.0 — 2026-10-16 — --chatgpt-all <주제>: 그 주제 모든 영상의 남은 썸네일을 한 파일(<주제>/thumbnails_chatgpt.md)에 모아
+#          ChatGPT 가 메시지 한 번으로 차례로 만들고 장마다 **저장 경로**(`<주제>/source/<영상ID>/thumbnails/thumbnail_N.png`)에 올리게 한다
+#          (못 쓰면 경로를 붙여 순서대로 보여 주고 Claude 대화에 붙이게). 영상별 chatgpt.md 도 그림 위에 저장 경로를 적게 함.
+#          사용자 지시 2026-10-16 "모든 썸네일은 chatgpt가 프롬프트 읽고 만들어서 맞는 경로에 업로드 해줘야하는데 뭐라고 해야하는지 알려줘 지시사항 변경 필요하면 변경하고".
+# (v1.4.4 — 2026-10-16 — chatgpt.md 규칙 4: '따옴표 안 한글만' → '따옴표 안 글자(한글, 그리고 프롬프트가 적은 영문 — 예: ISA)만'.
+#          ISA 영상 썸네일 문구에 영문 'ISA'가 있어 '한글만'이라는 규칙과 어긋났음 (사용자 지시 2026-10-16 "영상 4개 완성하기 위해 뭐가 필요한지 확인하고 없으면 만들어").)
 # (v1.4.3 — 2026-10-15 — 글자 없는 썸네일: thumbnail_N.md 표에 '| 글자 | 없음' 이 있으면 chatgpt.md 규칙을 '글자·숫자 하나도 없이,
 #          가짜 글자가 없는지 확대해 보기'로 바꿈 (사용자 지시 2026-10-15 "주식 주제는 전세계 사람들 대상 … 썸네일도 문구 달지 말고 이미지로만").)
 # (v1.4.2 — 2026-10-15 — 사용자 지시 "썸네일 chatgpt가 안올렸대잖아 올리도록 지시사항 반영해": ChatGPT 가 저장소에 못 쓰면(이 계정은 읽기만)
@@ -25,6 +29,7 @@ r"""
   python tools/make_summary.py --all                    # 모든 주제 폴더의 source/<영상ID>/ (upload.md가 있는 것)
   python tools/make_summary.py --thumb-todo stock       # 이미지가 아직 없는 썸네일의 [A] 프롬프트 모음 → stock/thumbnail_todo.md
   python tools/make_summary.py --chatgpt economic eunte-kkeonaeseugi-2026-10   # ChatGPT가 읽고 3장을 만드는 파일 → source/<영상ID>/thumbnails/chatgpt.md
+  python tools/make_summary.py --chatgpt-all economic   # (v1.5.0) 그 주제 모든 영상의 남은 썸네일 → <주제>/thumbnails_chatgpt.md (메시지 한 번, 장마다 저장 경로)
 
 읽는 파일: source/<영상ID>/{titles.md, thumbnails/thumbnail_1~3.md·이미지, upload.md, <영상ID>.txt·.srt, README.md, youtube.json,
           narration.*, tts_narration.json}, out/<영상ID>/final_1080p.mp4, voices/*.json, video/src/episodes/<영상ID>/
@@ -285,12 +290,12 @@ CHATGPT_RULES = """## ChatGPT에게 — 이 파일을 읽으면 할 일
 2. 각 장은 그 칸의 **프롬프트(``` 안)를 한 글자도 바꾸지 않고 그대로** 쓴다. 장마다 서로 다른 그림이다 — 앞 장의 인물·구도·색을 이어 쓰지 않는다.
 3. 크기는 가로형 16:9 (1280×720). 16:9가 안 되면 가장 넓은 가로형으로 만들고, 글자와 얼굴은 가운데에 두고 위아래 가장자리 8%는 비운다.
 {rule4}5. 사람은 실존 인물이나 유명인을 닮지 않은 가상 인물이다.
-{rule6}7. 그림마다 위에 'thumbnail_N'이라고 한 줄 적어 어느 시안인지 알려 준다 (그림 안에는 쓰지 않는다).
+{rule6}7. 그림마다 바로 위에 그 장의 저장 경로 `{folder}/thumbnail_N.png`를 한 줄 적어 어느 시안인지 알려 준다 (그림 안에는 쓰지 않는다).
 8. **다 만들면 저장소에 넣는다.**
    - 올릴 곳: 저장소 `{repo}` main 브랜치의 `{folder}/` 폴더, 파일 이름 `thumbnail_N.png` (N = 시안 번호).
    - GitHub 에 쓸 수 있으면(쓰기 권한이 있는 GitHub 앱) 그 폴더에 커밋한다. 커밋 메시지: `[썸네일] {vid} thumbnail_N 이미지`
    - **쓸 수 없으면 (이 계정의 ChatGPT 는 GitHub 를 읽기만 함 — 2026-10-15 확인)** 묻지 말고 아래처럼 끝낸다:
-     1. 만든 그림을 thumbnail 번호 순서로 다시 한 번씩 보여 준다 (그림마다 위에 'thumbnail_N').
+     1. 만든 그림을 thumbnail 번호 순서로 다시 한 번씩 보여 준다 (그림마다 위에 저장 경로 `{folder}/thumbnail_N.png`).
      2. 마지막에 이 문장을 그대로 쓴다: **"이 그림 {n}장을 Claude 대화창에 그대로 붙여 넣어 주세요. Claude가 검수한 뒤 저장소({folder}/thumbnail_N)에 올립니다."**
      3. 그 아래 줄에 직접 올리는 길도 적는다: "직접 올리려면: 그림을 thumbnail_N.png 이름으로 내려받아 {upload} 에 끌어다 놓고 Commit changes"
 """
@@ -302,8 +307,8 @@ NO_TEXT_RULES = ("4. **그림 속에 글자·숫자·기호·로고·워터마�
                  "6. 한 장을 만들 때마다 그림을 크게 확대해 **글자처럼 보이는 것**(가짜 글자, 숫자, 지폐 무늬 속 숫자, 화면 속 글)이 없는지 본다. 있으면 그 부분만 지운 그림으로 다시 만든다.\n")
 
 
-def chatgpt_file(topic, vid, root=ROOT):
-    """thumbnail_1~3.md 의 문구표·[A] 프롬프트를 모아 ChatGPT가 주소 하나로 읽고 3장을 만드는 파일을 쓴다 (원본은 고치지 않음)."""
+def pending_thumbnails(topic, vid, root=ROOT):
+    """이미지가 아직 없는 시안 → [(번호, 제목 줄, [A] 프롬프트, 문구표, 글자 없음)] (thumbnail_N.md 가 있는 것만)."""
     folder = root / topic / "source" / vid / "thumbnails"
     items = []
     for i in (1, 2, 3):
@@ -322,6 +327,13 @@ def chatgpt_file(topic, vid, root=ROOT):
             raise SystemExit(f"[CHATGPT] level=error file={md_path.name} reason=[A] 프롬프트 칸 없음 — '## [A] …' 아래 ``` 블록 필요")
         no_text = bool(re.search(r"^\|\s*글자\s*\|\s*\**\s*없음", md, re.M))       # v1.4.3 글자 없는 썸네일
         items.append((i, md.splitlines()[0].lstrip("# ").strip(), a.group(1), "" if no_text else (words.group(1).strip() if words else ""), no_text))
+    return items
+
+
+def chatgpt_file(topic, vid, root=ROOT):
+    """thumbnail_1~3.md 의 문구표·[A] 프롬프트를 모아 ChatGPT가 주소 하나로 읽고 3장을 만드는 파일을 쓴다 (원본은 고치지 않음)."""
+    folder = root / topic / "source" / vid / "thumbnails"
+    items = pending_thumbnails(topic, vid, root)
     rel = folder.relative_to(root).as_posix()
     if not items:
         if not any((folder / f"thumbnail_{i}.md").exists() for i in (1, 2, 3)):
@@ -351,6 +363,66 @@ def chatgpt_file(topic, vid, root=ROOT):
     return path
 
 
+CHATGPT_ALL_RULES = """## ChatGPT에게 — 이 파일을 읽으면 할 일
+1. 아래 썸네일 {n}장({videos}개 영상)을 **1번부터 차례로 모두** 만든다. 질문하지 말고, 한 장을 만든 뒤 멈추지 말고 다음 장으로 넘어간다.
+   - 이미지 한도 때문에 멈추면 사용자가 `계속`이라고 보낸다 → 아직 안 만든 번호부터 이어서 만든다.
+2. 각 장은 그 칸의 **프롬프트(``` 안)를 한 글자도 바꾸지 않고 그대로** 쓴다. 장마다 서로 다른 그림이다 — 앞 장의 인물·구도·색을 이어 쓰지 않는다.
+3. 크기는 가로형 16:9 (1280×720). 16:9가 안 되면 가장 넓은 가로형으로 만들고, 글자와 얼굴은 가운데에 두고 위아래 가장자리 8%는 비운다.
+{rule4}5. 사람은 실존 인물이나 유명인을 닮지 않은 가상 인물이다.
+{rule6}7. **그림마다 바로 위에 그 장의 번호와 저장 경로를 한 줄 적는다** (예: `3. {example}`). 그림 안에는 쓰지 않는다.
+8. **다 만들면 저장소에 넣는다 — 장마다 적힌 저장 경로 그대로.**
+   - 저장소 `{repo}` main 브랜치. 파일 이름·폴더는 그 장의 '저장 경로'와 한 글자도 다르지 않게 (`thumbnail_N.png`).
+   - GitHub 에 쓸 수 있으면(쓰기 권한이 있는 GitHub 앱) 장마다 그 경로에 커밋한다. 커밋 메시지: `[썸네일] <영상ID> thumbnail_N 이미지`
+   - **쓸 수 없으면 (이 계정의 ChatGPT 는 GitHub 를 읽기만 함 — 2026-10-15 확인)** 묻지 말고 아래처럼 끝낸다:
+     1. 만든 그림을 이 파일의 번호 순서(1번부터)대로 다시 한 번씩 보여 준다 (그림마다 위에 번호와 저장 경로).
+     2. 마지막에 이 문장을 그대로 쓴다: **"이 그림 {n}장을 이 순서대로 Claude 대화창에 붙여 넣어 주세요. Claude가 검수한 뒤 각 저장 경로에 올립니다."**
+     3. 그 아래에 직접 올리는 길도 적는다: "직접 올리려면: 그림을 thumbnail_N.png 이름으로 내려받아 폴더마다 아래 링크에 끌어다 놓고 Commit changes" + 아래 '폴더별 올리기 링크' 목록
+"""
+
+
+def chatgpt_all(topic, root=ROOT):
+    """v1.5.0: 주제의 모든 영상에서 이미지가 없는 시안을 모아 <주제>/thumbnails_chatgpt.md 하나로 (영상 ID 순 → 시안 번호 순).
+    ChatGPT 는 메시지 한 번으로 차례로 만들고 장마다 저장 경로에 올린다 (못 쓰면 경로를 붙여 보여 주고 Claude 대화에 붙이게)."""
+    groups = []
+    for folder in sorted((root / topic / "source").glob("*/thumbnails")):
+        if not any((folder / f"thumbnail_{i}.md").exists() for i in (1, 2, 3)):
+            continue
+        vid = folder.parent.name
+        items = pending_thumbnails(topic, vid, root)
+        if items:
+            groups.append((vid, folder.relative_to(root).as_posix(), items))
+    path = root / topic / "thumbnails_chatgpt.md"
+    stamp = dt.datetime.now().strftime("%Y-%m-%d %H:%M")
+    gen = f"자동 생성 — `python tools/make_summary.py --chatgpt-all {topic}` ({stamp})"
+    if not groups:
+        path.write_text(f"# {topic} 썸네일 — ChatGPT용 (모든 영상)\n\n모든 썸네일 이미지가 저장소에 있다. **만들 것 없음.**\n\n"
+                        f"이 파일을 읽은 AI는 그림을 만들지 말고 '만들 썸네일이 없습니다'라고만 답한다.\n\n{gen}\n", "utf-8")
+        print(f"[CHATGPT-ALL] topic={topic} thumbnails=0 note=모든_시안에_이미지_있음 file={path.relative_to(root)}")
+        return path
+    flat = [(vid, rel, it) for vid, rel, items in groups for it in items]
+    rules = NO_TEXT_RULES if all(it[4] for _, _, it in flat) else TEXT_RULES
+    first_vid, first_rel, first_it = flat[min(2, len(flat) - 1)]
+    out = [f"# {topic} 썸네일 {len(flat)}장 — ChatGPT용 (모든 영상 · 읽고 그대로 만들고 각 저장 경로에 올리기)", "",
+           f"{gen}. 이 파일은 고치지 말고 영상마다 `thumbnail_N.md`를 고친 뒤 다시 만든다.", "",
+           f"이 파일 주소: {RAW_BASE}/{topic}/thumbnails_chatgpt.md", "",
+           "| 영상 | 만들 시안 | 저장 폴더 |", "|---|---|---|"]
+    out += [f"| {vid} | {', '.join(f'thumbnail_{it[0]}' for it in items)} | `{rel}/` |" for vid, rel, items in groups]
+    out += ["", CHATGPT_ALL_RULES.format(n=len(flat), videos=len(groups), repo=REPO, example=f"{first_rel}/thumbnail_{first_it[0]}.png",
+                                          rule4=rules[0], rule6=rules[1]),
+            "## 폴더별 올리기 링크 (ChatGPT가 못 올릴 때 사람이 쓰는 길)", ""]
+    out += [f"- {vid}: {UPLOAD_BASE}/{rel}" for vid, rel, _ in groups]
+    out.append("")
+    for k, (vid, rel, (i, head, prompt, words, _no_text)) in enumerate(flat, 1):
+        out += [f"## {k}. {vid} · thumbnail_{i} — {head.split('—', 1)[-1].strip()}", "",
+                f"**저장 경로: `{rel}/thumbnail_{i}.png`**", ""]
+        if words:
+            out += ["문구 (그림 속 글자는 이것과 한 글자도 다르면 안 됨):", "", words, ""]
+        out += ["프롬프트:", "", "```", prompt, "```", ""]
+    path.write_text("\n".join(out), "utf-8")
+    print(f"[CHATGPT-ALL] topic={topic} videos={len(groups)} thumbnails={len(flat)} file={path.relative_to(root)} url={RAW_BASE}/{topic}/thumbnails_chatgpt.md")
+    return path
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description="영상별 한눈에 보기 문서(summary.md) 만들기")
     ap.add_argument("topic", nargs="?")
@@ -358,8 +430,11 @@ def main(argv=None):
     ap.add_argument("--all", action="store_true", help="upload.md가 있는 모든 영상 (보류 주제 제외)")
     ap.add_argument("--thumb-todo", metavar="주제폴더", help="이미지가 없는 썸네일 프롬프트 모음 만들기")
     ap.add_argument("--chatgpt", nargs=2, metavar=("주제폴더", "영상ID"), help="ChatGPT가 읽고 썸네일 3장을 만드는 thumbnails/chatgpt.md 만들기")
+    ap.add_argument("--chatgpt-all", metavar="주제폴더", help="(v1.5.0) 그 주제 모든 영상의 남은 썸네일 → <주제>/thumbnails_chatgpt.md")
     a = ap.parse_args(argv)
-    if a.chatgpt:
+    if a.chatgpt_all:
+        chatgpt_all(a.chatgpt_all)
+    elif a.chatgpt:
         chatgpt_file(*a.chatgpt)
     elif a.thumb_todo:
         thumb_todo(a.thumb_todo)

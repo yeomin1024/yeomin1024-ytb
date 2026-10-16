@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-# VERSION: v1.3 — 2026-10-15 — v1.4.3 글자 없는 썸네일('| 글자 | 없음') 규칙 시험 추가.
+# VERSION: v1.4 — 2026-10-16 — make_summary v1.5.0 --chatgpt-all (주제 모든 영상 한 파일, 장마다 저장 경로) · 영상별 파일 그림 위 저장 경로 시험.
+# (v1.3 — 2026-10-15 — v1.4.3 글자 없는 썸네일('| 글자 | 없음') 규칙 시험 추가.)
 # (v1.2 — 2026-10-15 — tools/make_summary.py v1.4.2 --chatgpt 시험 (못 쓰면 Claude 대화에 붙이라는 안내, 모두 만들었을 때 '만들 것 없음')
 # (v1.1 — 2026-10-15 — v1.4.1: 올리기 단계·이미지 있는 시안 빼기))
 # (v1.0 — 2026-10-15 — v1.4.0 --chatgpt 시험)
@@ -106,6 +107,59 @@ class ChatgptFileTest(unittest.TestCase):
             self.assertIn("\n" + n, text)
         self.assertLess(text.index("\n4."), text.index("\n5."))
         self.assertLess(text.index("\n5."), text.index("\n6."))
+
+
+    def test_label_has_save_path(self):                 # v1.5.0 — 그림 위에 저장 경로
+        for i in (1, 2, 3):
+            (self.folder / f"thumbnail_{i}.md").write_text(thumb_md(i), "utf-8")
+        text, _ = self.run_tool()
+        self.assertIn("저장 경로 `economic/source/vid/thumbnails/thumbnail_N.png`", text)
+
+
+class ChatgptAllTest(unittest.TestCase):                # v1.5.0 --chatgpt-all
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.root = Path(self.tmp.name)
+        for vid in ("b-vid", "a-vid"):
+            f = self.root / "economic" / "source" / vid / "thumbnails"
+            f.mkdir(parents=True)
+            for i in (1, 2, 3):
+                (f / f"thumbnail_{i}.md").write_text(thumb_md(i, a_text=f"PROMPT_{vid}"), "utf-8")
+        (self.root / "economic" / "source" / "a-vid" / "thumbnails" / "thumbnail_2.png").write_bytes(b"img")
+        (self.root / "economic" / "source" / "no-thumbs").mkdir(parents=True)          # 썸네일 폴더 없는 영상은 무시
+
+    def tearDown(self):
+        self.tmp.cleanup()
+
+    def run_all(self):
+        with redirect_stdout(io.StringIO()) as buf:
+            path = ms.chatgpt_all("economic", root=self.root)
+        return path, path.read_text("utf-8"), buf.getvalue()
+
+    def test_collects_pending_in_order_with_paths(self):
+        path, text, log = self.run_all()
+        self.assertEqual(path, self.root / "economic" / "thumbnails_chatgpt.md")
+        heads = [l for l in text.splitlines() if l.startswith("## ") and " · thumbnail_" in l]
+        self.assertEqual([h.split(" — ")[0] for h in heads],
+                         ["## 1. a-vid · thumbnail_1", "## 2. a-vid · thumbnail_3",
+                          "## 3. b-vid · thumbnail_1", "## 4. b-vid · thumbnail_2", "## 5. b-vid · thumbnail_3"])
+        self.assertIn("**저장 경로: `economic/source/a-vid/thumbnails/thumbnail_3.png`**", text)
+        self.assertNotIn("a-vid/thumbnails/thumbnail_2.png`**", text)                    # 이미지 있는 시안은 뺌
+        self.assertIn('PROMPT_b-vid 2 "세금"', text)
+        self.assertIn("썸네일 5장(2개 영상)을 **1번부터 차례로 모두**", text)
+        self.assertIn("이 그림 5장을 이 순서대로 Claude 대화창에 붙여 넣어 주세요", text)
+        self.assertIn(f"{ms.UPLOAD_BASE}/economic/source/b-vid/thumbnails", text)
+        self.assertIn(f"{ms.RAW_BASE}/economic/thumbnails_chatgpt.md", text)
+        self.assertIn("[CHATGPT-ALL] topic=economic videos=2 thumbnails=5", log)
+
+    def test_all_done_notice(self):
+        for vid in ("a-vid", "b-vid"):
+            for i in (1, 2, 3):
+                (self.root / "economic" / "source" / vid / "thumbnails" / f"thumbnail_{i}.webp").write_bytes(b"img")
+        _, text, log = self.run_all()
+        self.assertIn("만들 것 없음", text)
+        self.assertNotIn("PROMPT", text)
+        self.assertIn("thumbnails=0", log)
 
 
 if __name__ == "__main__":

@@ -64,7 +64,12 @@
 - 흰색 = 나머지 글자
 
 ## 5. ChatGPT로 이미지 만들기
-- ChatGPT 새 대화에 이것만 보낸다:
+- **기본 — 남은 재테크 썸네일 전부를 한 번에** (`guides/thumbnail_guide.md` v3.3 9번): ChatGPT 새 대화에 이것만 보낸다. 장마다 번호 + 저장 경로가 붙는다.
+```
+이 파일을 열어 끝까지 읽고, 파일에 적힌 썸네일을 1번부터 차례로 모두 만들어서 장마다 적힌 저장 경로에 올려 줘.
+https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/economic/thumbnails_chatgpt.md
+```
+- 이 영상만 만들 때는 ChatGPT 새 대화에 이것만 보낸다:
 ```
 이 파일을 열어 끝까지 읽고, 파일에 적힌 대로 썸네일을 만들어서 저장소에 올려 줘.
 https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/economic/source/isa-mangi-2026-10/thumbnails/chatgpt.md

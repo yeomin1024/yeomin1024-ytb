@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-# VERSION: v1.4 — 2026-10-16 — make_summary v1.5.0 --chatgpt-all (주제 모든 영상 한 파일, 장마다 저장 경로) · 영상별 파일 그림 위 저장 경로 시험.
+# VERSION: v1.5 — 2026-10-16 — make_summary v1.6.0 쇼츠 썸네일(source/<영상ID>/shorts/thumbnails/thumbnail_1 하나, 세로 9:16) 시험.
+# (v1.4 — 2026-10-16 — make_summary v1.5.0 --chatgpt-all (주제 모든 영상 한 파일, 장마다 저장 경로) · 영상별 파일 그림 위 저장 경로 시험.)
 # (v1.3 — 2026-10-15 — v1.4.3 글자 없는 썸네일('| 글자 | 없음') 규칙 시험 추가.)
 # (v1.2 — 2026-10-15 — tools/make_summary.py v1.4.2 --chatgpt 시험 (못 쓰면 Claude 대화에 붙이라는 안내, 모두 만들었을 때 '만들 것 없음')
 # (v1.1 — 2026-10-15 — v1.4.1: 올리기 단계·이미지 있는 시안 빼기))
@@ -160,6 +161,45 @@ class ChatgptAllTest(unittest.TestCase):                # v1.5.0 --chatgpt-all
         self.assertIn("만들 것 없음", text)
         self.assertNotIn("PROMPT", text)
         self.assertIn("thumbnails=0", log)
+
+
+class ShortsThumbTest(unittest.TestCase):              # v1.6.0 쇼츠 썸네일
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.root = Path(self.tmp.name)
+        long_f = self.root / "economic" / "source" / "a-vid" / "thumbnails"
+        short_f = self.root / "economic" / "source" / "a-vid" / "shorts" / "thumbnails"
+        long_f.mkdir(parents=True); short_f.mkdir(parents=True)
+        for i in (1, 2, 3):
+            (long_f / f"thumbnail_{i}.md").write_text(thumb_md(i, a_text="LONG"), "utf-8")
+        (short_f / "thumbnail_1.md").write_text(thumb_md(1, a_text="SHORT"), "utf-8")
+        (short_f / "thumbnail_2.md").write_text(thumb_md(2, a_text="SHORT_EXTRA"), "utf-8")   # 쇼츠는 1번만 씀
+
+    def tearDown(self):
+        self.tmp.cleanup()
+
+    def test_all_has_shorts_after_long_with_size(self):
+        with redirect_stdout(io.StringIO()) as buf:
+            text = ms.chatgpt_all("economic", root=self.root).read_text("utf-8")
+        heads = [l.split(" — ")[0] for l in text.splitlines() if l.startswith("## ") and " · thumbnail_" in l]
+        self.assertEqual(heads, ["## 1. a-vid · thumbnail_1", "## 2. a-vid · thumbnail_2", "## 3. a-vid · thumbnail_3",
+                                 "## 4. a-vid-shorts · thumbnail_1"])
+        self.assertIn("**저장 경로: `economic/source/a-vid/shorts/thumbnails/thumbnail_1.png`**", text)
+        self.assertIn("크기: **세로 9:16 (1080×1920) — 쇼츠**", text)
+        self.assertIn("크기: 가로 16:9 (1280×720) — 롱폼", text)
+        self.assertIn("장마다 '크기' 줄대로", text)                       # 섞이면 장마다
+        self.assertNotIn("SHORT_EXTRA", text)
+        self.assertIn("videos=2 thumbnails=4", buf.getvalue())
+
+    def test_shorts_file_is_tall(self):
+        with redirect_stdout(io.StringIO()):
+            path = ms.chatgpt_file("economic", "a-vid-shorts", root=self.root)
+        text = path.read_text("utf-8")
+        self.assertEqual(path, self.root / "economic" / "source" / "a-vid" / "shorts" / "thumbnails" / "chatgpt.md")
+        self.assertIn("세로형 9:16 (1080×1920)", text)
+        self.assertNotIn("가로형 16:9", text)
+        self.assertIn('SHORT 1 "세금"', text)
+        self.assertNotIn("SHORT_EXTRA", text)
 
 
 if __name__ == "__main__":

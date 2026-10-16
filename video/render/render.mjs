@@ -1,5 +1,8 @@
-// VERSION: v1.9 — 2026-10-16 — 낱말 검사 예외에 ETF 티커 TQQQ·QYLD·XYLD·JEPI·SCHD·QQQ·QLD·VYM·NDX (SPY 와 같은 고유 이름 — 주식 2·3·4번 계좌 이름표,
+// VERSION: v1.10 — 2026-10-16 — 낱말 검사 예외에 ETF 티커 TQQQ·QYLD·XYLD·JEPI·SCHD·QQQ·QLD·VYM·NDX (SPY 와 같은 고유 이름 — 주식 2·3·4번 계좌 이름표,
 //   사용자 지시 2026-10-16 "같은 방식으로 필요한 소스 생성해서 3개 영상 미리보기 영상 만들어봐", stock/guides/README.md 4번).
+// v1.9 — 2026-10-16 — 쇼츠 첫 문장 그림: sync 가 <쇼츠 폴더>/thumbnails/thumbnail_1.(png|jpg|jpeg|webp) 를 찾아 EP.thumb 에 (kit.js v1.4 K.cover).
+//   video: 장면이 K.cover 를 쓰는데 그림이 없으면 최종본을 막음(--no-cover 로 그림 없이), 그림이 데이터 칸과 다르면 sync 다시.
+//   사용자 지시 2026-10-16 "쇼츠 영상 썸네일 이미지 프롬프트 만들어서 영상 처음에만 그걸 포함 시키고 첫 대사를 그 이미지 띄워놓고 하는게 나을 것 같아".
 // v1.8 — 2026-10-16 — 세로 쇼츠: 장면 파일의 <meta name="video-size" content="1080x1920"> 로 무대 크기(창·찍는 크기·점검),
 //   <meta name="video-safe" content="위 오른쪽 아래 왼쪽"> 로 점검 안전 구역(아래 = 장면 글자가 넘지 않을 y), 영상ID '<영상ID>-shorts' 는
 //   대본 폴더 <주제>/source/<영상ID>/shorts/ (tts_narration v1.9 와 같음). 추정 시각(--estimate)도 자막을 만든다(srt_tool 앞줄·뒷줄 나눔). 사용자 지시 2026-10-16 "좋아 나머지도 세 편도 대본은 같은 방식으로 만들고 일단 이 쇼츠만 영상 만들어봐".
@@ -37,7 +40,7 @@ import { fileURLToPath } from "node:url";
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, "..", "..");
-const VERSION = "v1.9";                        // 로그 [RENDER] tool= 에 찍힘 (v1.4~v1.6 때 올리지 않았던 것을 맞춤)
+const VERSION = "v1.10";                        // 로그 [RENDER] tool= 에 찍힘 (v1.4~v1.6 때 올리지 않았던 것을 맞춤)
 const log = (stage, kv) => console.log(`[${stage}] [${new Date().toISOString().slice(0, 19)}Z] ` +
   Object.entries(kv).map(([k, v]) => `${k}=${typeof v === "string" && /\s/.test(v) ? JSON.stringify(v) : v}`).join(" "));
 
@@ -54,6 +57,9 @@ const SRC = SHORTS ? path.join(ROOT, TOPIC, "source", ID.slice(0, -"-shorts".len
 const EPDIR = path.join(ROOT, "video", "episodes", ID);
 const PAGE = path.join(EPDIR, "index.html");
 const AUDIO = ["mp3", "wav", "m4a"].map(e => path.join(SRC, `narration.${e}`)).find(f => fs.existsSync(f));
+// v1.9 쇼츠 썸네일 이미지 = 첫 문장 그림 (Claude 가 검수해 올린 것 — guides/thumbnail_guide.md 10번)
+const THUMB = SHORTS ? ["png", "jpg", "jpeg", "webp"].map(e => path.join(SRC, "thumbnails", `thumbnail_1.${e}`)).find(f => fs.existsSync(f)) : null;
+const THUMB_REL = THUMB ? path.relative(EPDIR, THUMB).split(path.sep).join("/") : null;
 // v1.8 무대 크기·점검 안전 구역 (장면 파일 meta — 없으면 1920×1080 · 예전 점검 값)
 const PAGE_HTML = fs.existsSync(PAGE) ? fs.readFileSync(PAGE, "utf-8") : "";
 const SIZE = (m => (m ? [+m[1], +m[2]] : [1920, 1080]))(PAGE_HTML.match(/<meta name="video-size" content="(\d+)x(\d+)"/));
@@ -126,10 +132,10 @@ print(json.dumps({"rows": rows, "cards": len(srt_tool.parse_cards(sys.argv[1]))}
     return it;
   });
   const D = +t.toFixed(2);
-  const ep = { id: ID, topic: TOPIC, duration: D, audio: null, estimated: true, est_model: EST,
+  const ep = { id: ID, topic: TOPIC, duration: D, audio: null, thumb: THUMB_REL, estimated: true, est_model: EST,
     synced: new Date().toISOString().slice(0, 19) + "Z", sent, subs, subs_estimated: true };
   writeEp(ep);
-  log("SYNC", { video: ID, mode: "estimate", sentences: sent.length, subs: subs.length, syllables: rows.reduce((a, x) => a + x[2], 0), duration_s: D,
+  log("SYNC", { video: ID, mode: "estimate", sentences: sent.length, subs: subs.length, syllables: rows.reduce((a, x) => a + x[2], 0), duration_s: D, thumb: THUMB_REL || "없음",
     note: "오디오가 생기면 sync 로 다시 (이 시각으로는 video 를 만들지 않음)", file: path.relative(ROOT, PAGE) });
 }
 function writeEp(ep) {
@@ -148,10 +154,10 @@ function sync() {
   const D = +Math.max(aDur, srt.length ? srt[srt.length - 1][1] + 1.0 : 0).toFixed(2);
   const sent = meta.items.map(it => ({ n: it.n, part: it.part, text: it.text, start: it.start, end: it.end }));
   if (Math.abs(meta.seconds - aDur) > 0.5) log("SYNC", { level: "warn", note: "tts_narration.json 길이와 오디오 길이가 다름", meta_s: meta.seconds, audio_s: aDur.toFixed(2) });
-  const ep = { id: ID, topic: TOPIC, duration: D, audio: path.relative(EPDIR, AUDIO).split(path.sep).join("/"),
+  const ep = { id: ID, topic: TOPIC, duration: D, audio: path.relative(EPDIR, AUDIO).split(path.sep).join("/"), thumb: THUMB_REL,
     synced: new Date().toISOString().slice(0, 19) + "Z", tts: meta.created, script_sha1: meta.script_sha1, sent, subs: srt };
   writeEp(ep);
-  log("SYNC", { video: ID, sentences: sent.length, subs: srt.length, audio_s: aDur.toFixed(2), duration_s: D, file: path.relative(ROOT, PAGE) });
+  log("SYNC", { video: ID, sentences: sent.length, subs: srt.length, audio_s: aDur.toFixed(2), duration_s: D, thumb: THUMB_REL || "없음", file: path.relative(ROOT, PAGE) });
 }
 
 // ---------- 브라우저 ----------
@@ -286,6 +292,11 @@ async function video() {
   const estPreview = !!ep.estimated && argv.includes("--estimated-preview");
   if (ep.estimated && !estPreview) fail("RENDER", "추정 시각(오디오 전)으로는 영상을 만들지 않음", `오디오가 생기면 node video/render/render.mjs sync ${TOPIC} ${ID} (미리보기만: --estimated-preview)`);
   if (estPreview) log("RENDER", { level: "warn", note: "추정 시각 미리보기 — 소리 없음, 최종본 아님 (오디오가 오면 sync 뒤 다시 렌더)" });
+  if (/K\.cover\(/.test(html)) {                                // v1.9 첫 문장 그림
+    if ((ep.thumb || null) !== THUMB_REL) fail("RENDER", "썸네일 이미지가 데이터 칸과 다름 (새로 생겼거나 바뀜)", `node video/render/render.mjs sync ${TOPIC} ${ID}${ep.estimated ? " --estimate" : ""}`);
+    if (!THUMB && !estPreview && !argv.includes("--no-cover")) fail("RENDER", "첫 문장 그림(쇼츠 썸네일 이미지) 없음", `${path.relative(ROOT, SRC)}/thumbnails/thumbnail_1.png 을 먼저 (ChatGPT → Claude 검수) — 그림 없이 만들려면 --no-cover`);
+    log("RENDER", { cover: THUMB_REL || "없음(자리 표시)" });
+  }
   const from = opt("from") ? Number(opt("from")) : 0, to = opt("to") ? Number(opt("to")) : ep.duration;
   const preview = opt("from") != null || opt("to") != null || estPreview;
   const F0 = Math.round(from * fps), F1 = Math.ceil(to * fps);

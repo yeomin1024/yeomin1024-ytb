@@ -1,5 +1,25 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-16 (54) — 재테크 쇼츠 4편 세로 장면 + 소리 없는 미리보기 · 첫 문장 = 쇼츠 썸네일 이미지 · 관련 동영상 거는 법
+
+### 왜 (사용자 지시)
+- "이거 쇼츠 영상 썸네일 이미지 프롬프트 만들어서 영상 처음에만 그걸 포함 시키고 첫 대사를 그 이미지 띄워놓고 하는게 나을 것 같아 롱폼 영상 만들 때처럼 해서 쇼츠 영상, 이미지 프롬프트 4개 다 만들도록 하고 마지막에 아래 영상에서 확인에 링크를 어떻게 넣어?"
+
+### 한 것
+| 파일 (버전) | 내용 |
+|---|---|
+| `video/render/kit.js` (v1.3 → v1.4) | `K.cover(end)` — `EP.thumb` 를 0초 ~ 첫 문장 끝까지 화면 가득(object-fit cover · 천천히 1.05배), 그림 전에는 '썸네일 이미지 자리'. 장면의 `<img>` 가 풀린 뒤에 `SB.ready` |
+| `video/render/render.mjs` (v1.8 → v1.9) | sync(추정 포함)가 `<쇼츠 폴더>/thumbnails/thumbnail_1.(png·jpg·jpeg·webp)` 를 `EP.thumb` 에. `video`: K.cover 를 쓰는데 그림이 없으면 최종본을 막음(`--no-cover`), 그림이 데이터 칸과 다르면 sync 다시. 시험: 임시 주제 폴더에 2:3 그림 → 0초 깨끗한 그림·자막 얹힘·양옆 잘림 확인, 롱폼 check 문제 0 그대로 |
+| `video/episodes/eunte-kkeonaeseugi-2026-10-shorts/index.html` (v1.0 → v1.1) · `…/gicho-yeongeum-2026-10-shorts/` · `…/isa-mangi-2026-10-shorts/` · `…/toejik-geonbo-2026-10-shorts/` (v1.0 새로) | 네 편 모두 첫 문장 = 썸네일 이미지, 나머지는 각 `shorts.md` 2번 화면 칸대로 (같은 조건 '=' 줄 · 금액 막대 · 물음표 · ⬇ 아래 영상). check 문제 0 (대표 장면 11·12·11·13개), still 점검, 소리 없는 미리보기 4편 (47.7·46.9·53.3·53.2초 — git 에 넣지 않음) |
+| `tools/make_summary.py` (v1.5.0 → v1.6.0) · `tools/tests/test_make_summary_chatgpt.py` (v1.4 → v1.5, 11개 통과) | 쇼츠 썸네일(`<영상ID>-shorts` = `source/<영상ID>/shorts/thumbnails/thumbnail_1`) — `--chatgpt-all` 이 롱폼 다음에 모으고 장마다 크기 줄(가로 16:9 · 세로 9:16) |
+| `economic/source/*/shorts/shorts.md` (1편 v2.2 → v2.3 · 2~4편 v2.0 → v2.1) | 3번 '첫 문장 = 쇼츠 썸네일 이미지', 5번 관련 동영상(스튜디오 — API 불가)·썸네일(앱 0초 장면 · 파트너 프로그램 뒤 그림 올리기) |
+| `guides/thumbnail_guide.md` (v3.3 → v3.4) · `guides/shorts_guide.md` (v1.5 → v1.6) · `guides/video_guide.md` (v4.10 → v4.11) · `CLAUDE.md` | 12번 쇼츠 썸네일 · 4번 7항 거는 법·9항 · 6번 `K.cover` · 쇼츠 줄 |
+| `economic/thumbnails_chatgpt.md` | 다시 만듦 — 롱폼 2~4편 썸네일 9장은 ChatGPT 가 이미 저장소에 올림(2026-10-16 18:53~19:05 KST) → 롱폼은 '만들 것 없음'. 쇼츠 4장 프롬프트가 생기면 다시 |
+| `guides/status.md` (v1.28 → v1.29) | 2-2 3번 |
+
+### 남은 것
+- 쇼츠 썸네일 프롬프트 4장 (`shorts/thumbnails/thumbnail_1.md`) → ChatGPT → 검수 · 롱폼 2~4편 썸네일 9장 검수 · Kaggle 쇼츠 내레이션.
+
 ## 2026-10-16 (53) — 주식 1번 v4 영상: 성공률(+5% 가 −2% 보다 먼저) vs 무작위 매수 2천 개 · 대본 v3.0 · 장면 v4.0 · 소리 없는 미리보기
 
 ### 왜 (사용자 지시)

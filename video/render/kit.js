@@ -1,4 +1,7 @@
-// VERSION: v1.3 — 2026-10-16 — K.init(ep, {w}) 무대 너비 (세로 쇼츠 1080 — 미리보기 재생기가 창에 맞춰 줄일 때 씀, 기본 1920). 렌더(?render)는 그대로.
+// VERSION: v1.4 — 2026-10-16 — K.cover(end): 쇼츠 썸네일 이미지(EP.thumb — render.mjs v1.9 sync 가 넣음)를 0초부터 첫 문장 끝까지 화면 가득,
+//   이미지 전에는 '썸네일 이미지 자리' 표시. 장면의 <img> 가 다 풀린 뒤에 SB.ready (렌더가 빈 그림을 찍지 않게).
+//   사용자 지시 2026-10-16 "쇼츠 영상 썸네일 이미지 프롬프트 만들어서 영상 처음에만 그걸 포함 시키고 첫 대사를 그 이미지 띄워놓고 하는게 나을 것 같아".
+// v1.3 — 2026-10-16 — K.init(ep, {w}) 무대 너비 (세로 쇼츠 1080 — 미리보기 재생기가 창에 맞춰 줄일 때 씀, 기본 1920). 렌더(?render)는 그대로.
 //   사용자 지시 2026-10-16 "일단 이 쇼츠만 영상 만들어봐" (세로 장면 video/episodes/<영상ID>-shorts/).
 // v1.2 — 2026-10-16 — K.onSeek(fn): 프레임마다(SB.seek(t)) 타임라인 다음에 부르는 함수 — 시각 t 로 그리는 Three.js(WebGL) 3D 장면용
 //   (주식 1번 v2 — 사용자 지시 2026-10-16 "좀 입체적으로 표현 하는 도구 없어?"). 예전 장면 파일은 그대로 돈다.
@@ -16,6 +19,7 @@
   const CHAPTERS = [];        // [{start, tag, title, dots:[n,total]}]
   const CUTS = [];            // 점검용 대표 장면 [{t, name}]
   const HOOKS = [];           // v1.2 K.onSeek — seek(t) 때마다 부름 (3D 장면)
+  const COVER = { used: false };   // v1.4 K.cover
 
   // ---------- 시각 ----------
   const SYL_DIGIT = { "0": 0, "1": 1, "2": 1, "3": 1, "4": 1, "5": 1, "6": 1, "7": 1, "8": 1, "9": 1 };
@@ -243,6 +247,23 @@
     ccEl.innerHTML = txt ? txt.split("\n").map(esc).join("<br>") : "";
   }
   K.cut = (t, name) => CUTS.push({ t: +(+t).toFixed(2), name });   // 점검용 대표 장면
+  // ---------- v1.4 첫 문장 그림 (쇼츠 썸네일 이미지) ----------
+  K.cover = (end, opts) => {                 // 0초 ~ end: EP.thumb 를 화면 가득 (object-fit:cover — 2:3 그림은 양옆이 잘림), 천천히 확대
+    const o = Object.assign({ zoom: 1.05 }, opts);
+    const sc = K.el(`<div class="sc" style="opacity:1"></div>`);
+    if (EP.thumb) {
+      const img = K.el(`<img alt="" src="${esc(EP.thumb)}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">`, sc);
+      tl.fromTo(img, { scale: 1 }, { scale: o.zoom, duration: Math.max(0.5, end), ease: "none" }, 0);   // 0초 그림 = 썸네일로 고를 프레임 (확대 전)
+    } else {                                 // 이미지 전 (추정 미리보기) — 최종 렌더는 render.mjs 가 막음
+      const W0 = OPT.w, cx = W0 === 1080 ? 480 : W0 / 2;
+      K.el(`<div class="a" style="left:${cx - 390}px;top:300px;width:780px;height:900px;border:6px dashed rgba(255,214,0,.6);border-radius:40px"></div>`, sc);
+      K.el(`<div class="a cx c w9 Y nw" style="left:${cx}px;top:640px;font-size:60px">썸네일 이미지 자리</div>`, sc);
+      K.el(`<div class="a cx c w5 N nw" style="left:${cx}px;top:740px;font-size:38px">thumbnails/thumbnail_1.png</div>`, sc);
+    }
+    tl.to(sc, { opacity: 0, duration: 0.35, ease: "none" }, end - 0.35);
+    COVER.used = true;
+    return sc;
+  };
   K.onSeek = fn => HOOKS.push(fn);           // v1.2
 
   // ---------- 시작·끝 ----------
@@ -259,8 +280,11 @@
   K.done = () => {
     tl.set({}, {}, EP.duration);
     const seek = t => { tl.seek(t, false); chipAt(t); ccAt(t); for (const f of HOOKS) f(t); };
-    window.SB = { D: EP.duration, seek, cuts: CUTS, ep: EP.id, estimated: !!EP.estimated, subtitles: !!ccEl, ready: true };
+    window.SB = { D: EP.duration, seek, cuts: CUTS, ep: EP.id, estimated: !!EP.estimated, subtitles: !!ccEl, cover: COVER.used, thumb: EP.thumb || null, ready: false };
     seek(0);
+    const imgs = Array.from(stage.querySelectorAll("img"));   // v1.4 그림이 다 풀린 뒤에 ready
+    Promise.all(imgs.map(i => i.decode().catch(() => console.error(`그림을 못 읽음: ${i.getAttribute("src")}`))))
+      .then(() => { window.SB.ready = true; });
     if (!RENDER) player(seek);
   };
   function player(seek) {

@@ -27,6 +27,7 @@
 | `result/outliers/weekly.md` | (웹 화면) **주별 분석** — 최근 1주·2주·3주… 한 주씩 넓힌 창 (`weekly.json`·`weekly.csv`) |
 | `result/outliers/downloads.md` | **받은 자료 표** (GitHub 에서 바로 보임): 탐색한 검색어(태그)별 결과, 자료로 받은 영상마다 **업로드 날짜**·자막(자막/음성인식/대기)·댓글(받은 수/영상 표시)·썸네일·설명·태그·챕터, 분석기 성공사례 |
 | `result/pc_progress.json` | (분석 뒤) PC 실행 진행 상태: 회차·끝났는지·남은 일·다음 회차 시각 |
+| [`channel.md`](channel.md) | **유튜브 채널 설정** v1.0 — 채널 설명(624자)·채널 키워드(40개 284자)·재생목록·홈 탭·예고편, 근거 숫자 (사용자 지시 2026-10-16). 그대로 복사해 스튜디오에 붙인다 |
 | `guides/` | (분석 뒤) 주제 규칙 `data_insights.md`·`script_rules.md`·`title_rules.md`·`thumbnail_rules.md`·`upload_rules.md` |
 | `source/<영상ID>/` | (주제를 고른 뒤) 영상별 대본·자막·제목·썸네일 프롬프트·업로드 시트·요약 |
 

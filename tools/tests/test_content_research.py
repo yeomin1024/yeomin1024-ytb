@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
-# VERSION: v1.1 — 2026-10-15 — content_research v1.1 drop_off_topic 시험 추가: analysis.json 이 옛 규칙으로 만들어졌어도 지금
-#          <주제>/analysis_rules.toml [exclude] OFF_TOPIC 낱말이 제목에 든 성공 사례를 빼는지 (주식 결과의 영화·시골집 미장·팬미팅·무당 영상)
+# VERSION: v1.2 — 2026-10-16 — content_research v1.1.2 나이 규칙 시험 (N세기·N0대 왕·N0대손·제N0대는 나이 아님)
+# (v1.1 — 2026-10-15 — content_research v1.1 drop_off_topic 시험 추가: analysis.json 이 옛 규칙으로 만들어졌어도 지금
+#          <주제>/analysis_rules.toml [exclude] OFF_TOPIC 낱말이 제목에 든 성공 사례를 빼는지 (주식 결과의 영화·시골집 미장·팬미팅·무당 영상))
 # (v1.0.1 — 2026-10-15 — 끝인사를 "시청해주셔서 감사합니다."로 (script_guide v3.1) — "끝까지" 약속은 첫 문장에서 잼. (v1.0 — 2026-10-14 — tools/content_research.py v1.0 시험 (임시 대본·가짜 비교 집단만 씀 — 네트워크·실제 분석 결과 없음)))
 r"""
   python3 -m unittest tools.tests.test_content_research -v     (저장소 최상위에서)
@@ -110,6 +111,24 @@ class DropOffTopicTest(unittest.TestCase):
         self.rules("[exclude\nOFF_TOPIC = [")
         keep, dropped = cr.drop_off_topic("stock", self.cases)
         self.assertEqual((len(keep), dropped), (3, []))
+
+
+class AgeRegexTest(unittest.TestCase):
+    """v1.1.2: 나이 규칙 — 역사 댓글의 세기·왕 대수·후손 대수·제N대는 나이가 아님."""
+
+    def dec(self, text):
+        m = cr.AGE_RX.search(text)
+        return (m.group(1) or m.group(2)[0]) + "0대" if m else None
+
+    def test_real_ages(self):
+        for text, want in [("저는 60대 주부입니다", "60대"), ("올해 78세인데요", "70대"), ("46살 직장인", "40대"),
+                           ("20대 때 처음 봤어요", "20대"), ("50 대 아저씨", "50대")]:
+            self.assertEqual(self.dec(text), want, text)
+
+    def test_not_ages(self):
+        for text in ["기원전 27세기면 돌도끼", "조선 20대 왕 경종", "갈송 할아버지 20대손입니다", "제20대 대통령 선거",
+                     "30대 임금", "고려 30대 후손", "21세기 지금"]:
+            self.assertIsNone(self.dec(text), text)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,90 @@
+{
+ "id": "Py3IKxJcbAA",
+ "title": "​🎧 𝐩𝐥𝐚𝐲𝐥𝐢𝐬𝐭 | 아무 걱정 없이 쉬고 싶은 날, 편안하고 아늑한 어쿠스틱 빈티지 재즈",
+ "channel": "MONA mood",
+ "channel_id": "UCC49zd5VZX0PObCrBEM0Q-g",
+ "subs": 9840,
+ "views": 932349,
+ "ratio": 94.75,
+ "age_days": 100,
+ "views_per_day": 9323.5,
+ "minutes": 84.4,
+ "likes": 6009,
+ "comments": 94,
+ "published": "2026-07-08",
+ "queries": "검색:힐링음악 | 검색:카페플리",
+ "url": "https://www.youtube.com/watch?v=Py3IKxJcbAA",
+ "flag": "",
+ "published_at": "2026-07-08T00:00:24Z",
+ "rank": "W115",
+ "set": "web",
+ "folder": "W_Py3IKxJcbAA",
+ "sources": [
+  "검색:힐링음악",
+  "검색:카페플리"
+ ],
+ "source": "web",
+ "tags": [
+  "플레이리스트",
+  "Playlist",
+  "BGM",
+  "MONAmood",
+  "모나무드"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "1.Lazy Delay"
+  },
+  {
+   "start": 152,
+   "title": "2.Cozy Air"
+  },
+  {
+   "start": 375,
+   "title": "3.Summer Break"
+  },
+  {
+   "start": 562,
+   "title": "4.Just Today"
+  },
+  {
+   "start": 724,
+   "title": "5.Slow Hours"
+  },
+  {
+   "start": 913,
+   "title": "6.Sure Joys"
+  },
+  {
+   "start": 1087,
+   "title": "7.Clearing Out"
+  },
+  {
+   "start": 1252,
+   "title": "8.Late Lunch"
+  },
+  {
+   "start": 1452,
+   "title": "9.Belief"
+  },
+  {
+   "start": 1689,
+   "title": "repeat."
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "zxx",
+ "foreign": false,
+ "comments_fetched": 94,
+ "comments_top_level": 83,
+ "comments_replies": 11,
+ "comments_by_creator": 5,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 94,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:03:28",
+ "approved": "2026-10-16T22:03+09:00"
+}

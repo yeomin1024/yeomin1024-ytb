@@ -1,0 +1,93 @@
+{
+ "id": "aha1_5ENidU",
+ "title": "듣는 순간 마음이 편안해지는 첼로와 오보에 🎻 | 공부, 휴식, 감성 힐링 음악",
+ "channel": "따뜻한 휴식 Studio",
+ "channel_id": "UCSoAXrY0t3SIc5x2yB70BXA",
+ "subs": 1990,
+ "views": 162032,
+ "ratio": 81.42,
+ "age_days": 138,
+ "views_per_day": 1174.1,
+ "minutes": 33.4,
+ "likes": 1980,
+ "comments": 100,
+ "published": "2026-05-31",
+ "queries": "검색:공부음악 | 검색:휴식음악 | 검색:마음이편안해지는음악",
+ "url": "https://www.youtube.com/watch?v=aha1_5ENidU",
+ "flag": "",
+ "published_at": "2026-05-31T10:00:04Z",
+ "rank": "W128",
+ "set": "web",
+ "folder": "W_aha1_5ENidU",
+ "sources": [
+  "검색:공부음악",
+  "검색:휴식음악",
+  "검색:마음이편안해지는음악"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "The Song That Never Ends"
+  },
+  {
+   "start": 252,
+   "title": "Today Was a Happy Day"
+  },
+  {
+   "start": 485,
+   "title": "A Pleasant Journey"
+  },
+  {
+   "start": 738,
+   "title": "The World I Dream Of"
+  },
+  {
+   "start": 1000,
+   "title": "Peaceful Mind"
+  },
+  {
+   "start": 1215,
+   "title": "Memory"
+  },
+  {
+   "start": 1470,
+   "title": "Going Home"
+  },
+  {
+   "start": 1750,
+   "title": "I'll Be Your Umbrella"
+  },
+  {
+   "start": 2060,
+   "title": "The Gift of Us"
+  },
+  {
+   "start": 2352,
+   "title": "I'll Be on Your Side"
+  },
+  {
+   "start": 2645,
+   "title": "You Don’t Have to Hurt Alone"
+  },
+  {
+   "start": 2980,
+   "title": "Freedom of Mind"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 100,
+ "comments_top_level": 46,
+ "comments_replies": 54,
+ "comments_by_creator": 46,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 100,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:03:53",
+ "approved": "2026-10-16T22:03+09:00"
+}

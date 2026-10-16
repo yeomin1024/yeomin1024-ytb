@@ -1,0 +1,64 @@
+{
+ "id": "wEwVgzsbqH4",
+ "title": "별로 좋지 않은 하루를 보냈다고 생각할게",
+ "channel": "니똥칼라똥",
+ "channel_id": "UC-85DY8D249xJbstjVAGgwg",
+ "subs": 454,
+ "views": 521623,
+ "ratio": 1148.95,
+ "age_days": 123,
+ "views_per_day": 4240.8,
+ "minutes": 18.9,
+ "likes": 10651,
+ "comments": 111,
+ "published": "2026-06-14",
+ "queries": "검색:플레이리스트 | 검색:플리",
+ "url": "https://www.youtube.com/watch?v=wEwVgzsbqH4",
+ "flag": "",
+ "published_at": "2026-06-14T14:51:49Z",
+ "rank": "W9",
+ "set": "web",
+ "folder": "W_wEwVgzsbqH4",
+ "sources": [
+  "검색:플레이리스트",
+  "검색:플리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "rose"
+  },
+  {
+   "start": 266,
+   "title": "실"
+  },
+  {
+   "start": 559,
+   "title": "성"
+  },
+  {
+   "start": 764,
+   "title": "khaki"
+  },
+  {
+   "start": 943,
+   "title": "사계"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 111,
+ "comments_top_level": 72,
+ "comments_replies": 39,
+ "comments_by_creator": 9,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 111,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T12:59:36",
+ "approved": "2026-10-16T21:59+09:00"
+}

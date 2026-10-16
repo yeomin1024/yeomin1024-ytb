@@ -1,0 +1,144 @@
+{
+ "id": "uAE7TcPSJn0",
+ "title": "💃🏼노동요 들으면서 파라파라나 춰야겠다ㅣK-POP PLAYLISTㅣRESCENE, AESPA, CORTIS, ILLIT, BTS, STRAY KIDSㅣDJ RUDE",
+ "channel": "Tezz Boyz 서테즈와 아이들",
+ "channel_id": "UCaaJ63qdHyEf0nZOSgquPhw",
+ "subs": 38900,
+ "views": 521731,
+ "ratio": 13.41,
+ "age_days": 111,
+ "views_per_day": 4700.3,
+ "minutes": 76.1,
+ "likes": 1545,
+ "comments": 23,
+ "published": "2026-06-27",
+ "queries": "검색:노동요 | 검색:플레이리스트",
+ "url": "https://www.youtube.com/watch?v=uAE7TcPSJn0",
+ "flag": "",
+ "published_at": "2026-06-27T02:00:23Z",
+ "rank": "W349",
+ "set": "web",
+ "folder": "W_uAE7TcPSJn0",
+ "sources": [
+  "검색:노동요",
+  "검색:플레이리스트"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "RESCENE - LOVE ATTACK"
+  },
+  {
+   "start": 180,
+   "title": "I.O.I - 갑자기"
+  },
+  {
+   "start": 374,
+   "title": "Hearts2Hearts - Lemon Tang"
+  },
+  {
+   "start": 536,
+   "title": "STAYC - 2 LOVE"
+  },
+  {
+   "start": 715,
+   "title": "izna - METRONOME"
+  },
+  {
+   "start": 892,
+   "title": "BABYMONSTER - SUGAR HONEY ICE TEA"
+  },
+  {
+   "start": 1067,
+   "title": "CUTIE STREET - 프리큐큐"
+  },
+  {
+   "start": 1293,
+   "title": "aespa - LEMONADE"
+  },
+  {
+   "start": 1480,
+   "title": "CORTIS - REDRED"
+  },
+  {
+   "start": 1643,
+   "title": "RIIZE - Do Your Dance"
+  },
+  {
+   "start": 1820,
+   "title": "ILLIT - It's Me"
+  },
+  {
+   "start": 1956,
+   "title": "tripleS - Baby Flower"
+  },
+  {
+   "start": 2144,
+   "title": "NMIXX - Heavy Serenade"
+  },
+  {
+   "start": 2323,
+   "title": "RESCENE - Runaway"
+  },
+  {
+   "start": 2505,
+   "title": "BIBI - BUMPA"
+  },
+  {
+   "start": 2722,
+   "title": "BOYNEXTDOOR - VIRAL"
+  },
+  {
+   "start": 2919,
+   "title": "LE SSERAFIM - BOOMPALA"
+  },
+  {
+   "start": 3095,
+   "title": "FIFTY FIFTY - STARSTRUCK"
+  },
+  {
+   "start": 3271,
+   "title": "Stray Kids - RUN IT"
+  },
+  {
+   "start": 3478,
+   "title": "BTS - Hooligan"
+  },
+  {
+   "start": 3661,
+   "title": "TREASURE - IF I"
+  },
+  {
+   "start": 3839,
+   "title": "aespa - WDA (Whole Different Animal) (Feat. G-Dragon)"
+  },
+  {
+   "start": 4013,
+   "title": "i-dle - Crow"
+  },
+  {
+   "start": 4204,
+   "title": "TAEYANG - LIVE FAST DIE SLOW"
+  },
+  {
+   "start": 4382,
+   "title": "RESCENE - Deja Vu"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 23,
+ "comments_top_level": 15,
+ "comments_replies": 8,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 23,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:13:19",
+ "approved": "2026-10-16T22:13+09:00"
+}

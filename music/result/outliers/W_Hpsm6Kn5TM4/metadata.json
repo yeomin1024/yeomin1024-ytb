@@ -1,0 +1,124 @@
+{
+ "id": "Hpsm6Kn5TM4",
+ "title": "7080 감성 포크송 | 듣기 좋은 통기타 포크 15곡",
+ "channel": "***7080가요산책***",
+ "channel_id": "UCtGONvpT8qhsdeN1tgY1igg",
+ "subs": 4730,
+ "views": 238909,
+ "ratio": 50.51,
+ "age_days": 83,
+ "views_per_day": 2878.4,
+ "minutes": 64.5,
+ "likes": 2244,
+ "comments": 105,
+ "published": "2026-07-24",
+ "queries": "검색:마음이편안해지는음악",
+ "url": "https://www.youtube.com/watch?v=Hpsm6Kn5TM4",
+ "flag": "",
+ "published_at": "2026-07-24T22:00:03Z",
+ "rank": "W181",
+ "set": "web",
+ "folder": "W_Hpsm6Kn5TM4",
+ "sources": [
+  "검색:마음이편안해지는음악"
+ ],
+ "source": "web",
+ "tags": [
+  "7080가요",
+  "추억의가요",
+  "추억의가요극장",
+  "7080음악",
+  "감성가요",
+  "옛노래",
+  "추억노래",
+  "한국가요",
+  "포크송",
+  "통기타",
+  "청춘",
+  "첫사랑",
+  "추억",
+  "레트로",
+  "1980년대",
+  "1970년대",
+  "플레이리스트",
+  "감성플레이리스트",
+  "AI음악",
+  "AI가요"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "노을빛 산책길"
+  },
+  {
+   "start": 259,
+   "title": "기타 소리"
+  },
+  {
+   "start": 518,
+   "title": "강물은 흐르는데"
+  },
+  {
+   "start": 797,
+   "title": "그해 여름"
+  },
+  {
+   "start": 1051,
+   "title": "돌다리에서"
+  },
+  {
+   "start": 1325,
+   "title": "마음이 쉬어가네"
+  },
+  {
+   "start": 1568,
+   "title": "들꽃 향기"
+  },
+  {
+   "start": 1813,
+   "title": "별이 흐르는 강"
+  },
+  {
+   "start": 2074,
+   "title": "작은 시냇가"
+  },
+  {
+   "start": 2350,
+   "title": "오솔길"
+  },
+  {
+   "start": 2614,
+   "title": "작은 창가에 핀꽃"
+  },
+  {
+   "start": 2865,
+   "title": "초록빛 오후"
+  },
+  {
+   "start": 3078,
+   "title": "고향 가는길"
+  },
+  {
+   "start": 3346,
+   "title": "노을은 내친구"
+  },
+  {
+   "start": 3601,
+   "title": "햇살이 누워있네"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 105,
+ "comments_top_level": 56,
+ "comments_replies": 49,
+ "comments_by_creator": 38,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 105,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:06:24",
+ "approved": "2026-10-16T22:06+09:00"
+}

@@ -1,0 +1,63 @@
+{
+ "id": "3lY_H67eQl4",
+ "title": "𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 느좋",
+ "channel": "고김",
+ "channel_id": "UCTbPeJL-3wJCNxJP65Qr-MQ",
+ "subs": 539,
+ "views": 181387,
+ "ratio": 336.53,
+ "age_days": 111,
+ "views_per_day": 1634.1,
+ "minutes": 15.3,
+ "likes": 7235,
+ "comments": 52,
+ "published": "2026-06-27",
+ "queries": "검색:플리",
+ "url": "https://www.youtube.com/watch?v=3lY_H67eQl4",
+ "flag": "",
+ "published_at": "2026-06-27T10:42:35Z",
+ "rank": "W36",
+ "set": "web",
+ "folder": "W_3lY_H67eQl4",
+ "sources": [
+  "검색:플리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "What You Want (smoke.ver) - SOMEONE MUSIC"
+  },
+  {
+   "start": 145,
+   "title": "와르르 - 건호 ai cover"
+  },
+  {
+   "start": 415,
+   "title": "925 - Ardhito Pramono"
+  },
+  {
+   "start": 605,
+   "title": "Slow dancing - V"
+  },
+  {
+   "start": 793,
+   "title": "How much is weed - Dominic Fike"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 52,
+ "comments_top_level": 36,
+ "comments_replies": 16,
+ "comments_by_creator": 12,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 52,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:00:32",
+ "approved": "2026-10-16T22:00+09:00"
+}

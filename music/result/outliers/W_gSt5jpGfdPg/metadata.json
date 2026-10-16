@@ -1,0 +1,122 @@
+{
+ "id": "gSt5jpGfdPg",
+ "title": "그냥 틀었는데 너무 좋다🎧감성 미쳐버린 8090 레전드 모음",
+ "channel": "Ceci Pop",
+ "channel_id": "UCscwbPA51cT98A9Ygbr2StQ",
+ "subs": 29500,
+ "views": 947161,
+ "ratio": 32.11,
+ "age_days": 176,
+ "views_per_day": 5381.6,
+ "minutes": 72.4,
+ "likes": 8526,
+ "comments": 761,
+ "published": "2026-04-22",
+ "queries": "검색:감성음악",
+ "url": "https://www.youtube.com/watch?v=gSt5jpGfdPg",
+ "flag": "",
+ "published_at": "2026-04-22T22:00:52Z",
+ "rank": "W245",
+ "set": "web",
+ "folder": "W_gSt5jpGfdPg",
+ "sources": [
+  "검색:감성음악"
+ ],
+ "source": "web",
+ "tags": [
+  "한국 시티팝",
+  "80년대 음악",
+  "90년대 음악",
+  "레트로 팝",
+  "올드팝",
+  "한국 팝송",
+  "시티팝",
+  "city pop",
+  "K-pop retro",
+  "빈티지 음악",
+  "도시 감성",
+  "밤 드라이브",
+  "카페 음악",
+  "감성 팝",
+  "낭만",
+  "레트로 감성",
+  "추억",
+  "노스탤지어",
+  "힐링 음악",
+  "공부할때 듣는 음악",
+  "카페 플레이리스트",
+  "작업용 BGM",
+  "힐링 플레이리스트",
+  "감성 플레이리스트",
+  "연속재생",
+  "24시간",
+  "라이브",
+  "BGM",
+  "무료 음악",
+  "쎄씨팝"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "한 번만 더"
+  },
+  {
+   "start": 166,
+   "title": "잊지말아요"
+  },
+  {
+   "start": 378,
+   "title": "나에게로"
+  },
+  {
+   "start": 553,
+   "title": "지하철 그녀"
+  },
+  {
+   "start": 765,
+   "title": "잊어줄게"
+  },
+  {
+   "start": 945,
+   "title": "비오는 목요일"
+  },
+  {
+   "start": 1174,
+   "title": "486 486"
+  },
+  {
+   "start": 1368,
+   "title": "이제는"
+  },
+  {
+   "start": 1518,
+   "title": "눈빛만으로"
+  },
+  {
+   "start": 1772,
+   "title": "미안해"
+  },
+  {
+   "start": 1980,
+   "title": "Analog Love"
+  },
+  {
+   "start": 2172,
+   "title": "Replay"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 761,
+ "comments_top_level": 327,
+ "comments_replies": 434,
+ "comments_by_creator": 342,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 761,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:08:43",
+ "approved": "2026-10-16T22:08+09:00"
+}

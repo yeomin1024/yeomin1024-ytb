@@ -1,0 +1,72 @@
+{
+ "id": "Eh4ZRMyh8vo",
+ "title": "Playlist | 어때 그 남잔 나보다 더 나?",
+ "channel": "안개",
+ "channel_id": "UCrMMxgns-7TkS5VXKW_dOKg",
+ "subs": 3200,
+ "views": 511466,
+ "ratio": 159.83,
+ "age_days": 126,
+ "views_per_day": 4059.3,
+ "minutes": 25.6,
+ "likes": 5189,
+ "comments": 69,
+ "published": "2026-06-12",
+ "queries": "검색:플레이리스트 | 검색:플리",
+ "url": "https://www.youtube.com/watch?v=Eh4ZRMyh8vo",
+ "flag": "",
+ "published_at": "2026-06-12T08:00:37Z",
+ "rank": "W76",
+ "set": "web",
+ "folder": "W_Eh4ZRMyh8vo",
+ "sources": [
+  "검색:플레이리스트",
+  "검색:플리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "DAY6 - Congratulations"
+  },
+  {
+   "start": 229,
+   "title": "BIG Naughty - Vancouver"
+  },
+  {
+   "start": 446,
+   "title": "Colde - 와르르"
+  },
+  {
+   "start": 717,
+   "title": "ZICO - 너는 나 나는 너"
+  },
+  {
+   "start": 931,
+   "title": "ZICO - 걘 아니야"
+  },
+  {
+   "start": 1148,
+   "title": "IU - 사랑이 잘 (With 오혁)"
+  },
+  {
+   "start": 1343,
+   "title": "BIG Naughty - 정이라고 하자 (Feat. 10cm)"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 69,
+ "comments_top_level": 63,
+ "comments_replies": 6,
+ "comments_by_creator": 3,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 69,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:02:10",
+ "approved": "2026-10-16T22:02+09:00"
+}

@@ -1,0 +1,63 @@
+{
+ "id": "KSeIkQ_dpsg",
+ "title": "여자력 상승하는 플리",
+ "channel": "무한우주에순간의빛일지라도",
+ "channel_id": "UCj4E-OzLoYZcWS4MCscJ1Yg",
+ "subs": 3250,
+ "views": 156311,
+ "ratio": 48.1,
+ "age_days": 42,
+ "views_per_day": 3721.7,
+ "minutes": 15.4,
+ "likes": 5089,
+ "comments": 12,
+ "published": "2026-09-03",
+ "queries": "검색:플리",
+ "url": "https://www.youtube.com/watch?v=KSeIkQ_dpsg",
+ "flag": "",
+ "published_at": "2026-09-03T15:01:53Z",
+ "rank": "W186",
+ "set": "web",
+ "folder": "W_KSeIkQ_dpsg",
+ "sources": [
+  "검색:플리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "[Gwen Stefani] Luxurious"
+  },
+  {
+   "start": 265,
+   "title": "[Yellow Claw] Love & war"
+  },
+  {
+   "start": 382,
+   "title": "[kali Uchis] Moonlight"
+  },
+  {
+   "start": 569,
+   "title": "[Mariah Carey] Obsessed"
+  },
+  {
+   "start": 813,
+   "title": "[Kairo Keyz & Thiago Sub] float 2.0"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 12,
+ "comments_top_level": 11,
+ "comments_replies": 1,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 12,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:06:34",
+ "approved": "2026-10-16T22:06+09:00"
+}

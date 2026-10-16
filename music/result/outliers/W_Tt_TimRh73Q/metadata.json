@@ -1,0 +1,74 @@
+{
+ "id": "Tt_TimRh73Q",
+ "title": "[𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭] 사랑한다고 속삭여줘",
+ "channel": "뜨신아아",
+ "channel_id": "UCgiMf82GQLuRe_3kl_GL7oQ",
+ "subs": 1060,
+ "views": 1016651,
+ "ratio": 959.1,
+ "age_days": 125,
+ "views_per_day": 8133.2,
+ "minutes": 23.4,
+ "likes": 11131,
+ "comments": 60,
+ "published": "2026-06-12",
+ "queries": "검색:플레이리스트 | 검색:playlist | 검색:노래모음 | 검색:노래",
+ "url": "https://www.youtube.com/watch?v=Tt_TimRh73Q",
+ "flag": "",
+ "published_at": "2026-06-12T14:58:49Z",
+ "rank": "W13",
+ "set": "web",
+ "folder": "W_Tt_TimRh73Q",
+ "sources": [
+  "검색:플레이리스트",
+  "검색:playlist",
+  "검색:노래모음",
+  "검색:노래"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "DAY BY DAY - T-ara"
+  },
+  {
+   "start": 206,
+   "title": "Something - 걸스데이"
+  },
+  {
+   "start": 407,
+   "title": "짧은치마 - AOA"
+  },
+  {
+   "start": 586,
+   "title": "예쁜 나이 25살 - 송지은"
+  },
+  {
+   "start": 791,
+   "title": "단발머리 - AOA"
+  },
+  {
+   "start": 1004,
+   "title": "Ma Boy - Sistar19"
+  },
+  {
+   "start": 1201,
+   "title": "달리 (feat. GRAY) - 효린"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 60,
+ "comments_top_level": 40,
+ "comments_replies": 20,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 60,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T12:59:41",
+ "approved": "2026-10-16T21:59+09:00"
+}

@@ -1,0 +1,69 @@
+{
+ "id": "ams0ZufCafU",
+ "title": "𝗣𝗹𝗮𝘆𝗹𝗶𝘀𝘁 가을 설레발 플리",
+ "channel": "또잉",
+ "channel_id": "UC4DqjBQL8CpruXxuTGZOziw",
+ "subs": 224,
+ "views": 247986,
+ "ratio": 1107.08,
+ "age_days": 48,
+ "views_per_day": 5166.4,
+ "minutes": 19.6,
+ "likes": 2586,
+ "comments": 17,
+ "published": "2026-08-28",
+ "queries": "검색:플레이리스트 | 검색:플리",
+ "url": "https://www.youtube.com/watch?v=ams0ZufCafU",
+ "flag": "",
+ "published_at": "2026-08-28T13:31:53Z",
+ "rank": "W10",
+ "set": "web",
+ "folder": "W_ams0ZufCafU",
+ "sources": [
+  "검색:플레이리스트",
+  "검색:플리"
+ ],
+ "source": "web",
+ "tags": [
+  "가을플리",
+  "playlist",
+  "가을",
+  "플리"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Officially Missing You - 긱스 (Geeks)"
+  },
+  {
+   "start": 210,
+   "title": "11 : 11 - 태연 (TAEYEON)"
+  },
+  {
+   "start": 431,
+   "title": "기억을 걷는 시간 - 넬 (NELL)"
+  },
+  {
+   "start": 742,
+   "title": "그리워하다 - 비투비"
+  },
+  {
+   "start": 980,
+   "title": "너를 위해 - 첸 (CHEN) & 백현 (BAEKHYUN) & 시우민 (XIUMIN)"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 17,
+ "comments_top_level": 13,
+ "comments_replies": 4,
+ "comments_by_creator": 3,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 17,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T12:59:37",
+ "approved": "2026-10-16T21:59+09:00"
+}

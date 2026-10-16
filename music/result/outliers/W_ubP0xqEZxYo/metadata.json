@@ -1,0 +1,92 @@
+{
+ "id": "ubP0xqEZxYo",
+ "title": "샹송이 이렇게 까지 좋은줄 몰랐습니다. 아침부터 저녁까지 듣게되는 7080올드팝 샹송 | 감성이 폭발한다",
+ "channel": "Midnight Melody Sound",
+ "channel_id": "UC6F9jt986nPp0C3we6C5UUg",
+ "subs": 28000,
+ "views": 824527,
+ "ratio": 29.45,
+ "age_days": 159,
+ "views_per_day": 5185.7,
+ "minutes": 81.5,
+ "likes": 8847,
+ "comments": 283,
+ "published": "2026-05-09",
+ "queries": "검색:편안한음악 | 검색:잔잔한음악",
+ "url": "https://www.youtube.com/watch?v=ubP0xqEZxYo",
+ "flag": "",
+ "published_at": "2026-05-09T13:19:52Z",
+ "rank": "W258",
+ "set": "web",
+ "folder": "W_ubP0xqEZxYo",
+ "sources": [
+  "검색:편안한음악",
+  "검색:잔잔한음악"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "01. Valse des Pétales"
+  },
+  {
+   "start": 216,
+   "title": "02. Vent d'Aube"
+  },
+  {
+   "start": 440,
+   "title": "03. Creux de Tes Bras"
+  },
+  {
+   "start": 644,
+   "title": "04. Vent m'enlace doucement"
+  },
+  {
+   "start": 837,
+   "title": "05. Silence d'adieu"
+  },
+  {
+   "start": 1027,
+   "title": "06. Poussière d'amour"
+  },
+  {
+   "start": 1229,
+   "title": "07. Fenêtre Coréenne"
+  },
+  {
+   "start": 1448,
+   "title": "08. Rêve de rosée"
+  },
+  {
+   "start": 1635,
+   "title": "09. Étoiles au Velours"
+  },
+  {
+   "start": 1846,
+   "title": "10. Brume de han"
+  },
+  {
+   "start": 2054,
+   "title": "11. Lueur du Matin"
+  },
+  {
+   "start": 2233,
+   "title": "12. Accordéon au ralenti"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 283,
+ "comments_top_level": 206,
+ "comments_replies": 77,
+ "comments_by_creator": 20,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 283,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:09:18",
+ "approved": "2026-10-16T22:09+09:00"
+}

@@ -1,0 +1,137 @@
+{
+ "id": "Gr7ZxTdL8XA",
+ "title": "playlist | 여름, 레몬과 재즈에 대하여",
+ "channel": "centralgrocery 중앙식품점",
+ "channel_id": "UCSJBRrUKLZ3QRQsw3cE9Oyw",
+ "subs": 27200,
+ "views": 677137,
+ "ratio": 24.89,
+ "age_days": 103,
+ "views_per_day": 6574.1,
+ "minutes": 236.8,
+ "likes": 10498,
+ "comments": 207,
+ "published": "2026-07-05",
+ "queries": "검색:집중음악 | 검색:공부음악 | 검색:카페플리 | 검색:플레이리스트 | 검색:플리 | 검색:잔잔한음악",
+ "url": "https://www.youtube.com/watch?v=Gr7ZxTdL8XA",
+ "flag": "",
+ "published_at": "2026-07-05T01:07:40Z",
+ "rank": "W282",
+ "set": "web",
+ "folder": "W_Gr7ZxTdL8XA",
+ "sources": [
+  "검색:집중음악",
+  "검색:공부음악",
+  "검색:카페플리",
+  "검색:플레이리스트",
+  "검색:플리",
+  "검색:잔잔한음악"
+ ],
+ "source": "web",
+ "tags": [
+  "플레이리스트",
+  "재즈",
+  "재즈음악",
+  "조용한음악",
+  "공부음악",
+  "잔잔한음악",
+  "보사노바",
+  "카페플리",
+  "카페음악",
+  "아침음악",
+  "뉴에이지",
+  "집중음악",
+  "lo-fi",
+  "playlist",
+  "jazz",
+  "jazzmusic",
+  "bosanova",
+  "플리",
+  "newage",
+  "music"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Lemon Morning"
+  },
+  {
+   "start": 179,
+   "title": "A Plate of Summer"
+  },
+  {
+   "start": 432,
+   "title": "The Bright Table"
+  },
+  {
+   "start": 636,
+   "title": "Summer Kitchen"
+  },
+  {
+   "start": 830,
+   "title": "Citrus Mood"
+  },
+  {
+   "start": 1069,
+   "title": "Fresh Pick"
+  },
+  {
+   "start": 1308,
+   "title": "The Fruit Shop"
+  },
+  {
+   "start": 1482,
+   "title": "Homemade Afternoon"
+  },
+  {
+   "start": 1640,
+   "title": "Summer Brunch"
+  },
+  {
+   "start": 1869,
+   "title": "Seasonal Kitchen"
+  },
+  {
+   "start": 2156,
+   "title": "Lemon Season"
+  },
+  {
+   "start": 2446,
+   "title": "Lemon Press"
+  },
+  {
+   "start": 2566,
+   "title": "Limone"
+  },
+  {
+   "start": 2750,
+   "title": "Simply Yellow"
+  },
+  {
+   "start": 3006,
+   "title": "Sunny Notes"
+  },
+  {
+   "start": 3192,
+   "title": "Fresh Light"
+  },
+  {
+   "start": 3344,
+   "title": "Lemon & Jazz"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 207,
+ "comments_top_level": 97,
+ "comments_replies": 110,
+ "comments_by_creator": 102,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 207,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:10:37",
+ "approved": "2026-10-16T22:10+09:00"
+}

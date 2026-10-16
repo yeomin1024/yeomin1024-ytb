@@ -1,0 +1,63 @@
+{
+ "id": "IkZ1vxE2GeQ",
+ "title": "고고프렌즈 “국어별동대” 피아노커버",
+ "channel": "MUJINS 뮤진스",
+ "channel_id": "UCHFjJVQDPV50lzov6ISLhRA",
+ "subs": 19200,
+ "views": 372924,
+ "ratio": 19.42,
+ "age_days": 92,
+ "views_per_day": 4053.5,
+ "minutes": 7.5,
+ "likes": 3872,
+ "comments": 521,
+ "published": "2026-07-16",
+ "queries": "검색:피아노",
+ "url": "https://www.youtube.com/watch?v=IkZ1vxE2GeQ",
+ "flag": "",
+ "published_at": "2026-07-16T08:15:14Z",
+ "rank": "W305",
+ "set": "web",
+ "folder": "W_IkZ1vxE2GeQ",
+ "sources": [
+  "검색:피아노"
+ ],
+ "source": "web",
+ "tags": [
+  "고고프렌즈",
+  "백현",
+  "아름",
+  "모양몬",
+  "평학",
+  "모찌엘",
+  "국어별동대"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "노래(AR)과 어려운 버전 연주"
+  },
+  {
+   "start": 154,
+   "title": "어려운 버전 연주"
+  },
+  {
+   "start": 299,
+   "title": "쉬운 버전 연주"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 521,
+ "comments_top_level": 332,
+ "comments_replies": 189,
+ "comments_by_creator": 19,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 521,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:11:15",
+ "approved": "2026-10-16T22:11+09:00"
+}

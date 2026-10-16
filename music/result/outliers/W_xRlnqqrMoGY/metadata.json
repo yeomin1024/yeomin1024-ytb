@@ -1,0 +1,114 @@
+{
+ "id": "xRlnqqrMoGY",
+ "title": "[Playlist] 드보르작 감성의 눈부신 여름 강가 | 첼로와 오보에가 빚어내는 세레나데 (Dvořák Style)",
+ "channel": "The Clavis",
+ "channel_id": "UC235rUF1ZXSN4YQLFN3kVig",
+ "subs": 19800,
+ "views": 302142,
+ "ratio": 15.26,
+ "age_days": 87,
+ "views_per_day": 3472.9,
+ "minutes": 51.0,
+ "likes": 5949,
+ "comments": 538,
+ "published": "2026-07-20",
+ "queries": "검색:힐링음악 | 검색:감성음악",
+ "url": "https://www.youtube.com/watch?v=xRlnqqrMoGY",
+ "flag": "",
+ "published_at": "2026-07-20T20:00:03Z",
+ "rank": "W332",
+ "set": "web",
+ "folder": "W_xRlnqqrMoGY",
+ "sources": [
+  "검색:힐링음악",
+  "검색:감성음악"
+ ],
+ "source": "web",
+ "tags": [
+  "드보르작",
+  "여름강가세레나데",
+  "첼로음악",
+  "오보에음악",
+  "바이올린",
+  "첼로",
+  "오보에",
+  "피아노",
+  "클래식음악",
+  "휴식음악",
+  "힐링음악",
+  "클래식플레이리스트",
+  "Dvořák",
+  "SummerRiverSerenade",
+  "CelloMusic",
+  "OboeMusic",
+  "Violin",
+  "Cello",
+  "Oboe",
+  "Piano",
+  "RestingMusic",
+  "HealingMusic",
+  "ClassicalPlaylist",
+  "TheClavis",
+  "AIClassical",
+  "클래식BGM",
+  "여름음악",
+  "체코음악",
+  "보헤미안"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "01. Serenade on the Sparkling River (반짝이는 강가의 세레나데)"
+  },
+  {
+   "start": 159,
+   "title": "02. Dance in the Meadow (초원의 춤)"
+  },
+  {
+   "start": 303,
+   "title": "03. Golden Afternoon by the River (강가의 황금빛 오후)"
+  },
+  {
+   "start": 488,
+   "title": "04. Bohemian Summer Morning (보헤미안의 여름 아침)"
+  },
+  {
+   "start": 637,
+   "title": "05. A Quiet Longing (고요한 그리움)"
+  },
+  {
+   "start": 812,
+   "title": "06. Sunlight on the Riverbank (강둑 위의 햇살)"
+  },
+  {
+   "start": 970,
+   "title": "07. The Cellist's Summer Song (첼리스트의 여름 노래)"
+  },
+  {
+   "start": 1104,
+   "title": "08. Village Festival by the River (강가 마을의 축제)"
+  },
+  {
+   "start": 1238,
+   "title": "09. Breeze Across the Meadow (초원을 스치는 바람)"
+  },
+  {
+   "start": 1405,
+   "title": "10. A Bohemian Summer Finale (보헤미안 여름의 피날레)"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 538,
+ "comments_top_level": 181,
+ "comments_replies": 357,
+ "comments_by_creator": 177,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 538,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:11:57",
+ "approved": "2026-10-16T22:12+09:00"
+}

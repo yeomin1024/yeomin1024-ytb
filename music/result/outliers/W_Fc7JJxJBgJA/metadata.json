@@ -1,0 +1,131 @@
+{
+ "id": "Fc7JJxJBgJA",
+ "title": "🍂 가을이 오면 생각나는 노래 | 커피 한 잔과 함께 듣는 가을 감성 플레이리스트 ☕",
+ "channel": "enuscento-에뉴센토 ",
+ "channel_id": "UCITUMbWwAxFNdirmtOuWM0g",
+ "subs": 710,
+ "views": 360087,
+ "ratio": 507.16,
+ "age_days": 43,
+ "views_per_day": 8374.1,
+ "minutes": 114.3,
+ "likes": 963,
+ "comments": 62,
+ "published": "2026-09-03",
+ "queries": "검색:감성발라드",
+ "url": "https://www.youtube.com/watch?v=Fc7JJxJBgJA",
+ "flag": "",
+ "published_at": "2026-09-03T09:38:27Z",
+ "rank": "W19",
+ "set": "web",
+ "folder": "W_Fc7JJxJBgJA",
+ "sources": [
+  "검색:감성발라드"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "커피가 식기 전에"
+  },
+  {
+   "start": 352,
+   "title": "조금 더 걷고 싶어"
+  },
+  {
+   "start": 616,
+   "title": "이 계절이 멈췄으면"
+  },
+  {
+   "start": 925,
+   "title": "우리 오늘부터"
+  },
+  {
+   "start": 1405,
+   "title": "우리 조금 늦게 만났다면"
+  },
+  {
+   "start": 1691,
+   "title": "우리 왜 이럴까"
+  },
+  {
+   "start": 1964,
+   "title": "오늘도 너에게 가는 길"
+  },
+  {
+   "start": 2251,
+   "title": "바람이 너를 데려오면"
+  },
+  {
+   "start": 2629,
+   "title": "말하지 못한 마음"
+  },
+  {
+   "start": 2905,
+   "title": "다음 가을에도"
+  },
+  {
+   "start": 3200,
+   "title": "다시 좋은 날"
+  },
+  {
+   "start": 3494,
+   "title": "네가 웃던 오후"
+  },
+  {
+   "start": 3918,
+   "title": "너의 온도 42도"
+  },
+  {
+   "start": 4235,
+   "title": "너와 걷던 가을 길"
+  },
+  {
+   "start": 4532,
+   "title": "너란 이유, 너에게 가다"
+  },
+  {
+   "start": 4834,
+   "title": "낙엽처럼"
+  },
+  {
+   "start": 5079,
+   "title": "그리고 다시 나의 계절"
+  },
+  {
+   "start": 5386,
+   "title": "그날 우리는"
+  },
+  {
+   "start": 5723,
+   "title": "같은 길, 다른 마음"
+  },
+  {
+   "start": 5978,
+   "title": "가을편지"
+  },
+  {
+   "start": 6301,
+   "title": "가을밤 너와 나"
+  },
+  {
+   "start": 6523,
+   "title": "10월의 어느 오후"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 62,
+ "comments_top_level": 52,
+ "comments_replies": 10,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 62,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T12:59:57",
+ "approved": "2026-10-16T21:59+09:00"
+}

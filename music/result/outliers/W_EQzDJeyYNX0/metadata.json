@@ -1,0 +1,95 @@
+{
+ "id": "EQzDJeyYNX0",
+ "title": "𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 이게 극락 사운드인가?🪷 | 속세 탈출용 불교 재즈🎧",
+ "channel": "chill potato club",
+ "channel_id": "UCeMYWNb0ML8mIzE0nLKHinQ",
+ "subs": 15500,
+ "views": 411007,
+ "ratio": 26.52,
+ "age_days": 157,
+ "views_per_day": 2617.9,
+ "minutes": 123.1,
+ "likes": 10421,
+ "comments": 282,
+ "published": "2026-05-11",
+ "queries": "검색:플리",
+ "url": "https://www.youtube.com/watch?v=EQzDJeyYNX0",
+ "flag": "",
+ "published_at": "2026-05-11T22:02:44Z",
+ "rank": "W273",
+ "set": "web",
+ "folder": "W_EQzDJeyYNX0",
+ "sources": [
+  "검색:플리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Moktak Midnight Club"
+  },
+  {
+   "start": 78,
+   "title": "Bells Through Incense"
+  },
+  {
+   "start": 257,
+   "title": "Bodhi Groove"
+  },
+  {
+   "start": 412,
+   "title": "Dharma After Hours"
+  },
+  {
+   "start": 577,
+   "title": "Lotus After Dark"
+  },
+  {
+   "start": 766,
+   "title": "Blue Lotus Ritual"
+  },
+  {
+   "start": 1059,
+   "title": "Empty Mind Swing"
+  },
+  {
+   "start": 1222,
+   "title": "Gate"
+  },
+  {
+   "start": 1445,
+   "title": "Midnight Heart Sutra"
+  },
+  {
+   "start": 1618,
+   "title": "Moonlight on the Moktak"
+  },
+  {
+   "start": 1791,
+   "title": "Moktak & Smoke"
+  },
+  {
+   "start": 2049,
+   "title": "Sutra in Blue"
+  },
+  {
+   "start": 2217,
+   "title": "Temple After Midnight"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 282,
+ "comments_top_level": 144,
+ "comments_replies": 138,
+ "comments_by_creator": 58,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 282,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:10:21",
+ "approved": "2026-10-16T22:10+09:00"
+}

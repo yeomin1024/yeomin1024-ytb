@@ -1,0 +1,68 @@
+{
+ "id": "0USEQaYCf78",
+ "title": "[ Playlist ] 어떻게 너가 다른 남자를 만나",
+ "channel": "하온",
+ "channel_id": "UCMiD8O9UDxii0S6OFuVwXzw",
+ "subs": 1700,
+ "views": 462610,
+ "ratio": 272.12,
+ "age_days": 80,
+ "views_per_day": 5782.6,
+ "minutes": 20.9,
+ "likes": 4019,
+ "comments": 48,
+ "published": "2026-07-27",
+ "queries": "검색:음악 | 검색:플리",
+ "url": "https://www.youtube.com/watch?v=0USEQaYCf78",
+ "flag": "",
+ "published_at": "2026-07-27T14:17:09Z",
+ "rank": "W48",
+ "set": "web",
+ "folder": "W_0USEQaYCf78",
+ "sources": [
+  "검색:음악",
+  "검색:플리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "릴러말즈 - 거리에서"
+  },
+  {
+   "start": 208,
+   "title": "WINNER - 끼부리지마"
+  },
+  {
+   "start": 412,
+   "title": "범키 - 갖고놀래"
+  },
+  {
+   "start": 630,
+   "title": "태산 - 네가 생각난단 말이야 (자작곡)"
+  },
+  {
+   "start": 799,
+   "title": "basecamp - camp"
+  },
+  {
+   "start": 1021,
+   "title": "디핵 - OHAYO MY NIGHT"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 48,
+ "comments_top_level": 35,
+ "comments_replies": 13,
+ "comments_by_creator": 8,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 48,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:01:04",
+ "approved": "2026-10-16T22:01+09:00"
+}

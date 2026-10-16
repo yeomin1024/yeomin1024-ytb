@@ -1,0 +1,86 @@
+{
+ "id": "o_RE1dPuUoo",
+ "title": "가슴을 울리는 감성 트로트 5곡 모음 | 깊은 밤 듣기 좋은 노래",
+ "channel": "트로트 작은 음악실",
+ "channel_id": "UCaAjWGfpdJZPSO8yHi5aaZw",
+ "subs": 23500,
+ "views": 477295,
+ "ratio": 20.31,
+ "age_days": 151,
+ "views_per_day": 3160.9,
+ "minutes": 24.4,
+ "likes": 3554,
+ "comments": 209,
+ "published": "2026-05-18",
+ "queries": "검색:트로트 | 검색:노래모음 | 검색:감성음악",
+ "url": "https://www.youtube.com/watch?v=o_RE1dPuUoo",
+ "flag": "",
+ "published_at": "2026-05-18T07:30:31Z",
+ "rank": "W300",
+ "set": "web",
+ "folder": "W_o_RE1dPuUoo",
+ "sources": [
+  "검색:트로트",
+  "검색:노래모음",
+  "검색:감성음악"
+ ],
+ "source": "web",
+ "tags": [
+  "#K트로트",
+  "#7080트로트",
+  "#트로트명곡",
+  "#감성트로트",
+  "#중장년음악",
+  "#트로트추천",
+  "#추억의노래",
+  "#트로트모음",
+  "#트로트라이브",
+  "#트로트채널",
+  "#한잔트로트",
+  "#소영이의노래",
+  "#그리운사람",
+  "#트로트",
+  "#추억트로트",
+  "#한 잔 술에 묻는다",
+  "#한잔술에묻는다",
+  "#노래방",
+  "#연속듣기",
+  "#소영"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오늘도 한 잔… 그대 생각에"
+  },
+  {
+   "start": 283,
+   "title": "빈 잔에 남은 추억"
+  },
+  {
+   "start": 592,
+   "title": "사랑은 남기고 떠난 사람"
+  },
+  {
+   "start": 910,
+   "title": "그리운 사람아"
+  },
+  {
+   "start": 1189,
+   "title": "살다 보면 알게 되더라"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 209,
+ "comments_top_level": 96,
+ "comments_replies": 113,
+ "comments_by_creator": 89,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 209,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:11:05",
+ "approved": "2026-10-16T22:11+09:00"
+}

@@ -1,0 +1,96 @@
+{
+ "id": "HBx4T1dadhI",
+ "title": "[Playlist] 조용히 혼자 듣고 싶다… 천상의 감성 보이스 7080 올드팝 🎧 | 카페·휴식·감성 BGM",
+ "channel": "TrueOldies 7080",
+ "channel_id": "UCtCKRSbAJlMaaQUJfSWZIZQ",
+ "subs": 5550,
+ "views": 551665,
+ "ratio": 99.4,
+ "age_days": 148,
+ "views_per_day": 3727.5,
+ "minutes": 140.2,
+ "likes": 4517,
+ "comments": 346,
+ "published": "2026-05-21",
+ "queries": "검색:카페음악 | 검색:감성음악",
+ "url": "https://www.youtube.com/watch?v=HBx4T1dadhI",
+ "flag": "",
+ "published_at": "2026-05-21T01:30:08Z",
+ "rank": "W111",
+ "set": "web",
+ "folder": "W_HBx4T1dadhI",
+ "sources": [
+  "검색:카페음악",
+  "검색:감성음악"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Where The Light Remained (빛이 머물던 곳)"
+  },
+  {
+   "start": 183,
+   "title": "After The Long Silence (긴 침묵이 지난 후)"
+  },
+  {
+   "start": 390,
+   "title": "Far From This Town (이 마을을 떠나)"
+  },
+  {
+   "start": 550,
+   "title": "Before The Season Changed (계절이 바뀌기 전에)"
+  },
+  {
+   "start": 717,
+   "title": "You Were Still There (당신은 아직 그곳에 있었죠)"
+  },
+  {
+   "start": 853,
+   "title": "The Song We Used To Know (우리에게 익숙했던 노래)"
+  },
+  {
+   "start": 1021,
+   "title": "When The Street Went Quiet (거리가 조용해졌을 때)"
+  },
+  {
+   "start": 1230,
+   "title": "Stay For A While (잠시 머물러 주세요)"
+  },
+  {
+   "start": 1399,
+   "title": "Only The Music Stayed (음악만 남아)"
+  },
+  {
+   "start": 1587,
+   "title": "Back To The Old Street (오래된 거리로 돌아가)"
+  },
+  {
+   "start": 1731,
+   "title": "Lights Across The Window (창 너머의 불빛)"
+  },
+  {
+   "start": 1925,
+   "title": "Harbor Lights (항구의 불빛)"
+  },
+  {
+   "start": 2099,
+   "title": "Replay"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 346,
+ "comments_top_level": 156,
+ "comments_replies": 190,
+ "comments_by_creator": 155,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 346,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:03:21",
+ "approved": "2026-10-16T22:03+09:00"
+}

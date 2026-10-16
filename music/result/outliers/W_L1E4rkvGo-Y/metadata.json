@@ -1,0 +1,93 @@
+{
+ "id": "L1E4rkvGo-Y",
+ "title": "𝙋𝙡𝙖𝙮𝙡𝙞𝙨𝙩 | 상큼하게 톡 터지는 딸기 에이드와 느린 독서 *'~*-⋆._.-*~⋆ | 카페 플리 | 𝘚𝘱𝘢𝘳𝘬𝘭𝘪𝘯𝘨 𝘊𝘢𝘧𝘦 𝘗𝘪𝘢𝘯𝘰 🍓",
+ "channel": "BlueDot Diary",
+ "channel_id": "UCXIpTL0w_S4s-MtVn_JLOJQ",
+ "subs": 6520,
+ "views": 297344,
+ "ratio": 45.6,
+ "age_days": 109,
+ "views_per_day": 2727.9,
+ "minutes": 123.4,
+ "likes": 6128,
+ "comments": 75,
+ "published": "2026-06-29",
+ "queries": "검색:공부할때듣는음악 | 검색:집중음악 | 검색:카페플리",
+ "url": "https://www.youtube.com/watch?v=L1E4rkvGo-Y",
+ "flag": "",
+ "published_at": "2026-06-29T10:45:29Z",
+ "rank": "W195",
+ "set": "web",
+ "folder": "W_L1E4rkvGo-Y",
+ "sources": [
+  "검색:공부할때듣는음악",
+  "검색:집중음악",
+  "검색:카페플리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Strawberry Syndrome"
+  },
+  {
+   "start": 93,
+   "title": "Fizzing Sunlight"
+  },
+  {
+   "start": 283,
+   "title": "Sparkling Cozy"
+  },
+  {
+   "start": 447,
+   "title": "Bubbles On My Page"
+  },
+  {
+   "start": 578,
+   "title": "Ice, Berry, Fizz"
+  },
+  {
+   "start": 675,
+   "title": "Lukewarm Morning Syrup"
+  },
+  {
+   "start": 775,
+   "title": "Fizzy Strawberry Clouds"
+  },
+  {
+   "start": 841,
+   "title": "Strawberry Ade Sentences"
+  },
+  {
+   "start": 910,
+   "title": "Slowly, L'été"
+  },
+  {
+   "start": 1024,
+   "title": "White Sheets And Red Letters"
+  },
+  {
+   "start": 1147,
+   "title": "Pillow-side Matinee"
+  },
+  {
+   "start": 1234,
+   "title": "~loop"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 75,
+ "comments_top_level": 35,
+ "comments_replies": 40,
+ "comments_by_creator": 35,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 75,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:06:52",
+ "approved": "2026-10-16T22:06+09:00"
+}

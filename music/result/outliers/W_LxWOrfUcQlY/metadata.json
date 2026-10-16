@@ -1,0 +1,99 @@
+{
+ "id": "LxWOrfUcQlY",
+ "title": "신나는 뽕짝·트로트 14곡 연속듣기 🎵 관광버스 필수곡 | 신나는 뽕짝 메들리 | 고속도로 트롯 BEST",
+ "channel": "뽕친놈",
+ "channel_id": "UCUQdDnUWFTMMsNoD8306PMA",
+ "subs": 4710,
+ "views": 426963,
+ "ratio": 90.65,
+ "age_days": 96,
+ "views_per_day": 4447.5,
+ "minutes": 50.7,
+ "likes": 2506,
+ "comments": 77,
+ "published": "2026-07-11",
+ "queries": "검색:트로트",
+ "url": "https://www.youtube.com/watch?v=LxWOrfUcQlY",
+ "flag": "",
+ "published_at": "2026-07-11T14:01:11Z",
+ "rank": "W119",
+ "set": "web",
+ "folder": "W_LxWOrfUcQlY",
+ "sources": [
+  "검색:트로트"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "사랑아 - 장윤정"
+  },
+  {
+   "start": 237,
+   "title": "내 나이가 어때서 - 오승근"
+  },
+  {
+   "start": 439,
+   "title": "막걸리 한잔 - 강진"
+  },
+  {
+   "start": 653,
+   "title": "오라버니 - 금잔디"
+  },
+  {
+   "start": 865,
+   "title": "니가 왜 거기서 나와 - 영탁"
+  },
+  {
+   "start": 1072,
+   "title": "산다는 건 - 홍진영"
+  },
+  {
+   "start": 1302,
+   "title": "한잔해 - 박군"
+  },
+  {
+   "start": 1509,
+   "title": "천태만상 - 윤수현"
+  },
+  {
+   "start": 1708,
+   "title": "부초같은 인생 - 김용임"
+  },
+  {
+   "start": 1911,
+   "title": "보릿고개 - 진성"
+  },
+  {
+   "start": 2128,
+   "title": "안동역에서 - 진성"
+  },
+  {
+   "start": 2346,
+   "title": "사랑의 배터리 - 홍진영"
+  },
+  {
+   "start": 2577,
+   "title": "아모르 파티 - 김연자"
+  },
+  {
+   "start": 2808,
+   "title": "나쁜남자 - 신유"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 77,
+ "comments_top_level": 46,
+ "comments_replies": 31,
+ "comments_by_creator": 16,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 77,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:03:35",
+ "approved": "2026-10-16T22:03+09:00"
+}

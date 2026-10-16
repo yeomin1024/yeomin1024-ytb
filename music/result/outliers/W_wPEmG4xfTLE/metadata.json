@@ -1,0 +1,80 @@
+{
+ "id": "wPEmG4xfTLE",
+ "title": "우리들의 발라드2 1회 플레이리스트｜가을밤 마음을 울린 발라드 7곡 #우리들의발라드 #우발2",
+ "channel": "우낄라꼬",
+ "channel_id": "UCzxA41ZQytb7apaXHvNCz-Q",
+ "subs": 1190,
+ "views": 298206,
+ "ratio": 250.59,
+ "age_days": 8,
+ "views_per_day": 37275.8,
+ "minutes": 30.4,
+ "likes": 864,
+ "comments": 63,
+ "published": "2026-10-07",
+ "queries": "검색:발라드",
+ "url": "https://www.youtube.com/watch?v=wPEmG4xfTLE",
+ "flag": "",
+ "published_at": "2026-10-07T16:13:15Z",
+ "rank": "W53",
+ "set": "web",
+ "folder": "W_wPEmG4xfTLE",
+ "sources": [
+  "검색:발라드"
+ ],
+ "source": "web",
+ "tags": [
+  "SBS",
+  "가을발라드",
+  "발라드",
+  "발라드모음",
+  "우리들의발라드",
+  "우리들의발라드시즌2",
+  "우발2",
+  "플레이리스트"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "사랑 그 쓸쓸함에 대하여 - 김소연 (원곡: 양희은)"
+  },
+  {
+   "start": 325,
+   "title": "난치병 - 이민우 (원곡: 하림)"
+  },
+  {
+   "start": 549,
+   "title": "안 되나요 - 허채민 (원곡: 휘성)"
+  },
+  {
+   "start": 825,
+   "title": "이별 여행 - 민지유 (원곡: 원미연)"
+  },
+  {
+   "start": 1068,
+   "title": "세상이 그대를 속일지라도 - 한로이 (원곡: 김장훈)"
+  },
+  {
+   "start": 1353,
+   "title": "기도 - 라유정 (원곡: 정일영)"
+  },
+  {
+   "start": 1549,
+   "title": "김성호의 회상 - 임바다 (원곡: 김성호)"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 63,
+ "comments_top_level": 57,
+ "comments_replies": 6,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 63,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:01:22",
+ "approved": "2026-10-16T22:01+09:00"
+}

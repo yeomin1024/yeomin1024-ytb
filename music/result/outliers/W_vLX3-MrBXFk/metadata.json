@@ -1,0 +1,112 @@
+{
+ "id": "vLX3-MrBXFk",
+ "title": "𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 | 교토의 작은 카페, 말차향 재즈 🍵🎧 抹茶オーツラテ",
+ "channel": "아오링고 잡화점 AORINGGO",
+ "channel_id": "UC0RdGUE35l40N0kfbmBgGMA",
+ "subs": 10500,
+ "views": 574452,
+ "ratio": 54.71,
+ "age_days": 58,
+ "views_per_day": 9904.3,
+ "minutes": 292.4,
+ "likes": 4118,
+ "comments": 114,
+ "published": "2026-08-18",
+ "queries": "검색:카페음악 | 검색:카페플리",
+ "url": "https://www.youtube.com/watch?v=vLX3-MrBXFk",
+ "flag": "",
+ "published_at": "2026-08-18T22:26:14Z",
+ "rank": "W166",
+ "set": "web",
+ "folder": "W_vLX3-MrBXFk",
+ "sources": [
+  "검색:카페음악",
+  "검색:카페플리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Matcha Oat Latte Afternoon"
+  },
+  {
+   "start": 164,
+   "title": "A Small Café"
+  },
+  {
+   "start": 347,
+   "title": "Soft Green Latte"
+  },
+  {
+   "start": 504,
+   "title": "Matcha Oat & Slow Jazz"
+  },
+  {
+   "start": 662,
+   "title": "Oat Milk in the Afternoon"
+  },
+  {
+   "start": 816,
+   "title": "Matcha Oat by the Window"
+  },
+  {
+   "start": 960,
+   "title": "Velvet Green Latte"
+  },
+  {
+   "start": 1120,
+   "title": "A Quiet Oat Latte"
+  },
+  {
+   "start": 1264,
+   "title": "Sweet & Bitter Green"
+  },
+  {
+   "start": 1409,
+   "title": "Late Summer Oat Latte"
+  },
+  {
+   "start": 1568,
+   "title": "A Quiet Corner"
+  },
+  {
+   "start": 1728,
+   "title": "The Green Latte Hour"
+  },
+  {
+   "start": 1872,
+   "title": "Soft Light & Oat Milk"
+  },
+  {
+   "start": 2014,
+   "title": "Little Café Jazz"
+  },
+  {
+   "start": 2159,
+   "title": "After the Last Sip"
+  },
+  {
+   "start": 2315,
+   "title": "Green Lights at Dusk"
+  },
+  {
+   "start": 2501,
+   "title": "repeat 🔁"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 114,
+ "comments_top_level": 61,
+ "comments_replies": 53,
+ "comments_by_creator": 45,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 114,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:05:29",
+ "approved": "2026-10-16T22:05+09:00"
+}

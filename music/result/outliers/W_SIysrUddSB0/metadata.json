@@ -1,0 +1,124 @@
+{
+ "id": "SIysrUddSB0",
+ "title": "대학가요제 7080 콘서트 음악 세시봉, 들으면 기분 좋아지는 7080 노래모음",
+ "channel": "음악예술단 사노라면",
+ "channel_id": "UCkB4-DW3iLvIl6g-njh-b5w",
+ "subs": 15100,
+ "views": 299726,
+ "ratio": 19.85,
+ "age_days": 177,
+ "views_per_day": 1693.4,
+ "minutes": 38.9,
+ "likes": 1401,
+ "comments": 55,
+ "published": "2026-04-22",
+ "queries": "검색:트로트",
+ "url": "https://www.youtube.com/watch?v=SIysrUddSB0",
+ "flag": "",
+ "published_at": "2026-04-22T00:30:20Z",
+ "rank": "W303",
+ "set": "web",
+ "folder": "W_SIysrUddSB0",
+ "sources": [
+  "검색:트로트"
+ ],
+ "source": "web",
+ "tags": [
+  "음악예술단",
+  "통기타",
+  "사노라면",
+  "음향",
+  "음악",
+  "노래",
+  "트롯트",
+  "공연",
+  "봉사",
+  "장비",
+  "고고장구",
+  "장구",
+  "색소폰",
+  "오카리나",
+  "아코디언",
+  "하모니카",
+  "기타",
+  "드럼",
+  "드럼연주",
+  "강의",
+  "연주",
+  "민요",
+  "트로트",
+  "메들리",
+  "7080가요",
+  "가요",
+  "감성가요",
+  "추억의가요",
+  "7080노래",
+  "세시봉",
+  "음악봉사",
+  "거리음악회"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "01 바다새 (높은음자리)"
+  },
+  {
+   "start": 161,
+   "title": "02 젊은 연인들 (휘버스)"
+  },
+  {
+   "start": 393,
+   "title": "03 기다리는 여심 (계은숙)"
+  },
+  {
+   "start": 590,
+   "title": "04 내가 (김학래)"
+  },
+  {
+   "start": 786,
+   "title": "05 모모 (김만준)"
+  },
+  {
+   "start": 995,
+   "title": "06 하얀나비 (김정호)"
+  },
+  {
+   "start": 1200,
+   "title": "07 홀로된사랑 (높은음자리)"
+  },
+  {
+   "start": 1417,
+   "title": "08 찻집의 고독 (김추자)"
+  },
+  {
+   "start": 1541,
+   "title": "09 기차와 소나무 (이규석)"
+  },
+  {
+   "start": 1656,
+   "title": "10 내가 말했잖아 (로커스트)"
+  },
+  {
+   "start": 1847,
+   "title": "11 사랑이여 (유심초)"
+  },
+  {
+   "start": 2058,
+   "title": "12 사랑으로 (해바라기)"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 55,
+ "comments_top_level": 31,
+ "comments_replies": 24,
+ "comments_by_creator": 4,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 55,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:11:13",
+ "approved": "2026-10-16T22:11+09:00"
+}

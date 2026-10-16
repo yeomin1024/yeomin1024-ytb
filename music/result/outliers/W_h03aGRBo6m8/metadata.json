@@ -1,0 +1,129 @@
+{
+ "id": "h03aGRBo6m8",
+ "title": "𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 | 가을은 이런 노래 들으려고 있는 거잖아🍃 🚲아침부터 설레는 느좋 팝송.zip🎧 카페음악 · 노동요",
+ "channel": "OOOffi",
+ "channel_id": "UCl9gRpU_fQAeuPAn7ma_DOQ",
+ "subs": 25600,
+ "views": 356481,
+ "ratio": 13.93,
+ "age_days": 63,
+ "views_per_day": 5658.4,
+ "minutes": 631.4,
+ "likes": 790,
+ "comments": 42,
+ "published": "2026-08-13",
+ "queries": "검색:노동요 | 검색:카페음악 | 검색:카페플리",
+ "url": "https://www.youtube.com/watch?v=h03aGRBo6m8",
+ "flag": "",
+ "published_at": "2026-08-13T22:00:27Z",
+ "rank": "W345",
+ "set": "web",
+ "folder": "W_h03aGRBo6m8",
+ "sources": [
+  "검색:노동요",
+  "검색:카페음악",
+  "검색:카페플리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Love on a Tuesday"
+  },
+  {
+   "start": 140,
+   "title": "Love With the Top Down"
+  },
+  {
+   "start": 315,
+   "title": "Sunsets Are Better Together"
+  },
+  {
+   "start": 486,
+   "title": "Saltwater on My Skin"
+  },
+  {
+   "start": 654,
+   "title": "Summer on Your Side"
+  },
+  {
+   "start": 844,
+   "title": "A Place Called Summer"
+  },
+  {
+   "start": 1060,
+   "title": "A Place Called Summer"
+  },
+  {
+   "start": 1282,
+   "title": "You Look Like Vacation"
+  },
+  {
+   "start": 1489,
+   "title": "The Way You Look in Summer"
+  },
+  {
+   "start": 1641,
+   "title": "We Should Stay Longer"
+  },
+  {
+   "start": 1740,
+   "title": "Barefoot in Love"
+  },
+  {
+   "start": 1931,
+   "title": "Our August Story"
+  },
+  {
+   "start": 2098,
+   "title": "Better Than Yesterday"
+  },
+  {
+   "start": 2252,
+   "title": "A Little Sun, A Little Us"
+  },
+  {
+   "start": 2375,
+   "title": "The Summer Between Us"
+  },
+  {
+   "start": 2542,
+   "title": "August by the Window"
+  },
+  {
+   "start": 2702,
+   "title": "See You Next Summer"
+  },
+  {
+   "start": 2890,
+   "title": "Just Add Sunshine"
+  },
+  {
+   "start": 3036,
+   "title": "Just Like Before"
+  },
+  {
+   "start": 3246,
+   "title": "Take the Coast Home"
+  },
+  {
+   "start": 3443,
+   "title": "replay"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 42,
+ "comments_top_level": 34,
+ "comments_replies": 8,
+ "comments_by_creator": 7,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 42,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:13:14",
+ "approved": "2026-10-16T22:13+09:00"
+}

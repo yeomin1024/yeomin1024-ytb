@@ -1,0 +1,68 @@
+{
+ "id": "FLMgVfqMHdk",
+ "title": "[playlist] 짜증나 너진짜 ..╥﹏╥",
+ "channel": "le",
+ "channel_id": "UCTjVz2GAa0glQPEchJ8IxiA",
+ "subs": 12300,
+ "views": 234292,
+ "ratio": 19.05,
+ "age_days": 147,
+ "views_per_day": 1593.8,
+ "minutes": 17.5,
+ "likes": 5828,
+ "comments": 44,
+ "published": "2026-05-22",
+ "queries": "검색:플레이리스트 | 검색:플리",
+ "url": "https://www.youtube.com/watch?v=FLMgVfqMHdk",
+ "flag": "",
+ "published_at": "2026-05-22T12:46:24Z",
+ "rank": "W307",
+ "set": "web",
+ "folder": "W_FLMgVfqMHdk",
+ "sources": [
+  "검색:플레이리스트",
+  "검색:플리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Yyeon - 짜증나"
+  },
+  {
+   "start": 147,
+   "title": "숨셔 - -ing (feat. KURO)"
+  },
+  {
+   "start": 377,
+   "title": "장예찬 - WHY? (feat. AISH)"
+  },
+  {
+   "start": 523,
+   "title": "Chan & 기원 - 끊었어? (demo)"
+  },
+  {
+   "start": 688,
+   "title": "Yyeon - 아웅다웅 (feat. 타임피버)"
+  },
+  {
+   "start": 845,
+   "title": "HAAN & Chan - 이런 내 맘 (대충 캠버스로맨스임 X HAAN & Chan)"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 44,
+ "comments_top_level": 36,
+ "comments_replies": 8,
+ "comments_by_creator": 2,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 44,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:11:21",
+ "approved": "2026-10-16T22:11+09:00"
+}

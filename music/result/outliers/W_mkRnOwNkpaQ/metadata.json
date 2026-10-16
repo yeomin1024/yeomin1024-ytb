@@ -1,0 +1,75 @@
+{
+ "id": "mkRnOwNkpaQ",
+ "title": "𝐑 𝐄 𝐙 𝐄",
+ "channel": "iamkorean",
+ "channel_id": "UC29g78oKa9I03gB8ZXMK97w",
+ "subs": 767,
+ "views": 917157,
+ "ratio": 1195.77,
+ "age_days": 160,
+ "views_per_day": 5732.2,
+ "minutes": 17.0,
+ "likes": 13701,
+ "comments": 211,
+ "published": "2026-05-08",
+ "queries": "검색:플리",
+ "url": "https://www.youtube.com/watch?v=mkRnOwNkpaQ",
+ "flag": "",
+ "published_at": "2026-05-08T15:02:51Z",
+ "rank": "W7",
+ "set": "web",
+ "folder": "W_mkRnOwNkpaQ",
+ "sources": [
+  "검색:플리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "first glance"
+  },
+  {
+   "start": 69,
+   "title": "in the pool"
+  },
+  {
+   "start": 317,
+   "title": "fable"
+  },
+  {
+   "start": 388,
+   "title": "slow summer eve"
+  },
+  {
+   "start": 478,
+   "title": "in the sea"
+  },
+  {
+   "start": 544,
+   "title": "Reze"
+  },
+  {
+   "start": 619,
+   "title": "the city mouse and the country mouse"
+  },
+  {
+   "start": 785,
+   "title": "JANE DOE / Yonezu Kensi, Utada Hikaru"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "RequestBlocked: \nCould not retrieve a transcript for the video https://www.youtube.com/watch?v=mkRnOwNkpaQ! This is most likely caused b",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 211,
+ "comments_top_level": 118,
+ "comments_replies": 93,
+ "comments_by_creator": 15,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 211,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T12:59:31",
+ "approved": "2026-10-16T21:59+09:00"
+}

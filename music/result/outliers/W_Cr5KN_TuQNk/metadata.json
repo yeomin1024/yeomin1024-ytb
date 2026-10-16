@@ -1,0 +1,68 @@
+{
+ "id": "Cr5KN_TuQNk",
+ "title": "Italian Deep House 2026 | Mediterranean Vibes",
+ "channel": "House Italiano",
+ "channel_id": "UCL8GeqN1FcsDyhytcD9ULfA",
+ "subs": 24400,
+ "views": 4894147,
+ "ratio": 200.58,
+ "age_days": 177,
+ "views_per_day": 27650.5,
+ "minutes": 14.6,
+ "likes": 38721,
+ "comments": 387,
+ "published": "2026-04-21",
+ "queries": "검색:cafe music",
+ "url": "https://www.youtube.com/watch?v=Cr5KN_TuQNk",
+ "flag": "",
+ "published_at": "2026-04-21T17:01:54Z",
+ "rank": "W62",
+ "set": "web",
+ "folder": "W_Cr5KN_TuQNk",
+ "sources": [
+  "검색:cafe music"
+ ],
+ "source": "web",
+ "tags": [
+  "vocal deep house",
+  "deep house music",
+  "deep house mix",
+  "chill italian music"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Fuoco Nella Sabbia"
+  },
+  {
+   "start": 151,
+   "title": "Passione Vera"
+  },
+  {
+   "start": 372,
+   "title": "Ritmo del Sud"
+  },
+  {
+   "start": 588,
+   "title": "Dolce Arrivo"
+  },
+  {
+   "start": 748,
+   "title": "Ultima Danza"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "zxx",
+ "foreign": false,
+ "comments_fetched": 387,
+ "comments_top_level": 306,
+ "comments_replies": 81,
+ "comments_by_creator": 13,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 387,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:01:40",
+ "approved": "2026-10-16T22:01+09:00"
+}

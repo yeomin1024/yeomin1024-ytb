@@ -1,0 +1,64 @@
+{
+ "id": "WBabiGZluh8",
+ "title": "𝐩𝐥𝐚𝐲𝐥𝐢𝐬𝐭 요즘 인스타 부계 감성",
+ "channel": "알수없는 사용자",
+ "channel_id": "UCsVRvM3bKC9s0t4BiPJ2qoQ",
+ "subs": 1730,
+ "views": 241635,
+ "ratio": 139.67,
+ "age_days": 70,
+ "views_per_day": 3451.9,
+ "minutes": 17.5,
+ "likes": 6448,
+ "comments": 52,
+ "published": "2026-08-06",
+ "queries": "검색:플레이리스트 | 검색:플리",
+ "url": "https://www.youtube.com/watch?v=WBabiGZluh8",
+ "flag": "",
+ "published_at": "2026-08-06T14:15:25Z",
+ "rank": "W88",
+ "set": "web",
+ "folder": "W_WBabiGZluh8",
+ "sources": [
+  "검색:플레이리스트",
+  "검색:플리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "상상더하기 - 라붐"
+  },
+  {
+   "start": 248,
+   "title": "낙낙 - 트와이스"
+  },
+  {
+   "start": 439,
+   "title": "take it slow - 레드벨벳"
+  },
+  {
+   "start": 651,
+   "title": "about love - 레드벨벳"
+  },
+  {
+   "start": 856,
+   "title": "빨간맛 - 레드벨벳"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 52,
+ "comments_top_level": 39,
+ "comments_replies": 13,
+ "comments_by_creator": 8,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 52,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:02:31",
+ "approved": "2026-10-16T22:02+09:00"
+}

@@ -1,0 +1,69 @@
+{
+ "id": "LtoVUe_-J18",
+ "title": "Playlist 화장할 때 들으면 기분 째지는 2세대 플리",
+ "channel": "menow",
+ "channel_id": "UCVdtMemmNS__zNJphOQkDyw",
+ "subs": 1690,
+ "views": 508459,
+ "ratio": 300.86,
+ "age_days": 177,
+ "views_per_day": 2872.6,
+ "minutes": 20.0,
+ "likes": 4762,
+ "comments": 42,
+ "published": "2026-04-21",
+ "queries": "검색:노동요 | 검색:플레이리스트 | 검색:플리",
+ "url": "https://www.youtube.com/watch?v=LtoVUe_-J18",
+ "flag": "",
+ "published_at": "2026-04-21T21:10:00Z",
+ "rank": "W44",
+ "set": "web",
+ "folder": "W_LtoVUe_-J18",
+ "sources": [
+  "검색:노동요",
+  "검색:플레이리스트",
+  "검색:플리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "~ Brown Eyed Girls - Adracadabra"
+  },
+  {
+   "start": 182,
+   "title": "~ T-ara- Bo Peep Bo Peep"
+  },
+  {
+   "start": 407,
+   "title": "~ SISTAR - 쏘쿨"
+  },
+  {
+   "start": 609,
+   "title": "~ 애프터스쿨 -Diva"
+  },
+  {
+   "start": 808,
+   "title": "~ 걸스데이 - 반짝반짝"
+  },
+  {
+   "start": 994,
+   "title": "~ 카라 - Step"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 42,
+ "comments_top_level": 18,
+ "comments_replies": 24,
+ "comments_by_creator": 5,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 42,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:00:49",
+ "approved": "2026-10-16T22:00+09:00"
+}

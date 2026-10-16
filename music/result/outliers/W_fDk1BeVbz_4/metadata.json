@@ -1,0 +1,119 @@
+{
+ "id": "fDk1BeVbz_4",
+ "title": "[Playlist] 오늘은 일본 카페에 앉아 있는 기분으로",
+ "channel": "JazzBrown",
+ "channel_id": "UC5JqV8zNkB9IxXb6Tc2sEcA",
+ "subs": 15900,
+ "views": 346102,
+ "ratio": 21.77,
+ "age_days": 137,
+ "views_per_day": 2526.3,
+ "minutes": 70.5,
+ "likes": 3761,
+ "comments": 30,
+ "published": "2026-06-01",
+ "queries": "검색:카페플리",
+ "url": "https://www.youtube.com/watch?v=fDk1BeVbz_4",
+ "flag": "",
+ "published_at": "2026-06-01T01:14:20Z",
+ "rank": "W292",
+ "set": "web",
+ "folder": "W_fDk1BeVbz_4",
+ "sources": [
+  "검색:카페플리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Corner Cafe in Kyoto"
+  },
+  {
+   "start": 152,
+   "title": "Rest Stop Melody"
+  },
+  {
+   "start": 303,
+   "title": "Five Minutes by the Sea"
+  },
+  {
+   "start": 450,
+   "title": "Postcard on the Table"
+  },
+  {
+   "start": 610,
+   "title": "Same Old Train"
+  },
+  {
+   "start": 744,
+   "title": "Coffee Scent on the Table"
+  },
+  {
+   "start": 901,
+   "title": "Jazz Piano and Dance"
+  },
+  {
+   "start": 1066,
+   "title": "Good Time Jazz"
+  },
+  {
+   "start": 1274,
+   "title": "Calm Study Day"
+  },
+  {
+   "start": 1466,
+   "title": "Soft Thaw"
+  },
+  {
+   "start": 1620,
+   "title": "Before the colors rise"
+  },
+  {
+   "start": 1792,
+   "title": "Coffee Before Spring"
+  },
+  {
+   "start": 1927,
+   "title": "Low Light"
+  },
+  {
+   "start": 2108,
+   "title": "Calm Desk Jazz"
+  },
+  {
+   "start": 2321,
+   "title": "Stay Until the Breeze Fades"
+  },
+  {
+   "start": 2481,
+   "title": "A little While Longer"
+  },
+  {
+   "start": 2679,
+   "title": "Blue Candlelight"
+  },
+  {
+   "start": 2909,
+   "title": "Smoky Mirror"
+  },
+  {
+   "start": 3091,
+   "title": "Slow Sunday Jazz"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 30,
+ "comments_top_level": 27,
+ "comments_replies": 3,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 30,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:10:54",
+ "approved": "2026-10-16T22:10+09:00"
+}

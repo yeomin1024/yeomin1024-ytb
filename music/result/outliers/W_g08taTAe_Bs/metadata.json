@@ -1,0 +1,103 @@
+{
+ "id": "g08taTAe_Bs",
+ "title": "가슴을 울리는 짙은 감성의 블루스 모음 | 밤에 듣기좋은 애절한 중년감성 노래",
+ "channel": "세월블루스",
+ "channel_id": "UCtfCwaKJGfA3hAkliyAfb6Q",
+ "subs": 20900,
+ "views": 577143,
+ "ratio": 27.61,
+ "age_days": 140,
+ "views_per_day": 4122.4,
+ "minutes": 65.0,
+ "likes": 7084,
+ "comments": 374,
+ "published": "2026-05-29",
+ "queries": "검색:감성음악",
+ "url": "https://www.youtube.com/watch?v=g08taTAe_Bs",
+ "flag": "",
+ "published_at": "2026-05-29T11:35:21Z",
+ "rank": "W267",
+ "set": "web",
+ "folder": "W_g08taTAe_Bs",
+ "sources": [
+  "검색:감성음악"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "님은 먼 곳에"
+  },
+  {
+   "start": 264,
+   "title": "연인"
+  },
+  {
+   "start": 541,
+   "title": "그대 그리고 나"
+  },
+  {
+   "start": 813,
+   "title": "꿈에"
+  },
+  {
+   "start": 1205,
+   "title": "잃어버린 우산"
+  },
+  {
+   "start": 1450,
+   "title": "문밖에 있는 그대"
+  },
+  {
+   "start": 1731,
+   "title": "봄비"
+  },
+  {
+   "start": 1946,
+   "title": "기다리는 아픔"
+  },
+  {
+   "start": 2192,
+   "title": "사랑밖에 난 몰라"
+  },
+  {
+   "start": 2392,
+   "title": "종점"
+  },
+  {
+   "start": 2642,
+   "title": "그대 내 맘에 들어 오면은"
+  },
+  {
+   "start": 2894,
+   "title": "내 하나의 사랑은 가고"
+  },
+  {
+   "start": 3144,
+   "title": "마지막 연인"
+  },
+  {
+   "start": 3406,
+   "title": "무정브루스"
+  },
+  {
+   "start": 3656,
+   "title": "여인"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 374,
+ "comments_top_level": 239,
+ "comments_replies": 135,
+ "comments_by_creator": 38,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 374,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:10:07",
+ "approved": "2026-10-16T22:10+09:00"
+}

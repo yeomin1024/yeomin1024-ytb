@@ -1,0 +1,67 @@
+{
+ "id": "71_AXp38B7M",
+ "title": "𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 우린 아직 흑백영화처럼 사랑하고",
+ "channel": "세봄",
+ "channel_id": "UCak5TbAj2DsLlFGOIpmwc4A",
+ "subs": 14300,
+ "views": 550751,
+ "ratio": 38.51,
+ "age_days": 144,
+ "views_per_day": 3824.7,
+ "minutes": 17.1,
+ "likes": 3891,
+ "comments": 28,
+ "published": "2026-05-25",
+ "queries": "검색:공부음악 | 검색:플레이리스트 | 검색:플리 | 검색:잔잔한음악 | 검색:감성음악",
+ "url": "https://www.youtube.com/watch?v=71_AXp38B7M",
+ "flag": "",
+ "published_at": "2026-05-25T00:55:01Z",
+ "rank": "W222",
+ "set": "web",
+ "folder": "W_71_AXp38B7M",
+ "sources": [
+  "검색:공부음악",
+  "검색:플레이리스트",
+  "검색:플리",
+  "검색:잔잔한음악",
+  "검색:감성음악"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "검정치마 - 한시 오분"
+  },
+  {
+   "start": 237,
+   "title": "검정치마 - 폭죽과 풍선들"
+  },
+  {
+   "start": 440,
+   "title": "리도어 - 영원은 그렇듯"
+  },
+  {
+   "start": 677,
+   "title": "데이먼스 이어 - Mondegreen"
+  },
+  {
+   "start": 867,
+   "title": "릴러말즈 - 흑백영화"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 28,
+ "comments_top_level": 24,
+ "comments_replies": 4,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 28,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:07:50",
+ "approved": "2026-10-16T22:07+09:00"
+}

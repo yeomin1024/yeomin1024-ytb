@@ -1,0 +1,66 @@
+{
+ "id": "9qwdolh_Jow",
+ "title": "𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 여름 새벽향 낭만 플리",
+ "channel": "세봄",
+ "channel_id": "UCak5TbAj2DsLlFGOIpmwc4A",
+ "subs": 14300,
+ "views": 495960,
+ "ratio": 34.68,
+ "age_days": 136,
+ "views_per_day": 3646.8,
+ "minutes": 18.9,
+ "likes": 8830,
+ "comments": 17,
+ "published": "2026-06-02",
+ "queries": "검색:잠잘때듣는음악 | 검색:플레이리스트 | 검색:플리 | 검색:잔잔한음악",
+ "url": "https://www.youtube.com/watch?v=9qwdolh_Jow",
+ "flag": "",
+ "published_at": "2026-06-02T02:10:06Z",
+ "rank": "W233",
+ "set": "web",
+ "folder": "W_9qwdolh_Jow",
+ "sources": [
+  "검색:잠잘때듣는음악",
+  "검색:플레이리스트",
+  "검색:플리",
+  "검색:잔잔한음악"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "그_냥 - 우리 사랑은 필름 같았으면 해요"
+  },
+  {
+   "start": 240,
+   "title": "wave to earth - bad"
+  },
+  {
+   "start": 504,
+   "title": "Eddie and the Bricks - Pause"
+  },
+  {
+   "start": 673,
+   "title": "피엘 - PILLOW"
+  },
+  {
+   "start": 861,
+   "title": "전진희 - 여름밤에 우리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 17,
+ "comments_top_level": 17,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 17,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:08:19",
+ "approved": "2026-10-16T22:08+09:00"
+}

@@ -1,0 +1,63 @@
+{
+ "id": "JXJWz7Ky8KA",
+ "title": "Playlist 2016 그곳으로",
+ "channel": "느좋모음집",
+ "channel_id": "UCqr919IdRONoR45lbdexLIQ",
+ "subs": 29100,
+ "views": 207966,
+ "ratio": 7.15,
+ "age_days": 111,
+ "views_per_day": 1873.6,
+ "minutes": 18.2,
+ "likes": 7503,
+ "comments": 75,
+ "published": "2026-06-27",
+ "queries": "검색:플리",
+ "url": "https://www.youtube.com/watch?v=JXJWz7Ky8KA",
+ "flag": "",
+ "published_at": "2026-06-27T07:28:53Z",
+ "rank": "W406",
+ "set": "web",
+ "folder": "W_JXJWz7Ky8KA",
+ "sources": [
+  "검색:플리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "What do you mean? - Justin Bieber"
+  },
+  {
+   "start": 211,
+   "title": "Paris in the rain - Lauv"
+  },
+  {
+   "start": 413,
+   "title": "Closer - The chainsmokers , Halsey"
+  },
+  {
+   "start": 659,
+   "title": "Where Are U now - Justin Bieber"
+  },
+  {
+   "start": 902,
+   "title": "HATE THAT I MADE YOU LOVE ME X LET ME LOVE YOU X WE DON'T TALK ANYMORE (Jr Stit Mashup)"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 75,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:15:58",
+ "approved": "2026-10-16T22:15+09:00"
+}

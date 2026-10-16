@@ -1,0 +1,95 @@
+{
+ "id": "9iqkcoMV39k",
+ "title": "🎧요즘 들은 플리 중에 제일 느낌 좋다… 느좋 감성힙합 Chill 𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 🌙",
+ "channel": "𝐅𝐞𝐞𝐥𝐿𝐲𝐧",
+ "channel_id": "UCS5Lv7kjBsfhNL0oRT0_M7g",
+ "subs": 5020,
+ "views": 415614,
+ "ratio": 82.79,
+ "age_days": 138,
+ "views_per_day": 3011.7,
+ "minutes": 70.3,
+ "likes": 3925,
+ "comments": 281,
+ "published": "2026-05-30",
+ "queries": "검색:감성음악",
+ "url": "https://www.youtube.com/watch?v=9iqkcoMV39k",
+ "flag": "",
+ "published_at": "2026-05-30T22:00:05Z",
+ "rank": "W126",
+ "set": "web",
+ "folder": "W_9iqkcoMV39k",
+ "sources": [
+  "검색:감성음악"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "천천히 번지는 밤 (Night Spreading Slowly)"
+  },
+  {
+   "start": 174,
+   "title": "비행모드 (Airplane Mode)"
+  },
+  {
+   "start": 348,
+   "title": "바람 지나간 자리 (Where the Breeze Passed)"
+  },
+  {
+   "start": 516,
+   "title": "네 맘의 타이밍 (Timing Of Your Heart)"
+  },
+  {
+   "start": 670,
+   "title": "초여름 밤의 대화 (Conversations on an Early Summer Night)"
+  },
+  {
+   "start": 850,
+   "title": "흐려진 거리 끝에서 (At The End Of Fading Roads)"
+  },
+  {
+   "start": 1065,
+   "title": "잠깐 스쳐간 계절 (The Season That Passed By)"
+  },
+  {
+   "start": 1236,
+   "title": "파도 끝에 남겨진 말 (Words Left Beyond the Waves)"
+  },
+  {
+   "start": 1423,
+   "title": "불빛 끝에서 (At The Edge of Lights)"
+  },
+  {
+   "start": 1599,
+   "title": "한 칸 뒤에 앉은 너 (You Sitting One Seat Away)"
+  },
+  {
+   "start": 1780,
+   "title": "우리만 아는 Sign (The Sign Only We Know)"
+  },
+  {
+   "start": 1933,
+   "title": "다시 웃을 수 있게 (Until We Smile Again)"
+  },
+  {
+   "start": 2107,
+   "title": "Repeat"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 281,
+ "comments_top_level": 123,
+ "comments_replies": 158,
+ "comments_by_creator": 137,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 281,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:03:44",
+ "approved": "2026-10-16T22:03+09:00"
+}

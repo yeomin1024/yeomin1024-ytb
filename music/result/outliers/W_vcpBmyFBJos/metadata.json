@@ -1,0 +1,133 @@
+{
+ "id": "vcpBmyFBJos",
+ "title": "[Playlist] 라흐마니노프의 깊은 그리움 | 멀리서 들려오는 서정적인 선율 (Rachmaninoff Style) 🎹✨",
+ "channel": "The Clavis",
+ "channel_id": "UC235rUF1ZXSN4YQLFN3kVig",
+ "subs": 19800,
+ "views": 648351,
+ "ratio": 32.74,
+ "age_days": 119,
+ "views_per_day": 5448.3,
+ "minutes": 97.2,
+ "likes": 6847,
+ "comments": 551,
+ "published": "2026-06-18",
+ "queries": "검색:피아노 | 검색:음악",
+ "url": "https://www.youtube.com/watch?v=vcpBmyFBJos",
+ "flag": "",
+ "published_at": "2026-06-18T20:45:00Z",
+ "rank": "W242",
+ "set": "web",
+ "folder": "W_vcpBmyFBJos",
+ "sources": [
+  "검색:피아노",
+  "검색:음악"
+ ],
+ "source": "web",
+ "tags": [
+  "The Clavis",
+  "더클라비스",
+  "라흐마니노프",
+  "클래식",
+  "클래식 플레이리스트",
+  "라흐마니노프 스타일",
+  "깊은 그리움",
+  "서정적 클래식",
+  "감동적인 클래식",
+  "힐링 클래식",
+  "클래식 모음집",
+  "그리움 음악",
+  "피아노 클래식",
+  "현악 클래식",
+  "첼로 클래식",
+  "바이올린 클래식",
+  "고음질 클래식",
+  "320kbps",
+  "AI 클래식",
+  "AI 작곡",
+  "Rachmaninoff Style",
+  "Classical Playlist",
+  "Deep Longing",
+  "Nostalgic Classical",
+  "Healing Music",
+  "Moving Melodies",
+  "Piano and Strings",
+  "High Quality Sound"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "01. Longing at Dusk"
+  },
+  {
+   "start": 151,
+   "title": "02. The Faraway Call"
+  },
+  {
+   "start": 303,
+   "title": "03. Faded Memories"
+  },
+  {
+   "start": 450,
+   "title": "04. Garden of Memories"
+  },
+  {
+   "start": 627,
+   "title": "05. Tears of Memory"
+  },
+  {
+   "start": 859,
+   "title": "06. The Last Goodbye"
+  },
+  {
+   "start": 1015,
+   "title": "07. A Young Heart's Lament"
+  },
+  {
+   "start": 1162,
+   "title": "08. The Last Letter"
+  },
+  {
+   "start": 1403,
+   "title": "09. Night Dreamer"
+  },
+  {
+   "start": 1654,
+   "title": "10. Where the River Ends"
+  },
+  {
+   "start": 1841,
+   "title": "11. A Faded Portrait"
+  },
+  {
+   "start": 2052,
+   "title": "12. Paths of Longing"
+  },
+  {
+   "start": 2269,
+   "title": "13. Falling Leaves"
+  },
+  {
+   "start": 2486,
+   "title": "14. The Old House"
+  },
+  {
+   "start": 2696,
+   "title": "15. The Last Starlight"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 551,
+ "comments_top_level": 195,
+ "comments_replies": 356,
+ "comments_by_creator": 187,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 551,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:08:34",
+ "approved": "2026-10-16T22:08+09:00"
+}

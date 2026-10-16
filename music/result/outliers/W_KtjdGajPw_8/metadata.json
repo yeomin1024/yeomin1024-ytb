@@ -1,0 +1,127 @@
+{
+ "id": "KtjdGajPw_8",
+ "title": "[Playlist] 만약에 그날, 널 붙잡았다면│감성 발라드 플리",
+ "channel": "심야플리",
+ "channel_id": "UCneYxVfKdvmjoiBgw9f7_Ag",
+ "subs": 2310,
+ "views": 224176,
+ "ratio": 97.05,
+ "age_days": 171,
+ "views_per_day": 1311.0,
+ "minutes": 67.3,
+ "likes": 1513,
+ "comments": 179,
+ "published": "2026-04-28",
+ "queries": "검색:감성발라드 | 검색:발라드",
+ "url": "https://www.youtube.com/watch?v=KtjdGajPw_8",
+ "flag": "",
+ "published_at": "2026-04-28T12:00:40Z",
+ "rank": "W113",
+ "set": "web",
+ "folder": "W_KtjdGajPw_8",
+ "sources": [
+  "검색:감성발라드",
+  "검색:발라드"
+ ],
+ "source": "web",
+ "tags": [
+  "감성발라드",
+  "발라드플레이리스트",
+  "발라드모음",
+  "슬픈노래",
+  "이별노래",
+  "감성노래",
+  "잔잔한노래",
+  "듣기좋은노래",
+  "우울할때 듣는 노래",
+  "playlist",
+  "플레이리스트",
+  "잔잔한 노래",
+  "가요 플레이리스트",
+  "로파이",
+  "Lo-fi",
+  "심야플리",
+  "감성 플레이리스트",
+  "이별 플레이리스트",
+  "발라드 플레이리스트",
+  "슬픈 노래 모음",
+  "이별 노래 모음",
+  "감성 노래 모음",
+  "새벽 감성 노래",
+  "밤에 듣기 좋은 노래",
+  "혼자 들을 때 좋은 노래",
+  "후회 노래",
+  "이별 후 듣는 노래",
+  "눈물 나는 노래",
+  "조용한 노래 추천",
+  "감정적인 노래 모음",
+  "한국 발라드 플레이리스트",
+  "kpop 발라드 모음",
+  "korean sad playlist",
+  "breakup playlist",
+  "emotional playlist",
+  "sad songs playlist",
+  "late night playlist",
+  "lonely night music"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "망설임"
+  },
+  {
+   "start": 163,
+   "title": "만약에 우리"
+  },
+  {
+   "start": 389,
+   "title": "낡은 일기장"
+  },
+  {
+   "start": 603,
+   "title": "빗소리와 너"
+  },
+  {
+   "start": 785,
+   "title": "밤의 도시"
+  },
+  {
+   "start": 965,
+   "title": "보내지 못한 편지"
+  },
+  {
+   "start": 1183,
+   "title": "낮은 목소리"
+  },
+  {
+   "start": 1403,
+   "title": "남겨진 계획"
+  },
+  {
+   "start": 1613,
+   "title": "가로등 아래서"
+  },
+  {
+   "start": 1825,
+   "title": "꿈의 조각"
+  },
+  {
+   "start": 2019,
+   "title": "Replay"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 179,
+ "comments_top_level": 75,
+ "comments_replies": 104,
+ "comments_by_creator": 48,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 179,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:03:25",
+ "approved": "2026-10-16T22:03+09:00"
+}

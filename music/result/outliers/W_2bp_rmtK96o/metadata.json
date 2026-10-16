@@ -1,0 +1,69 @@
+{
+ "id": "2bp_rmtK96o",
+ "title": "[Playlist] 예의 없는 조선 디바들의 노동요 🌶️💃 #어우동 #신사임당 #장화홍련 #성춘향 #바리공주 👑 조선 디바들의 반란",
+ "channel": "조선노래꾼",
+ "channel_id": "UC0zR4FGGTfSYI17OyxesQDw",
+ "subs": 6470,
+ "views": 32276,
+ "ratio": 4.99,
+ "age_days": 171,
+ "views_per_day": 188.7,
+ "minutes": 13.7,
+ "likes": 352,
+ "comments": 60,
+ "published": "2026-04-28",
+ "queries": "검색:노동요",
+ "url": "https://www.youtube.com/watch?v=2bp_rmtK96o",
+ "flag": "",
+ "published_at": "2026-04-28T08:00:04Z",
+ "rank": "W433",
+ "set": "web",
+ "folder": "W_2bp_rmtK96o",
+ "sources": [
+  "검색:노동요"
+ ],
+ "source": "web",
+ "tags": [
+  "#어우동",
+  "#퓨전국악",
+  "#K힙합",
+  "#플레이리스트",
+  "조선힙합"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "어우동이 기가 막혀 (A-Woo-Dong) 💃"
+  },
+  {
+   "start": 157,
+   "title": "바리공주: 저승의 CEO (Bari: Underworld Empire) 👹"
+  },
+  {
+   "start": 335,
+   "title": "사임당, 붓을 꺾고 마이크 (Saimdang: Mic over Brush) 🎤"
+  },
+  {
+   "start": 480,
+   "title": "춘향, 옥중의 록 스피릿 (Chunhyang: Jailbreak Rock) 🎸"
+  },
+  {
+   "start": 678,
+   "title": "장화홍련: 자매의 잔혹한 트랩 (Cold Revenge) 🥀"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 60,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:16:02",
+ "approved": "2026-10-16T22:16+09:00"
+}

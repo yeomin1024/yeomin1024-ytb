@@ -1,0 +1,83 @@
+{
+ "id": "MHgCWNV-eKY",
+ "title": "샹송이 이렇게 까지 좋은줄 몰랐습니다. 아랑드롱이 사랑하던 멜로디가 아름다운 그 음악 | Songs That Take You Back to the70s",
+ "channel": "Yesterday SOUND",
+ "channel_id": "UCkkT7lDosFGbS5mkII7p7mg",
+ "subs": 6060,
+ "views": 381853,
+ "ratio": 63.01,
+ "age_days": 153,
+ "views_per_day": 2495.8,
+ "minutes": 43.9,
+ "likes": 4726,
+ "comments": 203,
+ "published": "2026-05-16",
+ "queries": "검색:힐링음악",
+ "url": "https://www.youtube.com/watch?v=MHgCWNV-eKY",
+ "flag": "",
+ "published_at": "2026-05-16T09:30:07Z",
+ "rank": "W147",
+ "set": "web",
+ "folder": "W_MHgCWNV-eKY",
+ "sources": [
+  "검색:힐링음악"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Pétales sous Pluie"
+  },
+  {
+   "start": 280,
+   "title": "Larmes Ventées"
+  },
+  {
+   "start": 553,
+   "title": "Vent d'ardoise"
+  },
+  {
+   "start": 805,
+   "title": "Pluie Trèfle Lointain"
+  },
+  {
+   "start": 1042,
+   "title": "Pluie de Deuil"
+  },
+  {
+   "start": 1364,
+   "title": "Pluie Prédawn"
+  },
+  {
+   "start": 1603,
+   "title": "Cricket Nylon Sadness"
+  },
+  {
+   "start": 1868,
+   "title": "Brouillard Prédawn"
+  },
+  {
+   "start": 2133,
+   "title": "Goutte Solitude"
+  },
+  {
+   "start": 2381,
+   "title": "Chanson Lointaine Birdcall"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 203,
+ "comments_top_level": 140,
+ "comments_replies": 63,
+ "comments_by_creator": 41,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 203,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:04:38",
+ "approved": "2026-10-16T22:04+09:00"
+}

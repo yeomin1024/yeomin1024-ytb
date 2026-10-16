@@ -1,0 +1,131 @@
+{
+ "id": "F-0JE3Byo9U",
+ "title": "듣자마자 학창시절 떠오르는 노래 🎧 싸이월드 감성 PART 4",
+ "channel": "소꿀 TV",
+ "channel_id": "UCsjK_zC0OJkfh2tRDF61__g",
+ "subs": 18200,
+ "views": 727774,
+ "ratio": 39.99,
+ "age_days": 156,
+ "views_per_day": 4665.2,
+ "minutes": 82.6,
+ "likes": 2346,
+ "comments": 50,
+ "published": "2026-05-12",
+ "queries": "검색:감성음악",
+ "url": "https://www.youtube.com/watch?v=F-0JE3Byo9U",
+ "flag": "",
+ "published_at": "2026-05-12T23:45:03Z",
+ "rank": "W216",
+ "set": "web",
+ "folder": "W_F-0JE3Byo9U",
+ "sources": [
+  "검색:감성음악"
+ ],
+ "source": "web",
+ "tags": [
+  "싸이월드",
+  "미니홈피 BGM",
+  "2000년대 명곡",
+  "추억의 노래",
+  "감성 플레이리스트",
+  "노래 모음",
+  "2000년대노래"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "에픽하이 - 우산"
+  },
+  {
+   "start": 304,
+   "title": "이은미 - 애인…있어요"
+  },
+  {
+   "start": 548,
+   "title": "모세 - 사랑인 걸"
+  },
+  {
+   "start": 804,
+   "title": "KCM - 너에게 전하는 아홉가지 바람"
+  },
+  {
+   "start": 1058,
+   "title": "V.O.S - 보고싶은 날엔"
+  },
+  {
+   "start": 1271,
+   "title": "Alex - 화분"
+  },
+  {
+   "start": 1597,
+   "title": "MC몽 - I Love U, Oh Thank U"
+  },
+  {
+   "start": 1790,
+   "title": "바이브 - 술이야"
+  },
+  {
+   "start": 2035,
+   "title": "거미 - 친구라도 될 걸 그랬어"
+  },
+  {
+   "start": 2317,
+   "title": "임정희 - 사랑은 봄비처럼 이별은 겨울비처럼"
+  },
+  {
+   "start": 2600,
+   "title": "백지영 - 총맞은 것처럼"
+  },
+  {
+   "start": 2838,
+   "title": "란 - 어쩌다가"
+  },
+  {
+   "start": 3075,
+   "title": "나몰라패밀리 - 사랑해요"
+  },
+  {
+   "start": 3304,
+   "title": "Hey - 쥬뗌므(Je T'aime)"
+  },
+  {
+   "start": 3555,
+   "title": "ART - 슬픈 얼굴"
+  },
+  {
+   "start": 3826,
+   "title": "애즈원 - 원하고 원망하죠"
+  },
+  {
+   "start": 4068,
+   "title": "프리스타일 - 그리고 그 후"
+  },
+  {
+   "start": 4282,
+   "title": "심플리선데이 - 사랑해요"
+  },
+  {
+   "start": 4541,
+   "title": "하은 - 아프고 화나고 미안해"
+  },
+  {
+   "start": 4742,
+   "title": "크라잉넛 - The Hero"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 50,
+ "comments_top_level": 18,
+ "comments_replies": 32,
+ "comments_by_creator": 8,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 50,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:07:42",
+ "approved": "2026-10-16T22:07+09:00"
+}

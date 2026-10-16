@@ -1,0 +1,77 @@
+{
+ "id": "NG6SQIGv3-Y",
+ "title": "𝒑𝒍𝒂𝒚𝒍𝒊𝒔𝒕 틱톡 그 느좋 노래 모음",
+ "channel": "뭐야",
+ "channel_id": "UCK6yMccOUlR8Cpy2ySQenzQ",
+ "subs": 1720,
+ "views": 548880,
+ "ratio": 319.12,
+ "age_days": 95,
+ "views_per_day": 5777.7,
+ "minutes": 8.9,
+ "likes": 11839,
+ "comments": 112,
+ "published": "2026-07-13",
+ "queries": "검색:플레이리스트 | 검색:플리 | 검색:감성음악",
+ "url": "https://www.youtube.com/watch?v=NG6SQIGv3-Y",
+ "flag": "",
+ "published_at": "2026-07-13T12:53:42Z",
+ "rank": "W40",
+ "set": "web",
+ "folder": "W_NG6SQIGv3-Y",
+ "sources": [
+  "검색:플레이리스트",
+  "검색:플리",
+  "검색:감성음악"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "illusionary daytime x trackmaker"
+  },
+  {
+   "start": 146,
+   "title": "mimosa 2000 x furacăo 2000 (slowed & reverb)"
+  },
+  {
+   "start": 181,
+   "title": "我的心下起了雪"
+  },
+  {
+   "start": 260,
+   "title": "not the one"
+  },
+  {
+   "start": 312,
+   "title": "1-800- bbno$"
+  },
+  {
+   "start": 427,
+   "title": "PPAP"
+  },
+  {
+   "start": 451,
+   "title": "Chi-Chi"
+  },
+  {
+   "start": 493,
+   "title": "sweet parade dj remix"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 112,
+ "comments_top_level": 86,
+ "comments_replies": 26,
+ "comments_by_creator": 8,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 112,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:00:38",
+ "approved": "2026-10-16T22:00+09:00"
+}

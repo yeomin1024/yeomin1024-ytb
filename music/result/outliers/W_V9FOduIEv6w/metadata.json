@@ -1,0 +1,87 @@
+{
+ "id": "V9FOduIEv6w",
+ "title": "듣다 보면 끝까지 듣게 되는 명품 보컬 | 7080 슬로우 레게・레트로 락발라드・Love Song・Vintage Ballad・감성 BGM",
+ "channel": "afterparis",
+ "channel_id": "UC0ZaeubjyrCTfXp58aazafQ",
+ "subs": 7200,
+ "views": 330404,
+ "ratio": 45.89,
+ "age_days": 105,
+ "views_per_day": 3146.7,
+ "minutes": 82.8,
+ "likes": 2962,
+ "comments": 183,
+ "published": "2026-07-02",
+ "queries": "검색:발라드",
+ "url": "https://www.youtube.com/watch?v=V9FOduIEv6w",
+ "flag": "",
+ "published_at": "2026-07-02T22:00:34Z",
+ "rank": "W193",
+ "set": "web",
+ "folder": "W_V9FOduIEv6w",
+ "sources": [
+  "검색:발라드"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "The Streetlamp Stayed Until Dawn"
+  },
+  {
+   "start": 264,
+   "title": "Coffee Gone Cold, Memories Still Warm"
+  },
+  {
+   "start": 527,
+   "title": "My Shadow Knows This Song"
+  },
+  {
+   "start": 762,
+   "title": "Rain Fell After Everyone Left"
+  },
+  {
+   "start": 1000,
+   "title": "A Slow Dance for Empty Chairs"
+  },
+  {
+   "start": 1227,
+   "title": "The Vinyl Turned Without a Word"
+  },
+  {
+   "start": 1445,
+   "title": "When the Harbor Forgot My Name"
+  },
+  {
+   "start": 1715,
+   "title": "Midnight Borrowed My Smile"
+  },
+  {
+   "start": 2010,
+   "title": "One Window Still Glows"
+  },
+  {
+   "start": 2259,
+   "title": "The Breeze Carried Yesterday Home"
+  },
+  {
+   "start": 2484,
+   "title": "Repeat"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 183,
+ "comments_top_level": 71,
+ "comments_replies": 112,
+ "comments_by_creator": 86,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 183,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:06:48",
+ "approved": "2026-10-16T22:06+09:00"
+}

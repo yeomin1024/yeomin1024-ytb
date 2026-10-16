@@ -1,0 +1,81 @@
+{
+ "id": "RG-8iv6ORFY",
+ "title": "𝐩𝐥𝐚𝐲𝐥𝐢𝐬𝐭 느좋 인스타 감성",
+ "channel": "알수없는 사용자",
+ "channel_id": "UCsVRvM3bKC9s0t4BiPJ2qoQ",
+ "subs": 1730,
+ "views": 996946,
+ "ratio": 576.27,
+ "age_days": 65,
+ "views_per_day": 15337.6,
+ "minutes": 27.0,
+ "likes": 11070,
+ "comments": 94,
+ "published": "2026-08-12",
+ "queries": "검색:플레이리스트 | 검색:playlist | 검색:음악 | 검색:플리 | 검색:노래모음 | 검색:노래 | 검색:감성음악",
+ "url": "https://www.youtube.com/watch?v=RG-8iv6ORFY",
+ "flag": "",
+ "published_at": "2026-08-12T05:01:46Z",
+ "rank": "W17",
+ "set": "web",
+ "folder": "W_RG-8iv6ORFY",
+ "sources": [
+  "검색:플레이리스트",
+  "검색:playlist",
+  "검색:음악",
+  "검색:플리",
+  "검색:노래모음",
+  "검색:노래",
+  "검색:감성음악"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "향수 - LauRel, EUNSAN, Saula"
+  },
+  {
+   "start": 179,
+   "title": "낙서 - 펀치넬로 (feat. 백예린)"
+  },
+  {
+   "start": 368,
+   "title": "그걸로도 충분해요 - San E (feat.수안)"
+  },
+  {
+   "start": 565,
+   "title": "로꼬 - 시간이들겠지"
+  },
+  {
+   "start": 793,
+   "title": "Bolero - shane"
+  },
+  {
+   "start": 977,
+   "title": "니가 모르게 - 로꼬"
+  },
+  {
+   "start": 1226,
+   "title": "right now - coogie"
+  },
+  {
+   "start": 1408,
+   "title": "알아 - 프라이머리 (feat. Sumin)"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 94,
+ "comments_top_level": 61,
+ "comments_replies": 33,
+ "comments_by_creator": 24,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 94,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T12:59:53",
+ "approved": "2026-10-16T21:59+09:00"
+}

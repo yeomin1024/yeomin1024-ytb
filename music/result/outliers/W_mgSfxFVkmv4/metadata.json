@@ -1,0 +1,68 @@
+{
+ "id": "mgSfxFVkmv4",
+ "title": "𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 안 붙잡을게, 진짜로",
+ "channel": "탱이",
+ "channel_id": "UCzD556dokqGqvMpGOfEvNaw",
+ "subs": 1680,
+ "views": 348845,
+ "ratio": 207.65,
+ "age_days": 119,
+ "views_per_day": 2931.5,
+ "minutes": 18.3,
+ "likes": 10931,
+ "comments": 150,
+ "published": "2026-06-19",
+ "queries": "검색:플레이리스트 | 검색:플리",
+ "url": "https://www.youtube.com/watch?v=mgSfxFVkmv4",
+ "flag": "",
+ "published_at": "2026-06-19T12:16:26Z",
+ "rank": "W59",
+ "set": "web",
+ "folder": "W_mgSfxFVkmv4",
+ "sources": [
+  "검색:플레이리스트",
+  "검색:플리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Saula - Perfume"
+  },
+  {
+   "start": 179,
+   "title": "빈첸 - FLYING HIGH WITH U"
+  },
+  {
+   "start": 383,
+   "title": "Kaution - ed"
+  },
+  {
+   "start": 584,
+   "title": "&TEAM - MISMATCH"
+  },
+  {
+   "start": 786,
+   "title": "백현 - Love Again"
+  },
+  {
+   "start": 989,
+   "title": "Joh! - ABG"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 150,
+ "comments_top_level": 127,
+ "comments_replies": 23,
+ "comments_by_creator": 3,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 150,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:01:35",
+ "approved": "2026-10-16T22:01+09:00"
+}

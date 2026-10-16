@@ -1,0 +1,76 @@
+{
+ "id": "tNhYMR1z938",
+ "title": "𝑷𝒍𝒂𝒚𝒍𝒊𝒔𝒕 내가 아는 사람 얘기해줄게",
+ "channel": "sorii",
+ "channel_id": "UCPMs9vqgBT_aUKaPxCxDGhg",
+ "subs": 4680,
+ "views": 411639,
+ "ratio": 87.96,
+ "age_days": 177,
+ "views_per_day": 2325.6,
+ "minutes": 29.8,
+ "likes": 3234,
+ "comments": 15,
+ "published": "2026-04-21",
+ "queries": "검색:플레이리스트 | 검색:플리",
+ "url": "https://www.youtube.com/watch?v=tNhYMR1z938",
+ "flag": "",
+ "published_at": "2026-04-21T14:07:04Z",
+ "rank": "W121",
+ "set": "web",
+ "folder": "W_tNhYMR1z938",
+ "sources": [
+  "검색:플레이리스트",
+  "검색:플리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "San E - 아는사람 얘기"
+  },
+  {
+   "start": 206,
+   "title": "싸이 - 어땠을까 (feat. 박정현)"
+  },
+  {
+   "start": 450,
+   "title": "프라이머리 - ?"
+  },
+  {
+   "start": 644,
+   "title": "투빅 - 요즘 바쁜가봐"
+  },
+  {
+   "start": 871,
+   "title": "매드 클라운 - 우리집을 못 찾겠군요 (FEAT. 볼빨간사춘기)"
+  },
+  {
+   "start": 1088,
+   "title": "San E - ME YOU (Feat. 백예린)"
+  },
+  {
+   "start": 1296,
+   "title": "다이나믹 듀오 & 박정현 - 싱숭생숭"
+  },
+  {
+   "start": 1558,
+   "title": "BIGBANG - 거짓말"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 15,
+ "comments_top_level": 11,
+ "comments_replies": 4,
+ "comments_by_creator": 3,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 15,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:03:37",
+ "approved": "2026-10-16T22:03+09:00"
+}

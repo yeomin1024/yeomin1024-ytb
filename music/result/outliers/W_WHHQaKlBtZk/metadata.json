@@ -1,0 +1,71 @@
+{
+ "id": "WHHQaKlBtZk",
+ "title": "[playlist] 잔잔한 안건호 보컬 모음 플레이리스트 | 커버곡 | 코르티스",
+ "channel": "W",
+ "channel_id": "UC2u0p1FFVt0r3GaNC6GBdaQ",
+ "subs": 22,
+ "views": 37939,
+ "ratio": 379.39,
+ "age_days": 155,
+ "views_per_day": 244.8,
+ "minutes": 13.3,
+ "likes": 706,
+ "comments": 12,
+ "published": "2026-05-14",
+ "queries": "검색:잔잔한음악",
+ "url": "https://www.youtube.com/watch?v=WHHQaKlBtZk",
+ "flag": "",
+ "published_at": "2026-05-14T12:04:50Z",
+ "rank": "W27",
+ "set": "web",
+ "folder": "W_WHHQaKlBtZk",
+ "sources": [
+  "검색:잔잔한음악"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "내 마음에 비친 내 모습 (원곡 유재하)"
+  },
+  {
+   "start": 113,
+   "title": "Blue Lips (원곡 코르티스)"
+  },
+  {
+   "start": 178,
+   "title": "Great Pretender (원곡 Dominic fike)"
+  },
+  {
+   "start": 337,
+   "title": "Swap It Out (원곡 Justin Bieber)"
+  },
+  {
+   "start": 397,
+   "title": "그대 작은 나의 세상이 되어 (원곡 카더가든)"
+  },
+  {
+   "start": 548,
+   "title": "Let’s go picnic (원곡 george)"
+  },
+  {
+   "start": 648,
+   "title": "JoyRide (원곡 코르티스)"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 12,
+ "comments_top_level": 12,
+ "comments_replies": 0,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 12,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:00:12",
+ "approved": "2026-10-16T22:00+09:00"
+}

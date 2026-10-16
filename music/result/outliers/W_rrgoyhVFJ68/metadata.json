@@ -1,0 +1,107 @@
+{
+ "id": "rrgoyhVFJ68",
+ "title": "탈북할 때 듣는 플리",
+ "channel": "비둘기",
+ "channel_id": "UCcwuVnWLJWvuiosJWROEfnA",
+ "subs": 2920,
+ "views": 757408,
+ "ratio": 259.39,
+ "age_days": 75,
+ "views_per_day": 10098.8,
+ "minutes": 57.6,
+ "likes": 31224,
+ "comments": 1536,
+ "published": "2026-08-01",
+ "queries": "검색:플리",
+ "url": "https://www.youtube.com/watch?v=rrgoyhVFJ68",
+ "flag": "",
+ "published_at": "2026-08-01T15:55:25Z",
+ "rank": "W50",
+ "set": "web",
+ "folder": "W_rrgoyhVFJ68",
+ "sources": [
+  "검색:플리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "프라이머리 - 자니"
+  },
+  {
+   "start": 233,
+   "title": "리쌍 - 헤어지지 못하는 여자, 떠나가지 못하는 남자"
+  },
+  {
+   "start": 517,
+   "title": "비오 - 네가 없는 밤"
+  },
+  {
+   "start": 745,
+   "title": "산이 - Me You"
+  },
+  {
+   "start": 954,
+   "title": "허각, 지아 - I Need You"
+  },
+  {
+   "start": 1177,
+   "title": "긱스 - Officially Missing You"
+  },
+  {
+   "start": 1387,
+   "title": "프라이머리 - ?"
+  },
+  {
+   "start": 1582,
+   "title": "박경 - 보통연애"
+  },
+  {
+   "start": 1813,
+   "title": "빈지노 - Aqua Man"
+  },
+  {
+   "start": 2040,
+   "title": "에픽하이 - 연애소설"
+  },
+  {
+   "start": 2277,
+   "title": "우원재 - 시차"
+  },
+  {
+   "start": 2473,
+   "title": "지코 - 걘 아니야"
+  },
+  {
+   "start": 2690,
+   "title": "릴러말즈 - 하지마"
+  },
+  {
+   "start": 2825,
+   "title": "TOIL - 검정색하트"
+  },
+  {
+   "start": 3061,
+   "title": "ASH ISLAND - 멜로디"
+  },
+  {
+   "start": 3243,
+   "title": "숀 - Way Back Home"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 1536,
+ "comments_top_level": 1141,
+ "comments_replies": 395,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 1536,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:01:07",
+ "approved": "2026-10-16T22:01+09:00"
+}

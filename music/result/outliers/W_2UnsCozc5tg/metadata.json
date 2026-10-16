@@ -1,0 +1,64 @@
+{
+ "id": "2UnsCozc5tg",
+ "title": "모시모시 키코에테루 ? {Playlist}",
+ "channel": "손집",
+ "channel_id": "UCERz5lAMNyUREvuAt1iq2GQ",
+ "subs": 1690,
+ "views": 201075,
+ "ratio": 118.98,
+ "age_days": 177,
+ "views_per_day": 1136.0,
+ "minutes": 19.1,
+ "likes": 8684,
+ "comments": 57,
+ "published": "2026-04-22",
+ "queries": "검색:플레이리스트 | 검색:플리",
+ "url": "https://www.youtube.com/watch?v=2UnsCozc5tg",
+ "flag": "",
+ "published_at": "2026-04-22T11:08:41Z",
+ "rank": "W102",
+ "set": "web",
+ "folder": "W_2UnsCozc5tg",
+ "sources": [
+  "검색:플레이리스트",
+  "검색:플리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "楽音 Sasane - mosi mosi?"
+  },
+  {
+   "start": 163,
+   "title": "Serani poji - ぴぽぴぽ"
+  },
+  {
+   "start": 426,
+   "title": "Plus Tech Squeeze Box - A Day In The Radio"
+  },
+  {
+   "start": 640,
+   "title": "フレネシ - オニガシマ"
+  },
+  {
+   "start": 873,
+   "title": "COLTEMONIKHA - Yum yum yummy 🎧"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 57,
+ "comments_top_level": 30,
+ "comments_replies": 27,
+ "comments_by_creator": 21,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 57,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:03:00",
+ "approved": "2026-10-16T22:03+09:00"
+}

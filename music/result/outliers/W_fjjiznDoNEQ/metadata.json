@@ -1,0 +1,107 @@
+{
+ "id": "fjjiznDoNEQ",
+ "title": "조선힙합 OFFICIAL 발표곡 중 인기곡만 모았습니다.",
+ "channel": "조선힙합 Official",
+ "channel_id": "UCnMNo5iDtkjGtPDgCzPj9mQ",
+ "subs": 28600,
+ "views": 884654,
+ "ratio": 30.93,
+ "age_days": 133,
+ "views_per_day": 6651.5,
+ "minutes": 28.4,
+ "likes": 7322,
+ "comments": 1039,
+ "published": "2026-06-05",
+ "queries": "검색:트로트 | 검색:노래",
+ "url": "https://www.youtube.com/watch?v=fjjiznDoNEQ",
+ "flag": "",
+ "published_at": "2026-06-05T01:00:12Z",
+ "rank": "W249",
+ "set": "web",
+ "folder": "W_fjjiznDoNEQ",
+ "sources": [
+  "검색:트로트",
+  "검색:노래"
+ ],
+ "source": "web",
+ "tags": [
+  "조선힙합OFFICIAL",
+  "힙합가수",
+  "조선힙합 가수",
+  "조선힙합 아티스트",
+  "한국힙합",
+  "한국 힙합",
+  "한국힙합가수",
+  "힙합 아티스트",
+  "힙합뮤지션",
+  "국악힙합",
+  "국악 힙합",
+  "전통힙합",
+  "전통 힙합",
+  "한국적인 힙합",
+  "한국 전통음악",
+  "국악과 힙합",
+  "퓨전힙합",
+  "K힙합",
+  "K-Hip Hop",
+  "Korean Hip Hop",
+  "Korean Hiphop",
+  "조선힙합 음악",
+  "조선힙합 노래",
+  "조선힙합 신곡",
+  "조선힙합 음악추천",
+  "한국힙합 음악",
+  "한국힙합 노래",
+  "국악힙합 음악",
+  "국악힙합 노래",
+  "조선힙합 뮤직비디오",
+  "힙합 뮤직비디오",
+  "한국힙합 뮤직비디오",
+  "국악힙합 뮤직비디오",
+  "K힙합 뮤직비디오"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "살다보니"
+  },
+  {
+   "start": 183,
+   "title": "인연"
+  },
+  {
+   "start": 387,
+   "title": "윤회"
+  },
+  {
+   "start": 671,
+   "title": "월매송"
+  },
+  {
+   "start": 937,
+   "title": "인연은달을따라지고"
+  },
+  {
+   "start": 1187,
+   "title": "가시리"
+  },
+  {
+   "start": 1463,
+   "title": "몽혼"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 1039,
+ "comments_top_level": 445,
+ "comments_replies": 594,
+ "comments_by_creator": 497,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 1039,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:08:52",
+ "approved": "2026-10-16T22:08+09:00"
+}

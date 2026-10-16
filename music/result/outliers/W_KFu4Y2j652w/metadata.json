@@ -1,0 +1,91 @@
+{
+ "id": "KFu4Y2j652w",
+ "title": "샹송이 이렇게 까지 좋은줄 몰랐습니다 | 너무 좋아서 아침부터 듣게 되는 7080 올드팝 | 감성이 터진",
+ "channel": "Midnight Melody Sound",
+ "channel_id": "UC6F9jt986nPp0C3we6C5UUg",
+ "subs": 28000,
+ "views": 472486,
+ "ratio": 16.87,
+ "age_days": 166,
+ "views_per_day": 2846.3,
+ "minutes": 119.9,
+ "likes": 4824,
+ "comments": 157,
+ "published": "2026-05-03",
+ "queries": "검색:음악",
+ "url": "https://www.youtube.com/watch?v=KFu4Y2j652w",
+ "flag": "",
+ "published_at": "2026-05-03T10:25:57Z",
+ "rank": "W318",
+ "set": "web",
+ "folder": "W_KFu4Y2j652w",
+ "sources": [
+  "검색:음악"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Pluie Oblique           (Slanting Rain)"
+  },
+  {
+   "start": 479,
+   "title": "Lettre Pluie            (Letter in the Rain)"
+  },
+  {
+   "start": 757,
+   "title": "Accordion Corner"
+  },
+  {
+   "start": 1030,
+   "title": "Pluie de Nylon          (Nylon Rain)"
+  },
+  {
+   "start": 1338,
+   "title": "Rue Pluie Cycliste      (Cyclist on a Rainy Street)"
+  },
+  {
+   "start": 1585,
+   "title": "Thé Tiède Paris         (Lukewarm Tea in Paris)"
+  },
+  {
+   "start": 1875,
+   "title": "Pluie à Séoul           (Rain in Seoul)"
+  },
+  {
+   "start": 2142,
+   "title": "Lanterne Tremblante     (Trembling Lantern)"
+  },
+  {
+   "start": 2471,
+   "title": "Thé Tasse Frileuse      (A Chilly Cup of Tea)"
+  },
+  {
+   "start": 2764,
+   "title": "Pluie à Séoul II        (Rain in Seoul II)"
+  },
+  {
+   "start": 3018,
+   "title": "Pluie Larmoyante        (Tearful Rain)"
+  },
+  {
+   "start": 3297,
+   "title": "Anges à l'abri          (Angels in Shelter)"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 157,
+ "comments_top_level": 117,
+ "comments_replies": 40,
+ "comments_by_creator": 20,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 157,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:11:35",
+ "approved": "2026-10-16T22:11+09:00"
+}

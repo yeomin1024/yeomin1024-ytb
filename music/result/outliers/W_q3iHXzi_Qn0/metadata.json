@@ -1,0 +1,118 @@
+{
+ "id": "q3iHXzi_Qn0",
+ "title": "🍀 7월, 바다를 보며 들으니 이 노래 너무 좋다 ☕ 커피 한 잔과 함께하는 7080 추억의 올드팝 🎧",
+ "channel": "행운을담은 올드팝  ",
+ "channel_id": "UCIZLOLPEjzRX93fuObp5VxQ",
+ "subs": 6160,
+ "views": 191460,
+ "ratio": 31.08,
+ "age_days": 105,
+ "views_per_day": 1823.4,
+ "minutes": 85.7,
+ "likes": 2109,
+ "comments": 160,
+ "published": "2026-07-02",
+ "queries": "검색:편안한음악",
+ "url": "https://www.youtube.com/watch?v=q3iHXzi_Qn0",
+ "flag": "",
+ "published_at": "2026-07-02T21:55:09Z",
+ "rank": "W248",
+ "set": "web",
+ "folder": "W_q3iHXzi_Qn0",
+ "sources": [
+  "검색:편안한음악"
+ ],
+ "source": "web",
+ "tags": [
+  "감성올드팝",
+  "7080올드팝",
+  "oldiesmusic",
+  "7080팝송",
+  "추억의올드팝",
+  "oldpop",
+  "행운담은7080올드팝",
+  "올드팝모음",
+  "편안한음악",
+  "카페음악",
+  "시니어음악",
+  "70년대팝송",
+  "80년대팝송",
+  "클래식팝",
+  "팝송모음",
+  "작업용bgm",
+  "모닝플레이리스트",
+  "커피음악",
+  "아침음악",
+  "좋은하루",
+  "행운의음악",
+  "추억음악",
+  "힐링음악",
+  "중장년음악",
+  "올드팝플레이리스트",
+  "7080음악",
+  "잔잔한음악",
+  "바다음악",
+  "여름플레이리스트",
+  "oldiesplaylist"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Morning Mist on the Bay"
+  },
+  {
+   "start": 214,
+   "title": "Summer Beside the Sea"
+  },
+  {
+   "start": 483,
+   "title": "Footprints by the Summer Sea"
+  },
+  {
+   "start": 803,
+   "title": "By the Dunes and the Radio"
+  },
+  {
+   "start": 1062,
+   "title": "When the Sea Breeze Turned the Page"
+  },
+  {
+   "start": 1300,
+   "title": "Where the Seabirds Fly"
+  },
+  {
+   "start": 1575,
+   "title": "A Picture Filled with Summer"
+  },
+  {
+   "start": 1815,
+   "title": "A Shell That Remembers"
+  },
+  {
+   "start": 2020,
+   "title": "Treasure Washed Ashore"
+  },
+  {
+   "start": 2268,
+   "title": "The Breeze That Stayed Until Sunset"
+  },
+  {
+   "start": 2571,
+   "title": "Replay 🔄"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 160,
+ "comments_top_level": 72,
+ "comments_replies": 88,
+ "comments_by_creator": 75,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 160,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:08:50",
+ "approved": "2026-10-16T22:08+09:00"
+}

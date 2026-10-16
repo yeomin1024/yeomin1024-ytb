@@ -1,0 +1,83 @@
+{
+ "id": "MQf3ajxEFfQ",
+ "title": "바흐의 파사칼리아",
+ "channel": "홍준 뮤직 TV",
+ "channel_id": "UCqAvR6cBYqDcOwf6b0YY2EQ",
+ "subs": 4490,
+ "views": 641115,
+ "ratio": 142.79,
+ "age_days": 129,
+ "views_per_day": 4969.9,
+ "minutes": 40.0,
+ "likes": 8744,
+ "comments": 662,
+ "published": "2026-06-09",
+ "queries": "검색:힐링음악",
+ "url": "https://www.youtube.com/watch?v=MQf3ajxEFfQ",
+ "flag": "",
+ "published_at": "2026-06-09T01:04:34Z",
+ "rank": "W86",
+ "set": "web",
+ "folder": "W_MQf3ajxEFfQ",
+ "sources": [
+  "검색:힐링음악"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Passacaglia I – Prelude of Silence"
+  },
+  {
+   "start": 260,
+   "title": "Passacaglia II – Echoes of the Cathedral"
+  },
+  {
+   "start": 515,
+   "title": "Passacaglia III – Moonlit Reverie"
+  },
+  {
+   "start": 765,
+   "title": "Passacaglia IV – The Flow of Time"
+  },
+  {
+   "start": 1010,
+   "title": "Passacaglia V – Shadows and Light"
+  },
+  {
+   "start": 1260,
+   "title": "Passacaglia VI – Meditative Strings"
+  },
+  {
+   "start": 1515,
+   "title": "Passacaglia VII – Nocturne in Wood"
+  },
+  {
+   "start": 1770,
+   "title": "Passacaglia VIII – Devotion"
+  },
+  {
+   "start": 2030,
+   "title": "Passacaglia IX – Endless Variations"
+  },
+  {
+   "start": 2240,
+   "title": "Passacaglia Finale – The Last Resonance"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 662,
+ "comments_top_level": 266,
+ "comments_replies": 396,
+ "comments_by_creator": 276,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 662,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:02:25",
+ "approved": "2026-10-16T22:02+09:00"
+}

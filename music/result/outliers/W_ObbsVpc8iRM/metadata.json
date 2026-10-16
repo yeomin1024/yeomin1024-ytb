@@ -1,0 +1,76 @@
+{
+ "id": "ObbsVpc8iRM",
+ "title": "𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 | Q. 여전히 잊지 못했나요?",
+ "channel": "청춘",
+ "channel_id": "UCCcIfwBVgXzTZVF73JnvMPA",
+ "subs": 1360,
+ "views": 411763,
+ "ratio": 302.77,
+ "age_days": 128,
+ "views_per_day": 3216.9,
+ "minutes": 24.0,
+ "likes": 9517,
+ "comments": 491,
+ "published": "2026-06-10",
+ "queries": "검색:플레이리스트",
+ "url": "https://www.youtube.com/watch?v=ObbsVpc8iRM",
+ "flag": "",
+ "published_at": "2026-06-10T09:34:30Z",
+ "rank": "W42",
+ "set": "web",
+ "folder": "W_ObbsVpc8iRM",
+ "sources": [
+  "검색:플레이리스트"
+ ],
+ "source": "web",
+ "tags": [
+  "플레이리스트",
+  "사랑",
+  "이별",
+  "Playlist"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 19,
+   "title": "wave to earth-seasons"
+  },
+  {
+   "start": 255,
+   "title": "써니사이드-첫사랑"
+  },
+  {
+   "start": 460,
+   "title": "볼빨간사춘기- 사랑할 수밖에"
+  },
+  {
+   "start": 682,
+   "title": "에릭남, CHEEZE-사랑인가요"
+  },
+  {
+   "start": 917,
+   "title": "임현정-사랑은 봄비처럼…이별은 겨울비처럼…"
+  },
+  {
+   "start": 1200,
+   "title": "산이, 레이나-한여름밤의 꿀"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 491,
+ "comments_top_level": 443,
+ "comments_replies": 48,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 491,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:00:43",
+ "approved": "2026-10-16T22:00+09:00"
+}

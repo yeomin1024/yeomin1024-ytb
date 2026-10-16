@@ -1,0 +1,125 @@
+{
+ "id": "6MQT5DkZTEU",
+ "title": "모든 일이 잘 풀리는 아침을 여는 음악 | 막혔던 일이 시원하게 풀리는 기분",
+ "channel": "LazyFlow",
+ "channel_id": "UCCUOG1p892RWDluFMoiF6Cw",
+ "subs": 10700,
+ "views": 632787,
+ "ratio": 59.14,
+ "age_days": 164,
+ "views_per_day": 3858.5,
+ "minutes": 90.4,
+ "likes": 5013,
+ "comments": 167,
+ "published": "2026-05-04",
+ "queries": "검색:음악",
+ "url": "https://www.youtube.com/watch?v=6MQT5DkZTEU",
+ "flag": "",
+ "published_at": "2026-05-04T22:00:00Z",
+ "rank": "W155",
+ "set": "web",
+ "folder": "W_6MQT5DkZTEU",
+ "sources": [
+  "검색:음악"
+ ],
+ "source": "web",
+ "tags": [
+  "모든일이잘풀리는음악",
+  "아침음악",
+  "아침을여는음악",
+  "기분좋은아침",
+  "아침루틴",
+  "행운을부르는음악",
+  "lazyflow",
+  "레이지플로우",
+  "팝송플레이리스트",
+  "잔잔한팝송",
+  "감성팝송",
+  "어쿠스틱팝",
+  "듣기좋은팝송",
+  "출근길음악",
+  "등교길음악",
+  "미라클모닝",
+  "공부할때듣는음악",
+  "일할때듣는음악",
+  "카페음악",
+  "매장음악",
+  "집안일할때듣는음악",
+  "드라이브음악",
+  "확언음악",
+  "긍정확언",
+  "기분전환",
+  "Playlist",
+  "PopPlaylist",
+  "팝송모음",
+  "매일아침7시"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Unhappy And Still Yours"
+  },
+  {
+   "start": 233,
+   "title": "Hello Sunshine"
+  },
+  {
+   "start": 438,
+   "title": "Golden Room"
+  },
+  {
+   "start": 631,
+   "title": "Play It Again"
+  },
+  {
+   "start": 822,
+   "title": "It All Adds Up"
+  },
+  {
+   "start": 1021,
+   "title": "Every Single Day"
+  },
+  {
+   "start": 1322,
+   "title": "Just Like That"
+  },
+  {
+   "start": 1527,
+   "title": "The Sky This Morning"
+  },
+  {
+   "start": 1733,
+   "title": "But It's a Good One"
+  },
+  {
+   "start": 1950,
+   "title": "Familiar and Good"
+  },
+  {
+   "start": 2241,
+   "title": "Blue Above Me"
+  },
+  {
+   "start": 2473,
+   "title": "Good Vibes Only"
+  },
+  {
+   "start": 2712,
+   "title": "Repeat"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 167,
+ "comments_top_level": 86,
+ "comments_replies": 81,
+ "comments_by_creator": 62,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 167,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:05:02",
+ "approved": "2026-10-16T22:05+09:00"
+}

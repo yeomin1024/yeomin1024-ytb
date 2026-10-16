@@ -1,0 +1,103 @@
+{
+ "id": "AOyN15yGFrs",
+ "title": "하루를 밝게 만드는 찬송가 모음 10곡 | 기분 좋아지는 찬송가 모음 10곡 | 어쿠스틱 기타 찬양 | 듣기만 해도 마음이 가벼워지는 찬송가 10곡",
+ "channel": "주님곁에",
+ "channel_id": "UC4P5kNxYV1gSPri5y4-m9CA",
+ "subs": 18700,
+ "views": 1459911,
+ "ratio": 78.07,
+ "age_days": 142,
+ "views_per_day": 10281.1,
+ "minutes": 70.5,
+ "likes": 16947,
+ "comments": 1229,
+ "published": "2026-05-27",
+ "queries": "검색:힐링음악 | 검색:편안한음악 | 검색:노래모음 | 검색:마음이편안해지는음악",
+ "url": "https://www.youtube.com/watch?v=AOyN15yGFrs",
+ "flag": "",
+ "published_at": "2026-05-27T04:00:27Z",
+ "rank": "W132",
+ "set": "web",
+ "folder": "W_AOyN15yGFrs",
+ "sources": [
+  "검색:힐링음악",
+  "검색:편안한음악",
+  "검색:노래모음",
+  "검색:마음이편안해지는음악"
+ ],
+ "source": "web",
+ "tags": [
+  "찬송가",
+  "찬송가모음",
+  "아침찬송",
+  "셔플찬송",
+  "포크찬송",
+  "어쿠스틱찬송가",
+  "내진정사모하는",
+  "내영혼이은총입어",
+  "지금까지지내온것",
+  "주하나님지으신모든세계",
+  "은혜로운찬양",
+  "아침기도음악"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "88장 내 진정 사모하는"
+  },
+  {
+   "start": 199,
+   "title": "438장 내 영혼이 은총 입어"
+  },
+  {
+   "start": 388,
+   "title": "301장 지금까지 지내온 것"
+  },
+  {
+   "start": 564,
+   "title": "79장 주 하나님 지으신 모든 세계"
+  },
+  {
+   "start": 832,
+   "title": "491장 저 높은 곳을 향하여"
+  },
+  {
+   "start": 1096,
+   "title": "191장 내가 매일 기쁘게"
+  },
+  {
+   "start": 1281,
+   "title": "28장 복의 근원 강림하사"
+  },
+  {
+   "start": 1496,
+   "title": "412장 내 영혼의 그윽히 깊은 데서"
+  },
+  {
+   "start": 1774,
+   "title": "405장 주의 친절한 팔에 안기세"
+  },
+  {
+   "start": 1949,
+   "title": "552장 아침 해가 돋을 때"
+  },
+  {
+   "start": 2155,
+   "title": "반복"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 1229,
+ "comments_top_level": 560,
+ "comments_replies": 669,
+ "comments_by_creator": 489,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 1229,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:03:57",
+ "approved": "2026-10-16T22:04+09:00"
+}

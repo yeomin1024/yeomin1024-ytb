@@ -1,0 +1,128 @@
+{
+ "id": "Nw1SN_kmZqI",
+ "title": "playlist | 여름, 복숭아 재즈",
+ "channel": "centralgrocery 중앙식품점",
+ "channel_id": "UCSJBRrUKLZ3QRQsw3cE9Oyw",
+ "subs": 27200,
+ "views": 192892,
+ "ratio": 7.09,
+ "age_days": 72,
+ "views_per_day": 2679.1,
+ "minutes": 237.9,
+ "likes": 2517,
+ "comments": 97,
+ "published": "2026-08-04",
+ "queries": "검색:집중음악",
+ "url": "https://www.youtube.com/watch?v=Nw1SN_kmZqI",
+ "flag": "",
+ "published_at": "2026-08-04T22:00:19Z",
+ "rank": "W407",
+ "set": "web",
+ "folder": "W_Nw1SN_kmZqI",
+ "sources": [
+  "검색:집중음악"
+ ],
+ "source": "web",
+ "tags": [
+  "플레이리스트",
+  "재즈",
+  "재즈음악",
+  "조용한음악",
+  "공부음악",
+  "잔잔한음악",
+  "보사노바",
+  "카페플리",
+  "카페음악",
+  "아침음악",
+  "뉴에이지",
+  "집중음악",
+  "lo-fi",
+  "playlist",
+  "jazz",
+  "jazzmusic",
+  "bosanova",
+  "플리",
+  "newage",
+  "music"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Bite Into Summer (한입 베어 문 여름)"
+  },
+  {
+   "start": 155,
+   "title": "The Sweetest Afternoon (가장 달콤한 오후)"
+  },
+  {
+   "start": 319,
+   "title": "Peach Mood Forever (언제나 복숭아 같은 기분)"
+  },
+  {
+   "start": 492,
+   "title": "The Season Turns Sweet (계절이 달콤해지는 순간)"
+  },
+  {
+   "start": 619,
+   "title": "Peach-Colored Quiet (복숭아빛 고요)"
+  },
+  {
+   "start": 798,
+   "title": "Sweet Air & Jazz (달콤한 공기와 재즈)"
+  },
+  {
+   "start": 941,
+   "title": "Summer Feels Like Peach (여름은 복숭아를 닮았다)"
+  },
+  {
+   "start": 1115,
+   "title": "Soft Peach Skies (복숭아빛 하늘)"
+  },
+  {
+   "start": 1333,
+   "title": "A Peach Kind of Day (복숭아 같은 하루)"
+  },
+  {
+   "start": 1557,
+   "title": "Fuzzy Summer Days (복숭복숭한 여름날)"
+  },
+  {
+   "start": 1741,
+   "title": "Sweet Things Take Time (달콤한 것은 시간이 걸린다)"
+  },
+  {
+   "start": 1924,
+   "title": "Summer's Softest Color (여름의 가장 부드러운 색)"
+  },
+  {
+   "start": 2113,
+   "title": "Warm Air, Soft Fruit (따뜻한 바람, 말랑한 과일)"
+  },
+  {
+   "start": 2309,
+   "title": "Stay Soft (부드러운 채로 머물러)"
+  },
+  {
+   "start": 2478,
+   "title": "One Sweet Summer (어느 달콤한 여름)"
+  },
+  {
+   "start": 2707,
+   "title": "The Shape of Summer (여름의 모양)"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 97,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:15:58",
+ "approved": "2026-10-16T22:15+09:00"
+}

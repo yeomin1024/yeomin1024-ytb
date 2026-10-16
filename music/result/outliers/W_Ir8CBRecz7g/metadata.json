@@ -1,0 +1,66 @@
+{
+ "id": "Ir8CBRecz7g",
+ "title": "어른여자.mp3",
+ "channel": "리 세이",
+ "channel_id": "UCld_oFJtEiY9yOAzd9mBK6w",
+ "subs": 510,
+ "views": 588809,
+ "ratio": 1154.53,
+ "age_days": 157,
+ "views_per_day": 3750.4,
+ "minutes": 16.0,
+ "likes": 0,
+ "comments": 83,
+ "published": "2026-05-12",
+ "queries": "검색:플레이리스트 | 검색:플리",
+ "url": "https://www.youtube.com/watch?v=Ir8CBRecz7g",
+ "flag": "",
+ "published_at": "2026-05-12T09:00:20Z",
+ "rank": "W8",
+ "set": "web",
+ "folder": "W_Ir8CBRecz7g",
+ "sources": [
+  "검색:플레이리스트",
+  "검색:플리"
+ ],
+ "source": "web",
+ "tags": [
+  "플레이리스트",
+  "플리",
+  "playlist",
+  "노래추천",
+  "음악"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "브라운아이드걸스 - My Style"
+  },
+  {
+   "start": 237,
+   "title": "에픽하이 - Love Love Love (Feat. 융진 of Casker)"
+  },
+  {
+   "start": 462,
+   "title": "리쌍 - 헤어지지 못하는 여자, 떠나가지 못하는 남자 (Feat. 정인)"
+  },
+  {
+   "start": 742,
+   "title": "보아 - Only One"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 83,
+ "comments_top_level": 40,
+ "comments_replies": 43,
+ "comments_by_creator": 4,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 83,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T12:59:34",
+ "approved": "2026-10-16T21:59+09:00"
+}

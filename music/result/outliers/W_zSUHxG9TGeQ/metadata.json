@@ -1,0 +1,150 @@
+{
+ "id": "zSUHxG9TGeQ",
+ "title": "playlist | 여름과 가을사이, 내 독서용 브금",
+ "channel": "centralgrocery 중앙식품점",
+ "channel_id": "UCSJBRrUKLZ3QRQsw3cE9Oyw",
+ "subs": 27200,
+ "views": 197566,
+ "ratio": 7.26,
+ "age_days": 95,
+ "views_per_day": 2079.6,
+ "minutes": 225.8,
+ "likes": 2469,
+ "comments": 48,
+ "published": "2026-07-12",
+ "queries": "검색:공부할때듣는음악 | 검색:집중음악 | 검색:공부음악",
+ "url": "https://www.youtube.com/watch?v=zSUHxG9TGeQ",
+ "flag": "",
+ "published_at": "2026-07-12T22:00:32Z",
+ "rank": "W405",
+ "set": "web",
+ "folder": "W_zSUHxG9TGeQ",
+ "sources": [
+  "검색:공부할때듣는음악",
+  "검색:집중음악",
+  "검색:공부음악"
+ ],
+ "source": "web",
+ "tags": [
+  "플레이리스트",
+  "재즈",
+  "재즈음악",
+  "조용한음악",
+  "공부음악",
+  "잔잔한음악",
+  "보사노바",
+  "카페플리",
+  "카페음악",
+  "아침음악",
+  "뉴에이지",
+  "집중음악",
+  "lo-fi",
+  "playlist",
+  "jazz",
+  "jazzmusic",
+  "bosanova",
+  "플리",
+  "newage",
+  "music"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Reading Through July"
+  },
+  {
+   "start": 134,
+   "title": "A Book for the Afternoon"
+  },
+  {
+   "start": 347,
+   "title": "The Fan Turns Slowly"
+  },
+  {
+   "start": 515,
+   "title": "The Quietest Hour of Summer"
+  },
+  {
+   "start": 743,
+   "title": "Notes Between Chapters"
+  },
+  {
+   "start": 975,
+   "title": "Halfway Through the Book"
+  },
+  {
+   "start": 1200,
+   "title": "Reading While the Day Cools"
+  },
+  {
+   "start": 1378,
+   "title": "The Hour Between Pages"
+  },
+  {
+   "start": 1597,
+   "title": "The Chapter I Stayed For"
+  },
+  {
+   "start": 1811,
+   "title": "A Breeze Through the Curtains"
+  },
+  {
+   "start": 2113,
+   "title": "Summer on the Bookshelf"
+  },
+  {
+   "start": 2396,
+   "title": "Reading Past Four"
+  },
+  {
+   "start": 2609,
+   "title": "The Day Slows Down Here"
+  },
+  {
+   "start": 2866,
+   "title": "The Last Warm Chapter"
+  },
+  {
+   "start": 3009,
+   "title": "A Book Beside the Fan"
+  },
+  {
+   "start": 3240,
+   "title": "A Summer Book Left Unfinished"
+  },
+  {
+   "start": 3399,
+   "title": "The Light Falls on the Margin"
+  },
+  {
+   "start": 3572,
+   "title": "The Afternoon Between Chapters"
+  },
+  {
+   "start": 3798,
+   "title": "The Margin of Summer"
+  },
+  {
+   "start": 4016,
+   "title": "A Novel in the Late Light"
+  },
+  {
+   "start": 4221,
+   "title": "The Room, the Fan, the Book"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 48,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:15:58",
+ "approved": "2026-10-16T22:15+09:00"
+}

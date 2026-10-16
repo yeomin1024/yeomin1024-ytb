@@ -1,0 +1,107 @@
+{
+ "id": "ese2bIvjZGU",
+ "title": "playlist l 틀자마자 집중 잘 되는 느좋 노동요 🎧 chill • r&b • vibes ☾",
+ "channel": "luroom",
+ "channel_id": "UCWhibkZBCmrog2D_Wsz_F6A",
+ "subs": 8190,
+ "views": 571355,
+ "ratio": 69.76,
+ "age_days": 53,
+ "views_per_day": 10780.3,
+ "minutes": 248.2,
+ "likes": 4726,
+ "comments": 175,
+ "published": "2026-08-24",
+ "queries": "검색:노동요",
+ "url": "https://www.youtube.com/watch?v=ese2bIvjZGU",
+ "flag": "",
+ "published_at": "2026-08-24T11:07:19Z",
+ "rank": "W141",
+ "set": "web",
+ "folder": "W_ese2bIvjZGU",
+ "sources": [
+  "검색:노동요"
+ ],
+ "source": "web",
+ "tags": [
+  "RNB",
+  "playlist",
+  "플리",
+  "플레이리스트",
+  "감성힙합",
+  "드라이브음악",
+  "공부음악",
+  "카페음악",
+  "매장음악",
+  "집중음악",
+  "노동요"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "My Own Line"
+  },
+  {
+   "start": 210,
+   "title": "After I Begin"
+  },
+  {
+   "start": 418,
+   "title": "Next Beat"
+  },
+  {
+   "start": 613,
+   "title": "No Curtain Call"
+  },
+  {
+   "start": 808,
+   "title": "Thank You Is Enough"
+  },
+  {
+   "start": 1001,
+   "title": "The Rookie"
+  },
+  {
+   "start": 1181,
+   "title": "Not Evidence"
+  },
+  {
+   "start": 1344,
+   "title": "Unplayed"
+  },
+  {
+   "start": 1585,
+   "title": "Secondhand Panic"
+  },
+  {
+   "start": 1837,
+   "title": "No Manual"
+  },
+  {
+   "start": 2042,
+   "title": "By Touch"
+  },
+  {
+   "start": 2276,
+   "title": "Less Is Full"
+  },
+  {
+   "start": 2481,
+   "title": "Replay"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 175,
+ "comments_top_level": 72,
+ "comments_replies": 103,
+ "comments_by_creator": 86,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 175,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:04:26",
+ "approved": "2026-10-16T22:04+09:00"
+}

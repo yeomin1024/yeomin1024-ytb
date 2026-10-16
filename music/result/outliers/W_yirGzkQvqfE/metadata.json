@@ -1,0 +1,113 @@
+{
+ "id": "yirGzkQvqfE",
+ "title": "Playlist 19 MHz | 같이 있는 시간이 제일 편한 날 ☀️  | 90s LOVE · BALLAD · SPRING  | 봄 · 감성 · 휴식 · 산책 · 작업 · CAFE",
+ "channel": "옥탑방 radio",
+ "channel_id": "UCNuMllA3QhgfWdTtA3CojtQ",
+ "subs": 21400,
+ "views": 338853,
+ "ratio": 15.83,
+ "age_days": 177,
+ "views_per_day": 1914.4,
+ "minutes": 21.9,
+ "likes": 2544,
+ "comments": 171,
+ "published": "2026-04-21",
+ "queries": "검색:잠잘때듣는음악 | 검색:카페음악 | 검색:감성발라드 | 검색:발라드 | 검색:편안한음악 | 검색:잔잔한음악 | 검색:마음이편안해지는음악 | 검색:감성음악",
+ "url": "https://www.youtube.com/watch?v=yirGzkQvqfE",
+ "flag": "",
+ "published_at": "2026-04-21T22:01:10Z",
+ "rank": "W327",
+ "set": "web",
+ "folder": "W_yirGzkQvqfE",
+ "sources": [
+  "검색:잠잘때듣는음악",
+  "검색:카페음악",
+  "검색:감성발라드",
+  "검색:발라드",
+  "검색:편안한음악",
+  "검색:잔잔한음악",
+  "검색:마음이편안해지는음악",
+  "검색:감성음악"
+ ],
+ "source": "web",
+ "tags": [
+  "옥탑방라디오",
+  "로파이발라드",
+  "감성발라드",
+  "카페음악",
+  "잔잔한노래",
+  "공부할때듣는음악",
+  "잠잘때듣는음악",
+  "수면유도음악",
+  "노동요",
+  "편안한음악",
+  "여성보컬발라드",
+  "로파이팝",
+  "힐링음악",
+  "배경음악",
+  "BGM",
+  "감성플레이리스트",
+  "사랑노래",
+  "LofiBallad",
+  "LofiPop",
+  "CafeMusic",
+  "Chillout",
+  "RelaxingMusic",
+  "StudyMusic",
+  "SleepMusic",
+  "SoftVocal",
+  "KpopLofi",
+  "AcousticLofi",
+  "WorkingMusic",
+  "Playlist",
+  "옥탑방radio",
+  "작업음악",
+  "연애감성",
+  "데일리플리",
+  "편안한노래"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "나란히 걷던 날"
+  },
+  {
+   "start": 194,
+   "title": "내 마음이 먼저"
+  },
+  {
+   "start": 425,
+   "title": "조금씩 너에게"
+  },
+  {
+   "start": 608,
+   "title": "너를 닮은 기분"
+  },
+  {
+   "start": 762,
+   "title": "내 하루에 스며와"
+  },
+  {
+   "start": 965,
+   "title": "문득 네가 보여서"
+  },
+  {
+   "start": 1127,
+   "title": "천천히 가까워져 (94 BPM)"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 171,
+ "comments_top_level": 69,
+ "comments_replies": 102,
+ "comments_by_creator": 76,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 171,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:11:48",
+ "approved": "2026-10-16T22:11+09:00"
+}

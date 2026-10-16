@@ -1,0 +1,100 @@
+{
+ "id": "wsB8ej3Jon4",
+ "title": "Playlist | 틀어놓으면 그냥 계속 리듬 타게 되는 그루브 😎 집중 끊기지 않는 리듬 🎧 | JAZZHOP · CHILLHOP | 카페 · 작업 · BGM",
+ "channel": "Hush Chords",
+ "channel_id": "UCv5JH6n0vBnWTl_ieASOT-w",
+ "subs": 19500,
+ "views": 2510132,
+ "ratio": 128.72,
+ "age_days": 158,
+ "views_per_day": 15886.9,
+ "minutes": 318.1,
+ "likes": 23997,
+ "comments": 722,
+ "published": "2026-05-10",
+ "queries": "검색:노동요 | 검색:카페음악 | 검색:cafe music | 검색:playlist | 검색:background music | 검색:BGM",
+ "url": "https://www.youtube.com/watch?v=wsB8ej3Jon4",
+ "flag": "",
+ "published_at": "2026-05-10T22:00:57Z",
+ "rank": "W94",
+ "set": "web",
+ "folder": "W_wsB8ej3Jon4",
+ "sources": [
+  "검색:노동요",
+  "검색:카페음악",
+  "검색:cafe music",
+  "검색:playlist",
+  "검색:background music",
+  "검색:BGM"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Stay In Flow"
+  },
+  {
+   "start": 142,
+   "title": "Easy On The Move"
+  },
+  {
+   "start": 315,
+   "title": "Catch The Step"
+  },
+  {
+   "start": 490,
+   "title": "Right On Time"
+  },
+  {
+   "start": 665,
+   "title": "Feels Right"
+  },
+  {
+   "start": 842,
+   "title": "Soft Feel"
+  },
+  {
+   "start": 1015,
+   "title": "Back In Motion"
+  },
+  {
+   "start": 1188,
+   "title": "Stay In Line"
+  },
+  {
+   "start": 1360,
+   "title": "Keep It Going"
+  },
+  {
+   "start": 1535,
+   "title": "In Line"
+  },
+  {
+   "start": 1710,
+   "title": "Stay A Bit"
+  },
+  {
+   "start": 1885,
+   "title": "Let It Pass"
+  },
+  {
+   "start": 2060,
+   "title": "For Now"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 722,
+ "comments_top_level": 345,
+ "comments_replies": 377,
+ "comments_by_creator": 354,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 722,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:02:45",
+ "approved": "2026-10-16T22:02+09:00"
+}

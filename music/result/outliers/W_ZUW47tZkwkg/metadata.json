@@ -1,0 +1,78 @@
+{
+ "id": "ZUW47tZkwkg",
+ "title": "[𝐩𝐥𝐚𝐲𝐥𝐢𝐬𝐭] 저 정말 바라는 거 없어요",
+ "channel": "음악저장소",
+ "channel_id": "UCNFkuzDxt0-bwmt1Zmw-blA",
+ "subs": 1820,
+ "views": 756725,
+ "ratio": 415.78,
+ "age_days": 25,
+ "views_per_day": 30269.0,
+ "minutes": 27.3,
+ "likes": 12231,
+ "comments": 87,
+ "published": "2026-09-20",
+ "queries": "검색:플레이리스트 | 검색:플리 | 검색:노래모음 | 검색:노래",
+ "url": "https://www.youtube.com/watch?v=ZUW47tZkwkg",
+ "flag": "",
+ "published_at": "2026-09-20T13:00:23Z",
+ "rank": "W24",
+ "set": "web",
+ "folder": "W_ZUW47tZkwkg",
+ "sources": [
+  "검색:플레이리스트",
+  "검색:플리",
+  "검색:노래모음",
+  "검색:노래"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "베스티 - 연애의 조건"
+  },
+  {
+   "start": 192,
+   "title": "소녀시대 - Gee"
+  },
+  {
+   "start": 391,
+   "title": "소녀시대 - 소원을 말해봐"
+  },
+  {
+   "start": 598,
+   "title": "송지은 - 예쁜 나이 25살"
+  },
+  {
+   "start": 803,
+   "title": "AOA - 단발머리"
+  },
+  {
+   "start": 1018,
+   "title": "AOA - 짧은치마"
+  },
+  {
+   "start": 1198,
+   "title": "티아라 - Bo Peep Bo Peep"
+  },
+  {
+   "start": 1423,
+   "title": "티아라 - ROLY-POLY"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 88,
+ "comments_top_level": 77,
+ "comments_replies": 11,
+ "comments_by_creator": 3,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 87,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:00:04",
+ "approved": "2026-10-16T22:00+09:00"
+}

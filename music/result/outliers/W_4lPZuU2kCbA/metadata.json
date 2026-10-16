@@ -1,0 +1,96 @@
+{
+ "id": "4lPZuU2kCbA",
+ "title": "가을이 오면... 커피향이 가득한 카페에서 듣고 싶은 음악",
+ "channel": "EverOldies",
+ "channel_id": "UCN-M35A4ZSHJUiKUMz3Mr0Q",
+ "subs": 44800,
+ "views": 474574,
+ "ratio": 10.59,
+ "age_days": 42,
+ "views_per_day": 11299.4,
+ "minutes": 96.9,
+ "likes": 4677,
+ "comments": 292,
+ "published": "2026-09-03",
+ "queries": "검색:카페음악",
+ "url": "https://www.youtube.com/watch?v=4lPZuU2kCbA",
+ "flag": "",
+ "published_at": "2026-09-03T21:40:52Z",
+ "rank": "W372",
+ "set": "web",
+ "folder": "W_4lPZuU2kCbA",
+ "sources": [
+  "검색:카페음악"
+ ],
+ "source": "web",
+ "tags": [
+  "올드팝",
+  "추억의팝송",
+  "7080팝송",
+  "oldpop",
+  "everoldies",
+  "따뜻한음악",
+  "카페음악",
+  "중간광고없는 팝송"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "I Will Be With You"
+  },
+  {
+   "start": 197,
+   "title": "I Heard Your Name"
+  },
+  {
+   "start": 380,
+   "title": "Locking the Past"
+  },
+  {
+   "start": 516,
+   "title": "How Have You Been"
+  },
+  {
+   "start": 704,
+   "title": "I Wish You Well"
+  },
+  {
+   "start": 914,
+   "title": "Somewhere in My Memory"
+  },
+  {
+   "start": 1143,
+   "title": "You Were in Everything"
+  },
+  {
+   "start": 1331,
+   "title": "Thank You for Everything"
+  },
+  {
+   "start": 1566,
+   "title": "After All This Time"
+  },
+  {
+   "start": 1748,
+   "title": "Dear Distant Soul"
+  },
+  {
+   "start": 1937,
+   "title": "Replay"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 292,
+ "comments_top_level": 131,
+ "comments_replies": 161,
+ "comments_by_creator": 133,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 292,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:13:47",
+ "approved": "2026-10-16T22:13+09:00"
+}

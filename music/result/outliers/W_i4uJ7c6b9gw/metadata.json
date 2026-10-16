@@ -1,0 +1,122 @@
+{
+ "id": "i4uJ7c6b9gw",
+ "title": "첫 곡부터 감성 미쳐버린🎧8090 레전드 플레이리스트",
+ "channel": "Ceci Pop",
+ "channel_id": "UCscwbPA51cT98A9Ygbr2StQ",
+ "subs": 29500,
+ "views": 1538468,
+ "ratio": 52.15,
+ "age_days": 132,
+ "views_per_day": 11655.1,
+ "minutes": 112.8,
+ "likes": 12679,
+ "comments": 1362,
+ "published": "2026-06-06",
+ "queries": "검색:감성음악",
+ "url": "https://www.youtube.com/watch?v=i4uJ7c6b9gw",
+ "flag": "",
+ "published_at": "2026-06-06T00:05:08Z",
+ "rank": "W176",
+ "set": "web",
+ "folder": "W_i4uJ7c6b9gw",
+ "sources": [
+  "검색:감성음악"
+ ],
+ "source": "web",
+ "tags": [
+  "한국 시티팝",
+  "80년대 음악",
+  "90년대 음악",
+  "레트로 팝",
+  "올드팝",
+  "한국 팝송",
+  "시티팝",
+  "city pop",
+  "K-pop retro",
+  "빈티지 음악",
+  "도시 감성",
+  "밤 드라이브",
+  "카페 음악",
+  "감성 팝",
+  "낭만",
+  "레트로 감성",
+  "추억",
+  "노스탤지어",
+  "힐링 음악",
+  "공부할때 듣는 음악",
+  "카페 플레이리스트",
+  "작업용 BGM",
+  "힐링 플레이리스트",
+  "감성 플레이리스트",
+  "연속재생",
+  "24시간",
+  "라이브",
+  "BGM",
+  "무료 음악",
+  "쎄씨팝"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "늦은 안녕 (Second story)"
+  },
+  {
+   "start": 268,
+   "title": "다시 만날 그 날"
+  },
+  {
+   "start": 434,
+   "title": "그대를 불러요"
+  },
+  {
+   "start": 622,
+   "title": "숨겨진 마음"
+  },
+  {
+   "start": 801,
+   "title": "가지마"
+  },
+  {
+   "start": 1035,
+   "title": "라디오에서"
+  },
+  {
+   "start": 1222,
+   "title": "You and me"
+  },
+  {
+   "start": 1414,
+   "title": "이 밤이 지나면"
+  },
+  {
+   "start": 1626,
+   "title": "오늘도 취하네"
+  },
+  {
+   "start": 1818,
+   "title": "Moon light Drive"
+  },
+  {
+   "start": 2046,
+   "title": "기억 속 멜로디"
+  },
+  {
+   "start": 2256,
+   "title": "Replay"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 1362,
+ "comments_top_level": 498,
+ "comments_replies": 864,
+ "comments_by_creator": 511,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 1362,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:06:00",
+ "approved": "2026-10-16T22:06+09:00"
+}

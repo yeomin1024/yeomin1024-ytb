@@ -1,0 +1,102 @@
+{
+ "id": "N5AE0jDAY2o",
+ "title": "새벽에 듣기좋은 메이플 로파이 재즈 | 1시간 작업·공부 음악",
+ "channel": "DOKANG",
+ "channel_id": "UCF8lN82V_wjKKDUS5CRDgYQ",
+ "subs": 20400,
+ "views": 266022,
+ "ratio": 13.04,
+ "age_days": 155,
+ "views_per_day": 1716.3,
+ "minutes": 63.9,
+ "likes": 4946,
+ "comments": 155,
+ "published": "2026-05-14",
+ "queries": "검색:공부음악",
+ "url": "https://www.youtube.com/watch?v=N5AE0jDAY2o",
+ "flag": "",
+ "published_at": "2026-05-14T10:00:37Z",
+ "rank": "W353",
+ "set": "web",
+ "folder": "W_N5AE0jDAY2o",
+ "sources": [
+  "검색:공부음악"
+ ],
+ "source": "web",
+ "tags": [
+  "메이플스토리",
+  "메이플",
+  "maple",
+  "playlist",
+  "vmffl",
+  "느린달팽이",
+  "느린달팽이 엘리니아",
+  "#作業用BGM",
+  "#勉強用BGM",
+  "#gamemusic"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "커닝시티"
+  },
+  {
+   "start": 148,
+   "title": "루디브리엄 하늘"
+  },
+  {
+   "start": 306,
+   "title": "도원경"
+  },
+  {
+   "start": 479,
+   "title": "리프레"
+  },
+  {
+   "start": 633,
+   "title": "나무줄기 던전"
+  },
+  {
+   "start": 827,
+   "title": "에오스 탑 외부"
+  },
+  {
+   "start": 1007,
+   "title": "판테온"
+  },
+  {
+   "start": 1175,
+   "title": "메이플 프랜즈 신수국제학교 도심"
+  },
+  {
+   "start": 1380,
+   "title": "오디움 연구자들의 도시·성문으로 가는 길"
+  },
+  {
+   "start": 1539,
+   "title": "리버스 시티 Memory of Sunset"
+  },
+  {
+   "start": 1743,
+   "title": "리엔필드 (보컬) https://youtu.be/OpSl4zTt2dg"
+  },
+  {
+   "start": 1918,
+   "title": "LOOP"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 155,
+ "comments_top_level": 113,
+ "comments_replies": 42,
+ "comments_by_creator": 15,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 155,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:13:24",
+ "approved": "2026-10-16T22:13+09:00"
+}

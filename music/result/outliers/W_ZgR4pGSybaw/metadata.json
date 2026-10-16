@@ -1,0 +1,95 @@
+{
+ "id": "ZgR4pGSybaw",
+ "title": "𝙋𝙡𝙖𝙮𝙡𝙞𝙨𝙩 | 아말피 테라스에서 봉골레와 와인 한 잔 | 𝘚𝘰𝘧𝘵 𝘉𝘰𝘴𝘴𝘢 𝘑𝘢𝘻𝘻🍋🥂 | 카페 플리, 지중해 플리",
+ "channel": "BlueDot Diary",
+ "channel_id": "UCXIpTL0w_S4s-MtVn_JLOJQ",
+ "subs": 6520,
+ "views": 221967,
+ "ratio": 34.04,
+ "age_days": 99,
+ "views_per_day": 2242.1,
+ "minutes": 142.8,
+ "likes": 1799,
+ "comments": 45,
+ "published": "2026-07-09",
+ "queries": "검색:카페플리",
+ "url": "https://www.youtube.com/watch?v=ZgR4pGSybaw",
+ "flag": "",
+ "published_at": "2026-07-09T10:00:23Z",
+ "rank": "W235",
+ "set": "web",
+ "folder": "W_ZgR4pGSybaw",
+ "sources": [
+  "검색:카페플리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "We’ll Start With Vongole"
+  },
+  {
+   "start": 134,
+   "title": "Under The Yellow Canopy"
+  },
+  {
+   "start": 260,
+   "title": "Salty Clams, Cool Breeze"
+  },
+  {
+   "start": 375,
+   "title": "A Bite Of Positano"
+  },
+  {
+   "start": 491,
+   "title": "Chardonnay On The Coast"
+  },
+  {
+   "start": 651,
+   "title": "The Perfect Positano Course"
+  },
+  {
+   "start": 722,
+   "title": "La Felicità"
+  },
+  {
+   "start": 885,
+   "title": "Finish It With Delizia"
+  },
+  {
+   "start": 1013,
+   "title": "Sweet Delizia Days"
+  },
+  {
+   "start": 1137,
+   "title": "Before Driving Amalfi"
+  },
+  {
+   "start": 1267,
+   "title": "Lemons, Views, And Us"
+  },
+  {
+   "start": 1336,
+   "title": "Amalfi Route 16:30"
+  },
+  {
+   "start": 1428,
+   "title": "~loop"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 45,
+ "comments_top_level": 22,
+ "comments_replies": 23,
+ "comments_by_creator": 20,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 45,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:08:23",
+ "approved": "2026-10-16T22:08+09:00"
+}

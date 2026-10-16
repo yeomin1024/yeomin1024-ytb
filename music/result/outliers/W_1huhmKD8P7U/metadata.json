@@ -1,0 +1,67 @@
+{
+ "id": "1huhmKD8P7U",
+ "title": "PLAYLIST I it's like supernatural I 느좋 팝송 기모띠 야르 찹찹 플리",
+ "channel": "자세히알아보기",
+ "channel_id": "UCbdB3kDRQ-fcNc1oOGE1-gg",
+ "subs": 551,
+ "views": 187625,
+ "ratio": 340.52,
+ "age_days": 74,
+ "views_per_day": 2535.5,
+ "minutes": 19.6,
+ "likes": 5577,
+ "comments": 101,
+ "published": "2026-08-03",
+ "queries": "검색:플리",
+ "url": "https://www.youtube.com/watch?v=1huhmKD8P7U",
+ "flag": "",
+ "published_at": "2026-08-03T12:25:03Z",
+ "rank": "W35",
+ "set": "web",
+ "folder": "W_1huhmKD8P7U",
+ "sources": [
+  "검색:플리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Ariana Grande - hate that I made you love me"
+  },
+  {
+   "start": 198,
+   "title": "Ariana Grande - supernatural"
+  },
+  {
+   "start": 362,
+   "title": "SZA - Good Days"
+  },
+  {
+   "start": 642,
+   "title": "SZA (Feat. Travis Scott) - Open Arms"
+  },
+  {
+   "start": 884,
+   "title": "Kali Uchis - Breeze!"
+  },
+  {
+   "start": 1028,
+   "title": "Kaash Paige - Love Songs"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 101,
+ "comments_top_level": 53,
+ "comments_replies": 48,
+ "comments_by_creator": 44,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 101,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:00:27",
+ "approved": "2026-10-16T22:00+09:00"
+}

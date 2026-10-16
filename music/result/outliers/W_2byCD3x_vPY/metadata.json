@@ -1,0 +1,107 @@
+{
+ "id": "2byCD3x_vPY",
+ "title": "CORTIS PLAYLIST (코르티스 플레이리스트) 머니머니머니부터 나니까지",
+ "channel": "우울 대신 우웅!",
+ "channel_id": "UCTPNwMZaLIKTbI0OoCoF5aw",
+ "subs": 2260,
+ "views": 783467,
+ "ratio": 346.67,
+ "age_days": 52,
+ "views_per_day": 15066.7,
+ "minutes": 41.5,
+ "likes": 12905,
+ "comments": 187,
+ "published": "2026-08-25",
+ "queries": "검색:플레이리스트",
+ "url": "https://www.youtube.com/watch?v=2byCD3x_vPY",
+ "flag": "",
+ "published_at": "2026-08-25T02:01:56Z",
+ "rank": "W33",
+ "set": "web",
+ "folder": "W_2byCD3x_vPY",
+ "sources": [
+  "검색:플레이리스트"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "RedRed"
+  },
+  {
+   "start": 162,
+   "title": "Go!"
+  },
+  {
+   "start": 331,
+   "title": "FaSHioN"
+  },
+  {
+   "start": 505,
+   "title": "What You Want"
+  },
+  {
+   "start": 699,
+   "title": "Acai"
+  },
+  {
+   "start": 874,
+   "title": "TNT"
+  },
+  {
+   "start": 998,
+   "title": "JoyRide"
+  },
+  {
+   "start": 1153,
+   "title": "YoungCreatorCrew"
+  },
+  {
+   "start": 1331,
+   "title": "Wassup"
+  },
+  {
+   "start": 1517,
+   "title": "Blue Lips"
+  },
+  {
+   "start": 1658,
+   "title": "Lullaby"
+  },
+  {
+   "start": 1822,
+   "title": "Mention Me"
+  },
+  {
+   "start": 2006,
+   "title": "MONEYMONEYMONEY"
+  },
+  {
+   "start": 2145,
+   "title": "Pack it up"
+  },
+  {
+   "start": 2258,
+   "title": "MOTION (feat. Juicy J)"
+  },
+  {
+   "start": 2416,
+   "title": "NANI"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 187,
+ "comments_top_level": 126,
+ "comments_replies": 61,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 187,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:00:21",
+ "approved": "2026-10-16T22:00+09:00"
+}

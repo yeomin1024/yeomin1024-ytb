@@ -1,0 +1,59 @@
+{
+ "id": "V0mzAQ7z3D0",
+ "title": "하우스룰즈가 최고야",
+ "channel": "Yeon",
+ "channel_id": "UCmjE7u44aZIkqhm-87gQxQg",
+ "subs": 948,
+ "views": 293799,
+ "ratio": 309.91,
+ "age_days": 44,
+ "views_per_day": 6677.2,
+ "minutes": 18.1,
+ "likes": 6325,
+ "comments": 232,
+ "published": "2026-09-02",
+ "queries": "검색:플리",
+ "url": "https://www.youtube.com/watch?v=V0mzAQ7z3D0",
+ "flag": "",
+ "published_at": "2026-09-02T10:40:47Z",
+ "rank": "W41",
+ "set": "web",
+ "folder": "W_V0mzAQ7z3D0",
+ "sources": [
+  "검색:플리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "house"
+  },
+  {
+   "start": 243,
+   "title": "Do it"
+  },
+  {
+   "start": 481,
+   "title": "mojito (모히또)"
+  },
+  {
+   "start": 728,
+   "title": "Romance"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 232,
+ "comments_top_level": 109,
+ "comments_replies": 123,
+ "comments_by_creator": 39,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 232,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:00:40",
+ "approved": "2026-10-16T22:00+09:00"
+}

@@ -1,0 +1,81 @@
+{
+ "id": "20mvF_OP0FY",
+ "title": "[playlist] skrrrr….",
+ "channel": "le",
+ "channel_id": "UCTjVz2GAa0glQPEchJ8IxiA",
+ "subs": 12300,
+ "views": 1669704,
+ "ratio": 135.75,
+ "age_days": 168,
+ "views_per_day": 9938.7,
+ "minutes": 26.1,
+ "likes": 49172,
+ "comments": 276,
+ "published": "2026-05-01",
+ "queries": "검색:플레이리스트 | 검색:playlist | 검색:플리",
+ "url": "https://www.youtube.com/watch?v=20mvF_OP0FY",
+ "flag": "",
+ "published_at": "2026-05-01T06:34:15Z",
+ "rank": "W90",
+ "set": "web",
+ "folder": "W_20mvF_OP0FY",
+ "sources": [
+  "검색:플레이리스트",
+  "검색:playlist",
+  "검색:플리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Lil Uzi Vert - 20 Min"
+  },
+  {
+   "start": 221,
+   "title": "24kGoldn - Mood (feat. iann dior)"
+  },
+  {
+   "start": 360,
+   "title": "BlackMayo - Jus’ know"
+  },
+  {
+   "start": 480,
+   "title": "Jeremih - Oui"
+  },
+  {
+   "start": 717,
+   "title": "kent Jones - Don’t Mind"
+  },
+  {
+   "start": 914,
+   "title": "Pop Smoke - What You Know Bout Love"
+  },
+  {
+   "start": 1074,
+   "title": "blxst & tyga - chosen (feat. ty dolla $ign)"
+  },
+  {
+   "start": 1237,
+   "title": "Don Toliver - No Idea"
+  },
+  {
+   "start": 1401,
+   "title": "Russ - What They Want"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 276,
+ "comments_top_level": 211,
+ "comments_replies": 65,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 276,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:02:37",
+ "approved": "2026-10-16T22:02+09:00"
+}

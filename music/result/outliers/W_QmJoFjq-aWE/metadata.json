@@ -1,0 +1,107 @@
+{
+ "id": "QmJoFjq-aWE",
+ "title": "듣는 순간 마음이 편안해지는 첼로 음악 🎻 | 공부, 휴식, 감성 힐링 음악",
+ "channel": "따뜻한 휴식 Studio",
+ "channel_id": "UCSoAXrY0t3SIc5x2yB70BXA",
+ "subs": 1990,
+ "views": 48662,
+ "ratio": 24.45,
+ "age_days": 145,
+ "views_per_day": 335.6,
+ "minutes": 51.4,
+ "likes": 606,
+ "comments": 37,
+ "published": "2026-05-24",
+ "queries": "검색:휴식음악",
+ "url": "https://www.youtube.com/watch?v=QmJoFjq-aWE",
+ "flag": "",
+ "published_at": "2026-05-24T10:30:20Z",
+ "rank": "W286",
+ "set": "web",
+ "folder": "W_QmJoFjq-aWE",
+ "sources": [
+  "검색:휴식음악"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "The Song That Never Ends"
+  },
+  {
+   "start": 192,
+   "title": "Today Was a Happy Day"
+  },
+  {
+   "start": 365,
+   "title": "A Pleasant Journey"
+  },
+  {
+   "start": 558,
+   "title": "The World I Dream Of"
+  },
+  {
+   "start": 765,
+   "title": "Peaceful Mind"
+  },
+  {
+   "start": 932,
+   "title": "마음의 자유"
+  },
+  {
+   "start": 1120,
+   "title": "Memory"
+  },
+  {
+   "start": 1315,
+   "title": "좋았던 기억"
+  },
+  {
+   "start": 1510,
+   "title": "혼자만의 시간"
+  },
+  {
+   "start": 1706,
+   "title": "비 오는 날이면"
+  },
+  {
+   "start": 1905,
+   "title": "외로움"
+  },
+  {
+   "start": 2112,
+   "title": "어머니를 향한 그리움"
+  },
+  {
+   "start": 2330,
+   "title": "소중한 사람"
+  },
+  {
+   "start": 2535,
+   "title": "내 맘속의 연인"
+  },
+  {
+   "start": 2748,
+   "title": "다시, 사랑한다면"
+  },
+  {
+   "start": 2960,
+   "title": "The Song That Never Ends (Reprise)"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 37,
+ "comments_top_level": 18,
+ "comments_replies": 19,
+ "comments_by_creator": 18,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 37,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:10:44",
+ "approved": "2026-10-16T22:10+09:00"
+}

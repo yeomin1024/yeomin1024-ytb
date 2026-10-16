@@ -1,0 +1,126 @@
+{
+ "id": "2bUpv56PbMw",
+ "title": "💿 노릇노릇 빵아저씨가 만든 브금🍞",
+ "channel": "프륀 Pruiin",
+ "channel_id": "UCDGZ5kg-UNqmX3XudTrStHw",
+ "subs": 11400,
+ "views": 279047,
+ "ratio": 24.48,
+ "age_days": 127,
+ "views_per_day": 2197.2,
+ "minutes": 123.7,
+ "likes": 5544,
+ "comments": 90,
+ "published": "2026-06-11",
+ "queries": "검색:집중음악 | 검색:편안한음악",
+ "url": "https://www.youtube.com/watch?v=2bUpv56PbMw",
+ "flag": "",
+ "published_at": "2026-06-11T09:15:11Z",
+ "rank": "W284",
+ "set": "web",
+ "folder": "W_2bUpv56PbMw",
+ "sources": [
+  "검색:집중음악",
+  "검색:편안한음악"
+ ],
+ "source": "web",
+ "tags": [
+  "공부",
+  "공부음악",
+  "휴식",
+  "공부할때듣는음악",
+  "스터디음악",
+  "스터디윗미",
+  "집중력",
+  "lo-fi",
+  "lofi",
+  "lofi hiphop",
+  "lo-fi hiphop",
+  "집중음악",
+  "공부플레이리스트",
+  "팝송플레이리스트",
+  "집중플레이리스트",
+  "감성음악",
+  "애니브금",
+  "순정만화",
+  "bgm",
+  "브금",
+  "공부할때듣기좋은음악",
+  "집중할때듣는음악",
+  "작업할때듣는음악",
+  "playlist",
+  "study",
+  "코딩플리",
+  "중간고사",
+  "수능",
+  "공부플리",
+  "기말고사",
+  "플리",
+  "study lo-fi hip hop",
+  "study music",
+  "chill",
+  "chill music",
+  "chill playlist",
+  "순정만화bgm",
+  "공부할 때 듣기 좋은 애니 노래",
+  "공부할때 듣는 애니노래",
+  "애니 ost",
+  "애니메이션"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Track 1"
+  },
+  {
+   "start": 95,
+   "title": "Track 2"
+  },
+  {
+   "start": 208,
+   "title": "Track 3"
+  },
+  {
+   "start": 270,
+   "title": "Track 4"
+  },
+  {
+   "start": 302,
+   "title": "Track 5"
+  },
+  {
+   "start": 397,
+   "title": "Track 6"
+  },
+  {
+   "start": 489,
+   "title": "Track 7"
+  },
+  {
+   "start": 599,
+   "title": "Track 8"
+  },
+  {
+   "start": 686,
+   "title": "Track 9"
+  },
+  {
+   "start": 743,
+   "title": "Repeat"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 90,
+ "comments_top_level": 54,
+ "comments_replies": 36,
+ "comments_by_creator": 16,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 90,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:10:42",
+ "approved": "2026-10-16T22:10+09:00"
+}

@@ -1,0 +1,90 @@
+{
+ "id": "E2yyYQg2gnM",
+ "title": "샹송이 이렇게 까지 좋은줄 몰랐습니다. 아랑드롱이 고국의 샹송이 팝송보다 좋다던 추억의 그 음악 | 7080 올드팝",
+ "channel": "Midnight Melody Sound",
+ "channel_id": "UC6F9jt986nPp0C3we6C5UUg",
+ "subs": 28000,
+ "views": 292201,
+ "ratio": 10.44,
+ "age_days": 158,
+ "views_per_day": 1849.4,
+ "minutes": 89.7,
+ "likes": 2240,
+ "comments": 107,
+ "published": "2026-05-11",
+ "queries": "검색:수면음악 | 검색:잠잘때듣는음악 | 검색:편안한음악 | 검색:잔잔한음악",
+ "url": "https://www.youtube.com/watch?v=E2yyYQg2gnM",
+ "flag": "",
+ "published_at": "2026-05-11T10:00:32Z",
+ "rank": "W374",
+ "set": "web",
+ "folder": "W_E2yyYQg2gnM",
+ "sources": [
+  "검색:수면음악",
+  "검색:잠잘때듣는음악",
+  "검색:편안한음악",
+  "검색:잔잔한음악"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Parapluie Silence Lumineux"
+  },
+  {
+   "start": 229,
+   "title": "Pluie Crickets Ensemble"
+  },
+  {
+   "start": 498,
+   "title": "Pluie de Rosée Ⅰ"
+  },
+  {
+   "start": 781,
+   "title": "Pluie de Rosée Ⅱ"
+  },
+  {
+   "start": 1055,
+   "title": "Matin Dorian"
+  },
+  {
+   "start": 1301,
+   "title": "Pluie Retenue"
+  },
+  {
+   "start": 1516,
+   "title": "Lune au Robinet"
+  },
+  {
+   "start": 1731,
+   "title": "Aurore, Pluie Continue"
+  },
+  {
+   "start": 1998,
+   "title": "Pluie sur volet"
+  },
+  {
+   "start": 2240,
+   "title": "Vent d'aurore blanche"
+  },
+  {
+   "start": 2453,
+   "title": "Pluie Rooftop Nylon"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 107,
+ "comments_top_level": 46,
+ "comments_replies": 61,
+ "comments_by_creator": 7,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 107,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:13:50",
+ "approved": "2026-10-16T22:13+09:00"
+}

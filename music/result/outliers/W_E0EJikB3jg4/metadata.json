@@ -1,0 +1,67 @@
+{
+ "id": "E0EJikB3jg4",
+ "title": "그대 사랑하는사람 나였으면 ",
+ "channel": "ㅠㅁㅠ",
+ "channel_id": "UC0SP7rpG7-kybA2WdsGYH9w",
+ "subs": 191,
+ "views": 303352,
+ "ratio": 1588.23,
+ "age_days": 54,
+ "views_per_day": 5617.6,
+ "minutes": 27.9,
+ "likes": 2553,
+ "comments": 79,
+ "published": "2026-08-23",
+ "queries": "검색:발라드",
+ "url": "https://www.youtube.com/watch?v=E0EJikB3jg4",
+ "flag": "",
+ "published_at": "2026-08-23T09:11:36Z",
+ "rank": "W3",
+ "set": "web",
+ "folder": "W_E0EJikB3jg4",
+ "sources": [
+  "검색:발라드"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "~04:20 나였으면 - 나윤권"
+  },
+  {
+   "start": 261,
+   "title": "~08:52 사랑은 봄비처럼… 이별은 겨울비처럼 - 임현정"
+  },
+  {
+   "start": 533,
+   "title": "~13:31 사랑한 만큼 - 팀"
+  },
+  {
+   "start": 812,
+   "title": "~18:02 안되나요 - 휘성"
+  },
+  {
+   "start": 1083,
+   "title": "~22:04 면도- 브이원"
+  },
+  {
+   "start": 1325,
+   "title": "~27:56 행복하지 말아요 - 엠씨더맥스"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 79,
+ "comments_top_level": 47,
+ "comments_replies": 32,
+ "comments_by_creator": 7,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 79,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T12:59:06",
+ "approved": "2026-10-16T21:59+09:00"
+}

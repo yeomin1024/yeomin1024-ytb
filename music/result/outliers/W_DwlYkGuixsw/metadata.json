@@ -1,0 +1,129 @@
+{
+ "id": "DwlYkGuixsw",
+ "title": "𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 | 올해 내내 듣게 될 시원한 청량팝 모음🐶🩵 첫 곡부터 기분 좋아지는 여름 플리👙 카페음악 • 노동요",
+ "channel": "OOOffi",
+ "channel_id": "UCl9gRpU_fQAeuPAn7ma_DOQ",
+ "subs": 25600,
+ "views": 442511,
+ "ratio": 17.29,
+ "age_days": 140,
+ "views_per_day": 3160.8,
+ "minutes": 657.9,
+ "likes": 1286,
+ "comments": 59,
+ "published": "2026-05-28",
+ "queries": "검색:카페음악 | 검색:카페플리 | 검색:음악",
+ "url": "https://www.youtube.com/watch?v=DwlYkGuixsw",
+ "flag": "",
+ "published_at": "2026-05-28T22:00:36Z",
+ "rank": "W314",
+ "set": "web",
+ "folder": "W_DwlYkGuixsw",
+ "sources": [
+  "검색:카페음악",
+  "검색:카페플리",
+  "검색:음악"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Own the Day"
+  },
+  {
+   "start": 161,
+   "title": "Ocean, Still Calling"
+  },
+  {
+   "start": 330,
+   "title": "Cool Summer"
+  },
+  {
+   "start": 461,
+   "title": "Fresh Dive"
+  },
+  {
+   "start": 681,
+   "title": "Sparkling Wave"
+  },
+  {
+   "start": 838,
+   "title": "Cool Breeze"
+  },
+  {
+   "start": 993,
+   "title": "Yes to Me"
+  },
+  {
+   "start": 1185,
+   "title": "Ice Blue"
+  },
+  {
+   "start": 1370,
+   "title": "Cool Ocean Heart"
+  },
+  {
+   "start": 1515,
+   "title": "Blooming Errands"
+  },
+  {
+   "start": 1653,
+   "title": "When It Became Something More"
+  },
+  {
+   "start": 1870,
+   "title": "Breeze on Repeat"
+  },
+  {
+   "start": 2013,
+   "title": "A Name That Felt Like Warmth"
+  },
+  {
+   "start": 2138,
+   "title": "Ocean Spark"
+  },
+  {
+   "start": 2295,
+   "title": "Fresh Morning Air"
+  },
+  {
+   "start": 2430,
+   "title": "Fresh Coast"
+  },
+  {
+   "start": 2680,
+   "title": "Main Mood"
+  },
+  {
+   "start": 2788,
+   "title": "Ocean Breeze"
+  },
+  {
+   "start": 2926,
+   "title": "Summer Soda"
+  },
+  {
+   "start": 3128,
+   "title": "Cafe Glow"
+  },
+  {
+   "start": 3289,
+   "title": "replay"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 59,
+ "comments_top_level": 39,
+ "comments_replies": 20,
+ "comments_by_creator": 18,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 59,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:11:29",
+ "approved": "2026-10-16T22:11+09:00"
+}

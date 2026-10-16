@@ -1,0 +1,72 @@
+{
+ "id": "FOjiqNxjDDw",
+ "title": "𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 그냥 네 눈동자가 예뻤어",
+ "channel": "유월",
+ "channel_id": "UCQuNTyDlSPXyRJr3GVoMFEQ",
+ "subs": 3770,
+ "views": 461074,
+ "ratio": 122.3,
+ "age_days": 151,
+ "views_per_day": 3053.5,
+ "minutes": 21.9,
+ "likes": 6264,
+ "comments": 67,
+ "published": "2026-05-18",
+ "queries": "검색:플레이리스트 | 검색:플리",
+ "url": "https://www.youtube.com/watch?v=FOjiqNxjDDw",
+ "flag": "",
+ "published_at": "2026-05-18T12:00:21Z",
+ "rank": "W100",
+ "set": "web",
+ "folder": "W_FOjiqNxjDDw",
+ "sources": [
+  "검색:플레이리스트",
+  "검색:플리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "박재범(JAY PARK) - All I Wanna Do (K) (Feat. Hoody, Loco)"
+  },
+  {
+   "start": 217,
+   "title": "쿠기(Coogie) - Alone (Feat. 이하이)"
+  },
+  {
+   "start": 396,
+   "title": "그루비룸(GroovyRoom) - Yes or No (Feat. 허윤진 of LE SSERAFIM, Crush)"
+  },
+  {
+   "start": 574,
+   "title": "범키(BUMKEY) - 갖고놀래(Attraction) (Feat. 다이나믹 듀오)"
+  },
+  {
+   "start": 790,
+   "title": "쿠기(Coogie) - Two Pills"
+  },
+  {
+   "start": 969,
+   "title": "BOYCOLD - 바람바람~ (Feat. BIG Naughty, 키드밀리)"
+  },
+  {
+   "start": 1134,
+   "title": "쿠기(Coogie) - Right Now (Feat. Crush)"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 67,
+ "comments_top_level": 26,
+ "comments_replies": 41,
+ "comments_by_creator": 26,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 67,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:02:58",
+ "approved": "2026-10-16T22:02+09:00"
+}

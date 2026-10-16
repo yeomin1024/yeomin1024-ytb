@@ -1,0 +1,61 @@
+{
+ "id": "BS-GSU9dLqk",
+ "title": "“프린세스 티니핑송“ 피아노 커버(Princess Teenieping Song Piano Cover)",
+ "channel": "MUJINS 뮤진스",
+ "channel_id": "UCHFjJVQDPV50lzov6ISLhRA",
+ "subs": 19200,
+ "views": 249569,
+ "ratio": 13.0,
+ "age_days": 133,
+ "views_per_day": 1876.5,
+ "minutes": 6.9,
+ "likes": 1248,
+ "comments": 49,
+ "published": "2026-06-05",
+ "queries": "검색:피아노",
+ "url": "https://www.youtube.com/watch?v=BS-GSU9dLqk",
+ "flag": "",
+ "published_at": "2026-06-05T08:15:01Z",
+ "rank": "W354",
+ "set": "web",
+ "folder": "W_BS-GSU9dLqk",
+ "sources": [
+  "검색:피아노"
+ ],
+ "source": "web",
+ "tags": [
+  "티니핑",
+  "프린세스캐치티니핑",
+  "티니핑송",
+  "프린세스티니핑송",
+  "하츄핑"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "노래(AR)와 피아노 연주"
+  },
+  {
+   "start": 137,
+   "title": "피아노 연주만"
+  },
+  {
+   "start": 272,
+   "title": "피아노 연주만(쉬운버전)"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 49,
+ "comments_top_level": 42,
+ "comments_replies": 7,
+ "comments_by_creator": 2,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 49,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:13:26",
+ "approved": "2026-10-16T22:13+09:00"
+}

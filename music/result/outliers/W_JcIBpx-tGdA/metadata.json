@@ -1,0 +1,80 @@
+{
+ "id": "JcIBpx-tGdA",
+ "title": "어 난데 여기 핫플이야",
+ "channel": "햄",
+ "channel_id": "UC9HbdwlD4pHWiVlcwTuqWzQ",
+ "subs": 673,
+ "views": 713636,
+ "ratio": 1060.38,
+ "age_days": 160,
+ "views_per_day": 4460.2,
+ "minutes": 24.1,
+ "likes": 7240,
+ "comments": 84,
+ "published": "2026-05-09",
+ "queries": "검색:노동요 | 검색:플리",
+ "url": "https://www.youtube.com/watch?v=JcIBpx-tGdA",
+ "flag": "",
+ "published_at": "2026-05-09T12:30:23Z",
+ "rank": "W12",
+ "set": "web",
+ "folder": "W_JcIBpx-tGdA",
+ "sources": [
+  "검색:노동요",
+  "검색:플리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "CORTIS- REDRED"
+  },
+  {
+   "start": 162,
+   "title": "CORTIS- FaSHioN"
+  },
+  {
+   "start": 333,
+   "title": "82MAJOR- Need That Bass"
+  },
+  {
+   "start": 489,
+   "title": "P1Harmony- ICE(VVS)"
+  },
+  {
+   "start": 640,
+   "title": "82MAJOR- W.T.F"
+  },
+  {
+   "start": 742,
+   "title": "82MAJOR- 뭘 봐"
+  },
+  {
+   "start": 931,
+   "title": "MCND- ICE AGE"
+  },
+  {
+   "start": 1121,
+   "title": "Xdinary Heroes- Spoiler!!!"
+  },
+  {
+   "start": 1308,
+   "title": "ILLIT- It’s Me"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 84,
+ "comments_top_level": 77,
+ "comments_replies": 7,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 84,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T12:59:40",
+ "approved": "2026-10-16T21:59+09:00"
+}

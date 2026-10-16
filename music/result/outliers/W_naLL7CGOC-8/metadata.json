@@ -1,0 +1,100 @@
+{
+ "id": "naLL7CGOC-8",
+ "title": "첫 곡부터 너무 좋다 🍂 하루종일 듣게 되는 가을 올드팝 | Vol.228 | 7080 추억의 팝송 | Autumn Oldies | Coffee · Study · Focus",
+ "channel": "moka melody",
+ "channel_id": "UCiMEv8ZCfimYl1BCKDDgM_w",
+ "subs": 14600,
+ "views": 804147,
+ "ratio": 55.08,
+ "age_days": 57,
+ "views_per_day": 14107.8,
+ "minutes": 367.3,
+ "likes": 3982,
+ "comments": 301,
+ "published": "2026-08-19",
+ "queries": "검색:카페음악 | 검색:음악",
+ "url": "https://www.youtube.com/watch?v=naLL7CGOC-8",
+ "flag": "",
+ "published_at": "2026-08-19T22:40:41Z",
+ "rank": "W165",
+ "set": "web",
+ "folder": "W_naLL7CGOC-8",
+ "sources": [
+  "검색:카페음악",
+  "검색:음악"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Where the Blue Sea Remembers 푸른 바다가 기억하는 곳"
+  },
+  {
+   "start": 292,
+   "title": "The Best Part of My Day 하루 중 가장 행복한 순간"
+  },
+  {
+   "start": 524,
+   "title": "All the Years With You 너와 함께 걸어온 시간"
+  },
+  {
+   "start": 787,
+   "title": "Under the Golden Tree 황금빛 나무 아래 우리"
+  },
+  {
+   "start": 1035,
+   "title": "Somewhere Past the City Lights 도시의 불빛 너머 어딘가"
+  },
+  {
+   "start": 1313,
+   "title": "Walking Home With You 너와 함께 걷던 길"
+  },
+  {
+   "start": 1511,
+   "title": "Blue Sky Kind of Day 파란 하늘이 아름답던 날"
+  },
+  {
+   "start": 1778,
+   "title": "Somewhere Along the Years 지나온 세월 그 어딘가에"
+  },
+  {
+   "start": 2003,
+   "title": "You Became My Day 어느새 나의 하루가 된 너"
+  },
+  {
+   "start": 2276,
+   "title": "Worth Every Mile 함께한 모든 길이 좋았기에"
+  },
+  {
+   "start": 2524,
+   "title": "At the End of the Day 하루가 저물어 갈 무렵"
+  },
+  {
+   "start": 2777,
+   "title": "Nothing Special Today 오늘도 평범해서 좋은 날"
+  },
+  {
+   "start": 3070,
+   "title": "Warm Yesterday 따뜻했던 지난날"
+  },
+  {
+   "start": 3293,
+   "title": "Repeat"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 301,
+ "comments_top_level": 123,
+ "comments_replies": 178,
+ "comments_by_creator": 141,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 301,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:05:27",
+ "approved": "2026-10-16T22:05+09:00"
+}

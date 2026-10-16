@@ -1,0 +1,76 @@
+{
+ "id": "WBpWR-WKlz0",
+ "title": "[playlist] 날 오해하게 하잖아 확실하게 말을 해",
+ "channel": "le",
+ "channel_id": "UCTjVz2GAa0glQPEchJ8IxiA",
+ "subs": 12300,
+ "views": 528488,
+ "ratio": 42.97,
+ "age_days": 144,
+ "views_per_day": 3670.1,
+ "minutes": 26.7,
+ "likes": 6596,
+ "comments": 30,
+ "published": "2026-05-25",
+ "queries": "검색:플레이리스트 | 검색:플리",
+ "url": "https://www.youtube.com/watch?v=WBpWR-WKlz0",
+ "flag": "",
+ "published_at": "2026-05-25T09:39:40Z",
+ "rank": "W204",
+ "set": "web",
+ "folder": "W_WBpWR-WKlz0",
+ "sources": [
+  "검색:플레이리스트",
+  "검색:플리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "레인보우 - Tell Me Tell Me"
+  },
+  {
+   "start": 185,
+   "title": "레인보우 - Sunshine"
+  },
+  {
+   "start": 390,
+   "title": "걸스데이 - 반짝반짝"
+  },
+  {
+   "start": 574,
+   "title": "카라 - Pretty Girl"
+  },
+  {
+   "start": 781,
+   "title": "씨스타 - 가식걸"
+  },
+  {
+   "start": 975,
+   "title": "f(x) - Chu~♡"
+  },
+  {
+   "start": 1165,
+   "title": "AOA - 단발머리"
+  },
+  {
+   "start": 1379,
+   "title": "Apink - NoNoNo"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 30,
+ "comments_top_level": 29,
+ "comments_replies": 1,
+ "comments_by_creator": 2,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 30,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:07:08",
+ "approved": "2026-10-16T22:07+09:00"
+}

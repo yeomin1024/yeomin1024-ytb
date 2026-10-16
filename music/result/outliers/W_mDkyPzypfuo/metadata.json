@@ -1,0 +1,67 @@
+{
+ "id": "mDkyPzypfuo",
+ "title": "⠀",
+ "channel": "islistening ",
+ "channel_id": "UCWlS7lZz15C63lFL_0MeX0w",
+ "subs": 32400,
+ "views": 430331,
+ "ratio": 13.28,
+ "age_days": 118,
+ "views_per_day": 3646.9,
+ "minutes": 21.9,
+ "likes": 16843,
+ "comments": 125,
+ "published": "2026-06-20",
+ "queries": "검색:플리",
+ "url": "https://www.youtube.com/watch?v=mDkyPzypfuo",
+ "flag": "",
+ "published_at": "2026-06-20T06:21:56Z",
+ "rank": "W351",
+ "set": "web",
+ "folder": "W_mDkyPzypfuo",
+ "sources": [
+  "검색:플리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Nothin’ On You"
+  },
+  {
+   "start": 218,
+   "title": "Kiss Me Thru the Phone"
+  },
+  {
+   "start": 412,
+   "title": "Favorite Girl"
+  },
+  {
+   "start": 668,
+   "title": "One Love"
+  },
+  {
+   "start": 876,
+   "title": "Irreplaceable"
+  },
+  {
+   "start": 1105,
+   "title": "So Sick"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 125,
+ "comments_top_level": 103,
+ "comments_replies": 22,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 125,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:13:22",
+ "approved": "2026-10-16T22:13+09:00"
+}

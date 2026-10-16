@@ -1,0 +1,83 @@
+{
+ "id": "AM8WMi8_1cE",
+ "title": "𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 너도 지금 이 노래 듣고 있을까? 🤍 | Chill R&B ·  매장음악 · 카페 플레이리스트",
+ "channel": "mellomoodyy",
+ "channel_id": "UCKoAVasbK3umIXI-PkM-E9A",
+ "subs": 6240,
+ "views": 517981,
+ "ratio": 83.01,
+ "age_days": 87,
+ "views_per_day": 5953.8,
+ "minutes": 90.1,
+ "likes": 5026,
+ "comments": 185,
+ "published": "2026-07-21",
+ "queries": "검색:매장음악",
+ "url": "https://www.youtube.com/watch?v=AM8WMi8_1cE",
+ "flag": "",
+ "published_at": "2026-07-21T06:23:40Z",
+ "rank": "W125",
+ "set": "web",
+ "folder": "W_AM8WMi8_1cE",
+ "sources": [
+  "검색:매장음악"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Golden Hour Hearts"
+  },
+  {
+   "start": 176,
+   "title": "Summer We Never Planned"
+  },
+  {
+   "start": 355,
+   "title": "Lemon Soda Dreams"
+  },
+  {
+   "start": 516,
+   "title": "Windows Down Forever"
+  },
+  {
+   "start": 695,
+   "title": "Meet Me by the Ocean"
+  },
+  {
+   "start": 885,
+   "title": "You Look Better in Sunset"
+  },
+  {
+   "start": 1060,
+   "title": "Twenty-Something Nights"
+  },
+  {
+   "start": 1226,
+   "title": "Until the Last Firework"
+  },
+  {
+   "start": 1413,
+   "title": "Blue Skies Between Us"
+  },
+  {
+   "start": 1600,
+   "title": "See You Next Summer"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 185,
+ "comments_top_level": 84,
+ "comments_replies": 101,
+ "comments_by_creator": 80,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 185,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:03:42",
+ "approved": "2026-10-16T22:03+09:00"
+}

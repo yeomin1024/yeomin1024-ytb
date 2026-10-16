@@ -1,0 +1,72 @@
+{
+ "id": "xNrmomdWeqk",
+ "title": "[playlist] 다신 사랑하지 않을 다짐",
+ "channel": "le",
+ "channel_id": "UCTjVz2GAa0glQPEchJ8IxiA",
+ "subs": 12300,
+ "views": 1005478,
+ "ratio": 81.75,
+ "age_days": 167,
+ "views_per_day": 6020.8,
+ "minutes": 25.4,
+ "likes": 13405,
+ "comments": 654,
+ "published": "2026-05-01",
+ "queries": "검색:플레이리스트 | 검색:playlist | 검색:플리 | 검색:잔잔한음악 | 검색:노래 | 검색:감성음악",
+ "url": "https://www.youtube.com/watch?v=xNrmomdWeqk",
+ "flag": "",
+ "published_at": "2026-05-01T16:21:16Z",
+ "rank": "W127",
+ "set": "web",
+ "folder": "W_xNrmomdWeqk",
+ "sources": [
+  "검색:플레이리스트",
+  "검색:playlist",
+  "검색:플리",
+  "검색:잔잔한음악",
+  "검색:노래",
+  "검색:감성음악"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "DANIEL - 은방울"
+  },
+  {
+   "start": 292,
+   "title": "최윤영 - 우리가 영원을 말하면 여름이 될거야 (feat. 박진휘)"
+  },
+  {
+   "start": 557,
+   "title": "리도어 - 영원은 그렇듯"
+  },
+  {
+   "start": 794,
+   "title": "검정치마 - EVERYTHING"
+  },
+  {
+   "start": 1095,
+   "title": "겸 - 사랑 없이 사는 게 왜 그렇게 어려울까요"
+  },
+  {
+   "start": 1261,
+   "title": "알레프 - 다신 사랑하지 않을 다짐"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 655,
+ "comments_top_level": 588,
+ "comments_replies": 67,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 654,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:03:46",
+ "approved": "2026-10-16T22:03+09:00"
+}

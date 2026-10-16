@@ -1,0 +1,77 @@
+{
+ "id": "JYUilbw34Z0",
+ "title": "[추석 특집] 제나의 트로트 메들리",
+ "channel": "안녕하세요원이입니다잘부탁드립니다",
+ "channel_id": "UCWpY0eSJtyO-qNAPbKFRSSg",
+ "subs": 2340000,
+ "views": 18217798,
+ "ratio": 7.79,
+ "age_days": 28,
+ "views_per_day": 650635.6,
+ "minutes": 11.3,
+ "likes": 269437,
+ "comments": 74884,
+ "published": "2026-09-18",
+ "queries": "검색:트로트 | 검색:노래모음 | 검색:노래",
+ "url": "https://www.youtube.com/watch?v=JYUilbw34Z0",
+ "flag": "",
+ "published_at": "2026-09-18T10:00:13Z",
+ "rank": "W398",
+ "set": "web",
+ "folder": "W_JYUilbw34Z0",
+ "sources": [
+  "검색:트로트",
+  "검색:노래모음",
+  "검색:노래"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "타이틀"
+  },
+  {
+   "start": 5,
+   "title": "용두산 엘레지 (1975)"
+  },
+  {
+   "start": 82,
+   "title": "인사"
+  },
+  {
+   "start": 146,
+   "title": "빵빵 (2010)"
+  },
+  {
+   "start": 243,
+   "title": "내 나이가 어때서 (2014)"
+  },
+  {
+   "start": 335,
+   "title": "녹아 버려요 (2025)"
+  },
+  {
+   "start": 445,
+   "title": "어머나 (2004)"
+  },
+  {
+   "start": 554,
+   "title": "초혼 (2010)"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 17025,
+ "comments_top_level": 13970,
+ "comments_replies": 3055,
+ "comments_by_creator": 1,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 74884,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:14:23",
+ "approved": "2026-10-16T22:15+09:00"
+}

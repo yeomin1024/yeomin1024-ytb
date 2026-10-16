@@ -1,0 +1,69 @@
+{
+ "id": "Oomy8ijLJxQ",
+ "title": "[PLAYLIST] 할머니가 돼서도 들을 노래",
+ "channel": "당무",
+ "channel_id": "UCeUDecGX8n9zigAC-KCBnag",
+ "subs": 2590,
+ "views": 574363,
+ "ratio": 221.76,
+ "age_days": 158,
+ "views_per_day": 3635.2,
+ "minutes": 23.7,
+ "likes": 10750,
+ "comments": 131,
+ "published": "2026-05-10",
+ "queries": "검색:플레이리스트 | 검색:플리 | 검색:노래",
+ "url": "https://www.youtube.com/watch?v=Oomy8ijLJxQ",
+ "flag": "",
+ "published_at": "2026-05-10T14:06:12Z",
+ "rank": "W54",
+ "set": "web",
+ "folder": "W_Oomy8ijLJxQ",
+ "sources": [
+  "검색:플레이리스트",
+  "검색:플리",
+  "검색:노래"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "4:35 Perhaps Love"
+  },
+  {
+   "start": 276,
+   "title": "9:23 Wish Ur My Love"
+  },
+  {
+   "start": 566,
+   "title": "12:38 baby baby"
+  },
+  {
+   "start": 758,
+   "title": "15:45 아쉬운 마음인걸"
+  },
+  {
+   "start": 948,
+   "title": "19:08 To You Of Mine"
+  },
+  {
+   "start": 1151,
+   "title": "23:27 Habbit (Bye Bye)"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 131,
+ "comments_top_level": 93,
+ "comments_replies": 38,
+ "comments_by_creator": 9,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 131,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:01:24",
+ "approved": "2026-10-16T22:01+09:00"
+}

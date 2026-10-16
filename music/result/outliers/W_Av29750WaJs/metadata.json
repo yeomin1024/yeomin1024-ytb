@@ -1,0 +1,63 @@
+{
+ "id": "Av29750WaJs",
+ "title": "• playlist 순애",
+ "channel": "ros!e",
+ "channel_id": "UCDp72fmLMDgpgKmdnCmz4yA",
+ "subs": 446,
+ "views": 156801,
+ "ratio": 351.57,
+ "age_days": 47,
+ "views_per_day": 3336.2,
+ "minutes": 18.4,
+ "likes": 2569,
+ "comments": 56,
+ "published": "2026-08-30",
+ "queries": "검색:공부할때듣는음악",
+ "url": "https://www.youtube.com/watch?v=Av29750WaJs",
+ "flag": "",
+ "published_at": "2026-08-30T06:05:53Z",
+ "rank": "W32",
+ "set": "web",
+ "folder": "W_Av29750WaJs",
+ "sources": [
+  "검색:공부할때듣는음악"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "기석 - 리시안셔스"
+  },
+  {
+   "start": 213,
+   "title": "아이유 - 밤편지"
+  },
+  {
+   "start": 462,
+   "title": "태연 - 그대라는 시"
+  },
+  {
+   "start": 668,
+   "title": "문문 - 결혼"
+  },
+  {
+   "start": 867,
+   "title": "이하이 - ONLY"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 56,
+ "comments_top_level": 49,
+ "comments_replies": 7,
+ "comments_by_creator": 2,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 56,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:00:20",
+ "approved": "2026-10-16T22:00+09:00"
+}

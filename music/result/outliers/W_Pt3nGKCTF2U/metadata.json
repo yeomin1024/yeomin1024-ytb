@@ -1,0 +1,68 @@
+{
+ "id": "Pt3nGKCTF2U",
+ "title": "𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 비에 젖은 와인향",
+ "channel": "유월",
+ "channel_id": "UCQuNTyDlSPXyRJr3GVoMFEQ",
+ "subs": 3770,
+ "views": 474277,
+ "ratio": 125.8,
+ "age_days": 137,
+ "views_per_day": 3461.9,
+ "minutes": 21.1,
+ "likes": 12273,
+ "comments": 124,
+ "published": "2026-06-01",
+ "queries": "검색:플레이리스트 | 검색:플리",
+ "url": "https://www.youtube.com/watch?v=Pt3nGKCTF2U",
+ "flag": "",
+ "published_at": "2026-06-01T11:00:14Z",
+ "rank": "W96",
+ "set": "web",
+ "folder": "W_Pt3nGKCTF2U",
+ "sources": [
+  "검색:플레이리스트",
+  "검색:플리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "로꼬, 화사(HWASA) - 주지마"
+  },
+  {
+   "start": 234,
+   "title": "릴러말즈(Leellamarz), 미노이(Meenoi) - 안되는 거 알면서"
+  },
+  {
+   "start": 451,
+   "title": "정국(Jungkook) - Still With You"
+  },
+  {
+   "start": 691,
+   "title": "Seori - 긴 밤 (Feat. 기리보이)"
+  },
+  {
+   "start": 902,
+   "title": "OnlyOneOf(온리원오브) - dOra maar"
+  },
+  {
+   "start": 1102,
+   "title": "종현(JONGHYUN) - Moon"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 124,
+ "comments_top_level": 57,
+ "comments_replies": 67,
+ "comments_by_creator": 56,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 124,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:02:50",
+ "approved": "2026-10-16T22:02+09:00"
+}

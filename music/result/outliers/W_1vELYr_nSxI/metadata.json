@@ -1,0 +1,77 @@
+{
+ "id": "1vELYr_nSxI",
+ "title": "얼마나 들었는지 감도 안 옴",
+ "channel": "shhh...",
+ "channel_id": "UCAyP7vg8BMmC9nLp4tdvpHA",
+ "subs": 6860,
+ "views": 1080993,
+ "ratio": 157.58,
+ "age_days": 52,
+ "views_per_day": 20788.3,
+ "minutes": 24.8,
+ "likes": 28451,
+ "comments": 169,
+ "published": "2026-08-24",
+ "queries": "검색:플레이리스트 | 검색:playlist | 검색:플리",
+ "url": "https://www.youtube.com/watch?v=1vELYr_nSxI",
+ "flag": "",
+ "published_at": "2026-08-24T22:12:38Z",
+ "rank": "W77",
+ "set": "web",
+ "folder": "W_1vELYr_nSxI",
+ "sources": [
+  "검색:플레이리스트",
+  "검색:playlist",
+  "검색:플리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Sweetest Pie - Megan Thee Stallion, Dua Lipa"
+  },
+  {
+   "start": 199,
+   "title": "boyfriend - Ariana Grande, Social House"
+  },
+  {
+   "start": 382,
+   "title": "NVMD - Denise Julia"
+  },
+  {
+   "start": 560,
+   "title": "thank u, next - Ariana Grande"
+  },
+  {
+   "start": 766,
+   "title": "double take - Dhruv"
+  },
+  {
+   "start": 934,
+   "title": "You got it - Vedo"
+  },
+  {
+   "start": 1124,
+   "title": "Please Me - Cardi B, Bruno Mars"
+  },
+  {
+   "start": 1322,
+   "title": "Like That (feat. Gucci Mane) - Doja Cat"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 169,
+ "comments_top_level": 142,
+ "comments_replies": 27,
+ "comments_by_creator": 8,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 169,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:02:12",
+ "approved": "2026-10-16T22:02+09:00"
+}

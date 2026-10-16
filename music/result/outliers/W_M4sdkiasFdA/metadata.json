@@ -1,0 +1,99 @@
+{
+ "id": "M4sdkiasFdA",
+ "title": "[𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭] 불교는 날 판단하지 않아 | 불교 재즈 Playlist",
+ "channel": "nuehaus",
+ "channel_id": "UCSYe3TE8jVTD1-K4JxuKnfQ",
+ "subs": 6090,
+ "views": 386300,
+ "ratio": 63.43,
+ "age_days": 174,
+ "views_per_day": 2220.1,
+ "minutes": 395.4,
+ "likes": 19157,
+ "comments": 322,
+ "published": "2026-04-24",
+ "queries": "검색:명상음악",
+ "url": "https://www.youtube.com/watch?v=M4sdkiasFdA",
+ "flag": "",
+ "published_at": "2026-04-24T23:00:05Z",
+ "rank": "W146",
+ "set": "web",
+ "folder": "W_M4sdkiasFdA",
+ "sources": [
+  "검색:명상음악"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Bardo"
+  },
+  {
+   "start": 196,
+   "title": "Lotus"
+  },
+  {
+   "start": 429,
+   "title": "Void"
+  },
+  {
+   "start": 647,
+   "title": "Moksha"
+  },
+  {
+   "start": 872,
+   "title": "Metta"
+  },
+  {
+   "start": 1091,
+   "title": "Impermanence"
+  },
+  {
+   "start": 1289,
+   "title": "Sangha"
+  },
+  {
+   "start": 1547,
+   "title": "Koan"
+  },
+  {
+   "start": 1679,
+   "title": "Sesshin"
+  },
+  {
+   "start": 1959,
+   "title": "Cheong"
+  },
+  {
+   "start": 2127,
+   "title": "Musang"
+  },
+  {
+   "start": 2262,
+   "title": "Samadhi"
+  },
+  {
+   "start": 2417,
+   "title": "Sutra"
+  },
+  {
+   "start": 2732,
+   "title": "Refuge"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 322,
+ "comments_top_level": 189,
+ "comments_replies": 133,
+ "comments_by_creator": 81,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 322,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:04:35",
+ "approved": "2026-10-16T22:04+09:00"
+}

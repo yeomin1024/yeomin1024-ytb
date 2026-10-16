@@ -1,0 +1,83 @@
+{
+ "id": "dQUrclzxhX4",
+ "title": "너를 놓지 않을 이유가 생겼어｜[Playlist] 끝내 끊어내지 못한 두 사람의 이야기｜감성 발라드 플레이리스트🎧",
+ "channel": "Chita",
+ "channel_id": "UCottkLjwrowLkmqSbaw0xmQ",
+ "subs": 2980,
+ "views": 161242,
+ "ratio": 54.11,
+ "age_days": 179,
+ "views_per_day": 900.8,
+ "minutes": 126.2,
+ "likes": 2512,
+ "comments": 76,
+ "published": "2026-04-20",
+ "queries": "검색:감성발라드",
+ "url": "https://www.youtube.com/watch?v=dQUrclzxhX4",
+ "flag": "",
+ "published_at": "2026-04-20T09:00:51Z",
+ "rank": "W167",
+ "set": "web",
+ "folder": "W_dQUrclzxhX4",
+ "sources": [
+  "검색:감성발라드"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "밤의 공기 (Night Air)"
+  },
+  {
+   "start": 264,
+   "title": "흉터 위에 핀 꽃 (Bloom on Scars)"
+  },
+  {
+   "start": 522,
+   "title": "너의 뒷모습 (Your Back)"
+  },
+  {
+   "start": 777,
+   "title": "내 세상은 온통 너라서 (All My World Is You)"
+  },
+  {
+   "start": 1029,
+   "title": "닿을 수 없는 (Out of Reach)"
+  },
+  {
+   "start": 1232,
+   "title": "창가에 머무는 시선 (By the Window)"
+  },
+  {
+   "start": 1491,
+   "title": "조금은 느린 고백 (A Quiet Confession)"
+  },
+  {
+   "start": 1736,
+   "title": "오래된 커튼을 걷고 (Pulling Back the Curtains)"
+  },
+  {
+   "start": 1996,
+   "title": "나의 꿈속엔 네가 살아 (You in My Dreams)"
+  },
+  {
+   "start": 2260,
+   "title": "밤의 끝에서 (End of the Night)"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 76,
+ "comments_top_level": 34,
+ "comments_replies": 42,
+ "comments_by_creator": 36,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 76,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:05:31",
+ "approved": "2026-10-16T22:05+09:00"
+}

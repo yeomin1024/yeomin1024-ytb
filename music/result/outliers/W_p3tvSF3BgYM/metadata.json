@@ -1,0 +1,109 @@
+{
+ "id": "p3tvSF3BgYM",
+ "title": "[ 𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 ] 적당히 신나는 그루브 힙합 플레이리스트 | Chill R&B • Cafe Music",
+ "channel": "SSoundW",
+ "channel_id": "UCcj5XZ5jX1hOD3xzD_MrMZQ",
+ "subs": 4020,
+ "views": 1914311,
+ "ratio": 476.2,
+ "age_days": 56,
+ "views_per_day": 34184.1,
+ "minutes": 89.9,
+ "likes": 7971,
+ "comments": 253,
+ "published": "2026-08-21",
+ "queries": "검색:cafe music",
+ "url": "https://www.youtube.com/watch?v=p3tvSF3BgYM",
+ "flag": "",
+ "published_at": "2026-08-21T12:46:12Z",
+ "rank": "W20",
+ "set": "web",
+ "folder": "W_p3tvSF3BgYM",
+ "sources": [
+  "검색:cafe music"
+ ],
+ "source": "web",
+ "tags": [
+  "힙합",
+  "외힙",
+  "그루브힙합",
+  "R&B",
+  "music",
+  "플리",
+  "플레이리스트",
+  "음악",
+  "playlist"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Keep This Pace"
+  },
+  {
+   "start": 151,
+   "title": "Nothing Urgent Here"
+  },
+  {
+   "start": 326,
+   "title": "Good Mood Bad Timing"
+  },
+  {
+   "start": 491,
+   "title": "Somewhere Past Busy"
+  },
+  {
+   "start": 693,
+   "title": "Out of Office Emotionally"
+  },
+  {
+   "start": 868,
+   "title": "Better in Motion"
+  },
+  {
+   "start": 1104,
+   "title": "Leave Room for Friday"
+  },
+  {
+   "start": 1305,
+   "title": "My Plans Lost Interest"
+  },
+  {
+   "start": 1529,
+   "title": "The Long Way Suits Me"
+  },
+  {
+   "start": 1731,
+   "title": "No Reason to Go Home Yet"
+  },
+  {
+   "start": 1953,
+   "title": "Almost Too Easy"
+  },
+  {
+   "start": 2142,
+   "title": "Nothing Chasing Us"
+  },
+  {
+   "start": 2322,
+   "title": "Let the City Keep Running"
+  },
+  {
+   "start": 2513,
+   "title": "The Air Changed First"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 253,
+ "comments_top_level": 122,
+ "comments_replies": 131,
+ "comments_by_creator": 117,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 253,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T12:59:58",
+ "approved": "2026-10-16T22:00+09:00"
+}

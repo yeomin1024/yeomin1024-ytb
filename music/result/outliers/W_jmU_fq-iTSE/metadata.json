@@ -1,0 +1,91 @@
+{
+ "id": "jmU_fq-iTSE",
+ "title": "𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 🍁 설레는 바람이 부는 가을이 왔나봐 | 틀어두기 좋은 감성 팝송 모음",
+ "channel": "Melly Moood",
+ "channel_id": "UCrrekfbdJ9uGS9ny876M7eg",
+ "subs": 6230,
+ "views": 2144992,
+ "ratio": 344.3,
+ "age_days": 32,
+ "views_per_day": 67031.0,
+ "minutes": 188.2,
+ "likes": 11388,
+ "comments": 283,
+ "published": "2026-09-13",
+ "queries": "검색:카페플리 | 검색:플레이리스트 | 검색:플리",
+ "url": "https://www.youtube.com/watch?v=jmU_fq-iTSE",
+ "flag": "",
+ "published_at": "2026-09-13T22:00:08Z",
+ "rank": "W34",
+ "set": "web",
+ "folder": "W_jmU_fq-iTSE",
+ "sources": [
+  "검색:카페플리",
+  "검색:플레이리스트",
+  "검색:플리"
+ ],
+ "source": "web",
+ "tags": [
+  "가을 플리",
+  "가을 플레이리스트",
+  "하이틴 플리",
+  "하이틴 플레이리스트",
+  "노동요",
+  "카페 플리",
+  "카페 플레이리스트",
+  "작업 음악",
+  "카페 음악"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Slowly, I’m dyed in you"
+  },
+  {
+   "start": 191,
+   "title": "Drifting through autumn"
+  },
+  {
+   "start": 417,
+   "title": "Third, Row, Window seat"
+  },
+  {
+   "start": 645,
+   "title": "The seat next to me, you"
+  },
+  {
+   "start": 824,
+   "title": "One step, Courage"
+  },
+  {
+   "start": 1064,
+   "title": "At the end of this unfamiliar"
+  },
+  {
+   "start": 1250,
+   "title": "A cautious wave"
+  },
+  {
+   "start": 1464,
+   "title": "The melody you sang"
+  },
+  {
+   "start": 1665,
+   "title": "Now, us"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-16 18:59까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 283,
+ "comments_top_level": 218,
+ "comments_replies": 65,
+ "comments_by_creator": 33,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 283,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-16T13:00:24",
+ "approved": "2026-10-16T22:00+09:00"
+}

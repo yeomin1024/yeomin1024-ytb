@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
-# VERSION: v1.2 — 2026-10-16 — 긴 일별 자료 (사용자 지시 2026-10-16 "흔히 사용하는 매수 전략을 10가지 정도 골라서 그냥 매수하고 관망하는거랑
+# VERSION: v1.3 — 2026-10-16 — VIX 일별 종가 (공포지수 매수 규칙 — 사용자 지시 2026-10-16 "지금은 매수만 보는 거니까 매수에 관련된 것만 테스트해야지"):
+#          GitHub datasets/finance-vix 커밋 3dbea23(2026-09-23) 고정 + 파일 sha256 고정 → vix_daily(). 다르면 멈춤 (조용히 다른 자료로 계산하지 않음).
+# (v1.2 — 2026-10-16 — 긴 일별 자료 (사용자 지시 2026-10-16 "흔히 사용하는 매수 전략을 10가지 정도 골라서 그냥 매수하고 관망하는거랑
 #          비교 … 이걸 위한 티커, 테스트 기간을 적당하게 잡아보고"): 클라우드는 GitHub·pypi 만 열려 있어 pypi 휠에 든 자료를 버전·sha256 고정으로 받음 —
 #          skfolio 1.9.0 S&P500 일별 종가 1990-01-02~2022-12-28, arch 8.0.0 S&P500·나스닥 종합 일별 1999~2018·Fama-French 월별 T-bill(RF) 1926~2018-11.
 #          sp500_daily_long(): skfolio(FRED 첫날 전까지) + FRED(2016-02-12~, 공식 종가) 이어 붙임, 겹치는 기간 값이 같은지 검사(skfolio vs FRED 2016~2022 —
-#          2일만 다름 → FRED 값, skfolio vs arch 1999~2018 — 같음).
+#          2일만 다름 → FRED 값, skfolio vs arch 1999~2018 — 같음).)
 # (v1.1 — 2026-10-15 — 자료 저장소 커밋 고정(재현) · 받은 CSV 는 저장소에 올리지 않음(S&P 지수 값 재배포 피함, meta 만) ·
 #          FRED 일별 종가(sp500_daily — 월평균이 짧은 폭락을 작게 보이는지 확인용))
 # (v1.0 — 2026-10-15 — 최초 (사용자 지시 2026-10-15 "주식 채널 컨셉은 ai로 코드 만들어서 가설을 백테스트해서 검증해보는거니까").
@@ -25,6 +27,9 @@ v1.2 긴 일별 자료 (pypi 휠 안의 자료 — 휠 sha256·파일 sha256 고
     close, meta = data.sp500_daily_long()   # S&P500 일별 종가 1990-01-02~2026-02-11 (가격만)
     close, meta = data.nasdaq_daily()       # 나스닥 종합 일별 종가 1999-01-04~2018-12-31 (가격만)
     rf, meta = data.ff_rf_monthly()         # 1개월 T-bill 월 수익률 % (Fama-French RF) 1926-07~2018-11
+
+v1.3:
+    vix, meta = data.vix_daily()            # CBOE VIX 일별 종가 1990-01-02~2026-09-22 (datasets/finance-vix 커밋·sha256 고정)
 """
 import gzip
 import hashlib
@@ -63,6 +68,16 @@ SOURCES = {
         "license": "FRED SP500 (S&P Dow Jones Indices LLC 저작권) — 저장소에 다시 올리지 않음, 확인용으로만",
         "about": "FRED SP500 일별 종가 (최근 약 10년, 가격만 — 배당 없음). 월평균이 짧은 폭락을 작게 보이는지 확인용",
     },
+}
+
+# v1.3 VIX — datasets/finance-vix (ODC-PDDL-1.0, 원자료 CBOE). 커밋과 파일 sha256 을 고정한다.
+VIX_COMMIT = "3dbea23c70cc2afbeeec8ac232c9ec72ac26ac21"       # datasets/finance-vix 2026-09-23 "Update data"
+VIX_SOURCE = {
+    "url": f"https://raw.githubusercontent.com/datasets/finance-vix/{VIX_COMMIT}/data/vix-daily.csv",
+    "file": "vix_daily.csv",
+    "sha256": "570e05630c9a5e7350d0c3dbe3acc58e793cb5248181ab0e949c121cc082fb83",
+    "license": "datasets/finance-vix 는 ODC-PDDL-1.0 표기. 원자료: Cboe Global Markets (VIX®) — 저장소에 다시 올리지 않음",
+    "about": "CBOE VIX 일별 시가·고가·저가·종가 1990-01-02~2026-09-22 (공포지수 — S&P 500 옵션의 30일 기대 변동성)",
 }
 
 
@@ -254,13 +269,14 @@ def pypi_member(key, refresh=False, data_dir=None, fetch=_fetch):
     return gzip.decompress(raw), meta, meta_path
 
 
-def _validate_daily(s, name):
-    """일별 종가 검사 → dict. 중복·0 이하·5일 넘는 빈 날(9·11 휴장 등 알려진 것도 그대로 알림)·하루 ±12% 넘는 변화."""
+def _validate_daily(s, name, big_move=0.12):
+    """일별 종가 검사 → dict. 중복·0 이하·5일 넘는 빈 날(9·11 휴장 등 알려진 것도 그대로 알림)·하루 ±big_move 넘는 변화
+    (기본 12% — 지수. VIX 는 하루 ±12% 가 흔해 100% 로 부른다, v1.3)."""
     dup = int(s.index.duplicated().sum())
     gaps = pd.Series(s.index).diff().dt.days
     gap_list = [str(s.index[i].date()) for i in np.where(gaps.to_numpy() > 5)[0]]
     r = s.pct_change()
-    big = [f"{i.date()}:{v:+.1%}" for i, v in r[r.abs() > 0.12].items()]
+    big = [f"{i.date()}:{v:+.1%}" for i, v in r[r.abs() > big_move].items()]
     rep = {"rows": int(len(s)), "first": str(s.index.min().date()), "last": str(s.index.max().date()), "duplicates": dup,
            "nonpositive": int((s <= 0).sum()), "missing": int(s.isna().sum()), "gaps_over_5_days": gap_list, "moves_over_12pct": big}
     for k in ("duplicates", "nonpositive", "missing"):
@@ -350,3 +366,33 @@ def ff_rf_monthly(refresh=False, data_dir=None, fetch=_fetch):
     meta.update({"rows": rep["rows"], "first": rep["first"], "last": rep["last"], "validate": rep})
     meta_path.write_text(json.dumps(meta, ensure_ascii=False, indent=2), "utf-8")
     return rf, meta
+
+
+# ----------------------------------------------------------------------------- v1.3 VIX
+def vix_daily(refresh=False, data_dir=None, fetch=_fetch):
+    """CBOE VIX 일별 종가 → (Series, meta). 캐시가 있으면 그대로 (sha256 이 맞을 때만). sha256 이 고정값과 다르면 멈춘다."""
+    src = VIX_SOURCE
+    d = Path(data_dir) if data_dir else DATA_DIR
+    path, meta_path = d / src["file"], d / (src["file"] + ".meta.json")
+    raw = path.read_bytes() if path.is_file() and not refresh else None
+    if raw is not None and hashlib.sha256(raw).hexdigest() != src["sha256"]:
+        log("DATA", logging.WARNING, key="vix_daily", cache="sha256 다름 → 다시 받음", path=path)
+        raw = None
+    if raw is None:
+        raw = fetch(src["url"])
+        got = hashlib.sha256(raw).hexdigest()
+        if got != src["sha256"]:
+            raise RuntimeError(f"[DATA] vix_daily: sha256 다름 ({got[:12]}… ≠ {src['sha256'][:12]}…) → VIX_COMMIT·VIX_SOURCE 확인")
+        d.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(raw)
+        meta = {"fetched_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")}
+        log("DATA", source="download", key="vix_daily", url=src["url"], bytes=len(raw))
+    else:
+        meta = json.loads(meta_path.read_text("utf-8")) if meta_path.is_file() else {}
+        log("DATA", source="cache", key="vix_daily", path=path, bytes=len(raw), fetched_at=meta.get("fetched_at", "?"))
+    s = _daily_close(raw, "DATE", "CLOSE")
+    rep = _validate_daily(s, "vix_daily", big_move=1.0)
+    meta.update({"url": src["url"], "commit": VIX_COMMIT, "sha256": src["sha256"], "license": src["license"], "about": src["about"],
+                 "rows": rep["rows"], "first": rep["first"], "last": rep["last"], "validate": rep})
+    meta_path.write_text(json.dumps(meta, ensure_ascii=False, indent=2), "utf-8")
+    return s, meta

@@ -1,27 +1,23 @@
-#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.2 — 2026-10-16 — facts 절 (대본 문장마다 숫자 근거): 현금으로 기다린 가장 긴 기간(전략별 3개), 2020년 코로나 구간 사고판 날,
-#          분할 매수 1991년 지수 변화·평균 산 값, 하락 분할 매수가 남은 돈을 넣기까지 지수 변화, 10년 기간 가장 좋을 때·나쁠 때 시작일,
-#          10년 기간을 '관망이 그 기간 안에 40%(확인 35%) 넘게 떨어졌나'로 나눈 이긴 수 (시작 시기 나누기보다 까닭이 바로 보임).
-# (v1.1 — 2026-10-16 — analysis 절 더함 (대본 숫자 근거): 큰 하락 구간(관망 낙폭 19% 넘게)마다 전략별 낙폭·회복, 관망 대비 앞선 날·
-#          가장 앞선 때·마지막으로 앞선 날, 10년 기간을 시작 시기(1991–1999 · 2000–2008 · 2009–2013)로 나눈 이긴 수, 관망과 같은 기간 수(ties).
-# (v1.0 — 2026-10-16 — 최초.) 사용자 지시 2026-10-16 "흔히 사용하는 매수 전략을 10가지 정도 골라서 그냥 매수하고 관망하는거랑
-#          비교(투자 금액은 변동없이 동일하게)하면 이게 시청자들이 원하는 언제 사야할까를 만족하는거 아니야? … 이걸 위한 티커, 테스트 기간을
-#          적당하게 잡아보고 보완할게 있으면 보완해 … 마지막은 종합 통계내서 결론".
-"""주식 1번 (v2) — 매수 전략 10가지 vs 매수 후 관망 백테스트 (연구·교육용 — 투자 권유가 아니다. 과거 결과는 미래를 보장하지 않는다).
+# VERSION: v2.0 — 2026-10-16 — 다시 만듦 (사용자 지시 2026-10-16 "기간이 너무 긴거 아니야? 그리고 왜 현재는 포함 안했어 2016년부터 현재까지로
+#          설정하고 지금은 매수만 보는 거니까 매수에 관련된 것만 테스트해야지 왜 손절이 있어 매도 규칙은 똑같이 해 그리고 buy and hold랑
+#          비교하지말고 주가 차트에서 매수/매도 지점을 표시하는 걸로 하자"): 매수 신호 10가지 × 같은 매도 규칙(산 날부터 252 거래일 뒤 매도),
+#          S&P 500 일별 2016-01-04 ~ 자료 끝(2026-02-11), 같은 $10,000. 엔진 tools/backtest/entry.py v1.0. 관망과 견주지 않는다.
+#          (v1.x — 매수 규칙 10가지 vs 관망 32년 — stock/source/_old/eonje-maesu-2026-10-v1/backtest/)
+"""매수 신호 10가지 — 같은 돈 · 같은 매도 규칙 (연구·교육용 — 투자 권유가 아니다. 과거 결과는 미래를 보장하지 않는다).
 
-  cd stock/source/eonje-maesu-2026-10/backtest && python3 run.py          # → results.json · results.md · trades.csv · rolling_10y.csv · run.log
+실행:  python3 stock/source/eonje-maesu-2026-10/backtest/run.py
+결과:  results.json · results.md · trades.csv · run.log · anim.js (장면 파일 자료 — 숫자는 이 파일에서만)
 
-정한 것 (결과를 보기 전에 정함 — 바꾸면 바꾼 것을 README 에 적는다):
-  자산(티커)   S&P 500 지수 총수익 (배당 재투자) — SPY·VOO·IVV 가 따라가는 지수. 종목·상품 추천이 아님
-  기간         1991-01-02 ~ 2023-06-30 (32.5년: 걸프전 뒤 · 닷컴 · 금융위기 · 코로나 · 2022 하락 포함).
-               시작이 1991 인 까닭: 일별 자료 첫날 1990-01-02 + 200일선을 만들 1년. 끝이 2023-06 인 까닭: 배당 자료(Shiller)가 있는 마지막 달
-  돈           $10,000 를 시작일에 한 번 — 전략과 관망 모두 같은 돈, 더 넣거나 빼지 않음
-  사고팔기     신호는 그날 종가까지만 보고 다음 거래일 종가에 (미래 정보 금지), 매매 비용 0.1% (사고팔 때마다), 현금 이자 0
-  여러 시작    10년 기간을 1991-01 부터 매달 시작 (271번) — 전략마다 관망보다 끝 값이 큰 기간 수
-  확인         비용 0 · 현금에 T-bill 이자(1991-01~2018-11, Fama-French RF) · 현금에 10년 국채 금리(위쪽 한계) · 가격만 2026-02 까지 ·
-               나스닥 종합(가격만) 2000-01~2018-12 · 20년 기간
-빠진 것: 세금(매도할 때마다 내는 양도세 — 자주 사고파는 전략에 더 불리), 환율, ETF 보수(약 0.03~0.1%/년, 모두 같음), 호가 차이.
+본 실험
+  자산     S&P 500 지수 일별 종가 (가격만 — 배당 빠짐, 모든 규칙 같은 조건). VIX 일별 종가 (공포지수 규칙만)
+  기간     2016-01-04 (첫 거래일) ~ 2026-02-11 (클라우드에서 받을 수 있는 S&P 500 일별 자료의 끝)
+  돈       $10,000 한 번, 더 넣지 않음. 살 때 전부, 팔 때 전부
+  매수     규칙마다 다름 (entry.RULES) — 신호는 그날 종가까지, 사는 것은 다음 거래일 종가
+  매도     모든 규칙 같음 — 산 날부터 252 거래일(약 1년) 뒤 그날 종가
+  비용     사고팔 때 0.1% · 현금 이자 0
+확인 (결론을 바꾸는지 보기)
+  보유 기간 21·63·126 거래일 · 비용 0 · 참고값 '아무 날 매수 → 252 거래일 뒤 매도' 분포 (관망 아님 — 매수 날짜의 값어치를 보는 잣대)
 """
 import json
 import logging
@@ -35,322 +31,165 @@ import pandas as pd
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[3]
 sys.path.insert(0, str(ROOT / "tools"))
-from backtest import daily as dl  # noqa: E402
-from backtest import data as bd  # noqa: E402
+from backtest import data as bd          # noqa: E402
+from backtest import entry as en         # noqa: E402
 
-VERSION = "v1.2"
-CAPITAL, COST = 10_000.0, 0.001
-MAIN = ("1991-01-02", "2023-06-30")
-ROLL_FIRST, ROLL_LAST = "1991-01-01", "2013-07-31"
-NAMES = {"hold": "매수 후 관망", "dca12": "12개월 분할 매수", "dip10": "고점 대비 −10% 저점 매수", "ladder": "하락 분할 매수(물타기) ¼씩 −10·−20·−30%",
-         "stop10": "손절 −10% · 반등 +10% 재매수", "tp10": "익절 +10% · −10% 재매수", "sma200": "200일 이동평균선", "gc50_200": "골든·데드 크로스 50/200",
-         "brk55_20": "신고가 돌파 55일 · 20일 저점 매도", "rsi30_70": "RSI 30 매수 · 70 매도", "mom12": "12개월 모멘텀"}
+VERSION = "v2.0"
+START, END = "2016-01-01", "2026-02-11"
+CAPITAL, COST, HOLD = 10_000.0, 0.001, en.HOLD_DAYS
+CHECK_HOLDS = [21, 63, 126]
 
 
 def setup_log():
     fmt = logging.Formatter("%(message)s")
     root = logging.getLogger()
     root.setLevel(logging.INFO)
-    for h in (logging.StreamHandler(sys.stdout), logging.FileHandler(HERE / "run.log", "w", "utf-8")):
+    for h in list(root.handlers):
+        root.removeHandler(h)
+    fh = logging.FileHandler(HERE / "run.log", "w", "utf-8")
+    sh = logging.StreamHandler(sys.stdout)
+    for h in (fh, sh):
         h.setFormatter(fmt)
         root.addHandler(h)
+    return logging.getLogger("run")
 
 
 def log(stage, **kv):
-    dl.log(stage, **kv)
+    logging.getLogger("run").info("[%s] %s %s", stage, time.strftime("%Y-%m-%dT%H:%M:%S"), " ".join(f"{k}={v}" for k, v in kv.items()))
 
 
 def load():
     close, meta_c = bd.sp500_daily_long()
-    mon, meta_m = bd.sp500_monthly()
-    rf, meta_rf = bd.ff_rf_monthly()
-    nq, meta_n = bd.nasdaq_daily()
-    div_until = pd.Timestamp(meta_m["dividend_until"]) + pd.offsets.MonthEnd(0)
-    c_tr = close.loc[: div_until]
-    tr = dl.tr_index_daily(c_tr, mon["dividend"].dropna())
-    log("DATA", sp500_daily=f"{close.index[0].date()}~{close.index[-1].date()}", rows=len(close), tr_until=str(c_tr.index[-1].date()),
-        nasdaq=f"{nq.index[0].date()}~{nq.index[-1].date()}", rf=f"{rf.index[0].date()}~{rf.index[-1].date()}")
-    return close, c_tr, tr, mon, rf, nq, {"sp500_daily": meta_c, "sp500_monthly": meta_m, "ff_rf": meta_rf, "nasdaq_daily": meta_n}
+    vix, meta_v = bd.vix_daily()
+    if close.index.max() < pd.Timestamp(END):
+        raise SystemExit(f"[DATA] S&P 500 자료가 {END} 전에 끝남 ({close.index.max().date()}) → END 를 자료 끝으로")
+    log("DATA", sp500=f"{close.index[0].date()}~{close.index[-1].date()} rows={len(close)}",
+        vix=f"{vix.index[0].date()}~{vix.index[-1].date()} rows={len(vix)}", use=f"{START}~{END}",
+        note="S&P 500 일별 자료는 2026-02-11 까지 (FRED 사본 — 클라우드에서 Yahoo·FRED 직접 받기는 막힘)")
+    return close, vix, {"sp500_daily": meta_c, "vix_daily": meta_v}
 
 
-def check_tr_against_monthly(tr, mon):
-    """일별 총수익 지수의 연율을 월별(Shiller 월평균 가격) 총수익 지수와 맞춰 본다 — 같은 배당 자료, 가격만 일별 vs 월평균."""
-    from backtest import monthly as bm
-    m = mon.loc["1991-01-01":"2023-06-01"].dropna(subset=["dividend"])
-    tri = bm.total_return_index(m["price"].to_numpy(), m["dividend"].to_numpy())
-    yrs_m = (len(tri) - 1) / 12
-    cagr_m = tri[-1] ** (1 / yrs_m) - 1
-    t = tr.loc["1991-01-02":"2023-06-30"]
-    yrs_d = (t.index[-1] - t.index[0]).days / 365.25
-    cagr_d = (t.iloc[-1] / t.iloc[0]) ** (1 / yrs_d) - 1
-    log("VALIDATE", check="일별 총수익 vs 월별 총수익 (1991~2023-06)", daily_cagr=f"{cagr_d:.3%}", monthly_cagr=f"{cagr_m:.3%}",
-        diff_pp=f"{(cagr_d - cagr_m) * 100:+.3f}")
-    if abs(cagr_d - cagr_m) > 0.003:
-        raise RuntimeError("[VALIDATE] 일별·월별 총수익 연율 차이가 0.3%p 를 넘음 → 배당 나누기 확인")
-    return {"daily_cagr": cagr_d, "monthly_cagr": cagr_m}
-
-
-def pack(res, close_idx):
-    """run_all 결과 → JSON 용 dict (stats + 거래 기록)."""
-    out = {}
-    for k, (run, st) in res.items():
-        trades = [{"buy": str(close_idx[t["buy_i"]].date()), "sell": str(close_idx[t["sell_i"]].date()), "ret": round(t["ret"], 6),
-                   "days": t["days"], "open": t["open"]} for t in run.trades]
-        fills = [{"date": str(close_idx[f["i"]].date()), "side": f["side"], "frac": round(f["frac"], 6), "amount": round(f["amount"], 2)}
-                 for f in run.fills]
-        out[k] = {"name": NAMES[k], "stats": st, "fills": fills, "trades": trades}
-    return out
-
-
-def summary_vs_hold(res):
-    h = res["hold"][1]
-    rows = []
-    for k in dl.ORDER:
-        st = res[k][1]
-        rows.append({"key": k, "final": st["final"], "vs_hold_pct": st["final"] / h["final"] - 1, "cagr": st["cagr"], "mdd": st["mdd"],
-                     "beat_hold": st["final"] > h["final"], "mdd_better": st["mdd"] > h["mdd"]})
-    return {"hold_final": h["final"], "hold_cagr": h["cagr"], "hold_mdd": h["mdd"], "beat": sum(r["beat_hold"] for r in rows),
-            "mdd_better": sum(r["mdd_better"] for r in rows), "rows": rows}
-
-
-ERAS = (("1991-1999", "1991-01-01", "1999-12-31"), ("2000-2008", "2000-01-01", "2008-12-31"), ("2009-2013", "2009-01-01", "2013-12-31"))
-
-
-def rolling_summary(df, eras=None):
-    out = {"windows": int(len(df)), "first_start": str(df["start"].iloc[0].date()), "last_start": str(df["start"].iloc[-1].date())}
-    if eras:
-        out["eras"] = {}
-        for name, a, b in eras:
-            sub = df[(df["start"] >= a) & (df["start"] <= b)]
-            out["eras"][name] = {"windows": int(len(sub)), **{k: int((sub[k] > sub["hold"] * (1 + 1e-9)).sum()) for k in dl.ORDER}}
-    if "hold_mdd" in df:
-        out["by_hold_mdd"] = {}
-        for thr in (0.40, 0.35):
-            big, small = df[df["hold_mdd"] <= -thr], df[df["hold_mdd"] > -thr]
-            out["by_hold_mdd"][f"{thr:.2f}"] = {
-                "big_windows": int(len(big)), "small_windows": int(len(small)), "small_worst_hold_mdd": float(small["hold_mdd"].min()),
-                "big": {k: int((big[k] > big["hold"] * (1 + 1e-9)).sum()) for k in dl.ORDER},
-                "small": {k: int((small[k] > small["hold"] * (1 + 1e-9)).sum()) for k in dl.ORDER}}
-    for k in dl.ORDER:
-        rel = df[k] / df["hold"] - 1
-        out[k] = {"wins": int((rel > 1e-9).sum()), "ties": int((rel.abs() <= 1e-9).sum()), "median_vs_hold": float(rel.median()), "best_vs_hold": float(rel.max()),
-                  "worst_vs_hold": float(rel.min()), "mdd_better": int((df[k + "_mdd"] > df["hold_mdd"]).sum()),
-                  "median_mdd": float(df[k + "_mdd"].median())}
-    out["hold_median_mdd"] = float(df["hold_mdd"].median())
-    return out
-
-
-def crashes(res, min_dd=0.19):
-    """관망 평가 금액이 고점보다 min_dd 넘게 떨어진 구간 → 고점·바닥·회복 날짜와 전략별 그 구간 변화 (코드가 찾음 — 손으로 고르지 않음)."""
-    h = res["hold"][0]
-    v, dates = h.value, h.dates
-    peak = np.maximum.accumulate(v)
-    dd = v / peak - 1
-    out, i, n = [], 0, len(v)
-    while i < n:
-        if dd[i] < -min_dd:
-            j = i
-            while j < n and dd[j] < 0:
-                j += 1
-            t = i + int(np.argmin(dd[i:j]))
-            p0 = int(np.where(v[: t + 1] == peak[t])[0][-1])
-            rec = min(j, n - 1)
-            e = {"peak": str(dates[p0].date()), "trough": str(dates[t].date()), "recovered": str(dates[rec].date()) if j < n else None,
-                 "hold_drop": float(v[t] / v[p0] - 1), "strategies": {}}
-            for k in dl.ORDER:
-                vv = res[k][0].value
-                e["strategies"][k] = {"drop": float(vv[t] / vv[p0] - 1), "rebound_to_hold_recovery": float(vv[rec] / vv[t] - 1),
-                                      "stock_share_at_trough": float(res[k][0].stock_share[t])}
-            out.append(e)
-            i = j
-        else:
-            i += 1
-    for e in out:
-        log("RESULT", crash=f"{e['peak']}→{e['trough']}", hold=f"{e['hold_drop']:+.1%}",
-            **{k: f"{x['drop']:+.1%}" for k, x in e["strategies"].items()})
-    return out
-
-
-def leads(res):
-    """전략 평가 금액 ÷ 관망 평가 금액의 흐름: 앞선 날 비율·가장 앞섰을 때·가장 뒤졌을 때·마지막으로 앞선 날."""
-    h = res["hold"][0]
-    out = {}
-    for k in dl.ORDER:
-        r = res[k][0].value / h.value
-        ahead = np.where(r > 1 + 1e-9)[0]
-        out[k] = {"days_ahead": float((r > 1 + 1e-9).mean()), "max_ratio": float(r.max()), "max_date": str(h.dates[int(r.argmax())].date()),
-                  "min_ratio": float(r.min()), "min_date": str(h.dates[int(r.argmin())].date()), "final_ratio": float(r[-1]),
-                  "last_ahead": str(h.dates[ahead[-1]].date()) if len(ahead) else None,
-                  "first_ahead": str(h.dates[ahead[0]].date()) if len(ahead) else None}
-    return out
-
-
-def facts(res, close, tr, roll10):
-    """대본이 말하는 숫자들 (모두 이 함수 출력 — 손으로 계산하지 않음)."""
-    h = res["hold"][0]
-    dates = h.dates
-    out = {"cash_spells": {}, "fills_2020": {}, "worst_best_10y_start": {}}
-    for k in dl.ORDER:
-        run = res[k][0]
-        z = run.stock_share < 1e-9
-        spells, i, n = [], 0, len(z)
-        while i < n:
-            if z[i]:
-                j = i
-                while j < n and z[j]:
-                    j += 1
-                spells.append({"from": str(dates[i].date()), "to": str(dates[j - 1].date()), "trading_days": int(j - i),
-                               "calendar_days": int((dates[j - 1] - dates[i]).days) + 1})
-                i = j
-            else:
-                i += 1
-        out["cash_spells"][k] = sorted(spells, key=lambda x: -x["trading_days"])[:3]
-        out["fills_2020"][k] = [{"date": str(close.index[f["i"]].date()), "side": f["side"]}
-                                for f in run.fills if "2020-01-01" <= str(close.index[f["i"]].date()) <= "2020-12-31"]
-        rel = roll10[k] / roll10["hold"] - 1
-        out["worst_best_10y_start"][k] = {"worst": float(rel.min()), "worst_start": str(roll10["start"].iloc[int(rel.idxmin())].date()),
-                                          "best": float(rel.max()), "best_start": str(roll10["start"].iloc[int(rel.idxmax())].date())}
-    c91 = close.loc["1991-01-01":"1991-12-31"]
-    dca = res["dca12"][0]
-    buys = [f for f in dca.fills if f["side"] == "buy"]
-    trv = np.asarray(tr, float)
-    s0 = buys[0]["i"]
-    avg_tr = sum(f["amount"] for f in buys) / sum(f["amount"] / trv[f["i"]] for f in buys)
-    out["dca12"] = {"first_buy": str(close.index[buys[0]["i"]].date()), "last_buy": str(close.index[buys[-1]["i"]].date()),
-                    "index_1991_change": float(c91.iloc[-1] / c91.iloc[0] - 1), "index_first_to_last_buy": float(close.iloc[buys[-1]["i"]] / close.iloc[s0] - 1),
-                    "avg_cost_vs_first_day": float(avg_tr / trv[s0] - 1)}
-    lad = res["ladder"][0]
-    lb = [f for f in lad.fills if f["side"] == "buy"]
-    out["ladder"] = {"buys": [{"date": str(close.index[f["i"]].date()), "share_of_start": round(f["amount"] / CAPITAL, 4)} for f in lb],
-                     "tr_growth_start_to_3rd_buy": float(trv[lb[1]["i"]] / trv[lb[0]["i"]]) if len(lb) > 1 else None,
-                     "tr_growth_start_to_last_buy": float(trv[lb[-1]["i"]] / trv[lb[0]["i"]])}
-    log("RESULT", facts="cash_spells,fills_2020,dca12,ladder,worst_best_10y_start",
-        dca_1991=f"{out['dca12']['index_1991_change']:+.1%}", ladder_wait_growth=f"×{out['ladder']['tr_growth_start_to_3rd_buy']:.2f}",
-        tp10_longest_cash=out["cash_spells"]["tp10"][0] if out["cash_spells"]["tp10"] else "-")
-    return out
+def pct(x, d=1):
+    return "—" if x is None or (isinstance(x, float) and np.isnan(x)) else f"{x * 100:+.{d}f}%"
 
 
 def main():
     setup_log()
     t0 = time.time()
-    log("START", tool=f"run.py {VERSION}", engine=f"daily.py {dl.VERSION}", capital=CAPITAL, cost=COST, main=f"{MAIN[0]}~{MAIN[1]}",
-        note="연구·교육용 — 투자 권유 아님")
-    close, c_tr, tr, mon, rf, nq, metas = load()
-    chk = check_tr_against_monthly(tr, mon)
+    close, vix, metas = load()
+    out, ind, (s, e) = en.run_all(close, START, END, vix=vix, hold=HOLD, capital=CAPITAL, cost=COST)
+    dates = close.index
+    ref = en.forward_returns(close, START, END, hold=HOLD, cost=COST)
 
-    # 1) 본 실험: S&P500 총수익, 1991-01-02~2023-06-30, 비용 0.1%, 현금 이자 0
-    main_res = dl.run_all(c_tr, tr, *MAIN, capital=CAPITAL, cost=COST, label="main")
-    idx = c_tr.index
+    # 확인: 다른 보유 기간 · 비용 0
+    checks = {}
+    for h in CHECK_HOLDS:
+        o, _, _ = en.run_all(close, START, END, vix=vix, hold=h, capital=CAPITAL, cost=COST, label=f"hold{h}")
+        checks[f"hold{h}"] = {k: o[k][1] for k in o}
+        checks[f"hold{h}"]["_reference"] = en.forward_returns(close, START, END, hold=h, cost=COST)
+    o, _, _ = en.run_all(close, START, END, vix=vix, hold=HOLD, capital=CAPITAL, cost=0.0, label="cost0")
+    checks["cost0"] = {k: o[k][1] for k in o}
 
-    # 2) 확인들
-    sens = {}
-    sens["cost0"] = summary_vs_hold(dl.run_all(c_tr, tr, *MAIN, capital=CAPITAL, cost=0.0, label="cost0"))
-    sub = ("1991-01-02", "2018-11-30")
-    c_sub, tr_sub = c_tr.loc[:sub[1]], tr.loc[:sub[1]]
-    rf_arr = dl.cash_daily(c_sub.index, rf.loc[str(c_sub.index[0].date())[:7] + "-01":], "month_pct")
-    sens["tbill_sub_cash0"] = summary_vs_hold(dl.run_all(c_sub, tr_sub, *sub, capital=CAPITAL, cost=COST, label="sub_cash0"))
-    sens["tbill_sub_cashRF"] = summary_vs_hold(dl.run_all(c_sub, tr_sub, *sub, capital=CAPITAL, cost=COST, cash_ret=rf_arr, label="sub_cashRF"))
-    gs10 = dl.cash_daily(c_tr.index, mon["long_rate"].loc["1990-01-01":"2023-06-01"], "annual_pct")
-    sens["cash_gs10"] = summary_vs_hold(dl.run_all(c_tr, tr, *MAIN, capital=CAPITAL, cost=COST, cash_ret=gs10, label="cash_gs10"))
-    sens["price_only_2026"] = summary_vs_hold(dl.run_all(close, close, "1991-01-02", str(close.index[-1].date()), capital=CAPITAL, cost=COST,
-                                                         label="price_only_2026"))
-    sens["nasdaq_price_2000_2018"] = summary_vs_hold(dl.run_all(nq, nq, "2000-01-03", "2018-12-31", capital=CAPITAL, cost=COST, label="nasdaq"))
-    sens["nasdaq_price_2003_2018"] = summary_vs_hold(dl.run_all(nq, nq, "2003-01-02", "2018-12-31", capital=CAPITAL, cost=COST, label="nasdaq_2003"))
+    rank = sorted(out, key=lambda k: -out[k][1]["final"])
+    for name, c in checks.items():
+        rk = sorted([k for k in c if not k.startswith("_")], key=lambda k: -c[k]["final"])
+        log("RESULT", check=name, top3=",".join(rk[:3]), bottom=rk[-1], main_top3=",".join(rank[:3]))
 
-    # 3) 여러 시작 시점: 10년 기간 매달 (S&P500 총수익) + 20년 + 나스닥 10년
-    roll10 = dl.rolling(c_tr, tr, ROLL_FIRST, ROLL_LAST, years=10, capital=CAPITAL, cost=COST, label="rolling_10y")
-    roll10.to_csv(HERE / "rolling_10y.csv", index=False, float_format="%.6f", date_format="%Y-%m-%d")
-    roll20 = dl.rolling(c_tr, tr, ROLL_FIRST, "2003-07-31", years=20, capital=CAPITAL, cost=COST, label="rolling_20y")
-    rollnq = dl.rolling(nq, nq, "2000-01-01", "2009-01-31", years=10, capital=CAPITAL, cost=COST, label="rolling_nasdaq_10y")
-
-    main_pack = pack(main_res, idx)
-    rows = []
-    for k, v in main_pack.items():
-        for t in v["trades"]:
-            rows.append({"strategy": k, **t})
-    pd.DataFrame(rows).to_csv(HERE / "trades.csv", index=False)
-    results = {
-        "version": VERSION, "engine": dl.VERSION, "created": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
-        "settings": {"asset": "S&P 500 총수익 지수 (배당 재투자)", "main": MAIN, "capital": CAPITAL, "cost": COST, "cash": 0.0,
-                     "execution": "신호 다음 거래일 종가", "rolling": {"years": 10, "first": ROLL_FIRST, "last": ROLL_LAST}},
-        "data": {k: {kk: vv for kk, vv in m.items() if kk not in ("validate",)} for k, m in metas.items()},
-        "checks": {"tr_daily_vs_monthly": chk},
-        "main": main_pack, "main_summary": summary_vs_hold(main_res),
-        "rolling_10y": rolling_summary(roll10, ERAS), "rolling_20y": rolling_summary(roll20), "rolling_nasdaq_10y": rolling_summary(rollnq),
-        "analysis": {"crashes": crashes(main_res), "leads": leads(main_res)},
-        "facts": facts(main_res, c_tr, tr, roll10),
-        "sensitivity": sens,
+    res = {
+        "version": VERSION, "engine": en.VERSION, "made_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+        "note": "연구·교육용. 투자 권유가 아니다. 과거 결과는 미래를 보장하지 않는다. 대본·화면 숫자는 이 파일에서만.",
+        "params": {"asset": "S&P 500 지수 일별 종가 (가격만 — 배당 빠짐)", "start": str(dates[s].date()), "end": str(dates[e].date()),
+                   "capital": CAPITAL, "cost": COST, "cash_interest": 0, "hold_days": HOLD,
+                   "sell_rule": "산 날부터 252 거래일 뒤 그날 종가에 전부 매도 (모든 규칙 같음)",
+                   "buy_timing": "신호 = 그날 종가까지, 매수 = 다음 거래일 종가", "rules": {k: {"name": en.RULES[k][1], "condition": en.RULES[k][2]} for k in en.ORDER}},
+        "data": {k: {kk: v.get(kk) for kk in ("url", "wheel", "member", "commit", "sha256", "first", "last", "rows", "splice")} for k, v in metas.items()},
+        "rules": {k: out[k][1] for k in en.ORDER},
+        "trades": {k: out[k][0].trades for k in en.ORDER},
+        "rank_by_final": rank,
+        "reference_any_day": ref,
+        "checks": checks,
+        "index": {"start_close": float(close.iloc[s]), "end_close": float(close.iloc[e]),
+                  "max": float(close.iloc[s:e + 1].max()), "max_date": str(close.iloc[s:e + 1].idxmax().date())},
     }
-    (HERE / "results.json").write_text(json.dumps(results, ensure_ascii=False, indent=1, default=str), "utf-8")
-    write_md(results)
-    log("DONE", seconds=f"{time.time() - t0:.1f}", files="results.json,results.md,trades.csv,rolling_10y.csv,run.log")
+    (HERE / "results.json").write_text(json.dumps(res, ensure_ascii=False, indent=1, default=float), "utf-8")
+
+    rows = []
+    for k in en.ORDER:
+        for t in out[k][0].trades:
+            rows.append({"rule": k, "buy_date": t["buy_date"], "buy_price": round(t["buy_price"], 2), "sell_date": t["sell_date"],
+                         "sell_price": round(t["sell_price"], 2), "days": t["days"], "ret": round(t["ret"], 6), "open": t["open"],
+                         "buy_cash": round(t["buy_cash"], 2), "sell_cash": round(t["sell_cash"], 2)})
+    pd.DataFrame(rows).to_csv(HERE / "trades.csv", index=False)
+
+    write_md(res, out)
+    write_anim(close, vix, ind, out, s, e, res)
+    log("RESULT", file="results.json,results.md,trades.csv,anim.js", rank=",".join(rank), sec=f"{time.time() - t0:.1f}")
 
 
-def pct(x, d=1):
-    return "—" if x is None else f"{x * 100:+.{d}f}%"
-
-
-def write_md(r):
-    L = [f"# 매수 전략 10가지 vs 매수 후 관망 — 결과 (`run.py` {r['version']}, 엔진 `daily.py` {r['engine']}, {r['created']})", "",
+def write_md(res, out):
+    P = res["params"]
+    L = [f"# 매수 신호 10가지 — 같은 돈·같은 매도 규칙 (`run.py` {VERSION}, 엔진 `entry.py` {res['engine']}, {res['made_at']})", "",
          "> 연구·교육용. 투자 권유가 아니다. 과거 결과는 미래를 보장하지 않는다. 숫자는 이 파일·`results.json` 의 코드 출력만 쓴다.", "",
-         f"- 자산: {r['settings']['asset']} · 기간 {r['settings']['main'][0]} ~ {r['settings']['main'][1]} · 시작 돈 ${r['settings']['capital']:,.0f} (모두 같음, 더 넣지 않음)",
-         f"- 사고팔기: {r['settings']['execution']} · 비용 {r['settings']['cost']:.1%} · 현금 이자 0", "",
-         "## 1. 본 실험 (한 번, 1991-01-02 → 2023-06-30)", "",
-         "| 전략 | 끝 값 | 관망 대비 | 연율 | 최대 낙폭 | 주식 비율 | 매수·매도 | 거래 승률 | 가장 긴 현금 |", "|---|---:|---:|---:|---:|---:|---:|---:|---:|"]
-    h = r["main"]["hold"]["stats"]
-    for k in ["hold"] + list(dl.ORDER):
-        st = r["main"][k]["stats"]
-        L.append(f"| {r['main'][k]['name']} | ${st['final']:,.0f} | {pct(st['final'] / h['final'] - 1) if k != 'hold' else '—'} | {st['cagr']:.2%} | "
-                 f"{st['mdd']:.1%} ({st['mdd_date']}) | {st['exposure']:.0%} | {st['buys']}·{st['sells']} | "
-                 f"{'—' if st['win_rate'] is None else f'{st['win_rate']:.0%}'} | {st['longest_cash_days']}일 |")
-    s = r["main_summary"]
-    L += ["", f"- 관망보다 끝 값이 큰 전략: **{s['beat']} / 10** · 최대 낙폭이 관망보다 작은 전략: **{s['mdd_better']} / 10**", "",
-          f"## 2. 여러 시작 시점 — 10년 기간 {r['rolling_10y']['windows']}번 ({r['rolling_10y']['first_start']} ~ {r['rolling_10y']['last_start']} 시작)", "",
-          "| 전략 | 관망보다 많은 기간 | 가운데 값(관망 대비) | 가장 좋을 때 | 가장 나쁠 때 | 낙폭이 더 작은 기간 | 낙폭 가운데 값 |", "|---|---:|---:|---:|---:|---:|---:|"]
-    for k in dl.ORDER:
-        x = r["rolling_10y"][k]
-        L.append(f"| {r['main'][k]['name']} | {x['wins']} / {r['rolling_10y']['windows']} | {pct(x['median_vs_hold'])} | {pct(x['best_vs_hold'])} | "
-                 f"{pct(x['worst_vs_hold'])} | {x['mdd_better']} / {r['rolling_10y']['windows']} | {x['median_mdd']:.1%} |")
-    L.append(f"| 매수 후 관망 | — | — | — | — | — | {r['rolling_10y']['hold_median_mdd']:.1%} |")
-    er = r["rolling_10y"]["eras"]
-    L += ["", "### 시작 시기별 — 관망보다 많은 기간", "", "| 전략 | " + " | ".join(f"{k} 시작 ({v['windows']}번)" for k, v in er.items()) + " | 관망과 같음 |",
-          "|---|" + "---:|" * (len(er) + 1)]
-    for k in dl.ORDER:
-        L.append(f"| {r['main'][k]['name']} | " + " | ".join(str(v[k]) for v in er.values()) + f" | {r['rolling_10y'][k]['ties']} |")
-    for thr, x in r["rolling_10y"]["by_hold_mdd"].items():
-        L += ["", f"### 관망이 그 기간 안에 {float(thr):.0%} 넘게 떨어진 기간({x['big_windows']}번) vs 아닌 기간({x['small_windows']}번, 그 안 관망 최대 낙폭 {x['small_worst_hold_mdd']:.1%})", "",
-              "| 전략 | 큰 하락이 있던 기간에서 관망보다 많음 | 없던 기간에서 관망보다 많음 |", "|---|---:|---:|"]
-        for k in dl.ORDER:
-            L.append(f"| {r['main'][k]['name']} | {x['big'][k]} / {x['big_windows']} | {x['small'][k]} / {x['small_windows']} |")
-    L += ["", "## 2-1. 큰 하락 구간 (관망 평가 금액이 고점보다 19% 넘게 — 코드가 찾음)", "",
-          "| 구간 (고점 → 바닥) | 관망 | " + " | ".join(r["main"][k]["name"].split(" ")[0] for k in dl.ORDER) + " |", "|---|---:|" + "---:|" * len(dl.ORDER)]
-    for e in r["analysis"]["crashes"]:
-        L.append(f"| {e['peak']} → {e['trough']} | {e['hold_drop']:+.1%} | " + " | ".join(f"{e['strategies'][k]['drop']:+.1%}" for k in dl.ORDER) + " |")
-    L += ["", "## 2-2. 관망과 비교한 흐름 (전략 ÷ 관망)", "", "| 전략 | 앞선 날 | 가장 앞섰을 때 | 가장 뒤졌을 때 | 마지막으로 앞선 날 | 끝 |", "|---|---:|---:|---:|---:|---:|"]
-    for k in dl.ORDER:
-        x = r["analysis"]["leads"][k]
-        L.append(f"| {r['main'][k]['name']} | {x['days_ahead']:.0%} | ×{x['max_ratio']:.2f} ({x['max_date']}) | ×{x['min_ratio']:.2f} ({x['min_date']}) | {x['last_ahead'] or '—'} | ×{x['final_ratio']:.3f} |")
-    for key, title in (("rolling_20y", "20년 기간"), ("rolling_nasdaq_10y", "나스닥 종합(가격만) 10년 기간")):
-        x = r[key]
-        L += ["", f"## {title} {x['windows']}번 ({x['first_start']} ~ {x['last_start']} 시작)", "", "| 전략 | 관망보다 많은 기간 | 가운데 값 |", "|---|---:|---:|"]
-        for k in dl.ORDER:
-            L.append(f"| {r['main'][k]['name']} | {x[k]['wins']} / {x['windows']} | {pct(x[k]['median_vs_hold'])} |")
-    L += ["", "## 3. 확인 (본 실험과 다른 가정)", "", "| 가정 | 관망 끝 값 | 관망보다 많은 전략 | 낙폭이 더 작은 전략 |", "|---|---:|---:|---:|"]
-    labels = {"cost0": "비용 0", "tbill_sub_cash0": "1991-01~2018-11, 현금 이자 0", "tbill_sub_cashRF": "1991-01~2018-11, 현금에 T-bill 이자",
-              "cash_gs10": "현금에 10년 국채 금리 (위쪽 한계)", "price_only_2026": "가격만 1991-01~2026-02", "nasdaq_price_2000_2018": "나스닥 종합 가격만 2000~2018",
-              "nasdaq_price_2003_2018": "나스닥 종합 가격만 2003~2018"}
-    for k, v in r["sensitivity"].items():
-        L.append(f"| {labels[k]} | ${v['hold_final']:,.0f} | {v['beat']} / 10 | {v['mdd_better']} / 10 |")
-    L += ["", "### 전략별 (관망 대비 끝 값)", "", "| 전략 | " + " | ".join(labels[k] for k in r["sensitivity"]) + " |", "|---|" + "---:|" * len(r["sensitivity"])]
-    for i, k in enumerate(dl.ORDER):
-        L.append(f"| {r['main'][k]['name']} | " + " | ".join(pct(v["rows"][i]["vs_hold_pct"]) for v in r["sensitivity"].values()) + " |")
-    c = r["checks"]["tr_daily_vs_monthly"]
-    L += ["", "## 4. 자료 검사", "", f"- 일별 총수익 연율 {c['daily_cagr']:.3%} vs 월별(Shiller 월평균 가격) {c['monthly_cagr']:.3%}",
-          f"- 일별 종가: {r['data']['sp500_daily']['first']} ~ {r['data']['sp500_daily']['last']} ({r['data']['sp500_daily']['rows']}일) — "
-          f"skfolio ~{r['data']['sp500_daily']['splice']['skfolio_until']} + FRED {r['data']['sp500_daily']['splice']['fred_from']}~ "
-          f"(겹치는 기간 값이 다른 날 {', '.join(r['data']['sp500_daily']['splice']['overlap_days_where_values_differ_fred_used']) or '없음'} → FRED)",
-          f"- skfolio~arch 겹침 {r['data']['sp500_daily']['overlap_skfolio_arch']['common_days']}일 최대 차이 {r['data']['sp500_daily']['overlap_skfolio_arch']['max_rel_diff']:.2e}"]
+         f"- 자산: {P['asset']} · 기간 {P['start']} ~ {P['end']} · 시작 돈 $10,000 (모두 같음, 더 넣지 않음)",
+         f"- 매수: 규칙마다 다름 — {P['buy_timing']} · **매도: {P['sell_rule']}** · 비용 0.1% · 현금 이자 0",
+         f"- S&P 500: {res['index']['start_close']:,.2f} → {res['index']['end_close']:,.2f} (기간 최고 {res['index']['max']:,.2f}, {res['index']['max_date']})", "",
+         "## 1. 본 실험 (끝 값 순)", "",
+         "| # | 규칙 | 조건 | 끝 값 | 누적 | 매수 | 판 거래 | 이긴 거래 | 거래 평균 | 가장 좋은 · 나쁜 거래 | 주식 보유 비율 | 가장 긴 현금 | 첫 매수 |",
+         "|---:|---|---|---:|---:|---:|---:|---:|---:|---|---:|---:|---|"]
+    for i, k in enumerate(res["rank_by_final"], 1):
+        r = res["rules"][k]
+        L.append(f"| {i} | {P['rules'][k]['name']} | {P['rules'][k]['condition']} | ${r['final']:,.0f} | {pct(r['total_return'])} | {r['buys']} | "
+                 f"{r['trades_closed']}{' + 보유 중 1' if r['trades_open'] else ''} | {(r['win_rate'] * 100):.0f}% | {pct(r['avg_trade'])} | "
+                 f"{pct(r['best_trade'])} · {pct(r['worst_trade'])} | {r['invested_share'] * 100:.0f}% | {r['longest_wait_days']}일 | {r['first_buy']} |")
+    ref = res["reference_any_day"]
+    L += ["", f"- 참고값 (관망 아님): **아무 날** {ref['from']} ~ {ref['to_last_buy']} 에 사서 252 거래일 뒤 판 {ref['n_days']}번 — 평균 {pct(ref['mean'])} · 가운데 {pct(ref['median'])} · 이긴 비율 {ref['win_rate'] * 100:.0f}% · 아래 10% {pct(ref['p10'])} · 위 10% {pct(ref['p90'])}", "",
+          "## 2. 거래 (BUY → SELL)", ""]
+    for k in en.ORDER:
+        L.append(f"**{P['rules'][k]['name']}** — " + " · ".join(
+            f"{t['buy_date']} {t['buy_price']:,.0f} → {t['sell_date']} {t['sell_price']:,.0f} {pct(t['ret'])}{' (보유 중)' if t['open'] else ''}" for t in res["trades"][k]))
+        L.append("")
+    L += ["## 3. 확인 — 보유 기간·비용을 바꾸면 순위가 바뀌나", "", "| 규칙 | 본 실험 252일 | 126일 | 63일 | 21일 | 비용 0 |", "|---|---:|---:|---:|---:|---:|"]
+    for k in res["rank_by_final"]:
+        c = res["checks"]
+        L.append(f"| {P['rules'][k]['name']} | ${res['rules'][k]['final']:,.0f} | ${c['hold126'][k]['final']:,.0f} | ${c['hold63'][k]['final']:,.0f} | "
+                 f"${c['hold21'][k]['final']:,.0f} | ${c['cost0'][k]['final']:,.0f} |")
+    L += ["", "## 4. 한계", "",
+          "- 가격만이다 (배당 약 1.5%/년 빠짐 — 주식을 오래 든 규칙일수록 덜 셈). 현금 이자 0 (2023~2025 처럼 금리가 높을 때 현금으로 기다린 규칙을 덜 셈). 두 효과는 방향이 반대다.",
+          "- S&P 500 일별 자료가 2026-02-11 에서 끝난다 (클라우드에서 받을 수 있는 가장 최근). 그 뒤는 들어 있지 않다.",
+          "- 판 거래가 규칙마다 2~9번이라 거래 평균·승률은 표본이 작다. 끝 값은 시작 날·보유 기간에 따라 달라진다 (3번 확인).",
+          "- 세금·환율은 넣지 않았다. 지수 자체를 사고판 것으로 셈 (실제로는 ETF — 보수 약 0.03~0.1%/년)."]
     (HERE / "results.md").write_text("\n".join(L) + "\n", "utf-8")
+
+
+def write_anim(close, vix, ind, out, s, e, res):
+    """장면 파일 자료 (window.AN). 날짜는 s..e 거래일 전부, 값은 코드 출력을 반올림만."""
+    d = close.index[s:e + 1]
+    AN = {"v": VERSION, "made_at": res["made_at"], "dates": [x.strftime("%Y-%m-%d") for x in d],
+          "close": [round(float(x), 2) for x in close.iloc[s:e + 1]],
+          "lines": {"ath": [round(float(x), 2) for x in ind["ath"][s:e + 1]],
+                    "sma50": [round(float(x), 2) for x in ind["sma50"][s:e + 1]],
+                    "sma200": [round(float(x), 2) for x in ind["sma200"][s:e + 1]],
+                    "hi252": [round(float(x), 2) for x in ind["hi252"][s:e + 1]],
+                    "rsi14": [round(float(x), 2) for x in ind["rsi14"][s:e + 1]],
+                    "vix": [None if np.isnan(x) else round(float(x), 2) for x in ind["vix"][s:e + 1]],
+                    "ret1": [round(float(x) * 100, 3) for x in ind["ret1"][s:e + 1]],
+                    "close_252ago": [round(float(close.iloc[i - 252]), 2) for i in range(s, e + 1)]},
+          "hold_days": HOLD, "capital": CAPITAL, "order": en.ORDER,
+          "rules": {}}
+    for k in en.ORDER:
+        r, st = out[k]
+        AN["rules"][k] = {"value": [round(float(x), 2) for x in r.value], "holding": "".join("1" if h else "0" for h in r.holding),
+                          "trades": [{"b": t["buy_i"] - s, "s": t["sell_i"] - s, "bp": round(t["buy_price"], 2), "sp": round(t["sell_price"], 2),
+                                      "r": round(t["ret"], 6), "open": t["open"], "bc": round(t["buy_cash"], 2), "sc": round(t["sell_cash"], 2)}
+                                     for t in r.trades],
+                          "final": round(st["final"], 2), "win": st["win_rate"], "avg": st["avg_trade"]}
+        # 장면 숫자 = 결과 파일 숫자 (반올림만) 확인
+        assert abs(AN["rules"][k]["value"][-1] - res["rules"][k]["final"]) < 0.01, k
+        assert len(AN["rules"][k]["value"]) == len(AN["dates"]), k
+    txt = ("// 자동 생성 — stock/source/eonje-maesu-2026-10/backtest/run.py " + VERSION + " (손으로 고치지 않음). 연구·교육용 — 투자 권유 아님.\n"
+           "window.AN = " + json.dumps(AN, ensure_ascii=False, separators=(",", ":")) + ";\n")
+    (HERE / "anim.js").write_text(txt, "utf-8")
+    log("RESULT", anim="anim.js", days=len(d), kb=round(len(txt) / 1024))
 
 
 if __name__ == "__main__":

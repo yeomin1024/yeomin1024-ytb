@@ -1,5 +1,39 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-16 (41) — 주식 1번 v2: 매수 신호 10가지 × 같은 매도 규칙 (2016~2026-02, 관망 비교 없음) · Three.js 3D 시험 장면 시안 한 장
+
+### 왜 (사용자 지시)
+- "기간이 너무 긴거 아니야? 그리고 왜 현재는 포함 안했어 2016년부터 현재까지로 설정하고 지금은 매수만 보는 거니까 매수에 관련된 것만 테스트해야지 왜 손절이 있어 매도 규칙은 똑같이 해 그리고 buy and hold랑 비교하지말고 주가 차트에서 매수/매도 지점을 표시하는 걸로 하자 buy, sell 문구 붙여서 표시하고 오른쪽 A,B 박스 밑에 있는 박스 3개는 뭔 내용인지 모르겠어 그리고 설명할 때 영상이 왤케 부실해 아니 좀 입체적으로 표현 하는 도구 없어? 내용 수정하고 일단 이미지만 1개만 나한테 보여줘봐 테스트 영상 부분만 말이야"
+
+### 정한 것
+| 항목 | 값 |
+|---|---|
+| 기간 | S&P 500 일별 **2016-01-04 ~ 2026-02-11** — '현재'(2026-10)까지는 못 감: 이 클라우드에서 열리는 곳(GitHub·pypi·npm)에 2026-02-11 뒤 일별 자료가 없음 (Yahoo·FRED·Stooq·Kaggle·HuggingFace·CBOE 막힘, 2026-10-16 확인). Yahoo 3개 도메인을 더하면 이어 받을 수 있음 |
+| 매수 신호 10가지 | 매달 첫 거래일 · 고점 −10% · 고점 −20% · −2% 급락 다음 날 · VIX 30 이상 · RSI 30 아래 · 200일선 위로 돌파 · 골든 크로스 · 52주 신고가 · 12개월 모멘텀 (근거 = 주식 댓글 73,272개 낱말 수, 손절·익절은 매도 규칙이라 뺌) |
+| 매도 (모두 같음) | 산 날부터 252 거래일(약 1년) 뒤 종가 — 산 날에 정해짐. 확인 21·63·126 거래일 |
+| 돈·비용 | 모두 $10,000 한 번 · 0.1% · 현금 이자 0 · 가격만 |
+| 관망 | 견주지 않음 (참고값 '아무 날 매수 → 1년 뒤 매도' 분포만 결과 파일에 — 화면에 넣을지는 사용자 확인) |
+
+### 결과 (`stock/source/eonje-maesu-2026-10/backtest/results.md`)
+- 끝 값 1위 매달 첫 거래일 $33,547 · 2위 12개월 모멘텀 $30,966 · 3위 200일선 돌파 $28,037 … 9위 고점 −20% $17,276 (거래 평균 +32.2%로 가장 높지만 2번만 매수, 주식 보유 20%) · 10위 VIX 30 $14,270.
+- 보유 21·63일·비용 0 에서도 1위 같음, 126일에서는 12개월 모멘텀이 1위.
+
+### 바꾼 파일
+| 파일 (버전) | 내용 |
+|---|---|
+| `tools/backtest/entry.py` (v1.0, 새로) | 매수 신호 10가지 · 공통 매도(보유 기간) · 보유 중 신호 안 씀 · 끝날 보유 = 평가(open) · `stats` · `run_all`(단계 로그) · `forward_returns`(아무 날 매수 참고값) |
+| `tools/tests/test_backtest_entry.py` (v1.0, 새로) | 9개: 다음 날 매수·hold 뒤 매도 · 거래 안 겹침 · 비용 · 미래 값 바꿔도 지난 거래 같음 · 끝 값 = 거래 수익 곱 · −10% 경계 · 돌파는 그날만 · VIX 없는 날 · 지표 기간 부족 멈춤 (backtest 3개 모음 35개 통과) |
+| `tools/backtest/data.py` (v1.2 → v1.3) | `vix_daily()` — datasets/finance-vix 커밋 `3dbea23` · sha256 고정, `_validate_daily(big_move=)` (VIX 는 100%) |
+| `stock/source/eonje-maesu-2026-10/` (v2) | `backtest/run.py` v2.0 → `results.json`·`results.md`·`trades.csv`·`run.log`·`anim.js`(2,542일) · `README.md` v2.0 |
+| `video/prototypes/stock-entry-2026-10-16/` (새로) | `race3d.html` v1.0 — Three.js 3D 가격 벽(초록 = BUY~SELL · 회색 = 현금) · BUY/SELL 핀·글자 · 규칙 선 · 오른쪽 카드 3개(계좌·지금 상태·거래 기록) / `snap.mjs` v1.0 / `still_dip10_2023-09-29.png` (숫자 = `trades.csv`·`anim.js` 와 맞춤) |
+| `video/render/package.json`·`package-lock.json` | three 0.160.0 (npm) |
+| `video/render/render.mjs` (v1.3 → v1.4) | 낱말 검사 예외 BUY·SELL·RSI·VIX |
+| v1 보관 | `stock/source/eonje-maesu-2026-10/*` → `stock/source/_old/eonje-maesu-2026-10-v1/` (대본·SRT·제목·업로드 시트·썸네일·백테스트 — Kaggle 이 읽지 않게) · 장면 `video/episodes/_old/eonje-maesu-2026-10-v1/index.html`(상대 경로 고침) · `stock/thumbnails_chatgpt.md` 지움 · `stock/source/_old/README.md` v1.1 |
+| 문서 | `stock/guides/README.md` v1.5 (BUY·SELL 글자 예외 · 시험 장면 · 설명 장면도 3D) · `stock/guides/concept.md` v1.3 (매수만 견줄 때 매도 규칙 같게) · `guides/video_guide.md` v4.7 (Three.js) · `stock/source/topic_candidates.md` v1.2 · `stock/source/used_content.md` v1.2 · `guides/status.md` v1.16 (2-1 · 4번 네트워크) |
+
+### 남은 것
+- 사용자 답: 시안 · 매도 규칙 1년 · 참고값 넣기 · Yahoo 허용 → 대본·장면 전체·제목·업로드 시트·썸네일.
+
 ## 2026-10-16 (40) — 역사 분석 첫 회차 (이 세션) · 다른 세션의 (38) 설정과 합침: `history/` 새로 · new/ 역사 캐시 이어 받기 · 태그 검색어 40개 · 첫 회차 승인 76 → 성공 사례 54 · 매일 예약 작업
 
 ### 왜 (사용자 지시)

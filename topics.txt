@@ -2,3 +2,4 @@
 # 새 주제를 만들면 여기에 더한다 (Claude 가 <폴더>/analyzer_config.toml·keywords.toml·keywords.txt 와 함께)
 economic
 stock
+new

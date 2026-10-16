@@ -1,0 +1,18 @@
+# =====================================================================================================
+# 관련어·제외어 — 주제: 새 주제 탐색 (폴더 new)
+# VERSION: v1.0 — 2026-10-16 — 새로 만듦 (사용자 지시 2026-10-16 "… 저장소에 디렉토리 new로 만들어서 새로운 주제 탐색하기 위한 세팅해서 탐색해봐").
+#          이 폴더는 한 주제가 아니라 여러 분야를 견주므로 관련어를 비운다 → 탐색한 영상을 모두 '주제 관련'으로 봄
+#          (outlier_research.relevant: 관련어가 없으면 True). 분야는 검색어(niches.toml → keywords.txt)와 제목 낱말(tag_rules.toml TAG_THEMES)로 가름.
+# 이 파일을 읽는 코드: youtube_topic_analyzer.py · tools/outlier_research.py · tools/success_analysis.py
+# =====================================================================================================
+
+EXTRA_KEYWORDS = []
+EXCLUDE_KEYWORDS = []    # 제목에 이 낱말이 든 영상은 탐색 목록에서 뺌 — 비움
+
+[KEYWORD_GROUPS]
+# 비움 — 검색어는 keywords.txt (niches.toml 에서 만듦: python3 tools/niche_scan.py new sync)
+
+[relevance]
+RELEVANCE_TERMS = []          # 비움 = 모든 영상이 주제 관련
+RELEVANCE_WEAK_TERMS = []
+RELEVANCE_EXCLUDE = []

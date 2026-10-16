@@ -1,5 +1,45 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-16 (36) — 새 채널 분야 탐색 `new/`: 분야 27개를 같은 잣대로 견줌 · `tools/niche_scan.py` v1.0 · 첫 탐색(8,918단위)
+
+### 왜 (사용자 지시)
+- "이외에도 내가 어떤 채널을 만들어야 조회수 높은 영상 만들고 구독자 많이 모을 수 있을지 전체적으로 탐색해봐 저장소에 디렉토리 new로 만들어서 새로운 주제 탐색하기 위한 세팅해서 탐색해봐"
+- 지금 도구(탐색·성공 사례 분석)는 **한 주제 안**을 깊게 본다. 어느 주제로 새 채널을 열지는 **여러 분야를 같은 잣대로** 견줘야 해서, 탐색 결과를 분야별로 다시 세는 도구를 더했다 (탐색·추천·성공 사례 분석 로직은 그대로).
+
+### 한 것
+| 단계 | 명령 · 결과 |
+|---|---|
+| 설정 | `new/niches.toml` v1.0 (원본 — 분야 27개: A 지금 제작 방식 17 · B 촬영 8 · 기준 재테크·주식 2, 검색어 44 · 제목 낱말 · 만들기 판단) → `python3 tools/niche_scan.py new sync` → `new/keywords.txt`('돌아가며' 순서) · `new/tag_rules.toml`(TAG_THEMES). `analyzer_config.toml`·`keywords.toml`(관련어 비움)·`analysis_rules.toml`(stock v1.2 바탕, 도박만 뺌) · `topics.txt` 에 `new` |
+| 키 확인 | 이 환경 `YOUTUBE_API_KEY` (지문 58333e86) `videos.list` 1단위 → 200 |
+| 탐색 | `python3 tools/cloud_run.py new explore --weeks 26` → 검색 88/88 · 영상 4,037 (라이브 217·외국 260 뺌 → 목록 3,560) · **8,918단위** (검색 8,800 · 영상 81 · 채널 37) · 84.8초. 자동완성은 이 환경 네트워크가 막아 못 받음 (`suggestqueries.google.com`·`www.youtube.com`·`i.ytimg.com` → 403 connect_rejected) |
+| 캐시 | `new/cloud_cache/cache.tgz` 4.4MB (파일 4,127) — 7일 안 다시 탐색하면 0단위 |
+| 분야 비교 | `python3 tools/niche_scan.py new report` → `new/result/niche/niche_scan.md` · `niche_scan.csv` · `niche_videos.csv`(2,898줄) · `niche_channels.csv`(새 채널 464) — 할당량 0 |
+| 추천 | `new/channel_ideas.md` v1.0 (판단 — 숫자와 나눠 적음): 1 역사 해설 · 2 시니어 건강(실험·숫자형) · 3 심리, 사연·야담 낭독 보류 |
+
+### 바꾼 파일
+| 파일 (버전) | 내용 |
+|---|---|
+| `tools/niche_scan.py` (v1.0, 새로) | `sync`(niches.toml 검사 — 이름·검색어 겹침 거부 → keywords.txt·tag_rules.toml) · `report`(explore.json + .cache/channels.json·search_*.json → 분야별 표본·성공 비율·작은 채널 하루 조회수·큰 채널 몫·2년 안 1만 채널·검색어별 성공·빨리 큰 새 채널 표 → md·csv 3개). 거르기 = success_analysis 비교 집단과 같은 규칙(7일·4분·광고 의심·뺀 낱말 · **한 채널 최근 5개까지** `[compare] PER_CHANNEL`), 성공 = `[success]` 그대로. 참고 점수 = 세 숫자의 백분위 평균 (작은 채널 영상 10개 미만이면 그 숫자 뺌). 로그 `[STAGE] [시각] key=value` |
+| `tools/tests/test_niche_scan.py` (v1.0, 새로) | 11개: 돌아가며 순서 · 검색어 겹침 거부 · sync 파일을 기존 도구(read_keyword_list·load_themes·theme_of)가 읽음 · 성공 경계(5만·×3·180일·숨긴 구독자·100 미만) · 거르는 까닭 · 분야별 세기(두 분야 영상·새 채널 1만·큰 채널 몫) · 채널당 상한(최근 순) · 점수에서 작은 표본 뺌 · 브랜드 표시 · 보고서 파일 · 탐색 없을 때 오류 |
+| `new/` (새로) | `README.md` v1.0 · `channel_ideas.md` v1.0 · `niches.toml` v1.0 · `analyzer_config.toml` v1.0 · `keywords.toml` v1.0 · `analysis_rules.toml` v1.0 · `keywords.txt`·`tag_rules.toml`(만든 파일) · `result/niche/` · `cloud_cache/` |
+| `topics.txt` · `CLAUDE.md` · `README.md` · `guides/status.md` (v1.10 → v1.11) | `new` 주제 더함 · 작업 지시사항 한 줄 · 폴더 구조 · 1번 표·2-4 |
+
+### 검증 — 바꾸기 전/뒤 숫자 (같은 탐색 자료, 할당량 0)
+| 분야 | 채널당 상한 없이 (표본 · 성공 비율) | 한 채널 최근 5개까지 (표본 · 성공 비율) |
+|---|---|---|
+| 퀴즈·두뇌 게임 | 176 · 23% (한 채널 51개) | 46 · 24% (130개 뺌) |
+| 생활정보·지원금 | 176 · 3% (KBS LIFE 40개) | 93 · 5% |
+| 역사 | 169 · 34% | 139 · 41% |
+| 사연·오디오 드라마 | 178 · 39% | 164 · 42% |
+| 건강 정보 | 178 · 42% | 173 · 42% |
+- 점수 1~5위: 상한 전 역사·사연·AI·심리·철학 → 상한 뒤 역사 89.5·사연 88.7·살림 78.1·심리 77.7·철학 75.3 (작은 채널 영상 10개 미만 분야는 '작은 채널 하루 조회수'를 점수에서 뺌 — 여행은 작은 채널 6개로 중앙값 23,817 이었음).
+- `cd tools/tests && python3 -m unittest test_niche_scan` → 11개 OK.
+
+### 못 한 것 · 남은 것
+- 자막·썸네일·자동완성·댓글 없음 (이 환경 네트워크 + 승인 안 함) → 시청자 니즈·나이는 그 분야 폴더에서.
+- 광고 단가(RPM)는 API 로 알 수 없어 넣지 않음.
+- 사용자가 분야를 고르면 그 분야 폴더를 따로 만든다 (`new/README.md` '다음 할 일').
+
 ## 2026-10-16 (35) — 재테크 채널 업로드 시험: 1편 도입 51초(실제 오디오)를 클라우드에서 부자백서에 비공개로 올림 (성공) · 업로드 도구 v1.7 채널 확인
 
 ### 왜 (사용자 지시)

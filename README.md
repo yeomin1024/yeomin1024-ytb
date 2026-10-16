@@ -31,6 +31,8 @@ economic/                   ← 주제 폴더: 경제·재테크 — economic/RE
   guides/                   ← (분석 뒤) 주제 전용 규칙 + data_insights.md(분석 결과 요약 = 지시사항 근거)
   source/<영상ID>/          ← (주제를 고른 뒤) 영상별 대본 TXT·SRT·README·titles.md·thumbnails/·upload.md
   out/<영상ID>/             ← 완성 영상 자리 (mp4는 git에 올리지 않음). 스토리보드는 만들지 않음
+stock/                      ← 주제 폴더: 주식 (전 세계 대상 — AI 코드로 가설 백테스트) — stock/README.md
+new/                        ← 새 채널 분야 탐색 (분야 27개를 같은 잣대로 견줌 — tools/niche_scan.py) — new/README.md · 추천 new/channel_ideas.md
 ```
 
 다른 주제도 `economic/`과 같은 모양의 폴더(예: `realestate/`)를 만들어 씁니다 → [새 주제 시작하기](guides/README.md#새-주제-시작하기-예-부동산)

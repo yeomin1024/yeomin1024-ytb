@@ -1,0 +1,41 @@
+# =====================================================================================================
+# YouTube 주제 분석기 설정 파일 — 주제: 새 주제 탐색 (폴더 new)
+# VERSION: v1.0 — 2026-10-16 — 새로 만듦 (사용자 지시 2026-10-16: "이외에도 내가 어떤 채널을 만들어야 조회수 높은 영상 만들고 구독자 많이
+#          모을 수 있을지 전체적으로 탐색해봐 저장소에 디렉토리 new로 만들어서 새로운 주제 탐색하기 위한 세팅해서 탐색해봐").
+#          값은 stock/analyzer_config.toml v3.2 와 같고 다른 것: 주제 이름·폴더 · 외국 영상 꺼짐(기본 — 한국어 시장부터) ·
+#          FRESH_START 없음 (이 폴더로 PC 에서 돌린 예전 자료가 없음).
+#          한 분야가 아니라 여러 분야를 견주는 폴더 — 검색어는 new/niches.toml 에서 만든 keywords.txt (분야마다 1~2개),
+#          관련어(keywords.toml)는 비워 모든 영상을 '주제 관련'으로 봄. 분야 비교 표: python3 tools/niche_scan.py new report
+#
+# ▶ 클라우드: python3 tools/cloud_run.py new explore --weeks 26   (new/README.md)
+# ▶ PC (웹 화면): powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Folder new
+# ※ 연구·교육용 분석 — 투자·의료·법률 권유가 아니다.
+# =====================================================================================================
+
+[topic]
+TOPIC = "새 주제 탐색"
+PROJECT_FOLDER = "new"               # 결과 상위 폴더 → PC: output/new/result/, GitHub: new/result/
+RESULT_FOLDER = "result"
+
+[github]
+GITHUB_REPO = "yeomin1024/yeomin1024-ytb"
+GITHUB_BRANCH = "main"
+
+[search]
+REGION_CODE = "KR"
+LANGUAGE = "ko"
+INCLUDE_FOREIGN = false              # 한국어 영상만 (기본). 세계 시장까지 보려면 true + keywords_foreign.txt — 그때는 검색이 언어 지정 없이 새로
+
+[keywords]
+KEYWORD_MODE = "curated"
+KEYWORDS_FILE = "keywords.toml"      # 관련어 목록 파일 (비움 — 모든 영상이 주제 관련). 검색어는 keywords.txt
+
+[ads]
+AD_SUSPECT_FILTER = true             # 조회수는 많은데 좋아요·댓글이 거의 없는 영상(광고로 조회수를 산 것으로 의심) 제외
+AD_SUSPECT_MIN_VIEWS = 50000
+AD_SUSPECT_MAX_LIKE_RATE = 0.0025
+AD_SUSPECT_MAX_COMMENT_RATE = 0.00005
+
+[advanced]
+QUOTA_BUDGET = 6000                  # ⚠️ 비용 관련 (분석기 youtube_topic_analyzer.py 몫 — 클라우드 탐색은 cloud_run 이 남은 만큼)
+DOWNLOAD_VIDEOS = false              # ⚠️ 성공사례 영상 파일은 받지 않음 (사용자 지시 2026-10-13) — 자막·썸네일·댓글·메타데이터만

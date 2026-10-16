@@ -1,0 +1,16 @@
+{
+ "tool": "cloud_run.py v1.3",
+ "topic": "new",
+ "saved": "2026-10-16T18:23:17+09:00",
+ "why": "explore",
+ "files": 4127,
+ "bytes_raw": 11699647,
+ "bytes_tgz": 4403596,
+ "sha256": "e51226ee3d64ed841dc3c040617206b69acc98aaef99b15498e53e94155e02a1",
+ "kinds": {
+  "channels.json": 1,
+  "search": 88,
+  "video": 4037,
+  "web": 1
+ }
+}

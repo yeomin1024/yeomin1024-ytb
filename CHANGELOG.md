@@ -1,5 +1,31 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-16 (48) — 주식 1번 장면 v3.0: 오른쪽 카드 = 시안 그대로 · 경주는 약 2년 창이 흐름 · 가격 선 하나 · 도입 + 같은 조건 20초 · 대본 v2.1
+
+### 왜 (사용자 지시)
+- 2026-10-16: "야 왜 오른쪽 2개 박스들 디자인 이미지 그대로 사용 안했어? 그게 나은데 다시 수정하고 메인 차트는 고정된 화면에서 다 보여줄려면 잘 표현안되니까 스크롤하면서 여유있게 보여주도록 해 그리고 메인인 실시간 비교 전 도입부가 너무 길어 20초 안으로 다 설명하게 해 그리고 차트 선 위에 하얀 영역이 작게 붙여서 나오는게 그렇게 하지말고 단일 선으로 해 다시 영상 만들어봐"
+- 이어서: "내가 말한 도입은 도입 + 규칙 설명이야 무리면 적어도 30초안에는 끝내도록 해 계속해"
+
+### 바꾼 파일
+| 파일 | 버전 | 내용 |
+|---|---|---|
+| `stock/source/eonje-maesu-2026-10/eonje-maesu-2026-10.txt` · `.srt` | v2.1 | 도입 + 같은 조건 = 6문장(질문 → 신호 10가지·SPY → 2016~·1만 달러·0.25% → 같은 매도 규칙 → 다시 매수, 추정 20.2초) · BUY & HOLD 설명은 1번 장으로 · '산·판·샀·사서·팔린' → '매수·매도' (stock/guides/README.md 2번 4 — v2.0 에 남아 있던 것) · 배당 재투자는 한계로 · 108문장 |
+| `…/backtest/check_numbers.py` | v2.2 | 새 문장 앵커 — 152/152, 검사표에 없는 숫자 0 |
+| `stock/tts_lexicon.tsv` | v1.3 | BUY & HOLD → 바이 앤 홀드 |
+| `video/episodes/eonje-maesu-2026-10/index.html` | v3.0 | 경주: 약 2년(504 거래일) 창이 날짜를 따라 흐름 · 값 범위도 창에 맞춤(지난 값만, 넓어질 땐 바로·좁아질 땐 하루 4%) · 지붕 없이 가격 선 하나 · 반투명 차례(renderOrder) — 빨간 매도선이 벽 뒤에 비쳐 흐리던 것 · 매도선 이름 −10% · 분기 바닥 선. 카드: 시안 race3d.html v1.1 그대로(계좌 그래프·번호·BUY 날·값 → SELL 날·값·%·$) + 합계 ▲·▼·⌛·Σ · 최근 6줄. 도입 + 같은 조건 장면 새로(→ 바로 1번 경주, 1번 장 3D 확대 없앰, BUY & HOLD 줄 노란 테두리). −0.0% → +0.0% |
+| `video/render/render.mjs` | v1.7 | check: `data-small="<이유>"` 칸 글자는 36px 검사에서 뺌 (사용자가 고른 작은 글자 디자인만) |
+| `…/upload.md` | v2.1 | 챕터 15개 (대본 v2.1 문장 번호 — '같은 조건' 챕터 없앰) |
+| `…/titles.md` · `thumbnails/*.md` · `chatgpt.md` · `stock/thumbnails_chatgpt.md` | — | 대본 v2.1 문장 번호만 |
+| `…/README.md` | v3.1 | 장면·대본·검사 |
+| `stock/guides/README.md` | v1.8 | 4번 흐르는 경주·선 하나·카드 = 시안(data-small) · 5번 도입 + 같은 조건 20초(늦어도 30초) · 2번 4 매수·매도 점검 명령 |
+| `guides/video_guide.md` | v4.9 | 렌더기 v1.7 data-small · 3D renderOrder |
+| `stock/source/topic_candidates.md` · `used_content.md` | v1.4 | 1번 대본 v2.1·장면 v3.0 |
+| `guides/status.md` | v1.23 | 2-1 |
+
+### 확인
+- `check_numbers.py` 152/152 · `srt_tool check` ✅ · `render.mjs check` problems=0 page_errors=0 (컷 57, 0.5초마다 945) · still 57장 · `youtube_upload.py --dry-run` 문제 1개(영상 파일 없음 — 오디오 전).
+- 렌더: `render.mjs video stock eonje-maesu-2026-10 --estimated-preview` → `stock/out/eonje-maesu-2026-10/preview_estimated_silent.mp4` (git 밖, 소리 없음) — 이 커밋 때 렌더 중 (13,335프레임, 워커 3).
+
 ## 2026-10-16 (47) — 역사: 무슨 영상을 만들지 추천 (`history/guides/data_insights.md` v1.0 · `history/source/topic_candidates.md` v1.0) · 나이 규칙 고침 `tools/content_research.py` v1.1.2
 
 ### 왜 (사용자 지시)

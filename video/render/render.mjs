@@ -1,4 +1,6 @@
-// VERSION: v1.6 — 2026-10-16 — three.js(jsdelivr three@0.160.0) 를 로컬 node_modules 로 (gsap 처럼) · 낱말 검사 예외에 SPY (주식 1번 v2 3D 장면).
+// VERSION: v1.7 — 2026-10-16 — check: `data-small="<이유>"` 속성이 있는 칸 안의 글자는 '36px 미만' 에서 뺌 (화면 밖·맨 아래 60px·낱말 검사는 그대로).
+//   주식 1번 오른쪽 카드 2개 = 시안 race3d.html v1.1 그대로 (글자 15~40px) — 사용자 지시 2026-10-16 "오른쪽 2개 박스들 디자인 이미지 그대로 사용 안했어? 그게 나은데 다시 수정하고".
+// v1.6 — 2026-10-16 — three.js(jsdelivr three@0.160.0) 를 로컬 node_modules 로 (gsap 처럼) · 낱말 검사 예외에 SPY (주식 1번 v2 3D 장면).
 // v1.5 — 2026-10-16 — 낱말 검사 예외에 HOLD (계좌 칸 'BUY & HOLD' — 사용자 지시 2026-10-16 "1번째 박스에는 맨처음에 매수하고 그냥 냅둔 수익도 표시해").
 // v1.4 — 2026-10-16 — 낱말 검사에서 BUY·SELL(사용자 지시 2026-10-16 "buy, sell 문구 붙여서 표시하고")과 지표 이름 RSI·VIX 도 뺌 (stock/guides/README.md 4번).
 // v1.3 — 2026-10-16 — 낱말 검사에서 지수 이름 'NASDAQ' 도 뺌 (S&P 와 같은 고유 이름 — 주식 1번 v2 확인 장면 '나스닥 2000·2003 시작', stock/guides/README.md 4번).
@@ -29,7 +31,7 @@ import { fileURLToPath } from "node:url";
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, "..", "..");
-const VERSION = "v1.6";                        // 로그 [RENDER] tool= 에 찍힘 (v1.4~v1.6 때 올리지 않았던 것을 맞춤)
+const VERSION = "v1.7";                        // 로그 [RENDER] tool= 에 찍힘 (v1.4~v1.6 때 올리지 않았던 것을 맞춤)
 const log = (stage, kv) => console.log(`[${stage}] [${new Date().toISOString().slice(0, 19)}Z] ` +
   Object.entries(kv).map(([k, v]) => `${k}=${typeof v === "string" && /\s/.test(v) ? JSON.stringify(v) : v}`).join(" "));
 
@@ -188,7 +190,7 @@ const CHECK_FN = () => {
     if (!b.width) continue;
     const fs = parseFloat(getComputedStyle(el).fontSize);
     const txt = n.textContent.trim().slice(0, 24);
-    if (fs < 36) out.push({ kind: "글자 36px 미만", txt, fs });
+    if (fs < 36 && !el.closest("[data-small]")) out.push({ kind: "글자 36px 미만", txt, fs });   // v1.7: data-small = 사용자가 고른 작은 글자 칸 (이유를 속성 값에)
     if (NOWORDS && !el.closest(".code") && (/[가-힣ぁ-んァ-ン一-龥]/.test(n.textContent) || /[A-Za-z]{2,}/.test(n.textContent.replace(/S&P|NASDAQ|BUY|SELL|HOLD|RSI|VIX|SPY/g, ""))))
       out.push({ kind: "낱말(언어 없는 화면)", txt });   // K.init opts.noWords — 숫자·기호·A·B·S&P·NASDAQ 만 (stock/guides/README.md 4번)
     if (b.bottom > LOW && !el.closest("#chip")) out.push({ kind: cc0 ? "자막 띠(y 880 아래)와 겹침" : "맨 아래 60px(y 1020 아래)", txt, bottom: Math.round(b.bottom) });

@@ -1,6 +1,6 @@
 # eonje-maesu-2026-10 썸네일 3장 — ChatGPT용 (읽고 그대로 만들고 저장소에 올리기)
 
-자동 생성 — `python tools/make_summary.py --chatgpt stock eonje-maesu-2026-10` (2026-10-16 13:40). 이 파일은 고치지 말고 `thumbnail_N.md`를 고친 뒤 다시 만든다.
+자동 생성 — `python tools/make_summary.py --chatgpt stock eonje-maesu-2026-10` (2026-10-16 14:27). 이 파일은 고치지 말고 `thumbnail_N.md`를 고친 뒤 다시 만든다.
 
 이 파일 주소: https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/stock/source/eonje-maesu-2026-10/thumbnails/chatgpt.md
 

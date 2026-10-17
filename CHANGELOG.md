@@ -1,5 +1,22 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-17 (89) — 쇼츠 썸네일 문구를 크게 (3줄)
+
+### 왜 (사용자 지시)
+- "문구를 더 크게해서 잘보이게 해봐"
+
+### 한 것
+| 파일·대상 | 내용 |
+|---|---|
+| 쇼츠 썸네일 프롬프트 4편 (`economic/source/<영상ID>/shorts/thumbnails/thumbnail_1.md` → v2.2) | 문구 2줄(너비 7~84%, 77~92px) → **3줄**(너비 6~94%, 125~146px — 화면 높이의 약 7%), 글자 자리 10~36%·얼굴·꼬리표 38~66%, [A]·[B]·글자 얹기·검수 '문구가 그림에서 가장 큰 것인가' |
+| `tools/make_summary.py` (v1.8.3 → v1.8.4) | ChatGPT 규칙 4 '줄 수·줄바꿈·글자 크기도 프롬프트대로' · 규칙 3 '양옆 8%는 2:3 그림일 때만' |
+| `economic/thumbnails_chatgpt.md` | 다시 만듦 (4장) |
+| `guides/thumbnail_guide.md` (v3.11 — 12번·피드백 23) · `CLAUDE.md` · `guides/status.md` (v1.64, 2-2 0-13) | 쇼츠 문구는 그림에서 가장 크게 — 3줄·7%·너비 94% |
+
+### 확인
+- 줄 너비를 `video/public/fonts/NotoSansKR-900.ttf` 로 재어 글자 크기를 정함 · 크기 비교 목업(검토용, git 밖)으로 3줄이 높이 10~36% 안에 드는지 봄
+- `python3 -m unittest tools.tests.test_make_summary_chatgpt` → 13 OK
+
 ## 2026-10-17 (88) — 쇼츠 썸네일 그림: 손해를 알고 좌절한 얼굴
 
 ### 왜 (사용자 지시)

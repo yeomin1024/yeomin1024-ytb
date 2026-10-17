@@ -1,6 +1,6 @@
 # keobeodeu-kol-2026-10 썸네일 3장 — ChatGPT용 (읽고 그대로 만들고 저장소에 올리기)
 
-자동 생성 — `python tools/make_summary.py --chatgpt stock keobeodeu-kol-2026-10` (2026-10-17 12:04). 이 파일은 고치지 말고 `thumbnail_N.md`를 고친 뒤 다시 만든다.
+자동 생성 — `python tools/make_summary.py --chatgpt stock keobeodeu-kol-2026-10` (2026-10-17 12:11). 이 파일은 고치지 말고 `thumbnail_N.md`를 고친 뒤 다시 만든다.
 
 이 파일 주소: https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/stock/source/keobeodeu-kol-2026-10/thumbnails/chatgpt.md
 
@@ -26,9 +26,8 @@
 
 | 자리 | 문구 | 색 |
 |---|---|---|
-| 왼쪽 위 — 큰 머리글 | `$100,000 − $ − $ − $ = ?` | $100,000 노랑 · − $ − $ − $ 빨강 · = 흰색 · ? 노랑 |
-| 왼쪽(주황) 상자 아래 | `QYLD` | QYLD 주황 |
-| 오른쪽(파랑) 상자 아래 | `QQQ` | QQQ 파랑 |
+| 왼쪽 위 — 큰 머리글 | `QYLD vs QQQ ?` | QYLD 주황 · vs 흰색 · QQQ 파랑 · ? 노랑 |
+| 노란 점선(처음 원금) 끝 | `$100,000` | $100,000 노랑 |
 
 프롬프트:
 
@@ -41,7 +40,7 @@ Neither side is highlighted or brighter; nobody is winning. The mood is suspense
 Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
 If 16:9 is not available, use the widest landscape canvas; in any case keep the main objects inside the central 16:9 area, at least 8% away from the top and bottom edges.
 Fictional person, not resembling any real or famous person.
-Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) the headline "$100,000 − $ − $ − $ = ?" in the upper-left area, above the main objects (keep it off the chest and the face), very large (about 13% of the image height), written as "$100,000" in yellow (#FFD400), "− $ − $ − $" in red (#FF4D5E), "=" in white, "?" in yellow (#FFD400); (2) "QYLD" on the front of the left (orange-rimmed) box's pedestal, or under the left tap if the pedestal is not visible, large, written as "QYLD" in orange (#FF8A3D); (3) "QQQ" on the front of the right (blue-rimmed) box's pedestal, or under the right tap if the pedestal is not visible, large, written as "QQQ" in blue (#5AB4FF). Spell every item exactly as written, character by character, with the spaces shown: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→", ">", "<", "=", "+" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the boxes, the taps, the tray and the pedestals have nothing else written on them. Keep all text off any face and out of the bottom-right corner.
+Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) the headline "QYLD vs QQQ ?" in the upper-left area, above the main objects (keep it off the chest and the face), very large (about 13% of the image height), written as "QYLD" in orange (#FF8A3D), "vs" in white, "QQQ" in blue (#5AB4FF), "?" in yellow (#FFD400); (2) "$100,000" at the end of the yellow dashed line (the starting level), large, written as "$100,000" in yellow (#FFD400). Spell every item exactly as written, character by character, with the spaces shown: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→", ">", "<", "=", "+" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the boxes, the taps, the tray and the pedestals have nothing else written on them. Keep all text off any face and out of the bottom-right corner.
 ```
 
 ## thumbnail_2 — 실험안 ①: 같은 장면에서 사람만 뺌
@@ -50,9 +49,8 @@ Text: add only the following text in a very bold, clean, flat sans-serif typefac
 
 | 자리 | 문구 | 색 |
 |---|---|---|
-| 왼쪽 위 — 큰 머리글 | `$100,000 − $ − $ − $ = ?` | $100,000 노랑 · − $ − $ − $ 빨강 · = 흰색 · ? 노랑 |
-| 왼쪽(주황) 상자 아래 | `QYLD` | QYLD 주황 |
-| 오른쪽(파랑) 상자 아래 | `QQQ` | QQQ 파랑 |
+| 왼쪽 위 — 큰 머리글 | `QYLD vs QQQ ?` | QYLD 주황 · vs 흰색 · QQQ 파랑 · ? 노랑 |
+| 노란 점선(처음 원금) 끝 | `$100,000` | $100,000 노랑 |
 
 프롬프트:
 
@@ -63,7 +61,7 @@ Foreground center: two identical tall glass treasure boxes of exactly the same s
 No people. Neither side is highlighted or brighter; nobody is winning. The mood is suspense.
 Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
 If 16:9 is not available, use the widest landscape canvas; in any case keep the main objects inside the central 16:9 area, at least 8% away from the top and bottom edges.
-Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) the headline "$100,000 − $ − $ − $ = ?" in the upper-left area, above the main objects (keep it off the chest and the face), very large (about 13% of the image height), written as "$100,000" in yellow (#FFD400), "− $ − $ − $" in red (#FF4D5E), "=" in white, "?" in yellow (#FFD400); (2) "QYLD" on the front of the left (orange-rimmed) box's pedestal, or under the left tap if the pedestal is not visible, large, written as "QYLD" in orange (#FF8A3D); (3) "QQQ" on the front of the right (blue-rimmed) box's pedestal, or under the right tap if the pedestal is not visible, large, written as "QQQ" in blue (#5AB4FF). Spell every item exactly as written, character by character, with the spaces shown: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→", ">", "<", "=", "+" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the boxes, the taps, the tray and the pedestals have nothing else written on them. Keep all text off any face and out of the bottom-right corner.
+Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) the headline "QYLD vs QQQ ?" in the upper-left area, above the main objects (keep it off the chest and the face), very large (about 13% of the image height), written as "QYLD" in orange (#FF8A3D), "vs" in white, "QQQ" in blue (#5AB4FF), "?" in yellow (#FFD400); (2) "$100,000" at the end of the yellow dashed line (the starting level), large, written as "$100,000" in yellow (#FFD400). Spell every item exactly as written, character by character, with the spaces shown: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→", ">", "<", "=", "+" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the boxes, the taps, the tray and the pedestals have nothing else written on them. Keep all text off any face and out of the bottom-right corner.
 ```
 
 ## thumbnail_3 — 실험안 ②: 손·얼굴 클로즈업 (구도)
@@ -72,9 +70,8 @@ Text: add only the following text in a very bold, clean, flat sans-serif typefac
 
 | 자리 | 문구 | 색 |
 |---|---|---|
-| 왼쪽 위 — 큰 머리글 | `$100,000 − $ − $ − $ = ?` | $100,000 노랑 · − $ − $ − $ 빨강 · = 흰색 · ? 노랑 |
-| 왼쪽(주황) 상자 아래 | `QYLD` | QYLD 주황 |
-| 오른쪽(파랑) 상자 아래 | `QQQ` | QQQ 파랑 |
+| 왼쪽 위 — 큰 머리글 | `QYLD vs QQQ ?` | QYLD 주황 · vs 흰색 · QQQ 파랑 · ? 노랑 |
+| 노란 점선(처음 원금) 끝 | `$100,000` | $100,000 노랑 |
 
 프롬프트:
 
@@ -85,5 +82,5 @@ The face of a fictional person is partly visible at the edge, thoughtful and hes
 Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
 If 16:9 is not available, use the widest landscape canvas; in any case keep the main objects inside the central 16:9 area, at least 8% away from the top and bottom edges.
 Fictional person, not resembling any real or famous person.
-Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) the headline "$100,000 − $ − $ − $ = ?" in the upper-left area, above the main objects (keep it off the chest and the face), very large (about 13% of the image height), written as "$100,000" in yellow (#FFD400), "− $ − $ − $" in red (#FF4D5E), "=" in white, "?" in yellow (#FFD400); (2) "QYLD" on the front of the left (orange-rimmed) box's pedestal, or under the left tap if the pedestal is not visible, large, written as "QYLD" in orange (#FF8A3D); (3) "QQQ" on the front of the right (blue-rimmed) box's pedestal, or under the right tap if the pedestal is not visible, large, written as "QQQ" in blue (#5AB4FF). Spell every item exactly as written, character by character, with the spaces shown: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→", ">", "<", "=", "+" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the boxes, the taps, the tray and the pedestals have nothing else written on them. Keep all text off any face and out of the bottom-right corner.
+Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) the headline "QYLD vs QQQ ?" in the upper-left area, above the main objects (keep it off the chest and the face), very large (about 13% of the image height), written as "QYLD" in orange (#FF8A3D), "vs" in white, "QQQ" in blue (#5AB4FF), "?" in yellow (#FFD400); (2) "$100,000" at the end of the yellow dashed line (the starting level), large, written as "$100,000" in yellow (#FFD400). Spell every item exactly as written, character by character, with the spaces shown: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→", ">", "<", "=", "+" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the boxes, the taps, the tray and the pedestals have nothing else written on them. Keep all text off any face and out of the bottom-right corner.
 ```

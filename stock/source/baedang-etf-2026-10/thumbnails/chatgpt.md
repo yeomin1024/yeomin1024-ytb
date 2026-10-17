@@ -1,6 +1,6 @@
 # baedang-etf-2026-10 썸네일 3장 — ChatGPT용 (읽고 그대로 만들고 저장소에 올리기)
 
-자동 생성 — `python tools/make_summary.py --chatgpt stock baedang-etf-2026-10` (2026-10-17 12:04). 이 파일은 고치지 말고 `thumbnail_N.md`를 고친 뒤 다시 만든다.
+자동 생성 — `python tools/make_summary.py --chatgpt stock baedang-etf-2026-10` (2026-10-17 12:11). 이 파일은 고치지 말고 `thumbnail_N.md`를 고친 뒤 다시 만든다.
 
 이 파일 주소: https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/stock/source/baedang-etf-2026-10/thumbnails/chatgpt.md
 
@@ -26,9 +26,8 @@
 
 | 자리 | 문구 | 색 |
 |---|---|---|
-| 왼쪽 위 — 큰 머리글 | `SCHD − 15% TAX > SPY ?` | SCHD 보라 · − 15% TAX 빨강 · > 흰색 · SPY 파랑 · ? 노랑 |
-| 왼쪽(보라) 항아리 아래 | `SCHD` | SCHD 보라 |
-| 오른쪽(파랑) 항아리 아래 | `SPY` | SPY 파랑 |
+| 왼쪽 위 — 큰 머리글 | `SCHD vs SPY ?` | SCHD 보라 · vs 흰색 · SPY 파랑 · ? 노랑 |
+| 작은 빨간 상자 (세금) | `−15% TAX` | −15% TAX 빨강 |
 
 프롬프트:
 
@@ -41,7 +40,7 @@ Neither side is highlighted or brighter; nobody is winning. The mood is suspense
 Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
 If 16:9 is not available, use the widest landscape canvas; in any case keep the main objects inside the central 16:9 area, at least 8% away from the top and bottom edges.
 Fictional person, not resembling any real or famous person.
-Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) the headline "SCHD − 15% TAX > SPY ?" in the upper-left area, above the main objects (keep it off the chest and the face), very large (about 13% of the image height), written as "SCHD" in violet (#B48CFF), "− 15% TAX" in red (#FF4D5E), ">" in white, "SPY" in blue (#5AB4FF), "?" in yellow (#FFD400); (2) "SCHD" on the front of the left (violet-rimmed) jar's pedestal, or just below the left jar if the pedestal is not visible, large, written as "SCHD" in violet (#B48CFF); (3) "SPY" on the front of the right (blue-rimmed) jar's pedestal, or just below the right jar if the pedestal is not visible, large, written as "SPY" in blue (#5AB4FF). Spell every item exactly as written, character by character, with the spaces shown: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→", ">", "<", "=", "+" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the jars, the red box, the chute and the pedestals have nothing else written on them. Keep all text off any face and out of the bottom-right corner.
+Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) the headline "SCHD vs SPY ?" in the upper-left area, above the main objects (keep it off the chest and the face), very large (about 13% of the image height), written as "SCHD" in violet (#B48CFF), "vs" in white, "SPY" in blue (#5AB4FF), "?" in yellow (#FFD400); (2) "−15% TAX" on the front of the small red box between the jars, large, written as "−15% TAX" in red (#FF4D5E). Spell every item exactly as written, character by character, with the spaces shown: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→", ">", "<", "=", "+" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the jars, the red box, the chute and the pedestals have nothing else written on them. Keep all text off any face and out of the bottom-right corner.
 ```
 
 ## thumbnail_2 — 실험안 ①: 같은 장면에서 사람만 뺌
@@ -50,9 +49,8 @@ Text: add only the following text in a very bold, clean, flat sans-serif typefac
 
 | 자리 | 문구 | 색 |
 |---|---|---|
-| 왼쪽 위 — 큰 머리글 | `SCHD − 15% TAX > SPY ?` | SCHD 보라 · − 15% TAX 빨강 · > 흰색 · SPY 파랑 · ? 노랑 |
-| 왼쪽(보라) 항아리 아래 | `SCHD` | SCHD 보라 |
-| 오른쪽(파랑) 항아리 아래 | `SPY` | SPY 파랑 |
+| 왼쪽 위 — 큰 머리글 | `SCHD vs SPY ?` | SCHD 보라 · vs 흰색 · SPY 파랑 · ? 노랑 |
+| 작은 빨간 상자 (세금) | `−15% TAX` | −15% TAX 빨강 |
 
 프롬프트:
 
@@ -63,7 +61,7 @@ Foreground center: two identical large glass jars of exactly the same size on tw
 No people. Neither side is highlighted or brighter; nobody is winning. The mood is suspense.
 Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
 If 16:9 is not available, use the widest landscape canvas; in any case keep the main objects inside the central 16:9 area, at least 8% away from the top and bottom edges.
-Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) the headline "SCHD − 15% TAX > SPY ?" in the upper-left area, above the main objects (keep it off the chest and the face), very large (about 13% of the image height), written as "SCHD" in violet (#B48CFF), "− 15% TAX" in red (#FF4D5E), ">" in white, "SPY" in blue (#5AB4FF), "?" in yellow (#FFD400); (2) "SCHD" on the front of the left (violet-rimmed) jar's pedestal, or just below the left jar if the pedestal is not visible, large, written as "SCHD" in violet (#B48CFF); (3) "SPY" on the front of the right (blue-rimmed) jar's pedestal, or just below the right jar if the pedestal is not visible, large, written as "SPY" in blue (#5AB4FF). Spell every item exactly as written, character by character, with the spaces shown: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→", ">", "<", "=", "+" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the jars, the red box, the chute and the pedestals have nothing else written on them. Keep all text off any face and out of the bottom-right corner.
+Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) the headline "SCHD vs SPY ?" in the upper-left area, above the main objects (keep it off the chest and the face), very large (about 13% of the image height), written as "SCHD" in violet (#B48CFF), "vs" in white, "SPY" in blue (#5AB4FF), "?" in yellow (#FFD400); (2) "−15% TAX" on the front of the small red box between the jars, large, written as "−15% TAX" in red (#FF4D5E). Spell every item exactly as written, character by character, with the spaces shown: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→", ">", "<", "=", "+" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the jars, the red box, the chute and the pedestals have nothing else written on them. Keep all text off any face and out of the bottom-right corner.
 ```
 
 ## thumbnail_3 — 실험안 ②: 손·얼굴 클로즈업 (구도)
@@ -72,9 +70,8 @@ Text: add only the following text in a very bold, clean, flat sans-serif typefac
 
 | 자리 | 문구 | 색 |
 |---|---|---|
-| 왼쪽 위 — 큰 머리글 | `SCHD − 15% TAX > SPY ?` | SCHD 보라 · − 15% TAX 빨강 · > 흰색 · SPY 파랑 · ? 노랑 |
-| 왼쪽(보라) 항아리 아래 | `SCHD` | SCHD 보라 |
-| 오른쪽(파랑) 항아리 아래 | `SPY` | SPY 파랑 |
+| 왼쪽 위 — 큰 머리글 | `SCHD vs SPY ?` | SCHD 보라 · vs 흰색 · SPY 파랑 · ? 노랑 |
+| 작은 빨간 상자 (세금) | `−15% TAX` | −15% TAX 빨강 |
 
 프롬프트:
 
@@ -85,5 +82,5 @@ The face of a fictional person is partly visible at the edge, thoughtful and hes
 Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
 If 16:9 is not available, use the widest landscape canvas; in any case keep the main objects inside the central 16:9 area, at least 8% away from the top and bottom edges.
 Fictional person, not resembling any real or famous person.
-Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) the headline "SCHD − 15% TAX > SPY ?" in the upper-left area, above the main objects (keep it off the chest and the face), very large (about 13% of the image height), written as "SCHD" in violet (#B48CFF), "− 15% TAX" in red (#FF4D5E), ">" in white, "SPY" in blue (#5AB4FF), "?" in yellow (#FFD400); (2) "SCHD" on the front of the left (violet-rimmed) jar's pedestal, or just below the left jar if the pedestal is not visible, large, written as "SCHD" in violet (#B48CFF); (3) "SPY" on the front of the right (blue-rimmed) jar's pedestal, or just below the right jar if the pedestal is not visible, large, written as "SPY" in blue (#5AB4FF). Spell every item exactly as written, character by character, with the spaces shown: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→", ">", "<", "=", "+" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the jars, the red box, the chute and the pedestals have nothing else written on them. Keep all text off any face and out of the bottom-right corner.
+Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) the headline "SCHD vs SPY ?" in the upper-left area, above the main objects (keep it off the chest and the face), very large (about 13% of the image height), written as "SCHD" in violet (#B48CFF), "vs" in white, "SPY" in blue (#5AB4FF), "?" in yellow (#FFD400); (2) "−15% TAX" on the front of the small red box between the jars, large, written as "−15% TAX" in red (#FF4D5E). Spell every item exactly as written, character by character, with the spaces shown: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→", ">", "<", "=", "+" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the jars, the red box, the chute and the pedestals have nothing else written on them. Keep all text off any face and out of the bottom-right corner.
 ```

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-10-16 — 최초. 대본 keobeodeu-kol-2026-10.txt (130문장) 숫자 검사 — 결과 = results.json (run.py v1.0).
+# VERSION: v1.1 — 2026-10-17 — 대본 v1.1 (도입 + 규칙 23초 — 사용자 지시 2026-10-17 '테스트 들어가기 전 도입 및 규칙 설명 30초 넘기지 말라고'): 규칙 문장 3개로, 원금 점선 문장은 경주 첫머리, 구조(하루 움직임)는 결과 뒤.
+# v1.0 — 2026-10-16 — 최초. 대본 keobeodeu-kol-2026-10.txt (130문장) 숫자 검사 — 결과 = results.json (run.py v1.0).
 #          문장마다 results.json 에서 글자를 다시 만들어 그 문장에 그대로 있는지 + 조건 검사 + 대본의 모든 숫자가 검사표에 있는지 → ../checklist.md
 #          (stock/guides/concept.md 2번 '숫자는 코드 출력만'). 공통 부품 tools/backtest/numcheck.py v1.0.
 """python3 stock/source/keobeodeu-kol-2026-10/backtest/check_numbers.py   # 하나라도 다르면 끝 코드 1"""
@@ -23,12 +24,10 @@ BY = M["by_year"]
 CAP = M["capture"]
 
 # ---- 규칙
-n = S("10만 달러로 매수해요"); need(n, ymd(M["start"]), "본 실험 시작"); need(n, won(R["initial"]), "처음 넣은 돈")
-cond(S("수수료는 사고팔 때마다"), R["fee"] == 0.0025, "fee", "0.25%")
-cond(S("노란 점선이 처음 넣은"), R["initial"] == 100_000, "initial", "10만 달러")
-cond(S("나스닥100 커버드콜 ETF, QYLD"), True, "", "100")
-cond(S("같은 나스닥100을 따라가는 QQQ"), True, "", "100")
-cond(S("나스닥100 커버드콜 ETF"), M["inc"] == "QYLD" and M["idx"] == "QQQ", "짝")
+n = S("10만 달러씩 매수해요"); need(n, ym(M["start"]), "본 실험 시작 (날짜 전부는 화면)"); need(n, won(R["initial"]), "처음 넣은 돈")
+cond(S("수수료는 0.25%예요"), R["fee"] == 0.0025, "fee", "0.25%")
+cond(S("노란 점선은 처음 넣은"), R["initial"] == 100_000, "initial", "10만 달러")
+cond(S("QYLD는 분배금을 꺼내고"), M["inc"] == "QYLD" and M["idx"] == "QQQ", "짝")
 # ---- 구조 (하루 움직임)
 n = S("하루에 1% 넘게 오른 날은"); need(n, f"{CAP['qqq_up_days_over_1pct']}일", "QQQ +1% 넘은 날 수"); cond(n, True, "", "1%")
 n = S("상승이었어요"); need(n, pct(CAP["b_on_up_mean"], 2), "그날 QQQ 평균"); need(n, pct(CAP["a_on_up_mean"], 2), "그날 QYLD 평균")

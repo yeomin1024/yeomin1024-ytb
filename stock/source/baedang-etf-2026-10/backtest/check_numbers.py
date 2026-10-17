@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-10-16 — 최초. 대본 baedang-etf-2026-10.txt 숫자 검사 — 결과 = results.json (run.py v1.0). 공통 부품 tools/backtest/numcheck.py v1.0.
+# VERSION: v1.1 — 2026-10-17 — 대본 v1.1 (도입 + 규칙 24초 — 사용자 지시 2026-10-17 '테스트 들어가기 전 도입 및 규칙 설명 30초 넘기지 말라고'): 규칙 문장 2개로, 15% 세율 문장은 '다른 조건', 구조(배당 한 번)는 결과 뒤.
+# v1.0 — 2026-10-16 — 최초. 대본 baedang-etf-2026-10.txt 숫자 검사 — 결과 = results.json (run.py v1.0). 공통 부품 tools/backtest/numcheck.py v1.0.
 #          문장마다 results.json 에서 글자를 다시 만들어 그 문장에 그대로 있는지 + 조건 + 대본의 모든 숫자가 검사표에 있는지 → ../checklist.md.
 """python3 stock/source/baedang-etf-2026-10/backtest/check_numbers.py   # 하나라도 다르면 끝 코드 1"""
 import json
@@ -27,11 +28,9 @@ def ye(anchor, y, both=True):
 
 
 # ---- 규칙
-n = S("매달 첫 거래일에 1,000달러씩"); need(n, ymd(M["start"]), "시작"); need(n, won(R["monthly"]), "매달")
-cond(S("15%를 세금으로 떼고"), R["tax"] == 0.15, "tax", "15%")
+n = S("2011년부터 매달 1,000달러씩"); need(n, f"{M['start'][:4]}년부터", "시작 해 (날짜 전부는 화면)"); need(n, won(R["monthly"]), "매달")
+n = S("배당은 15%를 떼고"); cond(n, R["tax"] == 0.15, "tax", "15%"); cond(n, R["fee"] == 0.0025, "fee", "0.25%")
 cond(S("15%는 많은 나라가"), True, "가정 (세율은 나라마다 다름 — run.py TAX)", "15%")
-cond(S("매수할 때마다 0.25%"), R["fee"] == 0.0025, "fee", "0.25%")
-cond(S("S&P 500을 따라가는 SPY"), True, "", "500")
 # ---- 구조: 배당 한 번
 E = R["div_example"]
 n = S("SCHD 계좌에는"); need(n, ymd(E["date"]), "예 날짜"); need(n, nc.comma(rint(E["shares"])).replace(",", ",") and f"{rint(E['shares']) // 10000}만 {nc.comma(rint(E['shares']) % 10000)}주", "주식 수")

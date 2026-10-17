@@ -4,7 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>매수 신호 10가지 성공률 백테스트</title>
-<!-- VERSION: v4.0 — 2026-10-16 — 주식 1번 v4 '성공률' 장면 (대본 eonje-maesu-2026-10.txt v3.0 163문장 · 숫자 = backtest/barrier/anim.js ← barrier/run.py v2.0).
+<!-- VERSION: v4.1 — 2026-10-17 — K.init testFrom "매달 첫 거래일" 만 더함 (render.mjs v1.11 테스트 시작 30초 검사 — 사용자 지시 2026-10-17). 장면·대본 그대로.
+     v4.0 — 2026-10-16 — 주식 1번 v4 '성공률' 장면 (대본 eonje-maesu-2026-10.txt v3.0 163문장 · 숫자 = backtest/barrier/anim.js ← barrier/run.py v2.0).
      사용자 지시 2026-10-16 "그럼 신호 없이 무작위로 매수 했을 때랑 비교하는 거지? 그게 맞는거 같은데 그리고 m을 1~2%로 해야 엄격하게 봐서 성공 확률이 줄지
      m은 내가 말한 범위에서 적절하게 정해서 영상 만들어봐" · 앞선 지시 "수익률로 비교하지말고 성공 기준을 매수 후 해당 지점에서 m%이하로 떨어지지 않고 매수 지점에서
      n% 이상 상승하면 성공으로 하자" · "조건 발생이 너무 희소해서 … 매수 방법으로 다 변경해보고 매도 규칙도 변경해봐 그리고 차트에 나오는 buy, sell 글자 때문에
@@ -106,7 +107,7 @@
 <script>
 (function () {
 "use strict";
-K.init(window.EP, { subtitles: false, chip: false, noWords: true });
+K.init(window.EP, { subtitles: false, chip: false, noWords: true, testFrom: "매달 첫 거래일" });   // v4.1 testFrom = 첫 테스트 파트 — render.mjs v1.11 check 가 30초 안인지 봄
 const tl = K.tl, el = K.el, pop = K.pop;
 const AN = window.AN, N = AN.dates.length, M = AN.m, NN = AN.n, RUNS = AN.runs;
 const SUM = AN.summary, L = AN.lines;

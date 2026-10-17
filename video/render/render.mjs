@@ -1,4 +1,8 @@
-// VERSION: v1.10 — 2026-10-16 — 낱말 검사 예외에 ETF 티커 TQQQ·QYLD·XYLD·JEPI·SCHD·QQQ·QLD·VYM·NDX (SPY 와 같은 고유 이름 — 주식 2·3·4번 계좌 이름표,
+// VERSION: v1.11 — 2026-10-17 — check: 주식(stock) 영상은 테스트(경주) 시작 시각 검사 — 장면 파일 K.init 의 testFrom(테스트가 시작되는 파트 이름)의
+//   첫 문장이 30초 넘게 늦으면 문제(끝 코드 1), 20초 넘으면 경고. testFrom 이 없어도 문제. 추정 시각·실제 오디오 시각 모두 (EP.sent).
+//   사용자 지시 2026-10-17 "야 너 내가 테스트 들어가지 전 도입 및 규칙 설명 30초 넘기지 말라고 했잖아 근데 왜 안지켜 다시 수정해"
+//   (2026-10-16 "메인인 실시간 비교 전 도입부가 너무 길어 20초 안으로" · "무리면 적어도 30초안에는", stock/guides/README.md 5번).
+// v1.10 — 2026-10-16 — 낱말 검사 예외에 ETF 티커 TQQQ·QYLD·XYLD·JEPI·SCHD·QQQ·QLD·VYM·NDX (SPY 와 같은 고유 이름 — 주식 2·3·4번 계좌 이름표,
 //   사용자 지시 2026-10-16 "같은 방식으로 필요한 소스 생성해서 3개 영상 미리보기 영상 만들어봐", stock/guides/README.md 4번).
 // v1.9 — 2026-10-16 — 쇼츠 첫 문장 그림: sync 가 <쇼츠 폴더>/thumbnails/thumbnail_1.(png|jpg|jpeg|webp) 를 찾아 EP.thumb 에 (kit.js v1.4 K.cover).
 //   video: 장면이 K.cover 를 쓰는데 그림이 없으면 최종본을 막음(--no-cover 로 그림 없이), 그림이 데이터 칸과 다르면 sync 다시.
@@ -40,7 +44,7 @@ import { fileURLToPath } from "node:url";
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, "..", "..");
-const VERSION = "v1.10";                        // 로그 [RENDER] tool= 에 찍힘 (v1.4~v1.6 때 올리지 않았던 것을 맞춤)
+const VERSION = "v1.11";                        // 로그 [RENDER] tool= 에 찍힘 (v1.4~v1.6 때 올리지 않았던 것을 맞춤)
 const log = (stage, kv) => console.log(`[${stage}] [${new Date().toISOString().slice(0, 19)}Z] ` +
   Object.entries(kv).map(([k, v]) => `${k}=${typeof v === "string" && /\s/.test(v) ? JSON.stringify(v) : v}`).join(" "));
 
@@ -242,6 +246,19 @@ async function check() {
       seen.add(key);
       bad++;
       log("CHECK", { t: t.toFixed(2), cut: name || "-", ...p });
+    }
+  }
+  // v1.11 주식: 테스트(경주) 시작 = 도입 + 규칙 길이 — 20초 안 (늦어도 30초)
+  if (TOPIC === "stock" && !SHORTS) {
+    const { from, start, parts } = await page.evaluate(() => {
+      const from = window.K && window.K.opt && window.K.opt.testFrom, s = from && window.EP.sent.find(x => x.part === from);
+      return { from: from || null, start: s ? s.start : null, parts: [...new Set(window.EP.sent.map(x => x.part))].slice(0, 4).join("·") };
+    });
+    if (!from || start == null) { bad++; log("CHECK", { kind: "테스트 시작 파트 없음", testFrom: from || "없음", parts, fix: "K.init(EP, { …, testFrom: \"<경주 파트 이름>\" })" }); }
+    else {
+      const lvl = start > 30 ? "problem" : start > 20 ? "warn" : "ok";
+      if (lvl === "problem") bad++;
+      log("CHECK", { kind: "테스트 시작 (도입 + 규칙)", testFrom: from, start_s: start.toFixed(1), limit: "20초 (늦어도 30초)", level: lvl, estimated: !!(await page.evaluate(() => window.EP.estimated)) });
     }
   }
   log("CHECK", { video: ID, cuts: cuts.length, samples: times.length, problems: bad, page_errors: errs.length });

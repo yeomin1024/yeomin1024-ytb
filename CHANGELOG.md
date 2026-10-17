@@ -1,5 +1,19 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-17 (88) — 쇼츠 썸네일 그림: 손해를 알고 좌절한 얼굴
+
+### 왜 (사용자 지시)
+- "야 기초연금 썸네일 그림은 왜이래? 왜 손해봐서 좌절하는게 아닌것 같지?"
+
+### 한 것
+| 파일·대상 | 내용 |
+|---|---|
+| `economic/source/gicho-yeongeum-2026-10/shorts/thumbnails/thumbnail_1.md` (v2.0 → v2.1) · `README.md` | '우린 안 돼' 손사래(포기하는 순간) → 고개를 떨구고 목뒤를 움켜쥔 남편·입을 가린 아내 ([A]·[B]·화면 구성·검수) |
+| `eunte`·`isa`·`toejik` `shorts/thumbnails/thumbnail_1.md` (→ v2.1) | 놀라 굳은 얼굴 → 좌절한 얼굴 (장면·문구 그대로) |
+| `tools/make_summary.py` (v1.8.2 → v1.8.3) · `tools/tests/test_make_summary_chatgpt.py` (v1.6 → v1.7) | ChatGPT 규칙 5 '표정·몸짓은 프롬프트대로' · 시험이 v1.8.1 뒤 옛 말('글자·띄어쓰기 그대로')을 찾아 실패하던 것 고침 — 13개 OK |
+| `economic/thumbnails_chatgpt.md` | 다시 만듦 (4장) |
+| `guides/thumbnail_guide.md` (v3.10, 피드백 22·5번 1) · `CLAUDE.md` · `guides/status.md` (v1.63, 2-2 0-12) | 그림 = 손해를 알고 좌절한 얼굴 — 원인 행동·놀람만 그리지 않음 |
+
 ## 2026-10-17 (87) — ISA 쇼츠 '세금을 96만 원' → '세금 96만 원' 되돌림
 
 ### 왜 (사용자 지시)

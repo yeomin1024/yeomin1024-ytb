@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-# VERSION: v1.6 — 2026-10-17 — make_summary v1.7.0 영어 낱말·숫자·기호 썸네일('| 글자 | **영어…') 규칙 시험 (주식 — 사용자 지시 2026-10-17 "buy, sell 같은 … 영어 문구는 써도 돼" · "숫자나 기호 같은 문구도 써도 돼").
+# VERSION: v1.7 — 2026-10-17 — make_summary v1.8.1 규칙 4 '글자·띄어쓰기·조사 그대로' · v1.8.3 규칙 5 '표정·몸짓은 프롬프트대로' 시험 (v1.8.1 뒤 옛 말을 찾아 실패하던 것을 고침).
+# (v1.6 — 2026-10-17 — make_summary v1.7.0 영어 낱말·숫자·기호 썸네일('| 글자 | **영어…') 규칙 시험 (주식 — 사용자 지시 2026-10-17 "buy, sell 같은 … 영어 문구는 써도 돼" · "숫자나 기호 같은 문구도 써도 돼").
 # (v1.5 — 2026-10-16 — make_summary v1.6.0 쇼츠 썸네일(source/<영상ID>/shorts/thumbnails/thumbnail_1 하나, 세로 9:16) 시험.)
 # (v1.4 — 2026-10-16 — make_summary v1.5.0 --chatgpt-all (주제 모든 영상 한 파일, 장마다 저장 경로) · 영상별 파일 그림 위 저장 경로 시험.)
 # (v1.3 — 2026-10-15 — v1.4.3 글자 없는 썸네일('| 글자 | 없음') 규칙 시험 추가.)
@@ -64,7 +65,8 @@ class ChatgptFileTest(unittest.TestCase):
         self.assertIn("thumbnail_N.png", text)
         self.assertIn("Claude 대화창에 그대로 붙여 넣어 주세요", text)   # ChatGPT 가 못 올릴 때 기본 길
         self.assertIn("가로형 16:9", text)
-        self.assertIn("글자·띄어쓰기 그대로", text)
+        self.assertIn("글자·띄어쓰기·조사 그대로", text)   # v1.8.1 조사
+        self.assertIn("표정·몸짓은 프롬프트에 적힌 그대로", text)   # v1.8.3 좌절 장면
         self.assertIn(f"{ms.RAW_BASE}/economic/source/vid/thumbnails/chatgpt.md", text)
         self.assertIn("[CHATGPT] topic=economic video=vid thumbnails=3", log)
 

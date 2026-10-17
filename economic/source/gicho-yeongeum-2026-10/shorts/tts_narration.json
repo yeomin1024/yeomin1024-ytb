@@ -1,0 +1,141 @@
+{
+ "tool": "tts_narration.py v1.10",
+ "created": "2026-10-17T07:46:39",
+ "topic": "economic",
+ "id": "gicho-yeongeum-2026-10-shorts",
+ "script": "economic/source/gicho-yeongeum-2026-10/shorts/gicho-yeongeum-2026-10-shorts.txt",
+ "script_sha1": "68479f6bb9ab03d7",
+ "sentences": 11,
+ "seconds": 48.86,
+ "engine": {
+  "engine": "qwen3-tts-clone",
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "ref": "e36c19a225874205",
+  "mode": "icl",
+  "language": "Korean",
+  "dtype": "float32",
+  "gen": {}
+ },
+ "voices": {
+  "host": {
+   "name": "진행자",
+   "parts": [
+    "*"
+   ],
+   "engine": "clone",
+   "lock": true,
+   "speaker": "Sohee",
+   "instruct": "",
+   "part_instruct": {},
+   "seed": 4301,
+   "gap": 0.45,
+   "generation": {},
+   "ref_audio": "voices/ref/host.wav",
+   "ref_sha": "e36c19a225874205",
+   "ref_f0": 127.7,
+   "files": [
+    "voices/host.json"
+   ]
+  }
+ },
+ "voice_ids": {
+  "host": "ba3d7519a1de4d4c"
+ },
+ "gaps": {
+  "lead_in": 0.3,
+  "part": 1.0,
+  "tail": 0.8,
+  "cards": []
+ },
+ "items": [
+  {
+   "n": 1,
+   "role": "host",
+   "part": "같은 형편, 다른 기초연금",
+   "text": "67세 박씨 부부는 못 받는 줄 알았던 기초연금을 매달 41만 원 넘게 놓치고 있었습니다.",
+   "start": 0.3,
+   "end": 6.6
+  },
+  {
+   "n": 2,
+   "role": "host",
+   "part": "같은 형편, 다른 기초연금",
+   "text": "서울에 공시가격 5억 원 아파트가 있고, 국민연금은 둘이 합쳐 한 달 170만 원입니다.",
+   "start": 7.05,
+   "end": 12.53
+  },
+  {
+   "n": 3,
+   "role": "host",
+   "part": "같은 형편, 다른 기초연금",
+   "text": "그래서 기초연금은 당연히 안 된다고 생각했어요.",
+   "start": 12.98,
+   "end": 15.85
+  },
+  {
+   "n": 4,
+   "role": "host",
+   "part": "같은 형편, 다른 기초연금",
+   "text": "그런데 얼마 전, 같은 아파트에 사는 이웃 부부와 저녁을 먹었는데요.",
+   "start": 16.3,
+   "end": 20.78
+  },
+  {
+   "n": 5,
+   "role": "host",
+   "part": "같은 형편, 다른 기초연금",
+   "text": "나이도 같은 67세, 집도 국민연금도 박씨네와 똑같은 부부였습니다.",
+   "start": 21.23,
+   "end": 26.09
+  },
+  {
+   "n": 6,
+   "role": "host",
+   "part": "같은 형편, 다른 기초연금",
+   "text": "그 부부는 기초연금을 둘이 합쳐 한 달 41만 원 넘게 받고 있다는 거예요.",
+   "start": 26.54,
+   "end": 31.07
+  },
+  {
+   "n": 7,
+   "role": "host",
+   "part": "같은 형편, 다른 기초연금",
+   "text": "박씨는 처음엔 잘못 들은 줄 알았습니다.",
+   "start": 31.52,
+   "end": 33.54
+  },
+  {
+   "n": 8,
+   "role": "host",
+   "part": "같은 형편, 다른 기초연금",
+   "text": "박씨 부부는 신청조차 해 본 적이 없었거든요.",
+   "start": 33.99,
+   "end": 36.57
+  },
+  {
+   "n": 9,
+   "role": "host",
+   "part": "같은 형편, 다른 기초연금",
+   "text": "신청 안 하고 1년이 지나면, 놓치는 돈은 약 500만 원입니다.",
+   "start": 37.02,
+   "end": 41.19
+  },
+  {
+   "n": 10,
+   "role": "host",
+   "part": "같은 형편, 다른 기초연금",
+   "text": "박씨 부부, 지금이라도 받을 수 있을까요?",
+   "start": 41.64,
+   "end": 43.93
+  },
+  {
+   "n": 11,
+   "role": "host",
+   "part": "같은 형편, 다른 기초연금",
+   "text": "우리 집도 되는지, 지금 할 일까지 아래 영상에서 확인하세요.",
+   "start": 44.38,
+   "end": 48.06
+  }
+ ],
+ "voice_sha1": "f0d0f801940b36b1"
+}

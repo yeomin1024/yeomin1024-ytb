@@ -1,0 +1,125 @@
+{
+ "id": "0NcpK50ihfw",
+ "title": "[자면서 듣는역사] 왜 그렇게 남편을 잃은 과부를 괴롭혔을까?",
+ "channel": "역사원탑",
+ "channel_id": "UCmJpeF8nRg9gNkyQ0VhxaPA",
+ "subs": 5520,
+ "views": 452149,
+ "ratio": 81.91,
+ "age_days": 22,
+ "views_per_day": 20552.2,
+ "minutes": 29.5,
+ "likes": 1973,
+ "comments": 260,
+ "published": "2026-09-24",
+ "queries": "검색:조선왕조실록",
+ "url": "https://www.youtube.com/watch?v=0NcpK50ihfw",
+ "flag": "",
+ "published_at": "2026-09-24T11:51:30Z",
+ "rank": "W122",
+ "set": "web",
+ "folder": "W_0NcpK50ihfw",
+ "sources": [
+  "검색:조선왕조실록"
+ ],
+ "source": "web",
+ "tags": [
+  "조선시대",
+  "과부",
+  "조선 과부",
+  "과부 재가",
+  "재혼 금지",
+  "경국대전",
+  "열녀",
+  "열녀문",
+  "정려",
+  "수절",
+  "순절",
+  "향랑",
+  "김은애",
+  "박지원",
+  "열녀함양박씨전",
+  "정약용",
+  "조침문",
+  "분재기",
+  "이이 남매 화회문기",
+  "균분상속",
+  "삼강행실도",
+  "동국신속삼강행실도",
+  "갑오개혁",
+  "조선 여성사",
+  "한국사",
+  "역사 이야기",
+  "역사 다큐",
+  "조선왕조실록",
+  "밤에 듣는 역사"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "재혼 금지? 법에는 그런 말이 없었다 (오프닝)"
+  },
+  {
+   "start": 91,
+   "title": "강에 던져진 과부 — 1785년, 죽인 건 가족이었다"
+  },
+  {
+   "start": 209,
+   "title": "그 법에는 금지라는 말이 없었다 — 『경국대전』"
+  },
+  {
+   "start": 346,
+   "title": "마흔여섯 명의 회의 — 1477년 7월 17일"
+  },
+  {
+   "start": 474,
+   "title": "조선 전기, 과부는 재산가였다"
+  },
+  {
+   "start": 625,
+   "title": "평민은 왜 그 법을 몰랐나"
+  },
+  {
+   "start": 737,
+   "title": "수절에서 순절로 — 기준이 올라가다"
+  },
+  {
+   "start": 904,
+   "title": "죽음의 값 — 정려라는 행정 절차"
+  },
+  {
+   "start": 1116,
+   "title": "향랑, 1702년 오태강"
+  },
+  {
+   "start": 1229,
+   "title": "소문이 사람을 죽일 때 — 김은애"
+  },
+  {
+   "start": 1331,
+   "title": "살아남은 과부들 — 바늘과 소지"
+  },
+  {
+   "start": 1522,
+   "title": "보쌈, 그리고 417년 만의 한 줄"
+  },
+  {
+   "start": 1669,
+   "title": "왜 그런 선택을 해야만 했을까 (엔딩)"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 263,
+ "comments_top_level": 122,
+ "comments_replies": 141,
+ "comments_by_creator": 58,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 260,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:28:47",
+ "approved": "2026-10-17T16:28+09:00"
+}

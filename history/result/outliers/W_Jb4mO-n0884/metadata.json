@@ -1,0 +1,83 @@
+{
+ "id": "Jb4mO-n0884",
+ "title": "이순신 장군님을 2026년 대한민국에 모셔왔습니다",
+ "channel": "어디로든 연우",
+ "channel_id": "UCsoXr4pXHHHFiRCPCSZsjWw",
+ "subs": 2460,
+ "views": 242634,
+ "ratio": 98.63,
+ "age_days": 8,
+ "views_per_day": 30329.2,
+ "minutes": 6.4,
+ "likes": 1340,
+ "comments": 248,
+ "published": "2026-10-09",
+ "queries": "검색:이순신",
+ "url": "https://www.youtube.com/watch?v=Jb4mO-n0884",
+ "flag": "",
+ "published_at": "2026-10-09T02:07:26Z",
+ "rank": "W97",
+ "set": "web",
+ "folder": "W_Jb4mO-n0884",
+ "sources": [
+  "검색:이순신"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "장군님, 저랑 어디 좀 가요 | Admiral, come with me"
+  },
+  {
+   "start": 28,
+   "title": "여기는 2026년 대한민국입니다 | Welcome to South Korea in 2026"
+  },
+  {
+   "start": 86,
+   "title": "장군님의 첫 자동차 나들이 | The admiral’s first car ride"
+  },
+  {
+   "start": 144,
+   "title": "장군님, 하나 드셔보세요 | Admiral, try one!"
+  },
+  {
+   "start": 173,
+   "title": "보여드리고 싶었던 배가 있어요 | There’s a ship I wanted to show you"
+  },
+  {
+   "start": 194,
+   "title": "지금 우리 바다를 지키는 군함 | The warship protecting our seas today"
+  },
+  {
+   "start": 275,
+   "title": "함께 싸우던 이들이 생각나는구나 | I remember those who fought beside me"
+  },
+  {
+   "start": 303,
+   "title": "장군님이 지키고 싶었던 일상 | The everyday lives he wanted to protect"
+  },
+  {
+   "start": 356,
+   "title": "다시 조선으로, 감사했습니다 | Back to Joseon—thank you for today"
+  },
+  {
+   "start": 375,
+   "title": "자, 하나씩 들게 | Here, have one each"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 248,
+ "comments_top_level": 170,
+ "comments_replies": 78,
+ "comments_by_creator": 5,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 248,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:27:43",
+ "approved": "2026-10-17T16:27+09:00"
+}

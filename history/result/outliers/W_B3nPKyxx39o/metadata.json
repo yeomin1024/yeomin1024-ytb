@@ -1,0 +1,133 @@
+{
+ "id": "B3nPKyxx39o",
+ "title": "세종대왕이 2026년 응급실에 실려 왔더니 벌어진 일",
+ "channel": "로그북",
+ "channel_id": "UC_Sb1wxsT-F97LXxj_h0N9Q",
+ "subs": 379,
+ "views": 21498,
+ "ratio": 56.72,
+ "age_days": 9,
+ "views_per_day": 2388.7,
+ "minutes": 7.3,
+ "likes": 147,
+ "comments": 13,
+ "published": "2026-10-07",
+ "queries": "검색:세종대왕",
+ "url": "https://www.youtube.com/watch?v=B3nPKyxx39o",
+ "flag": "",
+ "published_at": "2026-10-07T22:00:12Z",
+ "rank": "W163",
+ "set": "web",
+ "folder": "W_B3nPKyxx39o",
+ "sources": [
+  "검색:세종대왕"
+ ],
+ "source": "web",
+ "tags": [
+  "세종대왕",
+  "세종",
+  "이도",
+  "훈민정음",
+  "한글",
+  "한글 창제",
+  "훈맹정음",
+  "한글 점자",
+  "박두성",
+  "최만리",
+  "최만리 상소",
+  "집현전",
+  "문종",
+  "소갈증",
+  "안질",
+  "조선시대",
+  "현대에 온 위인",
+  "타임슬립",
+  "역사 인물",
+  "AI 영상",
+  "세계관오류"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "1444년 집현전, 전하가 쓰러지다"
+  },
+  {
+   "start": 12,
+   "title": "2026년 응급실에서 눈을 뜨다"
+  },
+  {
+   "start": 52,
+   "title": "여기선 제가 왕이에요"
+  },
+  {
+   "start": 76,
+   "title": "옆 침대의 청년"
+  },
+  {
+   "start": 89,
+   "title": "첫 번째 탈출"
+  },
+  {
+   "start": 115,
+   "title": "두 번째 탈출과 돌잔치"
+  },
+  {
+   "start": 128,
+   "title": "나랏말싸미… 정체가 들키다"
+  },
+  {
+   "start": 146,
+   "title": "해 뜨기 전까지의 거래"
+  },
+  {
+   "start": 185,
+   "title": "새벽 검사"
+  },
+  {
+   "start": 243,
+   "title": "세 번째 탈출"
+  },
+  {
+   "start": 268,
+   "title": "비상계단"
+  },
+  {
+   "start": 290,
+   "title": "훈맹정음"
+  },
+  {
+   "start": 332,
+   "title": "하루 만 보"
+  },
+  {
+   "start": 350,
+   "title": "누가 쓴 글이냐"
+  },
+  {
+   "start": 370,
+   "title": "다시 1444년, 최만리 상소"
+  },
+  {
+   "start": 392,
+   "title": "걸으면서 하는 경연"
+  },
+  {
+   "start": 415,
+   "title": "오늘은 일찍 자야겠다"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 13,
+ "comments_top_level": 11,
+ "comments_replies": 2,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 13,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:30:15",
+ "approved": "2026-10-17T16:30+09:00"
+}

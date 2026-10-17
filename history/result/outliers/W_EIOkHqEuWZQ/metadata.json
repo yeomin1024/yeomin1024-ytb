@@ -1,0 +1,78 @@
+{
+ "id": "EIOkHqEuWZQ",
+ "title": "진짜 소달구지 탔을까? 사람 두 번 죽인 지옥의 조선 유배길",
+ "channel": "한국사 다시읽기",
+ "channel_id": "UC-sDvUroCCpUZhzk4I_3UIw",
+ "subs": 28200,
+ "views": 275109,
+ "ratio": 9.76,
+ "age_days": 178,
+ "views_per_day": 1545.6,
+ "minutes": 20.6,
+ "likes": 2116,
+ "comments": 115,
+ "published": "2026-04-21",
+ "queries": "검색:한국역사 | 검색:조선시대",
+ "url": "https://www.youtube.com/watch?v=EIOkHqEuWZQ",
+ "flag": "",
+ "published_at": "2026-04-21T09:00:28Z",
+ "rank": "W437",
+ "set": "web",
+ "folder": "W_EIOkHqEuWZQ",
+ "sources": [
+  "검색:한국역사",
+  "검색:조선시대"
+ ],
+ "source": "web",
+ "tags": [
+  "역사다큐",
+  "역사스토리텔링",
+  "역사",
+  "귀양",
+  "오디오북"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝 - 사극이 만든 환상"
+  },
+  {
+   "start": 150,
+   "title": "1장 🚫 소달구지 감옥 함거의 진실"
+  },
+  {
+   "start": 375,
+   "title": "2장 ⏱️ 하루 90리 강행군, 지각하면 곤장"
+  },
+  {
+   "start": 600,
+   "title": "3장 💰 저승사자 호송관, 삥뜯기의 끝판왕"
+  },
+  {
+   "start": 860,
+   "title": "4장 👥 김정희의 고난 vs 조광조의 팬미팅"
+  },
+  {
+   "start": 1065,
+   "title": "5장 ✍️ 유배가 바꾼 운명, 다산 정약용"
+  },
+  {
+   "start": 1200,
+   "title": "클로징"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 115,
+ "comments_top_level": 96,
+ "comments_replies": 19,
+ "comments_by_creator": 9,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 115,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:38:12",
+ "approved": "2026-10-17T16:38+09:00"
+}

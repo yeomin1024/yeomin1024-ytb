@@ -1,0 +1,84 @@
+{
+ "id": "PE6zM8WI08M",
+ "title": "유대 역사가 요세푸스는 예수를 어떻게 기록했는가 | 성경 밖의 결정적 증언",
+ "channel": "Coram Deo",
+ "channel_id": "UCBeNXXN3O4y34ksmg7gB0bw",
+ "subs": 29600,
+ "views": 192375,
+ "ratio": 6.5,
+ "age_days": 25,
+ "views_per_day": 7695.0,
+ "minutes": 22.5,
+ "likes": 1418,
+ "comments": 225,
+ "published": "2026-09-21",
+ "queries": "검색:고대사",
+ "url": "https://www.youtube.com/watch?v=PE6zM8WI08M",
+ "flag": "",
+ "published_at": "2026-09-21T10:52:20Z",
+ "rank": "W499",
+ "set": "web",
+ "folder": "W_PE6zM8WI08M",
+ "sources": [
+  "검색:고대사"
+ ],
+ "source": "web",
+ "tags": [
+  "기독교",
+  "기독교교양",
+  "기독교역사",
+  "코람데오",
+  "임마누엘",
+  "CS루이스",
+  "마틴로이드존스",
+  "영적거장",
+  "믿음의선진",
+  "기독교인문학",
+  "기독교세계관",
+  "신학자",
+  "신앙간증",
+  "은혜",
+  "묵상",
+  "말씀",
+  "크리스천",
+  "기독교다큐",
+  "신앙다큐",
+  "기독교유튜브"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로 – 성경 밖에서 예수를 찾는 이유"
+  },
+  {
+   "start": 118,
+   "title": "요세푸스, 두 세계의 증인 (유대-로마 전쟁과 그의 생애)"
+  },
+  {
+   "start": 537,
+   "title": "『유대 고대사』에 숨겨진 예수의 기록"
+  },
+  {
+   "start": 924,
+   "title": "타키투스와 플리니우스, 로마의 기록 속 예수"
+  },
+  {
+   "start": 1191,
+   "title": "마무리 – 이천 년을 건너온 이름"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 225,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:39:05",
+ "approved": "2026-10-17T16:39+09:00"
+}

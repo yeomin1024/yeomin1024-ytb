@@ -1,0 +1,97 @@
+{
+ "id": "qKvJfxLs168",
+ "title": "10만 명나라 대군이 닷새 만에 전멸한 이유 (누르하치와 사르후 전투)",
+ "channel": "쉬운 역사탐험가",
+ "channel_id": "UC4-o1NZxC9uwECGz4fmzboA",
+ "subs": 2360,
+ "views": 18095,
+ "ratio": 7.67,
+ "age_days": 95,
+ "views_per_day": 190.5,
+ "minutes": 22.5,
+ "likes": 291,
+ "comments": 27,
+ "published": "2026-07-13",
+ "queries": "검색:명나라",
+ "url": "https://www.youtube.com/watch?v=qKvJfxLs168",
+ "flag": "",
+ "published_at": "2026-07-13T23:36:14Z",
+ "rank": "W473",
+ "set": "web",
+ "folder": "W_qKvJfxLs168",
+ "sources": [
+  "검색:명나라"
+ ],
+ "source": "web",
+ "tags": [
+  "광해군",
+  "누르하치",
+  "동양사",
+  "만력제",
+  "만주족",
+  "명나라",
+  "사극",
+  "사르후전투",
+  "역사",
+  "역사공부",
+  "역사이야기",
+  "이성량",
+  "임진왜란",
+  "조선역사",
+  "중국역사",
+  "청나라",
+  "후금"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "복수의 시작: 눈밭에서 맹세한 24세 청년"
+  },
+  {
+   "start": 130,
+   "title": "36년의 인내: 명나라 국경 시장의 비밀"
+  },
+  {
+   "start": 260,
+   "title": "조공의 함정: 명나라의 눈을 가린 위장술"
+  },
+  {
+   "start": 390,
+   "title": "일곱 가지 원한과 칠대한 선포"
+  },
+  {
+   "start": 520,
+   "title": "명나라의 오만: 10만 대군 출정의 비극"
+  },
+  {
+   "start": 650,
+   "title": "전술의 승리: 넷으로 나뉜 명군을 각개격파하다"
+  },
+  {
+   "start": 780,
+   "title": "사르후 전투의 날: 안개 속에서 벌어진 학살"
+  },
+  {
+   "start": 910,
+   "title": "조선군의 운명: 명나라에 끌려간 1만 3천 명"
+  },
+  {
+   "start": 1170,
+   "title": "명나라가 패배할 수밖에 없었던 진짜 이유"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 27,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:39:01",
+ "approved": "2026-10-17T16:39+09:00"
+}

@@ -1,0 +1,83 @@
+{
+ "id": "tZ6pzMh4JYU",
+ "title": "“아이언맨 슈퍼맨 다 필요없다” 미국에서 갑자기 역대급 이순신 대열풍이 일어난 이유",
+ "channel": "한반도 백과사전",
+ "channel_id": "UCFZHPrufdDE7AKeF7wule9A",
+ "subs": 4810,
+ "views": 173174,
+ "ratio": 36.0,
+ "age_days": 18,
+ "views_per_day": 9620.8,
+ "minutes": 20.3,
+ "likes": 1130,
+ "comments": 85,
+ "published": "2026-09-29",
+ "queries": "검색:이순신",
+ "url": "https://www.youtube.com/watch?v=tZ6pzMh4JYU",
+ "flag": "",
+ "published_at": "2026-09-29T02:00:02Z",
+ "rank": "W229",
+ "set": "web",
+ "folder": "W_tZ6pzMh4JYU",
+ "sources": [
+  "검색:이순신"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "단 1척으로 돌진한 이순신"
+  },
+  {
+   "start": 55,
+   "title": "백의종군과 칠천량 패전"
+  },
+  {
+   "start": 166,
+   "title": "명량해전 – 13척 vs 130여척"
+  },
+  {
+   "start": 277,
+   "title": "한산도대첩과 학익진"
+  },
+  {
+   "start": 325,
+   "title": "미국 만화가 온리 콤판과 스탠 리"
+  },
+  {
+   "start": 571,
+   "title": "사무라이와 다른 실존 영웅, 난중일기"
+  },
+  {
+   "start": 694,
+   "title": "넬슨과 나란히 선 조선의 제독"
+  },
+  {
+   "start": 854,
+   "title": "23전 23승과 거북선의 진실"
+  },
+  {
+   "start": 1002,
+   "title": "LA에 놓인 거북선"
+  },
+  {
+   "start": 1085,
+   "title": "미국인들이 이순신에게 열광하는 이유"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 85,
+ "comments_top_level": 54,
+ "comments_replies": 31,
+ "comments_by_creator": 6,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 85,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:32:00",
+ "approved": "2026-10-17T16:32+09:00"
+}

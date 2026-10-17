@@ -1,0 +1,104 @@
+{
+ "id": "iRByyYtg5uY",
+ "title": "세조를 넘어 한명회 가문까지… 단종의 저주는 계속되었다 (다섯 자식의 끔찍한 운명)",
+ "channel": "한국사 산책",
+ "channel_id": "UCSLub_6tkPH0t6_iyqed5Lg",
+ "subs": 3210,
+ "views": 227826,
+ "ratio": 70.97,
+ "age_days": 158,
+ "views_per_day": 1441.9,
+ "minutes": 16.2,
+ "likes": 1918,
+ "comments": 207,
+ "published": "2026-05-11",
+ "queries": "검색:조선역사",
+ "url": "https://www.youtube.com/watch?v=iRByyYtg5uY",
+ "flag": "",
+ "published_at": "2026-05-11T09:00:54Z",
+ "rank": "W134",
+ "set": "web",
+ "folder": "W_iRByyYtg5uY",
+ "sources": [
+  "검색:조선역사"
+ ],
+ "source": "web",
+ "tags": [
+  "단종",
+  "한명회",
+  "조선역사",
+  "권력",
+  "한명회의자식",
+  "역사이야기",
+  "비극",
+  "한국사",
+  "조선왕조",
+  "한명회의운명",
+  "단종의저주",
+  "세조",
+  "왕비",
+  "역사적사건",
+  "조선시대",
+  "사극",
+  "교훈",
+  "가족사",
+  "정치역사",
+  "조선의권력자"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "소개"
+  },
+  {
+   "start": 60,
+   "title": "단종의 저주 시작"
+  },
+  {
+   "start": 210,
+   "title": "한명회의 출생과 성장"
+  },
+  {
+   "start": 315,
+   "title": "한명회의 권력 상승"
+  },
+  {
+   "start": 420,
+   "title": "첫째 딸 이야기"
+  },
+  {
+   "start": 570,
+   "title": "둘째 딸 이야기"
+  },
+  {
+   "start": 720,
+   "title": "셋째 딸 이야기"
+  },
+  {
+   "start": 840,
+   "title": "막내딸과 외아들 이야기"
+  },
+  {
+   "start": 990,
+   "title": "한명회의 최후"
+  },
+  {
+   "start": 1140,
+   "title": "정리 및 마무리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 207,
+ "comments_top_level": 169,
+ "comments_replies": 38,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 207,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:29:18",
+ "approved": "2026-10-17T16:29+09:00"
+}

@@ -1,0 +1,96 @@
+{
+ "id": "gimD7JtQT68",
+ "title": "조선시대 진짜 밥상의 비밀, 우리가 알던 건 다 틀렸다. 400년 전 조선 사람들은 도대체 뭘 먹었을까?",
+ "channel": "흥미진진 한국사",
+ "channel_id": "UCoosviMnBPWVTn2s4YtsApw",
+ "subs": 1070,
+ "views": 95804,
+ "ratio": 89.54,
+ "age_days": 166,
+ "views_per_day": 577.1,
+ "minutes": 9.2,
+ "likes": 667,
+ "comments": 84,
+ "published": "2026-05-03",
+ "queries": "검색:대한제국",
+ "url": "https://www.youtube.com/watch?v=gimD7JtQT68",
+ "flag": "",
+ "published_at": "2026-05-03T10:03:00Z",
+ "rank": "W107",
+ "set": "web",
+ "folder": "W_gimD7JtQT68",
+ "sources": [
+  "검색:대한제국"
+ ],
+ "source": "web",
+ "tags": [
+  "조선시대",
+  "한국 역사",
+  "먹거리",
+  "음식 역사",
+  "김치",
+  "수라상",
+  "노비 식사",
+  "고기",
+  "잡곡밥",
+  "주막",
+  "국밥",
+  "전통 음식",
+  "역사 이야기",
+  "문화",
+  "하얀 김치",
+  "고추",
+  "전통 식사",
+  "시대별 음식",
+  "한국 전통",
+  "역사 교육"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "소개"
+  },
+  {
+   "start": 90,
+   "title": "조선시대 식사 패턴"
+  },
+  {
+   "start": 180,
+   "title": "김치의 역사"
+  },
+  {
+   "start": 300,
+   "title": "백성의 밥상"
+  },
+  {
+   "start": 360,
+   "title": "왕의 수라상"
+  },
+  {
+   "start": 420,
+   "title": "주막과 국밥의 탄생"
+  },
+  {
+   "start": 480,
+   "title": "오늘날과의 비교"
+  },
+  {
+   "start": 540,
+   "title": "마무리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 84,
+ "comments_top_level": 40,
+ "comments_replies": 44,
+ "comments_by_creator": 32,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 84,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:28:07",
+ "approved": "2026-10-17T16:28+09:00"
+}

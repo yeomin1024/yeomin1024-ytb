@@ -1,0 +1,111 @@
+{
+ "id": "67_mrdQlz5g",
+ "title": "한명회보다 더 악랄했던 남자, 결국 \"이렇게\" 죽었다",
+ "channel": "그랬구나!",
+ "channel_id": "UCbNOJuzbZL6P256tarBaYMQ",
+ "subs": 8870,
+ "views": 190309,
+ "ratio": 21.46,
+ "age_days": 163,
+ "views_per_day": 1167.5,
+ "minutes": 54.5,
+ "likes": 3177,
+ "comments": 242,
+ "published": "2026-05-06",
+ "queries": "검색:조선왕조실록",
+ "url": "https://www.youtube.com/watch?v=67_mrdQlz5g",
+ "flag": "",
+ "published_at": "2026-05-06T23:00:05Z",
+ "rank": "W299",
+ "set": "web",
+ "folder": "W_67_mrdQlz5g",
+ "sources": [
+  "검색:조선왕조실록"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로 — 27세의 직언가, 62세의 간신"
+  },
+  {
+   "start": 90,
+   "title": "출생과 가문 — 권력과 명문의 교차점"
+  },
+  {
+   "start": 200,
+   "title": "과거 급제 — 안 해도 되는 시험을 일부러 친 이유"
+  },
+  {
+   "start": 310,
+   "title": "성종의 칼 — 공신을 견제할 무기가 된 남자"
+  },
+  {
+   "start": 450,
+   "title": "흙비 사건 — 황사 한 줌에 인생이 부서지다"
+  },
+  {
+   "start": 660,
+   "title": "유배 12년 — 기록되지 않은 침묵의 시간"
+  },
+  {
+   "start": 870,
+   "title": "장남 임광재의 비극 — 현숙공주 독살 미수 사건"
+  },
+  {
+   "start": 1120,
+   "title": "성종의 마지막 선물 — 딸을 보내다"
+  },
+  {
+   "start": 1290,
+   "title": "폐비 윤씨의 진실 — 연산군은 정말 몰랐을까"
+  },
+  {
+   "start": 1500,
+   "title": "갑자사화 — \"애통하고 애통합니다\" 그 한마디"
+  },
+  {
+   "start": 1820,
+   "title": "수백 명의 피바람 — 쇄골표풍, 뼈를 바람에 날리다"
+  },
+  {
+   "start": 2100,
+   "title": "채홍사 임사홍 — 꺾인 등뼈의 대가"
+  },
+  {
+   "start": 2310,
+   "title": "아들 임희재의 죽음 — 실록이 침묵한 이유"
+  },
+  {
+   "start": 2520,
+   "title": "김처선의 직언 — 환관만이 입을 열다"
+  },
+  {
+   "start": 2730,
+   "title": "중종반정 — 칼도 아닌 몽둥이"
+  },
+  {
+   "start": 2940,
+   "title": "결말 — 간신인가, 시대의 악역인가"
+  },
+  {
+   "start": 3150,
+   "title": "아웃트로 — 500년째 바람이 지나는 무덤"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 242,
+ "comments_top_level": 107,
+ "comments_replies": 135,
+ "comments_by_creator": 93,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 242,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:33:49",
+ "approved": "2026-10-17T16:33+09:00"
+}

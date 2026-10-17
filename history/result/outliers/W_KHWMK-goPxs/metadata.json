@@ -1,0 +1,77 @@
+{
+ "id": "KHWMK-goPxs",
+ "title": "박정희 정권 최대의 미스터리 | 제3공화국 뒤흔든 정인숙 피살사건 | 50년 만에 다시 보는 아들의 삶",
+ "channel": "역사의 수레바퀴",
+ "channel_id": "UCJjZQT6JCAiIjjdzCGEghnA",
+ "subs": 16900,
+ "views": 390905,
+ "ratio": 23.13,
+ "age_days": 123,
+ "views_per_day": 3178.1,
+ "minutes": 42.5,
+ "likes": 4779,
+ "comments": 421,
+ "published": "2026-06-16",
+ "queries": "검색:역사미스터리",
+ "url": "https://www.youtube.com/watch?v=KHWMK-goPxs",
+ "flag": "",
+ "published_at": "2026-06-16T01:45:01Z",
+ "rank": "W284",
+ "set": "web",
+ "folder": "W_KHWMK-goPxs",
+ "sources": [
+  "검색:역사미스터리"
+ ],
+ "source": "web",
+ "tags": [
+  "정인숙피살사건",
+  "현대사미스터리",
+  "선운각",
+  "정일권",
+  "제3공화국",
+  "대한민국스캔들",
+  "박정희정권",
+  "정인숙사건",
+  "정인숙"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "세 발의 총성, 그리고 사라진 권총 (오프닝)"
+  },
+  {
+   "start": 615,
+   "title": "1막: 엘리트 신여성의 꿈, 그리고 요정 '선운각'의 에이스"
+  },
+  {
+   "start": 1195,
+   "title": "2막: 세 살배기 아들과 '검은 수첩', 권력의 시한폭탄이 되다"
+  },
+  {
+   "start": 1720,
+   "title": "3막: 일주일 만의 수사 종결, 과학적 모순과 은폐된 진실"
+  },
+  {
+   "start": 2184,
+   "title": "4막: 19년 만의 자백 번복 \"나는 동생을 쏘지 않았다\""
+  },
+  {
+   "start": 2390,
+   "title": "에필로그: 남겨진 아들의 비극, 그리고 지워진 이름 '정인숙'"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 421,
+ "comments_top_level": 283,
+ "comments_replies": 138,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 421,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:33:23",
+ "approved": "2026-10-17T16:33+09:00"
+}

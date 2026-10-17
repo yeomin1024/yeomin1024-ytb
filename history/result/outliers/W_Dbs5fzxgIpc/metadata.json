@@ -1,0 +1,126 @@
+{
+ "id": "Dbs5fzxgIpc",
+ "title": "🌙자면서듣는 역사 | 당시 최강 일본군은 왜 조선을 끝내 먹지 못했나 | 임진왜란 7년의 진실｜달빛 역사관",
+ "channel": "달빛 역사관 : 자면서 듣는 세계사",
+ "channel_id": "UCArzr2q8BdHOAY4KtoWoioQ",
+ "subs": 9220,
+ "views": 137662,
+ "ratio": 14.93,
+ "age_days": 105,
+ "views_per_day": 1311.1,
+ "minutes": 109.8,
+ "likes": 1843,
+ "comments": 79,
+ "published": "2026-07-03",
+ "queries": "검색:임진왜란 | 검색:이순신",
+ "url": "https://www.youtube.com/watch?v=Dbs5fzxgIpc",
+ "flag": "",
+ "published_at": "2026-07-03T12:15:19Z",
+ "rank": "W354",
+ "set": "web",
+ "folder": "W_Dbs5fzxgIpc",
+ "sources": [
+  "검색:임진왜란",
+  "검색:이순신"
+ ],
+ "source": "web",
+ "tags": [
+  "임진왜란",
+  "이순신",
+  "한산도대첩",
+  "명량해전",
+  "노량해전",
+  "행주대첩",
+  "의병",
+  "정유재란",
+  "도요토미히데요시",
+  "조선왕조",
+  "한국역사",
+  "역사이야기",
+  "수면유도",
+  "잠잘때듣는이야기",
+  "달빛역사관",
+  "역사유튜브",
+  "곽재우",
+  "칠천량해전",
+  "원균",
+  "권율",
+  "한국전쟁역사",
+  "조선시대전쟁",
+  "역사팟캐스트",
+  "이순신장군",
+  "거북선",
+  "잘때듣는",
+  "자면서듣는",
+  "잘때듣는이야기",
+  "자면서듣는이야기"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "프롤로그"
+  },
+  {
+   "start": 215,
+   "title": "1부 하루 만에 성이 무너졌다 부산진과 동래성"
+  },
+  {
+   "start": 756,
+   "title": "2부 스무 날의 붕괴 왕이 도망쳤다"
+  },
+  {
+   "start": 1294,
+   "title": "3부 이순신 첫 출격 옥포"
+  },
+  {
+   "start": 1800,
+   "title": "4부 들판에서 일어난 사람들 의병의 불꽃"
+  },
+  {
+   "start": 2402,
+   "title": "5부 한산도 바다를 통째로 잠그다"
+  },
+  {
+   "start": 2989,
+   "title": "6부 명이 왔다 구원인가 또 다른 재앙인가"
+  },
+  {
+   "start": 3539,
+   "title": "7부 행주 흙과 살로 쌓은 성벽"
+  },
+  {
+   "start": 4103,
+   "title": "8부 히데요시의 집착과 가짜 평화"
+  },
+  {
+   "start": 4702,
+   "title": "9부 칠천량 이순신이 없을 때"
+  },
+  {
+   "start": 5159,
+   "title": "10부 명량 열두 척"
+  },
+  {
+   "start": 5669,
+   "title": "11부 노량 이순신의 마지막 밤"
+  },
+  {
+   "start": 6183,
+   "title": "에필로그 진짜 이긴 자는 누구였나"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 79,
+ "comments_top_level": 68,
+ "comments_replies": 11,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 79,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:35:45",
+ "approved": "2026-10-17T16:35+09:00"
+}

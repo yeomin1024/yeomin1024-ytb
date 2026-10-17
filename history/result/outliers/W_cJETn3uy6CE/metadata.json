@@ -1,0 +1,87 @@
+{
+ "id": "cJETn3uy6CE",
+ "title": "1592년, 임진왜란에 떨어진 대한민국 해병대 소대! 다대진 구원 작전 | 맹호소대 3화",
+ "channel": "전쟁극장 Films",
+ "channel_id": "UCMzvo60jKy0sG6WF3v0R9Fg",
+ "subs": 21900,
+ "views": 169568,
+ "ratio": 7.74,
+ "age_days": 119,
+ "views_per_day": 1424.9,
+ "minutes": 8.1,
+ "likes": 1461,
+ "comments": 95,
+ "published": "2026-06-19",
+ "queries": "검색:임진왜란",
+ "url": "https://www.youtube.com/watch?v=cJETn3uy6CE",
+ "flag": "",
+ "published_at": "2026-06-19T08:44:00Z",
+ "rank": "W471",
+ "set": "web",
+ "folder": "W_cJETn3uy6CE",
+ "sources": [
+  "검색:임진왜란"
+ ],
+ "source": "web",
+ "tags": [
+  "임진왜란",
+  "1592년",
+  "왜군",
+  "정발",
+  "조선군",
+  "대한민국 해병대",
+  "해병대 소대",
+  "맹호소대",
+  "타임슬립",
+  "시간여행",
+  "역사영화",
+  "상륙작전",
+  "AI영화",
+  "다대진",
+  "맹호소대 3 화"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "다대진 구원을 위해 출발"
+  },
+  {
+   "start": 26,
+   "title": "왜군 매복 준비"
+  },
+  {
+   "start": 101,
+   "title": "해병대, 왜군과 교전 개시"
+  },
+  {
+   "start": 251,
+   "title": "전하, 정발 장군의 장계를 받다"
+  },
+  {
+   "start": 281,
+   "title": "왜군 선봉대 궤멸"
+  },
+  {
+   "start": 316,
+   "title": "왜군 매복 및 백성 구출 작전"
+  },
+  {
+   "start": 412,
+   "title": "백성 구출 성공, 부산진으로 이동"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 95,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:39:01",
+ "approved": "2026-10-17T16:39+09:00"
+}

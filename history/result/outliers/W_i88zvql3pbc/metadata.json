@@ -1,0 +1,94 @@
+{
+ "id": "i88zvql3pbc",
+ "title": "왕의 밥상을 차리던 수라간 궁녀들, 그 산더미 같은 '남은 반찬'은 어떻게 처리 했을까? | 한국사 | 조선왕조실록 | 역사 | 세계사",
+ "channel": "시대산책",
+ "channel_id": "UCar2UG7BS_U8ovXuJ5gh8Rg",
+ "subs": 1590,
+ "views": 177135,
+ "ratio": 111.41,
+ "age_days": 156,
+ "views_per_day": 1135.5,
+ "minutes": 47.9,
+ "likes": 3384,
+ "comments": 140,
+ "published": "2026-05-13",
+ "queries": "검색:조선왕 | 검색:조선왕실",
+ "url": "https://www.youtube.com/watch?v=i88zvql3pbc",
+ "flag": "",
+ "published_at": "2026-05-13T08:00:46Z",
+ "rank": "W81",
+ "set": "web",
+ "folder": "W_i88zvql3pbc",
+ "sources": [
+  "검색:조선왕",
+  "검색:조선왕실"
+ ],
+ "source": "web",
+ "tags": [
+  "수라간",
+  "궁녀",
+  "왕의밥상",
+  "조선왕조실록",
+  "한국사"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "경종 독살설과 게장 한 그릇"
+  },
+  {
+   "start": 90,
+   "title": "12첩 반상의 함정"
+  },
+  {
+   "start": 240,
+   "title": "수라상 세 개의 상차림"
+  },
+  {
+   "start": 390,
+   "title": "사옹원과 400명의 궁중 주방 시스템"
+  },
+  {
+   "start": 540,
+   "title": "대장금의 거짓 — 수라간은 남자들의 공간이었다"
+  },
+  {
+   "start": 690,
+   "title": "기미상궁과 은수저, 이중 독 검사 시스템"
+  },
+  {
+   "start": 840,
+   "title": "상물림 — 남은 음식은 어디로 갔을까"
+  },
+  {
+   "start": 990,
+   "title": "조선 vs 청나라, 같은 밥상의 다른 운명"
+  },
+  {
+   "start": 1110,
+   "title": "4시간짜리 점심시간, 관아의 상물림"
+  },
+  {
+   "start": 1200,
+   "title": "영조의 감선, 정조의 절제, 연산군의 폭식"
+  },
+  {
+   "start": 1380,
+   "title": "수라상은 왕의 거울이었다"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 140,
+ "comments_top_level": 107,
+ "comments_replies": 33,
+ "comments_by_creator": 2,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 140,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:27:17",
+ "approved": "2026-10-17T16:27+09:00"
+}

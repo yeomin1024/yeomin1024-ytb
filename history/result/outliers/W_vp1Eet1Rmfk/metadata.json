@@ -1,0 +1,67 @@
+{
+ "id": "vp1Eet1Rmfk",
+ "title": "인도 정부가 1000년의 역사를 몰래 지우고 있는 이유 (공백의 1000년..?)ㅣ역사를 보다 EP.164",
+ "channel": "보다 BODA",
+ "channel_id": "UCoCvTlU0KpNYwnMIgs7MPrA",
+ "subs": 3220000,
+ "views": 2472883,
+ "ratio": 0.77,
+ "age_days": 13,
+ "views_per_day": 190221.8,
+ "minutes": 47.2,
+ "likes": 8182,
+ "comments": 321,
+ "published": "2026-10-04",
+ "queries": "검색:역사 | 검색:고대문명",
+ "url": "https://www.youtube.com/watch?v=vp1Eet1Rmfk",
+ "flag": "",
+ "published_at": "2026-10-04T01:59:08Z",
+ "rank": "W635",
+ "set": "web",
+ "folder": "W_vp1Eet1Rmfk",
+ "sources": [
+  "검색:역사",
+  "검색:고대문명"
+ ],
+ "source": "web",
+ "tags": [
+  "보다",
+  "boda",
+  "직업",
+  "인터뷰",
+  "전문가",
+  "레전드"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝"
+  },
+  {
+   "start": 70,
+   "title": "인도 바닷속에서 발견된 신화 속 초고대 문명의 흔적"
+  },
+  {
+   "start": 1482,
+   "title": "경제력은 바닥, 군사력은 최강인 무력 몰빵 국가"
+  },
+  {
+   "start": 2389,
+   "title": "인도가 리셋하고 싶어하는 최악의 흑역사"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 321,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:39:24",
+ "approved": "2026-10-17T16:39+09:00"
+}

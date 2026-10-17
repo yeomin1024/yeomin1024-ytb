@@ -1,0 +1,128 @@
+{
+ "id": "jav15__Z528",
+ "title": "영화보다 더 영화 같은 '임경업 장군'의 파란만장한 일대기!",
+ "channel": "세상의 모든 역사 - 세모역",
+ "channel_id": "UC_f-qqumqQkliAR3xFN0KLw",
+ "subs": 1300,
+ "views": 52979,
+ "ratio": 40.75,
+ "age_days": 156,
+ "views_per_day": 339.6,
+ "minutes": 21.6,
+ "likes": 1036,
+ "comments": 67,
+ "published": "2026-05-13",
+ "queries": "검색:병자호란",
+ "url": "https://www.youtube.com/watch?v=jav15__Z528",
+ "flag": "",
+ "published_at": "2026-05-13T10:01:07Z",
+ "rank": "W208",
+ "set": "web",
+ "folder": "W_jav15__Z528",
+ "sources": [
+  "검색:병자호란"
+ ],
+ "source": "web",
+ "tags": [
+  "역사",
+  "한국사",
+  "조선사",
+  "야사",
+  "정사",
+  "임경업",
+  "백마산성",
+  "병자호란",
+  "세상의모든역사",
+  "역사유튜버",
+  "역사채널",
+  "조선역사"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "청나라 10만 대군이 우회하다?"
+  },
+  {
+   "start": 92,
+   "title": "'조선의 관우' 임경업의 탄생과 어린 시절"
+  },
+  {
+   "start": 155,
+   "title": "안현 전투의 영웅"
+  },
+  {
+   "start": 171,
+   "title": "명나라의 신임과 '총병' 벼슬 하사"
+  },
+  {
+   "start": 237,
+   "title": "1636년, 운명의 병자호란 발발"
+  },
+  {
+   "start": 262,
+   "title": "임경업의 치밀한 방어와 백마산성 요새화"
+  },
+  {
+   "start": 312,
+   "title": "청나라 군대의 우회와 삼전도의 굴욕"
+  },
+  {
+   "start": 440,
+   "title": "명나라를 쳐야 하는 운명, 임경업의 선택은?"
+  },
+  {
+   "start": 476,
+   "title": "임경업의 첩보 작전과 가짜 전쟁"
+  },
+  {
+   "start": 566,
+   "title": "결국 들통난 임경업의 명나라 망명"
+  },
+  {
+   "start": 646,
+   "title": "명나라의 멸망과 임경업의 체포"
+  },
+  {
+   "start": 715,
+   "title": "황해도 금천에서의 탈출과 위장 생활"
+  },
+  {
+   "start": 805,
+   "title": "조선으로 송환된 임경업과 인조의 친국"
+  },
+  {
+   "start": 842,
+   "title": "김자점의 모함과 임경업의 억울한 죽음"
+  },
+  {
+   "start": 913,
+   "title": "임경업의 아내 완산 이씨의 비극적인 선택"
+  },
+  {
+   "start": 957,
+   "title": "백성들의 분노와 '임경업전' 탄생"
+  },
+  {
+   "start": 1069,
+   "title": "신이 된 임경업 장군"
+  },
+  {
+   "start": 1107,
+   "title": "역사적 평가와 임경업의 죽음이 남긴 교훈"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 67,
+ "comments_top_level": 53,
+ "comments_replies": 14,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 67,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:31:34",
+ "approved": "2026-10-17T16:31+09:00"
+}

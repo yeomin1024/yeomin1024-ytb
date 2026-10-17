@@ -1,0 +1,79 @@
+{
+ "id": "rXE_DENv7GI",
+ "title": "조선왕조실록에 3,000번 등장한 남자의 정체 | 송시열 완전분석",
+ "channel": "역사빌런",
+ "channel_id": "UCbx000nLLKMlMd5zooUWUTg",
+ "subs": 14900,
+ "views": 255127,
+ "ratio": 17.12,
+ "age_days": 168,
+ "views_per_day": 1518.6,
+ "minutes": 25.9,
+ "likes": 4842,
+ "comments": 1005,
+ "published": "2026-05-01",
+ "queries": "검색:조선역사 | 검색:역사채널 | 검색:조선왕조실록 | 검색:조선왕조 | 검색:조선왕실",
+ "url": "https://www.youtube.com/watch?v=rXE_DENv7GI",
+ "flag": "",
+ "published_at": "2026-05-01T07:55:58Z",
+ "rank": "W336",
+ "set": "web",
+ "folder": "W_rXE_DENv7GI",
+ "sources": [
+  "검색:조선역사",
+  "검색:역사채널",
+  "검색:조선왕조실록",
+  "검색:조선왕조",
+  "검색:조선왕실"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "도입 - 조선왕조실록 속 의문의 인물"
+  },
+  {
+   "start": 90,
+   "title": "1막 - 성인의 반열, 송자라는 호칭의 무게"
+  },
+  {
+   "start": 360,
+   "title": "2막 - 학맥이 곧 권력, 900명 제자의 비밀"
+  },
+  {
+   "start": 720,
+   "title": "3막 - 삼전도의 치욕과 두 남자의 복수심"
+  },
+  {
+   "start": 900,
+   "title": "4막 - 기해독대, 왕과 선비의 밀실 대화"
+  },
+  {
+   "start": 1080,
+   "title": "5막 - 상복 한 장이 조선을 뒤흔든 15년"
+  },
+  {
+   "start": 1200,
+   "title": "6막 - 사문난적, 생각이 다르면 죽어야 했던 나라"
+  },
+  {
+   "start": 1320,
+   "title": "마무리 - 송시열이 닫아버린 문"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 1005,
+ "comments_top_level": 468,
+ "comments_replies": 537,
+ "comments_by_creator": 378,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 1005,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:34:48",
+ "approved": "2026-10-17T16:34+09:00"
+}

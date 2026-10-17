@@ -1,0 +1,113 @@
+{
+ "id": "9pevoSr0BEk",
+ "title": "종기하나에 왜 조선 왕들은 줄줄이 목숨을 잃었을까? 조선왕조실록 속 숨겨진 비밀",
+ "channel": "스티브잡학",
+ "channel_id": "UCjydupf9TFHm0Mcf2ePICFA",
+ "subs": 1500,
+ "views": 150235,
+ "ratio": 100.16,
+ "age_days": 159,
+ "views_per_day": 944.9,
+ "minutes": 14.4,
+ "likes": 1111,
+ "comments": 218,
+ "published": "2026-05-10",
+ "queries": "검색:조선왕",
+ "url": "https://www.youtube.com/watch?v=9pevoSr0BEk",
+ "flag": "",
+ "published_at": "2026-05-10T08:46:50Z",
+ "rank": "W96",
+ "set": "web",
+ "folder": "W_9pevoSr0BEk",
+ "sources": [
+  "검색:조선왕"
+ ],
+ "source": "web",
+ "tags": [
+  "#역사",
+  "#지식",
+  "#교양",
+  "#스토리텔링",
+  "조선왕",
+  "조선왕종기",
+  "조선왕죽음",
+  "종기",
+  "조선왕조실록",
+  "한국사",
+  "역사다큐",
+  "역사미스터리",
+  "조선역사",
+  "문종",
+  "정조",
+  "효종",
+  "세조",
+  "예종",
+  "어의",
+  "의료사고",
+  "역사비하인드",
+  "지식교양",
+  "승정원일기",
+  "곤룡포",
+  "수라상",
+  "왕의죽음",
+  "궁중비사",
+  "패혈증",
+  "대사증후군",
+  "신체발부수지부모",
+  "한국사미스터리",
+  "조선시대",
+  "팩트체크"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "천하를 쥔 왕조차 꼼짝 못한 병."
+  },
+  {
+   "start": 45,
+   "title": "왕의 지옥, 종기가 뭐길래"
+  },
+  {
+   "start": 144,
+   "title": "30센티미터 고름 주머니의 공포"
+  },
+  {
+   "start": 260,
+   "title": "걸어 다니는 세균 배양기, 곤룡포의 비밀"
+  },
+  {
+   "start": 356,
+   "title": "하루 다섯 끼, 걷기는 0분"
+  },
+  {
+   "start": 451,
+   "title": "칼을 들고도 찌르지 못한 의원들"
+  },
+  {
+   "start": 569,
+   "title": "백성은 살고 왕은 죽는 조선"
+  },
+  {
+   "start": 673,
+   "title": "고름 한 덩어리가 무너뜨린 나라"
+  },
+  {
+   "start": 793,
+   "title": "조선왕과 현재"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 218,
+ "comments_top_level": 104,
+ "comments_replies": 114,
+ "comments_by_creator": 94,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 218,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:27:41",
+ "approved": "2026-10-17T16:27+09:00"
+}

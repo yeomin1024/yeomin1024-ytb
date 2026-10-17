@@ -1,0 +1,91 @@
+{
+ "id": "BZJ24uQ8qFQ",
+ "title": "조선 역사상 가장 아까운 천재 1위 I 당신이 생각하는 천재는 누구?",
+ "channel": "역사잼잼",
+ "channel_id": "UCArfz2g1xS-ViKKN9VzTn9g",
+ "subs": 2900,
+ "views": 156384,
+ "ratio": 53.93,
+ "age_days": 119,
+ "views_per_day": 1314.2,
+ "minutes": 32.4,
+ "likes": 1919,
+ "comments": 155,
+ "published": "2026-06-20",
+ "queries": "검색:역사채널",
+ "url": "https://www.youtube.com/watch?v=BZJ24uQ8qFQ",
+ "flag": "",
+ "published_at": "2026-06-20T06:03:56Z",
+ "rank": "W170",
+ "set": "web",
+ "folder": "W_BZJ24uQ8qFQ",
+ "sources": [
+  "검색:역사채널"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로 — 만원권과 오천원권의 소름 돋는 비밀"
+  },
+  {
+   "start": 90,
+   "title": "10위 — 교과서 속 그 화가, 알고 보니 만능 천재"
+  },
+  {
+   "start": 270,
+   "title": "9위 — 조선 최초의 음향 공학자"
+  },
+  {
+   "start": 420,
+   "title": "8위 — 감히 하늘에 도전한 선비"
+  },
+  {
+   "start": 570,
+   "title": "7위 — 낮에는 영의정, 밤에는 천재"
+  },
+  {
+   "start": 690,
+   "title": "6위 — 탄핵 정국을 뚫고 살아남은 의성"
+  },
+  {
+   "start": 870,
+   "title": "5위 — 곤장 80대, 그리고 영원한 미스터리"
+  },
+  {
+   "start": 1080,
+   "title": "4위 — 유배지에서 500권을 쓴 괴물"
+  },
+  {
+   "start": 1260,
+   "title": "3위 — 9번 수석, 그가 남긴 예언"
+  },
+  {
+   "start": 1440,
+   "title": "2위 — 승률 100%, 인류 해전사의 신화"
+  },
+  {
+   "start": 1650,
+   "title": "1위 — 모든 천재 위에 군림한 단 한 사람"
+  },
+  {
+   "start": 1860,
+   "title": "아웃트로 — 조선이 남긴 씁쓸한 일"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 155,
+ "comments_top_level": 119,
+ "comments_replies": 36,
+ "comments_by_creator": 5,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 155,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:30:28",
+ "approved": "2026-10-17T16:30+09:00"
+}

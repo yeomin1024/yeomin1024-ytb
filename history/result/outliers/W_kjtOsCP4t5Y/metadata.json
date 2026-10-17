@@ -1,0 +1,82 @@
+{
+ "id": "kjtOsCP4t5Y",
+ "title": "조선시대 한복판에 떨어진 대한민국 최정예 육군, 압도적 화력으로 역사를 다시 쓴다",
+ "channel": "스튜디오진혼",
+ "channel_id": "UCQH9bNgqJe8FPJ-ehmwKFbw",
+ "subs": 12500,
+ "views": 1034245,
+ "ratio": 82.74,
+ "age_days": 143,
+ "views_per_day": 7232.5,
+ "minutes": 37.6,
+ "likes": 6900,
+ "comments": 854,
+ "published": "2026-05-26",
+ "queries": "검색:역사 | 검색:조선역사 | 검색:조선시대 | 검색:조선왕조 | 검색:조선 | 검색:임진왜란",
+ "url": "https://www.youtube.com/watch?v=kjtOsCP4t5Y",
+ "flag": "",
+ "published_at": "2026-05-26T20:48:14Z",
+ "rank": "W121",
+ "set": "web",
+ "folder": "W_kjtOsCP4t5Y",
+ "sources": [
+  "검색:역사",
+  "검색:조선역사",
+  "검색:조선시대",
+  "검색:조선왕조",
+  "검색:조선",
+  "검색:임진왜란"
+ ],
+ "source": "web",
+ "tags": [
+  "군대롱폼",
+  "전쟁드라마",
+  "타임슬립",
+  "천군",
+  "대체역사",
+  "대한민국육군",
+  "조선시대",
+  "밀리터리",
+  "전쟁영화",
+  "드라마몰아보기",
+  "K2소총",
+  "국뽕",
+  "결말포함"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "[1부] 균열의 시작 : 낯선 하늘, 그리고 다가오는 적의 그림자"
+  },
+  {
+   "start": 1105,
+   "title": "[2부] 최초의 조우 : \"저 불을 뿜는 무기는 무엇이냐!\" 조선과 대한민국의 만남"
+  },
+  {
+   "start": 2140,
+   "title": "[3부] 압도적 화력 : 전장을 지배하는 K-2 소총의 메아리"
+  },
+  {
+   "start": 3135,
+   "title": "[4부] 피를 나눈 전우 : 시대를 뛰어넘어 등을 맞대고 싸우다"
+  },
+  {
+   "start": 4230,
+   "title": "[5부] 최후의 결전 : 역사의 물줄기를 바꿀 단 한 번의 대규모 전투"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 854,
+ "comments_top_level": 764,
+ "comments_replies": 90,
+ "comments_by_creator": 8,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 854,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:28:41",
+ "approved": "2026-10-17T16:28+09:00"
+}

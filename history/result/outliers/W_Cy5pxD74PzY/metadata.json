@@ -1,0 +1,112 @@
+{
+ "id": "Cy5pxD74PzY",
+ "title": "[세계사] 영화 '오디세이' 보기 전 필수! 트로이 전쟁의 숨겨진 이야기는 무엇일까?💡",
+ "channel": "역사리뷰룸",
+ "channel_id": "UCcJCwhFEQY0Kth4tA9UyZFw",
+ "subs": 3140,
+ "views": 210866,
+ "ratio": 67.15,
+ "age_days": 66,
+ "views_per_day": 3194.9,
+ "minutes": 40.5,
+ "likes": 4029,
+ "comments": 158,
+ "published": "2026-08-11",
+ "queries": "검색:세계사 이야기",
+ "url": "https://www.youtube.com/watch?v=Cy5pxD74PzY",
+ "flag": "",
+ "published_at": "2026-08-11T23:00:14Z",
+ "rank": "W137",
+ "set": "web",
+ "folder": "W_Cy5pxD74PzY",
+ "sources": [
+  "검색:세계사 이야기"
+ ],
+ "source": "web",
+ "tags": [
+  "오디세이",
+  "오디세이영화",
+  "크리스토퍼놀란",
+  "맷데이먼",
+  "그리스신화",
+  "오디세이 요약",
+  "오디세이 줄거리",
+  "오디세이 보기전",
+  "오디세이 보기전 알아야할것",
+  "아킬레우스",
+  "아테나",
+  "아폴론",
+  "아프로디테",
+  "헤라",
+  "오디세우스",
+  "제우스",
+  "파리스",
+  "페넬로페",
+  "헬레네",
+  "그리스로마신화"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "트로이 전쟁과 오디세이의 연결"
+  },
+  {
+   "start": 106,
+   "title": "신과 인간이 함께하던 영웅들의 시대"
+  },
+  {
+   "start": 194,
+   "title": "특별한 운명을 안고 태어난 파리스"
+  },
+  {
+   "start": 293,
+   "title": "신들의 결혼식에서 시작된 갈등"
+  },
+  {
+   "start": 488,
+   "title": "파리스 앞에 놓인 세 가지 선택"
+  },
+  {
+   "start": 630,
+   "title": "헬레네와 오디세우스의 등장"
+  },
+  {
+   "start": 818,
+   "title": "전쟁으로 이어지는 결정적 사건"
+  },
+  {
+   "start": 1068,
+   "title": "전쟁을 피하려 했던 두 영웅"
+  },
+  {
+   "start": 1477,
+   "title": "10년간 이어진 트로이 전쟁"
+  },
+  {
+   "start": 1750,
+   "title": "전쟁의 흐름을 바꾼 기발한 전략"
+  },
+  {
+   "start": 2089,
+   "title": "신화 속 트로이는 실제로 존재했을까?"
+  },
+  {
+   "start": 2303,
+   "title": "트로이 전쟁이 오디세이로 이어지는 이유"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 158,
+ "comments_top_level": 75,
+ "comments_replies": 83,
+ "comments_by_creator": 65,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 158,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:29:28",
+ "approved": "2026-10-17T16:29+09:00"
+}

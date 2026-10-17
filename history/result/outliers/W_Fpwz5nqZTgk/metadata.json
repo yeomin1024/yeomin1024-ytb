@@ -1,0 +1,87 @@
+{
+ "id": "Fpwz5nqZTgk",
+ "title": "Ep.03_전북 정읍시 | 조선 역사의 비극과 민중의 함성이 공존하는 도시",
+ "channel": "팔도유남 Paldoyunam",
+ "channel_id": "UC_T3DO8S8jc9Fo6VOSfgnoA",
+ "subs": 223,
+ "views": 51415,
+ "ratio": 230.56,
+ "age_days": 140,
+ "views_per_day": 367.2,
+ "minutes": 15.7,
+ "likes": 722,
+ "comments": 59,
+ "published": "2026-05-29",
+ "queries": "검색:조선역사",
+ "url": "https://www.youtube.com/watch?v=Fpwz5nqZTgk",
+ "flag": "",
+ "published_at": "2026-05-29T14:00:16Z",
+ "rank": "W23",
+ "set": "web",
+ "folder": "W_Fpwz5nqZTgk",
+ "sources": [
+  "검색:조선역사"
+ ],
+ "source": "web",
+ "tags": [
+  "#대한민국여행",
+  "#전국여행",
+  "#지자체여행",
+  "#지역여행",
+  "#국내여행",
+  "소도시여행",
+  "설화여행"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로_정읍여행의 시작"
+  },
+  {
+   "start": 86,
+   "title": "정읍시 주요 현황"
+  },
+  {
+   "start": 223,
+   "title": "정읍맛집, 백학정"
+  },
+  {
+   "start": 315,
+   "title": "무성서원"
+  },
+  {
+   "start": 404,
+   "title": "단종비 정순왕후 태생지"
+  },
+  {
+   "start": 505,
+   "title": "쌍화차거리"
+  },
+  {
+   "start": 635,
+   "title": "각시다리공원 & 각시다리설화"
+  },
+  {
+   "start": 784,
+   "title": "동학농민혁명기념공원(황토현전적, 동학농민혁명기념관, 동학농민혁명박물관)"
+  },
+  {
+   "start": 901,
+   "title": "아웃트로_정읍여행의 마무리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 59,
+ "comments_top_level": 34,
+ "comments_replies": 25,
+ "comments_by_creator": 11,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 59,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:25:45",
+ "approved": "2026-10-17T16:25+09:00"
+}

@@ -1,0 +1,77 @@
+{
+ "id": "aDOcfa9fnjg",
+ "title": "광해를 내쫓고 왜 하필 인조를 세워서 나라를 망쳐놨을까?｜인조반정｜병자호란｜삼전도의굴욕｜한국사｜조선사｜역사",
+ "channel": "역사콕테일",
+ "channel_id": "UCUzHaKrn61nQcRg333ykJxw",
+ "subs": 8260,
+ "views": 98790,
+ "ratio": 11.96,
+ "age_days": 51,
+ "views_per_day": 1937.1,
+ "minutes": 28.9,
+ "likes": 375,
+ "comments": 92,
+ "published": "2026-08-26",
+ "queries": "검색:역사채널 | 검색:병자호란 | 검색:조선사",
+ "url": "https://www.youtube.com/watch?v=aDOcfa9fnjg",
+ "flag": "",
+ "published_at": "2026-08-26T21:57:02Z",
+ "rank": "W391",
+ "set": "web",
+ "folder": "W_aDOcfa9fnjg",
+ "sources": [
+  "검색:역사채널",
+  "검색:병자호란",
+  "검색:조선사"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "목숨 걸고 왕을 갈아치웠는데, 왜 하필 그 사람?"
+  },
+  {
+   "start": 274,
+   "title": "광해군이 지워버린 왕자들 — 사라진 후보들"
+  },
+  {
+   "start": 423,
+   "title": "인조반정의 진실 — 그는 '뽑힌 왕'이 아니었다"
+  },
+  {
+   "start": 522,
+   "title": "서인은 왜 능양군의 손을 잡았나"
+  },
+  {
+   "start": 817,
+   "title": "이괄의 난 — 즉위 1년, 왕이 도성을 버리다"
+  },
+  {
+   "start": 955,
+   "title": "광해군의 중립외교 vs 인조의 친명배금"
+  },
+  {
+   "start": 1137,
+   "title": "병자호란과 삼전도, 그 겨울의 47일"
+  },
+  {
+   "start": 1327,
+   "title": "소현세자의 죽음 — 화살이 안으로 향하다"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 92,
+ "comments_top_level": 56,
+ "comments_replies": 36,
+ "comments_by_creator": 4,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 92,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:36:47",
+ "approved": "2026-10-17T16:36+09:00"
+}

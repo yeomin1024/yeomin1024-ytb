@@ -1,0 +1,109 @@
+{
+ "id": "5ooDDKo68E0",
+ "title": "일본이 '괴물'이라 부르며 이순신보다 두려워 했던 인물? 조선 역사상 가장 저평가된 영웅",
+ "channel": "역사동굴",
+ "channel_id": "UC342nWMu5VjLvDt3wEh0VGA",
+ "subs": 2470,
+ "views": 112099,
+ "ratio": 45.38,
+ "age_days": 50,
+ "views_per_day": 2242.0,
+ "minutes": 17.7,
+ "likes": 404,
+ "comments": 36,
+ "published": "2026-08-27",
+ "queries": "검색:역사인물",
+ "url": "https://www.youtube.com/watch?v=5ooDDKo68E0",
+ "flag": "",
+ "published_at": "2026-08-27T09:00:19Z",
+ "rank": "W193",
+ "set": "web",
+ "folder": "W_5ooDDKo68E0",
+ "sources": [
+  "검색:역사인물"
+ ],
+ "source": "web",
+ "tags": [
+  "김시민",
+  "진주대첩",
+  "임진왜란",
+  "모쿠소",
+  "한국사",
+  "조선역사",
+  "역사인물",
+  "역사스토리",
+  "역사다큐",
+  "충무공",
+  "진주성",
+  "최태성",
+  "역사"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "일본군이 공포에 떨며 만든 괴물의 정체"
+  },
+  {
+   "start": 74,
+   "title": "적국이 200년 동안 부른 '모쿠소'의 진실"
+  },
+  {
+   "start": 144,
+   "title": "진주성을 지킨 무명의 영웅 김시민"
+  },
+  {
+   "start": 222,
+   "title": "갓을 벗어 던진 무관의 숨겨진 사연"
+  },
+  {
+   "start": 374,
+   "title": "불가능을 가능케 한 진주성의 기적"
+  },
+  {
+   "start": 438,
+   "title": "승리 직후 찾아온 비극과 그 이후"
+  },
+  {
+   "start": 491,
+   "title": "왜 진주성이 호남의 방패였을까?"
+  },
+  {
+   "start": 558,
+   "title": "히데요시가 진주성에 집착한 잔혹한 이유"
+  },
+  {
+   "start": 619,
+   "title": "남강에 몸을 던진 최경회와 논개"
+  },
+  {
+   "start": 675,
+   "title": "죽은 지 8개월, 적군은 왜 그를 찾았나"
+  },
+  {
+   "start": 733,
+   "title": "일본 전설 속의 두꺼비 도사가 된 사연"
+  },
+  {
+   "start": 814,
+   "title": "왜 우리는 119년 동안 그를 잊었나"
+  },
+  {
+   "start": 876,
+   "title": "일본으로 끌려간 역사를 되찾은 시민들"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 36,
+ "comments_top_level": 20,
+ "comments_replies": 16,
+ "comments_by_creator": 14,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 36,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:31:04",
+ "approved": "2026-10-17T16:31+09:00"
+}

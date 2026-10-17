@@ -1,0 +1,79 @@
+{
+ "id": "E97Cqe4_9G4",
+ "title": "1592년, 임진왜란 한복판에 떨어진 대한민국 해병대 소대! 상주의 운명을 바꾸다 | 맹호소대 4화",
+ "channel": "전쟁극장 Films",
+ "channel_id": "UCMzvo60jKy0sG6WF3v0R9Fg",
+ "subs": 21900,
+ "views": 67453,
+ "ratio": 3.08,
+ "age_days": 104,
+ "views_per_day": 648.6,
+ "minutes": 8.3,
+ "likes": 844,
+ "comments": 47,
+ "published": "2026-07-04",
+ "queries": "검색:임진왜란",
+ "url": "https://www.youtube.com/watch?v=E97Cqe4_9G4",
+ "flag": "",
+ "published_at": "2026-07-04T08:30:19Z",
+ "rank": "W619",
+ "set": "web",
+ "folder": "W_E97Cqe4_9G4",
+ "sources": [
+  "검색:임진왜란"
+ ],
+ "source": "web",
+ "tags": [
+  "임진왜란",
+  "1592년",
+  "왜군",
+  "정발",
+  "조선군",
+  "대한민국 해병대",
+  "해병대 소대",
+  "맹호소대",
+  "타임슬립",
+  "시간여행",
+  "역사영화",
+  "상륙작전",
+  "AI영화",
+  "다대진",
+  "맹호소대 4화"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "정발 장군과 작별, 부산진을 떠나다"
+  },
+  {
+   "start": 42,
+   "title": "부산진에서 패한 왜군, 본진으로 돌아가 보고하다"
+  },
+  {
+   "start": 82,
+   "title": "대한민국 해병대, 상주에 도착해 이일 장군과 조우하다"
+  },
+  {
+   "start": 246,
+   "title": "왜군과의 전투 시작"
+  },
+  {
+   "start": 433,
+   "title": "패배한 왜군, 퇴각을 시작하다"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 47,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:39:22",
+ "approved": "2026-10-17T16:39+09:00"
+}

@@ -1,0 +1,101 @@
+{
+ "id": "YYjU-DEyh9E",
+ "title": "탐라국의 비밀 | 제주가 한국이 아니었던 수천 년의 이야기 | 몽골 제국이 탐낸 작은 섬의 역사",
+ "channel": "역사아카이브 - History Archive KR",
+ "channel_id": "UCKiqiw16qAhVgxKZRXiRUvA",
+ "subs": 24200,
+ "views": 82328,
+ "ratio": 3.4,
+ "age_days": 99,
+ "views_per_day": 831.6,
+ "minutes": 86.3,
+ "likes": 1138,
+ "comments": 65,
+ "published": "2026-07-09",
+ "queries": "검색:역사채널",
+ "url": "https://www.youtube.com/watch?v=YYjU-DEyh9E",
+ "flag": "",
+ "published_at": "2026-07-09T11:45:01Z",
+ "rank": "W600",
+ "set": "web",
+ "folder": "W_YYjU-DEyh9E",
+ "sources": [
+  "검색:역사채널"
+ ],
+ "source": "web",
+ "tags": [
+  "역사채널",
+  "조선역사",
+  "한국사",
+  "권력",
+  "역사다큐",
+  "조선왕조",
+  "인문비화",
+  "야사",
+  "인물열전"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "도입 - 160척의 전함"
+  },
+  {
+   "start": 150,
+   "title": "삼성혈과 탐라 건국 신화"
+  },
+  {
+   "start": 420,
+   "title": "탐라국의 해상 교역과 외교"
+  },
+  {
+   "start": 720,
+   "title": "몽골의 침략과 삼별초"
+  },
+  {
+   "start": 1110,
+   "title": "삼별초의 진도 정권"
+  },
+  {
+   "start": 1380,
+   "title": "항파두리성과 최후의 항전"
+  },
+  {
+   "start": 1740,
+   "title": "탐라총관부와 목마장"
+  },
+  {
+   "start": 2100,
+   "title": "목호 백 년의 삶"
+  },
+  {
+   "start": 2460,
+   "title": "목호의 난 - 최영의 진압"
+  },
+  {
+   "start": 2820,
+   "title": "조선의 탐라 - 공물과 유배"
+  },
+  {
+   "start": 3120,
+   "title": "해녀와 탐라의 유산"
+  },
+  {
+   "start": 3420,
+   "title": "탐라가 오늘의 제주에 남긴 것"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 65,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:39:20",
+ "approved": "2026-10-17T16:39+09:00"
+}

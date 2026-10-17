@@ -1,0 +1,105 @@
+{
+ "id": "HWUmFEuUR0k",
+ "title": "[AI 단편영화] 임진왜란 노량에 현대 구축함이 나타났다｜이순신의 죽음을 훔치러 온 자들",
+ "channel": "타임머신 타고 전장속으로",
+ "channel_id": "UCeDdAYila3s01B5sCOgyunA",
+ "subs": 3230,
+ "views": 18079,
+ "ratio": 5.6,
+ "age_days": 122,
+ "views_per_day": 148.2,
+ "minutes": 15.5,
+ "likes": 243,
+ "comments": 6,
+ "published": "2026-06-16",
+ "queries": "검색:임진왜란",
+ "url": "https://www.youtube.com/watch?v=HWUmFEuUR0k",
+ "flag": "",
+ "published_at": "2026-06-16T09:22:53Z",
+ "rank": "W521",
+ "set": "web",
+ "folder": "W_HWUmFEuUR0k",
+ "sources": [
+  "검색:임진왜란"
+ ],
+ "source": "web",
+ "tags": [
+  "타임머신",
+  "한국군대",
+  "단편영화",
+  "한국역사",
+  "전쟁"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "7년 전쟁의 마지막 밤, 노량해전의 서막"
+  },
+  {
+   "start": 15,
+   "title": "\"한 척도 돌려보내지 마라\" 이순신의 결사 항전"
+  },
+  {
+   "start": 30,
+   "title": "미래에서 온 시간기록국 요원, 한서진의 등장"
+  },
+  {
+   "start": 84,
+   "title": "조선 수군의 화포 총공격"
+  },
+  {
+   "start": 114,
+   "title": "시공간의 균열, 역사에 없는 현대 구축함의 출현"
+  },
+  {
+   "start": 173,
+   "title": "\"기록 밖의 전력\" 미스터리한 적의 정체"
+  },
+  {
+   "start": 232,
+   "title": "미사일 불능과 의문의 지시 \"이순신을 죽이지 마라\""
+  },
+  {
+   "start": 301,
+   "title": "적의 진짜 목적: 이순신의 마지막 순간을 훔치는 것"
+  },
+  {
+   "start": 343,
+   "title": "함포를 넘어선 음모, 특수 요원들의 침투"
+  },
+  {
+   "start": 400,
+   "title": "판옥선 위에서의 격렬한 백병전"
+  },
+  {
+   "start": 488,
+   "title": "\"뺏기지 말아야겠군\" 장군의 결단과 사슬의 비밀"
+  },
+  {
+   "start": 570,
+   "title": "시간의 역류, 자신의 죽음으로 적을 묶다"
+  },
+  {
+   "start": 717,
+   "title": "다가오는 역사의 총탄과 멈추지 않는 북소리"
+  },
+  {
+   "start": 800,
+   "title": "노량의 바다에서 지워진 함정, 그리고 남겨진 자"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 6,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:39:08",
+ "approved": "2026-10-17T16:39+09:00"
+}

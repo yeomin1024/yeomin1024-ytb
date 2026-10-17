@@ -1,0 +1,119 @@
+{
+ "id": "3LSkFuV-1d0",
+ "title": "조선은 이순신이 죽은 뒤 300년 더 만든 거북선을 왜 한 척도 남기지 못했을까 | 칠천량 해전 | 정조 귀선도설 | 한국사 조선시대",
+ "channel": "역사썰방",
+ "channel_id": "UCSYkvnHBV49kjc3fExlQ6BA",
+ "subs": 1920,
+ "views": 843390,
+ "ratio": 439.27,
+ "age_days": 35,
+ "views_per_day": 24096.9,
+ "minutes": 21.0,
+ "likes": 3023,
+ "comments": 208,
+ "published": "2026-09-11",
+ "queries": "검색:한국역사 | 검색:조선시대 | 검색:조선왕조 | 검색:이순신",
+ "url": "https://www.youtube.com/watch?v=3LSkFuV-1d0",
+ "flag": "",
+ "published_at": "2026-09-11T09:49:09Z",
+ "rank": "W9",
+ "set": "web",
+ "folder": "W_3LSkFuV-1d0",
+ "sources": [
+  "검색:한국역사",
+  "검색:조선시대",
+  "검색:조선왕조",
+  "검색:이순신"
+ ],
+ "source": "web",
+ "tags": [
+  "거북선",
+  "이순신",
+  "칠천량해전",
+  "조선수군",
+  "판옥선",
+  "정조",
+  "이충무공전서",
+  "한국사",
+  "조선시대",
+  "역사다큐",
+  "역사여행",
+  "시니어역사"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "일본 수군의 필승 공식과 통하지 않는 배"
+  },
+  {
+   "start": 80,
+   "title": "거북선은 이순신이 만들지 않았다 — 태종 13년의 기록"
+  },
+  {
+   "start": 180,
+   "title": "전쟁 두 달 전, 난중일기에 적힌 날짜"
+  },
+  {
+   "start": 285,
+   "title": "안에서는 밖이 보이고 밖에서는 안이 안 보인다"
+  },
+  {
+   "start": 353,
+   "title": "칠천량 — 하룻밤에 전부 가라앉다"
+  },
+  {
+   "start": 457,
+   "title": "명량에는 거북선이 없었다"
+  },
+  {
+   "start": 511,
+   "title": "전쟁이 끝나고 25년 뒤, 조정이 다시 만들라고 하다"
+  },
+  {
+   "start": 681,
+   "title": "크기가 커지는 것을 경계하라 — 1687년 김수항"
+  },
+  {
+   "start": 735,
+   "title": "표주박 두 개 값까지 적힌 유지비"
+  },
+  {
+   "start": 783,
+   "title": "궁궐 마루에 놓인 거북선 모형"
+  },
+  {
+   "start": 906,
+   "title": "대포 구멍이 여섯인데 왜 여덟인가 — 1751년 박문수"
+  },
+  {
+   "start": 978,
+   "title": "이충무공전서의 그림은 정조 때 배다"
+  },
+  {
+   "start": 1044,
+   "title": "철갑선이었나 — 확인된 데까지"
+  },
+  {
+   "start": 1076,
+   "title": "1895년, 통제영이 문을 닫다"
+  },
+  {
+   "start": 1168,
+   "title": "지금 항구에 떠 있는 배는 어느 시절의 답인가"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 208,
+ "comments_top_level": 137,
+ "comments_replies": 71,
+ "comments_by_creator": 10,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 208,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:25:27",
+ "approved": "2026-10-17T16:25+09:00"
+}

@@ -1,0 +1,66 @@
+{
+ "id": "wjntCMcZLgE",
+ "title": "수십조 가치 인도 보물 사원을 고고학계에서 손도 못 대는 이유 (저주의 문..?) ㅣ역사를 보다 EP.160",
+ "channel": "보다 BODA",
+ "channel_id": "UCoCvTlU0KpNYwnMIgs7MPrA",
+ "subs": 3220000,
+ "views": 2315652,
+ "ratio": 0.72,
+ "age_days": 39,
+ "views_per_day": 59375.7,
+ "minutes": 49.5,
+ "likes": 10632,
+ "comments": 246,
+ "published": "2026-09-07",
+ "queries": "검색:역사",
+ "url": "https://www.youtube.com/watch?v=wjntCMcZLgE",
+ "flag": "",
+ "published_at": "2026-09-07T10:00:20Z",
+ "rank": "W636",
+ "set": "web",
+ "folder": "W_wjntCMcZLgE",
+ "sources": [
+  "검색:역사"
+ ],
+ "source": "web",
+ "tags": [
+  "보다",
+  "boda",
+  "직업",
+  "인터뷰",
+  "전문가",
+  "레전드"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝"
+  },
+  {
+   "start": 358,
+   "title": "140년간 누구도 열지 못한 인도 보물 사원"
+  },
+  {
+   "start": 1569,
+   "title": "인도의 부를 움직이는 인도판 유대인들의 정체"
+  },
+  {
+   "start": 2432,
+   "title": "인도에 유난히 이과 천재들이 몰빵된 이유"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 246,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:39:24",
+ "approved": "2026-10-17T16:39+09:00"
+}

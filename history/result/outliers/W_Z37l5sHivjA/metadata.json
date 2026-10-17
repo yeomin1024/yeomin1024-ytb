@@ -1,0 +1,74 @@
+{
+ "id": "Z37l5sHivjA",
+ "title": "\"정약용이 인정한 조선 후기 1위?\" 역사 자체를 바꿀 수 있었던 최고의 천재",
+ "channel": "한국사 다시읽기",
+ "channel_id": "UC-sDvUroCCpUZhzk4I_3UIw",
+ "subs": 28200,
+ "views": 479258,
+ "ratio": 16.99,
+ "age_days": 70,
+ "views_per_day": 6846.5,
+ "minutes": 24.3,
+ "likes": 5914,
+ "comments": 557,
+ "published": "2026-08-07",
+ "queries": "검색:조선역사 | 검색:한국역사 | 검색:조선왕조실록 | 검색:조선",
+ "url": "https://www.youtube.com/watch?v=Z37l5sHivjA",
+ "flag": "",
+ "published_at": "2026-08-07T09:26:21Z",
+ "rank": "W337",
+ "set": "web",
+ "folder": "W_Z37l5sHivjA",
+ "sources": [
+  "검색:조선역사",
+  "검색:한국역사",
+  "검색:조선왕조실록",
+  "검색:조선"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "🎙️ 오프닝 | 정약용이 '귀신'이라 부른 사나이"
+  },
+  {
+   "start": 99,
+   "title": "📜 나모전 사건 | 정약용을 무너뜨린 글자 하나"
+  },
+  {
+   "start": 287,
+   "title": "✍️ '지이' 두 글자 | 시험장에서 벌어진 일"
+  },
+  {
+   "start": 365,
+   "title": "🌙 소동파 시구 | 남의 마음까지 읽어내다"
+  },
+  {
+   "start": 629,
+   "title": "🔭 서학과 천문·수학 | 시대를 앞선 지성과 정조의 총애"
+  },
+  {
+   "start": 1007,
+   "title": "🛡️ 무너진 방패 | 정조의 죽음과 신유박해"
+  },
+  {
+   "start": 1142,
+   "title": "🕯️ 지워진 이름 | 옥중의 최후"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 557,
+ "comments_top_level": 424,
+ "comments_replies": 133,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 557,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:34:53",
+ "approved": "2026-10-17T16:34+09:00"
+}

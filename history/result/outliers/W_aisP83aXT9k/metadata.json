@@ -1,0 +1,71 @@
+{
+ "id": "aisP83aXT9k",
+ "title": "[4K] 260522 올데이프로젝트 (ALLDAY PROJECT) 직캠 Full Ver. | 2026 고려대학교 입실렌티 | 고려대 축제 ( Famous, Wicked 등)",
+ "channel": "machrowh",
+ "channel_id": "UCLO0dMz2-U-CRxnkAUf4MhQ",
+ "subs": 4990,
+ "views": 39434,
+ "ratio": 7.9,
+ "age_days": 147,
+ "views_per_day": 268.3,
+ "minutes": 18.2,
+ "likes": 864,
+ "comments": 32,
+ "published": "2026-05-22",
+ "queries": "검색:고려",
+ "url": "https://www.youtube.com/watch?v=aisP83aXT9k",
+ "flag": "",
+ "published_at": "2026-05-22T15:10:05Z",
+ "rank": "W467",
+ "set": "web",
+ "folder": "W_aisP83aXT9k",
+ "sources": [
+  "검색:고려"
+ ],
+ "source": "web",
+ "tags": [
+  "올데이프로젝트",
+  "올데이프로젝트 고려대",
+  "애니",
+  "영서",
+  "우찬",
+  "베일리",
+  "타잔",
+  "올데프",
+  "올데프 고려대",
+  "올데프 입실렌티",
+  "allday project"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Famous"
+  },
+  {
+   "start": 275,
+   "title": "Look At Me"
+  },
+  {
+   "start": 527,
+   "title": "Wicked"
+  },
+  {
+   "start": 846,
+   "title": "One More Time"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 32,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:39:01",
+ "approved": "2026-10-17T16:39+09:00"
+}

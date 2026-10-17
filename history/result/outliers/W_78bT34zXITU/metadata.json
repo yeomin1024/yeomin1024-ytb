@@ -1,0 +1,90 @@
+{
+ "id": "78bT34zXITU",
+ "title": "1592년, 임진왜란에 떨어진 대한민국 해병대 소대! 한양을 지켜라 | 맹호소대 5화",
+ "channel": "전쟁극장 Films",
+ "channel_id": "UCMzvo60jKy0sG6WF3v0R9Fg",
+ "subs": 21900,
+ "views": 77903,
+ "ratio": 3.56,
+ "age_days": 96,
+ "views_per_day": 811.5,
+ "minutes": 10.2,
+ "likes": 732,
+ "comments": 36,
+ "published": "2026-07-12",
+ "queries": "검색:임진왜란",
+ "url": "https://www.youtube.com/watch?v=78bT34zXITU",
+ "flag": "",
+ "published_at": "2026-07-12T08:47:13Z",
+ "rank": "W587",
+ "set": "web",
+ "folder": "W_78bT34zXITU",
+ "sources": [
+  "검색:임진왜란"
+ ],
+ "source": "web",
+ "tags": [
+  "임진왜란",
+  "1592년",
+  "왜군",
+  "정발",
+  "조선군",
+  "대한민국 해병대",
+  "해병대 소대",
+  "맹호소대",
+  "타임슬립",
+  "시간여행",
+  "역사영화",
+  "상륙작전",
+  "AI영화",
+  "다대진",
+  "맹호소대 5화",
+  "한양",
+  "한얀도성",
+  "한양전투"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 15,
+   "title": "한양으로 출발"
+  },
+  {
+   "start": 23,
+   "title": "조정 회의, 전하의 북방 피난 논의"
+  },
+  {
+   "start": 104,
+   "title": "강태현, 전하를 만나 한양성 수비를 제안하다"
+  },
+  {
+   "start": 247,
+   "title": "왜군, 한양성을 향해 총공세 개시"
+  },
+  {
+   "start": 450,
+   "title": "패배한 왜군, 일제히 퇴각하다"
+  },
+  {
+   "start": 550,
+   "title": "왜군 진영 기습 작전"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 36,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:39:18",
+ "approved": "2026-10-17T16:39+09:00"
+}

@@ -1,0 +1,93 @@
+{
+ "id": "n9Bpb5j7ec8",
+ "title": "임금인줄 모르고 훈수둔  10살 아이... 야사 / 야담/ 민담/ 시니어 오디오 북/ 옛날이야기",
+ "channel": "토이야담",
+ "channel_id": "UCK_Ilb3veHR9kdlUzzu0MGw",
+ "subs": 671,
+ "views": 221812,
+ "ratio": 330.57,
+ "age_days": 59,
+ "views_per_day": 3759.5,
+ "minutes": 32.3,
+ "likes": 1472,
+ "comments": 83,
+ "published": "2026-08-18",
+ "queries": "검색:야사",
+ "url": "https://www.youtube.com/watch?v=n9Bpb5j7ec8",
+ "flag": "",
+ "published_at": "2026-08-18T10:15:19Z",
+ "rank": "W13",
+ "set": "web",
+ "folder": "W_n9Bpb5j7ec8",
+ "sources": [
+  "검색:야사"
+ ],
+ "source": "web",
+ "tags": [
+  "야담",
+  "야사",
+  "옛날이야기",
+  "민담",
+  "시니어수면동화",
+  "오디오북",
+  "조선시대",
+  "곡식횡령",
+  "관아",
+  "흉년",
+  "서당",
+  "지혜",
+  "조선야담"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "도입 및 이야기 시작"
+  },
+  {
+   "start": 66,
+   "title": "청안골과 흉년의 기억"
+  },
+  {
+   "start": 200,
+   "title": "옥이의 등장과 성장"
+  },
+  {
+   "start": 300,
+   "title": "허생원과의 만남, 글자를 배우다"
+  },
+  {
+   "start": 401,
+   "title": "박 아전의 횡령과 의심"
+  },
+  {
+   "start": 553,
+   "title": "구휼미와 장부의 비밀"
+  },
+  {
+   "start": 668,
+   "title": "나그네의 등장과 글자 지적"
+  },
+  {
+   "start": 1292,
+   "title": "임금의 정체와 진실 규명"
+  },
+  {
+   "start": 1740,
+   "title": "정의 실현과 서당 설립"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 83,
+ "comments_top_level": 38,
+ "comments_replies": 45,
+ "comments_by_creator": 40,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 83,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:25:32",
+ "approved": "2026-10-17T16:25+09:00"
+}

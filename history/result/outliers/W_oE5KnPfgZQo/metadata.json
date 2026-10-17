@@ -1,0 +1,108 @@
+{
+ "id": "oE5KnPfgZQo",
+ "title": "이순신 장군을 2026년 해군기지에 모셔왔더니 벌어진 일",
+ "channel": "로그북",
+ "channel_id": "UC_Sb1wxsT-F97LXxj_h0N9Q",
+ "subs": 379,
+ "views": 25389,
+ "ratio": 66.99,
+ "age_days": 10,
+ "views_per_day": 2538.9,
+ "minutes": 5.2,
+ "likes": 164,
+ "comments": 25,
+ "published": "2026-10-06",
+ "queries": "검색:세종대왕",
+ "url": "https://www.youtube.com/watch?v=oE5KnPfgZQo",
+ "flag": "",
+ "published_at": "2026-10-06T13:27:40Z",
+ "rank": "W138",
+ "set": "web",
+ "folder": "W_oE5KnPfgZQo",
+ "sources": [
+  "검색:세종대왕"
+ ],
+ "source": "web",
+ "tags": [
+  "이순신",
+  "이순신 장군",
+  "충무공",
+  "충무공 이순신",
+  "세종대왕함",
+  "이지스함",
+  "구축함",
+  "해군",
+  "대한민국 해군",
+  "제주 해군기지",
+  "조선소",
+  "충무김밥",
+  "통영",
+  "초코파이",
+  "명량",
+  "노량",
+  "난중일기",
+  "거북선",
+  "판옥선",
+  "류성룡",
+  "김종서",
+  "이회",
+  "조선시대",
+  "현대에 온 위인",
+  "타임슬립",
+  "역사 인물",
+  "AI 영상",
+  "세계관오류"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "이 배 한 척만 있었어도…"
+  },
+  {
+   "start": 10,
+   "title": "광화문의 쇠로 된 장수"
+  },
+  {
+   "start": 46,
+   "title": "울산 조선소, 쇳덩이가 물에 뜬다고?"
+  },
+  {
+   "start": 93,
+   "title": "제주 해군기지, 필승!"
+  },
+  {
+   "start": 131,
+   "title": "세종대왕함 함교와 전투정보실"
+  },
+  {
+   "start": 171,
+   "title": "초코파이와 막내 수병"
+  },
+  {
+   "start": 186,
+   "title": "출항, 충무김밥과 열세 척"
+  },
+  {
+   "start": 241,
+   "title": "그 싸움은 어찌 끝났느냐"
+  },
+  {
+   "start": 277,
+   "title": "1597년 겨울, 아들 이회"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 25,
+ "comments_top_level": 21,
+ "comments_replies": 4,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 25,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:29:29",
+ "approved": "2026-10-17T16:29+09:00"
+}

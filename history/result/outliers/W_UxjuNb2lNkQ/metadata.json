@@ -1,0 +1,81 @@
+{
+ "id": "UxjuNb2lNkQ",
+ "title": "[한국사] \"백정은 죽여도 돼~\" 조선 백정의 충격적인 진실 | 정사 | 야사",
+ "channel": "역사꾼",
+ "channel_id": "UC3M_efpw-t7fG0-R7whjWjA",
+ "subs": 12900,
+ "views": 51552,
+ "ratio": 4.0,
+ "age_days": 181,
+ "views_per_day": 284.8,
+ "minutes": 19.1,
+ "likes": 562,
+ "comments": 234,
+ "published": "2026-04-18",
+ "queries": "검색:조선역사 | 검색:역사채널 | 검색:조선왕조실록 | 검색:조선왕조 | 검색:한국사 | 검색:야사",
+ "url": "https://www.youtube.com/watch?v=UxjuNb2lNkQ",
+ "flag": "",
+ "published_at": "2026-04-18T09:00:43Z",
+ "rank": "W569",
+ "set": "web",
+ "folder": "W_UxjuNb2lNkQ",
+ "sources": [
+  "검색:조선역사",
+  "검색:역사채널",
+  "검색:조선왕조실록",
+  "검색:조선왕조",
+  "검색:한국사",
+  "검색:야사"
+ ],
+ "source": "web",
+ "tags": [
+  "조선시대",
+  "한국사",
+  "역사",
+  "조선왕조실록"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로 – 사극이 숨긴 백정의 진실"
+  },
+  {
+   "start": 90,
+   "title": "파트1 – 사람이 아니었습니다: 상투도, 비녀도, 마을도 금지"
+  },
+  {
+   "start": 540,
+   "title": "파트2 – 세종대왕의 선의가 낳은 비극: '백정' 이름의 반전"
+  },
+  {
+   "start": 990,
+   "title": "파트3 – 망나니와 쇠고기, 양반들의 위선"
+  },
+  {
+   "start": 1440,
+   "title": "파트4 – 붉은 점의 낙인, 그리고 '푸줏간집 아들'"
+  },
+  {
+   "start": 1890,
+   "title": "파트5 – 낫 대신 칼을 들었던 아버지들"
+  },
+  {
+   "start": 2280,
+   "title": "아웃트로 – 당신이 기억하는 차별의 잔재"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 234,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:39:15",
+ "approved": "2026-10-17T16:39+09:00"
+}

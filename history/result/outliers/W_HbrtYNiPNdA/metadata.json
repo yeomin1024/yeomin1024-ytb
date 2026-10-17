@@ -1,0 +1,86 @@
+{
+ "id": "HbrtYNiPNdA",
+ "title": "왕은 하루에 몇 번이나 잠자리를 했을까? | 조선시대 왕 잠자리 횟수 | 조선 왕실 성생활 기록",
+ "channel": "비사록",
+ "channel_id": "UCuxx8pM7rDX0WGCS4eXMY5A",
+ "subs": 7290,
+ "views": 339827,
+ "ratio": 46.62,
+ "age_days": 97,
+ "views_per_day": 3503.4,
+ "minutes": 27.3,
+ "likes": 6707,
+ "comments": 373,
+ "published": "2026-07-11",
+ "queries": "검색:조선시대 | 검색:조선왕조 | 검색:조선 | 검색:조선왕",
+ "url": "https://www.youtube.com/watch?v=HbrtYNiPNdA",
+ "flag": "",
+ "published_at": "2026-07-11T07:30:29Z",
+ "rank": "W190",
+ "set": "web",
+ "folder": "W_HbrtYNiPNdA",
+ "sources": [
+  "검색:조선시대",
+  "검색:조선왕조",
+  "검색:조선",
+  "검색:조선왕"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 75,
+   "title": "파트 1. 합방의 절차 — 문 하나 사이의 여덟 상궁"
+  },
+  {
+   "start": 242,
+   "title": "파트 2. 날짜를 정하는 사람 — 왕도 못 정한 그날 밤"
+  },
+  {
+   "start": 385,
+   "title": "파트 3. 한 달에 몇 번? — 조선과 중국의 차이"
+  },
+  {
+   "start": 445,
+   "title": "파트 4. 왕비와 후궁, 정치가 된 하룻밤"
+  },
+  {
+   "start": 707,
+   "title": "파트 5. 거부당한 밤 — 왕과 여인들의 선택"
+  },
+  {
+   "start": 872,
+   "title": "파트 6. 승은 한 번의 운명 — 무수리에서 왕의 어머니까지"
+  },
+  {
+   "start": 1192,
+   "title": "파트 7. 감시받는 몸, 감시받는 침실"
+  },
+  {
+   "start": 1418,
+   "title": "파트 8. 간택이라는 이름의 국가 행사"
+  },
+  {
+   "start": 1544,
+   "title": "결론 — 왕의 밤이 왕조의 미래였던 이유"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 373,
+ "comments_top_level": 195,
+ "comments_replies": 178,
+ "comments_by_creator": 113,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 373,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:30:50",
+ "approved": "2026-10-17T16:30+09:00"
+}

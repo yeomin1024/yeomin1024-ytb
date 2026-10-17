@@ -1,0 +1,95 @@
+{
+ "id": "xKylyX8bcik",
+ "title": "청백리라 불린 영의정의 두 얼굴 | 정인지, 그가 살았던 80년의 비밀 | 조선왕조실록,정인지",
+ "channel": "거꾸로한국사",
+ "channel_id": "UCHHFs--k6wQ7WfuWgEwPO8A",
+ "subs": 17000,
+ "views": 67270,
+ "ratio": 3.96,
+ "age_days": 127,
+ "views_per_day": 529.7,
+ "minutes": 43.7,
+ "likes": 2142,
+ "comments": 172,
+ "published": "2026-06-12",
+ "queries": "검색:한국사이야기",
+ "url": "https://www.youtube.com/watch?v=xKylyX8bcik",
+ "flag": "",
+ "published_at": "2026-06-12T00:00:37Z",
+ "rank": "W570",
+ "set": "web",
+ "folder": "W_xKylyX8bcik",
+ "sources": [
+  "검색:한국사이야기"
+ ],
+ "source": "web",
+ "tags": [
+  "한국사",
+  "한국역사",
+  "조선시대",
+  "조선역사",
+  "역사이야기",
+  "역사채널",
+  "거꾸로한국사",
+  "역사다큐",
+  "숨겨진역사",
+  "역사인물",
+  "정인지",
+  "훈민정음",
+  "사육신",
+  "박팽년",
+  "단종"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "프롤로그 - 의금부 마당의 한 여인"
+  },
+  {
+   "start": 210,
+   "title": "CH1. 하늘이 낸 천재, 정인지의 등장"
+  },
+  {
+   "start": 525,
+   "title": "CH2. 김종서와의 갈등, 그리고 수양과의 사돈"
+  },
+  {
+   "start": 860,
+   "title": "CH3. 계유정난, 단종의 옥새를 받은 날"
+  },
+  {
+   "start": 1210,
+   "title": "CH4. 사육신, 그리고 단종 사사 주청"
+  },
+  {
+   "start": 1600,
+   "title": "CH5. 옥금, 그 집 대문 앞에 서다"
+  },
+  {
+   "start": 1935,
+   "title": "CH6. 술 취한 영의정, 청백리의 두 얼굴"
+  },
+  {
+   "start": 2270,
+   "title": "CH7. 부관참시, 그리고 오백 년 뒤"
+  },
+  {
+   "start": 2480,
+   "title": "에필로그 - 괴산과 묘골, 두 갈래의 핏줄"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 172,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:39:15",
+ "approved": "2026-10-17T16:39+09:00"
+}

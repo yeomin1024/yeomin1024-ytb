@@ -26,7 +26,7 @@
  "tags": null,
  "chapters": [],
  "transcript_lang": "-",
- "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "transcript_status": "RequestBlocked: \nCould not retrieve a transcript for the video https://www.youtube.com/watch?v=8Fiore1srWM! This is most likely caused b",
  "video_lang": "ko",
  "foreign": false,
  "comments_fetched": 11,
@@ -38,5 +38,6 @@
  "comments_reported": 11,
  "tool": "outlier_research.py v2.5.1",
  "collected": "2026-10-16T11:37:02",
- "approved": "2026-10-16T20:37+09:00"
+ "approved": "2026-10-16T20:37+09:00",
+ "transcript_retried": "2026-10-17T19:24+09:00"
 }

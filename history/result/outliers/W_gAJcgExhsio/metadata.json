@@ -1,0 +1,100 @@
+{
+ "id": "gAJcgExhsio",
+ "title": "호랑이와 산적이 득실대던 조선시대, 사람들은 어떻게 수백 리를 여행했을까?",
+ "channel": "신박한 호기심",
+ "channel_id": "UCeZfLZFIstVtxxMVtxXMCdQ",
+ "subs": 1580,
+ "views": 80069,
+ "ratio": 50.68,
+ "age_days": 29,
+ "views_per_day": 2761.0,
+ "minutes": 13.2,
+ "likes": 202,
+ "comments": 8,
+ "published": "2026-09-18",
+ "queries": "검색:조선왕조실록",
+ "url": "https://www.youtube.com/watch?v=gAJcgExhsio",
+ "flag": "",
+ "published_at": "2026-09-18T03:04:50Z",
+ "rank": "W180",
+ "set": "web",
+ "folder": "W_gAJcgExhsio",
+ "sources": [
+  "검색:조선왕조실록"
+ ],
+ "source": "web",
+ "tags": [
+  "신박한호기심",
+  "역사",
+  "역사이야기",
+  "세계사",
+  "한국사",
+  "전쟁역사",
+  "전쟁이야기",
+  "실제역사",
+  "실제기록",
+  "역사기록",
+  "기록영상",
+  "실제영상",
+  "옛날이야기",
+  "역사미스터리",
+  "미스터리",
+  "흥미로운이야기",
+  "놀라운사실",
+  "신기한이야기",
+  "호기심",
+  "지식채널"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "호랑이와 산적이 있던 조선의 고갯길"
+  },
+  {
+   "start": 90,
+   "title": "조선시대에는 정말 짐마차로 여행했을까?"
+  },
+  {
+   "start": 270,
+   "title": "산길에서 마주친 가장 무서운 위험"
+  },
+  {
+   "start": 480,
+   "title": "나그네와 상인들은 어떻게 고개를 넘었을까?"
+  },
+  {
+   "start": 720,
+   "title": "말과 짐을 지키며 이동하는 방법"
+  },
+  {
+   "start": 930,
+   "title": "호랑이를 잡았던 조선의 착호갑사"
+  },
+  {
+   "start": 1110,
+   "title": "조선의 역(驛)과 원(院)"
+  },
+  {
+   "start": 1320,
+   "title": "이태원·조치원·퇴계원·장호원에 남은 흔적"
+  },
+  {
+   "start": 1470,
+   "title": "목숨을 걸어야 했던 조선의 장거리 여행"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 8,
+ "comments_top_level": 5,
+ "comments_replies": 3,
+ "comments_by_creator": 3,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 8,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:30:39",
+ "approved": "2026-10-17T16:30+09:00"
+}

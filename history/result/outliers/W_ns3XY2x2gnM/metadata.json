@@ -1,0 +1,128 @@
+{
+ "id": "ns3XY2x2gnM",
+ "title": "조선은 1910년에 끝나지 않았다 | 1950년대 한국에 남아 있던 조선의 풍경",
+ "channel": "우리 모두의 역사",
+ "channel_id": "UCYa04jnvh4zbvhpl4U93K9A",
+ "subs": 5100,
+ "views": 30065,
+ "ratio": 5.9,
+ "age_days": 1,
+ "views_per_day": 30065.0,
+ "minutes": 86.2,
+ "likes": 213,
+ "comments": 13,
+ "published": "2026-10-15",
+ "queries": "검색:대한제국",
+ "url": "https://www.youtube.com/watch?v=ns3XY2x2gnM",
+ "flag": "",
+ "published_at": "2026-10-15T11:00:31Z",
+ "rank": "W514",
+ "set": "web",
+ "folder": "W_ns3XY2x2gnM",
+ "sources": [
+  "검색:대한제국"
+ ],
+ "source": "web",
+ "tags": [
+  "역사",
+  "조선사",
+  "평민역사",
+  "조선시대",
+  "경신대기근",
+  "임진왜란",
+  "일제시대",
+  "친일파"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝 · 1950년, 서울에 아직 황후가 있었다"
+  },
+  {
+   "start": 85,
+   "title": "단기 4283년, 기묘한 시대의 시작"
+  },
+  {
+   "start": 223,
+   "title": "1870년생 한 사람의 생애로 본 격변의 80년"
+  },
+  {
+   "start": 543,
+   "title": "초가집·온돌·우물·호롱불 · 1950년대 농촌의 하루"
+  },
+  {
+   "start": 1224,
+   "title": "1950년 농지개혁, 무너진 지주의 시대"
+  },
+  {
+   "start": 1343,
+   "title": "6·25 전쟁과 피란, 부산 판잣집"
+  },
+  {
+   "start": 1598,
+   "title": "미군이 'A-프레임'이라 부른 지게부대"
+  },
+  {
+   "start": 1688,
+   "title": "마지막 황후 순정효황후의 전쟁"
+  },
+  {
+   "start": 1804,
+   "title": "디디티와 천연두 · 전쟁이 부른 역병"
+  },
+  {
+   "start": 1947,
+   "title": "한복에서 구호품 양복으로 · 옷장의 혁명"
+  },
+  {
+   "start": 2193,
+   "title": "광주리를 인 여인들 · 생계를 짊어진 여성"
+  },
+  {
+   "start": 2356,
+   "title": "서당에서 천막 교실로"
+  },
+  {
+   "start": 2569,
+   "title": "마당 혼례, 상여, 두 개의 설날"
+  },
+  {
+   "start": 2862,
+   "title": "전차와 다방 · 1950년대 서울 거리"
+  },
+  {
+   "start": 2971,
+   "title": "시발자동차·라디오·텔레비전 · 폐허에서 태어난 것들"
+  },
+  {
+   "start": 3516,
+   "title": "1960년 4·19, 한 시대의 끝"
+  },
+  {
+   "start": 3584,
+   "title": "시민증·통행금지·환 · 전쟁이 만든 제도"
+  },
+  {
+   "start": 3812,
+   "title": "산업화, 한 세대 만에 사라진 조선의 생활"
+  },
+  {
+   "start": 4347,
+   "title": "에필로그 · 조선을 몸으로 기억한 마지막 세대"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 13,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:39:07",
+ "approved": "2026-10-17T16:39+09:00"
+}

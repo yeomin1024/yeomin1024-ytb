@@ -1,0 +1,67 @@
+{
+ "id": "4C7JI9SwK1o",
+ "title": "암행어사 박문수 \"암행어사 출두요!\" 탐관오리를 쓸어버리다 | 조선 사극 사이다",
+ "channel": "영화 말본",
+ "channel_id": "UCKjBqUEkOvjSJqn7PUXwD1A",
+ "subs": 1080,
+ "views": 240331,
+ "ratio": 222.53,
+ "age_days": 52,
+ "views_per_day": 4621.8,
+ "minutes": 13.0,
+ "likes": 605,
+ "comments": 30,
+ "published": "2026-08-25",
+ "queries": "검색:사극",
+ "url": "https://www.youtube.com/watch?v=4C7JI9SwK1o",
+ "flag": "",
+ "published_at": "2026-08-25T13:31:10Z",
+ "rank": "W25",
+ "set": "web",
+ "folder": "W_4C7JI9SwK1o",
+ "sources": [
+  "검색:사극"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "1장 거지 어사 — 썩은 고을에 잠입하다"
+  },
+  {
+   "start": 141,
+   "title": "2장 탐관오리 — 잔칫상 위의 피"
+  },
+  {
+   "start": 268,
+   "title": "3장 밝혀지는 비리 — 장부 한 권"
+  },
+  {
+   "start": 387,
+   "title": "4장 위기 — 한 백성이 숨겨주다"
+  },
+  {
+   "start": 513,
+   "title": "5장 암행어사 출두 — 마패가 번뜩이다"
+  },
+  {
+   "start": 632,
+   "title": "6장 진짜 배후 — 한양의 거물"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 30,
+ "comments_top_level": 28,
+ "comments_replies": 2,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 30,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:25:51",
+ "approved": "2026-10-17T16:25+09:00"
+}

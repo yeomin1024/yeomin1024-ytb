@@ -1,0 +1,98 @@
+{
+ "id": "olrlcl1HoCo",
+ "title": "“누가 이순신을 사?” 미국서 무시당한 청년…결국 25만 부 팔아치웠다",
+ "channel": "최기훈TV",
+ "channel_id": "UCGKNgcyDfbnCML7obNwdeRA",
+ "subs": 611,
+ "views": 129287,
+ "ratio": 211.6,
+ "age_days": 25,
+ "views_per_day": 5171.5,
+ "minutes": 17.4,
+ "likes": 950,
+ "comments": 24,
+ "published": "2026-09-22",
+ "queries": "검색:이순신",
+ "url": "https://www.youtube.com/watch?v=olrlcl1HoCo",
+ "flag": "",
+ "published_at": "2026-09-22T03:18:12Z",
+ "rank": "W32",
+ "set": "web",
+ "folder": "W_olrlcl1HoCo",
+ "sources": [
+  "검색:이순신"
+ ],
+ "source": "web",
+ "tags": [
+  "이순신",
+  "충무공이순신",
+  "온리콤판",
+  "이순신만화",
+  "이순신그래픽노블",
+  "미국반응",
+  "해외반응",
+  "한국역사",
+  "조선역사",
+  "임진왜란",
+  "명량해전",
+  "거북선",
+  "난중일기",
+  "불멸의이순신",
+  "미국코믹스",
+  "코믹콘",
+  "그래픽노블",
+  "스탠리",
+  "한국영웅",
+  "K콘텐츠",
+  "감동실화",
+  "최기훈TV"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "이순신 만화로 미국을 뒤집은 청년"
+  },
+  {
+   "start": 88,
+   "title": "평범한 청년 온리 콤판의 새로운 도전"
+  },
+  {
+   "start": 198,
+   "title": "철저한 역사 고증과 글로벌 제작진"
+  },
+  {
+   "start": 283,
+   "title": "냉혹한 미국 만화 시장의 문전박대"
+  },
+  {
+   "start": 404,
+   "title": "자동차 트렁크에서 시작된 정면 돌파"
+  },
+  {
+   "start": 561,
+   "title": "이순신 만화 25만 부 판매의 비밀"
+  },
+  {
+   "start": 782,
+   "title": "대한민국으로 역수입된 이순신 만화"
+  },
+  {
+   "start": 857,
+   "title": "한 이방인이 보여준 K콘텐츠의 힘"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 24,
+ "comments_top_level": 23,
+ "comments_replies": 1,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 24,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:26:01",
+ "approved": "2026-10-17T16:26+09:00"
+}

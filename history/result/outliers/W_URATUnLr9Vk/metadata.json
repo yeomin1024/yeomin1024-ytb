@@ -1,0 +1,75 @@
+{
+ "id": "URATUnLr9Vk",
+ "title": "조선사람들은 에어컨도 없이 무더운 여름을 어떻게 버텼을까?｜한국사｜조선사｜역사｜삼복더위",
+ "channel": "역사콕테일",
+ "channel_id": "UCUzHaKrn61nQcRg333ykJxw",
+ "subs": 8260,
+ "views": 35391,
+ "ratio": 4.28,
+ "age_days": 96,
+ "views_per_day": 368.7,
+ "minutes": 26.4,
+ "likes": 394,
+ "comments": 98,
+ "published": "2026-07-12",
+ "queries": "검색:조선사",
+ "url": "https://www.youtube.com/watch?v=URATUnLr9Vk",
+ "flag": "",
+ "published_at": "2026-07-12T07:37:37Z",
+ "rank": "W560",
+ "set": "web",
+ "folder": "W_URATUnLr9Vk",
+ "sources": [
+  "검색:조선사"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "한겨울 새벽 한강 위, 목숨 건 그 일의 정체"
+  },
+  {
+   "start": 151,
+   "title": "얼음을 반년 동안 녹이지 않은 비밀 — 석빙고"
+  },
+  {
+   "start": 395,
+   "title": "얼음은 아무나 먹지 못했다"
+  },
+  {
+   "start": 574,
+   "title": "조선의 여름 음식 — 마시고, 먹고"
+  },
+  {
+   "start": 887,
+   "title": "집 자체가 냉방 장치였던 이유 — 대청마루의 과학"
+  },
+  {
+   "start": 1054,
+   "title": "정약용이 전한 더위를 잊는 여덟 가지 방법"
+  },
+  {
+   "start": 1255,
+   "title": "죽부인, 등등거리 — 몸에 바람길을 만들다"
+  },
+  {
+   "start": 1386,
+   "title": "양반의 여름과 백성의 여름은 달랐다"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 98,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:39:14",
+ "approved": "2026-10-17T16:39+09:00"
+}

@@ -1,0 +1,103 @@
+{
+ "id": "lRFzNz6LA6c",
+ "title": "종로의 숨겨진 유적과 피맛길 답사 | 왕의 가마를 피해 걷던 서민들의 진짜 역사 [답골TV]",
+ "channel": "길눈이랑 답사해",
+ "channel_id": "UC86RwCOKPjK-yTlSJTexYtg",
+ "subs": 4810,
+ "views": 17145,
+ "ratio": 3.56,
+ "age_days": 133,
+ "views_per_day": 128.9,
+ "minutes": 22.4,
+ "likes": 458,
+ "comments": 35,
+ "published": "2026-06-05",
+ "queries": "검색:숨겨진역사",
+ "url": "https://www.youtube.com/watch?v=lRFzNz6LA6c",
+ "flag": "",
+ "published_at": "2026-06-05T07:45:38Z",
+ "rank": "W589",
+ "set": "web",
+ "folder": "W_lRFzNz6LA6c",
+ "sources": [
+  "검색:숨겨진역사"
+ ],
+ "source": "web",
+ "tags": [
+  "종로유적",
+  "서울역사유적",
+  "종로답사",
+  "피맛길",
+  "피맛골",
+  "서울뒷골목",
+  "역사답사",
+  "도심도보여행",
+  "서울옛길",
+  "피맛골맛집",
+  "답사여행",
+  "한국역사",
+  "서울가볼만한곳",
+  "답골TV",
+  "길눈이"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 75,
+   "title": "종로와 피맛길 유래와 역사에 대한 설명"
+  },
+  {
+   "start": 249,
+   "title": "서울역사박물관"
+  },
+  {
+   "start": 406,
+   "title": "종루 주춧돌(보신각)"
+  },
+  {
+   "start": 550,
+   "title": "흥화문 터"
+  },
+  {
+   "start": 620,
+   "title": "서울 고종 어극 40년 칭경 기몀비"
+  },
+  {
+   "start": 680,
+   "title": "광화문과 북악산"
+  },
+  {
+   "start": 776,
+   "title": "피맛길의 시작 시전행랑"
+  },
+  {
+   "start": 986,
+   "title": "의금부 터"
+  },
+  {
+   "start": 1040,
+   "title": "녹두장군 전봉준 동상"
+  },
+  {
+   "start": 1160,
+   "title": "재미있는 장안빌딩에 얽힌 이야기"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 35,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:39:18",
+ "approved": "2026-10-17T16:39+09:00"
+}

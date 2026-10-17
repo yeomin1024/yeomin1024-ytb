@@ -1,0 +1,97 @@
+{
+ "id": "AAyf0Os9xt0",
+ "title": "[조선 다잇소] 3화 : 편전에서 쓰러진 세종대왕, 조선 제일검 앞에서도 주사기를 꺼내든 이유",
+ "channel": "다잇소 스튜디오",
+ "channel_id": "UCMb6lcKGxIlXt-j2NdjEbEA",
+ "subs": 1070,
+ "views": 21822,
+ "ratio": 20.39,
+ "age_days": 7,
+ "views_per_day": 3117.4,
+ "minutes": 8.0,
+ "likes": 164,
+ "comments": 21,
+ "published": "2026-10-10",
+ "queries": "검색:세종대왕",
+ "url": "https://www.youtube.com/watch?v=AAyf0Os9xt0",
+ "flag": "",
+ "published_at": "2026-10-10T01:00:28Z",
+ "rank": "W307",
+ "set": "web",
+ "folder": "W_AAyf0Os9xt0",
+ "sources": [
+  "검색:세종대왕"
+ ],
+ "source": "web",
+ "tags": [
+  "조선다잇소",
+  "조선 다잇소",
+  "다잇소 스튜디오",
+  "대체역사",
+  "대체역사 웹드라마",
+  "세종대왕",
+  "장영실",
+  "장영실 줄자",
+  "조선시대 라면",
+  "타임슬립",
+  "타임슬립 드라마",
+  "AI 웹드라마",
+  "AI 드라마",
+  "AI 영화",
+  "생성형 AI 드라마",
+  "도승지 김돈",
+  "퓨전사극",
+  "사극 웹드라마",
+  "웹소설 드라마",
+  "자격루",
+  "조선통보",
+  "조선다잇소 3화",
+  "세종대왕 마운자로",
+  "세종대왕 혈당",
+  "세종대왕 소갈"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "자꾸만 어긋나는 물시계, 장영실의 깊은 고뇌"
+  },
+  {
+   "start": 63,
+   "title": "물길을 여닫는 마법? 현대식 '볼탑 밸브'의 등장"
+  },
+  {
+   "start": 165,
+   "title": "현우의 당돌한 제안 \"한양에 다잇소를 열고 싶사옵니다\""
+  },
+  {
+   "start": 235,
+   "title": "갑자기 편전에서 쓰러진 세종대왕 (소갈증 쇼크)"
+  },
+  {
+   "start": 271,
+   "title": "\"멈춰라!\" 정체불명의 기물을 막아선 호위관 무명"
+  },
+  {
+   "start": 400,
+   "title": "세종을 살려낸 마운자로와 현대의 혈당 측정기"
+  },
+  {
+   "start": 464,
+   "title": "[4화 예고] 다잇소 첫날 밤 남겨진 수상한 은괴"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 21,
+ "comments_top_level": 11,
+ "comments_replies": 10,
+ "comments_by_creator": 9,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 21,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:34:08",
+ "approved": "2026-10-17T16:34+09:00"
+}

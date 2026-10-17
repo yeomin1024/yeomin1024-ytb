@@ -1,0 +1,96 @@
+{
+ "id": "1RZ8WZKegt8",
+ "title": "세종은 왜 장영실을 버렸나... 가마부상은 핑계일뿐, 진짜 목적은 따로 있었다? ㅣ 노비출신천재장영실 ㅣ장영실사라진이유",
+ "channel": "세상사실록",
+ "channel_id": "UC7cEnylsS7ROzZ48jJsg9Fg",
+ "subs": 13700,
+ "views": 128916,
+ "ratio": 9.41,
+ "age_days": 159,
+ "views_per_day": 810.8,
+ "minutes": 37.9,
+ "likes": 1511,
+ "comments": 219,
+ "published": "2026-05-11",
+ "queries": "검색:세종대왕 | 검색:세종",
+ "url": "https://www.youtube.com/watch?v=1RZ8WZKegt8",
+ "flag": "",
+ "published_at": "2026-05-11T02:15:01Z",
+ "rank": "W447",
+ "set": "web",
+ "folder": "W_1RZ8WZKegt8",
+ "sources": [
+  "검색:세종대왕",
+  "검색:세종"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로 — 1,893권에서 사라진 이름"
+  },
+  {
+   "start": 90,
+   "title": "장영실은 누구인가 — 노비에서 시작된 삶"
+  },
+  {
+   "start": 240,
+   "title": "세종의 파격 — 관노비에게 관직을 주다"
+  },
+  {
+   "start": 390,
+   "title": "중국 파견과 조선형 과학기기의 탄생"
+  },
+  {
+   "start": 480,
+   "title": "자격루 — 15세기 아날로그-디지털 변환의 비밀"
+  },
+  {
+   "start": 720,
+   "title": "앙부일구 — 세종이 거리에 세운 공공시계"
+  },
+  {
+   "start": 840,
+   "title": "옥루 — 물로 돌아가는 금빛 태양"
+  },
+  {
+   "start": 990,
+   "title": "측우기와 수표 — 유럽보다 200년 앞선 시스템"
+  },
+  {
+   "start": 1080,
+   "title": "1442년, 가마 사건의 전말"
+  },
+  {
+   "start": 1260,
+   "title": "가마가 진짜 이유였을까? — 4가지 단서"
+  },
+  {
+   "start": 1560,
+   "title": "장영실 이후의 조선 — 고칠 수 있는 사람이 없었다"
+  },
+  {
+   "start": 1740,
+   "title": "지워진 건 장영실뿐이었을까"
+  },
+  {
+   "start": 1860,
+   "title": "여러분이 세종이었다면?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 219,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:38:57",
+ "approved": "2026-10-17T16:38+09:00"
+}

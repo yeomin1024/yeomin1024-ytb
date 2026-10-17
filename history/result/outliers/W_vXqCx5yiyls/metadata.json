@@ -1,0 +1,82 @@
+{
+ "id": "vXqCx5yiyls",
+ "title": "[한국사] 조선 건국 후 고려의 왕족들은 어떻게 됐을까? | 정사 | 야사",
+ "channel": "역사꾼",
+ "channel_id": "UC3M_efpw-t7fG0-R7whjWjA",
+ "subs": 12900,
+ "views": 115837,
+ "ratio": 8.98,
+ "age_days": 173,
+ "views_per_day": 669.6,
+ "minutes": 17.2,
+ "likes": 1544,
+ "comments": 324,
+ "published": "2026-04-26",
+ "queries": "검색:조선역사 | 검색:한국역사 | 검색:역사채널 | 검색:고려 | 검색:한국사 | 검색:한국사이야기 | 검색:야사",
+ "url": "https://www.youtube.com/watch?v=vXqCx5yiyls",
+ "flag": "",
+ "published_at": "2026-04-26T09:01:14Z",
+ "rank": "W455",
+ "set": "web",
+ "folder": "W_vXqCx5yiyls",
+ "sources": [
+  "검색:조선역사",
+  "검색:한국역사",
+  "검색:역사채널",
+  "검색:고려",
+  "검색:한국사",
+  "검색:한국사이야기",
+  "검색:야사"
+ ],
+ "source": "web",
+ "tags": [
+  "조선시대",
+  "한국사",
+  "역사",
+  "조선왕조실록"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로 – 왜 왕씨는 드물까?"
+  },
+  {
+   "start": 90,
+   "title": "파트1 – 피로 물든 바다의 미스터리"
+  },
+  {
+   "start": 480,
+   "title": "파트2 – 거제도, 강화도, 삼척의 불안한 유배"
+  },
+  {
+   "start": 870,
+   "title": "파트3 – 배 밑바닥에 구멍을 뚫어라"
+  },
+  {
+   "start": 1260,
+   "title": "파트4 – 목숨을 건 성씨 세탁"
+  },
+  {
+   "start": 1650,
+   "title": "파트5 – 500년 권력의 무상함"
+  },
+  {
+   "start": 1980,
+   "title": "아웃트로 – 당신의 가문 이야기를 들려주세요"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 324,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:38:59",
+ "approved": "2026-10-17T16:38+09:00"
+}

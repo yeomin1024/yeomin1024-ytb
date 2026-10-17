@@ -1,0 +1,106 @@
+{
+ "id": "wfEB43xbooo",
+ "title": "사위보다 늦게 벼슬했지만, 왜군에게 한 번도 지지 않은 장수 [조선인물 탐구생활]",
+ "channel": "몰래 듣는 조선의 비밀",
+ "channel_id": "UCWVg6CqPHSVbkTrKRRnq0Pg",
+ "subs": 1220,
+ "views": 40905,
+ "ratio": 33.53,
+ "age_days": 87,
+ "views_per_day": 470.2,
+ "minutes": 19.6,
+ "likes": 623,
+ "comments": 80,
+ "published": "2026-07-21",
+ "queries": "검색:임진왜란",
+ "url": "https://www.youtube.com/watch?v=wfEB43xbooo",
+ "flag": "",
+ "published_at": "2026-07-21T11:00:25Z",
+ "rank": "W242",
+ "set": "web",
+ "folder": "W_wfEB43xbooo",
+ "sources": [
+  "검색:임진왜란"
+ ],
+ "source": "web",
+ "tags": [
+  "권율",
+  "임진왜란",
+  "행주대첩",
+  "이치전투",
+  "도원수",
+  "선무공신",
+  "독산성",
+  "조선왕조실록",
+  "권율장군",
+  "이순신",
+  "원균",
+  "임진왜란장수",
+  "행주산성",
+  "세마대",
+  "조선역사",
+  "한국사",
+  "역사다큐",
+  "문관장수",
+  "46세급제",
+  "권철",
+  "이항복",
+  "전라도사수",
+  "징비록",
+  "조선전쟁",
+  "선조",
+  "정유재란",
+  "충장사",
+  "백의종군",
+  "수차석포",
+  "몰래듣는조선의비밀"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "스토리 도입 - 사위보다 늦은 장인"
+  },
+  {
+   "start": 150,
+   "title": "인사 + 오늘의 다섯 가지"
+  },
+  {
+   "start": 180,
+   "title": "첫째, 마흔여섯 늦깎이는 왜 사십 년을 놀았는가"
+  },
+  {
+   "start": 360,
+   "title": "둘째, 전라도를 사수한 이치전투"
+  },
+  {
+   "start": 540,
+   "title": "셋째, 독산성의 심리전과 행주대첩"
+  },
+  {
+   "start": 780,
+   "title": "넷째, 도원수 권율 - 원균의 곤장과 이순신의 보호"
+  },
+  {
+   "start": 960,
+   "title": "다섯째, 늦깎이의 마지막과 선무공신 1등"
+  },
+  {
+   "start": 1110,
+   "title": "전기수의 한 줄 + 다음 예고"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 80,
+ "comments_top_level": 37,
+ "comments_replies": 43,
+ "comments_by_creator": 31,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 80,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:32:20",
+ "approved": "2026-10-17T16:32+09:00"
+}

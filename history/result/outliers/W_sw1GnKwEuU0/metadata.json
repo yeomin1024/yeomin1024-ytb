@@ -1,0 +1,84 @@
+{
+ "id": "sw1GnKwEuU0",
+ "title": "인류 이전에 문명이 있었다면, 우리는 그 흔적을 알아볼 수 있을까",
+ "channel": "밤의 지식 도서관",
+ "channel_id": "UCkqJeEyEaOJ-YxY4zWmwdlg",
+ "subs": 220,
+ "views": 20187,
+ "ratio": 91.76,
+ "age_days": 42,
+ "views_per_day": 480.6,
+ "minutes": 19.7,
+ "likes": 89,
+ "comments": 7,
+ "published": "2026-09-04",
+ "queries": "검색:고대문명",
+ "url": "https://www.youtube.com/watch?v=sw1GnKwEuU0",
+ "flag": "",
+ "published_at": "2026-09-04T10:00:38Z",
+ "rank": "W105",
+ "set": "web",
+ "folder": "W_sw1GnKwEuU0",
+ "sources": [
+  "검색:고대문명"
+ ],
+ "source": "web",
+ "tags": [
+  "고대문명미스터리",
+  "고대유적",
+  "괴베클리테페",
+  "밤에듣는역사",
+  "실루리아가설",
+  "안티키테라",
+  "알나스라",
+  "역사미스터리",
+  "인류이전문명",
+  "지구리셋",
+  "지식다큐",
+  "초고대문명"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "괴베클리 테페 밀 씨앗도, 토기도, 바퀴도 없던 수렵채집인의 시대에 세워졌죠"
+  },
+  {
+   "start": 76,
+   "title": "농경 이전에 세워진 신전"
+  },
+  {
+   "start": 225,
+   "title": "채찍이 아니라 배급 장부"
+  },
+  {
+   "start": 368,
+   "title": "사료가 침묵할 때"
+  },
+  {
+   "start": 670,
+   "title": "대홍수, 하나의 재난인가 여러 재난인가"
+  },
+  {
+   "start": 943,
+   "title": "침묵하는 기록 앞에서"
+  },
+  {
+   "start": 1076,
+   "title": "그러니 우리가 초고대 문명을 향해 던졌던 질문은, 결국 거울처럼 돌아옵니다"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 7,
+ "comments_top_level": 7,
+ "comments_replies": 0,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 7,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:28:05",
+ "approved": "2026-10-17T16:28+09:00"
+}

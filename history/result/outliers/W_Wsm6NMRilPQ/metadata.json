@@ -1,0 +1,109 @@
+{
+ "id": "Wsm6NMRilPQ",
+ "title": "조선 최고의 비밀 임무 | 암행어사는 왜 목적지도 모른 채 떠나야 했나",
+ "channel": "역사아카이브 - History Archive KR",
+ "channel_id": "UCKiqiw16qAhVgxKZRXiRUvA",
+ "subs": 24200,
+ "views": 131169,
+ "ratio": 5.42,
+ "age_days": 72,
+ "views_per_day": 1821.8,
+ "minutes": 83.1,
+ "likes": 1258,
+ "comments": 14,
+ "published": "2026-08-05",
+ "queries": "검색:역사채널",
+ "url": "https://www.youtube.com/watch?v=Wsm6NMRilPQ",
+ "flag": "",
+ "published_at": "2026-08-05T11:33:21Z",
+ "rank": "W525",
+ "set": "web",
+ "folder": "W_Wsm6NMRilPQ",
+ "sources": [
+  "검색:역사채널"
+ ],
+ "source": "web",
+ "tags": [
+  "역사채널",
+  "조선역사",
+  "한국사",
+  "권력",
+  "역사다큐",
+  "조선왕조",
+  "인문비화",
+  "야사",
+  "인물열전"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "새벽 남대문 밖, 봉투를 뜯는 사내"
+  },
+  {
+   "start": 200,
+   "title": "왜 목적지를 도성 밖에서야 알려 주었나"
+  },
+  {
+   "start": 580,
+   "title": "관찰사가 있는데 왜 어사가 필요했을까"
+  },
+  {
+   "start": 910,
+   "title": "마패의 진실과 놋쇠 자 두 자루"
+  },
+  {
+   "start": 1350,
+   "title": "신분을 감추는 기술, 어사의 하루"
+  },
+  {
+   "start": 1850,
+   "title": "진창과 눈길, 자기 돈으로 걸어야 했던 길"
+  },
+  {
+   "start": 2290,
+   "title": "장부에는 없는 나라, 세금과 환곡의 실체"
+  },
+  {
+   "start": 2820,
+   "title": "어사출도, 그 한마디의 순간"
+  },
+  {
+   "start": 3260,
+   "title": "봉고 이후, 마당을 덮은 소장 더미"
+  },
+  {
+   "start": 3690,
+   "title": "서계와 별단, 왕에게 올라간 문서"
+  },
+  {
+   "start": 4120,
+   "title": "정약용 김정희 이건창, 그리고 박문수 전설"
+  },
+  {
+   "start": 4680,
+   "title": "매수와 가짜 어사, 제도의 그늘"
+  },
+  {
+   "start": 5110,
+   "title": "제도의 황혼과 십구세기의 항쟁"
+  },
+  {
+   "start": 5520,
+   "title": "작은 구리 조각이 남긴 것"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 14,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:39:09",
+ "approved": "2026-10-17T16:39+09:00"
+}

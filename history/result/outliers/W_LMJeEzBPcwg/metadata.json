@@ -1,0 +1,108 @@
+{
+ "id": "LMJeEzBPcwg",
+ "title": "조선에는 원래 제사가 없었다? 제사는 언제부터 지냈나?",
+ "channel": "인류의모든기록",
+ "channel_id": "UCWhKAXiR4BtvjLCUP-LnXoQ",
+ "subs": 380,
+ "views": 82422,
+ "ratio": 216.9,
+ "age_days": 26,
+ "views_per_day": 3170.1,
+ "minutes": 15.3,
+ "likes": 330,
+ "comments": 50,
+ "published": "2026-09-20",
+ "queries": "검색:조선왕조실록",
+ "url": "https://www.youtube.com/watch?v=LMJeEzBPcwg",
+ "flag": "",
+ "published_at": "2026-09-20T09:00:01Z",
+ "rank": "W30",
+ "set": "web",
+ "folder": "W_LMJeEzBPcwg",
+ "sources": [
+  "검색:조선왕조실록"
+ ],
+ "source": "web",
+ "tags": [
+  "원시인",
+  "고고학",
+  "인류",
+  "옛날사람",
+  "교양지식",
+  "흥미로운",
+  "몰랐던",
+  "구석기시대",
+  "선사시대",
+  "인류의역사",
+  "옛날이야기",
+  "궁금한이야기",
+  "역사",
+  "고대",
+  "제사",
+  "조선시대"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "제사가 처음엔 불법이었다?"
+  },
+  {
+   "start": 39,
+   "title": "고려 사람들은 왜 절에 갔을까"
+  },
+  {
+   "start": 94,
+   "title": "아들만 제사 지내지 않았다?"
+  },
+  {
+   "start": 153,
+   "title": "조선이 제사를 강요한 진짜 이유"
+  },
+  {
+   "start": 256,
+   "title": "제사 안 지내면 벌을 받았다고?"
+  },
+  {
+   "start": 369,
+   "title": "왜 장남이 제사를 도맡게 됐을까"
+  },
+  {
+   "start": 427,
+   "title": "족보의 진짜 나이는 몇 살일까"
+  },
+  {
+   "start": 549,
+   "title": "성씨가 없던 사람들이 더 많았다?"
+  },
+  {
+   "start": 647,
+   "title": "집성촌은 언제부터 생겨났을까"
+  },
+  {
+   "start": 723,
+   "title": "양반이 갑자기 늘어난 이유는?"
+  },
+  {
+   "start": 790,
+   "title": "한국인이 가족 관계에 집착하는 이유"
+  },
+  {
+   "start": 832,
+   "title": "전통은 원래 변하는 것일까"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 50,
+ "comments_top_level": 24,
+ "comments_replies": 26,
+ "comments_by_creator": 16,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 50,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:25:59",
+ "approved": "2026-10-17T16:25+09:00"
+}

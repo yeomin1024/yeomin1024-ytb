@@ -1,0 +1,100 @@
+{
+ "id": "Q9d1dEUVJHI",
+ "title": "일본이 이순신보다 두려워 했던 인물? '괴물'이라 부르며 두려워했던 조선의 영웅",
+ "channel": "역사스토리",
+ "channel_id": "UCoGgL8BD4Opo0DIMeWf2X2g",
+ "subs": 21700,
+ "views": 442835,
+ "ratio": 20.41,
+ "age_days": 70,
+ "views_per_day": 6326.2,
+ "minutes": 15.7,
+ "likes": 3136,
+ "comments": 417,
+ "published": "2026-08-07",
+ "queries": "검색:조선역사 | 검색:역사인물 | 검색:이순신",
+ "url": "https://www.youtube.com/watch?v=Q9d1dEUVJHI",
+ "flag": "",
+ "published_at": "2026-08-07T11:28:12Z",
+ "rank": "W305",
+ "set": "web",
+ "folder": "W_Q9d1dEUVJHI",
+ "sources": [
+  "검색:조선역사",
+  "검색:역사인물",
+  "검색:이순신"
+ ],
+ "source": "web",
+ "tags": [
+  "김시민",
+  "모쿠소",
+  "역사다큐",
+  "역사스토리",
+  "역사인물",
+  "임진왜란",
+  "조선역사",
+  "진주대첩",
+  "충무공",
+  "한국사"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "일본 무대에 오른 조선인 요괴"
+  },
+  {
+   "start": 59,
+   "title": "모쿠소는 이름이 아니었다"
+  },
+  {
+   "start": 129,
+   "title": "일본군이 진주로 몰려온 이유"
+  },
+  {
+   "start": 204,
+   "title": "하필 그 자리에 있던 사람"
+  },
+  {
+   "start": 276,
+   "title": "6일 동안 무슨 일이 있었나"
+  },
+  {
+   "start": 355,
+   "title": "승리가 확정된 순간의 유탄"
+  },
+  {
+   "start": 408,
+   "title": "진주가 없으면 호남이 없다"
+  },
+  {
+   "start": 470,
+   "title": "히데요시의 섬뜩한 명령"
+  },
+  {
+   "start": 612,
+   "title": "죽은 사람이 무대에 오르다"
+  },
+  {
+   "start": 747,
+   "title": "조선의 기록은 한 줄이었다"
+  },
+  {
+   "start": 805,
+   "title": "400년 만에 돌아온 교서"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 417,
+ "comments_top_level": 223,
+ "comments_replies": 194,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 417,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:34:03",
+ "approved": "2026-10-17T16:34+09:00"
+}

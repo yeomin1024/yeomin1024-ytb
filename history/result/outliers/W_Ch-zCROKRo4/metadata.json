@@ -1,0 +1,71 @@
+{
+ "id": "Ch-zCROKRo4",
+ "title": "조선시대 왕비의 식사 — 12첩 반상인데 왜 맛이 없었을까",
+ "channel": "역사콕콕",
+ "channel_id": "UCTdElTkXbJefzGNs16yrIsA",
+ "subs": 491,
+ "views": 89254,
+ "ratio": 181.78,
+ "age_days": 144,
+ "views_per_day": 619.8,
+ "minutes": 23.4,
+ "likes": 1011,
+ "comments": 151,
+ "published": "2026-05-25",
+ "queries": "검색:조선왕실",
+ "url": "https://www.youtube.com/watch?v=Ch-zCROKRo4",
+ "flag": "",
+ "published_at": "2026-05-25T09:30:05Z",
+ "rank": "W39",
+ "set": "web",
+ "folder": "W_Ch-zCROKRo4",
+ "sources": [
+  "검색:조선왕실"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "교태전, 오전 열 시 — 왕비의 아침"
+  },
+  {
+   "start": 150,
+   "title": "간택된 날, 궁에 들어오는 순간"
+  },
+  {
+   "start": 330,
+   "title": "왕비의 12첩, 왕의 12첩과 같은 것이었을까"
+  },
+  {
+   "start": 600,
+   "title": "숙수 — 드라마와 다른 진짜 궁중 요리사"
+  },
+  {
+   "start": 780,
+   "title": "임신과 시어머니, 밥상에도 서열이 있었습니다"
+  },
+  {
+   "start": 990,
+   "title": "폐비의 밥상, 12첩이 사라지는 순간"
+  },
+  {
+   "start": 1200,
+   "title": "화려한 감옥"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 151,
+ "comments_top_level": 73,
+ "comments_replies": 78,
+ "comments_by_creator": 62,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 151,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:26:11",
+ "approved": "2026-10-17T16:26+09:00"
+}

@@ -1,0 +1,94 @@
+{
+ "id": "ASsTr0jROpQ",
+ "title": "조선 궁녀 500명은 도대체 어떻게 버텼을까?  | 조선시대 | 조선궁녀",
+ "channel": "배우는역사",
+ "channel_id": "UCs5WGNmZLgj5lCjh491LQUw",
+ "subs": 2810,
+ "views": 246535,
+ "ratio": 87.73,
+ "age_days": 147,
+ "views_per_day": 1677.1,
+ "minutes": 28.1,
+ "likes": 4784,
+ "comments": 251,
+ "published": "2026-05-22",
+ "queries": "검색:조선역사 | 검색:조선시대 | 검색:조선왕조 | 검색:조선왕실",
+ "url": "https://www.youtube.com/watch?v=ASsTr0jROpQ",
+ "flag": "",
+ "published_at": "2026-05-22T23:00:35Z",
+ "rank": "W112",
+ "set": "web",
+ "folder": "W_ASsTr0jROpQ",
+ "sources": [
+  "검색:조선역사",
+  "검색:조선시대",
+  "검색:조선왕조",
+  "검색:조선왕실"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 139,
+   "title": "궁녀의 하루"
+  },
+  {
+   "start": 230,
+   "title": "영조의 어머니"
+  },
+  {
+   "start": 357,
+   "title": "왕의 목욕"
+  },
+  {
+   "start": 441,
+   "title": "궁녀의 목욕"
+  },
+  {
+   "start": 522,
+   "title": "비누의 탄생"
+  },
+  {
+   "start": 645,
+   "title": "500명의 빨래"
+  },
+  {
+   "start": 805,
+   "title": "화장실 전쟁"
+  },
+  {
+   "start": 898,
+   "title": "매화틀"
+  },
+  {
+   "start": 1032,
+   "title": "개짐과 다리속곳"
+  },
+  {
+   "start": 1242,
+   "title": "고려 vs 조선"
+  },
+  {
+   "start": 1423,
+   "title": "경복궁 화장실 발굴"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 251,
+ "comments_top_level": 143,
+ "comments_replies": 108,
+ "comments_by_creator": 53,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 251,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:28:14",
+ "approved": "2026-10-17T16:28+09:00"
+}

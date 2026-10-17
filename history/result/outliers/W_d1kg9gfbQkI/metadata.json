@@ -1,0 +1,87 @@
+{
+ "id": "d1kg9gfbQkI",
+ "title": "200개 문명이 '같은 날'을 기억하는 소름 돋는 이유 ㅣ 전 세계 200개 문명이 증언하는 대홍수, 과학자들도 인정한 충격적 사실",
+ "channel": "역사로 가다",
+ "channel_id": "UCfX6Hcf8i9tzpTz_vOgJZcA",
+ "subs": 847,
+ "views": 136822,
+ "ratio": 161.54,
+ "age_days": 142,
+ "views_per_day": 963.5,
+ "minutes": 36.6,
+ "likes": 1771,
+ "comments": 370,
+ "published": "2026-05-27",
+ "queries": "검색:고대문명",
+ "url": "https://www.youtube.com/watch?v=d1kg9gfbQkI",
+ "flag": "",
+ "published_at": "2026-05-27T23:30:14Z",
+ "rank": "W47",
+ "set": "web",
+ "folder": "W_d1kg9gfbQkI",
+ "sources": [
+  "검색:고대문명"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로 — 같은 날을 기억하는 일곱 개 문명"
+  },
+  {
+   "start": 174,
+   "title": "수메르 대홍수 신화 — 길가메시 서사시, 아트라하시스, 지우수드라"
+  },
+  {
+   "start": 478,
+   "title": "과학 증거 — 슈루팍·우르 홍수 퇴적층 발굴 현장"
+  },
+  {
+   "start": 645,
+   "title": "인도 홍수 신화 — 마누와 물고기, 마츠야 푸라나"
+  },
+  {
+   "start": 810,
+   "title": "그리스 홍수 신화 — 제우스의 분노, 데우칼리온의 아홉 밤"
+  },
+  {
+   "start": 975,
+   "title": "이집트 — 대홍수를 기록하지 않은 문명, 부재라는 단서"
+  },
+  {
+   "start": 1082,
+   "title": "마야 홍수 신화 — 나무 인간, 포폴 부흐와 불탄 원본"
+  },
+  {
+   "start": 1285,
+   "title": "중국 대홍수 — 곤과 우, 지시협곡 대홍수 과학적 증거"
+  },
+  {
+   "start": 1455,
+   "title": "과학 증거 — 흑해 범람 가설, 버클 크레이터, 마다가스카르"
+  },
+  {
+   "start": 1410,
+   "title": "히브리 창세기 — 노아의 방주와 두루프나르 유적 GPR 조사"
+  },
+  {
+   "start": 1590,
+   "title": "마무리 — 신화인가, 데이터인가"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 370,
+ "comments_top_level": 152,
+ "comments_replies": 218,
+ "comments_by_creator": 148,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 370,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:26:20",
+ "approved": "2026-10-17T16:26+09:00"
+}

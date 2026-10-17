@@ -1,0 +1,83 @@
+{
+ "id": "J5wm-3Ctcfs",
+ "title": "역사를 바꾼 가장 똑똑했던 전쟁 전술들 Top10",
+ "channel": "쉽게 설명해서!",
+ "channel_id": "UC2NGcjESL6OeYM-GW24QcBg",
+ "subs": 18100,
+ "views": 65285,
+ "ratio": 3.61,
+ "age_days": 89,
+ "views_per_day": 733.5,
+ "minutes": 30.2,
+ "likes": 851,
+ "comments": 115,
+ "published": "2026-07-19",
+ "queries": "검색:전쟁사",
+ "url": "https://www.youtube.com/watch?v=J5wm-3Ctcfs",
+ "flag": "",
+ "published_at": "2026-07-19T10:39:37Z",
+ "rank": "W584",
+ "set": "web",
+ "folder": "W_J5wm-3Ctcfs",
+ "sources": [
+  "검색:전쟁사"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "칸나에 전투"
+  },
+  {
+   "start": 165,
+   "title": "명량대첩"
+  },
+  {
+   "start": 330,
+   "title": "미드웨이 해전"
+  },
+  {
+   "start": 517,
+   "title": "살수대첩"
+  },
+  {
+   "start": 706,
+   "title": "토이토부르크 숲 전투"
+  },
+  {
+   "start": 885,
+   "title": "한산도대첩"
+  },
+  {
+   "start": 1039,
+   "title": "알레시아 공방전"
+  },
+  {
+   "start": 1224,
+   "title": "봉오동 전투"
+  },
+  {
+   "start": 1383,
+   "title": "적벽대전"
+  },
+  {
+   "start": 1581,
+   "title": "아우스터리츠 전투"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 115,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:39:17",
+ "approved": "2026-10-17T16:39+09:00"
+}

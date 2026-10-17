@@ -1,0 +1,103 @@
+{
+ "id": "-Yturcnh4j8",
+ "title": "조선 최고의 검술은 어디서 시작되었나? 기록되지 않은 조선제일검의 계보 [아무도 들려주지 않는 조선왕조실록]",
+ "channel": "몰래 듣는 조선의 비밀",
+ "channel_id": "UCWVg6CqPHSVbkTrKRRnq0Pg",
+ "subs": 1220,
+ "views": 127764,
+ "ratio": 104.72,
+ "age_days": 128,
+ "views_per_day": 998.2,
+ "minutes": 17.9,
+ "likes": 935,
+ "comments": 120,
+ "published": "2026-06-10",
+ "queries": "검색:조선왕조실록",
+ "url": "https://www.youtube.com/watch?v=-Yturcnh4j8",
+ "flag": "",
+ "published_at": "2026-06-10T11:00:35Z",
+ "rank": "W89",
+ "set": "web",
+ "folder": "W_-Yturcnh4j8",
+ "sources": [
+  "검색:조선왕조실록"
+ ],
+ "source": "web",
+ "tags": [
+  "조선왕조실록",
+  "승정원일기",
+  "무예도보통지",
+  "김체건",
+  "김광택",
+  "백동수",
+  "조선검술",
+  "왜검",
+  "조선무예",
+  "정조",
+  "숙종",
+  "영조",
+  "사도세자",
+  "무예제보",
+  "장용영",
+  "훈련도감",
+  "이덕무",
+  "박제가",
+  "임진왜란",
+  "기효신서",
+  "척계광",
+  "조선역사",
+  "한국사",
+  "한국사다큐",
+  "조선시대",
+  "왕조사",
+  "몰래듣는조선의비밀"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "시작"
+  },
+  {
+   "start": 72,
+   "title": "활의 나라, 칼 없는 조선"
+  },
+  {
+   "start": 240,
+   "title": "임진왜란 — 칼을 다시 잡다"
+  },
+  {
+   "start": 420,
+   "title": "김체건 — 왜관에 노비로 숨어든 군교"
+  },
+  {
+   "start": 648,
+   "title": "김광택 — 칼에 몸을 숨긴 관노의 아들"
+  },
+  {
+   "start": 840,
+   "title": "백동수 — 서얼 무사가 만든 칼의 백과사전"
+  },
+  {
+   "start": 984,
+   "title": "본국검 — 잃어버린 조선의 칼을 되찾다"
+  },
+  {
+   "start": 1140,
+   "title": "전기수의 한 줄"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 120,
+ "comments_top_level": 62,
+ "comments_replies": 58,
+ "comments_by_creator": 10,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 120,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:27:31",
+ "approved": "2026-10-17T16:27+09:00"
+}

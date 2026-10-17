@@ -1,0 +1,83 @@
+{
+ "id": "OINl0ynBKcM",
+ "title": "1592년, 임진왜란에 떨어진 대한민국 해병대 소대! 왜군 격퇴 작전 개시 | 맹호소대 2화",
+ "channel": "전쟁극장 Films",
+ "channel_id": "UCMzvo60jKy0sG6WF3v0R9Fg",
+ "subs": 21900,
+ "views": 147567,
+ "ratio": 6.74,
+ "age_days": 128,
+ "views_per_day": 1152.9,
+ "minutes": 8.1,
+ "likes": 1133,
+ "comments": 78,
+ "published": "2026-06-10",
+ "queries": "검색:임진왜란",
+ "url": "https://www.youtube.com/watch?v=OINl0ynBKcM",
+ "flag": "",
+ "published_at": "2026-06-10T09:11:35Z",
+ "rank": "W493",
+ "set": "web",
+ "folder": "W_OINl0ynBKcM",
+ "sources": [
+  "검색:임진왜란"
+ ],
+ "source": "web",
+ "tags": [
+  "임진왜란",
+  "1592년",
+  "왜군",
+  "정발",
+  "조선군",
+  "대한민국 해병대",
+  "해병대 소대",
+  "맹호소대",
+  "타임슬립",
+  "시간여행",
+  "역사영화",
+  "상륙작전",
+  "AI영화",
+  "맹호소대 2 화",
+  "다대진"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "강태현 중위, 정발 장군과 첫 대면"
+  },
+  {
+   "start": 61,
+   "title": "강태현 중위와 정발 장군, 현대 무기의 위력을 확인하다"
+  },
+  {
+   "start": 103,
+   "title": "왜군, 조선 침공을 위한 상륙 작전 개시"
+  },
+  {
+   "start": 179,
+   "title": "왜군, 한 마을에 진입하여 약탈을 시작하다"
+  },
+  {
+   "start": 260,
+   "title": "해병대, 왜군의 흔적을 발견하고 추적에 나서다"
+  },
+  {
+   "start": 436,
+   "title": "맹호소대, 백성들 구출에 성공하다"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 78,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:39:04",
+ "approved": "2026-10-17T16:39+09:00"
+}

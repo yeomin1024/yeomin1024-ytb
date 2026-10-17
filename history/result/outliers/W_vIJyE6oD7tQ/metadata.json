@@ -1,0 +1,91 @@
+{
+ "id": "vIJyE6oD7tQ",
+ "title": "[3부작] 이순신의 실제 얼굴을 찾아서1 #이순신후손",
+ "channel": "페이스 아카이브",
+ "channel_id": "UCJiD85MxUez5xYgCfFW8ytA",
+ "subs": 1560,
+ "views": 63833,
+ "ratio": 40.92,
+ "age_days": 52,
+ "views_per_day": 1227.6,
+ "minutes": 18.7,
+ "likes": 278,
+ "comments": 33,
+ "published": "2026-08-25",
+ "queries": "검색:이순신",
+ "url": "https://www.youtube.com/watch?v=vIJyE6oD7tQ",
+ "flag": "",
+ "published_at": "2026-08-25T13:30:21Z",
+ "rank": "W207",
+ "set": "web",
+ "folder": "W_vIJyE6oD7tQ",
+ "sources": [
+  "검색:이순신"
+ ],
+ "source": "web",
+ "tags": [
+  "역사미스터리",
+  "한국사비밀",
+  "조선시대",
+  "역사추적",
+  "페이스아카이브",
+  "엘리자베스키스",
+  "청포를입은무관",
+  "거북선복원",
+  "이순신초상화",
+  "거북선",
+  "현충사축제",
+  "이순신축제",
+  "현충사입장료",
+  "이순신로",
+  "이순신광자",
+  "그것이알고싶다",
+  "한국사전",
+  "불멸의이순신",
+  "김명민이순신",
+  "이순신만화",
+  "이순신미국만화",
+  "임진왜란1952",
+  "임진왜란총정리",
+  "임진왜란설민석",
+  "임진왜란요약",
+  "이순신사망이유",
+  "이순신고향",
+  "이순신실제얼굴",
+  "이순신동상",
+  "이순신키",
+  "이순신나이"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "엘리자베스 키스 초상화 분석"
+  },
+  {
+   "start": 504,
+   "title": "유성룡, 고상안 등의 역사 기록과 비교"
+  },
+  {
+   "start": 830,
+   "title": "이상범 화백의 과거 인터뷰 내용"
+  },
+  {
+   "start": 1080,
+   "title": "에필로그 및 클로징"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 33,
+ "comments_top_level": 26,
+ "comments_replies": 7,
+ "comments_by_creator": 5,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 33,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:31:33",
+ "approved": "2026-10-17T16:31+09:00"
+}

@@ -1,0 +1,75 @@
+{
+ "id": "C13y7E8GstI",
+ "title": "네팔의 비극 뒤에 숨겨진 역사… 중국이 히말라야에 묻어둔 230조 원짜리 덫의 정체",
+ "channel": "역사책방",
+ "channel_id": "UCoPXoBUcu8N-B6xgswbIOlg",
+ "subs": 4020,
+ "views": 342702,
+ "ratio": 85.25,
+ "age_days": 37,
+ "views_per_day": 9262.2,
+ "minutes": 18.1,
+ "likes": 1705,
+ "comments": 91,
+ "published": "2026-09-09",
+ "queries": "검색:숨겨진역사",
+ "url": "https://www.youtube.com/watch?v=C13y7E8GstI",
+ "flag": "",
+ "published_at": "2026-09-09T13:15:39Z",
+ "rank": "W116",
+ "set": "web",
+ "folder": "W_C13y7E8GstI",
+ "sources": [
+  "검색:숨겨진역사"
+ ],
+ "source": "web",
+ "tags": [
+  "네팔",
+  "대홍수",
+  "히말라야 댐",
+  "자연재해",
+  "네팔 지진",
+  "대지진",
+  "티베트",
+  "메콩강",
+  "세계사",
+  "역사이야기",
+  "역사다큐"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "1950년 티베트 현대사와 국경선의 재편"
+  },
+  {
+   "start": 206,
+   "title": "1962년 히말라야 분쟁: 악사이친 도로와 고원 지정학"
+  },
+  {
+   "start": 422,
+   "title": "메콩강의 생태 보고서: 톤레사프 호수와 메콩 삼각주의 교훈"
+  },
+  {
+   "start": 641,
+   "title": "얄룽창포강 대협곡: 판구조론으로 본 활성단층대와 수력 인프라"
+  },
+  {
+   "start": 846,
+   "title": "1997 유엔 국제수로 협약과 21세기 수자원 거버넌스의 미래"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 91,
+ "comments_top_level": 86,
+ "comments_replies": 5,
+ "comments_by_creator": 3,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 91,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:28:21",
+ "approved": "2026-10-17T16:28+09:00"
+}

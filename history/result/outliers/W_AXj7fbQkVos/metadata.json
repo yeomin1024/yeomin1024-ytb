@@ -1,0 +1,94 @@
+{
+ "id": "AXj7fbQkVos",
+ "title": "조선시대엔 네비게이션도 없이 어떻게 한양까지 갔을까?선비들만 아는 지름길이 있었나?|김정호|대동여지도|한국사",
+ "channel": "역사 밤샘토크",
+ "channel_id": "UCt67G8zLl_gSMtjmOGiOqRg",
+ "subs": 756,
+ "views": 139437,
+ "ratio": 184.44,
+ "age_days": 86,
+ "views_per_day": 1621.4,
+ "minutes": 33.4,
+ "likes": 1408,
+ "comments": 60,
+ "published": "2026-07-22",
+ "queries": "검색:한국사이야기",
+ "url": "https://www.youtube.com/watch?v=AXj7fbQkVos",
+ "flag": "",
+ "published_at": "2026-07-22T22:00:31Z",
+ "rank": "W38",
+ "set": "web",
+ "folder": "W_AXj7fbQkVos",
+ "sources": [
+  "검색:한국사이야기"
+ ],
+ "source": "web",
+ "tags": [
+  "한국사",
+  "김정호",
+  "대동여지도",
+  "역사",
+  "조선시대",
+  "역사다큐"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "해 질 녘 갈림길에 선 나그네 (인트로)"
+  },
+  {
+   "start": 130,
+   "title": "오해 깨기 – 조선엔 정말 지도가 없었을까?"
+  },
+  {
+   "start": 270,
+   "title": "단서 1 – 길가의 이정표, 장승의 진짜 정체"
+  },
+  {
+   "start": 460,
+   "title": "단서 2 – 사람에게 묻는 '살아 있는 내비게이션'"
+  },
+  {
+   "start": 630,
+   "title": "국가 시스템 – 194개 역참과 3대로"
+  },
+  {
+   "start": 840,
+   "title": "봉수와 파발, 조선의 정보 고속도로"
+  },
+  {
+   "start": 1050,
+   "title": "여행자의 하루 – 주막, 노잣돈, 그리고 밤길의 공포"
+  },
+  {
+   "start": 1280,
+   "title": "노정기 – 조선판 손글씨 내비게이션"
+  },
+  {
+   "start": 1390,
+   "title": "도로고와 대동여지도, 길을 데이터로 묶다"
+  },
+  {
+   "start": 1463,
+   "title": "[반전] 김정호 옥사설은 누가, 왜 만들었나"
+  },
+  {
+   "start": 1820,
+   "title": "오늘까지 살아남은 옛길의 흔적"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 60,
+ "comments_top_level": 29,
+ "comments_replies": 31,
+ "comments_by_creator": 26,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 60,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:26:11",
+ "approved": "2026-10-17T16:26+09:00"
+}

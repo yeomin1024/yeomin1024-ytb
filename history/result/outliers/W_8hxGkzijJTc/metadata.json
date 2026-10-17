@@ -1,0 +1,92 @@
+{
+ "id": "8hxGkzijJTc",
+ "title": "400년 전 명군 후손들이 지금도 한국에 살고 있다는 충격적 진실",
+ "channel": "브라이언 히스토리",
+ "channel_id": "UC6_uQRLCwXrTgA5CZZNOAtg",
+ "subs": 1050,
+ "views": 20493,
+ "ratio": 19.52,
+ "age_days": 157,
+ "views_per_day": 130.5,
+ "minutes": 13.1,
+ "likes": 389,
+ "comments": 133,
+ "published": "2026-05-12",
+ "queries": "검색:명나라",
+ "url": "https://www.youtube.com/watch?v=8hxGkzijJTc",
+ "flag": "",
+ "published_at": "2026-05-12T10:15:31Z",
+ "rank": "W316",
+ "set": "web",
+ "folder": "W_8hxGkzijJTc",
+ "sources": [
+  "검색:명나라"
+ ],
+ "source": "web",
+ "tags": [
+  "한국역사",
+  "역사이야기",
+  "임진왜란",
+  "조선시대",
+  "명나라",
+  "조선역사",
+  "한국문화",
+  "역사잡학",
+  "명군후손",
+  "임진왜란명군",
+  "조선명군",
+  "명나라후손한국",
+  "임진왜란역사",
+  "조선시대외국인",
+  "명군정착",
+  "역사충격",
+  "숨겨진역사",
+  "몰랐던한국사",
+  "역사유튜브",
+  "충격역사"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "충격적 개막 - 10만 명의 비밀"
+  },
+  {
+   "start": 150,
+   "title": "역사의 무대 - 1592년 임진왜란"
+  },
+  {
+   "start": 315,
+   "title": "운명의 갈림길 - 명군들의 선택"
+  },
+  {
+   "start": 525,
+   "title": "첫 번째 가문 - 석씨 가문의 비극"
+  },
+  {
+   "start": 740,
+   "title": "두 번째 가문 - 진씨 가문의 의리"
+  },
+  {
+   "start": 950,
+   "title": "세 번째 가문 - 두씨 가문의 그리움"
+  },
+  {
+   "start": 1150,
+   "title": "네 번째 가문 - 편씨 가문의 전공"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 133,
+ "comments_top_level": 96,
+ "comments_replies": 37,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 133,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:34:22",
+ "approved": "2026-10-17T16:34+09:00"
+}

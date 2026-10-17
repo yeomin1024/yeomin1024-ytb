@@ -1,0 +1,80 @@
+{
+ "id": "dfG1m38EBcw",
+ "title": "'세종이 한글을 만든 건 중국 때문?!' 시대를 앞서간 세종의 미친 통찰력 (w.김진명 작가) | 로컬수다 EP.12",
+ "channel": "광화문로",
+ "channel_id": "UCFTrRyisOR2jGkfLihQKDFQ",
+ "subs": 4590,
+ "views": 278965,
+ "ratio": 60.78,
+ "age_days": 162,
+ "views_per_day": 1722.0,
+ "minutes": 22.6,
+ "likes": 0,
+ "comments": 327,
+ "published": "2026-05-07",
+ "queries": "검색:세종대왕 | 검색:세종",
+ "url": "https://www.youtube.com/watch?v=dfG1m38EBcw",
+ "flag": "",
+ "published_at": "2026-05-07T10:10:00Z",
+ "rank": "W150",
+ "set": "web",
+ "folder": "W_dfG1m38EBcw",
+ "sources": [
+  "검색:세종대왕",
+  "검색:세종"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트"
+  },
+  {
+   "start": 40,
+   "title": "오늘의 게스트 - 김진명 작가"
+  },
+  {
+   "start": 107,
+   "title": "세종의 나라 X 법무법인 세종"
+  },
+  {
+   "start": 177,
+   "title": "세종의 나라 집필 비하인드"
+  },
+  {
+   "start": 278,
+   "title": "세종의 나라 본격 리뷰"
+  },
+  {
+   "start": 474,
+   "title": "팩션 대가의 역사 해석법"
+  },
+  {
+   "start": 694,
+   "title": "한글 창제의 비밀"
+  },
+  {
+   "start": 937,
+   "title": "시대를 앞서간 천재 세종대왕"
+  },
+  {
+   "start": 1156,
+   "title": "침대..아니 한글은 과학입니다"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 327,
+ "comments_top_level": 229,
+ "comments_replies": 98,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 327,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:29:47",
+ "approved": "2026-10-17T16:29+09:00"
+}

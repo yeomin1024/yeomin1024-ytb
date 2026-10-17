@@ -1,0 +1,91 @@
+{
+ "id": "PtjtX6DXMZE",
+ "title": "800년전 고려인은 매일 뭘 먹었을까?  | 충격적인 고려 백성들의 밥상",
+ "channel": "역사잼잼",
+ "channel_id": "UCArfz2g1xS-ViKKN9VzTn9g",
+ "subs": 2900,
+ "views": 109800,
+ "ratio": 37.86,
+ "age_days": 105,
+ "views_per_day": 1045.7,
+ "minutes": 26.5,
+ "likes": 1159,
+ "comments": 91,
+ "published": "2026-07-03",
+ "queries": "검색:고려",
+ "url": "https://www.youtube.com/watch?v=PtjtX6DXMZE",
+ "flag": "",
+ "published_at": "2026-07-03T14:43:26Z",
+ "rank": "W218",
+ "set": "web",
+ "folder": "W_PtjtX6DXMZE",
+ "sources": [
+  "검색:고려"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "800년 전 바닷속 타임캡슐, '마도 1호선'의 발견"
+  },
+  {
+   "start": 69,
+   "title": "목간으로 확인한 고려 귀족들의 실제 식탁"
+  },
+  {
+   "start": 136,
+   "title": "쌀은 곧 권력이었다: 신분에 따라 달라진 주식의 차이"
+  },
+  {
+   "start": 280,
+   "title": "고려 시대 귀족 vs 백성의 극명한 밥상 격차"
+  },
+  {
+   "start": 474,
+   "title": "고추와 설탕이 없던 시대, 고려의 맛은 어떻게 냈을까?"
+  },
+  {
+   "start": 646,
+   "title": "고려 사람들이 대식가였던 이유"
+  },
+  {
+   "start": 777,
+   "title": "전쟁과 지배층의 호사 밥상 뒤에 감춰진 진실"
+  },
+  {
+   "start": 951,
+   "title": "왜 '보릿고개'는 수백 년간 이어졌을까?"
+  },
+  {
+   "start": 1021,
+   "title": "불교 국가 고려는 정말 고기를 안 먹었을까?"
+  },
+  {
+   "start": 1142,
+   "title": "몽골의 영향으로 바뀐 고려의 술과 음식 문화"
+  },
+  {
+   "start": 1312,
+   "title": "고려에서 조선으로, 밥상의 풍경이 완전히 바뀐 이유"
+  },
+  {
+   "start": 1513,
+   "title": "일제강점기 수탈과 현대 식문화로 이어지는 쌀 이야기"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 91,
+ "comments_top_level": 61,
+ "comments_replies": 30,
+ "comments_by_creator": 5,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 91,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:31:47",
+ "approved": "2026-10-17T16:31+09:00"
+}

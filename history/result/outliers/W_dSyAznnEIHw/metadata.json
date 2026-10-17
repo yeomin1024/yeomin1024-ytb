@@ -1,0 +1,90 @@
+{
+ "id": "dSyAznnEIHw",
+ "title": "한글날 100주년 | 한글은 세종대왕이 만들었다. 그럼 한국어는 누가 만들었을까? #한글날 #세종대왕 #한국어역사",
+ "channel": "역사의 그날",
+ "channel_id": "UCalBCiehNP6yTqRKV4VJvCg",
+ "subs": 210,
+ "views": 116413,
+ "ratio": 554.35,
+ "age_days": 8,
+ "views_per_day": 14551.6,
+ "minutes": 16.3,
+ "likes": 474,
+ "comments": 51,
+ "published": "2026-10-08",
+ "queries": "검색:세종대왕",
+ "url": "https://www.youtube.com/watch?v=dSyAznnEIHw",
+ "flag": "",
+ "published_at": "2026-10-08T12:15:19Z",
+ "rank": "W6",
+ "set": "web",
+ "folder": "W_dSyAznnEIHw",
+ "sources": [
+  "검색:세종대왕"
+ ],
+ "source": "web",
+ "tags": [
+  "#한글날100주년",
+  "#한글날",
+  "#세종대왕문해상",
+  "#세종문해상",
+  "#문해상",
+  "#찌아찌아족",
+  "#찌아찌아족 한글",
+  "#한국어역사",
+  "#한국어",
+  "#훈민정음"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "한글보다 먼저 있었던 우리말"
+  },
+  {
+   "start": 108,
+   "title": "고려의 말을 받아 적은 사신"
+  },
+  {
+   "start": 242,
+   "title": "서동요와 삼국 사람들의 말"
+  },
+  {
+   "start": 380,
+   "title": "세종대왕 앞에 선다면 통할까"
+  },
+  {
+   "start": 450,
+   "title": "희미해지는 한국어의 과거"
+  },
+  {
+   "start": 521,
+   "title": "한국어는 누가 만들었을까"
+  },
+  {
+   "start": 602,
+   "title": "한글 창제와 최만리의 반대"
+  },
+  {
+   "start": 766,
+   "title": "원이 엄마가 남긴 한글 편지"
+  },
+  {
+   "start": 842,
+   "title": "한글날이 기념하는 것"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 51,
+ "comments_top_level": 39,
+ "comments_replies": 12,
+ "comments_by_creator": 2,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 51,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:25:24",
+ "approved": "2026-10-17T16:25+09:00"
+}

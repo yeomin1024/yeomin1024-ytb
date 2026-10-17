@@ -1,0 +1,116 @@
+{
+ "id": "Tq1ADCDu3hQ",
+ "title": "🌙 자면서듣는 역사 | 조선왕조실록 : 조선의역사 풀스토리 500년 대서사｜달빛 역사관",
+ "channel": "달빛 역사관 : 자면서 듣는 세계사",
+ "channel_id": "UCArzr2q8BdHOAY4KtoWoioQ",
+ "subs": 9220,
+ "views": 226994,
+ "ratio": 24.62,
+ "age_days": 143,
+ "views_per_day": 1587.4,
+ "minutes": 104.3,
+ "likes": 1770,
+ "comments": 27,
+ "published": "2026-05-26",
+ "queries": "검색:조선왕조실록 | 검색:조선왕 | 검색:한국사 | 검색:세계사 이야기",
+ "url": "https://www.youtube.com/watch?v=Tq1ADCDu3hQ",
+ "flag": "",
+ "published_at": "2026-05-26T12:30:18Z",
+ "rank": "W283",
+ "set": "web",
+ "folder": "W_Tq1ADCDu3hQ",
+ "sources": [
+  "검색:조선왕조실록",
+  "검색:조선왕",
+  "검색:한국사",
+  "검색:세계사 이야기"
+ ],
+ "source": "web",
+ "tags": [
+  "한국사",
+  "조선역사",
+  "조선왕조",
+  "조선오백년",
+  "조선왕조실록",
+  "수면유도",
+  "역사이야기",
+  "달빛역사관",
+  "이순신",
+  "세종대왕",
+  "태종",
+  "정조",
+  "사도세자",
+  "광해군",
+  "임진왜란",
+  "병자호란",
+  "조선건국",
+  "훈민정음",
+  "위화도회군",
+  "계유정난",
+  "경술국치",
+  "역사팟캐스트",
+  "한국역사",
+  "고려조선",
+  "조선멸망",
+  "자면서듣는역사",
+  "잘때듣는역사",
+  "자면서듣는이야기",
+  "조선시대"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "프롤로그 — 오늘 밤의 초대"
+  },
+  {
+   "start": 178,
+   "title": "1부 — 칼을 돌린 사람 (고려 말, 위화도 회군, 조선 건국)"
+  },
+  {
+   "start": 697,
+   "title": "2부 — 피로 다진 기초 (왕자의 난, 태종, 세종 즉위)"
+  },
+  {
+   "start": 1399,
+   "title": "3부 — 빛의 왕조 (세종, 훈민정음, 집현전, 4군 6진)"
+  },
+  {
+   "start": 1983,
+   "title": "4부 — 균열 (단종, 계유정난, 세조, 사육신, 성종)"
+  },
+  {
+   "start": 2658,
+   "title": "5부 — 선비들의 꿈과 좌절 (연산군, 사화, 조광조, 붕당)"
+  },
+  {
+   "start": 3471,
+   "title": "6부 — 바다가 나라를 구했다 (임진왜란, 이순신, 명량, 노량)"
+  },
+  {
+   "start": 4330,
+   "title": "7부 — 치욕과 굴욕 사이에서 (광해군, 병자호란, 삼전도, 효종)"
+  },
+  {
+   "start": 5058,
+   "title": "8부 — 마지막 빛과 긴 황혼 (영조, 사도세자, 정조, 세도정치, 경술국치)"
+  },
+  {
+   "start": 5988,
+   "title": "에필로그 — 오백 년이 남긴 것"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 27,
+ "comments_top_level": 27,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 27,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:33:22",
+ "approved": "2026-10-17T16:33+09:00"
+}

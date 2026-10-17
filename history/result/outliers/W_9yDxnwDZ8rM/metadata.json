@@ -1,0 +1,92 @@
+{
+ "id": "9yDxnwDZ8rM",
+ "title": "왜란 중 이순신과 나란히 불렸던 한 남자 우리는 왜 아무도 모를까? [아무도 들려주지 않는 조선 인물 탐구생활]",
+ "channel": "몰래 듣는 조선의 비밀",
+ "channel_id": "UCWVg6CqPHSVbkTrKRRnq0Pg",
+ "subs": 1220,
+ "views": 34003,
+ "ratio": 27.87,
+ "age_days": 113,
+ "views_per_day": 300.9,
+ "minutes": 19.2,
+ "likes": 581,
+ "comments": 87,
+ "published": "2026-06-25",
+ "queries": "검색:이순신",
+ "url": "https://www.youtube.com/watch?v=9yDxnwDZ8rM",
+ "flag": "",
+ "published_at": "2026-06-25T11:00:08Z",
+ "rank": "W264",
+ "set": "web",
+ "folder": "W_9yDxnwDZ8rM",
+ "sources": [
+  "검색:이순신"
+ ],
+ "source": "web",
+ "tags": [
+  "조선시대 군사",
+  "이원익",
+  "임진왜란",
+  "조선 군대 훈련",
+  "후금",
+  "조선왕조실록",
+  "한국사",
+  "이순신",
+  "조선제일검",
+  "검객",
+  "한명련",
+  "한국역사"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "시작"
+  },
+  {
+   "start": 0,
+   "title": "산비탈을 걷는 정3품 장수"
+  },
+  {
+   "start": 112,
+   "title": "몰래 듣는 조선의 비밀 — 다섯 자루의 칼"
+  },
+  {
+   "start": 155,
+   "title": "난세가 꺼낸 칼 — 병졸에서 실록으로"
+  },
+  {
+   "start": 269,
+   "title": "체찰사가 증언한 칼 — 이원익의 보고"
+  },
+  {
+   "start": 399,
+   "title": "왕이 직접 적은 칼 — \"백전장 중 참적무산\""
+  },
+  {
+   "start": 560,
+   "title": "종2품까지 오른 칼, 그리고 꺾인 칼"
+  },
+  {
+   "start": 688,
+   "title": "반역의 칼 — 이괄의 난"
+  },
+  {
+   "start": 857,
+   "title": "전기수의 한 줄"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 87,
+ "comments_top_level": 39,
+ "comments_replies": 48,
+ "comments_by_creator": 32,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 87,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:32:58",
+ "approved": "2026-10-17T16:32+09:00"
+}

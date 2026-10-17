@@ -1,0 +1,89 @@
+{
+ "id": "tl9fSvSwS2g",
+ "title": "좌의정을 하고도 비 새는 초가집에서 살은 청백리 정승 | 조선청백리,고불 맹사성",
+ "channel": "거꾸로한국사",
+ "channel_id": "UCHHFs--k6wQ7WfuWgEwPO8A",
+ "subs": 17000,
+ "views": 90386,
+ "ratio": 5.32,
+ "age_days": 110,
+ "views_per_day": 821.7,
+ "minutes": 39.5,
+ "likes": 2282,
+ "comments": 176,
+ "published": "2026-06-29",
+ "queries": "검색:한국사이야기",
+ "url": "https://www.youtube.com/watch?v=tl9fSvSwS2g",
+ "flag": "",
+ "published_at": "2026-06-29T00:00:05Z",
+ "rank": "W533",
+ "set": "web",
+ "folder": "W_tl9fSvSwS2g",
+ "sources": [
+  "검색:한국사이야기"
+ ],
+ "source": "web",
+ "tags": [
+  "한국사",
+  "한국역사",
+  "조선시대",
+  "조선역사",
+  "역사이야기",
+  "역사채널",
+  "거꾸로한국사",
+  "역사다큐",
+  "숨겨진역사",
+  "역사인물",
+  "고불 맹사성",
+  "조선의청백리",
+  "세종대왕"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "한명회는 누구나 알지만, 같은 정승 자리에서 비 새는 초가집에 살다 간 사람은 누구입니까."
+  },
+  {
+   "start": 300,
+   "title": "늙은 검은 소 등에 옥피리 하나 든 이 노인이 바로 고불 맹사성, 세종이 가장 신임한 정승이었습니다."
+  },
+  {
+   "start": 660,
+   "title": "마흔아홉 대사헌 자리에서 임금 사위 조대림 사건에 휘말려 아들과 함께 의금부 마당에서 곤장을 맞습니다."
+  },
+  {
+   "start": 1080,
+   "title": "사형 직전 영의정 성석린과 스승 권근의 간청으로 살아남지만, 아들 맹귀미는 결국 그 매를 이기지 못하고 세상을 떠납니다."
+  },
+  {
+   "start": 1440,
+   "title": "자기 아들을 때려 죽인 임금의 실록을 자기 손으로 정리하고, 그 임금의 아들 세종 곁에서 좌의정에 오릅니다."
+  },
+  {
+   "start": 1800,
+   "title": "일흔여섯에 좌의정을 내려놓고 검은 소 한 마리 등에 보따리 하나 싣고 고향 새실마을로 내려갑니다."
+  },
+  {
+   "start": 2100,
+   "title": "일흔아홉으로 세상을 떠난 날, 세종이 백관을 거느리고 직접 그 상여 앞에 가서 곡합니다."
+  },
+  {
+   "start": 2280,
+   "title": "육백 년이 지난 지금도 그 비 새던 정승의 집 맹씨행단은 그 자리에 그대로 서 있습니다."
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 176,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:39:10",
+ "approved": "2026-10-17T16:39+09:00"
+}

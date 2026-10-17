@@ -1,0 +1,87 @@
+{
+ "id": "JLOhGgZAKeA",
+ "title": "세종대왕이 600년 전 숨겨둔 비밀 | 지금 전 세계가 뒤집힌 이유",
+ "channel": "이상하TV",
+ "channel_id": "UCsOFUBNmRjtvK2TQcITBVEA",
+ "subs": 12400,
+ "views": 235763,
+ "ratio": 19.01,
+ "age_days": 48,
+ "views_per_day": 4911.7,
+ "minutes": 22.1,
+ "likes": 2015,
+ "comments": 68,
+ "published": "2026-08-29",
+ "queries": "검색:세종대왕",
+ "url": "https://www.youtube.com/watch?v=JLOhGgZAKeA",
+ "flag": "",
+ "published_at": "2026-08-29T09:00:00Z",
+ "rank": "W320",
+ "set": "web",
+ "folder": "W_JLOhGgZAKeA",
+ "sources": [
+  "검색:세종대왕"
+ ],
+ "source": "web",
+ "tags": [
+  "국제정세",
+  "세종대왕",
+  "한글",
+  "한글 창제 원리",
+  "한글의 과학성",
+  "훈민정음",
+  "훈민정음 해례본"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "600년 전 한글의 비밀"
+  },
+  {
+   "start": 80,
+   "title": "세계 문자와 한글의 차이"
+  },
+  {
+   "start": 166,
+   "title": "세종대왕이 글자를 만든 이유"
+  },
+  {
+   "start": 305,
+   "title": "과학적으로 설계된 자음"
+  },
+  {
+   "start": 435,
+   "title": "소리와 획의 놀라운 규칙"
+  },
+  {
+   "start": 623,
+   "title": "한글 창제를 둘러싼 반대"
+  },
+  {
+   "start": 737,
+   "title": "사라질 뻔한 해례본"
+  },
+  {
+   "start": 870,
+   "title": "디지털 시대에 빛난 한글"
+  },
+  {
+   "start": 1128,
+   "title": "국경을 넘어선 한글"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 68,
+ "comments_top_level": 60,
+ "comments_replies": 8,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 68,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:34:25",
+ "approved": "2026-10-17T16:34+09:00"
+}

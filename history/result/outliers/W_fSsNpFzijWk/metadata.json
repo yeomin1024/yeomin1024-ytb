@@ -1,0 +1,104 @@
+{
+ "id": "fSsNpFzijWk",
+ "title": "🌙세종과 세조조차 건드릴 수 없었던 유일한 인물 | 인수대비의 아버지 한확",
+ "channel": "거침없는한국사",
+ "channel_id": "UCVOtBhbZj6H-NzMLHI7SNTQ",
+ "subs": 32800,
+ "views": 108151,
+ "ratio": 3.3,
+ "age_days": 97,
+ "views_per_day": 1115.0,
+ "minutes": 62.6,
+ "likes": 4201,
+ "comments": 187,
+ "published": "2026-07-11",
+ "queries": "검색:세종대왕 | 검색:세종",
+ "url": "https://www.youtube.com/watch?v=fSsNpFzijWk",
+ "flag": "",
+ "published_at": "2026-07-11T11:30:13Z",
+ "rank": "W607",
+ "set": "web",
+ "folder": "W_fSsNpFzijWk",
+ "sources": [
+  "검색:세종대왕",
+  "검색:세종"
+ ],
+ "source": "web",
+ "tags": [
+  "한국사",
+  "조선시대",
+  "조선역사",
+  "조선왕조실록",
+  "역사이야기",
+  "역사다큐",
+  "세종",
+  "세조",
+  "수양대군",
+  "계유정난",
+  "인수대비",
+  "단종",
+  "한확",
+  "한명회",
+  "공녀"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "세종도 벌하지 못한 사내"
+  },
+  {
+   "start": 240,
+   "title": "첫 번째 거래, 누나를 바치다"
+  },
+  {
+   "start": 690,
+   "title": "유모, 나는 먼저 가요"
+  },
+  {
+   "start": 1080,
+   "title": "벌할 수 없는 사람"
+  },
+  {
+   "start": 1440,
+   "title": "두 번째 거래, 여동생 한계란"
+  },
+  {
+   "start": 1830,
+   "title": "여스승이 된 한계란"
+  },
+  {
+   "start": 2160,
+   "title": "세 번째 거래, 딸을 내주다"
+  },
+  {
+   "start": 2520,
+   "title": "양위이지 찬탈이 아니옵니다"
+  },
+  {
+   "start": 2880,
+   "title": "닿지 않은 약"
+  },
+  {
+   "start": 3150,
+   "title": "열아홉 임금의 핏줄"
+  },
+  {
+   "start": 3330,
+   "title": "팩트체크"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 187,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:39:21",
+ "approved": "2026-10-17T16:39+09:00"
+}

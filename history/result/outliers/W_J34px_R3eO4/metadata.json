@@ -1,0 +1,102 @@
+{
+ "id": "J34px_R3eO4",
+ "title": "석유가 터진 나라, 왜 학교부터 무너질까? | 고대문명",
+ "channel": "고대문명 역사관",
+ "channel_id": "UC5imIssno-GFjqgdKN2BD7Q",
+ "subs": 410,
+ "views": 21876,
+ "ratio": 53.36,
+ "age_days": 22,
+ "views_per_day": 994.4,
+ "minutes": 19.4,
+ "likes": 86,
+ "comments": 3,
+ "published": "2026-09-24",
+ "queries": "검색:고대문명",
+ "url": "https://www.youtube.com/watch?v=J34px_R3eO4",
+ "flag": "",
+ "published_at": "2026-09-24T09:54:59Z",
+ "rank": "W172",
+ "set": "web",
+ "folder": "W_J34px_R3eO4",
+ "sources": [
+  "검색:고대문명"
+ ],
+ "source": "web",
+ "tags": [
+  "고대문명",
+  "한국역사",
+  "인류의 역사",
+  "세계사",
+  "역사 이야기",
+  "문명의 흔적",
+  "고고학",
+  "인류의 기원",
+  "고대의 비밀",
+  "고대 전쟁",
+  "고대 이집트",
+  "이집트 문명",
+  "바빌로니아",
+  "고대 그리스",
+  "한반도 선사시대",
+  "페르시아 제국",
+  "아즈텍 문명",
+  "잉카 문명",
+  "메소포타미아 문명",
+  "수메르 문명",
+  "로마 제국",
+  "한국 고대사"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "석유가 터지면 제일 먼저 무너지는 것은 학교다"
+  },
+  {
+   "start": 71,
+   "title": "자원의 저주: 자원이 많은 나라가 오히려 가난한 이유"
+  },
+  {
+   "start": 200,
+   "title": "석유 돈이 국민을 통과하지 않는 나라의 구조"
+  },
+  {
+   "start": 388,
+   "title": "자원은 정부에게 국민을 필요 없는 존재로 만든다"
+  },
+  {
+   "start": 440,
+   "title": "미얀마·네덜란드·스페인의 사례로 보는 자원의 함정"
+  },
+  {
+   "start": 738,
+   "title": "보츠와나·노르웨이·칠레: 통로를 뚫은 나라들"
+  },
+  {
+   "start": 958,
+   "title": "아무것도 안 나오던 우리나라가 여기까지 온 진짜 이유"
+  },
+  {
+   "start": 1027,
+   "title": "땅 속에 다 있는 나라는 국민이 필요 없었고, 없는 나라는 국민이 전부였다"
+  },
+  {
+   "start": 1069,
+   "title": "이 나라의 진짜 자원은 땅 속이 아니라 땅 위에 있었다"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 3,
+ "comments_top_level": 3,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 3,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:30:31",
+ "approved": "2026-10-17T16:30+09:00"
+}

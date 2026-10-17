@@ -1,0 +1,67 @@
+{
+ "id": "w56IxMajSHY",
+ "title": "성경에 차마 예수의 12세~30세까지 이야기를 담지 못한 이유(종교 대통합..)ㅣ역사를 보다 EP.162",
+ "channel": "보다 BODA",
+ "channel_id": "UCoCvTlU0KpNYwnMIgs7MPrA",
+ "subs": 3220000,
+ "views": 2566548,
+ "ratio": 0.8,
+ "age_days": 23,
+ "views_per_day": 111589.0,
+ "minutes": 43.5,
+ "likes": 11951,
+ "comments": 1041,
+ "published": "2026-09-23",
+ "queries": "검색:역사 | 검색:세계사 이야기",
+ "url": "https://www.youtube.com/watch?v=w56IxMajSHY",
+ "flag": "",
+ "published_at": "2026-09-23T10:00:30Z",
+ "rank": "W634",
+ "set": "web",
+ "folder": "W_w56IxMajSHY",
+ "sources": [
+  "검색:역사",
+  "검색:세계사 이야기"
+ ],
+ "source": "web",
+ "tags": [
+  "보다",
+  "boda",
+  "직업",
+  "인터뷰",
+  "전문가",
+  "레전드"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝"
+  },
+  {
+   "start": 271,
+   "title": "예수는 정말 어린 시절 불교를 수행했을까?"
+  },
+  {
+   "start": 1603,
+   "title": "불가촉천민보다 더 못한 존재 '히즈라'의 정체"
+  },
+  {
+   "start": 2206,
+   "title": "인도에서 피부색으로 계급이 달라지는 이유"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 1041,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:39:24",
+ "approved": "2026-10-17T16:39+09:00"
+}

@@ -1,0 +1,102 @@
+{
+ "id": "O_KWOoiOj3I",
+ "title": "역사상 가장 악명 높았던 독재자들은 어떻게 최후를 맞이했을까?",
+ "channel": "크로니클",
+ "channel_id": "UCw4NHUSrh8oxQC0JCSYF-XQ",
+ "subs": 3530,
+ "views": 294778,
+ "ratio": 83.51,
+ "age_days": 62,
+ "views_per_day": 4754.5,
+ "minutes": 19.9,
+ "likes": 1718,
+ "comments": 309,
+ "published": "2026-08-15",
+ "queries": "검색:세계사 이야기",
+ "url": "https://www.youtube.com/watch?v=O_KWOoiOj3I",
+ "flag": "",
+ "published_at": "2026-08-15T13:00:23Z",
+ "rank": "W120",
+ "set": "web",
+ "folder": "W_O_KWOoiOj3I",
+ "sources": [
+  "검색:세계사 이야기"
+ ],
+ "source": "web",
+ "tags": [
+  "독재자",
+  "독재자의최후",
+  "역사이야기",
+  "세계사",
+  "권력의몰락",
+  "히틀러",
+  "무솔리니",
+  "김정일",
+  "스탈린",
+  "트루히요",
+  "차우셰스쿠",
+  "폴포트",
+  "사담후세인",
+  "카다피"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "권력의 정점에서 시작된 몰락의 이야기"
+  },
+  {
+   "start": 26,
+   "title": "아돌프 히틀러, 벙커 속에서 맞이한 제국의 마지막 순간"
+  },
+  {
+   "start": 132,
+   "title": "베니토 무솔리니, 도망자의 끝과 무너진 권력"
+  },
+  {
+   "start": 261,
+   "title": "김정일, 최고 권력자의 갑작스러운 마지막 순간"
+  },
+  {
+   "start": 379,
+   "title": "스탈린, 공포 정치 뒤 찾아온 의문의 결말"
+  },
+  {
+   "start": 513,
+   "title": "트루히요, 독재자의 암살과 권력의 붕괴"
+  },
+  {
+   "start": 603,
+   "title": "차우셰스쿠, 국민 앞에서 끝난 독재 정권"
+  },
+  {
+   "start": 707,
+   "title": "폴 포트, 비극의 시대가 남긴 역사적 평가"
+  },
+  {
+   "start": 809,
+   "title": "사담 후세인, 체포와 재판 그리고 마지막 선택"
+  },
+  {
+   "start": 895,
+   "title": "카다피, 도주 끝에 맞이한 비극적인 최후"
+  },
+  {
+   "start": 1003,
+   "title": "피노체트, 권력 이후 남겨진 역사적 판단"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 309,
+ "comments_top_level": 92,
+ "comments_replies": 217,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 309,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:28:37",
+ "approved": "2026-10-17T16:28+09:00"
+}

@@ -1,0 +1,86 @@
+{
+ "id": "_PA2GUeMIPA",
+ "title": "기적적으로 살아난 사육신 박팽년의 후손 이야기 | 사육신,박팽년",
+ "channel": "거꾸로한국사",
+ "channel_id": "UCHHFs--k6wQ7WfuWgEwPO8A",
+ "subs": 17000,
+ "views": 218079,
+ "ratio": 12.83,
+ "age_days": 133,
+ "views_per_day": 1639.7,
+ "minutes": 26.2,
+ "likes": 7169,
+ "comments": 406,
+ "published": "2026-06-06",
+ "queries": "검색:한국사이야기",
+ "url": "https://www.youtube.com/watch?v=_PA2GUeMIPA",
+ "flag": "",
+ "published_at": "2026-06-06T00:00:21Z",
+ "rank": "W377",
+ "set": "web",
+ "folder": "W__PA2GUeMIPA",
+ "sources": [
+  "검색:한국사이야기"
+ ],
+ "source": "web",
+ "tags": [
+  "한국사",
+  "한국역사",
+  "조선시대",
+  "조선역사",
+  "역사이야기",
+  "역사채널",
+  "거꾸로한국사",
+  "역사다큐",
+  "숨겨진역사",
+  "역사인물",
+  ".사육신",
+  "삼성그룹",
+  "박두을",
+  "박팽년"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "댓글 하나에서 시작된 이야기"
+  },
+  {
+   "start": 130,
+   "title": "박팽년은 누구인가 — 집현전 학사에서 사육신까지"
+  },
+  {
+   "start": 390,
+   "title": "삼대 멸문 — 아버지, 형제, 아들, 손자까지"
+  },
+  {
+   "start": 640,
+   "title": "여종의 결단 — 자기 딸과 바꿔치기한 그날"
+  },
+  {
+   "start": 980,
+   "title": "박비에서 박일산으로 — 17년 노비, 왕 앞에 서다"
+  },
+  {
+   "start": 1260,
+   "title": "500년 후 — 삼성의 뿌리, 국회의장, 묘골마을"
+  },
+  {
+   "start": 1470,
+   "title": "다음 편 예고 — 성삼문 가문과 신숙주 가문"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 406,
+ "comments_top_level": 219,
+ "comments_replies": 187,
+ "comments_by_creator": 125,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 406,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:36:28",
+ "approved": "2026-10-17T16:36+09:00"
+}

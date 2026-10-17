@@ -1,0 +1,121 @@
+{
+ "id": "fQRS02C7ZMY",
+ "title": "이순신을 살린 대가… 대한민국 함대는 1598년에 갇혔다 | 대한국 프로젝트2 | 4K",
+ "channel": "대한 타임슬립 본부",
+ "channel_id": "UChBd45HK-Wwa0rvdmh1uN-w",
+ "subs": 16100,
+ "views": 157443,
+ "ratio": 9.78,
+ "age_days": 85,
+ "views_per_day": 1852.3,
+ "minutes": 17.5,
+ "likes": 1285,
+ "comments": 72,
+ "published": "2026-07-24",
+ "queries": "검색:이순신",
+ "url": "https://www.youtube.com/watch?v=fQRS02C7ZMY",
+ "flag": "",
+ "published_at": "2026-07-24T01:00:31Z",
+ "rank": "W436",
+ "set": "web",
+ "folder": "W_fQRS02C7ZMY",
+ "sources": [
+  "검색:이순신"
+ ],
+ "source": "web",
+ "tags": [
+  "대한 타임슬립 본부",
+  "Korea Time-Slip HQ",
+  "KR Timeslip",
+  "대한국 프로젝트",
+  "대한국 프로젝트2",
+  "불침 살아남은 칼",
+  "불침",
+  "노량해전",
+  "노량 해전",
+  "이순신",
+  "충무공",
+  "임진왜란",
+  "정유재란",
+  "조선 수군",
+  "판옥선",
+  "현대 함대",
+  "대한민국 해군",
+  "항공모함",
+  "현대 해군 타임슬립",
+  "이순신 생존",
+  "1598년",
+  "대체역사",
+  "한국 대체역사",
+  "역사 시네마틱",
+  "AI 영화"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "평온한 합동훈련"
+  },
+  {
+   "start": 50,
+   "title": "모든 신호가 사라졌다"
+  },
+  {
+   "start": 88,
+   "title": "지도와 다른 해안선"
+  },
+  {
+   "start": 127,
+   "title": "노량해전의 마지막 봉쇄"
+  },
+  {
+   "start": 208,
+   "title": "전장과 마주한 현대 함대"
+  },
+  {
+   "start": 369,
+   "title": "여기는 노량이다"
+  },
+  {
+   "start": 477,
+   "title": "동·서·수중 봉쇄"
+  },
+  {
+   "start": 686,
+   "title": "왜군의 마지막 돌파"
+  },
+  {
+   "start": 729,
+   "title": "이순신이 사선을 열다"
+  },
+  {
+   "start": 754,
+   "title": "전 가용 화력, 교전 개시"
+  },
+  {
+   "start": 837,
+   "title": "이순신 생존 확인"
+  },
+  {
+   "start": 877,
+   "title": "승리 뒤에 남은 대가"
+  },
+  {
+   "start": 982,
+   "title": "선조가 받은 승전보"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 72,
+ "comments_top_level": 44,
+ "comments_replies": 28,
+ "comments_by_creator": 21,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 72,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:38:11",
+ "approved": "2026-10-17T16:38+09:00"
+}

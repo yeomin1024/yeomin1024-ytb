@@ -1,0 +1,87 @@
+{
+ "id": "uqbaeQokoCI",
+ "title": "이순신 장군을 죽음에서 구한 단 한 명의 충신 | 조선 청백리, 오리 이원익",
+ "channel": "초설야담",
+ "channel_id": "UCWizaIOMvHRCHEEmuuzNW_A",
+ "subs": 3690,
+ "views": 202160,
+ "ratio": 54.79,
+ "age_days": 100,
+ "views_per_day": 2021.6,
+ "minutes": 26.9,
+ "likes": 1743,
+ "comments": 164,
+ "published": "2026-07-09",
+ "queries": "검색:역사채널 | 검색:이순신",
+ "url": "https://www.youtube.com/watch?v=uqbaeQokoCI",
+ "flag": "",
+ "published_at": "2026-07-09T00:00:05Z",
+ "rank": "W168",
+ "set": "web",
+ "folder": "W_uqbaeQokoCI",
+ "sources": [
+  "검색:역사채널",
+  "검색:이순신"
+ ],
+ "source": "web",
+ "tags": [
+  "한국사",
+  "한국역사",
+  "조선시대",
+  "조선역사",
+  "역사이야기",
+  "역사채널",
+  "거꾸로한국사",
+  "역사다큐",
+  "숨겨진역사",
+  "역사인물",
+  "오리이원익",
+  "조선청백리",
+  "임진왜란",
+  "이순신구명"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "영의정 여섯 번인데 돗자리를 짜던 노인"
+  },
+  {
+   "start": 192,
+   "title": "왕족의 피를 받고 태어났는데 끼니를 걱정한 소년"
+  },
+  {
+   "start": 465,
+   "title": "임진왜란과 평양 탈환 그리고 이순신을 만나다"
+  },
+  {
+   "start": 750,
+   "title": "왕 앞에서 이순신은 제일 훌륭하다고 말한 순간"
+  },
+  {
+   "start": 980,
+   "title": "대동법의 시작과 광해군에게 맞선 유배길"
+  },
+  {
+   "start": 1205,
+   "title": "인조반정 광해군의 목숨을 구하고 다시 돗자리를 짜다"
+  },
+  {
+   "start": 1420,
+   "title": "나는 백성 앞에 죄인이다 마지막 유언"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 164,
+ "comments_top_level": 93,
+ "comments_replies": 71,
+ "comments_by_creator": 54,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 164,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:30:25",
+ "approved": "2026-10-17T16:30+09:00"
+}

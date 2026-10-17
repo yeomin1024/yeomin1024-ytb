@@ -1,0 +1,80 @@
+{
+ "id": "5zc-yW_ecN8",
+ "title": "사극에서 알려주지 않은 조선시대 해가 지면 벌어지는 일 | 조선역사,조선의 밤.통행금지",
+ "channel": "거꾸로한국사",
+ "channel_id": "UCHHFs--k6wQ7WfuWgEwPO8A",
+ "subs": 17000,
+ "views": 99771,
+ "ratio": 5.87,
+ "age_days": 144,
+ "views_per_day": 692.9,
+ "minutes": 31.9,
+ "likes": 821,
+ "comments": 40,
+ "published": "2026-05-25",
+ "queries": "검색:사극",
+ "url": "https://www.youtube.com/watch?v=5zc-yW_ecN8",
+ "flag": "",
+ "published_at": "2026-05-25T23:00:12Z",
+ "rank": "W515",
+ "set": "web",
+ "folder": "W_5zc-yW_ecN8",
+ "sources": [
+  "검색:사극"
+ ],
+ "source": "web",
+ "tags": [
+  "한국사",
+  "한국역사",
+  "조선시대",
+  "조선역사",
+  "역사이야기",
+  "역사채널",
+  "거꾸로한국사",
+  "역사다큐",
+  "숨겨진역사",
+  "역사인물",
+  "통행금지",
+  "조선의밤"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "조선시대 밤 10시, 종소리 28번이 울리면 벌어지는 일"
+  },
+  {
+   "start": 312,
+   "title": "밤새 베틀을 돌린 노비 어머니와 500년 전 출산휴가의 진실"
+  },
+  {
+   "start": 698,
+   "title": "경회루에서 왕좌를 빼앗긴 15살 소년 단종의 비극"
+  },
+  {
+   "start": 1104,
+   "title": "포도청 고문과 별감의 행패, 법보다 힘이 센 조선의 밤"
+  },
+  {
+   "start": 1387,
+   "title": "채제공의 한마디가 조선 경제를 뒤바꾼 날, 신해통공의 통쾌한 반전"
+  },
+  {
+   "start": 1665,
+   "title": "짚신 신은 노비 시인 정초부, 문 밖에 엎드려 시를 바치다"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 40,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:39:07",
+ "approved": "2026-10-17T16:39+09:00"
+}

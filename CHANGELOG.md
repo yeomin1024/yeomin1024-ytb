@@ -1,5 +1,21 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-17 (86) — 쇼츠 제목·썸네일 문구 조사: 뜻이 분명하게
+
+### 왜 (사용자 지시)
+- "아니 야 세금 200만원 날린다 하면 세금을 날리는것 같잖아 세금으로 '으로' 조사 붙이라고 좀 너 언어 몰라? 다시 다 확인해봐" · "내가 말한건 쇼츠 썸네일 문구나 제목 말한거야"
+
+### 한 것
+| 파일·대상 | 내용 |
+|---|---|
+| `economic/source/eunte-kkeonaeseugi-2026-10/shorts/thumbnails/thumbnail_1.md` (v2.0 → v2.0.1) | 2줄 「세금 200만 원 날린다」 → 「세금으로 200만 원 날린다」 (세금을 날리는 것처럼 읽히지 않게) |
+| `economic/source/isa-mangi-2026-10/shorts/upload.md` (v1.1 → v1.1.1) · `shorts.md` (v2.3 → v2.3.1) | 제목 「ISA 만기 돈 잘못 둔 직장인 3년에 세금 96만 원 더 낸다」 → 「ISA 만기 돈 잘못 두면 3년에 세금을 96만 원 더 낸다」 (33자 — 조사를 넣으면 3줄이라 '둔 직장인' → '두면') |
+| `economic/source/isa-mangi-2026-10/shorts/thumbnails/thumbnail_1.md` (v2.0 → v2.0.1) | 2줄 「3년에 96만 원 더 낸다」 → 「세금을 96만 원 더 낸다」 ('3년에'는 제목이 말함) |
+| 기초연금·건보료 쇼츠 | 확인만 — 뜻이 맞아 그대로 |
+| `tools/make_summary.py` (v1.8.0 → v1.8.1) | ChatGPT 규칙 4 '조사 그대로' · 규칙 6 확대 확인 예에 '세금으로'·'세금을' |
+| `economic/thumbnails_chatgpt.md` | 다시 만듦 (4장) |
+| `guides/shorts_guide.md` (v1.13) · `title_guide.md` (v3.3) · `thumbnail_guide.md` (v3.9, 피드백 21) · `CLAUDE.md` · `guides/status.md` (v1.61, 2-2 0-11) | 규칙 '조사로 뜻을 분명히 — 금액 앞 낱말이 동사의 목적어로 읽히지 않게' |
+
 ## 2026-10-17 (85) — 주식 쇼츠 결과형: 2번 커버드콜 쇼츠 v2.0
 
 ### 왜 (사용자 지시)

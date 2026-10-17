@@ -1,0 +1,157 @@
+{
+ "tool": "tts_narration.py v1.10",
+ "created": "2026-10-17T07:50:50",
+ "topic": "economic",
+ "id": "toejik-geonbo-2026-10-shorts",
+ "script": "economic/source/toejik-geonbo-2026-10/shorts/toejik-geonbo-2026-10-shorts.txt",
+ "script_sha1": "314928dac8f8f40e",
+ "sentences": 13,
+ "seconds": 56.56,
+ "engine": {
+  "engine": "qwen3-tts-clone",
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "ref": "e36c19a225874205",
+  "mode": "icl",
+  "language": "Korean",
+  "dtype": "float32",
+  "gen": {}
+ },
+ "voices": {
+  "host": {
+   "name": "진행자",
+   "parts": [
+    "*"
+   ],
+   "engine": "clone",
+   "lock": true,
+   "speaker": "Sohee",
+   "instruct": "",
+   "part_instruct": {},
+   "seed": 4301,
+   "gap": 0.45,
+   "generation": {},
+   "ref_audio": "voices/ref/host.wav",
+   "ref_sha": "e36c19a225874205",
+   "ref_f0": 127.7,
+   "files": [
+    "voices/host.json"
+   ]
+  }
+ },
+ "voice_ids": {
+  "host": "ba3d7519a1de4d4c"
+ },
+ "gaps": {
+  "lead_in": 0.3,
+  "part": 1.0,
+  "tail": 0.8,
+  "cards": []
+ },
+ "items": [
+  {
+   "n": 1,
+   "role": "host",
+   "part": "같은 날 퇴직, 다른 건보료",
+   "text": "최씨 부부는 퇴직 후 안 내도 될 건보료를 매달 약 30만 원씩 낸다는 걸 알게 됐습니다.",
+   "start": 0.3,
+   "end": 5.54
+  },
+  {
+   "n": 2,
+   "role": "host",
+   "part": "같은 날 퇴직, 다른 건보료",
+   "text": "60세에 정년퇴직한 최씨에게, 첫 건보료 고지서가 날아왔는데요.",
+   "start": 5.99,
+   "end": 10.47
+  },
+  {
+   "n": 3,
+   "role": "host",
+   "part": "같은 날 퇴직, 다른 건보료",
+   "text": "찍힌 금액은 약 30만 원, 1년 넘게 이 금액이 나옵니다.",
+   "start": 10.92,
+   "end": 14.62
+  },
+  {
+   "n": 4,
+   "role": "host",
+   "part": "같은 날 퇴직, 다른 건보료",
+   "text": "월급은 끊겼는데, 회사 다닐 때 매달 빠지던 건보료 약 18만 원보다 많았죠.",
+   "start": 15.07,
+   "end": 19.71
+  },
+  {
+   "n": 5,
+   "role": "host",
+   "part": "같은 날 퇴직, 다른 건보료",
+   "text": "얼마 뒤 최씨는 같은 날 정년퇴직한 입사 동기를 만났는데요.",
+   "start": 20.16,
+   "end": 24.21
+  },
+  {
+   "n": 6,
+   "role": "host",
+   "part": "같은 날 퇴직, 다른 건보료",
+   "text": "나이도 같은 60세, 퇴직 전 월급도 똑같이 500만 원.",
+   "start": 24.66,
+   "end": 28.26
+  },
+  {
+   "n": 7,
+   "role": "host",
+   "part": "같은 날 퇴직, 다른 건보료",
+   "text": "집 한 채에 소득 없는 아내까지, 최씨네와 같았어요.",
+   "start": 28.71,
+   "end": 31.91
+  },
+  {
+   "n": 8,
+   "role": "host",
+   "part": "같은 날 퇴직, 다른 건보료",
+   "text": "그런데 동기 부부는 건보료를 한 푼도 안 낸다는 겁니다.",
+   "start": 32.36,
+   "end": 35.86
+  },
+  {
+   "n": 9,
+   "role": "host",
+   "part": "같은 날 퇴직, 다른 건보료",
+   "text": "최씨는 처음엔 농담인 줄 알았습니다.",
+   "start": 36.31,
+   "end": 38.56
+  },
+  {
+   "n": 10,
+   "role": "host",
+   "part": "같은 날 퇴직, 다른 건보료",
+   "text": "지금처럼 고지서대로 내면 최씨 부부는 퇴직 후 3년 동안 약 860만 원을 냅니다.",
+   "start": 39.01,
+   "end": 44.61
+  },
+  {
+   "n": 11,
+   "role": "host",
+   "part": "같은 날 퇴직, 다른 건보료",
+   "text": "같은 3년, 동기 부부는 0원이고요.",
+   "start": 45.06,
+   "end": 47.62
+  },
+  {
+   "n": 12,
+   "role": "host",
+   "part": "같은 날 퇴직, 다른 건보료",
+   "text": "최씨 부부, 지금이라도 건보료를 줄일 수 있을까요?",
+   "start": 48.07,
+   "end": 51.03
+  },
+  {
+   "n": 13,
+   "role": "host",
+   "part": "같은 날 퇴직, 다른 건보료",
+   "text": "두 부부가 무엇이 달랐는지, 지금 할 일까지 아래 영상에서 확인하세요.",
+   "start": 51.48,
+   "end": 55.76
+  }
+ ],
+ "voice_sha1": "f0d0f801940b36b1"
+}

@@ -1,4 +1,7 @@
-// VERSION: v1.11 — 2026-10-17 — check: 주식(stock) 영상은 테스트(경주) 시작 시각 검사 — 장면 파일 K.init 의 testFrom(테스트가 시작되는 파트 이름)의
+// VERSION: v1.12 — 2026-10-17 — sync --estimate 의 추정 자막을 srt_tool v1.7 cue_split 으로 (한 문장 = 자막 하나, 띠 폭을 넘으면 같은 자막 안에서 두 줄 —
+//   롱폼 52px·1500px, 쇼츠 46px·816px, 주식은 예전 한 줄 규칙). 사용자 지시 2026-10-17 "자막 좀 되도록 한 문장은 한 자막으로 표시되게해
+//   길지 않은 문장도 잘라서 자막 띄우잖아 문장이 길면 적당한 곳에 분리하도록 해서 반영해". 실제 오디오 sync 는 SRT 그대로(줄바꿈 포함 — 예전과 같음).
+// v1.11 — 2026-10-17 — check: 주식(stock) 영상은 테스트(경주) 시작 시각 검사 — 장면 파일 K.init 의 testFrom(테스트가 시작되는 파트 이름)의
 //   첫 문장이 30초 넘게 늦으면 문제(끝 코드 1), 20초 넘으면 경고. testFrom 이 없어도 문제. 추정 시각·실제 오디오 시각 모두 (EP.sent).
 //   사용자 지시 2026-10-17 "야 너 내가 테스트 들어가지 전 도입 및 규칙 설명 30초 넘기지 말라고 했잖아 근데 왜 안지켜 다시 수정해"
 //   (2026-10-16 "메인인 실시간 비교 전 도입부가 너무 길어 20초 안으로" · "무리면 적어도 30초안에는", stock/guides/README.md 5번).
@@ -116,16 +119,16 @@ for raw in Path(sys.argv[1]).read_text("utf-8-sig").splitlines():
         card = True
         continue
     if not card:
-        rows.append([line, part, srt_tool.syllables(line), srt_tool.split_px(line)])
+        rows.append([line, part, srt_tool.syllables(line), srt_tool.cue_split(line, srt_tool.layout_of(sys.argv[1]))])
 assert [r[0] for r in rows] == srt_tool.parse_txt(sys.argv[1]), "문장 판정이 srt_tool 과 다름"
-for r in rows: r.append([max(1, srt_tool.syllables(x)) + 0.5 * x.count(",") for x in r[3]])
+for r in rows: r.append([max(1, srt_tool.syllables(x.replace("\\n", " "))) + 0.5 * x.count(",") for x in r[3]])
 print(json.dumps({"rows": rows, "cards": len(srt_tool.parse_cards(sys.argv[1]))}, ensure_ascii=False))`;
   const r = spawnSync("python3", ["-c", py, txt, path.join(ROOT, "tools")], { encoding: "utf-8" });
   if (r.status !== 0) fail("SYNC", "대본 읽기 실패: " + (r.stderr || "").trim().split("\n").pop(), "python3 tools/srt_tool.py check 로 대본 확인");
   const { rows, cards } = JSON.parse(r.stdout);
   if (cards) log("SYNC", { level: "warn", note: "고지 카드 쉼은 추정에 넣지 않음", cards });
   let t = EST.lead;
-  const subs = [];                                              // v1.8 추정 자막 (srt_tool 앞줄·뒷줄 · 길이는 음절 비율 — srt_tool._split_durs 와 같음)
+  const subs = [];                                              // v1.8 추정 자막 (v1.12: srt_tool v1.7 cue_split — 한 문장 = 자막 하나, 길면 두 줄 · 길이는 음절 비율 — srt_tool._split_durs 와 같음)
   const sent = rows.map(([text, part, syl, parts, w], i) => {
     const d = Math.max(EST.min, EST.perSyl * syl + EST.comma * (text.match(/,/g) || []).length + EST.base);
     const it = { n: i + 1, part, text, start: +t.toFixed(3), end: +(t + d).toFixed(3) };

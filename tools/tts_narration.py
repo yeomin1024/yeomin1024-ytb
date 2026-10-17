@@ -1,8 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.9 — 2026-10-16 — 쇼츠 대본도 읽는다: <주제>/source/<영상ID>/shorts/<영상ID>-shorts.txt → 같은 쇼츠 폴더에 narration.mp3 ·
+# VERSION: v1.10 — 2026-10-17 — 부분 다시 만들기: 파트 라벨 **글자만** 바뀐 것은 막지 않는다 (라벨은 소리로 읽지 않음) — 파트 경계(어느 문장에서
+#          챕터가 바뀌는지)와 문장마다 읽는 목소리(역할)가 같으면 바뀐 문장만 다시. 경계나 역할이 바뀌면 예전처럼 전부 다시.
+#          사용자 피드백 2026-10-17 "아니 너무 또 길게 풀어서 쓰면 읽기 힘들잖아 최대한 짧지만 이해가 다 되도록 다시 고쳐봐" — 재테크 대본을
+#          낱말 몇 개만 고쳤는데 챕터 이름 한 글자 때문에 오디오를 전부 다시 만들지 않게.
+# (v1.9 — 2026-10-16 — 쇼츠 대본도 읽는다: <주제>/source/<영상ID>/shorts/<영상ID>-shorts.txt → 같은 쇼츠 폴더에 narration.mp3 ·
 #          tts_narration.json · tts_report.md (영상ID 는 '<영상ID>-shorts'). all·check·push·pick 이 롱폼과 같은 방식으로 다룬다 (src_dir).
-#          사용자 지시 2026-10-16 "좋아 나머지도 세 편도 대본은 같은 방식으로 만들고 일단 이 쇼츠만 영상 만들어봐" — 쇼츠 영상도 오디오 먼저 (CLAUDE.md).
+#          사용자 지시 2026-10-16 "좋아 나머지도 세 편도 대본은 같은 방식으로 만들고 일단 이 쇼츠만 영상 만들어봐" — 쇼츠 영상도 오디오 먼저 (CLAUDE.md).)
 # (v1.8 — 2026-10-15 — 사용자 지시 "맨 마지막 대사 … 시청해주셔서 감사합니다. 로 변경 … 음성 … 에 모두 반영": 부분 다시 만들기 —
 #          대본의 글만 조금 바뀌면(문장 수·파트·카드·쉼·목소리가 같고 바뀐 문장 ≤ 20%) all·build 가 그 문장만 새로 만들어 저장소
 #          narration.mp3 의 그 자리에 끼운다. 다른 문장의 소리·시각은 그대로(뒤 문장만 길이 차이만큼 밀림), 새 문장 크기는 다른 문장
@@ -115,7 +119,7 @@ ROOT = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 import srt_tool  # noqa: E402  (문장·카드 판정을 자막 도구와 똑같이 쓰기 위해)
 
-VERSION = "v1.9"
+VERSION = "v1.10"
 CACHE_VERSION = 1            # 생성 방식이 바뀌면 올린다 → 문장 파일을 모두 다시 만든다 (v1.1은 v1.0 캐시와 같은 키)
 DEFAULT_MODEL = "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice"     # 사연자 (화자 + 말투 지시)
 DEFAULT_CLONE_MODEL = "Qwen/Qwen3-TTS-12Hz-1.7B-Base"       # 진행자 (기준 목소리 복제)
@@ -998,8 +1002,16 @@ def patch_candidate(topic, vid, rows, cards, args):
     old = meta.get("items") or []
     if len(old) != len(rows):
         return None, f"문장 수가 다름 ({len(old)} → {len(rows)})"
-    if any(o.get("part") != p for o, (_, p) in zip(old, rows)):
-        return None, "파트(챕터) 나눔이 다름"
+    olds, news = [o.get("part") for o in old], [p for _, p in rows]
+    if any((olds[i] != olds[i - 1]) != (news[i] != news[i - 1]) for i in range(1, len(rows))):
+        return None, "파트(챕터) 나눔이 다름"            # v1.10: 경계가 바뀌면 쉼(파트 사이 쉼)이 달라짐 → 전부 다시
+    voices = load_voices(topic, vid, args, quiet=True)
+    if any(o.get("role") != role_of(p, voices) for o, p in zip(old, news)):
+        return None, "파트 이름이 바뀌어 읽는 목소리(역할)가 달라짐"
+    renamed = list(dict.fromkeys((a, b) for a, b in zip(olds, news) if a != b))
+    if renamed:                                          # v1.10: 라벨 글자만 바뀜 — 소리로 읽지 않으므로 막지 않음
+        log("PATCH", video=vid, note="파트 이름만 바뀜 (경계·목소리 같음) — 부분 다시 만들기 가능",
+            renamed=" · ".join(f"{a} → {b}" for a, b in renamed))
     if any(not isinstance(o.get("start"), (int, float)) or not isinstance(o.get("end"), (int, float)) for o in old):
         return None, "메타에 문장 시각 없음"
     g = meta.get("gaps") or {}
@@ -1007,7 +1019,6 @@ def patch_candidate(topic, vid, rows, cards, args):
         return None, "고지 카드가 바뀜"
     if (g.get("lead_in"), g.get("part"), g.get("tail")) != (args.lead_in, args.part_gap, args.tail):
         return None, "쉼 설정(--lead-in·--part-gap·--tail)이 다름"
-    voices = load_voices(topic, vid, args, quiet=True)
     if any((meta.get("voices") or {}).get(r, {}).get("gap") != v["gap"] for r, v in voices.items()):
         return None, "문장 쉼(gap) 설정이 다름"
     changed = [i + 1 for i, (o, (t, _)) in enumerate(zip(old, rows)) if o.get("text") != t]

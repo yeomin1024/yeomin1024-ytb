@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.8 — 2026-10-17 — 쇼츠 올리기: 영상ID '<영상ID>-shorts' 면 시트·자막·youtube.json 을 source/<영상ID>/shorts/ 에서
+# VERSION: v1.9 — 2026-10-17 — 쇼츠도 썸네일을 올린다: shorts/thumbnails/thumbnail_1.* 를 세로 720×1280 JPG 로 (16:9 로 자르지 않음).
+#          사용자 지시 2026-10-17 "쇼츠 보니까 썸네일 만든거 안올라갔고". (v1.8 은 앱에서 0초 장면을 고르게 하려고 올리지 않았음.)
+# (v1.8 — 2026-10-17 — 쇼츠 올리기: 영상ID '<영상ID>-shorts' 면 시트·자막·youtube.json 을 source/<영상ID>/shorts/ 에서
 #          (shorts/upload.md — 롱폼 시트와 같은 꼴, 챕터 없음), 영상은 out/<영상ID>-shorts/final_1080p.mp4. 쇼츠는 썸네일을 API 로 올리지 않는다
-#          (첫 문장 그림 = 0초 장면을 앱에서 고름 — guides/shorts_guide.md 4번). 사용자 지시 2026-10-17 "아니 공개 자동예약으로 올려 쇼츠도 하나 올려보고".
+#          (첫 문장 그림 = 0초 장면을 앱에서 고름 — guides/shorts_guide.md 4번). 사용자 지시 2026-10-17 "아니 공개 자동예약으로 올려 쇼츠도 하나 올려보고".)
 # (v1.7 — 2026-10-16 — 올리기 전 채널 확인: 키의 채널(channels?mine=true)이 <주제>/youtube_channel.json 의 channel_id 와 다르면
 #          멈춘다 (업로드 안 함). 클라우드 환경마다 키가 달라서(주식 환경 = STOCK LAB, 재테크 환경 = 부자백서 — 2026-10-16 확인) 재테크 영상이
 #          다른 채널에 올라갈 수 있었음. 사용자 지시 2026-10-16 "재테크 … 영상을 만들어 부자백서 채널에 업로드 할 환경이야 한번 업로드 잘되는지
@@ -383,8 +385,8 @@ def find_thumbnail(topic, vid, n):
     return None
 
 
-def _thumb_with_pillow(img, out):
-    """ffmpeg 가 없는 PC: Pillow 로 가운데 기준 16:9 → 1280×720 JPG (2MB 이하가 될 때까지 품질을 낮춤). → (경로, 원래 크기) 또는 None."""
+def _thumb_with_pillow(img, out, W=1280, H=720):
+    """ffmpeg 가 없는 PC: Pillow 로 가운데 기준 W:H → W×H JPG (2MB 이하가 될 때까지 품질을 낮춤). → (경로, 원래 크기) 또는 None."""
     try:
         from PIL import Image
     except ImportError:
@@ -392,10 +394,10 @@ def _thumb_with_pillow(img, out):
     with Image.open(img) as im:
         dims = f"{im.width}x{im.height}"
         im = im.convert("RGB")
-        r = max(1280 / im.width, 720 / im.height)
+        r = max(W / im.width, H / im.height)
         im = im.resize((round(im.width * r), round(im.height * r)), Image.LANCZOS)
-        left, top = (im.width - 1280) // 2, (im.height - 720) // 2
-        im = im.crop((left, top, left + 1280, top + 720))
+        left, top = (im.width - W) // 2, (im.height - H) // 2
+        im = im.crop((left, top, left + W, top + H))
         for q in (92, 85, 75):
             im.save(out, "JPEG", quality=q)
             if out.stat().st_size <= THUMB_MAX:
@@ -403,8 +405,8 @@ def _thumb_with_pillow(img, out):
     return out, dims
 
 
-def prepare_thumbnail(img, out_dir):
-    """유튜브 규격(1280×720, 2MB 이하)이 아니면 가운데 기준 16:9로 잘라 JPG로 만든다. 원본은 그대로 둔다.
+def prepare_thumbnail(img, out_dir, size=(1280, 720)):
+    """유튜브 규격(1280×720, 2MB 이하 — 쇼츠는 세로 720×1280, v1.9)이 아니면 가운데 기준으로 잘라 JPG로 만든다. 원본은 그대로 둔다.
     ffmpeg 가 없으면 Pillow, 둘 다 없으면 png·jpg 2MB 이하만 그대로 (아니면 None — 썸네일 없이 올림)."""
     out_dir.mkdir(parents=True, exist_ok=True)
     out = out_dir / f"{img.stem}_upload.jpg"
@@ -412,9 +414,9 @@ def prepare_thumbnail(img, out_dir):
         probe = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=width,height",
                                 "-of", "csv=p=0:s=x", str(img)], capture_output=True, text=True)
     except FileNotFoundError:                      # 윈도 PC 등 ffmpeg 없음
-        res = _thumb_with_pillow(img, out)
+        res = _thumb_with_pillow(img, out, *size)
         if res:
-            log("THUMBNAIL", file=img.name, size=res[1], action=f"1280x720 JPG로 변환(Pillow) → {out.name} ({out.stat().st_size / 1e6:.2f}MB)")
+            log("THUMBNAIL", file=img.name, size=res[1], action=f"{size[0]}x{size[1]} JPG로 변환(Pillow) → {out.name} ({out.stat().st_size / 1e6:.2f}MB)")
             return out
         if img.suffix.lower() in (".png", ".jpg", ".jpeg") and img.stat().st_size <= THUMB_MAX:
             log("THUMBNAIL", file=img.name, action="그대로 (ffmpeg·Pillow 없음 — 크기 확인 못 함)")
@@ -422,15 +424,15 @@ def prepare_thumbnail(img, out_dir):
         log("THUMBNAIL", file=img.name, action="건너뜀 (ffmpeg·Pillow 없음, webp 또는 2MB 초과) → pip install pillow 또는 스튜디오에서 등록")
         return None
     dims = probe.stdout.strip()
-    if dims == "1280x720" and img.stat().st_size <= THUMB_MAX and img.suffix.lower() in (".png", ".jpg", ".jpeg"):
+    if dims == f"{size[0]}x{size[1]}" and img.stat().st_size <= THUMB_MAX and img.suffix.lower() in (".png", ".jpg", ".jpeg"):
         log("THUMBNAIL", file=img.name, size=dims, action="그대로")
         return img
     for q in (3, 5, 8):
         subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(img), "-vf",
-                        "scale=1280:720:force_original_aspect_ratio=increase,crop=1280:720", "-q:v", str(q), str(out)], check=True)
+                        f"scale={size[0]}:{size[1]}:force_original_aspect_ratio=increase,crop={size[0]}:{size[1]}", "-q:v", str(q), str(out)], check=True)
         if out.stat().st_size <= THUMB_MAX:
             break
-    log("THUMBNAIL", file=img.name, size=dims or "?", action=f"1280x720 JPG로 변환 → {out.name} ({out.stat().st_size / 1e6:.2f}MB)")
+    log("THUMBNAIL", file=img.name, size=dims or "?", action=f"{size[0]}x{size[1]} JPG로 변환 → {out.name} ({out.stat().st_size / 1e6:.2f}MB)")
     return out
 
 
@@ -453,9 +455,7 @@ def run(topic, vid, dry_run=False, privacy="private", force=False, no_captions=F
     src = src_dir(topic, vid)
     out = ROOT / topic / "out" / vid
     state_path = src / "youtube.json"
-    if is_shorts(vid) and not no_thumbnail:          # v1.8 쇼츠 표지는 앱에서 0초 장면으로 (API 썸네일 안 올림)
-        no_thumbnail = True
-        log("THUMBNAIL", status="skip", reason="쇼츠 — 올린 뒤 유튜브 앱에서 0초 장면(첫 문장 그림)을 썸네일로 고름")
+    thumb_size = (720, 1280) if is_shorts(vid) else (1280, 720)   # v1.9 쇼츠는 세로 썸네일 그대로 (16:9 로 자르지 않음)
     if state_path.exists() and not force:
         st = json.loads(state_path.read_text("utf-8"))
         log("SKIP", video=vid, reason="이미 업로드됨", youtube_id=st.get("videoId"), hint="--force 로 다시 올림")
@@ -463,8 +463,8 @@ def run(topic, vid, dry_run=False, privacy="private", force=False, no_captions=F
     video_path = Path(video) if video else find_video(topic, vid)
     srt_path = src / f"{vid}.srt"
     thumb_n = paired_thumbnail(topic, vid)
-    thumb_src = None if no_thumbnail else find_thumbnail(topic, vid, thumb_n)   # v1.8 쇼츠는 찾지도 자르지도 않음 (세로 그림을 16:9 로 자르지 않게)
-    thumbs = [t for t in [prepare_thumbnail(thumb_src, out / "thumbnails")] if t] if thumb_src else []
+    thumb_src = None if no_thumbnail else find_thumbnail(topic, vid, thumb_n)
+    thumbs = [t for t in [prepare_thumbnail(thumb_src, out / "thumbnails", thumb_size)] if t] if thumb_src else []
     meta = read_sheet(topic, vid)
     meta["description"], chapter_lines = recompute_chapters(topic, vid, meta["description"], meta["chapter_spec"])
     problems = validate(meta)

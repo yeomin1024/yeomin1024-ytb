@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.7 — 2026-10-17 — 한 문장 = 자막 하나 (사용자 지시 2026-10-17 "자막 좀 되도록 한 문장은 한 자막으로 표시되게해 길지 않은 문장도
+# VERSION: v1.8 — 2026-10-17 — 쇼츠 첫 문장(썸네일 그림 위 — kit.js K.cover)은 자막 하나에 3줄까지 ('shorts_cover'): 그 문장이 자막 2개로
+#          나뉘면 두 번째 자막 동안에도 그림이 남아 '다음 문장으로 넘어가도 썸네일이 보임' (사용자 지시 2026-10-17 "영상에서 첫 문장만 왜 다른 문장
+#          넘어가서도 썸네일 이미지가 영상에 뜨면 어떻게 그것도 수정해"). 줄바꿈 뜻 점수를 _break_pen 으로 뗌 (예전 결과 같음).
+# (v1.7 — 2026-10-17 — 한 문장 = 자막 하나 (사용자 지시 2026-10-17 "자막 좀 되도록 한 문장은 한 자막으로 표시되게해 길지 않은 문장도
 #          잘라서 자막 띄우잖아 문장이 길면 적당한 곳에 분리하도록 해서 반영해"): 자막 모양(LAYOUTS)을 화면에 굽는 띠 그대로 재서
 #          — 롱폼 52px·한 줄 1500px, 세로 쇼츠 46px·816px — 한 줄에 안 들어가면 **같은 자막 안에서 두 줄**(쉼표·절 경계에서 줄바꿈),
 #          두 줄로도 안 들어갈 때만 자막 2개로 나눈다. 주식(stock/ — 자막을 굽지 않음)은 예전 한 줄 규칙 그대로(layout 'line').
-#          build --reuse 는 같은 문장의 옛 길이(자막 여러 개면 합)를 그대로 쓰고 나눔은 새 규칙으로 다시. check·measure 도 같은 규칙.
+#          build --reuse 는 같은 문장의 옛 길이(자막 여러 개면 합)를 그대로 쓰고 나눔은 새 규칙으로 다시. check·measure 도 같은 규칙.)
 # (v1.6.1 — 2026-10-14 — 문서 경로만 고침: 옛 대본 지시사항이 guides/archive/script_guide_v1.md 로 옮겨짐 (동작 같음))
 # (v1.6 — 2026-10-12 — check 사연 길이: 이미 올린 영상(youtube.json 있음)은 SRT가 실제 오디오 시간이므로 음절 추정 대신
 #          실측(진행자 첫 문장 시작 ≤ 0:30)으로 판정 — 스튜디오에서 사연을 잘라 낸 영상(tools/studio_trim.py)에 맞춤)
@@ -51,6 +54,7 @@ LINE_MAX_PX = 1432          # 예전 자막 한 줄 최대 폭 = 띠 최대 1500
 LAYOUTS = {
     "long":   {"px": 52, "width": 1500, "lines": 2, "desc": "롱폼 1920×1080 — kit.css #cc 52px, 띠 최대 1600 − 안쪽 여백 32×2 = 1536px"},
     "shorts": {"px": 46, "width": 816, "lines": 2, "desc": "세로 쇼츠 — 장면 #cc 46px, 띠 최대 870(안전 구역 x 60~930) − 안쪽 여백 16×2 = 838px"},
+    "shorts_cover": {"px": 46, "width": 816, "lines": 3, "desc": "세로 쇼츠 첫 문장 (썸네일 그림 위 — v1.8: 자막 하나에 3줄까지, 그림이 문장 하나 동안만)"},
     "line":   {"px": SUB_FONT_PX, "width": LINE_MAX_PX, "lines": 1, "desc": "예전 한 줄 자막 (주식 stock/ — 자막을 굽지 않음, 문장 시각용)"},
 }
 CARD_GAP_MIN = 3.5          # 고지 카드 공백 최소 (초)
@@ -172,6 +176,66 @@ _NOUN_FALSE = {"혼자", "이자", "배우자", "가입자", "피부양자", "�
 _AUX_NEXT = ("두", "둔", "둘", "놓", "주", "준", "줄", "드리", "드릴", "드렸", "보", "본", "봤", "버리", "있", "계시", "계신", "싶")      # 보조 용언
 
 
+def _break_pen(words, i, v17=False):
+    """words[i-1] 뒤에서 줄(자막)을 끊을 때의 뜻 점수 (낮을수록 좋음 — 쉼표 −20·절 경계 −12·조사 −5, 덩어리를 가르면 +). 폭 차이는 부르는 쪽이 더함."""
+    last = words[i - 1]
+    score = 0.0
+    if last.endswith(","):
+        score -= 20
+    elif _CLAUSE_END.search(last):
+        score -= 12
+    elif _PARTICLE_END.search(last):
+        score -= 5
+    if last in _NO_END_WORDS or re.fullmatch(r"(것|게|때|수|중|등)(이|을|를|은|는|에|도|만|보다|부터|까지|에서|으로|로|이라는|이라|인|이다|입니다)?[,.]?", words[i]):
+        score += 100
+    if words[i] in {"한", "할", "난", "된", "될", "온", "간", "산", "본", "준", "탄"} and not (v17 and last.endswith(",")):
+        score += 30             # (v1.7 새 모양: 쉼표 뒤 '한 은퇴자'는 새 덩어리라 괜찮음)
+    if last in _ADJ_SHORT:
+        score += 10             # '많은 / 분들이'처럼 짧은 꾸밈말 뒤는 피함
+    if last.endswith(("와", "과")) and len(last) >= 2:
+        score += 6              # '진단과 / 치료로'처럼 짝을 가르지 않음
+    if re.search(r"[\d천만억]$", last) and re.match(r"^(원|달러|일|월|년|배|명|개|번|살|분|초|주|달|퍼센트|%)", words[i]):
+        score += 100            # 숫자와 단위는 한 줄에
+    if re.search(r"\d+(월|년)$", last) and re.match(r"^\d", words[i]):
+        score += 100            # 날짜는 한 줄에
+    if re.search(r"\d\S*(에서|부터|~)$", last) and re.match(r"^\d", words[i]):
+        score += 100            # 범위는 한 줄에 (100에서 / 125 X)
+    if re.search(r"\d", last) and words[i].rstrip(",.") in _AFTER_NUM:
+        score += 100            # 숫자 뒤 '이상·미만·정도·동안'은 한 줄에 (60세 / 이상 X)
+    if re.match(r"^[\d-]", words[i]) and not (last.endswith(",") or _CLAUSE_END.search(last) or _PARTICLE_END.search(last)):
+        score += 15             # 수량은 앞 명사와 한 줄에 (전단계 / 3,234명 X)
+    if v17:                     # v1.7 — 예전 한 줄 규칙('line')의 결과는 그대로 두고 새 모양에만
+        nxt = words[i].rstrip(",.")
+        if not last.endswith(",") and last.rstrip(".") in _NOUN_FALSE:
+            score += 12         # '남편 혼자 / 꺼내면' X — '혼자'는 절 경계가 아님
+        if nxt in _FIXED_NEXT and not last.endswith(","):
+            score += 30         # '나이에 / 따라' X (쉼표 뒤 '…내서, / 합치면'은 괜찮음)
+        if last.endswith("면") and nxt.startswith(("되", "돼", "된", "됩")):
+            score += 30         # '고치면 / 되는지' X (~면 되다)
+        if words[i] in _DEP_NEXT:
+            score += 100        # '손해 본 / 걸' X
+        if nxt in {"줄", "줄은", "줄도", "줄을"} and re.search(r"(는|은|던|을|ㄹ)$", last):
+            score += 100        # '못 받는 / 줄 알았던' X
+        if (re.search(r"(이|가)$", last) and len(nxt) >= 2 and not last.endswith(",") and not re.search(r"\d", nxt)
+                and (nxt.endswith(("는", "던")) or (0xAC00 <= ord(nxt[-1]) < 0xD7A4 and (ord(nxt[-1]) - 0xAC00) % 28 == 4))):
+            score += 20         # '만기가 / 지난 분이' X (꾸미는 말 안의 주어와 서술어)
+        if (len(last) >= 2 and not last.endswith(",") and not re.search(r"\d", last) and 0xAC00 <= ord(last[-1]) < 0xD7A4
+                and (ord(last[-1]) - 0xAC00) % 28 in (4, 8) and last[-1] not in "은는만을를" and not _CLAUSE_END.search(last)):
+            score += 15         # '만기가 지난 / 분이'·'퇴직연금인 / IRP에' X (받침 ㄴ·ㄹ 꾸밈말 뒤)
+        if nxt.startswith("씨"):
+            score += 100        # 'B / 씨가' X
+        if nxt.startswith(_DEP_NOUN) and len(nxt) <= 4 and re.search(r"(는|은|던|을|할|될|볼|한|본|된)$", last):
+            score += 60         # '지금 고치는 / 법까지' X ('는'을 조사로 잘못 봄)
+        if (len(nxt) == 1 and 0xAC00 <= ord(nxt) < 0xD7A4 and (ord(nxt) - 0xAC00) % 28 in (4, 8)
+                and not last.endswith(",")):
+            score += 20         # 받침 ㄴ·ㄹ 한 글자 꾸밈말로 줄 시작 X ('334만 원을 / 낸 김씨는')
+        if re.search(r"(고|어|아|여|해|워|와|줘|봐|둬)$", last) and nxt.startswith(_AUX_NEXT) and not last.endswith(","):
+            score += 30         # '받고 / 있다는', '넣어 / 두고' X
+        if re.search(r"(에서|부터)$", last) and (nxt == "약" or nxt[:1].isdigit()) and re.search(r"\d", " ".join(words[max(0, i - 3):i])):
+            score += 100        # '2,100만 원에서 / 약 1,300만 원' X (범위는 한 덩어리)
+    return score
+
+
 def _best_split(text, fits, px, balance=1.0, v17=False):
     """text 를 두 토막 [앞, 뒤]로 — 두 토막 모두 fits() 를 만족하는 곳 중 쉼표·절 경계·조사 뒤를 우선, 두 토막 폭 차이를 줄이고,
     꾸밈 말로 끝내거나 의존명사(것·게·때·수) 앞, 숫자와 단위 사이에서 끊지 않는다. → (점수, [앞, 뒤]) 또는 None.
@@ -184,61 +248,7 @@ def _best_split(text, fits, px, balance=1.0, v17=False):
         a, b = " ".join(words[:i]), " ".join(words[i:])
         if not fits(a) or not fits(b):
             continue
-        last = words[i - 1]
-        score = balance * abs(text_px(a, px) - text_px(b, px)) / glyph
-        if last.endswith(","):
-            score -= 20
-        elif _CLAUSE_END.search(last):
-            score -= 12
-        elif _PARTICLE_END.search(last):
-            score -= 5
-        if last in _NO_END_WORDS or re.fullmatch(r"(것|게|때|수|중|등)(이|을|를|은|는|에|도|만|보다|부터|까지|에서|으로|로|이라는|이라|인|이다|입니다)?[,.]?", words[i]):
-            score += 100
-        if words[i] in {"한", "할", "난", "된", "될", "온", "간", "산", "본", "준", "탄"} and not (v17 and last.endswith(",")):
-            score += 30             # (v1.7 새 모양: 쉼표 뒤 '한 은퇴자'는 새 덩어리라 괜찮음)
-        if last in _ADJ_SHORT:
-            score += 10             # '많은 / 분들이'처럼 짧은 꾸밈말 뒤는 피함
-        if last.endswith(("와", "과")) and len(last) >= 2:
-            score += 6              # '진단과 / 치료로'처럼 짝을 가르지 않음
-        if re.search(r"[\d천만억]$", last) and re.match(r"^(원|달러|일|월|년|배|명|개|번|살|분|초|주|달|퍼센트|%)", words[i]):
-            score += 100            # 숫자와 단위는 한 줄에
-        if re.search(r"\d+(월|년)$", last) and re.match(r"^\d", words[i]):
-            score += 100            # 날짜는 한 줄에
-        if re.search(r"\d\S*(에서|부터|~)$", last) and re.match(r"^\d", words[i]):
-            score += 100            # 범위는 한 줄에 (100에서 / 125 X)
-        if re.search(r"\d", last) and words[i].rstrip(",.") in _AFTER_NUM:
-            score += 100            # 숫자 뒤 '이상·미만·정도·동안'은 한 줄에 (60세 / 이상 X)
-        if re.match(r"^[\d-]", words[i]) and not (last.endswith(",") or _CLAUSE_END.search(last) or _PARTICLE_END.search(last)):
-            score += 15             # 수량은 앞 명사와 한 줄에 (전단계 / 3,234명 X)
-        if v17:                     # v1.7 — 예전 한 줄 규칙('line')의 결과는 그대로 두고 새 모양에만
-            nxt = words[i].rstrip(",.")
-            if not last.endswith(",") and last.rstrip(".") in _NOUN_FALSE:
-                score += 12         # '남편 혼자 / 꺼내면' X — '혼자'는 절 경계가 아님
-            if nxt in _FIXED_NEXT and not last.endswith(","):
-                score += 30         # '나이에 / 따라' X (쉼표 뒤 '…내서, / 합치면'은 괜찮음)
-            if last.endswith("면") and nxt.startswith(("되", "돼", "된", "됩")):
-                score += 30         # '고치면 / 되는지' X (~면 되다)
-            if words[i] in _DEP_NEXT:
-                score += 100        # '손해 본 / 걸' X
-            if nxt in {"줄", "줄은", "줄도", "줄을"} and re.search(r"(는|은|던|을|ㄹ)$", last):
-                score += 100        # '못 받는 / 줄 알았던' X
-            if (re.search(r"(이|가)$", last) and len(nxt) >= 2 and not last.endswith(",") and not re.search(r"\d", nxt)
-                    and (nxt.endswith(("는", "던")) or (0xAC00 <= ord(nxt[-1]) < 0xD7A4 and (ord(nxt[-1]) - 0xAC00) % 28 == 4))):
-                score += 20         # '만기가 / 지난 분이' X (꾸미는 말 안의 주어와 서술어)
-            if (len(last) >= 2 and not last.endswith(",") and not re.search(r"\d", last) and 0xAC00 <= ord(last[-1]) < 0xD7A4
-                    and (ord(last[-1]) - 0xAC00) % 28 in (4, 8) and last[-1] not in "은는만을를" and not _CLAUSE_END.search(last)):
-                score += 15         # '만기가 지난 / 분이'·'퇴직연금인 / IRP에' X (받침 ㄴ·ㄹ 꾸밈말 뒤)
-            if nxt.startswith("씨"):
-                score += 100        # 'B / 씨가' X
-            if nxt.startswith(_DEP_NOUN) and len(nxt) <= 4 and re.search(r"(는|은|던|을|할|될|볼|한|본|된)$", last):
-                score += 60         # '지금 고치는 / 법까지' X ('는'을 조사로 잘못 봄)
-            if (len(nxt) == 1 and 0xAC00 <= ord(nxt) < 0xD7A4 and (ord(nxt) - 0xAC00) % 28 in (4, 8)
-                    and not last.endswith(",")):
-                score += 20         # 받침 ㄴ·ㄹ 한 글자 꾸밈말로 줄 시작 X ('334만 원을 / 낸 김씨는')
-            if re.search(r"(고|어|아|여|해|워|와|줘|봐|둬)$", last) and nxt.startswith(_AUX_NEXT) and not last.endswith(","):
-                score += 30         # '받고 / 있다는', '넣어 / 두고' X
-            if re.search(r"(에서|부터)$", last) and (nxt == "약" or nxt[:1].isdigit()) and re.search(r"\d", " ".join(words[max(0, i - 3):i])):
-                score += 100        # '2,100만 원에서 / 약 1,300만 원' X (범위는 한 덩어리)
+        score = balance * abs(text_px(a, px) - text_px(b, px)) / glyph + _break_pen(words, i, v17)
         if best is None or score < best[0]:
             best = (score, [a, b])
     return best
@@ -249,14 +259,36 @@ SPLIT_GOOD = -8.0              # 그때 자막 2개로 나누는 곳이 이만�
 
 
 def _wrap(text, layout):
-    """→ (점수, 줄 목록) 또는 None. 한 줄이면 점수 −100."""
+    """→ (점수, 줄 목록) 또는 None. 한 줄이면 점수 −100. (v1.8) 3줄 모양은 두 줄로 잘 안 되면 세 줄."""
     L = LAYOUTS[layout]
     fits = lambda x: text_px(x, L["px"]) <= L["width"]
     if fits(text):
         return -100.0, [text]
     if L["lines"] < 2:
         return None
-    return _best_split(text, fits, L["px"], balance=0.5, v17=True)
+    two = _best_split(text, fits, L["px"], balance=0.5, v17=True)
+    if L["lines"] < 3 or (two and two[0] <= WRAP_BAD):
+        return two
+    words, px = text.split(" "), L["px"]
+    glyph = px * 42 / 46
+    best = None
+    for i in range(1, len(words) - 1):
+        for j in range(i + 1, len(words)):
+            ls = [" ".join(words[:i]), " ".join(words[i:j]), " ".join(words[j:])]
+            if not all(fits(x) for x in ls):
+                continue
+            w = [text_px(x, px) for x in ls]
+            score = _break_pen(words, i, True) + _break_pen(words, j, True) + 0.5 * (abs(w[0] - w[1]) + abs(w[1] - w[2])) / glyph
+            if best is None or score < best[0]:
+                best = (score, ls)
+    if two and (best is None or two[0] <= best[0]):
+        return two
+    return best
+
+
+def sent_layout(layout, n):
+    """문장 n 의 자막 모양: 쇼츠 첫 문장(썸네일 그림 위 — kit.js K.cover)은 'shorts_cover'(자막 하나·3줄까지), 그 밖은 그대로 (v1.8)."""
+    return "shorts_cover" if layout == "shorts" and n == 1 else layout
 
 
 def wrap_lines(text, layout="long"):
@@ -270,7 +302,7 @@ def cue_split(text, layout="long"):
     줄을 바꿀 곳마다 덩어리를 가를 때(WRAP_BAD 보다 나쁨)만 자막 2개 — 그때도 나눈 곳이 쉼표·절 경계(SPLIT_GOOD)일 때만."""
     L = LAYOUTS[layout]
     one = _wrap(text, layout)
-    if one and one[0] <= WRAP_BAD:
+    if one and (one[0] <= WRAP_BAD or L["lines"] >= 3):     # v1.8 3줄 모양(쇼츠 첫 문장)은 들어가면 늘 자막 하나
         return ["\n".join(one[1])]
     v17 = layout != "line"
     two = _best_split(text, lambda x: _wrap(x, layout) is not None, L["px"], balance=0.5 if v17 else 1.0, v17=v17)
@@ -422,7 +454,7 @@ def build(txt, out, reuse=None, layout=None):
                 pair.setdefault(s["text"] + " " + old[k + 1]["text"], (s["end"] - s["start"]) + (old[k + 1]["end"] - old[k + 1]["start"]))
     t, blocks, new_n, split_n, two_n = 0.0, [], 0, 0, 0
     for n, sent in enumerate(sents, 1):
-        parts = cue_split(sent, layout)
+        parts = cue_split(sent, sent_layout(layout, n))
         if sent in one:
             total = one[sent]
         elif sent in pair:
@@ -458,14 +490,22 @@ def check(txt, srt, expect=None, layout=None):
             warnings.append(f"문장 {n}: {len(a)}자 (새 대본은 50자 넘으면 두 문장으로 — 자막은 띠 폭으로 판정)")
     groups, gp = group(subs, sents)
     problems += gp
+    cue_sent = {}                                     # v1.8 자막 번호 → 문장 번호 (쇼츠 첫 문장은 3줄 모양)
+    k0 = 0
+    for g in groups:
+        for _ in g["parts"]:
+            k0 += 1
+            cue_sent[k0] = g["n"]
     for k, s in enumerate(subs, 1):
+        lay = sent_layout(layout, cue_sent.get(k, 0))
+        Lk = LAYOUTS[lay]
         lines = [x.strip() for x in s["lines"]]
-        if len(lines) > L["lines"]:
-            problems.append(f"자막 {k}: {len(lines)}줄 (모양 {layout} — {L['lines']}줄까지)")
+        if len(lines) > Lk["lines"]:
+            problems.append(f"자막 {k}: {len(lines)}줄 (모양 {lay} — {Lk['lines']}줄까지)")
         for x in lines:
-            if text_px(x, L["px"]) > L["width"] + 0.5:
-                problems.append(f"자막 {k}: 한 줄 폭 {text_px(x, L['px']):.0f}px > {L['width']}px ({L['px']}px 글자) — '{x[:20]}…'")
-        if len(lines) == 2 and text_px(s["text"], L["px"]) <= L["width"]:
+            if text_px(x, Lk["px"]) > Lk["width"] + 0.5:
+                problems.append(f"자막 {k}: 한 줄 폭 {text_px(x, Lk['px']):.0f}px > {Lk['width']}px ({Lk['px']}px 글자) — '{x[:20]}…'")
+        if len(lines) == 2 and text_px(s["text"], Lk["px"]) <= Lk["width"]:
             problems.append(f"자막 {k}: 한 줄에 들어가는데 두 줄 → 한 줄로")
         if s["end"] <= s["start"]:
             problems.append(f"자막 {k}: 길이 0 이하")
@@ -474,8 +514,8 @@ def check(txt, srt, expect=None, layout=None):
         two_n += sum(len(p["lines"]) == 2 for p in g["parts"])
         if len(g["parts"]) > 1:
             split_n += 1
-            if len(g["parts"]) > len(cue_split(g["text"], layout)):     # build 와 같은 판단 (줄바꿈이 어색할 때만 자막 2개)
-                problems.append(f"문장 {g['n']}: 자막 하나({L['lines']}줄)에 들어가는데 자막 {len(g['parts'])}개로 나뉨 → 하나로 합치기 (build --reuse)")
+            if len(g["parts"]) > len(cue_split(g["text"], sent_layout(layout, g["n"]))):     # build 와 같은 판단 (줄바꿈이 어색할 때만 자막 2개)
+                problems.append(f"문장 {g['n']}: 자막 하나({LAYOUTS[sent_layout(layout, g['n'])]['lines']}줄)에 들어가는데 자막 {len(g['parts'])}개로 나뉨 → 하나로 합치기 (build --reuse)")
             if len(g["parts"]) > 2:
                 problems.append(f"문장 {g['n']}: 자막 {len(g['parts'])}개로 나뉨 (2개까지)")
     card_after = {c["after"]: c for c in cards}
@@ -545,7 +585,7 @@ def measure(txt, layout=None):
     sents = parse_txt(txt)
     cues = two = 0
     for n, x in enumerate(sents, 1):
-        parts = cue_split(x, layout)
+        parts = cue_split(x, sent_layout(layout, n))
         cues += len(parts)
         two += sum("\n" in p for p in parts)
         shown = "  ‖  ".join(p.replace("\n", " / ") for p in parts)

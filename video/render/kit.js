@@ -1,4 +1,5 @@
-// VERSION: v1.5 — 2026-10-17 — K.cover 그림 전 자리 표시: K.init opts.noWords(언어 없는 화면 — 주식 쇼츠)면 한국어 글 대신 그림 아이콘, 파일 경로는 .code
+// VERSION: v1.6 — 2026-10-17 — K.cover 끝 시각을 SB.coverEnd 에, 지금 시각을 SB.t 에 둠 (render.mjs v1.13 check — 썸네일 그림이 떠 있는 동안 쇼츠 첫 문장 자막 3줄 허용). 사용자 지시 2026-10-17 "영상에서 첫 문장만 왜 다른 문장 넘어가서도 썸네일 이미지가 영상에 뜨면 어떻게 그것도 수정해".
+// v1.5 — 2026-10-17 — K.cover 그림 전 자리 표시: K.init opts.noWords(언어 없는 화면 — 주식 쇼츠)면 한국어 글 대신 그림 아이콘, 파일 경로는 .code
 //   (render.mjs check 의 낱말 검사가 미리보기 자리 표시를 문제로 잡지 않게). 사용자 지시 2026-10-17 "다른점은 전세계 시청자들 대상이니까 언어 문구, 자막 달지 말고 영상으로만 잘 이해가 가도록 해야해".
 // v1.4 — 2026-10-16 — K.cover(end): 쇼츠 썸네일 이미지(EP.thumb — render.mjs v1.9 sync 가 넣음)를 0초부터 첫 문장 끝까지 화면 가득,
 //   이미지 전에는 '썸네일 이미지 자리' 표시. 장면의 <img> 가 다 풀린 뒤에 SB.ready (렌더가 빈 그림을 찍지 않게).
@@ -265,7 +266,7 @@
       K.el(`<div class="a cx c w5 N nw${OPT.noWords ? " code" : ""}" style="left:${cx}px;top:${OPT.noWords ? 800 : 740}px;font-size:38px">thumbnails/thumbnail_1.png</div>`, sc);
     }
     tl.to(sc, { opacity: 0, duration: 0.35, ease: "none" }, end - 0.35);
-    COVER.used = true;
+    COVER.used = true; COVER.end = end;
     return sc;
   };
   K.onSeek = fn => HOOKS.push(fn);           // v1.2
@@ -283,8 +284,8 @@
   };
   K.done = () => {
     tl.set({}, {}, EP.duration);
-    const seek = t => { tl.seek(t, false); chipAt(t); ccAt(t); for (const f of HOOKS) f(t); };
-    window.SB = { D: EP.duration, seek, cuts: CUTS, ep: EP.id, estimated: !!EP.estimated, subtitles: !!ccEl, cover: COVER.used, thumb: EP.thumb || null, ready: false };
+    const seek = t => { tl.seek(t, false); chipAt(t); ccAt(t); for (const f of HOOKS) f(t); if (window.SB) window.SB.t = t; };
+    window.SB = { D: EP.duration, seek, cuts: CUTS, ep: EP.id, estimated: !!EP.estimated, subtitles: !!ccEl, cover: COVER.used, coverEnd: COVER.end || 0, thumb: EP.thumb || null, ready: false, t: 0 };
     seek(0);
     const imgs = Array.from(stage.querySelectorAll("img"));   // v1.4 그림이 다 풀린 뒤에 ready
     Promise.all(imgs.map(i => i.decode().catch(() => console.error(`그림을 못 읽음: ${i.getAttribute("src")}`))))

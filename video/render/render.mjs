@@ -1,4 +1,6 @@
-// VERSION: v1.12 — 2026-10-17 — sync --estimate 의 추정 자막을 srt_tool v1.7 cue_split 으로 (한 문장 = 자막 하나, 띠 폭을 넘으면 같은 자막 안에서 두 줄 —
+// VERSION: v1.13 — 2026-10-17 — 쇼츠 첫 문장(썸네일 그림 위)을 자막 하나로: 추정 자막은 srt_tool v1.8 sent_layout(첫 문장 = shorts_cover, 3줄까지), check 는 그림이 떠 있는 동안(kit.js v1.6 SB.coverEnd) 3줄까지 문제 아님.
+//   사용자 지시 2026-10-17 "영상에서 첫 문장만 왜 다른 문장 넘어가서도 썸네일 이미지가 영상에 뜨면 어떻게 그것도 수정해".
+// v1.12 — 2026-10-17 — sync --estimate 의 추정 자막을 srt_tool v1.7 cue_split 으로 (한 문장 = 자막 하나, 띠 폭을 넘으면 같은 자막 안에서 두 줄 —
 //   롱폼 52px·1500px, 쇼츠 46px·816px, 주식은 예전 한 줄 규칙). 사용자 지시 2026-10-17 "자막 좀 되도록 한 문장은 한 자막으로 표시되게해
 //   길지 않은 문장도 잘라서 자막 띄우잖아 문장이 길면 적당한 곳에 분리하도록 해서 반영해". 실제 오디오 sync 는 SRT 그대로(줄바꿈 포함 — 예전과 같음).
 // v1.11 — 2026-10-17 — check: 주식(stock) 영상은 테스트(경주) 시작 시각 검사 — 장면 파일 K.init 의 testFrom(테스트가 시작되는 파트 이름)의
@@ -119,7 +121,7 @@ for raw in Path(sys.argv[1]).read_text("utf-8-sig").splitlines():
         card = True
         continue
     if not card:
-        rows.append([line, part, srt_tool.syllables(line), srt_tool.cue_split(line, srt_tool.layout_of(sys.argv[1]))])
+        rows.append([line, part, srt_tool.syllables(line), srt_tool.cue_split(line, srt_tool.sent_layout(srt_tool.layout_of(sys.argv[1]), len(rows) + 1))])
 assert [r[0] for r in rows] == srt_tool.parse_txt(sys.argv[1]), "문장 판정이 srt_tool 과 다름"
 for r in rows: r.append([max(1, srt_tool.syllables(x.replace("\\n", " "))) + 0.5 * x.count(",") for x in r[3]])
 print(json.dumps({"rows": rows, "cards": len(srt_tool.parse_cards(sys.argv[1]))}, ensure_ascii=False))`;
@@ -231,7 +233,8 @@ const CHECK_FN = ([W, H, SAFE]) => {           // v1.8 무대 크기 W×H · 안
   // 자막 띠 줄 수
   const cc = document.getElementById("cc");
   if (cc && cc.textContent.trim()) { const cs = getComputedStyle(cc), lh = parseFloat(cs.fontSize) * 1.3, pad = parseFloat(cs.paddingTop) + parseFloat(cs.paddingBottom);
-    const lines = Math.round((cc.getBoundingClientRect().height - pad) / lh); if (lines > 2) out.push({ kind: "자막 3줄 이상", txt: cc.textContent.slice(0, 24), lines }); }
+    const lines = Math.round((cc.getBoundingClientRect().height - pad) / lh); const coverOn = window.SB && window.SB.coverEnd && window.SB.t < window.SB.coverEnd + 0.15;   // 그림이 걷힌 뒤 다음 문장까지 첫 자막이 0.05초쯤 남음   // v1.13 쇼츠 첫 문장(썸네일 그림 위)은 3줄까지 (srt_tool v1.8 shorts_cover)
+    if (lines > (coverOn ? 3 : 2)) out.push({ kind: coverOn ? "자막 4줄 이상 (썸네일 그림 위)" : "자막 3줄 이상", txt: cc.textContent.slice(0, 24), lines }); }
   return out;
 };
 async function check() {

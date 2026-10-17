@@ -1,6 +1,6 @@
 # eonje-maesu-2026-10 썸네일 3장 — ChatGPT용 (읽고 그대로 만들고 저장소에 올리기)
 
-자동 생성 — `python tools/make_summary.py --chatgpt stock eonje-maesu-2026-10` (2026-10-17 12:11). 이 파일은 고치지 말고 `thumbnail_N.md`를 고친 뒤 다시 만든다.
+자동 생성 — `python tools/make_summary.py --chatgpt stock eonje-maesu-2026-10` (2026-10-17 12:22). 이 파일은 고치지 말고 `thumbnail_N.md`를 고친 뒤 다시 만든다.
 
 이 파일 주소: https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/stock/source/eonje-maesu-2026-10/thumbnails/chatgpt.md
 
@@ -26,8 +26,7 @@
 
 | 자리 | 문구 | 색 |
 |---|---|---|
-| 왼쪽 위 — 큰 머리글 | `BUY NOW ?` | BUY NOW 흰색 · ? 노랑 |
-| 버튼 묶음과 주사위 사이 (클로즈업이면 두 손 사이) | `vs` | vs 흰색 |
+| 위쪽 가운데 — **큰 머리글 (가장 크게, 굵게, 테두리·빛)** | (그림)버튼 `>` (그림)주사위 `?` — 글자는 `>`·`?` 뿐 | 버튼 그림 · > 노랑 · 주사위 그림 · ? 노랑 |
 
 프롬프트:
 
@@ -41,7 +40,7 @@ Neither side is highlighted, pressed or brighter; nobody is winning. The mood is
 Color accents: green only on the upper dashed line, red only on the lower dashed line, the down arrow and the zigzag icon, yellow only on the stars and dashed icon lines, blue on the price wall, warm gold only from the chest. Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
 If 16:9 is not available, use the widest landscape canvas; in any case keep the face, the pedestals and the chest inside the central 16:9 area, at least 8% away from the top and bottom edges.
 Fictional person, not resembling any real or famous person.
-Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) the headline "BUY NOW ?" in the upper-left area, above the main objects (keep it off the chest and the face), very large (about 13% of the image height), written as "BUY NOW" in white, "?" in yellow (#FFD400); (2) "vs" between the group of glowing buttons and the die — between the two pedestals, or between the two hands in a close-up — very large, large, written as "vs" in white. Spell every item exactly as written, character by character, with the spaces shown: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→", ">", "<", "=", "+" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the buttons, the die, the calendar, the gauge, the pedestals and the price wall have nothing else written on them. Keep all text off any face and out of the bottom-right corner.
+Text: ONE big headline row made of: a big glowing green round button icon (the same style as the buttons in the picture), then ">" in bright yellow (#FFD400), then a big white die icon with round pips, then "?" in bright yellow (#FFD400) — the icons are drawn pictures, the only characters are ">" and "?" — placed across the top of the image, centered, between 6% and 34% of the height and about 70% of the width. Make the headline the most eye-catching thing in the image: huge (letters about 22% of the image height), very bold flat sans-serif (like Arial Black), with a thick dark outline and a soft glow so it pops off the background; the ">" sign is as big and bold as the letters and bright yellow, and the "?" is bright yellow. Flat 2D lettering — never 3D, never embossed, never curved, never in perspective. Make room for it: anything that would sit in that band (for example a chest or clouds) goes lower and smaller; keep it off any face. Spell everything exactly as written, character by character: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", ">", "+" and "?" stay exactly as written — never turn ">" into "<". These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs and objects have nothing else written on them. Keep the bottom-right corner empty.
 ```
 
 ## thumbnail_2 — 실험안 ①(사람 없음): 같은 크기의 두 받침대 — 매수 신호 버튼 10개 vs 주사위 — 와 두 점선 사이의 가격 선, 위에 닫힌 상자
@@ -50,8 +49,7 @@ Text: add only the following text in a very bold, clean, flat sans-serif typefac
 
 | 자리 | 문구 | 색 |
 |---|---|---|
-| 왼쪽 위 — 큰 머리글 | `BUY NOW ?` | BUY NOW 흰색 · ? 노랑 |
-| 버튼 묶음과 주사위 사이 (클로즈업이면 두 손 사이) | `vs` | vs 흰색 |
+| 위쪽 가운데 — **큰 머리글 (가장 크게, 굵게, 테두리·빛)** | (그림)버튼 `>` (그림)주사위 `?` — 글자는 `>`·`?` 뿐 | 버튼 그림 · > 노랑 · 주사위 그림 · ? 노랑 |
 
 프롬프트:
 
@@ -64,7 +62,7 @@ There is no person in the image.
 Neither side is highlighted, pressed or brighter; nobody is winning. The mood is suspense: which one reaches the green line first?
 Color accents: green only on the upper dashed line, red only on the lower dashed line, the down arrow and the zigzag icon, yellow only on the stars and dashed icon lines, blue on the price wall, warm gold only from the chest. Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
 If 16:9 is not available, use the widest landscape canvas; in any case keep the pedestals and the chest inside the central 16:9 area, at least 8% away from the top and bottom edges.
-Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) the headline "BUY NOW ?" in the upper-left area, above the main objects (keep it off the chest and the face), very large (about 13% of the image height), written as "BUY NOW" in white, "?" in yellow (#FFD400); (2) "vs" between the group of glowing buttons and the die — between the two pedestals, or between the two hands in a close-up — very large, large, written as "vs" in white. Spell every item exactly as written, character by character, with the spaces shown: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→", ">", "<", "=", "+" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the buttons, the die, the calendar, the gauge, the pedestals and the price wall have nothing else written on them. Keep all text off any face and out of the bottom-right corner.
+Text: ONE big headline row made of: a big glowing green round button icon (the same style as the buttons in the picture), then ">" in bright yellow (#FFD400), then a big white die icon with round pips, then "?" in bright yellow (#FFD400) — the icons are drawn pictures, the only characters are ">" and "?" — placed across the top of the image, centered, between 6% and 34% of the height and about 70% of the width. Make the headline the most eye-catching thing in the image: huge (letters about 22% of the image height), very bold flat sans-serif (like Arial Black), with a thick dark outline and a soft glow so it pops off the background; the ">" sign is as big and bold as the letters and bright yellow, and the "?" is bright yellow. Flat 2D lettering — never 3D, never embossed, never curved, never in perspective. Make room for it: anything that would sit in that band (for example a chest or clouds) goes lower and smaller; keep it off any face. Spell everything exactly as written, character by character: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", ">", "+" and "?" stay exactly as written — never turn ">" into "<". These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs and objects have nothing else written on them. Keep the bottom-right corner empty.
 ```
 
 ## thumbnail_3 — 실험안 ②(클로즈업): 신호 버튼과 주사위 위에 떠 있는 두 손과 망설이는 얼굴, 뒤로 흐린 두 점선 사이의 가격 선과 닫힌 상자
@@ -73,8 +71,7 @@ Text: add only the following text in a very bold, clean, flat sans-serif typefac
 
 | 자리 | 문구 | 색 |
 |---|---|---|
-| 오른쪽 위 — 큰 머리글 | `BUY NOW ?` | BUY NOW 흰색 · ? 노랑 |
-| 버튼 묶음과 주사위 사이 (클로즈업이면 두 손 사이) | `vs` | vs 흰색 |
+| 오른쪽 위 — **큰 머리글 (가장 크게, 굵게, 테두리·빛)** | (그림)버튼 `>` (그림)주사위 `?` — 글자는 `>`·`?` 뿐 | 버튼 그림 · > 노랑 · 주사위 그림 · ? 노랑 |
 
 프롬프트:
 
@@ -86,5 +83,5 @@ Blurred background: a white glowing price line running to the right between a gl
 Neither choice is highlighted, pressed or brighter; nobody is winning. Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
 If 16:9 is not available, use the widest landscape canvas; in any case keep the hands, the face, the die and the buttons inside the central 16:9 area, at least 8% away from the top and bottom edges.
 Fictional person, not resembling any real or famous person.
-Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) the headline "BUY NOW ?" in the upper-right area, very large (about 13% of the image height), written as "BUY NOW" in white, "?" in yellow (#FFD400); (2) "vs" between the group of glowing buttons and the die — between the two pedestals, or between the two hands in a close-up — very large, large, written as "vs" in white. Spell every item exactly as written, character by character, with the spaces shown: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→", ">", "<", "=", "+" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the buttons, the die, the calendar, the gauge, the pedestals and the price wall have nothing else written on them. Keep all text off any face and out of the bottom-right corner.
+Text: ONE big headline row made of: a big glowing green round button icon (the same style as the buttons in the picture), then ">" in bright yellow (#FFD400), then a big white die icon with round pips, then "?" in bright yellow (#FFD400) — the icons are drawn pictures, the only characters are ">" and "?" — placed across the upper-right part of the image, beside the face and never over it (between 6% and 34% of the height). Make the headline the most eye-catching thing in the image: huge (letters about 22% of the image height), very bold flat sans-serif (like Arial Black), with a thick dark outline and a soft glow so it pops off the background; the ">" sign is as big and bold as the letters and bright yellow, and the "?" is bright yellow. Flat 2D lettering — never 3D, never embossed, never curved, never in perspective. Make room for it: anything that would sit in that band (for example a chest or clouds) goes lower and smaller; keep it off any face. Spell everything exactly as written, character by character: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", ">", "+" and "?" stay exactly as written — never turn ">" into "<". These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs and objects have nothing else written on them. Keep the bottom-right corner empty.
 ```

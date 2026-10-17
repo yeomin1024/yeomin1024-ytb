@@ -1,6 +1,6 @@
 # reobeoriji-2026-10 썸네일 3장 — ChatGPT용 (읽고 그대로 만들고 저장소에 올리기)
 
-자동 생성 — `python tools/make_summary.py --chatgpt stock reobeoriji-2026-10` (2026-10-17 12:11). 이 파일은 고치지 말고 `thumbnail_N.md`를 고친 뒤 다시 만든다.
+자동 생성 — `python tools/make_summary.py --chatgpt stock reobeoriji-2026-10` (2026-10-17 12:22). 이 파일은 고치지 말고 `thumbnail_N.md`를 고친 뒤 다시 만든다.
 
 이 파일 주소: https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/stock/source/reobeoriji-2026-10/thumbnails/chatgpt.md
 
@@ -26,10 +26,10 @@
 
 | 자리 | 문구 | 색 |
 |---|---|---|
-| 왼쪽 위 — 큰 머리글 | `3× vs 1× ?` | 3× 주황 · vs 흰색 · 1× 파랑 · ? 노랑 |
-| 파랑 로켓(점 1) | `1×` | 1× 파랑 |
-| 보라 로켓(점 2) | `2×` | 2× 보라 |
-| 주황 로켓(점 3) | `3×` | 3× 주황 |
+| 위쪽 가운데 — **큰 머리글 (가장 크게, 굵게, 테두리·빛)** | `3× > 1× ?` | 3× 주황 · > 노랑 · 1× 파랑 · ? 노랑 |
+| 파랑 로켓(점 1) (작게) | `1×` | 파랑 |
+| 보라 로켓(점 2) (작게) | `2×` | 보라 |
+| 주황 로켓(점 3) (작게) | `3×` | 주황 |
 
 프롬프트:
 
@@ -42,7 +42,7 @@ Neither side is highlighted or brighter; nobody is winning. The mood is suspense
 Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
 If 16:9 is not available, use the widest landscape canvas; in any case keep the main objects inside the central 16:9 area, at least 8% away from the top and bottom edges.
 Fictional person, not resembling any real or famous person.
-Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) the headline "3× vs 1× ?" in the upper-left area, above the main objects (keep it off the chest and the face), very large (about 13% of the image height), written as "3×" in orange (#FF8A3D), "vs" in white, "1×" in blue (#5AB4FF), "?" in yellow (#FFD400); (2) "1×" on the launch pad (or hatch) of the blue rocket with one dot, large, written as "1×" in blue (#5AB4FF); (3) "2×" on the launch pad (or hatch) of the violet rocket with two dots, large, written as "2×" in violet (#B48CFF); (4) "3×" on the launch pad (or hatch) of the orange rocket with three dots, large, written as "3×" in orange (#FF8A3D). Spell every item exactly as written, character by character, with the spaces shown: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→", ">", "<", "=", "+" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the rockets, the launch pads, the hatches and the chest have nothing else written on them. Keep all text off any face and out of the bottom-right corner.
+Text: ONE big headline "3× > 1× ?" — written as "3×" in orange (#FF8A3D), then ">" in bright yellow (#FFD400), then "1×" in blue (#5AB4FF), then "?" in bright yellow (#FFD400) — placed across the top of the image, centered, between 6% and 34% of the height and about 70% of the width. Make the headline the most eye-catching thing in the image: huge (letters about 22% of the image height), very bold flat sans-serif (like Arial Black), with a thick dark outline and a soft glow so it pops off the background; the ">" sign is as big and bold as the letters and bright yellow, and the "?" is bright yellow. Flat 2D lettering — never 3D, never embossed, never curved, never in perspective. Make room for it: anything that would sit in that band (for example a chest or clouds) goes lower and smaller; keep it off any face. Small extra labels: "1×" on the launch pad (or hatch) of the blue rocket with one dot, in blue (#5AB4FF); "2×" on the launch pad (or hatch) of the violet rocket with two dots, in violet (#B48CFF); "3×" on the launch pad (or hatch) of the orange rocket with three dots, in orange (#FF8A3D). Spell everything exactly as written, character by character: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", ">", "+" and "?" stay exactly as written — never turn ">" into "<". These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs and objects have nothing else written on them. Keep the bottom-right corner empty.
 ```
 
 ## thumbnail_2 — 실험안 ①: 같은 장면에서 사람만 뺌
@@ -51,10 +51,10 @@ Text: add only the following text in a very bold, clean, flat sans-serif typefac
 
 | 자리 | 문구 | 색 |
 |---|---|---|
-| 왼쪽 위 — 큰 머리글 | `3× vs 1× ?` | 3× 주황 · vs 흰색 · 1× 파랑 · ? 노랑 |
-| 파랑 로켓(점 1) | `1×` | 1× 파랑 |
-| 보라 로켓(점 2) | `2×` | 2× 보라 |
-| 주황 로켓(점 3) | `3×` | 3× 주황 |
+| 위쪽 가운데 — **큰 머리글 (가장 크게, 굵게, 테두리·빛)** | `3× > 1× ?` | 3× 주황 · > 노랑 · 1× 파랑 · ? 노랑 |
+| 파랑 로켓(점 1) (작게) | `1×` | 파랑 |
+| 보라 로켓(점 2) (작게) | `2×` | 보라 |
+| 주황 로켓(점 3) (작게) | `3×` | 주황 |
 
 프롬프트:
 
@@ -65,7 +65,7 @@ Foreground center: three identical small rockets of exactly the same size standi
 No people. Neither side is highlighted or brighter; nobody is winning. The mood is suspense.
 Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
 If 16:9 is not available, use the widest landscape canvas; in any case keep the main objects inside the central 16:9 area, at least 8% away from the top and bottom edges.
-Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) the headline "3× vs 1× ?" in the upper-left area, above the main objects (keep it off the chest and the face), very large (about 13% of the image height), written as "3×" in orange (#FF8A3D), "vs" in white, "1×" in blue (#5AB4FF), "?" in yellow (#FFD400); (2) "1×" on the launch pad (or hatch) of the blue rocket with one dot, large, written as "1×" in blue (#5AB4FF); (3) "2×" on the launch pad (or hatch) of the violet rocket with two dots, large, written as "2×" in violet (#B48CFF); (4) "3×" on the launch pad (or hatch) of the orange rocket with three dots, large, written as "3×" in orange (#FF8A3D). Spell every item exactly as written, character by character, with the spaces shown: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→", ">", "<", "=", "+" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the rockets, the launch pads, the hatches and the chest have nothing else written on them. Keep all text off any face and out of the bottom-right corner.
+Text: ONE big headline "3× > 1× ?" — written as "3×" in orange (#FF8A3D), then ">" in bright yellow (#FFD400), then "1×" in blue (#5AB4FF), then "?" in bright yellow (#FFD400) — placed across the top of the image, centered, between 6% and 34% of the height and about 70% of the width. Make the headline the most eye-catching thing in the image: huge (letters about 22% of the image height), very bold flat sans-serif (like Arial Black), with a thick dark outline and a soft glow so it pops off the background; the ">" sign is as big and bold as the letters and bright yellow, and the "?" is bright yellow. Flat 2D lettering — never 3D, never embossed, never curved, never in perspective. Make room for it: anything that would sit in that band (for example a chest or clouds) goes lower and smaller; keep it off any face. Small extra labels: "1×" on the launch pad (or hatch) of the blue rocket with one dot, in blue (#5AB4FF); "2×" on the launch pad (or hatch) of the violet rocket with two dots, in violet (#B48CFF); "3×" on the launch pad (or hatch) of the orange rocket with three dots, in orange (#FF8A3D). Spell everything exactly as written, character by character: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", ">", "+" and "?" stay exactly as written — never turn ">" into "<". These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs and objects have nothing else written on them. Keep the bottom-right corner empty.
 ```
 
 ## thumbnail_3 — 실험안 ②: 손·얼굴 클로즈업 (구도)
@@ -74,10 +74,10 @@ Text: add only the following text in a very bold, clean, flat sans-serif typefac
 
 | 자리 | 문구 | 색 |
 |---|---|---|
-| 왼쪽 위 — 큰 머리글 | `3× vs 1× ?` | 3× 주황 · vs 흰색 · 1× 파랑 · ? 노랑 |
-| 파랑 로켓(점 1) | `1×` | 1× 파랑 |
-| 보라 로켓(점 2) | `2×` | 2× 보라 |
-| 주황 로켓(점 3) | `3×` | 3× 주황 |
+| 위쪽 가운데 — **큰 머리글 (가장 크게, 굵게, 테두리·빛)** | `3× > 1× ?` | 3× 주황 · > 노랑 · 1× 파랑 · ? 노랑 |
+| 파랑 로켓(점 1) (작게) | `1×` | 파랑 |
+| 보라 로켓(점 2) (작게) | `2×` | 보라 |
+| 주황 로켓(점 3) (작게) | `3×` | 주황 |
 
 프롬프트:
 
@@ -88,5 +88,5 @@ The face of a fictional person is partly visible at the edge, thoughtful and hes
 Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
 If 16:9 is not available, use the widest landscape canvas; in any case keep the main objects inside the central 16:9 area, at least 8% away from the top and bottom edges.
 Fictional person, not resembling any real or famous person.
-Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) the headline "3× vs 1× ?" in the upper-left area, above the main objects (keep it off the chest and the face), very large (about 13% of the image height), written as "3×" in orange (#FF8A3D), "vs" in white, "1×" in blue (#5AB4FF), "?" in yellow (#FFD400); (2) "1×" on the launch pad (or hatch) of the blue rocket with one dot, large, written as "1×" in blue (#5AB4FF); (3) "2×" on the launch pad (or hatch) of the violet rocket with two dots, large, written as "2×" in violet (#B48CFF); (4) "3×" on the launch pad (or hatch) of the orange rocket with three dots, large, written as "3×" in orange (#FF8A3D). Spell every item exactly as written, character by character, with the spaces shown: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→", ">", "<", "=", "+" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the rockets, the launch pads, the hatches and the chest have nothing else written on them. Keep all text off any face and out of the bottom-right corner.
+Text: ONE big headline "3× > 1× ?" — written as "3×" in orange (#FF8A3D), then ">" in bright yellow (#FFD400), then "1×" in blue (#5AB4FF), then "?" in bright yellow (#FFD400) — placed across the top of the image, centered, between 6% and 34% of the height and about 70% of the width. Make the headline the most eye-catching thing in the image: huge (letters about 22% of the image height), very bold flat sans-serif (like Arial Black), with a thick dark outline and a soft glow so it pops off the background; the ">" sign is as big and bold as the letters and bright yellow, and the "?" is bright yellow. Flat 2D lettering — never 3D, never embossed, never curved, never in perspective. Make room for it: anything that would sit in that band (for example a chest or clouds) goes lower and smaller; keep it off any face. Small extra labels: "1×" on the launch pad (or hatch) of the blue rocket with one dot, in blue (#5AB4FF); "2×" on the launch pad (or hatch) of the violet rocket with two dots, in violet (#B48CFF); "3×" on the launch pad (or hatch) of the orange rocket with three dots, in orange (#FF8A3D). Spell everything exactly as written, character by character: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", ">", "+" and "?" stay exactly as written — never turn ">" into "<". These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs and objects have nothing else written on them. Keep the bottom-right corner empty.
 ```

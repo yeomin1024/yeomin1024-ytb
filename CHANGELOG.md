@@ -1,5 +1,22 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-18 (93) — 쇼츠 썸네일 4장 통과 (칸만 아래로) · 확대 없음 · 연금 꺼내기 쇼츠 최종본
+
+### 왜 (사용자 지시)
+- "썸네일 다시 생성했으니 다시 확인해봐"
+
+### 한 것
+| 파일·대상 | 내용 |
+|---|---|
+| `economic/source/<영상ID>/shorts/thumbnails/thumbnail_1.png` 4장 | 세 칸·문구·좌절 표정 ✅, 문구가 높이 12.1~14.3% 부터라 칸만 아래로 옮김 (원본 `original/thumbnail_1_chatgpt_2026-10-18.png`) · `thumbnail_1.md` '이미지 검수' 4차 통과 기록 |
+| `tools/cover_shift.py` (v1.0, 새로) | 세 칸 그림의 문구 칸·사진 칸을 그대로 잘라 아래로 (문구 위 16.5%·틈 2%, 사진이 85% 를 넘으면 멈춤) — 새로 그리지 않음 |
+| `video/episodes/<영상ID>-shorts/index.html` 4개 | `K.cover(until(2), { zoom: 1 })` — 확대 없음 · `render.mjs sync` (thumb 있음) |
+| `guides/thumbnail_guide.md` (v3.14 — 피드백 26) · `guides/status.md` (v1.68, 2-2 0-16) | 위 두 가지 |
+
+### 확인
+- `cover_check.py` 4장 ✅ · `cover_shift.py` 를 원본에 다시 돌려 올린 그림과 픽셀이 같음
+- `render.mjs check economic eunte-kkeonaeseugi-2026-10-shorts` → problems 0 · `video` → `final_1080p.mp4` 50.2초 · I -14.14 LUFS · TP -1.67 dBTP · 0초·3초·6.2초 장면 직접 봄
+
 ## 2026-10-18 (92) — ChatGPT 쇼츠 썸네일 4장 반려 (옛 프롬프트) · 쇼츠 장면 box 지움 · 미리보기
 
 ### 왜 (사용자 지시)

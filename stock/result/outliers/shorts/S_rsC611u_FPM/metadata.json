@@ -1,0 +1,74 @@
+{
+ "id": "rsC611u_FPM",
+ "title": "삼성전자 「확신의 매수」 KB증권 충격 리포트ㅣ배당 7%",
+ "channel": "1분썰배달",
+ "channel_id": "UC4i1O9S9_RVztD333qiCp5Q",
+ "subs": 24300,
+ "views": 214770,
+ "ratio": 8.84,
+ "age_days": 67,
+ "views_per_day": 3205.5,
+ "minutes": 0.7,
+ "seconds": 40,
+ "likes": 3468,
+ "comments": 50,
+ "published": "2026-08-10",
+ "published_at": "2026-08-10T08:30:25Z",
+ "queries": "검색:배당",
+ "url": "https://www.youtube.com/shorts/rsC611u_FPM",
+ "flag": "",
+ "short_basis": "세로·정사각",
+ "hashtags": [
+  "삼성전자배당",
+  "kb증권리포트",
+  "확신의매수"
+ ],
+ "rank": "S119",
+ "set": "web_shorts",
+ "folder": "S_rsC611u_FPM",
+ "sources": [
+  "검색:배당"
+ ],
+ "source": "web_shorts",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "삼성전자 배당 은행 두 배 근거"
+  },
+  {
+   "start": 8,
+   "title": "주주환원 100~200조 시나리오"
+  },
+  {
+   "start": 15,
+   "title": "배당수익률 7% 계산"
+  },
+  {
+   "start": 21,
+   "title": "KB증권 확신의 매수 구간"
+  },
+  {
+   "start": 30,
+   "title": "9월 발표 전망"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:20까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 50,
+ "comments_top_level": 42,
+ "comments_replies": 8,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 50,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:33:30",
+ "approved": "2026-10-17T16:33+09:00",
+ "kind": "shorts",
+ "embed_w": 4608,
+ "embed_h": 8192,
+ "cover": "oar2.jpg"
+}

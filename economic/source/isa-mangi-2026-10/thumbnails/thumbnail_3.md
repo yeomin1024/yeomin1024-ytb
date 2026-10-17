@@ -1,13 +1,13 @@
 # isa-mangi-2026-10 썸네일 3 — 실험안 ②: 사람 없이, 금이 간 유리 저금통에서 지폐가 새고 '세금'이 내리누름
 
-버전: v1.0 — 2026-10-16 — 대본 isa-mangi-2026-10.txt v1.0 기준. 사용자 지시(`thumbnail_1.md` 버전 줄과 같음). 근거: `README.md`.
+버전: v1.1 — 2026-10-17 — 하단 1줄 끝에 조사 '으로'를 살림 ('…연금저축으로 / 안 옮기면' — `thumbnail_1.md` v1.2 와 같음, 사용자 지시 2026-10-17 "야 대본 봤는데 '그냥 두면' 이라는 표현이 도대체 뭘 그냥 둔다는거야? 제발 애매모호하고 명확하고 익숙하고 이해하기 쉬운 표현을 사용하라고 너는 보면 다 알겠지만 저 분야 지식이 하나도 없는 사람이 보면 잘 모른다고 저런 표현 있으면 다 고쳐 영상 4개다 그리고 뭘 고쳤는지 나한테 알려줘"). 1줄이 길어져 [A]에 1줄 오른쪽 끝 자리를 적음. ⚠️ 통과했던 `thumbnail_3.png`(v1.0 문구)는 **다시 만들어야 함**. (v1.0 — 2026-10-16 — 대본 isa-mangi-2026-10.txt v1.0 기준. 사용자 지시(`thumbnail_1.md` 버전 줄과 같음). 근거: `README.md`.)
 
 | 항목 | 값 |
 |---|---|
 | 역할 | **실험안 ②** — 본안과 하단 2줄·꼬리표는 같고, 그림에 **사람이 없다** |
 | 시험하는 가설 | 사람 없이 새어 나가는 돈과 '세금' 낱말만으로도 클릭을 부른다 |
 | 짝 제목 | titles.md R1 |
-| 문구 | 본안과 같다: 50·60대 ISA 만기 돈 연금저축 / 안 옮기면 3년에 96만 원 손해 |
+| 문구 | 본안과 같다: 50·60대 ISA 만기 돈 연금저축으로 / 안 옮기면 3년에 96만 원 손해 |
 | 근거 (`README.md` 3번) | ISA 묶음 사람 없는 썸네일 성공 4/10 vs 기준 밖 0/5 (S2 ×30.1 · S3 ×14.3 · S9 · S11). 노후·연금·절세 묶음 18% vs 7%. 세 영상(기초연금·ISA·건보료) 모두 ②를 '사람 없음'으로 두어 결과를 함께 본다. 저금통이 새는 장면은 성공 자료에 없다 → 실험 |
 | 숫자 근거 | 본안과 같다 (`thumbnail_1.md`) |
 
@@ -24,7 +24,7 @@
 | 자리 | 문구 | 색 |
 |---|---|---|
 | 그림 낱말 | 세금 | 흰 글자 on 빨강 상자 #FF2A2A |
-| 하단 1줄 | 50·60대 ISA 만기 돈 연금저축 | '50·60대' 흰색 · **'ISA 만기 돈 연금저축' 노랑 #FFD400** — 모두 두꺼운 검정 외곽선 |
+| 하단 1줄 | 50·60대 ISA 만기 돈 연금저축으로 | '50·60대' 흰색 · **'ISA 만기 돈 연금저축으로' 노랑 #FFD400** — 모두 두꺼운 검정 외곽선 |
 | 하단 2줄 | 안 옮기면 3년에 96만 원 손해 | '안 옮기면' 흰색 + 검정 외곽선 · **'3년에 96만 원 손해' 빨강 #FF2A2A + 두꺼운 흰 외곽선**. 1줄과 같은 크기 |
 
 ## [A] 완성형 프롬프트 (이미지 AI에 그대로 붙여 넣기)
@@ -35,7 +35,7 @@ Upper 62% of the frame:
 - Left side: one bold word tag, a solid bright red (#FF2A2A) rounded box with the Korean word "세금" printed in huge flat heavy bold white letters on its flat front face (flat print, not carved or 3D letter shapes). Two thick bright red arrows point from the tag down onto the jar's lid, as if pressing on it.
 - Background: a dark office at night, softly blurred, cool blue tones; a warm spotlight on the jar.
 Bottom title: in the lower third, over a dark band that fades upward from the bottom edge, two lines of huge heavy bold text, left-aligned near the left edge, both lines the same size:
-line 1 "50·60대 ISA 만기 돈 연금저축" — "50·60대" in white and "ISA 만기 돈 연금저축" in bright yellow #FFD400, all with a thick black outline (keep the middle dot "·" between 50 and 60, and write ISA in capital Latin letters);
+line 1 "50·60대 ISA 만기 돈 연금저축으로" — "50·60대" in white and "ISA 만기 돈 연금저축으로" in bright yellow #FFD400, all with a thick black outline (keep the middle dot "·" between 50 and 60, write ISA in capital Latin letters, and keep the last two letters "으로" — line 1 is the longer line: it may run to about 94% of the image width, but keep it at least 4% away from the right edge);
 line 2 "안 옮기면 3년에 96만 원 손해" — "안 옮기면" in white with a thick black outline, and "3년에 96만 원 손해" in bright red #FF2A2A with a thick white outline.
 The second line ends well before the bottom-right corner; keep the bottom-right corner empty for the video length badge. Keep the jar, the banknotes and the word tag in the upper part so they never cover the bottom title.
 If 16:9 is not available, use the widest landscape canvas; in any case keep all text inside the central 16:9 area, at least 8% away from the top and bottom edges.
@@ -52,7 +52,7 @@ Absolutely no text, letters, numbers, logos or watermarks. Leave clean empty spa
 - 글자 얹기: 빨강 상자 안 '세금', 하단 2줄은 `thumbnail_1.md`와 같다.
 
 ## 검수
-- [ ] 글자가 한 글자도 틀리지 않았는가: 세금 · 50·60대 ISA 만기 돈 연금저축 · 안 옮기면 3년에 96만 원 손해
+- [ ] 글자가 한 글자도 틀리지 않았는가: 세금 · 50·60대 ISA 만기 돈 연금저축으로 · 안 옮기면 3년에 96만 원 손해 (1줄 끝 '으로')
 - [ ] 사람이 없는가 · 지폐에 초상·숫자·무늬가 없는가 · 병에 글자·상표가 없는가
 - [ ] 가로 320px로 줄여도 2줄과 '세금'이 읽히는가 · 글자가 가운데 16:9 안 · 오른쪽 아래 구석 비움
 
@@ -67,7 +67,7 @@ Absolutely no text, letters, numbers, logos or watermarks. Leave clean empty spa
 | 자리 | 1줄 윗선 = 아래 34%, 2줄 아랫선 = 6.8% (16:9라 잘림 없음) ✅ · 2줄째 끝 1280 기준 x 1033 → 구석 칸 앞에서 끝남, 구석에는 흩어진 지폐뿐(글자 없음) ✅ |
 | 인물·물건 | 사람 없음 ✅ · 밤 책상 위 뚜껑 있는 큰 유리병, 아래쪽 금 간 곳으로 지폐가 새어 나와 책상 밖으로 흘러내림 ✅ · 화살표 2개가 뚜껑을 내리누름 ✅ · 병에 글자·상표 없음, 지폐는 옅은 테두리 무늬만(초상·숫자 없음) ✅ · 스탠드·연필꽂이·모니터에도 글자 없음 ✅ |
 | 320px | 2줄과 「세금」 모두 읽힘 ✅ |
-| **판정** | ✅ 통과 (실험안 ②) |
+| **판정** | ✅ 통과 (실험안 ②) — ⚠️ 2026-10-17 문구 v1.1('연금저축으로')로 바뀌어 이 그림은 다시 만든다 |
 - 재는 법: 원본에서 하단 2줄과 그림 속 낱말을 잘라 3~4배로 키워 한 글자씩 봄. '구석 칸' = 1280×720 기준 오른쪽 아래 220×70 (x 1060~, y 650~). '길이 표시 시험' = 가로 320·360·400px로 줄인 뒤 영상 길이 표시(320px 기준 약 38×18px, 가장자리 4px)를 얹어 2줄째 마지막 글자가 가려지는 비율을 셈.
 
 ## 결과 (업로드 후)

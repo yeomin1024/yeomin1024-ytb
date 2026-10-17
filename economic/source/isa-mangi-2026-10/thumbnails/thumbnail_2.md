@@ -1,13 +1,13 @@
 # isa-mangi-2026-10 썸네일 2 — 실험안 ①: 얼굴 없이, 밤 사무실 책상 위 꽉 쥔 두 주먹 + '세금' 낱말
 
-버전: v1.1 — 2026-10-16 — [A] 2줄째 끝 자리를 숫자로 (가로 80% 앞에서 끝, 오른쪽 18%·아래 15% 칸은 글자 없음) — 1차 이미지에서 2줄째 마지막 글자가 영상 길이 표시에 가려짐 (`guides/thumbnail_guide.md` 10번 4 · 1차 이미지는 `rejected/`). (v1.0 — 2026-10-16 — 대본 isa-mangi-2026-10.txt v1.0 기준. 사용자 지시(`thumbnail_1.md` 버전 줄과 같음). 근거: `README.md`.)
+버전: v1.2 — 2026-10-17 — 하단 1줄 끝에 조사 '으로'를 살림 ('…연금저축으로 / 안 옮기면' — `thumbnail_1.md` v1.2 와 같음, 사용자 지시 2026-10-17 "야 대본 봤는데 '그냥 두면' 이라는 표현이 도대체 뭘 그냥 둔다는거야? 제발 애매모호하고 명확하고 익숙하고 이해하기 쉬운 표현을 사용하라고 너는 보면 다 알겠지만 저 분야 지식이 하나도 없는 사람이 보면 잘 모른다고 저런 표현 있으면 다 고쳐 영상 4개다 그리고 뭘 고쳤는지 나한테 알려줘"). ⚠️ 2026-10-17 에 받은 2차 이미지 `thumbnail_2.png`(v1.1 문구)는 **다시 만들어야 함**. (v1.1 — 2026-10-16 — [A] 2줄째 끝 자리를 숫자로 (가로 80% 앞에서 끝, 오른쪽 18%·아래 15% 칸은 글자 없음) — 1차 이미지에서 2줄째 마지막 글자가 영상 길이 표시에 가려짐 (`guides/thumbnail_guide.md` 10번 4 · 1차 이미지는 `rejected/`). (v1.0 — 2026-10-16 — 대본 isa-mangi-2026-10.txt v1.0 기준. 사용자 지시(`thumbnail_1.md` 버전 줄과 같음). 근거: `README.md`.))
 
 | 항목 | 값 |
 |---|---|
 | 역할 | **실험안 ①** — 본안과 하단 2줄·꼬리표·장소는 같고, 사람의 **얼굴이 보이지 않는다** (목 아래만) |
 | 시험하는 가설 | ISA 영상에서는 실사 얼굴 없이 손·몸만 보여도 본안만큼 클릭을 부른다 |
 | 짝 제목 | titles.md R1 |
-| 문구 | 본안과 같다: 50·60대 ISA 만기 돈 연금저축 / 안 옮기면 3년에 96만 원 손해 |
+| 문구 | 본안과 같다: 50·60대 ISA 만기 돈 연금저축으로 / 안 옮기면 3년에 96만 원 손해 |
 | 근거 (`README.md` 3번) | ISA 묶음 성공 10개 중 실사 얼굴이 보이는 것은 1개 (S1). 만기·이전을 다룬 성공 3개(S3 ×14.3 · S7 ×7.2 · S11 ×3.3)는 모두 얼굴이 없고, S4 ×11.6 · S7은 얼굴 없이 몸·손만 보인다. 표본 15개 — 방향만 |
 | 숫자 근거 | 본안과 같다 (`thumbnail_1.md`) |
 
@@ -24,7 +24,7 @@
 | 자리 | 문구 | 색 |
 |---|---|---|
 | 그림 낱말 | 세금 | 흰 글자 on 빨강 상자 #FF2A2A |
-| 하단 1줄 | 50·60대 ISA 만기 돈 연금저축 | '50·60대' 흰색 · **'ISA 만기 돈 연금저축' 노랑 #FFD400** — 모두 두꺼운 검정 외곽선 |
+| 하단 1줄 | 50·60대 ISA 만기 돈 연금저축으로 | '50·60대' 흰색 · **'ISA 만기 돈 연금저축으로' 노랑 #FFD400** — 모두 두꺼운 검정 외곽선 |
 | 하단 2줄 | 안 옮기면 3년에 96만 원 손해 | '안 옮기면' 흰색 + 검정 외곽선 · **'3년에 96만 원 손해' 빨강 #FF2A2A + 두꺼운 흰 외곽선**. 1줄과 같은 크기 |
 
 ## [A] 완성형 프롬프트 (이미지 AI에 그대로 붙여 넣기)
@@ -35,7 +35,7 @@ Upper 62% of the frame:
 - Left side (about 40% of the width): one bold word tag, a solid bright red (#FF2A2A) rounded box with the Korean word "세금" printed in huge flat heavy bold white letters on its flat front face (flat print, not carved or 3D letter shapes). Two thick bright red arrows point from the tag down toward his fists.
 - Background: an office at night with blurred city lights through the window, cool blue tones; warm desk-lamp light on his fists and shirt.
 Bottom title: in the lower third, over a dark band that fades upward from the bottom edge, two lines of huge heavy bold text, left-aligned near the left edge, both lines the same size:
-line 1 "50·60대 ISA 만기 돈 연금저축" — "50·60대" in white and "ISA 만기 돈 연금저축" in bright yellow #FFD400, all with a thick black outline (keep the middle dot "·" between 50 and 60, and write ISA in capital Latin letters);
+line 1 "50·60대 ISA 만기 돈 연금저축으로" — "50·60대" in white and "ISA 만기 돈 연금저축으로" in bright yellow #FFD400, all with a thick black outline (keep the middle dot "·" between 50 and 60, write ISA in capital Latin letters, and keep the last two letters "으로" — line 1 is the longer line: it may run to about 94% of the image width, but keep it at least 4% away from the right edge);
 line 2 "안 옮기면 3년에 96만 원 손해" — "안 옮기면" in white with a thick black outline, and "3년에 96만 원 손해" in bright red #FF2A2A with a thick white outline.
 The second line MUST end at or before 80% of the image width (x ≤ 1024 px of 1280): the right 18% of the width in the bottom 15% of the height must contain no text at all, because YouTube's video length badge covers that corner. If the second line does not fit, make both lines a little smaller rather than letting it run into that corner. Keep the hands, the desk items and the word tag in the upper part so they never cover the bottom title.
 If 16:9 is not available, use the widest landscape canvas; in any case keep all text inside the central 16:9 area, at least 8% away from the top and bottom edges.
@@ -52,7 +52,7 @@ Absolutely no text, letters, numbers, logos or watermarks. Leave clean empty spa
 - 글자 얹기: 빨강 상자 안 '세금', 하단 2줄은 `thumbnail_1.md`와 같다.
 
 ## 검수
-- [ ] 글자가 한 글자도 틀리지 않았는가: 세금 · 50·60대 ISA 만기 돈 연금저축 · 안 옮기면 3년에 96만 원 손해
+- [ ] 글자가 한 글자도 틀리지 않았는가: 세금 · 50·60대 ISA 만기 돈 연금저축으로 · 안 옮기면 3년에 96만 원 손해 (1줄 끝 '으로')
 - [ ] 얼굴이 보이지 않는가 (목 아래만) · 손가락 수·모양이 자연스러운가
 - [ ] 종이·노트북 화면에 글자가 없는가 · 가로 320px로 줄여도 2줄과 '세금'이 읽히는가 · 오른쪽 아래 구석 비움
 

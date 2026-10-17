@@ -1,5 +1,21 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-17 (77) — 재테크 첫 업로드: 기초연금 롱폼·쇼츠 예약 공개 · 업로드 도구 v1.8 쇼츠
+
+### 왜 (사용자 지시)
+- "오디오 생성했고 이제 최종적으로 영상 만들어서 하나만 자동 예약으로 30분 후 올려봐" · "아니 공개 자동예약으로 올려 쇼츠도 하나 올려보고"
+
+### 한 것
+| 파일·대상 | 내용 |
+|---|---|
+| SRT 8개 · 장면 8개 | 새 오디오에 `align-audio`(tts_narration.json) → `sync` (커밋 2f…·87… 앞 회차) |
+| `economic/out/gicho-yeongeum-2026-10/final_1080p.mp4` (git 밖) | 7:19.6 · −14.2 LUFS / −1.54 dBTP · `check` 문제 0 |
+| `economic/out/gicho-yeongeum-2026-10-shorts/final_1080p.mp4` (git 밖) | 49.5초 · −14.28 LUFS / −1.6 dBTP · 0초 = 썸네일 그림 |
+| 유튜브 (부자백서) | 롱폼 `xVU2cBNrdlM` 비공개 + publishAt 2026-10-17T13:26:07Z · 쇼츠 `FLo16pFu47Y` publishAt 13:36:07Z · 둘 다 자막 올림, 롱폼 썸네일 1번 — 올리기 전 채널 목록 확인 (시험 영상 1개뿐) |
+| `tools/youtube_upload.py` (v1.7 → v1.8) | `<영상ID>-shorts` → `source/<영상ID>/shorts/` 시트·자막·youtube.json · 쇼츠 썸네일 안 올림 · 시험 `tools/tests/test_upload_shorts.py` 2개 (+ 기존 17개 통과) |
+| `economic/source/gicho-yeongeum-2026-10/shorts/upload.md` (v1.0) · `youtube.json` 2개 | 쇼츠 시트 · 업로드 기록 |
+| `CLAUDE.md` · `guides/status.md` (v1.50 → v1.51) | 쇼츠 업로드 · 첫 업로드 기록 · 2-2 0-4 |
+
 ## 2026-10-17 (76) — 주식 썸네일: 부등호 머리글 하나를 크게 (16장)
 
 사용자 지시 2026-10-17 "그냥 SCHD > SPY ? 이렇게만 해도 단번에 의미 전달 가능한데 부등호 좀 잘 사용해봐 문구는 눈에 잘 들어오도록 크게 강조해야해".

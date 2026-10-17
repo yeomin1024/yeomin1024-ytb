@@ -1,5 +1,36 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-17 (85) — 주식 쇼츠 결과형: 2번 커버드콜 쇼츠 v2.0
+
+### 왜 (사용자 지시)
+- "야 주식 쇼츠는 테스트로 호기심 유발, 어떻게 최대한 짧게 설명해서 결과를 바로 말하자 그리고 과정과 결과에 대한 분석으로 더 보고 싶으면 롱폼 영상으로 유도하는걸로하자 일단 하나만 수정해봐"
+
+### 한 것
+| 파일·대상 | 내용 |
+|---|---|
+| `stock/source/keobeodeu-kol-2026-10/shorts/keobeodeu-kol-2026-10-shorts.txt` | 9문장(프롤로그형 — 경주 중간 숫자, 결말 가림) → **8문장 결과형**: 테스트 질문 → 티커 → 방법 한 문장 → 결과 셋(꺼낸 돈 약 11만 달러 · QYLD 약 7만 5천 달러 원금보다 25.3% 적음 · QQQ 약 51만 달러 QYLD의 6.83배) → 왜? → 롱폼(과정·원인·시작 달). 234음절 · 예상 40.9초(예전 44.5초) · 결과 첫 숫자 약 17초 |
+| `…/shorts/checklist.md` | `shorts_numcheck.py` — 숫자 12개 · 없음 0 |
+| `…/shorts/shorts.md` (v1.0.4 → v2.0) | 제목 R1 「커버드콜 10만 달러, 매달 꺼내 쓰면 QQQ보다 남을까?」 · R2 「커버드콜 분배금 매달 꺼내 쓰면, QQQ보다 더 남을까?」 (예전 R1 39자는 좁은 폰·PC 다음 동영상 3줄 — `title_fit.py --shorts` 로 둘 다 2줄) · 9개 언어 제목·설명(결과까지, '▶' 줄 = 롱폼에만 있는 것) · 대본·화면 표 · 설명란 · 숫자 근거 · 근거와 다른 점(40초대 = 30~44초 14% vs 45~59초 19%, 약한 기울기) |
+| `…/shorts/thumbnails/thumbnail_1.md` (v1.4 → v2.0) · `README.md` | 글자 `QYLD > QQQ ?` 하나(`−17.5%` 뺌 — 첫 문장이 질문) · 금고는 원금 선 위(가라앉은 금고 = 결과 암시라 뺌) · 그림이 화면 끝까지(`thumbnail_guide.md` v3.7 12번). '글자' 줄을 '영어 …'로 시작 — `make_summary.py` 가 한글 규칙으로 바꾸지 않게 |
+| `stock/thumbnails_chatgpt.md` | 다시 만듦 (`make_summary.py` v1.8.0 — 다른 세션이 올린 것과 합친 뒤) |
+| `video/episodes/keobeodeu-kol-2026-10-shorts/index.html` (v1.0 → v2.0) | 화면 좌표를 바로(가운데 x 540·크게 — `video_guide.md` v4.13 6번) · 안전 구역 `150 60 1320 60` · NASDAQ 100 카드 둘 · 경주 2013.12 → 2026.10.15 끝까지(QQQ 선도, 동적 세로축, `R2.warp` 약 7.4초) · 꺼낸 날마다 두 선 끝에서 동전 · 아래 칸 QYLD 값·원금 대비 / QQQ 값 / 꺼낸 돈 · 원금 아래 빨간 띠 + `−25.3%` · `×6.83` · 두 선 사이 노란 `?` · 끝 화면 그림 셋(날짜별 경주 · ↑↓? · 달력 ↻) + ⬇ · 대본 숫자와 다르면 멈춤. `render.mjs check` 문제 0 (veil 이 안전 구역 아래로 → 뺌), 소리 없는 미리보기 렌더 후 **완성 mp4 장면을 직접 봄** — 동전 줄이 아래 숫자를 가림 → 짧게 떨어지게 · 이름표가 동전과 겹침 → 왼쪽으로 |
+| `stock/guides/README.md` (v1.21 → v1.22) | 7번 쇼츠 = 결과형 (꼴 · 롱폼에만 남기는 것 · 경주 끝까지 · 세로 자리 v4.13 · 첫 예) · 3번 결과형 쇼츠 썸네일은 `A > B ?` 만 |
+| `stock/guides/shorts_insights.md` (v1.0.1 → v1.1) | 0-1 3번 결과를 쇼츠에서(1번 근거 — 경주 쇼츠는 끝 결과까지 — 와 같은 방향) · 0-1 2번 · 7번 업로드 도구 v1.10 · 8번 결과형 효과 보는 법 |
+| `guides/shorts_guide.md` (v1.11 → v1.12) | 4번 10항 주식 쇼츠 = 결과형 (프롤로그형의 예외 — 재테크는 그대로) |
+| `CLAUDE.md` | 주식 줄에 '주식 쇼츠는 결과를 바로 말한다' · 쇼츠 줄에 '주식은 다름' |
+| `guides/status.md` (v1.60) | 2-1b 쇼츠 결과형 · 할 일 |
+
+### 확인
+- `shorts_numcheck.py stock keobeodeu-kol-2026-10` → 숫자 12 · 없음 0
+- `render.mjs sync --estimate` → 8문장 · 234음절 · 40.94초 / `check` → cuts 10 · samples 91 · **problems 0** · page_errors 0
+- `render.mjs video --estimated-preview` → `stock/out/keobeodeu-kol-2026-10-shorts/preview_estimated_silent.mp4` (1080×1920 · 40.97초 · 약 60초 걸림 — git 밖) · ffmpeg 로 뽑은 장면 14장을 봄
+- 화면 숫자 = `backtest/results.md` 본 실험 줄 ($112,980 · $74,653 · $510,215 · ×6.83) — 장면 파일 안 검사(−25.3% · 6.83 · 11만 · 7만 5천 · 51만 · 2026)
+- `title_fit.py --shorts` R1·R2 모두 2줄 · `test_make_summary_chatgpt` OK
+
+### 남은 것
+- 사용자가 미리보기를 보고 꼴 확인 → 1·3·4번 쇼츠를 같은 꼴로 (지금은 예전 꼴·옛 세로 자리)
+- 주식 쇼츠 업로드 시트 `shorts/upload.md` · 썸네일 그림(ChatGPT) · Kaggle 내레이션(범위 `stock`)
+
 ## 2026-10-17 (84) — 쇼츠 썸네일 4장 다시 · ChatGPT 공통 규칙 '사진이 끝까지'
 
 ### 왜 (사용자 지시)

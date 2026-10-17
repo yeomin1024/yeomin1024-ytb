@@ -1,6 +1,6 @@
 # stock 썸네일 16장 — ChatGPT용 (모든 영상 · 읽고 그대로 만들고 각 저장 경로에 올리기)
 
-자동 생성 — `python tools/make_summary.py --chatgpt-all stock` (2026-10-17 14:18). 이 파일은 고치지 말고 영상마다 `thumbnail_N.md`를 고친 뒤 다시 만든다.
+자동 생성 — `python tools/make_summary.py --chatgpt-all stock` (2026-10-17 15:25). 이 파일은 고치지 말고 영상마다 `thumbnail_N.md`를 고친 뒤 다시 만든다.
 
 이 파일 주소: https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/stock/thumbnails_chatgpt.md
 
@@ -19,7 +19,7 @@
 1. 아래 썸네일 16장(8개 영상)을 **1번부터 차례로 모두** 만든다. 질문하지 말고, 한 장을 만든 뒤 멈추지 말고 다음 장으로 넘어간다.
    - 이미지 한도 때문에 멈추면 사용자가 `계속`이라고 보낸다 → 아직 안 만든 번호부터 이어서 만든다.
 2. 각 장은 그 칸의 **프롬프트(``` 안)를 한 글자도 바꾸지 않고 그대로** 쓴다. 장마다 서로 다른 그림이다 — 앞 장의 인물·구도·색을 이어 쓰지 않는다.
-3. 크기는 **장마다 '크기' 줄대로**: 롱폼 썸네일 = 가로형 16:9 (1280×720 — 안 되면 가장 넓은 가로형, 글자와 얼굴은 가운데, 위아래 8% 비움) · **쇼츠 썸네일(영상 ID 끝이 `-shorts`) = 세로형 9:16 (1080×1920)** — 안 되면 세로 2:3, 글자와 얼굴은 가운데, 양옆 8% 비움.
+3. 크기는 **장마다 '크기' 줄대로**: 롱폼 썸네일 = 가로형 16:9 (1280×720 — 안 되면 가장 넓은 가로형, 그림은 끝까지, 글자와 얼굴은 가운데, 위아래 8%에는 두지 않음) · **쇼츠 썸네일(영상 ID 끝이 `-shorts`) = 세로형 9:16 (1080×1920)** — **사진 한 장이 네 가장자리까지 꽉 찬다 — 빈 남색·검정 띠, 테두리, 여백, 가운데만 사진인 꼴은 안 된다** (v1.8.0 — 띠가 있으면 영상에서 비율이 틀린 것처럼 보임). 프롬프트가 '글자·얼굴을 두지 않는 자리'(위·오른쪽·아래)를 말해도 그 자리에도 사진(배경·앞쪽 물건)이 이어진다. 안 되면 세로 2:3, 글자와 얼굴은 가운데, 양옆 8%에는 두지 않음 (사진은 이어짐).
 4. 그림 속 글자는 프롬프트가 따옴표로 적은 **영어 낱말·숫자·기호·티커만** (예: BUY, TAX, QQQ, −15%, $100,000, 1×, →, ?, 그리고 비교·수식 기호 >, <, =, +, vs) — 철자·기호·띄어쓰기 그대로, 납작하고 굵은 글씨. 다른 글자·숫자·로고·워터마크는 넣지 않는다 (동전·상자·화면에도). 한국어·문장은 쓰지 않는다 (전 세계 시청자용).
 5. 사람은 실존 인물이나 유명인을 닮지 않은 가상 인물이다.
 6. 한 장을 만들 때마다 그 칸의 '문구' 표와 그림 속 글자를 **한 글자씩** 맞춰 본다 — 마이너스 '−'·'%'·'$'·쉼표·소수점·'×'·'→'·'>'·'<'·'='·'+'·'?' 가 빠지거나 바뀌거나 방향이 뒤집히지 않았는지(특히 '>' 와 '<'), 표에 없는 가짜 글자·숫자가 생기지 않았는지 크게 확대해서 본다. 다르면 그림은 그대로 두고 글자만 고쳐 다시 만든다.
@@ -404,7 +404,7 @@ Fictional person, not resembling any real or famous person.
 Text: ONE big headline "WHEN TO BUY ?" — written as "WHEN TO" in white, "BUY" in bright green (#2BE0A0), "?" in bright yellow (#FFD400) — across the upper-middle area between 13% and 32% of the height, centered inside the left 84% of the width and about 75% of that width. Make the headline the most eye-catching thing in the image: huge, very bold flat sans-serif (like Arial Black), with a thick dark outline and a soft glow so it pops off the background. Flat 2D lettering — never 3D, never embossed, never curved, never in perspective. Make room for it: the fog and the line top sit below it; keep it off the face. Ticker label: "SPY" in large bold white letters on a dark rounded tag with a white outline, right next to the green line. Spell everything exactly as written, character by character. These are the ONLY letters in the whole image — no other text, no numbers, no logos and no watermarks anywhere; the button and every object have nothing else written on them. All text stays between 13% and 66% of the height.
 ```
 
-## 15. keobeodeu-kol-2026-10-shorts · thumbnail_1 — 금고에서 동전을 매달 꺼내는 사람 — 금고가 점점 가벼워짐
+## 15. keobeodeu-kol-2026-10-shorts · thumbnail_1 — 금고에서 금화를 매달 꺼내는 손 + 천에 덮인 두 번째 계좌 — `QYLD > QQQ ?`
 
 **저장 경로: `stock/source/keobeodeu-kol-2026-10/shorts/thumbnails/thumbnail_1.png`**
 
@@ -415,21 +415,20 @@ Text: ONE big headline "WHEN TO BUY ?" — written as "WHEN TO" in white, "BUY" 
 | 자리 | 문구 | 색 |
 |---|---|---|
 | 가운데 위 (높이 13~34%) — **큰 머리글 (가장 크게, 굵게, 테두리·빛)** | `QYLD > QQQ ?` | QYLD 주황 · > 노랑 · QQQ 파랑 · ? 노랑 |
-| 가라앉은 금고 옆 빨간 틈 (작게) | `−17.5%` | 빨강 |
 
 프롬프트:
 
 ```
-YouTube Shorts cover, Vertical 9:16 portrait (1080x1920). Keep all important objects and any face between 13% and 66% of the height and between 6% and 84% of the width (top = YouTube icons, right 16% = like/comment buttons, bottom 34% = title and related-video link). The bottom 34% is a quiet, dark, empty background. If 9:16 is not available use 2:3 portrait and keep the side 8% empty.
-Semi-realistic digital illustration with cinematic lighting, deep dark navy background (#0C1424).
+YouTube Shorts cover, Vertical 9:16 portrait (1080x1920). Keep all important objects and any face between 13% and 66% of the height and between 6% and 84% of the width (top = YouTube icons, right 16% = like/comment buttons, bottom 34% = title and related-video link). The picture fills the whole canvas to every edge — no empty single-color bands, borders, frames or margins anywhere; the top, the right side and the bottom 34% are part of the same scene (the same room, light and floor continue there), only a little darker in soft shadow, with no text, faces or important objects in them. If 9:16 is not available use 2:3 portrait and keep the side 8% free of text and faces.
+Semi-realistic digital illustration with cinematic lighting, deep dark navy mood (#0C1424), a softly lit vault room with dark blue walls and a polished dark floor that runs to the bottom edge.
 Upper middle: an open orange-trimmed safe (#FF8A3D) floating in the air; a hand reaches in and pulls out a handful of plain gold coins, and a few coins fall downward like a monthly payout stream.
-Under the safe, a glowing yellow dashed line (the original principal level) — the safe has sunk a little below this dashed line and a soft red glow (#FF4D5E) shows the gap.
+The safe rests exactly on a glowing yellow dashed line (the original principal level) — not above it, not below it; whether it will stay there cannot be seen.
 To the side, a second, identical but fully covered shape under a dark cloth (a second account, hidden) — nothing about it is visible.
-Lower middle (still above 66% of the height): a fictional person in their sixties, holding the coins, glancing down at the dashed line with a worried, questioning look — not crying, not happy.
-Mood: quiet worry and suspense.
+Lower middle (still above 66% of the height): a fictional person in their forties, holding the coins, looking from the safe to the covered shape with a curious, questioning look — not worried, not happy.
+Mood: curiosity and suspense; nobody is winning.
 Large simple shapes, high contrast, readable when shrunk to 360 pixels tall.
 Fictional person, not resembling any real or famous person.
-Text: ONE big headline "QYLD > QQQ ?" — written as "QYLD" in orange (#FF8A3D), then ">" in bright yellow (#FFD400), then "QQQ" in blue (#5AB4FF), then "?" in bright yellow (#FFD400) — placed across the upper-middle area between 13% and 34% of the height, centered inside the left 84% of the width and about 75% of that width. Make the headline the most eye-catching thing in the image: huge (letters about 22% of the image height), very bold flat sans-serif (like Arial Black), with a thick dark outline and a soft glow so it pops off the background; the ">" sign is as big and bold as the letters and bright yellow, and the "?" is bright yellow. Flat 2D lettering — never 3D, never embossed, never curved, never in perspective. Make room for it: anything that would sit in that band (for example a chest or clouds) goes lower and smaller; keep it off any face. Small extra labels: "−17.5%" next to the sinking safe, in the red gap under the yellow dashed line, medium size, in red (#FF4D5E). Spell everything exactly as written, character by character: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", ">", "+" and "?" stay exactly as written — never turn ">" into "<". These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs and objects have nothing else written on them. All text stays between 13% and 66% of the height.
+Text: ONE big headline "QYLD > QQQ ?" — written as "QYLD" in orange (#FF8A3D), then ">" in bright yellow (#FFD400), then "QQQ" in blue (#5AB4FF), then "?" in bright yellow (#FFD400) — placed across the upper-middle area between 13% and 34% of the height, centered inside the left 84% of the width and about 75% of that width. Make the headline the most eye-catching thing in the image: huge (letters about 22% of the image height), very bold flat sans-serif (like Arial Black), with a thick dark outline and a soft glow so it pops off the background; the ">" sign is as big and bold as the letters and bright yellow, and the "?" is bright yellow. Flat 2D lettering — never 3D, never embossed, never curved, never in perspective. Make room for it: anything that would sit in that band goes lower and smaller; keep it off any face. Spell everything exactly as written, character by character: ">" and "?" stay exactly as written — never turn ">" into "<". These are the ONLY letters and symbols in the whole image — no other text, no numbers, no logos and no watermarks anywhere; coins are plain gold discs and objects have nothing written on them. All text stays between 13% and 34% of the height.
 ```
 
 ## 16. reobeoriji-2026-10-shorts · thumbnail_1 — 번개에 부서진 3단 로켓 — 그래도 다시 연료를 넣는 손

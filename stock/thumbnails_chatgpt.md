@@ -1,6 +1,6 @@
 # stock 썸네일 16장 — ChatGPT용 (모든 영상 · 읽고 그대로 만들고 각 저장 경로에 올리기)
 
-자동 생성 — `python tools/make_summary.py --chatgpt-all stock` (2026-10-17 12:04). 이 파일은 고치지 말고 영상마다 `thumbnail_N.md`를 고친 뒤 다시 만든다.
+자동 생성 — `python tools/make_summary.py --chatgpt-all stock` (2026-10-17 12:07). 이 파일은 고치지 말고 영상마다 `thumbnail_N.md`를 고친 뒤 다시 만든다.
 
 이 파일 주소: https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/stock/thumbnails_chatgpt.md
 
@@ -133,9 +133,8 @@ Text: add only the following text in a very bold, clean, flat sans-serif typefac
 
 | 자리 | 문구 | 색 |
 |---|---|---|
-| 왼쪽 위 — 큰 머리글 | `SIGNAL > RANDOM ?` | SIGNAL 흰색 · > 노랑 · RANDOM 흰색 · ? 노랑 |
-| 초록 점선 오른쪽 끝 | `+5%` | +5% 초록 |
-| 빨강 점선 오른쪽 끝 | `−2%` | −2% 빨강 |
+| 왼쪽 위 — 큰 머리글 | `BUY → +5% or −2% ?` | BUY 초록 표(글자 흰색) · → 흰색 · +5% 초록 · or 흰색 · −2% 빨강 · ? 노랑 |
+| 버튼 묶음과 주사위 사이 (클로즈업이면 두 손 사이) | `> ?` | > 흰색 · ? 노랑 |
 
 프롬프트:
 
@@ -149,7 +148,7 @@ Neither side is highlighted, pressed or brighter; nobody is winning. The mood is
 Color accents: green only on the upper dashed line, red only on the lower dashed line, the down arrow and the zigzag icon, yellow only on the stars and dashed icon lines, blue on the price wall, warm gold only from the chest. Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
 If 16:9 is not available, use the widest landscape canvas; in any case keep the face, the pedestals and the chest inside the central 16:9 area, at least 8% away from the top and bottom edges.
 Fictional person, not resembling any real or famous person.
-Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) the headline "SIGNAL > RANDOM ?" in the upper-left area, above the main objects (keep it off the chest and the face), very large (about 13% of the image height), written as "SIGNAL" in white, ">" in yellow (#FFD400), "RANDOM" in white, "?" in yellow (#FFD400); (2) "+5%" at the right end of the green dashed line, large, written as "+5%" in bright green (#2BE0A0); (3) "−2%" at the right end of the red dashed line, large, written as "−2%" in red (#FF4D5E). Spell every item exactly as written, character by character, with the spaces shown: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→", ">", "<", "=", "+" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the buttons, the die, the calendar, the gauge, the pedestals and the price wall have nothing else written on them. Keep all text off any face and out of the bottom-right corner.
+Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) the headline "BUY → +5% or −2% ?" in the upper-left area, above the main objects (keep it off the chest and the face), very large (about 13% of the image height), written as "BUY" in white letters on a bright green (#2BE0A0) rounded tag, "→" in white, "+5%" in bright green (#2BE0A0), "or" in white, "−2%" in red (#FF4D5E), "?" in yellow (#FFD400); (2) "> ?" between the group of glowing buttons and the die — between the two pedestals, or between the two hands in a close-up — very large, large, written as ">" in white, "?" in yellow (#FFD400). Spell every item exactly as written, character by character, with the spaces shown: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→", ">", "<", "=", "+" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the buttons, the die, the calendar, the gauge, the pedestals and the price wall have nothing else written on them. Keep all text off any face and out of the bottom-right corner.
 ```
 
 ## 5. eonje-maesu-2026-10 · thumbnail_2 — 실험안 ①(사람 없음): 같은 크기의 두 받침대 — 매수 신호 버튼 10개 vs 주사위 — 와 두 점선 사이의 가격 선, 위에 닫힌 상자
@@ -162,9 +161,8 @@ Text: add only the following text in a very bold, clean, flat sans-serif typefac
 
 | 자리 | 문구 | 색 |
 |---|---|---|
-| 왼쪽 위 — 큰 머리글 | `SIGNAL > RANDOM ?` | SIGNAL 흰색 · > 노랑 · RANDOM 흰색 · ? 노랑 |
-| 초록 점선 오른쪽 끝 | `+5%` | +5% 초록 |
-| 빨강 점선 오른쪽 끝 | `−2%` | −2% 빨강 |
+| 왼쪽 위 — 큰 머리글 | `BUY → +5% or −2% ?` | BUY 초록 표(글자 흰색) · → 흰색 · +5% 초록 · or 흰색 · −2% 빨강 · ? 노랑 |
+| 버튼 묶음과 주사위 사이 (클로즈업이면 두 손 사이) | `> ?` | > 흰색 · ? 노랑 |
 
 프롬프트:
 
@@ -177,7 +175,7 @@ There is no person in the image.
 Neither side is highlighted, pressed or brighter; nobody is winning. The mood is suspense: which one reaches the green line first?
 Color accents: green only on the upper dashed line, red only on the lower dashed line, the down arrow and the zigzag icon, yellow only on the stars and dashed icon lines, blue on the price wall, warm gold only from the chest. Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
 If 16:9 is not available, use the widest landscape canvas; in any case keep the pedestals and the chest inside the central 16:9 area, at least 8% away from the top and bottom edges.
-Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) the headline "SIGNAL > RANDOM ?" in the upper-left area, above the main objects (keep it off the chest and the face), very large (about 13% of the image height), written as "SIGNAL" in white, ">" in yellow (#FFD400), "RANDOM" in white, "?" in yellow (#FFD400); (2) "+5%" at the right end of the green dashed line, large, written as "+5%" in bright green (#2BE0A0); (3) "−2%" at the right end of the red dashed line, large, written as "−2%" in red (#FF4D5E). Spell every item exactly as written, character by character, with the spaces shown: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→", ">", "<", "=", "+" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the buttons, the die, the calendar, the gauge, the pedestals and the price wall have nothing else written on them. Keep all text off any face and out of the bottom-right corner.
+Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) the headline "BUY → +5% or −2% ?" in the upper-left area, above the main objects (keep it off the chest and the face), very large (about 13% of the image height), written as "BUY" in white letters on a bright green (#2BE0A0) rounded tag, "→" in white, "+5%" in bright green (#2BE0A0), "or" in white, "−2%" in red (#FF4D5E), "?" in yellow (#FFD400); (2) "> ?" between the group of glowing buttons and the die — between the two pedestals, or between the two hands in a close-up — very large, large, written as ">" in white, "?" in yellow (#FFD400). Spell every item exactly as written, character by character, with the spaces shown: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→", ">", "<", "=", "+" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the buttons, the die, the calendar, the gauge, the pedestals and the price wall have nothing else written on them. Keep all text off any face and out of the bottom-right corner.
 ```
 
 ## 6. eonje-maesu-2026-10 · thumbnail_3 — 실험안 ②(클로즈업): 신호 버튼과 주사위 위에 떠 있는 두 손과 망설이는 얼굴, 뒤로 흐린 두 점선 사이의 가격 선과 닫힌 상자
@@ -190,9 +188,8 @@ Text: add only the following text in a very bold, clean, flat sans-serif typefac
 
 | 자리 | 문구 | 색 |
 |---|---|---|
-| 오른쪽 위 — 큰 머리글 | `SIGNAL > RANDOM ?` | SIGNAL 흰색 · > 노랑 · RANDOM 흰색 · ? 노랑 |
-| 초록 점선 오른쪽 끝 | `+5%` | +5% 초록 |
-| 빨강 점선 오른쪽 끝 | `−2%` | −2% 빨강 |
+| 오른쪽 위 — 큰 머리글 | `BUY → +5% or −2% ?` | BUY 초록 표(글자 흰색) · → 흰색 · +5% 초록 · or 흰색 · −2% 빨강 · ? 노랑 |
+| 버튼 묶음과 주사위 사이 (클로즈업이면 두 손 사이) | `> ?` | > 흰색 · ? 노랑 |
 
 프롬프트:
 
@@ -204,7 +201,7 @@ Blurred background: a white glowing price line running to the right between a gl
 Neither choice is highlighted, pressed or brighter; nobody is winning. Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
 If 16:9 is not available, use the widest landscape canvas; in any case keep the hands, the face, the die and the buttons inside the central 16:9 area, at least 8% away from the top and bottom edges.
 Fictional person, not resembling any real or famous person.
-Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) the headline "SIGNAL > RANDOM ?" in the upper-right area, very large (about 13% of the image height), written as "SIGNAL" in white, ">" in yellow (#FFD400), "RANDOM" in white, "?" in yellow (#FFD400); (2) "+5%" at the right end of the green dashed line, large, written as "+5%" in bright green (#2BE0A0); (3) "−2%" at the right end of the red dashed line, large, written as "−2%" in red (#FF4D5E). Spell every item exactly as written, character by character, with the spaces shown: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→", ">", "<", "=", "+" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the buttons, the die, the calendar, the gauge, the pedestals and the price wall have nothing else written on them. Keep all text off any face and out of the bottom-right corner.
+Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) the headline "BUY → +5% or −2% ?" in the upper-right area, very large (about 13% of the image height), written as "BUY" in white letters on a bright green (#2BE0A0) rounded tag, "→" in white, "+5%" in bright green (#2BE0A0), "or" in white, "−2%" in red (#FF4D5E), "?" in yellow (#FFD400); (2) "> ?" between the group of glowing buttons and the die — between the two pedestals, or between the two hands in a close-up — very large, large, written as ">" in white, "?" in yellow (#FFD400). Spell every item exactly as written, character by character, with the spaces shown: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→", ">", "<", "=", "+" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the buttons, the die, the calendar, the gauge, the pedestals and the price wall have nothing else written on them. Keep all text off any face and out of the bottom-right corner.
 ```
 
 ## 7. keobeodeu-kol-2026-10 · thumbnail_1 — 본안(클릭률 최대): 같은 크기의 선택 사이에서 망설이는 사람 + 가린 결과(흐린 유리·닫힌 상자)

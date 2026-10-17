@@ -1,5 +1,12 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-17 (74) — 주식 1번 썸네일: SIGNAL·RANDOM 낱말 뺌
+
+사용자 지시 2026-10-17 "시그널, 랜덤까진 사용하지마".
+
+- `stock/source/eonje-maesu-2026-10/thumbnails/thumbnail_1~3.md` v3.3: 머리글 `BUY → +5% or −2% ?` (성공 = +5% 가 −2% 보다 먼저 — 대본 문장 4) + 버튼 묶음과 주사위 사이 `> ?` (신호가 무작위보다 나을까? — 문장 2·6, 결말 없음). 낱말은 BUY·or 만.
+- `stock/guides/README.md` v1.17 3번 (쓰는 낱말에서 SIGNAL·RANDOM 뺌) · 썸네일 README · `stock/thumbnails_chatgpt.md`·`thumbnails/chatgpt.md` 다시 · `guides/status.md` v1.48.
+
 ## 2026-10-17 (73) — 주식 썸네일: 머리글을 비교·수식 기호로 (16장)
 
 사용자 지시 2026-10-17 "<, >, =, vs, +, - 등등 비교나 간단한 수식 관련된 기호 문구도 사용하는 게 좋을 것 같아 다시 수정해봐".

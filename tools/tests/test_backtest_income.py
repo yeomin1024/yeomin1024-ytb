@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-10-16 — tools/backtest/income.py v1.0·leverage.py v1.0 시험 (주식 2·3·4번). 네트워크 없이 만든 자료로.
+# VERSION: v1.1 — 2026-10-17 — numcheck.about() 어림 금액 시험 더함.
+# v1.0 — 2026-10-16 — tools/backtest/income.py v1.0·leverage.py v1.0 시험 (주식 2·3·4번). 네트워크 없이 만든 자료로.
 """python3 -m unittest test_backtest_income  (tools/tests 에서)"""
 import sys
 import unittest
@@ -11,6 +12,7 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from backtest import income as ic  # noqa: E402
 from backtest import leverage as lv  # noqa: E402
+from backtest import numcheck as nc  # noqa: E402
 
 
 def frame(close, div=None, start="2014-01-01"):
@@ -150,6 +152,22 @@ class LeverageTest(unittest.TestCase):
         g = lv.grow(r, initial=0.0, monthly=100, fee=0.0)
         self.assertAlmostEqual(g["paid"][-1], 400.0)                  # 1/30 첫 매수 + 2·3·4월 첫 거래일
         self.assertAlmostEqual(g["val"][-1], 400.0)
+
+
+
+class AboutTest(unittest.TestCase):
+    """대본 어림 금액: 단위 하나 (만 + 쉼표 숫자를 섞지 않음), 반올림은 0.5 올림."""
+    def test_about(self):
+        cases = {9461: "9,461달러", 95647: "약 9만 6천 달러", 82500: "약 8만 3천 달러", 82499: "약 8만 2천 달러", 99600: "약 10만 달러",
+                 100945: "약 10만 달러", 564469: "약 56만 달러", 17306585: "약 1,731만 달러", 90000: "약 9만 달러"}
+        for x, want in cases.items():
+            self.assertEqual(nc.about(x), want, x)
+        for x in cases:
+            s = nc.about(x)
+            self.assertFalse("만 " in s and "," in s.split("만 ")[-1], s)       # '56만 4,469달러' 꼴이 아님
+
+    def test_times(self):
+        self.assertEqual(nc.times(3.16141), "3.16배")
 
 
 if __name__ == "__main__":

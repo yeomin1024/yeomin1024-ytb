@@ -4,7 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>커버드콜 원금 쇼츠</title>
-<!-- VERSION: v2.0 — 2026-10-17 — **결과를 바로 보여 주는 쇼츠** (사용자 지시 2026-10-17 "야 주식 쇼츠는 테스트로 호기심 유발, 어떻게 최대한 짧게 설명해서 결과를 바로
+<!-- VERSION: v2.1 — 2026-10-17 — **왜·어떻게를 빼지 않음** (사용자 지시 2026-10-17 "그래 왜 그런 테스트 했는지 언급을 해줘야 할 거 아니야 그리고 테스트 결과 얘기 할 때 돈을 꺼냈어요
+     바로 얘기하는게 아니라 파이썬 코드로 테스트를 해봤습니다 이렇게 무슨 방법으로 테스트했는지도 말해야지 … 니가 아무것도 모르는 시청자 입장이 되보라고 … 그리고 벌어진 과정과 원인,
+     시작 달을 바꾼 결과는 이거 표현이 어색하니까 다시 멘트 잘 다듬어"): 대본 v2.1 12문장 — s1 시험할 말('원금이 잘 안 깎인다') · s2 AI 파이썬 코드 + 과거 실제 가격 → **코드 카드**
+     (tools/backtest/income.py withdraw_pair() 의 실제 줄 — stock/guides/concept.md 2번 '화면에 AI가 짠 코드 몇 줄') · s3 QYLD · s4 QQQ(커버드콜 없이 같은 지수) · s5 원금 $100,000 칩 ·
+     s6 경주 시작 · s7 QQQ 도 같은 금액 SELL · s8~s10 결과 · s11 왜? · s12 '그 이유와, 다른 달에 시작해도 결과가 같은지' — 끝 화면 그림 둘(↑↓? · 달력 ↻). 아래 칸은 경주가 흐를 때부터.
+     (v2.0 — 2026-10-17 — 결과를 바로 보여 주는 쇼츠, 화면 좌표 가운데 x 540·크게, 경주 2026년 끝까지 — 커밋 75c08ffa.) -->
+<!-- (이전 머리말) VERSION: v2.0 — 2026-10-17 — **결과를 바로 보여 주는 쇼츠** (사용자 지시 2026-10-17 "야 주식 쇼츠는 테스트로 호기심 유발, 어떻게 최대한 짧게 설명해서 결과를 바로
      말하자 그리고 과정과 결과에 대한 분석으로 더 보고 싶으면 롱폼 영상으로 유도하는걸로하자 일단 하나만 수정해봐"): 대본 v2.0 (8문장 — 질문 → 티커 → 방법 한 문장 → 결과 셋 → 왜? → 롱폼).
      경주를 2013.12 → 2026.10.15 끝까지 달리고 QQQ 선도 그림 (예전 v1.0 은 2020.03 에서 멈추고 QQQ 를 '?'로 가림). 롱폼에만 남기는 것 = 날짜별 과정(폭락·2022 하락)·원인(오를 때·떨어질 때)·시작 달을 바꾼 계좌.
      **화면 좌표를 바로 씀 — 가운데 x 540·크게** (`guides/video_guide.md` v4.13 6번 '가운데·크게'를 .mid 없이 처음부터: 글자·그림 x 66~1014, y 160~1300), 안전 구역 150 60 1320 60.
@@ -32,6 +38,8 @@ body.render #wrap{width:1080px;height:1920px;max-width:none;margin:0}
 .card{position:absolute;width:430px;height:520px;border-radius:34px;background:rgba(255,255,255,.045);border:3px solid rgba(160,176,204,.25);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:40px}
 .tease{width:270px;height:300px;border-radius:28px;background:rgba(255,255,255,.05);border:3px solid rgba(255,212,0,.45);display:grid;place-items:center}
 .arrow{position:absolute}
+.code{position:absolute;font-family:"DejaVu Sans Mono","Consolas",monospace;font-size:38px;line-height:1.5;white-space:pre;padding:30px 40px;border-radius:24px;background:#0A1020;border:2px solid rgba(255,255,255,.14);color:#D6E0EF;box-shadow:0 30px 60px rgba(0,0,0,.5)}   /* 코드 카드 — 주식 1번 롱폼과 같은 모양 */
+.code .k{color:#FF8AD8}.code .f{color:#7FD4FF}.code .n{color:#FFD400}.code .o{color:#2BE0A0}
 </style>
 </head>
 <body>
@@ -40,7 +48,7 @@ body.render #wrap{width:1080px;height:1920px;max-width:none;margin:0}
 <div id="now"></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="../../../stock/source/keobeodeu-kol-2026-10/backtest/anim.js"></script>
-<script id="ep-data">/*EP-DATA:BEGIN*/window.EP={"id":"keobeodeu-kol-2026-10-shorts","topic":"stock","duration":40.94,"audio":null,"thumb":null,"estimated":true,"est_model":{"perSyl":0.151,"comma":0.25,"base":-0.08,"min":0.8,"lead":0.3,"gap":0.45,"part":1,"tail":0.8},"synced":"2026-10-17T15:14:15Z","sent":[{"n":1,"part":"커버드콜 vs QQQ","text":"커버드콜 QYLD로 분배금을 매달 꺼내 쓰면, QQQ보다 더 남을까요?","start":0.3,"end":5},{"n":2,"part":"커버드콜 vs QQQ","text":"나스닥100 커버드콜 ETF인 QYLD와, 나스닥100을 따라가는 ETF인 QQQ예요.","start":5.45,"end":11.358},{"n":3,"part":"커버드콜 vs QQQ","text":"2013년 12월 10만 달러씩 넣고, 두 계좌에서 매달 같은 돈을 꺼냈어요.","start":11.808,"end":16.508},{"n":4,"part":"커버드콜 vs QQQ","text":"2026년까지 꺼낸 돈은, 둘 다 약 11만 달러였어요.","start":16.958,"end":20.601},{"n":5,"part":"커버드콜 vs QQQ","text":"QYLD 계좌에 남은 돈은 약 7만 5천 달러로, 원금보다 25.3% 적어요.","start":21.051,"end":26.506},{"n":6,"part":"커버드콜 vs QQQ","text":"QQQ 계좌에는 약 51만 달러, QYLD의 6.83배가 남았습니다.","start":26.956,"end":31.807},{"n":7,"part":"커버드콜 vs QQQ","text":"같은 돈을 꺼냈는데, 왜 이렇게 차이가 났을까요?","start":32.257,"end":35.296},{"n":8,"part":"커버드콜 vs QQQ","text":"벌어진 과정과 원인, 시작 달을 바꾼 결과는 아래 영상에서 확인하세요.","start":35.746,"end":40.144}],"subs":[[0.3,5,"커버드콜 QYLD로 분배금을 매달 꺼내 쓰면, QQQ보다 더 남을까요?"],[5.45,8.442,"나스닥100 커버드콜 ETF인 QYLD와,"],[8.442,11.358,"나스닥100을 따라가는 ETF인 QQQ예요."],[11.808,16.508,"2013년 12월 10만 달러씩 넣고, 두 계좌에서 매달 같은 돈을 꺼냈어요."],[16.958,20.601,"2026년까지 꺼낸 돈은, 둘 다 약 11만 달러였어요."],[21.051,26.506,"QYLD 계좌에 남은 돈은 약 7만 5천 달러로, 원금보다 25.3% 적어요."],[26.956,31.807,"QQQ 계좌에는 약 51만 달러, QYLD의 6.83배가 남았습니다."],[32.257,35.296,"같은 돈을 꺼냈는데, 왜 이렇게 차이가 났을까요?"],[35.746,40.144,"벌어진 과정과 원인, 시작 달을 바꾼 결과는 아래 영상에서 확인하세요."]],"subs_estimated":true};/*EP-DATA:END*/</script>
+<script id="ep-data">/*EP-DATA:BEGIN*/window.EP={"id":"keobeodeu-kol-2026-10-shorts","topic":"stock","duration":59.84,"audio":null,"thumb":null,"estimated":true,"est_model":{"perSyl":0.151,"comma":0.25,"base":-0.08,"min":0.8,"lead":0.3,"gap":0.45,"part":1,"tail":0.8},"synced":"2026-10-17T16:19:13Z","sent":[{"n":1,"part":"커버드콜 vs QQQ","text":"분배금을 매달 주는 커버드콜 ETF는, 그 돈을 꺼내 써도 원금이 잘 안 깎인다고 하죠.","start":0.3,"end":5.755},{"n":2,"part":"커버드콜 vs QQQ","text":"정말 그런지, AI가 짠 파이썬 코드로 과거 실제 가격을 넣어 백테스트해 봤습니다.","start":6.205,"end":11.66},{"n":3,"part":"커버드콜 vs QQQ","text":"시험한 건 나스닥100 커버드콜 ETF인 QYLD예요.","start":12.11,"end":15.654},{"n":4,"part":"커버드콜 vs QQQ","text":"비교 상대는 커버드콜 없이 나스닥100을 그대로 따라가는 ETF, QQQ입니다.","start":16.104,"end":21.257},{"n":5,"part":"커버드콜 vs QQQ","text":"2013년 12월, 두 계좌에 원금 10만 달러씩 넣었어요.","start":21.707,"end":25.35},{"n":6,"part":"커버드콜 vs QQQ","text":"QYLD는 분배금이 나올 때마다 전부 꺼내 썼고요.","start":25.8,"end":29.042},{"n":7,"part":"커버드콜 vs QQQ","text":"공정하게 비교하려고, QQQ에서도 같은 날 같은 금액을 매도해서 꺼냈어요.","start":29.492,"end":34.343},{"n":8,"part":"커버드콜 vs QQQ","text":"2026년까지 두 계좌가 꺼낸 돈은, 똑같이 약 11만 달러였어요.","start":34.793,"end":39.191},{"n":9,"part":"커버드콜 vs QQQ","text":"QYLD 계좌에 남은 돈은 약 7만 5천 달러로, 원금보다 25.3% 적어요.","start":39.641,"end":45.096},{"n":10,"part":"커버드콜 vs QQQ","text":"QQQ 계좌에는 약 51만 달러, QYLD의 6.83배가 남았습니다.","start":45.546,"end":50.397},{"n":11,"part":"커버드콜 vs QQQ","text":"같은 돈을 꺼냈는데, 왜 이렇게 차이가 났을까요?","start":50.847,"end":53.886},{"n":12,"part":"커버드콜 vs QQQ","text":"그 이유와, 다른 달에 시작해도 결과가 같은지는 아래 영상에서 확인하세요.","start":54.336,"end":59.036}],"subs":[[0.3,2.989,"분배금을 매달 주는 커버드콜 ETF는,"],[2.989,5.755,"그 돈을 꺼내 써도 원금이 잘 안 깎인다고 하죠."],[6.205,8.894,"정말 그런지, AI가 짠 파이썬 코드로"],[8.894,11.66,"과거 실제 가격을 넣어 백테스트해 봤습니다."],[12.11,15.654,"시험한 건 나스닥100 커버드콜 ETF인 QYLD예요."],[16.104,18.565,"비교 상대는 커버드콜 없이 나스닥100을"],[18.565,21.257,"그대로 따라가는 ETF, QQQ입니다."],[21.707,25.35,"2013년 12월, 두 계좌에 원금 10만 달러씩 넣었어요."],[25.8,29.042,"QYLD는 분배금이 나올 때마다 전부 꺼내 썼고요."],[29.492,34.343,"공정하게 비교하려고, QQQ에서도 같은 날 같은 금액을 매도해서 꺼냈어요."],[34.793,39.191,"2026년까지 두 계좌가 꺼낸 돈은, 똑같이 약 11만 달러였어요."],[39.641,45.096,"QYLD 계좌에 남은 돈은 약 7만 5천 달러로, 원금보다 25.3% 적어요."],[45.546,50.397,"QQQ 계좌에는 약 51만 달러, QYLD의 6.83배가 남았습니다."],[50.847,53.886,"같은 돈을 꺼냈는데, 왜 이렇게 차이가 났을까요?"],[54.336,59.036,"그 이유와, 다른 달에 시작해도 결과가 같은지는 아래 영상에서 확인하세요."]],"subs_estimated":true};/*EP-DATA:END*/</script>
 <script src="../../render/kit.js"></script>
 <script src="../../render/race2d.js"></script>
 <script>
@@ -72,39 +80,48 @@ const IC = {
   line: (s = 120) => `<svg viewBox="0 0 96 64" width="${s * 1.5}" height="${s}"><path d="M4 56 L20 40 L30 46 L44 22 L52 6 L60 12 L70 2 L80 14 L92 4" fill="none" stroke="${BL}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
   coin: (s = 48) => `<svg viewBox="0 0 48 48" width="${s}" height="${s}"><circle cx="24" cy="24" r="20" fill="#E8B800" stroke="#7A5A00" stroke-width="3"/><path d="M24 13v22M29 17.5c-1.5-1.6-3.3-2.3-5.2-2.3-3 0-5 1.6-5 3.9 0 5.4 10.6 3 10.6 8.5 0 2.4-2.2 4.1-5.4 4.1-2.3 0-4.3-.9-5.8-2.6" fill="none" stroke="#7A5A00" stroke-width="3" stroke-linecap="round"/></svg>`,
   // 끝 화면 그림 셋 (롱폼에 있는 것)
-  race: () => `<svg viewBox="0 0 200 140" width="210" height="147"><path d="M10 128 H190" stroke="rgba(160,176,204,.4)" stroke-width="4"/><path d="M14 96 H186" stroke="${YE}" stroke-width="5" stroke-dasharray="12 8"/><path d="M14 98 L40 90 L60 104 L84 70 L104 80 L124 40 L144 62 L164 28 L186 12" fill="none" stroke="${BL}" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 98 L40 100 L60 112 L84 104 L104 110 L124 104 L144 118 L164 110 L186 114" fill="none" stroke="${OR}" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><path d="M60 104 l0 18 M144 118 l0 10" stroke="${RD}" stroke-width="6" stroke-linecap="round"/></svg>`,
   updown: () => `<svg viewBox="0 0 200 140" width="210" height="147"><path d="M44 112 V30 M22 52 L44 28 L66 52" fill="none" stroke="${MI}" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/><path d="M106 28 V110 M84 88 L106 112 L128 88" fill="none" stroke="${RD}" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/><text x="172" y="96" text-anchor="middle" font-family="Noto Sans KR" font-weight="900" font-size="88" fill="${YE}">?</text></svg>`,
   cals: () => `<svg viewBox="0 0 200 140" width="210" height="147"><g fill="#22324F" stroke="#9FB1CF" stroke-width="5"><rect x="12" y="34" width="70" height="66" rx="10"/><rect x="66" y="24" width="70" height="66" rx="10"/><rect x="120" y="14" width="70" height="66" rx="10"/></g><path d="M12 52h70M66 42h70M120 32h70" stroke="#9FB1CF" stroke-width="5"/><path d="M40 118 C80 140 130 140 170 104 M170 104 l-2 22 M170 104 l-22 -2" fill="none" stroke="${YE}" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
 };
 
-// 문장 (대본 shorts/keobeodeu-kol-2026-10-shorts.txt v2.0 — 글자로 찾음)
-const A1 = "QQQ보다 더 남을까요", A2 = "커버드콜 ETF인 QYLD와", A3 = "두 계좌에서 매달 같은 돈을", A4 = "꺼낸 돈은, 둘 다", A5 = "QYLD 계좌에 남은 돈은",
-  A6 = "QQQ 계좌에는 약 51만", A7 = "왜 이렇게 차이가", A8 = "벌어진 과정과 원인";
+// 문장 (대본 shorts/keobeodeu-kol-2026-10-shorts.txt v2.1 — 글자로 찾음)
+const B1 = "원금이 잘 안 깎인다고", B2 = "파이썬 코드로", B3 = "시험한 건", B4 = "비교 상대는", B5 = "원금 10만 달러씩", B6 = "분배금이 나올 때마다", B7 = "공정하게 비교하려고",
+  A4 = "꺼낸 돈은, 똑같이", A5 = "QYLD 계좌에 남은 돈은", A6 = "QQQ 계좌에는 약 51만", A7 = "왜 이렇게 차이가", A8 = "그 이유와";
 const K1 = N - 1, endA = CC.a[K1], endB = CC.b[K1], endO = CC.out[K1];
 const rA = endA / I0 - 1, xAB = endB / endA;
 // 대본과 화면 숫자 맞추기 (대본: 약 11만 · 약 7만 5천 · 25.3% · 약 51만 · 6.83배 · 2026년)
 if (pcs(rA) !== "−25.3%" || xAB.toFixed(2) !== "6.83" || Math.round(endO / 1e4) !== 11 || Math.round(endA / 5e3) * 5 !== 75 || Math.round(endB / 1e4) !== 51 || CC.dates[K1].slice(0, 4) !== "2026")
   throw new Error(`화면 숫자가 대본과 다름: ${pcs(rA)} ×${xAB.toFixed(2)} out=${endO} a=${endA} b=${endB} ${CC.dates[K1]}`);
 
-// 1. 첫 문장 = 쇼츠 썸네일 그림 (질문 — QYLD > QQQ ?)
-K.cover(S(A2) - 0.05);
+// 1. 첫 문장 = 쇼츠 썸네일 그림 ('원금이 잘 안 깎인다' — 시험할 말)
+K.cover(S(B2) - 0.05);
 K.cut(0.1, "0초 그림 = 썸네일로 고를 프레임");
-K.cut(E(A1) - 0.2, "첫 문장 (그림)");
+K.cut(E(B1) - 0.2, "첫 문장 (그림)");
 
-// 2. NASDAQ 100 · QYLD(커버드콜) · QQQ (s2)
-{ const a = S(A2), sc = K.scene(a - 0.3, S(A3) - 0.1);
-  const head = el(`<div class="a cx row" style="left:${CX}px;top:370px;gap:22px">${IC.up(76, "#C9D2E2")}<span class="big" style="font-size:84px">NASDAQ 100</span></div>`, sc);
-  pop(head, a);
-  const c1 = el(`<div class="card" style="left:70px;top:540px">${TK("QYLD", "o", 104)}${IC.cap(130)}</div>`, sc);
-  pop(c1, W(A2, "QYLD와") - 0.2);
-  const c2 = el(`<div class="card" style="left:580px;top:540px">${TK("QQQ", "b", 104)}${IC.line(130)}</div>`, sc);
-  pop(c2, W(A2, "QQQ예요") - 0.2);
-  K.cut(E(A2) - 0.2, "NASDAQ 100 · QYLD(커버드콜) · QQQ");
+// 2. 어떻게 — AI가 짠 파이썬 코드 + 과거 실제 가격 (s2) · 코드 = tools/backtest/income.py withdraw_pair() 의 실제 줄
+{ const a = S(B2), sc = K.scene(a - 0.3, S(B3) - 0.1);
+  const px = el(`<svg class="a cx" viewBox="0 0 420 130" width="420" height="130" style="left:${CX}px;top:470px" aria-hidden="true"><path d="M8 122 H412" stroke="rgba(160,176,204,.35)" stroke-width="4"/><path d="M10 104 L40 94 L62 108 L92 76 L118 84 L146 52 L170 70 L204 40 L232 58 L262 30 L294 46 L326 22 L356 36 L410 10" fill="none" stroke="#F4F6FA" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg>`, sc);
+  pop(px, W(B2, "과거"));
+  const code = el(`<div class="code" style="left:72px;top:650px;font-size:36px;line-height:1.5"><span class="n">income.py</span>\n<span class="k">for</span> i <span class="k">in</span> <span class="f">range</span>(n):\n    <span class="k">if</span> da[i] <span class="o">&gt;</span> <span class="n">0</span>:\n        cash <span class="o">=</span> sa <span class="o">*</span> da[i] <span class="o">*</span> (<span class="n">1</span> <span class="o">-</span> tax)\n        out <span class="o">+=</span> cash\n        need <span class="o">=</span> cash <span class="o">/</span> (<span class="n">1</span> <span class="o">-</span> fee) <span class="o">/</span> cb[i]\n        sb <span class="o">-=</span> need</div>`, sc);
+  pop(code, W(B2, "파이썬"));
+  K.cut(E(B2) - 0.2, "AI 파이썬 코드 · 과거 실제 가격");
 }
 
-// 3~7. 경주 2013.12 → 2026.10.15 (s3~s7) — 꺼낸 날마다 두 선 끝에서 동전
-const tR0 = S(A3) - 0.3, tR1 = S(A8) - 0.1;
-const tGo = S(A3) + 0.15, tEnd = W(A4, "11만") - 0.15;
+// 3·4. NASDAQ 100 · QYLD(커버드콜) · QQQ(커버드콜 없이) (s3·s4)
+{ const a = S(B3), sc = K.scene(a - 0.3, S(B5) - 0.1);
+  const head = el(`<div class="a cx row" style="left:${CX}px;top:370px;gap:22px">${IC.up(76, "#C9D2E2")}<span class="big" style="font-size:84px">NASDAQ 100</span></div>`, sc);
+  pop(head, W(B3, "나스닥100"));
+  const c1 = el(`<div class="card" style="left:70px;top:540px">${TK("QYLD", "o", 104)}${IC.cap(130)}</div>`, sc);
+  pop(c1, W(B3, "QYLD예요") - 0.2);
+  const c2 = el(`<div class="card" style="left:580px;top:540px">${TK("QQQ", "b", 104)}${IC.line(130)}</div>`, sc);
+  pop(c2, W(B4, "QQQ입니다") - 0.2);
+  K.cut(E(B3) - 0.2, "QYLD = NASDAQ 100 커버드콜");
+  K.cut(E(B4) - 0.2, "QQQ = NASDAQ 100 그대로");
+}
+
+// 5~11. 경주 2013.12 → 2026.10.15 (s5~s11) — s5 원금(노란 점선) · s6 부터 날짜가 흐름 · 꺼낸 날마다 두 선 끝에서 동전
+const tR0 = S(B5) - 0.3, tR1 = S(A8) - 0.1;
+const tGo = S(B6) - 0.1, tEnd = W(A4, "11만") - 0.15;
 const pace = R2.warp([[tGo, 0], [tEnd, K1]], "쇼츠 경주 QYLD·QQQ 끝까지", 700);
 const yearsT = []; for (let i = 1; i < N; i++) if (CC.dates[i].slice(0, 4) !== CC.dates[i - 1].slice(0, 4)) yearsT.push([i, CC.dates[i].slice(0, 4)]);
 const ch = new R2.Chart({ x: 200, y: 290, w: 740, h: 690, n: N, years: yearsT, yearGap: 150, mode: "lin", min: 0, maxMin: 160000, pad: 1.1,
@@ -113,6 +130,7 @@ const ch = new R2.Chart({ x: 200, y: 290, w: 740, h: 690, n: N, years: yearsT, y
 const EV = CC.ev.map(([i, amt]) => ({ i, amt, t: pace.tOf(i) }));     // 분배금 꺼낸 날 (anim.js ev = [날, 금액]) — QQQ 도 같은 날 같은 돈을 매도
 const rr = (x, y, w, h, r) => R2.rr(ctx, x, y, w, h, r);
 const ROW = { a: 1090, b: 1170, o: 1250 };          // 아래 칸 (위 y — 높이 56)
+const tP = W(B5, "10만"), tS = W(B7, "매도해서"), tSame = W(B7, "같은 금액을");
 const tO = W(A4, "11만"), tA = W(A5, "25.3%"), tAv = W(A5, "7만"), tBv = W(A6, "51만"), tX = W(A6, "6.83배"), tQ = S(A7);
 const tag = (x, y, s, c, ink) => { ctx.font = `900 38px ${R2.FONT}`; const w = ctx.measureText(s).width + 30; ctx.fillStyle = c; rr(x, y, w, 56, 12); ctx.fill(); ctx.fillStyle = ink; ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText(s, x + w / 2, y + 30); return w; };
 const flash = (t, t0, y) => { if (t < t0 - 0.1 || t > t0 + 1.6) return; const u = clamp((t - t0 + 0.1) / 0.25, 0, 1) * clamp((t0 + 1.6 - t) / 0.4, 0, 1); ctx.fillStyle = `rgba(232,184,0,${0.2 * u})`; rr(66, y - 8, 948, 72, 16); ctx.fill(); };
@@ -173,22 +191,30 @@ add(tR0, tR1, t => {
     ctx.globalAlpha = al * u * q; ctx.font = `900 170px ${R2.FONT}`; ctx.fillStyle = YE; ctx.textAlign = "center"; ctx.textBaseline = "middle";
     ctx.shadowColor = "rgba(255,212,0,.6)"; ctx.shadowBlur = 30; ctx.fillText("?", xm, ym); ctx.shadowBlur = 0; ctx.globalAlpha = al;
   }
-  // 아래 칸: QYLD 값 · 원금 대비 / QQQ 값 / 꺼낸 돈 (QYLD = QQQ)
+  // s5 원금 $100,000 칩 (노란 점선) — 경주 시작 전
+  if (t >= tP - 0.2 && t < tGo + 0.6) R2.pin(ctx, ch.X(0) + 60, ch.Y(I0), money(I0), YE, clamp((t - tP + 0.2) / 0.3, 0, 1) * clamp((tGo + 0.6 - t) / 0.4, 0, 1), true, 44, [200, 1014]);
+  // s7 QQQ 도 같은 날 같은 금액을 SELL
+  if (t >= tS - 0.2 && t < E(B7) + 0.6) { const u = clamp((t - tS + 0.2) / 0.3, 0, 1) * clamp((E(B7) + 0.6 - t) / 0.4, 0, 1); ctx.globalAlpha = al * u;
+    ctx.font = `900 40px ${R2.FONT}`; const w = ctx.measureText("SELL").width + 28, x = clamp(hB.x + 26, 200, 1014 - w), y = hB.y - 30; ctx.fillStyle = RD; rr(x, y, w, 52, 12); ctx.fill(); ctx.fillStyle = "#fff"; ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText("SELL", x + w / 2, y + 28); ctx.globalAlpha = al; }
+  // 아래 칸: QYLD 값 · 원금 대비 / QQQ 값 / 꺼낸 돈 (QYLD = QQQ) — 날짜가 흐르기 시작할 때부터
+  const ra = clamp((t - tGo + 0.2) / 0.4, 0, 1); if (ra <= 0) { ctx.restore(); return; } ctx.globalAlpha = al * ra;
   const v = CC.a[k], r = v / I0 - 1, vb = CC.b[k];
-  flash(t, tAv, ROW.a); flash(t, tBv, ROW.b); flash(t, tO, ROW.o);
+  flash(t, tAv, ROW.a); flash(t, tBv, ROW.b); flash(t, tO, ROW.o); flash(t, tSame, ROW.o);
   tag(80, ROW.a, "QYLD", OR, "#140A00");
   ctx.font = `900 50px ${R2.FONT}`; ctx.textAlign = "right"; ctx.textBaseline = "middle"; ctx.fillStyle = "#F4F6FA"; ctx.fillText(money(v), 690, ROW.a + 30);
   ctx.fillStyle = r < 0 ? "#FF6B78" : MI; ctx.fillText(pcs(r), 1000, ROW.a + 30);
   tag(80, ROW.b, "QQQ", BL, "#03152A");
   ctx.font = `900 50px ${R2.FONT}`; ctx.textAlign = "right"; ctx.fillStyle = "#F4F6FA"; ctx.fillText(money(vb), 690, ROW.b + 30);
-  if (t >= tX - 0.25) { ctx.globalAlpha = al * clamp((t - tX + 0.25) / 0.4, 0, 1); ctx.fillStyle = YE; ctx.fillText("×" + xAB.toFixed(2), 1000, ROW.b + 30); ctx.globalAlpha = al; }
+  if (t >= tX - 0.25) { ctx.globalAlpha = al * ra * clamp((t - tX + 0.25) / 0.4, 0, 1); ctx.fillStyle = YE; ctx.fillText("×" + xAB.toFixed(2), 1000, ROW.b + 30); ctx.globalAlpha = al * ra; }
   // 꺼낸 돈: 동전 둘(두 계좌) = → 합
-  R2.coin(ctx, 104, ROW.o + 28, 24, al, OR); R2.coin(ctx, 196, ROW.o + 28, 24, al, BL);
+  R2.coin(ctx, 104, ROW.o + 28, 24, al * ra, OR); R2.coin(ctx, 196, ROW.o + 28, 24, al * ra, BL);
   ctx.font = `900 50px ${R2.FONT}`; ctx.fillStyle = "#C9D2E2"; ctx.textAlign = "center"; ctx.fillText("=", 150, ROW.o + 30); ctx.textAlign = "left"; ctx.fillText("→", 240, ROW.o + 30);
   ctx.fillStyle = "#FFD86B"; ctx.textAlign = "right"; ctx.fillText(money(CC.out[k]), 1000, ROW.o + 30);
   ctx.restore();
 });
-{ K.cut(W(A3, "같은 돈을") + 0.2, "경주 시작 · 두 선 끝에서 동전");
+{ K.cut(E(B5) - 0.2, "2013.12 · 원금 $100,000");
+  K.cut(E(B6) - 0.2, "경주 시작 · 두 선 끝에서 동전");
+  K.cut(tS + 0.4, "QQQ 도 같은 금액 SELL");
   K.cut((tGo + tEnd) / 2, "경주 중간");
   K.cut(E(A4) - 0.15, "2026.10.15 · 꺼낸 돈 $112,980");
   K.cut(E(A5) - 0.15, "QYLD $74,653 · −25.3%");
@@ -196,18 +222,14 @@ add(tR0, tR1, t => {
   K.cut(E(A7) - 0.15, "두 선 사이 · ?");
 }
 
-// 8. 끝 화면 (s8) — 롱폼에 있는 것: 날짜별 과정 · 오를 때·떨어질 때 · 시작 달 + ⬇
+// 12. 끝 화면 (s12) — 롱폼에 있는 것: 그 이유(오를 때·떨어질 때) · 다른 달에 시작한 계좌 + ⬇
 { const a = S(A8), sc = K.scene(a - 0.3, K.D, { keep: true });
-  const tk = el(`<div class="a cx row" style="left:${CX}px;top:250px;gap:30px">${TK("QYLD", "o", 76)}${TK("QQQ", "b", 76)}</div>`, sc);
+  const tk = el(`<div class="a cx row" style="left:${CX}px;top:300px;gap:30px">${TK("QYLD", "o", 76)}${TK("QQQ", "b", 76)}</div>`, sc);
   pop(tk, a);
-  const t1 = el(`<div class="a tease" style="left:120px;top:440px">${IC.race()}</div>`, sc);
-  pop(t1, W(A8, "과정"));
-  const t2 = el(`<div class="a tease" style="left:405px;top:440px">${IC.updown()}</div>`, sc);
-  pop(t2, W(A8, "원인"));
-  const t3 = el(`<div class="a tease" style="left:690px;top:440px;width:270px">${IC.cals()}</div>`, sc);
-  pop(t3, W(A8, "시작 달을"));
-  const yr = el(`<div class="a cx big tab" style="left:${CX}px;top:810px;font-size:92px">2013 → 2026</div>`, sc);
-  pop(yr, W(A8, "결과는"));
+  const t2 = el(`<div class="a tease" style="left:220px;top:490px;width:300px;height:330px">${IC.updown()}</div>`, sc);
+  pop(t2, W(A8, "이유와"));
+  const t3 = el(`<div class="a tease" style="left:560px;top:490px;width:300px;height:330px">${IC.cals()}</div>`, sc);
+  pop(t3, W(A8, "다른 달에"));
   const ar = el(`<svg class="arrow" viewBox="0 0 120 160" width="150" height="200" style="left:${CX - 75}px;top:1000px" aria-hidden="true">
     <path d="M60 6 L60 120 M14 78 L60 124 L106 78" fill="none" stroke="${YE}" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/></svg>`, sc);
   pop(ar, W(A8, "아래"));

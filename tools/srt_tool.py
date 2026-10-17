@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.8 — 2026-10-17 — 쇼츠 첫 문장(썸네일 그림 위 — kit.js K.cover)은 자막 하나에 3줄까지 ('shorts_cover'): 그 문장이 자막 2개로
+# VERSION: v1.9 — 2026-10-17 — 자막은 **2줄까지** (사용자 지시 2026-10-17 "그리고 자막은 2줄까지만 표시되도록 해"): 'shorts_cover'(쇼츠 첫 문장 — 썸네일 그림 위)를 3줄 → **글자 42px·2줄**
+#          (kit.css #cc.cover — 나머지 자막은 46px 그대로). 2줄에 들어가면 줄바꿈 점수와 상관없이 자막 하나 ('one') — 그림이 자막 하나 동안만.
+#          3줄 찾기를 지움. check: 쇼츠 첫 문장이 자막 2개면 문제 (그림이 둘째 자막까지 남음).
+# (v1.8 — 2026-10-17 — 쇼츠 첫 문장(썸네일 그림 위 — kit.js K.cover)은 자막 하나에 3줄까지 ('shorts_cover'): 그 문장이 자막 2개로
 #          나뉘면 두 번째 자막 동안에도 그림이 남아 '다음 문장으로 넘어가도 썸네일이 보임' (사용자 지시 2026-10-17 "영상에서 첫 문장만 왜 다른 문장
-#          넘어가서도 썸네일 이미지가 영상에 뜨면 어떻게 그것도 수정해"). 줄바꿈 뜻 점수를 _break_pen 으로 뗌 (예전 결과 같음).
+#          넘어가서도 썸네일 이미지가 영상에 뜨면 어떻게 그것도 수정해"). 줄바꿈 뜻 점수를 _break_pen 으로 뗌 (예전 결과 같음).)
 # (v1.7 — 2026-10-17 — 한 문장 = 자막 하나 (사용자 지시 2026-10-17 "자막 좀 되도록 한 문장은 한 자막으로 표시되게해 길지 않은 문장도
 #          잘라서 자막 띄우잖아 문장이 길면 적당한 곳에 분리하도록 해서 반영해"): 자막 모양(LAYOUTS)을 화면에 굽는 띠 그대로 재서
 #          — 롱폼 52px·한 줄 1500px, 세로 쇼츠 46px·816px — 한 줄에 안 들어가면 **같은 자막 안에서 두 줄**(쉼표·절 경계에서 줄바꿈),
@@ -54,7 +57,8 @@ LINE_MAX_PX = 1432          # 예전 자막 한 줄 최대 폭 = 띠 최대 1500
 LAYOUTS = {
     "long":   {"px": 52, "width": 1500, "lines": 2, "desc": "롱폼 1920×1080 — kit.css #cc 52px, 띠 최대 1600 − 안쪽 여백 32×2 = 1536px"},
     "shorts": {"px": 46, "width": 816, "lines": 2, "desc": "세로 쇼츠 — 장면 #cc 46px, 띠 최대 870(안전 구역 x 60~930) − 안쪽 여백 16×2 = 838px"},
-    "shorts_cover": {"px": 46, "width": 816, "lines": 3, "desc": "세로 쇼츠 첫 문장 (썸네일 그림 위 — v1.8: 자막 하나에 3줄까지, 그림이 문장 하나 동안만)"},
+    "shorts_cover": {"px": 42, "width": 816, "lines": 2, "one": True,
+                     "desc": "세로 쇼츠 첫 문장 (썸네일 그림 위 — v1.9: 글자 42px(kit.css #cc.cover)로 2줄 안에 자막 하나, 그림이 자막 하나 동안만)"},
     "line":   {"px": SUB_FONT_PX, "width": LINE_MAX_PX, "lines": 1, "desc": "예전 한 줄 자막 (주식 stock/ — 자막을 굽지 않음, 문장 시각용)"},
 }
 CARD_GAP_MIN = 3.5          # 고지 카드 공백 최소 (초)
@@ -259,35 +263,18 @@ SPLIT_GOOD = -8.0              # 그때 자막 2개로 나누는 곳이 이만�
 
 
 def _wrap(text, layout):
-    """→ (점수, 줄 목록) 또는 None. 한 줄이면 점수 −100. (v1.8) 3줄 모양은 두 줄로 잘 안 되면 세 줄."""
+    """→ (점수, 줄 목록) 또는 None. 한 줄이면 점수 −100. 줄은 2줄까지 (v1.9 — 3줄 없음)."""
     L = LAYOUTS[layout]
     fits = lambda x: text_px(x, L["px"]) <= L["width"]
     if fits(text):
         return -100.0, [text]
     if L["lines"] < 2:
         return None
-    two = _best_split(text, fits, L["px"], balance=0.5, v17=True)
-    if L["lines"] < 3 or (two and two[0] <= WRAP_BAD):
-        return two
-    words, px = text.split(" "), L["px"]
-    glyph = px * 42 / 46
-    best = None
-    for i in range(1, len(words) - 1):
-        for j in range(i + 1, len(words)):
-            ls = [" ".join(words[:i]), " ".join(words[i:j]), " ".join(words[j:])]
-            if not all(fits(x) for x in ls):
-                continue
-            w = [text_px(x, px) for x in ls]
-            score = _break_pen(words, i, True) + _break_pen(words, j, True) + 0.5 * (abs(w[0] - w[1]) + abs(w[1] - w[2])) / glyph
-            if best is None or score < best[0]:
-                best = (score, ls)
-    if two and (best is None or two[0] <= best[0]):
-        return two
-    return best
+    return _best_split(text, fits, L["px"], balance=0.5, v17=True)
 
 
 def sent_layout(layout, n):
-    """문장 n 의 자막 모양: 쇼츠 첫 문장(썸네일 그림 위 — kit.js K.cover)은 'shorts_cover'(자막 하나·3줄까지), 그 밖은 그대로 (v1.8)."""
+    """문장 n 의 자막 모양: 쇼츠 첫 문장(썸네일 그림 위 — kit.js K.cover)은 'shorts_cover'(42px·2줄, 자막 하나), 그 밖은 그대로 (v1.8 · v1.9)."""
     return "shorts_cover" if layout == "shorts" and n == 1 else layout
 
 
@@ -302,7 +289,7 @@ def cue_split(text, layout="long"):
     줄을 바꿀 곳마다 덩어리를 가를 때(WRAP_BAD 보다 나쁨)만 자막 2개 — 그때도 나눈 곳이 쉼표·절 경계(SPLIT_GOOD)일 때만."""
     L = LAYOUTS[layout]
     one = _wrap(text, layout)
-    if one and (one[0] <= WRAP_BAD or L["lines"] >= 3):     # v1.8 3줄 모양(쇼츠 첫 문장)은 들어가면 늘 자막 하나
+    if one and (one[0] <= WRAP_BAD or L.get("one")):        # v1.9 쇼츠 첫 문장('one')은 2줄에 들어가면 늘 자막 하나
         return ["\n".join(one[1])]
     v17 = layout != "line"
     two = _best_split(text, lambda x: _wrap(x, layout) is not None, L["px"], balance=0.5 if v17 else 1.0, v17=v17)
@@ -490,7 +477,7 @@ def check(txt, srt, expect=None, layout=None):
             warnings.append(f"문장 {n}: {len(a)}자 (새 대본은 50자 넘으면 두 문장으로 — 자막은 띠 폭으로 판정)")
     groups, gp = group(subs, sents)
     problems += gp
-    cue_sent = {}                                     # v1.8 자막 번호 → 문장 번호 (쇼츠 첫 문장은 3줄 모양)
+    cue_sent = {}                                     # v1.8 자막 번호 → 문장 번호 (쇼츠 첫 문장은 42px 모양 — v1.9)
     k0 = 0
     for g in groups:
         for _ in g["parts"]:
@@ -518,6 +505,8 @@ def check(txt, srt, expect=None, layout=None):
                 problems.append(f"문장 {g['n']}: 자막 하나({LAYOUTS[sent_layout(layout, g['n'])]['lines']}줄)에 들어가는데 자막 {len(g['parts'])}개로 나뉨 → 하나로 합치기 (build --reuse)")
             if len(g["parts"]) > 2:
                 problems.append(f"문장 {g['n']}: 자막 {len(g['parts'])}개로 나뉨 (2개까지)")
+            if LAYOUTS[sent_layout(layout, g["n"])].get("one"):      # v1.9 쇼츠 첫 문장 = 썸네일 그림 — 자막이 바뀌어도 그림이 남음
+                problems.append(f"문장 {g['n']}: 쇼츠 첫 문장(썸네일 그림 위)이 자막 {len(g['parts'])}개 → 대본에서 첫 문장을 줄이세요 (42px 2줄 안)")
     card_after = {c["after"]: c for c in cards}
     gaps = []
     if subs and subs[0]["start"] > LEAD_IN_MAX + EPS:

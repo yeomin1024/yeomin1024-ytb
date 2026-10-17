@@ -4,7 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>기초연금 쇼츠</title>
-<!-- VERSION: v1.0.2 — 2026-10-17 — 구운 자막 46px·띠 폭 870px(안전 구역 x 60~930, 가운데 495)·안쪽 여백 16px (한 줄 816px — srt_tool v1.7 'shorts'), 자막 = 한 문장 하나·두 줄로도 넘을 때만 쉼표·절 경계에서 둘 (사용자 지시 2026-10-17 "자막 좀 되도록 한 문장은 한 자막으로 표시되게해 … 문장이 길면 적당한 곳에 분리하도록 해서 반영해"), 추정 시각 다시.
+<!-- VERSION: v1.1 — 2026-10-17 — **가운데로·크게** (사용자 지시 2026-10-17 "아니 이거 썸네일 문제가 아니고 영상 자체가 비율 안맞는거 아니냐고 컨텐츠가 중간에 딱 안나오고 위 오른쪽에 여백이 생긴다고" · "일단 딱 하나만 고쳐봐"): 장면을 화면 가운데(x 540)로 옮기고 1.15배 (.mid — 글자·그림이 x 약 90~990, y 약 200~1220 —
+     예전은 x 110~890 · 가운데 500 · 위 262px·오른쪽 190px 가 비어 보였음), 자막 띠도 가운데 540, 첫 문장 그림은 사진 부분만 가로 가득 + 뒤는 흐린 같은 그림
+     (kit.js v1.8 K.cover box — 그림의 빈 남색 띠가 화면에 안 보이게), 안전 구역 150 60 1320 60 (자막 띠 위 y 1376 까지 56px), '?' 를 버튼 자리에서 왼쪽으로.
+     v1.0.2 — 2026-10-17 — 구운 자막 46px·띠 폭 870px(안전 구역 x 60~930, 가운데 495)·안쪽 여백 16px (한 줄 816px — srt_tool v1.7 'shorts'), 자막 = 한 문장 하나·두 줄로도 넘을 때만 쉼표·절 경계에서 둘 (사용자 지시 2026-10-17 "자막 좀 되도록 한 문장은 한 자막으로 표시되게해 … 문장이 길면 적당한 곳에 분리하도록 해서 반영해"), 추정 시각 다시.
      v1.0.1 — 2026-10-17 — 짧고 명확하게 (쇼츠 대본 v2.2 · 사용자 피드백 2026-10-17 "최대한 짧지만 이해가 다 되도록 … 좋은지 나쁜지 좀 명확하게"): 막대 제목 '기초연금 (한 달)' → '받는 기초연금 (한 달)' (박씨 0원·이웃 41만 원 넘게가 받는 돈임을). 추정 시각.
      (v1.0 — 2026-10-16) 기초연금 쇼츠 세로 장면 (사용자 지시 2026-10-16 "롱폼 영상 만들 때처럼 해서 쇼츠 영상, 이미지 프롬프트 4개 다 만들도록 하고").
      대본 economic/source/gicho-yeongeum-2026-10/shorts/ v2.0 (프롤로그형 · 각색 — 박씨 부부 = 롱폼의 부부, 이웃 부부 = 각색으로 지은 같은 형편 부부).
@@ -13,13 +16,14 @@
      핵심 정보(소득인정액·공시가격 일부·기본재산액·감액 — 왜 받는지, 신청 방법)는 그리지 않는다 — 롱폼에서 처음 나온다.
      연구·교육용 영상 — 기초연금 수급 판정·상담 아님. -->
 <meta name="video-size" content="1080x1920">
-<meta name="video-safe" content="250 150 1270 60">
+<meta name="video-safe" content="150 60 1320 60">
 <link rel="stylesheet" href="../../render/kit.css">
 <style>
 #wrap{max-width:420px;margin:0 auto;aspect-ratio:9/16}
 body.render #wrap{width:1080px;height:1920px;max-width:none;margin:0}
 #stage{width:1080px;height:1920px;background:radial-gradient(1100px 1500px at 50% 34%,#17243D 0%,#0C1424 58%,#070C17 100%)}
-#cc{left:495px;bottom:400px;max-width:870px;font-size:46px;padding:12px 16px;text-wrap:balance}
+#cc{left:540px;bottom:400px;max-width:870px;font-size:46px;padding:12px 16px;text-wrap:balance}
+.sc.mid{transform-origin:500px 701px;transform:translate(40px,calc(4px + var(--dy,0px))) scale(1.15)}   /* v1.1 장면 좌표(가운데 500)를 화면 가운데 540 으로, 1.15배 · --dy = 장면마다 세로 가운데(y 150~1350 의 가운데 750) */
 .month{position:absolute;width:110px;height:110px;border-radius:18px;border:5px solid #FF4D3D;display:grid;place-items:center;font-weight:900;font-size:44px;color:#F4F6FA}
 .arrow{position:absolute}
 </style>
@@ -29,13 +33,14 @@ body.render #wrap{width:1080px;height:1920px;max-width:none;margin:0}
 <div id="ctrl"></div>
 <div id="now"></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script id="ep-data">/*EP-DATA:BEGIN*/window.EP={"id":"gicho-yeongeum-2026-10-shorts","topic":"economic","duration":49.46,"audio":"../../../economic/source/gicho-yeongeum-2026-10/shorts/narration.mp3","thumb":"../../../economic/source/gicho-yeongeum-2026-10/shorts/thumbnails/thumbnail_1.png","synced":"2026-10-17T13:18:47Z","tts":"2026-10-17T07:46:39","script_sha1":"68479f6bb9ab03d7","sent":[{"n":1,"part":"같은 형편, 다른 기초연금","text":"67세 박씨 부부는 못 받는 줄 알았던 기초연금을 매달 41만 원 넘게 놓치고 있었습니다.","start":0.3,"end":6.6},{"n":2,"part":"같은 형편, 다른 기초연금","text":"서울에 공시가격 5억 원 아파트가 있고, 국민연금은 둘이 합쳐 한 달 170만 원입니다.","start":7.05,"end":12.53},{"n":3,"part":"같은 형편, 다른 기초연금","text":"그래서 기초연금은 당연히 안 된다고 생각했어요.","start":12.98,"end":15.85},{"n":4,"part":"같은 형편, 다른 기초연금","text":"그런데 얼마 전, 같은 아파트에 사는 이웃 부부와 저녁을 먹었는데요.","start":16.3,"end":20.78},{"n":5,"part":"같은 형편, 다른 기초연금","text":"나이도 같은 67세, 집도 국민연금도 박씨네와 똑같은 부부였습니다.","start":21.23,"end":26.09},{"n":6,"part":"같은 형편, 다른 기초연금","text":"그 부부는 기초연금을 둘이 합쳐 한 달 41만 원 넘게 받고 있다는 거예요.","start":26.54,"end":31.07},{"n":7,"part":"같은 형편, 다른 기초연금","text":"박씨는 처음엔 잘못 들은 줄 알았습니다.","start":31.52,"end":33.54},{"n":8,"part":"같은 형편, 다른 기초연금","text":"박씨 부부는 신청조차 해 본 적이 없었거든요.","start":33.99,"end":36.57},{"n":9,"part":"같은 형편, 다른 기초연금","text":"신청 안 하고 1년이 지나면, 놓치는 돈은 약 500만 원입니다.","start":37.02,"end":41.19},{"n":10,"part":"같은 형편, 다른 기초연금","text":"박씨 부부, 지금이라도 받을 수 있을까요?","start":41.64,"end":43.93},{"n":11,"part":"같은 형편, 다른 기초연금","text":"우리 집도 되는지, 지금 할 일까지 아래 영상에서 확인하세요.","start":44.38,"end":48.06}],"subs":[[0.2,7.05,"67세 박씨 부부는\n못 받는 줄 알았던 기초연금을\n매달 41만 원 넘게 놓치고 있었습니다."],[7.05,9.772,"서울에 공시가격 5억 원 아파트가 있고,"],[9.772,12.98,"국민연금은\n둘이 합쳐 한 달 170만 원입니다."],[12.98,16.3,"그래서 기초연금은 당연히 안 된다고\n생각했어요."],[16.3,21.23,"그런데 얼마 전, 같은 아파트에 사는\n이웃 부부와 저녁을 먹었는데요."],[21.23,26.54,"나이도 같은 67세, 집도 국민연금도\n박씨네와 똑같은 부부였습니다."],[26.54,31.52,"그 부부는 기초연금을 둘이 합쳐 한 달\n41만 원 넘게 받고 있다는 거예요."],[31.52,33.99,"박씨는 처음엔 잘못 들은 줄 알았습니다."],[33.99,37.02,"박씨 부부는 신청조차 해 본 적이\n없었거든요."],[37.02,41.64,"신청 안 하고 1년이 지나면,\n놓치는 돈은 약 500만 원입니다."],[41.64,44.38,"박씨 부부, 지금이라도 받을 수 있을까요?"],[44.38,48.46,"우리 집도 되는지,\n지금 할 일까지 아래 영상에서 확인하세요."]]};/*EP-DATA:END*/</script>
+<script id="ep-data">/*EP-DATA:BEGIN*/window.EP={"id":"gicho-yeongeum-2026-10-shorts","topic":"economic","duration":49.46,"audio":"../../../economic/source/gicho-yeongeum-2026-10/shorts/narration.mp3","thumb":"../../../economic/source/gicho-yeongeum-2026-10/shorts/thumbnails/thumbnail_1.png","synced":"2026-10-17T13:46:30Z","tts":"2026-10-17T07:46:39","script_sha1":"68479f6bb9ab03d7","sent":[{"n":1,"part":"같은 형편, 다른 기초연금","text":"67세 박씨 부부는 못 받는 줄 알았던 기초연금을 매달 41만 원 넘게 놓치고 있었습니다.","start":0.3,"end":6.6},{"n":2,"part":"같은 형편, 다른 기초연금","text":"서울에 공시가격 5억 원 아파트가 있고, 국민연금은 둘이 합쳐 한 달 170만 원입니다.","start":7.05,"end":12.53},{"n":3,"part":"같은 형편, 다른 기초연금","text":"그래서 기초연금은 당연히 안 된다고 생각했어요.","start":12.98,"end":15.85},{"n":4,"part":"같은 형편, 다른 기초연금","text":"그런데 얼마 전, 같은 아파트에 사는 이웃 부부와 저녁을 먹었는데요.","start":16.3,"end":20.78},{"n":5,"part":"같은 형편, 다른 기초연금","text":"나이도 같은 67세, 집도 국민연금도 박씨네와 똑같은 부부였습니다.","start":21.23,"end":26.09},{"n":6,"part":"같은 형편, 다른 기초연금","text":"그 부부는 기초연금을 둘이 합쳐 한 달 41만 원 넘게 받고 있다는 거예요.","start":26.54,"end":31.07},{"n":7,"part":"같은 형편, 다른 기초연금","text":"박씨는 처음엔 잘못 들은 줄 알았습니다.","start":31.52,"end":33.54},{"n":8,"part":"같은 형편, 다른 기초연금","text":"박씨 부부는 신청조차 해 본 적이 없었거든요.","start":33.99,"end":36.57},{"n":9,"part":"같은 형편, 다른 기초연금","text":"신청 안 하고 1년이 지나면, 놓치는 돈은 약 500만 원입니다.","start":37.02,"end":41.19},{"n":10,"part":"같은 형편, 다른 기초연금","text":"박씨 부부, 지금이라도 받을 수 있을까요?","start":41.64,"end":43.93},{"n":11,"part":"같은 형편, 다른 기초연금","text":"우리 집도 되는지, 지금 할 일까지 아래 영상에서 확인하세요.","start":44.38,"end":48.06}],"subs":[[0.2,7.05,"67세 박씨 부부는 못 받는 줄 알았던 기초연금을\n매달 41만 원 넘게 놓치고 있었습니다."],[7.05,9.772,"서울에 공시가격 5억 원 아파트가 있고,"],[9.772,12.98,"국민연금은\n둘이 합쳐 한 달 170만 원입니다."],[12.98,16.3,"그래서 기초연금은 당연히 안 된다고\n생각했어요."],[16.3,21.23,"그런데 얼마 전, 같은 아파트에 사는\n이웃 부부와 저녁을 먹었는데요."],[21.23,26.54,"나이도 같은 67세, 집도 국민연금도\n박씨네와 똑같은 부부였습니다."],[26.54,31.52,"그 부부는 기초연금을 둘이 합쳐 한 달\n41만 원 넘게 받고 있다는 거예요."],[31.52,33.99,"박씨는 처음엔 잘못 들은 줄 알았습니다."],[33.99,37.02,"박씨 부부는 신청조차 해 본 적이\n없었거든요."],[37.02,41.64,"신청 안 하고 1년이 지나면,\n놓치는 돈은 약 500만 원입니다."],[41.64,44.38,"박씨 부부, 지금이라도 받을 수 있을까요?"],[44.38,48.46,"우리 집도 되는지,\n지금 할 일까지 아래 영상에서 확인하세요."]]};/*EP-DATA:END*/</script>
 <script src="../../render/kit.js"></script>
 <script>
 (function () {
 "use strict";
 K.init(window.EP, { chip: false, w: 1080 });
-const { S, E, W, el, pop, out, dim, counter, scene, text, big, fmt, grow } = K;
+const { S, E, W, el, pop, out, dim, counter, text, big, fmt, grow } = K;
+const scene = (a, b, o, dy) => { const sc = K.scene(a, b, o); sc.classList.add("mid"); if (dy) sc.style.setProperty("--dy", dy + "px"); return sc; };   // v1.1 가운데로·크게 (dy = 세로 가운데 맞춤, 장면 전체 글자·그림 범위로 잼)
 const tl = K.tl;
 const R = "#FF4D3D", G = "#22C7B0", Y = "#FFD400";
 const CX = 500, LX = 270, RX = 730;            // 장면 가운데 (오른쪽 150px 버튼 자리 빼고) · 왼쪽 박씨 부부 · 오른쪽 이웃 부부
@@ -52,12 +57,12 @@ const row = (sc, top, l, r, at, size) => {        // 같은 조건 한 줄: 왼�
 };
 
 /* 1. 첫 문장 = 쇼츠 썸네일 이미지 (박씨 부부 기초연금 매달 41만 원 넘게 놓침) */
-K.cover(until(2));
+K.cover(until(2), { box: [0, 0.147, 0.79, 0.6], ar: 941 / 1672, cy: 705 });   // v1.1 그림의 사진 부분(빈 남색 띠 빼고 — tools/cover_check.py)만 가로 가득
 K.cut(0.1, "0초 그림 = 썸네일로 고를 프레임");
 K.cut(E(1) - 0.2, "첫 문장 + 자막");
 
 /* 2. 박씨 부부의 형편 (s2–s3) — 서울 아파트 공시가격 5억 원 · 국민연금 둘이 월 170만 원 → '기초연금 ✕'(박씨의 생각) */
-{ const sc = scene(S(2) - 0.3, until(4));
+{ const sc = scene(S(2) - 0.3, until(4), null, 130);
   const A = K.couple(sc, CX, 262, "A", 120, "박씨 부부 · 67세"); pop(A, S(2));
   let win = "";
   for (let r = 0; r < 4; r++) for (let c = 0; c < 3; c++) win += `<rect x="${70 + c * 65}" y="${60 + r * 40}" width="30" height="24" rx="3" fill="#9DB4DA" opacity=".75"/>`;
@@ -79,7 +84,7 @@ K.cut(E(1) - 0.2, "첫 문장 + 자막");
 }
 
 /* 3. 이웃 부부와 저녁 (s4–s8) — 같은 조건 · 기초연금 0원 vs 41만 원 넘게 · 신청 ✕ */
-{ const sc = scene(S(4) - 0.3, until(9));
+{ const sc = scene(S(4) - 0.3, until(9), null, 30);
   const A = K.couple(sc, LX, 262, "A", 110, "박씨 부부"), B = K.couple(sc, RX, 262, "B", 110, "이웃 부부");
   pop(A, S(4)); pop(B, W(4, "이웃"));
   const table = el(`<div class="a" style="left:110px;top:472px;width:780px;height:16px;border-radius:8px;background:#5B7DB8;transform-origin:50% 50%"></div>`, sc);
@@ -93,7 +98,7 @@ K.cut(E(1) - 0.2, "첫 문장 + 자막");
   const pk0 = el(`<div class="a w9 R nw" style="left:240px;top:906px;font-size:64px">0원</div>`, sc);
   pop(pk, W(6, "기초연금을") + 0.2); pop(pk0, W(6, "기초연금을") + 0.3);
   const nb = el(`<div class="a w7 nw" style="left:110px;top:1052px;font-size:42px">이웃</div>`, sc);
-  const bar = el(`<div class="a" style="left:240px;top:1030px;width:560px;height:100px;border-radius:14px;background:${G};transform-origin:0 50%"></div>`, sc);
+  const bar = el(`<div class="a" style="left:240px;top:1030px;width:500px;height:100px;border-radius:14px;background:${G};transform-origin:0 50%"></div>`, sc);
   const nbv = el(`<div class="a w9 nw" style="left:270px;top:1046px;font-size:56px;color:#0C1424;transform-origin:0 50%">41만 원 넘게</div>`, sc);
   pop(nb, W(6, "41만") - 0.2); grow(bar, W(6, "41만"), 0.8); pop(nbv, W(6, "41만") + 0.4);
   K.cut(E(4) - 0.1, "이웃 부부와 저녁");
@@ -102,7 +107,7 @@ K.cut(E(1) - 0.2, "첫 문장 + 자막");
   // s7 잘못 들은 줄 — 다른 줄은 흐리게, 41만 원을 다시 보듯 크게 + 물음표
   dim([...r1, ...r2, ...r3, A, B, table, line, lab, pk, pk0], W(7, "잘못"));
   tl.to(nbv, { scale: 1.2, duration: 0.5, ease: "power2.out" }, W(7, "잘못"));
-  const q = el(`<div class="a w9 nw" style="left:820px;top:1020px;font-size:120px;line-height:1;color:#F4F6FA">?</div>`, sc);
+  const q = el(`<div class="a w9 nw" style="left:765px;top:1020px;font-size:120px;line-height:1;color:#F4F6FA">?</div>`, sc);
   pop(q, W(7, "잘못") + 0.2, { from: { scale: 1.5, y: 0 } });
   K.cut(E(7) - 0.1, "잘못 들은 줄 (41만 원?)");
   // s8 박씨 부부는 신청한 적이 없음
@@ -113,7 +118,7 @@ K.cut(E(1) - 0.2, "첫 문장 + 자막");
 }
 
 /* 4. 신청 안 하고 1년이면 약 500만 원 (s9) — 열두 달이 빨갛게 */
-{ const sc = scene(S(9) - 0.3, until(10));
+{ const sc = scene(S(9) - 0.3, until(10), null, 75);
   const A = K.couple(sc, CX, 262, "A", 110, "박씨 부부"); pop(A, S(9));
   const cells = [];
   for (let m = 0; m < 12; m++) {
@@ -130,7 +135,7 @@ K.cut(E(1) - 0.2, "첫 문장 + 자막");
 }
 
 /* 5. 지금이라도 받을 수 있을까? (s10) */
-{ const sc = scene(S(10) - 0.3, until(11));
+{ const sc = scene(S(10) - 0.3, until(11), null, 15);
   const q = el(`<div class="a cx c w9 Y nw" style="left:${CX}px;top:330px;font-size:300px;line-height:1">?</div>`, sc);
   const A = K.couple(sc, CX, 700, "A", 170, "박씨 부부"); pop(A, S(10));
   pop(q, W(10, "받을") - 0.2, { from: { scale: 0.5, y: 0 } });
@@ -139,7 +144,7 @@ K.cut(E(1) - 0.2, "첫 문장 + 자막");
 }
 
 /* 6. 아래 영상에서 확인 (s11) — 박씨 부부 · 이웃 부부 · 우리 집도 될까? · ⬇ (관련 동영상 링크 자리) */
-{ const sc = scene(S(11) - 0.3, K.D, { keep: true });
+{ const sc = scene(S(11) - 0.3, K.D, { keep: true }, 50);
   const A = K.couple(sc, 280, 280, "A", 140, "박씨 부부"), B = K.couple(sc, 720, 280, "B", 140, "이웃 부부");
   pop(A, S(11)); pop(B, S(11) + 0.1);
   const t1 = text(sc, CX, 560, `우리 집도 <span class="Y">될까?</span>`, 76); pop(t1, W(11, "우리 집도"));

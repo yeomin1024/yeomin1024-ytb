@@ -1,6 +1,6 @@
-/* VERSION: v1.0 — 2026-10-15 — 새 스타일 영상 공통 무대·부품 (guides/video_guide.md v4.0 3번).
+/* VERSION: v1.1 — 2026-10-17 — #cc.cover 42px (쇼츠 첫 자막 — 자막 2줄까지). (v1.0 — 2026-10-15 — 새 스타일 영상 공통 무대·부품 (guides/video_guide.md v4.0 3번).
    근거 시안 video/prototypes/storyboard-2026-10-15/storyboard.html 의 무대 CSS 를 옮김 + 자막 띠 52px(3-5) + 미리보기 재생기.
-   연구·교육용 영상 — 투자·세무 권유 아님. */
+   연구·교육용 영상 — 투자·세무 권유 아님.) */
 @font-face{font-family:"Noto Sans KR";font-weight:500;src:url(../public/fonts/NotoSansKR-500.ttf) format("truetype")}
 @font-face{font-family:"Noto Sans KR";font-weight:700;src:url(../public/fonts/NotoSansKR-700.ttf) format("truetype")}
 @font-face{font-family:"Noto Sans KR";font-weight:900;src:url(../public/fonts/NotoSansKR-900.ttf) format("truetype")}
@@ -45,6 +45,8 @@ body.render #ctrl,body.render #now{display:none}
 /* 구운 자막 (3-5): 아래 끝에서 44px, 52px 700, 줄 간격 1.3, 띠 최대 1600px */
 #cc{position:absolute;left:50%;bottom:44px;transform:translateX(-50%);max-width:1600px;width:max-content;font-weight:700;font-size:52px;line-height:1.3;padding:12px 32px;border-radius:14px;background:rgba(5,9,18,.82);text-align:center;z-index:6;color:#F4F6FA;word-break:keep-all}
 #cc:empty{display:none}
+/* v1.1 — 2026-10-17 쇼츠 첫 자막(썸네일 그림 위 — kit.js v1.7)은 42px: 첫 문장이 2줄 자막 하나에 들어가게 (srt_tool v1.9 'shorts_cover', 사용자 지시 2026-10-17 "그리고 자막은 2줄까지만 표시되도록 해") */
+#cc.cover{font-size:42px}
 /* 부품 (3-6) */
 .strike{position:absolute;height:12px;background:var(--R);border-radius:6px;transform-origin:0 50%}
 .stack{position:absolute;border-radius:18px;overflow:hidden;display:grid}

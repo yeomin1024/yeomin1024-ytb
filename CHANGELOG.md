@@ -1,5 +1,27 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-17 (79) — 쇼츠 가운데 정렬·여백 없앰 (기초연금 1편 먼저) · 자막 2줄까지
+
+### 왜 (사용자 지시)
+- "그리고 자막은 2줄까지만 표시되도록 해"
+- "아니 이거 썸네일 문제가 아니고 영상 자체가 비율 안맞는거 아니냐고 컨텐츠가 중간에 딱 안나오고 위 오른쪽에 여백이 생긴다고" · "니가 직접 영상을 보라고 좀 수정좀 해" · "일단 딱 하나만 고쳐봐"
+
+### 한 것
+| 파일·대상 | 내용 |
+|---|---|
+| `tools/srt_tool.py` (v1.8 → v1.9) | 'shorts_cover' 3줄 → 42px·2줄 (`one` — 2줄에 들어가면 자막 하나), 3줄 찾기 지움, check: 쇼츠 첫 문장이 자막 2개면 문제 |
+| `video/render/kit.js` (v1.6 → v1.8) · `kit.css` (v1.0 → v1.1) | v1.7 쇼츠 첫 자막 class 'cover'(42px) · v1.8 `K.cover(end, {box, ar, cy})` — 그림의 사진 부분만 가로 가득 + 뒤는 흐린 같은 그림 |
+| `video/render/render.mjs` (v1.13 → v1.14) | 자막 늘 2줄까지 · 쇼츠 최종 렌더 전 첫 문장 그림 여백 검사 (box 를 쓰면 건너뜀) |
+| `tools/cover_check.py` (새 v1.0) | 그림 가장자리의 빈 단색 띠 비율 — 1차 쇼츠 그림 4장 모두 ❌ (위 12~17% · 아래 39~41% · 오른쪽 14~19%) |
+| `video/episodes/gicho-yeongeum-2026-10-shorts/index.html` (v1.0.2 → v1.1) · SRT | 가운데 540·1.15배·장면마다 세로 가운데 · 자막 띠 가운데 · 첫 문장 그림 box · 안전 구역 150 60 1320 60 · '?' 를 버튼 자리에서 왼쪽으로 · SRT 첫 자막 줄바꿈만 |
+| `economic/out/gicho-yeongeum-2026-10-shorts/final_1080p.mp4` (git 밖) | 다시 렌더 — 49.5초 · −14.28 LUFS / −1.6 dBTP · check 문제 0 · 사용자 확인 전 |
+| `economic/source/gicho-yeongeum-2026-10/youtube.json` · `shorts/youtube.deleted-2026-10-17.json` | 공개 확인 13:41Z — 롱폼 public, 쇼츠 없음(지움) |
+| `guides/status.md` (v1.52 → v1.53) | 2-2 0-6 — 남은 쇼츠 3편은 사용자 확인 뒤 |
+
+### 확인
+- 완성 mp4 에서 장면 12개를 뽑아 직접 봄: 1080×1920 · 9:16 · SAR 1:1, 글자·그림 x 약 90~990 (예전 110~890 · 가운데 500), 첫 문장 화면에 빈 남색 띠 없음.
+- 시험 `test_srt_layout`·`test_upload_*` 통과. 건보료 쇼츠 SRT 는 새 규칙으로 문제 1 (첫 자막 3줄) — 남은 3편 고칠 때.
+
 ## 2026-10-17 (78) — 제목이 목록에서 잘리지 않게 (title_fit · title_guide v3.1) · 쇼츠 첫 문장 그림·세로 썸네일
 
 ### 왜 (사용자 지시)

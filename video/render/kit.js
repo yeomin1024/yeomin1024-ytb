@@ -1,4 +1,8 @@
-// VERSION: v1.6 — 2026-10-17 — K.cover 끝 시각을 SB.coverEnd 에, 지금 시각을 SB.t 에 둠 (render.mjs v1.13 check — 썸네일 그림이 떠 있는 동안 쇼츠 첫 문장 자막 3줄 허용). 사용자 지시 2026-10-17 "영상에서 첫 문장만 왜 다른 문장 넘어가서도 썸네일 이미지가 영상에 뜨면 어떻게 그것도 수정해".
+// VERSION: v1.8 — 2026-10-17 — K.cover(end, {box, ar, cy}): 그림 안 사진 부분(box = [x0,y0,x1,y1], 그림 가로·세로 비율)만 화면 가로 가득 + 뒤는 같은 부분을
+//   흐리게 크게 — 그림에 빈 남색 띠가 있어도 화면에 빈 띠가 생기지 않게 (사용자 지시 2026-10-17 "아니 이거 썸네일 문제가 아니고 영상 자체가 비율 안맞는거 아니냐고 컨텐츠가 중간에 딱 안나오고 위 오른쪽에 여백이 생긴다고").
+// v1.7 — 2026-10-17 — 자막 2줄까지 (사용자 지시 2026-10-17 "그리고 자막은 2줄까지만 표시되도록 해"): K.cover 를 쓰는 쇼츠의 첫 자막에 class 'cover'(kit.css — 42px, srt_tool v1.9 'shorts_cover')
+//   → 첫 문장이 2줄 자막 하나에 들어가 그림이 자막 하나 동안만 (render.mjs v1.14 check 는 늘 2줄까지).
+// v1.6 — 2026-10-17 — K.cover 끝 시각을 SB.coverEnd 에, 지금 시각을 SB.t 에 둠 (render.mjs v1.13 check — 썸네일 그림이 떠 있는 동안 쇼츠 첫 문장 자막 3줄 허용). 사용자 지시 2026-10-17 "영상에서 첫 문장만 왜 다른 문장 넘어가서도 썸네일 이미지가 영상에 뜨면 어떻게 그것도 수정해".
 // v1.5 — 2026-10-17 — K.cover 그림 전 자리 표시: K.init opts.noWords(언어 없는 화면 — 주식 쇼츠)면 한국어 글 대신 그림 아이콘, 파일 경로는 .code
 //   (render.mjs check 의 낱말 검사가 미리보기 자리 표시를 문제로 잡지 않게). 사용자 지시 2026-10-17 "다른점은 전세계 시청자들 대상이니까 언어 문구, 자막 달지 말고 영상으로만 잘 이해가 가도록 해야해".
 // v1.4 — 2026-10-16 — K.cover(end): 쇼츠 썸네일 이미지(EP.thumb — render.mjs v1.9 sync 가 넣음)를 0초부터 첫 문장 끝까지 화면 가득,
@@ -244,9 +248,11 @@
   function ccAt(t) {
     if (!ccEl) return;                       // 자막을 굽지 않는 영상 (K.init opts.subtitles=false)
     let txt = "";
-    for (const [a, b, s] of EP.subs) { if (t >= a && t < b) { txt = s; break; } }
+    let k = -1;
+    for (let i = 0; i < EP.subs.length; i++) { const [a, b, s] = EP.subs[i]; if (t >= a && t < b) { txt = s; k = i; break; } }
     if (ccEl._t === txt) return;
     ccEl._t = txt;
+    ccEl.classList.toggle("cover", COVER.used && k === 0);   // v1.7 쇼츠 첫 자막(썸네일 그림 위) = 42px — srt_tool 'shorts_cover'
     ccEl.innerHTML = txt ? txt.split("\n").map(esc).join("<br>") : "";
   }
   K.cut = (t, name) => CUTS.push({ t: +(+t).toFixed(2), name });   // 점검용 대표 장면
@@ -254,7 +260,17 @@
   K.cover = (end, opts) => {                 // 0초 ~ end: EP.thumb 를 화면 가득 (object-fit:cover — 2:3 그림은 양옆이 잘림), 천천히 확대
     const o = Object.assign({ zoom: 1.05 }, opts);
     const sc = K.el(`<div class="sc" style="opacity:1"></div>`);
-    if (EP.thumb) {
+    if (EP.thumb && o.box) {                 // v1.8 사진 부분만 가로 가득 (가운데 cy) + 뒤는 같은 부분을 흐리게 — 빈 띠 없음
+      const [x0, y0, x1, y1] = o.box, Wd = OPT.w, Hd = Wd === 1080 ? 1920 : 1080, ratio = (y1 - y0) / ((x1 - x0) * o.ar);   // 상자 세로÷가로
+      const crop = (w, left, top, css) => {   // 상자를 가로 w 로 보이는 칸
+        const wi = w / (x1 - x0);
+        return K.el(`<div style="position:absolute;left:${left}px;top:${top}px;width:${w}px;height:${w * ratio}px;overflow:hidden;${css || ""}"><img alt="" src="${esc(EP.thumb)}" style="position:absolute;max-width:none;width:${wi}px;height:${wi / o.ar}px;left:${-x0 * wi}px;top:${-y0 * wi / o.ar}px"></div>`, sc);
+      };
+      const wb = Math.max(Wd, Hd / ratio) * 1.1;
+      crop(wb, (Wd - wb) / 2, (Hd - wb * ratio) / 2, "filter:blur(40px) brightness(.55)");
+      const fg = crop(Wd, 0, (o.cy == null ? Hd / 2 : o.cy) - Wd * ratio / 2, "box-shadow:0 0 80px 30px rgba(0,0,0,.45)");
+      tl.fromTo(fg, { scale: 1 }, { scale: o.zoom, duration: Math.max(0.5, end), ease: "none" }, 0);
+    } else if (EP.thumb) {
       const img = K.el(`<img alt="" src="${esc(EP.thumb)}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">`, sc);
       tl.fromTo(img, { scale: 1 }, { scale: o.zoom, duration: Math.max(0.5, end), ease: "none" }, 0);   // 0초 그림 = 썸네일로 고를 프레임 (확대 전)
     } else {                                 // 이미지 전 (추정 미리보기) — 최종 렌더는 render.mjs 가 막음

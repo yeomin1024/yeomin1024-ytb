@@ -1,4 +1,7 @@
-// VERSION: v1.13 — 2026-10-17 — 쇼츠 첫 문장(썸네일 그림 위)을 자막 하나로: 추정 자막은 srt_tool v1.8 sent_layout(첫 문장 = shorts_cover, 3줄까지), check 는 그림이 떠 있는 동안(kit.js v1.6 SB.coverEnd) 3줄까지 문제 아님.
+// VERSION: v1.14 — 2026-10-17 — 자막은 늘 2줄까지 (사용자 지시 2026-10-17 "그리고 자막은 2줄까지만 표시되도록 해" — v1.13 의 '썸네일 그림 위 3줄' 허용을 지움,
+//   쇼츠 첫 자막은 kit.js v1.7 #cc.cover 42px). 쇼츠 최종 렌더 전 첫 문장 그림 여백 검사 (tools/cover_check.py — 빈 단색 띠가 있으면 멈춤,
+//   사용자 지시 2026-10-17 "야 넌 이게 비율이 맞는다고 생각해? 검은색 여백있는건 뭔데 다시 수정해").
+// v1.13 — 2026-10-17 — 쇼츠 첫 문장(썸네일 그림 위)을 자막 하나로: 추정 자막은 srt_tool v1.8 sent_layout(첫 문장 = shorts_cover, 3줄까지), check 는 그림이 떠 있는 동안(kit.js v1.6 SB.coverEnd) 3줄까지 문제 아님.
 //   사용자 지시 2026-10-17 "영상에서 첫 문장만 왜 다른 문장 넘어가서도 썸네일 이미지가 영상에 뜨면 어떻게 그것도 수정해".
 // v1.12 — 2026-10-17 — sync --estimate 의 추정 자막을 srt_tool v1.7 cue_split 으로 (한 문장 = 자막 하나, 띠 폭을 넘으면 같은 자막 안에서 두 줄 —
 //   롱폼 52px·1500px, 쇼츠 46px·816px, 주식은 예전 한 줄 규칙). 사용자 지시 2026-10-17 "자막 좀 되도록 한 문장은 한 자막으로 표시되게해
@@ -233,8 +236,8 @@ const CHECK_FN = ([W, H, SAFE]) => {           // v1.8 무대 크기 W×H · 안
   // 자막 띠 줄 수
   const cc = document.getElementById("cc");
   if (cc && cc.textContent.trim()) { const cs = getComputedStyle(cc), lh = parseFloat(cs.fontSize) * 1.3, pad = parseFloat(cs.paddingTop) + parseFloat(cs.paddingBottom);
-    const lines = Math.round((cc.getBoundingClientRect().height - pad) / lh); const coverOn = window.SB && window.SB.coverEnd && window.SB.t < window.SB.coverEnd + 0.15;   // 그림이 걷힌 뒤 다음 문장까지 첫 자막이 0.05초쯤 남음   // v1.13 쇼츠 첫 문장(썸네일 그림 위)은 3줄까지 (srt_tool v1.8 shorts_cover)
-    if (lines > (coverOn ? 3 : 2)) out.push({ kind: coverOn ? "자막 4줄 이상 (썸네일 그림 위)" : "자막 3줄 이상", txt: cc.textContent.slice(0, 24), lines }); }
+    const lines = Math.round((cc.getBoundingClientRect().height - pad) / lh);
+    if (lines > 2) out.push({ kind: "자막 3줄 이상", txt: cc.textContent.slice(0, 24), lines }); }   // v1.14 늘 2줄까지 (쇼츠 첫 자막도 — 42px)
   return out;
 };
 async function check() {
@@ -322,6 +325,12 @@ async function video() {
   }
   const from = opt("from") ? Number(opt("from")) : 0, to = opt("to") ? Number(opt("to")) : ep.duration;
   const preview = opt("from") != null || opt("to") != null || estPreview;
+  if (/K\.cover\(.*\bbox\s*:/.test(html)) log("RENDER", { cover_box: "그림의 사진 부분만 가로 가득 (kit.js v1.8 box) — 그림의 빈 띠는 화면에 안 나옴, 여백 검사 건너뜀" });
+  else if (/K\.cover\(/.test(html) && THUMB && !preview) {      // v1.14 첫 문장 그림에 빈 단색 띠(여백)가 있으면 최종본을 만들지 않음
+    const cc = spawnSync("python3", [path.join(ROOT, "tools", "cover_check.py"), THUMB], { encoding: "utf-8" });
+    process.stdout.write(cc.stdout || "");
+    if (cc.status !== 0) fail("RENDER", "첫 문장 그림(쇼츠 썸네일)에 빈 띠·여백이 있음 — 사진이 화면 끝까지 차야 함", `guides/thumbnail_guide.md 12번 프롬프트로 ChatGPT 에서 다시 → Claude 검수 (python3 tools/cover_check.py ${path.relative(ROOT, THUMB)})`);
+  }
   const F0 = Math.round(from * fps), F1 = Math.ceil(to * fps);
   const workers = Math.max(1, Math.min(Number(opt("workers", Math.max(1, os.cpus().length - 1))), 6));
   const outDir = path.join(ROOT, TOPIC, "out", ID);

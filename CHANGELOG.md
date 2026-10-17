@@ -1,5 +1,23 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-18 (92) — ChatGPT 쇼츠 썸네일 4장 반려 (옛 프롬프트) · 쇼츠 장면 box 지움 · 미리보기
+
+### 왜 (사용자 지시)
+- "썸네일 다 생성됐으니까 영상 만들어 놓으면 이제 올릴 준비는 다 된거지? 1개만 빠르게 만들어서 미리보기만 알려줘봐"
+
+### 한 것 (커밋 `a00a7c77` + 이 기록)
+| 파일·대상 | 내용 |
+|---|---|
+| `economic/source/<영상ID>/shorts/thumbnails/thumbnail_1.png` 4장 → `rejected/thumbnail_1_try2(ISA try3)_2026-10-18.png` | ChatGPT 가 옛 v2.0 프롬프트로 그림 — 세 칸 아님(`cover_check.py` ❌)·옛 문구·놀란 얼굴/손사래. 각 `thumbnail_1.md` '이미지 검수'에 3차 반려 기록 |
+| `video/episodes/<영상ID>-shorts/index.html` 4개 (→ v1.3) | `K.cover` box 지움 — 세 칸 그림을 그대로 화면 가득 · `render.mjs sync` (thumb=없음) |
+| `tools/make_summary.py` (v1.9.0 → v1.9.1) · `economic/thumbnails_chatgpt.md` | ChatGPT 규칙 0 — 주소를 새로 열어 지금 내용만, 답 첫 줄에 자동 생성 시각 · 4장 다시 |
+| `guides/thumbnail_guide.md` (v3.13 — 피드백 25) · `CLAUDE.md` · `guides/status.md` (v1.67, 2-2 0-15) | ChatGPT 에는 커밋을 고정한 주소 + 새 대화 |
+
+### 확인
+- `cover_check.py` 4장 모두 ❌ (사진 칸 0~100% — 세 칸 아님)
+- `render.mjs video economic eunte-kkeonaeseugi-2026-10-shorts --no-cover --from 0 --to 50.15` → `preview_0-50.mp4` (git 밖) 50.2초 · 렌더 41초 · 프레임 12장 직접 봄
+- `python3 -m unittest tools.tests.test_make_summary_chatgpt` → 14 OK
+
 ## 2026-10-17 (91) — 주식 커버드콜 쇼츠 v2.1: 왜·어떻게를 빼지 않음 · 대본 피드백 21
 
 ### 왜 (사용자 지시)

@@ -1,6 +1,6 @@
 # stock 썸네일 16장 — ChatGPT용 (모든 영상 · 읽고 그대로 만들고 각 저장 경로에 올리기)
 
-자동 생성 — `python tools/make_summary.py --chatgpt-all stock` (2026-10-17 11:50). 이 파일은 고치지 말고 영상마다 `thumbnail_N.md`를 고친 뒤 다시 만든다.
+자동 생성 — `python tools/make_summary.py --chatgpt-all stock` (2026-10-17 12:04). 이 파일은 고치지 말고 영상마다 `thumbnail_N.md`를 고친 뒤 다시 만든다.
 
 이 파일 주소: https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/stock/thumbnails_chatgpt.md
 
@@ -20,9 +20,9 @@
    - 이미지 한도 때문에 멈추면 사용자가 `계속`이라고 보낸다 → 아직 안 만든 번호부터 이어서 만든다.
 2. 각 장은 그 칸의 **프롬프트(``` 안)를 한 글자도 바꾸지 않고 그대로** 쓴다. 장마다 서로 다른 그림이다 — 앞 장의 인물·구도·색을 이어 쓰지 않는다.
 3. 크기는 **장마다 '크기' 줄대로**: 롱폼 썸네일 = 가로형 16:9 (1280×720 — 안 되면 가장 넓은 가로형, 글자와 얼굴은 가운데, 위아래 8% 비움) · **쇼츠 썸네일(영상 ID 끝이 `-shorts`) = 세로형 9:16 (1080×1920)** — 안 되면 세로 2:3, 글자와 얼굴은 가운데, 양옆 8% 비움.
-4. 그림 속 글자는 프롬프트가 따옴표로 적은 **영어 낱말·숫자·기호·티커만** (예: BUY, TAX, QQQ, −15%, $100,000, 1×, →, ?) — 철자·기호·띄어쓰기 그대로, 납작하고 굵은 글씨. 다른 글자·숫자·로고·워터마크는 넣지 않는다 (동전·상자·화면에도). 한국어·문장은 쓰지 않는다 (전 세계 시청자용).
+4. 그림 속 글자는 프롬프트가 따옴표로 적은 **영어 낱말·숫자·기호·티커만** (예: BUY, TAX, QQQ, −15%, $100,000, 1×, →, ?, 그리고 비교·수식 기호 >, <, =, +, vs) — 철자·기호·띄어쓰기 그대로, 납작하고 굵은 글씨. 다른 글자·숫자·로고·워터마크는 넣지 않는다 (동전·상자·화면에도). 한국어·문장은 쓰지 않는다 (전 세계 시청자용).
 5. 사람은 실존 인물이나 유명인을 닮지 않은 가상 인물이다.
-6. 한 장을 만들 때마다 그 칸의 '문구' 표와 그림 속 글자를 **한 글자씩** 맞춰 본다 — 마이너스 '−'·'%'·'$'·쉼표·소수점·'×'·'→'·'?' 가 빠지거나 바뀌지 않았는지, 표에 없는 가짜 글자·숫자가 생기지 않았는지 크게 확대해서 본다. 다르면 그림은 그대로 두고 글자만 고쳐 다시 만든다.
+6. 한 장을 만들 때마다 그 칸의 '문구' 표와 그림 속 글자를 **한 글자씩** 맞춰 본다 — 마이너스 '−'·'%'·'$'·쉼표·소수점·'×'·'→'·'>'·'<'·'='·'+'·'?' 가 빠지거나 바뀌거나 방향이 뒤집히지 않았는지(특히 '>' 와 '<'), 표에 없는 가짜 글자·숫자가 생기지 않았는지 크게 확대해서 본다. 다르면 그림은 그대로 두고 글자만 고쳐 다시 만든다.
 7. **그림마다 바로 위에 그 장의 번호와 저장 경로를 한 줄 적는다** (예: `3. stock/source/baedang-etf-2026-10/thumbnails/thumbnail_3.png`). 그림 안에는 쓰지 않는다.
 8. **다 만들면 저장소에 넣는다 — 장마다 적힌 저장 경로 그대로.**
    - 저장소 `yeomin1024/yeomin1024-ytb` main 브랜치. 파일 이름·폴더는 그 장의 '저장 경로'와 한 글자도 다르지 않게 (`thumbnail_N.png`).
@@ -53,9 +53,9 @@
 
 | 자리 | 문구 | 색 |
 |---|---|---|
-| 왼쪽 위 — 큰 머리글 | `−15% TAX → ?` | −15% TAX 빨강 · → 흰색 · ? 노랑 |
-| 왼쪽(보라) 항아리 아래 | `SCHD` | 보라 |
-| 오른쪽(파랑) 항아리 아래 | `SPY` | 파랑 |
+| 왼쪽 위 — 큰 머리글 | `SCHD − 15% TAX > SPY ?` | SCHD 보라 · − 15% TAX 빨강 · > 흰색 · SPY 파랑 · ? 노랑 |
+| 왼쪽(보라) 항아리 아래 | `SCHD` | SCHD 보라 |
+| 오른쪽(파랑) 항아리 아래 | `SPY` | SPY 파랑 |
 
 프롬프트:
 
@@ -68,7 +68,7 @@ Neither side is highlighted or brighter; nobody is winning. The mood is suspense
 Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
 If 16:9 is not available, use the widest landscape canvas; in any case keep the main objects inside the central 16:9 area, at least 8% away from the top and bottom edges.
 Fictional person, not resembling any real or famous person.
-Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) the headline "−15% TAX → ?" in the upper-left area, above the main objects (keep it off the chest and the face), very large (about 13% of the image height), written as "−15% TAX" in red (#FF4D5E), "→" in white, "?" in yellow (#FFD400); (2) "SCHD" on the front of the left (violet-rimmed) jar's pedestal, or just below the left jar if the pedestal is not visible, large, in violet (#B48CFF); (3) "SPY" on the front of the right (blue-rimmed) jar's pedestal, or just below the right jar if the pedestal is not visible, large, in blue (#5AB4FF). Spell every item exactly as written, character by character: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the jars, the red box, the chute and the pedestals have nothing else written on them. Keep all text off any face and out of the bottom-right corner.
+Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) the headline "SCHD − 15% TAX > SPY ?" in the upper-left area, above the main objects (keep it off the chest and the face), very large (about 13% of the image height), written as "SCHD" in violet (#B48CFF), "− 15% TAX" in red (#FF4D5E), ">" in white, "SPY" in blue (#5AB4FF), "?" in yellow (#FFD400); (2) "SCHD" on the front of the left (violet-rimmed) jar's pedestal, or just below the left jar if the pedestal is not visible, large, written as "SCHD" in violet (#B48CFF); (3) "SPY" on the front of the right (blue-rimmed) jar's pedestal, or just below the right jar if the pedestal is not visible, large, written as "SPY" in blue (#5AB4FF). Spell every item exactly as written, character by character, with the spaces shown: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→", ">", "<", "=", "+" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the jars, the red box, the chute and the pedestals have nothing else written on them. Keep all text off any face and out of the bottom-right corner.
 ```
 
 ## 2. baedang-etf-2026-10 · thumbnail_2 — 실험안 ①: 같은 장면에서 사람만 뺌
@@ -81,9 +81,9 @@ Text: add only the following text in a very bold, clean, flat sans-serif typefac
 
 | 자리 | 문구 | 색 |
 |---|---|---|
-| 왼쪽 위 — 큰 머리글 | `−15% TAX → ?` | −15% TAX 빨강 · → 흰색 · ? 노랑 |
-| 왼쪽(보라) 항아리 아래 | `SCHD` | 보라 |
-| 오른쪽(파랑) 항아리 아래 | `SPY` | 파랑 |
+| 왼쪽 위 — 큰 머리글 | `SCHD − 15% TAX > SPY ?` | SCHD 보라 · − 15% TAX 빨강 · > 흰색 · SPY 파랑 · ? 노랑 |
+| 왼쪽(보라) 항아리 아래 | `SCHD` | SCHD 보라 |
+| 오른쪽(파랑) 항아리 아래 | `SPY` | SPY 파랑 |
 
 프롬프트:
 
@@ -94,7 +94,7 @@ Foreground center: two identical large glass jars of exactly the same size on tw
 No people. Neither side is highlighted or brighter; nobody is winning. The mood is suspense.
 Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
 If 16:9 is not available, use the widest landscape canvas; in any case keep the main objects inside the central 16:9 area, at least 8% away from the top and bottom edges.
-Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) the headline "−15% TAX → ?" in the upper-left area, above the main objects (keep it off the chest and the face), very large (about 13% of the image height), written as "−15% TAX" in red (#FF4D5E), "→" in white, "?" in yellow (#FFD400); (2) "SCHD" on the front of the left (violet-rimmed) jar's pedestal, or just below the left jar if the pedestal is not visible, large, in violet (#B48CFF); (3) "SPY" on the front of the right (blue-rimmed) jar's pedestal, or just below the right jar if the pedestal is not visible, large, in blue (#5AB4FF). Spell every item exactly as written, character by character: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the jars, the red box, the chute and the pedestals have nothing else written on them. Keep all text off any face and out of the bottom-right corner.
+Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) the headline "SCHD − 15% TAX > SPY ?" in the upper-left area, above the main objects (keep it off the chest and the face), very large (about 13% of the image height), written as "SCHD" in violet (#B48CFF), "− 15% TAX" in red (#FF4D5E), ">" in white, "SPY" in blue (#5AB4FF), "?" in yellow (#FFD400); (2) "SCHD" on the front of the left (violet-rimmed) jar's pedestal, or just below the left jar if the pedestal is not visible, large, written as "SCHD" in violet (#B48CFF); (3) "SPY" on the front of the right (blue-rimmed) jar's pedestal, or just below the right jar if the pedestal is not visible, large, written as "SPY" in blue (#5AB4FF). Spell every item exactly as written, character by character, with the spaces shown: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→", ">", "<", "=", "+" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the jars, the red box, the chute and the pedestals have nothing else written on them. Keep all text off any face and out of the bottom-right corner.
 ```
 
 ## 3. baedang-etf-2026-10 · thumbnail_3 — 실험안 ②: 손·얼굴 클로즈업 (구도)
@@ -107,9 +107,9 @@ Text: add only the following text in a very bold, clean, flat sans-serif typefac
 
 | 자리 | 문구 | 색 |
 |---|---|---|
-| 왼쪽 위 — 큰 머리글 | `−15% TAX → ?` | −15% TAX 빨강 · → 흰색 · ? 노랑 |
-| 왼쪽(보라) 항아리 아래 | `SCHD` | 보라 |
-| 오른쪽(파랑) 항아리 아래 | `SPY` | 파랑 |
+| 왼쪽 위 — 큰 머리글 | `SCHD − 15% TAX > SPY ?` | SCHD 보라 · − 15% TAX 빨강 · > 흰색 · SPY 파랑 · ? 노랑 |
+| 왼쪽(보라) 항아리 아래 | `SCHD` | SCHD 보라 |
+| 오른쪽(파랑) 항아리 아래 | `SPY` | SPY 파랑 |
 
 프롬프트:
 
@@ -120,7 +120,7 @@ The face of a fictional person is partly visible at the edge, thoughtful and hes
 Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
 If 16:9 is not available, use the widest landscape canvas; in any case keep the main objects inside the central 16:9 area, at least 8% away from the top and bottom edges.
 Fictional person, not resembling any real or famous person.
-Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) the headline "−15% TAX → ?" in the upper-left area, above the main objects (keep it off the chest and the face), very large (about 13% of the image height), written as "−15% TAX" in red (#FF4D5E), "→" in white, "?" in yellow (#FFD400); (2) "SCHD" on the front of the left (violet-rimmed) jar's pedestal, or just below the left jar if the pedestal is not visible, large, in violet (#B48CFF); (3) "SPY" on the front of the right (blue-rimmed) jar's pedestal, or just below the right jar if the pedestal is not visible, large, in blue (#5AB4FF). Spell every item exactly as written, character by character: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the jars, the red box, the chute and the pedestals have nothing else written on them. Keep all text off any face and out of the bottom-right corner.
+Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) the headline "SCHD − 15% TAX > SPY ?" in the upper-left area, above the main objects (keep it off the chest and the face), very large (about 13% of the image height), written as "SCHD" in violet (#B48CFF), "− 15% TAX" in red (#FF4D5E), ">" in white, "SPY" in blue (#5AB4FF), "?" in yellow (#FFD400); (2) "SCHD" on the front of the left (violet-rimmed) jar's pedestal, or just below the left jar if the pedestal is not visible, large, written as "SCHD" in violet (#B48CFF); (3) "SPY" on the front of the right (blue-rimmed) jar's pedestal, or just below the right jar if the pedestal is not visible, large, written as "SPY" in blue (#5AB4FF). Spell every item exactly as written, character by character, with the spaces shown: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→", ">", "<", "=", "+" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the jars, the red box, the chute and the pedestals have nothing else written on them. Keep all text off any face and out of the bottom-right corner.
 ```
 
 ## 4. eonje-maesu-2026-10 · thumbnail_1 — 본안(클릭률 최대): 같은 크기의 두 받침대 — 매수 신호 버튼 10개 vs 주사위 — 사이에서 망설이는 사람, 뒤에는 초록(+5%)·빨강(−2%) 점선 사이의 가격 선, 위에 닫힌 상자
@@ -133,7 +133,9 @@ Text: add only the following text in a very bold, clean, flat sans-serif typefac
 
 | 자리 | 문구 | 색 |
 |---|---|---|
-| 왼쪽 위 — 큰 머리글 | `BUY → +5% or −2% ?` | BUY 초록 표(글자 흰색) · → 흰색 · +5% 초록 · or 흰색 · −2% 빨강 · ? 노랑 |
+| 왼쪽 위 — 큰 머리글 | `SIGNAL > RANDOM ?` | SIGNAL 흰색 · > 노랑 · RANDOM 흰색 · ? 노랑 |
+| 초록 점선 오른쪽 끝 | `+5%` | +5% 초록 |
+| 빨강 점선 오른쪽 끝 | `−2%` | −2% 빨강 |
 
 프롬프트:
 
@@ -147,7 +149,7 @@ Neither side is highlighted, pressed or brighter; nobody is winning. The mood is
 Color accents: green only on the upper dashed line, red only on the lower dashed line, the down arrow and the zigzag icon, yellow only on the stars and dashed icon lines, blue on the price wall, warm gold only from the chest. Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
 If 16:9 is not available, use the widest landscape canvas; in any case keep the face, the pedestals and the chest inside the central 16:9 area, at least 8% away from the top and bottom edges.
 Fictional person, not resembling any real or famous person.
-Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) the headline "BUY → +5% or −2% ?" in the upper-left area, above the main objects (keep it off the chest and the face), very large (about 13% of the image height), written as "BUY" in white letters on a bright green (#2BE0A0) rounded tag, "→" in white, "+5%" in bright green (#2BE0A0), "or" in white, "−2%" in red (#FF4D5E), "?" in yellow (#FFD400). Spell every item exactly as written, character by character: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the buttons, the die, the calendar, the gauge, the pedestals and the price wall have nothing else written on them. Keep all text off any face and out of the bottom-right corner.
+Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) the headline "SIGNAL > RANDOM ?" in the upper-left area, above the main objects (keep it off the chest and the face), very large (about 13% of the image height), written as "SIGNAL" in white, ">" in yellow (#FFD400), "RANDOM" in white, "?" in yellow (#FFD400); (2) "+5%" at the right end of the green dashed line, large, written as "+5%" in bright green (#2BE0A0); (3) "−2%" at the right end of the red dashed line, large, written as "−2%" in red (#FF4D5E). Spell every item exactly as written, character by character, with the spaces shown: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→", ">", "<", "=", "+" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the buttons, the die, the calendar, the gauge, the pedestals and the price wall have nothing else written on them. Keep all text off any face and out of the bottom-right corner.
 ```
 
 ## 5. eonje-maesu-2026-10 · thumbnail_2 — 실험안 ①(사람 없음): 같은 크기의 두 받침대 — 매수 신호 버튼 10개 vs 주사위 — 와 두 점선 사이의 가격 선, 위에 닫힌 상자
@@ -160,7 +162,9 @@ Text: add only the following text in a very bold, clean, flat sans-serif typefac
 
 | 자리 | 문구 | 색 |
 |---|---|---|
-| 왼쪽 위 — 큰 머리글 | `BUY → +5% or −2% ?` | BUY 초록 표(글자 흰색) · → 흰색 · +5% 초록 · or 흰색 · −2% 빨강 · ? 노랑 |
+| 왼쪽 위 — 큰 머리글 | `SIGNAL > RANDOM ?` | SIGNAL 흰색 · > 노랑 · RANDOM 흰색 · ? 노랑 |
+| 초록 점선 오른쪽 끝 | `+5%` | +5% 초록 |
+| 빨강 점선 오른쪽 끝 | `−2%` | −2% 빨강 |
 
 프롬프트:
 
@@ -173,7 +177,7 @@ There is no person in the image.
 Neither side is highlighted, pressed or brighter; nobody is winning. The mood is suspense: which one reaches the green line first?
 Color accents: green only on the upper dashed line, red only on the lower dashed line, the down arrow and the zigzag icon, yellow only on the stars and dashed icon lines, blue on the price wall, warm gold only from the chest. Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
 If 16:9 is not available, use the widest landscape canvas; in any case keep the pedestals and the chest inside the central 16:9 area, at least 8% away from the top and bottom edges.
-Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) the headline "BUY → +5% or −2% ?" in the upper-left area, above the main objects (keep it off the chest and the face), very large (about 13% of the image height), written as "BUY" in white letters on a bright green (#2BE0A0) rounded tag, "→" in white, "+5%" in bright green (#2BE0A0), "or" in white, "−2%" in red (#FF4D5E), "?" in yellow (#FFD400). Spell every item exactly as written, character by character: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the buttons, the die, the calendar, the gauge, the pedestals and the price wall have nothing else written on them. Keep all text off any face and out of the bottom-right corner.
+Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) the headline "SIGNAL > RANDOM ?" in the upper-left area, above the main objects (keep it off the chest and the face), very large (about 13% of the image height), written as "SIGNAL" in white, ">" in yellow (#FFD400), "RANDOM" in white, "?" in yellow (#FFD400); (2) "+5%" at the right end of the green dashed line, large, written as "+5%" in bright green (#2BE0A0); (3) "−2%" at the right end of the red dashed line, large, written as "−2%" in red (#FF4D5E). Spell every item exactly as written, character by character, with the spaces shown: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→", ">", "<", "=", "+" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the buttons, the die, the calendar, the gauge, the pedestals and the price wall have nothing else written on them. Keep all text off any face and out of the bottom-right corner.
 ```
 
 ## 6. eonje-maesu-2026-10 · thumbnail_3 — 실험안 ②(클로즈업): 신호 버튼과 주사위 위에 떠 있는 두 손과 망설이는 얼굴, 뒤로 흐린 두 점선 사이의 가격 선과 닫힌 상자
@@ -186,7 +190,9 @@ Text: add only the following text in a very bold, clean, flat sans-serif typefac
 
 | 자리 | 문구 | 색 |
 |---|---|---|
-| 오른쪽 위 — 큰 머리글 | `BUY → +5% or −2% ?` | BUY 초록 표(글자 흰색) · → 흰색 · +5% 초록 · or 흰색 · −2% 빨강 · ? 노랑 |
+| 오른쪽 위 — 큰 머리글 | `SIGNAL > RANDOM ?` | SIGNAL 흰색 · > 노랑 · RANDOM 흰색 · ? 노랑 |
+| 초록 점선 오른쪽 끝 | `+5%` | +5% 초록 |
+| 빨강 점선 오른쪽 끝 | `−2%` | −2% 빨강 |
 
 프롬프트:
 
@@ -198,7 +204,7 @@ Blurred background: a white glowing price line running to the right between a gl
 Neither choice is highlighted, pressed or brighter; nobody is winning. Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
 If 16:9 is not available, use the widest landscape canvas; in any case keep the hands, the face, the die and the buttons inside the central 16:9 area, at least 8% away from the top and bottom edges.
 Fictional person, not resembling any real or famous person.
-Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) the headline "BUY → +5% or −2% ?" in the upper-right area, very large (about 13% of the image height), written as "BUY" in white letters on a bright green (#2BE0A0) rounded tag, "→" in white, "+5%" in bright green (#2BE0A0), "or" in white, "−2%" in red (#FF4D5E), "?" in yellow (#FFD400). Spell every item exactly as written, character by character: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the buttons, the die, the calendar, the gauge, the pedestals and the price wall have nothing else written on them. Keep all text off any face and out of the bottom-right corner.
+Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) the headline "SIGNAL > RANDOM ?" in the upper-right area, very large (about 13% of the image height), written as "SIGNAL" in white, ">" in yellow (#FFD400), "RANDOM" in white, "?" in yellow (#FFD400); (2) "+5%" at the right end of the green dashed line, large, written as "+5%" in bright green (#2BE0A0); (3) "−2%" at the right end of the red dashed line, large, written as "−2%" in red (#FF4D5E). Spell every item exactly as written, character by character, with the spaces shown: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→", ">", "<", "=", "+" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the buttons, the die, the calendar, the gauge, the pedestals and the price wall have nothing else written on them. Keep all text off any face and out of the bottom-right corner.
 ```
 
 ## 7. keobeodeu-kol-2026-10 · thumbnail_1 — 본안(클릭률 최대): 같은 크기의 선택 사이에서 망설이는 사람 + 가린 결과(흐린 유리·닫힌 상자)
@@ -211,9 +217,9 @@ Text: add only the following text in a very bold, clean, flat sans-serif typefac
 
 | 자리 | 문구 | 색 |
 |---|---|---|
-| 왼쪽 위 — 큰 머리글 | `$100,000 → ?` | $100,000 노랑 · → 흰색 · ? 노랑 |
-| 왼쪽(주황) 상자 아래 | `QYLD` | 주황 |
-| 오른쪽(파랑) 상자 아래 | `QQQ` | 파랑 |
+| 왼쪽 위 — 큰 머리글 | `$100,000 − $ − $ − $ = ?` | $100,000 노랑 · − $ − $ − $ 빨강 · = 흰색 · ? 노랑 |
+| 왼쪽(주황) 상자 아래 | `QYLD` | QYLD 주황 |
+| 오른쪽(파랑) 상자 아래 | `QQQ` | QQQ 파랑 |
 
 프롬프트:
 
@@ -226,7 +232,7 @@ Neither side is highlighted or brighter; nobody is winning. The mood is suspense
 Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
 If 16:9 is not available, use the widest landscape canvas; in any case keep the main objects inside the central 16:9 area, at least 8% away from the top and bottom edges.
 Fictional person, not resembling any real or famous person.
-Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) the headline "$100,000 → ?" in the upper-left area, above the main objects (keep it off the chest and the face), very large (about 13% of the image height), written as "$100,000" in yellow (#FFD400), "→" in white, "?" in yellow (#FFD400); (2) "QYLD" on the front of the left (orange-rimmed) box's pedestal, or under the left tap if the pedestal is not visible, large, in orange (#FF8A3D); (3) "QQQ" on the front of the right (blue-rimmed) box's pedestal, or under the right tap if the pedestal is not visible, large, in blue (#5AB4FF). Spell every item exactly as written, character by character: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the boxes, the taps, the tray and the pedestals have nothing else written on them. Keep all text off any face and out of the bottom-right corner.
+Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) the headline "$100,000 − $ − $ − $ = ?" in the upper-left area, above the main objects (keep it off the chest and the face), very large (about 13% of the image height), written as "$100,000" in yellow (#FFD400), "− $ − $ − $" in red (#FF4D5E), "=" in white, "?" in yellow (#FFD400); (2) "QYLD" on the front of the left (orange-rimmed) box's pedestal, or under the left tap if the pedestal is not visible, large, written as "QYLD" in orange (#FF8A3D); (3) "QQQ" on the front of the right (blue-rimmed) box's pedestal, or under the right tap if the pedestal is not visible, large, written as "QQQ" in blue (#5AB4FF). Spell every item exactly as written, character by character, with the spaces shown: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→", ">", "<", "=", "+" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the boxes, the taps, the tray and the pedestals have nothing else written on them. Keep all text off any face and out of the bottom-right corner.
 ```
 
 ## 8. keobeodeu-kol-2026-10 · thumbnail_2 — 실험안 ①: 같은 장면에서 사람만 뺌
@@ -239,9 +245,9 @@ Text: add only the following text in a very bold, clean, flat sans-serif typefac
 
 | 자리 | 문구 | 색 |
 |---|---|---|
-| 왼쪽 위 — 큰 머리글 | `$100,000 → ?` | $100,000 노랑 · → 흰색 · ? 노랑 |
-| 왼쪽(주황) 상자 아래 | `QYLD` | 주황 |
-| 오른쪽(파랑) 상자 아래 | `QQQ` | 파랑 |
+| 왼쪽 위 — 큰 머리글 | `$100,000 − $ − $ − $ = ?` | $100,000 노랑 · − $ − $ − $ 빨강 · = 흰색 · ? 노랑 |
+| 왼쪽(주황) 상자 아래 | `QYLD` | QYLD 주황 |
+| 오른쪽(파랑) 상자 아래 | `QQQ` | QQQ 파랑 |
 
 프롬프트:
 
@@ -252,7 +258,7 @@ Foreground center: two identical tall glass treasure boxes of exactly the same s
 No people. Neither side is highlighted or brighter; nobody is winning. The mood is suspense.
 Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
 If 16:9 is not available, use the widest landscape canvas; in any case keep the main objects inside the central 16:9 area, at least 8% away from the top and bottom edges.
-Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) the headline "$100,000 → ?" in the upper-left area, above the main objects (keep it off the chest and the face), very large (about 13% of the image height), written as "$100,000" in yellow (#FFD400), "→" in white, "?" in yellow (#FFD400); (2) "QYLD" on the front of the left (orange-rimmed) box's pedestal, or under the left tap if the pedestal is not visible, large, in orange (#FF8A3D); (3) "QQQ" on the front of the right (blue-rimmed) box's pedestal, or under the right tap if the pedestal is not visible, large, in blue (#5AB4FF). Spell every item exactly as written, character by character: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the boxes, the taps, the tray and the pedestals have nothing else written on them. Keep all text off any face and out of the bottom-right corner.
+Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) the headline "$100,000 − $ − $ − $ = ?" in the upper-left area, above the main objects (keep it off the chest and the face), very large (about 13% of the image height), written as "$100,000" in yellow (#FFD400), "− $ − $ − $" in red (#FF4D5E), "=" in white, "?" in yellow (#FFD400); (2) "QYLD" on the front of the left (orange-rimmed) box's pedestal, or under the left tap if the pedestal is not visible, large, written as "QYLD" in orange (#FF8A3D); (3) "QQQ" on the front of the right (blue-rimmed) box's pedestal, or under the right tap if the pedestal is not visible, large, written as "QQQ" in blue (#5AB4FF). Spell every item exactly as written, character by character, with the spaces shown: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→", ">", "<", "=", "+" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the boxes, the taps, the tray and the pedestals have nothing else written on them. Keep all text off any face and out of the bottom-right corner.
 ```
 
 ## 9. keobeodeu-kol-2026-10 · thumbnail_3 — 실험안 ②: 손·얼굴 클로즈업 (구도)
@@ -265,9 +271,9 @@ Text: add only the following text in a very bold, clean, flat sans-serif typefac
 
 | 자리 | 문구 | 색 |
 |---|---|---|
-| 왼쪽 위 — 큰 머리글 | `$100,000 → ?` | $100,000 노랑 · → 흰색 · ? 노랑 |
-| 왼쪽(주황) 상자 아래 | `QYLD` | 주황 |
-| 오른쪽(파랑) 상자 아래 | `QQQ` | 파랑 |
+| 왼쪽 위 — 큰 머리글 | `$100,000 − $ − $ − $ = ?` | $100,000 노랑 · − $ − $ − $ 빨강 · = 흰색 · ? 노랑 |
+| 왼쪽(주황) 상자 아래 | `QYLD` | QYLD 주황 |
+| 오른쪽(파랑) 상자 아래 | `QQQ` | QQQ 파랑 |
 
 프롬프트:
 
@@ -278,7 +284,7 @@ The face of a fictional person is partly visible at the edge, thoughtful and hes
 Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
 If 16:9 is not available, use the widest landscape canvas; in any case keep the main objects inside the central 16:9 area, at least 8% away from the top and bottom edges.
 Fictional person, not resembling any real or famous person.
-Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) the headline "$100,000 → ?" in the upper-left area, above the main objects (keep it off the chest and the face), very large (about 13% of the image height), written as "$100,000" in yellow (#FFD400), "→" in white, "?" in yellow (#FFD400); (2) "QYLD" on the front of the left (orange-rimmed) box's pedestal, or under the left tap if the pedestal is not visible, large, in orange (#FF8A3D); (3) "QQQ" on the front of the right (blue-rimmed) box's pedestal, or under the right tap if the pedestal is not visible, large, in blue (#5AB4FF). Spell every item exactly as written, character by character: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the boxes, the taps, the tray and the pedestals have nothing else written on them. Keep all text off any face and out of the bottom-right corner.
+Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) the headline "$100,000 − $ − $ − $ = ?" in the upper-left area, above the main objects (keep it off the chest and the face), very large (about 13% of the image height), written as "$100,000" in yellow (#FFD400), "− $ − $ − $" in red (#FF4D5E), "=" in white, "?" in yellow (#FFD400); (2) "QYLD" on the front of the left (orange-rimmed) box's pedestal, or under the left tap if the pedestal is not visible, large, written as "QYLD" in orange (#FF8A3D); (3) "QQQ" on the front of the right (blue-rimmed) box's pedestal, or under the right tap if the pedestal is not visible, large, written as "QQQ" in blue (#5AB4FF). Spell every item exactly as written, character by character, with the spaces shown: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→", ">", "<", "=", "+" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the boxes, the taps, the tray and the pedestals have nothing else written on them. Keep all text off any face and out of the bottom-right corner.
 ```
 
 ## 10. reobeoriji-2026-10 · thumbnail_1 — 본안(클릭률 최대): 같은 크기의 선택 사이에서 망설이는 사람 + 가린 결과(흐린 유리·닫힌 상자)
@@ -291,10 +297,11 @@ Text: add only the following text in a very bold, clean, flat sans-serif typefac
 
 | 자리 | 문구 | 색 |
 |---|---|---|
-| 왼쪽 위 — 큰 머리글 | `1999 → 2026 ?` | 1999 흰색 · → 흰색 · 2026 흰색 · ? 노랑 |
-| 파랑 로켓(점 1) | `1×` | 파랑 |
-| 보라 로켓(점 2) | `2×` | 보라 |
-| 주황 로켓(점 3) | `3×` | 주황 |
+| 왼쪽 위 — 큰 머리글 | `3× > 1× ?` | 3× 주황 · > 흰색 · 1× 파랑 · ? 노랑 |
+| 머리글 바로 아래 (조금 작게) | `1999 → 2026` | 1999 → 2026 흰색 |
+| 파랑 로켓(점 1) | `1×` | 1× 파랑 |
+| 보라 로켓(점 2) | `2×` | 2× 보라 |
+| 주황 로켓(점 3) | `3×` | 3× 주황 |
 
 프롬프트:
 
@@ -307,7 +314,7 @@ Neither side is highlighted or brighter; nobody is winning. The mood is suspense
 Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
 If 16:9 is not available, use the widest landscape canvas; in any case keep the main objects inside the central 16:9 area, at least 8% away from the top and bottom edges.
 Fictional person, not resembling any real or famous person.
-Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) the headline "1999 → 2026 ?" in the upper-left area, above the main objects (keep it off the chest and the face), very large (about 13% of the image height), written as "1999" in white, "→" in white, "2026" in white, "?" in yellow (#FFD400); (2) "1×" on the launch pad (or hatch) of the blue rocket with one dot, large, in blue (#5AB4FF); (3) "2×" on the launch pad (or hatch) of the violet rocket with two dots, large, in violet (#B48CFF); (4) "3×" on the launch pad (or hatch) of the orange rocket with three dots, large, in orange (#FF8A3D). Spell every item exactly as written, character by character: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the rockets, the launch pads, the hatches and the chest have nothing else written on them. Keep all text off any face and out of the bottom-right corner.
+Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) the headline "3× > 1× ?" in the upper-left area, above the main objects (keep it off the chest and the face), very large (about 13% of the image height), written as "3×" in orange (#FF8A3D), ">" in white, "1×" in blue (#5AB4FF), "?" in yellow (#FFD400); (2) "1999 → 2026" directly under the headline, a little smaller, large, written as "1999 → 2026" in white; (3) "1×" on the launch pad (or hatch) of the blue rocket with one dot, large, written as "1×" in blue (#5AB4FF); (4) "2×" on the launch pad (or hatch) of the violet rocket with two dots, large, written as "2×" in violet (#B48CFF); (5) "3×" on the launch pad (or hatch) of the orange rocket with three dots, large, written as "3×" in orange (#FF8A3D). Spell every item exactly as written, character by character, with the spaces shown: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→", ">", "<", "=", "+" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the rockets, the launch pads, the hatches and the chest have nothing else written on them. Keep all text off any face and out of the bottom-right corner.
 ```
 
 ## 11. reobeoriji-2026-10 · thumbnail_2 — 실험안 ①: 같은 장면에서 사람만 뺌
@@ -320,10 +327,11 @@ Text: add only the following text in a very bold, clean, flat sans-serif typefac
 
 | 자리 | 문구 | 색 |
 |---|---|---|
-| 왼쪽 위 — 큰 머리글 | `1999 → 2026 ?` | 1999 흰색 · → 흰색 · 2026 흰색 · ? 노랑 |
-| 파랑 로켓(점 1) | `1×` | 파랑 |
-| 보라 로켓(점 2) | `2×` | 보라 |
-| 주황 로켓(점 3) | `3×` | 주황 |
+| 왼쪽 위 — 큰 머리글 | `3× > 1× ?` | 3× 주황 · > 흰색 · 1× 파랑 · ? 노랑 |
+| 머리글 바로 아래 (조금 작게) | `1999 → 2026` | 1999 → 2026 흰색 |
+| 파랑 로켓(점 1) | `1×` | 1× 파랑 |
+| 보라 로켓(점 2) | `2×` | 2× 보라 |
+| 주황 로켓(점 3) | `3×` | 3× 주황 |
 
 프롬프트:
 
@@ -334,7 +342,7 @@ Foreground center: three identical small rockets of exactly the same size standi
 No people. Neither side is highlighted or brighter; nobody is winning. The mood is suspense.
 Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
 If 16:9 is not available, use the widest landscape canvas; in any case keep the main objects inside the central 16:9 area, at least 8% away from the top and bottom edges.
-Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) the headline "1999 → 2026 ?" in the upper-left area, above the main objects (keep it off the chest and the face), very large (about 13% of the image height), written as "1999" in white, "→" in white, "2026" in white, "?" in yellow (#FFD400); (2) "1×" on the launch pad (or hatch) of the blue rocket with one dot, large, in blue (#5AB4FF); (3) "2×" on the launch pad (or hatch) of the violet rocket with two dots, large, in violet (#B48CFF); (4) "3×" on the launch pad (or hatch) of the orange rocket with three dots, large, in orange (#FF8A3D). Spell every item exactly as written, character by character: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the rockets, the launch pads, the hatches and the chest have nothing else written on them. Keep all text off any face and out of the bottom-right corner.
+Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) the headline "3× > 1× ?" in the upper-left area, above the main objects (keep it off the chest and the face), very large (about 13% of the image height), written as "3×" in orange (#FF8A3D), ">" in white, "1×" in blue (#5AB4FF), "?" in yellow (#FFD400); (2) "1999 → 2026" directly under the headline, a little smaller, large, written as "1999 → 2026" in white; (3) "1×" on the launch pad (or hatch) of the blue rocket with one dot, large, written as "1×" in blue (#5AB4FF); (4) "2×" on the launch pad (or hatch) of the violet rocket with two dots, large, written as "2×" in violet (#B48CFF); (5) "3×" on the launch pad (or hatch) of the orange rocket with three dots, large, written as "3×" in orange (#FF8A3D). Spell every item exactly as written, character by character, with the spaces shown: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→", ">", "<", "=", "+" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the rockets, the launch pads, the hatches and the chest have nothing else written on them. Keep all text off any face and out of the bottom-right corner.
 ```
 
 ## 12. reobeoriji-2026-10 · thumbnail_3 — 실험안 ②: 손·얼굴 클로즈업 (구도)
@@ -347,10 +355,11 @@ Text: add only the following text in a very bold, clean, flat sans-serif typefac
 
 | 자리 | 문구 | 색 |
 |---|---|---|
-| 왼쪽 위 — 큰 머리글 | `1999 → 2026 ?` | 1999 흰색 · → 흰색 · 2026 흰색 · ? 노랑 |
-| 파랑 로켓(점 1) | `1×` | 파랑 |
-| 보라 로켓(점 2) | `2×` | 보라 |
-| 주황 로켓(점 3) | `3×` | 주황 |
+| 왼쪽 위 — 큰 머리글 | `3× > 1× ?` | 3× 주황 · > 흰색 · 1× 파랑 · ? 노랑 |
+| 머리글 바로 아래 (조금 작게) | `1999 → 2026` | 1999 → 2026 흰색 |
+| 파랑 로켓(점 1) | `1×` | 1× 파랑 |
+| 보라 로켓(점 2) | `2×` | 2× 보라 |
+| 주황 로켓(점 3) | `3×` | 3× 주황 |
 
 프롬프트:
 
@@ -361,7 +370,7 @@ The face of a fictional person is partly visible at the edge, thoughtful and hes
 Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
 If 16:9 is not available, use the widest landscape canvas; in any case keep the main objects inside the central 16:9 area, at least 8% away from the top and bottom edges.
 Fictional person, not resembling any real or famous person.
-Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) the headline "1999 → 2026 ?" in the upper-left area, above the main objects (keep it off the chest and the face), very large (about 13% of the image height), written as "1999" in white, "→" in white, "2026" in white, "?" in yellow (#FFD400); (2) "1×" on the launch pad (or hatch) of the blue rocket with one dot, large, in blue (#5AB4FF); (3) "2×" on the launch pad (or hatch) of the violet rocket with two dots, large, in violet (#B48CFF); (4) "3×" on the launch pad (or hatch) of the orange rocket with three dots, large, in orange (#FF8A3D). Spell every item exactly as written, character by character: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the rockets, the launch pads, the hatches and the chest have nothing else written on them. Keep all text off any face and out of the bottom-right corner.
+Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) the headline "3× > 1× ?" in the upper-left area, above the main objects (keep it off the chest and the face), very large (about 13% of the image height), written as "3×" in orange (#FF8A3D), ">" in white, "1×" in blue (#5AB4FF), "?" in yellow (#FFD400); (2) "1999 → 2026" directly under the headline, a little smaller, large, written as "1999 → 2026" in white; (3) "1×" on the launch pad (or hatch) of the blue rocket with one dot, large, written as "1×" in blue (#5AB4FF); (4) "2×" on the launch pad (or hatch) of the violet rocket with two dots, large, written as "2×" in violet (#B48CFF); (5) "3×" on the launch pad (or hatch) of the orange rocket with three dots, large, written as "3×" in orange (#FF8A3D). Spell every item exactly as written, character by character, with the spaces shown: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→", ">", "<", "=", "+" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the rockets, the launch pads, the hatches and the chest have nothing else written on them. Keep all text off any face and out of the bottom-right corner.
 ```
 
 ## 13. baedang-etf-2026-10-shorts · thumbnail_1 — 동전을 떨구는 배당 나무와 큰 나무 — 줄다리기 한가운데
@@ -374,10 +383,9 @@ Text: add only the following text in a very bold, clean, flat sans-serif typefac
 
 | 자리 | 문구 | 색 |
 |---|---|---|
-| 가운데 위 (높이 15~35%) — 큰 머리글 | `+$33K` | +$33K 보라 |
-| 왼쪽(보라) 화분 | `SCHD` | 보라 |
-| 오른쪽(파랑) 화분 | `SPY` | 파랑 |
-| 줄 끝 안개 속 | `?` | 노랑 |
+| 가운데 위 (높이 15~35%) — 큰 머리글 | `SCHD − TAX > SPY` | SCHD 보라 · − TAX 빨강 · > 흰색 · SPY 파랑 |
+| 매듭 바로 위 | `+$33K` | +$33K 보라 |
+| 줄 끝 안개 속 | `?` | ? 노랑 |
 
 프롬프트:
 
@@ -390,7 +398,7 @@ Lower middle (still above 66% of the height): a fictional person in their fiftie
 Mood: a close, undecided contest.
 Large simple shapes, high contrast, readable when shrunk to 360 pixels tall.
 Fictional person, not resembling any real or famous person.
-Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) "+$33K" huge in violet (#B48CFF), centered in the upper-middle area between 15% and 35% of the height and inside the left 84% of the width; (2) "SCHD" on the left (violet tree) pot, large, in violet (#B48CFF); (3) "SPY" on the right (blue tree) pot, large, in blue (#5AB4FF); (4) "?" inside the fog where the rope disappears, large, in yellow (#FFD400). Spell every item exactly as written, character by character: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the trees, the pots, the coins and the rope have nothing else written on them. All text stays between 13% and 66% of the height and off the face.
+Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) the headline "SCHD − TAX > SPY" huge, across the upper-middle area between 15% and 35% of the height, SCHD on the violet tree's side and SPY on the blue tree's side, inside the left 84% of the width, written as "SCHD" in violet (#B48CFF), "− TAX" in red (#FF4D5E), ">" in white, "SPY" in blue (#5AB4FF); (2) "+$33K" just above the knot in the middle of the rope, large, written as "+$33K" in violet (#B48CFF); (3) "?" inside the fog where the rope disappears, large, written as "?" in yellow (#FFD400). Spell every item exactly as written, character by character, with the spaces shown: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→", ">", "<", "=", "+" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the trees, the pots, the coins and the rope have nothing else written on them. All text stays between 13% and 66% of the height and off the face.
 ```
 
 ## 14. eonje-maesu-2026-10-shorts · thumbnail_1 — 평균선 신호 vs 주사위 — 높이 올라간 화살표가 금이 간 순간
@@ -403,9 +411,8 @@ Text: add only the following text in a very bold, clean, flat sans-serif typefac
 
 | 자리 | 문구 | 색 |
 |---|---|---|
-| 가운데 위 (높이 15~35%) — 큰 머리글 | `64.7%` | 64.7% 초록 |
-| 화살표가 노란 선을 넘는 곳 | `BUY` | 초록 표(글자 흰색) |
-| 주사위 더미 위 | `?` | 노랑 |
+| 가운데 위 (높이 15~35%) — 큰 머리글 | `64.7% > 51.8% ?` | 64.7% 초록 · > 흰색 · 51.8% 흰색 · ? 노랑 |
+| 화살표가 노란 선을 넘는 곳 | `BUY` | BUY 초록 표(글자 흰색) |
 
 프롬프트:
 
@@ -418,7 +425,7 @@ Lower middle (still above 66% of the height): a fictional person in their late f
 Mood: suspense, as if the result is about to be revealed.
 Large simple shapes, high contrast, readable when shrunk to 360 pixels tall.
 Fictional person, not resembling any real or famous person.
-Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) "64.7%" huge in bright green (#2BE0A0), centered in the upper-middle area between 15% and 35% of the height and inside the left 84% of the width; (2) "BUY" where the green arrow crosses the yellow line, as a tag, white letters on a bright green (#2BE0A0) rounded tag; (3) "?" on top of the dice stack, large, in yellow (#FFD400). Spell every item exactly as written, character by character: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the arrow, the dice and the line have nothing else written on them. All text stays between 13% and 66% of the height and off the face.
+Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) the headline "64.7% > 51.8% ?" huge, across the upper-middle area between 15% and 35% of the height, with 64.7% on the side of the green arrow and 51.8% on the side of the dice stack, inside the left 84% of the width, written as "64.7%" in bright green (#2BE0A0), ">" in white, "51.8%" in white, "?" in yellow (#FFD400); (2) "BUY" where the green arrow crosses the yellow line, as a tag, large, written as "BUY" in white letters on a bright green (#2BE0A0) rounded tag. Spell every item exactly as written, character by character, with the spaces shown: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→", ">", "<", "=", "+" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the arrow, the dice and the line have nothing else written on them. All text stays between 13% and 66% of the height and off the face.
 ```
 
 ## 15. keobeodeu-kol-2026-10-shorts · thumbnail_1 — 금고에서 동전을 매달 꺼내는 사람 — 금고가 점점 가벼워짐
@@ -431,10 +438,9 @@ Text: add only the following text in a very bold, clean, flat sans-serif typefac
 
 | 자리 | 문구 | 색 |
 |---|---|---|
-| 가운데 위 (높이 15~35%) — 큰 머리글 | `−17.5%` | −17.5% 빨강 |
-| 금고 앞면 | `QYLD` | 주황 |
-| 노란 점선 끝 | `$100,000` | 노랑 |
-| 천에 덮인 두 번째 계좌 | `?` | 노랑 |
+| 가운데 위 (높이 15~35%) — 큰 머리글 | `QYLD < $100,000` | QYLD 주황 · < 흰색 · $100,000 노랑 |
+| 금고와 노란 점선 사이 빨간 틈 | `−17.5%` | −17.5% 빨강 |
+| 천에 덮인 두 번째 계좌 | `QQQ = ?` | QQQ 파랑 · = ? 노랑 |
 
 프롬프트:
 
@@ -448,7 +454,7 @@ Lower middle (still above 66% of the height): a fictional person in their sixtie
 Mood: quiet worry and suspense.
 Large simple shapes, high contrast, readable when shrunk to 360 pixels tall.
 Fictional person, not resembling any real or famous person.
-Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) "−17.5%" huge in red (#FF4D5E), centered in the upper-middle area between 15% and 35% of the height and inside the left 84% of the width; (2) "QYLD" on the front of the orange safe, large, in orange (#FF8A3D); (3) "$100,000" at the end of the yellow dashed line, large, in yellow (#FFD400); (4) "?" on the dark cloth that covers the second account, large, in yellow (#FFD400). Spell every item exactly as written, character by character: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the safe, the coins, the cloth and the line have nothing else written on them. All text stays between 13% and 66% of the height and off the face.
+Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) the headline "QYLD < $100,000" huge, across the upper-middle area between 15% and 35% of the height, inside the left 84% of the width, written as "QYLD" in orange (#FF8A3D), "<" in white, "$100,000" in yellow (#FFD400); (2) "−17.5%" in the red gap between the safe and the yellow dashed line, large, written as "−17.5%" in red (#FF4D5E); (3) "QQQ = ?" on the dark cloth that covers the second account, large, written as "QQQ" in blue (#5AB4FF), "= ?" in yellow (#FFD400). Spell every item exactly as written, character by character, with the spaces shown: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→", ">", "<", "=", "+" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the safe, the coins, the cloth and the line have nothing else written on them. All text stays between 13% and 66% of the height and off the face.
 ```
 
 ## 16. reobeoriji-2026-10-shorts · thumbnail_1 — 번개에 부서진 3단 로켓 — 그래도 다시 연료를 넣는 손
@@ -461,9 +467,9 @@ Text: add only the following text in a very bold, clean, flat sans-serif typefac
 
 | 자리 | 문구 | 색 |
 |---|---|---|
-| 가운데 위 (높이 15~35%) — 큰 머리글 | `−92.3%` | −92.3% 빨강 |
-| 부서진 주황 로켓 옆면 | `3×` | 주황 |
-| 동전을 넣는 손 옆 | `$500` | 노랑 |
+| 가운데 위 (높이 15~35%) — 큰 머리글 | `3× = −92.3%` | 3× 주황 · = 흰색 · −92.3% 빨강 |
+| 동전을 넣는 손 옆 | `+$500` | +$500 노랑 |
+| 로켓 위 구름 속 | `?` | ? 노랑 |
 
 프롬프트:
 
@@ -476,5 +482,5 @@ Lower middle (still above 66% of the height): a fictional person in their mid-th
 Mood: storm, damage and stubborn suspense.
 Large simple shapes, high contrast, readable when shrunk to 360 pixels tall.
 Fictional person, not resembling any real or famous person.
-Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) "−92.3%" huge in red (#FF4D5E), centered in the upper-middle area between 15% and 35% of the height and inside the left 84% of the width; (2) "3×" on the side of the broken orange rocket, large, in orange (#FF8A3D); (3) "$500" right next to the hand dropping the coin, large, in yellow (#FFD400). Spell every item exactly as written, character by character: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the rockets, the hatch and the coins have nothing else written on them. All text stays between 13% and 66% of the height and off the face.
+Text: add only the following text in a very bold, clean, flat sans-serif typeface (like Arial Black), flat 2D lettering with a thin dark outline so it stands out on the dark background — never 3D, never embossed, never curved, never in perspective: (1) the headline "3× = −92.3%" huge, across the upper-middle area between 15% and 35% of the height, next to the broken orange rocket, inside the left 84% of the width, written as "3×" in orange (#FF8A3D), "=" in white, "−92.3%" in red (#FF4D5E); (2) "+$500" right next to the hand dropping the coin, large, written as "+$500" in yellow (#FFD400); (3) "?" in the clouds above the rockets, large, written as "?" in yellow (#FFD400). Spell every item exactly as written, character by character, with the spaces shown: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", "→", ">", "<", "=", "+" and "?" stay exactly as written. These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs, and the rockets, the hatch and the coins have nothing else written on them. All text stays between 13% and 66% of the height and off the face.
 ```

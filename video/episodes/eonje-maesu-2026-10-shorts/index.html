@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>평균선 신호 쇼츠</title>
+<!-- VERSION: v1.0 — 2026-10-17 — 최초. 주식 1번 롱폼(eonje-maesu-2026-10)으로 보내는 세로 쇼츠 (사용자 지시 2026-10-17 "저번에 쇼츠 만들었었으니까 같은 방식으로
+     영상 당 쇼츠 1개씩 만들어봐" · "다른점은 전세계 시청자들 대상이니까 언어 문구, 자막 달지 말고 영상으로만 잘 이해가 가도록 해야해").
+     대본 stock/source/eonje-maesu-2026-10/shorts/eonje-maesu-2026-10-shorts.txt (9문장 — 숫자는 모두 롱폼 대본에 있음, shorts_numcheck.py).
+     자막 없음 · 화면 글자 = 숫자·%·연도·SPY·S&P·BUY·RSI·VIX·기호(✓ ✗ ＞ ? → ⬇)·아이콘만 (K.init noWords — render.mjs check).
+     세로 1080×1920 · 안전 구역 위 250 · 오른쪽 150 · 아래 y 1500 — shorts.md 3번.
+     ① 첫 문장 = 쇼츠 썸네일 그림 ② SPY 종가(흰 선)가 20일 평균(노란 선)을 넘는 날 = BUY ③ 규칙: 실제 거래 둘 — +5% 먼저 ✓ · −2% 먼저 ✗
+     ④ 2021.12 성공률 64.7% vs 무작위 계좌 2,000개 평균 51.8% ⑤ 2016.07~2018.01 ✓×5 ⑥ 2021.12~2022.07 ✗×6 (성공률·무작위 평균이 날짜를 따라 바뀜)
+     ⑦ 매수 신호 10가지 ⑧ 10가지 ＞ 무작위 ? (2016 → 2026) ⑨ 끝 화면 ⬇.
+     10가지의 끝 성공률·무작위 90% 범위(회색 띠)·종합 표는 그리지 않는다 (결말 — stock/guides/README.md 2·3번).
+     숫자 = stock/source/eonje-maesu-2026-10/backtest/barrier/anim.js(← barrier/run.py)만. 연구·교육용 영상 — 투자 권유 아님. -->
+<meta name="video-size" content="1080x1920">
+<meta name="video-safe" content="250 150 1500 60">
+<link rel="stylesheet" href="../../render/kit.css">
+<style>
+#wrap{max-width:420px;margin:0 auto;aspect-ratio:9/16}
+body.render #wrap{width:1080px;height:1920px;max-width:none;margin:0}
+#stage{width:1080px;height:1920px;background:radial-gradient(1100px 1500px at 50% 34%,#17243D 0%,#0C1424 58%,#070C17 100%);--MI:#2BE0A0;--RD:#FF4D5E;--GR:#93A0B8}
+#cv{position:absolute;left:0;top:0;width:1080px;height:1920px;z-index:1;pointer-events:none}
+.sc{z-index:2}
+.tab{font-variant-numeric:tabular-nums}
+.big{font-weight:900;line-height:1;white-space:nowrap;letter-spacing:-2px}
+.row{display:flex;align-items:center;gap:18px}
+.tk{display:inline-block;font:900 40px/1 "Noto Sans KR";padding:10px 16px 9px;border-radius:14px;white-space:nowrap;background:#C9D2E2;color:#0C1424}
+.tag{display:inline-block;font:900 36px/1 "Noto Sans KR";padding:9px 14px 8px;border-radius:12px;white-space:nowrap}
+.tag.b{background:var(--MI);color:#03231A}
+.badge2{display:inline-grid;place-items:center;min-width:60px;height:60px;padding:0 10px;border-radius:18px;background:linear-gradient(160deg,#FFE24D,#E8B800);color:#1A1300;font:900 38px/1 "Noto Sans KR"}
+.card2{position:absolute;border-radius:28px;background:linear-gradient(160deg,rgba(255,255,255,.08),rgba(255,255,255,.025));border:2px solid rgba(255,255,255,.12);box-shadow:0 30px 60px rgba(0,0,0,.45)}
+.sig{position:absolute;width:410px;height:112px;border-radius:24px;background:linear-gradient(160deg,rgba(255,255,255,.08),rgba(255,255,255,.025));border:2px solid rgba(255,255,255,.12);display:flex;align-items:center;gap:14px;padding:0 20px;font:900 38px/1 "Noto Sans KR";white-space:nowrap}
+.sig.hi{border-color:#FFD400;box-shadow:0 0 0 3px rgba(255,212,0,.35)}
+.veil{position:absolute;left:0;top:0;width:1080px;height:1920px;background:rgba(7,12,23,.93)}
+.arrow{position:absolute}
+</style>
+</head>
+<body>
+<div id="wrap"><div id="stage"><canvas id="cv" width="1080" height="1920"></canvas></div></div>
+<div id="ctrl"></div>
+<div id="now"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="../../../stock/source/eonje-maesu-2026-10/backtest/barrier/anim.js"></script>
+<script id="ep-data">/*EP-DATA:BEGIN*/window.EP={"id":"eonje-maesu-2026-10-shorts","topic":"stock","duration":48.61,"audio":null,"thumb":null,"estimated":true,"est_model":{"perSyl":0.151,"comma":0.25,"base":-0.08,"min":0.8,"lead":0.3,"gap":0.45,"part":1,"tail":0.8},"synced":"2026-10-17T10:51:56Z","sent":[{"n":1,"part":"평균선 신호 vs 무작위","text":"20일 평균선을 넘을 때 매수하면, 2021년 12월 성공률이 64.7%였습니다.","start":0.3,"end":6.359},{"n":2,"part":"평균선 신호 vs 무작위","text":"S&P 500을 따라가는 ETF인 SPY로, 2016년부터 시험한 결과예요.","start":6.809,"end":12.415},{"n":3,"part":"평균선 신호 vs 무작위","text":"5% 먼저 오르면 성공, 2% 먼저 떨어지면 실패로 셌어요.","start":12.865,"end":17.112},{"n":4,"part":"평균선 신호 vs 무작위","text":"같은 때, 날짜만 무작위로 매수한 계좌 2천 개의 평균은 51.8%였고요.","start":17.562,"end":22.715},{"n":5,"part":"평균선 신호 vs 무작위","text":"2016년 7월부터 2018년 1월까지는 다섯 번 연속 성공하기도 했어요.","start":23.165,"end":27.917},{"n":6,"part":"평균선 신호 vs 무작위","text":"그런데 2021년 12월 뒤로는, 2022년 7월까지 여섯 번 연속 실패했습니다.","start":28.367,"end":33.973},{"n":7,"part":"평균선 신호 vs 무작위","text":"RSI, 공포지수 VIX처럼 많이 쓰는 매수 신호 10가지도 함께 시험했어요.","start":34.423,"end":40.029},{"n":8,"part":"평균선 신호 vs 무작위","text":"10년이 끝났을 때, 무작위보다 확실히 나은 신호가 있었을까요?","start":40.479,"end":44.424},{"n":9,"part":"평균선 신호 vs 무작위","text":"10가지 신호의 결과는 아래 영상에서 확인하세요.","start":44.874,"end":47.814}],"subs":[[0.3,6.359,"20일 평균선을 넘을 때 매수하면, 2021년 12월 성공률이 64.7%였습니다."],[6.809,12.415,"S&P 500을 따라가는 ETF인 SPY로, 2016년부터 시험한 결과예요."],[12.865,17.112,"5% 먼저 오르면 성공, 2% 먼저 떨어지면 실패로 셌어요."],[17.562,22.715,"같은 때, 날짜만 무작위로 매수한 계좌 2천 개의 평균은 51.8%였고요."],[23.165,27.917,"2016년 7월부터 2018년 1월까지는 다섯 번 연속 성공하기도 했어요."],[28.367,33.973,"그런데 2021년 12월 뒤로는, 2022년 7월까지 여섯 번 연속 실패했습니다."],[34.423,40.029,"RSI, 공포지수 VIX처럼 많이 쓰는 매수 신호 10가지도 함께 시험했어요."],[40.479,44.424,"10년이 끝났을 때, 무작위보다 확실히 나은 신호가 있었을까요?"],[44.874,47.814,"10가지 신호의 결과는 아래 영상에서 확인하세요."]],"subs_estimated":true};/*EP-DATA:END*/</script>
+<script src="../../render/kit.js"></script>
+<script src="../../render/race2d.js"></script>
+<script>
+(function () {
+"use strict";
+K.init(window.EP, { subtitles: false, chip: false, noWords: true, w: 1080, testFrom: "평균선 신호 vs 무작위" });
+const tl = K.tl, el = K.el, pop = K.pop;
+const AN = window.AN, N = AN.dates.length, L = AN.lines, X = AN.rules.x20;
+if (AN.m !== 0.02 || AN.n !== 0.05 || AN.runs !== 2000) throw new Error("규칙(−2%·+5%·무작위 2,000개)이 대본과 다름");
+const YE = "#FFD400", MI = "#2BE0A0", RD = "#FF4D5E", WH = "#EAF0F8", GR = "#93A0B8";
+const CX = 495;
+const cv = document.getElementById("cv"), ctx = cv.getContext("2d");
+const LAYERS = [];
+const add = (a, b, f) => LAYERS.push([a, b, f]);
+K.onSeek(t => { ctx.clearRect(0, 0, 1080, 1920); for (const [a, b, f] of LAYERS) if (t >= a && t < b) f(t); });
+const SN = a => { const h = EP.sent.filter(s => s.text.includes(a)); if (h.length !== 1) throw new Error(`문장 찾기 '${a}' → ${h.length}개`); return h[0]; };
+const S = a => SN(a).start, E = a => SN(a).end, W = (a, w) => K.W(SN(a).n, w);
+const ymd = i => AN.dates[i].replace(/-/g, ".");
+const idx = d => { const i = AN.dates.findIndex(x => x >= d); return i < 0 ? N - 1 : i; };
+const clamp = (x, a, b) => Math.max(a, Math.min(b, x));
+const rt = r => (r * 100).toFixed(1) + "%";
+const IC = {
+  cal: (s = 48, n = "") => `<svg viewBox="0 0 48 48" width="${s}" height="${s}"><rect x="5" y="9" width="38" height="34" rx="7" fill="#22324F" stroke="#9FB1CF" stroke-width="3.5"/><path d="M5 19h38M16 5v8M32 5v8" stroke="#9FB1CF" stroke-width="3.5" stroke-linecap="round"/>${n ? `<path d="M19.5 27 L25 23 V39" fill="none" stroke="#FFD400" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>` : ""}</svg>`,
+  star: (s = 44) => `<svg viewBox="0 0 48 48" width="${s}" height="${s}"><path d="M24 4l6 13 14 1.5-10.5 9.6 3 14-12.5-7.2-12.5 7.2 3-14L4 18.5 18 17z" fill="#FFD400"/></svg>`,
+  up: (s = 44, c = MI) => `<svg viewBox="0 0 48 48" width="${s}" height="${s}"><path d="M6 36 L18 22 L27 30 L42 12" fill="none" stroke="${c}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M33 12h9v9" fill="none" stroke="${c}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  dn: (s = 44, c = RD) => `<svg viewBox="0 0 48 48" width="${s}" height="${s}"><path d="M6 12 L18 26 L27 18 L42 36" fill="none" stroke="${c}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M33 36h9v-9" fill="none" stroke="${c}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  cross: (s = 44) => `<svg viewBox="0 0 48 48" width="${s}" height="${s}"><path d="M4 34 C16 30 26 20 44 10" fill="none" stroke="#7FD4FF" stroke-width="4.5" stroke-linecap="round"/><path d="M4 16 C18 20 30 26 44 28" fill="none" stroke="#FFD400" stroke-width="4.5" stroke-linecap="round"/></svg>`,
+  gauge: (s = 44) => `<svg viewBox="0 0 48 48" width="${s}" height="${s}"><path d="M6 36a18 18 0 0 1 36 0" fill="none" stroke="#9FB1CF" stroke-width="5" stroke-linecap="round"/><path d="M6 36a18 18 0 0 1 6-13" fill="none" stroke="#2BE0A0" stroke-width="5" stroke-linecap="round"/><path d="M24 36 L14 22" stroke="#fff" stroke-width="4" stroke-linecap="round"/></svg>`,
+  fear: (s = 44) => `<svg viewBox="0 0 48 48" width="${s}" height="${s}"><path d="M8 40 L16 24 L22 32 L30 10 L40 40" fill="none" stroke="#FF6B6B" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round"/><circle cx="30" cy="10" r="4" fill="#FFD400"/></svg>`,
+  flag: (s = 44) => `<svg viewBox="0 0 48 48" width="${s}" height="${s}"><path d="M10 44V6" stroke="#9FB1CF" stroke-width="4" stroke-linecap="round"/><path d="M12 7h24l-6 8 6 8H12z" fill="#FFD400"/></svg>`,
+  dice: (s = 44, c = "#D6E0EF") => `<svg viewBox="0 0 48 48" width="${s}" height="${s}"><rect x="5" y="5" width="38" height="38" rx="9" fill="#22324F" stroke="${c}" stroke-width="3.5"/><circle cx="15" cy="15" r="3.6" fill="${c}"/><circle cx="33" cy="15" r="3.6" fill="${c}"/><circle cx="24" cy="24" r="3.6" fill="${c}"/><circle cx="15" cy="33" r="3.6" fill="${c}"/><circle cx="33" cy="33" r="3.6" fill="${c}"/></svg>`,
+};
+const BUY = `<span class="tag b">BUY</span>`;
+const SIG20 = (s = 56) => `<span class="row" style="gap:10px">${IC.up(s, YE)}<span style="color:${YE}">20</span></span>`;   // 20일 평균선 돌파 표시
+// 10가지 (롱폼 순서 AN.order) — 아이콘 + 짧은 숫자 표시 (언어 없음)
+const SIGS = { m1: [s => IC.cal(s, "1"), ""], hi20: [s => IC.flag(s), "20D"], mom21: [s => IC.up(s), "＞ −21D"], x20: [s => IC.up(s, YE), "20"], gc520: [s => IC.cross(s), "5 ↗ 20"],
+  drop1: [s => IC.dn(s), "−1%"], rsi40: [s => IC.gauge(s), "RSI &lt; 40"], vix20: [s => IC.fear(s), "VIX ≥ 20"], dd20_5: [s => IC.star(s), "20D −5%"], dd5: [s => IC.star(s), "−5%"] };
+if (AN.order.join() !== Object.keys(SIGS).join()) throw new Error("방법 순서가 anim.js 와 다름");
+// 문장 (대본 shorts/eonje-maesu-2026-10-shorts.txt — 글자로 찾음)
+const A1 = "성공률이 64.7%였습니다", A2 = "S&P 500을 따라가는 ETF인 SPY로", A3 = "5% 먼저 오르면 성공", A4 = "계좌 2천 개의 평균은", A5 = "다섯 번 연속 성공",
+  A6 = "여섯 번 연속 실패", A7 = "RSI, 공포지수 VIX처럼", A8 = "무작위보다 확실히 나은 신호", A9 = "10가지 신호의 결과는";
+
+// ---------- 그날까지 판정 난 거래만 셈 (미래 거래를 세지 않음) ----------
+const CW = new Int32Array(N), CL = new Int32Array(N);
+for (const t of X.trades) if (t.h != null && t.res) (t.res === "w" ? CW : CL)[t.h]++;
+for (let i = 1; i < N; i++) { CW[i] += CW[i - 1]; CL[i] += CL[i - 1]; }
+const rateAt = i => CW[i] / Math.max(1, CW[i] + CL[i]);
+const rndAt = i => X.rnd.mean[i] / 1000;                    // anim.js 무작위 평균 = 천분율 정수 (그날까지 판정 난 것)
+const iDec = idx("2021-12-01");
+if (rt(rateAt(iDec)) !== "64.7%" || rt(rndAt(iDec)) !== "51.8%") throw new Error(`2021.12 숫자가 대본과 다름 ${rt(rateAt(iDec))} ${rt(rndAt(iDec))}`);
+
+// ---------- 그리기 부품 ----------
+function check(x, y, s, c) { ctx.save(); ctx.strokeStyle = c || MI; ctx.lineWidth = s * 0.2; ctx.lineCap = "round"; ctx.lineJoin = "round"; ctx.beginPath(); ctx.moveTo(x - s * 0.45, y); ctx.lineTo(x - s * 0.1, y + s * 0.35); ctx.lineTo(x + s * 0.5, y - s * 0.4); ctx.stroke(); ctx.restore(); }
+function xmark(x, y, s, c) { ctx.save(); ctx.strokeStyle = c || RD; ctx.lineWidth = s * 0.2; ctx.lineCap = "round"; ctx.beginPath(); ctx.moveTo(x - s * 0.4, y - s * 0.4); ctx.lineTo(x + s * 0.4, y + s * 0.4); ctx.moveTo(x + s * 0.4, y - s * 0.4); ctx.lineTo(x - s * 0.4, y + s * 0.4); ctx.stroke(); ctx.restore(); }
+function tri(x, y, s, c) { ctx.save(); ctx.fillStyle = c || MI; ctx.beginPath(); ctx.moveTo(x, y - s); ctx.lineTo(x + s * 0.9, y + s * 0.6); ctx.lineTo(x - s * 0.9, y + s * 0.6); ctx.closePath(); ctx.fill(); ctx.restore(); }
+function hline(x0, x1, y, c, dash) { ctx.save(); ctx.setLineDash(dash || [12, 9]); ctx.strokeStyle = c; ctx.lineWidth = 4; ctx.beginPath(); ctx.moveTo(x0, y); ctx.lineTo(x1, y); ctx.stroke(); ctx.restore(); }
+const yearsT = []; for (let i = 1; i < N; i++) if (AN.dates[i].slice(0, 4) !== AN.dates[i - 1].slice(0, 4)) yearsT.push([i, AN.dates[i].slice(0, 4)]);
+// 기간 그림: 종가(흰 선) + 20일 평균(노란 선) · 지난 거래만 BUY ▲ · 판정 ✓/✗ · 거래 중이면 +5%(초록)·−2%(빨강) 점선
+function windowChart(o) {
+  const i0 = idx(o.from), i1 = idx(o.to);
+  let lo = Infinity, hi = -Infinity;
+  for (let i = i0; i <= i1; i++) { lo = Math.min(lo, AN.close[i], L.sma20[i] || Infinity); hi = Math.max(hi, AN.close[i]); }
+  for (const t of X.trades) if (t.b >= i0 && t.b <= i1) { lo = Math.min(lo, t.sl); hi = Math.max(hi, t.tg); }
+  const ch = new R2.Chart({ x: o.x, y: o.y, w: o.w, h: o.h, n: N, xFrom: i0, xTo: i1, mode: "lin", min: lo * 0.995, max: hi * 1.005, years: yearsT, yearGap: 120, labelSize: 30,
+    money: v => "$" + Math.round(v), series: [{ vals: L.sma20, color: YE, width: 4, noHead: true }, { vals: AN.close, color: WH, width: 5 }] });
+  return { ch, i0, i1, draw(d, al) {
+    ctx.save(); ctx.globalAlpha = al;
+    ch.draw(ctx, d);
+    const k = Math.floor(d);
+    for (const t of X.trades) {
+      if (t.b < i0 || t.b > k || t.b > i1) continue;
+      const xb = ch.X(t.b), done = t.h != null && t.h <= k;
+      const xe = done ? ch.X(t.h) : ch.X(Math.min(d, i1));
+      if (!done || o.bands) { hline(xb, xe, ch.Y(t.tg), "rgba(43,224,160,.75)"); hline(xb, xe, ch.Y(t.sl), "rgba(255,77,94,.75)"); }
+      tri(xb, ch.Y(t.bp) + 26, 13, MI);
+      if (done) { const y = ch.Y(t.res === "w" ? t.tg : t.sl); t.res === "w" ? check(ch.X(t.h), y - 30, 40) : xmark(ch.X(t.h), y + 30, 36); }
+    }
+    ctx.restore();
+  } };
+}
+
+// 1. 첫 문장 = 쇼츠 썸네일 그림
+K.cover(S(A2) - 0.05);
+K.cut(0.1, "0초 그림 = 썸네일로 고를 프레임");
+K.cut(E(A1) - 0.2, "첫 문장 (그림)");
+
+// 2. SPY · S&P 500 · 2016 — 흰 선이 노란 선(20일 평균)을 넘는 날 BUY (s2)
+{ const a = S(A2), b = S(A3) - 0.1, sc = K.scene(a - 0.3, b);
+  const head = el(`<div class="a cx row" style="left:${CX}px;top:300px;gap:24px"><span class="tk" style="font-size:70px">SPY</span><span class="big" style="font-size:66px;color:#C9D2E2">= S&amp;P 500</span></div>`, sc);
+  pop(head, a);
+  const leg = el(`<div class="a cx row" style="left:${CX}px;top:1240px;gap:40px;font:900 44px/1 'Noto Sans KR'"><span class="row" style="gap:12px"><span style="display:inline-block;width:70px;height:7px;border-radius:4px;background:${WH}"></span>SPY</span><span class="row" style="gap:12px"><span style="display:inline-block;width:70px;height:7px;border-radius:4px;background:${YE}"></span><span style="color:${YE}">20</span></span><span class="row" style="gap:10px">${IC.up(46, MI)}${BUY}</span></div>`, sc);
+  pop(leg, W(A2, "2016년부터"));
+  const wc = windowChart({ from: "2016-01-04", to: "2016-07-29", x: 140, y: 470, w: 740, h: 640 });
+  const pace = R2.warp([[a + 0.2, wc.i0], [b - 0.2, wc.i1]], "쇼츠 SPY 2016", 400);
+  add(a - 0.3, b, t => { wc.draw(pace(t), clamp((t - a + 0.3) / 0.35, 0, 1) * clamp((b - t) / 0.3, 0, 1));
+    ctx.font = `900 60px ${R2.FONT}`; ctx.fillStyle = WH; ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.globalAlpha = clamp((t - a) / 0.3, 0, 1) * clamp((b - t) / 0.3, 0, 1);
+    ctx.fillText(ymd(Math.floor(pace(t))), 64, 395); ctx.globalAlpha = 1; });
+  K.cut(E(A2) - 0.2, "SPY · 20일 평균 · BUY");
+}
+
+// 3. 규칙 (s3): 실제 거래 둘 — 왼쪽 +5% 먼저 ✓ (2016.07.01 매수) · 오른쪽 −2% 먼저 ✗ (2021.12.08 매수)
+{ const a = S(A3), b = S(A4) - 0.1, sc = K.scene(a - 0.3, b);
+  const TW = X.trades.find(t => AN.dates[t.b] === "2016-07-01"), TL = X.trades.find(t => AN.dates[t.b] === "2021-12-08");
+  if (!TW || TW.res !== "w" || !TL || TL.res !== "l") throw new Error("규칙 예시 거래가 anim.js 와 다름");
+  const tW = W(A3, "성공"), tL = W(A3, "실패");
+  const panel = (T, x, t0, t1) => {
+    const i0 = Math.max(0, T.b - 6), i1 = T.h + 4;
+    let lo = T.sl, hi = T.tg; for (let i = i0; i <= i1; i++) { lo = Math.min(lo, AN.close[i]); hi = Math.max(hi, AN.close[i]); }
+    const ch = new R2.Chart({ x, y: 560, w: 380, h: 560, n: N, xFrom: i0, xTo: i1, mode: "lin", min: lo - (hi - lo) * 0.08, max: hi + (hi - lo) * 0.12, grid: false, series: [{ vals: AN.close, color: WH, width: 5 }] });
+    const pace = R2.warp([[t0, T.b], [t1, T.h]], "쇼츠 규칙 예", 200);
+    return { ch, T, pace, t1, i0, i1 };
+  };
+  const P = [panel(TW, 80, a + 0.1, tW + 0.2), panel(TL, 540, W(A3, "2%") - 0.2, tL + 0.2)];
+  add(a - 0.3, b, t => {
+    const al = clamp((t - a + 0.3) / 0.35, 0, 1) * clamp((b - t) / 0.3, 0, 1);
+    P.forEach(({ ch, T, pace, t1, i0, i1 }, j) => {
+      const on = j === 0 ? 1 : clamp((t - (W(A3, "2%") - 0.5)) / 0.3, 0, 1);
+      if (on <= 0) return;
+      ctx.save(); ctx.globalAlpha = al * on;
+      ctx.fillStyle = "rgba(255,255,255,.04)"; R2.rr(ctx, ch.x - 20, ch.y - 90, ch.w + 40, ch.h + 140, 24); ctx.fill();
+      const d = Math.max(i0, pace(t));
+      ch.draw(ctx, Math.min(d, i1), { noHeads: false });
+      const xb = ch.X(T.b), x1 = ch.x + ch.w;
+      hline(xb, x1, ch.Y(T.tg), MI); hline(xb, x1, ch.Y(T.sl), RD);
+      hline(ch.x, x1, ch.Y(T.bp), "rgba(201,210,226,.35)", [4, 8]);
+      ctx.font = `900 44px ${R2.FONT}`; ctx.textBaseline = "middle"; ctx.textAlign = "left";
+      ctx.fillStyle = MI; ctx.fillText("+5%", ch.x, ch.Y(T.tg) - 34);
+      ctx.fillStyle = "#FF6B78"; ctx.fillText("−2%", ch.x, ch.Y(T.sl) + 36);
+      tri(xb, ch.Y(T.bp) + 28, 15, MI);
+      ctx.font = `900 34px ${R2.FONT}`; ctx.fillStyle = "#03231A"; ctx.textAlign = "center";
+      ctx.fillStyle = MI; R2.rr(ctx, xb - 46, ch.Y(T.bp) + 50, 92, 44, 10); ctx.fill(); ctx.fillStyle = "#03231A"; ctx.fillText("BUY", xb, ch.Y(T.bp) + 73);
+      if (t >= t1) { const u = clamp((t - t1) / 0.25, 0, 1); ctx.globalAlpha = al * on * u;
+        T.res === "w" ? check(ch.X(T.h), ch.Y(T.tg) - 70, 90) : xmark(ch.X(T.h), ch.Y(T.sl) + 72, 80); }
+      ctx.font = `700 34px ${R2.FONT}`; ctx.fillStyle = GR; ctx.textAlign = "center"; ctx.textBaseline = "top"; ctx.globalAlpha = al * on;
+      ctx.fillText(ymd(T.b).slice(0, 7), ch.x + ch.w / 2, ch.y + ch.h + 6);
+      ctx.restore();
+    });
+  });
+  K.cut(tW + 0.6, "규칙: +5% 먼저 ✓");
+  K.cut(E(A3) - 0.1, "규칙: −2% 먼저 ✗");
+}
+
+// 4. 2021.12 — 20일 평균 돌파 64.7% vs 무작위 계좌 2,000개 평균 51.8% (s4)
+{ const a = S(A4), b = S(A5) - 0.1, sc = K.scene(a - 0.3, b);
+  const dt = el(`<div class="a cx row" style="left:${CX}px;top:300px;gap:20px">${IC.cal(70)}<span class="big tab" style="font-size:80px">2021.12</span></div>`, sc);
+  pop(dt, a);
+  const cL = el(`<div class="card2" style="left:70px;top:470px;width:400px;height:640px;display:grid;justify-items:center;align-content:center;gap:40px"><span class="row" style="gap:14px;font:900 64px/1 'Noto Sans KR'">${SIG20(70)}${BUY}</span><span class="big tab" style="font-size:120px;color:${MI}">${rt(rateAt(iDec))}</span></div>`, sc);
+  pop(cL, a + 0.1);
+  const cR = el(`<div class="card2" style="left:520px;top:470px;width:400px;height:640px;display:grid;justify-items:center;align-content:center;gap:40px"><span class="row" style="gap:14px">${IC.dice(84)}<span class="big tab" style="font-size:60px">× 2,000</span></span><span class="big tab" style="font-size:120px;color:#C9D2E2">${rt(rndAt(iDec))}</span></div>`, sc);
+  pop(cR, W(A4, "무작위로"));
+  tl.fromTo(cR.lastElementChild, { opacity: 0 }, { opacity: 1, duration: 0.3 }, W(A4, "51.8%") - 0.1);
+  K.cut(E(A4) - 0.15, "2021.12 64.7% vs 무작위 51.8%");
+}
+
+// 5·6. 연속 — 2016.07~2018.01 ✓×5 (s5) · 2021.12~2022.07 ✗×6 (s6). 위 = 그날까지 성공률(초록) · 무작위 평균(회색)
+function streakScene(a, b, from, to, res, n, name, word) {
+  const sc = K.scene(a - 0.3, b);
+  const ic = el(`<div class="a row" style="left:70px;top:390px;gap:14px;font:900 50px/1 'Noto Sans KR'">${SIG20(58)}${BUY}</div>`, sc);
+  const dc = el(`<div class="a row" style="left:600px;top:384px;gap:14px">${IC.dice(64)}</div>`, sc);
+  pop(ic, a); pop(dc, a + 0.1);
+  const wc = windowChart({ from, to, x: 140, y: 560, w: 740, h: 560 });
+  const tr = X.trades.filter(t => t.h != null && AN.dates[t.b] >= from && AN.dates[t.h] <= to && t.res === res);
+  if (tr.length !== n) throw new Error(`${name}: 연속 ${n}번이 아님 (${tr.length})`);
+  const tEnd = W(SN(word).text, word === A5 ? "성공하기도" : "실패했습니다") + 0.1;
+  const pace = R2.warp([[a + 0.25, wc.i0], [tEnd, wc.i1]], name, 260);
+  add(a - 0.3, b, t => {
+    const al = clamp((t - a + 0.3) / 0.35, 0, 1) * clamp((b - t) / 0.3, 0, 1);
+    const d = pace(t), k = Math.floor(d);
+    wc.draw(d, al);
+    ctx.save(); ctx.globalAlpha = al;
+    ctx.font = `900 60px ${R2.FONT}`; ctx.fillStyle = WH; ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillText(ymd(k), 64, 272);
+    ctx.font = `900 72px ${R2.FONT}`; ctx.textBaseline = "middle";
+    ctx.fillStyle = MI; ctx.fillText(rt(rateAt(k)), 345, 422);
+    ctx.fillStyle = "#C9D2E2"; ctx.fillText(rt(rndAt(k)), 684, 422);
+    // 연속 줄: 판정 난 것만 ✓/✗
+    const done = tr.filter(x => x.h <= k).length, gap = 150, x0 = CX - (n - 1) * gap / 2;
+    for (let j = 0; j < n; j++) {
+      const x = x0 + j * gap, y = 1240;
+      ctx.globalAlpha = al * (j < done ? 1 : 0.18);
+      ctx.fillStyle = "rgba(255,255,255,.06)"; R2.rr(ctx, x - 62, y - 62, 124, 124, 26); ctx.fill();
+      res === "w" ? check(x, y, 80) : xmark(x, y, 72);
+    }
+    ctx.restore();
+  });
+  return sc;
+}
+streakScene(S(A5), S(A6) - 0.1, "2016-06-15", "2018-01-31", "w", 5, "쇼츠 ✓×5", A5);
+K.cut(E(A5) - 0.15, "2016.07~2018.01 ✓×5");
+streakScene(S(A6), S(A7) - 0.1, "2021-11-22", "2022-07-15", "l", 6, "쇼츠 ✗×6", A6);   // 7.12 여섯 번째 실패에서 끝 (7.28 성공은 대본 밖)
+K.cut(E(A6) - 0.15, "2021.12~2022.07 ✗×6 (64.7% → 55.0%)");
+
+// 7·8. 매수 신호 10가지 (s7) → 10가지 ＞ 무작위 ? · 2016 → 2026 (s8)
+{ const a = S(A7), b = S(A9) - 0.1, sc = K.scene(a - 0.3, b);
+  const top = el(`<div class="a cx row" style="left:${CX}px;top:300px;gap:20px"><span class="big tab" style="font-size:76px">10 ×</span>${BUY}</div>`, sc);
+  pop(top, a);
+  const boxes = AN.order.map((k, i) => {
+    const col = i % 2, r = Math.floor(i / 2);
+    const [icon, lab] = SIGS[k];
+    const n = el(`<div class="sig${k === "x20" ? " hi" : ""}" style="left:${70 + col * 440}px;top:${440 + r * 136}px"><span class="badge2">${i + 1}</span>${icon(50)}<span class="tab">${lab}</span><span class="q" style="margin-left:auto;color:${YE};font-size:56px;opacity:0">?</span></div>`, sc);
+    pop(n, a + 0.15 + i * 0.12);
+    return n;
+  });
+  // RSI·VIX 를 말할 때 그 칸을 밝힘
+  [["rsi40", "RSI"], ["vix20", "VIX처럼"]].forEach(([k, w]) => tl.fromTo(boxes[AN.order.indexOf(k)], { scale: 1 }, { scale: 1.06, duration: 0.25, yoyo: true, repeat: 1, ease: "sine.inOut" }, W(A7, w)));
+  K.cut(E(A7) - 0.15, "매수 신호 10가지");
+  // s8: 위 줄 → 2016 → 2026 · 아래: 10가지 ＞ 무작위 ? · 칸마다 ?
+  const t8 = S(A8);
+  tl.to(top, { opacity: 0, duration: 0.3 }, t8 - 0.2);
+  const yr = el(`<div class="a cx big tab" style="left:${CX}px;top:296px;font-size:80px">2016 → <span style="color:${YE}">2026</span></div>`, sc);
+  pop(yr, W(A8, "10년이"));
+  const cmp = el(`<div class="a cx row" style="left:${CX}px;top:1150px;gap:26px"><span class="big tab" style="font-size:76px">10 ×</span>${BUY}<span class="big" style="font-size:90px">＞</span>${IC.dice(96)}<span class="big" style="font-size:110px;color:${YE}">?</span></div>`, sc);
+  pop(cmp, W(A8, "무작위보다"));
+  boxes.forEach((n, i) => tl.to(n.querySelector(".q"), { opacity: 1, duration: 0.25 }, W(A8, "나은") + i * 0.06));
+  K.cut(E(A8) - 0.15, "10가지 ＞ 무작위 ? (2016 → 2026)");
+}
+
+// 9. 끝 화면 (s9) — 10가지 ＞ 무작위 ? · ⬇ (관련 동영상 링크 자리)
+{ const a = S(A9), sc = K.scene(a - 0.3, K.D, { keep: true });
+  el(`<div class="veil"></div>`, sc);
+  const icons = el(`<div class="a cx row" style="left:${CX}px;top:310px;gap:30px 34px;flex-wrap:wrap;justify-content:center;width:640px">${AN.order.map(k => SIGS[k][0](84)).join("")}</div>`, sc);
+  pop(icons, a);
+  const cmp = el(`<div class="a cx row" style="left:${CX}px;top:600px;gap:26px">${BUY}<span class="big" style="font-size:90px">＞</span>${IC.dice(96)}<span class="big" style="font-size:110px;color:${YE}">?</span></div>`, sc);
+  pop(cmp, a + 0.2);
+  const yr = el(`<div class="a cx big tab" style="left:${CX}px;top:820px;font-size:90px">2016 → 2026</div>`, sc);
+  pop(yr, W(A9, "결과는"));
+  const ar = el(`<svg class="arrow" viewBox="0 0 120 160" width="140" height="186" style="left:${CX - 70}px;top:1200px" aria-hidden="true">
+    <path d="M60 6 L60 120 M14 78 L60 124 L106 78" fill="none" stroke="${YE}" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/></svg>`, sc);
+  pop(ar, W(A9, "아래"));
+  tl.fromTo(ar, { y: 0 }, { y: 50, duration: 0.45, ease: "sine.inOut", repeat: 7, yoyo: true }, W(A9, "아래") + 0.6);
+  K.cut(E(A9) - 0.1, "끝 화면 ⬇");
+}
+
+K.done();
+})();
+</script>
+</body>
+</html>

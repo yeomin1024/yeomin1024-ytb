@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>배당 ETF 쇼츠</title>
+<!-- VERSION: v1.0 — 2026-10-17 — 최초. 주식 3번 롱폼(baedang-etf-2026-10)으로 보내는 세로 쇼츠 (사용자 지시 2026-10-17 "저번에 쇼츠 만들었었으니까 같은 방식으로
+     영상 당 쇼츠 1개씩 만들어봐" · "다른점은 전세계 시청자들 대상이니까 언어 문구, 자막 달지 말고 영상으로만 잘 이해가 가도록 해야해").
+     대본 stock/source/baedang-etf-2026-10/shorts/baedang-etf-2026-10-shorts.txt (9문장 — 숫자는 모두 롱폼 대본에 있음, shorts_numcheck.py).
+     자막 없음 · 화면 글자 = 숫자·$·%·연도·SCHD·SPY·S&P·BUY·기호(⇄ ＞ ? → ↺ ⬇)·아이콘만 (K.init noWords — render.mjs check).
+     세로 1080×1920 · 안전 구역 위 250 · 오른쪽 150 · 아래 y 1500 — shorts.md 3번.
+     ① 첫 문장 = 쇼츠 썸네일 그림 ② SCHD(배당 동전 나무) · SPY = S&P 500 ③ 경주 2011.11 → 2023.01.06 (보라 SCHD · 파랑 SPY · 넣은 돈 노란 점선 ·
+     매달 BUY $1,000) — 배당 = 동전 → 영수증 −15% · 나머지 ↺ BUY · 앞선 계좌가 바뀐 수 ⇄(2017년까지 43) · 2019 배당 막대 +63.1% ·
+     2022 하락 −14.6% · −22.2% · 2023.01.06 차이 $33K ④ 2026 SCHD ＞ SPY ? ⑤ 끝 화면 ⬇.
+     2023.07 뒤(→ 2026)와 끝 값은 그리지 않는다 (결말 — stock/guides/README.md 2·3번). 숫자 = backtest/anim.js(← run.py)만. 연구·교육용 영상 — 투자 권유 아님. -->
+<meta name="video-size" content="1080x1920">
+<meta name="video-safe" content="250 150 1500 60">
+<link rel="stylesheet" href="../../render/kit.css">
+<style>
+#wrap{max-width:420px;margin:0 auto;aspect-ratio:9/16}
+body.render #wrap{width:1080px;height:1920px;max-width:none;margin:0}
+#stage{width:1080px;height:1920px;background:radial-gradient(1100px 1500px at 50% 34%,#17243D 0%,#0C1424 58%,#070C17 100%);--VI:#B48CFF;--BL:#5AB4FF;--RD:#FF4D5E;--MI:#2BE0A0}
+#cv{position:absolute;left:0;top:0;width:1080px;height:1920px;z-index:1;pointer-events:none}
+.sc{z-index:2}
+.tab{font-variant-numeric:tabular-nums}
+.big{font-weight:900;line-height:1;white-space:nowrap;letter-spacing:-2px}
+.row{display:flex;align-items:center;gap:18px}
+.tk{display:inline-block;font:900 40px/1 "Noto Sans KR";padding:10px 16px 9px;border-radius:14px;white-space:nowrap}
+.tk.v{background:var(--VI);color:#1A0B33}.tk.b{background:var(--BL);color:#03152A}
+.tag{display:inline-block;font:900 36px/1 "Noto Sans KR";padding:9px 14px 8px;border-radius:12px;white-space:nowrap}
+.tag.b{background:var(--MI);color:#03231A}
+.card2{position:absolute;border-radius:28px;background:linear-gradient(160deg,rgba(255,255,255,.08),rgba(255,255,255,.025));border:2px solid rgba(255,255,255,.12);box-shadow:0 30px 60px rgba(0,0,0,.45)}
+.pan{position:absolute;border-radius:26px;background:rgba(9,15,28,.94);border:2px solid rgba(255,255,255,.14);box-shadow:0 24px 50px rgba(0,0,0,.5)}
+.qbox{display:inline-grid;place-items:center;width:150px;height:110px;border-radius:22px;background:rgba(255,255,255,.06);border:3px solid rgba(255,212,0,.6);font:900 84px/1 "Noto Sans KR";color:#FFD400}
+.veil{position:absolute;left:0;top:0;width:1080px;height:1920px;background:rgba(7,12,23,.93)}
+.arrow{position:absolute}
+</style>
+</head>
+<body>
+<div id="wrap"><div id="stage"><canvas id="cv" width="1080" height="1920"></canvas></div></div>
+<div id="ctrl"></div>
+<div id="now"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="../../../stock/source/baedang-etf-2026-10/backtest/anim.js"></script>
+<script id="ep-data">/*EP-DATA:BEGIN*/window.EP={"id":"baedang-etf-2026-10-shorts","topic":"stock","duration":46.76,"audio":null,"thumb":null,"estimated":true,"est_model":{"perSyl":0.151,"comma":0.25,"base":-0.08,"min":0.8,"lead":0.3,"gap":0.45,"part":1,"tail":0.8},"synced":"2026-10-17T11:03:10Z","sent":[{"n":1,"part":"SCHD vs SPY","text":"배당 ETF가 세금 떼고도, 2023년 1월 지수 ETF보다 약 3만 3천 달러 많았어요.","start":0.3,"end":6.359},{"n":2,"part":"SCHD vs SPY","text":"미국 배당주 ETF인 SCHD와, S&P 500 ETF인 SPY를 비교한 거예요.","start":6.809,"end":13.17},{"n":3,"part":"SCHD vs SPY","text":"2011년부터 두 계좌에 매달 1,000달러씩 넣었어요.","start":13.62,"end":16.961},{"n":4,"part":"SCHD vs SPY","text":"배당은 받을 때마다 15%를 떼고 다시 매수했고요.","start":17.411,"end":20.804},{"n":5,"part":"SCHD vs SPY","text":"2017년까지는 앞선 계좌가 43번이나 바뀌었어요.","start":21.254,"end":24.798},{"n":6,"part":"SCHD vs SPY","text":"2019년 배당은 SCHD가 SPY보다 63.1% 많았고요.","start":25.248,"end":30.453},{"n":7,"part":"SCHD vs SPY","text":"2022년 하락장에서는 SCHD가 14.6%만 줄어, SPY 22.2%보다 덜 떨어졌어요.","start":30.903,"end":38.774},{"n":8,"part":"SCHD vs SPY","text":"그럼 15년을 모았다면, 어느 계좌가 더 많이 남았을까요?","start":39.224,"end":42.867},{"n":9,"part":"SCHD vs SPY","text":"두 계좌의 결과는 아래 영상에서 확인하세요.","start":43.317,"end":45.955}],"subs":[[0.3,2.217,"배당 ETF가 세금 떼고도,"],[2.217,6.359,"2023년 1월 지수 ETF보다 약 3만 3천 달러 많았어요."],[6.809,13.17,"미국 배당주 ETF인 SCHD와, S&P 500 ETF인 SPY를 비교한 거예요."],[13.62,16.961,"2011년부터 두 계좌에 매달 1,000달러씩 넣었어요."],[17.411,20.804,"배당은 받을 때마다 15%를 떼고 다시 매수했고요."],[21.254,24.798,"2017년까지는 앞선 계좌가 43번이나 바뀌었어요."],[25.248,30.453,"2019년 배당은 SCHD가 SPY보다 63.1% 많았고요."],[30.903,35.564,"2022년 하락장에서는 SCHD가 14.6%만 줄어,"],[35.564,38.774,"SPY 22.2%보다 덜 떨어졌어요."],[39.224,42.867,"그럼 15년을 모았다면, 어느 계좌가 더 많이 남았을까요?"],[43.317,45.955,"두 계좌의 결과는 아래 영상에서 확인하세요."]],"subs_estimated":true};/*EP-DATA:END*/</script>
+<script src="../../render/kit.js"></script>
+<script src="../../render/race2d.js"></script>
+<script>
+(function () {
+"use strict";
+K.init(window.EP, { subtitles: false, chip: false, noWords: true, w: 1080, testFrom: "SCHD vs SPY" });
+const tl = K.tl, el = K.el, pop = K.pop;
+const DV = window.DV, N = DV.dates.length, F = DV.facts;
+const VI = "#B48CFF", BL = "#5AB4FF", YE = "#FFD400", RD = "#FF4D5E", MI = "#2BE0A0";
+const CX = 495;
+const cv = document.getElementById("cv"), ctx = cv.getContext("2d");
+const LAYERS = [];
+const add = (a, b, f) => LAYERS.push([a, b, f]);
+K.onSeek(t => { ctx.clearRect(0, 0, 1080, 1920); for (const [a, b, f] of LAYERS) if (t >= a && t < b) f(t); });
+const SN = a => { const h = EP.sent.filter(s => s.text.includes(a)); if (h.length !== 1) throw new Error(`문장 찾기 '${a}' → ${h.length}개`); return h[0]; };
+const S = a => SN(a).start, E = a => SN(a).end, W = (a, w) => K.W(SN(a).n, w);
+const f0 = n => Math.round(n).toLocaleString("en-US");
+const money = v => "$" + f0(v);
+const pcs = r => (r < 0 ? "−" : "+") + Math.abs(r * 100).toFixed(1) + "%";
+const ymd = d => d.replace(/-/g, ".");
+const idx = d => { const i = DV.dates.findIndex(x => x >= d); return i < 0 ? N - 1 : i; };
+const clamp = (x, a, b) => Math.max(a, Math.min(b, x));
+const TK = (s, c, sz) => `<span class="tk ${c}"${sz ? ` style="font-size:${sz}px"` : ""}>${s}</span>`;
+const IC = {
+  cal: (s = 48) => `<svg viewBox="0 0 48 48" width="${s}" height="${s}"><rect x="5" y="9" width="38" height="34" rx="7" fill="#22324F" stroke="#9FB1CF" stroke-width="3.5"/><path d="M5 19h38M16 5v8M32 5v8" stroke="#9FB1CF" stroke-width="3.5" stroke-linecap="round"/></svg>`,
+  up: (s = 44, c = MI) => `<svg viewBox="0 0 48 48" width="${s}" height="${s}"><path d="M6 36 L18 22 L27 30 L42 12" fill="none" stroke="${c}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M33 12h9v9" fill="none" stroke="${c}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  coin: (s = 48) => `<svg viewBox="0 0 48 48" width="${s}" height="${s}"><circle cx="24" cy="24" r="20" fill="#E8B800" stroke="#7A5A00" stroke-width="3"/><path d="M24 13v22M29 17.5c-1.5-1.6-3.3-2.3-5.2-2.3-3 0-5 1.6-5 3.9 0 5.4 10.6 3 10.6 8.5 0 2.4-2.2 4.1-5.4 4.1-2.3 0-4.3-.9-5.8-2.6" fill="none" stroke="#7A5A00" stroke-width="3" stroke-linecap="round"/></svg>`,
+  // 배당 = 나무에 열리는 동전
+  tree: (s = 120) => `<svg viewBox="0 0 64 64" width="${s}" height="${s}"><path d="M32 60V30" stroke="#8B6A3E" stroke-width="6" stroke-linecap="round"/><path d="M32 40 L22 30 M32 34 L42 26" stroke="#8B6A3E" stroke-width="4" stroke-linecap="round"/><circle cx="32" cy="22" r="17" fill="${VI}" opacity=".85"/><circle cx="24" cy="20" r="5" fill="#E8B800" stroke="#7A5A00" stroke-width="1.5"/><circle cx="38" cy="16" r="5" fill="#E8B800" stroke="#7A5A00" stroke-width="1.5"/><circle cx="34" cy="28" r="5" fill="#E8B800" stroke="#7A5A00" stroke-width="1.5"/></svg>`,
+  receipt: (s = 64) => `<svg viewBox="0 0 48 48" width="${s}" height="${s}"><path d="M10 4h28v40l-5-4-4 4-5-4-4 4-5-4-5 4z" fill="#2A1418" stroke="#FF6B78" stroke-width="3" stroke-linejoin="round"/><path d="M16 14h16M16 21h16M16 28h10" stroke="#FF6B78" stroke-width="3" stroke-linecap="round"/></svg>`,
+  loop: (s = 48) => `<svg viewBox="0 0 48 48" width="${s}" height="${s}"><path d="M38 24a14 14 0 1 1-5-10.7" fill="none" stroke="#2BE0A0" stroke-width="5" stroke-linecap="round"/><path d="M34 5v9h-9" fill="none" stroke="#2BE0A0" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  swap: (s = 48) => `<svg viewBox="0 0 48 48" width="${s}" height="${s}"><path d="M8 16h30l-7-7M40 32H10l7 7" fill="none" stroke="#C9D2E2" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+};
+const BUY = `<span class="tag b">BUY</span>`;
+// 문장 (대본 shorts/baedang-etf-2026-10-shorts.txt — 글자로 찾음)
+const A1 = "약 3만 3천 달러 많았어요", A2 = "미국 배당주 ETF인 SCHD와", A3 = "매달 1,000달러씩 넣었어요", A4 = "15%를 떼고 다시 매수", A5 = "43번이나 바뀌었어요",
+  A6 = "2019년 배당은", A7 = "2022년 하락장에서는", A8 = "15년을 모았다면", A9 = "두 계좌의 결과는";
+const LC = F.lead_change_dates, Y19 = F.year["2019"], Y22 = F.y2022, GAP = F.max_gap_a;
+const i17 = idx("2017-12-29"), i19 = idx(Y19.date), i22 = idx(Y22.a.low_date), iG = idx(GAP.date);
+const nLC = d => { let n = 0; for (const x of LC) if (x.date <= d) n++; return n; };      // 그날까지 앞선 계좌가 바뀐 수 (롱폼 check_numbers 와 같은 셈)
+if (nLC("2017-12-31") !== 43 || pcs(Y19.a_div_y / Y19.b_div_y - 1) !== "+63.1%" || pcs(Y22.a.drop) !== "−14.6%" || pcs(Y22.b.drop) !== "−22.2%" || R2.fmtMoney(GAP.gap) !== "$33K")
+  throw new Error("화면 숫자가 대본과 다름");
+if (Y22.a.low_date !== Y22.b.low_date) throw new Error("2022 바닥 날이 둘이 다름");
+
+// 1. 첫 문장 = 쇼츠 썸네일 그림
+K.cover(S(A2) - 0.05);
+K.cut(0.1, "0초 그림 = 썸네일로 고를 프레임");
+K.cut(E(A1) - 0.2, "첫 문장 (그림)");
+
+// 2. SCHD (배당 동전 나무) · SPY = S&P 500 (s2)
+{ const a = S(A2), sc = K.scene(a - 0.3, S(A3) - 0.1);
+  const cL = el(`<div class="card2" style="left:70px;top:360px;width:400px;height:600px;display:grid;justify-items:center;align-content:center;gap:36px">${TK("SCHD", "v", 84)}${IC.tree(200)}</div>`, sc);
+  const cR = el(`<div class="card2" style="left:520px;top:360px;width:400px;height:600px;display:grid;justify-items:center;align-content:center;gap:36px">${TK("SPY", "b", 84)}<span class="row" style="gap:10px">${IC.up(80, BL)}<span class="big" style="font-size:66px">S&amp;P 500</span></span></div>`, sc);
+  pop(cL, W(A2, "SCHD와") - 0.2); pop(cR, W(A2, "SPY를") - 0.2);
+  K.cut(E(A2) - 0.2, "SCHD (배당) · SPY = S&P 500");
+}
+
+// 3. 경주 2011.11 → 2023.01.06 (s3~s7)
+const tR0 = S(A3) - 0.3, tR1 = S(A9) - 0.1;
+const pace = R2.warp([[S(A3) + 0.3, 0], [E(A4), idx("2014-01-02")], [W(A5, "43번이나") - 0.1, i17], [S(A6), i17], [W(A6, "63.1%") - 0.3, i19], [W(A7, "14.6%") - 0.3, i22], [E(A7) - 0.7, iG]], "쇼츠 경주 SCHD SPY", 700);   // 2017 말에서 잠깐 멈춤 — ⇄ 43 을 말할 때
+const yearsT = []; for (let i = 1; i < N; i++) if (DV.dates[i].slice(0, 4) !== DV.dates[i - 1].slice(0, 4)) yearsT.push([i, DV.dates[i].slice(0, 4)]);
+const ch = new R2.Chart({ x: 175, y: 390, w: 600, h: 690, n: N, years: yearsT, yearGap: 115, mode: "lin", min: 0, maxMin: 12000, xTo: idx("2023-06-30"),
+  labelSize: 30, baselines: [{ v: i => DV.paid[i], color: YE, dash: [16, 10], width: 4, step: 3 }],
+  series: [{ vals: DV.b, color: BL, width: 6 }, { vals: DV.a, color: VI, width: 7, glow: true }] });
+const FOG = { x: 800, y: 390, w: 115, h: 690 };
+const PINS = [
+  [W(A7, "14.6%"), DV.a, i22, pcs(Y22.a.drop), VI, true],
+  [W(A7, "22.2%"), DV.b, i22, pcs(Y22.b.drop), BL, false],
+];
+const rr = (x, y, w, h, r) => R2.rr(ctx, x, y, w, h, r);
+function crown(x, y, c) { ctx.save(); ctx.fillStyle = c; ctx.beginPath(); ctx.moveTo(x - 22, y + 14); ctx.lineTo(x - 26, y - 12); ctx.lineTo(x - 10, y); ctx.lineTo(x, y - 18); ctx.lineTo(x + 10, y); ctx.lineTo(x + 26, y - 12); ctx.lineTo(x + 22, y + 14); ctx.closePath(); ctx.fill(); ctx.restore(); }
+const ROW = { p: 1170, a: 1250, b: 1330, c: 1410 };
+const tLC0 = S(A5) - 0.2;
+add(tR0, tR1, t => {
+  const al = clamp((t - tR0) / 0.35, 0, 1) * clamp((tR1 - t) / 0.35, 0, 1);
+  const d = pace(t), k = Math.floor(d);
+  ctx.save(); ctx.globalAlpha = al;
+  ctx.font = `900 66px ${R2.FONT}`; ctx.fillStyle = "#F4F6FA"; ctx.textAlign = "left"; ctx.textBaseline = "top"; ctx.fillText(ymd(DV.dates[k]), 64, 272);
+  ch.draw(ctx, d);
+  // 2023.07 → 2026 은 가림
+  const q = t >= S(A8) ? 0.55 + 0.45 * Math.abs(Math.sin((t - S(A8)) * 3)) : 0.55;
+  ctx.fillStyle = "rgba(10,16,30,.92)"; rr(FOG.x, FOG.y, FOG.w, FOG.h, 18); ctx.fill();
+  ctx.save(); rr(FOG.x, FOG.y, FOG.w, FOG.h, 18); ctx.clip(); ctx.strokeStyle = "rgba(160,176,204,.12)"; ctx.lineWidth = 10;
+  for (let s = -FOG.h; s < FOG.w + FOG.h; s += 34) { ctx.beginPath(); ctx.moveTo(FOG.x + s, FOG.y); ctx.lineTo(FOG.x + s - FOG.h, FOG.y + FOG.h); ctx.stroke(); }
+  ctx.restore();
+  ctx.strokeStyle = `rgba(255,212,0,${0.35 + 0.5 * (q - 0.55) / 0.45})`; ctx.lineWidth = 3; rr(FOG.x, FOG.y, FOG.w, FOG.h, 18); ctx.stroke();
+  ctx.globalAlpha = al * q; ctx.font = `900 110px ${R2.FONT}`; ctx.fillStyle = YE; ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText("?", FOG.x + FOG.w / 2, FOG.y + FOG.h / 2);
+  ctx.globalAlpha = al; ctx.font = `700 30px ${R2.FONT}`; ctx.fillStyle = "#C9D2E2"; ctx.textBaseline = "top"; ctx.fillText("2026", FOG.x + FOG.w / 2, FOG.y + FOG.h + 14);
+  // 2022 하락 칩 · 2023.01.06 차이
+  const tGap = pace.tOf(iG);                            // 2022 칩은 차이($33K)가 나오기 전에 내림 (겹치지 않게)
+  for (const [tp, vals, di, txt, col, up] of PINS) if (t >= tp - 0.2 && t < tGap) R2.pin(ctx, ch.X(di), ch.Y(vals[di]), txt, col, clamp((t - tp + 0.2) / 0.3, 0, 1) * clamp((tGap - t) / 0.25, 0, 1), up, 40, [60, 930]);
+  if (k >= iG) {
+    const u = clamp((t - pace.tOf(iG)) / 0.3, 0, 1), x = ch.X(iG), ya = ch.Y(DV.a[iG]), yb = ch.Y(DV.b[iG]);
+    ctx.globalAlpha = al * u; ctx.strokeStyle = VI; ctx.lineWidth = 5; ctx.beginPath(); ctx.moveTo(x + 18, ya); ctx.lineTo(x + 30, ya); ctx.lineTo(x + 30, yb); ctx.lineTo(x + 18, yb); ctx.stroke();
+    R2.pin(ctx, x + 30, yb + 10, R2.fmtMoney(GAP.gap), VI, al * u, false, 44, [60, 930]);
+  }
+  // 아래 칸: 넣은 돈 · SCHD · SPY · 앞선 계좌가 바뀐 수
+  ctx.globalAlpha = al; ctx.font = `900 46px ${R2.FONT}`; ctx.textBaseline = "middle";
+  ctx.setLineDash([16, 10]); ctx.strokeStyle = YE; ctx.lineWidth = 5; ctx.beginPath(); ctx.moveTo(80, ROW.p + 30); ctx.lineTo(176, ROW.p + 30); ctx.stroke(); ctx.setLineDash([]);
+  ctx.textAlign = "right"; ctx.fillStyle = "#FFE680"; ctx.fillText(money(DV.paid[k]), 900, ROW.p + 30);
+  const lead = DV.a[k] >= DV.b[k] ? "a" : "b";
+  [["a", "SCHD", VI, "#1A0B33"], ["b", "SPY", BL, "#03152A"]].forEach(([key, nm, col, ink]) => {
+    const y = ROW[key];
+    ctx.fillStyle = col; rr(80, y, 140, 56, 12); ctx.fill(); ctx.font = `900 38px ${R2.FONT}`; ctx.fillStyle = ink; ctx.textAlign = "center"; ctx.fillText(nm, 150, y + 30);
+    if (lead === key) crown(270, y + 30, YE);
+    ctx.font = `900 46px ${R2.FONT}`; ctx.textAlign = "right"; ctx.fillStyle = "#F4F6FA"; ctx.fillText(money(DV[key][k]), 900, y + 30);
+  });
+  if (t >= tLC0) {
+    const u = clamp((t - tLC0) / 0.3, 0, 1); ctx.globalAlpha = al * u;
+    const fl = t < E(A5) + 0.6; if (fl) { ctx.fillStyle = "rgba(255,212,0,.13)"; rr(64, ROW.c - 8, 850, 70, 16); ctx.fill(); }
+    crown(100, ROW.c + 30, YE); ctx.font = `900 46px ${R2.FONT}`; ctx.fillStyle = "#C9D2E2"; ctx.textAlign = "left"; ctx.fillText("⇄", 140, ROW.c + 30);
+    ctx.textAlign = "right"; ctx.fillStyle = YE; ctx.fillText(String(nLC(DV.dates[k])), 900, ROW.c + 30);
+  }
+  ctx.restore();
+});
+{ const sc = K.scene(tR0, tR1);
+  const buy = el(`<div class="a row" style="left:540px;top:282px;gap:12px">${IC.cal(54)}${BUY}<span class="big tab" style="font-size:52px">$1,000</span></div>`, sc);
+  pop(buy, S(A3) + 0.1);
+  // s4 배당: 동전 → 영수증 −15% · 나머지 ↺ BUY (오른쪽 위 — 이때 선은 왼쪽 아래에만 있음)
+  const t4 = S(A4), pan = el(`<div class="pan" style="left:430px;top:420px;width:470px;height:330px"></div>`, sc);
+  const r1 = el(`<div class="a row" style="left:470px;top:460px;gap:16px">${IC.coin(80)}<span class="big" style="font-size:60px;color:#C9D2E2">→</span>${IC.receipt(76)}<span class="big tab" style="font-size:60px;color:#FF6B78">−15%</span></div>`, sc);
+  const r2 = el(`<div class="a row" style="left:470px;top:620px;gap:16px">${IC.coin(80)}${IC.loop(64)}${BUY}</div>`, sc);
+  pop(pan, t4 - 0.15, { from: { y: 0, scale: 0.96 } }); pop(r1, W(A4, "15%")); pop(r2, W(A4, "다시"));
+  tl.to([pan, r1, r2], { opacity: 0, duration: 0.35 }, E(A4) + 0.25);
+  // s6 2019 배당 막대 (왼쪽 위 — 이때 선은 오른쪽 위로 올라가 있음)
+  const yb = Y19.b_div_y / Y19.a_div_y;
+  // (오른쪽 아래 — 이때 선은 왼쪽 아래 → 오른쪽 위로 올라가 있어 이 자리가 빔)
+  const p6 = el(`<div class="pan" style="left:500px;top:810px;width:420px;height:270px"></div>`, sc);
+  const h6 = el(`<div class="a row" style="left:524px;top:828px;gap:12px">${IC.coin(50)}<span class="big tab" style="font-size:50px">2019</span></div>`, sc);
+  const bar = (top, nm, c, col, w) => el(`<div class="a" style="left:524px;top:${top}px;width:380px;height:60px"><span class="tk ${c}" style="position:absolute;left:0;top:2px;font-size:36px">${nm}</span><div style="position:absolute;left:140px;top:8px;width:${w}px;height:44px;border-radius:12px;background:${col}"></div></div>`, sc);
+  const bA = bar(910, "SCHD", "v", VI, 230), bB = bar(990, "SPY", "b", BL, Math.round(230 * yb));   // 막대 길이 = 2019 배당 (SCHD 를 230px 로)
+  const lab6 = el(`<div class="a big tab" style="left:730px;top:828px;font-size:50px;color:${VI}">${pcs(Y19.a_div_y / Y19.b_div_y - 1)}</div>`, sc);
+  pop(p6, S(A6) - 0.1, { from: { y: 0, scale: 0.96 } }); pop(h6, S(A6)); pop(bA, W(A6, "SCHD가")); pop(bB, W(A6, "SPY보다")); pop(lab6, W(A6, "63.1%"));
+  tl.to([p6, h6, bA, bB, lab6], { opacity: 0, duration: 0.35 }, E(A6) + 0.2);
+  K.cut(W(A3, "1,000달러씩") + 0.3, "경주 시작 2011 · 매달 BUY $1,000");
+  K.cut(E(A4) - 0.1, "배당 → −15% · ↺ BUY");
+  K.cut(E(A5) - 0.15, "2017 · 앞선 계좌 ⇄ 43");
+  K.cut(W(A7, "22.2%") + 0.5, "2022 −14.6% · −22.2%");
+  K.cut(E(A6) - 0.1, "2019 배당 SCHD +63.1%");
+  K.cut(E(A7) - 0.1, "2023.01.06 차이 $33K");
+}
+
+// 4. 2026 — SCHD ＞ SPY ? (s8)
+{ const a = S(A8), sc = K.scene(a - 0.2, S(A9) - 0.1);
+  const veil = el(`<div class="a" style="left:110px;top:380px;width:830px;height:720px;border-radius:30px;background:rgba(7,12,23,.84)"></div>`, sc);
+  pop(veil, a - 0.2, { from: { y: 0, scale: 1 } });
+  const yr = el(`<div class="a cx big tab" style="left:${CX}px;top:460px;font-size:130px;color:${YE}">2026</div>`, sc);
+  pop(yr, W(A8, "15년을"));
+  const q = el(`<div class="a cx row" style="left:${CX}px;top:720px;gap:26px">${TK("SCHD", "v", 80)}<span class="big" style="font-size:110px">＞</span>${TK("SPY", "b", 80)}<span class="big" style="font-size:140px;color:${YE}">?</span></div>`, sc);
+  pop(q, W(A8, "어느"));
+  K.cut(E(A8) - 0.15, "2026 SCHD ＞ SPY ?");
+}
+
+// 5. 끝 화면 (s9) — SCHD ? · SPY ? · 2011 → 2026 · ⬇
+{ const a = S(A9), sc = K.scene(a - 0.3, K.D, { keep: true });
+  el(`<div class="veil"></div>`, sc);
+  const q = el(`<div class="a cx row" style="left:${CX}px;top:330px;gap:60px"><span class="row" style="flex-direction:column;gap:22px">${TK("SCHD", "v", 70)}<span class="qbox">?</span></span><span class="row" style="flex-direction:column;gap:22px">${TK("SPY", "b", 70)}<span class="qbox">?</span></span></div>`, sc);
+  pop(q, a);
+  const bx = el(`<div class="a cx row" style="left:${CX}px;top:690px;gap:20px">${IC.cal(64)}${BUY}<span class="big tab" style="font-size:60px">$1,000</span></div>`, sc);
+  pop(bx, a + 0.2);
+  const yr = el(`<div class="a cx big tab" style="left:${CX}px;top:860px;font-size:90px">2011 → 2026</div>`, sc);
+  pop(yr, W(A9, "결과는"));
+  const ar = el(`<svg class="arrow" viewBox="0 0 120 160" width="140" height="186" style="left:${CX - 70}px;top:1200px" aria-hidden="true">
+    <path d="M60 6 L60 120 M14 78 L60 124 L106 78" fill="none" stroke="${YE}" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/></svg>`, sc);
+  pop(ar, W(A9, "아래"));
+  tl.fromTo(ar, { y: 0 }, { y: 50, duration: 0.45, ease: "sine.inOut", repeat: 7, yoyo: true }, W(A9, "아래") + 0.6);
+  K.cut(E(A9) - 0.1, "끝 화면 ⬇");
+}
+
+K.done();
+})();
+</script>
+</body>
+</html>

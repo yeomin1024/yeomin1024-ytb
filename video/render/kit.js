@@ -1,4 +1,6 @@
-// VERSION: v1.4 — 2026-10-16 — K.cover(end): 쇼츠 썸네일 이미지(EP.thumb — render.mjs v1.9 sync 가 넣음)를 0초부터 첫 문장 끝까지 화면 가득,
+// VERSION: v1.5 — 2026-10-17 — K.cover 그림 전 자리 표시: K.init opts.noWords(언어 없는 화면 — 주식 쇼츠)면 한국어 글 대신 그림 아이콘, 파일 경로는 .code
+//   (render.mjs check 의 낱말 검사가 미리보기 자리 표시를 문제로 잡지 않게). 사용자 지시 2026-10-17 "다른점은 전세계 시청자들 대상이니까 언어 문구, 자막 달지 말고 영상으로만 잘 이해가 가도록 해야해".
+// v1.4 — 2026-10-16 — K.cover(end): 쇼츠 썸네일 이미지(EP.thumb — render.mjs v1.9 sync 가 넣음)를 0초부터 첫 문장 끝까지 화면 가득,
 //   이미지 전에는 '썸네일 이미지 자리' 표시. 장면의 <img> 가 다 풀린 뒤에 SB.ready (렌더가 빈 그림을 찍지 않게).
 //   사용자 지시 2026-10-16 "쇼츠 영상 썸네일 이미지 프롬프트 만들어서 영상 처음에만 그걸 포함 시키고 첫 대사를 그 이미지 띄워놓고 하는게 나을 것 같아".
 // v1.3 — 2026-10-16 — K.init(ep, {w}) 무대 너비 (세로 쇼츠 1080 — 미리보기 재생기가 창에 맞춰 줄일 때 씀, 기본 1920). 렌더(?render)는 그대로.
@@ -257,8 +259,10 @@
     } else {                                 // 이미지 전 (추정 미리보기) — 최종 렌더는 render.mjs 가 막음
       const W0 = OPT.w, cx = W0 === 1080 ? 480 : W0 / 2;
       K.el(`<div class="a" style="left:${cx - 390}px;top:300px;width:780px;height:900px;border:6px dashed rgba(255,214,0,.6);border-radius:40px"></div>`, sc);
-      K.el(`<div class="a cx c w9 Y nw" style="left:${cx}px;top:640px;font-size:60px">썸네일 이미지 자리</div>`, sc);
-      K.el(`<div class="a cx c w5 N nw" style="left:${cx}px;top:740px;font-size:38px">thumbnails/thumbnail_1.png</div>`, sc);
+      if (OPT.noWords)                       // v1.5 언어 없는 화면(주식): 글 대신 그림 아이콘 · 파일 경로는 .code (render.mjs 낱말 검사에서 뺌)
+        K.el(`<svg class="a" viewBox="0 0 48 48" width="200" height="200" style="left:${cx - 100}px;top:560px" aria-hidden="true"><rect x="4" y="8" width="40" height="32" rx="5" fill="none" stroke="#FFD400" stroke-width="3"/><circle cx="16" cy="19" r="4" fill="#FFD400"/><path d="M6 37 L19 25 L28 33 L34 27 L42 35" fill="none" stroke="#FFD400" stroke-width="3" stroke-linejoin="round"/></svg>`, sc);
+      else K.el(`<div class="a cx c w9 Y nw" style="left:${cx}px;top:640px;font-size:60px">썸네일 이미지 자리</div>`, sc);
+      K.el(`<div class="a cx c w5 N nw${OPT.noWords ? " code" : ""}" style="left:${cx}px;top:${OPT.noWords ? 800 : 740}px;font-size:38px">thumbnails/thumbnail_1.png</div>`, sc);
     }
     tl.to(sc, { opacity: 0, duration: 0.35, ease: "none" }, end - 0.35);
     COVER.used = true;

@@ -1,6 +1,6 @@
-# stock 썸네일 12장 — ChatGPT용 (모든 영상 · 읽고 그대로 만들고 각 저장 경로에 올리기)
+# stock 썸네일 16장 — ChatGPT용 (모든 영상 · 읽고 그대로 만들고 각 저장 경로에 올리기)
 
-자동 생성 — `python tools/make_summary.py --chatgpt-all stock` (2026-10-16 19:02). 이 파일은 고치지 말고 영상마다 `thumbnail_N.md`를 고친 뒤 다시 만든다.
+자동 생성 — `python tools/make_summary.py --chatgpt-all stock` (2026-10-17 11:01). 이 파일은 고치지 말고 영상마다 `thumbnail_N.md`를 고친 뒤 다시 만든다.
 
 이 파일 주소: https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/stock/thumbnails_chatgpt.md
 
@@ -10,12 +10,16 @@
 | eonje-maesu-2026-10 | thumbnail_1, thumbnail_2, thumbnail_3 | `stock/source/eonje-maesu-2026-10/thumbnails/` |
 | keobeodeu-kol-2026-10 | thumbnail_1, thumbnail_2, thumbnail_3 | `stock/source/keobeodeu-kol-2026-10/thumbnails/` |
 | reobeoriji-2026-10 | thumbnail_1, thumbnail_2, thumbnail_3 | `stock/source/reobeoriji-2026-10/thumbnails/` |
+| baedang-etf-2026-10-shorts | thumbnail_1 | `stock/source/baedang-etf-2026-10/shorts/thumbnails/` |
+| eonje-maesu-2026-10-shorts | thumbnail_1 | `stock/source/eonje-maesu-2026-10/shorts/thumbnails/` |
+| keobeodeu-kol-2026-10-shorts | thumbnail_1 | `stock/source/keobeodeu-kol-2026-10/shorts/thumbnails/` |
+| reobeoriji-2026-10-shorts | thumbnail_1 | `stock/source/reobeoriji-2026-10/shorts/thumbnails/` |
 
 ## ChatGPT에게 — 이 파일을 읽으면 할 일
-1. 아래 썸네일 12장(4개 영상)을 **1번부터 차례로 모두** 만든다. 질문하지 말고, 한 장을 만든 뒤 멈추지 말고 다음 장으로 넘어간다.
+1. 아래 썸네일 16장(8개 영상)을 **1번부터 차례로 모두** 만든다. 질문하지 말고, 한 장을 만든 뒤 멈추지 말고 다음 장으로 넘어간다.
    - 이미지 한도 때문에 멈추면 사용자가 `계속`이라고 보낸다 → 아직 안 만든 번호부터 이어서 만든다.
 2. 각 장은 그 칸의 **프롬프트(``` 안)를 한 글자도 바꾸지 않고 그대로** 쓴다. 장마다 서로 다른 그림이다 — 앞 장의 인물·구도·색을 이어 쓰지 않는다.
-3. 크기는 가로형 16:9 (1280×720). 16:9가 안 되면 가장 넓은 가로형으로 만들고, 글자와 얼굴은 가운데에 두고 위아래 가장자리 8%는 비운다.
+3. 크기는 **장마다 '크기' 줄대로**: 롱폼 썸네일 = 가로형 16:9 (1280×720 — 안 되면 가장 넓은 가로형, 글자와 얼굴은 가운데, 위아래 8% 비움) · **쇼츠 썸네일(영상 ID 끝이 `-shorts`) = 세로형 9:16 (1080×1920)** — 안 되면 세로 2:3, 글자와 얼굴은 가운데, 양옆 8% 비움.
 4. **그림 속에 글자·숫자·기호·로고·워터마크를 하나도 넣지 않는다** — 전 세계 시청자용이라 그림만으로 뜻을 전한다. 지폐·화면·간판·그래프 눈금에도 글자나 숫자가 없어야 한다.
 5. 사람은 실존 인물이나 유명인을 닮지 않은 가상 인물이다.
 6. 한 장을 만들 때마다 그림을 크게 확대해 **글자처럼 보이는 것**(가짜 글자, 숫자, 지폐 무늬 속 숫자, 화면 속 글)이 없는지 본다. 있으면 그 부분만 지운 그림으로 다시 만든다.
@@ -25,7 +29,7 @@
    - GitHub 에 쓸 수 있으면(쓰기 권한이 있는 GitHub 앱) 장마다 그 경로에 커밋한다. 커밋 메시지: `[썸네일] <영상ID> thumbnail_N 이미지`
    - **쓸 수 없으면 (이 계정의 ChatGPT 는 GitHub 를 읽기만 함 — 2026-10-15 확인)** 묻지 말고 아래처럼 끝낸다:
      1. 만든 그림을 이 파일의 번호 순서(1번부터)대로 다시 한 번씩 보여 준다 (그림마다 위에 번호와 저장 경로).
-     2. 마지막에 이 문장을 그대로 쓴다: **"이 그림 12장을 이 순서대로 Claude 대화창에 붙여 넣어 주세요. Claude가 검수한 뒤 각 저장 경로에 올립니다."**
+     2. 마지막에 이 문장을 그대로 쓴다: **"이 그림 16장을 이 순서대로 Claude 대화창에 붙여 넣어 주세요. Claude가 검수한 뒤 각 저장 경로에 올립니다."**
      3. 그 아래에 직접 올리는 길도 적는다: "직접 올리려면: 그림을 thumbnail_N.png 이름으로 내려받아 폴더마다 아래 링크에 끌어다 놓고 Commit changes" + 아래 '폴더별 올리기 링크' 목록
 
 ## 폴더별 올리기 링크 (ChatGPT가 못 올릴 때 사람이 쓰는 길)
@@ -34,6 +38,10 @@
 - eonje-maesu-2026-10: https://github.com/yeomin1024/yeomin1024-ytb/upload/main/stock/source/eonje-maesu-2026-10/thumbnails
 - keobeodeu-kol-2026-10: https://github.com/yeomin1024/yeomin1024-ytb/upload/main/stock/source/keobeodeu-kol-2026-10/thumbnails
 - reobeoriji-2026-10: https://github.com/yeomin1024/yeomin1024-ytb/upload/main/stock/source/reobeoriji-2026-10/thumbnails
+- baedang-etf-2026-10-shorts: https://github.com/yeomin1024/yeomin1024-ytb/upload/main/stock/source/baedang-etf-2026-10/shorts/thumbnails
+- eonje-maesu-2026-10-shorts: https://github.com/yeomin1024/yeomin1024-ytb/upload/main/stock/source/eonje-maesu-2026-10/shorts/thumbnails
+- keobeodeu-kol-2026-10-shorts: https://github.com/yeomin1024/yeomin1024-ytb/upload/main/stock/source/keobeodeu-kol-2026-10/shorts/thumbnails
+- reobeoriji-2026-10-shorts: https://github.com/yeomin1024/yeomin1024-ytb/upload/main/stock/source/reobeoriji-2026-10/shorts/thumbnails
 
 ## 1. baedang-etf-2026-10 · thumbnail_1 — 본안(클릭률 최대): 같은 크기의 선택 사이에서 망설이는 사람 + 가린 결과(흐린 유리·닫힌 상자)
 
@@ -261,4 +269,85 @@ Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Lea
 If 16:9 is not available, use the widest landscape canvas; in any case keep the main objects inside the central 16:9 area, at least 8% away from the top and bottom edges.
 Fictional person, not resembling any real or famous person.
 Absolutely no text, no letters, no numbers, no symbols, no percent signs, no dollar signs, no question marks, no logos and no watermarks anywhere in the image. Coins are plain gold discs with no symbols; boxes, jars, pedestals and screens have nothing written on them.
+```
+
+## 13. baedang-etf-2026-10-shorts · thumbnail_1 — 동전을 떨구는 배당 나무와 큰 나무 — 줄다리기 한가운데
+
+**저장 경로: `stock/source/baedang-etf-2026-10/shorts/thumbnails/thumbnail_1.png`**
+
+크기: **세로 9:16 (1080×1920) — 쇼츠**
+
+프롬프트:
+
+```
+YouTube Shorts cover, Vertical 9:16 portrait (1080x1920). Keep all important objects and any face between 13% and 66% of the height and between 6% and 84% of the width (top = YouTube icons, right 16% = like/comment buttons, bottom 34% = title and related-video link). The bottom 34% is a quiet, dark, empty background. If 9:16 is not available use 2:3 portrait and keep the side 8% empty.
+Semi-realistic digital illustration with cinematic lighting, deep dark navy background (#0C1424).
+Upper middle: two trees of exactly the same size growing from two identical pots — the left tree has violet leaves (#B48CFF) and drops plain gold coins, a small red slice (#FF4D5E) chipping off each falling coin; the right tree has blue leaves (#5AB4FF) and no coins.
+A rope is tied between the two trunks in a tug-of-war; the knot in the middle sits just slightly toward the violet tree, and the rope continues off into a dark fog on both sides, so the end of the contest is not visible.
+Lower middle (still above 66% of the height): a fictional person in their fifties holding the rope in the middle, looking from one tree to the other, thoughtful — not happy, not afraid.
+Mood: a close, undecided contest.
+Large simple shapes, high contrast, readable when shrunk to 360 pixels tall.
+Fictional person, not resembling any real or famous person.
+Absolutely no text, no letters, no numbers, no symbols, no percent signs, no dollar signs, no question marks, no tickers, no logos and no watermarks anywhere in the image. Coins are plain gold discs with no symbols; screens, charts, boxes and signs have nothing written on them.
+```
+
+## 14. eonje-maesu-2026-10-shorts · thumbnail_1 — 평균선 신호 vs 주사위 — 높이 올라간 화살표가 금이 간 순간
+
+**저장 경로: `stock/source/eonje-maesu-2026-10/shorts/thumbnails/thumbnail_1.png`**
+
+크기: **세로 9:16 (1080×1920) — 쇼츠**
+
+프롬프트:
+
+```
+YouTube Shorts cover, Vertical 9:16 portrait (1080x1920). Keep all important objects and any face between 13% and 66% of the height and between 6% and 84% of the width (top = YouTube icons, right 16% = like/comment buttons, bottom 34% = title and related-video link). The bottom 34% is a quiet, dark, empty background. If 9:16 is not available use 2:3 portrait and keep the side 8% empty.
+Semi-realistic digital illustration with cinematic lighting, deep dark navy background (#0C1424).
+Upper middle: a thin glowing yellow horizontal line (a moving-average line) crossing the frame, and a tall bright green arrow (#2BE0A0) shooting upward through it — near its tip a fresh red crack (#FF4D5E) is spreading across the arrow, small red shards breaking off.
+Beside the arrow, at exactly the same height as the arrow tip, a neat stack of many plain white dice (no pips) glowing softly grey — neither the arrow nor the dice is brighter; nobody is winning.
+Lower middle (still above 66% of the height): a fictional person in their late forties in a dark jacket, seen from the side, looking up at the cracking arrow and the dice, tense and uncertain — not happy, not afraid.
+Mood: suspense, as if the result is about to be revealed.
+Large simple shapes, high contrast, readable when shrunk to 360 pixels tall.
+Fictional person, not resembling any real or famous person.
+Absolutely no text, no letters, no numbers, no symbols, no percent signs, no dollar signs, no question marks, no tickers, no logos and no watermarks anywhere in the image. Coins are plain gold discs with no symbols; screens, charts, boxes and signs have nothing written on them.
+```
+
+## 15. keobeodeu-kol-2026-10-shorts · thumbnail_1 — 금고에서 동전을 매달 꺼내는 사람 — 금고가 점점 가벼워짐
+
+**저장 경로: `stock/source/keobeodeu-kol-2026-10/shorts/thumbnails/thumbnail_1.png`**
+
+크기: **세로 9:16 (1080×1920) — 쇼츠**
+
+프롬프트:
+
+```
+YouTube Shorts cover, Vertical 9:16 portrait (1080x1920). Keep all important objects and any face between 13% and 66% of the height and between 6% and 84% of the width (top = YouTube icons, right 16% = like/comment buttons, bottom 34% = title and related-video link). The bottom 34% is a quiet, dark, empty background. If 9:16 is not available use 2:3 portrait and keep the side 8% empty.
+Semi-realistic digital illustration with cinematic lighting, deep dark navy background (#0C1424).
+Upper middle: an open orange-trimmed safe (#FF8A3D) floating in the air; a hand reaches in and pulls out a handful of plain gold coins, and a few coins fall downward like a monthly payout stream.
+Under the safe, a glowing yellow dashed line (the original principal level) — the safe has sunk a little below this dashed line and a soft red glow (#FF4D5E) shows the gap.
+To the side, a second, identical but fully covered shape under a dark cloth (a second account, hidden) — nothing about it is visible.
+Lower middle (still above 66% of the height): a fictional person in their sixties, holding the coins, glancing down at the dashed line with a worried, questioning look — not crying, not happy.
+Mood: quiet worry and suspense.
+Large simple shapes, high contrast, readable when shrunk to 360 pixels tall.
+Fictional person, not resembling any real or famous person.
+Absolutely no text, no letters, no numbers, no symbols, no percent signs, no dollar signs, no question marks, no tickers, no logos and no watermarks anywhere in the image. Coins are plain gold discs with no symbols; screens, charts, boxes and signs have nothing written on them.
+```
+
+## 16. reobeoriji-2026-10-shorts · thumbnail_1 — 번개에 부서진 3단 로켓 — 그래도 다시 연료를 넣는 손
+
+**저장 경로: `stock/source/reobeoriji-2026-10/shorts/thumbnails/thumbnail_1.png`**
+
+크기: **세로 9:16 (1080×1920) — 쇼츠**
+
+프롬프트:
+
+```
+YouTube Shorts cover, Vertical 9:16 portrait (1080x1920). Keep all important objects and any face between 13% and 66% of the height and between 6% and 84% of the width (top = YouTube icons, right 16% = like/comment buttons, bottom 34% = title and related-video link). The bottom 34% is a quiet, dark, empty background. If 9:16 is not available use 2:3 portrait and keep the side 8% empty.
+Semi-realistic digital illustration with cinematic lighting, deep dark navy night sky (#0C1424) with dark storm clouds.
+Upper middle: a large orange-striped rocket (#FF8A3D) with three glowing dots on its side, badly damaged — a lightning bolt has just struck it, cracks and sparks, most of its body broken away, smoke rising.
+Behind it, smaller and dimmer, a violet rocket (#B48CFF, two dots) and a blue rocket (#5AB4FF, one dot), both scratched by the storm but less damaged — none of the three is flying high; the sky above them disappears into clouds, so no one can see how far they will go.
+Lower middle (still above 66% of the height): a fictional person in their mid-thirties in a dark hoodie calmly dropping one plain gold coin into the broken orange rocket's fuel hatch anyway, determined but uneasy.
+Mood: storm, damage and stubborn suspense.
+Large simple shapes, high contrast, readable when shrunk to 360 pixels tall.
+Fictional person, not resembling any real or famous person.
+Absolutely no text, no letters, no numbers, no symbols, no percent signs, no dollar signs, no question marks, no tickers, no logos and no watermarks anywhere in the image. Coins are plain gold discs with no symbols; screens, charts, boxes and signs have nothing written on them.
 ```

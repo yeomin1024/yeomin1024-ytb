@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>레버리지 배수 쇼츠</title>
+<!-- VERSION: v1.0 — 2026-10-17 — 최초. 주식 4번 롱폼(reobeoriji-2026-10)으로 보내는 세로 쇼츠 (사용자 지시 2026-10-17 "저번에 쇼츠 만들었었으니까 같은 방식으로
+     영상 당 쇼츠 1개씩 만들어봐" · "다른점은 전세계 시청자들 대상이니까 언어 문구, 자막 달지 말고 영상으로만 잘 이해가 가도록 해야해").
+     대본 stock/source/reobeoriji-2026-10/shorts/reobeoriji-2026-10-shorts.txt (9문장 — 숫자는 모두 롱폼 대본에 있음, shorts_numcheck.py).
+     자막 없음 · 화면 글자 = 숫자·$·연도·%·×·티커·BUY·NASDAQ·기호(= ≈ ＞ ? ⬇)만 (K.init noWords — render.mjs check).
+     세로 1080×1920 · 안전 구역 위 250 · 오른쪽 150(좋아요·댓글 버튼) · 아래 y 1500(제목·채널·관련 동영상 링크) — shorts.md 3번.
+     ① 첫 문장 = 쇼츠 썸네일 그림(K.cover) ② 1·2·3배 = QQQ·≈QLD·≈TQQQ ③ 경주 1999.04 → 2008.11.20 (로그 눈금, 넣은 돈 = 노란 점선, 아래 칸 4개)
+     — 닷컴·금융위기 바닥에서 말한 숫자만 칩으로 · 2009 뒤(→ 2026)는 '?' 띠로 가림 (결말 = 2026 끝 값은 그리지 않음 — stock/guides/README.md 2·3번)
+     ④ 3× ＞ 1× ? ⑤ 끝 화면 ⬇ (관련 동영상 링크 자리). 숫자 = backtest/anim.js(← run.py)만. 연구·교육용 영상 — 투자 권유 아님. -->
+<meta name="video-size" content="1080x1920">
+<meta name="video-safe" content="250 150 1500 60">
+<link rel="stylesheet" href="../../render/kit.css">
+<style>
+#wrap{max-width:420px;margin:0 auto;aspect-ratio:9/16}
+body.render #wrap{width:1080px;height:1920px;max-width:none;margin:0}
+#stage{width:1080px;height:1920px;background:radial-gradient(1100px 1500px at 50% 34%,#17243D 0%,#0C1424 58%,#070C17 100%);--L1:#5AB4FF;--L2:#B48CFF;--L3:#FF8A3D;--RD:#FF4D5E;--MI:#2BE0A0}
+#cv{position:absolute;left:0;top:0;width:1080px;height:1920px;z-index:1;pointer-events:none}
+.sc{z-index:2}
+.tab{font-variant-numeric:tabular-nums}
+.big{font-weight:900;line-height:1;white-space:nowrap;letter-spacing:-2px}
+.row{display:flex;align-items:center;gap:18px}
+.lx{display:inline-block;font:900 44px/1 "Noto Sans KR";padding:9px 16px 8px;border-radius:14px;white-space:nowrap;color:#0B1020}
+.lx.l1{background:var(--L1)}.lx.l2{background:var(--L2)}.lx.l3{background:var(--L3)}
+.tk{display:inline-block;font:900 40px/1 "Noto Sans KR";padding:10px 16px 9px;border-radius:14px;white-space:nowrap;background:#C9D2E2;color:#0C1424}
+.tag{display:inline-block;font:900 36px/1 "Noto Sans KR";padding:9px 14px 8px;border-radius:12px;white-space:nowrap}
+.tag.b{background:var(--MI);color:#03231A}
+.bar{height:30px;border-radius:15px}
+.veil{position:absolute;left:0;top:0;width:1080px;height:1920px;background:rgba(7,12,23,.93)}
+.arrow{position:absolute}
+</style>
+</head>
+<body>
+<div id="wrap"><div id="stage"><canvas id="cv" width="1080" height="1920"></canvas></div></div>
+<div id="ctrl"></div>
+<div id="now"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="../../../stock/source/reobeoriji-2026-10/backtest/anim.js"></script>
+<script id="ep-data">/*EP-DATA:BEGIN*/window.EP={"id":"reobeoriji-2026-10-shorts","topic":"stock","duration":45.29,"audio":null,"thumb":null,"estimated":true,"est_model":{"perSyl":0.151,"comma":0.25,"base":-0.08,"min":0.8,"lead":0.3,"gap":0.45,"part":1,"tail":0.8},"synced":"2026-10-17T10:47:01Z","sent":[{"n":1,"part":"레버리지 배수","text":"3배 레버리지에 매달 500달러씩 넣었더니, 2001년 넣은 돈의 92.3%가 사라졌어요.","start":0.3,"end":6.51},{"n":2,"part":"레버리지 배수","text":"나스닥100을 1배 따라가는 QQQ, 2배 QLD, 3배 TQQQ처럼 계산한 계좌예요.","start":6.96,"end":12.514},{"n":3,"part":"레버리지 배수","text":"1999년부터 세 계좌에 똑같이, 매달 500달러씩 넣었어요.","start":12.964,"end":17.211},{"n":4,"part":"레버리지 배수","text":"닷컴 폭락 때 2배는 넣은 돈의 80.7%, 1배는 49.9%를 잃었고요.","start":17.661,"end":23.116},{"n":5,"part":"레버리지 배수","text":"그래도 세 계좌 모두 매달 계속 매수했어요.","start":23.566,"end":26.053},{"n":6,"part":"레버리지 배수","text":"그리고 2008년 금융위기에, 3배 계좌는 또 89.5%를 잃었습니다.","start":26.503,"end":31.505},{"n":7,"part":"레버리지 배수","text":"같은 날 1배 QQQ는 넣은 돈의 36.4%를 잃은 상태였어요.","start":31.955,"end":36.254},{"n":8,"part":"레버리지 배수","text":"2026년까지 계속 모았다면, 3배 계좌는 1배보다 많이 남았을까요?","start":36.704,"end":41.404},{"n":9,"part":"레버리지 배수","text":"세 계좌의 결과는 아래 영상에서 확인하세요.","start":41.854,"end":44.492}],"subs":[[0.3,3.137,"3배 레버리지에 매달 500달러씩 넣었더니,"],[3.137,6.51,"2001년 넣은 돈의 92.3%가 사라졌어요."],[6.96,9.261,"나스닥100을 1배 따라가는 QQQ,"],[9.261,12.514,"2배 QLD, 3배 TQQQ처럼 계산한 계좌예요."],[12.964,17.211,"1999년부터 세 계좌에 똑같이, 매달 500달러씩 넣었어요."],[17.661,23.116,"닷컴 폭락 때 2배는 넣은 돈의 80.7%, 1배는 49.9%를 잃었고요."],[23.566,26.053,"그래도 세 계좌 모두 매달 계속 매수했어요."],[26.503,31.505,"그리고 2008년 금융위기에, 3배 계좌는 또 89.5%를 잃었습니다."],[31.955,36.254,"같은 날 1배 QQQ는 넣은 돈의 36.4%를 잃은 상태였어요."],[36.704,41.404,"2026년까지 계속 모았다면, 3배 계좌는 1배보다 많이 남았을까요?"],[41.854,44.492,"세 계좌의 결과는 아래 영상에서 확인하세요."]],"subs_estimated":true};/*EP-DATA:END*/</script>
+<script src="../../render/kit.js"></script>
+<script src="../../render/race2d.js"></script>
+<script>
+(function () {
+"use strict";
+K.init(window.EP, { subtitles: false, chip: false, noWords: true, w: 1080, testFrom: "레버리지 배수" });
+const tl = K.tl, el = K.el, pop = K.pop;
+const LV = window.LV, N = LV.dates.length, F = LV.facts;
+const C1 = "#5AB4FF", C2 = "#B48CFF", C3 = "#FF8A3D", YE = "#FFD400", RD = "#FF4D5E", MI = "#2BE0A0";
+const COL = { 1: C1, 2: C2, 3: C3 }, TICK = { 1: "QQQ", 2: "QLD", 3: "TQQQ" }, V = { 1: LV.x1, 2: LV.x2, 3: LV.x3 };
+const CX = 495;                                         // 장면 가운데 (x 60~930 — 오른쪽 150px 버튼 자리 뺌)
+const cv = document.getElementById("cv"), ctx = cv.getContext("2d");
+const LAYERS = [];
+const add = (a, b, f) => LAYERS.push([a, b, f]);
+K.onSeek(t => { ctx.clearRect(0, 0, 1080, 1920); for (const [a, b, f] of LAYERS) if (t >= a && t < b) f(t); });
+const SN = a => { const h = EP.sent.filter(s => s.text.includes(a)); if (h.length !== 1) throw new Error(`문장 찾기 '${a}' → ${h.length}개`); return h[0]; };
+const S = a => SN(a).start, E = a => SN(a).end, W = (a, w) => K.W(SN(a).n, w);
+const f0 = n => Math.round(n).toLocaleString("en-US");
+const money = v => "$" + f0(v);
+const pcs = r => (r < 0 ? "−" : "+") + Math.abs(r * 100).toFixed(1) + "%";
+const ymd = d => d.replace(/-/g, ".");
+const idx = d => { const i = LV.dates.findIndex(x => x >= d); return i < 0 ? N - 1 : i; };
+const clamp = (x, a, b) => Math.max(a, Math.min(b, x));
+const LX = (L, sz) => `<span class="lx l${L}"${sz ? ` style="font-size:${sz}px"` : ""}>${L}×</span>`;
+const TK = (s, sz) => `<span class="tk"${sz ? ` style="font-size:${sz}px"` : ""}>${s}</span>`;
+const IC = {
+  cal: (s = 48) => `<svg viewBox="0 0 48 48" width="${s}" height="${s}"><rect x="5" y="9" width="38" height="34" rx="7" fill="#22324F" stroke="#9FB1CF" stroke-width="3.5"/><path d="M5 19h38M16 5v8M32 5v8" stroke="#9FB1CF" stroke-width="3.5" stroke-linecap="round"/></svg>`,
+  up: (s = 44, c = MI) => `<svg viewBox="0 0 48 48" width="${s}" height="${s}"><path d="M6 36 L18 22 L27 30 L42 12" fill="none" stroke="${c}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M33 12h9v9" fill="none" stroke="${c}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+};
+// 문장 (대본 shorts/reobeoriji-2026-10-shorts.txt — 글자로 찾음)
+const A1 = "92.3%가 사라졌어요", A2 = "1배 따라가는 QQQ", A3 = "1999년부터 세 계좌에", A4 = "닷컴 폭락 때 2배는", A5 = "그래도 세 계좌 모두",
+  A6 = "2008년 금융위기에", A7 = "같은 날 1배 QQQ는", A8 = "2026년까지 계속 모았다면", A9 = "세 계좌의 결과는";
+
+// 1. 첫 문장 = 쇼츠 썸네일 그림 (shorts/thumbnails/thumbnail_1.* — 글자 없음)
+K.cover(S(A2) - 0.05);
+K.cut(0.1, "0초 그림 = 썸네일로 고를 프레임");
+K.cut(E(A1) - 0.2, "첫 문장 (그림)");
+
+// 2. 1·2·3배 = QQQ · ≈QLD · ≈TQQQ (s2) — 막대 길이 1:2:3 = 나스닥100 하루 움직임의 배수
+{ const a = S(A2), sc = K.scene(a - 0.3, S(A3) - 0.1);
+  const head = el(`<div class="a cx row" style="left:${CX}px;top:330px">${IC.up(72, "#C9D2E2")}<span class="big" style="font-size:72px">NASDAQ 100</span></div>`, sc);
+  pop(head, a);
+  [1, 2, 3].forEach((L, i) => {
+    const r = el(`<div class="a row" style="left:110px;top:${520 + i * 200}px;gap:26px">${LX(L, 86)}<div class="bar" style="width:${80 * L}px;background:${COL[L]}"></div><span class="big" style="font-size:72px;color:#C9D2E2">${L === 1 ? "=" : "≈"}</span>${TK(TICK[L], 66)}</div>`, sc);
+    pop(r, W(A2, `${L}배`));
+  });
+  K.cut(E(A2) - 0.2, "1·2·3배 = QQQ · ≈QLD · ≈TQQQ");
+}
+
+// 3. 경주 1999.04 → 2008.11.20 (s3~s8) — 로그 눈금 · 넣은 돈 노란 점선 · 아래 칸: 넣은 돈 · 1× · 2× · 3×
+const dPk = idx("2000-03-27"), dL3 = idx(F.dot.x3.low_date), dL12 = idx(F.dot.x1.low_date), dG0 = idx("2008-01-02"), dG = idx(F.gfc.x3.low_date);
+if (F.dot.x1.low_date !== F.dot.x2.low_date || F.gfc.x1.low_date !== F.gfc.x3.low_date) throw new Error("바닥 날이 대본과 다름");
+const tR0 = S(A3) - 0.3, tR1 = S(A9) - 0.1;
+const tH3 = W(A4, "80.7%") - 0.55;                      // 3배 바닥(2001.03.29)에서 잠깐 멈춤 — 칩과 아래 칸이 같은 −92.3% 를 보이게
+const pace = R2.warp([[S(A3) + 0.3, 0], [E(A3), dPk], [S(A4) + 0.5, dL3], [tH3, dL3], [W(A4, "80.7%") - 0.25, dL12], [S(A5) + 0.2, dL12], [S(A6) + 0.3, dG0], [W(A6, "89.5%") - 0.3, dG]], "쇼츠 경주 1·2·3배", 800);
+const yearsT = []; for (let i = 1; i < N; i++) if (LV.dates[i].slice(0, 4) !== LV.dates[i - 1].slice(0, 4)) yearsT.push([i, LV.dates[i].slice(0, 4)]);
+const ch = new R2.Chart({ x: 175, y: 390, w: 600, h: 690, n: N, years: yearsT, yearGap: 115, mode: "log", min: 300, max: 100000, xTo: idx("2009-03-02"),
+  labelSize: 30, baselines: [{ v: i => LV.paid[i], color: YE, dash: [16, 10], width: 4, step: 5 }],
+  series: [{ vals: V[1], color: C1, width: 6 }, { vals: V[2], color: C2, width: 6 }, { vals: V[3], color: C3, width: 7, glow: true }] });
+const FOG = { x: 800, y: 390, w: 115, h: 690 };
+// 말한 숫자만 칩으로 (그 문장의 그 낱말에): [시각, 배수, 날, 글자, 위(true)/아래]
+const PINS = [
+  [pace.tOf(dL3), 3, dL3, pcs(F.dot.x3.vs_paid_low), false, tH3 + 0.15],   // 2001.04.04 로 넘어가기 전에 내림 (그날 아래 칸 값은 −92.2%)
+  [W(A4, "80.7%"), 2, dL12, pcs(F.dot.x2.vs_paid_low), false, S(A5) + 0.2],
+  [W(A4, "49.9%"), 1, dL12, pcs(F.dot.x1.vs_paid_low), true, S(A5) + 0.2],
+  [W(A6, "89.5%"), 3, dG, pcs(F.gfc.x3.vs_paid_low), false, tR1],
+  [W(A7, "36.4%"), 1, dG, pcs(F.gfc.x1.vs_paid_low), true, tR1],
+];
+const FLASH = [[W(A4, "80.7%"), 2], [W(A4, "49.9%"), 1], [pace.tOf(dL3), 3], [W(A6, "89.5%"), 3], [W(A7, "36.4%"), 1]];
+function rr(x, y, w, h, r) { R2.rr(ctx, x, y, w, h, r); }
+function chipC(x, y, L) {                               // 캔버스 배수 칩 (DOM .lx 와 같은 모양)
+  ctx.font = `900 40px ${R2.FONT}`; const w = ctx.measureText(`${L}×`).width + 28;
+  ctx.fillStyle = COL[L]; rr(x, y, w, 56, 12); ctx.fill();
+  ctx.fillStyle = "#0B1020"; ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText(`${L}×`, x + w / 2, y + 30);
+  return w;
+}
+add(tR0, tR1, t => {
+  const al = clamp((t - tR0) / 0.35, 0, 1) * clamp((tR1 - t) / 0.35, 0, 1);
+  const d = pace(t), k = Math.floor(d);
+  ctx.save(); ctx.globalAlpha = al;
+  // 날짜
+  ctx.font = `900 66px ${R2.FONT}`; ctx.fillStyle = "#F4F6FA"; ctx.textAlign = "left"; ctx.textBaseline = "top";
+  ctx.fillText(ymd(LV.dates[k]), 64, 272);
+  ch.draw(ctx, d);
+  // 2009 뒤 → 2026 은 가림 ('?' 띠)
+  const q = t >= S(A8) ? 0.55 + 0.45 * Math.abs(Math.sin((t - S(A8)) * 3)) : 0.55;
+  ctx.fillStyle = "rgba(10,16,30,.92)"; rr(FOG.x, FOG.y, FOG.w, FOG.h, 18); ctx.fill();
+  ctx.save(); rr(FOG.x, FOG.y, FOG.w, FOG.h, 18); ctx.clip();
+  ctx.strokeStyle = "rgba(160,176,204,.12)"; ctx.lineWidth = 10;
+  for (let s = -FOG.h; s < FOG.w + FOG.h; s += 34) { ctx.beginPath(); ctx.moveTo(FOG.x + s, FOG.y); ctx.lineTo(FOG.x + s - FOG.h, FOG.y + FOG.h); ctx.stroke(); }
+  ctx.restore();
+  ctx.strokeStyle = `rgba(255,212,0,${0.35 + 0.5 * (q - 0.55) / 0.45})`; ctx.lineWidth = 3; rr(FOG.x, FOG.y, FOG.w, FOG.h, 18); ctx.stroke();
+  ctx.globalAlpha = al * q; ctx.font = `900 110px ${R2.FONT}`; ctx.fillStyle = YE; ctx.textAlign = "center"; ctx.textBaseline = "middle";
+  ctx.fillText("?", FOG.x + FOG.w / 2, FOG.y + FOG.h / 2);
+  ctx.globalAlpha = al; ctx.font = `700 30px ${R2.FONT}`; ctx.fillStyle = "#C9D2E2"; ctx.textBaseline = "top"; ctx.fillText("2026", FOG.x + FOG.w / 2, FOG.y + FOG.h + 14);
+  // 칩
+  for (const [tp, L, di, txt, up, tEnd] of PINS) if (t >= tp - 0.2 && t < tEnd) R2.pin(ctx, ch.X(di), ch.Y(V[L][di]), txt, COL[L], clamp((t - tp + 0.2) / 0.3, 0, 1) * clamp((tEnd - t) / 0.3, 0, 1), up, 40, [60, 930]);
+  // 아래 칸: 넣은 돈 · 1× · 2× · 3×
+  const top = 1170, rh = 78;
+  ctx.font = `900 46px ${R2.FONT}`; ctx.textBaseline = "middle";
+  ctx.setLineDash([16, 10]); ctx.strokeStyle = YE; ctx.lineWidth = 5; ctx.beginPath(); ctx.moveTo(80, top + 30); ctx.lineTo(176, top + 30); ctx.stroke(); ctx.setLineDash([]);
+  ctx.textAlign = "right"; ctx.fillStyle = "#FFE680"; ctx.fillText(money(LV.paid[k]), 900, top + 30);
+  [1, 2, 3].forEach((L, i) => {
+    const y = top + rh * (i + 1);
+    const fl = FLASH.filter(([tf, Lf]) => Lf === L && t >= tf && t < tf + 1.4).length ? 1 : 0;
+    if (fl) { ctx.fillStyle = COL[L] + "33"; rr(64, y - 8, 850, 70, 16); ctx.fill(); }
+    const w = chipC(80, y, L);
+    ctx.font = `900 40px ${R2.FONT}`; ctx.textAlign = "left"; ctx.fillStyle = "#C9D2E2"; ctx.fillText(TICK[L], 80 + w + 18, y + 30);
+    const v = V[L][k], r = v / LV.paid[k] - 1;
+    ctx.font = `900 46px ${R2.FONT}`; ctx.textAlign = "right"; ctx.fillStyle = "#F4F6FA"; ctx.fillText(money(v), 660, y + 30);
+    ctx.fillStyle = r < 0 ? "#FF6B78" : MI; ctx.fillText(pcs(r), 900, y + 30);
+  });
+  ctx.restore();
+});
+{ const sc = K.scene(tR0, tR1);
+  const buy = el(`<div class="a row" style="left:575px;top:282px;gap:12px">${IC.cal(54)}<span class="tag b">BUY</span><span class="big tab" style="font-size:52px">$500</span></div>`, sc);
+  pop(buy, S(A3) + 0.1);
+  tl.fromTo(buy, { scale: 1 }, { scale: 1.07, duration: 0.25, yoyo: true, repeat: 5, ease: "sine.inOut" }, W(A5, "매달"));   // 매달 계속 매수 — 깜빡임
+  K.cut(W(A3, "500달러씩") + 0.4, "경주 시작 1999 · 매달 BUY $500");
+  K.cut(tH3 - 0.1, "닷컴 3× 바닥 2001.03.29 −92.3%");
+  K.cut(E(A4) - 0.15, "닷컴 2001.04.04 2× −80.7% · 1× −49.9%");
+  K.cut(E(A5) - 0.1, "계속 매수 (2001 → 2008)");
+  K.cut(E(A6) - 0.15, "금융위기 3× −89.5%");
+  K.cut(E(A7) - 0.15, "같은 날 1× −36.4%");
+}
+
+// 4. 2026, 3× ＞ 1× ? (s8) — 경주 그림 위에 질문
+{ const a = S(A8), sc = K.scene(a - 0.2, S(A9) - 0.1);
+  const veil = el(`<div class="a" style="left:110px;top:380px;width:830px;height:720px;border-radius:30px;background:rgba(7,12,23,.82)"></div>`, sc);
+  pop(veil, a - 0.2, { from: { y: 0, scale: 1 } });
+  const yr = el(`<div class="a cx big tab" style="left:${CX}px;top:470px;font-size:130px;color:${YE}">2026</div>`, sc);
+  pop(yr, W(A8, "2026년까지"));
+  const q = el(`<div class="a cx row" style="left:${CX}px;top:720px;gap:30px">${LX(3, 110)}<span class="big" style="font-size:120px">＞</span>${LX(1, 110)}<span class="big" style="font-size:150px;color:${YE}">?</span></div>`, sc);
+  pop(q, W(A8, "3배"));
+  K.cut(E(A8) - 0.15, "2026 · 3× ＞ 1× ?");
+}
+
+// 5. 끝 화면 (s9) — 세 계좌 · 1999 → 2026 · ? · ⬇ (관련 동영상 링크 자리)
+{ const a = S(A9), sc = K.scene(a - 0.3, K.D, { keep: true });
+  el(`<div class="veil"></div>`, sc);
+  [1, 2, 3].forEach((L, i) => {
+    const r = el(`<div class="a row" style="left:${130 + i * 270}px;top:340px;flex-direction:column;gap:18px">${LX(L, 80)}${TK(TICK[L], 48)}</div>`, sc);
+    pop(r, a + i * 0.12);
+  });
+  const yr = el(`<div class="a cx big tab" style="left:${CX}px;top:640px;font-size:96px">1999 → 2026</div>`, sc);
+  pop(yr, a + 0.3);
+  const q = el(`<div class="a cx big" style="left:${CX}px;top:800px;font-size:260px;color:${YE}">?</div>`, sc);
+  pop(q, W(A9, "결과는"), { from: { scale: 0.5, y: 0 } });
+  const ar = el(`<svg class="arrow" viewBox="0 0 120 160" width="140" height="186" style="left:${CX - 70}px;top:1200px" aria-hidden="true">
+    <path d="M60 6 L60 120 M14 78 L60 124 L106 78" fill="none" stroke="${YE}" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/></svg>`, sc);
+  pop(ar, W(A9, "아래"));
+  tl.fromTo(ar, { y: 0 }, { y: 50, duration: 0.45, ease: "sine.inOut", repeat: 7, yoyo: true }, W(A9, "아래") + 0.6);
+  K.cut(E(A9) - 0.1, "끝 화면 ⬇");
+}
+
+K.done();
+})();
+</script>
+</body>
+</html>

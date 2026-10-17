@@ -1,4 +1,7 @@
-// VERSION: v1.3 — 2026-10-16 — 영상ID '<영상ID>-shorts' 면 대본 폴더를 source/<영상ID>/shorts 로 (세로 쇼츠 — 사용자 지시 2026-10-16 "일단 이 쇼츠만 영상 만들어봐"). 쇼츠는 --no-export 로 (새 스타일 장면 파일은 remotion 내보내기를 쓰지 않음).
+// VERSION: v1.4 — 2026-10-17 — 지금 SRT 의 자막 줄바꿈을 그대로 씀 (srt_tool v1.7 — 한 문장 = 자막 하나, 길면 같은 자막 안에서 두 줄. 예전에는
+//   줄을 공백으로 이어 한 줄로 썼음). 사용자 지시 2026-10-17 "자막 좀 되도록 한 문장은 한 자막으로 표시되게해 … 문장이 길면 적당한 곳에 분리하도록".
+//   문장을 나누는 위치·시각 맞추기는 같다.
+// v1.3 — 2026-10-16 — 영상ID '<영상ID>-shorts' 면 대본 폴더를 source/<영상ID>/shorts 로 (세로 쇼츠 — 사용자 지시 2026-10-16 "일단 이 쇼츠만 영상 만들어봐"). 쇼츠는 --no-export 로 (새 스타일 장면 파일은 remotion 내보내기를 쓰지 않음).
 // (v1.2 — 2026-10-11 — 내레이션 옆에 tts_narration.json(tools/tts_narration.py)이 있고 대본·길이가 맞으면 문장 경계를 그 정확한 시각으로 (쉼 추측은 문장 안 쉼을 경계로 잘못 잡아 최대 6.9초 어긋남), 문장 경계마다 실제 무음인지 확인. --ignore-tts-meta 로 예전 방식)
 // (v1.1 — 2026-10-10 — 파트 라벨 판정을 srt_tool.is_label과 같게: '-숫자'로 시작하는 줄은 문장 (v1.0: 내레이션 오디오에 SRT 타이밍 맞추기, 오디오는 고치지 않음))
 // 사용 (video/ 폴더에서):
@@ -93,7 +96,7 @@ const subs = fs
   .filter((b) => b.length >= 3)
   .map((b) => {
     const [a, c] = b[1].split("-->");
-    return {start: sec(a), end: sec(c), text: b.slice(2).map((x) => x.trim()).join(" ")};
+    return {start: sec(a), end: sec(c), text: b.slice(2).map((x) => x.trim()).join(" "), raw: b.slice(2).map((x) => x.trim()).join("\n")};   // v1.4 raw = 두 줄 자막의 줄바꿈 그대로
   });
 const groups = [];
 {
@@ -292,10 +295,10 @@ for (let i = 0; i < N; i++) {
     }
   }
   const startT = i === 0 ? Math.max(0, a - 0.1) : a;
-  if (splitAt === null) out.push({start: startT, end, text: g.text});
+  if (splitAt === null) out.push({start: startT, end, text: g.parts[0].raw});   // v1.4: 지금 SRT 의 줄바꿈(srt_tool v1.7 두 줄 자막)을 그대로
   else {
-    out.push({start: startT, end: splitAt, text: g.parts[0].text});
-    out.push({start: splitAt, end, text: g.parts[1].text});
+    out.push({start: startT, end: splitAt, text: g.parts[0].raw});
+    out.push({start: splitAt, end, text: g.parts[1].raw});
   }
   if (Math.abs(dev) > 0.35 || how === "비율") report.push(`문장 ${g.n}: 길이 ${dur.toFixed(2)}초 (예상 ${(g.exp * rate).toFixed(2)}초, ${(dev * 100).toFixed(0)}%)${how === "비율" ? ", 앞줄·뒷줄을 비율로 나눔" : ""}`);
 }

@@ -1,0 +1,149 @@
+{
+ "tool": "tts_narration.py v1.10",
+ "created": "2026-10-17T07:44:51",
+ "topic": "economic",
+ "id": "eunte-kkeonaeseugi-2026-10-shorts",
+ "script": "economic/source/eunte-kkeonaeseugi-2026-10/shorts/eunte-kkeonaeseugi-2026-10-shorts.txt",
+ "script_sha1": "ee007b097e60110a",
+ "sentences": 12,
+ "seconds": 49.55,
+ "engine": {
+  "engine": "qwen3-tts-clone",
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "ref": "e36c19a225874205",
+  "mode": "icl",
+  "language": "Korean",
+  "dtype": "float32",
+  "gen": {}
+ },
+ "voices": {
+  "host": {
+   "name": "진행자",
+   "parts": [
+    "*"
+   ],
+   "engine": "clone",
+   "lock": true,
+   "speaker": "Sohee",
+   "instruct": "",
+   "part_instruct": {},
+   "seed": 4301,
+   "gap": 0.45,
+   "generation": {},
+   "ref_audio": "voices/ref/host.wav",
+   "ref_sha": "e36c19a225874205",
+   "ref_f0": 127.7,
+   "files": [
+    "voices/host.json"
+   ]
+  }
+ },
+ "voice_ids": {
+  "host": "ba3d7519a1de4d4c"
+ },
+ "gaps": {
+  "lead_in": 0.3,
+  "part": 1.0,
+  "tail": 0.8,
+  "cards": []
+ },
+ "items": [
+  {
+   "n": 1,
+   "role": "host",
+   "part": "같은 5억, 다른 세금",
+   "text": "김씨 부부는 은퇴 첫해에만 세금과 건보료로 200만 원 넘게 손해 본 걸 알게 됐습니다.",
+   "start": 0.3,
+   "end": 5.99
+  },
+  {
+   "n": 2,
+   "role": "host",
+   "part": "같은 5억, 다른 세금",
+   "text": "올해 세금만 334만 원을 낸 김씨는, 한 은퇴자 커뮤니티에서 글 하나를 봤는데요.",
+   "start": 6.44,
+   "end": 12.13
+  },
+  {
+   "n": 3,
+   "role": "host",
+   "part": "같은 5억, 다른 세금",
+   "text": "나이도 같은 65세 부부, 모은 돈도 똑같이 5억 원.",
+   "start": 12.58,
+   "end": 16.34
+  },
+  {
+   "n": 4,
+   "role": "host",
+   "part": "같은 5억, 다른 세금",
+   "text": "그런데 세금은 108만 원밖에 안 냈다는 글이었습니다.",
+   "start": 16.79,
+   "end": 19.82
+  },
+  {
+   "n": 5,
+   "role": "host",
+   "part": "같은 5억, 다른 세금",
+   "text": "국민연금도, 한 달 생활비도 김씨네와 똑같았어요.",
+   "start": 20.27,
+   "end": 23.99
+  },
+  {
+   "n": 6,
+   "role": "host",
+   "part": "같은 5억, 다른 세금",
+   "text": "김씨는 처음엔 잘못 읽은 줄 알았습니다.",
+   "start": 24.44,
+   "end": 26.68
+  },
+  {
+   "n": 7,
+   "role": "host",
+   "part": "같은 5억, 다른 세금",
+   "text": "그리고 다음 해, 건보료 고지서까지 날아왔습니다.",
+   "start": 27.13,
+   "end": 29.83
+  },
+  {
+   "n": 8,
+   "role": "host",
+   "part": "같은 5억, 다른 세금",
+   "text": "부부 둘 다 자녀 건강보험 피부양자에서 빠졌다는 거예요.",
+   "start": 30.28,
+   "end": 34.12
+  },
+  {
+   "n": 9,
+   "role": "host",
+   "part": "같은 5억, 다른 세금",
+   "text": "그것도 5년 동안이요.",
+   "start": 34.57,
+   "end": 36.01
+  },
+  {
+   "n": 10,
+   "role": "host",
+   "part": "같은 5억, 다른 세금",
+   "text": "지금처럼 꺼내 쓰면 김씨 부부는 평생 세금만 약 2천만 원을 더 냅니다.",
+   "start": 36.46,
+   "end": 40.9
+  },
+  {
+   "n": 11,
+   "role": "host",
+   "part": "같은 5억, 다른 세금",
+   "text": "김씨 부부, 지금이라도 세금을 줄일 수 있을까요?",
+   "start": 41.35,
+   "end": 44.15
+  },
+  {
+   "n": 12,
+   "role": "host",
+   "part": "같은 5억, 다른 세금",
+   "text": "두 부부가 무엇이 달랐는지, 지금 고치는 법까지 아래 영상에서 확인하세요.",
+   "start": 44.6,
+   "end": 48.75
+  }
+ ],
+ "voice_sha1": "f0d0f801940b36b1"
+}

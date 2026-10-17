@@ -1,0 +1,72 @@
+{
+ "id": "Ez3nyrXxl7o",
+ "title": "사극은 거짓말이었다 | 조선 백성이 매일 먹던 진짜 밥상 | 조선 사람들이 산처럼 먹은 충격적인 이유 🍙l400년 전 밥상의 충격적인 진실 🍚",
+ "channel": "어게인역사",
+ "channel_id": "UCTpc5hLEz8isB3rkTDnY5KA",
+ "subs": 5640,
+ "views": 571608,
+ "ratio": 101.35,
+ "age_days": 125,
+ "views_per_day": 4572.9,
+ "minutes": 21.0,
+ "likes": 3881,
+ "comments": 735,
+ "published": "2026-06-13",
+ "queries": "검색:조선역사 | 검색:한국역사 | 검색:조선시대 | 검색:조선왕조 | 검색:조선 | 검색:사극",
+ "url": "https://www.youtube.com/watch?v=Ez3nyrXxl7o",
+ "flag": "",
+ "published_at": "2026-06-13T22:30:17Z",
+ "rank": "W94",
+ "set": "web",
+ "folder": "W_Ez3nyrXxl7o",
+ "sources": [
+  "검색:조선역사",
+  "검색:한국역사",
+  "검색:조선시대",
+  "검색:조선왕조",
+  "검색:조선",
+  "검색:사극"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "새벽 부엌, 잡곡밥 한 솥"
+  },
+  {
+   "start": 90,
+   "title": "왕의 수라상 vs 백성의 밥상"
+  },
+  {
+   "start": 180,
+   "title": "점심은 원래 끼니가 아니었다"
+  },
+  {
+   "start": 270,
+   "title": "빨간 김치는 언제 생겼나"
+  },
+  {
+   "start": 360,
+   "title": "경신대기근, 1년 만에 무너진 밥상"
+  },
+  {
+   "start": 480,
+   "title": "많이 먹은 건 풍요가 아니었다"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 735,
+ "comments_top_level": 342,
+ "comments_replies": 393,
+ "comments_by_creator": 241,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 735,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:27:37",
+ "approved": "2026-10-17T16:27+09:00"
+}

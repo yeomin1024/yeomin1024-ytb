@@ -1,0 +1,86 @@
+{
+ "id": "FziT13rkQ8I",
+ "title": "한글날 특집 | 외국인이 한글을 읽고 놀란 순간… 세종대왕이 열어 준 길",
+ "channel": "국뽕살롱",
+ "channel_id": "UCAm5diV-nGVsrCVY5bG05Rg",
+ "subs": 823,
+ "views": 14934,
+ "ratio": 18.15,
+ "age_days": 8,
+ "views_per_day": 1866.8,
+ "minutes": 14.4,
+ "likes": 71,
+ "comments": 12,
+ "published": "2026-10-08",
+ "queries": "검색:세종대왕",
+ "url": "https://www.youtube.com/watch?v=FziT13rkQ8I",
+ "flag": "",
+ "published_at": "2026-10-08T22:00:22Z",
+ "rank": "W327",
+ "set": "web",
+ "folder": "W_FziT13rkQ8I",
+ "sources": [
+  "검색:세종대왕"
+ ],
+ "source": "web",
+ "tags": [
+  "한글날",
+  "2026 한글날",
+  "한글날 특집",
+  "세종대왕",
+  "훈민정음",
+  "훈민정음 반포 580주년",
+  "한글날 100주년",
+  "외국인 반응",
+  "한글 외국인 반응",
+  "외국인 한글 배우기",
+  "한글 배우기",
+  "한국어 배우기",
+  "한글의 원리",
+  "훈민정음 해례본",
+  "한국 문화",
+  "대한민국",
+  "Hangul Day",
+  "King Sejong"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "처음 읽는 순간"
+  },
+  {
+   "start": 117,
+   "title": "세종이 열어 준 길"
+  },
+  {
+   "start": 223,
+   "title": "글자가 소리가 되다"
+  },
+  {
+   "start": 460,
+   "title": "실수해도 시작할 수 있다"
+  },
+  {
+   "start": 615,
+   "title": "낯선 도시를 읽는 길"
+  },
+  {
+   "start": 765,
+   "title": "우리가 매일 쓰는 기적"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 12,
+ "comments_top_level": 10,
+ "comments_replies": 2,
+ "comments_by_creator": 2,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 12,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:34:34",
+ "approved": "2026-10-17T16:34+09:00"
+}

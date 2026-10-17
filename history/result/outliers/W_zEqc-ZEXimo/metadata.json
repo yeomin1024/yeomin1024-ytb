@@ -1,0 +1,124 @@
+{
+ "id": "zEqc-ZEXimo",
+ "title": "83세 급제자와 15세 급제자 | 조선에서 가장 잔혹했던 시험의 500년",
+ "channel": "우리 모두의 역사",
+ "channel_id": "UCYa04jnvh4zbvhpl4U93K9A",
+ "subs": 5100,
+ "views": 72462,
+ "ratio": 14.21,
+ "age_days": 46,
+ "views_per_day": 1575.3,
+ "minutes": 91.3,
+ "likes": 406,
+ "comments": 13,
+ "published": "2026-08-31",
+ "queries": "검색:역사채널",
+ "url": "https://www.youtube.com/watch?v=zEqc-ZEXimo",
+ "flag": "",
+ "published_at": "2026-08-31T11:00:01Z",
+ "rank": "W361",
+ "set": "web",
+ "folder": "W_zEqc-ZEXimo",
+ "sources": [
+  "검색:역사채널"
+ ],
+ "source": "web",
+ "tags": [
+  "역사",
+  "조선사",
+  "평민역사",
+  "조선시대",
+  "경신대기근",
+  "임진왜란",
+  "일제시대",
+  "친일파"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "새벽 세 시, 성문 앞의 사람들"
+  },
+  {
+   "start": 130,
+   "title": "조선은 왜 시험으로 나라를 세웠나"
+  },
+  {
+   "start": 330,
+   "title": "소과와 대과, 겹겹의 관문"
+  },
+  {
+   "start": 540,
+   "title": "33명의 구조와 전시의 순위"
+  },
+  {
+   "start": 740,
+   "title": "봉미와 역서, 조선의 공정성 장치"
+  },
+  {
+   "start": 960,
+   "title": "응시자 1만 명, 무너지는 시험장"
+  },
+  {
+   "start": 1170,
+   "title": "선접꾼 거벽 사수, 시험장의 팀플레이"
+  },
+  {
+   "start": 1440,
+   "title": "기묘과옥과 임진과옥, 급제 전원 취소"
+  },
+  {
+   "start": 1740,
+   "title": "30년의 비용, 출발선이 다른 시험"
+  },
+  {
+   "start": 2040,
+   "title": "하루 일과와 산사 공부"
+  },
+  {
+   "start": 2310,
+   "title": "구도장원공 이이, 15세와 83세의 급제자"
+  },
+  {
+   "start": 2580,
+   "title": "홍패와 어사화, 사흘간의 유가"
+  },
+  {
+   "start": 2850,
+   "title": "급제 이후의 또 다른 경쟁"
+  },
+  {
+   "start": 3060,
+   "title": "이름이 불리지 않은 사람들"
+  },
+  {
+   "start": 3360,
+   "title": "배제된 사람들: 여성 서얼 중인"
+  },
+  {
+   "start": 3660,
+   "title": "0.6퍼센트라는 숫자의 진실"
+  },
+  {
+   "start": 3930,
+   "title": "1894년, 900년 만의 폐지"
+  },
+  {
+   "start": 4200,
+   "title": "조선의 과거가 우리에게 남긴 것"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 13,
+ "comments_top_level": 11,
+ "comments_replies": 2,
+ "comments_by_creator": 2,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 13,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:35:55",
+ "approved": "2026-10-17T16:35+09:00"
+}

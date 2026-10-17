@@ -1,0 +1,83 @@
+{
+ "id": "uXPx-c7GqKg",
+ "title": "1636년, 조선에 떨어진 대한민국 소대의 한양성 진격전 | 강철소대 3화",
+ "channel": "악션Channel AI",
+ "channel_id": "UCkkqkuqOrJ9LbG89ncnk-KQ",
+ "subs": 6530,
+ "views": 247076,
+ "ratio": 37.84,
+ "age_days": 157,
+ "views_per_day": 1573.7,
+ "minutes": 8.1,
+ "likes": 1729,
+ "comments": 269,
+ "published": "2026-05-12",
+ "queries": "검색:병자호란",
+ "url": "https://www.youtube.com/watch?v=uXPx-c7GqKg",
+ "flag": "",
+ "published_at": "2026-05-12T08:29:29Z",
+ "rank": "W219",
+ "set": "web",
+ "folder": "W_uXPx-c7GqKg",
+ "sources": [
+  "검색:병자호란"
+ ],
+ "source": "web",
+ "tags": [
+  "강철소대",
+  "병자호란",
+  "1636 조선",
+  "인조",
+  "인조구출",
+  "남한산성",
+  "타임슬립",
+  "시간여행",
+  "대한민국군대",
+  "현대군대",
+  "한국군",
+  "K2흑표",
+  "K9자주포",
+  "K21보병전투차",
+  "K151전술차량",
+  "AI단편영화",
+  "전쟁영화",
+  "1636 년",
+  "한양"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "한양성으로 향하는 대한민국 소대"
+  },
+  {
+   "start": 43,
+   "title": "현대 군대를 발견한 청 황제의 선제공격 명령"
+  },
+  {
+   "start": 130,
+   "title": "청군, 현대 군대를 향해 공격 시작"
+  },
+  {
+   "start": 311,
+   "title": "한양성 탈환 작전 개시"
+  },
+  {
+   "start": 469,
+   "title": "생포된 청군 장수의 충격적인 진술"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 269,
+ "comments_top_level": 238,
+ "comments_replies": 31,
+ "comments_by_creator": 2,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 269,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:31:48",
+ "approved": "2026-10-17T16:31+09:00"
+}

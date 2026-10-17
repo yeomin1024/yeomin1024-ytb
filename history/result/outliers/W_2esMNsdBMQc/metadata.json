@@ -1,0 +1,93 @@
+{
+ "id": "2esMNsdBMQc",
+ "title": "100년 전 부산의 모습｜1928년 일제강점기 컬러복원【Ep.01】｜Life in Busan under Japanese Rule (1928)",
+ "channel": "기억을색으로",
+ "channel_id": "UCBRvln4cIiK244uCU_Aaqpw",
+ "subs": 7690,
+ "views": 86025,
+ "ratio": 11.19,
+ "age_days": 103,
+ "views_per_day": 835.2,
+ "minutes": 8.5,
+ "likes": 1210,
+ "comments": 386,
+ "published": "2026-07-05",
+ "queries": "검색:일제강점기",
+ "url": "https://www.youtube.com/watch?v=2esMNsdBMQc",
+ "flag": "",
+ "published_at": "2026-07-05T10:00:21Z",
+ "rank": "W407",
+ "set": "web",
+ "folder": "W_2esMNsdBMQc",
+ "sources": [
+  "검색:일제강점기"
+ ],
+ "source": "web",
+ "tags": [
+  "1928년대 부산",
+  "부산 역사",
+  "부산 아카이브",
+  "근현대 기록사진",
+  "AI 컬러복원"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Intro 및 영상 설명"
+  },
+  {
+   "start": 18,
+   "title": "부산 중구 주요 모습(광복로 축제 등)"
+  },
+  {
+   "start": 77,
+   "title": "조선와사전기주식회사 앞 모습"
+  },
+  {
+   "start": 91,
+   "title": "용두산 공원"
+  },
+  {
+   "start": 118,
+   "title": "중앙동, 부산부청, 부립병원, 부평동"
+  },
+  {
+   "start": 178,
+   "title": "1920년대 부산 주요 건물들"
+  },
+  {
+   "start": 253,
+   "title": "1920년대 부산 주요 사찰"
+  },
+  {
+   "start": 325,
+   "title": "경남도청, 철도병원, 서구 시가"
+  },
+  {
+   "start": 365,
+   "title": "1920년대 부산의 주요 명소들"
+  },
+  {
+   "start": 418,
+   "title": "1920년대 부산의 학교들"
+  },
+  {
+   "start": 451,
+   "title": "1920년대 송도, 해운대"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 385,
+ "comments_top_level": 122,
+ "comments_replies": 263,
+ "comments_by_creator": 121,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 386,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:37:09",
+ "approved": "2026-10-17T16:37+09:00"
+}

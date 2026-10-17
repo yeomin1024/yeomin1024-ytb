@@ -1,0 +1,91 @@
+{
+ "id": "CdyTqgp82Fo",
+ "title": "사람을 밟아 죽이고 외딴섬으로 쫓겨났다, 조선 왕이 코끼리를 유배 보낸 사연",
+ "channel": "역사한편",
+ "channel_id": "UCyHJ3M73POx2ycg_d8jRu3w",
+ "subs": 738,
+ "views": 29681,
+ "ratio": 40.22,
+ "age_days": 13,
+ "views_per_day": 2283.2,
+ "minutes": 17.6,
+ "likes": 76,
+ "comments": 20,
+ "published": "2026-10-04",
+ "queries": "검색:조선왕",
+ "url": "https://www.youtube.com/watch?v=CdyTqgp82Fo",
+ "flag": "",
+ "published_at": "2026-10-04T03:15:33Z",
+ "rank": "W209",
+ "set": "web",
+ "folder": "W_CdyTqgp82Fo",
+ "sources": [
+  "검색:조선왕"
+ ],
+ "source": "web",
+ "tags": [
+  "조선 태종",
+  "코끼리 유배",
+  "조선왕조실록",
+  "아시카가 요시모치",
+  "세종대왕",
+  "코끼리 사육",
+  "동물사"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "코끼리는 왜 식탁에 없을까"
+  },
+  {
+   "start": 43,
+   "title": "일본이 보낸 낯선 선물"
+  },
+  {
+   "start": 123,
+   "title": "사람을 밟아 죽인 코끼리"
+  },
+  {
+   "start": 166,
+   "title": "처형 대신 섬 유배가 된 이유"
+  },
+  {
+   "start": 251,
+   "title": "초기 인류의 코끼리 해체"
+  },
+  {
+   "start": 329,
+   "title": "식용 가축이 될 수 없는 이유"
+  },
+  {
+   "start": 403,
+   "title": "세 고을이 나눈 사육 부담"
+  },
+  {
+   "start": 595,
+   "title": "인간과 함께 일한 동료"
+  },
+  {
+   "start": 728,
+   "title": "코끼리 마음을 본 과학 연구"
+  },
+  {
+   "start": 934,
+   "title": "코끼리 고기와 멸종 위기"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 20,
+ "comments_top_level": 18,
+ "comments_replies": 2,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 20,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:31:35",
+ "approved": "2026-10-17T16:31+09:00"
+}

@@ -1,0 +1,124 @@
+{
+ "id": "H_dJdZ3BIzI",
+ "title": "해 지기 전에 못 닿으면 끝이었다 | 조선시대 여행의 잔혹한 현실",
+ "channel": "우리 모두의 역사",
+ "channel_id": "UCYa04jnvh4zbvhpl4U93K9A",
+ "subs": 5100,
+ "views": 106445,
+ "ratio": 20.87,
+ "age_days": 18,
+ "views_per_day": 5913.6,
+ "minutes": 93.4,
+ "likes": 409,
+ "comments": 13,
+ "published": "2026-09-28",
+ "queries": "검색:역사채널",
+ "url": "https://www.youtube.com/watch?v=H_dJdZ3BIzI",
+ "flag": "",
+ "published_at": "2026-09-28T11:00:14Z",
+ "rank": "W302",
+ "set": "web",
+ "folder": "W_H_dJdZ3BIzI",
+ "sources": [
+  "검색:역사채널"
+ ],
+ "source": "web",
+ "tags": [
+  "역사",
+  "조선사",
+  "평민역사",
+  "조선시대",
+  "경신대기근",
+  "임진왜란",
+  "일제시대",
+  "친일파"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝"
+  },
+  {
+   "start": 195,
+   "title": "조선 사람들은 왜 길을 떠났나"
+  },
+  {
+   "start": 412,
+   "title": "인생을 건 과거길"
+  },
+  {
+   "start": 948,
+   "title": "흙길 위의 하루"
+  },
+  {
+   "start": 1241,
+   "title": "이태원의 비밀, 원에서 주막으로"
+  },
+  {
+   "start": 1620,
+   "title": "밤길, 호랑이, 그리고 도적"
+  },
+  {
+   "start": 1946,
+   "title": "강 앞에 멈춘 사람들"
+  },
+  {
+   "start": 2253,
+   "title": "세곡선의 무덤 안흥량"
+  },
+  {
+   "start": 2361,
+   "title": "객사의 공포"
+  },
+  {
+   "start": 2566,
+   "title": "역참과 마패의 비밀"
+  },
+  {
+   "start": 2900,
+   "title": "부임길과 사행길"
+  },
+  {
+   "start": 3188,
+   "title": "길이 곧 삶이었던 보부상"
+  },
+  {
+   "start": 3558,
+   "title": "금강산과 열네 살 김금원"
+  },
+  {
+   "start": 3866,
+   "title": "바다가 삼킨 여정, 최부와 장한철"
+  },
+  {
+   "start": 4150,
+   "title": "닫힌 성문 앞에서"
+  },
+  {
+   "start": 4436,
+   "title": "유배길, 율정의 마지막 밤"
+  },
+  {
+   "start": 4776,
+   "title": "길을 아는 것이 생존이었다"
+  },
+  {
+   "start": 5030,
+   "title": "에필로그"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 13,
+ "comments_top_level": 8,
+ "comments_replies": 5,
+ "comments_by_creator": 3,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 13,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:33:54",
+ "approved": "2026-10-17T16:33+09:00"
+}

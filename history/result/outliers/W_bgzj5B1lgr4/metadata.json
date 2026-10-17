@@ -1,0 +1,103 @@
+{
+ "id": "bgzj5B1lgr4",
+ "title": "지구상에서 8,000만 명이 사라진 이유: 인류 최악의 전쟁사 [제2차 세계대전 몰아보기]",
+ "channel": "달빛 세계사",
+ "channel_id": "UC8cs_ZKc6AUwbQTNa9_XQ_Q",
+ "subs": 18000,
+ "views": 56509,
+ "ratio": 3.14,
+ "age_days": 43,
+ "views_per_day": 1314.2,
+ "minutes": 125.0,
+ "likes": 526,
+ "comments": 14,
+ "published": "2026-09-03",
+ "queries": "검색:전쟁사",
+ "url": "https://www.youtube.com/watch?v=bgzj5B1lgr4",
+ "flag": "",
+ "published_at": "2026-09-03T10:52:28Z",
+ "rank": "W618",
+ "set": "web",
+ "folder": "W_bgzj5B1lgr4",
+ "sources": [
+  "검색:전쟁사"
+ ],
+ "source": "web",
+ "tags": [
+  "제2차세계대전",
+  "히틀러",
+  "노르망디",
+  "태평양전쟁",
+  "미드웨이해전",
+  "덩케르크",
+  "세계사",
+  "2차세계대전",
+  "달빛세계사",
+  "오디오북",
+  "수면오디오북"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로: 탐욕과 광기가 빚어낸 6년의 지옥도"
+  },
+  {
+   "start": 133,
+   "title": "폴란드 침공과 프랑스의 붕괴"
+  },
+  {
+   "start": 693,
+   "title": "영국 본토 항공전과 북아프리카"
+  },
+  {
+   "start": 1469,
+   "title": "진주만 공습과 태평양의 불길"
+  },
+  {
+   "start": 2242,
+   "title": "바르바로사 작전과 모스크바 공방전"
+  },
+  {
+   "start": 3039,
+   "title": "미드웨이 해전과 과달카날"
+  },
+  {
+   "start": 3810,
+   "title": "스탈린그라드 전투와 쿠르스크"
+  },
+  {
+   "start": 4573,
+   "title": "홀로코스트와 파시즘의 균열"
+  },
+  {
+   "start": 41218,
+   "title": "노르망디 상륙과 서부 전선"
+  },
+  {
+   "start": 6112,
+   "title": "이오지마, 오키나와"
+  },
+  {
+   "start": 6801,
+   "title": "제국의 무조건 항복"
+  },
+  {
+   "start": 7363,
+   "title": "에필로그: 냉전의 시작과 남겨진 교훈"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 14,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:39:22",
+ "approved": "2026-10-17T16:39+09:00"
+}

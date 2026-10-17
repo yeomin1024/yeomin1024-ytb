@@ -1,0 +1,91 @@
+{
+ "id": "T2Z6frSqJrs",
+ "title": "\"조선 최고의 천재다\" 전세계가 세종대왕이 만든 한글을 극찬하는 이유",
+ "channel": "한반도 백과사전",
+ "channel_id": "UCFZHPrufdDE7AKeF7wule9A",
+ "subs": 4810,
+ "views": 91873,
+ "ratio": 19.1,
+ "age_days": 10,
+ "views_per_day": 9187.3,
+ "minutes": 19.5,
+ "likes": 489,
+ "comments": 28,
+ "published": "2026-10-07",
+ "queries": "검색:세종대왕",
+ "url": "https://www.youtube.com/watch?v=T2Z6frSqJrs",
+ "flag": "",
+ "published_at": "2026-10-07T02:00:19Z",
+ "rank": "W318",
+ "set": "web",
+ "folder": "W_T2Z6frSqJrs",
+ "sources": [
+  "검색:세종대왕"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "500년 만에 발견된 설계도의 비밀"
+  },
+  {
+   "start": 60,
+   "title": "훈민정음 해례본, 왜 특별할까?"
+  },
+  {
+   "start": 140,
+   "title": "사람의 몸에서 탄생한 자음"
+  },
+  {
+   "start": 221,
+   "title": "모음은 세상의 이치를 담았다?"
+  },
+  {
+   "start": 344,
+   "title": "한글이 세계 최고인 진짜 이유"
+  },
+  {
+   "start": 436,
+   "title": "세종대왕은 왜 혼자 창제했나?"
+  },
+  {
+   "start": 668,
+   "title": "백성을 향한 세종의 고집"
+  },
+  {
+   "start": 786,
+   "title": "어떻게 우리 글자가 되었을까?"
+  },
+  {
+   "start": 894,
+   "title": "우리가 한글날을 기념하는 이유"
+  },
+  {
+   "start": 953,
+   "title": "디지털 시대의 천재적 설계"
+  },
+  {
+   "start": 1059,
+   "title": "잘못 알려진 한글의 기록들"
+  },
+  {
+   "start": 1103,
+   "title": "한글, 우리 삶을 바꾼 위대한 힘"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 28,
+ "comments_top_level": 17,
+ "comments_replies": 11,
+ "comments_by_creator": 7,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 28,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:34:24",
+ "approved": "2026-10-17T16:34+09:00"
+}

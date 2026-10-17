@@ -1,0 +1,73 @@
+{
+ "id": "YjpJgo3xmZ4",
+ "title": "러시아가 몽골 타타르 기병 박살 낸 방법 – 몰로디 전투 1572",
+ "channel": "Historie Chronicle",
+ "channel_id": "UCX4n_nQNh7JHltFcI2nU9xw",
+ "subs": 12200,
+ "views": 121670,
+ "ratio": 9.97,
+ "age_days": 179,
+ "views_per_day": 679.7,
+ "minutes": 26.0,
+ "likes": 1603,
+ "comments": 169,
+ "published": "2026-04-20",
+ "queries": "검색:전쟁사",
+ "url": "https://www.youtube.com/watch?v=YjpJgo3xmZ4",
+ "flag": "",
+ "published_at": "2026-04-20T10:06:10Z",
+ "rank": "W432",
+ "set": "web",
+ "folder": "W_YjpJgo3xmZ4",
+ "sources": [
+  "검색:전쟁사"
+ ],
+ "source": "web",
+ "tags": [
+  "러시아",
+  "몰로디 전투",
+  "이반 뇌제",
+  "전쟁사",
+  "역사"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 30,
+   "title": "계속된 타타르의 위협"
+  },
+  {
+   "start": 239,
+   "title": "미하일 보로틴스키"
+  },
+  {
+   "start": 539,
+   "title": "이 시대의 군대"
+  },
+  {
+   "start": 822,
+   "title": "몰로디 전투"
+  },
+  {
+   "start": 1401,
+   "title": "결과 및 의의"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 169,
+ "comments_top_level": 88,
+ "comments_replies": 81,
+ "comments_by_creator": 27,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 169,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:38:06",
+ "approved": "2026-10-17T16:38+09:00"
+}

@@ -1,0 +1,70 @@
+{
+ "id": "7e2VTJTPgf4",
+ "title": "\"이순신 장군 앞에 세종대왕함이 나타났더니... 나고야성 일본 함대 700척이 단 하루 만에 사라졌다\"",
+ "channel": "타임머신 타고 전장속으로",
+ "channel_id": "UCeDdAYila3s01B5sCOgyunA",
+ "subs": 3230,
+ "views": 20189,
+ "ratio": 6.25,
+ "age_days": 170,
+ "views_per_day": 118.8,
+ "minutes": 14.8,
+ "likes": 364,
+ "comments": 39,
+ "published": "2026-04-30",
+ "queries": "검색:세종대왕 | 검색:이순신",
+ "url": "https://www.youtube.com/watch?v=7e2VTJTPgf4",
+ "flag": "",
+ "published_at": "2026-04-30T02:35:32Z",
+ "rank": "W504",
+ "set": "web",
+ "folder": "W_7e2VTJTPgf4",
+ "sources": [
+  "검색:세종대왕",
+  "검색:이순신"
+ ],
+ "source": "web",
+ "tags": [
+  "타임머신",
+  "한국군대",
+  "단편영화",
+  "한국역사",
+  "전쟁"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "1591년 9월, 시공간을 뛰어넘어 과거로 간 대한민국 국군"
+  },
+  {
+   "start": 205,
+   "title": "압도적인 전력 차이, 현대 해군의 대함미사일 선제 타격"
+  },
+  {
+   "start": 391,
+   "title": "F-35A 스텔스 전투기 출격 및 도요토미 히데요시 본진 폭격"
+  },
+  {
+   "start": 601,
+   "title": "일본 수군 700척 전멸, 시작도 전에 끝나버린 임진왜란"
+  },
+  {
+   "start": 680,
+   "title": "433년의 시간을 뛰어넘은 만남, 이순신 장군과 현대 해군의 조우"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 39,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:39:06",
+ "approved": "2026-10-17T16:39+09:00"
+}

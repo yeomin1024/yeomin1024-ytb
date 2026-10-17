@@ -1,0 +1,114 @@
+{
+ "id": "HbaG82CmZF4",
+ "title": "영화도 담지 못한 단종의 진짜 최후, 삼족을 멸한다는데 그 시신을 거둔 아전이 있었다 [조선왕조실록]",
+ "channel": "조선왕조실록이야기",
+ "channel_id": "UCqNEk4VaAOB0_gj3usUaTbA",
+ "subs": 19500,
+ "views": 219462,
+ "ratio": 11.25,
+ "age_days": 59,
+ "views_per_day": 3719.7,
+ "minutes": 50.1,
+ "likes": 3683,
+ "comments": 535,
+ "published": "2026-08-18",
+ "queries": "검색:조선왕조실록",
+ "url": "https://www.youtube.com/watch?v=HbaG82CmZF4",
+ "flag": "",
+ "published_at": "2026-08-18T11:00:01Z",
+ "rank": "W404",
+ "set": "web",
+ "folder": "W_HbaG82CmZF4",
+ "sources": [
+  "검색:조선왕조실록"
+ ],
+ "source": "web",
+ "tags": [
+  "엄흥도",
+  "단종",
+  "단종 엄흥도",
+  "단종 죽음",
+  "엄흥도 묘",
+  "엄흥도 진묘",
+  "조선왕조실록",
+  "조선왕조실록이야기",
+  "왕과 사는 남자",
+  "단종 최후",
+  "계유정난",
+  "영월 단종",
+  "왕과사는남자",
+  "엄흥도 무덤"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "400년 만에 세상에 드러난 무덤과 엄흥도의 비밀"
+  },
+  {
+   "start": 98,
+   "title": "영월의 평범한 아전이었던 엄흥도, 그는 누구인가?"
+  },
+  {
+   "start": 274,
+   "title": "12살 어린 나이에 왕위에 오른 단종의 외로운 시작"
+  },
+  {
+   "start": 420,
+   "title": "수양대군의 야심과 피바람의 시작 '계유정난'"
+  },
+  {
+   "start": 675,
+   "title": "눈물의 양위와 세조의 즉위, 그리고 단종의 영월 유배"
+  },
+  {
+   "start": 938,
+   "title": "강과 절벽에 갇힌 기이한 감옥 '청령포'에서의 삶"
+  },
+  {
+   "start": 1138,
+   "title": "홍수로 인해 관풍헌으로 옮겨진 단종과 엄흥도와의 거리"
+  },
+  {
+   "start": 1280,
+   "title": "단종 복위 운동의 실패와 사육신의 장렬한 죽음"
+  },
+  {
+   "start": 1439,
+   "title": "금성대군의 복위 거사와 수북 땅의 참혹한 학살"
+  },
+  {
+   "start": 1601,
+   "title": "17세 소년 단종의 마지막 순간과 뒤섞인 역사적 기록들"
+  },
+  {
+   "start": 1893,
+   "title": "삼족을 멸하는 위협 속에서 단종의 시신을 거둔 엄흥도의 용기"
+  },
+  {
+   "start": 2254,
+   "title": "자취를 감춘 엄흥도 일가와 400년간 이어진 숨바꼭질"
+  },
+  {
+   "start": 2410,
+   "title": "숙종 대에 이르러 단종의 복권과 함께 빛을 발한 엄흥도의 충절"
+  },
+  {
+   "start": 2690,
+   "title": "가짜 무덤 뒤에 숨겨진 진짜 무덤과 500년 만의 진실"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 535,
+ "comments_top_level": 286,
+ "comments_replies": 249,
+ "comments_by_creator": 232,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 535,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:37:05",
+ "approved": "2026-10-17T16:37+09:00"
+}

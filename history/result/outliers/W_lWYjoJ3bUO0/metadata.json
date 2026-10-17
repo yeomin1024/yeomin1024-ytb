@@ -1,0 +1,93 @@
+{
+ "id": "lWYjoJ3bUO0",
+ "title": "폐위된 왕의 하루 | 궁궐에서 가시 울타리까지, 연산군과 광해군 | 조선 폐위 왕들",
+ "channel": "타임슬림 한국사",
+ "channel_id": "UCXszRowWCZFEQy4jEJK9UnQ",
+ "subs": 6030,
+ "views": 459388,
+ "ratio": 76.18,
+ "age_days": 134,
+ "views_per_day": 3428.3,
+ "minutes": 89.3,
+ "likes": 4407,
+ "comments": 183,
+ "published": "2026-06-04",
+ "queries": "검색:조선역사 | 검색:한국역사 | 검색:역사채널 | 검색:조선왕조실록 | 검색:조선왕조 | 검색:조선왕 | 검색:조선왕실",
+ "url": "https://www.youtube.com/watch?v=lWYjoJ3bUO0",
+ "flag": "",
+ "published_at": "2026-06-04T11:00:06Z",
+ "rank": "W125",
+ "set": "web",
+ "folder": "W_lWYjoJ3bUO0",
+ "sources": [
+  "검색:조선역사",
+  "검색:한국역사",
+  "검색:역사채널",
+  "검색:조선왕조실록",
+  "검색:조선왕조",
+  "검색:조선왕",
+  "검색:조선왕실"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝 — 왕이 사라진 날"
+  },
+  {
+   "start": 120,
+   "title": "구독 CTA"
+  },
+  {
+   "start": 150,
+   "title": "조선의 왕권과 반정의 구조"
+  },
+  {
+   "start": 360,
+   "title": "연산군 — 흥청망청의 왕, 교동의 죄인"
+  },
+  {
+   "start": 840,
+   "title": "광해군의 치적과 폐모살제"
+  },
+  {
+   "start": 1200,
+   "title": "인조반정과 광해군의 도주"
+  },
+  {
+   "start": 1500,
+   "title": "19년 유배 — 강화도에서 제주까지"
+  },
+  {
+   "start": 1980,
+   "title": "소현세자 세 아들의 비극"
+  },
+  {
+   "start": 2280,
+   "title": "폐위 왕 처우 팩트체크"
+  },
+  {
+   "start": 2580,
+   "title": "진짜 지옥 — 정체성의 소멸"
+  },
+  {
+   "start": 2880,
+   "title": "역사적 재평가와 마무리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 183,
+ "comments_top_level": 114,
+ "comments_replies": 69,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 183,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:28:55",
+ "approved": "2026-10-17T16:28+09:00"
+}

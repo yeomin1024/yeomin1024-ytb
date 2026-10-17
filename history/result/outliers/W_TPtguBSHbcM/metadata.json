@@ -1,0 +1,86 @@
+{
+ "id": "TPtguBSHbcM",
+ "title": "내시의 아내는 왜 바람을 피웠나? | 조선사, 조선내시, 내시 아내, 내시 혼인",
+ "channel": "거꾸로한국사",
+ "channel_id": "UCHHFs--k6wQ7WfuWgEwPO8A",
+ "subs": 17000,
+ "views": 63270,
+ "ratio": 3.72,
+ "age_days": 155,
+ "views_per_day": 408.2,
+ "minutes": 35.4,
+ "likes": 1455,
+ "comments": 55,
+ "published": "2026-05-15",
+ "queries": "검색:조선사",
+ "url": "https://www.youtube.com/watch?v=TPtguBSHbcM",
+ "flag": "",
+ "published_at": "2026-05-15T00:30:21Z",
+ "rank": "W581",
+ "set": "web",
+ "folder": "W_TPtguBSHbcM",
+ "sources": [
+  "검색:조선사"
+ ],
+ "source": "web",
+ "tags": [
+  "한국사",
+  "한국역사",
+  "조선시대",
+  "조선역사",
+  "역사이야기",
+  "역사채널",
+  "거꾸로한국사",
+  "역사다큐",
+  "숨겨진역사",
+  "역사인물",
+  "조선시대 내시",
+  "내시 아내",
+  "내시 혼인",
+  "김처선",
+  "연산군",
+  "조선왕조실록",
+  "내시 거세",
+  "세자빈 유씨"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "내시부 나으리와의 혼인 — 딸의 눈물"
+  },
+  {
+   "start": 330,
+   "title": "거세의 현실 — 마취 없는 수술, 치사율 70%"
+  },
+  {
+   "start": 690,
+   "title": "세자빈과 내시의 금지된 사랑 — 태조실록의 기록"
+  },
+  {
+   "start": 990,
+   "title": "내시 아내의 불륜 — 모녀가 함께 연루된 사건"
+  },
+  {
+   "start": 1320,
+   "title": "내시 김처선 — 죽음을 각오한 마지막 아침"
+  },
+  {
+   "start": 1890,
+   "title": "오백 년 제도의 끝 — 역사가 지운 이름들을 기억하며"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 55,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:39:16",
+ "approved": "2026-10-17T16:39+09:00"
+}

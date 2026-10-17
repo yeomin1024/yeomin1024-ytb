@@ -1,0 +1,133 @@
+{
+ "id": "e12EIRsz6Xo",
+ "title": "비단옷보다 무거웠던 것 | 조선 중전의 진짜 하루 공개",
+ "channel": "진짜역사한잔",
+ "channel_id": "UCJ5Kq7dbwZ8i8kkJUqCwnXw",
+ "subs": 11400,
+ "views": 447037,
+ "ratio": 39.21,
+ "age_days": 74,
+ "views_per_day": 6041.0,
+ "minutes": 89.8,
+ "likes": 3335,
+ "comments": 85,
+ "published": "2026-08-03",
+ "queries": "검색:조선역사 | 검색:역사채널 | 검색:조선시대 | 검색:조선왕조실록 | 검색:조선왕조 | 검색:조선왕 | 검색:조선왕실",
+ "url": "https://www.youtube.com/watch?v=e12EIRsz6Xo",
+ "flag": "",
+ "published_at": "2026-08-03T11:00:08Z",
+ "rank": "W212",
+ "set": "web",
+ "folder": "W_e12EIRsz6Xo",
+ "sources": [
+  "검색:조선역사",
+  "검색:역사채널",
+  "검색:조선시대",
+  "검색:조선왕조실록",
+  "검색:조선왕조",
+  "검색:조선왕",
+  "검색:조선왕실"
+ ],
+ "source": "web",
+ "tags": [
+  "역사채널",
+  "조선역사",
+  "한국사",
+  "권력",
+  "역사다큐",
+  "평민역사",
+  "조선왕조",
+  "인문비화",
+  "비극적인생",
+  "인물열전",
+  "야사"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "새벽 네 시, 중궁전에 켜진 불"
+  },
+  {
+   "start": 130,
+   "title": "나라가 뽑는 왕비 - 금혼령과 삼간택"
+  },
+  {
+   "start": 390,
+   "title": "가례 육례와 책봉, 품계가 없는 사람"
+  },
+  {
+   "start": 620,
+   "title": "새벽 문안 - 국모이면서 며느리였던 자리"
+  },
+  {
+   "start": 840,
+   "title": "내명부, 수백 명을 다스리는 관리자"
+  },
+  {
+   "start": 1110,
+   "title": "정치에 관여할 수 없지만 그 자체가 정치였던 존재"
+  },
+  {
+   "start": 1360,
+   "title": "수라와 예복, 그리고 궁궐의 살림"
+  },
+  {
+   "start": 1620,
+   "title": "후궁과의 관계, 적자를 낳으라는 압박"
+  },
+  {
+   "start": 1930,
+   "title": "폐비 윤씨와 갑자사화"
+  },
+  {
+   "start": 2240,
+   "title": "이레 만에 폐위된 왕비, 단경왕후"
+  },
+  {
+   "start": 2460,
+   "title": "인현왕후와 장희빈 - 왕비 교체는 정치의 결과였다"
+  },
+  {
+   "start": 2790,
+   "title": "왕실 의례와 예송, 상복이 권력을 바꾸다"
+  },
+  {
+   "start": 3060,
+   "title": "궁궐의 밤, 인정과 파루"
+  },
+  {
+   "start": 3320,
+   "title": "출산과 의녀, 목숨을 건 국가의 사업"
+  },
+  {
+   "start": 3600,
+   "title": "궁녀들의 세계와 상궁의 힘"
+  },
+  {
+   "start": 3910,
+   "title": "대비가 되어야 비로소 열리는 발언권"
+  },
+  {
+   "start": 4200,
+   "title": "조선의 마지막 왕비까지"
+  },
+  {
+   "start": 4500,
+   "title": "이름 대신 자리로 기억된 사람들"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 85,
+ "comments_top_level": 60,
+ "comments_replies": 25,
+ "comments_by_creator": 9,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 85,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:31:39",
+ "approved": "2026-10-17T16:31+09:00"
+}

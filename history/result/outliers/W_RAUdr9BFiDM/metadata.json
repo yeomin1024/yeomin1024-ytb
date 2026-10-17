@@ -1,0 +1,119 @@
+{
+ "id": "RAUdr9BFiDM",
+ "title": "🌙자면서듣는 역사 | 조선왕비실록 풀버전 ｜36명의 국모, 500년 동안 흘린 눈물의 잔혹사｜달빛 역사관",
+ "channel": "달빛 역사관 : 자면서 듣는 세계사",
+ "channel_id": "UCArzr2q8BdHOAY4KtoWoioQ",
+ "subs": 9220,
+ "views": 147607,
+ "ratio": 16.01,
+ "age_days": 122,
+ "views_per_day": 1209.9,
+ "minutes": 163.9,
+ "likes": 1826,
+ "comments": 39,
+ "published": "2026-06-16",
+ "queries": "검색:조선왕 | 검색:한국사이야기",
+ "url": "https://www.youtube.com/watch?v=RAUdr9BFiDM",
+ "flag": "",
+ "published_at": "2026-06-16T12:15:06Z",
+ "rank": "W348",
+ "set": "web",
+ "folder": "W_RAUdr9BFiDM",
+ "sources": [
+  "검색:조선왕",
+  "검색:한국사이야기"
+ ],
+ "source": "web",
+ "tags": [
+  "조선왕비",
+  "왕비잔혹사",
+  "수면유도",
+  "잠잘때듣는이야기",
+  "조선역사",
+  "한국역사",
+  "역사이야기",
+  "달빛역사관",
+  "역사스토리텔링",
+  "조선왕조실록",
+  "장희빈",
+  "인현왕후",
+  "명성황후",
+  "문정왕후",
+  "신덕왕후",
+  "정순왕후",
+  "소헌왕후",
+  "풀버전",
+  "역사다큐",
+  "조선여인",
+  "궁중비사",
+  "왕비",
+  "국모",
+  "잘때듣는",
+  "자면서듣는",
+  "한국사"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "프롤로그 — 서른여섯 개의 이름"
+  },
+  {
+   "start": 291,
+   "title": "파트 1 — 버들잎 하나로 제국을 산 여인 / 신덕왕후 · 정안왕후"
+  },
+  {
+   "start": 1178,
+   "title": "파트 2 — 내가 만든 태양에 내가 먼저 타다 / 원경왕후"
+  },
+  {
+   "start": 1765,
+   "title": "파트 3 — 침묵이 황금기를 지탱하다 / 소헌왕후"
+  },
+  {
+   "start": 2344,
+   "title": "파트 4 — 구천을 떠도는 어머니들 / 현덕왕후 · 정순왕후"
+  },
+  {
+   "start": 3146,
+   "title": "파트 5 — 발 뒤에서 천하를 다스리다 / 정희왕후"
+  },
+  {
+   "start": 3802,
+   "title": "파트 6 — 폭군을 만든 어머니, 폭군을 막은 아내 / 폐비 윤씨 · 폐비 신씨"
+  },
+  {
+   "start": 4581,
+   "title": "파트 7 — 이레의 왕비, 오십 년의 기다림 / 단경왕후 · 장경왕후"
+  },
+  {
+   "start": 5387,
+   "title": "파트 8 — 치마를 두른 왕 / 문정왕후"
+  },
+  {
+   "start": 6094,
+   "title": "파트 9 — 전란이 할퀴고 간 자리 / 의인왕후 · 인목대비 · 폐비 류씨 · 인열왕후 · 인선왕후"
+  },
+  {
+   "start": 7145,
+   "title": "파트 10 — 가장 드라마틱한 삼각형 / 인현왕후 · 장희빈 · 숙빈 최씨 · 인원왕후"
+  },
+  {
+   "start": 8180,
+   "title": "파트 11 — 제국의 황혼 / 정성왕후부터 순정효황후까지"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 39,
+ "comments_top_level": 33,
+ "comments_replies": 6,
+ "comments_by_creator": 2,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 39,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:35:38",
+ "approved": "2026-10-17T16:35+09:00"
+}

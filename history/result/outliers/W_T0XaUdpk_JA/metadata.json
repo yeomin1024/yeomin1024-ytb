@@ -1,0 +1,71 @@
+{
+ "id": "T0XaUdpk_JA",
+ "title": "[임진왜란 통합본] 조선시대로 이동한 대한민국 해병대, 임진왜란 4대대첩 (1~4화)",
+ "channel": "전쟁IF",
+ "channel_id": "UCs1X5X9-WTFCNy9W3B6MMKQ",
+ "subs": 12400,
+ "views": 155041,
+ "ratio": 12.5,
+ "age_days": 80,
+ "views_per_day": 1938.0,
+ "minutes": 42.6,
+ "likes": 1672,
+ "comments": 84,
+ "published": "2026-07-28",
+ "queries": "검색:임진왜란 | 검색:이순신",
+ "url": "https://www.youtube.com/watch?v=T0XaUdpk_JA",
+ "flag": "",
+ "published_at": "2026-07-28T08:05:49Z",
+ "rank": "W382",
+ "set": "web",
+ "folder": "W_T0XaUdpk_JA",
+ "sources": [
+  "검색:임진왜란",
+  "검색:이순신"
+ ],
+ "source": "web",
+ "tags": [
+  "임진왜란",
+  "해병대",
+  "조선",
+  "김시민",
+  "이순신",
+  "권율",
+  "한산도대첩",
+  "진주대첩",
+  "행주대첩",
+  "명량해전"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "1592년 한산도대첩"
+  },
+  {
+   "start": 620,
+   "title": "1592년 진주성 1차 방어전"
+  },
+  {
+   "start": 1240,
+   "title": "1593년 행주대첩"
+  },
+  {
+   "start": 1844,
+   "title": "1597 명량해전"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 84,
+ "comments_top_level": 65,
+ "comments_replies": 19,
+ "comments_by_creator": 9,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 84,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:36:37",
+ "approved": "2026-10-17T16:36+09:00"
+}

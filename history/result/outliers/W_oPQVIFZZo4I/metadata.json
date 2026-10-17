@@ -1,0 +1,107 @@
+{
+ "id": "oPQVIFZZo4I",
+ "title": "조선시대 밥상 | 드라마에서 본 그 음식, 전부 가짜였다 | 한국사",
+ "channel": "한국사 뒤편",
+ "channel_id": "UC8z2CDBF02espU7Xqd3Ev0Q",
+ "subs": 1180,
+ "views": 13254,
+ "ratio": 11.23,
+ "age_days": 170,
+ "views_per_day": 78.0,
+ "minutes": 15.3,
+ "likes": 173,
+ "comments": 53,
+ "published": "2026-04-29",
+ "queries": "검색:한국사",
+ "url": "https://www.youtube.com/watch?v=oPQVIFZZo4I",
+ "flag": "",
+ "published_at": "2026-04-29T10:01:33Z",
+ "rank": "W406",
+ "set": "web",
+ "folder": "W_oPQVIFZZo4I",
+ "sources": [
+  "검색:한국사"
+ ],
+ "source": "web",
+ "tags": [
+  "조선시대",
+  "조선음식",
+  "한국사",
+  "역사",
+  "조선왕조실록",
+  "국밥역사",
+  "김치역사",
+  "냉면역사",
+  "삼겹살역사",
+  "한국음식역사",
+  "역사이야기",
+  "역사유튜브",
+  "한국역사",
+  "조선역사",
+  "역사채널",
+  "역사교양",
+  "대장금",
+  "조선밥상",
+  "수라상",
+  "조선왕조",
+  "왕의밥상",
+  "조선후기",
+  "주막",
+  "토렴",
+  "고추역사",
+  "산림경제",
+  "증보산림경제",
+  "묵재일기",
+  "역사충격",
+  "한식역사",
+  "전통음식"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로 - 드라마가 거짓말을 했다"
+  },
+  {
+   "start": 80,
+   "title": "구조 설명 - 왜 우리가 몰랐나"
+  },
+  {
+   "start": 160,
+   "title": "첫 번째 - 국밥은 찬밥 처리에서 시작됐다"
+  },
+  {
+   "start": 310,
+   "title": "두 번째 - 빨간 김치는 200년도 안 됐다"
+  },
+  {
+   "start": 450,
+   "title": "세 번째 - 냉면은 원래 겨울 음식이었다"
+  },
+  {
+   "start": 600,
+   "title": "네 번째 - 삼겹살은 60년 된 음식이다"
+  },
+  {
+   "start": 740,
+   "title": "다섯 번째 - 왕도 먹고 싶은 거 못 먹었다"
+  },
+  {
+   "start": 860,
+   "title": "마무리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 53,
+ "comments_top_level": 25,
+ "comments_replies": 28,
+ "comments_by_creator": 21,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 53,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:37:08",
+ "approved": "2026-10-17T16:37+09:00"
+}

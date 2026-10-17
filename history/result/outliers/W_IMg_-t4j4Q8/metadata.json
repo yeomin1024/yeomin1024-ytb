@@ -1,0 +1,75 @@
+{
+ "id": "IMg_-t4j4Q8",
+ "title": "팰월드 1.0 중후반 희귀 자원 쉽게 얻는 방법 (크로마이트,코랄리움,솔라이트,팰키사이트,고대 문명의 코어)",
+ "channel": "퇴근한광대",
+ "channel_id": "UC4z3eLQgJmf5Q4n3-wJJG7g",
+ "subs": 7090,
+ "views": 152126,
+ "ratio": 21.46,
+ "age_days": 86,
+ "views_per_day": 1768.9,
+ "minutes": 6.9,
+ "likes": 1526,
+ "comments": 259,
+ "published": "2026-07-22",
+ "queries": "검색:고대문명",
+ "url": "https://www.youtube.com/watch?v=IMg_-t4j4Q8",
+ "flag": "",
+ "published_at": "2026-07-22T11:31:01Z",
+ "rank": "W300",
+ "set": "web",
+ "folder": "W_IMg_-t4j4Q8",
+ "sources": [
+  "검색:고대문명"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝"
+  },
+  {
+   "start": 66,
+   "title": "원정소 소개"
+  },
+  {
+   "start": 98,
+   "title": "원정전력이론"
+  },
+  {
+   "start": 149,
+   "title": "원정전력실전"
+  },
+  {
+   "start": 257,
+   "title": "레벨업시키기"
+  },
+  {
+   "start": 275,
+   "title": "팰작업연구소"
+  },
+  {
+   "start": 288,
+   "title": "원정 테스트"
+  },
+  {
+   "start": 368,
+   "title": "마무리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 259,
+ "comments_top_level": 119,
+ "comments_replies": 140,
+ "comments_by_creator": 90,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 259,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:33:51",
+ "approved": "2026-10-17T16:33+09:00"
+}

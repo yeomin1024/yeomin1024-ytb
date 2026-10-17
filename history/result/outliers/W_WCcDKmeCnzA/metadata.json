@@ -1,0 +1,102 @@
+{
+ "id": "WCcDKmeCnzA",
+ "title": "1592년, 임진왜란에 떨어진 대한민국 해병대 소대의 부산진성 전투 | 맹호소대 1화",
+ "channel": "전쟁극장 Films",
+ "channel_id": "UCMzvo60jKy0sG6WF3v0R9Fg",
+ "subs": 21900,
+ "views": 230434,
+ "ratio": 10.52,
+ "age_days": 133,
+ "views_per_day": 1732.6,
+ "minutes": 8.4,
+ "likes": 1418,
+ "comments": 134,
+ "published": "2026-06-05",
+ "queries": "검색:임진왜란",
+ "url": "https://www.youtube.com/watch?v=WCcDKmeCnzA",
+ "flag": "",
+ "published_at": "2026-06-05T08:42:11Z",
+ "rank": "W415",
+ "set": "web",
+ "folder": "W_WCcDKmeCnzA",
+ "sources": [
+  "검색:임진왜란"
+ ],
+ "source": "web",
+ "tags": [
+  "부산진성",
+  "임진왜란",
+  "1592년",
+  "왜군",
+  "정발",
+  "조선군",
+  "대한민국 해병대",
+  "해병대 소대",
+  "맹호소대",
+  "타임슬립",
+  "시간여행",
+  "역사영화",
+  "상륙작전",
+  "AI영화"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 15,
+   "title": "강태현 중위, 상륙 훈련 브리핑을 위해 상관과 면담"
+  },
+  {
+   "start": 71,
+   "title": "부산 상륙 훈련 시작"
+  },
+  {
+   "start": 75,
+   "title": "부산을 향해 진격하는 왜군 함대"
+  },
+  {
+   "start": 109,
+   "title": "왜군의 접근을 발견한 조선군"
+  },
+  {
+   "start": 170,
+   "title": "부산진성 공격을 위해 선발된 왜군 7천 명"
+  },
+  {
+   "start": 246,
+   "title": "1592년 조선으로 떨어진 맹호소대"
+  },
+  {
+   "start": 270,
+   "title": "바다에서 벌어진 맹호소대와 왜군의 첫 교전"
+  },
+  {
+   "start": 375,
+   "title": "부산진성 공격을 시작한 왜군"
+  },
+  {
+   "start": 417,
+   "title": "조선군과 함께 전투에 합류한 맹호소대"
+  },
+  {
+   "start": 465,
+   "title": "서로 다른 시대의 첫 만남"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 134,
+ "comments_top_level": 114,
+ "comments_replies": 20,
+ "comments_by_creator": 2,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 134,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:37:47",
+ "approved": "2026-10-17T16:37+09:00"
+}

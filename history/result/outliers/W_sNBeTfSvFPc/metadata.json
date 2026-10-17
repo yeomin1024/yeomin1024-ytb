@@ -1,0 +1,68 @@
+{
+ "id": "sNBeTfSvFPc",
+ "title": "일본에서 실종되면 누구도 찾을 수 없는 이유(증발...?) ㅣ역사를 보다 EP.153",
+ "channel": "보다 BODA",
+ "channel_id": "UCoCvTlU0KpNYwnMIgs7MPrA",
+ "subs": 3220000,
+ "views": 1998945,
+ "ratio": 0.62,
+ "age_days": 62,
+ "views_per_day": 32241.0,
+ "minutes": 42.7,
+ "likes": 16036,
+ "comments": 848,
+ "published": "2026-08-16",
+ "queries": "검색:역사 | 검색:역사다큐 | 검색:한국역사",
+ "url": "https://www.youtube.com/watch?v=sNBeTfSvFPc",
+ "flag": "",
+ "published_at": "2026-08-16T02:15:47Z",
+ "rank": "W638",
+ "set": "web",
+ "folder": "W_sNBeTfSvFPc",
+ "sources": [
+  "검색:역사",
+  "검색:역사다큐",
+  "검색:한국역사"
+ ],
+ "source": "web",
+ "tags": [
+  "보다",
+  "boda",
+  "직업",
+  "인터뷰",
+  "전문가",
+  "레전드"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트"
+  },
+  {
+   "start": 151,
+   "title": "일본 시골에 잘못 들어가면 큰일 나는 이유"
+  },
+  {
+   "start": 673,
+   "title": "일본에서 갑자기 사람이 증발되는 이유"
+  },
+  {
+   "start": 1518,
+   "title": "사이코패스가 일왕이 되면 생기는 일"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 848,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:39:24",
+ "approved": "2026-10-17T16:39+09:00"
+}

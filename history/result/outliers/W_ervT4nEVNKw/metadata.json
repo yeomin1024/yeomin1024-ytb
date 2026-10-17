@@ -1,0 +1,65 @@
+{
+ "id": "ervT4nEVNKw",
+ "title": "[4시간 연속재생] 조선 왕실 여자들의 생활 통합",
+ "channel": "역사아카이브 - History Archive KR",
+ "channel_id": "UCKiqiw16qAhVgxKZRXiRUvA",
+ "subs": 24200,
+ "views": 96742,
+ "ratio": 4.0,
+ "age_days": 21,
+ "views_per_day": 4606.8,
+ "minutes": 261.0,
+ "likes": 385,
+ "comments": 6,
+ "published": "2026-09-25",
+ "queries": "검색:대한제국",
+ "url": "https://www.youtube.com/watch?v=ervT4nEVNKw",
+ "flag": "",
+ "published_at": "2026-09-25T11:45:22Z",
+ "rank": "W568",
+ "set": "web",
+ "folder": "W_ervT4nEVNKw",
+ "sources": [
+  "검색:대한제국"
+ ],
+ "source": "web",
+ "tags": [
+  "역사채널",
+  "조선역사",
+  "한국사",
+  "권력",
+  "역사다큐",
+  "조선왕조",
+  "인문비화",
+  "야사",
+  "인물열전"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "조선 중전의 24시"
+  },
+  {
+   "start": 5164,
+   "title": "명성왕후의 총애를 받은 무녀"
+  },
+  {
+   "start": 10117,
+   "title": "왕이 죽은 후 후궁들은 어찌됐을까?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 6,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:39:15",
+ "approved": "2026-10-17T16:39+09:00"
+}

@@ -1,0 +1,102 @@
+{
+ "id": "X91u0-AHvWA",
+ "title": "사극에서 안 보여준 조선 백성의 진짜 밥상! 매일 밥을 산처럼 먹은 충격적인 이유 [한국사]",
+ "channel": "역사동굴",
+ "channel_id": "UC342nWMu5VjLvDt3wEh0VGA",
+ "subs": 2470,
+ "views": 161407,
+ "ratio": 65.35,
+ "age_days": 26,
+ "views_per_day": 6208.0,
+ "minutes": 15.8,
+ "likes": 385,
+ "comments": 53,
+ "published": "2026-09-20",
+ "queries": "검색:조선역사 | 검색:조선왕조 | 검색:사극",
+ "url": "https://www.youtube.com/watch?v=X91u0-AHvWA",
+ "flag": "",
+ "published_at": "2026-09-20T10:00:36Z",
+ "rank": "W142",
+ "set": "web",
+ "folder": "W_X91u0-AHvWA",
+ "sources": [
+  "검색:조선역사",
+  "검색:조선왕조",
+  "검색:사극"
+ ],
+ "source": "web",
+ "tags": [
+  "조선시대",
+  "역사다큐",
+  "한국사",
+  "조선백성",
+  "조선역사",
+  "역사이야기",
+  "조선밥상",
+  "보릿고개",
+  "조선음식",
+  "사극",
+  "사극비하인드",
+  "실록"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "조선 시대에 밥을 아홉 그릇이나?"
+  },
+  {
+   "start": 76,
+   "title": "밥을 그렇게 많이 먹은 이유"
+  },
+  {
+   "start": 174,
+   "title": "보릿고개와 서민의 밥상"
+  },
+  {
+   "start": 276,
+   "title": "발효, 조선의 지혜가 된 이유"
+  },
+  {
+   "start": 311,
+   "title": "왕의 수라상은 12첩이 맞을까?"
+  },
+  {
+   "start": 351,
+   "title": "고추 없는 밥상, 언제부터일까?"
+  },
+  {
+   "start": 396,
+   "title": "사극 속 소고기 산적의 진실"
+  },
+  {
+   "start": 535,
+   "title": "고기 구경이 힘들었던 시절"
+  },
+  {
+   "start": 648,
+   "title": "위기 때마다 기록된 백성의 밥상"
+  },
+  {
+   "start": 731,
+   "title": "국가가 정해준 밥그릇 규격"
+  },
+  {
+   "start": 828,
+   "title": "그 시절, 우리가 몰랐던 밥상 이야기"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 53,
+ "comments_top_level": 36,
+ "comments_replies": 17,
+ "comments_by_creator": 2,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 53,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:29:34",
+ "approved": "2026-10-17T16:29+09:00"
+}

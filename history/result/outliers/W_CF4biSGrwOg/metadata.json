@@ -1,0 +1,130 @@
+{
+ "id": "CF4biSGrwOg",
+ "title": "일본을 400년간 트라우마에 시달리게 한 장수. 이순신이 아닙니다 | 김시민",
+ "channel": "그랬구나!",
+ "channel_id": "UCbNOJuzbZL6P256tarBaYMQ",
+ "subs": 8870,
+ "views": 196113,
+ "ratio": 22.11,
+ "age_days": 92,
+ "views_per_day": 2131.7,
+ "minutes": 65.2,
+ "likes": 5258,
+ "comments": 505,
+ "published": "2026-07-16",
+ "queries": "검색:이순신",
+ "url": "https://www.youtube.com/watch?v=CF4biSGrwOg",
+ "flag": "",
+ "published_at": "2026-07-16T22:00:17Z",
+ "rank": "W294",
+ "set": "web",
+ "folder": "W_CF4biSGrwOg",
+ "sources": [
+  "검색:이순신"
+ ],
+ "source": "web",
+ "tags": [
+  "역사",
+  "한국사",
+  "세계사",
+  "역사 스토리텔링",
+  "역사 다큐",
+  "인물열전",
+  "한국 역사",
+  "세계 역사",
+  "역사 채널",
+  "역사 강의"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 104,
+   "title": "모쿠소 호간의 정체"
+  },
+  {
+   "start": 169,
+   "title": "김시민, 그는 누구인가"
+  },
+  {
+   "start": 342,
+   "title": "이순신과 같은 전장에 서다"
+  },
+  {
+   "start": 437,
+   "title": "전쟁 준비"
+  },
+  {
+   "start": 592,
+   "title": "성문을 열지 않은 판단"
+  },
+  {
+   "start": 863,
+   "title": "전투 시작"
+  },
+  {
+   "start": 1015,
+   "title": "둘째 날"
+  },
+  {
+   "start": 1210,
+   "title": "셋째 날"
+  },
+  {
+   "start": 1327,
+   "title": "넷째 날"
+  },
+  {
+   "start": 1501,
+   "title": "다섯째 날"
+  },
+  {
+   "start": 1708,
+   "title": "여섯째 날 — 최후의 공방"
+  },
+  {
+   "start": 1899,
+   "title": "진주대첩"
+  },
+  {
+   "start": 2057,
+   "title": "승리 직후"
+  },
+  {
+   "start": 2397,
+   "title": "기록의 무게"
+  },
+  {
+   "start": 2610,
+   "title": "공신 교서의 수난"
+  },
+  {
+   "start": 2745,
+   "title": "2차 진주성 전투"
+  },
+  {
+   "start": 3120,
+   "title": "일본 속의 김시민"
+  },
+  {
+   "start": 3695,
+   "title": "에필로그"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 505,
+ "comments_top_level": 279,
+ "comments_replies": 226,
+ "comments_by_creator": 137,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 505,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:33:40",
+ "approved": "2026-10-17T16:33+09:00"
+}

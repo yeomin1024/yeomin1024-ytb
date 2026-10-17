@@ -1,0 +1,67 @@
+{
+ "id": "IxavrnM32gU",
+ "title": "'2대 조선 제일검 김광택', 그를 검의 신선이라 부르는 이유",
+ "channel": "한국사 다시읽기",
+ "channel_id": "UC-sDvUroCCpUZhzk4I_3UIw",
+ "subs": 28200,
+ "views": 117192,
+ "ratio": 4.16,
+ "age_days": 57,
+ "views_per_day": 2056.0,
+ "minutes": 11.8,
+ "likes": 591,
+ "comments": 30,
+ "published": "2026-08-20",
+ "queries": "검색:조선왕조실록",
+ "url": "https://www.youtube.com/watch?v=IxavrnM32gU",
+ "flag": "",
+ "published_at": "2026-08-20T11:00:31Z",
+ "rank": "W562",
+ "set": "web",
+ "folder": "W_IxavrnM32gU",
+ "sources": [
+  "검색:조선왕조실록"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "검을 내려놓은 검의 신선"
+  },
+  {
+   "start": 65,
+   "title": "조선 제일검 김체건, 그리고 그의 핏줄"
+  },
+  {
+   "start": 210,
+   "title": "실전의 검, 금위영 교련관에 서다"
+  },
+  {
+   "start": 300,
+   "title": "검선의 탄생 — 김신선과 도가 수련"
+  },
+  {
+   "start": 414,
+   "title": "잊힌 이름, 유본학이 건져 올린 삶"
+  },
+  {
+   "start": 453,
+   "title": "후계자 백동수를 거두다"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 30,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:39:14",
+ "approved": "2026-10-17T16:39+09:00"
+}

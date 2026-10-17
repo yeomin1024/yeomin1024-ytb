@@ -1,0 +1,131 @@
+{
+ "id": "L3Zsj0CsYHs",
+ "title": "[타임슬립] 천벌1부 | 임진왜란에 떨어진 한국군, 동래성을 구해내다",
+ "channel": "조선 500년 비하인드",
+ "channel_id": "UCgDegZGm8Zi_znLbk-5LEUw",
+ "subs": 3490,
+ "views": 66506,
+ "ratio": 19.06,
+ "age_days": 97,
+ "views_per_day": 685.6,
+ "minutes": 27.6,
+ "likes": 764,
+ "comments": 61,
+ "published": "2026-07-11",
+ "queries": "검색:임진왜란",
+ "url": "https://www.youtube.com/watch?v=L3Zsj0CsYHs",
+ "flag": "",
+ "published_at": "2026-07-11T09:00:15Z",
+ "rank": "W319",
+ "set": "web",
+ "folder": "W_L3Zsj0CsYHs",
+ "sources": [
+  "검색:임진왜란"
+ ],
+ "source": "web",
+ "tags": [
+  "드론",
+  "군집드론",
+  "자폭드론",
+  "정찰드론",
+  "드론 스웜",
+  "임진왜란",
+  "동래성",
+  "동래성 전투",
+  "송상현",
+  "천벌 1부 강림",
+  "천벌 강림",
+  "한국군 타임슬립",
+  "현대군 조선",
+  "대한민국 군대",
+  "왜군",
+  "부산포",
+  "조선군",
+  "역사 판타지",
+  "대체역사",
+  "AI 영화",
+  "전쟁 시네마",
+  "동래성 혈전",
+  "송상현 생존",
+  "드론 전쟁",
+  "현대무기",
+  "조총",
+  "박격포",
+  "K2 소총",
+  "역사 바꾸기",
+  "한국형 전쟁 판타지",
+  "타임슬립"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "프롤로그 — 2026년, 드론 훈련 시작"
+  },
+  {
+   "start": 140,
+   "title": "군집드론 스웜 훈련"
+  },
+  {
+   "start": 310,
+   "title": "하늘의 균열, 시공간 폭풍"
+  },
+  {
+   "start": 430,
+   "title": "1592년 부산포에 추락"
+  },
+  {
+   "start": 540,
+   "title": "정찰 시작 — 임진왜란임을 알아차리다"
+  },
+  {
+   "start": 660,
+   "title": "왜군 상륙, 불타는 마을"
+  },
+  {
+   "start": 780,
+   "title": "윤설과 부친 구출"
+  },
+  {
+   "start": 900,
+   "title": "협곡 매복전 — 현대군의 첫 응징"
+  },
+  {
+   "start": 1100,
+   "title": "동래성으로 향하다"
+  },
+  {
+   "start": 1210,
+   "title": "동래성 혈전 시작"
+  },
+  {
+   "start": 1380,
+   "title": "드론 편대 총공세"
+  },
+  {
+   "start": 1510,
+   "title": "송상현 생존, 역사가 바뀌다"
+  },
+  {
+   "start": 1590,
+   "title": "승리의 밤, 그러나 더 큰 전쟁"
+  },
+  {
+   "start": 1640,
+   "title": "제2부 예고 — 탄금대로"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 61,
+ "comments_top_level": 30,
+ "comments_replies": 31,
+ "comments_by_creator": 26,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 61,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:34:25",
+ "approved": "2026-10-17T16:34+09:00"
+}

@@ -1,0 +1,113 @@
+{
+ "id": "jljGmlOxqMc",
+ "title": "조선시대, 난방도 패딩도 없던 시대 혹독한 추위 어떻게 버텼나?",
+ "channel": "바람이들려준역사",
+ "channel_id": "UCH0M62_jtGio7ZXVR3TSAIw",
+ "subs": 2470,
+ "views": 85797,
+ "ratio": 34.74,
+ "age_days": 110,
+ "views_per_day": 780.0,
+ "minutes": 17.9,
+ "likes": 727,
+ "comments": 52,
+ "published": "2026-06-29",
+ "queries": "검색:조선역사 | 검색:조선시대 | 검색:조선왕조",
+ "url": "https://www.youtube.com/watch?v=jljGmlOxqMc",
+ "flag": "",
+ "published_at": "2026-06-29T06:18:57Z",
+ "rank": "W235",
+ "set": "web",
+ "folder": "W_jljGmlOxqMc",
+ "sources": [
+  "검색:조선역사",
+  "검색:조선시대",
+  "검색:조선왕조"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "영하 30도, 상상도 못 할 조선의 겨울"
+  },
+  {
+   "start": 63,
+   "title": "그 시대가 더 가혹했던 진짜 이유"
+  },
+  {
+   "start": 108,
+   "title": "몸에 가장 가까운 첫 번째 무기"
+  },
+  {
+   "start": 129,
+   "title": "솜에 대한 뜻밖의 오해"
+  },
+  {
+   "start": 179,
+   "title": "가난이 짜낸 놀라운 지혜"
+  },
+  {
+   "start": 238,
+   "title": "같은 하늘 아래 갈린 두 개의 겨울"
+  },
+  {
+   "start": 278,
+   "title": "가난한 집 방 안의 겨울밤 풍경"
+  },
+  {
+   "start": 341,
+   "title": "조선 사람들이 겨울을 이겨낸 진짜 무기"
+  },
+  {
+   "start": 374,
+   "title": "단순해 보이는 구조 속 어마어마한 비밀"
+  },
+  {
+   "start": 428,
+   "title": "서양의 방식과 나란히 놓고 보면"
+  },
+  {
+   "start": 465,
+   "title": "따뜻함에 드리운 무서운 그림자"
+  },
+  {
+   "start": 522,
+   "title": "이 난방을 처음 본 외국인의 반응"
+  },
+  {
+   "start": 715,
+   "title": "견딜 만한 수준을 넘어선 이야기"
+  },
+  {
+   "start": 731,
+   "title": "하늘이 등을 돌린 2년"
+  },
+  {
+   "start": 851,
+   "title": "조선만의 일이 아니었던 충격적 진실"
+  },
+  {
+   "start": 926,
+   "title": "그 긴 역사가 지금 우리 곁에 남긴 것"
+  },
+  {
+   "start": 1004,
+   "title": "그래서, 그들은 무엇으로 버텼을까"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 52,
+ "comments_top_level": 45,
+ "comments_replies": 7,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 52,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:32:10",
+ "approved": "2026-10-17T16:32+09:00"
+}

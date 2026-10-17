@@ -1,0 +1,180 @@
+{
+ "id": "JiMl0jJWRAI",
+ "title": "[타임슬립] 천군강림 완결 | 전투기 6대가 임진왜란 한복판에 떨어지면 벌어지는 일",
+ "channel": "조선 500년 비하인드",
+ "channel_id": "UCgDegZGm8Zi_znLbk-5LEUw",
+ "subs": 3490,
+ "views": 90918,
+ "ratio": 26.05,
+ "age_days": 102,
+ "views_per_day": 891.4,
+ "minutes": 35.2,
+ "likes": 1123,
+ "comments": 78,
+ "published": "2026-07-06",
+ "queries": "검색:임진왜란",
+ "url": "https://www.youtube.com/watch?v=JiMl0jJWRAI",
+ "flag": "",
+ "published_at": "2026-07-06T09:00:20Z",
+ "rank": "W273",
+ "set": "web",
+ "folder": "W_JiMl0jJWRAI",
+ "sources": [
+  "검색:임진왜란"
+ ],
+ "source": "web",
+ "tags": [
+  "천군강림",
+  "천군강림 완결",
+  "밀리터리 SF",
+  "타임슬립",
+  "F-35A",
+  "F35A",
+  "대한민국 공군",
+  "전투기",
+  "CCT",
+  "특수부대",
+  "임진왜란",
+  "1592년",
+  "조선시대",
+  "왜군",
+  "조선군",
+  "현대군대 조선시대",
+  "전투기 조선시대",
+  "가상전쟁",
+  "대체역사",
+  "전쟁영화"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝 — 천군강림"
+  },
+  {
+   "start": 60,
+   "title": "1부 — 청주 공군기지, 국군의 날 시범 비행 준비"
+  },
+  {
+   "start": 200,
+   "title": "강재호 소령과 박서연 중위, 그리고 박진수 단장"
+  },
+  {
+   "start": 310,
+   "title": "F-35A 편대 저공 통과"
+  },
+  {
+   "start": 380,
+   "title": "박진수 단장 실종"
+  },
+  {
+   "start": 440,
+   "title": "비행 데이터 속 이상 신호"
+  },
+  {
+   "start": 480,
+   "title": "2부 — 1592년 조선 전장에 떨어진 박진수 단장"
+  },
+  {
+   "start": 580,
+   "title": "불타는 마을과 조선 백성들"
+  },
+  {
+   "start": 680,
+   "title": "권총으로 왜군을 막아서는 단장"
+  },
+  {
+   "start": 780,
+   "title": "적장 구로다의 추격"
+  },
+  {
+   "start": 860,
+   "title": "탄약이 바닥난 절체절명의 순간"
+  },
+  {
+   "start": 900,
+   "title": "3부 — 비행단장 구출 작전 승인"
+  },
+  {
+   "start": 1000,
+   "title": "제한된 무장과 위험한 귀환 조건"
+  },
+  {
+   "start": 1100,
+   "title": "CCT 특수부대 출격 준비"
+  },
+  {
+   "start": 1200,
+   "title": "강재호 소령과 박서연의 약속"
+  },
+  {
+   "start": 1280,
+   "title": "F-35A 편대와 수송기 출격"
+  },
+  {
+   "start": 1320,
+   "title": "4부 — 1592년 전장에 강림한 F-35A 편대"
+  },
+  {
+   "start": 1400,
+   "title": "박진수 단장 구출 시작"
+  },
+  {
+   "start": 1490,
+   "title": "왜군 본진 정밀 타격"
+  },
+  {
+   "start": 1580,
+   "title": "CCT 1팀 공중 강하"
+  },
+  {
+   "start": 1660,
+   "title": "박진수 단장과 CCT 합류"
+  },
+  {
+   "start": 1740,
+   "title": "무장 소진, 저공 비행으로 길을 열다"
+  },
+  {
+   "start": 1810,
+   "title": "5부 — 슬립 좌표를 향한 마지막 탈출"
+  },
+  {
+   "start": 1870,
+   "title": "연료 경고와 편대원들의 순차 귀환"
+  },
+  {
+   "start": 1930,
+   "title": "강재호 소령의 마지막 초저공 통과"
+  },
+  {
+   "start": 1980,
+   "title": "박진수 단장과 CCT 전원 귀환"
+  },
+  {
+   "start": 2030,
+   "title": "홀로 남은 1번기의 무동력 귀환"
+  },
+  {
+   "start": 2070,
+   "title": "작전 완료 보고와 박진수 단장의 인정"
+  },
+  {
+   "start": 2100,
+   "title": "엔딩 — 노을 속, 같은 하늘을 바라보는 사람들"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 78,
+ "comments_top_level": 41,
+ "comments_replies": 37,
+ "comments_by_creator": 29,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 78,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:33:10",
+ "approved": "2026-10-17T16:33+09:00"
+}

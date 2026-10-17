@@ -1,0 +1,98 @@
+{
+ "id": "k_GaCpqR56M",
+ "title": "노비 출신으로 정1품 빈에 오른 신빈 김씨: 실록으로 본 세종과 신빈김씨",
+ "channel": "거침없는한국사",
+ "channel_id": "UCVOtBhbZj6H-NzMLHI7SNTQ",
+ "subs": 32800,
+ "views": 175972,
+ "ratio": 5.37,
+ "age_days": 138,
+ "views_per_day": 1275.2,
+ "minutes": 65.3,
+ "likes": 2910,
+ "comments": 113,
+ "published": "2026-05-31",
+ "queries": "검색:조선왕조실록 | 검색:세종대왕 | 검색:한국사이야기",
+ "url": "https://www.youtube.com/watch?v=k_GaCpqR56M",
+ "flag": "",
+ "published_at": "2026-05-31T10:50:57Z",
+ "rank": "W527",
+ "set": "web",
+ "folder": "W_k_GaCpqR56M",
+ "sources": [
+  "검색:조선왕조실록",
+  "검색:세종대왕",
+  "검색:한국사이야기"
+ ],
+ "source": "web",
+ "tags": [
+  "신빈김씨",
+  "신빈 김씨",
+  "세종 후궁",
+  "조선 후궁",
+  "조선왕조실록",
+  "세종대왕",
+  "역사이야기",
+  "한국사이야기",
+  "소헌왕후",
+  "세조",
+  "신빈",
+  "조선시대",
+  "한국사",
+  "거침없는한국사",
+  "궁녀",
+  "조선",
+  "관비",
+  "역사",
+  "후궁",
+  "세종",
+  "실록",
+  "조선사",
+  "야담",
+  "신빈 김씨 이야기"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "관비의 딸, 궁녀로 들어가다"
+  },
+  {
+   "start": 330,
+   "title": "세종대왕과의 첫 만남"
+  },
+  {
+   "start": 920,
+   "title": "소헌왕후의 인정을 받다"
+  },
+  {
+   "start": 1330,
+   "title": "연이은 출산, 8남매의 어머니"
+  },
+  {
+   "start": 2140,
+   "title": "세종 승하, 그리고 찾아온 위기"
+  },
+  {
+   "start": 2900,
+   "title": "세조 앞에 선 신빈 김씨 — 최후의 선택"
+  },
+  {
+   "start": 3510,
+   "title": "팩트체크: 실록이 말하는 진짜 신빈 김씨"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 113,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:39:09",
+ "approved": "2026-10-17T16:39+09:00"
+}

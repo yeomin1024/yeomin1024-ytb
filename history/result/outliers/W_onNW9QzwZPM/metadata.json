@@ -1,0 +1,87 @@
+{
+ "id": "onNW9QzwZPM",
+ "title": "왜군 10만vs조선 6천명 임진왜란 숨은 영웅 황진 \"이순신이 전부가 아니다?\" 왜군 10만을 9일만에 절망에 빠뜨린 '이유'황진  \"바다엔 이순신, 육지엔 황진 이치전투",
+ "channel": "역사스캔",
+ "channel_id": "UCcv3Zx9M9eaHLePQs22OPKA",
+ "subs": 7310,
+ "views": 52976,
+ "ratio": 7.25,
+ "age_days": 117,
+ "views_per_day": 452.8,
+ "minutes": 79.2,
+ "likes": 2315,
+ "comments": 344,
+ "published": "2026-06-21",
+ "queries": "검색:임진왜란 | 검색:이순신",
+ "url": "https://www.youtube.com/watch?v=onNW9QzwZPM",
+ "flag": "",
+ "published_at": "2026-06-21T11:03:16Z",
+ "rank": "W480",
+ "set": "web",
+ "folder": "W_onNW9QzwZPM",
+ "sources": [
+  "검색:임진왜란",
+  "검색:이순신"
+ ],
+ "source": "web",
+ "tags": [
+  "임진왜란",
+  "황진장군",
+  "이치전투",
+  "진주성전투",
+  "이순신",
+  "권율",
+  "곽재우",
+  "조선역사",
+  "한국사",
+  "역사다큐"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "도입 - 왜군이 꼽은 조선 최대 패전지의 비밀"
+  },
+  {
+   "start": 210,
+   "title": "인물 소개 - 황희 정승의 5대손, 키 8척의 호랑이"
+  },
+  {
+   "start": 420,
+   "title": "1592년 임진왜란 발발 - 호남이 없으면 나라도 없다"
+  },
+  {
+   "start": 630,
+   "title": "단서 1 - 웅치·안덕원 전투, 김제 군수 정담의 마지막 말"
+  },
+  {
+   "start": 900,
+   "title": "단서 2 - 이치 전투, 1500 vs 15000의 기적"
+  },
+  {
+   "start": 1260,
+   "title": "심화 - 칠본창 후쿠시마 마사노리를 무너뜨린 사내 25:00 위기 - 김천일과의 약속, 죽음의 성으로 걸어 들어가다"
+  },
+  {
+   "start": 1710,
+   "title": "클라이맥스 - 9일간 진주성 농성, 그 처절했던 마지막"
+  },
+  {
+   "start": 1980,
+   "title": "결론 - 우리는 왜 이 이름을 몰랐을까"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 344,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:39:02",
+ "approved": "2026-10-17T16:39+09:00"
+}

@@ -1,0 +1,71 @@
+{
+ "id": "aMVakhKmWbE",
+ "title": "우리가 배운 ‘최초 문명’ 이전 — 바다 밑에서 1만 년 전 흔적이 나왔다",
+ "channel": "역사로 가다",
+ "channel_id": "UCfX6Hcf8i9tzpTz_vOgJZcA",
+ "subs": 847,
+ "views": 43525,
+ "ratio": 51.39,
+ "age_days": 48,
+ "views_per_day": 906.8,
+ "minutes": 19.0,
+ "likes": 164,
+ "comments": 37,
+ "published": "2026-08-29",
+ "queries": "검색:고대문명",
+ "url": "https://www.youtube.com/watch?v=aMVakhKmWbE",
+ "flag": "",
+ "published_at": "2026-08-29T12:00:15Z",
+ "rank": "W178",
+ "set": "web",
+ "folder": "W_aMVakhKmWbE",
+ "sources": [
+  "검색:고대문명"
+ ],
+ "source": "web",
+ "tags": [
+  "고대문명",
+  "최초의문명",
+  "인류문명"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "해저 120m — 고대 문명의 흔적은 왜 바다 밑에 있을까?"
+  },
+  {
+   "start": 159,
+   "title": "블링커월 — 1만 년 전 발견된 971m 해저 유적"
+  },
+  {
+   "start": 380,
+   "title": "도거랜드 — 빙하기 해수면 상승으로 사라진 거대한 땅"
+  },
+  {
+   "start": 595,
+   "title": "멜트워터 펄스 1A — 340년 동안 바다는 얼마나 올라왔을까?"
+  },
+  {
+   "start": 830,
+   "title": "괴베클리 테페 — 최초의 문명보다 앞선 거대한 석조 구조물"
+  },
+  {
+   "start": 1050,
+   "title": "최초의 문명 — 우리가 알고 있던 역사의 시작은 정말 최초였을까?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 37,
+ "comments_top_level": 20,
+ "comments_replies": 17,
+ "comments_by_creator": 16,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 37,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:30:36",
+ "approved": "2026-10-17T16:30+09:00"
+}

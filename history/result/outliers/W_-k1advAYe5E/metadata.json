@@ -1,0 +1,132 @@
+{
+ "id": "-k1advAYe5E",
+ "title": "통일 뒤에도 16년 동안 피가 흘렀다｜교과서가 말하지 않은 삼국통일",
+ "channel": "우리 모두의 역사",
+ "channel_id": "UCYa04jnvh4zbvhpl4U93K9A",
+ "subs": 5100,
+ "views": 104040,
+ "ratio": 20.4,
+ "age_days": 21,
+ "views_per_day": 4954.3,
+ "minutes": 88.0,
+ "likes": 374,
+ "comments": 29,
+ "published": "2026-09-25",
+ "queries": "검색:역사채널",
+ "url": "https://www.youtube.com/watch?v=-k1advAYe5E",
+ "flag": "",
+ "published_at": "2026-09-25T11:00:00Z",
+ "rank": "W306",
+ "set": "web",
+ "folder": "W_-k1advAYe5E",
+ "sources": [
+  "검색:역사채널"
+ ],
+ "source": "web",
+ "tags": [
+  "역사",
+  "조선사",
+  "평민역사",
+  "조선시대",
+  "경신대기근",
+  "임진왜란",
+  "일제시대",
+  "친일파"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝"
+  },
+  {
+   "start": 86,
+   "title": "김춘추의 원한과 나당동맹"
+  },
+  {
+   "start": 397,
+   "title": "무너지는 백제"
+  },
+  {
+   "start": 533,
+   "title": "황산벌, 계백과 관창"
+  },
+  {
+   "start": 802,
+   "title": "사비성 함락과 치욕의 연회"
+  },
+  {
+   "start": 1164,
+   "title": "백제 부흥운동의 불꽃"
+  },
+  {
+   "start": 1389,
+   "title": "복신의 최후"
+  },
+  {
+   "start": 1563,
+   "title": "백강 전투"
+  },
+  {
+   "start": 1774,
+   "title": "흑치상지의 반전"
+  },
+  {
+   "start": 1948,
+   "title": "연개소문 형제의 분열"
+  },
+  {
+   "start": 2213,
+   "title": "평양성 함락"
+  },
+  {
+   "start": 2509,
+   "title": "고구려 유민 강제 이주"
+  },
+  {
+   "start": 2683,
+   "title": "검모잠과 안승"
+  },
+  {
+   "start": 3087,
+   "title": "답설인귀서"
+  },
+  {
+   "start": 3278,
+   "title": "석문의 패배와 원술"
+  },
+  {
+   "start": 3632,
+   "title": "매소성 전투"
+  },
+  {
+   "start": 3797,
+   "title": "기벌포, 마지막 바다"
+  },
+  {
+   "start": 4001,
+   "title": "보덕국의 최후"
+  },
+  {
+   "start": 4414,
+   "title": "발해, 고구려의 기억"
+  },
+  {
+   "start": 4515,
+   "title": "통일 뒤편의 사람들"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 29,
+ "comments_top_level": 15,
+ "comments_replies": 14,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 29,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:34:07",
+ "approved": "2026-10-17T16:34+09:00"
+}

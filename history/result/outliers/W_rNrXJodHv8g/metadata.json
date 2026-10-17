@@ -1,0 +1,79 @@
+{
+ "id": "rNrXJodHv8g",
+ "title": "2,500년 동안 누구도 답을 못 낸 고대 미스터리 TOP 7",
+ "channel": "잡학도깨비",
+ "channel_id": "UC7vBbUB_NAIZpkVeezzODaA",
+ "subs": 1630,
+ "views": 58714,
+ "ratio": 36.02,
+ "age_days": 149,
+ "views_per_day": 394.1,
+ "minutes": 16.6,
+ "likes": 458,
+ "comments": 7,
+ "published": "2026-05-20",
+ "queries": "검색:역사미스터리",
+ "url": "https://www.youtube.com/watch?v=rNrXJodHv8g",
+ "flag": "",
+ "published_at": "2026-05-20T21:00:35Z",
+ "rank": "W228",
+ "set": "web",
+ "folder": "W_rNrXJodHv8g",
+ "sources": [
+  "검색:역사미스터리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로 — 2,500년에 걸친 일곱 번의 시도"
+  },
+  {
+   "start": 60,
+   "title": "① 헤로도토스 — 직접 들어가 기록한 미궁"
+  },
+  {
+   "start": 210,
+   "title": "② 앙리 무오 — 발견 1년 만의 죽음"
+  },
+  {
+   "start": 360,
+   "title": "③ 플린더스 페트리 — 1889년 기단만 남은 자리"
+  },
+  {
+   "start": 510,
+   "title": "④ 마타하 익스페디션 — 국가안보 사유 동결"
+  },
+  {
+   "start": 660,
+   "title": "⑤ 데미언 에반스의 LiDAR — 정글 속 사라진 도시"
+  },
+  {
+   "start": 810,
+   "title": "⑥ 르네 차베스 — 봉인된 통로의 발견"
+  },
+  {
+   "start": 960,
+   "title": "⑦ 진시황릉 본묘 — 50년 동결"
+  },
+  {
+   "start": 1110,
+   "title": "마무리 — 일곱 자리의 공통점"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 7,
+ "comments_top_level": 7,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 7,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:31:59",
+ "approved": "2026-10-17T16:32+09:00"
+}

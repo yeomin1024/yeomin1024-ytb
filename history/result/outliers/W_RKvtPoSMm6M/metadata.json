@@ -1,0 +1,93 @@
+{
+ "id": "RKvtPoSMm6M",
+ "title": "피라미드는 명함도 못 내미는 초고대 유적 | 카라한테페의 정체",
+ "channel": "역사줌",
+ "channel_id": "UCZvmbT31eb5VZu2lUVBLAaA",
+ "subs": 73,
+ "views": 16451,
+ "ratio": 164.51,
+ "age_days": 41,
+ "views_per_day": 401.2,
+ "minutes": 18.5,
+ "likes": 120,
+ "comments": 27,
+ "published": "2026-09-05",
+ "queries": "검색:고대문명",
+ "url": "https://www.youtube.com/watch?v=RKvtPoSMm6M",
+ "flag": "",
+ "published_at": "2026-09-05T11:00:36Z",
+ "rank": "W45",
+ "set": "web",
+ "folder": "W_RKvtPoSMm6M",
+ "sources": [
+  "검색:고대문명"
+ ],
+ "source": "web",
+ "tags": [
+  "과학",
+  "과학유튜버",
+  "과학유튜브",
+  "과학채널",
+  "테크",
+  "기술",
+  "고고학",
+  "괴베클리 테페",
+  "인류학",
+  "역사",
+  "뉴스",
+  "미스테리",
+  "문명",
+  "이집트 문명",
+  "이집트",
+  "초고대문명",
+  "미스터리"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "표범 등 위에 올라탄 사람"
+  },
+  {
+   "start": 110,
+   "title": "괴베클리보다 넓었던 자매 유적"
+  },
+  {
+   "start": 248,
+   "title": "얼굴 없던 신, 그 규칙이 깨지다"
+  },
+  {
+   "start": 388,
+   "title": "사이부르치, 여섯 손가락의 비밀"
+  },
+  {
+   "start": 578,
+   "title": "갈비뼈 사내와 봉인된 유물들"
+  },
+  {
+   "start": 720,
+   "title": "농사 없이 1,500년을 버틴 사람들"
+  },
+  {
+   "start": 868,
+   "title": "가장 깊은 방, 필라 신전의 비밀"
+  },
+  {
+   "start": 1007,
+   "title": "표범 위의 사람은 누구였을까"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 27,
+ "comments_top_level": 15,
+ "comments_replies": 12,
+ "comments_by_creator": 14,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 27,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:26:19",
+ "approved": "2026-10-17T16:26+09:00"
+}

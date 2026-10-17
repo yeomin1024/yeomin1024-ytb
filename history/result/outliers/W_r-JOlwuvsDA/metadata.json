@@ -1,0 +1,109 @@
+{
+ "id": "r-JOlwuvsDA",
+ "title": "[조선 다잇소] 2화 : 세종대왕의 만성 두통을 타이레놀로 고쳐버렸다.",
+ "channel": "다잇소 스튜디오",
+ "channel_id": "UCMb6lcKGxIlXt-j2NdjEbEA",
+ "subs": 1070,
+ "views": 39454,
+ "ratio": 36.87,
+ "age_days": 9,
+ "views_per_day": 4383.8,
+ "minutes": 7.7,
+ "likes": 318,
+ "comments": 26,
+ "published": "2026-10-07",
+ "queries": "검색:세종대왕",
+ "url": "https://www.youtube.com/watch?v=r-JOlwuvsDA",
+ "flag": "",
+ "published_at": "2026-10-07T12:06:46Z",
+ "rank": "W224",
+ "set": "web",
+ "folder": "W_r-JOlwuvsDA",
+ "sources": [
+  "검색:세종대왕"
+ ],
+ "source": "web",
+ "tags": [
+  "조선다잇소",
+  "조선 다잇소",
+  "조선다잇소 2화",
+  "다잇소 스튜디오",
+  "대체역사",
+  "대체역사 웹드라마",
+  "세종대왕",
+  "세종대왕 타이레놀",
+  "장영실",
+  "장영실 줄자",
+  "조선시대 라면",
+  "타임슬립",
+  "타임슬립 드라마",
+  "AI 웹드라마",
+  "AI 드라마",
+  "AI 영화",
+  "생성형 AI 드라마",
+  "세자 이향",
+  "문종",
+  "도승지 김돈",
+  "퓨전사극",
+  "사극 웹드라마",
+  "웹소설 드라마",
+  "자격루",
+  "조선통보"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "관아에서 돌아온 현우와 주모의 재회"
+  },
+  {
+   "start": 57,
+   "title": "조선 저잣거리를 강타한 신라면 & 안성탕면 & 육개장"
+  },
+  {
+   "start": 136,
+   "title": "깊은 밤, 은밀하게 찾아온 도승지 김돈"
+  },
+  {
+   "start": 222,
+   "title": "세종대왕과의 첫 알현과 지독한 편두통"
+  },
+  {
+   "start": 243,
+   "title": "타이레놀과 열내림 냉각 시트의 기적"
+  },
+  {
+   "start": 307,
+   "title": "흐릿하던 글자를 띄워준 돋보기안경"
+  },
+  {
+   "start": 352,
+   "title": "과인이 지켜주마, 어명패 하사와 대궐 별채 입주"
+  },
+  {
+   "start": 386,
+   "title": "별채에서 꺼낸 현대 공구들 (줄자, 드라이버)"
+  },
+  {
+   "start": 404,
+   "title": "천재 과학자 장영실의 방문과 풀리지 않는 고민"
+  },
+  {
+   "start": 443,
+   "title": "[3화 예고] 세종의 실신, 그리고 모습을 드러낸 왕의 그림자"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 26,
+ "comments_top_level": 14,
+ "comments_replies": 12,
+ "comments_by_creator": 12,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 26,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:31:54",
+ "approved": "2026-10-17T16:31+09:00"
+}

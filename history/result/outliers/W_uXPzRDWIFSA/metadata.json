@@ -1,0 +1,83 @@
+{
+ "id": "uXPzRDWIFSA",
+ "title": "전 세계가 매년 100조를 쓸 때 한국만 0원인 진짜 이유  세종대왕이 600년 전 심어놓은 공짜 시스템의 정체",
+ "channel": "경제를 알리자",
+ "channel_id": "UCCskOmXHWJZSsGN1uz6eDfQ",
+ "subs": 418,
+ "views": 175774,
+ "ratio": 420.51,
+ "age_days": 21,
+ "views_per_day": 8370.2,
+ "minutes": 19.0,
+ "likes": 380,
+ "comments": 36,
+ "published": "2026-09-26",
+ "queries": "검색:한국역사",
+ "url": "https://www.youtube.com/watch?v=uXPzRDWIFSA",
+ "flag": "",
+ "published_at": "2026-09-26T07:00:15Z",
+ "rank": "W10",
+ "set": "web",
+ "folder": "W_uXPzRDWIFSA",
+ "sources": [
+  "검색:한국역사"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "세계는 매년 100조, 한국만 0원인 이유"
+  },
+  {
+   "start": 27,
+   "title": "'글자값’이란 무엇인가 — 글자 없는 언어들의 비극"
+  },
+  {
+   "start": 114,
+   "title": "영어의 함정, 철자와 난독증이라는 보이지 않는 비용"
+  },
+  {
+   "start": 222,
+   "title": "중국어 한자와 일본어의 이중 부담"
+  },
+  {
+   "start": 340,
+   "title": "전 세계가 치르는 천문학적 '글자값’의 정체"
+  },
+  {
+   "start": 380,
+   "title": "한국만 0원인 진짜 이유 — 하루아침에 배우는 ‘아침글자’"
+  },
+  {
+   "start": 484,
+   "title": "신하들의 반대를 무릅쓴 세종대왕의 파격적 결단"
+  },
+  {
+   "start": 751,
+   "title": "디지털 시대에 다시 태어난 한글, IT 강국의 숨은 비밀"
+  },
+  {
+   "start": 933,
+   "title": "지구 반대편을 구한 한글 — 인도네시아 찌아찌아족 이야기"
+  },
+  {
+   "start": 1119,
+   "title": "600년째 로열티 0원, 세종대왕이 남긴 선물"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 36,
+ "comments_top_level": 25,
+ "comments_replies": 11,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 36,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:25:29",
+ "approved": "2026-10-17T16:25+09:00"
+}

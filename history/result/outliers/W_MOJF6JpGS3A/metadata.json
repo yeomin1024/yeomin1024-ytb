@@ -1,0 +1,93 @@
+{
+ "id": "MOJF6JpGS3A",
+ "title": "\"악마의 열매\" 커피 때문에 세계 역사가 뒤집어진 이유! 세계사를 바꾼 커피의 역사 ㅣ커피는 어떻게 세계인의 음료가 됐을까?",
+ "channel": "세계경제이야기",
+ "channel_id": "UCfOhunfxnhP8H5bkNIXcg8g",
+ "subs": 12400,
+ "views": 552490,
+ "ratio": 44.56,
+ "age_days": 32,
+ "views_per_day": 17265.3,
+ "minutes": 30.8,
+ "likes": 1675,
+ "comments": 51,
+ "published": "2026-09-14",
+ "queries": "검색:세계사 이야기",
+ "url": "https://www.youtube.com/watch?v=MOJF6JpGS3A",
+ "flag": "",
+ "published_at": "2026-09-14T21:15:06Z",
+ "rank": "W194",
+ "set": "web",
+ "folder": "W_MOJF6JpGS3A",
+ "sources": [
+  "검색:세계사 이야기"
+ ],
+ "source": "web",
+ "tags": [
+  "커피 세계사 정리",
+  "커피가 세계 역사를 바꾼 이유",
+  "아메리카노 이름 유래 역사",
+  "카푸치노 이름 뜻 유래",
+  "모카 커피 이름 유래 예멘",
+  "런던 커피하우스 로이즈 보험 역사",
+  "보스턴 차 사건 커피 미국 독립",
+  "프랑스 대혁명 카페 푸아",
+  "커피 노예제도 브라질 아이티",
+  "비엔나 전투 1683 커피 유럽 전파",
+  "나폴레옹 커피 군수물자 산업혁명",
+  "한국 커피 역사 고종 양탕국",
+  "에티오피아 카파 커피 기원"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "도입부 — 매일 마시는 커피, 그 한 잔의 진짜 무게"
+  },
+  {
+   "start": 30,
+   "title": "1장 — 염소가 발견하고, 수도승이 퍼뜨린 마법의 열매"
+  },
+  {
+   "start": 270,
+   "title": "2장 — 낙타 먹이가 유럽을 뒤집다"
+  },
+  {
+   "start": 510,
+   "title": "3장 — 찻집에서 태어난 자본주의, 그리고 홍차 제국"
+  },
+  {
+   "start": 780,
+   "title": "4장 — 왕의 목을 자른 카페"
+  },
+  {
+   "start": 1020,
+   "title": "5장 — 커피가 삼킨 사람들"
+  },
+  {
+   "start": 1290,
+   "title": "6장 — 전쟁의 연료, 스파이의 암호"
+  },
+  {
+   "start": 1500,
+   "title": "7장 — 커피가 사라지고 있다"
+  },
+  {
+   "start": 1650,
+   "title": "8장 — 양탕국에서 커피 공화국으로"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 51,
+ "comments_top_level": 37,
+ "comments_replies": 14,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 51,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:31:04",
+ "approved": "2026-10-17T16:31+09:00"
+}

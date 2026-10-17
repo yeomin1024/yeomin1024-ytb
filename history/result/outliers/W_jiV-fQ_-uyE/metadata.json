@@ -1,0 +1,87 @@
+{
+ "id": "jiV-fQ_-uyE",
+ "title": "세종대왕을 만나면 말이 통할까, 우리말은 500년 동안 얼마나 변했나",
+ "channel": "역사한줌",
+ "channel_id": "UC6BgBYCMD6pJ8W5f6af8jbg",
+ "subs": 3860,
+ "views": 271943,
+ "ratio": 70.45,
+ "age_days": 24,
+ "views_per_day": 11331.0,
+ "minutes": 29.4,
+ "likes": 846,
+ "comments": 120,
+ "published": "2026-09-23",
+ "queries": "검색:세종대왕",
+ "url": "https://www.youtube.com/watch?v=jiV-fQ_-uyE",
+ "flag": "",
+ "published_at": "2026-09-23T02:00:24Z",
+ "rank": "W135",
+ "set": "web",
+ "folder": "W_jiV-fQ_-uyE",
+ "sources": [
+  "검색:세종대왕"
+ ],
+ "source": "web",
+ "tags": [
+  "한국사",
+  "우리말",
+  "한국어 역사",
+  "세종대왕",
+  "훈민정음",
+  "나랏말싸미",
+  "옛날 말",
+  "조선시대 말투",
+  "사극 말투",
+  "원이 엄마 편지",
+  "계림유사",
+  "고려시대",
+  "이극로",
+  "표준어",
+  "역사이야기"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "440년 전 편지의 첫 줄"
+  },
+  {
+   "start": 50,
+   "title": "100년 전의 목소리"
+  },
+  {
+   "start": 215,
+   "title": "무덤에서 나온 편지와 사극 말투"
+  },
+  {
+   "start": 475,
+   "title": "세종의 한 문장"
+  },
+  {
+   "start": 802,
+   "title": "소리가 넘어온 길"
+  },
+  {
+   "start": 1026,
+   "title": "고려의 손과 발, 신라의 달"
+  },
+  {
+   "start": 1278,
+   "title": "세종을 만나면 통할까, 그리고 지금 우리 말"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 120,
+ "comments_top_level": 72,
+ "comments_replies": 48,
+ "comments_by_creator": 4,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 120,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:29:20",
+ "approved": "2026-10-17T16:29+09:00"
+}

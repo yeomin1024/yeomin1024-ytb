@@ -1,0 +1,105 @@
+{
+ "id": "Ci7XAox-ZRQ",
+ "title": "왜 전 세계는 같은 대홍수를 기억할까 | 수메르부터 마야, 한국까지",
+ "channel": "인류미터기",
+ "channel_id": "UCGZCmdyCkH7LzWodk02DHVg",
+ "subs": 645,
+ "views": 12890,
+ "ratio": 19.98,
+ "age_days": 82,
+ "views_per_day": 157.2,
+ "minutes": 19.4,
+ "likes": 234,
+ "comments": 49,
+ "published": "2026-07-27",
+ "queries": "검색:고대문명",
+ "url": "https://www.youtube.com/watch?v=Ci7XAox-ZRQ",
+ "flag": "",
+ "published_at": "2026-07-27T05:32:07Z",
+ "rank": "W312",
+ "set": "web",
+ "folder": "W_Ci7XAox-ZRQ",
+ "sources": [
+  "검색:고대문명"
+ ],
+ "source": "web",
+ "tags": [
+  "대홍수",
+  "노아의방주",
+  "대홍수전설",
+  "홍수신화",
+  "길가메시서사시",
+  "빙하기",
+  "해수면상승",
+  "인류의기원",
+  "인류미터기",
+  "고대문명",
+  "수메르",
+  "메소포타미아",
+  "흑해대홍수",
+  "도거랜드",
+  "한국신화",
+  "성경",
+  "미스터리",
+  "고고학",
+  "지질학",
+  "구전신화",
+  "세계신화",
+  "우트나피쉬팀",
+  "데우칼리온",
+  "인류진화",
+  "역사 미스터리"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "노아만 방주를 탄 게 아니었다"
+  },
+  {
+   "start": 57,
+   "title": "1872년 런던, 판화공의 발견"
+  },
+  {
+   "start": 221,
+   "title": "노아와 똑같은 노인의 홍수"
+  },
+  {
+   "start": 337,
+   "title": "홍수 이야기의 맨 밑바닥, 수메르"
+  },
+  {
+   "start": 416,
+   "title": "계보 바깥의 홍수: 그리스·인도·중국"
+  },
+  {
+   "start": 510,
+   "title": "바다 건너 마야에도 똑같은 홍수"
+  },
+  {
+   "start": 587,
+   "title": "흑해 범람설, 학자들의 논쟁"
+  },
+  {
+   "start": 821,
+   "title": "빙하기, 실제로 바다가 차올랐다"
+  },
+  {
+   "start": 1028,
+   "title": "우리 오누이, 가장 오래된 편지"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 49,
+ "comments_top_level": 28,
+ "comments_replies": 21,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 49,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:34:14",
+ "approved": "2026-10-17T16:34+09:00"
+}

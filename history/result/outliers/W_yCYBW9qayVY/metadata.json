@@ -1,0 +1,116 @@
+{
+ "id": "yCYBW9qayVY",
+ "title": "AI로 되살린 조선 옛 기록 속 이상한 동물들, 그 정체를 추적해 봤습니다",
+ "channel": "키치스토리",
+ "channel_id": "UCdv4BTyMBLD4VVp0SMTKwnA",
+ "subs": 1370,
+ "views": 179098,
+ "ratio": 130.73,
+ "age_days": 9,
+ "views_per_day": 19899.8,
+ "minutes": 13.6,
+ "likes": 425,
+ "comments": 23,
+ "published": "2026-10-07",
+ "queries": "검색:조선역사 | 검색:조선왕조",
+ "url": "https://www.youtube.com/watch?v=yCYBW9qayVY",
+ "flag": "",
+ "published_at": "2026-10-07T08:00:39Z",
+ "rank": "W65",
+ "set": "web",
+ "folder": "W_yCYBW9qayVY",
+ "sources": [
+  "검색:조선역사",
+  "검색:조선왕조"
+ ],
+ "source": "web",
+ "tags": [
+  "AI복원",
+  "교양",
+  "두꺼비",
+  "미스터리",
+  "뻐꾸기",
+  "상괭이",
+  "석면",
+  "성호사설",
+  "세종",
+  "실록",
+  "얼룩말",
+  "역사",
+  "옛기록",
+  "유득공",
+  "이상한동물",
+  "인어",
+  "자산어보",
+  "잡학",
+  "점박이물범",
+  "정약전",
+  "조선시대",
+  "조선왕조실록",
+  "화완포"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 16,
+   "title": "1. 딱새가 낳은 산비둘기 (세종실록, 1445)"
+  },
+  {
+   "start": 112,
+   "title": "2. 어책 속의 인어 (고운당필기, 1796)"
+  },
+  {
+   "start": 218,
+   "title": "3. 이름 없는 짐승 복록 (세종실록, 1419)"
+  },
+  {
+   "start": 286,
+   "title": "4. 붕어 대신 걸린 것 (명종실록, 1565)"
+  },
+  {
+   "start": 366,
+   "title": "5. 흙 속으로 뛰어든 물고기 (세종실록, 1446)"
+  },
+  {
+   "start": 428,
+   "title": "6. 상광어 (자산어보, 1814)"
+  },
+  {
+   "start": 502,
+   "title": "7. 소주만 마시는 망아지 (청장관전서)"
+  },
+  {
+   "start": 550,
+   "title": "8. 두꺼비 전쟁 (숙종실록 외, 1601~1677)"
+  },
+  {
+   "start": 630,
+   "title": "9. 수탉이 된 암탉 (세종실록·중종실록)"
+  },
+  {
+   "start": 708,
+   "title": "10. 불 속의 백 근 쥐 (성호사설)"
+  },
+  {
+   "start": 794,
+   "title": "마무리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 23,
+ "comments_top_level": 18,
+ "comments_replies": 5,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 23,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:26:49",
+ "approved": "2026-10-17T16:26+09:00"
+}

@@ -1,0 +1,112 @@
+{
+ "id": "cPSuGyyaGf0",
+ "title": "철: 지구에서 가장 강력한 금속의 숨겨진 역사",
+ "channel": "고요한 우주",
+ "channel_id": "UC1ROi4pEzRw3FqX1yi2ITbQ",
+ "subs": 675,
+ "views": 18367,
+ "ratio": 27.21,
+ "age_days": 41,
+ "views_per_day": 448.0,
+ "minutes": 55.3,
+ "likes": 109,
+ "comments": 5,
+ "published": "2026-09-05",
+ "queries": "검색:숨겨진역사",
+ "url": "https://www.youtube.com/watch?v=cPSuGyyaGf0",
+ "flag": "",
+ "published_at": "2026-09-05T09:19:02Z",
+ "rank": "W267",
+ "set": "web",
+ "folder": "W_cPSuGyyaGf0",
+ "sources": [
+  "검색:숨겨진역사"
+ ],
+ "source": "web",
+ "tags": [
+  "철",
+  "고요한 우주",
+  "철의 기원과 역사",
+  "초신성 폭발",
+  "별의 핵융합",
+  "규소 연소",
+  "철 피크",
+  "결합 에너지",
+  "중성자별",
+  "원시 지구",
+  "철재난",
+  "내핵",
+  "외핵",
+  "지구 자기장",
+  "지자기 다이나모",
+  "태양풍",
+  "오로라",
+  "대산화 사건",
+  "시아노박테리아",
+  "호상철광층",
+  "적혈구",
+  "헤모글로빈",
+  "헴",
+  "산소 운반",
+  "운철",
+  "투탕카멘 단검",
+  "적철석 환원",
+  "괴련철",
+  "마르텐사이트",
+  "오스테나이트",
+  "베세머 전로",
+  "스테인리스강",
+  "크로뮴 부동태 피막",
+  "철 공기 배터리",
+  "소행성 16 프시케",
+  "우주 채굴",
+  "과학 다큐",
+  "천문학",
+  "물리학",
+  "화학"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "핏방울 속 별의 파편과 숨겨진 역사"
+  },
+  {
+   "start": 157,
+   "title": "별의 심장부 규소 핵융합과 철 피크의 한계"
+  },
+  {
+   "start": 772,
+   "title": "지구 내부 끓어오르는 외핵과 자기장 다이나모"
+  },
+  {
+   "start": 1381,
+   "title": "대산화 사건과 헤모글로빈의 산소 운반 마법"
+  },
+  {
+   "start": 1954,
+   "title": "하늘의 운철에서 최초의 제련로와 강철의 탄생"
+  },
+  {
+   "start": 2503,
+   "title": "베세머 전로와 스테인리스강 부동태 피막"
+  },
+  {
+   "start": 3078,
+   "title": "철-공기 배터리와 소행성 프시케의 미래"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 5,
+ "comments_top_level": 5,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 5,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:33:01",
+ "approved": "2026-10-17T16:33+09:00"
+}

@@ -1,0 +1,95 @@
+{
+ "id": "YgKCW5fOHGs",
+ "title": "완벽한 중세 성은 어떻게 만들어졌을까? | 3D로 보는 성 건축의 모든 것",
+ "channel": "에픽히스토리 코리아",
+ "channel_id": "UCvwZWRrvYP-K_hhOU0lzhRQ",
+ "subs": 24600,
+ "views": 119358,
+ "ratio": 4.85,
+ "age_days": 125,
+ "views_per_day": 954.9,
+ "minutes": 15.3,
+ "likes": 1901,
+ "comments": 99,
+ "published": "2026-06-13",
+ "queries": "검색:역사다큐",
+ "url": "https://www.youtube.com/watch?v=YgKCW5fOHGs",
+ "flag": "",
+ "published_at": "2026-06-13T10:30:31Z",
+ "rank": "W548",
+ "set": "web",
+ "folder": "W_YgKCW5fOHGs",
+ "sources": [
+  "검색:역사다큐"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Filmstro - Nanga"
+  },
+  {
+   "start": 65,
+   "title": "Filmstro - Proteus"
+  },
+  {
+   "start": 128,
+   "title": "In Taberna (Crusader Kings III)"
+  },
+  {
+   "start": 194,
+   "title": "Dusking Skies (Crusader Kings III)"
+  },
+  {
+   "start": 328,
+   "title": "Filmstro - Steel"
+  },
+  {
+   "start": 361,
+   "title": "Filmstro - Pavot"
+  },
+  {
+   "start": 522,
+   "title": "Filmstro - Centurion"
+  },
+  {
+   "start": 581,
+   "title": "Kevin MacLeod - Rites"
+  },
+  {
+   "start": 651,
+   "title": "Filmstro - Venus"
+  },
+  {
+   "start": 765,
+   "title": "Filmstro - General"
+  },
+  {
+   "start": 878,
+   "title": "Filmstro - Nanga"
+  },
+  {
+   "start": 968,
+   "title": "Kevin MacLeod - Brandenburg No.4"
+  },
+  {
+   "start": 978,
+   "title": "In Taberna (Crusader Kings III)"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 99,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:39:12",
+ "approved": "2026-10-17T16:39+09:00"
+}

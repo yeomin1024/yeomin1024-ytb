@@ -1,0 +1,122 @@
+{
+ "id": "MiSjJNMeiGo",
+ "title": "세종대왕이 너무도 사랑한 하루도 빠짐없이 매일밤 찾아갈 수밖에 없었던 여인 신빈 김씨",
+ "channel": "역사만담",
+ "channel_id": "UCsWV4iY5Y1YbFHWm7C4jR6Q",
+ "subs": 5100,
+ "views": 166611,
+ "ratio": 32.67,
+ "age_days": 100,
+ "views_per_day": 1666.1,
+ "minutes": 24.9,
+ "likes": 2855,
+ "comments": 123,
+ "published": "2026-07-08",
+ "queries": "검색:역사교육 | 검색:세종대왕",
+ "url": "https://www.youtube.com/watch?v=MiSjJNMeiGo",
+ "flag": "",
+ "published_at": "2026-07-08T10:34:20Z",
+ "rank": "W246",
+ "set": "web",
+ "folder": "W_MiSjJNMeiGo",
+ "sources": [
+  "검색:역사교육",
+  "검색:세종대왕"
+ ],
+ "source": "web",
+ "tags": [
+  "신빈김씨",
+  "세종대왕",
+  "소헌왕후",
+  "후궁",
+  "정1품",
+  "조선왕실",
+  "궁녀",
+  "지밀나인",
+  "수양대군",
+  "계유정난",
+  "단종",
+  "문종",
+  "원경왕후",
+  "내자시",
+  "역사다큐",
+  "한국사",
+  "역사비화",
+  "세종실록",
+  "역사유튜브",
+  "안평대군",
+  "혜빈양씨",
+  "조선시대",
+  "신분상승",
+  "조선역사",
+  "역사이야기",
+  "교양역사",
+  "세조",
+  "인수대비",
+  "한확",
+  "장영실",
+  "훈민정음",
+  "영응대군",
+  "광평대군",
+  "계양군",
+  "자수궁",
+  "승복",
+  "환속",
+  "신데렐라",
+  "역사미스터리",
+  "궁중암투",
+  "권력투쟁",
+  "조선왕조실록",
+  "역사비하인드",
+  "한국사비화",
+  "후궁제도",
+  "왕실비화",
+  "신빈김씨묘역",
+  "조선왕비",
+  "궁궐이야기"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝: 관청 노비 문서에 적힌 소녀, 정1품 '신빈 김씨'가 되다"
+  },
+  {
+   "start": 252,
+   "title": "궁궐 입성과 소헌왕후와의 운명적인 만남"
+  },
+  {
+   "start": 475,
+   "title": "세종의 눈에 든 성실함, 지밀나인에서 후궁으로의 비상"
+  },
+  {
+   "start": 628,
+   "title": "소헌왕후의 굳건한 신뢰: \"내 아이들을 부탁하네\""
+  },
+  {
+   "start": 885,
+   "title": "가장 화려한 자리에서 가장 낮은 곳으로, 자수궁의 14년"
+  },
+  {
+   "start": 1176,
+   "title": "계유정난의 피바람 속에서도 가문을 지켜낸 부드러움의 힘"
+  },
+  {
+   "start": 1379,
+   "title": "에필로그: 권력보다 빛난 조용한 성실함, 신빈 김씨의 뒷모습"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 123,
+ "comments_top_level": 60,
+ "comments_replies": 63,
+ "comments_by_creator": 43,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 123,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:32:32",
+ "approved": "2026-10-17T16:32+09:00"
+}

@@ -1,0 +1,107 @@
+{
+ "id": "fBGYgo0VyNo",
+ "title": "[타임슬립] 조선군이 몰살당하기 1초 전, 하늘에서 '괴물'이 내려왔다",
+ "channel": "조선 500년 비하인드",
+ "channel_id": "UCgDegZGm8Zi_znLbk-5LEUw",
+ "subs": 3490,
+ "views": 48609,
+ "ratio": 13.93,
+ "age_days": 163,
+ "views_per_day": 298.2,
+ "minutes": 8.4,
+ "likes": 495,
+ "comments": 20,
+ "published": "2026-05-06",
+ "queries": "검색:병자호란",
+ "url": "https://www.youtube.com/watch?v=fBGYgo0VyNo",
+ "flag": "",
+ "published_at": "2026-05-06T09:01:03Z",
+ "rank": "W363",
+ "set": "web",
+ "folder": "W_fBGYgo0VyNo",
+ "sources": [
+  "검색:병자호란"
+ ],
+ "source": "web",
+ "tags": [
+  "쌍령전투",
+  "병자호란",
+  "K808",
+  "K808백호",
+  "백호장갑차",
+  "대한민국국군",
+  "국군장갑차",
+  "조선군",
+  "청나라",
+  "청나라기병",
+  "팔기군",
+  "대체역사",
+  "역사만약",
+  "만약의역사",
+  "조선시대전투",
+  "군사상상",
+  "군사시뮬레이션",
+  "현대무기",
+  "30mm기관포",
+  "국뽕영상",
+  "전쟁애니메이션",
+  "전장연출",
+  "조선대청전쟁",
+  "역사판타지",
+  "시간여행군대",
+  "쌍령",
+  "조선패배",
+  "복수서사",
+  "한국군전력",
+  "armored vehicle",
+  "korean military"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "쌍령의 비극: 얼어붙은 화승총과 절망"
+  },
+  {
+   "start": 75,
+   "title": "청나라 팔기군의 압도적 돌격"
+  },
+  {
+   "start": 150,
+   "title": "시공간의 균열: 설원을 가르는 엔진음"
+  },
+  {
+   "start": 225,
+   "title": "'백호' 등장: 미래에서 온 철갑 괴물"
+  },
+  {
+   "start": 310,
+   "title": "30mm 기관포 사격 개시 - \"과거의 비극은 여기까지다\""
+  },
+  {
+   "start": 440,
+   "title": "패닉에 빠진 청나라군과 적장의 최후"
+  },
+  {
+   "start": 540,
+   "title": "역사 개변: 조선군을 구출한 대한민국 국군"
+  },
+  {
+   "start": 675,
+   "title": "강한 국력이 곧 평화입니다 (결말)"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 20,
+ "comments_top_level": 14,
+ "comments_replies": 6,
+ "comments_by_creator": 4,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 20,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:35:57",
+ "approved": "2026-10-17T16:35+09:00"
+}

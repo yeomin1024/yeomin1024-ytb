@@ -1,0 +1,92 @@
+{
+ "id": "ZtLWS2MvtyQ",
+ "title": "신데렐라 숙빈 최씨의 쓸쓸한 죽음 뒤에 숨겨진 실록의 충격적인 진실",
+ "channel": "역사를 만나다",
+ "channel_id": "UC86Qw0iKH8tMt4DTbCQGzdw",
+ "subs": 228,
+ "views": 40218,
+ "ratio": 176.39,
+ "age_days": 89,
+ "views_per_day": 451.9,
+ "minutes": 17.1,
+ "likes": 457,
+ "comments": 29,
+ "published": "2026-07-19",
+ "queries": "검색:조선왕조실록",
+ "url": "https://www.youtube.com/watch?v=ZtLWS2MvtyQ",
+ "flag": "",
+ "published_at": "2026-07-19T10:00:26Z",
+ "rank": "W40",
+ "set": "web",
+ "folder": "W_ZtLWS2MvtyQ",
+ "sources": [
+  "검색:조선왕조실록"
+ ],
+ "source": "web",
+ "tags": [
+  "조선시대",
+  "숙종",
+  "인현왕후",
+  "희빈장씨",
+  "무수리",
+  "조선왕실",
+  "역사비화",
+  "갑술환국",
+  "기사환국",
+  "무고의옥",
+  "연잉군",
+  "조선역사",
+  "역사다큐",
+  "궁궐야사",
+  "실록진실",
+  "궁녀",
+  "내명부",
+  "조선왕조",
+  "역사탐구",
+  "인물사"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "신데렐라의 쓸쓸한 마지막"
+  },
+  {
+   "start": 45,
+   "title": "궁궐 맨 밑바닥에서 시작된 삶"
+  },
+  {
+   "start": 91,
+   "title": "운명적인 만남과 첫 번째 전환점"
+  },
+  {
+   "start": 138,
+   "title": "목숨을 건 선택, 그리고 왕의 총애"
+  },
+  {
+   "start": 182,
+   "title": "정1품 빈을 향한 초고속 승진"
+  },
+  {
+   "start": 220,
+   "title": "희빈 장씨와의 피할 수 없는 대립"
+  },
+  {
+   "start": 265,
+   "title": "인현왕후의 죽음과 무고의 옥"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 29,
+ "comments_top_level": 17,
+ "comments_replies": 12,
+ "comments_by_creator": 2,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 29,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:26:13",
+ "approved": "2026-10-17T16:26+09:00"
+}

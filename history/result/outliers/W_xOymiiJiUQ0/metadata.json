@@ -1,0 +1,63 @@
+{
+ "id": "xOymiiJiUQ0",
+ "title": "와.. 《남벌》 진짜 미쳤다..🔥 '이병헌&고윤정&이도현' 조합으로 돌아오는 대마도 왜구 토벌 사극영화부터 제작비 '300억'이 들어간 KBS 대형 드라마까지..ㄷㄷ",
+ "channel": "매드무비 : MadMovie",
+ "channel_id": "UCBquPwf_YEAzCmPpd_tfzAA",
+ "subs": 186000,
+ "views": 3038590,
+ "ratio": 16.34,
+ "age_days": 41,
+ "views_per_day": 74112.0,
+ "minutes": 10.9,
+ "likes": 6936,
+ "comments": 1050,
+ "published": "2026-09-05",
+ "queries": "검색:사극",
+ "url": "https://www.youtube.com/watch?v=xOymiiJiUQ0",
+ "flag": "",
+ "published_at": "2026-09-05T07:30:01Z",
+ "rank": "W344",
+ "set": "web",
+ "folder": "W_xOymiiJiUQ0",
+ "sources": [
+  "검색:사극"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 104,
+   "title": "남벌"
+  },
+  {
+   "start": 208,
+   "title": "문무"
+  },
+  {
+   "start": 378,
+   "title": "신의구슬"
+  },
+  {
+   "start": 504,
+   "title": "몽유도원도"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 1052,
+ "comments_top_level": 743,
+ "comments_replies": 309,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 1050,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:35:24",
+ "approved": "2026-10-17T16:35+09:00"
+}

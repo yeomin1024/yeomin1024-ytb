@@ -1,0 +1,99 @@
+{
+ "id": "soKbFyG1ES8",
+ "title": "🥣 조선 주막이 뒤집혔다 🔥 조선시대 DJ의 가야금 EDM 대축제",
+ "channel": "트롯가인 황진이",
+ "channel_id": "UCT2sVXM5XKpyWPkCzl-oXQQ",
+ "subs": 1590,
+ "views": 347492,
+ "ratio": 218.55,
+ "age_days": 124,
+ "views_per_day": 2802.4,
+ "minutes": 7.7,
+ "likes": 1125,
+ "comments": 60,
+ "published": "2026-06-14",
+ "queries": "검색:조선시대 | 검색:조선",
+ "url": "https://www.youtube.com/watch?v=soKbFyG1ES8",
+ "flag": "",
+ "published_at": "2026-06-14T15:33:22Z",
+ "rank": "W28",
+ "set": "web",
+ "folder": "W_soKbFyG1ES8",
+ "sources": [
+  "검색:조선시대",
+  "검색:조선"
+ ],
+ "source": "web",
+ "tags": [
+  "가야금EDM",
+  "조선시대DJ",
+  "주막댄스",
+  "타임슬립음악",
+  "트로트댄스",
+  "가야금댄스",
+  "조선주막",
+  "EDM트로트",
+  "여성보컬",
+  "축제음악"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Gayageum Intro"
+  },
+  {
+   "start": 30,
+   "title": "Verse 1"
+  },
+  {
+   "start": 70,
+   "title": "Chorus"
+  },
+  {
+   "start": 110,
+   "title": "Verse 2"
+  },
+  {
+   "start": 155,
+   "title": "Chorus"
+  },
+  {
+   "start": 200,
+   "title": "Dance Break"
+  },
+  {
+   "start": 245,
+   "title": "Gayageum Solo"
+  },
+  {
+   "start": 295,
+   "title": "Verse 3"
+  },
+  {
+   "start": 340,
+   "title": "Big Chorus"
+  },
+  {
+   "start": 385,
+   "title": "Final Chorus"
+  },
+  {
+   "start": 425,
+   "title": "Outro"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 60,
+ "comments_top_level": 29,
+ "comments_replies": 31,
+ "comments_by_creator": 25,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 60,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:25:54",
+ "approved": "2026-10-17T16:25+09:00"
+}

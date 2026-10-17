@@ -1,0 +1,98 @@
+{
+ "id": "wX-80QWb2tg",
+ "title": "단종의 친누나 경혜공주, 세조에게 한 조선 역사상 가장 잔인한 복수",
+ "channel": "시간책방",
+ "channel_id": "UCRO_sXg6hbNeQjF5Xn_pdeg",
+ "subs": 8520,
+ "views": 940342,
+ "ratio": 110.37,
+ "age_days": 130,
+ "views_per_day": 7233.4,
+ "minutes": 36.6,
+ "likes": 22972,
+ "comments": 861,
+ "published": "2026-06-08",
+ "queries": "검색:조선역사 | 검색:조선왕조실록 | 검색:조선왕조 | 검색:조선",
+ "url": "https://www.youtube.com/watch?v=wX-80QWb2tg",
+ "flag": "",
+ "published_at": "2026-06-08T11:39:05Z",
+ "rank": "W82",
+ "set": "web",
+ "folder": "W_wX-80QWb2tg",
+ "sources": [
+  "검색:조선역사",
+  "검색:조선왕조실록",
+  "검색:조선왕조",
+  "검색:조선"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "내 가족을 죽인 사람에게 아이를 맡길 수 있습니까?"
+  },
+  {
+   "start": 135,
+   "title": "경혜공주의 탄생과 어머니의 비극"
+  },
+  {
+   "start": 360,
+   "title": "인생에서 가장 빛나던 2년"
+  },
+  {
+   "start": 460,
+   "title": "계유정난 — 누나 집에서 끌려간 동생"
+  },
+  {
+   "start": 535,
+   "title": "남편 유배와 경혜공주의 첫 번째 저항"
+  },
+  {
+   "start": 765,
+   "title": "사육신 사건과 연쇄 비극"
+  },
+  {
+   "start": 1035,
+   "title": "칼 없는 복수의 시작 — 아이를 원수에게 보내다"
+  },
+  {
+   "start": 1455,
+   "title": "세조의 유언 — 감옥의 문을 잠그다"
+  },
+  {
+   "start": 1550,
+   "title": "단종의 저주, 세조 집안에 드리운 그림자"
+  },
+  {
+   "start": 1650,
+   "title": "4대에 걸친 설계 — 정미수의 등용"
+  },
+  {
+   "start": 1885,
+   "title": "어머니를 닮은 아들"
+  },
+  {
+   "start": 1910,
+   "title": "경혜공주의 죽음과 정순왕후의 64년 침묵"
+  },
+  {
+   "start": 2155,
+   "title": "570년 뒤, 당신에게 묻습니다"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 864,
+ "comments_top_level": 434,
+ "comments_replies": 430,
+ "comments_by_creator": 262,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 861,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:27:18",
+ "approved": "2026-10-17T16:27+09:00"
+}

@@ -1,0 +1,83 @@
+{
+ "id": "UAw390nt3vQ",
+ "title": "국립현충원에서 가장 좋은 자리, 그 무덤의 주인은 조선의 궁녀였다",
+ "channel": "시간책방",
+ "channel_id": "UCRO_sXg6hbNeQjF5Xn_pdeg",
+ "subs": 8520,
+ "views": 452801,
+ "ratio": 53.15,
+ "age_days": 38,
+ "views_per_day": 11915.8,
+ "minutes": 40.1,
+ "likes": 1825,
+ "comments": 63,
+ "published": "2026-09-08",
+ "queries": "검색:조선왕실",
+ "url": "https://www.youtube.com/watch?v=UAw390nt3vQ",
+ "flag": "",
+ "published_at": "2026-09-08T21:47:30Z",
+ "rank": "W173",
+ "set": "web",
+ "folder": "W_UAw390nt3vQ",
+ "sources": [
+  "검색:조선왕실"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "현충원 안의 이상한 무덤"
+  },
+  {
+   "start": 175,
+   "title": "아홉 살에 궁으로 들어간 아이"
+  },
+  {
+   "start": 315,
+   "title": "궁녀라는 직업의 실체"
+  },
+  {
+   "start": 530,
+   "title": "아내를 이레 만에 내보낸 임금"
+  },
+  {
+   "start": 815,
+   "title": "승은, 그리고 더 위험해진 자리"
+  },
+  {
+   "start": 1010,
+   "title": "경빈 박씨는 왜 죽었는가"
+  },
+  {
+   "start": 1135,
+   "title": "왕이 죽고 궁을 나오다"
+  },
+  {
+   "start": 1680,
+   "title": "18년 뒤, 손자가 왕이 되다"
+  },
+  {
+   "start": 2095,
+   "title": "무덤이 먼저였다"
+  },
+  {
+   "start": 2220,
+   "title": "조선 후기 340년의 시작점"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 63,
+ "comments_top_level": 43,
+ "comments_replies": 20,
+ "comments_by_creator": 9,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 63,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:30:32",
+ "approved": "2026-10-17T16:30+09:00"
+}

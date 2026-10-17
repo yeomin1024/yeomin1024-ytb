@@ -1,0 +1,94 @@
+{
+ "id": "AcrIqDy_Okc",
+ "title": "밥 한 끼에 3공기 먹고도 굶어 죽었다?\" 사극이 철저히 숨긴 조선 백성들의 소름 돋는 진짜 밥상",
+ "channel": "실록책방",
+ "channel_id": "UCPW1jzKeROgLj6V7h_IpP3Q",
+ "subs": 2230,
+ "views": 86412,
+ "ratio": 38.75,
+ "age_days": 89,
+ "views_per_day": 970.9,
+ "minutes": 19.5,
+ "likes": 401,
+ "comments": 100,
+ "published": "2026-07-19",
+ "queries": "검색:사극",
+ "url": "https://www.youtube.com/watch?v=AcrIqDy_Okc",
+ "flag": "",
+ "published_at": "2026-07-19T23:07:32Z",
+ "rank": "W214",
+ "set": "web",
+ "folder": "W_AcrIqDy_Okc",
+ "sources": [
+  "검색:사극"
+ ],
+ "source": "web",
+ "tags": [
+  "조선시대",
+  "조선 음식",
+  "조선 밥상",
+  "조선 서민",
+  "조선 백성",
+  "보릿고개",
+  "한국사",
+  "조선 역사",
+  "사계절 음식",
+  "우금령",
+  "경신대기근",
+  "고구마 전래",
+  "조엄",
+  "순창고추장",
+  "세종 소갈증",
+  "김장 역사",
+  "장 담그기",
+  "구황작물",
+  "조선 생활사",
+  "밥상 역사",
+  "역사 이야기",
+  "한국사 이야기"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "많이 먹어도 배고팠던 이유"
+  },
+  {
+   "start": 57,
+   "title": "봄, 풀을 캐야 사는 계절"
+  },
+  {
+   "start": 202,
+   "title": "여름, 고기 앞의 높은 벽"
+  },
+  {
+   "start": 430,
+   "title": "가을, 장독대에 담긴 지혜"
+  },
+  {
+   "start": 644,
+   "title": "겨울, 그리고 뒤늦게 온 구원자"
+  },
+  {
+   "start": 952,
+   "title": "세 공기 반의 진짜 비밀"
+  },
+  {
+   "start": 1117,
+   "title": "오늘 우리 밥상 앞에서"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 100,
+ "comments_top_level": 63,
+ "comments_replies": 37,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 100,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:31:43",
+ "approved": "2026-10-17T16:31+09:00"
+}

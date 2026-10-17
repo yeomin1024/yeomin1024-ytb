@@ -1,0 +1,79 @@
+{
+ "id": "XneTj9iI6Y8",
+ "title": "이집트가 멈춘 피라미드를 천 년 동안 쌓은 나라 — 쿠시 왕국의 흥망사",
+ "channel": "역사쥐",
+ "channel_id": "UCEfssoAdudE8EqUaZDNwa9w",
+ "subs": 406,
+ "views": 15588,
+ "ratio": 38.39,
+ "age_days": 21,
+ "views_per_day": 742.3,
+ "minutes": 17.5,
+ "likes": 52,
+ "comments": 10,
+ "published": "2026-09-25",
+ "queries": "검색:고대문명",
+ "url": "https://www.youtube.com/watch?v=XneTj9iI6Y8",
+ "flag": "",
+ "published_at": "2026-09-25T14:26:10Z",
+ "rank": "W215",
+ "set": "web",
+ "folder": "W_XneTj9iI6Y8",
+ "sources": [
+  "검색:고대문명"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "피라미드가 가장 많은 나라는?"
+  },
+  {
+   "start": 71,
+   "title": "무덤 둘레에서 나온 소머리 4,899개"
+  },
+  {
+   "start": 185,
+   "title": "굶은 말들을 보고 분노한 왕"
+  },
+  {
+   "start": 326,
+   "title": "800년 만에 다시 올라간 피라미드"
+  },
+  {
+   "start": 417,
+   "title": "목이 부러진 석상 일곱 개"
+  },
+  {
+   "start": 567,
+   "title": "왕에게 죽으라 명한 신관들"
+  },
+  {
+   "start": 675,
+   "title": "계단 밑에 묻힌 황제의 얼굴"
+  },
+  {
+   "start": 809,
+   "title": "요란한 멸망 없이 사라진 왕국"
+  },
+  {
+   "start": 904,
+   "title": "아직 아무도 읽지 못한 글자"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 10,
+ "comments_top_level": 9,
+ "comments_replies": 1,
+ "comments_by_creator": 2,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 10,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:31:45",
+ "approved": "2026-10-17T16:31+09:00"
+}

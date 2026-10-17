@@ -1,0 +1,75 @@
+{
+ "id": "2KijxN_U_rs",
+ "title": "팰월드 1.0 고대 문명 테크용 멀티작업팰 추천 (세계수 이후)",
+ "channel": "퇴근한광대",
+ "channel_id": "UC4z3eLQgJmf5Q4n3-wJJG7g",
+ "subs": 7090,
+ "views": 69431,
+ "ratio": 9.79,
+ "age_days": 77,
+ "views_per_day": 901.7,
+ "minutes": 6.5,
+ "likes": 515,
+ "comments": 110,
+ "published": "2026-07-31",
+ "queries": "검색:고대문명",
+ "url": "https://www.youtube.com/watch?v=2KijxN_U_rs",
+ "flag": "",
+ "published_at": "2026-07-31T09:00:18Z",
+ "rank": "W435",
+ "set": "web",
+ "folder": "W_2KijxN_U_rs",
+ "sources": [
+  "검색:고대문명"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝"
+  },
+  {
+   "start": 27,
+   "title": "고대 건물 설명"
+  },
+  {
+   "start": 43,
+   "title": "작업대"
+  },
+  {
+   "start": 106,
+   "title": "발전기"
+  },
+  {
+   "start": 152,
+   "title": "화로"
+  },
+  {
+   "start": 213,
+   "title": "재배기&부엌"
+  },
+  {
+   "start": 279,
+   "title": "생성기&금화"
+  },
+  {
+   "start": 363,
+   "title": "마무리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 110,
+ "comments_top_level": 60,
+ "comments_replies": 50,
+ "comments_by_creator": 35,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 110,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:38:10",
+ "approved": "2026-10-17T16:38+09:00"
+}

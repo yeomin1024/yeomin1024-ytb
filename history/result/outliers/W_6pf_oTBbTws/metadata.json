@@ -1,0 +1,91 @@
+{
+ "id": "6pf_oTBbTws",
+ "title": "\"스파이더맨보다 이순신\" 미국 덕후들이 46만 부 사재기한 진짜 이유",
+ "channel": "이상하TV",
+ "channel_id": "UCsOFUBNmRjtvK2TQcITBVEA",
+ "subs": 12400,
+ "views": 132226,
+ "ratio": 10.66,
+ "age_days": 10,
+ "views_per_day": 13222.6,
+ "minutes": 18.9,
+ "likes": 1886,
+ "comments": 120,
+ "published": "2026-10-06",
+ "queries": "검색:이순신",
+ "url": "https://www.youtube.com/watch?v=6pf_oTBbTws",
+ "flag": "",
+ "published_at": "2026-10-06T09:00:10Z",
+ "rank": "W413",
+ "set": "web",
+ "folder": "W_6pf_oTBbTws",
+ "sources": [
+  "검색:이순신"
+ ],
+ "source": "web",
+ "tags": [
+  "난중일기",
+  "미국 만화시장",
+  "스탠 리",
+  "온리 콤판",
+  "이순신",
+  "이순신 만화",
+  "임진왜란"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "미국 박람회의 이순신 열풍"
+  },
+  {
+   "start": 35,
+   "title": "작가 온리 콤판의 출발점"
+  },
+  {
+   "start": 145,
+   "title": "출판 거절과 직접 판매"
+  },
+  {
+   "start": 253,
+   "title": "실존 영웅의 압도적 기록"
+  },
+  {
+   "start": 357,
+   "title": "열세를 뒤집은 해전 서사"
+  },
+  {
+   "start": 429,
+   "title": "세계 작가들이 만든 협업"
+  },
+  {
+   "start": 496,
+   "title": "스탠 리가 쓴 특별한 서문"
+  },
+  {
+   "start": 551,
+   "title": "사료 연구와 역사 고증"
+  },
+  {
+   "start": 653,
+   "title": "인디 만화의 판매 기록"
+  },
+  {
+   "start": 839,
+   "title": "한국 방문과 다음 이야기"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 120,
+ "comments_top_level": 96,
+ "comments_replies": 24,
+ "comments_by_creator": 2,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 120,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:37:45",
+ "approved": "2026-10-17T16:37+09:00"
+}

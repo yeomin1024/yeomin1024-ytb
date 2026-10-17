@@ -1,0 +1,76 @@
+{
+ "id": "_6pNuFtoURo",
+ "title": "사극이 절대 안 보여준 조선 주막의 충격적인 진짜 모습",
+ "channel": "이슈의 역사",
+ "channel_id": "UCJWcKgq3QEaVQqyiRgiiQag",
+ "subs": 7910,
+ "views": 175417,
+ "ratio": 22.18,
+ "age_days": 172,
+ "views_per_day": 1019.9,
+ "minutes": 29.8,
+ "likes": 2221,
+ "comments": 398,
+ "published": "2026-04-27",
+ "queries": "검색:역사채널 | 검색:사극",
+ "url": "https://www.youtube.com/watch?v=_6pNuFtoURo",
+ "flag": "",
+ "published_at": "2026-04-27T20:30:04Z",
+ "rank": "W291",
+ "set": "web",
+ "folder": "W__6pNuFtoURo",
+ "sources": [
+  "검색:역사채널",
+  "검색:사극"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "사극이 숨긴 주막의 첫 장면"
+  },
+  {
+   "start": 190,
+   "title": "주막은 어떻게 생겨났나"
+  },
+  {
+   "start": 420,
+   "title": "한 방에 수십 명, 잠자리의 충격"
+  },
+  {
+   "start": 670,
+   "title": "음식은 공짜, 술값만 받는 시스템"
+  },
+  {
+   "start": 910,
+   "title": "주모의 진짜 정체"
+  },
+  {
+   "start": 1150,
+   "title": "도둑과 살인, 주막의 어두운 밤"
+  },
+  {
+   "start": 1440,
+   "title": "사극이 보여주지 않은 마지막 풍경"
+  },
+  {
+   "start": 1680,
+   "title": "조선 주막의 진짜 얼굴"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 398,
+ "comments_top_level": 213,
+ "comments_replies": 185,
+ "comments_by_creator": 6,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 398,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:33:36",
+ "approved": "2026-10-17T16:33+09:00"
+}

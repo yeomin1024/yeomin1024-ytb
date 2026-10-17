@@ -1,0 +1,75 @@
+{
+ "id": "-H2SXWoldbw",
+ "title": "오천 명이 사흘을 버틴 그날, 프레임 밖엔 한국 청년들이 있었다 | 지평리 전투",
+ "channel": "역사참판",
+ "channel_id": "UCZPAiWanwnY0br3ZDQgPh7g",
+ "subs": 2890,
+ "views": 45136,
+ "ratio": 15.62,
+ "age_days": 61,
+ "views_per_day": 739.9,
+ "minutes": 42.3,
+ "likes": 411,
+ "comments": 24,
+ "published": "2026-08-16",
+ "queries": "검색:역사채널",
+ "url": "https://www.youtube.com/watch?v=-H2SXWoldbw",
+ "flag": "",
+ "published_at": "2026-08-16T12:00:07Z",
+ "rank": "W350",
+ "set": "web",
+ "folder": "W_-H2SXWoldbw",
+ "sources": [
+  "검색:역사채널"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "별을 스스로 뗀 장군, 그리고 프레임 밖의 이름들"
+  },
+  {
+   "start": 196,
+   "title": "지평리 이전의 겨울: 얕본 자와 준비한 자"
+  },
+  {
+   "start": 417,
+   "title": "적의 언어를 아는 대령, 프리먼"
+  },
+  {
+   "start": 754,
+   "title": "그 원 안에 있던 한국 청년들"
+  },
+  {
+   "start": 930,
+   "title": "첫 번째 밤, 나팔 소리와 죽음의 그물"
+  },
+  {
+   "start": 1498,
+   "title": "뚫린 남쪽 방어선, 그리고 김재세"
+  },
+  {
+   "start": 1989,
+   "title": "포위를 뚫은 전차와 가장 씁쓸한 진실"
+  },
+  {
+   "start": 2545,
+   "title": "승리의 사진에서 잘려나간 얼굴들"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 24,
+ "comments_top_level": 13,
+ "comments_replies": 11,
+ "comments_by_creator": 9,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 24,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:35:39",
+ "approved": "2026-10-17T16:35+09:00"
+}

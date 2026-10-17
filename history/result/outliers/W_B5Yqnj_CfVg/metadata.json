@@ -1,0 +1,80 @@
+{
+ "id": "B5Yqnj_CfVg",
+ "title": "[3부작] 이순신의 실제 얼굴을 찾아서(최종회)",
+ "channel": "페이스 아카이브",
+ "channel_id": "UCJiD85MxUez5xYgCfFW8ytA",
+ "subs": 1560,
+ "views": 409367,
+ "ratio": 262.41,
+ "age_days": 41,
+ "views_per_day": 9984.6,
+ "minutes": 13.7,
+ "likes": 4111,
+ "comments": 925,
+ "published": "2026-09-05",
+ "queries": "검색:이순신",
+ "url": "https://www.youtube.com/watch?v=B5Yqnj_CfVg",
+ "flag": "",
+ "published_at": "2026-09-05T11:45:31Z",
+ "rank": "W20",
+ "set": "web",
+ "folder": "W_B5Yqnj_CfVg",
+ "sources": [
+  "검색:이순신"
+ ],
+ "source": "web",
+ "tags": [
+  "김명민",
+  "이순신황현필",
+  "설민석이순신",
+  "이순신다큐",
+  "이순신리더십",
+  "이순신미국만화",
+  "李舜臣 実際の姿",
+  "이순신해외반응",
+  "이순신요약",
+  "이순신실제무덤",
+  "이순신진짜얼굴",
+  "이순신얼굴AI"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝 및 시리즈 요약"
+  },
+  {
+   "start": 135,
+   "title": "무과형 초상화 분석 흐름"
+  },
+  {
+   "start": 270,
+   "title": "문과형 초상화 계보 정리"
+  },
+  {
+   "start": 430,
+   "title": "직계 후손 초상 및 사진 비교 (이봉상, 이달해, 이규갑 등)"
+  },
+  {
+   "start": 650,
+   "title": "인공지능 교차 복원을 통한 최종 얼굴 재현"
+  },
+  {
+   "start": 740,
+   "title": "에필로그 및 클로징"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 925,
+ "comments_top_level": 538,
+ "comments_replies": 387,
+ "comments_by_creator": 237,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 925,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:25:38",
+ "approved": "2026-10-17T16:25+09:00"
+}

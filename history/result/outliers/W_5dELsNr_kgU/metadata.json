@@ -1,0 +1,101 @@
+{
+ "id": "5dELsNr_kgU",
+ "title": "왕이 직접 만든 괴물 | 조선 역사상 가장 위험한 남자 홍윤성의 모든 것",
+ "channel": "역사 추적자",
+ "channel_id": "UC2fFAvtMNHcxdw7BKmSGdnQ",
+ "subs": 8060,
+ "views": 76004,
+ "ratio": 9.43,
+ "age_days": 162,
+ "views_per_day": 469.2,
+ "minutes": 28.8,
+ "likes": 1286,
+ "comments": 68,
+ "published": "2026-05-07",
+ "queries": "검색:역사채널",
+ "url": "https://www.youtube.com/watch?v=5dELsNr_kgU",
+ "flag": "",
+ "published_at": "2026-05-07T09:09:06Z",
+ "rank": "W446",
+ "set": "web",
+ "folder": "W_5dELsNr_kgU",
+ "sources": [
+  "검색:역사채널"
+ ],
+ "source": "web",
+ "tags": [
+  "홍윤성",
+  "세조",
+  "조선역사",
+  "한국역사",
+  "역사다큐",
+  "조선왕조실록",
+  "계유정난",
+  "정난공신",
+  "영의정",
+  "한명회",
+  "조선최악",
+  "권력형범죄",
+  "역사채널",
+  "조선이야기",
+  "세조실록",
+  "조선공신",
+  "역사롱폼",
+  "한국역사채널",
+  "조선권력",
+  "역사유튜브",
+  "조선시대",
+  "역사다큐멘터리",
+  "세조치세",
+  "조선정치",
+  "단종"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝 — 처벌받지 않은 남자"
+  },
+  {
+   "start": 120,
+   "title": "1장 · 괴물의 탄생 — 홍윤성은 누구인가"
+  },
+  {
+   "start": 480,
+   "title": "2장 · 피로 세운 왕좌 — 계유정난의 진실"
+  },
+  {
+   "start": 840,
+   "title": "3장 · 왕의 남자 — 권력의 정점"
+  },
+  {
+   "start": 1140,
+   "title": "4장 · 통제 불능 — 살인, 폭행, 강탈 (핵심)"
+  },
+  {
+   "start": 1620,
+   "title": "5장 · 세조는 왜 눈을 감았나 — 왕의 침묵"
+  },
+  {
+   "start": 1920,
+   "title": "6장 · 권력의 끝 — 남은 것과 사라진 것"
+  },
+  {
+   "start": 2220,
+   "title": "에필로그 · 역사가 우리에게 묻는 것"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 57,
+ "comments_top_level": 38,
+ "comments_replies": 19,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 68,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:38:57",
+ "approved": "2026-10-17T16:38+09:00"
+}

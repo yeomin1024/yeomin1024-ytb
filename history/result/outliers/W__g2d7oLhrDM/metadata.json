@@ -1,0 +1,128 @@
+{
+ "id": "_g2d7oLhrDM",
+ "title": "제주는 원래 한국이 아니었습니다 | 천 년 동안 왕이 있었던 섬, 탐라의 모든 것",
+ "channel": "우리 모두의 역사",
+ "channel_id": "UCYa04jnvh4zbvhpl4U93K9A",
+ "subs": 5100,
+ "views": 255666,
+ "ratio": 50.13,
+ "age_days": 28,
+ "views_per_day": 9130.9,
+ "minutes": 92.4,
+ "likes": 913,
+ "comments": 34,
+ "published": "2026-09-18",
+ "queries": "검색:역사채널",
+ "url": "https://www.youtube.com/watch?v=_g2d7oLhrDM",
+ "flag": "",
+ "published_at": "2026-09-18T11:00:26Z",
+ "rank": "W181",
+ "set": "web",
+ "folder": "W__g2d7oLhrDM",
+ "sources": [
+  "검색:역사채널"
+ ],
+ "source": "web",
+ "tags": [
+  "역사",
+  "조선사",
+  "평민역사",
+  "조선시대",
+  "경신대기근",
+  "임진왜란",
+  "일제시대",
+  "친일파"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "비행기가 내려앉는 섬, 그리고 수평선을 채운 함대"
+  },
+  {
+   "start": 120,
+   "title": "바다는 국경이 아니라 길이었다"
+  },
+  {
+   "start": 330,
+   "title": "삼성혈 신화와 그 이면"
+  },
+  {
+   "start": 540,
+   "title": "주호와 오수전 - 이천 년 전의 연결"
+  },
+  {
+   "start": 780,
+   "title": "탐라라는 이름의 등장"
+  },
+  {
+   "start": 990,
+   "title": "사백칠십육년 백제 궁정의 은솔"
+  },
+  {
+   "start": 1260,
+   "title": "동성왕이 함대를 돌린 날"
+  },
+  {
+   "start": 1530,
+   "title": "백제 멸망과 신라 항복"
+  },
+  {
+   "start": 1800,
+   "title": "일본으로 건너간 왕자들"
+  },
+  {
+   "start": 2100,
+   "title": "고려 태조의 성주와 왕자"
+  },
+  {
+   "start": 2400,
+   "title": "천백오년 나라에서 지방으로"
+  },
+  {
+   "start": 2700,
+   "title": "삼별초 최후의 바다"
+  },
+  {
+   "start": 3060,
+   "title": "원나라 직할령이 된 섬"
+  },
+  {
+   "start": 3420,
+   "title": "말과 목호 그리고 백 년"
+  },
+  {
+   "start": 3780,
+   "title": "천삼백칠십사년 명월포"
+  },
+  {
+   "start": 4140,
+   "title": "조선 문서 한 장으로 끝난 천 년"
+  },
+  {
+   "start": 4500,
+   "title": "탐라는 한국사인가"
+  },
+  {
+   "start": 4920,
+   "title": "남아 있는 것들"
+  },
+  {
+   "start": 5280,
+   "title": "다시 수평선 앞에서"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 34,
+ "comments_top_level": 22,
+ "comments_replies": 12,
+ "comments_by_creator": 4,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 34,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:30:39",
+ "approved": "2026-10-17T16:30+09:00"
+}

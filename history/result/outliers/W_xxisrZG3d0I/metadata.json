@@ -1,0 +1,87 @@
+{
+ "id": "xxisrZG3d0I",
+ "title": "[3부작] 이순신의 실제 얼굴을 찾아서2 #이순신후손",
+ "channel": "페이스 아카이브",
+ "channel_id": "UCJiD85MxUez5xYgCfFW8ytA",
+ "subs": 1560,
+ "views": 100682,
+ "ratio": 64.54,
+ "age_days": 45,
+ "views_per_day": 2237.4,
+ "minutes": 19.0,
+ "likes": 482,
+ "comments": 81,
+ "published": "2026-09-01",
+ "queries": "검색:이순신",
+ "url": "https://www.youtube.com/watch?v=xxisrZG3d0I",
+ "flag": "",
+ "published_at": "2026-09-01T23:00:08Z",
+ "rank": "W143",
+ "set": "web",
+ "folder": "W_xxisrZG3d0I",
+ "sources": [
+  "검색:이순신"
+ ],
+ "source": "web",
+ "tags": [
+  "명량",
+  "거북선 실제모습",
+  "이순신 AI 복원",
+  "불멸의 이순신",
+  "김명민 이순신",
+  "이순신 황현필",
+  "이순신 요약",
+  "미국 이순신 만화",
+  "설민석 이순신",
+  "이순신 다큐",
+  "한산",
+  "노량",
+  "난중일기",
+  "학익진",
+  "백의종군",
+  "현충사",
+  "이순신 명대사",
+  "임진왜란 요약",
+  "충무공 시호",
+  "이순신 리더십",
+  "李舜臣AI",
+  "李舜臣 顔",
+  "李舜臣 実際の姿"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝 및 시리즈 요약"
+  },
+  {
+   "start": 50,
+   "title": "오래된 초상화 분석 흐름"
+  },
+  {
+   "start": 693,
+   "title": "이순신 초상화를 대하는 자세"
+  },
+  {
+   "start": 1080,
+   "title": "무과형 초상화와 문과형 초상화 계보도"
+  },
+  {
+   "start": 1130,
+   "title": "마무리 멘트 및 3부 예약"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 81,
+ "comments_top_level": 44,
+ "comments_replies": 37,
+ "comments_by_creator": 27,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 81,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:29:35",
+ "approved": "2026-10-17T16:29+09:00"
+}

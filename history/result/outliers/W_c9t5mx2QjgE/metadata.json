@@ -1,0 +1,75 @@
+{
+ "id": "c9t5mx2QjgE",
+ "title": "미 해병대 최악의 전투 '장진호' — 같은 호수, 한쪽만 살아 나온 이유",
+ "channel": "역사참판",
+ "channel_id": "UCZPAiWanwnY0br3ZDQgPh7g",
+ "subs": 2890,
+ "views": 15199,
+ "ratio": 5.26,
+ "age_days": 86,
+ "views_per_day": 176.7,
+ "minutes": 16.6,
+ "likes": 221,
+ "comments": 31,
+ "published": "2026-07-22",
+ "queries": "검색:역사채널",
+ "url": "https://www.youtube.com/watch?v=c9t5mx2QjgE",
+ "flag": "",
+ "published_at": "2026-07-22T11:00:33Z",
+ "rank": "W535",
+ "set": "web",
+ "folder": "W_c9t5mx2QjgE",
+ "sources": [
+  "검색:역사채널"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "모두가 안다고 믿었던 그 겨울"
+  },
+  {
+   "start": 86,
+   "title": "크리스마스 전에 끝난다는 착각"
+  },
+  {
+   "start": 185,
+   "title": "혼자만 최악을 준비한 지휘관"
+  },
+  {
+   "start": 284,
+   "title": "산이 움직이던 밤"
+  },
+  {
+   "start": 440,
+   "title": "같은 호수 반대편, 준비 못 한 부대"
+  },
+  {
+   "start": 563,
+   "title": "후퇴가 아니라고 말한 진짜 이유"
+  },
+  {
+   "start": 762,
+   "title": "전쟁 전체를 관통한 하나의 원리"
+  },
+  {
+   "start": 904,
+   "title": "얼어붙은 호수가 건네는 질문"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 31,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:39:10",
+ "approved": "2026-10-17T16:39+09:00"
+}

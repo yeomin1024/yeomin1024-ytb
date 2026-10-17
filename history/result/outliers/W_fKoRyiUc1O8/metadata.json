@@ -1,0 +1,91 @@
+{
+ "id": "fKoRyiUc1O8",
+ "title": "몰락한 명나라 귀족들 어떻게 한국 성씨가 되었을까? | 역사 | 역사를 짚다",
+ "channel": "짚다 ZIPDA",
+ "channel_id": "UCMw904noMyAeLY_TJBvYNLg",
+ "subs": 6590,
+ "views": 270982,
+ "ratio": 41.12,
+ "age_days": 54,
+ "views_per_day": 5018.2,
+ "minutes": 40.5,
+ "likes": 1847,
+ "comments": 263,
+ "published": "2026-08-24",
+ "queries": "검색:명나라",
+ "url": "https://www.youtube.com/watch?v=fKoRyiUc1O8",
+ "flag": "",
+ "published_at": "2026-08-24T04:19:40Z",
+ "rank": "W206",
+ "set": "web",
+ "folder": "W_fKoRyiUc1O8",
+ "sources": [
+  "검색:명나라"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "🌑 압록강에서 시작된 이야기"
+  },
+  {
+   "start": 172,
+   "title": "🧭 그들은 왜 조선을 선택했을까?"
+  },
+  {
+   "start": 303,
+   "title": "⚔️ 조선으로 들어온 사람들의 정체"
+  },
+  {
+   "start": 457,
+   "title": "🌊 한반도 남쪽으로 향한 사람들"
+  },
+  {
+   "start": 668,
+   "title": "📜 살아남기 위해 지워야 했던 흔적"
+  },
+  {
+   "start": 960,
+   "title": "🏯 조선은 왜 이들을 품었을까?"
+  },
+  {
+   "start": 1117,
+   "title": "🌾 낯선 땅에서 시작된 새로운 삶"
+  },
+  {
+   "start": 1395,
+   "title": "🕯️ 사라진 조국을 기억하는 공간"
+  },
+  {
+   "start": 1545,
+   "title": "⏳ 100년이 흐른 뒤 달라진 후손들"
+  },
+  {
+   "start": 1797,
+   "title": "🌏 일본으로 향한 사람들은 달랐다"
+  },
+  {
+   "start": 1944,
+   "title": "📊 오늘날까지 남아 있는 흔적"
+  },
+  {
+   "start": 2247,
+   "title": "🧬 성씨와 본관이 들려주는 이야기"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 262,
+ "comments_top_level": 115,
+ "comments_replies": 147,
+ "comments_by_creator": 45,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 263,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:31:30",
+ "approved": "2026-10-17T16:31+09:00"
+}

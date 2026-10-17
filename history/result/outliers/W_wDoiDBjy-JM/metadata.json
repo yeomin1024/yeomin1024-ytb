@@ -1,0 +1,89 @@
+{
+ "id": "wDoiDBjy-JM",
+ "title": "인더스 문명은 왜 아무도 못 읽는 글자만 남기고 사라졌을까",
+ "channel": "인류미터기",
+ "channel_id": "UCGZCmdyCkH7LzWodk02DHVg",
+ "subs": 645,
+ "views": 162322,
+ "ratio": 251.66,
+ "age_days": 63,
+ "views_per_day": 2576.5,
+ "minutes": 18.4,
+ "likes": 132,
+ "comments": 32,
+ "published": "2026-08-14",
+ "queries": "검색:고대문명",
+ "url": "https://www.youtube.com/watch?v=wDoiDBjy-JM",
+ "flag": "",
+ "published_at": "2026-08-14T21:53:46Z",
+ "rank": "W22",
+ "set": "web",
+ "folder": "W_wDoiDBjy-JM",
+ "sources": [
+  "검색:고대문명"
+ ],
+ "source": "web",
+ "tags": [
+  "인더스문명",
+  "인더스 문명",
+  "고대 문명",
+  "인류의 기원",
+  "고고학",
+  "세계사",
+  "문명",
+  "인류 최초 문명",
+  "고대사",
+  "미스터리",
+  "인류 역사",
+  "유네스코",
+  "청동기",
+  "도시 문명",
+  "하수도",
+  "고대 유적",
+  "세계 고대 문명",
+  "인류 문명",
+  "인류미터기",
+  "고대문명",
+  "역사 미스터리"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "왕 없는 문명, 인더스의 시작"
+  },
+  {
+   "start": 150,
+   "title": "로마보다 2000년 앞선 하수도의 충격"
+  },
+  {
+   "start": 320,
+   "title": "모두를 위한 '수영장', 평등한 도시의 증거"
+  },
+  {
+   "start": 490,
+   "title": "100년째 읽을 수 없는 400개의 문자"
+  },
+  {
+   "start": 660,
+   "title": "칼이 아닌 비가 무너뜨린 문명"
+  },
+  {
+   "start": 870,
+   "title": "철도 자갈이 된 유네스코 유산"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 32,
+ "comments_top_level": 21,
+ "comments_replies": 11,
+ "comments_by_creator": 8,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 32,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:25:44",
+ "approved": "2026-10-17T16:25+09:00"
+}

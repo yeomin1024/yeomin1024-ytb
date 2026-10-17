@@ -1,0 +1,75 @@
+{
+ "id": "hAbwSDdS4ug",
+ "title": "\"중국 독점이 깨졌습니다\" 미국이 11조 들고 울산 고려아연 앞에 무릎 꿇은 진짜 이유",
+ "channel": "머리가 좋아지는 지박사",
+ "channel_id": "UC4rZP6di8Qd7Rh_CRW9LERw",
+ "subs": 34100,
+ "views": 104756,
+ "ratio": 3.07,
+ "age_days": 173,
+ "views_per_day": 605.5,
+ "minutes": 20.8,
+ "likes": 1573,
+ "comments": 42,
+ "published": "2026-04-26",
+ "queries": "검색:고려",
+ "url": "https://www.youtube.com/watch?v=hAbwSDdS4ug",
+ "flag": "",
+ "published_at": "2026-04-26T22:00:42Z",
+ "rank": "W620",
+ "set": "web",
+ "folder": "W_hAbwSDdS4ug",
+ "sources": [
+  "검색:고려"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "11조가 울산에 떨어진 날"
+  },
+  {
+   "start": 34,
+   "title": "희토류는 사실 흔합니다, 그런데 왜 90%가 중국일까요"
+  },
+  {
+   "start": 216,
+   "title": "F-35 한 대 420kg, 시진핑 전화 한 통으로 멈추는 미군"
+  },
+  {
+   "start": 393,
+   "title": "미국이 찾은 유일한 답, 울산의 50년"
+  },
+  {
+   "start": 641,
+   "title": "불과 몇 달 차이, 우리가 모르는 사이 벌어졌던 일"
+  },
+  {
+   "start": 813,
+   "title": "미국이 외국 기업 본사 지분을 산 사상 첫 사례"
+  },
+  {
+   "start": 1034,
+   "title": "록히드마틴·알타리소스·도시광산 — 다음 라운드는 이미 시작됐습니다"
+  },
+  {
+   "start": 1179,
+   "title": "자원 없는 나라의 기술이 자원 많은 나라의 무기를 이겼습니다"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 42,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:39:22",
+ "approved": "2026-10-17T16:39+09:00"
+}

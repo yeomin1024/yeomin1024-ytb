@@ -1,0 +1,76 @@
+{
+ "id": "RvQFZXKtb6A",
+ "title": "평생 낳고 또 낳았던 세종의 아내... '다산 왕비'라는 포장지에 가려진 소헌왕후의 기구한 일생",
+ "channel": "색다른역사",
+ "channel_id": "UCN_EGdftttR82-IbfIoqW_g",
+ "subs": 359,
+ "views": 259519,
+ "ratio": 722.89,
+ "age_days": 90,
+ "views_per_day": 2883.5,
+ "minutes": 35.7,
+ "likes": 634,
+ "comments": 79,
+ "published": "2026-07-18",
+ "queries": "검색:세종대왕 | 검색:세종",
+ "url": "https://www.youtube.com/watch?v=RvQFZXKtb6A",
+ "flag": "",
+ "published_at": "2026-07-18T08:56:40Z",
+ "rank": "W2",
+ "set": "web",
+ "folder": "W_RvQFZXKtb6A",
+ "sources": [
+  "검색:세종대왕",
+  "검색:세종"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "열두 살 신부, 열 살 신랑"
+  },
+  {
+   "start": 299,
+   "title": "세자가 바뀌던 날"
+  },
+  {
+   "start": 395,
+   "title": "국모가 되던 날의 배 속"
+  },
+  {
+   "start": 537,
+   "title": "닫혔던 사건이 다시 열리다"
+  },
+  {
+   "start": 710,
+   "title": "조정이 그 딸을 두고 벌인 논쟁"
+  },
+  {
+   "start": 964,
+   "title": "왕비를 남긴 단 한 문장"
+  },
+  {
+   "start": 1153,
+   "title": "스물두 해, 그 몸의 기록"
+  },
+  {
+   "start": 1619,
+   "title": "이름은 남고, 목소리는 남지 않고"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 79,
+ "comments_top_level": 39,
+ "comments_replies": 40,
+ "comments_by_creator": 23,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 79,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:25:21",
+ "approved": "2026-10-17T16:25+09:00"
+}

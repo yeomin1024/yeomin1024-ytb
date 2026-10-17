@@ -1,0 +1,89 @@
+{
+ "id": "e3Aax9sONqQ",
+ "title": "조선이 감춘 엿새의 학살 — 고려 왕족 474년 핏줄은 어떻게 사라졌나",
+ "channel": "새벽이 깨운 역사",
+ "channel_id": "UCyu-XgE2sXmLLoawIkXlzTg",
+ "subs": 9750,
+ "views": 156399,
+ "ratio": 16.04,
+ "age_days": 123,
+ "views_per_day": 1271.5,
+ "minutes": 50.1,
+ "likes": 3788,
+ "comments": 371,
+ "published": "2026-06-15",
+ "queries": "검색:고려",
+ "url": "https://www.youtube.com/watch?v=e3Aax9sONqQ",
+ "flag": "",
+ "published_at": "2026-06-15T22:00:05Z",
+ "rank": "W347",
+ "set": "web",
+ "folder": "W_e3Aax9sONqQ",
+ "sources": [
+  "검색:고려"
+ ],
+ "source": "web",
+ "tags": [
+  "왕씨 몰살",
+  "고려 왕족 최후",
+  "공양왕 죽음",
+  "개성 왕씨 성씨 유래",
+  "조선 건국 학살"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "돌아오지 않은 배"
+  },
+  {
+   "start": 183,
+   "title": "코리아 — 474년 고려의 무게"
+  },
+  {
+   "start": 418,
+   "title": "영웅 이성계, 그리고 무너지는 고려"
+  },
+  {
+   "start": 819,
+   "title": "위화도 회군과 정몽주, 선죽교"
+  },
+  {
+   "start": 1341,
+   "title": "관용에서 학살로 — 이흥무 옥사"
+  },
+  {
+   "start": 1654,
+   "title": "엿새의 학살 (강화·삼척·거제)"
+  },
+  {
+   "start": 1960,
+   "title": "구멍 뚫린 배, 그리고 공양왕의 두 무덤"
+  },
+  {
+   "start": 2167,
+   "title": "살아남은 자들 — 성을 바꾼 핏줄"
+  },
+  {
+   "start": 2569,
+   "title": "죽인 나라가 되살리다 — 숭의전과 복권"
+  },
+  {
+   "start": 2734,
+   "title": "경순왕과 마의태자, 그리고 남은 질문"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 371,
+ "comments_top_level": 238,
+ "comments_replies": 133,
+ "comments_by_creator": 11,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 371,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:35:35",
+ "approved": "2026-10-17T16:35+09:00"
+}

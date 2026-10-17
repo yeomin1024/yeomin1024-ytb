@@ -1,0 +1,75 @@
+{
+ "id": "K-D-pHlxoFo",
+ "title": "겁쟁이라 불리던 6사단은 어떻게 중공군 3개 사단을 호수에 묻었나 | 용문산·파로호 대첩",
+ "channel": "역사참판",
+ "channel_id": "UCZPAiWanwnY0br3ZDQgPh7g",
+ "subs": 2890,
+ "views": 35468,
+ "ratio": 12.27,
+ "age_days": 96,
+ "views_per_day": 369.5,
+ "minutes": 16.5,
+ "likes": 580,
+ "comments": 103,
+ "published": "2026-07-12",
+ "queries": "검색:역사채널",
+ "url": "https://www.youtube.com/watch?v=K-D-pHlxoFo",
+ "flag": "",
+ "published_at": "2026-07-12T11:00:27Z",
+ "rank": "W387",
+ "set": "web",
+ "folder": "W_K-D-pHlxoFo",
+ "sources": [
+  "검색:역사채널"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "호수에 잠긴 2만 명, 그날의 시작"
+  },
+  {
+   "start": 81,
+   "title": "겁쟁이라 조롱받던 블루스타"
+  },
+  {
+   "start": 184,
+   "title": "결사, 철모에 새긴 두 글자"
+  },
+  {
+   "start": 263,
+   "title": "1개 연대 vs 3개 사단"
+  },
+  {
+   "start": 378,
+   "title": "본진인 줄 알았다는 치명적 착각"
+  },
+  {
+   "start": 480,
+   "title": "화천댐을 확보하라"
+  },
+  {
+   "start": 609,
+   "title": "건널 수 없는 물 앞에서"
+  },
+  {
+   "start": 741,
+   "title": "현대판 살수대첩, 그리고 남은 이름"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 103,
+ "comments_top_level": 44,
+ "comments_replies": 59,
+ "comments_by_creator": 46,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 103,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:36:42",
+ "approved": "2026-10-17T16:36+09:00"
+}

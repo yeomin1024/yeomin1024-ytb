@@ -1,0 +1,74 @@
+{
+ "id": "W9NKVCxalr4",
+ "title": "\"세종 없으면 이 사람이 1등?\" 100년을 앞서간 조선 최고의 두뇌",
+ "channel": "한국사 다시읽기",
+ "channel_id": "UC-sDvUroCCpUZhzk4I_3UIw",
+ "subs": 28200,
+ "views": 642259,
+ "ratio": 22.78,
+ "age_days": 170,
+ "views_per_day": 3778.0,
+ "minutes": 27.2,
+ "likes": 6375,
+ "comments": 732,
+ "published": "2026-04-29",
+ "queries": "검색:한국역사 | 검색:세종대왕 | 검색:세종 | 검색:한국사",
+ "url": "https://www.youtube.com/watch?v=W9NKVCxalr4",
+ "flag": "",
+ "published_at": "2026-04-29T11:25:21Z",
+ "rank": "W287",
+ "set": "web",
+ "folder": "W_W9NKVCxalr4",
+ "sources": [
+  "검색:한국역사",
+  "검색:세종대왕",
+  "검색:세종",
+  "검색:한국사"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝 ㅣ 세종대왕 다음, 진짜 천재는?"
+  },
+  {
+   "start": 64,
+   "title": "1부 ㅣ 구도장원공 - 아홉 번 시험, 아홉 번 일등 🏆"
+  },
+  {
+   "start": 302,
+   "title": "2부 ㅣ 천도책 - 명나라를 경악시킨 답안지 📜"
+  },
+  {
+   "start": 619,
+   "title": "3부 ㅣ 수미법 - 사십 년 앞서간 시스템 설계 💡"
+  },
+  {
+   "start": 827,
+   "title": "4부 ㅣ 금강산의 일 년 - 천재의 인간적 방황 🏔️"
+  },
+  {
+   "start": 1156,
+   "title": "5부 ㅣ 십만양병설의 비극 - 너무 앞서간 통찰 ⚔️"
+  },
+  {
+   "start": 1470,
+   "title": "클로징 ㅣ 오천 원권에 새겨진 이름"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 735,
+ "comments_top_level": 511,
+ "comments_replies": 224,
+ "comments_by_creator": 4,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 732,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:33:29",
+ "approved": "2026-10-17T16:33+09:00"
+}

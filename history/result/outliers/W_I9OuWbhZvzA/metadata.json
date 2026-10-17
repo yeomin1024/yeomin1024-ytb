@@ -1,0 +1,131 @@
+{
+ "id": "I9OuWbhZvzA",
+ "title": "3D로 보는 조선시대 과거시험 250km 여정 | 10년 낙방 무관 노상추의 7일",
+ "channel": "조상님 클라쓰",
+ "channel_id": "UC6SPlP_vm-XuU7Ob83LUN0Q",
+ "subs": 2020,
+ "views": 118900,
+ "ratio": 58.86,
+ "age_days": 5,
+ "views_per_day": 23780.0,
+ "minutes": 7.5,
+ "likes": 319,
+ "comments": 49,
+ "published": "2026-10-12",
+ "queries": "검색:조선왕조실록",
+ "url": "https://www.youtube.com/watch?v=I9OuWbhZvzA",
+ "flag": "",
+ "published_at": "2026-10-12T03:00:24Z",
+ "rank": "W157",
+ "set": "web",
+ "folder": "W_I9OuWbhZvzA",
+ "sources": [
+  "검색:조선왕조실록"
+ ],
+ "source": "web",
+ "tags": [
+  "노상추",
+  "노상추일기",
+  "과거시험",
+  "무과",
+  "과거길",
+  "영남대로",
+  "문경새재",
+  "조령",
+  "원",
+  "인덕원",
+  "이태원",
+  "주막",
+  "토렴",
+  "국밥",
+  "엿",
+  "온돌",
+  "숭례문",
+  "조선시대",
+  "정조",
+  "역사",
+  "다큐",
+  "3D",
+  "조상님 클라쓰"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "강창나루의 새벽"
+  },
+  {
+   "start": 21,
+   "title": "끝까지 보시면"
+  },
+  {
+   "start": 48,
+   "title": "10년 낙방"
+  },
+  {
+   "start": 96,
+   "title": "밭 열두 마지기"
+  },
+  {
+   "start": 124,
+   "title": "산적과 호랑이?"
+  },
+  {
+   "start": 146,
+   "title": "첫날, 함창"
+  },
+  {
+   "start": 178,
+   "title": "세 고개"
+  },
+  {
+   "start": 211,
+   "title": "문경새재를 넘다"
+  },
+  {
+   "start": 223,
+   "title": "'원'의 정체"
+  },
+  {
+   "start": 259,
+   "title": "원이 사라지다"
+  },
+  {
+   "start": 276,
+   "title": "주막의 밤"
+  },
+  {
+   "start": 290,
+   "title": "토렴"
+  },
+  {
+   "start": 323,
+   "title": "온돌"
+  },
+  {
+   "start": 339,
+   "title": "언 한강을 건너"
+  },
+  {
+   "start": 357,
+   "title": "시험장"
+  },
+  {
+   "start": 401,
+   "title": "열둘째 이름"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 49,
+ "comments_top_level": 25,
+ "comments_replies": 24,
+ "comments_by_creator": 18,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 49,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:30:05",
+ "approved": "2026-10-17T16:30+09:00"
+}

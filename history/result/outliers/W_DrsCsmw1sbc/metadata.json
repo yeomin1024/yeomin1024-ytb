@@ -1,0 +1,95 @@
+{
+ "id": "DrsCsmw1sbc",
+ "title": "1636년, 조선에 떨어진 대한민국 소대의 만주군 격퇴전 | 강철소대 5화",
+ "channel": "악션Channel AI",
+ "channel_id": "UCkkqkuqOrJ9LbG89ncnk-KQ",
+ "subs": 6530,
+ "views": 185785,
+ "ratio": 28.45,
+ "age_days": 149,
+ "views_per_day": 1246.9,
+ "minutes": 8.5,
+ "likes": 1144,
+ "comments": 115,
+ "published": "2026-05-20",
+ "queries": "검색:병자호란",
+ "url": "https://www.youtube.com/watch?v=DrsCsmw1sbc",
+ "flag": "",
+ "published_at": "2026-05-20T08:22:46Z",
+ "rank": "W260",
+ "set": "web",
+ "folder": "W_DrsCsmw1sbc",
+ "sources": [
+  "검색:병자호란"
+ ],
+ "source": "web",
+ "tags": [
+  "강철소대",
+  "병자호란",
+  "1636 조선",
+  "인조",
+  "남한산성",
+  "타임슬립",
+  "대한민국군대",
+  "현대군대",
+  "한국군",
+  "K2흑표",
+  "K9자주포",
+  "K21보병전투차",
+  "K151전술차량",
+  "AI단편영화",
+  "전쟁영화",
+  "1636 년",
+  "한양",
+  "5화",
+  "만주군"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "남한산성으로 향하며 적 야영지 소탕"
+  },
+  {
+   "start": 114,
+   "title": "일부 야영지 함락 소식을 들은 만주군 황제"
+  },
+  {
+   "start": 132,
+   "title": "남한산성에 도착한 강철소대"
+  },
+  {
+   "start": 151,
+   "title": "남한산성을 향해 이동하는 만주군 대군"
+  },
+  {
+   "start": 166,
+   "title": "인조와 처음 마주한 강태현 중위"
+  },
+  {
+   "start": 250,
+   "title": "남한산성 전투 시작"
+  },
+  {
+   "start": 450,
+   "title": "패배 후 철수하기 시작한 만주군"
+  },
+  {
+   "start": 480,
+   "title": "승리 후 성으로 돌아오는 조선군과 강철소대"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 115,
+ "comments_top_level": 102,
+ "comments_replies": 13,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 115,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:32:52",
+ "approved": "2026-10-17T16:32+09:00"
+}

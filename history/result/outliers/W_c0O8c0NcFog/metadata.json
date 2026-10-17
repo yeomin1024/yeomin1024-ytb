@@ -1,0 +1,83 @@
+{
+ "id": "c0O8c0NcFog",
+ "title": "풍수 전문가들이 현충원 최고 명당으로 지목한 곳은 대통령 묘가 아니었습니다",
+ "channel": "역사파인더",
+ "channel_id": "UCzHgcIxrixGaoGea23CGCNQ",
+ "subs": 3650,
+ "views": 308572,
+ "ratio": 84.54,
+ "age_days": 96,
+ "views_per_day": 3214.3,
+ "minutes": 39.8,
+ "likes": 7657,
+ "comments": 643,
+ "published": "2026-07-12",
+ "queries": "검색:조선왕릉",
+ "url": "https://www.youtube.com/watch?v=c0O8c0NcFog",
+ "flag": "",
+ "published_at": "2026-07-12T09:00:11Z",
+ "rank": "W119",
+ "set": "web",
+ "folder": "W_c0O8c0NcFog",
+ "sources": [
+  "검색:조선왕릉"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "현충원 한복판의 정체불명 무덤"
+  },
+  {
+   "start": 192,
+   "title": "풍수 최고 명당, 대통령 묘가 아니다"
+  },
+  {
+   "start": 405,
+   "title": "창빈 안씨는 누구인가 — 아홉 살 궁녀"
+  },
+  {
+   "start": 620,
+   "title": "중종의 후궁 9명, 누가 살아남았나"
+  },
+  {
+   "start": 938,
+   "title": "문정왕후가 유일하게 지켜준 후궁"
+  },
+  {
+   "start": 1145,
+   "title": "손자가 왕이 되다 — 선조 즉위의 비밀"
+  },
+  {
+   "start": 1470,
+   "title": "동작릉의 탄생과 몰락"
+  },
+  {
+   "start": 1695,
+   "title": "한국전쟁, 그리고 현충원이 된 명당"
+  },
+  {
+   "start": 2020,
+   "title": "대통령들 사이에 끼인 470년의 터줏대감"
+  },
+  {
+   "start": 2240,
+   "title": "가장 조용했던 여인이 가장 오래 남은 이유"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 643,
+ "comments_top_level": 301,
+ "comments_replies": 342,
+ "comments_by_creator": 111,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 643,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:28:33",
+ "approved": "2026-10-17T16:28+09:00"
+}

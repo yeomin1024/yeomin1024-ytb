@@ -8,7 +8,7 @@
 ### 한 것
 | 파일·대상 | 내용 |
 |---|---|
-| SRT 8개 · 장면 8개 | 새 오디오에 `align-audio`(tts_narration.json) → `sync` (커밋 2f…·87… 앞 회차) |
+| SRT 8개 · 장면 8개 | 새 오디오에 `align-audio`(tts_narration.json) → `sync` (같은 날 앞 커밋 — 롱폼 100·97·92·93 · 쇼츠 14·13·13·15 자막) |
 | `economic/out/gicho-yeongeum-2026-10/final_1080p.mp4` (git 밖) | 7:19.6 · −14.2 LUFS / −1.54 dBTP · `check` 문제 0 |
 | `economic/out/gicho-yeongeum-2026-10-shorts/final_1080p.mp4` (git 밖) | 49.5초 · −14.28 LUFS / −1.6 dBTP · 0초 = 썸네일 그림 |
 | 유튜브 (부자백서) | 롱폼 `xVU2cBNrdlM` 비공개 + publishAt 2026-10-17T13:26:07Z · 쇼츠 `FLo16pFu47Y` publishAt 13:36:07Z · 둘 다 자막 올림, 롱폼 썸네일 1번 — 올리기 전 채널 목록 확인 (시험 영상 1개뿐) |

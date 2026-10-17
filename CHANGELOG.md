@@ -1,5 +1,18 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-17 (65) — 재테크 썸네일 7장 검수 통과
+
+### 왜
+- ChatGPT 가 다시 만든 썸네일 7장을 저장소에 올림 (커밋 5e6d291·fb6cc7d·1b3e18f·b4e1769·144403b·f38d5fc 등) → CLAUDE.md 썸네일 규칙대로 Claude 가 검수.
+
+### 한 것
+| 파일 | 내용 |
+|---|---|
+| `economic/source/isa-mangi-2026-10/thumbnails/thumbnail_1~3.md` (v1.2.1·v1.2.1·v1.1.1) · `toejik-geonbo-2026-10/thumbnails/thumbnail_1~3.md` (v1.2.1·v1.1.1·v1.2.1) · `isa-mangi-2026-10/shorts/thumbnails/thumbnail_1.md` (v1.2.1) | '2차 이미지 검수' — 한글 확대(조사 '으로'·'더 냄'까지)·색(노랑 = 중요, 빨강 = 손해)·2줄째 끝(1280 기준 893·893·970·1,001·978·946px ≤ 1,024 — 영상 길이 표시 자리 비움)·인물/물건·320px → **7장 모두 통과** |
+| `economic/thumbnails_chatgpt.md` | `make_summary.py --chatgpt-all economic` → 만들 것 없음 |
+| `video/episodes/isa-mangi-2026-10-shorts/index.html` | `sync --estimate` → 첫 문장 그림(`EP.thumb`) 들어감 · `check` 문제 0 |
+| `guides/status.md` (v1.39 → v1.40) | 2-2 썸네일 줄 |
+
 ## 2026-10-17 (64) — 재테크 4차: '10월 기준' 문장 빼기 · 시청자 검토 2회차
 
 ### 왜 (사용자 지시)

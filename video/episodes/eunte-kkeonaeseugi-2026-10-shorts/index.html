@@ -4,7 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>은퇴 꺼내 쓰기 쇼츠</title>
-<!-- VERSION: v1.1.2 — 2026-10-17 — 구운 자막 46px·띠 폭 870px(안전 구역 x 60~930, 가운데 495)·안쪽 여백 16px (한 줄 816px — srt_tool v1.7 'shorts'), 자막 = 한 문장 하나·두 줄로도 넘을 때만 쉼표·절 경계에서 둘 (사용자 지시 2026-10-17 "자막 좀 되도록 한 문장은 한 자막으로 표시되게해 … 문장이 길면 적당한 곳에 분리하도록 해서 반영해"), 추정 시각 다시.
+<!-- VERSION: v1.2 — 2026-10-17 — **가운데로·크게** (기초연금 쇼츠 v1.1 과 같은 방법 — 사용자 지시 2026-10-17 "아니 이거 썸네일 문제가 아니고 영상 자체가 비율 안맞는거 아니냐고 컨텐츠가 중간에 딱 안나오고 위 오른쪽에 여백이 생긴다고" · "좋아 지금까지 수정했던거 지시사항에 반영하고 이제 이 쇼츠는 올려 나머지는 …"): 장면을 화면 가운데(x 540)·1.15배(.mid)·장면마다 세로 가운데(DY),
+     자막 띠 가운데 540, 첫 문장 그림은 사진 부분만 가로 가득 + 뒤는 흐린 같은 그림 (kit.js v1.8 K.cover box [0, 0.161, 0.845, 0.59] — tools/cover_check.py 띠 비율로), 안전 구역 150 60 1320 60.
+     v1.1.2 — 2026-10-17 — 구운 자막 46px·띠 폭 870px(안전 구역 x 60~930, 가운데 495)·안쪽 여백 16px (한 줄 816px — srt_tool v1.7 'shorts'), 자막 = 한 문장 하나·두 줄로도 넘을 때만 쉼표·절 경계에서 둘 (사용자 지시 2026-10-17 "자막 좀 되도록 한 문장은 한 자막으로 표시되게해 … 문장이 길면 적당한 곳에 분리하도록 해서 반영해"), 추정 시각 다시.
      v1.1.1 — 2026-10-17 — 대본 문장 10 '이대로 가면' → '지금처럼 꺼내 쓰면' (짧고 명확하게 — 사용자 피드백 2026-10-17) — 화면 글자는 그대로, 추정 시각 다시.
      (v1.1 — 2026-10-16 — 첫 문장(김씨 부부 200만 원 넘게 손해) 동안 쇼츠 썸네일 이미지를 화면 가득 (kit.js v1.4 K.cover — 사용자 지시 2026-10-16
      "쇼츠 영상 썸네일 이미지 프롬프트 만들어서 영상 처음에만 그걸 포함 시키고 첫 대사를 그 이미지 띄워놓고 하는게 나을 것 같아"). 예전 1번 장면(움직이는 200만 원)은 뺌.
@@ -16,7 +18,7 @@
      핵심 정보(예금·연금저축·IRP, 꺼내는 순서, 기준 금액 선)는 그리지 않는다 — 롱폼에서 처음 나온다.
      연구·교육용 영상 — 투자·세무 권유 아님. -->
 <meta name="video-size" content="1080x1920">
-<meta name="video-safe" content="250 150 1270 60">
+<meta name="video-safe" content="150 60 1320 60">
 <link rel="stylesheet" href="../../render/kit.css">
 <style>
 /* 세로 무대 (kit.css 의 16:9 값을 덮음) */
@@ -24,7 +26,8 @@
 body.render #wrap{width:1080px;height:1920px;max-width:none;margin:0}
 #stage{width:1080px;height:1920px;background:radial-gradient(1100px 1500px at 50% 34%,#17243D 0%,#0C1424 58%,#070C17 100%)}
 /* 자막 띠: y 1300~1520 (아래 끝 = 1920-400), 오른쪽 버튼(x 930 오른쪽)을 피해 가운데 x 500 · 2줄 고르게 */
-#cc{left:495px;bottom:400px;max-width:870px;font-size:46px;padding:12px 16px;text-wrap:balance}
+#cc{left:540px;bottom:400px;max-width:870px;font-size:46px;padding:12px 16px;text-wrap:balance}
+.sc.mid{transform-origin:500px 700px;transform:translate(40px,var(--dy,0px)) scale(1.15)}   /* 장면 좌표(가운데 500)를 화면 가운데 540 으로, 1.15배 · --dy = 장면마다 세로 가운데 (y 150~1350 의 가운데 750) */
 .post{position:absolute;border-radius:56px;border:6px solid #C9D2E2;background:#101B30;overflow:hidden}
 .post .bar{position:absolute;height:26px;border-radius:13px;background:rgba(201,210,226,.22)}
 .arrow{position:absolute}
@@ -35,13 +38,16 @@ body.render #wrap{width:1080px;height:1920px;max-width:none;margin:0}
 <div id="ctrl"></div>
 <div id="now"></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script id="ep-data">/*EP-DATA:BEGIN*/window.EP={"id":"eunte-kkeonaeseugi-2026-10-shorts","topic":"economic","duration":50.15,"audio":"../../../economic/source/eunte-kkeonaeseugi-2026-10/shorts/narration.mp3","thumb":"../../../economic/source/eunte-kkeonaeseugi-2026-10/shorts/thumbnails/thumbnail_1.png","synced":"2026-10-17T13:18:47Z","tts":"2026-10-17T07:44:51","script_sha1":"ee007b097e60110a","sent":[{"n":1,"part":"같은 5억, 다른 세금","text":"김씨 부부는 은퇴 첫해에만 세금과 건보료로 200만 원 넘게 손해 본 걸 알게 됐습니다.","start":0.3,"end":5.99},{"n":2,"part":"같은 5억, 다른 세금","text":"올해 세금만 334만 원을 낸 김씨는, 한 은퇴자 커뮤니티에서 글 하나를 봤는데요.","start":6.44,"end":12.13},{"n":3,"part":"같은 5억, 다른 세금","text":"나이도 같은 65세 부부, 모은 돈도 똑같이 5억 원.","start":12.58,"end":16.34},{"n":4,"part":"같은 5억, 다른 세금","text":"그런데 세금은 108만 원밖에 안 냈다는 글이었습니다.","start":16.79,"end":19.82},{"n":5,"part":"같은 5억, 다른 세금","text":"국민연금도, 한 달 생활비도 김씨네와 똑같았어요.","start":20.27,"end":23.99},{"n":6,"part":"같은 5억, 다른 세금","text":"김씨는 처음엔 잘못 읽은 줄 알았습니다.","start":24.44,"end":26.68},{"n":7,"part":"같은 5억, 다른 세금","text":"그리고 다음 해, 건보료 고지서까지 날아왔습니다.","start":27.13,"end":29.83},{"n":8,"part":"같은 5억, 다른 세금","text":"부부 둘 다 자녀 건강보험 피부양자에서 빠졌다는 거예요.","start":30.28,"end":34.12},{"n":9,"part":"같은 5억, 다른 세금","text":"그것도 5년 동안이요.","start":34.57,"end":36.01},{"n":10,"part":"같은 5억, 다른 세금","text":"지금처럼 꺼내 쓰면 김씨 부부는 평생 세금만 약 2천만 원을 더 냅니다.","start":36.46,"end":40.9},{"n":11,"part":"같은 5억, 다른 세금","text":"김씨 부부, 지금이라도 세금을 줄일 수 있을까요?","start":41.35,"end":44.15},{"n":12,"part":"같은 5억, 다른 세금","text":"두 부부가 무엇이 달랐는지, 지금 고치는 법까지 아래 영상에서 확인하세요.","start":44.6,"end":48.75}],"subs":[[0.2,6.44,"김씨 부부는 은퇴 첫해에만 세금과 건보료로\n200만 원 넘게 손해 본 걸 알게 됐습니다."],[6.44,9.361,"올해 세금만 334만 원을 낸 김씨는,"],[9.361,12.58,"한 은퇴자 커뮤니티에서 글 하나를\n봤는데요."],[12.58,16.79,"나이도 같은 65세 부부,\n모은 돈도 똑같이 5억 원."],[16.79,20.27,"그런데 세금은 108만 원밖에 안 냈다는\n글이었습니다."],[20.27,24.44,"국민연금도,\n한 달 생활비도 김씨네와 똑같았어요."],[24.44,27.13,"김씨는 처음엔 잘못 읽은 줄 알았습니다."],[27.13,30.28,"그리고 다음 해,\n건보료 고지서까지 날아왔습니다."],[30.28,34.57,"부부 둘 다 자녀 건강보험 피부양자에서\n빠졌다는 거예요."],[34.57,36.46,"그것도 5년 동안이요."],[36.46,41.35,"지금처럼 꺼내 쓰면 김씨 부부는\n평생 세금만 약 2천만 원을 더 냅니다."],[41.35,44.6,"김씨 부부,\n지금이라도 세금을 줄일 수 있을까요?"],[44.6,46.273,"두 부부가 무엇이 달랐는지,"],[46.273,49.15,"지금 고치는 법까지 아래 영상에서\n확인하세요."]]};/*EP-DATA:END*/</script>
+<script id="ep-data">/*EP-DATA:BEGIN*/window.EP={"id":"eunte-kkeonaeseugi-2026-10-shorts","topic":"economic","duration":50.15,"audio":"../../../economic/source/eunte-kkeonaeseugi-2026-10/shorts/narration.mp3","thumb":"../../../economic/source/eunte-kkeonaeseugi-2026-10/shorts/thumbnails/thumbnail_1.png","synced":"2026-10-17T14:03:11Z","tts":"2026-10-17T07:44:51","script_sha1":"ee007b097e60110a","sent":[{"n":1,"part":"같은 5억, 다른 세금","text":"김씨 부부는 은퇴 첫해에만 세금과 건보료로 200만 원 넘게 손해 본 걸 알게 됐습니다.","start":0.3,"end":5.99},{"n":2,"part":"같은 5억, 다른 세금","text":"올해 세금만 334만 원을 낸 김씨는, 한 은퇴자 커뮤니티에서 글 하나를 봤는데요.","start":6.44,"end":12.13},{"n":3,"part":"같은 5억, 다른 세금","text":"나이도 같은 65세 부부, 모은 돈도 똑같이 5억 원.","start":12.58,"end":16.34},{"n":4,"part":"같은 5억, 다른 세금","text":"그런데 세금은 108만 원밖에 안 냈다는 글이었습니다.","start":16.79,"end":19.82},{"n":5,"part":"같은 5억, 다른 세금","text":"국민연금도, 한 달 생활비도 김씨네와 똑같았어요.","start":20.27,"end":23.99},{"n":6,"part":"같은 5억, 다른 세금","text":"김씨는 처음엔 잘못 읽은 줄 알았습니다.","start":24.44,"end":26.68},{"n":7,"part":"같은 5억, 다른 세금","text":"그리고 다음 해, 건보료 고지서까지 날아왔습니다.","start":27.13,"end":29.83},{"n":8,"part":"같은 5억, 다른 세금","text":"부부 둘 다 자녀 건강보험 피부양자에서 빠졌다는 거예요.","start":30.28,"end":34.12},{"n":9,"part":"같은 5억, 다른 세금","text":"그것도 5년 동안이요.","start":34.57,"end":36.01},{"n":10,"part":"같은 5억, 다른 세금","text":"지금처럼 꺼내 쓰면 김씨 부부는 평생 세금만 약 2천만 원을 더 냅니다.","start":36.46,"end":40.9},{"n":11,"part":"같은 5억, 다른 세금","text":"김씨 부부, 지금이라도 세금을 줄일 수 있을까요?","start":41.35,"end":44.15},{"n":12,"part":"같은 5억, 다른 세금","text":"두 부부가 무엇이 달랐는지, 지금 고치는 법까지 아래 영상에서 확인하세요.","start":44.6,"end":48.75}],"subs":[[0.2,6.44,"김씨 부부는 은퇴 첫해에만 세금과 건보료로\n200만 원 넘게 손해 본 걸 알게 됐습니다."],[6.44,9.361,"올해 세금만 334만 원을 낸 김씨는,"],[9.361,12.58,"한 은퇴자 커뮤니티에서 글 하나를\n봤는데요."],[12.58,16.79,"나이도 같은 65세 부부,\n모은 돈도 똑같이 5억 원."],[16.79,20.27,"그런데 세금은 108만 원밖에 안 냈다는\n글이었습니다."],[20.27,24.44,"국민연금도,\n한 달 생활비도 김씨네와 똑같았어요."],[24.44,27.13,"김씨는 처음엔 잘못 읽은 줄 알았습니다."],[27.13,30.28,"그리고 다음 해,\n건보료 고지서까지 날아왔습니다."],[30.28,34.57,"부부 둘 다 자녀 건강보험 피부양자에서\n빠졌다는 거예요."],[34.57,36.46,"그것도 5년 동안이요."],[36.46,41.35,"지금처럼 꺼내 쓰면 김씨 부부는\n평생 세금만 약 2천만 원을 더 냅니다."],[41.35,44.6,"김씨 부부,\n지금이라도 세금을 줄일 수 있을까요?"],[44.6,46.273,"두 부부가 무엇이 달랐는지,"],[46.273,49.15,"지금 고치는 법까지 아래 영상에서\n확인하세요."]]};/*EP-DATA:END*/</script>
 <script src="../../render/kit.js"></script>
 <script>
 (function () {
 "use strict";
 K.init(window.EP, { chip: false, w: 1080 });
-const { S, E, W, el, pop, out, dim, counter, scene, text, big, fmt, grow } = K;
+const { S, E, W, el, pop, out, dim, counter, text, big, fmt, grow } = K;
+const DY = [-30, 20, 25, 5, 15, 40];   // 동전·막대 같은 그림까지 넣어 잰 값 (1·4번 장면은 그림이 아래까지 — 자막 띠 위 1350 안)                                   // 장면마다 세로 가운데 맞춤 (차례대로 — 장면 전체 글자·그림 범위로 잼)
+let scN = 0;
+const scene = (a, b, o) => { const sc = K.scene(a, b, o); sc.classList.add("mid"); const dy = DY[scN++]; if (dy) sc.style.setProperty("--dy", dy + "px"); return sc; };   // 가운데로·크게
 const tl = K.tl;
 const R = "#FF4D3D", G = "#22C7B0", Y = "#FFD400";
 const CX = 500;                                  // 장면 가운데 (오른쪽 150px 버튼 자리를 빼고 가운데 — x 60~930)
@@ -50,7 +56,7 @@ const pill = (sc, cx, top, html, color) =>
   el(`<div class="a cx pill sm" style="left:${cx}px;top:${top}px;color:${color};border-color:${color}">${html}</div>`, sc);
 
 /* 1. 첫 문장 = 쇼츠 썸네일 이미지 (v1.1 — shorts/thumbnails/thumbnail_1.*, 구운 자막이 위에 얹힘) */
-K.cover(until(2));
+K.cover(until(2), { box: [0, 0.161, 0.845, 0.59], ar: 941 / 1672, cy: 705 });   // 그림의 사진 부분(빈 남색 띠 빼고 — tools/cover_check.py)만 가로 가득
 K.cut(0.1, "0초 그림 = 썸네일로 고를 프레임");
 K.cut(E(1) - 0.2, "첫 문장 + 자막");
 

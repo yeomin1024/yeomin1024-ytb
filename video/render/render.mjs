@@ -1,4 +1,6 @@
-// VERSION: v1.14 — 2026-10-17 — 자막은 늘 2줄까지 (사용자 지시 2026-10-17 "그리고 자막은 2줄까지만 표시되도록 해" — v1.13 의 '썸네일 그림 위 3줄' 허용을 지움,
+// VERSION: v1.15 — 2026-10-17 — check: 세로 쇼츠는 글자 없는 그림(동전·막대·칸)도 안전 구역 아래(자막 띠 자리)로 내려오면 문제 (텍스트만 보던 검사가
+//   은퇴 쇼츠 동전 기둥이 자막 띠에 닿은 것을 놓침 — 사용자 지시 2026-10-17 "니가 직접 영상을 보라고" 로 완성 영상을 보다 찾음).
+// v1.14 — 2026-10-17 — 자막은 늘 2줄까지 (사용자 지시 2026-10-17 "그리고 자막은 2줄까지만 표시되도록 해" — v1.13 의 '썸네일 그림 위 3줄' 허용을 지움,
 //   쇼츠 첫 자막은 kit.js v1.7 #cc.cover 42px). 쇼츠 최종 렌더 전 첫 문장 그림 여백 검사 (tools/cover_check.py — 빈 단색 띠가 있으면 멈춤,
 //   사용자 지시 2026-10-17 "야 넌 이게 비율이 맞는다고 생각해? 검은색 여백있는건 뭔데 다시 수정해").
 // v1.13 — 2026-10-17 — 쇼츠 첫 문장(썸네일 그림 위)을 자막 하나로: 추정 자막은 srt_tool v1.8 sent_layout(첫 문장 = shorts_cover, 3줄까지), check 는 그림이 떠 있는 동안(kit.js v1.6 SB.coverEnd) 3줄까지 문제 아님.
@@ -232,6 +234,15 @@ const CHECK_FN = ([W, H, SAFE]) => {           // v1.8 무대 크기 W×H · 안
     if (b.bottom > LOW && !el.closest("#chip")) out.push({ kind: SAFE ? `안전 구역 아래(y ${LOW} 아래)` : cc0 ? "자막 띠(y 880 아래)와 겹침" : "맨 아래 60px(y 1020 아래)", txt, bottom: Math.round(b.bottom) });
     const [T0, R0, L0] = SAFE ? [SAFE[0], SAFE[1], SAFE[3]] : [30, 40, 40];
     if (b.left < L0 || b.right > W - R0 || b.top < T0) out.push({ kind: SAFE ? "안전 구역 밖(위·오른쪽 버튼·왼쪽)" : "화면 가장자리 밖", txt, left: Math.round(b.left), right: Math.round(b.right), top: Math.round(b.top) });
+  }
+  // v1.15 세로 쇼츠: 글자 없는 그림(동전·막대·칸·사람 그림)도 안전 구역 아래(자막 띠 자리)로 내려오면 문제 — 2026-10-17 동전 기둥이 자막 띠에 닿음
+  if (SAFE && W < H) for (const sc of st.querySelectorAll(".sc")) {
+    if (op(sc) < 0.3 || sc.querySelector("img")) continue;          // 첫 문장 그림(K.cover)은 화면 가득이 맞음
+    for (const n of sc.children) {
+      if (op(n) < 0.3) continue;
+      const b = n.getBoundingClientRect();
+      if (b.width && b.height && b.bottom > LOW + 2) out.push({ kind: `그림이 안전 구역 아래(y ${LOW} 아래 — 자막 띠 자리)`, txt: (n.className || n.tagName) + "", bottom: Math.round(b.bottom) });
+    }
   }
   // 자막 띠 줄 수
   const cc = document.getElementById("cc");

@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.9 — 2026-10-17 — 쇼츠도 썸네일을 올린다: shorts/thumbnails/thumbnail_1.* 를 세로 720×1280 JPG 로 (16:9 로 자르지 않음).
+# VERSION: v1.10 — 2026-10-17 — 쇼츠 썸네일 그림에 빈 단색 띠가 있으면(tools/cover_check.py ❌) 그 그림 대신 **완성 영상 0초 장면**을 올린다
+#          (0초 = 첫 문장 그림을 사진 부분만 가로 가득 — kit.js v1.8 K.cover box). 사용자 지시 2026-10-17 "아니 이거 썸네일 문제가 아니고 영상 자체가
+#          비율 안맞는거 아니냐고 컨텐츠가 중간에 딱 안나오고 위 오른쪽에 여백이 생긴다고" · "좋아 … 이제 이 쇼츠는 올려".
+# (v1.9 — 2026-10-17 — 쇼츠도 썸네일을 올린다: shorts/thumbnails/thumbnail_1.* 를 세로 720×1280 JPG 로 (16:9 로 자르지 않음).
 #          사용자 지시 2026-10-17 "쇼츠 보니까 썸네일 만든거 안올라갔고". (v1.8 은 앱에서 0초 장면을 고르게 하려고 올리지 않았음.)
 # (v1.8 — 2026-10-17 — 쇼츠 올리기: 영상ID '<영상ID>-shorts' 면 시트·자막·youtube.json 을 source/<영상ID>/shorts/ 에서
 #          (shorts/upload.md — 롱폼 시트와 같은 꼴, 챕터 없음), 영상은 out/<영상ID>-shorts/final_1080p.mp4. 쇼츠는 썸네일을 API 로 올리지 않는다
@@ -376,6 +379,30 @@ def paired_thumbnail(topic, vid):
     return 1
 
 
+def shorts_cover_frame(img, video_path, out_dir):
+    """(v1.10) 쇼츠 썸네일 그림에 빈 띠가 있으면 완성 영상 0초 장면(PNG)을 대신 쓴다. 띠가 없거나 영상이 없으면 그림 그대로."""
+    try:
+        import cover_check
+        bad = not cover_check.check(str(img))
+    except Exception as e:                  # 검사를 못 하면 그림 그대로 (경고만)
+        log("THUMBNAIL", level="warn", note=f"여백 검사 못 함 — 그림 그대로: {e}")
+        return img
+    if not bad:
+        return img
+    if not video_path or not Path(video_path).exists():
+        log("THUMBNAIL", level="warn", file=img.name, note="그림에 빈 띠 — 영상이 없어 그대로 (렌더 뒤 다시)")
+        return img
+    out_dir.mkdir(parents=True, exist_ok=True)
+    frame = out_dir / "cover_frame_0s.png"
+    r = subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", "0", "-i", str(video_path), "-frames:v", "1", str(frame)],
+                       capture_output=True, text=True)
+    if r.returncode != 0 or not frame.exists():
+        log("THUMBNAIL", level="warn", note="0초 장면을 못 뽑음 — 그림 그대로: " + (r.stderr or "").strip()[-200:])
+        return img
+    log("THUMBNAIL", file=img.name, action="그림에 빈 띠 → 영상 0초 장면으로", frame=str(frame.relative_to(ROOT)) if frame.is_relative_to(ROOT) else str(frame))
+    return frame
+
+
 def find_thumbnail(topic, vid, n):
     for folder in (src_dir(topic, vid) / "thumbnails", ROOT / topic / "out" / vid / "thumbnails"):
         for ext in (".png", ".jpg", ".jpeg", ".webp"):
@@ -464,6 +491,8 @@ def run(topic, vid, dry_run=False, privacy="private", force=False, no_captions=F
     srt_path = src / f"{vid}.srt"
     thumb_n = paired_thumbnail(topic, vid)
     thumb_src = None if no_thumbnail else find_thumbnail(topic, vid, thumb_n)
+    if thumb_src and is_shorts(vid):              # v1.10 빈 띠가 있는 그림 → 영상 0초 장면
+        thumb_src = shorts_cover_frame(thumb_src, video_path, out / "thumbnails")
     thumbs = [t for t in [prepare_thumbnail(thumb_src, out / "thumbnails", thumb_size)] if t] if thumb_src else []
     meta = read_sheet(topic, vid)
     meta["description"], chapter_lines = recompute_chapters(topic, vid, meta["description"], meta["chapter_spec"])

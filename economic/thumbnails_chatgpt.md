@@ -1,6 +1,6 @@
 # economic 썸네일 7장 — ChatGPT용 (모든 영상 · 읽고 그대로 만들고 각 저장 경로에 올리기)
 
-자동 생성 — `python tools/make_summary.py --chatgpt-all economic` (2026-10-17 03:41). 이 파일은 고치지 말고 영상마다 `thumbnail_N.md`를 고친 뒤 다시 만든다.
+자동 생성 — `python tools/make_summary.py --chatgpt-all economic` (2026-10-17 04:27). 이 파일은 고치지 말고 영상마다 `thumbnail_N.md`를 고친 뒤 다시 만든다.
 
 이 파일 주소: https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/economic/thumbnails_chatgpt.md
 
@@ -120,7 +120,7 @@ Upper 62% of the frame:
 Bottom title: in the lower third, over a dark band that fades upward from the bottom edge, two lines of huge heavy bold text, left-aligned near the left edge, both lines the same size:
 line 1 "50·60대 ISA 만기 돈 연금저축으로" — "50·60대" in white and "ISA 만기 돈 연금저축으로" in bright yellow #FFD400, all with a thick black outline (keep the middle dot "·" between 50 and 60, write ISA in capital Latin letters, and keep the last two letters "으로" — line 1 is the longer line: it may run to about 94% of the image width, but keep it at least 4% away from the right edge);
 line 2 "안 옮기면 3년에 96만 원 손해" — "안 옮기면" in white with a thick black outline, and "3년에 96만 원 손해" in bright red #FF2A2A with a thick white outline.
-The second line ends well before the bottom-right corner; keep the bottom-right corner empty for the video length badge. Keep the jar, the banknotes and the word tag in the upper part so they never cover the bottom title.
+The second line MUST end at or before 80% of the image width (x ≤ 1024 px of 1280): the right 18% of the width in the bottom 15% of the height must contain no text at all, because YouTube's video length badge covers that corner. If the second line does not fit, make both lines a little smaller rather than letting it run into that corner. Keep the jar, the banknotes and the word tag in the upper part so they never cover the bottom title.
 If 16:9 is not available, use the widest landscape canvas; in any case keep all text inside the central 16:9 area, at least 8% away from the top and bottom edges.
 Render ONLY the text given in quotes (Korean, plus the Latin letters ISA), exactly as written with the same letters and spacing, in a heavy bold sans-serif Korean font. No other text, letters, numbers, watermarks or logos anywhere.
 ```
@@ -136,10 +136,10 @@ Render ONLY the text given in quotes (Korean, plus the Latin letters ISA), exact
 | 자리 | 문구 | 색 |
 |---|---|---|
 | 그림 낱말 | 지역가입자 | 흰 글자 on 빨강 상자 #FF2A2A |
-| 하단 1줄 | 50·60대 건보료 0원 되는 순서 | '50·60대' 흰색 · **'건보료 0원 되는 순서' 노랑 #FFD400** — 모두 두꺼운 검정 외곽선 |
-| 하단 2줄 | 은퇴 후 신청 안 하면 월 30만 원 | '은퇴 후 신청 안 하면' 흰색 + 검정 외곽선 · **'월 30만 원' 빨강 #FF2A2A + 두꺼운 흰 외곽선**. 1줄과 같은 크기 |
+| 하단 1줄 | 50·60대 건보료 0원 내는 순서 | '50·60대 건보료' 흰색 · **'0원 내는 순서' 노랑 #FFD400** — 모두 두꺼운 검정 외곽선 |
+| 하단 2줄 | 모르면 월 30만 원 손해 | '모르면' 흰색 + 검정 외곽선 · **'월 30만 원 손해' 빨강 #FF2A2A + 두꺼운 흰 외곽선**. 1줄과 같은 크기 |
 
-- 노랑은 중요한 것(건보료 0원 되는 순서), 빨강은 나쁜 상황(월 30만 원과 그 원인 지역가입자)에 쓴다.
+- 노랑은 중요한 것(0원 내는 순서), 빨강은 나쁜 상황(월 30만 원 손해와 그 원인 지역가입자)에 쓴다.
 
 프롬프트:
 
@@ -150,8 +150,8 @@ Upper 62% of the frame:
 - Left side (about 40% of the width): one bold word tag, a solid bright red (#FF2A2A) rounded box with the Korean word "지역가입자" printed in huge flat heavy bold white letters on its flat front face (flat print, not carved or 3D letter shapes). Two thick bright red arrows point from the tag down toward the couple.
 - Background: a dim living room at night, softly blurred, cool blue tones; warm light only on the couple's faces.
 Bottom title: in the lower third, over a dark band that fades upward from the bottom edge, two lines of huge heavy bold Korean text, left-aligned near the left edge, both lines the same size:
-line 1 "50·60대 건보료 0원 되는 순서" — "50·60대" in white and "건보료 0원 되는 순서" in bright yellow #FFD400, all with a thick black outline (keep the middle dot "·" between 50 and 60);
-line 2 "은퇴 후 신청 안 하면 월 30만 원" — "은퇴 후 신청 안 하면" in white with a thick black outline, and "월 30만 원" in bright red #FF2A2A with a thick white outline.
+line 1 "50·60대 건보료 0원 내는 순서" — "50·60대 건보료" in white and "0원 내는 순서" in bright yellow #FFD400, all with a thick black outline (keep the middle dot "·" between 50 and 60);
+line 2 "모르면 월 30만 원 손해" — "모르면" in white with a thick black outline, and "월 30만 원 손해" in bright red #FF2A2A with a thick white outline.
 The second line MUST end at or before 80% of the image width (x ≤ 1024 px of 1280): the right 18% of the width in the bottom 15% of the height must contain no text at all, because YouTube's video length badge covers that corner. If the second line does not fit, make both lines a little smaller rather than letting it run into that corner. Keep the couple and the word tag in the upper part so they never cover the bottom title.
 If 16:9 is not available, use the widest landscape canvas; in any case keep all text and faces inside the central 16:9 area, at least 8% away from the top and bottom edges.
 Render ONLY the Korean text given in quotes, exactly as written with the same letters and spacing, in a heavy bold sans-serif Korean font. No other text, letters, numbers, watermarks or logos anywhere.
@@ -168,8 +168,8 @@ Render ONLY the Korean text given in quotes, exactly as written with the same le
 | 자리 | 문구 | 색 |
 |---|---|---|
 | 그림 낱말 | 지역가입자 | 흰 글자 on 빨강 상자 #FF2A2A |
-| 하단 1줄 | 50·60대 건보료 0원 되는 순서 | '50·60대' 흰색 · **'건보료 0원 되는 순서' 노랑 #FFD400** — 모두 두꺼운 검정 외곽선 |
-| 하단 2줄 | 은퇴 후 신청 안 하면 월 30만 원 | '은퇴 후 신청 안 하면' 흰색 + 검정 외곽선 · **'월 30만 원' 빨강 #FF2A2A + 두꺼운 흰 외곽선**. 1줄과 같은 크기 |
+| 하단 1줄 | 50·60대 건보료 0원 내는 순서 | '50·60대 건보료' 흰색 · **'0원 내는 순서' 노랑 #FFD400** — 모두 두꺼운 검정 외곽선 |
+| 하단 2줄 | 모르면 월 30만 원 손해 | '모르면' 흰색 + 검정 외곽선 · **'월 30만 원 손해' 빨강 #FF2A2A + 두꺼운 흰 외곽선**. 1줄과 같은 크기 |
 
 프롬프트:
 
@@ -180,8 +180,8 @@ Upper 62% of the frame:
 - Left side (about 45% of the width): one bold word tag, a solid bright red (#FF2A2A) rounded box with the Korean word "지역가입자" printed in huge flat heavy bold white letters on its flat front face (flat print, not carved or 3D letter shapes). Two thick bright red arrows point from the tag down toward the man.
 - Background: a dim living room at night, softly blurred, cool blue tones; warm light only on the man's face.
 Bottom title: in the lower third, over a dark band that fades upward from the bottom edge, two lines of huge heavy bold Korean text, left-aligned near the left edge, both lines the same size:
-line 1 "50·60대 건보료 0원 되는 순서" — "50·60대" in white and "건보료 0원 되는 순서" in bright yellow #FFD400, all with a thick black outline (keep the middle dot "·" between 50 and 60);
-line 2 "은퇴 후 신청 안 하면 월 30만 원" — "은퇴 후 신청 안 하면" in white with a thick black outline, and "월 30만 원" in bright red #FF2A2A with a thick white outline.
+line 1 "50·60대 건보료 0원 내는 순서" — "50·60대 건보료" in white and "0원 내는 순서" in bright yellow #FFD400, all with a thick black outline (keep the middle dot "·" between 50 and 60);
+line 2 "모르면 월 30만 원 손해" — "모르면" in white with a thick black outline, and "월 30만 원 손해" in bright red #FF2A2A with a thick white outline.
 The second line MUST end at or before 80% of the image width (x ≤ 1024 px of 1280): the right 18% of the width in the bottom 15% of the height must contain no text at all, because YouTube's video length badge covers that corner. If the second line does not fit, make both lines a little smaller rather than letting it run into that corner. Keep the man and the word tag in the upper part so they never cover the bottom title.
 If 16:9 is not available, use the widest landscape canvas; in any case keep all text and the face inside the central 16:9 area, at least 8% away from the top and bottom edges.
 Render ONLY the Korean text given in quotes, exactly as written with the same letters and spacing, in a heavy bold sans-serif Korean font. No other text, letters, numbers, watermarks or logos anywhere.
@@ -198,8 +198,8 @@ Render ONLY the Korean text given in quotes, exactly as written with the same le
 | 자리 | 문구 | 색 |
 |---|---|---|
 | 그림 낱말 | 지역가입자 | 흰 글자 on 빨강 상자 #FF2A2A |
-| 하단 1줄 | 50·60대 건보료 0원 되는 순서 | '50·60대' 흰색 · **'건보료 0원 되는 순서' 노랑 #FFD400** — 모두 두꺼운 검정 외곽선 |
-| 하단 2줄 | 은퇴 후 신청 안 하면 월 30만 원 | '은퇴 후 신청 안 하면' 흰색 + 검정 외곽선 · **'월 30만 원' 빨강 #FF2A2A + 두꺼운 흰 외곽선**. 1줄과 같은 크기 |
+| 하단 1줄 | 50·60대 건보료 0원 내는 순서 | '50·60대 건보료' 흰색 · **'0원 내는 순서' 노랑 #FFD400** — 모두 두꺼운 검정 외곽선 |
+| 하단 2줄 | 모르면 월 30만 원 손해 | '모르면' 흰색 + 검정 외곽선 · **'월 30만 원 손해' 빨강 #FF2A2A + 두꺼운 흰 외곽선**. 1줄과 같은 크기 |
 
 프롬프트:
 
@@ -210,8 +210,8 @@ Upper 62% of the frame:
 - Upper left: one bold word tag, a solid bright red (#FF2A2A) rounded box with the Korean word "지역가입자" printed in huge flat heavy bold white letters on its flat front face (flat print, not carved or 3D letter shapes). Two thick bright red arrows point from the tag down onto the stack, pressing it down.
 - Background: a dim living room at night, softly blurred, cool blue tones; a warm spotlight on the banknote stack.
 Bottom title: in the lower third, over a dark band that fades upward from the bottom edge, two lines of huge heavy bold Korean text, left-aligned near the left edge, both lines the same size:
-line 1 "50·60대 건보료 0원 되는 순서" — "50·60대" in white and "건보료 0원 되는 순서" in bright yellow #FFD400, all with a thick black outline (keep the middle dot "·" between 50 and 60);
-line 2 "은퇴 후 신청 안 하면 월 30만 원" — "은퇴 후 신청 안 하면" in white with a thick black outline, and "월 30만 원" in bright red #FF2A2A with a thick white outline.
+line 1 "50·60대 건보료 0원 내는 순서" — "50·60대 건보료" in white and "0원 내는 순서" in bright yellow #FFD400, all with a thick black outline (keep the middle dot "·" between 50 and 60);
+line 2 "모르면 월 30만 원 손해" — "모르면" in white with a thick black outline, and "월 30만 원 손해" in bright red #FF2A2A with a thick white outline.
 The second line MUST end at or before 80% of the image width (x ≤ 1024 px of 1280): the right 18% of the width in the bottom 15% of the height must contain no text at all, because YouTube's video length badge covers that corner. If the second line does not fit, make both lines a little smaller rather than letting it run into that corner. Keep the banknotes and the word tag in the upper part so they never cover the bottom title.
 If 16:9 is not available, use the widest landscape canvas; in any case keep all text inside the central 16:9 area, at least 8% away from the top and bottom edges.
 Render ONLY the Korean text given in quotes, exactly as written with the same letters and spacing, in a heavy bold sans-serif Korean font. No other text, letters, numbers, watermarks or logos anywhere.
@@ -229,7 +229,7 @@ Render ONLY the Korean text given in quotes, exactly as written with the same le
 |---|---|---|
 | 그림 낱말 | 세금 | 흰 평면 글자 on 빨강 꼬리표 #FF2A2A |
 | 위 1줄 | 61세 ISA 만기 돈 | '61세' 흰색 · **'ISA 만기 돈' 노랑 #FFD400** — 모두 두꺼운 검정 외곽선 (ISA 는 라틴 대문자) |
-| 위 2줄 | 3년간 세금 96만 원 더 | **전부 빨강 #FF2A2A + 두꺼운 흰 외곽선**. 1줄보다 조금 크게 |
+| 위 2줄 | 3년간 세금 96만 원 더 냄 | **전부 빨강 #FF2A2A + 두꺼운 흰 외곽선**. 1줄보다 조금 크게 |
 
 - 노랑은 중요한 것(무엇 — 'ISA 만기 돈'), 빨강은 나쁜 상황(더 내는 세금 — 2줄과 꼬리표 '세금')에만 쓴다.
 
@@ -244,7 +244,7 @@ The same image is also used as a full-screen video frame: it is shown at the ver
 If 9:16 is not available, use a 2:3 portrait canvas (1024x1536); it will be center-cropped to 9:16, cutting about 8% from the left and right edges, so keep all text and faces well inside the middle of the width.
 Text area (from 14% to 33% of the height, on the plain dark navy background): two lines of huge heavy bold text, left-aligned starting at about 7% from the left edge, each line ending before 84% of the width:
 line 1 "61세 ISA 만기 돈" — "61세" in white and "ISA 만기 돈" in bright yellow #FFD400, both with a thick black outline (write ISA in capital Latin letters);
-line 2 "3년간 세금 96만 원 더", slightly larger than line 1 but still ending before 84% of the width — all in bright red #FF2A2A with a thick white outline.
+line 2 "3년간 세금 96만 원 더 냄", slightly larger than line 1 but still ending before 84% of the width (if it does not fit, make both lines a little smaller rather than letting line 2 pass 84%) — all in bright red #FF2A2A with a thick white outline.
 Scene (from 33% to 66% of the height), a bright company cafeteria at lunchtime with daylight from large windows, background softly blurred; the scene blends smoothly upward into the dark navy text area and downward into the dark bottom area:
 - Center-right (between about 38% and 82% of the width): a Korean office worker aged 61 who looks youthful for his age, like his mid 50s (short neat black hair with a little gray, light blue open-collar dress shirt, no tie, no ID badge), seated at a table in front of a plain lunch tray, shown from the chest up. He holds a spoon paused in mid-air and leans forward toward a smartphone, staring at its screen, frozen in disbelief, eyebrows raised and lips slightly parted. Natural, realistic expression, not exaggerated. Fictional person, not resembling any real or famous person.
 - Left side (between about 4% and 36% of the width, at about 50% to 60% of the height): only the forearm and hand of a colleague in a white shirt sleeve, reaching in from the left edge and holding the smartphone out toward him; no face of the colleague. The phone screen faces the man, not the viewer; only its soft glow is visible.

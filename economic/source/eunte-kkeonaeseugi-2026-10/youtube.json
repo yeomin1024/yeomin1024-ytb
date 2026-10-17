@@ -5,7 +5,7 @@
   "channel": "부자백서",
   "channelId": "UCJ1gjiL7VuAhMQSfAhxAefg",
   "privacy": "private",
-  "publishAt": "2026-10-18T02:00:00Z",
+  "publishAt": "2026-10-18T08:00:00Z",
   "containsSyntheticMedia": true,
   "uploadedAt": "2026-10-17T14:05:31+00:00",
   "title": "노후 연금 꺼내는 순서 모르면, 은퇴 부부 평생 2천만 원 손해",
@@ -29,5 +29,16 @@
   "studioTodo": [
     "공개 전(예약 시각 전) 스튜디오에서 확인: 영상·자막·썸네일, 자동 더빙(언어), 최종 화면",
     "공개된 뒤 '테스트 및 비교'에 썸네일 3개 등록 — 비공개 영상은 테스트 불가"
+  ],
+  "publishAtHistory": [
+    {
+      "publishAt": "2026-10-18T02:00:00Z",
+      "note": "업로드 때 (10-18 11:00 KST)"
+    },
+    {
+      "publishAt": "2026-10-18T08:00:00Z",
+      "changedAt": "2026-10-17T14:35Z",
+      "note": "10-18 17:00 KST — 짝 쇼츠와 같은 시각 (사용자 지시 2026-10-17 \"연금 꺼내기, ISA도 16시 초기화 될때 올리도록 하고\" — 쇼츠는 할당량 초기화 뒤 올림), videos.update part=status (containsSyntheticMedia 그대로 true)"
+    }
   ]
 }

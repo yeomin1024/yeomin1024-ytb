@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.3 — 2026-10-17 — 대본 v1.3 (페르소나 검토 2차): '매달 첫 거래일' · 배당 다시 넣음 · 시작 시점·실제 ETF 앞 까닭 · '13주 국채' → '석 달짜리 금리' ·
+# VERSION: v1.4 — 2026-10-17 — 대본 v1.4 — 티커 설명 (사용자 지시 2026-10-17 "일단 티커에 대한 설명도 추가해 예를 들어 'S&P500을 추종하는 ETF인 SPY' 이런식으로 다 수정해보고"): 바뀐 문장 기준.
+# v1.3 — 2026-10-17 — 대본 v1.3 (페르소나 검토 2차): '매달 첫 거래일' · 배당 다시 넣음 · 시작 시점·실제 ETF 앞 까닭 · '13주 국채' → '석 달짜리 금리' ·
 #          1.02% 를 맞춘 기간(QLD 2006-06~) · 넣은 돈도 어림 · 100만 이상 어림 두 자리 (numcheck v1.2).
 # v1.2 — 2026-10-17 — 대본 v1.2 (페르소나 피드백 — 사용자가 붙인 ChatGPT 결과 2026-10-17 '네 영상에 반복되는 문제 5개'): 경주는 역전·폭락·회복만,
 #          금액은 어림(numcheck.about)·배수·넣은 돈 대비 %, 숫자와 뜻을 한 문장에, 규칙 문장에 2·3배 계산 방법, 한계에 결정 조건.
@@ -51,7 +52,7 @@ n = S("3배는 30% 올랐다가"); need(n, pct(T["x3"], 0), "3배"); cond(n, Tru
 n = S("실제로 2018년, 1배는"); need(n, pct(YR["2018"]["x1"]), "2018 1배"); cond(n, True, "", "2018년"); cond(n, True, "", "1배")
 n = S("그해 2배는 8.6%"); need(n, pct(YR["2018"]["x2"]), "2018 2배"); need(n, pct(YR["2018"]["x3"]), "2018 3배"); cond(n, True, "", "2배"); cond(n, True, "", "3배")
 # ---- 경주
-n = S("파란 선이 1배"); [cond(n, True, "", t) for t in ("1배", "2배", "3배")]
+n = S("파란 선이 나스닥100을 1배로"); [cond(n, True, "", t) for t in ("1배", "2배", "3배", "100")]
 cond(S("세로 눈금은 한 칸 오를 때마다"), True, "로그 눈금", "10배")
 v = Y["1999"]; cond(S("나스닥100의 배당을 다시 넣은 값"), True, "1배 = QQQ 총수익(tr, 배당 재투자) · 2·3배 = 나스닥100 총수익(QQQ 총수익 + 보수 0.20%) 하루 수익률 × 배수 (run.py idx_tr)", "100")
 n = S("1999년 말, 3배 계좌는"); need(n, won(v["paid"]), "1999 넣은 돈"); need(n, X2(v["x3"] / v["paid"]), "3배 ÷ 넣은 돈"); cond(n, True, "", "1999년"); cond(n, True, "", "3배")
@@ -148,4 +149,4 @@ n = S("211개 중 20개는"); need(n, f"{RO['windows']}개 중 {RO['x3_lt_paid']
 cond(S("이 기간 나스닥100은"), True, "", "100")
 n = S("2배와 3배의 본 실험 값은"); cond(n, True, "", "2배"); cond(n, True, "", "3배")
 n = S("넣은 돈의 90% 안팎이 사라지는 때를 두 번"); cond(n, all(0.88 <= -x["vs_paid_low"] <= 0.93 for x in (D3, G3)), f"닷컴 {D3['vs_paid_low']} · 금융위기 {G3['vs_paid_low']} (88~93%)", "90%"); cond(n, True, "", "3배")
-sys.exit(C.report(HERE.parent / "checklist.md", "reobeoriji-2026-10 숫자 검사 (`backtest/check_numbers.py` v1.3)", f"`backtest/results.json` ({R['version']})"))
+sys.exit(C.report(HERE.parent / "checklist.md", "reobeoriji-2026-10 숫자 검사 (`backtest/check_numbers.py` v1.4)", f"`backtest/results.json` ({R['version']})"))

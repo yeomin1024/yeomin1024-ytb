@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v3.2 — 2026-10-17 — 대본 v3.2 (페르소나 검토 2차 — 비교가 바뀔 때 까닭 한마디 · 전문용어(골든 크로스·모멘텀) 대신 풀어서 · '10달' → '10개월'): 새 문장 기준·조건.
+# VERSION: v3.3 — 2026-10-17 — 대본 v3.3 — 티커 설명 (사용자 지시 2026-10-17 "일단 티커에 대한 설명도 추가해 예를 들어 'S&P500을 추종하는 ETF인 SPY' 이런식으로 다 수정해보고"): 바뀐 문장 기준. 도입 s6 '같은 매도 규칙'은 첫 장 s11 로 옮김 (도입 30초 안).
+# v3.2 — 2026-10-17 — 대본 v3.2 (페르소나 검토 2차 — 비교가 바뀔 때 까닭 한마디 · 전문용어(골든 크로스·모멘텀) 대신 풀어서 · '10달' → '10개월'): 새 문장 기준·조건.
 # v3.1 — 2026-10-17 — 대본 v3.1 (페르소나 피드백 — 사용자가 붙인 ChatGPT 검토 2026-10-17 '네 영상에 반복되는 문제 5개'): 경주 해설을 대표 장면만
 #          (해마다 판정 문장 뺌), 무작위 계좌를 만든 방법(같은 매도 규칙 · 날짜만 무작위 · 기다린 날 수는 그 방법 기록에서) 조건 검사, 결과 + 뜻을 한 문장,
 #          수수료는 도입에서 한계로, 범위만 말하는 방법(mom21·x20)은 result(mean=False).
@@ -156,18 +157,18 @@ def result(k, a_res, a_rand, mean=True):
 # ---- 도입 (규칙 — 정한 조건)
 n = S("많이 쓰는 매수 신호 10가지가")
 need(n, f"{len(ORDER)}가지", "매수 방법 수")
-n = S("2016년부터 지금까지, SPY로")
-cond(n, P["start"].startswith("2016"), f"기간 시작 {P['start']}", "2016년")
+n = S("2016년부터, S&P 500을 따라가는 ETF인 SPY로")
+cond(n, P["start"].startswith("2016"), f"기간 시작 {P['start']}", "2016년"); cond(n, True, "지수 이름 S&P 500 (SPY 가 따라가는 지수)", "500")
 n = S("성공은 매수한 값보다 5% 오르는 것")
 need(n, f"{P['n'] * 100:.0f}%", "성공 +n")
 need(n, f"{P['m'] * 100:.0f}%", "실패 −m")
-n = S("비교 상대는 같은 매도 규칙으로, 날짜만 무작위로")
+n = S("비교 상대는 날짜만 무작위로 매수한 계좌")
 cond(n, P["runs"] == 2000, f"무작위 계좌 {P['runs']}개", "2천")
-cond(n, "같은 매도 규칙" in P["baseline"] and "날짜만 무작위" in P["baseline"], f"params.baseline: {P['baseline']}")
+cond(n, "날짜만 무작위" in P["baseline"], f"params.baseline: {P['baseline']}")
 
 # ---- 1 매달 첫 거래일
 k = "m1"; f = F(k); r = RU[k]
-cond(S("무작위 계좌의 매도 뒤 기다리는 날 수는"), "기다리는 거래일 수를 그 방법의 실제 기다림에서 무작위로 뽑음" in P["baseline"],
+cond(S("무작위 계좌도 매도 규칙은 같고"), "같은 매도 규칙" in P["baseline"] and "기다리는 거래일 수를 그 방법의 실제 기다림에서 무작위로 뽑음" in P["baseline"],
      "params.baseline — 기다리는 날 수 = 그 방법의 실제 기다림에서 뽑음 (barrier/run.py vs_random · entry.method_waits)")
 ye = f["year_end"]["2021"]
 n = S("2021년 말에는 성공률 56.1%로")
@@ -382,7 +383,7 @@ for n, s in enumerate(SENT, 1):
         tok = tok.rstrip(",.")
         if tok not in covered.get(n, set()):
             nums_bad.append(f"문장 {n}: '{tok}' — {s}")
-L = ["# eonje-maesu-2026-10 숫자 검사 (`backtest/check_numbers.py` v3.2)", "",
+L = ["# eonje-maesu-2026-10 숫자 검사 (`backtest/check_numbers.py` v3.3)", "",
      f"- 대본 `eonje-maesu-2026-10.txt` {len(SENT)}문장 · 결과 `backtest/barrier/results.json` ({R['version']}, {R['made_at']})",
      f"- 검사 {len(checks)}개 · 맞음 {len(checks) - bad} · 틀림 {bad} · 검사표에 없는 숫자 {len(nums_bad)}", "",
      "| 문장 | 대본 | 찾는 글자 | 근거 | 결과 |", "|---:|---|---|---|---|"] + rows

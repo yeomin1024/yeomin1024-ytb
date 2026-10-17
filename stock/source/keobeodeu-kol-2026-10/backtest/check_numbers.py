@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.3 — 2026-10-17 — 대본 v1.3 (페르소나 검토 2차): XYLD·JEPI 앞에 까닭 한마디 · '콜옵션'·'원천징수' 낱말 뺌 · 다시 매수 장 까닭 — 새 문장 기준.
+# VERSION: v1.4 — 2026-10-17 — 대본 v1.4 — 티커 설명 (사용자 지시 2026-10-17 "일단 티커에 대한 설명도 추가해 예를 들어 'S&P500을 추종하는 ETF인 SPY' 이런식으로 다 수정해보고"): 바뀐 문장 기준.
+# v1.3 — 2026-10-17 — 대본 v1.3 (페르소나 검토 2차): XYLD·JEPI 앞에 까닭 한마디 · '콜옵션'·'원천징수' 낱말 뺌 · 다시 매수 장 까닭 — 새 문장 기준.
 # v1.2 — 2026-10-17 — 대본 v1.2 (페르소나 피드백 — 사용자가 붙인 ChatGPT 결과 2026-10-17 '네 영상에 반복되는 문제 5개'): 경주는 역전·폭락·회복만,
 #          금액은 원금 대비 % · 배수 · 어림('약 56만 달러' = numcheck.about), 숫자와 뜻을 한 문장에, 세금 문장 '계산에 넣지 않았어요', 한계에 결정 조건.
 # v1.1 — 2026-10-17 — 대본 v1.1 (도입 + 규칙 23초 — 사용자 지시 2026-10-17 '테스트 들어가기 전 도입 및 규칙 설명 30초 넘기지 말라고'): 규칙 문장 3개로, 원금 점선 문장은 경주 첫머리, 구조(하루 움직임)는 결과 뒤.
@@ -97,7 +98,10 @@ need(S("QYLD 계좌는 81개가"), f"{r3['a_below_initial']}개", "3년 QYLD 원
 n = S("그래도 118개 모두"); need(n, f"{r3['b_gt_a']}개", "3년 QQQ > QYLD"); cond(n, r3["b_gt_a"] == r3["windows"], "모두")
 # ---- 다른 커버드콜
 X, J, RX = R["pairs"]["xyld"], R["pairs"]["jepi"], R["rolling_xyld_5y"]
-cond(S("덜 흔들리는 S&P 500 커버드콜, XYLD를"), True, "", "500")
+cond(S("덜 흔들리는 S&P 500 커버드콜 ETF, XYLD도"), True, "", "500")
+cond(S("비교 상대는 S&P 500을 따라가는 ETF인 SPY"), True, "SPY = S&P 500 ETF", "500")
+cond(S("원금은 잘 안 깎인다는 나스닥100 커버드콜"), True, "QYLD = 나스닥100 커버드콜 ETF", "100")
+cond(S("나스닥100을 따라가는 ETF인 QQQ와"), True, "QQQ = 나스닥100 ETF", "100")
 cond(S("QYLD가 따르는 나스닥100은"), True, "QYLD 기초 지수 = 나스닥100 (지수 변동성이 S&P 500 보다 큼 — 일반 사실, 숫자 없음)", "100")
 n = S("2013년 6월부터"); need(n, ym(X["start"]), "XYLD 시작"); need(n, f"{X['years']:.1f}년", "기간"); need(n, about(X["out_total"]), "꺼낸 돈 (어림)")
 n = S("XYLD 계좌는 원금보다"); need(n, pct(X["a_vs_initial"] - 1), "XYLD 원금 대비"); need(n, times(X["b_end"] / I), "SPY ÷ 원금"); cond(n, X["a_end"] > I, "원금 위")
@@ -123,5 +127,5 @@ cond(S("떨어질 때는 많이 따라"), CAP["down_capture"] > CAP["up_capture"
 cond(S("이 기간 나스닥100과 S&P 500은"), True, "", "100")
 cond(S("이 기간 나스닥100과 S&P 500은"), True, "", "500")
 n = S("2022년처럼 37.8% 줄어드는 때를"); need(n, pct(dn["b"]["drop"]), "QQQ 2022 하락 (긴 하락과 같은 값)"); cond(n, True, "", "2022년")
-sys.exit(C.report(HERE.parent / "checklist.md", "keobeodeu-kol-2026-10 숫자 검사 (`backtest/check_numbers.py` v1.3)",
+sys.exit(C.report(HERE.parent / "checklist.md", "keobeodeu-kol-2026-10 숫자 검사 (`backtest/check_numbers.py` v1.4)",
                   f"`backtest/results.json` ({R['version']})"))

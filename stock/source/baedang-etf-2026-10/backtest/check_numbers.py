@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.3 — 2026-10-17 — 대본 v1.3 (페르소나 검토 2차): '매달 첫 거래일' · 비교가 바뀔 때 까닭 · '원천징수' 낱말 뺌 · 100만 이상 어림 두 자리 (numcheck v1.2).
+# VERSION: v1.4 — 2026-10-17 — 대본 v1.4 — 티커 설명 (사용자 지시 2026-10-17 "일단 티커에 대한 설명도 추가해 예를 들어 'S&P500을 추종하는 ETF인 SPY' 이런식으로 다 수정해보고"): 바뀐 문장 기준.
+# v1.3 — 2026-10-17 — 대본 v1.3 (페르소나 검토 2차): '매달 첫 거래일' · 비교가 바뀔 때 까닭 · '원천징수' 낱말 뺌 · 100만 이상 어림 두 자리 (numcheck v1.2).
 # v1.2 — 2026-10-17 — 대본 v1.2 (페르소나 피드백 — 사용자가 붙인 ChatGPT 결과 2026-10-17 '네 영상에 반복되는 문제 5개'): 경주는 역전·폭락·회복만,
 #          금액은 어림('약 48만 달러' = numcheck.about)·배수·%, 숫자와 뜻을 한 문장에, 소수점 주식 문장, 한계에 결정 조건.
 # v1.1 — 2026-10-17 — 대본 v1.1 (도입 + 규칙 24초 — 사용자 지시 2026-10-17 '테스트 들어가기 전 도입 및 규칙 설명 30초 넘기지 말라고'): 규칙 문장 2개로, 15% 세율 문장은 '다른 조건', 구조(배당 한 번)는 결과 뒤.
@@ -31,6 +32,7 @@ def ye(anchor, y, both=True):
 
 
 # ---- 규칙
+cond(S("미국 배당주 ETF인 SCHD와, S&P 500 ETF인 SPY로"), True, "SCHD = 미국 배당주 ETF · SPY = S&P 500 ETF", "500")
 n = S("2011년부터 매달 첫 거래일에 1,000달러씩"); need(n, f"{M['start'][:4]}년부터", "시작 해 (날짜 전부는 화면)"); need(n, won(R["monthly"]), "매달")
 cond(n, True, "매달 첫 거래일 적립 (run.py 머리 · income.month_starts)", "첫 거래일")
 n = S("배당은 15%를 떼고"); cond(n, R["tax"] == 0.15, "tax", "15%"); cond(n, R["fee"] == 0.0025, "fee", "0.25%")
@@ -104,7 +106,7 @@ n = S("10년 적립 계좌 60개에서는"); need(n, f"{R10['windows']}개", "10
 # ---- 더 긴 기간 (VYM)
 V, VF, RV = R["vym"], R["vym_facts"], R["rolling_vym_10y"]
 n = S("SCHD는 2011년에 생겨서"); cond(n, R["first_day"]["SCHD"].startswith("2011"), f"SCHD 첫 거래일 {R['first_day']['SCHD']}", "2011년"); cond(n, True, "", "2008년")
-cond(S("2006년에 생긴 배당 ETF, VYM"), R["first_day"]["VYM"].startswith("2006"), f"VYM 첫 거래일 {R['first_day']['VYM']}", "2006년")
+cond(S("2006년에 생긴 미국 고배당주 ETF, VYM"), R["first_day"]["VYM"].startswith("2006"), f"VYM 첫 거래일 {R['first_day']['VYM']}", "2006년")
 n = S("2006년 12월부터, 같은 규칙으로"); need(n, ym(V["start"]), "VYM 시작"); need(n, won(R["monthly"]), "매달")
 n = S("금융위기 때 VYM은"); need(n, pct(VF["crisis_a"]["drop"]), "VYM 하락 (2008 금융위기)"); need(n, pct(VF["crisis_b"]["drop"]), "SPY 하락"); cond(n, VF["crisis_a"]["drop"] > VF["crisis_b"]["drop"], "VYM 덜 떨어짐")
 n = S("2011년 10월 말까지는"); cond(n, VF["at_schd_start"]["date"].startswith("2011-10") and VF["at_schd_start"]["a"] > VF["at_schd_start"]["b"], "VYM 앞섬", "2011년 10월"); need(n, about(VF["at_schd_start"]["a"]), "VYM (어림)")
@@ -121,4 +123,4 @@ need(S("SCHD가 앞선 계좌도 있었지만"), f"{R5['windows']}개 중 {R5['a
 n = S("10년 계좌 119개 중 114개"); need(n, f"{RV['windows']}개 중 {RV['b_gt_a']}개", "VYM 10년 SPY 많음"); cond(n, True, "", "2006년"); cond(n, True, "", "10년")
 # ---- 한계
 n = S("2022년처럼 22.2% 줄어드는 해를"); need(n, pct(y22["b"]["drop"]), "SPY 2022 하락 (하락장과 같은 값)"); cond(n, True, "", "2022년")
-sys.exit(C.report(HERE.parent / "checklist.md", "baedang-etf-2026-10 숫자 검사 (`backtest/check_numbers.py` v1.3)", f"`backtest/results.json` ({R['version']})"))
+sys.exit(C.report(HERE.parent / "checklist.md", "baedang-etf-2026-10 숫자 검사 (`backtest/check_numbers.py` v1.4)", f"`backtest/results.json` ({R['version']})"))

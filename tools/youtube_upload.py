@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.7 — 2026-10-16 — 올리기 전 채널 확인: 키의 채널(channels?mine=true)이 <주제>/youtube_channel.json 의 channel_id 와 다르면
+# VERSION: v1.8 — 2026-10-17 — 쇼츠 올리기: 영상ID '<영상ID>-shorts' 면 시트·자막·youtube.json 을 source/<영상ID>/shorts/ 에서
+#          (shorts/upload.md — 롱폼 시트와 같은 꼴, 챕터 없음), 영상은 out/<영상ID>-shorts/final_1080p.mp4. 쇼츠는 썸네일을 API 로 올리지 않는다
+#          (첫 문장 그림 = 0초 장면을 앱에서 고름 — guides/shorts_guide.md 4번). 사용자 지시 2026-10-17 "아니 공개 자동예약으로 올려 쇼츠도 하나 올려보고".
+# (v1.7 — 2026-10-16 — 올리기 전 채널 확인: 키의 채널(channels?mine=true)이 <주제>/youtube_channel.json 의 channel_id 와 다르면
 #          멈춘다 (업로드 안 함). 클라우드 환경마다 키가 달라서(주식 환경 = STOCK LAB, 재테크 환경 = 부자백서 — 2026-10-16 확인) 재테크 영상이
 #          다른 채널에 올라갈 수 있었음. 사용자 지시 2026-10-16 "재테크 … 영상을 만들어 부자백서 채널에 업로드 할 환경이야 한번 업로드 잘되는지
-#          데모 영상 만들어서 업로드 테스트해봐". --dry-run 도 키가 있으면 확인(읽기 1단위). youtube.json 에 channel·channelId 를 적음.
+#          데모 영상 만들어서 업로드 테스트해봐". --dry-run 도 키가 있으면 확인(읽기 1단위). youtube.json 에 channel·channelId 를 적음.)
 # (v1.6 — 2026-10-15 — 언어별 제목·설명(localizations)·기본 언어·자막 올리기 여부를 업로드 시트에서 읽음 (사용자 지시 2026-10-15
 #          "주식 주제는 전세계 사람들 대상으로 할거니까 영상에 자막 달지말고 … 유튜브 이용자가 가장 많은 국가 선정(영어, 한국어 포함)해서
 #          그 언어로 제목 각각 만들어"): upload.md '언어별 제목·설명' 섹션의 JSON 코드 블록 → snippet.defaultLanguage + localizations
@@ -84,8 +87,17 @@ def _section_code(md, heading_word):
     return c.group(1) if c else None
 
 
+def is_shorts(vid):
+    return vid.endswith("-shorts")
+
+
+def src_dir(topic, vid):
+    """대본·시트 폴더: 롱폼 source/<영상ID>/, 쇼츠 '<영상ID>-shorts' → source/<영상ID>/shorts/ (v1.8 — tts_narration·render 와 같음)."""
+    return ROOT / topic / "source" / vid[: -len("-shorts")] / "shorts" if is_shorts(vid) else ROOT / topic / "source" / vid
+
+
 def read_sheet(topic, vid):
-    src = ROOT / topic / "source" / vid
+    src = src_dir(topic, vid)
     md = (src / "upload.md").read_text("utf-8")
     title = (_section_code(md, "제목") or "").strip()
     desc = _section_code(md, "설명란") or ""
@@ -137,7 +149,7 @@ def recompute_chapters(topic, vid, desc, spec):
     if not spec:
         log("CHAPTER", status="skip", reason="upload.md 3번에 --chapters 명령 없음 → 설명란 챕터 그대로")
         return desc, None
-    src = ROOT / topic / "source" / vid
+    src = src_dir(topic, vid)
     out = subprocess.run([sys.executable, str(ROOT / "tools" / "srt_tool.py"), "upload", str(src / f"{vid}.txt"),
                           str(src / f"{vid}.srt"), "--chapters", spec], capture_output=True, text=True)
     lines = [l for l in out.stdout.splitlines() if re.match(r"^\d+:\d\d(:\d\d)? ", l)]
@@ -353,7 +365,7 @@ def check_channel(topic, token):
 
 def paired_thumbnail(topic, vid):
     """titles.md에서 채택([x]) 제목의 '짝 썸네일: thumbnail_N' → N (없으면 1)."""
-    p = ROOT / topic / "source" / vid / "titles.md"
+    p = src_dir(topic, vid) / "titles.md"
     if p.exists():
         for line in p.read_text("utf-8").splitlines():
             m = re.search(r"\[x\].*짝 썸네일:\s*thumbnail_(\d)", line)
@@ -363,7 +375,7 @@ def paired_thumbnail(topic, vid):
 
 
 def find_thumbnail(topic, vid, n):
-    for folder in (ROOT / topic / "source" / vid / "thumbnails", ROOT / topic / "out" / vid / "thumbnails"):
+    for folder in (src_dir(topic, vid) / "thumbnails", ROOT / topic / "out" / vid / "thumbnails"):
         for ext in (".png", ".jpg", ".jpeg", ".webp"):
             p = folder / f"thumbnail_{n}{ext}"
             if p.exists():
@@ -438,9 +450,12 @@ def sha256(path):
 # ----------------------------------------------------------------------------- 실행
 def run(topic, vid, dry_run=False, privacy="private", force=False, no_captions=False, no_thumbnail=False, video=None,
         publish_at=None):
-    src = ROOT / topic / "source" / vid
+    src = src_dir(topic, vid)
     out = ROOT / topic / "out" / vid
     state_path = src / "youtube.json"
+    if is_shorts(vid) and not no_thumbnail:          # v1.8 쇼츠 표지는 앱에서 0초 장면으로 (API 썸네일 안 올림)
+        no_thumbnail = True
+        log("THUMBNAIL", status="skip", reason="쇼츠 — 올린 뒤 유튜브 앱에서 0초 장면(첫 문장 그림)을 썸네일로 고름")
     if state_path.exists() and not force:
         st = json.loads(state_path.read_text("utf-8"))
         log("SKIP", video=vid, reason="이미 업로드됨", youtube_id=st.get("videoId"), hint="--force 로 다시 올림")
@@ -448,7 +463,7 @@ def run(topic, vid, dry_run=False, privacy="private", force=False, no_captions=F
     video_path = Path(video) if video else find_video(topic, vid)
     srt_path = src / f"{vid}.srt"
     thumb_n = paired_thumbnail(topic, vid)
-    thumb_src = find_thumbnail(topic, vid, thumb_n)
+    thumb_src = None if no_thumbnail else find_thumbnail(topic, vid, thumb_n)   # v1.8 쇼츠는 찾지도 자르지도 않음 (세로 그림을 16:9 로 자르지 않게)
     thumbs = [t for t in [prepare_thumbnail(thumb_src, out / "thumbnails")] if t] if thumb_src else []
     meta = read_sheet(topic, vid)
     meta["description"], chapter_lines = recompute_chapters(topic, vid, meta["description"], meta["chapter_spec"])

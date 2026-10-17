@@ -1,5 +1,19 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-17 (87) — ISA 쇼츠 '세금을 96만 원' → '세금 96만 원' 되돌림
+
+### 왜 (사용자 지시)
+- "세금을 96만 원 이건 세금 96만 원 으로 그냥 해도 돼 너 이런거 구분 잘 못해? 저것만 다시 고쳐"
+
+### 한 것
+| 파일·대상 | 내용 |
+|---|---|
+| `economic/source/isa-mangi-2026-10/shorts/upload.md` (v1.1.2) · `shorts.md` (v2.3.2) | 제목 「ISA 만기 돈 잘못 두면 3년에 세금 96만 원 더 낸다」 (32자, `title_fit.py --shorts` 2줄 ✅) |
+| `…/shorts/thumbnails/thumbnail_1.md` (v2.0.2) | 2줄 「세금 96만 원 더 낸다」 · 검수 줄 |
+| `economic/thumbnails_chatgpt.md` | 다시 만듦 |
+| `tools/make_summary.py` (v1.8.2) | 규칙 6 확대 확인 예에서 '세금을'의 '을' 뺌 |
+| `guides/shorts_guide.md` (v1.14) · `title_guide.md` (v3.4) · `thumbnail_guide.md` (v3.9.1) · `CLAUDE.md` · `guides/status.md` (v1.62) | 조사 규칙: **헷갈릴 때만 붙인다** — '세금 200만 원 날린다'만 '세금으로', '세금 96만 원 더 낸다'는 그대로 |
+
 ## 2026-10-17 (86) — 쇼츠 제목·썸네일 문구 조사: 뜻이 분명하게
 
 ### 왜 (사용자 지시)

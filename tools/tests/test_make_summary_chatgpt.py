@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-# VERSION: v1.5 — 2026-10-16 — make_summary v1.6.0 쇼츠 썸네일(source/<영상ID>/shorts/thumbnails/thumbnail_1 하나, 세로 9:16) 시험.
+# VERSION: v1.6 — 2026-10-17 — make_summary v1.7.0 영어 낱말·숫자·기호 썸네일('| 글자 | **영어…') 규칙 시험 (주식 — 사용자 지시 2026-10-17 "buy, sell 같은 … 영어 문구는 써도 돼" · "숫자나 기호 같은 문구도 써도 돼").
+# (v1.5 — 2026-10-16 — make_summary v1.6.0 쇼츠 썸네일(source/<영상ID>/shorts/thumbnails/thumbnail_1 하나, 세로 9:16) 시험.)
 # (v1.4 — 2026-10-16 — make_summary v1.5.0 --chatgpt-all (주제 모든 영상 한 파일, 장마다 저장 경로) · 영상별 파일 그림 위 저장 경로 시험.)
 # (v1.3 — 2026-10-15 — v1.4.3 글자 없는 썸네일('| 글자 | 없음') 규칙 시험 추가.)
 # (v1.2 — 2026-10-15 — tools/make_summary.py v1.4.2 --chatgpt 시험 (못 쓰면 Claude 대화에 붙이라는 안내, 모두 만들었을 때 '만들 것 없음')
@@ -103,12 +104,32 @@ class ChatgptFileTest(unittest.TestCase):
         self.assertIn("글자·숫자·기호·로고·워터마크를 하나도 넣지 않는다", text)
         self.assertIn("글자처럼 보이는 것", text)
         self.assertNotIn("받침과 모음 획", text)
-        self.assertNotIn("문구 (그림 속 한글", text)            # 문구표를 넣지 않음
+        self.assertNotIn("문구 (그림 속", text)                 # 문구표를 넣지 않음
         for n in ("4.", "5.", "6.", "7."):                      # 규칙 번호 차례
             self.assertIn("\n" + n, text)
         self.assertLess(text.index("\n4."), text.index("\n5."))
         self.assertLess(text.index("\n5."), text.index("\n6."))
 
+
+    def test_simple_text_rules(self):                   # v1.7.0 — 주식: 영어 낱말·숫자·기호만 (한글 획 규칙이 아님)
+        for i in (1, 2, 3):
+            md = thumb_md(i).replace("| 시험하는 가설 | h", "| 글자 | **영어 낱말·숫자·기호만** — `BUY → +5% or −2% ?` |\n| 시험하는 가설 | h")
+            (self.folder / f"thumbnail_{i}.md").write_text(md, "utf-8")
+        text, _ = self.run_tool()
+        self.assertIn("영어 낱말·숫자·기호·티커만", text)
+        self.assertIn("한 글자씩", text)
+        self.assertNotIn("받침과 모음 획", text)
+        self.assertNotIn("하나도 넣지 않는다", text)
+        self.assertIn("문구 (그림 속 글자는 이것과 한 글자도 다르면 안 됨)", text)   # 문구표를 넣음
+        self.assertIn("줄1", text)
+
+    def test_mode_detection(self):
+        self.assertEqual(ms.text_mode("| 글자 | **없음** (그림만) |"), "none")
+        self.assertEqual(ms.text_mode("| 글자 | **영어 낱말·숫자·기호만** — `QQQ` |"), "simple")
+        self.assertEqual(ms.text_mode("| 시험하는 가설 | h |"), "ko")
+        self.assertIs(ms.rules_for(["none", "simple"]), ms.SIMPLE_TEXT_RULES)
+        self.assertIs(ms.rules_for(["simple", "ko"]), ms.TEXT_RULES)
+        self.assertIs(ms.rules_for(["none"]), ms.NO_TEXT_RULES)
 
     def test_label_has_save_path(self):                 # v1.5.0 — 그림 위에 저장 경로
         for i in (1, 2, 3):

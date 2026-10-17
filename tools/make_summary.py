@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.6.0 — 2026-10-16 — 쇼츠 썸네일도: 영상ID `<영상ID>-shorts` = `<주제>/source/<영상ID>/shorts/thumbnails/` 의 thumbnail_1 하나
+# VERSION: v1.7.0 — 2026-10-17 — 글자 종류 셋: 없음 · 한글(TEXT_RULES) · **영어 낱말·숫자·기호(SIMPLE_TEXT_RULES — 주식)** — thumbnail_N.md 의 '| 글자 | **영어…' 줄로 알아봄.
+#          ChatGPT 규칙 4·6 이 '한글 획'이 아니라 '철자·기호(−·%·$·×·→) 한 글자씩'을 보게. 사용자 지시 2026-10-17 "문구 없으니까 너무 허전하네 buy, sell 같은
+#          정말 간단해서 모두 알만한 영어 문구는 써도 돼" · "숫자나 기호 같은 문구도 써도 돼".
+# (v1.6.0 — 2026-10-16 — 쇼츠 썸네일도: 영상ID `<영상ID>-shorts` = `<주제>/source/<영상ID>/shorts/thumbnails/` 의 thumbnail_1 하나
 #          (쇼츠는 '테스트 및 비교'가 없어 한 장). --chatgpt-all 이 롱폼 다음에 쇼츠를 모으고, 장마다 크기 줄(롱폼 가로 16:9 · 쇼츠 세로 9:16)을 적음.
-#          사용자 지시 2026-10-16 "쇼츠 영상 썸네일 이미지 프롬프트 만들어서 영상 처음에만 그걸 포함 시키고 … 이미지 프롬프트 4개 다 만들도록 하고".
+#          사용자 지시 2026-10-16 "쇼츠 영상 썸네일 이미지 프롬프트 만들어서 영상 처음에만 그걸 포함 시키고 … 이미지 프롬프트 4개 다 만들도록 하고".)
 # (v1.5.0 — 2026-10-16 — --chatgpt-all <주제>: 그 주제 모든 영상의 남은 썸네일을 한 파일(<주제>/thumbnails_chatgpt.md)에 모아
 #          ChatGPT 가 메시지 한 번으로 차례로 만들고 장마다 **저장 경로**(`<주제>/source/<영상ID>/thumbnails/thumbnail_N.png`)에 올리게 한다
 #          (못 쓰면 경로를 붙여 순서대로 보여 주고 Claude 대화에 붙이게). 영상별 chatgpt.md 도 그림 위에 저장 경로를 적게 함.
@@ -332,8 +335,32 @@ def size_rule(vids):
 
 TEXT_RULES = ("4. 그림 속 글자는 프롬프트의 따옴표 안 글자만(한글, 그리고 프롬프트가 적은 영문 — 예: ISA), 글자·띄어쓰기 그대로 쓴다. 다른 글자·숫자·로고·워터마크는 넣지 않는다.\n",
               "6. 한 장을 만들 때마다 그 칸의 '문구' 표와 그림 속 한글을 한 글자씩 맞춰 본다. 크게 확대해서 받침과 모음 획(예: '료'의 ㄹ, '보'의 ㅗ)이 빠지거나 가려지지 않았는지도 본다. 다르면 그림은 그대로 두고 글자만 고쳐 다시 만든다.\n")
+SIMPLE_TEXT_RULES = ("4. 그림 속 글자는 프롬프트가 따옴표로 적은 **영어 낱말·숫자·기호·티커만** (예: BUY, TAX, QQQ, −15%, $100,000, 1×, →, ?) — 철자·기호·띄어쓰기 그대로, 납작하고 굵은 글씨. "
+                     "다른 글자·숫자·로고·워터마크는 넣지 않는다 (동전·상자·화면에도). 한국어·문장은 쓰지 않는다 (전 세계 시청자용).\n",
+                     "6. 한 장을 만들 때마다 그 칸의 '문구' 표와 그림 속 글자를 **한 글자씩** 맞춰 본다 — 마이너스 '−'·'%'·'$'·쉼표·소수점·'×'·'→'·'?' 가 빠지거나 바뀌지 않았는지, "
+                     "표에 없는 가짜 글자·숫자가 생기지 않았는지 크게 확대해서 본다. 다르면 그림은 그대로 두고 글자만 고쳐 다시 만든다.\n")
 NO_TEXT_RULES = ("4. **그림 속에 글자·숫자·기호·로고·워터마크를 하나도 넣지 않는다** — 전 세계 시청자용이라 그림만으로 뜻을 전한다. 지폐·화면·간판·그래프 눈금에도 글자나 숫자가 없어야 한다.\n",
                  "6. 한 장을 만들 때마다 그림을 크게 확대해 **글자처럼 보이는 것**(가짜 글자, 숫자, 지폐 무늬 속 숫자, 화면 속 글)이 없는지 본다. 있으면 그 부분만 지운 그림으로 다시 만든다.\n")
+
+
+def text_mode(md):
+    """v1.7.0: thumbnail_N.md '| 글자 |' 줄 → 'none'(글자 없음 — v1.4.3) · 'simple'(영어 낱말·숫자·기호 — 주식 2026-10-17) · 'ko'(한글 문구)."""
+    m = re.search(r"^\|\s*글자\s*\|\s*\**\s*(\S+)", md, re.M)
+    if m and m.group(1).startswith("없음"):
+        return "none"
+    if m and m.group(1).startswith("영어"):
+        return "simple"
+    return "ko"
+
+
+def rules_for(modes):
+    """v1.7.0: 모두 없음 → NO_TEXT · 한글이 하나도 없고 영어가 있음 → SIMPLE_TEXT · 그 밖 → TEXT(한글)."""
+    modes = set(modes)
+    if modes == {"none"}:
+        return NO_TEXT_RULES
+    if "ko" not in modes:
+        return SIMPLE_TEXT_RULES
+    return TEXT_RULES
 
 
 def pending_thumbnails(topic, vid, root=ROOT):
@@ -354,8 +381,8 @@ def pending_thumbnails(topic, vid, root=ROOT):
         words = re.search(r"## 문구[^\n]*\n(.*?)(?=\n## )", md, re.S)
         if not a:
             raise SystemExit(f"[CHATGPT] level=error file={md_path.name} reason=[A] 프롬프트 칸 없음 — '## [A] …' 아래 ``` 블록 필요")
-        no_text = bool(re.search(r"^\|\s*글자\s*\|\s*\**\s*없음", md, re.M))       # v1.4.3 글자 없는 썸네일
-        items.append((i, md.splitlines()[0].lstrip("# ").strip(), a.group(1), "" if no_text else (words.group(1).strip() if words else ""), no_text))
+        mode = text_mode(md)                                                                # v1.7.0 없음·한글·영어(숫자·기호)
+        items.append((i, md.splitlines()[0].lstrip("# ").strip(), a.group(1), "" if mode == "none" else (words.group(1).strip() if words else ""), mode))
     return items
 
 
@@ -379,12 +406,12 @@ def chatgpt_file(topic, vid, root=ROOT):
            f"이 파일 주소: {RAW_BASE}/{rel}/chatgpt.md", "",
            CHATGPT_RULES.format(n=len(items), names=", ".join(f"thumbnail_{i}" for i, *_ in items), repo=REPO,
                                 folder=rel, vid=vid, upload=f"{UPLOAD_BASE}/{rel}", rule3=size_rule([vid]),
-                                rule4=(NO_TEXT_RULES if all(x[4] for x in items) else TEXT_RULES)[0],
-                                rule6=(NO_TEXT_RULES if all(x[4] for x in items) else TEXT_RULES)[1])]
-    for i, head, prompt, words, _no_text in items:
+                                rule4=rules_for(x[4] for x in items)[0],
+                                rule6=rules_for(x[4] for x in items)[1])]
+    for i, head, prompt, words, _mode in items:
         out += [f"## thumbnail_{i} — {head.split('—', 1)[-1].strip()}", ""]
         if words:
-            out += ["문구 (그림 속 한글은 이것과 한 글자도 다르면 안 됨):", "", words, ""]
+            out += ["문구 (그림 속 글자는 이것과 한 글자도 다르면 안 됨):", "", words, ""]
         out += ["프롬프트:", "", "```", prompt, "```", ""]
     path = folder / "chatgpt.md"
     path.write_text("\n".join(out), "utf-8")
@@ -429,7 +456,7 @@ def chatgpt_all(topic, root=ROOT):
         print(f"[CHATGPT-ALL] topic={topic} thumbnails=0 note=모든_시안에_이미지_있음 file={path.relative_to(root)}")
         return path
     flat = [(vid, rel, it) for vid, rel, items in groups for it in items]
-    rules = NO_TEXT_RULES if all(it[4] for _, _, it in flat) else TEXT_RULES
+    rules = rules_for(it[4] for _, _, it in flat)
     first_vid, first_rel, first_it = flat[min(2, len(flat) - 1)]
     out = [f"# {topic} 썸네일 {len(flat)}장 — ChatGPT용 (모든 영상 · 읽고 그대로 만들고 각 저장 경로에 올리기)", "",
            f"{gen}. 이 파일은 고치지 말고 영상마다 `thumbnail_N.md`를 고친 뒤 다시 만든다.", "",
@@ -441,7 +468,7 @@ def chatgpt_all(topic, root=ROOT):
             "## 폴더별 올리기 링크 (ChatGPT가 못 올릴 때 사람이 쓰는 길)", ""]
     out += [f"- {vid}: {UPLOAD_BASE}/{rel}" for vid, rel, _ in groups]
     out.append("")
-    for k, (vid, rel, (i, head, prompt, words, _no_text)) in enumerate(flat, 1):
+    for k, (vid, rel, (i, head, prompt, words, _mode)) in enumerate(flat, 1):
         out += [f"## {k}. {vid} · thumbnail_{i} — {head.split('—', 1)[-1].strip()}", "",
                 f"**저장 경로: `{rel}/thumbnail_{i}.png`**", "",
                 "크기: **세로 9:16 (1080×1920) — 쇼츠**" if vid.endswith(SHORTS) else "크기: 가로 16:9 (1280×720) — 롱폼", ""]

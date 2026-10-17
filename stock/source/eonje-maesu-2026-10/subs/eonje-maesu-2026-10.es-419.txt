@@ -1,0 +1,143 @@
+# eonje-maesu-2026-10 — es-419 자막 대본 · 한국어 대본과 문장 1:1 · v1.0 2026-10-17
+-도입
+Si baja justo después de comprar, piensas que fallaste el momento.
+¿Las 10 señales de compra populares de verdad ayudan a acertar?
+Hagamos un backtest desde 2016 con SPY, un ETF que sigue al S&P 500.
+Acierto es subir 5% sobre el precio de compra; si antes cae 2%, es fallo.
+Decidida, vendemos al día siguiente y recompramos en la siguiente señal.
+Comparamos con 2,000 cuentas en las que solo las fechas son al azar.
+-매달 첫 거래일
+La primera es sin señal: comprar el primer día hábil de cada mes.
+Para ver si las señales sirven, primero hay que ver un método sin señal.
+Verde son aciertos; rojo, fallos.
+Arriba a la derecha, la tasa de acierto hasta ahora; debajo, el promedio al azar.
+Las cuentas al azar venden igual, y sus días de espera salen del historial de cada método.
+A fines de 2021, la tasa de acierto era 56.1%, sobre el promedio al azar de 51.7%.
+Pero en 2022, 11 de 12 operaciones fallaron.
+Desde 2023, se movió casi pegada al promedio al azar.
+Resultado: 37 aciertos de 80, 46.2%, un poco bajo el promedio al azar de 47.1%.
+La franja gris es el rango del 90% de las cuentas al azar: de 41.5% a 53.2%.
+Dentro de la franja es sin diferencia con el azar, y el primer día hábil quedó dentro.
+-신고가 돌파
+De la segunda a la quinta son señales de tendencia, que compran cuando sube el precio.
+Suponen que lo que empieza a subir sube más.
+Segunda: comprar al romper el máximo de 20 días.
+Compra si el cierre supera el mayor cierre de los últimos 20 días hábiles.
+A fines de 2019, la tasa de acierto era 58.8%, sobre el promedio al azar de 50.3%.
+Tras vender en abril de 2022, pasaron casi tres meses sin señal.
+Ese año, 5 de 6 operaciones fallaron.
+Tras 20 operaciones decididas, la tasa de acierto nunca bajó del promedio al azar.
+Resultado: 31 aciertos de 63, 49.2%.
+Promedio al azar 47.1%, dentro del rango de 41.3% a 53.2%: no se puede decir que sea mejor.
+-모멘텀
+Tercera: aunque no haya máximo nuevo, comprar si subió respecto a hace un mes.
+Se compra cuando el cierre de hoy supera el de hace 21 días hábiles.
+En junio de 2020, la tasa de acierto era 63.0%, muy por delante del promedio al azar de 50.9%.
+Pero en 2022, 10 de 12 operaciones fallaron.
+Tras vender a fines de febrero de 2025, pasaron más de dos meses sin señal.
+Resultado: 42 aciertos de 81, 51.9%.
+Quedó cerca del borde superior del rango al azar de 43.3% a 52.6%, pero dentro.
+-이동평균선
+La cuarta es la media de 20 días, muy dibujada en los gráficos.
+Se compra el día en que el cierre cruza hacia arriba la media de 20 días.
+De julio de 2016 a enero de 2018, acertó cinco veces seguidas.
+En diciembre de 2021, la tasa de acierto era 64.7%, muy por delante del promedio al azar de 51.8%.
+Después, hasta julio de 2022, falló seis veces seguidas.
+Tras 20 operaciones decididas, nunca bajó del promedio al azar.
+Resultado: 37 aciertos de 71, 52.1%, la más alta de las cuatro hasta ahora.
+Aun así, está dentro del rango al azar de 40.3% a 54.3%: no se puede decir que sea mejor.
+-골든 크로스
+La quinta mira dos medias a la vez.
+Se compra cuando la media corta de 5 días cruza hacia arriba la larga de 20 días.
+Tras vender en septiembre de 2017, la siguiente compra fue en febrero de 2018.
+En julio de 2022, la tasa de acierto era 40.0%, bajo el promedio al azar de 48.5%.
+Justo antes había fallado seis veces seguidas.
+Después, acertó cinco veces seguidas hasta junio de 2023.
+Desde 2024, 7 de 12 operaciones acertaron.
+Resultado: 25 aciertos de 50, justo 50.0%.
+Promedio al azar 47.4%, dentro del rango de 38.6% a 56.2%.
+Fue la que menos operó de las 10, por eso el rango fue amplio.
+-하루 하락
+Desde la sexta, las señales compran cuando baja el precio.
+La idea: si compras más barato, sube con más facilidad.
+Sexta: si cae 1% o más en un día, se compra al día siguiente.
+En enero de 2019, la tasa de acierto era 35.0%, muy por detrás del promedio al azar de 46.9%.
+Es que solo en 2018, 8 de 12 operaciones fallaron.
+En 2022 también fallaron 13 de 20.
+Tras 20 operaciones decididas, no superó el promedio al azar ni un solo día.
+Resultado: 44 aciertos de 95, 46.3%.
+Promedio al azar 46.8% y rango de 40.7% a 52.8%: quedó dentro.
+-RSI
+Séptima: comprar con el RSI por debajo de 40.
+El RSI compara el tamaño de las subidas y bajadas de los últimos 14 días.
+Bajo 40, se considera que cayó mucho, y se compra.
+En noviembre de 2019, la tasa de acierto era 61.9%, muy por delante del promedio al azar de 49.3%.
+Pero en el desplome por COVID de 2020, 5 de 7 operaciones fallaron.
+Tras vender en noviembre de 2020, pasaron más de 10 meses sin señal.
+Y en 2022, 11 de 14 operaciones fallaron.
+Por eso, solo tuvo acciones el 35% de los días.
+Resultado: 30 aciertos de 62, 48.4%.
+Promedio al azar 46.7% y rango de 38.0% a 56.0%: otra vez, dentro.
+-VIX
+Octava: comprar con el índice del miedo, el VIX, en 20 o más.
+Cuanto más alto el VIX, más gente espera grandes sacudidas del mercado.
+Así probamos el dicho "compra cuando todos tienen miedo".
+Tras vender en noviembre de 2016, pasó más de 1 año sin señal.
+En 2020, 11 de 22 operaciones acertaron, justo la mitad.
+En 2022, fallaron 18 de 24, seis seguidas de agosto a octubre.
+Desde 2023, acertaron 14 de 23, otra vez más de la mitad.
+Resultado: 48 aciertos de 101, 47.5%.
+Casi igual al promedio al azar de 47.3%, y dentro del rango de 41.3% a 53.6%.
+-단기 저점
+Novena: comprar cuando cae 5% bajo el máximo de los últimos 20 días hábiles.
+Comprar en la baja, para caídas cortas.
+Tras vender en julio de 2016, la siguiente señal llegó en febrero de 2018.
+En el desplome por COVID de 2020, 6 de 9 operaciones fallaron.
+En 2022 también fallaron 11 de 15.
+Tuvo acciones el 23% de los días, lo menos de las 10.
+Resultado: 29 aciertos de 59, 49.2%.
+Promedio al azar 46.5% y rango de 38.0% a 55.8%: quedó dentro.
+-고점 대비 하락
+Por último, la décima: comprar cuando cae 5% bajo el cierre más alto hasta entonces.
+Es la novena con un plazo más largo.
+Esta también pasó más de 1 año y medio sin señal tras vender en julio de 2016.
+A fines de 2019, la tasa de acierto era 56.5%, sobre el promedio al azar de 49.8%.
+Es que las cinco de ese año acertaron.
+En el desplome por COVID de 2020, fallaron 6 de 10.
+En 2022, fallaron 19 de 26, la mayor cantidad de las 10.
+Desde 2023, acertaron 14 de 23, otra vez más de la mitad.
+Resultado: 45 aciertos de 94, 47.9%.
+Promedio al azar 47.1% y rango de 40.8% a 53.6%: esta también quedó dentro.
+-종합
+Veamos los 10 resultados juntos.
+Los puntos son la tasa de acierto de cada método; la franja gris, el 90% de las cuentas al azar.
+La más alta fue comprar al cruzar la media de 20 días: 52.1%.
+La más baja fue comprar el primer día hábil del mes: 46.2%.
+De las cinco de arriba, cuatro eran de tendencia: compran al subir.
+Pero las 10 quedaron dentro del rango al azar: ninguna diferencia con comprar al azar.
+Incluso en la más alta, el cruce de la media de 20 días, el 13% de las cuentas al azar tuvo una tasa igual o mayor.
+-다른 조건
+¿Y si el criterio de fallo de 2% era demasiado flojo?
+Si lo endurecemos a 1%, la tasa de acierto de comprar cualquier día baja a 33.6%.
+Ahí solo el cruce de la media de 20 días superó el rango.
+Con 1.5%, ningún método salió del rango.
+Estos 10 años pudieron ser especiales, así que cambiamos el periodo a 1994–2015.
+En ese periodo, el cruce de la media de 20 días tuvo 33.3%, la más baja de las 10.
+En ese periodo también, las 10 quedaron en el rango al azar.
+-정리
+Resumamos.
+En este backtest, ninguna señal de compra tuvo una tasa de acierto claramente mayor que comprar al azar.
+La tendencia fue algo mejor en estos 10 años.
+Pero en los 22 años anteriores, dos de las cuatro quedaron bajo el promedio al azar.
+Y en años de caída continua, como 2022, todas las señales tuvieron más fallos.
+Lo que más cambió la tasa de acierto no fue la señal, sino el criterio de fallo.
+-한계
+Este resultado usa solo SPY, con datos desde 2016.
+Acierto y fallo se juzgaron solo con cierres; vendimos al día siguiente, con 0.25% de comisión.
+Por eso, algunas operaciones fueron aciertos con pérdida, o fallos con ganancia.
+Solo vimos la tasa de acierto; el tamaño de cada ganancia o pérdida se ve aparte.
+Tampoco incluimos intereses del efectivo en espera, impuestos, costos de cambio ni inflación.
+No es asesoría de inversión: son reglas revisadas con código.
+-마무리
+Si tienes una hipótesis para el próximo backtest, cuéntanos en los comentarios.
+Gracias por ver.

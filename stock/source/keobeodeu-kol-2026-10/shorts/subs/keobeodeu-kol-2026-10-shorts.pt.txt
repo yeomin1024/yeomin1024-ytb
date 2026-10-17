@@ -1,0 +1,14 @@
+# keobeodeu-kol-2026-10-shorts — pt 자막 대본 · 한국어 대본과 문장 1:1 · v1.0 2026-10-17
+-커버드콜 vs QQQ
+Dizem que um ETF de covered call, que paga todo mês, preserva o capital mesmo gastando a renda.
+Para conferir, fizemos um backtest com código Python escrito por IA sobre preços reais do passado.
+Testamos o QYLD, ETF de covered call do Nasdaq-100.
+A comparação é o QQQ, ETF que segue o Nasdaq-100 sem covered call.
+Em dezembro de 2013, cada conta recebeu US$ 100.000 de capital.
+A renda do QYLD foi gasta inteira toda vez que saiu.
+Para ser justo, a conta de QQQ vendeu o mesmo valor nos mesmos dias.
+Até 2026, as duas contas tiraram o mesmo: cerca de US$ 110.000.
+A conta de QYLD ficou com cerca de US$ 75.000, 25,3% abaixo do capital.
+A de QQQ ficou com cerca de US$ 510.000, 6,83 vezes o QYLD.
+Saiu o mesmo dinheiro, então por que tanta diferença?
+O porquê, e se começar em outro mês dá o mesmo resultado, veja no vídeo abaixo.

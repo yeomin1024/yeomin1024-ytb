@@ -1,0 +1,143 @@
+# eonje-maesu-2026-10 — id 자막 대본 · 한국어 대본과 문장 1:1 · v1.0 2026-10-17
+-도입
+Baru beli langsung turun, rasanya salah timing.
+Apakah 10 sinyal beli populer benar-benar menaikkan peluang berhasil?
+Kita backtest sejak 2016 dengan SPY, ETF yang mengikuti S&P 500.
+Berhasil berarti naik 5% di atas harga beli; turun 2% lebih dulu berarti gagal.
+Setelah ada hasil, kita jual esok hari, lalu beli lagi di sinyal berikutnya.
+Pembandingnya 2.000 akun yang hanya tanggal belinya acak.
+-매달 첫 거래일
+Pertama, tanpa sinyal: beli di hari bursa pertama tiap bulan.
+Untuk tahu sinyal berguna atau tidak, kita perlu lihat cara tanpa sinyal dulu.
+Hijau transaksi berhasil, merah yang gagal.
+Kanan atas tingkat keberhasilan sejauh ini, di bawahnya rata-rata akun acak.
+Akun acak memakai aturan jual yang sama, dan hari menunggunya diambil dari catatan tiap cara.
+Di akhir 2021, tingkat keberhasilannya 56,1%, di atas rata-rata acak 51,7%.
+Tapi pada 2022, 11 dari 12 hasil gagal.
+Sejak 2023, geraknya hampir menempel rata-rata acak.
+Hasilnya 37 berhasil dari 80, 46,2%, sedikit di bawah rata-rata acak 47,1%.
+Pita abu-abu adalah rentang 90% akun acak: 41,5% sampai 53,2%.
+Di dalam pita berarti tak beda dengan acak, dan beli di hari bursa pertama juga di dalamnya.
+-신고가 돌파
+Kedua sampai kelima adalah sinyal tren yang membeli saat harga naik.
+Anggapannya, harga yang mulai naik akan naik lagi.
+Kedua, beli saat menembus harga tertinggi 20 hari.
+Beli saat penutupan melewati penutupan tertinggi 20 hari bursa terakhir.
+Di akhir 2019, tingkat keberhasilannya 58,8%, di atas rata-rata acak 50,3%.
+Setelah dijual pada April 2022, hampir tiga bulan tak ada sinyal.
+Tahun itu, 5 dari 6 hasil gagal.
+Setelah 20 hasil, tingkat keberhasilannya tak pernah di bawah rata-rata acak.
+Hasilnya 31 berhasil dari 63, 49,2%.
+Rata-rata acak 47,1%, masih dalam rentang 41,3% sampai 53,2%, jadi tak bisa disebut lebih baik.
+-모멘텀
+Ketiga, meski bukan harga tertinggi baru, beli jika harga naik dari sebulan lalu.
+Beli jika penutupan hari ini di atas penutupan 21 hari bursa lalu.
+Pada Juni 2020, tingkat keberhasilannya 63,0%, jauh di atas rata-rata acak 50,9%.
+Tapi pada 2022, 10 dari 12 hasil gagal.
+Setelah dijual akhir Februari 2025, lebih dari dua bulan tak ada sinyal.
+Hasilnya 42 berhasil dari 81, 51,9%.
+Dekat ujung atas rentang acak 43,3% sampai 52,6%, tapi masih di dalamnya.
+-이동평균선
+Keempat, garis rata-rata 20 hari yang sering digambar di grafik.
+Beli pada hari penutupan menembus rata-rata 20 hari dari bawah ke atas.
+Dari Juli 2016 sampai Januari 2018, berhasil lima kali berturut-turut.
+Pada Desember 2021, tingkat keberhasilannya 64,7%, jauh di atas rata-rata acak 51,8%.
+Setelah itu, sampai Juli 2022, gagal enam kali berturut-turut.
+Setelah 20 hasil, tak pernah di bawah rata-rata acak.
+Hasilnya 37 berhasil dari 71, 52,1%, tertinggi dari empat cara sejauh ini.
+Tapi masih dalam rentang acak 40,3% sampai 54,3%, jadi tak bisa disebut lebih baik.
+-골든 크로스
+Kelima melihat dua garis rata-rata sekaligus.
+Beli saat rata-rata pendek 5 hari menembus rata-rata panjang 20 hari dari bawah.
+Setelah dijual pada September 2017, pembelian berikutnya baru Februari 2018.
+Pada Juli 2022, tingkat keberhasilannya 40,0%, di bawah rata-rata acak 48,5%.
+Sebab tepat sebelumnya gagal enam kali beruntun.
+Setelah itu, sampai Juni 2023, berhasil lima kali berturut-turut.
+Sejak 2024, 7 dari 12 hasil berhasil.
+Hasilnya 25 berhasil dari 50, tepat 50,0%.
+Rata-rata acak 47,4%, masih dalam rentang 38,6% sampai 56,2%.
+Hasilnya paling sedikit dari 10 cara, jadi rentangnya juga lebar.
+-하루 하락
+Mulai keenam, sinyalnya membeli saat harga turun.
+Idenya, beli saat murah supaya lebih mudah naik.
+Keenam, jika turun 1% atau lebih dalam sehari, beli esok harinya.
+Pada Januari 2019, tingkat keberhasilannya 35,0%, jauh di bawah rata-rata acak 46,9%.
+Karena pada 2018 saja, 8 dari 12 hasil gagal.
+Pada 2022 juga, 13 dari 20 gagal.
+Setelah 20 hasil, tak sehari pun di atas rata-rata acak.
+Hasilnya 44 berhasil dari 95, 46,3%.
+Rata-rata acak 46,8%, rentangnya 40,7% sampai 52,8%, dan masih di dalamnya.
+-RSI
+Ketujuh, beli saat RSI di bawah 40.
+RSI adalah angka yang membandingkan besar kenaikan dan penurunan 14 hari terakhir.
+Di bawah 40 dianggap sudah turun banyak, lalu kita beli.
+Pada November 2019, tingkat keberhasilannya 61,9%, jauh di atas rata-rata acak 49,3%.
+Tapi saat anjlok karena COVID 2020, 5 dari 7 hasil gagal.
+Setelah dijual pada November 2020, lebih dari 10 bulan tak ada sinyal.
+Lalu pada 2022, 11 dari 14 hasil gagal.
+Jadi hari memegang saham hanya 35%.
+Hasilnya 30 berhasil dari 62, 48,4%.
+Rata-rata acak 46,7%, rentangnya 38,0% sampai 56,0%, lagi-lagi di dalamnya.
+-VIX
+Kedelapan, beli saat indeks ketakutan VIX 20 atau lebih.
+Makin tinggi VIX, makin banyak orang yang mengira pasar akan bergejolak besar.
+Ini menguji pepatah "belilah saat semua orang takut".
+Setelah dijual pada November 2016, lebih dari 1 tahun tak ada sinyal.
+Pada 2020, 11 dari 22 hasil berhasil, tepat separuh.
+Pada 2022, 18 dari 24 gagal, dan dari Agustus sampai Oktober enam kali berturut-turut.
+Sejak 2023, 14 dari 23 hasil berhasil, kembali lebih dari separuh.
+Hasilnya 48 berhasil dari 101, 47,5%.
+Hampir sama dengan rata-rata acak 47,3%, dan masih dalam rentang 41,3% sampai 53,6%.
+-단기 저점
+Kesembilan, beli jika turun 5% dari harga tertinggi 20 hari bursa terakhir.
+Beli saat turun untuk koreksi singkat.
+Setelah dijual pada Juli 2016, sinyal berikutnya baru Februari 2018.
+Saat anjlok karena COVID 2020, 6 dari 9 hasil gagal.
+Pada 2022 juga, 11 dari 15 gagal.
+Hari memegang saham 23%, paling sedikit dari 10 cara.
+Hasilnya 29 berhasil dari 59, 49,2%.
+Rata-rata acak 46,5%, rentangnya 38,0% sampai 55,8%, dan masih di dalamnya.
+-고점 대비 하락
+Terakhir, kesepuluh: beli jika turun 5% dari penutupan tertinggi sampai saat itu.
+Versi jangka panjang dari cara kesembilan.
+Cara ini juga tanpa sinyal lebih dari 1½ tahun setelah dijual pada Juli 2016.
+Di akhir 2019, tingkat keberhasilannya 56,5%, di atas rata-rata acak 49,8%.
+Karena kelima hasil tahun itu semuanya berhasil.
+Saat anjlok karena COVID 2020, 6 dari 10 gagal.
+Pada 2022, 19 dari 26 gagal, terbanyak dari 10 cara.
+Sejak 2023, 14 dari 23 berhasil, kembali lebih dari separuh.
+Hasilnya 45 berhasil dari 94, 47,9%.
+Rata-rata acak 47,1%, rentangnya 40,8% sampai 53,6%, dan ini juga di dalamnya.
+-종합
+Mari lihat hasil 10 cara sekaligus.
+Titik adalah tingkat keberhasilan tiap cara, pita abu-abu rentang 90% akun acak.
+Tertinggi adalah beli saat menembus garis 20 hari, 52,1%.
+Terendah adalah beli di hari bursa pertama tiap bulan, 46,2%.
+Empat dari lima teratas adalah sinyal tren yang membeli saat harga naik.
+Tapi semua 10 cara ada di dalam rentang acak, jadi tak beda dengan beli acak.
+Bahkan garis 20 hari yang tertinggi, 13% akun acak punya tingkat keberhasilan setara atau lebih.
+-다른 조건
+Apakah batas gagal 2% terlalu longgar?
+Jika diperketat jadi 1%, tingkat keberhasilan beli di hari mana saja turun ke 33,6%.
+Saat itu hanya tembus garis 20 hari di atas rentang.
+Pada 1,5%, tak ada cara yang keluar dari rentang.
+Mungkin 10 tahun ini istimewa, jadi periodenya kami ganti ke 1994 sampai 2015.
+Pada periode ini, tembus garis 20 hari 33,3%, terendah dari 10 cara.
+Pada periode ini pun, semua 10 cara ada di dalam rentang acak.
+-정리
+Mari kita rangkum.
+Dalam backtest ini, tak ada sinyal beli yang jelas lebih sering berhasil daripada beli acak.
+Sinyal tren sedikit unggul dalam 10 tahun ini.
+Tapi dalam 22 tahun sebelumnya, dua dari empat di bawah rata-rata acak.
+Dan di tahun yang terus turun seperti 2022, semua sinyal lebih banyak gagal.
+Yang paling mengubah tingkat keberhasilan bukan sinyal beli, melainkan batas gagal.
+-한계
+Hasil ini hanya dari SPY, dengan data sejak 2016.
+Berhasil dan gagal dinilai hanya dari penutupan; kami jual esok harinya dengan biaya 0,25%.
+Jadi ada beberapa transaksi yang berhasil tapi rugi, atau gagal tapi untung.
+Kami hanya lihat tingkat keberhasilan; besar untung-rugi perlu dicek terpisah.
+Bunga kas selama menunggu sinyal, pajak, biaya kurs, dan inflasi juga tidak dihitung.
+Ini bukan saran investasi, melainkan hasil memeriksa aturan dengan kode.
+-마무리
+Kalau ada hipotesis untuk diuji dengan backtest berikutnya, tulis di komentar.
+Terima kasih sudah menonton.

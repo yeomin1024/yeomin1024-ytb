@@ -1,6 +1,6 @@
 # stock 썸네일 16장 — ChatGPT용 (모든 영상 · 읽고 그대로 만들고 각 저장 경로에 올리기)
 
-자동 생성 — `python tools/make_summary.py --chatgpt-all stock` (2026-10-17 16:25). 이 파일은 고치지 말고 영상마다 `thumbnail_N.md`를 고친 뒤 다시 만든다.
+자동 생성 — `python tools/make_summary.py --chatgpt-all stock` (2026-10-17 17:00). 이 파일은 고치지 말고 영상마다 `thumbnail_N.md`를 고친 뒤 다시 만든다.
 
 이 파일 주소: https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/stock/thumbnails_chatgpt.md
 
@@ -16,6 +16,7 @@
 | reobeoriji-2026-10-shorts | thumbnail_1 | `stock/source/reobeoriji-2026-10/shorts/thumbnails/` |
 
 ## ChatGPT에게 — 이 파일을 읽으면 할 일
+0. **이 주소를 지금 새로 열어 그 내용만 쓴다** — 이 대화에서 예전에 읽은 썸네일 파일·프롬프트가 있어도 쓰지 않는다 (2026-10-17 옛 프롬프트로 4장을 다시 그린 일이 있었음). 답의 첫 줄에 이 파일 맨 위 '자동 생성' 줄의 시각을 그대로 적는다 (Claude 가 어느 판으로 그렸는지 확인).
 1. 아래 썸네일 16장(8개 영상)을 **1번부터 차례로 모두** 만든다. 질문하지 말고, 한 장을 만든 뒤 멈추지 말고 다음 장으로 넘어간다.
    - 이미지 한도 때문에 멈추면 사용자가 `계속`이라고 보낸다 → 아직 안 만든 번호부터 이어서 만든다.
 2. 각 장은 그 칸의 **프롬프트(``` 안)를 한 글자도 바꾸지 않고 그대로** 쓴다. 장마다 서로 다른 그림이다 — 앞 장의 인물·구도·색을 이어 쓰지 않는다.
@@ -362,20 +363,19 @@ Text: ONE big headline "TQQQ 3× > QQQ 1× ?" — written as "TQQQ 3×" in orang
 | 자리 | 문구 | 색 |
 |---|---|---|
 | 가운데 위 (높이 13~34%) — **큰 머리글 (가장 크게, 굵게, 테두리·빛)** | `SCHD > SPY ?` | SCHD 보라 · > 노랑 · SPY 파랑 · ? 노랑 |
-| 매듭 바로 위 (작게) | `+$33K` | 보라 |
 
 프롬프트:
 
 ```
-YouTube Shorts cover, Vertical 9:16 portrait (1080x1920). Keep all important objects and any face between 13% and 66% of the height and between 6% and 84% of the width (top = YouTube icons, right 16% = like/comment buttons, bottom 34% = title and related-video link). The bottom 34% is a quiet, dark, empty background. If 9:16 is not available use 2:3 portrait and keep the side 8% empty.
+YouTube Shorts cover, Vertical 9:16 portrait (1080x1920). Keep all important objects and any face between 13% and 66% of the height and between 6% and 84% of the width (top = YouTube icons, right 16% = like/comment buttons, bottom 34% = title and related-video link). The picture fills the whole canvas to every edge — no empty single-color bands, borders, frames or margins anywhere; the top, the right side and the bottom 34% are part of the same scene, only a little darker in soft shadow, with no text, faces or important objects in them. If 9:16 is not available use 2:3 portrait and keep the side 8% free of text and faces.
 Semi-realistic digital illustration with cinematic lighting, deep dark navy background (#0C1424).
-Upper middle: two trees of exactly the same size growing from two identical pots — the left tree has violet leaves (#B48CFF) and drops plain gold coins, a small red slice (#FF4D5E) chipping off each falling coin; the right tree has blue leaves (#5AB4FF) and no coins.
-A rope is tied between the two trunks in a tug-of-war; the knot in the middle sits just slightly toward the violet tree, and the rope continues off into a dark fog on both sides, so the end of the contest is not visible.
+Upper middle: two trees of exactly the same size growing from two identical pots — the left tree has violet leaves (#B48CFF) and drops plain gold coins, a small red slice (#FF4D5E) chipping off each falling coin; the right tree has blue leaves (#5AB4FF) and drops only a few small plain gold coins, each also chipping a small red slice — both trees pay and both are taxed.
+A rope is tied between the two trunks in a tug-of-war; the knot sits exactly in the middle, and the rope continues off into a dark fog on both sides, so the end of the contest is not visible.
 Lower middle (still above 66% of the height): a fictional person in their fifties holding the rope in the middle, looking from one tree to the other, thoughtful — not happy, not afraid.
 Mood: a close, undecided contest.
 Large simple shapes, high contrast, readable when shrunk to 360 pixels tall.
 Fictional person, not resembling any real or famous person.
-Text: ONE big headline "SCHD > SPY ?" — written as "SCHD" in violet (#B48CFF), then ">" in bright yellow (#FFD400), then "SPY" in blue (#5AB4FF), then "?" in bright yellow (#FFD400) — placed across the upper-middle area between 13% and 34% of the height, centered inside the left 84% of the width and about 75% of that width. Make the headline the most eye-catching thing in the image: huge (letters about 22% of the image height), very bold flat sans-serif (like Arial Black), with a thick dark outline and a soft glow so it pops off the background; the ">" sign is as big and bold as the letters and bright yellow, and the "?" is bright yellow. Flat 2D lettering — never 3D, never embossed, never curved, never in perspective. Make room for it: anything that would sit in that band (for example a chest or clouds) goes lower and smaller; keep it off any face. Small extra labels: "+$33K" just above the knot in the middle of the rope, medium size, in violet (#B48CFF). Spell everything exactly as written, character by character: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", ">", "+" and "?" stay exactly as written — never turn ">" into "<". These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs and objects have nothing else written on them. All text stays between 13% and 66% of the height.
+Text: ONE big headline "SCHD > SPY ?" — written as "SCHD" in violet (#B48CFF), then ">" in bright yellow (#FFD400), then "SPY" in blue (#5AB4FF), then "?" in bright yellow (#FFD400) — placed across the upper-middle area between 13% and 34% of the height, centered inside the left 84% of the width and about 75% of that width. Make the headline the most eye-catching thing in the image: huge (letters about 22% of the image height), very bold flat sans-serif (like Arial Black), with a thick dark outline and a soft glow so it pops off the background; the ">" sign is as big and bold as the letters and bright yellow, and the "?" is bright yellow. Flat 2D lettering — never 3D, never embossed, never curved, never in perspective. Make room for it: anything that would sit in that band (for example a chest or clouds) goes lower and smaller; keep it off any face. Spell everything exactly as written, character by character: ">", "×" and "?" stay exactly as written — never turn ">" into "<". These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs and objects have nothing else written on them. All text stays between 13% and 66% of the height.
 ```
 
 ## 14. eonje-maesu-2026-10-shorts · thumbnail_1 — 언제 사야 할까? — SPY 선이 노란 평균선을 뚫는 순간, BUY 버튼 위 손가락
@@ -394,9 +394,9 @@ Text: ONE big headline "SCHD > SPY ?" — written as "SCHD" in violet (#B48CFF),
 프롬프트:
 
 ```
-YouTube Shorts cover, Vertical 9:16 portrait (1080x1920). Keep all important objects and any face between 13% and 66% of the height and between 6% and 84% of the width (top = YouTube icons, right 16% = like/comment buttons, bottom 34% = title and related-video link). The bottom 34% is a quiet, dark, empty background. If 9:16 is not available use 2:3 portrait and keep the side 8% empty.
+YouTube Shorts cover, Vertical 9:16 portrait (1080x1920). Keep all important objects and any face between 13% and 66% of the height and between 6% and 84% of the width (top = YouTube icons, right 16% = like/comment buttons, bottom 34% = title and related-video link). The picture fills the whole canvas to every edge — no empty single-color bands, borders, frames or margins anywhere; the top, the right side and the bottom 34% are part of the same scene, only a little darker in soft shadow, with no text, faces or important objects in them. If 9:16 is not available use 2:3 portrait and keep the side 8% free of text and faces.
 Semi-realistic digital illustration with cinematic lighting, deep dark navy background (#0C1424).
-Middle: a thin glowing yellow horizontal line (a moving-average line) crossing the frame, and a bright green stock price line (#2BE0A0) rising from below and breaking up through it, its tip turning into an upward arrow — near the tip a fresh thin red crack (#FF4D5E) is spreading across it. Above the tip the space fades into dark fog, so where it goes next cannot be seen.
+Middle: a thin glowing yellow horizontal line (a moving-average line) crossing the frame, and a bright green stock price line (#2BE0A0) rising from below and breaking up through it, its tip turning into an upward arrow — nothing marks whether it will succeed. Above the tip the space fades into dark fog, so where it goes next cannot be seen.
 Lower middle (still above 66% of the height): a big round glowing green button with nothing written on it, and the index finger of a fictional person in their late forties hovering just above it, not pressing; part of the person's face, tense and uncertain, looks up at the line — not happy, not afraid.
 Mood: the moment of hesitation before buying.
 Large simple shapes, high contrast, readable when shrunk to 360 pixels tall.
@@ -442,18 +442,17 @@ Text: ONE big headline "QYLD > QQQ ?" — written as "QYLD" in orange (#FF8A3D),
 | 자리 | 문구 | 색 |
 |---|---|---|
 | 가운데 위 (높이 13~34%) — **큰 머리글 (가장 크게, 굵게, 테두리·빛)** | `TQQQ 3× > QQQ 1× ?` | TQQQ 3× 주황 · > 노랑 · QQQ 1× 파랑 · ? 노랑 |
-| 부서진 주황 로켓 옆 (작게) | `−92.3%` | 빨강 |
 
 프롬프트:
 
 ```
-YouTube Shorts cover, Vertical 9:16 portrait (1080x1920). Keep all important objects and any face between 13% and 66% of the height and between 6% and 84% of the width (top = YouTube icons, right 16% = like/comment buttons, bottom 34% = title and related-video link). The bottom 34% is a quiet, dark, empty background. If 9:16 is not available use 2:3 portrait and keep the side 8% empty.
+YouTube Shorts cover, Vertical 9:16 portrait (1080x1920). Keep all important objects and any face between 13% and 66% of the height and between 6% and 84% of the width (top = YouTube icons, right 16% = like/comment buttons, bottom 34% = title and related-video link). The picture fills the whole canvas to every edge — no empty single-color bands, borders, frames or margins anywhere; the top, the right side and the bottom 34% are part of the same scene, only a little darker in soft shadow, with no text, faces or important objects in them. If 9:16 is not available use 2:3 portrait and keep the side 8% free of text and faces.
 Semi-realistic digital illustration with cinematic lighting, deep dark navy night sky (#0C1424) with dark storm clouds.
-Upper middle: a large orange-striped rocket (#FF8A3D) with three glowing dots on its side, badly damaged — a lightning bolt has just struck it, cracks and sparks, most of its body broken away, smoke rising.
-Behind it, smaller and dimmer, a violet rocket (#B48CFF, two dots) and a blue rocket (#5AB4FF, one dot), both scratched by the storm but less damaged — none of the three is flying high; the sky above them disappears into clouds, so no one can see how far they will go.
-Lower middle (still above 66% of the height): a fictional person in their mid-thirties in a dark hoodie calmly dropping one plain gold coin into the broken orange rocket's fuel hatch anyway, determined but uneasy.
-Mood: storm, damage and stubborn suspense.
+Upper middle: a large orange-striped rocket (#FF8A3D) with three glowing dots on its side, engines lit, lifting off toward dark storm clouds with distant lightning — not damaged.
+Beside it, smaller, a violet rocket (#B48CFF, two dots) and a blue rocket (#5AB4FF, one dot), also lifting off — all three intact, all just leaving the pad; the sky above them disappears into the storm clouds, so no one can see how far each will go or what the storm will do.
+Lower middle (still above 66% of the height): a fictional person in their mid-thirties in a dark hoodie dropping one plain gold coin into the orange rocket's fuel hatch, hopeful but uneasy, glancing at the storm.
+Mood: big hope and a coming storm — suspense; nobody is winning yet.
 Large simple shapes, high contrast, readable when shrunk to 360 pixels tall.
 Fictional person, not resembling any real or famous person.
-Text: ONE big headline "TQQQ 3× > QQQ 1× ?" — written as "TQQQ 3×" in orange (#FF8A3D), then ">" in bright yellow (#FFD400), then "QQQ 1×" in blue (#5AB4FF), then "?" in bright yellow (#FFD400) — placed across the upper-middle area between 13% and 34% of the height, centered inside the left 84% of the width and about 75% of that width. Make the headline the most eye-catching thing in the image: huge (letters about 22% of the image height), very bold flat sans-serif (like Arial Black), with a thick dark outline and a soft glow so it pops off the background; the ">" sign is as big and bold as the letters and bright yellow, and the "?" is bright yellow. Flat 2D lettering — never 3D, never embossed, never curved, never in perspective. Make room for it: anything that would sit in that band (for example a chest or clouds) goes lower and smaller; keep it off any face. Small extra labels: "−92.3%" right next to the broken orange rocket, medium size, in red (#FF4D5E). Spell everything exactly as written, character by character: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", ">", "+" and "?" stay exactly as written — never turn ">" into "<". These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs and objects have nothing else written on them. All text stays between 13% and 66% of the height.
+Text: ONE big headline "TQQQ 3× > QQQ 1× ?" — written as "TQQQ 3×" in orange (#FF8A3D), then ">" in bright yellow (#FFD400), then "QQQ 1×" in blue (#5AB4FF), then "?" in bright yellow (#FFD400) — placed across the upper-middle area between 13% and 34% of the height, centered inside the left 84% of the width and about 75% of that width. Make the headline the most eye-catching thing in the image: huge (letters about 22% of the image height), very bold flat sans-serif (like Arial Black), with a thick dark outline and a soft glow so it pops off the background; the ">" sign is as big and bold as the letters and bright yellow, and the "?" is bright yellow. Flat 2D lettering — never 3D, never embossed, never curved, never in perspective. Make room for it: anything that would sit in that band (for example a chest or clouds) goes lower and smaller; keep it off any face. Spell everything exactly as written, character by character: ">", "×" and "?" stay exactly as written — never turn ">" into "<". These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs and objects have nothing else written on them. All text stays between 13% and 66% of the height.
 ```

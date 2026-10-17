@@ -1,0 +1,109 @@
+# baedang-etf-2026-10 — id 자막 대본 · 한국어 대본과 문장 1:1 · v1.0 2026-10-17
+-도입
+Dividen yang masuk terasa menenangkan, jadi banyak yang mengoleksi ETF dividen.
+Tapi setelah pajak yang dipotong tiap kali, apakah sisanya lebih dari ETF indeks?
+Mari kita backtest SCHD, ETF saham dividen AS, dan SPY, ETF S&P 500.
+-규칙
+Sejak 2011, kami beli $1.000 di hari bursa pertama tiap bulan.
+Dividen dipotong pajak 15% lalu diinvestasikan lagi; biaya 0,25%.
+-경주
+Sekarang kita jalankan tanggalnya.
+Garis ungu akun SCHD, garis biru akun SPY.
+Garis putus kuning: total uang disetor.
+Di atas: dividen diterima dan pajak dibayar tiap akun.
+$1.000 dibelikan sebanyak mungkin, termasuk saham pecahan.
+Sampai 2017, akun terdepan berganti 43 kali; keduanya saling salip.
+Sejak 2 Januari 2018, SPY memimpin.
+Tahun 2019 dividen SCHD 63,1% lebih banyak dari SPY, tapi akun SPY unggul.
+Saat crash COVID, kedua akun turun bersama sampai 23 Maret.
+Akun SCHD turun 32,8%, akun SPY 33,4%; kerugiannya mirip.
+-하락장
+Pada 2022, pasar bearish panjang datang.
+Di bulan April, SCHD kembali unggul.
+Tahun itu SCHD turun 14,6%, SPY 22,2%; SCHD turun lebih sedikit.
+Pada 6 Januari 2023, SCHD unggul hingga sekitar $33.000.
+Tapi pada 26 April 2023, SPY kembali unggul.
+Tahun 2025 dividen SCHD masih 2,6 kali SPY, tapi selisih akun makin lebar.
+-결과
+15 Oktober 2026, hasilnya.
+Tiap akun menyetor $180.000 dalam 180 kali setoran.
+Akun SCHD sekitar $480.000, akun SPY sekitar $590.000.
+Akun SPY 1,22 kali, sekitar $110.000 lebih banyak.
+Setelah 26 April 2023, SCHD tak pernah unggul lagi.
+SCHD unggul hanya di 20,1% dari semua hari bursa.
+Dividen yang diterima SCHD sekitar $87.000, 2,1 kali SPY.
+Pajaknya pun sekitar $13.000, 2,1 kali SPY.
+Dividen 1 tahun terakhir SCHD sekitar $15.000, 2,5 kali SPY.
+Sejak 2012, tiap tahun dividen yang masuk lebih banyak di akun SCHD.
+-구조
+Dividennya lebih banyak, kenapa sisanya lebih sedikit?
+Mari lihat dari mana dividen berasal.
+Di hari dividen, harga biasanya turun sebesar dividennya.
+Uang perusahaan keluar ke pemegang saham, jadi nilainya turun segitu.
+Jadi saat dividen diterima, nilai total akun tidak bertambah.
+Tapi pajak dipotong saat dividen diterima.
+Mari lihat akun sebenarnya.
+Pada 10 Desember 2025, 1 saham SCHD mendapat dividen $0,278.
+Untuk seluruh akun, totalnya $3.743.
+Pajak 15%, $561, dipotong; tersisa $3.181.
+Uang ini, dikurangi biaya, dibelikan lagi 115,1 saham di $27,57.
+ETF indeks juga membagi dividen, tapi lebih sedikit.
+Imbal dividen 2025: SCHD 3,8%, SPY 1,2%.
+Makin banyak dividen, makin banyak dan makin awal pajaknya.
+-해마다
+Tanpa urutan setoran bulanan, bagaimana produknya sendiri?
+Kami bandingkan imbal 1 tahun per tahun: dividen diinvestasikan lagi, tanpa pajak dan biaya.
+Dari 14 tahun antara 2012 dan 2025, imbal SCHD lebih tinggi 4 kali.
+Tahun 2022: SCHD turun 3,2%, SPY turun 18,2%.
+Tahun 2023: SCHD naik 4,6%, SPY naik 26,2%.
+Tahun 2024: SCHD naik 11,7%, SPY naik 24,9%.
+Tahun 2025: SCHD naik 4,3%, SPY naik 17,7%.
+-다른 조건
+Apakah pajak penyebabnya?
+15% adalah tarif yang dipotong dari dividen AS bagi investor di banyak negara.
+Dengan pajak 0%: SCHD sekitar $510.000, SPY sekitar $600.000.
+Tanpa pajak pun, SPY 1,19 kali lebih banyak.
+Dipotong 30%, selisihnya membesar jadi 1,25 kali.
+Bagaimana jika semua dijual di akhir dan kenaikannya dipajaki 15%?
+SCHD sekitar $450.000, SPY sekitar $530.000; selisihnya menyusut jadi 1,19 kali.
+Sebab SCHD sudah membayar pajak lebih dulu lewat dividen.
+Kalau bukan bulanan, tapi $100.000 sekaligus di awal?
+SCHD sekitar $610.000, SPY sekitar $790.000; SPY 1,29 kali.
+-시작 시점
+Mulai November 2011 mungkin saja mengubah hasilnya.
+Bagaimana jika bulan mulainya beda?
+Kami buat akun tabungan 5 tahun yang dimulai tiap bulan, November 2011 sampai Oktober 2021.
+Totalnya 120 akun.
+SCHD menyisakan lebih banyak hanya di 25 dari 120.
+Keunggulan terbesar SCHD di akun mulai Januari 2018: 1,15 kali.
+Sebaliknya, di akun mulai November 2020, SPY 1,34 kali.
+Di akun 10 tahun, SCHD unggul di 12 dari 60.
+-더 긴 기간
+SCHD lahir 2011, jadi tidak melewati krisis keuangan 2008.
+Jika saham dividen kuat di pasar turun, periode dengan krisis bisa berbeda.
+Jadi kami juga uji VYM, ETF dividen tinggi AS yang lahir 2006.
+Mulai Desember 2006, $1.000 tiap bulan, aturan sama.
+Saat krisis, VYM turun 29,2% dan SPY 33,7%; VYM turun lebih sedikit.
+Sampai akhir Oktober 2011, VYM unggul dari SPY, sekitar $67.000.
+Setoran sampai 15 Oktober 2026: $239.000.
+VYM sekitar $810.000, SPY sekitar $1.100.000; SPY 1,35 kali lebih banyak.
+Di akun 10 tahun, VYM lebih banyak hanya di 5 dari 119.
+-정리
+Kesimpulannya.
+Dipotong pajak 15%, kami menabung tiap bulan selama 15 tahun.
+Akun SPY 1,22 kali akun SCHD.
+Tanpa pajak pun, 1,19 kali.
+SCHD menerima dividen 2,1 kali, dan pajaknya juga lebih banyak sebanding.
+Di pasar turun seperti 2022, SCHD turun lebih sedikit.
+Dengan bulan mulai lain, ada akun SCHD unggul, tapi cuma 25 dari 120.
+VYM sejak 2006 pun, di 114 dari 119 akun 10 tahun, lebih kecil dari SPY.
+-한계
+Periode ini saat saham growth besar AS naik tajam.
+Di periode saat saham dividen lebih kuat, hasilnya bisa berbeda.
+Menarik dividen untuk biaya hidup tidak dihitung kali ini.
+Tarif pajak beda tiap negara dan akun; asuransi kesehatan, kurs, dan inflasi tidak dihitung.
+Dan pemegang SPY harus menahan tahun seperti 2022 yang turun 22,2%.
+Ini bukan saran investasi, tapi hasil aturan yang dicek dengan kode.
+-마무리
+Punya hipotesis untuk di-backtest berikutnya? Tulis di komentar.
+Terima kasih sudah menonton.

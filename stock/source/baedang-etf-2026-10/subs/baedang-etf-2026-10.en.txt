@@ -1,0 +1,109 @@
+# baedang-etf-2026-10 — en 자막 대본 · 한국어 대본과 문장 1:1 · v1.0 2026-10-17
+-도입
+Dividends coming in feel reassuring, so many people collect dividend ETFs.
+But even after the tax withheld on every payout, is more left than in an index ETF?
+Let's backtest SCHD, a US dividend stock ETF, against SPY, an S&P 500 ETF.
+-규칙
+From 2011, we buy $1,000 on the first trading day of every month.
+Dividends are reinvested after 15% tax, and the fee is 0.25%.
+-경주
+Now let's run the dates forward.
+The purple line is the SCHD account; the blue line is SPY's.
+Yellow dotted line: money put in so far.
+Above: each account's dividends received and tax paid.
+$1,000 buys as many shares as it can, fractions included.
+Until 2017, the lead changed 43 times as the two traded places.
+From January 2, 2018, SPY was ahead.
+In 2019, SCHD paid 63.1% more dividends than SPY, but SPY's account was ahead.
+In the COVID crash, both accounts fell together until March 23.
+The SCHD account fell 32.8%, SPY's 33.4%: similar losses.
+-하락장
+In 2022, a long bear market arrived.
+In April, SCHD pulled ahead again.
+That year SCHD fell 14.6% and SPY 22.2%, so SCHD fell less.
+On January 6, 2023, SCHD was ahead by as much as about $33,000.
+But on April 26, 2023, SPY took the lead again.
+In 2025 SCHD's dividends were still 2.6× SPY's, but the account gap widened.
+-결과
+October 15, 2026: the results.
+Each account put in $180,000 in 180 deposits.
+The SCHD account had about $480,000; the SPY account, about $590,000.
+The SPY account had 1.22× as much: about $110,000 more.
+After April 26, 2023, SCHD never got ahead again.
+SCHD was ahead on only 20.1% of all trading days.
+SCHD received about $87,000 in dividends, 2.1× SPY's.
+So it also paid about $13,000 in tax, 2.1× SPY's.
+Dividends over the past 1 year: SCHD about $15,000, 2.5× SPY's.
+Every year from 2012, the SCHD account received more dividends.
+-구조
+It got more dividends, so why was less left?
+Let's see where dividends come from.
+On a dividend day, the price usually drops by the dividend.
+Company cash goes to shareholders, so the company is worth that much less.
+So receiving a dividend doesn't grow your total account value.
+But the tax is taken the moment you receive it.
+Let's look at a real account.
+On December 10, 2025, 1 SCHD share paid a $0.278 dividend.
+For the whole account, that was $3,743.
+15% tax, $561, was withheld, leaving $3,181.
+This money, minus the fee, was reinvested: 115.1 shares at $27.57.
+The index ETF pays dividends too, just less.
+2025 dividend yield: SCHD 3.8%, SPY 1.2%.
+The more dividends you get, the more tax you pay, and sooner.
+-해마다
+Without monthly deposit timing, how did the funds themselves do?
+We compared each year's 1-year return, dividends reinvested, without tax or fees.
+In 4 of the 14 years from 2012 to 2025, SCHD returned more.
+In 2022: SCHD down 3.2%, SPY down 18.2%.
+In 2023: SCHD up 4.6%, SPY up 26.2%.
+In 2024: SCHD up 11.7%, SPY up 24.9%.
+In 2025: SCHD up 4.3%, SPY up 17.7%.
+-다른 조건
+Did the tax cause the gap?
+15% is the rate withheld on US dividends for investors in many countries.
+With 0% tax: SCHD about $510,000, SPY about $600,000.
+Even with no tax, SPY had 1.19× as much.
+At 30% withheld, the gap grew to 1.25×.
+What if you sell everything at the end and pay 15% tax on the gains?
+SCHD about $450,000, SPY about $530,000: the gap shrank to 1.19×.
+That's because SCHD had already paid tax through its dividends.
+And instead of monthly, $100,000 all at once at the start?
+SCHD about $610,000, SPY about $790,000: SPY had 1.29× as much.
+-시작 시점
+The November 2011 start may have skewed the result.
+What if it had started in another month?
+We made 5-year monthly accounts, one starting each month from November 2011 to October 2021.
+120 in all.
+SCHD ended with more in only 25 of the 120.
+SCHD's biggest lead: the account started January 2018, at 1.15×.
+Conversely, in the account started November 2020, SPY had 1.34×.
+In the 10-year accounts, SCHD was ahead in 12 of 60.
+-더 긴 기간
+SCHD launched in 2011, so it missed the 2008 financial crisis.
+If dividend stocks are strong in downturns, a span with the crisis may differ.
+So we also tested VYM, a US high-dividend ETF launched in 2006.
+From December 2006, $1,000 a month, same rules.
+In the crisis, VYM fell 29.2% and SPY 33.7%, so VYM fell less.
+Until late October 2011, VYM was ahead of SPY, at about $67,000.
+Money put in by October 15, 2026: $239,000.
+VYM about $810,000, SPY about $1,100,000: SPY had 1.35× as much.
+Among the 10-year accounts, VYM ended with more in only 5 of 119.
+-정리
+To sum up.
+We saved monthly for 15 years, with 15% tax withheld.
+The SPY account was 1.22× the SCHD account.
+Even with no tax, it was 1.19×.
+SCHD got 2.1× the dividends, and paid correspondingly more tax.
+In bear markets like 2022, SCHD fell less.
+Other start months gave some accounts where SCHD led, but just 25 of 120.
+VYM, tested from 2006, also trailed SPY in 114 of 119 accounts held 10 years.
+-한계
+This was a period when US large-cap growth stocks soared.
+In a period when dividend stocks were stronger, results could differ.
+Taking dividends out for living costs wasn't part of this calculation.
+Tax rates vary by country and account; health-insurance costs, currency and inflation aren't included.
+And the SPY side had to endure years like 2022's 22.2% drop.
+This isn't investment advice; it's rules checked with code.
+-마무리
+Got a hypothesis to backtest next? Tell us in the comments.
+Thanks for watching.

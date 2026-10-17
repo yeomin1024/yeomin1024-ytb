@@ -1,5 +1,31 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-17 (94) — 주식 쇼츠 4편 결과형 v2.1 · 언어별 자막(CC) 대본 롱폼·쇼츠 9개 언어
+
+### 왜 (사용자 지시)
+- "R1으로 하고 나머지 3개도 수정하고 외국어 자막 대본도 필요하지? 쇼츠, 롱폼 각각 언어별로 작성해봐"
+- 이 지시로 주식 규칙 '자막을 굽지 않고 **올리지도 않음**'을 '화면에는 굽지 않고 **언어별 CC 를 올림**'으로 바꿈 (제목·설명 10개 언어와 같은 나라들).
+
+### 한 것
+| 파일·대상 | 내용 |
+|---|---|
+| `stock/source/keobeodeu-kol-2026-10/shorts/shorts.md` (v2.1.1) | 제목 R1 채택 표시 · '자막 올리기: 언어별' |
+| 쇼츠 ①③④ `<영상ID>-shorts.txt`·`checklist.md`·`shorts.md` (v2.1) | 결과형 12문장 — 시험할 말 → AI 파이썬 코드·과거 실제 가격 백테스트 → 시험한 것 → 비교 상대와 까닭 → 조건·공정하게 맞춘 것 → 결과(좋은지 나쁜지) → 왜? → '그 이유와 … 아래 영상에서'. 숫자는 롱폼에 있는 것만 (`shorts_numcheck.py` 빠진 숫자 0). 제목 R1·R2(`title_fit.py --shorts` 2줄)·10개 언어 제목·설명 |
+| `video/episodes/{eonje-maesu,baedang-etf,reobeoriji}-2026-10-shorts/index.html` (v2.1) | 세로 v4.13 자리(화면 좌표, 가운데 540) · 코드 카드(실제 코드 몇 줄, 36px) · ① 신호 10가지 + 주사위 ×2,000 + 성공률 띠 · ③ 경주 + 배당 동전·`−15% → BUY` · ④ 로그 경주 + 폭락 핀 −92.3%·−89.5% — `render.mjs check` 문제 0, 완성 mp4 장면을 직접 봄 |
+| 쇼츠 썸네일 프롬프트 ① v2.1 ③ v2.0 ④ v2.0 · `stock/thumbnails_chatgpt.md` | 결과를 그리지 않음(금·+$33K·−92.3% 뺌) · 사진 끝까지 · make_summary v1.9.1 로 다시 만듦 |
+| `tools/subs_tool.py` (v1.0.2, 새로) | `check`(문장 수·장 이름·숫자 — 만·천·억·달·소수점 쉼표 언어·일본어 万/千 · 읽는 속도 초당 21자/일본어 13자) · `build`(EP 시각으로 언어별 SRT, 2줄 42자/일본어 20자 — `--estimated` 는 `stock/out/` 에만) · `status` → `subs/checklist.md`. 시험 `tools/tests/test_subs_tool.py` 13개 OK |
+| `stock/source/<영상ID>/subs/` ×4 · `…/shorts/subs/` ×4 | 9개 언어(en·hi·id·pt·es-419·ja·de·vi·tr) 자막 대본 — 한국어와 문장 1:1 (롱폼 126·98·95·102 · 쇼츠 12) · 모두 오류 0·경고 0 |
+| `tools/youtube_upload.py` (v1.12) | '자막 올리기'에 '언어'가 있으면 한국어 + `subs/<영상ID>.<언어>.srt` 를 모두 올림 · 썸네일을 자막보다 먼저 · `quotaExceeded` 면 멈추고 `captionsPending` 기록 · `--captions-only` 로 남은 것만 · 할당량 추정 로그. 시험 `tools/tests/test_youtube_captions.py` 4개 + 업로드 시험 모두 OK (`test_youtube_feedback.py` 5개 오류는 예전에 지운 `stock/source/bittu-2026-10` 을 찾는 옛 시험 — HEAD 에서도 같음) |
+| 롱폼 `upload.md` ×4 | '자막 올리기: **언어별**' + `subs_tool build` 순서 |
+| `stock/guides/README.md` v1.24 · `shorts_insights.md` v1.2 · `guides/upload_guide.md` v1.11 · `CLAUDE.md` | 자막 규칙 바꿈 · 쇼츠 4편 v2.1 · 할당량(영상 하나 약 5,650단위 — 짝은 하루에 다 못 올림, 남은 자막은 다음 날) |
+
+### 확인
+- `python3 tools/subs_tool.py check stock` → 롱폼 4 · 쇼츠 4 errors=0 warnings=0.
+- `python3 tools/backtest/shorts_numcheck.py stock` → 쇼츠 4편 빠진 숫자 0.
+- `node video/render/render.mjs check stock <영상ID>-shorts` → 문제 0 (3편) · 소리 없는 미리보기 ① 58.4 ② 59.9 ③ 59.9 ④ 59.2초.
+
+※ 연구·교육용 — 투자 권유가 아님.
+
 ## 2026-10-18 (93) — 쇼츠 썸네일 4장 통과 (칸만 아래로) · 확대 없음 · 연금 꺼내기 쇼츠 최종본
 
 ### 왜 (사용자 지시)

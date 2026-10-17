@@ -1,0 +1,112 @@
+# keobeodeu-kol-2026-10 — en 자막 대본 · 한국어 대본과 문장 1:1 · v1.0 2026-10-17
+-도입
+QYLD, the Nasdaq-100 covered call ETF said to rarely eat into principal.
+If you spend the payouts monthly, is the principal really safe?
+Let's backtest it against QQQ, an ETF that tracks the Nasdaq-100.
+-규칙
+In December 2013, we buy $100,000 of each.
+From QYLD we take the payouts; from QQQ we sell the same amount.
+The fee is 0.25%.
+-경주
+Now let's roll the dates.
+The orange line is the QYLD account; the blue line, QQQ.
+Yellow dotted line: the principal, the $100,000 put in.
+The top-center number: the same cash both accounts took out.
+QQQ's small dividends are reinvested, and taxes aren't included.
+The first payout, in January 2014, was $1,024.
+In March 2014, the QYLD account was 3.4% above principal; it seemed safe.
+But by February 2016, it was 17.5% below principal.
+The next day, the QQQ account briefly dipped below principal too; both were losing.
+On March 15, 2018, the QYLD account was 0.9% above principal, back on top.
+But by December 24, QYLD fell 21% and QQQ 19.8%, about the same.
+In November 2019, the cash both accounts took out passed $50,000.
+On March 16, 2020, in the COVID crash, the QYLD account was 28.3% below principal.
+The same day, the QQQ account was 41.1% above principal.
+-긴 하락
+November 19, 2021: QQQ's highest price up to that day.
+That day, the QYLD account was 8.2% below principal; QQQ's was 3.16 times principal.
+White dotted lines: that day's values.
+Then in 2022, a long decline began.
+By October 14, the QYLD account was down 33.2% from November 19.
+The QQQ account fell 37.8% by December 28, a slightly bigger drop.
+Even during this fall, both accounts took out the same cash: $8,720.
+And the recovery?
+On February 7, 2024, after 810 days, the QQQ account topped its November 19 value.
+-끝까지
+In March 2025, the cash taken out passed the $100,000 principal.
+In the April 8 plunge, the QYLD account was 40.4% below principal.
+The same day, the QQQ account was 2.98 times principal.
+-결과
+October 15, 2026: the results.
+Both accounts took out cash 148 times, about $110,000 each.
+The QYLD account has about $75,000 left, 25.3% below principal.
+And it never got back above its November 19, 2021 value.
+The QQQ account has about $510,000 left: 6.83 times as much, for the same cash out.
+The price of 1 QYLD share also fell from $25.04 to $18.74.
+On 94.7% of all trading days, the QYLD account was below principal.
+-구조
+Why such a big gap?
+Let's see how a covered call makes its payouts.
+A covered call ETF holds stocks and sells the right to buy them at a set price.
+The money from selling that right comes in monthly and funds the payouts.
+But if the price rises above the set price, the gain above it goes to the buyer of the right.
+On the way down, it falls less only by the money received, so nearly as much.
+We checked whether that's true using daily moves.
+QQQ rose more than 1% in a day on 595 days.
+On those days QQQ rose 1.84% on average; QYLD rose 0.95%, keeping just 51.3%.
+QQQ fell more than 1% in a day on 498 days.
+On those days QQQ fell 2.04% on average and QYLD 1.28%, a full 62.7% of it.
+-시작 시점
+Was the start date just bad?
+From January 2014 to October 2021, we started a new account every month.
+Each started on the month's first trading day: 94 accounts in all.
+Each account withdraws for 5 years under the same rules.
+After 5 years, 83 of the 94 QYLD accounts were below principal.
+Not one QQQ account was below principal.
+In all 94, the QQQ account had more left.
+The median: QYLD 18.7% below principal, QQQ 1.49 times principal.
+The worst was the QYLD account started in January 2018: 35.9% below principal.
+Shorten it to 3 years, and more accounts get caught in the 2022 drop.
+Then even 19 of 118 QQQ accounts were below principal.
+And 81 QYLD accounts were below principal.
+Still, in all 118, the QQQ account had more left.
+-다른 커버드콜
+Same for other covered call ETFs?
+The Nasdaq-100, which QYLD follows, tends to swing a lot.
+So we also tested XYLD, a covered call ETF on the calmer S&P 500.
+It's compared with SPY, an ETF that tracks the S&P 500.
+Over 13.3 years from June 2013, about $110,000 was taken out.
+The XYLD account grew 5.4% over principal, but the SPY account reached 3.33 times principal.
+Across 100 accounts of 5 years with different start months, SPY had more every time.
+And 60 of the 100 XYLD accounts were below principal.
+JEPI is a covered call ETF that works a bit differently.
+It mixes stocks with bonds that act like covered calls.
+Over 6.4 years from May 2020, about $61,000 was taken out.
+The JEPI account grew 14.2% over principal, but the SPY account was 1.79 times principal.
+-다른 조건
+So far we left out taxes. What if we add them?
+Many countries withhold 15% of US ETF payouts when they're paid.
+With 15% withheld, the cash in hand from QYLD drops to about $96,000.
+The QQQ account sells only that much too, leaving about $560,000.
+The QYLD account has the same shares, so it's still about $75,000.
+Some cover living costs elsewhere and reinvest the payouts.
+Doing that, QYLD came to about $290,000 and QQQ about $950,000.
+Even reinvesting, QQQ had 3.25 times as much.
+-정리
+To sum up.
+The QYLD account spending its payouts monthly lost 25.3% of principal in 12.8 years.
+The QQQ account, selling to take out the same cash, had 5.1 times principal left.
+Even with other start months, QQQ always had more left.
+XYLD and JEPI kept their principal, but had less than SPY taking out the same cash.
+Smaller gains on the way up, most of the losses on the way down: that gap added up.
+-한계
+In this period, the Nasdaq-100 and S&P 500 rose sharply.
+In a period when prices stayed flat for long, results could differ.
+Payouts were counted as taken on the ex-dividend date, not the pay date.
+Amounts taken out match QYLD's payouts, so they may differ from a real budget.
+Taxes by account type, health premiums, inflation and exchange rates aren't included.
+And the QQQ side had to sit through drops like 37.8% in 2022.
+This isn't investment advice; it's the result of checking rules with code.
+-마무리
+If you have a hypothesis to backtest next, tell us in the comments.
+Thanks for watching.

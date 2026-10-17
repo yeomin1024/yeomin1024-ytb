@@ -1,0 +1,14 @@
+# eonje-maesu-2026-10-shorts — de 자막 대본 · 한국어 대본과 문장 1:1 · v1.0 2026-10-17
+-언제 매수
+Wer überlegt, wann er kaufen soll, hört oft: Kaufsignale erhöhen die Erfolgschance.
+Zur Prüfung: ein Backtest mit von KI geschriebenem Python-Code auf echten historischen Kursen.
+Getestet haben wir SPY, einen ETF auf den S&P 500, ab 2016.
+Wir nahmen 10 Kaufsignale, etwa den 20-Tage-Schnitt, RSI und den Angstindex VIX.
+Zuerst 5 % über dem Kaufkurs zählte als Erfolg, zuerst 2 % darunter als Misserfolg.
+Zum Vergleich: 2.000 Konten, die an zufälligen Tagen kauften.
+Taugen die Signale etwas, muss ihre Erfolgsquote über dem Zufall liegen.
+Die Zufallskonten wurden nach derselben Regel bewertet.
+Am besten war Kaufen beim Überschreiten des 20-Tage-Schnitts: 52,1 % Erfolgsquote.
+Doch alle 10 lagen in einem Bereich ohne Unterschied zum Zufallskauf.
+Wann lag also jedes Signal richtig, wann falsch?
+Die Bilanz der 10 Signale – und ob andere Zeiträume dasselbe zeigen – im Video unten.

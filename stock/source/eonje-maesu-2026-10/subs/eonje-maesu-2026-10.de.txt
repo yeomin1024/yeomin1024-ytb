@@ -1,0 +1,143 @@
+# eonje-maesu-2026-10 — de 자막 대본 · 한국어 대본과 문장 1:1 · v1.0 2026-10-17
+-도입
+Fällt der Kurs gleich nach dem Kauf, zweifelt man am Timing.
+Erhöhen 10 beliebte Kaufsignale wirklich die Erfolgschance?
+Wir testen ab 2016 mit SPY, einem ETF auf den S&P 500.
+Erfolg heißt 5 % über dem Kaufkurs; fällt er vorher um 2 %, ist es ein Misserfolg.
+Nach der Entscheidung: Verkauf am Folgetag, Neukauf beim nächsten Signal.
+Zum Vergleich: 2.000 Konten, nur mit zufälligen Kauftagen.
+-매달 첫 거래일
+Zuerst ohne Signal: Kauf am ersten Handelstag jedes Monats.
+Um zu sehen, ob Signale nützen, braucht man zuerst eine Methode ohne Signal.
+Grün sind Erfolge, Rot Misserfolge.
+Oben rechts die bisherige Erfolgsquote, darunter der Schnitt der Zufallskonten.
+Die Zufallskonten verkaufen nach derselben Regel; die Wartetage stammen aus den Daten jeder Methode.
+Ende 2021 lag die Erfolgsquote bei 56,1 %, über dem Zufallsschnitt von 51,7 %.
+Doch 2022 scheiterten 11 von 12 Trades.
+Ab 2023 lief sie fast gleichauf mit dem Zufallsschnitt.
+Ergebnis: 37 Erfolge bei 80, also 46,2 %, knapp unter dem Zufallsschnitt von 47,1 %.
+Das graue Band umfasst 90 % der Zufallskonten: 41,5 % bis 53,2 %.
+Im Band heißt: kein Unterschied zum Zufall – und der Kauf am ersten Handelstag lag darin.
+-신고가 돌파
+Signale zwei bis fünf sind Trendsignale, die bei steigenden Kursen kaufen.
+Sie gehen davon aus, dass Steigendes weiter steigt.
+Zweitens: Kauf beim Ausbruch über das 20-Tage-Hoch.
+Kauf, wenn der Schlusskurs alle der letzten 20 Handelstage übertrifft.
+Ende 2019 lag die Erfolgsquote bei 58,8 %, über dem Zufallsschnitt von 50,3 %.
+Nach dem Verkauf im April 2022 kam fast drei Monate kein Signal.
+In dem Jahr scheiterten 5 von 6 Trades.
+Nach 20 entschiedenen Trades lag die Quote nie unter dem Zufallsschnitt.
+Ergebnis: 31 Erfolge bei 63, also 49,2 %.
+Zufallsschnitt 47,1 %, im Bereich von 41,3 % bis 53,2 % – also nicht nachweislich besser.
+-모멘텀
+Drittens: Kauf auch ohne neues Hoch, wenn der Kurs höher als vor einem Monat ist.
+Kauf, wenn der Schlusskurs heute höher ist als vor 21 Handelstagen.
+Im Juni 2020 lag die Erfolgsquote bei 63,0 %, klar vor dem Zufallsschnitt von 50,9 %.
+Doch 2022 scheiterten 10 von 12 Trades.
+Nach dem Verkauf Ende Februar 2025 kam über zwei Monate kein Signal.
+Ergebnis: 42 Erfolge bei 81, also 51,9 %.
+Nahe am oberen Rand des Zufallsbereichs von 43,3 % bis 52,6 %, aber noch darin.
+-이동평균선
+Viertens: die 20-Tage-Linie, oft in Charts eingezeichnet.
+Kauf, sobald der Schlusskurs den 20-Tage-Schnitt von unten kreuzt.
+Von Juli 2016 bis Januar 2018 gab es fünf Erfolge in Folge.
+Im Dezember 2021 lag die Erfolgsquote bei 64,7 %, klar vor dem Zufallsschnitt von 51,8 %.
+Danach, bis Juli 2022, scheiterte es sechsmal in Folge.
+Nach 20 entschiedenen Trades lag es nie unter dem Zufallsschnitt.
+Ergebnis: 37 Erfolge bei 71, also 52,1 % – das Beste der bisherigen vier.
+Trotzdem liegt es im Zufallsbereich von 40,3 % bis 54,3 % – also nicht nachweislich besser.
+-골든 크로스
+Fünftens: zwei Durchschnittslinien zusammen.
+Kauf, wenn der kurze 5-Tage-Schnitt den langen 20-Tage-Schnitt von unten kreuzt.
+Nach dem Verkauf im September 2017 kam der nächste Kauf im Februar 2018.
+Im Juli 2022 lag die Erfolgsquote bei 40,0 %, unter dem Zufallsschnitt von 48,5 %.
+Kurz davor war es sechsmal in Folge gescheitert.
+Danach folgten bis Juni 2023 fünf Erfolge in Folge.
+Ab 2024 waren 7 von 12 Trades erfolgreich.
+Ergebnis: 25 Erfolge bei 50, genau 50,0 %.
+Zufallsschnitt 47,4 %, im Bereich von 38,6 % bis 56,2 %.
+Es hatte die wenigsten Trades der 10, daher war der Bereich breit.
+-하루 하락
+Ab dem sechsten kaufen die Signale bei fallenden Kursen.
+Die Idee: Was billiger gekauft ist, steigt leichter.
+Sechstens: Fällt der Kurs an einem Tag um 1 % oder mehr, Kauf am nächsten Tag.
+Im Januar 2019 lag die Erfolgsquote bei 35,0 %, weit hinter dem Zufallsschnitt von 46,9 %.
+Denn allein 2018 scheiterten 8 von 12 Trades.
+Auch 2022 scheiterten 13 von 20.
+Nach 20 entschiedenen Trades lag es keinen Tag über dem Zufallsschnitt.
+Ergebnis: 44 Erfolge bei 95, also 46,3 %.
+Zufallsschnitt 46,8 %, Bereich 40,7 % bis 52,8 % – es lag darin.
+-RSI
+Siebtens: Kauf bei einem RSI unter 40.
+Der RSI vergleicht die Größe der Anstiege und Rückgänge der letzten 14 Tage.
+Unter 40 gilt der Kurs als stark gefallen, und wir kaufen.
+Im November 2019 lag die Erfolgsquote bei 61,9 %, klar vor dem Zufallsschnitt von 49,3 %.
+Doch im Corona-Crash 2020 scheiterten 5 von 7 Trades.
+Nach dem Verkauf im November 2020 kam über 10 Monate kein Signal.
+Und 2022 scheiterten 11 von 14 Trades.
+Deshalb war es nur an 35 % der Tage investiert.
+Ergebnis: 30 Erfolge bei 62, also 48,4 %.
+Zufallsschnitt 46,7 %, Bereich 38,0 % bis 56,0 % – wieder darin.
+-VIX
+Achtens: Kauf, wenn der Angstindex VIX bei 20 oder höher liegt.
+Je höher der VIX, desto mehr Menschen erwarten starke Marktschwankungen.
+Damit testen wir den Spruch „Kaufen, wenn alle Angst haben“.
+Nach dem Verkauf im November 2016 kam über 1 Jahr kein Signal.
+2020 waren 11 von 22 Trades erfolgreich, genau die Hälfte.
+2022 scheiterten 18 von 24, von August bis Oktober sechsmal in Folge.
+Ab 2023 waren 14 von 23 Trades erfolgreich, wieder über die Hälfte.
+Ergebnis: 48 Erfolge bei 101, also 47,5 %.
+Fast gleich dem Zufallsschnitt von 47,3 % und im Bereich von 41,3 % bis 53,6 %.
+-단기 저점
+Neuntens: Kauf, wenn der Kurs 5 % unter das Hoch der letzten 20 Handelstage fällt.
+Ein Dip-Kauf für kurze Rückgänge.
+Nach dem Verkauf im Juli 2016 kam das nächste Signal im Februar 2018.
+Im Corona-Crash 2020 scheiterten 6 von 9 Trades.
+Auch 2022 scheiterten 11 von 15.
+Es war an 23 % der Tage investiert, am wenigsten von allen 10.
+Ergebnis: 29 Erfolge bei 59, also 49,2 %.
+Zufallsschnitt 46,5 %, Bereich 38,0 % bis 55,8 % – es lag darin.
+-고점 대비 하락
+Zuletzt das zehnte: Kauf, wenn der Kurs 5 % unter den bisher höchsten Schlusskurs fällt.
+Wie das neunte, nur auf längere Sicht.
+Auch hier kam nach dem Verkauf im Juli 2016 über 1½ Jahre kein Signal.
+Ende 2019 lag die Erfolgsquote bei 56,5 %, über dem Zufallsschnitt von 49,8 %.
+Denn alle fünf Trades des Jahres gelangen.
+Im Corona-Crash 2020 scheiterten 6 von 10.
+2022 scheiterten 19 von 26 – die meisten von allen 10.
+Ab 2023 waren 14 von 23 erfolgreich, wieder über die Hälfte.
+Ergebnis: 45 Erfolge bei 94, also 47,9 %.
+Zufallsschnitt 47,1 %, Bereich 40,8 % bis 53,6 % – auch das lag darin.
+-종합
+Alle 10 Ergebnisse auf einen Blick.
+Die Punkte sind die Erfolgsquoten, das graue Band umfasst 90 % der Zufallskonten.
+Am höchsten: Kauf beim Kreuzen der 20-Tage-Linie, 52,1 %.
+Am niedrigsten: Kauf am ersten Handelstag des Monats, 46,2 %.
+Vier der oberen fünf waren Trendsignale, die bei steigenden Kursen kaufen.
+Doch alle 10 lagen im Zufallsbereich – kein Unterschied zum zufälligen Kauf.
+Selbst beim besten, dem Kreuzen der 20-Tage-Linie, hatten 13 % der Zufallskonten eine gleich hohe oder höhere Quote.
+-다른 조건
+War die Misserfolgsgrenze von 2 % zu locker?
+Bei strengeren 1 % fällt die Erfolgsquote beim Kauf an beliebigen Tagen auf 33,6 %.
+Dann lag nur die 20-Tage-Linie über dem Bereich.
+Bei 1,5 % fiel keine Methode aus dem Bereich.
+Diese 10 Jahre könnten besonders gewesen sein, also haben wir den Zeitraum auf 1994 bis 2015 geändert.
+Dort lag das Kreuzen der 20-Tage-Linie bei 33,3 % – am niedrigsten von allen 10.
+Auch in diesem Zeitraum lagen alle 10 im Zufallsbereich.
+-정리
+Fassen wir zusammen.
+In diesem Backtest hatte kein Kaufsignal eine klar höhere Erfolgsquote als zufälliges Kaufen.
+Trendsignale lagen in diesen 10 Jahren leicht vorn.
+Doch in den 22 Jahren davor lagen zwei der vier unter dem Zufallsschnitt.
+Und in Jahren mit stetigem Fall wie 2022 hatte jedes Signal mehr Misserfolge.
+Die Quote hing vor allem an der Misserfolgsgrenze, nicht am Kaufsignal.
+-한계
+Diese Ergebnisse beruhen nur auf SPY, mit Daten ab 2016.
+Erfolg und Misserfolg nur nach Schlusskursen; verkauft am Tag danach, mit 0,25 % Gebühr.
+Daher gab es auch einige Erfolge mit Verlust und Misserfolge mit Gewinn.
+Wir sahen nur die Erfolgsquote; Gewinn- und Verlusthöhe muss man extra prüfen.
+Zinsen auf wartendes Bargeld, Steuern, Wechselkosten und Inflation sind nicht enthalten.
+Keine Anlageberatung, sondern Regeln, die per Code geprüft wurden.
+-마무리
+Schreibt Hypothesen für den nächsten Backtest gern in die Kommentare.
+Danke fürs Zuschauen.

@@ -1,0 +1,14 @@
+# eonje-maesu-2026-10-shorts — vi 자막 대본 · 한국어 대본과 문장 1:1 · v1.0 2026-10-17
+-언제 매수
+Khi phân vân lúc nào nên mua, người ta nói theo tín hiệu mua sẽ tăng xác suất thành công.
+Để kiểm tra, chúng tôi chạy backtest bằng mã Python do AI viết trên giá thực tế trong quá khứ.
+Chúng tôi thử SPY, ETF bám theo S&P 500, từ năm 2016.
+Có 10 tín hiệu mua, như đường trung bình 20 ngày, RSI và chỉ số sợ hãi VIX.
+Tăng 5% so với giá mua trước thì là thành công, giảm 2% trước là thất bại.
+Đối chứng là 2.000 tài khoản mua vào ngày ngẫu nhiên.
+Nếu tín hiệu có ích, tỷ lệ thành công phải cao hơn ngẫu nhiên.
+Tài khoản ngẫu nhiên cũng được chấm theo cùng tiêu chí.
+Cao nhất là mua khi giá vượt đường trung bình 20 ngày, tỷ lệ thành công 52,1%.
+Nhưng cả 10 đều nằm trong vùng không khác gì mua ngẫu nhiên.
+Vậy mỗi tín hiệu đúng khi nào, sai khi nào?
+Kết quả của 10 tín hiệu, và đổi giai đoạn có giống không, xem ở video bên dưới.

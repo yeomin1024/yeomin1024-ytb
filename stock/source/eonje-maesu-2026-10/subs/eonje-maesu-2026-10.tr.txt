@@ -1,0 +1,143 @@
+# eonje-maesu-2026-10 — tr 자막 대본 · 한국어 대본과 문장 1:1 · v1.0 2026-10-17
+-도입
+Alır almaz fiyat düşünce, zamanlamayı mı kaçırdım diye düşünürsünüz.
+10 popüler alım sinyali başarı olasılığını gerçekten artırıyor mu?
+2016'dan itibaren, S&P 500'ü izleyen bir ETF olan SPY ile backtest yapalım.
+Başarı, alış fiyatının %5 üstüne çıkmak; ondan önce %2 düşerse başarısızlık.
+Sonuç belli olunca ertesi gün satıyor, sonraki sinyalde yeniden alıyoruz.
+Karşılaştırma: yalnızca alım tarihleri rastgele olan 2.000 hesap.
+-매달 첫 거래일
+İlki sinyalsiz: her ayın ilk işlem gününde alım.
+Sinyaller işe yarıyor mu görmek için önce sinyalsiz bir yönteme bakmak gerekir.
+Yeşil başarılı, kırmızı başarısız işlemler.
+Sağ üstte şimdiye kadarki başarı oranı, altında rastgele hesapların ortalaması.
+Rastgele hesaplarda satış kuralı aynı; bekleme günleri her yöntemin kaydından seçildi.
+2021 sonunda başarı oranı %56,1 ile rastgele ortalama %51,7'nin üstündeydi.
+Ama 2022'de 12 işlemin 11'i başarısız oldu.
+2023'ten itibaren rastgele ortalamayla neredeyse yan yana gitti.
+Sonuç: 80 işlemde 37 başarı, %46,2; rastgele ortalama %47,1'in biraz altında.
+Gri bant, rastgele hesapların %90'ının girdiği aralık: %41,5 ile %53,2 arası.
+Bantta olmak rastgeleden farksız demek; ayın ilk işlem günü alımı da içindeydi.
+-신고가 돌파
+İkinciden beşinciye kadar, fiyat yükselirken alan trend sinyalleri.
+Yükselen fiyatın daha da yükseleceğini varsayan yöntemler.
+İkincisi: 20 günlük zirve kırılımında alım.
+Kapanış, son 20 işlem gününün en yüksek kapanışını geçince alınır.
+2019 sonunda başarı oranı %58,8 ile rastgele ortalama %50,3'ün üstündeydi.
+Nisan 2022'de satıştan sonra neredeyse üç ay sinyal gelmedi.
+O yıl 6 işlemin 5'i başarısız oldu.
+20 sonuçtan sonra başarı oranı hiç rastgele ortalamanın altına düşmedi.
+Sonuç: 63 işlemde 31 başarı, %49,2.
+Rastgele ortalama %47,1; %41,3 ile %53,2 aralığında olduğu için daha iyi denemez.
+-모멘텀
+Üçüncüsü: yeni zirve olmasa da fiyat bir ay öncesinden yüksekse alım.
+Bugünkü kapanış 21 işlem günü önceki kapanıştan yüksekse alınır.
+Haziran 2020'de başarı oranı %63,0 ile rastgele ortalama %50,9'un çok önündeydi.
+Ama 2022'de 12 işlemin 10'u başarısız oldu.
+Şubat 2025 sonunda satıştan sonra iki aydan uzun süre sinyal gelmedi.
+Sonuç: 81 işlemde 42 başarı, %51,9.
+Rastgele aralık olan %43,3 ile %52,6'nın üst ucuna yakındı ama içindeydi.
+-이동평균선
+Dördüncüsü, grafiklerde sık çizilen 20 günlük ortalama çizgisi.
+Kapanışın 20 günlük ortalamayı aşağıdan yukarı kestiği gün alınır.
+Temmuz 2016'dan Ocak 2018'e kadar art arda beş kez başarılı oldu.
+Aralık 2021'de başarı oranı %64,7 ile rastgele ortalama %51,8'in çok önündeydi.
+Sonra Temmuz 2022'ye kadar art arda altı kez başarısız oldu.
+20 sonuçtan sonra hiç rastgele ortalamanın altına düşmedi.
+Sonuç: 71 işlemde 37 başarı, %52,1; şimdiye kadarki dört yöntemin en yükseği.
+Yine de rastgele aralık olan %40,3 ile %54,3 arasında; daha iyi denemez.
+-골든 크로스
+Beşincisi iki ortalama çizgisine birlikte bakar.
+Kısa 5 günlük ortalama, uzun 20 günlük ortalamayı aşağıdan yukarı kesince alınır.
+Eylül 2017'de satıştan sonra bir sonraki alım Şubat 2018'deydi.
+Temmuz 2022'de başarı oranı %40,0 ile rastgele ortalama %48,5'in altındaydı.
+Hemen öncesinde art arda altı başarısızlık vardı.
+Sonra Haziran 2023'e kadar art arda beş kez başarılı oldu.
+2024'ten itibaren 12 işlemin 7'si başarılı oldu.
+Sonuç: 50 işlemde 25 başarı, tam %50,0.
+Rastgele ortalama %47,4; %38,6 ile %56,2 aralığının içindeydi.
+Sonuç sayısı 10 yöntemin en azıydı, bu yüzden aralık genişti.
+-하루 하락
+Altıncıdan itibaren sinyaller fiyat düşerken alır.
+Ucuzken alırsan daha kolay yükselir düşüncesi.
+Altıncısı: bir günde %1 veya daha fazla düşerse ertesi gün alım.
+Ocak 2019'da başarı oranı %35,0 ile rastgele ortalama %46,9'un çok gerisindeydi.
+Çünkü yalnızca 2018'de 12 işlemin 8'i başarısız olmuştu.
+2022'de de 20 işlemin 13'ü başarısızdı.
+20 sonuçtan sonra bir gün bile rastgele ortalamanın üstüne çıkmadı.
+Sonuç: 95 işlemde 44 başarı, %46,3.
+Rastgele ortalama %46,8, aralık %40,7 ile %52,8 arası; içindeydi.
+-RSI
+Yedincisi: RSI 40'ın altındayken alım.
+RSI, son 14 gündeki yükseliş ve düşüşlerin büyüklüğünü karşılaştıran bir sayı.
+40'ın altı çok düşmüş sayılır ve alım yapılır.
+Kasım 2019'da başarı oranı %61,9 ile rastgele ortalama %49,3'ün çok önündeydi.
+Ama 2020 koronavirüs çöküşünde 7 işlemin 5'i başarısız oldu.
+Kasım 2020'de satıştan sonra 10 aydan uzun süre sinyal gelmedi.
+2022'de de 14 işlemin 11'i başarısızdı.
+Bu yüzden hisse tutulan günler yalnızca %35'ti.
+Sonuç: 62 işlemde 30 başarı, %48,4.
+Rastgele ortalama %46,7, aralık %38,0 ile %56,0 arası; yine içindeydi.
+-VIX
+Sekizincisi: korku endeksi VIX 20 veya üstündeyken alım.
+VIX yükseldikçe, piyasanın sert sallanacağını düşünen kişi sayısı artar.
+"Herkes korkarken al" sözünü test ediyoruz.
+Kasım 2016'da satıştan sonra 1 yıldan uzun süre sinyal gelmedi.
+2020'de 22 işlemin 11'i başarılıydı, tam yarısı.
+2022'de 24 işlemin 18'i başarısızdı; Ağustos–Ekim arasında art arda altı kez.
+2023'ten itibaren 23 işlemin 14'ü başarılı oldu, yine yarıyı geçti.
+Sonuç: 101 işlemde 48 başarı, %47,5.
+Rastgele ortalama %47,3 ile neredeyse aynıydı ve %41,3 ile %53,6 aralığının içindeydi.
+-단기 저점
+Dokuzuncusu: son 20 işlem gününün zirvesinden %5 düşünce alım.
+Kısa düşüşleri hedefleyen bir dipten alım.
+Temmuz 2016'da satıştan sonra bir sonraki sinyal Şubat 2018'deydi.
+2020 koronavirüs çöküşünde 9 işlemin 6'sı başarısız oldu.
+2022'de de 15 işlemin 11'i başarısızdı.
+Hisse tutulan günler %23'tü, 10 yöntem içinde en azı.
+Sonuç: 59 işlemde 29 başarı, %49,2.
+Rastgele ortalama %46,5, aralık %38,0 ile %55,8 arası; içindeydi.
+-고점 대비 하락
+Son olarak onuncusu: o güne kadarki en yüksek kapanıştan %5 düşünce alım.
+Dokuzuncunun daha uzun vadeli hâli.
+Bu yöntem de Temmuz 2016'da satıştan sonra 1½ yıldan uzun süre sinyalsiz kaldı.
+2019 sonunda başarı oranı %56,5 ile rastgele ortalama %49,8'in üstündeydi.
+Çünkü o yılki beş işlemin hepsi başarılıydı.
+2020 koronavirüs çöküşünde 10 işlemin 6'sı başarısızdı.
+2022'de 26 işlemin 19'u başarısızdı, 10 yöntem içinde en fazla.
+2023'ten itibaren 23 işlemin 14'ü başarılı oldu, yine yarıyı geçti.
+Sonuç: 94 işlemde 45 başarı, %47,9.
+Rastgele ortalama %47,1, aralık %40,8 ile %53,6 arası; bu da içindeydi.
+-종합
+10 sonucun hepsine birlikte bakalım.
+Noktalar her yöntemin başarı oranı, gri bant rastgele hesapların %90'ının girdiği aralık.
+En yüksek, 20 günlük çizgiyi yukarı kesince alım: %52,1.
+En düşük, ayın ilk işlem günü alım: %46,2.
+İlk beşin dördü, fiyat yükselirken alan trend sinyalleriydi.
+Ama 10'unun hepsi rastgele aralığın içindeydi; rastgele alımdan farkı yoktu.
+En yüksek olan 20 günlük çizgi kırılımında bile, rastgele hesapların %13'ü o oran ya da üstündeydi.
+-다른 조건
+%2'lik başarısızlık sınırı fazla gevşek miydi?
+%1'e sıkılaştırınca, herhangi bir günde alımın başarı oranı %33,6'ya düşüyor.
+O zaman sadece 20 günlük çizgi kırılımı aralığı aştı.
+%1,5'te ise aralık dışına çıkan yöntem olmadı.
+Bu 10 yıl özel olabilir diye dönemi 1994–2015 olarak değiştirdik.
+Bu dönemde 20 günlük çizgi kırılımı %33,3 ile 10 yöntemin en düşüğüydü.
+Bu dönemde de 10'unun hepsi rastgele aralığın içindeydi.
+-정리
+Özetleyelim.
+Bu backtest'te, rastgele alımdan açıkça daha yüksek başarı oranına sahip bir alım sinyali yoktu.
+Bu 10 yılda trend sinyalleri biraz öndeydi.
+Ama önceki 22 yılda dördünden ikisi rastgele ortalamanın altındaydı.
+2022 gibi sürekli düşen yıllarda ise her sinyalde başarısızlık daha fazlaydı.
+Başarı oranını en çok değiştiren alım sinyali değil, başarısızlık sınırıydı.
+-한계
+Bu sonuçlar yalnızca SPY'nin 2016'dan itibaren verilerine dayanıyor.
+Başarı ve başarısızlık yalnızca kapanışa göre belirlendi; ertesi gün satıp %0,25 komisyon ödedik.
+Bu yüzden başarılı ama zararlı, başarısız ama kârlı birkaç işlem de oldu.
+Yalnızca başarı oranına baktık; kazanç ve kayıp büyüklüğüne ayrıca bakılmalı.
+Sinyal beklerken nakdin faizi, vergiler, kur maliyeti ve enflasyon da dahil edilmedi.
+Bu yatırım tavsiyesi değil, kuralları kodla kontrol etmenin sonucudur.
+-마무리
+Bir sonraki backtest için hipoteziniz varsa yorumlarda yazın.
+İzlediğiniz için teşekkürler.

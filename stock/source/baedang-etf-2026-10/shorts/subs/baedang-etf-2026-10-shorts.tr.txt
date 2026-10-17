@@ -1,0 +1,14 @@
+# baedang-etf-2026-10-shorts — tr 자막 대본 · 한국어 대본과 문장 1:1 · v1.0 2026-10-17
+-SCHD vs SPY
+Temettü ETF'si uzun süre biriktirilirse endeks ETF'sinden fazla kaldığı söylenir.
+Bunu kontrol etmek için yapay zekânın yazdığı Python koduyla geçmiş gerçek fiyatlarda backtest yaptık.
+Test ettiğimiz, ABD temettü hisseleri ETF'si SCHD.
+Karşılaştırdığımız, temettüsü düşük ama S&P 500'ü izleyen ETF SPY.
+2011'den itibaren her hesaba her ay 1.000 $ koyduk.
+İki hesapta da her temettüden %15 vergi kesildi, sonra yeniden alım yapıldı.
+%15, birçok ülkede ABD temettüsünden kesilen orandır.
+2026'ya kadar her hesaba 180.000 $ kondu.
+SCHD hesabı yaklaşık 480.000 $, SPY hesabı yaklaşık 590.000 $ oldu.
+SCHD, SPY'nin 2,1 katı temettü aldı; ama SPY'de kalan para SCHD'nin 1,22 katıydı.
+Daha çok temettü aldı, neden daha az kaldı?
+Nedenini ve başka bir ayda başlayınca sonucun aynı olup olmadığını aşağıdaki videoda görün.

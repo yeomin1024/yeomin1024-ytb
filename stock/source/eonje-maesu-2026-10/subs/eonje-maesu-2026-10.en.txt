@@ -1,0 +1,143 @@
+# eonje-maesu-2026-10 — en 자막 대본 · 한국어 대본과 문장 1:1 · v1.0 2026-10-17
+-도입
+If it drops right after you buy, you doubt your timing.
+Do 10 popular buy signals really raise your odds of success?
+Let's backtest them from 2016 with SPY, an ETF that tracks the S&P 500.
+Success means rising 5% above the buy price; falling 2% first is a failure.
+Once decided, we sell the next day and buy again on the next signal.
+We compare 2,000 accounts where only the dates are random.
+-매달 첫 거래일
+First, no signal: buy on the first trading day of each month.
+To see if signals help, we first need a method with no signal.
+Green trades succeeded, red ones failed.
+Top right is the success rate so far; below it, the random accounts' average.
+Random accounts use the same sell rule, with waiting days drawn from each method's record.
+At the end of 2021, the success rate was 56.1%, above the random average of 51.7%.
+But in 2022, 11 of 12 trades failed.
+From 2023, it moved almost in step with the random average.
+Result: 37 successes out of 80, 46.2%, slightly below the random average of 47.1%.
+The gray band is the range covering 90% of random accounts: 41.5% to 53.2%.
+Inside the band means no different from random, and the first-trading-day buy was inside.
+-신고가 돌파
+The second through fifth are trend signals that buy as prices rise.
+They assume that once prices start rising, they keep rising.
+Second: buy on a 20-day high breakout.
+Buy when the close beats the highest close of the past 20 trading days.
+At the end of 2019, its success rate was 58.8%, above the random average of 50.3%.
+After selling in April 2022, there was no signal for almost three months.
+That year, 5 of 6 trades failed.
+After 20 decided trades, its success rate never fell below the random average.
+Result: 31 successes out of 63, 49.2%.
+Random average 47.1%; inside the 41.3% to 53.2% range, so we can't call it better.
+-모멘텀
+Third: even without a new high, buy if the price is up from a month ago.
+Buy when today's close is higher than the close 21 trading days ago.
+In June 2020, its success rate was 63.0%, well ahead of the random average of 50.9%.
+But in 2022, 10 of 12 trades failed.
+After selling in late February 2025, there was no signal for over two months.
+Result: 42 successes out of 81, 51.9%.
+It was near the top of the random range of 43.3% to 52.6%, but still inside.
+-이동평균선
+Fourth is the 20-day average line, often drawn on charts.
+Buy on the day the close crosses above the 20-day average from below.
+From July 2016 to January 2018, it succeeded five times in a row.
+In December 2021, its success rate was 64.7%, well ahead of the random average of 51.8%.
+Then, through July 2022, it failed six times in a row.
+After 20 decided trades, it never fell below the random average.
+Result: 37 successes out of 71, 52.1%, the highest of the four so far.
+Still, it's inside the random range of 40.3% to 54.3%, so we can't call it better.
+-골든 크로스
+The fifth looks at two average lines together.
+Buy when the short 5-day average crosses above the long 20-day average.
+After selling in September 2017, the next buy came in February 2018.
+In July 2022, its success rate was 40.0%, below the random average of 48.5%.
+It had just failed six times in a row.
+After that, it succeeded five times in a row through June 2023.
+From 2024, 7 of 12 trades succeeded.
+Result: 25 successes out of 50, exactly 50.0%.
+Random average 47.4%; it was inside the 38.6% to 56.2% range.
+It had the fewest trades of all 10, so the range was also wide.
+-하루 하락
+From the sixth on, the signals buy when prices fall.
+The idea: buy cheaper, and it should rise more easily.
+Sixth: if it falls 1% or more in a day, buy the next day.
+In January 2019, its success rate was 35.0%, well behind the random average of 46.9%.
+Because in 2018 alone, 8 of 12 trades failed.
+In 2022 too, 13 of 20 failed.
+After 20 decided trades, it was never above the random average, not even for a day.
+Result: 44 successes out of 95, 46.3%.
+The random average was 46.8% and the range 40.7% to 52.8%; it was inside.
+-RSI
+Seventh: buy when RSI is below 40.
+RSI is a number comparing the size of gains and losses over the last 14 days.
+Below 40, we treat it as having fallen a lot, and buy.
+In November 2019, its success rate was 61.9%, well ahead of the random average of 49.3%.
+But in the 2020 COVID crash, 5 of 7 trades failed.
+After selling in November 2020, there was no signal for over 10 months.
+And in 2022, 11 of 14 trades failed.
+So it held stock on only 35% of days.
+Result: 30 successes out of 62, 48.4%.
+The random average was 46.7% and the range 38.0% to 56.0%; again, inside.
+-VIX
+Eighth: buy when the fear index, VIX, is 20 or higher.
+A higher VIX means more people expect big market swings.
+This tests the saying "buy when everyone is afraid."
+After selling in November 2016, there was no signal for over 1 year.
+In 2020, 11 of 22 trades succeeded, exactly half.
+In 2022, 18 of 24 failed, including six in a row from August to October.
+From 2023, 14 of 23 trades succeeded, back above half.
+Result: 48 successes out of 101, 47.5%.
+Almost the same as the random average of 47.3%, and inside the 41.3% to 53.6% range.
+-단기 저점
+Ninth: buy when it falls 5% below the high of the last 20 trading days.
+A dip buy aimed at short drops.
+After selling in July 2016, the next signal came in February 2018.
+In the 2020 COVID crash, 6 of 9 trades failed.
+In 2022 too, 11 of 15 failed.
+It held stock on 23% of days, the fewest of all 10.
+Result: 29 successes out of 59, 49.2%.
+The random average was 46.5% and the range 38.0% to 55.8%; it was inside.
+-고점 대비 하락
+Last, the tenth: buy when it falls 5% below the highest close so far.
+A dip buy with a longer view than the ninth.
+This one, too, had no signal for over 1½ years after selling in July 2016.
+At the end of 2019, its success rate was 56.5%, above the random average of 49.8%.
+Because all five trades that year succeeded.
+In the 2020 COVID crash, 6 of 10 failed.
+In 2022, 19 of 26 failed, the most of all 10.
+From 2023, 14 of 23 succeeded, back above half.
+Result: 45 successes out of 94, 47.9%.
+The random average was 47.1% and the range 40.8% to 53.6%; this one was inside too.
+-종합
+Let's look at all 10 results at once.
+Dots are each method's success rate; the gray band covers 90% of random accounts.
+The highest was buying on a cross above the 20-day line, at 52.1%.
+The lowest was buying on the first trading day of each month, at 46.2%.
+Four of the top five were trend signals that buy when prices rise.
+But all 10 were inside the random range, no different from buying at random.
+Even for the top one, the 20-day line cross, 13% of random accounts had a success rate that high or higher.
+-다른 조건
+Was the 2% failure line too loose?
+Make it stricter at 1%, and the success rate for buying on any day drops to 33.6%.
+Then, only the 20-day line cross came out above the range.
+At 1.5%, no method fell outside the range.
+These 10 years may have been special, so we changed the period to 1994 through 2015.
+In this period, the 20-day line cross was the lowest of all 10, at 33.3%.
+In this period too, all 10 were inside the random range.
+-정리
+Let's sum up.
+In this backtest, no buy signal had a clearly higher success rate than buying at random.
+Trend signals led slightly over these 10 years.
+But in the 22 years before, two of the four were below the random average.
+And in years of steady decline like 2022, every signal had more failures.
+What changed the success rate most wasn't the buy signal, but the failure line.
+-한계
+These results use only SPY, with data from 2016.
+Success and failure were judged on closes only; we sold the next day and paid a 0.25% fee.
+So a few trades were successes that lost money, or failures that made money.
+We only checked success rates; the size of each gain or loss needs its own look.
+Interest on cash while waiting for signals, taxes, currency costs and inflation aren't included.
+This isn't investment advice; it's the result of checking rules with code.
+-마무리
+If you have a hypothesis to backtest next, tell us in the comments.
+Thanks for watching.

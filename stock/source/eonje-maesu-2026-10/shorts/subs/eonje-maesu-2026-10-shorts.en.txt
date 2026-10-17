@@ -1,0 +1,14 @@
+# eonje-maesu-2026-10-shorts — en 자막 대본 · 한국어 대본과 문장 1:1 · v1.0 2026-10-17
+-언제 매수
+When you're unsure when to buy, people say following buy signals raises your odds of success.
+To check, we ran a backtest with AI-written Python code on real past prices.
+We tested SPY, an ETF that tracks the S&P 500, from 2016.
+We used 10 buy signals, like the 20-day average, RSI and the fear index VIX.
+Up 5% from the buy price first counted as success; down 2% first, as failure.
+The comparison: 2,000 accounts that bought on random dates.
+If signals are useful, they should beat random on success rate.
+Random accounts were judged by the same rule.
+The best was buying when price crosses the 20-day average: a 52.1% success rate.
+But all 10 were in a range no different from random buying.
+So when did each signal work, and when did it fail?
+The 10 signals' records, and whether other periods agree: see the video below.

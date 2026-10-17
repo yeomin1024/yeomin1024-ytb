@@ -1,0 +1,116 @@
+# reobeoriji-2026-10 — id 자막 대본 · 한국어 대본과 문장 1:1 · v1.0 2026-10-17
+-도입
+QLD dan TQQQ mengikuti Nasdaq-100 dengan 2x dan 3x.
+Ditabung lama, tampaknya sisa jauh lebih banyak, tapi seberapa tahan saat anjlok?
+Mulai 1999, kita bandingkan 1x, 2x, dan 3x dengan backtest.
+-규칙
+Seperti QLD dan TQQQ, 2x dan 3x dihitung dari 2x dan 3x indeks tiap hari, dikurangi biaya.
+Beli $500 di hari bursa pertama tiap bulan, dengan biaya 0,25%.
+-경주
+Sekarang kita jalankan tanggalnya.
+Garis biru adalah QQQ yang mengikuti Nasdaq-100 1x, garis ungu 2x, garis oranye 3x.
+Titik-titik kuning: uang yang sudah masuk.
+Tiap naik satu kotak di sumbu tegak berarti 10 kali.
+Ketiga akun menginvestasikan kembali dividen Nasdaq-100.
+Akhir 1999, akun 3x bernilai 3,28 kali uang masuk $4.500.
+Mulai Maret 2000, gelembung dot-com mulai pecah.
+Pada 29 Maret 2001, akun 3x kehilangan 92,3% dari uang masuk $12.000.
+Pada 4 April, 2x turun 80,7% dan 1x 49,9%; ketiganya di bawah uang yang masuk.
+Meski begitu, ketiga akun tetap membeli $500 tiap bulan.
+Tahun 2003, 3x naik 167,4%.
+Pada akhir 2007, ketiga akun hampir sama.
+-금융위기
+Lalu datang krisis keuangan 2008.
+Pada 20 November, akun 3x kehilangan 89,5% dari uang masuk $58.000.
+Hari itu juga, 2x sudah kehilangan 72,8% dan 1x 36,4%.
+Tahun 2009, 3x naik 196,4%.
+Sampai akhir 2012, 1x masih paling besar, tapi pada 3 Juli 2013, 3x menyalip 1x.
+Juni 2017, akun 3x melewati $1.000.000.
+Saat kejatuhan COVID, 3x turun 69,7%, 2x 51,9%, dan 1x 28,5%.
+Meski begitu, akun 3x sekitar $970.000, lebih dari uang masuk $126.000.
+Akhir 2021, akun 3x sekitar $9.100.000, melebar sampai 8,66 kali 1x.
+-긴 하락
+Tahun 2022, datang penurunan panjang.
+Akun 3x turun dari sekitar $9.300.000 pada 3 Januari ke sekitar $1.800.000 pada 28 Desember.
+Itu kerugian 80,9%.
+2x turun 62,8% dan 1x 34,4%.
+Tahun 2023, 3x naik 198,2%.
+Desember 2024, akun 3x melewati $10.000.000.
+Saat anjlok April 2025, 3x turun 56,8%, 2x 41,8%, dan 1x 22,7%.
+-결과
+15 Oktober 2026, inilah hasilnya.
+Ketiga akun memasukkan uang 331 kali, sekitar $170.000.
+Akun 1x sekitar $2.000.000, dan 2x sekitar $7.900.000.
+Akun 3x sekitar $17.000.000.
+Hari tertinggi akun 3x adalah 2 Juni 2026, sekitar $20.000.000.
+3x adalah 8,55 kali 1x, dan 2x 3,91 kali.
+Sejak 3 Juli 2013, 3x terus di atas 1x.
+Selama 14,3 tahun sebelumnya, 3x di atas 1x hanya pada 10,8% hari.
+Hari di atas uang masuk juga lebih sedikit untuk 3x: 1x 78,1%, 3x 64,7%.
+-매일 맞추기
+Kenapa 3x turun begitu banyak saat kejatuhan?
+Mari lihat arti ETF leverage menyesuaikan kelipatannya setiap hari.
+Misalkan indeks naik 10% dalam sehari, lalu turun 10% besoknya.
+1x rugi 1%.
+2x naik 20% lalu turun 20%, jadi rugi 4%.
+3x naik 30% lalu turun 30%, jadi rugi 9%.
+Makin sering naik-turun dan makin besar kelipatan, makin terkikis.
+Meski indeks kembali ke titik awal, akun leverage jadi lebih kecil dari awalnya.
+Nyatanya, pada 2018, 1x turun 0,1%, hampir tidak berubah.
+Tahun itu, 2x turun 8,6% dan 3x 20,1%.
+-한 번에
+Tapi bagaimana kalau tidak dicicil tiap bulan, melainkan sekali di awal?
+Pada 1 April 1999, tiap akun diisi $10.000.
+Pada 9 Maret 2009, akun 3x tinggal $13, 99,87% lenyap.
+2x tinggal $450.
+1x paling rendah pada 9 Oktober 2002, $3.736.
+Ini nilai pada 15 Oktober 2026.
+1x sekitar $160.000, 2x sekitar $130.000, 3x sekitar $18.000.
+Dengan sekali masuk, 3x hanya tersisa 11,4% dari 1x.
+Akun bulanan terus membeli, bahkan di harga yang murah karena kejatuhan.
+-시작 시점
+April 1999 tepat sebelum kejatuhan dot-com, jadi mungkin awalnya buruk.
+Bagaimana kalau bulan mulainya berbeda?
+Kami buat akun tabungan 10 tahun yang mulai tiap bulan, dari April 1999 sampai Oktober 2016.
+Totalnya 211 akun.
+Setelah 10 tahun, 3x di atas 1x pada 175 dari 211 akun.
+2x di atas 1x pada 183 akun.
+Akun yang tersisa di bawah uang masuk: 1x 4, 2x 16, 3x 20.
+Yang terburuk adalah akun yang mulai April 1999.
+Dari uang masuk sekitar $61.000, 3x sekitar $12.000, 24,9% dari 1x.
+Yang terbaik mulai September 2008, dengan 3x 6,49 kali 1x.
+Di 31 akun tabungan 25 tahun, 3x selalu paling besar.
+-실제 ETF
+Kita juga perlu cek seberapa mirip 2x dan 3x hitungan dengan ETF asli.
+Begini cara menghitung akun 2x dan 3x.
+Kedua ETF lahir pada 2006 dan 2010, jadi sejak 1999 harus dihitung sendiri.
+Tiap hari mengikuti 2x atau 3x return harian Nasdaq-100.
+Dari situ dikurangi biaya 0,95% dan bunga uang pinjaman.
+Bunganya adalah suku bunga tiga bulan pemerintah AS ditambah 1,02%.
+Angka 1,02% ditetapkan agar nilai akhirnya sama dengan QLD asli sejak Juni 2006.
+Dengan angka yang sama, TQQQ hasilnya 0,57% lebih rendah per 1 tahun dari yang asli.
+Sekarang kita lihat dengan ETF asli.
+Mulai Maret 2010, bulan setelah TQQQ lahir, $500 tiap bulan.
+Uang yang masuk $100.000.
+QQQ menjadi sekitar $620.000, QLD sekitar $2.200.000.
+TQQQ sekitar $5.300.000.
+Di periode yang sama, 3x hitungan sekitar $5.100.000, sedikit di bawah yang asli.
+Akun TQQQ asli juga turun 81,5% pada 2022, dan akun QLD 63,3%.
+-정리
+Mari kita rangkum.
+Menabung tiap bulan sejak 1999, 3x menjadi 8,55 kali 1x.
+Tapi pada 2001, sempat 92,3% uang yang masuk hilang.
+Pada 2008 juga turun 89,5%.
+3x baru mulai terus unggul dari 1x setelah 14,3 tahun.
+Kalau sekali masuk di awal, 3x hanya tersisa 11,4% dari 1x.
+Di akun 10 tahun dengan bulan mulai berbeda pun, 20 dari 211 akun 3x di bawah uang masuk.
+-한계
+Selama periode ini, Nasdaq-100 naik besar.
+Nilai 2x dan 3x di uji utama adalah hitungan, bukan ETF asli.
+Jika bunga dan biaya berubah, hasil pun berubah.
+Dan untuk memilih 3x, harus tahan dua kali masa saat sekitar 90% uang masuk lenyap.
+Pajak, kurs, dan inflasi tidak dimasukkan.
+Ini bukan saran investasi, tapi hasil mengecek aturan dengan kode.
+-마무리
+Ada hipotesis untuk backtest berikutnya? Tulis di komentar.
+Terima kasih sudah menonton.

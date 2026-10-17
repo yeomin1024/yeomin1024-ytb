@@ -1,0 +1,14 @@
+# baedang-etf-2026-10-shorts — en 자막 대본 · 한국어 대본과 문장 1:1 · v1.0 2026-10-17
+-SCHD vs SPY
+People say saving in a dividend ETF for years leaves more than an index ETF.
+To check, we ran a backtest with AI-written Python code on real past prices.
+We tested SCHD, a US dividend stock ETF.
+We compared it with SPY, which pays smaller dividends but tracks the S&P 500.
+From 2011, each account got $1,000 every month.
+In both accounts, every dividend had 15% tax withheld, then was reinvested.
+15% is the rate withheld on US dividends in many countries.
+By 2026, each account had put in $180,000.
+The SCHD account had about $480,000; the SPY account, about $590,000.
+SCHD received 2.1 times SPY's dividends, but SPY had 1.22 times as much money left.
+More dividends, so why less money left?
+Why, and whether another start month gives the same result: see the video below.

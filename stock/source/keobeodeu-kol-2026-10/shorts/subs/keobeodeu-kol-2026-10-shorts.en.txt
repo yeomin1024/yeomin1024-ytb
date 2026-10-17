@@ -1,0 +1,14 @@
+# keobeodeu-kol-2026-10-shorts — en 자막 대본 · 한국어 대본과 문장 1:1 · v1.0 2026-10-17
+-커버드콜 vs QQQ
+Covered call ETFs pay out monthly, and people say spending it barely dents the principal.
+To check, we ran a backtest with AI-written Python code on real past prices.
+We tested QYLD, a Nasdaq-100 covered call ETF.
+We compared it with QQQ, an ETF that tracks the Nasdaq-100 without covered calls.
+In December 2013, each account got $100,000 of principal.
+QYLD's payouts were all spent as soon as they came.
+To keep it fair, the QQQ account sold the same amount on the same days.
+By 2026, both accounts had paid out the same: about $110,000.
+The QYLD account had about $75,000 left, 25.3% below the principal.
+The QQQ account had about $510,000 left, 6.83 times QYLD.
+Same money taken out, so why such a gap?
+Why, and whether another start month gives the same result: see the video below.

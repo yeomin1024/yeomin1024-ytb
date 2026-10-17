@@ -1,0 +1,116 @@
+# reobeoriji-2026-10 — de 자막 대본 · 한국어 대본과 문장 1:1 · v1.0 2026-10-17
+-도입
+QLD und TQQQ bilden den Nasdaq-100 mit 2x und 3x ab.
+Lange gespart, bleibt scheinbar viel mehr, aber wie gut halten sie einen Crash aus?
+Ab 1999 vergleichen wir 1x, 2x und 3x im Backtest.
+-규칙
+2x und 3x sind wie QLD und TQQQ berechnet: täglich 2x bzw. 3x des Index, minus Kosten.
+Wir kaufen am ersten Handelstag jedes Monats für 500 $, Gebühr 0,25 %.
+-경주
+Jetzt lassen wir die Zeit laufen.
+Die blaue Linie ist QQQ, das den Nasdaq-100 1x abbildet, lila ist 2x, orange 3x.
+Gelb gepunktet: das bisher eingezahlte Geld.
+Jede Stufe höher auf der y-Achse ist das 10-Fache.
+Alle drei Konten legen die Dividenden des Nasdaq-100 wieder an.
+Ende 1999 war das 3x-Konto das 3,28-Fache der eingezahlten 4.500 $.
+Ab März 2000 beginnt die Dotcom-Blase zu platzen.
+Am 29. März 2001 hatte das 3x-Konto 92,3 % der eingezahlten 12.000 $ verloren.
+Am 4. April lag 2x 80,7 % und 1x 49,9 % im Minus, alle drei unter dem Eingezahlten.
+Trotzdem kauften alle drei Konten weiter jeden Monat für 500 $.
+2003 stieg 3x um 167,4 %.
+Ende 2007 waren alle drei fast gleich.
+-금융위기
+Dann kam die Finanzkrise 2008.
+Am 20. November hatte das 3x-Konto 89,5 % der eingezahlten 58.000 $ verloren.
+Am selben Tag hatten 2x 72,8 % und 1x 36,4 % verloren.
+2009 stieg 3x um 196,4 %.
+Bis Ende 2012 lag 1x noch vorn, doch am 3. Juli 2013 überholte 3x das 1x-Konto.
+Im Juni 2017 überschritt das 3x-Konto 1.000.000 $.
+Im Corona-Crash fielen 3x um 69,7 %, 2x um 51,9 % und 1x um 28,5 %.
+Trotzdem hatte das 3x-Konto rund 970.000 $, mehr als die eingezahlten 126.000 $.
+Ende 2021 hatte das 3x-Konto rund 9.100.000 $, das 8,66-Fache von 1x.
+-긴 하락
+2022 kam ein langer Abschwung.
+Das 3x-Konto fiel von rund 9.300.000 $ am 3. Januar auf rund 1.800.000 $ am 28. Dezember.
+Ein Verlust von 80,9 %.
+2x fiel um 62,8 %, 1x um 34,4 %.
+2023 stieg 3x um 198,2 %.
+Im Dezember 2024 überschritt das 3x-Konto 10.000.000 $.
+Im Einbruch im April 2025 fielen 3x um 56,8 %, 2x um 41,8 % und 1x um 22,7 %.
+-결과
+15. Oktober 2026: das Ergebnis.
+Alle drei Konten zahlten 331-mal ein, rund 170.000 $.
+Das 1x-Konto hat rund 2.000.000 $, das 2x-Konto rund 7.900.000 $.
+Das 3x-Konto hatte rund 17.000.000 $.
+Der Höchststand des 3x-Kontos war am 2. Juni 2026, rund 20.000.000 $.
+3x war das 8,55-Fache von 1x, 2x das 3,91-Fache.
+Seit dem 3. Juli 2013 lag 3x stets über 1x.
+In den 14,3 Jahren davor lag 3x nur an 10,8 % der Tage über 1x.
+Auch Tage über dem Eingezahlten hatte 3x weniger: 1x 78,1 %, 3x 64,7 %.
+-매일 맞추기
+Warum schrumpfte 3x in Crashs so stark?
+Sehen wir, was es heißt, dass Hebel-ETFs täglich den Hebel anpassen.
+Angenommen, der Index steigt an einem Tag um 10 % und fällt am nächsten um 10 %.
+1x verliert 1 %.
+2x steigt um 20 % und fällt um 20 %: 4 % Verlust.
+3x steigt um 30 % und fällt um 30 %: 9 % Verlust.
+Je mehr Auf und Ab und je größer der Hebel, desto mehr bröckelt ab.
+Kehrt der Index zum Start zurück, hat das Hebelkonto trotzdem weniger als am Anfang.
+Tatsächlich fiel 1x im Jahr 2018 um 0,1 %, fast unverändert.
+Im selben Jahr fiel 2x um 8,6 % und 3x um 20,1 %.
+-한 번에
+Und wenn man nicht monatlich, sondern einmal am Anfang einzahlt?
+Am 1. April 1999 kamen in jedes Konto 10.000 $.
+Am 9. März 2009 blieben im 3x-Konto nur 13 $, 99,87 % waren weg.
+Das 2x-Konto hatte 450 $.
+1x hatte seinen Tiefstand am 9. Oktober 2002 mit 3.736 $.
+Das sind die Werte am 15. Oktober 2026.
+1x rund 160.000 $, 2x rund 130.000 $, 3x rund 18.000 $.
+Bei der Einmalanlage blieben 3x nur 11,4 % von 1x.
+Die Monatskonten kauften weiter, auch zu den im Crash gesunkenen Kursen.
+-시작 시점
+April 1999 lag direkt vor dem Dotcom-Crash, der Start war also vielleicht ungünstig.
+Und mit einem anderen Startmonat?
+Wir bildeten 10-Jahres-Sparkonten, je eines pro Startmonat von April 1999 bis Oktober 2016.
+Insgesamt 211 Stück.
+Nach 10 Jahren lag 3x bei 175 der 211 über 1x.
+2x lag bei 183 über 1x.
+Konten unter dem Eingezahlten: 1x 4, 2x 16, 3x 20.
+Am schlechtesten war das Konto mit Start im April 1999.
+Von rund 61.000 $ Einzahlung hatte 3x rund 12.000 $, 24,9 % von 1x.
+Am besten war der Start im September 2008: 3x kam auf das 6,49-Fache von 1x.
+Bei allen 31 Sparkonten über 25 Jahre lag 3x vorn.
+-실제 ETF
+Wir prüfen auch, wie nah die berechneten 2x und 3x den echten ETFs kommen.
+So wurden die 2x- und 3x-Konten berechnet.
+Die beiden ETFs starteten 2006 und 2010, ab 1999 muss man also selbst rechnen.
+Sie folgen täglich 2x bzw. 3x der Tagesrendite des Nasdaq-100.
+Davon gehen 0,95 % Gebühr und Zinsen für das Geliehene ab.
+Der Zins ist der US-Dreimonatszins plus 1,02 %.
+Die 1,02 % wurden so gewählt, dass der Endwert ab Juni 2006 dem echten QLD entspricht.
+Mit demselben Wert lag TQQQ auf 1 Jahr gerechnet 0,57 % unter dem echten.
+Jetzt mit den echten ETFs.
+Ab März 2010, dem Monat nach dem Start von TQQQ, jeden Monat 500 $.
+Eingezahlt wurden 100.000 $.
+QQQ wuchs auf rund 620.000 $, QLD auf rund 2.200.000 $.
+TQQQ kam auf rund 5.300.000 $.
+Im selben Zeitraum kam das berechnete 3x auf rund 5.100.000 $, etwas weniger als das echte.
+Auch das echte TQQQ-Konto fiel 2022 um 81,5 %, das QLD-Konto um 63,3 %.
+-정리
+Fassen wir zusammen.
+Monatlich ab 1999 angespart, kam 3x auf das 8,55-Fache von 1x.
+Doch 2001 waren zeitweise 92,3 % des eingezahlten Geldes weg.
+Auch 2008 waren es 89,5 % weniger.
+Erst nach 14,3 Jahren lag 3x dauerhaft vor 1x.
+Bei einer Einmalanlage am Anfang blieben 3x nur 11,4 % von 1x.
+Auch bei 10-Jahres-Konten mit anderen Startmonaten lag 3x in 20 von 211 unter dem Eingezahlten.
+-한계
+Der Nasdaq-100 stieg in dieser Zeit stark.
+Die 2x- und 3x-Werte im Hauptversuch sind berechnet, keine echten ETFs.
+Andere Zinsen und Gebühren, anderes Ergebnis.
+Und wer 3x wählte, musste zweimal Phasen mit rund 90 % Verlust des Eingezahlten aushalten.
+Steuern, Wechselkurs und Inflation fehlen.
+Keine Anlageberatung, sondern Regeln, mit Code geprüft.
+-마무리
+Eine Hypothese für den nächsten Backtest? Schreibt sie in die Kommentare.
+Danke fürs Zuschauen.

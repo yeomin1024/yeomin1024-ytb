@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.11 — 2026-10-17 — 쇼츠 썸네일 검사 말만: cover_check v1.1 배치 검사(재테크 = 세 칸 band — 위·아래 검정은 정상)에 걸리면 0초 장면 (사용자 지시 2026-10-17 "이미지 외 영역은 검은 배경으로 하고 문구는 두 줄로해서 최대 크기로 맞춰 … PC나 모바일에서 볼 때 위 아래 영역이 좀 짤릴 수 있는데 그러면 안돼").
+# VERSION: v1.12 — 2026-10-17 — **언어별 자막(CC) 올리기** (사용자 지시 2026-10-17 "외국어 자막 대본도 필요하지? 쇼츠, 롱폼 각각 언어별로 작성해봐"):
+#          업로드 설정 '| 자막 올리기 | 언어별 … |' → 한국어 SRT + 자막 폴더의 <영상ID>.<언어>.srt 전부 (tools/subs_tool.py build 가 만듦 — 화면에는 굽지 않음).
+#          자막 하나 = 400단위 (영상 1,600 · 썸네일 50) → 하루 10,000 안에서 영상을 먼저, 자막은 할당량이 끝나면 멈추고 youtube.json 'captionTracks' 에
+#          올린 언어를 적음 → --captions-only 로 다음 날 남은 언어만 이어서. '| 자막 올리기 | 예 |' = 한국어만(예전 그대로) · '아니요' = 안 올림.
+# (v1.11) — 2026-10-17 — 쇼츠 썸네일 검사 말만: cover_check v1.1 배치 검사(재테크 = 세 칸 band — 위·아래 검정은 정상)에 걸리면 0초 장면 (사용자 지시 2026-10-17 "이미지 외 영역은 검은 배경으로 하고 문구는 두 줄로해서 최대 크기로 맞춰 … PC나 모바일에서 볼 때 위 아래 영역이 좀 짤릴 수 있는데 그러면 안돼").
 # (v1.10) — 2026-10-17 — 쇼츠 썸네일 그림에 빈 단색 띠가 있으면(tools/cover_check.py ❌) 그 그림 대신 **완성 영상 0초 장면**을 올린다
 #          (0초 = 첫 문장 그림을 사진 부분만 가로 가득 — kit.js v1.8 K.cover box). 사용자 지시 2026-10-17 "아니 이거 썸네일 문제가 아니고 영상 자체가
 #          비율 안맞는거 아니냐고 컨텐츠가 중간에 딱 안나오고 위 오른쪽에 여백이 생긴다고" · "좋아 … 이제 이 쇼츠는 올려".
@@ -113,7 +117,7 @@ def read_sheet(topic, vid):
     tags = [t.strip() for t in tags_raw.replace("\n", ",").split(",") if t.strip()]
     return {"title": title, "description": desc, "tags": tags, "chapter_spec": spec.group(1) if spec else None,
             "synthetic": read_synthetic(md), "default_language": read_setting(md, "기본 언어", "ko"),
-            "captions": read_setting(md, "자막 올리기", "예") != "아니요", "localizations": read_localizations(md)}
+            "captions": read_setting(md, "자막 올리기", "예") != "아니요", "caption_mode": "all" if "언어" in read_setting(md, "자막 올리기", "예") else "ko", "localizations": read_localizations(md)}
 
 
 def read_setting(md, name, default):
@@ -308,9 +312,48 @@ def upload_video(token, path, meta, privacy, publish_at=None):
     raise RuntimeError("업로드가 끝났는데 영상 ID를 받지 못함")
 
 
-def upload_captions(token, video_id, srt_path):
+CAPTION_NAME = {"ko": "한국어", "en": "English", "hi": "हिन्दी", "id": "Bahasa Indonesia", "pt": "Português", "es-419": "Español (Latinoamérica)",
+                "ja": "日本語", "de": "Deutsch", "vi": "Tiếng Việt", "tr": "Türkçe"}
+CAPTION_LANGS = ["en", "hi", "id", "pt", "es-419", "ja", "de", "vi", "tr"]    # tools/subs_tool.py LANGS 와 같음
+QUOTA = {"video": 1600, "thumbnail": 50, "caption": 400}                     # YouTube Data API 단위 (2026-10 기준)
+
+
+def caption_files(src, vid, mode):
+    """(v1.12) 올릴 자막 [(언어, SRT 경로)] — mode 'ko' = 한국어만 · 'all' = 한국어 + 자막 폴더의 언어별 SRT (있는 것만)."""
+    out = []
+    ko = src / f"{vid}.srt"
+    if ko.exists():
+        out.append(("ko", ko))
+    if mode == "all":
+        for lang in CAPTION_LANGS:
+            f = src / "subs" / f"{vid}.{lang}.srt"
+            if f.exists():
+                out.append((lang, f))
+    return out
+
+
+def upload_caption_set(token, video_id, files, done=None):
+    """(v1.12) 자막을 하나씩 올림 → {언어: 자막 ID}. 할당량이 끝나면(403 quotaExceeded) 멈추고 남은 언어를 돌려줌 (영상은 이미 올라감)."""
+    done = dict(done or {})
+    left = [(l, f) for l, f in files if l not in done]
+    for i, (lang, f) in enumerate(left):
+        try:
+            done[lang] = upload_captions(token, video_id, f, lang)
+            log("CAPTIONS", status="ok", lang=lang, file=f.name, units=QUOTA["caption"])
+        except Exception as e:
+            msg = str(e)
+            if "quotaExceeded" in msg or "dailyLimitExceeded" in msg:
+                rest = [l for l, _ in left[i:]]
+                log("CAPTIONS", status="quota", uploaded=len(done), left=",".join(rest),
+                    next="할당량 초기화(한국 16시) 뒤 --captions-only 로 남은 언어만")
+                return done, rest
+            log("CAPTIONS", status="fail", lang=lang, error=msg[:200], next="스튜디오 → 자막에서 SRT 직접 업로드")
+    return done, []
+
+
+def upload_captions(token, video_id, srt_path, lang="ko"):
     boundary = uuid.uuid4().hex
-    meta = json.dumps({"snippet": {"videoId": video_id, "language": "ko", "name": "한국어", "isDraft": False}})
+    meta = json.dumps({"snippet": {"videoId": video_id, "language": lang, "name": CAPTION_NAME.get(lang, lang), "isDraft": False}}, ensure_ascii=False)
     body = (f"--{boundary}\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n{meta}\r\n"
             f"--{boundary}\r\nContent-Type: application/octet-stream\r\n\r\n").encode() + srt_path.read_bytes() + \
            f"\r\n--{boundary}--\r\n".encode()
@@ -478,6 +521,30 @@ def sha256(path):
 
 
 # ----------------------------------------------------------------------------- 실행
+def captions_only(topic, vid, dry_run=False):
+    """(v1.12) 이미 올린 영상(youtube.json)에 아직 안 올린 언어 자막만 올림 — 할당량 때문에 나눠 올릴 때."""
+    src = src_dir(topic, vid)
+    state_path = src / "youtube.json"
+    if not state_path.exists():
+        raise SystemExit(f"[CAPTIONS] ❌ {vid}: youtube.json 없음 — 영상부터 올림")
+    st = json.loads(state_path.read_text("utf-8"))
+    meta = read_sheet(topic, vid)
+    files = caption_files(src, vid, meta.get("caption_mode", "ko")) if meta["captions"] else []
+    done = st.get("captionTracks") or ({"ko": st["captions"]} if st.get("captions") else {})
+    left = [(l, f) for l, f in files if l not in done]
+    log("CAPTIONS", video=vid, youtube_id=st["videoId"], done=",".join(done) or "없음", left=",".join(l for l, _ in left) or "없음",
+        units=len(left) * QUOTA["caption"])
+    if dry_run or not left:
+        return st
+    token = access_token()
+    check_channel(topic, token)
+    done, rest = upload_caption_set(token, st["videoId"], files, done)
+    st["captionTracks"], st["captionsPending"] = done, rest
+    state_path.write_text(json.dumps(st, ensure_ascii=False, indent=2) + "\n", "utf-8")
+    log("DONE", video=vid, captions=len(done), pending=",".join(rest) or "없음")
+    return st
+
+
 def run(topic, vid, dry_run=False, privacy="private", force=False, no_captions=False, no_thumbnail=False, video=None,
         publish_at=None):
     src = src_dir(topic, vid)
@@ -516,6 +583,10 @@ def run(topic, vid, dry_run=False, privacy="private", force=False, no_captions=F
         log("SCHEDULE", publish_at_utc=publish_at,
             publish_at_kst=dt.datetime.fromisoformat(publish_at.replace("Z", "+00:00")).astimezone(kst).strftime("%Y-%m-%d %H:%M"),
             note="비공개로 올리고 이 시각에 자동 공개 (감사 전 API 프로젝트는 비공개 잠금이라 공개되지 않을 수 있음)")
+    cap_files = caption_files(src, vid, meta.get("caption_mode", "ko")) if meta["captions"] and not no_captions else []
+    units = QUOTA["video"] + (QUOTA["thumbnail"] if thumbs else 0) + QUOTA["caption"] * len(cap_files)
+    log("QUOTA", video=QUOTA["video"], thumbnail=QUOTA["thumbnail"] if thumbs else 0, captions=f"{len(cap_files)}×{QUOTA['caption']}",
+        langs=",".join(l for l, _ in cap_files) or "없음", total=units, note="하루 10,000 — 넘으면 자막은 --captions-only 로 다음 날")
     if dry_run:
         if all(os.environ.get(k, "").strip() for k in ("YOUTUBE_CLIENT_ID", "YOUTUBE_CLIENT_SECRET", "YOUTUBE_REFRESH_TOKEN")):
             try:                                     # v1.7 키가 있으면 채널도 확인 (읽기만)
@@ -549,14 +620,7 @@ def run(topic, vid, dry_run=False, privacy="private", force=False, no_captions=F
                              "공개된 뒤 '테스트 및 비교'에 썸네일 3개 등록 — 비공개 영상은 테스트 불가"]}
     if not meta["captions"]:
         log("CAPTIONS", status="skip", reason="업로드 시트 '자막 올리기: 아니요' (주식 — 전 세계 대상, 사용자 지시 2026-10-15)")
-    if not no_captions and meta["captions"] and srt_path.exists():
-        try:
-            result["captions"] = upload_captions(token, video_id, srt_path)
-            log("CAPTIONS", status="ok", file=srt_path.name)
-        except Exception as e:                                   # 자막 실패해도 영상은 이미 올라감
-            result["warnings"].append(f"자막 실패: {e}")
-            log("CAPTIONS", status="fail", error=str(e)[:200], next="스튜디오 → 자막에서 SRT 직접 업로드")
-    if not no_thumbnail and thumbs:
+    if not no_thumbnail and thumbs:                              # v1.12 썸네일(50)을 자막보다 먼저 — 자막에서 할당량이 끝나도 썸네일은 올라감
         try:
             upload_thumbnail(token, video_id, thumbs[0])
             result["thumbnail"] = thumbs[0].name
@@ -565,6 +629,12 @@ def run(topic, vid, dry_run=False, privacy="private", force=False, no_captions=F
             result["warnings"].append(f"썸네일 실패: {e}")
             log("THUMBNAIL", status="fail", error=str(e)[:200],
                 next="채널 전화번호 인증(youtube.com/verify) 후 스튜디오에서 직접 등록")
+    if cap_files:                                                # v1.12 한국어 + 언어별 (할당량이 끝나면 멈추고 남은 언어를 적음)
+        tracks, rest = upload_caption_set(token, video_id, cap_files)
+        result["captionTracks"], result["captionsPending"] = tracks, rest
+        result["captions"] = tracks.get("ko")
+        if rest:
+            result["warnings"].append(f"자막 {len(rest)}개 남음 (할당량) → python tools/youtube_upload.py {topic} {vid} --captions-only")
     state_path.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", "utf-8")
     log("DONE", video=vid, state=str(state_path.relative_to(ROOT)), studio=result["studio"])
     return result
@@ -581,6 +651,7 @@ def main(argv=None):
     ap.add_argument("--video", help="영상 파일 경로 (기본: <주제>/out/<영상ID>/final_1080p.mp4)")
     ap.add_argument("--no-captions", action="store_true")
     ap.add_argument("--no-thumbnail", action="store_true")
+    ap.add_argument("--captions-only", action="store_true", help="(v1.12) 이미 올린 영상에 아직 안 올린 언어 자막만 (할당량으로 나눠 올릴 때)")
     ap.add_argument("--publish-at", help="예약 공개 시각: '+1h'·'+90m' 또는 ISO 8601 (예: 2026-10-11T18:00:00+09:00). 비공개로 올리고 그 시각에 공개")
     a = ap.parse_args(argv)
     if a.check_auth:
@@ -589,6 +660,8 @@ def main(argv=None):
         ap.error("주제 폴더와 영상 ID가 필요합니다 (예: stock bittu-2026-10)")
     if a.privacy != "private":
         log("WARN", privacy=a.privacy, note="지시사항 기본은 비공개(private)")
+    if a.captions_only:
+        return captions_only(a.topic, a.video_id, a.dry_run)
     run(a.topic, a.video_id, a.dry_run, a.privacy, a.force, a.no_captions, a.no_thumbnail, a.video, parse_publish_at(a.publish_at))
 
 

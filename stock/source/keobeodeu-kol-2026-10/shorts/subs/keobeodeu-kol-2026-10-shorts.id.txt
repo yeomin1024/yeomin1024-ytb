@@ -1,0 +1,14 @@
+# keobeodeu-kol-2026-10-shorts — id 자막 대본 · 한국어 대본과 문장 1:1 · v1.0 2026-10-17
+-커버드콜 vs QQQ
+Katanya ETF covered call yang membayar tiap bulan tidak banyak menggerus modal walau uangnya dipakai.
+Untuk mengeceknya, kami melakukan backtest dengan kode Python buatan AI pada harga riil masa lalu.
+Yang diuji QYLD, ETF covered call Nasdaq-100.
+Pembandingnya QQQ, ETF yang mengikuti Nasdaq-100 tanpa covered call.
+Desember 2013, masing-masing akun diisi modal $100.000.
+Setiap pembayaran QYLD langsung dipakai semuanya.
+Agar adil, akun QQQ juga menjual jumlah yang sama pada hari yang sama.
+Sampai 2026, kedua akun sama-sama menarik sekitar $110.000.
+Akun QYLD tinggal sekitar $75.000, 25,3% di bawah modal.
+Akun QQQ masih sekitar $510.000, 6,83 kali QYLD.
+Uang yang ditarik sama, kenapa selisihnya sebesar ini?
+Alasannya, dan apakah hasilnya sama jika mulai di bulan lain, cek di video di bawah.

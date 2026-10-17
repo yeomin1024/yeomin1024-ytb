@@ -1,0 +1,14 @@
+# baedang-etf-2026-10-shorts — de 자막 대본 · 한국어 대본과 문장 1:1 · v1.0 2026-10-17
+-SCHD vs SPY
+Es heißt, ein lange besparter Dividenden-ETF bringt mehr als ein Index-ETF.
+Zur Prüfung: ein Backtest mit von KI geschriebenem Python-Code auf echten historischen Kursen.
+Getestet haben wir SCHD, einen ETF auf US-Dividendenaktien.
+Zum Vergleich: SPY, der weniger Dividende zahlt, aber den S&P 500 abbildet.
+Ab 2011 bekam jedes Konto monatlich 1.000 $.
+In beiden Konten wurden von jeder Dividende 15 % Steuer einbehalten, der Rest reinvestiert.
+15 % ist der Steuersatz auf US-Dividenden für Anleger vieler Länder.
+Bis 2026 zahlte jedes Konto 180.000 $ ein.
+Das SCHD-Konto hatte rund 480.000 $, das SPY-Konto rund 590.000 $.
+SCHD bekam das 2,1-Fache an Dividenden, doch SPY hatte am Ende das 1,22-Fache an Geld.
+Mehr Dividende – warum blieb weniger übrig?
+Warum – und ob ein anderer Startmonat dasselbe ergibt – im Video unten.

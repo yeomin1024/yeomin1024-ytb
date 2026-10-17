@@ -1,0 +1,14 @@
+# reobeoriji-2026-10-shorts — en 자막 대본 · 한국어 대본과 문장 1:1 · v1.0 2026-10-17
+-레버리지 배수
+People say saving for years in TQQQ, which tracks the Nasdaq-100 at 3x, leaves far more.
+To check, we ran a backtest with AI-written Python code on real past prices.
+We compared QQQ, tracking the Nasdaq-100 at 1x, with 2x QLD and 3x TQQQ.
+QLD and TQQQ didn't exist in 1999, so we used 2x or 3x the index each day, minus costs.
+From 1999, each of the three accounts got the same $500 every month.
+Even in crashes, all three kept buying every month.
+By 2026, each account had put in about $170,000.
+The 3x account had about $17,000,000, 8.55 times 1x's about $2,000,000.
+But in 2001, the 3x account lost 92.3% of the money put in.
+In 2008, it lost 89.5%, too.
+Same index, so why did 3x lose so much in crashes?
+Why, and what a single lump sum at the start would have done: see the video below.

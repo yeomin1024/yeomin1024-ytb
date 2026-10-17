@@ -1,0 +1,143 @@
+# eonje-maesu-2026-10 — pt 자막 대본 · 한국어 대본과 문장 1:1 · v1.0 2026-10-17
+-도입
+Se cai logo depois da compra, parece que você errou o momento.
+10 sinais de compra populares aumentam mesmo a chance de acerto?
+Vamos fazer um backtest desde 2016 com o SPY, um ETF que segue o S&P 500.
+Acerto é subir 5% acima do preço de compra; cair 2% antes disso é erro.
+Decidida, vendemos no dia seguinte e recompramos no próximo sinal.
+A comparação são 2.000 contas em que só as datas são aleatórias.
+-매달 첫 거래일
+O primeiro é sem sinal: comprar no primeiro pregão de cada mês.
+Para ver se os sinais servem, é preciso ver antes um método sem sinal.
+Verde são acertos; vermelho, erros.
+No canto superior direito, a taxa de acerto até agora; abaixo, a média das contas aleatórias.
+As contas aleatórias têm a mesma regra de venda, e os dias de espera vêm do histórico de cada método.
+No fim de 2021, a taxa de acerto era 56,1%, acima da média aleatória de 51,7%.
+Mas em 2022, 11 de 12 operações deram erro.
+A partir de 2023, andou quase colada à média aleatória.
+Resultado: 37 acertos em 80, 46,2%, um pouco abaixo da média aleatória de 47,1%.
+A faixa cinza é onde ficam 90% das contas aleatórias: de 41,5% a 53,2%.
+Dentro da faixa é sem diferença do aleatório, e o primeiro pregão do mês ficou dentro.
+-신고가 돌파
+Do segundo ao quinto são sinais de tendência, que compram quando o preço sobe.
+Supõem que o que começa a subir sobe mais.
+Segundo: comprar no rompimento da máxima de 20 dias.
+Compra quando o fechamento supera o maior fechamento dos últimos 20 pregões.
+No fim de 2019, a taxa de acerto era 58,8%, acima da média aleatória de 50,3%.
+Depois de vender em abril de 2022, ficou quase três meses sem sinal.
+Naquele ano, 5 de 6 operações deram erro.
+Após 20 operações decididas, a taxa de acerto nunca ficou abaixo da média aleatória.
+Resultado: 31 acertos em 63, 49,2%.
+Média aleatória de 47,1%, dentro da faixa de 41,3% a 53,2%: não dá para dizer que é melhor.
+-모멘텀
+Terceiro: mesmo sem nova máxima, comprar se subiu em relação a um mês atrás.
+Compra quando o fechamento de hoje é maior que o de 21 pregões atrás.
+Em junho de 2020, a taxa de acerto era 63,0%, bem à frente da média aleatória de 50,9%.
+Mas em 2022, 10 de 12 operações deram erro.
+Depois de vender no fim de fevereiro de 2025, ficou mais de dois meses sem sinal.
+Resultado: 42 acertos em 81, 51,9%.
+Ficou perto do topo da faixa aleatória de 43,3% a 52,6%, mas dentro dela.
+-이동평균선
+O quarto é a média de 20 dias, muito traçada nos gráficos.
+Compra no dia em que o fechamento cruza a média de 20 dias para cima.
+De julho de 2016 a janeiro de 2018, acertou cinco vezes seguidas.
+Em dezembro de 2021, a taxa de acerto era 64,7%, bem à frente da média aleatória de 51,8%.
+Depois, até julho de 2022, errou seis vezes seguidas.
+Após 20 operações decididas, nunca ficou abaixo da média aleatória.
+Resultado: 37 acertos em 71, 52,1%, o maior dos quatro até agora.
+Mesmo assim, está dentro da faixa aleatória de 40,3% a 54,3%: não dá para dizer que é melhor.
+-골든 크로스
+O quinto olha duas médias juntas.
+Compra quando a média curta de 5 dias cruza a média longa de 20 dias para cima.
+Depois de vender em setembro de 2017, a compra seguinte foi em fevereiro de 2018.
+Em julho de 2022, a taxa de acerto era 40,0%, abaixo da média aleatória de 48,5%.
+Tinha acabado de errar seis vezes seguidas.
+Depois, acertou cinco vezes seguidas até junho de 2023.
+A partir de 2024, 7 de 12 operações deram certo.
+Resultado: 25 acertos em 50, exatamente 50,0%.
+Média aleatória de 47,4%, dentro da faixa de 38,6% a 56,2%.
+Foi o que menos operou dos 10, por isso a faixa foi larga.
+-하루 하락
+Do sexto em diante, os sinais compram quando o preço cai.
+A ideia: comprando mais barato, sobe com mais facilidade.
+Sexto: se cair 1% ou mais em um dia, compra no dia seguinte.
+Em janeiro de 2019, a taxa de acerto era 35,0%, bem atrás da média aleatória de 46,9%.
+Porque só em 2018, 8 de 12 operações deram erro.
+Em 2022 também, 13 de 20 deram erro.
+Após 20 operações decididas, não ficou acima da média aleatória nem por um dia.
+Resultado: 44 acertos em 95, 46,3%.
+Média aleatória de 46,8% e faixa de 40,7% a 52,8%: ficou dentro.
+-RSI
+Sétimo: comprar com o RSI abaixo de 40.
+O RSI compara o tamanho das altas e das quedas dos últimos 14 dias.
+Abaixo de 40, consideramos que caiu muito e compramos.
+Em novembro de 2019, a taxa de acerto era 61,9%, bem à frente da média aleatória de 49,3%.
+Mas no crash da covid em 2020, 5 de 7 operações deram erro.
+Depois de vender em novembro de 2020, ficou mais de 10 meses sem sinal.
+E em 2022, 11 de 14 operações deram erro.
+Por isso, ficou com ações em só 35% dos dias.
+Resultado: 30 acertos em 62, 48,4%.
+Média aleatória de 46,7% e faixa de 38,0% a 56,0%: de novo, dentro.
+-VIX
+Oitavo: comprar com o índice do medo, o VIX, em 20 ou mais.
+Quanto maior o VIX, mais gente espera grandes oscilações no mercado.
+É um teste do ditado "compre quando todos estão com medo".
+Depois de vender em novembro de 2016, ficou mais de 1 ano sem sinal.
+Em 2020, 11 de 22 operações deram certo, exatamente a metade.
+Em 2022, 18 de 24 deram erro, seis seguidos de agosto a outubro.
+A partir de 2023, 14 de 23 deram certo, de novo acima da metade.
+Resultado: 48 acertos em 101, 47,5%.
+Quase igual à média aleatória de 47,3%, e dentro da faixa de 41,3% a 53,6%.
+-단기 저점
+Nono: comprar quando cai 5% abaixo da máxima dos últimos 20 pregões.
+É comprar na baixa, mirando quedas curtas.
+Depois de vender em julho de 2016, o próximo sinal veio em fevereiro de 2018.
+No crash da covid em 2020, 6 de 9 operações deram erro.
+Em 2022 também, 11 de 15 deram erro.
+Ficou com ações em 23% dos dias, o menor dos 10.
+Resultado: 29 acertos em 59, 49,2%.
+Média aleatória de 46,5% e faixa de 38,0% a 55,8%: ficou dentro.
+-고점 대비 하락
+Por último, o décimo: comprar quando cai 5% abaixo do maior fechamento até então.
+É o nono com prazo mais longo.
+Este também ficou mais de 1 ano e meio sem sinal após vender em julho de 2016.
+No fim de 2019, a taxa de acerto era 56,5%, acima da média aleatória de 49,8%.
+Pois as cinco daquele ano deram certo.
+No crash da covid em 2020, 6 de 10 deram erro.
+Em 2022, 19 de 26 deram erro, o maior número dos 10.
+A partir de 2023, 14 de 23 deram certo, de novo acima da metade.
+Resultado: 45 acertos em 94, 47,9%.
+Média aleatória de 47,1% e faixa de 40,8% a 53,6%: este também ficou dentro.
+-종합
+Vamos ver os 10 resultados de uma vez.
+Os pontos são a taxa de acerto de cada método; a faixa cinza, onde ficam 90% das contas aleatórias.
+O maior foi comprar ao cruzar a média de 20 dias: 52,1%.
+O menor foi comprar no primeiro pregão do mês: 46,2%.
+Dos cinco primeiros, quatro eram sinais de tendência, que compram na alta.
+Mas os 10 ficaram dentro da faixa aleatória: nenhuma diferença de comprar ao acaso.
+Mesmo no maior, o cruzamento da média de 20 dias, 13% das contas aleatórias tiveram taxa igual ou maior.
+-다른 조건
+Será que o critério de erro de 2% era frouxo demais?
+Apertando para 1%, a taxa de acerto de comprar em qualquer dia cai para 33,6%.
+Aí, só o cruzamento da média de 20 dias passou da faixa.
+Com 1,5%, nenhum método saiu da faixa.
+Estes 10 anos podem ter sido especiais, então mudamos o período para 1994 a 2015.
+Nesse período, o cruzamento da média de 20 dias teve 33,3%, o menor dos 10.
+Nesse período também, os 10 ficaram dentro da faixa aleatória.
+-정리
+Resumindo.
+Neste backtest, nenhum sinal de compra teve taxa de acerto claramente maior que comprar ao acaso.
+A tendência saiu um pouco à frente nestes 10 anos.
+Mas nos 22 anos anteriores, dois dos quatro ficaram abaixo da média aleatória.
+E em anos de queda contínua, como 2022, todos os sinais tiveram mais erros.
+O que mais mudou a taxa de acerto não foi o sinal de compra, mas o critério de erro.
+-한계
+Este resultado usa só o SPY, com dados desde 2016.
+Acerto e erro foram julgados só pelo fechamento; vendemos no dia seguinte, pagando 0,25% de taxa.
+Por isso, algumas operações foram acerto com prejuízo, ou erro com lucro.
+Só vimos a taxa de acerto; o tamanho de cada ganho ou perda se vê à parte.
+Também não incluímos juros do caixa à espera do sinal, impostos, câmbio nem inflação.
+Não é recomendação de investimento: são regras testadas em código.
+-마무리
+Se tiver uma hipótese para o próximo backtest, conte nos comentários.
+Obrigado por assistir.

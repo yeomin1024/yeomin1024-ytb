@@ -1,0 +1,112 @@
+# keobeodeu-kol-2026-10 — tr 자막 대본 · 한국어 대본과 문장 1:1 · v1.0 2026-10-17
+-도입
+QYLD: anaparası pek erimediği söylenen Nasdaq-100 covered call ETF'si.
+Dağıtımları her ay harcasanız da anapara gerçekten korunur mu?
+Nasdaq-100'ü izleyen ETF QQQ ile backtest yaparak karşılaştıralım.
+-규칙
+Aralık 2013'te ikisinden de 100.000 $ alıyoruz.
+QYLD'nin dağıtımını çekiyoruz, QQQ'dan aynı tutarı satıp çekiyoruz.
+Komisyon %0,25.
+-경주
+Şimdi tarihleri ilerletelim.
+Turuncu çizgi QYLD hesabı, mavi çizgi QQQ hesabı.
+Sarı noktalı çizgi: başta yatırılan 100.000 $, yani anapara.
+Ortada üstteki sayı: iki hesabın eşit çektiği para.
+QQQ'nun küçük temettüleri yeniden yatırıldı, vergi hesaba katılmadı.
+İlk dağıtım Ocak 2014'te, 1.024 $ idi.
+Mart 2014'te QYLD hesabı anaparadan %3,4 fazlaydı; anapara korunuyor gibiydi.
+Ama Şubat 2016'da anaparadan %17,5 az oldu.
+Ertesi gün QQQ hesabı da kısa süre anaparanın altına indi; ikisi de zarardaydı.
+15 Mart 2018'de QYLD hesabı anaparadan %0,9 fazlaydı, yeniden üstündeydi.
+Ama 24 Aralık'a kadar QYLD %21, QQQ %19,8 düştü; benzerdi.
+Kasım 2019'da iki hesabın çektiği para 50.000 $'ı geçti.
+Covid çöküşünün olduğu 16 Mart 2020'de QYLD hesabı anaparadan %28,3 azdı.
+Aynı gün QQQ hesabı anaparadan %41,1 fazlaydı.
+-긴 하락
+19 Kasım 2021, QQQ fiyatının o güne kadarki en yüksek olduğu gün.
+O gün QYLD hesabı anaparadan %8,2 azdı, QQQ hesabı ise anaparanın 3,16 katıydı.
+Beyaz noktalı çizgi: o günkü değerler.
+Sonra 2022'de uzun bir düşüş başladı.
+QYLD hesabı 14 Ekim'e kadar 19 Kasım'a göre %33,2 düştü.
+QQQ hesabı 28 Aralık'a kadar %37,8 düşerek biraz daha fazla geriledi.
+Bu düşüş boyunca da iki hesap aynı parayı, 8.720 $ çekti.
+Toparlanma nasıl oldu?
+QQQ hesabı 7 Şubat 2024'te, 810 gün sonra 19 Kasım değerini yeniden aştı.
+-끝까지
+Mart 2025'te çekilen para, başta yatırılan 100.000 $ anaparayı geçti.
+8 Nisan çöküşünde QYLD hesabı anaparadan %40,4 azdı.
+Aynı gün QQQ hesabı anaparanın 2,98 katıydı.
+-결과
+15 Ekim 2026, sonuç.
+İki hesap da aynı şekilde 148 kez, yaklaşık 110.000 $ çekti.
+QYLD hesabında yaklaşık 75.000 $ kaldı; anaparadan %25,3 az.
+19 Kasım 2021 değerini de sonuna kadar yeniden aşamadı.
+QQQ hesabında yaklaşık 510.000 $ kaldı; aynı parayı çekip 6,83 kat fazla.
+QYLD'nin 1 payının fiyatı da 25,04 $'dan 18,74 $'a düştü.
+Tüm işlem günlerinin %94,7'sinde QYLD hesabı anaparanın altındaydı.
+-구조
+Neden bu kadar fark oldu?
+Covered call'un dağıtımı nasıl ürettiğine bakalım.
+Covered call ETF'si hisseleri tutar ve onları belirli fiyattan alma hakkını satar.
+Hakkı satmaktan gelen para her ay girer ve dağıtımın kaynağı olur.
+Ama fiyat belirlenen fiyatın üstüne çıkarsa, üstteki pay hakkı alana gider.
+Düşüşte ise yalnızca alınan para kadar az düşer, neredeyse birlikte düşer.
+Gerçekten öyle mi diye günlük hareketlerle kontrol ettik.
+QQQ'nun bir günde %1'den fazla yükseldiği gün sayısı 595'ti.
+O günler QQQ ortalama %1,84 yükseldi, QYLD %0,95 ile yalnızca %51,3'ünü izledi.
+QQQ'nun bir günde %1'den fazla düştüğü gün sayısı 498'di.
+O günler QQQ ortalama %2,04, QYLD %1,28 düştü; tam %62,7'sini izledi.
+-시작 시점
+Başlangıç günü mü kötüydü?
+Ocak 2014'ten Ekim 2021'e kadar her ay yeni bir hesap başlattık.
+Her ayın ilk işlem gününde başlayan, toplam 94 hesap.
+Her hesap 5 yıl boyunca aynı kuralla para çeker.
+5 yıl sonra 94 QYLD hesabından 83'ü anaparanın altındaydı.
+Hiçbir QQQ hesabı anaparanın altında değildi.
+94'ünün hepsinde QQQ hesabında daha çok kaldı.
+Ortanca değer: QYLD anaparadan %18,7 az, QQQ anaparanın 1,49 katı.
+En kötüsü Ocak 2018'de başlayan QYLD hesabıydı: anaparadan %35,9 az.
+Süreyi 3 yıla indirince 2022 düşüşüne yakalanan hesaplar artar.
+O zaman QQQ'da da 118 hesaptan 19'u anaparanın altındaydı.
+QYLD'de 81 hesap anaparanın altındaydı.
+Yine de 118'inin hepsinde QQQ hesabında daha çok kaldı.
+-다른 커버드콜
+Diğer covered call ETF'leri de aynı mı?
+QYLD'nin izlediği Nasdaq-100 çok dalgalanma eğilimindedir.
+Bu yüzden daha az dalgalanan S&P 500 covered call ETF'si XYLD'ye de baktık.
+Karşılaştırma, S&P 500'ü izleyen ETF SPY ile.
+Haziran 2013'ten itibaren 13,3 yılda çekilen para yaklaşık 110.000 $.
+XYLD hesabı anaparadan %5,4 arttı, ama SPY hesabı anaparanın 3,33 katı oldu.
+Başlangıç ayı farklı 100 tane 5 yıllık hesapta da hep SPY daha fazlaydı.
+XYLD'de 100 hesaptan 60'ı anaparanın altındaydı.
+JEPI, biraz farklı çalışan bir covered call ETF'si.
+Hisselerle, covered call etkisi yaratan tahvilleri karıştırıyor.
+Mayıs 2020'den itibaren 6,4 yılda çekilen para yaklaşık 61.000 $ oldu.
+JEPI hesabı anaparadan %14,2 arttı, ama SPY hesabı anaparanın 1,79 katıydı.
+-다른 조건
+Şimdiye kadar vergiyi katmadık; katarsak ne olur?
+Birçok ülke ABD ETF dağıtımlarından alırken %15 stopaj keser.
+%15 kesilince QYLD'den ele geçen para yaklaşık 96.000 $'a iner.
+QQQ hesabı da o kadar satınca yaklaşık 560.000 $ kaldı.
+QYLD hesabında pay sayısı aynı, yani yine yaklaşık 75.000 $.
+Geçim parası ayrı olup dağıtımları yeniden yatıranlar da var.
+Öyle yapınca QYLD yaklaşık 290.000 $, QQQ yaklaşık 950.000 $ oldu.
+Yeniden yatırınca da QQQ 3,25 kat fazlaydı.
+-정리
+Özetleyelim.
+Dağıtımı her ay harcayan QYLD hesabında anapara 12,8 yılda %25,3 azaldı.
+Aynı parayı satarak çeken QQQ hesabında anaparanın 5,1 katı kaldı.
+Başlangıç ayı farklı hesaplarda da hep QQQ'da daha çok kaldı.
+XYLD ve JEPI anaparayı korudu ama aynı parayı çeken SPY hesabından azdı.
+Yükselişte az yükselip düşüşte çokça birlikte düşmenin farkı birikti.
+-한계
+Bu dönemde Nasdaq-100 ve S&P 500 çok yükseldi.
+Fiyatların uzun süre yerinde saydığı bir dönemde sonuç farklı olabilir.
+Dağıtımlar ödeme gününde değil, hak kullanım tarihinde çekilmiş sayıldı.
+Çekilen tutar QYLD dağıtımına göre; gerçek geçim planından farklı olabilir.
+Hesap türüne göre vergi, sağlık sigortası primi, enflasyon ve kur da katılmadı.
+Ve QQQ tarafı, 2022'deki gibi %37,8'lik düşüşlere katlanmak zorundaydı.
+Bu yatırım tavsiyesi değil, kuralları kodla kontrol etmenin sonucu.
+-마무리
+Sonraki backtest için bir hipoteziniz varsa yorumlarda yazın.
+İzlediğiniz için teşekkürler.

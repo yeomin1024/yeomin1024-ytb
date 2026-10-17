@@ -1,6 +1,7 @@
 # eonje-maesu-2026-10-shorts 썸네일 1 — 언제 사야 할까? — SPY 선이 노란 평균선을 뚫는 순간, BUY 버튼 위 손가락
 
-버전: v2.0 — 2026-10-17 — **다시 만듦: 시청자 니즈 '언제 사야 할까?' + 티커 SPY** (사용자 지시 2026-10-17 "티커 문구는 왠만하면 있어야 하는거 아니야? … 니즈는 언제 사야할까 잖아 그럼 그냥 그걸로 썸네일로 만들면 되는거야"). 주사위(무작위 비교 = 실험 설계)를 뺌. 글자 `WHEN TO BUY ?` · `SPY` (`stock/guides/README.md` v1.20 3번).
+버전: v2.1 — 2026-10-17 — 선 끝의 빨간 금(실패 암시)을 뺌 — 첫 문장 '매수 신호를 따르면 성공 확률이 높아진다고들 하죠'와 맞게, 결과는 영상 안에서 (사용자 지시 2026-10-17 "R1으로 하고 나머지 3개도 수정하고" — 쇼츠 v2.1 첫 문장 = 시험할 말) · **그림이 화면 끝까지** (빈 띠 금지 — `guides/thumbnail_guide.md` v3.7 12번 · `tools/cover_check.py`).
+(v2.0 — 2026-10-17 — **다시 만듦: 시청자 니즈 '언제 사야 할까?' + 티커 SPY** (사용자 지시 2026-10-17 "티커 문구는 왠만하면 있어야 하는거 아니야? … 니즈는 언제 사야할까 잖아 그럼 그냥 그걸로 썸네일로 만들면 되는거야"). 주사위(무작위 비교 = 실험 설계)를 뺌. 글자 `WHEN TO BUY ?` · `SPY` (`stock/guides/README.md` v1.20 3번).)
 (v1.4 — 2026-10-17 — **부등호 머리글 하나를 크게** (사용자 지시 2026-10-17 "그냥 SCHD > SPY ? 이렇게만 해도 단번에 의미 전달 가능한데 부등호 좀 잘 사용해봐 문구는 눈에 잘 들어오도록 크게 강조해야해"): (그림)초록 화살표 `>` (그림)주사위 `?` — 글자는 `>`·`?` 뿐 — 질문(`?`)으로 끝, 결말 없음 (`stock/guides/README.md` v1.19 3번).)
 (v1.3 — 2026-10-17 — **쉬운 글자만** (사용자 지시 2026-10-17 "아니 굳이 표현이 어려운 건 문구로 달지말고 표현이 쉬운걸로 딱 봤을 때 이해되는 걸 표현해"): `vs` · `BUY` — 딱 봤을 때 이해되는 것만, 결말 없음 (`stock/guides/README.md` v1.18 3번).)
 (v1.2 — 2026-10-17 — **글자에 비교·수식 기호** (사용자 지시 2026-10-17 "<, >, =, vs, +, - 등등 비교나 간단한 수식 관련된 기호 문구도 사용하는 게 좋을 것 같아 다시 수정해봐"): `64.7% > 51.8% ?` · `BUY` — 질문(`?`)으로 끝, 결말 없음 (`stock/guides/README.md` v1.16 3번).)
@@ -12,12 +13,12 @@
 | 역할 | 쇼츠 본안 (쇼츠는 '테스트 및 비교' 없음 — 한 장) |
 | 크기 | **세로 9:16** (1080×1920) |
 | 글자 | **영어 낱말·티커만** — 큰 머리글 `WHEN TO BUY ?` · 티커 `SPY` (쉬운 영어 + 티커 — `stock/guides/README.md` 3번, 사용자 지시 2026-10-17) |
-| 결말 | **보여 주지 않음** — 선이 노란 선을 막 뚫은 순간에서 멈추고 위는 안개, 화살표의 금은 '아직 모름' (롱폼의 끝 결과는 그리지 않음) |
+| 결말 | **보여 주지 않음** — 선이 노란 선을 막 뚫은 순간에서 멈추고 위는 안개 (v2.1 — 금 뺌, 결과는 쇼츠 영상 안에서) |
 | 시험하는 가설 | '언제 사야 할까?'(댓글 니즈 — 사는 때 42·👍71·영상 19곳) + 쇼츠 첫 문장 장면(SPY 가 20일 평균선을 넘을 때 매수)을 한 장에: 노란 평균선을 뚫고 솟는 초록 선 + 거기 금이 감 + BUY 버튼 위에서 멈춘 손가락 → 같은 고민을 하는 사람이 누른다 |
-| 첫 문장 장면 | 쇼츠 대본 문장 1 (20일 평균선을 넘을 때 매수하면, 2021년 12월 성공률이 64.7%) · 문장 2 (SPY) · 문장 6 (그 뒤 여섯 번 연속 실패 — 금) |
+| 첫 문장 장면 | 쇼츠 대본 v2.1 문장 1 (언제 매수할지 고민될 때, 매수 신호를 따르면 성공 확률이 높아진다고들 하죠) · 문장 3 (SPY) |
 | 롱폼 썸네일과 구별 | 롱폼 썸네일(오르내리는 SPY 선 위 고리 네 개 + 버튼)과 같은 질문, 쇼츠는 '평균선을 뚫는 순간' 하나를 크게, 세로 |
 | 근거 | 롱폼 썸네일 근거(그림·캐릭터 반실사 성공 23% vs 10% — `stock/guides/data_insights.md` 5번). 쇼츠 표지 자체의 근거는 **없음** (`stock/guides/shorts_insights.md` 8번 — 올린 뒤 확인) |
-| 숫자 근거 | 숫자 없음 · `SPY` = 쇼츠 대본 문장 2 (S&P 500을 따라가는 ETF인 SPY) |
+| 숫자 근거 | 숫자 없음 · `SPY` = 쇼츠 대본 v2.1 문장 3 (S&P 500을 따라가는 ETF인 SPY) |
 
 ## 문구 (그대로 사용)
 | 자리 | 문구 | 색 |
@@ -27,9 +28,9 @@
 
 ## [A] 완성형 프롬프트 (이미지 AI에 그대로 붙여 넣기)
 ```
-YouTube Shorts cover, Vertical 9:16 portrait (1080x1920). Keep all important objects and any face between 13% and 66% of the height and between 6% and 84% of the width (top = YouTube icons, right 16% = like/comment buttons, bottom 34% = title and related-video link). The bottom 34% is a quiet, dark, empty background. If 9:16 is not available use 2:3 portrait and keep the side 8% empty.
+YouTube Shorts cover, Vertical 9:16 portrait (1080x1920). Keep all important objects and any face between 13% and 66% of the height and between 6% and 84% of the width (top = YouTube icons, right 16% = like/comment buttons, bottom 34% = title and related-video link). The picture fills the whole canvas to every edge — no empty single-color bands, borders, frames or margins anywhere; the top, the right side and the bottom 34% are part of the same scene, only a little darker in soft shadow, with no text, faces or important objects in them. If 9:16 is not available use 2:3 portrait and keep the side 8% free of text and faces.
 Semi-realistic digital illustration with cinematic lighting, deep dark navy background (#0C1424).
-Middle: a thin glowing yellow horizontal line (a moving-average line) crossing the frame, and a bright green stock price line (#2BE0A0) rising from below and breaking up through it, its tip turning into an upward arrow — near the tip a fresh thin red crack (#FF4D5E) is spreading across it. Above the tip the space fades into dark fog, so where it goes next cannot be seen.
+Middle: a thin glowing yellow horizontal line (a moving-average line) crossing the frame, and a bright green stock price line (#2BE0A0) rising from below and breaking up through it, its tip turning into an upward arrow — nothing marks whether it will succeed. Above the tip the space fades into dark fog, so where it goes next cannot be seen.
 Lower middle (still above 66% of the height): a big round glowing green button with nothing written on it, and the index finger of a fictional person in their late forties hovering just above it, not pressing; part of the person's face, tense and uncertain, looks up at the line — not happy, not afraid.
 Mood: the moment of hesitation before buying.
 Large simple shapes, high contrast, readable when shrunk to 360 pixels tall.
@@ -39,8 +40,8 @@ Text: ONE big headline "WHEN TO BUY ?" — written as "WHEN TO" in white, "BUY" 
 
 ## [B] 단순한 구도 (가짜 글자·숫자가 계속 생길 때)
 ```
-Vertical 9:16, clean semi-realistic illustration, dark navy background. A bright green price line breaks up through a glowing yellow horizontal line, its tip an arrow with a thin red crack, fading into fog above; below, a fictional person's finger hovers over a big plain green button, not pressing.
-Keep the main objects between 13% and 66% of the height; the bottom third is dark and empty; leave the right 16% calm.
+Vertical 9:16, clean semi-realistic illustration, dark navy scene that fills the whole canvas to every edge (no empty bands or borders). A bright green price line breaks up through a glowing yellow horizontal line, its tip an arrow, fading into fog above; below, a fictional person's finger hovers over a big plain green button, not pressing.
+Keep the main objects between 13% and 66% of the height; the bottom third is the same scene in soft shadow with nothing important; leave the right 16% calm.
 Only this text, huge flat bold sans-serif with a thick outline, spelled exactly: headline "WHEN TO BUY ?" (BUY green, ? yellow) between 13% and 32% of the height, and the ticker tag "SPY" next to the green line. No other text, letters, numbers, logos or watermarks anywhere.
 ```
 

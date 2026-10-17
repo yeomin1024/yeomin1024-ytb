@@ -1,0 +1,14 @@
+# reobeoriji-2026-10-shorts — pt 자막 대본 · 한국어 대본과 문장 1:1 · v1.0 2026-10-17
+-레버리지 배수
+Dizem que acumular TQQQ, que segue o Nasdaq-100 em 3x, por anos deixa muito mais.
+Para conferir, fizemos um backtest com código Python escrito por IA sobre preços reais do passado.
+Comparamos o QQQ, que segue o Nasdaq-100 em 1x, com o QLD 2x e o TQQQ 3x.
+QLD e TQQQ não existiam em 1999, então usamos 2x ou 3x o índice a cada dia, menos os custos.
+Desde 1999, as três contas receberam os mesmos US$ 500 por mês.
+Mesmo nos crashes, as três seguiram comprando todo mês.
+Até 2026, cada conta aplicou cerca de US$ 170.000.
+A conta 3x teve cerca de US$ 17.000.000, 8,55 vezes os cerca de US$ 2.000.000 da 1x.
+Mas em 2001, a conta 3x perdeu 92,3% do valor aplicado.
+Em 2008, também perdeu 89,5%.
+Mesmo índice: por que o 3x perdeu tanto nos crashes?
+O porquê, e como seria aplicar tudo de uma vez no início, veja no vídeo abaixo.

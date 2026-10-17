@@ -1,6 +1,6 @@
 # keobeodeu-kol-2026-10-shorts 숫자 검사 (`tools/backtest/shorts_numcheck.py` v1.0.1)
 
-- 2026-10-17 16:17 UTC · 쇼츠 대본 `keobeodeu-kol-2026-10-shorts.txt` · 롱폼 대본 `keobeodeu-kol-2026-10.txt` (98문장) · 숫자 12개 · 없음 0
+- 2026-10-17 17:01 UTC · 쇼츠 대본 `keobeodeu-kol-2026-10-shorts.txt` · 롱폼 대본 `keobeodeu-kol-2026-10.txt` (98문장) · 숫자 12개 · 없음 0
 - 쇼츠의 숫자 덩어리(숫자 + 단위)가 롱폼 대본에 그대로 있어야 한다 — 롱폼 숫자는 `backtest/check_numbers.py` 가 결과 파일로 맞춰 봤다.
 
 | 쇼츠 문장 | 대본 | 숫자 | 롱폼 문장 | 결과 |

@@ -1,0 +1,14 @@
+# reobeoriji-2026-10-shorts — vi 자막 대본 · 한국어 대본과 문장 1:1 · v1.0 2026-10-17
+-레버리지 배수
+Người ta nói tích lũy lâu TQQQ, quỹ gấp 3 lần Nasdaq-100, sẽ còn nhiều hơn hẳn.
+Để kiểm tra, chúng tôi chạy backtest bằng mã Python do AI viết trên giá thực tế trong quá khứ.
+Chúng tôi so sánh QQQ bám theo Nasdaq-100 ở mức 1x, QLD 2x và TQQQ 3x.
+Năm 1999 chưa có QLD, TQQQ, nên tính mỗi ngày gấp 2, 3 lần chỉ số rồi trừ chi phí.
+Từ năm 1999, ba tài khoản đều bỏ vào 500 USD mỗi tháng như nhau.
+Dù thị trường sập, cả ba tài khoản vẫn mua đều mỗi tháng.
+Đến năm 2026, mỗi tài khoản đã bỏ vào khoảng 170.000 USD.
+Tài khoản 3x khoảng 17.000.000 USD, gấp 8,55 lần 1x khoảng 2.000.000 USD.
+Nhưng năm 2001, tài khoản 3x đã mất 92,3% số tiền bỏ vào.
+Năm 2008 cũng mất 89,5%.
+Cùng một chỉ số, sao 3x lại mất nhiều đến vậy khi sập?
+Lý do, và nếu bỏ hết tiền một lần từ đầu thì sẽ ra sao, xem ở video bên dưới.

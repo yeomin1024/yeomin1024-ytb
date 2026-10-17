@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.10 — 2026-10-17 — 쇼츠 썸네일 그림에 빈 단색 띠가 있으면(tools/cover_check.py ❌) 그 그림 대신 **완성 영상 0초 장면**을 올린다
+# VERSION: v1.11 — 2026-10-17 — 쇼츠 썸네일 검사 말만: cover_check v1.1 배치 검사(재테크 = 세 칸 band — 위·아래 검정은 정상)에 걸리면 0초 장면 (사용자 지시 2026-10-17 "이미지 외 영역은 검은 배경으로 하고 문구는 두 줄로해서 최대 크기로 맞춰 … PC나 모바일에서 볼 때 위 아래 영역이 좀 짤릴 수 있는데 그러면 안돼").
+# (v1.10) — 2026-10-17 — 쇼츠 썸네일 그림에 빈 단색 띠가 있으면(tools/cover_check.py ❌) 그 그림 대신 **완성 영상 0초 장면**을 올린다
 #          (0초 = 첫 문장 그림을 사진 부분만 가로 가득 — kit.js v1.8 K.cover box). 사용자 지시 2026-10-17 "아니 이거 썸네일 문제가 아니고 영상 자체가
 #          비율 안맞는거 아니냐고 컨텐츠가 중간에 딱 안나오고 위 오른쪽에 여백이 생긴다고" · "좋아 … 이제 이 쇼츠는 올려".
 # (v1.9 — 2026-10-17 — 쇼츠도 썸네일을 올린다: shorts/thumbnails/thumbnail_1.* 를 세로 720×1280 JPG 로 (16:9 로 자르지 않음).
@@ -380,7 +381,7 @@ def paired_thumbnail(topic, vid):
 
 
 def shorts_cover_frame(img, video_path, out_dir):
-    """(v1.10) 쇼츠 썸네일 그림에 빈 띠가 있으면 완성 영상 0초 장면(PNG)을 대신 쓴다. 띠가 없거나 영상이 없으면 그림 그대로."""
+    """(v1.10) 쇼츠 썸네일 그림이 배치 검사(cover_check — v1.11 부터 재테크는 세 칸 band)에 걸리면 완성 영상 0초 장면(PNG)을 대신 쓴다. 통과하거나 영상이 없으면 그림 그대로."""
     try:
         import cover_check
         bad = not cover_check.check(str(img))
@@ -390,7 +391,7 @@ def shorts_cover_frame(img, video_path, out_dir):
     if not bad:
         return img
     if not video_path or not Path(video_path).exists():
-        log("THUMBNAIL", level="warn", file=img.name, note="그림에 빈 띠 — 영상이 없어 그대로 (렌더 뒤 다시)")
+        log("THUMBNAIL", level="warn", file=img.name, note="그림이 배치 검사 ❌ — 영상이 없어 그대로 (렌더 뒤 다시)")
         return img
     out_dir.mkdir(parents=True, exist_ok=True)
     frame = out_dir / "cover_frame_0s.png"
@@ -399,7 +400,7 @@ def shorts_cover_frame(img, video_path, out_dir):
     if r.returncode != 0 or not frame.exists():
         log("THUMBNAIL", level="warn", note="0초 장면을 못 뽑음 — 그림 그대로: " + (r.stderr or "").strip()[-200:])
         return img
-    log("THUMBNAIL", file=img.name, action="그림에 빈 띠 → 영상 0초 장면으로", frame=str(frame.relative_to(ROOT)) if frame.is_relative_to(ROOT) else str(frame))
+    log("THUMBNAIL", file=img.name, action="그림 배치 검사 ❌ → 영상 0초 장면으로", frame=str(frame.relative_to(ROOT)) if frame.is_relative_to(ROOT) else str(frame))
     return frame
 
 

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-# VERSION: v1.7 — 2026-10-17 — make_summary v1.8.1 규칙 4 '글자·띄어쓰기·조사 그대로' · v1.8.3 규칙 5 '표정·몸짓은 프롬프트대로' 시험 (v1.8.1 뒤 옛 말을 찾아 실패하던 것을 고침).
+# VERSION: v1.8 — 2026-10-17 — make_summary v1.9.0 쇼츠 세 칸 배치(COVER_LAYOUT: band) 시험 — 사용자 지시 2026-10-17 "이미지 외 영역은 검은 배경으로 하고 문구는 두 줄로해서 최대 크기로 맞춰".
+# (v1.7 — 2026-10-17 — make_summary v1.8.1 규칙 4 '글자·띄어쓰기·조사 그대로' · v1.8.3 규칙 5 '표정·몸짓은 프롬프트대로' 시험 (v1.8.1 뒤 옛 말을 찾아 실패하던 것을 고침).
 # (v1.6 — 2026-10-17 — make_summary v1.7.0 영어 낱말·숫자·기호 썸네일('| 글자 | **영어…') 규칙 시험 (주식 — 사용자 지시 2026-10-17 "buy, sell 같은 … 영어 문구는 써도 돼" · "숫자나 기호 같은 문구도 써도 돼").
 # (v1.5 — 2026-10-16 — make_summary v1.6.0 쇼츠 썸네일(source/<영상ID>/shorts/thumbnails/thumbnail_1 하나, 세로 9:16) 시험.)
 # (v1.4 — 2026-10-16 — make_summary v1.5.0 --chatgpt-all (주제 모든 영상 한 파일, 장마다 저장 경로) · 영상별 파일 그림 위 저장 경로 시험.)
@@ -223,6 +224,20 @@ class ShortsThumbTest(unittest.TestCase):              # v1.6.0 쇼츠 썸네일
         self.assertNotIn("가로형 16:9", text)
         self.assertIn('SHORT 1 "세금"', text)
         self.assertNotIn("SHORT_EXTRA", text)
+
+    def test_band_layout_rules(self):                    # v1.9.0 세 칸 배치 (COVER_LAYOUT: band) — 쇼츠만 모으면 세 칸 규칙, 사진 끝까지 말은 없음
+        short_f = self.root / "economic" / "source" / "a-vid" / "shorts" / "thumbnails"
+        (short_f / "thumbnail_1.md").write_text(thumb_md(1, a_text="SHORT").replace("| 항목 | 값 |", "| 항목 | 값 |\n| 배치 | `COVER_LAYOUT: band` |"), "utf-8")
+        for i in (1, 2, 3):
+            (self.root / "economic" / "source" / "a-vid" / "thumbnails" / f"thumbnail_{i}.png").write_bytes(b"x")   # 롱폼은 다 됨 → 쇼츠만
+        with redirect_stdout(io.StringIO()):
+            text = ms.chatgpt_all("economic", root=self.root).read_text("utf-8")
+        self.assertIn("세 칸 배치", text)
+        self.assertIn("높이 15~85% 안", text)
+        self.assertIn("— 쇼츠 · 세 칸", text)
+        self.assertNotIn("네 가장자리까지 꽉 찬다", text)                 # 사진 끝까지 규칙은 세 칸과 섞이지 않음
+        self.assertEqual(ms.cover_layout(short_f), "band")
+        self.assertEqual(ms.cover_layout(self.root / "economic" / "source" / "a-vid" / "thumbnails"), "full")
 
 
 if __name__ == "__main__":

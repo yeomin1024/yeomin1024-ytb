@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.8.4 — 2026-10-17 — ChatGPT 규칙 4: 줄 수·줄바꿈·글자 크기도 프롬프트대로(작은 2줄로 줄이지 않음) · 규칙 3: 양옆 8%는 2:3 그림일 때만 (사용자 지시 2026-10-17 "문구를 더 크게해서 잘보이게 해봐" — 쇼츠 문구 3줄·가장 긴 줄 너비 94% — guides/thumbnail_guide.md 피드백 23).
+# VERSION: v1.9.0 — 2026-10-17 — 쇼츠 썸네일 **세 칸 배치**(thumbnail_1.md 의 COVER_LAYOUT: band — 위 순검정 + 문구 2줄 · 가운데 사진 · 아래 순검정, 글자·얼굴은 높이 15~85%): ChatGPT 규칙 3·4·6·장마다 '크기' 줄. 사진 끝까지(FULL_BLEED)는 그 줄이 없는 쇼츠(주식)만 (사용자 지시 2026-10-17 "이미지 외 영역은 검은 배경으로 하고 문구는 두 줄로해서 최대 크기로 맞춰 … PC나 모바일에서 볼 때 위 아래 영역이 좀 짤릴 수 있는데 그러면 안돼" — guides/thumbnail_guide.md 피드백 24).
+# (v1.8.4) — 2026-10-17 — ChatGPT 규칙 4: 줄 수·줄바꿈·글자 크기도 프롬프트대로(작은 2줄로 줄이지 않음) · 규칙 3: 양옆 8%는 2:3 그림일 때만 (사용자 지시 2026-10-17 "문구를 더 크게해서 잘보이게 해봐" — 쇼츠 문구 3줄·가장 긴 줄 너비 94% — guides/thumbnail_guide.md 피드백 23).
 # (v1.8.3) — 2026-10-17 — ChatGPT 규칙 5: 표정·몸짓은 프롬프트대로 — 좌절 장면을 놀람·담담·웃음으로 바꾸지 않음 (사용자 지시 2026-10-17 "야 기초연금 썸네일 그림은 왜이래? 왜 손해봐서 좌절하는게 아닌것 같지?" — guides/thumbnail_guide.md 피드백 22).
 # (v1.8.2) — 2026-10-17 — ChatGPT 규칙 6 확대 확인 예에서 '세금을'의 '을'을 뺌 (ISA 문구를 '세금 96만 원'으로 되돌림 — 사용자 지시 2026-10-17 "세금을 96만 원 이건 세금 96만 원 으로 그냥 해도 돼 너 이런거 구분 잘 못해? 저것만 다시 고쳐").
 # (v1.8.1) — 2026-10-17 — ChatGPT 규칙 4·6(한글): 조사 그대로 · 확대 확인 예에 '세금으로'의 '으로'·'세금을'의 '을' — 사용자 지시 2026-10-17 "아니 야 세금 200만원 날린다 하면 세금을 날리는것 같잖아 세금으로 '으로' 조사 붙이라고 좀 너 언어 몰라? 다시 다 확인해봐" (조사가 빠지면 '세금을 날린다'로 읽힘 — guides/thumbnail_guide.md 피드백 21).
@@ -335,17 +336,43 @@ SIZE_TALL = ("3. 크기는 **세로형 9:16 (1080×1920)** — 쇼츠 썸네일�
              "그때는 글자와 얼굴을 가운데에 두고 2:3 그림의 양옆 가장자리 8%에는 두지 않는다 (잘리는 자리 — 사진은 이어짐).\n")
 SIZE_MIXED = ("3. 크기는 **장마다 '크기' 줄대로**: 롱폼 썸네일 = 가로형 16:9 (1280×720 — 안 되면 가장 넓은 가로형, 그림은 끝까지, 글자와 얼굴은 가운데, 위아래 8%에는 두지 않음) · "
               "**쇼츠 썸네일(영상 ID 끝이 `-shorts`) = 세로형 9:16 (1080×1920)** — " + FULL_BLEED + ". 안 되면 세로 2:3, 그때는 글자와 얼굴을 가운데에 두고 2:3 그림의 양옆 8%에는 두지 않음 (잘리는 자리 — 사진은 이어짐).\n")
+# v1.9.0 쇼츠 '세 칸' 배치 (thumbnail_1.md 에 COVER_LAYOUT: band — 재테크 쇼츠, 사용자 지시 2026-10-17 "이미지 외 영역은 검은 배경으로 하고 문구는 두 줄로해서 최대 크기로 맞춰 …
+#   PC나 모바일에서 볼 때 위 아래 영역이 좀 짤릴 수 있는데 그러면 안돼"). 사진 끝까지(FULL_BLEED)는 그 줄이 없는 쇼츠(주식)만.
+BAND = ("**세 칸 배치** — 위 0~36% 는 평평한 순검정(#000000)에 문구 2줄만, 가운데 36~72% 는 사진 한 장(가로 끝까지, 위아래 경계는 곧은 가로선), 아래 72~100% 는 순검정 빈 칸. "
+        "칸 사이 그라데이션·사진 테두리 없음. 문구 2줄은 줄마다 가운데 정렬(두 줄 가운데 축이 같음)·최대 크기, 사진과 붙거나 겹치지 않는다. "
+        "**글자·얼굴·꼬리표는 높이 15~85% 안** (일부 피드가 쇼츠 썸네일을 4:5 로 잘라 위아래 약 15%씩 안 보임)")
+SIZE_TALL_BAND = ("3. 크기는 **세로형 9:16 (1080×1920)** — 쇼츠 썸네일이자 쇼츠 첫 화면이다. " + BAND + ". 9:16이 안 되면 세로 2:3으로 같은 세 칸으로 만들고(가운데를 9:16으로 잘라 씀), "
+                  "그때는 문구를 2:3 그림 너비의 12~88% 안에 둔다.\n")
+SIZE_TALL_EACH = ("3. 크기는 **세로형 9:16 (1080×1920)** — 쇼츠 썸네일이자 쇼츠 첫 화면이다. 배치는 **장마다 '크기' 줄대로**: '세 칸'이면 " + BAND + " · 그 밖은 " + FULL_BLEED
+                  + ". 9:16이 안 되면 세로 2:3 (가운데를 9:16으로 잘라 씀 — 글자와 얼굴은 2:3 그림의 양옆 12% 안쪽).\n")
 
 
-def size_rule(vids):
-    """v1.6.0 규칙 3: 롱폼만 = 가로, 쇼츠만 = 세로, 섞이면 장마다 '크기' 줄."""
+def cover_layout(folder):
+    """v1.9.0 쇼츠 썸네일 배치: thumbnail_1.md 에 'COVER_LAYOUT: band' → 'band'(세 칸), 아니면 'full'(사진 끝까지) — tools/cover_check.py 와 같은 규칙."""
+    md = Path(folder) / "thumbnail_1.md"
+    try:
+        return "band" if md.exists() and re.search(r"COVER_LAYOUT:\s*band", md.read_text("utf-8")) else "full"
+    except OSError:
+        return "full"
+
+
+def size_rule(vids, bands=()):
+    """v1.6.0 규칙 3: 롱폼만 = 가로, 쇼츠만 = 세로, 섞이면 장마다 '크기' 줄. v1.9.0: 쇼츠가 모두 세 칸이면 세 칸, 섞이면 장마다."""
     kinds = {v.endswith(SHORTS) for v in vids}
-    return SIZE_MIXED if len(kinds) > 1 else (SIZE_TALL if kinds == {True} else SIZE_WIDE)
+    if len(kinds) > 1:
+        return SIZE_MIXED if not bands else SIZE_MIXED.replace(FULL_BLEED, "배치는 장마다 '크기' 줄대로 ('세 칸'이면 " + BAND + ", 그 밖은 " + FULL_BLEED + ")")
+    if kinds != {True}:
+        return SIZE_WIDE
+    shorts = [v for v in vids if v.endswith(SHORTS)]
+    if bands and all(v in bands for v in shorts):
+        return SIZE_TALL_BAND
+    return SIZE_TALL_EACH if bands else SIZE_TALL
 
 
-TEXT_RULES = ("4. 그림 속 글자는 프롬프트의 따옴표 안 글자만(한글, 그리고 프롬프트가 적은 영문 — 예: ISA), 글자·띄어쓰기·조사 그대로 쓴다 (조사 하나도 빼거나 바꾸지 않는다 — '세금으로'를 '세금'으로 줄이면 뜻이 달라짐). **줄 수·줄바꿈·글자 크기도 프롬프트대로** — 프롬프트가 '3줄, 가장 긴 줄이 너비 94% 까지'라고 하면 그만큼 크게, 작은 2줄로 줄이지 않는다 (v1.8.4). 다른 글자·숫자·로고·워터마크는 넣지 않는다.\n",
+TEXT_RULES = ("4. 그림 속 글자는 프롬프트의 따옴표 안 글자만(한글, 그리고 프롬프트가 적은 영문 — 예: ISA), 글자·띄어쓰기·조사 그대로 쓴다 (조사 하나도 빼거나 바꾸지 않는다 — '세금으로'를 '세금'으로 줄이면 뜻이 달라짐). **줄 수·줄바꿈·정렬·글자 크기도 프롬프트대로** — 프롬프트가 '2줄, 줄마다 가운데, 긴 줄이 너비 4~96%'라고 하면 그만큼 크게·가운데로, 작게 줄이거나 한쪽으로 몰지 않는다 (v1.8.4·v1.9.0). 다른 글자·숫자·로고·워터마크는 넣지 않는다.\n",
               "6. 한 장을 만들 때마다 그 칸의 '문구' 표와 그림 속 한글을 한 글자씩 맞춰 본다. 크게 확대해서 받침과 모음 획(예: '료'의 ㄹ, '보'의 ㅗ)·조사(예: '1년에'의 '에', '세금으로'의 '으로')가 빠지거나 가려지지 않았는지도 본다. 다르면 그림은 그대로 두고 글자만 고쳐 다시 만든다. "
-              "쇼츠 그림(세로)은 **위·아래·양옆 가장자리까지 사진인지**도 본다 — 빈 남색·검정 띠가 보이면 띠 없이 다시 만든다 (v1.8.0).\n")
+              "쇼츠 그림(세로)은 **그 장의 배치대로인지**도 본다 — '세 칸'이면 위·아래 칸이 순검정·사진 칸이 가로 끝까지·문구 2줄이 줄마다 가운데(어긋남 없음)·사진과 붙지 않음·글자와 얼굴이 높이 15~85% 안, "
+              "그 밖(사진 끝까지)이면 빈 남색·검정 띠가 없는지. 다르면 다시 만든다 (v1.8.0·v1.9.0).\n")
 SIMPLE_TEXT_RULES = ("4. 그림 속 글자는 프롬프트가 따옴표로 적은 **영어 낱말·숫자·기호·티커만** (예: BUY, TAX, QQQ, −15%, $100,000, 1×, →, ?, 그리고 비교·수식 기호 >, <, =, +, vs) — 철자·기호·띄어쓰기 그대로, 납작하고 굵은 글씨. "
                      "다른 글자·숫자·로고·워터마크는 넣지 않는다 (동전·상자·화면에도). 한국어·문장은 쓰지 않는다 (전 세계 시청자용).\n",
                      "6. 한 장을 만들 때마다 그 칸의 '문구' 표와 그림 속 글자를 **한 글자씩** 맞춰 본다 — 마이너스 '−'·'%'·'$'·쉼표·소수점·'×'·'→'·'>'·'<'·'='·'+'·'?' 가 빠지거나 바뀌거나 방향이 뒤집히지 않았는지(특히 '>' 와 '<'), "
@@ -416,7 +443,7 @@ def chatgpt_file(topic, vid, root=ROOT):
            f"이 파일은 고치지 말고 `thumbnail_N.md`를 고친 뒤 다시 만든다.", "",
            f"이 파일 주소: {RAW_BASE}/{rel}/chatgpt.md", "",
            CHATGPT_RULES.format(n=len(items), names=", ".join(f"thumbnail_{i}" for i, *_ in items), repo=REPO,
-                                folder=rel, vid=vid, upload=f"{UPLOAD_BASE}/{rel}", rule3=size_rule([vid]),
+                                folder=rel, vid=vid, upload=f"{UPLOAD_BASE}/{rel}", rule3=size_rule([vid], {vid} if vid.endswith(SHORTS) and cover_layout(folder) == "band" else ()),
                                 rule4=rules_for(x[4] for x in items)[0],
                                 rule6=rules_for(x[4] for x in items)[1])]
     for i, head, prompt, words, _mode in items:
@@ -467,6 +494,7 @@ def chatgpt_all(topic, root=ROOT):
         print(f"[CHATGPT-ALL] topic={topic} thumbnails=0 note=모든_시안에_이미지_있음 file={path.relative_to(root)}")
         return path
     flat = [(vid, rel, it) for vid, rel, items in groups for it in items]
+    bands = {vid for vid, rel, _ in groups if vid.endswith(SHORTS) and cover_layout(root / rel) == "band"}   # v1.9.0
     rules = rules_for(it[4] for _, _, it in flat)
     first_vid, first_rel, first_it = flat[min(2, len(flat) - 1)]
     out = [f"# {topic} 썸네일 {len(flat)}장 — ChatGPT용 (모든 영상 · 읽고 그대로 만들고 각 저장 경로에 올리기)", "",
@@ -475,14 +503,15 @@ def chatgpt_all(topic, root=ROOT):
            "| 영상 | 만들 시안 | 저장 폴더 |", "|---|---|---|"]
     out += [f"| {vid} | {', '.join(f'thumbnail_{it[0]}' for it in items)} | `{rel}/` |" for vid, rel, items in groups]
     out += ["", CHATGPT_ALL_RULES.format(n=len(flat), videos=len(groups), repo=REPO, example=f"{first_rel}/thumbnail_{first_it[0]}.png",
-                                          rule3=size_rule([g[0] for g in groups]), rule4=rules[0], rule6=rules[1]),
+                                          rule3=size_rule([g[0] for g in groups], bands), rule4=rules[0], rule6=rules[1]),
             "## 폴더별 올리기 링크 (ChatGPT가 못 올릴 때 사람이 쓰는 길)", ""]
     out += [f"- {vid}: {UPLOAD_BASE}/{rel}" for vid, rel, _ in groups]
     out.append("")
     for k, (vid, rel, (i, head, prompt, words, _mode)) in enumerate(flat, 1):
         out += [f"## {k}. {vid} · thumbnail_{i} — {head.split('—', 1)[-1].strip()}", "",
                 f"**저장 경로: `{rel}/thumbnail_{i}.png`**", "",
-                "크기: **세로 9:16 (1080×1920) — 쇼츠**" if vid.endswith(SHORTS) else "크기: 가로 16:9 (1280×720) — 롱폼", ""]
+                ("크기: **세로 9:16 (1080×1920) — 쇼츠 · 세 칸 (위 0~36% 순검정 + 문구 2줄 · 가운데 36~72% 사진 · 아래 72~100% 순검정, 글자·얼굴은 높이 15~85%)**" if vid in bands
+                 else "크기: **세로 9:16 (1080×1920) — 쇼츠**" if vid.endswith(SHORTS) else "크기: 가로 16:9 (1280×720) — 롱폼"), ""]
         if words:
             out += ["문구 (그림 속 글자는 이것과 한 글자도 다르면 안 됨):", "", words, ""]
         out += ["프롬프트:", "", "```", prompt, "```", ""]

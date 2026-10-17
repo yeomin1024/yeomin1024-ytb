@@ -1,55 +1,54 @@
 # gicho-yeongeum-2026-10 쇼츠 썸네일 1 — 본안(쇼츠 썸네일 + 첫 문장 화면): 거실에서 놓친 돈을 알고 좌절한 67세 부부 + '집 한 채'·'국민연금' 생각 꼬리표
 
-버전: v2.2 — 2026-10-17 — **문구를 크게 — 3줄** 「기초연금 / 포기하면 1년에 / 500만 원 날린다」: 글자 높이 약 화면의 7% (약 138px — 예전 2줄은 너비 7~84% 안이라 약 86px), 가장 긴 줄이 너비 94% 까지, 글자 자리 10~36%·얼굴·꼬리표 38~66% (사용자 지시 2026-10-17 "문구를 더 크게해서 잘보이게 해봐" — `guides/thumbnail_guide.md` 12번·피드백 23). 낱말·색 뜻·장면은 그대로. (v2.1 — 2026-10-17 — **그림 = 손해를 알고 좌절한 부부** (v2.0 은 '우린 안 돼' 손사래 = 포기하는 순간을 그려 손해로 안 보였음 — 문구 2줄 '1년에 500만 원 날린다'가 말하는 결과를 그린다, `guides/thumbnail_guide.md` 5번 1·피드백 22 — 사용자 지시 2026-10-17 "야 기초연금 썸네일 그림은 왜이래? 왜 손해봐서 좌절하는게 아닌것 같지?"). 남편은 고개를 떨구고 목뒤를 움켜쥠(롱폼 썸네일의 '이마를 짚은 남편'과 다르게), 아내는 입을 가리고 눈물이 고임. 문구·꼬리표·자리·색은 그대로. (v2.0 — 2026-10-17 — **제목이 바뀌어 문구·그림을 새로**: 짝 제목 「기초연금 안 된다고 포기한 부부 1년에 500만 원 날린다」 → 문구 「기초연금 포기하면 / 1년에 500만 원 날린다」(동사·조사 — 사용자 지시 2026-10-17 "1번으로 하는데 1년에 500만 원 날린다 로 변경해 동사형으로 만들고 조사좀 붙여 수정하고" · 그 앞 "썸네일 문구는 제목 내용을 효과적으로 담아서 해봐"), **사진이 화면 끝까지** (빈 남색 띠 없음 — `guides/thumbnail_guide.md` v3.7 12번, 사용자 지시 2026-10-17 "검은색 여백있는건 뭔데"). 1차 그림은 `rejected/thumbnail_1_try1_2026-10-17.png`. (v1.0.1 — 2026-10-17 — 짝 제목 줄만 바꿈 (쇼츠 제목 R1 을 쉬운 말로 고침). **문구·프롬프트 글자는 그대로** — 애매한 말 점검(사용자 지시 2026-10-17 "제발 애매모호하고 명확하고 익숙하고 이해하기 쉬운 표현을 사용하라고 … 저런 표현 있으면 다 고쳐"): 「67세 부부 기초연금 / 매달 41만 원 넘게 놓침」은 누가·무엇을·얼마를 그대로 말해 한 가지로만 읽힘 → 그림 다시 안 만듦. (v1.0 — 2026-10-16 — 쇼츠 대본 gicho-yeongeum-2026-10-shorts.txt (`../shorts.md` v2.0) 기준. 사용자 지시 2026-10-16 "이거 쇼츠 영상 썸네일 이미지 프롬프트 만들어서 영상 처음에만 그걸 포함 시키고 첫 대사를 그 이미지 띄워놓고 하는게 나을 것 같아 롱폼 영상 만들 때처럼 해서 쇼츠 영상, 이미지 프롬프트 4개 다 만들도록 하고". `guides/thumbnail_guide.md` v3.3 (쇼츠라서 다른 것은 1편 `eunte-kkeonaeseugi-2026-10/shorts/thumbnails/README.md` 2번). 근거: `README.md`.))
+버전: v3.0 — 2026-10-17 — **세 칸 배치** (위 0~36% 검정 + 문구 2줄 「기초연금 포기하면 / 1년에 500만 원 날린다」 줄마다 가운데·최대 크기 약 103px · 가운데 36~72% 사진 · 아래 72~100% 검정) · 글자·얼굴은 높이 15~85% 안 (4:5 로 잘려도 남게) — 사용자 지시 2026-10-17 "이미지 외 영역은 검은 배경으로 하고 문구는 두 줄로해서 최대 크기로 맞춰 너가 보내준 ISA 만기 쇼츠 문구 위치 좀 어긋나 있는데 저렇게 하면 안돼 그리고 PC나 모바일에서 볼 때 위 아래 영역이 좀 짤릴 수 있는데 그러면 안돼 프롬프트 수정해봐" (`guides/thumbnail_guide.md` 12번·피드백 24, `tools/cover_check.py` v1.1 band). 장면·표정·꼬리표는 v2.1 그대로. (v2.2 — 2026-10-17 — **문구를 크게 — 3줄** 「기초연금 / 포기하면 1년에 / 500만 원 날린다」: 글자 높이 약 화면의 7% (약 138px — 예전 2줄은 너비 7~84% 안이라 약 86px), 가장 긴 줄이 너비 94% 까지, 글자 자리 10~36%·얼굴·꼬리표 38~66% (사용자 지시 2026-10-17 "문구를 더 크게해서 잘보이게 해봐" — `guides/thumbnail_guide.md` 12번·피드백 23). 낱말·색 뜻·장면은 그대로. (v2.1 — 2026-10-17 — **그림 = 손해를 알고 좌절한 부부** (v2.0 은 '우린 안 돼' 손사래 = 포기하는 순간을 그려 손해로 안 보였음 — 문구 2줄 '1년에 500만 원 날린다'가 말하는 결과를 그린다, `guides/thumbnail_guide.md` 5번 1·피드백 22 — 사용자 지시 2026-10-17 "야 기초연금 썸네일 그림은 왜이래? 왜 손해봐서 좌절하는게 아닌것 같지?"). 남편은 고개를 떨구고 목뒤를 움켜쥠(롱폼 썸네일의 '이마를 짚은 남편'과 다르게), 아내는 입을 가리고 눈물이 고임. 문구·꼬리표·자리·색은 그대로. (v2.0 — 2026-10-17 — **제목이 바뀌어 문구·그림을 새로**: 짝 제목 「기초연금 안 된다고 포기한 부부 1년에 500만 원 날린다」 → 문구 「기초연금 포기하면 / 1년에 500만 원 날린다」(동사·조사 — 사용자 지시 2026-10-17 "1번으로 하는데 1년에 500만 원 날린다 로 변경해 동사형으로 만들고 조사좀 붙여 수정하고" · 그 앞 "썸네일 문구는 제목 내용을 효과적으로 담아서 해봐"), **사진이 화면 끝까지** (빈 남색 띠 없음 — `guides/thumbnail_guide.md` v3.7 12번, 사용자 지시 2026-10-17 "검은색 여백있는건 뭔데"). 1차 그림은 `rejected/thumbnail_1_try1_2026-10-17.png`. (v1.0.1 — 2026-10-17 — 짝 제목 줄만 바꿈 (쇼츠 제목 R1 을 쉬운 말로 고침). **문구·프롬프트 글자는 그대로** — 애매한 말 점검(사용자 지시 2026-10-17 "제발 애매모호하고 명확하고 익숙하고 이해하기 쉬운 표현을 사용하라고 … 저런 표현 있으면 다 고쳐"): 「67세 부부 기초연금 / 매달 41만 원 넘게 놓침」은 누가·무엇을·얼마를 그대로 말해 한 가지로만 읽힘 → 그림 다시 안 만듦. (v1.0 — 2026-10-16 — 쇼츠 대본 gicho-yeongeum-2026-10-shorts.txt (`../shorts.md` v2.0) 기준. 사용자 지시 2026-10-16 "이거 쇼츠 영상 썸네일 이미지 프롬프트 만들어서 영상 처음에만 그걸 포함 시키고 첫 대사를 그 이미지 띄워놓고 하는게 나을 것 같아 롱폼 영상 만들 때처럼 해서 쇼츠 영상, 이미지 프롬프트 4개 다 만들도록 하고". `guides/thumbnail_guide.md` v3.3 (쇼츠라서 다른 것은 1편 `eunte-kkeonaeseugi-2026-10/shorts/thumbnails/README.md` 2번). 근거: `README.md`.))
 
 | 항목 | 값 |
 |---|---|
 | 역할 | **본안 — 쇼츠 썸네일 + 첫 문장 화면.** ① 쇼츠 썸네일 (업로드 도구가 API 로 올림 — 이 채널에서 안 보이면 앱에서 0초 장면) ② 영상 0:00~약 0:07, 첫 문장을 읽는 동안 전체 화면 (구운 자막이 y 1387~1520 에 얹힘). 쇼츠는 1장 |
+| 배치 | `COVER_LAYOUT: band` — **세 칸** (v3.0): 위 0~36% 검정 + 문구 2줄 · 가운데 36~72% 사진(가로 끝까지) · 아래 72~100% 검정(빈 칸 — 영상에서는 첫 문장 자막 자리). 글자·얼굴은 높이 15~85% 안 (일부 피드가 쇼츠 썸네일을 4:5 로 잘라 위아래 약 15%씩 안 보임). 검사 `python3 tools/cover_check.py` (이 줄을 보고 세 칸으로 잼) |
 | 짝 제목 | `../shorts.md` R3 「기초연금 안 된다고 포기한 부부 1년에 500만 원 날린다」 (2026-10-17 사용자 고름) |
-| 문구 | 제목을 줄인 말 — 3줄 「기초연금 / 포기하면 1년에 / 500만 원 날린다」 (v2.2 — 글자를 크게 하려고 2줄을 3줄로, 낱말·순서는 그대로). '안 된다고'(왜 포기했나)는 그림의 생각 꼬리표가 보여 줌 |
+| 문구 | 제목을 줄인 말 — 2줄 「기초연금 포기하면 / 1년에 500만 원 날린다」 (v3.0 — 검은 위 칸에 줄마다 가운데 정렬·최대 크기). '안 된다고'(왜 포기했나)는 그림의 생각 꼬리표가 보여 줌 |
 | 근거 (`README.md` 3번) | 돈 이야기 성공 쇼츠 표지 66개: 위쪽 머리 글자 2줄 55 · 금액 21 · 실사 인물 45. **틀은 '전체'(사진이 화면 전체, 글자는 그 위)** — 성공 표지는 띠 꼴 51 이 더 많지만 사용자가 빈 띠를 '비율이 안 맞는 영상'으로 봄 (2026-10-17). 그림 속 낱말 = 기초연금 댓글 질문 1위 '집·재산·공시가' 70개 👍349 · '국민연금 때문에 깎임' 13 |
 | 숫자 근거 | '1년에 500만 원' = 대본 「신청 안 하고 1년이 지나면, 놓치는 돈은 약 500만 원입니다.」 (부부 최소 월 41만 9,640원 × 12 = 503만 5,680원을 내려 잡음 — 롱폼 README 4번) · 2026년 숫자 |
 | 인물 나이 | 쇼츠의 박씨 부부 67세 — 젊어 보이는 60대 초반처럼. 옷은 롱폼 썸네일(남색 카디건·베이지 니트)·1차 그림(올리브 스웨터·크림 블라우스)과 다르게 |
 | 저장 경로 | `economic/source/gicho-yeongeum-2026-10/shorts/thumbnails/thumbnail_1.png` |
 
 ## 화면 구성
-- 세로 9:16 (1080×1920). **사진 한 장이 네 가장자리까지 꽉 찬다** — 빈 남색·검정 띠, 테두리, 여백, 가운데만 사진인 꼴 금지.
-- 위에서부터:
-  - **0~9%**: 사진이 이어짐 — 거실 위쪽 벽·커튼 윗부분, 흐리게. 글자·얼굴 없음 (유튜브 위쪽 아이콘 자리).
-  - **10~36%**: **아주 큰 글자 3줄 — 그림에서 가장 큰 것** (v2.2), 왼쪽 정렬 — 너비 6% 에서 시작해 가장 긴 줄이 94% 까지, 글자 높이 약 화면의 7% (1080×1920 에서 약 138px) — **사진 위에 바로** (뒤 벽은 흐리고 조금 어둡게, 글자 뒤 단색 상자·띠 없음).
-  - **37~66%**: 밝은 오후, 창으로 햇살이 드는 거실. 소파에 나란히 앉은 박씨 부부(너비 약 30~82%, 가슴 위까지).
+- 세로 9:16 (1080×1920), **세 칸** (v3.0 — 사용자 지시 2026-10-17 "이미지 외 영역은 검은 배경으로 하고 문구는 두 줄로해서 최대 크기로 맞춰 너가 보내준 ISA 만기 쇼츠 문구 위치 좀 어긋나 있는데 저렇게 하면 안돼 그리고 PC나 모바일에서 볼 때 위 아래 영역이 좀 짤릴 수 있는데 그러면 안돼 프롬프트 수정해봐"):
+  - **0~36% — 검은 바탕(#000000) + 문구 2줄**: 줄마다 **가운데 정렬**(두 줄의 가운데 축이 같음 — 어긋나지 않게), 두 줄 같은 크기, **최대 크기 = 긴 줄이 너비 4~96%** (약 103px — 화면 높이의 5.4%). 두 줄 덩어리는 높이 약 19~32% (가운데 약 25% — 15% 선과 사진 사이 가운데), 사진과 3% 넘게 떨어짐 (겹치거나 붙지 않음).
+  - **36~72% — 사진 칸** (가로 끝까지, 위아래 경계는 곧은 가로선, 테두리·그라데이션 없음): 밝은 오후, 창으로 햇살이 드는 거실. 소파에 나란히 앉은 박씨 부부(너비 약 30~82%, 가슴 위까지).
     - 남편: 희끗한 짧은 머리, 하늘색 체크 셔츠. 무릎에 팔꿈치를 대고 앞으로 수그려 **고개를 떨구고**, 한 손으로 목뒤를 움켜쥠. 눈을 질끈 감고 미간을 찌푸린 **좌절·후회** 얼굴 (그동안 놓친 돈을 막 알게 됨). 얼굴은 보이게.
     - 아내: 어깨 길이 짙은 머리, 연분홍 니트. 한 손으로 입을 가리고 다른 손은 남편 등에, 눈물이 고인 채 망연자실.
     - (v2.1) 손해를 **알고 난 뒤**의 얼굴 — 손사래·'우린 안 돼'(포기하는 순간)나 놀라 굳은 얼굴만으로는 손해로 안 보인다.
     - 왼쪽(너비 약 7~30%, 높이 약 40~60%): 생각 꼬리표 2개 '집 한 채'(위)·'국민연금'(아래) — 연회색 둥근 사각형 + 짙은 회색 테두리 + 검정 평면 글자, 남편 머리 쪽으로 작은 회색 점.
-  - **66~100%**: 사진이 이어짐 — 앞쪽 낮은 탁자와 찻잔 두 개, 초점 밖·그림자로 조금 어둡게 (자막이 읽히게). 글자·얼굴·중요한 물건 없음. **빈 남색 띠 금지**.
-- 오른쪽 16% (좋아요·댓글 버튼 자리 — 높이 약 45% 아래): 사진(창·커튼)은 이어지고 얼굴·꼬리표 없음. 위쪽 글자(10~36%)는 94% 까지 써도 됨 (버튼보다 위).
+  - **72~100% — 검은 바탕, 빈 칸** (영상에서는 첫 문장 자막이 여기 얹힘 · 유튜브 화면에서는 제목·채널 글씨 자리).
+- **안전 구역 = 높이 15~85%** — PC·모바일 일부 피드는 쇼츠 썸네일을 4:5 로 잘라 위아래 약 15%씩 안 보인다. 글자·얼굴·꼬리표는 모두 이 안 (위 0~15%·아래 85~100% 는 잘려도 되는 검정).
+- 오른쪽 16% (좋아요·댓글 버튼 자리 — 높이 약 45% 아래): 사진은 이어지고 얼굴·꼬리표 없음.
 
 ## 문구 (그대로 사용)
 | 자리 | 문구 | 색 |
 |---|---|---|
 | 그림 낱말 1 | 집 한 채 | 검정 평면 글자 on 연회색 꼬리표 #D9DEE6 (짙은 회색 테두리) |
 | 그림 낱말 2 | 국민연금 | 검정 평면 글자 on 연회색 꼬리표 #D9DEE6 (짙은 회색 테두리) |
-| 위 1줄 | 기초연금 | **전부 노랑 #FFD400 + 두꺼운 검정 외곽선** |
-| 위 2줄 | 포기하면 1년에 | '포기하면' 흰색 (검정 외곽선) · **'1년에' 빨강 #FF2A2A + 두꺼운 흰 외곽선** |
-| 위 3줄 | 500만 원 날린다 | **전부 빨강 #FF2A2A + 두꺼운 흰 외곽선**. 세 줄 같은 크기 |
+| 위 1줄 | 기초연금 포기하면 | **'기초연금' 노랑 #FFD400** · '포기하면' 흰색 — 검은 바탕, 가운데 정렬 |
+| 위 2줄 | 1년에 500만 원 날린다 | **전부 빨강 #FF2A2A + 얇은 흰 외곽선**. 1줄과 같은 크기, 가운데 정렬 |
 
 - 노랑은 중요한 것(주제 낱말 '기초연금'), 빨강은 나쁜 상황(잃는 돈)에만. 회색 꼬리표 = 남편의 생각 (손해 자체가 아니라 빨강이 아님).
 
 ## [A] 완성형 프롬프트 (이미지 AI에 그대로 붙여 넣기)
 ```
-Vertical YouTube Shorts thumbnail, 9:16 portrait (1080x1920), photorealistic, high contrast, bold and readable at small size. This is a vertical image: ignore any general instruction about a 16:9 landscape canvas.
-FULL-BLEED: one continuous photograph fills the entire 9:16 canvas edge to edge. The top edge, bottom edge, left edge and right edge all show the scene. No solid-color bands, no empty navy or black areas, no borders, no frames, no letterbox bars, no picture-in-picture, and no fade to a flat color anywhere.
-The same image is also the full-screen opening frame of the Short, and a subtitle is added later over the lower part. Place things like this (fractions of the image height from the top, and of the image width from the left):
-- The headline text stays between 10% and 36% of the height and may use almost the full width (from 6% to 94%). All faces and word tags stay between 38% and 66% of the height and between 6% and 84% of the width.
-- The top 9%, the right 16% of the width below 38% of the height, and the bottom 34% still show the photo (the upper wall and curtains at the top, the room and window on the right, a low coffee table with two teacups in the foreground at the bottom), just without text, faces or important objects.
-- The bottom 34% is naturally a little darker (soft shadow and shallow depth of field in the foreground) so white subtitles stay readable, but it remains a detailed part of the photo, never an empty dark area.
-If 9:16 is not available, use a 2:3 portrait canvas (1024x1536); it will be center-cropped to 9:16, cutting about 8% from the left and right edges, so on a 2:3 canvas keep the headline between 13% and 87% of the width (still as large as that allows) and keep faces well inside the middle of the width.
-Headline text (from about 10% to 36% of the height), printed directly over the photo; the wall behind it is softly blurred and slightly darker so the letters pop, with no solid box or band behind the text: THREE lines of very large, heavy, bold Korean text. The headline is the biggest and most eye-catching element of the image and must be readable at a glance on a small phone screen. All three lines use the same letter size, left-aligned starting at about 6% from the left edge; make the letters as big as possible so that the longest line reaches about 94% of the width (each letter about 7% of the image height tall, roughly 138 px on a 1080x1920 canvas). Do not shrink the text to two small lines; keep exactly these three lines and line breaks:
-line 1 "기초연금" — all in bright yellow #FFD400 with a thick black outline;
-line 2 "포기하면 1년에" — "포기하면" in white with a thick black outline and "1년에" in bright red #FF2A2A with a thick white outline;
-line 3 "500만 원 날린다" — all in bright red #FF2A2A with a thick white outline.
-Scene: a bright Korean apartment living room in the late afternoon, warm sunlight from a large window with sheer curtains, background softly blurred:
+Vertical YouTube Shorts thumbnail, 9:16 portrait (1080x1920), high contrast, bold and readable at small size. This is a vertical image: ignore any general instruction about a 16:9 landscape canvas.
+LAYOUT — three stacked zones, each spanning the full width of the canvas:
+1. Top zone, from 0% to 36% of the height: flat solid pure black (#000000), with only the headline text on it.
+2. Photo panel, from 36% to 72% of the height: one photorealistic photograph filling the full width edge to edge (a wide horizontal picture, about 3:2), with straight horizontal top and bottom edges.
+3. Bottom zone, from 72% to 100% of the height: flat solid pure black (#000000), completely empty (a subtitle is added there later in the video).
+No gradient or fade between the zones, no border or frame around the photo, no other bands or panels.
+SAFE AREA: YouTube crops Shorts thumbnails to about 4:5 in some feeds on phones and PCs, cutting about 15% from the top and 15% from the bottom. Every important thing — all text, every face and word tag — must stay between 15% and 85% of the height.
+Headline in the top black zone: exactly TWO lines of very large, heavy, bold Korean text, both lines the same letter size, EACH LINE CENTERED horizontally on the same center axis (the two lines must not be shifted left or right against each other). Make the letters as large as possible: the longer line spans from about 4% to 96% of the width (each letter about 5.4% of the image height tall, roughly 103 px on a 1080x1920 canvas). Vertically, the two-line block is centered between the 15% line and the top of the photo — it sits between about 19% and 32% of the height — with a black gap of at least 3% of the height between the text and the photo. The text never touches or overlaps the photo. Flat letters on the black, no glow, no 3D, no shadow boxes:
+line 1 "기초연금 포기하면" — "기초연금" in bright yellow #FFD400 and "포기하면" in white;
+line 2 "1년에 500만 원 날린다" — all in bright red #FF2A2A with a thin white outline.
+If 9:16 is not available, use a 2:3 portrait canvas (1024x1536) with the same three zones (it will be center-cropped to 9:16, cutting about 8% from the left and right), and keep the headline between 12% and 88% of the width.
+Scene inside the photo panel (from 36% to 72% of the height, full width), a bright Korean apartment living room in the late afternoon, warm sunlight from a large window with sheer curtains, background softly blurred:
 - Center-right (between about 30% and 82% of the width, chest up, faces between 40% and 64% of the height): a Korean married couple aged 67 who look youthful for their age, like their early 60s, sitting side by side on a light gray sofa. They have just realized how much money they lost by never applying, and they are crushed. The husband (short neat hair with gray streaks, light blue checked button-up shirt) leans forward with his elbows on his knees, head bowed, one hand gripping the back of his neck, eyes squeezed shut and brows knitted in pain: clear frustration, regret and despair. His face stays visible (not hidden by his hands, not touching his forehead). The wife (shoulder-length dark hair, soft pink knit top) presses one hand over her mouth and rests the other on his back, eyes wet with tears, stunned and devastated. The despair must read clearly even at small thumbnail size, but stay realistic, not cartoonish. Fictional people, not resembling any real or famous person. No other people.
 - Left side (between about 7% and 30% of the width, at about 40% to 60% of the height): two word tags like thought labels, stacked vertically with a small gap, linked to the husband's head by a short trail of small light-gray dots (they show why he had believed they could not get it). Each tag is a solid light gray (#D9DEE6) rounded rectangle with a thick dark gray border and the Korean words printed in huge flat heavy bold black letters on its flat front face: "집 한 채" (upper tag) and "국민연금" (lower tag). The letters are flat print, not carved, embossed or 3D letter shapes. No arrows. Nothing overlaps or covers the tags or the letters.
 No money, no flying bills, no envelopes, no documents, no forms, no application papers, no phones, no calculators, no calendars, no buildings or signs, no charts.
@@ -58,25 +57,25 @@ Render ONLY the Korean text given in quotes, exactly as written with the same le
 
 ## [B] 글자 없는 프롬프트 (한글이 틀릴 때 — 글자는 편집 프로그램으로)
 ```
-Vertical YouTube Shorts thumbnail background, 9:16 portrait (1080x1920), photorealistic, high contrast. This is a vertical image: ignore any general instruction about a 16:9 landscape canvas. It is also the full-screen opening frame of the Short.
-FULL-BLEED: one continuous photograph fills the entire canvas edge to edge — no solid-color bands, no empty navy or black areas, no borders, no letterbox bars.
-Top 37% of the height: the upper wall and sheer curtains of a bright living room, softly blurred and slightly darker, with no faces or objects (a huge three-line headline spanning almost the full width will be added over it later). Bottom 34%: a low coffee table with two teacups in the foreground, out of focus and in soft shadow, still detailed photo (subtitles go over it).
-Middle (from 37% to 66% of the height): late-afternoon sunlight, a Korean married couple aged 67 who look like their early 60s on a light gray sofa, chest up, center-right (about 30% to 82% of the width); they have just realized how much money they lost and are crushed; the husband (short hair with gray streaks, light blue checked shirt) leans forward, elbows on knees, head bowed, one hand gripping the back of his neck, eyes squeezed shut, brows knitted in frustration and regret (face visible, no hand on the forehead); the wife (shoulder-length dark hair, soft pink knit) covers her mouth with one hand, the other on his back, eyes wet with tears, devastated. Fictional people, not resembling any real or famous person. On the left (about 7% to 30% of the width, 40% to 60% of the height): two empty solid light gray rounded rectangles with thick dark gray borders, linked to the husband's head by a short trail of small light-gray dots. Keep the right 16% of the width free of faces.
-If 9:16 is not available, use 2:3 portrait (1024x1536) and keep faces inside the middle of the width; keep the top 37% calm across 13% to 87% of the width for the headline.
+Vertical YouTube Shorts thumbnail background, 9:16 portrait (1080x1920), high contrast. This is a vertical image: ignore any general instruction about a 16:9 landscape canvas. It is also the full-screen opening frame of the Short.
+LAYOUT — three stacked zones, each spanning the full width: top zone from 0% to 36% of the height flat solid pure black (#000000), completely empty (a two-line headline will be added later); photo panel from 36% to 72% of the height, one photorealistic photograph filling the full width edge to edge with straight top and bottom edges; bottom zone from 72% to 100% flat solid pure black, empty. No gradient, no fade, no border.
+Keep all faces and important objects between 38% and 70% of the height (inside the photo panel).
+Photo panel: late-afternoon sunlight, a Korean married couple aged 67 who look like their early 60s on a light gray sofa, chest up, center-right (about 30% to 82% of the width); they have just realized how much money they lost and are crushed; the husband (short hair with gray streaks, light blue checked shirt) leans forward, elbows on knees, head bowed, one hand gripping the back of his neck, eyes squeezed shut, brows knitted in frustration and regret (face visible, no hand on the forehead); the wife (shoulder-length dark hair, soft pink knit) covers her mouth with one hand, the other on his back, eyes wet with tears, devastated. Fictional people, not resembling any real or famous person. On the left (about 7% to 30% of the width, 40% to 60% of the height): two empty solid light gray rounded rectangles with thick dark gray borders, linked to the husband's head by a short trail of small light-gray dots. Keep the right 16% of the width free of faces.
+If 9:16 is not available, use 2:3 portrait (1024x1536) with the same zones and keep faces inside the middle of the width.
 Absolutely no text, letters, numbers, logos or watermarks.
 ```
 - 글자 얹기 (캔바·미리캔버스 등, 1080×1920 기준):
   - 회색 꼬리표 안: 집 한 채 / 국민연금 (검정, 굵은 고딕)
-  - 위 3줄: Noto Sans KR Black(또는 Pretendard Black), 세 줄 같은 크기 약 138px (가장 긴 줄이 x 65~1015 — 안 들어가면 셋 다 줄임), 1줄 위 끝 y 약 190, 줄 간격 = 글자 크기 × 1.12, 두꺼운 외곽선, 색은 위 '문구' 표대로
+  - 위 2줄 (검은 위 칸): Noto Sans KR Black(또는 Pretendard Black), 두 줄 같은 크기 약 103px, **줄마다 가운데 정렬**(가운데 x 540 — 긴 줄이 x 43~1037), 두 줄 덩어리의 가운데 y 약 488 (글자 y 약 370~615), 줄 간격 = 글자 크기 × 1.2, 색은 위 '문구' 표대로 (외곽선은 빨강 줄만 얇은 흰색)
 
 ## 검수
 - [ ] 한글이 한 글자도 틀리지 않았는가: 집 한 채 · 국민연금 · 기초연금 포기하면 · 1년에 500만 원 날린다 ('채'의 ㅊ, '포기'의 ㅍ, '년에'의 ㄴ 받침·'에', '날린다'의 ㄹ 받침까지 확대해서)
 - [ ] '기초연금'만 노랑, '1년에 500만 원 날린다'만 빨강인가 · 꼬리표가 회색(빨강 아님)인가
-- [ ] **문구가 그림에서 가장 큰 것인가** (v2.2) — 3줄, 가장 긴 줄이 너비 약 94% 까지, 글자 높이 약 화면의 7% (1080 가로에서 약 138px). 2줄로 작게 나왔으면 반려
-- [ ] **사진이 네 가장자리까지 찼는가** — `python3 tools/cover_check.py economic/source/gicho-yeongeum-2026-10/shorts/thumbnails/thumbnail_1.png` ✅ (빈 남색·검정 띠·테두리 없음)
+- [ ] **문구 2줄이 검은 위 칸에 최대 크기·가운데인가** (v3.0) — 줄마다 가운데 정렬(두 줄 가운데 축이 같음 — 어긋나지 않음), 긴 줄이 너비 약 4~96%, 글자 높이 약 5.4% (1080 가로에서 약 103px), 사진과 겹치거나 붙지 않음
+- [ ] **세 칸 배치인가** — `python3 tools/cover_check.py economic/source/gicho-yeongeum-2026-10/shorts/thumbnails/thumbnail_1.png` ✅ (위 0~36%·아래 72~100% 검정, 사진 칸은 가로 끝까지, 글자는 높이 15% 아래·사진과 1.5% 넘게 떨어짐, 줄마다 가운데, 긴 줄 너비 80% 이상)
+- [ ] **4:5 로 잘라도(위아래 15%씩) 글자·얼굴·꼬리표가 다 남는가** — PC·모바일 피드
 - [ ] 세로 9:16 (세로 ÷ 가로 1.78 안팎) — 2:3 이면 가운데 9:16 으로 잘라도 글자·얼굴이 다 남는가
-- [ ] 글자가 높이 10~36%·너비 6~94%, 얼굴·꼬리표가 높이 38~66%·너비 6~84% 안인가 · 위 9%·오른쪽 16%(38% 아래)·아래 34% 에 글자·얼굴이 없는가 · 아래 34% 가 자막이 읽힐 만큼 조금 어두운가
-- [ ] 가로 240px 로 줄여도 3줄과 '집 한 채'·'국민연금'이 읽히는가
+- [ ] 가로 240px 로 줄여도 2줄과 '집 한 채'·'국민연금'이 읽히는가
 - [ ] **손해를 알고 좌절한 얼굴로 보이는가** (v2.1 — 고개를 떨군 남편·입을 가린 아내, 가로 240px 로 줄여도) — 손사래·놀라 굳은 얼굴이면 반려
 - [ ] 실존 인물을 닮지 않았는가 · 돈·지폐·봉투·신청서·서류·휴대폰·건물·간판이 없는가
 - [ ] 넣지 않는 것이 없는가: 계산식·기준선·신청서·주민센터·'신청'·'소득인정액' (`README.md` 7번 — 답은 롱폼에)

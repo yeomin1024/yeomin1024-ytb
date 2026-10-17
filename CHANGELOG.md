@@ -1,5 +1,24 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-17 (90) — 재테크 쇼츠 썸네일 = 세 칸 (위 검정 + 문구 2줄 · 가운데 사진 · 아래 검정)
+
+### 왜 (사용자 지시)
+- "이미지 외 영역은 검은 배경으로 하고 문구는 두 줄로해서 최대 크기로 맞춰 너가 보내준 ISA 만기 쇼츠 문구 위치 좀 어긋나 있는데 저렇게 하면 안돼 그리고 PC나 모바일에서 볼 때 위 아래 영역이 좀 짤릴 수 있는데 그러면 안돼 프롬프트 수정해봐"
+
+### 한 것
+| 파일·대상 | 내용 |
+|---|---|
+| 쇼츠 썸네일 프롬프트 4편 (`economic/source/<영상ID>/shorts/thumbnails/thumbnail_1.md` → v3.0) | 세 칸 배치 (위 0~36% 순검정 + 문구 2줄 · 36~72% 사진 · 72~100% 순검정), 문구 2줄 줄마다 가운데·최대 크기(긴 줄 너비 4~96%, 92~110px), 글자·얼굴은 높이 15~85% 안, 머리 표 `COVER_LAYOUT: band`, [A]·[B]·화면 구성·글자 얹기·검수 |
+| `tools/cover_check.py` (v1.0 → v1.1) | 'band' 검사 — 사진 칸 경계·위아래 검정·글자 15% 아래·글자와 사진 틈·줄마다 가운데·긴 줄 너비. 그림 옆 thumbnail_1.md 로 배치를 고름 (없으면 'full' — 주식) |
+| `tools/make_summary.py` (v1.8.4 → v1.9.0) · `tools/tests/test_make_summary_chatgpt.py` (v1.8) | ChatGPT 규칙 3 세 칸·4 정렬·6 배치 확인 · 장마다 '크기' 줄 · 시험 14 OK |
+| `video/render/render.mjs` (v1.16) · `tools/youtube_upload.py` (v1.11) | 배치 검사 안내 말만 |
+| `economic/thumbnails_chatgpt.md` | 다시 만듦 (4장) |
+| `guides/thumbnail_guide.md` (v3.12 — 12번·피드백 24) · `guides/shorts_guide.md` (v1.15) · `CLAUDE.md` · `guides/status.md` (v1.65, 2-2 0-14) | 재테크 쇼츠 = 세 칸, 안전 구역 15~85% |
+
+### 확인
+- 목업(검토용, git 밖) 4장을 4:5 로 잘라 봄 — 글자·얼굴 다 남음 · `cover_check.py --layout band` 목업 4장 ✅ / 줄을 옮긴 것·위로 올린 것·작은 글자 ❌ / 예전 그림 4장 ❌ · 주식 쇼츠는 'full' 그대로
+- `python3 -m unittest tools.tests.test_make_summary_chatgpt` → 14 OK · `node --check video/render/render.mjs` OK
+
 ## 2026-10-17 (89) — 쇼츠 썸네일 문구를 크게 (3줄)
 
 ### 왜 (사용자 지시)

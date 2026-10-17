@@ -1,4 +1,5 @@
-// VERSION: v1.15 — 2026-10-17 — check: 세로 쇼츠는 글자 없는 그림(동전·막대·칸)도 안전 구역 아래(자막 띠 자리)로 내려오면 문제 (텍스트만 보던 검사가
+// VERSION: v1.16 — 2026-10-17 — 첫 문장 그림 검사 안내 말: cover_check v1.1 이 배치(세 칸 'band' / 사진 끝까지 'full')를 그림 옆 thumbnail_1.md 로 골라 잼 (사용자 지시 2026-10-17 "이미지 외 영역은 검은 배경으로 하고 문구는 두 줄로해서 최대 크기로 맞춰 … PC나 모바일에서 볼 때 위 아래 영역이 좀 짤릴 수 있는데 그러면 안돼").
+// v1.15 — 2026-10-17 — check: 세로 쇼츠는 글자 없는 그림(동전·막대·칸)도 안전 구역 아래(자막 띠 자리)로 내려오면 문제 (텍스트만 보던 검사가
 //   은퇴 쇼츠 동전 기둥이 자막 띠에 닿은 것을 놓침 — 사용자 지시 2026-10-17 "니가 직접 영상을 보라고" 로 완성 영상을 보다 찾음).
 // v1.14 — 2026-10-17 — 자막은 늘 2줄까지 (사용자 지시 2026-10-17 "그리고 자막은 2줄까지만 표시되도록 해" — v1.13 의 '썸네일 그림 위 3줄' 허용을 지움,
 //   쇼츠 첫 자막은 kit.js v1.7 #cc.cover 42px). 쇼츠 최종 렌더 전 첫 문장 그림 여백 검사 (tools/cover_check.py — 빈 단색 띠가 있으면 멈춤,
@@ -54,7 +55,7 @@ import { fileURLToPath } from "node:url";
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, "..", "..");
-const VERSION = "v1.11";                        // 로그 [RENDER] tool= 에 찍힘 (v1.4~v1.6 때 올리지 않았던 것을 맞춤)
+const VERSION = "v1.16";                        // 로그 [RENDER] tool= 에 찍힘 (v1.4~v1.6 때 올리지 않았던 것을 맞춤)
 const log = (stage, kv) => console.log(`[${stage}] [${new Date().toISOString().slice(0, 19)}Z] ` +
   Object.entries(kv).map(([k, v]) => `${k}=${typeof v === "string" && /\s/.test(v) ? JSON.stringify(v) : v}`).join(" "));
 
@@ -340,7 +341,7 @@ async function video() {
   else if (/K\.cover\(/.test(html) && THUMB && !preview) {      // v1.14 첫 문장 그림에 빈 단색 띠(여백)가 있으면 최종본을 만들지 않음
     const cc = spawnSync("python3", [path.join(ROOT, "tools", "cover_check.py"), THUMB], { encoding: "utf-8" });
     process.stdout.write(cc.stdout || "");
-    if (cc.status !== 0) fail("RENDER", "첫 문장 그림(쇼츠 썸네일)에 빈 띠·여백이 있음 — 사진이 화면 끝까지 차야 함", `guides/thumbnail_guide.md 12번 프롬프트로 ChatGPT 에서 다시 → Claude 검수 (python3 tools/cover_check.py ${path.relative(ROOT, THUMB)})`);
+    if (cc.status !== 0) fail("RENDER", "첫 문장 그림(쇼츠 썸네일) 배치 검사 ❌ — 위 [COVER] 줄의 까닭 (재테크 쇼츠 = 세 칸: 위 검정 + 문구 2줄 · 가운데 사진 · 아래 검정, 글자·사진은 높이 15~85% / 주식 쇼츠 = 사진이 화면 끝까지)", `guides/thumbnail_guide.md 12번 프롬프트로 ChatGPT 에서 다시 → Claude 검수 (python3 tools/cover_check.py ${path.relative(ROOT, THUMB)})`);
   }
   const F0 = Math.round(from * fps), F1 = Math.ceil(to * fps);
   const workers = Math.max(1, Math.min(Number(opt("workers", Math.max(1, os.cpus().length - 1))), 6));

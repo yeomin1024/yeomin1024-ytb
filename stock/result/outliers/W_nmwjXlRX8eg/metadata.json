@@ -1,0 +1,88 @@
+{
+ "id": "nmwjXlRX8eg",
+ "title": "How To Start Investing Even If You’re Broke ft. Aristotle Investments | Cannon's Class TV",
+ "channel": "Cannons Class TV",
+ "channel_id": "UCsCOjSr6qW9eU2SSTO7CpsQ",
+ "subs": 19900,
+ "views": 234455,
+ "ratio": 11.78,
+ "age_days": 161,
+ "views_per_day": 1456.2,
+ "minutes": 15.3,
+ "likes": 5633,
+ "comments": 374,
+ "published": "2026-05-08",
+ "queries": "검색:stock market investing",
+ "url": "https://www.youtube.com/watch?v=nmwjXlRX8eg",
+ "flag": "외국 영상",
+ "published_at": "2026-05-08T19:00:46Z",
+ "rank": "W2",
+ "set": "web",
+ "folder": "W_nmwjXlRX8eg",
+ "sources": [
+  "검색:stock market investing"
+ ],
+ "source": "web",
+ "tags": [
+  "Aristotle Investments",
+  "how to invest for beginners",
+  "stock market explained",
+  "options trading for beginners",
+  "self-made millionaire story",
+  "military barber to millionaire",
+  "best investing apps Acorns Robinhood ThinkorSwim",
+  "SPY S&P 500",
+  "buying the dip strategy",
+  "dollar cost averaging",
+  "technical analysis fundamentals",
+  "Yahoo Finance tutorial",
+  "invest $100 a week",
+  "11 year millionaire plan",
+  "stop buying Jordans invest in Nike",
+  "Cannons Class TV"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Introduction & Aristotle's Journey to Self-Made Millionaire"
+  },
+  {
+   "start": 101,
+   "title": "Investing 101: Stocks, Shares & Options Explained"
+  },
+  {
+   "start": 181,
+   "title": "How to Analyze Stocks (Fundamentals & Technicals)"
+  },
+  {
+   "start": 268,
+   "title": "Understanding the Market: SPY, QQQ & Dollar Cost Averaging"
+  },
+  {
+   "start": 373,
+   "title": "How to Start Investing (Apps, Amounts & First Steps)"
+  },
+  {
+   "start": 677,
+   "title": "Market Hierarchy: Brokers, Algorithms & Hedge Funds"
+  },
+  {
+   "start": 829,
+   "title": "The Road to a Million: Day Trading & Building Wealth"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:20까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 374,
+ "comments_top_level": 200,
+ "comments_replies": 174,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 374,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:21:09",
+ "approved": "2026-10-17T16:21+09:00"
+}

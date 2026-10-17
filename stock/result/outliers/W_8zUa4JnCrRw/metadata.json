@@ -1,0 +1,98 @@
+{
+ "id": "8zUa4JnCrRw",
+ "title": "I Let AI Invest for Me on Trading 212, Here's What Happened",
+ "channel": "Financial Interest",
+ "channel_id": "UC7tkDwlo_2KZeWAQF7RpnQQ",
+ "subs": 19400,
+ "views": 447340,
+ "ratio": 23.06,
+ "age_days": 56,
+ "views_per_day": 7988.2,
+ "minutes": 11.8,
+ "likes": 3654,
+ "comments": 193,
+ "published": "2026-08-21",
+ "queries": "검색:stock market for beginners",
+ "url": "https://www.youtube.com/watch?v=8zUa4JnCrRw",
+ "flag": "외국 영상",
+ "published_at": "2026-08-21T12:48:05Z",
+ "rank": "W1",
+ "set": "web",
+ "folder": "W_8zUa4JnCrRw",
+ "sources": [
+  "검색:stock market for beginners"
+ ],
+ "source": "web",
+ "tags": [
+  "personal finance",
+  "investing",
+  "AI",
+  "chatgpt",
+  "claude ai",
+  "grok",
+  "supergrok",
+  "investing challenge",
+  "portfolio update",
+  "using ai to invest",
+  "can ai help you invest",
+  "ai financial advice",
+  "which ai is the best",
+  "I used ai",
+  "ai investing",
+  "chatgpt investing",
+  "claude investing",
+  "grok investing"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "The setup"
+  },
+  {
+   "start": 44,
+   "title": "Introducing the contestants"
+  },
+  {
+   "start": 83,
+   "title": "The initial prompt"
+  },
+  {
+   "start": 165,
+   "title": "Building the AI portfolios"
+  },
+  {
+   "start": 210,
+   "title": "Making the first investments"
+  },
+  {
+   "start": 243,
+   "title": "The results"
+  },
+  {
+   "start": 336,
+   "title": "Each AI's portfolio breakdown"
+  },
+  {
+   "start": 528,
+   "title": "Who did AI think would win?"
+  },
+  {
+   "start": 656,
+   "title": "Who wins long term?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:20까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en-US",
+ "foreign": true,
+ "comments_fetched": 193,
+ "comments_top_level": 122,
+ "comments_replies": 71,
+ "comments_by_creator": 16,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 193,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:21:07",
+ "approved": "2026-10-17T16:21+09:00"
+}

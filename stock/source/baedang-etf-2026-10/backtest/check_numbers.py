@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.2 — 2026-10-17 — 대본 v1.2 (페르소나 피드백 — 사용자가 붙인 ChatGPT 결과 2026-10-17 '네 영상에 반복되는 문제 5개'): 경주는 역전·폭락·회복만,
+# VERSION: v1.3 — 2026-10-17 — 대본 v1.3 (페르소나 검토 2차): '매달 첫 거래일' · 비교가 바뀔 때 까닭 · '원천징수' 낱말 뺌 · 100만 이상 어림 두 자리 (numcheck v1.2).
+# v1.2 — 2026-10-17 — 대본 v1.2 (페르소나 피드백 — 사용자가 붙인 ChatGPT 결과 2026-10-17 '네 영상에 반복되는 문제 5개'): 경주는 역전·폭락·회복만,
 #          금액은 어림('약 48만 달러' = numcheck.about)·배수·%, 숫자와 뜻을 한 문장에, 소수점 주식 문장, 한계에 결정 조건.
 # v1.1 — 2026-10-17 — 대본 v1.1 (도입 + 규칙 24초 — 사용자 지시 2026-10-17 '테스트 들어가기 전 도입 및 규칙 설명 30초 넘기지 말라고'): 규칙 문장 2개로, 15% 세율 문장은 '다른 조건', 구조(배당 한 번)는 결과 뒤.
 # v1.0 — 2026-10-16 — 최초. 대본 baedang-etf-2026-10.txt 숫자 검사 — 결과 = results.json (run.py v1.0). 공통 부품 tools/backtest/numcheck.py v1.0.
@@ -30,7 +31,8 @@ def ye(anchor, y, both=True):
 
 
 # ---- 규칙
-n = S("2011년부터 매달 1,000달러씩"); need(n, f"{M['start'][:4]}년부터", "시작 해 (날짜 전부는 화면)"); need(n, won(R["monthly"]), "매달")
+n = S("2011년부터 매달 첫 거래일에 1,000달러씩"); need(n, f"{M['start'][:4]}년부터", "시작 해 (날짜 전부는 화면)"); need(n, won(R["monthly"]), "매달")
+cond(n, True, "매달 첫 거래일 적립 (run.py 머리 · income.month_starts)", "첫 거래일")
 n = S("배당은 15%를 떼고"); cond(n, R["tax"] == 0.15, "tax", "15%"); cond(n, R["fee"] == 0.0025, "fee", "0.25%")
 # ---- 경주
 E = R["div_example"]
@@ -80,7 +82,7 @@ for y, anchor, word in [("2022", "2022년에는 SCHD", "하락"), ("2023", "2023
     n = S(anchor); cond(n, True, "", f"{y}년"); need(n, pct(AT[y]["SCHD"]), f"{y} SCHD"); need(n, pct(AT[y]["SPY"]), f"{y} SPY"); cond(n, (AT[y]["SCHD"] < 0) == (word == "하락") and (AT[y]["SPY"] < 0) == (word == "하락"), f"{y} {word}")
 # ---- 다른 조건
 T0, T3, SA, LP = R["tax_checks"]["0.00"], R["tax_checks"]["0.30"], R["sell_all"], R["lump"]
-cond(S("15%는 많은 나라가"), True, "가정 (세율은 나라마다 다름 — run.py TAX)", "15%")
+cond(S("15%는 많은 나라 투자자가 미국 배당을"), True, "가정 (세율은 나라마다 다름 — run.py TAX)", "15%")
 n = S("세금을 0%로 하면"); need(n, f"SCHD {about(T0['a_end'])}", "0% SCHD (어림)"); need(n, f"SPY {about(T0['b_end'])}", "0% SPY (어림)"); cond(n, True, "", "0%")
 need(S("세금이 없어도 SPY가"), X(T0["b_over_a"]), "0% 비")
 n = S("30%를 떼면"); need(n, X(T3["b_over_a"]), "30% 비"); cond(n, T3["b_over_a"] > M["b_over_a"], "커짐", "30%")
@@ -92,6 +94,7 @@ n = S("처음에 10만 달러를 한 번에"); need(n, won(R["lump"]["paid"]), "
 n = S("SCHD 약 61만"); need(n, f"SCHD {about(LP['a_end'])}", "한 번 SCHD (어림)"); need(n, f"SPY {about(LP['b_end'])}", "한 번 SPY (어림)"); need(n, X(LP["b_over_a"]), "한 번 비")
 # ---- 시작 시점
 R5, R10 = R["rolling"]["5y"], R["rolling"]["10y"]
+n = S("2011년 11월이라는 시작이"); need(n, ym(M["start"]), "본 실험 시작 달")
 n = S("달마다 시작한 5년 적립 계좌를"); need(n, ym(R5["first_start"]), "첫 시작"); need(n, ym(R5["last_start"]), "마지막 시작"); cond(n, R5["years"] == 5, "", "5년")
 need(S("모두 120개입니다"), f"{R5['windows']}개", "5년 계좌 수")
 need(S("SCHD가 더 많이 남은 건 120개 중"), f"{R5['windows']}개 중 {R5['a_gt_b']}개", "SCHD 많음")
@@ -118,4 +121,4 @@ need(S("SCHD가 앞선 계좌도 있었지만"), f"{R5['windows']}개 중 {R5['a
 n = S("10년 계좌 119개 중 114개"); need(n, f"{RV['windows']}개 중 {RV['b_gt_a']}개", "VYM 10년 SPY 많음"); cond(n, True, "", "2006년"); cond(n, True, "", "10년")
 # ---- 한계
 n = S("2022년처럼 22.2% 줄어드는 해를"); need(n, pct(y22["b"]["drop"]), "SPY 2022 하락 (하락장과 같은 값)"); cond(n, True, "", "2022년")
-sys.exit(C.report(HERE.parent / "checklist.md", "baedang-etf-2026-10 숫자 검사 (`backtest/check_numbers.py` v1.2)", f"`backtest/results.json` ({R['version']})"))
+sys.exit(C.report(HERE.parent / "checklist.md", "baedang-etf-2026-10 숫자 검사 (`backtest/check_numbers.py` v1.3)", f"`backtest/results.json` ({R['version']})"))

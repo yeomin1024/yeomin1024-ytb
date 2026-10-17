@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.2 — 2026-10-17 — 대본 v1.2 (페르소나 피드백 — 사용자가 붙인 ChatGPT 결과 2026-10-17 '네 영상에 반복되는 문제 5개'): 경주는 역전·폭락·회복만,
+# VERSION: v1.3 — 2026-10-17 — 대본 v1.3 (페르소나 검토 2차): XYLD·JEPI 앞에 까닭 한마디 · '콜옵션'·'원천징수' 낱말 뺌 · 다시 매수 장 까닭 — 새 문장 기준.
+# v1.2 — 2026-10-17 — 대본 v1.2 (페르소나 피드백 — 사용자가 붙인 ChatGPT 결과 2026-10-17 '네 영상에 반복되는 문제 5개'): 경주는 역전·폭락·회복만,
 #          금액은 원금 대비 % · 배수 · 어림('약 56만 달러' = numcheck.about), 숫자와 뜻을 한 문장에, 세금 문장 '계산에 넣지 않았어요', 한계에 결정 조건.
 # v1.1 — 2026-10-17 — 대본 v1.1 (도입 + 규칙 23초 — 사용자 지시 2026-10-17 '테스트 들어가기 전 도입 및 규칙 설명 30초 넘기지 말라고'): 규칙 문장 3개로, 원금 점선 문장은 경주 첫머리, 구조(하루 움직임)는 결과 뒤.
 # v1.0 — 2026-10-16 — 최초. 대본 keobeodeu-kol-2026-10.txt (130문장) 숫자 검사 — 결과 = results.json (run.py v1.0).
@@ -96,7 +97,8 @@ need(S("QYLD 계좌는 81개가"), f"{r3['a_below_initial']}개", "3년 QYLD 원
 n = S("그래도 118개 모두"); need(n, f"{r3['b_gt_a']}개", "3년 QQQ > QYLD"); cond(n, r3["b_gt_a"] == r3["windows"], "모두")
 # ---- 다른 커버드콜
 X, J, RX = R["pairs"]["xyld"], R["pairs"]["jepi"], R["rolling_xyld_5y"]
-cond(S("S&P 500 커버드콜 XYLD"), True, "", "500")
+cond(S("덜 흔들리는 S&P 500 커버드콜, XYLD를"), True, "", "500")
+cond(S("QYLD가 따르는 나스닥100은"), True, "QYLD 기초 지수 = 나스닥100 (지수 변동성이 S&P 500 보다 큼 — 일반 사실, 숫자 없음)", "100")
 n = S("2013년 6월부터"); need(n, ym(X["start"]), "XYLD 시작"); need(n, f"{X['years']:.1f}년", "기간"); need(n, about(X["out_total"]), "꺼낸 돈 (어림)")
 n = S("XYLD 계좌는 원금보다"); need(n, pct(X["a_vs_initial"] - 1), "XYLD 원금 대비"); need(n, times(X["b_end"] / I), "SPY ÷ 원금"); cond(n, X["a_end"] > I, "원금 위")
 n = S("5년 계좌 100개에서도"); need(n, f"{RX['windows']}개", "XYLD 5년 계좌 수"); cond(n, RX["b_gt_a"] == RX["windows"], "모두 SPY > XYLD", "5년")
@@ -105,11 +107,11 @@ n = S("2020년 5월부터"); need(n, ym(J["start"]), "JEPI 시작"); need(n, f"{
 n = S("JEPI 계좌는 원금보다"); need(n, pct(J["a_vs_initial"] - 1), "JEPI 원금 대비"); need(n, times(J["b_end"] / I), "SPY ÷ 원금"); cond(n, J["a_end"] > I, "원금 위")
 # ---- 다른 조건
 T, RV = M["tax15"], M["reinvest"]
-cond(S("15%를 원천징수하는 나라가"), True, "가정 (세율은 나라마다 다름 — run.py TAX_CHECK)", "15%")
+cond(S("받을 때 15%를 미리 떼는 나라가"), True, "가정 (세율은 나라마다 다름 — run.py TAX_CHECK)", "15%")
 n = S("15%를 떼면"); need(n, about(T["out_total"]), "세후 꺼낸 돈 (어림)"); cond(n, True, "", "15%")
 need(S("QQQ 계좌도 그만큼만"), about(T["b_end"]), "세후 QQQ 끝 (어림)")
 n = S("주식 수가 같아서"); need(n, about(T["a_end"]), "세후 QYLD 끝 (어림)"); cond(n, abs(T["a_end"] - M["a_end"]) < 0.01, "세전과 같음")
-n = S("QYLD는 약 29만"); need(n, about(RV["a_end"]), "다시 매수 QYLD (어림)"); need(n, about(RV["b_end"]), "다시 매수 QQQ (어림)")
+n = S("그렇게 했다면, QYLD는 약 29만"); need(n, about(RV["a_end"]), "다시 매수 QYLD (어림)"); need(n, about(RV["b_end"]), "다시 매수 QQQ (어림)")
 need(S("다시 매수해도 QQQ 쪽이"), f"{RV['b_over_a']:.2f}배", "QQQ ÷ QYLD (다시 매수)")
 # ---- 정리
 n = S("분배금을 매달 꺼내 쓴 QYLD 계좌는"); need(n, f"{M['years']:.1f}년", "기간"); need(n, pct(1 - M["a_vs_initial"]), "원금 감소")
@@ -121,5 +123,5 @@ cond(S("떨어질 때는 많이 따라"), CAP["down_capture"] > CAP["up_capture"
 cond(S("이 기간 나스닥100과 S&P 500은"), True, "", "100")
 cond(S("이 기간 나스닥100과 S&P 500은"), True, "", "500")
 n = S("2022년처럼 37.8% 줄어드는 때를"); need(n, pct(dn["b"]["drop"]), "QQQ 2022 하락 (긴 하락과 같은 값)"); cond(n, True, "", "2022년")
-sys.exit(C.report(HERE.parent / "checklist.md", "keobeodeu-kol-2026-10 숫자 검사 (`backtest/check_numbers.py` v1.2)",
+sys.exit(C.report(HERE.parent / "checklist.md", "keobeodeu-kol-2026-10 숫자 검사 (`backtest/check_numbers.py` v1.3)",
                   f"`backtest/results.json` ({R['version']})"))

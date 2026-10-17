@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v3.1 — 2026-10-17 — 대본 v3.1 (페르소나 피드백 — 사용자가 붙인 ChatGPT 검토 2026-10-17 '네 영상에 반복되는 문제 5개'): 경주 해설을 대표 장면만
+# VERSION: v3.2 — 2026-10-17 — 대본 v3.2 (페르소나 검토 2차 — 비교가 바뀔 때 까닭 한마디 · 전문용어(골든 크로스·모멘텀) 대신 풀어서 · '10달' → '10개월'): 새 문장 기준·조건.
+# v3.1 — 2026-10-17 — 대본 v3.1 (페르소나 피드백 — 사용자가 붙인 ChatGPT 검토 2026-10-17 '네 영상에 반복되는 문제 5개'): 경주 해설을 대표 장면만
 #          (해마다 판정 문장 뺌), 무작위 계좌를 만든 방법(같은 매도 규칙 · 날짜만 무작위 · 기다린 날 수는 그 방법 기록에서) 조건 검사, 결과 + 뜻을 한 문장,
 #          수수료는 도입에서 한계로, 범위만 말하는 방법(mom21·x20)은 result(mean=False).
 # v3.0 — 2026-10-16 — 대본 v3.0 (성공률 — +5% 가 −2% 보다 먼저 · 무작위 매수 2천 개와 견줌) 숫자 검사. 결과 = barrier/results.json (barrier/run.py v2.0).
@@ -202,7 +203,7 @@ result(k, "결과는 판정 63번 중 31번", "무작위 평균 47.1%, 범위 41
 # ---- 3 1개월 모멘텀
 k = "mom21"; f = F(k)
 cond(S("오늘 종가가 21 거래일 전 종가보다"), "21" in P["rules"][k]["condition"], P["rules"][k]["condition"], "21")
-cond(S("세 번째, 1개월 모멘텀"), "21" in P["rules"][k]["condition"], "21 거래일 ≈ 1개월", "1개월")
+cond(S("세 번째는 신고가가 아니어도, 한 달 전보다"), "21" in P["rules"][k]["condition"], "21 거래일 ≈ 한 달 (v3.2 — '1개월 모멘텀' 낱말 뺌)")
 x = lead_lag(k, "lead", "2020년 6월에는 성공률 63.0%로", "2020-06", "2020년 6월")
 cond(S("2020년 6월에는 성공률 63.0%로"), x["rate"] - x["rand"] > 0.1, f"크게 앞섬 ({(x['rate'] - x['rand']) * 100:+.1f}%p)")
 yr_count(k, "하지만 2022년에는 판정 12번 중 10번이 실패", [2022], "판정 {d}번 중 {l}번이 실패", ["2022년"])
@@ -212,7 +213,7 @@ cond(S("무작위 범위 43.3%에서 52.6%의 위쪽 끝"), RU[k]["rand_p95"] - 
 
 # ---- 4 20일선 돌파
 k = "x20"; f = F(k)
-cond(S("네 번째, 20일 이동평균선 돌파"), "20일" in P["rules"][k]["condition"], P["rules"][k]["condition"], "20일")
+cond(S("네 번째는 차트에 많이 그리는 20일 평균선"), "20일" in P["rules"][k]["condition"], P["rules"][k]["condition"], "20일")
 cond(S("종가가 20일 평균을 아래에서 위로"), "20일" in P["rules"][k]["condition"], "", "20일")
 streak(k, "win", "2016년 7월부터 2018년 1월까지 다섯 번 연속 성공", 5, "2016-07", "2018-01", ["2016년 7월", "2018년 1월"])
 x = lead_lag(k, "lead", "2021년 12월에는 성공률 64.7%로", "2021-12", "2021년 12월")
@@ -225,9 +226,8 @@ cond(S("지금까지 본 네 가지 중 가장 높아요"), max(ORDER[:4], key=l
 
 # ---- 5 골든 크로스 5·20
 k = "gc520"; f = F(k)
-n = S("다섯 번째, 5일선과 20일선의 골든 크로스")
-cond(n, "5일" in P["rules"][k]["condition"] and "20일" in P["rules"][k]["condition"], P["rules"][k]["condition"], "5일선"); cond(n, True, "", "20일선")
-n = S("5일 평균이 20일 평균을 아래에서 위로")
+cond(S("다섯 번째는 평균선 두 개를 함께"), "5일" in P["rules"][k]["condition"] and "20일" in P["rules"][k]["condition"], P["rules"][k]["condition"])
+n = S("짧은 5일 평균이 긴 20일 평균을 아래에서 위로")
 cond(n, True, P["rules"][k]["condition"], "5일"); cond(n, True, "", "20일")
 c = f["longest_cash"]
 n = S("2017년 9월에 매도한 뒤, 다음 매수는 2018년 2월")
@@ -263,7 +263,7 @@ cond(S("40 아래면 많이 떨어진 상태로"), "< 40" in P["rules"][k]["cond
 x = lead_lag(k, "lead", "2019년 11월에는 성공률 61.9%로", "2019-11", "2019년 11월")
 cond(S("2019년 11월에는 성공률 61.9%로"), x["rate"] - x["rand"] > 0.1, f"크게 앞섬 ({(x['rate'] - x['rand']) * 100:+.1f}%p)")
 covid(k, "2020년 코로나 폭락 때는 판정 7번 중 5번이 실패", "판정 {d}번 중 {l}번이 실패")
-cash(k, "2020년 11월에 매도한 뒤로는 10달 넘게", "2020-11", 304, 335, ["2020년 11월", "10달"])
+cash(k, "2020년 11월에 매도한 뒤로는 10개월 넘게", "2020-11", 304, 335, ["2020년 11월", "10개월"])
 yr_count(k, "2022년에는 판정 14번 중 11번이 실패", [2022], "판정 {d}번 중 {l}번이 실패", ["2022년"])
 need(S("그래서 주식을 든 날은 35%뿐이었습니다"), f"{RU[k]['invested_share'] * 100:.0f}%", "rsi40 주식 보유 비율")
 result(k, "결과는 판정 62번 중 30번", "무작위 평균은 46.7%, 범위는 38.0%")
@@ -301,6 +301,7 @@ result(k, "결과는 판정 59번 중 29번", "무작위 평균은 46.5%, 범위
 # ---- 10 고점 −5%
 k = "dd5"; f = F(k)
 cond(S("마지막 열 번째, 그때까지 최고 종가보다 5%"), "0.95" in P["rules"][k]["condition"], P["rules"][k]["condition"], "5%")
+cond(S("아홉 번째보다 길게 본 저점 매수"), "20 거래일" in P["rules"]["dd20_5"]["condition"] and "20 거래일" not in P["rules"][k]["condition"], "dd20_5 = 최근 20 거래일 고점 · dd5 = 그때까지 최고 종가 (더 긺)")
 c = f["longest_cash"]
 n = S("이 방법도 2016년 7월에 매도한 뒤로는 1년 반 넘게")
 cond(n, c["after"].startswith("2016-07") and 1.5 < (days(c["after"], c["buy"]) - 1) / 365.25 < 2.0, f"dd5 가장 긴 현금 {c}", "2016년 7월"); cond(n, True, "", "1년")
@@ -332,6 +333,7 @@ need(n, f"{RU['x20']['share_random_ge'] * 100:.0f}%", "x20 이상인 무작위 �
 c1, c15, cl = CK["m0.010"], CK["m0.015"], CK["long1994_2015"]
 above = lambda c: [x for x in ORDER if c[x]["outside_90"] and c[x]["rate"] > c[x]["rand_p95"]]
 below = lambda c: [x for x in ORDER if c[x]["outside_90"] and c[x]["rate"] < c[x]["rand_p5"]]
+cond(S("실패 기준 2%가 너무 느슨했던"), P["m"] == 0.02, "본 실험 m = 2%", "2%")
 n = S("1%로 더 엄격하게 하면")
 need(n, p1(c1["every_day"]), "m 1% 아무 날 매수 성공률"); cond(n, True, "m = 1%", "1%")
 n = S("이때는 20일선 돌파만 범위 위로")
@@ -339,6 +341,7 @@ cond(n, above(c1) == ["x20"] and not below(c1), f"m 1%: 위 {above(c1)} 아래 {
 n = S("1.5%에서는 범위를 벗어난 방법이 없었고요")
 cond(n, not above(c15) and not below(c15), "m 1.5%: 범위 밖 없음", "1.5%")
 n = S("기간을 1994년부터 2015년으로 바꿔 봤어요")
+cond(n, True, "이번 10년 = 2016~", "10년")
 cond(n, cl["start"].startswith("1994") and cl["end"].startswith("2015"), f"{cl['start']}~{cl['end']}", "1994년"); cond(n, True, "", "2015년")
 n = S("이 기간엔 20일선 돌파가 33.3%로")
 need(n, p1(cl["x20"]["rate"]), "1994~2015 x20 성공률")
@@ -379,7 +382,7 @@ for n, s in enumerate(SENT, 1):
         tok = tok.rstrip(",.")
         if tok not in covered.get(n, set()):
             nums_bad.append(f"문장 {n}: '{tok}' — {s}")
-L = ["# eonje-maesu-2026-10 숫자 검사 (`backtest/check_numbers.py` v3.1)", "",
+L = ["# eonje-maesu-2026-10 숫자 검사 (`backtest/check_numbers.py` v3.2)", "",
      f"- 대본 `eonje-maesu-2026-10.txt` {len(SENT)}문장 · 결과 `backtest/barrier/results.json` ({R['version']}, {R['made_at']})",
      f"- 검사 {len(checks)}개 · 맞음 {len(checks) - bad} · 틀림 {bad} · 검사표에 없는 숫자 {len(nums_bad)}", "",
      "| 문장 | 대본 | 찾는 글자 | 근거 | 결과 |", "|---:|---|---|---|---|"] + rows

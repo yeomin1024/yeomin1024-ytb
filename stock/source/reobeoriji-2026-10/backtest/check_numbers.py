@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.2 — 2026-10-17 — 대본 v1.2 (페르소나 피드백 — 사용자가 붙인 ChatGPT 결과 2026-10-17 '네 영상에 반복되는 문제 5개'): 경주는 역전·폭락·회복만,
+# VERSION: v1.3 — 2026-10-17 — 대본 v1.3 (페르소나 검토 2차): '매달 첫 거래일' · 배당 다시 넣음 · 시작 시점·실제 ETF 앞 까닭 · '13주 국채' → '석 달짜리 금리' ·
+#          1.02% 를 맞춘 기간(QLD 2006-06~) · 넣은 돈도 어림 · 100만 이상 어림 두 자리 (numcheck v1.2).
+# v1.2 — 2026-10-17 — 대본 v1.2 (페르소나 피드백 — 사용자가 붙인 ChatGPT 결과 2026-10-17 '네 영상에 반복되는 문제 5개'): 경주는 역전·폭락·회복만,
 #          금액은 어림(numcheck.about)·배수·넣은 돈 대비 %, 숫자와 뜻을 한 문장에, 규칙 문장에 2·3배 계산 방법, 한계에 결정 조건.
 # v1.1 — 2026-10-17 — 대본 v1.1 (도입 + 규칙 24초 — 사용자 지시 2026-10-17 '테스트 들어가기 전 도입 및 규칙 설명 30초 넘기지 말라고'): 계산 방법 문장은 '실제 ETF' 앞, 매일 맞추기는 결과 뒤 · 코로나 3배 최저 vs 넣은 돈 · 2025 1배·2배 하락 문장 더함.
 # v1.0 — 2026-10-16 — 최초. 대본 reobeoriji-2026-10.txt 숫자 검사 — 결과 = results.json (run.py v1.0). 공통 부품 tools/backtest/numcheck.py v1.0.
@@ -10,6 +12,8 @@ import sys
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
+_qm = HERE.parents[2] / "data" / "yahoo_qld_daily.csv.meta.json"                   # v1.3 QLD 첫 거래일 (저장소 밖 자료 — 없으면 적힌 값)
+QLD_FIRST = json.loads(_qm.read_text("utf-8"))["first"] if _qm.exists() else "2006-06-21"
 sys.path.insert(0, str(HERE.parents[3] / "tools"))
 from backtest import numcheck as nc  # noqa: E402
 from backtest.numcheck import won, about, pct, pcts, ym, md, ymd  # noqa: E402
@@ -36,7 +40,7 @@ def W_(x):
 cond(S("나스닥100을 2배, 3배로"), True, "", "100"); cond(S("나스닥100을 2배, 3배로"), True, "", "2배"); cond(S("나스닥100을 2배, 3배로"), True, "", "3배")
 n = S("1배·2배·3배를 백테스트로"); [cond(n, True, "", t) for t in ("1배", "2배", "3배")]; cond(n, R["start"].startswith("1999"), "시작 해 (날짜 전부는 화면)", "1999년")
 n = S("2배와 3배는 QLD·TQQQ처럼"); cond(n, R["er_lev"] > 0 and R["track"]["spread"] > 0, "매일 L × 지수 하루 수익률 − 보수 − (L−1) × (금리 + 웃돈) — 비용 = 보수·이자", "2배"); cond(n, True, "", "3배"); cond(n, True, "", "2배·3배")
-n = S("매달 500달러씩 매수하고"); need(n, won(R["monthly"]), "매달"); cond(n, R["fee"] == 0.0025, "", "0.25%")
+n = S("매달 첫 거래일에 500달러씩 매수하고"); need(n, won(R["monthly"]), "매달"); cond(n, True, "매달 첫 거래일 (run.py 머리 · income.month_starts)", "첫 거래일"); cond(n, R["fee"] == 0.0025, "", "0.25%")
 # ---- 매일 맞추기 (장난감 예 — 코드로 셈)
 cond(S("3배는 왜 폭락 때"), True, "", "3배")
 T = R["toy"]
@@ -49,7 +53,8 @@ n = S("그해 2배는 8.6%"); need(n, pct(YR["2018"]["x2"]), "2018 2배"); need(
 # ---- 경주
 n = S("파란 선이 1배"); [cond(n, True, "", t) for t in ("1배", "2배", "3배")]
 cond(S("세로 눈금은 한 칸 오를 때마다"), True, "로그 눈금", "10배")
-v = Y["1999"]; n = S("1999년 말, 3배 계좌는"); need(n, won(v["paid"]), "1999 넣은 돈"); need(n, X2(v["x3"] / v["paid"]), "3배 ÷ 넣은 돈"); cond(n, True, "", "1999년"); cond(n, True, "", "3배")
+v = Y["1999"]; cond(S("나스닥100의 배당을 다시 넣은 값"), True, "1배 = QQQ 총수익(tr, 배당 재투자) · 2·3배 = 나스닥100 총수익(QQQ 총수익 + 보수 0.20%) 하루 수익률 × 배수 (run.py idx_tr)", "100")
+n = S("1999년 말, 3배 계좌는"); need(n, won(v["paid"]), "1999 넣은 돈"); need(n, X2(v["x3"] / v["paid"]), "3배 ÷ 넣은 돈"); cond(n, True, "", "1999년"); cond(n, True, "", "3배")
 cond(S("2000년 3월부터 닷컴"), R["dd_dotcom"]["x1"]["peak_date"].startswith("2000-03"), "1배 최고 2000-03", "2000년 3월")
 D3 = F["dot"]["x3"]
 n = S("2001년 3월 29일, 3배 계좌는"); need(n, ymd(D3["low_date"]), "3배 최저 날"); need(n, won(D3["paid_low"], thousand=True), "그날 넣은 돈"); need(n, pct(D3["vs_paid_low"]), "넣은 돈 대비"); cond(n, True, "", "3배")
@@ -88,9 +93,9 @@ n = S("2025년 4월 급락 때는"); need(n, f"3배 {pct(Q['drop'])}", "3배"); 
 cond(n, Q["low_date"].startswith("2025-04") and Q1["high_date"] == Q2["high_date"] == Q["high_date"] and Q1["low_date"] == Q2["low_date"] == Q["low_date"], f"같은 기간 ({Q['high_date']} → {Q['low_date']})", "2025년 4월")
 # ---- 결과
 need(S("2026년 10월 15일, 결과입니다"), ymd(R["end"]), "끝")
-n = S("세 계좌 모두 331번"); need(n, f"{round(M['paid'] / R['monthly'])}번", "매수 횟수"); need(n, won(M["paid"]), "넣은 돈")
-n = S("1배 계좌는 약 202만"); need(n, f"1배 계좌는 {about(M['x1'])}", "1배 끝 (어림)"); need(n, f"2배는 {about(M['x2'])}", "2배 끝 (어림)")
-n = S("3배 계좌는 약 1,731만"); need(n, about(M["x3"]), "3배 끝 (어림)"); cond(n, True, "", "3배")
+n = S("세 계좌 모두 331번"); need(n, f"{round(M['paid'] / R['monthly'])}번", "매수 횟수"); need(n, about(M["paid"]), "넣은 돈 (어림 — 정확한 값은 화면)")
+n = S("1배 계좌는 약 200만"); need(n, f"1배 계좌는 {about(M['x1'])}", "1배 끝 (어림)"); need(n, f"2배는 {about(M['x2'])}", "2배 끝 (어림)")
+n = S("3배 계좌는 약 1,700만"); need(n, about(M["x3"]), "3배 끝 (어림)"); cond(n, True, "", "3배")
 PK = F["peak"]["x3"]; n = S("3배 계좌가 가장 많았던 날은"); need(n, ymd(PK["date"]), "3배 가장 많던 날"); need(n, about(PK["val"]), "그날 3배 (어림)"); cond(n, True, "", "3배")
 n = S("3배가 1배의 8.55배, 2배는"); need(n, X2(M["x3_over_x1"]), "3배÷1배"); need(n, X2(M["x2_over_x1"]), "2배÷1배"); cond(n, True, "", "1배"); cond(n, True, "", "3배가"); cond(n, True, "", "2배는")
 n = S("2013년 7월 3일 뒤로"); need(n, ymd(F["x3_ahead_since"]["date"]), "날"); cond(n, F["x3_ahead_since"]["stayed"], "계속"); cond(n, True, "", "3배"); cond(n, True, "", "1배")
@@ -112,21 +117,25 @@ n = S("10년 뒤 3배가 1배보다"); need(n, f"{RO['windows']}개 중 {RO['x3_
 n = S("2배가 1배보다 많았던 건"); need(n, f"{RO['x2_gt_x1']}개", "2배>1배"); cond(n, True, "", "2배"); cond(n, True, "", "1배")
 n = S("넣은 돈보다 적게 남은 계좌는"); need(n, f"1배 {RO['x1_lt_paid']}개", "1배"); need(n, f"2배 {RO['x2_lt_paid']}개", "2배"); need(n, f"3배 {RO['x3_lt_paid']}개", "3배")
 n = S("가장 나빴던 건"); need(n, ym(RO["x3_worst"]["start"]), "3배÷1배 가장 작은 시작"); cond(n, RO["x3_worst"]["start"] == RO["x3_min"]["start"], "3배 값도 가장 작음")
-n = S("넣은 돈 6만 500달러가"); need(n, won(RO["x3_min"]["paid"]), "넣은 돈"); need(n, about(RO["x3_min"]["val"]), "3배 (어림)"); need(n, pct(RO["x3_worst"]["ratio"]), "3배÷1배"); cond(n, True, "", "3배"); cond(n, True, "", "1배")
+need(S("1999년 4월은 닷컴 폭락 바로 앞이라"), ym(R["start"]), "본 실험 시작 달 (닷컴 하락 2000-03~ 앞)")
+n = S("넣은 돈 약 6만 1천 달러가"); need(n, about(RO["x3_min"]["paid"]), "넣은 돈 (어림)"); need(n, about(RO["x3_min"]["val"]), "3배 (어림)"); need(n, pct(RO["x3_worst"]["ratio"]), "3배÷1배"); cond(n, True, "", "3배"); cond(n, True, "", "1배")
 n = S("가장 좋았던 건 2008년 9월"); need(n, ym(RO["x3_best"]["start"]), "가장 좋은 시작"); need(n, X2(RO["x3_best"]["ratio"]), "3배÷1배"); cond(n, True, "", "3배"); cond(n, True, "", "1배")
 n = S("25년 적립 계좌 31개에서는"); need(n, f"{R25['windows']}개", "25년 수"); cond(n, R25["x3_gt_x1"] == R25["windows"] == R25["x3_gt_x2"], "모두 3배 가장 많음", "25년"); cond(n, True, "", "3배")
 # ---- 실제 ETF
+n = S("계산한 2배·3배가 실제 ETF와"); cond(n, True, "", "2배"); cond(n, True, "", "3배")
 cond(S("2배와 3배 계좌는 이렇게"), True, "", "2배"); cond(S("2배와 3배 계좌는 이렇게"), True, "", "3배")
 n = S("두 ETF는 2006년과 2010년에"); cond(n, True, "QLD 2006-06-21 · TQQQ 2010-02-11 첫 거래일 (자료 meta)", "2006년"); cond(n, True, "", "2010년"); cond(n, True, "", "1999년")
 n = S("하루 수익률의 2배, 3배를"); cond(n, True, "", "100"); cond(n, True, "", "2배"); cond(n, True, "", "3배")
 cond(S("여기서 보수 0.95%와"), R["er_lev"] == 0.0095, "보수", "0.95%")
-n = S("미국 13주 국채 금리에"); need(n, pct(R["track"]["spread"], 2), "웃돈 s"); cond(n, True, "", "13주")
-need(S("실제 QLD 결과와 맞도록"), pct(R["track"]["spread"], 2), "웃돈 s")
+n = S("미국 정부의 석 달짜리 금리에"); need(n, pct(R["track"]["spread"], 2), "웃돈 s"); cond(n, True, "^IRX = 미국 13주(약 석 달) 국채 금리 (run.py irx)", "석 달")
+n = S("실제 QLD와 끝 값이 같도록"); need(n, pct(R["track"]["spread"], 2), "웃돈 s")
+cond(n, abs(R["track"]["qld"]["end_ratio_sim_over_real"] - 1) < 1e-6, "fit_spread: QLD 전 기간 끝 값 비 = 1")
+cond(n, QLD_FIRST.startswith("2006-06"), f"QLD 첫 거래일 {QLD_FIRST} (stock/data/yahoo_qld_daily.csv.meta.json — 없으면 2006-06-21 로 적힌 값)", "2006년 6월")
 need(S("같은 값으로 TQQQ를 계산하면"), pct(R["track"]["tqqq"]["cagr_gap"], 2), "TQQQ 연 차이"); cond(S("같은 값으로 TQQQ를 계산하면"), R["track"]["tqqq"]["cagr_gap"] < 0, "적게", "1년")
 RE, RS = R["real"], R["real_sim"]
 n = S("TQQQ가 생긴 다음 달"); need(n, ym(RE["start"]), "시작"); need(n, won(R["monthly"]), "매달")
 need(S("넣은 돈은 10만 달러입니다"), won(RE["paid"]), "넣은 돈")
-n = S("QQQ 약 62만"); need(n, f"QQQ {about(RE['x1'])}", "QQQ (어림)"); need(n, f"QLD {about(RE['x2'])}", "QLD (어림)"); need(S("TQQQ는 약 529만"), f"TQQQ는 {about(RE['x3'])}", "TQQQ (어림)")
+n = S("QQQ 약 62만"); need(n, f"QQQ {about(RE['x1'])}", "QQQ (어림)"); need(n, f"QLD {about(RE['x2'])}", "QLD (어림)"); need(S("TQQQ는 약 530만"), f"TQQQ는 {about(RE['x3'])}", "TQQQ (어림)")
 n = S("같은 기간 계산한 3배는"); need(n, about(RS["x3"]), "흉내 3배 (어림)"); cond(n, RS["x3"] < RE["x3"], "실제보다 적음", "3배")
 n = S("실제 TQQQ 계좌도 2022년에"); need(n, pct(R["real_dd2022"]["x3"]["dd"]), "실제 TQQQ 2022 하락"); need(n, pct(R["real_dd2022"]["x2"]["dd"]), "실제 QLD 2022 하락"); cond(n, True, "", "2022년")
 # ---- 정리
@@ -139,4 +148,4 @@ n = S("211개 중 20개는"); need(n, f"{RO['windows']}개 중 {RO['x3_lt_paid']
 cond(S("이 기간 나스닥100은"), True, "", "100")
 n = S("2배와 3배의 본 실험 값은"); cond(n, True, "", "2배"); cond(n, True, "", "3배")
 n = S("넣은 돈의 90% 안팎이 사라지는 때를 두 번"); cond(n, all(0.88 <= -x["vs_paid_low"] <= 0.93 for x in (D3, G3)), f"닷컴 {D3['vs_paid_low']} · 금융위기 {G3['vs_paid_low']} (88~93%)", "90%"); cond(n, True, "", "3배")
-sys.exit(C.report(HERE.parent / "checklist.md", "reobeoriji-2026-10 숫자 검사 (`backtest/check_numbers.py` v1.2)", f"`backtest/results.json` ({R['version']})"))
+sys.exit(C.report(HERE.parent / "checklist.md", "reobeoriji-2026-10 숫자 검사 (`backtest/check_numbers.py` v1.3)", f"`backtest/results.json` ({R['version']})"))

@@ -1,0 +1,105 @@
+{
+ "id": "2_Is4E0pWRk",
+ "title": "\"2억 밑으론 제발...\" 당신이 주식으로 돈을 못 버는 결정적인 이유 (분산투자의 함정)",
+ "channel": "1분브리핑룸",
+ "channel_id": "UCLQfTfj_LdogEciU0wVJ8Cw",
+ "subs": 4760,
+ "views": 184754,
+ "ratio": 38.81,
+ "age_days": 150,
+ "views_per_day": 1231.7,
+ "minutes": 0.7,
+ "seconds": 43,
+ "likes": 877,
+ "comments": 107,
+ "published": "2026-05-19",
+ "published_at": "2026-05-19T15:00:22Z",
+ "queries": "검색:분산투자",
+ "url": "https://www.youtube.com/shorts/2_Is4E0pWRk",
+ "flag": "",
+ "short_basis": "세로·정사각",
+ "hashtags": [
+  "분산투자",
+  "집중투자",
+  "주식투자전략",
+  "개인투자자",
+  "겸손은힘들다"
+ ],
+ "rank": "S38",
+ "set": "web_shorts",
+ "folder": "S_2_Is4E0pWRk",
+ "sources": [
+  "검색:분산투자"
+ ],
+ "source": "web_shorts",
+ "tags": [
+  "1분브리핑룸",
+  "1분뉴스",
+  "핵심요약",
+  "뉴스브리핑",
+  "1분요약",
+  "분산투자",
+  "집중투자",
+  "주식 투자 전략",
+  "개인투자자",
+  "소액주식투자",
+  "2억 투자",
+  "재테크 노하우",
+  "종목 분석",
+  "주식 초보",
+  "계좌 관리",
+  "수익률 극대화",
+  "투자 강박증",
+  "주식 격언",
+  "겸손은힘들다",
+  "뉴스공장"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "2억 미만 자산가들이 흔히 범하는 분산투자의 오류"
+  },
+  {
+   "start": 3,
+   "title": "가슴에 손을 얹고 생각해보라, 과연 분산할 위험이 있는가?"
+  },
+  {
+   "start": 8,
+   "title": "\"제 투자금은 천만 원인데...\" 소액 투자의 진짜 위험성"
+  },
+  {
+   "start": 13,
+   "title": "웬만한 규모의 개인 투자자들이 가진 '분산투자의 강박'"
+  },
+  {
+   "start": 21,
+   "title": "분산투자를 논하기 위한 자산의 명확한 기준: '2억'"
+  },
+  {
+   "start": 25,
+   "title": "일상에서의 큰돈과 주식 세계에서의 큰돈이 가진 차이"
+  },
+  {
+   "start": 33,
+   "title": "위험 대신 '수익'을 생각해야 할 때: 분산투자 대신 집중투자"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-17 13:18까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "zxx",
+ "foreign": false,
+ "comments_fetched": 107,
+ "comments_top_level": 83,
+ "comments_replies": 24,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 107,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-17T07:21:56",
+ "approved": "2026-10-17T16:21+09:00",
+ "kind": "shorts",
+ "embed_w": 4608,
+ "embed_h": 8192,
+ "cover": "oar2.jpg"
+}

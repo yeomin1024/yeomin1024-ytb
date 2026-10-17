@@ -1,5 +1,20 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-17 (84) — 쇼츠 썸네일 4장 다시 · ChatGPT 공통 규칙 '사진이 끝까지'
+
+### 왜 (사용자 지시)
+- "나머지도 변경 사항 있으면 썸네일 다시 그리도록 해 그리고 chatgpt 한테 줄 지시사항 변경한거 맞지 다시 확인해"
+
+### 한 것
+| 파일·대상 | 내용 |
+|---|---|
+| 쇼츠 썸네일 프롬프트 3편 (`eunte`·`isa`·`toejik` `shorts/thumbnails/thumbnail_1.md` → v2.0) | 새 제목에 맞춘 문구(동사·조사) · 사진이 화면 끝까지 ([A]·[B]·화면 구성·검수) · 옛 그림 → `rejected/` |
+| `tools/make_summary.py` (v1.7.1 → v1.8.0) | ChatGPT 규칙 3: 쇼츠는 사진 한 장이 네 가장자리까지 — '가장자리 8% 비운다' → '글자·얼굴만 두지 않는다(사진은 이어짐)' · 규칙 6: 조사·가장자리 빈 띠 확인. 시험 `test_make_summary_chatgpt` 13개 통과 |
+| `economic/thumbnails_chatgpt.md` | 4장 (쇼츠 4편) — 옛 말('dark navy'·'비운다') 없음 확인 |
+| `economic/out/<영상ID>-shorts/final_1080p.mp4` 4개 (git 밖) | `old_cover_2026-10-17.mp4` 로 비킴 (옛 표지 쇼츠를 올리지 않게) |
+| `guides/thumbnail_guide.md` (v3.8 → v3.8.1) · `CLAUDE.md` · `guides/status.md` (v1.58 → v1.59) | 피드백 20 (제목이 바뀌면 썸네일도 다시 · ChatGPT 공통 규칙 확인) · 2-2 0-10 |
+| 예약 작업 `trig_016McC7cifprr4ZuFA7oMEZX` | 쇼츠는 새 그림·새 렌더가 있을 때만 |
+
 ## 2026-10-17 (83) — 짝 공개 시각을 초기화 뒤로 · 쇼츠 제목 이름 없이 · 기초연금 쇼츠 썸네일 다시
 
 ### 왜 (사용자 지시)

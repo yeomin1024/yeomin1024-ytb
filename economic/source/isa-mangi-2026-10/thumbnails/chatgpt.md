@@ -1,6 +1,6 @@
 # isa-mangi-2026-10 썸네일 3장 — ChatGPT용 (읽고 그대로 만들고 저장소에 올리기)
 
-자동 생성 — `python tools/make_summary.py --chatgpt economic isa-mangi-2026-10` (2026-10-17 03:38). 이 파일은 고치지 말고 `thumbnail_N.md`를 고친 뒤 다시 만든다.
+자동 생성 — `python tools/make_summary.py --chatgpt economic isa-mangi-2026-10` (2026-10-17 04:21). 이 파일은 고치지 말고 `thumbnail_N.md`를 고친 뒤 다시 만든다.
 
 이 파일 주소: https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/economic/source/isa-mangi-2026-10/thumbnails/chatgpt.md
 
@@ -95,7 +95,7 @@ Upper 62% of the frame:
 Bottom title: in the lower third, over a dark band that fades upward from the bottom edge, two lines of huge heavy bold text, left-aligned near the left edge, both lines the same size:
 line 1 "50·60대 ISA 만기 돈 연금저축으로" — "50·60대" in white and "ISA 만기 돈 연금저축으로" in bright yellow #FFD400, all with a thick black outline (keep the middle dot "·" between 50 and 60, write ISA in capital Latin letters, and keep the last two letters "으로" — line 1 is the longer line: it may run to about 94% of the image width, but keep it at least 4% away from the right edge);
 line 2 "안 옮기면 3년에 96만 원 손해" — "안 옮기면" in white with a thick black outline, and "3년에 96만 원 손해" in bright red #FF2A2A with a thick white outline.
-The second line ends well before the bottom-right corner; keep the bottom-right corner empty for the video length badge. Keep the jar, the banknotes and the word tag in the upper part so they never cover the bottom title.
+The second line MUST end at or before 80% of the image width (x ≤ 1024 px of 1280): the right 18% of the width in the bottom 15% of the height must contain no text at all, because YouTube's video length badge covers that corner. If the second line does not fit, make both lines a little smaller rather than letting it run into that corner. Keep the jar, the banknotes and the word tag in the upper part so they never cover the bottom title.
 If 16:9 is not available, use the widest landscape canvas; in any case keep all text inside the central 16:9 area, at least 8% away from the top and bottom edges.
 Render ONLY the text given in quotes (Korean, plus the Latin letters ISA), exactly as written with the same letters and spacing, in a heavy bold sans-serif Korean font. No other text, letters, numbers, watermarks or logos anywhere.
 ```

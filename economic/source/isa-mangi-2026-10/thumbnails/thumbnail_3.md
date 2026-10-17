@@ -1,6 +1,6 @@
 # isa-mangi-2026-10 썸네일 3 — 실험안 ②: 사람 없이, 금이 간 유리 저금통에서 지폐가 새고 '세금'이 내리누름
 
-버전: v1.1 — 2026-10-17 — 하단 1줄 끝에 조사 '으로'를 살림 ('…연금저축으로 / 안 옮기면' — `thumbnail_1.md` v1.2 와 같음, 사용자 지시 2026-10-17 "야 대본 봤는데 '그냥 두면' 이라는 표현이 도대체 뭘 그냥 둔다는거야? 제발 애매모호하고 명확하고 익숙하고 이해하기 쉬운 표현을 사용하라고 너는 보면 다 알겠지만 저 분야 지식이 하나도 없는 사람이 보면 잘 모른다고 저런 표현 있으면 다 고쳐 영상 4개다 그리고 뭘 고쳤는지 나한테 알려줘"). 1줄이 길어져 [A]에 1줄 오른쪽 끝 자리를 적음. ⚠️ 통과했던 `thumbnail_3.png`(v1.0 문구)는 **다시 만들어야 함**. (v1.0 — 2026-10-16 — 대본 isa-mangi-2026-10.txt v1.0 기준. 사용자 지시(`thumbnail_1.md` 버전 줄과 같음). 근거: `README.md`.)
+버전: v1.1 — 2026-10-17 — 하단 1줄 끝에 조사 '으로'를 살림 ('…연금저축으로 / 안 옮기면' — `thumbnail_1.md` v1.2 와 같음, 사용자 피드백 2026-10-17 "너가 직접 시청자가 돼봐 제목, 대본 만으로 내용이 애매모호하거나 명확하지 않으면 이게 뭔지 알 수가 없다고"). 두 줄 모두 약 78px. [A]에 1·2편과 같은 **구석 칸 규칙**(2줄째는 가로 80% 앞에서 끝, 오른쪽 18%·아래 15% 칸에 글자 없음)을 넣음 — 1줄이 길어져 2줄째가 구석으로 밀리지 않게. 통과했던 그림(v1.0 문구)은 **다시 만든다** (`rejected/`). (v1.0 — 2026-10-16 — 대본 isa-mangi-2026-10.txt v1.0 기준. 사용자 지시(`thumbnail_1.md` 버전 줄과 같음). 근거: `README.md`.)
 
 | 항목 | 값 |
 |---|---|
@@ -37,7 +37,7 @@ Upper 62% of the frame:
 Bottom title: in the lower third, over a dark band that fades upward from the bottom edge, two lines of huge heavy bold text, left-aligned near the left edge, both lines the same size:
 line 1 "50·60대 ISA 만기 돈 연금저축으로" — "50·60대" in white and "ISA 만기 돈 연금저축으로" in bright yellow #FFD400, all with a thick black outline (keep the middle dot "·" between 50 and 60, write ISA in capital Latin letters, and keep the last two letters "으로" — line 1 is the longer line: it may run to about 94% of the image width, but keep it at least 4% away from the right edge);
 line 2 "안 옮기면 3년에 96만 원 손해" — "안 옮기면" in white with a thick black outline, and "3년에 96만 원 손해" in bright red #FF2A2A with a thick white outline.
-The second line ends well before the bottom-right corner; keep the bottom-right corner empty for the video length badge. Keep the jar, the banknotes and the word tag in the upper part so they never cover the bottom title.
+The second line MUST end at or before 80% of the image width (x ≤ 1024 px of 1280): the right 18% of the width in the bottom 15% of the height must contain no text at all, because YouTube's video length badge covers that corner. If the second line does not fit, make both lines a little smaller rather than letting it run into that corner. Keep the jar, the banknotes and the word tag in the upper part so they never cover the bottom title.
 If 16:9 is not available, use the widest landscape canvas; in any case keep all text inside the central 16:9 area, at least 8% away from the top and bottom edges.
 Render ONLY the text given in quotes (Korean, plus the Latin letters ISA), exactly as written with the same letters and spacing, in a heavy bold sans-serif Korean font. No other text, letters, numbers, watermarks or logos anywhere.
 ```
@@ -67,7 +67,7 @@ Absolutely no text, letters, numbers, logos or watermarks. Leave clean empty spa
 | 자리 | 1줄 윗선 = 아래 34%, 2줄 아랫선 = 6.8% (16:9라 잘림 없음) ✅ · 2줄째 끝 1280 기준 x 1033 → 구석 칸 앞에서 끝남, 구석에는 흩어진 지폐뿐(글자 없음) ✅ |
 | 인물·물건 | 사람 없음 ✅ · 밤 책상 위 뚜껑 있는 큰 유리병, 아래쪽 금 간 곳으로 지폐가 새어 나와 책상 밖으로 흘러내림 ✅ · 화살표 2개가 뚜껑을 내리누름 ✅ · 병에 글자·상표 없음, 지폐는 옅은 테두리 무늬만(초상·숫자 없음) ✅ · 스탠드·연필꽂이·모니터에도 글자 없음 ✅ |
 | 320px | 2줄과 「세금」 모두 읽힘 ✅ |
-| **판정** | ✅ 통과 (실험안 ②) — ⚠️ 2026-10-17 문구 v1.1('연금저축으로')로 바뀌어 이 그림은 다시 만든다 |
+| **판정** | ✅ 통과 (실험안 ②) — 2026-10-17 문구 v1.1('연금저축으로')로 바뀌어 이 그림은 `rejected/` 로, 다시 만든다 |
 - 재는 법: 원본에서 하단 2줄과 그림 속 낱말을 잘라 3~4배로 키워 한 글자씩 봄. '구석 칸' = 1280×720 기준 오른쪽 아래 220×70 (x 1060~, y 650~). '길이 표시 시험' = 가로 320·360·400px로 줄인 뒤 영상 길이 표시(320px 기준 약 38×18px, 가장자리 4px)를 얹어 2줄째 마지막 글자가 가려지는 비율을 셈.
 
 ## 결과 (업로드 후)

@@ -1,6 +1,6 @@
 # isa-mangi-2026-10-shorts 썸네일 1장 — ChatGPT용 (읽고 그대로 만들고 저장소에 올리기)
 
-자동 생성 — `python tools/make_summary.py --chatgpt economic isa-mangi-2026-10-shorts` (2026-10-17 03:38). 이 파일은 고치지 말고 `thumbnail_N.md`를 고친 뒤 다시 만든다.
+자동 생성 — `python tools/make_summary.py --chatgpt economic isa-mangi-2026-10-shorts` (2026-10-17 04:21). 이 파일은 고치지 말고 `thumbnail_N.md`를 고친 뒤 다시 만든다.
 
 이 파일 주소: https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/economic/source/isa-mangi-2026-10/shorts/thumbnails/chatgpt.md
 
@@ -28,7 +28,7 @@
 |---|---|---|
 | 그림 낱말 | 세금 | 흰 평면 글자 on 빨강 꼬리표 #FF2A2A |
 | 위 1줄 | 61세 ISA 만기 돈 | '61세' 흰색 · **'ISA 만기 돈' 노랑 #FFD400** — 모두 두꺼운 검정 외곽선 (ISA 는 라틴 대문자) |
-| 위 2줄 | 3년간 세금 96만 원 더 | **전부 빨강 #FF2A2A + 두꺼운 흰 외곽선**. 1줄보다 조금 크게 |
+| 위 2줄 | 3년간 세금 96만 원 더 냄 | **전부 빨강 #FF2A2A + 두꺼운 흰 외곽선**. 1줄보다 조금 크게 |
 
 - 노랑은 중요한 것(무엇 — 'ISA 만기 돈'), 빨강은 나쁜 상황(더 내는 세금 — 2줄과 꼬리표 '세금')에만 쓴다.
 
@@ -43,7 +43,7 @@ The same image is also used as a full-screen video frame: it is shown at the ver
 If 9:16 is not available, use a 2:3 portrait canvas (1024x1536); it will be center-cropped to 9:16, cutting about 8% from the left and right edges, so keep all text and faces well inside the middle of the width.
 Text area (from 14% to 33% of the height, on the plain dark navy background): two lines of huge heavy bold text, left-aligned starting at about 7% from the left edge, each line ending before 84% of the width:
 line 1 "61세 ISA 만기 돈" — "61세" in white and "ISA 만기 돈" in bright yellow #FFD400, both with a thick black outline (write ISA in capital Latin letters);
-line 2 "3년간 세금 96만 원 더", slightly larger than line 1 but still ending before 84% of the width — all in bright red #FF2A2A with a thick white outline.
+line 2 "3년간 세금 96만 원 더 냄", slightly larger than line 1 but still ending before 84% of the width (if it does not fit, make both lines a little smaller rather than letting line 2 pass 84%) — all in bright red #FF2A2A with a thick white outline.
 Scene (from 33% to 66% of the height), a bright company cafeteria at lunchtime with daylight from large windows, background softly blurred; the scene blends smoothly upward into the dark navy text area and downward into the dark bottom area:
 - Center-right (between about 38% and 82% of the width): a Korean office worker aged 61 who looks youthful for his age, like his mid 50s (short neat black hair with a little gray, light blue open-collar dress shirt, no tie, no ID badge), seated at a table in front of a plain lunch tray, shown from the chest up. He holds a spoon paused in mid-air and leans forward toward a smartphone, staring at its screen, frozen in disbelief, eyebrows raised and lips slightly parted. Natural, realistic expression, not exaggerated. Fictional person, not resembling any real or famous person.
 - Left side (between about 4% and 36% of the width, at about 50% to 60% of the height): only the forearm and hand of a colleague in a white shirt sleeve, reaching in from the left edge and holding the smartphone out toward him; no face of the colleague. The phone screen faces the man, not the viewer; only its soft glow is visible.

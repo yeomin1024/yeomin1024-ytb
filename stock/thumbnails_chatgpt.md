@@ -1,6 +1,6 @@
 # stock 썸네일 16장 — ChatGPT용 (모든 영상 · 읽고 그대로 만들고 각 저장 경로에 올리기)
 
-자동 생성 — `python tools/make_summary.py --chatgpt-all stock` (2026-10-17 12:22). 이 파일은 고치지 말고 영상마다 `thumbnail_N.md`를 고친 뒤 다시 만든다.
+자동 생성 — `python tools/make_summary.py --chatgpt-all stock` (2026-10-17 14:15). 이 파일은 고치지 말고 영상마다 `thumbnail_N.md`를 고친 뒤 다시 만든다.
 
 이 파일 주소: https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/stock/thumbnails_chatgpt.md
 
@@ -117,7 +117,7 @@ Fictional person, not resembling any real or famous person.
 Text: ONE big headline "SCHD > SPY ?" — written as "SCHD" in violet (#B48CFF), then ">" in bright yellow (#FFD400), then "SPY" in blue (#5AB4FF), then "?" in bright yellow (#FFD400) — placed across the top of the image, centered, between 6% and 34% of the height and about 70% of the width. Make the headline the most eye-catching thing in the image: huge (letters about 22% of the image height), very bold flat sans-serif (like Arial Black), with a thick dark outline and a soft glow so it pops off the background; the ">" sign is as big and bold as the letters and bright yellow, and the "?" is bright yellow. Flat 2D lettering — never 3D, never embossed, never curved, never in perspective. Make room for it: anything that would sit in that band (for example a chest or clouds) goes lower and smaller; keep it off any face. Spell everything exactly as written, character by character: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", ">", "+" and "?" stay exactly as written — never turn ">" into "<". These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs and objects have nothing else written on them. Keep the bottom-right corner empty.
 ```
 
-## 4. eonje-maesu-2026-10 · thumbnail_1 — 본안(클릭률 최대): 같은 크기의 두 받침대 — 매수 신호 버튼 10개 vs 주사위 — 사이에서 망설이는 사람, 뒤에는 초록(+5%)·빨강(−2%) 점선 사이의 가격 선, 위에 닫힌 상자
+## 4. eonje-maesu-2026-10 · thumbnail_1 — 본안(클릭률 최대): SPY 가격 선 위 '살 만한 순간' 고리 네 개 + 초록 BUY 버튼 위에서 망설이는 손가락 — 끝은 안개
 
 **저장 경로: `stock/source/eonje-maesu-2026-10/thumbnails/thumbnail_1.png`**
 
@@ -127,24 +127,23 @@ Text: ONE big headline "SCHD > SPY ?" — written as "SCHD" in violet (#B48CFF),
 
 | 자리 | 문구 | 색 |
 |---|---|---|
-| 위쪽 가운데 — **큰 머리글 (가장 크게, 굵게, 테두리·빛)** | (그림)버튼 `>` (그림)주사위 `?` — 글자는 `>`·`?` 뿐 | 버튼 그림 · > 노랑 · 주사위 그림 · ? 노랑 |
+| 위 왼쪽 — **큰 머리글 (가장 크게, 굵게, 테두리·빛)** | `WHEN TO BUY ?` | WHEN TO 흰색 · BUY 초록 · ? 노랑 |
+| 가격 선 왼쪽 — 티커 표 | `SPY` | 흰 글자 · 짙은 둥근 표(흰 테두리) |
 
 프롬프트:
 
 ```
 YouTube thumbnail, 16:9 landscape (1280x720), semi-realistic digital illustration with cinematic lighting, deep dark navy background (#0C1424) with a soft glow behind the center.
-Background: a huge three-dimensional stock-price wall seen in perspective, rising gently from the left to the right with several small dips. The wall's front face is glowing deep blue (#3E8FE0) fading to dark at the bottom and its top edge is a bright white glowing line. Just above the end of the wall floats a glowing green dashed horizontal line (#2BE0A0), and just below it a glowing red dashed horizontal line (#FF4D5E) — the price line runs between the two dashed lines and has not touched either one yet. There are no axes and no grid lines.
-Between the green dashed line and the top of the image floats a heavy closed wooden treasure chest, its lid shut tight, with warm golden light leaking out through the gaps; what is inside cannot be seen.
-Foreground, bottom: two identical glowing pedestals of exactly the same size and height, side by side. On the left pedestal: ten small identical round glowing buttons in two rows of five, and above each button floats one small glowing icon: a blank calendar square, a small flag on a pole, an arrow bending upward, a line rising over a smooth yellow line, two smooth lines crossing each other, a red arrow bending downward, a semicircle gauge dial with a needle and no markings, a sharp red mountain-shaped zigzag line, a yellow star above a dashed yellow line, and a yellow star just above a dashed yellow line. On the right pedestal: one big glowing white die with only round pips, taking up exactly the same space as the group of ten buttons.
-Center: a fictional person in their late thirties in a dark jacket stands between the two pedestals, one hand hovering above the buttons and the other hand hovering above the die, touching neither; the face looks from one to the other, thoughtful and hesitant — not happy, not worried.
-Neither side is highlighted, pressed or brighter; nobody is winning. The mood is suspense: which one reaches the green line first?
-Color accents: green only on the upper dashed line, red only on the lower dashed line, the down arrow and the zigzag icon, yellow only on the stars and dashed icon lines, blue on the price wall, warm gold only from the chest. Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
-If 16:9 is not available, use the widest landscape canvas; in any case keep the face, the pedestals and the chest inside the central 16:9 area, at least 8% away from the top and bottom edges.
+Background: one big glowing white stock price line running from the left edge toward the right, rising overall with several sharp dips and rebounds, like a real long-term chart of a stock index fund — no axes, no grid, no numbers. On the line, four moments glow softly with identical small empty rings: the bottom of a deep dip, a breakout to a new high, the middle of a quiet flat stretch and the start of a rebound — all the same size and brightness, none highlighted, each one a possible moment to buy. The right end of the line disappears into a thick dark fog, so where the price goes next cannot be seen.
+Foreground, bottom center: a big round glowing green button (#2BE0A0) with nothing written on it, slightly tilted toward the viewer. A fictional person in their late thirties in a dark jacket stands beside it, one index finger hovering just above the button, not pressing, eyes on the glowing rings of the line — thoughtful and hesitant, not happy, not worried.
+No ring is chosen and the button is not pressed; nobody is winning. The mood is the moment of hesitation before buying.
+Color accents: white price line, soft gold rings, green only on the button and the word BUY, yellow only on the question mark. Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
+If 16:9 is not available, use the widest landscape canvas; in any case keep the face, the button, the line and the headline inside the central 16:9 area, at least 8% away from the top and bottom edges.
 Fictional person, not resembling any real or famous person.
-Text: ONE big headline row made of: a big glowing green round button icon (the same style as the buttons in the picture), then ">" in bright yellow (#FFD400), then a big white die icon with round pips, then "?" in bright yellow (#FFD400) — the icons are drawn pictures, the only characters are ">" and "?" — placed across the top of the image, centered, between 6% and 34% of the height and about 70% of the width. Make the headline the most eye-catching thing in the image: huge (letters about 22% of the image height), very bold flat sans-serif (like Arial Black), with a thick dark outline and a soft glow so it pops off the background; the ">" sign is as big and bold as the letters and bright yellow, and the "?" is bright yellow. Flat 2D lettering — never 3D, never embossed, never curved, never in perspective. Make room for it: anything that would sit in that band (for example a chest or clouds) goes lower and smaller; keep it off any face. Spell everything exactly as written, character by character: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", ">", "+" and "?" stay exactly as written — never turn ">" into "<". These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs and objects have nothing else written on them. Keep the bottom-right corner empty.
+Text: ONE big headline "WHEN TO BUY ?" — written as "WHEN TO" in white, "BUY" in bright green (#2BE0A0), "?" in bright yellow (#FFD400) — placed in the upper-left area, between 6% and 32% of the height, above the line (keep it off the face). Make the headline the most eye-catching thing in the image: huge (letters about 20% of the image height), very bold flat sans-serif (like Arial Black), with a thick dark outline and a soft glow so it pops off the background; the "?" is bright yellow. Flat 2D lettering — never 3D, never embossed, never curved, never in perspective. Make room for it: anything that would sit in that band goes lower and smaller; keep it off any face. Ticker label: "SPY" in large bold white letters on a dark rounded tag with a white outline, placed on the left part of the price line, like a label stuck to it. Spell everything exactly as written, character by character. These are the ONLY letters in the whole image — no other text, no numbers, no logos and no watermarks anywhere; the button and every object have nothing else written on them. Keep the bottom-right corner empty.
 ```
 
-## 5. eonje-maesu-2026-10 · thumbnail_2 — 실험안 ①(사람 없음): 같은 크기의 두 받침대 — 매수 신호 버튼 10개 vs 주사위 — 와 두 점선 사이의 가격 선, 위에 닫힌 상자
+## 5. eonje-maesu-2026-10 · thumbnail_2 — 실험안 ①(사람 없음): SPY 가격 선 위 '살 만한 순간' 고리 네 개 + 초록 BUY 버튼 — 끝은 안개
 
 **저장 경로: `stock/source/eonje-maesu-2026-10/thumbnails/thumbnail_2.png`**
 
@@ -154,23 +153,22 @@ Text: ONE big headline row made of: a big glowing green round button icon (the s
 
 | 자리 | 문구 | 색 |
 |---|---|---|
-| 위쪽 가운데 — **큰 머리글 (가장 크게, 굵게, 테두리·빛)** | (그림)버튼 `>` (그림)주사위 `?` — 글자는 `>`·`?` 뿐 | 버튼 그림 · > 노랑 · 주사위 그림 · ? 노랑 |
+| 위 왼쪽 — **큰 머리글 (가장 크게, 굵게, 테두리·빛)** | `WHEN TO BUY ?` | WHEN TO 흰색 · BUY 초록 · ? 노랑 |
+| 가격 선 왼쪽 — 티커 표 | `SPY` | 흰 글자 · 짙은 둥근 표(흰 테두리) |
 
 프롬프트:
 
 ```
 YouTube thumbnail, 16:9 landscape (1280x720), semi-realistic digital illustration with cinematic lighting, deep dark navy background (#0C1424) with a soft glow behind the center.
-Background: a huge three-dimensional stock-price wall seen in perspective, rising gently from the left to the right with several small dips. The wall's front face is glowing deep blue (#3E8FE0) fading to dark at the bottom and its top edge is a bright white glowing line. Just above the end of the wall floats a glowing green dashed horizontal line (#2BE0A0), and just below it a glowing red dashed horizontal line (#FF4D5E) — the price line runs between the two dashed lines and has not touched either one yet. There are no axes and no grid lines.
-Between the green dashed line and the top of the image floats a heavy closed wooden treasure chest, its lid shut tight, with warm golden light leaking out through the gaps; what is inside cannot be seen.
-Foreground, bottom: two identical glowing pedestals of exactly the same size and height, side by side. On the left pedestal: ten small identical round glowing buttons in two rows of five, and above each button floats one small glowing icon: a blank calendar square, a small flag on a pole, an arrow bending upward, a line rising over a smooth yellow line, two smooth lines crossing each other, a red arrow bending downward, a semicircle gauge dial with a needle and no markings, a sharp red mountain-shaped zigzag line, a yellow star above a dashed yellow line, and a yellow star just above a dashed yellow line. On the right pedestal: one big glowing white die with only round pips, taking up exactly the same space as the group of ten buttons.
-There is no person in the image.
-Neither side is highlighted, pressed or brighter; nobody is winning. The mood is suspense: which one reaches the green line first?
-Color accents: green only on the upper dashed line, red only on the lower dashed line, the down arrow and the zigzag icon, yellow only on the stars and dashed icon lines, blue on the price wall, warm gold only from the chest. Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
-If 16:9 is not available, use the widest landscape canvas; in any case keep the pedestals and the chest inside the central 16:9 area, at least 8% away from the top and bottom edges.
-Text: ONE big headline row made of: a big glowing green round button icon (the same style as the buttons in the picture), then ">" in bright yellow (#FFD400), then a big white die icon with round pips, then "?" in bright yellow (#FFD400) — the icons are drawn pictures, the only characters are ">" and "?" — placed across the top of the image, centered, between 6% and 34% of the height and about 70% of the width. Make the headline the most eye-catching thing in the image: huge (letters about 22% of the image height), very bold flat sans-serif (like Arial Black), with a thick dark outline and a soft glow so it pops off the background; the ">" sign is as big and bold as the letters and bright yellow, and the "?" is bright yellow. Flat 2D lettering — never 3D, never embossed, never curved, never in perspective. Make room for it: anything that would sit in that band (for example a chest or clouds) goes lower and smaller; keep it off any face. Spell everything exactly as written, character by character: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", ">", "+" and "?" stay exactly as written — never turn ">" into "<". These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs and objects have nothing else written on them. Keep the bottom-right corner empty.
+Background: one big glowing white stock price line running from the left edge toward the right, rising overall with several sharp dips and rebounds, like a real long-term chart of a stock index fund — no axes, no grid, no numbers. On the line, four moments glow softly with identical small empty rings: the bottom of a deep dip, a breakout to a new high, the middle of a quiet flat stretch and the start of a rebound — all the same size and brightness, none highlighted, each one a possible moment to buy. The right end of the line disappears into a thick dark fog, so where the price goes next cannot be seen.
+Foreground, bottom center: a big round glowing green button (#2BE0A0) with nothing written on it, slightly tilted toward the viewer, glowing and waiting — nobody presses it.
+No people. No ring is chosen and the button is not pressed; nobody is winning. The mood is the moment of hesitation before buying.
+Color accents: white price line, soft gold rings, green only on the button and the word BUY, yellow only on the question mark. Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
+If 16:9 is not available, use the widest landscape canvas; in any case keep the button, the line and the headline inside the central 16:9 area, at least 8% away from the top and bottom edges.
+Text: ONE big headline "WHEN TO BUY ?" — written as "WHEN TO" in white, "BUY" in bright green (#2BE0A0), "?" in bright yellow (#FFD400) — placed in the upper-left area, between 6% and 32% of the height, above the line. Make the headline the most eye-catching thing in the image: huge (letters about 20% of the image height), very bold flat sans-serif (like Arial Black), with a thick dark outline and a soft glow so it pops off the background; the "?" is bright yellow. Flat 2D lettering — never 3D, never embossed, never curved, never in perspective. Make room for it: anything that would sit in that band goes lower and smaller; keep it off any face. Ticker label: "SPY" in large bold white letters on a dark rounded tag with a white outline, placed on the left part of the price line, like a label stuck to it. Spell everything exactly as written, character by character. These are the ONLY letters in the whole image — no other text, no numbers, no logos and no watermarks anywhere; the button and every object have nothing else written on them. Keep the bottom-right corner empty.
 ```
 
-## 6. eonje-maesu-2026-10 · thumbnail_3 — 실험안 ②(클로즈업): 신호 버튼과 주사위 위에 떠 있는 두 손과 망설이는 얼굴, 뒤로 흐린 두 점선 사이의 가격 선과 닫힌 상자
+## 6. eonje-maesu-2026-10 · thumbnail_3 — 실험안 ②(클로즈업): 초록 BUY 버튼 바로 위에서 멈춘 손가락, 뒤로 흐린 SPY 선의 고리와 안개
 
 **저장 경로: `stock/source/eonje-maesu-2026-10/thumbnails/thumbnail_3.png`**
 
@@ -180,19 +178,20 @@ Text: ONE big headline row made of: a big glowing green round button icon (the s
 
 | 자리 | 문구 | 색 |
 |---|---|---|
-| 오른쪽 위 — **큰 머리글 (가장 크게, 굵게, 테두리·빛)** | (그림)버튼 `>` (그림)주사위 `?` — 글자는 `>`·`?` 뿐 | 버튼 그림 · > 노랑 · 주사위 그림 · ? 노랑 |
+| 위 왼쪽 — **큰 머리글 (가장 크게, 굵게, 테두리·빛)** | `WHEN TO BUY ?` | WHEN TO 흰색 · BUY 초록 · ? 노랑 |
+| 가격 선 왼쪽 — 티커 표 | `SPY` | 흰 글자 · 짙은 둥근 표(흰 테두리) |
 
 프롬프트:
 
 ```
 YouTube thumbnail, 16:9 landscape (1280x720), semi-realistic digital illustration, close-up composition with shallow depth of field, deep dark navy background (#0C1424).
-Center foreground, large: two hands of a fictional person hovering in the air, touching nothing. Under the left hand: a cluster of small round glowing buttons, each with one small glowing icon floating above it (a blank calendar square, a small flag on a pole, an arrow bending upward, a line rising over a smooth yellow line, two smooth lines crossing each other, a red arrow bending downward, a semicircle gauge dial with a needle and no markings, a sharp red mountain-shaped zigzag line, a yellow star above a dashed yellow line, and a yellow star just above a dashed yellow line). Under the right hand: one big glowing white die with only round pips, the same overall size as the button cluster.
-Upper left: the side of the person's face, thoughtful and hesitant, eyes moving between the buttons and the die — not happy, not worried.
-Blurred background: a white glowing price line running to the right between a glowing green dashed line above (#2BE0A0) and a glowing red dashed line below (#FF4D5E), touching neither; small and far away near the top, a closed wooden treasure chest with warm golden light leaking from its lid.
-Neither choice is highlighted, pressed or brighter; nobody is winning. Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
-If 16:9 is not available, use the widest landscape canvas; in any case keep the hands, the face, the die and the buttons inside the central 16:9 area, at least 8% away from the top and bottom edges.
+Center foreground, large: a big round glowing green button (#2BE0A0) with nothing written on it, and the index finger of a fictional person hovering a few millimeters above it, not pressing.
+Right side: part of the person's face, thoughtful and hesitant, eyes looking past the button at the chart — not happy, not worried.
+Blurred background: a glowing white stock price line rising with dips and rebounds, four identical small glowing rings on it (a dip, a new high, a flat part, a rebound), its right end disappearing into dark fog.
+The button is not pressed and no ring is chosen; nobody is winning. Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
+If 16:9 is not available, use the widest landscape canvas; in any case keep the finger, the button, the face and the headline inside the central 16:9 area, at least 8% away from the top and bottom edges.
 Fictional person, not resembling any real or famous person.
-Text: ONE big headline row made of: a big glowing green round button icon (the same style as the buttons in the picture), then ">" in bright yellow (#FFD400), then a big white die icon with round pips, then "?" in bright yellow (#FFD400) — the icons are drawn pictures, the only characters are ">" and "?" — placed across the upper-right part of the image, beside the face and never over it (between 6% and 34% of the height). Make the headline the most eye-catching thing in the image: huge (letters about 22% of the image height), very bold flat sans-serif (like Arial Black), with a thick dark outline and a soft glow so it pops off the background; the ">" sign is as big and bold as the letters and bright yellow, and the "?" is bright yellow. Flat 2D lettering — never 3D, never embossed, never curved, never in perspective. Make room for it: anything that would sit in that band (for example a chest or clouds) goes lower and smaller; keep it off any face. Spell everything exactly as written, character by character: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", ">", "+" and "?" stay exactly as written — never turn ">" into "<". These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs and objects have nothing else written on them. Keep the bottom-right corner empty.
+Text: ONE big headline "WHEN TO BUY ?" — written as "WHEN TO" in white, "BUY" in bright green (#2BE0A0), "?" in bright yellow (#FFD400) — placed in the upper-left area, between 6% and 32% of the height (the face is on the right — never over it). Make the headline the most eye-catching thing in the image: huge (letters about 20% of the image height), very bold flat sans-serif (like Arial Black), with a thick dark outline and a soft glow so it pops off the background; the "?" is bright yellow. Flat 2D lettering — never 3D, never embossed, never curved, never in perspective. Make room for it: anything that would sit in that band goes lower and smaller; keep it off any face. Ticker label: "SPY" in large bold white letters on a dark rounded tag with a white outline, placed on the blurred price line in the background, sharp and readable. Spell everything exactly as written, character by character. These are the ONLY letters in the whole image — no other text, no numbers, no logos and no watermarks anywhere; the button and every object have nothing else written on them. Keep the bottom-right corner empty.
 ```
 
 ## 7. keobeodeu-kol-2026-10 · thumbnail_1 — 본안(클릭률 최대): 같은 크기의 선택 사이에서 망설이는 사람 + 가린 결과(흐린 유리·닫힌 상자)
@@ -279,10 +278,10 @@ Text: ONE big headline "QYLD > QQQ ?" — written as "QYLD" in orange (#FF8A3D),
 
 | 자리 | 문구 | 색 |
 |---|---|---|
-| 위쪽 가운데 — **큰 머리글 (가장 크게, 굵게, 테두리·빛)** | `3× > 1× ?` | 3× 주황 · > 노랑 · 1× 파랑 · ? 노랑 |
-| 파랑 로켓(점 1) (작게) | `1×` | 파랑 |
-| 보라 로켓(점 2) (작게) | `2×` | 보라 |
-| 주황 로켓(점 3) (작게) | `3×` | 주황 |
+| 위쪽 가운데 — **큰 머리글 (가장 크게, 굵게, 테두리·빛)** | `TQQQ > QQQ ?` | TQQQ 주황 · > 노랑 · QQQ 파랑 · ? 노랑 |
+| 파랑 로켓(점 1) (작게) | `QQQ` | 파랑 |
+| 보라 로켓(점 2) (작게) | `QLD` | 보라 |
+| 주황 로켓(점 3) (작게) | `TQQQ` | 주황 |
 
 프롬프트:
 
@@ -295,7 +294,7 @@ Neither side is highlighted or brighter; nobody is winning. The mood is suspense
 Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
 If 16:9 is not available, use the widest landscape canvas; in any case keep the main objects inside the central 16:9 area, at least 8% away from the top and bottom edges.
 Fictional person, not resembling any real or famous person.
-Text: ONE big headline "3× > 1× ?" — written as "3×" in orange (#FF8A3D), then ">" in bright yellow (#FFD400), then "1×" in blue (#5AB4FF), then "?" in bright yellow (#FFD400) — placed across the top of the image, centered, between 6% and 34% of the height and about 70% of the width. Make the headline the most eye-catching thing in the image: huge (letters about 22% of the image height), very bold flat sans-serif (like Arial Black), with a thick dark outline and a soft glow so it pops off the background; the ">" sign is as big and bold as the letters and bright yellow, and the "?" is bright yellow. Flat 2D lettering — never 3D, never embossed, never curved, never in perspective. Make room for it: anything that would sit in that band (for example a chest or clouds) goes lower and smaller; keep it off any face. Small extra labels: "1×" on the launch pad (or hatch) of the blue rocket with one dot, in blue (#5AB4FF); "2×" on the launch pad (or hatch) of the violet rocket with two dots, in violet (#B48CFF); "3×" on the launch pad (or hatch) of the orange rocket with three dots, in orange (#FF8A3D). Spell everything exactly as written, character by character: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", ">", "+" and "?" stay exactly as written — never turn ">" into "<". These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs and objects have nothing else written on them. Keep the bottom-right corner empty.
+Text: ONE big headline "TQQQ > QQQ ?" — written as "TQQQ" in orange (#FF8A3D), then ">" in bright yellow (#FFD400), then "QQQ" in blue (#5AB4FF), then "?" in bright yellow (#FFD400) — placed across the top of the image, centered, between 6% and 34% of the height and about 70% of the width. Make the headline the most eye-catching thing in the image: huge (letters about 22% of the image height), very bold flat sans-serif (like Arial Black), with a thick dark outline and a soft glow so it pops off the background; the ">" sign is as big and bold as the letters and bright yellow, and the "?" is bright yellow. Flat 2D lettering — never 3D, never embossed, never curved, never in perspective. Make room for it: anything that would sit in that band (for example a chest or clouds) goes lower and smaller; keep it off any face. Small extra labels: "QQQ" on the launch pad (or hatch) of the blue rocket with one dot, in blue (#5AB4FF); "QLD" on the launch pad (or hatch) of the violet rocket with two dots, in violet (#B48CFF); "TQQQ" on the launch pad (or hatch) of the orange rocket with three dots, in orange (#FF8A3D). Spell everything exactly as written, character by character: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", ">", "+" and "?" stay exactly as written — never turn ">" into "<". These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs and objects have nothing else written on them. Keep the bottom-right corner empty.
 ```
 
 ## 11. reobeoriji-2026-10 · thumbnail_2 — 실험안 ①: 같은 장면에서 사람만 뺌
@@ -308,10 +307,10 @@ Text: ONE big headline "3× > 1× ?" — written as "3×" in orange (#FF8A3D), t
 
 | 자리 | 문구 | 색 |
 |---|---|---|
-| 위쪽 가운데 — **큰 머리글 (가장 크게, 굵게, 테두리·빛)** | `3× > 1× ?` | 3× 주황 · > 노랑 · 1× 파랑 · ? 노랑 |
-| 파랑 로켓(점 1) (작게) | `1×` | 파랑 |
-| 보라 로켓(점 2) (작게) | `2×` | 보라 |
-| 주황 로켓(점 3) (작게) | `3×` | 주황 |
+| 위쪽 가운데 — **큰 머리글 (가장 크게, 굵게, 테두리·빛)** | `TQQQ > QQQ ?` | TQQQ 주황 · > 노랑 · QQQ 파랑 · ? 노랑 |
+| 파랑 로켓(점 1) (작게) | `QQQ` | 파랑 |
+| 보라 로켓(점 2) (작게) | `QLD` | 보라 |
+| 주황 로켓(점 3) (작게) | `TQQQ` | 주황 |
 
 프롬프트:
 
@@ -322,7 +321,7 @@ Foreground center: three identical small rockets of exactly the same size standi
 No people. Neither side is highlighted or brighter; nobody is winning. The mood is suspense.
 Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
 If 16:9 is not available, use the widest landscape canvas; in any case keep the main objects inside the central 16:9 area, at least 8% away from the top and bottom edges.
-Text: ONE big headline "3× > 1× ?" — written as "3×" in orange (#FF8A3D), then ">" in bright yellow (#FFD400), then "1×" in blue (#5AB4FF), then "?" in bright yellow (#FFD400) — placed across the top of the image, centered, between 6% and 34% of the height and about 70% of the width. Make the headline the most eye-catching thing in the image: huge (letters about 22% of the image height), very bold flat sans-serif (like Arial Black), with a thick dark outline and a soft glow so it pops off the background; the ">" sign is as big and bold as the letters and bright yellow, and the "?" is bright yellow. Flat 2D lettering — never 3D, never embossed, never curved, never in perspective. Make room for it: anything that would sit in that band (for example a chest or clouds) goes lower and smaller; keep it off any face. Small extra labels: "1×" on the launch pad (or hatch) of the blue rocket with one dot, in blue (#5AB4FF); "2×" on the launch pad (or hatch) of the violet rocket with two dots, in violet (#B48CFF); "3×" on the launch pad (or hatch) of the orange rocket with three dots, in orange (#FF8A3D). Spell everything exactly as written, character by character: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", ">", "+" and "?" stay exactly as written — never turn ">" into "<". These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs and objects have nothing else written on them. Keep the bottom-right corner empty.
+Text: ONE big headline "TQQQ > QQQ ?" — written as "TQQQ" in orange (#FF8A3D), then ">" in bright yellow (#FFD400), then "QQQ" in blue (#5AB4FF), then "?" in bright yellow (#FFD400) — placed across the top of the image, centered, between 6% and 34% of the height and about 70% of the width. Make the headline the most eye-catching thing in the image: huge (letters about 22% of the image height), very bold flat sans-serif (like Arial Black), with a thick dark outline and a soft glow so it pops off the background; the ">" sign is as big and bold as the letters and bright yellow, and the "?" is bright yellow. Flat 2D lettering — never 3D, never embossed, never curved, never in perspective. Make room for it: anything that would sit in that band (for example a chest or clouds) goes lower and smaller; keep it off any face. Small extra labels: "QQQ" on the launch pad (or hatch) of the blue rocket with one dot, in blue (#5AB4FF); "QLD" on the launch pad (or hatch) of the violet rocket with two dots, in violet (#B48CFF); "TQQQ" on the launch pad (or hatch) of the orange rocket with three dots, in orange (#FF8A3D). Spell everything exactly as written, character by character: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", ">", "+" and "?" stay exactly as written — never turn ">" into "<". These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs and objects have nothing else written on them. Keep the bottom-right corner empty.
 ```
 
 ## 12. reobeoriji-2026-10 · thumbnail_3 — 실험안 ②: 손·얼굴 클로즈업 (구도)
@@ -335,10 +334,10 @@ Text: ONE big headline "3× > 1× ?" — written as "3×" in orange (#FF8A3D), t
 
 | 자리 | 문구 | 색 |
 |---|---|---|
-| 위쪽 가운데 — **큰 머리글 (가장 크게, 굵게, 테두리·빛)** | `3× > 1× ?` | 3× 주황 · > 노랑 · 1× 파랑 · ? 노랑 |
-| 파랑 로켓(점 1) (작게) | `1×` | 파랑 |
-| 보라 로켓(점 2) (작게) | `2×` | 보라 |
-| 주황 로켓(점 3) (작게) | `3×` | 주황 |
+| 위쪽 가운데 — **큰 머리글 (가장 크게, 굵게, 테두리·빛)** | `TQQQ > QQQ ?` | TQQQ 주황 · > 노랑 · QQQ 파랑 · ? 노랑 |
+| 파랑 로켓(점 1) (작게) | `QQQ` | 파랑 |
+| 보라 로켓(점 2) (작게) | `QLD` | 보라 |
+| 주황 로켓(점 3) (작게) | `TQQQ` | 주황 |
 
 프롬프트:
 
@@ -349,7 +348,7 @@ The face of a fictional person is partly visible at the edge, thoughtful and hes
 Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
 If 16:9 is not available, use the widest landscape canvas; in any case keep the main objects inside the central 16:9 area, at least 8% away from the top and bottom edges.
 Fictional person, not resembling any real or famous person.
-Text: ONE big headline "3× > 1× ?" — written as "3×" in orange (#FF8A3D), then ">" in bright yellow (#FFD400), then "1×" in blue (#5AB4FF), then "?" in bright yellow (#FFD400) — placed across the top of the image, centered, between 6% and 34% of the height and about 70% of the width. Make the headline the most eye-catching thing in the image: huge (letters about 22% of the image height), very bold flat sans-serif (like Arial Black), with a thick dark outline and a soft glow so it pops off the background; the ">" sign is as big and bold as the letters and bright yellow, and the "?" is bright yellow. Flat 2D lettering — never 3D, never embossed, never curved, never in perspective. Make room for it: anything that would sit in that band (for example a chest or clouds) goes lower and smaller; keep it off any face. Small extra labels: "1×" on the launch pad (or hatch) of the blue rocket with one dot, in blue (#5AB4FF); "2×" on the launch pad (or hatch) of the violet rocket with two dots, in violet (#B48CFF); "3×" on the launch pad (or hatch) of the orange rocket with three dots, in orange (#FF8A3D). Spell everything exactly as written, character by character: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", ">", "+" and "?" stay exactly as written — never turn ">" into "<". These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs and objects have nothing else written on them. Keep the bottom-right corner empty.
+Text: ONE big headline "TQQQ > QQQ ?" — written as "TQQQ" in orange (#FF8A3D), then ">" in bright yellow (#FFD400), then "QQQ" in blue (#5AB4FF), then "?" in bright yellow (#FFD400) — placed across the top of the image, centered, between 6% and 34% of the height and about 70% of the width. Make the headline the most eye-catching thing in the image: huge (letters about 22% of the image height), very bold flat sans-serif (like Arial Black), with a thick dark outline and a soft glow so it pops off the background; the ">" sign is as big and bold as the letters and bright yellow, and the "?" is bright yellow. Flat 2D lettering — never 3D, never embossed, never curved, never in perspective. Make room for it: anything that would sit in that band (for example a chest or clouds) goes lower and smaller; keep it off any face. Small extra labels: "QQQ" on the launch pad (or hatch) of the blue rocket with one dot, in blue (#5AB4FF); "QLD" on the launch pad (or hatch) of the violet rocket with two dots, in violet (#B48CFF); "TQQQ" on the launch pad (or hatch) of the orange rocket with three dots, in orange (#FF8A3D). Spell everything exactly as written, character by character: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", ">", "+" and "?" stay exactly as written — never turn ">" into "<". These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs and objects have nothing else written on them. Keep the bottom-right corner empty.
 ```
 
 ## 13. baedang-etf-2026-10-shorts · thumbnail_1 — 동전을 떨구는 배당 나무와 큰 나무 — 줄다리기 한가운데
@@ -379,7 +378,7 @@ Fictional person, not resembling any real or famous person.
 Text: ONE big headline "SCHD > SPY ?" — written as "SCHD" in violet (#B48CFF), then ">" in bright yellow (#FFD400), then "SPY" in blue (#5AB4FF), then "?" in bright yellow (#FFD400) — placed across the upper-middle area between 13% and 34% of the height, centered inside the left 84% of the width and about 75% of that width. Make the headline the most eye-catching thing in the image: huge (letters about 22% of the image height), very bold flat sans-serif (like Arial Black), with a thick dark outline and a soft glow so it pops off the background; the ">" sign is as big and bold as the letters and bright yellow, and the "?" is bright yellow. Flat 2D lettering — never 3D, never embossed, never curved, never in perspective. Make room for it: anything that would sit in that band (for example a chest or clouds) goes lower and smaller; keep it off any face. Small extra labels: "+$33K" just above the knot in the middle of the rope, medium size, in violet (#B48CFF). Spell everything exactly as written, character by character: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", ">", "+" and "?" stay exactly as written — never turn ">" into "<". These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs and objects have nothing else written on them. All text stays between 13% and 66% of the height.
 ```
 
-## 14. eonje-maesu-2026-10-shorts · thumbnail_1 — 평균선 신호 vs 주사위 — 높이 올라간 화살표가 금이 간 순간
+## 14. eonje-maesu-2026-10-shorts · thumbnail_1 — 언제 사야 할까? — SPY 선이 노란 평균선을 뚫는 순간, BUY 버튼 위 손가락
 
 **저장 경로: `stock/source/eonje-maesu-2026-10/shorts/thumbnails/thumbnail_1.png`**
 
@@ -389,20 +388,20 @@ Text: ONE big headline "SCHD > SPY ?" — written as "SCHD" in violet (#B48CFF),
 
 | 자리 | 문구 | 색 |
 |---|---|---|
-| 가운데 위 (높이 13~34%) — **큰 머리글 (가장 크게, 굵게, 테두리·빛)** | (그림)초록 화살표 `>` (그림)주사위 `?` — 글자는 `>`·`?` 뿐 | 초록 화살표 그림 · > 노랑 · 주사위 그림 · ? 노랑 |
+| 가운데 위 (높이 13~32%) — **큰 머리글 (가장 크게, 굵게, 테두리·빛)** | `WHEN TO BUY ?` | WHEN TO 흰색 · BUY 초록 · ? 노랑 |
+| 초록 선 옆 — 티커 표 | `SPY` | 흰 글자 · 짙은 둥근 표(흰 테두리) |
 
 프롬프트:
 
 ```
 YouTube Shorts cover, Vertical 9:16 portrait (1080x1920). Keep all important objects and any face between 13% and 66% of the height and between 6% and 84% of the width (top = YouTube icons, right 16% = like/comment buttons, bottom 34% = title and related-video link). The bottom 34% is a quiet, dark, empty background. If 9:16 is not available use 2:3 portrait and keep the side 8% empty.
 Semi-realistic digital illustration with cinematic lighting, deep dark navy background (#0C1424).
-Upper middle: a thin glowing yellow horizontal line (a moving-average line) crossing the frame, and a tall bright green arrow (#2BE0A0) shooting upward through it — near its tip a fresh red crack (#FF4D5E) is spreading across the arrow, small red shards breaking off.
-Beside the arrow, at exactly the same height as the arrow tip, a neat stack of many plain white dice (no pips) glowing softly grey — neither the arrow nor the dice is brighter; nobody is winning.
-Lower middle (still above 66% of the height): a fictional person in their late forties in a dark jacket, seen from the side, looking up at the cracking arrow and the dice, tense and uncertain — not happy, not afraid.
-Mood: suspense, as if the result is about to be revealed.
+Middle: a thin glowing yellow horizontal line (a moving-average line) crossing the frame, and a bright green stock price line (#2BE0A0) rising from below and breaking up through it, its tip turning into an upward arrow — near the tip a fresh thin red crack (#FF4D5E) is spreading across it. Above the tip the space fades into dark fog, so where it goes next cannot be seen.
+Lower middle (still above 66% of the height): a big round glowing green button with nothing written on it, and the index finger of a fictional person in their late forties hovering just above it, not pressing; part of the person's face, tense and uncertain, looks up at the line — not happy, not afraid.
+Mood: the moment of hesitation before buying.
 Large simple shapes, high contrast, readable when shrunk to 360 pixels tall.
 Fictional person, not resembling any real or famous person.
-Text: ONE big headline row made of: a big bright green upward arrow icon, then ">" in bright yellow (#FFD400), then a big white die icon with round pips, then "?" in bright yellow (#FFD400) — the icons are drawn pictures, the only characters are ">" and "?" — placed across the upper-middle area between 13% and 34% of the height, centered inside the left 84% of the width and about 75% of that width. Make the headline the most eye-catching thing in the image: huge (letters about 22% of the image height), very bold flat sans-serif (like Arial Black), with a thick dark outline and a soft glow so it pops off the background; the ">" sign is as big and bold as the letters and bright yellow, and the "?" is bright yellow. Flat 2D lettering — never 3D, never embossed, never curved, never in perspective. Make room for it: anything that would sit in that band (for example a chest or clouds) goes lower and smaller; keep it off any face. Spell everything exactly as written, character by character: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", ">", "+" and "?" stay exactly as written — never turn ">" into "<". These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs and objects have nothing else written on them. All text stays between 13% and 66% of the height.
+Text: ONE big headline "WHEN TO BUY ?" — written as "WHEN TO" in white, "BUY" in bright green (#2BE0A0), "?" in bright yellow (#FFD400) — across the upper-middle area between 13% and 32% of the height, centered inside the left 84% of the width and about 75% of that width. Make the headline the most eye-catching thing in the image: huge, very bold flat sans-serif (like Arial Black), with a thick dark outline and a soft glow so it pops off the background. Flat 2D lettering — never 3D, never embossed, never curved, never in perspective. Make room for it: the fog and the line top sit below it; keep it off the face. Ticker label: "SPY" in large bold white letters on a dark rounded tag with a white outline, right next to the green line. Spell everything exactly as written, character by character. These are the ONLY letters in the whole image — no other text, no numbers, no logos and no watermarks anywhere; the button and every object have nothing else written on them. All text stays between 13% and 66% of the height.
 ```
 
 ## 15. keobeodeu-kol-2026-10-shorts · thumbnail_1 — 금고에서 동전을 매달 꺼내는 사람 — 금고가 점점 가벼워짐
@@ -443,7 +442,7 @@ Text: ONE big headline "QYLD > QQQ ?" — written as "QYLD" in orange (#FF8A3D),
 
 | 자리 | 문구 | 색 |
 |---|---|---|
-| 가운데 위 (높이 13~34%) — **큰 머리글 (가장 크게, 굵게, 테두리·빛)** | `3× > 1× ?` | 3× 주황 · > 노랑 · 1× 파랑 · ? 노랑 |
+| 가운데 위 (높이 13~34%) — **큰 머리글 (가장 크게, 굵게, 테두리·빛)** | `TQQQ > QQQ ?` | TQQQ 주황 · > 노랑 · QQQ 파랑 · ? 노랑 |
 | 부서진 주황 로켓 옆 (작게) | `−92.3%` | 빨강 |
 
 프롬프트:
@@ -457,5 +456,5 @@ Lower middle (still above 66% of the height): a fictional person in their mid-th
 Mood: storm, damage and stubborn suspense.
 Large simple shapes, high contrast, readable when shrunk to 360 pixels tall.
 Fictional person, not resembling any real or famous person.
-Text: ONE big headline "3× > 1× ?" — written as "3×" in orange (#FF8A3D), then ">" in bright yellow (#FFD400), then "1×" in blue (#5AB4FF), then "?" in bright yellow (#FFD400) — placed across the upper-middle area between 13% and 34% of the height, centered inside the left 84% of the width and about 75% of that width. Make the headline the most eye-catching thing in the image: huge (letters about 22% of the image height), very bold flat sans-serif (like Arial Black), with a thick dark outline and a soft glow so it pops off the background; the ">" sign is as big and bold as the letters and bright yellow, and the "?" is bright yellow. Flat 2D lettering — never 3D, never embossed, never curved, never in perspective. Make room for it: anything that would sit in that band (for example a chest or clouds) goes lower and smaller; keep it off any face. Small extra labels: "−92.3%" right next to the broken orange rocket, medium size, in red (#FF4D5E). Spell everything exactly as written, character by character: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", ">", "+" and "?" stay exactly as written — never turn ">" into "<". These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs and objects have nothing else written on them. All text stays between 13% and 66% of the height.
+Text: ONE big headline "TQQQ > QQQ ?" — written as "TQQQ" in orange (#FF8A3D), then ">" in bright yellow (#FFD400), then "QQQ" in blue (#5AB4FF), then "?" in bright yellow (#FFD400) — placed across the upper-middle area between 13% and 34% of the height, centered inside the left 84% of the width and about 75% of that width. Make the headline the most eye-catching thing in the image: huge (letters about 22% of the image height), very bold flat sans-serif (like Arial Black), with a thick dark outline and a soft glow so it pops off the background; the ">" sign is as big and bold as the letters and bright yellow, and the "?" is bright yellow. Flat 2D lettering — never 3D, never embossed, never curved, never in perspective. Make room for it: anything that would sit in that band (for example a chest or clouds) goes lower and smaller; keep it off any face. Small extra labels: "−92.3%" right next to the broken orange rocket, medium size, in red (#FF4D5E). Spell everything exactly as written, character by character: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", ">", "+" and "?" stay exactly as written — never turn ">" into "<". These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs and objects have nothing else written on them. All text stays between 13% and 66% of the height.
 ```

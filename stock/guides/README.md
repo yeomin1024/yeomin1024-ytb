@@ -10,6 +10,7 @@
 |---|---|
 | `concept.md` | 채널 컨셉 — AI가 코드로 가설을 백테스트해 검증, 백테스트 규칙 |
 | `data_insights.md` | 주식 분석 결과의 근거 숫자 (시청자·제목·대본·썸네일) |
+| `viewer_review.md` | 시청자 페르소나 4명(55세·43세·63세·해외 — 해외는 근거 없음)과 대본 피드백 요청 → `tools/review_prompt.py stock` 이 `stock/script_review_chatgpt.md` 로 묶음 (2026-10-17) |
 | `research_2026-10-15.md` | `content_research.py all stock` 전체 표 |
 | `thumbnail_codes_2026-10-15.csv` | 썸네일 눈 표시 (성공 60 · 기준 밖 21) |
 | 이 파일 | 공통 지시사항(`guides/*.md`)과 **다르게 하는 것** — 공통보다 먼저 따른다 |

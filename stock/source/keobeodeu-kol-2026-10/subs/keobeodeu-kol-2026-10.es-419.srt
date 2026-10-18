@@ -1,0 +1,524 @@
+1
+00:00:00,300 --> 00:00:04,690
+QYLD, ETF de covered call del Nasdaq-100
+que, dicen, casi no pierde capital.
+
+2
+00:00:05,140 --> 00:00:08,400
+Si gastas los pagos cada mes, ¿de
+verdad se conserva el capital?
+
+3
+00:00:08,850 --> 00:00:13,300
+Lo comparamos en un backtest con
+QQQ, el ETF que sigue al Nasdaq-100.
+
+4
+00:00:14,300 --> 00:00:17,100
+En diciembre de 2013, compramos
+US$100,000 de cada uno.
+
+5
+00:00:17,550 --> 00:00:22,000
+De QYLD sacamos los pagos; de
+QQQ vendemos el mismo monto.
+
+6
+00:00:22,450 --> 00:00:24,370
+La comisión es de 0.25%.
+
+7
+00:00:25,370 --> 00:00:26,960
+Ahora hagamos avanzar las fechas.
+
+8
+00:00:27,410 --> 00:00:31,170
+La línea naranja es la cuenta
+QYLD; la azul, la cuenta QQQ.
+
+9
+00:00:31,620 --> 00:00:34,640
+Punteado amarillo: el capital,
+los US$100,000 iniciales.
+
+10
+00:00:35,090 --> 00:00:38,130
+Arriba al centro: lo mismo
+que retiraron ambas cuentas.
+
+11
+00:00:38,580 --> 00:00:42,820
+Los pequeños dividendos de QQQ se
+reinvierten, y no incluimos impuestos.
+
+12
+00:00:43,270 --> 00:00:47,070
+El primer pago, en enero
+de 2014, fue de US$1,024.
+
+13
+00:00:47,520 --> 00:00:50,450
+En marzo de 2014, la cuenta QYLD estaba
+
+14
+00:00:50,450 --> 00:00:53,680
+3.4% sobre el capital;
+parecía conservarse.
+
+15
+00:00:54,130 --> 00:00:58,420
+Pero en febrero de 2016, quedó
+17.5% por debajo del capital.
+
+16
+00:00:58,870 --> 00:01:00,858
+Al día siguiente, la cuenta QQQ también
+
+17
+00:01:00,858 --> 00:01:03,050
+bajó un momento del
+capital: ambas perdían.
+
+18
+00:01:03,500 --> 00:01:07,947
+El 15 de marzo de 2018, la
+cuenta QYLD estaba 0.9% arriba,
+
+19
+00:01:07,947 --> 00:01:09,940
+de nuevo sobre el capital.
+
+20
+00:01:10,390 --> 00:01:17,010
+Pero al 24 de diciembre, QYLD
+cayó 21% y QQQ 19.8%, parecido.
+
+21
+00:01:17,460 --> 00:01:21,830
+En noviembre de 2019, lo retirado
+por las cuentas superó los US$50,000.
+
+22
+00:01:22,280 --> 00:01:25,756
+En la caída por Covid,
+el 16 de marzo de 2020,
+
+23
+00:01:25,756 --> 00:01:29,080
+la cuenta QYLD estaba
+28.3% bajo el capital.
+
+24
+00:01:29,530 --> 00:01:34,090
+Ese mismo día, la cuenta QQQ
+estaba 41.1% sobre el capital.
+
+25
+00:01:35,090 --> 00:01:39,810
+19 de noviembre de 2021: el precio
+más alto de QQQ hasta entonces.
+
+26
+00:01:40,260 --> 00:01:44,689
+Ese día, la cuenta QYLD
+estaba 8.2% bajo el capital;
+
+27
+00:01:44,689 --> 00:01:47,500
+la QQQ, en 3.16 veces el capital.
+
+28
+00:01:47,950 --> 00:01:50,100
+Punteado blanco: los valores de ese día.
+
+29
+00:01:50,550 --> 00:01:53,310
+Y en 2022 empezó una larga caída.
+
+30
+00:01:53,760 --> 00:01:59,600
+Al 14 de octubre, la cuenta QYLD
+cayó 33.2% desde el 19 de noviembre.
+
+31
+00:02:00,050 --> 00:02:06,320
+La cuenta QQQ cayó 37.8% al
+28 de diciembre, un poco más.
+
+32
+00:02:06,770 --> 00:02:11,550
+Aun en esa caída, ambas cuentas
+retiraron lo mismo: US$8,720.
+
+33
+00:02:12,000 --> 00:02:13,140
+¿Y la recuperación?
+
+34
+00:02:13,590 --> 00:02:16,189
+El 7 de febrero de 2024, tras 810 días,
+
+35
+00:02:16,189 --> 00:02:19,520
+la cuenta QQQ superó el
+valor del 19 de noviembre.
+
+36
+00:02:20,520 --> 00:02:25,310
+En marzo de 2025, lo retirado superó
+el capital inicial de US$100,000.
+
+37
+00:02:25,760 --> 00:02:30,880
+En la caída del 8 de abril, la cuenta
+QYLD estaba 40.4% bajo el capital.
+
+38
+00:02:31,330 --> 00:02:35,160
+Ese mismo día, la cuenta QQQ
+estaba en 2.98 veces el capital.
+
+39
+00:02:36,160 --> 00:02:38,880
+15 de octubre de 2026: el resultado.
+
+40
+00:02:39,330 --> 00:02:43,410
+Ambas cuentas retiraron lo mismo:
+148 veces, unos US$110,000.
+
+41
+00:02:43,860 --> 00:02:49,540
+En la cuenta QYLD quedan unos
+US$75,000, 25.3% bajo el capital.
+
+42
+00:02:49,990 --> 00:02:54,070
+Y nunca volvió a superar el valor
+del 19 de noviembre de 2021.
+
+43
+00:02:54,520 --> 00:03:00,330
+En la cuenta QQQ quedan unos US$510,000:
+6.83 veces más, retirando lo mismo.
+
+44
+00:03:00,780 --> 00:03:06,210
+El precio de 1 acción de QYLD
+también bajó de US$25.04 a US$18.74.
+
+45
+00:03:06,660 --> 00:03:11,060
+En el 94.7% de los días bursátiles,
+la cuenta QYLD estuvo bajo el capital.
+
+46
+00:03:12,060 --> 00:03:14,340
+¿Por qué tanta diferencia?
+
+47
+00:03:14,790 --> 00:03:17,600
+Veamos cómo el covered
+call genera los pagos.
+
+48
+00:03:18,050 --> 00:03:20,603
+Un ETF de covered call
+tiene acciones y vende
+
+49
+00:03:20,603 --> 00:03:22,930
+el derecho a comprarlas a un precio fijo.
+
+50
+00:03:23,380 --> 00:03:27,210
+Lo que cobra por ese derecho entra
+cada mes y alimenta los pagos.
+
+51
+00:03:27,660 --> 00:03:30,434
+Pero si la acción sube por
+encima del precio fijo,
+
+52
+00:03:30,434 --> 00:03:32,820
+esa ganancia es de
+quien compró el derecho.
+
+53
+00:03:33,270 --> 00:03:37,190
+Al caer, cae menos solo por
+lo cobrado, o sea, casi igual.
+
+54
+00:03:37,640 --> 00:03:40,430
+Lo comprobamos con los
+movimientos diarios.
+
+55
+00:03:40,880 --> 00:03:44,800
+QQQ subió más de 1% en
+un día durante 595 días.
+
+56
+00:03:45,250 --> 00:03:53,010
+Esos días QQQ subió 1.84% en
+promedio; QYLD 0.95%, solo el 51.3%.
+
+57
+00:03:53,460 --> 00:03:57,460
+QQQ cayó más de 1% en
+un día durante 498 días.
+
+58
+00:03:57,910 --> 00:04:05,350
+Esos días QQQ cayó 2.04% en promedio
+y QYLD 1.28%: siguió el 62.7%.
+
+59
+00:04:06,350 --> 00:04:08,390
+¿Habrá sido una mala fecha de inicio?
+
+60
+00:04:08,840 --> 00:04:14,200
+De enero de 2014 a octubre de 2021,
+abrimos una cuenta nueva cada mes.
+
+61
+00:04:14,650 --> 00:04:17,850
+Abiertas el primer día hábil de
+cada mes: 94 cuentas en total.
+
+62
+00:04:18,300 --> 00:04:21,020
+Cada cuenta retira por 5
+años con las mismas reglas.
+
+63
+00:04:21,470 --> 00:04:26,030
+Tras 5 años, 83 de las 94 cuentas
+QYLD estaban bajo el capital.
+
+64
+00:04:26,480 --> 00:04:29,310
+Ninguna cuenta QQQ quedó bajo el capital.
+
+65
+00:04:29,760 --> 00:04:32,690
+En las 94, la cuenta QQQ terminó con más.
+
+66
+00:04:33,140 --> 00:04:39,540
+La mediana: QYLD 18.7% bajo el
+capital; QQQ, 1.49 veces el capital.
+
+67
+00:04:39,990 --> 00:04:46,490
+La peor fue la cuenta QYLD iniciada en
+enero de 2018: 35.9% bajo el capital.
+
+68
+00:04:46,940 --> 00:04:50,850
+Con un plazo de 3 años, más cuentas
+quedan atrapadas en la caída de 2022.
+
+69
+00:04:51,300 --> 00:04:55,140
+Ahí incluso 19 de 118 cuentas
+QQQ quedaron bajo el capital.
+
+70
+00:04:55,590 --> 00:04:58,750
+Y 81 cuentas QYLD
+quedaron bajo el capital.
+
+71
+00:04:59,200 --> 00:05:02,550
+Aun así, en las 118, la
+cuenta QQQ terminó con más.
+
+72
+00:05:03,550 --> 00:05:05,830
+¿Pasa lo mismo con otros
+ETF de covered call?
+
+73
+00:05:06,280 --> 00:05:10,110
+El Nasdaq-100, que sigue QYLD,
+suele subir y bajar mucho.
+
+74
+00:05:10,560 --> 00:05:15,650
+Así que también vimos XYLD, el covered
+call del S&P 500, que se mueve menos.
+
+75
+00:05:16,100 --> 00:05:19,860
+Lo comparamos con SPY, el
+ETF que sigue al S&P 500.
+
+76
+00:05:20,310 --> 00:05:25,430
+En 13.3 años desde junio de 2013,
+se retiraron unos US$110,000.
+
+77
+00:05:25,880 --> 00:05:29,692
+La cuenta XYLD creció
+5.4% sobre el capital,
+
+78
+00:05:29,692 --> 00:05:33,330
+pero la SPY llegó a 3.33 veces el capital.
+
+79
+00:05:33,780 --> 00:05:38,380
+En 100 cuentas de 5 años con distintos
+meses de inicio, SPY siempre tuvo más.
+
+80
+00:05:38,830 --> 00:05:42,100
+Y 60 de las 100 cuentas XYLD
+quedaron bajo el capital.
+
+81
+00:05:42,550 --> 00:05:45,840
+JEPI es un ETF de covered call
+con un método algo distinto.
+
+82
+00:05:46,290 --> 00:05:50,220
+Mezcla acciones con notas que actúan
+como vender el derecho a comprar.
+
+83
+00:05:50,670 --> 00:05:56,180
+En 6.4 años desde mayo de 2020,
+se retiraron unos US$61,000.
+
+84
+00:05:56,630 --> 00:06:00,013
+La cuenta JEPI creció
+14.2% sobre el capital,
+
+85
+00:06:00,013 --> 00:06:03,320
+pero la SPY estuvo en
+1.79 veces el capital.
+
+86
+00:06:04,320 --> 00:06:07,800
+Hasta aquí no incluimos
+impuestos. ¿Y si los incluimos?
+
+87
+00:06:08,250 --> 00:06:12,730
+Muchos países retienen 15% de los
+pagos de ETF de EE. UU. al recibirlos.
+
+88
+00:06:13,180 --> 00:06:18,620
+Con 15% retenido, lo que llega
+de QYLD baja a unos US$96,000.
+
+89
+00:06:19,070 --> 00:06:23,330
+La cuenta QQQ también vende solo
+eso, y quedan unos US$560,000.
+
+90
+00:06:23,780 --> 00:06:28,180
+La cuenta QYLD tiene las mismas acciones,
+así que sigue en unos US$75,000.
+
+91
+00:06:28,630 --> 00:06:32,240
+Hay quien cubre sus gastos con
+otro dinero y reinvierte los pagos.
+
+92
+00:06:32,690 --> 00:06:38,210
+Así, QYLD llegó a unos US$290,000
+y QQQ a unos US$950,000.
+
+93
+00:06:38,660 --> 00:06:42,090
+Aun reinvirtiendo, QQQ
+tuvo 3.25 veces más.
+
+94
+00:06:43,090 --> 00:06:44,210
+En resumen.
+
+95
+00:06:44,660 --> 00:06:50,740
+La cuenta QYLD que gastó los pagos cada
+mes perdió 25.3% del capital en 12.8 años.
+
+96
+00:06:51,190 --> 00:06:55,750
+La cuenta QQQ, vendiendo para retirar lo
+mismo, quedó con 5.1 veces el capital.
+
+97
+00:06:56,200 --> 00:07:00,240
+Con otros meses de inicio, QQQ
+también terminó siempre con más.
+
+98
+00:07:00,690 --> 00:07:03,153
+XYLD y JEPI no perdieron capital,
+
+99
+00:07:03,153 --> 00:07:06,960
+pero quedaron por debajo
+de SPY retirando lo mismo.
+
+100
+00:07:07,410 --> 00:07:11,490
+Subir menos en las alzas y caer casi igual
+en las bajas: esa diferencia se acumuló.
+
+101
+00:07:12,490 --> 00:07:16,150
+En este periodo, el Nasdaq-100
+y el S&P 500 subieron mucho.
+
+102
+00:07:16,600 --> 00:07:20,360
+Si los precios se estancan mucho
+tiempo, el resultado podría cambiar.
+
+103
+00:07:20,810 --> 00:07:24,490
+Los pagos se cuentan como retirados
+en la fecha ex, no en la de pago.
+
+104
+00:07:24,940 --> 00:07:30,300
+Lo retirado sigue los pagos de QYLD;
+puede diferir de un presupuesto real.
+
+105
+00:07:30,750 --> 00:07:35,630
+Sin impuestos por tipo de cuenta, seguro
+de salud, inflación ni tipo de cambio.
+
+106
+00:07:36,080 --> 00:07:41,600
+Y la cuenta QQQ tuvo que aguantar
+caídas de 37.8%, como en 2022.
+
+107
+00:07:42,050 --> 00:07:45,340
+No es asesoría de inversión: es
+una prueba de reglas con código.
+
+108
+00:07:46,340 --> 00:07:50,110
+¿Tienes una hipótesis para el próximo
+backtest? Cuéntanos en los comentarios.
+
+109
+00:07:50,560 --> 00:07:52,110
+Gracias por ver.

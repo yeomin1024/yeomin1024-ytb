@@ -1,0 +1,527 @@
+1
+00:00:00,300 --> 00:00:04,690
+QYLD: ein Nasdaq-100-Covered-Call-ETF,
+der angeblich kaum Kapital verliert.
+
+2
+00:00:05,140 --> 00:00:08,400
+Ausschüttung monatlich ausgeben
+– hält das Kapital wirklich?
+
+3
+00:00:08,850 --> 00:00:13,300
+Wir vergleichen ihn per Backtest mit
+QQQ, einem ETF auf den Nasdaq-100.
+
+4
+00:00:14,300 --> 00:00:17,100
+Im Dezember 2013 kaufen wir je 100.000 $.
+
+5
+00:00:17,550 --> 00:00:22,000
+Bei QYLD entnehmen wir die Ausschüttung,
+bei QQQ verkaufen wir denselben Betrag.
+
+6
+00:00:22,450 --> 00:00:24,370
+Die Gebühr beträgt 0,25 %.
+
+7
+00:00:25,370 --> 00:00:26,960
+Jetzt lassen wir die Zeit laufen.
+
+8
+00:00:27,410 --> 00:00:31,170
+Die orange Linie ist das
+QYLD-Konto, die blaue das QQQ-Konto.
+
+9
+00:00:31,620 --> 00:00:34,640
+Gelb gepunktet: das Kapital,
+die eingezahlten 100.000 $.
+
+10
+00:00:35,090 --> 00:00:38,130
+Oben Mitte: das Geld, das
+beide gleich entnommen haben.
+
+11
+00:00:38,580 --> 00:00:41,104
+Die kleinen QQQ-Dividenden
+werden wieder angelegt,
+
+12
+00:00:41,104 --> 00:00:42,820
+Steuern sind nicht berücksichtigt.
+
+13
+00:00:43,270 --> 00:00:47,070
+Die erste Ausschüttung, im
+Januar 2014, betrug 1.024 $.
+
+14
+00:00:47,520 --> 00:00:53,680
+Im März 2014 lag das QYLD-Konto 3,4 %
+über dem Kapital – es schien zu halten.
+
+15
+00:00:54,130 --> 00:00:58,420
+Doch im Februar 2016 lag es
+17,5 % unter dem Kapital.
+
+16
+00:00:58,870 --> 00:01:03,050
+Am nächsten Tag fiel auch das QQQ-Konto
+kurz unter das Kapital – beide im Minus.
+
+17
+00:01:03,500 --> 00:01:09,940
+Am 15. März 2018 lag das QYLD-Konto
+0,9 % über dem Kapital, wieder darüber.
+
+18
+00:01:10,390 --> 00:01:17,010
+Doch bis zum 24. Dezember fielen QYLD
+um 21 % und QQQ um 19,8 % – ähnlich.
+
+19
+00:01:17,460 --> 00:01:21,830
+Im November 2019 überstieg das
+entnommene Geld beider Konten 50.000 $.
+
+20
+00:01:22,280 --> 00:01:29,080
+Im Corona-Crash, am 16. März 2020, lag
+das QYLD-Konto 28,3 % unter dem Kapital.
+
+21
+00:01:29,530 --> 00:01:34,090
+Am selben Tag lag das QQQ-Konto
+41,1 % über dem Kapital.
+
+22
+00:01:35,090 --> 00:01:39,810
+Am 19. November 2021 erreichte QQQ
+seinen bis dahin höchsten Kurs.
+
+23
+00:01:40,260 --> 00:01:44,860
+An dem Tag lag das QYLD-Konto
+8,2 % unter dem Kapital,
+
+24
+00:01:44,860 --> 00:01:47,500
+das QQQ-Konto beim 3,16-Fachen.
+
+25
+00:01:47,950 --> 00:01:50,100
+Weiß gepunktet: die Werte an diesem Tag.
+
+26
+00:01:50,550 --> 00:01:53,310
+Dann begann 2022 ein langer Abschwung.
+
+27
+00:01:53,760 --> 00:01:59,600
+Bis zum 14. Oktober fiel das QYLD-Konto
+um 33,2 % gegenüber dem 19. November.
+
+28
+00:02:00,050 --> 00:02:06,320
+Das QQQ-Konto fiel bis zum 28.
+Dezember um 37,8 %, etwas stärker.
+
+29
+00:02:06,770 --> 00:02:11,550
+Auch in diesem Abschwung entnahmen
+beide Konten dasselbe Geld: 8.720 $.
+
+30
+00:02:12,000 --> 00:02:13,140
+Und die Erholung?
+
+31
+00:02:13,590 --> 00:02:15,871
+Am 7. Februar 2024, nach 810 Tagen,
+
+32
+00:02:15,871 --> 00:02:19,520
+übertraf das QQQ-Konto wieder
+den Wert vom 19. November.
+
+33
+00:02:20,520 --> 00:02:25,310
+Im März 2025 überstieg das entnommene
+Geld das Anfangskapital von 100.000 $.
+
+34
+00:02:25,760 --> 00:02:30,880
+Beim Einbruch am 8. April lag das
+QYLD-Konto 40,4 % unter dem Kapital.
+
+35
+00:02:31,330 --> 00:02:35,160
+Am selben Tag lag das
+QQQ-Konto beim 2,98-Fachen.
+
+36
+00:02:36,160 --> 00:02:38,880
+15. Oktober 2026 – das Ergebnis.
+
+37
+00:02:39,330 --> 00:02:43,410
+Beide Konten entnahmen gleich
+oft, 148-mal, rund 110.000 $.
+
+38
+00:02:43,860 --> 00:02:49,540
+Im QYLD-Konto sind rund 75.000 $
+übrig, 25,3 % unter dem Kapital.
+
+39
+00:02:49,990 --> 00:02:54,070
+Den Wert vom 19. November 2021 erreichte
+es bis zum Schluss nicht wieder.
+
+40
+00:02:54,520 --> 00:03:00,330
+Im QQQ-Konto sind rund 510.000 $ übrig
+– bei gleicher Entnahme das 6,83-Fache.
+
+41
+00:03:00,780 --> 00:03:06,210
+Auch der Kurs von 1 QYLD-Anteil
+fiel von 25,04 $ auf 18,74 $.
+
+42
+00:03:06,660 --> 00:03:11,060
+An 94,7 % aller Handelstage lag
+das QYLD-Konto unter dem Kapital.
+
+43
+00:03:12,060 --> 00:03:14,340
+Warum so ein Unterschied?
+
+44
+00:03:14,790 --> 00:03:17,600
+Sehen wir uns an, wie ein Covered
+Call die Ausschüttung erzeugt.
+
+45
+00:03:18,050 --> 00:03:21,020
+Ein Covered-Call-ETF hält
+Aktien und verkauft das Recht,
+
+46
+00:03:21,020 --> 00:03:22,930
+sie zu einem festen Preis zu kaufen.
+
+47
+00:03:23,380 --> 00:03:27,210
+Der Erlös dafür kommt jeden Monat
+herein und speist die Ausschüttung.
+
+48
+00:03:27,660 --> 00:03:30,072
+Steigt der Kurs aber
+über den festen Preis,
+
+49
+00:03:30,072 --> 00:03:32,820
+bekommt den Gewinn darüber
+der Käufer des Rechts.
+
+50
+00:03:33,270 --> 00:03:37,190
+Fällt der Kurs, fällt er nur um den
+Erlös weniger – also fast genauso.
+
+51
+00:03:37,640 --> 00:03:40,430
+Ob das stimmt, haben wir an
+den Tagesbewegungen geprüft.
+
+52
+00:03:40,880 --> 00:03:44,800
+An 595 Tagen stieg QQQ an
+einem Tag um mehr als 1 %.
+
+53
+00:03:45,250 --> 00:03:53,010
+An diesen Tagen stieg QQQ im Schnitt
+um 1,84 %, QYLD um 0,95 % – nur 51,3 %.
+
+54
+00:03:53,460 --> 00:03:57,460
+An 498 Tagen fiel QQQ an
+einem Tag um mehr als 1 %.
+
+55
+00:03:57,910 --> 00:04:05,350
+An diesen Tagen fiel QQQ im Schnitt um
+2,04 %, QYLD um 1,28 % – ganze 62,7 %.
+
+56
+00:04:06,350 --> 00:04:08,390
+War nur der Starttag schlecht?
+
+57
+00:04:08,840 --> 00:04:14,200
+Von Januar 2014 bis Oktober 2021 haben
+wir jeden Monat ein neues Konto gestartet.
+
+58
+00:04:14,650 --> 00:04:17,850
+Jeweils am ersten Handelstag des
+Monats – insgesamt 94 Konten.
+
+59
+00:04:18,300 --> 00:04:21,020
+Jedes Konto entnimmt 5 Jahre
+lang nach denselben Regeln.
+
+60
+00:04:21,470 --> 00:04:26,030
+Nach 5 Jahren lagen 83 von 94
+QYLD-Konten unter dem Kapital.
+
+61
+00:04:26,480 --> 00:04:29,310
+Kein einziges QQQ-Konto
+lag unter dem Kapital.
+
+62
+00:04:29,760 --> 00:04:32,690
+In allen 94 Fällen blieb
+im QQQ-Konto mehr übrig.
+
+63
+00:04:33,140 --> 00:04:39,540
+Der Median: QYLD 18,7 % unter dem
+Kapital, QQQ beim 1,49-Fachen.
+
+64
+00:04:39,990 --> 00:04:44,600
+Am schlechtesten war das QYLD-Konto
+mit Start im Januar 2018:
+
+65
+00:04:44,600 --> 00:04:46,490
+35,9 % unter dem Kapital.
+
+66
+00:04:46,940 --> 00:04:50,850
+Verkürzt man auf 3 Jahre, geraten
+mehr Konten in den Abschwung von 2022.
+
+67
+00:04:51,300 --> 00:04:55,140
+Dann lagen auch 19 von 118
+QQQ-Konten unter dem Kapital.
+
+68
+00:04:55,590 --> 00:04:58,750
+Bei QYLD lagen 81 Konten
+unter dem Kapital.
+
+69
+00:04:59,200 --> 00:05:02,550
+Trotzdem blieb in allen 118
+Fällen im QQQ-Konto mehr übrig.
+
+70
+00:05:03,550 --> 00:05:05,830
+Ist es bei anderen
+Covered-Call-ETFs genauso?
+
+71
+00:05:06,280 --> 00:05:10,110
+Der Nasdaq-100, dem QYLD
+folgt, schwankt eher stark.
+
+72
+00:05:10,560 --> 00:05:12,716
+Deshalb haben wir auch XYLD geprüft,
+
+73
+00:05:12,716 --> 00:05:15,650
+einen Covered-Call-ETF
+auf den ruhigeren S&P 500.
+
+74
+00:05:16,100 --> 00:05:19,860
+Verglichen wird mit SPY,
+einem ETF auf den S&P 500.
+
+75
+00:05:20,310 --> 00:05:25,430
+In 13,3 Jahren ab Juni 2013
+wurden rund 110.000 $ entnommen.
+
+76
+00:05:25,880 --> 00:05:29,878
+Das XYLD-Konto wuchs
+5,4 % über das Kapital,
+
+77
+00:05:29,878 --> 00:05:33,330
+das SPY-Konto aber auf das 3,33-Fache.
+
+78
+00:05:33,780 --> 00:05:38,380
+Auch bei 100 Konten über 5 Jahre mit
+anderen Startmonaten hatte SPY immer mehr.
+
+79
+00:05:38,830 --> 00:05:42,100
+Und 60 von 100 XYLD-Konten
+lagen unter dem Kapital.
+
+80
+00:05:42,550 --> 00:05:45,840
+JEPI ist ein Covered-Call-ETF,
+der etwas anders funktioniert.
+
+81
+00:05:46,290 --> 00:05:50,220
+Er mischt Aktien mit Wertpapieren, die
+wie der Verkauf des Kaufrechts wirken.
+
+82
+00:05:50,670 --> 00:05:56,180
+In 6,4 Jahren ab Mai 2020
+wurden rund 61.000 $ entnommen.
+
+83
+00:05:56,630 --> 00:06:00,393
+Das JEPI-Konto wuchs
+14,2 % über das Kapital,
+
+84
+00:06:00,393 --> 00:06:03,320
+das SPY-Konto lag beim 1,79-Fachen.
+
+85
+00:06:04,320 --> 00:06:07,800
+Bisher ohne Steuern gerechnet
+– wie sieht es mit Steuern aus?
+
+86
+00:06:08,250 --> 00:06:12,730
+Viele Länder behalten von
+US-ETF-Ausschüttungen 15 % direkt ein.
+
+87
+00:06:13,180 --> 00:06:18,620
+Mit 15 % Abzug sinkt das erhaltene
+Geld von QYLD auf rund 96.000 $.
+
+88
+00:06:19,070 --> 00:06:23,330
+Das QQQ-Konto verkauft auch nur so
+viel – übrig bleiben rund 560.000 $.
+
+89
+00:06:23,780 --> 00:06:28,180
+Das QYLD-Konto hat gleich viele
+Anteile, also weiter rund 75.000 $.
+
+90
+00:06:28,630 --> 00:06:32,240
+Manche haben anderes Geld zum Leben
+und legen die Ausschüttung wieder an.
+
+91
+00:06:32,690 --> 00:06:38,210
+So kam QYLD auf rund 290.000
+$, QQQ auf rund 950.000 $.
+
+92
+00:06:38,660 --> 00:06:42,090
+Auch mit Wiederanlage
+lag QQQ beim 3,25-Fachen.
+
+93
+00:06:43,090 --> 00:06:44,210
+Fassen wir zusammen.
+
+94
+00:06:44,660 --> 00:06:50,740
+Das QYLD-Konto, das monatlich ausgab,
+verlor in 12,8 Jahren 25,3 % des Kapitals.
+
+95
+00:06:51,190 --> 00:06:53,869
+Das QQQ-Konto, das für
+dasselbe Geld verkaufte,
+
+96
+00:06:53,869 --> 00:06:55,750
+hatte das 5,1-Fache des Kapitals.
+
+97
+00:06:56,200 --> 00:07:00,240
+Auch bei anderen Startmonaten
+blieb bei QQQ immer mehr übrig.
+
+98
+00:07:00,690 --> 00:07:03,315
+XYLD und JEPI verloren kein Kapital,
+
+99
+00:07:03,315 --> 00:07:06,960
+hatten aber weniger als
+SPY bei gleicher Entnahme.
+
+100
+00:07:07,410 --> 00:07:11,490
+Weniger steigen, aber fast voll mitfallen
+– diese Differenz hat sich summiert.
+
+101
+00:07:12,490 --> 00:07:16,150
+In diesem Zeitraum sind Nasdaq-100
+und S&P 500 stark gestiegen.
+
+102
+00:07:16,600 --> 00:07:20,360
+In einer langen Seitwärtsphase
+könnte das Ergebnis anders sein.
+
+103
+00:07:20,810 --> 00:07:24,490
+Ausschüttungen gelten am Ex-Tag
+als entnommen, nicht am Zahltag.
+
+104
+00:07:24,940 --> 00:07:27,781
+Die Entnahmen folgen
+den QYLD-Ausschüttungen
+
+105
+00:07:27,781 --> 00:07:30,300
+und können vom echten Budget abweichen.
+
+106
+00:07:30,750 --> 00:07:35,630
+Steuern je Kontoart, Krankenversicherung,
+Inflation und Wechselkurse fehlen auch.
+
+107
+00:07:36,080 --> 00:07:41,600
+Und mit QQQ musste man Rückgänge
+wie 37,8 % im Jahr 2022 aushalten.
+
+108
+00:07:42,050 --> 00:07:45,340
+Keine Anlageberatung – nur das
+Ergebnis, Regeln per Code zu prüfen.
+
+109
+00:07:46,340 --> 00:07:50,110
+Eine Hypothese für den nächsten
+Backtest? Schreibt sie in die Kommentare.
+
+110
+00:07:50,560 --> 00:07:52,110
+Danke fürs Zuschauen.

@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.2.1 — 2026-10-18 — 사용자 보고(wangp_process.log) "해결해 에러 났어": WanGP 가 T2V 모델의 창 이어붙이기를
+# VERSION: v1.3.0 — 2026-10-18 — 사용자 지시 "3개 영상 나왔는데 2시간 걸렸어 너무 오래걸리는데 빠르게 생성하는 방법 없어?
+#          시작 이미지를 전달하면 더 빨리 할 수 있어? 시작 이미지 여러개 만들어서 짧게 짧게 각각 만드는거지": 시작 이미지
+#          여러 장 → 장마다 짧은 클립을 WanGP 한 번 실행에 연달아(모델 한 번만 불러옴) → 이어 붙임 → 업스케일
+#          (start_images · clip_sec · concat). 새 모델 wan2.2-5b-fast(TI2V 5B FastWan 3-step) · wan2.2-14b-i2v(I2V 14B
+#          Lightning 4-step). 업스케일은 비율 차이 3% 이하면 키운 뒤 가운데 자르기(cover) 허용 (5B 1280x704 → 1920x1080)
+# 이전 v1.2.1 — 2026-10-18 — 사용자 보고(wangp_process.log) "해결해 에러 났어": WanGP 가 T2V 모델의 창 이어붙이기를
 #          거부 ("You have requested to Generate Sliding Windows with a Text to Video model ... a t2v model doesn't see past
 #          frames"). wan2.2-14b-hq 를 두 단계로: T2V 14B 로 첫 81프레임(5초) → SVI 2 Pro(I2V 14B, 영상 이어 만들기 'V')로
 #          나머지 160프레임 (wangp_plan · wangp_continue_settings). 오류 메시지에 WanGP 의 [ERROR] 줄을 바로 보여 줌
@@ -31,6 +36,8 @@ Kaggle 셀 (videogen/README.md 의 셀을 그대로):
     wan2.2-5b             diffusers 로 Wan2.2-TI2V-5B (Apache-2.0)  — 기본값, 오프라인 스모크 테스트 통과
     wan2.2-14b-lightning  WanGP 로 Wan2.2 T2V 14B + Lightning 4-step LoRA (Apache-2.0)
     wan2.2-14b-hq         WanGP 로 두 단계: T2V 14B + Lightning 8-step 3-phase(첫 5초) → SVI 2 Pro I2V 14B 로 나머지를 이어 만들기
+    wan2.2-5b-fast        WanGP 로 TI2V 5B + FastWan 3-step — 빠름. 시작 이미지(start_images)·텍스트만 둘 다
+    wan2.2-14b-i2v        WanGP 로 I2V 14B + Lightning i2v 4-step — 시작 이미지 필요, 클립 품질 우선
     ltx2.5-distilled      WanGP 로 LTX-2.5 Distilled 22B, 영상+오디오 (LTX-2 Community License — 연매출 1천만 달러 이상 유료)
 
 결과: <output_dir>/<run_id>/ 에 영상 + videogen_<run_id>.json(설정·버전·시간·코드 sha256) + run.log
@@ -54,24 +61,32 @@ import sys
 import time
 from dataclasses import asdict, dataclass, field, fields
 
-__version__ = "1.2.1"
+__version__ = "1.3.0"
 
 # --------------------------------------------------------------------------------------------------
 # 모델 · 프리셋
 # --------------------------------------------------------------------------------------------------
 MODELS = {
     "wan2.2-5b": dict(backend="diffusers", repo="Wan-AI/Wan2.2-TI2V-5B-Diffusers", license="Apache-2.0"),
-    "wan2.2-14b-lightning": dict(backend="wangp", model_type="t2v_2_2", license="Apache-2.0",
+    "wan2.2-14b-lightning": dict(backend="wangp", model_type="t2v_2_2", license="Apache-2.0", block=16,
                                  profile="wan_2_2/Lightning t2v v2025-09-28 2 Phases - 4 Steps.json"),
     # 8-step 3-phase 프로필 설명(WanGP): "insert a CFG phase before the 2 accelerated phases ... reduce the slow motion
     # effect of these Loras Accelerators". T2V 는 앞 창을 보지 못해 WanGP 가 창 이어붙이기를 막으므로 (v1.2.0 Kaggle 오류)
     # 처음 81프레임(16fps 5초)만 T2V 로 만들고, 나머지는 SVI 2 Pro(Wan2.2 I2V 14B + Stable Video Infinity LoRA —
     # "potentially unlimited Videos to Continue")가 그 영상을 이어 만든다. Lightning i2v 는 SVI LoRA 와 같은 2-phase 4-step.
-    "wan2.2-14b-hq": dict(backend="wangp", model_type="t2v_2_2", license="Apache-2.0", fps=16, first_frames=81,
+    "wan2.2-14b-hq": dict(backend="wangp", model_type="t2v_2_2", license="Apache-2.0", fps=16, block=16, first_frames=81,
                           profile="wan_2_2/Lightning t2v v2025-12-17 3 Phases - 8 Steps.json",
                           continue_with=dict(model_type="i2v_2_2_svi2pro",
                                              profile="wan_2_2/Lightning i2v v2025-10-14 2 Phases - 4 Steps.json"),
                           disk_gb=80),  # 추정: T2V·I2V 14B int8 두 벌 + 텍스트 인코더·VAE·LoRA + venv
+    # 빠름: Wan2.2 TI2V 5B + FastWan(3-step 증류 LoRA, CFG 없음 — WanGP 프리셋 ti2v_2_2_fastwan). 시작 이미지·텍스트만 둘 다 됨.
+    # 5B 는 T2V 로 분류되지 않아(WanGP test_class_t2v) 텍스트만으로 긴 영상도 창 이어붙이기(창 121)가 허용된다. 해상도 32 배수.
+    "wan2.2-5b-fast": dict(backend="wangp", model_type="ti2v_2_2_fastwan", fps=24, block=32, clip_frames=121,
+                           license="Apache-2.0 (Wan2.2) — FastWan LoRA 는 원문 라이선스 확인", disk_gb=30),
+    # 품질: Wan2.2 I2V 14B + Lightning i2v 2-phase 4-step. 시작 이미지가 꼭 있어야 한다 (start_images).
+    "wan2.2-14b-i2v": dict(backend="wangp", model_type="i2v_2_2", fps=16, block=16, clip_frames=81, needs_image=True,
+                           profile="wan_2_2/Lightning i2v v2025-10-14 2 Phases - 4 Steps.json",
+                           license="Apache-2.0", disk_gb=50),
     "ltx2.5-distilled": dict(backend="wangp", model_type="ltx2_25_22B_distilled", profile=None,
                              license="LTX-2 Community License (revenue >= USD 10M needs a paid license)"),
 }
@@ -88,6 +103,7 @@ PRESETS = {
                           steps=50, guidance_scale=5.0),
 }
 UPSCALE_FACTORS = (1.5, 2.0, 2.5, 3.0, 3.5, 4.0)  # FlashVSR·Lanczos 가 둘 다 지원하는 배율 (WanGP @ wangp_ref)
+UPSCALE_ASPECT_TOL = 0.03                          # 생성·목표 비율 차이가 이 이하면 키운 뒤 가운데를 잘라 맞춤(cover)
 DIFFUSERS_MAX_FRAMES = 121                        # Wan2.2-TI2V-5B 모델 카드 기본값 (24fps 5초) — 넘으면 학습 밖
 
 # Wan 공식 부정 프롬프트 (Wan2.x 예제에 실린 중국어 원문)
@@ -133,6 +149,10 @@ class Config:
     duration_sec: float | None = None            # 길이(초) — 주면 num_frames 대신 (WanGP: 모델 fps 로 가장 가까운 프레임 수)
     upscale_to: str | None = None                # 최종 해상도 "1920x1080" — 생성 해상도의 1.5·2·…배(가로세로 같은 배율)
     upscaler: str = "flashvsr"                   # flashvsr(학습형 복원, WanGP) | lanczos(단순 확대, ffmpeg). flashvsr 실패 → lanczos
+    # ---- 시작 이미지 (WanGP 모델) — 장마다 짧은 클립 하나, WanGP 한 번 실행에 연달아 (모델을 한 번만 불러옴) ----
+    start_images: list = field(default_factory=list)  # 경로·URL, 또는 {"image": 경로·URL, "prompt": "이 클립만의 프롬프트"}
+    clip_sec: float | None = None                # 클립 하나 길이(초). None: duration_sec ÷ 이미지 수 → 없으면 모델 기본(약 5초)
+    concat: bool = True                          # 클립들을 순서대로 이어 한 영상으로 (컷 전환)
     # ---- 경로 ----
     output_dir: str = "/kaggle/working/outputs"  # 결과 (Kaggle Output 탭으로 저장됨, 20GB 한도)
     work_dir: str = "/kaggle/tmp/videogen"       # 가중치·venv·WanGP 소스 (저장 안 되는 임시 디스크)
@@ -179,6 +199,16 @@ def make_config(settings: dict | Config | None = None, **overrides) -> Config:
         raise ValueError(f"duration_sec={cfg.duration_sec} 은 0보다 커야 한다")
     if cfg.upscale_to is not None:
         _parse_size(cfg.upscale_to)
+    spec = MODELS[cfg.model]
+    if spec.get("needs_image") and not cfg.start_images:
+        raise ValueError(f"model={cfg.model!r} 는 시작 이미지가 필요하다 — start_images=[...] 를 넣거나 'wan2.2-5b-fast'")
+    if cfg.start_images and spec["backend"] != "wangp":
+        raise ValueError(f"start_images 는 WanGP 모델에서만: {[m for m, v in MODELS.items() if v['backend'] == 'wangp']}")
+    for i, item in enumerate(cfg.start_images):
+        if not (isinstance(item, str) and item.strip()) and not (isinstance(item, dict) and item.get("image")):
+            raise ValueError(f"start_images[{i}] 는 경로·URL 문자열이나 {{'image': ..., 'prompt': ...}} 이어야 한다: {item!r}")
+    if cfg.clip_sec is not None and cfg.clip_sec <= 0:
+        raise ValueError(f"clip_sec={cfg.clip_sec} 은 0보다 커야 한다")
     return cfg
 
 
@@ -190,16 +220,24 @@ def _parse_size(text: str) -> tuple[int, int]:
     return int(m.group(1)), int(m.group(2))
 
 
-def upscale_factor(width: int, height: int, target: str) -> float:
-    """생성 해상도 → upscale_to 배율. 가로세로 배율이 같고 지원 배율이어야 한다 (늘이거나 자르지 않음)."""
+def upscale_plan(width: int, height: int, target: str) -> dict:
+    """생성 해상도 → 최종 해상도 계획 {'factor', 'fit', 'crop_pct'}.
+    exact: 가로세로 같은 지원 배율 (1280x720 → ×1.5 = 1920x1080).
+    cover: 비율 차이가 3% 이하면 목표를 덮는 가장 작은 지원 배율로 키운 뒤 가운데를 잘라 맞춘다
+           (5B 는 32 배수라 1280x704 → ×2 → 줄여서 1964x1080 → 가운데 1920x1080, 가로 약 2% 잘림).
+    비율이 그보다 다르면 많이 잘리므로 멈추고 맞는 생성 해상도를 알려 준다."""
     tw, th = _parse_size(target)
     fw, fh = tw / width, th / height
-    if abs(fw - fh) > 1e-6 or round(fw, 6) not in UPSCALE_FACTORS:
-        hint = ", ".join(f"{round(tw / f)}x{round(th / f)}(×{f:g})" for f in UPSCALE_FACTORS
-                         if abs(tw / f - round(tw / f)) < 1e-6 and abs(th / f - round(th / f)) < 1e-6)
-        raise ValueError(f"{width}x{height} → {target} 는 배율 {fw:.3g}×{fh:.3g} — 지원 배율 {UPSCALE_FACTORS} 중 "
-                         f"가로세로 같은 값이어야 한다. 이 목표에 맞는 생성 해상도: {hint or '없음'}")
-    return round(fw, 6)
+    if abs(fw - fh) < 1e-6 and round(fw, 6) in UPSCALE_FACTORS:
+        return dict(factor=round(fw, 6), fit="exact", crop_pct=0.0)
+    aspect_diff = abs((width / height) / (tw / th) - 1)
+    factor = next((f for f in UPSCALE_FACTORS if f >= max(fw, fh) - 1e-9), None)
+    if aspect_diff <= UPSCALE_ASPECT_TOL and factor is not None:
+        return dict(factor=factor, fit="cover", crop_pct=round(aspect_diff * 100, 2))
+    hint = ", ".join(f"{round(tw / f)}x{round(th / f)}(×{f:g})" for f in UPSCALE_FACTORS
+                     if abs(tw / f - round(tw / f)) < 1e-6 and abs(th / f - round(th / f)) < 1e-6)
+    raise ValueError(f"{width}x{height} → {target}: 비율 차이 {aspect_diff * 100:.1f}% (허용 {UPSCALE_ASPECT_TOL * 100:g}%) "
+                     f"또는 배율 {max(fw, fh):.3g} 이 지원 배율 {UPSCALE_FACTORS} 밖. 이 목표에 맞는 생성 해상도: {hint or '없음'}")
 
 
 # --------------------------------------------------------------------------------------------------
@@ -330,7 +368,12 @@ def resolve_params(cfg: Config, spatial_multiple: int | None = None, temporal_fa
         log("DATA", f"num_frames must be {temporal_factor}k+1; adjusted", logging.WARNING,
             before=p["num_frames"], after=fixed)
         p["num_frames"] = fixed
-    p["upscale_factor"] = upscale_factor(p["width"], p["height"], p["upscale_to"]) if p["upscale_to"] else None
+    up = upscale_plan(p["width"], p["height"], p["upscale_to"]) if p["upscale_to"] else {}
+    p["upscale_factor"], p["upscale_fit"], p["upscale_crop_pct"] = up.get("factor"), up.get("fit"), up.get("crop_pct")
+    if up.get("fit") == "cover":
+        log("DATA", "upscale will scale up then center-crop to the target aspect", logging.WARNING,
+            generation=f"{p['width']}x{p['height']}", target=p["upscale_to"], factor=up["factor"],
+            crop_pct=up["crop_pct"])
     return p
 
 
@@ -374,9 +417,12 @@ def _video_size(path: str) -> tuple[int, int] | None:
     return (info["width"], info["height"]) if "width" in info else None
 
 
-def _ffmpeg_upscale(src: str, dst: str, width: int, height: int):
+def _ffmpeg_upscale(src: str, dst: str, width: int, height: int, fit: str = "exact"):
+    """Lanczos 로 width x height 로. fit='cover' 면 비율을 지켜 덮도록 키운 뒤 가운데를 잘라 맞춘다."""
+    vf = f"scale={width}:{height}:flags=lanczos" if fit == "exact" else \
+        f"scale={width}:{height}:force_original_aspect_ratio=increase:flags=lanczos,crop={width}:{height}"
     cmd = [_ffmpeg_exe(), "-y", "-hide_banner", "-loglevel", "error", "-i", src,
-           "-vf", f"scale={width}:{height}:flags=lanczos", "-map", "0:v:0", "-map", "0:a?",
+           "-vf", vf, "-map", "0:v:0", "-map", "0:a?",
            "-c:v", "libx264", "-preset", "slow", "-crf", "16", "-pix_fmt", "yuv420p", "-c:a", "copy", dst]
     r = subprocess.run(cmd, capture_output=True, text=True)
     if r.returncode != 0:
@@ -386,10 +432,10 @@ def _ffmpeg_upscale(src: str, dst: str, width: int, height: int):
 def _upscale_video(cfg: Config, params: dict, src: str, run_dir: str, wangp: tuple | None = None) -> tuple[str, str]:
     """src → upscale_to 해상도 파일. → (경로, 실제 쓴 방법)"""
     tw, th = _parse_size(params["upscale_to"])
-    factor = params["upscale_factor"]
+    factor, fit = params["upscale_factor"], params.get("upscale_fit") or "exact"
     stem = os.path.splitext(os.path.basename(src))[0]
     log("UPSCALE", "start", src=src, src_size="x".join(map(str, _video_size(src) or ("?", "?"))),
-        target=f"{tw}x{th}", factor=factor, upscaler=cfg.upscaler)
+        target=f"{tw}x{th}", factor=factor, fit=fit, upscaler=cfg.upscaler)
     if cfg.upscaler == "flashvsr" and wangp is not None:
         app_dir, py, attention, wgp_log = wangp
         up_dir = os.path.join(run_dir, "upscale_tmp")
@@ -404,9 +450,15 @@ def _upscale_video(cfg: Config, params: dict, src: str, run_dir: str, wangp: tup
         new = sorted(os.path.join(up_dir, n) for n in set(os.listdir(up_dir)) - before
                      if n.lower().endswith((".mp4", ".webm", ".mkv")))
         got = _video_size(new[0]) if new else None
-        if rc == 0 and got == (tw, th):
+        if rc == 0 and got and got[0] >= tw and got[1] >= th:  # 목표를 덮으면 성공 (cover 면 아래에서 맞춰 자름)
             dst = os.path.join(run_dir, f"{stem}_{tw}x{th}_flashvsr.mp4")
-            shutil.move(new[0], dst)
+            if got == (tw, th):
+                shutil.move(new[0], dst)
+            else:
+                _ffmpeg_upscale(new[0], dst, tw, th, fit="cover")
+                log("UPSCALE", "FlashVSR output fitted to target (scale + center crop)", flashvsr_size=f"{got[0]}x{got[1]}")
+            if _video_size(dst) != (tw, th):
+                raise RuntimeError(f"업스케일 결과 크기 {_video_size(dst)} != {tw}x{th}")
             log("UPSCALE", "done", method="flashvsr", file=dst, size_mb=round(os.path.getsize(dst) / 1e6, 2))
             return dst, "flashvsr"
         log("UPSCALE", "FlashVSR failed -> falling back to Lanczos", logging.WARNING, rc=rc, outputs=len(new),
@@ -414,11 +466,97 @@ def _upscale_video(cfg: Config, params: dict, src: str, run_dir: str, wangp: tup
     elif cfg.upscaler == "flashvsr":
         log("UPSCALE", "FlashVSR runs only through WanGP models; using Lanczos", logging.WARNING)
     dst = os.path.join(run_dir, f"{stem}_{tw}x{th}_lanczos.mp4")
-    _ffmpeg_upscale(src, dst, tw, th)
+    _ffmpeg_upscale(src, dst, tw, th, fit=fit)
     if _video_size(dst) != (tw, th):
         raise RuntimeError(f"업스케일 결과 크기 {_video_size(dst)} != {tw}x{th}")
     log("UPSCALE", "done", method="lanczos", file=dst, size_mb=round(os.path.getsize(dst) / 1e6, 2))
     return dst, "lanczos"
+
+
+def _ffmpeg_concat(clips: list[str], dst: str, width: int, height: int):
+    """클립들을 순서대로 한 영상으로 (컷 전환). 크기·fps 를 첫 클립에 맞춰 다시 인코딩한다."""
+    fps = _video_info(clips[0]).get("fps") or 16
+    chains = "".join(f"[{i}:v]scale={width}:{height}:flags=lanczos,setsar=1,fps={fps:g}[v{i}];" for i in range(len(clips)))
+    joins = "".join(f"[v{i}]" for i in range(len(clips)))
+    cmd = [_ffmpeg_exe(), "-y", "-hide_banner", "-loglevel", "error"]
+    for c in clips:
+        cmd += ["-i", c]
+    cmd += ["-filter_complex", f"{chains}{joins}concat=n={len(clips)}:v=1:a=0[v]", "-map", "[v]",
+            "-c:v", "libx264", "-preset", "slow", "-crf", "16", "-pix_fmt", "yuv420p", dst]
+    r = subprocess.run(cmd, capture_output=True, text=True)
+    if r.returncode != 0:
+        raise RuntimeError(f"ffmpeg 이어 붙이기 실패: {r.stderr[-800:]}")
+
+
+# --------------------------------------------------------------------------------------------------
+# 시작 이미지: URL 이면 받고, 생성 해상도 비율로 가운데를 잘라 그 크기로 (WanGP 는 시작 이미지 비율을 결과 비율로 따름)
+# --------------------------------------------------------------------------------------------------
+def _fetch(url: str, dst: str):
+    import urllib.request
+    headers = [{}]
+    token = _kaggle_secret("GITHUB_TOKEN") if "githubusercontent.com" in url else None
+    if token:
+        headers.append({"Authorization": "token " + token})  # 비공개 저장소일 때만 필요 (값은 로그에 남기지 않음)
+    err = None
+    for attempt, h in enumerate(headers * 2, 1):
+        try:
+            with urllib.request.urlopen(urllib.request.Request(url, headers=h), timeout=60) as r, open(dst, "wb") as f:
+                f.write(r.read())
+            return
+        except Exception as e:  # 네트워크·권한 오류: 다음 방법으로, 모두 실패하면 멈춤
+            err = e
+            log("IMAGES", "download attempt failed", logging.WARNING, attempt=attempt, url=url[:120], error=repr(e)[:200])
+            time.sleep(2)
+    raise RuntimeError(f"시작 이미지 받기 실패: {url} ({err!r}) — 주소·Internet=On 확인")
+
+
+def prepare_start_images(cfg: Config, params: dict, run_dir: str) -> list[dict]:
+    """start_images → [{'path', 'prompt', 'src', 'orig'}]. 가운데를 잘라 생성 해상도(params width x height)에 정확히 맞춘다."""
+    from PIL import Image
+
+    out_dir = os.path.join(run_dir, "start_images")
+    os.makedirs(out_dir, exist_ok=True)
+    tw, th = params["width"], params["height"]
+    images = []
+    for i, item in enumerate(cfg.start_images, 1):
+        src, prompt = (item, None) if isinstance(item, str) else (item["image"], item.get("prompt"))
+        if re.match(r"^(https?|file)://", src):
+            local = os.path.join(out_dir, f"{i:02d}_source{os.path.splitext(src.split('?')[0])[1] or '.img'}")
+            _fetch(src, local)
+        else:
+            local = src
+            if not os.path.exists(local):
+                raise FileNotFoundError(f"start_images[{i - 1}] 파일이 없음: {local} (Kaggle 데이터는 /kaggle/input/... 경로)")
+        with Image.open(local) as im:
+            im = im.convert("RGB")
+            ow, oh = im.size
+            scale = max(tw / ow, th / oh)
+            nw, nh = max(tw, round(ow * scale)), max(th, round(oh * scale))
+            im = im.resize((nw, nh), Image.LANCZOS)
+            left, top = (nw - tw) // 2, (nh - th) // 2
+            im = im.crop((left, top, left + tw, top + th))
+            path = os.path.join(out_dir, f"{i:02d}.png")
+            im.save(path)
+        cut = round((1 - (tw * th) / (nw * nh)) * 100, 1)
+        log("IMAGES", "start image", idx=i, src=src[-120:], orig=f"{ow}x{oh}", final=f"{tw}x{th}", cropped_pct=cut,
+            prompt="own" if prompt else "global")
+        if cut > 20:
+            log("IMAGES", "more than 20% of the image was cropped to fit the video aspect — the subject may be cut",
+                logging.WARNING, idx=i, cropped_pct=cut)
+        images.append(dict(path=path, prompt=prompt or cfg.prompt, src=src, orig=f"{ow}x{oh}"))
+    return images
+
+
+def clip_frames_for(cfg: Config, params: dict, n_images: int) -> int:
+    """클립 하나의 프레임 수: clip_sec > duration_sec ÷ 이미지 수 > 모델 기본(약 5초)."""
+    spec = MODELS[cfg.model]
+    if cfg.clip_sec is not None:
+        sec = cfg.clip_sec
+    elif params.get("duration_sec") is not None:
+        sec = params["duration_sec"] / n_images
+    else:
+        return spec.get("clip_frames", 81)
+    return _wan_frames(sec, spec["fps"])
 
 
 def _ensure_packages(specs: dict[str, str]):
@@ -911,6 +1049,18 @@ def wangp_continue_settings(cfg: Config, params: dict, app_dir: str, source: str
     return s
 
 
+def wangp_image_tasks(cfg: Config, params: dict, app_dir: str, images: list[dict], clip_frames: int) -> list[dict]:
+    """시작 이미지마다 작업 하나 (image_prompt_type 'S' + image_start). WanGP 는 목록을 한 프로세스에서 차례로 돌려
+    모델을 한 번만 불러온다. seed 는 클립마다 seed, seed+1, … (같은 설정·이미지면 같은 결과)."""
+    base = wangp_settings(cfg, params, app_dir, video_length=clip_frames)
+    tasks = []
+    for i, img in enumerate(images):
+        t = dict(base, prompt=img["prompt"], seed=cfg.seed + i, image_prompt_type="S",
+                 image_start=os.path.abspath(img["path"]))
+        tasks.append(t)
+    return tasks
+
+
 _PROGRESS_RE = re.compile(r"\d+%\||it/s|s/it|steps/s|s/step")
 _IMPORTANT_RE = re.compile(r"error|exception|traceback|warning|saved|task|loaded|download|valid|frames|steps",
                            re.IGNORECASE)
@@ -946,15 +1096,20 @@ def _last_error_line(log_file: str) -> str:
     return errs[-1][:400] if errs else ""
 
 
-def _wangp_process(cfg: Config, settings: dict, name: str, run_dir: str, media_dir: str, app_dir: str, py: str,
+def _wangp_process(cfg: Config, settings: dict | list, name: str, run_dir: str, media_dir: str, app_dir: str, py: str,
                    attention: str, wgp_log: str, stage: str) -> list[str]:
-    """설정 JSON 저장 → (--dry-run 검증) → --process → 새 결과 파일 목록."""
+    """설정 JSON(작업 하나 또는 목록) 저장 → (--dry-run 검증) → --process → 새 결과 파일 목록 (만든 순서)."""
     settings_path = os.path.join(run_dir, name)
     with open(settings_path, "w", encoding="utf-8") as f:
         json.dump(settings, f, ensure_ascii=False, indent=2)
-    shown = {k: (v if not isinstance(v, str) or len(v) < 80 else v[:77] + "...") for k, v in settings.items()}
-    log(stage, "settings", file=name, **{k: json.dumps(v, ensure_ascii=False) if isinstance(v, (list, dict)) else v
-                                         for k, v in shown.items() if k not in ("prompt", "negative_prompt")})
+    tasks = settings if isinstance(settings, list) else [settings]
+    for n, task in enumerate(tasks, 1):
+        shown = {k: (v if not isinstance(v, str) or len(v) < 80 else "..." + v[-60:]) for k, v in task.items()}
+        log(stage, "settings", file=name, task=f"{n}/{len(tasks)}",
+            **{k: json.dumps(v, ensure_ascii=False) if isinstance(v, (list, dict)) else v
+               for k, v in shown.items() if k not in ("prompt", "negative_prompt")})
+        if len(tasks) > 1:
+            log(stage, "task prompt", task=f"{n}/{len(tasks)}", prompt=task["prompt"][:160])
     base = [py, "wgp.py", "--process", settings_path, "--output-dir", media_dir,
             "--profile", cfg.wangp_profile, "--attention", attention, "--gpu", cfg.wangp_gpu]
     if cfg.wangp_dry_run_first:
@@ -969,8 +1124,8 @@ def _wangp_process(cfg: Config, settings: dict, name: str, run_dir: str, media_d
         for line in open(wgp_log, encoding="utf-8", errors="replace").read().strip().splitlines()[-8:]:
             log(stage, "  | " + line[:300], logging.ERROR)
         raise RuntimeError(f"WanGP 생성 실패 (rc={rc}): {_last_error_line(wgp_log)} — 전체 로그: {wgp_log}")
-    new = sorted(os.path.join(media_dir, n) for n in set(os.listdir(media_dir)) - before
-                 if os.path.splitext(n)[1].lower() in MEDIA_EXT)
+    new = sorted((os.path.join(media_dir, n) for n in set(os.listdir(media_dir)) - before
+                  if os.path.splitext(n)[1].lower() in MEDIA_EXT), key=os.path.getmtime)  # WanGP 는 작업을 차례로 저장
     if not new:
         raise RuntimeError(f"WanGP 가 0 으로 끝났지만 새 결과 파일이 없음 — {wgp_log}")
     for p in new:
@@ -992,32 +1147,50 @@ def _wangp_generate(cfg: Config, run_dir: str, run_id: str, timings: dict) -> di
         gpus = _nvidia_smi()
         for g in gpus:
             log("SETUP", "gpu", **g)
-        params = resolve_params(cfg)  # 모양 맞추기는 WanGP 가 모델 블록 크기에 맞춰 한다
-        plan = wangp_plan(cfg, params)
+        # Wan 해상도는 모델 블록 크기(14B 16 · 5B 32)의 배수로 — WanGP 가 몰래 내리기 전에 여기서 맞추고 전·후를 남긴다
+        params = resolve_params(cfg, spatial_multiple=spec.get("block"))
         log("SETUP", "generation params", preset=cfg.preset, resolution=f"{params['width']}x{params['height']}",
             num_frames=params["num_frames"], duration_sec=params["duration_sec"], upscale_to=params["upscale_to"],
-            upscale_factor=params["upscale_factor"], explicit=",".join(params["explicit"]) or "none",
+            upscale_factor=params["upscale_factor"], upscale_fit=params["upscale_fit"],
+            explicit=",".join(params["explicit"]) or "none",
             note="steps/guidance from the WanGP model or accelerator profile unless explicit")
-        log("SETUP", "length plan", total=plan["total"], first_stage=f"{spec['model_type']}:{plan['first']}",
-            continue_stage=f"{spec['continue_with']['model_type']}:{plan['cont']}" if plan["cont"] else "none",
-            model_fps=spec.get("fps", "model default"))
-        if spec["model_type"].startswith(("t2v", "i2v", "ti2v")) and (params["width"] % 16 or params["height"] % 16):
-            log("SETUP", "WanGP aligns Wan resolutions down to multiples of 16; the upscaled size may not match "
-                         "upscale_to exactly (Lanczos fallback then stretches slightly)", logging.WARNING,
-                resolution=f"{params['width']}x{params['height']}",
-                aligned=f"{params['width'] // 16 * 16}x{params['height'] // 16 * 16}")
+        if cfg.start_images:
+            clip_frames = clip_frames_for(cfg, params, len(cfg.start_images))
+            plan = dict(total=clip_frames * len(cfg.start_images), first=clip_frames, cont=None,
+                        clips=len(cfg.start_images), clip_frames=clip_frames)
+            log("SETUP", "clip plan", clips=plan["clips"], frames_per_clip=clip_frames,
+                sec_per_clip=round(clip_frames / spec["fps"], 2), total_sec=round(plan["total"] / spec["fps"], 2),
+                model=spec["model_type"], concat=cfg.concat)
+            if clip_frames > spec.get("clip_frames", 81):
+                log("SETUP", "clip longer than the model's ~5s training length: WanGP will window it (slower)",
+                    logging.WARNING, frames_per_clip=clip_frames, model_clip_frames=spec.get("clip_frames"))
+        else:
+            plan = wangp_plan(cfg, params)
+            log("SETUP", "length plan", total=plan["total"], first_stage=f"{spec['model_type']}:{plan['first']}",
+                continue_stage=f"{spec['continue_with']['model_type']}:{plan['cont']}" if plan["cont"] else "none",
+                model_fps=spec.get("fps", "model default"))
         if spec.get("disk_gb") and _free_disk_gb(cfg.work_dir) < spec["disk_gb"]:
             log("SETUP", "scratch disk may be too small for this model's downloads (estimate)", logging.WARNING,
                 free_gb=_free_disk_gb(cfg.work_dir), estimate_gb=spec["disk_gb"])
+    images = []
+    if cfg.start_images:  # 설치 전에 받아 두어 주소가 틀렸으면 바로 멈춘다
+        with _Stage("IMAGES", timings, "이미지 주소·경로 확인 (Kaggle 데이터는 /kaggle/input/...)"):
+            images = prepare_start_images(cfg, params, run_dir)
     app_dir, py, attention = _wangp_install(cfg, timings, install_log)
     media_dir = os.path.join(run_dir, "media")
     os.makedirs(media_dir, exist_ok=True)
     run_args = (run_dir, media_dir, app_dir, py, attention, wgp_log)
 
-    with _Stage("GENERATE", timings, "wangp_process.log 끝부분 확인 · RAM 부족이면 wangp_profile='5'"):
-        new = _wangp_process(cfg, wangp_settings(cfg, params, app_dir, video_length=plan["first"]),
-                             "wangp_settings.json", *run_args, "GENERATE")
     segments = []
+    with _Stage("GENERATE", timings, "wangp_process.log 끝부분 확인 · RAM 부족이면 wangp_profile='5'"):
+        if images:
+            new = _wangp_process(cfg, wangp_image_tasks(cfg, params, app_dir, images, plan["clip_frames"]),
+                                 "wangp_settings.json", *run_args, "GENERATE")
+            if len(_clips(new)) != len(images):
+                raise RuntimeError(f"클립 {len(images)}개를 기대했는데 {len(_clips(new))}개 — {wgp_log}")
+        else:
+            new = _wangp_process(cfg, wangp_settings(cfg, params, app_dir, video_length=plan["first"]),
+                                 "wangp_settings.json", *run_args, "GENERATE")
     if plan["cont"]:
         with _Stage("CONTINUE", timings, "첫 단계 영상은 media 폴더에 있음 · wangp_process.log 끝부분 확인"):
             first = _clips(new)
@@ -1026,6 +1199,13 @@ def _wangp_generate(cfg: Config, run_dir: str, run_id: str, timings: dict) -> di
             segments = first
             new = _wangp_process(cfg, wangp_continue_settings(cfg, params, app_dir, first[0], plan["cont"]),
                                  "wangp_continue.json", *run_args, "CONTINUE")
+    if images and cfg.concat and len(_clips(new)) > 1:
+        with _Stage("CONCAT", timings, "클립들은 media 폴더에 그대로 있음 · concat=False 로 따로 받기"):
+            segments = _clips(new)
+            joined = os.path.join(run_dir, f"{cfg.model}_{run_id}_{len(segments)}clips.mp4")
+            _ffmpeg_concat(segments, joined, params["width"], params["height"])
+            log("CONCAT", "joined", file=joined, clips=len(segments), **_video_info(joined))
+            new = [joined]
 
     videos, base, methods = new, [], []
     clips = _clips(new)
@@ -1034,7 +1214,7 @@ def _wangp_generate(cfg: Config, run_dir: str, run_id: str, timings: dict) -> di
             ups = [_upscale_video(cfg, params, c, run_dir, wangp=(app_dir, py, attention, wgp_log)) for c in clips]
             videos, base, methods = [u[0] for u in ups], clips, [u[1] for u in ups]
     return dict(videos=videos, base_videos=base, segments=segments, upscale_methods=methods, params=params, plan=plan,
-                wangp_log=wgp_log, gpus=gpus, attention=attention, wangp_ref=cfg.wangp_ref)
+                start_images=images, wangp_log=wgp_log, gpus=gpus, attention=attention, wangp_ref=cfg.wangp_ref)
 
 
 # --------------------------------------------------------------------------------------------------
@@ -1083,6 +1263,8 @@ def run(settings: dict | Config | None = None, **overrides) -> dict:
             size_mb=round(os.path.getsize(v) / 1e6, 2))
     for v in result.get("base_videos", []):
         log("SUMMARY", "base (before upscale, kept)", file=v)
+    for v in result.get("segments", []):
+        log("SUMMARY", "segment (kept)", file=v)
     if cfg.preview:
         _preview(result["videos"])
     return dict(videos=result["videos"], metadata=meta_path, log=log_file, timings=timings, run_dir=run_dir)

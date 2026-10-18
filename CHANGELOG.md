@@ -1,5 +1,20 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-18 (110) — videogen v1.3.0: 빠르게 — 시작 이미지 여러 장 → 짧은 클립들
+
+### 왜 (사용자 지시)
+- "3개 영상 나왔는데 2시간 걸렸어 너무 오래걸리는데 빠르게 생성하는 방법 없어? 시작 이미지를 전달하면 더 빨리 할 수 있어? 시작 이미지 여러개 만들어서 짧게 짧게 각각 만드는거지"
+
+### 한 것
+| 파일 | 내용 |
+|---|---|
+| `videogen/videogen.py` v1.3.0 | `start_images`·`clip_sec`·`concat` — 이미지마다 클립, WanGP 한 번 실행에 작업 목록(모델 한 번만), 이어 붙여 업스케일 · 새 모델 `wan2.2-5b-fast`(TI2V 5B FastWan 3-step)·`wan2.2-14b-i2v`(I2V 14B 4-step) · 시작 이미지를 생성 비율로 가운데 자르기 · 업스케일 cover(비율 차이 3% 이하) · Wan 해상도 블록 배수 맞춤 |
+| `videogen/tests/test_videogen.py` | 시작 이미지 3장 흐름 · upscale_plan — 통과 |
+| `videogen/README.md` · `videogen/CHANGELOG.md` · `guides/status.md` v1.88 | 2-2번(왜 빠른지·시간 추정 표·ChatGPT 이미지 프롬프트 3장·`SETTINGS`) · 2-7 |
+
+### 남은 것
+- 실측: 5B fast 이미지 3장 실행 시간·화질 (계산량 추정만 — hq 의 약 3~4%).
+
 ## 2026-10-18 (109) — 주식 8편 메타데이터 다시: 설명란 한국어 + 아래 영어 · 태그 영어 더함 · 롱폼 제목 2줄 안 (기본 언어 en 판 되돌림)
 
 ### 왜 (사용자 지시)

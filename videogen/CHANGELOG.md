@@ -1,5 +1,32 @@
 # CHANGELOG — videogen
 
+## v1.3.0 — 2026-10-18
+### 왜 (사용자 지시)
+- "3개 영상 나왔는데 2시간 걸렸어 너무 오래걸리는데 빠르게 생성하는 방법 없어? 시작 이미지를 전달하면 더 빨리 할 수 있어? 시작 이미지 여러개 만들어서 짧게 짧게 각각 만드는거지"
+- v1.2.1 hq 는 Kaggle 에서 끝까지 돌았다 (영상 3개 = 첫 5초 조각 · 합친 15초 720p · 1080p 최종).
+
+### 짚은 점
+- 시작 이미지가 있다고 프레임당 계산이 줄지는 않는다 (같은 크기 모델이면 같음). 빨라지는 까닭은 ① 장면을 이미지가 정해 5B 3-step 같은 가벼운 모델로도 일관됨 ② T2V 단계가 없어 모델 하나만 받고 불러옴 ③ 클립들을 WanGP 한 번 실행에 작업 목록으로 넘겨 모델을 한 번만 불러옴.
+- 계산량 추정(모델 크기·토큰 수·step 수): hq 15초 ≈ 14B 720p 21번(한 번 ≈ 6.8e15 FLOP) → T4 약 1.5시간 — 사용자 실측(설치 포함 약 2시간)과 대략 맞음. 5B FastWan 이미지 3장 × 5초 ≈ 5B 1280x704 9번(한 번 ≈ 5.5e14) → hq 의 약 3~4%. **실측 아님**.
+
+### 한 것
+| 대상 | 내용 |
+|---|---|
+| `Config` | 새 설정 `start_images`(경로·URL 또는 `{"image", "prompt"}`) · `clip_sec` · `concat` |
+| `MODELS` | 새 모델 `wan2.2-5b-fast`(TI2V 5B + FastWan 3-step, WanGP `ti2v_2_2_fastwan`, 24fps, 32 배수) · `wan2.2-14b-i2v`(I2V 14B + Lightning i2v 2-phase 4-step, 시작 이미지 필요). Wan 모델에 `block`(해상도 배수) |
+| `prepare_start_images()` (새) | URL 은 받고(비공개 저장소면 Kaggle Secret `GITHUB_TOKEN`), 생성 해상도 비율로 가운데를 잘라 정확히 그 크기 PNG 로 (WanGP 는 시작 이미지 비율을 결과 비율로 따름). 잘린 비율 로그, 20% 넘으면 경고 |
+| `clip_frames_for()` · `wangp_image_tasks()` (새) | 클립 길이 = `clip_sec` > `duration_sec` ÷ 이미지 수 > 모델 기본 5초. 이미지마다 작업 하나(`image_prompt_type S`, seed 42·43·44…) → **목록 하나로 WanGP 한 번 실행** |
+| `_ffmpeg_concat()` (새) | 클립들을 순서대로 이어 한 영상 (컷 전환), 크기·fps 를 맞춰 다시 인코딩 |
+| `upscale_plan()` (← `upscale_factor`) | 정확한 배율이 아니어도 비율 차이 3% 이하면 목표를 덮는 가장 작은 배율로 키운 뒤 가운데 자르기(cover) — 5B 1280x704 → ×2 → 1920x1080 (가로 약 2.3% 잘림). 그보다 다르면 멈춤 |
+| `_upscale_video()` | FlashVSR 결과가 목표를 덮으면 cover 로 맞춤, Lanczos 대체도 cover |
+| `_wangp_generate()` | `resolve_params(spatial_multiple=block)` — WanGP 가 몰래 내리기 전에 블록 배수로 맞추고 전·후 로그 (이전의 16 배수 경고 대신). `[IMAGES]` · `clip plan` · `[CONCAT]` 단계 |
+| `_wangp_process()` | 작업 하나 또는 목록, 결과는 저장 순서(mtime)대로 |
+| `tests/test_videogen.py` | `test_start_images`(3장: 가로·정사각·`file://` URL → 작업 목록 1회 → 이어 붙이기 → cover 업스케일) · `upscale_plan` 시험 · 가짜 WanGP 가 작업 목록·시작 이미지(크기 = 해상도 확인) 처리 · hq 시험 해상도를 16 배수(256x144)로 |
+| `README.md` | 2-2번(이유·시간 추정 표·ChatGPT 이미지 프롬프트 3장·이미지 올리는 법·`SETTINGS`) · 설정 키 · 모델 · 문제 해결 |
+
+### 위험 관련 변경
+- 없음. 기존 모델은 해상도가 이미 블록 배수면 그대로 (hq 1280x720, lightning 832x480).
+
 ## v1.2.1 — 2026-10-18
 ### 왜 (사용자 보고)
 - "해결해 에러 났어" + Kaggle `wangp_process.log`:

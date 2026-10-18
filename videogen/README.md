@@ -1,6 +1,7 @@
 # 영상 생성 AI — Kaggle 에서 설정만 바꿔 실행 (`videogen/`)
 
-버전: v1.1.1 — 2026-10-18 — Kaggle 의 오래된 torchao 때문에 나던 `cannot import name 'FqnToConfig'` 오류 고침 (6번 표 첫 줄). 셀은 그대로 다시 실행하면 된다.
+버전: v1.2.0 — 2026-10-18 — **1920x1080 · 15초 고품질** (사용자 지시 "좀 고품질의 1920, 1080 해상도로 할아버지가 소파에 앉아서 호통치는 영상으로 15초 정도로 생성하는 설정, 프롬프트로 변경해줘"): 새 모델 `wan2.2-14b-hq` · 새 프리셋 `fhd_15s` · 새 설정 `duration_sec` `upscale_to` `upscaler` — 2-1번 예시.
+이전 v1.1.1 — 2026-10-18 — Kaggle 의 오래된 torchao 때문에 나던 `cannot import name 'FqnToConfig'` 오류 고침 (6번 표 첫 줄). 셀은 그대로 다시 실행하면 된다.
 이전 v1.1.0 — 2026-10-18 — 사용자 지시 "핵심 코드를 하나로 만들어서 저장소에 올리고 kaggle에서는 코드 받아서 실행하는 방식으로 하고 prompt 같은 설정만 고치고 실행만 하는 코드를 따로 알려줘"
 
 - 핵심 코드: **`videogen/videogen.py` 파일 하나**. Kaggle 셀은 이 파일만 받아서(저장소 전체 clone 안 함) `videogen.run(SETTINGS)` 를 부른다.
@@ -55,6 +56,33 @@ result = videogen.run(SETTINGS)
 - 결과: `/kaggle/working/outputs/<실행시각>/` — 영상 · `videogen_<실행시각>.json`(설정·실제 사용 값·버전·단계별 시간·코드 sha256) · `run.log`.
 - `CODE_REF="main"` 은 GitHub raw 캐시 때문에 올린 직후 몇 분은 옛 파일이 올 수 있다. 확실히 하려면 커밋 해시를 넣는다 (로그 첫 줄 `code_sha256` 으로 어떤 코드였는지 확인).
 
+### 2-1. 예시: 1920x1080 · 15초 고품질 (할아버지가 소파에서 호통) — 위 셀의 `SETTINGS` 만 이것으로
+
+```python
+SETTINGS = dict(
+    model="wan2.2-14b-hq",   # Wan2.2 14B + Lightning 8-step 3-phase (첫 단계 CFG — 가속 LoRA 의 슬로모션을 줄임)
+    preset="fhd_15s",        # 1280x720 으로 15초 생성 (81프레임 창 5프레임 겹쳐 이어붙임) → ×1.5 업스케일 = 1920x1080
+    prompt=(
+        "Cinematic, photorealistic medium shot. An elderly Korean grandfather in his late seventies with short "
+        "silver-gray hair, deep wrinkles and thick gray eyebrows, wearing a beige knit cardigan over a white collared "
+        "shirt, sits on a worn brown leather sofa in a warm, cozy Korean apartment living room. He is furious and "
+        "scolding loudly: eyebrows knitted together, eyes wide and glaring, mouth opening wide as he shouts, tendons "
+        "in his neck taut. He leans forward on the sofa, jabbing his index finger toward the camera again and again, "
+        "slaps the sofa armrest with his palm and keeps shouting. Framed family photos on the wall behind him, a low "
+        "wooden table with a cup of tea in front. Soft warm afternoon light from a window on the left, gentle shadows, "
+        "shallow depth of field. Static camera at eye level, natural lifelike motion at normal speed, highly detailed "
+        "skin texture, sharp focus, subtle film grain."
+    ),
+    seed=42,
+)
+```
+- 왜 바로 1920x1080 으로 만들지 않나: Wan 계열은 약 5초(81~121프레임) 길이로 학습됐고, T4 에서 1080p·15초를 한 번에 만들면 계산량이 수십 배가 된다. 그래서 학습 해상도·길이 안에서 만들고 이어붙인 뒤 키운다.
+- 업스케일: FlashVSR(학습형 복원, WanGP 후처리)를 먼저 하고, 실패하면(T4 = sm75 는 FlashVSR 전용 커널 목록에 없어 Triton 대체 경로) **ffmpeg Lanczos 로 대신** — 로그 `FlashVSR failed -> falling back to Lanczos`. 생성 원본 1280x720 도 `media/` 에 남는다.
+- 시간: **T4 실측 없음.** 처음 실행은 설치 10~20분 + 모델 수십 GB 다운로드. 2025-12 공개 Kaggle 기록(Wan2.2 14B 4-step 한 편, 해상도·길이 미상)이 약 9~10분이었고, 이번은 8 step · 720p · 창 약 4개라 **몇 시간** 걸릴 수 있다 → *Save & Run All (Commit)* 으로 (Kaggle 세션 한도 12시간). 진행은 `[GENERATE] progress` 줄.
+- 더 빠르게(품질 조금 낮음): `model="wan2.2-14b-lightning"`, `wangp_extra=dict(sliding_window_size=81, sliding_window_overlap=5)` 를 더함 (4 step).
+- 세로 쇼츠면 `width=720, height=1280, upscale_to="1080x1920"`.
+- 소리는 없다 (Wan2.2 는 영상만). 호통 목소리는 내레이션 셀(`guides/tts_guide.md`)로 따로.
+
 ## 3. 설정 키 (`SETTINGS` 에 넣을 수 있는 것)
 모르는 키를 넣으면 오타로 보고 바로 멈춘다 (쓸 수 있는 키 목록을 보여 줌).
 
@@ -66,6 +94,9 @@ result = videogen.run(SETTINGS)
 | `preset` | `t4_fast` | 해상도·프레임·step 묶음 |
 | `seed` | 42 | 같은 seed·설정·코드면 같은 결과 |
 | `height` `width` `num_frames` `steps` `guidance_scale` `fps` | None | 프리셋 값을 하나씩 덮어씀. 규칙(32 배수·4k+1)에 안 맞으면 고친 전·후 값을 경고로 남김 |
+| `duration_sec` | None | 길이(초). `num_frames` 대신 — WanGP 는 모델 fps 로 가장 가까운 프레임 수를 고름. 우선순위: 직접 적은 `duration_sec` > 직접 적은 `num_frames` > 프리셋 |
+| `upscale_to` | None | 최종 해상도 `"1920x1080"`. 생성 해상도의 1.5·2·2.5·3·3.5·4배(가로세로 같은 배율)만 — 안 맞으면 맞는 생성 해상도를 알려 주고 멈춤 |
+| `upscaler` | `flashvsr` | `flashvsr`(WanGP 모델에서만, 실패하면 Lanczos) · `lanczos`(ffmpeg) |
 | `output_dir` | `/kaggle/working/outputs` | 결과 (20GB 한도) |
 | `work_dir` | `/kaggle/tmp/videogen` | 가중치·설치물 (저장 안 됨) |
 | `wangp_profile` | `"4"` | WanGP 메모리 프로필. RAM 부족으로 죽으면 `"5"` |
@@ -76,18 +107,22 @@ result = videogen.run(SETTINGS)
 |---|---|---|---|
 | `wan2.2-5b` | diffusers, Wan2.2-TI2V-5B. T4 x2 에서 텍스트 인코더·VAE 는 `cuda:1`, DiT 는 `cuda:0` | Apache-2.0 | 작은 랜덤 모델로 CPU 전체 경로 시험 통과. 실제 T4 속도는 첫 실행 `[DENOISE] eta_min` 로그로 확인 |
 | `wan2.2-14b-lightning` | WanGP(`wgp.py --process`, 웹 UI 없음) — Wan2.2 T2V 14B + Lightning 4-step LoRA | Apache-2.0 | 가짜 WanGP 로 흐름만 시험. 처음 실행은 설치 10~20분 + 모델 수십 GB 다운로드 |
+| `wan2.2-14b-hq` | WanGP — Wan2.2 T2V 14B + Lightning 8-step 3-phase(v2025-12-17) + 81프레임 창 이어붙이기(겹침 5) | Apache-2.0 | 가짜 WanGP 로 흐름·업스케일(FlashVSR 성공/실패→Lanczos)만 시험. 긴 영상·고품질용 |
 | `ltx2.5-distilled` | WanGP — LTX-2.5 Distilled 22B, 영상과 소리를 함께 | LTX-2 Community License (연매출 1천만 달러 이상 유료) | 미검증. Kaggle RAM(약 30GB)으로 부족할 수 있음 → `wangp_profile="5"` |
 
 - HunyuanVideo 1.5 · MiniMax H3 는 넣지 않았다: 라이선스 적용 지역에서 **대한민국이 빠져 있다**(HunyuanVideo 는 Tencent Hunyuan Community License, H3 는 보도 기준).
 - Wan 2.7 · 3.0 은 API 전용(가중치 비공개)이라 쓸 수 없다.
 
 ## 5. 검증 범위
-- 통과 (2026-10-18, 이 저장소 클라우드 환경, diffusers 0.41.0 · transformers 5.20.1 · CPU): 설정 검사 · 오래된 torchao(0.13.0 — Kaggle 오류 재현) 처리 · diffusers 길 전체(실제 Wan 클래스로 만든 작은 랜덤 모델 — 인코딩 → 디노이즈 → 디코딩 → mp4·JSON·로그) · WanGP 길 흐름(가짜 `wgp.py` — 설정 JSON 에 Lightning 프로필 합치기, `--dry-run` → `--process`, 결과 수집).
+- 통과 (2026-10-18, 이 저장소 클라우드 환경, diffusers 0.41.0 · transformers 5.20.1 · CPU): 설정 검사 · 1080p·15초 설정(길이→프레임 · 배율 검사 · 창 이어붙이기 · FlashVSR 성공/실패→Lanczos, 작은 진짜 mp4 로 크기 확인) · 오래된 torchao(0.13.0 — Kaggle 오류 재현) 처리 · diffusers 길 전체(실제 Wan 클래스로 만든 작은 랜덤 모델 — 인코딩 → 디노이즈 → 디코딩 → mp4·JSON·로그) · WanGP 길 흐름(가짜 `wgp.py` — 설정 JSON 에 Lightning 프로필 합치기, `--dry-run` → `--process`, 결과 수집).
 - 못 한 것: 실제 Kaggle T4 실행·속도·메모리·화질, 진짜 WanGP 설치. 클라우드 환경에서 Hugging Face·PyTorch 다운로드 서버가 막혀 있었다.
 
 ## 6. 문제 해결
 | 증상 | 할 일 |
 |---|---|
+| `num_frames=361 은 Wan2.2-5B 한 번 생성 한도 121 ...` | 5초 넘는 영상은 `model="wan2.2-14b-hq"` |
+| `... → 1920x1080 는 배율 ...` | 오류 문장의 '맞는 생성 해상도' 중 하나로 `width`·`height` |
+| `FlashVSR failed -> falling back to Lanczos` | 정상 동작(대체). Lanczos 결과 파일 이름 끝이 `_lanczos.mp4` |
 | `cannot import name 'FqnToConfig' from 'torchao.quantization'` | v1.1.1 에서 고침 — 셀을 **그대로 다시 실행** (커널 재시작 필요 없음). 로그에 `torchao uninstalled for this Kaggle session` · `diffusers torchao flag switched off` 가 나오면 처리된 것. `CODE_REF="main"` 이 옛 파일을 받으면(올린 직후 raw 캐시) 커밋 해시로 |
 | `[DATA] download attempt failed` 반복 | Internet=On 확인. Hugging Face 가 느리면 Secrets 에 `HF_TOKEN` 추가 |
 | `[DENOISE] FAILED ... out of memory` | `preset="t4_fast"` 또는 `num_frames` 줄이기 |

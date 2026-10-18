@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
-# VERSION: v1.1.1 — 2026-10-18 — 오래된 torchao(FqnToConfig 없음) 재현·수정 시험 추가 (test_old_torchao)
+# VERSION: v1.2.0 — 2026-10-18 — 1080p·15초 시험 추가 (test_fhd: 길이→프레임, 업스케일 배율 검사, 창 이어붙이기 설정,
+#          가짜 WanGP 로 FlashVSR 성공·실패→Lanczos 대체, diffusers 121프레임 한도)
+# 이전 v1.1.1 — 2026-10-18 — 오래된 torchao(FqnToConfig 없음) 재현·수정 시험 추가 (test_old_torchao)
 # 이전 v1.1.0 — 2026-10-18 — videogen.py 오프라인 시험 (GPU·네트워크 없이)
 r"""
 1) 설정 검사: 모르는 키·모델·프리셋은 바로 멈추고, 모양 규칙(32 배수·4k+1) 보정은 경고로 남는다.
@@ -48,7 +50,29 @@ def test_config(tmp):
     assert "adjusted" in open(os.path.join(tmp, "cfg.log")).read()
     env = videogen._child_env()
     assert "PYTHONPATH" not in env and env["MPLBACKEND"] == "Agg"
+    expect_error(lambda: videogen.make_config(upscaler="esrgan"), ValueError, "esrgan")
+    expect_error(lambda: videogen.make_config(upscale_to="1080p"), ValueError, "1080p")
+    expect_error(lambda: videogen.make_config(duration_sec=0), ValueError, "duration_sec")
     print("ok  config / helpers")
+
+
+def test_fhd_params(tmp):
+    """fhd_15s: 1280x720 생성 → ×1.5 = 1920x1080, 길이는 WanGP 에 '15s' 로, diffusers 는 fps 로 프레임 수."""
+    videogen._setup_logging("INFO", os.path.join(tmp, "fhd.log"))
+    cfg = videogen.make_config(model="wan2.2-14b-hq", preset="fhd_15s")
+    p = videogen.resolve_params(cfg)
+    assert (p["width"], p["height"], p["duration_sec"], p["num_frames"]) == (1280, 720, 15, None), p
+    assert p["upscale_to"] == "1920x1080" and p["upscale_factor"] == 1.5, p
+    # diffusers 처럼 fps 를 주면 프레임 수로: 15초 × 24 = 360 → 4k+1 = 361
+    assert videogen.resolve_params(cfg, None, 4, fps=24)["num_frames"] == 361
+    # 직접 적은 num_frames 는 프리셋 길이보다 우선, 직접 적은 duration_sec 은 그보다 우선
+    assert videogen.resolve_params(videogen.make_config(preset="fhd_15s", num_frames=81))["duration_sec"] is None
+    assert videogen.resolve_params(videogen.make_config(preset="fhd_15s", num_frames=81, duration_sec=10))["duration_sec"] == 10
+    # 배율이 맞지 않으면 멈추고 맞는 생성 해상도를 알려 준다
+    expect_error(lambda: videogen.upscale_factor(832, 480, "1920x1080"), ValueError, "1280x720(×1.5)")
+    expect_error(lambda: videogen.upscale_factor(1280, 720, "1920x1088"), ValueError, "1920x1088")
+    assert videogen.upscale_factor(960, 540, "1920x1080") == 2.0
+    print("ok  fhd_15s params / upscale factor checks")
 
 
 def build_tiny_wan(path):
@@ -142,20 +166,34 @@ def test_old_torchao(tmp):
 
 
 FAKE_WGP = textwrap.dedent('''
-    import argparse, json, os, sys
+    # 가짜 WanGP: 생성 작업은 작은 진짜 mp4 를, edit_postprocessing 은 배율만큼 큰 mp4 를 만든다
+    import argparse, json, os, re, sys
+    import imageio.v2 as iio, numpy as np
     ap = argparse.ArgumentParser()
     ap.add_argument("--process"); ap.add_argument("--output-dir"); ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--profile"); ap.add_argument("--attention"); ap.add_argument("--gpu")
     a = ap.parse_args()
     s = json.load(open(a.process))
+    def write(path, w, h, n=8):
+        frames = [np.full((h, w, 3), 20 * i, dtype=np.uint8) for i in range(n)]
+        iio.mimwrite(path, frames, fps=16, codec="libx264", macro_block_size=1)
+    if s.get("mode") == "edit_postprocessing":
+        if os.environ.get("FAKE_FLASHVSR_FAIL") == "1":
+            print("RuntimeError: FlashVSR Auto backend could not load any sparse attention backend"); sys.exit(3)
+        w, h = iio.get_reader(s["video_source"]).get_meta_data()["size"]
+        f = float(re.match(r"flashvsr\\*([\\d.]+)", s["spatial_upsampling"]).group(1))
+        out = os.path.join(a.output_dir, "upscaled_fake.mp4")
+        write(out, round(w * f), round(h * f))
+        print("New video saved to Path: " + out); sys.exit(0)
     assert s["model_type"] and s["prompt"], s
     if a.dry_run:
         print(f"  Task 1: model={s['model_type']}, steps={s.get('num_inference_steps')}, frames={s['video_length']}")
         print("[DRY-RUN] Validation complete. 1/1 task(s) valid."); sys.exit(0)
     for i in range(1, 5):
         print(f" {i * 25}%|##| {i}/4 [00:0{i}<00:00, 1.00s/it]", flush=True)
+    w, h = map(int, s["resolution"].split("x"))
     path = os.path.join(a.output_dir, "2026-10-18-12h00m00s_seed42_fake.mp4")
-    open(path, "wb").write(b"\\x00" * 2048)
+    write(path, w, h)
     print("New video saved to Path: " + path)
 ''')
 
@@ -181,14 +219,58 @@ def test_wangp(tmp):
                                  videogen.resolve_params(videogen.make_config(steps=8)), app)
     assert s2["num_inference_steps"] == 8
     print("ok  wangp path (fake wgp.py):", res["videos"][0])
+    return app
+
+
+HQ_PROFILE = videogen.MODELS["wan2.2-14b-hq"]["profile"]
+
+
+def test_wangp_fhd(tmp, app):
+    """hq 모델 + fhd_15s 흐름 (작게: 64x36 → ×1.5 = 96x54). FlashVSR 성공 · 실패→Lanczos 대체 두 경우."""
+    json.dump({"num_inference_steps": 8, "guidance_scale": 3.5, "guidance_phases": 3},
+              open(os.path.join(app, "profiles", HQ_PROFILE), "w"))
+    for fail in ("0", "1"):
+        os.environ["FAKE_FLASHVSR_FAIL"] = fail
+        res = videogen.run(dict(model="wan2.2-14b-hq", preset="fhd_15s", prompt="an old man shouting on a sofa",
+                                width=64, height=36, upscale_to="96x54", wangp_app_dir=app, wangp_python=sys.executable,
+                                output_dir=os.path.join(tmp, f"out_fhd{fail}"), work_dir=os.path.join(tmp, "work"),
+                                preview=False))
+        s = json.load(open(os.path.join(res["run_dir"], "wangp_settings.json")))
+        assert s["video_length"] == "15s" and s["resolution"] == "64x36", s
+        assert s["num_inference_steps"] == 8 and s["sliding_window_size"] == 81 and s["sliding_window_overlap"] == 5, s
+        meta = json.load(open(res["metadata"]))
+        want = "flashvsr" if fail == "0" else "lanczos"
+        assert meta["upscale_methods"] == [want], meta["upscale_methods"]
+        assert videogen._video_size(res["videos"][0]) == (96, 54) and res["videos"][0].endswith(f"_96x54_{want}.mp4")
+        assert videogen._video_size(meta["base_videos"][0]) == (64, 36)  # 생성 원본은 그대로 남음
+        if fail == "1":
+            assert "FlashVSR failed -> falling back to Lanczos" in open(res["log"]).read()
+        print(f"ok  wangp fhd flow (FlashVSR {'fails -> Lanczos' if fail == '1' else 'ok'}):", res["videos"][0])
+    os.environ.pop("FAKE_FLASHVSR_FAIL")
+
+
+def test_diffusers_frame_limit(tmp):
+    """diffusers 5B 로 15초(361프레임)를 한 번에 만들려 하면 생성 전에 멈추고 hq 모델을 알려 준다."""
+    if not all(importlib.util.find_spec(m) for m in ("torch", "diffusers", "transformers")):
+        print("skip diffusers frame-limit test")
+        return
+    model_dir = os.path.join(tmp, "tiny-wan22-ti2v")  # test_diffusers 가 만든 것
+    expect_error(lambda: videogen.run(dict(model="wan2.2-5b", model_path=model_dir, device_plan="cpu", duration_sec=15,
+                                           height=64, width=64, output_dir=os.path.join(tmp, "out_lim"),
+                                           work_dir=os.path.join(tmp, "work"), preview=False, install_deps=False)),
+                 ValueError, "wan2.2-14b-hq")
+    print("ok  diffusers 121-frame limit")
 
 
 def main():
     tmp = tempfile.mkdtemp(prefix="videogen_test_")
     test_config(tmp)
+    test_fhd_params(tmp)
     test_old_torchao(tmp)
     test_diffusers(tmp)
-    test_wangp(tmp)
+    test_diffusers_frame_limit(tmp)
+    app = test_wangp(tmp)
+    test_wangp_fhd(tmp, app)
     print("ALL TESTS PASSED", tmp)
 
 

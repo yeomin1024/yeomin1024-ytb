@@ -1,5 +1,31 @@
 # CHANGELOG — videogen
 
+## v1.2.0 — 2026-10-18
+### 왜 (사용자 지시)
+- "좀 고품질의 1920, 1080 해상도로 할아버지가 소파에 앉아서 호통치는 영상으로 15초 정도로 생성하는 설정, 프롬프트로 변경해줘"
+
+### 짚은 점 (바꾸기 전에)
+- Kaggle T4 에서 1920x1080·15초를 한 번에 만들 수는 없다: Wan 계열은 약 5초(81~121프레임) 길이로 학습됐고, 1080p·15초를 한 번에 만들면 계산량이 수십 배가 된다 (diffusers 5B 로는 361프레임 = 학습 길이의 3배).
+- 그래서 **1280x720 으로 15초(81프레임 창 이어붙이기) → ×1.5 업스케일 = 1920x1080**.
+
+### 한 것
+| 대상 | 내용 |
+|---|---|
+| `MODELS["wan2.2-14b-hq"]` (새) | Wan2.2 T2V 14B + Lightning **8-step 3-phase**(v2025-12-17 — WanGP 설명: 가속 LoRA 앞에 CFG 단계를 넣어 슬로모션 줄임) + `sliding_window_size=81`·`overlap=5` |
+| `PRESETS["fhd_15s"]` (새) | 1280x720 · `duration_sec=15` · `upscale_to="1920x1080"` |
+| `Config` | 새 설정 `duration_sec`(길이 — WanGP 에는 `"15s"` 로 넘겨 모델 fps 로 프레임 수를 고르게) · `upscale_to` · `upscaler`(flashvsr \| lanczos) |
+| `resolve_params()` | 길이 우선순위(직접 duration > 직접 num_frames > 프리셋), diffusers 는 fps 로 프레임 수 계산, 업스케일 배율 확인 |
+| `upscale_factor()` (새) | 가로세로 같은 배율이고 1.5·2·…·4 중 하나여야 함. 아니면 그 목표에 맞는 생성 해상도를 알려 주고 멈춤 (늘이거나 자르지 않음) |
+| `_upscale_video()` (새) | WanGP 후처리 작업(`mode: edit_postprocessing`, `spatial_upsampling: flashvsr*1.5`) → 결과 크기를 ffmpeg 로 확인 → 실패하거나 크기가 다르면 경고 로그 후 **ffmpeg Lanczos** 로 대신. 생성 원본은 `base_videos` 로 남김 |
+| `_diffusers_generate()` | 121프레임(5초)을 넘으면 생성 전에 멈추고 `wan2.2-14b-hq` 를 안내 · `upscale_to` 면 Lanczos |
+| `wangp_settings()` | 길이 `"15s"` · 모델 고정값(`extra`) 합치기 · 프로필의 UI 안내 키 `help` 는 뺌 |
+| `run()` SUMMARY | 최종 파일마다 해상도·크기, 업스케일 전 원본 경로 |
+| `tests/test_videogen.py` | `test_fhd_params` · `test_wangp_fhd`(가짜 WanGP 가 작은 진짜 mp4 생성 → FlashVSR 성공 / 실패→Lanczos, 최종 96x54·원본 64x36 확인) · `test_diffusers_frame_limit` |
+| `README.md` | 2-1번 예시(할아버지 호통 프롬프트) · 설정 키 · 모델 · 문제 해결 |
+
+### 위험 관련 변경
+- 없음. 기존 모델·프리셋의 동작은 그대로 (창 이어붙이기 설정은 새 모델에만).
+
 ## v1.1.1 — 2026-10-18
 ### 왜 (사용자 보고)
 - Kaggle 실행 중 `RuntimeError: Failed to import diffusers.models.autoencoders.autoencoder_kl_wan ... cannot import name 'FqnToConfig' from 'torchao.quantization' (/usr/local/lib/python3.13/dist-packages/torchao/...) 해결해`

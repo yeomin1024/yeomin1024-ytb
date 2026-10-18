@@ -1,5 +1,21 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-18 (106) — videogen v1.2.0: 1920x1080·15초 고품질 (할아버지 호통 예시)
+
+### 왜 (사용자 지시)
+- "좀 고품질의 1920, 1080 해상도로 할아버지가 소파에 앉아서 호통치는 영상으로 15초 정도로 생성하는 설정, 프롬프트로 변경해줘"
+
+### 한 것
+| 파일 | 내용 |
+|---|---|
+| `videogen/videogen.py` v1.2.0 | 새 모델 `wan2.2-14b-hq`(Lightning 8-step 3-phase + 81프레임 창 이어붙이기) · 프리셋 `fhd_15s` · 설정 `duration_sec`·`upscale_to`·`upscaler` · FlashVSR(WanGP 후처리) 실패 시 ffmpeg Lanczos 대체 · diffusers 5B 121프레임 한도 |
+| `videogen/tests/test_videogen.py` | 1080p·15초 설정 · 가짜 WanGP 업스케일(성공/대체) · 121프레임 한도 — 모두 통과 |
+| `videogen/README.md` | 2-1번 셀 예시(할아버지 호통 프롬프트) · 설정 키 · 모델 · 문제 해결 |
+| `videogen/CHANGELOG.md` · `guides/status.md` v1.81 | 2-7 |
+
+### 남은 것
+- 실제 Kaggle T4 실행 시간·화질 (실측 없음) — status 2-7.
+
 ## 2026-10-18 (105) — 음악 분석 예약 작업 둘째 회차: 외국 추천 승인 · 성공 사례 1,146 · 추천 v1.2
 
 ### 왜

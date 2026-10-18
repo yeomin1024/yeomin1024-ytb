@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.1.1 — 2026-10-18 — 사용자 보고 "RuntimeError: Failed to import diffusers.models.autoencoders.autoencoder_kl_wan
+# VERSION: v1.2.0 — 2026-10-18 — 사용자 지시 "좀 고품질의 1920, 1080 해상도로 할아버지가 소파에 앉아서 호통치는 영상으로
+#          15초 정도로 생성하는 설정, 프롬프트로 변경해줘": T4 에서 1080p·15초를 한 번에 만들 수 없어(학습 길이 약 5초 ·
+#          계산량) 새 모델 wan2.2-14b-hq(Lightning 8-step 3-phase + 81프레임 sliding window)로 1280x720 15초를 만든 뒤
+#          ×1.5 업스케일(FlashVSR, 실패하면 ffmpeg Lanczos)로 1920x1080 — 새 프리셋 fhd_15s, 새 설정 duration_sec·upscale_to·upscaler
+# 이전 v1.1.1 — 2026-10-18 — 사용자 보고 "RuntimeError: Failed to import diffusers.models.autoencoders.autoencoder_kl_wan
 #          ... cannot import name 'FqnToConfig' from 'torchao.quantization' 해결해": Kaggle 에 미리 깔린 오래된 torchao(<0.15)
 #          때문에 diffusers 0.41.0 모델 import 가 깨지던 것 고침 — _disable_old_torchao() (videogen 은 torchao 를 쓰지 않음)
 # 이전 v1.1.0 — 2026-10-18 — 사용자 지시 "핵심 코드를 하나로 만들어서 저장소에 올리고 kaggle에서는 코드 받아서 실행하는
@@ -22,6 +26,7 @@ Kaggle 셀 (videogen/README.md 의 셀을 그대로):
 모델 (MODELS):
     wan2.2-5b             diffusers 로 Wan2.2-TI2V-5B (Apache-2.0)  — 기본값, 오프라인 스모크 테스트 통과
     wan2.2-14b-lightning  WanGP 로 Wan2.2 T2V 14B + Lightning 4-step LoRA (Apache-2.0)
+    wan2.2-14b-hq         WanGP 로 Wan2.2 T2V 14B + Lightning 8-step 3-phase(첫 단계 CFG — 슬로모션 줄임) + 81프레임 창 이어붙이기
     ltx2.5-distilled      WanGP 로 LTX-2.5 Distilled 22B, 영상+오디오 (LTX-2 Community License — 연매출 1천만 달러 이상 유료)
 
 결과: <output_dir>/<run_id>/ 에 영상 + videogen_<run_id>.json(설정·버전·시간·코드 sha256) + run.log
@@ -45,7 +50,7 @@ import sys
 import time
 from dataclasses import asdict, dataclass, field, fields
 
-__version__ = "1.1.1"
+__version__ = "1.2.0"
 
 # --------------------------------------------------------------------------------------------------
 # 모델 · 프리셋
@@ -54,17 +59,28 @@ MODELS = {
     "wan2.2-5b": dict(backend="diffusers", repo="Wan-AI/Wan2.2-TI2V-5B-Diffusers", license="Apache-2.0"),
     "wan2.2-14b-lightning": dict(backend="wangp", model_type="t2v_2_2", license="Apache-2.0",
                                  profile="wan_2_2/Lightning t2v v2025-09-28 2 Phases - 4 Steps.json"),
+    # 8-step 3-phase 프로필 설명(WanGP): "insert a CFG phase before the 2 accelerated phases ... reduce the slow motion
+    # effect of these Loras Accelerators". 15초 같은 긴 영상은 학습 길이(81프레임 = 16fps 5초) 창을 5프레임 겹쳐 이어붙인다.
+    "wan2.2-14b-hq": dict(backend="wangp", model_type="t2v_2_2", license="Apache-2.0",
+                          profile="wan_2_2/Lightning t2v v2025-12-17 3 Phases - 8 Steps.json",
+                          extra=dict(sliding_window_size=81, sliding_window_overlap=5)),
     "ltx2.5-distilled": dict(backend="wangp", model_type="ltx2_25_22B_distilled", profile=None,
                              license="LTX-2 Community License (revenue >= USD 10M needs a paid license)"),
 }
 
 # steps/guidance_scale 는 diffusers 에만 쓴다. WanGP 는 모델 기본값(Lightning 이면 4 step)을 쓰고,
 # 사용자가 steps/guidance_scale 을 직접 적었을 때만 넘긴다.
+# duration_sec 이 있으면 num_frames 대신 길이로 (WanGP 는 모델 fps 로 프레임 수를 고름), upscale_to 는 생성 뒤 최종 해상도.
 PRESETS = {
     "t4_fast":       dict(height=480, width=832,  num_frames=81,  steps=30, guidance_scale=5.0),
     "t4_balanced":   dict(height=704, width=1280, num_frames=49,  steps=40, guidance_scale=5.0),
     "official_720p": dict(height=704, width=1280, num_frames=121, steps=50, guidance_scale=5.0),
+    # 1280x720 으로 15초 생성 → ×1.5 = 1920x1080. WanGP 모델(wan2.2-14b-hq 권장)용 — diffusers 5B 는 121프레임까지만
+    "fhd_15s":       dict(height=720, width=1280, num_frames=None, duration_sec=15, upscale_to="1920x1080",
+                          steps=50, guidance_scale=5.0),
 }
+UPSCALE_FACTORS = (1.5, 2.0, 2.5, 3.0, 3.5, 4.0)  # FlashVSR·Lanczos 가 둘 다 지원하는 배율 (WanGP @ wangp_ref)
+DIFFUSERS_MAX_FRAMES = 121                        # Wan2.2-TI2V-5B 모델 카드 기본값 (24fps 5초) — 넘으면 학습 밖
 
 # Wan 공식 부정 프롬프트 (Wan2.x 예제에 실린 중국어 원문)
 WAN_NEGATIVE_PROMPT = (
@@ -106,6 +122,9 @@ class Config:
     steps: int | None = None
     guidance_scale: float | None = None
     fps: int | None = None                       # None: diffusers 24fps, WanGP 는 모델 기본값
+    duration_sec: float | None = None            # 길이(초) — 주면 num_frames 대신 (WanGP: 모델 fps 로 가장 가까운 프레임 수)
+    upscale_to: str | None = None                # 최종 해상도 "1920x1080" — 생성 해상도의 1.5·2·…배(가로세로 같은 배율)
+    upscaler: str = "flashvsr"                   # flashvsr(학습형 복원, WanGP) | lanczos(단순 확대, ffmpeg). flashvsr 실패 → lanczos
     # ---- 경로 ----
     output_dir: str = "/kaggle/working/outputs"  # 결과 (Kaggle Output 탭으로 저장됨, 20GB 한도)
     work_dir: str = "/kaggle/tmp/videogen"       # 가중치·venv·WanGP 소스 (저장 안 되는 임시 디스크)
@@ -146,7 +165,33 @@ def make_config(settings: dict | Config | None = None, **overrides) -> Config:
         raise ValueError(f"preset={cfg.preset!r} 없음. 고를 수 있는 것: {list(PRESETS)}")
     if not cfg.prompt.strip():
         raise ValueError("prompt 가 비어 있다")
+    if cfg.upscaler not in ("flashvsr", "lanczos"):
+        raise ValueError(f"upscaler={cfg.upscaler!r} 없음: 'flashvsr' | 'lanczos'")
+    if cfg.duration_sec is not None and cfg.duration_sec <= 0:
+        raise ValueError(f"duration_sec={cfg.duration_sec} 은 0보다 커야 한다")
+    if cfg.upscale_to is not None:
+        _parse_size(cfg.upscale_to)
     return cfg
+
+
+def _parse_size(text: str) -> tuple[int, int]:
+    """'1920x1080' → (1920, 1080)"""
+    m = re.fullmatch(r"\s*(\d{2,5})\s*[xX×]\s*(\d{2,5})\s*", str(text))
+    if not m:
+        raise ValueError(f"해상도 {text!r} 는 '1920x1080' 꼴이어야 한다")
+    return int(m.group(1)), int(m.group(2))
+
+
+def upscale_factor(width: int, height: int, target: str) -> float:
+    """생성 해상도 → upscale_to 배율. 가로세로 배율이 같고 지원 배율이어야 한다 (늘이거나 자르지 않음)."""
+    tw, th = _parse_size(target)
+    fw, fh = tw / width, th / height
+    if abs(fw - fh) > 1e-6 or round(fw, 6) not in UPSCALE_FACTORS:
+        hint = ", ".join(f"{round(tw / f)}x{round(th / f)}(×{f:g})" for f in UPSCALE_FACTORS
+                         if abs(tw / f - round(tw / f)) < 1e-6 and abs(th / f - round(th / f)) < 1e-6)
+        raise ValueError(f"{width}x{height} → {target} 는 배율 {fw:.3g}×{fh:.3g} — 지원 배율 {UPSCALE_FACTORS} 중 "
+                         f"가로세로 같은 값이어야 한다. 이 목표에 맞는 생성 해상도: {hint or '없음'}")
+    return round(fw, 6)
 
 
 # --------------------------------------------------------------------------------------------------
@@ -244,12 +289,21 @@ def _nvidia_smi() -> list[dict]:
     return [dict(zip(keys, [c.strip() for c in row.split(",")])) for row in out.strip().splitlines() if row.strip()]
 
 
-def resolve_params(cfg: Config, spatial_multiple: int | None = None, temporal_factor: int | None = None) -> dict:
-    """프리셋 + 직접 적은 값 → 실제 생성 값. 모양 규칙(배수·4k+1)을 맞출 때는 전·후 값을 경고로 남긴다."""
-    p = dict(PRESETS[cfg.preset])
-    explicit = {k for k in p if getattr(cfg, k) is not None}
+_PARAM_KEYS = ("height", "width", "num_frames", "steps", "guidance_scale", "duration_sec", "upscale_to")
+
+
+def resolve_params(cfg: Config, spatial_multiple: int | None = None, temporal_factor: int | None = None,
+                   fps: int | None = None) -> dict:
+    """프리셋 + 직접 적은 값 → 실제 생성 값. 모양 규칙(배수·4k+1)을 맞출 때는 전·후 값을 경고로 남긴다.
+    길이 우선순위: 직접 적은 duration_sec > 직접 적은 num_frames > 프리셋 duration_sec > 프리셋 num_frames.
+    fps 를 주면(diffusers) 길이를 프레임 수로 바꾸고, 안 주면(WanGP) duration_sec 을 그대로 둬 WanGP 가 모델 fps 로 바꾼다."""
+    preset = PRESETS[cfg.preset]
+    p = {k: preset.get(k) for k in _PARAM_KEYS}
+    explicit = {k for k in _PARAM_KEYS if getattr(cfg, k) is not None}
     for k in explicit:
         p[k] = getattr(cfg, k)
+    if "num_frames" in explicit and "duration_sec" not in explicit:
+        p["duration_sec"] = None  # 직접 적은 프레임 수가 프리셋 길이보다 우선
     p["explicit"] = sorted(explicit)
     if spatial_multiple:
         for k in ("height", "width"):
@@ -258,12 +312,91 @@ def resolve_params(cfg: Config, spatial_multiple: int | None = None, temporal_fa
                 log("DATA", f"{k} is not a multiple of {spatial_multiple}; adjusted", logging.WARNING,
                     before=p[k], after=fixed)
                 p[k] = fixed
-    if temporal_factor and p["num_frames"] % temporal_factor != 1:
+    if p["duration_sec"] is not None and fps:
+        p["num_frames"] = max(1, round(p["duration_sec"] * fps))
+        log("DATA", "num_frames from duration", duration_sec=p["duration_sec"], fps=fps, num_frames=p["num_frames"])
+    if p["num_frames"] is None and p["duration_sec"] is None:
+        raise ValueError("num_frames 나 duration_sec 중 하나는 있어야 한다")
+    if temporal_factor and p["num_frames"] is not None and p["num_frames"] % temporal_factor != 1:
         fixed = max(1, p["num_frames"] // temporal_factor * temporal_factor + 1)
         log("DATA", f"num_frames must be {temporal_factor}k+1; adjusted", logging.WARNING,
             before=p["num_frames"], after=fixed)
         p["num_frames"] = fixed
+    p["upscale_factor"] = upscale_factor(p["width"], p["height"], p["upscale_to"]) if p["upscale_to"] else None
     return p
+
+
+# --------------------------------------------------------------------------------------------------
+# 업스케일: FlashVSR(WanGP 후처리 작업) → 실패하면 ffmpeg Lanczos. 생성 원본은 지우지 않는다.
+# --------------------------------------------------------------------------------------------------
+def _ffmpeg_exe() -> str:
+    exe = shutil.which("ffmpeg")
+    if exe:
+        return exe
+    try:
+        import imageio_ffmpeg
+    except ImportError:
+        _ensure_packages({"imageio-ffmpeg": ""})
+        import imageio_ffmpeg
+    return imageio_ffmpeg.get_ffmpeg_exe()
+
+
+def _video_size(path: str) -> tuple[int, int] | None:
+    """영상 가로x세로 (ffmpeg 정보 출력에서). 읽지 못하면 None."""
+    try:
+        r = subprocess.run([_ffmpeg_exe(), "-hide_banner", "-i", path], capture_output=True, text=True, timeout=120)
+    except Exception as e:  # ffmpeg 를 못 찾거나 멈춤 — 크기 확인만 못 한 것
+        log("UPSCALE", "could not read video size", logging.WARNING, file=path, error=repr(e)[:200])
+        return None
+    m = re.search(r"Video:.*?\b(\d{2,5})x(\d{2,5})\b", r.stderr)
+    return (int(m.group(1)), int(m.group(2))) if m else None
+
+
+def _ffmpeg_upscale(src: str, dst: str, width: int, height: int):
+    cmd = [_ffmpeg_exe(), "-y", "-hide_banner", "-loglevel", "error", "-i", src,
+           "-vf", f"scale={width}:{height}:flags=lanczos", "-map", "0:v:0", "-map", "0:a?",
+           "-c:v", "libx264", "-preset", "slow", "-crf", "16", "-pix_fmt", "yuv420p", "-c:a", "copy", dst]
+    r = subprocess.run(cmd, capture_output=True, text=True)
+    if r.returncode != 0:
+        raise RuntimeError(f"ffmpeg 업스케일 실패: {r.stderr[-800:]}")
+
+
+def _upscale_video(cfg: Config, params: dict, src: str, run_dir: str, wangp: tuple | None = None) -> tuple[str, str]:
+    """src → upscale_to 해상도 파일. → (경로, 실제 쓴 방법)"""
+    tw, th = _parse_size(params["upscale_to"])
+    factor = params["upscale_factor"]
+    stem = os.path.splitext(os.path.basename(src))[0]
+    log("UPSCALE", "start", src=src, src_size="x".join(map(str, _video_size(src) or ("?", "?"))),
+        target=f"{tw}x{th}", factor=factor, upscaler=cfg.upscaler)
+    if cfg.upscaler == "flashvsr" and wangp is not None:
+        app_dir, py, attention, wgp_log = wangp
+        up_dir = os.path.join(run_dir, "upscale_tmp")
+        os.makedirs(up_dir, exist_ok=True)
+        spath = os.path.join(run_dir, "wangp_upscale.json")
+        with open(spath, "w", encoding="utf-8") as f:
+            json.dump(dict(mode="edit_postprocessing", video_source=os.path.abspath(src),
+                           spatial_upsampling=f"flashvsr*{factor:g}"), f, ensure_ascii=False, indent=2)
+        before = set(os.listdir(up_dir))
+        rc = _stream([py, "wgp.py", "--process", spath, "--output-dir", up_dir, "--profile", cfg.wangp_profile,
+                      "--attention", attention, "--gpu", cfg.wangp_gpu], app_dir, wgp_log, "UPSCALE")
+        new = sorted(os.path.join(up_dir, n) for n in set(os.listdir(up_dir)) - before
+                     if n.lower().endswith((".mp4", ".webm", ".mkv")))
+        got = _video_size(new[0]) if new else None
+        if rc == 0 and got == (tw, th):
+            dst = os.path.join(run_dir, f"{stem}_{tw}x{th}_flashvsr.mp4")
+            shutil.move(new[0], dst)
+            log("UPSCALE", "done", method="flashvsr", file=dst, size_mb=round(os.path.getsize(dst) / 1e6, 2))
+            return dst, "flashvsr"
+        log("UPSCALE", "FlashVSR failed -> falling back to Lanczos", logging.WARNING, rc=rc, outputs=len(new),
+            got_size=got, expected=f"{tw}x{th}", log=wgp_log)
+    elif cfg.upscaler == "flashvsr":
+        log("UPSCALE", "FlashVSR runs only through WanGP models; using Lanczos", logging.WARNING)
+    dst = os.path.join(run_dir, f"{stem}_{tw}x{th}_lanczos.mp4")
+    _ffmpeg_upscale(src, dst, tw, th)
+    if _video_size(dst) != (tw, th):
+        raise RuntimeError(f"업스케일 결과 크기 {_video_size(dst)} != {tw}x{th}")
+    log("UPSCALE", "done", method="lanczos", file=dst, size_mb=round(os.path.getsize(dst) / 1e6, 2))
+    return dst, "lanczos"
 
 
 def _ensure_packages(specs: dict[str, str]):
@@ -386,7 +519,7 @@ def _diffusers_generate(cfg: Config, run_dir: str, run_id: str, timings: dict) -
         log("SETUP", "seed fixed", seed=cfg.seed)
 
     # ---- DATA: 가중치 받기·확인 + 생성 값 확정 ----
-    with _Stage("DATA", timings, "다시 실행. 계속 실패하면 Internet=On 확인 또는 model_revision 고정"):
+    with _Stage("DATA", timings, "설정 오류면 오류 문장대로 고치기 · 다운로드 오류면 Internet=On 확인 또는 model_revision 고정"):
         if cfg.model_path:
             model_dir = cfg.model_path
             log("DATA", "using local weights", path=model_dir)
@@ -423,12 +556,15 @@ def _diffusers_generate(cfg: Config, run_dir: str, run_id: str, timings: dict) -
             raise ValueError(f"WanPipeline 저장소가 아님: {index.get('_class_name')}")
         if tr_cfg["in_channels"] != vae_cfg["z_dim"]:
             raise ValueError(f"DiT in_channels={tr_cfg['in_channels']} != VAE z_dim={vae_cfg['z_dim']}")
-        params = resolve_params(cfg, vae_cfg.get("scale_factor_spatial", 8) * tr_cfg["patch_size"][1],
-                                vae_cfg.get("scale_factor_temporal", 4))
         fps = cfg.fps or 24
+        params = resolve_params(cfg, vae_cfg.get("scale_factor_spatial", 8) * tr_cfg["patch_size"][1],
+                                vae_cfg.get("scale_factor_temporal", 4), fps=fps)
+        if params["num_frames"] > DIFFUSERS_MAX_FRAMES:
+            raise ValueError(f"num_frames={params['num_frames']} 은 Wan2.2-5B 한 번 생성 한도 {DIFFUSERS_MAX_FRAMES}"
+                             f"({DIFFUSERS_MAX_FRAMES / fps:.1f}초)를 넘음 — 긴 영상은 model='wan2.2-14b-hq'(창 이어붙이기)")
         log("DATA", "generation params", preset=cfg.preset, height=params["height"], width=params["width"],
             num_frames=params["num_frames"], steps=params["steps"], guidance_scale=params["guidance_scale"],
-            fps=fps, duration_sec=round(params["num_frames"] / fps, 2))
+            fps=fps, duration_sec=round(params["num_frames"] / fps, 2), upscale_to=params["upscale_to"])
 
     # ---- ENCODE: 텍스트 인코더 장치에서 임베딩 → 바로 해제 ----
     with _Stage("ENCODE", timings, "GPU 1장에서 메모리 부족이면 GPU T4 x2 로 다시 시작"):
@@ -542,7 +678,13 @@ def _diffusers_generate(cfg: Config, run_dir: str, run_id: str, timings: dict) -
         log("EXPORT", "saved", video=path, size_mb=round(os.path.getsize(path) / 1e6, 2), fps=fps,
             duration_sec=round(fstats["frames"] / fps, 2))
 
-    return dict(videos=[path], params=params, frame_stats=fstats, fps=fps, gpus=gpus,
+    videos, base, methods = [path], [], []
+    if params["upscale_to"]:
+        with _Stage("UPSCALE", timings, "ffmpeg 확인 · 원본은 base_videos 에 그대로 있음"):
+            dst, method = _upscale_video(cfg, params, path, run_dir)
+            videos, base, methods = [dst], [path], [method]
+
+    return dict(videos=videos, base_videos=base, upscale_methods=methods, params=params, frame_stats=fstats, fps=fps, gpus=gpus,
                 devices=dict(te=te_dev, dit=dit_dev, vae=vae_dev), dtype=str(dtype),
                 versions=dict(torch=torch.__version__, diffusers=diffusers.__version__,
                               transformers=transformers.__version__))
@@ -683,16 +825,21 @@ def _wangp_install(cfg: Config, timings: dict, install_log: str) -> tuple[str, s
 
 def wangp_settings(cfg: Config, params: dict, app_dir: str) -> dict:
     """WanGP 설정 JSON. 빠진 키는 WanGP 가 모델 기본값으로 채운다(clean_settings).
-    순서: 기본 → 가속 프로필(Lightning 등) → 사용자가 직접 적은 steps/guidance → wangp_extra."""
+    순서: 기본 → 가속 프로필(Lightning 등) → 모델 고정값(창 이어붙이기 등) → 사용자가 직접 적은 steps/guidance → wangp_extra.
+    길이는 duration_sec 이 있으면 "15s" 꼴로 넘긴다 (WanGP 가 모델 fps 로 가장 가까운 유효 프레임 수를 고름)."""
     spec = MODELS[cfg.model]
+    length = f"{params['duration_sec']:g}s" if params.get("duration_sec") is not None else params["num_frames"]
     s = dict(model_type=spec["model_type"], prompt=cfg.prompt, negative_prompt=cfg.negative_prompt,
-             resolution=f"{params['width']}x{params['height']}", video_length=params["num_frames"], seed=cfg.seed)
+             resolution=f"{params['width']}x{params['height']}", video_length=length, seed=cfg.seed)
     if spec.get("profile"):
         prof_path = os.path.join(app_dir, "profiles", spec["profile"])
         if not os.path.exists(prof_path):
             raise FileNotFoundError(f"WanGP 가속 프로필이 없음: {prof_path} (wangp_ref 를 바꿨다면 프로필 이름 확인)")
         with open(prof_path, encoding="utf-8") as f:
-            s.update(json.load(f))
+            prof = json.load(f)
+        prof.pop("help", None)  # UI 안내 문구 — 생성 설정이 아님 (WanGP 도 생성 인자만 걸러 씀)
+        s.update(prof)
+    s.update(spec.get("extra", {}))
     if "steps" in params["explicit"]:
         s["num_inference_steps"] = params["steps"]
     if "guidance_scale" in params["explicit"]:
@@ -738,7 +885,8 @@ def _wangp_generate(cfg: Config, run_dir: str, run_id: str, timings: dict) -> di
             log("SETUP", "gpu", **g)
         params = resolve_params(cfg)  # 모양 맞추기는 WanGP 가 모델 블록 크기에 맞춰 한다
         log("SETUP", "generation params", preset=cfg.preset, resolution=f"{params['width']}x{params['height']}",
-            num_frames=params["num_frames"], explicit=",".join(params["explicit"]) or "none",
+            num_frames=params["num_frames"], duration_sec=params["duration_sec"], upscale_to=params["upscale_to"],
+            upscale_factor=params["upscale_factor"], explicit=",".join(params["explicit"]) or "none",
             note="steps/guidance from the WanGP model or accelerator profile unless explicit")
     app_dir, py, attention = _wangp_install(cfg, timings, install_log)
 
@@ -774,8 +922,15 @@ def _wangp_generate(cfg: Config, run_dir: str, run_id: str, timings: dict) -> di
         for p in new:
             log("GENERATE", "saved", file=p, size_mb=round(os.path.getsize(p) / 1e6, 2))
         log("GENERATE", "wall time", sec=round(time.perf_counter() - t0, 1))
-    return dict(videos=new, params=params, settings_file=settings_path, wangp_log=wgp_log, gpus=gpus,
-                attention=attention, wangp_ref=cfg.wangp_ref)
+
+    videos, base, methods = new, [], []
+    clips = [p for p in new if p.lower().endswith((".mp4", ".webm", ".mkv"))]
+    if params["upscale_to"] and clips:
+        with _Stage("UPSCALE", timings, "생성 원본은 base_videos(media 폴더)에 그대로 있음 · upscaler='lanczos' 로 다시"):
+            ups = [_upscale_video(cfg, params, c, run_dir, wangp=(app_dir, py, attention, wgp_log)) for c in clips]
+            videos, base, methods = [u[0] for u in ups], clips, [u[1] for u in ups]
+    return dict(videos=videos, base_videos=base, upscale_methods=methods, params=params, settings_file=settings_path,
+                wangp_log=wgp_log, gpus=gpus, attention=attention, wangp_ref=cfg.wangp_ref)
 
 
 # --------------------------------------------------------------------------------------------------
@@ -818,6 +973,12 @@ def run(settings: dict | Config | None = None, **overrides) -> dict:
         json.dump(meta, f, ensure_ascii=False, indent=2, default=str)
     log("SUMMARY", "stage timings (sec)", **timings, total=round(sum(timings.values()), 1))
     log("SUMMARY", "outputs", videos=len(result["videos"]), metadata=meta_path, log=log_file)
+    for v in result["videos"]:
+        size = _video_size(v) if v.lower().endswith((".mp4", ".webm", ".mkv")) else None
+        log("SUMMARY", "final", file=v, size="x".join(map(str, size)) if size else "n/a",
+            size_mb=round(os.path.getsize(v) / 1e6, 2))
+    for v in result.get("base_videos", []):
+        log("SUMMARY", "base (before upscale, kept)", file=v)
     if cfg.preview:
         _preview(result["videos"])
     return dict(videos=result["videos"], metadata=meta_path, log=log_file, timings=timings, run_dir=run_dir)

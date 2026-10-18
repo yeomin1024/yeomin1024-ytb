@@ -45,5 +45,18 @@
   "studioTodo": [
     "공개 전(예약 시각 전) 스튜디오에서 확인: 영상·자막·썸네일, 자동 더빙(언어), 최종 화면",
     "공개된 뒤 '테스트 및 비교'에 썸네일 3개 등록 — 비공개 영상은 테스트 불가"
-  ]
+  ],
+  "captionTracks": {
+    "ko": "AUieDaZk3fBLre47fb384K3g0hHcYFUR4EPRznqPYxiYIW26WWIm71Oa3P8",
+    "en": "AUieDaYbSMMX8fUZ5m60LxEG08IzdtG6uFIy7G4vjVd9xgu4cRdNBDwo",
+    "hi": "AUieDaboPcGNdLy3U7sMZCctZKiN-z1syQrdnBxs0fi7Hmn6ElQuiJZL1M372sBsQb48pQU",
+    "id": "AUieDabGJKCkkb53xEfvyU7DzcnQf-YakQkISl3KgIRBHSNZ_tVGCY_vHpl20xVxseUF",
+    "pt": "AUieDaZuDB2BLq4PCXHc9pX6FEQ19gw1tXQvnaQ79R3rTz5cgGOGBFetB7Nn",
+    "es-419": "AUieDaZjufojCId_eOdkvBs-rp7A7yJmveHYNF4kT4wYgoSu_xBBiVp0h_wfsjBg_q1JtbqMNzadW5OGzEHZjg",
+    "ja": "AUieDabDLqF0yOLvUyE32Oeyb1dOP5RbVbWde5L2bzoMbZSEPJUciyeb4Jk",
+    "de": "AUieDabPCvT9eeBQvkJgq2E9I_-bTgU7cauYf1GuGRqtTcpOkflRcp12",
+    "vi": "AUieDaZl8gzL-iZEPFxXQCZgcL_EtoonczGWdKNQQ-QRdWWHno063sdja1cIph_-lQ",
+    "tr": "AUieDabjf1vC7pcKWnLiI_BbjC-vknZ78diGuH-OEahpoF4NxUR1yDgR5A"
+  },
+  "captionsPending": []
 }

@@ -41,5 +41,19 @@
   "studioTodo": [
     "공개 전(예약 시각 전) 스튜디오에서 확인: 영상·자막·썸네일, 자동 더빙(언어), 최종 화면",
     "공개된 뒤 '테스트 및 비교'에 썸네일 3개 등록 — 비공개 영상은 테스트 불가"
+  ],
+  "captionTracks": {
+    "ko": "AUieDaaw1ee8np0FrNsSvvuHABWDNrAKpGPf_qhgCdjRFl4j98JHpQKUm5Q",
+    "en": "AUieDaZf8DdttGkXwBqWKmWVVcvfJUf1-mXUCIEN77wHYi67albI1GUL",
+    "hi": "AUieDabcONHQxChZCjalxN4n0tnu7GPNAN3Gn8mpG3ziwxZRjJ91lR6_VsoVy1H668C8OEk",
+    "id": "AUieDaZ8mUfw2ZjyP8CxhYaDkeO_lZ5UslgyVJF0-jHP6WniIz65UUQ9ZH14mtC6aK9j",
+    "pt": "AUieDaZGEt4hWfNDuDxjKhlGf33wH2W445tg9p8bWGJag4YSHGx35BWK_tTi"
+  },
+  "captionsPending": [
+    "es-419",
+    "ja",
+    "de",
+    "vi",
+    "tr"
   ]
 }

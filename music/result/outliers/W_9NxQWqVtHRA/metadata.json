@@ -1,0 +1,87 @@
+{
+ "id": "9NxQWqVtHRA",
+ "title": "soft pastel flowers 🌸🌷 relaxing piano for dreamy & peaceful days",
+ "channel": "She of the Vale",
+ "channel_id": "UC87rSZNDFgVWbzo3k0C2BOg",
+ "subs": 11700,
+ "views": 803460,
+ "ratio": 68.67,
+ "age_days": 172,
+ "views_per_day": 4671.3,
+ "minutes": 37.8,
+ "likes": 10721,
+ "comments": 358,
+ "published": "2026-04-28",
+ "queries": "검색:study music | 검색:pianomusic | 검색:relaxing piano music | 검색:relaxing piano | 검색:piano",
+ "url": "https://www.youtube.com/watch?v=9NxQWqVtHRA",
+ "flag": "외국 영상",
+ "published_at": "2026-04-28T12:14:33Z",
+ "rank": "W523",
+ "set": "web",
+ "folder": "W_9NxQWqVtHRA",
+ "sources": [
+  "검색:study music",
+  "검색:pianomusic",
+  "검색:relaxing piano music",
+  "검색:relaxing piano",
+  "검색:piano"
+ ],
+ "source": "web",
+ "tags": [
+  "#piano",
+  "soft piano",
+  "calm piano"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Still Life - Aki Sora"
+  },
+  {
+   "start": 117,
+   "title": "Communion - Maëlle Rousseau"
+  },
+  {
+   "start": 265,
+   "title": "Pines and Cones - Maëlle Rousseau"
+  },
+  {
+   "start": 401,
+   "title": "Homebody - Maëlle Rousseau"
+  },
+  {
+   "start": 562,
+   "title": "Soft Marble - Aki Sora"
+  },
+  {
+   "start": 686,
+   "title": "A Fresh Start - Aki Sora"
+  },
+  {
+   "start": 829,
+   "title": "Time to Time - Aki Sora"
+  },
+  {
+   "start": 978,
+   "title": "One More Story - Nils Halberg"
+  },
+  {
+   "start": 1134,
+   "title": "Repeat"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 358,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T08:07:20",
+ "approved": "2026-10-18T17:07+09:00"
+}

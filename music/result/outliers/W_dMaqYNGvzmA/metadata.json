@@ -1,0 +1,67 @@
+{
+ "id": "dMaqYNGvzmA",
+ "title": "[PLAYLIST] Biển Đảo Và Em, Fallin Flower, Người Yêu Bỏ Lỡ,… | wenjin.",
+ "channel": "wenjin.",
+ "channel_id": "UC1iKS7E71Qgc8UUbWSgSfIQ",
+ "subs": 2560,
+ "views": 877743,
+ "ratio": 342.87,
+ "age_days": 99,
+ "views_per_day": 8866.1,
+ "minutes": 26.2,
+ "likes": 10428,
+ "comments": 442,
+ "published": "2026-07-11",
+ "queries": "검색:piano",
+ "url": "https://www.youtube.com/watch?v=dMaqYNGvzmA",
+ "flag": "외국 영상",
+ "published_at": "2026-07-11T00:50:05Z",
+ "rank": "W153",
+ "set": "web",
+ "folder": "W_dMaqYNGvzmA",
+ "sources": [
+  "검색:piano"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Biển, Đảo Và Em"
+  },
+  {
+   "start": 295,
+   "title": "Fallin’ Flower"
+  },
+  {
+   "start": 517,
+   "title": "Người Yêu Bỏ Lỡ"
+  },
+  {
+   "start": 828,
+   "title": "Cry For Me"
+  },
+  {
+   "start": 1126,
+   "title": "Giày Cao Gót Màu Đỏ"
+  },
+  {
+   "start": 1330,
+   "title": "Thiếu Niên Hoa Hồng"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "vi",
+ "foreign": true,
+ "comments_fetched": 442,
+ "comments_top_level": 285,
+ "comments_replies": 157,
+ "comments_by_creator": 21,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 442,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:52:31",
+ "approved": "2026-10-18T16:52+09:00"
+}

@@ -1,0 +1,92 @@
+{
+ "id": "d8sLNlVAuxE",
+ "title": "공부할 때 듣는 판타지 음악 | playlist",
+ "channel": "Flow Trigger.",
+ "channel_id": "UCISE1Ky_EejwKh0qTsO191A",
+ "subs": 6540,
+ "views": 417052,
+ "ratio": 63.77,
+ "age_days": 60,
+ "views_per_day": 6950.9,
+ "minutes": 130.3,
+ "likes": 3074,
+ "comments": 54,
+ "published": "2026-08-19",
+ "queries": "검색:공부할때듣는음악",
+ "url": "https://www.youtube.com/watch?v=d8sLNlVAuxE",
+ "flag": "",
+ "published_at": "2026-08-19T03:00:11Z",
+ "rank": "W540",
+ "set": "web",
+ "folder": "W_d8sLNlVAuxE",
+ "sources": [
+  "검색:공부할때듣는음악"
+ ],
+ "source": "web",
+ "tags": [
+  "anime music",
+  "anime ost",
+  "anime study music",
+  "frieren",
+  "공부음악",
+  "공부할때듣는음악",
+  "애니OST",
+  "애니음악",
+  "장송의프리렌",
+  "집중음악",
+  "프리렌OST",
+  "플레이리스트"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "푸른 정적 (Blue Stillness)"
+  },
+  {
+   "start": 193,
+   "title": "천년의 하늘 (Thousand-Year Sky)"
+  },
+  {
+   "start": 397,
+   "title": "흰 잔상 (White Afterimage)"
+  },
+  {
+   "start": 583,
+   "title": "바람의 층 (Layers of Wind)"
+  },
+  {
+   "start": 762,
+   "title": "낮에 뜬 별 (Daylight Star)"
+  },
+  {
+   "start": 947,
+   "title": "마법의 잔향 (Magic Afterglow)"
+  },
+  {
+   "start": 1155,
+   "title": "먼 종소리 (Distant Bells)"
+  },
+  {
+   "start": 1356,
+   "title": "하늘의 수심 (Sky Depths)"
+  },
+  {
+   "start": 1563,
+   "title": "loop"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 54,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T08:07:22",
+ "approved": "2026-10-18T17:07+09:00"
+}

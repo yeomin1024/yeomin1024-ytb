@@ -1,0 +1,75 @@
+{
+ "id": "-hXkiB-eLfs",
+ "title": "Barsaat  | All Trending Hindi Songs 2026  |  Safar × Bairan × Zulfein × Sahiba × Majboor | Lofi Mix",
+ "channel": "SukumusicHindi",
+ "channel_id": "UCtdM7B4Wiv2NvQJmcn23HxQ",
+ "subs": 3390,
+ "views": 1296516,
+ "ratio": 382.45,
+ "age_days": 37,
+ "views_per_day": 35041.0,
+ "minutes": 22.9,
+ "likes": 8019,
+ "comments": 161,
+ "published": "2026-09-10",
+ "queries": "검색:lofi",
+ "url": "https://www.youtube.com/watch?v=-hXkiB-eLfs",
+ "flag": "외국 영상",
+ "published_at": "2026-09-10T13:42:17Z",
+ "rank": "W141",
+ "set": "web",
+ "folder": "W_-hXkiB-eLfs",
+ "sources": [
+  "검색:lofi"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "​ — Barsaat 🌧️"
+  },
+  {
+   "start": 59,
+   "title": "​ — Taare ⭐"
+  },
+  {
+   "start": 79,
+   "title": "​ — Samjho Na ❤️"
+  },
+  {
+   "start": 155,
+   "title": "​ — Safar 🌙"
+  },
+  {
+   "start": 225,
+   "title": "​ — Bairan 💔"
+  },
+  {
+   "start": 359,
+   "title": "​ — Zulfein ✨"
+  },
+  {
+   "start": 559,
+   "title": "​ — Sahiba ❤️"
+  },
+  {
+   "start": 716,
+   "title": "​ — Majboor 🥀"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 161,
+ "comments_top_level": 143,
+ "comments_replies": 18,
+ "comments_by_creator": 5,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 161,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:51:45",
+ "approved": "2026-10-18T16:51+09:00"
+}

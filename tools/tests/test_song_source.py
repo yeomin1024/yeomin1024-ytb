@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-10-16 — tools/song_source.py v1.0 classify() 시험 (실제 성공 사례 설명란에서 따온 꼴, 네트워크 없이).
+# VERSION: v1.1 — 2026-10-18 — 공식 음원·기존 곡 리믹스 시험 3개 더함. (v1.0 — 2026-10-16 — tools/song_source.py v1.0 classify() 시험 (실제 성공 사례 설명란에서 따온 꼴, 네트워크 없이).)
 """python3 -m unittest test_song_source  (tools/tests 에서)"""
 import sys
 import unittest
@@ -35,6 +35,17 @@ class Classify(unittest.TestCase):
 
     def test_unknown(self):
         self.assertEqual(ss.classify("고양이 카페에 놀러 올래?", "집중할 때 듣기 좋은 힐링 재즈 음악이야")[0], "알 수 없음")
+
+    def test_official_channel(self):
+        self.assertEqual(ss.classify("De Lejitos (Remix) (Video Oficial)", "© 2026 Records", "JayWheelerVEVO")[0], "공식 음원")
+        self.assertEqual(ss.classify("Tìm Em", "Provided to YouTube by ...", "Hngle - Topic")[0], "공식 음원")
+
+    def test_official_title(self):
+        self.assertEqual(ss.classify("Noah Kahan - Orbiter (Official Lyric Video)", "", "NoahKahan")[0], "공식 음원")
+
+    def test_remix_existing(self):
+        d = "This lofi version was created using AI tools. ©"
+        self.assertEqual(ss.classify("Achchi Lagti Ho (Slowed + Reverb) | Lofi Version 🎧", d, "GTAvexo9")[0], "기존 곡 리믹스")
 
 
 if __name__ == "__main__":

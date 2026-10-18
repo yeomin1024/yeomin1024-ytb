@@ -1,0 +1,63 @@
+{
+ "id": "PF7MEHrmFjQ",
+ "title": "Playlist | Start Your Work with This 😎 Light Focus, Solid Rhythm 🎧| JAZZHOP · CHILLHOP | Cafe · Work",
+ "channel": "Noirvoya",
+ "channel_id": "UCNqgdmdCp_bGD4voNnIIrgw",
+ "subs": 371,
+ "views": 80931,
+ "ratio": 218.14,
+ "age_days": 130,
+ "views_per_day": 622.5,
+ "minutes": 16.4,
+ "likes": 464,
+ "comments": 30,
+ "published": "2026-06-10",
+ "queries": "검색:work music",
+ "url": "https://www.youtube.com/watch?v=PF7MEHrmFjQ",
+ "flag": "외국 영상",
+ "published_at": "2026-06-10T01:00:31Z",
+ "rank": "W252",
+ "set": "web",
+ "folder": "W_PF7MEHrmFjQ",
+ "sources": [
+  "검색:work music"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Good Coffee, Good Flow"
+  },
+  {
+   "start": 200,
+   "title": "Work Mode Sunshine"
+  },
+  {
+   "start": 400,
+   "title": "Notes In The Margin"
+  },
+  {
+   "start": 600,
+   "title": "Little Groove At My Desk"
+  },
+  {
+   "start": 800,
+   "title": "Better Flow, Better Day"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 30,
+ "comments_top_level": 13,
+ "comments_replies": 17,
+ "comments_by_creator": 14,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 30,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:57:02",
+ "approved": "2026-10-18T16:57+09:00"
+}

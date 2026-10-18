@@ -1,0 +1,89 @@
+{
+ "id": "41HX_5G6eqQ",
+ "title": "Barsaat 🌧️| All Trending Songs | Taare x Samjho Na x Safar x Bairan x Zulfein x Sahiba x Majboor |",
+ "channel": "Voxwaves",
+ "channel_id": "UCoHN5yNk5eLZIczOIE-z09w",
+ "subs": 13600,
+ "views": 7306932,
+ "ratio": 537.27,
+ "age_days": 41,
+ "views_per_day": 178217.9,
+ "minutes": 22.9,
+ "likes": 92822,
+ "comments": 1007,
+ "published": "2026-09-07",
+ "queries": "검색:study music | 검색:playlist | 검색:music | 검색:lofi",
+ "url": "https://www.youtube.com/watch?v=41HX_5G6eqQ",
+ "flag": "외국 영상",
+ "published_at": "2026-09-07T01:30:29Z",
+ "rank": "W87",
+ "set": "web",
+ "folder": "W_41HX_5G6eqQ",
+ "sources": [
+  "검색:study music",
+  "검색:playlist",
+  "검색:music",
+  "검색:lofi"
+ ],
+ "source": "web",
+ "tags": [
+  "#barsaat",
+  "#bairan",
+  "#fypviral",
+  "#playlist",
+  "#trendingsongs",
+  "#bollywoodsongs",
+  "#lofiplaylist",
+  "#lofimusic",
+  "#midnightvibes",
+  "#latenightvibe"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Barsaat 🌧️"
+  },
+  {
+   "start": 59,
+   "title": "Taare ⭐"
+  },
+  {
+   "start": 79,
+   "title": "Samjho Na ❤️"
+  },
+  {
+   "start": 155,
+   "title": "Safar 🌙"
+  },
+  {
+   "start": 225,
+   "title": "Bairan 💔"
+  },
+  {
+   "start": 359,
+   "title": "Zulfein ✨"
+  },
+  {
+   "start": 559,
+   "title": "Sahiba ❤️"
+  },
+  {
+   "start": 716,
+   "title": "Majboor 🥀"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 1062,
+ "comments_top_level": 791,
+ "comments_replies": 271,
+ "comments_by_creator": 16,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 1007,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:48:25",
+ "approved": "2026-10-18T16:48+09:00"
+}

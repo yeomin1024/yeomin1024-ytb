@@ -1,0 +1,71 @@
+{
+ "id": "CJEgDVcFy80",
+ "title": "【作業用BGM】ちいかわ Instrumental Jazz 2時間 | 深夜のジャズラウンジ | ひとりごつ, 島のうた, マジカルシンドローム +more【人魚の島のひみつ】",
+ "channel": "GINZA Midnight",
+ "channel_id": "UCP3ux2r1W5wW028qcXvJuHQ",
+ "subs": 22000,
+ "views": 1269581,
+ "ratio": 57.71,
+ "age_days": 52,
+ "views_per_day": 24415.0,
+ "minutes": 126.6,
+ "likes": 21704,
+ "comments": 312,
+ "published": "2026-08-26",
+ "queries": "검색:BGM",
+ "url": "https://www.youtube.com/watch?v=CJEgDVcFy80",
+ "flag": "외국 영상",
+ "published_at": "2026-08-26T08:04:49Z",
+ "rank": "W563",
+ "set": "web",
+ "folder": "W_CJEgDVcFy80",
+ "sources": [
+  "검색:BGM"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "ひとりごつ (Hitorigotsu)"
+  },
+  {
+   "start": 163,
+   "title": "くつずれ (Kutsuzure)"
+  },
+  {
+   "start": 361,
+   "title": "机さする (Tsukue Sasuru)"
+  },
+  {
+   "start": 599,
+   "title": "島のうた セイレーンver. (Shima no Uta - Siren ver.)"
+  },
+  {
+   "start": 750,
+   "title": "マジカルシンドローム (Magical Syndrome)"
+  },
+  {
+   "start": 906,
+   "title": "今日の日はさようなら (Kyou no Hi wa Sayounara)"
+  },
+  {
+   "start": 1085,
+   "title": "Repeat"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ja",
+ "foreign": true,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 312,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T08:07:25",
+ "approved": "2026-10-18T17:07+09:00"
+}

@@ -1,0 +1,76 @@
+{
+ "id": "xGPm2j1dDr4",
+ "title": "Barsaat 🌧️ | All Trending Songs 🎧| Taare x Samjho Na x Safar x Bairan x Zulfein x Sahiba x Majboor |",
+ "channel": "LOFI XP VIBES",
+ "channel_id": "UCbMrqPy9l0WrEJRjLyhyrsg",
+ "subs": 2490,
+ "views": 1722426,
+ "ratio": 691.74,
+ "age_days": 36,
+ "views_per_day": 47845.2,
+ "minutes": 23.0,
+ "likes": 0,
+ "comments": 183,
+ "published": "2026-09-11",
+ "queries": "검색:playlist | 검색:lofi",
+ "url": "https://www.youtube.com/watch?v=xGPm2j1dDr4",
+ "flag": "외국 영상",
+ "published_at": "2026-09-11T14:24:52Z",
+ "rank": "W55",
+ "set": "web",
+ "folder": "W_xGPm2j1dDr4",
+ "sources": [
+  "검색:playlist",
+  "검색:lofi"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "​ — Barsaat 🌧️"
+  },
+  {
+   "start": 59,
+   "title": "​ — Taare ⭐"
+  },
+  {
+   "start": 79,
+   "title": "​ — Samjho Na ❤️"
+  },
+  {
+   "start": 155,
+   "title": "​ — Safar 🌙"
+  },
+  {
+   "start": 225,
+   "title": "​ — Bairan 💔"
+  },
+  {
+   "start": 359,
+   "title": "​ — Zulfein ✨"
+  },
+  {
+   "start": 559,
+   "title": "​ — Sahiba ❤️"
+  },
+  {
+   "start": 716,
+   "title": "​ — Majboor 🥀"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 193,
+ "comments_top_level": 128,
+ "comments_replies": 65,
+ "comments_by_creator": 39,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 183,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:46:09",
+ "approved": "2026-10-18T16:46+09:00"
+}

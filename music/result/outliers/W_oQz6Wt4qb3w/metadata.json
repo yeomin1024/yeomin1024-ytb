@@ -1,0 +1,88 @@
+{
+ "id": "oQz6Wt4qb3w",
+ "title": "POV: You found the ultimate South Indian aesthetic🪷 playlist 🎧✨",
+ "channel": "Ethereal Echoes ",
+ "channel_id": "UCvCKD8d8DgN2f2C3jTKEf1w",
+ "subs": 12700,
+ "views": 1809493,
+ "ratio": 142.48,
+ "age_days": 146,
+ "views_per_day": 12393.8,
+ "minutes": 13.3,
+ "likes": 26225,
+ "comments": 355,
+ "published": "2026-05-25",
+ "queries": "검색:study music | 검색:soothing music",
+ "url": "https://www.youtube.com/watch?v=oQz6Wt4qb3w",
+ "flag": "외국 영상",
+ "published_at": "2026-05-25T05:02:34Z",
+ "rank": "W331",
+ "set": "web",
+ "folder": "W_oQz6Wt4qb3w",
+ "sources": [
+  "검색:study music",
+  "검색:soothing music"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Unakkul Naane"
+  },
+  {
+   "start": 63,
+   "title": "Chuttamalle"
+  },
+  {
+   "start": 152,
+   "title": "Aasa Kooda"
+  },
+  {
+   "start": 234,
+   "title": "Inkem Inkem"
+  },
+  {
+   "start": 308,
+   "title": "Othiyade Pathayila"
+  },
+  {
+   "start": 378,
+   "title": "Chinama Chillyama"
+  },
+  {
+   "start": 436,
+   "title": "Nachidamma"
+  },
+  {
+   "start": 580,
+   "title": "Tum Tum"
+  },
+  {
+   "start": 660,
+   "title": "Katchi Sera"
+  },
+  {
+   "start": 712,
+   "title": "Buttabomma"
+  },
+  {
+   "start": 774,
+   "title": "Armadham"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 356,
+ "comments_top_level": 228,
+ "comments_replies": 128,
+ "comments_by_creator": 22,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 355,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T08:00:10",
+ "approved": "2026-10-18T17:00+09:00"
+}

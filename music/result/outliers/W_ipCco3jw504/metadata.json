@@ -1,0 +1,70 @@
+{
+ "id": "ipCco3jw504",
+ "title": "The Complete \"Love Is in the Air\" Theme by Rock Burwell | Obsession 2026",
+ "channel": "NR ENTERTAINMENT Music / Robillart Nicolas",
+ "channel_id": "UC1F4dSDsMJquMpHm_5UQxhQ",
+ "subs": 2810,
+ "views": 927816,
+ "ratio": 330.18,
+ "age_days": 146,
+ "views_per_day": 6354.9,
+ "minutes": 4.5,
+ "likes": 16691,
+ "comments": 614,
+ "published": "2026-05-24",
+ "queries": "검색:ambient music",
+ "url": "https://www.youtube.com/watch?v=ipCco3jw504",
+ "flag": "외국 영상",
+ "published_at": "2026-05-24T22:21:20Z",
+ "rank": "W161",
+ "set": "web",
+ "folder": "W_ipCco3jw504",
+ "sources": [
+  "검색:ambient music"
+ ],
+ "source": "web",
+ "tags": [
+  "Obsession 2026",
+  "Obsession film 2026",
+  "Rock Burwell",
+  "Love Is in the Air",
+  "Obsession OST",
+  "Obsession soundtrack",
+  "Curry Barker",
+  "full theme",
+  "film score",
+  "movie music",
+  "original score",
+  "instrumental music",
+  "cinematic music",
+  "2026 movie soundtrack"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Part 1: The \"Honeymoon Phase\" (Intro)"
+  },
+  {
+   "start": 116,
+   "title": "Part 2: The Distortion (Nikki's Obsession)"
+  },
+  {
+   "start": 255,
+   "title": "Outro"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 614,
+ "comments_top_level": 327,
+ "comments_replies": 287,
+ "comments_by_creator": 4,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 614,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:52:48",
+ "approved": "2026-10-18T16:52+09:00"
+}

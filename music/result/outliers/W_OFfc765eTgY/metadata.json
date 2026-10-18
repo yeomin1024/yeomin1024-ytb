@@ -1,0 +1,80 @@
+{
+ "id": "OFfc765eTgY",
+ "title": "[Masterpiece Series] Albinoni Adagio – 4 Variations Songs of Solace",
+ "channel": "WilliamPoeticSolace | 시적인위로",
+ "channel_id": "UCoCWaJ6QTDu_-jgq9DCmCCg",
+ "subs": 40600,
+ "views": 528573,
+ "ratio": 13.02,
+ "age_days": 172,
+ "views_per_day": 3073.1,
+ "minutes": 17.4,
+ "likes": 10247,
+ "comments": 777,
+ "published": "2026-04-28",
+ "queries": "검색:명상음악",
+ "url": "https://www.youtube.com/watch?v=OFfc765eTgY",
+ "flag": "외국 영상",
+ "published_at": "2026-04-28T12:00:41Z",
+ "rank": "W842",
+ "set": "web",
+ "folder": "W_OFfc765eTgY",
+ "sources": [
+  "검색:명상음악"
+ ],
+ "source": "web",
+ "tags": [
+  "William",
+  "Poetic Solace",
+  "432Hz",
+  "432Hz Healing",
+  "Neo Classical",
+  "Cinematic Music",
+  "Crossover Music",
+  "AI Composer",
+  "Modern Opera",
+  "Ambient Music",
+  "Soul Healing",
+  "Architectural Music",
+  "Visual Storytelling",
+  "Relaxing Piano",
+  "AI Art",
+  "Contemporary Classical",
+  "ALBINONI",
+  "ADAGIO",
+  "알비노니",
+  "아디지오"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Track 1. In the Edge of Silent Shore - Tenor & Guitar with Strings"
+  },
+  {
+   "start": 288,
+   "title": "Track 2. In the Edge of Silent Shore - Guitar with Strings"
+  },
+  {
+   "start": 466,
+   "title": "Track 3. The Remnant - Soparano Solo & Strings"
+  },
+  {
+   "start": 729,
+   "title": "Track 4. In the Edge of Silent Shore - Mezzo Soprano & Choir"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 777,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T08:08:04",
+ "approved": "2026-10-18T17:08+09:00"
+}

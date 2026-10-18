@@ -1,0 +1,92 @@
+{
+ "id": "t6yrxjE7HSM",
+ "title": "Pokémon Café Jazz Lofi | ☕ Smooth Beats for Study & Focus Sessions 🎵",
+ "channel": "Rest Point Lofi",
+ "channel_id": "UCJuLInMZelIN2tp9QcMv0dg",
+ "subs": 4080,
+ "views": 435596,
+ "ratio": 106.76,
+ "age_days": 169,
+ "views_per_day": 2577.5,
+ "minutes": 104.2,
+ "likes": 4411,
+ "comments": 74,
+ "published": "2026-05-01",
+ "queries": "검색:BGM",
+ "url": "https://www.youtube.com/watch?v=t6yrxjE7HSM",
+ "flag": "외국 영상",
+ "published_at": "2026-05-01T08:27:08Z",
+ "rank": "W401",
+ "set": "web",
+ "folder": "W_t6yrxjE7HSM",
+ "sources": [
+  "검색:BGM"
+ ],
+ "source": "web",
+ "tags": [
+  "pokemon",
+  "pokemonlofi",
+  "lofijazz",
+  "作業用BGM",
+  "睡眠用BGM",
+  "勉強用BGM",
+  "リラックスBGM",
+  "夜寝る時に聴くBGM\nwork bgm",
+  "sleep bgm",
+  "study bgm",
+  "relaxing bgm",
+  "bedtime bgm"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Pewter City Theme (Day) - Rocky Ridges"
+  },
+  {
+   "start": 156,
+   "title": "Party Theme (Rocky Ridges)"
+  },
+  {
+   "start": 289,
+   "title": "Pokémon Center (Day)"
+  },
+  {
+   "start": 438,
+   "title": "Dream Island (Dragonite Doll)"
+  },
+  {
+   "start": 593,
+   "title": "Dream Island (Clefairy & Arcanine Doll)"
+  },
+  {
+   "start": 733,
+   "title": "Cloud Island Theme"
+  },
+  {
+   "start": 846,
+   "title": "Final Song"
+  },
+  {
+   "start": 977,
+   "title": "Ending Credits"
+  },
+  {
+   "start": 1085,
+   "title": "Title Screen Theme"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 74,
+ "comments_top_level": 42,
+ "comments_replies": 32,
+ "comments_by_creator": 24,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 74,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T08:03:49",
+ "approved": "2026-10-18T17:03+09:00"
+}

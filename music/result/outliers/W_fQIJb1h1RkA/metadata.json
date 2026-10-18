@@ -1,0 +1,135 @@
+{
+ "id": "fQIJb1h1RkA",
+ "title": "jazz before i reach flow state",
+ "channel": "Defunct",
+ "channel_id": "UCjl8BKz02KHTncEcuEzFeSw",
+ "subs": 11100,
+ "views": 843591,
+ "ratio": 76.0,
+ "age_days": 157,
+ "views_per_day": 5373.2,
+ "minutes": 127.8,
+ "likes": 37165,
+ "comments": 944,
+ "published": "2026-05-13",
+ "queries": "검색:study music | 검색:focus music",
+ "url": "https://www.youtube.com/watch?v=fQIJb1h1RkA",
+ "flag": "외국 영상",
+ "published_at": "2026-05-13T08:00:29Z",
+ "rank": "W487",
+ "set": "web",
+ "folder": "W_fQIJb1h1RkA",
+ "sources": [
+  "검색:study music",
+  "검색:focus music"
+ ],
+ "source": "web",
+ "tags": [
+  "music",
+  "lofi",
+  "chillhop",
+  "jazzhop",
+  "jazz",
+  "jazzplaylist",
+  "lofimusic",
+  "saxophonejazz",
+  "jazzmusic",
+  "lofistudy"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "flow state"
+  },
+  {
+   "start": 174,
+   "title": "ascencion"
+  },
+  {
+   "start": 387,
+   "title": "calculator"
+  },
+  {
+   "start": 630,
+   "title": "blind syntax"
+  },
+  {
+   "start": 828,
+   "title": "digital veil"
+  },
+  {
+   "start": 1018,
+   "title": "silent code"
+  },
+  {
+   "start": 1193,
+   "title": "marble circuit"
+  },
+  {
+   "start": 1347,
+   "title": "encrypted"
+  },
+  {
+   "start": 1535,
+   "title": "oblivion"
+  },
+  {
+   "start": 1720,
+   "title": "ciphered"
+  },
+  {
+   "start": 1934,
+   "title": "dark algorithm"
+  },
+  {
+   "start": 2117,
+   "title": "veiled logic"
+  },
+  {
+   "start": 2311,
+   "title": "silent program"
+  },
+  {
+   "start": 2506,
+   "title": "stone script"
+  },
+  {
+   "start": 2685,
+   "title": "codebound"
+  },
+  {
+   "start": 2895,
+   "title": "obscura"
+  },
+  {
+   "start": 3090,
+   "title": "fragmented"
+  },
+  {
+   "start": 3274,
+   "title": "blind oracle"
+  },
+  {
+   "start": 3444,
+   "title": "syntax crown"
+  },
+  {
+   "start": 3608,
+   "title": "echoes"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 944,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T08:07:15",
+ "approved": "2026-10-18T17:07+09:00"
+}

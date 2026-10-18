@@ -1,0 +1,99 @@
+{
+ "id": "UXwJ9RwdyHs",
+ "title": "Hyperfocus | LOCK IN for 3 Hours | Deep Work Study With Me (Pomodoro 50/10)",
+ "channel": "Work With Paul",
+ "channel_id": "UCoHXax_u6FAiqGC5xISkiAw",
+ "subs": 18000,
+ "views": 3903596,
+ "ratio": 216.87,
+ "age_days": 41,
+ "views_per_day": 95209.7,
+ "minutes": 172.0,
+ "likes": 16973,
+ "comments": 471,
+ "published": "2026-09-07",
+ "queries": "검색:study music | 검색:focus music | 검색:work music",
+ "url": "https://www.youtube.com/watch?v=UXwJ9RwdyHs",
+ "flag": "외국 영상",
+ "published_at": "2026-09-07T06:00:09Z",
+ "rank": "W253",
+ "set": "web",
+ "folder": "W_UXwJ9RwdyHs",
+ "sources": [
+  "검색:study music",
+  "검색:focus music",
+  "검색:work music"
+ ],
+ "source": "web",
+ "tags": [
+  "work with me",
+  "study with me",
+  "deep work",
+  "deep work session",
+  "pomodoro",
+  "pomodoro timer",
+  "pomodoro 50/10",
+  "pomodoro 25/5",
+  "focus music",
+  "study with me real time",
+  "2 hour study with me",
+  "work with me pomodoro",
+  "productivity",
+  "concentration music",
+  "focus session",
+  "studying",
+  "coding session",
+  "exam study session",
+  "work session",
+  "real time study session",
+  "background music for work",
+  "deep focus",
+  "study motivation",
+  "work with paul",
+  "workwithpaul"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Intro"
+  },
+  {
+   "start": 40,
+   "title": "Work Session 1"
+  },
+  {
+   "start": 3040,
+   "title": "Break 1"
+  },
+  {
+   "start": 3640,
+   "title": "Work Session 2"
+  },
+  {
+   "start": 6640,
+   "title": "Break 2"
+  },
+  {
+   "start": 7240,
+   "title": "Work Session 3"
+  },
+  {
+   "start": 10240,
+   "title": "Outro"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 492,
+ "comments_top_level": 383,
+ "comments_replies": 109,
+ "comments_by_creator": 46,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 471,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:57:03",
+ "approved": "2026-10-18T16:57+09:00"
+}

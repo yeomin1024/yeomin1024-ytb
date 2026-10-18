@@ -1,0 +1,63 @@
+{
+ "id": "8UX0j2ieqTo",
+ "title": "Hyperfocus Music | 2 Hour Deep Work Pomodoro (50/10) | Flow State Music",
+ "channel": "Work With Paul",
+ "channel_id": "UCoHXax_u6FAiqGC5xISkiAw",
+ "subs": 18000,
+ "views": 746042,
+ "ratio": 41.45,
+ "age_days": 87,
+ "views_per_day": 8575.2,
+ "minutes": 111.4,
+ "likes": 4915,
+ "comments": 88,
+ "published": "2026-07-23",
+ "queries": "검색:work music",
+ "url": "https://www.youtube.com/watch?v=8UX0j2ieqTo",
+ "flag": "외국 영상",
+ "published_at": "2026-07-23T03:00:10Z",
+ "rank": "W635",
+ "set": "web",
+ "folder": "W_8UX0j2ieqTo",
+ "sources": [
+  "검색:work music"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Intro"
+  },
+  {
+   "start": 40,
+   "title": "Work Session 1 (50 min)"
+  },
+  {
+   "start": 3040,
+   "title": "Break (10 min)"
+  },
+  {
+   "start": 3640,
+   "title": "Work Session 2 (50 min)"
+  },
+  {
+   "start": 6640,
+   "title": "Outro"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 88,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T08:07:35",
+ "approved": "2026-10-18T17:07+09:00"
+}

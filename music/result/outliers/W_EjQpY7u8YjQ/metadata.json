@@ -1,0 +1,95 @@
+{
+ "id": "EjQpY7u8YjQ",
+ "title": "봄날에 따뜻한 커피 한 잔과 함께 듣기 좋은 노래 ... 너무 좋다 | 7080 추억의 올드 팝송 모음 Old Pop Song Playlist 18",
+ "channel": "theoldpopsong",
+ "channel_id": "UCMVEBhLZdGm4GaHg0-7cILQ",
+ "subs": 40800,
+ "views": 126566,
+ "ratio": 3.1,
+ "age_days": 181,
+ "views_per_day": 699.3,
+ "minutes": 101.1,
+ "likes": 1528,
+ "comments": 83,
+ "published": "2026-04-19",
+ "queries": "검색:편안한음악",
+ "url": "https://www.youtube.com/watch?v=EjQpY7u8YjQ",
+ "flag": "외국 영상",
+ "published_at": "2026-04-19T22:00:23Z",
+ "rank": "W935",
+ "set": "web",
+ "folder": "W_EjQpY7u8YjQ",
+ "sources": [
+  "검색:편안한음악"
+ ],
+ "source": "web",
+ "tags": [
+  "올드팝",
+  "추억의팝송",
+  "7080팝송",
+  "감성팝송",
+  "oldpop",
+  "oldpopsong",
+  "theoldpopsong"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "The April Rain — 4월의 비 (커버송)"
+  },
+  {
+   "start": 173,
+   "title": "Tears of the Spring Rain — 봄비의 눈물"
+  },
+  {
+   "start": 340,
+   "title": "When the Blossoms Remember Us — 꽃들이 우리를 기억할 때"
+  },
+  {
+   "start": 499,
+   "title": "The Spring That Left You Behind — 너를 두고 온 봄"
+  },
+  {
+   "start": 684,
+   "title": "Midnight on the Dial — 자정의 라디오 다이얼"
+  },
+  {
+   "start": 859,
+   "title": "Sunset over the Cherry Blossoms — 벚꽃 위로 지는 노을"
+  },
+  {
+   "start": 1047,
+   "title": "Beneath the April Boughs — 4월의 가지 아래에서"
+  },
+  {
+   "start": 1230,
+   "title": "Silence in the Spring Breeze — 봄바람 속의 고요"
+  },
+  {
+   "start": 1455,
+   "title": "Shadows of the Spring — 봄의 그림자"
+  },
+  {
+   "start": 1659,
+   "title": "Driving Past Your Street — 네가 살던 거리를 지나며"
+  },
+  {
+   "start": 1853,
+   "title": "Blossoms Fell, But You Didn’t Stay — 꽃은 졌지만 너는 머물지 않았어"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 83,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T08:08:18",
+ "approved": "2026-10-18T17:08+09:00"
+}

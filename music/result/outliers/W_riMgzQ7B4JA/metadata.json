@@ -1,0 +1,118 @@
+{
+ "id": "riMgzQ7B4JA",
+ "title": "비 오는 날 카페에서 듣기 좋은 추억의 노래 | 계속 듣게 되는 7080 라디오 감성 올드팝",
+ "channel": "morgellia(모르겔리아)",
+ "channel_id": "UCi-Do-GyTW9NKs9i7IBM1Bw",
+ "subs": 18100,
+ "views": 480317,
+ "ratio": 26.54,
+ "age_days": 151,
+ "views_per_day": 3180.9,
+ "minutes": 165.9,
+ "likes": 4298,
+ "comments": 313,
+ "published": "2026-05-19",
+ "queries": "검색:카페음악 | 검색:음악 | 검색:감성음악",
+ "url": "https://www.youtube.com/watch?v=riMgzQ7B4JA",
+ "flag": "외국 영상",
+ "published_at": "2026-05-19T23:00:42Z",
+ "rank": "W727",
+ "set": "web",
+ "folder": "W_riMgzQ7B4JA",
+ "sources": [
+  "검색:카페음악",
+  "검색:음악",
+  "검색:감성음악"
+ ],
+ "source": "web",
+ "tags": [
+  "#감성올드팝",
+  "#감성팝송",
+  "#7080음악",
+  "#겨울밤",
+  "#눈내리는밤",
+  "#추억의올드팝",
+  "#카페음악",
+  "#겨울감성",
+  "#플레이리스트",
+  "#봄비",
+  "#봄감성",
+  "#봄날감성",
+  "#올드팝",
+  "#7080올드팝",
+  "#추억감성",
+  "#봄날",
+  "#카페감성",
+  "#그시절",
+  "#라디오",
+  "#LP감성"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Fading Summer Love (희미해지는 여름 사랑)"
+  },
+  {
+   "start": 219,
+   "title": "Rainy Memories (비 오는 추억)"
+  },
+  {
+   "start": 399,
+   "title": "One More Memory (다시 떠오른 기억)"
+  },
+  {
+   "start": 616,
+   "title": "Rainlight Romance (빗빛 로맨스)"
+  },
+  {
+   "start": 850,
+   "title": "Warm Coffee Nights (따뜻한 커피의 밤)"
+  },
+  {
+   "start": 1076,
+   "title": "Young and Gone (젊은 날의 우리)"
+  },
+  {
+   "start": 1266,
+   "title": "Old Streets Again (다시 걷는 옛거리)"
+  },
+  {
+   "start": 1475,
+   "title": "Echoes of Youth (청춘의 메아리)"
+  },
+  {
+   "start": 1689,
+   "title": "Soft Rain Love (부드러운 빗속 사랑)"
+  },
+  {
+   "start": 1883,
+   "title": "Quiet Rain Hearts (조용한 빗속 마음)"
+  },
+  {
+   "start": 2093,
+   "title": "Midnight Recall (한밤의 회상)"
+  },
+  {
+   "start": 2306,
+   "title": "Café in the Rain (비 오는 카페)"
+  },
+  {
+   "start": 2487,
+   "title": "Repeat"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 313,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T08:07:48",
+ "approved": "2026-10-18T17:07+09:00"
+}

@@ -1,0 +1,143 @@
+{
+ "id": "NRqZ5g1qEDQ",
+ "title": "[4K HDR Lofi ] Tokyo Night Drive Ginza Marunouchi Aoyama Shibuya Yokohama Lo-fi Jazz Groove",
+ "channel": "Tokyo Vibes",
+ "channel_id": "UCj10LTC9XJAsHnLOTK48ySw",
+ "subs": 12600,
+ "views": 1249757,
+ "ratio": 99.19,
+ "age_days": 177,
+ "views_per_day": 7060.8,
+ "minutes": 95.8,
+ "likes": 16723,
+ "comments": 525,
+ "published": "2026-04-24",
+ "queries": "검색:lofi",
+ "url": "https://www.youtube.com/watch?v=NRqZ5g1qEDQ",
+ "flag": "외국 영상",
+ "published_at": "2026-04-24T02:00:17Z",
+ "rank": "W418",
+ "set": "web",
+ "folder": "W_NRqZ5g1qEDQ",
+ "sources": [
+  "검색:lofi"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Start: Shuto Expwy Route 2 Meguro Line"
+  },
+  {
+   "start": 36,
+   "title": "Hitotsubashi JCT"
+  },
+  {
+   "start": 210,
+   "title": "Rainbow Bridge"
+  },
+  {
+   "start": 505,
+   "title": "Toyosu - Harumi"
+  },
+  {
+   "start": 750,
+   "title": "Ginza"
+  },
+  {
+   "start": 911,
+   "title": "Tokyo Station"
+  },
+  {
+   "start": 1098,
+   "title": "Marunouchi - Hibiya"
+  },
+  {
+   "start": 1654,
+   "title": "Nishi-Ginza"
+  },
+  {
+   "start": 1737,
+   "title": "GINZA SIX"
+  },
+  {
+   "start": 1857,
+   "title": "C1 Inner Circular Route (Ginza - Kandabashi)"
+  },
+  {
+   "start": 2311,
+   "title": "Akasaka-mitsuke - Aoyama"
+  },
+  {
+   "start": 2509,
+   "title": "Omotesando - Jingumae"
+  },
+  {
+   "start": 2642,
+   "title": "Miyamasuzaka"
+  },
+  {
+   "start": 2707,
+   "title": "Shibuya 109"
+  },
+  {
+   "start": 2887,
+   "title": "Daikanyama"
+  },
+  {
+   "start": 3050,
+   "title": "Shuto Expwy Route 3 Shibuya Ent."
+  },
+  {
+   "start": 3834,
+   "title": "Tomei Expwy Tokyo Toll Booth"
+  },
+  {
+   "start": 4116,
+   "title": "Yokohama Aoba IC"
+  },
+  {
+   "start": 4250,
+   "title": "Kohoku JCT"
+  },
+  {
+   "start": 4387,
+   "title": "Namamugi JCT"
+  },
+  {
+   "start": 4506,
+   "title": "Daikoku JCT"
+  },
+  {
+   "start": 4603,
+   "title": "Yokohama Bay Bridge"
+  },
+  {
+   "start": 4779,
+   "title": "Minato Mirai View"
+  },
+  {
+   "start": 5153,
+   "title": "Daisan Keihin Road"
+  },
+  {
+   "start": 5358,
+   "title": "Kohoku JCT"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 525,
+ "comments_top_level": 274,
+ "comments_replies": 251,
+ "comments_by_creator": 173,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 525,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T08:04:24",
+ "approved": "2026-10-18T17:04+09:00"
+}

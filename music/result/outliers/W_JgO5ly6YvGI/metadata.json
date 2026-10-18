@@ -1,0 +1,120 @@
+{
+ "id": "JgO5ly6YvGI",
+ "title": "𝘠𝘰𝘶 𝘢𝘤𝘤𝘪𝘥𝘦𝘯𝘵𝘢𝘭𝘭𝘺 𝘧𝘦𝘭𝘭 𝘪𝘯 𝘭𝘰𝘷𝘦 𝘸𝘪𝘵𝘩 𝘚𝘰𝘶𝘵𝘩 𝘐𝘯𝘥𝘪𝘢𝘯 𝘴𝘰𝘯𝘨𝘴 (+ 𝘵𝘪𝘮𝘦𝘴𝘵𝘢𝘮𝘱𝘴) 🌙🩷🌴⋆. 𐙚 ˚",
+ "channel": "𝙏𝙪𝙭𝙡𝙞𝙥𝙨 🌷",
+ "channel_id": "UC4c1SvkedsVXc3NYCnWJdxQ",
+ "subs": 41600,
+ "views": 3231608,
+ "ratio": 77.68,
+ "age_days": 148,
+ "views_per_day": 21835.2,
+ "minutes": 19.5,
+ "likes": 0,
+ "comments": 946,
+ "published": "2026-05-22",
+ "queries": "검색:playlist | 검색:soothing music",
+ "url": "https://www.youtube.com/watch?v=JgO5ly6YvGI",
+ "flag": "외국 영상",
+ "published_at": "2026-05-22T09:33:04Z",
+ "rank": "W477",
+ "set": "web",
+ "folder": "W_JgO5ly6YvGI",
+ "sources": [
+  "검색:playlist",
+  "검색:soothing music"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "~ Chuttamalle"
+  },
+  {
+   "start": 104,
+   "title": "~ Othaiyadi Pathayila"
+  },
+  {
+   "start": 168,
+   "title": "~ Vachindamma"
+  },
+  {
+   "start": 214,
+   "title": "~ Paththavaikkum"
+  },
+  {
+   "start": 293,
+   "title": "~ Unakkul Naane"
+  },
+  {
+   "start": 383,
+   "title": "~ Inkem Inkem"
+  },
+  {
+   "start": 453,
+   "title": "~ Tum Tum"
+  },
+  {
+   "start": 519,
+   "title": "~ Manasulone Nilichipoke"
+  },
+  {
+   "start": 589,
+   "title": "~ Katchi Sera"
+  },
+  {
+   "start": 636,
+   "title": "~ Kurumugil"
+  },
+  {
+   "start": 690,
+   "title": "~ Adiye"
+  },
+  {
+   "start": 743,
+   "title": "~ Aasa Kooda"
+  },
+  {
+   "start": 813,
+   "title": "~ Hey Minnale"
+  },
+  {
+   "start": 858,
+   "title": "~ Marudaani"
+  },
+  {
+   "start": 916,
+   "title": "~ Kalyani"
+  },
+  {
+   "start": 956,
+   "title": "~ Minnalvala"
+  },
+  {
+   "start": 1002,
+   "title": "~ Vaseegara"
+  },
+  {
+   "start": 1065,
+   "title": "~ Munbe Vaa"
+  },
+  {
+   "start": 1123,
+   "title": "~ Nenjukkul Peidhidum"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 772,
+ "comments_top_level": 506,
+ "comments_replies": 266,
+ "comments_by_creator": 83,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 946,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T08:07:10",
+ "approved": "2026-10-18T17:07+09:00"
+}

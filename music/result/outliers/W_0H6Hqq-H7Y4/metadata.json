@@ -1,0 +1,91 @@
+{
+ "id": "0H6Hqq-H7Y4",
+ "title": "우연히 들었는데 이 노래 ... 정말 너무 좋다 | 7080 추억의 올드 팝송 모음 Old Pop Song Playlist",
+ "channel": "theoldpopsong",
+ "channel_id": "UCMVEBhLZdGm4GaHg0-7cILQ",
+ "subs": 40800,
+ "views": 130324,
+ "ratio": 3.19,
+ "age_days": 117,
+ "views_per_day": 1113.9,
+ "minutes": 84.0,
+ "likes": 1378,
+ "comments": 109,
+ "published": "2026-06-22",
+ "queries": "검색:편안한음악",
+ "url": "https://www.youtube.com/watch?v=0H6Hqq-H7Y4",
+ "flag": "외국 영상",
+ "published_at": "2026-06-22T22:00:10Z",
+ "rank": "W934",
+ "set": "web",
+ "folder": "W_0H6Hqq-H7Y4",
+ "sources": [
+  "검색:편안한음악"
+ ],
+ "source": "web",
+ "tags": [
+  "올드팝",
+  "추억의팝송",
+  "7080팝송",
+  "감성팝송",
+  "oldpop",
+  "oldpopsong",
+  "theoldpopsong"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Morning Always Comes — 아무리 긴 밤이어도 아침은 다시 찾아와요"
+  },
+  {
+   "start": 177,
+   "title": "Cry on My Shoulder — 힘들다면 내 어깨에 기대어 울어도 괜찮아요"
+  },
+  {
+   "start": 344,
+   "title": "I'm Here With You — 언제나 당신 곁에서 함께할게요"
+  },
+  {
+   "start": 507,
+   "title": "A Comforting Friend — 지친 마음을 조용히 안아주는 친구"
+  },
+  {
+   "start": 672,
+   "title": "You're Trying Your Best — 보이지 않아도 당신은 충분히 애쓰고 있어요"
+  },
+  {
+   "start": 852,
+   "title": "Take My Hand — 흔들리는 순간에도 내 손을 잡아요"
+  },
+  {
+   "start": 1039,
+   "title": "You're Doing So Well — 지금까지 정말 잘 견뎌 왔어요"
+  },
+  {
+   "start": 1215,
+   "title": "Never Alone — 당신은 결코 혼자가 아니에요"
+  },
+  {
+   "start": 1370,
+   "title": "Rest for a While — 잠시 모든 걱정을 내려놓고 쉬어가요"
+  },
+  {
+   "start": 1527,
+   "title": "Sleep Safely Tonight — 오늘 밤만큼은 아무 걱정 없이 편안히 잠들어요"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 109,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T08:08:18",
+ "approved": "2026-10-18T17:08+09:00"
+}

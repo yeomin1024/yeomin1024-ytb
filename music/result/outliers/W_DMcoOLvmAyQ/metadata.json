@@ -1,0 +1,110 @@
+{
+ "id": "DMcoOLvmAyQ",
+ "title": "Morning Energy Music | Dilruba Raga Yaman | 1.5 Hours",
+ "channel": "Raga Focus",
+ "channel_id": "UCtNMs5bRntzvvzjSrTJIo_Q",
+ "subs": 37500,
+ "views": 657501,
+ "ratio": 17.53,
+ "age_days": 162,
+ "views_per_day": 4058.6,
+ "minutes": 90.0,
+ "likes": 5607,
+ "comments": 166,
+ "published": "2026-05-09",
+ "queries": "검색:MeditationMusic | 검색:yoga music",
+ "url": "https://www.youtube.com/watch?v=DMcoOLvmAyQ",
+ "flag": "외국 영상",
+ "published_at": "2026-05-09T02:00:19Z",
+ "rank": "W797",
+ "set": "web",
+ "folder": "W_DMcoOLvmAyQ",
+ "sources": [
+  "검색:MeditationMusic",
+  "검색:yoga music"
+ ],
+ "source": "web",
+ "tags": [
+  "raga yaman",
+  "dilruba music",
+  "meditation music",
+  "focus music",
+  "healing frequencies",
+  "mindfulness music",
+  "yoga meditation",
+  "morning energy music",
+  "spiritual music",
+  "indian classical ambient",
+  "stress relief music",
+  "peaceful music",
+  "study music",
+  "sleep meditation",
+  "tanpura drone",
+  "bamboo flute meditation",
+  "calming raga",
+  "zen music",
+  "deep relaxation",
+  "concentration music",
+  "sunrise meditation",
+  "serene background music",
+  "tranquil music",
+  "stress relief",
+  "meditative mind"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Gentle opening (breath awareness begins)"
+  },
+  {
+   "start": 480,
+   "title": "Soft expansion (mind gradually slows down)"
+  },
+  {
+   "start": 1080,
+   "title": "Calm stabilization (steady breathing rhythm emerges)"
+  },
+  {
+   "start": 1800,
+   "title": "Deep relaxation phase (dilruba textures widen softly)"
+  },
+  {
+   "start": 2520,
+   "title": "Alpha calm flow (mental chatter reduces naturally)"
+  },
+  {
+   "start": 3300,
+   "title": "Meditative immersion (inner stillness deepens)"
+  },
+  {
+   "start": 4080,
+   "title": "Spacious awareness (long sustained tonal movement)"
+  },
+  {
+   "start": 4680,
+   "title": "Nervous system reset (body and breath synchronize)"
+  },
+  {
+   "start": 5100,
+   "title": "Gentle unwinding (awareness softens peacefully)"
+  },
+  {
+   "start": 5340,
+   "title": "Slow fade into silence"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 166,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T08:07:58",
+ "approved": "2026-10-18T17:07+09:00"
+}

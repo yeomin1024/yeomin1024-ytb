@@ -1,0 +1,120 @@
+{
+ "id": "IsGUh_yMxDg",
+ "title": "music for overthinkers — when the mind goes quiet | deep focus playlist",
+ "channel": "StillSpace",
+ "channel_id": "UCeb_UuLaEngmLcVraLyS_0Q",
+ "subs": 32800,
+ "views": 946773,
+ "ratio": 28.87,
+ "age_days": 171,
+ "views_per_day": 5536.7,
+ "minutes": 85.2,
+ "likes": 12811,
+ "comments": 308,
+ "published": "2026-04-30",
+ "queries": "검색:study music | 검색:background music | 검색:focus music",
+ "url": "https://www.youtube.com/watch?v=IsGUh_yMxDg",
+ "flag": "외국 영상",
+ "published_at": "2026-04-30T00:00:30Z",
+ "rank": "W715",
+ "set": "web",
+ "folder": "W_IsGUh_yMxDg",
+ "sources": [
+  "검색:study music",
+  "검색:background music",
+  "검색:focus music"
+ ],
+ "source": "web",
+ "tags": [
+  "Felt Piano",
+  "Cello",
+  "Study Music",
+  "classical music",
+  "minimalism",
+  "minimalist music",
+  "focus music",
+  "ambientmusic",
+  "classical music for relaxation",
+  "deep focus",
+  "deep work",
+  "focus",
+  "deep focus music",
+  "classical music playlist"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "The Weight of Stillness"
+  },
+  {
+   "start": 165,
+   "title": "Before the Canvas"
+  },
+  {
+   "start": 330,
+   "title": "Into the Light Within"
+  },
+  {
+   "start": 520,
+   "title": "Eternal Gaze"
+  },
+  {
+   "start": 690,
+   "title": "Sacred Wilderness"
+  },
+  {
+   "start": 886,
+   "title": "The Quiet Museum"
+  },
+  {
+   "start": 1083,
+   "title": "Solitude in Amber"
+  },
+  {
+   "start": 1268,
+   "title": "Autumn Reverie"
+  },
+  {
+   "start": 1458,
+   "title": "Beneath the Infinite"
+  },
+  {
+   "start": 1627,
+   "title": "The Bench at the End of Time"
+  },
+  {
+   "start": 1822,
+   "title": "Lost in Devotion"
+  },
+  {
+   "start": 2012,
+   "title": "Where Light Becomes Sound"
+  },
+  {
+   "start": 2200,
+   "title": "Ceremony of One"
+  },
+  {
+   "start": 2383,
+   "title": "The Last Horizon"
+  },
+  {
+   "start": 2557,
+   "title": "Repeat"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 308,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T08:07:46",
+ "approved": "2026-10-18T17:07+09:00"
+}

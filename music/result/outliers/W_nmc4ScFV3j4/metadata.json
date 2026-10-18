@@ -1,0 +1,79 @@
+{
+ "id": "nmc4ScFV3j4",
+ "title": "Viral Songs Playlist 2026 | Barsaat, Sheesha, Parvati, Roots",
+ "channel": "Vijay Garje",
+ "channel_id": "UCx0C9ki9sH0cwyJyBJBvfCQ",
+ "subs": 3540,
+ "views": 1138267,
+ "ratio": 321.54,
+ "age_days": 13,
+ "views_per_day": 87559.0,
+ "minutes": 31.3,
+ "likes": 11060,
+ "comments": 298,
+ "published": "2026-10-04",
+ "queries": "검색:playlist",
+ "url": "https://www.youtube.com/watch?v=nmc4ScFV3j4",
+ "flag": "외국 영상",
+ "published_at": "2026-10-04T12:30:29Z",
+ "rank": "W167",
+ "set": "web",
+ "folder": "W_nmc4ScFV3j4",
+ "sources": [
+  "검색:playlist"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Barsaat – Banjare"
+  },
+  {
+   "start": 183,
+   "title": "Udi Udi – Neesh Sarkar"
+  },
+  {
+   "start": 339,
+   "title": "Kalyani – Arjun, KDS, Fuliya, Ronn ft. Shreya Ghoshal"
+  },
+  {
+   "start": 587,
+   "title": "Sheesha – Mitta Ror ft. Swara Verma"
+  },
+  {
+   "start": 786,
+   "title": "Bairan – Banjare"
+  },
+  {
+   "start": 937,
+   "title": "Parvati – Hanuman Ansh (Sadhu Tiwari)"
+  },
+  {
+   "start": 1222,
+   "title": "Pal Pal – AFusic x AliSoomroMusic"
+  },
+  {
+   "start": 1370,
+   "title": "Shaky – Sanju Rathod ft. Isha Malviya"
+  },
+  {
+   "start": 1585,
+   "title": "Roots – Bintu Pabra & KP Kundu"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 320,
+ "comments_top_level": 291,
+ "comments_replies": 29,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 298,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:53:05",
+ "approved": "2026-10-18T16:53+09:00"
+}

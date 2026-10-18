@@ -1,0 +1,112 @@
+{
+ "id": "kG-CrsJXx5w",
+ "title": "[Playlist] ENHYPEN (엔하이픈)-'THE SIN : BLISS'丨2026 Full Album",
+ "channel": "κööκκ",
+ "channel_id": "UCUwLiGNYHad1dHZ0IfR3pXA",
+ "subs": 1870,
+ "views": 282051,
+ "ratio": 150.83,
+ "age_days": 57,
+ "views_per_day": 4948.3,
+ "minutes": 15.9,
+ "likes": 5528,
+ "comments": 240,
+ "published": "2026-08-21",
+ "queries": "검색:플레이리스트 | 검색:플리",
+ "url": "https://www.youtube.com/watch?v=kG-CrsJXx5w",
+ "flag": "외국 영상",
+ "published_at": "2026-08-21T12:00:06Z",
+ "rank": "W317",
+ "set": "web",
+ "folder": "W_kG-CrsJXx5w",
+ "sources": [
+  "검색:플레이리스트",
+  "검색:플리"
+ ],
+ "source": "web",
+ "tags": [
+  "kpop",
+  "kpop songs",
+  "kpop idols",
+  "idols",
+  "kpop lyrics",
+  "lyrics",
+  "lyrics video",
+  "lyric videos",
+  "kpop edit",
+  "edit",
+  "lyrics edit",
+  "comeback",
+  "korean",
+  "kpop artists",
+  "korean song",
+  "korean playlist",
+  "kpop playlist",
+  "kpop playlists",
+  "playlist",
+  "playlists",
+  "music playlist",
+  "song playlist",
+  "album",
+  "album playlist",
+  "enhypen",
+  "엔하이픈",
+  "the sin : bliss",
+  "two fools",
+  "stuck",
+  "bad for you",
+  "bloody paradise",
+  "checkmate",
+  "highlight",
+  "jake",
+  "niki",
+  "jay",
+  "jungwon",
+  "sunoo",
+  "sunghoon"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Album Song List"
+  },
+  {
+   "start": 2,
+   "title": "01 Two Fools"
+  },
+  {
+   "start": 144,
+   "title": "02 Stuck"
+  },
+  {
+   "start": 295,
+   "title": "03 Bad For You"
+  },
+  {
+   "start": 487,
+   "title": "04 Bloody Paradise"
+  },
+  {
+   "start": 617,
+   "title": "05 Checkmate"
+  },
+  {
+   "start": 760,
+   "title": "06 Highlight"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 240,
+ "comments_top_level": 130,
+ "comments_replies": 110,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 240,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:59:43",
+ "approved": "2026-10-18T16:59+09:00"
+}

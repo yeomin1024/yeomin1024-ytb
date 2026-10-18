@@ -1,0 +1,95 @@
+{
+ "id": "6D1sq3Y-hB0",
+ "title": "\"some aesthetic desi song's you'll absolutely love\"🌊✨😭//part -1//edit by @ashrigee ",
+ "channel": "Anushri ",
+ "channel_id": "UCPIRO0WBYn78Mst_Ot86ZHA",
+ "subs": 7070,
+ "views": 2798557,
+ "ratio": 395.84,
+ "age_days": 105,
+ "views_per_day": 26652.9,
+ "minutes": 12.5,
+ "likes": 18058,
+ "comments": 503,
+ "published": "2026-07-04",
+ "queries": "검색:playlist",
+ "url": "https://www.youtube.com/watch?v=6D1sq3Y-hB0",
+ "flag": "외국 영상",
+ "published_at": "2026-07-04T21:00:53Z",
+ "rank": "W135",
+ "set": "web",
+ "folder": "W_6D1sq3Y-hB0",
+ "sources": [
+  "검색:playlist"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Sheesha"
+  },
+  {
+   "start": 58,
+   "title": "Sawaar Loon"
+  },
+  {
+   "start": 116,
+   "title": "O Meri Laila"
+  },
+  {
+   "start": 174,
+   "title": "Udi Udi"
+  },
+  {
+   "start": 232,
+   "title": "Ishq De Fanniyar"
+  },
+  {
+   "start": 290,
+   "title": "Aarzu"
+  },
+  {
+   "start": 348,
+   "title": "Ishq Bulava"
+  },
+  {
+   "start": 406,
+   "title": "Majboor"
+  },
+  {
+   "start": 464,
+   "title": "Fakira"
+  },
+  {
+   "start": 522,
+   "title": "Tere Bina"
+  },
+  {
+   "start": 580,
+   "title": "Mast Magan"
+  },
+  {
+   "start": 638,
+   "title": "Boyfriend"
+  },
+  {
+   "start": 696,
+   "title": "Dagabaaz Re"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 503,
+ "comments_top_level": 286,
+ "comments_replies": 217,
+ "comments_by_creator": 6,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 503,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:51:27",
+ "approved": "2026-10-18T16:51+09:00"
+}

@@ -1,0 +1,91 @@
+{
+ "id": "w5nhvxPli3E",
+ "title": "[𝙋𝙡𝙖𝙮𝙡𝙞𝙨𝙩] 라흐마니노프 - 지독한 슬픔 끝에 피어난 환희에 대하여ㅣRachmaninoff Style",
+ "channel": "Moonlight Classic",
+ "channel_id": "UCiD0B9yKk8NuFTdYfy7AdzA",
+ "subs": 8360,
+ "views": 865394,
+ "ratio": 103.52,
+ "age_days": 90,
+ "views_per_day": 9615.5,
+ "minutes": 180.0,
+ "likes": 9063,
+ "comments": 789,
+ "published": "2026-07-19",
+ "queries": "검색:힐링음악",
+ "url": "https://www.youtube.com/watch?v=w5nhvxPli3E",
+ "flag": "",
+ "published_at": "2026-07-19T22:00:26Z",
+ "rank": "W408",
+ "set": "web",
+ "folder": "W_w5nhvxPli3E",
+ "sources": [
+  "검색:힐링음악"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Prelude to Tears"
+  },
+  {
+   "start": 194,
+   "title": "Winter Solitude"
+  },
+  {
+   "start": 382,
+   "title": "Nocturne in g minor"
+  },
+  {
+   "start": 555,
+   "title": "The Last Light"
+  },
+  {
+   "start": 704,
+   "title": "Lost Homeland"
+  },
+  {
+   "start": 902,
+   "title": "Echoes of Fate"
+  },
+  {
+   "start": 1094,
+   "title": "Silent Chimes"
+  },
+  {
+   "start": 1253,
+   "title": "Elegie in Ash"
+  },
+  {
+   "start": 1413,
+   "title": "Fading Vocalise"
+  },
+  {
+   "start": 1607,
+   "title": "Volga Dusk"
+  },
+  {
+   "start": 1787,
+   "title": "Frozen Romance"
+  },
+  {
+   "start": 1989,
+   "title": "Loop"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 791,
+ "comments_top_level": 222,
+ "comments_replies": 569,
+ "comments_by_creator": 221,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 789,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T08:03:58",
+ "approved": "2026-10-18T17:04+09:00"
+}

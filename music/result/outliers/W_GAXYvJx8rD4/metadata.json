@@ -1,0 +1,91 @@
+{
+ "id": "GAXYvJx8rD4",
+ "title": "𝐵𝑒𝓈𝓉 𝒮𝑜𝓊𝓉𝒽 𝐼𝓃𝒹𝒾𝒶𝓃 𝒮𝑜𝓃𝑔𝓈 𝒫𝓁𝒶𝓎𝓁𝒾𝓈𝓉 🎶               𝒯𝒶𝓂𝒾𝓁 • 𝒯𝑒𝓁𝓊𝑔𝓊 • 𝑀𝒶𝓁𝒶𝓎𝒶𝓁𝒶𝓂 • 𝒦𝒶𝓃𝓃𝒶𝒹𝒶 ",
+ "channel": "Nyxelune",
+ "channel_id": "UCH-0425jYNOWdhZIQ1h2LRg",
+ "subs": 5650,
+ "views": 1742121,
+ "ratio": 308.34,
+ "age_days": 89,
+ "views_per_day": 19574.4,
+ "minutes": 10.3,
+ "likes": 26896,
+ "comments": 1044,
+ "published": "2026-07-20",
+ "queries": "검색:playlist",
+ "url": "https://www.youtube.com/watch?v=GAXYvJx8rD4",
+ "flag": "외국 영상",
+ "published_at": "2026-07-20T12:44:47Z",
+ "rank": "W176",
+ "set": "web",
+ "folder": "W_GAXYvJx8rD4",
+ "sources": [
+  "검색:playlist"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "othaiyadi pathayila"
+  },
+  {
+   "start": 52,
+   "title": "chuttamalle"
+  },
+  {
+   "start": 134,
+   "title": "unakaal nanne"
+  },
+  {
+   "start": 184,
+   "title": "vachindamma"
+  },
+  {
+   "start": 233,
+   "title": "katchi sera"
+  },
+  {
+   "start": 272,
+   "title": "aasa koda"
+  },
+  {
+   "start": 333,
+   "title": "unakkal thaana"
+  },
+  {
+   "start": 375,
+   "title": "inkem inkem"
+  },
+  {
+   "start": 447,
+   "title": "tum tum"
+  },
+  {
+   "start": 489,
+   "title": "oo Antava mawa"
+  },
+  {
+   "start": 522,
+   "title": "arabic kuthu"
+  },
+  {
+   "start": 576,
+   "title": "illuminati"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 1056,
+ "comments_top_level": 502,
+ "comments_replies": 554,
+ "comments_by_creator": 349,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 1044,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:53:19",
+ "approved": "2026-10-18T16:53+09:00"
+}

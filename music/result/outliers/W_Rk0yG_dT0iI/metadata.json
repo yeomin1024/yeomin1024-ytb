@@ -1,0 +1,89 @@
+{
+ "id": "Rk0yG_dT0iI",
+ "title": "Hyperfocus | Lock In for 2 Hours | Deep Work Study With Me (Pomodoro 50/10)",
+ "channel": "Work With Paul",
+ "channel_id": "UCoHXax_u6FAiqGC5xISkiAw",
+ "subs": 18000,
+ "views": 1130358,
+ "ratio": 62.8,
+ "age_days": 66,
+ "views_per_day": 17126.6,
+ "minutes": 111.4,
+ "likes": 4887,
+ "comments": 138,
+ "published": "2026-08-13",
+ "queries": "검색:work music",
+ "url": "https://www.youtube.com/watch?v=Rk0yG_dT0iI",
+ "flag": "외국 영상",
+ "published_at": "2026-08-13T06:00:26Z",
+ "rank": "W543",
+ "set": "web",
+ "folder": "W_Rk0yG_dT0iI",
+ "sources": [
+  "검색:work music"
+ ],
+ "source": "web",
+ "tags": [
+  "work with me",
+  "study with me",
+  "deep work",
+  "deep work session",
+  "pomodoro",
+  "pomodoro timer",
+  "pomodoro 50/10",
+  "pomodoro 25/5",
+  "focus music",
+  "study with me real time",
+  "2 hour study with me",
+  "work with me pomodoro",
+  "productivity",
+  "concentration music",
+  "focus session",
+  "studying",
+  "coding session",
+  "exam study session",
+  "work session",
+  "real time study session",
+  "background music for work",
+  "deep focus",
+  "study motivation",
+  "work with paul",
+  "workwithpaul"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Intro"
+  },
+  {
+   "start": 40,
+   "title": "Work Session 1 (50 min)"
+  },
+  {
+   "start": 3040,
+   "title": "Break (10 min)"
+  },
+  {
+   "start": 3640,
+   "title": "Work Session 2 (50 min)"
+  },
+  {
+   "start": 6640,
+   "title": "Outro"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 138,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T08:07:22",
+ "approved": "2026-10-18T17:07+09:00"
+}

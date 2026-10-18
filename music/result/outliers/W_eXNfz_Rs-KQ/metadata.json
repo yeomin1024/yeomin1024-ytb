@@ -1,0 +1,91 @@
+{
+ "id": "eXNfz_Rs-KQ",
+ "title": "𝐂𝐡𝐚𝐭𝐩𝐚𝐭𝐢 𝐇𝐨𝐧𝐞𝐲 𝐬𝐢𝐧𝐠𝐡 𝐩𝐥𝐚𝐲𝐥𝐢𝐬𝐭 𝐜𝐮𝐳 𝐲𝐨𝐮 𝐫𝐞𝐚𝐥𝐥𝐲 𝐧𝐞𝐞𝐝 𝐭𝐡𝐢𝐬. 𝐛𝐲 𝐫𝐢𝐞_𝐟𝐲𝐩.",
+ "channel": "𝐫𝐢𝐞 ",
+ "channel_id": "UCA9hElNdFNOz0tQA4Hffl4w",
+ "subs": 28900,
+ "views": 1865135,
+ "ratio": 64.54,
+ "age_days": 148,
+ "views_per_day": 12602.3,
+ "minutes": 14.8,
+ "likes": 21572,
+ "comments": 210,
+ "published": "2026-05-22",
+ "queries": "검색:playlist",
+ "url": "https://www.youtube.com/watch?v=eXNfz_Rs-KQ",
+ "flag": "외국 영상",
+ "published_at": "2026-05-22T14:30:22Z",
+ "rank": "W534",
+ "set": "web",
+ "folder": "W_eXNfz_Rs-KQ",
+ "sources": [
+  "검색:playlist"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Brown rang"
+  },
+  {
+   "start": 78,
+   "title": "Love dose"
+  },
+  {
+   "start": 163,
+   "title": "Desi kalakaar"
+  },
+  {
+   "start": 299,
+   "title": "chaar botal vodka"
+  },
+  {
+   "start": 403,
+   "title": "payal"
+  },
+  {
+   "start": 458,
+   "title": "blue eyes"
+  },
+  {
+   "start": 510,
+   "title": "Dope shope"
+  },
+  {
+   "start": 605,
+   "title": "Dil chori"
+  },
+  {
+   "start": 662,
+   "title": "Get up jawani"
+  },
+  {
+   "start": 736,
+   "title": "Angreji beat"
+  },
+  {
+   "start": 806,
+   "title": "chhote chhote peg"
+  },
+  {
+   "start": 843,
+   "title": "first kiss"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 210,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T08:07:21",
+ "approved": "2026-10-18T17:07+09:00"
+}

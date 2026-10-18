@@ -1,0 +1,79 @@
+{
+ "id": "CSIUAghSOPo",
+ "title": "[오마주 OST] 모두가 자신의 무가치함과 싸우고 있다 Inspired Playlist | 포켓라디오 #넷플릭스 #jtbcdrama #모두가 자신의 무가치함과 싸우고 있다",
+ "channel": "pocketradio",
+ "channel_id": "UCeNjcwQDN55331LaYVPDaVg",
+ "subs": 572,
+ "views": 80278,
+ "ratio": 140.35,
+ "age_days": 175,
+ "views_per_day": 458.7,
+ "minutes": 16.3,
+ "likes": 784,
+ "comments": 93,
+ "published": "2026-04-25",
+ "queries": "검색:힐링음악",
+ "url": "https://www.youtube.com/watch?v=CSIUAghSOPo",
+ "flag": "",
+ "published_at": "2026-04-25T22:00:21Z",
+ "rank": "W338",
+ "set": "web",
+ "folder": "W_CSIUAghSOPo",
+ "sources": [
+  "검색:힐링음악"
+ ],
+ "source": "web",
+ "tags": [
+  "모두가 자신의 무가치함과 싸우고 있다 ost",
+  "오마주 ost",
+  "jtbc 드라마 ost",
+  "감성 플레이리스트",
+  "위로되는 노래",
+  "새벽에 듣기 좋은 노래",
+  "퇴근길 음악",
+  "자존감 회복 음악",
+  "공감되는 노래",
+  "lofi playlist",
+  "jazzhop playlist",
+  "korean ost",
+  "healing music",
+  "emotional playlist",
+  "pocket radio"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "1.너와 걷는 기찻길 (Walking Beside You)"
+  },
+  {
+   "start": 206,
+   "title": "2. 날씨를 만들어 드립니다 (We Manufacture Weather)"
+  },
+  {
+   "start": 443,
+   "title": "3. 말하지 않으면 사라질 것 같아서"
+  },
+  {
+   "start": 667,
+   "title": "4. 나는 어디에 서야 할까 (Where Should I Stand)"
+  },
+  {
+   "start": 849,
+   "title": "5. 오늘은 너의 옆에 앉을게 (Sit Beside You Today)"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 93,
+ "comments_top_level": 49,
+ "comments_replies": 44,
+ "comments_by_creator": 37,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 93,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T08:00:38",
+ "approved": "2026-10-18T17:00+09:00"
+}

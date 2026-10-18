@@ -1,0 +1,68 @@
+{
+ "id": "49A1aj-uIcs",
+ "title": "𝙥𝙡𝙖𝙮𝙡𝙞𝙨𝙩 slavic ",
+ "channel": "aa",
+ "channel_id": "UCIsB31e_WmmKuFgp_1EgNxA",
+ "subs": 1540,
+ "views": 773200,
+ "ratio": 502.08,
+ "age_days": 97,
+ "views_per_day": 7971.1,
+ "minutes": 16.8,
+ "likes": 20603,
+ "comments": 188,
+ "published": "2026-07-12",
+ "queries": "검색:플레이리스트 | 검색:플리",
+ "url": "https://www.youtube.com/watch?v=49A1aj-uIcs",
+ "flag": "외국 영상",
+ "published_at": "2026-07-12T15:42:07Z",
+ "rank": "W98",
+ "set": "web",
+ "folder": "W_49A1aj-uIcs",
+ "sources": [
+  "검색:플레이리스트",
+  "검색:플리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Мой мармеладный"
+  },
+  {
+   "start": 200,
+   "title": "Базовый минимум"
+  },
+  {
+   "start": 334,
+   "title": "Ева"
+  },
+  {
+   "start": 532,
+   "title": "Я сошла с ума"
+  },
+  {
+   "start": 747,
+   "title": "Dead inside"
+  },
+  {
+   "start": 871,
+   "title": "ВИРТУАЛЬНАЯ ЛЮБОВЬ"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ru",
+ "foreign": true,
+ "comments_fetched": 191,
+ "comments_top_level": 130,
+ "comments_replies": 61,
+ "comments_by_creator": 8,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 188,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:49:12",
+ "approved": "2026-10-18T16:49+09:00"
+}

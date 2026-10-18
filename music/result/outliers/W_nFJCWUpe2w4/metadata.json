@@ -1,0 +1,91 @@
+{
+ "id": "nFJCWUpe2w4",
+ "title": "Ludovico Einaudi – 6 Piano Pieces | Relaxing Music for Study & Sleep [30 Min]",
+ "channel": "Yurii Salukha",
+ "channel_id": "UCsC-zH79It37hwEuCpodV5w",
+ "subs": 5880,
+ "views": 352584,
+ "ratio": 59.96,
+ "age_days": 75,
+ "views_per_day": 4701.1,
+ "minutes": 29.7,
+ "likes": 2957,
+ "comments": 54,
+ "published": "2026-08-03",
+ "queries": "검색:pianomusic",
+ "url": "https://www.youtube.com/watch?v=nFJCWUpe2w4",
+ "flag": "외국 영상",
+ "published_at": "2026-08-03T18:39:01Z",
+ "rank": "W555",
+ "set": "web",
+ "folder": "W_nFJCWUpe2w4",
+ "sources": [
+  "검색:pianomusic"
+ ],
+ "source": "web",
+ "tags": [
+  "ludovico einaudi",
+  "ludovico einaudi piano",
+  "ludovico einaudi relaxing piano",
+  "ludovico einaudi music",
+  "relaxing piano music",
+  "piano music for study",
+  "piano music for sleep",
+  "piano music 30 min",
+  "ludovico einaudi 30 min",
+  "piano 30 min",
+  "einaudi piano",
+  "ludovico einaudi piano music",
+  "einaudi music",
+  "relaxing piano music for sleep",
+  "relaxing piano music for study",
+  "piano einaudi",
+  "piano ludovico einaudi",
+  "einaudi experience piano",
+  "relaxing piano pieces",
+  "piano",
+  "relaxing piano",
+  "piano music",
+  "music"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Una Mattina"
+  },
+  {
+   "start": 210,
+   "title": "Nuvole Bianche"
+  },
+  {
+   "start": 525,
+   "title": "I Giorni"
+  },
+  {
+   "start": 883,
+   "title": "Primavera"
+  },
+  {
+   "start": 1149,
+   "title": "Giorni Dispari"
+  },
+  {
+   "start": 1444,
+   "title": "Experience"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 54,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T08:07:24",
+ "approved": "2026-10-18T17:07+09:00"
+}

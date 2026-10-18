@@ -1,0 +1,139 @@
+{
+ "id": "OlrHsQ9QexE",
+ "title": "A Morning at a Paris Café, Feeling Just a Little Lighter | Slow Jazz Playlist",
+ "channel": "lento",
+ "channel_id": "UCnazSVw2unxfrloTeEEpYcw",
+ "subs": 20300,
+ "views": 730272,
+ "ratio": 35.97,
+ "age_days": 174,
+ "views_per_day": 4197.0,
+ "minutes": 233.7,
+ "likes": 4527,
+ "comments": 116,
+ "published": "2026-04-26",
+ "queries": "검색:cafe music",
+ "url": "https://www.youtube.com/watch?v=OlrHsQ9QexE",
+ "flag": "외국 영상",
+ "published_at": "2026-04-26T12:46:27Z",
+ "rank": "W665",
+ "set": "web",
+ "folder": "W_OlrHsQ9QexE",
+ "sources": [
+  "검색:cafe music"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "This Is What Fine Feels Like"
+  },
+  {
+   "start": 171,
+   "title": "The Terrace Before the First Customer"
+  },
+  {
+   "start": 341,
+   "title": "The Table by the Window, Paris"
+  },
+  {
+   "start": 555,
+   "title": "New Leaves on the Boulevard"
+  },
+  {
+   "start": 744,
+   "title": "What Spring Does to Old Worries"
+  },
+  {
+   "start": 961,
+   "title": "Something I Thought Was Gone"
+  },
+  {
+   "start": 1158,
+   "title": "Not Starting Over, Just Starting"
+  },
+  {
+   "start": 1347,
+   "title": "Lighter Than I Was When I Came In"
+  },
+  {
+   "start": 1509,
+   "title": "Plane Trees, Pale Green, Almost There"
+  },
+  {
+   "start": 1691,
+   "title": "The Way a Morning Can Rearrange Things"
+  },
+  {
+   "start": 1884,
+   "title": "Sunlight on the Pavement Outside the Cafe"
+  },
+  {
+   "start": 2133,
+   "title": "What I Carried In, I Don't Have to Carry Back"
+  },
+  {
+   "start": 2352,
+   "title": "The Awning Goes Up, the Day Begins"
+  },
+  {
+   "start": 2552,
+   "title": "Permission I Didn't Know I Needed"
+  },
+  {
+   "start": 2773,
+   "title": "A Bucket of Tulips at the Corner Stand"
+  },
+  {
+   "start": 2988,
+   "title": "The Baker Opens Before the Rest of the Street"
+  },
+  {
+   "start": 3187,
+   "title": "One Thing at a Time, Beginning Now"
+  },
+  {
+   "start": 3381,
+   "title": "The Neighbourhood at Half Past Seven"
+  },
+  {
+   "start": 3594,
+   "title": "Steam Rising from the Cup on the Table"
+  },
+  {
+   "start": 3767,
+   "title": "Quieter Than I've Been in a Long Time"
+  },
+  {
+   "start": 3962,
+   "title": "Still Here When the Afternoon Light Changes"
+  },
+  {
+   "start": 4204,
+   "title": "I Didn't Come Here with a Plan"
+  },
+  {
+   "start": 4383,
+   "title": "Morning Comes Through the Glass Door"
+  },
+  {
+   "start": 4593,
+   "title": "A Blank Page, April"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 116,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T08:07:39",
+ "approved": "2026-10-18T17:07+09:00"
+}

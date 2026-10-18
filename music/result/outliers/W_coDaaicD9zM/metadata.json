@@ -1,0 +1,91 @@
+{
+ "id": "coDaaicD9zM",
+ "title": "celestial bloom 🌿| dreamy piano music reflected in dreamy water celestial bloom",
+ "channel": "She of the Vale",
+ "channel_id": "UC87rSZNDFgVWbzo3k0C2BOg",
+ "subs": 11700,
+ "views": 343713,
+ "ratio": 29.38,
+ "age_days": 81,
+ "views_per_day": 4243.4,
+ "minutes": 36.4,
+ "likes": 5535,
+ "comments": 123,
+ "published": "2026-07-28",
+ "queries": "검색:pianomusic",
+ "url": "https://www.youtube.com/watch?v=coDaaicD9zM",
+ "flag": "외국 영상",
+ "published_at": "2026-07-28T12:35:49Z",
+ "rank": "W711",
+ "set": "web",
+ "folder": "W_coDaaicD9zM",
+ "sources": [
+  "검색:pianomusic"
+ ],
+ "source": "web",
+ "tags": [
+  "peaceful music",
+  "study music",
+  "background music",
+  "calm music",
+  "soothing music",
+  "relaxing sounds",
+  "piano music",
+  "relaxing piano music",
+  "peaceful piano music",
+  "stress relief music",
+  "sleep music"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "The Weight of Light - Maëlle Rousseau"
+  },
+  {
+   "start": 133,
+   "title": "Before the Storm - Dan Quinn"
+  },
+  {
+   "start": 252,
+   "title": "The Long Way Back - Dan Quinn"
+  },
+  {
+   "start": 374,
+   "title": "Sleepy Town - Maëlle Rousseau"
+  },
+  {
+   "start": 552,
+   "title": "The Gift of Time - Aki Sora"
+  },
+  {
+   "start": 701,
+   "title": "A Small Wonder - Aki Sora"
+  },
+  {
+   "start": 850,
+   "title": "If You Stay - Anselm van de Woude"
+  },
+  {
+   "start": 1008,
+   "title": "Atlas of Small Things - Dan Quinn"
+  },
+  {
+   "start": 1125,
+   "title": "Repeat"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 123,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T08:07:46",
+ "approved": "2026-10-18T17:07+09:00"
+}

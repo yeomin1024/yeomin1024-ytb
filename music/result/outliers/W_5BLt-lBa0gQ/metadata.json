@@ -1,0 +1,67 @@
+{
+ "id": "5BLt-lBa0gQ",
+ "title": "🔥 JOSHHH BOOSTING BOLLYWOOD SONGS 🎧 | Study Motivation Playlist 📚⚡",
+ "channel": "Echoess of unity 🎶",
+ "channel_id": "UCmIEM-EQ82zef-9UyrCdl8w",
+ "subs": 6140,
+ "views": 539186,
+ "ratio": 87.82,
+ "age_days": 140,
+ "views_per_day": 3851.3,
+ "minutes": 6.9,
+ "likes": 7367,
+ "comments": 217,
+ "published": "2026-05-30",
+ "queries": "검색:focus music",
+ "url": "https://www.youtube.com/watch?v=5BLt-lBa0gQ",
+ "flag": "외국 영상",
+ "published_at": "2026-05-30T15:11:04Z",
+ "rank": "W451",
+ "set": "web",
+ "folder": "W_5BLt-lBa0gQ",
+ "sources": [
+  "검색:focus music"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Jo tere sang"
+  },
+  {
+   "start": 45,
+   "title": "ziddi hai"
+  },
+  {
+   "start": 98,
+   "title": "dhaakad"
+  },
+  {
+   "start": 154,
+   "title": "patakha guddi"
+  },
+  {
+   "start": 238,
+   "title": "aarambh hai prachand"
+  },
+  {
+   "start": 358,
+   "title": "chak de"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 217,
+ "comments_top_level": 111,
+ "comments_replies": 106,
+ "comments_by_creator": 46,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 217,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T08:05:46",
+ "approved": "2026-10-18T17:05+09:00"
+}

@@ -1,0 +1,103 @@
+{
+ "id": "Us79QrAAa70",
+ "title": "【美しいクラシック60分】思わず聴き入る名曲集｜読書・作業・リラックスBGM｜ショパン・ベートーヴェン・バッハ",
+ "channel": "クラシックの森 – Calm Classics for Focus & Healing",
+ "channel_id": "UCIAxfCXacZfGt4DWY_usJvg",
+ "subs": 49300,
+ "views": 461220,
+ "ratio": 9.36,
+ "age_days": 109,
+ "views_per_day": 4231.4,
+ "minutes": 62.6,
+ "likes": 2049,
+ "comments": 35,
+ "published": "2026-06-30",
+ "queries": "검색:BGM",
+ "url": "https://www.youtube.com/watch?v=Us79QrAAa70",
+ "flag": "외국 영상",
+ "published_at": "2026-06-30T21:00:24Z",
+ "rank": "W872",
+ "set": "web",
+ "folder": "W_Us79QrAAa70",
+ "sources": [
+  "검색:BGM"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "ノクターン第2番 変ホ長調 Op.9-2：ショパン"
+  },
+  {
+   "start": 255,
+   "title": "子供の情景 第7曲「トロイメライ」：シューマン"
+  },
+  {
+   "start": 413,
+   "title": "ジムノペディ第1番：サティ"
+  },
+  {
+   "start": 608,
+   "title": "メヌエット ト長調 Op.14-1：パデレフスキ"
+  },
+  {
+   "start": 842,
+   "title": "ピアノソナタ第8番「悲愴」第2楽章 アダージョ・カンタービレ：ベートーヴェン"
+  },
+  {
+   "start": 1192,
+   "title": "前奏曲第15番 変ニ長調 Op.28「雨だれ」：ショパン"
+  },
+  {
+   "start": 1508,
+   "title": "子守歌 変ニ長調 Op.57：ショパン"
+  },
+  {
+   "start": 1767,
+   "title": "ピアノソナタ第16番 ハ長調 K.545 第2楽章 アンダンテ：モーツァルト"
+  },
+  {
+   "start": 1895,
+   "title": "6つの小品 第6曲「間奏曲（セレナータ）」：レスピーギ"
+  },
+  {
+   "start": 2040,
+   "title": "ペール・ギュント組曲第2番 第4曲「ソルヴェイグの歌」：グリーグ"
+  },
+  {
+   "start": 2317,
+   "title": "ピアノ協奏曲第5番「皇帝」第2楽章：ベートーヴェン"
+  },
+  {
+   "start": 2796,
+   "title": "亡き王女のためのパヴァーヌ：ラヴェル"
+  },
+  {
+   "start": 3168,
+   "title": "動物の謝肉祭 第7曲「水族館」：サン＝サーンス"
+  },
+  {
+   "start": 3314,
+   "title": "平均律クラヴィーア曲集 第1巻 第1番 プレリュード ハ長調 BWV846：バッハ"
+  },
+  {
+   "start": 3452,
+   "title": "ゴルトベルク変奏曲 BWV988 アリア：バッハ"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ja",
+ "foreign": true,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 35,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T08:08:09",
+ "approved": "2026-10-18T17:08+09:00"
+}

@@ -1,0 +1,112 @@
+{
+ "id": "KbMFv0FHgrY",
+ "title": "Relaxing Piano Collection | Best of Tyron James | Passacaglia, Heidi's Joy & Originals",
+ "channel": "tyron james",
+ "channel_id": "UCv0Vv47XviY2lmXeLGGR-Ng",
+ "subs": 24900,
+ "views": 106790,
+ "ratio": 4.29,
+ "age_days": 66,
+ "views_per_day": 1618.0,
+ "minutes": 19.8,
+ "likes": 18271,
+ "comments": 1152,
+ "published": "2026-08-12",
+ "queries": "검색:pianomusic | 검색:relaxing piano music | 검색:relaxing piano",
+ "url": "https://www.youtube.com/watch?v=KbMFv0FHgrY",
+ "flag": "외국 영상",
+ "published_at": "2026-08-12T15:27:09Z",
+ "rank": "W921",
+ "set": "web",
+ "folder": "W_KbMFv0FHgrY",
+ "sources": [
+  "검색:pianomusic",
+  "검색:relaxing piano music",
+  "검색:relaxing piano"
+ ],
+ "source": "web",
+ "tags": [
+  "peaceful piano",
+  "piano music for studying",
+  "music relax",
+  "music therapy",
+  "relax music",
+  "neoclassical music",
+  "classical piano music",
+  "relaxing music sleep",
+  "peaceful music",
+  "deep sleep music",
+  "background music",
+  "piano relaxing music",
+  "relaxing",
+  "relax",
+  "soft piano music",
+  "piano improvisation",
+  "relaxing piano music",
+  "tyron james",
+  "tyron james piano",
+  "tyron james music",
+  "tyron james heidis joy",
+  "heidis joy",
+  "digital piano",
+  "piano music",
+  "relaxing music",
+  "ambient piano"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Heidi's Joy (Original)"
+  },
+  {
+   "start": 93,
+   "title": "The Journey Home (Original)"
+  },
+  {
+   "start": 242,
+   "title": "Alpine Dawn (Original)"
+  },
+  {
+   "start": 361,
+   "title": "Spring Memories (Original)"
+  },
+  {
+   "start": 464,
+   "title": "Heidi's Joy (Orchestral Version)"
+  },
+  {
+   "start": 563,
+   "title": "Gladiator: Now We Are Free (Cover)"
+  },
+  {
+   "start": 681,
+   "title": "Via Jason Favento (Cover)"
+  },
+  {
+   "start": 837,
+   "title": "Hijo de la Luna (Mecano Cover)"
+  },
+  {
+   "start": 944,
+   "title": "Love Story (Indila Cover)"
+  },
+  {
+   "start": 1050,
+   "title": "Idea 22 — Soft Piano Version (Gibran Alcocer Cover)"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 1152,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T08:08:16",
+ "approved": "2026-10-18T17:08+09:00"
+}

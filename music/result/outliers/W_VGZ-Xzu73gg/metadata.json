@@ -1,0 +1,115 @@
+{
+ "id": "VGZ-Xzu73gg",
+ "title": "The Beatles on Abbey Road | Greatest Hits in Quartet  [No Mid-Roll Ads]",
+ "channel": "Golden Harmony",
+ "channel_id": "UCNX-Rl5WbpWiudiBDnonWqA",
+ "subs": 19500,
+ "views": 610589,
+ "ratio": 31.31,
+ "age_days": 108,
+ "views_per_day": 5653.6,
+ "minutes": 114.4,
+ "likes": 9051,
+ "comments": 300,
+ "published": "2026-07-02",
+ "queries": "검색:instrumental music",
+ "url": "https://www.youtube.com/watch?v=VGZ-Xzu73gg",
+ "flag": "외국 영상",
+ "published_at": "2026-07-02T06:51:38Z",
+ "rank": "W692",
+ "set": "web",
+ "folder": "W_VGZ-Xzu73gg",
+ "sources": [
+  "검색:instrumental music"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "I Will"
+  },
+  {
+   "start": 179,
+   "title": "Hey Jude"
+  },
+  {
+   "start": 389,
+   "title": "Yesterday"
+  },
+  {
+   "start": 584,
+   "title": "In My Life"
+  },
+  {
+   "start": 782,
+   "title": "Michelle"
+  },
+  {
+   "start": 950,
+   "title": "And I Love Her"
+  },
+  {
+   "start": 1164,
+   "title": "All You Need is Love"
+  },
+  {
+   "start": 1346,
+   "title": "Let It Be"
+  },
+  {
+   "start": 1541,
+   "title": "Penny Lane"
+  },
+  {
+   "start": 1729,
+   "title": "I Want to Hold Your Hand"
+  },
+  {
+   "start": 1916,
+   "title": "Love"
+  },
+  {
+   "start": 2108,
+   "title": "Across the Universe"
+  },
+  {
+   "start": 2323,
+   "title": "Norwegian Wood"
+  },
+  {
+   "start": 2503,
+   "title": "Blackbird"
+  },
+  {
+   "start": 2651,
+   "title": "Here Comes the Sun"
+  },
+  {
+   "start": 2836,
+   "title": "Yellow Submarine"
+  },
+  {
+   "start": 3026,
+   "title": "Ob-La-Di, Ob-La-Da"
+  },
+  {
+   "start": 3227,
+   "title": "Oh! Darling"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 300,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T08:07:43",
+ "approved": "2026-10-18T17:07+09:00"
+}

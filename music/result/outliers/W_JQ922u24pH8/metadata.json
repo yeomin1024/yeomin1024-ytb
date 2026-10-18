@@ -1,0 +1,75 @@
+{
+ "id": "JQ922u24pH8",
+ "title": "DESI PUNJABI PLAYLIST THAT GETS YOUR VIBE 😌🎧",
+ "channel": "Your April",
+ "channel_id": "UCSe7VkYQ1zu-m-gHlgEaYTg",
+ "subs": 3210,
+ "views": 1749237,
+ "ratio": 544.93,
+ "age_days": 144,
+ "views_per_day": 12147.5,
+ "minutes": 11.4,
+ "likes": 13792,
+ "comments": 392,
+ "published": "2026-05-27",
+ "queries": "검색:playlist",
+ "url": "https://www.youtube.com/watch?v=JQ922u24pH8",
+ "flag": "외국 영상",
+ "published_at": "2026-05-27T00:54:55Z",
+ "rank": "W85",
+ "set": "web",
+ "folder": "W_JQ922u24pH8",
+ "sources": [
+  "검색:playlist"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "01:42 - For a Reason"
+  },
+  {
+   "start": 102,
+   "title": "03:01 - One Love"
+  },
+  {
+   "start": 181,
+   "title": "04:31 - Naah Goriye"
+  },
+  {
+   "start": 271,
+   "title": "05:50 - Tauba tauba"
+  },
+  {
+   "start": 350,
+   "title": "07:52 - Softly"
+  },
+  {
+   "start": 472,
+   "title": "09:16 - Boyfriend"
+  },
+  {
+   "start": 556,
+   "title": "10:12 - Wakhra swag ni"
+  },
+  {
+   "start": 612,
+   "title": "11:21 - Qutal"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 393,
+ "comments_top_level": 223,
+ "comments_replies": 170,
+ "comments_by_creator": 11,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 392,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:48:20",
+ "approved": "2026-10-18T16:48+09:00"
+}

@@ -1,0 +1,135 @@
+{
+ "id": "AkZrzHCfivc",
+ "title": "Chopin for Autumn Nights — Peaceful Piano for Relaxation (432Hz)",
+ "channel": "Rain Whisper Classics",
+ "channel_id": "UCuwPl6BETUTTawRzSnusr2Q",
+ "subs": 40800,
+ "views": 682116,
+ "ratio": 16.72,
+ "age_days": 42,
+ "views_per_day": 16240.9,
+ "minutes": 78.5,
+ "likes": 6793,
+ "comments": 138,
+ "published": "2026-09-05",
+ "queries": "검색:피아노 | 검색:relaxing piano music | 검색:relaxing piano",
+ "url": "https://www.youtube.com/watch?v=AkZrzHCfivc",
+ "flag": "외국 영상",
+ "published_at": "2026-09-05T12:13:37Z",
+ "rank": "W807",
+ "set": "web",
+ "folder": "W_AkZrzHCfivc",
+ "sources": [
+  "검색:피아노",
+  "검색:relaxing piano music",
+  "검색:relaxing piano"
+ ],
+ "source": "web",
+ "tags": [
+  "background music",
+  "focus music",
+  "calm music",
+  "study music",
+  "Chopin",
+  "relaxing music",
+  "classical music",
+  "peaceful music",
+  "Chopin nocturne",
+  "piano music",
+  "Frédéric Chopin",
+  "Chopin piano",
+  "relaxing piano music",
+  "classical piano music",
+  "peaceful piano music",
+  "music for reading",
+  "music for relaxation",
+  "soothing piano music",
+  "Chopin piano music",
+  "Chopin nocturnes",
+  "romantic piano",
+  "432Hz",
+  "Chopin 432Hz",
+  "432Hz piano music",
+  "Nocturne Op 9 No 2",
+  "Nocturne Op 27 No 2",
+  "Raindrop Prelude",
+  "Berceuse Op 57",
+  "쇼팽"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "01. Nocturne in B-flat Minor, Op.9 No.1"
+  },
+  {
+   "start": 335,
+   "title": "02. Nocturne in C-sharp Minor, B.49 (Op. posth.)"
+  },
+  {
+   "start": 559,
+   "title": "03. Nocturne in E-flat Major, Op.9 No.2"
+  },
+  {
+   "start": 834,
+   "title": "04. Prelude in E Minor, Op.28 No.4"
+  },
+  {
+   "start": 989,
+   "title": "05. Nocturne in D-flat Major, Op.27 No.2"
+  },
+  {
+   "start": 1364,
+   "title": "06. Prelude in D-flat Major, Op.28 No.15 “Raindrop”"
+  },
+  {
+   "start": 1728,
+   "title": "07. Waltz in A-flat Major, Op.69 No.1 “Farewell”"
+  },
+  {
+   "start": 1977,
+   "title": "08. Mazurka in A Minor, Op.17 No.4"
+  },
+  {
+   "start": 2247,
+   "title": "09. Nocturne in F Minor, Op.55 No.1"
+  },
+  {
+   "start": 2563,
+   "title": "10. Waltz in C-sharp Minor, Op.64 No.2"
+  },
+  {
+   "start": 2794,
+   "title": "11. Piano Concerto No.1 in E Minor, Op.11: II. Romanze – Larghetto"
+  },
+  {
+   "start": 3278,
+   "title": "12. Étude in E Major, Op.10 No.3 “Tristesse”"
+  },
+  {
+   "start": 3520,
+   "title": "13. Nocturne in F-sharp Minor, Op.48 No.2"
+  },
+  {
+   "start": 4018,
+   "title": "14. Nocturne in B Major, Op.62 No.1"
+  },
+  {
+   "start": 4396,
+   "title": "15. Berceuse in D-flat Major, Op.57"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 138,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T08:07:59",
+ "approved": "2026-10-18T17:07+09:00"
+}

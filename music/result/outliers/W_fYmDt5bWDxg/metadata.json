@@ -1,0 +1,154 @@
+{
+ "id": "fYmDt5bWDxg",
+ "title": "\"카페 음악 때문에 또 왔어요\" 단골들이 숨겨두고 듣는 미니멀 팝 | 𝐏𝐋𝐀𝐘𝐋𝐈𝐒𝐓 · Minimal Cafe Vibe",
+ "channel": "Radear",
+ "channel_id": "UCmrNYIl-hFQugukrAofOAYw",
+ "subs": 31200,
+ "views": 276384,
+ "ratio": 8.86,
+ "age_days": 150,
+ "views_per_day": 1842.6,
+ "minutes": 243.6,
+ "likes": 3173,
+ "comments": 63,
+ "published": "2026-05-20",
+ "queries": "검색:카페음악",
+ "url": "https://www.youtube.com/watch?v=fYmDt5bWDxg",
+ "flag": "외국 영상",
+ "published_at": "2026-05-20T09:00:42Z",
+ "rank": "W877",
+ "set": "web",
+ "folder": "W_fYmDt5bWDxg",
+ "sources": [
+  "검색:카페음악"
+ ],
+ "source": "web",
+ "tags": [
+  "카페 플리",
+  "카페 음악",
+  "미니멀 팝",
+  "잔잔한 팝송",
+  "감성 플레이리스트",
+  "조용한 음악",
+  "카페 브금",
+  "분위기 좋은 음악",
+  "공간 음악",
+  "작업할 때 듣는 음악",
+  "로파이 팝",
+  "재즈 팝",
+  "트렌디한 카페 음악",
+  "숨겨진 팝송",
+  "cafe playlist",
+  "cafe music",
+  "minimal pop",
+  "chill pop",
+  "relaxing music",
+  "ambient cafe music",
+  "lofi pop",
+  "jazz pop playlist",
+  "hidden pop songs",
+  "trendy cafe music",
+  "라디어",
+  "radear"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Blue Apron Sunday"
+  },
+  {
+   "start": 211,
+   "title": "Late Autumn Light"
+  },
+  {
+   "start": 421,
+   "title": "Rusting chain"
+  },
+  {
+   "start": 669,
+   "title": "Small opinions No.2"
+  },
+  {
+   "start": 843,
+   "title": "Blue Apron Sunday No.2"
+  },
+  {
+   "start": 1099,
+   "title": "No more thirst No.2"
+  },
+  {
+   "start": 1283,
+   "title": "Stairwell Ghost"
+  },
+  {
+   "start": 1464,
+   "title": "Realview"
+  },
+  {
+   "start": 1664,
+   "title": "Let you fade No.2"
+  },
+  {
+   "start": 1868,
+   "title": "A green shoot"
+  },
+  {
+   "start": 2069,
+   "title": "In the quiet"
+  },
+  {
+   "start": 2302,
+   "title": "Small things"
+  },
+  {
+   "start": 2544,
+   "title": "Pieace of a day"
+  },
+  {
+   "start": 2734,
+   "title": "Warm light unused keys"
+  },
+  {
+   "start": 2876,
+   "title": "You sweeten"
+  },
+  {
+   "start": 3068,
+   "title": "Dressed for less"
+  },
+  {
+   "start": 3288,
+   "title": "Kinf of ache No.2"
+  },
+  {
+   "start": 3489,
+   "title": "All you Ever Did"
+  },
+  {
+   "start": 3660,
+   "title": "I think of you"
+  },
+  {
+   "start": 3815,
+   "title": "Pocket Full of Coins"
+  },
+  {
+   "start": 4023,
+   "title": "On Readear.."
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 63,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T08:08:09",
+ "approved": "2026-10-18T17:08+09:00"
+}

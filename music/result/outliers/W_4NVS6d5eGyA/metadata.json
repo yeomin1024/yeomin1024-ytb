@@ -1,0 +1,79 @@
+{
+ "id": "4NVS6d5eGyA",
+ "title": "Playlist for how a villain in love sounds like 🎧🔥✨. ",
+ "channel": "Fictional Heartbeat",
+ "channel_id": "UCfnB2oBH49fSomxd-u6V53A",
+ "subs": 2920,
+ "views": 3835900,
+ "ratio": 1313.66,
+ "age_days": 52,
+ "views_per_day": 73767.3,
+ "minutes": 9.7,
+ "likes": 34474,
+ "comments": 314,
+ "published": "2026-08-26",
+ "queries": "검색:playlist",
+ "url": "https://www.youtube.com/watch?v=4NVS6d5eGyA",
+ "flag": "외국 영상",
+ "published_at": "2026-08-26T09:54:19Z",
+ "rank": "W14",
+ "set": "web",
+ "folder": "W_4NVS6d5eGyA",
+ "sources": [
+  "검색:playlist"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Mere Nishan"
+  },
+  {
+   "start": 80,
+   "title": "Tere liye"
+  },
+  {
+   "start": 144,
+   "title": "Jaavedaan hai"
+  },
+  {
+   "start": 214,
+   "title": "Ruposh"
+  },
+  {
+   "start": 235,
+   "title": "O mere khuda"
+  },
+  {
+   "start": 283,
+   "title": "Labon ko"
+  },
+  {
+   "start": 359,
+   "title": "Gulabi ankhein"
+  },
+  {
+   "start": 443,
+   "title": "Wajah tum ho"
+  },
+  {
+   "start": 502,
+   "title": "Sholon si"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 324,
+ "comments_top_level": 202,
+ "comments_replies": 122,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 314,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:41:57",
+ "approved": "2026-10-18T16:41+09:00"
+}

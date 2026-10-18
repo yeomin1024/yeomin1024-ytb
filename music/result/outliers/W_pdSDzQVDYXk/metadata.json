@@ -1,0 +1,108 @@
+{
+ "id": "pdSDzQVDYXk",
+ "title": "Midnight in Beirut 🌙 | Lebanese Jazz & Oud Melodies for Relaxation & Deep Focus",
+ "channel": "Arabic Jazz Lounge",
+ "channel_id": "UCjUgedNGCsNhMxhEVVe5Xdw",
+ "subs": 17600,
+ "views": 2348776,
+ "ratio": 133.45,
+ "age_days": 167,
+ "views_per_day": 14064.5,
+ "minutes": 25.3,
+ "likes": 33865,
+ "comments": 763,
+ "published": "2026-05-03",
+ "queries": "검색:cafe music | 검색:calm music | 검색:calming music | 검색:relaxation music",
+ "url": "https://www.youtube.com/watch?v=pdSDzQVDYXk",
+ "flag": "외국 영상",
+ "published_at": "2026-05-03T08:00:47Z",
+ "rank": "W353",
+ "set": "web",
+ "folder": "W_pdSDzQVDYXk",
+ "sources": [
+  "검색:cafe music",
+  "검색:calm music",
+  "검색:calming music",
+  "검색:relaxation music"
+ ],
+ "source": "web",
+ "tags": [
+  "arabic jazz",
+  "egyptian jazz",
+  "desert jazz",
+  "night jazz",
+  "jazz fusion",
+  "relaxing jazz",
+  "sleep jazz",
+  "ambient jazz",
+  "middle eastern jazz",
+  "late night jazz",
+  "jazz ambience",
+  "chill jazz",
+  "lofi jazz",
+  "study music",
+  "focus music",
+  "relaxing music",
+  "oud jazz",
+  "cairo jazz",
+  "jazz lounge",
+  "calm music",
+  "meditation music"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Lost In Cairo"
+  },
+  {
+   "start": 143,
+   "title": "Midnight Oud Sessions"
+  },
+  {
+   "start": 283,
+   "title": "Cairo Dreams"
+  },
+  {
+   "start": 411,
+   "title": "Cairo After Dark"
+  },
+  {
+   "start": 554,
+   "title": "Quiet Nights in Cairo"
+  },
+  {
+   "start": 702,
+   "title": "Nile Nights"
+  },
+  {
+   "start": 865,
+   "title": "Under Cairo Lights"
+  },
+  {
+   "start": 1003,
+   "title": "Arabian Night Jazz"
+  },
+  {
+   "start": 1172,
+   "title": "Cairo After Dark"
+  },
+  {
+   "start": 1324,
+   "title": "Desert Moon Jazz"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 767,
+ "comments_top_level": 441,
+ "comments_replies": 326,
+ "comments_by_creator": 185,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 763,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T08:01:15",
+ "approved": "2026-10-18T17:01+09:00"
+}

@@ -1,0 +1,92 @@
+{
+ "id": "twTedu4I1mg",
+ "title": "조영버 노동요",
+ "channel": "궈바오러우",
+ "channel_id": "UC_Y1MkswZG2-lH6WKP8HHZA",
+ "subs": 498,
+ "views": 133708,
+ "ratio": 268.49,
+ "age_days": 165,
+ "views_per_day": 810.4,
+ "minutes": 19.7,
+ "likes": 2393,
+ "comments": 205,
+ "published": "2026-05-05",
+ "queries": "검색:노동요",
+ "url": "https://www.youtube.com/watch?v=twTedu4I1mg",
+ "flag": "외국 영상",
+ "published_at": "2026-05-05T12:35:13Z",
+ "rank": "W207",
+ "set": "web",
+ "folder": "W_twTedu4I1mg",
+ "sources": [
+  "검색:노동요"
+ ],
+ "source": "web",
+ "tags": [
+  "果宝",
+  "궈바오",
+  "ShiGuo",
+  "퐁크",
+  "FONK",
+  "중국",
+  "버튜버",
+  "Vtuber",
+  "조강현",
+  "조영버",
+  "조강현영도버튜버",
+  "영도"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "ZXKAI & SLXUGHTER - NO BATIDÃO"
+  },
+  {
+   "start": 89,
+   "title": "Nakama; MC Staff - MENTE MÁ"
+  },
+  {
+   "start": 164,
+   "title": "Taki Taki - DJ Snake; Selena Gomez; Ozuna; Cardi B"
+  },
+  {
+   "start": 254,
+   "title": "SPRING BREAK IN MEXICO - Hedegaard&Treyy G&Barbara Moleko"
+  },
+  {
+   "start": 315,
+   "title": "Tanir; Tyomcha; Mikis - Da Da Da (Remix by Mikis)"
+  },
+  {
+   "start": 418,
+   "title": "Dubidubidu - Christell"
+  },
+  {
+   "start": 596,
+   "title": "林树豪 - 打歌妹"
+  },
+  {
+   "start": 959,
+   "title": "DJ小沐 - 伯虎说（就这个停顿爽1.1x）"
+  },
+  {
+   "start": 1114,
+   "title": "羊音乐 - 弥渡山歌 (PHONK)"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "zh",
+ "foreign": true,
+ "comments_fetched": 205,
+ "comments_top_level": 151,
+ "comments_replies": 54,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 205,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:55:04",
+ "approved": "2026-10-18T16:55+09:00"
+}

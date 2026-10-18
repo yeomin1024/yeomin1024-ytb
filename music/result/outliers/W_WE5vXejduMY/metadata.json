@@ -1,0 +1,78 @@
+{
+ "id": "WE5vXejduMY",
+ "title": "[Masterpiece Series] Gounod Ave Maria — 4 Variations Songs of Solace",
+ "channel": "WilliamPoeticSolace | 시적인위로",
+ "channel_id": "UCoCWaJ6QTDu_-jgq9DCmCCg",
+ "subs": 40600,
+ "views": 137348,
+ "ratio": 3.38,
+ "age_days": 177,
+ "views_per_day": 776.0,
+ "minutes": 19.3,
+ "likes": 2929,
+ "comments": 193,
+ "published": "2026-04-23",
+ "queries": "검색:힐링음악",
+ "url": "https://www.youtube.com/watch?v=WE5vXejduMY",
+ "flag": "외국 영상",
+ "published_at": "2026-04-23T12:42:17Z",
+ "rank": "W933",
+ "set": "web",
+ "folder": "W_WE5vXejduMY",
+ "sources": [
+  "검색:힐링음악"
+ ],
+ "source": "web",
+ "tags": [
+  "William",
+  "Poetic Solace",
+  "432Hz",
+  "432Hz Healing",
+  "Neo Classical",
+  "Cinematic Music",
+  "Crossover Music",
+  "Modern Opera",
+  "Ambient Music",
+  "Soul Healing",
+  "Architectural Music",
+  "Visual Storytelling",
+  "Relaxing Piano",
+  "Meditation Music",
+  "Contemporary Classical",
+  "아베마리아",
+  "구노아베마리아",
+  "avemaria"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Track 1. Alto & Boy Choir"
+  },
+  {
+   "start": 299,
+   "title": "Track 2. Chamber Orchestra"
+  },
+  {
+   "start": 547,
+   "title": "Track 3. Baritone & Chamber Orchestra"
+  },
+  {
+   "start": 860,
+   "title": "Track 4. Mezzo-Soprano Solo  & Chamber Orchestra"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 193,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T08:08:18",
+ "approved": "2026-10-18T17:08+09:00"
+}

@@ -1,0 +1,87 @@
+{
+ "id": "G4M-E29DlAE",
+ "title": "The Love Playlist You’ve Been Looking For😌🤍",
+ "channel": "Melovo tunes",
+ "channel_id": "UCo-LseObEAyLQRo0URtLsfw",
+ "subs": 3320,
+ "views": 743337,
+ "ratio": 223.9,
+ "age_days": 137,
+ "views_per_day": 5425.8,
+ "minutes": 10.4,
+ "likes": 11399,
+ "comments": 800,
+ "published": "2026-06-02",
+ "queries": "검색:calm music",
+ "url": "https://www.youtube.com/watch?v=G4M-E29DlAE",
+ "flag": "외국 영상",
+ "published_at": "2026-06-02T09:15:43Z",
+ "rank": "W244",
+ "set": "web",
+ "folder": "W_G4M-E29DlAE",
+ "sources": [
+  "검색:calm music"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Dandelions"
+  },
+  {
+   "start": 55,
+   "title": "Shinunoga E-Wa"
+  },
+  {
+   "start": 97,
+   "title": "Golden Brown"
+  },
+  {
+   "start": 154,
+   "title": "Honeypie"
+  },
+  {
+   "start": 217,
+   "title": "Love Story"
+  },
+  {
+   "start": 284,
+   "title": "I Wanna be yours"
+  },
+  {
+   "start": 343,
+   "title": "Until I Found You"
+  },
+  {
+   "start": 386,
+   "title": "A Thousand Years"
+  },
+  {
+   "start": 452,
+   "title": "Love Me Not"
+  },
+  {
+   "start": 496,
+   "title": "Golden Hour"
+  },
+  {
+   "start": 560,
+   "title": "Blue"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 800,
+ "comments_top_level": 290,
+ "comments_replies": 510,
+ "comments_by_creator": 335,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 800,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:56:43",
+ "approved": "2026-10-18T16:56+09:00"
+}

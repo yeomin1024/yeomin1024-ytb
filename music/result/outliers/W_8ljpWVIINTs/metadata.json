@@ -1,0 +1,73 @@
+{
+ "id": "8ljpWVIINTs",
+ "title": "'pov: bạn mở lại một tab ký ức năm 2018 ♪♪ ",
+ "channel": "chalye",
+ "channel_id": "UCMOzQO-GvpbQ7I3xa8kcVfA",
+ "subs": 2330,
+ "views": 1546937,
+ "ratio": 663.92,
+ "age_days": 129,
+ "views_per_day": 11991.8,
+ "minutes": 27.4,
+ "likes": 23110,
+ "comments": 331,
+ "published": "2026-06-10",
+ "queries": "검색:playlist",
+ "url": "https://www.youtube.com/watch?v=8ljpWVIINTs",
+ "flag": "외국 영상",
+ "published_at": "2026-06-10T19:39:22Z",
+ "rank": "W61",
+ "set": "web",
+ "folder": "W_8ljpWVIINTs",
+ "sources": [
+  "검색:playlist"
+ ],
+ "source": "web",
+ "tags": [
+  "playlist"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "TOULIVER X LÊ HIẾU X SOOBIN HOÀNG SƠN - NGÀY MAI EM ĐI 2017"
+  },
+  {
+   "start": 219,
+   "title": "Anh Đã Quen Với Cô Đơn - Soobin Hoàng Sơn"
+  },
+  {
+   "start": 456,
+   "title": "KÉM DUYÊN | RUM X NIT X MASEW"
+  },
+  {
+   "start": 682,
+   "title": "Touliver x Soobin Hoàng Sơn - Vài Lần Đón Đưa ( Cover )"
+  },
+  {
+   "start": 867,
+   "title": "Lời Yêu Ngây Dại - Kha"
+  },
+  {
+   "start": 1118,
+   "title": "THẰNG ĐIÊN | JUSTATEE x PHƯƠNG LY"
+  },
+  {
+   "start": 1394,
+   "title": "Khuôn Mặt Đáng Thương- Sơn Tùng M-TP"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "vi",
+ "foreign": true,
+ "comments_fetched": 331,
+ "comments_top_level": 284,
+ "comments_replies": 47,
+ "comments_by_creator": 12,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 331,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:46:37",
+ "approved": "2026-10-18T16:46+09:00"
+}

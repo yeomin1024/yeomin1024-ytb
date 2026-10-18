@@ -1,0 +1,87 @@
+{
+ "id": "aIYTT2ihwvM",
+ "title": "One playlist. A thousand imaginary love stories. ❤️",
+ "channel": "soul wali vibes 🎵",
+ "channel_id": "UChItUolkFNIMn6UiL9SLdsg",
+ "subs": 2410,
+ "views": 1056210,
+ "ratio": 438.26,
+ "age_days": 54,
+ "views_per_day": 19559.4,
+ "minutes": 22.1,
+ "likes": 13463,
+ "comments": 354,
+ "published": "2026-08-24",
+ "queries": "검색:playlist",
+ "url": "https://www.youtube.com/watch?v=aIYTT2ihwvM",
+ "flag": "외국 영상",
+ "published_at": "2026-08-24T17:06:46Z",
+ "rank": "W118",
+ "set": "web",
+ "folder": "W_aIYTT2ihwvM",
+ "sources": [
+  "검색:playlist"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "jeene laga hoon"
+  },
+  {
+   "start": 124,
+   "title": "Kinna sonna"
+  },
+  {
+   "start": 264,
+   "title": "Maine kud ko"
+  },
+  {
+   "start": 377,
+   "title": "Dhokha dhadhi"
+  },
+  {
+   "start": 478,
+   "title": "Maiya mainu"
+  },
+  {
+   "start": 580,
+   "title": "Tera fitoor"
+  },
+  {
+   "start": 695,
+   "title": "Ishq sufiyaan"
+  },
+  {
+   "start": 796,
+   "title": "maula maula"
+  },
+  {
+   "start": 906,
+   "title": "riste natte"
+  },
+  {
+   "start": 1013,
+   "title": "o meri laila"
+  },
+  {
+   "start": 1153,
+   "title": "hareyaa"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 354,
+ "comments_top_level": 75,
+ "comments_replies": 279,
+ "comments_by_creator": 5,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 354,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:50:15",
+ "approved": "2026-10-18T16:50+09:00"
+}

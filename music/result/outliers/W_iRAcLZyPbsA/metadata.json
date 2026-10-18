@@ -1,0 +1,91 @@
+{
+ "id": "iRAcLZyPbsA",
+ "title": "🍉 아침에 커피 마시면서 혼자 듣는데 너무좋다. | 하루 종일 틀어 놓으세요🎵7080추억의 올드팝 #감성팝송 #카페음악 #49 여성보컬",
+ "channel": "woozune",
+ "channel_id": "UCVZaQqU7LeciVRJXeWer7hQ",
+ "subs": 5780,
+ "views": 1107471,
+ "ratio": 191.6,
+ "age_days": 82,
+ "views_per_day": 13505.7,
+ "minutes": 74.3,
+ "likes": 3290,
+ "comments": 184,
+ "published": "2026-07-27",
+ "queries": "검색:카페음악",
+ "url": "https://www.youtube.com/watch?v=iRAcLZyPbsA",
+ "flag": "외국 영상",
+ "published_at": "2026-07-27T22:19:28Z",
+ "rank": "W271",
+ "set": "web",
+ "folder": "W_iRAcLZyPbsA",
+ "sources": [
+  "검색:카페음악"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": ". Saltwater Echoes (소금물에 담긴 메아리)"
+  },
+  {
+   "start": 178,
+   "title": ". Amber Shoreline (호박빛 해변선)"
+  },
+  {
+   "start": 358,
+   "title": ". Distant Summer Days (아득한 여름날들)"
+  },
+  {
+   "start": 553,
+   "title": ". Midnight Tide (한밤중의 밀물)"
+  },
+  {
+   "start": 737,
+   "title": ". Worn-Out Melody (낡은 멜로디)"
+  },
+  {
+   "start": 922,
+   "title": ". Paper Napkin Letters (종이 냅킨 속 편지)"
+  },
+  {
+   "start": 1116,
+   "title": ". Seaside Sidewalk (해변의 산책로)"
+  },
+  {
+   "start": 1303,
+   "title": ". Fading Blue Horizon (희미해지는 푸른 지평선)"
+  },
+  {
+   "start": 1491,
+   "title": ". Sundown Melody (일몰의 멜로디) (1)"
+  },
+  {
+   "start": 1679,
+   "title": ". Shells in My Pocket (주머니 속 조개껍질)"
+  },
+  {
+   "start": 1853,
+   "title": ". Salt on the Table (테이블 위의 소금기)"
+  },
+  {
+   "start": 2053,
+   "title": ". Blue Umbrellas (파란 파라솔)"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en-US",
+ "foreign": true,
+ "comments_fetched": 187,
+ "comments_top_level": 78,
+ "comments_replies": 109,
+ "comments_by_creator": 59,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 184,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:58:03",
+ "approved": "2026-10-18T16:58+09:00"
+}

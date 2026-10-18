@@ -1,0 +1,79 @@
+{
+ "id": "0shfF2LDgmI",
+ "title": "Golden Melodies for the Soul (Sax & Violin Lounge)",
+ "channel": "Timeless Echo",
+ "channel_id": "UCJSxd5jmKNPPNFCdPR8YTbg",
+ "subs": 5700,
+ "views": 1643724,
+ "ratio": 288.37,
+ "age_days": 135,
+ "views_per_day": 12175.7,
+ "minutes": 6.7,
+ "likes": 10560,
+ "comments": 356,
+ "published": "2026-06-04",
+ "queries": "검색:instrumental music",
+ "url": "https://www.youtube.com/watch?v=0shfF2LDgmI",
+ "flag": "외국 영상",
+ "published_at": "2026-06-04T20:10:13Z",
+ "rank": "W196",
+ "set": "web",
+ "folder": "W_0shfF2LDgmI",
+ "sources": [
+  "검색:instrumental music"
+ ],
+ "source": "web",
+ "tags": [
+  "moonlight serenade",
+  "romantic violin",
+  "always serenade - romantic piano",
+  "romantic violin music",
+  "atmospheric sax violin",
+  "sultry sax violin",
+  "romantic saxophone music",
+  "soulful saxophone violin",
+  "saxofone violino piano",
+  "calm saxophone violin",
+  "saxophone violin fusion",
+  "moonlight sonata",
+  "violin piano relaxation",
+  "moonlight",
+  "romantic instrumental",
+  "sad violin music",
+  "serenade",
+  "romantic love songs",
+  "relaxing violin music",
+  "love serenade",
+  "andre rieu style violin",
+  "romantic music",
+  "Romantic Sax"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "The Moon Awakens"
+  },
+  {
+   "start": 164,
+   "title": "Starlight Promenade"
+  },
+  {
+   "start": 370,
+   "title": "Finale"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 356,
+ "comments_top_level": 183,
+ "comments_replies": 173,
+ "comments_by_creator": 157,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 356,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:54:29",
+ "approved": "2026-10-18T16:54+09:00"
+}

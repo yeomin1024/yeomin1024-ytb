@@ -1,0 +1,82 @@
+{
+ "id": "gtHsO8taxgo",
+ "title": "싱그러운 아침, 고요한 클래식 선율 속에서 마음의 평화를 느껴보세요. Healing Classics와 함께하는 하루의 쉼표.",
+ "channel": "클래식힐링",
+ "channel_id": "UC3C-UYmc-UI8ZGJZ_UIVHdg",
+ "subs": 14600,
+ "views": 301129,
+ "ratio": 20.63,
+ "age_days": 160,
+ "views_per_day": 1882.1,
+ "minutes": 125.2,
+ "likes": 3127,
+ "comments": 127,
+ "published": "2026-05-10",
+ "queries": "검색:힐링음악 | 검색:명상음악 | 검색:편안한음악 | 검색:잔잔한음악",
+ "url": "https://www.youtube.com/watch?v=gtHsO8taxgo",
+ "flag": "외국 영상",
+ "published_at": "2026-05-10T09:34:22Z",
+ "rank": "W770",
+ "set": "web",
+ "folder": "W_gtHsO8taxgo",
+ "sources": [
+  "검색:힐링음악",
+  "검색:명상음악",
+  "검색:편안한음악",
+  "검색:잔잔한음악"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Morning Dew in the Secret Garden"
+  },
+  {
+   "start": 92,
+   "title": "Whispering Violin on a Spring Day"
+  },
+  {
+   "start": 198,
+   "title": "Peaceful Tea Time with Strings"
+  },
+  {
+   "start": 322,
+   "title": "Serene Moonlight over the Lake"
+  },
+  {
+   "start": 501,
+   "title": "A Letter of Comfort to You"
+  },
+  {
+   "start": 691,
+   "title": "Forest Walk for the Soul"
+  },
+  {
+   "start": 829,
+   "title": "Nostalgic Evening Glow"
+  },
+  {
+   "start": 979,
+   "title": "Warm Breath of the Cell"
+  },
+  {
+   "start": 1153,
+   "title": "Waltz of the Falling Petals"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en-US",
+ "foreign": true,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 127,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T08:07:54",
+ "approved": "2026-10-18T17:07+09:00"
+}

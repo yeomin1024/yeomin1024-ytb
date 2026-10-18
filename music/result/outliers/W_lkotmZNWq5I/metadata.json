@@ -1,0 +1,78 @@
+{
+ "id": "lkotmZNWq5I",
+ "title": "🍃Xanh Playlist 2🍃TAN LÀM, BẬT NHẠC| Nhạc R&B Lofi Chill Yêu Đời (Tự Do Như Cơn Gió, Một Nhành Hoa..)",
+ "channel": "Xanh",
+ "channel_id": "UCavuj-7LmJXKvh2NTwe5kHA",
+ "subs": 46200,
+ "views": 891250,
+ "ratio": 19.29,
+ "age_days": 50,
+ "views_per_day": 17825.0,
+ "minutes": 50.4,
+ "likes": 4058,
+ "comments": 212,
+ "published": "2026-08-28",
+ "queries": "검색:lofi",
+ "url": "https://www.youtube.com/watch?v=lkotmZNWq5I",
+ "flag": "외국 영상",
+ "published_at": "2026-08-28T09:00:22Z",
+ "rank": "W781",
+ "set": "web",
+ "folder": "W_lkotmZNWq5I",
+ "sources": [
+  "검색:lofi"
+ ],
+ "source": "web",
+ "tags": [
+  "tự do như cơn gió",
+  "nhạc chill yêu dời"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Tự Do như cơn gió"
+  },
+  {
+   "start": 258,
+   "title": "Chuyến Xe Tuổi Trẻ"
+  },
+  {
+   "start": 479,
+   "title": "Tuổi trẻ này đáng giá bao nhiêu"
+  },
+  {
+   "start": 704,
+   "title": "Như Một Áng Mây"
+  },
+  {
+   "start": 930,
+   "title": "Một Nhành Hoa"
+  },
+  {
+   "start": 1081,
+   "title": "Là Anh Đó"
+  },
+  {
+   "start": 1256,
+   "title": "Cô Gái Mùa Hạ"
+  },
+  {
+   "start": 1510,
+   "title": "Loop"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "vi",
+ "foreign": true,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 212,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T08:07:55",
+ "approved": "2026-10-18T17:07+09:00"
+}

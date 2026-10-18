@@ -1,0 +1,83 @@
+{
+ "id": "Q3LLtmMHsBg",
+ "title": "spring blossoms🌷🦢 🌸 soft piano for dreamy days, study, relax & slow living",
+ "channel": "She of the Vale",
+ "channel_id": "UC87rSZNDFgVWbzo3k0C2BOg",
+ "subs": 11700,
+ "views": 154561,
+ "ratio": 13.21,
+ "age_days": 175,
+ "views_per_day": 883.2,
+ "minutes": 32.5,
+ "likes": 1965,
+ "comments": 95,
+ "published": "2026-04-25",
+ "queries": "검색:pianomusic",
+ "url": "https://www.youtube.com/watch?v=Q3LLtmMHsBg",
+ "flag": "외국 영상",
+ "published_at": "2026-04-25T12:17:09Z",
+ "rank": "W839",
+ "set": "web",
+ "folder": "W_Q3LLtmMHsBg",
+ "sources": [
+  "검색:pianomusic"
+ ],
+ "source": "web",
+ "tags": [
+  "#piano",
+  "soft piano",
+  "calm piano"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Sun & Moon - Dan Quinn"
+  },
+  {
+   "start": 114,
+   "title": "Different Lives - Dan Quinn"
+  },
+  {
+   "start": 248,
+   "title": "Between Your Arms - Aki Sora"
+  },
+  {
+   "start": 349,
+   "title": "Grace - Anselm van de Woude"
+  },
+  {
+   "start": 491,
+   "title": "Still Holding On - Anselm van de Woude"
+  },
+  {
+   "start": 592,
+   "title": "My Soul's A River - Maëlle Rousseau"
+  },
+  {
+   "start": 696,
+   "title": "Borderline - Aki Sora"
+  },
+  {
+   "start": 833,
+   "title": "Above the Clouds - Dan Quinn"
+  },
+  {
+   "start": 975,
+   "title": "Repeat"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 95,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T08:08:04",
+ "approved": "2026-10-18T17:08+09:00"
+}

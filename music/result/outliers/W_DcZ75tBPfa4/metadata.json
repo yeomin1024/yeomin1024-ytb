@@ -1,0 +1,59 @@
+{
+ "id": "DcZ75tBPfa4",
+ "title": "[Playlist Tâm Trạng]#1 - Xương Rồng, Vết Thương, Tìm Em, Ngày Rời Chuyến Bay.",
+ "channel": "Cà Chuaa",
+ "channel_id": "UCttBBtjwfQEY5TTpdteRt9Q",
+ "subs": 2410,
+ "views": 1719077,
+ "ratio": 713.31,
+ "age_days": 83,
+ "views_per_day": 20711.8,
+ "minutes": 15.5,
+ "likes": 10390,
+ "comments": 344,
+ "published": "2026-07-26",
+ "queries": "검색:chill music",
+ "url": "https://www.youtube.com/watch?v=DcZ75tBPfa4",
+ "flag": "외국 영상",
+ "published_at": "2026-07-26T15:48:26Z",
+ "rank": "W52",
+ "set": "web",
+ "folder": "W_DcZ75tBPfa4",
+ "sources": [
+  "검색:chill music"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Dangrangto - ‘xương rồng (intro)’"
+  },
+  {
+   "start": 236,
+   "title": "fishy - VẾT THƯƠNG"
+  },
+  {
+   "start": 463,
+   "title": "Hngle - Tìm em ft. Bảo Anh"
+  },
+  {
+   "start": 716,
+   "title": "Minh Huy - Ngày Rời Chuyến Bay ft Pinny"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "vi",
+ "foreign": true,
+ "comments_fetched": 344,
+ "comments_top_level": 231,
+ "comments_replies": 113,
+ "comments_by_creator": 26,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 344,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:46:04",
+ "approved": "2026-10-18T16:46+09:00"
+}

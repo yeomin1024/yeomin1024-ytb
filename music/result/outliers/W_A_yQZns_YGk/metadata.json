@@ -1,0 +1,107 @@
+{
+ "id": "A_yQZns_YGk",
+ "title": "\"𝐖𝐞 𝐚𝐫𝐞 𝐣𝐮𝐬𝐭 𝐟𝐫𝐢𝐞𝐧𝐝𝐬... 𝐑𝐢𝐠𝐡𝐭.?\"/ 𝐀 𝐩𝐥𝐚𝐲𝐥𝐢𝐬𝐭 𝐟𝐨𝐫 𝐬𝐨𝐦𝐞𝐨𝐧𝐞 𝐲𝐨𝐮 𝐬𝐞𝐜𝐫𝐞𝐭𝐥𝐲 𝐥𝐨𝐯𝐞 😭💗✨ (𝐫𝐞𝐪𝐮𝐞𝐬𝐭𝐞𝐝 𝐯𝐞𝐫𝐬𝐢𝐨𝐧 )",
+ "channel": "𝗩𝗮𝗺𝗽𝗶𝗿𝗲 𓂃⋆.˚",
+ "channel_id": "UCUyz1TvmtVSPzDyq2hGH8hQ",
+ "subs": 2410,
+ "views": 1034142,
+ "ratio": 429.1,
+ "age_days": 100,
+ "views_per_day": 10341.4,
+ "minutes": 20.4,
+ "likes": 14952,
+ "comments": 610,
+ "published": "2026-07-09",
+ "queries": "검색:playlist",
+ "url": "https://www.youtube.com/watch?v=A_yQZns_YGk",
+ "flag": "외국 영상",
+ "published_at": "2026-07-09T11:17:58Z",
+ "rank": "W122",
+ "set": "web",
+ "folder": "W_A_yQZns_YGk",
+ "sources": [
+  "검색:playlist"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "𝑓𝑎𝑘𝑖𝑟𝑎"
+  },
+  {
+   "start": 140,
+   "title": "𝑗𝑢𝑔𝑟𝑎𝑓𝑖𝑦𝑎"
+  },
+  {
+   "start": 201,
+   "title": "𝑝𝑟𝑒𝑚𝑖𝑘𝑎 𝑛𝑒 𝑝𝑦𝑎𝑟 𝑠𝑒"
+  },
+  {
+   "start": 298,
+   "title": "ℎ𝑎𝑛𝑔𝑜𝑣𝑒𝑟"
+  },
+  {
+   "start": 420,
+   "title": "𝑖𝑠ℎ𝑞 𝑑𝑒 𝑓𝑎𝑛𝑖𝑦𝑎𝑟"
+  },
+  {
+   "start": 492,
+   "title": "𝐵𝑎𝑟𝑔𝑎𝑑"
+  },
+  {
+   "start": 580,
+   "title": "𝐺𝑢𝑙𝑎𝑏𝑖 𝑎𝑛𝑘ℎ𝑒𝑖𝑛"
+  },
+  {
+   "start": 631,
+   "title": "𝑑𝑖𝑙 𝑘𝑎 𝑗𝑜 ℎ𝑎𝑎𝑙 ℎ𝑒𝑖𝑛"
+  },
+  {
+   "start": 694,
+   "title": "𝑃𝑎𝑙𝑎𝑡"
+  },
+  {
+   "start": 762,
+   "title": "𝐴𝑎 𝑡𝑜 𝑠ℎ𝑖"
+  },
+  {
+   "start": 827,
+   "title": "𝐼𝑠ℎ𝑞 𝑟𝑖𝑠𝑞"
+  },
+  {
+   "start": 884,
+   "title": "𝐴𝑚𝑏𝑎𝑟𝑠𝑎𝑟𝑖𝑦𝑎"
+  },
+  {
+   "start": 936,
+   "title": "𝐻𝑢𝑎 ℎ𝑒𝑖𝑛 𝑎𝑗𝑗 𝑝ℎ𝑒𝑙𝑖 𝑏𝑎𝑟"
+  },
+  {
+   "start": 1035,
+   "title": "𝑆ℎ𝑒𝑒𝑠ℎ𝑎"
+  },
+  {
+   "start": 1114,
+   "title": "𝑍𝑎𝑙𝑖𝑚𝑎"
+  },
+  {
+   "start": 1169,
+   "title": "𝑇𝑒𝑟𝑖 𝑚𝑒𝑟𝑖 𝑘𝑎ℎ𝑎𝑛𝑖"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 610,
+ "comments_top_level": 200,
+ "comments_replies": 410,
+ "comments_by_creator": 207,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 610,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:50:42",
+ "approved": "2026-10-18T16:50+09:00"
+}

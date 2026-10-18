@@ -1,0 +1,81 @@
+{
+ "id": "ROBjw6FcYxs",
+ "title": "Perfect South Indian Playlist 🪷🦢 (+timestamps) ",
+ "channel": "Being Diva 💅🏻",
+ "channel_id": "UC9RVIULE2qvVnCnashPQFhw",
+ "subs": 5720,
+ "views": 1817409,
+ "ratio": 317.73,
+ "age_days": 31,
+ "views_per_day": 58626.1,
+ "minutes": 7.7,
+ "likes": 18453,
+ "comments": 260,
+ "published": "2026-09-16",
+ "queries": "검색:playlist",
+ "url": "https://www.youtube.com/watch?v=ROBjw6FcYxs",
+ "flag": "외국 영상",
+ "published_at": "2026-09-16T16:48:49Z",
+ "rank": "W172",
+ "set": "web",
+ "folder": "W_ROBjw6FcYxs",
+ "sources": [
+  "검색:playlist"
+ ],
+ "source": "web",
+ "tags": [
+  "south indian",
+  "song",
+  "south indian song",
+  "playlist",
+  "south indian diva"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Kalyani"
+  },
+  {
+   "start": 48,
+   "title": "Othaiyadi patayila"
+  },
+  {
+   "start": 97,
+   "title": "Aasa koda"
+  },
+  {
+   "start": 170,
+   "title": "Tum tum"
+  },
+  {
+   "start": 227,
+   "title": "Vachindamma"
+  },
+  {
+   "start": 275,
+   "title": "Inkem Inkem"
+  },
+  {
+   "start": 334,
+   "title": "Unakkul naane"
+  },
+  {
+   "start": 388,
+   "title": "Chuttamalle"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "hi",
+ "foreign": true,
+ "comments_fetched": 266,
+ "comments_top_level": 230,
+ "comments_replies": 36,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 260,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:53:12",
+ "approved": "2026-10-18T16:53+09:00"
+}

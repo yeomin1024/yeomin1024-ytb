@@ -1,0 +1,95 @@
+{
+ "id": "G5SAO7jS8xk",
+ "title": "Cigarettes After Sex — late night playlist",
+ "channel": " ahmet",
+ "channel_id": "UCZ-DikxCi5olaYAmdG9OcIg",
+ "subs": 1130,
+ "views": 1378133,
+ "ratio": 1219.59,
+ "age_days": 55,
+ "views_per_day": 25057.0,
+ "minutes": 55.8,
+ "likes": 10385,
+ "comments": 174,
+ "published": "2026-08-23",
+ "queries": "검색:playlist",
+ "url": "https://www.youtube.com/watch?v=G5SAO7jS8xk",
+ "flag": "외국 영상",
+ "published_at": "2026-08-23T15:30:16Z",
+ "rank": "W20",
+ "set": "web",
+ "folder": "W_G5SAO7jS8xk",
+ "sources": [
+  "검색:playlist"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "K."
+  },
+  {
+   "start": 319,
+   "title": "Cry"
+  },
+  {
+   "start": 575,
+   "title": "You're All I Want"
+  },
+  {
+   "start": 839,
+   "title": "John Wayne"
+  },
+  {
+   "start": 1097,
+   "title": "Each Time You Fall in Love"
+  },
+  {
+   "start": 1387,
+   "title": "Dreams From Bunker Hill"
+  },
+  {
+   "start": 1606,
+   "title": "Sweet"
+  },
+  {
+   "start": 1897,
+   "title": "Dark Vacay"
+  },
+  {
+   "start": 2110,
+   "title": "Nothing's Gonna Hurt You Baby"
+  },
+  {
+   "start": 2396,
+   "title": "Heavenly"
+  },
+  {
+   "start": 2682,
+   "title": "Kiss It Off Me"
+  },
+  {
+   "start": 2951,
+   "title": "Holding You, Holding Me"
+  },
+  {
+   "start": 3161,
+   "title": "X's"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 180,
+ "comments_top_level": 88,
+ "comments_replies": 92,
+ "comments_by_creator": 16,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 174,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:42:21",
+ "approved": "2026-10-18T16:42+09:00"
+}

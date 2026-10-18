@@ -1,0 +1,76 @@
+{
+ "id": "eIY-Pgg-b1E",
+ "title": "choose peace",
+ "channel": "sleepwalker",
+ "channel_id": "UCxX86eo-AEVSHIYtHO10U_A",
+ "subs": 14200,
+ "views": 1823354,
+ "ratio": 128.41,
+ "age_days": 167,
+ "views_per_day": 10918.3,
+ "minutes": 60.0,
+ "likes": 70842,
+ "comments": 1130,
+ "published": "2026-05-03",
+ "queries": "검색:background music | 검색:calm music | 검색:calming music | 검색:ambient music | 검색:chill music | 검색:peaceful music",
+ "url": "https://www.youtube.com/watch?v=eIY-Pgg-b1E",
+ "flag": "외국 영상",
+ "published_at": "2026-05-03T13:01:08Z",
+ "rank": "W368",
+ "set": "web",
+ "folder": "W_eIY-Pgg-b1E",
+ "sources": [
+  "검색:background music",
+  "검색:calm music",
+  "검색:calming music",
+  "검색:ambient music",
+  "검색:chill music",
+  "검색:peaceful music"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Golden Hour"
+  },
+  {
+   "start": 526,
+   "title": "Solitude"
+  },
+  {
+   "start": 1170,
+   "title": "Distant Memory"
+  },
+  {
+   "start": 1621,
+   "title": "Aether"
+  },
+  {
+   "start": 1911,
+   "title": "Lumen"
+  },
+  {
+   "start": 2515,
+   "title": "inner peace"
+  },
+  {
+   "start": 3028,
+   "title": "all is well"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 1135,
+ "comments_top_level": 755,
+ "comments_replies": 380,
+ "comments_by_creator": 16,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 1130,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T08:02:00",
+ "approved": "2026-10-18T17:02+09:00"
+}

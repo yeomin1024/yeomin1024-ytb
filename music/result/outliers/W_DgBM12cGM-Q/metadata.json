@@ -1,0 +1,113 @@
+{
+ "id": "DgBM12cGM-Q",
+ "title": "THE WEEKND | Late Night Drive Playlist",
+ "channel": "Jostynsc",
+ "channel_id": "UCqSK1AQkTJ911x2DnKeHrxA",
+ "subs": 10300,
+ "views": 4798033,
+ "ratio": 465.83,
+ "age_days": 118,
+ "views_per_day": 40661.3,
+ "minutes": 40.8,
+ "likes": 40610,
+ "comments": 295,
+ "published": "2026-06-22",
+ "queries": "검색:playlist | 검색:플리 | 검색:music",
+ "url": "https://www.youtube.com/watch?v=DgBM12cGM-Q",
+ "flag": "외국 영상",
+ "published_at": "2026-06-22T00:36:31Z",
+ "rank": "W108",
+ "set": "web",
+ "folder": "W_DgBM12cGM-Q",
+ "sources": [
+  "검색:playlist",
+  "검색:플리",
+  "검색:music"
+ ],
+ "source": "web",
+ "tags": [
+  "the weeknd playlist",
+  "the weeknd mix",
+  "the weeknd songs",
+  "the weeknd music",
+  "the weeknd driving playlist",
+  "the weeknd night drive",
+  "the weeknd vibes",
+  "after hours the weeknd",
+  "dawn fm playlist",
+  "starboy playlist",
+  "blinding lights",
+  "save your tears",
+  "die for you",
+  "the hills",
+  "sacrifice the weeknd",
+  "out of time",
+  "the weeknd greatest hits",
+  "best the weeknd songs",
+  "late night drive playlist",
+  "night drive playlist the weeknd",
+  "dark vibes playlist",
+  "midnight drive music",
+  "relaxing night drive"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Starboy"
+  },
+  {
+   "start": 220,
+   "title": "One Of The Girls"
+  },
+  {
+   "start": 456,
+   "title": "Die For You"
+  },
+  {
+   "start": 695,
+   "title": "Blinding Lights"
+  },
+  {
+   "start": 895,
+   "title": "The Hills"
+  },
+  {
+   "start": 1111,
+   "title": "Timeless"
+  },
+  {
+   "start": 1350,
+   "title": "In Your Eyes"
+  },
+  {
+   "start": 1581,
+   "title": "Out Of Time"
+  },
+  {
+   "start": 1789,
+   "title": "I Feel It Coming"
+  },
+  {
+   "start": 2036,
+   "title": "Can’t Feel My Face"
+  },
+  {
+   "start": 2234,
+   "title": "Save Your Tears"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 304,
+ "comments_top_level": 182,
+ "comments_replies": 122,
+ "comments_by_creator": 40,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 295,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:49:43",
+ "approved": "2026-10-18T16:49+09:00"
+}

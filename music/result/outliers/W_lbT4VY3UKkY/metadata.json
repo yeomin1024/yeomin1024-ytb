@@ -1,0 +1,91 @@
+{
+ "id": "lbT4VY3UKkY",
+ "title": "POV: you discovered that ✨South Indian and Hindi ✨songs hit different x timestamps || part-2",
+ "channel": "Arena",
+ "channel_id": "UCw3uoGPZ_b5rEKUKcSt2-NQ",
+ "subs": 3490,
+ "views": 2205785,
+ "ratio": 632.03,
+ "age_days": 63,
+ "views_per_day": 35012.5,
+ "minutes": 14.6,
+ "likes": 29353,
+ "comments": 397,
+ "published": "2026-08-15",
+ "queries": "검색:playlist",
+ "url": "https://www.youtube.com/watch?v=lbT4VY3UKkY",
+ "flag": "외국 영상",
+ "published_at": "2026-08-15T11:15:19Z",
+ "rank": "W65",
+ "set": "web",
+ "folder": "W_lbT4VY3UKkY",
+ "sources": [
+  "검색:playlist"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "KALYANI-(REMIX)"
+  },
+  {
+   "start": 50,
+   "title": "Othaiyadi Pathayila"
+  },
+  {
+   "start": 110,
+   "title": "Unakkul Naane"
+  },
+  {
+   "start": 184,
+   "title": "tum tum"
+  },
+  {
+   "start": 250,
+   "title": "Vachindamma"
+  },
+  {
+   "start": 327,
+   "title": "Chuttamalle"
+  },
+  {
+   "start": 412,
+   "title": "Inkem Inkem"
+  },
+  {
+   "start": 497,
+   "title": "Aankhon ki Gustakhiya (hindi)"
+  },
+  {
+   "start": 580,
+   "title": "Titli (hindi)"
+  },
+  {
+   "start": 657,
+   "title": "Jugraafiya (hindi)"
+  },
+  {
+   "start": 728,
+   "title": "O Rangrez (hindi)"
+  },
+  {
+   "start": 812,
+   "title": "Aasa kooda"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 406,
+ "comments_top_level": 223,
+ "comments_replies": 183,
+ "comments_by_creator": 10,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 397,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:47:16",
+ "approved": "2026-10-18T16:47+09:00"
+}

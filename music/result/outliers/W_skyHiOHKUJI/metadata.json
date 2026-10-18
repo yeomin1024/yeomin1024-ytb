@@ -1,0 +1,91 @@
+{
+ "id": "skyHiOHKUJI",
+ "title": "【Playlist】Shamisen Rock You’ll Want to Replay | Female Vocals | Anime Songs / J-POP / Work BGM",
+ "channel": "Geisha Girl",
+ "channel_id": "UCHmiih1hg6e3Ls85zA03uNQ",
+ "subs": 15200,
+ "views": 716370,
+ "ratio": 47.13,
+ "age_days": 162,
+ "views_per_day": 4422.0,
+ "minutes": 111.1,
+ "likes": 9934,
+ "comments": 190,
+ "published": "2026-05-08",
+ "queries": "검색:BGM",
+ "url": "https://www.youtube.com/watch?v=skyHiOHKUJI",
+ "flag": "외국 영상",
+ "published_at": "2026-05-08T08:00:00Z",
+ "rank": "W606",
+ "set": "web",
+ "folder": "W_skyHiOHKUJI",
+ "sources": [
+  "검색:BGM"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "東雲色の剣"
+  },
+  {
+   "start": 305,
+   "title": "運命のDetermination"
+  },
+  {
+   "start": 600,
+   "title": "オリガミ"
+  },
+  {
+   "start": 907,
+   "title": "兆し"
+  },
+  {
+   "start": 1149,
+   "title": "挑発"
+  },
+  {
+   "start": 1398,
+   "title": "くちびるほどけ"
+  },
+  {
+   "start": 1698,
+   "title": "未完成"
+  },
+  {
+   "start": 2000,
+   "title": "澄指"
+  },
+  {
+   "start": 2277,
+   "title": "皮肉"
+  },
+  {
+   "start": 2559,
+   "title": "月影解いて"
+  },
+  {
+   "start": 2787,
+   "title": "飾りのままじゃいられない"
+  },
+  {
+   "start": 3053,
+   "title": "GOLD"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 190,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T08:07:31",
+ "approved": "2026-10-18T17:07+09:00"
+}

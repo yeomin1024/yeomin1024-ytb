@@ -1,0 +1,68 @@
+{
+ "id": "aW-TYu5rwAY",
+ "title": "𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 | 초여름 별사탕 𖤐ˊ˗",
+ "channel": "Horu",
+ "channel_id": "UCykFnY5HVSUQBYDVKY5O6Tw",
+ "subs": 3550,
+ "views": 204181,
+ "ratio": 57.52,
+ "age_days": 169,
+ "views_per_day": 1208.2,
+ "minutes": 19.8,
+ "likes": 0,
+ "comments": 42,
+ "published": "2026-05-01",
+ "queries": "검색:플레이리스트 | 검색:플리",
+ "url": "https://www.youtube.com/watch?v=aW-TYu5rwAY",
+ "flag": "외국 영상",
+ "published_at": "2026-05-01T09:14:52Z",
+ "rank": "W565",
+ "set": "web",
+ "folder": "W_aW-TYu5rwAY",
+ "sources": [
+  "검색:플레이리스트",
+  "검색:플리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "NewJeans - Bubble Gum"
+  },
+  {
+   "start": 196,
+   "title": "KiiiKiii - Dancing Alone"
+  },
+  {
+   "start": 392,
+   "title": "STAYC - LOVE"
+  },
+  {
+   "start": 576,
+   "title": "Billlie - 기억사탕"
+  },
+  {
+   "start": 758,
+   "title": "Yerin Baek - 지켜줄게"
+  },
+  {
+   "start": 979,
+   "title": "여자친구 - Mermaid"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 42,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T08:07:26",
+ "approved": "2026-10-18T17:07+09:00"
+}

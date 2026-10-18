@@ -1,0 +1,108 @@
+{
+ "id": "eL5rWVPguoc",
+ "title": "music to stay locked in",
+ "channel": "Productivity FM",
+ "channel_id": "UCOaO_RMYpcFH5uKt5M8FnDg",
+ "subs": 39000,
+ "views": 844072,
+ "ratio": 21.64,
+ "age_days": 68,
+ "views_per_day": 12412.8,
+ "minutes": 115.6,
+ "likes": 17474,
+ "comments": 207,
+ "published": "2026-08-10",
+ "queries": "검색:work music",
+ "url": "https://www.youtube.com/watch?v=eL5rWVPguoc",
+ "flag": "외국 영상",
+ "published_at": "2026-08-10T13:00:34Z",
+ "rank": "W764",
+ "set": "web",
+ "folder": "W_eL5rWVPguoc",
+ "sources": [
+  "검색:work music"
+ ],
+ "source": "web",
+ "tags": [
+  "trust fund",
+  "deep house",
+  "deep house mix",
+  "deep house playlist",
+  "melodic house",
+  "house music mix",
+  "focus music",
+  "music for focus",
+  "study music",
+  "study playlist",
+  "work music",
+  "deep house for study",
+  "deep house for work",
+  "deep house for coding",
+  "deep work music",
+  "flow state music",
+  "productivity music",
+  "concentration music",
+  "coding music",
+  "night grind music",
+  "late night deep house",
+  "no vocals",
+  "instrumental deep house",
+  "pomodoro music",
+  "lock in",
+  "get it done",
+  "grindset music",
+  "self made"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "The Daily Rep"
+  },
+  {
+   "start": 339,
+   "title": "Built By Habit"
+  },
+  {
+   "start": 501,
+   "title": "Pay The Price"
+  },
+  {
+   "start": 856,
+   "title": "Show Up Anyway"
+  },
+  {
+   "start": 1216,
+   "title": "The Hard Part"
+  },
+  {
+   "start": 1449,
+   "title": "Do It Scared"
+  },
+  {
+   "start": 1669,
+   "title": "No Motivation Needed"
+  },
+  {
+   "start": 1896,
+   "title": "Earn It"
+  },
+  {
+   "start": 2219,
+   "title": "🔃"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 207,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T08:07:53",
+ "approved": "2026-10-18T17:07+09:00"
+}

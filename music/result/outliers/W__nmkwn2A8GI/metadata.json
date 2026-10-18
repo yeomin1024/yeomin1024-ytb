@@ -1,0 +1,107 @@
+{
+ "id": "_nmkwn2A8GI",
+ "title": "Summer Café Bleu Lounge | Luxury Originals",
+ "channel": "DeluxeChill",
+ "channel_id": "UCxfTneHOy0z4JhHTvdxTFzg",
+ "subs": 7030,
+ "views": 636561,
+ "ratio": 90.55,
+ "age_days": 158,
+ "views_per_day": 4028.9,
+ "minutes": 65.8,
+ "likes": 8186,
+ "comments": 199,
+ "published": "2026-05-12",
+ "queries": "검색:cafe music",
+ "url": "https://www.youtube.com/watch?v=_nmkwn2A8GI",
+ "flag": "외국 영상",
+ "published_at": "2026-05-12T21:13:57Z",
+ "rank": "W439",
+ "set": "web",
+ "folder": "W__nmkwn2A8GI",
+ "sources": [
+  "검색:cafe music"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Ceiling Shadowlights"
+  },
+  {
+   "start": 318,
+   "title": "Neon Summer Lights"
+  },
+  {
+   "start": 531,
+   "title": "Velvet Coastline"
+  },
+  {
+   "start": 758,
+   "title": "Marina Ghosts"
+  },
+  {
+   "start": 1007,
+   "title": "Saint-Tropez Neon"
+  },
+  {
+   "start": 1242,
+   "title": "Sunset Vinyl Café"
+  },
+  {
+   "start": 1497,
+   "title": "Lounge Bleu"
+  },
+  {
+   "start": 1743,
+   "title": "Blue Cigarette Smoke"
+  },
+  {
+   "start": 2002,
+   "title": "Warm Wind Theory"
+  },
+  {
+   "start": 2236,
+   "title": "Neon Palm Shadows"
+  },
+  {
+   "start": 2489,
+   "title": "After Sunset Avenue"
+  },
+  {
+   "start": 2717,
+   "title": "Salted Air"
+  },
+  {
+   "start": 2990,
+   "title": "Neon Shadows Cafe"
+  },
+  {
+   "start": 3212,
+   "title": "Blue Hour Conversations"
+  },
+  {
+   "start": 3491,
+   "title": "Champagne Colors"
+  },
+  {
+   "start": 3716,
+   "title": "Ocean-Café Truth"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 199,
+ "comments_top_level": 112,
+ "comments_replies": 87,
+ "comments_by_creator": 50,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 199,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T08:04:59",
+ "approved": "2026-10-18T17:05+09:00"
+}

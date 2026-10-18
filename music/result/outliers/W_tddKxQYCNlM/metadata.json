@@ -1,0 +1,91 @@
+{
+ "id": "tddKxQYCNlM",
+ "title": "Nhạc không lời Piano & Mưa Vol.1 | Piano Thư Giãn, Học Bài, Ngủ Ngon | Trí Nhật Piano",
+ "channel": "Trí Nhật Piano",
+ "channel_id": "UCEMv-P16CbL1sXsJoUNrAGg",
+ "subs": 8640,
+ "views": 1009552,
+ "ratio": 116.85,
+ "age_days": 155,
+ "views_per_day": 6513.2,
+ "minutes": 123.0,
+ "likes": 3879,
+ "comments": 250,
+ "published": "2026-05-15",
+ "queries": "검색:relaxing piano music | 검색:relaxing piano | 검색:piano",
+ "url": "https://www.youtube.com/watch?v=tddKxQYCNlM",
+ "flag": "외국 영상",
+ "published_at": "2026-05-15T11:01:21Z",
+ "rank": "W384",
+ "set": "web",
+ "folder": "W_tddKxQYCNlM",
+ "sources": [
+  "검색:relaxing piano music",
+  "검색:relaxing piano",
+  "검색:piano"
+ ],
+ "source": "web",
+ "tags": [
+  "trí nhật piano",
+  "piano trí nhật",
+  "trí nhật piano cover",
+  "synthesia tutorial piano",
+  "piano cover",
+  "nhạc piano không lời",
+  "piano music",
+  "relaxing piano music",
+  "nhạc thư giãn",
+  "xu hướng youtube",
+  "piano",
+  "study music",
+  "nhạc chill",
+  "sleep music",
+  "beautiful piano music",
+  "nhac khong loi",
+  "piano chill",
+  "nhạc không lời",
+  "nhạc không lời hay nhất",
+  "piano nhẹ nhàng",
+  "nhạc hay mỗi ngày",
+  "piano rain",
+  "piano rain vietnam",
+  "trí nhật piano rain",
+  "rain sounds for sleeping"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Vết Mưa Piano"
+  },
+  {
+   "start": 224,
+   "title": "Yêu Em Thì Gật Đầu"
+  },
+  {
+   "start": 515,
+   "title": "Dấu Mưa"
+  },
+  {
+   "start": 810,
+   "title": "Cỏ Dại và Hoa Dành Dành"
+  },
+  {
+   "start": 1068,
+   "title": "Chiều Nay Không Có Mưa Bay"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "vi",
+ "foreign": true,
+ "comments_fetched": 250,
+ "comments_top_level": 117,
+ "comments_replies": 133,
+ "comments_by_creator": 111,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 250,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T08:03:09",
+ "approved": "2026-10-18T17:03+09:00"
+}

@@ -1,0 +1,71 @@
+{
+ "id": "q48Y5Hf83Bk",
+ "title": "Sad Song Playlist (+ with timestamps) !!",
+ "channel": "Mood Tapes 🎶",
+ "channel_id": "UCaMEfZrVm_Yqj6ZVgVzd4_A",
+ "subs": 17900,
+ "views": 3663675,
+ "ratio": 204.67,
+ "age_days": 130,
+ "views_per_day": 28182.1,
+ "minutes": 14.7,
+ "likes": 44444,
+ "comments": 1500,
+ "published": "2026-06-09",
+ "queries": "검색:playlist",
+ "url": "https://www.youtube.com/watch?v=q48Y5Hf83Bk",
+ "flag": "외국 영상",
+ "published_at": "2026-06-09T15:33:31Z",
+ "rank": "W259",
+ "set": "web",
+ "folder": "W_q48Y5Hf83Bk",
+ "sources": [
+  "검색:playlist"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Ae Dil Hai Mushkil"
+  },
+  {
+   "start": 68,
+   "title": "Piya aaye na"
+  },
+  {
+   "start": 185,
+   "title": "samjhawan"
+  },
+  {
+   "start": 321,
+   "title": "tu hi hai Aashiqui"
+  },
+  {
+   "start": 414,
+   "title": "Humnava mere"
+  },
+  {
+   "start": 569,
+   "title": "yun hi re"
+  },
+  {
+   "start": 735,
+   "title": "ishq karu"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 1520,
+ "comments_top_level": 882,
+ "comments_replies": 638,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 1500,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:57:14",
+ "approved": "2026-10-18T16:57+09:00"
+}

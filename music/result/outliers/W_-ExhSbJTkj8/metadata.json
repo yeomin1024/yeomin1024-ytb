@@ -1,0 +1,111 @@
+{
+ "id": "-ExhSbJTkj8",
+ "title": "노동요로 들으려고 만든 House 하우스 𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭",
+ "channel": "노마카세",
+ "channel_id": "UC75pbnXRZaN3VCzo8OQzJhQ",
+ "subs": 46200,
+ "views": 240960,
+ "ratio": 5.22,
+ "age_days": 32,
+ "views_per_day": 7530.0,
+ "minutes": 52.1,
+ "likes": 6469,
+ "comments": 142,
+ "published": "2026-09-15",
+ "queries": "검색:노동요",
+ "url": "https://www.youtube.com/watch?v=-ExhSbJTkj8",
+ "flag": "",
+ "published_at": "2026-09-15T09:00:17Z",
+ "rank": "W915",
+ "set": "web",
+ "folder": "W_-ExhSbJTkj8",
+ "sources": [
+  "검색:노동요"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "INJI - ALL I WANNA DO"
+  },
+  {
+   "start": 138,
+   "title": "Newjeans - Attention (250 remix)"
+  },
+  {
+   "start": 320,
+   "title": "Riton, Kah-Lo, GEE LEE - Fake ID (Coke & Rum Remix)"
+  },
+  {
+   "start": 447,
+   "title": "f(x) - 4walls (Demo)"
+  },
+  {
+   "start": 653,
+   "title": "LoMalo, jstibby - Get Motivated (feat. jstibby)"
+  },
+  {
+   "start": 798,
+   "title": "Luci Gang - HEADLOCK"
+  },
+  {
+   "start": 916,
+   "title": "Woodcamp - Eatin’Good"
+  },
+  {
+   "start": 1138,
+   "title": "KiiiKiii - 404 (New Era)"
+  },
+  {
+   "start": 1318,
+   "title": "INJI - BIG UP"
+  },
+  {
+   "start": 1479,
+   "title": "RAKUNELAMA - Hit the Bang (feat. SUMIN)"
+  },
+  {
+   "start": 1773,
+   "title": "Tentendo, Jordan Dennis - Function"
+  },
+  {
+   "start": 1979,
+   "title": "하우스룰즈 (House Rulez) - 집 (House)"
+  },
+  {
+   "start": 2225,
+   "title": "Gigi D'Agostino - Bla Bla Bla"
+  },
+  {
+   "start": 2417,
+   "title": "XG - HYPNOTIZE"
+  },
+  {
+   "start": 2589,
+   "title": "Fabich, Pastel, Jafunk (feat. Bambie) - Ecstasy [Mixed]"
+  },
+  {
+   "start": 2729,
+   "title": "하우스룰즈 (House Rulez) - Do it (Feat. 이윤정)"
+  },
+  {
+   "start": 2969,
+   "title": "Collect 200 - Pull Up"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 142,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T08:08:15",
+ "approved": "2026-10-18T17:08+09:00"
+}

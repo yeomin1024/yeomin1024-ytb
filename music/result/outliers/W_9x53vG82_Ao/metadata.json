@@ -1,0 +1,120 @@
+{
+ "id": "9x53vG82_Ao",
+ "title": "밤바다 보이는 카페 창가, 조용히 듣기 좋은 7080 라디오 감성 올드팝",
+ "channel": "morgellia(모르겔리아)",
+ "channel_id": "UCi-Do-GyTW9NKs9i7IBM1Bw",
+ "subs": 18100,
+ "views": 320539,
+ "ratio": 17.71,
+ "age_days": 144,
+ "views_per_day": 2226.0,
+ "minutes": 159.8,
+ "likes": 2740,
+ "comments": 151,
+ "published": "2026-05-26",
+ "queries": "검색:수면유도음악 | 검색:편안한음악 | 검색:마음이편안해지는음악 | 검색:감성음악",
+ "url": "https://www.youtube.com/watch?v=9x53vG82_Ao",
+ "flag": "외국 영상",
+ "published_at": "2026-05-26T23:00:07Z",
+ "rank": "W794",
+ "set": "web",
+ "folder": "W_9x53vG82_Ao",
+ "sources": [
+  "검색:수면유도음악",
+  "검색:편안한음악",
+  "검색:마음이편안해지는음악",
+  "검색:감성음악"
+ ],
+ "source": "web",
+ "tags": [
+  "#감성올드팝",
+  "#감성팝송",
+  "#7080음악",
+  "#겨울밤",
+  "#눈내리는밤",
+  "#추억의올드팝",
+  "#카페음악",
+  "#겨울감성",
+  "#플레이리스트",
+  "#봄비",
+  "#봄감성",
+  "#봄날감성",
+  "#올드팝",
+  "#7080올드팝",
+  "#추억감성",
+  "#봄날",
+  "#카페감성",
+  "#그시절",
+  "#라디오",
+  "#LP감성",
+  "카페감성 팝송"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Midnight Youth (한밤의 청춘)"
+  },
+  {
+   "start": 202,
+   "title": "Old Café Lights (오래된 카페 불빛)"
+  },
+  {
+   "start": 383,
+   "title": "Missing Those Days (그 시절이 그리워)"
+  },
+  {
+   "start": 599,
+   "title": "Warm Old Roads (따뜻했던 옛길)"
+  },
+  {
+   "start": 819,
+   "title": "Once in Spring (그해 봄날)"
+  },
+  {
+   "start": 1026,
+   "title": "Rainy Nostalgia (비 오는 향수)"
+  },
+  {
+   "start": 1213,
+   "title": "Young Hearts Tonight (오늘 밤의 청춘)"
+  },
+  {
+   "start": 1432,
+   "title": "Youthful Days (젊은 날들)"
+  },
+  {
+   "start": 1634,
+   "title": "Echoes of Us (우리의 메아리)"
+  },
+  {
+   "start": 1831,
+   "title": "Coffee and Memories (커피와 추억)"
+  },
+  {
+   "start": 2043,
+   "title": "Summer Recall (여름의 회상)"
+  },
+  {
+   "start": 2242,
+   "title": "Faded Youth (희미해진 청춘)"
+  },
+  {
+   "start": 2396,
+   "title": "Repeat"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 151,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T08:07:57",
+ "approved": "2026-10-18T17:07+09:00"
+}

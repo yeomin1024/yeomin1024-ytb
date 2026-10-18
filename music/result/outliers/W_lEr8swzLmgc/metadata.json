@@ -1,0 +1,151 @@
+{
+ "id": "lEr8swzLmgc",
+ "title": "[PlayList] Weeknd (위켄드) | 콘서트 예습, 그 여운을 다시 느끼는 플레이리스트.",
+ "channel": "몽글몽글즈",
+ "channel_id": "UCuCy1VY1aYnLRCYT3QwhoMw",
+ "subs": 3750,
+ "views": 891789,
+ "ratio": 237.81,
+ "age_days": 24,
+ "views_per_day": 37157.9,
+ "minutes": 95.6,
+ "likes": 1907,
+ "comments": 12,
+ "published": "2026-09-23",
+ "queries": "검색:플레이리스트",
+ "url": "https://www.youtube.com/watch?v=lEr8swzLmgc",
+ "flag": "",
+ "published_at": "2026-09-23T14:06:13Z",
+ "rank": "W232",
+ "set": "web",
+ "folder": "W_lEr8swzLmgc",
+ "sources": [
+  "검색:플레이리스트"
+ ],
+ "source": "web",
+ "tags": [
+  "cute cats",
+  "funny cats",
+  "kittens",
+  "cat shorts",
+  "pet shorts",
+  "monggle mongglez",
+  "korean pets",
+  "adorable animals",
+  "dogs",
+  "puppy",
+  "puppy shorts"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Starboy"
+  },
+  {
+   "start": 227,
+   "title": "Blinding Lights"
+  },
+  {
+   "start": 426,
+   "title": "The Hills"
+  },
+  {
+   "start": 668,
+   "title": "One Of The Girls"
+  },
+  {
+   "start": 909,
+   "title": "Die For You"
+  },
+  {
+   "start": 1168,
+   "title": "Save Your Tears"
+  },
+  {
+   "start": 1383,
+   "title": "Timeless"
+  },
+  {
+   "start": 1640,
+   "title": "Call Out My Name"
+  },
+  {
+   "start": 1869,
+   "title": "I Feel It Coming"
+  },
+  {
+   "start": 2139,
+   "title": "Can't Feel My Face"
+  },
+  {
+   "start": 2357,
+   "title": "After Hours"
+  },
+  {
+   "start": 2717,
+   "title": "Often"
+  },
+  {
+   "start": 2968,
+   "title": "I Was Never There"
+  },
+  {
+   "start": 3209,
+   "title": "Heartless"
+  },
+  {
+   "start": 3409,
+   "title": "Out of Time"
+  },
+  {
+   "start": 3625,
+   "title": "Is There Someone Else?"
+  },
+  {
+   "start": 3825,
+   "title": "Open Hearts"
+  },
+  {
+   "start": 4049,
+   "title": "Wake Me Up"
+  },
+  {
+   "start": 4358,
+   "title": "Cry For Me"
+  },
+  {
+   "start": 4582,
+   "title": "São Paulo"
+  },
+  {
+   "start": 4884,
+   "title": "Take My Breath"
+  },
+  {
+   "start": 5100,
+   "title": "Sacrifice"
+  },
+  {
+   "start": 5290,
+   "title": "Moth To A Flame"
+  },
+  {
+   "start": 5525,
+   "title": "Less Than Zero"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 15,
+ "comments_top_level": 14,
+ "comments_replies": 1,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 12,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:56:22",
+ "approved": "2026-10-18T16:56+09:00"
+}

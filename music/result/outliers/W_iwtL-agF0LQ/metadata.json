@@ -1,0 +1,63 @@
+{
+ "id": "iwtL-agF0LQ",
+ "title": "Baddies playlist🫦💋",
+ "channel": "Music-cholic",
+ "channel_id": "UCBW35NmlzyM4lM25y7_7lgg",
+ "subs": 1230,
+ "views": 1025670,
+ "ratio": 833.88,
+ "age_days": 144,
+ "views_per_day": 7122.7,
+ "minutes": 18.9,
+ "likes": 17787,
+ "comments": 56,
+ "published": "2026-05-26",
+ "queries": "검색:플리",
+ "url": "https://www.youtube.com/watch?v=iwtL-agF0LQ",
+ "flag": "외국 영상",
+ "published_at": "2026-05-26T21:03:57Z",
+ "rank": "W42",
+ "set": "web",
+ "folder": "W_iwtL-agF0LQ",
+ "sources": [
+  "검색:플리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Breaking dishes"
+  },
+  {
+   "start": 196,
+   "title": "Obsessed"
+  },
+  {
+   "start": 437,
+   "title": "Toxic"
+  },
+  {
+   "start": 636,
+   "title": "Telephone"
+  },
+  {
+   "start": 845,
+   "title": "on the floor"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en-US",
+ "foreign": true,
+ "comments_fetched": 56,
+ "comments_top_level": 36,
+ "comments_replies": 20,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 56,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:45:48",
+ "approved": "2026-10-18T16:45+09:00"
+}

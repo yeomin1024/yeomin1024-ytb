@@ -1,0 +1,63 @@
+{
+ "id": "wYiyAR_dBDU",
+ "title": ".•♫•♬•𝙁𝙄𝙉𝙀𝙎𝙃𝙔𝙏 PLAYLIST•♬•♫",
+ "channel": "loverswift",
+ "channel_id": "UCk4LDYbCMbGt5GolNgMa1WA",
+ "subs": 4870,
+ "views": 1250117,
+ "ratio": 256.7,
+ "age_days": 86,
+ "views_per_day": 14536.2,
+ "minutes": 16.8,
+ "likes": 20570,
+ "comments": 110,
+ "published": "2026-07-23",
+ "queries": "검색:플리",
+ "url": "https://www.youtube.com/watch?v=wYiyAR_dBDU",
+ "flag": "외국 영상",
+ "published_at": "2026-07-23T10:01:43Z",
+ "rank": "W218",
+ "set": "web",
+ "folder": "W_wYiyAR_dBDU",
+ "sources": [
+  "검색:플리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Confident -Justin Bieber"
+  },
+  {
+   "start": 244,
+   "title": "Gabriella -Katseye"
+  },
+  {
+   "start": 440,
+   "title": "Harleys In Hawai -Katy Perry"
+  },
+  {
+   "start": 620,
+   "title": "Confidence -Kim"
+  },
+  {
+   "start": 828,
+   "title": "Moonlight -Kali 𝗨𝗰𝗵𝗶𝘀"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 112,
+ "comments_top_level": 53,
+ "comments_replies": 59,
+ "comments_by_creator": 29,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 110,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:55:46",
+ "approved": "2026-10-18T16:55+09:00"
+}

@@ -1,0 +1,112 @@
+{
+ "id": "EvU4QgmjhMY",
+ "title": "Quiet Night Playlist 🌙 | Soft Love Songs for Deep Feelings & Calm Moments",
+ "channel": "Cozy Strings",
+ "channel_id": "UCykcb1rhodDYY4TUq5D8kdA",
+ "subs": 9610,
+ "views": 940788,
+ "ratio": 97.9,
+ "age_days": 134,
+ "views_per_day": 7020.8,
+ "minutes": 134.1,
+ "likes": 3228,
+ "comments": 159,
+ "published": "2026-06-05",
+ "queries": "검색:RelaxingMusic | 검색:stress relief music",
+ "url": "https://www.youtube.com/watch?v=EvU4QgmjhMY",
+ "flag": "외국 영상",
+ "published_at": "2026-06-05T12:00:01Z",
+ "rank": "W422",
+ "set": "web",
+ "folder": "W_EvU4QgmjhMY",
+ "sources": [
+  "검색:RelaxingMusic",
+  "검색:stress relief music"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "If Love Is Blind"
+  },
+  {
+   "start": 208,
+   "title": "Cry"
+  },
+  {
+   "start": 445,
+   "title": "Someone Who Believes In You"
+  },
+  {
+   "start": 694,
+   "title": "Even If"
+  },
+  {
+   "start": 891,
+   "title": "That's Why You Go Away"
+  },
+  {
+   "start": 1158,
+   "title": "Back To December"
+  },
+  {
+   "start": 1363,
+   "title": "Leaving On a Jet Plane"
+  },
+  {
+   "start": 1640,
+   "title": "I'm With You"
+  },
+  {
+   "start": 1880,
+   "title": "Lose Control"
+  },
+  {
+   "start": 2087,
+   "title": "The Sound of Silence"
+  },
+  {
+   "start": 2333,
+   "title": "Only Love"
+  },
+  {
+   "start": 2576,
+   "title": "We Can't Be Friends"
+  },
+  {
+   "start": 2799,
+   "title": "Lost In Your Eyes"
+  },
+  {
+   "start": 3014,
+   "title": "There You'll Be"
+  },
+  {
+   "start": 3224,
+   "title": "Because You Loved Me"
+  },
+  {
+   "start": 3500,
+   "title": "To Love You More"
+  },
+  {
+   "start": 3760,
+   "title": "Same Ground"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 162,
+ "comments_top_level": 82,
+ "comments_replies": 80,
+ "comments_by_creator": 73,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 159,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T08:04:31",
+ "approved": "2026-10-18T17:04+09:00"
+}

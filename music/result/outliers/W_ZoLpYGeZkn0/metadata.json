@@ -1,0 +1,83 @@
+{
+ "id": "ZoLpYGeZkn0",
+ "title": "【作業用BGM】名探偵コナン 夜ジャズメドレー☔️｜雨音とともに聴く Relaxing Jazz BGM",
+ "channel": "Ken's Cafe&Jazz Lounge BGM",
+ "channel_id": "UCjGeQp0gGEJRluSXiyoIwow",
+ "subs": 6330,
+ "views": 484024,
+ "ratio": 76.47,
+ "age_days": 156,
+ "views_per_day": 3102.7,
+ "minutes": 167.6,
+ "likes": 11365,
+ "comments": 174,
+ "published": "2026-05-14",
+ "queries": "검색:BGM",
+ "url": "https://www.youtube.com/watch?v=ZoLpYGeZkn0",
+ "flag": "외국 영상",
+ "published_at": "2026-05-14T08:49:07Z",
+ "rank": "W482",
+ "set": "web",
+ "folder": "W_ZoLpYGeZkn0",
+ "sources": [
+  "검색:BGM"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "美しい鰭"
+  },
+  {
+   "start": 216,
+   "title": "ラストダンスあなたと"
+  },
+  {
+   "start": 399,
+   "title": "渡月橋〜君想ふ〜"
+  },
+  {
+   "start": 611,
+   "title": "ハルウタ"
+  },
+  {
+   "start": 780,
+   "title": "Secret of my heart"
+  },
+  {
+   "start": 984,
+   "title": "クロノスタシス"
+  },
+  {
+   "start": 1193,
+   "title": "キミがいれば"
+  },
+  {
+   "start": 1406,
+   "title": "謎"
+  },
+  {
+   "start": 1603,
+   "title": "恋に恋して"
+  },
+  {
+   "start": 1777,
+   "title": "Time after time 〜花舞う街で〜"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ja",
+ "foreign": true,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 174,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T08:07:14",
+ "approved": "2026-10-18T17:07+09:00"
+}

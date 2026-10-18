@@ -1,0 +1,115 @@
+{
+ "id": "wFy9kud8FHE",
+ "title": "Morning Coffee Indie Folk – Warm Acoustic Music for Peaceful Slow Days",
+ "channel": "Silver Coast",
+ "channel_id": "UC3Y-xRCwLb8S0bQvDQhwm3g",
+ "subs": 28700,
+ "views": 2006522,
+ "ratio": 69.91,
+ "age_days": 112,
+ "views_per_day": 17915.4,
+ "minutes": 65.3,
+ "likes": 0,
+ "comments": 363,
+ "published": "2026-06-27",
+ "queries": "검색:cafe music | 검색:RelaxingMusic | 검색:calm music | 검색:work music | 검색:chill music | 검색:peaceful music | 검색:soothing music",
+ "url": "https://www.youtube.com/watch?v=wFy9kud8FHE",
+ "flag": "외국 영상",
+ "published_at": "2026-06-27T14:00:13Z",
+ "rank": "W516",
+ "set": "web",
+ "folder": "W_wFy9kud8FHE",
+ "sources": [
+  "검색:cafe music",
+  "검색:RelaxingMusic",
+  "검색:calm music",
+  "검색:work music",
+  "검색:chill music",
+  "검색:peaceful music",
+  "검색:soothing music"
+ ],
+ "source": "web",
+ "tags": [
+  "indie folk",
+  "morning coffee indie folk",
+  "warm acoustic music",
+  "relaxing acoustic music",
+  "coffee music playlist",
+  "morning playlist",
+  "indie acoustic playlist",
+  "peaceful morning music",
+  "cozy acoustic songs",
+  "calm background music",
+  "acoustic chill playlist",
+  "relaxing indie folk",
+  "cinematic indie folk",
+  "ambient folk music",
+  "coffee vibes playlist",
+  "slow morning music",
+  "acoustic morning playlist"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "August River"
+  },
+  {
+   "start": 281,
+   "title": "October Country"
+  },
+  {
+   "start": 558,
+   "title": "The Firetower"
+  },
+  {
+   "start": 847,
+   "title": "The Valley Knows"
+  },
+  {
+   "start": 1122,
+   "title": "Northern Ember"
+  },
+  {
+   "start": 1527,
+   "title": "Quiet Harbour"
+  },
+  {
+   "start": 1854,
+   "title": "Morning Tide"
+  },
+  {
+   "start": 2163,
+   "title": "Golden Canyons"
+  },
+  {
+   "start": 2491,
+   "title": "Wildfire Mercy"
+  },
+  {
+   "start": 2825,
+   "title": "November Kids"
+  },
+  {
+   "start": 3175,
+   "title": "Northern Rivers"
+  },
+  {
+   "start": 3594,
+   "title": "Dust And Thunder"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:34까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en-US",
+ "foreign": true,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 363,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T08:07:19",
+ "approved": "2026-10-18T17:07+09:00"
+}

@@ -1,0 +1,149 @@
+{
+ "tool": "tts_narration.py v1.10",
+ "created": "2026-10-18T04:48:46",
+ "topic": "stock",
+ "id": "eonje-maesu-2026-10-shorts",
+ "script": "stock/source/eonje-maesu-2026-10/shorts/eonje-maesu-2026-10-shorts.txt",
+ "script_sha1": "9df4bd932d0c4ac9",
+ "sentences": 12,
+ "seconds": 57.81,
+ "engine": {
+  "engine": "qwen3-tts-clone",
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "ref": "e36c19a225874205",
+  "mode": "icl",
+  "language": "Korean",
+  "dtype": "float32",
+  "gen": {}
+ },
+ "voices": {
+  "host": {
+   "name": "진행자",
+   "parts": [
+    "*"
+   ],
+   "engine": "clone",
+   "lock": true,
+   "speaker": "Sohee",
+   "instruct": "",
+   "part_instruct": {},
+   "seed": 4301,
+   "gap": 0.45,
+   "generation": {},
+   "ref_audio": "voices/ref/host.wav",
+   "ref_sha": "e36c19a225874205",
+   "ref_f0": 127.7,
+   "files": [
+    "voices/host.json"
+   ]
+  }
+ },
+ "voice_ids": {
+  "host": "ba3d7519a1de4d4c"
+ },
+ "gaps": {
+  "lead_in": 0.3,
+  "part": 1.0,
+  "tail": 0.8,
+  "cards": []
+ },
+ "items": [
+  {
+   "n": 1,
+   "role": "host",
+   "part": "언제 매수",
+   "text": "언제 매수할지 고민될 때, 매수 신호를 따르면 성공 확률이 높아진다고들 하죠.",
+   "start": 0.3,
+   "end": 4.94
+  },
+  {
+   "n": 2,
+   "role": "host",
+   "part": "언제 매수",
+   "text": "정말 그런지, AI가 짠 파이썬 코드로 과거 실제 가격을 넣어 백테스트해 봤습니다.",
+   "start": 5.39,
+   "end": 10.83
+  },
+  {
+   "n": 3,
+   "role": "host",
+   "part": "언제 매수",
+   "text": "시험한 건 S&P 500을 따라가는 ETF인 SPY, 2016년부터예요.",
+   "start": 11.28,
+   "end": 16.56
+  },
+  {
+   "n": 4,
+   "role": "host",
+   "part": "언제 매수",
+   "text": "20일 평균선, RSI, 공포지수 VIX 같은 매수 신호 10가지를 넣었어요.",
+   "start": 17.01,
+   "end": 22.23
+  },
+  {
+   "n": 5,
+   "role": "host",
+   "part": "언제 매수",
+   "text": "매수한 값보다 5% 먼저 오르면 성공, 2% 먼저 떨어지면 실패로 셌어요.",
+   "start": 22.68,
+   "end": 27.91
+  },
+  {
+   "n": 6,
+   "role": "host",
+   "part": "언제 매수",
+   "text": "비교 상대는 날짜만 무작위로 매수한 계좌 2천 개예요.",
+   "start": 28.36,
+   "end": 31.8
+  },
+  {
+   "n": 7,
+   "role": "host",
+   "part": "언제 매수",
+   "text": "신호가 쓸모 있다면, 무작위보다 성공률이 높아야 하니까요.",
+   "start": 32.25,
+   "end": 35.86
+  },
+  {
+   "n": 8,
+   "role": "host",
+   "part": "언제 매수",
+   "text": "무작위 계좌도 똑같은 기준으로 판정했어요.",
+   "start": 36.31,
+   "end": 38.83
+  },
+  {
+   "n": 9,
+   "role": "host",
+   "part": "언제 매수",
+   "text": "가장 높은 건 20일 평균선을 넘을 때 매수로, 성공률 52.1%였어요.",
+   "start": 39.28,
+   "end": 44.48
+  },
+  {
+   "n": 10,
+   "role": "host",
+   "part": "언제 매수",
+   "text": "하지만 10가지 모두, 무작위 매수와 차이가 없는 범위였어요.",
+   "start": 44.93,
+   "end": 48.62
+  },
+  {
+   "n": 11,
+   "role": "host",
+   "part": "언제 매수",
+   "text": "그럼 신호마다 언제 맞고, 언제 틀렸을까요?",
+   "start": 49.07,
+   "end": 52.02
+  },
+  {
+   "n": 12,
+   "role": "host",
+   "part": "언제 매수",
+   "text": "10가지 신호의 기록과, 기간을 바꿔도 같은지는 아래 영상에서 확인하세요.",
+   "start": 52.47,
+   "end": 57.01
+  }
+ ],
+ "voice_sha1": "f0d0f801940b36b1"
+}

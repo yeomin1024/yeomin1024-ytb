@@ -1,0 +1,92 @@
+# =====================================================================================================
+# 수학 퀴즈 채널 — 갈래 (폴더 math)
+# VERSION: v1.0 — 2026-10-18 — 새로 만듦 (사용자 지시 2026-10-18: "수학문제 띄워놓고 시청자가 맞춰보는 영상이 조회수 잘 나오고 구독자 많이 모을 수
+#          있는지 탐색해볼래?")
+#
+# 왜 new/ 와 따로: 수학 퀴즈는 ① 쇼츠가 많은 형식이고 ② 문제·숫자에 언어가 거의 없어 세계(영어) 시장도 봐야 한다.
+#   new/ 는 한국어 롱폼만 재는 폴더라 쇼츠 탐색(검색어 46개 × 100단위)·외국 영상을 켜면 다른 분야까지 다시 검색해야 함 →
+#   수학 검색어만 든 이 폴더에서 롱폼·쇼츠·한국어·영어를 잰다. 같은 잣대(한국어 롱폼)의 27개 분야 비교는 new/ 의 '28. 수학 퀴즈'.
+# 이 파일이 원본 → python3 tools/niche_scan.py math sync → keywords.txt(한국어) · keywords_foreign.txt(영어, foreign = true) · tag_rules.toml
+# 분야 비교 표: python3 tools/niche_scan.py math report (롱폼) · report --shorts (쇼츠) → math/result/niche/
+# 칸은 new/niches.toml 과 같다 (foreign = true → 영어 검색어 — analyzer_config.toml INCLUDE_FOREIGN = true 라 검색됨).
+# 검색어 고른 법: 화면에 문제를 띄우고 시청자가 푸는 영상을 찾을 때 쓰는 말 (한국어 '수학 퀴즈'·'계산 퀴즈'·'암산'·'IQ 테스트',
+#   영어 'math puzzle'·'can you solve this'·'math olympiad'·'mental math') + 비교용 설명형('수학 이야기') + 기준(재테크·stock market — 지금 채널).
+#   자동완성(suggestqueries)이 이 환경에서 막혀 사람들이 찾는 말로 고르지는 못함 — 태그로 다시 고르는 것은 이 결과를 본 뒤.
+# ※ 연구·교육용 분석.
+# =====================================================================================================
+
+[[niche]]
+name = "01. 수학·계산 퀴즈"
+group = "A"
+keywords = ["수학 퀴즈", "계산 퀴즈"]
+words = ["수학 퀴즈", "계산 퀴즈", "수학 문제", "계산 문제", "수학", "산수", "사칙연산", "방정식", "정답"]
+make = "상"
+make_why = "문제 → 타이머 → 정답·풀이를 HTML 애니메이션으로 그대로. 정답 검산(코드)이 필요"
+
+[[niche]]
+name = "02. 암산"
+group = "A"
+keywords = ["암산"]
+words = ["암산", "플래시 암산", "주산", "빠른 계산"]
+make = "상"
+make_why = "숫자가 빠르게 지나가는 화면 — 애니메이션으로 쉽게 만듦"
+
+[[niche]]
+name = "03. IQ·두뇌 퀴즈"
+group = "A"
+keywords = ["IQ 테스트"]
+words = ["IQ", "아이큐", "멘사", "두뇌", "천재", "지능"]
+make = "상"
+make_why = "도형·수열 문제 — 애니메이션으로 만듦. 수학이 아닌 그림 퀴즈가 섞임"
+
+[[niche]]
+name = "04. 교양 수학 (설명형)"
+group = "A"
+keywords = ["수학 이야기"]
+words = ["수학 이야기", "수학자", "난제", "증명", "확률", "수학적으로"]
+make = "상"
+make_why = "퀴즈가 아니라 설명형 — 지금 내레이션 + 애니메이션 방식과 같음 (비교용)"
+
+[[niche]]
+name = "05. Math puzzle (영어)"
+group = "A"
+foreign = true
+keywords = ["math puzzle", "can you solve this"]
+words = ["math puzzle", "can you solve", "solve this", "puzzle", "riddle", "brain teaser"]
+make = "상"
+make_why = "말 없이 문제·풀이만으로도 됨 — 세계 시청자. 영어 내레이션을 넣으려면 영어 목소리가 따로 필요"
+
+[[niche]]
+name = "06. Math olympiad (영어)"
+group = "A"
+foreign = true
+keywords = ["math olympiad"]
+words = ["olympiad", "olympiad math", "competition math", "a nice algebra", "algebra problem"]
+make = "상"
+make_why = "올림피아드풍 대수 문제 풀이 — 수식 화면 + 손글씨 풀이가 주된 형식"
+
+[[niche]]
+name = "07. Mental math (영어)"
+group = "A"
+foreign = true
+keywords = ["mental math"]
+words = ["mental math", "mental calculation", "math trick", "math tricks", "multiply", "multiplication"]
+make = "상"
+make_why = "계산 요령 — 애니메이션으로 쉽게 만듦"
+
+[[niche]]
+name = "08. (기준) 재테크"
+group = "기준"
+keywords = ["재테크"]
+words = ["재테크", "연금", "노후", "저축", "절세"]
+make = "상"
+make_why = "지금 채널 (부자백서) — 같은 방법(언어 지정 없이 검색)으로 잰 한국어 기준선"
+
+[[niche]]
+name = "09. (기준) stock market (영어)"
+group = "기준"
+foreign = true
+keywords = ["stock market"]
+words = ["stock market", "stocks", "investing", "S&P 500", "nasdaq"]
+make = "상"
+make_why = "지금 채널 (STOCK LAB — 세계 대상) — 영어 기준선"

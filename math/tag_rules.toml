@@ -1,0 +1,19 @@
+# =====================================================================================================
+# 주제 묶음 — 새 주제 탐색 (math) · ⚠️ 만든 파일: tools/niche_scan.py v1.1 sync · 2026-10-18T15:28+09:00
+# 손으로 고치지 말고 math/niches.toml 의 words 를 고친 뒤 python3 tools/niche_scan.py math sync
+# 읽는 코드: tools/success_analysis.py (analysis.md '주제별 성공 비율' — 제목에서 가장 긴 낱말이 맞는 분야, 없으면 태그로, 그래도 없으면 '기타')
+# 이 폴더는 태그로 검색어를 고르지 않는다 (tools/tag_keywords.py 안 씀 — 분야를 넘나드는 비교라 분야마다 넓은 검색어로 찔러 봄, niches.toml 머리말)
+# =====================================================================================================
+
+TAG_OTHER = "기타"
+
+[TAG_THEMES]
+"01. 수학·계산 퀴즈" = ["수학 퀴즈", "계산 퀴즈", "수학 문제", "계산 문제", "수학", "산수", "사칙연산", "방정식", "정답"]
+"02. 암산" = ["암산", "플래시 암산", "주산", "빠른 계산"]
+"03. IQ·두뇌 퀴즈" = ["IQ", "아이큐", "멘사", "두뇌", "천재", "지능"]
+"04. 교양 수학 (설명형)" = ["수학 이야기", "수학자", "난제", "증명", "확률", "수학적으로"]
+"05. Math puzzle (영어)" = ["math puzzle", "can you solve", "solve this", "puzzle", "riddle", "brain teaser"]
+"06. Math olympiad (영어)" = ["olympiad", "olympiad math", "competition math", "a nice algebra", "algebra problem"]
+"07. Mental math (영어)" = ["mental math", "mental calculation", "math trick", "math tricks", "multiply", "multiplication"]
+"08. (기준) 재테크" = ["재테크", "연금", "노후", "저축", "절세"]
+"09. (기준) stock market (영어)" = ["stock market", "stocks", "investing", "S&P 500", "nasdaq"]

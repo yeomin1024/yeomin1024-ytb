@@ -1,0 +1,12 @@
+# 영어(외국 영상) 검색어 — 외국 영상을 켠 주제(INCLUDE_FOREIGN = true)에서만 검색 — (math) · 만든 도구: tools/niche_scan.py v1.1 sync · 2026-10-18T15:28+09:00
+# ⚠️ 손으로 고치지 말고 math/niches.toml 을 고친 뒤 python3 tools/niche_scan.py math sync
+# 순서 = '돌아가며': 모든 분야의 1번째 검색어 → 2번째 … (할당량·하루 검색 횟수 한도가 중간에 끝나도 모든 분야가 1개씩은 먼저)
+# 검색어 5개 × (롱폼 4~20분·20분 넘음 검색 2번 = 200단위 · 쇼츠 1번 = 100단위) + 영상·채널 정보
+
+# ── 1번째 검색어 ──
+math puzzle
+math olympiad
+mental math
+stock market
+# ── 2번째 검색어 ──
+can you solve this

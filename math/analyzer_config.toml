@@ -1,0 +1,36 @@
+# =====================================================================================================
+# YouTube 주제 분석기 설정 파일 — 주제: 수학 퀴즈 (폴더 math)
+# VERSION: v1.0 — 2026-10-18 — 새로 만듦 (사용자 지시 2026-10-18: "수학문제 띄워놓고 시청자가 맞춰보는 영상이 조회수 잘 나오고 구독자 많이 모을 수
+#          있는지 탐색해볼래?"). 값은 new/analyzer_config.toml v1.0 과 같고 다른 것: 주제 이름·폴더 · **외국 영상 켬** (수학 문제는 언어가 거의
+#          없어 세계 시장도 봄 — 영어 검색어 keywords_foreign.txt, 검색은 언어 지정 없이). 검색어는 math/niches.toml 에서 만듦 (niche_scan sync).
+# ▶ 클라우드: python3 tools/cloud_run.py math explore --weeks 26 · explore --shorts --weeks 26 (math/README.md)
+# ※ 연구·교육용 분석.
+# =====================================================================================================
+
+[topic]
+TOPIC = "수학 퀴즈"
+PROJECT_FOLDER = "math"              # 결과 상위 폴더 → GitHub: math/result/
+RESULT_FOLDER = "result"
+
+[github]
+GITHUB_REPO = "yeomin1024/yeomin1024-ytb"
+GITHUB_BRANCH = "main"
+
+[search]
+REGION_CODE = "KR"
+LANGUAGE = "ko"
+INCLUDE_FOREIGN = true               # 외국 영상도 탐색·분석 + 영어 검색어(keywords_foreign.txt)도 검색 — 검색은 언어 지정 없이
+
+[keywords]
+KEYWORD_MODE = "curated"
+KEYWORDS_FILE = "keywords.toml"
+
+[ads]
+AD_SUSPECT_FILTER = true
+AD_SUSPECT_MIN_VIEWS = 50000
+AD_SUSPECT_MAX_LIKE_RATE = 0.0025
+AD_SUSPECT_MAX_COMMENT_RATE = 0.00005
+
+[advanced]
+QUOTA_BUDGET = 6000                  # ⚠️ 비용 관련 (분석기 youtube_topic_analyzer.py 몫)
+DOWNLOAD_VIDEOS = false              # ⚠️ 성공사례 영상 파일은 받지 않음 — 자막·썸네일·댓글·메타데이터만

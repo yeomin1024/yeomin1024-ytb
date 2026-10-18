@@ -1,6 +1,6 @@
 # CHANGELOG — youtube_topic_analyzer
 
-## 2026-10-18 (98) — 주식 업로드 준비: JEPI 문장 · 썸네일 검수 · 롱폼 3편 최종 렌더 · 쇼츠 업로드 시트
+## 2026-10-18 (99) — 주식 업로드 준비: JEPI 문장 · 썸네일 검수 · 롱폼 3편 최종 렌더 · 쇼츠 업로드 시트
 
 ### 왜 (사용자 지시)
 - 2026-10-18 "채권 표현 수정하고 영상 업로드 할 준비해"
@@ -21,6 +21,22 @@
 - Kaggle `stock` (커버드콜 s73) → 커버드콜 롱폼 렌더 · 쇼츠 썸네일 4장(ChatGPT) → 쇼츠 4편 렌더 · 업로드 순서·공개 시각 (사용자).
 
 ※ 연구·교육용 — 투자 권유가 아님.
+## 2026-10-18 (98) — 영상 생성 AI: Kaggle 셀 하나로 (`videogen/` v1.1.0)
+
+### 왜 (사용자 지시)
+- "핵심 코드를 하나로 만들어서 저장소에 올리고 kaggle에서는 코드 받아서 실행하는 방식으로 하고 prompt 같은 설정만 고치고 실행만 하는 코드를 따로 알려줘" (저장소 선택: 기존 yeomin1024-ytb 에 `videogen/` 폴더)
+
+### 한 것
+| 파일 | 내용 |
+|---|---|
+| `videogen/videogen.py` v1.1.0 | 오픈소스 영상 생성 핵심 코드 하나 — `run(SETTINGS)`, 모델 `wan2.2-5b`(diffusers)·`wan2.2-14b-lightning`·`ltx2.5-distilled`(WanGP 헤드리스) |
+| `videogen/README.md` | Kaggle 셀(설정만 고침 → raw 주소로 파일 하나 받아 실행) · 설정 키 · 모델 · 검증 범위 · 문제 해결 |
+| `videogen/tests/test_videogen.py` | 설정 검사 · diffusers 길 전체(작은 랜덤 Wan 모델, CPU) · WanGP 길 흐름(가짜 wgp.py) — 통과 |
+| `videogen/CHANGELOG.md` | videogen 자체 변경 이력 |
+| `guides/status.md` v1.73 | 2-7 절 |
+
+### 남은 것
+- 실제 Kaggle T4 실행·속도·화질 확인 (클라우드에서 Hugging Face·PyTorch 다운로드 서버가 막혀 있었음) — status 2-7.
 
 ## 2026-10-18 (97) — 토큰 줄이기: CLAUDE.md 70% 줄임 · 재테크 요약본 2개
 

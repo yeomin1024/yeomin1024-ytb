@@ -1,5 +1,23 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-18 (108) — 주식 8편 메타데이터를 부호 + 아주 쉬운 영어로 (기본 언어 en)
+
+### 왜 (사용자 지시)
+- "설명은 부호, 정말 간단한 영어로 간략하게 표현하도록 해봐 그리고 태그 같은 것도 영어로 하고 한국어로 쓰여진 곳은 정말 간단한 영어로 수정할 수 있어? 모든 영상"
+
+### 한 것
+| 파일·대상 | 내용 |
+|---|---|
+| `stock/source/<영상ID>/upload.md` ×4 (v3.4·v1.5) · `shorts/upload.md` ×4 (v1.1) | 기본 언어 **en**: 제목 아주 쉬운 영어 · 설명란 부호(`→ · × ≈ ≠ ✓ ✗ ▶`) + 쉬운 영어로 짧게 (롱폼 1,021~1,296자 — 예전 약 2,000자, 결말 없음 · 쇼츠 569~636자, 결과까지) · `■ Chapters`(영어 챕터, 실제 오디오 시각) · `■ How`(자료·날짜·수수료·확인·안 넣은 것) · 태그 영어 · 고정 댓글 영어 · 한국어 제목은 언어별 `ko` · 다른 8개 언어는 제목 그대로, 설명은 모두 같은 영어 · `| 오디오 언어 | ko |` |
+| `tools/youtube_upload.py` v1.13 | `--update-meta` (videos.update part=snippet,localizations — 50단위, 공개 상태·예약·자막·영상 그대로) · 오디오 언어를 기본 언어와 따로 · 챕터 머리 `■ Chapters` 도 읽음. 시험 `tools/tests/test_youtube_meta.py` 6개 + 업로드 시험 모두 OK (29) |
+| `stock/guides/README.md` v1.25 2번 · `CLAUDE.md` 주식 줄 | 기본 언어 en 규칙 |
+| 반영 | 10-18 은 quotaExceeded → 예약 확인 `trig_01YKBUHTKNPRSRGdydjSa2wj`(10-19 16:05 KST)의 첫 일로 8편 `--update-meta` (① 17:00 공개 전) |
+
+### 확인
+- `--update-meta --dry-run` 8편 모두 "문제 없음" · 기본 제목·설명·태그에 한글 0.
+
+※ 연구·교육용 — 투자 권유가 아님.
+
 ## 2026-10-18 (107) — videogen v1.2.1: T2V 창 이어붙이기 거부 오류 → hq 를 두 단계(T2V → SVI 2 Pro 이어 만들기)로
 
 ### 왜 (사용자 보고)

@@ -1,6 +1,7 @@
 # baedang-etf-2026-10 업로드 시트
 
-버전: v1.4.1 — 2026-10-17 — 업로드 설정 '자막 올리기' = **언어별** (한국어 + 9개 언어 CC — 화면에는 굽지 않음, 사용자 지시 2026-10-17 "외국어 자막 대본도 필요하지? 쇼츠, 롱폼 각각 언어별로 작성해봐") · 자막 대본 `subs/<영상ID>.<언어>.txt` 9개.
+버전: v1.5 — 2026-10-18 — **기본 언어 en** — 제목·설명란(부호 + 아주 쉬운 영어, 결말 없음)·태그·챕터 이름·고정 댓글을 영어로, 한국어 제목은 언어별 ko, 언어별 설명은 모두 같은 쉬운 영어 · 오디오 언어 ko (사용자 지시 2026-10-18 "설명은 부호, 정말 간단한 영어로 간략하게 표현하도록 해봐 그리고 태그 같은 것도 영어로 하고 한국어로 쓰여진 곳은 정말 간단한 영어로 수정할 수 있어? 모든 영상").
+(v1.4.1 — 2026-10-17 — 업로드 설정 '자막 올리기' = **언어별** (한국어 + 9개 언어 CC — 화면에는 굽지 않음, 사용자 지시 2026-10-17 "외국어 자막 대본도 필요하지? 쇼츠, 롱폼 각각 언어별로 작성해봐") · 자막 대본 `subs/<영상ID>.<언어>.txt` 9개.)
 (v1.4 — 2026-10-17 — 대본 v1.4 (티커 설명 (사용자 지시 2026-10-17 "일단 티커에 대한 설명도 추가해 예를 들어 'S&P500을 추종하는 ETF인 SPY' 이런식으로 다 수정해보고")) — 챕터·문장 수 다시.)
 (v1.3 — 2026-10-17 — 대본 v1.3 (사용자가 붙인 ChatGPT 페르소나 검토 2차 '네 영상에 공통으로 반복되는 문제 5개'): 2번 설명란과 5번 언어별 설명 9개에 **재현 조건** 한 단락 (가격 자료·배당 처리·매수 날·ETF 보수) · 챕터 다시 계산.)
 (v1.2 — 2026-10-17 — 대본 v1.2 (사용자가 붙인 ChatGPT 페르소나 검토 2026-10-17 '네 영상에 반복되는 문제 5개' — 경주 해설은 대표 장면만, 조건을 앞에서 분명히, 숫자와 뜻을 한 문장에, 말하는 금액은 어림(만 단위 하나), 한계에 결정 조건): 챕터 다시 계산 (문장 번호 바뀜).)
@@ -10,46 +11,44 @@
 > 업로드: 이 클라우드 환경의 키(= STOCK LAB 채널, `stock/youtube_channel.json`)로 `python tools/youtube_upload.py stock baedang-etf-2026-10 --publish-at +1h` — 비공개 업로드 + **1시간 뒤 예약 공개**. PC 업로더(`run_uploader.ps1 -Topic stock`)도 같은 시트를 쓴다.
 > 연구·교육용 콘텐츠 — 투자 권유가 아님.
 
-## 1. 제목 (`titles.md` R1, 한국어 — 기본 언어)
+## 1. 제목 (기본 언어 en — 아주 쉬운 영어 · 한국어 제목 「배당 ETF, 매달 모으면 배당세 15%를 떼고도 같은 돈을 모은 S&P 500보다 더 남을까?」은 5번 ko 로)
 
 ```
-배당 ETF, 매달 모으면 배당세 15%를 떼고도 같은 돈을 모은 S&P 500보다 더 남을까?
+Dividend ETF vs S&P 500: $1,000 a month, 15% tax — which leaves more? SCHD vs SPY
 ```
 
-## 2. 설명란 (한국어 — 그대로 복사)
+## 2. 설명란 (부호 + 아주 쉬운 영어 — 결말 없음 · 챕터 시각은 업로드 도구가 SRT 로 다시 계산)
 
 ```
-배당금이 통장에 들어오면 든든하죠. 그래서 배당 ETF를 매달 모으는 분이 많습니다. 그런데 배당에는 받을 때마다 세금이 붙어요. 세금을 떼고 나면, 배당 ETF가 정말 더 많이 남을까요?
-2011년 11월부터 2026년 10월까지 매달 첫 거래일에 미국 배당 ETF SCHD와 S&P 500 ETF SPY를 1,000달러씩 매수했습니다. 배당은 받을 때마다 15%를 세금으로 떼고(많은 나라의 미국 배당 원천징수 세율), 남은 돈으로 그날 다시 매수했어요. 매수 수수료 0.25%.
-날짜가 흐르며 두 계좌의 값, 넣은 돈, 받은 배당과 낸 세금이 실시간으로 바뀌고, 아래 띠가 어느 계좌가 앞서는지 보여 줍니다.
+Dividends feel good 💵 — but tax is taken every time. After tax, does a dividend ETF leave more?
+SCHD (US dividend ETF) vs SPY (S&P 500 ETF)
+$1,000 each month · first trading day · Nov 2011 → Oct 2026
+Every dividend: −15% tax (common US withholding rate) → buy again the same day
+Fee 0.25% · watch both accounts, day by day.
 
-■ 챕터
-0:00 배당 ETF, 세금 떼고도 더 남을까
-0:31 2011년부터 날짜를 흘려 보면
-1:28 2022년 하락장과 그 뒤
-2:06 15년 결과
-3:07 배당은 어디서 나오나
-4:17 해마다 1년 수익률
-5:10 세금·매도·한 번에 넣으면
-6:09 시작한 달을 바꾸면
-6:53 2006년부터 VYM으로
-7:56 정리
-8:39 이 실험의 한계
+■ Chapters
+0:00 Dividend ETF vs S&P 500
+0:26 From 2011, day by day
+1:14 The 2022 fall and after
+1:45 15-year result
+2:36 Where dividends come from
+3:35 Yearly returns
+4:17 Tax, selling, lump sum
+5:06 Other start months
+5:42 VYM from 2006
+6:34 Summary
+7:10 Limits
 
-■ 실험 방법
-자료: SCHD·SPY·VYM 일별 종가·배당 (분할 반영), 2011-11-01 ~ 2026-10-15 (VYM 은 2006-12-01 부터).
-배당은 배당락일 종가에 받은 것으로 세고, 15%를 뗀 뒤 그날 종가에 다시 매수. 매수할 때마다 수수료 0.25%.
-확인: 세금 0%·30%, 끝에 모두 매도하고 늘어난 돈에 15%, 처음에 10만 달러 한 번, 시작 달을 바꾼 5년 적립 120개·10년 적립 60개, VYM vs SPY(2008 금융위기 포함).
-재현 조건: Yahoo 분할 반영 종가와 배당(배당락일 기준). 매달 첫 거래일 종가에 1,000달러에서 수수료 0.25%를 뺀 만큼 매수(소수점 주식, 남는 돈 없음). 배당은 15%를 떼고 같은 날 종가에 다시 매수(수수료 0.25%). ETF 운용 보수는 가격에 이미 들어 있음.
-계산 코드는 AI가 짰고, 미래 가격을 쓰지 않는지 시험한 뒤 돌렸습니다. 환율·물가·건강보험료는 넣지 않았습니다. 이 영상의 내레이션은 AI 음성입니다.
+■ How
+Daily close + dividends (split-adjusted) · Nov 1, 2011 → Oct 15, 2026 (VYM from Dec 1, 2006)
+Dividend on the ex-date close · fractional shares · ETF fee is in the price
+Also checked: tax 0% / 30% · sell all at the end + 15% on the gain · one $100,000 buy at the start · other start months (120 × 5 years, 60 × 10 years) · VYM vs SPY (with 2008)
+No FX, inflation or health insurance · tax rules differ by country and account
+Code: AI-made Python (tested: no future data) · Voice: AI
+Data: Yahoo Finance chart API
 
-■ 자료
-일별 종가·배당: Yahoo Finance 차트 API
-
-■ 알려 드립니다
-과거 자료로 계산한 결과이며 앞으로도 같다는 보장은 없습니다. 세율은 나라·계좌마다 다릅니다. 특정 상품을 매수·매도하라는 이야기가 아니며 투자 권유가 아닙니다.
-
-#배당ETF #백테스트 #SCHD
+Past ≠ future · Not investment advice
+#SCHD #SPY #DividendETF
 ```
 
 ## 3. 챕터 다시 계산하기 (문장 번호 기준)
@@ -59,63 +58,63 @@ python tools/srt_tool.py upload stock/source/baedang-etf-2026-10/baedang-etf-202
 ```
 - 2026-10-17 추정 시각(오디오 전, 대본 v1.4)으로 "✅ YouTube 챕터 규칙 통과". 업로드 도구가 오디오에 맞춘 SRT로 다시 계산한다. 챕터 이름에 결과를 쓰지 않는다.
 
-## 4. 태그
+## 4. 태그 (영어)
 
 ```
-배당 ETF, 배당주, SCHD, SPY, VYM, S&P500, 배당세, 원천징수, 배당 재투자, 적립식, 월배당, 백테스트, dividend ETF, backtest, dividend tax
+SCHD, SPY, VYM, dividend ETF, dividend investing, dividend tax, withholding tax, S&P 500, index fund, dollar cost averaging, backtest, Python backtest, investing
 ```
 
-## 5. 언어별 제목·설명 (localizations)
+## 5. 언어별 제목·설명 (localizations — ko + 8개 언어 제목, 설명은 모두 2번과 같은 쉬운 영어 · 기본 언어 en 은 1·2번)
 
 JSON — 업로드 도구가 그대로 읽는다. 챕터는 넣지 않았다 (시각이 오디오 뒤에 바뀜).
 
 ```
 {
- "en": {
-  "title": "Dividend ETF saved monthly: after 15% dividend tax, is more left than the same money in the S&P 500?",
-  "description": "Dividends landing in your account feel reassuring, so many people buy a dividend ETF every month. But dividends are taxed every time you receive them. After tax, does the dividend ETF really leave you with more?\nWe bought $1,000 of SCHD (a US dividend ETF) and $1,000 of SPY (S&P 500) on the first trading day of every month from November 2011 to October 2026. Every dividend was taxed 15% (a common treaty withholding rate on US dividends) and the rest was reinvested the same day. 0.25% fee per purchase. As the dates roll forward, both account values, the money put in, the dividends received and the tax paid change in real time, and a strip shows which account is ahead.\nChecks: 0% and 30% tax, selling everything at the end with 15% tax on gains, one lump sum of $100,000, 120 five-year and 60 ten-year accounts started in different months, and VYM vs SPY from 2006 (including 2008). The code was written by AI and tested for look-ahead bias. Currency, inflation and health-insurance costs are not included. The narration is an AI voice.\nReproduction details: Yahoo split-adjusted closes and dividends (counted on the ex-date). On the first trading day of each month, $1,000 minus the 0.25% fee buys at the close (fractional shares, no cash left over). Each dividend is taxed 15% and the rest is reinvested at that day's close (0.25% fee). ETF expense ratios are already in the prices.\nData: Yahoo Finance (daily closes and dividends).\nPast results do not guarantee future returns. This video is for education only and is not investment advice."
+ "ko": {
+  "title": "배당 ETF, 매달 모으면 배당세 15%를 떼고도 같은 돈을 모은 S&P 500보다 더 남을까?",
+  "description": "Dividends feel good 💵 — but tax is taken every time. After tax, does a dividend ETF leave more?\nSCHD (US dividend ETF) vs SPY (S&P 500 ETF)\n$1,000 each month · first trading day · Nov 2011 → Oct 2026\nEvery dividend: −15% tax (common US withholding rate) → buy again the same day\nFee 0.25% · watch both accounts, day by day.\n\n■ Chapters\n0:00 Dividend ETF vs S&P 500\n0:26 From 2011, day by day\n1:14 The 2022 fall and after\n1:45 15-year result\n2:36 Where dividends come from\n3:35 Yearly returns\n4:17 Tax, selling, lump sum\n5:06 Other start months\n5:42 VYM from 2006\n6:34 Summary\n7:10 Limits\n\n■ How\nDaily close + dividends (split-adjusted) · Nov 1, 2011 → Oct 15, 2026 (VYM from Dec 1, 2006)\nDividend on the ex-date close · fractional shares · ETF fee is in the price\nAlso checked: tax 0% / 30% · sell all at the end + 15% on the gain · one $100,000 buy at the start · other start months (120 × 5 years, 60 × 10 years) · VYM vs SPY (with 2008)\nNo FX, inflation or health insurance · tax rules differ by country and account\nCode: AI-made Python (tested: no future data) · Voice: AI\nData: Yahoo Finance chart API\n\nPast ≠ future · Not investment advice\n#SCHD #SPY #DividendETF"
  },
  "hi": {
   "title": "डिविडेंड ETF हर महीने जमा करें: 15% टैक्स के बाद क्या S&P 500 में उतने ही पैसे से ज़्यादा बचेगा?",
-  "description": "खाते में डिविडेंड आना अच्छा लगता है, इसलिए बहुत लोग हर महीने डिविडेंड ETF खरीदते हैं। लेकिन हर बार डिविडेंड पर टैक्स लगता है। टैक्स के बाद क्या डिविडेंड ETF सच में ज़्यादा बचाता है?\nनवंबर 2011 से अक्टूबर 2026 तक हर महीने के पहले कारोबारी दिन $1,000 का SCHD और $1,000 का SPY खरीदा। हर डिविडेंड पर 15% टैक्स काटा और बाकी उसी दिन दोबारा निवेश किया। हर खरीद पर 0.25% शुल्क।\nजाँच: 0% और 30% टैक्स, अंत में सब बेचकर लाभ पर 15% टैक्स, एक साथ $100,000, अलग महीनों से शुरू हुए खाते, और 2006 से VYM बनाम SPY। कोड AI ने लिखा। वॉइस-ओवर AI आवाज़ है।\nदोबारा जाँचने के लिए: Yahoo के स्प्लिट-समायोजित बंद भाव और डिविडेंड (एक्स-डेट के हिसाब से)। हर महीने के पहले कारोबारी दिन बंद भाव पर $1,000 में से 0.25% शुल्क घटाकर खरीदा गया (आंशिक शेयर, कोई नकदी बची नहीं)। हर डिविडेंड पर 15% टैक्स कटा और बाकी उसी दिन के बंद भाव पर दोबारा लगाया गया (0.25% शुल्क)। ETF का खर्च अनुपात कीमतों में पहले से शामिल है।\nडेटा: Yahoo Finance।\nपिछले नतीजे भविष्य की गारंटी नहीं हैं। यह वीडियो केवल शिक्षा के लिए है, निवेश सलाह नहीं।"
+  "description": "Dividends feel good 💵 — but tax is taken every time. After tax, does a dividend ETF leave more?\nSCHD (US dividend ETF) vs SPY (S&P 500 ETF)\n$1,000 each month · first trading day · Nov 2011 → Oct 2026\nEvery dividend: −15% tax (common US withholding rate) → buy again the same day\nFee 0.25% · watch both accounts, day by day.\n\n■ Chapters\n0:00 Dividend ETF vs S&P 500\n0:26 From 2011, day by day\n1:14 The 2022 fall and after\n1:45 15-year result\n2:36 Where dividends come from\n3:35 Yearly returns\n4:17 Tax, selling, lump sum\n5:06 Other start months\n5:42 VYM from 2006\n6:34 Summary\n7:10 Limits\n\n■ How\nDaily close + dividends (split-adjusted) · Nov 1, 2011 → Oct 15, 2026 (VYM from Dec 1, 2006)\nDividend on the ex-date close · fractional shares · ETF fee is in the price\nAlso checked: tax 0% / 30% · sell all at the end + 15% on the gain · one $100,000 buy at the start · other start months (120 × 5 years, 60 × 10 years) · VYM vs SPY (with 2008)\nNo FX, inflation or health insurance · tax rules differ by country and account\nCode: AI-made Python (tested: no future data) · Voice: AI\nData: Yahoo Finance chart API\n\nPast ≠ future · Not investment advice\n#SCHD #SPY #DividendETF"
  },
  "id": {
   "title": "ETF dividen tiap bulan: setelah pajak dividen 15%, sisa lebih banyak dari S&P 500 dengan uang sama?",
-  "description": "Dividen yang masuk ke rekening terasa menenangkan, jadi banyak orang membeli ETF dividen setiap bulan. Tapi dividen dipajaki setiap kali diterima. Setelah pajak, apakah ETF dividen benar-benar menyisakan lebih banyak?\nKami membeli SCHD senilai $1.000 dan SPY senilai $1.000 pada hari bursa pertama setiap bulan dari November 2011 sampai Oktober 2026. Setiap dividen dipotong pajak 15% dan sisanya diinvestasikan kembali di hari yang sama. Biaya 0,25% per pembelian.\nPengecekan: pajak 0% dan 30%, menjual semuanya di akhir dengan pajak 15% atas keuntungan, sekali $100.000, akun yang dimulai di bulan berbeda, dan VYM vs SPY sejak 2006. Kode ditulis oleh AI. Narasi memakai suara AI.\nDetail untuk mengulang: harga penutupan Yahoo yang disesuaikan split dan dividen (dihitung pada tanggal ex). Pada hari bursa pertama tiap bulan, $1.000 dikurangi biaya 0,25% dibelikan di harga penutupan (saham pecahan, tidak ada sisa kas). Setiap dividen dipotong pajak 15% dan sisanya diinvestasikan kembali di harga penutupan hari itu (biaya 0,25%). Biaya pengelolaan ETF sudah termasuk dalam harga.\nData: Yahoo Finance.\nHasil masa lalu tidak menjamin hasil masa depan. Video ini hanya untuk edukasi, bukan saran investasi."
+  "description": "Dividends feel good 💵 — but tax is taken every time. After tax, does a dividend ETF leave more?\nSCHD (US dividend ETF) vs SPY (S&P 500 ETF)\n$1,000 each month · first trading day · Nov 2011 → Oct 2026\nEvery dividend: −15% tax (common US withholding rate) → buy again the same day\nFee 0.25% · watch both accounts, day by day.\n\n■ Chapters\n0:00 Dividend ETF vs S&P 500\n0:26 From 2011, day by day\n1:14 The 2022 fall and after\n1:45 15-year result\n2:36 Where dividends come from\n3:35 Yearly returns\n4:17 Tax, selling, lump sum\n5:06 Other start months\n5:42 VYM from 2006\n6:34 Summary\n7:10 Limits\n\n■ How\nDaily close + dividends (split-adjusted) · Nov 1, 2011 → Oct 15, 2026 (VYM from Dec 1, 2006)\nDividend on the ex-date close · fractional shares · ETF fee is in the price\nAlso checked: tax 0% / 30% · sell all at the end + 15% on the gain · one $100,000 buy at the start · other start months (120 × 5 years, 60 × 10 years) · VYM vs SPY (with 2008)\nNo FX, inflation or health insurance · tax rules differ by country and account\nCode: AI-made Python (tested: no future data) · Voice: AI\nData: Yahoo Finance chart API\n\nPast ≠ future · Not investment advice\n#SCHD #SPY #DividendETF"
  },
  "pt": {
   "title": "ETF de dividendos todo mês: com 15% de imposto, sobra mais que o mesmo dinheiro no S&P 500?",
-  "description": "Ver dividendos caindo na conta traz segurança, então muita gente compra um ETF de dividendos todo mês. Mas os dividendos são tributados a cada recebimento. Depois do imposto, o ETF de dividendos realmente deixa mais?\nCompramos US$ 1.000 de SCHD e US$ 1.000 de SPY no primeiro dia útil de cada mês, de novembro de 2011 a outubro de 2026. Cada dividendo teve 15% de imposto e o resto foi reinvestido no mesmo dia. Taxa de 0,25% por compra.\nVerificações: imposto de 0% e 30%, vender tudo no fim com 15% sobre o ganho, um aporte único de US$ 100.000, contas iniciadas em meses diferentes e VYM vs SPY desde 2006. O código foi escrito por IA. A narração é uma voz de IA.\nDetalhes para reproduzir: fechamentos da Yahoo ajustados por desdobramentos e dividendos (contados na data ex). No primeiro pregão de cada mês, US$ 1.000 menos a taxa de 0,25% compra no fechamento (frações de cotas, sem sobra de caixa). Cada dividendo tem 15% de imposto e o resto é reinvestido no fechamento do dia (taxa de 0,25%). A taxa de administração dos ETFs já está nos preços.\nDados: Yahoo Finance.\nResultados passados não garantem resultados futuros. Este vídeo é educativo e não é recomendação de investimento."
+  "description": "Dividends feel good 💵 — but tax is taken every time. After tax, does a dividend ETF leave more?\nSCHD (US dividend ETF) vs SPY (S&P 500 ETF)\n$1,000 each month · first trading day · Nov 2011 → Oct 2026\nEvery dividend: −15% tax (common US withholding rate) → buy again the same day\nFee 0.25% · watch both accounts, day by day.\n\n■ Chapters\n0:00 Dividend ETF vs S&P 500\n0:26 From 2011, day by day\n1:14 The 2022 fall and after\n1:45 15-year result\n2:36 Where dividends come from\n3:35 Yearly returns\n4:17 Tax, selling, lump sum\n5:06 Other start months\n5:42 VYM from 2006\n6:34 Summary\n7:10 Limits\n\n■ How\nDaily close + dividends (split-adjusted) · Nov 1, 2011 → Oct 15, 2026 (VYM from Dec 1, 2006)\nDividend on the ex-date close · fractional shares · ETF fee is in the price\nAlso checked: tax 0% / 30% · sell all at the end + 15% on the gain · one $100,000 buy at the start · other start months (120 × 5 years, 60 × 10 years) · VYM vs SPY (with 2008)\nNo FX, inflation or health insurance · tax rules differ by country and account\nCode: AI-made Python (tested: no future data) · Voice: AI\nData: Yahoo Finance chart API\n\nPast ≠ future · Not investment advice\n#SCHD #SPY #DividendETF"
  },
  "es-419": {
   "title": "ETF de dividendos cada mes: con 15% de impuesto, ¿queda más que el mismo dinero en el S&P 500?",
-  "description": "Ver dividendos en la cuenta da tranquilidad, por eso mucha gente compra un ETF de dividendos cada mes. Pero los dividendos pagan impuesto cada vez que se reciben. Después de impuestos, ¿el ETF de dividendos de verdad deja más?\nCompramos US$1,000 de SCHD y US$1,000 de SPY el primer día hábil de cada mes, de noviembre de 2011 a octubre de 2026. A cada dividendo se le quitó 15% de impuesto y el resto se reinvirtió el mismo día. Comisión de 0.25% por compra.\nComprobaciones: impuesto de 0% y 30%, vender todo al final con 15% sobre la ganancia, una sola inversión de US$100,000, cuentas iniciadas en meses distintos y VYM vs SPY desde 2006. El código lo escribió una IA. La narración es una voz de IA.\nDetalles para reproducir: cierres de Yahoo ajustados por splits y dividendos (contados en la fecha ex). El primer día hábil de cada mes, US$1,000 menos la comisión de 0.25% compra al cierre (acciones fraccionadas, sin efectivo sobrante). Cada dividendo paga 15% de impuesto y el resto se reinvierte al cierre de ese día (comisión de 0.25%). La comisión de administración de los ETF ya está en los precios.\nDatos: Yahoo Finance.\nLos resultados pasados no garantizan resultados futuros. Este video es educativo y no es asesoría de inversión."
+  "description": "Dividends feel good 💵 — but tax is taken every time. After tax, does a dividend ETF leave more?\nSCHD (US dividend ETF) vs SPY (S&P 500 ETF)\n$1,000 each month · first trading day · Nov 2011 → Oct 2026\nEvery dividend: −15% tax (common US withholding rate) → buy again the same day\nFee 0.25% · watch both accounts, day by day.\n\n■ Chapters\n0:00 Dividend ETF vs S&P 500\n0:26 From 2011, day by day\n1:14 The 2022 fall and after\n1:45 15-year result\n2:36 Where dividends come from\n3:35 Yearly returns\n4:17 Tax, selling, lump sum\n5:06 Other start months\n5:42 VYM from 2006\n6:34 Summary\n7:10 Limits\n\n■ How\nDaily close + dividends (split-adjusted) · Nov 1, 2011 → Oct 15, 2026 (VYM from Dec 1, 2006)\nDividend on the ex-date close · fractional shares · ETF fee is in the price\nAlso checked: tax 0% / 30% · sell all at the end + 15% on the gain · one $100,000 buy at the start · other start months (120 × 5 years, 60 × 10 years) · VYM vs SPY (with 2008)\nNo FX, inflation or health insurance · tax rules differ by country and account\nCode: AI-made Python (tested: no future data) · Voice: AI\nData: Yahoo Finance chart API\n\nPast ≠ future · Not investment advice\n#SCHD #SPY #DividendETF"
  },
  "ja": {
   "title": "高配当ETFを毎月積み立てると、配当税15%を引いても同じ額のS&P 500より多く残る？",
-  "description": "配当が口座に入ると安心するので、高配当ETFを毎月買う人は多いです。でも配当は受け取るたびに課税されます。税引き後でも、高配当ETFは本当に多く残るのでしょうか？\n2011年11月〜2026年10月、毎月最初の取引日にSCHD（米国高配当ETF）とSPY（S&P 500）を1,000ドルずつ買いました。配当は受け取るたびに15%を源泉徴収し、残りをその日に再投資。購入ごとに手数料0.25%。\n確認：税率0%・30%、最後に全部売って利益に15%課税、10万ドルの一括投資、開始月を変えた口座、2006年からのVYM対SPY。コードはAIが書きました。ナレーションはAI音声です。\n再現条件：Yahooの分割調整済み終値と配当（権利落ち日で計算）。毎月最初の取引日の終値で、1,000ドルから手数料0.25%を引いた分を購入（端数株、現金は残らない）。配当は15%を差し引き、残りをその日の終値で再投資（手数料0.25%）。ETFの経費率は価格に含まれています。\nデータ：Yahoo Finance。\n過去の結果は将来を保証しません。この動画は教育目的であり、投資助言ではありません。"
+  "description": "Dividends feel good 💵 — but tax is taken every time. After tax, does a dividend ETF leave more?\nSCHD (US dividend ETF) vs SPY (S&P 500 ETF)\n$1,000 each month · first trading day · Nov 2011 → Oct 2026\nEvery dividend: −15% tax (common US withholding rate) → buy again the same day\nFee 0.25% · watch both accounts, day by day.\n\n■ Chapters\n0:00 Dividend ETF vs S&P 500\n0:26 From 2011, day by day\n1:14 The 2022 fall and after\n1:45 15-year result\n2:36 Where dividends come from\n3:35 Yearly returns\n4:17 Tax, selling, lump sum\n5:06 Other start months\n5:42 VYM from 2006\n6:34 Summary\n7:10 Limits\n\n■ How\nDaily close + dividends (split-adjusted) · Nov 1, 2011 → Oct 15, 2026 (VYM from Dec 1, 2006)\nDividend on the ex-date close · fractional shares · ETF fee is in the price\nAlso checked: tax 0% / 30% · sell all at the end + 15% on the gain · one $100,000 buy at the start · other start months (120 × 5 years, 60 × 10 years) · VYM vs SPY (with 2008)\nNo FX, inflation or health insurance · tax rules differ by country and account\nCode: AI-made Python (tested: no future data) · Voice: AI\nData: Yahoo Finance chart API\n\nPast ≠ future · Not investment advice\n#SCHD #SPY #DividendETF"
  },
  "de": {
   "title": "Dividenden-ETF monatlich sparen: Bleibt nach 15 % Steuer mehr als mit gleichem Geld im S&P 500?",
-  "description": "Dividenden auf dem Konto beruhigen, deshalb kaufen viele jeden Monat einen Dividenden-ETF. Doch Dividenden werden bei jeder Auszahlung besteuert. Bleibt nach Steuern mit dem Dividenden-ETF wirklich mehr übrig?\nWir haben von November 2011 bis Oktober 2026 am ersten Handelstag jedes Monats je 1.000 $ SCHD und SPY gekauft. Jede Dividende wurde mit 15 % besteuert, der Rest am selben Tag wieder angelegt. 0,25 % Gebühr pro Kauf.\nPrüfungen: 0 % und 30 % Steuer, alles am Ende verkaufen mit 15 % auf den Gewinn, einmalig 100.000 $, Konten mit verschiedenen Startmonaten und VYM vs. SPY ab 2006. Den Code hat eine KI geschrieben. Die Sprecherstimme ist eine KI-Stimme.\nDetails zum Nachrechnen: split-bereinigte Yahoo-Schlusskurse und Dividenden (am Ex-Tag gezählt). Am ersten Handelstag jedes Monats kaufen 1.000 $ abzüglich 0,25 % Gebühr zum Schlusskurs (Bruchteile, kein Restgeld). Jede Dividende wird mit 15 % besteuert, der Rest zum Schlusskurs des Tages wieder angelegt (0,25 % Gebühr). Die Kostenquoten der ETFs stecken bereits in den Kursen.\nDaten: Yahoo Finance.\nVergangene Ergebnisse garantieren keine zukünftigen Renditen. Dieses Video dient nur der Bildung und ist keine Anlageberatung."
+  "description": "Dividends feel good 💵 — but tax is taken every time. After tax, does a dividend ETF leave more?\nSCHD (US dividend ETF) vs SPY (S&P 500 ETF)\n$1,000 each month · first trading day · Nov 2011 → Oct 2026\nEvery dividend: −15% tax (common US withholding rate) → buy again the same day\nFee 0.25% · watch both accounts, day by day.\n\n■ Chapters\n0:00 Dividend ETF vs S&P 500\n0:26 From 2011, day by day\n1:14 The 2022 fall and after\n1:45 15-year result\n2:36 Where dividends come from\n3:35 Yearly returns\n4:17 Tax, selling, lump sum\n5:06 Other start months\n5:42 VYM from 2006\n6:34 Summary\n7:10 Limits\n\n■ How\nDaily close + dividends (split-adjusted) · Nov 1, 2011 → Oct 15, 2026 (VYM from Dec 1, 2006)\nDividend on the ex-date close · fractional shares · ETF fee is in the price\nAlso checked: tax 0% / 30% · sell all at the end + 15% on the gain · one $100,000 buy at the start · other start months (120 × 5 years, 60 × 10 years) · VYM vs SPY (with 2008)\nNo FX, inflation or health insurance · tax rules differ by country and account\nCode: AI-made Python (tested: no future data) · Voice: AI\nData: Yahoo Finance chart API\n\nPast ≠ future · Not investment advice\n#SCHD #SPY #DividendETF"
  },
  "vi": {
   "title": "Tích lũy ETF cổ tức mỗi tháng: sau thuế cổ tức 15%, có còn nhiều hơn S&P 500 với cùng số tiền?",
-  "description": "Cổ tức về tài khoản khiến ta yên tâm, nên nhiều người mua ETF cổ tức mỗi tháng. Nhưng cổ tức bị đánh thuế mỗi lần nhận. Sau thuế, ETF cổ tức có thật sự để lại nhiều hơn?\nChúng tôi mua 1.000 USD SCHD và 1.000 USD SPY vào ngày giao dịch đầu tiên mỗi tháng từ tháng 11/2011 đến tháng 10/2026. Mỗi lần nhận cổ tức trừ thuế 15%, phần còn lại tái đầu tư ngay trong ngày. Phí 0,25% mỗi lần mua.\nKiểm tra: thuế 0% và 30%, bán hết cuối kỳ và đóng 15% trên phần lãi, đầu tư một lần 100.000 USD, tài khoản bắt đầu ở các tháng khác nhau, và VYM so với SPY từ 2006. Mã do AI viết. Giọng đọc là giọng AI.\nChi tiết để tính lại: giá đóng cửa Yahoo đã điều chỉnh tách cổ phiếu và cổ tức (tính theo ngày giao dịch không hưởng quyền). Ngày giao dịch đầu mỗi tháng, mua bằng 1.000 USD trừ phí 0,25% ở giá đóng cửa (cổ phiếu lẻ, không còn tiền mặt thừa). Mỗi khoản cổ tức bị trừ thuế 15%, phần còn lại tái đầu tư ở giá đóng cửa ngày đó (phí 0,25%). Phí quản lý ETF đã nằm trong giá.\nDữ liệu: Yahoo Finance.\nKết quả quá khứ không đảm bảo tương lai. Video chỉ nhằm mục đích giáo dục, không phải lời khuyên đầu tư."
+  "description": "Dividends feel good 💵 — but tax is taken every time. After tax, does a dividend ETF leave more?\nSCHD (US dividend ETF) vs SPY (S&P 500 ETF)\n$1,000 each month · first trading day · Nov 2011 → Oct 2026\nEvery dividend: −15% tax (common US withholding rate) → buy again the same day\nFee 0.25% · watch both accounts, day by day.\n\n■ Chapters\n0:00 Dividend ETF vs S&P 500\n0:26 From 2011, day by day\n1:14 The 2022 fall and after\n1:45 15-year result\n2:36 Where dividends come from\n3:35 Yearly returns\n4:17 Tax, selling, lump sum\n5:06 Other start months\n5:42 VYM from 2006\n6:34 Summary\n7:10 Limits\n\n■ How\nDaily close + dividends (split-adjusted) · Nov 1, 2011 → Oct 15, 2026 (VYM from Dec 1, 2006)\nDividend on the ex-date close · fractional shares · ETF fee is in the price\nAlso checked: tax 0% / 30% · sell all at the end + 15% on the gain · one $100,000 buy at the start · other start months (120 × 5 years, 60 × 10 years) · VYM vs SPY (with 2008)\nNo FX, inflation or health insurance · tax rules differ by country and account\nCode: AI-made Python (tested: no future data) · Voice: AI\nData: Yahoo Finance chart API\n\nPast ≠ future · Not investment advice\n#SCHD #SPY #DividendETF"
  },
  "tr": {
   "title": "Temettü ETF'si her ay biriktirilirse %15 vergiden sonra aynı parayla S&P 500'den fazla kalır mı?",
-  "description": "Hesaba gelen temettü insanı rahatlatır; bu yüzden birçok kişi her ay temettü ETF'si alır. Ama temettü her alındığında vergilendirilir. Vergiden sonra temettü ETF'si gerçekten daha fazla bırakır mı?\nKasım 2011'den Ekim 2026'ya kadar her ayın ilk işlem gününde 1.000 dolarlık SCHD ve 1.000 dolarlık SPY aldık. Her temettüden %15 vergi kesildi, kalanı aynı gün yeniden yatırıldı. Alım başına %0,25 komisyon.\nKontroller: %0 ve %30 vergi, sonda hepsini satıp kazançtan %15 vergi, tek seferde 100.000 dolar, farklı aylarda başlayan hesaplar ve 2006'dan itibaren VYM - SPY. Kodu yapay zekâ yazdı. Seslendirme yapay zekâ sesidir.\nYeniden hesaplama ayrıntıları: bölünmeye göre düzeltilmiş Yahoo kapanışları ve temettüler (hak kullanım tarihinde sayıldı). Her ayın ilk işlem gününde 1.000 dolardan %0,25 komisyon düşülerek kapanıştan alındı (kesirli pay, artan nakit yok). Her temettüden %15 vergi kesildi, kalanı o günün kapanışından yeniden yatırıldı (%0,25 komisyon). ETF gider oranları fiyatlara zaten dahildir.\nVeri: Yahoo Finance.\nGeçmiş sonuçlar gelecekteki getirileri garanti etmez. Bu video yalnızca eğitim amaçlıdır, yatırım tavsiyesi değildir."
+  "description": "Dividends feel good 💵 — but tax is taken every time. After tax, does a dividend ETF leave more?\nSCHD (US dividend ETF) vs SPY (S&P 500 ETF)\n$1,000 each month · first trading day · Nov 2011 → Oct 2026\nEvery dividend: −15% tax (common US withholding rate) → buy again the same day\nFee 0.25% · watch both accounts, day by day.\n\n■ Chapters\n0:00 Dividend ETF vs S&P 500\n0:26 From 2011, day by day\n1:14 The 2022 fall and after\n1:45 15-year result\n2:36 Where dividends come from\n3:35 Yearly returns\n4:17 Tax, selling, lump sum\n5:06 Other start months\n5:42 VYM from 2006\n6:34 Summary\n7:10 Limits\n\n■ How\nDaily close + dividends (split-adjusted) · Nov 1, 2011 → Oct 15, 2026 (VYM from Dec 1, 2006)\nDividend on the ex-date close · fractional shares · ETF fee is in the price\nAlso checked: tax 0% / 30% · sell all at the end + 15% on the gain · one $100,000 buy at the start · other start months (120 × 5 years, 60 × 10 years) · VYM vs SPY (with 2008)\nNo FX, inflation or health insurance · tax rules differ by country and account\nCode: AI-made Python (tested: no future data) · Voice: AI\nData: Yahoo Finance chart API\n\nPast ≠ future · Not investment advice\n#SCHD #SPY #DividendETF"
  }
 }
 ```
 
-## 6. 고정 댓글
+## 6. 고정 댓글 (아주 쉬운 영어)
 
 ```
-배당 ETF와 지수 ETF에 15년 동안 같은 돈을 모았다면, 세금을 떼고 어느 쪽이 더 남을 거라고 생각하셨나요? 지금 모으고 계신 배당 ETF가 있다면 알려 주세요.
-다음에 백테스트로 검증해 볼 가설도 댓글로 남겨 주세요.
-(정보 제공용이며 투자 권유가 아닙니다)
+SCHD or SPY — after 15 years and 15% tax, which one did you think would leave more?
+Do you buy a dividend ETF every month? Tell us 👇 · Next idea to test? Comment!
+(Info only · not investment advice)
 ```
 
 ## 7. 업로드 설정
@@ -124,7 +123,8 @@ JSON — 업로드 도구가 그대로 읽는다. 챕터는 넣지 않았다 (�
 |---|---|
 | 공개 상태 | 비공개로 올리고 **1시간 뒤 예약 공개** (`--publish-at +1h`) |
 | 썸네일 | `thumbnails/thumbnail_1.*` (본안 — 글자 없음). 공개 뒤 '테스트 및 비교'에 thumbnail_1~3 |
-| 기본 언어 | ko |
+| 기본 언어 | en (제목·설명·태그 = 부호 + 아주 쉬운 영어 — 한국어 제목은 언어별 ko) |
+| 오디오 언어 | ko (내레이션 — 업로드 도구 v1.13) |
 | 자막 올리기 | **언어별** (한국어 + en·hi·id·pt·es-419·ja·de·vi·tr — 화면에는 굽지 않고 CC 로, `subs/` 대본 → 오디오 뒤 `python3 tools/subs_tool.py build stock baedang-etf-2026-10` · 업로드 도구 v1.12 가 자막 하나 400단위 — 할당량이 모자라면 `--captions-only` 로 다음 날, 사용자 지시 2026-10-17 "외국어 자막 대본도 필요하지? 쇼츠, 롱폼 각각 언어별로 작성해봐") |
 | 카테고리 | 교육 |
 | 동영상 언어 | 한국어 (내레이션) |

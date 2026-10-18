@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.12 — 2026-10-17 — **언어별 자막(CC) 올리기** (사용자 지시 2026-10-17 "외국어 자막 대본도 필요하지? 쇼츠, 롱폼 각각 언어별로 작성해봐"):
+# VERSION: v1.13 — 2026-10-18 — **이미 올린 영상의 제목·설명·태그·언어만 바꾸기 `--update-meta`** (videos.update part=snippet,localizations — 50단위, 영상·공개 시각·
+#          자막은 그대로) · 업로드 설정 '| 오디오 언어 | ko |' (없으면 기본 언어 — 주식은 설명·제목 기본 언어 en, 내레이션 ko) · 설명란 챕터 머리
+#          '■ Chapters' 도 읽음 (사용자 지시 2026-10-18 "설명은 부호, 정말 간단한 영어로 간략하게 표현하도록 해봐 그리고 태그 같은 것도 영어로 하고
+#          한국어로 쓰여진 곳은 정말 간단한 영어로 수정할 수 있어? 모든 영상").
+# (v1.12) — 2026-10-17 — **언어별 자막(CC) 올리기** (사용자 지시 2026-10-17 "외국어 자막 대본도 필요하지? 쇼츠, 롱폼 각각 언어별로 작성해봐"):
 #          업로드 설정 '| 자막 올리기 | 언어별 … |' → 한국어 SRT + 자막 폴더의 <영상ID>.<언어>.srt 전부 (tools/subs_tool.py build 가 만듦 — 화면에는 굽지 않음).
 #          자막 하나 = 400단위 (영상 1,600 · 썸네일 50) → 하루 10,000 안에서 영상을 먼저, 자막은 할당량이 끝나면 멈추고 youtube.json 'captionTracks' 에
 #          올린 언어를 적음 → --captions-only 로 다음 날 남은 언어만 이어서. '| 자막 올리기 | 예 |' = 한국어만(예전 그대로) · '아니요' = 안 올림.
@@ -34,6 +38,7 @@ r"""
   python tools/youtube_upload.py stock bittu-2026-10 --dry-run     # 올리지 않고 읽은 값·파일·규칙만 확인
   python tools/youtube_upload.py stock bittu-2026-10               # 비공개 업로드 → source/<영상ID>/youtube.json 기록
   python tools/youtube_upload.py --check-auth                      # 키로 채널 이름만 확인 (업로드 안 함)
+  python tools/youtube_upload.py stock <영상ID> --update-meta [--dry-run]  # (v1.13) 올린 영상의 제목·설명·태그·언어만 바꿈
   python tools/youtube_upload.py stock bittu-2026-10 --publish-at +1h                  # 비공개 업로드 + 1시간 뒤 예약 공개
   python tools/youtube_upload.py stock bittu-2026-10 --publish-at 2026-10-11T09:00:00Z  # 지정 시각(UTC) 예약 공개
 
@@ -117,6 +122,7 @@ def read_sheet(topic, vid):
     tags = [t.strip() for t in tags_raw.replace("\n", ",").split(",") if t.strip()]
     return {"title": title, "description": desc, "tags": tags, "chapter_spec": spec.group(1) if spec else None,
             "synthetic": read_synthetic(md), "default_language": read_setting(md, "기본 언어", "ko"),
+            "audio_language": read_setting(md, "오디오 언어", read_setting(md, "기본 언어", "ko")),   # v1.13
             "captions": read_setting(md, "자막 올리기", "예") != "아니요", "caption_mode": "all" if "언어" in read_setting(md, "자막 올리기", "예") else "ko", "localizations": read_localizations(md)}
 
 
@@ -166,9 +172,9 @@ def recompute_chapters(topic, vid, desc, spec):
     ok = "✅" in out.stdout and out.returncode == 0
     if not ok or not lines:
         raise SystemExit(f"[CHAPTER] ❌ 챕터 규칙 실패 → srt_tool.py upload 출력 확인\n{out.stdout[-800:]}{out.stderr[-400:]}")
-    m = re.search(r"(■ 챕터\n)((?:\d+:\d\d(?::\d\d)? [^\n]*\n?)+)", desc)
+    m = re.search(r"(■ (?:챕터|Chapters)\n)((?:\d+:\d\d(?::\d\d)? [^\n]*\n?)+)", desc)   # v1.13 영어 머리도
     if not m:
-        raise SystemExit("[CHAPTER] ❌ 설명란에 '■ 챕터' 줄 묶음이 없습니다 (upload.md 2번)")
+        raise SystemExit("[CHAPTER] ❌ 설명란에 '■ 챕터'(또는 '■ Chapters') 줄 묶음이 없습니다 (upload.md 2번)")
     old = [l for l in m.group(2).splitlines() if l.strip()]
     new_desc = desc[:m.start(2)] + "\n".join(lines) + "\n" + desc[m.end(2):]
     changed = sum(a != b for a, b in zip(old, lines)) + abs(len(old) - len(lines))
@@ -272,15 +278,19 @@ def parse_publish_at(value, now=None):
     return when.strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
+def snippet_body(meta):
+    """(v1.13) snippet — 기본 언어(제목·설명의 언어)와 오디오 언어(내레이션)를 따로 (주식: en · ko)."""
+    lang = meta.get("default_language") or "ko"
+    return {"title": meta["title"], "description": meta["description"], "tags": meta["tags"], "categoryId": CATEGORY_EDUCATION,
+            "defaultLanguage": lang, "defaultAudioLanguage": meta.get("audio_language") or lang}
+
+
 def upload_video(token, path, meta, privacy, publish_at=None):
     status = {"privacyStatus": privacy, "selfDeclaredMadeForKids": False, "embeddable": True,
               "containsSyntheticMedia": bool(meta.get("synthetic", True))}   # 변경되거나 합성된 콘텐츠 (AI 음성 내레이션)
     if publish_at:                                   # 예약 공개는 반드시 private + publishAt
         status.update(privacyStatus="private", publishAt=publish_at)
-    lang = meta.get("default_language") or "ko"
-    body = {"snippet": {"title": meta["title"], "description": meta["description"], "tags": meta["tags"],
-                        "categoryId": CATEGORY_EDUCATION, "defaultLanguage": lang, "defaultAudioLanguage": lang},
-            "status": status}
+    body = {"snippet": snippet_body(meta), "status": status}
     parts = "snippet,status"
     if meta.get("localizations"):                    # v1.6 언어별 제목·설명 (defaultLanguage 가 있어야 받음)
         body["localizations"] = meta["localizations"]
@@ -545,6 +555,47 @@ def captions_only(topic, vid, dry_run=False):
     return st
 
 
+def update_meta(topic, vid, dry_run=False):
+    """(v1.13) 이미 올린 영상(youtube.json)의 제목·설명(챕터 다시 계산)·태그·기본/오디오 언어·언어별 제목·설명만 바꿈.
+    videos.update part=snippet,localizations (50단위) — 영상·썸네일·공개 상태·예약 시각·자막은 건드리지 않음 (part=status 를 보내지 않음).
+    localizations 는 통째로 바뀐다 (시트에 없는 언어는 지워짐)."""
+    src = src_dir(topic, vid)
+    state_path = src / "youtube.json"
+    if not state_path.exists():
+        raise SystemExit(f"[META] ❌ {vid}: youtube.json 없음 — 아직 안 올린 영상은 보통 업로드로")
+    st = json.loads(state_path.read_text("utf-8"))
+    meta = read_sheet(topic, vid)
+    meta["description"], chapter_lines = recompute_chapters(topic, vid, meta["description"], meta["chapter_spec"])
+    problems = validate(meta)
+    log("META", video=vid, youtube_id=st["videoId"], title=meta["title"][:60], default_language=meta["default_language"],
+        audio_language=meta["audio_language"], tags=len(meta["tags"]), desc_chars=len(meta["description"]),
+        localizations=",".join(meta["localizations"]) or "없음", units=50)
+    for p in problems:
+        log("CHECK", problem=p)
+    if dry_run:
+        print(f"\n제목: {meta['title']}\n태그: {', '.join(meta['tags'])}\n--- 설명란 ---\n{meta['description']}\n---")
+        for lang, loc in meta["localizations"].items():
+            print(f"[{lang}] {loc['title']}")
+        log("DRY-RUN", result="문제 없음" if not problems else f"문제 {len(problems)}개", updated="안 함")
+        return None
+    if problems:
+        raise SystemExit(f"[CHECK] ❌ 문제 {len(problems)}개 → 고친 뒤 다시 실행 (바꾸지 않음)")
+    token = access_token()
+    check_channel(topic, token)
+    body = {"id": st["videoId"], "snippet": snippet_body(meta), "localizations": meta["localizations"] or {}}
+    _, _, resp = request("PUT", f"{API}/videos?part=snippet,localizations", token, data=json.dumps(body).encode(),
+                         headers={"Content-Type": "application/json; charset=UTF-8"})
+    got = resp.get("snippet", {})
+    if got.get("title") != meta["title"]:
+        raise SystemExit(f"[META] ❌ 응답 제목이 다름: {got.get('title')!r}")
+    st.update(title=meta["title"], localizations=sorted(meta["localizations"]), chapters=chapter_lines,
+              defaultLanguage=meta["default_language"], defaultAudioLanguage=meta["audio_language"],
+              metaUpdatedAt=dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"))
+    state_path.write_text(json.dumps(st, ensure_ascii=False, indent=2) + "\n", "utf-8")
+    log("DONE", video=vid, youtube_id=st["videoId"], meta="updated", localizations=len(resp.get("localizations", {})))
+    return st
+
+
 def run(topic, vid, dry_run=False, privacy="private", force=False, no_captions=False, no_thumbnail=False, video=None,
         publish_at=None):
     src = src_dir(topic, vid)
@@ -651,6 +702,7 @@ def main(argv=None):
     ap.add_argument("--video", help="영상 파일 경로 (기본: <주제>/out/<영상ID>/final_1080p.mp4)")
     ap.add_argument("--no-captions", action="store_true")
     ap.add_argument("--no-thumbnail", action="store_true")
+    ap.add_argument("--update-meta", action="store_true", help="(v1.13) 이미 올린 영상의 제목·설명·태그·언어만 바꿈 (50단위)")
     ap.add_argument("--captions-only", action="store_true", help="(v1.12) 이미 올린 영상에 아직 안 올린 언어 자막만 (할당량으로 나눠 올릴 때)")
     ap.add_argument("--publish-at", help="예약 공개 시각: '+1h'·'+90m' 또는 ISO 8601 (예: 2026-10-11T18:00:00+09:00). 비공개로 올리고 그 시각에 공개")
     a = ap.parse_args(argv)
@@ -662,6 +714,8 @@ def main(argv=None):
         log("WARN", privacy=a.privacy, note="지시사항 기본은 비공개(private)")
     if a.captions_only:
         return captions_only(a.topic, a.video_id, a.dry_run)
+    if a.update_meta:
+        return update_meta(a.topic, a.video_id, a.dry_run)
     run(a.topic, a.video_id, a.dry_run, a.privacy, a.force, a.no_captions, a.no_thumbnail, a.video, parse_publish_at(a.publish_at))
 
 

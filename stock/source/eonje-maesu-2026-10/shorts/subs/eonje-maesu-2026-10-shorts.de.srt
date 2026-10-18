@@ -1,0 +1,80 @@
+1
+00:00:00,300 --> 00:00:02,790
+Wer überlegt, wann er
+kaufen soll, hört oft:
+
+2
+00:00:02,790 --> 00:00:04,940
+Kaufsignale erhöhen die Erfolgschance.
+
+3
+00:00:05,390 --> 00:00:08,315
+Zur Prüfung: ein Backtest
+mit von KI geschriebenem
+
+4
+00:00:08,315 --> 00:00:10,830
+Python-Code auf echten
+historischen Kursen.
+
+5
+00:00:11,280 --> 00:00:16,560
+Getestet haben wir SPY, einen
+ETF auf den S&P 500, ab 2016.
+
+6
+00:00:17,010 --> 00:00:18,728
+Wir nahmen 10 Kaufsignale,
+
+7
+00:00:18,728 --> 00:00:22,230
+etwa den 20-Tage-Schnitt,
+RSI und den Angstindex VIX.
+
+8
+00:00:22,680 --> 00:00:25,678
+Zuerst 5 % über dem
+Kaufkurs zählte als Erfolg,
+
+9
+00:00:25,678 --> 00:00:27,910
+zuerst 2 % darunter als Misserfolg.
+
+10
+00:00:28,360 --> 00:00:31,800
+Zum Vergleich: 2.000 Konten,
+die an zufälligen Tagen kauften.
+
+11
+00:00:32,250 --> 00:00:35,860
+Taugen die Signale etwas, muss ihre
+Erfolgsquote über dem Zufall liegen.
+
+12
+00:00:36,310 --> 00:00:38,830
+Die Zufallskonten wurden nach
+derselben Regel bewertet.
+
+13
+00:00:39,280 --> 00:00:44,480
+Am besten war Kaufen beim Überschreiten
+des 20-Tage-Schnitts: 52,1 % Erfolgsquote.
+
+14
+00:00:44,930 --> 00:00:48,620
+Doch alle 10 lagen in einem Bereich
+ohne Unterschied zum Zufallskauf.
+
+15
+00:00:49,070 --> 00:00:52,020
+Wann lag also jedes Signal
+richtig, wann falsch?
+
+16
+00:00:52,470 --> 00:00:53,929
+Die Bilanz der 10 Signale –
+
+17
+00:00:53,929 --> 00:00:57,010
+und ob andere Zeiträume dasselbe
+zeigen – im Video unten.

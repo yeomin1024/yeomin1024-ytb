@@ -1,0 +1,73 @@
+1
+00:00:00,300 --> 00:00:02,897
+Katanya ETF covered call
+yang membayar tiap bulan
+
+2
+00:00:02,897 --> 00:00:05,600
+tidak banyak menggerus
+modal walau uangnya dipakai.
+
+3
+00:00:06,050 --> 00:00:08,798
+Untuk mengeceknya, kami
+melakukan backtest dengan
+
+4
+00:00:08,798 --> 00:00:11,490
+kode Python buatan AI
+pada harga riil masa lalu.
+
+5
+00:00:11,940 --> 00:00:15,610
+Yang diuji QYLD, ETF
+covered call Nasdaq-100.
+
+6
+00:00:16,060 --> 00:00:21,980
+Pembandingnya QQQ, ETF yang mengikuti
+Nasdaq-100 tanpa covered call.
+
+7
+00:00:22,430 --> 00:00:26,750
+Desember 2013, masing-masing
+akun diisi modal $100.000.
+
+8
+00:00:27,200 --> 00:00:30,420
+Setiap pembayaran QYLD
+langsung dipakai semuanya.
+
+9
+00:00:30,870 --> 00:00:35,710
+Agar adil, akun QQQ juga menjual
+jumlah yang sama pada hari yang sama.
+
+10
+00:00:36,160 --> 00:00:41,250
+Sampai 2026, kedua akun sama-sama
+menarik sekitar $110.000.
+
+11
+00:00:41,700 --> 00:00:47,380
+Akun QYLD tinggal sekitar
+$75.000, 25,3% di bawah modal.
+
+12
+00:00:47,830 --> 00:00:52,810
+Akun QQQ masih sekitar
+$510.000, 6,83 kali QYLD.
+
+13
+00:00:53,260 --> 00:00:56,190
+Uang yang ditarik sama,
+kenapa selisihnya sebesar ini?
+
+14
+00:00:56,640 --> 00:01:00,190
+Alasannya, dan apakah hasilnya
+sama jika mulai di bulan lain,
+
+15
+00:01:00,190 --> 00:01:01,470
+cek di video di bawah.

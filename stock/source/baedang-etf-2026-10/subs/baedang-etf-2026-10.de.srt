@@ -1,0 +1,486 @@
+1
+00:00:00,300 --> 00:00:03,910
+Dividenden auf dem Konto beruhigen,
+darum sammeln viele Dividenden-ETFs.
+
+2
+00:00:04,360 --> 00:00:09,000
+Aber bleibt nach der Steuer auf jede
+Ausschüttung mehr als mit einem Index-ETF?
+
+3
+00:00:09,450 --> 00:00:12,085
+Wir machen einen Backtest mit SCHD,
+
+4
+00:00:12,085 --> 00:00:16,000
+einem US-Dividenden-ETF,
+und SPY, einem S&P-500-ETF.
+
+5
+00:00:17,000 --> 00:00:20,440
+Ab 2011 kaufen wir am ersten
+Handelstag jedes Monats für 1.000 $.
+
+6
+00:00:20,890 --> 00:00:25,860
+Dividenden werden mit 15 % besteuert
+und reinvestiert; die Gebühr ist 0,25 %.
+
+7
+00:00:26,860 --> 00:00:28,450
+Jetzt lassen wir die Tage laufen.
+
+8
+00:00:28,900 --> 00:00:32,700
+Die lila Linie ist das SCHD-Konto,
+die blaue das SPY-Konto.
+
+9
+00:00:33,150 --> 00:00:35,630
+Gelb gestrichelt: bisher
+eingezahltes Geld.
+
+10
+00:00:36,080 --> 00:00:39,160
+Oben: erhaltene Dividenden
+und gezahlte Steuer je Konto.
+
+11
+00:00:39,610 --> 00:00:43,290
+Für 1.000 $ wird so viel gekauft
+wie möglich, auch Bruchteile.
+
+12
+00:00:43,740 --> 00:00:49,100
+Bis 2017 wechselte die Führung
+43-mal, beide lagen abwechselnd vorn.
+
+13
+00:00:49,550 --> 00:00:52,670
+Ab dem 2. Januar 2018 lag SPY vorn.
+
+14
+00:00:53,120 --> 00:01:00,540
+2019 zahlte SCHD 63,1 % mehr Dividende
+als SPY, doch das SPY-Konto lag vorn.
+
+15
+00:01:00,990 --> 00:01:05,190
+Im Corona-Crash fielen beide
+Konten bis zum 23. März gemeinsam.
+
+16
+00:01:05,640 --> 00:01:13,880
+Das SCHD-Konto fiel um 32,8 %, das
+SPY-Konto um 33,4 %: ähnliche Verluste.
+
+17
+00:01:14,880 --> 00:01:17,200
+2022 kam ein langer Bärenmarkt.
+
+18
+00:01:17,650 --> 00:01:20,130
+Im April lag SCHD wieder vorn.
+
+19
+00:01:20,580 --> 00:01:27,620
+In dem Jahr fiel SCHD um 14,6 %,
+SPY um 22,2 %: SCHD fiel weniger.
+
+20
+00:01:28,070 --> 00:01:33,100
+Am 6. Januar 2023 lag SCHD
+um bis zu rund 33.000 $ vorn.
+
+21
+00:01:33,550 --> 00:01:37,380
+Doch am 26. April 2023
+lag SPY wieder vorn.
+
+22
+00:01:37,830 --> 00:01:41,839
+Auch 2025 war die Dividende
+von SCHD das 2,6-Fache von SPY,
+
+23
+00:01:41,839 --> 00:01:44,150
+doch der Abstand der Konten wuchs.
+
+24
+00:01:45,150 --> 00:01:47,870
+15. Oktober 2026: das Ergebnis.
+
+25
+00:01:48,320 --> 00:01:51,500
+Beide Konten zahlten in
+180 Raten 180.000 $ ein.
+
+26
+00:01:51,950 --> 00:01:57,550
+Das SCHD-Konto hatte rund 480.000
+$, das SPY-Konto rund 590.000 $.
+
+27
+00:01:58,000 --> 00:02:02,710
+Das SPY-Konto hatte das
+1,22-Fache, rund 110.000 $ mehr.
+
+28
+00:02:03,160 --> 00:02:07,840
+Nach dem 26. April 2023
+lag SCHD nie wieder vorn.
+
+29
+00:02:08,290 --> 00:02:12,670
+SCHD lag nur an 20,1 %
+aller Handelstage vorn.
+
+30
+00:02:13,120 --> 00:02:18,640
+SCHD erhielt rund 87.000 $
+Dividende, das 2,1-Fache von SPY.
+
+31
+00:02:19,090 --> 00:02:23,900
+Entsprechend zahlte SCHD rund 13.000
+$ Steuer, das 2,1-Fache von SPY.
+
+32
+00:02:24,350 --> 00:02:28,287
+Im letzten 1-Jahres-Zeitraum bekam
+SCHD rund 15.000 $ Dividende,
+
+33
+00:02:28,287 --> 00:02:29,640
+das 2,5-Fache von SPY.
+
+34
+00:02:30,090 --> 00:02:35,030
+Ab 2012 bekam das SCHD-Konto jedes
+Jahr mehr Dividende ausgezahlt.
+
+35
+00:02:36,030 --> 00:02:38,910
+Mehr Dividende, aber
+warum blieb weniger übrig?
+
+36
+00:02:39,360 --> 00:02:41,590
+Sehen wir, woher Dividenden kommen.
+
+37
+00:02:42,040 --> 00:02:45,280
+Am Dividendentag fällt der
+Kurs meist um die Dividende.
+
+38
+00:02:45,730 --> 00:02:49,470
+Firmengeld geht an die Aktionäre, also
+ist die Firma so viel weniger wert.
+
+39
+00:02:49,920 --> 00:02:53,630
+Darum wächst beim Erhalt der Dividende
+der Kontowert insgesamt nicht.
+
+40
+00:02:54,080 --> 00:02:56,660
+Die Steuer aber geht
+sofort beim Erhalt ab.
+
+41
+00:02:57,110 --> 00:02:58,880
+Sehen wir uns ein echtes Konto an.
+
+42
+00:02:59,330 --> 00:03:05,090
+Am 10. Dezember 2025 brachte 1
+SCHD-Anteil 0,278 $ Dividende.
+
+43
+00:03:05,540 --> 00:03:08,400
+Für das ganze Konto waren das 3.743 $.
+
+44
+00:03:08,850 --> 00:03:14,300
+Nach 15 % Steuer, also
+561 $, blieben 3.181 $.
+
+45
+00:03:14,750 --> 00:03:19,900
+Davon wurden nach Gebühr 115,1
+Anteile zu 27,57 $ nachgekauft.
+
+46
+00:03:20,350 --> 00:03:23,470
+Auch der Index-ETF zahlt
+Dividende, nur weniger.
+
+47
+00:03:23,920 --> 00:03:30,000
+Dividendenrendite 2025:
+SCHD 3,8 %, SPY 1,2 %.
+
+48
+00:03:30,450 --> 00:03:34,040
+Je mehr Dividende, desto mehr
+Steuer, und desto früher.
+
+49
+00:03:35,040 --> 00:03:38,470
+Ohne Effekt der Monatsraten: Wie
+schlugen sich die Fonds selbst?
+
+50
+00:03:38,920 --> 00:03:41,420
+Wir verglichen die
+1-Jahres-Rendite je Jahr,
+
+51
+00:03:41,420 --> 00:03:43,750
+mit Wiederanlage, ohne Steuer und Gebühr.
+
+52
+00:03:44,200 --> 00:03:49,880
+In 4 der 14 Jahre von 2012
+bis 2025 brachte SCHD mehr.
+
+53
+00:03:50,330 --> 00:03:56,410
+2022 fiel SCHD um 3,2 %, SPY um 18,2 %.
+
+54
+00:03:56,860 --> 00:04:02,910
+2023 stieg SCHD um 4,6 %, SPY um 26,2 %.
+
+55
+00:04:03,360 --> 00:04:09,920
+2024 stieg SCHD um 11,7 %, SPY um 24,9 %.
+
+56
+00:04:10,370 --> 00:04:16,450
+2025 stieg SCHD um 4,3 %, SPY um 17,7 %.
+
+57
+00:04:17,450 --> 00:04:19,120
+Lag der Abstand an der Steuer?
+
+58
+00:04:19,570 --> 00:04:24,160
+15 % behalten die USA bei Anlegern vieler
+Länder vorab von US-Dividenden ein.
+
+59
+00:04:24,610 --> 00:04:30,980
+Bei 0 % Steuer: SCHD rund
+510.000 $, SPY rund 600.000 $.
+
+60
+00:04:31,430 --> 00:04:34,560
+Auch ohne Steuer hatte SPY das 1,19-Fache.
+
+61
+00:04:35,010 --> 00:04:38,570
+Bei 30 % wuchs der Abstand
+auf das 1,25-Fache.
+
+62
+00:04:39,020 --> 00:04:43,160
+Und wenn man am Ende alles verkauft
+und 15 % auf den Gewinn zahlt?
+
+63
+00:04:43,610 --> 00:04:50,170
+SCHD rund 450.000 $, SPY rund 530.000
+$: der Abstand sank auf das 1,19-Fache.
+
+64
+00:04:50,620 --> 00:04:53,760
+Denn SCHD hatte über die
+Dividenden schon Steuer gezahlt.
+
+65
+00:04:54,210 --> 00:04:57,910
+Und statt monatlich einmalig
+100.000 $ am Anfang?
+
+66
+00:04:58,360 --> 00:05:05,400
+SCHD rund 610.000 $, SPY rund
+790.000 $: SPY hatte das 1,29-Fache.
+
+67
+00:05:06,400 --> 00:05:09,840
+Der Start im November 2011 hat
+das Ergebnis vielleicht verändert.
+
+68
+00:05:10,290 --> 00:05:12,440
+Und mit einem anderen Startmonat?
+
+69
+00:05:12,890 --> 00:05:15,095
+Wir bildeten 5-Jahres-Sparkonten,
+
+70
+00:05:15,095 --> 00:05:18,970
+je eins pro Startmonat von
+November 2011 bis Oktober 2021.
+
+71
+00:05:19,420 --> 00:05:20,860
+Insgesamt 120.
+
+72
+00:05:21,310 --> 00:05:25,400
+Nur in 25 von 120 blieb bei SCHD mehr.
+
+73
+00:05:25,850 --> 00:05:31,730
+Am stärksten vorn lag SCHD beim
+Start Januar 2018: das 1,15-Fache.
+
+74
+00:05:32,180 --> 00:05:36,890
+Beim Start im November 2020
+dagegen hatte SPY das 1,34-Fache.
+
+75
+00:05:37,340 --> 00:05:41,820
+Bei den 10-Jahres-Konten
+lag SCHD in 12 von 60 vorn.
+
+76
+00:05:42,820 --> 00:05:47,460
+SCHD startete 2011 und erlebte
+die Finanzkrise 2008 nicht.
+
+77
+00:05:47,910 --> 00:05:50,072
+Halten Dividendenaktien
+im Abschwung besser,
+
+78
+00:05:50,072 --> 00:05:51,940
+kann es mit der Krise anders aussehen.
+
+79
+00:05:52,390 --> 00:05:57,030
+Darum testeten wir auch VYM, einen
+US-Hochdividenden-ETF von 2006.
+
+80
+00:05:57,480 --> 00:06:01,160
+Ab Dezember 2006, gleiche
+Regeln, monatlich 1.000 $.
+
+81
+00:06:01,610 --> 00:06:09,720
+In der Finanzkrise fiel VYM um 29,2
+%, SPY um 33,7 %: VYM fiel weniger.
+
+82
+00:06:10,170 --> 00:06:16,330
+Bis Ende Oktober 2011 lag VYM
+mit rund 67.000 $ vor SPY.
+
+83
+00:06:16,780 --> 00:06:21,820
+Bis zum 15. Oktober 2026
+eingezahlt: 239.000 $.
+
+84
+00:06:22,270 --> 00:06:28,430
+VYM rund 810.000 $, SPY rund
+1.100.000 $: SPY hatte das 1,35-Fache.
+
+85
+00:06:28,880 --> 00:06:33,750
+Bei den 10-Jahres-Konten blieb
+bei VYM nur in 5 von 119 mehr.
+
+86
+00:06:34,750 --> 00:06:35,870
+Zusammenfassung.
+
+87
+00:06:36,320 --> 00:06:39,520
+Mit 15 % Steuer haben wir 15
+Jahre lang monatlich gespart.
+
+88
+00:06:39,970 --> 00:06:43,800
+Das SPY-Konto hatte das
+1,22-Fache des SCHD-Kontos.
+
+89
+00:06:44,250 --> 00:06:46,330
+Ohne Steuer war es das 1,19-Fache.
+
+90
+00:06:46,780 --> 00:06:51,310
+SCHD bekam das 2,1-Fache an Dividende
+und zahlte entsprechend mehr Steuer.
+
+91
+00:06:51,760 --> 00:06:55,960
+In Bärenmärkten wie
+2022 fiel SCHD weniger.
+
+92
+00:06:56,410 --> 00:07:02,260
+Mit anderem Startmonat lag SCHD in manchen
+Konten vorn, aber nur in 25 von 120.
+
+93
+00:07:02,710 --> 00:07:09,360
+Auch VYM ab 2006 lag bei 10 Jahren
+in 114 von 119 Konten unter SPY.
+
+94
+00:07:10,360 --> 00:07:13,670
+In dieser Zeit stiegen große
+US-Wachstumsaktien stark.
+
+95
+00:07:14,120 --> 00:07:15,398
+In einer stärkeren Phase für
+
+96
+00:07:15,398 --> 00:07:17,360
+Dividendenaktien könnte
+es anders aussehen.
+
+97
+00:07:17,810 --> 00:07:21,320
+Dividenden für den Lebensunterhalt zu
+entnehmen, ist hier nicht eingerechnet.
+
+98
+00:07:21,770 --> 00:07:24,212
+Steuersätze variieren je Land und Konto;
+
+99
+00:07:24,212 --> 00:07:27,570
+Krankenversicherung, Wechselkurse
+und Inflation fehlen.
+
+100
+00:07:28,020 --> 00:07:33,300
+Und die SPY-Seite musste Jahre wie
+2022 mit minus 22,2 % aushalten.
+
+101
+00:07:33,750 --> 00:07:37,040
+Das ist keine Anlageberatung,
+sondern per Code geprüfte Regeln.
+
+102
+00:07:38,040 --> 00:07:41,810
+Eine Hypothese für den nächsten
+Backtest? Schreibt sie in die Kommentare.
+
+103
+00:07:42,260 --> 00:07:43,810
+Danke fürs Zuschauen.

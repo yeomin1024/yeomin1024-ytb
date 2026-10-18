@@ -1,0 +1,543 @@
+1
+00:00:00,300 --> 00:00:04,480
+QLD y TQQQ siguen al Nasdaq-100 a 2x y 3x.
+
+2
+00:00:04,930 --> 00:00:07,275
+Acumulando por años, parece
+que dejarán mucho más,
+
+3
+00:00:07,275 --> 00:00:09,010
+pero ¿cuánto aguantan en un desplome?
+
+4
+00:00:09,460 --> 00:00:13,690
+Desde 1999, comparemos 1x,
+2x y 3x con un backtest.
+
+5
+00:00:14,690 --> 00:00:21,030
+Como QLD y TQQQ, 2x y 3x se calculan: 2x
+o 3x el índice cada día, menos los costos.
+
+6
+00:00:21,480 --> 00:00:26,350
+Compramos US$500 el primer día hábil
+de cada mes, con una comisión de 0.25%.
+
+7
+00:00:27,350 --> 00:00:28,940
+Ahora dejemos correr las fechas.
+
+8
+00:00:29,390 --> 00:00:33,136
+La línea azul es QQQ, que
+sigue al Nasdaq-100 a 1x;
+
+9
+00:00:33,136 --> 00:00:35,560
+la morada es 2x y la naranja, 3x.
+
+10
+00:00:36,010 --> 00:00:38,000
+Punteado amarillo: lo
+invertido hasta ahora.
+
+11
+00:00:38,450 --> 00:00:40,850
+Cada escalón de la escala
+vertical vale 10 veces.
+
+12
+00:00:41,300 --> 00:00:44,410
+Las tres cuentas reinvierten
+los dividendos del Nasdaq-100.
+
+13
+00:00:44,860 --> 00:00:50,030
+A fines de 1999, la cuenta 3x valía
+3.28 veces los US$4,500 invertidos.
+
+14
+00:00:50,480 --> 00:00:53,420
+Desde marzo de 2000, la burbuja
+puntocom empieza a estallar.
+
+15
+00:00:53,870 --> 00:00:55,670
+El 29 de marzo de 2001,
+
+16
+00:00:55,670 --> 00:01:00,680
+la cuenta 3x había perdido el
+92.3% de los US$12,000 invertidos.
+
+17
+00:01:01,130 --> 00:01:04,142
+El 4 de abril, 2x bajó 80.7% y 1x 49.9%;
+
+18
+00:01:04,142 --> 00:01:07,530
+las tres quedaron por
+debajo de lo invertido.
+
+19
+00:01:07,980 --> 00:01:11,190
+Aun así, las tres cuentas siguieron
+comprando US$500 cada mes.
+
+20
+00:01:11,640 --> 00:01:15,480
+En 2003, 3x subió 167.4%.
+
+21
+00:01:15,930 --> 00:01:18,480
+A fines de 2007, las tres
+estaban casi iguales.
+
+22
+00:01:19,480 --> 00:01:21,400
+Y luego llegó la crisis
+financiera de 2008.
+
+23
+00:01:21,850 --> 00:01:24,487
+El 20 de noviembre, la cuenta 3x había
+
+24
+00:01:24,487 --> 00:01:27,610
+perdido el 89.5% de los
+US$58,000 invertidos.
+
+25
+00:01:28,060 --> 00:01:33,890
+Ese mismo día, 2x había
+perdido 72.8% y 1x 36.4%.
+
+26
+00:01:34,340 --> 00:01:37,870
+En 2009, 3x subió 196.4%.
+
+27
+00:01:38,320 --> 00:01:41,318
+Hasta fines de 2012, 1x
+seguía siendo la mayor,
+
+28
+00:01:41,318 --> 00:01:44,060
+pero el 3 de julio de
+2013, 3x superó a 1x.
+
+29
+00:01:44,510 --> 00:01:47,980
+En junio de 2017, la cuenta
+3x superó US$1,000,000.
+
+30
+00:01:48,430 --> 00:01:56,190
+En el desplome del covid, 3x
+bajó 69.7%, 2x 51.9% y 1x 28.5%.
+
+31
+00:01:56,640 --> 00:01:59,568
+Aun así, la cuenta 3x
+tenía unos US$970,000,
+
+32
+00:01:59,568 --> 00:02:01,830
+más que los US$126,000 invertidos.
+
+33
+00:02:02,280 --> 00:02:08,360
+A fines de 2021, la cuenta 3x tenía
+unos US$9,100,000, 8.66 veces la de 1x.
+
+34
+00:02:09,360 --> 00:02:11,540
+En 2022 llegó una larga caída.
+
+35
+00:02:11,990 --> 00:02:15,230
+La cuenta 3x bajó de
+unos US$9,300,000 el 3 de
+
+36
+00:02:15,230 --> 00:02:18,400
+enero a unos US$1,800,000
+el 28 de diciembre.
+
+37
+00:02:18,850 --> 00:02:20,530
+Fue una pérdida de 80.9%.
+
+38
+00:02:20,980 --> 00:02:25,460
+2x bajó 62.8% y 1x 34.4%.
+
+39
+00:02:25,910 --> 00:02:29,830
+En 2023, 3x subió 198.2%.
+
+40
+00:02:30,280 --> 00:02:34,120
+En diciembre de 2024, la
+cuenta 3x superó US$10,000,000.
+
+41
+00:02:34,570 --> 00:02:42,500
+En la caída de abril de 2025, 3x
+bajó 56.8%, 2x 41.8% y 1x 22.7%.
+
+42
+00:02:43,500 --> 00:02:46,220
+15 de octubre de 2026: el resultado.
+
+43
+00:02:46,670 --> 00:02:50,810
+Las tres cuentas invirtieron
+331 veces, unos US$170,000.
+
+44
+00:02:51,260 --> 00:02:55,490
+La cuenta 1x tiene unos US$2,000,000,
+y la 2x unos US$7,900,000.
+
+45
+00:02:55,940 --> 00:02:58,820
+La cuenta 3x tenía unos US$17,000,000.
+
+46
+00:02:59,270 --> 00:03:05,190
+El máximo de la cuenta 3x fue el 2
+de junio de 2026, unos US$20,000,000.
+
+47
+00:03:05,640 --> 00:03:09,420
+3x quedó en 8.55 veces
+1x, y 2x en 3.91 veces.
+
+48
+00:03:09,870 --> 00:03:13,620
+Desde el 3 de julio de 2013, 3x
+siempre estuvo por encima de 1x.
+
+49
+00:03:14,070 --> 00:03:19,660
+En los 14.3 años anteriores, 3x
+superó a 1x solo el 10.8% de los días.
+
+50
+00:03:20,110 --> 00:03:23,872
+Los días por encima de
+lo invertido también
+
+51
+00:03:23,872 --> 00:03:27,460
+fueron menos para 3x: 1x 78.1%, 3x 64.7%.
+
+52
+00:03:28,460 --> 00:03:31,020
+¿Por qué 3x cayó tanto en los desplomes?
+
+53
+00:03:31,470 --> 00:03:35,150
+Veamos qué significa que un ETF
+apalancado ajuste su múltiplo cada día.
+
+54
+00:03:35,600 --> 00:03:40,010
+Digamos que el índice sube 10% un
+día y baja 10% al día siguiente.
+
+55
+00:03:40,460 --> 00:03:42,730
+1x pierde 1%.
+
+56
+00:03:43,180 --> 00:03:47,360
+2x sube 20% y luego baja 20%: pierde 4%.
+
+57
+00:03:47,810 --> 00:03:52,310
+3x sube 30% y luego baja 30%: pierde 9%.
+
+58
+00:03:52,760 --> 00:03:56,200
+Cuanto más sube y baja, y mayor
+es el múltiplo, más se desgasta.
+
+59
+00:03:56,650 --> 00:04:00,410
+Aunque el índice vuelva a donde empezó,
+la cuenta apalancada queda con menos.
+
+60
+00:04:00,860 --> 00:04:05,550
+De hecho, en 2018, 1x bajó
+0.1%, casi sin cambio.
+
+61
+00:04:06,000 --> 00:04:10,420
+Ese año, 2x bajó 8.6% y 3x 20.1%.
+
+62
+00:04:11,420 --> 00:04:14,780
+¿Y si en vez de cada mes, hubieras
+invertido todo de una vez al inicio?
+
+63
+00:04:15,230 --> 00:04:19,470
+El 1 de abril de 1999, cada
+cuenta recibió US$10,000.
+
+64
+00:04:19,920 --> 00:04:21,704
+El 9 de marzo de 2009,
+
+65
+00:04:21,704 --> 00:04:26,650
+a la cuenta 3x le quedaban solo
+US$13: desapareció el 99.87%.
+
+66
+00:04:27,100 --> 00:04:28,860
+La 2x tenía US$450.
+
+67
+00:04:29,310 --> 00:04:33,790
+La 1x tocó su mínimo el 9 de
+octubre de 2002: US$3,736.
+
+68
+00:04:34,240 --> 00:04:37,040
+Estos son los valores del
+15 de octubre de 2026.
+
+69
+00:04:37,490 --> 00:04:42,990
+1x unos US$160,000, 2x unos
+US$130,000 y 3x unos US$18,000.
+
+70
+00:04:43,440 --> 00:04:47,420
+Con una sola inversión, a 3x le
+quedó solo el 11.4% de lo de 1x.
+
+71
+00:04:47,870 --> 00:04:51,600
+Las cuentas mensuales siguieron
+comprando, también a precios de desplome.
+
+72
+00:04:52,600 --> 00:04:57,000
+Abril de 1999 fue justo antes del desplome
+puntocom, así que el inicio pudo ser malo.
+
+73
+00:04:57,450 --> 00:04:59,600
+¿Y si el mes de inicio hubiera sido otro?
+
+74
+00:05:00,050 --> 00:05:02,807
+Creamos cuentas de ahorro
+mensual de 10 años,
+
+75
+00:05:02,807 --> 00:05:06,360
+una por mes de inicio, de abril
+de 1999 a octubre de 2016.
+
+76
+00:05:06,810 --> 00:05:08,460
+Son 211 en total.
+
+77
+00:05:08,910 --> 00:05:13,590
+Tras 10 años, 3x superó
+a 1x en 175 de las 211.
+
+78
+00:05:14,040 --> 00:05:17,160
+2x superó a 1x en 183.
+
+79
+00:05:17,610 --> 00:05:22,730
+Cuentas que quedaron por debajo de
+lo invertido: 1x 4, 2x 16, 3x 20.
+
+80
+00:05:23,180 --> 00:05:26,860
+La peor fue la cuenta
+iniciada en abril de 1999.
+
+81
+00:05:27,310 --> 00:05:33,040
+De unos US$61,000 invertidos, 3x
+tenía unos US$12,000, el 24.9% de 1x.
+
+82
+00:05:33,490 --> 00:05:38,690
+La mejor fue la iniciada en septiembre
+de 2008, con 3x en 6.49 veces 1x.
+
+83
+00:05:39,140 --> 00:05:43,140
+En las 31 cuentas de 25 años,
+3x fue la mayor en todas.
+
+84
+00:05:44,140 --> 00:05:48,000
+También hay que ver cuánto se parecen el
+2x y el 3x calculados a los ETF reales.
+
+85
+00:05:48,450 --> 00:05:50,770
+Así se calcularon las cuentas 2x y 3x.
+
+86
+00:05:51,220 --> 00:05:57,260
+Los dos ETF nacieron en 2006 y 2010,
+así que desde 1999 hay que calcularlos.
+
+87
+00:05:57,710 --> 00:06:01,110
+Cada día siguen 2x o 3x el
+rendimiento diario del Nasdaq-100.
+
+88
+00:06:01,560 --> 00:06:04,970
+Luego se resta la comisión de 0.95%
+y el interés del dinero prestado.
+
+89
+00:06:05,420 --> 00:06:09,500
+El interés es la tasa a tres meses
+del gobierno de EE. UU. más 1.02%.
+
+90
+00:06:09,950 --> 00:06:15,440
+El 1.02% se fijó para que el valor final
+igualara al QLD real desde junio de 2006.
+
+91
+00:06:15,890 --> 00:06:21,360
+Con ese mismo valor, TQQQ salió 0.57%
+por debajo del real por cada 1 año.
+
+92
+00:06:21,810 --> 00:06:23,820
+Ahora veámoslo con los ETF reales.
+
+93
+00:06:24,270 --> 00:06:29,070
+Desde marzo de 2010, el mes después del
+lanzamiento de TQQQ, US$500 cada mes.
+
+94
+00:06:29,520 --> 00:06:31,200
+Se invirtieron US$100,000.
+
+95
+00:06:31,650 --> 00:06:36,210
+QQQ llegó a unos US$620,000,
+y QLD a unos US$2,200,000.
+
+96
+00:06:36,660 --> 00:06:39,840
+TQQQ quedó en unos US$5,300,000.
+
+97
+00:06:40,290 --> 00:06:43,788
+En el mismo periodo, el 3x
+calculado dio unos US$5,100,000,
+
+98
+00:06:43,788 --> 00:06:45,330
+un poco menos que el real.
+
+99
+00:06:45,780 --> 00:06:53,150
+La cuenta real de TQQQ también bajó
+81.5% en 2022, y la de QLD, 63.3%.
+
+100
+00:06:54,150 --> 00:06:55,270
+Resumamos.
+
+101
+00:06:55,720 --> 00:07:00,600
+Ahorrando cada mes desde 1999,
+3x terminó en 8.55 veces 1x.
+
+102
+00:07:01,050 --> 00:07:05,430
+Pero en 2001 hubo un momento en que se
+había perdido el 92.3% de lo invertido.
+
+103
+00:07:05,880 --> 00:07:08,590
+En 2008 también cayó 89.5%.
+
+104
+00:07:09,040 --> 00:07:12,840
+3x empezó a mantenerse por delante
+de 1x recién tras 14.3 años.
+
+105
+00:07:13,290 --> 00:07:17,920
+Con todo invertido al inicio, a
+3x le quedó solo el 11.4% de 1x.
+
+106
+00:07:18,370 --> 00:07:21,180
+Incluso en las cuentas de 10
+años con otro mes de inicio,
+
+107
+00:07:21,180 --> 00:07:23,940
+en 20 de las 211 el 3x quedó
+por debajo de lo invertido.
+
+108
+00:07:24,940 --> 00:07:27,090
+En este periodo, el
+Nasdaq-100 subió mucho.
+
+109
+00:07:27,540 --> 00:07:32,180
+Los valores 2x y 3x de la prueba principal
+son calculados, no de ETF reales.
+
+110
+00:07:32,630 --> 00:07:34,790
+Con otras tasas y comisiones,
+cambia el resultado.
+
+111
+00:07:35,240 --> 00:07:38,179
+Y elegir 3x exigía
+aguantar dos veces caídas
+
+112
+00:07:38,179 --> 00:07:40,650
+de alrededor del 90% de lo invertido.
+
+113
+00:07:41,100 --> 00:07:43,570
+Sin impuestos, tipo de
+cambio ni inflación.
+
+114
+00:07:44,020 --> 00:07:47,310
+No es asesoría de inversión, sino
+reglas comprobadas con código.
+
+115
+00:07:48,310 --> 00:07:52,080
+¿Tienes una hipótesis para el próximo
+backtest? Cuéntanos en los comentarios.
+
+116
+00:07:52,530 --> 00:07:54,080
+Gracias por ver.

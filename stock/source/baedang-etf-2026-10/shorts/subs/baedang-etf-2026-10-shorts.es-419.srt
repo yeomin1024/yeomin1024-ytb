@@ -1,0 +1,69 @@
+1
+00:00:00,300 --> 00:00:04,710
+Dicen que acumular un ETF de dividendos
+por años deja más que un ETF de índice.
+
+2
+00:00:05,160 --> 00:00:07,720
+Para comprobarlo, hicimos
+un backtest con código
+
+3
+00:00:07,720 --> 00:00:10,600
+Python escrito por IA sobre
+precios reales del pasado.
+
+4
+00:00:11,050 --> 00:00:14,470
+Probamos SCHD, un ETF de
+acciones de dividendos de EE. UU.
+
+5
+00:00:14,920 --> 00:00:20,520
+Lo comparamos con SPY, que paga menos
+dividendos pero sigue el S&P 500.
+
+6
+00:00:20,970 --> 00:00:24,010
+Desde 2011, cada cuenta
+recibió US$1,000 al mes.
+
+7
+00:00:24,460 --> 00:00:29,240
+En las dos cuentas, a cada dividendo se
+le retuvo 15% de impuesto y se reinvirtió.
+
+8
+00:00:29,690 --> 00:00:33,270
+15% es la tasa retenida a dividendos
+de EE. UU. en muchos países.
+
+9
+00:00:33,720 --> 00:00:37,080
+Hasta 2026, cada cuenta
+invirtió US$180,000.
+
+10
+00:00:37,530 --> 00:00:43,130
+La cuenta de SCHD tenía unos
+US$480,000; la de SPY, unos US$590,000.
+
+11
+00:00:43,580 --> 00:00:46,935
+SCHD recibió 2.1 veces
+los dividendos de SPY,
+
+12
+00:00:46,935 --> 00:00:50,440
+pero el saldo de SPY fue
+1.22 veces el de SCHD.
+
+13
+00:00:50,890 --> 00:00:53,770
+Recibió más dividendos,
+¿por qué le quedó menos?
+
+14
+00:00:54,220 --> 00:00:59,050
+El porqué, y si empezar en otro mes da
+lo mismo, míralo en el video de abajo.

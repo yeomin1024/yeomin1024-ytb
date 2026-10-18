@@ -1,0 +1,60 @@
+1
+00:00:00,300 --> 00:00:04,710
+People say saving in a dividend ETF for
+years leaves more than an index ETF.
+
+2
+00:00:05,160 --> 00:00:08,279
+To check, we ran a
+backtest with AI-written
+
+3
+00:00:08,279 --> 00:00:10,600
+Python code on real past prices.
+
+4
+00:00:11,050 --> 00:00:14,470
+We tested SCHD, a US dividend stock ETF.
+
+5
+00:00:14,920 --> 00:00:20,520
+We compared it with SPY, which pays
+smaller dividends but tracks the S&P 500.
+
+6
+00:00:20,970 --> 00:00:24,010
+From 2011, each account
+got $1,000 every month.
+
+7
+00:00:24,460 --> 00:00:29,240
+In both accounts, every dividend had
+15% tax withheld, then was reinvested.
+
+8
+00:00:29,690 --> 00:00:33,270
+15% is the rate withheld on US
+dividends in many countries.
+
+9
+00:00:33,720 --> 00:00:37,080
+By 2026, each account had put in $180,000.
+
+10
+00:00:37,530 --> 00:00:43,130
+The SCHD account had about $480,000;
+the SPY account, about $590,000.
+
+11
+00:00:43,580 --> 00:00:50,440
+SCHD received 2.1 times SPY's dividends,
+but SPY had 1.22 times as much money left.
+
+12
+00:00:50,890 --> 00:00:53,770
+More dividends, so why less money left?
+
+13
+00:00:54,220 --> 00:00:59,050
+Why, and whether another start month gives
+the same result: see the video below.

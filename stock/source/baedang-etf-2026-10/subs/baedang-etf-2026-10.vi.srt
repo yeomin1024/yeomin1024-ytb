@@ -1,0 +1,463 @@
+1
+00:00:00,300 --> 00:00:03,910
+Cổ tức về tài khoản khiến ta yên tâm,
+nên nhiều người tích lũy ETF cổ tức.
+
+2
+00:00:04,360 --> 00:00:09,000
+Nhưng sau khi trừ thuế mỗi lần
+nhận, có còn nhiều hơn ETF chỉ số?
+
+3
+00:00:09,450 --> 00:00:16,000
+Hãy backtest với SCHD, ETF cổ phiếu
+cổ tức Mỹ, và SPY, ETF S&P 500.
+
+4
+00:00:17,000 --> 00:00:20,440
+Từ 2011, mua 1.000 USD vào ngày
+giao dịch đầu tiên mỗi tháng.
+
+5
+00:00:20,890 --> 00:00:25,860
+Cổ tức trừ thuế 15% rồi
+tái đầu tư, phí 0,25%.
+
+6
+00:00:26,860 --> 00:00:28,450
+Giờ hãy cho thời gian trôi.
+
+7
+00:00:28,900 --> 00:00:32,700
+Đường tím là tài khoản SCHD,
+đường xanh là tài khoản SPY.
+
+8
+00:00:33,150 --> 00:00:35,630
+Nét đứt vàng là số tiền đã nạp đến nay.
+
+9
+00:00:36,080 --> 00:00:39,160
+Số phía trên: cổ tức nhận
+và thuế nộp mỗi tài khoản.
+
+10
+00:00:39,610 --> 00:00:43,290
+Mua hết mức 1.000 USD cho
+phép, tính cả cổ phiếu lẻ.
+
+11
+00:00:43,740 --> 00:00:49,100
+Đến 2017, vị trí dẫn đầu đổi
+43 lần, hai bên giằng co.
+
+12
+00:00:49,550 --> 00:00:52,670
+Từ ngày 2/1/2018, SPY dẫn trước.
+
+13
+00:00:53,120 --> 00:01:00,540
+Năm 2019 cổ tức SCHD nhiều hơn SPY
+63,1%, nhưng tài khoản SPY dẫn trước.
+
+14
+00:01:00,990 --> 00:01:05,190
+Trong cú sập do COVID, hai tài
+khoản cùng giảm đến ngày 23/3.
+
+15
+00:01:05,640 --> 00:01:13,880
+Tài khoản SCHD giảm 32,8%, SPY
+giảm 33,4%, mức lỗ tương tự.
+
+16
+00:01:14,880 --> 00:01:17,200
+Năm 2022, thị trường giảm kéo dài ập đến.
+
+17
+00:01:17,650 --> 00:01:20,130
+Tháng 4, SCHD lại vượt lên.
+
+18
+00:01:20,580 --> 00:01:27,620
+Năm đó SCHD giảm 14,6%, SPY
+giảm 22,2%, SCHD giảm ít hơn.
+
+19
+00:01:28,070 --> 00:01:33,100
+Ngày 6/1/2023, SCHD dẫn
+trước tới khoảng 33.000 USD.
+
+20
+00:01:33,550 --> 00:01:37,380
+Nhưng ngày 26/4/2023, SPY lại vượt lên.
+
+21
+00:01:37,830 --> 00:01:44,150
+Năm 2025 cổ tức SCHD vẫn gấp 2,6 lần SPY,
+nhưng chênh lệch tài khoản càng nới rộng.
+
+22
+00:01:45,150 --> 00:01:47,870
+Ngày 15/10/2026, kết quả.
+
+23
+00:01:48,320 --> 00:01:51,500
+Cả hai tài khoản nạp 180
+lần, tổng 180.000 USD.
+
+24
+00:01:51,950 --> 00:01:57,550
+Tài khoản SCHD khoảng 480.000 USD,
+tài khoản SPY khoảng 590.000 USD.
+
+25
+00:01:58,000 --> 00:02:02,710
+Tài khoản SPY gấp 1,22 lần,
+nhiều hơn khoảng 110.000 USD.
+
+26
+00:02:03,160 --> 00:02:07,840
+Sau ngày 26/4/2023, SCHD
+không vượt lên được nữa.
+
+27
+00:02:08,290 --> 00:02:12,670
+SCHD chỉ dẫn trước 20,1%
+tổng số ngày giao dịch.
+
+28
+00:02:13,120 --> 00:02:18,640
+SCHD nhận khoảng 87.000 USD
+cổ tức, gấp 2,1 lần SPY.
+
+29
+00:02:19,090 --> 00:02:23,900
+Vì thế thuế cũng khoảng
+13.000 USD, gấp 2,1 lần SPY.
+
+30
+00:02:24,350 --> 00:02:29,640
+Cổ tức 1 năm gần nhất của SCHD
+khoảng 15.000 USD, gấp 2,5 lần SPY.
+
+31
+00:02:30,090 --> 00:02:35,030
+Từ 2012, năm nào cổ tức nhận về
+của tài khoản SCHD cũng nhiều hơn.
+
+32
+00:02:36,030 --> 00:02:38,910
+Nhận nhiều cổ tức hơn, sao lại còn ít hơn?
+
+33
+00:02:39,360 --> 00:02:41,590
+Hãy xem cổ tức đến từ đâu.
+
+34
+00:02:42,040 --> 00:02:45,280
+Ngày chia cổ tức, giá thường
+giảm đúng bằng cổ tức.
+
+35
+00:02:45,730 --> 00:02:49,470
+Tiền công ty chuyển cho cổ đông,
+nên giá trị công ty giảm bấy nhiêu.
+
+36
+00:02:49,920 --> 00:02:53,630
+Nên lúc nhận cổ tức, tổng
+giá trị tài khoản không tăng.
+
+37
+00:02:54,080 --> 00:02:56,660
+Còn thuế bị trừ ngay khi nhận cổ tức.
+
+38
+00:02:57,110 --> 00:02:58,880
+Hãy xem một tài khoản thực.
+
+39
+00:02:59,330 --> 00:03:05,090
+Ngày 10/12/2025, SCHD chia
+0,278 USD cho 1 cổ phiếu.
+
+40
+00:03:05,540 --> 00:03:08,400
+Cả tài khoản nhận 3.743 USD.
+
+41
+00:03:08,850 --> 00:03:14,300
+Trừ thuế 15% là 561
+USD, còn lại 3.181 USD.
+
+42
+00:03:14,750 --> 00:03:19,900
+Số này trừ phí, mua lại
+115,1 cổ phiếu giá 27,57 USD.
+
+43
+00:03:20,350 --> 00:03:23,470
+ETF chỉ số cũng chia cổ tức, nhưng ít hơn.
+
+44
+00:03:23,920 --> 00:03:30,000
+Tỷ suất cổ tức năm 2025:
+SCHD 3,8%, SPY 1,2%.
+
+45
+00:03:30,450 --> 00:03:34,040
+Nhận cổ tức càng nhiều,
+thuế càng nộp nhiều và sớm.
+
+46
+00:03:35,040 --> 00:03:38,470
+Bỏ thứ tự nạp hằng tháng,
+chỉ xét bản thân quỹ thì sao?
+
+47
+00:03:38,920 --> 00:03:41,471
+Chúng tôi so sánh lợi
+nhuận 1 năm của từng năm,
+
+48
+00:03:41,471 --> 00:03:43,750
+tái đầu tư cổ tức, không tính thuế và phí.
+
+49
+00:03:44,200 --> 00:03:49,880
+Trong 14 năm từ 2012 đến 2025,
+SCHD có lợi nhuận cao hơn 4 lần.
+
+50
+00:03:50,330 --> 00:03:56,410
+Năm 2022: SCHD giảm 3,2%, SPY giảm 18,2%.
+
+51
+00:03:56,860 --> 00:04:02,910
+Năm 2023: SCHD tăng 4,6%, SPY tăng 26,2%.
+
+52
+00:04:03,360 --> 00:04:09,920
+Năm 2024: SCHD tăng 11,7%, SPY tăng 24,9%.
+
+53
+00:04:10,370 --> 00:04:16,450
+Năm 2025: SCHD tăng 4,3%, SPY tăng 17,7%.
+
+54
+00:04:17,450 --> 00:04:19,120
+Có phải thuế tạo ra chênh lệch?
+
+55
+00:04:19,570 --> 00:04:24,160
+15% là thuế suất nhà đầu tư nhiều
+nước bị khấu trừ trước với cổ tức Mỹ.
+
+56
+00:04:24,610 --> 00:04:30,980
+Thuế 0%: SCHD khoảng 510.000
+USD, SPY khoảng 600.000 USD.
+
+57
+00:04:31,430 --> 00:04:34,560
+Không thuế, SPY vẫn gấp 1,19 lần.
+
+58
+00:04:35,010 --> 00:04:38,570
+Trừ 30%, chênh lệch tăng lên 1,25 lần.
+
+59
+00:04:39,020 --> 00:04:43,160
+Nếu cuối kỳ bán hết và nộp 15%
+thuế trên phần lãi thì sao?
+
+60
+00:04:43,610 --> 00:04:50,170
+SCHD khoảng 450.000 USD, SPY khoảng
+530.000 USD, chênh lệch giảm còn 1,19 lần.
+
+61
+00:04:50,620 --> 00:04:53,760
+Vì SCHD đã nộp thuế trước qua cổ tức.
+
+62
+00:04:54,210 --> 00:04:57,910
+Nếu không góp hằng tháng mà
+nạp 100.000 USD một lần từ đầu?
+
+63
+00:04:58,360 --> 00:05:05,400
+SCHD khoảng 610.000 USD, SPY khoảng
+790.000 USD, SPY gấp 1,29 lần.
+
+64
+00:05:06,400 --> 00:05:09,840
+Mốc bắt đầu tháng 11/2011 có
+thể đã làm thay đổi kết quả.
+
+65
+00:05:10,290 --> 00:05:12,440
+Nếu bắt đầu ở tháng khác thì sao?
+
+66
+00:05:12,890 --> 00:05:15,467
+Chúng tôi tạo tài khoản tích lũy 5 năm,
+
+67
+00:05:15,467 --> 00:05:18,970
+bắt đầu mỗi tháng từ tháng
+11/2011 đến tháng 10/2021.
+
+68
+00:05:19,420 --> 00:05:20,860
+Tổng cộng 120 tài khoản.
+
+69
+00:05:21,310 --> 00:05:25,400
+Chỉ 25 trên 120 tài
+khoản SCHD còn nhiều hơn.
+
+70
+00:05:25,850 --> 00:05:31,730
+SCHD dẫn xa nhất ở tài khoản bắt
+đầu tháng 1/2018, gấp 1,15 lần.
+
+71
+00:05:32,180 --> 00:05:36,890
+Ngược lại, tài khoản bắt đầu tháng
+11/2020 thì SPY gấp 1,34 lần.
+
+72
+00:05:37,340 --> 00:05:41,820
+Trong 60 tài khoản 10
+năm, SCHD dẫn trước ở 12.
+
+73
+00:05:42,820 --> 00:05:47,460
+SCHD ra đời năm 2011, nên chưa trải
+qua khủng hoảng tài chính 2008.
+
+74
+00:05:47,910 --> 00:05:50,122
+Nếu cổ phiếu cổ tức mạnh
+khi thị trường giảm,
+
+75
+00:05:50,122 --> 00:05:51,940
+giai đoạn có khủng hoảng có thể khác.
+
+76
+00:05:52,390 --> 00:05:57,030
+Nên chúng tôi thử cả VYM, ETF cổ
+tức cao của Mỹ ra đời năm 2006.
+
+77
+00:05:57,480 --> 00:06:01,160
+Từ tháng 12/2006, cùng quy
+tắc, mỗi tháng 1.000 USD.
+
+78
+00:06:01,610 --> 00:06:09,720
+Trong khủng hoảng, VYM giảm 29,2%,
+SPY giảm 33,7%, VYM giảm ít hơn.
+
+79
+00:06:10,170 --> 00:06:16,330
+Đến cuối tháng 10/2011, VYM
+khoảng 67.000 USD, dẫn trước SPY.
+
+80
+00:06:16,780 --> 00:06:21,820
+Tiền đã nạp đến ngày
+15/10/2026 là 239.000 USD.
+
+81
+00:06:22,270 --> 00:06:28,430
+VYM khoảng 810.000 USD, SPY khoảng
+1.100.000 USD, SPY gấp 1,35 lần.
+
+82
+00:06:28,880 --> 00:06:33,750
+Trong 119 tài khoản 10 năm, chỉ
+5 tài khoản VYM còn nhiều hơn.
+
+83
+00:06:34,750 --> 00:06:35,870
+Tóm lại.
+
+84
+00:06:36,320 --> 00:06:39,520
+Trừ thuế 15%, tích lũy
+hằng tháng suốt 15 năm.
+
+85
+00:06:39,970 --> 00:06:43,800
+Tài khoản SPY gấp 1,22 lần tài khoản SCHD.
+
+86
+00:06:44,250 --> 00:06:46,330
+Không thuế vẫn gấp 1,19 lần.
+
+87
+00:06:46,780 --> 00:06:51,310
+SCHD nhận cổ tức gấp 2,1 lần, và
+cũng nộp thuế nhiều hơn tương ứng.
+
+88
+00:06:51,760 --> 00:06:55,960
+Trong thị trường giảm như
+2022, SCHD giảm ít hơn.
+
+89
+00:06:56,410 --> 00:07:02,260
+Đổi tháng bắt đầu thì có tài khoản
+SCHD dẫn trước, nhưng chỉ 25 trên 120.
+
+90
+00:07:02,710 --> 00:07:09,360
+VYM từ 2006 cũng ít hơn SPY ở
+114 trên 119 tài khoản 10 năm.
+
+91
+00:07:10,360 --> 00:07:13,670
+Giai đoạn này cổ phiếu tăng
+trưởng lớn của Mỹ tăng mạnh.
+
+92
+00:07:14,120 --> 00:07:17,360
+Ở giai đoạn cổ phiếu cổ tức
+mạnh hơn, kết quả có thể khác.
+
+93
+00:07:17,810 --> 00:07:21,320
+Trường hợp rút cổ tức để chi
+tiêu không được tính lần này.
+
+94
+00:07:21,770 --> 00:07:24,704
+Thuế suất khác nhau
+theo nước và tài khoản;
+
+95
+00:07:24,704 --> 00:07:27,570
+chưa tính bảo hiểm y tế, tỷ giá, lạm phát.
+
+96
+00:07:28,020 --> 00:07:33,300
+Và bên SPY phải chịu đựng
+những năm giảm 22,2% như 2022.
+
+97
+00:07:33,750 --> 00:07:37,040
+Đây không phải lời khuyên đầu tư, mà
+là kết quả kiểm tra quy tắc bằng code.
+
+98
+00:07:38,040 --> 00:07:41,810
+Nếu có giả thuyết muốn backtest
+tiếp, hãy cho biết trong bình luận.
+
+99
+00:07:42,260 --> 00:07:43,810
+Cảm ơn bạn đã xem.

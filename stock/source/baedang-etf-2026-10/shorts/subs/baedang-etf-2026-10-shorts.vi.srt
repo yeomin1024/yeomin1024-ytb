@@ -1,0 +1,63 @@
+1
+00:00:00,300 --> 00:00:04,710
+Người ta nói tích lũy ETF cổ tức
+lâu dài sẽ còn nhiều hơn ETF chỉ số.
+
+2
+00:00:05,160 --> 00:00:07,734
+Để kiểm tra, chúng tôi
+chạy backtest bằng mã
+
+3
+00:00:07,734 --> 00:00:10,600
+Python do AI viết trên
+giá thực tế trong quá khứ.
+
+4
+00:00:11,050 --> 00:00:14,470
+Chúng tôi thử SCHD,
+ETF cổ phiếu cổ tức Mỹ.
+
+5
+00:00:14,920 --> 00:00:20,520
+Đối chứng là SPY, cổ tức ít
+hơn nhưng bám theo S&P 500.
+
+6
+00:00:20,970 --> 00:00:24,010
+Từ năm 2011, mỗi tài khoản
+bỏ vào 1.000 USD mỗi tháng.
+
+7
+00:00:24,460 --> 00:00:29,240
+Ở cả hai tài khoản, mỗi lần nhận cổ
+tức đều bị trừ thuế 15% rồi mua lại.
+
+8
+00:00:29,690 --> 00:00:33,270
+15% là thuế suất khấu trừ
+cổ tức Mỹ ở nhiều nước.
+
+9
+00:00:33,720 --> 00:00:37,080
+Đến năm 2026, mỗi tài khoản
+đã bỏ vào 180.000 USD.
+
+10
+00:00:37,530 --> 00:00:43,130
+Tài khoản SCHD khoảng 480.000 USD,
+tài khoản SPY khoảng 590.000 USD.
+
+11
+00:00:43,580 --> 00:00:50,440
+SCHD nhận cổ tức gấp 2,1 lần SPY, nhưng
+tiền còn lại của SPY gấp 1,22 lần SCHD.
+
+12
+00:00:50,890 --> 00:00:53,770
+Nhận nhiều cổ tức hơn, sao lại còn ít hơn?
+
+13
+00:00:54,220 --> 00:00:59,050
+Lý do, và nếu bắt đầu tháng khác thì kết
+quả có giống không, xem ở video bên dưới.

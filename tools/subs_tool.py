@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0.2 — 2026-10-17 — 한국어 '1'(1년에·1주에)은 번역에 숫자가 없어도 됨 — 'per year' 처럼 자연스럽게.
+# VERSION: v1.1.0 — 2026-10-18 — build 자막 나누기 고침: 덩어리가 문장의 25% 보다 짧게 나뉘지 않음 (일본어 '本当かどうか、' 0.8초짜리) · 일본어 줄바꿈은
+#          조사·구두점 뒤에서, 영문·숫자 낱말(Python·ETF·1,700) 안에서는 끊지 않음 (예전엔 20자마다 '実|際' 처럼 끊음). 첫 실제 오디오 SRT 점검 때 찾음
+#          (사용자 지시 2026-10-18 "채권 표현 수정하고 영상 업로드 할 준비해").
+# v1.0.2 — 2026-10-17 — 한국어 '1'(1년에·1주에)은 번역에 숫자가 없어도 됨 — 'per year' 처럼 자연스럽게.
 # v1.0.1 — 2026-10-17 — 숫자 읽기 두 곳 고침: 'K·M' 줄임은 뒤에 글자가 없을 때만 (베트남어 '100 mà' 가 1억으로 읽힘) · 일본어 '7万5千' 은 75,000 하나로 (7万·5千 따로 세지 않음).
 # v1.0 — 2026-10-17 — 최초. 언어별 자막 대본(번역) 검사 + SRT 만들기 (사용자 지시 2026-10-17 "외국어 자막 대본도 필요하지? 쇼츠, 롱폼 각각
 #          언어별로 작성해봐"). 화면에는 자막을 굽지 않고(주식 — 언어 없는 화면), 언어별 자막 파일(CC)을 올린다.
@@ -271,13 +274,78 @@ def ep_data(vid):
     return json.loads(m.group(1))
 
 
+JA_PUNCT = set("、。！？」』）・… ")                                             # v1.1.0 일본어: 이 글자 뒤가 가장 좋은 줄 끝
+JA_PARTICLE = set("をはがでにとのもやへか")                                      # v1.1.0 조사 뒤 (다음 글자가 히라가나가 아닐 때)
+MIN_PART = 0.25                                                                 # v1.1.0 자막 덩어리 하나가 문장 글자의 이 비율보다 짧으면 그 자리에서 안 나눔
+
+
+def _cls(c):
+    o = ord(c)
+    if c in JA_PUNCT:
+        return "p"
+    if 0x3040 <= o <= 0x309F:
+        return "h"                                                              # 히라가나
+    if 0x30A0 <= o <= 0x30FF:
+        return "k"                                                              # 가타카나 (ー 포함)
+    if 0x4E00 <= o <= 0x9FFF or c == "々":
+        return "K"                                                              # 한자
+    if c.isascii() and (c.isalnum() or c in ",.%$×"):
+        return "a"                                                              # 영문·숫자 낱말 (Python·ETF·1,700·25.3%)
+    return "o"
+
+
+def ja_score(prev, nxt):
+    """일본어 prev|nxt 사이에서 줄을 끊기 좋은 정도 (클수록 좋음). 낱말 안(영문·숫자·가타카나·한자 이어짐)은 0."""
+    cp, cn = _cls(prev), _cls(nxt)
+    if cp == "p":
+        return 3
+    if cp == cn and cp in "akK" or {cp, cn} == {"a", "k"}:
+        return 0
+    if prev in JA_PARTICLE and cn != "h":
+        return 2.5
+    if cp == "K" and cn == "h":
+        return 0.5                                                              # 한자 + 오쿠리가나 (書|いた)
+    if cp == "h" and cn in "Kka":
+        return 2
+    return 1
+
+
+def ja_best(text, lo, hi, target):
+    """첫 줄 길이 j (lo ≤ j ≤ hi) 중 끊기 좋은 곳 — 점수가 높고, 같으면 target 에 가까운 곳. 없으면 None."""
+    js = [j for j in range(max(lo, 1), min(hi, len(text) - 1) + 1)]
+    if not js:
+        return None
+    return max(js, key=lambda j: (ja_score(text[j - 1], text[j]), -abs(j - target)))
+
+
 def wrap(text, lang):
-    """→ 줄 목록 (한 줄 LINE_CHARS — 낱말 단위, 일본어는 글자 단위)."""
+    """→ 줄 목록 (한 줄 LINE_CHARS). v1.1.0: 2줄에 들어가면 두 줄 길이를 고르게 — 영어 등은 낱말 사이,
+    일본어는 구두점·조사 뒤 (영문·숫자·가타카나·한자 낱말 안은 피함). 2줄을 넘으면 앞에서부터 채움."""
     lim = LINE_CHARS.get(lang, 42)
+    if len(text) <= lim:
+        return [text]
     if lang in CJK:
-        return [text[i:i + lim] for i in range(0, len(text), lim)] or [""]
+        if len(text) <= 2 * lim:
+            k = ja_best(text, len(text) - lim, lim, len(text) / 2)
+            if k:
+                return [text[:k], text[k:]]
+        lines, rest = [], text
+        while len(rest) > lim:
+            k = ja_best(rest, lim - 8, lim, lim) or lim
+            lines.append(rest[:k])
+            rest = rest[k:]
+        return lines + ([rest] if rest else [])
+    words = text.split()
+    if len(text) <= 2 * lim + 1:
+        best = None
+        for i in range(1, len(words)):
+            x, y = " ".join(words[:i]), " ".join(words[i:])
+            if len(x) <= lim and len(y) <= lim and (best is None or max(len(x), len(y)) < best[0]):
+                best = (max(len(x), len(y)), x, y)
+        if best:
+            return [best[1], best[2]]
     lines, cur = [], ""
-    for w in text.split():
+    for w in words:
         if cur and len(cur) + 1 + len(w) > lim:
             lines.append(cur)
             cur = w
@@ -287,16 +355,24 @@ def wrap(text, lang):
 
 
 def cue_parts(text, lang):
-    """문장 → 자막 덩어리 (덩어리마다 2줄까지). 넘으면 쉼표·쌍점·줄표·'、' 에서 나눔 (가운데에 가까운 곳)."""
+    """문장 → 자막 덩어리 (덩어리마다 2줄까지). 넘으면 쉼표·쌍점·줄표·'、' 에서 나눔 (가운데에 가까운 곳 —
+    v1.1.0 덩어리가 문장의 25% 보다 짧아지는 곳은 빼고, 없으면 가운데 낱말 사이·일본어는 가운데 조사 뒤)."""
     if len(wrap(text, lang)) <= 2:
         return [text]
+    n = len(text)
     cut = [m.end() for m in re.finditer(r"[,;:、，]\s|\s[—–-]\s|、", text)]
+    cut = [c for c in cut if min(c, n - c) >= MIN_PART * n]
     if not cut:
-        words = text.split() if lang not in CJK else list(text)
-        half = len(words) // 2
-        a, b = (" ".join(words[:half]), " ".join(words[half:])) if lang not in CJK else ("".join(words[:half]), "".join(words[half:]))
+        if lang in CJK:
+            k = ja_best(text, int(n * MIN_PART), n - int(n * MIN_PART), n / 2) or n // 2
+        else:
+            sp = [m.start() for m in re.finditer(r"\s", text)]
+            k = min(sp, key=lambda c: abs(c - n / 2)) if sp else n // 2
+        a, b = text[:k].strip(), text[k:].strip()
+        if not a or not b:
+            return [text]
         return cue_parts(a, lang) + cue_parts(b, lang)
-    k = min(cut, key=lambda c: abs(c - len(text) / 2))
+    k = min(cut, key=lambda c: abs(c - n / 2))
     return cue_parts(text[:k].strip(), lang) + cue_parts(text[k:].strip(), lang)
 
 

@@ -1,0 +1,656 @@
+1
+00:00:00,300 --> 00:00:03,880
+Baru beli langsung turun,
+rasanya salah timing.
+
+2
+00:00:04,330 --> 00:00:08,290
+Apakah 10 sinyal beli populer
+benar-benar menaikkan peluang berhasil?
+
+3
+00:00:08,740 --> 00:00:14,270
+Kita backtest sejak 2016 dengan
+SPY, ETF yang mengikuti S&P 500.
+
+4
+00:00:14,720 --> 00:00:19,280
+Berhasil berarti naik 5% di atas harga
+beli; turun 2% lebih dulu berarti gagal.
+
+5
+00:00:19,730 --> 00:00:23,130
+Setelah ada hasil, kita jual esok hari,
+lalu beli lagi di sinyal berikutnya.
+
+6
+00:00:23,580 --> 00:00:27,020
+Pembandingnya 2.000 akun yang
+hanya tanggal belinya acak.
+
+7
+00:00:28,020 --> 00:00:31,670
+Pertama, tanpa sinyal: beli di
+hari bursa pertama tiap bulan.
+
+8
+00:00:32,120 --> 00:00:36,140
+Untuk tahu sinyal berguna atau tidak,
+kita perlu lihat cara tanpa sinyal dulu.
+
+9
+00:00:36,590 --> 00:00:38,910
+Hijau transaksi berhasil,
+merah yang gagal.
+
+10
+00:00:39,360 --> 00:00:44,550
+Kanan atas tingkat keberhasilan sejauh
+ini, di bawahnya rata-rata akun acak.
+
+11
+00:00:45,000 --> 00:00:47,087
+Akun acak memakai aturan jual yang sama,
+
+12
+00:00:47,087 --> 00:00:49,800
+dan hari menunggunya diambil
+dari catatan tiap cara.
+
+13
+00:00:50,250 --> 00:00:56,820
+Di akhir 2021, tingkat keberhasilannya
+56,1%, di atas rata-rata acak 51,7%.
+
+14
+00:00:57,270 --> 00:01:01,110
+Tapi pada 2022, 11 dari 12 hasil gagal.
+
+15
+00:01:01,560 --> 00:01:05,240
+Sejak 2023, geraknya hampir
+menempel rata-rata acak.
+
+16
+00:01:05,690 --> 00:01:13,500
+Hasilnya 37 berhasil dari 80, 46,2%,
+sedikit di bawah rata-rata acak 47,1%.
+
+17
+00:01:13,950 --> 00:01:20,310
+Pita abu-abu adalah rentang 90%
+akun acak: 41,5% sampai 53,2%.
+
+18
+00:01:20,760 --> 00:01:23,104
+Di dalam pita berarti
+tak beda dengan acak,
+
+19
+00:01:23,104 --> 00:01:25,720
+dan beli di hari bursa
+pertama juga di dalamnya.
+
+20
+00:01:26,720 --> 00:01:30,480
+Kedua sampai kelima adalah sinyal
+tren yang membeli saat harga naik.
+
+21
+00:01:30,930 --> 00:01:33,460
+Anggapannya, harga yang
+mulai naik akan naik lagi.
+
+22
+00:01:33,910 --> 00:01:36,600
+Kedua, beli saat menembus
+harga tertinggi 20 hari.
+
+23
+00:01:37,050 --> 00:01:40,510
+Beli saat penutupan melewati penutupan
+tertinggi 20 hari bursa terakhir.
+
+24
+00:01:40,960 --> 00:01:46,960
+Di akhir 2019, tingkat keberhasilannya
+58,8%, di atas rata-rata acak 50,3%.
+
+25
+00:01:47,410 --> 00:01:51,720
+Setelah dijual pada April 2022,
+hampir tiga bulan tak ada sinyal.
+
+26
+00:01:52,170 --> 00:01:54,710
+Tahun itu, 5 dari 6 hasil gagal.
+
+27
+00:01:55,160 --> 00:02:00,440
+Setelah 20 hasil, tingkat keberhasilannya
+tak pernah di bawah rata-rata acak.
+
+28
+00:02:00,890 --> 00:02:05,710
+Hasilnya 31 berhasil dari 63, 49,2%.
+
+29
+00:02:06,160 --> 00:02:11,196
+Rata-rata acak 47,1%, masih
+dalam rentang 41,3% sampai 53,2%,
+
+30
+00:02:11,196 --> 00:02:13,920
+jadi tak bisa disebut lebih baik.
+
+31
+00:02:14,920 --> 00:02:18,520
+Ketiga, meski bukan harga tertinggi baru,
+beli jika harga naik dari sebulan lalu.
+
+32
+00:02:18,970 --> 00:02:22,490
+Beli jika penutupan hari ini di
+atas penutupan 21 hari bursa lalu.
+
+33
+00:02:22,940 --> 00:02:29,100
+Pada Juni 2020, tingkat keberhasilannya
+63,0%, jauh di atas rata-rata acak 50,9%.
+
+34
+00:02:29,550 --> 00:02:33,540
+Tapi pada 2022, 10 dari 12 hasil gagal.
+
+35
+00:02:33,990 --> 00:02:37,980
+Setelah dijual akhir Februari 2025,
+lebih dari dua bulan tak ada sinyal.
+
+36
+00:02:38,430 --> 00:02:43,500
+Hasilnya 42 berhasil dari 81, 51,9%.
+
+37
+00:02:43,950 --> 00:02:50,190
+Dekat ujung atas rentang acak 43,3%
+sampai 52,6%, tapi masih di dalamnya.
+
+38
+00:02:51,190 --> 00:02:54,040
+Keempat, garis rata-rata 20 hari
+yang sering digambar di grafik.
+
+39
+00:02:54,490 --> 00:02:58,300
+Beli pada hari penutupan menembus
+rata-rata 20 hari dari bawah ke atas.
+
+40
+00:02:58,750 --> 00:03:03,180
+Dari Juli 2016 sampai Januari 2018,
+berhasil lima kali berturut-turut.
+
+41
+00:03:03,630 --> 00:03:07,922
+Pada Desember 2021, tingkat
+keberhasilannya 64,7%,
+
+42
+00:03:07,922 --> 00:03:10,840
+jauh di atas rata-rata acak 51,8%.
+
+43
+00:03:11,290 --> 00:03:14,810
+Setelah itu, sampai Juli 2022,
+gagal enam kali berturut-turut.
+
+44
+00:03:15,260 --> 00:03:19,100
+Setelah 20 hasil, tak pernah
+di bawah rata-rata acak.
+
+45
+00:03:19,550 --> 00:03:26,550
+Hasilnya 37 berhasil dari 71, 52,1%,
+tertinggi dari empat cara sejauh ini.
+
+46
+00:03:27,000 --> 00:03:32,700
+Tapi masih dalam rentang acak 40,3% sampai
+54,3%, jadi tak bisa disebut lebih baik.
+
+47
+00:03:33,700 --> 00:03:36,020
+Kelima melihat dua garis
+rata-rata sekaligus.
+
+48
+00:03:36,470 --> 00:03:40,550
+Beli saat rata-rata pendek 5 hari menembus
+rata-rata panjang 20 hari dari bawah.
+
+49
+00:03:41,000 --> 00:03:45,510
+Setelah dijual pada September 2017,
+pembelian berikutnya baru Februari 2018.
+
+50
+00:03:45,960 --> 00:03:52,290
+Pada Juli 2022, tingkat keberhasilannya
+40,0%, di bawah rata-rata acak 48,5%.
+
+51
+00:03:52,740 --> 00:03:55,220
+Sebab tepat sebelumnya
+gagal enam kali beruntun.
+
+52
+00:03:55,670 --> 00:03:59,720
+Setelah itu, sampai Juni 2023,
+berhasil lima kali berturut-turut.
+
+53
+00:04:00,170 --> 00:04:03,930
+Sejak 2024, 7 dari 12 hasil berhasil.
+
+54
+00:04:04,380 --> 00:04:08,610
+Hasilnya 25 berhasil dari 50, tepat 50,0%.
+
+55
+00:04:09,060 --> 00:04:15,280
+Rata-rata acak 47,4%, masih
+dalam rentang 38,6% sampai 56,2%.
+
+56
+00:04:15,730 --> 00:04:18,930
+Hasilnya paling sedikit dari 10
+cara, jadi rentangnya juga lebar.
+
+57
+00:04:19,930 --> 00:04:22,810
+Mulai keenam, sinyalnya
+membeli saat harga turun.
+
+58
+00:04:23,260 --> 00:04:26,170
+Idenya, beli saat murah
+supaya lebih mudah naik.
+
+59
+00:04:26,620 --> 00:04:30,540
+Keenam, jika turun 1% atau lebih
+dalam sehari, beli esok harinya.
+
+60
+00:04:30,990 --> 00:04:38,100
+Pada Januari 2019, tingkat keberhasilannya
+35,0%, jauh di bawah rata-rata acak 46,9%.
+
+61
+00:04:38,550 --> 00:04:42,470
+Karena pada 2018 saja,
+8 dari 12 hasil gagal.
+
+62
+00:04:42,920 --> 00:04:46,040
+Pada 2022 juga, 13 dari 20 gagal.
+
+63
+00:04:46,490 --> 00:04:50,930
+Setelah 20 hasil, tak sehari
+pun di atas rata-rata acak.
+
+64
+00:04:51,380 --> 00:04:56,400
+Hasilnya 44 berhasil dari 95, 46,3%.
+
+65
+00:04:56,850 --> 00:05:04,200
+Rata-rata acak 46,8%, rentangnya 40,7%
+sampai 52,8%, dan masih di dalamnya.
+
+66
+00:05:05,200 --> 00:05:08,200
+Ketujuh, beli saat RSI di bawah 40.
+
+67
+00:05:08,650 --> 00:05:12,630
+RSI adalah angka yang membandingkan besar
+kenaikan dan penurunan 14 hari terakhir.
+
+68
+00:05:13,080 --> 00:05:16,030
+Di bawah 40 dianggap sudah
+turun banyak, lalu kita beli.
+
+69
+00:05:16,480 --> 00:05:20,665
+Pada November 2019, tingkat
+keberhasilannya 61,9%,
+
+70
+00:05:20,665 --> 00:05:23,510
+jauh di atas rata-rata acak 49,3%.
+
+71
+00:05:23,960 --> 00:05:28,490
+Tapi saat anjlok karena COVID
+2020, 5 dari 7 hasil gagal.
+
+72
+00:05:28,940 --> 00:05:32,970
+Setelah dijual pada November 2020,
+lebih dari 10 bulan tak ada sinyal.
+
+73
+00:05:33,420 --> 00:05:37,230
+Lalu pada 2022, 11 dari 14 hasil gagal.
+
+74
+00:05:37,680 --> 00:05:40,560
+Jadi hari memegang saham hanya 35%.
+
+75
+00:05:41,010 --> 00:05:45,640
+Hasilnya 30 berhasil dari 62, 48,4%.
+
+76
+00:05:46,090 --> 00:05:53,850
+Rata-rata acak 46,7%, rentangnya 38,0%
+sampai 56,0%, lagi-lagi di dalamnya.
+
+77
+00:05:54,850 --> 00:05:57,970
+Kedelapan, beli saat indeks
+ketakutan VIX 20 atau lebih.
+
+78
+00:05:58,420 --> 00:06:02,380
+Makin tinggi VIX, makin banyak orang
+yang mengira pasar akan bergejolak besar.
+
+79
+00:06:02,830 --> 00:06:05,520
+Ini menguji pepatah "belilah
+saat semua orang takut".
+
+80
+00:06:05,970 --> 00:06:09,890
+Setelah dijual pada November 2016,
+lebih dari 1 tahun tak ada sinyal.
+
+81
+00:06:10,340 --> 00:06:14,740
+Pada 2020, 11 dari 22 hasil
+berhasil, tepat separuh.
+
+82
+00:06:15,190 --> 00:06:17,358
+Pada 2022, 18 dari 24 gagal,
+
+83
+00:06:17,358 --> 00:06:21,770
+dan dari Agustus sampai Oktober
+enam kali berturut-turut.
+
+84
+00:06:22,220 --> 00:06:27,920
+Sejak 2023, 14 dari 23 hasil
+berhasil, kembali lebih dari separuh.
+
+85
+00:06:28,370 --> 00:06:33,090
+Hasilnya 48 berhasil dari 101, 47,5%.
+
+86
+00:06:33,540 --> 00:06:36,817
+Hampir sama dengan rata-rata acak 47,3%,
+
+87
+00:06:36,817 --> 00:06:40,340
+dan masih dalam rentang
+41,3% sampai 53,6%.
+
+88
+00:06:41,340 --> 00:06:45,830
+Kesembilan, beli jika turun 5% dari
+harga tertinggi 20 hari bursa terakhir.
+
+89
+00:06:46,280 --> 00:06:48,240
+Beli saat turun untuk koreksi singkat.
+
+90
+00:06:48,690 --> 00:06:52,880
+Setelah dijual pada Juli 2016,
+sinyal berikutnya baru Februari 2018.
+
+91
+00:06:53,330 --> 00:06:58,050
+Saat anjlok karena COVID
+2020, 6 dari 9 hasil gagal.
+
+92
+00:06:58,500 --> 00:07:01,700
+Pada 2022 juga, 11 dari 15 gagal.
+
+93
+00:07:02,150 --> 00:07:06,220
+Hari memegang saham 23%,
+paling sedikit dari 10 cara.
+
+94
+00:07:06,670 --> 00:07:10,950
+Hasilnya 29 berhasil dari 59, 49,2%.
+
+95
+00:07:11,400 --> 00:07:18,600
+Rata-rata acak 46,5%, rentangnya 38,0%
+sampai 55,8%, dan masih di dalamnya.
+
+96
+00:07:19,600 --> 00:07:24,140
+Terakhir, kesepuluh: beli jika turun 5%
+dari penutupan tertinggi sampai saat itu.
+
+97
+00:07:24,590 --> 00:07:27,070
+Versi jangka panjang dari cara kesembilan.
+
+98
+00:07:27,520 --> 00:07:32,230
+Cara ini juga tanpa sinyal lebih dari
+1½ tahun setelah dijual pada Juli 2016.
+
+99
+00:07:32,680 --> 00:07:38,810
+Di akhir 2019, tingkat keberhasilannya
+56,5%, di atas rata-rata acak 49,8%.
+
+100
+00:07:39,260 --> 00:07:41,500
+Karena kelima hasil tahun
+itu semuanya berhasil.
+
+101
+00:07:41,950 --> 00:07:46,080
+Saat anjlok karena COVID
+2020, 6 dari 10 gagal.
+
+102
+00:07:46,530 --> 00:07:51,800
+Pada 2022, 19 dari 26 gagal,
+terbanyak dari 10 cara.
+
+103
+00:07:52,250 --> 00:07:57,050
+Sejak 2023, 14 dari 23 berhasil,
+kembali lebih dari separuh.
+
+104
+00:07:57,500 --> 00:08:01,900
+Hasilnya 45 berhasil dari 94, 47,9%.
+
+105
+00:08:02,350 --> 00:08:10,110
+Rata-rata acak 47,1%, rentangnya 40,8%
+sampai 53,6%, dan ini juga di dalamnya.
+
+106
+00:08:11,110 --> 00:08:12,980
+Mari lihat hasil 10 cara sekaligus.
+
+107
+00:08:13,430 --> 00:08:18,390
+Titik adalah tingkat keberhasilan tiap
+cara, pita abu-abu rentang 90% akun acak.
+
+108
+00:08:18,840 --> 00:08:22,750
+Tertinggi adalah beli saat
+menembus garis 20 hari, 52,1%.
+
+109
+00:08:23,200 --> 00:08:27,300
+Terendah adalah beli di hari
+bursa pertama tiap bulan, 46,2%.
+
+110
+00:08:27,750 --> 00:08:31,300
+Empat dari lima teratas adalah sinyal
+tren yang membeli saat harga naik.
+
+111
+00:08:31,750 --> 00:08:36,230
+Tapi semua 10 cara ada di dalam rentang
+acak, jadi tak beda dengan beli acak.
+
+112
+00:08:36,680 --> 00:08:38,950
+Bahkan garis 20 hari yang tertinggi,
+
+113
+00:08:38,950 --> 00:08:42,670
+13% akun acak punya tingkat
+keberhasilan setara atau lebih.
+
+114
+00:08:43,670 --> 00:08:46,880
+Apakah batas gagal 2% terlalu longgar?
+
+115
+00:08:47,330 --> 00:08:49,065
+Jika diperketat jadi 1%,
+
+116
+00:08:49,065 --> 00:08:53,330
+tingkat keberhasilan beli di
+hari mana saja turun ke 33,6%.
+
+117
+00:08:53,780 --> 00:08:56,590
+Saat itu hanya tembus garis
+20 hari di atas rentang.
+
+118
+00:08:57,040 --> 00:09:00,030
+Pada 1,5%, tak ada cara
+yang keluar dari rentang.
+
+119
+00:09:00,480 --> 00:09:06,510
+Mungkin 10 tahun ini istimewa, jadi
+periodenya kami ganti ke 1994 sampai 2015.
+
+120
+00:09:06,960 --> 00:09:12,230
+Pada periode ini, tembus garis 20
+hari 33,3%, terendah dari 10 cara.
+
+121
+00:09:12,680 --> 00:09:15,640
+Pada periode ini pun, semua 10
+cara ada di dalam rentang acak.
+
+122
+00:09:16,640 --> 00:09:17,760
+Mari kita rangkum.
+
+123
+00:09:18,210 --> 00:09:20,710
+Dalam backtest ini, tak
+ada sinyal beli yang
+
+124
+00:09:20,710 --> 00:09:23,380
+jelas lebih sering berhasil
+daripada beli acak.
+
+125
+00:09:23,830 --> 00:09:26,310
+Sinyal tren sedikit
+unggul dalam 10 tahun ini.
+
+126
+00:09:26,760 --> 00:09:30,980
+Tapi dalam 22 tahun sebelumnya, dua
+dari empat di bawah rata-rata acak.
+
+127
+00:09:31,430 --> 00:09:35,830
+Dan di tahun yang terus turun seperti
+2022, semua sinyal lebih banyak gagal.
+
+128
+00:09:36,280 --> 00:09:40,200
+Yang paling mengubah tingkat keberhasilan
+bukan sinyal beli, melainkan batas gagal.
+
+129
+00:09:41,200 --> 00:09:44,780
+Hasil ini hanya dari SPY,
+dengan data sejak 2016.
+
+130
+00:09:45,230 --> 00:09:48,617
+Berhasil dan gagal dinilai
+hanya dari penutupan;
+
+131
+00:09:48,617 --> 00:09:51,580
+kami jual esok harinya dengan biaya 0,25%.
+
+132
+00:09:52,030 --> 00:09:56,020
+Jadi ada beberapa transaksi yang berhasil
+tapi rugi, atau gagal tapi untung.
+
+133
+00:09:56,470 --> 00:10:00,470
+Kami hanya lihat tingkat keberhasilan;
+besar untung-rugi perlu dicek terpisah.
+
+134
+00:10:00,920 --> 00:10:03,110
+Bunga kas selama menunggu sinyal, pajak,
+
+135
+00:10:03,110 --> 00:10:05,520
+biaya kurs, dan inflasi
+juga tidak dihitung.
+
+136
+00:10:05,970 --> 00:10:09,260
+Ini bukan saran investasi, melainkan
+hasil memeriksa aturan dengan kode.
+
+137
+00:10:10,260 --> 00:10:14,030
+Kalau ada hipotesis untuk diuji dengan
+backtest berikutnya, tulis di komentar.
+
+138
+00:10:14,480 --> 00:10:16,030
+Terima kasih sudah menonton.

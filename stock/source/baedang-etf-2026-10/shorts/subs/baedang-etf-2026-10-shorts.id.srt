@@ -1,0 +1,71 @@
+1
+00:00:00,300 --> 00:00:02,635
+Katanya menabung ETF
+dividen dalam waktu lama
+
+2
+00:00:02,635 --> 00:00:04,710
+menyisakan lebih banyak dari ETF indeks.
+
+3
+00:00:05,160 --> 00:00:07,908
+Untuk mengeceknya, kami
+melakukan backtest dengan
+
+4
+00:00:07,908 --> 00:00:10,600
+kode Python buatan AI
+pada harga riil masa lalu.
+
+5
+00:00:11,050 --> 00:00:14,470
+Yang diuji SCHD, ETF saham dividen AS.
+
+6
+00:00:14,920 --> 00:00:20,520
+Pembandingnya SPY, ETF yang dividennya
+kecil tapi mengikuti S&P 500.
+
+7
+00:00:20,970 --> 00:00:24,010
+Sejak 2011, tiap akun
+diisi $1.000 setiap bulan.
+
+8
+00:00:24,460 --> 00:00:29,240
+Di kedua akun, tiap dividen dipotong
+pajak 15%, lalu dibelikan lagi.
+
+9
+00:00:29,690 --> 00:00:33,270
+15% adalah tarif yang dipotong
+dari dividen AS di banyak negara.
+
+10
+00:00:33,720 --> 00:00:37,080
+Sampai 2026, kedua akun
+sama-sama diisi $180.000.
+
+11
+00:00:37,530 --> 00:00:43,130
+Akun SCHD sekitar $480.000,
+akun SPY sekitar $590.000.
+
+12
+00:00:43,580 --> 00:00:50,440
+Dividen SCHD 2,1 kali SPY, tapi
+sisa uang SPY 1,22 kali SCHD.
+
+13
+00:00:50,890 --> 00:00:53,770
+Dividennya lebih besar,
+kenapa sisanya lebih sedikit?
+
+14
+00:00:54,220 --> 00:00:57,770
+Alasannya, dan apakah hasilnya
+sama jika mulai di bulan lain,
+
+15
+00:00:57,770 --> 00:00:59,050
+cek di video di bawah.

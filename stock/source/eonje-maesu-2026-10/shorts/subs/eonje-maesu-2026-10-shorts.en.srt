@@ -1,0 +1,67 @@
+1
+00:00:00,300 --> 00:00:01,863
+When you're unsure when to buy,
+
+2
+00:00:01,863 --> 00:00:04,940
+people say following buy signals
+raises your odds of success.
+
+3
+00:00:05,390 --> 00:00:08,509
+To check, we ran a
+backtest with AI-written
+
+4
+00:00:08,509 --> 00:00:10,830
+Python code on real past prices.
+
+5
+00:00:11,280 --> 00:00:16,560
+We tested SPY, an ETF that
+tracks the S&P 500, from 2016.
+
+6
+00:00:17,010 --> 00:00:22,230
+We used 10 buy signals, like the 20-day
+average, RSI and the fear index VIX.
+
+7
+00:00:22,680 --> 00:00:27,910
+Up 5% from the buy price first counted
+as success; down 2% first, as failure.
+
+8
+00:00:28,360 --> 00:00:31,800
+The comparison: 2,000 accounts
+that bought on random dates.
+
+9
+00:00:32,250 --> 00:00:35,860
+If signals are useful, they should
+beat random on success rate.
+
+10
+00:00:36,310 --> 00:00:38,830
+Random accounts were
+judged by the same rule.
+
+11
+00:00:39,280 --> 00:00:44,480
+The best was buying when price crosses
+the 20-day average: a 52.1% success rate.
+
+12
+00:00:44,930 --> 00:00:48,620
+But all 10 were in a range no
+different from random buying.
+
+13
+00:00:49,070 --> 00:00:52,020
+So when did each signal
+work, and when did it fail?
+
+14
+00:00:52,470 --> 00:00:57,010
+The 10 signals' records, and whether
+other periods agree: see the video below.

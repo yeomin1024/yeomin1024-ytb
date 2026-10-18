@@ -1,0 +1,73 @@
+1
+00:00:00,300 --> 00:00:01,914
+Ne zaman alacağınızı düşünürken,
+
+2
+00:00:01,914 --> 00:00:04,940
+alım sinyallerine uymanın başarı
+şansını artırdığı söylenir.
+
+3
+00:00:05,390 --> 00:00:08,191
+Bunu kontrol etmek için
+yapay zekânın yazdığı Python
+
+4
+00:00:08,191 --> 00:00:10,830
+koduyla geçmiş gerçek
+fiyatlarda backtest yaptık.
+
+5
+00:00:11,280 --> 00:00:16,560
+S&P 500'ü izleyen ETF SPY'yi
+2016'dan itibaren test ettik.
+
+6
+00:00:17,010 --> 00:00:22,230
+20 günlük ortalama, RSI, korku endeksi
+VIX gibi 10 alım sinyali kullandık.
+
+7
+00:00:22,680 --> 00:00:27,910
+Alış fiyatından önce %5 çıkarsa başarı,
+önce %2 düşerse başarısızlık saydık.
+
+8
+00:00:28,360 --> 00:00:31,800
+Karşılaştırma: rastgele
+tarihlerde alan 2.000 hesap.
+
+9
+00:00:32,250 --> 00:00:35,860
+Sinyaller işe yarıyorsa, başarı
+oranları rastgeleden yüksek olmalı.
+
+10
+00:00:36,310 --> 00:00:38,830
+Rastgele hesaplar da aynı
+kuralla değerlendirildi.
+
+11
+00:00:39,280 --> 00:00:44,480
+En yükseği, 20 günlük ortalamayı
+aşınca alımdı: başarı oranı %52,1.
+
+12
+00:00:44,930 --> 00:00:48,620
+Ama 10 sinyalin hepsi rastgele
+alımdan farksız bir aralıktaydı.
+
+13
+00:00:49,070 --> 00:00:52,020
+Peki her sinyal ne zaman
+tuttu, ne zaman tutmadı?
+
+14
+00:00:52,470 --> 00:00:54,765
+10 sinyalin kaydını ve
+dönem değişince sonucun
+
+15
+00:00:54,765 --> 00:00:57,010
+aynı olup olmadığını
+aşağıdaki videoda görün.

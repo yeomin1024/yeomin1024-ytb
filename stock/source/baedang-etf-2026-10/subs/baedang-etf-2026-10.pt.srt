@@ -1,0 +1,494 @@
+1
+00:00:00,300 --> 00:00:03,910
+Dividendos na conta trazem segurança,
+e muitos juntam ETFs de dividendos.
+
+2
+00:00:04,360 --> 00:00:07,177
+Mas, mesmo descontando o
+imposto de cada pagamento,
+
+3
+00:00:07,177 --> 00:00:09,000
+sobra mais que num ETF de índice?
+
+4
+00:00:09,450 --> 00:00:11,825
+Vamos fazer um backtest com SCHD,
+
+5
+00:00:11,825 --> 00:00:16,000
+ETF de ações de dividendos dos
+EUA, e SPY, ETF do S&P 500.
+
+6
+00:00:17,000 --> 00:00:20,440
+Desde 2011, compramos US$ 1.000
+no primeiro pregão de cada mês.
+
+7
+00:00:20,890 --> 00:00:25,860
+Os dividendos têm 15% de imposto e
+são reinvestidos; a taxa é 0,25%.
+
+8
+00:00:26,860 --> 00:00:28,450
+Agora vamos avançar as datas.
+
+9
+00:00:28,900 --> 00:00:32,700
+A linha roxa é a conta
+SCHD; a azul, a conta SPY.
+
+10
+00:00:33,150 --> 00:00:35,630
+Pontilhado amarelo: total já aportado.
+
+11
+00:00:36,080 --> 00:00:39,160
+Acima: dividendos recebidos
+e imposto pago de cada conta.
+
+12
+00:00:39,610 --> 00:00:43,290
+Com US$ 1.000 compramos o máximo
+possível, contando frações.
+
+13
+00:00:43,740 --> 00:00:49,100
+Até 2017, a liderança mudou 43
+vezes; as duas se alternaram.
+
+14
+00:00:49,550 --> 00:00:52,670
+A partir de 2 de janeiro
+de 2018, o SPY liderou.
+
+15
+00:00:53,120 --> 00:00:58,192
+Em 2019, o SCHD pagou 63,1%
+mais dividendos que o SPY,
+
+16
+00:00:58,192 --> 00:01:00,540
+mas a conta SPY liderava.
+
+17
+00:01:00,990 --> 00:01:05,190
+Na queda da COVID, as duas contas
+caíram juntas até 23 de março.
+
+18
+00:01:05,640 --> 00:01:13,880
+A conta SCHD caiu 32,8%, a
+SPY 33,4%: perdas parecidas.
+
+19
+00:01:14,880 --> 00:01:17,200
+Em 2022, veio um longo mercado de baixa.
+
+20
+00:01:17,650 --> 00:01:20,130
+Em abril, o SCHD voltou a liderar.
+
+21
+00:01:20,580 --> 00:01:27,620
+Naquele ano o SCHD caiu 14,6% e
+o SPY 22,2%; o SCHD caiu menos.
+
+22
+00:01:28,070 --> 00:01:33,100
+Em 6 de janeiro de 2023, o SCHD chegou
+a liderar por cerca de US$ 33.000.
+
+23
+00:01:33,550 --> 00:01:37,380
+Mas em 26 de abril de 2023,
+o SPY voltou à frente.
+
+24
+00:01:37,830 --> 00:01:42,334
+Em 2025, os dividendos do SCHD
+ainda eram 2,6 vezes os do SPY,
+
+25
+00:01:42,334 --> 00:01:44,150
+mas a diferença aumentou.
+
+26
+00:01:45,150 --> 00:01:47,870
+15 de outubro de 2026: o resultado.
+
+27
+00:01:48,320 --> 00:01:51,500
+Cada conta recebeu US$
+180.000 em 180 aportes.
+
+28
+00:01:51,950 --> 00:01:57,550
+A conta SCHD tinha cerca de US$
+480.000; a SPY, cerca de US$ 590.000.
+
+29
+00:01:58,000 --> 00:02:02,710
+A conta SPY tinha 1,22 vez o
+valor: cerca de US$ 110.000 a mais.
+
+30
+00:02:03,160 --> 00:02:07,840
+Depois de 26 de abril de 2023,
+o SCHD nunca mais liderou.
+
+31
+00:02:08,290 --> 00:02:12,670
+O SCHD liderou em só
+20,1% de todos os pregões.
+
+32
+00:02:13,120 --> 00:02:18,640
+O SCHD recebeu cerca de US$ 87.000
+em dividendos, 2,1 vezes o SPY.
+
+33
+00:02:19,090 --> 00:02:23,900
+Por isso pagou cerca de US$ 13.000
+de imposto, 2,1 vezes o SPY.
+
+34
+00:02:24,350 --> 00:02:29,640
+No último período de 1 ano, o SCHD recebeu
+cerca de US$ 15.000, 2,5 vezes o SPY.
+
+35
+00:02:30,090 --> 00:02:35,030
+Desde 2012, todo ano, a conta
+SCHD recebeu mais dividendos.
+
+36
+00:02:36,030 --> 00:02:38,910
+Recebeu mais dividendos,
+então por que sobrou menos?
+
+37
+00:02:39,360 --> 00:02:41,590
+Vamos ver de onde vem o dividendo.
+
+38
+00:02:42,040 --> 00:02:45,280
+No dia do dividendo, o preço
+costuma cair o valor do dividendo.
+
+39
+00:02:45,730 --> 00:02:49,470
+O dinheiro da empresa vai aos
+acionistas, e ela passa a valer menos.
+
+40
+00:02:49,920 --> 00:02:53,630
+Então, ao receber o dividendo, o
+valor total da conta não cresce.
+
+41
+00:02:54,080 --> 00:02:56,660
+Mas o imposto sai na
+hora em que você recebe.
+
+42
+00:02:57,110 --> 00:02:58,880
+Vamos ver numa conta real.
+
+43
+00:02:59,330 --> 00:03:05,090
+Em 10 de dezembro de 2025, 1
+cota de SCHD pagou US$ 0,278.
+
+44
+00:03:05,540 --> 00:03:08,400
+Na conta toda, isso deu US$ 3.743.
+
+45
+00:03:08,850 --> 00:03:14,300
+Com 15% de imposto, US$
+561, sobraram US$ 3.181.
+
+46
+00:03:14,750 --> 00:03:19,900
+Com isso, menos a taxa, recompramos
+115,1 cotas a US$ 27,57.
+
+47
+00:03:20,350 --> 00:03:23,470
+O ETF de índice também
+paga dividendos, mas menos.
+
+48
+00:03:23,920 --> 00:03:30,000
+Rendimento de dividendos em
+2025: SCHD 3,8%, SPY 1,2%.
+
+49
+00:03:30,450 --> 00:03:34,040
+Quanto mais dividendo,
+mais imposto, e mais cedo.
+
+50
+00:03:35,040 --> 00:03:38,470
+Sem a ordem dos aportes mensais,
+como foram os próprios fundos?
+
+51
+00:03:38,920 --> 00:03:41,125
+Comparamos o retorno de 1 ano de cada ano,
+
+52
+00:03:41,125 --> 00:03:43,750
+com dividendos reinvestidos,
+sem imposto nem taxa.
+
+53
+00:03:44,200 --> 00:03:49,880
+Dos 14 anos de 2012 a 2025,
+o SCHD rendeu mais em 4.
+
+54
+00:03:50,330 --> 00:03:56,410
+Em 2022: SCHD caiu 3,2%, SPY caiu 18,2%.
+
+55
+00:03:56,860 --> 00:04:02,910
+Em 2023: SCHD subiu 4,6%, SPY subiu 26,2%.
+
+56
+00:04:03,360 --> 00:04:09,920
+Em 2024: SCHD subiu
+11,7%, SPY subiu 24,9%.
+
+57
+00:04:10,370 --> 00:04:16,450
+Em 2025: SCHD subiu 4,3%, SPY subiu 17,7%.
+
+58
+00:04:17,450 --> 00:04:19,120
+O imposto causou a diferença?
+
+59
+00:04:19,570 --> 00:04:21,782
+15% é a alíquota retida sobre dividendos
+
+60
+00:04:21,782 --> 00:04:24,160
+dos EUA para investidores
+de muitos países.
+
+61
+00:04:24,610 --> 00:04:30,980
+Com imposto de 0%: SCHD cerca de US$
+510.000, SPY cerca de US$ 600.000.
+
+62
+00:04:31,430 --> 00:04:34,560
+Mesmo sem imposto, o SPY
+tinha 1,19 vez o valor.
+
+63
+00:04:35,010 --> 00:04:38,570
+Com 30%, a diferença subiu para 1,25 vez.
+
+64
+00:04:39,020 --> 00:04:43,160
+E se vender tudo no fim e pagar
+15% de imposto sobre o ganho?
+
+65
+00:04:43,610 --> 00:04:47,720
+SCHD cerca de US$ 450.000,
+SPY cerca de US$ 530.000:
+
+66
+00:04:47,720 --> 00:04:50,170
+a diferença caiu para 1,19 vez.
+
+67
+00:04:50,620 --> 00:04:53,760
+Porque o SCHD já tinha pago
+imposto pelos dividendos.
+
+68
+00:04:54,210 --> 00:04:57,910
+E sem aportes mensais, com US$
+100.000 de uma vez no início?
+
+69
+00:04:58,360 --> 00:05:05,400
+SCHD cerca de US$ 610.000, SPY cerca
+de US$ 790.000: o SPY teve 1,29 vez.
+
+70
+00:05:06,400 --> 00:05:09,840
+Começar em novembro de 2011
+pode ter mudado o resultado.
+
+71
+00:05:10,290 --> 00:05:12,440
+E se o mês de início fosse outro?
+
+72
+00:05:12,890 --> 00:05:16,636
+Criamos contas de 5 anos de
+aportes, uma iniciada a cada mês,
+
+73
+00:05:16,636 --> 00:05:18,970
+de novembro de 2011 a outubro de 2021.
+
+74
+00:05:19,420 --> 00:05:20,860
+São 120 no total.
+
+75
+00:05:21,310 --> 00:05:25,400
+O SCHD terminou com mais em só 25 das 120.
+
+76
+00:05:25,850 --> 00:05:31,730
+A maior vantagem do SCHD foi na conta
+iniciada em janeiro de 2018: 1,15 vez.
+
+77
+00:05:32,180 --> 00:05:36,890
+Já na conta iniciada em novembro
+de 2020, o SPY teve 1,34 vez.
+
+78
+00:05:37,340 --> 00:05:41,820
+Nas contas de 10 anos, o
+SCHD liderou em 12 das 60.
+
+79
+00:05:42,820 --> 00:05:47,460
+O SCHD nasceu em 2011 e não passou
+pela crise financeira de 2008.
+
+80
+00:05:47,910 --> 00:05:50,104
+Se ações de dividendos
+são fortes na baixa,
+
+81
+00:05:50,104 --> 00:05:51,940
+um período com a crise pode diferir.
+
+82
+00:05:52,390 --> 00:05:57,030
+Então testamos também o VYM, ETF de
+altos dividendos dos EUA criado em 2006.
+
+83
+00:05:57,480 --> 00:06:01,160
+Desde dezembro de 2006, US$
+1.000 por mês, mesmas regras.
+
+84
+00:06:01,610 --> 00:06:09,720
+Na crise, o VYM caiu 29,2% e
+o SPY 33,7%: o VYM caiu menos.
+
+85
+00:06:10,170 --> 00:06:16,330
+Até o fim de outubro de 2011, o VYM estava
+à frente do SPY, com cerca de US$ 67.000.
+
+86
+00:06:16,780 --> 00:06:21,820
+Aportado até 15 de outubro
+de 2026: US$ 239.000.
+
+87
+00:06:22,270 --> 00:06:28,430
+VYM cerca de US$ 810.000, SPY cerca
+de US$ 1.100.000: o SPY teve 1,35 vez.
+
+88
+00:06:28,880 --> 00:06:33,750
+Nas contas de 10 anos, o VYM
+terminou com mais em só 5 das 119.
+
+89
+00:06:34,750 --> 00:06:35,870
+Resumindo.
+
+90
+00:06:36,320 --> 00:06:39,520
+Com 15% de imposto, aportamos
+todo mês por 15 anos.
+
+91
+00:06:39,970 --> 00:06:43,800
+A conta SPY foi 1,22 vez a conta SCHD.
+
+92
+00:06:44,250 --> 00:06:46,330
+Mesmo sem imposto, foi 1,19 vez.
+
+93
+00:06:46,780 --> 00:06:51,310
+O SCHD recebeu 2,1 vezes os dividendos
+e pagou imposto na mesma proporção.
+
+94
+00:06:51,760 --> 00:06:55,960
+Em quedas como a de
+2022, o SCHD caiu menos.
+
+95
+00:06:56,410 --> 00:07:02,260
+Mudando o mês de início, o SCHD liderou
+em algumas contas, mas só 25 de 120.
+
+96
+00:07:02,710 --> 00:07:09,360
+O VYM desde 2006 também ficou abaixo
+do SPY em 114 de 119 contas de 10 anos.
+
+97
+00:07:10,360 --> 00:07:13,670
+Época de forte alta das grandes
+ações de crescimento dos EUA.
+
+98
+00:07:14,120 --> 00:07:17,360
+Se as ações de dividendos estivessem
+mais fortes, o resultado poderia mudar.
+
+99
+00:07:17,810 --> 00:07:21,320
+Sacar dividendos para despesas do
+dia a dia não entrou nesta conta.
+
+100
+00:07:21,770 --> 00:07:24,049
+O imposto varia por país e conta;
+
+101
+00:07:24,049 --> 00:07:27,570
+seguro de saúde, câmbio e
+inflação ficaram de fora.
+
+102
+00:07:28,020 --> 00:07:33,300
+E o lado do SPY teve de aguentar
+anos como 2022, com queda de 22,2%.
+
+103
+00:07:33,750 --> 00:07:37,040
+Não é recomendação de investimento,
+só regras checadas com código.
+
+104
+00:07:38,040 --> 00:07:41,810
+Tem uma hipótese para o próximo
+backtest? Conte nos comentários.
+
+105
+00:07:42,260 --> 00:07:43,810
+Obrigado por assistir.

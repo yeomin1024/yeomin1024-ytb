@@ -1,4 +1,5 @@
-# VERSION: v1.0.1 — 2026-10-17 — 'K·M' 뒤 글자 · 일본어 7万5千 시험 추가.
+# VERSION: v1.1.0 — 2026-10-18 — subs_tool v1.1.0 자막 나누기 시험: 짧은 조각 없음 · 일본어 낱말(Python·가타카나·1,700) 안에서 안 끊음 · 두 줄 고르게.
+# v1.0.1 — 2026-10-17 — 'K·M' 뒤 글자 · 일본어 7万5千 시험 추가.
 # v1.0 — 2026-10-17 — tools/subs_tool.py 숫자 맞추기·자막 나누기 시험 (사용자 지시 2026-10-17 "외국어 자막 대본도 필요하지? 쇼츠, 롱폼 각각 언어별로 작성해봐")
 import sys
 import unittest
@@ -61,6 +62,32 @@ class Cues(unittest.TestCase):
         t = "People say a covered call ETF keeps your principal even if you spend its monthly payouts, but does it really hold up over thirteen years?"
         for p in st.cue_parts(t, "en"):
             self.assertLessEqual(len(st.wrap(p, "en")), 2)
+
+
+
+class SplitV11(unittest.TestCase):
+    """v1.1.0 — 2026-10-18 첫 실제 오디오 SRT 에서 찾은 것."""
+    JA = "本当かどうか、AIが書いたPythonコードで過去の実際の価格を使ってバックテストしました。"
+
+    def test_no_tiny_fragment(self):
+        parts = st.cue_parts(self.JA, "ja")
+        self.assertGreater(len(parts), 1)
+        for p in parts:
+            self.assertGreaterEqual(len(p), st.MIN_PART * len(self.JA) - 1, p)
+            self.assertLessEqual(len(st.wrap(p, "ja")), 2)
+
+    def test_ja_never_inside_word(self):
+        for p in st.cue_parts(self.JA, "ja"):
+            lines = st.wrap(p, "ja")
+            for a, b in zip(lines, lines[1:]):
+                self.assertGreater(st.ja_score(a[-1], b[0]), 0, (a, b))
+        lines = st.wrap("3倍口座は約1,700万ドルで、1倍の約200万ドルの8.55倍でした。", "ja")
+        self.assertTrue(all("1,700" in l or "1,7" not in l for l in lines), lines)
+
+    def test_two_lines_balanced(self):
+        lines = st.wrap("It mixes stocks with notes that work like selling that right to buy.", "en")
+        self.assertEqual(len(lines), 2)
+        self.assertLess(abs(len(lines[0]) - len(lines[1])), 15, lines)
 
 
 if __name__ == "__main__":

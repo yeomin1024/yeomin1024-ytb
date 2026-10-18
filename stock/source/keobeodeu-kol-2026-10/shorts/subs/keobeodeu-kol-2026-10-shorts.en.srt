@@ -1,0 +1,70 @@
+1
+00:00:00,300 --> 00:00:02,348
+Covered call ETFs pay out monthly,
+
+2
+00:00:02,348 --> 00:00:05,600
+and people say spending it
+barely dents the principal.
+
+3
+00:00:06,050 --> 00:00:09,169
+To check, we ran a
+backtest with AI-written
+
+4
+00:00:09,169 --> 00:00:11,490
+Python code on real past prices.
+
+5
+00:00:11,940 --> 00:00:15,610
+We tested QYLD, a
+Nasdaq-100 covered call ETF.
+
+6
+00:00:16,060 --> 00:00:17,836
+We compared it with QQQ,
+
+7
+00:00:17,836 --> 00:00:21,980
+an ETF that tracks the
+Nasdaq-100 without covered calls.
+
+8
+00:00:22,430 --> 00:00:26,750
+In December 2013, each account
+got $100,000 of principal.
+
+9
+00:00:27,200 --> 00:00:30,420
+QYLD's payouts were all
+spent as soon as they came.
+
+10
+00:00:30,870 --> 00:00:35,710
+To keep it fair, the QQQ account sold
+the same amount on the same days.
+
+11
+00:00:36,160 --> 00:00:41,250
+By 2026, both accounts had paid
+out the same: about $110,000.
+
+12
+00:00:41,700 --> 00:00:47,380
+The QYLD account had about $75,000
+left, 25.3% below the principal.
+
+13
+00:00:47,830 --> 00:00:52,810
+The QQQ account had about
+$510,000 left, 6.83 times QYLD.
+
+14
+00:00:53,260 --> 00:00:56,190
+Same money taken out, so why such a gap?
+
+15
+00:00:56,640 --> 00:01:01,470
+Why, and whether another start month gives
+the same result: see the video below.

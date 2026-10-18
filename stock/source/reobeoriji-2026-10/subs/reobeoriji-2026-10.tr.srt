@@ -1,0 +1,509 @@
+1
+00:00:00,300 --> 00:00:04,480
+QLD ve TQQQ, Nasdaq-100'ü 2x ve 3x izler.
+
+2
+00:00:04,930 --> 00:00:07,322
+Uzun süre biriktirince çok
+daha fazla kalacak gibi,
+
+3
+00:00:07,322 --> 00:00:09,010
+ama bir çöküşte ne kadar dayanırlar?
+
+4
+00:00:09,460 --> 00:00:13,690
+1999'dan itibaren 1x, 2x ve 3x'i
+backtest ile karşılaştıralım.
+
+5
+00:00:14,690 --> 00:00:16,635
+2x ve 3x, QLD ve TQQQ gibi,
+
+6
+00:00:16,635 --> 00:00:21,030
+her gün endeksin 2x ve 3x'inden
+maliyet düşülerek hesaplandı.
+
+7
+00:00:21,480 --> 00:00:26,350
+Her ayın ilk işlem gününde 500
+$ alıyoruz, komisyon %0,25.
+
+8
+00:00:27,350 --> 00:00:28,940
+Şimdi tarihleri akıtalım.
+
+9
+00:00:29,390 --> 00:00:35,560
+Mavi çizgi Nasdaq-100'ü 1x izleyen
+QQQ, mor çizgi 2x, turuncu çizgi 3x.
+
+10
+00:00:36,010 --> 00:00:38,000
+Sarı noktalar: şimdiye dek yatırılan para.
+
+11
+00:00:38,450 --> 00:00:40,850
+Dikey ölçekte her basamak
+yukarı 10 kat demek.
+
+12
+00:00:41,300 --> 00:00:44,410
+Üç hesap da Nasdaq-100'ün
+temettülerini yeniden yatırıyor.
+
+13
+00:00:44,860 --> 00:00:50,030
+1999 sonunda 3x hesap, yatırılan
+4.500 $'ın 3,28 katıydı.
+
+14
+00:00:50,480 --> 00:00:53,420
+Mart 2000'den itibaren dotcom
+balonu sönmeye başlıyor.
+
+15
+00:00:53,870 --> 00:01:00,680
+29 Mart 2001'de 3x hesap, yatırılan
+12.000 $'ın %92,3'ünü kaybetmişti.
+
+16
+00:01:01,130 --> 00:01:07,530
+4 Nisan'da 2x %80,7, 1x %49,9 düştü;
+üçü de yatırılan paranın altındaydı.
+
+17
+00:01:07,980 --> 00:01:11,190
+Yine de üç hesap da her ay
+500 $ almaya devam etti.
+
+18
+00:01:11,640 --> 00:01:15,480
+2003'te 3x %167,4 yükseldi.
+
+19
+00:01:15,930 --> 00:01:18,480
+2007 sonunda üç hesap neredeyse eşitlendi.
+
+20
+00:01:19,480 --> 00:01:21,400
+Ardından 2008 finans krizi geldi.
+
+21
+00:01:21,850 --> 00:01:27,610
+20 Kasım'da 3x hesap, yatırılan
+58.000 $'ın %89,5'ini kaybetmişti.
+
+22
+00:01:28,060 --> 00:01:33,890
+Aynı gün 2x %72,8, 1x %36,4 kayıptaydı.
+
+23
+00:01:34,340 --> 00:01:37,870
+2009'da 3x %196,4 yükseldi.
+
+24
+00:01:38,320 --> 00:01:44,060
+2012 sonuna kadar 1x en fazlaydı,
+ama 3 Temmuz 2013'te 3x, 1x'i geçti.
+
+25
+00:01:44,510 --> 00:01:47,980
+Haziran 2017'de 3x hesap
+1.000.000 $'ı aştı.
+
+26
+00:01:48,430 --> 00:01:56,190
+Covid çöküşünde 3x %69,7,
+2x %51,9, 1x %28,5 düştü.
+
+27
+00:01:56,640 --> 00:02:01,830
+Yine de 3x hesap yaklaşık 970.000 $
+ile yatırılan 126.000 $'dan fazlaydı.
+
+28
+00:02:02,280 --> 00:02:08,360
+2021 sonunda 3x hesap yaklaşık
+9.100.000 $ ile 1x'in 8,66 katına çıktı.
+
+29
+00:02:09,360 --> 00:02:11,540
+2022'de uzun bir düşüş geldi.
+
+30
+00:02:11,990 --> 00:02:15,271
+3x hesap 3 Ocak'ta
+yaklaşık 9.300.000 $'dan
+
+31
+00:02:15,271 --> 00:02:18,400
+28 Aralık'ta yaklaşık 1.800.000 $'a indi.
+
+32
+00:02:18,850 --> 00:02:20,530
+Yani %80,9 kayıp.
+
+33
+00:02:20,980 --> 00:02:25,460
+2x %62,8, 1x %34,4 düştü.
+
+34
+00:02:25,910 --> 00:02:29,830
+2023'te 3x %198,2 yükseldi.
+
+35
+00:02:30,280 --> 00:02:34,120
+Aralık 2024'te 3x hesap
+10.000.000 $'ı aştı.
+
+36
+00:02:34,570 --> 00:02:42,500
+Nisan 2025 düşüşünde 3x %56,8,
+2x %41,8, 1x %22,7 düştü.
+
+37
+00:02:43,500 --> 00:02:46,220
+15 Ekim 2026, sonuçlar.
+
+38
+00:02:46,670 --> 00:02:50,810
+Üç hesap da 331 kez,
+yaklaşık 170.000 $ yatırdı.
+
+39
+00:02:51,260 --> 00:02:55,490
+1x hesap yaklaşık 2.000.000
+$, 2x yaklaşık 7.900.000 $.
+
+40
+00:02:55,940 --> 00:02:58,820
+3x hesap yaklaşık 17.000.000 $ idi.
+
+41
+00:02:59,270 --> 00:03:05,190
+3x hesabın zirvesi 2 Haziran
+2026'daydı, yaklaşık 20.000.000 $.
+
+42
+00:03:05,640 --> 00:03:09,420
+3x, 1x'in 8,55 katı; 2x ise 3,91 katıydı.
+
+43
+00:03:09,870 --> 00:03:13,620
+3 Temmuz 2013'ten sonra
+3x hep 1x'ten fazla kaldı.
+
+44
+00:03:14,070 --> 00:03:19,660
+Ondan önceki 14,3 yılda 3x'in 1x'ten
+fazla olduğu günler sadece %10,8'di.
+
+45
+00:03:20,110 --> 00:03:27,460
+Yatırılan paranın üstündeki günler
+de 1x %78,1, 3x %64,7; 3x daha azdı.
+
+46
+00:03:28,460 --> 00:03:31,020
+3x çöküşlerde neden bu kadar eridi?
+
+47
+00:03:31,470 --> 00:03:35,150
+Kaldıraçlı ETF'lerin her gün katsayıyı
+ayarlaması ne demek, bakalım.
+
+48
+00:03:35,600 --> 00:03:40,010
+Endeks bir gün %10 yükselip
+ertesi gün %10 düşsün.
+
+49
+00:03:40,460 --> 00:03:42,730
+1x %1 zarar eder.
+
+50
+00:03:43,180 --> 00:03:47,360
+2x %20 yükselip %20 düşer: %4 zarar.
+
+51
+00:03:47,810 --> 00:03:52,310
+3x %30 yükselip %30 düşer: %9 zarar.
+
+52
+00:03:52,760 --> 00:03:56,200
+İnişler çıkışlar tekrarlandıkça
+ve kat büyüdükçe daha çok aşınır.
+
+53
+00:03:56,650 --> 00:04:00,410
+Endeks başladığı yere dönse bile
+kaldıraçlı hesap başlangıçtan az kalır.
+
+54
+00:04:00,860 --> 00:04:05,550
+Nitekim 2018'de 1x %0,1 düştü,
+neredeyse yerinde saydı.
+
+55
+00:04:06,000 --> 00:04:10,420
+O yıl 2x %8,6, 3x %20,1 düştü.
+
+56
+00:04:11,420 --> 00:04:14,780
+Peki her ay bölmeden, başta
+tek seferde yatırılsaydı?
+
+57
+00:04:15,230 --> 00:04:19,470
+1 Nisan 1999'da her
+hesaba 10.000 $ yatırıldı.
+
+58
+00:04:19,920 --> 00:04:26,650
+9 Mart 2009'da 3x hesapta sadece
+13 $ kaldı, %99,87'si yok oldu.
+
+59
+00:04:27,100 --> 00:04:28,860
+2x'te 450 $ vardı.
+
+60
+00:04:29,310 --> 00:04:33,790
+1x en dibi 9 Ekim 2002'de
+3.736 $ ile gördü.
+
+61
+00:04:34,240 --> 00:04:37,040
+15 Ekim 2026 değerleri şöyle.
+
+62
+00:04:37,490 --> 00:04:42,990
+1x yaklaşık 160.000 $, 2x yaklaşık
+130.000 $, 3x yaklaşık 18.000 $.
+
+63
+00:04:43,440 --> 00:04:47,420
+Tek seferlik yatırımda 3x'te
+1x'in sadece %11,4'ü kaldı.
+
+64
+00:04:47,870 --> 00:04:51,600
+Aylık hesaplar, çöküşle ucuzlayan
+fiyatlardan da almayı sürdürdü.
+
+65
+00:04:52,600 --> 00:04:55,051
+Nisan 1999 dotcom
+çöküşünün hemen öncesiydi,
+
+66
+00:04:55,051 --> 00:04:57,000
+yani başlangıç kötü olmuş olabilir.
+
+67
+00:04:57,450 --> 00:04:59,600
+Başlangıç ayı farklı olsaydı ne olurdu?
+
+68
+00:05:00,050 --> 00:05:03,055
+Nisan 1999'dan Ekim 2016'ya kadar her ay
+
+69
+00:05:03,055 --> 00:05:06,360
+başlayan 10 yıllık
+birikim hesapları kurduk.
+
+70
+00:05:06,810 --> 00:05:08,460
+Toplam 211 hesap.
+
+71
+00:05:08,910 --> 00:05:13,590
+10 yıl sonra 211 hesabın
+175'inde 3x, 1x'ten fazlaydı.
+
+72
+00:05:14,040 --> 00:05:17,160
+2x, 183'ünde 1x'ten fazlaydı.
+
+73
+00:05:17,610 --> 00:05:22,730
+Yatırılan paradan az kalan hesaplar:
+1x'te 4, 2x'te 16, 3x'te 20.
+
+74
+00:05:23,180 --> 00:05:26,860
+En kötüsü Nisan 1999'da başlayan hesaptı.
+
+75
+00:05:27,310 --> 00:05:33,040
+Yaklaşık 61.000 $ yatırıldı, 3x
+yaklaşık 12.000 $ ile 1x'in %24,9'uydu.
+
+76
+00:05:33,490 --> 00:05:38,690
+En iyisi Eylül 2008'de başlayan
+hesaptı; 3x, 1x'in 6,49 katıydı.
+
+77
+00:05:39,140 --> 00:05:43,140
+25 yıllık 31 birikim hesabının
+hepsinde 3x en fazlaydı.
+
+78
+00:05:44,140 --> 00:05:48,000
+Hesaplanan 2x ve 3x'in gerçek ETF'lere
+ne kadar benzediğine de bakmalıyız.
+
+79
+00:05:48,450 --> 00:05:50,770
+2x ve 3x hesaplar şöyle hesaplandı.
+
+80
+00:05:51,220 --> 00:05:57,260
+İki ETF 2006 ve 2010'da kuruldu, bu yüzden
+1999'dan itibaren kendimiz hesaplamalıyız.
+
+81
+00:05:57,710 --> 00:06:01,110
+Her gün Nasdaq-100'ün günlük
+getirisinin 2x veya 3x'ini izler.
+
+82
+00:06:01,560 --> 00:06:04,970
+Bundan %0,95 ücret ve borç
+alınan paranın faizi düşülür.
+
+83
+00:06:05,420 --> 00:06:09,500
+Faiz, ABD hükümetinin üç aylık
+faizine %1,02 eklenerek alındı.
+
+84
+00:06:09,950 --> 00:06:12,891
+%1,02, Haziran 2006'dan
+itibaren bitiş değeri
+
+85
+00:06:12,891 --> 00:06:15,440
+gerçek QLD ile aynı olsun diye seçildi.
+
+86
+00:06:15,890 --> 00:06:21,360
+Aynı değerle TQQQ hesaplanınca,
+gerçeğinden 1 yılda %0,57 düşük çıktı.
+
+87
+00:06:21,810 --> 00:06:23,820
+Şimdi gerçek ETF'lerle bakalım.
+
+88
+00:06:24,270 --> 00:06:29,070
+TQQQ'nun kuruluşunun ertesi ayı,
+Mart 2010'dan itibaren her ay 500 $.
+
+89
+00:06:29,520 --> 00:06:31,200
+Yatırılan para 100.000 $.
+
+90
+00:06:31,650 --> 00:06:36,210
+QQQ yaklaşık 620.000 $, QLD
+yaklaşık 2.200.000 $ oldu.
+
+91
+00:06:36,660 --> 00:06:39,840
+TQQQ yaklaşık 5.300.000 $ idi.
+
+92
+00:06:40,290 --> 00:06:45,330
+Aynı dönemde hesaplanan 3x yaklaşık
+5.100.000 $ ile gerçeğinden biraz azdı.
+
+93
+00:06:45,780 --> 00:06:53,150
+Gerçek TQQQ hesabı da 2022'de
+%81,5, QLD hesabı %63,3 düştü.
+
+94
+00:06:54,150 --> 00:06:55,270
+Özetleyelim.
+
+95
+00:06:55,720 --> 00:07:00,600
+1999'dan itibaren her ay biriktirince
+3x, 1x'in 8,55 katı oldu.
+
+96
+00:07:01,050 --> 00:07:05,430
+Ama 2001'de yatırılan paranın
+%92,3'ünün eridiği bir dönem vardı.
+
+97
+00:07:05,880 --> 00:07:08,590
+2008'de de %89,5 düştü.
+
+98
+00:07:09,040 --> 00:07:12,840
+3x'in 1x'in önünde kalmaya
+başlaması 14,3 yıl sürdü.
+
+99
+00:07:13,290 --> 00:07:17,920
+Başta tek seferde yatırılsaydı,
+3x'te 1x'in sadece %11,4'ü kalırdı.
+
+100
+00:07:18,370 --> 00:07:21,096
+Başlangıç ayı farklı 10
+yıllık hesaplarda bile
+
+101
+00:07:21,096 --> 00:07:23,940
+211'in 20'sinde 3x yatırılan
+paranın altındaydı.
+
+102
+00:07:24,940 --> 00:07:27,090
+Bu dönemde Nasdaq-100 çok yükseldi.
+
+103
+00:07:27,540 --> 00:07:32,180
+Ana deneydeki 2x ve 3x değerleri gerçek
+ETF değil, hesaplanmış değerlerdir.
+
+104
+00:07:32,630 --> 00:07:34,790
+Faiz ve ücretler değişirse
+sonuç da değişir.
+
+105
+00:07:35,240 --> 00:07:38,111
+Ve 3x'i seçmek için, yatırılan
+paranın %90 civarının
+
+106
+00:07:38,111 --> 00:07:40,650
+yok olduğu dönemlere iki
+kez dayanmak gerekti.
+
+107
+00:07:41,100 --> 00:07:43,570
+Vergi, döviz kuru ve
+enflasyon dahil değil.
+
+108
+00:07:44,020 --> 00:07:47,310
+Bu yatırım tavsiyesi değil, kuralları
+kodla kontrol ettiğimiz sonuçtur.
+
+109
+00:07:48,310 --> 00:07:52,080
+Backtest ile denememizi istediğiniz
+bir hipotez var mı? Yorumlarda yazın.
+
+110
+00:07:52,530 --> 00:07:54,080
+İzlediğiniz için teşekkürler.

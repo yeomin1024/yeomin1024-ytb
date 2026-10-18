@@ -1,0 +1,75 @@
+1
+00:00:00,300 --> 00:00:03,334
+Katanya menabung TQQQ, yang
+mengikuti Nasdaq-100 dengan 3x,
+
+2
+00:00:03,334 --> 00:00:05,340
+lama-lama menyisakan jauh lebih banyak.
+
+3
+00:00:05,790 --> 00:00:08,538
+Untuk mengeceknya, kami
+melakukan backtest dengan
+
+4
+00:00:08,538 --> 00:00:11,230
+kode Python buatan AI
+pada harga riil masa lalu.
+
+5
+00:00:11,680 --> 00:00:16,890
+Kami bandingkan QQQ yang mengikuti
+Nasdaq-100 dengan 1x, QLD 2x, dan TQQQ 3x.
+
+6
+00:00:17,340 --> 00:00:19,487
+QLD dan TQQQ belum ada di 1999,
+
+7
+00:00:19,487 --> 00:00:23,850
+jadi dihitung dari 2x dan 3x
+indeks tiap hari, dikurangi biaya.
+
+8
+00:00:24,300 --> 00:00:28,590
+Sejak 1999, ketiga akun
+diisi sama, $500 tiap bulan.
+
+9
+00:00:29,040 --> 00:00:32,240
+Saat anjlok pun, ketiga akun
+terus membeli tiap bulan.
+
+10
+00:00:32,690 --> 00:00:36,520
+Sampai 2026, ketiga akun
+sama-sama diisi sekitar $170.000.
+
+11
+00:00:36,970 --> 00:00:42,130
+Akun 3x sekitar $17.000.000, 8,55
+kali akun 1x yang sekitar $2.000.000.
+
+12
+00:00:42,580 --> 00:00:47,280
+Tapi pada 2001, akun 3x kehilangan
+92,3% dari uang yang masuk.
+
+13
+00:00:47,730 --> 00:00:50,610
+Pada 2008 juga hilang 89,5%.
+
+14
+00:00:51,060 --> 00:00:54,780
+Indeksnya sama, kenapa 3x
+hilang sebanyak itu saat anjlok?
+
+15
+00:00:55,230 --> 00:00:58,637
+Alasannya, dan bagaimana jika
+semua uang masuk sekaligus di awal,
+
+16
+00:00:58,637 --> 00:00:59,790
+cek di video di bawah.

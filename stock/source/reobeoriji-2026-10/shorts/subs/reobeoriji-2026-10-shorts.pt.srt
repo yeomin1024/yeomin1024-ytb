@@ -1,0 +1,75 @@
+1
+00:00:00,300 --> 00:00:03,702
+Dizem que acumular TQQQ, que
+segue o Nasdaq-100 em 3x,
+
+2
+00:00:03,702 --> 00:00:05,340
+por anos deixa muito mais.
+
+3
+00:00:05,790 --> 00:00:08,706
+Para conferir, fizemos um
+backtest com código Python
+
+4
+00:00:08,706 --> 00:00:11,230
+escrito por IA sobre
+preços reais do passado.
+
+5
+00:00:11,680 --> 00:00:16,890
+Comparamos o QQQ, que segue o Nasdaq-100
+em 1x, com o QLD 2x e o TQQQ 3x.
+
+6
+00:00:17,340 --> 00:00:19,629
+QLD e TQQQ não existiam em 1999,
+
+7
+00:00:19,629 --> 00:00:23,850
+então usamos 2x ou 3x o índice
+a cada dia, menos os custos.
+
+8
+00:00:24,300 --> 00:00:28,590
+Desde 1999, as três contas
+receberam os mesmos US$ 500 por mês.
+
+9
+00:00:29,040 --> 00:00:32,240
+Mesmo nos crashes, as três
+seguiram comprando todo mês.
+
+10
+00:00:32,690 --> 00:00:36,520
+Até 2026, cada conta aplicou
+cerca de US$ 170.000.
+
+11
+00:00:36,970 --> 00:00:39,457
+A conta 3x teve cerca de US$ 17.000.000,
+
+12
+00:00:39,457 --> 00:00:42,130
+8,55 vezes os cerca de
+US$ 2.000.000 da 1x.
+
+13
+00:00:42,580 --> 00:00:47,280
+Mas em 2001, a conta 3x perdeu
+92,3% do valor aplicado.
+
+14
+00:00:47,730 --> 00:00:50,610
+Em 2008, também perdeu 89,5%.
+
+15
+00:00:51,060 --> 00:00:54,780
+Mesmo índice: por que o 3x
+perdeu tanto nos crashes?
+
+16
+00:00:55,230 --> 00:00:59,790
+O porquê, e como seria aplicar tudo de
+uma vez no início, veja no vídeo abaixo.

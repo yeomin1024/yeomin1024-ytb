@@ -1,0 +1,661 @@
+1
+00:00:00,300 --> 00:00:03,880
+If it drops right after you
+buy, you doubt your timing.
+
+2
+00:00:04,330 --> 00:00:08,290
+Do 10 popular buy signals really
+raise your odds of success?
+
+3
+00:00:08,740 --> 00:00:14,270
+Let's backtest them from 2016 with
+SPY, an ETF that tracks the S&P 500.
+
+4
+00:00:14,720 --> 00:00:19,280
+Success means rising 5% above the buy
+price; falling 2% first is a failure.
+
+5
+00:00:19,730 --> 00:00:23,130
+Once decided, we sell the next day
+and buy again on the next signal.
+
+6
+00:00:23,580 --> 00:00:27,020
+We compare 2,000 accounts where
+only the dates are random.
+
+7
+00:00:28,020 --> 00:00:31,670
+First, no signal: buy on the
+first trading day of each month.
+
+8
+00:00:32,120 --> 00:00:36,140
+To see if signals help, we first
+need a method with no signal.
+
+9
+00:00:36,590 --> 00:00:38,910
+Green trades succeeded, red ones failed.
+
+10
+00:00:39,360 --> 00:00:44,550
+Top right is the success rate so far;
+below it, the random accounts' average.
+
+11
+00:00:45,000 --> 00:00:47,103
+Random accounts use the same sell rule,
+
+12
+00:00:47,103 --> 00:00:49,800
+with waiting days drawn
+from each method's record.
+
+13
+00:00:50,250 --> 00:00:56,820
+At the end of 2021, the success rate was
+56.1%, above the random average of 51.7%.
+
+14
+00:00:57,270 --> 00:01:01,110
+But in 2022, 11 of 12 trades failed.
+
+15
+00:01:01,560 --> 00:01:05,240
+From 2023, it moved almost in
+step with the random average.
+
+16
+00:01:05,690 --> 00:01:09,354
+Result: 37 successes out of 80, 46.2%,
+
+17
+00:01:09,354 --> 00:01:13,500
+slightly below the
+random average of 47.1%.
+
+18
+00:01:13,950 --> 00:01:20,310
+The gray band is the range covering
+90% of random accounts: 41.5% to 53.2%.
+
+19
+00:01:20,760 --> 00:01:23,409
+Inside the band means no
+different from random,
+
+20
+00:01:23,409 --> 00:01:25,720
+and the first-trading-day buy was inside.
+
+21
+00:01:26,720 --> 00:01:30,480
+The second through fifth are trend
+signals that buy as prices rise.
+
+22
+00:01:30,930 --> 00:01:33,460
+They assume that once prices
+start rising, they keep rising.
+
+23
+00:01:33,910 --> 00:01:36,600
+Second: buy on a 20-day high breakout.
+
+24
+00:01:37,050 --> 00:01:40,510
+Buy when the close beats the highest
+close of the past 20 trading days.
+
+25
+00:01:40,960 --> 00:01:46,960
+At the end of 2019, its success rate was
+58.8%, above the random average of 50.3%.
+
+26
+00:01:47,410 --> 00:01:51,720
+After selling in April 2022, there
+was no signal for almost three months.
+
+27
+00:01:52,170 --> 00:01:54,710
+That year, 5 of 6 trades failed.
+
+28
+00:01:55,160 --> 00:02:00,440
+After 20 decided trades, its success
+rate never fell below the random average.
+
+29
+00:02:00,890 --> 00:02:05,710
+Result: 31 successes out of 63, 49.2%.
+
+30
+00:02:06,160 --> 00:02:13,920
+Random average 47.1%; inside the 41.3% to
+53.2% range, so we can't call it better.
+
+31
+00:02:14,920 --> 00:02:18,520
+Third: even without a new high, buy
+if the price is up from a month ago.
+
+32
+00:02:18,970 --> 00:02:22,490
+Buy when today's close is higher
+than the close 21 trading days ago.
+
+33
+00:02:22,940 --> 00:02:29,100
+In June 2020, its success rate was 63.0%,
+well ahead of the random average of 50.9%.
+
+34
+00:02:29,550 --> 00:02:33,540
+But in 2022, 10 of 12 trades failed.
+
+35
+00:02:33,990 --> 00:02:37,980
+After selling in late February 2025,
+there was no signal for over two months.
+
+36
+00:02:38,430 --> 00:02:43,500
+Result: 42 successes out of 81, 51.9%.
+
+37
+00:02:43,950 --> 00:02:50,190
+It was near the top of the random range
+of 43.3% to 52.6%, but still inside.
+
+38
+00:02:51,190 --> 00:02:54,040
+Fourth is the 20-day average
+line, often drawn on charts.
+
+39
+00:02:54,490 --> 00:02:58,300
+Buy on the day the close crosses
+above the 20-day average from below.
+
+40
+00:02:58,750 --> 00:03:03,180
+From July 2016 to January 2018,
+it succeeded five times in a row.
+
+41
+00:03:03,630 --> 00:03:07,359
+In December 2021, its
+success rate was 64.7%,
+
+42
+00:03:07,359 --> 00:03:10,840
+well ahead of the random average of 51.8%.
+
+43
+00:03:11,290 --> 00:03:14,810
+Then, through July 2022, it
+failed six times in a row.
+
+44
+00:03:15,260 --> 00:03:19,100
+After 20 decided trades, it never
+fell below the random average.
+
+45
+00:03:19,550 --> 00:03:26,550
+Result: 37 successes out of 71,
+52.1%, the highest of the four so far.
+
+46
+00:03:27,000 --> 00:03:30,800
+Still, it's inside the random
+range of 40.3% to 54.3%,
+
+47
+00:03:30,800 --> 00:03:32,700
+so we can't call it better.
+
+48
+00:03:33,700 --> 00:03:36,020
+The fifth looks at two
+average lines together.
+
+49
+00:03:36,470 --> 00:03:40,550
+Buy when the short 5-day average
+crosses above the long 20-day average.
+
+50
+00:03:41,000 --> 00:03:45,510
+After selling in September 2017,
+the next buy came in February 2018.
+
+51
+00:03:45,960 --> 00:03:52,290
+In July 2022, its success rate was
+40.0%, below the random average of 48.5%.
+
+52
+00:03:52,740 --> 00:03:55,220
+It had just failed six times in a row.
+
+53
+00:03:55,670 --> 00:03:59,720
+After that, it succeeded five
+times in a row through June 2023.
+
+54
+00:04:00,170 --> 00:04:03,930
+From 2024, 7 of 12 trades succeeded.
+
+55
+00:04:04,380 --> 00:04:08,610
+Result: 25 successes out
+of 50, exactly 50.0%.
+
+56
+00:04:09,060 --> 00:04:15,280
+Random average 47.4%; it was
+inside the 38.6% to 56.2% range.
+
+57
+00:04:15,730 --> 00:04:18,930
+It had the fewest trades of all
+10, so the range was also wide.
+
+58
+00:04:19,930 --> 00:04:22,810
+From the sixth on, the
+signals buy when prices fall.
+
+59
+00:04:23,260 --> 00:04:26,170
+The idea: buy cheaper, and
+it should rise more easily.
+
+60
+00:04:26,620 --> 00:04:30,540
+Sixth: if it falls 1% or more
+in a day, buy the next day.
+
+61
+00:04:30,990 --> 00:04:34,714
+In January 2019, its
+success rate was 35.0%,
+
+62
+00:04:34,714 --> 00:04:38,100
+well behind the random average of 46.9%.
+
+63
+00:04:38,550 --> 00:04:42,470
+Because in 2018 alone,
+8 of 12 trades failed.
+
+64
+00:04:42,920 --> 00:04:46,040
+In 2022 too, 13 of 20 failed.
+
+65
+00:04:46,490 --> 00:04:47,790
+After 20 decided trades,
+
+66
+00:04:47,790 --> 00:04:50,930
+it was never above the random
+average, not even for a day.
+
+67
+00:04:51,380 --> 00:04:56,400
+Result: 44 successes out of 95, 46.3%.
+
+68
+00:04:56,850 --> 00:05:04,200
+The random average was 46.8% and the
+range 40.7% to 52.8%; it was inside.
+
+69
+00:05:05,200 --> 00:05:08,200
+Seventh: buy when RSI is below 40.
+
+70
+00:05:08,650 --> 00:05:12,630
+RSI is a number comparing the size of
+gains and losses over the last 14 days.
+
+71
+00:05:13,080 --> 00:05:16,030
+Below 40, we treat it as
+having fallen a lot, and buy.
+
+72
+00:05:16,480 --> 00:05:20,116
+In November 2019, its
+success rate was 61.9%,
+
+73
+00:05:20,116 --> 00:05:23,510
+well ahead of the random average of 49.3%.
+
+74
+00:05:23,960 --> 00:05:28,490
+But in the 2020 COVID
+crash, 5 of 7 trades failed.
+
+75
+00:05:28,940 --> 00:05:32,970
+After selling in November 2020, there
+was no signal for over 10 months.
+
+76
+00:05:33,420 --> 00:05:37,230
+And in 2022, 11 of 14 trades failed.
+
+77
+00:05:37,680 --> 00:05:40,560
+So it held stock on only 35% of days.
+
+78
+00:05:41,010 --> 00:05:45,640
+Result: 30 successes out of 62, 48.4%.
+
+79
+00:05:46,090 --> 00:05:53,850
+The random average was 46.7% and the
+range 38.0% to 56.0%; again, inside.
+
+80
+00:05:54,850 --> 00:05:57,970
+Eighth: buy when the fear
+index, VIX, is 20 or higher.
+
+81
+00:05:58,420 --> 00:06:02,380
+A higher VIX means more people
+expect big market swings.
+
+82
+00:06:02,830 --> 00:06:05,520
+This tests the saying "buy
+when everyone is afraid."
+
+83
+00:06:05,970 --> 00:06:09,890
+After selling in November 2016,
+there was no signal for over 1 year.
+
+84
+00:06:10,340 --> 00:06:14,740
+In 2020, 11 of 22 trades
+succeeded, exactly half.
+
+85
+00:06:15,190 --> 00:06:21,770
+In 2022, 18 of 24 failed, including
+six in a row from August to October.
+
+86
+00:06:22,220 --> 00:06:27,920
+From 2023, 14 of 23 trades
+succeeded, back above half.
+
+87
+00:06:28,370 --> 00:06:33,090
+Result: 48 successes out of 101, 47.5%.
+
+88
+00:06:33,540 --> 00:06:37,391
+Almost the same as the
+random average of 47.3%,
+
+89
+00:06:37,391 --> 00:06:40,340
+and inside the 41.3% to 53.6% range.
+
+90
+00:06:41,340 --> 00:06:45,830
+Ninth: buy when it falls 5% below
+the high of the last 20 trading days.
+
+91
+00:06:46,280 --> 00:06:48,240
+A dip buy aimed at short drops.
+
+92
+00:06:48,690 --> 00:06:52,880
+After selling in July 2016, the
+next signal came in February 2018.
+
+93
+00:06:53,330 --> 00:06:58,050
+In the 2020 COVID crash,
+6 of 9 trades failed.
+
+94
+00:06:58,500 --> 00:07:01,700
+In 2022 too, 11 of 15 failed.
+
+95
+00:07:02,150 --> 00:07:06,220
+It held stock on 23% of
+days, the fewest of all 10.
+
+96
+00:07:06,670 --> 00:07:10,950
+Result: 29 successes out of 59, 49.2%.
+
+97
+00:07:11,400 --> 00:07:18,600
+The random average was 46.5% and the
+range 38.0% to 55.8%; it was inside.
+
+98
+00:07:19,600 --> 00:07:24,140
+Last, the tenth: buy when it falls
+5% below the highest close so far.
+
+99
+00:07:24,590 --> 00:07:27,070
+A dip buy with a longer
+view than the ninth.
+
+100
+00:07:27,520 --> 00:07:32,230
+This one, too, had no signal for over
+1½ years after selling in July 2016.
+
+101
+00:07:32,680 --> 00:07:38,810
+At the end of 2019, its success rate was
+56.5%, above the random average of 49.8%.
+
+102
+00:07:39,260 --> 00:07:41,500
+Because all five trades
+that year succeeded.
+
+103
+00:07:41,950 --> 00:07:46,080
+In the 2020 COVID crash, 6 of 10 failed.
+
+104
+00:07:46,530 --> 00:07:51,800
+In 2022, 19 of 26 failed,
+the most of all 10.
+
+105
+00:07:52,250 --> 00:07:57,050
+From 2023, 14 of 23
+succeeded, back above half.
+
+106
+00:07:57,500 --> 00:08:01,900
+Result: 45 successes out of 94, 47.9%.
+
+107
+00:08:02,350 --> 00:08:10,110
+The random average was 47.1% and the range
+40.8% to 53.6%; this one was inside too.
+
+108
+00:08:11,110 --> 00:08:12,980
+Let's look at all 10 results at once.
+
+109
+00:08:13,430 --> 00:08:18,390
+Dots are each method's success rate; the
+gray band covers 90% of random accounts.
+
+110
+00:08:18,840 --> 00:08:22,750
+The highest was buying on a cross
+above the 20-day line, at 52.1%.
+
+111
+00:08:23,200 --> 00:08:27,300
+The lowest was buying on the first
+trading day of each month, at 46.2%.
+
+112
+00:08:27,750 --> 00:08:31,300
+Four of the top five were trend
+signals that buy when prices rise.
+
+113
+00:08:31,750 --> 00:08:36,230
+But all 10 were inside the random range,
+no different from buying at random.
+
+114
+00:08:36,680 --> 00:08:39,166
+Even for the top one,
+the 20-day line cross,
+
+115
+00:08:39,166 --> 00:08:42,670
+13% of random accounts had a
+success rate that high or higher.
+
+116
+00:08:43,670 --> 00:08:46,880
+Was the 2% failure line too loose?
+
+117
+00:08:47,330 --> 00:08:53,330
+Make it stricter at 1%, and the success
+rate for buying on any day drops to 33.6%.
+
+118
+00:08:53,780 --> 00:08:56,590
+Then, only the 20-day line
+cross came out above the range.
+
+119
+00:08:57,040 --> 00:09:00,030
+At 1.5%, no method fell outside the range.
+
+120
+00:09:00,480 --> 00:09:03,168
+These 10 years may have been special,
+
+121
+00:09:03,168 --> 00:09:06,510
+so we changed the period
+to 1994 through 2015.
+
+122
+00:09:06,960 --> 00:09:12,230
+In this period, the 20-day line cross
+was the lowest of all 10, at 33.3%.
+
+123
+00:09:12,680 --> 00:09:15,640
+In this period too, all 10
+were inside the random range.
+
+124
+00:09:16,640 --> 00:09:17,760
+Let's sum up.
+
+125
+00:09:18,210 --> 00:09:20,884
+In this backtest, no
+buy signal had a clearly
+
+126
+00:09:20,884 --> 00:09:23,380
+higher success rate than buying at random.
+
+127
+00:09:23,830 --> 00:09:26,310
+Trend signals led slightly
+over these 10 years.
+
+128
+00:09:26,760 --> 00:09:30,980
+But in the 22 years before, two of the
+four were below the random average.
+
+129
+00:09:31,430 --> 00:09:35,830
+And in years of steady decline like
+2022, every signal had more failures.
+
+130
+00:09:36,280 --> 00:09:40,200
+What changed the success rate most wasn't
+the buy signal, but the failure line.
+
+131
+00:09:41,200 --> 00:09:44,780
+These results use only
+SPY, with data from 2016.
+
+132
+00:09:45,230 --> 00:09:48,583
+Success and failure were
+judged on closes only;
+
+133
+00:09:48,583 --> 00:09:51,580
+we sold the next day and paid a 0.25% fee.
+
+134
+00:09:52,030 --> 00:09:56,020
+So a few trades were successes that
+lost money, or failures that made money.
+
+135
+00:09:56,470 --> 00:10:00,470
+We only checked success rates; the size
+of each gain or loss needs its own look.
+
+136
+00:10:00,920 --> 00:10:03,341
+Interest on cash while
+waiting for signals, taxes,
+
+137
+00:10:03,341 --> 00:10:05,520
+currency costs and
+inflation aren't included.
+
+138
+00:10:05,970 --> 00:10:09,260
+This isn't investment advice; it's the
+result of checking rules with code.
+
+139
+00:10:10,260 --> 00:10:14,030
+If you have a hypothesis to backtest
+next, tell us in the comments.
+
+140
+00:10:14,480 --> 00:10:16,030
+Thanks for watching.

@@ -1,0 +1,76 @@
+1
+00:00:00,300 --> 00:00:02,553
+Nasdaq-100'ü 3x izleyen TQQQ uzun süre
+
+2
+00:00:02,553 --> 00:00:05,340
+biriktirilirse çok daha
+fazla kaldığı söylenir.
+
+3
+00:00:05,790 --> 00:00:08,591
+Bunu kontrol etmek için
+yapay zekânın yazdığı Python
+
+4
+00:00:08,591 --> 00:00:11,230
+koduyla geçmiş gerçek
+fiyatlarda backtest yaptık.
+
+5
+00:00:11,680 --> 00:00:16,890
+Nasdaq-100'ü 1x izleyen QQQ'yu, 2x
+QLD ve 3x TQQQ ile karşılaştırdık.
+
+6
+00:00:17,340 --> 00:00:19,331
+QLD ve TQQQ 1999'da yoktu;
+
+7
+00:00:19,331 --> 00:00:23,850
+her gün endeksin 2x ve 3x'inden
+maliyet düşerek hesapladık.
+
+8
+00:00:24,300 --> 00:00:28,590
+1999'dan itibaren üç hesaba her
+ay eşit olarak 500 $ koyduk.
+
+9
+00:00:29,040 --> 00:00:32,240
+Çöküşlerde bile üç hesap da
+her ay almaya devam etti.
+
+10
+00:00:32,690 --> 00:00:36,520
+2026'ya kadar her hesaba
+yaklaşık 170.000 $ kondu.
+
+11
+00:00:36,970 --> 00:00:42,130
+3x hesapta yaklaşık 17.000.000 $ vardı;
+1x'teki yaklaşık 2.000.000 $'ın 8,55 katı.
+
+12
+00:00:42,580 --> 00:00:47,280
+Ama 2001'de 3x hesap, yatırılan
+paranın %92,3'ünü kaybetti.
+
+13
+00:00:47,730 --> 00:00:50,610
+2008'de de %89,5'ini kaybetti.
+
+14
+00:00:51,060 --> 00:00:54,780
+Endeks aynı; 3x çöküşlerde
+neden bu kadar kaybetti?
+
+15
+00:00:55,230 --> 00:00:57,435
+Nedenini ve başta paranın
+hepsini bir kerede
+
+16
+00:00:57,435 --> 00:00:59,790
+koysaydık ne olacağını
+aşağıdaki videoda görün.

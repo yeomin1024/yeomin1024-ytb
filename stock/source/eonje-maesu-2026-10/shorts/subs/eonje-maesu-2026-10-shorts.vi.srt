@@ -1,0 +1,68 @@
+1
+00:00:00,300 --> 00:00:01,829
+Khi phân vân lúc nào nên mua,
+
+2
+00:00:01,829 --> 00:00:04,940
+người ta nói theo tín hiệu mua
+sẽ tăng xác suất thành công.
+
+3
+00:00:05,390 --> 00:00:07,964
+Để kiểm tra, chúng tôi
+chạy backtest bằng mã
+
+4
+00:00:07,964 --> 00:00:10,830
+Python do AI viết trên
+giá thực tế trong quá khứ.
+
+5
+00:00:11,280 --> 00:00:16,560
+Chúng tôi thử SPY, ETF bám
+theo S&P 500, từ năm 2016.
+
+6
+00:00:17,010 --> 00:00:22,230
+Có 10 tín hiệu mua, như đường trung
+bình 20 ngày, RSI và chỉ số sợ hãi VIX.
+
+7
+00:00:22,680 --> 00:00:27,910
+Tăng 5% so với giá mua trước thì là
+thành công, giảm 2% trước là thất bại.
+
+8
+00:00:28,360 --> 00:00:31,800
+Đối chứng là 2.000 tài khoản
+mua vào ngày ngẫu nhiên.
+
+9
+00:00:32,250 --> 00:00:35,860
+Nếu tín hiệu có ích, tỷ lệ thành
+công phải cao hơn ngẫu nhiên.
+
+10
+00:00:36,310 --> 00:00:38,830
+Tài khoản ngẫu nhiên cũng
+được chấm theo cùng tiêu chí.
+
+11
+00:00:39,280 --> 00:00:44,480
+Cao nhất là mua khi giá vượt đường trung
+bình 20 ngày, tỷ lệ thành công 52,1%.
+
+12
+00:00:44,930 --> 00:00:48,620
+Nhưng cả 10 đều nằm trong vùng
+không khác gì mua ngẫu nhiên.
+
+13
+00:00:49,070 --> 00:00:52,020
+Vậy mỗi tín hiệu đúng
+khi nào, sai khi nào?
+
+14
+00:00:52,470 --> 00:00:57,010
+Kết quả của 10 tín hiệu, và đổi giai đoạn
+có giống không, xem ở video bên dưới.

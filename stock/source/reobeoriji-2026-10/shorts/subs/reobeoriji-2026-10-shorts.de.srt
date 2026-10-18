@@ -1,0 +1,72 @@
+1
+00:00:00,300 --> 00:00:05,340
+Es heißt, TQQQ, der den Nasdaq-100 mit 3x
+abbildet, bringt lange bespart viel mehr.
+
+2
+00:00:05,790 --> 00:00:08,715
+Zur Prüfung: ein Backtest
+mit von KI geschriebenem
+
+3
+00:00:08,715 --> 00:00:11,230
+Python-Code auf echten
+historischen Kursen.
+
+4
+00:00:11,680 --> 00:00:15,235
+Verglichen wurden QQQ, der den
+Nasdaq-100 mit 1x abbildet,
+
+5
+00:00:15,235 --> 00:00:16,890
+QLD mit 2x und TQQQ mit 3x.
+
+6
+00:00:17,340 --> 00:00:20,740
+QLD und TQQQ gab es 1999
+nicht, also berechnet:
+
+7
+00:00:20,740 --> 00:00:23,850
+täglich 2x bzw. 3x des
+Index, minus Kosten.
+
+8
+00:00:24,300 --> 00:00:28,590
+Ab 1999 bekamen alle drei Konten
+gleich viel: monatlich 500 $.
+
+9
+00:00:29,040 --> 00:00:32,240
+Auch in Crashs kauften alle
+drei Konten jeden Monat weiter.
+
+10
+00:00:32,690 --> 00:00:36,520
+Bis 2026 zahlte jedes
+Konto rund 170.000 $ ein.
+
+11
+00:00:36,970 --> 00:00:42,130
+Das 3x-Konto hatte rund 17.000.000 $, das
+8,55-Fache von 1x mit rund 2.000.000 $.
+
+12
+00:00:42,580 --> 00:00:47,280
+Doch 2001 verlor das 3x-Konto
+92,3 % des eingezahlten Geldes.
+
+13
+00:00:47,730 --> 00:00:50,610
+Auch 2008 verlor es 89,5 %.
+
+14
+00:00:51,060 --> 00:00:54,780
+Gleicher Index – warum
+verlor 3x in Crashs so viel?
+
+15
+00:00:55,230 --> 00:00:59,790
+Warum – und was eine Einmalanlage am
+Anfang gebracht hätte – im Video unten.

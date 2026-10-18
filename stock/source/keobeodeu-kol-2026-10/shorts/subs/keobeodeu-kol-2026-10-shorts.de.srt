@@ -1,0 +1,69 @@
+1
+00:00:00,300 --> 00:00:03,278
+Es heißt, ein Covered-Call-ETF
+mit monatlicher Ausschüttung
+
+2
+00:00:03,278 --> 00:00:05,600
+erhält das Kapital, auch
+wenn man sie ausgibt.
+
+3
+00:00:06,050 --> 00:00:08,975
+Zur Prüfung: ein Backtest
+mit von KI geschriebenem
+
+4
+00:00:08,975 --> 00:00:11,490
+Python-Code auf echten
+historischen Kursen.
+
+5
+00:00:11,940 --> 00:00:15,610
+Getestet haben wir QYLD, einen
+Nasdaq-100-Covered-Call-ETF.
+
+6
+00:00:16,060 --> 00:00:21,980
+Zum Vergleich: QQQ, ein ETF, der den
+Nasdaq-100 ohne Covered Calls abbildet.
+
+7
+00:00:22,430 --> 00:00:26,750
+Im Dezember 2013 bekam jedes
+Konto 100.000 $ Kapital.
+
+8
+00:00:27,200 --> 00:00:30,420
+Jede QYLD-Ausschüttung wurde
+sofort komplett ausgegeben.
+
+9
+00:00:30,870 --> 00:00:35,710
+Damit es fair ist, verkaufte das QQQ-Konto
+an denselben Tagen denselben Betrag.
+
+10
+00:00:36,160 --> 00:00:41,250
+Bis 2026 wurde aus beiden Konten
+gleich viel entnommen: etwa 110.000 $.
+
+11
+00:00:41,700 --> 00:00:47,380
+Im QYLD-Konto blieben etwa 75.000
+$, 25,3 % unter dem Kapital.
+
+12
+00:00:47,830 --> 00:00:52,810
+Im QQQ-Konto blieben etwa 510.000
+$, das 6,83-Fache von QYLD.
+
+13
+00:00:53,260 --> 00:00:56,190
+Gleich viel entnommen – warum
+dann so ein Unterschied?
+
+14
+00:00:56,640 --> 00:01:01,470
+Warum – und ob ein anderer Startmonat
+dasselbe ergibt – im Video unten.

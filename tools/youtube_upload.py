@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.13 — 2026-10-18 — **이미 올린 영상의 제목·설명·태그·언어만 바꾸기 `--update-meta`** (videos.update part=snippet,localizations — 50단위, 영상·공개 시각·
+# VERSION: v1.13.1 — 2026-10-18 — 설명란 챕터 머리 '■ 챕터 (Chapters)' 처럼 뒤에 글이 붙어도 읽음 (주식 설명란 한국어 + 아래 영어 — 사용자 지시 2026-10-18 "…챕터는 각각 챕터 옆에 괄호 안에 영어로 번역해서 넣어…").
+# (v1.13) — 2026-10-18 — **이미 올린 영상의 제목·설명·태그·언어만 바꾸기 `--update-meta`** (videos.update part=snippet,localizations — 50단위, 영상·공개 시각·
 #          자막은 그대로) · 업로드 설정 '| 오디오 언어 | ko |' (없으면 기본 언어 — 주식은 설명·제목 기본 언어 en, 내레이션 ko) · 설명란 챕터 머리
 #          '■ Chapters' 도 읽음 (사용자 지시 2026-10-18 "설명은 부호, 정말 간단한 영어로 간략하게 표현하도록 해봐 그리고 태그 같은 것도 영어로 하고
 #          한국어로 쓰여진 곳은 정말 간단한 영어로 수정할 수 있어? 모든 영상").
@@ -172,7 +173,7 @@ def recompute_chapters(topic, vid, desc, spec):
     ok = "✅" in out.stdout and out.returncode == 0
     if not ok or not lines:
         raise SystemExit(f"[CHAPTER] ❌ 챕터 규칙 실패 → srt_tool.py upload 출력 확인\n{out.stdout[-800:]}{out.stderr[-400:]}")
-    m = re.search(r"(■ (?:챕터|Chapters)\n)((?:\d+:\d\d(?::\d\d)? [^\n]*\n?)+)", desc)   # v1.13 영어 머리도
+    m = re.search(r"(■ (?:챕터|Chapters)[^\n]*\n)((?:\d+:\d\d(?::\d\d)? [^\n]*\n?)+)", desc)   # v1.13 영어 머리도 · v1.13.1 '■ 챕터 (Chapters)'
     if not m:
         raise SystemExit("[CHAPTER] ❌ 설명란에 '■ 챕터'(또는 '■ Chapters') 줄 묶음이 없습니다 (upload.md 2번)")
     old = [l for l in m.group(2).splitlines() if l.strip()]

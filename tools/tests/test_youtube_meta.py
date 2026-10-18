@@ -1,4 +1,5 @@
-# VERSION: v1.0 — 2026-10-18 — youtube_upload.py v1.13 --update-meta · 오디오 언어 (네트워크·키 없이 — 가짜 함수)
+# VERSION: v1.1 — 2026-10-18 — 챕터 머리 '■ 챕터 (Chapters)' 시험 더함.
+# (v1.0) — 2026-10-18 — youtube_upload.py v1.13 --update-meta · 오디오 언어 (네트워크·키 없이 — 가짜 함수)
 # (사용자 지시 2026-10-18 "설명은 부호, 정말 간단한 영어로 간략하게 표현하도록 해봐 그리고 태그 같은 것도 영어로 하고 한국어로 쓰여진 곳은 정말 간단한 영어로 수정할 수 있어? 모든 영상")
 import json
 import sys
@@ -66,6 +67,24 @@ class UpdateMeta(unittest.TestCase):
         with self.assertRaises(SystemExit):
             yu.update_meta("stock", "v")
         self.assertEqual(self.sent, [])
+
+
+
+class ChapterHeader(unittest.TestCase):
+    def test_bilingual_header(self):
+        orig = yu.subprocess.run
+
+        class R:
+            returncode = 0
+            stdout = "✅ ok\n0:00 가 (A)\n0:30 나 (B)\n0:50 다 (C)\n"
+            stderr = ""
+        yu.subprocess.run = lambda *a, **k: R()
+        try:
+            desc, lines = yu.recompute_chapters("stock", "v", "x\n\n■ 챕터 (Chapters)\n0:00 가 (A)\n0:20 나 (B)\n\n■ 자료 (Data)\ny", "1=가 (A);5=나 (B);9=다 (C)")
+        finally:
+            yu.subprocess.run = orig
+        self.assertIn("■ 챕터 (Chapters)\n0:00 가 (A)\n0:30 나 (B)\n0:50 다 (C)\n", desc)
+        self.assertIn("■ 자료 (Data)", desc)
 
 
 if __name__ == "__main__":

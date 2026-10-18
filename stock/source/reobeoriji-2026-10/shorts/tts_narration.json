@@ -1,0 +1,149 @@
+{
+ "tool": "tts_narration.py v1.10",
+ "created": "2026-10-18T04:53:08",
+ "topic": "stock",
+ "id": "reobeoriji-2026-10-shorts",
+ "script": "stock/source/reobeoriji-2026-10/shorts/reobeoriji-2026-10-shorts.txt",
+ "script_sha1": "43cfcae282ee47cb",
+ "sentences": 12,
+ "seconds": 60.59,
+ "engine": {
+  "engine": "qwen3-tts-clone",
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "ref": "e36c19a225874205",
+  "mode": "icl",
+  "language": "Korean",
+  "dtype": "float32",
+  "gen": {}
+ },
+ "voices": {
+  "host": {
+   "name": "진행자",
+   "parts": [
+    "*"
+   ],
+   "engine": "clone",
+   "lock": true,
+   "speaker": "Sohee",
+   "instruct": "",
+   "part_instruct": {},
+   "seed": 4301,
+   "gap": 0.45,
+   "generation": {},
+   "ref_audio": "voices/ref/host.wav",
+   "ref_sha": "e36c19a225874205",
+   "ref_f0": 127.7,
+   "files": [
+    "voices/host.json"
+   ]
+  }
+ },
+ "voice_ids": {
+  "host": "ba3d7519a1de4d4c"
+ },
+ "gaps": {
+  "lead_in": 0.3,
+  "part": 1.0,
+  "tail": 0.8,
+  "cards": []
+ },
+ "items": [
+  {
+   "n": 1,
+   "role": "host",
+   "part": "레버리지 배수",
+   "text": "나스닥100을 3배로 따라가는 TQQQ를 오래 모으면, 훨씬 많이 남는다고들 하죠.",
+   "start": 0.3,
+   "end": 5.34
+  },
+  {
+   "n": 2,
+   "role": "host",
+   "part": "레버리지 배수",
+   "text": "정말 그런지, AI가 짠 파이썬 코드로 과거 실제 가격을 넣어 백테스트해 봤습니다.",
+   "start": 5.79,
+   "end": 11.23
+  },
+  {
+   "n": 3,
+   "role": "host",
+   "part": "레버리지 배수",
+   "text": "나스닥100을 1배로 따라가는 QQQ, 2배 QLD, 3배 TQQQ를 비교했어요.",
+   "start": 11.68,
+   "end": 16.89
+  },
+  {
+   "n": 4,
+   "role": "host",
+   "part": "레버리지 배수",
+   "text": "QLD·TQQQ는 1999년엔 없어서, 매일 지수의 2배·3배에서 비용을 빼 계산했어요.",
+   "start": 17.34,
+   "end": 23.85
+  },
+  {
+   "n": 5,
+   "role": "host",
+   "part": "레버리지 배수",
+   "text": "1999년부터 세 계좌에 매달 500달러씩 똑같이 넣었어요.",
+   "start": 24.3,
+   "end": 28.59
+  },
+  {
+   "n": 6,
+   "role": "host",
+   "part": "레버리지 배수",
+   "text": "폭락이 와도, 세 계좌 모두 매달 계속 매수했고요.",
+   "start": 29.04,
+   "end": 32.24
+  },
+  {
+   "n": 7,
+   "role": "host",
+   "part": "레버리지 배수",
+   "text": "2026년까지 세 계좌 모두 약 17만 달러를 넣었어요.",
+   "start": 32.69,
+   "end": 36.52
+  },
+  {
+   "n": 8,
+   "role": "host",
+   "part": "레버리지 배수",
+   "text": "3배 계좌는 약 1,700만 달러로, 1배 약 200만 달러의 8.55배였어요.",
+   "start": 36.97,
+   "end": 42.13
+  },
+  {
+   "n": 9,
+   "role": "host",
+   "part": "레버리지 배수",
+   "text": "하지만 2001년에는 3배 계좌가 넣은 돈의 92.3%를 잃었어요.",
+   "start": 42.58,
+   "end": 47.28
+  },
+  {
+   "n": 10,
+   "role": "host",
+   "part": "레버리지 배수",
+   "text": "2008년에도 89.5%를 잃었고요.",
+   "start": 47.73,
+   "end": 50.61
+  },
+  {
+   "n": 11,
+   "role": "host",
+   "part": "레버리지 배수",
+   "text": "같은 지수인데, 3배는 왜 폭락 때 이렇게 많이 잃었을까요?",
+   "start": 51.06,
+   "end": 54.78
+  },
+  {
+   "n": 12,
+   "role": "host",
+   "part": "레버리지 배수",
+   "text": "그 이유와, 처음에 한 번에 넣었다면 어땠을지는 아래 영상에서 확인하세요.",
+   "start": 55.23,
+   "end": 59.79
+  }
+ ],
+ "voice_sha1": "f0d0f801940b36b1"
+}

@@ -1,5 +1,29 @@
 # CHANGELOG — videogen
 
+## v1.2.1 — 2026-10-18
+### 왜 (사용자 보고)
+- "해결해 에러 났어" + Kaggle `wangp_process.log`:
+  `[ERROR] You have requested to Generate Sliding Windows with a Text to Video model. Unless you use the Video to Video feature this is useless as a t2v model doesn't see past frames and it will generate the same video in each new window.`
+
+### 원인
+- v1.2.0 의 `wan2.2-14b-hq` 는 T2V 모델(`t2v_2_2`)에 창 이어붙이기(81프레임 창)로 15초(241프레임)를 만들게 했다. WanGP(`wgp.py:1549`)는 T2V 모델에서 창 이어붙이기를 막는다 — T2V 는 앞 창을 보지 못해 창마다 같은 영상이 나오기 때문. 내 판단 잘못(모델 정의의 `sliding_window` 표시만 보고 T2V 도 이어진다고 봄).
+- 생성 전 검증(`--dry-run`)에서 멈춰 몇 시간 생성은 낭비되지 않았다. 설치·`15s` → 241프레임 변환은 정상이었다.
+
+### 한 것
+| 대상 | 내용 |
+|---|---|
+| `MODELS["wan2.2-14b-hq"]` | 두 단계로: ① T2V 14B + Lightning 8-step 3-phase 로 첫 `first_frames=81` ② 길면 `continue_with` = **SVI 2 Pro**(`i2v_2_2_svi2pro` — Wan2.2 I2V 14B + Stable Video Infinity LoRA, WanGP 설명 "potentially unlimited Videos to Continue") + Lightning i2v 2-phase 4-step(SVI LoRA 의 2-phase 형식과 맞춤). 창 이어붙이기 설정(`extra`) 제거. FP8 가중치 판(Enhanced Lightning)은 T4 에서 불확실해 쓰지 않음 |
+| `wangp_plan()` (새) | 길이 계획 — 15초 × 16fps → 241, 첫 81 + 이어 만들기 160 |
+| `wangp_continue_settings()` (새) | `image_prompt_type: "V"` + `video_source` = ①의 영상, `video_length` = 새 프레임 수 (WanGP: 결과는 원본 + 새 프레임을 합친 한 파일) |
+| `_wangp_process()` (새) | 설정 저장 → `--dry-run` → `--process` → 결과 수집을 단계마다 같은 방식으로. 실패하면 **WanGP 의 마지막 오류 줄을 예외 문장에 바로** 붙임 |
+| `_wangp_generate()` | `[SETUP] length plan` 로그 · `[CONTINUE]` 단계 · ①의 영상은 `segments` 로 남김 · 디스크 추정치 경고(80GB) · 16 배수 아닌 해상도 경고 |
+| `_video_info()` (새) | 가로·세로·길이·fps (ffmpeg) — 결과 파일마다 로그 |
+| `tests/test_videogen.py` | 가짜 WanGP 가 **실제 T2V 거부 규칙을 흉내** → v1.2.0 설정이 같은 오류로 거부되는지(회귀) · 두 단계 설정 · 합친 영상 241프레임(16fps 15.06초) · 업스케일 확인 |
+| `README.md` | 2-1번 설명(두 단계·시간·디스크) · 빠르게 하는 방법 고침(옛 안내 '4-step 모델 + 창 이어붙이기'도 같은 오류) · 문제 해결 표 |
+
+### 위험 관련 변경
+- 없음. 다른 모델·프리셋 동작은 그대로.
+
 ## v1.2.0 — 2026-10-18
 ### 왜 (사용자 지시)
 - "좀 고품질의 1920, 1080 해상도로 할아버지가 소파에 앉아서 호통치는 영상으로 15초 정도로 생성하는 설정, 프롬프트로 변경해줘"

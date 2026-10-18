@@ -1,5 +1,17 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-18 (107) — videogen v1.2.1: T2V 창 이어붙이기 거부 오류 → hq 를 두 단계(T2V → SVI 2 Pro 이어 만들기)로
+
+### 왜 (사용자 보고)
+- "해결해 에러 났어" + `wangp_process.log`: `[ERROR] You have requested to Generate Sliding Windows with a Text to Video model ... a t2v model doesn't see past frames and it will generate the same video in each new window.`
+
+### 한 것
+| 파일 | 내용 |
+|---|---|
+| `videogen/videogen.py` v1.2.1 | `wan2.2-14b-hq` = ① T2V 14B 첫 81프레임 ② SVI 2 Pro(`i2v_2_2_svi2pro`) + Lightning i2v 4-step 이 `image_prompt_type V` 로 160프레임 이어 만들기 (`wangp_plan`·`wangp_continue_settings`·`_wangp_process`) · 실패 시 WanGP 마지막 오류 줄을 예외에 · 디스크 추정 경고 · 16 배수 경고 |
+| `videogen/tests/test_videogen.py` | 가짜 WanGP 에 실제 T2V 거부 규칙 → v1.2.0 설정 거부(회귀) · 두 단계 · 합친 241프레임(15.06초) · 업스케일 — 통과 |
+| `videogen/README.md` · `videogen/CHANGELOG.md` · `guides/status.md` v1.82 | 2-1 설명 · 옛 '빠르게' 안내(같은 오류)를 고침 · 문제 해결 표 · 2-7 |
+
 ## 2026-10-18 (106) — videogen v1.2.0: 1920x1080·15초 고품질 (할아버지 호통 예시)
 
 ### 왜 (사용자 지시)

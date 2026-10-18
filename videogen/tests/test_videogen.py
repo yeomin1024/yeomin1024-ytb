@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
-# VERSION: v1.2.0 — 2026-10-18 — 1080p·15초 시험 추가 (test_fhd: 길이→프레임, 업스케일 배율 검사, 창 이어붙이기 설정,
+# VERSION: v1.2.1 — 2026-10-18 — hq 두 단계(T2V 81프레임 → SVI 2 Pro 이어 만들기) 시험, 가짜 WanGP 가 Kaggle 에서 난
+#          'Sliding Windows with a Text to Video model' 거부 규칙을 흉내 내 v1.2.0 설정이 거부되는지(회귀) 확인
+# 이전 v1.2.0 — 2026-10-18 — 1080p·15초 시험 추가 (test_fhd: 길이→프레임, 업스케일 배율 검사, 창 이어붙이기 설정,
 #          가짜 WanGP 로 FlashVSR 성공·실패→Lanczos 대체, diffusers 121프레임 한도)
 # 이전 v1.1.1 — 2026-10-18 — 오래된 torchao(FqnToConfig 없음) 재현·수정 시험 추가 (test_old_torchao)
 # 이전 v1.1.0 — 2026-10-18 — videogen.py 오프라인 시험 (GPU·네트워크 없이)
@@ -166,7 +168,9 @@ def test_old_torchao(tmp):
 
 
 FAKE_WGP = textwrap.dedent('''
-    # 가짜 WanGP: 생성 작업은 작은 진짜 mp4 를, edit_postprocessing 은 배율만큼 큰 mp4 를 만든다
+    # 가짜 WanGP: 생성은 작은 진짜 mp4(프레임 수 = video_length), 이어 만들기(image_prompt_type V)는 원본 + 새 프레임을 합친
+    # 파일, edit_postprocessing 은 배율만큼 큰 mp4. WanGP @ fde3c7e 의 검증 규칙 하나를 그대로 흉내 낸다:
+    # T2V 모델(t2v_2_2)에서 video_length > sliding_window_size(기본 129) 면 같은 [ERROR] 로 멈춤 (2026-10-18 Kaggle 오류).
     import argparse, json, os, re, sys
     import imageio.v2 as iio, numpy as np
     ap = argparse.ArgumentParser()
@@ -174,8 +178,8 @@ FAKE_WGP = textwrap.dedent('''
     ap.add_argument("--profile"); ap.add_argument("--attention"); ap.add_argument("--gpu")
     a = ap.parse_args()
     s = json.load(open(a.process))
-    def write(path, w, h, n=8):
-        frames = [np.full((h, w, 3), 20 * i, dtype=np.uint8) for i in range(n)]
+    def write(path, w, h, n, start=0):
+        frames = [np.full((h, w, 3), (20 * (start + i)) % 256, dtype=np.uint8) for i in range(n)]
         iio.mimwrite(path, frames, fps=16, codec="libx264", macro_block_size=1)
     if s.get("mode") == "edit_postprocessing":
         if os.environ.get("FAKE_FLASHVSR_FAIL") == "1":
@@ -183,17 +187,30 @@ FAKE_WGP = textwrap.dedent('''
         w, h = iio.get_reader(s["video_source"]).get_meta_data()["size"]
         f = float(re.match(r"flashvsr\\*([\\d.]+)", s["spatial_upsampling"]).group(1))
         out = os.path.join(a.output_dir, "upscaled_fake.mp4")
-        write(out, round(w * f), round(h * f))
+        write(out, round(w * f), round(h * f), 8)
         print("New video saved to Path: " + out); sys.exit(0)
     assert s["model_type"] and s["prompt"], s
+    vl = s["video_length"]
+    n = int(vl) if not isinstance(vl, str) else int(float(vl.rstrip("s")) * 16) // 4 * 4 + 1
+    if s["model_type"] == "t2v_2_2" and n > s.get("sliding_window_size", 129):
+        print("[ERROR] You have requested to Generate Sliding Windows with a Text to Video model. Unless you use the "
+              "Video to Video feature this is useless as a t2v model doesn't see past frames and it will generate the "
+              "same video in each new window."); sys.exit(1)
+    if "V" in s.get("image_prompt_type", "") and not os.path.exists(s.get("video_source") or ""):
+        print("[ERROR] You must provide a Source Video file to continue"); sys.exit(1)
     if a.dry_run:
-        print(f"  Task 1: model={s['model_type']}, steps={s.get('num_inference_steps')}, frames={s['video_length']}")
+        print(f"  Task 1: model={s['model_type']}, steps={s.get('num_inference_steps')}, frames={n}")
         print("[DRY-RUN] Validation complete. 1/1 task(s) valid."); sys.exit(0)
     for i in range(1, 5):
         print(f" {i * 25}%|##| {i}/4 [00:0{i}<00:00, 1.00s/it]", flush=True)
     w, h = map(int, s["resolution"].split("x"))
-    path = os.path.join(a.output_dir, "2026-10-18-12h00m00s_seed42_fake.mp4")
-    write(path, w, h)
+    path = os.path.join(a.output_dir, f"{s['model_type']}_seed{s['seed']}_fake.mp4")
+    if "V" in s.get("image_prompt_type", ""):
+        src = [f for f in iio.mimread(s["video_source"], memtest=False)]
+        merged = src + [np.full((h, w, 3), 7, dtype=np.uint8)] * n
+        iio.mimwrite(path, merged, fps=16, codec="libx264", macro_block_size=1)
+    else:
+        write(path, w, h, n)
     print("New video saved to Path: " + path)
 ''')
 
@@ -222,31 +239,54 @@ def test_wangp(tmp):
     return app
 
 
-HQ_PROFILE = videogen.MODELS["wan2.2-14b-hq"]["profile"]
+HQ = videogen.MODELS["wan2.2-14b-hq"]
 
 
 def test_wangp_fhd(tmp, app):
-    """hq 모델 + fhd_15s 흐름 (작게: 64x36 → ×1.5 = 96x54). FlashVSR 성공 · 실패→Lanczos 대체 두 경우."""
-    json.dump({"num_inference_steps": 8, "guidance_scale": 3.5, "guidance_phases": 3},
-              open(os.path.join(app, "profiles", HQ_PROFILE), "w"))
+    """hq 모델 + fhd_15s 두 단계 흐름 (작게: 64x36 → ×1.5 = 96x54).
+    1단계 T2V 81프레임 → 2단계 SVI 2 Pro 가 160프레임 이어 만들기(합친 241프레임 = 16fps 15.06초) → 업스케일.
+    FlashVSR 성공 · 실패→Lanczos 대체 두 경우."""
+    for rel, prof in ((HQ["profile"], {"num_inference_steps": 8, "guidance_scale": 3.5, "guidance_phases": 3, "help": "x"}),
+                      (HQ["continue_with"]["profile"], {"num_inference_steps": 4, "guidance_scale": 1})):
+        os.makedirs(os.path.join(app, "profiles", os.path.dirname(rel)), exist_ok=True)
+        json.dump(prof, open(os.path.join(app, "profiles", rel), "w"))
+    # 회귀: v1.2.0 이 보낸 설정(T2V + "15s" + 창 81)은 가짜 WanGP 도 Kaggle 과 같은 오류로 거부해야 한다
+    old = os.path.join(tmp, "old_v120.json")
+    json.dump(dict(model_type="t2v_2_2", prompt="x", resolution="64x36", video_length="15s", seed=1,
+                   sliding_window_size=81, sliding_window_overlap=5), open(old, "w"))
+    r = subprocess.run([sys.executable, "wgp.py", "--process", old, "--output-dir", tmp, "--dry-run"], cwd=app,
+                       capture_output=True, text=True)
+    assert r.returncode == 1 and "Sliding Windows with a Text to Video model" in r.stdout, r.stdout
     for fail in ("0", "1"):
         os.environ["FAKE_FLASHVSR_FAIL"] = fail
         res = videogen.run(dict(model="wan2.2-14b-hq", preset="fhd_15s", prompt="an old man shouting on a sofa",
                                 width=64, height=36, upscale_to="96x54", wangp_app_dir=app, wangp_python=sys.executable,
                                 output_dir=os.path.join(tmp, f"out_fhd{fail}"), work_dir=os.path.join(tmp, "work"),
                                 preview=False))
-        s = json.load(open(os.path.join(res["run_dir"], "wangp_settings.json")))
-        assert s["video_length"] == "15s" and s["resolution"] == "64x36", s
-        assert s["num_inference_steps"] == 8 and s["sliding_window_size"] == 81 and s["sliding_window_overlap"] == 5, s
+        s1 = json.load(open(os.path.join(res["run_dir"], "wangp_settings.json")))
+        s2 = json.load(open(os.path.join(res["run_dir"], "wangp_continue.json")))
+        assert s1["model_type"] == "t2v_2_2" and s1["video_length"] == 81 and s1["num_inference_steps"] == 8, s1
+        assert "sliding_window_size" not in s1 and "help" not in s1, s1
         meta = json.load(open(res["metadata"]))
+        assert meta["plan"] == {"total": 241, "first": 81, "cont": 160}, meta["plan"]
+        assert s2["model_type"] == "i2v_2_2_svi2pro" and s2["image_prompt_type"] == "V" and s2["video_length"] == 160, s2
+        assert s2["video_source"] == meta["segments"][0] and s2["num_inference_steps"] == 4, s2
+        merged = videogen._video_info(meta["base_videos"][0])
+        assert (merged["width"], merged["height"]) == (64, 36) and abs(merged["duration_sec"] - 241 / 16) < 0.1, merged
         want = "flashvsr" if fail == "0" else "lanczos"
         assert meta["upscale_methods"] == [want], meta["upscale_methods"]
         assert videogen._video_size(res["videos"][0]) == (96, 54) and res["videos"][0].endswith(f"_96x54_{want}.mp4")
-        assert videogen._video_size(meta["base_videos"][0]) == (64, 36)  # 생성 원본은 그대로 남음
+        log_text = open(res["log"]).read()
+        assert "[CONTINUE]" in log_text and "length plan" in log_text
         if fail == "1":
-            assert "FlashVSR failed -> falling back to Lanczos" in open(res["log"]).read()
-        print(f"ok  wangp fhd flow (FlashVSR {'fails -> Lanczos' if fail == '1' else 'ok'}):", res["videos"][0])
+            assert "FlashVSR failed -> falling back to Lanczos" in log_text
+        print(f"ok  wangp fhd two-stage flow (FlashVSR {'fails -> Lanczos' if fail == '1' else 'ok'}): "
+              f"merged {merged['duration_sec']}s ->", res["videos"][0])
     os.environ.pop("FAKE_FLASHVSR_FAIL")
+    # 짧으면(81프레임 이하) 이어 만들기 없이 한 단계
+    short = videogen.wangp_plan(videogen.make_config(model="wan2.2-14b-hq", num_frames=81),
+                                videogen.resolve_params(videogen.make_config(num_frames=81)))
+    assert short == {"total": 81, "first": 81, "cont": None}, short
 
 
 def test_diffusers_frame_limit(tmp):

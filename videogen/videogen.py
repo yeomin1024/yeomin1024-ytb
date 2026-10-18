@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.2.0 — 2026-10-18 — 사용자 지시 "좀 고품질의 1920, 1080 해상도로 할아버지가 소파에 앉아서 호통치는 영상으로
+# VERSION: v1.2.1 — 2026-10-18 — 사용자 보고(wangp_process.log) "해결해 에러 났어": WanGP 가 T2V 모델의 창 이어붙이기를
+#          거부 ("You have requested to Generate Sliding Windows with a Text to Video model ... a t2v model doesn't see past
+#          frames"). wan2.2-14b-hq 를 두 단계로: T2V 14B 로 첫 81프레임(5초) → SVI 2 Pro(I2V 14B, 영상 이어 만들기 'V')로
+#          나머지 160프레임 (wangp_plan · wangp_continue_settings). 오류 메시지에 WanGP 의 [ERROR] 줄을 바로 보여 줌
+# 이전 v1.2.0 — 2026-10-18 — 사용자 지시 "좀 고품질의 1920, 1080 해상도로 할아버지가 소파에 앉아서 호통치는 영상으로
 #          15초 정도로 생성하는 설정, 프롬프트로 변경해줘": T4 에서 1080p·15초를 한 번에 만들 수 없어(학습 길이 약 5초 ·
 #          계산량) 새 모델 wan2.2-14b-hq(Lightning 8-step 3-phase + 81프레임 sliding window)로 1280x720 15초를 만든 뒤
 #          ×1.5 업스케일(FlashVSR, 실패하면 ffmpeg Lanczos)로 1920x1080 — 새 프리셋 fhd_15s, 새 설정 duration_sec·upscale_to·upscaler
@@ -26,7 +30,7 @@ Kaggle 셀 (videogen/README.md 의 셀을 그대로):
 모델 (MODELS):
     wan2.2-5b             diffusers 로 Wan2.2-TI2V-5B (Apache-2.0)  — 기본값, 오프라인 스모크 테스트 통과
     wan2.2-14b-lightning  WanGP 로 Wan2.2 T2V 14B + Lightning 4-step LoRA (Apache-2.0)
-    wan2.2-14b-hq         WanGP 로 Wan2.2 T2V 14B + Lightning 8-step 3-phase(첫 단계 CFG — 슬로모션 줄임) + 81프레임 창 이어붙이기
+    wan2.2-14b-hq         WanGP 로 두 단계: T2V 14B + Lightning 8-step 3-phase(첫 5초) → SVI 2 Pro I2V 14B 로 나머지를 이어 만들기
     ltx2.5-distilled      WanGP 로 LTX-2.5 Distilled 22B, 영상+오디오 (LTX-2 Community License — 연매출 1천만 달러 이상 유료)
 
 결과: <output_dir>/<run_id>/ 에 영상 + videogen_<run_id>.json(설정·버전·시간·코드 sha256) + run.log
@@ -50,7 +54,7 @@ import sys
 import time
 from dataclasses import asdict, dataclass, field, fields
 
-__version__ = "1.2.0"
+__version__ = "1.2.1"
 
 # --------------------------------------------------------------------------------------------------
 # 모델 · 프리셋
@@ -60,10 +64,14 @@ MODELS = {
     "wan2.2-14b-lightning": dict(backend="wangp", model_type="t2v_2_2", license="Apache-2.0",
                                  profile="wan_2_2/Lightning t2v v2025-09-28 2 Phases - 4 Steps.json"),
     # 8-step 3-phase 프로필 설명(WanGP): "insert a CFG phase before the 2 accelerated phases ... reduce the slow motion
-    # effect of these Loras Accelerators". 15초 같은 긴 영상은 학습 길이(81프레임 = 16fps 5초) 창을 5프레임 겹쳐 이어붙인다.
-    "wan2.2-14b-hq": dict(backend="wangp", model_type="t2v_2_2", license="Apache-2.0",
+    # effect of these Loras Accelerators". T2V 는 앞 창을 보지 못해 WanGP 가 창 이어붙이기를 막으므로 (v1.2.0 Kaggle 오류)
+    # 처음 81프레임(16fps 5초)만 T2V 로 만들고, 나머지는 SVI 2 Pro(Wan2.2 I2V 14B + Stable Video Infinity LoRA —
+    # "potentially unlimited Videos to Continue")가 그 영상을 이어 만든다. Lightning i2v 는 SVI LoRA 와 같은 2-phase 4-step.
+    "wan2.2-14b-hq": dict(backend="wangp", model_type="t2v_2_2", license="Apache-2.0", fps=16, first_frames=81,
                           profile="wan_2_2/Lightning t2v v2025-12-17 3 Phases - 8 Steps.json",
-                          extra=dict(sliding_window_size=81, sliding_window_overlap=5)),
+                          continue_with=dict(model_type="i2v_2_2_svi2pro",
+                                             profile="wan_2_2/Lightning i2v v2025-10-14 2 Phases - 4 Steps.json"),
+                          disk_gb=80),  # 추정: T2V·I2V 14B int8 두 벌 + 텍스트 인코더·VAE·LoRA + venv
     "ltx2.5-distilled": dict(backend="wangp", model_type="ltx2_25_22B_distilled", profile=None,
                              license="LTX-2 Community License (revenue >= USD 10M needs a paid license)"),
 }
@@ -341,15 +349,29 @@ def _ffmpeg_exe() -> str:
     return imageio_ffmpeg.get_ffmpeg_exe()
 
 
-def _video_size(path: str) -> tuple[int, int] | None:
-    """영상 가로x세로 (ffmpeg 정보 출력에서). 읽지 못하면 None."""
+def _video_info(path: str) -> dict:
+    """영상 가로·세로·길이·fps (ffmpeg 정보 출력에서). 읽지 못한 값은 빠진다."""
     try:
         r = subprocess.run([_ffmpeg_exe(), "-hide_banner", "-i", path], capture_output=True, text=True, timeout=120)
-    except Exception as e:  # ffmpeg 를 못 찾거나 멈춤 — 크기 확인만 못 한 것
-        log("UPSCALE", "could not read video size", logging.WARNING, file=path, error=repr(e)[:200])
-        return None
+    except Exception as e:  # ffmpeg 를 못 찾거나 멈춤 — 정보 확인만 못 한 것
+        log("UPSCALE", "could not read video info", logging.WARNING, file=path, error=repr(e)[:200])
+        return {}
+    info = {}
     m = re.search(r"Video:.*?\b(\d{2,5})x(\d{2,5})\b", r.stderr)
-    return (int(m.group(1)), int(m.group(2))) if m else None
+    if m:
+        info.update(width=int(m.group(1)), height=int(m.group(2)))
+    m = re.search(r"Duration:\s*(\d+):(\d+):(\d+(?:\.\d+)?)", r.stderr)
+    if m:
+        info["duration_sec"] = round(int(m.group(1)) * 3600 + int(m.group(2)) * 60 + float(m.group(3)), 2)
+    m = re.search(r"Video:.*?([\d.]+)\s*fps", r.stderr)
+    if m:
+        info["fps"] = float(m.group(1))
+    return info
+
+
+def _video_size(path: str) -> tuple[int, int] | None:
+    info = _video_info(path)
+    return (info["width"], info["height"]) if "width" in info else None
 
 
 def _ffmpeg_upscale(src: str, dst: str, width: int, height: int):
@@ -823,22 +845,47 @@ def _wangp_install(cfg: Config, timings: dict, install_log: str) -> tuple[str, s
     return app_dir, py, attention
 
 
-def wangp_settings(cfg: Config, params: dict, app_dir: str) -> dict:
-    """WanGP 설정 JSON. 빠진 키는 WanGP 가 모델 기본값으로 채운다(clean_settings).
-    순서: 기본 → 가속 프로필(Lightning 등) → 모델 고정값(창 이어붙이기 등) → 사용자가 직접 적은 steps/guidance → wangp_extra.
-    길이는 duration_sec 이 있으면 "15s" 꼴로 넘긴다 (WanGP 가 모델 fps 로 가장 가까운 유효 프레임 수를 고름)."""
+def _wan_frames(duration_sec: float, fps: int) -> int:
+    """길이(초) → Wan 프레임 수(4k+1). WanGP 의 '15s' 변환과 같은 값 (15초 × 16fps → 241)."""
+    return max(1, round(duration_sec * fps)) // 4 * 4 + 1
+
+
+def wangp_plan(cfg: Config, params: dict) -> dict:
+    """WanGP 길이 계획 → {'total', 'first', 'cont'}.
+    continue_with 가 있는 모델(wan2.2-14b-hq)은 처음 first_frames 를 T2V 로, 나머지(cont)를 I2V 이어 만들기로.
+    T2V 는 앞 창을 보지 못해 WanGP 가 창 이어붙이기를 막는다 ("a t2v model doesn't see past frames")."""
     spec = MODELS[cfg.model]
-    length = f"{params['duration_sec']:g}s" if params.get("duration_sec") is not None else params["num_frames"]
+    if params.get("duration_sec") is not None:
+        total = _wan_frames(params["duration_sec"], spec["fps"]) if spec.get("fps") else f"{params['duration_sec']:g}s"
+    else:
+        total = params["num_frames"]
+    first = spec.get("first_frames")
+    if spec.get("continue_with") and isinstance(total, int) and first and total > first:
+        return dict(total=total, first=first, cont=total - first)
+    return dict(total=total, first=total, cont=None)
+
+
+def _load_profile(app_dir: str, rel: str) -> dict:
+    path = os.path.join(app_dir, "profiles", rel)
+    if not os.path.exists(path):
+        raise FileNotFoundError(f"WanGP 가속 프로필이 없음: {path} (wangp_ref 를 바꿨다면 프로필 이름 확인)")
+    with open(path, encoding="utf-8") as f:
+        prof = json.load(f)
+    prof.pop("help", None)  # UI 안내 문구 — 생성 설정이 아님 (WanGP 도 생성 인자만 걸러 씀)
+    return prof
+
+
+def wangp_settings(cfg: Config, params: dict, app_dir: str, video_length: int | str | None = None) -> dict:
+    """첫 단계 WanGP 설정 JSON. 빠진 키는 WanGP 가 모델 기본값으로 채운다(clean_settings).
+    순서: 기본 → 가속 프로필(Lightning 등) → 모델 고정값 → 사용자가 직접 적은 steps/guidance → wangp_extra.
+    길이는 video_length(계획) → 없으면 duration_sec 을 "15s" 꼴로 (WanGP 가 모델 fps 로 유효 프레임 수를 고름)."""
+    spec = MODELS[cfg.model]
+    if video_length is None:
+        video_length = f"{params['duration_sec']:g}s" if params.get("duration_sec") is not None else params["num_frames"]
     s = dict(model_type=spec["model_type"], prompt=cfg.prompt, negative_prompt=cfg.negative_prompt,
-             resolution=f"{params['width']}x{params['height']}", video_length=length, seed=cfg.seed)
+             resolution=f"{params['width']}x{params['height']}", video_length=video_length, seed=cfg.seed)
     if spec.get("profile"):
-        prof_path = os.path.join(app_dir, "profiles", spec["profile"])
-        if not os.path.exists(prof_path):
-            raise FileNotFoundError(f"WanGP 가속 프로필이 없음: {prof_path} (wangp_ref 를 바꿨다면 프로필 이름 확인)")
-        with open(prof_path, encoding="utf-8") as f:
-            prof = json.load(f)
-        prof.pop("help", None)  # UI 안내 문구 — 생성 설정이 아님 (WanGP 도 생성 인자만 걸러 씀)
-        s.update(prof)
+        s.update(_load_profile(app_dir, spec["profile"]))
     s.update(spec.get("extra", {}))
     if "steps" in params["explicit"]:
         s["num_inference_steps"] = params["steps"]
@@ -847,6 +894,20 @@ def wangp_settings(cfg: Config, params: dict, app_dir: str) -> dict:
     if cfg.fps:
         s["force_fps"] = str(cfg.fps)
     s.update(cfg.wangp_extra)
+    return s
+
+
+def wangp_continue_settings(cfg: Config, params: dict, app_dir: str, source: str, new_frames: int) -> dict:
+    """둘째 단계: source 영상을 이어 만든다 (image_prompt_type 'V' — 결과는 source + 새 프레임을 합친 한 파일,
+    video_length = 새로 만들 프레임 수). 창 크기·겹침은 모델 기본값 (SVI 2 Pro = 81·4)."""
+    cont = MODELS[cfg.model]["continue_with"]
+    s = dict(model_type=cont["model_type"], prompt=cfg.prompt, negative_prompt=cfg.negative_prompt,
+             resolution=f"{params['width']}x{params['height']}", video_length=new_frames, seed=cfg.seed,
+             image_prompt_type="V", video_source=os.path.abspath(source))
+    if cont.get("profile"):
+        s.update(_load_profile(app_dir, cont["profile"]))
+    if cfg.fps:
+        s["force_fps"] = str(cfg.fps)
     return s
 
 
@@ -876,60 +937,103 @@ def _stream(cmd: list, cwd: str, log_file: str, stage: str, every: float = 30.0)
         return proc.wait()
 
 
+def _last_error_line(log_file: str) -> str:
+    try:
+        lines = open(log_file, encoding="utf-8", errors="replace").read().splitlines()
+    except OSError:
+        return ""
+    errs = [ln.strip() for ln in lines if "[ERROR]" in ln or "Error" in ln or "error" in ln]
+    return errs[-1][:400] if errs else ""
+
+
+def _wangp_process(cfg: Config, settings: dict, name: str, run_dir: str, media_dir: str, app_dir: str, py: str,
+                   attention: str, wgp_log: str, stage: str) -> list[str]:
+    """설정 JSON 저장 → (--dry-run 검증) → --process → 새 결과 파일 목록."""
+    settings_path = os.path.join(run_dir, name)
+    with open(settings_path, "w", encoding="utf-8") as f:
+        json.dump(settings, f, ensure_ascii=False, indent=2)
+    shown = {k: (v if not isinstance(v, str) or len(v) < 80 else v[:77] + "...") for k, v in settings.items()}
+    log(stage, "settings", file=name, **{k: json.dumps(v, ensure_ascii=False) if isinstance(v, (list, dict)) else v
+                                         for k, v in shown.items() if k not in ("prompt", "negative_prompt")})
+    base = [py, "wgp.py", "--process", settings_path, "--output-dir", media_dir,
+            "--profile", cfg.wangp_profile, "--attention", attention, "--gpu", cfg.wangp_gpu]
+    if cfg.wangp_dry_run_first:
+        rc = _stream(base + ["--dry-run"], app_dir, wgp_log, stage)
+        if rc != 0:
+            raise RuntimeError(f"WanGP 설정 검증 실패 (rc={rc}): {_last_error_line(wgp_log)} — 전체 로그: {wgp_log}")
+        log(stage, "dry-run ok (settings valid)")
+    before = set(os.listdir(media_dir))
+    t0 = time.perf_counter()
+    rc = _stream(base, app_dir, wgp_log, stage)
+    if rc != 0:
+        for line in open(wgp_log, encoding="utf-8", errors="replace").read().strip().splitlines()[-8:]:
+            log(stage, "  | " + line[:300], logging.ERROR)
+        raise RuntimeError(f"WanGP 생성 실패 (rc={rc}): {_last_error_line(wgp_log)} — 전체 로그: {wgp_log}")
+    new = sorted(os.path.join(media_dir, n) for n in set(os.listdir(media_dir)) - before
+                 if os.path.splitext(n)[1].lower() in MEDIA_EXT)
+    if not new:
+        raise RuntimeError(f"WanGP 가 0 으로 끝났지만 새 결과 파일이 없음 — {wgp_log}")
+    for p in new:
+        info = _video_info(p) if p.lower().endswith((".mp4", ".webm", ".mkv")) else {}
+        log(stage, "saved", file=p, size_mb=round(os.path.getsize(p) / 1e6, 2), **info)
+    log(stage, "wall time", sec=round(time.perf_counter() - t0, 1))
+    return new
+
+
+def _clips(paths: list[str]) -> list[str]:
+    return [p for p in paths if p.lower().endswith((".mp4", ".webm", ".mkv"))]
+
+
 def _wangp_generate(cfg: Config, run_dir: str, run_id: str, timings: dict) -> dict:
     install_log = os.path.join(run_dir, "wangp_install.log")
     wgp_log = os.path.join(run_dir, "wangp_process.log")
+    spec = MODELS[cfg.model]
     with _Stage("SETUP", timings, "Accelerator = GPU T4 x2"):
         gpus = _nvidia_smi()
         for g in gpus:
             log("SETUP", "gpu", **g)
         params = resolve_params(cfg)  # 모양 맞추기는 WanGP 가 모델 블록 크기에 맞춰 한다
+        plan = wangp_plan(cfg, params)
         log("SETUP", "generation params", preset=cfg.preset, resolution=f"{params['width']}x{params['height']}",
             num_frames=params["num_frames"], duration_sec=params["duration_sec"], upscale_to=params["upscale_to"],
             upscale_factor=params["upscale_factor"], explicit=",".join(params["explicit"]) or "none",
             note="steps/guidance from the WanGP model or accelerator profile unless explicit")
+        log("SETUP", "length plan", total=plan["total"], first_stage=f"{spec['model_type']}:{plan['first']}",
+            continue_stage=f"{spec['continue_with']['model_type']}:{plan['cont']}" if plan["cont"] else "none",
+            model_fps=spec.get("fps", "model default"))
+        if spec["model_type"].startswith(("t2v", "i2v", "ti2v")) and (params["width"] % 16 or params["height"] % 16):
+            log("SETUP", "WanGP aligns Wan resolutions down to multiples of 16; the upscaled size may not match "
+                         "upscale_to exactly (Lanczos fallback then stretches slightly)", logging.WARNING,
+                resolution=f"{params['width']}x{params['height']}",
+                aligned=f"{params['width'] // 16 * 16}x{params['height'] // 16 * 16}")
+        if spec.get("disk_gb") and _free_disk_gb(cfg.work_dir) < spec["disk_gb"]:
+            log("SETUP", "scratch disk may be too small for this model's downloads (estimate)", logging.WARNING,
+                free_gb=_free_disk_gb(cfg.work_dir), estimate_gb=spec["disk_gb"])
     app_dir, py, attention = _wangp_install(cfg, timings, install_log)
+    media_dir = os.path.join(run_dir, "media")
+    os.makedirs(media_dir, exist_ok=True)
+    run_args = (run_dir, media_dir, app_dir, py, attention, wgp_log)
 
     with _Stage("GENERATE", timings, "wangp_process.log 끝부분 확인 · RAM 부족이면 wangp_profile='5'"):
-        settings = wangp_settings(cfg, params, app_dir)
-        settings_path = os.path.join(run_dir, "wangp_settings.json")
-        with open(settings_path, "w", encoding="utf-8") as f:
-            json.dump(settings, f, ensure_ascii=False, indent=2)
-        shown = {k: (v if not isinstance(v, str) or len(v) < 80 else v[:77] + "...") for k, v in settings.items()}
-        log("GENERATE", "settings", **{k: json.dumps(v, ensure_ascii=False) if isinstance(v, (list, dict)) else v
-                                      for k, v in shown.items() if k not in ("prompt", "negative_prompt")})
-        media_dir = os.path.join(run_dir, "media")
-        os.makedirs(media_dir, exist_ok=True)
-        base = [py, "wgp.py", "--process", settings_path, "--output-dir", media_dir,
-                "--profile", cfg.wangp_profile, "--attention", attention, "--gpu", cfg.wangp_gpu]
-        if cfg.wangp_dry_run_first:
-            rc = _stream(base + ["--dry-run"], app_dir, wgp_log, "GENERATE")
-            if rc != 0:
-                raise RuntimeError(f"WanGP 설정 검증 실패 (rc={rc}) — {wgp_log}")
-            log("GENERATE", "dry-run ok (settings valid)")
-        before = set(os.listdir(media_dir))
-        t0 = time.perf_counter()
-        rc = _stream(base, app_dir, wgp_log, "GENERATE")
-        if rc != 0:
-            tail = open(wgp_log, encoding="utf-8", errors="replace").read().strip().splitlines()[-8:]
-            for line in tail:
-                log("GENERATE", "  | " + line[:300], logging.ERROR)
-            raise RuntimeError(f"WanGP 생성 실패 (rc={rc}) — 전체 로그: {wgp_log}")
-        new = sorted(os.path.join(media_dir, n) for n in set(os.listdir(media_dir)) - before
-                     if os.path.splitext(n)[1].lower() in MEDIA_EXT)
-        if not new:
-            raise RuntimeError(f"WanGP 가 0 으로 끝났지만 새 결과 파일이 없음 — {wgp_log}")
-        for p in new:
-            log("GENERATE", "saved", file=p, size_mb=round(os.path.getsize(p) / 1e6, 2))
-        log("GENERATE", "wall time", sec=round(time.perf_counter() - t0, 1))
+        new = _wangp_process(cfg, wangp_settings(cfg, params, app_dir, video_length=plan["first"]),
+                             "wangp_settings.json", *run_args, "GENERATE")
+    segments = []
+    if plan["cont"]:
+        with _Stage("CONTINUE", timings, "첫 단계 영상은 media 폴더에 있음 · wangp_process.log 끝부분 확인"):
+            first = _clips(new)
+            if len(first) != 1:
+                raise RuntimeError(f"첫 단계 영상이 1개가 아님: {first}")
+            segments = first
+            new = _wangp_process(cfg, wangp_continue_settings(cfg, params, app_dir, first[0], plan["cont"]),
+                                 "wangp_continue.json", *run_args, "CONTINUE")
 
     videos, base, methods = new, [], []
-    clips = [p for p in new if p.lower().endswith((".mp4", ".webm", ".mkv"))]
+    clips = _clips(new)
     if params["upscale_to"] and clips:
         with _Stage("UPSCALE", timings, "생성 원본은 base_videos(media 폴더)에 그대로 있음 · upscaler='lanczos' 로 다시"):
             ups = [_upscale_video(cfg, params, c, run_dir, wangp=(app_dir, py, attention, wgp_log)) for c in clips]
             videos, base, methods = [u[0] for u in ups], clips, [u[1] for u in ups]
-    return dict(videos=videos, base_videos=base, upscale_methods=methods, params=params, settings_file=settings_path,
+    return dict(videos=videos, base_videos=base, segments=segments, upscale_methods=methods, params=params, plan=plan,
                 wangp_log=wgp_log, gpus=gpus, attention=attention, wangp_ref=cfg.wangp_ref)
 
 

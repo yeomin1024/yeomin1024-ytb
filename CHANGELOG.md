@@ -1,5 +1,24 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-18 (96) — 재테크 5·6편 소스(국민연금 받는 시기·배당 생활비) · law_text v1.1 legalize-kr · token_cost v1.0
+
+### 왜 (사용자 지시)
+- "1,3번으로 각각 만들어봐 그리고 하나 만들때 토큰 얼마나 들고 가장 많이 드는 부분이 어딘지 알려줘봐"
+
+### 한 것
+| 파일·대상 | 내용 |
+|---|---|
+| `economic/source/gungmin-sigi-2026-10/` (v1.0.1) | 국민연금 언제 받을까 — 대본 93문장·calc·checklist·titles·thumbnails 3·upload·shorts(11문장·band 썸네일)·summary |
+| `economic/source/geumyung-soduk-2026-10/` (v1.0.1) | 배당·이자 생활비와 금융소득 — 대본 94문장·calc·checklist·titles·thumbnails 3·upload·shorts(11문장·band 썸네일)·summary |
+| `economic/source/used_content.md` · `economic/thumbnails_chatgpt.md` | 두 줄 더함 · ChatGPT 묶음 8장 (고정 커밋 3b80f816) |
+| `tools/law_text.py` v1.1 · `guides/script_guide.md` v3.4.1 | law.go.kr 이 막히면(2026-10-18 프록시 403) GitHub legalize-kr 개정 이력에서 그 날짜에 시행 중인 판 (`--source auto|lawgo|mirror`, `--date`) |
+| `tools/token_cost.py` v1.0 | 대화 기록(jsonl) 사용량 → 단계별 토큰 (캐시 읽기 0.1·쓰기 1.25·출력 5 무게, 보조 작업자 출력은 글자 수로 추정) |
+| `economic/source/topic_candidates.md` | '나이대별로 말하는 것' 절 (기초연금 편은 65세 이상 편) |
+
+### 확인 (로그)
+- 국민연금: 손익 나이 76세 8개월·83세 11개월·79세 8개월, 75/80/90세 합계, 근로소득공제 450만 → 346만 — 손 계산과 같음. SRT check ✅ (93/93), 쇼츠 ✅ (11/11).
+- 금융소득: 3년 세금 1,108.8 = 2,400 × 15.4% × 3 · 건보료 963.9 = 267,739 × 36 · 차이 1,053.7만. SRT check ✅ (94/94), 쇼츠 ✅ (11/13, 첫 문장 자막 하나).
+
 ## 2026-10-18 (95) — 주식 쇼츠 4편 결과형 v2.1 · 언어별 자막(CC) 대본 롱폼·쇼츠 9개 언어
 
 ### 왜 (사용자 지시)

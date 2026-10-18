@@ -1,5 +1,23 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-18 (97) — 토큰 줄이기: CLAUDE.md 70% 줄임 · 재테크 요약본 2개
+
+### 왜 (사용자 지시)
+- "1,2번 진행하고 3번에서 대본 환경, 쇼츠 썸네일 업로드 환경 만들때 처음에 뭐라고 말해야되는지 알려줘" (1 = 요약본, 2 = CLAUDE.md 줄이기 — `tools/token_cost.py` 측정: 영상 한 편 가중 몫 시작 맥락 18~19%, 지시사항·다른 영상 폴더 읽기 약 40%)
+
+### 한 것
+| 파일 | 내용 |
+|---|---|
+| `CLAUDE.md` | 57,480 → 17,117바이트 (약 2.6만 → 7,800토큰). 규칙 한 줄 + 근거 문서, 사용자 인용·날짜·이력은 뺌. 새 대화는 status '1. 한눈에' 표와 맡은 절만 |
+| `guides/archive/claude_md_2026-10-18.md` | 줄이기 전 CLAUDE.md 전문 그대로 (diff 0) |
+| `economic/guides/quick_script.md` v1.0 | A 대본 단계 요약 (10,981자) |
+| `economic/guides/quick_package.md` v1.0 | B 제목·썸네일·업로드·쇼츠 단계 요약 (13,542자 — 넘는 몫은 [A] 프롬프트 영어 고정 문장) |
+| `guides/script_guide.md` v3.4.2 · `thumbnail_guide.md` v3.14.1 · `guides/README.md` v1.36 · `pipeline.md` v1.28 | 기준 날짜 문장은 설명란 · ChatGPT 주소는 커밋 고정 · 요약본을 표·3단계에 |
+| `economic/source/gungmin-sigi-2026-10/` | titles.md 채택 표시 줄 · 쇼츠 썸네일 '시험하는 가설' 줄 (summary 제목 '(없음)' 고침) |
+
+### 남은 것
+- 원본끼리 어긋난 6곳 — status 2-2 0-19.
+
 ## 2026-10-18 (96) — 재테크 5·6편 소스(국민연금 받는 시기·배당 생활비) · law_text v1.1 legalize-kr · token_cost v1.0
 
 ### 왜 (사용자 지시)

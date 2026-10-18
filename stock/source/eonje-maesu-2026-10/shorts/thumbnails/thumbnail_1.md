@@ -56,6 +56,14 @@ Only this text, huge flat bold sans-serif with a thick outline, spelled exactly:
 
 ## 이미지 검수 (Claude — `guides/thumbnail_guide.md` 10번)
 
+### 2차 그림 통과 (2026-10-18 18:10 KST — 사용자 지시 2026-10-18 "썸네일 생성했으니 확인해봐") — `thumbnail_1.png` (1080×1920)
+| 항목 | 결과 |
+|---|---|
+| 글자 | `WHEN TO BUY ?`(WHEN TO 흰색 · BUY 초록 · ? 노랑) · `SPY` 꼬리표 — 확대해 봄, 철자·기호 맞음, 그 밖의 글자 없음 ✅ |
+| 그림 | 노란 평균선을 뚫는 초록 선, 끝은 안개·빨간 금 없음 · 버튼 위 망설이는 손가락 ✅ |
+| 결말 | 결과 숫자·부서진 것·이긴 표정 없음 ✅ |
+| 빈 띠 | `tools/cover_check.py` 여백 없음 ✅ (사진이 화면 끝까지) |
+
 ### 1차 그림 반려 (2026-10-18 KST — 사용자 지시 2026-10-18 "채권 표현 수정하고 영상 업로드 할 준비해" 검수 때) — `rejected/thumbnail_1_try1_2026-10-18.png`
 - ChatGPT(Codex) 가 저장소에 올림 (2026-10-18 12:00 KST 무렵). **옛 프롬프트로 그린 그림**: 끝이 빨갛게 금 간 화살표(번개) — 프롬프트 v2.1 은 '끝은 안개, 성공 여부 표시 없음'. 금 간 끝 = 결과(실패)를 그림.
 - 머리글 철자는 맞음. 지금 프롬프트(위 ``` 안)로 **새 ChatGPT 대화 + 커밋을 고정한 주소**로 다시 (`guides/thumbnail_guide.md` 피드백 25).

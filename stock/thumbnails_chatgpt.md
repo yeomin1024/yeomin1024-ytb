@@ -1,15 +1,11 @@
-# stock 썸네일 16장 — ChatGPT용 (모든 영상 · 읽고 그대로 만들고 각 저장 경로에 올리기)
+# stock 썸네일 4장 — ChatGPT용 (모든 영상 · 읽고 그대로 만들고 각 저장 경로에 올리기)
 
-자동 생성 — `python tools/make_summary.py --chatgpt-all stock` (2026-10-17 17:00). 이 파일은 고치지 말고 영상마다 `thumbnail_N.md`를 고친 뒤 다시 만든다.
+자동 생성 — `python tools/make_summary.py --chatgpt-all stock` (2026-10-18 06:03). 이 파일은 고치지 말고 영상마다 `thumbnail_N.md`를 고친 뒤 다시 만든다.
 
 이 파일 주소: https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/stock/thumbnails_chatgpt.md
 
 | 영상 | 만들 시안 | 저장 폴더 |
 |---|---|---|
-| baedang-etf-2026-10 | thumbnail_1, thumbnail_2, thumbnail_3 | `stock/source/baedang-etf-2026-10/thumbnails/` |
-| eonje-maesu-2026-10 | thumbnail_1, thumbnail_2, thumbnail_3 | `stock/source/eonje-maesu-2026-10/thumbnails/` |
-| keobeodeu-kol-2026-10 | thumbnail_1, thumbnail_2, thumbnail_3 | `stock/source/keobeodeu-kol-2026-10/thumbnails/` |
-| reobeoriji-2026-10 | thumbnail_1, thumbnail_2, thumbnail_3 | `stock/source/reobeoriji-2026-10/thumbnails/` |
 | baedang-etf-2026-10-shorts | thumbnail_1 | `stock/source/baedang-etf-2026-10/shorts/thumbnails/` |
 | eonje-maesu-2026-10-shorts | thumbnail_1 | `stock/source/eonje-maesu-2026-10/shorts/thumbnails/` |
 | keobeodeu-kol-2026-10-shorts | thumbnail_1 | `stock/source/keobeodeu-kol-2026-10/shorts/thumbnails/` |
@@ -17,342 +13,30 @@
 
 ## ChatGPT에게 — 이 파일을 읽으면 할 일
 0. **이 주소를 지금 새로 열어 그 내용만 쓴다** — 이 대화에서 예전에 읽은 썸네일 파일·프롬프트가 있어도 쓰지 않는다 (2026-10-17 옛 프롬프트로 4장을 다시 그린 일이 있었음). 답의 첫 줄에 이 파일 맨 위 '자동 생성' 줄의 시각을 그대로 적는다 (Claude 가 어느 판으로 그렸는지 확인).
-1. 아래 썸네일 16장(8개 영상)을 **1번부터 차례로 모두** 만든다. 질문하지 말고, 한 장을 만든 뒤 멈추지 말고 다음 장으로 넘어간다.
+1. 아래 썸네일 4장(4개 영상)을 **1번부터 차례로 모두** 만든다. 질문하지 말고, 한 장을 만든 뒤 멈추지 말고 다음 장으로 넘어간다.
    - 이미지 한도 때문에 멈추면 사용자가 `계속`이라고 보낸다 → 아직 안 만든 번호부터 이어서 만든다.
 2. 각 장은 그 칸의 **프롬프트(``` 안)를 한 글자도 바꾸지 않고 그대로** 쓴다. 장마다 서로 다른 그림이다 — 앞 장의 인물·구도·색을 이어 쓰지 않는다.
-3. 크기는 **장마다 '크기' 줄대로**: 롱폼 썸네일 = 가로형 16:9 (1280×720 — 안 되면 가장 넓은 가로형, 그림은 끝까지, 글자와 얼굴은 가운데, 위아래 8%에는 두지 않음) · **쇼츠 썸네일(영상 ID 끝이 `-shorts`) = 세로형 9:16 (1080×1920)** — **사진 한 장이 네 가장자리까지 꽉 찬다 — 빈 남색·검정 띠, 테두리, 여백, 가운데만 사진인 꼴은 안 된다** (v1.8.0 — 띠가 있으면 영상에서 비율이 틀린 것처럼 보임). 프롬프트가 '글자·얼굴을 두지 않는 자리'(위·오른쪽·아래)를 말해도 그 자리에도 사진(배경·앞쪽 물건)이 이어진다. 안 되면 세로 2:3, 그때는 글자와 얼굴을 가운데에 두고 2:3 그림의 양옆 8%에는 두지 않음 (잘리는 자리 — 사진은 이어짐).
+3. 크기는 **세로형 9:16 (1080×1920)** — 쇼츠 썸네일이자 쇼츠 첫 화면이다. **사진 한 장이 네 가장자리까지 꽉 찬다 — 빈 남색·검정 띠, 테두리, 여백, 가운데만 사진인 꼴은 안 된다** (v1.8.0 — 띠가 있으면 영상에서 비율이 틀린 것처럼 보임). 프롬프트가 '글자·얼굴을 두지 않는 자리'(위·오른쪽·아래)를 말해도 그 자리에도 사진(배경·앞쪽 물건)이 이어진다. 9:16이 안 되면 세로 2:3으로 만들고(가운데를 9:16으로 잘라 씀), 그때는 글자와 얼굴을 가운데에 두고 2:3 그림의 양옆 가장자리 8%에는 두지 않는다 (잘리는 자리 — 사진은 이어짐).
 4. 그림 속 글자는 프롬프트가 따옴표로 적은 **영어 낱말·숫자·기호·티커만** (예: BUY, TAX, QQQ, −15%, $100,000, 1×, →, ?, 그리고 비교·수식 기호 >, <, =, +, vs) — 철자·기호·띄어쓰기 그대로, 납작하고 굵은 글씨. 다른 글자·숫자·로고·워터마크는 넣지 않는다 (동전·상자·화면에도). 한국어·문장은 쓰지 않는다 (전 세계 시청자용).
 5. 사람은 실존 인물이나 유명인을 닮지 않은 가상 인물이다. **표정·몸짓은 프롬프트에 적힌 그대로** — 손해를 알고 좌절한 장면을 놀란 얼굴·담담한 얼굴·웃는 얼굴로 바꾸지 않고, 작은 화면에서도 그 감정이 보이게 그린다 (v1.8.3).
 6. 한 장을 만들 때마다 그 칸의 '문구' 표와 그림 속 글자를 **한 글자씩** 맞춰 본다 — 마이너스 '−'·'%'·'$'·쉼표·소수점·'×'·'→'·'>'·'<'·'='·'+'·'?' 가 빠지거나 바뀌거나 방향이 뒤집히지 않았는지(특히 '>' 와 '<'), 표에 없는 가짜 글자·숫자가 생기지 않았는지 크게 확대해서 본다. 다르면 그림은 그대로 두고 글자만 고쳐 다시 만든다.
-7. **그림마다 바로 위에 그 장의 번호와 저장 경로를 한 줄 적는다** (예: `3. stock/source/baedang-etf-2026-10/thumbnails/thumbnail_3.png`). 그림 안에는 쓰지 않는다.
+7. **그림마다 바로 위에 그 장의 번호와 저장 경로를 한 줄 적는다** (예: `3. stock/source/keobeodeu-kol-2026-10/shorts/thumbnails/thumbnail_1.png`). 그림 안에는 쓰지 않는다.
 8. **다 만들면 저장소에 넣는다 — 장마다 적힌 저장 경로 그대로.**
    - 저장소 `yeomin1024/yeomin1024-ytb` main 브랜치. 파일 이름·폴더는 그 장의 '저장 경로'와 한 글자도 다르지 않게 (`thumbnail_N.png`).
    - GitHub 에 쓸 수 있으면(쓰기 권한이 있는 GitHub 앱) 장마다 그 경로에 커밋한다. 커밋 메시지: `[썸네일] <영상ID> thumbnail_N 이미지`
    - **쓸 수 없으면 (이 계정의 ChatGPT 는 GitHub 를 읽기만 함 — 2026-10-15 확인)** 묻지 말고 아래처럼 끝낸다:
      1. 만든 그림을 이 파일의 번호 순서(1번부터)대로 다시 한 번씩 보여 준다 (그림마다 위에 번호와 저장 경로).
-     2. 마지막에 이 문장을 그대로 쓴다: **"이 그림 16장을 이 순서대로 Claude 대화창에 붙여 넣어 주세요. Claude가 검수한 뒤 각 저장 경로에 올립니다."**
+     2. 마지막에 이 문장을 그대로 쓴다: **"이 그림 4장을 이 순서대로 Claude 대화창에 붙여 넣어 주세요. Claude가 검수한 뒤 각 저장 경로에 올립니다."**
      3. 그 아래에 직접 올리는 길도 적는다: "직접 올리려면: 그림을 thumbnail_N.png 이름으로 내려받아 폴더마다 아래 링크에 끌어다 놓고 Commit changes" + 아래 '폴더별 올리기 링크' 목록
 
 ## 폴더별 올리기 링크 (ChatGPT가 못 올릴 때 사람이 쓰는 길)
 
-- baedang-etf-2026-10: https://github.com/yeomin1024/yeomin1024-ytb/upload/main/stock/source/baedang-etf-2026-10/thumbnails
-- eonje-maesu-2026-10: https://github.com/yeomin1024/yeomin1024-ytb/upload/main/stock/source/eonje-maesu-2026-10/thumbnails
-- keobeodeu-kol-2026-10: https://github.com/yeomin1024/yeomin1024-ytb/upload/main/stock/source/keobeodeu-kol-2026-10/thumbnails
-- reobeoriji-2026-10: https://github.com/yeomin1024/yeomin1024-ytb/upload/main/stock/source/reobeoriji-2026-10/thumbnails
 - baedang-etf-2026-10-shorts: https://github.com/yeomin1024/yeomin1024-ytb/upload/main/stock/source/baedang-etf-2026-10/shorts/thumbnails
 - eonje-maesu-2026-10-shorts: https://github.com/yeomin1024/yeomin1024-ytb/upload/main/stock/source/eonje-maesu-2026-10/shorts/thumbnails
 - keobeodeu-kol-2026-10-shorts: https://github.com/yeomin1024/yeomin1024-ytb/upload/main/stock/source/keobeodeu-kol-2026-10/shorts/thumbnails
 - reobeoriji-2026-10-shorts: https://github.com/yeomin1024/yeomin1024-ytb/upload/main/stock/source/reobeoriji-2026-10/shorts/thumbnails
 
-## 1. baedang-etf-2026-10 · thumbnail_1 — 본안(클릭률 최대): 같은 크기의 선택 사이에서 망설이는 사람 + 가린 결과(흐린 유리·닫힌 상자)
-
-**저장 경로: `stock/source/baedang-etf-2026-10/thumbnails/thumbnail_1.png`**
-
-크기: 가로 16:9 (1280×720) — 롱폼
-
-문구 (그림 속 글자는 이것과 한 글자도 다르면 안 됨):
-
-| 자리 | 문구 | 색 |
-|---|---|---|
-| 위쪽 가운데 — **큰 머리글 (가장 크게, 굵게, 테두리·빛)** | `SCHD > SPY ?` | SCHD 보라 · > 노랑 · SPY 파랑 · ? 노랑 |
-
-프롬프트:
-
-```
-YouTube thumbnail, 16:9 landscape (1280x720), semi-realistic digital illustration with cinematic lighting, deep dark navy background (#0C1424).
-Background: deep dark navy (#0C1424) with a soft glow behind the center and faint thin rising lines far behind, no axes.
-Foreground center: two identical large glass jars of exactly the same size on two identical glowing pedestals, side by side. The left jar has a glowing violet rim (#B48CFF), the right jar a glowing blue rim (#5AB4FF). From above, an identical stream of plain gold coins falls into each jar at the same rate. From a small slot on the side of each jar, an identical thin trickle of coins slides down a short chute into one small red box (#FF4D5E) standing between the jars. The front glass of both jars is frosted, so how full they are cannot be seen; a glowing yellow dashed line (#FFD400) crosses both jars at the same height. Above the jars floats a heavy closed wooden treasure chest with warm golden light leaking out of the lid; what is inside cannot be seen.
-Center: A fictional person in their early forties in a dark jacket stands beside the jars holding one plain gold coin between two fingers, looking from one jar to the other, thoughtful and hesitant — not happy, not worried. 
-Neither side is highlighted or brighter; nobody is winning. The mood is suspense.
-Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
-If 16:9 is not available, use the widest landscape canvas; in any case keep the main objects inside the central 16:9 area, at least 8% away from the top and bottom edges.
-Fictional person, not resembling any real or famous person.
-Text: ONE big headline "SCHD > SPY ?" — written as "SCHD" in violet (#B48CFF), then ">" in bright yellow (#FFD400), then "SPY" in blue (#5AB4FF), then "?" in bright yellow (#FFD400) — placed across the top of the image, centered, between 6% and 34% of the height and about 70% of the width. Make the headline the most eye-catching thing in the image: huge (letters about 22% of the image height), very bold flat sans-serif (like Arial Black), with a thick dark outline and a soft glow so it pops off the background; the ">" sign is as big and bold as the letters and bright yellow, and the "?" is bright yellow. Flat 2D lettering — never 3D, never embossed, never curved, never in perspective. Make room for it: anything that would sit in that band (for example a chest or clouds) goes lower and smaller; keep it off any face. Spell everything exactly as written, character by character: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", ">", "+" and "?" stay exactly as written — never turn ">" into "<". These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs and objects have nothing else written on them. Keep the bottom-right corner empty.
-```
-
-## 2. baedang-etf-2026-10 · thumbnail_2 — 실험안 ①: 같은 장면에서 사람만 뺌
-
-**저장 경로: `stock/source/baedang-etf-2026-10/thumbnails/thumbnail_2.png`**
-
-크기: 가로 16:9 (1280×720) — 롱폼
-
-문구 (그림 속 글자는 이것과 한 글자도 다르면 안 됨):
-
-| 자리 | 문구 | 색 |
-|---|---|---|
-| 위쪽 가운데 — **큰 머리글 (가장 크게, 굵게, 테두리·빛)** | `SCHD > SPY ?` | SCHD 보라 · > 노랑 · SPY 파랑 · ? 노랑 |
-
-프롬프트:
-
-```
-YouTube thumbnail, 16:9 landscape (1280x720), semi-realistic digital illustration with cinematic lighting, deep dark navy background (#0C1424).
-Background: deep dark navy (#0C1424) with a soft glow behind the center and faint thin rising lines far behind, no axes.
-Foreground center: two identical large glass jars of exactly the same size on two identical glowing pedestals, side by side. The left jar has a glowing violet rim (#B48CFF), the right jar a glowing blue rim (#5AB4FF). From above, an identical stream of plain gold coins falls into each jar at the same rate. From a small slot on the side of each jar, an identical thin trickle of coins slides down a short chute into one small red box (#FF4D5E) standing between the jars. The front glass of both jars is frosted, so how full they are cannot be seen; a glowing yellow dashed line (#FFD400) crosses both jars at the same height. Above the jars floats a heavy closed wooden treasure chest with warm golden light leaking out of the lid; what is inside cannot be seen.
-No people. Neither side is highlighted or brighter; nobody is winning. The mood is suspense.
-Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
-If 16:9 is not available, use the widest landscape canvas; in any case keep the main objects inside the central 16:9 area, at least 8% away from the top and bottom edges.
-Text: ONE big headline "SCHD > SPY ?" — written as "SCHD" in violet (#B48CFF), then ">" in bright yellow (#FFD400), then "SPY" in blue (#5AB4FF), then "?" in bright yellow (#FFD400) — placed across the top of the image, centered, between 6% and 34% of the height and about 70% of the width. Make the headline the most eye-catching thing in the image: huge (letters about 22% of the image height), very bold flat sans-serif (like Arial Black), with a thick dark outline and a soft glow so it pops off the background; the ">" sign is as big and bold as the letters and bright yellow, and the "?" is bright yellow. Flat 2D lettering — never 3D, never embossed, never curved, never in perspective. Make room for it: anything that would sit in that band (for example a chest or clouds) goes lower and smaller; keep it off any face. Spell everything exactly as written, character by character: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", ">", "+" and "?" stay exactly as written — never turn ">" into "<". These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs and objects have nothing else written on them. Keep the bottom-right corner empty.
-```
-
-## 3. baedang-etf-2026-10 · thumbnail_3 — 실험안 ②: 손·얼굴 클로즈업 (구도)
-
-**저장 경로: `stock/source/baedang-etf-2026-10/thumbnails/thumbnail_3.png`**
-
-크기: 가로 16:9 (1280×720) — 롱폼
-
-문구 (그림 속 글자는 이것과 한 글자도 다르면 안 됨):
-
-| 자리 | 문구 | 색 |
-|---|---|---|
-| 위쪽 가운데 — **큰 머리글 (가장 크게, 굵게, 테두리·빛)** | `SCHD > SPY ?` | SCHD 보라 · > 노랑 · SPY 파랑 · ? 노랑 |
-
-프롬프트:
-
-```
-YouTube thumbnail, 16:9 landscape (1280x720), semi-realistic digital illustration with cinematic lighting and shallow depth of field, deep dark navy background (#0C1424).
-Close-up: one hand holding a single plain gold coin above two jar openings, a violet-rimmed jar and a blue-rimmed jar of the same size; below, two identical thin trickles of coins slide into a small red box; the frosted glass hides how full the jars are. 
-The face of a fictional person is partly visible at the edge, thoughtful and hesitant. Neither side is highlighted or brighter; nobody is winning.
-Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
-If 16:9 is not available, use the widest landscape canvas; in any case keep the main objects inside the central 16:9 area, at least 8% away from the top and bottom edges.
-Fictional person, not resembling any real or famous person.
-Text: ONE big headline "SCHD > SPY ?" — written as "SCHD" in violet (#B48CFF), then ">" in bright yellow (#FFD400), then "SPY" in blue (#5AB4FF), then "?" in bright yellow (#FFD400) — placed across the top of the image, centered, between 6% and 34% of the height and about 70% of the width. Make the headline the most eye-catching thing in the image: huge (letters about 22% of the image height), very bold flat sans-serif (like Arial Black), with a thick dark outline and a soft glow so it pops off the background; the ">" sign is as big and bold as the letters and bright yellow, and the "?" is bright yellow. Flat 2D lettering — never 3D, never embossed, never curved, never in perspective. Make room for it: anything that would sit in that band (for example a chest or clouds) goes lower and smaller; keep it off any face. Spell everything exactly as written, character by character: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", ">", "+" and "?" stay exactly as written — never turn ">" into "<". These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs and objects have nothing else written on them. Keep the bottom-right corner empty.
-```
-
-## 4. eonje-maesu-2026-10 · thumbnail_1 — 본안(클릭률 최대): SPY 가격 선 위 '살 만한 순간' 고리 네 개 + 초록 BUY 버튼 위에서 망설이는 손가락 — 끝은 안개
-
-**저장 경로: `stock/source/eonje-maesu-2026-10/thumbnails/thumbnail_1.png`**
-
-크기: 가로 16:9 (1280×720) — 롱폼
-
-문구 (그림 속 글자는 이것과 한 글자도 다르면 안 됨):
-
-| 자리 | 문구 | 색 |
-|---|---|---|
-| 위 왼쪽 — **큰 머리글 (가장 크게, 굵게, 테두리·빛)** | `WHEN TO BUY ?` | WHEN TO 흰색 · BUY 초록 · ? 노랑 |
-| 가격 선 왼쪽 — 티커 표 | `SPY` | 흰 글자 · 짙은 둥근 표(흰 테두리) |
-
-프롬프트:
-
-```
-YouTube thumbnail, 16:9 landscape (1280x720), semi-realistic digital illustration with cinematic lighting, deep dark navy background (#0C1424) with a soft glow behind the center.
-Background: one big glowing white stock price line running from the left edge toward the right, rising overall with several sharp dips and rebounds, like a real long-term chart of a stock index fund — no axes, no grid, no numbers. On the line, four moments glow softly with identical small empty rings: the bottom of a deep dip, a breakout to a new high, the middle of a quiet flat stretch and the start of a rebound — all the same size and brightness, none highlighted, each one a possible moment to buy. The right end of the line disappears into a thick dark fog, so where the price goes next cannot be seen.
-Foreground, bottom center: a big round glowing green button (#2BE0A0) with nothing written on it, slightly tilted toward the viewer. A fictional person in their late thirties in a dark jacket stands beside it, one index finger hovering just above the button, not pressing, eyes on the glowing rings of the line — thoughtful and hesitant, not happy, not worried.
-No ring is chosen and the button is not pressed; nobody is winning. The mood is the moment of hesitation before buying.
-Color accents: white price line, soft gold rings, green only on the button and the word BUY, yellow only on the question mark. Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
-If 16:9 is not available, use the widest landscape canvas; in any case keep the face, the button, the line and the headline inside the central 16:9 area, at least 8% away from the top and bottom edges.
-Fictional person, not resembling any real or famous person.
-Text: ONE big headline "WHEN TO BUY ?" — written as "WHEN TO" in white, "BUY" in bright green (#2BE0A0), "?" in bright yellow (#FFD400) — placed in the upper-left area, between 6% and 32% of the height, above the line (keep it off the face). Make the headline the most eye-catching thing in the image: huge (letters about 20% of the image height), very bold flat sans-serif (like Arial Black), with a thick dark outline and a soft glow so it pops off the background; the "?" is bright yellow. Flat 2D lettering — never 3D, never embossed, never curved, never in perspective. Make room for it: anything that would sit in that band goes lower and smaller; keep it off any face. Ticker label: "SPY" in large bold white letters on a dark rounded tag with a white outline, placed on the left part of the price line, like a label stuck to it. Spell everything exactly as written, character by character. These are the ONLY letters in the whole image — no other text, no numbers, no logos and no watermarks anywhere; the button and every object have nothing else written on them. Keep the bottom-right corner empty.
-```
-
-## 5. eonje-maesu-2026-10 · thumbnail_2 — 실험안 ①(사람 없음): SPY 가격 선 위 '살 만한 순간' 고리 네 개 + 초록 BUY 버튼 — 끝은 안개
-
-**저장 경로: `stock/source/eonje-maesu-2026-10/thumbnails/thumbnail_2.png`**
-
-크기: 가로 16:9 (1280×720) — 롱폼
-
-문구 (그림 속 글자는 이것과 한 글자도 다르면 안 됨):
-
-| 자리 | 문구 | 색 |
-|---|---|---|
-| 위 왼쪽 — **큰 머리글 (가장 크게, 굵게, 테두리·빛)** | `WHEN TO BUY ?` | WHEN TO 흰색 · BUY 초록 · ? 노랑 |
-| 가격 선 왼쪽 — 티커 표 | `SPY` | 흰 글자 · 짙은 둥근 표(흰 테두리) |
-
-프롬프트:
-
-```
-YouTube thumbnail, 16:9 landscape (1280x720), semi-realistic digital illustration with cinematic lighting, deep dark navy background (#0C1424) with a soft glow behind the center.
-Background: one big glowing white stock price line running from the left edge toward the right, rising overall with several sharp dips and rebounds, like a real long-term chart of a stock index fund — no axes, no grid, no numbers. On the line, four moments glow softly with identical small empty rings: the bottom of a deep dip, a breakout to a new high, the middle of a quiet flat stretch and the start of a rebound — all the same size and brightness, none highlighted, each one a possible moment to buy. The right end of the line disappears into a thick dark fog, so where the price goes next cannot be seen.
-Foreground, bottom center: a big round glowing green button (#2BE0A0) with nothing written on it, slightly tilted toward the viewer, glowing and waiting — nobody presses it.
-No people. No ring is chosen and the button is not pressed; nobody is winning. The mood is the moment of hesitation before buying.
-Color accents: white price line, soft gold rings, green only on the button and the word BUY, yellow only on the question mark. Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
-If 16:9 is not available, use the widest landscape canvas; in any case keep the button, the line and the headline inside the central 16:9 area, at least 8% away from the top and bottom edges.
-Text: ONE big headline "WHEN TO BUY ?" — written as "WHEN TO" in white, "BUY" in bright green (#2BE0A0), "?" in bright yellow (#FFD400) — placed in the upper-left area, between 6% and 32% of the height, above the line. Make the headline the most eye-catching thing in the image: huge (letters about 20% of the image height), very bold flat sans-serif (like Arial Black), with a thick dark outline and a soft glow so it pops off the background; the "?" is bright yellow. Flat 2D lettering — never 3D, never embossed, never curved, never in perspective. Make room for it: anything that would sit in that band goes lower and smaller; keep it off any face. Ticker label: "SPY" in large bold white letters on a dark rounded tag with a white outline, placed on the left part of the price line, like a label stuck to it. Spell everything exactly as written, character by character. These are the ONLY letters in the whole image — no other text, no numbers, no logos and no watermarks anywhere; the button and every object have nothing else written on them. Keep the bottom-right corner empty.
-```
-
-## 6. eonje-maesu-2026-10 · thumbnail_3 — 실험안 ②(클로즈업): 초록 BUY 버튼 바로 위에서 멈춘 손가락, 뒤로 흐린 SPY 선의 고리와 안개
-
-**저장 경로: `stock/source/eonje-maesu-2026-10/thumbnails/thumbnail_3.png`**
-
-크기: 가로 16:9 (1280×720) — 롱폼
-
-문구 (그림 속 글자는 이것과 한 글자도 다르면 안 됨):
-
-| 자리 | 문구 | 색 |
-|---|---|---|
-| 위 왼쪽 — **큰 머리글 (가장 크게, 굵게, 테두리·빛)** | `WHEN TO BUY ?` | WHEN TO 흰색 · BUY 초록 · ? 노랑 |
-| 가격 선 왼쪽 — 티커 표 | `SPY` | 흰 글자 · 짙은 둥근 표(흰 테두리) |
-
-프롬프트:
-
-```
-YouTube thumbnail, 16:9 landscape (1280x720), semi-realistic digital illustration, close-up composition with shallow depth of field, deep dark navy background (#0C1424).
-Center foreground, large: a big round glowing green button (#2BE0A0) with nothing written on it, and the index finger of a fictional person hovering a few millimeters above it, not pressing.
-Right side: part of the person's face, thoughtful and hesitant, eyes looking past the button at the chart — not happy, not worried.
-Blurred background: a glowing white stock price line rising with dips and rebounds, four identical small glowing rings on it (a dip, a new high, a flat part, a rebound), its right end disappearing into dark fog.
-The button is not pressed and no ring is chosen; nobody is winning. Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
-If 16:9 is not available, use the widest landscape canvas; in any case keep the finger, the button, the face and the headline inside the central 16:9 area, at least 8% away from the top and bottom edges.
-Fictional person, not resembling any real or famous person.
-Text: ONE big headline "WHEN TO BUY ?" — written as "WHEN TO" in white, "BUY" in bright green (#2BE0A0), "?" in bright yellow (#FFD400) — placed in the upper-left area, between 6% and 32% of the height (the face is on the right — never over it). Make the headline the most eye-catching thing in the image: huge (letters about 20% of the image height), very bold flat sans-serif (like Arial Black), with a thick dark outline and a soft glow so it pops off the background; the "?" is bright yellow. Flat 2D lettering — never 3D, never embossed, never curved, never in perspective. Make room for it: anything that would sit in that band goes lower and smaller; keep it off any face. Ticker label: "SPY" in large bold white letters on a dark rounded tag with a white outline, placed on the blurred price line in the background, sharp and readable. Spell everything exactly as written, character by character. These are the ONLY letters in the whole image — no other text, no numbers, no logos and no watermarks anywhere; the button and every object have nothing else written on them. Keep the bottom-right corner empty.
-```
-
-## 7. keobeodeu-kol-2026-10 · thumbnail_1 — 본안(클릭률 최대): 같은 크기의 선택 사이에서 망설이는 사람 + 가린 결과(흐린 유리·닫힌 상자)
-
-**저장 경로: `stock/source/keobeodeu-kol-2026-10/thumbnails/thumbnail_1.png`**
-
-크기: 가로 16:9 (1280×720) — 롱폼
-
-문구 (그림 속 글자는 이것과 한 글자도 다르면 안 됨):
-
-| 자리 | 문구 | 색 |
-|---|---|---|
-| 위쪽 가운데 — **큰 머리글 (가장 크게, 굵게, 테두리·빛)** | `QYLD > QQQ ?` | QYLD 주황 · > 노랑 · QQQ 파랑 · ? 노랑 |
-
-프롬프트:
-
-```
-YouTube thumbnail, 16:9 landscape (1280x720), semi-realistic digital illustration with cinematic lighting, deep dark navy background (#0C1424).
-Background: deep dark navy (#0C1424) with a soft glow behind the center and faint thin rising price lines far behind, no axes.
-Foreground center: two identical tall glass treasure boxes of exactly the same size and height standing on two identical glowing pedestals, side by side. The left box has a glowing orange rim (#FF8A3D), the right box has a glowing blue rim (#5AB4FF). The front glass of both boxes is frosted, so how much gold is inside cannot be seen. A glowing yellow dashed horizontal line (#FFD400) crosses both boxes at exactly the same height (the starting level). From a small golden tap at the bottom of each box, an identical stream of plain gold coins pours out at the same rate into one shared tray in front, the two streams equally thick. Above the boxes floats a heavy closed wooden treasure chest with warm golden light leaking out of the lid; what is inside cannot be seen.
-Center: A fictional person in their early sixties in a warm cardigan stands between the two boxes holding a small empty purse, looking from one box to the other, thoughtful and hesitant — not happy, not worried. 
-Neither side is highlighted or brighter; nobody is winning. The mood is suspense.
-Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
-If 16:9 is not available, use the widest landscape canvas; in any case keep the main objects inside the central 16:9 area, at least 8% away from the top and bottom edges.
-Fictional person, not resembling any real or famous person.
-Text: ONE big headline "QYLD > QQQ ?" — written as "QYLD" in orange (#FF8A3D), then ">" in bright yellow (#FFD400), then "QQQ" in blue (#5AB4FF), then "?" in bright yellow (#FFD400) — placed across the top of the image, centered, between 6% and 34% of the height and about 70% of the width. Make the headline the most eye-catching thing in the image: huge (letters about 22% of the image height), very bold flat sans-serif (like Arial Black), with a thick dark outline and a soft glow so it pops off the background; the ">" sign is as big and bold as the letters and bright yellow, and the "?" is bright yellow. Flat 2D lettering — never 3D, never embossed, never curved, never in perspective. Make room for it: anything that would sit in that band (for example a chest or clouds) goes lower and smaller; keep it off any face. Spell everything exactly as written, character by character: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", ">", "+" and "?" stay exactly as written — never turn ">" into "<". These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs and objects have nothing else written on them. Keep the bottom-right corner empty.
-```
-
-## 8. keobeodeu-kol-2026-10 · thumbnail_2 — 실험안 ①: 같은 장면에서 사람만 뺌
-
-**저장 경로: `stock/source/keobeodeu-kol-2026-10/thumbnails/thumbnail_2.png`**
-
-크기: 가로 16:9 (1280×720) — 롱폼
-
-문구 (그림 속 글자는 이것과 한 글자도 다르면 안 됨):
-
-| 자리 | 문구 | 색 |
-|---|---|---|
-| 위쪽 가운데 — **큰 머리글 (가장 크게, 굵게, 테두리·빛)** | `QYLD > QQQ ?` | QYLD 주황 · > 노랑 · QQQ 파랑 · ? 노랑 |
-
-프롬프트:
-
-```
-YouTube thumbnail, 16:9 landscape (1280x720), semi-realistic digital illustration with cinematic lighting, deep dark navy background (#0C1424).
-Background: deep dark navy (#0C1424) with a soft glow behind the center and faint thin rising price lines far behind, no axes.
-Foreground center: two identical tall glass treasure boxes of exactly the same size and height standing on two identical glowing pedestals, side by side. The left box has a glowing orange rim (#FF8A3D), the right box has a glowing blue rim (#5AB4FF). The front glass of both boxes is frosted, so how much gold is inside cannot be seen. A glowing yellow dashed horizontal line (#FFD400) crosses both boxes at exactly the same height (the starting level). From a small golden tap at the bottom of each box, an identical stream of plain gold coins pours out at the same rate into one shared tray in front, the two streams equally thick. Above the boxes floats a heavy closed wooden treasure chest with warm golden light leaking out of the lid; what is inside cannot be seen.
-No people. Neither side is highlighted or brighter; nobody is winning. The mood is suspense.
-Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
-If 16:9 is not available, use the widest landscape canvas; in any case keep the main objects inside the central 16:9 area, at least 8% away from the top and bottom edges.
-Text: ONE big headline "QYLD > QQQ ?" — written as "QYLD" in orange (#FF8A3D), then ">" in bright yellow (#FFD400), then "QQQ" in blue (#5AB4FF), then "?" in bright yellow (#FFD400) — placed across the top of the image, centered, between 6% and 34% of the height and about 70% of the width. Make the headline the most eye-catching thing in the image: huge (letters about 22% of the image height), very bold flat sans-serif (like Arial Black), with a thick dark outline and a soft glow so it pops off the background; the ">" sign is as big and bold as the letters and bright yellow, and the "?" is bright yellow. Flat 2D lettering — never 3D, never embossed, never curved, never in perspective. Make room for it: anything that would sit in that band (for example a chest or clouds) goes lower and smaller; keep it off any face. Spell everything exactly as written, character by character: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", ">", "+" and "?" stay exactly as written — never turn ">" into "<". These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs and objects have nothing else written on them. Keep the bottom-right corner empty.
-```
-
-## 9. keobeodeu-kol-2026-10 · thumbnail_3 — 실험안 ②: 손·얼굴 클로즈업 (구도)
-
-**저장 경로: `stock/source/keobeodeu-kol-2026-10/thumbnails/thumbnail_3.png`**
-
-크기: 가로 16:9 (1280×720) — 롱폼
-
-문구 (그림 속 글자는 이것과 한 글자도 다르면 안 됨):
-
-| 자리 | 문구 | 색 |
-|---|---|---|
-| 위쪽 가운데 — **큰 머리글 (가장 크게, 굵게, 테두리·빛)** | `QYLD > QQQ ?` | QYLD 주황 · > 노랑 · QQQ 파랑 · ? 노랑 |
-
-프롬프트:
-
-```
-YouTube thumbnail, 16:9 landscape (1280x720), semi-realistic digital illustration with cinematic lighting and shallow depth of field, deep dark navy background (#0C1424).
-Close-up: two hands under the two golden taps, one under the orange-rimmed box and one under the blue-rimmed box, each catching an identical stream of plain gold coins; behind them the frosted glass of both boxes hides how much gold is left, and a yellow dashed line runs across both at the same height. 
-The face of a fictional person is partly visible at the edge, thoughtful and hesitant. Neither side is highlighted or brighter; nobody is winning.
-Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
-If 16:9 is not available, use the widest landscape canvas; in any case keep the main objects inside the central 16:9 area, at least 8% away from the top and bottom edges.
-Fictional person, not resembling any real or famous person.
-Text: ONE big headline "QYLD > QQQ ?" — written as "QYLD" in orange (#FF8A3D), then ">" in bright yellow (#FFD400), then "QQQ" in blue (#5AB4FF), then "?" in bright yellow (#FFD400) — placed across the top of the image, centered, between 6% and 34% of the height and about 70% of the width. Make the headline the most eye-catching thing in the image: huge (letters about 22% of the image height), very bold flat sans-serif (like Arial Black), with a thick dark outline and a soft glow so it pops off the background; the ">" sign is as big and bold as the letters and bright yellow, and the "?" is bright yellow. Flat 2D lettering — never 3D, never embossed, never curved, never in perspective. Make room for it: anything that would sit in that band (for example a chest or clouds) goes lower and smaller; keep it off any face. Spell everything exactly as written, character by character: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", ">", "+" and "?" stay exactly as written — never turn ">" into "<". These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs and objects have nothing else written on them. Keep the bottom-right corner empty.
-```
-
-## 10. reobeoriji-2026-10 · thumbnail_1 — 본안(클릭률 최대): 같은 크기의 선택 사이에서 망설이는 사람 + 가린 결과(흐린 유리·닫힌 상자)
-
-**저장 경로: `stock/source/reobeoriji-2026-10/thumbnails/thumbnail_1.png`**
-
-크기: 가로 16:9 (1280×720) — 롱폼
-
-문구 (그림 속 글자는 이것과 한 글자도 다르면 안 됨):
-
-| 자리 | 문구 | 색 |
-|---|---|---|
-| 위쪽 가운데 — **큰 머리글 (가장 크게, 굵게, 테두리·빛)** | `TQQQ 3× > QQQ 1× ?` | TQQQ 3× 주황 · > 노랑 · QQQ 1× 파랑 · ? 노랑 |
-| 파랑 로켓(점 1) (작게) | `QQQ 1×` | 파랑 |
-| 보라 로켓(점 2) (작게) | `QLD 2×` | 보라 |
-| 주황 로켓(점 3) (작게) | `TQQQ 3×` | 주황 |
-
-프롬프트:
-
-```
-YouTube thumbnail, 16:9 landscape (1280x720), semi-realistic digital illustration with cinematic lighting, deep dark navy background (#0C1424).
-Background: deep dark navy night sky (#0C1424) with a soft glow behind the center, no axes.
-Foreground center: three identical small rockets of exactly the same size standing side by side on three identical launch pads, none of them has launched. The first rocket has a glowing blue stripe (#5AB4FF) and one glowing dot on its side, the second a violet stripe (#B48CFF) and two glowing dots, the third an orange stripe (#FF8A3D) and three glowing dots. A thin stream of plain gold coins drops into a small hatch on each rocket at the same rate. Above them the sky is split: dark storm clouds with sharp lightning bolts in the middle height, and higher up, above the clouds, a heavy closed wooden treasure chest glowing softly; what is inside cannot be seen.
-Center: A fictional person in their mid-thirties in a dark hoodie stands in front of the three launch pads holding one plain gold coin, looking up at the storm and the chest, thoughtful and hesitant — not happy, not afraid. 
-Neither side is highlighted or brighter; nobody is winning. The mood is suspense.
-Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
-If 16:9 is not available, use the widest landscape canvas; in any case keep the main objects inside the central 16:9 area, at least 8% away from the top and bottom edges.
-Fictional person, not resembling any real or famous person.
-Text: ONE big headline "TQQQ 3× > QQQ 1× ?" — written as "TQQQ 3×" in orange (#FF8A3D), then ">" in bright yellow (#FFD400), then "QQQ 1×" in blue (#5AB4FF), then "?" in bright yellow (#FFD400) — placed across the top of the image, centered, between 6% and 34% of the height and about 70% of the width. Make the headline the most eye-catching thing in the image: huge (letters about 22% of the image height), very bold flat sans-serif (like Arial Black), with a thick dark outline and a soft glow so it pops off the background; the ">" sign is as big and bold as the letters and bright yellow, and the "?" is bright yellow. Flat 2D lettering — never 3D, never embossed, never curved, never in perspective. Make room for it: anything that would sit in that band (for example a chest or clouds) goes lower and smaller; keep it off any face. Small extra labels: "QQQ 1×" on the launch pad (or hatch) of the blue rocket with one dot, in blue (#5AB4FF); "QLD 2×" on the launch pad (or hatch) of the violet rocket with two dots, in violet (#B48CFF); "TQQQ 3×" on the launch pad (or hatch) of the orange rocket with three dots, in orange (#FF8A3D). Spell everything exactly as written, character by character: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", ">", "+" and "?" stay exactly as written — never turn ">" into "<". These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs and objects have nothing else written on them. Keep the bottom-right corner empty.
-```
-
-## 11. reobeoriji-2026-10 · thumbnail_2 — 실험안 ①: 같은 장면에서 사람만 뺌
-
-**저장 경로: `stock/source/reobeoriji-2026-10/thumbnails/thumbnail_2.png`**
-
-크기: 가로 16:9 (1280×720) — 롱폼
-
-문구 (그림 속 글자는 이것과 한 글자도 다르면 안 됨):
-
-| 자리 | 문구 | 색 |
-|---|---|---|
-| 위쪽 가운데 — **큰 머리글 (가장 크게, 굵게, 테두리·빛)** | `TQQQ 3× > QQQ 1× ?` | TQQQ 3× 주황 · > 노랑 · QQQ 1× 파랑 · ? 노랑 |
-| 파랑 로켓(점 1) (작게) | `QQQ 1×` | 파랑 |
-| 보라 로켓(점 2) (작게) | `QLD 2×` | 보라 |
-| 주황 로켓(점 3) (작게) | `TQQQ 3×` | 주황 |
-
-프롬프트:
-
-```
-YouTube thumbnail, 16:9 landscape (1280x720), semi-realistic digital illustration with cinematic lighting, deep dark navy background (#0C1424).
-Background: deep dark navy night sky (#0C1424) with a soft glow behind the center, no axes.
-Foreground center: three identical small rockets of exactly the same size standing side by side on three identical launch pads, none of them has launched. The first rocket has a glowing blue stripe (#5AB4FF) and one glowing dot on its side, the second a violet stripe (#B48CFF) and two glowing dots, the third an orange stripe (#FF8A3D) and three glowing dots. A thin stream of plain gold coins drops into a small hatch on each rocket at the same rate. Above them the sky is split: dark storm clouds with sharp lightning bolts in the middle height, and higher up, above the clouds, a heavy closed wooden treasure chest glowing softly; what is inside cannot be seen.
-No people. Neither side is highlighted or brighter; nobody is winning. The mood is suspense.
-Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
-If 16:9 is not available, use the widest landscape canvas; in any case keep the main objects inside the central 16:9 area, at least 8% away from the top and bottom edges.
-Text: ONE big headline "TQQQ 3× > QQQ 1× ?" — written as "TQQQ 3×" in orange (#FF8A3D), then ">" in bright yellow (#FFD400), then "QQQ 1×" in blue (#5AB4FF), then "?" in bright yellow (#FFD400) — placed across the top of the image, centered, between 6% and 34% of the height and about 70% of the width. Make the headline the most eye-catching thing in the image: huge (letters about 22% of the image height), very bold flat sans-serif (like Arial Black), with a thick dark outline and a soft glow so it pops off the background; the ">" sign is as big and bold as the letters and bright yellow, and the "?" is bright yellow. Flat 2D lettering — never 3D, never embossed, never curved, never in perspective. Make room for it: anything that would sit in that band (for example a chest or clouds) goes lower and smaller; keep it off any face. Small extra labels: "QQQ 1×" on the launch pad (or hatch) of the blue rocket with one dot, in blue (#5AB4FF); "QLD 2×" on the launch pad (or hatch) of the violet rocket with two dots, in violet (#B48CFF); "TQQQ 3×" on the launch pad (or hatch) of the orange rocket with three dots, in orange (#FF8A3D). Spell everything exactly as written, character by character: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", ">", "+" and "?" stay exactly as written — never turn ">" into "<". These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs and objects have nothing else written on them. Keep the bottom-right corner empty.
-```
-
-## 12. reobeoriji-2026-10 · thumbnail_3 — 실험안 ②: 손·얼굴 클로즈업 (구도)
-
-**저장 경로: `stock/source/reobeoriji-2026-10/thumbnails/thumbnail_3.png`**
-
-크기: 가로 16:9 (1280×720) — 롱폼
-
-문구 (그림 속 글자는 이것과 한 글자도 다르면 안 됨):
-
-| 자리 | 문구 | 색 |
-|---|---|---|
-| 위쪽 가운데 — **큰 머리글 (가장 크게, 굵게, 테두리·빛)** | `TQQQ 3× > QQQ 1× ?` | TQQQ 3× 주황 · > 노랑 · QQQ 1× 파랑 · ? 노랑 |
-| 파랑 로켓(점 1) (작게) | `QQQ 1×` | 파랑 |
-| 보라 로켓(점 2) (작게) | `QLD 2×` | 보라 |
-| 주황 로켓(점 3) (작게) | `TQQQ 3×` | 주황 |
-
-프롬프트:
-
-```
-YouTube thumbnail, 16:9 landscape (1280x720), semi-realistic digital illustration with cinematic lighting and shallow depth of field, deep dark navy background (#0C1424).
-Close-up: a hand holding a single plain gold coin in front of three identical rocket hatches marked only with one, two and three glowing dots (blue, violet, orange); behind them, out of focus, storm clouds with lightning and a closed chest above. 
-The face of a fictional person is partly visible at the edge, thoughtful and hesitant. Neither side is highlighted or brighter; nobody is winning.
-Large simple shapes, high contrast, readable when shrunk to 320 pixels wide. Leave the bottom-right corner (about 220x70 pixels) dark and empty.
-If 16:9 is not available, use the widest landscape canvas; in any case keep the main objects inside the central 16:9 area, at least 8% away from the top and bottom edges.
-Fictional person, not resembling any real or famous person.
-Text: ONE big headline "TQQQ 3× > QQQ 1× ?" — written as "TQQQ 3×" in orange (#FF8A3D), then ">" in bright yellow (#FFD400), then "QQQ 1×" in blue (#5AB4FF), then "?" in bright yellow (#FFD400) — placed across the top of the image, centered, between 6% and 34% of the height and about 70% of the width. Make the headline the most eye-catching thing in the image: huge (letters about 22% of the image height), very bold flat sans-serif (like Arial Black), with a thick dark outline and a soft glow so it pops off the background; the ">" sign is as big and bold as the letters and bright yellow, and the "?" is bright yellow. Flat 2D lettering — never 3D, never embossed, never curved, never in perspective. Make room for it: anything that would sit in that band (for example a chest or clouds) goes lower and smaller; keep it off any face. Small extra labels: "QQQ 1×" on the launch pad (or hatch) of the blue rocket with one dot, in blue (#5AB4FF); "QLD 2×" on the launch pad (or hatch) of the violet rocket with two dots, in violet (#B48CFF); "TQQQ 3×" on the launch pad (or hatch) of the orange rocket with three dots, in orange (#FF8A3D). Spell everything exactly as written, character by character: the minus sign is a real minus "−", and "%", "$", ",", ".", "×", ">", "+" and "?" stay exactly as written — never turn ">" into "<". These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs and objects have nothing else written on them. Keep the bottom-right corner empty.
-```
-
-## 13. baedang-etf-2026-10-shorts · thumbnail_1 — 동전을 떨구는 배당 나무와 큰 나무 — 줄다리기 한가운데
+## 1. baedang-etf-2026-10-shorts · thumbnail_1 — 동전을 떨구는 배당 나무와 큰 나무 — 줄다리기 한가운데
 
 **저장 경로: `stock/source/baedang-etf-2026-10/shorts/thumbnails/thumbnail_1.png`**
 
@@ -378,7 +62,7 @@ Fictional person, not resembling any real or famous person.
 Text: ONE big headline "SCHD > SPY ?" — written as "SCHD" in violet (#B48CFF), then ">" in bright yellow (#FFD400), then "SPY" in blue (#5AB4FF), then "?" in bright yellow (#FFD400) — placed across the upper-middle area between 13% and 34% of the height, centered inside the left 84% of the width and about 75% of that width. Make the headline the most eye-catching thing in the image: huge (letters about 22% of the image height), very bold flat sans-serif (like Arial Black), with a thick dark outline and a soft glow so it pops off the background; the ">" sign is as big and bold as the letters and bright yellow, and the "?" is bright yellow. Flat 2D lettering — never 3D, never embossed, never curved, never in perspective. Make room for it: anything that would sit in that band (for example a chest or clouds) goes lower and smaller; keep it off any face. Spell everything exactly as written, character by character: ">", "×" and "?" stay exactly as written — never turn ">" into "<". These are the ONLY letters, numbers and symbols in the whole image — no other text, no extra numbers, no logos and no watermarks anywhere; coins are plain gold discs and objects have nothing else written on them. All text stays between 13% and 66% of the height.
 ```
 
-## 14. eonje-maesu-2026-10-shorts · thumbnail_1 — 언제 사야 할까? — SPY 선이 노란 평균선을 뚫는 순간, BUY 버튼 위 손가락
+## 2. eonje-maesu-2026-10-shorts · thumbnail_1 — 언제 사야 할까? — SPY 선이 노란 평균선을 뚫는 순간, BUY 버튼 위 손가락
 
 **저장 경로: `stock/source/eonje-maesu-2026-10/shorts/thumbnails/thumbnail_1.png`**
 
@@ -404,7 +88,7 @@ Fictional person, not resembling any real or famous person.
 Text: ONE big headline "WHEN TO BUY ?" — written as "WHEN TO" in white, "BUY" in bright green (#2BE0A0), "?" in bright yellow (#FFD400) — across the upper-middle area between 13% and 32% of the height, centered inside the left 84% of the width and about 75% of that width. Make the headline the most eye-catching thing in the image: huge, very bold flat sans-serif (like Arial Black), with a thick dark outline and a soft glow so it pops off the background. Flat 2D lettering — never 3D, never embossed, never curved, never in perspective. Make room for it: the fog and the line top sit below it; keep it off the face. Ticker label: "SPY" in large bold white letters on a dark rounded tag with a white outline, right next to the green line. Spell everything exactly as written, character by character. These are the ONLY letters in the whole image — no other text, no numbers, no logos and no watermarks anywhere; the button and every object have nothing else written on them. All text stays between 13% and 66% of the height.
 ```
 
-## 15. keobeodeu-kol-2026-10-shorts · thumbnail_1 — 금고에서 금화를 매달 꺼내는 손 + 천에 덮인 두 번째 계좌 — `QYLD > QQQ ?`
+## 3. keobeodeu-kol-2026-10-shorts · thumbnail_1 — 금고에서 금화를 매달 꺼내는 손 + 천에 덮인 두 번째 계좌 — `QYLD > QQQ ?`
 
 **저장 경로: `stock/source/keobeodeu-kol-2026-10/shorts/thumbnails/thumbnail_1.png`**
 
@@ -431,7 +115,7 @@ Fictional person, not resembling any real or famous person.
 Text: ONE big headline "QYLD > QQQ ?" — written as "QYLD" in orange (#FF8A3D), then ">" in bright yellow (#FFD400), then "QQQ" in blue (#5AB4FF), then "?" in bright yellow (#FFD400) — placed across the upper-middle area between 13% and 34% of the height, centered inside the left 84% of the width and about 75% of that width. Make the headline the most eye-catching thing in the image: huge (letters about 22% of the image height), very bold flat sans-serif (like Arial Black), with a thick dark outline and a soft glow so it pops off the background; the ">" sign is as big and bold as the letters and bright yellow, and the "?" is bright yellow. Flat 2D lettering — never 3D, never embossed, never curved, never in perspective. Make room for it: anything that would sit in that band goes lower and smaller; keep it off any face. Spell everything exactly as written, character by character: ">" and "?" stay exactly as written — never turn ">" into "<". These are the ONLY letters and symbols in the whole image — no other text, no numbers, no logos and no watermarks anywhere; coins are plain gold discs and objects have nothing written on them. All text stays between 13% and 34% of the height.
 ```
 
-## 16. reobeoriji-2026-10-shorts · thumbnail_1 — 번개에 부서진 3단 로켓 — 그래도 다시 연료를 넣는 손
+## 4. reobeoriji-2026-10-shorts · thumbnail_1 — 폭풍 구름으로 막 떠오르는 멀쩡한 로켓 셋 — 큰 3단 로켓에 금화를 연료로 넣는 손
 
 **저장 경로: `stock/source/reobeoriji-2026-10/shorts/thumbnails/thumbnail_1.png`**
 

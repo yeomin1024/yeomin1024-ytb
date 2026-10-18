@@ -56,4 +56,7 @@ Only this text, huge flat bold sans-serif with a thick outline, spelled exactly:
 - [ ] '꺼내는 금화 + 노란 점선 위 금고 + 천으로 가린 두 번째 계좌'가 세로 360px 로 줄여도 읽힘
 
 ## 이미지 검수 (Claude — `guides/thumbnail_guide.md` 10번)
-- (이미지가 올라오면 결과를 적는다)
+
+### 1차 그림 반려 (2026-10-18 KST — 사용자 지시 2026-10-18 "채권 표현 수정하고 영상 업로드 할 준비해" 검수 때) — `rejected/thumbnail_1_try1_2026-10-18.png`
+- ChatGPT(Codex) 가 저장소에 올림 (2026-10-18 12:00 KST 무렵). **옛 프롬프트로 그린 그림**: `−17.5%` 꼬리표 + 점선 아래로 내려앉은 금고 — 프롬프트 v2.0.1 은 글자 `QYLD > QQQ ?` 하나, 금고는 점선 위. 숫자·높이 차이 = 결과를 그림.
+- 머리글 철자는 맞음. 지금 프롬프트(위 ``` 안)로 **새 ChatGPT 대화 + 커밋을 고정한 주소**로 다시 (`guides/thumbnail_guide.md` 피드백 25).

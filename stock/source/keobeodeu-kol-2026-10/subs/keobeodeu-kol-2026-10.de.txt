@@ -80,7 +80,7 @@ Das XYLD-Konto wuchs 5,4 % über das Kapital, das SPY-Konto aber auf das 3,33-Fa
 Auch bei 100 Konten über 5 Jahre mit anderen Startmonaten hatte SPY immer mehr.
 Und 60 von 100 XYLD-Konten lagen unter dem Kapital.
 JEPI ist ein Covered-Call-ETF, der etwas anders funktioniert.
-Er mischt Aktien mit Anleihen, die wie ein Covered Call wirken.
+Er mischt Aktien mit Wertpapieren, die wie der Verkauf des Kaufrechts wirken.
 In 6,4 Jahren ab Mai 2020 wurden rund 61.000 $ entnommen.
 Das JEPI-Konto wuchs 14,2 % über das Kapital, das SPY-Konto lag beim 1,79-Fachen.
 -다른 조건

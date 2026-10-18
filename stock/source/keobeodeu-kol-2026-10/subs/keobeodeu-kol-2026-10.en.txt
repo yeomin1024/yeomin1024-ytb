@@ -80,7 +80,7 @@ The XYLD account grew 5.4% over principal, but the SPY account reached 3.33 time
 Across 100 accounts of 5 years with different start months, SPY had more every time.
 And 60 of the 100 XYLD accounts were below principal.
 JEPI is a covered call ETF that works a bit differently.
-It mixes stocks with bonds that act like covered calls.
+It mixes stocks with notes that work like selling that right to buy.
 Over 6.4 years from May 2020, about $61,000 was taken out.
 The JEPI account grew 14.2% over principal, but the SPY account was 1.79 times principal.
 -다른 조건

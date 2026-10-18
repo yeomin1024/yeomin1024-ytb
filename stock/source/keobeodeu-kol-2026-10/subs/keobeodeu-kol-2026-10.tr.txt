@@ -80,7 +80,7 @@ XYLD hesabı anaparadan %5,4 arttı, ama SPY hesabı anaparanın 3,33 katı oldu
 Başlangıç ayı farklı 100 tane 5 yıllık hesapta da hep SPY daha fazlaydı.
 XYLD'de 100 hesaptan 60'ı anaparanın altındaydı.
 JEPI, biraz farklı çalışan bir covered call ETF'si.
-Hisselerle, covered call etkisi yaratan tahvilleri karıştırıyor.
+Hisselerle, alma hakkını satmak gibi işleyen kıymetleri karıştırıyor.
 Mayıs 2020'den itibaren 6,4 yılda çekilen para yaklaşık 61.000 $ oldu.
 JEPI hesabı anaparadan %14,2 arttı, ama SPY hesabı anaparanın 1,79 katıydı.
 -다른 조건

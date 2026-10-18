@@ -80,7 +80,7 @@ Akun XYLD naik 5,4% di atas modal, tapi akun SPY jadi 3,33 kali modal.
 Di 100 akun 5 tahun dengan bulan mulai berbeda, SPY selalu lebih banyak.
 Dan 60 dari 100 akun XYLD di bawah modal.
 JEPI adalah ETF covered call dengan cara yang sedikit berbeda.
-Ia mencampur saham dengan obligasi yang efeknya seperti covered call.
+Ia mencampur saham dengan surat berharga yang efeknya seperti menjual hak membeli.
 Selama 6,4 tahun sejak Mei 2020, uang yang ditarik sekitar $61.000.
 Akun JEPI naik 14,2% di atas modal, tapi akun SPY 1,79 kali modal.
 -다른 조건

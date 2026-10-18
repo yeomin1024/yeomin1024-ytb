@@ -80,7 +80,7 @@ A conta XYLD subiu 5,4% sobre o capital, mas a SPY chegou a 3,33 vezes o capital
 Em 100 contas de 5 anos com meses de início diferentes, o SPY sempre teve mais.
 E 60 das 100 contas XYLD ficaram abaixo do capital.
 O JEPI é um ETF de covered call com método um pouco diferente.
-Ele mistura ações com títulos que têm efeito de covered call.
+Ele mistura ações com notas que têm o mesmo efeito de vender o direito de compra.
 Em 6,4 anos desde maio de 2020, foram retirados cerca de US$ 61.000.
 A conta JEPI subiu 14,2% sobre o capital, mas a SPY ficou em 1,79 vez o capital.
 -다른 조건

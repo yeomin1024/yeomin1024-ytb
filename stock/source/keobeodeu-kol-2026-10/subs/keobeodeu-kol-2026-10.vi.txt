@@ -80,7 +80,7 @@ Tài khoản XYLD tăng 5,4% so với vốn gốc, nhưng SPY đạt 3,33 lần 
 Với 100 tài khoản 5 năm bắt đầu ở các tháng khác nhau, SPY đều nhiều hơn.
 Còn XYLD có 60 trên 100 tài khoản dưới vốn gốc.
 JEPI là ETF covered call có cách làm hơi khác.
-Nó kết hợp cổ phiếu với trái phiếu tạo hiệu quả như covered call.
+Nó kết hợp cổ phiếu với chứng khoán tạo hiệu quả như bán quyền mua.
 Trong 6,4 năm từ tháng 5/2020, tiền rút ra khoảng 61.000 USD.
 Tài khoản JEPI tăng 14,2% so với vốn gốc, nhưng SPY gấp 1,79 lần vốn gốc.
 -다른 조건

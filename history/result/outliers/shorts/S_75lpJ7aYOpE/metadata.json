@@ -1,0 +1,123 @@
+{
+ "id": "75lpJ7aYOpE",
+ "title": "임진왜란 일본군이 가장 두려워한 의병",
+ "channel": "교과서엔 없는 역사",
+ "channel_id": "UCSzI6kWNoUIg5CYqIpn3nJg",
+ "subs": 38100,
+ "views": 540424,
+ "ratio": 14.18,
+ "age_days": 168,
+ "views_per_day": 3216.8,
+ "minutes": 1.2,
+ "seconds": 73,
+ "likes": 4271,
+ "comments": 83,
+ "published": "2026-05-02",
+ "published_at": "2026-05-02T09:30:08Z",
+ "queries": "검색:임진왜란",
+ "url": "https://www.youtube.com/shorts/75lpJ7aYOpE",
+ "flag": "",
+ "short_basis": "세로·정사각",
+ "hashtags": [
+  "역사",
+  "한국사",
+  "임진왜란",
+  "의병",
+  "서산대사",
+  "사명대사",
+  "정문부",
+  "북관대첩",
+  "곽재우",
+  "홍의장군",
+  "조선시대",
+  "전쟁사",
+  "선조",
+  "이순신",
+  "역사인물"
+ ],
+ "rank": "S355",
+ "set": "web_shorts",
+ "folder": "S_75lpJ7aYOpE",
+ "sources": [
+  "검색:임진왜란"
+ ],
+ "source": "web_shorts",
+ "tags": [
+  "임진왜란",
+  "의병",
+  "일본군",
+  "가장 두려워한 의병",
+  "서산대사",
+  "승병",
+  "사명대사",
+  "정문부",
+  "북관대첩",
+  "곽재우",
+  "홍의장군",
+  "조선시대",
+  "한국사",
+  "역사",
+  "전쟁사",
+  "영웅",
+  "역사인물",
+  "임진왜란 영웅",
+  "정암진",
+  "이순신"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "일본군이 가장 두려워한 의병은?"
+  },
+  {
+   "start": 7,
+   "title": "3위: 73세 노승 서산대사, 승병을 일으키다"
+  },
+  {
+   "start": 20,
+   "title": "탄압받던 스님들, 나라를 위해 칼을 들다"
+  },
+  {
+   "start": 38,
+   "title": "2위: 북관대첩의 영웅, 정문부"
+  },
+  {
+   "start": 48,
+   "title": "두 왕자의 위기, 함경도를 구한 의병장"
+  },
+  {
+   "start": 67,
+   "title": "열세 속의 기적, 북관대첩"
+  },
+  {
+   "start": 72,
+   "title": "1위: 홍의장군 곽재우, 영남을 지키다"
+  },
+  {
+   "start": 89,
+   "title": "붉은 옷 의병, 일본군을 공포에 떨게 하다"
+  },
+  {
+   "start": 96,
+   "title": "곽재우가 막지 못했다면? 임진왜란의 전환점"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 83,
+ "comments_top_level": 66,
+ "comments_replies": 17,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 83,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:55:41",
+ "approved": "2026-10-18T16:55+09:00",
+ "kind": "shorts",
+ "embed_w": 4608,
+ "embed_h": 8192,
+ "cover": "oar2.jpg"
+}

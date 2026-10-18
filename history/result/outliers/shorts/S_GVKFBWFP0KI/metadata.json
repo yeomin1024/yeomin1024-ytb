@@ -1,0 +1,120 @@
+{
+ "id": "GVKFBWFP0KI",
+ "title": "임진왜란 조선군의 전투식량",
+ "channel": "교과서엔 없는 역사",
+ "channel_id": "UCSzI6kWNoUIg5CYqIpn3nJg",
+ "subs": 38100,
+ "views": 374246,
+ "ratio": 9.82,
+ "age_days": 167,
+ "views_per_day": 2241.0,
+ "minutes": 1.0,
+ "seconds": 62,
+ "likes": 2563,
+ "comments": 155,
+ "published": "2026-05-04",
+ "published_at": "2026-05-04T02:00:13Z",
+ "queries": "검색:임진왜란",
+ "url": "https://www.youtube.com/shorts/GVKFBWFP0KI",
+ "flag": "",
+ "short_basis": "세로·정사각",
+ "hashtags": [
+  "역사",
+  "한국사",
+  "임진왜란",
+  "조선군",
+  "전투식량",
+  "군량미",
+  "미숫가루",
+  "간장",
+  "육포",
+  "북어",
+  "전쟁사",
+  "조선시대",
+  "조선음식",
+  "군사문화",
+  "식량"
+ ],
+ "rank": "S395",
+ "set": "web_shorts",
+ "folder": "S_GVKFBWFP0KI",
+ "sources": [
+  "검색:임진왜란"
+ ],
+ "source": "web_shorts",
+ "tags": [
+  "역사",
+  "한국사",
+  "임진왜란",
+  "조선",
+  "전투식량",
+  "군량미",
+  "미숫가루",
+  "간장",
+  "육포",
+  "북어",
+  "식량",
+  "음식",
+  "전쟁",
+  "조선시대",
+  "조선군",
+  "임진왜란 전투식량",
+  "조선시대 식량",
+  "한국 전쟁사",
+  "군사 보급",
+  "미숫가루 역사",
+  "간장 역사"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "도입: 조선군의 전투식량은?"
+  },
+  {
+   "start": 6,
+   "title": "진영에서의 식사: 솥밥"
+  },
+  {
+   "start": 17,
+   "title": "행군 중 주식: 미숫가루"
+  },
+  {
+   "start": 28,
+   "title": "미숫가루와 전쟁의 징후"
+  },
+  {
+   "start": 50,
+   "title": "조선군의 만능 반찬: 간장"
+  },
+  {
+   "start": 62,
+   "title": "휴대용 반찬: 육포와 북어"
+  },
+  {
+   "start": 70,
+   "title": "최후의 수단: 생쌀"
+  },
+  {
+   "start": 75,
+   "title": "마무리: 익숙한 전투식량"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 155,
+ "comments_top_level": 82,
+ "comments_replies": 73,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 155,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:56:57",
+ "approved": "2026-10-18T16:56+09:00",
+ "kind": "shorts",
+ "embed_w": 4608,
+ "embed_h": 8192,
+ "cover": "oar2.jpg"
+}

@@ -1,0 +1,121 @@
+{
+ "id": "N3vOkplRen4",
+ "title": "제47화/ 세종대왕이 한글을 만든 진짜 이유 #세종대왕 #한글 #훈민정음 #조선왕조실록 #한글창제 #삼강행실도 #한국사 #역사쇼츠 #조선역사 #조선설화첩",
+ "channel": "조선설화첩",
+ "channel_id": "UCj8Tw0ylglS9VJ4dexXI6zg",
+ "subs": 5490,
+ "views": 99257,
+ "ratio": 18.08,
+ "age_days": 102,
+ "views_per_day": 973.1,
+ "minutes": 2.7,
+ "seconds": 162,
+ "likes": 3394,
+ "comments": 76,
+ "published": "2026-07-07",
+ "published_at": "2026-07-07T11:00:33Z",
+ "queries": "검색:조선왕조실록",
+ "url": "https://www.youtube.com/shorts/N3vOkplRen4",
+ "flag": "",
+ "short_basis": "세로·정사각",
+ "hashtags": [
+  "세종대왕",
+  "한글",
+  "훈민정음",
+  "조선왕조실록",
+  "한글창제",
+  "삼강행실도",
+  "한국사",
+  "역사쇼츠",
+  "조선역사",
+  "조선설화첩",
+  "역사이야기",
+  "조선시대",
+  "역사",
+  "세종실록",
+  "한국역사",
+  "koreanhistory"
+ ],
+ "rank": "S327",
+ "set": "web_shorts",
+ "folder": "S_N3vOkplRen4",
+ "sources": [
+  "검색:조선왕조실록"
+ ],
+ "source": "web_shorts",
+ "tags": [
+  "세종대왕",
+  "한글",
+  "훈민정음",
+  "삼강행실도",
+  "세종대왕업적",
+  "한글창제",
+  "훈민정음해례본",
+  "조선시대역사",
+  "한국사",
+  "역사다큐",
+  "역사이야기",
+  "국사",
+  "교양",
+  "지식",
+  "조선왕조실록",
+  "조선설화첩",
+  "koreanhistory"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "[도입] 세종은 왜 한글을 만들었을까?"
+  },
+  {
+   "start": 20,
+   "title": "[문제 직면] 한자로만 이루어져 고통받는 백성들"
+  },
+  {
+   "start": 38,
+   "title": "[쉬운 법률] 일부 신하들 반대"
+  },
+  {
+   "start": 53,
+   "title": "[충격적 사건] 진주 존속살해 사건"
+  },
+  {
+   "start": 70,
+   "title": "[삼강행실도] 효자, 충신, 열녀 이야기 편찬"
+  },
+  {
+   "start": 76,
+   "title": "[한자어 그림책] 삼강행실도의 한계"
+  },
+  {
+   "start": 96,
+   "title": "[위대한 탄생] 한자 대신 우리말을 적을 '훈민정음' 창제"
+  },
+  {
+   "start": 124,
+   "title": "[훈민정음 해례본] 글자의 원리 설명"
+  },
+  {
+   "start": 140,
+   "title": "[결론] 오랜 고민 끝에 탄생한 세종의 위대한 유산"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 76,
+ "comments_top_level": 54,
+ "comments_replies": 22,
+ "comments_by_creator": 18,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 76,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:54:50",
+ "approved": "2026-10-18T16:54+09:00",
+ "kind": "shorts",
+ "embed_w": 4608,
+ "embed_h": 8192,
+ "cover": "oar2.jpg"
+}

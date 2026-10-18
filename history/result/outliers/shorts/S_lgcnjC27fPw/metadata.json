@@ -1,0 +1,119 @@
+{
+ "id": "lgcnjC27fPw",
+ "title": "인조를 공포에 떨게 만든 대포",
+ "channel": "교과서엔 없는 역사",
+ "channel_id": "UCSzI6kWNoUIg5CYqIpn3nJg",
+ "subs": 38100,
+ "views": 139191,
+ "ratio": 3.65,
+ "age_days": 159,
+ "views_per_day": 875.4,
+ "minutes": 1.3,
+ "seconds": 76,
+ "likes": 974,
+ "comments": 42,
+ "published": "2026-05-11",
+ "published_at": "2026-05-11T22:00:49Z",
+ "queries": "검색:병자호란",
+ "url": "https://www.youtube.com/shorts/lgcnjC27fPw",
+ "flag": "",
+ "short_basis": "세로·정사각",
+ "hashtags": [
+  "역사",
+  "한국사",
+  "병자호란",
+  "인조",
+  "홍이포",
+  "남한산성",
+  "청나라",
+  "조선시대",
+  "삼전도의굴욕",
+  "전쟁사",
+  "국제관계",
+  "군사무기",
+  "역사이야기",
+  "koreanhistory",
+  "조선왕조"
+ ],
+ "rank": "S489",
+ "set": "web_shorts",
+ "folder": "S_lgcnjC27fPw",
+ "sources": [
+  "검색:병자호란"
+ ],
+ "source": "web_shorts",
+ "tags": [
+  "역사",
+  "한국사",
+  "병자호란",
+  "인조",
+  "홍이포",
+  "남한산성",
+  "청나라",
+  "조선시대",
+  "삼전도의 굴욕",
+  "전쟁사",
+  "조선시대 전쟁",
+  "인조의 항복",
+  "군사 무기",
+  "대포 역사",
+  "홍이포 위력",
+  "남한산성 전투",
+  "국제정세",
+  "조선왕조",
+  "역사 이야기",
+  "한국사 채널"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인조를 공포에 떨게 한 대포의 정체는?"
+  },
+  {
+   "start": 4,
+   "title": "병자호란 발발: 남한산성에 갇힌 인조"
+  },
+  {
+   "start": 13,
+   "title": "성 밖에서 울려 퍼진 굉음의 정체"
+  },
+  {
+   "start": 20,
+   "title": "유럽에서 온 '붉은 오랑캐의 포', 홍이포"
+  },
+  {
+   "start": 39,
+   "title": "누르하치 군대도 박살낸 홍이포의 위력"
+  },
+  {
+   "start": 44,
+   "title": "명나라에서 청나라로 넘어간 대포 기술"
+  },
+  {
+   "start": 58,
+   "title": "남한산성을 강타한 홍이포의 위협"
+  },
+  {
+   "start": 69,
+   "title": "삼전도의 굴욕, 인조의 항복"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 42,
+ "comments_top_level": 33,
+ "comments_replies": 9,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 42,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:58:59",
+ "approved": "2026-10-18T16:58+09:00",
+ "kind": "shorts",
+ "embed_w": 4608,
+ "embed_h": 8192,
+ "cover": "oar2.jpg"
+}

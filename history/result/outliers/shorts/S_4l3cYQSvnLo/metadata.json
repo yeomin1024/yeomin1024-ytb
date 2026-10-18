@@ -1,0 +1,116 @@
+{
+ "id": "4l3cYQSvnLo",
+ "title": "이순신 장군이 끝까지 믿은 또 한 명의 이순신 #한국사 #무의공이순신 #글로비TV",
+ "channel": "글로비TV",
+ "channel_id": "UCgHdo0n36I5s62G7TNdSnMw",
+ "subs": 28000,
+ "views": 103693,
+ "ratio": 3.7,
+ "age_days": 13,
+ "views_per_day": 7976.4,
+ "minutes": 2.9,
+ "seconds": 172,
+ "likes": 4361,
+ "comments": 45,
+ "published": "2026-10-05",
+ "published_at": "2026-10-05T06:22:15Z",
+ "queries": "검색:한국사",
+ "url": "https://www.youtube.com/shorts/4l3cYQSvnLo",
+ "flag": "",
+ "short_basis": "세로·정사각",
+ "hashtags": [
+  "한국사",
+  "무의공이순신",
+  "글로비tv",
+  "이순신",
+  "충무공",
+  "임진왜란",
+  "노량해전",
+  "난중일기",
+  "조선수군",
+  "판옥선",
+  "백의종군",
+  "동명이인",
+  "역사이야기",
+  "감동실화",
+  "국뽕",
+  "광명"
+ ],
+ "rank": "S488",
+ "set": "web_shorts",
+ "folder": "S_4l3cYQSvnLo",
+ "sources": [
+  "검색:한국사"
+ ],
+ "source": "web_shorts",
+ "tags": [
+  "#한국사",
+  "#무의공이순신",
+  "#글로비TV",
+  "#이순신",
+  "#충무공",
+  "#임진왜란",
+  "#노량해전",
+  "#난중일기",
+  "#조선수군",
+  "#판옥선",
+  "#백의종군",
+  "#동명이인",
+  "#역사이야기",
+  "#감동실화",
+  "#국뽕",
+  "#광명"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "노량 바다, 쓰러진 충무공 곁의 또 한 명의 이순신"
+  },
+  {
+   "start": 20,
+   "title": "같은 이름, 다른 한자와 왕실의 피"
+  },
+  {
+   "start": 35,
+   "title": "최악의 첫 만남, 곤장과 화살"
+  },
+  {
+   "start": 59,
+   "title": "반전, 해전마다 선봉에 선 장수"
+  },
+  {
+   "start": 93,
+   "title": "난중일기에 140번 기록된 이름"
+  },
+  {
+   "start": 105,
+   "title": "옥문을 나선 날, 술병째 찾아온 사람"
+  },
+  {
+   "start": 135,
+   "title": "노량, 충무공의 빈자리를 이은 사람"
+  },
+  {
+   "start": 156,
+   "title": "광명역 곁에 잠든 장군과 이름에 담긴 믿음"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 45,
+ "comments_top_level": 43,
+ "comments_replies": 2,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 45,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:58:58",
+ "approved": "2026-10-18T16:58+09:00",
+ "kind": "shorts",
+ "embed_w": 4608,
+ "embed_h": 8192,
+ "cover": "oar2.jpg"
+}

@@ -1,0 +1,124 @@
+{
+ "id": "gyUqg5iWq70",
+ "title": "하극상으로 왕을 능멸한 장군들의 최후",
+ "channel": "교과서엔 없는 역사",
+ "channel_id": "UCSzI6kWNoUIg5CYqIpn3nJg",
+ "subs": 38100,
+ "views": 480882,
+ "ratio": 12.62,
+ "age_days": 28,
+ "views_per_day": 17174.4,
+ "minutes": 1.3,
+ "seconds": 80,
+ "likes": 3595,
+ "comments": 165,
+ "published": "2026-09-19",
+ "published_at": "2026-09-19T22:00:15Z",
+ "queries": "검색:역사채널 | 검색:고려 | 검색:한국사",
+ "url": "https://www.youtube.com/shorts/gyUqg5iWq70",
+ "flag": "",
+ "short_basis": "세로·정사각",
+ "hashtags": [
+  "역사",
+  "한국사",
+  "고려",
+  "고려시대",
+  "현종",
+  "김훈최질의난",
+  "무신정변",
+  "고려왕조",
+  "왕권강화",
+  "무신반란",
+  "하극상",
+  "역사이야기",
+  "역사채널",
+  "궁중암투"
+ ],
+ "rank": "S370",
+ "set": "web_shorts",
+ "folder": "S_gyUqg5iWq70",
+ "sources": [
+  "검색:역사채널",
+  "검색:고려",
+  "검색:한국사"
+ ],
+ "source": "web_shorts",
+ "tags": [
+  "역사",
+  "한국사",
+  "고려",
+  "고려시대",
+  "현종",
+  "김훈 최질의 난",
+  "김훈 최질",
+  "무신정변",
+  "무신정권",
+  "고려 왕조",
+  "고려 역사",
+  "왕권 강화",
+  "쿠데타",
+  "반란",
+  "하극상",
+  "역사 채널",
+  "역사 이야기",
+  "고려 전쟁",
+  "거란 침략",
+  "고려 무신"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "고려 현종, 하극상을 겪다"
+  },
+  {
+   "start": 8,
+   "title": "거란 침략 후 고려의 위기"
+  },
+  {
+   "start": 18,
+   "title": "무신들의 땅을 탐낸 문신들"
+  },
+  {
+   "start": 26,
+   "title": "김훈과 최질, 궁궐 장악"
+  },
+  {
+   "start": 40,
+   "title": "현종의 굴복과 무신정권 시작"
+  },
+  {
+   "start": 48,
+   "title": "현종의 은밀한 반격 준비"
+  },
+  {
+   "start": 51,
+   "title": "죽음의 잔치, 장락궁 연회"
+  },
+  {
+   "start": 62,
+   "title": "반란군 장수들의 비참한 최후"
+  },
+  {
+   "start": 71,
+   "title": "칼로 얻은 권력, 술로 끝나다"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 165,
+ "comments_top_level": 97,
+ "comments_replies": 68,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 165,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:56:09",
+ "approved": "2026-10-18T16:56+09:00",
+ "kind": "shorts",
+ "embed_w": 4608,
+ "embed_h": 8192,
+ "cover": "oar2.jpg"
+}

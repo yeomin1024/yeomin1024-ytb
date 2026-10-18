@@ -1,0 +1,123 @@
+{
+ "id": "9mLKCR35dqI",
+ "title": "임진왜란 일본 장수 중 가장 비참하게 끝난 사람",
+ "channel": "교과서엔 없는 역사",
+ "channel_id": "UCSzI6kWNoUIg5CYqIpn3nJg",
+ "subs": 38100,
+ "views": 1017080,
+ "ratio": 26.7,
+ "age_days": 140,
+ "views_per_day": 7264.9,
+ "minutes": 1.4,
+ "seconds": 85,
+ "likes": 13266,
+ "comments": 373,
+ "published": "2026-05-30",
+ "published_at": "2026-05-30T12:00:01Z",
+ "queries": "검색:임진왜란",
+ "url": "https://www.youtube.com/shorts/9mLKCR35dqI",
+ "flag": "",
+ "short_basis": "세로·정사각",
+ "hashtags": [
+  "역사",
+  "한국사",
+  "임진왜란",
+  "일본장수",
+  "고니시유키나가",
+  "구루시마미치후사",
+  "우키타히데이에",
+  "세키가하라전투",
+  "명량해전",
+  "이순신",
+  "조선시대",
+  "일본역사",
+  "전쟁사",
+  "비극적최후",
+  "역사인물"
+ ],
+ "rank": "S266",
+ "set": "web_shorts",
+ "folder": "S_9mLKCR35dqI",
+ "sources": [
+  "검색:임진왜란"
+ ],
+ "source": "web_shorts",
+ "tags": [
+  "역사",
+  "한국사",
+  "임진왜란",
+  "임진왜란 일본 장수",
+  "고니시 유키나가",
+  "구루시마 미치후사",
+  "우키타 히데이에",
+  "세키가하라 전투",
+  "명량 해전",
+  "이순신",
+  "일본 장수 비참한 최후",
+  "조선 침략",
+  "도쿠가와 이에야스",
+  "가토 기요마사",
+  "일본 전국시대",
+  "비운의 인물",
+  "역사 이야기",
+  "전쟁사",
+  "역사 콘텐츠",
+  "유튜브 역사"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "조선을 침략한 일본 장수들의 비참한 최후"
+  },
+  {
+   "start": 5,
+   "title": "비참한 최후 3위: 우키타 히데이에"
+  },
+  {
+   "start": 15,
+   "title": "세키가하라 패배 후 태평양 외딴섬 유배"
+  },
+  {
+   "start": 23,
+   "title": "비참한 최후 2위: 구루시마 미치후사"
+  },
+  {
+   "start": 30,
+   "title": "이순신에게 형제 모두 죽임을 당하다"
+  },
+  {
+   "start": 46,
+   "title": "명량대첩 후 적장의 시신을 토막 낸 이유"
+  },
+  {
+   "start": 54,
+   "title": "비참한 최후 1위: 고니시 유키나가"
+  },
+  {
+   "start": 63,
+   "title": "세키가하라 패배와 잔인한 조리돌림"
+  },
+  {
+   "start": 72,
+   "title": "가문이 통째로 사라진 비극적 말로"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 373,
+ "comments_top_level": 233,
+ "comments_replies": 140,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 373,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:52:42",
+ "approved": "2026-10-18T16:52+09:00",
+ "kind": "shorts",
+ "embed_w": 4608,
+ "embed_h": 8192,
+ "cover": "oar2.jpg"
+}

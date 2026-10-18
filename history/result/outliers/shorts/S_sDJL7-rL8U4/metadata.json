@@ -1,0 +1,122 @@
+{
+ "id": "sDJL7-rL8U4",
+ "title": "일본 땅에 고구려라는 이름을 박아버린 사람",
+ "channel": "교과서엔 없는 역사",
+ "channel_id": "UCSzI6kWNoUIg5CYqIpn3nJg",
+ "subs": 38100,
+ "views": 186178,
+ "ratio": 4.89,
+ "age_days": 35,
+ "views_per_day": 5319.4,
+ "minutes": 1.4,
+ "seconds": 87,
+ "likes": 2072,
+ "comments": 65,
+ "published": "2026-09-12",
+ "published_at": "2026-09-12T09:45:20Z",
+ "queries": "검색:역사채널 | 검색:고대사",
+ "url": "https://www.youtube.com/shorts/sDJL7-rL8U4",
+ "flag": "",
+ "short_basis": "세로·정사각",
+ "hashtags": [
+  "역사",
+  "한국사",
+  "고구려",
+  "고약광",
+  "고마군",
+  "일본고구려",
+  "도래인",
+  "사이타마",
+  "고마신사",
+  "한일관계",
+  "고대사",
+  "삼국시대",
+  "역사이야기",
+  "역사채널"
+ ],
+ "rank": "S468",
+ "set": "web_shorts",
+ "folder": "S_sDJL7-rL8U4",
+ "sources": [
+  "검색:역사채널",
+  "검색:고대사"
+ ],
+ "source": "web_shorts",
+ "tags": [
+  "역사",
+  "한국사",
+  "고구려",
+  "고약광",
+  "고마군",
+  "고마신사",
+  "일본",
+  "도래인",
+  "고구려 유민",
+  "고구려 멸망",
+  "사이타마",
+  "한일관계",
+  "삼국시대",
+  "고대사",
+  "일본 고구려",
+  "고구려 후손",
+  "역사 이야기",
+  "고구려의 흔적",
+  "고마노코니키시"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "일본 땅에 고구려를 남긴 자"
+  },
+  {
+   "start": 6,
+   "title": "망국 고구려인의 리더, 고약광"
+  },
+  {
+   "start": 13,
+   "title": "사신으로 일본에 건너간 운명"
+  },
+  {
+   "start": 24,
+   "title": "고국을 잃고 일본에 남다"
+  },
+  {
+   "start": 28,
+   "title": "'고구려 왕' 성을 받다"
+  },
+  {
+   "start": 41,
+   "title": "고구려인들의 집결지, 고마군"
+  },
+  {
+   "start": 58,
+   "title": "황무지를 개척한 고구려 유민"
+  },
+  {
+   "start": 67,
+   "title": "천 년 넘게 이어진 고구려의 혼"
+  },
+  {
+   "start": 70,
+   "title": "고마신사의 신이 된 고약광"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 65,
+ "comments_top_level": 34,
+ "comments_replies": 31,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 65,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:58:37",
+ "approved": "2026-10-18T16:58+09:00",
+ "kind": "shorts",
+ "embed_w": 4608,
+ "embed_h": 8192,
+ "cover": "oar2.jpg"
+}

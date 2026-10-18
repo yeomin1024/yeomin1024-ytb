@@ -1,0 +1,123 @@
+{
+ "id": "pPI56Az2Jmk",
+ "title": "왕건의 개국공신들을 쓸어버린 왕",
+ "channel": "교과서엔 없는 역사",
+ "channel_id": "UCSzI6kWNoUIg5CYqIpn3nJg",
+ "subs": 38100,
+ "views": 370733,
+ "ratio": 9.73,
+ "age_days": 29,
+ "views_per_day": 12783.9,
+ "minutes": 1.6,
+ "seconds": 98,
+ "likes": 3489,
+ "comments": 160,
+ "published": "2026-09-19",
+ "published_at": "2026-09-19T01:00:38Z",
+ "queries": "검색:고려",
+ "url": "https://www.youtube.com/shorts/pPI56Az2Jmk",
+ "flag": "",
+ "short_basis": "세로·정사각",
+ "hashtags": [
+  "역사",
+  "한국사",
+  "고려시대",
+  "광종",
+  "왕건",
+  "노비안검법",
+  "과거제",
+  "피의숙청",
+  "호족",
+  "개혁군주",
+  "고려왕조",
+  "역사공부",
+  "한국사이야기",
+  "고려광종",
+  "역사인물"
+ ],
+ "rank": "S396",
+ "set": "web_shorts",
+ "folder": "S_pPI56Az2Jmk",
+ "sources": [
+  "검색:고려"
+ ],
+ "source": "web_shorts",
+ "tags": [
+  "역사",
+  "한국사",
+  "고려",
+  "고려시대",
+  "광종",
+  "왕건",
+  "노비안검법",
+  "과거제",
+  "개혁군주",
+  "피의숙청",
+  "고려광종",
+  "호족",
+  "고려왕조",
+  "고려역사",
+  "왕권강화",
+  "고려초기",
+  "최승로",
+  "한국사강의",
+  "역사인물",
+  "광종업적"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "왕건 공신 숙청, 그 주인공은?"
+  },
+  {
+   "start": 7,
+   "title": "왕보다 힘이 센 고려의 호족들"
+  },
+  {
+   "start": 21,
+   "title": "7년간 칼을 숨긴 광종의 기다림"
+  },
+  {
+   "start": 24,
+   "title": "노비안검법: 호족 세력을 흔들다"
+  },
+  {
+   "start": 40,
+   "title": "과거제 시행, 신진 세력 등용"
+  },
+  {
+   "start": 47,
+   "title": "피도 눈물도 없는 공신 숙청"
+  },
+  {
+   "start": 65,
+   "title": "최승로의 기록, 살아남은 신하들"
+  },
+  {
+   "start": 74,
+   "title": "독자 연호와 황제 칭호 선언"
+  },
+  {
+   "start": 83,
+   "title": "개혁 군주인가, 잔혹한 숙청자인가"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 160,
+ "comments_top_level": 104,
+ "comments_replies": 56,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 160,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:56:59",
+ "approved": "2026-10-18T16:57+09:00",
+ "kind": "shorts",
+ "embed_w": 4608,
+ "embed_h": 8192,
+ "cover": "oar2.jpg"
+}

@@ -1,0 +1,115 @@
+{
+ "id": "swx9FZQRUC8",
+ "title": "한국사 최악의 매국노",
+ "channel": "교과서엔 없는 역사",
+ "channel_id": "UCSzI6kWNoUIg5CYqIpn3nJg",
+ "subs": 38100,
+ "views": 144335,
+ "ratio": 3.79,
+ "age_days": 122,
+ "views_per_day": 1183.1,
+ "minutes": 1.4,
+ "seconds": 83,
+ "likes": 2390,
+ "comments": 238,
+ "published": "2026-06-18",
+ "published_at": "2026-06-18T02:30:07Z",
+ "queries": "검색:한국사",
+ "url": "https://www.youtube.com/shorts/swx9FZQRUC8",
+ "flag": "",
+ "short_basis": "세로·정사각",
+ "hashtags": [
+  "역사",
+  "한국사",
+  "매국노",
+  "김자점",
+  "홍복원",
+  "연남생",
+  "이완용",
+  "친일파",
+  "나라팔아먹은죄",
+  "역적",
+  "국적",
+  "고구려멸망",
+  "한일병합",
+  "조선시대",
+  "고려시대"
+ ],
+ "rank": "S484",
+ "set": "web_shorts",
+ "folder": "S_swx9FZQRUC8",
+ "sources": [
+  "검색:한국사"
+ ],
+ "source": "web_shorts",
+ "tags": [
+  "역사",
+  "한국사",
+  "매국노",
+  "김자점",
+  "홍복원",
+  "연남생",
+  "이완용",
+  "친일파",
+  "역적",
+  "나라 팔아먹은 사람",
+  "조선시대 매국노",
+  "고려시대 매국노",
+  "고구려 멸망",
+  "한일병합",
+  "이완용 친일",
+  "북벌",
+  "몽골 침략",
+  "역사 속 배신자",
+  "한국사 인물",
+  "역사 교훈"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로: 최악의 매국노는 누구?"
+  },
+  {
+   "start": 4,
+   "title": "4위 김자점: 북벌 계획을 밀고하다"
+  },
+  {
+   "start": 24,
+   "title": "3위 홍복원: 몽골 침략의 앞잡이"
+  },
+  {
+   "start": 39,
+   "title": "2위 연남생: 고구려 멸망의 주범"
+  },
+  {
+   "start": 61,
+   "title": "1위 이완용: 나라를 팔아넘긴 대가"
+  },
+  {
+   "start": 75,
+   "title": "시대를 초월한 그들의 죄악"
+  },
+  {
+   "start": 83,
+   "title": "아웃트로"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 238,
+ "comments_top_level": 186,
+ "comments_replies": 52,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 238,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:58:54",
+ "approved": "2026-10-18T16:58+09:00",
+ "kind": "shorts",
+ "embed_w": 4608,
+ "embed_h": 8192,
+ "cover": "oar2.jpg"
+}

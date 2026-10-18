@@ -1,0 +1,120 @@
+{
+ "id": "1T524jiv9nU",
+ "title": "주자의 후손 15만 명이 한국에 사는 이유",
+ "channel": "교과서엔 없는 역사",
+ "channel_id": "UCSzI6kWNoUIg5CYqIpn3nJg",
+ "subs": 38100,
+ "views": 163457,
+ "ratio": 4.29,
+ "age_days": 29,
+ "views_per_day": 5636.4,
+ "minutes": 1.5,
+ "seconds": 91,
+ "likes": 2451,
+ "comments": 170,
+ "published": "2026-09-18",
+ "published_at": "2026-09-18T10:15:26Z",
+ "queries": "검색:한국사이야기",
+ "url": "https://www.youtube.com/shorts/1T524jiv9nU",
+ "flag": "",
+ "short_basis": "세로·정사각",
+ "hashtags": [
+  "역사",
+  "한국사",
+  "주자",
+  "성리학",
+  "주자학",
+  "고려시대",
+  "조선시대",
+  "신안주씨",
+  "주잠",
+  "주열",
+  "충렬왕",
+  "성씨",
+  "본관",
+  "역사인물",
+  "문화사"
+ ],
+ "rank": "S478",
+ "set": "web_shorts",
+ "folder": "S_1T524jiv9nU",
+ "sources": [
+  "검색:한국사이야기"
+ ],
+ "source": "web_shorts",
+ "tags": [
+  "역사",
+  "한국사",
+  "주자",
+  "성리학",
+  "주자학",
+  "고려",
+  "조선",
+  "고려시대",
+  "조선시대",
+  "신안 주씨",
+  "주잠",
+  "주열",
+  "고려왕조",
+  "충렬왕",
+  "몽골 침입",
+  "성씨",
+  "본관",
+  "한국 가문",
+  "역사 인물",
+  "문화사",
+  "인물사"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "주자 후손 15만, 한국에 사는 이유"
+  },
+  {
+   "start": 8,
+   "title": "고려로 온 주자 증손자, 주잠"
+  },
+  {
+   "start": 12,
+   "title": "조선을 움직인 성리학의 힘"
+  },
+  {
+   "start": 21,
+   "title": "주잠은 왜 고려로 망명했나?"
+  },
+  {
+   "start": 40,
+   "title": "몽골의 압박, 숨어든 주잠"
+  },
+  {
+   "start": 50,
+   "title": "망명자의 손자, 고려의 재상이 되다"
+  },
+  {
+   "start": 60,
+   "title": "충렬왕이 인정한 주열의 인품"
+  },
+  {
+   "start": 73,
+   "title": "신안 주씨, 한국의 명문가로"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 170,
+ "comments_top_level": 115,
+ "comments_replies": 55,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 170,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:58:47",
+ "approved": "2026-10-18T16:58+09:00",
+ "kind": "shorts",
+ "embed_w": 4608,
+ "embed_h": 8192,
+ "cover": "oar2.jpg"
+}

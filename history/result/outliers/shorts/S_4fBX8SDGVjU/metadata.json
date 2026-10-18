@@ -1,0 +1,116 @@
+{
+ "id": "4fBX8SDGVjU",
+ "title": "한국사에서 가장 치욕을 당한 왕",
+ "channel": "교과서엔 없는 역사",
+ "channel_id": "UCSzI6kWNoUIg5CYqIpn3nJg",
+ "subs": 38100,
+ "views": 448886,
+ "ratio": 11.78,
+ "age_days": 160,
+ "views_per_day": 2805.5,
+ "minutes": 1.2,
+ "seconds": 74,
+ "likes": 4352,
+ "comments": 851,
+ "published": "2026-05-10",
+ "published_at": "2026-05-10T22:15:00Z",
+ "queries": "검색:한국사",
+ "url": "https://www.youtube.com/shorts/4fBX8SDGVjU",
+ "flag": "",
+ "short_basis": "세로·정사각",
+ "hashtags": [
+  "역사",
+  "한국사",
+  "치욕의왕",
+  "조선",
+  "백제",
+  "신라",
+  "인조",
+  "의자왕",
+  "경애왕",
+  "성왕",
+  "삼전도의굴욕",
+  "병자호란",
+  "관산성전투",
+  "후삼국시대",
+  "역사공부",
+  "역사이야기"
+ ],
+ "rank": "S378",
+ "set": "web_shorts",
+ "folder": "S_4fBX8SDGVjU",
+ "sources": [
+  "검색:한국사"
+ ],
+ "source": "web_shorts",
+ "tags": [
+  "역사",
+  "한국사",
+  "치욕의 왕",
+  "굴욕",
+  "비극",
+  "인조",
+  "의자왕",
+  "경애왕",
+  "성왕",
+  "조선시대",
+  "백제시대",
+  "신라시대",
+  "후삼국시대",
+  "삼전도의 굴욕",
+  "병자호란",
+  "백제 멸망",
+  "관산성 전투",
+  "견훤",
+  "고도",
+  "한국사 이야기"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "한국사, 가장 치욕적인 왕들의 기록"
+  },
+  {
+   "start": 4,
+   "title": "4위: 굴욕의 상징, 인조의 삼전도"
+  },
+  {
+   "start": 15,
+   "title": "3위: 백제와 함께 무너진 의자왕"
+  },
+  {
+   "start": 24,
+   "title": "인조 vs 의자왕, 치욕의 차이점"
+  },
+  {
+   "start": 29,
+   "title": "2위: 견훤에게 유린당한 경애왕"
+  },
+  {
+   "start": 47,
+   "title": "1위: 노비 손에 죽임을 당한 백제 성왕"
+  },
+  {
+   "start": 61,
+   "title": "왕의 목을 노비에게 맡길 수 없사옵니다"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 851,
+ "comments_top_level": 334,
+ "comments_replies": 517,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 851,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:56:19",
+ "approved": "2026-10-18T16:56+09:00",
+ "kind": "shorts",
+ "embed_w": 4608,
+ "embed_h": 8192,
+ "cover": "oar2.jpg"
+}

@@ -1,0 +1,119 @@
+{
+ "id": "A5Se9Svizvk",
+ "title": "장수왕에게 살해당한 중국 황제",
+ "channel": "교과서엔 없는 역사",
+ "channel_id": "UCSzI6kWNoUIg5CYqIpn3nJg",
+ "subs": 38100,
+ "views": 172552,
+ "ratio": 4.53,
+ "age_days": 33,
+ "views_per_day": 5228.8,
+ "minutes": 1.6,
+ "seconds": 94,
+ "likes": 2314,
+ "comments": 160,
+ "published": "2026-09-14",
+ "published_at": "2026-09-14T22:00:29Z",
+ "queries": "검색:역사채널",
+ "url": "https://www.youtube.com/shorts/A5Se9Svizvk",
+ "flag": "",
+ "short_basis": "세로·정사각",
+ "hashtags": [
+  "역사",
+  "한국사",
+  "고구려",
+  "장수왕",
+  "풍홍",
+  "북연",
+  "북위",
+  "유송",
+  "중국",
+  "삼국시대",
+  "고구려외교",
+  "동아시아사",
+  "왕권",
+  "국제관계",
+  "역사채널"
+ ],
+ "rank": "S475",
+ "set": "web_shorts",
+ "folder": "S_A5Se9Svizvk",
+ "sources": [
+  "검색:역사채널"
+ ],
+ "source": "web_shorts",
+ "tags": [
+  "역사",
+  "한국사",
+  "고구려",
+  "장수왕",
+  "풍홍",
+  "북연",
+  "북위",
+  "유송",
+  "중국 황제",
+  "고구려 왕",
+  "삼국시대",
+  "고구려 외교",
+  "동아시아 역사",
+  "국제 관계",
+  "역사 이야기",
+  "한국 고대사",
+  "북연 멸망",
+  "고구려 전성기",
+  "왕권",
+  "고구려 위상"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "장수왕에게 죽임을 당한 황제는?"
+  },
+  {
+   "start": 5,
+   "title": "북연 황제 풍홍, 고구려에 구원 요청"
+  },
+  {
+   "start": 24,
+   "title": "장수왕, 풍홍과 백성을 구출하다"
+  },
+  {
+   "start": 37,
+   "title": "망명지에서 황제 행세한 풍홍"
+  },
+  {
+   "start": 53,
+   "title": "분노한 장수왕, 풍홍을 압박하다"
+  },
+  {
+   "start": 62,
+   "title": "풍홍, 송나라에 구원을 청하다"
+  },
+  {
+   "start": 74,
+   "title": "장수왕의 선택: 풍홍 처형"
+  },
+  {
+   "start": 83,
+   "title": "중국 황제의 운명을 결정한 왕"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 160,
+ "comments_top_level": 108,
+ "comments_replies": 52,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 160,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:58:44",
+ "approved": "2026-10-18T16:58+09:00",
+ "kind": "shorts",
+ "embed_w": 4608,
+ "embed_h": 8192,
+ "cover": "oar2.jpg"
+}

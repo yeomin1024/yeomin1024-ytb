@@ -1,0 +1,119 @@
+{
+ "id": "wcEswRdNvuM",
+ "title": "임진왜란으로 명나라에서 건너온 성씨들",
+ "channel": "교과서엔 없는 역사",
+ "channel_id": "UCSzI6kWNoUIg5CYqIpn3nJg",
+ "subs": 38100,
+ "views": 1297310,
+ "ratio": 34.05,
+ "age_days": 167,
+ "views_per_day": 7768.3,
+ "minutes": 1.4,
+ "seconds": 83,
+ "likes": 8750,
+ "comments": 537,
+ "published": "2026-05-03",
+ "published_at": "2026-05-03T10:30:28Z",
+ "queries": "검색:임진왜란 | 검색:명나라",
+ "url": "https://www.youtube.com/shorts/wcEswRdNvuM",
+ "flag": "",
+ "short_basis": "세로·정사각",
+ "hashtags": [
+  "역사",
+  "한국사",
+  "임진왜란",
+  "정유재란",
+  "명나라",
+  "조선",
+  "성씨",
+  "귀화성씨",
+  "한국성씨",
+  "강음단씨",
+  "광동진씨",
+  "두릉두씨",
+  "영양천씨",
+  "이순신",
+  "진린",
+  "두사충",
+  "천만리"
+ ],
+ "rank": "S236",
+ "set": "web_shorts",
+ "folder": "S_wcEswRdNvuM",
+ "sources": [
+  "검색:임진왜란",
+  "검색:명나라"
+ ],
+ "source": "web_shorts",
+ "tags": [
+  "역사",
+  "한국사",
+  "임진왜란",
+  "정유재란",
+  "명나라",
+  "조선",
+  "성씨",
+  "귀화성씨",
+  "한국 성씨",
+  "강음 단씨",
+  "광동 진씨",
+  "두릉 두씨",
+  "영양 천씨",
+  "이순신",
+  "진린",
+  "두사충",
+  "천만리",
+  "임진왜란 인물",
+  "조선시대 인물",
+  "역사 이야기",
+  "성씨 본관"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "임진왜란, 조선으로 온 명의 흔적들"
+  },
+  {
+   "start": 5,
+   "title": "후손으로 본 명나라 성씨 순위는?"
+  },
+  {
+   "start": 9,
+   "title": "4위 강음 단씨: 정유재란과 한반도 정착"
+  },
+  {
+   "start": 29,
+   "title": "3위 광동 진씨: 이순신 장군과 함께한 진린"
+  },
+  {
+   "start": 46,
+   "title": "진린의 손자가 조선으로 망명한 이유"
+  },
+  {
+   "start": 64,
+   "title": "2위 두릉 두씨: 두보 후손, 대구의 대명동"
+  },
+  {
+   "start": 94,
+   "title": "1위 영양 천씨: 10만 후손, 전장을 누빈 천만리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 537,
+ "comments_top_level": 267,
+ "comments_replies": 270,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 537,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:51:48",
+ "approved": "2026-10-18T16:51+09:00",
+ "kind": "shorts",
+ "embed_w": 4608,
+ "embed_h": 8192,
+ "cover": "oar2.jpg"
+}

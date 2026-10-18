@@ -1,0 +1,120 @@
+{
+ "id": "JyVbYYgL2e0",
+ "title": "명나라 황제가 직접 잡아오라고 한 조선의 신하",
+ "channel": "교과서엔 없는 역사",
+ "channel_id": "UCSzI6kWNoUIg5CYqIpn3nJg",
+ "subs": 38100,
+ "views": 114498,
+ "ratio": 3.01,
+ "age_days": 137,
+ "views_per_day": 835.8,
+ "minutes": 1.5,
+ "seconds": 90,
+ "likes": 1448,
+ "comments": 144,
+ "published": "2026-06-02",
+ "published_at": "2026-06-02T12:45:29Z",
+ "queries": "검색:역사채널 | 검색:명나라",
+ "url": "https://www.youtube.com/shorts/JyVbYYgL2e0",
+ "flag": "",
+ "short_basis": "세로·정사각",
+ "hashtags": [
+  "역사",
+  "한국사",
+  "정도전",
+  "주원장",
+  "명나라",
+  "조선건국",
+  "요동정벌",
+  "왕자의난",
+  "이방원",
+  "조선초기",
+  "조선외교",
+  "동양사",
+  "역사인물",
+  "역사이야기",
+  "역사채널"
+ ],
+ "rank": "S500",
+ "set": "web_shorts",
+ "folder": "S_JyVbYYgL2e0",
+ "sources": [
+  "검색:역사채널",
+  "검색:명나라"
+ ],
+ "source": "web_shorts",
+ "tags": [
+  "역사",
+  "한국사",
+  "조선시대",
+  "정도전",
+  "명나라",
+  "주원장",
+  "이방원",
+  "왕자의 난",
+  "요동 정벌",
+  "조선 건국",
+  "조선 초기",
+  "태조 이성계",
+  "홍무제",
+  "명 태조",
+  "표전문 사건",
+  "정도전 요동",
+  "정도전 죽음",
+  "유튜브 역사",
+  "역사 드라마",
+  "조선 역사"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "명 황제가 지목한 조선의 신하"
+  },
+  {
+   "start": 4,
+   "title": "조선 설계자, 정도전의 등장"
+  },
+  {
+   "start": 8,
+   "title": "의심병 황제 주원장의 심기"
+  },
+  {
+   "start": 19,
+   "title": "황제 모독 죄, 그 표면적 이유"
+  },
+  {
+   "start": 34,
+   "title": "진짜 목표는 글이 아닌 정도전"
+  },
+  {
+   "start": 43,
+   "title": "정도전의 반격: 요동 정벌 계획"
+  },
+  {
+   "start": 64,
+   "title": "요동 정벌의 좌절과 내부 갈등"
+  },
+  {
+   "start": 74,
+   "title": "이방원의 칼, 정도전의 최후"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 144,
+ "comments_top_level": 64,
+ "comments_replies": 80,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 144,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:59:08",
+ "approved": "2026-10-18T16:59+09:00",
+ "kind": "shorts",
+ "embed_w": 4608,
+ "embed_h": 8192,
+ "cover": "oar2.jpg"
+}

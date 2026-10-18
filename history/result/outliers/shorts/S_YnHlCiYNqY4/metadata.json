@@ -1,0 +1,123 @@
+{
+ "id": "YnHlCiYNqY4",
+ "title": "6.25 직전 북한, 중국, 소련이 그린 그림",
+ "channel": "교과서엔 없는 역사",
+ "channel_id": "UCSzI6kWNoUIg5CYqIpn3nJg",
+ "subs": 38100,
+ "views": 275878,
+ "ratio": 7.24,
+ "age_days": 111,
+ "views_per_day": 2485.4,
+ "minutes": 1.3,
+ "seconds": 80,
+ "likes": 3735,
+ "comments": 191,
+ "published": "2026-06-28",
+ "published_at": "2026-06-28T09:00:31Z",
+ "queries": "검색:한국역사",
+ "url": "https://www.youtube.com/shorts/YnHlCiYNqY4",
+ "flag": "",
+ "short_basis": "세로·정사각",
+ "hashtags": [
+  "역사",
+  "한국사",
+  "625전쟁",
+  "한국전쟁",
+  "김일성",
+  "스탈린",
+  "마오쩌둥",
+  "북한",
+  "소련",
+  "중국",
+  "적화통일",
+  "38선",
+  "냉전",
+  "현대사",
+  "전쟁발발"
+ ],
+ "rank": "S421",
+ "set": "web_shorts",
+ "folder": "S_YnHlCiYNqY4",
+ "sources": [
+  "검색:한국역사"
+ ],
+ "source": "web_shorts",
+ "tags": [
+  "역사",
+  "한국사",
+  "6.25",
+  "한국전쟁",
+  "김일성",
+  "스탈린",
+  "마오쩌둥",
+  "북한",
+  "소련",
+  "중국",
+  "적화통일",
+  "38선",
+  "이승만",
+  "남로당",
+  "전쟁 발발",
+  "국제 관계",
+  "냉전 시대",
+  "현대사",
+  "군사 전략",
+  "한반도"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "6.25 전쟁, 누가 설계했는가?"
+  },
+  {
+   "start": 5,
+   "title": "김일성, 스탈린과 마오쩌둥의 승인"
+  },
+  {
+   "start": 9,
+   "title": "1개월 적화통일: 남로당 봉기 믿음"
+  },
+  {
+   "start": 19,
+   "title": "소련과 중국의 역할 분담"
+  },
+  {
+   "start": 26,
+   "title": "3단계 시나리오, 전쟁의 서막"
+  },
+  {
+   "start": 31,
+   "title": "1단계: 38선 병력 집결"
+  },
+  {
+   "start": 42,
+   "title": "2단계: 위장 평화통일 제안"
+  },
+  {
+   "start": 62,
+   "title": "3단계: 거절하면 침공!"
+  },
+  {
+   "start": 72,
+   "title": "빗나간 그림, 남로당 봉기 실패"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 191,
+ "comments_top_level": 133,
+ "comments_replies": 58,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 191,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:57:41",
+ "approved": "2026-10-18T16:57+09:00",
+ "kind": "shorts",
+ "embed_w": 4608,
+ "embed_h": 8192,
+ "cover": "oar2.jpg"
+}

@@ -1,0 +1,115 @@
+{
+ "id": "Y3Xg5fyZHFM",
+ "title": "아직도 아무도 못 읽는 문자 순위",
+ "channel": "교과서엔 없는 역사",
+ "channel_id": "UCSzI6kWNoUIg5CYqIpn3nJg",
+ "subs": 38100,
+ "views": 379296,
+ "ratio": 9.96,
+ "age_days": 84,
+ "views_per_day": 4515.4,
+ "minutes": 1.4,
+ "seconds": 86,
+ "likes": 3054,
+ "comments": 77,
+ "published": "2026-07-26",
+ "published_at": "2026-07-26T04:15:16Z",
+ "queries": "검색:고대문명",
+ "url": "https://www.youtube.com/shorts/Y3Xg5fyZHFM",
+ "flag": "",
+ "short_basis": "세로·정사각",
+ "hashtags": [
+  "역사",
+  "세계사",
+  "미해독문자",
+  "고대문명",
+  "인더스문자",
+  "롱고롱고",
+  "이스터섬",
+  "선문자a",
+  "미노아문명",
+  "크레타섬",
+  "보이니치필사본",
+  "암호",
+  "고대언어",
+  "문자학",
+  "미스터리"
+ ],
+ "rank": "S393",
+ "set": "web_shorts",
+ "folder": "S_Y3Xg5fyZHFM",
+ "sources": [
+  "검색:고대문명"
+ ],
+ "source": "web_shorts",
+ "tags": [
+  "역사",
+  "세계사",
+  "미해독 문자",
+  "고대 문자",
+  "인류 역사",
+  "인더스 문자",
+  "파키스탄",
+  "인도",
+  "고대 문명",
+  "롱고롱고",
+  "이스터섬",
+  "사라진 문자",
+  "미노아 문명",
+  "선문자A",
+  "선문자B",
+  "크레타섬",
+  "보이니치 필사본",
+  "암호",
+  "미스터리",
+  "고대 언어"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인류가 100년 넘게 못 읽은 문자들"
+  },
+  {
+   "start": 5,
+   "title": "4위: 문장 없는 침묵, 인더스 문자"
+  },
+  {
+   "start": 21,
+   "title": "3위: 사라진 해독자, 이스터섬 롱고롱고"
+  },
+  {
+   "start": 41,
+   "title": "2위: 해독된 형제, 미궁 속 선문자A"
+  },
+  {
+   "start": 63,
+   "title": "1위: 암호학의 성배, 보이니치 필사본"
+  },
+  {
+   "start": 77,
+   "title": "당대 최고의 암호 전문가들도 포기"
+  },
+  {
+   "start": 82,
+   "title": "과연 보이니치 필사본은 진짜 암호일까?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 77,
+ "comments_top_level": 51,
+ "comments_replies": 26,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 77,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:56:55",
+ "approved": "2026-10-18T16:56+09:00",
+ "kind": "shorts",
+ "embed_w": 4608,
+ "embed_h": 8192,
+ "cover": "oar2.jpg"
+}

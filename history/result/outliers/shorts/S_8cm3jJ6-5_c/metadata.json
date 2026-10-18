@@ -1,0 +1,115 @@
+{
+ "id": "8cm3jJ6-5_c",
+ "title": "신라의 수도 경주는 얼마나 부자였을까",
+ "channel": "교과서엔 없는 역사",
+ "channel_id": "UCSzI6kWNoUIg5CYqIpn3nJg",
+ "subs": 38100,
+ "views": 323026,
+ "ratio": 8.48,
+ "age_days": 156,
+ "views_per_day": 2070.7,
+ "minutes": 1.2,
+ "seconds": 75,
+ "likes": 3393,
+ "comments": 346,
+ "published": "2026-05-15",
+ "published_at": "2026-05-15T04:45:01Z",
+ "queries": "검색:고대사",
+ "url": "https://www.youtube.com/shorts/8cm3jJ6-5_c",
+ "flag": "",
+ "short_basis": "세로·정사각",
+ "hashtags": [
+  "역사",
+  "한국사",
+  "신라",
+  "경주",
+  "신라역사",
+  "신라문화",
+  "황금의도시",
+  "실크로드",
+  "금관",
+  "금입택",
+  "고대도시",
+  "문화유산",
+  "고대사",
+  "재미있는역사",
+  "역사이야기"
+ ],
+ "rank": "S409",
+ "set": "web_shorts",
+ "folder": "S_8cm3jJ6-5_c",
+ "sources": [
+  "검색:고대사"
+ ],
+ "source": "web_shorts",
+ "tags": [
+  "역사",
+  "한국사",
+  "신라",
+  "경주",
+  "신라 역사",
+  "경주 역사",
+  "신라 문화",
+  "황금의 도시",
+  "금관",
+  "금입택",
+  "실크로드",
+  "고대 도시",
+  "삼국유사",
+  "신라 경제",
+  "신라 유물",
+  "고대 한국",
+  "한국 고대사",
+  "역사 채널",
+  "한국 고대사 연구",
+  "신라 부자"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "신라 수도 경주는 얼마나 부자였을까?"
+  },
+  {
+   "start": 3,
+   "title": "4위: 실크로드의 끝, 경주 유리잔"
+  },
+  {
+   "start": 19,
+   "title": "3위: 금으로 지은 35채 금입택"
+  },
+  {
+   "start": 31,
+   "title": "2위: 세계 금관 절반이 경주에?"
+  },
+  {
+   "start": 43,
+   "title": "1위: 초가집 없는 거대 황금도시"
+  },
+  {
+   "start": 58,
+   "title": "인구 70만의 압도적인 스케일"
+  },
+  {
+   "start": 66,
+   "title": "동서양을 놀라게 한 신라의 부"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 346,
+ "comments_top_level": 170,
+ "comments_replies": 176,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 346,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:57:20",
+ "approved": "2026-10-18T16:57+09:00",
+ "kind": "shorts",
+ "embed_w": 4608,
+ "embed_h": 8192,
+ "cover": "oar2.jpg"
+}

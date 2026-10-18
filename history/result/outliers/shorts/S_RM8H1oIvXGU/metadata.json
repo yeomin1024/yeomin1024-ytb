@@ -1,0 +1,107 @@
+{
+ "id": "RM8H1oIvXGU",
+ "title": "청나라를 꺾은 프랑스가 조선에서 도망친 이유",
+ "channel": "교과서엔 없는 역사",
+ "channel_id": "UCSzI6kWNoUIg5CYqIpn3nJg",
+ "subs": 38100,
+ "views": 770975,
+ "ratio": 20.24,
+ "age_days": 150,
+ "views_per_day": 5139.8,
+ "minutes": 1.7,
+ "seconds": 102,
+ "likes": 10812,
+ "comments": 286,
+ "published": "2026-05-20",
+ "published_at": "2026-05-20T10:00:29Z",
+ "queries": "검색:한국사이야기",
+ "url": "https://www.youtube.com/shorts/RM8H1oIvXGU",
+ "flag": "",
+ "short_basis": "세로·정사각",
+ "hashtags": [
+  "역사",
+  "한국사",
+  "병인양요",
+  "프랑스",
+  "조선",
+  "양헌수",
+  "정족산성",
+  "강화도",
+  "외규장각",
+  "근대사",
+  "서양세력",
+  "침략",
+  "자주국방",
+  "강화해협",
+  "로즈제독",
+  "흥선대원군"
+ ],
+ "rank": "S308",
+ "set": "web_shorts",
+ "folder": "S_RM8H1oIvXGU",
+ "sources": [
+  "검색:한국사이야기"
+ ],
+ "source": "web_shorts",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "프랑스, 조선에서 도망친 이유?"
+  },
+  {
+   "start": 5,
+   "title": "청나라 정복: 베이징 약탈기"
+  },
+  {
+   "start": 23,
+   "title": "조선 침략: 프랑스군의 등장"
+  },
+  {
+   "start": 32,
+   "title": "강화도 점령과 외규장각 약탈"
+  },
+  {
+   "start": 45,
+   "title": "조선의 영웅, 양헌수 장군"
+  },
+  {
+   "start": 48,
+   "title": "양헌수 장군의 필승 전략"
+  },
+  {
+   "start": 60,
+   "title": "정족산성 기습 작전의 서막"
+  },
+  {
+   "start": 73,
+   "title": "프랑스군을 향한 기습 공격"
+  },
+  {
+   "start": 81,
+   "title": "처참한 프랑스군의 피해"
+  },
+  {
+   "start": 87,
+   "title": "프랑스, 조선에서 전면 철수!"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 286,
+ "comments_top_level": 212,
+ "comments_replies": 74,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 286,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:54:11",
+ "approved": "2026-10-18T16:54+09:00",
+ "kind": "shorts",
+ "embed_w": 4608,
+ "embed_h": 8192,
+ "cover": "oar2.jpg"
+}

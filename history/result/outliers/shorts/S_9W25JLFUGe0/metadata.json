@@ -1,0 +1,115 @@
+{
+ "id": "9W25JLFUGe0",
+ "title": "비참하게 끝난 임진왜란 전쟁영웅",
+ "channel": "교과서엔 없는 역사",
+ "channel_id": "UCSzI6kWNoUIg5CYqIpn3nJg",
+ "subs": 38100,
+ "views": 730853,
+ "ratio": 19.18,
+ "age_days": 168,
+ "views_per_day": 4350.3,
+ "minutes": 1.2,
+ "seconds": 72,
+ "likes": 9486,
+ "comments": 1024,
+ "published": "2026-05-03",
+ "published_at": "2026-05-03T07:30:09Z",
+ "queries": "검색:임진왜란",
+ "url": "https://www.youtube.com/shorts/9W25JLFUGe0",
+ "flag": "",
+ "short_basis": "세로·정사각",
+ "hashtags": [
+  "역사",
+  "한국사",
+  "임진왜란",
+  "전쟁영웅",
+  "곽재우",
+  "정문부",
+  "광해군",
+  "김덕령",
+  "의병",
+  "조선시대",
+  "비극",
+  "영웅들의삶",
+  "잊혀진영웅",
+  "역사인물",
+  "선조"
+ ],
+ "rank": "S318",
+ "set": "web_shorts",
+ "folder": "S_9W25JLFUGe0",
+ "sources": [
+  "검색:임진왜란"
+ ],
+ "source": "web_shorts",
+ "tags": [
+  "역사",
+  "한국사",
+  "임진왜란",
+  "조선시대",
+  "전쟁영웅",
+  "곽재우",
+  "정문부",
+  "광해군",
+  "김덕령",
+  "의병",
+  "선조",
+  "임진왜란 영웅",
+  "비운의 영웅",
+  "조선 의병장",
+  "한국사 인물",
+  "광해군 폐위",
+  "김덕령 고문",
+  "역사 비극",
+  "한국 역사",
+  "임진왜란 비하인드"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "가장 비참한 임진왜란 영웅은?"
+  },
+  {
+   "start": 7,
+   "title": "4위 곽재우: 전 재산 바친 붉은 옷 장군"
+  },
+  {
+   "start": 28,
+   "title": "3위 정문부: 함경도를 되찾았지만..."
+  },
+  {
+   "start": 49,
+   "title": "2위 광해군: 나라 지켰으나 폐위된 세자"
+  },
+  {
+   "start": 72,
+   "title": "1위 김덕령: 나라가 고문하고 죽인 의병장"
+  },
+  {
+   "start": 91,
+   "title": "나라를 지킨 사람을 나라가 죽였다?"
+  },
+  {
+   "start": 95,
+   "title": "실록에 기록된 비극의 교훈"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 1024,
+ "comments_top_level": 766,
+ "comments_replies": 258,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 1024,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:54:24",
+ "approved": "2026-10-18T16:54+09:00",
+ "kind": "shorts",
+ "embed_w": 4608,
+ "embed_h": 8192,
+ "cover": "oar2.jpg"
+}

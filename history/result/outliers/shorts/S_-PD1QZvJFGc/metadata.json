@@ -1,0 +1,123 @@
+{
+ "id": "-PD1QZvJFGc",
+ "title": "원나라 황후의 오빠를 죽여버린 고려 왕",
+ "channel": "교과서엔 없는 역사",
+ "channel_id": "UCSzI6kWNoUIg5CYqIpn3nJg",
+ "subs": 38100,
+ "views": 178024,
+ "ratio": 4.67,
+ "age_days": 32,
+ "views_per_day": 5563.2,
+ "minutes": 1.5,
+ "seconds": 92,
+ "likes": 1787,
+ "comments": 37,
+ "published": "2026-09-15",
+ "published_at": "2026-09-15T22:00:08Z",
+ "queries": "검색:역사채널",
+ "url": "https://www.youtube.com/shorts/-PD1QZvJFGc",
+ "flag": "",
+ "short_basis": "세로·정사각",
+ "hashtags": [
+  "역사",
+  "한국사",
+  "고려",
+  "고려시대",
+  "공민왕",
+  "기황후",
+  "원나라",
+  "홍건적의난",
+  "기철",
+  "쌍성총관부",
+  "최영",
+  "이성계",
+  "고려개혁",
+  "자주외교",
+  "역사이야기"
+ ],
+ "rank": "S471",
+ "set": "web_shorts",
+ "folder": "S_-PD1QZvJFGc",
+ "sources": [
+  "검색:역사채널"
+ ],
+ "source": "web_shorts",
+ "tags": [
+  "역사",
+  "한국사",
+  "고려",
+  "고려시대",
+  "공민왕",
+  "기황후",
+  "기철",
+  "원나라",
+  "원간섭기",
+  "홍건적의 난",
+  "쌍성총관부",
+  "최영",
+  "이성계",
+  "공민왕 개혁",
+  "고려 왕",
+  "고려 역사",
+  "한국 역사",
+  "왕의 이야기",
+  "동아시아 역사",
+  "역사 채널"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "원나라 황후의 오빠를 죽인 고려 왕"
+  },
+  {
+   "start": 13,
+   "title": "고려를 뒤흔든 '고려인 황후'의 오빠"
+  },
+  {
+   "start": 21,
+   "title": "공민왕, 복수의 칼을 갈다"
+  },
+  {
+   "start": 29,
+   "title": "1356년, 피로 물든 궁중 잔치"
+  },
+  {
+   "start": 48,
+   "title": "친원 세력을 일망타진하다"
+  },
+  {
+   "start": 53,
+   "title": "잃어버린 고려 땅을 되찾다"
+  },
+  {
+   "start": 66,
+   "title": "기황후의 처절한 반격"
+  },
+  {
+   "start": 79,
+   "title": "최영-이성계, 고려를 구하다"
+  },
+  {
+   "start": 83,
+   "title": "제국의 압박 속, 고려의 부활"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 37,
+ "comments_top_level": 27,
+ "comments_replies": 10,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 37,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:58:40",
+ "approved": "2026-10-18T16:58+09:00",
+ "kind": "shorts",
+ "embed_w": 4608,
+ "embed_h": 8192,
+ "cover": "oar2.jpg"
+}

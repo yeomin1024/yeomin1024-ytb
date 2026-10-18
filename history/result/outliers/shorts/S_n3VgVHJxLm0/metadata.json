@@ -1,0 +1,115 @@
+{
+ "id": "n3VgVHJxLm0",
+ "title": "인류 역사상 최강의 정예부대 순위",
+ "channel": "교과서엔 없는 역사",
+ "channel_id": "UCSzI6kWNoUIg5CYqIpn3nJg",
+ "subs": 38100,
+ "views": 297384,
+ "ratio": 7.81,
+ "age_days": 71,
+ "views_per_day": 4188.5,
+ "minutes": 1.4,
+ "seconds": 84,
+ "likes": 2011,
+ "comments": 175,
+ "published": "2026-08-07",
+ "published_at": "2026-08-07T09:45:34Z",
+ "queries": "검색:세계사",
+ "url": "https://www.youtube.com/shorts/n3VgVHJxLm0",
+ "flag": "",
+ "short_basis": "세로·정사각",
+ "hashtags": [
+  "역사",
+  "세계사",
+  "군사",
+  "정예부대",
+  "최강부대",
+  "나폴레옹",
+  "근위대",
+  "예니체리",
+  "오스만제국",
+  "스파르타",
+  "몽골",
+  "로마군단",
+  "전쟁사",
+  "고대군대",
+  "밀리터리"
+ ],
+ "rank": "S416",
+ "set": "web_shorts",
+ "folder": "S_n3VgVHJxLm0",
+ "sources": [
+  "검색:세계사"
+ ],
+ "source": "web_shorts",
+ "tags": [
+  "역사",
+  "세계사",
+  "군사",
+  "정예부대",
+  "최강 부대",
+  "나폴레옹 근위대",
+  "나폴레옹",
+  "예니체리",
+  "오스만 예니체리",
+  "스파르타",
+  "스파르타 300",
+  "몽골",
+  "몽골 기병",
+  "로마 군단",
+  "로마",
+  "고대 군대",
+  "중세 군대",
+  "전쟁사",
+  "밀리터리",
+  "최강 병사"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "과연, 인류 역사상 최강의 부대는?"
+  },
+  {
+   "start": 4,
+   "title": "5위: 불굴의 상징, 나폴레옹 근위대"
+  },
+  {
+   "start": 25,
+   "title": "4위: 술탄마저 두렵게 한 오스만 예니체리"
+  },
+  {
+   "start": 42,
+   "title": "3위: 300명으로 수십만을 막아낸 스파르타"
+  },
+  {
+   "start": 56,
+   "title": "2위: 세계를 뒤흔든 몽골 기병대"
+  },
+  {
+   "start": 68,
+   "title": "1위: 지중해 제왕 로마 군단의 위력"
+  },
+  {
+   "start": 79,
+   "title": "시대를 초월한 강인함과 규율"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 175,
+ "comments_top_level": 110,
+ "comments_replies": 65,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 175,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:57:30",
+ "approved": "2026-10-18T16:57+09:00",
+ "kind": "shorts",
+ "embed_w": 4608,
+ "embed_h": 8192,
+ "cover": "oar2.jpg"
+}

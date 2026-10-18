@@ -1,0 +1,118 @@
+{
+ "id": "fv9Zz_ABrwk",
+ "title": "가장 어린 나이에 1만 대군을 지휘한 정복자",
+ "channel": "교과서엔 없는 역사",
+ "channel_id": "UCSzI6kWNoUIg5CYqIpn3nJg",
+ "subs": 38100,
+ "views": 197329,
+ "ratio": 5.18,
+ "age_days": 70,
+ "views_per_day": 2819.0,
+ "minutes": 1.5,
+ "seconds": 90,
+ "likes": 1663,
+ "comments": 78,
+ "published": "2026-08-08",
+ "published_at": "2026-08-08T11:45:32Z",
+ "queries": "검색:전쟁사",
+ "url": "https://www.youtube.com/shorts/fv9Zz_ABrwk",
+ "flag": "",
+ "short_basis": "세로·정사각",
+ "hashtags": [
+  "역사",
+  "세계사",
+  "정복자",
+  "위인",
+  "영웅",
+  "리더십",
+  "알렉산더대왕",
+  "곽거병",
+  "광개토대왕",
+  "샤이스마일",
+  "고대사",
+  "중세사",
+  "전쟁사",
+  "젊은지휘관"
+ ],
+ "rank": "S460",
+ "set": "web_shorts",
+ "folder": "S_fv9Zz_ABrwk",
+ "sources": [
+  "검색:전쟁사"
+ ],
+ "source": "web_shorts",
+ "tags": [
+  "역사",
+  "세계사",
+  "정복자",
+  "위인",
+  "영웅",
+  "리더십",
+  "알렉산더 대왕",
+  "곽거병",
+  "광개토대왕",
+  "샤 이스마일",
+  "마케도니아",
+  "한나라",
+  "고구려",
+  "사파비 왕조",
+  "전쟁사",
+  "젊은 지휘관",
+  "소년 왕",
+  "역사 인물",
+  "고대 역사",
+  "중세 역사"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "어린 나이에 대군을 이끈 정복자 TOP4"
+  },
+  {
+   "start": 7,
+   "title": "4위. 알렉산더, 20세에 왕위에 오르다"
+  },
+  {
+   "start": 16,
+   "title": "테베를 지우고 페르시아로 향한 대왕"
+  },
+  {
+   "start": 25,
+   "title": "3위. 곽거병, 19세에 흉노를 격파하다"
+  },
+  {
+   "start": 38,
+   "title": "겸손함마저 겸비한 천재 장군의 비극"
+  },
+  {
+   "start": 50,
+   "title": "2위. 광개토대왕, 18세에 영토를 확장"
+  },
+  {
+   "start": 62,
+   "title": "독자 연호를 세운 한반도의 정복자"
+  },
+  {
+   "start": 72,
+   "title": "1위. 샤 이스마일, 16세에 사파비 건국"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 78,
+ "comments_top_level": 31,
+ "comments_replies": 47,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 78,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:58:27",
+ "approved": "2026-10-18T16:58+09:00",
+ "kind": "shorts",
+ "embed_w": 4608,
+ "embed_h": 8192,
+ "cover": "oar2.jpg"
+}

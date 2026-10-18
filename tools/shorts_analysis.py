@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.2 — 2026-10-15 — 외국 영상 켜고 끄기 (사용자 지시: "주식은 외국 영상도 다 분석할 건데 확인해봐 on/off 기능(default off) 있는지
+# VERSION: v1.2.1 — 2026-10-18 — 뺀 쇼츠 까닭의 앞말을 주제마다 ([shorts_exclude] LABEL, 없으면 예전 그대로 '돈 이야기 아님') — 역사 쇼츠를 빼면
+#          '돈 이야기 아님 — 드라마·영화 장면'으로 적혀 뜻이 틀려서 (history/analysis_rules.toml v1.4 LABEL = '역사 아님'). 빼는 규칙·숫자는 그대로
+# (v1.2 — 2026-10-15 — 외국 영상 켜고 끄기 (사용자 지시: "주식은 외국 영상도 다 분석할 건데 확인해봐 on/off 기능(default off) 있는지
 #          확인하고 없으면 추가해"): 주제 설정 INCLUDE_FOREIGN(기본 꺼짐)을 켜면 외국 쇼츠도 성공·비교·같은 채널 기준선에 넣음 (success_analysis v1.4
-#          규칙을 그대로 씀) · 쇼츠마다 foreign 표시 · 첫 3초 음절·말 속도(한글 음절)는 한국어 쇼츠만으로 셈 · 한계 글
+#          규칙을 그대로 씀) · 쇼츠마다 foreign 표시 · 첫 3초 음절·말 속도(한글 음절)는 한국어 쇼츠만으로 셈 · 한계 글)
 # (v1.1 — 2026-10-15 — 돈 이야기가 아닌 쇼츠 빼기 · 채널 유형 '모름' 빼고 셈 · 정보 요청이 아닌 댓글 거름 (사용자 지시: "고쳐서 다시 분석해보자"
 #          — 2026-10-15 결과 검토: 성공 쇼츠 103개 중 40여 개가 연예·예능 클립·운세·명언·정치·'노후차' 같은 다른 뜻이라 주제·형식 통계가 흐려짐):
 #          ① [shorts_exclude] (주제마다 analysis_rules.toml — 코드 기본값 없음) 갈래별 정규식: where = text(제목·설명 앞 300자·채널 이름 — 영상 태그는
@@ -60,7 +62,7 @@ from outlier_stats import TITLE_FEATURES                            # noqa: E402
 from weekly_analysis import _published, _write_atomic, clean_description   # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v1.2"
+VERSION = "v1.2.1"
 LOG = logging.getLogger("shorts")
 KST = timezone(timedelta(hours=9))
 SHORTS_DIR = "shorts"
@@ -180,7 +182,8 @@ def load_exclude(d):
             kinds.append({"name": str(k["name"]), "rx": rx, "where": "title" if k.get("where") == "title" else "text",
                           "keep_if_money": bool(k.get("keep_if_money"))})
     videos = {str(k): str(v) for k, v in (d.get("shorts_exclude_videos") or {}).items()}
-    return {"money": _compile(ex.get("MONEY_RX"), "[shorts_exclude] MONEY_RX"), "kinds": kinds, "videos": videos}
+    return {"money": _compile(ex.get("MONEY_RX"), "[shorts_exclude] MONEY_RX"), "kinds": kinds, "videos": videos,
+            "label": str(ex.get("LABEL") or OFF_KIND)}     # v1.2.1 까닭 앞말 (역사 = '역사 아님')
 
 
 HASHTAG_RX = re.compile(r"#\S+")
@@ -193,7 +196,7 @@ def off_kind(x, rules):
     E = rules.get("shorts_exclude") or {}
     why = (E.get("videos") or {}).get(x.get("id"))
     if why:
-        return f"{OFF_KIND} — {why.split('—')[0].strip()}(눈으로 봄: {why})"
+        return f"{E.get('label') or OFF_KIND} — {why.split('—')[0].strip()}(눈으로 봄: {why})"
     title = str(x.get("title") or "")
     text = " | ".join([title, str(x.get("description") or "")[:300], str(x.get("channel") or "")])
     plain = HASHTAG_RX.sub(" ", title)
@@ -203,7 +206,7 @@ def off_kind(x, rules):
             continue
         if k["keep_if_money"] and E.get("money") and E["money"].search(title):     # 해시태그 포함 ('… #복리 #투자' 는 돈 이야기)
             continue
-        return f"{OFF_KIND} — {k['name']}({m.group(0).strip()})"
+        return f"{E.get('label') or OFF_KIND} — {k['name']}({m.group(0).strip()})"
     return ""
 
 

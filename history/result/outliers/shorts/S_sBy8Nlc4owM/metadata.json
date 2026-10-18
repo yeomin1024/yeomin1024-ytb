@@ -1,0 +1,123 @@
+{
+ "id": "sBy8Nlc4owM",
+ "title": "임진왜란 때 조선이 노비들의 두목이라 깔본 사람",
+ "channel": "교과서엔 없는 역사",
+ "channel_id": "UCSzI6kWNoUIg5CYqIpn3nJg",
+ "subs": 38100,
+ "views": 268252,
+ "ratio": 7.04,
+ "age_days": 140,
+ "views_per_day": 1916.1,
+ "minutes": 1.4,
+ "seconds": 82,
+ "likes": 3359,
+ "comments": 395,
+ "published": "2026-05-31",
+ "published_at": "2026-05-31T06:00:29Z",
+ "queries": "검색:임진왜란",
+ "url": "https://www.youtube.com/shorts/sBy8Nlc4owM",
+ "flag": "",
+ "short_basis": "세로·정사각",
+ "hashtags": [
+  "역사",
+  "한국사",
+  "임진왜란",
+  "누르하치",
+  "청나라",
+  "조선",
+  "병자호란",
+  "홍타이지",
+  "후금",
+  "여진족",
+  "만주족",
+  "조선시대",
+  "삼전도",
+  "명나라",
+  "동아시아사"
+ ],
+ "rank": "S423",
+ "set": "web_shorts",
+ "folder": "S_sBy8Nlc4owM",
+ "sources": [
+  "검색:임진왜란"
+ ],
+ "source": "web_shorts",
+ "tags": [
+  "역사",
+  "한국사",
+  "조선",
+  "임진왜란",
+  "누르하치",
+  "청나라",
+  "병자호란",
+  "홍타이지",
+  "후금",
+  "여진족",
+  "만주족",
+  "조선시대",
+  "삼전도",
+  "명나라",
+  "조선 외교",
+  "오랑캐",
+  "역사 이야기",
+  "한국사 채널",
+  "임진왜란 이후",
+  "인조"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "노비 두목이라 깔본 인물은?"
+  },
+  {
+   "start": 4,
+   "title": "천하의 명나라를 끝낸 남자, 누르하치"
+  },
+  {
+   "start": 12,
+   "title": "조선 실록에 기록된 '노추'의 진실"
+  },
+  {
+   "start": 16,
+   "title": "임진왜란, 누르하치는 무엇을 했나?"
+  },
+  {
+   "start": 34,
+   "title": "조선, 오랑캐의 군대는 거절한다!"
+  },
+  {
+   "start": 42,
+   "title": "조선이 싸울 때, 북방의 움직임"
+  },
+  {
+   "start": 50,
+   "title": "후금 건국과 명나라 10만 대군 격파"
+  },
+  {
+   "start": 59,
+   "title": "아들의 복수, 병자호란의 시작"
+  },
+  {
+   "start": 75,
+   "title": "남과 북, 조선을 덮친 두 괴물"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 395,
+ "comments_top_level": 202,
+ "comments_replies": 193,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 395,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:57:44",
+ "approved": "2026-10-18T16:57+09:00",
+ "kind": "shorts",
+ "embed_w": 4608,
+ "embed_h": 8192,
+ "cover": "oar2.jpg"
+}

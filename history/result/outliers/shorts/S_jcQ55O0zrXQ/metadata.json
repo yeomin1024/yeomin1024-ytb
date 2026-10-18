@@ -1,0 +1,119 @@
+{
+ "id": "jcQ55O0zrXQ",
+ "title": "한민족 최고의 난공불락의 성",
+ "channel": "교과서엔 없는 역사",
+ "channel_id": "UCSzI6kWNoUIg5CYqIpn3nJg",
+ "subs": 38100,
+ "views": 341272,
+ "ratio": 8.96,
+ "age_days": 172,
+ "views_per_day": 1984.1,
+ "minutes": 1.4,
+ "seconds": 84,
+ "likes": 2128,
+ "comments": 56,
+ "published": "2026-04-28",
+ "published_at": "2026-04-28T09:45:06Z",
+ "queries": "검색:역사채널",
+ "url": "https://www.youtube.com/shorts/jcQ55O0zrXQ",
+ "flag": "",
+ "short_basis": "세로·정사각",
+ "hashtags": [
+  "역사",
+  "한국사",
+  "삼년산성",
+  "신라",
+  "보은",
+  "산성",
+  "성곽",
+  "난공불락",
+  "고려왕건",
+  "김헌창의난",
+  "후삼국시대",
+  "한국사이야기",
+  "문화유산",
+  "역사채널",
+  "고대한국"
+ ],
+ "rank": "S403",
+ "set": "web_shorts",
+ "folder": "S_jcQ55O0zrXQ",
+ "sources": [
+  "검색:역사채널"
+ ],
+ "source": "web_shorts",
+ "tags": [
+  "삼년산성",
+  "보은 삼년산성",
+  "신라 산성",
+  "난공불락",
+  "한국사",
+  "역사",
+  "신라",
+  "고려",
+  "왕건",
+  "태조 왕건",
+  "김헌창의 난",
+  "후삼국시대",
+  "삼국시대",
+  "성곽",
+  "산성",
+  "한국 성곽",
+  "역사 이야기",
+  "한국 문화유산",
+  "고대사",
+  "역사 채널"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "한민족 최고의 난공불락의 성은?"
+  },
+  {
+   "start": 5,
+   "title": "충북 보은, 삼년산성의 위치"
+  },
+  {
+   "start": 15,
+   "title": "지형을 활용한 천혜의 방어 전략"
+  },
+  {
+   "start": 35,
+   "title": "다른 산성과는 달랐던 성벽 구조"
+  },
+  {
+   "start": 58,
+   "title": "성벽 사다리 공격, 어떻게 막았나?"
+  },
+  {
+   "start": 76,
+   "title": "허를 찌르는 성문 방어의 비밀"
+  },
+  {
+   "start": 84,
+   "title": "장기 포위 공격에도 끄떡없는 이유"
+  },
+  {
+   "start": 99,
+   "title": "삼년산성 함락에 실패한 역사적 인물들"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 56,
+ "comments_top_level": 39,
+ "comments_replies": 17,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 56,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:57:12",
+ "approved": "2026-10-18T16:57+09:00",
+ "kind": "shorts",
+ "embed_w": 4608,
+ "embed_h": 8192,
+ "cover": "oar2.jpg"
+}

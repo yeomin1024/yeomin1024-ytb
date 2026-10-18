@@ -1,0 +1,115 @@
+{
+ "id": "D-mN7KcoHY4",
+ "title": "임진왜란 가장 무능했던 조선 장수",
+ "channel": "교과서엔 없는 역사",
+ "channel_id": "UCSzI6kWNoUIg5CYqIpn3nJg",
+ "subs": 38100,
+ "views": 598180,
+ "ratio": 15.7,
+ "age_days": 169,
+ "views_per_day": 3539.5,
+ "minutes": 1.4,
+ "seconds": 81,
+ "likes": 4084,
+ "comments": 424,
+ "published": "2026-05-02",
+ "published_at": "2026-05-02T04:45:00Z",
+ "queries": "검색:임진왜란 | 검색:명나라",
+ "url": "https://www.youtube.com/shorts/D-mN7KcoHY4",
+ "flag": "",
+ "short_basis": "세로·정사각",
+ "hashtags": [
+  "역사",
+  "한국사",
+  "임진왜란",
+  "조선시대",
+  "무능한장수",
+  "이일",
+  "신립",
+  "원균",
+  "탄금대",
+  "칠천량",
+  "상주성전투",
+  "조선장수",
+  "선조",
+  "이순신"
+ ],
+ "rank": "S346",
+ "set": "web_shorts",
+ "folder": "S_D-mN7KcoHY4",
+ "sources": [
+  "검색:임진왜란",
+  "검색:명나라"
+ ],
+ "source": "web_shorts",
+ "tags": [
+  "역사",
+  "한국사",
+  "조선시대",
+  "임진왜란",
+  "임진왜란 역사",
+  "임진왜란 인물",
+  "무능한 장수",
+  "조선 장수",
+  "이일",
+  "신립",
+  "원균",
+  "상주성 전투",
+  "탄금대 전투",
+  "칠천량 해전",
+  "조선군",
+  "선조",
+  "이순신",
+  "전쟁사",
+  "역사 채널",
+  "역사 이야기"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "임진왜란, 가장 무능했던 조선 장수는?"
+  },
+  {
+   "start": 5,
+   "title": "3위 이일: 백성을 처형하고 도망친 장수"
+  },
+  {
+   "start": 8,
+   "title": "상주성 전투: 화살 한 발 못 쏘고 무너지다"
+  },
+  {
+   "start": 40,
+   "title": "2위 신립: 조령을 비웃은 오만"
+  },
+  {
+   "start": 45,
+   "title": "탄금대 전투: 조선군 8천의 비극"
+  },
+  {
+   "start": 74,
+   "title": "1위 원균: 이순신 함대를 하루 만에..."
+  },
+  {
+   "start": 77,
+   "title": "칠천량 해전: 수군 전멸의 참상"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-18 13:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 424,
+ "comments_top_level": 294,
+ "comments_replies": 130,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 424,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-18T07:55:30",
+ "approved": "2026-10-18T16:55+09:00",
+ "kind": "shorts",
+ "embed_w": 4608,
+ "embed_h": 8192,
+ "cover": "oar2.jpg"
+}

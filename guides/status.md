@@ -146,7 +146,7 @@
   - ✅ **업로드 (2026-10-18, v1.78)**: 롱폼 4편 비공개 + 예약 공개 17:00 KST — ① `HHJlaT0Qxno` 10-19 · ② `0bBHM3EfPng` 10-20 · ③ `pC95I5nH3-I` 10-21 · ④ `W_7JvXxcBjk` 10-22 (STOCK LAB, 합성 콘텐츠 예 — videos.list 는 이 칸을 돌려주지 않음, update 응답으로 확인). 커버드콜 s73 새 오디오 → SRT `--reuse` 다시 · 장면 v1.4.1(문장 찾기 글자) · 음량 −14.21 (loudnorm 8번째에 통과).
   - 자막: ①② 10개 · ③ 5개(es-419·ja·de·vi·tr 남음) · ④ 0개 — **할당량 실측: 영상 4 + 썸네일 4 + 자막 25 에서 끝** (자막 400 단위로 셈한 것보다 많이 들어감). 남은 것은 10-19 16:05 KST 예약 확인 `trig_01YKBUHTKNPRSRGdydjSa2wj` 이 `--captions-only`.
   - 쇼츠: 썸네일 4장(ChatGPT) 오면 → 검수 → 렌더 → 짝 롱폼과 **같은 공개 시각**으로 업로드. ① 쇼츠가 10-19 17:00 전에 안 되면 업로드 규칙대로 롱폼 공개를 하루씩 미룸.
-  - ⏳ 기다림 ① **Kaggle `stock`** — 커버드콜 롱폼 s73 만 patch → `cd video && npm run align-audio -- stock keobeodeu-kol-2026-10 --no-export` → `sync` → `check` → `video` → `subs_tool.py build` ② **쇼츠 썸네일 4장** — ChatGPT 새 대화에 커밋 고정 주소 `raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/67df356f416b621fb3605bdd4a1714e149ba4223/stock/thumbnails_chatgpt.md` → 검수 → `sync` → 쇼츠 `video` 4편 (그림 없으면 렌더가 멈춤)
+  - ⏳ 기다림 (Kaggle `stock` s73 patch 는 10-18 받아 끝) ② **쇼츠 썸네일 4장** — ChatGPT 새 대화에 커밋 고정 주소 `raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/67df356f416b621fb3605bdd4a1714e149ba4223/stock/thumbnails_chatgpt.md` → 검수 → `sync` → 쇼츠 `video` 4편 (그림 없으면 렌더가 멈춤)
   - 쇼츠 실제 길이: ① 57.9 ② 62.3 ③ 59.9 ④ 60.7초 — ②④ 가 60초를 조금 넘음 (쇼츠는 3분까지 됨 · 근거 구간 45~59초 — 줄이려면 대본을 줄이고 Kaggle 다시)
   - 할당량: 영상 하나 1,600 + 썸네일 50 + 자막 10 × 400 ≈ 5,650 → 짝(롱폼+쇼츠) ≈ 11,300 > 하루 10,000 → **하루 한 짝**: 영상·썸네일·한국어 자막 먼저(약 4,100) + 남는 만큼 외국어 자막, 나머지는 다음 날 `--captions-only`. 업로드는 사용자가 순서·공개 시각을 정한 뒤 (`--publish-at`).
   - 할 일 뒤에: 공개 뒤 쇼츠 '관련 동영상' = 그 롱폼 (사용자가 스튜디오에서), 쇼츠 썸네일 `oardefault.jpg` 확인.

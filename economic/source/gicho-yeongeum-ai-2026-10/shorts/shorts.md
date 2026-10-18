@@ -1,6 +1,7 @@
 # gicho-yeongeum-ai-2026-10-shorts — AI 실사 영상 쇼츠: 기초연금을 안 된다고 믿다 놓친 할아버지
 
-버전: v1.0 — 2026-10-18 — 사용자 지시 "기초연금 신청 못해서 좌절한 할아버지 영상 1분 만들건데 대본 만들고 영상을 만들기 위한 이미지를 chatgpt보고 생성하라고 할건데 뭐라고 하면 돼?"
+버전: v1.1 — 2026-10-18 — **테스트로 음성·자막 없이 영상만** (사용자 지시 "이건 그냥 테스트 용이라서 음성도 안붙여도 되니까 썸네일 만들었으니 다음 단계 진행해") — 3-1번 셀.
+이전 v1.0 — 2026-10-18 — 사용자 지시 "기초연금 신청 못해서 좌절한 할아버지 영상 1분 만들건데 대본 만들고 영상을 만들기 위한 이미지를 chatgpt보고 생성하라고 할건데 뭐라고 하면 돼?"
 
 | 항목 | 값 |
 |---|---|
@@ -42,6 +43,49 @@
 3. **클립 11개** — `videogen` Kaggle 셀에 `model="wan2.2-5b-fast"`(빠름) 또는 `"wan2.2-14b-i2v"`(품질), 세로 `width=704, height=1280, upscale_to="1080x1920"`, `start_images` = 장면 그림 + `scenes/clips.json` 의 움직임 프롬프트. 클립 길이는 문장 길이에 맞춤 (오디오가 생긴 뒤 문장별 길이를 넣음 — Claude 가 셀을 만들어 줌).
 4. **합치기** — 클립을 문장 시각에 맞춰 잇고, 내레이션·구운 자막(한 문장 = 자막 하나)·음량(-14 LUFS)을 얹어 `economic/out/gicho-yeongeum-ai-2026-10-shorts/final_1080p.mp4`. 렌더 뒤 완성 장면을 Claude 가 직접 본다.
 
+## 3-1. 테스트 실행 — 음성·자막 없이 영상만 (v1.1)
+1. 그림 11장을 `scenes/scene_01.png` ~ `scene_11.png` 로 main 에 (Claude 대화에 번호 순서대로 붙이면 Claude 가 검수·커밋, 또는 https://github.com/yeomin1024/yeomin1024-ytb/upload/main/economic/source/gicho-yeongeum-ai-2026-10/shorts/scenes 에 그 이름으로 끌어다 놓기).
+2. Kaggle 의 videogen 셀(`videogen/README.md` 2번 — *GPU T4 x2*, *Internet On*)에서 `SETTINGS` 만 아래로 바꿔 실행. 같은 세션에서 처음이면 설치·모델 다운로드가 먼저.
+3. 결과: `/kaggle/working/outputs/<실행시각>/` — 클립 11개(`media/`) · 이어 붙인 704x1280 · 최종 1080x1920 `…_lanczos.mp4` · `run.log`(`[SUMMARY] stage timings` = 실제 시간).
+- 검증 (`videogen` v1.3.0 `make_config`·`resolve_params`·`clip_frames_for`): 그림 11장 · 704x1280 · 클립 121프레임(5.04초) · 합계 약 55.5초 · 1080x1920 은 ×2 뒤 가운데 맞춤(가로 2.2% 잘림). ChatGPT 세로 2:3(1024x1536) 그림은 704x1280 에 맞추며 양옆 약 17.5% 잘림 (20% 넘으면 로그 경고).
+- 클립 길이는 모두 5초 — 음성이 없어 문장 길이에 맞추지 않음. 컷 사이에 장면이 바뀜.
+
+```python
+BASE = "https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/economic/source/gicho-yeongeum-ai-2026-10/shorts/scenes/"
+SETTINGS = dict(
+    model="wan2.2-5b-fast",          # 빠름 (TI2V 5B + FastWan 3-step). 품질 비교는 "wan2.2-14b-i2v"
+    width=704, height=1280,          # 세로 (5B 는 32 배수) → 키운 뒤 가운데 맞춰 1080x1920
+    upscale_to="1080x1920", upscaler="lanczos",
+    clip_sec=5,                      # 장면 11개 × 5초 ≈ 55초 (음성 없음 — 테스트)
+    prompt="Photorealistic Korean family drama, natural lifelike motion at normal speed, static camera.",
+    start_images=[
+        {"image": BASE + "scene_01.png",
+         "prompt": "The grandfather slowly lowers his head further and rubs his forehead in regret while his wife gently strokes his back; subtle natural motion, static camera, normal speed."},
+        {"image": BASE + "scene_02.png",
+         "prompt": "Slow gentle camera push-in toward the apartment buildings, leaves moving slightly in the breeze, calm atmosphere."},
+        {"image": BASE + "scene_03.png",
+         "prompt": "The grandfather chuckles and waves his hand dismissively, then sips his tea; the wife shrugs; static camera, natural speed."},
+        {"image": BASE + "scene_04.png",
+         "prompt": "The son writes in his notebook and looks up asking a question, the grandfather answers with a small shrug, the wife pours tea; static camera, natural speed."},
+        {"image": BASE + "scene_05.png",
+         "prompt": "The son explains with an open hand gesture, the grandfather leans closer with growing surprise, the wife slowly covers her mouth; static camera, natural speed."},
+        {"image": BASE + "scene_06.png",
+         "prompt": "Very slow push-in on the grandfather's face as his eyes widen and he stops breathing for a moment; static, subtle motion, normal speed."},
+        {"image": BASE + "scene_07.png",
+         "prompt": "Almost still: the grandfather stares at the floor and blinks slowly, the wife in the background shifts her weight and watches him; curtains move slightly; static camera."},
+        {"image": BASE + "scene_08.png",
+         "prompt": "The grandfather slowly shakes his bowed head in regret behind his hands, shoulders sinking; static camera, natural speed."},
+        {"image": BASE + "scene_09.png",
+         "prompt": "The grandfather lets out a long sigh, his shoulders drop, city lights twinkle softly outside; static camera, natural speed."},
+        {"image": BASE + "scene_10.png",
+         "prompt": "The wife squeezes his hand, the grandfather looks up at her and gives a small hopeful nod; static camera, natural speed."},
+        {"image": BASE + "scene_11.png",
+         "prompt": "The grandfather takes a breath, straightens his back and gives a small determined nod toward the camera; static camera, natural speed."},
+    ],
+    seed=42,
+)
+```
+
 ## 6. 숫자·사실 근거 (롱폼 `gicho-yeongeum-2026-10` README 4번 표 · 대본에 있는 것만)
 | 문장 | 숫자·사실 | 근거 |
 |---|---|---|
@@ -53,6 +97,7 @@
 - 2026년 숫자 (선정기준액·기준연금액은 해마다 바뀜 — 설명란에 '숫자는 2026년 10월 기준').
 
 ## 8. 다음에 할 일
-- [ ] 사용자: ChatGPT 새 대화에 `scenes/chatgpt.md` 고정 주소 + 안내 메시지 → 그림 11장을 Claude 대화에 붙임
+- [x] 사용자: ChatGPT 로 그림 11장 만듦 (2026-10-18)
+- [ ] 사용자: 그림 11장을 Claude 대화에 번호 순서대로 붙이기(또는 scenes/ 에 직접 올리기) → Claude 검수·커밋 → 3-1번 셀 실행
 - [ ] Claude: 그림 검수·커밋 → 오디오가 생기면 문장 길이에 맞춘 videogen 셀 · 합치기
 - [ ] 사용자: 둘째 쇼츠로 올릴지(규칙과 다름) 정하기 → B 단계(제목 2안·썸네일·설명란·`upload.md`)

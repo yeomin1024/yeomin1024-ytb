@@ -1,0 +1,17 @@
+{
+ "tool": "cloud_run.py v1.3",
+ "topic": "math",
+ "saved": "2026-10-18T15:30:11+09:00",
+ "why": "explore",
+ "files": 845,
+ "bytes_raw": 2022506,
+ "bytes_tgz": 742084,
+ "sha256": "f2deff1f6f59cb0eccd216fb8596f8ef33360da60d1898a4596a52512728c53c",
+ "kinds": {
+  "autocomplete.json": 1,
+  "channels.json": 1,
+  "search": 19,
+  "video": 823,
+  "web": 1
+ }
+}

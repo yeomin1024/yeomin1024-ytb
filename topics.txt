@@ -5,3 +5,4 @@ stock
 new
 history
 music
+math

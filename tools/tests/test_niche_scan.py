@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-10-16 — 새 채널 분야 비교 tools/niche_scan.py v1.0 시험 (사용자 지시 2026-10-16: "… 어떤 채널을 만들어야 조회수 높은 영상
-#          만들고 구독자 많이 모을 수 있을지 전체적으로 탐색해봐 저장소에 디렉토리 new로 만들어서 …").
+# VERSION: v1.1 — 2026-10-18 — niche_scan v1.1 시험 7개 더함 (TestShortsForeign): 쇼츠 성공 기준·거르기, 외국 영상을 켠 주제만 '외국 영상'을 남김,
+#          is_foreign_info = outlier_research.is_foreign, foreign = true 분야 → keywords_foreign.txt, 쇼츠 보고서·외국 영상 몫·주제 관련 몫
+#          (사용자 지시 2026-10-18 "수학문제 띄워놓고 시청자가 맞춰보는 영상이 조회수 잘 나오고 구독자 많이 모을 수 있는지 탐색해볼래?")
+# (v1.0 — 2026-10-16 — 새 채널 분야 비교 tools/niche_scan.py v1.0 시험 (사용자 지시 2026-10-16: "… 어떤 채널을 만들어야 조회수 높은 영상
+#          만들고 구독자 많이 모을 수 있을지 전체적으로 탐색해봐 저장소에 디렉토리 new로 만들어서 …").)
 #          임시 폴더를 ROOT 로 — 진짜 YouTube·GitHub 에 요청하지 않음 (niche_scan 은 원래 인터넷을 쓰지 않음).
 """cd tools/tests && python3 -m unittest test_niche_scan -v"""
 import csv
@@ -58,6 +61,16 @@ PER_CHANNEL = 2
 NEW_CHANNEL_MONTHS = 24
 MIN_SUBS = 1000
 MAX_SUBS = 200000
+[shorts]
+MAX_SECONDS = 180
+MIN_AGE_DAYS = 3
+MAX_AGE_DAYS = 180
+MAX_SUBS = 50000
+MIN_RATIO = 3.0
+MIN_VIEWS = 50000
+[shorts_compare]
+MIN_AGE_DAYS = 3
+PER_CHANNEL = 2
 [exclude]
 OFF_TOPIC = ["토토"]
 AD_SUSPECT_MIN_VIEWS = 50000
@@ -218,6 +231,95 @@ class TestReport(Base):
         with self.assertRaises(SystemExit) as e:
             ns.cmd_report(self.root, "t1", now=NOW)
         self.assertIn("탐색 목록이 없음", str(e.exception))
+
+
+FOREIGN_NICHE = """
+[[niche]]
+name = "04. Math puzzle"
+group = "A"
+foreign = true
+keywords = ["math puzzle", "mental math"]
+words = ["math"]
+"""
+
+
+class TestShortsForeign(Base):
+    """v1.1 — 쇼츠·외국 영상."""
+
+    def test_shorts_success_rule(self):
+        S, C, G, E = ns.load_rules(self.root, "t1", shorts=True)
+        ok = dict(row("s", "q", 50000, 150000, age=3, minutes=0.5), seconds=30)
+        self.assertTrue(ns.is_success(ok, S, shorts=True))
+        self.assertFalse(ns.is_success(dict(ok, views=149999), S, shorts=True))          # 배수 3 미만
+        self.assertFalse(ns.is_success(dict(row("t", "q", 1000, 49999, age=10, minutes=0.5), seconds=30), S, shorts=True))   # 쇼츠는 조회수 5만 이상
+        self.assertFalse(ns.is_success(dict(ok, age_days=2), S, shorts=True))           # 3일 안 됨
+        self.assertFalse(ns.is_success(dict(ok, age_days=181), S, shorts=True))
+        S_long, *_ = ns.load_rules(self.root, "t1")
+        self.assertFalse(ns.is_success(ok, S_long))                                      # 0.5분 → 롱폼 4분 기준에는 안 맞음 (섞이지 않음)
+
+    def test_shorts_drop_reasons(self):
+        S, C, G, E = ns.load_rules(self.root, "t1", shorts=True)
+        base = dict(row("s", "q", 1000, 100000, age=10, minutes=0.5), seconds=30)
+        self.assertIsNone(ns.drop_reason(base, S, C, E, shorts=True))                    # 4분 미만이어도 쇼츠는 빼지 않음
+        self.assertEqual(ns.drop_reason(dict(base, age_days=2), S, C, E, shorts=True), "올린 지 3일 안 됨")
+        self.assertEqual(ns.drop_reason(dict(base, seconds=181), S, C, E, shorts=True), "180초 넘음")
+        self.assertEqual(ns.drop_reason(dict(base, flag="부풀림 의심"), S, C, E, shorts=True), "부풀림 의심")
+        self.assertEqual(ns.drop_reason(dict(base, flag="쇼츠 아님?"), S, C, E, shorts=True), "쇼츠 아님?")
+        self.assertIsNone(ns.drop_reason(dict(base, likes=1, comments=0), S, C, E, shorts=True))   # 롱폼 광고 의심 규칙은 안 씀 (표시가 맡음)
+
+    def test_foreign_kept_only_when_on(self):
+        S, C, G, E = ns.load_rules(self.root, "t1")
+        r = row("f", "q", 1000, 100000, flag="외국 영상")
+        self.assertEqual(ns.drop_reason(r, S, C, E), "외국 영상")
+        self.assertIsNone(ns.drop_reason(r, S, C, E, foreign_ok=True))
+        self.assertEqual(ns.drop_reason(dict(r, flag="라이브 방송"), S, C, E, foreign_ok=True), "라이브 방송")
+
+    def test_is_foreign_info_matches_outlier_research(self):
+        for info in ({"title": "Can you solve this?"}, {"title": "수학 퀴즈"}, {"title": "x", "audio_lang": "ko"}, {"title": "수학", "audio_lang": "en"},
+                     {"title": "music", "audio_lang": "zxx"}, {"title": "음악", "lang": "und"}):
+            self.assertEqual(ns.is_foreign_info(info), orr.is_foreign(info), info)
+
+    def test_sync_writes_foreign_keywords(self):
+        (self.root / "t1" / "niches.toml").write_text(NICHES + FOREIGN_NICHE, "utf-8")
+        out = ns.cmd_sync(self.root, "t1")
+        self.assertEqual((out["keywords"], out["foreign_keywords"]), (5, 2))
+        self.assertEqual(orr.read_keyword_list(self.root / "t1" / "keywords_foreign.txt"), ["math puzzle", "mental math"])
+        self.assertNotIn("math puzzle", orr.read_keyword_list(self.root / "t1" / "keywords.txt"))
+
+    def test_sync_without_foreign_leaves_foreign_file(self):
+        f = self.root / "t1" / "keywords_foreign.txt"
+        f.write_text("stocks\n", "utf-8")
+        self.assertEqual(ns.cmd_sync(self.root, "t1")["foreign_keywords"], 0)
+        self.assertEqual(f.read_text("utf-8"), "stocks\n")                              # foreign 분야가 없으면 손대지 않음
+
+    def test_shorts_report_with_foreign(self):
+        (self.root / "t1" / "analyzer_config.toml").write_text("[search]\nINCLUDE_FOREIGN = true\n", "utf-8")
+        (self.root / "t1" / "keywords.toml").write_text('[relevance]\nRELEVANCE_TERMS = ["건강"]\n', "utf-8")
+        web = self.root / "t1" / "result" / "web"
+        web.mkdir(parents=True)
+        rows = [dict(row("e1", "건강정보", 20000, 300000, minutes=0.6), seconds=35, relevant=True),
+                dict(row("k1", "건강정보", 20000, 300000, minutes=0.6), seconds=40, relevant=False),
+                dict(row("b1", "혈당", 20000, 900000, minutes=0.5, likes=10), seconds=6, flag="부풀림 의심")]
+        (web / "shorts_explore.json").write_text(json.dumps({"generated": "x", "weeks": 26, "rows": rows, "pending": ["요리 (short)"]}), "utf-8")
+        sc = self.root / "t1" / "result" / "outliers" / ".cache" / "shorts"
+        sc.mkdir(parents=True)
+        (sc / "e1.json").write_text(json.dumps({"id": "e1", "title": "Health tips", "audio_lang": "en"}), "utf-8")
+        (sc / "k1.json").write_text(json.dumps({"id": "k1", "title": "건강 꿀팁", "audio_lang": "ko"}), "utf-8")
+        orr.search_cache_file(sc, "건강정보", "short", 182).write_text(
+            json.dumps({"q": "건강정보", "dur": "short", "fetched": NOW.isoformat(), "total": 5000, "ids": ["e1", "k1"]}), "utf-8")
+        out = ns.cmd_report(self.root, "t1", now=NOW, shorts=True)
+        self.assertEqual(out["niches"], 3)
+        d = self.root / "t1" / "result" / "niche"
+        md = (d / "niche_scan_shorts.md").read_text("utf-8")
+        self.assertIn("· 쇼츠 (숫자·원문만)", md)
+        self.assertIn("외국 영상 몫", md)
+        self.assertIn("주제 관련 몫", md)
+        self.assertIn("| 01. 건강 | 건강정보 | 2 |", md)                                   # 쇼츠 검색 결과 칸 하나
+        with (d / "niche_scan_shorts.csv").open(encoding="utf-8-sig") as f:
+            h = {r["niche"]: r for r in csv.DictReader(f)}["01. 건강"]
+        self.assertEqual((h["videos"], h["success"], h["foreign_share"], h["rel_share"]), ("2", "2", "0.5", "0.5"))   # 부풀림 의심은 뺌
+        self.assertEqual(h["success_seconds_median"], "37.5")
+        self.assertFalse((d / "niche_scan.md").exists())                                  # 롱폼 파일은 건드리지 않음
 
 
 if __name__ == "__main__":

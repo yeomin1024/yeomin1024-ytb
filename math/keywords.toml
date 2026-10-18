@@ -1,0 +1,24 @@
+# =====================================================================================================
+# 관련어·제외어 — 주제: 수학 퀴즈 (폴더 math)
+# VERSION: v1.0 — 2026-10-18 — 새로 만듦 (사용자 지시 2026-10-18 "수학문제 띄워놓고 시청자가 맞춰보는 영상이 …").
+#          관련어는 '주제 관련 몫'(niche_scan — 검색어가 수학 영상을 실제로 찾았는지)과 나중 승인 추천에 씀. 기준 분야(재테크·stock market)는 낮게 나오는 것이 맞음.
+#          영어는 대소문자 상관없이 글자 포함으로 봄 ('math' 는 'Maths'·'#math' 도 — 'aftermath' 같은 다른 낱말도 걸리므로 강한 관련어에 'math' 하나만 넣지 않음).
+# =====================================================================================================
+
+EXTRA_KEYWORDS = []
+EXCLUDE_KEYWORDS = []
+
+[KEYWORD_GROUPS]
+# 비움 — 검색어는 keywords.txt·keywords_foreign.txt (niches.toml 에서 만듦: python3 tools/niche_scan.py math sync)
+
+[relevance]
+RELEVANCE_TERMS = [
+  "수학", "산수", "암산", "주산", "사칙연산", "방정식", "미적분", "도형 문제", "계산 문제", "계산 퀴즈", "아이큐", "멘사",
+  "math ", "math)", "math!", "math?", "#math", "maths", "mathematics", "arithmetic", "algebra", "geometry", "equation", "olympiad",
+  "mental math", "calculus", "math puzzle", "math problem", "math quiz",
+]
+RELEVANCE_WEAK_TERMS = [
+  "퀴즈", "문제", "정답", "계산", "두뇌", "숫자", "IQ", "천재",
+  "quiz", "puzzle", "riddle", "solve", "number", "brain", "genius",
+]
+RELEVANCE_EXCLUDE = ["수학여행", "수학능력"]

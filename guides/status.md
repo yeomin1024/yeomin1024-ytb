@@ -1,6 +1,7 @@
 # 지금 상태·다음 할 일 (인수인계)
 
-버전: v1.74 — 2026-10-18 — **주식 업로드 준비** (사용자 지시 2026-10-18 "채권 표현 수정하고 영상 업로드 할 준비해"): 커버드콜 롱폼 s73 JEPI '채권' → '권리를 매도한 것과 같은 효과를 내는 증권'(9개 언어 자막 같이 — **Kaggle `stock` 한 번 더: 이 문장만 patch**) · 썸네일 롱폼 12장 통과 · **쇼츠 4장 반려**(옛 프롬프트 — 결과 숫자) → ChatGPT 다시 (커밋 고정 주소) · 롱폼 ①③④ **최종 렌더** (−14.16·−14.29·−14.14 LUFS, 장면 직접 봄) · 7편 실제 오디오 SRT·sync·check 0 · 9개 언어 SRT · 쇼츠 업로드 시트 4개 · subs_tool v1.1.0 · loudnorm v1.2 · STOCK LAB 키 확인(업로드 0개) — 2-1b.
+버전: v1.75 — 2026-10-18 — **videogen v1.1.1**: Kaggle 에 미리 깔린 오래된 torchao(<0.15) 때문에 diffusers 모델 import 가 `cannot import name 'FqnToConfig'` 로 깨지던 것 고침 (`_disable_old_torchao` — Kaggle 에서 이번 세션만 지우고 diffusers 표시를 꺼서 커널 재시작 없이) (사용자 보고 2026-10-18 "RuntimeError: Failed to import diffusers.models.autoencoders.autoencoder_kl_wan ... FqnToConfig ... 해결해") — 2-7.
+이전 v1.74 — 2026-10-18 — **주식 업로드 준비** (사용자 지시 2026-10-18 "채권 표현 수정하고 영상 업로드 할 준비해"): 커버드콜 롱폼 s73 JEPI '채권' → '권리를 매도한 것과 같은 효과를 내는 증권'(9개 언어 자막 같이 — **Kaggle `stock` 한 번 더: 이 문장만 patch**) · 썸네일 롱폼 12장 통과 · **쇼츠 4장 반려**(옛 프롬프트 — 결과 숫자) → ChatGPT 다시 (커밋 고정 주소) · 롱폼 ①③④ **최종 렌더** (−14.16·−14.29·−14.14 LUFS, 장면 직접 봄) · 7편 실제 오디오 SRT·sync·check 0 · 9개 언어 SRT · 쇼츠 업로드 시트 4개 · subs_tool v1.1.0 · loudnorm v1.2 · STOCK LAB 키 확인(업로드 0개) — 2-1b.
 이전 v1.73 — 2026-10-18 — **영상 생성 AI 를 Kaggle 셀 하나로** `videogen/videogen.py` v1.1.0 (파일 하나 — Kaggle 셀은 이 파일만 받아 `run(SETTINGS)`, 설정만 고침 · 모델 wan2.2-5b(diffusers)·wan2.2-14b-lightning·ltx2.5-distilled(WanGP 헤드리스)) (사용자 지시 2026-10-18 "핵심 코드를 하나로 만들어서 저장소에 올리고 kaggle에서는 코드 받아서 실행하는 방식으로 하고 prompt 같은 설정만 고치고 실행만 하는 코드를 따로 알려줘") — 2-7.
 이전 v1.72 — 2026-10-18 — **토큰 줄이기**: CLAUDE.md 2.6만 → 약 7,800토큰(규칙 한 줄 + 근거 문서, 원문은 `guides/archive/claude_md_2026-10-18.md`) · 새 대화는 status '1. 한눈에' 표와 맡은 절만 · 재테크 요약본 `economic/guides/quick_script.md`(A 대본)·`quick_package.md`(B 제목·썸네일·업로드·쇼츠) · script_guide v3.4.2(기준 날짜 문장은 설명란) · thumbnail_guide v3.14.1(고정 커밋 주소) (사용자 지시 2026-10-18 "1,2번 진행하고 3번에서 대본 환경, 쇼츠 썸네일 업로드 환경 만들때 처음에 뭐라고 말해야되는지 알려줘") — 2-2 0-19.
 이전 v1.71 — 2026-10-18 — **재테크 5·6편 소스 (50대 후반)**: 국민연금 언제 받을까 `gungmin-sigi-2026-10` · 배당·이자 생활비와 금융소득 `geumyung-soduk-2026-10` — 대본·계산·확인표·제목·썸네일 프롬프트·업로드 시트·쇼츠, 법령은 law.go.kr 이 막혀 `law_text.py` v1.1 `--source mirror`(legalize-kr) · 토큰 측정 `tools/token_cost.py` v1.0 (사용자 지시 2026-10-18 "1,3번으로 각각 만들어봐 그리고 하나 만들때 토큰 얼마나 들고 가장 많이 드는 부분이 어딘지 알려줘봐") — 2-2 0-18.
@@ -470,7 +471,8 @@
 - 다음 (사람): 결과가 모이면 사용자에게 알리고 `music/guides/data_insights.md` → 채널 컨셉·주제 후보 (`guides/pipeline.md` 2단계). 장르·쓰임새·세계 시장 여부는 사용자가 정한다.
 
 ### 2-7. 영상 생성 AI — Kaggle 셀 하나 `videogen/` (2026-10-18)
-- 핵심 코드 `videogen/videogen.py` v1.1.0 하나 · 셀·설정 키·모델·문제 해결 `videogen/README.md` · 시험 `python videogen/tests/test_videogen.py` (GPU·네트워크 없이 통과).
+- 핵심 코드 `videogen/videogen.py` v1.1.1 하나 · 셀·설정 키·모델·문제 해결 `videogen/README.md` · 시험 `python videogen/tests/test_videogen.py` (GPU·네트워크 없이 통과).
+- 2026-10-18 Kaggle 첫 실행(사용자): Python 3.13 이미지의 오래된 torchao 때문에 `FqnToConfig` ImportError → v1.1.1 에서 고침 (같은 오류를 torchao 0.13.0 으로 재현 후 수정 확인). 그다음 단계(가중치 다운로드·T4 생성)는 아직 확인 전.
 - Kaggle 셀은 저장소를 clone 하지 않고 raw 주소로 `videogen.py` 하나만 받는다 (`.git` 495MB). 결과는 Kaggle `/kaggle/working/outputs/<실행시각>/` (영상은 git 에 넣지 않음).
 - 모델: `wan2.2-5b`(diffusers, 기본) · `wan2.2-14b-lightning` · `ltx2.5-distilled`(WanGP `wgp.py --process`, 커밋 `fde3c7e` 고정). HunyuanVideo 1.5·MiniMax H3 는 라이선스 적용 지역에서 대한민국 제외라 넣지 않음.
 - 다음 (사람): 실제 Kaggle T4 에서 첫 실행 → `[DENOISE] eta_min`·`[SUMMARY]` 단계 시간을 README 5번(검증 범위)에 적기. WanGP 두 모델은 설치·RAM 이 실제로 되는지 확인 전.

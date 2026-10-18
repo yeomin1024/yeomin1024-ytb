@@ -1,6 +1,7 @@
 # 영상 생성 AI — Kaggle 에서 설정만 바꿔 실행 (`videogen/`)
 
-버전: v1.1.0 — 2026-10-18 — 사용자 지시 "핵심 코드를 하나로 만들어서 저장소에 올리고 kaggle에서는 코드 받아서 실행하는 방식으로 하고 prompt 같은 설정만 고치고 실행만 하는 코드를 따로 알려줘"
+버전: v1.1.1 — 2026-10-18 — Kaggle 의 오래된 torchao 때문에 나던 `cannot import name 'FqnToConfig'` 오류 고침 (6번 표 첫 줄). 셀은 그대로 다시 실행하면 된다.
+이전 v1.1.0 — 2026-10-18 — 사용자 지시 "핵심 코드를 하나로 만들어서 저장소에 올리고 kaggle에서는 코드 받아서 실행하는 방식으로 하고 prompt 같은 설정만 고치고 실행만 하는 코드를 따로 알려줘"
 
 - 핵심 코드: **`videogen/videogen.py` 파일 하나**. Kaggle 셀은 이 파일만 받아서(저장소 전체 clone 안 함) `videogen.run(SETTINGS)` 를 부른다.
 - 시험: `python videogen/tests/test_videogen.py` (GPU·네트워크 없이 — 아래 '검증 범위')
@@ -81,12 +82,13 @@ result = videogen.run(SETTINGS)
 - Wan 2.7 · 3.0 은 API 전용(가중치 비공개)이라 쓸 수 없다.
 
 ## 5. 검증 범위
-- 통과 (2026-10-18, 이 저장소 클라우드 환경, diffusers 0.41.0 · transformers 5.20.1 · CPU): 설정 검사 · diffusers 길 전체(실제 Wan 클래스로 만든 작은 랜덤 모델 — 인코딩 → 디노이즈 → 디코딩 → mp4·JSON·로그) · WanGP 길 흐름(가짜 `wgp.py` — 설정 JSON 에 Lightning 프로필 합치기, `--dry-run` → `--process`, 결과 수집).
+- 통과 (2026-10-18, 이 저장소 클라우드 환경, diffusers 0.41.0 · transformers 5.20.1 · CPU): 설정 검사 · 오래된 torchao(0.13.0 — Kaggle 오류 재현) 처리 · diffusers 길 전체(실제 Wan 클래스로 만든 작은 랜덤 모델 — 인코딩 → 디노이즈 → 디코딩 → mp4·JSON·로그) · WanGP 길 흐름(가짜 `wgp.py` — 설정 JSON 에 Lightning 프로필 합치기, `--dry-run` → `--process`, 결과 수집).
 - 못 한 것: 실제 Kaggle T4 실행·속도·메모리·화질, 진짜 WanGP 설치. 클라우드 환경에서 Hugging Face·PyTorch 다운로드 서버가 막혀 있었다.
 
 ## 6. 문제 해결
 | 증상 | 할 일 |
 |---|---|
+| `cannot import name 'FqnToConfig' from 'torchao.quantization'` | v1.1.1 에서 고침 — 셀을 **그대로 다시 실행** (커널 재시작 필요 없음). 로그에 `torchao uninstalled for this Kaggle session` · `diffusers torchao flag switched off` 가 나오면 처리된 것. `CODE_REF="main"` 이 옛 파일을 받으면(올린 직후 raw 캐시) 커밋 해시로 |
 | `[DATA] download attempt failed` 반복 | Internet=On 확인. Hugging Face 가 느리면 Secrets 에 `HF_TOKEN` 추가 |
 | `[DENOISE] FAILED ... out of memory` | `preset="t4_fast"` 또는 `num_frames` 줄이기 |
 | `latents became non-finite` | 다른 `seed`. T4(fp16) 한계일 수 있음 |

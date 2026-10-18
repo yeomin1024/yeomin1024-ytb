@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-# VERSION: v1.1.0 — 2026-10-18 — videogen.py 오프라인 시험 (GPU·네트워크 없이)
+# VERSION: v1.1.1 — 2026-10-18 — 오래된 torchao(FqnToConfig 없음) 재현·수정 시험 추가 (test_old_torchao)
+# 이전 v1.1.0 — 2026-10-18 — videogen.py 오프라인 시험 (GPU·네트워크 없이)
 r"""
 1) 설정 검사: 모르는 키·모델·프리셋은 바로 멈추고, 모양 규칙(32 배수·4k+1) 보정은 경고로 남는다.
 2) diffusers 길 전체: 실제 Wan 클래스로 만든 아주 작은 랜덤 Wan2.2-TI2V 구조 모델로 CPU 에서
@@ -12,6 +13,7 @@ r"""
 import importlib.util
 import json
 import os
+import subprocess
 import sys
 import tempfile
 import textwrap
@@ -50,6 +52,9 @@ def test_config(tmp):
 
 
 def build_tiny_wan(path):
+    # 이 시험은 run() 보다 먼저 diffusers 를 import 하므로, run() 과 같은 torchao 처리를 먼저 한다
+    videogen._setup_logging("INFO", os.path.join(os.path.dirname(path), "build.log"))
+    videogen._disable_old_torchao(allow_uninstall=False)
     import torch
     from diffusers import AutoencoderKLWan, UniPCMultistepScheduler, WanPipeline, WanTransformer3DModel
     from tokenizers import Tokenizer, models, pre_tokenizers
@@ -99,6 +104,43 @@ def test_diffusers(tmp):
     print("ok  diffusers path (tiny model, CPU):", res["videos"][0])
 
 
+STALE_KERNEL = textwrap.dedent('''
+    # 사용자가 Kaggle 에서 겪은 순서: 첫 실행이 FqnToConfig 오류로 실패 → 같은 커널에서 셀을 다시 실행
+    import sys; sys.path.insert(0, sys.argv[1])
+    try:
+        from diffusers import AutoencoderKLWan
+        print("before: import ok")
+    except RuntimeError as e:
+        print("before: FqnToConfig error" if "FqnToConfig" in str(e) else "before: other error " + str(e)[:200])
+    import videogen
+    videogen._setup_logging("INFO", sys.argv[2])
+    videogen._disable_old_torchao(allow_uninstall=sys.argv[3] == "1")
+    from diffusers import AutoencoderKLWan  # noqa: F811
+    print("after: import ok")
+''')
+
+
+def test_old_torchao(tmp):
+    """오래된 torchao 가 있는 환경에서만 의미가 있다 (Kaggle 2026-10 이미지 재현: torchao 0.13.0)."""
+    from importlib import metadata
+    try:
+        have = metadata.version("torchao")
+    except metadata.PackageNotFoundError:
+        have = None
+    if have is None or videogen._version_tuple(have) >= videogen.TORCHAO_MIN:
+        print(f"skip old-torchao test (torchao={have}; install torchao==0.13.0 to reproduce the Kaggle error)")
+        return
+    script = os.path.join(tmp, "stale_kernel.py")
+    open(script, "w").write(STALE_KERNEL)
+    # 1 = 지우는 길(Kaggle) — VIDEOGEN_TEST_UNINSTALL=1 일 때만 (시험 환경의 torchao 를 실제로 지움)
+    mode = "1" if os.environ.get("VIDEOGEN_TEST_UNINSTALL") == "1" else "0"
+    log_path = os.path.join(tmp, "torchao.log")
+    r = subprocess.run([sys.executable, script, os.path.dirname(HERE), log_path, mode], capture_output=True, text=True)
+    assert "before: FqnToConfig error" in r.stdout and "after: import ok" in r.stdout, r.stdout + r.stderr[-1500:]
+    assert "too old" in open(log_path).read()
+    print(f"ok  old torchao {have}: FqnToConfig error reproduced, fixed without kernel restart (uninstall={mode})")
+
+
 FAKE_WGP = textwrap.dedent('''
     import argparse, json, os, sys
     ap = argparse.ArgumentParser()
@@ -144,6 +186,7 @@ def test_wangp(tmp):
 def main():
     tmp = tempfile.mkdtemp(prefix="videogen_test_")
     test_config(tmp)
+    test_old_torchao(tmp)
     test_diffusers(tmp)
     test_wangp(tmp)
     print("ALL TESTS PASSED", tmp)

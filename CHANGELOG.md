@@ -1,5 +1,17 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-18 (100) — videogen v1.1.1: Kaggle 의 오래된 torchao 로 나던 FqnToConfig 오류 고침
+
+### 왜 (사용자 보고)
+- "RuntimeError: Failed to import diffusers.models.autoencoders.autoencoder_kl_wan because of the following error ... cannot import name 'FqnToConfig' from 'torchao.quantization' ... 해결해"
+
+### 한 것
+| 파일 | 내용 |
+|---|---|
+| `videogen/videogen.py` v1.1.1 | `_disable_old_torchao()` — torchao < 0.15 면 Kaggle 에서 이번 세션만 지우고, diffusers 가 기억한 torchao 표시를 끔 (커널 재시작 없이). videogen 은 torchao 를 쓰지 않음 |
+| `videogen/tests/test_videogen.py` | `test_old_torchao` — 첫 import 실패 → 수정 → 다시 import (같은 커널) 재현. torchao 0.13.0 · 지우는 길 · torchao 없음 모두 통과 |
+| `videogen/README.md` · `CHANGELOG.md` · `guides/status.md` v1.75 | 문제 해결 표 첫 줄 · 2-7 |
+
 ## 2026-10-18 (99) — 주식 업로드 준비: JEPI 문장 · 썸네일 검수 · 롱폼 3편 최종 렌더 · 쇼츠 업로드 시트
 
 ### 왜 (사용자 지시)

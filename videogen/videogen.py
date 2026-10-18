@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.1.0 — 2026-10-18 — 사용자 지시 "핵심 코드를 하나로 만들어서 저장소에 올리고 kaggle에서는 코드 받아서 실행하는
+# VERSION: v1.1.1 — 2026-10-18 — 사용자 보고 "RuntimeError: Failed to import diffusers.models.autoencoders.autoencoder_kl_wan
+#          ... cannot import name 'FqnToConfig' from 'torchao.quantization' 해결해": Kaggle 에 미리 깔린 오래된 torchao(<0.15)
+#          때문에 diffusers 0.41.0 모델 import 가 깨지던 것 고침 — _disable_old_torchao() (videogen 은 torchao 를 쓰지 않음)
+# 이전 v1.1.0 — 2026-10-18 — 사용자 지시 "핵심 코드를 하나로 만들어서 저장소에 올리고 kaggle에서는 코드 받아서 실행하는
 #          방식으로 하고 prompt 같은 설정만 고치고 실행만 하는 코드를 따로 알려줘": v1.0.0 노트북 2개(diffusers 헤드리스 ·
 #          WanGP 웹 UI)의 핵심을 이 파일 하나로 합침. WanGP 는 웹 UI 대신 `wgp.py --process`(헤드리스)로 돌려서 두 길 모두
 #          설정(dict)만 바꾸고 run() 한 번으로 실행. CHANGELOG: videogen/CHANGELOG.md
@@ -42,7 +45,7 @@ import sys
 import time
 from dataclasses import asdict, dataclass, field, fields
 
-__version__ = "1.1.0"
+__version__ = "1.1.1"
 
 # --------------------------------------------------------------------------------------------------
 # 모델 · 프리셋
@@ -73,6 +76,8 @@ WAN_NEGATIVE_PROMPT = (
 # diffusers 길에서 Kaggle 커널에 맞춰 둘 패키지 (오프라인 스모크 테스트에 쓴 버전). torch 는 Kaggle 것을 그대로 쓴다.
 DIFFUSERS_PACKAGES = {"diffusers": "==0.41.0", "transformers": "==5.20.1", "accelerate": ">=1.10",
                       "ftfy": "", "sentencepiece": "", "imageio": ">=2.34", "imageio-ffmpeg": ""}
+# diffusers 0.41.0 은 torchao 가 깔려 있기만 하면 `torchao.quantization.FqnToConfig` 를 import 한다 (extra 요구 torchao>=0.15.0)
+TORCHAO_MIN = (0, 15)
 
 WANGP_REPO = "https://github.com/deepbeepmeep/Wan2GP.git"
 # WanGP 가 문서화한 torch 빌드 (setup_config.json @ wangp_ref). CUDA 13 휠은 드라이버 580 이상이 필요하다.
@@ -286,6 +291,41 @@ def _ensure_packages(specs: dict[str, str]):
     r = subprocess.run([sys.executable, "-m", "pip", "install", "-q", *need], capture_output=True, text=True)
     if r.returncode != 0:
         raise RuntimeError(f"pip install failed: {r.stderr[-1500:]}\n→ Kaggle 설정에서 Internet 을 켰는지 확인")
+
+
+def _version_tuple(v: str) -> tuple[int, ...]:
+    return tuple(int(x) for x in re.findall(r"\d+", v.split("+")[0])[:3])
+
+
+def _disable_old_torchao(allow_uninstall: bool):
+    """오래된 torchao(<0.15)가 있으면 diffusers 모델 import 가 FqnToConfig ImportError 로 깨진다. videogen 은 torchao 를
+    쓰지 않으므로 (1) Kaggle 에서는 이번 세션에서만 지우고 (2) diffusers 가 기억해 둔 'torchao 있음' 표시를 끈다 —
+    앞 실행이 실패해 diffusers·torchao 가 이미 커널에 올라와 있어도 커널 재시작 없이 된다."""
+    from importlib import metadata
+    try:
+        have = metadata.version("torchao")
+    except metadata.PackageNotFoundError:
+        have = None
+    if have is not None and _version_tuple(have) >= TORCHAO_MIN:
+        log("SETUP", "torchao compatible", version=have)
+        return
+    if have is not None:
+        log("SETUP", "preinstalled torchao is too old for diffusers (no FqnToConfig); videogen does not use torchao",
+            logging.WARNING, torchao=have, required=">=" + ".".join(map(str, TORCHAO_MIN)))
+        if allow_uninstall:
+            r = subprocess.run([sys.executable, "-m", "pip", "uninstall", "-y", "-q", "torchao"],
+                               capture_output=True, text=True)
+            if r.returncode != 0:
+                raise RuntimeError(f"pip uninstall torchao 실패: {r.stderr[-800:]}")
+            import importlib
+            importlib.invalidate_caches()
+            log("SETUP", "torchao uninstalled for this Kaggle session", logging.WARNING, before=have, after="none")
+    import diffusers.utils.import_utils as iu
+    if iu.is_torchao_available():  # 지우지 않았거나, 지우기 전에 이미 import 된 커널
+        iu._torchao_available = False
+        log("SETUP", "diffusers torchao flag switched off", logging.WARNING, before=True, after=iu.is_torchao_available())
+    if iu.is_torchao_available():
+        raise RuntimeError("diffusers 가 아직 torchao 를 씀 — 커널을 재시작(Run → Restart)한 뒤 셀을 다시 실행")
 
 
 # --------------------------------------------------------------------------------------------------
@@ -763,8 +803,10 @@ def run(settings: dict | Config | None = None, **overrides) -> dict:
         run_type=os.environ.get("KAGGLE_KERNEL_RUN_TYPE", "local"))
 
     if spec["backend"] == "diffusers":
-        if cfg.install_deps and "KAGGLE_KERNEL_RUN_TYPE" in os.environ:
+        manage_env = cfg.install_deps and "KAGGLE_KERNEL_RUN_TYPE" in os.environ  # 남의 PC 환경은 고치지 않음
+        if manage_env:
             _ensure_packages(DIFFUSERS_PACKAGES)
+        _disable_old_torchao(allow_uninstall=manage_env)
         result = _diffusers_generate(cfg, run_dir, run_id, timings)
     else:
         result = _wangp_generate(cfg, run_dir, run_id, timings)

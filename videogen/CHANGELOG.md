@@ -1,5 +1,23 @@
 # CHANGELOG — videogen
 
+## v1.1.1 — 2026-10-18
+### 왜 (사용자 보고)
+- Kaggle 실행 중 `RuntimeError: Failed to import diffusers.models.autoencoders.autoencoder_kl_wan ... cannot import name 'FqnToConfig' from 'torchao.quantization' (/usr/local/lib/python3.13/dist-packages/torchao/...) 해결해`
+
+### 원인
+- diffusers 0.41.0 의 `quantizers/torchao/torchao_quantizer.py` 는 torchao 가 **깔려 있기만 하면** `from torchao.quantization import FqnToConfig` 를 실행한다 (diffusers 가 요구하는 torchao 는 0.15.0 이상). Kaggle 이미지(Python 3.13)에 미리 깔린 torchao 는 그보다 오래돼 `FqnToConfig` 가 없다 → 모든 diffusers 모델 import 실패. videogen 은 torchao(양자화)를 쓰지 않는다.
+- 재현: torchao 0.13.0 + diffusers 0.41.0 에서 같은 오류 (이 저장소 클라우드 환경).
+
+### 한 것
+| 대상 | 내용 |
+|---|---|
+| `_disable_old_torchao()` (새 함수) | torchao 가 0.15 미만이면 경고 로그(버전·요구 버전) → Kaggle 에서는 `pip uninstall -y torchao`(이번 세션만, 다음 세션은 Kaggle 이 다시 깖) → diffusers 가 import 때 기억해 둔 'torchao 있음' 표시(`_torchao_available`)를 끄고 꺼졌는지 확인. 앞 실행이 실패한 같은 커널에서 셀을 다시 실행해도 **커널 재시작 없이** 된다 |
+| `run()` | diffusers 길에서 패키지 확인 뒤 `_disable_old_torchao()` 호출. Kaggle 밖(내 PC 등)에서는 패키지를 지우지 않고 표시만 끈다 |
+| `tests/test_videogen.py` | `test_old_torchao` — 같은 커널에서 '첫 import 실패 → 수정 → 다시 import' 순서를 그대로 재현. 결과: 오래된 torchao(표시만 끔) · Kaggle 길(지움, `VIDEOGEN_TEST_UNINSTALL=1`) · torchao 없음 세 경우 모두 통과 |
+
+### 위험 관련 변경
+- 없음 (생성 파라미터 그대로).
+
 ## v1.1.0 — 2026-10-18
 ### 왜 (사용자 지시)
 - "핵심 코드를 하나로 만들어서 저장소에 올리고 kaggle에서는 코드 받아서 실행하는 방식으로 하고 prompt 같은 설정만 고치고 실행만 하는 코드를 따로 알려줘"

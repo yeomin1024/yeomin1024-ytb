@@ -1,8 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.1 — 2026-10-15 — 새 스타일 첫 영상(은퇴 꺼내 쓰기)에서 3번 모두 기준 밖으로 실패한 것 고침: ① 트루 피크 때문에 리미터를 낮추면
+# VERSION: v1.2 — 2026-10-18 — 주식 레버리지 롱폼에서 5번 모두 기준 밖(I -14.32·TP -1.45 사이를 오감)으로 실패한 것 고침: ① 리미터가 켜진 채
+#          음량만 모자라면 모자란 양의 1.5배를 올림 (리미터가 올린 이득의 일부를 눌러 먹어 -14.31 → -14.19 처럼 조금씩만 오름) ② 트루 피크가
+#          조금 넘으면 리미터를 '넘은 양 + 0.1 dB' 만 낮춤 (예전 + 0.2 — 0.05 넘은 것에 0.25 를 낮춰 음량이 다시 기준 밖으로) ③ 최대 5번 → 8번 ④ 기준 비교는 소수 둘째 자리로 (-14.3 이 소수 오차로 0.3 넘음이 됨).
+#          (사용자 지시 2026-10-18 "채권 표현 수정하고 영상 업로드 할 준비해" — 최종 렌더 때 찾음)
+# (v1.1 — 2026-10-15 — 새 스타일 첫 영상(은퇴 꺼내 쓰기)에서 3번 모두 기준 밖으로 실패한 것 고침: ① 트루 피크 때문에 리미터를 낮추면
 #          그만큼 음량도 줄어드는데 이득을 그대로 둬서 다음 번에 음량이 기준 밖(-14.35)으로 떨어짐 → 리미터를 낮춘 양의 40%만큼 이득을 미리 올림
-#          ② 최대 3번 → 5번 ③ 표본율이 44.1kHz 보다 낮은 소리(TTS 24kHz)는 48kHz 로 만듦 (리미터가 표본 사이 피크를 더 잘 누름 · 유튜브 권장)
+#          ② 최대 3번 → 5번 ③ 표본율이 44.1kHz 보다 낮은 소리(TTS 24kHz)는 48kHz 로 만듦 (리미터가 표본 사이 피크를 더 잘 누름 · 유튜브 권장))
 # (v1.0 — 2026-10-11 — 신규: 완성 영상 음량을 유튜브 기준(-14 LUFS, 트루 피크 -1.5 dBTP 이하)으로 맞춤 (사용자 지시 "음량 맞춰"))
 r"""
 렌더한 완성 영상(final_1080p.mp4)의 소리 크기를 유튜브 기준에 맞춥니다. 영상 스트림은 그대로 복사하고 오디오만 다시 만듭니다.
@@ -38,7 +42,9 @@ ROOT = Path(__file__).resolve().parent.parent
 TOL_SKIP = 0.5      # 이미 맞은 것으로 보는 범위 (LU)
 TOL_DONE = 0.3      # 처리 뒤 목표와의 허용 차이 (LU)
 TP_MARGIN = 0.5     # 리미터는 표본 피크 기준이라 트루 피크(표본 사이 피크)를 위해 한도보다 이만큼 낮게 (dB)
-MAX_TRIES = 5
+MAX_TRIES = 8       # v1.2 (예전 5)
+LIMITED_GAIN_STEP = 1.5   # v1.2 리미터가 켜져 있으면 음량 부족분의 이 배수만큼 이득을 올림 (리미터가 일부를 눌러 먹음)
+TP_EXTRA_DROP = 0.1       # v1.2 트루 피크가 넘으면 리미터를 '넘은 양 + 이것' 만큼 낮춤 (예전 0.2)
 LIMIT_GAIN_COMP = 0.4   # 리미터를 1 dB 낮추면 음량이 대략 이만큼 줄어듦 → 그만큼 이득을 미리 올림 (v1.1, 2026-10-15 실측 0.45 dB → 0.18 LU)
 
 log = logging.getLogger("loudnorm")
@@ -138,16 +144,16 @@ def normalize(path, target, tp, dry_run=False, force=False):
             afilter = build_filter(gain, limit)
             encode(path, tmp, afilter, info)
             after = measure(tmp, target, tp)
-            ok_i = abs(after["I"] - target) <= TOL_DONE
+            ok_i = round(abs(after["I"] - target), 2) <= TOL_DONE     # v1.2 소수 오차(-14.3 → 0.30000000000000071)로 떨어지지 않게
             ok_tp = after["TP"] <= tp
             log.info(kv(stage="pass", attempt=attempt, filter=afilter, I=after["I"], TP=after["TP"],
                         LRA=after["LRA"], ok_I=ok_i, ok_TP=ok_tp))
             if ok_i and ok_tp:
                 break
-            if not ok_i:    # 리미터가 피크를 누른 만큼 음량이 덜 오름 → 차이만큼 이득 보정
-                gain += target - after["I"]
+            if not ok_i:    # 리미터가 피크를 누른 만큼 음량이 덜 오름 → 차이만큼 이득 보정 (리미터가 켜져 있으면 1.5배 — v1.2)
+                gain += (target - after["I"]) * (LIMITED_GAIN_STEP if limit is not None and after["I"] < target else 1.0)
             if not ok_tp:   # 트루 피크가 넘으면 리미터를 넘은 만큼 더 낮춤 + 그 때문에 줄 음량을 미리 보정 (v1.1)
-                drop = (after["TP"] - tp) + 0.2
+                drop = (after["TP"] - tp) + TP_EXTRA_DROP
                 limit = (limit if limit is not None else tp - TP_MARGIN) - drop
                 gain += LIMIT_GAIN_COMP * drop
         else:

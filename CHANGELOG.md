@@ -1,5 +1,37 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-18 (101) — 수학 퀴즈 채널 탐색: new/ '28. 수학 퀴즈' · 새 폴더 math/ (쇼츠·영어) · niche_scan v1.1
+
+### 왜 (사용자 지시)
+- "수학문제 띄워놓고 시청자가 맞춰보는 영상이 조회수 잘 나오고 구독자 많이 모을 수 있는지 탐색해볼래?"
+- 같은 잣대(한국어 롱폼)의 분야 비교는 `new/` 에 한 분야를 더하면 되지만, 퀴즈는 **쇼츠**가 많고 문제에 **언어가 거의 없어** 세계 시장도 봐야 했다. `new/` 에서 쇼츠를 재면 검색어 46개 × 100단위, 외국 영상을 켜면 다른 분야까지 다시 검색 → 수학 검색어만 든 `math/` 폴더를 따로 만들고 `niche_scan` 이 쇼츠·외국 영상을 셀 수 있게 고쳤다.
+
+### 한 것
+| 단계 | 명령 · 결과 | 단위 |
+|---|---|---|
+| 설정 | `new/niches.toml` v1.1 ('28. 수학 퀴즈') → `niche_scan new sync` · `math/` 새로 (`niches.toml` 갈래 9 — 한국어 4·영어 3·기준 재테크·stock market, `analyzer_config.toml` 외국 영상 켬, `keywords.toml` 수학 관련어, `analysis_rules.toml` = new/ 와 같음) → `niche_scan math sync` → keywords.txt 6 · keywords_foreign.txt 5 · `topics.txt` 에 `math` | 0 |
+| 확인 | 키 `58333e86` `videos.list` 1단위 → 200 (전날 할당량 날의 남은 몫) | 1 |
+| 탐색 | `cloud_run new explore --weeks 26` (새 검색 4번, 나머지 44개 캐시) · `cloud_run math explore --weeks 26` 검색 19번 뒤 **429 하루 검색 횟수** (오늘 23번째) → `wait-reset --then resume`(16:10) 남은 3번 · `math explore --shorts --weeks 26` 11번 | 412 · 1,925 · 305 · 1,118 |
+| 표 | `niche_scan new report` · `math report` · `math report --shorts` | 0 |
+| 판단 | `math/channel_ideas.md` v1.0 · `math/README.md` v1.0 | 0 |
+
+### 바꾼 파일
+| 파일 (버전) | 내용 |
+|---|---|
+| `tools/niche_scan.py` (v1.0 → v1.1) | `report --shorts`: `shorts_explore.json`·`.cache/shorts` 를 `[shorts]` 성공 기준(3~180일·5만 이하·5만 회·×3)·`[shorts_compare]` 채널당 5개로, '부풀림 의심'·'쇼츠 아님?'·180초 넘음 뺌 → `niche_scan_shorts.md` + csv 3개 · 외국 영상을 켠 주제는 '외국 영상' 행을 남기고 분야마다 '외국 영상 몫 (성공 중 외국)' (`is_foreign_info` = outlier_research.is_foreign 규칙) · `niches.toml` `foreign = true` → `keywords_foreign.txt` · 관련어가 있는 주제는 '주제 관련 몫' 칸 · 쇼츠 길이(초) |
+| `tools/tests/test_niche_scan.py` (v1.0 → v1.1) | 7개 더함 (18개): 쇼츠 성공 기준 · 쇼츠 거르기 · 외국 영상은 켠 주제만 남김 · is_foreign_info = outlier_research.is_foreign · sync 영어 검색어 파일 · foreign 분야가 없으면 그 파일을 건드리지 않음 · 쇼츠 보고서·외국 몫·관련 몫 |
+| `new/` (README v1.3 · niches v1.1 · result/niche · cloud_cache) | '28. 수학 퀴즈' |
+| `math/` (새로) | README v1.0 · channel_ideas v1.0 · niches · analyzer_config · keywords.toml · analysis_rules · keywords*.txt · tag_rules · result/niche (롱폼·쇼츠) · cloud_cache |
+| `CLAUDE.md` · `guides/status.md` (v1.75 → v1.76) · `topics.txt` | 주제 폴더 줄에 `math/` · 1번 표·2-8 |
+
+### 검증
+- v1.1 로 `new/` 롱폼 표를 다시 만들어 v1.0 표와 비교 — 기존 칸 차이 **0** (새 칸만 늘어남, 개설 뒤 달 수만 날짜만큼 바뀜).
+- `cd tools/tests && python3 -m unittest test_niche_scan` → 18개 OK.
+- 결과 (숫자): 한국어 롱폼 '수학 퀴즈' 성공 3% (new/ 28개 중 26위) · '계산 퀴즈' 롱폼 26주 8개 · 영어 롱폼 olympiad 39% · math puzzle 26% · mental math 28% · 기준 stock market 5% · 재테크 3% · 쇼츠 한국어 '수학 퀴즈' 22% · '계산 퀴즈' 0%.
+
+### 못 한 것 · 남은 것
+- 시청자 니즈(댓글)는 받지 않음 (승인 안 함 — 사용자가 방향을 정한 뒤).
+- '암산' 검색에 'X암산' 산 이름·드라마가 섞임 — 관련어가 못 거름 (표의 '주제 관련 몫' 이 부풀려짐, README 한계에 적음).
 ## 2026-10-18 (100) — videogen v1.1.1: Kaggle 의 오래된 torchao 로 나던 FqnToConfig 오류 고침
 
 ### 왜 (사용자 보고)

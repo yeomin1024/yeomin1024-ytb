@@ -1,17 +1,18 @@
 {
  "tool": "cloud_run.py v1.3",
  "topic": "math",
- "saved": "2026-10-18T15:30:11+09:00",
+ "saved": "2026-10-18T16:10:16+09:00",
  "why": "explore",
- "files": 845,
- "bytes_raw": 2022506,
- "bytes_tgz": 742084,
- "sha256": "f2deff1f6f59cb0eccd216fb8596f8ef33360da60d1898a4596a52512728c53c",
+ "files": 1541,
+ "bytes_raw": 3530934,
+ "bytes_tgz": 1253345,
+ "sha256": "ed3647a453cfd36bcda133f1384fa61e4cbcdfefd82e0ec8b04c9ceb21aa2393",
  "kinds": {
   "autocomplete.json": 1,
   "channels.json": 1,
-  "search": 19,
-  "video": 823,
-  "web": 1
+  "search": 22,
+  "shorts": 549,
+  "video": 966,
+  "web": 2
  }
 }

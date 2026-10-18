@@ -23,7 +23,7 @@
     "6:01 이미 만기가 지났다면",
     "6:38 정리"
   ],
-  "captions": null,
+  "captions": "AUieDaZ9SYdCt0Il65AkeAJ31xnX_3M_6wGSZ7NLpfLJ5Kpmeh80HJFiyzA",
   "thumbnail": "thumbnail_1_upload.jpg",
   "warnings": [],
   "studioTodo": [
@@ -40,5 +40,9 @@
       "changedAt": "2026-10-17T14:35Z",
       "note": "10-18 18:00 KST — 짝 쇼츠와 같은 시각 (사용자 지시 2026-10-17 \"연금 꺼내기, ISA도 16시 초기화 될때 올리도록 하고\" — 쇼츠는 할당량 초기화 뒤 올림), videos.update part=status (containsSyntheticMedia 그대로 true)"
     }
-  ]
+  ],
+  "captionTracks": {
+    "ko": "AUieDaZ9SYdCt0Il65AkeAJ31xnX_3M_6wGSZ7NLpfLJ5Kpmeh80HJFiyzA"
+  },
+  "captions_uploaded_at": "2026-10-18T07:13Z (할당량 초기화 뒤 — 영상은 2026-10-17 에 자막 없이 올라감)"
 }

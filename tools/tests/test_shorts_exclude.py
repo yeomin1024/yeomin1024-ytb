@@ -34,8 +34,9 @@ class ShortsExcludeTest(unittest.TestCase):
             with self.subTest(topic=t):
                 self.assertEqual([k["name"] for k in r["shorts_exclude"]["kinds"]],
                                  ["운세·사주", "연예·예능·드라마", "명언·인생조언", "정치", "다른 뜻"])
-        self.assertTrue(self.rules["economic"]["shorts_exclude"]["videos"])         # 눈으로 본 목록은 재테크에만
-        self.assertEqual(self.rules["stock"]["shorts_exclude"]["videos"], {})
+        self.assertTrue(self.rules["economic"]["shorts_exclude"]["videos"])         # 눈으로 본 목록은 주제마다 따로
+        self.assertTrue(self.rules["stock"]["shorts_exclude"]["videos"])            # 주식은 2026-10-17 첫 쇼츠 탐색에서 27개 (analysis_rules v1.3)
+        self.assertNotEqual(self.rules["stock"]["shorts_exclude"]["videos"], self.rules["economic"]["shorts_exclude"]["videos"])
 
     def test_excluded_real_titles(self):
         cases = [

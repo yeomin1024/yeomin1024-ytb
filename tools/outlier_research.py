@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v2.5.1 — 2026-10-15 — 자동완성 캐시를 바꿔 끼울 때 Windows 에서 잠깐 막히면 다시 (_replace_retry — 사용자 보고 2026-10-15: "PermissionError: [WinError 5] 액세스가 거부되었습니다 … 왜이래")
+# VERSION: v2.5.2 — 2026-10-19 — 분당 검색 횟수 한도 429 ('Search Queries per minute') — 1분 창이 풀리도록 30초·65초 기다렸다가 다시 (예전엔 2·4초만
+#          쉬고 RuntimeError 로 탐색 전체가 멈춤 — 2026-10-19 클라우드 주식 1주 탐색: 검색 85번을 56초에 하고 86번째에서 멈춰 탐색 목록이 저장되지
+#          않았음. 사용자 지시 "최근 영상도 분석했어? 오늘 1주일 전까지만 분석 결과 알려줘봐"). 다른 429·하루 한도 처리는 그대로
+# (v2.5.1 — 2026-10-15 — 자동완성 캐시를 바꿔 끼울 때 Windows 에서 잠깐 막히면 다시 (_replace_retry — 사용자 보고 2026-10-15: "PermissionError: [WinError 5] 액세스가 거부되었습니다 … 왜이래")
 # (v2.5 — 2026-10-15 — 하루 검색 횟수 한도 429 를 알아봄 (사용자 보고 2026-10-15: "RuntimeError: HTTP 429 search: … Quota exceeded for quota metric 'Search Queries' and limit 'Search Queries per day' … 왜 이래 사용량 3000 남았는데"):
 #          Google 은 단위(10,000)와 따로 **'Search Queries per day'(하루 검색 횟수)** 를 셈 — 넘으면 HTTP 429 RESOURCE_EXHAUSTED (예전 판은
 #          403 만 할당량으로 봐서 RuntimeError 로 탐색이 통째로 멈춤. 분석기는 v2.2.0 부터 알았음 — 2026-10-09 검색 74번 중 40번째 뒤로 막힘).
@@ -183,7 +186,7 @@ except ModuleNotFoundError:             # Python 3.10 → tomli (분석기가 �
     import tomli as tomllib
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v2.5.1"
+VERSION = "v2.5.2"
 LOG = logging.getLogger("outlier")
 HANGUL = re.compile(r"[가-힣]")
 SEARCH_TTL_HOURS = 168
@@ -389,8 +392,11 @@ class Api:
                             self.ledger.mark_exhausted(f"{kind} {e.code} quota")
                         raise QuotaStop("하루 할당량(10,000단위) 소진 — 태평양 자정(한국 오후 4~5시) 뒤 다시 (캐시는 남음)", "daily")
                     if e.code == 429 and attempt < 2:                 # v2.5: 분당 제한 — 잠깐 쉬고 다시
-                        log("QUOTA", logging.WARNING, kind=kind, status=429, attempt=attempt + 1, note="분당 요청 제한 — 잠깐 쉬고 다시", body=body[:120])
-                        time.sleep(2 ** (attempt + 1))
+                        per_min = "per minute" in full                  # v2.5.2: 'Search Queries per minute' — 1분 창이 풀릴 때까지
+                        wait = (30, 65)[attempt] if per_min else 2 ** (attempt + 1)
+                        log("QUOTA", logging.WARNING, kind=kind, status=429, attempt=attempt + 1, wait_s=wait,
+                            note="분당 요청 제한 — 1분 창이 풀리도록 기다렸다가 다시" if per_min else "분당 요청 제한 — 잠깐 쉬고 다시", body=body[:120])
+                        time.sleep(wait)
                         continue
                     if e.code in (403, 404) and kind in ("commentThreads", "comments"):   # 댓글 막힌 영상·지워진 댓글
                         self.used += COST[kind]          # Google 은 오류 답도 센다 (v2.2: 장부와 맞춤)

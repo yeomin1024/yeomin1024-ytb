@@ -87,11 +87,12 @@ class TestRules(unittest.TestCase):
             self.assertEqual(orr._useful_novel(td, {"dur": "medium", "novel": [EN], "lang": orr.ANY_LANG}, 56), 1)
 
     def test_configs_default_off(self):
-        for t in ("economic", "stock"):
+        # 재테크는 기본 꺼짐 그대로 · 주식은 사용자 지시 2026-10-16 "잠깐 주식 주제는 외국 영상도 포함해" 로 켬 (stock/analyzer_config.toml v3.2)
+        for t, want in (("economic", False), ("stock", True)):
             with self.subTest(topic=t):
                 cfg = tomllib.loads((REPO / t / "analyzer_config.toml").read_text("utf-8"))
-                self.assertIs(cfg["search"]["INCLUDE_FOREIGN"], False)
-                self.assertFalse(orr.include_foreign(t, REPO))
+                self.assertIs(cfg["search"]["INCLUDE_FOREIGN"], want)
+                self.assertIs(orr.include_foreign(t, REPO), want)
         rel = orr.load_keywords("stock", 0)[4] if orr.ROOT == REPO else None
         if rel:                                                                 # 영어 주식 영상도 주제 관련으로 (stock/keywords.toml v1.1)
             self.assertTrue(orr.relevant({"title": "How I pick dividend stocks", "tags": [], "description": ""}, rel))

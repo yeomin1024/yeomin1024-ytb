@@ -9,6 +9,7 @@
   "lead": 0.15,
   "margin_sec": 0.5,
   "max_sec": 5.0,
+  "notice": {"text": "기사 사례를 바탕으로 각색한 가상 사례", "from_sentence": 1, "until_sentence": 5},
   "style": {
     "image": "Warm, friendly 2D animation still, like a frame from a gentle family animated film: clean hand-drawn line art, soft cel shading, warm pastel colors, rounded friendly shapes, cozy natural light, expressive but natural faces. Everyday Korean setting today. Fictional people who do not resemble any real or famous person.",
     "motion": "Warm friendly 2D animation, soft cel shading, smooth natural motion at normal speed, characters keep the same face, hair and clothes, no text appears."

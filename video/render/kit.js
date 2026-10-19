@@ -1,4 +1,7 @@
-// VERSION: v1.8 — 2026-10-17 — K.cover(end, {box, ar, cy}): 그림 안 사진 부분(box = [x0,y0,x1,y1], 그림 가로·세로 비율)만 화면 가로 가득 + 뒤는 같은 부분을
+// VERSION: v1.9 — 2026-10-19 — window.__BASE(render.mjs v1.17 video --base)면 구운 자막·장 이름표를 끔 — 바탕 영상 위에 AI 장면 클립을 얹고
+//   자막·이름표는 tools/assemble_video.py 가 한 번에 굽는다 (클립 구간에도 같은 모양 — render.mjs overlay 가 이 쪽 #cc·#chip 을 그대로 찍음).
+//   SB.base · K.chapterList() (장 이름표가 바뀌는 시각).
+// v1.8 — 2026-10-17 — K.cover(end, {box, ar, cy}): 그림 안 사진 부분(box = [x0,y0,x1,y1], 그림 가로·세로 비율)만 화면 가로 가득 + 뒤는 같은 부분을
 //   흐리게 크게 — 그림에 빈 남색 띠가 있어도 화면에 빈 띠가 생기지 않게 (사용자 지시 2026-10-17 "아니 이거 썸네일 문제가 아니고 영상 자체가 비율 안맞는거 아니냐고 컨텐츠가 중간에 딱 안나오고 위 오른쪽에 여백이 생긴다고").
 // v1.7 — 2026-10-17 — 자막 2줄까지 (사용자 지시 2026-10-17 "그리고 자막은 2줄까지만 표시되도록 해"): K.cover 를 쓰는 쇼츠의 첫 자막에 class 'cover'(kit.css — 42px, srt_tool v1.9 'shorts_cover')
 //   → 첫 문장이 2줄 자막 하나에 들어가 그림이 자막 하나 동안만 (render.mjs v1.14 check 는 늘 2줄까지).
@@ -256,6 +259,8 @@
     ccEl.innerHTML = txt ? txt.split("\n").map(esc).join("<br>") : "";
   }
   K.cut = (t, name) => CUTS.push({ t: +(+t).toFixed(2), name });   // 점검용 대표 장면
+  K.chapterList = () => CHAPTERS.map(c => ({ tag: c.tag, text: String(c.chip || c.title || c.part).replace(/<[^>]*>/g, " "),
+    start: c.start, n: c.n, chipFrom: c.start - 1.0, dots: c.dots || null, card: !!c.card }));   // v1.9 render.mjs overlay — 장 이름표가 바뀌는 시각
   // ---------- v1.4 첫 문장 그림 (쇼츠 썸네일 이미지) ----------
   K.cover = (end, opts) => {                 // 0초 ~ end: EP.thumb 를 화면 가득 (object-fit:cover — 2:3 그림은 양옆이 잘림), 천천히 확대
     const o = Object.assign({ zoom: 1.05 }, opts);
@@ -290,7 +295,7 @@
   // ---------- 시작·끝 ----------
   K.init = (ep, opts) => {                   // opts: {subtitles: 구운 자막(기본 true), chip: 장 이름표(기본 true), w: 무대 너비(기본 1920 — v1.3)}
     EP = ep;
-    OPT = K.opt = Object.assign({ subtitles: true, chip: true, w: 1920 }, opts);
+    OPT = K.opt = Object.assign({ subtitles: true, chip: true, w: 1920 }, opts, window.__BASE ? { subtitles: false, chip: false } : {});
     document.body.classList.toggle("render", RENDER);
     stage = document.getElementById("stage");
     tl = K.tl = gsap.timeline({ paused: true });
@@ -301,7 +306,7 @@
   K.done = () => {
     tl.set({}, {}, EP.duration);
     const seek = t => { tl.seek(t, false); chipAt(t); ccAt(t); for (const f of HOOKS) f(t); if (window.SB) window.SB.t = t; };
-    window.SB = { D: EP.duration, seek, cuts: CUTS, ep: EP.id, estimated: !!EP.estimated, subtitles: !!ccEl, cover: COVER.used, coverEnd: COVER.end || 0, thumb: EP.thumb || null, ready: false, t: 0 };
+    window.SB = { D: EP.duration, seek, cuts: CUTS, ep: EP.id, estimated: !!EP.estimated, subtitles: !!ccEl, cover: COVER.used, coverEnd: COVER.end || 0, thumb: EP.thumb || null, base: !!window.__BASE, ready: false, t: 0 };
     seek(0);
     const imgs = Array.from(stage.querySelectorAll("img"));   // v1.4 그림이 다 풀린 뒤에 ready
     Promise.all(imgs.map(i => i.decode().catch(() => console.error(`그림을 못 읽음: ${i.getAttribute("src")}`))))

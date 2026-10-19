@@ -4,7 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>국민연금 당김 쇼츠</title>
-<!-- VERSION: v1.0 — 2026-10-19 — 국민연금 당김 쇼츠 세로 장면 (gungmin-sigi-2026-10-shorts). 대본 economic/source/gungmin-sigi-2026-10/shorts/ v2.0
+<!-- VERSION: v1.1 — 2026-10-19 — 코드 화면 + AI 장면 클립 (사용자 지시 "영상은 설명이 복잡하고 어려울 때는 클로드 코드로 렌더링 하고 그렇지 않은 부분은 … 짧은 영상"):
+     문장 2·3·5·6·7·9·10 = AI 클립(shorts/scenes/plan.md — tools/assemble_video.py 가 얹음), 이 파일은 1(썸네일 그림)·4·8·11. 클립 앞뒤 장면은
+     클립 아래에서 나타나고 사라지게(-0.5 / +0.2). 자막은 그대로 이 파일 모양 — 렌더는 video --base(자막 없이) + overlay(자막만).
+     이전 v1.0 — 2026-10-19 — 국민연금 당김 쇼츠 세로 장면 (gungmin-sigi-2026-10-shorts). 대본 economic/source/gungmin-sigi-2026-10/shorts/ v2.0
      (프롤로그형 · 각색 — 김 씨 = 롱폼 v2.1 의 각색 인물, 1966년생·59세 퇴직·5년 당김 90만 → 63만 원, 동창 모임의 친구).
      장면 = shorts.md 3번: ① 첫 문장 = 쇼츠 썸네일 그림 (세 칸 band — K.cover zoom 1, box 없음) ② 5년 공백 (59세 퇴직 → 64세 연금, 빈 칸 5년, 월급 ✕ 연금 ✕ → 신청서 한 장)
      ③ 통장 (청록 월 90만 원에 줄 → 빨강 63만 원) ④ 64세에 90만 원으로 돌아갈 줄 안 점선(생각) → 동창 모임 친구의 말 '평생 30%' → 점선이 사라지고 63만 원 막대가 끝까지
@@ -67,7 +70,7 @@ const FORM = w => `<svg viewBox="0 0 200 260" width="${w}" height="${w * 1.3}" a
 const form = (sc, cx, top, w) => el(`<div class="a" style="left:${cx - w / 2}px;top:${top}px;width:${w}px;height:${w * 1.3}px;filter:drop-shadow(0 18px 24px rgba(0,0,0,.45))">${FORM(w)}</div>`, sc);
 
 /* 1. 첫 문장 = 쇼츠 썸네일 이미지 (김 씨 국민연금 당겨 받고 평생 매달 27만 원 덜) */
-K.cover(until(2), { zoom: 1 });   // 그림 그대로 화면 가득 · 확대 없음 — 쇼츠 썸네일 v2.0 세 칸 band(위 검정 + 문구 2줄 · 가운데 사진 · 아래 검정), 첫 문장 자막은 아래 검정 칸 (thumbnail_guide 12번·피드백 24·26)
+K.cover(S(2) + 0.2, { zoom: 1 });   // v1.1 끝(사라짐)은 AI 클립 S02 아래 (클립이 S(2)-0.15 에 시작)   // 그림 그대로 화면 가득 · 확대 없음 — 쇼츠 썸네일 v2.0 세 칸 band(위 검정 + 문구 2줄 · 가운데 사진 · 아래 검정), 첫 문장 자막은 아래 검정 칸 (thumbnail_guide 12번·피드백 24·26)
 K.cut(0.1, "0초 그림 = 썸네일로 고를 프레임");
 K.cut(E(1) - 0.2, "첫 문장 + 자막");
 
@@ -108,7 +111,7 @@ K.cut(E(1) - 0.2, "첫 문장 + 자막");
 }
 
 /* 3. 통장 (s4) — 64세부터 받을 연금 월 90만 원(청록)에 줄 → 통장에 들어온 돈 63만 원(빨강) */
-{ const sc = scene(S(4) - 0.3, until(5));
+{ const sc = scene(S(4) - 0.5, S(5) + 0.2);   // v1.1 AI 클립 S03 이 끝나는 S(4)-0.15 에 이미 다 보이고, S05 아래에서 사라짐
   const pb = el(`<div class="panel" style="left:150px;top:262px;width:700px;height:660px;overflow:hidden"></div>`, sc);
   el(`<div class="a" style="left:0;top:0;width:700px;height:104px;background:rgba(255,255,255,.08)"></div>`, pb);
   el(`<div class="a w9 nw" style="left:44px;top:22px;font-size:52px">통장</div>`, pb);
@@ -161,7 +164,7 @@ K.cut(E(1) - 0.2, "첫 문장 + 자막");
 }
 
 /* 5. 김 씨의 계산 (s8) — 계산기 6,480만 원 올라가기 → 신청서 한 장 때문에 '평생 손해?' (s9) */
-{ const sc = scene(S(8) - 0.3, until(10));
+{ const sc = scene(S(8) - 0.5, until(10));   // v1.1 s9·s10 은 AI 클립 S09·S10 이 덮음
   const lab = text(sc, CX, 262, "김 씨의 계산", 52, "w7"); pop(lab, S(8));
   const p1 = el(`<div class="a cx pill sm" style="left:325px;top:350px;color:${R};border-color:${R}">매달 27만 원</div>`, sc);
   const p2 = el(`<div class="a cx pill sm" style="left:700px;top:350px">84세까지</div>`, sc);
@@ -193,7 +196,7 @@ K.cut(E(1) - 0.2, "첫 문장 + 자막");
 }
 
 /* 7. 끝 화면 (s11) — 진짜 범인 · 지금 할 일 · 롱폼 자리 · 아래 영상에서 확인 ⬇ (관련 동영상 링크 자리) */
-{ const sc = scene(S(11) - 0.3, K.D, { keep: true });
+{ const sc = scene(S(11) - 0.5, K.D, { keep: true });   // v1.1 AI 클립 S10 이 끝날 때 이미 다 보임
   const k = kim(sc, 240, 262, 170); pop(k, S(11));
   const t1 = text(sc, 660, 292, "진짜 범인", 84, "w9 Y"); pop(t1, W(11, "진짜"));
   const t2 = text(sc, 660, 410, "지금 할 일", 68, "w9"); pop(t2, W(11, "할 일"));

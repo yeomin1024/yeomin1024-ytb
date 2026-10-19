@@ -1,4 +1,9 @@
-// VERSION: v1.16 — 2026-10-17 — 첫 문장 그림 검사 안내 말: cover_check v1.1 이 배치(세 칸 'band' / 사진 끝까지 'full')를 그림 옆 thumbnail_1.md 로 골라 잼 (사용자 지시 2026-10-17 "이미지 외 영역은 검은 배경으로 하고 문구는 두 줄로해서 최대 크기로 맞춰 … PC나 모바일에서 볼 때 위 아래 영역이 좀 짤릴 수 있는데 그러면 안돼").
+// VERSION: v1.17 — 2026-10-19 — video --base: 코드 화면만 찍은 바탕 영상 <주제>/out/<영상ID>/base_1080p.mp4 (구운 자막·장 이름표 없이 —
+//   kit.js v1.9 window.__BASE, 소리·음량 맞춤 없음) · 새 모드 overlay: 구운 자막·장 이름표만 투명 PNG 로 — 자막·이름표가 바뀔 때마다 한 장
+//   (<영상ID>/overlay/NNNN.png + list.ffconcat + overlay.json, 장 이름표 바탕은 밝은 AI 클립 위에서도 읽히게 조금 어둡게).
+//   tools/assemble_video.py 가 바탕 영상에 AI 장면 클립을 얹고 이 PNG 들을 위에 굽고 내레이션을 붙임 — 자막 모양이 코드 화면과 같음.
+//   사용자 지시 2026-10-19 "영상은 설명이 복잡하고 어려울 때는 클로드 코드로 렌더링 하고 그렇지 않은 부분은 … 짧은 영상 … 영상을 이어 붙이는건 … 너가 하는거야".
+// v1.16 — 2026-10-17 — 첫 문장 그림 검사 안내 말: cover_check v1.1 이 배치(세 칸 'band' / 사진 끝까지 'full')를 그림 옆 thumbnail_1.md 로 골라 잼 (사용자 지시 2026-10-17 "이미지 외 영역은 검은 배경으로 하고 문구는 두 줄로해서 최대 크기로 맞춰 … PC나 모바일에서 볼 때 위 아래 영역이 좀 짤릴 수 있는데 그러면 안돼").
 // v1.15 — 2026-10-17 — check: 세로 쇼츠는 글자 없는 그림(동전·막대·칸)도 안전 구역 아래(자막 띠 자리)로 내려오면 문제 (텍스트만 보던 검사가
 //   은퇴 쇼츠 동전 기둥이 자막 띠에 닿은 것을 놓침 — 사용자 지시 2026-10-17 "니가 직접 영상을 보라고" 로 완성 영상을 보다 찾음).
 // v1.14 — 2026-10-17 — 자막은 늘 2줄까지 (사용자 지시 2026-10-17 "그리고 자막은 2줄까지만 표시되도록 해" — v1.13 의 '썸네일 그림 위 3줄' 허용을 지움,
@@ -46,6 +51,8 @@
 //   node video/render/render.mjs video  <주제> <영상ID> [--workers 3] [--from 0 --to 60] [--crf 18]
 //        → <주제>/out/<영상ID>/final_1080p.mp4 (--from/--to 면 preview_<from>-<to>.mp4, 음량 맞춤 없음)
 //   node video/render/render.mjs video  <주제> <영상ID> --estimated-preview   # 오디오 전 추정 시각 — 소리 없는 미리보기만 (최종본 아님)
+//   node video/render/render.mjs video  <주제> <영상ID> --base      # v1.17 코드 화면 바탕만 → base_1080p.mp4 (자막·이름표·소리 없음)
+//   node video/render/render.mjs overlay <주제> <영상ID>            # v1.17 자막·장 이름표만 투명 PNG → <영상ID>/overlay/ (assemble_video.py 가 씀)
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
@@ -55,11 +62,12 @@ import { fileURLToPath } from "node:url";
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, "..", "..");
-const VERSION = "v1.16";                        // 로그 [RENDER] tool= 에 찍힘 (v1.4~v1.6 때 올리지 않았던 것을 맞춤)
+const VERSION = "v1.17";                        // 로그 [RENDER] tool= 에 찍힘 (v1.4~v1.6 때 올리지 않았던 것을 맞춤)
 const log = (stage, kv) => console.log(`[${stage}] [${new Date().toISOString().slice(0, 19)}Z] ` +
   Object.entries(kv).map(([k, v]) => `${k}=${typeof v === "string" && /\s/.test(v) ? JSON.stringify(v) : v}`).join(" "));
 
 const argv = process.argv.slice(2);
+const BASE = argv.includes("--base");             // v1.17 바탕 영상 (자막·장 이름표 없이 — assemble_video.py 가 굽는다)
 const opt = (name, def) => { const i = argv.indexOf(`--${name}`); return i >= 0 ? argv[i + 1] : def; };
 const pos = argv.filter((a, i) => !a.startsWith("--") && !(i > 0 && argv[i - 1].startsWith("--")));
 const [MODE, TOPIC, ID] = pos;
@@ -202,6 +210,7 @@ async function openPage(pw, width) {
   const errs = [];
   page.on("pageerror", e => { errs.push(e.message); log("PAGEERROR", { msg: JSON.stringify(e.message) }); });
   page.on("console", m => { if (m.type() === "error") { errs.push(m.text()); log("CONSOLE", { msg: JSON.stringify(m.text()) }); } });
+  if (BASE) await page.addInitScript(() => { window.__BASE = true; });   // v1.17 kit.js 가 구운 자막·장 이름표를 끔
   await page.goto("file://" + PAGE + "?render=1");
   await page.waitForFunction(() => window.SB && window.SB.ready, null, { timeout: 30000 }).catch(() => fail("RENDER", "장면 파일이 준비되지 않음 (SB.ready)", "브라우저 오류 줄 확인: " + errs.join(" | ")));
   await page.evaluate(async () => { await Promise.all([500, 700, 900].map(w => document.fonts.load(`${w} 100px "Noto Sans KR"`, "가나다0"))); await document.fonts.ready; });
@@ -304,6 +313,46 @@ async function stills(times) {
   await browser.close();
 }
 
+// ---------- overlay (v1.17) — 구운 자막·장 이름표만, 바뀔 때마다 투명 PNG 한 장 ----------
+async function overlay() {
+  const t0 = Date.now();
+  const html = fs.readFileSync(PAGE, "utf-8");
+  const m = html.match(/window\.EP=(\{[\s\S]*?\});\/\*EP-DATA:END\*\//);
+  if (!m) fail("OVERLAY", "데이터 칸이 비었음", `node video/render/render.mjs sync ${TOPIC} ${ID}`);
+  if (JSON.parse(m[1]).estimated && !argv.includes("--estimated-preview")) fail("OVERLAY", "추정 시각(오디오 전)으로는 만들지 않음", `오디오가 생기면 node video/render/render.mjs sync ${TOPIC} ${ID}`);
+  const outDir = path.join(ROOT, TOPIC, "out", ID, "overlay");
+  fs.rmSync(outDir, { recursive: true, force: true });
+  fs.mkdirSync(outDir, { recursive: true });
+  const pw = await loadPlaywright();
+  const { browser, page } = await openPage(pw, W0);
+  await page.addStyleTag({ content: "html,body,body.render,#wrap,#stage{background:transparent!important} #stage>*:not(#cc):not(#chip){display:none!important} #ctrl,#now{display:none!important} #chip{background:rgba(5,9,18,.62)!important;border-color:rgba(255,255,255,.18)!important}" });
+  const info = await page.evaluate(() => ({ D: window.SB.D, subs: window.EP.subs, subtitles: window.SB.subtitles, chip: !!document.getElementById("chip"),
+    chapters: window.K.chapterList ? window.K.chapterList() : [] }));
+  const T = new Map([[0, 0], [Math.round(info.D * 1000), info.D]]);
+  const add = t => { if (t >= 0 && t <= info.D) T.set(Math.round(t * 1000), t); };
+  for (const [a, b] of info.subs) { add(a); add(b); }
+  if (info.chip) for (const c of info.chapters) add(c.chipFrom);
+  const times = [...T.values()].sort((x, y) => x - y);
+  const rows = [];
+  for (let i = 0; i + 1 < times.length; i++) {
+    const a = times[i], b = times[i + 1];
+    if (b - a < 0.002) continue;
+    await page.evaluate(t => window.SB.seek(t), (a + b) / 2);
+    const file = `${String(rows.length).padStart(4, "0")}.png`;
+    await page.screenshot({ path: path.join(outDir, file), type: "png", omitBackground: true });
+    rows.push({ a: +a.toFixed(3), b: +b.toFixed(3), file });
+  }
+  await browser.close();
+  const lines = ["ffconcat version 1.0"];
+  for (const r of rows) lines.push(`file '${r.file}'`, `duration ${(r.b - r.a).toFixed(4)}`);
+  lines.push(`file '${rows[rows.length - 1].file}'`);                // 마지막 장은 한 번 더 (concat 규칙 — 끝 길이 보존)
+  fs.writeFileSync(path.join(outDir, "list.ffconcat"), lines.join("\n") + "\n");
+  fs.writeFileSync(path.join(outDir, "overlay.json"), JSON.stringify({ video: ID, tool: `render.mjs ${VERSION}`, size: [W0, H0], duration: info.D,
+    subtitles: info.subtitles, chip: info.chip, subs: info.subs.length, chapters: info.chapters, states: rows }, null, 2));
+  log("OVERLAY", { video: ID, states: rows.length, subs: info.subs.length, chapters: info.chapters.length, subtitles: info.subtitles, chip: info.chip,
+    dir: path.relative(ROOT, outDir), sec: ((Date.now() - t0) / 1000).toFixed(0) });
+}
+
 // ---------- video ----------
 async function renderChunk(pw, from, to, fps, file, crf, tag) {
   const { browser, page } = await openPage(pw, W0);
@@ -348,15 +397,15 @@ async function video() {
   const outDir = path.join(ROOT, TOPIC, "out", ID);
   fs.mkdirSync(outDir, { recursive: true });
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), `render_${ID}_`));
-  log("RENDER", { video: ID, tool: `render.mjs ${VERSION}`, frames: F1 - F0, fps, from, to: to.toFixed(2), workers, crf, tmp });
+  log("RENDER", { video: ID, tool: `render.mjs ${VERSION}`, frames: F1 - F0, fps, from, to: to.toFixed(2), workers, crf, base: BASE, tmp });
   const pw = await loadPlaywright();
   const per = Math.ceil((F1 - F0) / workers);
   const chunks = Array.from({ length: workers }, (_, k) => [F0 + k * per, Math.min(F1, F0 + (k + 1) * per), path.join(tmp, `chunk_${k}.mp4`)]).filter(c => c[0] < c[1]);
   await Promise.all(chunks.map(([a, b, f], k) => renderChunk(pw, a, b, fps, f, crf, k)));
   fs.writeFileSync(path.join(tmp, "list.txt"), chunks.map(c => `file '${c[2]}'`).join("\n"));
-  const out = path.join(outDir, estPreview ? "preview_estimated_silent.mp4" : preview ? `preview_${from}-${Math.round(to)}.mp4` : "final_1080p.mp4");
+  const out = path.join(outDir, BASE ? "base_1080p.mp4" : estPreview ? "preview_estimated_silent.mp4" : preview ? `preview_${from}-${Math.round(to)}.mp4` : "final_1080p.mp4");
   const args = ["-y", "-v", "error", "-f", "concat", "-safe", "0", "-i", path.join(tmp, "list.txt")];
-  if (AUDIO && !estPreview) args.push("-ss", String(from), "-t", String(to - from), "-i", AUDIO, "-map", "0:v", "-map", "1:a", "-c:a", "aac", "-b:a", "192k");
+  if (AUDIO && !estPreview && !BASE) args.push("-ss", String(from), "-t", String(to - from), "-i", AUDIO, "-map", "0:v", "-map", "1:a", "-c:a", "aac", "-b:a", "192k");
   args.push("-c:v", "copy", "-movflags", "+faststart", out);
   const r = spawnSync("ffmpeg", args, { stdio: "inherit" });
   if (r.status !== 0) fail("RENDER", "ffmpeg 이어 붙이기 실패", `조각은 ${tmp} 에 남음`);
@@ -364,7 +413,7 @@ async function video() {
   const a = spawnSync("ffprobe", ["-v", "error", "-select_streams", "a", "-show_entries", "stream=codec_name", "-of", "csv=p=0", out], { encoding: "utf-8" }).stdout.trim();
   log("RENDER", { file: path.relative(ROOT, out), duration_s: dur.toFixed(2), audio: a || "없음", mb: (fs.statSync(out).size / 1e6).toFixed(1), sec: ((Date.now() - t0) / 1000).toFixed(0) });
   fs.rmSync(tmp, { recursive: true, force: true });
-  if (!preview) {
+  if (!preview && !BASE) {
     const ln = spawnSync("python3", [path.join(ROOT, "tools", "loudnorm.py"), out], { stdio: "inherit" });
     if (ln.status !== 0) fail("LOUDNORM", "음량 맞춤 실패 (렌더 파일은 그대로)", `python3 tools/loudnorm.py ${path.relative(ROOT, out)}`);
   }
@@ -376,4 +425,5 @@ else if (MODE === "check") await check();
 else if (MODE === "stills") await stills();
 else if (MODE === "extra") await stills((opt("times") || "").split(",").filter(Boolean).map(Number).map(t => [t, ""]));
 else if (MODE === "video") await video();
+else if (MODE === "overlay") await overlay();
 else fail("START", `모르는 모드 ${MODE}`);

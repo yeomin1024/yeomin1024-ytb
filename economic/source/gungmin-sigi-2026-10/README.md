@@ -14,6 +14,7 @@
 | `gungmin-sigi-2026-10.txt` | 대본 **v2.1** — 사연형(주인공이 알아 가는 이야기), 도입 + 챕터 5개 + 정리(파트 라벨 `-…`, '사연' 라벨 없음), 한 줄 한 문장, 102문장, 2,333음절 (옛 v1.0·v2.0 은 git 이력) |
 | `gungmin-sigi-2026-10.srt` | 자막 v2.1: 문장 102 / 자막 102 (두 줄 자막 9개, 나뉜 문장 0개), 끝 00:06:52 — 실제 오디오에 맞춤 (`npm run align-audio`, 2026-10-19) |
 | `narration.mp3` · `tts_narration.json` | 내레이션 412.6초 (Kaggle, tts_narration v1.12) — 목표 7~8분보다 조금 짧음 |
+| `video/episodes/gungmin-sigi-2026-10/index.html` | **코드 화면 v1.0** (2026-10-19) — 코드 문장 73개, AI 클립 구간 16곳은 비움(앞 장면은 클립 아래에서 사라지고 다음 장면·장 카드는 클립 끝에 이미 보임) · `render.mjs check` 문제 0 (cuts 71) · still 71장 Claude 확인 · 바탕 렌더 4분 55초(12,395프레임) · 자리 표시 클립 29개로 합치기 시험 4분 37초 ✅ — 진짜 클립이 오면 `scene_clips.py fetch` → `assemble_video.py` |
 | `scenes/` | **장면 계획 v1.0** — `plan.json`(원본: AI 클립 29개 = 사연 장면, 인물 5·장소 4·그림체·각색 안내) → `plan.md`(문장마다 코드/AI 표) · `chatgpt.md`(그림 프롬프트 — ChatGPT) · `videogen.json`(Kaggle 설정) — `tools/scene_clips.py`, 합치기 `tools/assemble_video.py` (`guides/video_guide.md` 6-1) |
 | `titles.md` | 제목 3개 **v2.0** — R1 = 사용자 선택 「은퇴 후 국민연금 신청 한 번에 평생 손해봤어요. 꼭 보세요」 |
 | `checklist.md` | 사실 확인표 **v2.1** (A 법령 원문 · B 계산 · C 확인 필요 · D 각색 가정) |

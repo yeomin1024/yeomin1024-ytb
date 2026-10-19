@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""VERSION: v1.0 — 2026-10-18 — 최초 작성. 대본 gungmin-sigi-2026-10.txt v1.0 의 숫자를 모두 낸다.
+"""VERSION: v1.1 — 2026-10-19 — 대본 v2.0(사연형 — 기사 사례를 각색한 가상 인물 김 씨) 숫자를 8번 절에 더함.
+         사용자 지시 2026-10-19 "기사 내용은 그냥 참고이고 현재 기준에 맞게 각색하면 돼 … 대본 알려줘봐".
+         김 씨 = 1966년생(받는 나이 64세 — 부칙 <제8541호> 제8조 '1965년부터 1968년까지 출생자는 4세'), 59세 퇴직 후 바로 5년 당김,
+         64세 예상 월 90만 원. 1~7번(예시 부부, v1.0)은 바꾸지 않음.
+이전 v1.0 — 2026-10-18 — 최초 작성. 대본 gungmin-sigi-2026-10.txt v1.0 의 숫자를 모두 낸다.
 
 국민연금 언제 받을까 — 1969년생 57세 남편의 국민연금을 60세(5년 당김)·65세(제때)·70세(5년 미룸)에 받을 때
 받는 돈 합계, 합계가 같아지는 나이, 건보료 피부양자 기준, 일하면서 받을 때, 당겨 받다 멈출 때, 아내의 추납 (단위: 원)
@@ -41,7 +45,7 @@ import logging
 import sys
 import time
 
-VERSION = "v1.0"
+VERSION = "v1.1"
 LOG = logging.getLogger("gungmin_calc")
 
 # ---------- 제도 값 ----------
@@ -75,6 +79,15 @@ MIN_YEARS_MONTHS = 120          # 가입기간 10년 (법 제61조①)
 P65 = 1_300_000                 # 남편 65세 예상 월 노령연금 (지금 가치)
 WIFE_MONTHS = 84                # 아내 가입 7년
 WIFE_BASE_INCOME = 1_000_000    # 추납 기준소득월액 (가정)
+
+# ---------- 대본 v2.0 각색 사례 (가정 — 기사 사례를 바탕으로 지금 법에 맞게 각색한 가상 인물) ----------
+KIM_NORMAL_AGE = 64             # 1965~1968년생 노령연금 지급연령 (본칙 60세 + 부칙 <제8541호> 제8조 4세)
+KIM_EARLY_AGE = 59              # 5년 당김 (제61조② 5년 전부터 — 같은 부칙으로 55 + 4)
+KIM_P = 900_000                 # 64세부터 받을 예상 월 노령연금 (지금 돈 가치, 부양가족연금 제외)
+KIM_ALT_AGE = 62                # '3년만 버텼다면' — 2년만 당김
+KIM_STOP_AFTER = 12             # 59세부터 12개월 받고 60세에 지급 정지 신청 (제66조①2·②1·③1)
+LOCAL_MIN_HI = 20_160           # 지역 소득월액 28만 원 이하 → 월 보험료 하한 (시행규칙 제44조③ 단서 · 상한·하한 고시 제3조 2호 — toejik 확인표 A 46)
+LOCAL_MIN_INCOME_MONTH = 280_000
 
 
 def log(stage, **kv):
@@ -272,6 +285,68 @@ def main(verbose=False):
     P(f"- 내년(2027)이면 {man(c27 - c26)} 원 더 ({(c27 / c26 - 1) * 100:.1f}%) — 보험료율이 해마다 0.5%포인트씩 오름 (2033년 13%)")
     P(f"- 60회 분할 가능 (시행령 제62조③, 이자 더함) · 임의가입자 추납 한 달치 상한 = A값 × 그해 비율 = {man(round(A_VALUE_2026 * VOL_RATE[2026]))} 원 (2026)")
     log("CHUNAP", need=need, cost2026=round(c26), cost2027=round(c27))
+
+    # 8. 대본 v2.0 — 각색 사례 김 씨 (1966년생, 받는 나이 64세, 59세에 5년 당김)
+    ke = KIM_P * early_ratio(60)
+    kn = KIM_P
+    P("\n## 8. 대본 v2.0 각색 사례 — 김 씨 (1966년생 · 받는 나이 64세 · 59세에 5년 당김 · 64세 예상 월 90만 원)")
+    P(f"- 월 연금: 5년 당김 비율 {early_ratio(60):.2f} → 월 **{man(ke)} 원** (64세부터였다면 {man(kn)} 원) — 매달 **{man(kn - ke)} 원** 덜 받음")
+    P(f"- 김 씨의 계산: 64세부터 84세까지 20년 × 월 {man(kn - ke)} 원 = **{man((kn - ke) * 12 * 20)} 원**")
+    P(f"- 빠진 돈: 59~64세 5년 먼저 받은 돈 {man(ke)} × 60개월 = **{man(ke * 60)} 원**")
+    months_to_eat = ke * 60 / (kn - ke)
+    P(f"- 먼저 받은 돈을 매달 {man(kn - ke)} 원씩 다 까먹는 데: {months_to_eat:.0f}개월 = **{int(months_to_eat // 12)}년 {round(months_to_eat % 12)}개월**")
+    be_k = breakeven(ke, KIM_EARLY_AGE, kn, KIM_NORMAL_AGE)
+    P(f"- 합계가 같아지는 나이: **{age_str(be_k)}** (받기 시작하고 {age_str(be_k - KIM_EARLY_AGE * 12).replace('세', '년')}) — 당긴 해 수·금액과 상관없이 '받기 시작하고 16년 8개월'")
+    for k in (1, 2, 3, 4, 5):
+        bek = breakeven(KIM_P * early_ratio(12 * k), KIM_NORMAL_AGE - k, kn, KIM_NORMAL_AGE)
+        P(f"  - {k}년 당김: {age_str(bek)} = 받기 시작하고 {age_str(bek - (KIM_NORMAL_AGE - k) * 12).replace('세', '년')}")
+    P("| 몇 살까지 | 5년 당김(59세) | 제때(64세) | 차이 (제때 − 당김) |")
+    P("|---|---|---|---|")
+    kt = {}
+    for end in (64, 70, 75, 80, 84, 85, 90):
+        ta = cumulative(ke, KIM_EARLY_AGE, end)
+        tb = cumulative(kn, KIM_NORMAL_AGE, end) if end > KIM_NORMAL_AGE else 0
+        kt[end] = (ta, tb)
+        P(f"| {end}세 | {man(ta)} | {man(tb)} | {man(tb - ta)} {'(당김이 이득)' if tb < ta else '(당김이 손해)'} |")
+    log("KIM_TOTALS", be=age_str(be_k), d75=round(kt[75][1] - kt[75][0]), d84=round(kt[84][1] - kt[84][0]), d80=round(kt[80][1] - kt[80][0]), d85=round(kt[85][1] - kt[85][0]), d90=round(kt[90][1] - kt[90][0]))
+    # 3년만 버텼다면 — 62세에 2년만 당김
+    ka = KIM_P * early_ratio(12 * (KIM_NORMAL_AGE - KIM_ALT_AGE))
+    bridge = ke * 12 * (KIM_ALT_AGE - KIM_EARLY_AGE)
+    P(f"- 3년만 버텼다면: {KIM_ALT_AGE}세에 2년만 당김, 비율 {early_ratio(24):.2f} → 월 **{man(ka)} 원**")
+    P(f"  - 59~62세 3년을 5년 당겼을 때의 월 {man(ke)} 원만큼 모아 둔 돈으로 메우면: {man(ke)} × 36개월 = **{man(bridge)} 원** (생활비는 두 경우 같게 맞춤)")
+    be_alt = breakeven(ke, KIM_EARLY_AGE, ka, KIM_ALT_AGE)
+    P(f"  - 5년 당김 vs 2년 당김 합계가 같아지는 나이: **{age_str(be_alt)}**")
+    for end in (75, 80, 85, 90):
+        t5 = cumulative(ke, KIM_EARLY_AGE, end)
+        t2 = cumulative(ka, KIM_ALT_AGE, end)
+        P(f"  - {end}세까지: 2년 당김 {man(t2)} vs 5년 당김 {man(t5)} → 2년 당김이 **{man(t2 - t5)} 원** {'더' if t2 > t5 else '덜'} (메운 돈은 생활비가 같아 비교에서 빠짐)")
+    log("KIM_ALT", alt_month=round(ka), bridge=round(bridge), be=age_str(be_alt), d85=round(cumulative(ka, KIM_ALT_AGE, 85) - cumulative(ke, KIM_EARLY_AGE, 85)))
+    # 이미 신청했다면 — 60세에 지급 정지 (제66조)
+    rs = 1 - EARLY_CUT_PER_MONTH * KIM_STOP_AFTER
+    ks = KIM_P * rs
+    lost = ke * 12 * (KIM_NORMAL_AGE - KIM_EARLY_AGE - KIM_STOP_AFTER / 12)
+    P(f"- 60세에 지급 정지(12개월 받고): 64세에 다시, 비율 {rs:.2f} → 월 **{man(ks)} 원** (계속 받으면 {man(ke)} 원 — 매달 {man(ks - ke)} 원 더)")
+    P(f"  - 멈춘 60~64세 4년에 못 받는 돈: {man(ke)} × 48개월 = {man(lost)} 원 → 매달 {man(ks - ke)} 원씩 메우는 데 {lost / (ks - ke):.0f}개월 = {int(lost / (ks - ke) // 12)}년 {round(lost / (ks - ke) % 12)}개월")
+    cont = lambda end: cumulative(ke, KIM_EARLY_AGE, end)
+    stop = lambda end: cumulative(ke, KIM_EARLY_AGE, KIM_EARLY_AGE + KIM_STOP_AFTER / 12) + (cumulative(ks, KIM_NORMAL_AGE, end) if end > KIM_NORMAL_AGE else 0)
+    be_stop = next(m for m in range(KIM_NORMAL_AGE * 12, 110 * 12) if stop(m / 12) >= cont(m / 12))
+    P(f"  - 멈춤 vs 계속 받음 합계가 같아지는 나이: **{age_str(be_stop)}**")
+    for end in (80, 85, 90):
+        P(f"  - {end}세까지: 멈춤 {man(stop(end))} vs 계속 {man(cont(end))} → 멈춤이 {man(stop(end) - cont(end))} 원 {'더' if stop(end) > cont(end) else '덜'}")
+    log("KIM_STOP", ratio=rs, month=round(ks), be=age_str(be_stop))
+    # 건보료 — 연금이 늘린 지역 건보료 소득 몫 (재산 몫은 당기든 미루든 같음)
+    yr = ke * 12
+    inc_m, hi, ltc, tot = local_hi_income_part(yr)
+    if inc_m <= LOCAL_MIN_INCOME_MONTH:
+        hi = LOCAL_MIN_HI
+        ltc = int(hi * LTC_RATIO // 10 * 10)
+        tot = hi + ltc
+    base_hi = LOCAL_MIN_HI
+    base_ltc = int(base_hi * LTC_RATIO // 10 * 10)
+    P(f"- 건보료(지역가입자, 소득 몫만): 연금 연 {man(yr)} 원 × 50% = {man(yr * LOCAL_PENSION_SHARE)} 원 → 소득월액 {man(round(inc_m))} 원 (28만 원 초과)")
+    P(f"  - 연금 없을 때: 하한 {base_hi:,}원 + 장기요양 {base_ltc:,}원 = {base_hi + base_ltc:,}원 → 연금 받은 뒤: {hi:,}원 + {ltc:,}원 = {tot:,}원 → 늘어난 돈 **월 {tot - base_hi - base_ltc:,}원**")
+    P(f"  - 피부양자 소득 기준 연 2,000만 원 vs 김 씨 연금 연 {man(yr)} 원 → {'기준 안 ✅ (자녀 피부양자라면 0원 그대로)' if yr <= DEP_LIMIT else '넘음 ❌'}")
+    log("KIM_HI", income_month=round(inc_m), before=base_hi + base_ltc, after=tot, diff=tot - base_hi - base_ltc)
 
     if verbose:
         P("\n## S1. 민감도 — A값(가입자 평균 소득)이 물가보다 해마다 g 만큼 빨리 오르면 (당겨 받으면 그만큼 덜 반영)")

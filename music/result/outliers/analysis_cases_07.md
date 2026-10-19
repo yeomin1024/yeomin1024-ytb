@@ -1,75 +1,50 @@
 # 음악 — 성공 사례 분석: 사례별 자세히 #241–#280
 
-`analysis.md` 의 9번 (같은 # 번호). 자동 생성 — `tools/success_analysis.py` v1.4.1 (2026-10-18 08:09 UTC). ※ 연구·교육용 — 투자 권유가 아님.
+`analysis.md` 의 9번 (같은 # 번호). 자동 생성 — `tools/success_analysis.py` v1.4.1 (2026-10-19 08:37 UTC). ※ 연구·교육용 — 투자 권유가 아님.
 
-### 241. 🌼 Sawan Shiv Bhajan 2026 ∣ Peaceful Mahadev Bhakti Song ∣ Bholenath Devotional Song
+### 241. ⛈️(No Ads) WARNING: YOU MAY SLEEP FAST 😴 NYC Rain on Window ∣ City Lights Glow & Deep Rel…
 
-- https://www.youtube.com/watch?v=I_vnh6nZW6c · Bhajan Soul Collective · 구독자 8,590 · 조회수 2,208,363 (×257.1, 하루 21,683.9) · 좋아요 0 (0.0%) · 5.8분 · 2026-07-08 · 주제 묶음 기타 · 형식 음악 (그 밖 모양 — 한 편짜리 BGM 등) · 폴더 `W_I_vnh6nZW6c` (웹 승인)
-- 썸네일: <img src="W_I_vnh6nZW6c/thumbnail.jpg" width="320">
-- 설명 앞부분: यदि यह भजन आपको पसंद आए, तो वीडियो को Like, Share करें और Bhajan Soul Collective को Subscribe करके हमारे साथ इस भक्ति यात्रा का हिस्सा बनें। mahadev bhajan shiv bhakti song sawan shiv bhajan mahadev ka nasha hai har har mahadev song latest shiv song new bhakti geet mahadev status song sawan ke bhaj…
-- 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
-- 댓글 612/612: 좋은 점 — 영상 0 · 감사·응원 0 · 더 알고 싶은 것 0 · 아쉬운 점 — 영상 0 · 반박·불만 — 의견 다름 0 · 정치·사회 0 · 경험 공유 0 · 구독·다음 기대 0
-
-### 242. .•♫•♬•𝙁𝙄𝙉𝙀𝙎𝙃𝙔𝙏 PLAYLIST•♬•♫
-
-- https://www.youtube.com/watch?v=wYiyAR_dBDU · loverswift · 구독자 4,870 · 조회수 1,250,117 (×256.7, 하루 14,382.1) · 좋아요 20,570 (1.7%) · 16.8분 · 2026-07-23 · 주제 묶음 기타 · 형식 플레이리스트·모음 (여러 곡) · 폴더 `W_wYiyAR_dBDU` (웹 승인)
-- 썸네일: <img src="W_wYiyAR_dBDU/thumbnail.jpg" width="320">
-- 챕터: 0:00 Confident -Justin Bieber · 4:04 Gabriella -Katseye · 7:20 Harleys In Hawai -Katy Perry · 10:20 Confidence -Kim · 13:48 Moonlight -Kali 𝗨𝗰𝗵𝗶𝘀
-- 설명 앞부분: ➯ Copyright Disclaimer: I DO NOT own any rights to the picture or any music featured, this playlist is made for entertainment purposes only. Protected under Section 107 of the Copyright Act 1976
-- 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
-- 댓글 112/110: 좋은 점 — 영상 1 · 감사·응원 1 · 더 알고 싶은 것 0 · 아쉬운 점 — 영상 0 · 반박·불만 — 의견 다름 0 · 정치·사회 0 · 경험 공유 0 · 구독·다음 기대 0
-  - 좋은 점 — 영상 👍1 “너무 듣기 좋구요 헤헤❤❤😂😂”
-  - 감사·응원 👍2 “잘 듣고 있여용 화이팅😂😂 song list very good😂😂🎉”
-
-### 243. 🍂 알록달록 가을 음악이야기 ∣ Autumn Collection Vol.
-
-- https://www.youtube.com/watch?v=o3DojrmPMbs · little step melody · 구독자 85 · 조회수 25,652 (×256.5, 하루 1,500.7) · 좋아요 19 (0.1%) · 206.4분 · 2026-10-01 · 주제 묶음 1. 수면·명상·힐링 · 형식 음악 (그 밖 모양 — 한 편짜리 BGM 등) · 폴더 `W_o3DojrmPMbs` (웹 승인)
-- 썸네일: <img src="W_o3DojrmPMbs/thumbnail.jpg" width="320">
-- 설명 앞부분: 🍂 Autumn Collection Vol.1 l Gentle Felt Piano Melodies Inspired by a Colorful Autumn Day 알록달록 물든 가을 나뭇잎과 살랑이는 바람, 바스락거리는 낙엽길에서 영감을 받은 포근한 펠트 피아노 선율을 담았습니다. 따뜻한 햇살 아래 천천히 걸으며 가을의 작은 풍경을 바라보는 듯한 음악입니다. Little Step Melody는 그림책 같은 감성과 포근한 피아노 선율을 담아, 오래도록 곁에 두고 싶은 음악을 만들어갑니다. Thank you for listening. M…
-- 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
-- 댓글 3/3: 좋은 점 — 영상 0 · 감사·응원 1 · 더 알고 싶은 것 0 · 아쉬운 점 — 영상 0 · 반박·불만 — 의견 다름 0 · 정치·사회 0 · 경험 공유 0 · 구독·다음 기대 0
-  - 감사·응원 👍0 “앗 1등 ^^ 작업중에 듣고 있는데 1시간 순삭이네요~ 좋은음악감사합니다 ^^”
-
-### 244. ⛈️(No Ads) WARNING: YOU MAY SLEEP FAST 😴 NYC Rain on Window ∣ City Lights Glow & Deep Rel…
-
-- https://www.youtube.com/watch?v=HLp0t2jZlKQ · Dreamy Raining · 구독자 3,810 · 조회수 969,859 (×254.6, 하루 5,795.8) · 좋아요 6,249 (0.6%) · 600분 · 2026-05-04 · 주제 묶음 1. 수면·명상·힐링 · 형식 긴 한 곡·반복 (N시간) · 폴더 `W_HLp0t2jZlKQ` (웹 승인)
+- https://www.youtube.com/watch?v=HLp0t2jZlKQ · Dreamy Raining · 구독자 3,810 · 조회수 969,859 (×254.6, 하루 5,760.6) · 좋아요 6,249 (0.6%) · 600분 · 2026-05-04 · 주제 묶음 1. 수면·명상·힐링 · 형식 긴 한 곡·반복 (N시간) · 폴더 `W_HLp0t2jZlKQ` (웹 승인)
 - 썸네일: <img src="W_HLp0t2jZlKQ/thumbnail.jpg" width="320">
 - 설명 앞부분: ⛈️(No Ads) WARNING: YOU MAY SLEEP FAST 😴 NYC Rain on Window ∣ City Lights Glow & Deep Relaxation Dreamy Raining is a gentle escape into a world of calm, where soft rain and peaceful atmospheres help you slow down and breathe. 🌙✨ Feel the delicate rhythm of raindrops falling on windows, rooftops, an…
+- 같은 채널 평소 대비 ×42.0 (채널 최근 롱폼 중앙값 23,114회) · 평소 영상: (No Ads) ⛈️ Sleep Within 5 Minutes 😴 ∣ Shanghai R… (23,114회) / (No Ads) ⛈️ 99% Fall Asleep Instantly 😴 Paris Sof… (19,282회)
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
 - 댓글 90/88: 좋은 점 — 영상 0 · 감사·응원 0 · 더 알고 싶은 것 0 · 아쉬운 점 — 영상 0 · 반박·불만 — 의견 다름 0 · 정치·사회 0 · 경험 공유 0 · 구독·다음 기대 0
 
-### 245. 𝐬𝐭𝐮𝐝𝐲 𝐩𝐥𝐚𝐲𝐥𝐢𝐬𝐭 이번엔 아무한테도 말 안 하고 준비한다 🤫 전문직·수험생 시험공부 집중 로파이 (가사X)
+### 242. 𝐬𝐭𝐮𝐝𝐲 𝐩𝐥𝐚𝐲𝐥𝐢𝐬𝐭 이번엔 아무한테도 말 안 하고 준비한다 🤫 전문직·수험생 시험공부 집중 로파이 (가사X)
 
-- https://www.youtube.com/watch?v=eRQFKz_nigU · loni pli 로니플리 · 구독자 1,450 · 조회수 366,814 (×253.0, 하루 9,685.8) · 좋아요 2,057 (0.6%) · 137.3분 · 2026-09-10 · 주제 묶음 8. 로파이·시티팝·칠 · 형식 플레이리스트·모음 (여러 곡) · 폴더 `W_eRQFKz_nigU` (웹 승인)
+- https://www.youtube.com/watch?v=eRQFKz_nigU · loni pli 로니플리 · 구독자 1,450 · 조회수 366,814 (×253.0, 하루 9,431.8) · 좋아요 2,057 (0.6%) · 137.3분 · 2026-09-10 · 주제 묶음 8. 로파이·시티팝·칠 · 형식 플레이리스트·모음 (여러 곡) · 폴더 `W_eRQFKz_nigU` (웹 승인)
 - 썸네일: <img src="W_eRQFKz_nigU/thumbnail.jpg" width="320">
 - 챕터: 0:00 no one knows yet · 2:51 quietly begin · 5:42 just me and the books · 8:44 locked in silence · 11:02 my own secret plan · 14:20 deep in it · 16:58 no words, just work · 20:32 hours in the dark · 23:22 still going quietly · 25:55 closer than they think · 28:30 almost ready · 32:04 keep it to myself · 35:38 the quiet grind · 38:05 they'll see soon
 - 설명 앞부분: Tracklist 🤫 ⓒ loni pli. AI-assisted, human-edited.
+- 같은 채널 평소 대비 ×85.6 (채널 최근 롱폼 중앙값 4,284회) · 평소 영상: 𝐬𝐭𝐮𝐝𝐲 𝐩𝐥𝐚𝐲𝐥𝐢𝐬𝐭 𝘿-𝟭𝟬 시험 코앞인데 이제 벼락치기 시작하는 밤 ⭐ 새벽 도… (5,221회) / 𝐬𝐭𝐮𝐝𝐲 𝐩𝐥𝐚𝐲𝐥𝐢𝐬𝐭 흔들려도 포기하지 않는다 🔥 시험공부 집중 로파이 (가사X) (3,348회)
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
 - 댓글 85/84: 좋은 점 — 영상 0 · 감사·응원 3 · 더 알고 싶은 것 0 · 아쉬운 점 — 영상 0 · 반박·불만 — 의견 다름 0 · 정치·사회 0 · 경험 공유 2 · 구독·다음 기대 0
   - 감사·응원 👍4 “집중 잘되네요~ 감사합니다”
   - 감사·응원 👍4 “집중이 너무 잘되네요.~ 공부 잘하고 있습니다. 감사합니다.😊”
   - 경험 공유 👍13 “저도몰래합니다 ㅎㅎ 결과만 보여줄거에요.”
 
-### 246. The Shiva Reset ∣ Shiva Trance for the Overstimulated Mind ∣ Bhajan Clubbing ∣ ShivJi Song
+### 243. The Shiva Reset ∣ Shiva Trance for the Overstimulated Mind ∣ Bhajan Clubbing ∣ ShivJi Song
 
-- https://www.youtube.com/watch?v=N95edHAuFzA · Nirvana Beats · 구독자 7,030 · 조회수 1,774,365 (×252.4, 하루 25,218.2) · 좋아요 15,470 (0.9%) · 6.8분 · 2026-08-08 · 주제 묶음 1. 수면·명상·힐링 · 형식 음악 (그 밖 모양 — 한 편짜리 BGM 등) · 폴더 `W_N95edHAuFzA` (웹 승인)
+- https://www.youtube.com/watch?v=N95edHAuFzA · Nirvana Beats · 구독자 7,030 · 조회수 1,774,365 (×252.4, 하루 24,857.9) · 좋아요 15,470 (0.9%) · 6.8분 · 2026-08-08 · 주제 묶음 1. 수면·명상·힐링 · 형식 음악 (그 밖 모양 — 한 편짜리 BGM 등) · 폴더 `W_N95edHAuFzA` (웹 승인)
 - 썸네일: <img src="W_N95edHAuFzA/thumbnail.jpg" width="320">
 - 챕터: 0:00 दिव्य शिव मंत्र का आह्वान · 1:12 शिव पंचाक्षर स्तोत्र का पाठ · 3:05 नीलकंठ की महिमा का गुणगान · 5:56 दर्शनम पुण्यम स्पर्शम पाप नाशम
 - 설명 앞부분: Experience deep peace with this Lord Shiva meditation visual. This serene display features Sanskrit mantras to aid your focus. "IMPORTANT: Don't copy this song or music without permission. Already notices are been sent for copyright strikes." Subscribe for weekly meditation resources and devotional…
+- 같은 채널 평소 대비 ×342.7 (채널 최근 롱폼 중앙값 5,177회) · 평소 영상: अलख निरंजन (Alakh Niranjan) ∣ Aadesh ∣ अनुभव करें… (5,177회) / Dukh Har Le ! महादेव के दिव्य भजन ∣ शांति और सकार… (5,133회)
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
 - 댓글 295/295: 좋은 점 — 영상 0 · 감사·응원 0 · 더 알고 싶은 것 0 · 아쉬운 점 — 영상 0 · 반박·불만 — 의견 다름 0 · 정치·사회 0 · 경험 공유 0 · 구독·다음 기대 0
 
-### 247. A playlist cuz kanhi is your safe place 🦚🪷🪈🦢 ∣∣ Song playlist ∣∣
+### 244. A playlist cuz kanhi is your safe place 🦚🪷🪈🦢 ∣∣ Song playlist ∣∣
 
-- https://www.youtube.com/watch?v=vH7kCnulptw ·  Lily⋆.𐙚 ̊ · 구독자 9,350 · 조회수 2,354,987 (×251.9, 하루 18,432.2) · 좋아요 36,096 (1.5%) · 17.5분 · 2026-06-12 · 주제 묶음 기타 · 형식 플레이리스트·모음 (여러 곡) · 폴더 `W_vH7kCnulptw` (웹 승인)
+- https://www.youtube.com/watch?v=vH7kCnulptw ·  Lily⋆.𐙚 ̊ · 구독자 9,350 · 조회수 2,354,987 (×251.9, 하루 18,286.2) · 좋아요 36,096 (1.5%) · 17.5분 · 2026-06-12 · 주제 묶음 기타 · 형식 플레이리스트·모음 (여러 곡) · 폴더 `W_vH7kCnulptw` (웹 승인)
 - 썸네일: <img src="W_vH7kCnulptw/thumbnail.jpg" width="320">
 - 설명 앞부분: Disclaimer ❗ I do not own any of the song and images used in this video all the credit goes to the rightful owners. This video is only made for entertainment purposes no copyright infringement intended. Hashtags 🎀
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
 - 댓글 843/833: 좋은 점 — 영상 0 · 감사·응원 0 · 더 알고 싶은 것 0 · 아쉬운 점 — 영상 0 · 반박·불만 — 의견 다름 0 · 정치·사회 0 · 경험 공유 0 · 구독·다음 기대 0
 
-### 248. 별일 없던 하루였는데, 괜히 마음이 시끄러운 밤
+### 245. 별일 없던 하루였는데, 괜히 마음이 시끄러운 밤
 
-- https://www.youtube.com/watch?v=mc73qn75vMs · 리듬다방(김리다) · 구독자 1,360 · 조회수 341,118 (×250.8, 하루 2,610.2) · 좋아요 1,206 (0.4%) · 7.5분 · 2026-06-09 · 주제 묶음 기타 · 형식 음악 (그 밖 모양 — 한 편짜리 BGM 등) · 폴더 `W_mc73qn75vMs` (웹 승인)
+- https://www.youtube.com/watch?v=mc73qn75vMs · 리듬다방(김리다) · 구독자 1,360 · 조회수 341,118 (×250.8, 하루 2,589.9) · 좋아요 1,206 (0.4%) · 7.5분 · 2026-06-09 · 주제 묶음 기타 · 형식 음악 (그 밖 모양 — 한 편짜리 BGM 등) · 폴더 `W_mc73qn75vMs` (웹 승인)
 - 썸네일: <img src="W_mc73qn75vMs/thumbnail.jpg" width="320">
 - 설명 앞부분: 🎵 취한다 술이 취하게 하는 게 아냐, 생각이 취하게 하네. 별일 없던 하루였는데 괜히 마음이 시끄러운 밤. 누구나 말 못 할 사연 하나쯤 품고 살아가듯, 오늘도 또 하루를 버텨낸 당신에게 이 노래를 전합니다. 🎧 AI를 활용하여 제작한 창작 음악입니다. 📱 틱톡 · 유튜브에서 "리듬다방"을 검색하시면 더 많은 음악을 만나보실 수 있습니다. Navigating emotional uncertainty when things feel confusing. Explore the feeling of being new to love even …
 - 같은 채널 평소 대비 ×708.4 (채널 최근 롱폼 중앙값 482회) · 평소 영상: 〈다녀가셨습니까〉 Rock Ballad Ver. ∣ 끝내 터진 그리움 (502회) / 🎵 삐뚤어질테다 ∣ 퓨전국악 (민요 × 뉴디스코) Ver. ∣ Full Ver. (461회)
@@ -84,46 +59,50 @@
   - 경험 공유 👍3 “내가 하고 싶은 얘기들을 들려주고 있네요 😢”
   - 구독·다음 기대 👍0 “노래넘좋아요ㆍ구독완료”
 
-### 249. MIMIFY - I Waited too Long (Original Mix)
+### 246. MIMIFY - I Waited too Long (Original Mix)
 
-- https://www.youtube.com/watch?v=F2Iga1V4cqo · MIMIFY · 구독자 18,500 · 조회수 4,608,819 (×249.1, 하루 47,090.4) · 좋아요 38,328 (0.8%) · 7.8분 · 2026-07-12 · 주제 묶음 8. 로파이·시티팝·칠 · 형식 음악 (그 밖 모양 — 한 편짜리 BGM 등) · 폴더 `W_F2Iga1V4cqo` (웹 승인)
+- https://www.youtube.com/watch?v=F2Iga1V4cqo · MIMIFY · 구독자 18,500 · 조회수 4,608,819 (×249.1, 하루 46,604.7) · 좋아요 38,328 (0.8%) · 7.8분 · 2026-07-12 · 주제 묶음 8. 로파이·시티팝·칠 · 형식 음악 (그 밖 모양 — 한 편짜리 BGM 등) · 폴더 `W_F2Iga1V4cqo` (웹 승인)
 - 썸네일: <img src="W_F2Iga1V4cqo/thumbnail.jpg" width="320">
 - 설명 앞부분: MIMIFY - I Waited too Long (Original Mix) 🔥 I hope you'll support me by liking, sharing, and subscribing! 🔥 🎵 Playlist: .MIMIFY All Mix (Car Music, Bass, Techno) Hi everyone, thank you for listening to my track 🙏 For those asking about Spotify, here’s the link 🎧 Don’t forget to subscribe to the cha…
+- 같은 채널 평소 대비 ×414.9 (채널 최근 롱폼 중앙값 11,108회) · 평소 영상: MIMIFY - Waiting For Closure (Original Mix) (11,108회) / MIMIFY - I Chose You (Original Mix) (10,987회)
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
 - 댓글 675/675: 좋은 점 — 영상 1 · 감사·응원 1 · 더 알고 싶은 것 0 · 아쉬운 점 — 영상 0 · 반박·불만 — 의견 다름 0 · 정치·사회 0 · 경험 공유 0 · 구독·다음 기대 0
   - 좋은 점 — 영상 👍7 “씨티팝 느낌이 너무 듣기 좋은거 같아요. 대한민국 🇰🇷 에서도,잘듣고 있어요~~!!”
   - 감사·응원 👍3 “오늘 하루 힘들었는데 이 음악 덕분에 제대로 힐링하고 갑니다. 감사합니다! 힐링 곡으로 저장할게요. ✨"❤❤”
 
-### 250. జీవితంలో ఒక్కసారైనా ఆ ఏడుకొండలు ఎక్కాలయ్యా ∣Soulful Sri Venkateswara Swamy Song∣ Tirumala…
+### 247. జీవితంలో ఒక్కసారైనా ఆ ఏడుకొండలు ఎక్కాలయ్యా ∣Soulful Sri Venkateswara Swamy Song∣ Tirumala…
 
-- https://www.youtube.com/watch?v=sfnGhZdoNQk · Surendra's Musical World · 구독자 5,100 · 조회수 1,266,787 (×248.4, 하루 10,356.1) · 좋아요 6,866 (0.5%) · 5.3분 · 2026-06-18 · 주제 묶음 기타 · 형식 음악 (그 밖 모양 — 한 편짜리 BGM 등) · 폴더 `W_sfnGhZdoNQk` (웹 승인)
+- https://www.youtube.com/watch?v=sfnGhZdoNQk · Surendra's Musical World · 구독자 5,100 · 조회수 1,266,787 (×248.4, 하루 10,270.5) · 좋아요 6,866 (0.5%) · 5.3분 · 2026-06-18 · 주제 묶음 기타 · 형식 음악 (그 밖 모양 — 한 편짜리 BGM 등) · 폴더 `W_sfnGhZdoNQk` (웹 승인)
 - 썸네일: <img src="W_sfnGhZdoNQk/thumbnail.jpg" width="320">
 - 설명 앞부분: Experience the divine peace of Tirumala with this beautiful Telugu devotional song composed in Raga Kalyani. ✨🙏 ఏడుకొండల వాడైన శ్రీ వేంకటేశ్వర స్వామి వారి వైభవాన్ని, భక్తుల ఆర్తిని కళ్లకు కట్టే అత్యంత అద్భుతమైన మరియు భావోద్వేగభరితమైన సంకీర్తన. భక్తి రసంతో నిండిన "కల్యాణి రాగం" (Raga Kalyani) లో కూర…
+- 같은 채널 평소 대비 ×742.5 (채널 최근 롱폼 중앙값 1,706회) · 평소 영상: Dedicate this to your Special One ❤️ ∣ Neekante S… (2,454회) / నంద నందనా ∣ Nanda Nandana Lyrical Video Song ∣ Lo… (958회)
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
 - 댓글 554/554: 좋은 점 — 영상 0 · 감사·응원 0 · 더 알고 싶은 것 0 · 아쉬운 점 — 영상 0 · 반박·불만 — 의견 다름 0 · 정치·사회 0 · 경험 공유 0 · 구독·다음 기대 0
 
-### 251. Zindagi ∣ Chal Thora Aur ∣ Na Kwahish Na Koi Tamana Mujhe (Original Song) Kadam Jaldi Bar…
+### 248. Zindagi ∣ Chal Thora Aur ∣ Na Kwahish Na Koi Tamana Mujhe (Original Song) Kadam Jaldi Bar…
 
-- https://www.youtube.com/watch?v=dyOp23A-i_o · cefur studio · 구독자 11,400 · 조회수 2,812,485 (×246.7, 하루 22,916.3) · 좋아요 24,869 (0.9%) · 4.8분 · 2026-06-17 · 주제 묶음 기타 · 형식 음악 (그 밖 모양 — 한 편짜리 BGM 등) · 폴더 `W_dyOp23A-i_o` (웹 승인)
+- https://www.youtube.com/watch?v=dyOp23A-i_o · cefur studio · 구독자 11,400 · 조회수 2,812,485 (×246.7, 하루 22,727.4) · 좋아요 24,869 (0.9%) · 4.8분 · 2026-06-17 · 주제 묶음 기타 · 형식 음악 (그 밖 모양 — 한 편짜리 BGM 등) · 폴더 `W_dyOp23A-i_o` (웹 승인)
 - 썸네일: <img src="W_dyOp23A-i_o/thumbnail.jpg" width="320">
 - 설명 앞부분: Zindagi ∣ Zindagi by cefur ∣ studio A dark cinematic Urdu song about pain, punishment, survival, and the cruel voice of life saying: “Chal thora aur, Zindagi.” Zindagi is for the ones who kept walking even after life stopped feeling kind. It carries loneliness, regret, exhaustion, and that strange …
+- 같은 채널 평소 대비 ×589.9 (채널 최근 롱폼 중앙값 4,768회) · 평소 영상: Kya Bataon Tumhein? ∣ Kya Hoon Main ∣Official Mus… (4,768회) / Jaari Hai Zindagi ∣ cefur studio x Sufical Rhymes… (4,449회)
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
 - 댓글 1,835/1,832: 좋은 점 — 영상 0 · 감사·응원 0 · 더 알고 싶은 것 0 · 아쉬운 점 — 영상 0 · 반박·불만 — 의견 다름 0 · 정치·사회 0 · 경험 공유 0 · 구독·다음 기대 0
 
-### 252. All Stress Disappears When This Music Starts Playing 🎶 Emotional Healing Relax Music
+### 249. All Stress Disappears When This Music Starts Playing 🎶 Emotional Healing Relax Music
 
-- https://www.youtube.com/watch?v=mtelE3vg758 · Nature Healing Sounds · 구독자 7,390 · 조회수 1,810,621 (×245.0, 하루 11,185.0) · 좋아요 9,620 (0.5%) · 99.6분 · 2026-05-09 · 주제 묶음 1. 수면·명상·힐링 · 형식 음악 (그 밖 모양 — 한 편짜리 BGM 등) · 폴더 `W_mtelE3vg758` (웹 승인)
+- https://www.youtube.com/watch?v=mtelE3vg758 · Nature Healing Sounds · 구독자 7,390 · 조회수 1,810,621 (×245.0, 하루 11,115.0) · 좋아요 9,620 (0.5%) · 99.6분 · 2026-05-09 · 주제 묶음 1. 수면·명상·힐링 · 형식 음악 (그 밖 모양 — 한 편짜리 BGM 등) · 폴더 `W_mtelE3vg758` (웹 승인)
 - 썸네일: <img src="W_mtelE3vg758/thumbnail.jpg" width="320">
 - 설명 앞부분: All Stress Disappears When This Music Starts Playing 🎶 Emotional Healing Relax Music All Stress Disappears When This Music Starts Playing 🎶 Emotional Healing Relax Music All Stress Disappears When This Music Starts Playing 🎶 Emotional Healing Relax Music 🎵Welcome to Nature Healing Sounds – the idea…
+- 같은 채널 평소 대비 ×5,309.7 (채널 최근 롱폼 중앙값 341회) · 평소 영상: Relaxing Nature Music 2026 🌿 Stop Overthinking, R… (346회) / Nature Sounds for Relaxation 🌿 Calm Your Nervous … (336회)
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
 - 댓글 482/479: 좋은 점 — 영상 0 · 감사·응원 4 · 더 알고 싶은 것 0 · 아쉬운 점 — 영상 0 · 반박·불만 — 의견 다름 0 · 정치·사회 0 · 경험 공유 0 · 구독·다음 기대 1
   - 감사·응원 👍3 “멋진 영상과 음악에 흠뻑 취하다 갑니다 감사합니다”
   - 감사·응원 👍3 “마믐의 폄화를 얻었네요 아름다운 음악 감사합니다 구독하고 갑니다”
   - 구독·다음 기대 👍3 “마믐의 폄화를 얻었네요 아름다운 음악 감사합니다 구독하고 갑니다”
 
-### 253. [𝙥𝙡𝙖𝙮𝙡𝙞𝙨𝙩] 삶에 무뎌지는 법
+### 250. [𝙥𝙡𝙖𝙮𝙡𝙞𝙨𝙩] 삶에 무뎌지는 법
 
-- https://www.youtube.com/watch?v=8KGuQMhnb14 · 꾹팅 · 구독자 1,220 · 조회수 297,201 (×243.6, 하루 2,258.1) · 좋아요 0 (0.0%) · 19.4분 · 2026-06-08 · 주제 묶음 기타 · 형식 플레이리스트·모음 (여러 곡) · 폴더 `W_8KGuQMhnb14` (웹 승인)
+- https://www.youtube.com/watch?v=8KGuQMhnb14 · 꾹팅 · 구독자 1,220 · 조회수 297,201 (×243.6, 하루 2,240.7) · 좋아요 0 (0.0%) · 19.4분 · 2026-06-08 · 주제 묶음 기타 · 형식 플레이리스트·모음 (여러 곡) · 폴더 `W_8KGuQMhnb14` (웹 승인)
 - 썸네일: <img src="W_8KGuQMhnb14/thumbnail.jpg" width="320">
 - 챕터: 0:00 03:36 서영주 of 너드커넥션 ∣ 나란한 밤 · 3:39 07:05 한강 ∣ 언젠가 이 슬픔도 사라지겠지 · 7:07 11:18 선우정아 ∣ 보통사람 · 11:19 15:36 sondia ∣ 어른 · 15:37 19:16 이무진 ∣ 쉼표
 - 설명 앞부분: 📍 수익을 창출하지 않습니다. ∣ No monetization
@@ -143,155 +122,162 @@
   - 경험 공유 👍1,069 “요즘 옥상문이 잠겨있네요 더워서 그런가 벌써 네 건물 가봤는데 잠겨서 죽고싶은데 마음데로 죽지도 못하네요 얼마전에 울다가 깨닳았어요 아 나 안죽고싶은데.. 내가 죽고싶은게 아니라 지금이 너무 힘들어서 차라리 죽고싶은거구나 아 행복해지고 싶은거구나 죽고싶은게 아니라 행…”
   - 경험 공유 👍324 “차라리 내가 조금만 더 무감각해서 느끼지 못했으면 좋겠다”
 
-### 254. 𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 𝐅𝐨𝐫 𝐘𝐨𝐮 𝐓𝐨 𝐂𝐫𝐞𝐚𝐭𝐞 𝐅𝐚𝐤𝐞 𝐒𝐜𝐞𝐧𝐚𝐫𝐢𝐨𝐬 𝐈𝐧 𝐘𝐨𝐮𝐫 𝐌𝐢𝐧𝐝 🤍 ∣ Hindi Playlist 2026✨
+### 251. Relaxing Piano Music with Rain Sounds for Deep Sleep - Calm Sleep and Insomnia Relief
 
-- https://www.youtube.com/watch?v=flQgOwg4jLI · Ashik's Cloudlist  · 구독자 15,600 · 조회수 3,731,448 (×239.2, 하루 37,356.1) · 좋아요 41,321 (1.1%) · 15.2분 · 2026-07-10 · 주제 묶음 8. 로파이·시티팝·칠 · 형식 플레이리스트·모음 (여러 곡) · 폴더 `W_flQgOwg4jLI` (웹 승인)
+- https://www.youtube.com/watch?v=dzRT9vqg9xs · RainwoodPianoVEVO · 구독자 1,270 · 조회수 306,686 (×241.5, 하루 15,330.1) · 좋아요 1,095 (0.4%) · 110분 · 2026-09-29 · 주제 묶음 2. 자연 소리·백색소음 · 형식 음악 (그 밖 모양 — 한 편짜리 BGM 등) · 폴더 `W_dzRT9vqg9xs` (웹 승인)
+- 썸네일: <img src="W_dzRT9vqg9xs/thumbnail.jpg" width="320">
+- 설명 앞부분: ✦ Welcome to RainwoodPianoVEVO - a place where gentle piano melodies blend with soothing rain sounds to bring you moments of calm, deep rest, and peaceful balance. ✦ Are you searching for a way to fall asleep faster, enjoy deep sleep music, ease anxiety, or simply drift away with the comfort of rel…
+- 같은 채널 평소 대비 ×195.8 (채널 최근 롱폼 중앙값 1,566회) · 평소 영상: Rain Sounds for Sleep with Soft Piano - Insomnia … (1,605회) / Gentle Rain and Soft Piano Music for Deep Sleep -… (1,528회)
+- 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
+- 댓글 38/39: 좋은 점 — 영상 0 · 감사·응원 0 · 더 알고 싶은 것 0 · 아쉬운 점 — 영상 0 · 반박·불만 — 의견 다름 0 · 정치·사회 0 · 경험 공유 0 · 구독·다음 기대 0
+
+### 252. Bedroom R&B After Hours ∣ Obsessive Love Playlist ∣ Dark romance playlist Vol.06
+
+- https://www.youtube.com/watch?v=WRi5W4B2vgQ · afterlove. · 구독자 7,490 · 조회수 1,808,238 (×241.4, 하루 70,407.2) · 좋아요 13,064 (0.7%) · 81.7분 · 2026-09-23 · 주제 묶음 11. 힙합·R&B·EDM · 형식 플레이리스트·모음 (여러 곡) · 폴더 `W_WRi5W4B2vgQ` (웹 승인)
+- 썸네일: <img src="W_WRi5W4B2vgQ/thumbnail.jpg" width="320">
+- 설명 앞부분: Some memories have a way of finding you when everything else gets quiet. This playlist is for those nights when your mind starts to wander — old conversations, familiar faces, unfinished feelings, and moments you thought you had left behind. A late-night blend of Dark R&B, Trap Soul, and smooth aft…
+- 같은 채널 평소 대비 ×237.2 (채널 최근 롱폼 중앙값 7,624회) · 평소 영상: Bedroom R&B After Hours ∣ Obsessive Love Playlist… (7,679회) / Bedroom R&B After Hours ∣ Obsessive Love Playlist… (7,569회)
+- 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
+- 댓글 177/181: 좋은 점 — 영상 0 · 감사·응원 0 · 더 알고 싶은 것 0 · 아쉬운 점 — 영상 0 · 반박·불만 — 의견 다름 0 · 정치·사회 0 · 경험 공유 0 · 구독·다음 기대 0
+
+### 253. 𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 𝐅𝐨𝐫 𝐘𝐨𝐮 𝐓𝐨 𝐂𝐫𝐞𝐚𝐭𝐞 𝐅𝐚𝐤𝐞 𝐒𝐜𝐞𝐧𝐚𝐫𝐢𝐨𝐬 𝐈𝐧 𝐘𝐨𝐮𝐫 𝐌𝐢𝐧𝐝 🤍 ∣ Hindi Playlist 2026✨
+
+- https://www.youtube.com/watch?v=flQgOwg4jLI · Ashik's Cloudlist  · 구독자 15,600 · 조회수 3,731,448 (×239.2, 하루 36,978.5) · 좋아요 41,321 (1.1%) · 15.2분 · 2026-07-10 · 주제 묶음 8. 로파이·시티팝·칠 · 형식 플레이리스트·모음 (여러 곡) · 폴더 `W_flQgOwg4jLI` (웹 승인)
 - 썸네일: <img src="W_flQgOwg4jLI/thumbnail.jpg" width="320">
 - 챕터: 0:00 ISHQ DE FANNIYA · 0:54 MAJBOOR · 1:46 PAL PAL DIL KE PAAS · 2:54 FAKIRA · 3:51 JEENE LAGA HOON · 4:32 HASEEN · 5:28 TERE SANG YAARA · 6:21 TERE LIYE · 7:11 JAANIYE · 8:28 TERA HONE LAGA HOON · 9:24 JAYE SAJNA · 10:49 RAANJHANAA · 11:31 HUMSAFAR · 12:16 TOOTA JO KABHI TARA · 13:19 KANGANA TERA NI · 13:59 SAWAN AAYA HAI · 14:19 FALAK TAK
 - 설명 앞부분: 𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 𝐅𝐨𝐫 𝐘𝐨𝐮 𝐓𝐨 𝐂𝐫𝐞𝐚𝐭𝐞 𝐅𝐚𝐤𝐞 𝐒𝐜𝐞𝐧𝐚𝐫𝐢𝐨𝐬 𝐈𝐧 𝐘𝐨𝐮𝐫 𝐌𝐢𝐧𝐝 🤍 ∣ Hindi Playlist 2026✨ madly in love playlist romantic hindi songs bollywood love songs aesthetic hindi playlist playlist for fake scenarios playlist to imagine love stories late night playlist playlist for overthinkers study playlist hindi c…
+- 같은 채널 평소 대비 ×6.2 (채널 최근 롱폼 중앙값 605,545회) · 평소 영상: 𝐓𝐇𝐄 𝐎𝐍𝐋𝐘 𝐏𝐋𝐀𝐘𝐋𝐈𝐒𝐓 𝐓𝐇𝐀𝐓 𝐂𝐀𝐍 𝐇𝐄𝐀𝐋 𝐘𝐎𝐔 🤍✨ (605,545회) / 𝐀𝐥𝐥 𝐭𝐫𝐞𝐧𝐝𝐢𝐧𝐠 𝐇𝐢𝐧𝐝𝐢 𝐬𝐨𝐧𝐠𝐬 𝐨𝐟 2026 💖🎶 (481,298회)
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
 - 댓글 965/962: 좋은 점 — 영상 0 · 감사·응원 0 · 더 알고 싶은 것 0 · 아쉬운 점 — 영상 0 · 반박·불만 — 의견 다름 0 · 정치·사회 0 · 경험 공유 0 · 구독·다음 기대 0
 
-### 255. Relaxing Piano Music with Rain Sounds for Deep Sleep - Calm Sleep and Insomnia Relief
+### 254. Relax Cha Cha Music 🪘 Havana Cafe Music - Cha Cha Son Cubano
 
-- https://www.youtube.com/watch?v=dzRT9vqg9xs · RainwoodPianoVEVO · 구독자 1,270 · 조회수 303,424 (×238.9, 하루 15,981.9) · 좋아요 1,083 (0.4%) · 110분 · 2026-09-29 · 주제 묶음 2. 자연 소리·백색소음 · 형식 음악 (그 밖 모양 — 한 편짜리 BGM 등) · 폴더 `W_dzRT9vqg9xs` (웹 승인)
-- 썸네일: <img src="W_dzRT9vqg9xs/thumbnail.jpg" width="320">
-- 설명 앞부분: ✦ Welcome to RainwoodPianoVEVO - a place where gentle piano melodies blend with soothing rain sounds to bring you moments of calm, deep rest, and peaceful balance. ✦ Are you searching for a way to fall asleep faster, enjoy deep sleep music, ease anxiety, or simply drift away with the comfort of rel…
-- 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
-- 댓글 38/38: 좋은 점 — 영상 0 · 감사·응원 0 · 더 알고 싶은 것 0 · 아쉬운 점 — 영상 0 · 반박·불만 — 의견 다름 0 · 정치·사회 0 · 경험 공유 0 · 구독·다음 기대 0
-
-### 256. Relax Cha Cha Music 🪘 Havana Cafe Music - Cha Cha Son Cubano
-
-- https://www.youtube.com/watch?v=poj2d6YKC6w · Cha Cha Havana Lounge · 구독자 1,610 · 조회수 382,885 (×237.8, 하루 2,342.3) · 좋아요 2,375 (0.6%) · 6.4분 · 2026-05-07 · 주제 묶음 4. 카페·매장·라운지 · 형식 음악 (그 밖 모양 — 한 편짜리 BGM 등) · 폴더 `W_poj2d6YKC6w` (웹 승인)
+- https://www.youtube.com/watch?v=poj2d6YKC6w · Cha Cha Havana Lounge · 구독자 1,610 · 조회수 382,885 (×237.8, 하루 2,327.8) · 좋아요 2,375 (0.6%) · 6.4분 · 2026-05-07 · 주제 묶음 4. 카페·매장·라운지 · 형식 음악 (그 밖 모양 — 한 편짜리 BGM 등) · 폴더 `W_poj2d6YKC6w` (웹 승인)
 - 썸네일: <img src="W_poj2d6YKC6w/thumbnail.jpg" width="320">
 - 설명 앞부분: Discover the best Cuban music playlist featuring the vibrant sounds of Son Cubano, Latin Jazz, Salsa Cubana, Timba Cubana, and Son Montuno. This collection brings you the essence of Cuba with Afro-Cuban rhythms, Latin piano grooves, soulful guitar, and powerful vocals. Perfect for relaxing, dancing…
+- 같은 채널 평소 대비 ×2,774.5 (채널 최근 롱폼 중앙값 138회) · 평소 영상: Havana Afterglow 🌅 Smooth Cuban Son & Tradicional… (138회) / Old School Ska ∣ Cha Cha Guaguanco - Feel the Vin… (139회)
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
 - 댓글 96/96: 좋은 점 — 영상 0 · 감사·응원 0 · 더 알고 싶은 것 0 · 아쉬운 점 — 영상 0 · 반박·불만 — 의견 다름 0 · 정치·사회 0 · 경험 공유 0 · 구독·다음 기대 0
 
-### 257. Rain and Soft Piano Music for Deep Sleep - Calm Sleep and Stress Relief with Gentle Fores…
+### 255. Rain and Soft Piano Music for Deep Sleep - Calm Sleep and Stress Relief with Gentle Fores…
 
-- https://www.youtube.com/watch?v=8DzndrjZi18 · RainwoodPianoVEVO · 구독자 1,270 · 조회수 301,777 (×237.6, 하루 6,288.9) · 좋아요 904 (0.3%) · 31.9분 · 2026-08-31 · 주제 묶음 1. 수면·명상·힐링 · 형식 음악 (그 밖 모양 — 한 편짜리 BGM 등) · 폴더 `W_8DzndrjZi18` (웹 승인)
+- https://www.youtube.com/watch?v=8DzndrjZi18 · RainwoodPianoVEVO · 구독자 1,270 · 조회수 301,777 (×237.6, 하루 6,158.0) · 좋아요 904 (0.3%) · 31.9분 · 2026-08-31 · 주제 묶음 1. 수면·명상·힐링 · 형식 음악 (그 밖 모양 — 한 편짜리 BGM 등) · 폴더 `W_8DzndrjZi18` (웹 승인)
 - 썸네일: <img src="W_8DzndrjZi18/thumbnail.jpg" width="320">
 - 설명 앞부분: ✦ Welcome to RainwoodPianoVEVO - a place where gentle piano melodies blend with soothing rain sounds to bring you moments of calm, deep rest, and peaceful balance. ✦ Are you searching for a way to fall asleep faster, enjoy deep sleep music, ease anxiety, or simply drift away with the comfort of rel…
+- 같은 채널 평소 대비 ×192.6 (채널 최근 롱폼 중앙값 1,566회) · 평소 영상: Rain Sounds for Sleep with Soft Piano - Insomnia … (1,605회) / Gentle Rain and Soft Piano Music for Deep Sleep -… (1,528회)
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
 - 댓글 40/40: 좋은 점 — 영상 0 · 감사·응원 0 · 더 알고 싶은 것 0 · 아쉬운 점 — 영상 0 · 반박·불만 — 의견 다름 0 · 정치·사회 0 · 경험 공유 0 · 구독·다음 기대 0
 
-### 258. 𝐒𝐨𝐧𝐠𝐬 𝐭𝐡𝐚𝐭 𝐟𝐞𝐞𝐥 𝐥𝐢𝐤𝐞 𝐚 𝐛𝐨𝐥𝐥𝐲𝐰𝐨𝐨𝐝 𝐦𝐨𝐯𝐢𝐞 🦢🪷🪐∣∣ songs playlist ∣∣ #playlist #songs #aesthetic
+### 256. 𝐒𝐨𝐧𝐠𝐬 𝐭𝐡𝐚𝐭 𝐟𝐞𝐞𝐥 𝐥𝐢𝐤𝐞 𝐚 𝐛𝐨𝐥𝐥𝐲𝐰𝐨𝐨𝐝 𝐦𝐨𝐯𝐢𝐞 🦢🪷🪐∣∣ songs playlist ∣∣ #playlist #songs #aesthetic
 
-- https://www.youtube.com/watch?v=r88MexwnbMA · ⋆.ʚଓ ּ𝐋𝗒𝗋𝗂𝖼αᥣ_αυ𝗋α_07🌷𖹭 ֶָ֢  · 구독자 6,790 · 조회수 1,610,966 (×237.3, 하루 19,230.7) · 좋아요 12,247 (0.8%) · 10.5분 · 2026-07-26 · 주제 묶음 기타 · 형식 플레이리스트·모음 (여러 곡) · 폴더 `W_r88MexwnbMA` (웹 승인)
+- https://www.youtube.com/watch?v=r88MexwnbMA · ⋆.ʚଓ ּ𝐋𝗒𝗋𝗂𝖼αᥣ_αυ𝗋α_07🌷𖹭 ֶָ֢  · 구독자 6,790 · 조회수 1,610,966 (×237.3, 하루 18,999.4) · 좋아요 12,247 (0.8%) · 10.5분 · 2026-07-26 · 주제 묶음 기타 · 형식 플레이리스트·모음 (여러 곡) · 폴더 `W_r88MexwnbMA` (웹 승인)
 - 썸네일: <img src="W_r88MexwnbMA/thumbnail.jpg" width="320">
 - 설명 앞부분: bollywood songs, hindi songs, romantic bollywood songs, hindi romantic songs, aesthetic songs, aesthetic hindi songs, bollywood playlist, romantic songs playlist, hindi love songs, love songs, dreamy songs, feel good songs, soulful hindi songs, beautiful hindi songs, best bollywood songs, bollywood…
+- 같은 채널 평소 대비 ×16.5 (채널 최근 롱폼 중앙값 97,906회) · 평소 영상: 𝐓𝐡𝐞 𝐒𝐨𝐟𝐭𝐞𝐬𝐭 𝐁𝐨𝐥𝐥𝐲𝐰𝐨𝐨𝐝 𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 𝐘𝐨𝐮'𝐥𝐥 𝐄𝐯𝐞𝐫 𝐇𝐞𝐚𝐫👀💌… (174,059회) / 𝐓𝐡𝐞 𝐔𝐥𝐭𝐢𝐦𝐚𝐭𝐞 𝐇𝐚𝐫𝐲𝐚𝐧𝐯𝐢 𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 ∣ 𝐃𝐞𝐬𝐢 𝐕𝐢𝐛𝐞𝐬 𝐏𝐥𝐚𝐲𝐥… (21,754회)
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
 - 댓글 291/288: 좋은 점 — 영상 0 · 감사·응원 0 · 더 알고 싶은 것 0 · 아쉬운 점 — 영상 0 · 반박·불만 — 의견 다름 0 · 정치·사회 0 · 경험 공유 0 · 구독·다음 기대 0
 
-### 259. Viral Pop Songs Cover 2026 🎙 Top Music Playlist Hits
+### 257. Viral Pop Songs Cover 2026 🎙 Top Music Playlist Hits
 
-- https://www.youtube.com/watch?v=JKRRl5-5-hw · Acoustic Therapy · 구독자 21,000 · 조회수 4,971,524 (×236.7, 하루 34,435.8) · 좋아요 35,651 (0.7%) · 57.4분 · 2026-05-26 · 주제 묶음 10. 팝송·K팝·J팝 · 형식 커버·직접 부른 노래 · 폴더 `W_JKRRl5-5-hw` (웹 승인)
+- https://www.youtube.com/watch?v=JKRRl5-5-hw · Acoustic Therapy · 구독자 21,000 · 조회수 4,971,524 (×236.7, 하루 34,194.2) · 좋아요 35,651 (0.7%) · 57.4분 · 2026-05-26 · 주제 묶음 10. 팝송·K팝·J팝 · 형식 커버·직접 부른 노래 · 폴더 `W_JKRRl5-5-hw` (웹 승인)
 - 썸네일: <img src="W_JKRRl5-5-hw/thumbnail.jpg" width="320">
 - 설명 앞부분: 🎶 Welcome to Acoustic Therapy — your home for chill acoustic covers, relaxing pop playlists, and cozy music vibes. Enjoy the best English songs, soft acoustic remixes, campfire melodies, travel vibes, and relaxing background music for studying, driving, sleeping, or unwinding. 🌅🎸 ✨ Updated regularl…
+- 같은 채널 평소 대비 ×8,799.2 (채널 최근 롱폼 중앙값 565회) · 평소 영상: Daily English Hits 🎧 Beautiful Chill Playlist for… (565회) / Top Music Playlist 2026🐰🎧∣∣ Best Trending Spotify… (565회)
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
 - 댓글 512/510: 좋은 점 — 영상 0 · 감사·응원 0 · 더 알고 싶은 것 0 · 아쉬운 점 — 영상 0 · 반박·불만 — 의견 다름 0 · 정치·사회 0 · 경험 공유 0 · 구독·다음 기대 0
 
-### 260. Bedroom R&B After Hours ∣ Obsessive Love Playlist ∣ Dark romance playlist Vol.06
+### 258. MUSIK SANTAI VIRAL 2026 🎧 Lagu Pop Indonesia Akustik Terbaik Buat Temani Aktivitas
 
-- https://www.youtube.com/watch?v=WRi5W4B2vgQ · afterlove. · 구독자 7,490 · 조회수 1,764,513 (×235.6, 하루 71,546.0) · 좋아요 12,797 (0.7%) · 81.7분 · 2026-09-23 · 주제 묶음 11. 힙합·R&B·EDM · 형식 플레이리스트·모음 (여러 곡) · 폴더 `W_WRi5W4B2vgQ` (웹 승인)
-- 썸네일: <img src="W_WRi5W4B2vgQ/thumbnail.jpg" width="320">
-- 설명 앞부분: Some memories have a way of finding you when everything else gets quiet. This playlist is for those nights when your mind starts to wander — old conversations, familiar faces, unfinished feelings, and moments you thought you had left behind. A late-night blend of Dark R&B, Trap Soul, and smooth aft…
-- 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
-- 댓글 177/177: 좋은 점 — 영상 0 · 감사·응원 0 · 더 알고 싶은 것 0 · 아쉬운 점 — 영상 0 · 반박·불만 — 의견 다름 0 · 정치·사회 0 · 경험 공유 0 · 구독·다음 기대 0
-
-### 261. MUSIK SANTAI VIRAL 2026 🎧 Lagu Pop Indonesia Akustik Terbaik Buat Temani Aktivitas
-
-- https://www.youtube.com/watch?v=bZEwYquV6Kg · Akustik Cantik · 구독자 10,500 · 조회수 2,470,417 (×235.3, 하루 26,777.8) · 좋아요 6,573 (0.3%) · 78.5분 · 2026-07-18 · 주제 묶음 기타 · 형식 정보·해설 (그 밖) · 폴더 `W_bZEwYquV6Kg` (웹 승인)
+- https://www.youtube.com/watch?v=bZEwYquV6Kg · Akustik Cantik · 구독자 10,500 · 조회수 2,470,417 (×235.3, 하루 26,485.0) · 좋아요 6,573 (0.3%) · 78.5분 · 2026-07-18 · 주제 묶음 기타 · 형식 정보·해설 (그 밖) · 폴더 `W_bZEwYquV6Kg` (웹 승인)
 - 썸네일: <img src="W_bZEwYquV6Kg/thumbnail.jpg" width="320">
 - 설명 앞부분: MUSIK SANTAI VIRAL 2026 🎧 Lagu Pop Indonesia Akustik Terbaik Buat Temani Aktivitas Kumpulan lagu pop Indonesia terbaru dan lagu viral TikTok yang sedang banyak didengarkan, dibawakan dengan nuansa cover akustik cantik yang santai, adem, dan enak didengar. Playlist ini cocok untuk menemani kerja, be…
+- 같은 채널 평소 대비 ×471.0 (채널 최근 롱폼 중앙값 5,245회) · 평소 영상: Musik Santai Viral 2026 🎧 Lagu Pop Indonesia Terb… (5,245회) / MUSIK SANTAI VIRAL 2026 🎧 Lagu Pop Indonesia Terb… (5,133회)
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
 - 댓글 182/175: 좋은 점 — 영상 0 · 감사·응원 0 · 더 알고 싶은 것 0 · 아쉬운 점 — 영상 0 · 반박·불만 — 의견 다름 0 · 정치·사회 0 · 경험 공유 0 · 구독·다음 기대 0
 
-### 262. Heartbreaking Lofi Mashup 💔 (Slowed + Reverb) ∣ Study, Focus & Late Night Vibes 🎧
+### 259. Heartbreaking Lofi Mashup 💔 (Slowed + Reverb) ∣ Study, Focus & Late Night Vibes 🎧
 
-- https://www.youtube.com/watch?v=6mgb7GxwLvA · stylish official 13.0 · 구독자 12,100 · 조회수 2,844,775 (×235.1, 하루 42,944.6) · 좋아요 8,222 (0.3%) · 7.8분 · 2026-08-13 · 주제 묶음 3. 공부·집중·작업 · 형식 음악 (그 밖 모양 — 한 편짜리 BGM 등) · 폴더 `W_6mgb7GxwLvA` (웹 승인)
+- https://www.youtube.com/watch?v=6mgb7GxwLvA · stylish official 13.0 · 구독자 12,100 · 조회수 2,844,775 (×235.1, 하루 42,293.5) · 좋아요 8,222 (0.3%) · 7.8분 · 2026-08-13 · 주제 묶음 3. 공부·집중·작업 · 형식 음악 (그 밖 모양 — 한 편짜리 BGM 등) · 폴더 `W_6mgb7GxwLvA` (웹 승인)
 - 썸네일: <img src="W_6mgb7GxwLvA/thumbnail.jpg" width="320">
 - 설명 앞부분: Welcome the world of soothing lofi musi where stress fades away, and peace takes over. This 2025 mind-relaxing lofi mix is perfect for: Deep Focus & Studying 📖 Relaxing & Meditation 🧘‍♂ Chilling After a Long Day 🌅 Peaceful Sleep & Stress Relief 😴 Let these calm beats and chill vibes take you on a j…
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
 - 댓글 132/132: 좋은 점 — 영상 0 · 감사·응원 0 · 더 알고 싶은 것 0 · 아쉬운 점 — 영상 0 · 반박·불만 — 의견 다름 0 · 정치·사회 0 · 경험 공유 0 · 구독·다음 기대 0
 
-### 263. Put Your Baby to Sleep in 2 Minutes 😴 3 Hours Deep Lullaby Music
+### 260. Put Your Baby to Sleep in 2 Minutes 😴 3 Hours Deep Lullaby Music
 
-- https://www.youtube.com/watch?v=2W9Y6KcJK1E · Calm Baby Lullaby · 구독자 4,190 · 조회수 984,098 (×234.9, 하루 5,802.0) · 좋아요 3,860 (0.4%) · 183.3분 · 2026-05-01 · 주제 묶음 1. 수면·명상·힐링 · 형식 긴 한 곡·반복 (N시간) · 폴더 `W_2W9Y6KcJK1E` (웹 승인)
+- https://www.youtube.com/watch?v=2W9Y6KcJK1E · Calm Baby Lullaby · 구독자 4,190 · 조회수 984,098 (×234.9, 하루 5,767.3) · 좋아요 3,860 (0.4%) · 183.3분 · 2026-05-01 · 주제 묶음 1. 수면·명상·힐링 · 형식 긴 한 곡·반복 (N시간) · 폴더 `W_2W9Y6KcJK1E` (웹 승인)
 - 썸네일: <img src="W_2W9Y6KcJK1E/thumbnail.jpg" width="320">
 - 설명 앞부분: 🍼 Put Your Baby to Sleep in Minutes 😴 3 Hours Deep Lullaby Music Welcome to a peaceful world of soothing sounds designed to help your baby relax, calm down, and fall into a deep and restful sleep. This 3-hour baby lullaby music is carefully created with gentle melodies, soft harmonies, and calming …
+- 같은 채널 평소 대비 ×1,867.4 (채널 최근 롱폼 중앙값 527회) · 평소 영상: Help Your Baby Fall Asleep Fast 😴 3 Hours Deep Lu… (527회) / Put Your Baby to Sleep in 2 Minutes 😴 2 Hours Dee… (527회)
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
 - 댓글 0/0: 좋은 점 — 영상 0 · 감사·응원 0 · 더 알고 싶은 것 0 · 아쉬운 점 — 영상 0 · 반박·불만 — 의견 다름 0 · 정치·사회 0 · 경험 공유 0 · 구독·다음 기대 0
 
-### 264. 🌼 Soulful Shiv Bhajan 2026 ∣ Peaceful Mahadev Bhakti Song ∣ Bholenath Devotional Song
+### 261. 🌼 Soulful Shiv Bhajan 2026 ∣ Peaceful Mahadev Bhakti Song ∣ Bholenath Devotional Song
 
-- https://www.youtube.com/watch?v=soTUDFUagOU · Divine Bhajan Lofi · 구독자 5,950 · 조회수 1,378,226 (×231.6, 하루 14,855.5) · 좋아요 6,877 (0.5%) · 6.6분 · 2026-07-17 · 주제 묶음 8. 로파이·시티팝·칠 · 형식 음악 (그 밖 모양 — 한 편짜리 BGM 등) · 폴더 `W_soTUDFUagOU` (웹 승인)
+- https://www.youtube.com/watch?v=soTUDFUagOU · Divine Bhajan Lofi · 구독자 5,950 · 조회수 1,378,226 (×231.6, 하루 14,694.0) · 좋아요 6,877 (0.5%) · 6.6분 · 2026-07-17 · 주제 묶음 8. 로파이·시티팝·칠 · 형식 음악 (그 밖 모양 — 한 편짜리 BGM 등) · 폴더 `W_soTUDFUagOU` (웹 승인)
 - 썸네일: <img src="W_soTUDFUagOU/thumbnail.jpg" width="320">
 - 설명 앞부분: mahadev bhajan shiv bhakti song sawan shiv bhajan mahadev ka nasha hai har har mahadev song latest shiv song new bhakti geet mahadev status song sawan ke bhajan shiv devotional bholenath song kanwar bhajan mahakal bhajan hindi bhakti song bol bam song bol bam bhajan new mahakal song new shiv bhajan…
+- 같은 채널 평소 대비 ×342.9 (채널 최근 롱폼 중앙값 4,019회) · 평소 영상: 🌼 Navratri Special Bhajan 2026 ∣ Mata Rani Ke Bha… (4,296회) / 🌼 Soulful Navratri Bhajan 2026 ∣ Sherawali Mata B… (3,742회)
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
 - 댓글 395/395: 좋은 점 — 영상 0 · 감사·응원 0 · 더 알고 싶은 것 0 · 아쉬운 점 — 영상 0 · 반박·불만 — 의견 다름 0 · 정치·사회 0 · 경험 공유 0 · 구독·다음 기대 0
 
-### 265. Heartbreaking 💔 Lofi Mashup 🎧 Slowed + Reverb Songs ∣ Study, Focus & Late Night Vibes 202…
+### 262. Heartbreaking 💔 Lofi Mashup 🎧 Slowed + Reverb Songs ∣ Study, Focus & Late Night Vibes 202…
 
-- https://www.youtube.com/watch?v=FB8QuMi3fTs · Z B Official Studio · 구독자 21,200 · 조회수 4,813,468 (×227.1, 하루 81,416.4) · 좋아요 15,058 (0.3%) · 7.7분 · 2026-08-20 · 주제 묶음 3. 공부·집중·작업 · 형식 음악 (그 밖 모양 — 한 편짜리 BGM 등) · 폴더 `W_FB8QuMi3fTs` (웹 승인)
+- https://www.youtube.com/watch?v=FB8QuMi3fTs · Z B Official Studio · 구독자 21,200 · 조회수 4,813,468 (×227.1, 하루 80,035.6) · 좋아요 15,058 (0.3%) · 7.7분 · 2026-08-20 · 주제 묶음 3. 공부·집중·작업 · 형식 음악 (그 밖 모양 — 한 편짜리 BGM 등) · 폴더 `W_FB8QuMi3fTs` (웹 승인)
 - 썸네일: <img src="W_FB8QuMi3fTs/thumbnail.jpg" width="320">
 - 설명 앞부분: Welcome 🙏to world of soothing lofi music, where stress fades away, and peace takes over. This 2026 mind-relaxing lofi mix is perfect for: Deep Focus & Studying 📖 Relaxing & Meditation 🧘‍♂ Chilling After a Long Day 🌅 Peaceful Sleep & Stress Relief 😴 Let these calm beats and chill vibes take you on a…
+- 같은 채널 평소 대비 ×19,566.9 (채널 최근 롱폼 중앙값 246회) · 평소 영상: Heartbreaking 💔 Lofi Mashup 🎧 Slowed + Reverb Son… (246회) / Heartbreaking 💔 Lofi Mashup 🎧 Slowed + Reverb Son… (246회)
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
 - 댓글 203/196: 좋은 점 — 영상 0 · 감사·응원 0 · 더 알고 싶은 것 0 · 아쉬운 점 — 영상 0 · 반박·불만 — 의견 다름 0 · 정치·사회 0 · 경험 공유 0 · 구독·다음 기대 0
 
-### 266. Positive Morning - Soft & Calm 🎧 ∣ Top Trending English Love songs
+### 263. Slow and Reverb Pashto Tappy 🎧 ∣ New Pashto Song ∣ Relaxing Soul Music
 
-- https://www.youtube.com/watch?v=S4G7QEWDIng · NiceOne · 구독자 10,900 · 조회수 2,466,691 (×226.3, 하루 13,735.2) · 좋아요 15,187 (0.6%) · 83.8분 · 2026-04-21 · 주제 묶음 8. 로파이·시티팝·칠 · 형식 플레이리스트·모음 (여러 곡) · 폴더 `W_S4G7QEWDIng` (웹 승인)
-- 썸네일: <img src="W_S4G7QEWDIng/thumbnail.jpg" width="320">
-- 설명 앞부분: Looking for a boost of positive energy? 🌟🎶 This video is all about bringing you good vibes through music. Sit back, relax, and let the melody lift your mood, clear your mind, and fill your day with positivity. Whether you're studying, working, or just taking a break, this music is here to keep your…
-- 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
-- 댓글 563/563: 좋은 점 — 영상 0 · 감사·응원 0 · 더 알고 싶은 것 0 · 아쉬운 점 — 영상 0 · 반박·불만 — 의견 다름 0 · 정치·사회 0 · 경험 공유 0 · 구독·다음 기대 0
-
-### 267. Slow and Reverb Pashto Tappy 🎧 ∣ New Pashto Song ∣ Relaxing Soul Music
-
-- https://www.youtube.com/watch?v=88J0afFBt3s · MarjanMusic · 구독자 4,460 · 조회수 1,006,434 (×225.7, 하루 8,138.1) · 좋아요 4,552 (0.4%) · 13분 · 2026-06-16 · 주제 묶음 기타 · 형식 음악 (그 밖 모양 — 한 편짜리 BGM 등) · 폴더 `W_88J0afFBt3s` (웹 승인)
+- https://www.youtube.com/watch?v=88J0afFBt3s · MarjanMusic · 구독자 4,460 · 조회수 1,006,434 (×225.7, 하루 8,071.5) · 좋아요 4,552 (0.4%) · 13분 · 2026-06-16 · 주제 묶음 기타 · 형식 음악 (그 밖 모양 — 한 편짜리 BGM 등) · 폴더 `W_88J0afFBt3s` (웹 승인)
 - 썸네일: <img src="W_88J0afFBt3s/thumbnail.jpg" width="320">
 - 설명 앞부분: Welcome ❤️🎧 Experience the emotions of love, pain, and destiny with “– a heart-touching Pashto song If you enjoy emotional Pashto music, sad love songs, and soulful melodies, this song is for you. 💔 Deep Emotions 🎵 Beautiful Pashto Melody 🌿 Relaxing Soulful Music ❤️ Pashto Love & Sad Song Don’t for…
+- 같은 채널 평소 대비 ×537.3 (채널 최근 롱폼 중앙값 1,873회) · 평소 영상: Pashto New Song 2026 ∣ پښتو نوی سندره ∣ Slow and … (2,431회) / ReverbPashto Tappy 2026 ∣ Meena Wo Naki ∣ Slow an… (1,315회)
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
 - 댓글 81/81: 좋은 점 — 영상 0 · 감사·응원 0 · 더 알고 싶은 것 0 · 아쉬운 점 — 영상 0 · 반박·불만 — 의견 다름 0 · 정치·사회 0 · 경험 공유 0 · 구독·다음 기대 0
 
-### 268. The Love Playlist You’ve Been Looking For😌🤍
+### 264. The Love Playlist You’ve Been Looking For😌🤍
 
-- https://www.youtube.com/watch?v=G4M-E29DlAE · Melovo tunes · 구독자 3,320 · 조회수 743,337 (×223.9, 하루 5,388.3) · 좋아요 11,399 (1.5%) · 10.4분 · 2026-06-02 · 주제 묶음 기타 · 형식 플레이리스트·모음 (여러 곡) · 폴더 `W_G4M-E29DlAE` (웹 승인)
+- https://www.youtube.com/watch?v=G4M-E29DlAE · Melovo tunes · 구독자 3,320 · 조회수 743,337 (×223.9, 하루 5,348.8) · 좋아요 11,399 (1.5%) · 10.4분 · 2026-06-02 · 주제 묶음 기타 · 형식 플레이리스트·모음 (여러 곡) · 폴더 `W_G4M-E29DlAE` (웹 승인)
 - 썸네일: <img src="W_G4M-E29DlAE/thumbnail.jpg" width="320">
 - 챕터: 0:00 Dandelions · 0:55 Shinunoga E-Wa · 1:37 Golden Brown · 2:34 Honeypie · 3:37 Love Story · 4:44 I Wanna be yours · 5:43 Until I Found You · 6:26 A Thousand Years · 7:32 Love Me Not · 8:16 Golden Hour · 9:20 Blue
 - 설명 앞부분: Some songs don't just play in the background—they stay with you.😌🤍 A playlist filled with songs that remind us of love, memories, late-night thoughts, and the people who mean the most to us. Whether you're in love, missing someone, or simply enjoying the feeling of good music, there's something her…
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
 - 댓글 800/800: 좋은 점 — 영상 0 · 감사·응원 0 · 더 알고 싶은 것 0 · 아쉬운 점 — 영상 0 · 반박·불만 — 의견 다름 0 · 정치·사회 0 · 경험 공유 0 · 구독·다음 기대 0
 
-### 269. Heartbreaking💔 mashup lofi Songs ∣ Slowed + Reverb ∣ Late Night Study & Focus Mood 🎧
+### 265. Heartbreaking💔 mashup lofi Songs ∣ Slowed + Reverb ∣ Late Night Study & Focus Mood 🎧
 
-- https://www.youtube.com/watch?v=z3H-p4r9EC4 · Soulmate Songs 🎵 · 구독자 7,510 · 조회수 1,672,035 (×222.6, 하루 32,010.4) · 좋아요 6,767 (0.4%) · 8분 · 2026-08-27 · 주제 묶음 3. 공부·집중·작업 · 형식 음악 (그 밖 모양 — 한 편짜리 BGM 등) · 폴더 `W_z3H-p4r9EC4` (웹 승인)
+- https://www.youtube.com/watch?v=z3H-p4r9EC4 · Soulmate Songs 🎵 · 구독자 7,510 · 조회수 1,672,035 (×222.6, 하루 31,397.4) · 좋아요 6,767 (0.4%) · 8분 · 2026-08-27 · 주제 묶음 3. 공부·집중·작업 · 형식 음악 (그 밖 모양 — 한 편짜리 BGM 등) · 폴더 `W_z3H-p4r9EC4` (웹 승인)
 - 썸네일: <img src="W_z3H-p4r9EC4/thumbnail.jpg" width="320">
 - 설명 앞부분: Welcome to the world of soothing lofi music, where stress fades away and peace takes over. This mind-relaxing lofi mix is perfect for creating a calm atmosphere, helping you focus, relax, and unwind. Deep Focus & Studying 📖 Relaxing & Meditation 🧘‍♂ Chilling After a Long Day 🌅 Peaceful Sleep & Stre…
+- 같은 채널 평소 대비 ×5,564.2 (채널 최근 롱폼 중앙값 300회) · 평소 영상: Heartbreaking💔 mashup lofi Songs ∣ Slowed + Rever… (329회) / Heartbreaking💔 mashup lofi Songs ∣ Slowed + Rever… (272회)
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
 - 댓글 139/137: 좋은 점 — 영상 0 · 감사·응원 0 · 더 알고 싶은 것 0 · 아쉬운 점 — 영상 0 · 반박·불만 — 의견 다름 0 · 정치·사회 0 · 경험 공유 0 · 구독·다음 기대 0
 
-### 270. MEGA BASS 🔊🔥 EXTREME NONSTOP EDM REMIX 💯 MONSTER DROP ⚠️ CLUB BANGER 🎧 NIGHT DRIVE 🌃 GYM …
+### 266. MEGA BASS 🔊🔥 EXTREME NONSTOP EDM REMIX 💯 MONSTER DROP ⚠️ CLUB BANGER 🎧 NIGHT DRIVE 🌃 GYM …
 
-- https://www.youtube.com/watch?v=Kc071SEvHgc · Street Bass Culture · 구독자 27,100 · 조회수 6,031,592 (×222.6, 하루 41,500.0) · 좋아요 62,589 (1.0%) · 42.7분 · 2026-05-26 · 주제 묶음 5. 운동·드라이브·신나는 · 형식 음악 (그 밖 모양 — 한 편짜리 BGM 등) · 폴더 `W_Kc071SEvHgc` (웹 승인)
+- https://www.youtube.com/watch?v=Kc071SEvHgc · Street Bass Culture · 구독자 27,100 · 조회수 6,031,592 (×222.6, 하루 41,210.8) · 좋아요 62,589 (1.0%) · 42.7분 · 2026-05-26 · 주제 묶음 5. 운동·드라이브·신나는 · 형식 음악 (그 밖 모양 — 한 편짜리 BGM 등) · 폴더 `W_Kc071SEvHgc` (웹 승인)
 - 썸네일: <img src="W_Kc071SEvHgc/thumbnail.jpg" width="320">
 - 설명 앞부분: MEGA BASS 🔊🔥 EXTREME NONSTOP EDM REMIX 💯 MONSTER DROP ⚠️ CLUB BANGER 🎧 NIGHT DRIVE 🌃 GYM 🔥 CAR MUSIC BASS BOOSTED SONGS 2026 🔈 CAR MUSIC 2026 🔈 BASS MUSIC 2026 ▼ TAGS: EXTREME 2026 EXTREME BASS BOOSTED EXTREME BASS BOOSTED SONGS 2026 CAR MUSIC MIX 2026 BEST OF EDM BASS BOOSTED SONGS 2026 BASS BOOST…
+- 같은 채널 평소 대비 ×8,495.2 (채널 최근 롱폼 중앙값 710회) · 평소 영상: BASS BOOSTED SONGS 2026 🔊 EXTREME BASS BOOSTED 🔊 … (719회) / MEGA BASS 🔊🔥 EXTREME NONSTOP EDM REMIX 💯 MONSTER … (701회)
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
 - 댓글 1,383/1,379: 좋은 점 — 영상 0 · 감사·응원 0 · 더 알고 싶은 것 0 · 아쉬운 점 — 영상 0 · 반박·불만 — 의견 다름 0 · 정치·사회 0 · 경험 공유 0 · 구독·다음 기대 0
 
-### 271. Heartbroken Lofi Songs 💔 ∣ Slowed + Reverb ∣ Late Night Sad & Chill Vibes 🌙🎧
+### 267. Heartbroken Lofi Songs 💔 ∣ Slowed + Reverb ∣ Late Night Sad & Chill Vibes 🌙🎧
 
-- https://www.youtube.com/watch?v=KjFcRYZBKs0 · Music Nest HD · 구독자 11,800 · 조회수 2,617,039 (×221.8, 하루 123,658.9) · 좋아요 11,670 (0.4%) · 8.9분 · 2026-09-27 · 주제 묶음 8. 로파이·시티팝·칠 · 형식 음악 (그 밖 모양 — 한 편짜리 BGM 등) · 폴더 `W_KjFcRYZBKs0` (웹 승인)
+- https://www.youtube.com/watch?v=KjFcRYZBKs0 · Music Nest HD · 구독자 11,800 · 조회수 2,617,039 (×221.8, 하루 117,973.5) · 좋아요 11,670 (0.4%) · 8.9분 · 2026-09-27 · 주제 묶음 8. 로파이·시티팝·칠 · 형식 음악 (그 밖 모양 — 한 편짜리 BGM 등) · 폴더 `W_KjFcRYZBKs0` (웹 승인)
 - 썸네일: <img src="W_KjFcRYZBKs0/thumbnail.jpg" width="320">
 - 설명 앞부분: 🎧 **Welcome to a Peaceful World of Lofi Music** 🌙✨ Relax your mind, reduce everyday stress, and enjoy a peaceful atmosphere with this soothing **Lofi Music Mix**. Whether you're studying, working, sleeping, meditating, coding, gaming, or simply relaxing after a long day, these gentle beats and calm…
+- 같은 채널 평소 대비 ×4,810.7 (채널 최근 롱폼 중앙값 544회) · 평소 영상: Heartbroken Lofi Songs 💔 ∣ Slowed + Reverb ∣ Late… (544회) / Heartbroken Lofi Songs 💔 ∣ Slowed + Reverb ∣ Late… (519회)
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
 - 댓글 101/101: 좋은 점 — 영상 0 · 감사·응원 0 · 더 알고 싶은 것 0 · 아쉬운 점 — 영상 0 · 반박·불만 — 의견 다름 0 · 정치·사회 0 · 경험 공유 0 · 구독·다음 기대 0
 
-### 272. [PLAYLIST] 할머니가 돼서도 들을 노래
+### 268. [PLAYLIST] 할머니가 돼서도 들을 노래
 
-- https://www.youtube.com/watch?v=Oomy8ijLJxQ · 당무 · 구독자 2,590 · 조회수 574,363 (×221.8, 하루 3,573.0) · 좋아요 10,750 (1.9%) · 23.7분 · 2026-05-10 · 주제 묶음 기타 · 형식 플레이리스트·모음 (여러 곡) · 폴더 `W_Oomy8ijLJxQ` (웹 승인)
+- https://www.youtube.com/watch?v=Oomy8ijLJxQ · 당무 · 구독자 2,590 · 조회수 574,363 (×221.8, 하루 3,550.4) · 좋아요 10,750 (1.9%) · 23.7분 · 2026-05-10 · 주제 묶음 기타 · 형식 플레이리스트·모음 (여러 곡) · 폴더 `W_Oomy8ijLJxQ` (웹 승인)
 - 썸네일: <img src="W_Oomy8ijLJxQ/thumbnail.jpg" width="320">
 - 챕터: 0:00 4:35 Perhaps Love · 4:36 9:23 Wish Ur My Love · 9:26 12:38 baby baby · 12:38 15:45 아쉬운 마음인걸 · 15:48 19:08 To You Of Mine · 19:11 23:27 Habbit (Bye Bye)
 - 같은 채널 평소 대비 ×90.4 (채널 최근 롱폼 중앙값 6,357회) · 평소 영상: [PLAYLIST] 얘쁜남자가 별안간 뽀뽀해줌 (6,357회) / [PLAYLIST] 이 노래 듣는 순간 여름 시작됨 (8,511회)
@@ -304,27 +290,20 @@
   - 경험 공유 👍28 “12:38 나오자마자 제일 소름돋음 내가 이 노래를 잊고 살았네...”
   - 경험 공유 👍4 “와...진짜 제가 다 좋아하는 노래네요ㅠㅠ 감사합니다..! 잊고 살았는데🥲”
 
-### 273. Music Therapy Helps Restore the Nervous System 🌿 Relaxing Music & Nature Sounds for Deep …
+### 269. Music Therapy Helps Restore the Nervous System 🌿 Relaxing Music & Nature Sounds for Deep …
 
-- https://www.youtube.com/watch?v=yP0NAC8Hzy8 · Clara Monica – Healing Piano 4K · 구독자 3,500 · 조회수 773,214 (×220.9, 하루 7,042.1) · 좋아요 23,394 (3.0%) · 19.7분 · 2026-06-30 · 주제 묶음 1. 수면·명상·힐링 · 형식 음악 (그 밖 모양 — 한 편짜리 BGM 등) · 폴더 `W_yP0NAC8Hzy8` (웹 승인)
+- https://www.youtube.com/watch?v=yP0NAC8Hzy8 · Clara Monica – Healing Piano 4K · 구독자 3,500 · 조회수 773,214 (×220.9, 하루 6,977.3) · 좋아요 23,394 (3.0%) · 19.7분 · 2026-06-30 · 주제 묶음 1. 수면·명상·힐링 · 형식 음악 (그 밖 모양 — 한 편짜리 BGM 등) · 폴더 `W_yP0NAC8Hzy8` (웹 승인)
 - 썸네일: <img src="W_yP0NAC8Hzy8/thumbnail.jpg" width="320">
 - 설명 앞부분: Music Therapy Helps Restore the Nervous System 🌿 Relaxing Music & Nature Sounds for Deep Sleep Music Therapy Helps Restore the Nervous System 🌿 Relaxing Music & Nature Sounds for Deep Sleep Music Therapy Helps Restore the Nervous System 🌿 Relaxing Music & Nature Sounds for Deep Sleep Let’s take a m…
+- 같은 채널 평소 대비 ×21.0 (채널 최근 롱폼 중앙값 36,772회) · 평소 영상: Peaceful Relaxing Music 2026 - Stop Overthinking,… (40,727회) / Relaxing Music for Healing , Anxiety and Depressi… (32,817회)
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
 - 댓글 236/236: 좋은 점 — 영상 0 · 감사·응원 0 · 더 알고 싶은 것 0 · 아쉬운 점 — 영상 0 · 반박·불만 — 의견 다름 0 · 정치·사회 0 · 경험 공유 0 · 구독·다음 기대 0
 
-### 274. मन को शांति देने वाला शिव भजन ∣ Powerful Shiv Bhajan for Inner Peace 🙏
+### 270. 𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 틀기만 해도 기분이 좋아지는 플리☀️🌿 (광고없음) 국내 노래 모음
 
-- https://www.youtube.com/watch?v=Tely_42hr8I · Sacred Rhythm · 구독자 4,140 · 조회수 913,374 (×220.6, 하루 5,079.5) · 좋아요 7,646 (0.8%) · 13.5분 · 2026-04-21 · 주제 묶음 1. 수면·명상·힐링 · 형식 음악 (그 밖 모양 — 한 편짜리 BGM 등) · 폴더 `W_Tely_42hr8I` (웹 승인)
-- 썸네일: <img src="W_Tely_42hr8I/thumbnail.jpg" width="320">
-- 설명 앞부분: This powerful Shiv bhajan is created to bring inner peace, calmness, and spiritual connection with Mahadev 🕉 🎧 Best for: Meditation 🧘‍♂ Stress relief Night relaxation Morning peace ॐ नमः शिवाय 🙏 Om Namah Shivay 🙏 Bhajan 🌙 (Calm & Repeatable) (Chorus) (Bridge – slow, deep meditation tone) (Final Cho…
-- 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
-- 댓글 1,050/1,050: 좋은 점 — 영상 0 · 감사·응원 0 · 더 알고 싶은 것 0 · 아쉬운 점 — 영상 0 · 반박·불만 — 의견 다름 0 · 정치·사회 0 · 경험 공유 0 · 구독·다음 기대 0
-
-### 275. 𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 틀기만 해도 기분이 좋아지는 플리☀️🌿 (광고없음) 국내 노래 모음
-
-- https://www.youtube.com/watch?v=mg5OWdP3DL8 · 오늘의 플리 · 구독자 6,700 · 조회수 1,473,817 (×220.0, 하루 22,281.1) · 좋아요 3,529 (0.2%) · 603.4분 · 2026-08-13 · 주제 묶음 기타 · 형식 플레이리스트·모음 (여러 곡) · 폴더 `W_mg5OWdP3DL8` (웹 승인)
+- https://www.youtube.com/watch?v=mg5OWdP3DL8 · 오늘의 플리 · 구독자 6,700 · 조회수 1,473,817 (×220.0, 하루 21,942.8) · 좋아요 3,529 (0.2%) · 603.4분 · 2026-08-13 · 주제 묶음 기타 · 형식 플레이리스트·모음 (여러 곡) · 폴더 `W_mg5OWdP3DL8` (웹 승인)
 - 썸네일: <img src="W_mg5OWdP3DL8/thumbnail.jpg" width="320">
-- 같은 채널 평소 대비 ×158.6 (채널 최근 롱폼 중앙값 9,292회) · 평소 영상: 𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 비오는 날 듣기 좋은 플리☔️ 기분 좋아지는 국내 노래 모음 ∣ 일할때 … (9,292회) / 𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 첫 곡부터 행복해지는 플리🍀 (광고없음) 기분 좋아지는 국내 노래 모음 … (9,412회)
+- 같은 채널 평소 대비 ×157.6 (채널 최근 롱폼 중앙값 9,352회) · 평소 영상: 𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 첫 곡부터 행복해지는 플리🍀 (광고없음) 기분 좋아지는 국내 노래 모음 … (9,412회) / 𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 비오는 날 듣기 좋은 플리☔️ 기분 좋아지는 국내 노래 모음 ∣ 일할때 … (9,292회)
 - 대본 없음 (없음) — 음성인식이 끝나면 도입부·흐름이 들어감
 - 댓글 150/150: 좋은 점 — 영상 3 · 감사·응원 7 · 더 알고 싶은 것 16 · 아쉬운 점 — 영상 1 · 반박·불만 — 의견 다름 0 · 정치·사회 0 · 경험 공유 3 · 구독·다음 기대 0
   - 좋은 점 — 영상 👍108 “안녕하세요, 오늘의 플리님! 저는 도덕 수업에서 선플 달기 활동을 하고 있는 중1 학생입니다. 영상 정말 잘 보고 있어요. 항상 좋은 영상 올려주셔서 감사합니다. 좋은 하루 보내세요”
@@ -336,20 +315,13 @@
   - 아쉬운 점 — 영상 👍0 “같은노래반복되는거아님??”
   - 경험 공유 👍11 “두번째곡 3:10 창문을 열면 하얀 바람이 들어와 어제의 마음도 조용히 불었나 발끝에 닿는 따뜻한 먼지 위로 이름 모를 설렘이 슬쩍 번져 가 자꾸만 멀어지던 내 그림자도 오늘은 가볍게 내 옆을 걷고 손끝에 맺힌 햇살 한번 더 흔들리며 말 대신 웃음이 먼저 나와 너와 …”
 
-### 276. worry (Instrumental Ultra Slowed)
+### 271. 🍂편안해지는 따뜻한 가을 노래 ∣ 추억의 올드팝송 ∣ 가을 카페 팝송 감미로운 여친 목소리∣ Oldies Playlist
 
-- https://www.youtube.com/watch?v=zF_hN38VVzY · LONOWN - Topic · 구독자 6,620 · 조회수 1,449,134 (×218.9, 하루 8,144.8) · 좋아요 28,421 (2.0%) · 4.3분 · 2026-04-23 · 주제 묶음 6. 피아노·클래식·연주곡 · 형식 정보·해설 (그 밖) · 폴더 `W_zF_hN38VVzY` (웹 승인)
-- 썸네일: <img src="W_zF_hN38VVzY/thumbnail.jpg" width="320">
-- 설명 앞부분: Provided to YouTube by ARCADIA worry (Instrumental Ultra Slowed) · LONOWN · riserayss worry (Instrumental edition) ℗ ARCADIA Released on: 2026-04-24 Composer: Steve Starkoff Composer: Alexey Tokman Auto-generated by YouTube.
-- 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
-- 댓글 0/364: 좋은 점 — 영상 0 · 감사·응원 0 · 더 알고 싶은 것 0 · 아쉬운 점 — 영상 0 · 반박·불만 — 의견 다름 0 · 정치·사회 0 · 경험 공유 0 · 구독·다음 기대 0
-
-### 277. 🍂편안해지는 따뜻한 가을 노래 ∣ 추억의 올드팝송 ∣ 가을 카페 팝송 감미로운 여친 목소리∣ Oldies Playlist
-
-- https://www.youtube.com/watch?v=yfKtKmmUsoQ · 나무감성 NAMUVIBE · 구독자 2,410 · 조회수 527,527 (×218.9, 하루 28,505.4) · 좋아요 1,846 (0.4%) · 135분 · 2026-09-29 · 주제 묶음 4. 카페·매장·라운지 · 형식 플레이리스트·모음 (여러 곡) · 폴더 `W_yfKtKmmUsoQ` (웹 승인)
+- https://www.youtube.com/watch?v=yfKtKmmUsoQ · 나무감성 NAMUVIBE · 구독자 2,410 · 조회수 529,194 (×219.6, 하루 27,101.8) · 좋아요 1,850 (0.4%) · 135분 · 2026-09-29 · 주제 묶음 4. 카페·매장·라운지 · 형식 플레이리스트·모음 (여러 곡) · 폴더 `W_yfKtKmmUsoQ` (웹 승인)
 - 썸네일: <img src="W_yfKtKmmUsoQ/thumbnail.jpg" width="320">
 - 챕터: 0:00 Love Beneath the Autumn Moon … · 2:43 October Moonlight (10월의 달빛) · 5:45 Coffee Under the Moon (달빛 아래의… · 8:48 Chrysanthemums in October (10… · 11:13 Autumn Lotus Lake (가을 연꽃 호수) · 13:45 Letting My Heart Rest (마음을 쉬게… · 16:47 Lotus by the Quiet Lake (고요한 … · 19:51 Autumn Coffee for Two (둘이 함께하… · 22:13 Chrysanthemum Breeze (국화 향기 실… · 24:26 Leaving Worries Behind (걱정을 뒤… · 26:48 Thankful for This Autumn (이 가… · 29:16 Thank You Under the Full Moon… · 31:44 A Peaceful October Home (평온한 … · 33:45 ⟳ Loop Start
 - 설명 앞부분: ※ 이 포스팅은 쿠팡파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다. 🚀쿠팡 단3일 주말특가 최대 70%이상🚀 여러분의 작은 응원이 이 따뜻한 음악을 오래 이어가는 큰 힘이 됩니다. 🎶 어느덧 10월이 가까워지고 있습니다. 선선한 가을바람과 주황빛으로 물든 단풍, 잔잔한 호수 위로 비치는 따뜻한 달빛을 바라보며 오늘은 편안하고 따뜻한 가을 노래로 하루를 시작해봅니다. 🍂🌕☕ 호수 위에 조용히 떠 있는 연꽃과 가을꽃, 은은하게 밝혀진 카페의 불빛을 바라보고 있으면 바쁘게 흘러가던 마음도 잠시 느려지는 것 같습니다…
+- 같은 채널 평소 대비 ×35.4 (채널 최근 롱폼 중앙값 14,928회) · 평소 영상: 🍂가을 아침 호수에서 마시면☕커피가 더 감미로워지는 노래 ∣ 듣기 좋은 7080 잔잔한 … (14,928회) / 🍂추석, 고향 가는 길☕감미로운 가을빛 노래 ∣ 커피와 듣기 좋은 7080 추억의 명곡 … (13,801회)
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
 - 댓글 173/173: 좋은 점 — 영상 3 · 감사·응원 25 · 더 알고 싶은 것 2 · 아쉬운 점 — 영상 0 · 반박·불만 — 의견 다름 0 · 정치·사회 0 · 경험 공유 5 · 구독·다음 기대 2
   - 좋은 점 — 영상 👍5 “식사중인데 차분한 음악이 넘 듣기 편안합니다. 오늘도 평안하고 즐거운 하루 보내세요 ❤❤❤”
@@ -363,27 +335,38 @@
   - 구독·다음 기대 👍5 “행복하고 편안해지는 영상 잠시 머물다 구독하고갑니다”
   - 구독·다음 기대 👍1 “너무 좋아서 머물다 구독하고 갑니다.”
 
-### 278. Playlist ∣ Start Your Work with This 😎 Light Focus, Solid Rhythm 🎧∣ JAZZHOP · CHILLHOP ∣ …
+### 272. worry (Instrumental Ultra Slowed)
 
-- https://www.youtube.com/watch?v=PF7MEHrmFjQ · Noirvoya · 구독자 371 · 조회수 80,931 (×218.1, 하루 621.1) · 좋아요 464 (0.6%) · 16.4분 · 2026-06-10 · 주제 묶음 3. 공부·집중·작업 · 형식 플레이리스트·모음 (여러 곡) · 폴더 `W_PF7MEHrmFjQ` (웹 승인)
+- https://www.youtube.com/watch?v=zF_hN38VVzY · LONOWN - Topic · 구독자 6,620 · 조회수 1,449,134 (×218.9, 하루 8,098.3) · 좋아요 28,421 (2.0%) · 4.3분 · 2026-04-23 · 주제 묶음 6. 피아노·클래식·연주곡 · 형식 정보·해설 (그 밖) · 폴더 `W_zF_hN38VVzY` (웹 승인)
+- 썸네일: <img src="W_zF_hN38VVzY/thumbnail.jpg" width="320">
+- 설명 앞부분: Provided to YouTube by ARCADIA worry (Instrumental Ultra Slowed) · LONOWN · riserayss worry (Instrumental edition) ℗ ARCADIA Released on: 2026-04-24 Composer: Steve Starkoff Composer: Alexey Tokman Auto-generated by YouTube.
+- 같은 채널 평소 대비 ×5.5 (채널 최근 롱폼 중앙값 262,809회) · 평소 영상: alone with you (Slowed) (262,809회) / frenzyquirt (Slowed) (129,149회)
+- 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
+- 댓글 0/364: 좋은 점 — 영상 0 · 감사·응원 0 · 더 알고 싶은 것 0 · 아쉬운 점 — 영상 0 · 반박·불만 — 의견 다름 0 · 정치·사회 0 · 경험 공유 0 · 구독·다음 기대 0
+
+### 273. Playlist ∣ Start Your Work with This 😎 Light Focus, Solid Rhythm 🎧∣ JAZZHOP · CHILLHOP ∣ …
+
+- https://www.youtube.com/watch?v=PF7MEHrmFjQ · Noirvoya · 구독자 371 · 조회수 80,931 (×218.1, 하루 616.3) · 좋아요 464 (0.6%) · 16.4분 · 2026-06-10 · 주제 묶음 3. 공부·집중·작업 · 형식 플레이리스트·모음 (여러 곡) · 폴더 `W_PF7MEHrmFjQ` (웹 승인)
 - 썸네일: <img src="W_PF7MEHrmFjQ/thumbnail.jpg" width="320">
 - 챕터: 0:00 Good Coffee, Good Flow · 3:20 Work Mode Sunshine · 6:40 Notes In The Margin · 10:00 Little Groove At My Desk · 13:20 Better Flow, Better Day
 - 설명 앞부분: Thank you for visiting today. Subscribing and liking is true love. ❤ Start your work with this today. Even if you just play it lightly, the flow continues naturally, We composed it with jazz-hop & chill-hop grooves where the rhythm stays alive even without too much effort. A balanced playlist that'…
+- 같은 채널 평소 대비 ×335.1 (채널 최근 롱폼 중앙값 242회) · 평소 영상: 【Playlist】JAZZHOP ☕ Café Work Music ∣ ChillHop Be… (248회) / Violin Hip Hop Beats 🎻 Aggressive Trap & Cinemati… (235회)
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
 - 댓글 30/30: 좋은 점 — 영상 0 · 감사·응원 0 · 더 알고 싶은 것 0 · 아쉬운 점 — 영상 0 · 반박·불만 — 의견 다름 0 · 정치·사회 0 · 경험 공유 0 · 구독·다음 기대 0
 
-### 279. Hyperfocus ∣ LOCK IN for 3 Hours ∣ Deep Work Study With Me (Pomodoro 50/10)
+### 274. Hyperfocus ∣ LOCK IN for 3 Hours ∣ Deep Work Study With Me (Pomodoro 50/10)
 
-- https://www.youtube.com/watch?v=UXwJ9RwdyHs · Work With Paul · 구독자 18,000 · 조회수 3,903,596 (×216.9, 하루 95,001.8) · 좋아요 16,973 (0.4%) · 172분 · 2026-09-07 · 주제 묶음 3. 공부·집중·작업 · 형식 긴 한 곡·반복 (N시간) · 폴더 `W_UXwJ9RwdyHs` (웹 승인)
+- https://www.youtube.com/watch?v=UXwJ9RwdyHs · Work With Paul · 구독자 18,000 · 조회수 3,903,596 (×216.9, 하루 92,700.8) · 좋아요 16,973 (0.4%) · 172분 · 2026-09-07 · 주제 묶음 3. 공부·집중·작업 · 형식 긴 한 곡·반복 (N시간) · 폴더 `W_UXwJ9RwdyHs` (웹 승인)
 - 썸네일: <img src="W_UXwJ9RwdyHs/thumbnail.jpg" width="320">
 - 챕터: 0:00 Intro · 0:40 Work Session 1 · 50:40 Break 1 · 60:40 Work Session 2 · 110:40 Break 2 · 120:40 Work Session 3 · 170:40 Outro
 - 설명 앞부분: 3 hours of deep, distraction-free work with immersive focus music and a 50/10 Pomodoro timer. 🎯 JOIN HYPERFOCUS SCHOOL — FREE A free community for Deep Work, focus, productivity and accountability. 📘 GET THE HYPERFOCUS MANUAL — FREE Join Hyperfocus Weekly and get the Hyperfocus Manual instantly — a…
+- 같은 채널 평소 대비 ×24.2 (채널 최근 롱폼 중앙값 161,535회) · 평소 영상: Hyperfocus Synthwave ∣ Flow State ∣ 2 Hour Deep W… (161,535회) / Hyperfocus Music ∣ 120 Min Deep Work Pomodoro (25… (137,184회)
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
 - 댓글 492/471: 좋은 점 — 영상 0 · 감사·응원 0 · 더 알고 싶은 것 0 · 아쉬운 점 — 영상 0 · 반박·불만 — 의견 다름 0 · 정치·사회 0 · 경험 공유 0 · 구독·다음 기대 0
 
-### 280. [𝗣𝗹𝗮𝘆𝗹𝗶𝘀𝘁] 행운이 따라올 것 같은 여름 플리 🌊🚃 ∣ 괜히 여행 가고 싶어지는 음악 ∣ 카페 BGM ∣ 휴식• 작업 • 노동요
+### 275. [𝗣𝗹𝗮𝘆𝗹𝗶𝘀𝘁] 행운이 따라올 것 같은 여름 플리 🌊🚃 ∣ 괜히 여행 가고 싶어지는 음악 ∣ 카페 BGM ∣ 휴식• 작업 • 노동요
 
-- https://www.youtube.com/watch?v=sdyu1kMXQPw · HIWAVA · 구독자 2,080 · 조회수 448,891 (×215.8, 하루 3,242.9) · 좋아요 2,190 (0.5%) · 165.3분 · 2026-06-01 · 주제 묶음 3. 공부·집중·작업 · 형식 플레이리스트·모음 (여러 곡) · 폴더 `W_sdyu1kMXQPw` (웹 승인)
+- https://www.youtube.com/watch?v=sdyu1kMXQPw · HIWAVA · 구독자 2,080 · 조회수 448,891 (×215.8, 하루 3,219.2) · 좋아요 2,190 (0.5%) · 165.3분 · 2026-06-01 · 주제 묶음 3. 공부·집중·작업 · 형식 플레이리스트·모음 (여러 곡) · 폴더 `W_sdyu1kMXQPw` (웹 승인)
 - 썸네일: <img src="W_sdyu1kMXQPw/thumbnail.jpg" width="320">
 - 챕터: 0:00 nothing much today · 3:50 walk a little slower · 7:03 windows down again · 10:28 stay here awhile · 13:32 not heading home yet · 16:33 still not sleepy · 19:37 window seat · 24:04 long way home · 27:04 couldn't sleep anyway · 29:58 one more minute · 33:03 on repeat🔁🎧
 - 설명 앞부분: 🚃 Kamakura Seaside, Japan 🇯🇵 오늘은 듣자마자 어디론가 떠나고 싶어지는 음악들을 담아왔어요 🧳 바다 옆을 지나가는 전철, 따뜻한 햇살, 그리고 괜히 기분 좋아지는 여름 공기 같은 노래들 오늘도 이 음악이 당신 하루를 조금 더 시원하게 만들어주길 ☁ 다음에도 기분 좋은 풍경과 음악으로 만나요💙 Today, I brought songs that make you want to go somewhere as soon as you hear them 🚃 A train passing by the sea, warm sunli…
@@ -398,4 +381,71 @@
   - 아쉬운 점 — 영상 👍1 “목소리가너무 감미로워요”
   - 구독·다음 기대 👍1 “음악 잘듣고 구독하고 합니다 ^^”
   - 구독·다음 기대 👍1 “구독하고 갑니다~”
+
+### 276. Top Spotify Hits 2026 🎵 Trending English Love Songs ∣ Acoustic Chill Vibes ∣ Viral TikTok…
+
+- https://www.youtube.com/watch?v=FPlJt2A0yYo · Chill Chord · 구독자 11,900 · 조회수 2,527,235 (×212.4, 하루 27,350.7) · 좋아요 11,173 (0.4%) · 54.8분 · 2026-07-18 · 주제 묶음 8. 로파이·시티팝·칠 · 형식 커버·직접 부른 노래 · 폴더 `W_FPlJt2A0yYo` (웹 승인)
+- 썸네일: <img src="W_FPlJt2A0yYo/thumbnail.jpg" width="320">
+- 설명 앞부분: 🎵 Welcome to the ultimate collection of Top Spotify Hits 2026, featuring trending English love songs, relaxing acoustic covers, viral TikTok music, and chill melodies for every mood. This playlist brings together romantic English songs, soft acoustic vibes, emotional pop hits, and popular tracks in…
+- 같은 채널 평소 대비 ×136.0 (채널 최근 롱폼 중앙값 18,577회) · 평소 영상: Viral OPM Songs 2026 🇵🇭 Best Tagalog Love Playlis… (18,577회) / ✅ Chill & Relax Playlist 2026 🎧 Trending Acoustic… (19,492회)
+- 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
+- 댓글 282/282: 좋은 점 — 영상 0 · 감사·응원 1 · 더 알고 싶은 것 0 · 아쉬운 점 — 영상 0 · 반박·불만 — 의견 다름 0 · 정치·사회 0 · 경험 공유 0 · 구독·다음 기대 0
+  - 감사·응원 👍1 “감사합니다.”
+
+### 277. 이선희 노래 〈잘가요, 내사랑〉 ∣ Goodbye, The One I Loved ∣ 再见了，我曾爱过的人 ∣ さようなら、私が愛した人 ∣ Korean Ballad
+
+- https://www.youtube.com/watch?v=Ibdr_7ukGyI · AI음악으로멜론1위찍습니다 · 구독자 3,080 · 조회수 647,012 (×210.1, 하루 4,163.6) · 좋아요 4,437 (0.7%) · 4.8분 · 2026-05-16 · 주제 묶음 9. 가요·발라드·트로트 · 형식 AI 음악 · 폴더 `W_Ibdr_7ukGyI` (웹 승인)
+- 썸네일: <img src="W_Ibdr_7ukGyI/thumbnail.jpg" width="320">
+- 설명 앞부분: 잘가요, 내가 사랑했던 사람. 만약 이선희의 17집이 나온다면 이런 감성의 타이틀곡이 아닐까 상상하며 만든 팬메이드 AI 음악입니다. 오랜 시간 마음에 남아 있는 사람, 끝내 전하지 못했던 마지막 인사를 담았습니다. 90년대 한국 발라드의 깊은 감성과 이선희 음악을 좋아하셨던 분들이라면 천천히 끝까지 들어보세요. ※ 본 영상은 실제 이선희 정규 17집 음원이 아닌 팬메이드 창작 콘텐츠입니다.
+- 같은 채널 평소 대비 ×986.3 (채널 최근 롱폼 중앙값 656회) · 평소 영상: 🎵 이선희의 목소리로 듣고 싶은 13곡 ｜17집 정규앨범 DEMO 노래 ｜Lee Sun-… (656회) / 소유 x MC 스나이퍼 - 💔내 전부였는데 😭 "사랑했는데 왜 날 두고 떠나가... 🔥감… (498회)
+- 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
+- 댓글 707/707: 좋은 점 — 영상 1 · 감사·응원 36 · 더 알고 싶은 것 8 · 아쉬운 점 — 영상 8 · 반박·불만 — 의견 다름 13 · 정치·사회 2 · 경험 공유 16 · 구독·다음 기대 2
+  - 좋은 점 — 영상 👍7 “이선희 명품 레전드 가수 최고”
+  - 감사·응원 👍39 “이선희씨 항상 건강하시고 행복하시고 아무장애없이 좋은 일만 가득하시길 바랍니다 힘내세요 파이팅 입니다 🎉🎉🎉”
+  - 감사·응원 👍37 “가수이선희님 응원합니다 ❤❤❤”
+  - 더 알고 싶은 것 👍4 “내가 좋아하는 이선희 가수님! 넘 슬프네요 그리고 바보처럼 울게하네요 깊은 사연들이 뇌리속을 맴돌아 잠들지 못해 이선희 가수님의 모든 사연을 1시간넘게 이어폰으로 들은후 이 음악을 듣고 있어요 오래전 (진주mbc라이브엔죠이) 공연때 (J에게)를 부르던중 갑자기 가곡을…”
+  - 더 알고 싶은 것 👍3 “이선희씨 맞나요 ?”
+  - 아쉬운 점 — 영상 👍9 “노래도 좋고 가수의 가창력도 좋은데 상관도 없는 이선희님의 사진과 이름으로 사람들을 끌어 모은것은 넘무 아쉬워요”
+  - 아쉬운 점 — 영상 👍3 “하루에수십번들어도너무좋아요.애절하고선희님목소리가너무이뻐요.듣고또들어도또듣고싶엉.좋은노래들려주세요”
+  - 반박·불만 — 의견 다름 👍4 “이선희 노래가 아닙니다”
+  - 반박·불만 — 의견 다름 👍3 “이선희아닙니다”
+  - 정치·사회 👍4 “우리나라가수 통틀어서 이선희 따를자를 보지못했습니다 대단한 이선희 LP판 들을때 부터 이선희 판이 비싼거만큼 명곡이고 타가수가 따라올수 없는 말 그대로 타의추종을 불허하는 명가수십니다”
+  - 정치·사회 👍2 “이선희 와 메뚜기는 좌파 입니다ㆍ 메뚜기가 논밭 헤치기 전에 잡으시다ㆍ메뚜기 이선희 이원종은 좌파 입니다ㆍ”
+  - 경험 공유 👍57 “언젠가는 나도 없을 세상인데ᆢ 만나고 헤어짐을 ᆢ마무리 잘 하고 가고싶네요~~!!!”
+  - 경험 공유 👍32 “이별 벌써 20년째 저는 가족 반대 때문에 헤어진 한남자 잊지 못합니다 지금 도 그사람 잊지 못합니다 아니 영윈히 기다려요 이노래가 아퍼요 그사람 마음 같아😢”
+  - 구독·다음 기대 👍32 “이별 벌써 20년째 저는 가족 반대 때문에 헤어진 한남자 잊지 못합니다 지금 도 그사람 잊지 못합니다 아니 영윈히 기다려요 이노래가 아퍼요 그사람 마음 같아😢”
+  - 구독·다음 기대 👍6 “안녕하세요 잘듣고갑니다 그리고 쿡하고 구독하고 갑니다 ❤❤❤행복하세요 🎉🎉🎉최고이십니다 ❤❤❤최고이십니다 🎉🎉🎉행복하세요”
+
+### 278. Asiwafuni
+
+- https://www.youtube.com/watch?v=9c1b0JLxKG4 · Benzoo - Topic · 구독자 11,900 · 조회수 2,475,956 (×208.1, 하루 30,589.0) · 좋아요 66,612 (2.7%) · 6.7분 · 2026-07-30 · 주제 묶음 기타 · 형식 음악 (그 밖 모양 — 한 편짜리 BGM 등) · 폴더 `W_9c1b0JLxKG4` (웹 승인)
+- 썸네일: <img src="W_9c1b0JLxKG4/thumbnail.jpg" width="320">
+- 설명 앞부분: Provided to YouTube by The Orchard Enterprises Asiwafuni · Benzoo · Officixl Rsa · Optimist Music ZA · Marvens · Banele Mapulane · Thabo Musa Asiwafuni ℗ 2026 Benzoo / Manage The Right Way Released on: 2026-07-31 Producer: Godfrey Maledi Engineer: Tumelo Tweezy Mathebula A And R Administrator: sean…
+- 같은 채널 평소 대비 ×10.7 (채널 최근 롱폼 중앙값 230,442회) · 평소 영상: Teko Modise (230,442회) / Mghulugudu (509,463회)
+- 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
+- 댓글 0/1,350: 좋은 점 — 영상 0 · 감사·응원 0 · 더 알고 싶은 것 0 · 아쉬운 점 — 영상 0 · 반박·불만 — 의견 다름 0 · 정치·사회 0 · 경험 공유 0 · 구독·다음 기대 0
+
+### 279. 𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 안 붙잡을게, 진짜로
+
+- https://www.youtube.com/watch?v=mgSfxFVkmv4 · 탱이 · 구독자 1,680 · 조회수 348,845 (×207.7, 하루 2,862.9) · 좋아요 10,931 (3.1%) · 18.3분 · 2026-06-19 · 주제 묶음 기타 · 형식 플레이리스트·모음 (여러 곡) · 폴더 `W_mgSfxFVkmv4` (웹 승인)
+- 썸네일: <img src="W_mgSfxFVkmv4/thumbnail.jpg" width="320">
+- 챕터: 0:00 Saula - Perfume · 2:59 빈첸 - FLYING HIGH WITH U · 6:23 Kaution - ed · 9:44 &TEAM - MISMATCH · 13:06 백현 - Love Again · 16:29 Joh! - ABG
+- 설명 앞부분: [TIME LINE]
+- 같은 채널 평소 대비 ×33.5 (채널 최근 롱폼 중앙값 10,411회) · 평소 영상: 𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 내가 작정하고 누나 꼬시면 생기는 일 (10,411회) / 𝐏𝐥𝐚𝐲𝐥𝐢𝐬𝐭 순정만화 속 여주인공이 되어보자 (13,147회)
+- 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
+- 댓글 150/150: 좋은 점 — 영상 0 · 감사·응원 1 · 더 알고 싶은 것 1 · 아쉬운 점 — 영상 0 · 반박·불만 — 의견 다름 0 · 정치·사회 0 · 경험 공유 14 · 구독·다음 기대 0
+  - 감사·응원 👍0 “오...... 감사합니다”
+  - 더 알고 싶은 것 👍2 “첫노래 제목알려주세요”
+  - 경험 공유 👍50 “안 믿으실 수도 있지만 이 닉네임이 12년째 쓰고 있는 자호 같은 이름인데 시온님 성함이랑 한자까지 똑같더라고요 그 미묘한 내적 친밀감 때문인지 노래들이 다 좋아서 그런지 새벽이라 그런지 셋 다인지 상당히 과몰입이 되네요 같은 나라에 태어나서 같은 언어로 말을 해도 …”
+  - 경험 공유 👍13 “그냥 붙잡아줘 미안해 스미마셍 뚜이부치 씬 로이 로시엔토 내가 잘못했어 용서해줘”
+
+### 280. Sad Song Playlist (+ with timestamps) !!
+
+- https://www.youtube.com/watch?v=q48Y5Hf83Bk · Mood Tapes 🎶 · 구독자 17,900 · 조회수 3,663,675 (×204.7, 하루 27,815.9) · 좋아요 44,444 (1.2%) · 14.7분 · 2026-06-09 · 주제 묶음 기타 · 형식 플레이리스트·모음 (여러 곡) · 폴더 `W_q48Y5Hf83Bk` (웹 승인)
+- 썸네일: <img src="W_q48Y5Hf83Bk/thumbnail.jpg" width="320">
+- 챕터: 0:00 Ae Dil Hai Mushkil · 1:08 Piya aaye na · 3:05 samjhawan · 5:21 tu hi hai Aashiqui · 6:54 Humnava mere · 9:29 yun hi re · 12:15 ishq karu
+- 설명 앞부분: All Songs and Images belong to their respective owners (and not to this channel) !!! Subscribe for more amazing playlists CURATED especially for YOU 🫶🏻 Tags: bollywood Songs, bollywood dance songs, item songs playlist, sad song playlist, party songs hindi, sassy songs,bollywood songs, dance hits, d…
+- 같은 채널 평소 대비 ×83.2 (채널 최근 롱폼 중앙값 44,055회) · 평소 영상: Sad Soothing Songs Long Drive Playlist 🚗 (55,529회) / Neeti Mohan Playlist !!! (timestamps) (32,581회)
+- 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
+- 댓글 1,520/1,500: 좋은 점 — 영상 0 · 감사·응원 0 · 더 알고 싶은 것 0 · 아쉬운 점 — 영상 0 · 반박·불만 — 의견 다름 0 · 정치·사회 0 · 경험 공유 0 · 구독·다음 기대 0
 

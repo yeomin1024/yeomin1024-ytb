@@ -68,7 +68,7 @@
  "comments_top_level": 0,
  "comments_replies": 0,
  "comments_by_creator": 0,
- "comments_complete": false,
+ "comments_complete": true,
  "comments_disabled": false,
  "comments_reported": 13,
  "tool": "outlier_research.py v2.5.1",

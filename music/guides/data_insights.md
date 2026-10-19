@@ -1,6 +1,8 @@
 # 음악(music) — 지시사항 근거 숫자
 
-버전: v1.2 — 2026-10-18 — **외국 영상까지 넣어 다시 씀** (성공 사례 354 → 1,146 · 외국 753 — 외국 롱폼 탐색·승인 끝, 예약 작업 `trig_01RR9ppiEXLNHmhFotDPNPzV` 10단계). (v1.1 — 2026-10-17 — 숫자 변동 경고. (v1.0 — 2026-10-16 — 새로 만듦 (사용자 지시 "외국 영상도 포함하고 플레이리스트니까 짧은 영상을 포함안해야하는게 맞어 어떤 음악 영상 올려야 하는지 알려줘봐")))
+버전: v1.2.1 — 2026-10-19 — 외국 숫자 낡음 경고 · 사례 #번호를 2026-10-19 analysis.md 번호로 (영상 ID 로 맞춤). (v1.2 — 2026-10-18 — **외국 영상까지 넣어 다시 씀** (성공 사례 354 → 1,146 · 외국 753 — 외국 롱폼 탐색·승인 끝, 예약 작업 `trig_01RR9ppiEXLNHmhFotDPNPzV` 10단계). (v1.1 — 2026-10-17 — 숫자 변동 경고. (v1.0 — 2026-10-16 — 새로 만듦 (사용자 지시 "외국 영상도 포함하고 플레이리스트니까 짧은 영상을 포함안해야하는게 맞어 어떤 음악 영상 올려야 하는지 알려줘봐"))))
+
+> ⚠️ **2026-10-19 — 이 문서의 외국 숫자는 낡았을 수 있음**: 채널 기준선 592곳의 평소 영상이 비교 집단에 들어와 성공 비율이 43% → 24% 로 내려갔다 (외국 쪽 검색 치우침이 빠짐 — `music/README.md` v1.5). 남은 기준선 150곳이 들어온 회차에 다시 센다. 그 전까지 '외국 74%'와 외국 기준 순서는 그대로 믿지 않는다.
 
 - 이 파일은 **숫자와 원문만** 모은다. 무엇을 올릴지(판단)는 `music/source/topic_candidates.md`.
 - 다른 주제(재테크·주식·역사) 숫자는 빌리지 않는다 (CLAUDE.md).
@@ -85,20 +87,20 @@
 
 | # | 조회수 | 길이 | 구독자 | 채널 | 제목 (앞부분) |
 |---|---|---|---|---|---|
-| 622 | 1,938,192 | 90분 | 30,600 | Little Thing | a quiet playlist for a quiet heart (calm/relax piano) |
-| 699 | 2,074,120 | 18분 | 40,600 | WilliamPoeticSolace (시적인위로) | [Masterpiece Series] Handel Passacaglia – The Eternal Bond - 5 Variations (설명란 AI 표시) |
-| 772 | 1,844,765 | 184분 | 45,900 | Sound to Peaceful | Ancient Chinese Zen Music — Bamboo Flute, Erhu & Guzheng |
-| 539 | 1,828,182 | 60분 | 22,600 | Ksu4000 | if this background music found you, life will get better |
-| 681 | 1,824,386 | 347분 | 34,200 | Aether Journey | KUMAMICHI (熊道) — Japanese Zen Music Along the Bear's Path |
-| 418 | 1,823,354 | 60분 | 14,200 | sleepwalker | choose peace |
-| 566 | 1,708,142 | 62분 | 22,600 | Ksu4000 | somehow this became your background music |
-| 403 | 1,837,721 | 480분 | 13,800 | Brainwave Resonance | Fall Into Sleep Instantly • Healing Stress, Anxiety… |
-| 781 | 1,291,927 | 61분 | 32,800 | StillSpace | the best classical music for concentration |
-| 509 | 1,272,903 | 60분 | 14,200 | sleepwalker | life |
-| 712 | 1,261,879 | 141분 | 25,900 | Onda di Relax | Morning Coffee & Relaxing Italian Music |
-| 482 | 1,249,757 | 96분 | 12,600 | Tokyo Vibes | [4K HDR Lofi] Tokyo Night Drive Ginza Marunouchi… |
-| 858 | 1,215,675 | 61분 | 40,800 | Rain Whisper Classics | Chopin — Nocturne Op.9 No.2 (432Hz) — Soothing Piano |
-| 917 | 1,130,719 | 66분 | 49,600 | Soulful Breathscape™ | Morning Serenity — Raag Alhaiya Bilawal inspired Healing |
+| 610 | 1,938,192 | 90분 | 30,600 | Little Thing | a quiet playlist for a quiet heart (calm/relax piano) |
+| 686 | 2,074,120 | 18분 | 40,600 | WilliamPoeticSolace (시적인위로) | [Masterpiece Series] Handel Passacaglia – The Eternal Bond - 5 Variations (설명란 AI 표시) |
+| 758 | 1,844,765 | 184분 | 45,900 | Sound to Peaceful | Ancient Chinese Zen Music — Bamboo Flute, Erhu & Guzheng |
+| 527 | 1,828,182 | 60분 | 22,600 | Ksu4000 | if this background music found you, life will get better |
+| 668 | 1,824,386 | 347분 | 34,200 | Aether Journey | KUMAMICHI (熊道) — Japanese Zen Music Along the Bear's Path |
+| 408 | 1,823,354 | 60분 | 14,200 | sleepwalker | choose peace |
+| 555 | 1,708,142 | 62분 | 22,600 | Ksu4000 | somehow this became your background music |
+| 395 | 1,837,721 | 480분 | 13,800 | Brainwave Resonance | Fall Into Sleep Instantly • Healing Stress, Anxiety… |
+| 766 | 1,291,927 | 61분 | 32,800 | StillSpace | the best classical music for concentration |
+| 499 | 1,272,903 | 60분 | 14,200 | sleepwalker | life |
+| 699 | 1,261,879 | 141분 | 25,900 | Onda di Relax | Morning Coffee & Relaxing Italian Music |
+| 472 | 1,249,757 | 96분 | 12,600 | Tokyo Vibes | [4K HDR Lofi] Tokyo Night Drive Ginza Marunouchi… |
+| 842 | 1,215,675 | 61분 | 40,800 | Rain Whisper Classics | Chopin — Nocturne Op.9 No.2 (432Hz) — Soothing Piano |
+| 901 | 1,130,719 | 66분 | 49,600 | Soulful Breathscape™ | Morning Serenity — Raag Alhaiya Bilawal inspired Healing |
 
 - 공통: 가사 없는 연주곡, 60~180분이 많음, 제목은 짧은 영어(소문자 감성 문장 — Ksu4000·sleepwalker·Little Thing) 또는 '작곡가·악기·장소 + 쓰임새'.
 

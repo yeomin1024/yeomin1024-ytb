@@ -1,5 +1,12 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-19 (재테크 오디오) — tts_narration v1.11: 업로드한 영상은 오디오를 만들지 않음 (build·push 도)
+
+- 사용자 지시: "새로 만든 영상 2개에 대해 오디오 코드로 생성하는지 확인해 그리고 업로드 완료한건 오디오 생성하지 말도록 하고"
+- 확인 (`all --dry-run --topics economic`, 토큰 없이): 만듦 5 = `geumyung-soduk-2026-10`·`gungmin-sigi-2026-10` 롱폼·쇼츠 + `gicho-yeongeum-ai-2026-10-shorts` (모두 오디오 없음 → 처음부터 전부) · 건너뜀 8 = 업로드한 4편 롱폼·쇼츠 (`youtube.json`) — `--force` 여도 같음
+- 고침: `all` 은 v1.5.1 부터 업로드한 영상을 건너뛰었으나 영상 하나 `build` 는 막지 않았음 → `uploaded_record()` 하나로 `build`(모델을 불러오기 전)·`build_episode`(안전장치)·`push`(이미 만든 결과) 모두 막음. 만드는 방법·대상 고르기는 그대로
+- 시험: `tools/tests/test_tts_uploaded.py` 4개 새로 + 기존 TTS 시험 14개 = 18개 OK. 문서 `guides/tts_guide.md` v1.12
+
 ## 2026-10-19 (주식 분석 4) — 최근 1주 탐색 시작 · `outlier_research.py` v2.5.2 분당 검색 한도 고침 · 시험 2개 지금 설정에 맞춤
 
 ### 왜 (사용자 지시)

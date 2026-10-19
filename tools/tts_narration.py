@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.10 — 2026-10-17 — 부분 다시 만들기: 파트 라벨 **글자만** 바뀐 것은 막지 않는다 (라벨은 소리로 읽지 않음) — 파트 경계(어느 문장에서
+# VERSION: v1.11 — 2026-10-19 — 업로드한 영상(대본 폴더에 youtube.json)은 어느 길로도 오디오를 만들지 않는다 — all 은 예전부터 건너뛰었고(repo_status
+#          'uploaded', --force 보다 먼저), 이번에 build(영상 하나 — 모델을 불러오기 전에 멈춤)·build_episode(안전장치)·push(이미 만든 결과를 올리지
+#          않음)에도 같은 막음. 사용자 지시 2026-10-19 "새로 만든 영상 2개에 대해 오디오 코드로 생성하는지 확인해 그리고 업로드 완료한건 오디오
+#          생성하지 말도록 하고". 대상 고르기·만드는 방법은 그대로.
+# (v1.10 — 2026-10-17 — 부분 다시 만들기: 파트 라벨 **글자만** 바뀐 것은 막지 않는다 (라벨은 소리로 읽지 않음) — 파트 경계(어느 문장에서
 #          챕터가 바뀌는지)와 문장마다 읽는 목소리(역할)가 같으면 바뀐 문장만 다시. 경계나 역할이 바뀌면 예전처럼 전부 다시.
 #          사용자 피드백 2026-10-17 "아니 너무 또 길게 풀어서 쓰면 읽기 힘들잖아 최대한 짧지만 이해가 다 되도록 다시 고쳐봐" — 재테크 대본을
-#          낱말 몇 개만 고쳤는데 챕터 이름 한 글자 때문에 오디오를 전부 다시 만들지 않게.
+#          낱말 몇 개만 고쳤는데 챕터 이름 한 글자 때문에 오디오를 전부 다시 만들지 않게.)
 # (v1.9 — 2026-10-16 — 쇼츠 대본도 읽는다: <주제>/source/<영상ID>/shorts/<영상ID>-shorts.txt → 같은 쇼츠 폴더에 narration.mp3 ·
 #          tts_narration.json · tts_report.md (영상ID 는 '<영상ID>-shorts'). all·check·push·pick 이 롱폼과 같은 방식으로 다룬다 (src_dir).
 #          사용자 지시 2026-10-16 "좋아 나머지도 세 편도 대본은 같은 방식으로 만들고 일단 이 쇼츠만 영상 만들어봐" — 쇼츠 영상도 오디오 먼저 (CLAUDE.md).)
@@ -119,7 +123,7 @@ ROOT = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 import srt_tool  # noqa: E402  (문장·카드 판정을 자막 도구와 똑같이 쓰기 위해)
 
-VERSION = "v1.10"
+VERSION = "v1.11"
 CACHE_VERSION = 1            # 생성 방식이 바뀌면 올린다 → 문장 파일을 모두 다시 만든다 (v1.1은 v1.0 캐시와 같은 키)
 DEFAULT_MODEL = "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice"     # 사연자 (화자 + 말투 지시)
 DEFAULT_CLONE_MODEL = "Qwen/Qwen3-TTS-12Hz-1.7B-Base"       # 진행자 (기준 목소리 복제)
@@ -1175,6 +1179,8 @@ def patch_episode(engine, topic, vid, args, P, rows, cards, items, voices, chang
 def build_episode(engine, topic, vid, args, root, txt=None):
     """대본 → 역할별 문장 → narration.mp3 하나 + tts_narration.json + tts_report.md (+ 작업 폴더에 역할별 문장 파일). → 결과 dict."""
     src = src_dir(topic, vid)
+    if uploaded_record(topic, vid):   # v1.11 안전장치 — all·build 가 먼저 거르지만 다른 길로 불려도 만들지 않음
+        die("INPUT", f"{vid} 은 이미 업로드한 영상 — 오디오를 만들지 않음", "업로드한 영상은 오디오를 다시 만들지 않는다", record=rel(src / 'youtube.json'))
     txt = Path(txt) if txt else src / f"{vid}.txt"
     if not txt.is_file():
         die("INPUT", "대본 TXT 없음", "주제 폴더·영상ID 확인 (Kaggle: 저장소를 git clone·pull 했는지)", path=txt)
@@ -1355,6 +1361,10 @@ def write_report(path, topic, vid, args, items, metas, timing, cards, total_s, v
 # ----------------------------------------------------------------------------- 명령: build (영상 하나)
 def cmd_build(args):
     root = out_root(args)
+    up = uploaded_record(args.topic, args.id)
+    if up:   # v1.11: 업로드한 영상은 오디오를 만들지 않음 (all 과 같음)
+        die("PLAN", f"{args.id} 은 이미 업로드한 영상 — 오디오를 만들지 않음",
+            "업로드한 영상은 오디오를 다시 만들지 않는다 (사용자 지시 2026-10-19). 새 영상이면 새 영상ID 폴더로", record=rel(up))
     unpicked = unpicked_roles(load_voices(quiet=True))
     if unpicked:
         die("VOICE", f"목소리를 아직 고르지 않음: {','.join(unpicked)}",
@@ -1385,10 +1395,16 @@ def topic_on_hold(topic):
     return any("⏸" in ln and "보류" in ln for ln in head.splitlines())
 
 
+def uploaded_record(topic, vid):
+    """v1.11: 업로드한 영상이면 그 기록(youtube.json) 경로, 아니면 None — 업로드한 영상은 오디오를 만들지도 올리지도 않는다."""
+    p = src_dir(topic, vid) / "youtube.json"
+    return p if p.is_file() else None
+
+
 def repo_status(topic, vid, rows, cards):
     """저장소 상태 → (상태, 메모). made 여부는 따로 본다."""
     src = src_dir(topic, vid)
-    if (src / "youtube.json").is_file():
+    if uploaded_record(topic, vid):
         return "uploaded", "이미 업로드(youtube.json)"
     audio = repo_audio(topic, vid)
     if not audio:
@@ -1677,6 +1693,9 @@ def push_results(root, entries, token, args):
                 continue
             if not P["narration"].is_file() or not P["meta"].is_file():
                 log("PUSH", logging.WARNING, video=vid, note="narration.mp3·메타 없음 — 건너뜀", src=P["upload"])
+                continue
+            if uploaded_record(topic, vid):   # v1.11: 업로드한 영상의 오디오는 바꾸지 않음
+                log("PUSH", logging.WARNING, video=vid, note="이미 업로드한 영상(youtube.json) — 오디오를 올리지 않음", dst=rel(dst))
                 continue
             new = json.loads(P["meta"].read_text("utf-8"))
             rows, cards = read_script(dst / f"{vid}.txt")

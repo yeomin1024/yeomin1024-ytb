@@ -40,3 +40,10 @@ video/public/audio/
 # 백테스트 가격 자료 캐시 (tools/backtest/data.py) — 지수 값은 다시 배포하지 않음, 출처·sha256 은 *.meta.json 으로 올림
 stock/data/*.csv
 stock/data/*.csv.gz
+# 합치기 작업 파일 (2026-10-19 — tools/assemble_video.py · render.mjs overlay · scene_clips.py fetch): 자막 PNG·점검 그림·그래프·받은 클립 목록
+**/out/**/overlay/
+**/out/**/qa/
+**/out/**/clips/
+**/out/**/clips_placeholder/
+**/out/**/assemble_graph.txt
+**/out/**/notice.png

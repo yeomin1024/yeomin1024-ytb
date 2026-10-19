@@ -24,12 +24,26 @@
   "videoSha256": "7fce52b3aa6e9502de9d9f3092dcfc4867003e9b6ad4e905b46f8ee9df3b7e5c",
   "chapters": null,
   "captions": null,
-  "thumbnail": null,
-  "warnings": [
-    "썸네일 실패: HTTP 403 https://www.googleapis.com/upload/youtube/v3/thumbnails/set: {\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"The request cannot be completed because you have exceeded your \\u003ca href=\\\"/youtube/v3/getting-started#quota\\\"\\u003equota\\u003c/a\\u003e.\",\n    \"errors\": [\n      {\n        \"message\": \"The request cannot be completed because you have exceeded your \\u003ca href=\\\"/youtube/v3/getting-started#quota\\\"\\u003equota\\u003c/a\\u003e.\",\n        \"domain\": \"youtube.quota\",\n        \"reason\": \"quotaExceeded\"\n      }\n    ]\n  }\n}\n"
-  ],
+  "thumbnail": "thumbnail_1_upload.jpg",
+  "warnings": [],
   "studioTodo": [
     "공개 전(예약 시각 전) 스튜디오에서 확인: 영상·자막·썸네일, 자동 더빙(언어), 최종 화면",
     "공개된 뒤 '테스트 및 비교'에 썸네일 3개 등록 — 비공개 영상은 테스트 불가"
+  ],
+  "defaultLanguage": "ko",
+  "defaultAudioLanguage": "ko",
+  "metaUpdatedAt": "2026-10-19T07:15:52+00:00",
+  "captionTracks": {},
+  "captionsPending": [
+    "ko",
+    "en",
+    "hi",
+    "id",
+    "pt",
+    "es-419",
+    "ja",
+    "de",
+    "vi",
+    "tr"
   ]
 }

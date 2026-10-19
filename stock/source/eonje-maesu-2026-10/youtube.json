@@ -8,7 +8,7 @@
   "publishAt": "2026-10-19T08:00:00Z",
   "containsSyntheticMedia": true,
   "uploadedAt": "2026-10-18T08:01:35+00:00",
-  "title": "매수 타이밍, 저점·RSI·신고가 신호는 2% 떨어지기 전 5% 오를 확률이 무작위 매수보다 높을까?",
+  "title": "매수 타이밍, 신호 10가지는 무작위보다 5% 먼저 오를까?",
   "localizations": [
     "de",
     "en",
@@ -22,23 +22,7 @@
   ],
   "videoFile": "final_1080p.mp4",
   "videoSha256": "39c75215da965349568458ad05e5397483cbc1a4ab4f7ec6ac230d322a49a142",
-  "chapters": [
-    "0:00 언제 매수할까",
-    "0:28 1 매달 첫 거래일",
-    "1:26 2 20일 신고가 돌파",
-    "2:14 3 1개월 모멘텀",
-    "2:51 4 20일 이동평균선 돌파",
-    "3:33 5 골든 크로스 5·20일",
-    "4:19 6 하루 −1% 하락 다음 날",
-    "5:05 7 RSI 40 아래",
-    "5:54 8 공포지수 VIX 20 이상",
-    "6:41 9 20일 고점 −5%",
-    "7:19 10 최고 종가 −5%",
-    "8:11 10가지 결과",
-    "8:43 실패 기준·기간을 바꾸면",
-    "9:16 정리",
-    "9:41 이 실험의 한계"
-  ],
+  "chapters": null,
   "captions": null,
   "thumbnail": "thumbnail_1_upload.jpg",
   "warnings": [],
@@ -58,5 +42,8 @@
     "vi": "AUieDaZl8gzL-iZEPFxXQCZgcL_EtoonczGWdKNQQ-QRdWWHno063sdja1cIph_-lQ",
     "tr": "AUieDabjf1vC7pcKWnLiI_BbjC-vknZ78diGuH-OEahpoF4NxUR1yDgR5A"
   },
-  "captionsPending": []
+  "captionsPending": [],
+  "defaultLanguage": "ko",
+  "defaultAudioLanguage": "ko",
+  "metaUpdatedAt": "2026-10-19T07:15:46+00:00"
 }

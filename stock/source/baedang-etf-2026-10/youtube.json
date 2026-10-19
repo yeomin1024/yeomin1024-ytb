@@ -8,7 +8,7 @@
   "publishAt": "2026-10-21T08:00:00Z",
   "containsSyntheticMedia": true,
   "uploadedAt": "2026-10-18T08:01:53+00:00",
-  "title": "배당 ETF, 매달 모으면 배당세 15%를 떼고도 같은 돈을 모은 S&P 500보다 더 남을까?",
+  "title": "배당 ETF, 배당세 15% 떼고도 S&P 500보다 더 남을까?",
   "localizations": [
     "de",
     "en",
@@ -22,19 +22,7 @@
   ],
   "videoFile": "final_1080p.mp4",
   "videoSha256": "5fb2d46b78e07612b4b7f6ba39d59d9048e3b0e2ee8031fa0a4eacb484f4014e",
-  "chapters": [
-    "0:00 배당 ETF, 세금 떼고도 더 남을까",
-    "0:26 2011년부터 날짜를 흘려 보면",
-    "1:14 2022년 하락장과 그 뒤",
-    "1:45 15년 결과",
-    "2:36 배당은 어디서 나오나",
-    "3:35 해마다 1년 수익률",
-    "4:17 세금·매도·한 번에 넣으면",
-    "5:06 시작한 달을 바꾸면",
-    "5:42 2006년부터 VYM으로",
-    "6:34 정리",
-    "7:10 이 실험의 한계"
-  ],
+  "chapters": null,
   "captions": null,
   "thumbnail": "thumbnail_1_upload.jpg",
   "warnings": [],
@@ -47,13 +35,16 @@
     "en": "AUieDaZf8DdttGkXwBqWKmWVVcvfJUf1-mXUCIEN77wHYi67albI1GUL",
     "hi": "AUieDabcONHQxChZCjalxN4n0tnu7GPNAN3Gn8mpG3ziwxZRjJ91lR6_VsoVy1H668C8OEk",
     "id": "AUieDaZ8mUfw2ZjyP8CxhYaDkeO_lZ5UslgyVJF0-jHP6WniIz65UUQ9ZH14mtC6aK9j",
-    "pt": "AUieDaZGEt4hWfNDuDxjKhlGf33wH2W445tg9p8bWGJag4YSHGx35BWK_tTi"
+    "pt": "AUieDaZGEt4hWfNDuDxjKhlGf33wH2W445tg9p8bWGJag4YSHGx35BWK_tTi",
+    "es-419": "AUieDaaQDIl6Ri7cSzC1B9FKYThMKuo_VTlv2SpArPDZpF25xpxoPYx8uKvCS9E7A7jXPSeCvyBJSBcIwv7Hew",
+    "ja": "AUieDaa_s5d2cYCiO64P2IorouM2_qTgBWRxJ7KJ_R1mANqsY0wmKAnmM6I",
+    "de": "AUieDaYZGsG5ZV2kNOpgRvIMTZixaHPAuoiuJBciCrbaRHBDpGxNojQQ",
+    "vi": "AUieDaYMVaQxFdqyyj5HWT-QJNeEih7wrJiKzxUBXAqpPfFqYcP4tE1fmO8PRFvFFg"
   },
   "captionsPending": [
-    "es-419",
-    "ja",
-    "de",
-    "vi",
     "tr"
-  ]
+  ],
+  "defaultLanguage": "ko",
+  "defaultAudioLanguage": "ko",
+  "metaUpdatedAt": "2026-10-19T07:15:51+00:00"
 }

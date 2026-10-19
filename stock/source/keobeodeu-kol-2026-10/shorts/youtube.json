@@ -24,12 +24,26 @@
   "videoSha256": "200265d15ad963ab9e42b500a460a65367b26c6dbe0d5a85731fab3cc876cf47",
   "chapters": null,
   "captions": null,
-  "thumbnail": null,
-  "warnings": [
-    "썸네일 실패: HTTP 403 https://www.googleapis.com/upload/youtube/v3/thumbnails/set: {\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"The request cannot be completed because you have exceeded your \\u003ca href=\\\"/youtube/v3/getting-started#quota\\\"\\u003equota\\u003c/a\\u003e.\",\n    \"errors\": [\n      {\n        \"message\": \"The request cannot be completed because you have exceeded your \\u003ca href=\\\"/youtube/v3/getting-started#quota\\\"\\u003equota\\u003c/a\\u003e.\",\n        \"domain\": \"youtube.quota\",\n        \"reason\": \"quotaExceeded\"\n      }\n    ]\n  }\n}\n"
-  ],
+  "thumbnail": "thumbnail_1_upload.jpg",
+  "warnings": [],
   "studioTodo": [
     "공개 전(예약 시각 전) 스튜디오에서 확인: 영상·자막·썸네일, 자동 더빙(언어), 최종 화면",
     "공개된 뒤 '테스트 및 비교'에 썸네일 3개 등록 — 비공개 영상은 테스트 불가"
-  ]
+  ],
+  "defaultLanguage": "ko",
+  "defaultAudioLanguage": "ko",
+  "metaUpdatedAt": "2026-10-19T07:15:50+00:00",
+  "captionTracks": {
+    "ko": "AUieDaafucSvK-xa28gNjfsykFu2n4SoqM4cNTlEgjWSd3XaEMDRQHeB4gI",
+    "en": "AUieDabk9WGR-daaZcis72ycecZ7L6AuL3H7ukbbWJr27zBawpMMMN-8",
+    "hi": "AUieDaYjjPqALvY2HY6CH0x2Q22W8cLygxQvf0hV1mNKPt5avXb9Kpjq4Ks9g2RXUxyHcwk",
+    "id": "AUieDaYPVhTVyO4S9cD8c0-91fAPE1Ij68Ibdd8_K-9UG3DcXbQfB3SHrtVAVlGNzJeE",
+    "pt": "AUieDaZzD272C6xQAWtg8AyqqRje58BssCiM_zTyOuDFoMX72lnA1RC2K9Hf",
+    "es-419": "AUieDaZ1r1F_2ZXXJZ5ygFTHeMUDnlDahRIrJ92O9hw4tf-UoX4F-B1B8Am64rKJK1nQ4w3E7S5Y3UPvrew2pg",
+    "ja": "AUieDaZhgQG7mFCIyWGtxob-yszyo7pol-aprh8Y9fSLFswhiv86mw0PCcQ",
+    "de": "AUieDaZoVPtjZ6_iiVWnEykrUM4LWQr_dS9rPI2R4G0ayqAMm0gBFNyO",
+    "vi": "AUieDaahRdJwIERc262aiD8KNYsnc_P14x7O6m5YDtnUrnfELQL6-qHYWtADUJ3RCA",
+    "tr": "AUieDaa7RQzHS2dqhRJO_HtZvi7zh5GPjFp2vNdsmtTAe0SvBt6N12qzPA"
+  },
+  "captionsPending": []
 }

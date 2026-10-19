@@ -8,7 +8,7 @@
   "publishAt": "2026-10-20T08:00:00Z",
   "containsSyntheticMedia": true,
   "uploadedAt": "2026-10-18T08:12:51+00:00",
-  "title": "커버드콜 분배금, 매달 꺼내 쓰면 같은 금액을 매도한 QQQ보다 13년 뒤 원금이 더 남을까?",
+  "title": "커버드콜 분배금, 매달 꺼내 써도 QQQ보다 더 남을까?",
   "localizations": [
     "de",
     "en",
@@ -22,19 +22,7 @@
   ],
   "videoFile": "final_1080p.mp4",
   "videoSha256": "088fa4aa010e72a0377f2f76395357caca7c4baab63f7d8fcebb619914539380",
-  "chapters": [
-    "0:00 커버드콜 분배금, 원금은?",
-    "0:25 2013년부터 날짜를 흘려 보면",
-    "1:35 2022년 긴 하락",
-    "2:20 2025년부터 끝까지",
-    "2:36 13년 결과",
-    "3:12 커버드콜은 어떻게 분배금을 만드나",
-    "4:06 시작한 달을 바꾸면",
-    "5:03 XYLD·JEPI도 같을까",
-    "6:04 세금·다시 매수하면",
-    "6:43 정리",
-    "7:12 이 실험의 한계"
-  ],
+  "chapters": null,
   "captions": null,
   "thumbnail": "thumbnail_1_upload.jpg",
   "warnings": [],
@@ -54,5 +42,8 @@
     "vi": "AUieDaZ_MvPs4TKb5rqOYtyLULthIsRdxIHnQ0fyVmUlLwehcn9s-a5U3DpcpAGMyw",
     "tr": "AUieDabi1Jv05LykxbIqsMaL9wCs9ZTl5ANBT-N9cMxNIfArO3CUtmNVvw"
   },
-  "captionsPending": []
+  "captionsPending": [],
+  "defaultLanguage": "ko",
+  "defaultAudioLanguage": "ko",
+  "metaUpdatedAt": "2026-10-19T07:15:48+00:00"
 }

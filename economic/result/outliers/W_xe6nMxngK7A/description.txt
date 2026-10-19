@@ -1,0 +1,12 @@
+AI가 본전을 뽑으려면 2032년부터 '매년 3.7조 달러(약 5000조 원)'를 벌어야 합니다.
+지금 오픈AI·앤트로픽 매출의 37배, 미국인 식비(GDP 9%)와 맞먹는 돈입니다.
+콜럼비아 비즈니스 스쿨 교수가 직접 계산한 이 숫자, 한국에선 아직 거의 알려지지 않았습니다.
+
+미국 AI 데이터센터에 2032년까지 10조 달러가 넘는 돈이 들어갑니다.
+그중 절반은 빌린 돈이고, 빅테크가 약속한 3조 달러는 장부에 5분의 1만 잡혀 있습니다.
+김열매가 논문 숫자를 직접 해부해 'AI 버블이냐 아니냐'를 스스로 판단할 수 있는 기준을 드립니다.
+그리고 지금 반드시 지켜봐야 할 '5가지 숫자'를 정리했습니다.
+
+📎 참고 논문·기사 링크
+https://drive.google.com/file/d/1J58hez4mMi8_JDobf3TH1_kLk3FLPx6g/view?usp=drive_link
+https://www.wsj.com/tech/ai/will-america-spend-9-of-its-gdp-on-ai-the-industry-is-counting-on-it-3501bb4f?st=fvrsVD

@@ -1,0 +1,103 @@
+{
+ "id": "1FXrbHUSo7k",
+ "title": "1억 모으는 법, 이렇게 하면 금방 부자가 됩니다",
+ "channel": "오피디의 머니노트",
+ "channel_id": "UCDevts84_zQeE5Ws5B7wOHQ",
+ "subs": 680,
+ "views": 13872,
+ "ratio": 20.4,
+ "age_days": 2,
+ "views_per_day": 6936.0,
+ "minutes": 13.6,
+ "likes": 88,
+ "comments": 3,
+ "published": "2026-10-16",
+ "queries": "검색:부자되는법 | 검색:부자 | 검색:돈모으기 | 검색:1억모으기",
+ "url": "https://www.youtube.com/watch?v=1FXrbHUSo7k",
+ "flag": "",
+ "published_at": "2026-10-16T12:21:24Z",
+ "rank": "W36",
+ "set": "web",
+ "folder": "W_1FXrbHUSo7k",
+ "sources": [
+  "검색:부자되는법",
+  "검색:부자",
+  "검색:돈모으기",
+  "검색:1억모으기"
+ ],
+ "source": "web",
+ "tags": [
+  "1억 모으기",
+  "1억 모으는 법",
+  "1억 모으는 기간",
+  "월급 300 1억",
+  "종잣돈 1억",
+  "사회초년생 재테크",
+  "직장인 재테크",
+  "돈 모으는 법",
+  "저축 방법",
+  "복리 효과",
+  "찰리 멍거",
+  "청년미래적금",
+  "통장 쪼개기",
+  "자동이체 저축",
+  "지수 ETF",
+  "신혼부부 재테크"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "왜 1억부터 모아야 할까"
+  },
+  {
+   "start": 65,
+   "title": "1억 모아도 허탈한 이유"
+  },
+  {
+   "start": 139,
+   "title": "요즘 돈이 안 모이는 이유"
+  },
+  {
+   "start": 251,
+   "title": "1억을 넘기면 생기는 일"
+  },
+  {
+   "start": 319,
+   "title": "빨리 모을수록 빨리 불어난다"
+  },
+  {
+   "start": 384,
+   "title": "월급별 1억 모으는 기간"
+  },
+  {
+   "start": 556,
+   "title": "1억 모은 사람들의 공통점"
+  },
+  {
+   "start": 631,
+   "title": "중간에 무너지는 순간 3가지"
+  },
+  {
+   "start": 694,
+   "title": "1억이 진짜 바꿔 주는 것"
+  },
+  {
+   "start": 770,
+   "title": "결론"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 3,
+ "comments_top_level": 3,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 3,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-19T07:59:18",
+ "approved": "2026-10-19T16:59+09:00"
+}

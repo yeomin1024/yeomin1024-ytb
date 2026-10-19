@@ -1,0 +1,78 @@
+{
+ "id": "zXtseb96cmc",
+ "title": "신세계, 워너브라더스 인수에 1조4천억 투자",
+ "channel": "슈카월드",
+ "channel_id": "UCsJ6RuBiTVWRX156FVbeaGg",
+ "subs": 3730000,
+ "views": 817779,
+ "ratio": 0.22,
+ "age_days": 4,
+ "views_per_day": 204444.8,
+ "minutes": 25.2,
+ "likes": 3520,
+ "comments": 975,
+ "published": "2026-10-14",
+ "queries": "검색:투자",
+ "url": "https://www.youtube.com/watch?v=zXtseb96cmc",
+ "flag": "",
+ "published_at": "2026-10-14T09:19:08Z",
+ "rank": "W100",
+ "set": "web",
+ "folder": "W_zXtseb96cmc",
+ "sources": [
+  "검색:투자"
+ ],
+ "source": "web",
+ "tags": [
+  "슈카",
+  "슈카월드",
+  "경제",
+  "시사",
+  "이슈",
+  "뉴스",
+  "상식",
+  "면접",
+  "논술",
+  "자소서",
+  "취업",
+  "주식",
+  "증시",
+  "주가",
+  "시장",
+  "자산",
+  "투자",
+  "금리"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "신세계 그룹, 워너브라더스 인수 참여"
+  },
+  {
+   "start": 369,
+   "title": "넷플릭스는 실패했는데 파라마운트는 성공한 이유"
+  },
+  {
+   "start": 928,
+   "title": "삽시간에 미디어 제국을 만든 오라클 회장에 대한 불안감"
+  },
+  {
+   "start": 1324,
+   "title": "우리 모두 영화 '디거'를 봐야 하는 이유"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 975,
+ "comments_top_level": 669,
+ "comments_replies": 306,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 975,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-19T08:03:30",
+ "approved": "2026-10-19T17:03+09:00"
+}

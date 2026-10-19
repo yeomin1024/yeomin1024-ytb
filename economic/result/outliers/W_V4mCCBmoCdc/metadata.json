@@ -1,0 +1,84 @@
+{
+ "id": "V4mCCBmoCdc",
+ "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
+ "channel": "PLUS TV (플러스 TV)",
+ "channel_id": "UCuHUaZo43N9PgOCjs3Hg2Uw",
+ "subs": 163000,
+ "views": 1196189,
+ "ratio": 7.34,
+ "age_days": 3,
+ "views_per_day": 398729.7,
+ "minutes": 33.2,
+ "likes": 9537,
+ "comments": 2535,
+ "published": "2026-10-15",
+ "queries": "검색:주식 | 검색:투자 | 검색:주식투자 | 검색:미국주식",
+ "url": "https://www.youtube.com/watch?v=V4mCCBmoCdc",
+ "flag": "",
+ "published_at": "2026-10-15T08:00:30Z",
+ "rank": "W68",
+ "set": "web",
+ "folder": "W_V4mCCBmoCdc",
+ "sources": [
+  "검색:주식",
+  "검색:투자",
+  "검색:주식투자",
+  "검색:미국주식"
+ ],
+ "source": "web",
+ "tags": [
+  "플러스티비",
+  "플러스TV",
+  "한화",
+  "금융",
+  "경제",
+  "팟캐스트",
+  "PLUSTV",
+  "인터뷰",
+  "plus"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트"
+  },
+  {
+   "start": 76,
+   "title": "오선의 미국증시 라이브, 그 시작"
+  },
+  {
+   "start": 263,
+   "title": "미국 시장을 바라보는 시각과 투자 철학"
+  },
+  {
+   "start": 584,
+   "title": "24시간 주식 거래와 금융시장의 변화"
+  },
+  {
+   "start": 824,
+   "title": "미국 시장의 현재와 연준의 다음 선택"
+  },
+  {
+   "start": 1126,
+   "title": "AI 기술 발전이 바꿀 투자 정보 시장"
+  },
+  {
+   "start": 1769,
+   "title": "금융 콘텐츠의 미래와 새로운 도전"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 2535,
+ "comments_top_level": 2224,
+ "comments_replies": 311,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 2535,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-19T08:01:01",
+ "approved": "2026-10-19T17:01+09:00"
+}

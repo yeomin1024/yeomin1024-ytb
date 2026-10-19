@@ -1,0 +1,81 @@
+{
+ "id": "hYveSAnSXN8",
+ "title": "급락장에 버티는 비트코인... 돈나무 언니는 '20억 전망' 하는 이유는?",
+ "channel": "투자360",
+ "channel_id": "UCEJIw_FUvkxK7ZoiejSj7HA",
+ "subs": 15900,
+ "views": 162687,
+ "ratio": 10.23,
+ "age_days": 3,
+ "views_per_day": 54229.0,
+ "minutes": 18.2,
+ "likes": 870,
+ "comments": 149,
+ "published": "2026-10-16",
+ "queries": "검색:투자",
+ "url": "https://www.youtube.com/watch?v=hYveSAnSXN8",
+ "flag": "",
+ "published_at": "2026-10-16T07:30:39Z",
+ "rank": "W54",
+ "set": "web",
+ "folder": "W_hYveSAnSXN8",
+ "sources": [
+  "검색:투자"
+ ],
+ "source": "web",
+ "tags": [
+  "yt:cc=on"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트"
+  },
+  {
+   "start": 76,
+   "title": "캐시우드의 '비트코인 20억 돌파' 전망, 근거는?"
+  },
+  {
+   "start": 278,
+   "title": "기관과 정부가 비트코인을 비축하는 이유는?"
+  },
+  {
+   "start": 318,
+   "title": "비트코인 150만 달러 전망, 실현 가능성은?"
+  },
+  {
+   "start": 409,
+   "title": "비트코인 급락의 원인, 대규모 롱 포지션 청산이란?"
+  },
+  {
+   "start": 516,
+   "title": "'업토버(Uptober)' 랠리, 올해도 재현될 수 있을까?"
+  },
+  {
+   "start": 621,
+   "title": "기업들의 비트코인 매집, 시장에 보내는 신호는?"
+  },
+  {
+   "start": 704,
+   "title": "이더리움의 전망은?"
+  },
+  {
+   "start": 976,
+   "title": "비트코인이 오를 핵심 지표는?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 149,
+ "comments_top_level": 107,
+ "comments_replies": 42,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 149,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-19T08:00:14",
+ "approved": "2026-10-19T17:00+09:00"
+}

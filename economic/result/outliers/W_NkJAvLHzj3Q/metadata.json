@@ -1,0 +1,109 @@
+{
+ "id": "NkJAvLHzj3Q",
+ "title": "\"5천까지는 나라가 지켜 준다길래\" 저축은행에 노후자금 넣은 사람들이 아직 돈을 못 찾는 이유",
+ "channel": "경제콜라주",
+ "channel_id": "UC9SWL9MQnkNbqJzalmOX_4Q",
+ "subs": 1730,
+ "views": 14795,
+ "ratio": 8.55,
+ "age_days": 3,
+ "views_per_day": 4931.7,
+ "minutes": 16.2,
+ "likes": 77,
+ "comments": 6,
+ "published": "2026-10-16",
+ "queries": "검색:저축 | 검색:노후 | 검색:노후자금",
+ "url": "https://www.youtube.com/watch?v=NkJAvLHzj3Q",
+ "flag": "",
+ "published_at": "2026-10-16T01:00:12Z",
+ "rank": "W60",
+ "set": "web",
+ "folder": "W_NkJAvLHzj3Q",
+ "sources": [
+  "검색:저축",
+  "검색:노후",
+  "검색:노후자금"
+ ],
+ "source": "web",
+ "tags": [
+  "저축은행",
+  "예금자보호",
+  "예금자보호한도",
+  "예금자보호1억",
+  "저축은행사태",
+  "부산저축은행",
+  "저축은행영업정지",
+  "후순위채",
+  "개산지급금",
+  "파산배당",
+  "저축은행금리",
+  "예금금리",
+  "노후자금",
+  "퇴직금관리",
+  "예금분산"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "예금자보호 1억, 이제 안심일까"
+  },
+  {
+   "start": 41,
+   "title": "2011년 2월 17일 부산저축은행 앞의 줄"
+  },
+  {
+   "start": 77,
+   "title": "이자 1%포인트 더 주던 저축은행"
+  },
+  {
+   "start": 182,
+   "title": "내 1억은 공사판과 캄코시티로"
+  },
+  {
+   "start": 276,
+   "title": "영업정지 전날 먼저 빠진 85억 원"
+  },
+  {
+   "start": 368,
+   "title": "5천만 원 위의 돈, 1억이 5,800만 원이 된 계산"
+  },
+  {
+   "start": 497,
+   "title": "15년째 끝나지 않은 파산 정리"
+  },
+  {
+   "start": 634,
+   "title": "100%에서 55%, 그리고 0 — 멈춘 특별법"
+  },
+  {
+   "start": 724,
+   "title": "이자 1%포인트를 고른 게 잘못일까"
+  },
+  {
+   "start": 792,
+   "title": "지금 저축은행과 은행의 금리 차이"
+  },
+  {
+   "start": 846,
+   "title": "1억 시대, 내 통장에서 확인할 세 가지"
+  },
+  {
+   "start": 911,
+   "title": "다시 2011년 2월 17일, 그 창구"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 6,
+ "comments_top_level": 5,
+ "comments_replies": 1,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 6,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-19T08:00:35",
+ "approved": "2026-10-19T17:00+09:00"
+}

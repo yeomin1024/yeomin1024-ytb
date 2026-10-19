@@ -1,0 +1,87 @@
+{
+ "id": "34hswtlGpU4",
+ "title": "우리 돈 이렇게 쓰고 있어요 💦 | 30대에 돈 공부 시작한 사람들의 소비·투자 고백💸🫶🏻",
+ "channel": "조.진 토크",
+ "channel_id": "UCfZzMjZQSF6viXVaf1Zrolw",
+ "subs": 1440,
+ "views": 11650,
+ "ratio": 8.09,
+ "age_days": 4,
+ "views_per_day": 2912.5,
+ "minutes": 20.8,
+ "likes": 88,
+ "comments": 18,
+ "published": "2026-10-15",
+ "queries": "검색:돈공부",
+ "url": "https://www.youtube.com/watch?v=34hswtlGpU4",
+ "flag": "",
+ "published_at": "2026-10-15T07:00:06Z",
+ "rank": "W64",
+ "set": "web",
+ "folder": "W_34hswtlGpU4",
+ "sources": [
+  "검색:돈공부"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "돈 얘기 한번 해볼까요? 💸"
+  },
+  {
+   "start": 35,
+   "title": "2026 잘산템 vs 못산템 공개"
+  },
+  {
+   "start": 280,
+   "title": "20대엔 돈을 어떻게 벌었을까?"
+  },
+  {
+   "start": 406,
+   "title": "큰 돈을 벌고 싶었던 묘진이?"
+  },
+  {
+   "start": 599,
+   "title": "손님이 남긴 치킨을 싸간 알바생"
+  },
+  {
+   "start": 676,
+   "title": "30대 이후 경제관이 바뀐 은나래 (코로나 생존기)"
+  },
+  {
+   "start": 773,
+   "title": "소비에 대하여! 명품이면 다야?"
+  },
+  {
+   "start": 857,
+   "title": "20대엔 돈을 아끼는 게 정답일까?"
+  },
+  {
+   "start": 912,
+   "title": "배달 음식 줄이기"
+  },
+  {
+   "start": 1028,
+   "title": "은나래와 묘진의 \"상폐부터 NFT 폭망\"까지  📉"
+  },
+  {
+   "start": 1191,
+   "title": "[구인] 달나라 파티원 모집 (feat.일론머스크)"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 18,
+ "comments_top_level": 15,
+ "comments_replies": 3,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 18,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-19T08:00:46",
+ "approved": "2026-10-19T17:00+09:00"
+}

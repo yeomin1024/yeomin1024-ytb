@@ -1,0 +1,95 @@
+{
+ "id": "JRZMlFWy3vc",
+ "title": "부자가 되기 위해 꼭 해봐야 할 단 3가지 게임 — 마키아벨리의 잔혹한 전략",
+ "channel": "부의 파워 코드",
+ "channel_id": "UCHCvaCis0Pbz8VfQ699iwAA",
+ "subs": 1630,
+ "views": 21889,
+ "ratio": 13.43,
+ "age_days": 5,
+ "views_per_day": 4377.8,
+ "minutes": 29.3,
+ "likes": 312,
+ "comments": 7,
+ "published": "2026-10-13",
+ "queries": "검색:부자",
+ "url": "https://www.youtube.com/watch?v=JRZMlFWy3vc",
+ "flag": "",
+ "published_at": "2026-10-13T11:00:29Z",
+ "rank": "W49",
+ "set": "web",
+ "folder": "W_JRZMlFWy3vc",
+ "sources": [
+  "검색:부자"
+ ],
+ "source": "web",
+ "tags": [
+  "마키아벨리",
+  "부자가 되는 법",
+  "레버리지란 무엇인가",
+  "피터 틸",
+  "경제적 자유",
+  "마키아벨리적 전략",
+  "다크 심리학",
+  "권력 역학",
+  "로버트 그린",
+  "권력의 법칙 48가지",
+  "남성적 마인드셋",
+  "부의 창출",
+  "수동적 소득",
+  "자산 형성",
+  "시스템 탈출",
+  "시그마 마인드셋",
+  "비즈니스 전략",
+  "돈의 심리학",
+  "부자의 사고방식",
+  "전략적 사고",
+  "금융 교육",
+  "스토아학파",
+  "돈의 심리",
+  "투자",
+  "부의 지혜",
+  "마인드 전환",
+  "마인드셋 마스터"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "'열심히 일하면 된다'는 거짓말"
+  },
+  {
+   "start": 103,
+   "title": "게임 1: 소유권 대 노동"
+  },
+  {
+   "start": 418,
+   "title": "게임 2: 레버리지 대 저축"
+  },
+  {
+   "start": 947,
+   "title": "게임 3: 구조적 우위 대 공정성"
+  },
+  {
+   "start": 1326,
+   "title": "이중 생활 전략"
+  },
+  {
+   "start": 1523,
+   "title": "최종 단계: 완전한 경제적 주권\""
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 7,
+ "comments_top_level": 7,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 7,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-19T08:00:00",
+ "approved": "2026-10-19T17:00+09:00"
+}

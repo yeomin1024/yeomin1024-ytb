@@ -1,0 +1,112 @@
+{
+ "id": "cPm1rukivao",
+ "title": "삼성전자·하이닉스, AI 투자 끝나면 끝? 반도체 '뉴노멀' 온다는 이유",
+ "channel": "경제야! 놀자~",
+ "channel_id": "UCiyTPjrEIUsc26rwb4_fyfw",
+ "subs": 4280,
+ "views": 161528,
+ "ratio": 37.74,
+ "age_days": 2,
+ "views_per_day": 80764.0,
+ "minutes": 11.5,
+ "likes": 938,
+ "comments": 113,
+ "published": "2026-10-17",
+ "queries": "검색:투자",
+ "url": "https://www.youtube.com/watch?v=cPm1rukivao",
+ "flag": "",
+ "published_at": "2026-10-17T07:30:05Z",
+ "rank": "W23",
+ "set": "web",
+ "folder": "W_cPm1rukivao",
+ "sources": [
+  "검색:투자"
+ ],
+ "source": "web",
+ "tags": [
+  "삼성전자",
+  "SK하이닉스",
+  "하이닉스",
+  "반도체",
+  "반도체 전망",
+  "AI 투자",
+  "뉴노멀",
+  "제번스의 법칙",
+  "휴머노이드",
+  "AI 에이전트",
+  "토큰",
+  "메모리 반도체",
+  "박태웅",
+  "이광수",
+  "12시에 만나요",
+  "경제야놀자"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트 — \"뉴노멀이 온다\""
+  },
+  {
+   "start": 21,
+   "title": "[경제야놀자 해설] AI 투자, 곧 끝날까?"
+  },
+  {
+   "start": 38,
+   "title": "AI 투자, 언젠가 끝나지 않나?"
+  },
+  {
+   "start": 81,
+   "title": "세탁기와 양말 — 투자할수록 수요가 는다"
+  },
+  {
+   "start": 206,
+   "title": "[경제야놀자 해설] 세탁기와 양말, 제번스의 법칙"
+  },
+  {
+   "start": 226,
+   "title": "모든 것에 AI가 붙는다 — 10년, 20년의 흐름"
+  },
+  {
+   "start": 325,
+   "title": "[경제야놀자 해설] 모든 것에 AI가 붙는다"
+  },
+  {
+   "start": 344,
+   "title": "삼성전자 100조원 시대 · 휴머노이드 · 에이전트 — 반도체 뉴노멀"
+  },
+  {
+   "start": 522,
+   "title": "[경제야놀자 해설] 반도체 뉴노멀"
+  },
+  {
+   "start": 543,
+   "title": "에이전트는 언제? 중국은 이미 시작"
+  },
+  {
+   "start": 557,
+   "title": "내년 본격화, 확률 90% 이상"
+  },
+  {
+   "start": 590,
+   "title": "보안 표준 · 지금은 장기적으로 과소평가"
+  },
+  {
+   "start": 645,
+   "title": "[경제야놀자 해설] 오늘의 세 줄 정리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 113,
+ "comments_top_level": 76,
+ "comments_replies": 37,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 113,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-19T07:58:38",
+ "approved": "2026-10-19T16:58+09:00"
+}

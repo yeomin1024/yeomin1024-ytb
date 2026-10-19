@@ -1,0 +1,107 @@
+{
+ "id": "_fnvM4hpX44",
+ "title": "S&P 500에 투자하면 노후 걱정 전혀 없습니다! 주식으로 부자 되는 가장 빠른 방법",
+ "channel": "오피디의 머니노트",
+ "channel_id": "UCDevts84_zQeE5Ws5B7wOHQ",
+ "subs": 680,
+ "views": 34310,
+ "ratio": 50.46,
+ "age_days": 1,
+ "views_per_day": 34310.0,
+ "minutes": 16.4,
+ "likes": 204,
+ "comments": 45,
+ "published": "2026-10-17",
+ "queries": "검색:부자 | 검색:미국주식 | 검색:S&P500",
+ "url": "https://www.youtube.com/watch?v=_fnvM4hpX44",
+ "flag": "",
+ "published_at": "2026-10-17T12:43:56Z",
+ "rank": "W19",
+ "set": "web",
+ "folder": "W__fnvM4hpX44",
+ "sources": [
+  "검색:부자",
+  "검색:미국주식",
+  "검색:S&P500"
+ ],
+ "source": "web",
+ "tags": [
+  "S&P 500",
+  "S&P500",
+  "주식투자",
+  "주식투자 방법",
+  "미국 주식",
+  "미국 ETF",
+  "S&P500 투자",
+  "S&P500 ETF",
+  "VOO",
+  "SPY",
+  "IVV",
+  "워런 버핏",
+  "버핏 유언",
+  "인덱스펀드",
+  "지수 투자",
+  "적립식 투자",
+  "거치식 투자",
+  "코스피",
+  "하이닉스",
+  "주식 초보",
+  "재테크"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 59,
+   "title": "버핏의 S&P 500 유언"
+  },
+  {
+   "start": 133,
+   "title": "S&P 500은 무엇인가"
+  },
+  {
+   "start": 248,
+   "title": "S&P 500의 과거 수익률"
+  },
+  {
+   "start": 362,
+   "title": "20년 전 S&P 500에 100만원 투자했다면"
+  },
+  {
+   "start": 505,
+   "title": "버핏은 왜 S&P 500을 골랐을까"
+  },
+  {
+   "start": 585,
+   "title": "지금 반도체에 물려 있다면"
+  },
+  {
+   "start": 655,
+   "title": "거치식 vs 적립식"
+  },
+  {
+   "start": 821,
+   "title": "S&P 500의 단점"
+  },
+  {
+   "start": 923,
+   "title": "마무리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 45,
+ "comments_top_level": 21,
+ "comments_replies": 24,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 45,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-19T07:58:26",
+ "approved": "2026-10-19T16:58+09:00"
+}

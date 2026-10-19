@@ -1,0 +1,76 @@
+{
+ "id": "csLaVJ0tuTg",
+ "title": "10억 원이 자녀 통장에 그대로? 강남 부자들의 해외 자녀 증여법",
+ "channel": "스마트세무사",
+ "channel_id": "UCD0WYiBp8IlyELx1u32WrCg",
+ "subs": 4960,
+ "views": 103392,
+ "ratio": 20.85,
+ "age_days": 5,
+ "views_per_day": 20678.4,
+ "minutes": 10.7,
+ "likes": 513,
+ "comments": 61,
+ "published": "2026-10-13",
+ "queries": "검색:자산관리 | 검색:부자",
+ "url": "https://www.youtube.com/watch?v=csLaVJ0tuTg",
+ "flag": "",
+ "published_at": "2026-10-13T09:00:38Z",
+ "rank": "W34",
+ "set": "web",
+ "folder": "W_csLaVJ0tuTg",
+ "sources": [
+  "검색:자산관리",
+  "검색:부자"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "시작"
+  },
+  {
+   "start": 52,
+   "title": "10억 증여 시나리오: 국내거주 vs 해외거주"
+  },
+  {
+   "start": 147,
+   "title": "부자들의 자녀가 해외로 가는 이유"
+  },
+  {
+   "start": 261,
+   "title": "거주지에 따라 세금이 달라지는 이유"
+  },
+  {
+   "start": 322,
+   "title": "비거주자 증여의 장점"
+  },
+  {
+   "start": 534,
+   "title": "비거주자 증여 절차"
+  },
+  {
+   "start": 544,
+   "title": "자본거래 신고와 증여세 신고 차이점"
+  },
+  {
+   "start": 575,
+   "title": "스마트팁! 국내 거주자 증여세 절감 방법"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 61,
+ "comments_top_level": 43,
+ "comments_replies": 18,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 61,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-19T07:59:11",
+ "approved": "2026-10-19T16:59+09:00"
+}

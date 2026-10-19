@@ -1,0 +1,128 @@
+{
+ "id": "-2R5j7R_DLI",
+ "title": "코스피 6000 붕괴, 지금 팔아야 하나? 이광수가 '단연코 노'라고 답한 이유",
+ "channel": "경제야! 놀자~",
+ "channel_id": "UCiyTPjrEIUsc26rwb4_fyfw",
+ "subs": 4280,
+ "views": 60900,
+ "ratio": 14.23,
+ "age_days": 6,
+ "views_per_day": 10150.0,
+ "minutes": 12.4,
+ "likes": 490,
+ "comments": 403,
+ "published": "2026-10-13",
+ "queries": "검색:코스피",
+ "url": "https://www.youtube.com/watch?v=-2R5j7R_DLI",
+ "flag": "",
+ "published_at": "2026-10-13T05:45:29Z",
+ "rank": "W44",
+ "set": "web",
+ "folder": "W_-2R5j7R_DLI",
+ "sources": [
+  "검색:코스피"
+ ],
+ "source": "web",
+ "tags": [
+  "코스피",
+  "코스피 6000",
+  "주식",
+  "삼성전자",
+  "하락장",
+  "외국인 매도",
+  "거래대금",
+  "퇴직연금",
+  "사이드카",
+  "니케이225",
+  "자사주",
+  "배당",
+  "이광수",
+  "박시동",
+  "12시에 만나요",
+  "경제야놀자"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트 — \"빠질 이유? 단연코 노\""
+  },
+  {
+   "start": 17,
+   "title": "[경제야놀자 해설] 지금 팔아야 하나"
+  },
+  {
+   "start": 36,
+   "title": "외국인이 원웨이로 판다 · 어제 2조"
+  },
+  {
+   "start": 61,
+   "title": "\"시장이 너무 얕아졌다\" — 거래대금 30% · 비상 상황"
+  },
+  {
+   "start": 119,
+   "title": "비상조치 — 단타 검사 · 퇴직연금 150조"
+  },
+  {
+   "start": 193,
+   "title": "[경제야놀자 해설] 거래대금 · 퇴직연금"
+  },
+  {
+   "start": 213,
+   "title": "니케이225, 13년 동안 7~8배"
+  },
+  {
+   "start": 257,
+   "title": "매년 빠졌다 — 하락 때 대응이 투자 기간을 가른다 · \"단연코 노\""
+  },
+  {
+   "start": 344,
+   "title": "[경제야놀자 해설] 니케이 13년 · 자사주 소각"
+  },
+  {
+   "start": 367,
+   "title": "일본 자사주 · 배당 8배 — 삼성전자는?"
+  },
+  {
+   "start": 443,
+   "title": "박시동 — 2300에서 9000, 속도는 비정상"
+  },
+  {
+   "start": 481,
+   "title": "주식 그만두라는 게 아니다 — 6000~7000 을 기준으로"
+  },
+  {
+   "start": 525,
+   "title": "이광수 — 한국은 달라지고 있다"
+  },
+  {
+   "start": 548,
+   "title": "니케이 7배는 정책과 기업 변화 · 배당이 바뀐다"
+  },
+  {
+   "start": 621,
+   "title": "[경제야놀자 해설] 새 장이냐, 달라진 한국이냐"
+  },
+  {
+   "start": 643,
+   "title": "어제 로또 1등 됐다면, 오늘 팔까?"
+  },
+  {
+   "start": 709,
+   "title": "[경제야놀자 해설] 오늘의 세 줄 정리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 403,
+ "comments_top_level": 208,
+ "comments_replies": 195,
+ "comments_by_creator": 176,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 403,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-19T07:59:44",
+ "approved": "2026-10-19T16:59+09:00"
+}

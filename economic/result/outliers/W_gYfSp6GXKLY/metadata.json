@@ -1,0 +1,88 @@
+{
+ "id": "gYfSp6GXKLY",
+ "title": "연금 120만·200만·300만… 고교 동창 세 명, 5년 뒤 통장이 가장 먼저 바닥난 사람은? | 노후준비 | 오디오북",
+ "channel": "은퇴 후 일자리 연구소",
+ "channel_id": "UCmiqX4zhlcVF-ij_767xbKg",
+ "subs": 85,
+ "views": 11931,
+ "ratio": 119.31,
+ "age_days": 1,
+ "views_per_day": 11931.0,
+ "minutes": 23.6,
+ "likes": 88,
+ "comments": 15,
+ "published": "2026-10-17",
+ "queries": "검색:노후준비 | 검색:연금",
+ "url": "https://www.youtube.com/watch?v=gYfSp6GXKLY",
+ "flag": "",
+ "published_at": "2026-10-17T09:02:37Z",
+ "rank": "W13",
+ "set": "web",
+ "folder": "W_gYfSp6GXKLY",
+ "sources": [
+  "검색:노후준비",
+  "검색:연금"
+ ],
+ "source": "web",
+ "tags": [
+  "퇴직금 3억",
+  "은퇴 후 재취업",
+  "노후 통장 현실",
+  "퇴직 후 건강보험료",
+  "임의계속가입",
+  "시설관리 기사 월급",
+  "연금 전 소득 공백"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "누가 먼저 통장이 바닥났을까?"
+  },
+  {
+   "start": 54,
+   "title": "같은 반, 다른 연금"
+  },
+  {
+   "start": 158,
+   "title": "먼저 웃은 두 사람"
+  },
+  {
+   "start": 292,
+   "title": "첫 월급과 첫 빈칸"
+  },
+  {
+   "start": 626,
+   "title": "차 한 대와 약속 하나"
+  },
+  {
+   "start": 879,
+   "title": "통장 뒷장의 나눗셈"
+  },
+  {
+   "start": 1088,
+   "title": "5년 뒤, 세 개의 통장"
+  },
+  {
+   "start": 1301,
+   "title": "새 통장의 첫 줄"
+  },
+  {
+   "start": 1361,
+   "title": "연금보다 중요한 질문"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 15,
+ "comments_top_level": 7,
+ "comments_replies": 8,
+ "comments_by_creator": 7,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 15,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-19T07:58:08",
+ "approved": "2026-10-19T16:58+09:00"
+}

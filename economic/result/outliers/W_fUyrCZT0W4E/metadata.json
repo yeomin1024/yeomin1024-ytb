@@ -1,0 +1,97 @@
+{
+ "id": "fUyrCZT0W4E",
+ "title": "내 노후 자금 지키는 법 [후회 없는 소비의 기준]",
+ "channel": "지혜담은",
+ "channel_id": "UCyh9qnIxjDCTeAs9AG9AH9A",
+ "subs": 272,
+ "views": 89501,
+ "ratio": 329.05,
+ "age_days": 7,
+ "views_per_day": 12785.9,
+ "minutes": 16.6,
+ "likes": 403,
+ "comments": 9,
+ "published": "2026-10-12",
+ "queries": "검색:노후준비 | 검색:은퇴준비 | 검색:노후 | 검색:노후자금",
+ "url": "https://www.youtube.com/watch?v=fUyrCZT0W4E",
+ "flag": "",
+ "published_at": "2026-10-12T00:53:15Z",
+ "rank": "W3",
+ "set": "web",
+ "folder": "W_fUyrCZT0W4E",
+ "sources": [
+  "검색:노후준비",
+  "검색:은퇴준비",
+  "검색:노후",
+  "검색:노후자금"
+ ],
+ "source": "web",
+ "tags": [
+  "노후 자금",
+  "노후준비",
+  "노후후회",
+  "은퇴준비",
+  "노후대비",
+  "5060재테크",
+  "시니어",
+  "은퇴생활",
+  "노후생활비",
+  "노후파산",
+  "자식지원",
+  "체면치레",
+  "노후생활",
+  "황혼인생",
+  "은퇴후삶",
+  "노후빈곤",
+  "적금해지",
+  "노년기지출",
+  "자식농사",
+  "돈관리",
+  "인생후회",
+  "노후조언"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "마지막 적금을 깨러 온 노인"
+  },
+  {
+   "start": 113,
+   "title": "늙어서 아까운 지출 3위"
+  },
+  {
+   "start": 311,
+   "title": "늙어서 아까운 지출 2위"
+  },
+  {
+   "start": 505,
+   "title": "가장 후회하는 지출 1위"
+  },
+  {
+   "start": 723,
+   "title": "나이 들어 참 잘 쓴 돈 세 가지"
+  },
+  {
+   "start": 877,
+   "title": "지갑 열기 전 던질 두 가지 질문"
+  },
+  {
+   "start": 900,
+   "title": "오늘의 이야기 정리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 9,
+ "comments_top_level": 4,
+ "comments_replies": 5,
+ "comments_by_creator": 4,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 9,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-19T07:57:37",
+ "approved": "2026-10-19T16:57+09:00"
+}

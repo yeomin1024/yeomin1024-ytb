@@ -1,19 +1,19 @@
 {
  "tool": "cloud_run.py v1.3",
  "topic": "economic",
- "saved": "2026-10-19T16:19:04+09:00",
+ "saved": "2026-10-19T17:05:47+09:00",
  "why": "explore",
- "files": 17879,
- "bytes_raw": 41754662,
- "bytes_tgz": 21432555,
- "sha256": "a14e6c7d2ebee984c18e71c2f46039752c8e67afe92d2902ffe9782f0c86f8f1",
+ "files": 22493,
+ "bytes_raw": 52687239,
+ "bytes_tgz": 26421526,
+ "sha256": "f8489f914a94be569ae80d67006dbad40bb5972844d110da30fbbce5092bf10c",
  "kinds": {
   "autocomplete.json": 1,
   "channels.json": 1,
-  "search": 72,
-  "shorts": 8681,
-  "uploads": 159,
-  "video": 8961,
+  "search": 144,
+  "shorts": 8687,
+  "uploads": 231,
+  "video": 13425,
   "web": 4
  }
 }

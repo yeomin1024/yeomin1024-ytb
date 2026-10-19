@@ -1,0 +1,59 @@
+{
+ "id": "EQDU2WiYrmc",
+ "title": "주식 대폭락, 숨겨진 이유 [김진 앵커]",
+ "channel": "꽉TV",
+ "channel_id": "UC9-FOv67-03WMjbPApziPwQ",
+ "subs": 1430000,
+ "views": 487784,
+ "ratio": 0.34,
+ "age_days": 1,
+ "views_per_day": 487784.0,
+ "minutes": 16.5,
+ "likes": 12618,
+ "comments": 1323,
+ "published": "2026-10-17",
+ "queries": "검색:주식",
+ "url": "https://www.youtube.com/watch?v=EQDU2WiYrmc",
+ "flag": "",
+ "published_at": "2026-10-17T14:35:20Z",
+ "rank": "W99",
+ "set": "web",
+ "folder": "W_EQDU2WiYrmc",
+ "sources": [
+  "검색:주식"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "대체 얼마나 폭락한 건가요?"
+  },
+  {
+   "start": 298,
+   "title": "정법전 형님의 안타까운 사례"
+  },
+  {
+   "start": 450,
+   "title": "앞으로의 전망은?"
+  },
+  {
+   "start": 578,
+   "title": "미국 금리 탓이다, AI 버블이다... 원인이 뭔가요?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 1323,
+ "comments_top_level": 1128,
+ "comments_replies": 195,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 1323,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-19T08:03:19",
+ "approved": "2026-10-19T17:03+09:00"
+}

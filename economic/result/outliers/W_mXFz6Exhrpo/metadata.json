@@ -1,0 +1,101 @@
+{
+ "id": "mXFz6Exhrpo",
+ "title": "삼성·SK하이닉스 폭락의 진짜 범인을 추적한다",
+ "channel": "Fact and Truth",
+ "channel_id": "UCyzqz_oVJurUFQbGRn9Hq_g",
+ "subs": 1250,
+ "views": 22989,
+ "ratio": 18.39,
+ "age_days": 2,
+ "views_per_day": 11494.5,
+ "minutes": 13.0,
+ "likes": 200,
+ "comments": 40,
+ "published": "2026-10-16",
+ "queries": "검색:나스닥",
+ "url": "https://www.youtube.com/watch?v=mXFz6Exhrpo",
+ "flag": "",
+ "published_at": "2026-10-16T10:41:29Z",
+ "rank": "W39",
+ "set": "web",
+ "folder": "W_mXFz6Exhrpo",
+ "sources": [
+  "검색:나스닥"
+ ],
+ "source": "web",
+ "tags": [
+  "삼성전자",
+  "SK하이닉스",
+  "코스피",
+  "코어위브",
+  "CoreWeave",
+  "AI거품",
+  "HBM",
+  "CXMT",
+  "창신메모리",
+  "반도체",
+  "서킷브레이커",
+  "신용융자",
+  "반대매매",
+  "루치르샤르마",
+  "블룸버그",
+  "스카이뉴스",
+  "Fact and Truth"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝 - 왜 한국만 무너졌나"
+  },
+  {
+   "start": 26,
+   "title": "\"부도 피할 방법 있나?\" \"없습니다\""
+  },
+  {
+   "start": 58,
+   "title": "스카이뉴스: 한국만 다른 그림"
+  },
+  {
+   "start": 162,
+   "title": "용의자 1 - 코어위브"
+  },
+  {
+   "start": 300,
+   "title": "왜 하필 한국인가 (GPU·HBM 연결고리)"
+  },
+  {
+   "start": 449,
+   "title": "시간을 되감으면 - 코어위브는 방아쇠인가, 증폭기인가"
+  },
+  {
+   "start": 488,
+   "title": "거품 붕괴의 시작? IMF 경고·루치르 샤르마"
+  },
+  {
+   "start": 627,
+   "title": "개미의 비명 - 로이터가 만난 24살 대학생"
+  },
+  {
+   "start": 680,
+   "title": "지금 사야 하나"
+  },
+  {
+   "start": 744,
+   "title": "Fact and Truth 판단 - 지켜볼 숫자 3가지"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 40,
+ "comments_top_level": 29,
+ "comments_replies": 11,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 40,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-19T07:59:28",
+ "approved": "2026-10-19T16:59+09:00"
+}

@@ -1,0 +1,87 @@
+{
+ "id": "VoVyS34lpec",
+ "title": "국민연금 63세에 바로 받은 김 부장 vs 5년 미뤄 36% 더 받은 박 부장… 10년 뒤 통장에 더 많이 남은 사람은? | 노후준비 | 오디오북",
+ "channel": "은퇴 후 일자리 연구소",
+ "channel_id": "UCmiqX4zhlcVF-ij_767xbKg",
+ "subs": 85,
+ "views": 17715,
+ "ratio": 177.15,
+ "age_days": 3,
+ "views_per_day": 5905.0,
+ "minutes": 22.8,
+ "likes": 98,
+ "comments": 43,
+ "published": "2026-10-15",
+ "queries": "검색:연금",
+ "url": "https://www.youtube.com/watch?v=VoVyS34lpec",
+ "flag": "",
+ "published_at": "2026-10-15T09:00:26Z",
+ "rank": "W7",
+ "set": "web",
+ "folder": "W_VoVyS34lpec",
+ "sources": [
+  "검색:연금"
+ ],
+ "source": "web",
+ "tags": [
+  "국민연금 연기연금",
+  "국민연금 수령 시기",
+  "연기연금 손익분기",
+  "건강보험 피부양자 탈락",
+  "노후 준비",
+  "은퇴 후 재취업",
+  "국민연금 36%"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "연금을 미루면 정말 이득일까?"
+  },
+  {
+   "start": 57,
+   "title": "같은 출발, 다른 연금 선택"
+  },
+  {
+   "start": 164,
+   "title": "먼저 웃은 사람"
+  },
+  {
+   "start": 267,
+   "title": "소득이 끊긴 3년의 공백"
+  },
+  {
+   "start": 607,
+   "title": "접수증을 다시 접은 날"
+  },
+  {
+   "start": 847,
+   "title": "종이 뒷면에서 찾은 손익분기점"
+  },
+  {
+   "start": 1048,
+   "title": "10년 뒤 통장이 보여 준 진실"
+  },
+  {
+   "start": 1238,
+   "title": "결정을 가르는 두 가지 질문"
+  },
+  {
+   "start": 1333,
+   "title": "정답보다 중요한 선택의 대가"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 43,
+ "comments_top_level": 19,
+ "comments_replies": 24,
+ "comments_by_creator": 21,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 43,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-19T07:57:49",
+ "approved": "2026-10-19T16:57+09:00"
+}

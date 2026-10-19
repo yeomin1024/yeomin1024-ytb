@@ -1,0 +1,171 @@
+{
+ "id": "yoaOIMkMTVE",
+ "title": "45살에 시작한 재택부업으로 매달 순수익 1억, 인생역전한 48살 대표님",
+ "channel": "두 번째 직업 : 부업으로 돈 버는 사람들",
+ "channel_id": "UCS2J0jl-1meCYGSHEKwltWQ",
+ "subs": 3050,
+ "views": 14202,
+ "ratio": 4.66,
+ "age_days": 3,
+ "views_per_day": 4734.0,
+ "minutes": 25.0,
+ "likes": 0,
+ "comments": 129,
+ "published": "2026-10-15",
+ "queries": "검색:돈버는법",
+ "url": "https://www.youtube.com/watch?v=yoaOIMkMTVE",
+ "flag": "",
+ "published_at": "2026-10-15T11:00:03Z",
+ "rank": "W81",
+ "set": "web",
+ "folder": "W_yoaOIMkMTVE",
+ "sources": [
+  "검색:돈버는법"
+ ],
+ "source": "web",
+ "tags": [
+  "재택부업",
+  "재택 부업",
+  "부업",
+  "부업 추천",
+  "직장인 부업",
+  "주부 부업",
+  "온라인부업",
+  "돈버는법",
+  "건강식품 부업",
+  "건강기능식품 창업",
+  "쿠팡 부업",
+  "1인 창업",
+  "50대 부업",
+  "60대 부업",
+  "70대 부업"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "7억 빚에서 월 순이익 1억까지"
+  },
+  {
+   "start": 65,
+   "title": "오션뷰 집 공개"
+  },
+  {
+   "start": 148,
+   "title": "한 달에 얼마 벌까"
+  },
+  {
+   "start": 161,
+   "title": "자기소개"
+  },
+  {
+   "start": 170,
+   "title": "TV 보면서 돈을 번다?"
+  },
+  {
+   "start": 233,
+   "title": "매출 공개"
+  },
+  {
+   "start": 285,
+   "title": "나이가 많아도 할 수 있을까"
+  },
+  {
+   "start": 336,
+   "title": "대기업보다 싸게 팔 수 있는 이유"
+  },
+  {
+   "start": 380,
+   "title": "하루 10분이 거짓말인 이유"
+  },
+  {
+   "start": 414,
+   "title": "배송은 어떻게 할까"
+  },
+  {
+   "start": 464,
+   "title": "대표님이 하는 일"
+  },
+  {
+   "start": 483,
+   "title": "데이터 분석 과정 공개"
+  },
+  {
+   "start": 510,
+   "title": "제조는 어떻게 할까"
+  },
+  {
+   "start": 569,
+   "title": "시작 비용"
+  },
+  {
+   "start": 572,
+   "title": "사업을 시작하게 된 계기"
+  },
+  {
+   "start": 627,
+   "title": "팔 상품 찾는 법"
+  },
+  {
+   "start": 832,
+   "title": "마진 계산하는 법"
+  },
+  {
+   "start": 865,
+   "title": "수강생 사례"
+  },
+  {
+   "start": 927,
+   "title": "60대도 쿠팡 등록이 가능할까"
+  },
+  {
+   "start": 986,
+   "title": "경쟁자가 늘어나도 괜찮을까"
+  },
+  {
+   "start": 1018,
+   "title": "바닷가로 이사 온 이유"
+  },
+  {
+   "start": 1031,
+   "title": "헬스장 11년, 그리고 코로나"
+  },
+  {
+   "start": 1186,
+   "title": "아내에게 한 선물"
+  },
+  {
+   "start": 1263,
+   "title": "아내에게 영상편지"
+  },
+  {
+   "start": 1283,
+   "title": "사람들이 안 하는 이유"
+  },
+  {
+   "start": 1309,
+   "title": "무료 세미나 안내"
+  },
+  {
+   "start": 1362,
+   "title": "시청자에게 하고 싶은 말"
+  },
+  {
+   "start": 1456,
+   "title": "마지막 안내"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 129,
+ "comments_top_level": 44,
+ "comments_replies": 85,
+ "comments_by_creator": 63,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 129,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-19T08:01:53",
+ "approved": "2026-10-19T17:01+09:00"
+}

@@ -1,0 +1,95 @@
+{
+ "id": "4UdVEI_udfc",
+ "title": "개인투자자는 하락장에서 이렇게 대응해야 합니다",
+ "channel": "리채피 richappy",
+ "channel_id": "UCopbo8p9-a5XyT6k7o1zSwQ",
+ "subs": 4630,
+ "views": 19240,
+ "ratio": 4.16,
+ "age_days": 3,
+ "views_per_day": 6413.3,
+ "minutes": 9.1,
+ "likes": 163,
+ "comments": 27,
+ "published": "2026-10-15",
+ "queries": "검색:포트폴리오",
+ "url": "https://www.youtube.com/watch?v=4UdVEI_udfc",
+ "flag": "",
+ "published_at": "2026-10-15T23:38:01Z",
+ "rank": "W85",
+ "set": "web",
+ "folder": "W_4UdVEI_udfc",
+ "sources": [
+  "검색:포트폴리오"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하락장, 지금 우리는 어떻게 대응해야 할까"
+  },
+  {
+   "start": 18,
+   "title": "포트폴리오 점검: 성장주와 수비수의 역할"
+  },
+  {
+   "start": 72,
+   "title": "투자일지: 손실을 교훈으로 바꾸는 기록"
+  },
+  {
+   "start": 108,
+   "title": "리채피의 대응: 현금 20% 중 5%를 먼저 투입"
+  },
+  {
+   "start": 160,
+   "title": "하락장은 어디까지 갈지 아무도 모릅니다: 민스키 사이클"
+  },
+  {
+   "start": 186,
+   "title": "남은 현금 5%와 10%를 쓰는 계획"
+  },
+  {
+   "start": 213,
+   "title": "미장 대응: 방어주가 버텨 줄 때는 포지션 유지"
+  },
+  {
+   "start": 265,
+   "title": "하락장의 본성: 손이 안 나갈 때 내는 작은 용기"
+  },
+  {
+   "start": 292,
+   "title": "반등장에서 다시 수비로 돌아오는 포지션 운용"
+  },
+  {
+   "start": 346,
+   "title": "가장 무서운 장기 횡보장과 미스터 마켓"
+  },
+  {
+   "start": 400,
+   "title": "급하지 않은 여유 자금으로 대응하기"
+  },
+  {
+   "start": 451,
+   "title": "정리: 지금이 공격으로 전환할 구간인 이유"
+  },
+  {
+   "start": 504,
+   "title": "살아남고 용기 내는 사람이 부를 얻습니다"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 27,
+ "comments_top_level": 15,
+ "comments_replies": 12,
+ "comments_by_creator": 13,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 27,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-19T08:02:07",
+ "approved": "2026-10-19T17:02+09:00"
+}

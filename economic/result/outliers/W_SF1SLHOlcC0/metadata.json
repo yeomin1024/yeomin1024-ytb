@@ -1,0 +1,95 @@
+{
+ "id": "SF1SLHOlcC0",
+ "title": "평범한 내가 부자들 사이에서 느낀 것들",
+ "channel": "30대 우영이의 일기",
+ "channel_id": "UCJ_YHwzq8dJ-qxl2fDfRtBQ",
+ "subs": 4150,
+ "views": 23743,
+ "ratio": 5.72,
+ "age_days": 1,
+ "views_per_day": 23743.0,
+ "minutes": 12.3,
+ "likes": 186,
+ "comments": 52,
+ "published": "2026-10-18",
+ "queries": "검색:부자",
+ "url": "https://www.youtube.com/watch?v=SF1SLHOlcC0",
+ "flag": "",
+ "published_at": "2026-10-18T04:15:31Z",
+ "rank": "W75",
+ "set": "web",
+ "folder": "W_SF1SLHOlcC0",
+ "sources": [
+  "검색:부자"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "평범한 투자자가 100억 부자들과 여행하면"
+  },
+  {
+   "start": 49,
+   "title": "요트 파티 가는 버스에서 벌어진 일"
+  },
+  {
+   "start": 102,
+   "title": "알고 있는 것과 실제로 하는 것의 차이"
+  },
+  {
+   "start": 136,
+   "title": "부자들 사이에서 느낀 복잡한 감정"
+  },
+  {
+   "start": 211,
+   "title": "돈타쿠는 지금 뭘 하고 있을까?"
+  },
+  {
+   "start": 227,
+   "title": "바이비트 요트 파티"
+  },
+  {
+   "start": 292,
+   "title": "돈타쿠와 새벽까지 나눈 이야기"
+  },
+  {
+   "start": 301,
+   "title": "돈타쿠가 인생을 즐기는 방식"
+  },
+  {
+   "start": 390,
+   "title": "내가 앞으로 하고 싶은 일"
+  },
+  {
+   "start": 429,
+   "title": "계획 없이 살아온 투자자의 이야기"
+  },
+  {
+   "start": 515,
+   "title": "남들의 시선에서 자유로워지는 법"
+  },
+  {
+   "start": 577,
+   "title": "다음 날 아침, 5km 러닝"
+  },
+  {
+   "start": 687,
+   "title": "나는 정말 어떤 삶을 살고 싶은 걸까?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 52,
+ "comments_top_level": 42,
+ "comments_replies": 10,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 52,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-19T08:01:36",
+ "approved": "2026-10-19T17:01+09:00"
+}

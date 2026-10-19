@@ -1,0 +1,113 @@
+{
+ "id": "PC10zRnT7E4",
+ "title": "박카스 집안 부자 갈등, 그 뒤 두 아들 모두 실형… 동아제약 경영권 분쟁의 전말",
+ "channel": "경제꽈배기",
+ "channel_id": "UCfUf6Mf8mWh5CnyI1zkbEHg",
+ "subs": 5170,
+ "views": 35315,
+ "ratio": 6.83,
+ "age_days": 0,
+ "views_per_day": 35315.0,
+ "minutes": 15.0,
+ "likes": 299,
+ "comments": 19,
+ "published": "2026-10-18",
+ "queries": "검색:부자",
+ "url": "https://www.youtube.com/watch?v=PC10zRnT7E4",
+ "flag": "",
+ "published_at": "2026-10-18T09:00:24Z",
+ "rank": "W72",
+ "set": "web",
+ "folder": "W_PC10zRnT7E4",
+ "sources": [
+  "검색:부자"
+ ],
+ "source": "web",
+ "tags": [
+  "강문석",
+  "강문석 대표",
+  "강문석 동아",
+  "강문석 동아제약",
+  "강문석 회장",
+  "강신호",
+  "강신호 아들",
+  "강신호 회장",
+  "강정석",
+  "강정석 동아",
+  "강정석 회장",
+  "경영권분쟁",
+  "경제꽈배기",
+  "경제학",
+  "기업스토리",
+  "뉴스",
+  "동아쏘시오홀딩스",
+  "동아쏘시오홀딩스 동아제약",
+  "동아쏘시오홀딩스 매출",
+  "동아쏘시오홀딩스 주가",
+  "동아쏘시오홀딩스 회장",
+  "동아에스티",
+  "동아제약",
+  "동아제약 강문석",
+  "동아제약 광고",
+  "동아제약 박카스 광고",
+  "동아제약 주가",
+  "리베이트",
+  "몰락",
+  "박카스",
+  "박카스 광고",
+  "박카스 성분",
+  "박카스 카페인",
+  "이슈",
+  "잡지식",
+  "최근뉴스",
+  "핫이슈"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "박카스, 돈의 강물"
+  },
+  {
+   "start": 134,
+   "title": "네 아들"
+  },
+  {
+   "start": 192,
+   "title": "노란 병의 습격 · 비타500"
+  },
+  {
+   "start": 283,
+   "title": "부자의 충돌과 대표 교체"
+  },
+  {
+   "start": 412,
+   "title": "2007 경영권 분쟁"
+  },
+  {
+   "start": 557,
+   "title": "강문석의 몰락"
+  },
+  {
+   "start": 647,
+   "title": "동생의 리베이트 사건"
+  },
+  {
+   "start": 814,
+   "title": "박카스 병이 남긴 질문"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 19,
+ "comments_top_level": 13,
+ "comments_replies": 6,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 19,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-19T08:01:27",
+ "approved": "2026-10-19T17:01+09:00"
+}

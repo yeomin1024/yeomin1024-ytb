@@ -40,7 +40,7 @@
 | 2026-10-02 | [주식초보도 쉽게 AI로 종목 찾는 방법, 프롬프트 꼭 나에게 공유해두세요](https://www.youtube.com/shorts/_f9iN8G_Gto) | 머니벌크업ㅣ주식PT | 21,500 | 158,782 | ×7.39 | ×4.0 | 56초 |  |  | 설명 | 22 | [`S__f9iN8G_Gto`](S__f9iN8G_Gto) |
 | 2026-10-01 | [70 이후에는 목숨보다 중요해지는 5가지 #shorts #인간관계 #철학 #니…](https://www.youtube.com/shorts/tRCeNAJfEDA) | 인간본질 | 10,700 | 219,235 | ×20.49 | ×22.1 | 73초 |  | 돈 이야기 아님 — 명언·인생조언(… | 없음 | 29 | [`S_tRCeNAJfEDA`](S_tRCeNAJfEDA) |
 | 2026-10-01 | [염승환 이사의 10월 포트폴리오 전략은?](https://www.youtube.com/shorts/CBSmWQHJtX8) | 부자노트 | 7,520 | 119,289 | ×15.86 | ×36.9 | 61초 | 69 |  | 설명 | 5 | [`S_CBSmWQHJtX8`](S_CBSmWQHJtX8) |
-| 2026-09-30 | [월급 300만원 직장인의 현실](https://www.youtube.com/shorts/pJOcLINElM8) | 너의생각은머니 | 8,530 | 981,122 | ×115.02 | ×23.3 | 29초 | 19 |  | 설명 | 2,435 | [`S_pJOcLINElM8`](S_pJOcLINElM8) |
+| 2026-09-30 | [월급 300만원 직장인의 현실](https://www.youtube.com/shorts/pJOcLINElM8) | 너의생각은머니 | 8,530 | 981,122 | ×115.02 | ×23.0 | 29초 | 19 |  | 설명 | 2,435 | [`S_pJOcLINElM8`](S_pJOcLINElM8) |
 | 2026-09-30 | [미국의 천재 수학자가 주식으로 130억을 벌어들 방법?! *볼린저밴드 rsi …](https://www.youtube.com/shorts/C4LAhjVA_4M) | 머니언즈 | 4,200 | 98,375 | ×23.42 | ×1.0 | 54초 |  |  | 설명 | 33 | [`S_C4LAhjVA_4M`](S_C4LAhjVA_4M) |
 | 2026-09-30 | [돈 없는 노후가 무서운 진짜 이유 #에세이 #명언 #인생조언 #좋은글 #좋은말…](https://www.youtube.com/shorts/ZJ95-thV2dY) | 시니어 인생극장 | 26,400 | 744,308 | ×28.19 | ×238.8 | 63초 | 51 |  | 설명 | 265 | [`S_ZJ95-thV2dY`](S_ZJ95-thV2dY) |
 | 2026-09-30 | [주식투자 고수들이 절대 안알려주는 차트보는법](https://www.youtube.com/shorts/pjrmVUBPdqk) | 머니벌크업ㅣ주식PT | 21,500 | 109,538 | ×5.09 | ×2.7 | 55초 |  |  | 설명 | 4 | [`S_pjrmVUBPdqk`](S_pjrmVUBPdqk) |
@@ -214,7 +214,7 @@
 | 2026-06-04 | [이재명 정부의 경고! "부동산 개혁 없이 주식시장 성공 없다"#12시에만나요 …](https://www.youtube.com/shorts/GQLmZG6GeQU) | 뇌즙 | 21,300 | 3,884,337 | ×182.36 | ×296.7 | 116초 |  | 뺀 주제(부동산) | 설명 | 1,215 | [`S_GQLmZG6GeQU`](S_GQLmZG6GeQU) |
 | 2026-06-03 | [삼성전자가 로봇 시장을 통째로 먹는 방법 #삼성전자 #로봇관련주 #피지컬AI …](https://www.youtube.com/shorts/-lkcdwcv7yM) | 뇌즙 | 21,300 | 3,094,321 | ×145.27 | ×236.3 | 77초 | 14 |  | 설명 | 440 | [`S_-lkcdwcv7yM`](S_-lkcdwcv7yM) |
 | 2026-06-01 | [삼성전자, 하이닉스 지금 사도 늦지 않았을까? 🤔 #염승환 #주식 #재테크](https://www.youtube.com/shorts/JCDePyn_0-s) | 돈에안기자(TV조선경제채… | 26,700 | 488,444 | ×18.29 | ×208.4 | 54초 | 64 |  | 설명 | 36 | [`S_JCDePyn_0-s`](S_JCDePyn_0-s) |
-| 2026-06-01 | [계속 되는 지붕 없는 코스피 고수의 덕목 분산 투자 수사니신흥 인간지표를 꿈꾸…](https://www.youtube.com/shorts/f1CtL4OlY8Y) | Studio x B.B.… | 28,000 | 91,751 | ×3.28 | ×6.8 | 59초 | 100 |  | 없음 | 6 | [`S_f1CtL4OlY8Y`](S_f1CtL4OlY8Y) |
+| 2026-06-01 | [계속 되는 지붕 없는 코스피 고수의 덕목 분산 투자 수사니신흥 인간지표를 꿈꾸…](https://www.youtube.com/shorts/f1CtL4OlY8Y) | Studio x B.B.… | 28,000 | 91,751 | ×3.28 | ×6.5 | 59초 | 100 |  | 없음 | 6 | [`S_f1CtL4OlY8Y`](S_f1CtL4OlY8Y) |
 | 2026-05-31 | [【#예능썰】 입이 떡 벌어지는 이효리 재테크 ㄷㄷ ∣ 라디오스타 ∣ TVPP …](https://www.youtube.com/shorts/PHcYhO4jGxk) | TV-People | 4,260,000 | 5,598,337 | ×1.31 | – | 63초 |  | 돈 이야기 아님 — 연예·예능·드라… | 없음 | 646 | [`S_PHcYhO4jGxk`](S_PHcYhO4jGxk) |
 | 2026-05-29 | [20대 전문 투자자도 골드바 선택!3억 투자 경험자의 자산관리 비결✨#골드바 …](https://www.youtube.com/shorts/4HQX1sHJaMA) | 헤이골드금거래소 | 26,400 | 201,860 | ×7.65 | ×3.0 | 39초 | 85 |  | 없음 | 49 | [`S_4HQX1sHJaMA`](S_4HQX1sHJaMA) |
 | 2026-05-28 | [S&P500 vs 나스닥100](https://www.youtube.com/shorts/lg0r2ZOcyXU) | 디히치 | 25,100 | 1,306,835 | ×52.07 | ×203.0 | 26초 | 31 |  | 설명 | 456 | [`S_lg0r2ZOcyXU`](S_lg0r2ZOcyXU) |
@@ -251,4 +251,4 @@
 | 2026-04-21 | [반도체 레버리지 ETF 산다? 안 산다!?](https://www.youtube.com/shorts/AReJ1--JNfA) | News Issue - … | 38,000 | 871,733 | ×22.94 | ×61.9 | 95초 |  |  | 없음 | 145 | [`S_AReJ1--JNfA`](S_AReJ1--JNfA) |
 | 2026-04-20 | [1년에 100만원 환급받는 #연금저축 계좌 만드는 법 #연금저축펀드](https://www.youtube.com/shorts/qUnEju-qk2g) | 털팽이TV | 39,700 | 122,075 | ×3.07 | ×4.1 | 36초 |  |  | 없음 | 3 | [`S_qUnEju-qk2g`](S_qUnEju-qk2g) |
 | 2026-04-20 | [자가 없고 주식 몰빵한 김원훈 대리의 오전 루틴 #snl #snl코리아 #예능…](https://www.youtube.com/shorts/eCnqOdQola0) | 쇼몬클립 | 40,500 | 1,612,683 | ×39.82 | ×93.8 | 60초 |  | 돈 이야기 아님 — 연예·예능·드라… | 설명 | 330 | [`S_eCnqOdQola0`](S_eCnqOdQola0) |
-| 2026-04-19 | [골프가 노후를 말아먹습니다. 자산 전문가들이 말리는 진짜 이유](https://www.youtube.com/shorts/aNztn8Te8ao) | 파크골프채널 | 11,600 | 697,950 | ×60.17 | ×45.0 | 165초 |  |  | 설명 | 802 | [`S_aNztn8Te8ao`](S_aNztn8Te8ao) |
+| 2026-04-19 | [골프가 노후를 말아먹습니다. 자산 전문가들이 말리는 진짜 이유](https://www.youtube.com/shorts/aNztn8Te8ao) | 파크골프채널 | 11,600 | 697,950 | ×60.17 | ×45.8 | 165초 |  |  | 설명 | 802 | [`S_aNztn8Te8ao`](S_aNztn8Te8ao) |

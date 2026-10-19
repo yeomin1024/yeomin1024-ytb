@@ -1,0 +1,149 @@
+{
+ "id": "2JSu61-Eh2o",
+ "title": "\"진짜 부자는 티를 안 낸다\" 허세 부리는 사람과 조용히 부자가 된 사람의 결정적 차이 4가지",
+ "channel": "존버리즘",
+ "channel_id": "UC4ZEj4m5PK9LlfxWiWg7u9Q",
+ "subs": 20000,
+ "views": 68778,
+ "ratio": 3.44,
+ "age_days": 1,
+ "views_per_day": 68778.0,
+ "minutes": 39.5,
+ "likes": 420,
+ "comments": 54,
+ "published": "2026-10-17",
+ "queries": "검색:부자",
+ "url": "https://www.youtube.com/watch?v=2JSu61-Eh2o",
+ "flag": "",
+ "published_at": "2026-10-17T09:00:02Z",
+ "rank": "W91",
+ "set": "web",
+ "folder": "W_2JSu61-Eh2o",
+ "sources": [
+  "검색:부자"
+ ],
+ "source": "web",
+ "tags": [
+  "부자",
+  "할부",
+  "카드론",
+  "마이너스통장",
+  "재테크",
+  "부자 습관",
+  "가난한사람",
+  "가난한 습관",
+  "가난",
+  "허세",
+  "허세이별",
+  "돈모으는법",
+  "카푸어",
+  "부자습관",
+  "허세충",
+  "돈자랑",
+  "내집마련"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "차는 남자 얼굴이야, 3년 뒤 걸려 온 전화"
+  },
+  {
+   "start": 43,
+   "title": "첫 번째, 보이는 것부터 할부로 사는 사람"
+  },
+  {
+   "start": 143,
+   "title": "집들이에서 나온 한마디, 은행에 월세 내는 거랑 똑같아요"
+  },
+  {
+   "start": 194,
+   "title": "휠, 블랙박스, 범퍼 수리비까지 카드로"
+  },
+  {
+   "start": 327,
+   "title": "유예할부 만기, 3천5백이 최선입니다"
+  },
+  {
+   "start": 375,
+   "title": "3백만 빌려줄 수 있냐"
+  },
+  {
+   "start": 429,
+   "title": "팀장이 탄 13년 된 쏘나타"
+  },
+  {
+   "start": 541,
+   "title": "두 번째, 얼마 벌었는지 꼭 말하는 사람"
+  },
+  {
+   "start": 701,
+   "title": "따라 산 주식, 천만 원이 6백이 되기까지"
+  },
+  {
+   "start": 916,
+   "title": "왜 나만 빼고 만나?"
+  },
+  {
+   "start": 1044,
+   "title": "칼국수집에서 들린 소문, 그 친구가 제일 여유 있었다"
+  },
+  {
+   "start": 1115,
+   "title": "석 달 만에 올라온 새 골프채 사진"
+  },
+  {
+   "start": 1147,
+   "title": "세 번째, 남의 집 돈 사정을 캐묻는 사람"
+  },
+  {
+   "start": 1252,
+   "title": "옆집 학원비가 우리 집 마이너스통장이 되기까지"
+  },
+  {
+   "start": 1385,
+   "title": "남편 휴대폰에 뜬 은행 문자"
+  },
+  {
+   "start": 1575,
+   "title": "경차 타던 전세 집의 반전"
+  },
+  {
+   "start": 1708,
+   "title": "은정 씨네 새집 집들이"
+  },
+  {
+   "start": 1761,
+   "title": "네 번째, 체면 때문에 지갑부터 여는 사람"
+  },
+  {
+   "start": 2030,
+   "title": "아들 학원비 결제가 안 된 날, 우리가 먼저야"
+  },
+  {
+   "start": 2107,
+   "title": "각자 내자는 말에 비어 버린 2차"
+  },
+  {
+   "start": 2224,
+   "title": "10년 뒤, 같은 해에 회사를 나온 두 사람"
+  },
+  {
+   "start": 2271,
+   "title": "조용한 사람들이 순서를 반대로 한 이유"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 54,
+ "comments_top_level": 47,
+ "comments_replies": 7,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 54,
+ "tool": "outlier_research.py v2.5.1",
+ "collected": "2026-10-19T08:02:29",
+ "approved": "2026-10-19T17:02+09:00"
+}

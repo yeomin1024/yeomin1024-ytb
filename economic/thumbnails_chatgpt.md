@@ -1,6 +1,6 @@
 # economic 썸네일 4장 — ChatGPT용 (모든 영상 · 읽고 그대로 만들고 각 저장 경로에 올리기)
 
-자동 생성 — `python tools/make_summary.py --chatgpt-all economic` (2026-10-19 14:43). 이 파일은 고치지 말고 영상마다 `thumbnail_N.md`를 고친 뒤 다시 만든다.
+자동 생성 — `python tools/make_summary.py --chatgpt-all economic` (2026-10-19 15:54). 이 파일은 고치지 말고 영상마다 `thumbnail_N.md`를 고친 뒤 다시 만든다.
 
 이 파일 주소: https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/economic/thumbnails_chatgpt.md
 
@@ -18,14 +18,15 @@
 4. 그림 속 글자는 프롬프트의 따옴표 안 글자만(한글, 그리고 프롬프트가 적은 영문 — 예: ISA), 글자·띄어쓰기·조사 그대로 쓴다 (조사 하나도 빼거나 바꾸지 않는다 — '세금으로'를 '세금'으로 줄이면 뜻이 달라짐). **줄 수·줄바꿈·정렬·글자 크기도 프롬프트대로** — 프롬프트가 '2줄, 줄마다 가운데, 긴 줄이 너비 4~96%'라고 하면 그만큼 크게·가운데로, 작게 줄이거나 한쪽으로 몰지 않는다 (v1.8.4·v1.9.0). 다른 글자·숫자·로고·워터마크는 넣지 않는다.
 5. 사람은 실존 인물이나 유명인을 닮지 않은 가상 인물이다. **표정·몸짓은 프롬프트에 적힌 그대로** — 손해를 알고 좌절한 장면을 놀란 얼굴·담담한 얼굴·웃는 얼굴로 바꾸지 않고, 작은 화면에서도 그 감정이 보이게 그린다 (v1.8.3).
 6. 한 장을 만들 때마다 그 칸의 '문구' 표와 그림 속 한글을 한 글자씩 맞춰 본다. 크게 확대해서 받침과 모음 획(예: '료'의 ㄹ, '보'의 ㅗ)·조사(예: '1년에'의 '에', '세금으로'의 '으로')가 빠지거나 가려지지 않았는지도 본다. 다르면 그림은 그대로 두고 글자만 고쳐 다시 만든다. 쇼츠 그림(세로)은 **그 장의 배치대로인지**도 본다 — '세 칸'이면 위·아래 칸이 순검정·사진 칸이 가로 끝까지·문구 2줄이 줄마다 가운데(어긋남 없음)·사진과 붙지 않음·글자와 얼굴이 높이 15~85% 안, 그 밖(사진 끝까지)이면 빈 남색·검정 띠가 없는지. 다르면 다시 만든다 (v1.8.0·v1.9.0).
-7. **그림마다 바로 위에 그 장의 번호와 저장 경로를 한 줄 적는다** (예: `3. economic/source/gungmin-sigi-2026-10/thumbnails/thumbnail_3.png`). 그림 안에는 쓰지 않는다.
+7. **그림마다 바로 위에 그 장의 번호와 저장 경로를 한 줄 적는다** (예: `3. economic/source/gungmin-sigi-2026-10/thumbnails/thumbnail_3.jpg`). 그림 안에는 쓰지 않는다.
 8. **다 만들면 저장소에 넣는다 — 장마다 적힌 저장 경로 그대로.**
-   - 저장소 `yeomin1024/yeomin1024-ytb` main 브랜치. 파일 이름·폴더는 그 장의 '저장 경로'와 한 글자도 다르지 않게 (`thumbnail_N.png`).
+   - 저장소 `yeomin1024/yeomin1024-ytb` main 브랜치. 파일 이름·폴더는 그 장의 '저장 경로'와 한 글자도 다르지 않게 (`thumbnail_N.jpg`).
+   - **올리기 전에 JPEG(.jpg)로 바꿔 700KB 이하로 만든다** — 파이썬(PIL)으로 RGB·크기 그대로·품질 90부터 5씩 낮춰 700KB 아래가 될 때까지 저장. GitHub 앱은 약 768KB 를 넘는 파일을 **잘라** 올려 그림이 깨진다 (2026-10-19 PNG 4장이 786,444바이트에서 잘려 열리지 않음). 올린 뒤 GitHub 에 있는 그 파일의 크기(바이트)가 내 파일과 같은지 확인하고, 다르면 다시 올린다.
    - **GitHub 앱으로 장마다 그 경로에 커밋한다** — 이 계정의 ChatGPT 는 저장소에 파일을 올릴 수 있다 (2026-10-19 사용자 확인). 커밋 메시지: `[썸네일] <영상ID> thumbnail_N 이미지`. 다 올리면 올린 파일 경로와 커밋 링크를 목록으로 적는다.
    - **올리기가 실패한 장만** (권한·연결 오류) 묻지 말고 아래처럼 끝낸다:
      1. 만든 그림을 이 파일의 번호 순서(1번부터)대로 다시 한 번씩 보여 준다 (그림마다 위에 번호와 저장 경로).
      2. 마지막에 이 문장을 그대로 쓴다: **"이 그림 4장을 이 순서대로 Claude 대화창에 붙여 넣어 주세요. Claude가 검수한 뒤 각 저장 경로에 올립니다."**
-     3. 그 아래에 직접 올리는 길도 적는다: "직접 올리려면: 그림을 thumbnail_N.png 이름으로 내려받아 폴더마다 아래 링크에 끌어다 놓고 Commit changes" + 아래 '폴더별 올리기 링크' 목록
+     3. 그 아래에 직접 올리는 길도 적는다: "직접 올리려면: 그림을 thumbnail_N.jpg 이름으로 내려받아 폴더마다 아래 링크에 끌어다 놓고 Commit changes" + 아래 '폴더별 올리기 링크' 목록
 
 ## 폴더별 올리기 링크 (ChatGPT가 못 올릴 때 사람이 쓰는 길)
 
@@ -34,7 +35,7 @@
 
 ## 1. gungmin-sigi-2026-10 · thumbnail_1 — 본안(클릭률 최대): 밤 거실 소파에서 빈 통장을 들고 이마를 짚은 60세 남성 + '30% 깎임' 낱말
 
-**저장 경로: `economic/source/gungmin-sigi-2026-10/thumbnails/thumbnail_1.png`**
+**저장 경로: `economic/source/gungmin-sigi-2026-10/thumbnails/thumbnail_1.jpg`**
 
 크기: 가로 16:9 (1280×720) — 롱폼
 
@@ -67,7 +68,7 @@ Render ONLY the Korean text given in quotes, exactly as written with the same le
 
 ## 2. gungmin-sigi-2026-10 · thumbnail_2 — 실험안 ①: 본안과 같은 장면, 낱말만 '조기수령'
 
-**저장 경로: `economic/source/gungmin-sigi-2026-10/thumbnails/thumbnail_2.png`**
+**저장 경로: `economic/source/gungmin-sigi-2026-10/thumbnails/thumbnail_2.jpg`**
 
 크기: 가로 16:9 (1280×720) — 롱폼
 
@@ -100,7 +101,7 @@ Render ONLY the Korean text given in quotes, exactly as written with the same le
 
 ## 3. gungmin-sigi-2026-10 · thumbnail_3 — 실험안 ②: 사람 없이, 오른쪽 3분의 1이 잘려 나간 빈 통장 + '30% 깎임' 낱말
 
-**저장 경로: `economic/source/gungmin-sigi-2026-10/thumbnails/thumbnail_3.png`**
+**저장 경로: `economic/source/gungmin-sigi-2026-10/thumbnails/thumbnail_3.jpg`**
 
 크기: 가로 16:9 (1280×720) — 롱폼
 
@@ -133,7 +134,7 @@ Render ONLY the Korean text given in quotes, exactly as written with the same le
 
 ## 4. gungmin-sigi-2026-10-shorts · thumbnail_1 — 본안(쇼츠 썸네일 + 첫 문장 화면): 동창 모임 식당에서 친구의 말을 듣고 두 손으로 머리를 감싸 쥔 60세 김 씨 + '평생 30%' 꼬리표
 
-**저장 경로: `economic/source/gungmin-sigi-2026-10/shorts/thumbnails/thumbnail_1.png`**
+**저장 경로: `economic/source/gungmin-sigi-2026-10/shorts/thumbnails/thumbnail_1.jpg`**
 
 크기: **세로 9:16 (1080×1920) — 쇼츠 · 세 칸 (위 0~36% 순검정 + 문구 2줄 · 가운데 36~72% 사진 · 아래 72~100% 순검정, 글자·얼굴은 높이 15~85%)**
 
@@ -142,8 +143,8 @@ Render ONLY the Korean text given in quotes, exactly as written with the same le
 | 자리 | 문구 | 색 |
 |---|---|---|
 | 그림 낱말 | 평생 30% | 흰 평면 글자 on 빨강 말풍선 #FF2A2A |
-| 위 1줄 | 국민연금 신청서 한 장에 | **'국민연금' 노랑 #FFD400** · '신청서 한 장에' 흰색 — 두꺼운 검정 외곽선 없이 검정 바탕 위 평면 글자 |
-| 위 2줄 | 평생 매달 27만 원 덜 받는다 | **전부 빨강 #FF2A2A** (나쁜 상황) — 1줄과 같은 크기 |
+| 위 1줄 | 국민연금 신청 한 번에 | **'국민연금' 노랑 #FFD400** · '신청 한 번에' 흰색 — 두꺼운 검정 외곽선 없이 검정 바탕 위 평면 글자 |
+| 위 2줄 | 평생 손해봤어요 | **전부 빨강 #FF2A2A** (나쁜 상황) — 1줄과 같은 크기 |
 
 프롬프트:
 
@@ -151,9 +152,9 @@ Render ONLY the Korean text given in quotes, exactly as written with the same le
 Vertical YouTube Shorts thumbnail, 9:16 portrait (1080x1920), high contrast. This is a vertical image: ignore any general instruction about a 16:9 landscape canvas.
 LAYOUT — three full-width zones: 0–36% of the height flat solid pure black (#000000) with only the headline; 36–72% one photorealistic photograph edge to edge with straight top and bottom edges; 72–100% flat solid pure black, empty. No gradient, fade or border.
 SAFE AREA: some feeds crop to about 4:5 — all text, faces and word tags stay between 15% and 85% of the height.
-Headline: exactly TWO lines of very large heavy bold Korean text, same size, EACH LINE CENTERED on the same axis, the longer line from about 4% to 96% of the width, the block between about 19% and 32% of the height and at least 3% above the photo; flat letters, no glow, no 3D.
-line 1 "국민연금 신청서 한 장에" — "국민연금" in bright yellow #FFD400 and "신청서 한 장에" in white;
-line 2 "평생 매달 27만 원 덜 받는다" — all in bright red #FF2A2A.
+Headline: exactly TWO lines of very large heavy bold Korean text, same size, EACH LINE CENTERED on the same axis, the longer line (line 1) from about 4% to 96% of the width, the block between about 18% and 33% of the height and at least 3% above the photo; flat letters, no glow, no 3D.
+line 1 "국민연금 신청 한 번에" — "국민연금" in bright yellow #FFD400 and "신청 한 번에" in white;
+line 2 "평생 손해봤어요" — all in bright red #FF2A2A, the same letter size as line 1 (so it is shorter, centered).
 Photo zone: a warm, softly lit Korean restaurant in the evening, a reunion dinner of old classmates with blurred friends in the background. At the table sits a Korean man aged 60 who looks youthful for his age, like his mid-50s (short black hair with gray at the temples, beige knit sweater), shown from the chest up, centered slightly right (about 30–82% of the width). A friend has just told him his early pension cut lasts for life, and he is crushed: both hands clutching his head, head bowed, eyes squeezed shut, brows knitted — clear frustration, regret and despair that read even at small size. Keep most of his face visible (hands must not cover his eyes and mouth completely). Realistic, not cartoonish. On the table only small soju glasses and side dishes with no labels. Fictional person, not resembling any real or famous person.
 On the left of the photo (about 7–28% of the width, 40–56% of the height): one speech-bubble tag, a solid bright red (#FF2A2A) rounded box with the Korean text "평생 30%" printed in large flat heavy bold white letters on its flat front face (flat print, not carved or 3D), its tail pointing from a blurred friend toward the man. Keep the right 16% of the width below 45% of the height free of faces and tags (Shorts buttons).
 If 9:16 is not available, use a 2:3 portrait canvas (1024x1536) with the same zones and keep the headline between 12% and 88% of the width.

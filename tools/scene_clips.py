@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.1 — 2026-10-19 — ChatGPT 가 GitHub 에 바로 올림 (사용자 지시 "chatgpt 깃허브 업로드 가능하다고 다시 수정해서 알려주고"): 규칙 8 =
+# VERSION: v1.2 — 2026-10-19 — ChatGPT GitHub 앱이 약 768KB 를 넘는 파일을 잘라 올림 (썸네일 PNG 4장이 786,444바이트에서 깨짐): 규칙 8 =
+#          JPEG(.jpg) 700KB 이하로 바꿔 올리고 올린 크기 확인 · 그림 확장자 기본 .jpg · check 가 끝까지 읽히는지 확인 (깨진 그림 = 문제).
+# 이전 v1.1 — 2026-10-19 — ChatGPT 가 GitHub 에 바로 올림 (사용자 지시 "chatgpt 깃허브 업로드 가능하다고 다시 수정해서 알려주고"): 규칙 8 =
 #          장마다 저장 경로에 커밋(대화에 붙이기는 실패한 장만) · 그림 확장자 = 올린 그대로 .png (plan image_ext) — videogen.json·check·add-image.
 # 이전 v1.0 — 2026-10-19 — 사용자 지시 "영상은 설명이 복잡하고 어려울 때는 클로드 코드로 렌더링 하고 그렇지 않은 부분은
 #          친숙한 애니메이션 이미지 생성 프롬프트와 그걸 기반으로 짧은 영상 만들어주는 프롬프트 각각 생성해서 영상 만드는걸로
@@ -10,7 +12,7 @@
 r"""
   python3 tools/scene_clips.py build economic gungmin-sigi-2026-10 [--shorts]     # plan.json → chatgpt.md · videogen.json · plan.md
   python3 tools/scene_clips.py check economic gungmin-sigi-2026-10 [--shorts]     # 문장 범위·장 시작·길이 · 있는 그림·클립
-  python3 tools/scene_clips.py add-image economic gungmin-sigi-2026-10 L01 그림.png [--shorts]   # 대화에 붙인 그림 → scenes/L01.png
+  python3 tools/scene_clips.py add-image economic gungmin-sigi-2026-10 L01 그림.png [--shorts]   # 대화에 붙인 그림 → scenes/L01.jpg
   python3 tools/scene_clips.py fetch economic gungmin-sigi-2026-10 [--shorts]     # Release → <주제>/out/<영상ID>/clips/ (sha256 확인)
 
 장면 계획 (scenes/plan.json — 사람이 고치는 파일):
@@ -34,7 +36,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 REPO = "yeomin1024/yeomin1024-ytb"
-VERSION = "v1.1"
+VERSION = "v1.2"
 # 생성 해상도(5B 는 32 배수) · 최종 해상도 · 비율 — videogen v1.4.0 은 가운데를 잘라 생성 해상도에 맞춤
 SIZES = {"landscape": dict(gen=(1280, 704), final=(1920, 1080), ratio="16:9", chatgpt="1536×864"),
          "portrait": dict(gen=(704, 1280), final=(1080, 1920), ratio="9:16", chatgpt="864×1536")}
@@ -218,8 +220,8 @@ def motion_prompt(plan: dict, clip: dict) -> str:
 
 
 def image_ext(plan: dict) -> str:
-    """장면 그림 확장자 (v1.1 — ChatGPT 가 저장소에 바로 올리는 PNG 가 기본, 손으로 줄인 그림이면 plan.json image_ext=".jpg")."""
-    return plan.get("image_ext", ".png")
+    """장면 그림 확장자 (v1.2 — ChatGPT 가 JPEG 700KB 이하로 바꿔 올림: GitHub 앱이 약 768KB 를 넘는 파일을 잘라 올리므로)."""
+    return plan.get("image_ext", ".jpg")
 
 
 def videogen_settings(plan: dict, wins: list[dict]) -> dict:
@@ -263,11 +265,14 @@ def chatgpt_md(plan: dict, sents: list[dict], plan_rel: str, stamp: str, shorts:
            "5. **그림 속 글자·숫자·기호·로고·워터마크는 하나도 없다.** 서류·통장·계산기·화면·간판은 빈칸이나 회색 줄만.",
            "6. 사람은 실존 인물이나 유명인을 닮지 않은 가상 인물이다. 표정·몸짓은 프롬프트에 적힌 그대로 (감정이 작은 화면에서도 보이게).",
            "7. **그림마다 바로 위에 그 장의 번호와 저장 경로를 한 줄 적는다** (예: `1. " + f"{plan['image_dir']}/"
-           f"{plan['clips'][0]['name']}.png`). 그림 안에는 쓰지 않는다.",
+           f"{plan['clips'][0]['name']}{image_ext(plan)}`). 그림 안에는 쓰지 않는다.",
            "8. **다 만들면 저장소에 넣는다 — 장마다 적힌 저장 경로 그대로.**",
            f"   - 저장소 `{REPO}` main 브랜치. **GitHub 앱으로 장마다 그 경로에 커밋한다** — 이 계정의 ChatGPT 는 저장소에 파일을 "
            f"올릴 수 있다 (2026-10-19 사용자 확인). 커밋 메시지 `[장면] {vid} <이름> 그림`. 파일 이름·폴더는 저장 경로와 한 글자도 다르지 "
            "않게. 다 올리면 올린 파일 경로와 커밋 링크를 목록으로 적는다 (Claude 가 그 목록으로 검수).",
+           "   - **올리기 전에 JPEG(.jpg)로 바꿔 700KB 이하로 만든다** — 파이썬(PIL)으로 RGB·크기 그대로·품질 90부터 5씩 낮춰 700KB "
+           "아래가 될 때까지 저장. GitHub 앱은 약 768KB 를 넘는 파일을 **잘라** 올려 그림이 깨진다 (2026-10-19 썸네일 PNG 4장이 "
+           "786,444바이트에서 잘려 열리지 않음). 올린 뒤 GitHub 에 있는 그 파일의 크기(바이트)가 내 파일과 같은지 확인하고, 다르면 다시 올린다.",
            "   - **올리기가 실패한 장만** (권한·연결 오류) 묻지 말고: 그 그림을 번호 순서대로 다시 보여 주고(그림마다 위에 번호와 저장 "
            "경로), 마지막에 이 문장을 그대로 쓴다: **\"올리지 못한 그림을 이 순서대로 Claude 대화창에 붙여 넣어 주세요. Claude가 검수한 "
            "뒤 각 저장 경로에 올립니다.\"**", "",
@@ -278,12 +283,12 @@ def chatgpt_md(plan: dict, sents: list[dict], plan_rel: str, stamp: str, shorts:
         out += ["", "## 장소", ""] + [f"- **{p['name']}** — {p['en']}" for p in plan["places"]]
     if not shorts:
         out += ["", f"## 0. 인물 설정표 (영상에는 안 씀)", "",
-                f"**저장 경로: `{plan['image_dir']}/characters.png`**", "", "```", sheet_prompt(plan), "```"]
+                f"**저장 경로: `{plan['image_dir']}/characters{image_ext(plan)}`**", "", "```", sheet_prompt(plan), "```"]
     for i, c in enumerate(plan["clips"], 1):
         a, b = c["sentences"]
         rng = f"문장 {a}" if a == b else f"문장 {a}~{b}"
         out += ["", f"## {i}. {c['name']} — {c['ko']}", "",
-                f"**저장 경로: `{plan['image_dir']}/{c['name']}.png`**", "",
+                f"**저장 경로: `{plan['image_dir']}/{c['name']}{image_ext(plan)}`**", "",
                 f"내레이션 ({rng}): 「{_quote(sents, a, b)}」", "", "```", image_prompt(plan, c), "```"]
     return "\n".join(out) + "\n"
 
@@ -351,11 +356,26 @@ def cmd_build(a) -> int:
     return 0
 
 
-def _image_file(p: dict, name: str) -> Path | None:
-    for ext in (".png", ".jpg", ".jpeg", ".webp"):
+def image_ok(path: Path) -> bool:
+    """끝까지 읽히는 그림인지 (v1.2 — 잘려 올라간 PNG 는 열리기는 해도 load 에서 깨짐)."""
+    from PIL import Image
+    try:
+        with Image.open(path) as im:
+            im.load()
+        return True
+    except Exception:
+        return False
+
+
+def _image_file(p: dict, name: str, broken: list | None = None) -> Path | None:
+    """<이름>.(jpg|png|jpeg|webp) 가운데 끝까지 읽히는 첫 파일. 깨진 파일은 broken 에 넣고 없는 것으로."""
+    for ext in (".jpg", ".png", ".jpeg", ".webp"):
         f = p["scenes"] / f"{name}{ext}"
         if f.exists():
-            return f
+            if image_ok(f):
+                return f
+            if broken is not None:
+                broken.append(f)
     return None
 
 
@@ -372,9 +392,9 @@ def cmd_check(a) -> int:
     sents, src = load_timing(p)
     wins = windows(plan, sents)
     problems = check_plan(plan, sents, wins)
-    have, missing = 0, []
+    have, missing, broken = 0, [], []
     for w in wins:
-        f = _image_file(p, w["name"])
+        f = _image_file(p, w["name"], broken)
         if not f:
             missing.append(w["name"])
             continue
@@ -388,6 +408,8 @@ def cmd_check(a) -> int:
                 problems.append(f"{w['name']}: 비율이 많이 달라 {cut}% 잘림 — {SIZES[plan['orientation']]['ratio']} 로 다시")
             if max(im.size) < 1024:
                 problems.append(f"{w['name']}: 그림이 작음 {im.size}")
+    for f in broken:
+        problems.append(f"{f.name}: 끝까지 읽히지 않음 ({f.stat().st_size:,}바이트 — 잘려 올라감) → JPEG 700KB 이하로 다시 올리기")
     man = p["out"] / "clips" / "clips_manifest.json"
     clips = {}
     if man.exists():
@@ -423,7 +445,7 @@ def cmd_add_image(a) -> int:
         if max(w, h) > 1920:
             k = 1920 / max(w, h)
             im = im.resize((round(w * k), round(h * k)), Image.LANCZOS)
-        ext = image_ext(plan) if a.name != "characters" else ".png"
+        ext = image_ext(plan)
         dst = p["scenes"] / f"{a.name}{ext}"
         im.save(dst, **({"quality": 92, "optimize": True} if ext == ".jpg" else {"optimize": True}))
     for old in (p["scenes"] / f"{a.name}{e}" for e in (".png", ".jpg", ".jpeg", ".webp") if e != dst.suffix):

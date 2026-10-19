@@ -1,6 +1,6 @@
 # gungmin-sigi-2026-10-shorts 장면 그림 7장 — ChatGPT용 (읽고 1번부터 차례로 모두 만들기)
 
-자동 생성 — `python3 tools/scene_clips.py build` v1.1 (2026-10-19 14:40). 이 파일은 고치지 말고 `economic/source/gungmin-sigi-2026-10/shorts/scenes/plan.json` 을 고친 뒤 다시 만든다.
+자동 생성 — `python3 tools/scene_clips.py build` v1.2 (2026-10-19 15:54). 이 파일은 고치지 말고 `economic/source/gungmin-sigi-2026-10/shorts/scenes/plan.json` 을 고친 뒤 다시 만든다.
 
 이 파일 주소(최신): https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/economic/source/gungmin-sigi-2026-10/shorts/scenes/chatgpt.md
 
@@ -15,9 +15,10 @@
 4. 크기: **9:16 세로** (864×1536 — 안 되면 가장 긴 세로형). 얼굴과 중요한 물건은 프롬프트의 'Format' 줄대로 (잘리는 가장자리·자막 자리를 피함).
 5. **그림 속 글자·숫자·기호·로고·워터마크는 하나도 없다.** 서류·통장·계산기·화면·간판은 빈칸이나 회색 줄만.
 6. 사람은 실존 인물이나 유명인을 닮지 않은 가상 인물이다. 표정·몸짓은 프롬프트에 적힌 그대로 (감정이 작은 화면에서도 보이게).
-7. **그림마다 바로 위에 그 장의 번호와 저장 경로를 한 줄 적는다** (예: `1. economic/source/gungmin-sigi-2026-10/shorts/scenes/S02.png`). 그림 안에는 쓰지 않는다.
+7. **그림마다 바로 위에 그 장의 번호와 저장 경로를 한 줄 적는다** (예: `1. economic/source/gungmin-sigi-2026-10/shorts/scenes/S02.jpg`). 그림 안에는 쓰지 않는다.
 8. **다 만들면 저장소에 넣는다 — 장마다 적힌 저장 경로 그대로.**
    - 저장소 `yeomin1024/yeomin1024-ytb` main 브랜치. **GitHub 앱으로 장마다 그 경로에 커밋한다** — 이 계정의 ChatGPT 는 저장소에 파일을 올릴 수 있다 (2026-10-19 사용자 확인). 커밋 메시지 `[장면] gungmin-sigi-2026-10-shorts <이름> 그림`. 파일 이름·폴더는 저장 경로와 한 글자도 다르지 않게. 다 올리면 올린 파일 경로와 커밋 링크를 목록으로 적는다 (Claude 가 그 목록으로 검수).
+   - **올리기 전에 JPEG(.jpg)로 바꿔 700KB 이하로 만든다** — 파이썬(PIL)으로 RGB·크기 그대로·품질 90부터 5씩 낮춰 700KB 아래가 될 때까지 저장. GitHub 앱은 약 768KB 를 넘는 파일을 **잘라** 올려 그림이 깨진다 (2026-10-19 썸네일 PNG 4장이 786,444바이트에서 잘려 열리지 않음). 올린 뒤 GitHub 에 있는 그 파일의 크기(바이트)가 내 파일과 같은지 확인하고, 다르면 다시 올린다.
    - **올리기가 실패한 장만** (권한·연결 오류) 묻지 말고: 그 그림을 번호 순서대로 다시 보여 주고(그림마다 위에 번호와 저장 경로), 마지막에 이 문장을 그대로 쓴다: **"올리지 못한 그림을 이 순서대로 Claude 대화창에 붙여 넣어 주세요. Claude가 검수한 뒤 각 저장 경로에 올립니다."**
 
 ## 그림체 (모든 장 공통 — 프롬프트에 이미 들어 있음)
@@ -41,7 +42,7 @@ Warm, friendly 2D animation still, like a frame from a gentle family animated fi
 
 ## 1. S02 — 59세 퇴직 — 짐 상자를 들고 회사를 나서는 김 씨 (세로)
 
-**저장 경로: `economic/source/gungmin-sigi-2026-10/shorts/scenes/S02.png`**
+**저장 경로: `economic/source/gungmin-sigi-2026-10/shorts/scenes/S02.jpg`**
 
 내레이션 (문장 2): 「김 씨는 59세에 퇴직했는데, 연금은 64세부터였어요.」
 
@@ -56,7 +57,7 @@ Absolutely no text, letters, numbers, symbols, logos or watermarks anywhere in t
 
 ## 2. S03 — 퇴직한 다음 달, 공단 창구에서 신청서에 서명하는 김 씨 (세로)
 
-**저장 경로: `economic/source/gungmin-sigi-2026-10/shorts/scenes/S03.png`**
+**저장 경로: `economic/source/gungmin-sigi-2026-10/shorts/scenes/S03.jpg`**
 
 내레이션 (문장 3): 「5년 동안 월급도 연금도 없어서, 퇴직한 다음 달 바로 신청했죠.」
 
@@ -72,7 +73,7 @@ Absolutely no text, letters, numbers, symbols, logos or watermarks anywhere in t
 
 ## 3. S05 — 64세면 돌아올 줄 — 소파에서 차를 마시며 여유로운 김 씨 (세로)
 
-**저장 경로: `economic/source/gungmin-sigi-2026-10/shorts/scenes/S05.png`**
+**저장 경로: `economic/source/gungmin-sigi-2026-10/shorts/scenes/S05.jpg`**
 
 내레이션 (문장 5): 「그래도 64세가 되면, 원래대로 돌아올 줄 알았어요.」
 
@@ -88,7 +89,7 @@ Absolutely no text, letters, numbers, symbols, logos or watermarks anywhere in t
 
 ## 4. S06 — 1년 뒤 동창 모임 — 웃으며 잔을 부딪치는 친구들 (세로)
 
-**저장 경로: `economic/source/gungmin-sigi-2026-10/shorts/scenes/S06.png`**
+**저장 경로: `economic/source/gungmin-sigi-2026-10/shorts/scenes/S06.jpg`**
 
 내레이션 (문장 6): 「그런데 1년쯤 지나, 동창 모임에서 친구가 물었습니다.」
 
@@ -105,7 +106,7 @@ Absolutely no text, letters, numbers, symbols, logos or watermarks anywhere in t
 
 ## 5. S07 — 친구가 진지하게 묻고, 잔을 든 채 굳은 김 씨 (세로)
 
-**저장 경로: `economic/source/gungmin-sigi-2026-10/shorts/scenes/S07.png`**
+**저장 경로: `economic/source/gungmin-sigi-2026-10/shorts/scenes/S07.jpg`**
 
 내레이션 (문장 7): 「너, 그거 평생 30% 깎이는 거 알고 신청했어?」
 
@@ -122,7 +123,7 @@ Absolutely no text, letters, numbers, symbols, logos or watermarks anywhere in t
 
 ## 6. S09 — 밤 식탁, 신청서를 내려다보며 이마를 짚고 좌절한 김 씨 (세로)
 
-**저장 경로: `economic/source/gungmin-sigi-2026-10/shorts/scenes/S09.png`**
+**저장 경로: `economic/source/gungmin-sigi-2026-10/shorts/scenes/S09.jpg`**
 
 내레이션 (문장 9): 「신청서 한 장 때문에, 평생 손해를 봤다는 거예요.」
 
@@ -138,7 +139,7 @@ Absolutely no text, letters, numbers, symbols, logos or watermarks anywhere in t
 
 ## 7. S10 — 서류 더미에서 고개를 들어 결심한 눈빛으로 앞을 보는 김 씨 (세로)
 
-**저장 경로: `economic/source/gungmin-sigi-2026-10/shorts/scenes/S10.png`**
+**저장 경로: `economic/source/gungmin-sigi-2026-10/shorts/scenes/S10.jpg`**
 
 내레이션 (문장 10): 「정말 그만큼 잃은 걸까요, 지금이라도 덜 깎이게 할 수 있을까요?」
 

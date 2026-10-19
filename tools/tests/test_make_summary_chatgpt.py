@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-# VERSION: v1.10 — 2026-10-19 — make_summary v1.9.3: ChatGPT 가 GitHub 에 올리는 것이 기본 ('읽기만' 문구 없음).
+# VERSION: v1.11 — 2026-10-19 — make_summary v1.9.4: 잘려 올라간 그림은 '없음' · 저장 경로 .jpg · JPEG 700KB 이하 규칙 (시험 그림을 진짜 작은 그림으로).
+# (v1.10 — 2026-10-19 — make_summary v1.9.3: ChatGPT 가 GitHub 에 올리는 것이 기본 ('읽기만' 문구 없음).
 # (v1.9 — 2026-10-19 — make_summary v1.9.2 --chatgpt-all 이 NO_TTS.md 있는 영상(다시 쓰는 중)을 빼는지 시험.
 # (v1.8 — 2026-10-17 — make_summary v1.9.0 쇼츠 세 칸 배치(COVER_LAYOUT: band) 시험 — 사용자 지시 2026-10-17 "이미지 외 영역은 검은 배경으로 하고 문구는 두 줄로해서 최대 크기로 맞춰".
 # (v1.7 — 2026-10-17 — make_summary v1.8.1 규칙 4 '글자·띄어쓰기·조사 그대로' · v1.8.3 규칙 5 '표정·몸짓은 프롬프트대로' 시험 (v1.8.1 뒤 옛 말을 찾아 실패하던 것을 고침).
@@ -28,6 +29,24 @@ from pathlib import Path
 TOOLS = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(TOOLS))
 import make_summary as ms  # noqa: E402
+
+
+def img(path):
+    """끝까지 읽히는 작은 진짜 그림 (v1.9.4 — 깨진 그림은 '없음'으로 봄)."""
+    from PIL import Image
+    Image.new("RGB", (8, 8), (200, 40, 40)).save(path, format={".jpg": "JPEG", ".jpeg": "JPEG"}.get(path.suffix, path.suffix.lstrip(".").upper()))
+
+
+def truncated_png(path):
+    """ChatGPT GitHub 앱이 잘라 올린 꼴 — PNG 앞부분만 (2026-10-19 786,444바이트)."""
+    import io as _io
+    import random
+    from PIL import Image
+    rnd = random.Random(1)
+    im = Image.frombytes("RGB", (64, 64), bytes(rnd.randrange(256) for _ in range(64 * 64 * 3)))
+    buf = _io.BytesIO()
+    im.save(buf, format="PNG")
+    path.write_bytes(buf.getvalue()[: len(buf.getvalue()) // 2])
 
 
 def thumb_md(i, a_text="PROMPT", with_a=True):
@@ -65,7 +84,8 @@ class ChatgptFileTest(unittest.TestCase):
         self.assertLess(text.index("## thumbnail_2"), text.index("## thumbnail_3"))
         self.assertIn("thumbnail_1, thumbnail_2, thumbnail_3)를 **차례로 모두**", text)
         self.assertIn(f"{ms.UPLOAD_BASE}/economic/source/vid/thumbnails", text)   # 올리기 링크
-        self.assertIn("thumbnail_N.png", text)
+        self.assertIn("thumbnail_N.jpg", text)
+        self.assertIn("JPEG(.jpg)로 바꿔 700KB 이하", text)          # v1.9.4 — GitHub 앱이 768KB 넘는 파일을 자름
         self.assertIn("Claude 대화창에 그대로 붙여 넣어 주세요", text)   # ChatGPT 가 못 올릴 때 기본 길
         self.assertIn("가로형 16:9", text)
         self.assertIn("글자·띄어쓰기·조사 그대로", text)   # v1.8.1 조사
@@ -76,17 +96,32 @@ class ChatgptFileTest(unittest.TestCase):
     def test_skips_thumbnails_with_images(self):
         for i in (1, 2, 3):
             (self.folder / f"thumbnail_{i}.md").write_text(thumb_md(i), "utf-8")
-        (self.folder / "thumbnail_1.webp").write_bytes(b"img")
+        img(self.folder / "thumbnail_1.webp")
         text, log = self.run_tool()
         self.assertNotIn("## thumbnail_1", text)
         self.assertIn("## thumbnail_2", text)
         self.assertIn("thumbnail_2, thumbnail_3)를", text)
         self.assertIn("skip=thumbnail_1", log)
 
+    def test_truncated_image_counts_as_missing(self):     # v1.9.4 — 2026-10-19 ChatGPT 가 올린 PNG 가 잘려 열리지 않음
+        for i in (1, 2, 3):
+            (self.folder / f"thumbnail_{i}.md").write_text(thumb_md(i), "utf-8")
+            img(self.folder / f"thumbnail_{i}.jpg")
+        truncated_png(self.folder / "thumbnail_2.png")     # 깨진 png 가 있어도 끝까지 읽히는 jpg 를 고름
+        (self.folder / "thumbnail_3.jpg").unlink()
+        truncated_png(self.folder / "thumbnail_3.png")     # 깨진 것만 있음 → 다시 만들 목록에
+        text, log = self.run_tool()
+        self.assertNotIn("## thumbnail_1", text)
+        self.assertNotIn("## thumbnail_2", text)
+        self.assertIn("## thumbnail_3", text)
+        self.assertIn("[IMAGE] level=warn broken=", log)
+        self.assertEqual(ms.find_image(self.folder, "thumbnail_2").name, "thumbnail_2.jpg")
+        self.assertIsNone(ms.find_image(self.folder, "thumbnail_3"))
+
     def test_all_images_present_writes_done_notice(self):
         for i in (1, 2, 3):
             (self.folder / f"thumbnail_{i}.md").write_text(thumb_md(i), "utf-8")
-            (self.folder / f"thumbnail_{i}.png").write_bytes(b"img")
+            img(self.folder / f"thumbnail_{i}.png")
         text, log = self.run_tool()
         self.assertIn("만들 것 없음", text)
         self.assertNotIn("PROMPT", text)
@@ -140,7 +175,7 @@ class ChatgptFileTest(unittest.TestCase):
         for i in (1, 2, 3):
             (self.folder / f"thumbnail_{i}.md").write_text(thumb_md(i), "utf-8")
         text, _ = self.run_tool()
-        self.assertIn("저장 경로 `economic/source/vid/thumbnails/thumbnail_N.png`", text)
+        self.assertIn("저장 경로 `economic/source/vid/thumbnails/thumbnail_N.jpg`", text)
 
 
 class ChatgptAllTest(unittest.TestCase):                # v1.5.0 --chatgpt-all
@@ -152,7 +187,7 @@ class ChatgptAllTest(unittest.TestCase):                # v1.5.0 --chatgpt-all
             f.mkdir(parents=True)
             for i in (1, 2, 3):
                 (f / f"thumbnail_{i}.md").write_text(thumb_md(i, a_text=f"PROMPT_{vid}"), "utf-8")
-        (self.root / "economic" / "source" / "a-vid" / "thumbnails" / "thumbnail_2.png").write_bytes(b"img")
+        img(self.root / "economic" / "source" / "a-vid" / "thumbnails" / "thumbnail_2.png")
         (self.root / "economic" / "source" / "no-thumbs").mkdir(parents=True)          # 썸네일 폴더 없는 영상은 무시
 
     def tearDown(self):
@@ -170,8 +205,9 @@ class ChatgptAllTest(unittest.TestCase):                # v1.5.0 --chatgpt-all
         self.assertEqual([h.split(" — ")[0] for h in heads],
                          ["## 1. a-vid · thumbnail_1", "## 2. a-vid · thumbnail_3",
                           "## 3. b-vid · thumbnail_1", "## 4. b-vid · thumbnail_2", "## 5. b-vid · thumbnail_3"])
-        self.assertIn("**저장 경로: `economic/source/a-vid/thumbnails/thumbnail_3.png`**", text)
-        self.assertNotIn("a-vid/thumbnails/thumbnail_2.png`**", text)                    # 이미지 있는 시안은 뺌
+        self.assertIn("**저장 경로: `economic/source/a-vid/thumbnails/thumbnail_3.jpg`**", text)
+        self.assertNotIn("a-vid/thumbnails/thumbnail_2.jpg`**", text)                    # 이미지 있는 시안은 뺌
+        self.assertIn("올린 뒤 GitHub 에 있는 그 파일의 크기(바이트)가 내 파일과 같은지 확인", text)
         self.assertIn('PROMPT_b-vid 2 "세금"', text)
         self.assertIn("썸네일 5장(2개 영상)을 **1번부터 차례로 모두**", text)
         self.assertIn("이 그림 5장을 이 순서대로 Claude 대화창에 붙여 넣어 주세요", text)
@@ -192,7 +228,7 @@ class ChatgptAllTest(unittest.TestCase):                # v1.5.0 --chatgpt-all
     def test_all_done_notice(self):
         for vid in ("a-vid", "b-vid"):
             for i in (1, 2, 3):
-                (self.root / "economic" / "source" / vid / "thumbnails" / f"thumbnail_{i}.webp").write_bytes(b"img")
+                img(self.root / "economic" / "source" / vid / "thumbnails" / f"thumbnail_{i}.webp")
         _, text, log = self.run_all()
         self.assertIn("만들 것 없음", text)
         self.assertNotIn("PROMPT", text)
@@ -220,7 +256,7 @@ class ShortsThumbTest(unittest.TestCase):              # v1.6.0 쇼츠 썸네일
         heads = [l.split(" — ")[0] for l in text.splitlines() if l.startswith("## ") and " · thumbnail_" in l]
         self.assertEqual(heads, ["## 1. a-vid · thumbnail_1", "## 2. a-vid · thumbnail_2", "## 3. a-vid · thumbnail_3",
                                  "## 4. a-vid-shorts · thumbnail_1"])
-        self.assertIn("**저장 경로: `economic/source/a-vid/shorts/thumbnails/thumbnail_1.png`**", text)
+        self.assertIn("**저장 경로: `economic/source/a-vid/shorts/thumbnails/thumbnail_1.jpg`**", text)
         self.assertIn("크기: **세로 9:16 (1080×1920) — 쇼츠**", text)
         self.assertIn("크기: 가로 16:9 (1280×720) — 롱폼", text)
         self.assertIn("장마다 '크기' 줄대로", text)                       # 섞이면 장마다
@@ -241,7 +277,7 @@ class ShortsThumbTest(unittest.TestCase):              # v1.6.0 쇼츠 썸네일
         short_f = self.root / "economic" / "source" / "a-vid" / "shorts" / "thumbnails"
         (short_f / "thumbnail_1.md").write_text(thumb_md(1, a_text="SHORT").replace("| 항목 | 값 |", "| 항목 | 값 |\n| 배치 | `COVER_LAYOUT: band` |"), "utf-8")
         for i in (1, 2, 3):
-            (self.root / "economic" / "source" / "a-vid" / "thumbnails" / f"thumbnail_{i}.png").write_bytes(b"x")   # 롱폼은 다 됨 → 쇼츠만
+            img(self.root / "economic" / "source" / "a-vid" / "thumbnails" / f"thumbnail_{i}.png")   # 롱폼은 다 됨 → 쇼츠만
         with redirect_stdout(io.StringIO()):
             text = ms.chatgpt_all("economic", root=self.root).read_text("utf-8")
         self.assertIn("세 칸 배치", text)

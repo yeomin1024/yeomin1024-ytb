@@ -1,6 +1,6 @@
 # gungmin-sigi-2026-10 장면 그림 29장 — ChatGPT용 (읽고 1번부터 차례로 모두 만들기)
 
-자동 생성 — `python3 tools/scene_clips.py build` v1.1 (2026-10-19 14:40). 이 파일은 고치지 말고 `economic/source/gungmin-sigi-2026-10/scenes/plan.json` 을 고친 뒤 다시 만든다.
+자동 생성 — `python3 tools/scene_clips.py build` v1.2 (2026-10-19 15:54). 이 파일은 고치지 말고 `economic/source/gungmin-sigi-2026-10/scenes/plan.json` 을 고친 뒤 다시 만든다.
 
 이 파일 주소(최신): https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/economic/source/gungmin-sigi-2026-10/scenes/chatgpt.md
 
@@ -15,9 +15,10 @@
 4. 크기: **16:9 가로** (1536×864 — 안 되면 가장 넓은 가로형). 얼굴과 중요한 물건은 프롬프트의 'Format' 줄대로 (잘리는 가장자리·자막 자리를 피함).
 5. **그림 속 글자·숫자·기호·로고·워터마크는 하나도 없다.** 서류·통장·계산기·화면·간판은 빈칸이나 회색 줄만.
 6. 사람은 실존 인물이나 유명인을 닮지 않은 가상 인물이다. 표정·몸짓은 프롬프트에 적힌 그대로 (감정이 작은 화면에서도 보이게).
-7. **그림마다 바로 위에 그 장의 번호와 저장 경로를 한 줄 적는다** (예: `1. economic/source/gungmin-sigi-2026-10/scenes/L01.png`). 그림 안에는 쓰지 않는다.
+7. **그림마다 바로 위에 그 장의 번호와 저장 경로를 한 줄 적는다** (예: `1. economic/source/gungmin-sigi-2026-10/scenes/L01.jpg`). 그림 안에는 쓰지 않는다.
 8. **다 만들면 저장소에 넣는다 — 장마다 적힌 저장 경로 그대로.**
    - 저장소 `yeomin1024/yeomin1024-ytb` main 브랜치. **GitHub 앱으로 장마다 그 경로에 커밋한다** — 이 계정의 ChatGPT 는 저장소에 파일을 올릴 수 있다 (2026-10-19 사용자 확인). 커밋 메시지 `[장면] gungmin-sigi-2026-10 <이름> 그림`. 파일 이름·폴더는 저장 경로와 한 글자도 다르지 않게. 다 올리면 올린 파일 경로와 커밋 링크를 목록으로 적는다 (Claude 가 그 목록으로 검수).
+   - **올리기 전에 JPEG(.jpg)로 바꿔 700KB 이하로 만든다** — 파이썬(PIL)으로 RGB·크기 그대로·품질 90부터 5씩 낮춰 700KB 아래가 될 때까지 저장. GitHub 앱은 약 768KB 를 넘는 파일을 **잘라** 올려 그림이 깨진다 (2026-10-19 썸네일 PNG 4장이 786,444바이트에서 잘려 열리지 않음). 올린 뒤 GitHub 에 있는 그 파일의 크기(바이트)가 내 파일과 같은지 확인하고, 다르면 다시 올린다.
    - **올리기가 실패한 장만** (권한·연결 오류) 묻지 말고: 그 그림을 번호 순서대로 다시 보여 주고(그림마다 위에 번호와 저장 경로), 마지막에 이 문장을 그대로 쓴다: **"올리지 못한 그림을 이 순서대로 Claude 대화창에 붙여 넣어 주세요. Claude가 검수한 뒤 각 저장 경로에 올립니다."**
 
 ## 그림체 (모든 장 공통 — 프롬프트에 이미 들어 있음)
@@ -41,7 +42,7 @@ Warm, friendly 2D animation still, like a frame from a gentle family animated fi
 
 ## 0. 인물 설정표 (영상에는 안 씀)
 
-**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/characters.png`**
+**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/characters.jpg`**
 
 ```
 Warm, friendly 2D animation still, like a frame from a gentle family animated film: clean hand-drawn line art, soft cel shading, warm pastel colors, rounded friendly shapes, cozy natural light, expressive but natural faces. Everyday Korean setting today. Fictional people who do not resemble any real or famous person.
@@ -56,7 +57,7 @@ A character reference sheet: these characters standing side by side in a row, fu
 
 ## 1. L01 — 밤 식탁, 통장을 내려다보며 이마를 짚고 고개 떨군 김 씨
 
-**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L01.png`**
+**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L01.jpg`**
 
 내레이션 (문장 1): 「국민연금 신청 한 번에, 평생 손해봤어요.」
 
@@ -72,7 +73,7 @@ Absolutely no text, letters, numbers, symbols, logos or watermarks anywhere in t
 
 ## 2. L02 — 식탁 위 신청서 한 장 클로즈업, 김 씨의 손
 
-**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L02.png`**
+**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L02.jpg`**
 
 내레이션 (문장 2): 「60세 김 씨가 1년 전에 낸 신청서를 두고 한 말입니다.」
 
@@ -88,7 +89,7 @@ Absolutely no text, letters, numbers, symbols, logos or watermarks anywhere in t
 
 ## 3. L03 — 서류·계산기를 펼쳐 놓고 돋보기로 따져 보는 김 씨 (탐정처럼)
 
-**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L03.png`**
+**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L03.jpg`**
 
 내레이션 (문장 4): 「그런데 하나씩 따져 보던 김 씨는, 전혀 다른 범인을 찾아냅니다.」
 
@@ -104,7 +105,7 @@ Absolutely no text, letters, numbers, symbols, logos or watermarks anywhere in t
 
 ## 4. L04 — 회사 유리문을 나서며 뒤돌아보는 김 씨 (짐 상자)
 
-**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L04.png`**
+**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L04.jpg`**
 
 내레이션 (문장 9): 「김 씨는 59세에 회사를 나왔어요.」
 
@@ -119,7 +120,7 @@ Absolutely no text, letters, numbers, symbols, logos or watermarks anywhere in t
 
 ## 5. L05 — 퇴직금 통장을 서랍 깊이 넣고 잠그는 김 씨
 
-**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L05.png`**
+**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L05.jpg`**
 
 내레이션 (문장 11): 「퇴직금은 있었지만, 손대면 안 되는 돈이라고 생각했습니다.」
 
@@ -135,7 +136,7 @@ Absolutely no text, letters, numbers, symbols, logos or watermarks anywhere in t
 
 ## 6. L06 — 공단 창구에서 신청서에 서명해 내미는 김 씨 (다음 달)
 
-**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L06.png`**
+**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L06.jpg`**
 
 내레이션 (문장 12): 「그래서 퇴직한 다음 달, 국민연금을 5년 당겨 신청했어요.」
 
@@ -151,7 +152,7 @@ Absolutely no text, letters, numbers, symbols, logos or watermarks anywhere in t
 
 ## 7. L07 — 거실 소파에서 차를 마시며 여유롭게 웃는 김 씨
 
-**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L07.png`**
+**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L07.jpg`**
 
 내레이션 (문장 16): 「그래도 김 씨는 괜찮다고 생각했어요.」
 
@@ -167,7 +168,7 @@ Absolutely no text, letters, numbers, symbols, logos or watermarks anywhere in t
 
 ## 8. L08 — 1년 뒤 동창 모임 — 넷이 웃으며 잔을 부딪침
 
-**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L08.png`**
+**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L08.jpg`**
 
 내레이션 (문장 18): 「그런데 1년쯤 지나, 동창 모임에서 친구가 물었습니다.」
 
@@ -184,7 +185,7 @@ Absolutely no text, letters, numbers, symbols, logos or watermarks anywhere in t
 
 ## 9. L09 — 친구가 진지하게 묻고, 잔을 든 채 굳은 김 씨
 
-**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L09.png`**
+**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L09.jpg`**
 
 내레이션 (문장 19): 「너, 그거 평생 30% 깎이는 거 알고 신청했어?」
 
@@ -201,7 +202,7 @@ Absolutely no text, letters, numbers, symbols, logos or watermarks anywhere in t
 
 ## 10. L10 — 밤, 집에 와 계산기를 꺼내 두드리는 김 씨
 
-**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L10.png`**
+**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L10.jpg`**
 
 내레이션 (문장 23): 「집에 온 김 씨는 계산기를 꺼냈어요.」
 
@@ -217,7 +218,7 @@ Absolutely no text, letters, numbers, symbols, logos or watermarks anywhere in t
 
 ## 11. L11 — 어깨 너머로 계산기를 보며 고개를 갸웃하는 아들
 
-**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L11.png`**
+**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L11.jpg`**
 
 내레이션 (문장 26): 「그런데 이 숫자를 본 아들이, 고개를 갸웃했습니다.」
 
@@ -234,7 +235,7 @@ Absolutely no text, letters, numbers, symbols, logos or watermarks anywhere in t
 
 ## 12. L12 — 옆에 앉아 종이를 가리키며 말하는 아들, 고개 드는 김 씨
 
-**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L12.png`**
+**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L12.jpg`**
 
 내레이션 (문장 27): 「아빠, 이거 반만 계산하신 것 같은데요?」
 
@@ -251,7 +252,7 @@ Absolutely no text, letters, numbers, symbols, logos or watermarks anywhere in t
 
 ## 13. L13 — 안도의 숨을 쉬다 무언가 떠올라 눈을 크게 뜨는 김 씨
 
-**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L13.png`**
+**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L13.jpg`**
 
 내레이션 (문장 45): 「조금 마음이 놓인 김 씨에게, 친구가 한 말이 하나 더 남아 있었습니다.」
 
@@ -267,7 +268,7 @@ Absolutely no text, letters, numbers, symbols, logos or watermarks anywhere in t
 
 ## 14. L14 — 회상 — 경고하듯 말하는 친구, 옆에 작은 만화 폭탄
 
-**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L14.png`**
+**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L14.jpg`**
 
 내레이션 (문장 46): 「연금 받으면, 건보료 폭탄 맞는다더라.」
 
@@ -283,7 +284,7 @@ Absolutely no text, letters, numbers, symbols, logos or watermarks anywhere in t
 
 ## 15. L15 — 자기 방에서 채용 공고를 넘기며 한숨 쉬는 아들
 
-**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L15.png`**
+**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L15.jpg`**
 
 내레이션 (문장 48): 「아들은 아직 취업을 준비하고 있어서, 피부양자로 들어갈 곳도 없었죠.」
 
@@ -299,7 +300,7 @@ Absolutely no text, letters, numbers, symbols, logos or watermarks anywhere in t
 
 ## 16. L16 — 노트북을 함께 들여다보며 찾아보는 김 씨와 아들
 
-**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L16.png`**
+**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L16.jpg`**
 
 내레이션 (문장 49): 「두 사람은 건보료가 어떻게 매겨지는지부터 찾아봤어요.」
 
@@ -316,7 +317,7 @@ Absolutely no text, letters, numbers, symbols, logos or watermarks anywhere in t
 
 ## 17. L17 — 창가에서 팔짱 끼고 '진짜 범인'을 고민하는 김 씨
 
-**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L17.png`**
+**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L17.jpg`**
 
 내레이션 (문장 62): 「그렇다면 김 씨를 손해 보게 만든 진짜 범인은, 도대체 뭘까요?」
 
@@ -332,7 +333,7 @@ Absolutely no text, letters, numbers, symbols, logos or watermarks anywhere in t
 
 ## 18. L18 — 카페에서 통장을 펼쳐 보이는 박 씨, 들여다보는 김 씨
 
-**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L18.png`**
+**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L18.jpg`**
 
 내레이션 (문장 63): 「답은 같은 해에 퇴직한, 동창 박 씨의 통장에 있었습니다.」
 
@@ -349,7 +350,7 @@ Absolutely no text, letters, numbers, symbols, logos or watermarks anywhere in t
 
 ## 19. L19 — 박 씨의 퇴직 날 — 꽃다발을 받고 동료들이 박수
 
-**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L19.png`**
+**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L19.jpg`**
 
 내레이션 (문장 65): 「박 씨도 59세에 퇴직했어요.」
 
@@ -364,7 +365,7 @@ Absolutely no text, letters, numbers, symbols, logos or watermarks anywhere in t
 
 ## 20. L20 — 신청서를 옆으로 밀어 두고 펜을 내려놓는 박 씨
 
-**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L20.png`**
+**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L20.jpg`**
 
 내레이션 (문장 66): 「그런데 박 씨는 연금을 바로 신청하지 않았습니다.」
 
@@ -379,7 +380,7 @@ Absolutely no text, letters, numbers, symbols, logos or watermarks anywhere in t
 
 ## 21. L21 — 카페 창가에 나란히 앉은 두 사람 — 생각에 잠긴 김 씨, 편안한 박 씨
 
-**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L21.png`**
+**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L21.jpg`**
 
 내레이션 (문장 75): 「두 사람을 가른 건 신청서가 아니었습니다.」
 
@@ -396,7 +397,7 @@ Absolutely no text, letters, numbers, symbols, logos or watermarks anywhere in t
 
 ## 22. L22 — 회상 — 퇴직 전 공책에 계획을 적고 계산기를 두드리는 박 씨
 
-**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L22.png`**
+**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L22.jpg`**
 
 내레이션 (문장 76): 「퇴직하기 전에, 받는 나이까지 버틸 돈을 정해 뒀느냐였습니다.」
 
@@ -411,7 +412,7 @@ Absolutely no text, letters, numbers, symbols, logos or watermarks anywhere in t
 
 ## 23. L23 — 결심한 얼굴로 공단 건물 입구로 걸어가는 김 씨
 
-**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L23.png`**
+**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L23.jpg`**
 
 내레이션 (문장 79): 「이 사실을 안 김 씨는, 마지막으로 국민연금공단을 찾아갔습니다.」
 
@@ -427,7 +428,7 @@ Absolutely no text, letters, numbers, symbols, logos or watermarks anywhere in t
 
 ## 24. L24 — 대기석에서 번호표를 쥐고 불안하게 기다리는 김 씨
 
-**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L24.png`**
+**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L24.jpg`**
 
 내레이션 (문장 80): 「이미 낸 신청서, 정말 되돌릴 방법이 없을까요?」
 
@@ -443,7 +444,7 @@ Absolutely no text, letters, numbers, symbols, logos or watermarks anywhere in t
 
 ## 25. L25 — 친절히 설명하는 상담 직원, 몸을 내밀며 놀라는 김 씨
 
-**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L25.png`**
+**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L25.jpg`**
 
 내레이션 (문장 82): 「원래 받을 나이 전이라면, 연금을 멈출 수 있다는 거예요.」
 
@@ -460,7 +461,7 @@ Absolutely no text, letters, numbers, symbols, logos or watermarks anywhere in t
 
 ## 26. L26 — 밤 식탁, 공책을 펴고 손가락 두 개를 펴며 따져 보는 김 씨
 
-**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L26.png`**
+**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L26.jpg`**
 
 내레이션 (문장 91): 「김 씨는 집에 와서 두 가지를 따져 봤습니다.」
 
@@ -476,7 +477,7 @@ Absolutely no text, letters, numbers, symbols, logos or watermarks anywhere in t
 
 ## 27. L27 — 장식장의 가족사진 — 아흔 넘은 어른들 사진을 보며 미소 짓는 김 씨
 
-**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L27.png`**
+**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L27.jpg`**
 
 내레이션 (문장 92): 「집안 어른들은 대부분 90세 넘게 사셨어요.」
 
@@ -492,7 +493,7 @@ Absolutely no text, letters, numbers, symbols, logos or watermarks anywhere in t
 
 ## 28. L28 — 서랍에서 아껴 둔 퇴직금 통장을 꺼내 보며 고개를 끄덕이는 김 씨
 
-**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L28.png`**
+**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L28.jpg`**
 
 내레이션 (문장 93): 「그리고 아껴 둔 퇴직금으로, 4년은 버틸 수 있었습니다.」
 
@@ -508,7 +509,7 @@ Absolutely no text, letters, numbers, symbols, logos or watermarks anywhere in t
 
 ## 29. L29 — 다음 날 창구에 서류를 내는 김 씨, 웃으며 받는 상담 직원
 
-**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L29.png`**
+**저장 경로: `economic/source/gungmin-sigi-2026-10/scenes/L29.jpg`**
 
 내레이션 (문장 94): 「김 씨는 다음 날, 지급 정지를 신청했습니다.」
 

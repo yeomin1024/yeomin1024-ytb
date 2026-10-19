@@ -1,5 +1,13 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-19 (재테크 국민연금) — ChatGPT 가 올린 썸네일 4장이 잘려 깨짐 → JPEG 700KB 이하 · 깨진 그림 검사 · 쇼츠 제목 S1 확정
+
+- 사용자 지시: "S1으로 하고 영상을 만들기 위해 더 필요한 자료가 있는지 확인해"
+- 확인한 것: ChatGPT 가 GitHub 앱으로 올린 `gungmin-sigi-2026-10/thumbnails/thumbnail_1~3.png`·`shorts/thumbnails/thumbnail_1.png` 가 **모두 786,443~786,444바이트에서 IDAT 중간이 잘려 열리지 않음**(위 약 6%만 남음, IEND 없음) — 약 768KiB = base64 1MiB 한도로 보임. `make_summary` 는 깨진 파일도 '이미지_있음'으로 건너뛰고 있었다 → 4장 지움(git rm)
+- 고친 것: 프롬프트 파일 규칙 8 = **JPEG(.jpg) 700KB 이하로 바꿔 올리고 올린 크기(바이트) 확인** · 저장 경로 `.jpg` — `tools/make_summary.py` v1.9.4 · `tools/scene_clips.py` v1.2(장면 그림 기본 `.jpg`, `check` 가 끝까지 읽히는지) · `tools/youtube_upload.py` v1.13.2(깨진 썸네일은 없는 것으로) — 깨진 그림 = '없음' (`find_image`·`image_ok`). 시험: `test_make_summary_chatgpt.py` v1.11(잘린 PNG 시험) · `test_scene_clips.py` v1.2 · `test_upload_shorts.py` v1.2. 전체 `tools/tests` 287개 중 실패 6개는 이번 변경 전에도 같음 (`test_youtube_feedback` 5개 — `stock/source/bittu-2026-10/*.txt` 없음 · `test_foreign_and_keys` 1개)
+- 쇼츠 제목 **S1 확정** 「국민연금 신청 한 번에 평생 손해봤어요. 꼭 보세요」 (`shorts.md` v2.1.1 · `shorts/upload.md` v2.1.1) → 세로 썸네일 `thumbnail_1.md` v2.1 위 칸 「국민연금 신청 한 번에 / 평생 손해봤어요」(Noto Sans KR 900 약 115px)
+- `economic/thumbnails_chatgpt.md`(4장 — 롱폼 3장 다시 · 쇼츠 1장 새 문구) · `scenes/chatgpt.md`·`shorts/scenes/chatgpt.md`·`videogen.json`(그림 `.jpg`) 다시 만듦
+
 ## 2026-10-19 (재테크 국민연금) — ChatGPT 는 GitHub 에 올림 · 쇼츠 제목을 롱폼 제목처럼
 
 - 사용자 지시: "야 chatgpt 깃허브 업로드 가능하다고 다시 수정해서 알려주고 쇼츠 제목도 롱폼 제목 지을때 처럼 해 다르잖아"

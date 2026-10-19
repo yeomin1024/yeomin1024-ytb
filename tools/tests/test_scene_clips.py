@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-# VERSION: v1.1 — 2026-10-19 — scene_clips v1.1: ChatGPT 가 저장소에 올림(규칙 8) · 그림 확장자 .png 기본 (image_ext).
+# VERSION: v1.2 — 2026-10-19 — scene_clips v1.2: 그림 .jpg 기본 · JPEG 700KB 규칙 · 깨진 그림 검사 (test_image_ok).
+# (v1.1 — 2026-10-19 — scene_clips v1.1: ChatGPT 가 저장소에 올림(규칙 8) · 그림 확장자 .png 기본 (image_ext).
 # (v1.0 — 2026-10-19 — tools/scene_clips.py v1.0 시험 (구간 계산 · 장 시작·겹침·썸네일 자리 검사 · 프롬프트 · videogen 설정)
 # (가짜 계획·시각만 씀 — 파일·네트워크 없음))
 r"""
@@ -63,17 +64,33 @@ class TestSceneClips(unittest.TestCase):
         v = sc.videogen_settings(p, sc.windows(p, SENTS))
         self.assertEqual((v["model"], v["width"], v["height"], v["concat"], v["release_tag"]),
                          ("wan2.2-5b-fast", 1280, 704, False, "clips-v"))
-        self.assertEqual(v["start_images"][0], dict(image="x/scenes/A1.png", name="A1", sec=3.75,
+        self.assertEqual(v["start_images"][0], dict(image="x/scenes/A1.jpg", name="A1", sec=3.75,
                                                     prompt="Moves. Smooth motion."))
         md = sc.chatgpt_md(p, SENTS, "x/scenes/plan.json", "2026-10-19 00:00", shorts=False)
         self.assertIn("0. 인물 설정표", md)
-        self.assertIn("x/scenes/A1.png", md)
+        self.assertIn("x/scenes/A1.jpg", md)
+        self.assertIn("JPEG(.jpg)로 바꿔 700KB 이하", md)                           # v1.2 — GitHub 앱이 768KB 넘는 파일을 자름
         self.assertIn("ChatGPT 는 저장소에 파일을 올릴 수 있다", md)                # v1.1 — 올리기가 기본
         self.assertNotIn("읽기만", md)
-        self.assertEqual(sc.videogen_settings(dict(p, image_ext=".jpg"), sc.windows(p, SENTS))["start_images"][0]["image"],
-                         "x/scenes/A1.jpg")
+        self.assertEqual(sc.videogen_settings(dict(p, image_ext=".png"), sc.windows(p, SENTS))["start_images"][0]["image"],
+                         "x/scenes/A1.png")
         self.assertIn("「하나.」", md)
         self.assertNotIn("0. 인물 설정표", sc.chatgpt_md(p, SENTS, "x", "t", shorts=True))
+
+    def test_image_ok(self):                                         # v1.2 — 잘려 올라간 PNG 는 깨진 것
+        import io, tempfile
+        from PIL import Image
+        with tempfile.TemporaryDirectory() as d:
+            good, bad = Path(d) / "a.jpg", Path(d) / "b.png"
+            Image.new("RGB", (32, 32), (10, 200, 90)).save(good)
+            buf = io.BytesIO()
+            Image.frombytes("RGB", (64, 64), bytes((i * 7) % 256 for i in range(64 * 64 * 3))).save(buf, format="PNG")
+            bad.write_bytes(buf.getvalue()[: len(buf.getvalue()) // 2])
+            self.assertTrue(sc.image_ok(good))
+            self.assertFalse(sc.image_ok(bad))
+            broken = []
+            self.assertIsNone(sc._image_file({"scenes": Path(d)}, "b", broken))
+            self.assertEqual([f.name for f in broken], ["b.png"])
 
     def test_crop(self):
         self.assertEqual(sc.crop_pct(1536, 1024, "landscape"), 17.5)   # ChatGPT 3:2 → 1280x704(1.82:1) 위아래 잘림

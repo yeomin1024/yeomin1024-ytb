@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-# VERSION: v1.1 — 2026-10-17 — v1.9: 쇼츠 썸네일은 세로 720×1280 으로 준비한다 ("쇼츠 보니까 썸네일 만든거 안올라갔고").
+# VERSION: v1.2 — 2026-10-19 — 시험 썸네일을 끝까지 읽히는 진짜 그림으로 (youtube_upload v1.13.2 가 깨진 그림을 없는 것으로 봄).
+# (v1.1 — 2026-10-17 — v1.9: 쇼츠 썸네일은 세로 720×1280 으로 준비한다 ("쇼츠 보니까 썸네일 만든거 안올라갔고").
 # (v1.0 — 2026-10-17 — tools/youtube_upload.py v1.8 시험: '<영상ID>-shorts' 는 source/<영상ID>/shorts/ 에서 시트를 읽음
 #          (dry-run — 네트워크·키 없음, 임시 폴더만).)
 #          사용자 지시 2026-10-17 "아니 공개 자동예약으로 올려 쇼츠도 하나 올려보고".
@@ -56,7 +57,8 @@ class Shorts(unittest.TestCase):
             d = root / "economic" / "source" / "a-2026-10" / "shorts"
             (d / "thumbnails").mkdir(parents=True)
             (d / "upload.md").write_text(SHEET, "utf-8")
-            (d / "thumbnails" / "thumbnail_1.png").write_bytes(b"not used")
+            from PIL import Image
+            Image.new("RGB", (9, 16), (0, 0, 0)).save(d / "thumbnails" / "thumbnail_1.png")   # 끝까지 읽히는 그림 (v1.13.2 — 깨진 그림은 없는 것)
             buf = io.StringIO()
             env = {k: v for k, v in os.environ.items() if not k.startswith("YOUTUBE_")}
             with mock.patch.object(yu, "ROOT", root), mock.patch.dict(os.environ, env, clear=True), \

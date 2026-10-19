@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.9.3 — 2026-10-19 — ChatGPT 규칙 8: 이 계정의 ChatGPT 는 GitHub 에 올릴 수 있다 (사용자 지시 "chatgpt 깃허브 업로드 가능하다고 다시 수정해서 알려주고") —
+# VERSION: v1.9.4 — 2026-10-19 — ChatGPT 가 올린 썸네일 PNG 4장이 786,444바이트에서 잘려 열리지 않음 (GitHub 앱이 약 768KB = base64 1MB 를
+#          넘으면 자름): 규칙 8 = JPEG(.jpg) 700KB 이하로 바꿔 올리고 올린 크기 확인 · 저장 경로 thumbnail_N.jpg · 깨진 그림은 '없음'으로
+#          (find_image — 끝까지 읽히는지 PIL 로 확인, v1.9.3 까지는 깨진 파일도 '이미지_있음'으로 건너뜀).
+# (v1.9.3) — 2026-10-19 — ChatGPT 규칙 8: 이 계정의 ChatGPT 는 GitHub 에 올릴 수 있다 (사용자 지시 "chatgpt 깃허브 업로드 가능하다고 다시 수정해서 알려주고") —
 #          장마다 저장 경로에 커밋이 기본, 대화에 붙이는 길은 올리기가 실패한 장만.
 # (v1.9.2) — 2026-10-19 — --chatgpt-all 이 다시 쓰는 중인 영상(대본 폴더에 NO_TTS.md — tts_narration v1.12 와 같은 표시)의 썸네일은 모으지 않는다 (로그 skip=…reason=NO_TTS). 사용자 지시 2026-10-19 "일단 이걸로 오디오 생성 해볼게 너는 나머지 부분 만들어" — 사연형으로 다시 쓰는 geumyung-soduk-2026-10 의 옛 v1.0 썸네일 4장이 국민연금 새 편과 함께 ChatGPT 파일에 섞여 버려질 그림을 만들 뻔함.
 # (v1.9.1) — 2026-10-18 — ChatGPT 규칙 0: 주소를 새로 열어 지금 내용만 쓰고, 답 첫 줄에 '자동 생성' 시각을 적는다 (2026-10-17 16:27Z ChatGPT 가 세 칸 v3.0 을 올린 뒤에도 옛 v2.0 프롬프트로 4장을 그림 — 사용자 지시 2026-10-18 "썸네일 다 생성됐으니까 영상 만들어 놓으면 이제 올릴 준비는 다 된거지?" 검수 때 찾음, guides/thumbnail_guide.md 피드백 25).
@@ -20,7 +23,7 @@
 #          (쇼츠는 '테스트 및 비교'가 없어 한 장). --chatgpt-all 이 롱폼 다음에 쇼츠를 모으고, 장마다 크기 줄(롱폼 가로 16:9 · 쇼츠 세로 9:16)을 적음.
 #          사용자 지시 2026-10-16 "쇼츠 영상 썸네일 이미지 프롬프트 만들어서 영상 처음에만 그걸 포함 시키고 … 이미지 프롬프트 4개 다 만들도록 하고".)
 # (v1.5.0 — 2026-10-16 — --chatgpt-all <주제>: 그 주제 모든 영상의 남은 썸네일을 한 파일(<주제>/thumbnails_chatgpt.md)에 모아
-#          ChatGPT 가 메시지 한 번으로 차례로 만들고 장마다 **저장 경로**(`<주제>/source/<영상ID>/thumbnails/thumbnail_N.png`)에 올리게 한다
+#          ChatGPT 가 메시지 한 번으로 차례로 만들고 장마다 **저장 경로**(`<주제>/source/<영상ID>/thumbnails/thumbnail_N.jpg`)에 올리게 한다
 #          (못 쓰면 경로를 붙여 순서대로 보여 주고 Claude 대화에 붙이게). 영상별 chatgpt.md 도 그림 위에 저장 경로를 적게 함.
 #          사용자 지시 2026-10-16 "모든 썸네일은 chatgpt가 프롬프트 읽고 만들어서 맞는 경로에 업로드 해줘야하는데 뭐라고 해야하는지 알려줘 지시사항 변경 필요하면 변경하고".)
 # (v1.4.4 — 2026-10-16 — chatgpt.md 규칙 4: '따옴표 안 한글만' → '따옴표 안 글자(한글, 그리고 프롬프트가 적은 영문 — 예: ISA)만'.
@@ -68,6 +71,32 @@ import srt_tool  # noqa: E402  (문장 파싱·SRT 묶음 재사용)
 AUDIO_EXTS = (".mp3", ".wav", ".m4a")
 VOICES_DIR = ROOT / "voices"     # 내레이션 역할 설정 (tools/tts_narration.py 와 같은 파일·같은 규칙)
 IMG_EXTS = (".png", ".jpg", ".jpeg", ".webp")
+UPLOAD_MAX_KB = 700   # v1.9.4 ChatGPT GitHub 앱은 약 768KB(base64 1MB)를 넘는 파일을 잘라 올린다 (2026-10-19 PNG 4장이 786,444바이트에서 잘림)
+
+
+def image_ok(path):
+    """그림이 끝까지 읽히는지 (v1.9.4 — 잘려 올라간 그림은 '없음'으로 본다). PIL 이 없으면 있는 것으로."""
+    try:
+        from PIL import Image
+    except ImportError:
+        return True
+    try:
+        with Image.open(path) as im:
+            im.load()
+        return True
+    except Exception:
+        return False
+
+
+def find_image(folder, stem):
+    """<stem>.(png|jpg|jpeg|webp) 가운데 끝까지 읽히는 첫 파일. 깨진 파일은 경고하고 없는 것으로 (v1.9.4)."""
+    for e in IMG_EXTS:
+        p = Path(folder) / f"{stem}{e}"
+        if p.exists():
+            if image_ok(p):
+                return p
+            print(f"[IMAGE] level=warn broken={p.as_posix()} bytes={p.stat().st_size} note=끝까지_읽히지_않음(잘려_올라감)_—_없는_것으로_봄")
+    return None
 SHORTS = "-shorts"                                              # v1.6.0 쇼츠 영상ID 끝
 
 
@@ -179,11 +208,11 @@ def thumb_section(src, vid, adopted_n):
         hyp = re.search(r"\|\s*시험하는 가설\s*\|\s*(.+?)\s*\|", md)
         words = re.search(r"## 문구[^\n]*\n(.*?)(?=\n## )", md, re.S)
         prompt = re.search(r"## \[A\][^\n]*\n```\n(.*?)\n```", md, re.S)
-        img = next((p for p in (src / "thumbnails" / f"thumbnail_{i}{e}" for e in IMG_EXTS) if p.exists()), None)
+        img = find_image(src / "thumbnails", f"thumbnail_{i}")
         part = [f"### 썸네일 {i}{' ✅ 기본(채택 제목의 짝)' if i == adopted_n else ''} — {head.split('—')[-1].strip()}"]
         part.append(f"![thumbnail_{i}](thumbnails/{img.name})" if img else
                     f"🖼️ 이미지 없음 → 이미지 AI에 `thumbnails/thumbnail_{i}.md`의 [A] 프롬프트를 넣어 만든 뒤 "
-                    f"`thumbnails/thumbnail_{i}.png`로 저장")
+                    f"`thumbnails/thumbnail_{i}.jpg`로 저장")
         if hyp:
             part.append(f"- 가설: {hyp.group(1)}")
         if words:
@@ -225,7 +254,7 @@ def build(topic, vid):
     else:
         audio_note = " · 대본과 같은지 정보 없음(직접 녹음)" if audio else ""
     has_code = (ROOT / "video" / "src" / "episodes" / vid).is_dir()
-    imgs = [i for i in (1, 2, 3) if any((src / "thumbnails" / f"thumbnail_{i}{e}").exists() for e in IMG_EXTS)]
+    imgs = [i for i in (1, 2, 3) if find_image(src / "thumbnails", f"thumbnail_{i}")]
     prompts = [i for i in (1, 2, 3) if (src / "thumbnails" / f"thumbnail_{i}.md").exists()]
     adopted = re.search(r"\[x\]\s*\*\*(T\d)[^\n]*?\*\*\s*(.+?)\s*`", titles_md)
     pair = re.search(r"\[x\].*짝 썸네일:\s*thumbnail_(\d)", titles_md)
@@ -237,7 +266,7 @@ def build(topic, vid):
                     f"({'오디오에 맞춤' if audio and (src / f'{vid}.srt').stat().st_mtime >= audio.stat().st_mtime else 'SRT 추정'})"
          if not problems else f"⚠️ {problems[0]}"),
         ("제목 3개", f"✅ 채택 {adopted.group(1)}" if adopted else ("✅" if titles_md else "❌ 없음")),
-        ("썸네일", (f"프롬프트 3개 ✅ · 이미지 {len(imgs)}/3" + (" (이미지 AI로 만들어 `thumbnails/thumbnail_N.png`에 저장)" if len(imgs) < 3 else ""))
+        ("썸네일", (f"프롬프트 3개 ✅ · 이미지 {len(imgs)}/3" + (" (이미지 AI로 만들어 `thumbnails/thumbnail_N.jpg`에 저장)" if len(imgs) < 3 else ""))
          if len(prompts) == 3 else f"❌ 프롬프트 {len(prompts)}/3 (`thumbnails/thumbnail_N.md`)"),
         ("업로드 시트", "✅ 설명란·태그·고정 댓글·챕터" if upload_md else "❌ 없음"),
         ("내레이션 역할", (role_ranges(txt, roles) + " (`voices/*.json`)") if roles and txt.exists() else "voices/ 없음"),
@@ -287,7 +316,7 @@ def thumb_todo(topic):
     items = []
     for md_path in sorted((ROOT / topic / "source").glob("*/thumbnails/thumbnail_*.md")):
         folder, n = md_path.parent, md_path.stem.split("_")[-1]
-        if any((folder / f"thumbnail_{n}{e}").exists() for e in IMG_EXTS):
+        if find_image(folder, f"thumbnail_{n}"):
             continue
         md = md_path.read_text("utf-8")
         a = re.search(r"## \[A\][^\n]*\n```\n(.*?)\n```", md, re.S)
@@ -302,7 +331,7 @@ def thumb_todo(topic):
            f"남은 썸네일: {len(items)}개", ""]
     for vid, n, head, a, b, words in items:
         out += [f"## {vid} · thumbnail_{n} — {head.split('—')[-1].strip()}", "",
-                f"저장 위치: `{topic}/source/{vid}/thumbnails/thumbnail_{n}.png`", ""]
+                f"저장 위치: `{topic}/source/{vid}/thumbnails/thumbnail_{n}.jpg`", ""]
         if words:
             out += [words.group(1).strip(), ""]
         if a:
@@ -323,14 +352,15 @@ CHATGPT_RULES = """## ChatGPT에게 — 이 파일을 읽으면 할 일
 1. 아래 썸네일 {n}개({names})를 **차례로 모두** 만든다. 질문하지 말고, 한 장을 만든 뒤 멈추지 말고 다음 장으로 넘어간다.
 2. 각 장은 그 칸의 **프롬프트(``` 안)를 한 글자도 바꾸지 않고 그대로** 쓴다. 장마다 서로 다른 그림이다 — 앞 장의 인물·구도·색을 이어 쓰지 않는다.
 {rule3}{rule4}5. 사람은 실존 인물이나 유명인을 닮지 않은 가상 인물이다. **표정·몸짓은 프롬프트에 적힌 그대로** — 손해를 알고 좌절한 장면을 놀란 얼굴·담담한 얼굴·웃는 얼굴로 바꾸지 않고, 작은 화면에서도 그 감정이 보이게 그린다 (v1.8.3).
-{rule6}7. 그림마다 바로 위에 그 장의 저장 경로 `{folder}/thumbnail_N.png`를 한 줄 적어 어느 시안인지 알려 준다 (그림 안에는 쓰지 않는다).
+{rule6}7. 그림마다 바로 위에 그 장의 저장 경로 `{folder}/thumbnail_N.jpg`를 한 줄 적어 어느 시안인지 알려 준다 (그림 안에는 쓰지 않는다).
 8. **다 만들면 저장소에 넣는다.**
-   - 올릴 곳: 저장소 `{repo}` main 브랜치의 `{folder}/` 폴더, 파일 이름 `thumbnail_N.png` (N = 시안 번호).
+   - 올릴 곳: 저장소 `{repo}` main 브랜치의 `{folder}/` 폴더, 파일 이름 `thumbnail_N.jpg` (N = 시안 번호).
+   - **올리기 전에 JPEG(.jpg)로 바꿔 700KB 이하로 만든다** — 파이썬(PIL)으로 RGB·크기 그대로·품질 90부터 5씩 낮춰 700KB 아래가 될 때까지 저장. GitHub 앱은 약 768KB 를 넘는 파일을 **잘라** 올려 그림이 깨진다 (2026-10-19 PNG 4장이 786,444바이트에서 잘려 열리지 않음). 올린 뒤 GitHub 에 있는 그 파일의 크기(바이트)가 내 파일과 같은지 확인하고, 다르면 다시 올린다.
    - **GitHub 앱으로 그 폴더에 장마다 커밋한다** — 이 계정의 ChatGPT 는 저장소에 파일을 올릴 수 있다 (2026-10-19 사용자 확인). 커밋 메시지: `[썸네일] {vid} thumbnail_N 이미지`. 다 올리면 올린 파일 경로와 커밋 링크를 목록으로 적는다.
    - **올리기가 실패한 장만** (권한·연결 오류) 묻지 말고 아래처럼 끝낸다:
-     1. 만든 그림을 thumbnail 번호 순서로 다시 한 번씩 보여 준다 (그림마다 위에 저장 경로 `{folder}/thumbnail_N.png`).
+     1. 만든 그림을 thumbnail 번호 순서로 다시 한 번씩 보여 준다 (그림마다 위에 저장 경로 `{folder}/thumbnail_N.jpg`).
      2. 마지막에 이 문장을 그대로 쓴다: **"이 그림 {n}장을 Claude 대화창에 그대로 붙여 넣어 주세요. Claude가 검수한 뒤 저장소({folder}/thumbnail_N)에 올립니다."**
-     3. 그 아래 줄에 직접 올리는 길도 적는다: "직접 올리려면: 그림을 thumbnail_N.png 이름으로 내려받아 {upload} 에 끌어다 놓고 Commit changes"
+     3. 그 아래 줄에 직접 올리는 길도 적는다: "직접 올리려면: 그림을 thumbnail_N.jpg 이름으로 내려받아 {upload} 에 끌어다 놓고 Commit changes"
 """
 
 
@@ -415,7 +445,7 @@ def pending_thumbnails(topic, vid, root=ROOT):
         if not md_path.exists():
             print(f"[CHATGPT] level=warn missing={md_path.relative_to(root)}")
             continue
-        img = next((p for p in (folder / f"thumbnail_{i}{e}" for e in IMG_EXTS) if p.exists()), None)
+        img = find_image(folder, f"thumbnail_{i}")
         if img:   # 이미 만든 시안은 빼고 남은 것만 ChatGPT에 맡긴다
             print(f"[CHATGPT] skip=thumbnail_{i} reason=이미지_있음 file={img.name}")
             continue
@@ -470,12 +500,13 @@ CHATGPT_ALL_RULES = """## ChatGPT에게 — 이 파일을 읽으면 할 일
 {rule3}{rule4}5. 사람은 실존 인물이나 유명인을 닮지 않은 가상 인물이다. **표정·몸짓은 프롬프트에 적힌 그대로** — 손해를 알고 좌절한 장면을 놀란 얼굴·담담한 얼굴·웃는 얼굴로 바꾸지 않고, 작은 화면에서도 그 감정이 보이게 그린다 (v1.8.3).
 {rule6}7. **그림마다 바로 위에 그 장의 번호와 저장 경로를 한 줄 적는다** (예: `3. {example}`). 그림 안에는 쓰지 않는다.
 8. **다 만들면 저장소에 넣는다 — 장마다 적힌 저장 경로 그대로.**
-   - 저장소 `{repo}` main 브랜치. 파일 이름·폴더는 그 장의 '저장 경로'와 한 글자도 다르지 않게 (`thumbnail_N.png`).
+   - 저장소 `{repo}` main 브랜치. 파일 이름·폴더는 그 장의 '저장 경로'와 한 글자도 다르지 않게 (`thumbnail_N.jpg`).
+   - **올리기 전에 JPEG(.jpg)로 바꿔 700KB 이하로 만든다** — 파이썬(PIL)으로 RGB·크기 그대로·품질 90부터 5씩 낮춰 700KB 아래가 될 때까지 저장. GitHub 앱은 약 768KB 를 넘는 파일을 **잘라** 올려 그림이 깨진다 (2026-10-19 PNG 4장이 786,444바이트에서 잘려 열리지 않음). 올린 뒤 GitHub 에 있는 그 파일의 크기(바이트)가 내 파일과 같은지 확인하고, 다르면 다시 올린다.
    - **GitHub 앱으로 장마다 그 경로에 커밋한다** — 이 계정의 ChatGPT 는 저장소에 파일을 올릴 수 있다 (2026-10-19 사용자 확인). 커밋 메시지: `[썸네일] <영상ID> thumbnail_N 이미지`. 다 올리면 올린 파일 경로와 커밋 링크를 목록으로 적는다.
    - **올리기가 실패한 장만** (권한·연결 오류) 묻지 말고 아래처럼 끝낸다:
      1. 만든 그림을 이 파일의 번호 순서(1번부터)대로 다시 한 번씩 보여 준다 (그림마다 위에 번호와 저장 경로).
      2. 마지막에 이 문장을 그대로 쓴다: **"이 그림 {n}장을 이 순서대로 Claude 대화창에 붙여 넣어 주세요. Claude가 검수한 뒤 각 저장 경로에 올립니다."**
-     3. 그 아래에 직접 올리는 길도 적는다: "직접 올리려면: 그림을 thumbnail_N.png 이름으로 내려받아 폴더마다 아래 링크에 끌어다 놓고 Commit changes" + 아래 '폴더별 올리기 링크' 목록
+     3. 그 아래에 직접 올리는 길도 적는다: "직접 올리려면: 그림을 thumbnail_N.jpg 이름으로 내려받아 폴더마다 아래 링크에 끌어다 놓고 Commit changes" + 아래 '폴더별 올리기 링크' 목록
 """
 
 
@@ -511,14 +542,14 @@ def chatgpt_all(topic, root=ROOT):
            f"이 파일 주소: {RAW_BASE}/{topic}/thumbnails_chatgpt.md", "",
            "| 영상 | 만들 시안 | 저장 폴더 |", "|---|---|---|"]
     out += [f"| {vid} | {', '.join(f'thumbnail_{it[0]}' for it in items)} | `{rel}/` |" for vid, rel, items in groups]
-    out += ["", CHATGPT_ALL_RULES.format(n=len(flat), videos=len(groups), repo=REPO, example=f"{first_rel}/thumbnail_{first_it[0]}.png",
+    out += ["", CHATGPT_ALL_RULES.format(n=len(flat), videos=len(groups), repo=REPO, example=f"{first_rel}/thumbnail_{first_it[0]}.jpg",
                                           rule3=size_rule([g[0] for g in groups], bands), rule4=rules[0], rule6=rules[1]),
             "## 폴더별 올리기 링크 (ChatGPT가 못 올릴 때 사람이 쓰는 길)", ""]
     out += [f"- {vid}: {UPLOAD_BASE}/{rel}" for vid, rel, _ in groups]
     out.append("")
     for k, (vid, rel, (i, head, prompt, words, _mode)) in enumerate(flat, 1):
         out += [f"## {k}. {vid} · thumbnail_{i} — {head.split('—', 1)[-1].strip()}", "",
-                f"**저장 경로: `{rel}/thumbnail_{i}.png`**", "",
+                f"**저장 경로: `{rel}/thumbnail_{i}.jpg`**", "",
                 ("크기: **세로 9:16 (1080×1920) — 쇼츠 · 세 칸 (위 0~36% 순검정 + 문구 2줄 · 가운데 36~72% 사진 · 아래 72~100% 순검정, 글자·얼굴은 높이 15~85%)**" if vid in bands
                  else "크기: **세로 9:16 (1080×1920) — 쇼츠**" if vid.endswith(SHORTS) else "크기: 가로 16:9 (1280×720) — 롱폼"), ""]
         if words:

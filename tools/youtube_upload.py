@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.13.1 — 2026-10-18 — 설명란 챕터 머리 '■ 챕터 (Chapters)' 처럼 뒤에 글이 붙어도 읽음 (주식 설명란 한국어 + 아래 영어 — 사용자 지시 2026-10-18 "…챕터는 각각 챕터 옆에 괄호 안에 영어로 번역해서 넣어…").
+# VERSION: v1.13.2 — 2026-10-19 — 썸네일이 끝까지 읽히는지 확인 (깨진 그림은 없는 것으로 — ChatGPT 가 올린 PNG 4장이 786,444바이트에서 잘림).
+# (v1.13.1) — 2026-10-18 — 설명란 챕터 머리 '■ 챕터 (Chapters)' 처럼 뒤에 글이 붙어도 읽음 (주식 설명란 한국어 + 아래 영어 — 사용자 지시 2026-10-18 "…챕터는 각각 챕터 옆에 괄호 안에 영어로 번역해서 넣어…").
 # (v1.13) — 2026-10-18 — **이미 올린 영상의 제목·설명·태그·언어만 바꾸기 `--update-meta`** (videos.update part=snippet,localizations — 50단위, 영상·공개 시각·
 #          자막은 그대로) · 업로드 설정 '| 오디오 언어 | ko |' (없으면 기본 언어 — 주식은 설명·제목 기본 언어 en, 내레이션 ko) · 설명란 챕터 머리
 #          '■ Chapters' 도 읽음 (사용자 지시 2026-10-18 "설명은 부호, 정말 간단한 영어로 간략하게 표현하도록 해봐 그리고 태그 같은 것도 영어로 하고
@@ -458,12 +459,29 @@ def shorts_cover_frame(img, video_path, out_dir):
     return frame
 
 
+def _image_ok(p):
+    """끝까지 읽히는 그림인지 (v1.13.2 — ChatGPT GitHub 앱이 약 768KB 에서 잘라 올린 PNG 는 열리기는 해도 깨짐)."""
+    try:
+        from PIL import Image
+    except ImportError:
+        return True
+    try:
+        with Image.open(p) as im:
+            im.load()
+        return True
+    except Exception:
+        return False
+
+
 def find_thumbnail(topic, vid, n):
     for folder in (src_dir(topic, vid) / "thumbnails", ROOT / topic / "out" / vid / "thumbnails"):
         for ext in (".png", ".jpg", ".jpeg", ".webp"):
             p = folder / f"thumbnail_{n}{ext}"
             if p.exists():
-                return p
+                if _image_ok(p):
+                    return p
+                log("THUMBNAIL", level="warn", file=str(p.relative_to(ROOT)), bytes=p.stat().st_size,
+                    note="끝까지 읽히지 않음(잘려 올라감) — 없는 것으로 봄. JPEG 700KB 이하로 다시 올리기")
     return None
 
 

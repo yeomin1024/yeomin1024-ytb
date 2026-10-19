@@ -1,13 +1,13 @@
 # gungmin-sigi-2026-10-shorts 업로드 시트 (쇼츠)
 
-버전: v2.1 — 2026-10-19 — 제목 = `shorts.md` v2.1 S1(롱폼 제목과 같은 꼴 — 사용자 지시 "쇼츠 제목도 롱폼 제목 지을때 처럼 해"), 사용자가 고르기 전 임시.
+버전: v2.1.1 — 2026-10-19 — 제목 S1 확정 (사용자 "S1으로 하고"). 이전 v2.1 — 제목 = `shorts.md` v2.1 S1(롱폼 제목과 같은 꼴 — 사용자 지시 "쇼츠 제목도 롱폼 제목 지을때 처럼 해").
 이전 v2.0 — 2026-10-19 — 쇼츠 대본 v2.0(롱폼 v2.1 각색 인물 김 씨)에 맞춰 다시. `tools/youtube_upload.py` 가 읽는 꼴 (제목·설명란·태그·설정 — 챕터 없음). 내용은 `shorts.md` v2.0 1번 R1·4번 설명란·5번 설정 그대로. 제목은 사용자가 R1·R2 중 고른 것으로 바꿈. 옛 v1.0 은 git 이력.
 
 기준 파일: 쇼츠 대본 `gungmin-sigi-2026-10-shorts.txt` (11문장, 293음절) · SRT 문장 11 / 자막 11 (추정 — 오디오 뒤 `align-audio` 로 맞춤) · Kaggle(범위 `economic`) → 렌더 → 올릴 영상 = `economic/out/gungmin-sigi-2026-10-shorts/final_1080p.mp4`
 
 > 업로드: `python tools/youtube_upload.py economic gungmin-sigi-2026-10-shorts --dry-run` → `--publish-at <시각>` (비공개로 올리고 그 시각에 공개 — 짝 롱폼과 같은 시각). 쇼츠 썸네일은 도구가 세로 그대로 올린다. 올리기 전에 부자백서 채널 업로드 목록을 읽어 두 번 올리지 않는다.
 
-## 1. 제목 (`shorts.md` v2.1 S1 추천 — 사용자가 고르면 바꿈, 28자 — 홈 Shorts 칸 2줄 안, `title_fit.py --shorts` ✅)
+## 1. 제목 (`shorts.md` v2.1 **S1 — 사용자 선택**, 28자 — 홈 Shorts 칸 2줄 안, `title_fit.py --shorts` ✅)
 
 ```
 국민연금 신청 한 번에 평생 손해봤어요. 꼭 보세요

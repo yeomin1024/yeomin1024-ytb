@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-10-19 — 사용자 지시 "영상은 설명이 복잡하고 어려울 때는 클로드 코드로 렌더링 하고 그렇지 않은 부분은
+# VERSION: v1.1 — 2026-10-19 — ChatGPT 가 GitHub 에 바로 올림 (사용자 지시 "chatgpt 깃허브 업로드 가능하다고 다시 수정해서 알려주고"): 규칙 8 =
+#          장마다 저장 경로에 커밋(대화에 붙이기는 실패한 장만) · 그림 확장자 = 올린 그대로 .png (plan image_ext) — videogen.json·check·add-image.
+# 이전 v1.0 — 2026-10-19 — 사용자 지시 "영상은 설명이 복잡하고 어려울 때는 클로드 코드로 렌더링 하고 그렇지 않은 부분은
 #          친숙한 애니메이션 이미지 생성 프롬프트와 그걸 기반으로 짧은 영상 만들어주는 프롬프트 각각 생성해서 영상 만드는걸로
 #          하자 롱폼,숏폼 둘다 아까 짧게 짧게 시작이미지로 영상 만들었던 코드로 만들거니까 … 영상을 이어 붙이는건 … 너가 하는거야":
 #          장면 계획 하나(scenes/plan.json)에서 ① ChatGPT 그림 프롬프트 파일 ② Kaggle videogen 설정 ③ 사람이 보는 계획 표를
@@ -8,7 +10,7 @@
 r"""
   python3 tools/scene_clips.py build economic gungmin-sigi-2026-10 [--shorts]     # plan.json → chatgpt.md · videogen.json · plan.md
   python3 tools/scene_clips.py check economic gungmin-sigi-2026-10 [--shorts]     # 문장 범위·장 시작·길이 · 있는 그림·클립
-  python3 tools/scene_clips.py add-image economic gungmin-sigi-2026-10 L01 그림.png [--shorts]   # 검수한 그림 → scenes/L01.jpg
+  python3 tools/scene_clips.py add-image economic gungmin-sigi-2026-10 L01 그림.png [--shorts]   # 대화에 붙인 그림 → scenes/L01.png
   python3 tools/scene_clips.py fetch economic gungmin-sigi-2026-10 [--shorts]     # Release → <주제>/out/<영상ID>/clips/ (sha256 확인)
 
 장면 계획 (scenes/plan.json — 사람이 고치는 파일):
@@ -32,7 +34,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 REPO = "yeomin1024/yeomin1024-ytb"
-VERSION = "v1.0"
+VERSION = "v1.1"
 # 생성 해상도(5B 는 32 배수) · 최종 해상도 · 비율 — videogen v1.4.0 은 가운데를 잘라 생성 해상도에 맞춤
 SIZES = {"landscape": dict(gen=(1280, 704), final=(1920, 1080), ratio="16:9", chatgpt="1536×864"),
          "portrait": dict(gen=(704, 1280), final=(1080, 1920), ratio="9:16", chatgpt="864×1536")}
@@ -215,13 +217,18 @@ def motion_prompt(plan: dict, clip: dict) -> str:
     return f"{clip['motion'].rstrip()} {plan['style']['motion']}".strip()
 
 
+def image_ext(plan: dict) -> str:
+    """장면 그림 확장자 (v1.1 — ChatGPT 가 저장소에 바로 올리는 PNG 가 기본, 손으로 줄인 그림이면 plan.json image_ext=".jpg")."""
+    return plan.get("image_ext", ".png")
+
+
 def videogen_settings(plan: dict, wins: list[dict]) -> dict:
     gw, gh = SIZES[plan["orientation"]]["gen"]
     by = {w["name"]: w for w in wins}
     return dict(
         model=MODEL, width=gw, height=gh, seed=42, concat=False, upscaler="lanczos",
         prompt=plan["style"]["motion"], negative_prompt=NEGATIVE, release_tag=plan["release_tag"],
-        start_images=[dict(image=f"{plan['image_dir']}/{c['name']}.jpg", name=c["name"], sec=by[c["name"]]["sec"],
+        start_images=[dict(image=f"{plan['image_dir']}/{c['name']}{image_ext(plan)}", name=c["name"], sec=by[c["name"]]["sec"],
                            prompt=motion_prompt(plan, c)) for c in plan["clips"]])
 
 
@@ -258,10 +265,12 @@ def chatgpt_md(plan: dict, sents: list[dict], plan_rel: str, stamp: str, shorts:
            "7. **그림마다 바로 위에 그 장의 번호와 저장 경로를 한 줄 적는다** (예: `1. " + f"{plan['image_dir']}/"
            f"{plan['clips'][0]['name']}.png`). 그림 안에는 쓰지 않는다.",
            "8. **다 만들면 저장소에 넣는다 — 장마다 적힌 저장 경로 그대로.**",
-           f"   - 저장소 `{REPO}` main 브랜치. GitHub 에 쓸 수 있으면 장마다 그 경로에 커밋 (메시지 `[장면] {vid} <이름> 그림`).",
-           "   - **쓸 수 없으면** (이 계정의 ChatGPT 는 GitHub 를 읽기만 함 — 2026-10-15 확인) 묻지 말고: 만든 그림을 번호 순서대로 다시 "
-           f"보여 주고(그림마다 위에 번호와 저장 경로), 마지막에 이 문장을 그대로 쓴다: **\"이 그림 {n}장을 이 순서대로 Claude "
-           "대화창에 붙여 넣어 주세요. Claude가 검수한 뒤 각 저장 경로에 올립니다.\"**", "",
+           f"   - 저장소 `{REPO}` main 브랜치. **GitHub 앱으로 장마다 그 경로에 커밋한다** — 이 계정의 ChatGPT 는 저장소에 파일을 "
+           f"올릴 수 있다 (2026-10-19 사용자 확인). 커밋 메시지 `[장면] {vid} <이름> 그림`. 파일 이름·폴더는 저장 경로와 한 글자도 다르지 "
+           "않게. 다 올리면 올린 파일 경로와 커밋 링크를 목록으로 적는다 (Claude 가 그 목록으로 검수).",
+           "   - **올리기가 실패한 장만** (권한·연결 오류) 묻지 말고: 그 그림을 번호 순서대로 다시 보여 주고(그림마다 위에 번호와 저장 "
+           "경로), 마지막에 이 문장을 그대로 쓴다: **\"올리지 못한 그림을 이 순서대로 Claude 대화창에 붙여 넣어 주세요. Claude가 검수한 "
+           "뒤 각 저장 경로에 올립니다.\"**", "",
            "## 그림체 (모든 장 공통 — 프롬프트에 이미 들어 있음)", "", plan["style"]["image"], "",
            "## 인물", ""]
     out += [f"- **{c['name']}** — {c['en']}" for c in plan["characters"]]
@@ -343,7 +352,7 @@ def cmd_build(a) -> int:
 
 
 def _image_file(p: dict, name: str) -> Path | None:
-    for ext in (".jpg", ".png", ".jpeg", ".webp"):
+    for ext in (".png", ".jpg", ".jpeg", ".webp"):
         f = p["scenes"] / f"{name}{ext}"
         if f.exists():
             return f
@@ -373,8 +382,8 @@ def cmd_check(a) -> int:
         with Image.open(f) as im:
             cut = crop_pct(*im.size, plan["orientation"])
             log("IMAGE", w["name"], file=str(f.relative_to(ROOT)), size=f"{im.size[0]}x{im.size[1]}", cropped_pct=cut)
-            if f.suffix != ".jpg":
-                problems.append(f"{w['name']}: {f.name} — add-image 로 .jpg 로 (videogen.json 은 .jpg 를 가리킴)")
+            if f.suffix != image_ext(plan):
+                problems.append(f"{w['name']}: {f.name} — videogen.json 은 {image_ext(plan)} 를 가리킴 (add-image 로 바꾸기)")
             if cut > 20:
                 problems.append(f"{w['name']}: 비율이 많이 달라 {cut}% 잘림 — {SIZES[plan['orientation']]['ratio']} 로 다시")
             if max(im.size) < 1024:
@@ -414,9 +423,10 @@ def cmd_add_image(a) -> int:
         if max(w, h) > 1920:
             k = 1920 / max(w, h)
             im = im.resize((round(w * k), round(h * k)), Image.LANCZOS)
-        dst = p["scenes"] / f"{a.name}.jpg"
-        im.save(dst, quality=92, optimize=True)
-    for old in (p["scenes"] / f"{a.name}{e}" for e in (".png", ".jpeg", ".webp")):
+        ext = image_ext(plan) if a.name != "characters" else ".png"
+        dst = p["scenes"] / f"{a.name}{ext}"
+        im.save(dst, **({"quality": 92, "optimize": True} if ext == ".jpg" else {"optimize": True}))
+    for old in (p["scenes"] / f"{a.name}{e}" for e in (".png", ".jpg", ".jpeg", ".webp") if e != dst.suffix):
         if old.exists():
             old.unlink()
     log("IMAGE", "saved", name=a.name, src=str(src), orig=f"{w}x{h}", file=str(dst.relative_to(ROOT)),

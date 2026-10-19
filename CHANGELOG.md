@@ -1,5 +1,12 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-19 (재테크 국민연금) — ChatGPT 는 GitHub 에 올림 · 쇼츠 제목을 롱폼 제목처럼
+
+- 사용자 지시: "야 chatgpt 깃허브 업로드 가능하다고 다시 수정해서 알려주고 쇼츠 제목도 롱폼 제목 지을때 처럼 해 다르잖아"
+- ChatGPT 안내 규칙 8: '이 계정의 ChatGPT 는 GitHub 를 읽기만 함(2026-10-15)' → **장마다 저장 경로에 커밋이 기본**, 대화에 붙이기는 올리기가 실패한 장만 — `tools/make_summary.py` v1.9.3 (썸네일) · `tools/scene_clips.py` v1.1 (장면 — 그림 확장자도 올린 그대로 `.png`, `videogen.json`·check·add-image). 시험 `test_make_summary_chatgpt.py` v1.10 · `test_scene_clips.py` v1.1 (22개 OK). `scenes/chatgpt.md`·`shorts/scenes/chatgpt.md`·`economic/thumbnails_chatgpt.md` 다시 만듦
+- 쇼츠 제목 v2.1 (`gungmin-sigi-2026-10/shorts/shorts.md` 1번): 롱폼과 같은 꼴(1인칭 경험 + 당부, 방법 숨김) 8안 S1~S8 + 쇼츠 `compare.csv` 꼴별 배수(금액 ×3.65·당부 ×1.29·'평생' ×2.05·1인칭 ×0.50·후회 ×0.27 — 뒤 셋 표본 적음) · 모두 `title_fit --shorts` ✅ · 추천 S1 「국민연금 신청 한 번에 평생 손해봤어요. 꼭 보세요」(임시로 `shorts/upload.md`) — 사용자가 고르면 세로 썸네일 문구 다시
+- 규칙: `CLAUDE.md` 쇼츠·썸네일 줄 · `economic/guides/quick_package.md` v1.1 · `guides/shorts_guide.md` v1.16
+
 ## 2026-10-19 (재테크 국민연금) — 영상 = 코드 화면 + AI 장면 클립: videogen v1.4.0 · tools/scene_clips.py v1.0 · 장면 계획
 
 - 사용자 지시: "영상은 설명이 복잡하고 어려울 때는 클로드 코드로 렌더링 하고 그렇지 않은 부분은 친숙한 애니메이션 이미지 생성 프롬프트와 그걸 기반으로 짧은 영상 만들어주는 프롬프트 각각 생성해서 영상 만드는걸로 하자 롱폼,숏폼 둘다 아까 짧게 짧게 시작이미지로 영상 만들었던 코드로 만들거니까 그 코드 수정필요하면 수정하고 영상을 이어 붙이는건 그 코드에서 하는게 아니라 너가 하는거야 최종으로 영상에 합치는거니까 계속 진행해"

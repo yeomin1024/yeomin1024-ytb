@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-10-19 — tools/scene_clips.py v1.0 시험 (구간 계산 · 장 시작·겹침·썸네일 자리 검사 · 프롬프트 · videogen 설정)
-# (가짜 계획·시각만 씀 — 파일·네트워크 없음)
+# VERSION: v1.1 — 2026-10-19 — scene_clips v1.1: ChatGPT 가 저장소에 올림(규칙 8) · 그림 확장자 .png 기본 (image_ext).
+# (v1.0 — 2026-10-19 — tools/scene_clips.py v1.0 시험 (구간 계산 · 장 시작·겹침·썸네일 자리 검사 · 프롬프트 · videogen 설정)
+# (가짜 계획·시각만 씀 — 파일·네트워크 없음))
 r"""
   python3 -m unittest tools.tests.test_scene_clips -v     (저장소 최상위에서)
 """
@@ -62,11 +63,15 @@ class TestSceneClips(unittest.TestCase):
         v = sc.videogen_settings(p, sc.windows(p, SENTS))
         self.assertEqual((v["model"], v["width"], v["height"], v["concat"], v["release_tag"]),
                          ("wan2.2-5b-fast", 1280, 704, False, "clips-v"))
-        self.assertEqual(v["start_images"][0], dict(image="x/scenes/A1.jpg", name="A1", sec=3.75,
+        self.assertEqual(v["start_images"][0], dict(image="x/scenes/A1.png", name="A1", sec=3.75,
                                                     prompt="Moves. Smooth motion."))
         md = sc.chatgpt_md(p, SENTS, "x/scenes/plan.json", "2026-10-19 00:00", shorts=False)
         self.assertIn("0. 인물 설정표", md)
         self.assertIn("x/scenes/A1.png", md)
+        self.assertIn("ChatGPT 는 저장소에 파일을 올릴 수 있다", md)                # v1.1 — 올리기가 기본
+        self.assertNotIn("읽기만", md)
+        self.assertEqual(sc.videogen_settings(dict(p, image_ext=".jpg"), sc.windows(p, SENTS))["start_images"][0]["image"],
+                         "x/scenes/A1.jpg")
         self.assertIn("「하나.」", md)
         self.assertNotIn("0. 인물 설정표", sc.chatgpt_md(p, SENTS, "x", "t", shorts=True))
 

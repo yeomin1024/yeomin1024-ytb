@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-# VERSION: v1.9 — 2026-10-19 — make_summary v1.9.2 --chatgpt-all 이 NO_TTS.md 있는 영상(다시 쓰는 중)을 빼는지 시험.
+# VERSION: v1.10 — 2026-10-19 — make_summary v1.9.3: ChatGPT 가 GitHub 에 올리는 것이 기본 ('읽기만' 문구 없음).
+# (v1.9 — 2026-10-19 — make_summary v1.9.2 --chatgpt-all 이 NO_TTS.md 있는 영상(다시 쓰는 중)을 빼는지 시험.
 # (v1.8 — 2026-10-17 — make_summary v1.9.0 쇼츠 세 칸 배치(COVER_LAYOUT: band) 시험 — 사용자 지시 2026-10-17 "이미지 외 영역은 검은 배경으로 하고 문구는 두 줄로해서 최대 크기로 맞춰".
 # (v1.7 — 2026-10-17 — make_summary v1.8.1 규칙 4 '글자·띄어쓰기·조사 그대로' · v1.8.3 규칙 5 '표정·몸짓은 프롬프트대로' 시험 (v1.8.1 뒤 옛 말을 찾아 실패하던 것을 고침).
 # (v1.6 — 2026-10-17 — make_summary v1.7.0 영어 낱말·숫자·기호 썸네일('| 글자 | **영어…') 규칙 시험 (주식 — 사용자 지시 2026-10-17 "buy, sell 같은 … 영어 문구는 써도 돼" · "숫자나 기호 같은 문구도 써도 돼").
@@ -174,6 +175,8 @@ class ChatgptAllTest(unittest.TestCase):                # v1.5.0 --chatgpt-all
         self.assertIn('PROMPT_b-vid 2 "세금"', text)
         self.assertIn("썸네일 5장(2개 영상)을 **1번부터 차례로 모두**", text)
         self.assertIn("이 그림 5장을 이 순서대로 Claude 대화창에 붙여 넣어 주세요", text)
+        self.assertIn("ChatGPT 는 저장소에 파일을 올릴 수 있다", text)   # v1.9.3 — 올리기가 기본, 붙이기는 실패한 장만
+        self.assertNotIn("읽기만", text)
         self.assertIn(f"{ms.UPLOAD_BASE}/economic/source/b-vid/thumbnails", text)
         self.assertIn(f"{ms.RAW_BASE}/economic/thumbnails_chatgpt.md", text)
         self.assertIn("[CHATGPT-ALL] topic=economic videos=2 thumbnails=5", log)

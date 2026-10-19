@@ -1,6 +1,6 @@
 # gungmin-sigi-2026-10 장면 그림 29장 — ChatGPT용 (읽고 1번부터 차례로 모두 만들기)
 
-자동 생성 — `python3 tools/scene_clips.py build` v1.0 (2026-10-19 14:12). 이 파일은 고치지 말고 `economic/source/gungmin-sigi-2026-10/scenes/plan.json` 을 고친 뒤 다시 만든다.
+자동 생성 — `python3 tools/scene_clips.py build` v1.1 (2026-10-19 14:40). 이 파일은 고치지 말고 `economic/source/gungmin-sigi-2026-10/scenes/plan.json` 을 고친 뒤 다시 만든다.
 
 이 파일 주소(최신): https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/economic/source/gungmin-sigi-2026-10/scenes/chatgpt.md
 
@@ -17,8 +17,8 @@
 6. 사람은 실존 인물이나 유명인을 닮지 않은 가상 인물이다. 표정·몸짓은 프롬프트에 적힌 그대로 (감정이 작은 화면에서도 보이게).
 7. **그림마다 바로 위에 그 장의 번호와 저장 경로를 한 줄 적는다** (예: `1. economic/source/gungmin-sigi-2026-10/scenes/L01.png`). 그림 안에는 쓰지 않는다.
 8. **다 만들면 저장소에 넣는다 — 장마다 적힌 저장 경로 그대로.**
-   - 저장소 `yeomin1024/yeomin1024-ytb` main 브랜치. GitHub 에 쓸 수 있으면 장마다 그 경로에 커밋 (메시지 `[장면] gungmin-sigi-2026-10 <이름> 그림`).
-   - **쓸 수 없으면** (이 계정의 ChatGPT 는 GitHub 를 읽기만 함 — 2026-10-15 확인) 묻지 말고: 만든 그림을 번호 순서대로 다시 보여 주고(그림마다 위에 번호와 저장 경로), 마지막에 이 문장을 그대로 쓴다: **"이 그림 29장을 이 순서대로 Claude 대화창에 붙여 넣어 주세요. Claude가 검수한 뒤 각 저장 경로에 올립니다."**
+   - 저장소 `yeomin1024/yeomin1024-ytb` main 브랜치. **GitHub 앱으로 장마다 그 경로에 커밋한다** — 이 계정의 ChatGPT 는 저장소에 파일을 올릴 수 있다 (2026-10-19 사용자 확인). 커밋 메시지 `[장면] gungmin-sigi-2026-10 <이름> 그림`. 파일 이름·폴더는 저장 경로와 한 글자도 다르지 않게. 다 올리면 올린 파일 경로와 커밋 링크를 목록으로 적는다 (Claude 가 그 목록으로 검수).
+   - **올리기가 실패한 장만** (권한·연결 오류) 묻지 말고: 그 그림을 번호 순서대로 다시 보여 주고(그림마다 위에 번호와 저장 경로), 마지막에 이 문장을 그대로 쓴다: **"올리지 못한 그림을 이 순서대로 Claude 대화창에 붙여 넣어 주세요. Claude가 검수한 뒤 각 저장 경로에 올립니다."**
 
 ## 그림체 (모든 장 공통 — 프롬프트에 이미 들어 있음)
 

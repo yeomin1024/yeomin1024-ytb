@@ -1,5 +1,12 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-19 (재테크 국민연금) — 영상 = 코드 화면 + AI 장면 클립: videogen v1.4.0 · tools/scene_clips.py v1.0 · 장면 계획
+
+- 사용자 지시: "영상은 설명이 복잡하고 어려울 때는 클로드 코드로 렌더링 하고 그렇지 않은 부분은 친숙한 애니메이션 이미지 생성 프롬프트와 그걸 기반으로 짧은 영상 만들어주는 프롬프트 각각 생성해서 영상 만드는걸로 하자 롱폼,숏폼 둘다 아까 짧게 짧게 시작이미지로 영상 만들었던 코드로 만들거니까 그 코드 수정필요하면 수정하고 영상을 이어 붙이는건 그 코드에서 하는게 아니라 너가 하는거야 최종으로 영상에 합치는거니까 계속 진행해"
+- `videogen/videogen.py` v1.3.1 → **v1.4.0**: 시작 이미지마다 `sec`·`name` · `image_base` · 결과 `clips/<이름>.mp4` + `clips_manifest.json` · `release_tag` 로 GitHub Release 에 올림(Kaggle Secret `GITHUB_TOKEN`, 같은 이름 바꿔 올리기·목록 합치기, 실패는 경고만) — `videogen/CHANGELOG.md`. 시험 11묶음 통과 (가짜 GitHub — 진짜 토큰 환경 변수를 지우고 가짜 저장소 이름)
+- 새 도구 `tools/scene_clips.py` v1.0: `scenes/plan.json` → ChatGPT 그림 프롬프트(`scenes/chatgpt.md`)·Kaggle 설정(`scenes/videogen.json`)·계획 표(`scenes/plan.md`) · `check` · `add-image`(검수한 그림 → .jpg) · `fetch`(Release → `<주제>/out/<영상ID>/clips/`, sha256). 장 시작 문장(장 카드)·썸네일 자리는 AI 클립 금지. 시험 `tools/tests/test_scene_clips.py` (4개 OK)
+- `gungmin-sigi-2026-10` 장면 계획 v1.0: 롱폼 102문장 중 사연 장면 **29개 AI 클립**(구간 합계 102초 = 25%, 생성 115초 · 늦춤 1개 ×1.02 · 멈춤 0) — 나머지(숫자·법·계산·장 시작·정리)는 코드 화면. 쇼츠 11문장 중 **7개**(세로, 클립마다 5초 — 오디오 전). 인물 5명(김 씨·아들·동창 친구·박 씨·상담 직원)·장소 4곳·그림체(따뜻한 2D 애니메이션, 글자 없음)를 한 곳에 적어 모든 프롬프트에 붙임
+
 ## 2026-10-19 (재테크 국민연금) — B 단계: 제목·썸네일·업로드·쇼츠 v2.0 · 오디오 풀어 둠 · make_summary v1.9.2
 
 - 사용자 지시: "일단 이걸로 오디오 생성 해볼게 너는 나머지 부분 만들어"

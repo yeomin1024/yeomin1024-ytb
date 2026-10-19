@@ -1,0 +1,55 @@
+{
+  "model": "wan2.2-5b-fast",
+  "width": 704,
+  "height": 1280,
+  "seed": 42,
+  "concat": false,
+  "upscaler": "lanczos",
+  "prompt": "Warm friendly 2D animation, soft cel shading, smooth natural motion at normal speed, characters keep the same face, hair and clothes, no text appears.",
+  "negative_prompt": "色调艳丽，过曝，静态，细节模糊不清，字幕，文字，水印，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走，人脸变形，照片写实",
+  "release_tag": "clips-gungmin-sigi-2026-10-shorts",
+  "start_images": [
+    {
+      "image": "economic/source/gungmin-sigi-2026-10/shorts/scenes/S02.jpg",
+      "name": "S02",
+      "sec": 5.0,
+      "prompt": "Mr. Kim walks out through the glass door toward the camera carrying the box and glances back over his shoulder at the building; the plant leaves sway in a light breeze; static camera. Warm friendly 2D animation, soft cel shading, smooth natural motion at normal speed, characters keep the same face, hair and clothes, no text appears."
+    },
+    {
+      "image": "economic/source/gungmin-sigi-2026-10/shorts/scenes/S03.jpg",
+      "name": "S03",
+      "sec": 5.0,
+      "prompt": "Mr. Kim signs the form and slides it under the glass partition; the clerk's hand takes it; static camera. Warm friendly 2D animation, soft cel shading, smooth natural motion at normal speed, characters keep the same face, hair and clothes, no text appears."
+    },
+    {
+      "image": "economic/source/gungmin-sigi-2026-10/shorts/scenes/S05.jpg",
+      "name": "S05",
+      "sec": 5.0,
+      "prompt": "Mr. Kim leans back on the sofa, takes a slow sip of tea and smiles contentedly; steam rises from the cup; static camera. Warm friendly 2D animation, soft cel shading, smooth natural motion at normal speed, characters keep the same face, hair and clothes, no text appears."
+    },
+    {
+      "image": "economic/source/gungmin-sigi-2026-10/shorts/scenes/S06.jpg",
+      "name": "S06",
+      "sec": 5.0,
+      "prompt": "The old friends laugh and clink their glasses together while steam rises from the stew; slow push-in toward Mr. Kim and his friend. Warm friendly 2D animation, soft cel shading, smooth natural motion at normal speed, characters keep the same face, hair and clothes, no text appears."
+    },
+    {
+      "image": "economic/source/gungmin-sigi-2026-10/shorts/scenes/S07.jpg",
+      "name": "S07",
+      "sec": 5.0,
+      "prompt": "The friend leans in and asks seriously, raising his index finger; Mr. Kim freezes with his glass halfway up, his eyes widening as his smile fades; static camera. Warm friendly 2D animation, soft cel shading, smooth natural motion at normal speed, characters keep the same face, hair and clothes, no text appears."
+    },
+    {
+      "image": "economic/source/gungmin-sigi-2026-10/shorts/scenes/S09.jpg",
+      "name": "S09",
+      "sec": 5.0,
+      "prompt": "Mr. Kim slowly lowers his head and rubs his forehead, letting out a long sigh as his shoulders sink; the lamp light glows softly; very slow push-in. Warm friendly 2D animation, soft cel shading, smooth natural motion at normal speed, characters keep the same face, hair and clothes, no text appears."
+    },
+    {
+      "image": "economic/source/gungmin-sigi-2026-10/shorts/scenes/S10.jpg",
+      "name": "S10",
+      "sec": 5.0,
+      "prompt": "Mr. Kim slowly raises his head from the papers and looks straight ahead, his expression changing from worry to determination; slow push-in. Warm friendly 2D animation, soft cel shading, smooth natural motion at normal speed, characters keep the same face, hair and clothes, no text appears."
+    }
+  ]
+}

@@ -83,6 +83,12 @@ python3 tools/cloud_run.py economic analyze                     # 롱폼·쇼츠
 - `captions`: 첫 요청이 `RequestBlocked` → 6시간 쉼 (대상 27개 그대로 — 클라우드 자막은 계속 막힘)
 - `analyze`: 올린 지 180일을 넘긴 영상이 빠져 성공 사례 181 → 178 · 성공 쇼츠 102 → 101 (비교 집단 751·509 그대로). 새로 들어온 성공 쇼츠 없음 → 규칙 그대로
 
+### 4회차 기록 (2026-10-19 16:17~16:22 한국 — 예약 작업, 53단위)
+
+- `resume`: 남은 것 없음 · `explore` 롱폼·쇼츠: 검색 모두 캐시, 영상 정보만 새로 고침 (53단위) · 새 추천 0 — 승인 없음
+- `captions`: 27개 모두 `ProxyError`(YouTube → `www.google.com/sorry` 봇 확인) — 받은 것 0
+- `analyze`: 올린 지 180일을 넘긴 영상이 빠져 성공 사례 178 → 176 · 성공 쇼츠 101 → 100 (비교 집단 752·510). 새로 들어온 성공 쇼츠 없음 → 규칙 그대로
+
 ## 다음 할 일
 1. **분석:** 2026-10-16 부터 **클라우드가 매일 이어서** (위 '클라우드에서 분석' — 예약 작업). PC `run_analyzer.ps1` 은 그동안 켜지 않는다. (예전: [`guides/pc_analysis.md`](../guides/pc_analysis.md) — PC 에서 한 번 실행, 할당량이 모자라면 다음 날 한국 오후 4~5시 초기화 뒤 자동으로 이어서.)
 2. 분석이 끝나면(GitHub `economic/result/pc_progress.json`의 `complete: true`) Claude에게: "economic 분석 끝났어, 결과로 지시사항이랑 주제 만들어줘" → `guides/pipeline.md` 2단계부터.

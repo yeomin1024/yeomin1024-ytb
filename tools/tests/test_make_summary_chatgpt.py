@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-# VERSION: v1.8 — 2026-10-17 — make_summary v1.9.0 쇼츠 세 칸 배치(COVER_LAYOUT: band) 시험 — 사용자 지시 2026-10-17 "이미지 외 영역은 검은 배경으로 하고 문구는 두 줄로해서 최대 크기로 맞춰".
+# VERSION: v1.9 — 2026-10-19 — make_summary v1.9.2 --chatgpt-all 이 NO_TTS.md 있는 영상(다시 쓰는 중)을 빼는지 시험.
+# (v1.8 — 2026-10-17 — make_summary v1.9.0 쇼츠 세 칸 배치(COVER_LAYOUT: band) 시험 — 사용자 지시 2026-10-17 "이미지 외 영역은 검은 배경으로 하고 문구는 두 줄로해서 최대 크기로 맞춰".
 # (v1.7 — 2026-10-17 — make_summary v1.8.1 규칙 4 '글자·띄어쓰기·조사 그대로' · v1.8.3 규칙 5 '표정·몸짓은 프롬프트대로' 시험 (v1.8.1 뒤 옛 말을 찾아 실패하던 것을 고침).
 # (v1.6 — 2026-10-17 — make_summary v1.7.0 영어 낱말·숫자·기호 썸네일('| 글자 | **영어…') 규칙 시험 (주식 — 사용자 지시 2026-10-17 "buy, sell 같은 … 영어 문구는 써도 돼" · "숫자나 기호 같은 문구도 써도 돼").
 # (v1.5 — 2026-10-16 — make_summary v1.6.0 쇼츠 썸네일(source/<영상ID>/shorts/thumbnails/thumbnail_1 하나, 세로 9:16) 시험.)
@@ -176,6 +177,14 @@ class ChatgptAllTest(unittest.TestCase):                # v1.5.0 --chatgpt-all
         self.assertIn(f"{ms.UPLOAD_BASE}/economic/source/b-vid/thumbnails", text)
         self.assertIn(f"{ms.RAW_BASE}/economic/thumbnails_chatgpt.md", text)
         self.assertIn("[CHATGPT-ALL] topic=economic videos=2 thumbnails=5", log)
+
+    def test_skips_videos_being_rewritten(self):        # v1.9.2 — 대본 폴더에 NO_TTS.md 면 썸네일도 모으지 않음
+        (self.root / "economic" / "source" / "b-vid" / "NO_TTS.md").write_text("# 다시 쓰는 중\n", "utf-8")
+        _, text, log = self.run_all()
+        heads = [l.split(" — ")[0] for l in text.splitlines() if l.startswith("## ") and " · thumbnail_" in l]
+        self.assertEqual(heads, ["## 1. a-vid · thumbnail_1", "## 2. a-vid · thumbnail_3"])
+        self.assertNotIn("PROMPT_b-vid", text)
+        self.assertIn("[CHATGPT-ALL] skip video=b-vid reason=NO_TTS", log)
 
     def test_all_done_notice(self):
         for vid in ("a-vid", "b-vid"):

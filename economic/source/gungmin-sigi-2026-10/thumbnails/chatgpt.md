@@ -1,6 +1,6 @@
 # gungmin-sigi-2026-10 썸네일 3장 — ChatGPT용 (읽고 그대로 만들고 저장소에 올리기)
 
-자동 생성 — `python tools/make_summary.py --chatgpt economic gungmin-sigi-2026-10` (2026-10-18 05:09). 이 파일은 고치지 말고 `thumbnail_N.md`를 고친 뒤 다시 만든다.
+자동 생성 — `python tools/make_summary.py --chatgpt economic gungmin-sigi-2026-10` (2026-10-19 13:20). 이 파일은 고치지 말고 `thumbnail_N.md`를 고친 뒤 다시 만든다.
 
 이 파일 주소: https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/economic/source/gungmin-sigi-2026-10/thumbnails/chatgpt.md
 
@@ -21,85 +21,89 @@
      2. 마지막에 이 문장을 그대로 쓴다: **"이 그림 3장을 Claude 대화창에 그대로 붙여 넣어 주세요. Claude가 검수한 뒤 저장소(economic/source/gungmin-sigi-2026-10/thumbnails/thumbnail_N)에 올립니다."**
      3. 그 아래 줄에 직접 올리는 길도 적는다: "직접 올리려면: 그림을 thumbnail_N.png 이름으로 내려받아 https://github.com/yeomin1024/yeomin1024-ytb/upload/main/economic/source/gungmin-sigi-2026-10/thumbnails 에 끌어다 놓고 Commit changes"
 
-## thumbnail_1 — 본안(클릭률 최대): 밤 식탁에서 이마를 짚고 고개를 떨군 57세 남성 + '조기수령' 낱말
+## thumbnail_1 — 본안(클릭률 최대): 밤 거실 소파에서 빈 통장을 들고 이마를 짚은 60세 남성 + '30% 깎임' 낱말
 
 문구 (그림 속 글자는 이것과 한 글자도 다르면 안 됨):
 
 | 자리 | 문구 | 색 |
 |---|---|---|
-| 그림 낱말 | 조기수령 | 흰 글자 on 빨강 상자 #FF2A2A |
-| 하단 1줄 | 50대 국민연금 5년 당기면 | '50대' 흰색 · **'국민연금 5년 당기면' 노랑 #FFD400** — 모두 두꺼운 검정 외곽선 |
-| 하단 2줄 | 77세부터 손해 | **전부 빨강 #FF2A2A + 두꺼운 흰 외곽선**. 1줄보다 조금 크게 |
+| 그림 낱말 | 30% 깎임 | 흰 글자 on 빨강 상자 #FF2A2A |
+| 하단 1줄 | 은퇴 후 국민연금 신청 한 번에 | '은퇴 후' 흰색 · **'국민연금 신청 한 번에' 노랑 #FFD400** — 모두 두꺼운 검정 외곽선 |
+| 하단 2줄 | 평생 손해봤어요 | **전부 빨강 #FF2A2A + 두꺼운 흰 외곽선**. 1줄보다 크게 |
 
-- 노랑은 중요한 것(국민연금을 5년 당기는 것), 빨강은 나쁜 상황(77세부터 손해와 손해를 만드는 조기수령)에 쓴다.
+- 노랑은 중요한 것(국민연금 신청 한 번), 빨강은 나쁜 상황(평생 손해 · 30% 깎임)에 쓴다.
 
 프롬프트:
 
 ```
 YouTube thumbnail, 16:9 landscape (1280x720), photorealistic, high contrast, bold and readable at small size.
 Upper 62% of the frame:
-- Right side (about 55% of the width): a Korean man aged 57 who looks youthful for his age, like his early 50s (short neat black hair with a little gray at the temples, dark gray knit cardigan over a white T-shirt), sitting at the dining table of his apartment living room at night, shown from the chest up and large in the frame. He has just realized how much pension money he will lose, and he is crushed: one hand pressed against his forehead, head bowed, eyes squeezed shut, brows knitted, shoulders slumped — clear frustration, regret and despair that read even at small thumbnail size. Keep most of his face visible (the hand must not cover his eyes and mouth completely). Realistic, not cartoonish, not exaggerated. On the table only an empty tea cup and one blank white sheet of paper with nothing printed on it. Fictional person, not resembling any real or famous person.
-- Left side (about 45% of the width): one bold word tag, a solid bright red (#FF2A2A) rounded box with the Korean word "조기수령" printed in huge flat heavy bold white letters on its flat front face (flat print, not carved or 3D letter shapes). Two thick bright red arrows point from the tag down toward the man.
-- Background: an apartment living room at night with blurred city lights through the window, cool blue tones; warm pendant-lamp light only on the man's face.
+- Right side (about 55% of the width): a Korean man aged 60 who looks youthful for his age, like his mid-50s (short neat black hair with gray at the temples, navy cotton shirt with the sleeves rolled up), sitting on the edge of a sofa in his living room at night, shown from the chest up and large in the frame. In his lower hand he holds an open blank bank passbook with nothing printed on it. He has just found out that his early pension cut lasts for the rest of his life, and he is crushed: one hand pressed against his forehead, head bowed, eyes squeezed shut, brows knitted, shoulders slumped — clear frustration, regret and despair that read even at small thumbnail size. Keep most of his face visible (the hand must not cover his eyes and mouth completely). Realistic, not cartoonish, not exaggerated. Fictional person, not resembling any real or famous person.
+- Left side (about 45% of the width): one bold word tag, a solid bright red (#FF2A2A) rounded box with the Korean word "30% 깎임" printed in huge flat heavy bold white letters on its flat front face (flat print, not carved or 3D letter shapes). Two thick bright red arrows point from the tag down toward the man.
+- Background: a modest apartment living room at night, a sofa and a floor lamp, blurred window lights, cool blue tones; warm lamp light only on the man's face.
 Bottom title: in the lower third, over a dark band that fades upward from the bottom edge, two lines of huge heavy bold text, left-aligned near the left edge:
-line 1 "50대 국민연금 5년 당기면" — "50대" in white and "국민연금 5년 당기면" in bright yellow #FFD400, all with a thick black outline (line 1 is the longer line: it may run to about 90% of the image width, but keep it at least 4% away from the right edge);
-line 2 "77세부터 손해" — all in bright red #FF2A2A with a thick white outline, slightly larger than line 1.
+line 1 "은퇴 후 국민연금 신청 한 번에" — "은퇴 후" in white and "국민연금 신청 한 번에" in bright yellow #FFD400, all with a thick black outline (line 1 is the longer line: it may run to about 88% of the image width, but keep it at least 4% away from the right edge);
+line 2 "평생 손해봤어요" — all in bright red #FF2A2A with a thick white outline, clearly larger than line 1.
 The second line MUST end at or before 80% of the image width (x ≤ 1024 px of 1280): the right 18% of the width in the bottom 15% of the height must contain no text at all, because YouTube's video length badge covers that corner. If the lines do not fit, make both lines a little smaller rather than letting them run into that corner. Keep the man and the word tag in the upper part so they never cover the bottom title.
 If 16:9 is not available, use the widest landscape canvas; in any case keep all text and faces inside the central 16:9 area, at least 8% away from the top and bottom edges.
 No money, no bills, no coins, no documents with writing, no phones, no calendars, no logos of any institution.
 Render ONLY the Korean text given in quotes, exactly as written with the same letters, numbers and spacing, in a heavy bold sans-serif Korean font. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 
-## thumbnail_2 — 실험안 ①: 같은 장면, 좌절한 남편 + 어깨에 손을 얹은 아내 (부부)
+## thumbnail_2 — 실험안 ①: 본안과 같은 장면, 낱말만 '조기수령'
 
 문구 (그림 속 글자는 이것과 한 글자도 다르면 안 됨):
 
 | 자리 | 문구 | 색 |
 |---|---|---|
 | 그림 낱말 | 조기수령 | 흰 글자 on 빨강 상자 #FF2A2A |
-| 하단 1줄 | 50대 국민연금 5년 당기면 | '50대' 흰색 · **'국민연금 5년 당기면' 노랑 #FFD400** — 모두 두꺼운 검정 외곽선 |
-| 하단 2줄 | 77세부터 손해 | **전부 빨강 #FF2A2A + 두꺼운 흰 외곽선**. 1줄보다 조금 크게 |
+| 하단 1줄 | 은퇴 후 국민연금 신청 한 번에 | '은퇴 후' 흰색 · **'국민연금 신청 한 번에' 노랑 #FFD400** — 모두 두꺼운 검정 외곽선 |
+| 하단 2줄 | 평생 손해봤어요 | **전부 빨강 #FF2A2A + 두꺼운 흰 외곽선**. 1줄보다 크게 |
+
+- 노랑은 중요한 것(국민연금 신청 한 번), 빨강은 나쁜 상황(평생 손해 · 조기수령)에 쓴다.
 
 프롬프트:
 
 ```
 YouTube thumbnail, 16:9 landscape (1280x720), photorealistic, high contrast, bold and readable at small size.
 Upper 62% of the frame:
-- Right side (about 60% of the width): a Korean married couple, both aged 57 but looking youthful, like their early 50s, at the dining table of their apartment living room at night, shown from the chest up and large in the frame. The husband (short neat black hair with a little gray at the temples, dark gray knit cardigan over a white T-shirt) has just realized how much pension money they will lose and is crushed: one hand pressed against his forehead, head bowed, eyes squeezed shut, brows knitted, shoulders slumped. The wife beside him on the right (shoulder-length dark hair, light beige blouse) rests one hand on his shoulder and covers her mouth with the other, looking down at him with worry and regret. Both faces stay visible. Clear frustration and despair that read even at small thumbnail size; realistic, not cartoonish. On the table only an empty tea cup and one blank white sheet of paper with nothing printed on it. Fictional people, not resembling any real or famous person.
-- Left side (about 40% of the width): one bold word tag, a solid bright red (#FF2A2A) rounded box with the Korean word "조기수령" printed in huge flat heavy bold white letters on its flat front face (flat print, not carved or 3D letter shapes). Two thick bright red arrows point from the tag down toward the couple.
-- Background: an apartment living room at night with blurred city lights through the window, cool blue tones; warm pendant-lamp light only on their faces.
+- Right side (about 55% of the width): a Korean man aged 60 who looks youthful for his age, like his mid-50s (short neat black hair with gray at the temples, navy cotton shirt with the sleeves rolled up), sitting on the edge of a sofa in his living room at night, shown from the chest up and large in the frame. In his lower hand he holds an open blank bank passbook with nothing printed on it. He has just found out that his early pension cut lasts for the rest of his life, and he is crushed: one hand pressed against his forehead, head bowed, eyes squeezed shut, brows knitted, shoulders slumped — clear frustration, regret and despair that read even at small thumbnail size. Keep most of his face visible (the hand must not cover his eyes and mouth completely). Realistic, not cartoonish, not exaggerated. Fictional person, not resembling any real or famous person.
+- Left side (about 45% of the width): one bold word tag, a solid bright red (#FF2A2A) rounded box with the Korean word "조기수령" printed in huge flat heavy bold white letters on its flat front face (flat print, not carved or 3D letter shapes). Two thick bright red arrows point from the tag down toward the man.
+- Background: a modest apartment living room at night, a sofa and a floor lamp, blurred window lights, cool blue tones; warm lamp light only on the man's face.
 Bottom title: in the lower third, over a dark band that fades upward from the bottom edge, two lines of huge heavy bold text, left-aligned near the left edge:
-line 1 "50대 국민연금 5년 당기면" — "50대" in white and "국민연금 5년 당기면" in bright yellow #FFD400, all with a thick black outline (line 1 is the longer line: it may run to about 90% of the image width, but keep it at least 4% away from the right edge);
-line 2 "77세부터 손해" — all in bright red #FF2A2A with a thick white outline, slightly larger than line 1.
-The second line MUST end at or before 80% of the image width (x ≤ 1024 px of 1280): the right 18% of the width in the bottom 15% of the height must contain no text at all, because YouTube's video length badge covers that corner. If the lines do not fit, make both lines a little smaller rather than letting them run into that corner. Keep the couple and the word tag in the upper part so they never cover the bottom title.
+line 1 "은퇴 후 국민연금 신청 한 번에" — "은퇴 후" in white and "국민연금 신청 한 번에" in bright yellow #FFD400, all with a thick black outline (line 1 is the longer line: it may run to about 88% of the image width, but keep it at least 4% away from the right edge);
+line 2 "평생 손해봤어요" — all in bright red #FF2A2A with a thick white outline, clearly larger than line 1.
+The second line MUST end at or before 80% of the image width (x ≤ 1024 px of 1280): the right 18% of the width in the bottom 15% of the height must contain no text at all, because YouTube's video length badge covers that corner. If the lines do not fit, make both lines a little smaller rather than letting them run into that corner. Keep the man and the word tag in the upper part so they never cover the bottom title.
 If 16:9 is not available, use the widest landscape canvas; in any case keep all text and faces inside the central 16:9 area, at least 8% away from the top and bottom edges.
 No money, no bills, no coins, no documents with writing, no phones, no calendars, no logos of any institution.
 Render ONLY the Korean text given in quotes, exactly as written with the same letters, numbers and spacing, in a heavy bold sans-serif Korean font. No other text, letters, numbers, watermarks or logos anywhere.
 ```
 
-## thumbnail_3 — 실험안 ②: 사람 없이, 동전이 새는 모래시계 + '조기수령' 낱말
+## thumbnail_3 — 실험안 ②: 사람 없이, 오른쪽 3분의 1이 잘려 나간 빈 통장 + '30% 깎임' 낱말
 
 문구 (그림 속 글자는 이것과 한 글자도 다르면 안 됨):
 
 | 자리 | 문구 | 색 |
 |---|---|---|
-| 그림 낱말 | 조기수령 | 흰 글자 on 빨강 상자 #FF2A2A |
-| 하단 1줄 | 50대 국민연금 5년 당기면 | '50대' 흰색 · **'국민연금 5년 당기면' 노랑 #FFD400** — 모두 두꺼운 검정 외곽선 |
-| 하단 2줄 | 77세부터 손해 | **전부 빨강 #FF2A2A + 두꺼운 흰 외곽선**. 1줄보다 조금 크게 |
+| 그림 낱말 | 30% 깎임 | 흰 글자 on 빨강 상자 #FF2A2A |
+| 하단 1줄 | 은퇴 후 국민연금 신청 한 번에 | '은퇴 후' 흰색 · **'국민연금 신청 한 번에' 노랑 #FFD400** — 모두 두꺼운 검정 외곽선 |
+| 하단 2줄 | 평생 손해봤어요 | **전부 빨강 #FF2A2A + 두꺼운 흰 외곽선**. 1줄보다 크게 |
+
+- 노랑은 중요한 것(국민연금 신청 한 번), 빨강은 나쁜 상황(평생 손해 · 30% 깎임)에 쓴다.
 
 프롬프트:
 
 ```
-YouTube thumbnail, 16:9 landscape (1280x720), photorealistic, high contrast, bold and readable at small size. No people.
+YouTube thumbnail, 16:9 landscape (1280x720), photorealistic, high contrast, bold and readable at small size.
 Upper 62% of the frame:
-- Right side (about 55% of the width): one large glass hourglass standing on a dark wooden dining table at night, fully inside the upper 62% of the frame. Instead of sand, small plain gold coins with no numbers, letters, portraits or patterns fall in a thin stream from the upper bulb into the lower bulb; the glass at the bottom of the lower bulb is cracked, and a few plain gold coins have leaked out and lie scattered on the table. Warm light only on the hourglass.
-- Left side (about 45% of the width): one bold word tag, a solid bright red (#FF2A2A) rounded box with the Korean word "조기수령" printed in huge flat heavy bold white letters on its flat front face (flat print, not carved or 3D letter shapes), standing upright and leaning against the hourglass. Two thick bright red arrows point from the tag down toward the leaking coins.
-- Background: an apartment living room at night with blurred city lights through the window, cool blue tones.
+- Center-right (about 55% of the width): close-up still life on a dark wooden coffee table at night — an open blank bank passbook with nothing printed on it, its right third cut away with a ragged edge, the cut piece lying a little apart, a pair of scissors beside it and a single desk lamp casting a hard warm light on it. No hands, no people.
+- Left side (about 45% of the width): one bold word tag, a solid bright red (#FF2A2A) rounded box with the Korean word "30% 깎임" printed in huge flat heavy bold white letters on its flat front face (flat print, not carved or 3D letter shapes). Two thick bright red arrows point from the tag toward the cut-away piece of the passbook.
+- Background: a dark living room at night, blurred and out of focus, cool blue tones.
 Bottom title: in the lower third, over a dark band that fades upward from the bottom edge, two lines of huge heavy bold text, left-aligned near the left edge:
-line 1 "50대 국민연금 5년 당기면" — "50대" in white and "국민연금 5년 당기면" in bright yellow #FFD400, all with a thick black outline (line 1 is the longer line: it may run to about 90% of the image width, but keep it at least 4% away from the right edge);
-line 2 "77세부터 손해" — all in bright red #FF2A2A with a thick white outline, slightly larger than line 1.
-The second line MUST end at or before 80% of the image width (x ≤ 1024 px of 1280): the right 18% of the width in the bottom 15% of the height must contain no text at all, because YouTube's video length badge covers that corner. If the lines do not fit, make both lines a little smaller rather than letting them run into that corner. Keep the hourglass and the word tag in the upper part so they never cover the bottom title.
-If 16:9 is not available, use the widest landscape canvas; in any case keep all text and objects inside the central 16:9 area, at least 8% away from the top and bottom edges.
-No banknotes, no documents, no phones, no calendars, no clocks with numbers, no logos of any institution.
+line 1 "은퇴 후 국민연금 신청 한 번에" — "은퇴 후" in white and "국민연금 신청 한 번에" in bright yellow #FFD400, all with a thick black outline (line 1 is the longer line: it may run to about 88% of the image width, but keep it at least 4% away from the right edge);
+line 2 "평생 손해봤어요" — all in bright red #FF2A2A with a thick white outline, clearly larger than line 1.
+The second line MUST end at or before 80% of the image width (x ≤ 1024 px of 1280): the right 18% of the width in the bottom 15% of the height must contain no text at all, because YouTube's video length badge covers that corner. If the lines do not fit, make both lines a little smaller rather than letting them run into that corner. Keep the passbook and the word tag in the upper part so they never cover the bottom title.
+If 16:9 is not available, use the widest landscape canvas; in any case keep all text and faces inside the central 16:9 area, at least 8% away from the top and bottom edges.
+No money, no bills, no coins, no documents with writing, no phones, no calendars, no logos of any institution.
 Render ONLY the Korean text given in quotes, exactly as written with the same letters, numbers and spacing, in a heavy bold sans-serif Korean font. No other text, letters, numbers, watermarks or logos anywhere.
 ```

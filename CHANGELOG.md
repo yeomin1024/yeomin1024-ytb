@@ -1,5 +1,15 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-19 (재테크 국민연금) — B 단계: 제목·썸네일·업로드·쇼츠 v2.0 · 오디오 풀어 둠 · make_summary v1.9.2
+
+- 사용자 지시: "일단 이걸로 오디오 생성 해볼게 너는 나머지 부분 만들어"
+- 오디오: `gungmin-sigi-2026-10/NO_TTS.md`·`shorts/NO_TTS.md` 지움 → `tts_narration.py all --dry-run --topics economic` = 롱폼(102문장, 약 8.1분) + 쇼츠(11문장, 약 1.0분) 만들 것 2
+- `titles.md` v2.0 (R1 사용자 선택 + R2·R3, 모두 `title_fit` ✅) · `upload.md` v2.0 (설명란 각색 고지, 챕터 7개 `srt_tool upload` ✅, 태그 13, 고정 댓글, dry-run 문제 = 영상 파일 없음뿐)
+- 썸네일 v2.0: 하단 2줄 「은퇴 후 국민연금 신청 한 번에 / 평생 손해봤어요」(Noto Sans KR 900 — 88px x 48~1,120 · 120px x 48~848) — 본안 '30% 깎임'(방법 숨김) · 실험 ① '조기수령'(낱말만 다름) · 실험 ② 사람 없이 잘린 통장
+- 쇼츠 v2.0: 프롤로그형 — 김 씨가 6,480만 원을 잃었다고 **믿은** 데까지(롱폼이 바로잡음), 11문장 293음절(약 51초)·`srt_tool check` ✅, 제목 2안(R1 「국민연금 신청서 한 장에 평생 매달 27만 원 덜 받는다」), 세로 썸네일 band(동창 모임 식당·'평생 30%' 말풍선), 업로드 시트(고정 댓글 본편 주소 자리)
+- `tools/make_summary.py` v1.9.1 → v1.9.2: `--chatgpt-all` 이 NO_TTS.md 있는 영상(다시 쓰는 중)의 썸네일을 빼도록 — 사연형으로 다시 쓰는 `geumyung-soduk-2026-10` 의 옛 썸네일 4장이 섞일 뻔함. 시험 `test_make_summary_chatgpt.py` v1.9 (15개 OK). `economic/thumbnails_chatgpt.md` = 국민연금 4장
+- 영상 준비: 글꼴(`video/scripts/get-fonts.mjs`)·`video/render` npm 설치 — 오디오가 오면 장면 파일·렌더
+
 ## 2026-10-19 (재테크 국민연금) — 대본 v2.1: 주인공이 문제를 알아 가는 이야기
 
 - 사용자 지시: "좀 사연 주인공이 문제를 알아가는식으로 해봐 그래야 재미있지 정보+재미(몰입력) 둘다 챙겨야해 너무 간단하게 설명하고"

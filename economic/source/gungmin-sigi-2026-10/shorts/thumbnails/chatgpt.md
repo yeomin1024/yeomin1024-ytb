@@ -1,6 +1,6 @@
 # gungmin-sigi-2026-10-shorts 썸네일 1장 — ChatGPT용 (읽고 그대로 만들고 저장소에 올리기)
 
-자동 생성 — `python tools/make_summary.py --chatgpt economic gungmin-sigi-2026-10-shorts` (2026-10-18 05:09). 이 파일은 고치지 말고 `thumbnail_N.md`를 고친 뒤 다시 만든다.
+자동 생성 — `python tools/make_summary.py --chatgpt economic gungmin-sigi-2026-10-shorts` (2026-10-19 13:20). 이 파일은 고치지 말고 `thumbnail_N.md`를 고친 뒤 다시 만든다.
 
 이 파일 주소: https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/economic/source/gungmin-sigi-2026-10/shorts/thumbnails/chatgpt.md
 
@@ -21,35 +21,28 @@
      2. 마지막에 이 문장을 그대로 쓴다: **"이 그림 1장을 Claude 대화창에 그대로 붙여 넣어 주세요. Claude가 검수한 뒤 저장소(economic/source/gungmin-sigi-2026-10/shorts/thumbnails/thumbnail_N)에 올립니다."**
      3. 그 아래 줄에 직접 올리는 길도 적는다: "직접 올리려면: 그림을 thumbnail_N.png 이름으로 내려받아 https://github.com/yeomin1024/yeomin1024-ytb/upload/main/economic/source/gungmin-sigi-2026-10/shorts/thumbnails 에 끌어다 놓고 Commit changes"
 
-## thumbnail_1 — 본안(쇼츠 썸네일 + 첫 문장 화면): 회사 동기 모임 식당에서 두 손으로 머리를 감싸 쥔 57세 김씨 + '조기수령' 생각 꼬리표
+## thumbnail_1 — 본안(쇼츠 썸네일 + 첫 문장 화면): 동창 모임 식당에서 친구의 말을 듣고 두 손으로 머리를 감싸 쥔 60세 김 씨 + '평생 30%' 꼬리표
 
 문구 (그림 속 글자는 이것과 한 글자도 다르면 안 됨):
 
 | 자리 | 문구 | 색 |
 |---|---|---|
-| 그림 낱말 | 조기수령 | 검정 평면 글자 on 연회색 꼬리표 #D9DEE6 (짙은 회색 테두리) |
-| 위 1줄 | 국민연금 5년 당기면 평생 | **'국민연금' 노랑 #FFD400** · '5년 당기면 평생' 흰색 — 검은 바탕, 가운데 정렬 |
-| 위 2줄 | 매달 39만 원 덜 받는다 | **전부 빨강 #FF2A2A + 얇은 흰 외곽선**. 1줄과 같은 크기, 가운데 정렬 |
-
-- 노랑은 중요한 것(주제 낱말 '국민연금'), 빨강은 나쁜 상황(덜 받는 돈)에만. 회색 꼬리표 = 김씨의 생각.
+| 그림 낱말 | 평생 30% | 흰 평면 글자 on 빨강 말풍선 #FF2A2A |
+| 위 1줄 | 국민연금 신청서 한 장에 | **'국민연금' 노랑 #FFD400** · '신청서 한 장에' 흰색 — 두꺼운 검정 외곽선 없이 검정 바탕 위 평면 글자 |
+| 위 2줄 | 평생 매달 27만 원 덜 받는다 | **전부 빨강 #FF2A2A** (나쁜 상황) — 1줄과 같은 크기 |
 
 프롬프트:
 
 ```
-Vertical YouTube Shorts thumbnail, 9:16 portrait (1080x1920), high contrast, bold and readable at small size. This is a vertical image: ignore any general instruction about a 16:9 landscape canvas.
-LAYOUT — three stacked zones, each spanning the full width of the canvas:
-1. Top zone, from 0% to 36% of the height: flat solid pure black (#000000), with only the headline text on it.
-2. Photo panel, from 36% to 72% of the height: one photorealistic photograph filling the full width edge to edge (a wide horizontal picture, about 3:2), with straight horizontal top and bottom edges.
-3. Bottom zone, from 72% to 100% of the height: flat solid pure black (#000000), completely empty (a subtitle is added there later in the video).
-No gradient or fade between the zones, no border or frame around the photo, no other bands or panels.
-SAFE AREA: YouTube crops Shorts thumbnails to about 4:5 in some feeds on phones and PCs, cutting about 15% from the top and 15% from the bottom. Every important thing — all text, every face and word tag — must stay between 15% and 85% of the height.
-Headline in the top black zone: exactly TWO lines of very large, heavy, bold Korean text, both lines the same letter size, EACH LINE CENTERED horizontally on the same center axis (the two lines must not be shifted left or right against each other). Make the letters as large as possible: the longer line spans from about 4% to 96% of the width (each letter about 4.9% of the image height tall, roughly 95 px on a 1080x1920 canvas). Vertically, the two-line block is centered between the 15% line and the top of the photo — it sits between about 19% and 32% of the height — with a black gap of at least 3% of the height between the text and the photo. The text never touches or overlaps the photo. Flat letters on the black, no glow, no 3D, no shadow boxes:
-line 1 "국민연금 5년 당기면 평생" — "국민연금" in bright yellow #FFD400 and "5년 당기면 평생" in white;
-line 2 "매달 39만 원 덜 받는다" — all in bright red #FF2A2A with a thin white outline.
-If 9:16 is not available, use a 2:3 portrait canvas (1024x1536) with the same three zones (it will be center-cropped to 9:16, cutting about 8% from the left and right), and keep the headline between 12% and 88% of the width.
-Scene inside the photo panel (from 36% to 72% of the height, full width), a warmly lit Korean restaurant in the evening, background softly blurred:
-- Center-right (between about 30% and 82% of the width, chest up, face between 40% and 64% of the height): a Korean man aged 57 who looks youthful for his age, like his early 50s (short neat black hair with a little gray at the temples, navy checked button-up shirt), sitting at a restaurant table. He has just realized that he would get less pension every month for the rest of his life, and he is crushed: both hands gripping the sides of his head, head bowed, eyes squeezed shut and brows knitted in pain — clear frustration, regret and despair that read even at small thumbnail size. His face stays visible (the hands are on the sides of his head, not covering his eyes or mouth). Realistic, not cartoonish. From the lower left edge, only the hand of a friend (no face) slides one blank white sheet of paper with nothing printed on it across the table toward him. Fictional person, not resembling any real or famous person. No other people.
-- Left side (between about 7% and 28% of the width, at about 40% to 56% of the height): one word tag like a thought label, linked to the man's head by a short trail of small light-gray dots (it shows what he had planned). The tag is a solid light gray (#D9DEE6) rounded rectangle with a thick dark gray border and the Korean word printed in huge flat heavy bold black letters on its flat front face: "조기수령". The letters are flat print, not carved, embossed or 3D letter shapes. No arrows. Nothing overlaps or covers the tag or the letters.
-No money, no bills, no coins, no documents with writing, no phones, no calculators, no calendars, no menus or signs with writing, no logos, no charts.
+Vertical YouTube Shorts thumbnail, 9:16 portrait (1080x1920), high contrast. This is a vertical image: ignore any general instruction about a 16:9 landscape canvas.
+LAYOUT — three full-width zones: 0–36% of the height flat solid pure black (#000000) with only the headline; 36–72% one photorealistic photograph edge to edge with straight top and bottom edges; 72–100% flat solid pure black, empty. No gradient, fade or border.
+SAFE AREA: some feeds crop to about 4:5 — all text, faces and word tags stay between 15% and 85% of the height.
+Headline: exactly TWO lines of very large heavy bold Korean text, same size, EACH LINE CENTERED on the same axis, the longer line from about 4% to 96% of the width, the block between about 19% and 32% of the height and at least 3% above the photo; flat letters, no glow, no 3D.
+line 1 "국민연금 신청서 한 장에" — "국민연금" in bright yellow #FFD400 and "신청서 한 장에" in white;
+line 2 "평생 매달 27만 원 덜 받는다" — all in bright red #FF2A2A.
+Photo zone: a warm, softly lit Korean restaurant in the evening, a reunion dinner of old classmates with blurred friends in the background. At the table sits a Korean man aged 60 who looks youthful for his age, like his mid-50s (short black hair with gray at the temples, beige knit sweater), shown from the chest up, centered slightly right (about 30–82% of the width). A friend has just told him his early pension cut lasts for life, and he is crushed: both hands clutching his head, head bowed, eyes squeezed shut, brows knitted — clear frustration, regret and despair that read even at small size. Keep most of his face visible (hands must not cover his eyes and mouth completely). Realistic, not cartoonish. On the table only small soju glasses and side dishes with no labels. Fictional person, not resembling any real or famous person.
+On the left of the photo (about 7–28% of the width, 40–56% of the height): one speech-bubble tag, a solid bright red (#FF2A2A) rounded box with the Korean text "평생 30%" printed in large flat heavy bold white letters on its flat front face (flat print, not carved or 3D), its tail pointing from a blurred friend toward the man. Keep the right 16% of the width below 45% of the height free of faces and tags (Shorts buttons).
+If 9:16 is not available, use a 2:3 portrait canvas (1024x1536) with the same zones and keep the headline between 12% and 88% of the width.
+No money, no bills, no documents with writing, no phones, no logos of any institution or restaurant.
 Render ONLY the Korean text given in quotes, exactly as written with the same letters, numbers and spacing, in a heavy bold sans-serif Korean font. No other text, letters, numbers, watermarks or logos anywhere.
 ```

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.9.1 — 2026-10-18 — ChatGPT 규칙 0: 주소를 새로 열어 지금 내용만 쓰고, 답 첫 줄에 '자동 생성' 시각을 적는다 (2026-10-17 16:27Z ChatGPT 가 세 칸 v3.0 을 올린 뒤에도 옛 v2.0 프롬프트로 4장을 그림 — 사용자 지시 2026-10-18 "썸네일 다 생성됐으니까 영상 만들어 놓으면 이제 올릴 준비는 다 된거지?" 검수 때 찾음, guides/thumbnail_guide.md 피드백 25).
+# VERSION: v1.9.2 — 2026-10-19 — --chatgpt-all 이 다시 쓰는 중인 영상(대본 폴더에 NO_TTS.md — tts_narration v1.12 와 같은 표시)의 썸네일은 모으지 않는다 (로그 skip=…reason=NO_TTS). 사용자 지시 2026-10-19 "일단 이걸로 오디오 생성 해볼게 너는 나머지 부분 만들어" — 사연형으로 다시 쓰는 geumyung-soduk-2026-10 의 옛 v1.0 썸네일 4장이 국민연금 새 편과 함께 ChatGPT 파일에 섞여 버려질 그림을 만들 뻔함.
+# (v1.9.1) — 2026-10-18 — ChatGPT 규칙 0: 주소를 새로 열어 지금 내용만 쓰고, 답 첫 줄에 '자동 생성' 시각을 적는다 (2026-10-17 16:27Z ChatGPT 가 세 칸 v3.0 을 올린 뒤에도 옛 v2.0 프롬프트로 4장을 그림 — 사용자 지시 2026-10-18 "썸네일 다 생성됐으니까 영상 만들어 놓으면 이제 올릴 준비는 다 된거지?" 검수 때 찾음, guides/thumbnail_guide.md 피드백 25).
 # (v1.9.0) — 2026-10-17 — 쇼츠 썸네일 **세 칸 배치**(thumbnail_1.md 의 COVER_LAYOUT: band — 위 순검정 + 문구 2줄 · 가운데 사진 · 아래 순검정, 글자·얼굴은 높이 15~85%): ChatGPT 규칙 3·4·6·장마다 '크기' 줄. 사진 끝까지(FULL_BLEED)는 그 줄이 없는 쇼츠(주식)만 (사용자 지시 2026-10-17 "이미지 외 영역은 검은 배경으로 하고 문구는 두 줄로해서 최대 크기로 맞춰 … PC나 모바일에서 볼 때 위 아래 영역이 좀 짤릴 수 있는데 그러면 안돼" — guides/thumbnail_guide.md 피드백 24).
 # (v1.8.4) — 2026-10-17 — ChatGPT 규칙 4: 줄 수·줄바꿈·글자 크기도 프롬프트대로(작은 2줄로 줄이지 않음) · 규칙 3: 양옆 8%는 2:3 그림일 때만 (사용자 지시 2026-10-17 "문구를 더 크게해서 잘보이게 해봐" — 쇼츠 문구 3줄·가장 긴 줄 너비 94% — guides/thumbnail_guide.md 피드백 23).
 # (v1.8.3) — 2026-10-17 — ChatGPT 규칙 5: 표정·몸짓은 프롬프트대로 — 좌절 장면을 놀람·담담·웃음으로 바꾸지 않음 (사용자 지시 2026-10-17 "야 기초연금 썸네일 그림은 왜이래? 왜 손해봐서 좌절하는게 아닌것 같지?" — guides/thumbnail_guide.md 피드백 22).
@@ -484,6 +485,9 @@ def chatgpt_all(topic, root=ROOT):
     found = [(f.parent.name, f) for f in src.glob("*/thumbnails")] + [(f.parent.parent.name + SHORTS, f) for f in src.glob("*/shorts/thumbnails")]
     for vid, folder in sorted(found, key=lambda x: (x[0].endswith(SHORTS), x[0])):   # v1.6.0 롱폼 먼저, 그다음 쇼츠
         if not any((folder / f"thumbnail_{i}.md").exists() for i in thumb_slots(vid)):
+            continue
+        if (folder.parent / "NO_TTS.md").exists():   # v1.9.2: 다시 쓰는 중인 대본 — 썸네일도 아직 만들지 않음
+            print(f"[CHATGPT-ALL] skip video={vid} reason=NO_TTS file={(folder.parent / 'NO_TTS.md').relative_to(root).as_posix()}")
             continue
         items = pending_thumbnails(topic, vid, root)
         if items:

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""VERSION: v1.1 — 2026-10-19 — 대본 v2.0(사연형 — 기사 사례를 각색한 가상 인물 김 씨) 숫자를 8번 절에 더함.
+"""VERSION: v1.1.1 — 2026-10-19 — 대본 v2.1(주인공이 알아 가는 이야기 — 동창 박 씨 = 2년 당김 경우)에 쓰는 월 차이 줄을 8번 절에 더함.
+이전 v1.1 — 2026-10-19 — 대본 v2.0(사연형 — 기사 사례를 각색한 가상 인물 김 씨) 숫자를 8번 절에 더함.
          사용자 지시 2026-10-19 "기사 내용은 그냥 참고이고 현재 기준에 맞게 각색하면 돼 … 대본 알려줘봐".
          김 씨 = 1966년생(받는 나이 64세 — 부칙 <제8541호> 제8조 '1965년부터 1968년까지 출생자는 4세'), 59세 퇴직 후 바로 5년 당김,
          64세 예상 월 90만 원. 1~7번(예시 부부, v1.0)은 바꾸지 않음.
@@ -45,7 +46,7 @@ import logging
 import sys
 import time
 
-VERSION = "v1.1"
+VERSION = "v1.1.1"
 LOG = logging.getLogger("gungmin_calc")
 
 # ---------- 제도 값 ----------
@@ -312,7 +313,7 @@ def main(verbose=False):
     # 3년만 버텼다면 — 62세에 2년만 당김
     ka = KIM_P * early_ratio(12 * (KIM_NORMAL_AGE - KIM_ALT_AGE))
     bridge = ke * 12 * (KIM_ALT_AGE - KIM_EARLY_AGE)
-    P(f"- 3년만 버텼다면: {KIM_ALT_AGE}세에 2년만 당김, 비율 {early_ratio(24):.2f} → 월 **{man(ka)} 원**")
+    P(f"- 3년만 버텼다면 (대본 v2.1 동창 박 씨): {KIM_ALT_AGE}세에 2년만 당김, 비율 {early_ratio(24):.2f} → 월 **{man(ka)} 원** — 김 씨(5년 당김)보다 매달 **{man(ka - ke)} 원** 더")
     P(f"  - 59~62세 3년을 5년 당겼을 때의 월 {man(ke)} 원만큼 모아 둔 돈으로 메우면: {man(ke)} × 36개월 = **{man(bridge)} 원** (생활비는 두 경우 같게 맞춤)")
     be_alt = breakeven(ke, KIM_EARLY_AGE, ka, KIM_ALT_AGE)
     P(f"  - 5년 당김 vs 2년 당김 합계가 같아지는 나이: **{age_str(be_alt)}**")

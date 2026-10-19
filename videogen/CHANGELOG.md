@@ -1,5 +1,29 @@
 # CHANGELOG — videogen
 
+## v1.4.0 — 2026-10-19
+### 왜 (사용자 지시)
+- "영상은 설명이 복잡하고 어려울 때는 클로드 코드로 렌더링 하고 그렇지 않은 부분은 친숙한 애니메이션 이미지 생성 프롬프트와 그걸 기반으로 짧은 영상 만들어주는 프롬프트 각각 생성해서 영상 만드는걸로 하자 롱폼,숏폼 둘다 아까 짧게 짧게 시작이미지로 영상 만들었던 코드로 만들거니까 그 코드 수정필요하면 수정하고 영상을 이어 붙이는건 그 코드에서 하는게 아니라 너가 하는거야".
+- 영상 한 편에 장면 클립이 수십 개(롱폼 약 30 · 쇼츠 약 7)이고 클립마다 맞출 길이(그 문장 길이)가 다르다. Claude 는 클라우드 환경에서 클립을 받아 문장 시각표에 놓아야 한다 — 이름 없는 `media/*.mp4` 와 Output 탭만으로는 Claude 에게 닿지 않는다.
+
+### 한 것
+| 대상 | 내용 |
+|---|---|
+| `Config.start_images` 항목 | `{"image", "prompt", "sec", "name"}` — `sec` 클립마다 길이(초, 24fps 4k+1 프레임으로) · `name` 결과 파일 이름. 모르는 키·0 이하 길이·겹치는 이름·파일 이름으로 못 쓰는 이름은 바로 멈춤 |
+| `Config.image_base` (새) | 상대 경로 이미지 앞에 붙일 주소·폴더 (예: `https://raw.githubusercontent.com/<저장소>/<커밋>/`) — 설정 JSON 은 저장소 경로만 적고 셀이 커밋을 붙임 |
+| `clip_frames_each()` (새) · `wangp_image_tasks()` | 클립마다 프레임 수 (우선순위: 항목 `sec` > `clip_sec` > `duration_sec` ÷ 이미지 수 > 모델 기본). 모델 학습 길이(5B 121프레임)를 넘는 클립은 이름과 함께 경고 |
+| `collect_clips()` (새) · `[CLIPS]` 단계 | `clips/<이름>.mp4` + `clips/clips_manifest.json`(이름·이미지·프롬프트·seed·프레임·실제 길이·크기·fps·sha256·run_id). `concat=False` 면 클립마다 최종(업스케일)본, 이어 붙였으면 이어 붙이기 전 원본 |
+| `Config.release_tag`·`release_repo` (새) · `publish_release()` (새, 공개) | 그 태그의 GitHub Release(없으면 prerelease 로 만듦 — 공개 저장소라 로그인 없이 받힘)에 클립과 목록을 올림. 같은 이름 자산은 지우고 다시 올림(장면 하나만 다시 만든 경우), 목록은 이미 올린 목록과 이름으로 합침. 네트워크·5xx·429 는 2·4·8초 쉬고 다시. **실패는 경고만** (클립은 Output 탭 `clips/` 에 그대로, 같은 세션에서 `publish_release(...)` 다시) |
+| 토큰 | Kaggle Secret `GITHUB_TOKEN` (내레이션 셀과 같은 토큰 — contents 쓰기). 값은 로그·메타데이터에 남기지 않고, 자산 내려받기 리디렉트(다른 호스트)로 따라가지 않게 `add_unredirected_header` |
+| `run()` | `[SUMMARY] named clips` · `[SUMMARY] release ok= url= uploaded= failed=` · 미리보기는 장면 클립이면 앞 3개만 · 반환에 `clips_manifest`·`release` |
+| `tests/test_videogen.py` v1.4.0 | `test_scene_clips` — 설정 검사 8가지 · 클립마다 프레임(13·5·25) · image_base · clips/ + 목록 · 가짜 GitHub(메모리, 네트워크 없음 — 진짜 GITHUB_TOKEN 류 환경 변수를 지우고 가짜 저장소 이름)로 토큰 없음 경고 → 새로 만들기(502 한 번 → 다시 시도) → 장면 하나 다시 만들어 바꿔 올리기·목록 합치기 → 한 클립 올리기 실패는 경고만·목록에서 뺌 · 토큰 값이 로그·메타데이터에 없음 |
+| `README.md` | 2-4번 (영상 한 편의 장면 클립 — 설정 JSON 을 저장소에서 받는 셀) · 3번 설정 표 · 5번 검증 범위 · 6번 문제 해결 |
+
+### 측정
+- 시험 전체 약 30초 (클라우드 CPU, 11묶음 통과 — torch 가 없어 diffusers 묶음은 건너뜀). 생성 속도에는 영향 없음 — 더한 일은 클립 복사·sha256(클립마다 수 ms)과 업로드(Kaggle 망 속도: 720p 5초 클립 약 2~5MB).
+
+### 위험 관련 변경
+- 없음 (생성 설정·모델·업스케일 그대로). 새 동작은 모두 새 키를 줄 때만 (`sec`·`name`·`image_base`·`release_tag`). 이름 없는 항목도 `clips/clip01.mp4` … 로 복사된다 (디스크 클립 크기만큼 더 씀).
+
 ## v1.3.1 — 2026-10-19
 ### 왜 (사용자 보고)
 - "RuntimeError: 업스케일 결과 크기 None != 1080x1920" — 기초연금 AI 쇼츠 테스트(`wan2.2-5b-fast` · 장면 11장 · 704x1280 → 1080x1920 Lanczos) 실행 끝에서.

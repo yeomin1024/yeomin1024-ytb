@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
-# VERSION: v1.3.1 — 2026-10-19 — ASCII 로캘 회귀 시험 (test_ascii_locale: Kaggle '업스케일 결과 크기 None' 재현 →
+# VERSION: v1.4.0 — 2026-10-19 — 장면 클립 시험 (test_scene_clips: 항목 sec·name·image_base 검사 · clips/ + 목록 ·
+#          가짜 GitHub Release(메모리, 네트워크 없음 — GITHUB_TOKEN 류 환경 변수를 지우고 가짜 저장소 이름)로 새로 만들기 ·
+#          같은 이름 바꿔 올리기 · 목록 합치기 · 502 다시 시도 · 올리기 실패는 경고만 · 토큰 없음 · 토큰이 로그에 없음)
+# 이전 v1.3.1 — 2026-10-19 — ASCII 로캘 회귀 시험 (test_ascii_locale: Kaggle '업스케일 결과 크기 None' 재현 →
 #          ffprobe·ffmpeg 크기 읽기 · _check_size · upscale_file · _stream · 시작 이미지 Lanczos 흐름) · 가짜 WanGP 가
 #          진짜처럼 결과 mp4 에 중국어 메타데이터 · 시험 파일 읽기·쓰기를 UTF-8 로 고정 · test_upscale_file_rejoin(16fps 로
 #          이어 붙인 결과 폴더 → 클립으로 다시 24fps · 클립 fps 를 못 읽으면 모델 fps/멈춤)
@@ -370,6 +373,169 @@ def test_start_images(tmp, app):
     print("ok  start images: 3 clips in one WanGP run -> joined", joined["duration_sec"], "s ->", res["videos"][0])
 
 
+class FakeGitHub:
+    """GitHub Release API 흉내 (메모리). 네트워크 없음 — videogen._http 를 이것으로 바꿔 끼운다.
+    fail_names: 그 이름 자산 올리기는 400 · flaky: 처음 한 번 502 (다시 시도 확인)."""
+
+    def __init__(self, fail_names=(), flaky=False):
+        self.releases, self.assets, self.next_id = {}, {}, 100
+        self.calls, self.tokens, self.fail_names, self.flaky = [], set(), set(fail_names), flaky
+
+    def _id(self):
+        self.next_id += 1
+        return self.next_id
+
+    def _asset_json(self, a):
+        return dict(id=a["id"], name=a["name"], url=f"https://api.github.com/repos/{a['repo']}/releases/assets/{a['id']}",
+                    browser_download_url=f"https://github.com/{a['repo']}/releases/download/{a['tag']}/{a['name']}")
+
+    def __call__(self, method, url, token, data=None, content_type=None, accept="application/vnd.github+json",
+                 timeout=300):
+        import re
+        import urllib.parse
+        self.calls.append((method, url))
+        self.tokens.add(token)
+        if self.flaky:
+            self.flaky = False
+            raise videogen._HTTPError(502, "bad gateway")
+        u = urllib.parse.urlparse(url)
+        q = urllib.parse.parse_qs(u.query)
+        if u.netloc == "uploads.github.com" and method == "POST":
+            rel_id = int(re.search(r"/releases/(\d+)/assets$", u.path).group(1))
+            name = q["name"][0]
+            if name in self.fail_names:
+                raise videogen._HTTPError(400, "fake upload refused")
+            if any(a["rel"] == rel_id and a["name"] == name for a in self.assets.values()):
+                raise videogen._HTTPError(422, '{"errors":[{"code":"already_exists"}]}')
+            rel = next(r for r in self.releases.values() if r["id"] == rel_id)
+            a = dict(id=self._id(), name=name, rel=rel_id, repo=rel["repo"], tag=rel["tag_name"], data=data,
+                     ctype=content_type)
+            self.assets[a["id"]] = a
+            return 201, json.dumps(self._asset_json(a)).encode()
+        assert u.netloc == "api.github.com", url
+        m = re.fullmatch(r"/repos/([^/]+/[^/]+)/releases/tags/(.+)", u.path)
+        if m and method == "GET":
+            if m.group(2) not in self.releases:
+                raise videogen._HTTPError(404, '{"message":"Not Found"}')
+            return 200, json.dumps(self.releases[m.group(2)]).encode()
+        m = re.fullmatch(r"/repos/([^/]+/[^/]+)/releases", u.path)
+        if m and method == "POST":
+            p = json.loads(data)
+            rel = dict(id=self._id(), tag_name=p["tag_name"], prerelease=p["prerelease"], repo=m.group(1),
+                       html_url=f"https://github.com/{m.group(1)}/releases/tag/{p['tag_name']}")
+            self.releases[p["tag_name"]] = rel
+            return 201, json.dumps(rel).encode()
+        m = re.fullmatch(r"/repos/[^/]+/[^/]+/releases/(\d+)/assets", u.path)
+        if m and method == "GET":
+            page, per = int(q["page"][0]), int(q["per_page"][0])
+            mine = [self._asset_json(a) for a in self.assets.values() if a["rel"] == int(m.group(1))]
+            return 200, json.dumps(mine[(page - 1) * per: page * per]).encode()
+        m = re.fullmatch(r"/repos/[^/]+/[^/]+/releases/assets/(\d+)", u.path)
+        if m and method == "DELETE":
+            del self.assets[int(m.group(1))]
+            return 204, b""
+        if m and method == "GET":
+            assert accept == "application/octet-stream", accept
+            return 200, self.assets[int(m.group(1))]["data"]
+        raise AssertionError(f"unexpected {method} {url}")
+
+    def names(self, tag):
+        rel = self.releases[tag]["id"]
+        return sorted(a["name"] for a in self.assets.values() if a["rel"] == rel)
+
+    def manifest(self, tag):
+        rel = self.releases[tag]["id"]
+        return json.loads(next(a["data"] for a in self.assets.values()
+                               if a["rel"] == rel and a["name"] == videogen.MANIFEST_NAME))
+
+
+def test_scene_clips(tmp, app):
+    """v1.4.0 장면 클립: 항목마다 sec·name · image_base(상대 경로) · concat=False → clips/<이름>.mp4 + 목록 →
+    가짜 GitHub Release 에 올림 (새로 만들기 · 같은 이름 바꿔 올리기 · 목록 합치기 · 실패는 경고만 · 토큰 없음).
+    CLAUDE.md: 올릴 수 있는 도구 시험은 GITHUB_TOKEN 류 환경 변수를 지우고 가짜 저장소 이름으로 — _http 도 가짜."""
+    from PIL import Image
+    saved_env = {k: os.environ.pop(k) for k in list(os.environ) if "GITHUB" in k and "TOKEN" in k}
+    real_http, real_sleep = videogen._http, videogen.time.sleep
+    try:
+        # 설정 검사
+        mk = lambda items, **kw: videogen.make_config(model="wan2.2-5b-fast", start_images=items, **kw)  # noqa: E731
+        expect_error(lambda: mk([{"image": "a", "secs": 2}]), ValueError, "알 수 없는 키 ['secs']")
+        expect_error(lambda: mk([{"image": "a", "sec": 0}]), ValueError, "sec=0")
+        expect_error(lambda: mk([{"image": "a", "sec": "3"}]), ValueError, "sec='3'")
+        expect_error(lambda: mk([{"image": "a", "name": "L 01"}]), ValueError, "name='L 01'")
+        expect_error(lambda: mk([{"image": "a", "name": "L01"}, {"image": "b", "name": "L01"}]), ValueError, "겹친다")
+        expect_error(lambda: videogen.make_config(release_tag="clips-x"), ValueError, "start_images 가 비어")
+        expect_error(lambda: mk(["a"], release_tag="clips x"), ValueError, "release_tag=")
+        expect_error(lambda: mk(["a"], release_repo="no-slash"), ValueError, "release_repo=")
+        cfg = mk([{"image": "a", "sec": 0.5}, {"image": "b", "sec": 0.25}, "c"], clip_sec=1.0)
+        assert videogen.clip_frames_each(cfg, videogen.resolve_params(cfg, 32)) == [13, 5, 25]  # 24fps 4k+1
+        cfg_url = mk(["scenes/L01.png", "https://x/y.png", "/abs/z.png"], image_base="https://raw.example/repo/abc123/")
+        assert [videogen._image_source(cfg_url, s) for s in cfg_url.start_images] == \
+            ["https://raw.example/repo/abc123/scenes/L01.png", "https://x/y.png", "/abs/z.png"]
+
+        img_dir = os.path.join(tmp, "scene_imgs", "scenes")
+        os.makedirs(img_dir)
+        for i, (w, h) in enumerate([(1536, 1024), (1536, 1024), (1024, 1024)], 1):
+            Image.new("RGB", (w, h), (60 * i, 120, 200)).save(os.path.join(img_dir, f"L0{i}.png"))
+        gh = FakeGitHub(flaky=True)
+        videogen._http = gh
+        videogen.time.sleep = lambda s: None
+        settings = dict(
+            model="wan2.2-5b-fast", prompt="warm 2D animation, gentle natural motion", width=448, height=256,
+            image_base=os.path.join(tmp, "scene_imgs"), concat=False, clip_sec=0.5, preview=False,
+            wangp_app_dir=app, wangp_python=sys.executable, output_dir=os.path.join(tmp, "out_scene"),
+            work_dir=os.path.join(tmp, "work"), release_tag="clips-fake-episode", release_repo="fake-owner/fake-repo",
+            start_images=[{"image": "scenes/L01.png", "name": "L01", "sec": 0.5, "prompt": "he sighs"},
+                          {"image": "scenes/L02.png", "name": "L02", "sec": 0.25},
+                          {"image": "scenes/L03.png", "name": "L03"}])
+        res = videogen.run(dict(settings))   # 토큰 없음 → 클립은 만들고 Release 는 경고만
+        assert res["release"]["ok"] is False and res["release"]["error"] == "no GITHUB_TOKEN" and not gh.releases
+        clip_dir = os.path.join(res["run_dir"], "clips")
+        assert sorted(os.listdir(clip_dir)) == ["L01.mp4", "L02.mp4", "L03.mp4", "clips_manifest.json"]
+        man = json.load(open(res["clips_manifest"], encoding="utf-8"))
+        assert [c["name"] for c in man["clips"]] == ["L01", "L02", "L03"]
+        assert [c["frames"] for c in man["clips"]] == [13, 5, 13] and [c["seed"] for c in man["clips"]] == [42, 43, 44]
+        assert man["clips"][0]["prompt"] == "he sighs" and man["clips"][1]["prompt"] == settings["prompt"]
+        for c, n in zip(man["clips"], (13, 5, 13)):
+            assert (c["width"], c["height"]) == (448, 256) and abs(c["duration_sec"] - n / 24) < 0.1, c
+        tasks = json.load(open(os.path.join(res["run_dir"], "wangp_settings.json"), encoding="utf-8"))
+        assert [t["video_length"] for t in tasks] == [13, 5, 13], tasks
+
+        os.environ["GITHUB_TOKEN"] = "fake-token-for-test"  # 가짜 값 (진짜 토큰은 위에서 지움)
+        r1 = videogen.publish_release(res["clips_manifest"], "clips-fake-episode", "fake-owner/fake-repo")
+        assert r1["ok"] and r1["uploaded"] == ["L01", "L02", "L03"], r1
+        assert gh.releases["clips-fake-episode"]["prerelease"] is True and gh.tokens == {"fake-token-for-test"}
+        assert gh.names("clips-fake-episode") == ["L01.mp4", "L02.mp4", "L03.mp4", "clips_manifest.json"]
+        m1 = gh.manifest("clips-fake-episode")
+        assert [c["name"] for c in m1["clips"]] == ["L01", "L02", "L03"] and m1["clips"][0]["release_url"].endswith(
+            "/releases/download/clips-fake-episode/L01.mp4"), m1
+        # 한 장면만 다시 만들어 올림 (L02) → 같은 이름 자산을 바꾸고, 목록은 셋 그대로 (L02 만 새 run_id)
+        res2 = videogen.run(dict(settings, start_images=[{"image": "scenes/L02.png", "name": "L02", "sec": 0.5}],
+                                 seed=7))
+        assert res2["release"]["ok"], res2["release"]
+        assert gh.names("clips-fake-episode") == ["L01.mp4", "L02.mp4", "L03.mp4", "clips_manifest.json"]
+        m2 = {c["name"]: c for c in gh.manifest("clips-fake-episode")["clips"]}
+        assert sorted(m2) == ["L01", "L02", "L03"] and m2["L02"]["seed"] == 7 and m2["L02"]["frames"] == 13, m2
+        assert m2["L01"]["run_id"] == m1["clips"][0]["run_id"]
+        assert any(m == "DELETE" for m, _ in gh.calls)
+        # 올리기 실패(L03) → 경고만, 목록에서 L03 이 빠지고 나머지는 올라감
+        gh.fail_names = {"L03.mp4"}
+        r3 = videogen.publish_release(res["clips_manifest"], "clips-fake-episode", "fake-owner/fake-repo")
+        assert r3["ok"] is False and r3["failed"] == ["L03"] and r3["uploaded"] == ["L01", "L02"], r3
+        assert sorted(c["name"] for c in gh.manifest("clips-fake-episode")["clips"]) == ["L01", "L02"]
+        log_text = open(res2["log"], encoding="utf-8").read() + open(res["log"], encoding="utf-8").read()
+        for needle in ("[CLIPS]", "[RELEASE]", "replaced old asset", "GITHUB_TOKEN not found", "request failed, retrying"):
+            assert needle in log_text, needle
+        assert "fake-token-for-test" not in log_text  # 토큰 값은 로그에 남지 않음
+        meta = json.load(open(res2["metadata"], encoding="utf-8"))
+        assert "fake-token-for-test" not in json.dumps(meta) and meta["release"]["ok"] is True
+        print("ok  scene clips: per-clip sec/name -> clips/ + manifest -> fake Release (create, replace, merge, fail)")
+    finally:
+        videogen._http, videogen.time.sleep = real_http, real_sleep
+        os.environ.pop("GITHUB_TOKEN", None)
+        os.environ.update(saved_env)
+
+
 def test_diffusers_frame_limit(tmp):
     """diffusers 5B 로 15초(361프레임)를 한 번에 만들려 하면 생성 전에 멈추고 hq 모델을 알려 준다."""
     if not all(importlib.util.find_spec(m) for m in ("torch", "diffusers", "transformers")):
@@ -514,6 +680,7 @@ def main():
     app = test_wangp(tmp)
     test_wangp_fhd(tmp, app)
     test_start_images(tmp, app)
+    test_scene_clips(tmp, app)
     test_upscale_file_rejoin(tmp)
     test_ascii_locale(tmp)
     print("ALL TESTS PASSED", tmp)

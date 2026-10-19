@@ -1,6 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.3.1 — 2026-10-19 — 사용자 보고 "RuntimeError: 업스케일 결과 크기 None != 1080x1920": Kaggle 커널 로캘이 UTF-8 이
+# VERSION: v1.4.0 — 2026-10-19 — 사용자 지시 "롱폼,숏폼 둘다 아까 짧게 짧게 시작이미지로 영상 만들었던 코드로 만들거니까
+#          그 코드 수정필요하면 수정하고 영상을 이어 붙이는건 그 코드에서 하는게 아니라 너가 하는거야": 영상 한 편의 장면
+#          클립 수십 개를 한 번에 만들고 Claude 가 받아 이어 붙이게 — start_images 항목마다 길이(sec)·이름(name),
+#          상대 경로 이미지는 image_base 앞에 붙여 받음, 결과 clips/<이름>.mp4 + clips_manifest.json,
+#          release_tag 를 주면 GitHub Release 에 올림(Kaggle Secret GITHUB_TOKEN · 같은 이름은 바꿔 올림 · 목록은 합침 ·
+#          실패는 경고만 — Output 탭에는 그대로)
+# 이전 v1.3.1 — 2026-10-19 — 사용자 보고 "RuntimeError: 업스케일 결과 크기 None != 1080x1920": Kaggle 커널 로캘이 UTF-8 이
 #          아니면 ffmpeg 출력 속 영상 메타데이터(WanGP 가 넣은 중국어 부정 프롬프트)를 읽다 UnicodeDecodeError → 크기 None.
 #          하위 프로세스 출력을 UTF-8(대체)로 읽고 WanGP 도 UTF-8 로 찍게(PYTHONUTF8) · ffprobe(JSON) 먼저 · 결과 파일 메타데이터
 #          제거 · 크기를 못 읽으면 경고만(다르면 멈춤) · 생성 없이 다시 키우는 upscale_file() · 같은 원인으로 이어 붙이기가
@@ -47,6 +53,7 @@ Kaggle 셀 (videogen/README.md 의 셀을 그대로):
     ltx2.5-distilled      WanGP 로 LTX-2.5 Distilled 22B, 영상+오디오 (LTX-2 Community License — 연매출 1천만 달러 이상 유료)
 
 결과: <output_dir>/<run_id>/ 에 영상 + videogen_<run_id>.json(설정·버전·시간·코드 sha256) + run.log
+      시작 이미지 길: clips/<이름>.mp4 + clips/clips_manifest.json (release_tag 면 GitHub Release 에도 — v1.4.0)
 로그 형식: [STAGE] [TIMESTAMP] [LEVEL] message key=value ...
 ※ 연구·교육용 도구다. 모델별 라이선스·Kaggle 약관·생성물 권리 확인은 사용자 책임이다.
 """
@@ -67,7 +74,7 @@ import sys
 import time
 from dataclasses import asdict, dataclass, field, fields
 
-__version__ = "1.3.1"
+__version__ = "1.4.0"
 
 # --------------------------------------------------------------------------------------------------
 # 모델 · 프리셋
@@ -134,6 +141,14 @@ TORCH_BUILDS = {
                   index="https://download.pytorch.org/whl/cu128", min_driver=525),
 }
 MEDIA_EXT = {".mp4", ".webm", ".mkv", ".gif", ".png", ".jpg", ".jpeg", ".webp", ".wav", ".mp3", ".flac"}
+# v1.4.0 장면 클립: 시작 이미지 항목 키 · 이름(파일 이름이 됨) · GitHub Release
+START_IMAGE_KEYS = {"image", "prompt", "sec", "name"}
+CLIP_NAME_RE = re.compile(r"[A-Za-z0-9][A-Za-z0-9_.-]{0,63}")
+RELEASE_TAG_RE = re.compile(r"[A-Za-z0-9][A-Za-z0-9_.-]{0,99}")
+REPO_RE = re.compile(r"[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+")
+MANIFEST_NAME = "clips_manifest.json"
+GITHUB_API = "https://api.github.com"
+GITHUB_UPLOADS = "https://uploads.github.com"
 
 
 @dataclass
@@ -156,9 +171,14 @@ class Config:
     upscale_to: str | None = None                # 최종 해상도 "1920x1080" — 생성 해상도의 1.5·2·…배(가로세로 같은 배율)
     upscaler: str = "flashvsr"                   # flashvsr(학습형 복원, WanGP) | lanczos(단순 확대, ffmpeg). flashvsr 실패 → lanczos
     # ---- 시작 이미지 (WanGP 모델) — 장마다 짧은 클립 하나, WanGP 한 번 실행에 연달아 (모델을 한 번만 불러옴) ----
-    start_images: list = field(default_factory=list)  # 경로·URL, 또는 {"image": 경로·URL, "prompt": "이 클립만의 프롬프트"}
-    clip_sec: float | None = None                # 클립 하나 길이(초). None: duration_sec ÷ 이미지 수 → 없으면 모델 기본(약 5초)
-    concat: bool = True                          # 클립들을 순서대로 이어 한 영상으로 (컷 전환)
+    # 경로·URL, 또는 {"image": 경로·URL, "prompt": 이 클립만의 프롬프트, "sec": 이 클립 길이(초), "name": 결과 이름}
+    start_images: list = field(default_factory=list)
+    image_base: str | None = None                # 상대 경로 image 앞에 붙일 주소·폴더 (v1.4.0 — 예: raw.githubusercontent.com/<저장소>/<커밋>/)
+    clip_sec: float | None = None                # 클립 하나 길이(초). 우선순위: 항목 sec > clip_sec > duration_sec ÷ 이미지 수 > 모델 기본(약 5초)
+    concat: bool = True                          # 클립들을 순서대로 이어 한 영상으로 (컷 전환). 장면 클립을 따로 받을 땐 False
+    # ---- 클립 보내기 (v1.4.0) — Claude 가 받아 영상에 이어 붙임. 실패해도 Output 탭에는 그대로 남음 ----
+    release_tag: str | None = None               # 예: "clips-<영상ID>" — 이 태그의 GitHub Release 에 clips/ 를 올림. None: 안 올림
+    release_repo: str = "yeomin1024/yeomin1024-ytb"  # 토큰 = Kaggle Secret GITHUB_TOKEN (contents 쓰기 권한)
     # ---- 경로 ----
     output_dir: str = "/kaggle/working/outputs"  # 결과 (Kaggle Output 탭으로 저장됨, 20GB 한도)
     work_dir: str = "/kaggle/tmp/videogen"       # 가중치·venv·WanGP 소스 (저장 안 되는 임시 디스크)
@@ -210,11 +230,34 @@ def make_config(settings: dict | Config | None = None, **overrides) -> Config:
         raise ValueError(f"model={cfg.model!r} 는 시작 이미지가 필요하다 — start_images=[...] 를 넣거나 'wan2.2-5b-fast'")
     if cfg.start_images and spec["backend"] != "wangp":
         raise ValueError(f"start_images 는 WanGP 모델에서만: {[m for m, v in MODELS.items() if v['backend'] == 'wangp']}")
+    names = []
     for i, item in enumerate(cfg.start_images):
         if not (isinstance(item, str) and item.strip()) and not (isinstance(item, dict) and item.get("image")):
             raise ValueError(f"start_images[{i}] 는 경로·URL 문자열이나 {{'image': ..., 'prompt': ...}} 이어야 한다: {item!r}")
+        if not isinstance(item, dict):
+            continue
+        extra = sorted(set(item) - START_IMAGE_KEYS)
+        if extra:
+            raise ValueError(f"start_images[{i}] 의 알 수 없는 키 {extra}. 쓸 수 있는 키: {sorted(START_IMAGE_KEYS)}")
+        sec = item.get("sec")
+        if sec is not None and (isinstance(sec, bool) or not isinstance(sec, (int, float)) or sec <= 0):
+            raise ValueError(f"start_images[{i}].sec={sec!r} 은 0보다 큰 숫자(초)여야 한다")
+        if item.get("name") is not None:
+            if not CLIP_NAME_RE.fullmatch(str(item["name"])):
+                raise ValueError(f"start_images[{i}].name={item['name']!r} — 영문·숫자·_-. 로 64자까지 (파일 이름이 됨)")
+            names.append(str(item["name"]))
+    dup = sorted({n for n in names if names.count(n) > 1})
+    if dup:
+        raise ValueError(f"start_images 의 name 이 겹친다: {dup} (같은 이름이면 결과 파일이 덮어써짐)")
     if cfg.clip_sec is not None and cfg.clip_sec <= 0:
         raise ValueError(f"clip_sec={cfg.clip_sec} 은 0보다 커야 한다")
+    if cfg.release_tag is not None:
+        if not cfg.start_images:
+            raise ValueError("release_tag 는 시작 이미지 길(start_images)의 clips/ 를 올린다 — start_images 가 비어 있음")
+        if not RELEASE_TAG_RE.fullmatch(cfg.release_tag):
+            raise ValueError(f"release_tag={cfg.release_tag!r} — 영문·숫자·_-. 로 100자까지 (예: 'clips-<영상ID>')")
+    if not REPO_RE.fullmatch(cfg.release_repo):
+        raise ValueError(f"release_repo={cfg.release_repo!r} 는 '소유자/저장소' 꼴이어야 한다")
     return cfg
 
 
@@ -617,8 +660,19 @@ def _fetch(url: str, dst: str):
     raise RuntimeError(f"시작 이미지 받기 실패: {url} ({err!r}) — 주소·Internet=On 확인")
 
 
+def _image_source(cfg: Config, src: str) -> str:
+    """상대 경로 이미지 → image_base 를 앞에 (URL·절대 경로는 그대로). v1.4.0"""
+    if not cfg.image_base or re.match(r"^(https?|file)://", src) or os.path.isabs(src):
+        return src
+    base = cfg.image_base
+    if re.match(r"^(https?|file)://", base):
+        return base.rstrip("/") + "/" + src.lstrip("/")
+    return os.path.join(base, src)
+
+
 def prepare_start_images(cfg: Config, params: dict, run_dir: str) -> list[dict]:
-    """start_images → [{'path', 'prompt', 'src', 'orig'}]. 가운데를 잘라 생성 해상도(params width x height)에 정확히 맞춘다."""
+    """start_images → [{'path', 'prompt', 'src', 'orig', 'sec', 'name'}]. 가운데를 잘라 생성 해상도(params width x height)에
+    정확히 맞춘다. name 이 없으면 clip01, clip02, … (v1.4.0)"""
     from PIL import Image
 
     out_dir = os.path.join(run_dir, "start_images")
@@ -626,7 +680,9 @@ def prepare_start_images(cfg: Config, params: dict, run_dir: str) -> list[dict]:
     tw, th = params["width"], params["height"]
     images = []
     for i, item in enumerate(cfg.start_images, 1):
-        src, prompt = (item, None) if isinstance(item, str) else (item["image"], item.get("prompt"))
+        item = {"image": item} if isinstance(item, str) else item
+        src, prompt = _image_source(cfg, item["image"]), item.get("prompt")
+        name, sec = str(item.get("name") or f"clip{i:02d}"), item.get("sec")
         if re.match(r"^(https?|file)://", src):
             local = os.path.join(out_dir, f"{i:02d}_source{os.path.splitext(src.split('?')[0])[1] or '.img'}")
             _fetch(src, local)
@@ -645,12 +701,12 @@ def prepare_start_images(cfg: Config, params: dict, run_dir: str) -> list[dict]:
             path = os.path.join(out_dir, f"{i:02d}.png")
             im.save(path)
         cut = round((1 - (tw * th) / (nw * nh)) * 100, 1)
-        log("IMAGES", "start image", idx=i, src=src[-120:], orig=f"{ow}x{oh}", final=f"{tw}x{th}", cropped_pct=cut,
-            prompt="own" if prompt else "global")
+        log("IMAGES", "start image", idx=i, name=name, src=src[-120:], orig=f"{ow}x{oh}", final=f"{tw}x{th}",
+            cropped_pct=cut, prompt="own" if prompt else "global", sec=sec if sec is not None else "default")
         if cut > 20:
             log("IMAGES", "more than 20% of the image was cropped to fit the video aspect — the subject may be cut",
-                logging.WARNING, idx=i, cropped_pct=cut)
-        images.append(dict(path=path, prompt=prompt or cfg.prompt, src=src, orig=f"{ow}x{oh}"))
+                logging.WARNING, idx=i, name=name, cropped_pct=cut)
+        images.append(dict(path=path, prompt=prompt or cfg.prompt, src=src, orig=f"{ow}x{oh}", sec=sec, name=name))
     return images
 
 
@@ -664,6 +720,14 @@ def clip_frames_for(cfg: Config, params: dict, n_images: int) -> int:
     else:
         return spec.get("clip_frames", 81)
     return _wan_frames(sec, spec["fps"])
+
+
+def clip_frames_each(cfg: Config, params: dict) -> list[int]:
+    """시작 이미지마다 프레임 수 (v1.4.0): 항목 sec 이 있으면 그것으로, 없으면 clip_frames_for 와 같음."""
+    fps = MODELS[cfg.model]["fps"]
+    default = clip_frames_for(cfg, params, len(cfg.start_images))
+    return [_wan_frames(item["sec"], fps) if isinstance(item, dict) and item.get("sec") is not None else default
+            for item in cfg.start_images]
 
 
 def _ensure_packages(specs: dict[str, str]):
@@ -1157,13 +1221,18 @@ def wangp_continue_settings(cfg: Config, params: dict, app_dir: str, source: str
     return s
 
 
-def wangp_image_tasks(cfg: Config, params: dict, app_dir: str, images: list[dict], clip_frames: int) -> list[dict]:
+def wangp_image_tasks(cfg: Config, params: dict, app_dir: str, images: list[dict],
+                      clip_frames: int | list[int]) -> list[dict]:
     """시작 이미지마다 작업 하나 (image_prompt_type 'S' + image_start). WanGP 는 목록을 한 프로세스에서 차례로 돌려
-    모델을 한 번만 불러온다. seed 는 클립마다 seed, seed+1, … (같은 설정·이미지면 같은 결과)."""
-    base = wangp_settings(cfg, params, app_dir, video_length=clip_frames)
+    모델을 한 번만 불러온다. seed 는 클립마다 seed, seed+1, … (같은 설정·이미지면 같은 결과).
+    clip_frames: 모든 클립 같은 수, 또는 클립마다 (v1.4.0 — 항목 sec)."""
+    frames = clip_frames if isinstance(clip_frames, list) else [clip_frames] * len(images)
+    if len(frames) != len(images):
+        raise ValueError(f"clip_frames {len(frames)}개 != 이미지 {len(images)}장")
+    base = wangp_settings(cfg, params, app_dir, video_length=frames[0] if frames else None)
     tasks = []
-    for i, img in enumerate(images):
-        t = dict(base, prompt=img["prompt"], seed=cfg.seed + i, image_prompt_type="S",
+    for i, (img, n) in enumerate(zip(images, frames)):
+        t = dict(base, prompt=img["prompt"], seed=cfg.seed + i, image_prompt_type="S", video_length=n,
                  image_start=os.path.abspath(img["path"]))
         tasks.append(t)
     return tasks
@@ -1263,15 +1332,26 @@ def _wangp_generate(cfg: Config, run_dir: str, run_id: str, timings: dict) -> di
             explicit=",".join(params["explicit"]) or "none",
             note="steps/guidance from the WanGP model or accelerator profile unless explicit")
         if cfg.start_images:
-            clip_frames = clip_frames_for(cfg, params, len(cfg.start_images))
-            plan = dict(total=clip_frames * len(cfg.start_images), first=clip_frames, cont=None,
-                        clips=len(cfg.start_images), clip_frames=clip_frames)
-            log("SETUP", "clip plan", clips=plan["clips"], frames_per_clip=clip_frames,
-                sec_per_clip=round(clip_frames / spec["fps"], 2), total_sec=round(plan["total"] / spec["fps"], 2),
-                model=spec["model_type"], concat=cfg.concat)
-            if clip_frames > spec.get("clip_frames", 81):
-                log("SETUP", "clip longer than the model's ~5s training length: WanGP will window it (slower)",
-                    logging.WARNING, frames_per_clip=clip_frames, model_clip_frames=spec.get("clip_frames"))
+            frames = clip_frames_each(cfg, params)
+            same = len(set(frames)) == 1
+            plan = dict(total=sum(frames), first=frames[0], cont=None, clips=len(frames),
+                        clip_frames=frames[0] if same else frames)
+            log("SETUP", "clip plan", clips=plan["clips"],
+                frames_per_clip=frames[0] if same else f"{min(frames)}..{max(frames)} (per clip)",
+                sec_per_clip=round(frames[0] / spec["fps"], 2) if same else "per clip",
+                total_sec=round(plan["total"] / spec["fps"], 2), model=spec["model_type"], concat=cfg.concat,
+                release_tag=cfg.release_tag or "none")
+            if not same:
+                log("SETUP", "per-clip frames", logging.DEBUG, frames=",".join(map(str, frames)))
+            limit = spec.get("clip_frames", 81)
+            for item, n in zip(cfg.start_images, frames):
+                if n > limit:
+                    log("SETUP", "clip longer than the model's ~5s training length: WanGP will window it (slower)",
+                        logging.WARNING, name=item.get("name", "") if isinstance(item, dict) else "",
+                        frames=n, model_clip_frames=limit)
+            if cfg.release_tag and cfg.concat:
+                log("SETUP", "release_tag with concat=True: clips/ holds the clips before joining/upscaling — "
+                    "set concat=False to get each clip upscaled", logging.WARNING)
         else:
             plan = wangp_plan(cfg, params)
             log("SETUP", "length plan", total=plan["total"], first_stage=f"{spec['model_type']}:{plan['first']}",
@@ -1289,13 +1369,14 @@ def _wangp_generate(cfg: Config, run_dir: str, run_id: str, timings: dict) -> di
     os.makedirs(media_dir, exist_ok=True)
     run_args = (run_dir, media_dir, app_dir, py, attention, wgp_log)
 
-    segments = []
+    segments, raw_clips = [], []
     with _Stage("GENERATE", timings, "wangp_process.log 끝부분 확인 · RAM 부족이면 wangp_profile='5'"):
         if images:
             new = _wangp_process(cfg, wangp_image_tasks(cfg, params, app_dir, images, plan["clip_frames"]),
                                  "wangp_settings.json", *run_args, "GENERATE")
             if len(_clips(new)) != len(images):
                 raise RuntimeError(f"클립 {len(images)}개를 기대했는데 {len(_clips(new))}개 — {wgp_log}")
+            raw_clips = _clips(new)   # 이어 붙이기 전, 이미지 순서대로 (v1.4.0 clips/ 용)
         else:
             new = _wangp_process(cfg, wangp_settings(cfg, params, app_dir, video_length=plan["first"]),
                                  "wangp_settings.json", *run_args, "GENERATE")
@@ -1321,8 +1402,210 @@ def _wangp_generate(cfg: Config, run_dir: str, run_id: str, timings: dict) -> di
         with _Stage("UPSCALE", timings, "생성 원본은 base_videos(media 폴더)에 그대로 있음 · upscaler='lanczos' 로 다시"):
             ups = [_upscale_video(cfg, params, c, run_dir, wangp=(app_dir, py, attention, wgp_log)) for c in clips]
             videos, base, methods = [u[0] for u in ups], clips, [u[1] for u in ups]
+    named, manifest = [], None
+    if images:
+        with _Stage("CLIPS", timings, "생성 결과는 media/ 에 그대로 있음"):
+            # concat=False 면 클립마다 최종(업스케일)본, 이어 붙였으면 이어 붙이기 전 원본
+            per_clip = videos if not segments and len(videos) == len(images) else raw_clips
+            frames = plan["clip_frames"] if isinstance(plan["clip_frames"], list) else [plan["clip_frames"]] * len(images)
+            named, manifest = collect_clips(cfg, run_dir, run_id, images, per_clip, frames,
+                                            upscaled=per_clip is videos and bool(base))
     return dict(videos=videos, base_videos=base, segments=segments, upscale_methods=methods, params=params, plan=plan,
-                start_images=images, wangp_log=wgp_log, gpus=gpus, attention=attention, wangp_ref=cfg.wangp_ref)
+                start_images=images, clips=named, clips_manifest=manifest, wangp_log=wgp_log, gpus=gpus,
+                attention=attention, wangp_ref=cfg.wangp_ref)
+
+
+def collect_clips(cfg: Config, run_dir: str, run_id: str, images: list[dict], per_clip: list[str], frames: list[int],
+                  upscaled: bool) -> tuple[list[str], str]:
+    """클립마다 clips/<이름>.mp4 로 복사 + clips_manifest.json (이름·이미지·프롬프트·seed·프레임·실제 길이·크기·sha256).
+    Claude 가 이 목록으로 영상 시각표에 클립을 놓는다 (v1.4.0)."""
+    if len(per_clip) != len(images):
+        raise RuntimeError(f"클립 {len(per_clip)}개 != 이미지 {len(images)}장 — media/ 확인")
+    out_dir = os.path.join(run_dir, "clips")
+    os.makedirs(out_dir, exist_ok=True)
+    fps = MODELS[cfg.model]["fps"]
+    entries, paths = [], []
+    for i, (img, src, n) in enumerate(zip(images, per_clip, frames)):
+        dst = os.path.join(out_dir, img["name"] + os.path.splitext(src)[1].lower())
+        shutil.copyfile(src, dst)
+        info = _video_info(dst)
+        entry = dict(name=img["name"], file=os.path.basename(dst), image=img["src"], prompt=img["prompt"],
+                     seed=cfg.seed + i, target_sec=img.get("sec"), frames=n, model_fps=fps,
+                     duration_sec=info.get("duration_sec"), width=info.get("width"), height=info.get("height"),
+                     fps=info.get("fps"), upscaled=upscaled, source=os.path.basename(src), sha256=_sha256(dst),
+                     run_id=run_id)
+        entries.append(entry)
+        paths.append(dst)
+        short = img.get("sec") is not None and info.get("duration_sec") and info["duration_sec"] + 0.05 < img["sec"]
+        log("CLIPS", "clip", name=img["name"], file=dst, frames=n, target_sec=img.get("sec") or "default",
+            duration_sec=info.get("duration_sec"), size=f"{info.get('width')}x{info.get('height')}",
+            size_mb=round(os.path.getsize(dst) / 1e6, 2))
+        if short:
+            log("CLIPS", "clip shorter than asked (Wan frame rule 4k+1 or model cap)", logging.WARNING,
+                name=img["name"], target_sec=img["sec"], duration_sec=info["duration_sec"])
+    manifest = os.path.join(out_dir, MANIFEST_NAME)
+    with open(manifest, "w", encoding="utf-8") as f:
+        json.dump(dict(videogen_version=__version__, run_id=run_id, model=cfg.model, created=_now_iso(),
+                       clips=entries), f, ensure_ascii=False, indent=2)
+    log("CLIPS", "manifest", file=manifest, clips=len(entries),
+        total_sec=round(sum(e["duration_sec"] or 0 for e in entries), 2))
+    return paths, manifest
+
+
+def _now_iso() -> str:
+    return time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+
+
+# --------------------------------------------------------------------------------------------------
+# v1.4.0 GitHub Release 로 클립 보내기 — Kaggle 결과를 Claude(클라우드 환경)가 받아 이어 붙임.
+# 토큰은 Kaggle Secret GITHUB_TOKEN (내레이션 셀과 같은 토큰). 값은 로그·메타데이터에 남기지 않는다.
+# 실패는 경고만: 생성한 클립은 Output 탭(clips/)에 그대로 있고, 아래 publish_release() 를 같은 세션에서 다시 부르면 된다.
+# --------------------------------------------------------------------------------------------------
+class _HTTPError(Exception):
+    def __init__(self, status: int, body: str):
+        super().__init__(f"HTTP {status}: {body[:300]}")
+        self.status, self.body = status, body
+
+
+def _http(method: str, url: str, token: str, data: bytes | None = None, content_type: str | None = None,
+          accept: str = "application/vnd.github+json", timeout: int = 300) -> tuple[int, bytes]:
+    """GitHub API 한 번. 토큰은 리디렉트(자산 내려받기 → 다른 호스트)로 따라가지 않게 unredirected 헤더로."""
+    import urllib.error
+    import urllib.request
+    req = urllib.request.Request(url, data=data, method=method)
+    req.add_header("Accept", accept)
+    req.add_header("X-GitHub-Api-Version", "2022-11-28")
+    req.add_header("User-Agent", "videogen/" + __version__)
+    if content_type:
+        req.add_header("Content-Type", content_type)
+    req.add_unredirected_header("Authorization", "Bearer " + token)
+    try:
+        with urllib.request.urlopen(req, timeout=timeout) as r:
+            return r.status, r.read()
+    except urllib.error.HTTPError as e:
+        raise _HTTPError(e.code, e.read().decode("utf-8", "replace")) from None
+
+
+def _gh(method: str, url: str, token: str, tries: int = 4, **kw) -> tuple[int, bytes]:
+    """네트워크 오류·5xx·429 는 2·4·8초 쉬고 다시 (4xx 는 바로 올림)."""
+    for attempt in range(1, tries + 1):
+        try:
+            return _http(method, url, token, **kw)
+        except _HTTPError as e:
+            if e.status < 500 and e.status != 429 or attempt == tries:
+                raise
+            err = e
+        except OSError as e:  # URLError·연결 끊김·시간 초과
+            if attempt == tries:
+                raise
+            err = e
+        log("RELEASE", "request failed, retrying", logging.WARNING, method=method, url=url.split("?")[0][-100:],
+            attempt=attempt, error=repr(err)[:200])
+        time.sleep(2 ** attempt)
+    raise RuntimeError("unreachable")
+
+
+def _release(repo: str, tag: str, token: str) -> dict:
+    """태그의 Release — 없으면 만든다 (prerelease: 공개 저장소면 로그인 없이 받을 수 있게, 초안은 안 됨)."""
+    try:
+        _, body = _gh("GET", f"{GITHUB_API}/repos/{repo}/releases/tags/{tag}", token)
+        rel = json.loads(body)
+        log("RELEASE", "found", tag=tag, id=rel["id"], url=rel.get("html_url"))
+        return rel
+    except _HTTPError as e:
+        if e.status != 404:
+            raise
+    payload = dict(tag_name=tag, name=tag, prerelease=True,
+                   body="videogen 장면 클립 (Kaggle) — 영상 합치기용 중간 결과. clips_manifest.json 에 클립 목록.")
+    _, body = _gh("POST", f"{GITHUB_API}/repos/{repo}/releases", token, data=json.dumps(payload).encode(),
+                  content_type="application/json")
+    rel = json.loads(body)
+    log("RELEASE", "created", tag=tag, id=rel["id"], url=rel.get("html_url"), prerelease=True)
+    return rel
+
+
+def _release_assets(repo: str, rel_id: int, token: str) -> dict[str, dict]:
+    assets, page = {}, 1
+    while True:
+        _, body = _gh("GET", f"{GITHUB_API}/repos/{repo}/releases/{rel_id}/assets?per_page=100&page={page}", token)
+        batch = json.loads(body)
+        assets.update({a["name"]: a for a in batch})
+        if len(batch) < 100:
+            return assets
+        page += 1
+
+
+def _upload_asset(repo: str, rel: dict, path: str, name: str, token: str, assets: dict[str, dict]) -> dict:
+    """같은 이름 자산이 있으면 지우고 올린다 (클립을 다시 만든 경우)."""
+    import urllib.parse
+    if name in assets:
+        _gh("DELETE", f"{GITHUB_API}/repos/{repo}/releases/assets/{assets[name]['id']}", token)
+        log("RELEASE", "replaced old asset", name=name)
+    ctype = "application/json" if name.endswith(".json") else "video/mp4"
+    with open(path, "rb") as f:
+        data = f.read()
+    url = f"{GITHUB_UPLOADS}/repos/{repo}/releases/{rel['id']}/assets?name={urllib.parse.quote(name)}"
+    _, body = _gh("POST", url, token, data=data, content_type=ctype, timeout=900)
+    asset = json.loads(body)
+    assets[name] = asset
+    return asset
+
+
+def publish_release(manifest_path: str, tag: str, repo: str = "yeomin1024/yeomin1024-ytb",
+                    token: str | None = None) -> dict:
+    """clips_manifest.json 과 그 클립들을 Release(tag)에 올린다. 이미 있는 목록과 이름으로 합친다(다시 만든 클립만 바뀜).
+    실패해도 멈추지 않고 {'ok': False, 'error': ...} — Kaggle 같은 세션에서 다시:
+        videogen.publish_release("/kaggle/working/outputs/<실행시각>/clips/clips_manifest.json", "clips-<영상ID>")"""
+    t0 = time.perf_counter()
+    token = token or _kaggle_secret("GITHUB_TOKEN")
+    if not token:
+        log("RELEASE", "GITHUB_TOKEN not found — clips stay in the Output tab only. Kaggle: Add-ons → Secrets → "
+            "GITHUB_TOKEN (attach to this notebook), then call videogen.publish_release(...)", logging.WARNING,
+            manifest=manifest_path)
+        return dict(ok=False, error="no GITHUB_TOKEN", uploaded=[], failed=[])
+    try:
+        man = json.load(open(manifest_path, encoding="utf-8"))
+        clip_dir = os.path.dirname(manifest_path)
+        rel = _release(repo, tag, token)
+        assets = _release_assets(repo, rel["id"], token)
+        merged = {}
+        if MANIFEST_NAME in assets:  # 이전 실행에서 올린 목록 — 자산 API 로 받음 (리디렉트엔 토큰을 안 붙임)
+            _, body = _gh("GET", assets[MANIFEST_NAME]["url"], token, accept="application/octet-stream")
+            merged = {c["name"]: c for c in json.loads(body).get("clips", [])}
+            log("RELEASE", "existing manifest", clips=len(merged))
+        uploaded, failed, total = [], [], 0
+        for c in man["clips"]:
+            path = os.path.join(clip_dir, c["file"])
+            try:
+                a = _upload_asset(repo, rel, path, c["file"], token, assets)
+            except Exception as e:  # 한 클립 실패 — 나머지는 계속, 목록에서는 뺀다(옛 자산도 지웠을 수 있음)
+                failed.append(c["name"])
+                merged.pop(c["name"], None)
+                log("RELEASE", "upload failed", logging.WARNING, name=c["name"], error=repr(e)[:300])
+                continue
+            total += os.path.getsize(path)
+            merged[c["name"]] = dict(c, release_url=a.get("browser_download_url"), asset_id=a.get("id"))
+            uploaded.append(c["name"])
+            log("RELEASE", "uploaded", name=c["name"], size_mb=round(os.path.getsize(path) / 1e6, 2),
+                done=f"{len(uploaded)}/{len(man['clips'])}")
+        out = dict({k: v for k, v in man.items() if k != "clips"}, updated=_now_iso(), release_tag=tag, repo=repo,
+                   clips=sorted(merged.values(), key=lambda c: c["name"]))
+        rel_manifest = os.path.join(clip_dir, "clips_manifest_release.json")
+        with open(rel_manifest, "w", encoding="utf-8") as f:
+            json.dump(out, f, ensure_ascii=False, indent=2)
+        _upload_asset(repo, rel, rel_manifest, MANIFEST_NAME, token, assets)
+        log("RELEASE", "done", tag=tag, url=rel.get("html_url"), uploaded=len(uploaded), failed=len(failed),
+            clips_in_release=len(merged), mb=round(total / 1e6, 1), sec=round(time.perf_counter() - t0, 1))
+        if failed:
+            log("RELEASE", "some clips failed — call publish_release(...) again in this session", logging.WARNING,
+                failed=",".join(failed))
+        return dict(ok=not failed, url=rel.get("html_url"), uploaded=uploaded, failed=failed, manifest=rel_manifest)
+    except Exception as e:  # Release 를 못 만들거나 목록을 못 올림 — 클립은 Output 탭에 그대로
+        hint = "토큰 권한(contents: write)·저장소 이름 확인" if isinstance(e, _HTTPError) and e.status in (401, 403, 404) \
+            else "Internet=On 확인 후 publish_release(...) 다시"
+        log("RELEASE", "FAILED — clips stay in the Output tab (clips/)", logging.WARNING, tag=tag, repo=repo,
+            error=repr(e)[:300], next_step=hint)
+        return dict(ok=False, error=repr(e)[:300], uploaded=[], failed=[])
 
 
 # --------------------------------------------------------------------------------------------------
@@ -1357,6 +1640,10 @@ def run(settings: dict | Config | None = None, **overrides) -> dict:
         result = _diffusers_generate(cfg, run_dir, run_id, timings)
     else:
         result = _wangp_generate(cfg, run_dir, run_id, timings)
+    if cfg.release_tag and result.get("clips_manifest"):
+        t0 = time.perf_counter()
+        result["release"] = publish_release(result["clips_manifest"], cfg.release_tag, cfg.release_repo)
+        timings["RELEASE"] = round(time.perf_counter() - t0, 1)
 
     meta_path = os.path.join(run_dir, f"videogen_{run_id}.json")
     meta = dict(videogen_version=__version__, code_sha256=code_sha, run_id=run_id, config=asdict(cfg),
@@ -1373,9 +1660,16 @@ def run(settings: dict | Config | None = None, **overrides) -> dict:
         log("SUMMARY", "base (before upscale, kept)", file=v)
     for v in result.get("segments", []):
         log("SUMMARY", "segment (kept)", file=v)
+    if result.get("clips_manifest"):
+        log("SUMMARY", "named clips", clips=len(result["clips"]), manifest=result["clips_manifest"])
+    if result.get("release"):
+        rel = result["release"]
+        log("SUMMARY", "release", ok=rel["ok"], url=rel.get("url", "n/a"), uploaded=len(rel["uploaded"]),
+            failed=len(rel["failed"]), error=rel.get("error", "none"))
     if cfg.preview:
-        _preview(result["videos"])
-    return dict(videos=result["videos"], metadata=meta_path, log=log_file, timings=timings, run_dir=run_dir)
+        _preview(result["videos"][:3] if result.get("clips") else result["videos"])  # 장면 클립 수십 개면 앞 3개만
+    return dict(videos=result["videos"], metadata=meta_path, log=log_file, timings=timings, run_dir=run_dir,
+                clips_manifest=result.get("clips_manifest"), release=result.get("release"))
 
 
 def _preview(paths: list[str], max_mb: float = 40.0):

@@ -1,6 +1,7 @@
 # 영상 생성 AI — Kaggle 에서 설정만 바꿔 실행 (`videogen/`)
 
-버전: v1.3.1 — 2026-10-19 — **`RuntimeError: 업스케일 결과 크기 None != 1080x1920` 고침** (사용자 보고): Kaggle 커널 로캘이 UTF-8 이 아니면 WanGP 가 결과 mp4 에 넣은 중국어 메타데이터를 읽다 실패 → 크기·fps 를 못 읽음. 같은 원인으로 이어 붙인 영상이 **16fps**(5B 클립은 24fps — 프레임 1/3 버림)로 됐을 수 있음. 다시 생성하지 않고 마무리하는 셀 2-3번 (`videogen.upscale_file`).
+버전: v1.4.0 — 2026-10-19 — **영상 한 편의 장면 클립** (사용자 지시 "롱폼,숏폼 둘다 아까 짧게 짧게 시작이미지로 영상 만들었던 코드로 만들거니까 그 코드 수정필요하면 수정하고 영상을 이어 붙이는건 그 코드에서 하는게 아니라 너가 하는거야"): 시작 이미지마다 길이(`sec`)·이름(`name`), 결과 `clips/<이름>.mp4` + 목록, `release_tag` 로 GitHub Release 에 올려 Claude 가 받아 이어 붙임 — 2-4번.
+이전 v1.3.1 — 2026-10-19 — **`RuntimeError: 업스케일 결과 크기 None != 1080x1920` 고침** (사용자 보고): Kaggle 커널 로캘이 UTF-8 이 아니면 WanGP 가 결과 mp4 에 넣은 중국어 메타데이터를 읽다 실패 → 크기·fps 를 못 읽음. 같은 원인으로 이어 붙인 영상이 **16fps**(5B 클립은 24fps — 프레임 1/3 버림)로 됐을 수 있음. 다시 생성하지 않고 마무리하는 셀 2-3번 (`videogen.upscale_file`).
 이전 v1.3.0 — 2026-10-18 — **빠르게: 시작 이미지 여러 장 → 짧은 클립들** (사용자 지시 "3개 영상 나왔는데 2시간 걸렸어 너무 오래걸리는데 빠르게 생성하는 방법 없어? 시작 이미지를 전달하면 더 빨리 할 수 있어? 시작 이미지 여러개 만들어서 짧게 짧게 각각 만드는거지"): 새 설정 `start_images` `clip_sec` `concat` · 새 모델 `wan2.2-5b-fast` `wan2.2-14b-i2v` — 2-2번.
 이전 v1.2.1 — 2026-10-18 — WanGP 가 T2V 모델의 창 이어붙이기를 거부한 오류 고침 (사용자 보고 wangp_process.log): `wan2.2-14b-hq` 를 두 단계로 — T2V 14B 첫 5초 → SVI 2 Pro 가 이어 만들기 (2-1번).
 이전 v1.2.0 — 2026-10-18 — **1920x1080 · 15초 고품질** (사용자 지시 "좀 고품질의 1920, 1080 해상도로 할아버지가 소파에 앉아서 호통치는 영상으로 15초 정도로 생성하는 설정, 프롬프트로 변경해줘"): 새 모델 `wan2.2-14b-hq` · 새 프리셋 `fhd_15s` · 새 설정 `duration_sec` `upscale_to` `upscaler` — 2-1번 예시.
@@ -151,6 +152,60 @@ from IPython.display import Video; Video(final, embed=True, width=360)
 - 몇 분이면 된다 (CPU 인코딩만, 생성 없음). FlashVSR 는 이 길에서 안 씀.
 - 세션이 끝나 폴더가 없으면(Commit 실행은 그 버전의 Output 탭) 셀을 **그대로 다시 실행**하면 된다 — v1.3.1 은 같은 상황에서 끝까지 간다.
 
+### 2-4. 영상 한 편의 장면 클립 → Claude 가 이어 붙임 (v1.4.0)
+재테크 영상처럼 **어려운 설명은 Claude 가 코드로 그린 화면**, 나머지(사연 장면)는 **시작 이미지 → 짧은 AI 클립**으로 만들 때. 이 셀은 클립만 만들고, 이어 붙이기·자막·소리는 Claude 가 한다 (`tools/assemble_video.py`).
+
+**순서**
+1. Claude 가 영상 폴더에 `scenes/plan.md`(어느 문장이 AI 클립인지) · `scenes/chatgpt.md`(그림 프롬프트) · `scenes/videogen.json`(이 셀의 설정 — 클립마다 `image`·`prompt`(움직임)·`sec`·`name`)을 올린다.
+2. 사용자가 `scenes/chatgpt.md` 를 ChatGPT 에 넘겨 그림을 만든다 → 그림을 Claude 대화에 붙이면 Claude 가 검수해 `scenes/<이름>.png` 로 main 에 올리고 **커밋 해시**를 알려 준다.
+3. Kaggle 노트북(1번 준비 + **Add-ons → Secrets 에서 `GITHUB_TOKEN` 을 이 노트북에 켬** — 내레이션 셀과 같은 토큰)에 아래 셀 하나 → *Save Version → Save & Run All (Commit)*.
+4. 끝나면 클립이 GitHub Release `clips-<영상ID>`(쇼츠 `clips-<영상ID>-shorts`)에 올라간다 → Claude 에게 "클립 올렸어" — Claude 가 받아 합친다.
+
+```python
+# ===== 설정: Claude 가 알려 준 두 줄만 =====
+CODE_REF = "<커밋 해시>"   # 그림·설정·코드가 모두 들어 있는 커밋
+SETTINGS_PATH = "economic/source/<영상ID>/scenes/videogen.json"   # 쇼츠: .../<영상ID>/shorts/scenes/videogen.json
+
+# ===== 실행: 고치지 않음 =====
+import os, sys, json, importlib, urllib.request
+REPO = "yeomin1024/yeomin1024-ytb"
+SRC = "/kaggle/tmp/videogen_src"
+os.makedirs(SRC, exist_ok=True)
+def get(path, dst):
+    url = f"https://raw.githubusercontent.com/{REPO}/{CODE_REF}/{path}"
+    headers, err = [{}], None
+    try:
+        from kaggle_secrets import UserSecretsClient
+        headers.insert(0, {"Authorization": "token " + UserSecretsClient().get_secret("GITHUB_TOKEN")})
+    except Exception:
+        pass  # 공개 저장소면 토큰 없이 받는다
+    for h in headers:
+        try:
+            with urllib.request.urlopen(urllib.request.Request(url, headers=h), timeout=60) as r:
+                open(dst, "wb").write(r.read())
+            return dst
+        except Exception as e:
+            err = e
+    raise RuntimeError(f"받기 실패: {url} ({err}) — Internet=On 인지, CODE_REF 가 맞는지 확인")
+get("videogen/videogen.py", f"{SRC}/videogen.py")
+SETTINGS = json.load(open(get(SETTINGS_PATH, f"{SRC}/settings.json"), encoding="utf-8"))
+SETTINGS["image_base"] = f"https://raw.githubusercontent.com/{REPO}/{CODE_REF}/"   # 설정의 그림 경로 앞에 붙음
+sys.path.insert(0, SRC)
+import videogen; importlib.reload(videogen)
+print("videogen", videogen.__version__, "clips", len(SETTINGS["start_images"]), "release", SETTINGS.get("release_tag"))
+result = videogen.run(SETTINGS)
+print(result["release"])
+```
+- 결과: Output 탭 `outputs/<실행시각>/clips/<이름>.mp4` + `clips_manifest.json` (Release 를 못 올려도 여기 그대로). 로그 `[CLIPS] clip name=L01 ... duration_sec=` · `[RELEASE] uploaded name=L01 done=1/30` · `[SUMMARY] release ok=True url=...`.
+- Release 만 실패했으면(`[RELEASE] FAILED` · `GITHUB_TOKEN not found`) **같은 세션에서** 다시 생성하지 않고:
+  ```python
+  videogen.publish_release(result["clips_manifest"], SETTINGS["release_tag"])
+  ```
+- 장면 몇 개만 다시 만들 땐 Claude 가 그 장면만 든 설정(`videogen_redo.json`)을 올린다 — 같은 이름은 Release 에서 바뀌고 나머지는 그대로 (목록은 합쳐짐).
+- 클립 길이: 그 문장(들)을 읽는 시간 + 약 0.3초, 5B 한 번 한도 121프레임(5.04초)까지. 문장이 더 길면 Claude 가 합칠 때 조금 느리게(1.35배까지) 하거나 마지막 장면을 잠깐 멈춘다.
+- 업스케일은 하지 않는다(`upscale_to` 없음 — 1280x704·704x1280 그대로 올려 작게). 1920x1080·1080x1920 으로 키우기(Lanczos)·자르기는 Claude 가 합칠 때.
+- 시간 추정: 5B FastWan 클립 하나 약 2~3분(T4, 2-2번 표에서) → 30개 약 1~1.5시간 + 설치. **T4 실측 없음** — `[SUMMARY] stage timings` 를 Claude 에게 알려 주면 다음 추정에 쓴다.
+
 ## 3. 설정 키 (`SETTINGS` 에 넣을 수 있는 것)
 모르는 키를 넣으면 오타로 보고 바로 멈춘다 (쓸 수 있는 키 목록을 보여 줌).
 
@@ -167,6 +222,10 @@ from IPython.display import Video; Video(final, embed=True, width=360)
 | `start_images` | `[]` | 시작 이미지 경로·URL 목록, 또는 `{"image": ..., "prompt": ...}` — 장마다 클립 하나 (WanGP 모델만). 생성 해상도 비율로 가운데를 잘라 맞춤 |
 | `clip_sec` | None | 클립 하나 길이(초). 없으면 `duration_sec` ÷ 이미지 수, 그것도 없으면 모델 기본(약 5초) |
 | `concat` | `True` | 클립들을 순서대로 이어 한 영상으로 (`False` 면 클립마다 따로 업스케일) |
+| `start_images` 항목의 `sec` · `name` | — | (v1.4.0) 그 클립 길이(초) · 결과 이름(`clips/<name>.mp4`, 영문·숫자·`_-.`) |
+| `image_base` | None | (v1.4.0) 상대 경로 이미지 앞에 붙일 주소·폴더 |
+| `release_tag` | None | (v1.4.0) `clips/` 를 이 태그의 GitHub Release 에 올림 (Secret `GITHUB_TOKEN`). 실패는 경고만 |
+| `release_repo` | `yeomin1024/yeomin1024-ytb` | (v1.4.0) Release 를 올릴 저장소 |
 | `upscaler` | `flashvsr` | `flashvsr`(WanGP 모델에서만, 실패하면 Lanczos) · `lanczos`(ffmpeg) |
 | `output_dir` | `/kaggle/working/outputs` | 결과 (20GB 한도) |
 | `work_dir` | `/kaggle/tmp/videogen` | 가중치·설치물 (저장 안 됨) |
@@ -189,7 +248,8 @@ from IPython.display import Video; Video(final, embed=True, width=360)
 ## 5. 검증 범위
 - 통과 (2026-10-18, 이 저장소 클라우드 환경, diffusers 0.41.0 · transformers 5.20.1 · CPU): 설정 검사 · 시작 이미지 3장(받기·자르기·작업 목록 한 번 실행·이어 붙이기·cover 업스케일) · 1080p·15초 설정(길이→프레임 · 배율 검사 · 두 단계 T2V→SVI 2 Pro 이어 만들기 · WanGP 의 T2V 창 거부 규칙 회귀 · FlashVSR 성공/실패→Lanczos, 작은 진짜 mp4 로 크기·길이 확인) · 오래된 torchao(0.13.0 — Kaggle 오류 재현) 처리 · diffusers 길 전체(실제 Wan 클래스로 만든 작은 랜덤 모델 — 인코딩 → 디노이즈 → 디코딩 → mp4·JSON·로그) · WanGP 길 흐름(가짜 `wgp.py` — 설정 JSON 에 Lightning 프로필 합치기, `--dry-run` → `--process`, 결과 수집).
 - 통과 (2026-10-19, v1.3.1): 위 전부 + **ASCII 로캘 회귀**(하위 프로세스 `LC_ALL=C` · UTF-8 모드 끔 = 로캘이 UTF-8 아닌 커널 흉내, 결과 mp4 에 중국어 메타데이터): v1.3.0 방식은 같은 환경에서 `UnicodeDecodeError` → `업스케일 결과 크기 None != 540x960` 와 16fps 이어 붙이기(24fps 39프레임 → 16fps 27프레임)를 재현, v1.3.1 은 ffprobe·ffmpeg 두 길로 크기를 읽고 시작 이미지 3장 → 24fps 이어 붙이기 → Lanczos cover 540x960 까지 · `upscale_file`(16fps 로 이어 붙인 폴더 → 클립으로 다시 24fps) · 클립 fps 를 못 읽으면 모델 fps(경고)·없으면 멈춤.
-- 못 한 것: 실제 Kaggle T4 실행·속도·메모리·화질, 진짜 WanGP 설치. 클라우드 환경에서 Hugging Face·PyTorch 다운로드 서버가 막혀 있었다.
+- 통과 (2026-10-19, v1.4.0): 위 전부 + **장면 클립**(항목 `sec`·`name`·`image_base` 검사 · 클립마다 프레임 13·5·25 · `clips/` + 목록 · 가짜 GitHub(메모리 — 네트워크 없음, 진짜 토큰 환경 변수를 지우고 가짜 저장소 이름)로 토큰 없음 경고 → Release 새로 만들기(502 한 번 → 다시 시도) → 장면 하나 다시 만들어 바꿔 올리기·목록 합치기 → 한 클립 실패는 경고만 · 토큰 값이 로그·메타데이터에 없음). 진짜 GitHub 에는 가짜 토큰으로 오류 경로(`_HTTPError`)만 확인.
+- 못 한 것: 실제 Kaggle T4 실행·속도·메모리·화질, 진짜 WanGP 설치. 진짜 GitHub Release 올리기(Kaggle 토큰). 클라우드 환경에서 Hugging Face·PyTorch 다운로드 서버가 막혀 있었다.
 
 ## 6. 문제 해결
 | 증상 | 할 일 |
@@ -200,6 +260,9 @@ from IPython.display import Video; Video(final, embed=True, width=360)
 | `... → 1920x1080 는 배율 ...` | 오류 문장의 '맞는 생성 해상도' 중 하나로 `width`·`height` |
 | `FlashVSR failed -> falling back to Lanczos` | 정상 동작(대체). Lanczos 결과 파일 이름 끝이 `_lanczos.mp4` |
 | `You have requested to Generate Sliding Windows with a Text to Video model` | v1.2.0 의 `wan2.2-14b-hq` 설정 — v1.2.1 에서 두 단계로 고침. 셀을 그대로 다시 실행 (`CODE_REF` 가 옛 파일을 받으면 커밋 해시로). 다른 T2V 모델에 창 이어붙이기(`wangp_extra` 의 `sliding_window_size`)를 넣어도 같은 오류 |
+| `[RELEASE] GITHUB_TOKEN not found` | 노트북 Add-ons → Secrets 에서 `GITHUB_TOKEN` 을 켜고(attach), 같은 세션에서 `videogen.publish_release(result["clips_manifest"], SETTINGS["release_tag"])` |
+| `[RELEASE] FAILED ... HTTP 401/403/404` | 토큰 권한(저장소 contents 쓰기)·만료 확인. 클립은 Output 탭 `clips/` 에 그대로 |
+| `start_images[0] 의 알 수 없는 키` · `name 이 겹친다` | 설정 JSON 오타 — 항목 키는 `image`·`prompt`·`sec`·`name` 만 |
 | `model='wan2.2-14b-i2v' 는 시작 이미지가 필요하다` | `start_images=[...]` 를 넣거나 `wan2.2-5b-fast` |
 | `start_images[0] 파일이 없음` · `시작 이미지 받기 실패` | 경로(Kaggle 데이터는 `/kaggle/input/...`)·raw 주소 확인. 올린 직후 `main` 주소는 몇 분 늦을 수 있음 |
 | `more than 20% of the image was cropped` | 이미지 비율이 영상(16:9)과 많이 다름 — 인물이 잘렸는지 확인, 가로 16:9 로 다시 |

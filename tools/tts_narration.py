@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.11 — 2026-10-19 — 업로드한 영상(대본 폴더에 youtube.json)은 어느 길로도 오디오를 만들지 않는다 — all 은 예전부터 건너뛰었고(repo_status
+# VERSION: v1.12 — 2026-10-19 — 영상 하나를 오디오에서 빼는 표시 파일 NO_TTS.md (대본 폴더 — 롱폼 <영상ID>/ · 쇼츠 <영상ID>/shorts/):
+#          있으면 업로드한 영상과 똑같이 all(--force 여도)·build·build_episode·push 모두 만들지도 올리지도 않음, 첫 줄이 까닭(로그·계획에 나옴).
+#          사용자 지시 2026-10-19 "테스트용은 오디오 만들지마" — 기초연금 AI 쇼츠 시험 편(gicho-yeongeum-ai-2026-10)에 둠. 다른 동작은 그대로.
+# (v1.11 — 2026-10-19 — 업로드한 영상(대본 폴더에 youtube.json)은 어느 길로도 오디오를 만들지 않는다 — all 은 예전부터 건너뛰었고(repo_status
 #          'uploaded', --force 보다 먼저), 이번에 build(영상 하나 — 모델을 불러오기 전에 멈춤)·build_episode(안전장치)·push(이미 만든 결과를 올리지
 #          않음)에도 같은 막음. 사용자 지시 2026-10-19 "새로 만든 영상 2개에 대해 오디오 코드로 생성하는지 확인해 그리고 업로드 완료한건 오디오
-#          생성하지 말도록 하고". 대상 고르기·만드는 방법은 그대로.
+#          생성하지 말도록 하고". 대상 고르기·만드는 방법은 그대로.)
 # (v1.10 — 2026-10-17 — 부분 다시 만들기: 파트 라벨 **글자만** 바뀐 것은 막지 않는다 (라벨은 소리로 읽지 않음) — 파트 경계(어느 문장에서
 #          챕터가 바뀌는지)와 문장마다 읽는 목소리(역할)가 같으면 바뀐 문장만 다시. 경계나 역할이 바뀌면 예전처럼 전부 다시.
 #          사용자 피드백 2026-10-17 "아니 너무 또 길게 풀어서 쓰면 읽기 힘들잖아 최대한 짧지만 이해가 다 되도록 다시 고쳐봐" — 재테크 대본을
@@ -123,7 +126,7 @@ ROOT = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 import srt_tool  # noqa: E402  (문장·카드 판정을 자막 도구와 똑같이 쓰기 위해)
 
-VERSION = "v1.11"
+VERSION = "v1.12"
 CACHE_VERSION = 1            # 생성 방식이 바뀌면 올린다 → 문장 파일을 모두 다시 만든다 (v1.1은 v1.0 캐시와 같은 키)
 DEFAULT_MODEL = "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice"     # 사연자 (화자 + 말투 지시)
 DEFAULT_CLONE_MODEL = "Qwen/Qwen3-TTS-12Hz-1.7B-Base"       # 진행자 (기준 목소리 복제)
@@ -1179,8 +1182,9 @@ def patch_episode(engine, topic, vid, args, P, rows, cards, items, voices, chang
 def build_episode(engine, topic, vid, args, root, txt=None):
     """대본 → 역할별 문장 → narration.mp3 하나 + tts_narration.json + tts_report.md (+ 작업 폴더에 역할별 문장 파일). → 결과 dict."""
     src = src_dir(topic, vid)
-    if uploaded_record(topic, vid):   # v1.11 안전장치 — all·build 가 먼저 거르지만 다른 길로 불려도 만들지 않음
-        die("INPUT", f"{vid} 은 이미 업로드한 영상 — 오디오를 만들지 않음", "업로드한 영상은 오디오를 다시 만들지 않는다", record=rel(src / 'youtube.json'))
+    why = no_tts_reason(topic, vid)
+    if why:   # v1.11·v1.12 안전장치 — all·build 가 먼저 거르지만 다른 길로 불려도 만들지 않음
+        die("INPUT", f"{vid} — {why} — 오디오를 만들지 않음", "업로드한 영상·NO_TTS.md 가 있는 영상은 오디오를 만들지 않는다", folder=rel(src))
     txt = Path(txt) if txt else src / f"{vid}.txt"
     if not txt.is_file():
         die("INPUT", "대본 TXT 없음", "주제 폴더·영상ID 확인 (Kaggle: 저장소를 git clone·pull 했는지)", path=txt)
@@ -1361,10 +1365,11 @@ def write_report(path, topic, vid, args, items, metas, timing, cards, total_s, v
 # ----------------------------------------------------------------------------- 명령: build (영상 하나)
 def cmd_build(args):
     root = out_root(args)
-    up = uploaded_record(args.topic, args.id)
-    if up:   # v1.11: 업로드한 영상은 오디오를 만들지 않음 (all 과 같음)
-        die("PLAN", f"{args.id} 은 이미 업로드한 영상 — 오디오를 만들지 않음",
-            "업로드한 영상은 오디오를 다시 만들지 않는다 (사용자 지시 2026-10-19). 새 영상이면 새 영상ID 폴더로", record=rel(up))
+    why = no_tts_reason(args.topic, args.id)
+    if why:   # v1.11 업로드 · v1.12 NO_TTS.md — 오디오를 만들지 않음 (all 과 같음)
+        die("PLAN", f"{args.id} — {why} — 오디오를 만들지 않음",
+            "업로드한 영상·NO_TTS.md 가 있는 영상은 오디오를 만들지 않는다 (사용자 지시 2026-10-19). 새 영상이면 새 영상ID 폴더로",
+            folder=rel(src_dir(args.topic, args.id)))
     unpicked = unpicked_roles(load_voices(quiet=True))
     if unpicked:
         die("VOICE", f"목소리를 아직 고르지 않음: {','.join(unpicked)}",
@@ -1395,10 +1400,24 @@ def topic_on_hold(topic):
     return any("⏸" in ln and "보류" in ln for ln in head.splitlines())
 
 
+NO_TTS_NAME = "NO_TTS.md"   # v1.12: 대본 폴더에 이 파일이 있으면 그 영상은 오디오를 만들지 않음 (첫 줄 = 까닭)
+
+
 def uploaded_record(topic, vid):
     """v1.11: 업로드한 영상이면 그 기록(youtube.json) 경로, 아니면 None — 업로드한 영상은 오디오를 만들지도 올리지도 않는다."""
     p = src_dir(topic, vid) / "youtube.json"
     return p if p.is_file() else None
+
+
+def no_tts_reason(topic, vid):
+    """v1.12: 오디오를 만들지 않는 영상이면 까닭 문자열, 아니면 None — 업로드(youtube.json) 또는 표시 파일 NO_TTS.md."""
+    if uploaded_record(topic, vid):
+        return "이미 업로드(youtube.json)"
+    m = src_dir(topic, vid) / NO_TTS_NAME
+    if m.is_file():
+        first = next((ln.strip("# ").strip() for ln in m.read_text("utf-8").splitlines() if ln.strip()), "")
+        return f"오디오 만들지 않음({NO_TTS_NAME}: {first[:80] or '까닭 없음'})"
+    return None
 
 
 def repo_status(topic, vid, rows, cards):
@@ -1406,6 +1425,9 @@ def repo_status(topic, vid, rows, cards):
     src = src_dir(topic, vid)
     if uploaded_record(topic, vid):
         return "uploaded", "이미 업로드(youtube.json)"
+    why = no_tts_reason(topic, vid)
+    if why:                                   # v1.12: NO_TTS.md
+        return "no_tts", why
     audio = repo_audio(topic, vid)
     if not audio:
         return "todo", "오디오 없음"
@@ -1446,7 +1468,7 @@ def discover(args, root):
             made = om.get("script_sha1") == script_sha(rows, cards) and not voice_mismatch(om, topic, vid)
         if hold and not args.include_hold:
             action, why = "skip", "주제 보류(⏸ README) — --include-hold 로 포함"
-        elif st == "uploaded":
+        elif st in ("uploaded", "no_tts"):     # v1.12: --force 여도 만들지 않음
             action, why = "skip", note
         elif st == "has_audio" and not args.force:
             action, why = "skip", note + " — 다시 만들려면 --force"
@@ -1694,8 +1716,9 @@ def push_results(root, entries, token, args):
             if not P["narration"].is_file() or not P["meta"].is_file():
                 log("PUSH", logging.WARNING, video=vid, note="narration.mp3·메타 없음 — 건너뜀", src=P["upload"])
                 continue
-            if uploaded_record(topic, vid):   # v1.11: 업로드한 영상의 오디오는 바꾸지 않음
-                log("PUSH", logging.WARNING, video=vid, note="이미 업로드한 영상(youtube.json) — 오디오를 올리지 않음", dst=rel(dst))
+            nwhy = no_tts_reason(topic, vid)
+            if nwhy:   # v1.11 업로드 · v1.12 NO_TTS.md — 오디오를 올리지 않음
+                log("PUSH", logging.WARNING, video=vid, note=f"{nwhy} — 오디오를 올리지 않음", dst=rel(dst))
                 continue
             new = json.loads(P["meta"].read_text("utf-8"))
             rows, cards = read_script(dst / f"{vid}.txt")

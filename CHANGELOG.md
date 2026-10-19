@@ -1,5 +1,13 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-19 (재테크 사연형) — 새 2편 안 3개씩 · tts_narration v1.12 `NO_TTS.md`
+
+- 사용자 지시: "테스트용은 오디오 만들지마 그리고 너무 정보만 알려주지말고 사연을 진행시키면서 정보도 같이 알려주는 식으로 해봐 … 실제 사연으로 해봐 … 여러가지 안을 만들어"
+- `tools/tts_narration.py` v1.11 → v1.12: 대본 폴더에 `NO_TTS.md` 가 있으면 업로드한 영상과 똑같이 all(--force 여도)·build·build_episode·push 모두 건너뜀 (`no_tts_reason()`, 계획 status `no_tts`). 시험 `tools/tests/test_tts_uploaded.py` v1.1 — TTS 시험 19개 OK. `all --dry-run --topics economic` → 만들 것 0 (업로드 8·NO_TTS 5)
+- `NO_TTS.md`: `gicho-yeongeum-ai-2026-10/shorts/`(시험용) · `geumyung-soduk-2026-10/`·`/shorts/` · `gungmin-sigi-2026-10/`·`/shorts/`(사연형으로 다시 쓰는 중 — 대본이 나오면 지움)
+- 안 파일 `story_options.md` 2개 — 실제 사연 출처: 파이낸셜뉴스 [은퇴자 X의 설계] 2026-04-03 가명 사례 · 서울경제 칼럼 · 성공 사례 댓글(작성자 이름 뺌) · 피부양자 탈락 31만 4,474명 보도. 기사 본문은 클라우드에서 안 열려(DNS) 검색 요약으로만 → 대본 전 원문 확인 필요. 법 원문 확인: 국민연금법 제56조·제74조 [시행 2026-05-26] · 조특법 제129조의2 ① [시행 2026-06-02]. 제목 후보는 `title_fit.py` 로 모든 화면 2줄 안
+- 문서: `guides/tts_guide.md` v1.13 · status
+
 ## 2026-10-19 (재테크 오디오) — tts_narration v1.11: 업로드한 영상은 오디오를 만들지 않음 (build·push 도)
 
 - 사용자 지시: "새로 만든 영상 2개에 대해 오디오 코드로 생성하는지 확인해 그리고 업로드 완료한건 오디오 생성하지 말도록 하고"

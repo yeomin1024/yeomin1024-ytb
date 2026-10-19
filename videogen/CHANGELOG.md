@@ -1,5 +1,33 @@
 # CHANGELOG — videogen
 
+## v1.3.1 — 2026-10-19
+### 왜 (사용자 보고)
+- "RuntimeError: 업스케일 결과 크기 None != 1080x1920" — 기초연금 AI 쇼츠 테스트(`wan2.2-5b-fast` · 장면 11장 · 704x1280 → 1080x1920 Lanczos) 실행 끝에서.
+
+### 원인 (재현함)
+- `_video_info()` 가 ffmpeg 정보 출력을 `text=True`(로캘 인코딩)로 읽었다. Kaggle 커널 로캘이 UTF-8 이 아니면(ASCII) WanGP 가 결과 mp4 메타데이터(comment)에 넣은 설정 — Wan 기본 부정 프롬프트는 중국어 — 에서 `UnicodeDecodeError` → 예외를 삼키고 `{}` → 크기 `None` → `업스케일 결과 크기 None`.
+- 같은 원인의 **조용한 피해**: `_ffmpeg_concat()` 이 첫 클립 fps 를 못 읽으면 몰래 `16` 을 썼다. 5B 클립은 24fps → 이어 붙인 영상이 16fps(프레임 1/3 버림, 길이는 같음). 재현: 24fps 39프레임 → 16fps 27프레임.
+- 재현 환경: 하위 프로세스 `LC_ALL=C LANG=C PYTHONCOERCECLOCALE=0 python -X utf8=0` (표준 출력만 UTF-8 = Jupyter 처럼). v1.3.0 은 이 환경에서 `RuntimeError: 업스케일 결과 크기 None != 540x960` 로 똑같이 멈춤.
+
+### 한 것
+| 대상 | 내용 |
+|---|---|
+| 모든 `subprocess.run/Popen` | `text=True` → `encoding="utf-8", errors="replace"` (로캘과 상관없이) |
+| `_child_env()` | `PYTHONUTF8=1` · `PYTHONIOENCODING=utf-8` — WanGP 가 한·중 글자를 찍거나 쓸 때 로캘 때문에 죽지 않게 |
+| `_ffprobe_exe()` (새) · `_video_info()` | ffprobe JSON(가로·세로·길이·fps) 먼저, 없거나 실패하면 ffmpeg 정보 출력. 크기를 못 읽으면 경고 `could not parse video size` + ffmpeg 끝 줄 |
+| `_check_size()` (새) | 업스케일 결과 크기: 다르면 멈춤 · 못 읽으면 경고 `output size not verified` 만 (ffmpeg scale 이 크기를 정하므로 '못 읽음' ≠ 실패) |
+| `_ffmpeg_upscale()` · `_ffmpeg_concat()` | `-map_metadata -1` — 결과 파일에 WanGP 메타데이터를 옮기지 않음 |
+| `_ffmpeg_concat()` | fps: 첫 클립 → 못 읽으면 모델 fps(`MODELS[...]["fps"]`, 경고) → 둘 다 없으면 멈춤. 로그 `[CONCAT] encode ... fps= source=` |
+| `upscale_file()` (새, 공개) | 생성 없이 다시 키우기: 파일 또는 결과 폴더. 폴더면 `…<N>clips.mp4`(없으면 `media/` 최근 영상). 이어 붙인 파일 fps 가 `media/` 클립 N개와 다르면 클립으로 다시 이어 붙인 뒤 Lanczos (`rejoin=True`) |
+| `tests/test_videogen.py` v1.3.1 | `test_ascii_locale`(위 재현 환경에서: v1.3.0 방식 실패 확인 → ffprobe·ffmpeg 두 길 · `_check_size` · `upscale_file` · `_stream` · 시작 이미지 3장 → Lanczos cover 흐름) · `test_upscale_file_rejoin`(16fps 이어 붙인 폴더 → 24fps · fps 못 읽을 때) · 가짜 WanGP 가 결과 mp4 에 중국어 메타데이터 · 시험 파일 읽기·쓰기 UTF-8 고정 |
+| `README.md` | 2-3번(다시 생성하지 않고 마무리하는 셀) · 문제 해결 두 줄 · 검증 범위 |
+
+### 측정
+- 시험 전체 28초 (클라우드 CPU, 10묶음 통과). 실행 속도에 영향 없음 — ffprobe 한 번이 ffmpeg 정보 출력 한 번을 대신(파일마다 수십 ms).
+
+### 위험 관련 변경
+- 없음 (생성 설정·업스케일 배율 그대로). 동작 변경 둘: 크기를 **못 읽을** 때 멈추지 않고 경고 · 이어 붙이기 fps 를 몰래 16 으로 하지 않음.
+
 ## v1.3.0 — 2026-10-18
 ### 왜 (사용자 지시)
 - "3개 영상 나왔는데 2시간 걸렸어 너무 오래걸리는데 빠르게 생성하는 방법 없어? 시작 이미지를 전달하면 더 빨리 할 수 있어? 시작 이미지 여러개 만들어서 짧게 짧게 각각 만드는거지"

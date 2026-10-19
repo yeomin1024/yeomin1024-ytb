@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
-# VERSION: v1.3.0 — 2026-10-18 — 시작 이미지 여러 장 시험 (test_start_images: 이미지 받기·자르기 · 작업 목록 한 번 실행 ·
+# VERSION: v1.3.1 — 2026-10-19 — ASCII 로캘 회귀 시험 (test_ascii_locale: Kaggle '업스케일 결과 크기 None' 재현 →
+#          ffprobe·ffmpeg 크기 읽기 · _check_size · upscale_file · _stream · 시작 이미지 Lanczos 흐름) · 가짜 WanGP 가
+#          진짜처럼 결과 mp4 에 중국어 메타데이터 · 시험 파일 읽기·쓰기를 UTF-8 로 고정 · test_upscale_file_rejoin(16fps 로
+#          이어 붙인 결과 폴더 → 클립으로 다시 24fps · 클립 fps 를 못 읽으면 모델 fps/멈춤)
+# 이전 v1.3.0 — 2026-10-18 — 시작 이미지 여러 장 시험 (test_start_images: 이미지 받기·자르기 · 작업 목록 한 번 실행 ·
 #          이어 붙이기 · cover 업스케일) · upscale_plan 시험 · 가짜 WanGP 가 작업 목록·시작 이미지를 처리
 # 이전 v1.2.1 — 2026-10-18 — hq 두 단계(T2V 81프레임 → SVI 2 Pro 이어 만들기) 시험, 가짜 WanGP 가 Kaggle 에서 난
 #          'Sliding Windows with a Text to Video model' 거부 규칙을 흉내 내 v1.2.0 설정이 거부되는지(회귀) 확인
@@ -51,7 +55,7 @@ def test_config(tmp):
     videogen._setup_logging("INFO", os.path.join(tmp, "cfg.log"))
     p = videogen.resolve_params(videogen.make_config(height=70, width=130, num_frames=10), 32, 4)
     assert (p["height"], p["width"], p["num_frames"]) == (64, 128, 9) and p["explicit"] == ["height", "num_frames", "width"]
-    assert "adjusted" in open(os.path.join(tmp, "cfg.log")).read()
+    assert "adjusted" in open(os.path.join(tmp, "cfg.log"), encoding="utf-8").read()
     env = videogen._child_env()
     assert "PYTHONPATH" not in env and env["MPLBACKEND"] == "Agg"
     expect_error(lambda: videogen.make_config(upscaler="esrgan"), ValueError, "esrgan")
@@ -127,12 +131,12 @@ def test_diffusers(tmp):
                             negative_prompt="blurry static", height=70, width=130, num_frames=10, steps=4, fps=8,
                             step_log_every=2, max_sequence_length=16, output_dir=os.path.join(tmp, "out_d"),
                             work_dir=os.path.join(tmp, "work"), preview=False, install_deps=False))
-    meta = json.load(open(res["metadata"]))
+    meta = json.load(open(res["metadata"], encoding="utf-8"))
     fs = meta["frame_stats"]
     assert (fs["frames"], fs["height"], fs["width"]) == (9, 64, 128) and fs["finite"], fs
     assert os.path.getsize(res["videos"][0]) > 0 and meta["config"]["seed"] == 42
     assert len(meta["code_sha256"]) == 64 and meta["videogen_version"] == videogen.__version__
-    text = open(res["log"]).read()
+    text = open(res["log"], encoding="utf-8").read()
     for tag in ("[CONFIG]", "[SETUP]", "[DATA]", "[ENCODE]", "[DENOISE]", "[DECODE]", "[EXPORT]", "[SUMMARY]"):
         assert tag in text, tag
     print("ok  diffusers path (tiny model, CPU):", res["videos"][0])
@@ -165,13 +169,13 @@ def test_old_torchao(tmp):
         print(f"skip old-torchao test (torchao={have}; install torchao==0.13.0 to reproduce the Kaggle error)")
         return
     script = os.path.join(tmp, "stale_kernel.py")
-    open(script, "w").write(STALE_KERNEL)
+    open(script, "w", encoding="utf-8").write(STALE_KERNEL)
     # 1 = 지우는 길(Kaggle) — VIDEOGEN_TEST_UNINSTALL=1 일 때만 (시험 환경의 torchao 를 실제로 지움)
     mode = "1" if os.environ.get("VIDEOGEN_TEST_UNINSTALL") == "1" else "0"
     log_path = os.path.join(tmp, "torchao.log")
     r = subprocess.run([sys.executable, script, os.path.dirname(HERE), log_path, mode], capture_output=True, text=True)
     assert "before: FqnToConfig error" in r.stdout and "after: import ok" in r.stdout, r.stdout + r.stderr[-1500:]
-    assert "too old" in open(log_path).read()
+    assert "too old" in open(log_path, encoding="utf-8").read()
     print(f"ok  old torchao {have}: FqnToConfig error reproduced, fixed without kernel restart (uninstall={mode})")
 
 
@@ -186,9 +190,12 @@ FAKE_WGP = textwrap.dedent('''
     ap.add_argument("--profile"); ap.add_argument("--attention"); ap.add_argument("--gpu")
     a = ap.parse_args()
     s = json.load(open(a.process))
+    # 진짜 WanGP 처럼 결과 mp4 메타데이터(comment)에 설정을 넣는다 — Wan 기본 부정 프롬프트는 중국어 (v1.3.1 회귀)
+    META = ["-metadata", "comment=" + json.dumps({"negative_prompt": "色调艳丽，过曝，静态，细节模糊不清，字幕"},
+                                                 ensure_ascii=False)]
     def write(path, w, h, n, start=0, fps=16):
         frames = [np.full((h, w, 3), (20 * (start + i)) % 256, dtype=np.uint8) for i in range(n)]
-        iio.mimwrite(path, frames, fps=fps, codec="libx264", macro_block_size=1)
+        iio.mimwrite(path, frames, fps=fps, codec="libx264", macro_block_size=1, output_params=META)
     if isinstance(s, dict) and s.get("mode") == "edit_postprocessing":
         if os.environ.get("FAKE_FLASHVSR_FAIL") == "1":
             print("RuntimeError: FlashVSR Auto backend could not load any sparse attention backend"); sys.exit(3)
@@ -231,7 +238,7 @@ FAKE_WGP = textwrap.dedent('''
         if "V" in t.get("image_prompt_type", ""):
             src = [f for f in iio.mimread(t["video_source"], memtest=False)]
             merged = src + [np.full((h, w, 3), 7, dtype=np.uint8)] * n
-            iio.mimwrite(path, merged, fps=fps, codec="libx264", macro_block_size=1)
+            iio.mimwrite(path, merged, fps=fps, codec="libx264", macro_block_size=1, output_params=META)
         else:
             write(path, w, h, n, start=t["seed"], fps=fps)
         print("New video saved to Path: " + path, flush=True)
@@ -242,18 +249,18 @@ FAKE_WGP = textwrap.dedent('''
 def test_wangp(tmp):
     app = os.path.join(tmp, "Wan2GP")
     os.makedirs(os.path.join(app, "profiles", os.path.dirname(PROFILE)))
-    open(os.path.join(app, "wgp.py"), "w").write(FAKE_WGP)
+    open(os.path.join(app, "wgp.py"), "w", encoding="utf-8").write(FAKE_WGP)
     json.dump({"num_inference_steps": 4, "guidance_scale": 1, "activated_loras": ["high.safetensors"]},
-              open(os.path.join(app, "profiles", PROFILE), "w"))
+              open(os.path.join(app, "profiles", PROFILE), "w", encoding="utf-8"))
     res = videogen.run(dict(model="wan2.2-14b-lightning", prompt="a cat surfing", wangp_app_dir=app,
                             wangp_python=sys.executable, output_dir=os.path.join(tmp, "out_w"),
                             work_dir=os.path.join(tmp, "work"), preview=False))
     assert len(res["videos"]) == 1 and res["videos"][0].endswith("_fake.mp4")
-    s = json.load(open(os.path.join(res["run_dir"], "wangp_settings.json")))
+    s = json.load(open(os.path.join(res["run_dir"], "wangp_settings.json"), encoding="utf-8"))
     # 프리셋 steps(30)가 아니라 Lightning 프로필의 4 step 이 남아야 한다 (사용자가 steps 를 적지 않았으므로)
     assert s["num_inference_steps"] == 4 and s["guidance_scale"] == 1, s
     assert s["resolution"] == "832x480" and s["video_length"] == 81 and s["model_type"] == "t2v_2_2", s
-    log_text = open(res["log"]).read()
+    log_text = open(res["log"], encoding="utf-8").read()
     assert "dry-run ok" in log_text and "[GENERATE]" in log_text and "saved" in log_text
     # 사용자가 steps 를 직접 적으면 그 값이 프로필보다 우선
     s2 = videogen.wangp_settings(videogen.make_config(model="wan2.2-14b-lightning", steps=8),
@@ -273,13 +280,13 @@ def test_wangp_fhd(tmp, app):
     for rel, prof in ((HQ["profile"], {"num_inference_steps": 8, "guidance_scale": 3.5, "guidance_phases": 3, "help": "x"}),
                       (HQ["continue_with"]["profile"], {"num_inference_steps": 4, "guidance_scale": 1})):
         os.makedirs(os.path.join(app, "profiles", os.path.dirname(rel)), exist_ok=True)
-        json.dump(prof, open(os.path.join(app, "profiles", rel), "w"))
+        json.dump(prof, open(os.path.join(app, "profiles", rel), "w", encoding="utf-8"))
     # 회귀: v1.2.0 이 보낸 설정(T2V + "15s" + 창 81)은 가짜 WanGP 도 Kaggle 과 같은 오류로 거부해야 한다
     old = os.path.join(tmp, "old_v120.json")
     json.dump(dict(model_type="t2v_2_2", prompt="x", resolution="256x144", video_length="15s", seed=1,
-                   sliding_window_size=81, sliding_window_overlap=5), open(old, "w"))
+                   sliding_window_size=81, sliding_window_overlap=5), open(old, "w", encoding="utf-8"))
     r = subprocess.run([sys.executable, "wgp.py", "--process", old, "--output-dir", tmp, "--dry-run"], cwd=app,
-                       capture_output=True, text=True)
+                       capture_output=True, encoding="utf-8", errors="replace")
     assert r.returncode == 1 and "Sliding Windows with a Text to Video model" in r.stdout, r.stdout
     for fail in ("0", "1"):
         os.environ["FAKE_FLASHVSR_FAIL"] = fail
@@ -287,11 +294,11 @@ def test_wangp_fhd(tmp, app):
                                 width=256, height=144, upscale_to="384x216", wangp_app_dir=app, wangp_python=sys.executable,
                                 output_dir=os.path.join(tmp, f"out_fhd{fail}"), work_dir=os.path.join(tmp, "work"),
                                 preview=False))
-        s1 = json.load(open(os.path.join(res["run_dir"], "wangp_settings.json")))
-        s2 = json.load(open(os.path.join(res["run_dir"], "wangp_continue.json")))
+        s1 = json.load(open(os.path.join(res["run_dir"], "wangp_settings.json"), encoding="utf-8"))
+        s2 = json.load(open(os.path.join(res["run_dir"], "wangp_continue.json"), encoding="utf-8"))
         assert s1["model_type"] == "t2v_2_2" and s1["video_length"] == 81 and s1["num_inference_steps"] == 8 and s1["resolution"] == "256x144", s1
         assert "sliding_window_size" not in s1 and "help" not in s1, s1
-        meta = json.load(open(res["metadata"]))
+        meta = json.load(open(res["metadata"], encoding="utf-8"))
         assert meta["plan"] == {"total": 241, "first": 81, "cont": 160}, meta["plan"]
         assert s2["model_type"] == "i2v_2_2_svi2pro" and s2["image_prompt_type"] == "V" and s2["video_length"] == 160, s2
         assert s2["video_source"] == meta["segments"][0] and s2["num_inference_steps"] == 4, s2
@@ -300,7 +307,7 @@ def test_wangp_fhd(tmp, app):
         want = "flashvsr" if fail == "0" else "lanczos"
         assert meta["upscale_methods"] == [want], meta["upscale_methods"]
         assert videogen._video_size(res["videos"][0]) == (384, 216) and res["videos"][0].endswith(f"_384x216_{want}.mp4")
-        log_text = open(res["log"]).read()
+        log_text = open(res["log"], encoding="utf-8").read()
         assert "[CONTINUE]" in log_text and "length plan" in log_text
         if fail == "1":
             assert "FlashVSR failed -> falling back to Lanczos" in log_text
@@ -343,8 +350,8 @@ def test_start_images(tmp, app):
                       {"image": os.path.join(img_dir, "square.png"), "prompt": "close-up of his angry face"},
                       "file://" + os.path.join(img_dir, "fhd.png")],
         output_dir=os.path.join(tmp, "out_img"), work_dir=os.path.join(tmp, "work"), preview=False))
-    meta = json.load(open(res["metadata"]))
-    tasks = json.load(open(os.path.join(res["run_dir"], "wangp_settings.json")))
+    meta = json.load(open(res["metadata"], encoding="utf-8"))
+    tasks = json.load(open(os.path.join(res["run_dir"], "wangp_settings.json"), encoding="utf-8"))
     assert isinstance(tasks, list) and len(tasks) == 3, tasks
     assert [t["seed"] for t in tasks] == [42, 43, 44] and {t["video_length"] for t in tasks} == {13}, tasks
     assert {t["model_type"] for t in tasks} == {"ti2v_2_2_fastwan"} and all(t["image_prompt_type"] == "S" for t in tasks)
@@ -357,7 +364,7 @@ def test_start_images(tmp, app):
     joined = videogen._video_info(meta["base_videos"][0])
     assert (joined["width"], joined["height"]) == (448, 256) and abs(joined["duration_sec"] - 39 / 24) < 0.15, joined
     assert meta["upscale_methods"] == ["flashvsr"] and videogen._video_size(res["videos"][0]) == (480, 270)
-    log_text = open(res["log"]).read()
+    log_text = open(res["log"], encoding="utf-8").read()
     for needle in ("[IMAGES]", "clip plan", "[CONCAT]", "fitted to target", "more than 20% of the image was cropped"):
         assert needle in log_text, needle
     print("ok  start images: 3 clips in one WanGP run -> joined", joined["duration_sec"], "s ->", res["videos"][0])
@@ -376,6 +383,127 @@ def test_diffusers_frame_limit(tmp):
     print("ok  diffusers 121-frame limit")
 
 
+def test_upscale_file_rejoin(tmp):
+    """v1.3.0 이 로캘 문제로 24fps 클립들을 16fps 로 이어 붙인 결과 폴더를 흉내 → upscale_file 이 media/ 클립으로 다시
+    이어 붙여(24fps) 키운다. 또 _ffmpeg_concat 이 클립 fps 를 못 읽으면 모델 fps(경고) · 그것도 없으면 멈춘다."""
+    ff = videogen._ffmpeg_exe()
+    run_dir = os.path.join(tmp, "rejoin", "20261019-0300")
+    os.makedirs(os.path.join(run_dir, "media"))
+    clips = []
+    for i, color in enumerate(("red", "green", "blue")):
+        c = os.path.join(run_dir, "media", f"ti2v_2_2_fastwan_seed{42 + i}_fake.mp4")
+        subprocess.run([ff, "-y", "-loglevel", "error", "-f", "lavfi", "-i", f"color=c={color}:s=176x320:d=1:r=24",
+                        "-c:v", "libx264", "-pix_fmt", "yuv420p", c], check=True)
+        clips.append(c)
+        os.utime(c, (1e9 + i, 1e9 + i))  # 만든 순서 = mtime 순서
+    joined = os.path.join(run_dir, "wan2.2-5b-fast_20261019-0300_3clips.mp4")
+    chains = "".join(f"[{i}:v]fps=16[v{i}];" for i in range(3))
+    subprocess.run([ff, "-y", "-loglevel", "error", "-i", clips[0], "-i", clips[1], "-i", clips[2], "-filter_complex",
+                    chains + "[v0][v1][v2]concat=n=3:v=1:a=0[v]", "-map", "[v]", "-c:v", "libx264", "-pix_fmt", "yuv420p",
+                    joined], check=True)
+    assert videogen._video_info(joined)["fps"] == 16.0
+    videogen._setup_logging("INFO", os.path.join(tmp, "rejoin.log"))
+    out = videogen.upscale_file(run_dir, "270x480")
+    info = videogen._video_info(out)
+    assert (info["width"], info["height"], info["fps"]) == (270, 480, 24.0) and abs(info["duration_sec"] - 3) < 0.1, info
+    assert videogen._video_info(joined)["fps"] == 24.0
+    log_text = open(os.path.join(tmp, "rejoin.log"), encoding="utf-8").read()
+    assert "re-joining clips" in log_text and "joined_fps=16 clip_fps=24" in log_text, log_text[-800:]
+    # 클립 fps 를 못 읽을 때
+    dst = os.path.join(tmp, "rejoin", "model_fps.mp4")
+    info_fn, videogen._video_info = videogen._video_info, lambda path: {}
+    try:
+        videogen._ffmpeg_concat(clips, dst, 176, 320, fps=24)
+        expect_error(lambda: videogen._ffmpeg_concat(clips, dst, 176, 320), RuntimeError, "fps 를 읽지 못함")
+    finally:
+        videogen._video_info = info_fn
+    assert videogen._video_info(dst)["fps"] == 24.0
+    assert "clip fps not readable -> using model fps" in open(os.path.join(tmp, "rejoin.log"), encoding="utf-8").read()
+    print("ok  upscale_file: 16fps joined file re-joined from clips at", info["fps"], "fps ->", out)
+
+
+ZH_NEG = "色调艳丽，过曝，静态，细节模糊不清，字幕"  # Wan 기본 부정 프롬프트 앞부분 — WanGP 가 결과 mp4 comment 에 넣는다
+
+
+def _ascii_locale_body(tmp):
+    """test_ascii_locale 이 ASCII 로캘 하위 프로세스에서 부르는 본문 (Kaggle 커널 로캘이 UTF-8 이 아닐 때를 흉내)."""
+    import locale
+    import shutil
+    from PIL import Image
+    enc = locale.getpreferredencoding(False)
+    assert enc.lower().replace("-", "") in ("ansi_x3.41968", "ascii", "usascii"), f"locale is not ASCII: {enc}"
+    videogen._setup_logging("INFO", os.path.join(tmp, "ascii.log"))
+    zh = os.path.join(tmp, "zh.mp4")  # test_ascii_locale 이 UTF-8 쪽에서 만들어 둔 것 (WanGP 도 UTF-8 하위 프로세스에서 씀)
+    # 재현: v1.3.0 이 쓰던 방식(text=True → 로캘 인코딩)은 여기서 UnicodeDecodeError — 이 환경이 버그를 재현하는지 확인
+    try:
+        subprocess.run([videogen._ffmpeg_exe(), "-hide_banner", "-i", zh], capture_output=True, text=True)
+        raise AssertionError("v1.3.0-style ffmpeg read did not fail — ASCII locale not reproduced")
+    except UnicodeDecodeError:
+        pass
+    # 수정: ffprobe 길 · ffmpeg 길 둘 다 크기를 읽는다
+    assert videogen._video_size(zh) == (176, 320), videogen._video_info(zh)
+    probe, videogen._ffprobe_exe = videogen._ffprobe_exe, lambda: None
+    try:
+        info = videogen._video_info(zh)
+        assert (info.get("width"), info.get("height")) == (176, 320) and info.get("fps") == 24.0, info
+    finally:
+        videogen._ffprobe_exe = probe
+    # _check_size: 같으면 통과 · 다르면 멈춤 · 못 읽으면 경고만
+    videogen._check_size(zh, 176, 320)
+    expect_error(lambda: videogen._check_size(zh, 100, 100), RuntimeError, "176x320 != 100x100")
+    size, videogen._video_size = videogen._video_size, lambda path: None
+    try:
+        videogen._check_size(zh, 176, 320)
+    finally:
+        videogen._video_size = size
+    assert "output size not verified" in open(os.path.join(tmp, "ascii.log"), encoding="utf-8").read()
+    # upscale_file: 결과 폴더를 주면 '…clips.mp4' 를 골라 생성 없이 키운다 (사용자 복구 길). 176x320 → 270x480 = cover
+    run_dir = os.path.join(tmp, "20261019-0300")
+    os.makedirs(os.path.join(run_dir, "media"))
+    shutil.copy(zh, os.path.join(run_dir, "media", "clip1.mp4"))
+    shutil.copy(zh, os.path.join(run_dir, "t2v_seed42_3clips.mp4"))
+    out = videogen.upscale_file(run_dir, "270x480")
+    assert out == os.path.join(run_dir, "t2v_seed42_3clips_270x480_lanczos.mp4") and videogen._video_size(out) == (270, 480), out
+    tags = subprocess.run([videogen._ffprobe_exe(), "-v", "error", "-show_entries", "format_tags", "-of", "json", out],
+                          capture_output=True, encoding="utf-8").stdout
+    assert "色调" not in tags, tags  # -map_metadata -1: 결과에는 중국어 메타데이터를 남기지 않는다
+    # _stream: 하위 프로세스가 한·중 글자를 찍어도 죽지 않고 로그에 남는다
+    lf = os.path.join(tmp, "stream.log")
+    rc = videogen._stream([sys.executable, "-c", "print('\\u8272\\u8c03 \\ud560\\uc544\\ubc84\\uc9c0 saved')"], tmp, lf, "TEST")
+    assert rc == 0 and "色调 할아버지 saved" in open(lf, encoding="utf-8").read()
+    # 사용자 흐름 그대로: 시작 이미지 3장 → 클립(중국어 메타데이터) → 이어 붙이기 → Lanczos cover 업스케일
+    app = test_wangp(tmp)
+    img = os.path.join(tmp, "s.png")
+    Image.new("RGB", (1024, 1536), (90, 60, 40)).save(img)  # ChatGPT 세로 그림 크기
+    # 352x640 → 540x960 = 사용자 설정 704x1280 → 1080x1920 의 절반 (비율 2.3% 차이 → cover)
+    res = videogen.run(dict(model="wan2.2-5b-fast", prompt="an old man on a sofa", width=352, height=640,
+                            upscale_to="540x960", upscaler="lanczos", clip_sec=0.5, start_images=[img, img, img],
+                            wangp_app_dir=app, wangp_python=sys.executable, output_dir=os.path.join(tmp, "out_ascii"),
+                            work_dir=os.path.join(tmp, "work"), preview=False))
+    assert videogen._video_size(res["videos"][0]) == (540, 960) and res["videos"][0].endswith("_540x960_lanczos.mp4"), res
+    print("ok  ASCII locale: ffprobe/ffmpeg size read · check_size · upscale_file · stream · start-images run ->",
+          res["videos"][0])
+
+
+def test_ascii_locale(tmp):
+    """회귀 (2026-10-19 Kaggle 'RuntimeError: 업스케일 결과 크기 None != 1080x1920'): 로캘이 ASCII 인 커널에서
+    WanGP 결과 mp4 의 중국어 메타데이터 때문에 크기를 못 읽던 문제. 하위 프로세스를 LC_ALL=C · UTF-8 모드 끔으로
+    띄워(표준 출력만 UTF-8 = Jupyter 처럼) 위 본문을 돌린다."""
+    sub = os.path.join(tmp, "ascii")
+    os.makedirs(sub)
+    # 176x320 = 704x1280 의 1/4 (사용자 클립과 같은 비율), comment 에 중국어 — ASCII 쪽에서는 인자로 못 넘겨 여기서 만든다
+    subprocess.run([videogen._ffmpeg_exe(), "-y", "-loglevel", "error", "-f", "lavfi", "-i", "color=c=gray:s=176x320:d=1:r=24",
+                    "-metadata", "comment=" + ZH_NEG, "-c:v", "libx264", "-pix_fmt", "yuv420p", os.path.join(sub, "zh.mp4")],
+                   check=True)
+    env = {k: v for k, v in os.environ.items() if k not in ("PYTHONUTF8", "LC_CTYPE", "LANGUAGE")}
+    env.update(LC_ALL="C", LANG="C", PYTHONCOERCECLOCALE="0", PYTHONIOENCODING="utf-8")
+    r = subprocess.run([sys.executable, "-X", "utf8=0", os.path.abspath(__file__), "--ascii-body", sub], env=env,
+                       capture_output=True, encoding="utf-8", errors="replace")
+    sys.stdout.write("".join(f"    | {ln}\n" for ln in r.stdout.splitlines() if ln.startswith("ok ")))
+    assert r.returncode == 0, (r.stdout[-3000:], r.stderr[-3000:])
+    print("ok  ASCII-locale regression (subprocess)")
+
+
 def main():
     tmp = tempfile.mkdtemp(prefix="videogen_test_")
     test_config(tmp)
@@ -386,8 +514,13 @@ def main():
     app = test_wangp(tmp)
     test_wangp_fhd(tmp, app)
     test_start_images(tmp, app)
+    test_upscale_file_rejoin(tmp)
+    test_ascii_locale(tmp)
     print("ALL TESTS PASSED", tmp)
 
 
 if __name__ == "__main__":
-    main()
+    if sys.argv[1:2] == ["--ascii-body"]:
+        _ascii_locale_body(sys.argv[2])
+    else:
+        main()

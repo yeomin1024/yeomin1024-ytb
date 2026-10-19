@@ -1,6 +1,7 @@
 # 영상 생성 AI — Kaggle 에서 설정만 바꿔 실행 (`videogen/`)
 
-버전: v1.3.0 — 2026-10-18 — **빠르게: 시작 이미지 여러 장 → 짧은 클립들** (사용자 지시 "3개 영상 나왔는데 2시간 걸렸어 너무 오래걸리는데 빠르게 생성하는 방법 없어? 시작 이미지를 전달하면 더 빨리 할 수 있어? 시작 이미지 여러개 만들어서 짧게 짧게 각각 만드는거지"): 새 설정 `start_images` `clip_sec` `concat` · 새 모델 `wan2.2-5b-fast` `wan2.2-14b-i2v` — 2-2번.
+버전: v1.3.1 — 2026-10-19 — **`RuntimeError: 업스케일 결과 크기 None != 1080x1920` 고침** (사용자 보고): Kaggle 커널 로캘이 UTF-8 이 아니면 WanGP 가 결과 mp4 에 넣은 중국어 메타데이터를 읽다 실패 → 크기·fps 를 못 읽음. 같은 원인으로 이어 붙인 영상이 **16fps**(5B 클립은 24fps — 프레임 1/3 버림)로 됐을 수 있음. 다시 생성하지 않고 마무리하는 셀 2-3번 (`videogen.upscale_file`).
+이전 v1.3.0 — 2026-10-18 — **빠르게: 시작 이미지 여러 장 → 짧은 클립들** (사용자 지시 "3개 영상 나왔는데 2시간 걸렸어 너무 오래걸리는데 빠르게 생성하는 방법 없어? 시작 이미지를 전달하면 더 빨리 할 수 있어? 시작 이미지 여러개 만들어서 짧게 짧게 각각 만드는거지"): 새 설정 `start_images` `clip_sec` `concat` · 새 모델 `wan2.2-5b-fast` `wan2.2-14b-i2v` — 2-2번.
 이전 v1.2.1 — 2026-10-18 — WanGP 가 T2V 모델의 창 이어붙이기를 거부한 오류 고침 (사용자 보고 wangp_process.log): `wan2.2-14b-hq` 를 두 단계로 — T2V 14B 첫 5초 → SVI 2 Pro 가 이어 만들기 (2-1번).
 이전 v1.2.0 — 2026-10-18 — **1920x1080 · 15초 고품질** (사용자 지시 "좀 고품질의 1920, 1080 해상도로 할아버지가 소파에 앉아서 호통치는 영상으로 15초 정도로 생성하는 설정, 프롬프트로 변경해줘"): 새 모델 `wan2.2-14b-hq` · 새 프리셋 `fhd_15s` · 새 설정 `duration_sec` `upscale_to` `upscaler` — 2-1번 예시.
 이전 v1.1.1 — 2026-10-18 — Kaggle 의 오래된 torchao 때문에 나던 `cannot import name 'FqnToConfig'` 오류 고침 (6번 표 첫 줄). 셀은 그대로 다시 실행하면 된다.
@@ -137,6 +138,19 @@ SETTINGS = dict(
 - 5B 는 해상도가 32 배수라 1280x704 로 만들고, 1920x1080 은 키운 뒤 가로를 약 2% 잘라 맞춘다 (로그 `upscale will scale up then center-crop`).
 - 결과: 클립 3개(`media/`) · 이어 붙인 1280x704(`…_3clips.mp4`) · 최종 1920x1080.
 
+### 2-3. 생성은 끝났는데 업스케일에서 멈췄을 때 — 다시 생성하지 않고 마무리 (v1.3.1)
+`RuntimeError: 업스케일 결과 크기 None != 1080x1920` (v1.3.0) 처럼 **생성·이어 붙이기 뒤에** 멈췄으면 클립은 `/kaggle/working/outputs/<실행시각>/media/` 에 남아 있다. **같은 Kaggle 세션**에서 위 셀의 마지막 줄 `result = videogen.run(SETTINGS)` 만 아래로 바꿔 실행 (코드 받기 부분은 그대로 — v1.3.1 을 받는다):
+```python
+import glob
+run_dir = sorted(glob.glob("/kaggle/working/outputs/*/"))[-1]   # 가장 최근 실행 폴더 (다른 폴더면 직접 적기)
+print(videogen.__version__, run_dir)                            # 1.3.1 이어야 함
+final = videogen.upscale_file(run_dir, "1080x1920")             # 가로 영상이면 "1920x1080"
+from IPython.display import Video; Video(final, embed=True, width=360)
+```
+- 폴더 안 `…<N>clips.mp4`(이어 붙인 것)의 fps 가 `media/` 클립과 다르면(v1.3.0 은 16fps 로 이어 붙였을 수 있음) **클립 N개로 다시 이어 붙인 뒤** Lanczos 로 키운다 — 로그 `re-joining clips ... joined_fps=16 clip_fps=24`. 결과 `…<N>clips_1080x1920_lanczos.mp4` (같은 이름이면 덮어씀). 로그는 결과 폴더 `upscale_file.log`.
+- 몇 분이면 된다 (CPU 인코딩만, 생성 없음). FlashVSR 는 이 길에서 안 씀.
+- 세션이 끝나 폴더가 없으면(Commit 실행은 그 버전의 Output 탭) 셀을 **그대로 다시 실행**하면 된다 — v1.3.1 은 같은 상황에서 끝까지 간다.
+
 ## 3. 설정 키 (`SETTINGS` 에 넣을 수 있는 것)
 모르는 키를 넣으면 오타로 보고 바로 멈춘다 (쓸 수 있는 키 목록을 보여 줌).
 
@@ -174,11 +188,14 @@ SETTINGS = dict(
 
 ## 5. 검증 범위
 - 통과 (2026-10-18, 이 저장소 클라우드 환경, diffusers 0.41.0 · transformers 5.20.1 · CPU): 설정 검사 · 시작 이미지 3장(받기·자르기·작업 목록 한 번 실행·이어 붙이기·cover 업스케일) · 1080p·15초 설정(길이→프레임 · 배율 검사 · 두 단계 T2V→SVI 2 Pro 이어 만들기 · WanGP 의 T2V 창 거부 규칙 회귀 · FlashVSR 성공/실패→Lanczos, 작은 진짜 mp4 로 크기·길이 확인) · 오래된 torchao(0.13.0 — Kaggle 오류 재현) 처리 · diffusers 길 전체(실제 Wan 클래스로 만든 작은 랜덤 모델 — 인코딩 → 디노이즈 → 디코딩 → mp4·JSON·로그) · WanGP 길 흐름(가짜 `wgp.py` — 설정 JSON 에 Lightning 프로필 합치기, `--dry-run` → `--process`, 결과 수집).
+- 통과 (2026-10-19, v1.3.1): 위 전부 + **ASCII 로캘 회귀**(하위 프로세스 `LC_ALL=C` · UTF-8 모드 끔 = 로캘이 UTF-8 아닌 커널 흉내, 결과 mp4 에 중국어 메타데이터): v1.3.0 방식은 같은 환경에서 `UnicodeDecodeError` → `업스케일 결과 크기 None != 540x960` 와 16fps 이어 붙이기(24fps 39프레임 → 16fps 27프레임)를 재현, v1.3.1 은 ffprobe·ffmpeg 두 길로 크기를 읽고 시작 이미지 3장 → 24fps 이어 붙이기 → Lanczos cover 540x960 까지 · `upscale_file`(16fps 로 이어 붙인 폴더 → 클립으로 다시 24fps) · 클립 fps 를 못 읽으면 모델 fps(경고)·없으면 멈춤.
 - 못 한 것: 실제 Kaggle T4 실행·속도·메모리·화질, 진짜 WanGP 설치. 클라우드 환경에서 Hugging Face·PyTorch 다운로드 서버가 막혀 있었다.
 
 ## 6. 문제 해결
 | 증상 | 할 일 |
 |---|---|
+| `RuntimeError: 업스케일 결과 크기 None != 1080x1920` | v1.3.0 이 로캘(UTF-8 아님) 때문에 결과 크기를 못 읽음 — v1.3.1 에서 고침. 이미 만든 클립은 **2-3번 셀로 마무리**(생성 없이 몇 분), 아니면 셀을 그대로 다시 실행. v1.3.1 은 크기를 못 읽으면 경고 `output size not verified` 만 남기고 계속, 크기가 **다르면** 멈춘다 |
+| `clip fps not readable -> using model fps` · `re-joining clips` | 경고지만 처리됨: 클립 fps 를 못 읽어 모델 fps 로 이어 붙임 · fps 가 틀린 이어 붙인 파일을 클립들로 다시 만듦 |
 | `num_frames=361 은 Wan2.2-5B 한 번 생성 한도 121 ...` | 5초 넘는 영상은 `model="wan2.2-14b-hq"` |
 | `... → 1920x1080 는 배율 ...` | 오류 문장의 '맞는 생성 해상도' 중 하나로 `width`·`height` |
 | `FlashVSR failed -> falling back to Lanczos` | 정상 동작(대체). Lanczos 결과 파일 이름 끝이 `_lanczos.mp4` |

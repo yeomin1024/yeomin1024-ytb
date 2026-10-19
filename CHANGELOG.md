@@ -1,5 +1,16 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-19 (113) — videogen v1.3.1: '업스케일 결과 크기 None' 고침 (Kaggle 로캘) · 생성 없이 마무리하는 upscale_file
+
+### 왜 (사용자 보고)
+- "RuntimeError: 업스케일 결과 크기 None != 1080x1920" — 기초연금 AI 쇼츠 테스트 실행(장면 11장, `bffe7377` 에 올라온 그림) 끝에서.
+
+### 한 것
+- 원인: Kaggle 커널 로캘이 UTF-8 이 아니어서 WanGP 결과 mp4 의 중국어 메타데이터를 읽다 실패 → 크기·fps 를 못 읽음. 같은 원인으로 이어 붙인 영상이 16fps(클립은 24fps)로 됐을 수 있음. 클라우드에서 같은 오류를 재현함.
+- `videogen/videogen.py` v1.3.1: 하위 프로세스 출력 UTF-8 · WanGP 도 UTF-8 · ffprobe 먼저 · 결과 파일 메타데이터 제거 · 크기 못 읽음 = 경고(다르면 멈춤) · 이어 붙이기 fps 를 모델 fps 로(몰래 16 아님) · 새 `upscale_file()`(생성 없이 다시 이어 붙이기·키우기).
+- 시험 v1.3.1: ASCII 로캘 회귀 · 16fps 폴더 복구 — 전체 통과 (28초).
+- `videogen/README.md` 2-3번(마무리 셀) · 문제 해결 · 검증 범위, `videogen/CHANGELOG.md` v1.3.1, `guides/status.md` v1.91.
+
 ## 2026-10-18 (112) — 기초연금 AI 쇼츠 테스트 실행 셀 (음성·자막 없이)
 
 ### 왜 (사용자 지시)

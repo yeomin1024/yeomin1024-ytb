@@ -1,6 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.3.0 — 2026-10-18 — 사용자 지시 "3개 영상 나왔는데 2시간 걸렸어 너무 오래걸리는데 빠르게 생성하는 방법 없어?
+# VERSION: v1.3.1 — 2026-10-19 — 사용자 보고 "RuntimeError: 업스케일 결과 크기 None != 1080x1920": Kaggle 커널 로캘이 UTF-8 이
+#          아니면 ffmpeg 출력 속 영상 메타데이터(WanGP 가 넣은 중국어 부정 프롬프트)를 읽다 UnicodeDecodeError → 크기 None.
+#          하위 프로세스 출력을 UTF-8(대체)로 읽고 WanGP 도 UTF-8 로 찍게(PYTHONUTF8) · ffprobe(JSON) 먼저 · 결과 파일 메타데이터
+#          제거 · 크기를 못 읽으면 경고만(다르면 멈춤) · 생성 없이 다시 키우는 upscale_file() · 같은 원인으로 이어 붙이기가
+#          클립 fps 를 못 읽어 몰래 16fps(5B 클립은 24fps → 프레임 1/3 버림)로 하던 것을 모델 fps·경고로, upscale_file 은
+#          fps 가 틀린 이어 붙인 파일을 media/ 클립들로 다시 이어 붙임
+# 이전 v1.3.0 — 2026-10-18 — 사용자 지시 "3개 영상 나왔는데 2시간 걸렸어 너무 오래걸리는데 빠르게 생성하는 방법 없어?
 #          시작 이미지를 전달하면 더 빨리 할 수 있어? 시작 이미지 여러개 만들어서 짧게 짧게 각각 만드는거지": 시작 이미지
 #          여러 장 → 장마다 짧은 클립을 WanGP 한 번 실행에 연달아(모델 한 번만 불러옴) → 이어 붙임 → 업스케일
 #          (start_images · clip_sec · concat). 새 모델 wan2.2-5b-fast(TI2V 5B FastWan 3-step) · wan2.2-14b-i2v(I2V 14B
@@ -61,7 +67,7 @@ import sys
 import time
 from dataclasses import asdict, dataclass, field, fields
 
-__version__ = "1.3.0"
+__version__ = "1.3.1"
 
 # --------------------------------------------------------------------------------------------------
 # 모델 · 프리셋
@@ -328,7 +334,7 @@ def _nvidia_smi() -> list[dict]:
     """GPU 목록 (torch 없이). nvidia-smi 가 없으면 빈 목록."""
     try:
         out = subprocess.run(["nvidia-smi", "--query-gpu=index,name,driver_version,memory.total,compute_cap",
-                              "--format=csv,noheader"], capture_output=True, text=True, timeout=30).stdout
+                              "--format=csv,noheader"], capture_output=True, encoding="utf-8", errors="replace", timeout=30).stdout
     except (OSError, subprocess.TimeoutExpired):
         return []
     keys = ["idx", "name", "driver", "vram", "cc"]
@@ -392,10 +398,41 @@ def _ffmpeg_exe() -> str:
     return imageio_ffmpeg.get_ffmpeg_exe()
 
 
+def _ffprobe_exe() -> str | None:
+    exe = shutil.which("ffprobe")
+    if exe:
+        return exe
+    sib = os.path.join(os.path.dirname(_ffmpeg_exe()), "ffprobe")
+    return sib if os.path.exists(sib) else None
+
+
 def _video_info(path: str) -> dict:
-    """영상 가로·세로·길이·fps (ffmpeg 정보 출력에서). 읽지 못한 값은 빠진다."""
+    """영상 가로·세로·길이·fps. ffprobe(JSON)가 있으면 그것으로, 없으면 ffmpeg 정보 출력에서. 읽지 못한 값은 빠진다.
+    출력은 로캘과 상관없이 UTF-8 로 읽는다 — v1.3.0 은 Kaggle 커널 로캘(ASCII)에서 영상 메타데이터의 중국어
+    (WanGP 가 넣은 부정 프롬프트)를 읽다가 UnicodeDecodeError → 크기 None → '업스케일 결과 크기 None' 으로 멈췄다."""
+    probe = _ffprobe_exe()
+    if probe:
+        try:
+            r = subprocess.run([probe, "-v", "error", "-select_streams", "v:0", "-show_entries",
+                                "stream=width,height,avg_frame_rate:format=duration", "-of", "json", path],
+                               capture_output=True, encoding="utf-8", errors="replace", timeout=120)
+            d = json.loads(r.stdout or "{}")
+            st = (d.get("streams") or [{}])[0]
+            info = {}
+            if st.get("width") and st.get("height"):
+                info.update(width=int(st["width"]), height=int(st["height"]))
+            if (d.get("format") or {}).get("duration"):
+                info["duration_sec"] = round(float(d["format"]["duration"]), 2)
+            num, _, den = str(st.get("avg_frame_rate", "")).partition("/")
+            if num.isdigit() and den.isdigit() and int(den):
+                info["fps"] = round(int(num) / int(den), 3)
+            if "width" in info:
+                return info
+        except Exception as e:  # ffprobe 가 이상하면 ffmpeg 정보 출력으로
+            log("UPSCALE", "ffprobe failed, trying ffmpeg", logging.DEBUG, file=path, error=repr(e)[:200])
     try:
-        r = subprocess.run([_ffmpeg_exe(), "-hide_banner", "-i", path], capture_output=True, text=True, timeout=120)
+        r = subprocess.run([_ffmpeg_exe(), "-hide_banner", "-i", path], capture_output=True, encoding="utf-8",
+                           errors="replace", timeout=120)
     except Exception as e:  # ffmpeg 를 못 찾거나 멈춤 — 정보 확인만 못 한 것
         log("UPSCALE", "could not read video info", logging.WARNING, file=path, error=repr(e)[:200])
         return {}
@@ -409,6 +446,9 @@ def _video_info(path: str) -> dict:
     m = re.search(r"Video:.*?([\d.]+)\s*fps", r.stderr)
     if m:
         info["fps"] = float(m.group(1))
+    if "width" not in info:
+        log("UPSCALE", "could not parse video size", logging.WARNING, file=path,
+            ffmpeg_tail=" | ".join(r.stderr.strip().splitlines()[-4:])[:300])
     return info
 
 
@@ -421,12 +461,71 @@ def _ffmpeg_upscale(src: str, dst: str, width: int, height: int, fit: str = "exa
     """Lanczos 로 width x height 로. fit='cover' 면 비율을 지켜 덮도록 키운 뒤 가운데를 잘라 맞춘다."""
     vf = f"scale={width}:{height}:flags=lanczos" if fit == "exact" else \
         f"scale={width}:{height}:force_original_aspect_ratio=increase:flags=lanczos,crop={width}:{height}"
-    cmd = [_ffmpeg_exe(), "-y", "-hide_banner", "-loglevel", "error", "-i", src,
+    cmd = [_ffmpeg_exe(), "-y", "-hide_banner", "-loglevel", "error", "-i", src, "-map_metadata", "-1",
            "-vf", vf, "-map", "0:v:0", "-map", "0:a?",
            "-c:v", "libx264", "-preset", "slow", "-crf", "16", "-pix_fmt", "yuv420p", "-c:a", "copy", dst]
-    r = subprocess.run(cmd, capture_output=True, text=True)
+    r = subprocess.run(cmd, capture_output=True, encoding="utf-8", errors="replace")
     if r.returncode != 0:
         raise RuntimeError(f"ffmpeg 업스케일 실패: {r.stderr[-800:]}")
+
+
+def _check_size(path: str, tw: int, th: int):
+    """결과 크기 확인: 다르면 멈추고, 읽지 못하면(None) 경고만 — ffmpeg scale 이 크기를 정하므로 '못 읽음'은 실패가 아니다."""
+    got = _video_size(path)
+    if got is None:
+        log("UPSCALE", "output size not verified (could not read it) — ffmpeg scale sets it", logging.WARNING,
+            file=path, expected=f"{tw}x{th}")
+    elif got != (tw, th):
+        raise RuntimeError(f"업스케일 결과 크기 {got[0]}x{got[1]} != {tw}x{th} — {path}")
+
+
+def upscale_file(path: str, target: str = "1080x1920", upscaler: str = "lanczos", rejoin: bool = True) -> str:
+    """이미 만든 영상만 다시 키운다 (생성 없이). path = 영상 파일, 또는 결과 폴더(<output_dir>/<실행시각>) — 폴더면
+    이어 붙인 '…<N>clips.mp4', 없으면 media/ 의 가장 최근 영상. FlashVSR 는 WanGP 설치가 필요해 여기서는 Lanczos 만.
+    rejoin: 이어 붙인 파일의 fps 가 media/ 클립 N개와 다르면(v1.3.0 이 로캘 문제로 16fps 로 이어 붙인 경우) 클립들로
+    다시 이어 붙인 뒤 키운다. Kaggle 예: videogen.upscale_file("/kaggle/working/outputs/20261019-0300", "1080x1920")"""
+    if upscaler != "lanczos":
+        raise ValueError("upscale_file 은 lanczos 만 (FlashVSR 는 run() 안에서 WanGP 로)")
+    src = path
+    if os.path.isdir(path):
+        if not LOGGER.handlers:
+            _setup_logging("INFO", os.path.join(path, "upscale_file.log"))
+        joined = sorted((os.path.join(path, n) for n in os.listdir(path) if re.search(r"_\d+clips\.mp4$", n)),
+                        key=os.path.getmtime)
+        media = os.path.join(path, "media")
+        clips = sorted((os.path.join(media, n) for n in os.listdir(media) if n.endswith(".mp4")),
+                       key=os.path.getmtime) if os.path.isdir(media) else []
+        if not (joined or clips):
+            raise FileNotFoundError(f"{path} 에 '…clips.mp4' 도 media/*.mp4 도 없음")
+        src = (joined or clips)[-1]
+        if joined:
+            n = int(re.search(r"_(\d+)clips\.mp4$", src).group(1))
+            old_fps, clip_fps = _video_info(src).get("fps"), (_video_info(clips[0]).get("fps") if clips else None)
+            log("UPSCALE", "joined file check", file=src, joined_fps=old_fps, clips_in_media=len(clips), expected_clips=n,
+                clip_fps=clip_fps)
+            if rejoin and len(clips) == n and clip_fps and (not old_fps or abs(old_fps - clip_fps) > 0.01):
+                cw, ch = _video_size(clips[0])
+                log("CONCAT", "re-joining clips (joined fps differs from clip fps)", logging.WARNING, joined_fps=old_fps,
+                    clip_fps=clip_fps, clips=n)
+                _ffmpeg_concat(clips, src, cw, ch, fps=clip_fps)
+                log("CONCAT", "joined", file=src, clips=n, **_video_info(src))
+            elif rejoin and len(clips) != n:
+                log("UPSCALE", "media clip count differs; using the joined file as is", logging.WARNING,
+                    clips_in_media=len(clips), expected_clips=n)
+    if not LOGGER.handlers:
+        _setup_logging("INFO", os.path.join(os.path.dirname(os.path.abspath(src)), "upscale_file.log"))
+    tw, th = _parse_size(target)
+    w, h = _video_size(src) or (None, None)
+    if w is None:
+        raise RuntimeError(f"원본 크기를 읽지 못함: {src}")
+    plan = upscale_plan(w, h, target)
+    dst = os.path.join(os.path.dirname(os.path.abspath(src)),
+                       f"{os.path.splitext(os.path.basename(src))[0]}_{tw}x{th}_lanczos.mp4")
+    log("UPSCALE", "upscale_file", src=src, src_size=f"{w}x{h}", target=target, fit=plan["fit"], crop_pct=plan["crop_pct"])
+    _ffmpeg_upscale(src, dst, tw, th, fit=plan["fit"])
+    _check_size(dst, tw, th)
+    log("UPSCALE", "done", method="lanczos", file=dst, size_mb=round(os.path.getsize(dst) / 1e6, 2), **_video_info(dst))
+    return dst
 
 
 def _upscale_video(cfg: Config, params: dict, src: str, run_dir: str, wangp: tuple | None = None) -> tuple[str, str]:
@@ -457,8 +556,7 @@ def _upscale_video(cfg: Config, params: dict, src: str, run_dir: str, wangp: tup
             else:
                 _ffmpeg_upscale(new[0], dst, tw, th, fit="cover")
                 log("UPSCALE", "FlashVSR output fitted to target (scale + center crop)", flashvsr_size=f"{got[0]}x{got[1]}")
-            if _video_size(dst) != (tw, th):
-                raise RuntimeError(f"업스케일 결과 크기 {_video_size(dst)} != {tw}x{th}")
+            _check_size(dst, tw, th)
             log("UPSCALE", "done", method="flashvsr", file=dst, size_mb=round(os.path.getsize(dst) / 1e6, 2))
             return dst, "flashvsr"
         log("UPSCALE", "FlashVSR failed -> falling back to Lanczos", logging.WARNING, rc=rc, outputs=len(new),
@@ -467,23 +565,32 @@ def _upscale_video(cfg: Config, params: dict, src: str, run_dir: str, wangp: tup
         log("UPSCALE", "FlashVSR runs only through WanGP models; using Lanczos", logging.WARNING)
     dst = os.path.join(run_dir, f"{stem}_{tw}x{th}_lanczos.mp4")
     _ffmpeg_upscale(src, dst, tw, th, fit=fit)
-    if _video_size(dst) != (tw, th):
-        raise RuntimeError(f"업스케일 결과 크기 {_video_size(dst)} != {tw}x{th}")
+    _check_size(dst, tw, th)
     log("UPSCALE", "done", method="lanczos", file=dst, size_mb=round(os.path.getsize(dst) / 1e6, 2))
     return dst, "lanczos"
 
 
-def _ffmpeg_concat(clips: list[str], dst: str, width: int, height: int):
-    """클립들을 순서대로 한 영상으로 (컷 전환). 크기·fps 를 첫 클립에 맞춰 다시 인코딩한다."""
-    fps = _video_info(clips[0]).get("fps") or 16
+def _ffmpeg_concat(clips: list[str], dst: str, width: int, height: int, fps: float | None = None):
+    """클립들을 순서대로 한 영상으로 (컷 전환). 크기·fps 를 첫 클립에 맞춰 다시 인코딩한다. 첫 클립 fps 를 못 읽으면
+    fps(모델 fps)로, 그것도 없으면 멈춘다 — v1.3.0 은 몰래 16 으로 해서 24fps 클립이 16fps(프레임 1/3 버림)가 됐다."""
+    got = _video_info(clips[0]).get("fps")
+    if got:
+        if fps and abs(got - fps) > 0.01:
+            log("CONCAT", "clip fps differs from model fps (using clip fps)", logging.WARNING, clip_fps=got, model_fps=fps)
+        fps = got
+    elif fps:
+        log("CONCAT", "clip fps not readable -> using model fps", logging.WARNING, fps=fps, file=clips[0])
+    else:
+        raise RuntimeError(f"첫 클립 fps 를 읽지 못함 (모델 fps 도 없음): {clips[0]}")
+    log("CONCAT", "encode", clips=len(clips), size=f"{width}x{height}", fps=fps, source="clip" if got else "model")
     chains = "".join(f"[{i}:v]scale={width}:{height}:flags=lanczos,setsar=1,fps={fps:g}[v{i}];" for i in range(len(clips)))
     joins = "".join(f"[v{i}]" for i in range(len(clips)))
     cmd = [_ffmpeg_exe(), "-y", "-hide_banner", "-loglevel", "error"]
     for c in clips:
         cmd += ["-i", c]
-    cmd += ["-filter_complex", f"{chains}{joins}concat=n={len(clips)}:v=1:a=0[v]", "-map", "[v]",
+    cmd += ["-filter_complex", f"{chains}{joins}concat=n={len(clips)}:v=1:a=0[v]", "-map", "[v]", "-map_metadata", "-1",
             "-c:v", "libx264", "-preset", "slow", "-crf", "16", "-pix_fmt", "yuv420p", dst]
-    r = subprocess.run(cmd, capture_output=True, text=True)
+    r = subprocess.run(cmd, capture_output=True, encoding="utf-8", errors="replace")
     if r.returncode != 0:
         raise RuntimeError(f"ffmpeg 이어 붙이기 실패: {r.stderr[-800:]}")
 
@@ -581,7 +688,7 @@ def _ensure_packages(specs: dict[str, str]):
         log("SETUP", "diffusers/transformers already imported in this kernel; restart the kernel if the "
                      "upgrade below does not take effect", logging.WARNING)
     log("SETUP", "pip install", packages=" ".join(need))
-    r = subprocess.run([sys.executable, "-m", "pip", "install", "-q", *need], capture_output=True, text=True)
+    r = subprocess.run([sys.executable, "-m", "pip", "install", "-q", *need], capture_output=True, encoding="utf-8", errors="replace")
     if r.returncode != 0:
         raise RuntimeError(f"pip install failed: {r.stderr[-1500:]}\n→ Kaggle 설정에서 Internet 을 켰는지 확인")
 
@@ -607,7 +714,7 @@ def _disable_old_torchao(allow_uninstall: bool):
             logging.WARNING, torchao=have, required=">=" + ".".join(map(str, TORCHAO_MIN)))
         if allow_uninstall:
             r = subprocess.run([sys.executable, "-m", "pip", "uninstall", "-y", "-q", "torchao"],
-                               capture_output=True, text=True)
+                               capture_output=True, encoding="utf-8", errors="replace")
             if r.returncode != 0:
                 raise RuntimeError(f"pip uninstall torchao 실패: {r.stderr[-800:]}")
             import importlib
@@ -878,7 +985,8 @@ def _child_env(**extra) -> dict:
     """venv 하위 프로세스 환경: 커널의 PYTHONPATH 와 인라인 matplotlib 백엔드를 뺀다
     (venv 에 matplotlib_inline 이 없어 `import matplotlib.pyplot` 이 깨짐)."""
     env = {k: v for k, v in os.environ.items() if k not in ("PYTHONPATH", "PYTHONHOME", "VIRTUAL_ENV")}
-    env.update(MPLBACKEND="Agg", PYTHONUNBUFFERED="1", **extra)
+    # PYTHONUTF8·PYTHONIOENCODING: 커널 로캘이 UTF-8 이 아니어도 WanGP 가 한·중 글자(프롬프트)를 찍다가 죽지 않게
+    env.update(MPLBACKEND="Agg", PYTHONUNBUFFERED="1", PYTHONUTF8="1", PYTHONIOENCODING="utf-8", **extra)
     return env
 
 
@@ -886,7 +994,7 @@ def _run(stage: str, cmd: list, hint: str, log_file: str, cwd=None, check=True, 
     """명령 실행: 전체 출력은 log_file 에, 결과는 한 줄로."""
     t0 = time.perf_counter()
     log(stage, "exec", cmd=" ".join(map(str, cmd))[:240])
-    r = subprocess.run(list(map(str, cmd)), cwd=cwd, env=_child_env(), capture_output=True, text=True, timeout=timeout)
+    r = subprocess.run(list(map(str, cmd)), cwd=cwd, env=_child_env(), capture_output=True, encoding="utf-8", errors="replace", timeout=timeout)
     sec = round(time.perf_counter() - t0, 1)
     with open(log_file, "a", encoding="utf-8") as f:
         f.write(f"\n$ {' '.join(map(str, cmd))}\n(rc={r.returncode}, {sec}s)\n{r.stdout}\n{r.stderr}\n")
@@ -1072,7 +1180,7 @@ def _stream(cmd: list, cwd: str, log_file: str, stage: str, every: float = 30.0)
     with open(log_file, "a", encoding="utf-8") as lf:
         lf.write(f"\n$ {' '.join(map(str, cmd))}\n")
         proc = subprocess.Popen(list(map(str, cmd)), cwd=cwd, env=_child_env(), stdout=subprocess.PIPE,
-                                stderr=subprocess.STDOUT, text=True, bufsize=1)
+                                stderr=subprocess.STDOUT, encoding="utf-8", errors="replace", bufsize=1)
         for line in proc.stdout:
             lf.write(line)
             line = line.strip()
@@ -1203,7 +1311,7 @@ def _wangp_generate(cfg: Config, run_dir: str, run_id: str, timings: dict) -> di
         with _Stage("CONCAT", timings, "클립들은 media 폴더에 그대로 있음 · concat=False 로 따로 받기"):
             segments = _clips(new)
             joined = os.path.join(run_dir, f"{cfg.model}_{run_id}_{len(segments)}clips.mp4")
-            _ffmpeg_concat(segments, joined, params["width"], params["height"])
+            _ffmpeg_concat(segments, joined, params["width"], params["height"], fps=spec.get("fps"))
             log("CONCAT", "joined", file=joined, clips=len(segments), **_video_info(joined))
             new = [joined]
 

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.4.0 — 2026-10-19 — 사용자 지시 "롱폼,숏폼 둘다 아까 짧게 짧게 시작이미지로 영상 만들었던 코드로 만들거니까
+# VERSION: v1.4.1 — 2026-10-19 — [CLIPS] 경고를 '만든 프레임이 요청보다 적을 때'만 (4k+1 프레임 내림으로 sec 보다 조금 짧은 것은 정상 — 실제
+#          롱폼 설정 29개를 가짜 WanGP 로 돌려 보니 9개가 헛경고). 이전 v1.4.0 — 2026-10-19 — 사용자 지시 "롱폼,숏폼 둘다 아까 짧게 짧게 시작이미지로 영상 만들었던 코드로 만들거니까
 #          그 코드 수정필요하면 수정하고 영상을 이어 붙이는건 그 코드에서 하는게 아니라 너가 하는거야": 영상 한 편의 장면
 #          클립 수십 개를 한 번에 만들고 Claude 가 받아 이어 붙이게 — start_images 항목마다 길이(sec)·이름(name),
 #          상대 경로 이미지는 image_base 앞에 붙여 받음, 결과 clips/<이름>.mp4 + clips_manifest.json,
@@ -74,7 +75,7 @@ import sys
 import time
 from dataclasses import asdict, dataclass, field, fields
 
-__version__ = "1.4.0"
+__version__ = "1.4.1"
 
 # --------------------------------------------------------------------------------------------------
 # 모델 · 프리셋
@@ -1436,13 +1437,13 @@ def collect_clips(cfg: Config, run_dir: str, run_id: str, images: list[dict], pe
                      run_id=run_id)
         entries.append(entry)
         paths.append(dst)
-        short = img.get("sec") is not None and info.get("duration_sec") and info["duration_sec"] + 0.05 < img["sec"]
+        short = bool(info.get("duration_sec")) and info["duration_sec"] + 0.05 < n / fps   # v1.4.1 만든 프레임이 모자람 (4k+1 내림은 정상)
         log("CLIPS", "clip", name=img["name"], file=dst, frames=n, target_sec=img.get("sec") or "default",
             duration_sec=info.get("duration_sec"), size=f"{info.get('width')}x{info.get('height')}",
             size_mb=round(os.path.getsize(dst) / 1e6, 2))
         if short:
-            log("CLIPS", "clip shorter than asked (Wan frame rule 4k+1 or model cap)", logging.WARNING,
-                name=img["name"], target_sec=img["sec"], duration_sec=info["duration_sec"])
+            log("CLIPS", "clip has fewer frames than requested", logging.WARNING,
+                name=img["name"], frames=n, expected_sec=round(n / fps, 3), duration_sec=info["duration_sec"])
     manifest = os.path.join(out_dir, MANIFEST_NAME)
     with open(manifest, "w", encoding="utf-8") as f:
         json.dump(dict(videogen_version=__version__, run_id=run_id, model=cfg.model, created=_now_iso(),

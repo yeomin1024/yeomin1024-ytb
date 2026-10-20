@@ -4,7 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>일본 축제 쇼츠</title>
-<!-- VERSION: v2.0 — 2026-10-20 — 가운데 칸을 종이인형 무대로 (video/render/puppet.js v1.0) — 사용자 지시 2026-10-20 "좋아 저런 방식으로 가자 ... 이제 나머지 부분
+<!-- VERSION: v2.1 — 2026-10-20 — 끝 화면: 노란 화살표가 유튜브 '관련 동영상' 링크 자리(화면 왼쪽 아래 — 채널 이름 바로 아래, 구글 도움말
+     "Viewers will see a clickable link below your channel handle")를 가리킴 · 가마꾼 3판(6명씩 P-MEN-L·R)이 있으면 그것 —
+     사용자 지시 2026-10-20 "쇼츠에서 아래 영상에서 확인하라는 표시가 나오는데 유튜브 관련 동영상 버튼 위치를 딱 가리키도록 해".
+     (v2.0) — 2026-10-20 — 가운데 칸을 종이인형 무대로 (video/render/puppet.js v1.0) — 사용자 지시 2026-10-20 "좋아 저런 방식으로 가자 ... 이제 나머지 부분
      영상으로 만들자". 그림 = 배경 1장 + 물건마다 투명 그림 1장(test/puppet/), 움직임은 모두 코드. 출처·매체 이름·AI 표기 없음.
      (v1.1 — 2026-10-20 — 각주 '언론에 알려진 사고 기준' · v1.0 — 롱폼 배경 그림 IMG-L* 를 가운데 칸에)
      꼴 = '세 칸' (사용자 지시 2026-10-20): 위 칸 y 0~691 검정 + 코드 글자 · 가운데 칸 y 691~1382 무대 · 아래 칸 검정 + 구운 자막.
@@ -27,6 +30,7 @@ body.render #wrap{width:1080px;height:1920px;max-width:none;margin:0}
 .qcard .q{font-weight:900;font-size:56px;line-height:1.25;word-break:keep-all}
 .qcard .who{font-weight:500;font-size:36px;color:var(--N)}
 .flash{position:absolute;left:0;top:691px;width:1080px;height:691px;background:#FFE6C8;opacity:0;pointer-events:none}
+.rel{position:absolute;pointer-events:none}
 .bub{position:absolute;font-weight:900;font-size:64px;width:100px;height:100px;border-radius:50px;display:grid;place-items:center;background:#F2E6CF;color:#1E2A4A;border:5px solid #1E2A4A}
 </style>
 </head>
@@ -64,7 +68,9 @@ function qcard(sc, top, q, who, color) {
 const ST = Puppet.stage({ dir: "../../../test/puppet/", w: 1080, h: 691, top: 691, clear: 0x000000, files: {
   BG: { f: "P-BG.jpg", kind: "bg" }, PAPER: { f: "P-PAPER.jpg", kind: "bg" }, TOWN: { f: "P-TOWN.jpg", kind: "bg" }, TEMPLE: { f: "P-TEMPLE.jpg", kind: "bg" },
   FLOAT: { f: "P-FLOAT.png" }, LIFT: { f: "P-LIFT.png" }, CARRY: { f: "P-CARRY.png" }, CROWD: { f: "P-CROWD.png" },
-  DANJIRI: { f: "P-DANJIRI.png" }, HADAKA: { f: "P-HADAKA.png" }, PEOPLE2: { f: "P-PEOPLE2.png", kind: "row4" } } });
+  DANJIRI: { f: "P-DANJIRI.png" }, HADAKA: { f: "P-HADAKA.png" }, PEOPLE2: { f: "P-PEOPLE2.png", kind: "row4" },
+  MEN_L: { f: "P-MEN-L.png" }, MEN_R: { f: "P-MEN-R.png" } } });
+const has = k => !!(ST.IMG[k] && ST.IMG[k].complete && ST.IMG[k].naturalWidth > 0);
 // 세로 쇼츠 칸은 가까이서 (인형이 칸 높이의 절반쯤) — 발끝 줄이 칸 82%
 ST.defaultCam = (st, t) => { const k = lin(t, st.a, st.b); return { pos: [lerp(-0.4, 0.4, k), 2.9, lerp(15.5, 14.5, k)], look: [lerp(-0.4, 0.4, k), 2.57, 0] }; };
 const bgOf = (st, key) => st.bg(key, key === "PAPER" ? { v: 0.5, y: 2.6 } : { v: key === "BG" ? 0.62 : 0.70, y: 0.6 });
@@ -86,7 +92,10 @@ K.cut(E(1) - 0.2, "첫 문장 + 자막(42px)");
     const fi = ST.get("FLOAT").info, mi = ST.get("LIFT").info;
     PW = 9.0; PH = PW * fi.h / fi.w; fb = fi.bbox;
     const cut = fb[3], cu = (mi.bbox[0] + mi.bbox[2]) / 2, fy = mi.bbox[3], split = 0.5;
-    men = [[0, split], [split, 1]].map(([u0, u1]) => st.actor("LIFT", { crop: [u0, cut, u1, 1], w: PW * (u1 - u0), anchor: [0.5, 1], at: [((u0 + u1) / 2 - cu) * PW, (fy - 1) * PH, 0] }).ro(2));
+    if (has("MEN_L") && has("MEN_R")) {                              // 3판: 6명씩 따로 — 손이 멜대 밑에 닿게
+      const poleY = (fy - fb[3]) * PH, pl = (fb[0] - cu) * PW, pr = (fb[2] - cu) * PW;
+      men = [["MEN_L", 0.27], ["MEN_R", 0.73]].map(([k, f]) => st.actor(k, { h: poleY + 0.06, at: [lerp(pl, pr, f), 0, 0] }).ro(2));
+    } else men = [[0, split], [split, 1]].map(([u0, u1]) => st.actor("LIFT", { crop: [u0, cut, u1, 1], w: PW * (u1 - u0), anchor: [0.5, 1], at: [((u0 + u1) / 2 - cu) * PW, (fy - 1) * PH, 0] }).ro(2));
     F = st.actor("FLOAT", { crop: [0, 0, 1, 1], w: PW, anchor: [fb[2], fb[3]], at: [(fb[2] - cu) * PW, (fy - fb[3]) * PH, 0.05] }).ro(3);
     st.part(Puppet.dust(tI, () => { F.g.updateMatrixWorld(true); const v = F.g.localToWorld(V3(((fb[0] + fb[2]) / 2 - fb[2]) * PW, 0, 0)); return [v.x, 0, 0]; }, { spread: 3.2 }));
     st.part(Puppet.floaters({ n: 60, x: [-9, 9], z: [-10, 4] }));
@@ -184,8 +193,15 @@ K.cut(E(1) - 0.2, "첫 문장 + 자막(42px)");
   s7.update = t => { CA.g.position.x = lerp(-10, 10, lin(t, a, b + 1)); CA.bob(t, 0.07, 2.0); CR.bob(t, 0.06, 1.5); };
   pop(el(`<div class="a cx c w9 nw" style="left:540px;top:230px;font-size:76px">일본은 왜 축제를</div>`, sc), S(9) + 0.05);
   pop(el(`<div class="a cx c w9 Y nw" style="left:540px;top:330px;font-size:104px">멈추지 않을까?</div>`, sc), S(9) + 0.35);
-  pop(el(`<div class="a cx pill sm" style="left:540px;top:510px;color:#FFD400;border-color:#FFD400">아래 영상에서 확인 ▼</div>`, sc), S(10) + 0.05);
-  K.cut(E(10) - 0.1, "왜? · 아래 영상");
+  pop(el(`<div class="a cx pill sm" style="left:540px;top:510px;color:#FFD400;border-color:#FFD400">왼쪽 아래 ‘관련 동영상’에서 확인</div>`, sc), S(10) + 0.05);
+  // 유튜브 쇼츠 '관련 동영상' 링크 = 화면 왼쪽 아래, 채널 이름 바로 아래 (약 x 40~600, y 1690~1760 — 기기마다 조금 다름)
+  // → 아래 칸(자막 밑 y 1560)에서 왼쪽 아래로 휘어 내려가는 화살표, 끝이 그 자리 바로 위(x 210, y 1672)에서 콕콕
+  const arw = el(`<svg class="rel" data-below="유튜브 관련 동영상 링크 자리를 가리킴 (자막 밑 왼쪽 아래)" viewBox="0 0 1080 1920" width="1080" height="1920" style="left:0;top:0" aria-hidden="true">
+    <path d="M820 1560 C 700 1600 420 1600 236 1660" fill="none" stroke="#FFD400" stroke-width="16" stroke-linecap="round"/>
+    <path d="M262 1618 L210 1672 L282 1690" fill="none" stroke="#FFD400" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/></svg>`, sc);
+  pop(arw, S(10) + 0.2, { from: { y: 0, scale: 1 } });
+  tl.fromTo(arw, { x: 0, y: 0 }, { x: -14, y: 12, duration: 0.4, ease: "sine.inOut", repeat: 5, yoyo: true }, S(10) + 0.7);
+  K.cut(E(10) - 0.1, "왜? · 관련 동영상 ↙");
 }
 K.done();
 })();

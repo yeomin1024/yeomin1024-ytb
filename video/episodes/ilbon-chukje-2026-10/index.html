@@ -4,7 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>일본 축제 롱폼</title>
-<!-- VERSION: v2.0 — 2026-10-20 — 종이인형극으로 다시 만듦 — 사용자 지시 2026-10-20 "좋아 저런 방식으로 가자 오디오는 H09 음성으로 가고 이제 나머지 부분
+<!-- VERSION: v2.1 — 2026-10-20 — 장 제목 카드 뺌(첫 글자·인형은 장 첫 문장에 바로) · 3판 그림(한 장에 하나 P-PEOPLE-n·P-ICONS-n·P-ICONS2-n,
+     가마꾼 6명씩 P-MEN-L·R)이 있으면 그것, 없으면 2판 묶음 · 놀란 구경꾼(CROWD2)은 잘린 오른쪽 끝이 화면 밖으로 — 사용자 지시 2026-10-20
+     "제목 카드좀 빼 … 이미지 요소 몇개가 잘려서 보여 다시 이미지 요소가 잘리지 않도록".
+     (v2.0) — 2026-10-20 — 종이인형극으로 다시 만듦 — 사용자 지시 2026-10-20 "좋아 저런 방식으로 가자 오디오는 H09 음성으로 가고 이제 나머지 부분
      영상으로 만들자 그리고 왼쪽 상단에 도입 이런식으로 부제목처럼 나오는건 빼자".
      · 배경 그림(IMG-L1~L6 정지 그림) 대신 종이인형 무대 (video/render/puppet.js v1.0): 배경 1장 + 물건마다 투명 그림 1장, 움직임은 모두 코드
        (걷기·영차·기울어 떨어짐·솟아오름·밀려 들어옴·튀어나옴·흔들림·뒤집기 · 흙먼지·불씨·빛 알갱이 · 겹 무대 시차 · 종이 그림자 · 상자 계단).
@@ -78,7 +81,9 @@ const ST = Puppet.stage({ dir: "../../../test/puppet/", files: {
   FLOAT: { f: "P-FLOAT.png" }, LIFT: { f: "P-LIFT.png" }, CARRY: { f: "P-CARRY.png" }, CROWD: { f: "P-CROWD.png" }, CROWD2: { f: "P-CROWD2.png" },
   FLOWER: { f: "P-FLOWER.png", kind: "sq" }, DANJIRI: { f: "P-DANJIRI.png" }, HADAKA: { f: "P-HADAKA.png" },
   PEOPLE: { f: "P-PEOPLE.png", kind: "row4" }, PEOPLE2: { f: "P-PEOPLE2.png", kind: "row4" },
-  ICONS: { f: "P-ICONS.png", kind: "row4" }, ICONS2: { f: "P-ICONS2.png", kind: "row4" } } });
+  ICONS: { f: "P-ICONS.png", kind: "row4" }, ICONS2: { f: "P-ICONS2.png", kind: "row4" },
+  MEN_L: { f: "P-MEN-L.png" }, MEN_R: { f: "P-MEN-R.png" },                                   // 3판 (잘리지 않게 한 장에 하나)
+  ...Object.fromEntries(["PEOPLE", "ICONS", "ICONS2"].flatMap(k => [1, 2, 3, 4].map(i => [`${k}_${i}`, { f: `P-${k}-${i}.png`, kind: "sq" }]))) } });
 el(`<div class="vig"></div>`);
 // DOM 이름표를 인형·지도 자리에 붙임 (렌더 뒤 투영)
 const FOL = [];
@@ -97,17 +102,20 @@ const stdBg = (st, key, o) => st.bg(key, Object.assign({ v: key === "BG" ? 0.62 
 const camDrift = (x0, x1, z0, z1, ly) => (t, st) => { const k = lin(t, st.a, st.b); return { pos: [lerp(x0, x1, k), 3.6, lerp(z0, z1, k)], look: [lerp(x0, x1, k), ly == null ? 3.34 : ly, 0] }; };
 const WARM = new THREE.Color(0xffffff), COOL = new THREE.Color(0xb4b9cc), DARK = new THREE.Color(0x8a8fa6), GREY = new THREE.Color(0x9aa0b0);
 const embers = (st, o) => st.part(Puppet.floaters(o || {}));
+// 3판 그림(한 장에 하나)이 올라와 있으면 그것, 아니면 2판 4개 묶음의 i 번째 (v2.1)
+const has = k => !!(ST.IMG[k] && ST.IMG[k].complete && ST.IMG[k].naturalWidth > 0);
+const one = (st, sheet, i, o) => has(`${sheet}_${i + 1}`) ? st.actor(`${sheet}_${i + 1}`, o) : st.actor(sheet, Object.assign({ seg: i }, o));
 
 K.chapters([
   { part: "도입", tag: "도입", title: "사망자가 나와도 멈추지 않는 축제" },
-  { part: "첫째, 돈과 관광", tag: "이유 1", title: "돈과 관광", dots: [1, 4], card: true, cardHold: 1.3 },
-  { part: "둘째, 동네가 곧 가족", tag: "이유 2", title: "동네가 곧 가족", dots: [2, 4], card: true, cardHold: 1.3 },
-  { part: "셋째, 신을 모시는 행사", tag: "이유 3", title: "신을 모시는 행사", dots: [3, 4], card: true, cardHold: 1.3 },
-  { part: "넷째, 자기책임 문화", tag: "이유 4", title: "자기책임 문화", dots: [4, 4], card: true, cardHold: 1.3 },
-  { part: "다른 목소리", tag: "반전", title: "다른 목소리", card: true, cardHold: 1.3 },
-  { part: "일본 안에서도 갈린다", tag: "현지 반응", title: "일본 안에서도 갈린다", card: true, cardHold: 1.3 },
-  { part: "실제로 바뀐 축제", tag: "바뀐 축제", title: "실제로 바뀐 축제", card: true, cardHold: 1.3 },
-  { part: "정리", tag: "정리", title: "정리", card: true, cardHold: 1.3 },
+  { part: "첫째, 돈과 관광", tag: "이유 1", title: "돈과 관광", dots: [1, 4] },
+  { part: "둘째, 동네가 곧 가족", tag: "이유 2", title: "동네가 곧 가족", dots: [2, 4] },
+  { part: "셋째, 신을 모시는 행사", tag: "이유 3", title: "신을 모시는 행사", dots: [3, 4] },
+  { part: "넷째, 자기책임 문화", tag: "이유 4", title: "자기책임 문화", dots: [4, 4] },
+  { part: "다른 목소리", tag: "반전", title: "다른 목소리" },
+  { part: "일본 안에서도 갈린다", tag: "현지 반응", title: "일본 안에서도 갈린다" },
+  { part: "실제로 바뀐 축제", tag: "바뀐 축제", title: "실제로 바뀐 축제" },
+  { part: "정리", tag: "정리", title: "정리" },
 ]);
 
 /* A. 사이조 마쓰리 사고 (문장 1) — 시험판 test_puppet.html v0.2 */
@@ -127,7 +135,10 @@ K.chapters([
     const cut = fb[3], cu = (mi.bbox[0] + mi.bbox[2]) / 2, fy = mi.bbox[3], X0 = 3.0;
     let split = 0.5, bestN = 1e9;                                    // 가마꾼을 둘로 나눌 열 (사람이 가장 적게 걸침)
     for (let x = Math.round(mi.w * 0.44); x <= Math.round(mi.w * 0.56); x++) { let n = 0; for (let y = Math.round(cut * mi.h); y < mi.h; y += 3) if (mi.A(x, y) > 40) n++; if (n < bestN) { bestN = n; split = x / mi.w; } }
-    men = [[0, split], [split, 1]].map(([u0, u1]) => st.actor("LIFT", { crop: [u0, cut, u1, 1], w: PW * (u1 - u0), anchor: [0.5, 1], at: [X0 + ((u0 + u1) / 2 - cu) * PW, (fy - 1) * PH, 0] }).ro(2));
+    if (has("MEN_L") && has("MEN_R")) {                              // 3판: 6명씩 따로 — 손이 멜대 밑에 닿게(높이 = 멜대 아래 높이), 멜대 왼쪽·오른쪽 자리
+      const poleY = (fy - fb[3]) * PH, pl = X0 + (fb[0] - cu) * PW, pr = X0 + (fb[2] - cu) * PW;
+      men = [["MEN_L", 0.27], ["MEN_R", 0.73]].map(([k, f]) => st.actor(k, { h: poleY + 0.06, at: [lerp(pl, pr, f), 0, 0] }).ro(2));
+    } else men = [[0, split], [split, 1]].map(([u0, u1]) => st.actor("LIFT", { crop: [u0, cut, u1, 1], w: PW * (u1 - u0), anchor: [0.5, 1], at: [X0 + ((u0 + u1) / 2 - cu) * PW, (fy - 1) * PH, 0] }).ro(2));
     F = st.actor("FLOAT", { crop: [0, 0, 1, 1], w: PW, anchor: [fb[2], fb[3]], at: [X0 + (fb[2] - cu) * PW, (fy - fb[3]) * PH, 0.05] }).ro(3);
     const cb = ST.get("CROWD").info.bbox;
     CR = st.actor("CROWD", { crop: [0, 0, 1, 1], w: 21, anchor: [0.5, cb[3]], at: [1.2, -5.0, 6] }).ro(6);
@@ -272,7 +283,7 @@ K.chapters([
   });
   sE.update = t => rows.forEach((r, i) => { r.rise(t, r.at, 0.6, 3.5); if (t > r.at + 0.6) r.bob(t, 0.06, 1.6, i); });
   const t8 = T(sc, 960, 140, `첫 번째 이유 = <span class="Y">관광 수입</span>`, 92);
-  pop(t8, S(8) + 1.4); out(t8, S(9) - 0.2);
+  pop(t8, S(8) + 0.1); out(t8, S(9) - 0.2);
   const t9 = T(sc, 960, 140, "작게는 수만 명, 크게는 수십만 명", 80);
   pop(t9, S(9) + 0.05); out(t9, S(10) - 0.2);
   const pL = card(sc, 560, 100, 700, `<div class="hd" style="text-align:center">사이조 마쓰리</div>`, "height:280px;align-content:start");
@@ -293,7 +304,7 @@ K.chapters([
   let ic = [], tW11 = [W(11, "숙박"), W(11, "음식"), W(11, "교통")];
   const sF = ST.set(a, b, st => {
     st.bg("PAPER", { v: 0.5, y: 3.34 });
-    ic = [0, 1, 2].map(i => st.actor("ICONS", { seg: i, h: 3.0, at: [-6 + 6 * i, 0, 0] }));
+    ic = [0, 1, 2].map(i => one(st, "ICONS", i, { fit: [4.6, 3.1], at: [-6 + 6 * i, 0, 0] }));
     st.part(Object.assign(Puppet.floaters({ n: 70, x: [-10, 10], z: [-3, 3], hgt: 9, speed: [0.6, 1.4], size: 0.34, inner: "rgba(255,226,120,1)", outer: "rgba(217,164,65,0)" }), {}));
   });
   sF.update = t => {
@@ -317,7 +328,7 @@ K.chapters([
   const tSt = WS.map(w => W(16, w)), tGo = S(19);
   const sG = ST.set(a, b, st => {
     stdBg(st, "TOWN", { y: 1.6 });
-    pp = [0, 1, 2, 3].map(i => st.actor("PEOPLE", { seg: i, h: rowH("PEOPLE", i, 3.6), at: [-5.6 + 2.2 * i, 0, 0.8] }).ro(4));
+    pp = [0, 1, 2, 3].map(i => one(st, "PEOPLE", i, { h: has("PEOPLE_1") ? [2.4, 3.5, 3.6, 3.45][i] : rowH("PEOPLE", i, 3.6), at: [-5.6 + 2.2 * i, 0, 0.8] }).ro(4));
     FL = st.actor("FLOAT", { h: 3.2, at: [6.6, 0, -3] }).ro(2);
     steps = XS.map((x, i) => { const bx = Puppet.box(3.2, HS[i], 1.6, 0x7A5132); bx.position.set(x, HS[i] / 2, 0.8); st.add(bx, 3); return bx; });
     st.actors.push({ apply(f) { steps.forEach(bx => bx.userData.mats.forEach(m => (m.opacity = f * bx.userData.op))); } });
@@ -325,8 +336,8 @@ K.chapters([
   sG.update = t => {
     // 13: 다 같이 걸어 들어옴 · 14~15: 함께 들썩 · 16: 나이 순으로 계단 위 · 18: 원로만 · 19: 뿔뿔이 흩어짐
     pp.forEach((p, i) => {
-      p.op = t < S(13) + 1.2 ? 0 : 1;
-      const walkX = lerp(-16, p.home.x, outC(lin(t, S(13) + 1.2, S(13) + 2.6)));
+      p.op = t < S(13) - 0.2 ? 0 : 1;
+      const walkX = lerp(-16, p.home.x, outC(lin(t, S(13) - 0.2, S(13) + 1.2)));
       const up = clamp((t - tSt[i]) / 0.45, 0, 1), arc = Math.sin(Math.PI * up) * 1.2;
       const x = up > 0 ? lerp(p.home.x, XS[i], up) : walkX, y = up > 0 ? HS[i] * up + arc : 0;
       p.g.position.set(x, y + (up <= 0 || up >= 1 ? 0.06 * Math.abs(Math.sin(q12(t) * Math.PI * 1.8 + i)) : 0), 0.8);
@@ -337,7 +348,7 @@ K.chapters([
     steps.forEach((bx, i) => { const k = outC(lin(t, tSt[i] - 0.35, tSt[i] + 0.1)); bx.userData.op = k * (1 - seg(t, tGo, tGo + 0.5)); bx.position.y = HS[i] / 2 - 2.5 * (1 - k); });
   };
   const t13 = T(sc, 960, 130, `동네 = <span class="Y">가족</span>`, 140);
-  pop(t13, S(13) + 1.4); out(t13, S(14) - 0.2);
+  pop(t13, S(13) + 0.1); out(t13, S(14) - 0.2);
   const t14 = T(sc, 960, 120, "동네 단위로 움직인다", 84), t15 = T(sc, 960, 230, "1년 내내 축제 준비", 84);
   pop(t14, S(14) + 0.05); pop(t15, W(15, "1년")); out([t14, t15], S(16) - 0.2);
   K.cut(E(15) - 0.1, "G 동네 단위 · 가마 준비");
@@ -364,7 +375,7 @@ K.chapters([
     halo.material.blending = THREE.AdditiveBlending; halo.position.set(0, 3.0, -1); st.add(halo, 1);
     FL = st.actor("FLOAT", { h: 3.4, at: [0, 0, 0] });
     DJ = st.actor("DANJIRI", { h: 4.4, at: [5.2, 0, -0.5] });
-    HALL = st.actor("ICONS", { seg: 3, h: 3.2, at: [-6.4, 0, 1.5] });
+    HALL = one(st, "ICONS", 3, { fit: [3.8, 3.3], at: [-6.4, 0, 1.5] });
     orbs = st.part(Puppet.floaters({ n: 90, x: [-14, 14], z: [-16, 2], hgt: 11, speed: [0.12, 0.4], size: 0.3, inner: "rgba(235,245,255,1)", outer: "rgba(160,200,255,0)" }));
     st.actors.push({ apply(f) { halo.material.opacity = f * halo.userData.op; } });
   });
@@ -379,7 +390,7 @@ K.chapters([
     orbs.op = seg(t, S(21), S(21) + 0.8) * (1 - 0.6 * seg(t, S(25), S(25) + 0.5));
   };
   const t20 = T(sc, 960, 130, `축제 = <span class="Y">종교 행사</span>`, 130);
-  pop(t20, S(20) + 1.4); out(t20, S(21) - 0.2);
+  pop(t20, S(20) + 0.1); out(t20, S(21) - 0.2);
   const g21 = [T(sc, 960, 110, "자연 곳곳에 수많은 신", 80), pill(sc, 960, 230, "일본 고유 신앙 · 신토", Y, 60), T(sc, 960, 340, "동네마다 신사", 70)];
   pop(g21[0], S(21) + 0.05); pop(g21[1], W(21, "신토")); pop(g21[2], W(21, "동네마다"));
   K.cut(E(21) - 0.1, "H 신토");
@@ -404,11 +415,11 @@ K.chapters([
   let CP, DJ;
   const sI = ST.set(a, b, st => { st.bg("PAPER", { v: 0.5, y: 3.34 }); CP = st.actor("PEOPLE2", { seg: 1, h: 3.4, at: [0, 0, 0] }); DJ = st.actor("DANJIRI", { h: 5.0, at: [0, 0, -1] }); });
   sI.update = t => {
-    CP.rise(t, S(27) + 1.2, 0.5, 4); CP.g.rotation.z = -0.05 * Math.max(0, Math.sin(q12(t) * Math.PI * 0.9)); CP.hide(t, S(29) - 0.2, 0.3);
+    CP.rise(t, S(27) - 0.1, 0.5, 4); CP.g.rotation.z = -0.05 * Math.max(0, Math.sin(q12(t) * Math.PI * 0.9)); CP.hide(t, S(29) - 0.2, 0.3);
     DJ.rise(t, S(29) + 0.1, 0.6, 6); if (t > S(29) + 0.7) DJ.sway(t, 0.035, 1.2);
   };
   const t27 = T(sc, 960, 110, "자기책임", 150, "w9 Y");
-  pop(t27, S(27) + 1.35); out(t27, S(28) - 0.2);
+  pop(t27, S(27) + 0.05); out(t27, S(28) - 0.2);
   const g28 = [pill(sc, 960, 120, "남에게 폐를 끼치지 말라", null, 60), pill(sc, 960, 250, "선택했다면 스스로 감당하라", null, 60)];
   pop(g28[0], W(28, "남에게")); pop(g28[1], W(28, "스스로 선택")); out(g28, S(29) - 0.2);
   K.cut(E(28) - 0.1, "I 자기책임 문화");
@@ -479,7 +490,7 @@ K.chapters([
   const a = until(40), b = ch(44);
   const sc = K.scene(a, b);
   let F1, PH;
-  const sL = ST.set(a, b, st => { st.bg("PAPER", { v: 0.5, y: 3.34 }); F1 = st.actor("ICONS2", { seg: 0, h: 1.9, at: [-5.4, 0, 0] }); PH = st.actor("PEOPLE2", { seg: 3, h: 3.8, at: [5.6, 0, 0] }); });
+  const sL = ST.set(a, b, st => { st.bg("PAPER", { v: 0.5, y: 3.34 }); F1 = one(st, "ICONS2", 0, { fit: [6.0, 2.2], at: [-5.4, 0, 0] }); PH = st.actor("PEOPLE2", { seg: 3, h: 3.8, at: [5.6, 0, 0] }); });
   sL.update = t => {
     F1.slide(t, W(41, "우치다"), 0.45, -16); if (t > W(41, "우치다")) F1.g.position.y = F1.home.y + 0.03 * Math.abs(Math.sin(q12(t) * 20));
     PH.slide(t, W(42, "일본 SNS"), 0.6, 10);
@@ -504,11 +515,12 @@ K.chapters([
   let rows = [];
   const sM = ST.set(a, b, st => {
     stdBg(st, "BG", { y: 2.0 }); st.tint.set(0x9EA6BC);
-    rows = [[-2.5, -6, 3.0], [2.0, -2, 3.2], [0.5, 4, 3.4]].map(([x, z, h], i) => st.actor(i === 1 ? "CROWD" : "CROWD2", { h, at: [x, z > 0 ? -2.3 : 0, z] }).ro(z > 0 ? 6 : 2));
+    rows = [[-2.5, -6, 3.0, "CROWD", true], [2.0, -2, 3.2, "CROWD", false], [2.6, 4, 4.0, "CROWD2", false]]   // CROWD2 오른쪽 끝 사람이 그림에서 잘려 있음 → 화면 밖으로
+      .map(([x, z, h, k, fl]) => st.actor(k, { h, at: [x, z > 0 ? -2.3 : 0, z], flip: fl }).ro(z > 0 ? 6 : 2));
   });
-  sM.update = t => rows.forEach((r, i) => { r.rise(t, S(44) + 1.2 + 0.2 * i, 0.6, 3.5); if (t > S(45)) r.jitter(t, 0.01); });
+  sM.update = t => rows.forEach((r, i) => { r.rise(t, S(44) - 0.1 + 0.2 * i, 0.6, 3.5); if (t > S(45)) r.jitter(t, 0.01); });
   const t44 = T(sc, 960, 130, "정말 모두가 그렇게 생각할까?", 88);
-  pop(t44, S(44) + 1.35); out(t44, S(45) - 0.2);
+  pop(t44, S(44) + 0.05); out(t44, S(45) - 0.2);
   pop(T(sc, 960, 100, "다른 목소리", 150, "w9 Y"), W(45, "다른"));
   [[420, 440, "!", 0], [760, 520, "?", 0.2], [1180, 450, "!", 0.4], [1500, 530, "?", 0.6]].forEach(([x, y, s, d]) => pop(el(`<div class="bub" style="left:${x}px;top:${y}px">${s}</div>`, sc), W(45, "다른") + 0.3 + d, { from: { scale: 0.2, y: 20 } }));
   pop(T(sc, 960, 280, "‘자기책임’만으로는 설명 안 된다", 70), S(46) + 0.05);
@@ -522,13 +534,13 @@ K.chapters([
   let CRW, CAM;
   const sN = ST.set(a, b, st => {
     stdBg(st, "TOWN", { y: 1.6 }); st.tint.copy(GREY);
-    CRW = st.actor("CROWD2", { h: 3.4, at: [1.0, -2.3, 4] }).ro(6);
-    CAM = st.actor("ICONS2", { seg: 2, h: 3.4, at: [-6.0, 0, 0] });
+    CRW = st.actor("CROWD2", { h: 4.0, at: [2.6, -2.3, 4] }).ro(6);   // 그림에서 잘린 오른쪽 끝이 화면 밖으로
+    CAM = one(st, "ICONS2", 2, { fit: [3.4, 3.4], at: [-6.0, 0, 0] });
   });
-  sN.update = t => { CRW.rise(t, S(47) + 1.2, 0.6, 3.5); if (t > S(47) + 1.8) CRW.bob(t, 0.04, 1.2); CAM.slide(t, S(51) + 0.05, 0.7, -9); CAM.hide(t, S(53) - 0.2, 0.3); };
+  sN.update = t => { CRW.rise(t, S(47) - 0.1, 0.6, 3.5); if (t > S(47) + 0.5) CRW.bob(t, 0.04, 1.2); CAM.slide(t, S(51) + 0.05, 0.7, -9); CAM.hide(t, S(53) - 0.2, 0.3); };
   const c47 = card(sc, 960, 90, 1500, `<div class="hd">지역 목소리</div><div class="q">“이런 위험한 축제는 중단해야 한다”</div>`);
   const c48 = card(sc, 960, 330, 1500, `<div class="hd">지역 목소리</div><div class="q">“적어도 빠른 속도로 꺾는 방식은 바꿔야”</div>`);
-  pop(c47, S(47) + 1.35); pop(c48, S(48) + 0.05);
+  pop(c47, S(47) + 0.05); pop(c48, S(48) + 0.05);
   K.cut(E(48) - 0.1, "N 지역 목소리 2장");
   out([c47, c48], S(49) - 0.2);
   const t49 = T(sc, 960, 90, "온라인 반박", 66, "w9 Y");
@@ -555,8 +567,8 @@ K.chapters([
   const sO = ST.set(a, b, st => {
     stdBg(st, "TEMPLE", { v: 0.65, y: 1.6 });
     HD = st.actor("HADAKA", { h: 4.4, at: [0, 0, 0.5] });
-    AED = st.actor("ICONS2", { seg: 1, h: 2.4, at: [6.6, 0.4, 2] }).ro(5);
-    ELD = st.actor("PEOPLE", { seg: 3, h: 3.8, at: [6.4, 0, 1.5] }).ro(5);
+    AED = one(st, "ICONS2", 1, { fit: [2.6, 2.4], at: [6.6, 0.4, 2] }).ro(5);
+    ELD = one(st, "PEOPLE", 3, { h: 3.8, at: [6.4, 0, 1.5] }).ro(5);
     sticks = [0, 1].map(i => { const p = Puppet.canvasPlane(64, 256, 0.3, 1.2, (g, w, h) => { g.fillStyle = "#F2E6CF"; g.beginPath(); g.roundRect(6, 6, w - 12, h - 12, 20); g.fill(); g.fillStyle = "#B88A4A"; g.beginPath(); g.roundRect(14, 14, w - 28, h - 28, 14); g.fill(); }); st.add(p, 5); return p; });
     st.part(Puppet.floaters({ n: 70, x: [-12, 12], z: [-14, 2], hgt: 10, speed: [0.15, 0.4], size: 0.5, inner: "rgba(255,255,255,.55)", outer: "rgba(255,255,255,0)", opacity: 0.6 }));
     st.actors.push({ apply(f) { sticks.forEach(p => (p.material.opacity = f * p.userData.op)); } });
@@ -577,7 +589,7 @@ K.chapters([
     });
   };
   const g54 = [T(sc, 960, 110, "오카야마 · 사이다이지 에요", 92), T(sc, 960, 230, "500년 넘게 이어온 알몸 축제", 68, "w7")];
-  pop(g54[0], S(54) + 1.35); pop(g54[1], S(55) + 0.05);
+  pop(g54[0], S(54) + 0.05); pop(g54[1], S(55) + 0.05);
   K.cut(E(55) - 0.1, "O 사이다이지 에요");
   out(g54, S(56) - 0.2);
   const big = K.big(sc, 960, 90, 170, "#F4F6FA", "만 명", 76);
@@ -616,7 +628,7 @@ K.chapters([
   const sP = ST.set(a, b, st => {
     st.bg("PAPER", { v: 0.5, y: 3.34 });
     DJ = st.actor("DANJIRI", { h: 3.8, at: [-5.4, 0, 0] }); FL = st.actor("FLOAT", { h: 2.5, at: [5.4, 0, 0] });
-    PC = st.actor("ICONS2", { seg: 3, h: 1.9, at: [0, 0, 4.2] }).ro(7);   // 경찰 띠(z 3.2)보다 앞
+    PC = one(st, "ICONS2", 3, { fit: [5.0, 1.9], at: [0, 0, 4.2] }).ro(7);   // 경찰 띠(z 3.2)보다 앞
     tape = Puppet.canvasPlane(1024, 64, 26, 1.0, (g, w, h) => { g.fillStyle = "#FFD400"; g.fillRect(0, 0, w, h); g.fillStyle = "#1A1A1A"; for (let x = -h; x < w; x += h * 1.4) { g.beginPath(); g.moveTo(x, h); g.lineTo(x + h * 0.7, 0); g.lineTo(x + h * 1.4, 0); g.lineTo(x + h * 0.7, h); g.fill(); } });
     tape.rotation.z = -0.05; tape.position.set(0, 1.2, 3.2); st.add(tape, 6);
     st.actors.push({ apply(f) { tape.material.opacity = f * tape.userData.op; } });
@@ -660,7 +672,7 @@ K.chapters([
     sQ.tint.copy(WARM).lerp(new THREE.Color(0xC7CBDA), seg(t, S(72), S(72) + 0.6)).lerp(new THREE.Color(0x6E7286), seg(t, S(73), E(73) + 0.4));
   };
   const t69 = T(sc, 960, 130, `<span class="Y">돈</span>만이 아니었다`, 120);
-  pop(t69, S(69) + 1.35); out(t69, S(70) - 0.2);
+  pop(t69, S(69) + 0.05); out(t69, S(70) - 0.2);
   const chips = [["공동체", 560, "동네라는"], ["믿음", 960, "신을"], ["자기책임", 1360, "위험까지"]].map(([t, x, w]) => { const p = pill(sc, x, 110, t, Y, 80); pop(p, W(70, w)); return p; });
   K.cut(E(70) - 0.1, "Q 세 가지");
   dim(chips, S(71) - 0.1);

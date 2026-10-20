@@ -1,5 +1,6 @@
 // VERSION: v1.1 — 2026-10-20 — 4개 묶음 그림에서 물건끼리 닿아 빈 열로 넷이 안 나오면, 가장 넓은 덩어리를 세로로 가장 적게 걸친 열에서 자름
 //   (예전: 4등분 — 사람이 잘렸음. ChatGPT 2판 P-PEOPLE·P-ICONS·P-ICONS2 가 닿아 있었음). 나눈 자리는 window.PUPPET[키].segs.
+//   · actor 옵션 fit: [최대 가로, 최대 세로] — 그림 비율 그대로 그 상자 안에 가장 크게 (한 장에 하나씩 그린 소품의 크기가 그림마다 달라서).
 //   · 프레임마다 인형을 처음 자리·크기·기울기·보임으로 되돌린 뒤 움직임을 적용 (Actor.reset) — 렌더 check 가 시각을 앞뒤로 건너뛸 때
 //     무대 밖으로 빠져나간(exit) 인형이 그 시각 전으로 돌아가도 밖에 남던 문제 (그림 = 시각 t 만의 함수). exit 는 이제 옆으로 더함.
 // (v1.0) — 2026-10-20 — 종이인형극 무대 (Three.js 0.160 + kit.js K.onSeek) — 사용자 지시 2026-10-20 "좋아 저런 방식으로 가자 ... 이제 나머지 부분
@@ -186,7 +187,9 @@
       o = Object.assign({ h: 4, at: [0, 0, 0], anchor: [0.5, 1], shadow: true }, o);
       const { tex, info } = this.S.get(key);
       const crop = o.crop || (o.seg != null ? info.segs[o.seg] : info.bbox);
-      const pw = (crop[2] - crop[0]) * info.w, ph = (crop[3] - crop[1]) * info.h, ht = o.h, wd = o.w || ht * pw / ph;
+      const pw = (crop[2] - crop[0]) * info.w, ph = (crop[3] - crop[1]) * info.h;
+      if (o.fit) { o.h = Math.min(o.fit[1], o.fit[0] * ph / pw); o.w = null; }   // v1.1 상자 안에 비율 그대로
+      const ht = o.h, wd = o.w || ht * pw / ph;
       const a = new Actor(this, tex, crop, wd, o.w ? o.w * ph / pw : ht, o.anchor, o);
       a.g.position.set(...o.at); a.home = a.g.position.clone();
       if (o.flip) a.m.scale.x = -1;

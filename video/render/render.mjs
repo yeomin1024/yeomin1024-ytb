@@ -1,4 +1,7 @@
-// VERSION: v1.18 — 2026-10-20 — ① 브라우저를 --allow-file-access-from-files 로 실행 — 장면 파일(file://)이 로컬 그림을 WebGL 재질로 쓸 수 있게
+// VERSION: v1.19 — 2026-10-20 — check: 세로 쇼츠의 '그림이 안전 구역 아래' 검사에서 data-below="<까닭>" 이 붙은 그림은 뺌 (data-small 과 같은 꼴) —
+//   끝 화면 화살표가 자막 밑 유튜브 '관련 동영상' 링크 자리를 일부러 가리킴 (사용자 지시 2026-10-20 "쇼츠에서 아래 영상에서 확인하라는 표시가 나오는데
+//   유튜브 관련 동영상 버튼 위치를 딱 가리키도록 해"). 다른 검사는 그대로.
+// (v1.18) — 2026-10-20 — ① 브라우저를 --allow-file-access-from-files 로 실행 — 장면 파일(file://)이 로컬 그림을 WebGL 재질로 쓸 수 있게
 //   (없으면 texSubImage2D SecurityError "cross-origin data" — 3D 배경 그림·지도 시험, 사용자 지시 2026-10-20 "영상 만드는 코드는 3D 활용하는 방법 없어?
 //   한번 테스트로 20초만 만들어봐"). ② --page <파일> : video/episodes/<영상ID>/ 안의 다른 장면 파일 (기본 index.html) — 시험 장면을 따로 렌더,
 //   결과 이름에 파일 이름이 붙음 (preview_<파일>_<from>-<to>.mp4 · <파일>_1080p.mp4) — final_1080p.mp4 를 덮지 않음.
@@ -255,7 +258,7 @@ const CHECK_FN = ([W, H, SAFE]) => {           // v1.8 무대 크기 W×H · 안
   if (SAFE && W < H) for (const sc of st.querySelectorAll(".sc")) {
     if (op(sc) < 0.3 || sc.querySelector("img")) continue;          // 첫 문장 그림(K.cover)은 화면 가득이 맞음
     for (const n of sc.children) {
-      if (op(n) < 0.3) continue;
+      if (op(n) < 0.3 || n.closest("[data-below]")) continue;       // v1.19 data-below = 일부러 아래 칸에 둔 그림 (까닭을 속성 값에)
       const b = n.getBoundingClientRect();
       if (b.width && b.height && b.bottom > LOW + 2) out.push({ kind: `그림이 안전 구역 아래(y ${LOW} 아래 — 자막 띠 자리)`, txt: (n.className || n.tagName) + "", bottom: Math.round(b.bottom) });
     }

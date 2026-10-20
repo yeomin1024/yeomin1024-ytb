@@ -1,0 +1,61 @@
+{
+ "id": "H12",
+ "role": "host",
+ "label": "20대 중반 남성 — 빠르고 생기 있는 쇼츠 내레이터",
+ "how": "design",
+ "ident": "c53228b2536add14",
+ "speaker": "-",
+ "instruct": "A Korean man in his mid 20s with a bright, youthful and slightly higher voice, like a trending YouTube Shorts narrator: fast-paced, punchy and upbeat but clear, crisp articulation, energetic emphasis and quick natural rhythm that keeps viewers watching. Natural standard Seoul Korean accent. Not monotone, not exaggerated, no shouting.",
+ "seed": 5201,
+ "preview": [
+  "2026년 10월 17일, 일본 에히메현의 전통 축제 '사이조 마쓰리'가 진행되던 도중, 무게 3톤의 가마를 높이 들어 올리던 순간 가마가 떨어졌고, 그 아래 있던 62세 현직 부시장이 깔려 숨졌습니다.",
+  "언론에 알려진 것만 세어도 일본 축제에선 4개월에 1명꼴로 사람이 숨집니다.",
+  "그런데도 일본은 이 축제들을 멈추지 않습니다.",
+  "도대체 왜일까요?",
+  "\"목숨을 잃는 건 격투기와 같아요. 자기책임입니다.\""
+ ],
+ "seconds": 24.13,
+ "f0_hz": 186.0,
+ "rate": 7.43,
+ "pace": {
+  "speed": 1.12,
+  "min": 6.2,
+  "max": 8.5,
+  "max_stretch": 0.15
+ },
+ "pace_factors": [
+  1.12,
+  1.12,
+  1.065,
+  1.12,
+  1.15
+ ],
+ "issues": [
+  "높이 186Hz (범위 120~185Hz 아님)",
+  "말 속도 8.3음절/초(허용 2.5~8.0)",
+  "말 속도 8.5음절/초(허용 2.5~8.0)",
+  "속도 6.5음절/초 (3.8~6.0)"
+ ],
+ "models": {
+  "custom_voice": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+  "clone": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "design": "Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign"
+ },
+ "created": "2026-10-20T12:49:26",
+ "tool": "tts_narration.py v1.13",
+ "ref": {
+  "audio": "voices/samples/host/H12_ref.wav",
+  "text": "일본의 전통 축제에서 또 사망 사고가 났습니다. 그런데 일본은 왜 축제를 멈추지 않을까요? 지금부터 하나씩 짚어 보겠습니다.",
+  "sha1": "8ccd9bbf9b388620",
+  "f0_hz": 186.0,
+  "seed": 5201,
+  "dur": 7.67,
+  "rate": 6.52,
+  "in_range": false,
+  "f0_range": [
+   120,
+   185
+  ],
+  "design_model": "Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign"
+ }
+}

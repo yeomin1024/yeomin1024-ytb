@@ -1,0 +1,60 @@
+{
+ "id": "H08",
+ "role": "host",
+ "label": "30대 초반 남성 — 지금 목소리(H04)와 같은 결, 조금 높고 빠르게",
+ "how": "design",
+ "ident": "ffd0e306e4597b99",
+ "speaker": "-",
+ "instruct": "A Korean man in his early 30s with a clear, bright voice, slightly higher-pitched than a typical narrator, like a popular economics YouTuber explaining things to friends: friendly, energetic and credible, a quick but easy-to-follow pace, crisp articulation and lively emphasis on key numbers. Natural standard Seoul Korean accent. Not monotone, not exaggerated, no shouting.",
+ "seed": 4801,
+ "preview": [
+  "2026년 10월 17일, 일본 에히메현의 전통 축제 '사이조 마쓰리'가 진행되던 도중, 무게 3톤의 가마를 높이 들어 올리던 순간 가마가 떨어졌고, 그 아래 있던 62세 현직 부시장이 깔려 숨졌습니다.",
+  "언론에 알려진 것만 세어도 일본 축제에선 4개월에 1명꼴로 사람이 숨집니다.",
+  "그런데도 일본은 이 축제들을 멈추지 않습니다.",
+  "도대체 왜일까요?",
+  "\"목숨을 잃는 건 격투기와 같아요. 자기책임입니다.\""
+ ],
+ "seconds": 24.01,
+ "f0_hz": 222.2,
+ "rate": 7.48,
+ "pace": {
+  "speed": 1.1,
+  "min": 6.0,
+  "max": 8.2,
+  "max_stretch": 0.15
+ },
+ "pace_factors": [
+  1.1,
+  1.1,
+  1.07,
+  1.1,
+  1.1
+ ],
+ "issues": [
+  "높이 214Hz (범위 110~170Hz 아님)",
+  "말 속도 8.2음절/초(허용 2.5~8.0)",
+  "속도 6.5음절/초 (3.8~6.0)"
+ ],
+ "models": {
+  "custom_voice": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+  "clone": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "design": "Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign"
+ },
+ "created": "2026-10-20T12:43:59",
+ "tool": "tts_narration.py v1.13",
+ "ref": {
+  "audio": "voices/samples/host/H08_ref.wav",
+  "text": "일본의 전통 축제에서 또 사망 사고가 났습니다. 그런데 일본은 왜 축제를 멈추지 않을까요? 지금부터 하나씩 짚어 보겠습니다.",
+  "sha1": "59bc5f6b3db11edc",
+  "f0_hz": 214.3,
+  "seed": 4802,
+  "dur": 7.68,
+  "rate": 6.51,
+  "in_range": false,
+  "f0_range": [
+   110,
+   170
+  ],
+  "design_model": "Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign"
+ }
+}

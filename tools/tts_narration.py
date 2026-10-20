@@ -1,6 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.14 — 2026-10-20 — 영상 하나(또는 몇 개)만 다른 목소리: 영상 폴더 voices/<역할>.json 에 "own_voice": true 가 있으면 공통 설정의
+# VERSION: v1.15 — 2026-10-20 — 목소리 높이를 고르게: ① 목소리 설정 "f0_center"(Hz) 가 있으면 문장 높이 검사의 기준을 기준 소리 높이 대신 이 값으로
+#          (복제한 소리는 기준 소리보다 낮게 나오기도 함 — H09 기준 217Hz · 문장 151~200Hz) · ② 후보 "f0_steady"(비율) — 샘플을 한 번 만든 뒤
+#          문장 높이의 가운데값에서 그만큼 넘게 벗어난 문장은 다시 만듦, 샘플 정보에 문장별 높이·흔들림 · ③ 후보 "generation"(temperature 등)을
+#          샘플에도 씀 · ④ 고르면(pick) f0_steady 후보는 f0_center = 샘플 가운데 높이, f0_tolerance = f0_steady, generation 도 옮김.
+#          사용자 지시 2026-10-20 "오디오 목소리 톤 높이가 일정하지 않고 들쑥날쑥해 좀 일정하게 만들고 톤 높이 약간 낮추도록 해 원래 사용하던 H4 보단
+#          약간 높게 지금 톤보단 약간 낮게 해서 오디오 안 만들어봐 내가 선택할게". 예전 설정(f0_center 없음)의 캐시 키·동작은 그대로.
+# (v1.14) — 2026-10-20 — 영상 하나(또는 몇 개)만 다른 목소리: 영상 폴더 voices/<역할>.json 에 "own_voice": true 가 있으면 공통 설정의
 #          lock 을 넘어 그 영상만 그 목소리 (다른 영상·공통 voices/<역할>.json 은 그대로). 만드는 법 `pick H09 --only-for test/<영상ID>,test/<영상ID>-shorts`
 #          — 기준 소리는 첫 영상 폴더 voices/ref/ 에, 나머지는 그 파일을 가리킴. 사용자 지시 2026-10-20 "오디오는 H09 음성으로 가고" (일본 축제 시험 영상).
 # (v1.13) — 2026-10-20 — 목소리 후보마다 읽을 문장을 따로 줄 수 있음: samples.json 후보에 "text": {"ref", "preview"} 가 있으면 그 문장
@@ -132,7 +138,7 @@ ROOT = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 import srt_tool  # noqa: E402  (문장·카드 판정을 자막 도구와 똑같이 쓰기 위해)
 
-VERSION = "v1.14"
+VERSION = "v1.15"
 CACHE_VERSION = 1            # 생성 방식이 바뀌면 올린다 → 문장 파일을 모두 다시 만든다 (v1.1은 v1.0 캐시와 같은 키)
 DEFAULT_MODEL = "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice"     # 사연자 (화자 + 말투 지시)
 DEFAULT_CLONE_MODEL = "Qwen/Qwen3-TTS-12Hz-1.7B-Base"       # 진행자 (기준 목소리 복제)
@@ -155,7 +161,7 @@ MIN_GAP = 0.2                # 역할 설정 gap 하한 — align-audio 가 문�
 
 VOICES_DIR = ROOT / "voices"           # 역할별 목소리 설정 (파일 이름 = 역할 = 결과 폴더 이름)
 VOICE_KEYS = {"role", "name", "parts", "engine", "lock", "speaker", "instruct", "part_instruct", "seed", "gap", "generation",
-              "ref_audio", "ref_meta", "design", "f0_tolerance", "picked", "pace", "enabled", "own_voice"}
+              "ref_audio", "ref_meta", "design", "f0_tolerance", "picked", "pace", "enabled", "own_voice", "f0_center"}
 SAMPLES_DIR = VOICES_DIR / "samples"   # 목소리 후보 샘플 (하위 폴더라 역할 설정과 섞이지 않음)
 SAMPLES_CFG = SAMPLES_DIR / "samples.json"
 SAMPLE_HOW = ("current", "custom_voice", "design")
@@ -460,6 +466,8 @@ def spec_of(voice, instruct):
     if voice["engine"] == "clone":
         spec.update(ref_audio=voice["ref_audio"], ref_sha=voice["ref_sha"], ref_f0=voice["ref_f0"], ref_text=voice["ref_text"],
                     f0_tol=float(voice["f0_tolerance"]))
+        if voice.get("f0_center"):                                    # v1.15 문장 높이 검사 기준 (없으면 기준 소리 높이)
+            spec["f0_center"] = float(voice["f0_center"])
     if voice.get("pace"):
         spec["pace"] = voice["pace"]
     return spec
@@ -849,10 +857,11 @@ def make_sentence(engine, cache_dir, label, text, spec, syl, args, redo=False, r
         ok, issues, warns, m = check(x, sr, syl, nonfinite)
         m["f0"] = f0_median(x, sr) if x.size else 0.0
         f0_dev = 0.0
-        if spec["engine"] == "clone" and syl >= SHORT_SYL and spec.get("ref_f0"):   # 진행자: 기준 목소리 높이와 같은가
-            f0_dev = abs(m["f0"] / spec["ref_f0"] - 1) if m["f0"] else 1.0
+        f0_ref = spec.get("f0_center") or spec.get("ref_f0")       # v1.15 가운데 높이(f0_center)가 있으면 그것과 비교
+        if spec["engine"] == "clone" and syl >= SHORT_SYL and f0_ref:   # 진행자: 기준 목소리 높이와 같은가
+            f0_dev = abs(m["f0"] / f0_ref - 1) if m["f0"] else 1.0
             if f0_dev > spec["f0_tol"]:
-                issues.append(f"목소리 높이 {m['f0']:.0f}Hz (기준 {spec['ref_f0']:.0f}Hz ±{spec['f0_tol']:.0%})")
+                issues.append(f"목소리 높이 {m['f0']:.0f}Hz (기준 {f0_ref:.0f}Hz ±{spec['f0_tol']:.0%})")
                 ok = False
         log("TTS", level=logging.INFO if ok else logging.WARNING, item=label, role=role, attempt=attempt, seed=seed, syl=syl,
             dur=m["dur"], rate=m["rate"], inner_sil=m["inner_sil"], f0=m["f0"], gen_s=gen_s, rtf=gen_s / max(m["dur"], 1e-6),
@@ -2016,13 +2025,14 @@ def sample_spec(role, c, voices, ref):
             return None
         return spec_of(v, v["instruct"] if v["engine"] == "custom_voice" else "")
     if c["how"] == "custom_voice":
-        sp = {"engine": "custom_voice", "speaker": c["speaker"], "instruct": c["instruct"], "gen": {},
+        sp = {"engine": "custom_voice", "speaker": c["speaker"], "instruct": c["instruct"], "gen": dict(c.get("generation") or {}),
               "seed": int(c.get("seed", 1234)), "gap": float(c.get("gap", SAMPLE_GAP))}
         return dict(sp, pace=c["pace"]) if c.get("pace") else sp
     if not ref:
         return None
-    sp = {"engine": "clone", "speaker": "-", "instruct": "", "gen": {}, "seed": int(c.get("seed", 1234)), "gap": float(c.get("gap", SAMPLE_GAP)),
-          "ref_audio": str(ref["path"]), "ref_sha": ref["sha"], "ref_f0": ref["f0"], "ref_text": ref["text"], "f0_tol": F0_TOL}
+    sp = {"engine": "clone", "speaker": "-", "instruct": "", "gen": dict(c.get("generation") or {}), "seed": int(c.get("seed", 1234)),
+          "gap": float(c.get("gap", SAMPLE_GAP)), "ref_audio": str(ref["path"]), "ref_sha": ref["sha"], "ref_f0": ref["f0"], "ref_text": ref["text"],
+          "f0_tol": F0_TOL}
     return dict(sp, pace=c["pace"]) if c.get("pace") else sp
 
 
@@ -2065,12 +2075,25 @@ def make_samples(engine, args, cfg, voices, todo):
                 hint="python tools/tts_narration.py voice --push 로 기준 소리를 먼저")
             continue
         clips, metas, sr = [], [], None
-        for j, text in enumerate(stext(cfg, role, c)["preview"], 1):
+        texts = stext(cfg, role, c)["preview"]
+        for j, text in enumerate(texts, 1):
             m = make_sentence(engine, cache, f"{c['id']}/p{j}", tts_text(text, []), spec, srt_tool.syllables(text), args, role=role)
+            metas.append(m)
+        steady, center, redo = c.get("f0_steady"), None, []
+        long_f0 = [m["f0"] for m, t in zip(metas, texts) if m.get("f0") and srt_tool.syllables(t) >= SHORT_SYL]
+        if steady and long_f0 and spec["engine"] == "clone":         # v1.15 가운데 높이에서 벗어난 문장 다시 (그 높이를 기준으로)
+            center = float(np.median(long_f0))
+            sp2 = dict(spec, f0_center=center, f0_tol=float(steady))
+            for j, (m, text) in enumerate(zip(metas, texts)):
+                if m.get("f0") and srt_tool.syllables(text) >= SHORT_SYL and abs(m["f0"] / center - 1) > float(steady):
+                    redo.append(j + 1)
+                    metas[j] = make_sentence(engine, cache, f"{c['id']}/p{j + 1}s", tts_text(text, []), sp2, srt_tool.syllables(text), args, role=role)
+            log("SAMPLES", role=role, id=c["id"], step="높이 고르게", center_hz=round(center, 1), steady=f"±{float(steady):.0%}",
+                redo=",".join(map(str, redo)) or "-", f0_each=",".join(f"{m.get('f0', 0):.0f}" for m in metas))
+        for m in metas:
             x, s_ = read_wav(m["wav"])
             sr = sr or s_
             clips.append(x)
-            metas.append(m)
         g = 10 ** (gain_for(clips, sr) / 20)
         pieces = [silence(0.3, sr)]
         for x in clips:
@@ -2084,6 +2107,9 @@ def make_samples(engine, args, cfg, voices, todo):
                 "seed": spec["seed"], "preview": stext(cfg, role, c)["preview"], "seconds": round(len(y) / sr, 2),
                 "f0_hz": round(float(np.median(f0s)), 1) if f0s else 0.0,
                 "rate": round(float(np.mean([m["rate"] for m in metas])), 2), "pace": c.get("pace") or spec.get("pace"),
+                "f0_each": [round(float(m.get("f0", 0.0)), 1) for m in metas],                          # v1.15 문장별 높이
+                "f0_spread": round(float((max(f0s) - min(f0s)) / np.median(f0s)), 3) if len(f0s) > 1 else 0.0,   # (최고-최저)/가운데
+                "f0_center": round(center, 1) if center else None, "steady_redo": redo, "generation": spec.get("gen") or {},
                 "pace_factors": [m.get("pace_factor", 1.0) for m in metas],
                 "issues": sorted({i for m in metas for i in m["issues"]} | set((ref or {}).get("issues", []))),
                 "models": {k: v for k, v in engine.ids.items()}, "created": datetime.now().isoformat(timespec="seconds"),
@@ -2130,7 +2156,7 @@ def write_samples_readme(cfg, voices):
         for k, ids in own.items():
             lines += [f"읽는 문장 ({'·'.join(ids)}): " + " / ".join(f"\"{x}\"" for x in json.loads(k)), ""]
         lines += [
-                  "| ID | 목소리 | 방식 | 듣기 | 높이(Hz) | 속도(음절/초) | 확인할 점 |", "|---|---|---|---|---|---|---|"]
+                  "| ID | 목소리 | 방식 | 듣기 | 높이(Hz) | 높이 흔들림 | 속도(음절/초) | 확인할 점 |", "|---|---|---|---|---|---|---|---|"]
         for c in cfg[role]:
             P = sample_paths(role, c["id"])
             m = json.loads(P["meta"].read_text("utf-8")) if P["meta"].is_file() else None
@@ -2140,7 +2166,9 @@ def write_samples_readme(cfg, voices):
             how = {"current": "고르기 전 목소리" if frozen else "지금 그대로", "custom_voice": f"화자 {c.get('speaker')}",
                    "design": "묘사 → 복제"}[c["how"]]
             picked = " ✅ 고름" if (voices[role].get("picked") or {}).get("id") == c["id"] else ""
-            lines.append(f"| **{c['id']}**{picked} | {c['label']} | {how} | {listen} | {m['f0_hz'] if ok else '-'} | "
+            fe = [x for x in (m.get("f0_each") or []) if x] if ok else []   # v1.15 문장별 높이 범위 · (최고-최저)/가운데
+            spread = f"{min(fe):.0f}~{max(fe):.0f}Hz ({m.get('f0_spread', 0):.0%})" if len(fe) > 1 else "-"
+            lines.append(f"| **{c['id']}**{picked} | {c['label']} | {how} | {listen} | {m['f0_hz'] if ok else '-'} | {spread} | "
                          f"{m['rate'] if ok else '-'} | {'; '.join(m['issues']) if ok and m['issues'] else ('-' if ok else '')} |")
         lines.append("")
     lines += ["※ 높이·속도는 자동 측정값이다. 최종 판단은 귀로 한다. 연구·교육용 도구 — 영상 내용은 투자 권유가 아니다.", ""]
@@ -2310,7 +2338,10 @@ def pick_own(args, chosen, cfg, voices, today):
                                "f0_range": c["f0_range"], "f0_target": c.get("f0_target")})
             # 복제한 문장의 높이가 기준 소리와 많이 다르면(샘플 미리 듣기 평균 vs 기준 소리) 허용 폭을 그만큼 넓힌다 — 같은 목소리를 괜히 다시 만들지 않게
             dev = abs(float(meta.get("f0_hz") or 0) / float(meta["ref"]["f0_hz"]) - 1) if meta.get("f0_hz") else 0.0
-            if dev + 0.15 > F0_TOL:
+            if c.get("f0_steady") and meta.get("f0_hz"):              # v1.15 높이 고르게 — 샘플 가운데 높이 ± f0_steady
+                own.update(f0_center=float(meta["f0_hz"]), f0_tolerance=float(c["f0_steady"]))
+                log("PICK", role=role, id=c["id"], f0_center=meta["f0_hz"], f0_tolerance=f"±{float(c['f0_steady']):.0%}", note="문장 높이를 샘플 가운데 높이에 맞춤")
+            elif dev + 0.15 > F0_TOL:
                 own["f0_tolerance"] = round(dev + 0.15, 2)
                 log("PICK", role=role, id=c["id"], ref_f0=meta["ref"]["f0_hz"], preview_f0=meta.get("f0_hz"), dev=f"{dev:.0%}",
                     f0_tolerance=f"{F0_TOL:.0%}→{own['f0_tolerance']:.0%}", note="샘플을 복제한 소리가 기준 소리보다 낮거나 높음 — 허용 폭을 넓힘")
@@ -2321,6 +2352,8 @@ def pick_own(args, chosen, cfg, voices, today):
         for k in ("pace", "gap"):
             if c.get(k) is not None:
                 own[k] = c[k]
+        if c.get("generation"):                                       # v1.15
+            own["generation"] = dict(c["generation"])
         files = [rel(d / "voices" / f"{role}.json") for _, _, d in targets] + ([rel(ref[1]), rel(ref[1].with_suffix(".json"))] if ref else [])
         log("PICK", role=role, id=c["id"], label=c["label"], how=c["how"], only_for=",".join(v for _, v, _ in targets), files=",".join(files),
             common=f"voices/{role}.json 그대로")
@@ -2398,6 +2431,10 @@ def cmd_pick(args):
             for k in ("pace", "gap"):
                 if c.get(k) is not None:
                     new[k] = c[k]
+            if c.get("f0_steady") and meta.get("f0_hz"):              # v1.15 높이 고르게 — 샘플 가운데 높이 ± f0_steady
+                new.update(f0_center=float(meta["f0_hz"]), f0_tolerance=float(c["f0_steady"]))
+            if c.get("generation"):
+                new["generation"] = dict(c["generation"])
             ref_meta = ref_meta_of(role, c, meta, today, f"{voices[role]['name']} 기준 목소리 — 사용자가 고른 샘플 {c['id']}. 모든 대본의 이 역할 문장이 "
                                    "이 소리를 복제한다. 손으로 바꾸지 않는다 (바꾸면 해시 검사에서 멈춤). 바꾸려면 다른 샘플을 pick")
             files += [ref_wav, ref_json]

@@ -1,0 +1,34 @@
+{
+  "_설명": "진행자 — 이 영상만 다른 목소리 (공통 voices/host.json 의 lock 을 넘음, tts_narration v1.14 own_voice). 사용자가 샘플 H09(30대 초반 남성 — 긴장감 있는 시사 다큐 이야기꾼 (조금 높게))를 고름 2026-10-20. 이 파일을 지우면 공통 목소리로 돌아감 (다음 all 이 오디오를 다시 만듦)",
+  "own_voice": true,
+  "picked": {
+    "id": "H09",
+    "label": "30대 초반 남성 — 긴장감 있는 시사 다큐 이야기꾼 (조금 높게)",
+    "date": "2026-10-20",
+    "sample": "voices/samples/host/H09.mp3"
+  },
+  "part_instruct": {},
+  "engine": "clone",
+  "ref_audio": "test/source/ilbon-chukje-2026-10/voices/ref/host.wav",
+  "ref_meta": "test/source/ilbon-chukje-2026-10/voices/ref/host.json",
+  "seed": 4901,
+  "design": {
+    "instruct": "A Korean man in his early 30s with a clear mid-high voice, like a current-affairs documentary storyteller who builds suspense: engaging and curious, a slightly fast pace with short dramatic pauses before key facts, crisp articulation and vivid emphasis, so the listener never gets bored. Natural standard Seoul Korean accent. Not monotone, not exaggerated, no shouting.",
+    "text": "일본의 전통 축제에서 또 사망 사고가 났습니다. 그런데 일본은 왜 축제를 멈추지 않을까요? 지금부터 하나씩 짚어 보겠습니다.",
+    "seed": 4902,
+    "tries": 3,
+    "f0_range": [
+      105,
+      165
+    ],
+    "f0_target": 132
+  },
+  "f0_tolerance": 0.34,
+  "pace": {
+    "speed": 1.05,
+    "min": 6.0,
+    "max": 8.0,
+    "max_stretch": 0.15
+  },
+  "gap": 0.4
+}

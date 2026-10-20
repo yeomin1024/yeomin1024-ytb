@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.13 — 2026-10-20 — 목소리 후보마다 읽을 문장을 따로 줄 수 있음: samples.json 후보에 "text": {"ref", "preview"} 가 있으면 그 문장
+# VERSION: v1.14 — 2026-10-20 — 영상 하나(또는 몇 개)만 다른 목소리: 영상 폴더 voices/<역할>.json 에 "own_voice": true 가 있으면 공통 설정의
+#          lock 을 넘어 그 영상만 그 목소리 (다른 영상·공통 voices/<역할>.json 은 그대로). 만드는 법 `pick H09 --only-for test/<영상ID>,test/<영상ID>-shorts`
+#          — 기준 소리는 첫 영상 폴더 voices/ref/ 에, 나머지는 그 파일을 가리킴. 사용자 지시 2026-10-20 "오디오는 H09 음성으로 가고" (일본 축제 시험 영상).
+# (v1.13) — 2026-10-20 — 목소리 후보마다 읽을 문장을 따로 줄 수 있음: samples.json 후보에 "text": {"ref", "preview"} 가 있으면 그 문장
 #          (없으면 예전처럼 역할 공통 text.<역할>). 사용자 지시 2026-10-20 "오디오 목소리 안 약간 높고 약간 빠른 지루하지 않은 목소리로 대본 몇줄
 #          읽어보는 여러 테스트 안을 만들어봐" — 새 후보(H07~)는 test/ 일본 축제 대본 문장을 읽고, 옛 후보(H01~H06)의 샘플·정체는 그대로.
 # (v1.12) — 2026-10-19 — 영상 하나를 오디오에서 빼는 표시 파일 NO_TTS.md (대본 폴더 — 롱폼 <영상ID>/ · 쇼츠 <영상ID>/shorts/):
@@ -129,7 +132,7 @@ ROOT = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 import srt_tool  # noqa: E402  (문장·카드 판정을 자막 도구와 똑같이 쓰기 위해)
 
-VERSION = "v1.13"
+VERSION = "v1.14"
 CACHE_VERSION = 1            # 생성 방식이 바뀌면 올린다 → 문장 파일을 모두 다시 만든다 (v1.1은 v1.0 캐시와 같은 키)
 DEFAULT_MODEL = "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice"     # 사연자 (화자 + 말투 지시)
 DEFAULT_CLONE_MODEL = "Qwen/Qwen3-TTS-12Hz-1.7B-Base"       # 진행자 (기준 목소리 복제)
@@ -152,7 +155,7 @@ MIN_GAP = 0.2                # 역할 설정 gap 하한 — align-audio 가 문�
 
 VOICES_DIR = ROOT / "voices"           # 역할별 목소리 설정 (파일 이름 = 역할 = 결과 폴더 이름)
 VOICE_KEYS = {"role", "name", "parts", "engine", "lock", "speaker", "instruct", "part_instruct", "seed", "gap", "generation",
-              "ref_audio", "ref_meta", "design", "f0_tolerance", "picked", "pace", "enabled"}
+              "ref_audio", "ref_meta", "design", "f0_tolerance", "picked", "pace", "enabled", "own_voice"}
 SAMPLES_DIR = VOICES_DIR / "samples"   # 목소리 후보 샘플 (하위 폴더라 역할 설정과 섞이지 않음)
 SAMPLES_CFG = SAMPLES_DIR / "samples.json"
 SAMPLE_HOW = ("current", "custom_voice", "design")
@@ -286,6 +289,18 @@ def load_voices(topic=None, vid=None, args=None, quiet=False):
             layers.append(ROOT / topic / "voices" / p.name)
             if vid:
                 layers.append(src_dir(topic, vid) / "voices" / p.name)
+        elif topic:                # v1.14 own_voice: 주제·영상 폴더 설정에 "own_voice": true 면 lock 을 넘어 그 영상만 다른 목소리
+            for q in [ROOT / topic / "voices" / p.name] + ([src_dir(topic, vid) / "voices" / p.name] if vid else []):
+                if not q.is_file():
+                    continue
+                try:
+                    own = json.loads(q.read_text("utf-8-sig")).get("own_voice") is True
+                except json.JSONDecodeError as e:
+                    die("VOICE", f"설정 파일 JSON 오류: {e}", "쉼표·따옴표·괄호 확인 (마지막 항목 뒤에는 쉼표 없음)", file=rel(q))
+                if own:
+                    layers.append(q)
+                    if not quiet:
+                        log("VOICE", role=role, own_voice=rel(q), note="이 영상만 다른 목소리 (공통 lock 을 넘음)")
         for q in layers:
             if not q.is_file():
                 continue
@@ -303,7 +318,7 @@ def load_voices(topic=None, vid=None, args=None, quiet=False):
             files.append(rel(q))
         if locked and topic:
             ignored = [rel(q) for q in (ROOT / topic / "voices" / p.name, src_dir(topic, vid or "-") / "voices" / p.name)
-                       if q.is_file()]
+                       if q.is_file() and q not in layers]
             if ignored and not quiet:
                 log("VOICE", logging.WARNING, role=role, ignored=",".join(ignored), note="lock: 이 역할은 모든 대본에서 같은 목소리 — 덮어쓰기 무시")
         cfg = {"name": role, "parts": ["*"], "engine": "custom_voice", "lock": False, "speaker": "Sohee", "instruct": "",
@@ -2246,6 +2261,94 @@ def cmd_listen(args):
     listen(args.items, args)
 
 
+def ref_meta_of(role, c, meta, today, note):
+    """고른 묘사 후보의 기준 소리 메타 (voices/ref/<역할>.json 또는 영상 폴더 voices/ref/<역할>.json)."""
+    return {"role": role, "text": meta["ref"]["text"], "instruct": c["instruct"], "language": "Korean",
+            "model": meta["ref"].get("design_model"), "seed": meta["ref"]["seed"], "f0_hz": meta["ref"]["f0_hz"],
+            "dur": meta["ref"]["dur"], "rate": meta["ref"]["rate"], "sha1": meta["ref"]["sha1"], "sample": c["id"],
+            "label": c["label"], "picked": today, "created": meta["created"], "tool": f"tts_narration.py {VERSION}", "_설명": note}
+
+
+def pick_own(args, chosen, cfg, voices, today):
+    """v1.14 고른 후보를 --only-for 영상들에만 (공통 voices/<역할>.json·voices/ref/ 는 그대로).
+    영상 폴더 voices/<역할>.json = {"own_voice": true, engine·기준 소리·시드·속도·쉼·picked} — load_voices 가 lock 을 넘어 그 영상만 이 목소리.
+    기준 소리(wav·json)는 첫 영상 폴더 voices/ref/ 에 한 번, 나머지 영상 설정은 그 파일을 가리킨다."""
+    targets = []
+    for t in (x.strip().strip("/") for x in args.only_for.split(",")):
+        if not t:
+            continue
+        if "/" not in t:
+            die("PICK", f"--only-for 는 <주제>/<영상ID>: {t}", "예: test/ilbon-chukje-2026-10,test/ilbon-chukje-2026-10-shorts")
+        topic, vid = t.split("/", 1)
+        d = src_dir(topic, vid)
+        if not d.is_dir():
+            die("PICK", f"대본 폴더 없음 {rel(d)}", "주제·영상ID 확인 (쇼츠는 <영상ID>-shorts)")
+        if (d / "youtube.json").is_file():
+            die("PICK", f"{vid} 는 이미 업로드한 영상 — 목소리를 바꾸지 않음", "--only-for 에서 빼기")
+        targets.append((topic, vid, d))
+    if not targets:
+        die("PICK", "--only-for 에 영상이 없음", "예: test/ilbon-chukje-2026-10")
+    for role, c in chosen.items():
+        if c["how"] == "current":
+            die("PICK", f"{c['id']} 는 지금 공통 목소리 — --only-for 로 고를 필요 없음", "영상 폴더의 voices/<역할>.json 을 지우면 공통 목소리로 돌아감")
+        P = sample_paths(role, c["id"])
+        meta = json.loads(P["meta"].read_text("utf-8")) if P["meta"].is_file() else None
+        if meta is None or meta.get("ident") != sample_ident(role, c, cfg, voices):
+            die("PICK", f"{c['id']} 샘플이 저장소에 없거나 후보 설정과 다름", "Kaggle 에서 samples --only " + c["id"] + " --push 를 먼저 — 들어 보지 않은 목소리는 고정하지 않음")
+        own = {"_설명": f"{voices[role]['name']} — 이 영상만 다른 목소리 (공통 voices/{role}.json 의 lock 을 넘음, tts_narration v1.14 own_voice). "
+                        f"사용자가 샘플 {c['id']}({c['label']})를 고름 {today}. 이 파일을 지우면 공통 목소리로 돌아감 (다음 all 이 오디오를 다시 만듦)",
+               "own_voice": True, "picked": {"id": c["id"], "label": c["label"], "date": today, "sample": rel(P["mp3"]) if P["mp3"].is_file() else "-"},
+               "part_instruct": {}}
+        ref = None
+        if c["how"] == "design":
+            if not P["ref"].is_file() or hashlib.sha1(P["ref"].read_bytes()).hexdigest()[:16] != meta["ref"]["sha1"]:
+                die("PICK", f"{c['id']} 기준 소리 파일이 없거나 해시가 다름", "Kaggle 에서 samples --only " + c["id"] + " --force --push")
+            d0 = targets[0][2] / "voices" / "ref"
+            ref_wav, ref_json = d0 / f"{role}.wav", d0 / f"{role}.json"
+            own.update(engine="clone", ref_audio=rel(ref_wav), ref_meta=rel(ref_json), seed=int(c.get("seed", 1234)),
+                       design={"instruct": c["instruct"], "text": meta["ref"]["text"], "seed": meta["ref"]["seed"], "tries": int(c.get("tries", 3)),
+                               "f0_range": c["f0_range"], "f0_target": c.get("f0_target")})
+            # 복제한 문장의 높이가 기준 소리와 많이 다르면(샘플 미리 듣기 평균 vs 기준 소리) 허용 폭을 그만큼 넓힌다 — 같은 목소리를 괜히 다시 만들지 않게
+            dev = abs(float(meta.get("f0_hz") or 0) / float(meta["ref"]["f0_hz"]) - 1) if meta.get("f0_hz") else 0.0
+            if dev + 0.15 > F0_TOL:
+                own["f0_tolerance"] = round(dev + 0.15, 2)
+                log("PICK", role=role, id=c["id"], ref_f0=meta["ref"]["f0_hz"], preview_f0=meta.get("f0_hz"), dev=f"{dev:.0%}",
+                    f0_tolerance=f"{F0_TOL:.0%}→{own['f0_tolerance']:.0%}", note="샘플을 복제한 소리가 기준 소리보다 낮거나 높음 — 허용 폭을 넓힘")
+            ref = (P["ref"], ref_wav, ref_meta_of(role, c, meta, today, f"{voices[role]['name']} 기준 목소리 — 이 영상들만 ({', '.join(v for _, v, _ in targets)}): "
+                                                   f"사용자가 고른 샘플 {c['id']}. 손으로 바꾸지 않는다 (바꾸면 해시 검사에서 멈춤)."))
+        else:
+            own.update(engine="custom_voice", speaker=c["speaker"], instruct=c["instruct"], seed=int(c.get("seed", 1234)))
+        for k in ("pace", "gap"):
+            if c.get(k) is not None:
+                own[k] = c[k]
+        files = [rel(d / "voices" / f"{role}.json") for _, _, d in targets] + ([rel(ref[1]), rel(ref[1].with_suffix(".json"))] if ref else [])
+        log("PICK", role=role, id=c["id"], label=c["label"], how=c["how"], only_for=",".join(v for _, v, _ in targets), files=",".join(files),
+            common=f"voices/{role}.json 그대로")
+        if args.dry_run:
+            continue
+        if ref:
+            ref[1].parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(ref[0], ref[1])
+            ref[1].with_suffix(".json").write_text(json.dumps(ref[2], ensure_ascii=False, indent=1) + "\n", "utf-8")
+        for _, _, d in targets:
+            (d / "voices").mkdir(parents=True, exist_ok=True)
+            (d / "voices" / f"{role}.json").write_text(json.dumps(own, ensure_ascii=False, indent=2) + "\n", "utf-8")
+    if args.dry_run:
+        log("PICK", note="--dry-run: 파일을 바꾸지 않음")
+        return
+    for topic, vid, d in targets:                              # 다시 읽어 검사 — 그 영상은 고른 목소리, 기준 소리 해시 확인
+        vv = load_voices(topic, vid, quiet=True)
+        for role, c in chosen.items():
+            got = (vv[role].get("picked") or {}).get("id")
+            if got != c["id"]:
+                die("PICK", f"{vid} {role} 가 {got} 로 읽힘 (고른 것 {c['id']})", "영상 폴더 voices/ 설정 확인")
+            mp = d / META_NAME
+            stale = mp.is_file() and bool(voice_mismatch(json.loads(mp.read_text("utf-8")), topic, vid))
+            log("PICK", video=vid, role=role, id=got, engine=vv[role]["engine"], ref=vv[role].get("ref_audio") or "-", ref_sha=vv[role].get("ref_sha") or "-",
+                audio="다음 all 이 다시 만듦 (목소리 바뀜)" if stale else ("없음 — 다음 all 이 만듦" if not repo_audio(topic, vid) else "그대로"))
+    log("NEXT", note="커밋·푸시 후 Kaggle: all --push --ids " + ",".join(v for _, v, _ in targets))
+
+
 def cmd_pick(args):
     """고른 후보로 역할 목소리를 고정 (GPU 필요 없음). current → 설정 그대로 / custom_voice → 화자·말투 / design → 기준 소리 복사 + clone.
     고친 파일: voices/<역할>.json (+ design 이면 voices/ref/<역할>.wav·json). 커밋은 하지 않는다 (Claude 가 확인 후 main 에)."""
@@ -2258,6 +2361,8 @@ def cmd_pick(args):
             die("PICK", f"{role} 를 두 번 고름: {chosen[role]['id']}, {c['id']}", "역할마다 하나씩")
         chosen[role] = c
     today = datetime.now().strftime("%Y-%m-%d")
+    if args.only_for:                                          # v1.14 이 영상들만
+        return pick_own(args, chosen, cfg, voices, today)
     plans = []
     for role, c in chosen.items():
         P = sample_paths(role, c["id"])
@@ -2293,12 +2398,8 @@ def cmd_pick(args):
             for k in ("pace", "gap"):
                 if c.get(k) is not None:
                     new[k] = c[k]
-            ref_meta = {"role": role, "text": meta["ref"]["text"], "instruct": c["instruct"], "language": "Korean",
-                        "model": meta["ref"].get("design_model"), "seed": meta["ref"]["seed"], "f0_hz": meta["ref"]["f0_hz"],
-                        "dur": meta["ref"]["dur"], "rate": meta["ref"]["rate"], "sha1": meta["ref"]["sha1"], "sample": c["id"],
-                        "label": c["label"], "picked": today, "created": meta["created"], "tool": f"tts_narration.py {VERSION}",
-                        "_설명": f"{voices[role]['name']} 기준 목소리 — 사용자가 고른 샘플 {c['id']}. 모든 대본의 이 역할 문장이 이 소리를 복제한다. "
-                                 "손으로 바꾸지 않는다 (바꾸면 해시 검사에서 멈춤). 바꾸려면 다른 샘플을 pick"}
+            ref_meta = ref_meta_of(role, c, meta, today, f"{voices[role]['name']} 기준 목소리 — 사용자가 고른 샘플 {c['id']}. 모든 대본의 이 역할 문장이 "
+                                   "이 소리를 복제한다. 손으로 바꾸지 않는다 (바꾸면 해시 검사에서 멈춤). 바꾸려면 다른 샘플을 pick")
             files += [ref_wav, ref_json]
             plans.append((role, c, new, files, (P["ref"], ref_wav, ref_meta)))
             continue
@@ -2469,6 +2570,7 @@ def main():
     pk = sub.add_parser("pick", parents=[common], help="고른 샘플로 역할 목소리 고정 (예: pick S04 H01) — GPU 필요 없음")
     pk.add_argument("ids", nargs="+", help="고른 후보 ID (역할마다 하나)")
     pk.add_argument("--dry-run", action="store_true", help="바꿀 내용만 보기")
+    pk.add_argument("--only-for", default=None, help="v1.14 이 영상들만 (예: test/ilbon-chukje-2026-10,test/ilbon-chukje-2026-10-shorts) — 공통 목소리는 그대로")
     c = sub.add_parser("check", parents=[common], help="저장소의 narration 이 지금 대본으로 만든 것인지 (tts_narration.json)")
     c.add_argument("topic")
     c.add_argument("id")

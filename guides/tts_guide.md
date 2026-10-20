@@ -130,6 +130,7 @@ import kaggle_tts_panel; importlib.reload(kaggle_tts_panel).panel()
    - 고른 기록: `voices/<역할>.json`의 `"picked": {"id", "label", "date", "sample"}`. 두 역할 모두 `picked`가 있어야 셀이 오디오를 만든다 (`build`는 멈춘다).
    - `lock`이라 주제 폴더의 `voices/storyteller.json`(주제별 말투)은 무시된다 — 모든 대본 같은 목소리 (사용자 지시). current(S01)를 고르면 지금처럼 주제별 말투를 쓴다.
 4. **다시 셀 실행:** 고른 목소리로 오디오가 없는 영상을 모두 만든다. 그 역할 목소리가 바뀐 영상(오디오가 있고 아직 안 올린 것)은 다시 만든다. **이미 유튜브에 올린 영상(`youtube.json`)은 그대로 둔다.**
+- **영상 하나만 다른 목소리 (v1.14, 사용자 지시 2026-10-20 "오디오는 H09 음성으로 가고"):** `python tools/tts_narration.py pick H09 --only-for test/ilbon-chukje-2026-10,test/ilbon-chukje-2026-10-shorts` → 그 영상 대본 폴더에 `voices/host.json`(`"own_voice": true`)·`voices/ref/host.wav` 가 생겨 공통 lock 을 넘어 그 영상만 그 목소리. 공통 `voices/host.json`(H04)·다른 영상은 그대로. 되돌리기 = 영상 폴더 `voices/` 를 지움 (다음 all 이 공통 목소리로 다시 만듦). 지금: test 일본 축제 롱폼·쇼츠 = H09.
 - 후보를 바꾸거나 더하려면 `samples.json`을 고친 뒤 셀을 다시 실행 → 바뀐 후보만 새로 만든다. 일부만 다시: `python tools/tts_narration.py samples --only S04,H02 --force --push`
 - **바로 듣기 (터미널):** `python tools/tts_narration.py listen S07 S08` (ffplay·afplay·mpv로 재생) · 만들면서 듣기: `samples --only S07,S08 --play`. 소리 장치가 없는 곳(Kaggle·클라우드)에서는 경로를 알려 주고, Kaggle 셀에서는 `from IPython.display import Audio; Audio("voices/samples/storyteller/S07.mp3")`로 듣는다.
 - **말 속도 맞추기 (`pace`):** 후보·역할 설정 `{"min": 4.2, "max": 5.2, "max_stretch": 0.15}`(음절/초) — 고른 문장의 속도가 범위 밖이면 음 높이는 그대로 두고(ffmpeg atempo) ±15% 안에서 늘이거나 줄인다. 로그 `[PACE] rate_before= rate_after= factor=`, 보고서 '속도 맞춤 ×0.93'. S07·S08에 들어 있고 pick 하면 사연자 설정으로 옮겨진다. 문장 사이 쉼도 S07·S08은 0.55초(고백하듯 조금 길게).

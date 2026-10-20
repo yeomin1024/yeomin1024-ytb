@@ -1,6 +1,7 @@
 # 지금 상태·다음 할 일 (인수인계)
 
-버전: v2.16 — 2026-10-20 — **주식 ② 공개 확인**: `0bBHM3EfPng`(새 제목)·`tV2awAsLcLU` 17:00 public·자막 있음 · ① 하루 뒤 롱폼 조회 2 · 쇼츠 173, 댓글 0(고정 댓글 아직) — 2-1b.
+버전: v2.17 — 2026-10-20 — **Kaggle 장면 클립 = 고정 셀** (사용자 지시 "kaggle 영상 클립 코드 내가 실행 셀 변경 안해도 파일 읽어서 처리하게 해줘 셀 코드 알려주고"): videogen v1.5.0 `run_queue` — 셀은 고치지 않고, 할 일은 Claude 가 `videogen/queue.json` 에 (지금 = 국민연금 롱폼 29·쇼츠 7). Release 에 같은 클립이 있으면 건너뜀 → L02·L19 를 다시 그리면 같은 셀만 다시 실행 (`videogen/README.md` 2-5 · `scenes/kaggle_cell.md` v2.0) — 2-7.
+이전 v2.16 — 2026-10-20 — **주식 ② 공개 확인**: `0bBHM3EfPng`(새 제목)·`tV2awAsLcLU` 17:00 public·자막 있음 · ① 하루 뒤 롱폼 조회 2 · 쇼츠 173, 댓글 0(고정 댓글 아직) — 2-1b.
 이전 v2.15 — 2026-10-20 — **음악 분석 넷째 회차 (예약 작업)**: 채널 기준선 끝(1,038곳) → 비교 집단 5,810 · 외국 성공 비율 74% → 22% · **추천 v1.3 순서 바뀜** (① 클래식풍 연주 ② 짧은 제목 잔잔한 배경음악 ③ 로파이·칠·그루브 · 재즈 라운지 실험으로 · 길이 40~90분) · **첫 쇼츠 탐색·승인 191 → 성공 쇼츠 111** · `cloud_run.py` v1.4 캐시 묶음 나누기(45MB) — 아래 2-6.
 이전 v2.14 — 2026-10-20 — **역사 분석 다섯째 회차 (예약 작업)**: 검색 캐시 기간이라 새 추천 0 · 성공 사례 481 · 66단위 — 2-5.
 이전 v2.13 — 2026-10-20 — **주식 남은 자막 (16:05 예약 확인)**: 롱폼 ③ tr · 쇼츠 ③ 10 · 롱폼 ④ 10 · 쇼츠 ④ 4 = 25개 → quota · 남은 6개(쇼츠 ④ pt·es-419·ja·de·vi·tr)는 10-21 16:05 KST (공개 10-22 17:00 전) · ② 공개 확인 17:10 — 2-1b.
@@ -545,6 +546,7 @@
 - 다음 (사람): 결과가 모이면 사용자에게 알리고 `music/guides/data_insights.md` → 채널 컨셉·주제 후보 (`guides/pipeline.md` 2단계). 장르·쓰임새·세계 시장 여부는 사용자가 정한다.
 
 ### 2-7. 영상 생성 AI — Kaggle 셀 하나 `videogen/` (2026-10-18)
+- **2026-10-20 v1.5.0 고정 셀**: 사용자는 Kaggle 노트북에 `videogen/README.md` 2-5 셀을 한 번 붙이고 다시 고치지 않는다 (Secret `GITHUB_TOKEN` · GPU T4 x2 · Internet On · Save & Run All). 실행마다 main 커밋을 읽어 `videogen/queue.json` 의 작업을 차례로 — Release `clips_manifest.json` 과 이름·그림 sha256·프롬프트·프레임·seed 를 비교해 새 것·바뀐 것만 (`[QUEUE] job k/n todo= todo_names=`). **Claude 할 일**: 새 영상의 `scenes/videogen.json` 을 만들면 `queue.json` 에 넣고(다 받은 영상은 `"disabled": true`) 커밋 → 사용자에게 "클립 셀 실행" 만. 로컬 확인 `run_queue(raw_base='.', ref='local', dry_run=True)` (README 2-5 끝). 지금 queue = 국민연금 롱폼 29 + 쇼츠 7 (dry-run 모두 new — Release 아직 없음).
 - 2026-10-19 v1.3.1: 기초연금 AI 쇼츠 테스트(사용자 Kaggle 실행)가 생성·이어 붙이기 뒤 업스케일 확인에서 `업스케일 결과 크기 None` 으로 멈춤 → 원인 = 커널 로캘(ASCII) + WanGP 메타데이터의 중국어. 고침·재현 시험(`test_ascii_locale`). 다음 (사람): 같은 세션이면 README 2-3번 셀(`upscale_file`, 몇 분) · 아니면 셀 다시 실행 → `run.log` 의 `[SUMMARY] stage timings` 로 T4 실측(5B FastWan 11클립) 을 README 2-2 시간 표에 적기 · 완성 영상 장면 확인.
 - 2026-10-18 **AI 실사 쇼츠 첫 편** `economic/source/gicho-yeongeum-ai-2026-10/shorts/` — 대본·장면 표 `shorts.md` · ChatGPT 그림 11장 `scenes/chatgpt.md`. 다음 (사람): ChatGPT 새 대화에 고정 주소 → 그림 11장을 Claude 대화에 번호 순서대로 → Claude 검수·`scenes/scene_NN.png` 커밋 → 내레이션 셀(이 대본도 찾음) → 문장 길이에 맞춘 videogen 셀·합치기. 둘째 쇼츠로 올릴지 사용자가 정함.
 - 2026-10-18 v1.3.0: v1.2.1 hq 는 Kaggle 에서 끝까지 됨 (영상 3개, 설치 포함 약 2시간 — 사용자). 빠르게: 시작 이미지 여러 장 → 짧은 클립들 (`start_images`, README 2-2). 다음 (사람): ChatGPT 로 할아버지 이미지 3장 → `videogen/inputs/grandpa/1~3.png` 로 올리면(Claude 가 검수·커밋) → `wan2.2-5b-fast` 실행 → `run.log` `[SUMMARY] stage timings` 로 실제 시간 확인.

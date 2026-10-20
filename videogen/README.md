@@ -1,6 +1,7 @@
 # 영상 생성 AI — Kaggle 에서 설정만 바꿔 실행 (`videogen/`)
 
-버전: v1.4.1 — 2026-10-19 — 클립 경고는 프레임이 모자랄 때만 (CHANGELOG). v1.4.0 — **영상 한 편의 장면 클립** (사용자 지시 "롱폼,숏폼 둘다 아까 짧게 짧게 시작이미지로 영상 만들었던 코드로 만들거니까 그 코드 수정필요하면 수정하고 영상을 이어 붙이는건 그 코드에서 하는게 아니라 너가 하는거야"): 시작 이미지마다 길이(`sec`)·이름(`name`), 결과 `clips/<이름>.mp4` + 목록, `release_tag` 로 GitHub Release 에 올려 Claude 가 받아 이어 붙임 — 2-4번.
+버전: v1.5.0 — 2026-10-20 — **고정 셀** (사용자 지시 "kaggle 영상 클립 코드 내가 실행 셀 변경 안해도 파일 읽어서 처리하게 해줘 셀 코드 알려주고"): 셀은 한 번 붙이면 고치지 않는다 — 무엇을 만들지는 저장소 `videogen/queue.json`(Claude 가 고침)이 정하고, Release 에 이미 같은 클립이 있으면 건너뛰어 그림이 바뀐 것·새 것만 만든다 — **2-5번**.
+이전 v1.4.1 — 2026-10-19 — 클립 경고는 프레임이 모자랄 때만 (CHANGELOG). v1.4.0 — **영상 한 편의 장면 클립** (사용자 지시 "롱폼,숏폼 둘다 아까 짧게 짧게 시작이미지로 영상 만들었던 코드로 만들거니까 그 코드 수정필요하면 수정하고 영상을 이어 붙이는건 그 코드에서 하는게 아니라 너가 하는거야"): 시작 이미지마다 길이(`sec`)·이름(`name`), 결과 `clips/<이름>.mp4` + 목록, `release_tag` 로 GitHub Release 에 올려 Claude 가 받아 이어 붙임 — 2-4번.
 이전 v1.3.1 — 2026-10-19 — **`RuntimeError: 업스케일 결과 크기 None != 1080x1920` 고침** (사용자 보고): Kaggle 커널 로캘이 UTF-8 이 아니면 WanGP 가 결과 mp4 에 넣은 중국어 메타데이터를 읽다 실패 → 크기·fps 를 못 읽음. 같은 원인으로 이어 붙인 영상이 **16fps**(5B 클립은 24fps — 프레임 1/3 버림)로 됐을 수 있음. 다시 생성하지 않고 마무리하는 셀 2-3번 (`videogen.upscale_file`).
 이전 v1.3.0 — 2026-10-18 — **빠르게: 시작 이미지 여러 장 → 짧은 클립들** (사용자 지시 "3개 영상 나왔는데 2시간 걸렸어 너무 오래걸리는데 빠르게 생성하는 방법 없어? 시작 이미지를 전달하면 더 빨리 할 수 있어? 시작 이미지 여러개 만들어서 짧게 짧게 각각 만드는거지"): 새 설정 `start_images` `clip_sec` `concat` · 새 모델 `wan2.2-5b-fast` `wan2.2-14b-i2v` — 2-2번.
 이전 v1.2.1 — 2026-10-18 — WanGP 가 T2V 모델의 창 이어붙이기를 거부한 오류 고침 (사용자 보고 wangp_process.log): `wan2.2-14b-hq` 를 두 단계로 — T2V 14B 첫 5초 → SVI 2 Pro 가 이어 만들기 (2-1번).
@@ -158,7 +159,7 @@ from IPython.display import Video; Video(final, embed=True, width=360)
 **순서**
 1. Claude 가 영상 폴더에 `scenes/plan.md`(어느 문장이 AI 클립인지) · `scenes/chatgpt.md`(그림 프롬프트) · `scenes/videogen.json`(이 셀의 설정 — 클립마다 `image`·`prompt`(움직임)·`sec`·`name`)을 올린다.
 2. 사용자가 `scenes/chatgpt.md` 를 ChatGPT 에 넘겨 그림을 만든다 → 그림을 Claude 대화에 붙이면 Claude 가 검수해 `scenes/<이름>.png` 로 main 에 올리고 **커밋 해시**를 알려 준다.
-3. Kaggle 노트북(1번 준비 + **Add-ons → Secrets 에서 `GITHUB_TOKEN` 을 이 노트북에 켬** — 내레이션 셀과 같은 토큰)에 아래 셀 하나 → *Save Version → Save & Run All (Commit)*.
+3. Claude 가 `videogen/queue.json` 에 그 설정을 올린다 → 사용자는 Kaggle 노트북에서 **2-5번 고정 셀**을 그대로 *Save Version → Save & Run All (Commit)* (셀을 고치지 않음). 아래 셀은 v1.4 방식(커밋·설정 경로를 손으로 적음) — 2-5번이 기본.
 4. 끝나면 클립이 GitHub Release `clips-<영상ID>`(쇼츠 `clips-<영상ID>-shorts`)에 올라간다 → Claude 에게 "클립 올렸어" — Claude 가 받아 합친다.
 
 ```python
@@ -206,6 +207,58 @@ print(result["release"])
 - 업스케일은 하지 않는다(`upscale_to` 없음 — 1280x704·704x1280 그대로 올려 작게). 1920x1080·1080x1920 으로 키우기(Lanczos)·자르기는 Claude 가 합칠 때.
 - 시간 추정: 5B FastWan 클립 하나 약 2~3분(T4, 2-2번 표에서) → 30개 약 1~1.5시간 + 설치. **T4 실측 없음** — `[SUMMARY] stage timings` 를 Claude 에게 알려 주면 다음 추정에 쓴다.
 
+### 2-5. 고정 셀 — 할 일은 저장소 `videogen/queue.json` 이 정함 (v1.5.0, 기본)
+셀을 **한 번 붙이면 다시 고치지 않는다.** 실행할 때마다 지금 main 커밋을 읽어 그 커밋의 `videogen.py`·`queue.json`·설정·그림을 쓴다 (도중에 main 이 바뀌어도 한 실행 안에서는 같은 커밋).
+
+**준비 (노트북 하나에 처음 한 번)**: 1번 준비(GPU T4 x2 · Internet On) + **Add-ons → Secrets 에서 `GITHUB_TOKEN` 을 이 노트북에 켬**(내레이션 셀과 같은 토큰 — 클립을 Release 에 올림). 그다음부터는 Claude 가 "클립 셀 실행해 줘" 하면 *Save Version → Save & Run All (Commit)* 만.
+
+```python
+# 고치지 않는 셀 — 무엇을 만들지는 저장소 videogen/queue.json 이 정함 (Claude 가 고침)
+import os, sys, json, importlib, urllib.request
+REPO = "yeomin1024/yeomin1024-ytb"
+SRC = "/kaggle/tmp/videogen_src"
+os.makedirs(SRC, exist_ok=True)
+def _token():
+    try:
+        from kaggle_secrets import UserSecretsClient
+        return UserSecretsClient().get_secret("GITHUB_TOKEN")
+    except Exception:
+        return os.environ.get("GITHUB_TOKEN")
+def _get(url):
+    t, err = _token(), None
+    for h in ([{"Authorization": "token " + t}] if t else []) + [{}]:
+        try:
+            req = urllib.request.Request(url, headers=dict(h, **{"User-Agent": "videogen-cell"}))
+            with urllib.request.urlopen(req, timeout=60) as r:
+                return r.read()
+        except Exception as e:
+            err = e
+    raise RuntimeError(f"받기 실패: {url} ({err}) — Settings 에서 Internet = On 인지 확인")
+try:
+    SHA = json.loads(_get(f"https://api.github.com/repos/{REPO}/commits/main"))["sha"]
+except Exception as e:
+    print("main 커밋을 못 읽음 — main 그대로 씀:", e)
+    SHA = "main"
+open(f"{SRC}/videogen.py", "wb").write(_get(f"https://raw.githubusercontent.com/{REPO}/{SHA}/videogen/videogen.py"))
+sys.path.insert(0, SRC)
+import videogen; importlib.reload(videogen)
+print("videogen", videogen.__version__, "commit", SHA[:12])
+result = videogen.run_queue(ref=SHA)
+```
+
+**`videogen/queue.json`** (Claude 가 고침 — 사용자는 몰라도 됨)
+```json
+{"version": "v1.0 — <날짜> — <무엇>",
+ "jobs": [{"name": "<영상ID> 롱폼", "settings": "economic/source/<영상ID>/scenes/videogen.json"},
+          {"name": "<영상ID> 쇼츠", "settings": "economic/source/<영상ID>/shorts/scenes/videogen.json"}]}
+```
+- 위에서부터 차례로. 항목 키: `settings`(저장소 경로, 필수) · `name` · `disabled: true`(건너뜀) · `force: true`(Release 와 비교하지 않고 전부 다시) · `overrides: {...}`(그 설정 키를 덮어씀).
+- **건너뛰기**: 설정의 `release_tag` Release 에 있는 `clips_manifest.json` 과 클립마다 비교 — 이름·그림 sha256(받은 원본 바이트)·움직임 프롬프트·프레임·seed 가 모두 같으면 건너뜀. 그림 하나를 다시 그려 main 에 올리면 **같은 셀을 다시 실행만** — 그 클립만 만들고 Release 에서 그 이름만 바뀜(목록은 합쳐짐). 할 일이 없으면 WanGP 설치도 하지 않고 1분 안에 끝남.
+- seed 는 원래 순서(`seed + 번호`)로 고정 — 일부만 다시 만들어도 다른 클립은 그대로, 다시 만든 클립도 같은 seed. 목록을 못 읽으면(네트워크) 경고 후 그 설정의 클립을 모두 만든다.
+- 로그: `[QUEUE] plan commit=… jobs=2` → `[QUEUE] job 1/2 clips=29 todo=2 up_to_date=27 todo_names=L02(image_sha256 changed),L19(image_sha256 changed)` → (클립 만들기 — 2-4번 로그) → `[QUEUE] result made= skipped= release_ok=` → `done — tell Claude '클립 올렸어'` 또는 `nothing to make`. 같은 로그가 Output 탭 `outputs/queue.log` 에도.
+- Release 만 실패했으면 같은 세션에서: `videogen.publish_release(result["jobs"][0]["manifest"], "<release_tag>")` (k번째 작업은 `jobs[k-1]`).
+- Claude 쪽 확인(로컬, 아무것도 만들지 않음): `python3 -c "import sys;sys.path.insert(0,'videogen');import videogen;videogen.run_queue(raw_base='.',ref='local',dry_run=True,output_dir='/tmp/q')"`.
+
 ## 3. 설정 키 (`SETTINGS` 에 넣을 수 있는 것)
 모르는 키를 넣으면 오타로 보고 바로 멈춘다 (쓸 수 있는 키 목록을 보여 줌).
 
@@ -226,6 +279,7 @@ print(result["release"])
 | `image_base` | None | (v1.4.0) 상대 경로 이미지 앞에 붙일 주소·폴더 |
 | `release_tag` | None | (v1.4.0) `clips/` 를 이 태그의 GitHub Release 에 올림 (Secret `GITHUB_TOKEN`). 실패는 경고만 |
 | `release_repo` | `yeomin1024/yeomin1024-ytb` | (v1.4.0) Release 를 올릴 저장소 |
+| `start_images` 항목의 `seed` | `seed + 번호` | (v1.5.0) 그 클립 seed (정수). 고정 셀은 원래 순서로 넣어 일부만 다시 만들어도 같게 |
 | `upscaler` | `flashvsr` | `flashvsr`(WanGP 모델에서만, 실패하면 Lanczos) · `lanczos`(ffmpeg) |
 | `output_dir` | `/kaggle/working/outputs` | 결과 (20GB 한도) |
 | `work_dir` | `/kaggle/tmp/videogen` | 가중치·설치물 (저장 안 됨) |
@@ -249,6 +303,7 @@ print(result["release"])
 - 통과 (2026-10-18, 이 저장소 클라우드 환경, diffusers 0.41.0 · transformers 5.20.1 · CPU): 설정 검사 · 시작 이미지 3장(받기·자르기·작업 목록 한 번 실행·이어 붙이기·cover 업스케일) · 1080p·15초 설정(길이→프레임 · 배율 검사 · 두 단계 T2V→SVI 2 Pro 이어 만들기 · WanGP 의 T2V 창 거부 규칙 회귀 · FlashVSR 성공/실패→Lanczos, 작은 진짜 mp4 로 크기·길이 확인) · 오래된 torchao(0.13.0 — Kaggle 오류 재현) 처리 · diffusers 길 전체(실제 Wan 클래스로 만든 작은 랜덤 모델 — 인코딩 → 디노이즈 → 디코딩 → mp4·JSON·로그) · WanGP 길 흐름(가짜 `wgp.py` — 설정 JSON 에 Lightning 프로필 합치기, `--dry-run` → `--process`, 결과 수집).
 - 통과 (2026-10-19, v1.3.1): 위 전부 + **ASCII 로캘 회귀**(하위 프로세스 `LC_ALL=C` · UTF-8 모드 끔 = 로캘이 UTF-8 아닌 커널 흉내, 결과 mp4 에 중국어 메타데이터): v1.3.0 방식은 같은 환경에서 `UnicodeDecodeError` → `업스케일 결과 크기 None != 540x960` 와 16fps 이어 붙이기(24fps 39프레임 → 16fps 27프레임)를 재현, v1.3.1 은 ffprobe·ffmpeg 두 길로 크기를 읽고 시작 이미지 3장 → 24fps 이어 붙이기 → Lanczos cover 540x960 까지 · `upscale_file`(16fps 로 이어 붙인 폴더 → 클립으로 다시 24fps) · 클립 fps 를 못 읽으면 모델 fps(경고)·없으면 멈춤.
 - 통과 (2026-10-19, v1.4.0): 위 전부 + **장면 클립**(항목 `sec`·`name`·`image_base` 검사 · 클립마다 프레임 13·5·25 · `clips/` + 목록 · 가짜 GitHub(메모리 — 네트워크 없음, 진짜 토큰 환경 변수를 지우고 가짜 저장소 이름)로 토큰 없음 경고 → Release 새로 만들기(502 한 번 → 다시 시도) → 장면 하나 다시 만들어 바꿔 올리기·목록 합치기 → 한 클립 실패는 경고만 · 토큰 값이 로그·메타데이터에 없음). 진짜 GitHub 에는 가짜 토큰으로 오류 경로(`_HTTPError`)만 확인.
+- 통과 (2026-10-20, v1.5.0): 위 전부 + **할 일 목록**(`test_queue` — 로컬 폴더를 저장소로, 가짜 GitHub Release: 처음 2개 만듦 → 같은 셀 다시 = 0개(설치 안 함) → 그림 하나 바꿈 = 그 1개만, 원래 seed 43 그대로·목록 합쳐 2개 → `force`·`dry_run` · 토큰이 로그에 없음). 실제 저장소 `queue.json` 을 로컬로 dry-run: 롱폼 29 + 쇼츠 7 = 모두 `new`(Release 없음 — 토큰 없이 공개 주소로 404 확인), 1.5초.
 - 못 한 것: 실제 Kaggle T4 실행·속도·메모리·화질, 진짜 WanGP 설치. 진짜 GitHub Release 올리기(Kaggle 토큰). 클라우드 환경에서 Hugging Face·PyTorch 다운로드 서버가 막혀 있었다.
 
 ## 6. 문제 해결

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-# VERSION: v1.4.0 — 2026-10-19 — 장면 클립 시험 (test_scene_clips: 항목 sec·name·image_base 검사 · clips/ + 목록 ·
+# VERSION: v1.5.0 — 2026-10-20 — 할 일 목록 시험 (test_queue: queue.json → 새 것·바뀐 것만 · 같은 seed · force/dry-run).
+# 이전 v1.4.0 — 2026-10-19 — 장면 클립 시험 (test_scene_clips: 항목 sec·name·image_base 검사 · clips/ + 목록 ·
 #          가짜 GitHub Release(메모리, 네트워크 없음 — GITHUB_TOKEN 류 환경 변수를 지우고 가짜 저장소 이름)로 새로 만들기 ·
 #          같은 이름 바꿔 올리기 · 목록 합치기 · 502 다시 시도 · 올리기 실패는 경고만 · 토큰 없음 · 토큰이 로그에 없음)
 # 이전 v1.3.1 — 2026-10-19 — ASCII 로캘 회귀 시험 (test_ascii_locale: Kaggle '업스케일 결과 크기 None' 재현 →
@@ -536,6 +537,64 @@ def test_scene_clips(tmp, app):
         os.environ.update(saved_env)
 
 
+def test_queue(tmp, app):
+    """v1.5.0 고정 셀의 run_queue: 할 일 목록(queue.json) → 설정마다 Release 목록과 비교 → 새 것·바뀐 것만 생성.
+    ① 처음: 두 장 다 · ② 그대로 다시: 0장 (WanGP 안 부름) · ③ 그림 하나 바꿈: 그 한 장만, seed 는 원래 순서 그대로 ·
+    ④ force: 다. 가짜 GitHub(메모리) · 진짜 토큰 환경 변수는 지우고 가짜 값 · 저장소 파일은 로컬 폴더(raw_base)."""
+    from PIL import Image
+    saved_env = {k: os.environ.pop(k) for k in list(os.environ) if "GITHUB" in k and "TOKEN" in k}
+    real_http, real_sleep = videogen._http, videogen.time.sleep
+    try:
+        repo = os.path.join(tmp, "queue_repo")
+        os.makedirs(os.path.join(repo, "ep", "scenes"))
+        os.makedirs(os.path.join(repo, "videogen"))
+        for i, c in enumerate([(200, 60, 60), (60, 200, 60)], 1):
+            Image.new("RGB", (1536, 864), c).save(os.path.join(repo, "ep", "scenes", f"Q{i}.jpg"))
+        settings = dict(model="wan2.2-5b-fast", prompt="soft motion", width=448, height=256, concat=False, seed=42,
+                        release_tag="clips-queue-test", release_repo="fake-owner/fake-repo",
+                        start_images=[{"image": "ep/scenes/Q1.jpg", "name": "Q1", "sec": 0.5},
+                                      {"image": "ep/scenes/Q2.jpg", "name": "Q2", "sec": 0.25, "prompt": "turns head"}])
+        json.dump(settings, open(os.path.join(repo, "ep", "scenes", "videogen.json"), "w", encoding="utf-8"))
+        json.dump({"version": "test", "jobs": [{"name": "ep", "settings": "ep/scenes/videogen.json"},
+                                               {"name": "off", "settings": "missing.json", "disabled": True}]},
+                  open(os.path.join(repo, "videogen", "queue.json"), "w", encoding="utf-8"))
+        gh = FakeGitHub()
+        videogen._http = gh
+        videogen.time.sleep = lambda s: None
+        os.environ["GITHUB_TOKEN"] = "fake-token-for-test"
+        kw = dict(raw_base=repo, ref="testsha", wangp_app_dir=app, wangp_python=sys.executable,
+                  output_dir=os.path.join(tmp, "out_queue"), work_dir=os.path.join(tmp, "work"))
+        expect_error(lambda: videogen.make_config(model="wan2.2-5b-fast", start_images=[{"image": "a", "seed": "1"}]),
+                     ValueError, "seed='1'")
+        r1 = videogen.run_queue(**kw)
+        assert [j["todo"] for j in r1["jobs"]] == [["Q1", "Q2"]] and r1["jobs"][0]["release"]["ok"], r1
+        m1 = {c["name"]: c for c in gh.manifest("clips-queue-test")["clips"]}
+        assert sorted(m1) == ["Q1", "Q2"] and m1["Q1"]["seed"] == 42 and m1["Q2"]["seed"] == 43, m1
+        assert len(m1["Q1"]["image_sha256"]) == 64 and m1["Q2"]["prompt"] == "turns head"
+        calls_before = len(gh.calls)
+        r2 = videogen.run_queue(**kw)                                   # 바뀐 것 없음 → 만들 것 없음
+        assert r2["jobs"][0]["skipped"] and r2["jobs"][0]["todo"] == [], r2
+        assert not any(m == "POST" for m, _ in gh.calls[calls_before:])  # 올리기도 없음
+        Image.new("RGB", (1536, 864), (20, 20, 200)).save(os.path.join(repo, "ep", "scenes", "Q2.jpg"))
+        r3 = videogen.run_queue(**kw)                                   # Q2 그림만 바뀜
+        assert r3["jobs"][0]["todo"] == ["Q2"], r3
+        tasks = json.load(open(os.path.join(r3["jobs"][0]["run_dir"], "wangp_settings.json"), encoding="utf-8"))
+        assert len(tasks) == 1 and tasks[0]["seed"] == 43, tasks           # 원래 순서의 seed 그대로
+        m3 = {c["name"]: c for c in gh.manifest("clips-queue-test")["clips"]}
+        assert sorted(m3) == ["Q1", "Q2"] and m3["Q1"]["run_id"] == m1["Q1"]["run_id"]
+        assert m3["Q2"]["image_sha256"] != m1["Q2"]["image_sha256"]
+        r4 = videogen.run_queue(force=True, dry_run=True, **kw)
+        assert r4["jobs"][0]["todo"] == ["Q1", "Q2"] and r4["jobs"][0]["dry_run"], r4
+        log_text = open(os.path.join(tmp, "out_queue", "queue.log"), encoding="utf-8").read()
+        assert "[QUEUE]" in log_text and "fake-token-for-test" not in log_text
+        assert videogen.resolve_ref(ref="a" * 40) == "a" * 40
+        print("ok  queue: queue.json -> only new/changed clips (2 -> 0 -> 1 with the same seed), force/dry-run")
+    finally:
+        videogen._http, videogen.time.sleep = real_http, real_sleep
+        os.environ.pop("GITHUB_TOKEN", None)
+        os.environ.update(saved_env)
+
+
 def test_diffusers_frame_limit(tmp):
     """diffusers 5B 로 15초(361프레임)를 한 번에 만들려 하면 생성 전에 멈추고 hq 모델을 알려 준다."""
     if not all(importlib.util.find_spec(m) for m in ("torch", "diffusers", "transformers")):
@@ -681,6 +740,7 @@ def main():
     test_wangp_fhd(tmp, app)
     test_start_images(tmp, app)
     test_scene_clips(tmp, app)
+    test_queue(tmp, app)
     test_upscale_file_rejoin(tmp)
     test_ascii_locale(tmp)
     print("ALL TESTS PASSED", tmp)

@@ -1,5 +1,29 @@
 # CHANGELOG — videogen
 
+## v1.5.0 — 2026-10-20
+### 왜 (사용자 지시)
+- "kaggle 영상 클립 코드 내가 실행 셀 변경 안해도 파일 읽어서 처리하게 해줘 셀 코드 알려주고".
+- v1.4 셀은 실행마다 `CODE_REF`(커밋)·설정 경로를 사용자가 고쳐야 했고, 그림 두 장(L02·L19)만 다시 그려도 장면 몇 개만 든 설정을 따로 받아 셀을 바꿔야 했다.
+
+### 한 것
+| 대상 | 내용 |
+|---|---|
+| `run_queue()` (새, 공개) | 고정 셀이 부르는 함수. 지금 main 커밋(`resolve_ref`)으로 `videogen/queue.json` → 작업마다 설정 JSON(`image_base` = 그 커밋 raw 주소, `preview=False`) → 그림 원본 바이트 sha256 → Release 목록과 비교 → 남은 클립만 `run()`. `[QUEUE] plan` · `job k/n clips= todo= up_to_date= todo_names=L02(image_sha256 changed)` · `result made= skipped= release_ok=` · 마지막 `done`/`nothing to make`/`dry run`. 로그 파일 `outputs/queue.log`. 할 일이 없으면 `run()` 을 부르지 않아 WanGP 설치·모델 받기도 없음 |
+| `videogen/queue.json` (새) | 할 일 목록 — `jobs: [{name, settings, disabled?, force?, overrides?}]`. Claude 가 고친다 |
+| `release_manifest()` (새) | Release 의 `clips_manifest.json` → `{이름: 항목}`. 토큰이 있으면 API(비공개 저장소도), 없으면 공개 내려받기 주소. Release·목록 없음 = `{}`(모두 새로), 못 읽음 = `None`(경고 후 모두 만듦 — 건너뛰지 않는 쪽으로) |
+| `_clip_todo()` (새) | 만들 까닭: `new` · `image_sha256 changed` · `prompt changed` · `frames changed` · `seed changed` · `release not readable` · `forced` |
+| `resolve_ref()` · `_read_url()` (새) | 브랜치 → 커밋 sha (raw 의 main 캐시가 몇 분 늦을 수 있어 한 실행은 한 커밋으로) · GitHub 주소는 토큰 먼저, 안 되면 토큰 없이. 토큰 값은 로그에 남기지 않음 |
+| `start_images` 항목 `seed` (새 키) · `_clip_seed()` | 항목 seed 가 있으면 그것, 없으면 `seed + 번호`(예전과 같음). `run_queue` 는 원래 순서의 seed 를 넣어 **일부만 다시 만들어도 같은 seed**. 정수가 아니면 멈춤 |
+| `clips_manifest.json` | 클립마다 `image_sha256`(받은 원본 그림 — 자르기 전) — 다음 실행이 비교에 씀 |
+| `tests/test_videogen.py` v1.5.0 | `test_queue` — 로컬 폴더를 저장소로 + 가짜 GitHub(메모리, 진짜 토큰 환경 변수를 지우고 가짜 저장소 이름): 2개 → 같은 셀 다시 0개(`run` 안 부름) → 그림 하나 바꿈 1개(seed 43 그대로, 목록 합쳐 2개) → `force`·`dry_run` · 토큰이 `queue.log` 에 없음 |
+| `README.md` | 2-5번 고정 셀(기본) · 2-4번은 v1.4 방식으로 표시 · 3번 `seed` · 5번 검증 범위 |
+
+### 측정
+- 시험 전체 통과 (클라우드 CPU, 약 30초 — 이전과 같음). 실제 저장소 `queue.json` dry-run(로컬): 롱폼 29 + 쇼츠 7 → 모두 `new`(Release 없음), **1.5초**. Kaggle 에서 더해지는 일 = 그림 36장 받기(약 10MB)·sha256·목록 하나 받기 — 몇 초. 생성 속도는 그대로.
+
+### 위험 관련 변경
+- 없음 (생성 설정·모델·길이 그대로). 건너뛰기는 다섯 값이 **모두 같을 때만** — 목록을 못 읽으면 만드는 쪽. 예전 v1.4 셀(`run(SETTINGS)`)도 그대로 돈다.
+
 ## v1.4.1 — 2026-10-19
 - `collect_clips()`: `[CLIPS]` 경고를 **만든 프레임이 요청한 프레임보다 적을 때만** (`clip has fewer frames than requested`). v1.4.0 은 `sec` 와 실제 길이를 비교해, Wan 프레임 규칙(4k+1 — 아래로 맞춤)으로 0.1초쯤 짧은 정상 클립에도 경고했다. 발견: 국민연금 롱폼 실제 설정(`scenes/videogen.json`, 29개)을 가짜 WanGP 로 돌려 봄 — 헛경고 9개 → 0개. 클립 길이는 `scene_clips.py` 가 `구간 + 0.5초` 로 잡아 내림 뒤에도 구간보다 길다.
 

@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.4.1 — 2026-10-19 — [CLIPS] 경고를 '만든 프레임이 요청보다 적을 때'만 (4k+1 프레임 내림으로 sec 보다 조금 짧은 것은 정상 — 실제
+# VERSION: v1.5.0 — 2026-10-20 — 사용자 지시 "kaggle 영상 클립 코드 내가 실행 셀 변경 안해도 파일 읽어서 처리하게 해줘": 고정 셀이 부르는
+#          run_queue() — 저장소 videogen/queue.json(할 일 목록)을 지금 main 커밋으로 읽어 설정마다 Release 목록과 비교하고
+#          (이름·그림 sha256·프롬프트·프레임·seed) 새 것·바뀐 것만 만든다. 항목 seed(원래 순서) · 목록에 image_sha256.
+# 이전 v1.4.1 — 2026-10-19 — [CLIPS] 경고를 '만든 프레임이 요청보다 적을 때'만 (4k+1 프레임 내림으로 sec 보다 조금 짧은 것은 정상 — 실제
 #          롱폼 설정 29개를 가짜 WanGP 로 돌려 보니 9개가 헛경고). 이전 v1.4.0 — 2026-10-19 — 사용자 지시 "롱폼,숏폼 둘다 아까 짧게 짧게 시작이미지로 영상 만들었던 코드로 만들거니까
 #          그 코드 수정필요하면 수정하고 영상을 이어 붙이는건 그 코드에서 하는게 아니라 너가 하는거야": 영상 한 편의 장면
 #          클립 수십 개를 한 번에 만들고 Claude 가 받아 이어 붙이게 — start_images 항목마다 길이(sec)·이름(name),
@@ -75,7 +78,7 @@ import sys
 import time
 from dataclasses import asdict, dataclass, field, fields
 
-__version__ = "1.4.1"
+__version__ = "1.5.0"
 
 # --------------------------------------------------------------------------------------------------
 # 모델 · 프리셋
@@ -143,7 +146,7 @@ TORCH_BUILDS = {
 }
 MEDIA_EXT = {".mp4", ".webm", ".mkv", ".gif", ".png", ".jpg", ".jpeg", ".webp", ".wav", ".mp3", ".flac"}
 # v1.4.0 장면 클립: 시작 이미지 항목 키 · 이름(파일 이름이 됨) · GitHub Release
-START_IMAGE_KEYS = {"image", "prompt", "sec", "name"}
+START_IMAGE_KEYS = {"image", "prompt", "sec", "name", "seed"}   # seed: v1.5.0 (일부만 다시 만들어도 같은 seed)
 CLIP_NAME_RE = re.compile(r"[A-Za-z0-9][A-Za-z0-9_.-]{0,63}")
 RELEASE_TAG_RE = re.compile(r"[A-Za-z0-9][A-Za-z0-9_.-]{0,99}")
 REPO_RE = re.compile(r"[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+")
@@ -243,6 +246,8 @@ def make_config(settings: dict | Config | None = None, **overrides) -> Config:
         sec = item.get("sec")
         if sec is not None and (isinstance(sec, bool) or not isinstance(sec, (int, float)) or sec <= 0):
             raise ValueError(f"start_images[{i}].sec={sec!r} 은 0보다 큰 숫자(초)여야 한다")
+        if item.get("seed") is not None and (isinstance(item["seed"], bool) or not isinstance(item["seed"], int)):
+            raise ValueError(f"start_images[{i}].seed={item['seed']!r} 은 정수여야 한다")
         if item.get("name") is not None:
             if not CLIP_NAME_RE.fullmatch(str(item["name"])):
                 raise ValueError(f"start_images[{i}].name={item['name']!r} — 영문·숫자·_-. 로 64자까지 (파일 이름이 됨)")
@@ -707,7 +712,8 @@ def prepare_start_images(cfg: Config, params: dict, run_dir: str) -> list[dict]:
         if cut > 20:
             log("IMAGES", "more than 20% of the image was cropped to fit the video aspect — the subject may be cut",
                 logging.WARNING, idx=i, name=name, cropped_pct=cut)
-        images.append(dict(path=path, prompt=prompt or cfg.prompt, src=src, orig=f"{ow}x{oh}", sec=sec, name=name))
+        images.append(dict(path=path, prompt=prompt or cfg.prompt, src=src, orig=f"{ow}x{oh}", sec=sec, name=name,
+                           seed=item.get("seed"), image_sha256=_sha256(local)))   # v1.5.0 그림이 바뀌었는지 (run_queue)
     return images
 
 
@@ -1222,6 +1228,11 @@ def wangp_continue_settings(cfg: Config, params: dict, app_dir: str, source: str
     return s
 
 
+def _clip_seed(cfg: Config, img: dict, i: int) -> int:
+    """클립 seed: 항목에 seed 가 있으면 그것 (v1.5.0 run_queue 가 원래 순서로 정해 줌), 없으면 seed + 순서."""
+    return img["seed"] if img.get("seed") is not None else cfg.seed + i
+
+
 def wangp_image_tasks(cfg: Config, params: dict, app_dir: str, images: list[dict],
                       clip_frames: int | list[int]) -> list[dict]:
     """시작 이미지마다 작업 하나 (image_prompt_type 'S' + image_start). WanGP 는 목록을 한 프로세스에서 차례로 돌려
@@ -1233,7 +1244,7 @@ def wangp_image_tasks(cfg: Config, params: dict, app_dir: str, images: list[dict
     base = wangp_settings(cfg, params, app_dir, video_length=frames[0] if frames else None)
     tasks = []
     for i, (img, n) in enumerate(zip(images, frames)):
-        t = dict(base, prompt=img["prompt"], seed=cfg.seed + i, image_prompt_type="S", video_length=n,
+        t = dict(base, prompt=img["prompt"], seed=_clip_seed(cfg, img, i), image_prompt_type="S", video_length=n,
                  image_start=os.path.abspath(img["path"]))
         tasks.append(t)
     return tasks
@@ -1431,7 +1442,8 @@ def collect_clips(cfg: Config, run_dir: str, run_id: str, images: list[dict], pe
         shutil.copyfile(src, dst)
         info = _video_info(dst)
         entry = dict(name=img["name"], file=os.path.basename(dst), image=img["src"], prompt=img["prompt"],
-                     seed=cfg.seed + i, target_sec=img.get("sec"), frames=n, model_fps=fps,
+                     seed=_clip_seed(cfg, img, i), image_sha256=img.get("image_sha256"), target_sec=img.get("sec"),
+                     frames=n, model_fps=fps,
                      duration_sec=info.get("duration_sec"), width=info.get("width"), height=info.get("height"),
                      fps=info.get("fps"), upscaled=upscaled, source=os.path.basename(src), sha256=_sha256(dst),
                      run_id=run_id)
@@ -1607,6 +1619,158 @@ def publish_release(manifest_path: str, tag: str, repo: str = "yeomin1024/yeomin
         log("RELEASE", "FAILED — clips stay in the Output tab (clips/)", logging.WARNING, tag=tag, repo=repo,
             error=repr(e)[:300], next_step=hint)
         return dict(ok=False, error=repr(e)[:300], uploaded=[], failed=[])
+
+
+# --------------------------------------------------------------------------------------------------
+# v1.5.0 할 일 목록 (고정 Kaggle 셀) — 사용자는 셀을 고치지 않고 다시 실행만, 무엇을 만들지는 저장소 queue.json 이 정함.
+# 이미 Release 에 같은 클립(이름·그림 sha256·프롬프트·프레임·seed)이 있으면 건너뛰고, 그림이 바뀐 것·새 것만 만든다.
+# --------------------------------------------------------------------------------------------------
+QUEUE_PATH = "videogen/queue.json"
+DEFAULT_REPO = "yeomin1024/yeomin1024-ytb"
+
+
+def _read_url(url: str, accept: str | None = None) -> bytes:
+    """GitHub 주소 읽기 — 토큰이 있으면 먼저 토큰으로, 안 되면 토큰 없이 (공개 저장소). 값은 로그에 남기지 않음."""
+    import urllib.request
+    token = _kaggle_secret("GITHUB_TOKEN") if re.search(r"github(usercontent)?\.com", url) else None
+    tries = ([{"Authorization": "token " + token}] if token else []) + [{}]
+    err = None
+    for h in tries:
+        h = dict(h, **{"User-Agent": "videogen/" + __version__}, **({"Accept": accept} if accept else {}))
+        try:
+            with urllib.request.urlopen(urllib.request.Request(url, headers=h), timeout=60) as r:
+                return r.read()
+        except Exception as e:  # 권한·없음·네트워크 — 다음 방법, 모두 안 되면 올림
+            err = e
+    raise err
+
+
+def resolve_ref(repo: str = DEFAULT_REPO, ref: str = "main") -> str:
+    """브랜치 이름 → 지금 커밋 sha (raw.githubusercontent 의 main 캐시가 몇 분 늦을 수 있어 커밋으로 고정). 실패하면 그대로."""
+    if re.fullmatch(r"[0-9a-f]{40}", ref):
+        return ref
+    try:
+        return json.loads(_read_url(f"{GITHUB_API}/repos/{repo}/commits/{ref}", accept="application/vnd.github+json"))["sha"]
+    except Exception as e:
+        log("QUEUE", "could not resolve the branch to a commit — reading it directly (may be a few minutes old)",
+            logging.WARNING, ref=ref, error=repr(e)[:160])
+        return ref
+
+
+def release_manifest(tag: str, repo: str = DEFAULT_REPO, token: str | None = None) -> dict[str, dict] | None:
+    """Release(tag)의 clips_manifest.json → {이름: 항목}. Release·목록이 없으면 {} · 읽지 못하면 None (모두 새로 만듦)."""
+    token = token or _kaggle_secret("GITHUB_TOKEN")
+    try:
+        if token:
+            try:
+                _, body = _gh("GET", f"{GITHUB_API}/repos/{repo}/releases/tags/{tag}", token)
+            except _HTTPError as e:
+                if e.status == 404:
+                    return {}
+                raise
+            assets = _release_assets(repo, json.loads(body)["id"], token)
+            if MANIFEST_NAME not in assets:
+                return {}
+            _, body = _gh("GET", assets[MANIFEST_NAME]["url"], token, accept="application/octet-stream")
+        else:
+            try:
+                body = _read_url(f"https://github.com/{repo}/releases/download/{tag}/{MANIFEST_NAME}")
+            except Exception as e:
+                if getattr(e, "code", None) == 404:
+                    return {}
+                raise
+        return {c["name"]: c for c in json.loads(body).get("clips", [])}
+    except Exception as e:
+        log("QUEUE", "could not read the release manifest — every clip of this job will be made", logging.WARNING,
+            tag=tag, error=repr(e)[:200])
+        return None
+
+
+def _clip_todo(item: dict, prompt: str, frames: int, done: dict | None) -> str | None:
+    """만들 까닭 (None = 이미 같은 클립이 Release 에 있음)."""
+    if done is None:
+        return "release not readable"
+    old = done.get(item["name"])
+    if not old:
+        return "new"
+    for key, want in (("image_sha256", item["image_sha256"]), ("prompt", prompt), ("frames", frames), ("seed", item["seed"])):
+        if old.get(key) != want:
+            return f"{key} changed"
+    return None
+
+
+def run_queue(queue: str = QUEUE_PATH, repo: str = DEFAULT_REPO, ref: str = "main", raw_base: str | None = None,
+              force: bool = False, dry_run: bool = False, **overrides) -> dict:
+    """저장소의 할 일 목록(queue.json)을 읽어 차례로: 설정 JSON → 그림 sha256 → Release 목록과 비교 → 남은 클립만 run().
+    queue.json = {"version", "jobs": [{"name", "settings": "<설정 JSON 경로>", "disabled"?, "force"?, "overrides"?}]}
+    raw_base: 저장소 파일을 읽을 곳 (기본 raw.githubusercontent.com/<repo>/<커밋>/ — 시험은 로컬 폴더). overrides: 모든 설정에 덮어씀."""
+    out_root = overrides.get("output_dir", Config.output_dir)
+    os.makedirs(out_root, exist_ok=True)
+    _setup_logging(overrides.get("log_level", "INFO"), os.path.join(out_root, "queue.log"))
+    sha = ref if raw_base else resolve_ref(repo, ref)
+    base = raw_base or f"https://raw.githubusercontent.com/{repo}/{sha}/"
+    if not re.match(r"^(https?|file)://", base):
+        base = os.path.abspath(base)
+    is_url = bool(re.match(r"^(https?|file)://", base))
+
+    def read(rel: str) -> bytes:
+        if re.match(r"^(https?|file)://", rel):
+            return _read_url(rel)
+        if os.path.isabs(rel):
+            return open(rel, "rb").read()
+        return _read_url(base.rstrip("/") + "/" + rel.lstrip("/")) if is_url else open(os.path.join(base, rel), "rb").read()
+
+    q = json.loads(read(queue))
+    jobs = [j for j in q.get("jobs", []) if not j.get("disabled")]
+    log("QUEUE", "plan", version=__version__, commit=sha[:12], queue=queue, queue_version=q.get("version", "")[:80],
+        jobs=len(jobs))
+    out = []
+    for k, job in enumerate(jobs, 1):
+        t0 = time.perf_counter()
+        settings = json.loads(read(job["settings"]))
+        settings.update(job.get("overrides", {}))
+        settings.update(overrides)
+        settings["image_base"] = base
+        settings.setdefault("preview", False)
+        cfg = make_config(settings)
+        spec = MODELS[cfg.model]
+        items = []
+        for i, it in enumerate(cfg.start_images):
+            it = {"image": it} if isinstance(it, str) else dict(it)
+            it.setdefault("name", f"clip{i + 1:02d}")
+            it.setdefault("seed", cfg.seed + i)              # 원래 순서의 seed — 일부만 다시 만들어도 같은 클립
+            items.append(it)
+        cfg_items = make_config(dict(settings, start_images=items))
+        frames = clip_frames_each(cfg_items, resolve_params(cfg_items, spatial_multiple=spec.get("block")))
+        for it in items:   # prepare_start_images 와 같은 바이트의 sha256 (받은 원본 그림 — 자르기 전)
+            it["image_sha256"] = hashlib.sha256(read(_image_source(cfg, it["image"]))).hexdigest()
+        done = {} if force or job.get("force") else release_manifest(cfg.release_tag, cfg.release_repo) if cfg.release_tag else None
+        todo, why = [], {}
+        for it, n in zip(items, frames):
+            reason = "forced" if force or job.get("force") else _clip_todo(it, it.get("prompt") or cfg.prompt, n, done)
+            if reason:
+                todo.append({kk: v for kk, v in it.items() if kk != "image_sha256"})
+                why[it["name"]] = reason
+        log("QUEUE", f"job {k}/{len(jobs)}", name=job.get("name", job["settings"]), clips=len(items), todo=len(todo),
+            up_to_date=len(items) - len(todo), release=cfg.release_tag or "none",
+            todo_names=",".join(f"{n}({r})" for n, r in why.items())[:400] or "-")
+        if not todo or dry_run:
+            out.append(dict(job=job.get("name"), settings=job["settings"], clips=len(items), todo=list(why), skipped=not todo,
+                            dry_run=dry_run))
+            continue
+        r = run(dict(settings, start_images=todo))
+        out.append(dict(job=job.get("name"), settings=job["settings"], clips=len(items), todo=list(why),
+                        release=r.get("release"), run_dir=r["run_dir"], manifest=r.get("clips_manifest"),
+                        sec=round(time.perf_counter() - t0, 1)))
+    for o in out:
+        rel = o.get("release") or {}
+        log("QUEUE", "result", job=o["job"], made=0 if o.get("skipped") or o.get("dry_run") else len(o["todo"]),
+            skipped=o["clips"] - len(o["todo"]), dry_run=dry_run, release_ok=rel.get("ok", "n/a"),
+            failed=",".join(rel.get("failed", [])) or "-")
+    made = sum(len(o["todo"]) for o in out if not o.get("skipped") and not o.get("dry_run"))
+    log("QUEUE", "dry run — nothing made" if dry_run else "nothing to make — every clip is already in its release" if not made
+        else "done — tell Claude '클립 올렸어'", commit=sha[:12], made=made)
+    return dict(commit=sha, jobs=out)
 
 
 # --------------------------------------------------------------------------------------------------

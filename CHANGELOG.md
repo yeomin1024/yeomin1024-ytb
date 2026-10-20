@@ -1,5 +1,14 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-20 (videogen v1.5.0) — Kaggle 장면 클립 고정 셀 · 할 일 목록 `videogen/queue.json`
+
+- 사용자 지시: "kaggle 영상 클립 코드 내가 실행 셀 변경 안해도 파일 읽어서 처리하게 해줘 셀 코드 알려주고"
+- `videogen/videogen.py` v1.5.0 `run_queue()`: 지금 main 커밋 → `videogen/queue.json` → 작업마다 설정 JSON · 그림 sha256 · Release 목록 비교 → 새 것·바뀐 것만 `run()` (할 일이 없으면 설치도 안 함). 항목 `seed`(원래 순서 — 일부만 다시 만들어도 같은 seed) · 목록에 `image_sha256`. 로그 `[QUEUE] plan / job k/n / result` + `outputs/queue.log`
+- `videogen/queue.json` v1.0 (새): 국민연금 롱폼 29 + 쇼츠 7
+- 시험 `videogen/tests/test_videogen.py` v1.5.0 `test_queue` (2 → 0 → 1개, 같은 seed, force·dry-run, 토큰이 로그에 없음) — 전체 통과. 실제 queue dry-run: 36개 모두 new (Release 없음), 1.5초
+- 문서: `videogen/README.md` 2-5(고정 셀 — 기본) · `videogen/CHANGELOG.md` · `economic/source/gungmin-sigi-2026-10/scenes/kaggle_cell.md` v2.0 · `guides/video_guide.md` v4.15 6-1 · `CLAUDE.md` 영상 줄 · `guides/status.md` v2.17 2-7
+- 위험 관련 변경 없음 (생성 설정·모델·길이 그대로, 건너뛰기는 다섯 값이 모두 같을 때만)
+
 ## 2026-10-20 (음악 분석) — 넷째 회차: 기준선 끝 · 첫 쇼츠 · 추천 v1.3 · cloud_run v1.4 캐시 나누기
 
 - 예약 작업 `trig_01RR9ppiEXLNHmhFotDPNPzV` (사용자 지시 2026-10-16 "… 사용량 초기화 될때마다 분석을 계속 이어서하면 돼 캐시를 저장소에 남겨서 …").

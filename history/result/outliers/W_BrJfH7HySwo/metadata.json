@@ -59,7 +59,7 @@
  ],
  "chapters": [],
  "transcript_lang": "-",
- "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "transcript_status": "RequestBlocked: \nCould not retrieve a transcript for the video https://www.youtube.com/watch?v=BrJfH7HySwo! This is most likely caused b",
  "video_lang": "ko",
  "foreign": false,
  "comments_fetched": 241,
@@ -71,5 +71,6 @@
  "comments_reported": 241,
  "tool": "outlier_research.py v2.5.1",
  "collected": "2026-10-16T10:05:26",
- "approved": "2026-10-16T19:05+09:00"
+ "approved": "2026-10-16T19:05+09:00",
+ "transcript_retried": "2026-10-20T16:23+09:00"
 }

@@ -2,7 +2,7 @@
  "tool": "weekly_analysis.py v1.3",
  "topic": "history",
  "name": "역사",
- "generated": "2026-10-19T07:24:26+00:00",
+ "generated": "2026-10-20T07:24:10+00:00",
  "cases": 714,
  "dated": 714,
  "older_than_windows": 0,
@@ -68,7 +68,7 @@
     }
    ],
    "views_median": 78103,
-   "views_per_day_median": 18235.2,
+   "views_per_day_median": 14436.7,
    "ratio_median": 22.82,
    "success": 9,
    "minutes_median": 14.3,
@@ -92,11 +92,11 @@
    ],
    "title_words": [
     {
-     "word": "넷플릭스",
+     "word": "한국",
      "count": 2
     },
     {
-     "word": "한국",
+     "word": "넷플릭스",
      "count": 2
     },
     {
@@ -113,12 +113,16 @@
    },
    "content_words": [
     {
+     "word": "함께",
+     "count": 5
+    },
+    {
      "word": "실제",
      "count": 5
     },
     {
-     "word": "함께",
-     "count": 5
+     "word": "바탕으로",
+     "count": 4
     },
     {
      "word": "그리고",
@@ -133,7 +137,7 @@
      "count": 4
     },
     {
-     "word": "바탕으로",
+     "word": "감사합니다",
      "count": 4
     },
     {
@@ -141,23 +145,19 @@
      "count": 4
     },
     {
-     "word": "감사합니다",
-     "count": 4
-    },
-    {
-     "word": "사건",
-     "count": 3
-    },
-    {
-     "word": "MacLeod",
-     "count": 3
-    },
-    {
      "word": "위해",
      "count": 3
     },
     {
-     "word": "기록을",
+     "word": "incompetech",
+     "count": 3
+    },
+    {
+     "word": "Kevin",
+     "count": 3
+    },
+    {
+     "word": "영상은",
      "count": 3
     }
    ],
@@ -236,7 +236,7 @@
      "title": "[일본반응] 일본이 숨기고 싶었던 잔혹한 역사 한국 드라마로 넷플릭스 공개되자 일본이 발칵 뒤집혔다. 오히려 \"한국 역사 다시 공부하자\" 반전 분위기",
      "channel": "초코티비",
      "views": 150905,
-     "views_per_day": 39516.6,
+     "views_per_day": 31317.2,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=iBsJYAMwbOI"
     },
@@ -245,7 +245,7 @@
      "title": "이무기가 왕이 된 조선 - 구미호와 여우 구슬 | 찬룡 EP.10",
      "channel": "투모로우 TO:MORROW",
      "views": 108424,
-     "views_per_day": 27860.5,
+     "views_per_day": 22165.9,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=YgZ8AZOq1js"
     },
@@ -254,7 +254,7 @@
      "title": "\"일본어 너무 잘해서 턱 빠질 뻔\" 일제강점기 한국 드라마가 일본 넷플릭스 TOP10에 들자 일본 시청자들이 남긴 말",
      "channel": "왓더",
      "views": 105907,
-     "views_per_day": 24132.2,
+     "views_per_day": 19654.5,
      "published": "2026-10-14",
      "url": "https://www.youtube.com/watch?v=RPBvkCsjnSY"
     },
@@ -263,7 +263,7 @@
      "title": "100 개 충격적인 역사적 사진, 전 세계에서 온",
      "channel": "사진으로 보는 역사",
      "views": 80092,
-     "views_per_day": 23906.6,
+     "views_per_day": 18411.8,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=rS6ybEPzw6k"
     },
@@ -272,7 +272,7 @@
      "title": "조선시대 장원급제하면 생기는 일 | 잔치 빚부터 출근 첫날 신고식까지",
      "channel": "역사잇수다",
      "views": 69292,
-     "views_per_day": 18235.2,
+     "views_per_day": 14436.7,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=7hixvj0cPrk"
     }
@@ -281,8 +281,8 @@
   {
    "weeks": 2,
    "label": "최근 2주",
-   "videos": 47,
-   "channels": 40,
+   "videos": 43,
+   "channels": 36,
    "new_this_week": [
     {
      "id": "-L8e8sbeu3c",
@@ -298,11 +298,6 @@
      "id": "3fmE-O13adY",
      "title": "[숨겨진 중국사] 제갈량보다 무서웠던 중국 최고의 책사 다섯명, 진짜 1위는? | 역사인물 | 야사 | 비사",
      "published": "2026-10-08"
-    },
-    {
-     "id": "4jEcvypcCuQ",
-     "title": "조선야담#52  남겨진 머슴과 과부마님. 옛날이야기. 야담.  야사,",
-     "published": "2026-10-05"
     },
     {
      "id": "6I_qpnaoM9Y",
@@ -370,11 +365,6 @@
      "published": "2026-10-09"
     },
     {
-     "id": "Mmv7xy1M_uM",
-     "title": "임진왜란 때, 포로로 끌려간 조선인 10만 명은 어떻게 되었을까?",
-     "published": "2026-10-05"
-    },
-    {
      "id": "T2Z6frSqJrs",
      "title": "\"조선 최고의 천재다\" 전세계가 세종대왕이 만든 한글을 극찬하는 이유",
      "published": "2026-10-07"
@@ -430,18 +420,8 @@
      "published": "2026-10-10"
     },
     {
-     "id": "hnNp4i12ysE",
-     "title": "조선에 치킨집을 열었더니 옆집 주막이 텅 비었다",
-     "published": "2026-10-05"
-    },
-    {
      "id": "i8RNMbV3q_g",
      "title": "\"미국에서 난리난 이순신 장군?!\" 충무공 이순신이 사무라이를 밀어내고 새로운 영웅이 된 진짜 이유",
-     "published": "2026-10-06"
-    },
-    {
-     "id": "iwQcR8HMeSQ",
-     "title": "하멜 표류기, 13년간 조선에 체류한 네덜란드인 하멜",
      "published": "2026-10-06"
     },
     {
@@ -475,62 +455,62 @@
      "published": "2026-10-07"
     }
    ],
-   "views_median": 91873,
-   "views_per_day_median": 10480.2,
-   "ratio_median": 24.78,
-   "success": 46,
-   "minutes_median": 16.3,
-   "title_len_avg": 43.5,
+   "views_median": 80092,
+   "views_per_day_median": 9489.9,
+   "ratio_median": 25.02,
+   "success": 42,
+   "minutes_median": 14.4,
+   "title_len_avg": 44.5,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 15,
-     "share": 0.319
+     "count": 14,
+     "share": 0.326
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 7,
-     "share": 0.149
+     "share": 0.163
     },
     {
      "name": "이유",
      "count": 7,
-     "share": 0.149
+     "share": 0.163
     },
     {
      "name": "느낌표 !",
      "count": 6,
-     "share": 0.128
+     "share": 0.14
     },
     {
      "name": "vs 비교",
      "count": 3,
-     "share": 0.064
+     "share": 0.07
     },
     {
      "name": "과정·벌어진 일·결말·결국",
      "count": 2,
-     "share": 0.043
+     "share": 0.047
     },
     {
      "name": "N가지",
      "count": 1,
-     "share": 0.021
+     "share": 0.023
     },
     {
      "name": "빚투·신용·미수·레버리지·대출",
      "count": 1,
-     "share": 0.021
+     "share": 0.023
     },
     {
      "name": "AI",
      "count": 1,
-     "share": 0.021
+     "share": 0.023
     },
     {
      "name": "코스피·폭락·급락·하락장",
      "count": 1,
-     "share": 0.021
+     "share": 0.023
     }
    ],
    "title_words": [
@@ -567,11 +547,11 @@
      "count": 3
     },
     {
-     "word": "야사",
+     "word": "한글을",
      "count": 3
     },
     {
-     "word": "한글을",
+     "word": "조선시대",
      "count": 3
     }
    ],
@@ -579,48 +559,36 @@
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 46,
+    "설명": 42,
     "없음": 1
    },
    "content_words": [
     {
      "word": "그리고",
-     "count": 28
+     "count": 26
     },
     {
      "word": "함께",
-     "count": 19
-    },
-    {
-     "word": "있습니다",
      "count": 18
     },
     {
-     "word": "이야기를",
-     "count": 15
+     "word": "있습니다",
+     "count": 17
     },
     {
-     "word": "이야기",
+     "word": "이야기를",
      "count": 14
     },
     {
-     "word": "사람들의",
+     "word": "이야기",
      "count": 13
+    },
+    {
+     "word": "사람들의",
+     "count": 12
     },
     {
      "word": "실제",
-     "count": 13
-    },
-    {
-     "word": "바탕으로",
-     "count": 12
-    },
-    {
-     "word": "역사",
-     "count": 12
-    },
-    {
-     "word": "우리가",
      "count": 12
     },
     {
@@ -628,11 +596,23 @@
      "count": 11
     },
     {
-     "word": "조선",
+     "word": "바탕으로",
      "count": 11
+    },
+    {
+     "word": "우리가",
+     "count": 11
+    },
+    {
+     "word": "역사",
+     "count": 11
+    },
+    {
+     "word": "역사와",
+     "count": 10
     }
    ],
-   "chapters_share": 0.447,
+   "chapters_share": 0.488,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -648,43 +628,43 @@
      "hook": "시청해 주셔서 감사합니다. 📜 사진으로 보는 역사**는 한 장의 사진 속에 담긴 시대의 흔적과 사람들의 이야기를 통해 과거를 새롭게 발견하는 역사 다큐멘터리 채널입니다. 모든 영상은 역사 자료 조사, 사실관계 검증, 세심한 기록물 분석 및 신중한 디지털 복원 작업을 바탕으로 제작됩니다."
     },
     {
-     "id": "iBsJYAMwbOI",
-     "title": "[일본반응] 일본이 숨기고 싶었던 잔혹한 역사 한국 드라마로 넷플릭스 공개되자 일본이 발칵 뒤집혔다. 오히려 \"한국 역사 다시 공부하자\" 반전 분위기",
+     "id": "6I_qpnaoM9Y",
+     "title": "세종의 나라로 돌아온 예언 적중 베스트셀러 작가, 김진명! 한글을 통한 또 다른 예언 | 마당밖김재원 Ep.16 (김진명 작가)",
      "src": "설명",
-     "hook": "한국 드라마 '100일의 거짓말' 전세계 넷플릭스 공개되자 난리난 상황 대한민국의 초특급 소식을 전하는 초코티비입니다. 시청해 주셔서 감사합니다!"
+     "hook": "밀리언셀러 작가 김진명 작가! 그가 새 소설 '세종의 나라'로 돌아왔다. 혁명이라고 해도 과언이 아닌 세종대왕의 한글 창제! 그 뒤에 감춰진 이야기와 한반도를 둘러싼 국제적 위기를 타계할 수 있는 '우리의 생존 전략'은 무엇인지 함께 얘기 나눠 봅니다. 더불어 AI시대에 살아남을 수 있"
     }
    ],
-   "comments": 4946,
+   "comments": 4210,
    "comment_needs": [
     {
-     "name": "질문",
-     "count": 745,
-     "share": 0.151
+     "name": "칭찬·감사",
+     "count": 644,
+     "share": 0.153
     },
     {
-     "name": "칭찬·감사",
-     "count": 676,
-     "share": 0.137
+     "name": "질문",
+     "count": 605,
+     "share": 0.144
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 290,
-     "share": 0.059
+     "count": 260,
+     "share": 0.062
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 186,
-     "share": 0.038
-    },
-    {
-     "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 181,
+     "count": 154,
      "share": 0.037
     },
     {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 145,
+     "share": 0.034
+    },
+    {
      "name": "요청",
-     "count": 141,
-     "share": 0.029
+     "count": 132,
+     "share": 0.031
     }
    ],
    "top_comments": [
@@ -707,7 +687,7 @@
      "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
      "channel": "보다 BODA",
      "views": 1329432,
-     "views_per_day": 161624.2,
+     "views_per_day": 144107.7,
      "published": "2026-10-11",
      "url": "https://www.youtube.com/watch?v=0y_c_-Ik_GQ"
     },
@@ -716,44 +696,44 @@
      "title": "75 충격적인 역사 사진, 꼭 보세요!",
      "channel": "사진으로 보는 역사",
      "views": 587381,
-     "views_per_day": 70696.1,
+     "views_per_day": 63102.6,
      "published": "2026-10-11",
      "url": "https://www.youtube.com/watch?v=wT9qEomWsew"
-    },
-    {
-     "id": "iBsJYAMwbOI",
-     "title": "[일본반응] 일본이 숨기고 싶었던 잔혹한 역사 한국 드라마로 넷플릭스 공개되자 일본이 발칵 뒤집혔다. 오히려 \"한국 역사 다시 공부하자\" 반전 분위기",
-     "channel": "초코티비",
-     "views": 150905,
-     "views_per_day": 39516.6,
-     "published": "2026-10-15",
-     "url": "https://www.youtube.com/watch?v=iBsJYAMwbOI"
     },
     {
      "id": "6I_qpnaoM9Y",
      "title": "세종의 나라로 돌아온 예언 적중 베스트셀러 작가, 김진명! 한글을 통한 또 다른 예언 | 마당밖김재원 Ep.16 (김진명 작가)",
      "channel": "마당 밖 김재원",
      "views": 374480,
-     "views_per_day": 37857.0,
+     "views_per_day": 34381.9,
      "published": "2026-10-09",
      "url": "https://www.youtube.com/watch?v=6I_qpnaoM9Y"
     },
     {
-     "id": "iwQcR8HMeSQ",
-     "title": "하멜 표류기, 13년간 조선에 체류한 네덜란드인 하멜",
-     "channel": "역사본능",
-     "views": 426206,
-     "views_per_day": 32025.5,
-     "published": "2026-10-06",
-     "url": "https://www.youtube.com/watch?v=iwQcR8HMeSQ"
+     "id": "iBsJYAMwbOI",
+     "title": "[일본반응] 일본이 숨기고 싶었던 잔혹한 역사 한국 드라마로 넷플릭스 공개되자 일본이 발칵 뒤집혔다. 오히려 \"한국 역사 다시 공부하자\" 반전 분위기",
+     "channel": "초코티비",
+     "views": 150905,
+     "views_per_day": 31317.2,
+     "published": "2026-10-15",
+     "url": "https://www.youtube.com/watch?v=iBsJYAMwbOI"
+    },
+    {
+     "id": "-L8e8sbeu3c",
+     "title": "조선 왕비 42명 중, 가장 행복했던 여자는 누구였을까?",
+     "channel": "역사탐사실",
+     "views": 331970,
+     "views_per_day": 26797.5,
+     "published": "2026-10-07",
+     "url": "https://www.youtube.com/watch?v=-L8e8sbeu3c"
     }
    ]
   },
   {
    "weeks": 3,
    "label": "최근 3주",
-   "videos": 71,
-   "channels": 56,
+   "videos": 65,
+   "channels": 54,
    "new_this_week": [
     {
      "id": "13pZ6WmCiGs",
@@ -781,6 +761,11 @@
      "published": "2026-10-01"
     },
     {
+     "id": "4jEcvypcCuQ",
+     "title": "조선야담#52  남겨진 머슴과 과부마님. 옛날이야기. 야담.  야사,",
+     "published": "2026-10-05"
+    },
+    {
      "id": "7AsY1jh4zsE",
      "title": "[미국반응]“굴욕적인 패배를 보여줬을 뿐인데.. 이것이 진짜 역사를 대하는 품격! 미국 영화계가 한국의 K사극 영화를 보고 큰 충격에 빠진 이유!”",
      "published": "2026-10-03"
@@ -801,16 +786,6 @@
      "published": "2026-10-01"
     },
     {
-     "id": "H_dJdZ3BIzI",
-     "title": "해 지기 전에 못 닿으면 끝이었다 | 조선시대 여행의 잔혹한 현실",
-     "published": "2026-09-28"
-    },
-    {
-     "id": "ItASrjGgMvo",
-     "title": "조선야담#20 어서 씻으라는 마님 # 옛날이야기  #민담  #전설",
-     "published": "2026-09-29"
-    },
-    {
      "id": "JU4AtsLwYPQ",
      "title": "어떻게 이 나라 하나가 전 세계 80억명을 먹여살리는걸까?｜인산염｜역사｜지리학｜세계사",
      "published": "2026-10-03"
@@ -826,9 +801,9 @@
      "published": "2026-10-03"
     },
     {
-     "id": "PGedVpjYgEk",
-     "title": "40분 전까지 이름도 몰랐는데 울었다 — 이순신을 처음 알게 된 외국인들",
-     "published": "2026-09-29"
+     "id": "Mmv7xy1M_uM",
+     "title": "임진왜란 때, 포로로 끌려간 조선인 10만 명은 어떻게 되었을까?",
+     "published": "2026-10-05"
     },
     {
      "id": "V40fQEAfXbM",
@@ -846,19 +821,14 @@
      "published": "2026-10-04"
     },
     {
-     "id": "nE1aAbOYw0I",
-     "title": "다 같은 '스탄'인데 뭐가 다른걸까? 중앙아시아 5개 스탄국의 비밀｜역사｜세계사｜소련",
-     "published": "2026-09-28"
+     "id": "hnNp4i12ysE",
+     "title": "조선에 치킨집을 열었더니 옆집 주막이 텅 비었다",
+     "published": "2026-10-05"
     },
     {
-     "id": "r2ziZQKriJI",
-     "title": "일본이 억지로 바꿔 놓은 좌측통행, 한국은 차가 7천 대뿐이던 해방 이듬해 통째로 뒤집어 버렸습니다",
-     "published": "2026-09-28"
-    },
-    {
-     "id": "tZ6pzMh4JYU",
-     "title": "“아이언맨 슈퍼맨 다 필요없다” 미국에서 갑자기 역대급 이순신 대열풍이 일어난 이유",
-     "published": "2026-09-29"
+     "id": "iwQcR8HMeSQ",
+     "title": "하멜 표류기, 13년간 조선에 체류한 네덜란드인 하멜",
+     "published": "2026-10-06"
     },
     {
      "id": "vp1Eet1Rmfk",
@@ -876,72 +846,72 @@
      "published": "2026-10-01"
     }
    ],
-   "views_median": 94251,
-   "views_per_day_median": 8562.3,
-   "ratio_median": 26.58,
-   "success": 69,
-   "minutes_median": 18.2,
-   "title_len_avg": 44.5,
+   "views_median": 91873,
+   "views_per_day_median": 8170.7,
+   "ratio_median": 25.02,
+   "success": 63,
+   "minutes_median": 17.7,
+   "title_len_avg": 44.7,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 24,
-     "share": 0.338
+     "count": 23,
+     "share": 0.354
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 11,
-     "share": 0.155
+     "count": 10,
+     "share": 0.154
     },
     {
      "name": "이유",
-     "count": 11,
-     "share": 0.155
+     "count": 10,
+     "share": 0.154
     },
     {
      "name": "느낌표 !",
      "count": 8,
-     "share": 0.113
+     "share": 0.123
     },
     {
      "name": "vs 비교",
-     "count": 6,
-     "share": 0.085
+     "count": 5,
+     "share": 0.077
     },
     {
      "name": "과정·벌어진 일·결말·결국",
      "count": 3,
-     "share": 0.042
+     "share": 0.046
     },
     {
      "name": "AI",
      "count": 2,
-     "share": 0.028
+     "share": 0.031
     },
     {
      "name": "금액(억·만원)",
      "count": 1,
-     "share": 0.014
+     "share": 0.015
     },
     {
      "name": "N가지",
      "count": 1,
-     "share": 0.014
+     "share": 0.015
     },
     {
      "name": "사연·오디오북·실화·고백",
      "count": 1,
-     "share": 0.014
+     "share": 0.015
     },
     {
      "name": "빚투·신용·미수·레버리지·대출",
      "count": 1,
-     "share": 0.014
+     "share": 0.015
     },
     {
      "name": "코스피·폭락·급락·하락장",
      "count": 1,
-     "share": 0.014
+     "share": 0.015
     }
    ],
    "title_words": [
@@ -951,15 +921,15 @@
     },
     {
      "word": "이유",
-     "count": 11
+     "count": 10
     },
     {
      "word": "역사",
-     "count": 9
+     "count": 8
     },
     {
      "word": "이순신",
-     "count": 7
+     "count": 6
     },
     {
      "word": "2026년",
@@ -982,7 +952,7 @@
      "count": 4
     },
     {
-     "word": "옛날이야기",
+     "word": "어떻게",
      "count": 4
     }
    ],
@@ -990,17 +960,17 @@
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 70,
+    "설명": 64,
     "없음": 1
    },
    "content_words": [
     {
      "word": "그리고",
-     "count": 40
+     "count": 35
     },
     {
      "word": "함께",
-     "count": 25
+     "count": 23
     },
     {
      "word": "있습니다",
@@ -1008,42 +978,42 @@
     },
     {
      "word": "이야기",
-     "count": 21
+     "count": 18
     },
     {
      "word": "바탕으로",
-     "count": 21
+     "count": 18
     },
     {
      "word": "조선",
-     "count": 21
+     "count": 18
     },
     {
      "word": "역사",
-     "count": 19
+     "count": 18
     },
     {
      "word": "우리가",
-     "count": 18
+     "count": 17
     },
     {
      "word": "이야기를",
-     "count": 18
-    },
-    {
-     "word": "봅니다",
      "count": 16
     },
     {
-     "word": "영상은",
+     "word": "봅니다",
      "count": 15
     },
     {
-     "word": "기록",
-     "count": 15
+     "word": "사람들의",
+     "count": 14
+    },
+    {
+     "word": "영상은",
+     "count": 14
     }
    ],
-   "chapters_share": 0.451,
+   "chapters_share": 0.462,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -1065,36 +1035,36 @@
      "hook": "시청해 주셔서 감사합니다. 📜 사진으로 보는 역사**는 한 장의 사진 속에 담긴 시대의 흔적과 사람들의 이야기를 통해 과거를 새롭게 발견하는 역사 다큐멘터리 채널입니다. 모든 영상은 역사 자료 조사, 사실관계 검증, 세심한 기록물 분석 및 신중한 디지털 복원 작업을 바탕으로 제작됩니다."
     }
    ],
-   "comments": 7839,
+   "comments": 7372,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 1143,
-     "share": 0.146
+     "count": 1072,
+     "share": 0.145
     },
     {
      "name": "칭찬·감사",
-     "count": 948,
-     "share": 0.121
+     "count": 907,
+     "share": 0.123
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 431,
-     "share": 0.055
+     "count": 398,
+     "share": 0.054
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 313,
-     "share": 0.04
+     "count": 291,
+     "share": 0.039
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 265,
+     "count": 251,
      "share": 0.034
     },
     {
      "name": "요청",
-     "count": 179,
+     "count": 173,
      "share": 0.023
     }
    ],
@@ -1118,7 +1088,7 @@
      "title": "인도 정부가 1000년의 역사를 몰래 지우고 있는 이유 (공백의 1000년..?)ㅣ역사를 보다 EP.164",
      "channel": "보다 BODA",
      "views": 2472883,
-     "views_per_day": 162412.9,
+     "views_per_day": 152405.1,
      "published": "2026-10-04",
      "url": "https://www.youtube.com/watch?v=vp1Eet1Rmfk"
     },
@@ -1127,7 +1097,7 @@
      "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
      "channel": "보다 BODA",
      "views": 1329432,
-     "views_per_day": 161624.2,
+     "views_per_day": 144107.7,
      "published": "2026-10-11",
      "url": "https://www.youtube.com/watch?v=0y_c_-Ik_GQ"
     },
@@ -1136,7 +1106,7 @@
      "title": "75 충격적인 역사 사진, 꼭 보세요!",
      "channel": "사진으로 보는 역사",
      "views": 587381,
-     "views_per_day": 70696.1,
+     "views_per_day": 63102.6,
      "published": "2026-10-11",
      "url": "https://www.youtube.com/watch?v=wT9qEomWsew"
     },
@@ -1145,26 +1115,26 @@
      "title": "세종대왕을 2026년 대한민국에 모셔왔더니 벌어진 일",
      "channel": "세계관오류",
      "views": 1044835,
-     "views_per_day": 61680.3,
+     "views_per_day": 58242.7,
      "published": "2026-10-02",
      "url": "https://www.youtube.com/watch?v=JfPvwN_MgGg"
     },
     {
-     "id": "nE1aAbOYw0I",
-     "title": "다 같은 '스탄'인데 뭐가 다른걸까? 중앙아시아 5개 스탄국의 비밀｜역사｜세계사｜소련",
-     "channel": "다시만난역사",
-     "views": 993716,
-     "views_per_day": 48826.4,
-     "published": "2026-09-28",
-     "url": "https://www.youtube.com/watch?v=nE1aAbOYw0I"
+     "id": "6I_qpnaoM9Y",
+     "title": "세종의 나라로 돌아온 예언 적중 베스트셀러 작가, 김진명! 한글을 통한 또 다른 예언 | 마당밖김재원 Ep.16 (김진명 작가)",
+     "channel": "마당 밖 김재원",
+     "views": 374480,
+     "views_per_day": 34381.9,
+     "published": "2026-10-09",
+     "url": "https://www.youtube.com/watch?v=6I_qpnaoM9Y"
     }
    ]
   },
   {
    "weeks": 4,
    "label": "최근 4주",
-   "videos": 115,
-   "channels": 88,
+   "videos": 110,
+   "channels": 84,
    "new_this_week": [
     {
      "id": "-k1advAYe5E",
@@ -1217,9 +1187,19 @@
      "published": "2026-09-27"
     },
     {
+     "id": "H_dJdZ3BIzI",
+     "title": "해 지기 전에 못 닿으면 끝이었다 | 조선시대 여행의 잔혹한 현실",
+     "published": "2026-09-28"
+    },
+    {
      "id": "HlGkmhX0J6c",
      "title": "\"충무공에 푹 빠진 미국\" 초능력도 없는 400년 전 이순신 장군 이야기에 열광하는 진짜 이유",
      "published": "2026-09-23"
+    },
+    {
+     "id": "ItASrjGgMvo",
+     "title": "조선야담#20 어서 씻으라는 마님 # 옛날이야기  #민담  #전설",
+     "published": "2026-09-29"
     },
     {
      "id": "J34px_R3eO4",
@@ -1247,9 +1227,9 @@
      "published": "2026-09-25"
     },
     {
-     "id": "PE6zM8WI08M",
-     "title": "유대 역사가 요세푸스는 예수를 어떻게 기록했는가 | 성경 밖의 결정적 증언",
-     "published": "2026-09-21"
+     "id": "PGedVpjYgEk",
+     "title": "40분 전까지 이름도 몰랐는데 울었다 — 이순신을 처음 알게 된 외국인들",
+     "published": "2026-09-29"
     },
     {
      "id": "Pl3jaa_L3Pw",
@@ -1260,11 +1240,6 @@
      "id": "QMZbscMfVpo",
      "title": "7발의 총성, 사라진 탄환…육영수 여사 사건의 미스터리 (암살자는 누구인가?) #육영수 #박정희 #암살 #총격 #문세광 #암살자(들) #한국사 #썬킴",
      "published": "2026-09-22"
-    },
-    {
-     "id": "QftIZGkR9MM",
-     "title": "세계 3분의 1이 왼쪽으로 달리는 이유",
-     "published": "2026-09-21"
     },
     {
      "id": "V6wB4wyGMqA",
@@ -1307,11 +1282,6 @@
      "published": "2026-09-25"
     },
     {
-     "id": "g2uoZbHFUrs",
-     "title": "미국에서 계속 완판되는 이순신 만화책, 요즘 미국인들이 이순신에 열광하는 이유 | 해외반응",
-     "published": "2026-09-21"
-    },
-    {
      "id": "iuHGTcdrKzs",
      "title": "미국 인터넷을 뜨겁게 달군 \"이순신 장군 열풍\"뜨거운 댓글 반응 / “이런 사람이 진짜 있었냐” 지금 미국이 이순신에 열광하는 진짜 이유",
      "published": "2026-09-23"
@@ -1327,19 +1297,24 @@
      "published": "2026-09-23"
     },
     {
+     "id": "nE1aAbOYw0I",
+     "title": "다 같은 '스탄'인데 뭐가 다른걸까? 중앙아시아 5개 스탄국의 비밀｜역사｜세계사｜소련",
+     "published": "2026-09-28"
+    },
+    {
      "id": "o7LyCfzJXlM",
      "title": "\"한국인들 건드리면 큰일 난다!\" 지금 미국 난리 난 이순신 열풍.. 찾아볼수록 더 놀란 미국인들",
      "published": "2026-09-27"
     },
     {
-     "id": "olrlcl1HoCo",
-     "title": "“누가 이순신을 사?” 미국서 무시당한 청년…결국 25만 부 팔아치웠다",
-     "published": "2026-09-22"
-    },
-    {
      "id": "pQ-R6g1dNIg",
      "title": "미국 인터넷과 댓글을 뜨겁게 달군 이순신 장군 열풍, 한국 영웅에 흥분하는 진짜 이유",
      "published": "2026-09-25"
+    },
+    {
+     "id": "r2ziZQKriJI",
+     "title": "일본이 억지로 바꿔 놓은 좌측통행, 한국은 차가 7천 대뿐이던 해방 이듬해 통째로 뒤집어 버렸습니다",
+     "published": "2026-09-28"
     },
     {
      "id": "r7PovYPhfuc",
@@ -1357,6 +1332,11 @@
      "published": "2026-09-27"
     },
     {
+     "id": "tZ6pzMh4JYU",
+     "title": "“아이언맨 슈퍼맨 다 필요없다” 미국에서 갑자기 역대급 이순신 대열풍이 일어난 이유",
+     "published": "2026-09-29"
+    },
+    {
      "id": "tlVSuaOykFk",
      "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
      "published": "2026-09-27"
@@ -1365,11 +1345,6 @@
      "id": "uXPzRDWIFSA",
      "title": "전 세계가 매년 100조를 쓸 때 한국만 0원인 진짜 이유  세종대왕이 600년 전 심어놓은 공짜 시스템의 정체",
      "published": "2026-09-26"
-    },
-    {
-     "id": "uz4NmWXC3Ac",
-     "title": "[숨겨진 중국사]  한번의 전투로 관우와 동급이 된 무명 장수 황충   | 역사인물 | 야사 | 비사",
-     "published": "2026-09-22"
     },
     {
      "id": "w56IxMajSHY",
@@ -1387,57 +1362,57 @@
      "published": "2026-09-25"
     }
    ],
-   "views_median": 108356,
-   "views_per_day_median": 7636.8,
-   "ratio_median": 26.58,
-   "success": 110,
-   "minutes_median": 19.4,
-   "title_len_avg": 44.4,
+   "views_median": 104973.5,
+   "views_per_day_median": 7111.0,
+   "ratio_median": 26.61,
+   "success": 105,
+   "minutes_median": 19.3,
+   "title_len_avg": 44.5,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 36,
-     "share": 0.313
+     "count": 35,
+     "share": 0.318
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 23,
-     "share": 0.2
-    },
-    {
-     "name": "이유",
-     "count": 22,
+     "count": 21,
      "share": 0.191
     },
     {
+     "name": "이유",
+     "count": 20,
+     "share": 0.182
+    },
+    {
      "name": "vs 비교",
-     "count": 14,
-     "share": 0.122
+     "count": 13,
+     "share": 0.118
     },
     {
      "name": "느낌표 !",
      "count": 11,
-     "share": 0.096
+     "share": 0.1
     },
     {
      "name": "과정·벌어진 일·결말·결국",
-     "count": 5,
-     "share": 0.043
+     "count": 4,
+     "share": 0.036
     },
     {
      "name": "직접·해보니·N년 기록",
      "count": 4,
-     "share": 0.035
+     "share": 0.036
     },
     {
      "name": "금액(억·만원)",
      "count": 2,
-     "share": 0.017
+     "share": 0.018
     },
     {
      "name": "AI",
      "count": 2,
-     "share": 0.017
+     "share": 0.018
     },
     {
      "name": "공통점",
@@ -1472,16 +1447,16 @@
    ],
    "title_words": [
     {
-     "word": "이유",
-     "count": 22
-    },
-    {
      "word": "조선",
      "count": 20
     },
     {
+     "word": "이유",
+     "count": 20
+    },
+    {
      "word": "이순신",
-     "count": 14
+     "count": 13
     },
     {
      "word": "역사",
@@ -1504,11 +1479,11 @@
      "count": 6
     },
     {
-     "word": "어떻게",
-     "count": 6
+     "word": "역사를",
+     "count": 5
     },
     {
-     "word": "역사를",
+     "word": "한국사",
      "count": 5
     }
    ],
@@ -1516,60 +1491,60 @@
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 111,
+    "설명": 106,
     "없음": 4
    },
    "content_words": [
     {
      "word": "그리고",
-     "count": 59
+     "count": 57
     },
     {
      "word": "조선",
-     "count": 37
-    },
-    {
-     "word": "이야기를",
      "count": 36
     },
     {
-     "word": "있습니다",
+     "word": "이야기를",
      "count": 35
     },
     {
      "word": "함께",
-     "count": 33
+     "count": 32
     },
     {
      "word": "이야기",
      "count": 32
     },
     {
-     "word": "역사",
-     "count": 32
+     "word": "있습니다",
+     "count": 31
     },
     {
-     "word": "바탕으로",
-     "count": 26
+     "word": "역사",
+     "count": 29
     },
     {
      "word": "우리가",
      "count": 25
     },
     {
-     "word": "영상은",
+     "word": "바탕으로",
      "count": 25
     },
     {
-     "word": "어떻게",
+     "word": "영상은",
      "count": 24
     },
     {
+     "word": "어떻게",
+     "count": 22
+    },
+    {
      "word": "조선의",
-     "count": 23
+     "count": 21
     }
    ],
-   "chapters_share": 0.496,
+   "chapters_share": 0.482,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -1591,36 +1566,36 @@
      "hook": "오늘 역사를보다는 '천사의 언어 에녹어'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 📖 [역사를 보다2] 📖 [역사를 보다] 📺강인욱 교수님의 개인채널 [고고한 강교수] 📖 박현도 교수님의 저서"
     }
    ],
-   "comments": 21160,
+   "comments": 20319,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 4281,
-     "share": 0.202
+     "count": 4115,
+     "share": 0.203
     },
     {
      "name": "칭찬·감사",
-     "count": 1648,
-     "share": 0.078
+     "count": 1558,
+     "share": 0.077
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 1118,
-     "share": 0.053
+     "count": 1058,
+     "share": 0.052
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 901,
+     "count": 864,
      "share": 0.043
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 789,
-     "share": 0.037
+     "count": 738,
+     "share": 0.036
     },
     {
      "name": "요청",
-     "count": 281,
+     "count": 272,
      "share": 0.013
     }
    ],
@@ -1644,7 +1619,7 @@
      "title": "인도 정부가 1000년의 역사를 몰래 지우고 있는 이유 (공백의 1000년..?)ㅣ역사를 보다 EP.164",
      "channel": "보다 BODA",
      "views": 2472883,
-     "views_per_day": 162412.9,
+     "views_per_day": 152405.1,
      "published": "2026-10-04",
      "url": "https://www.youtube.com/watch?v=vp1Eet1Rmfk"
     },
@@ -1653,7 +1628,7 @@
      "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
      "channel": "보다 BODA",
      "views": 1329432,
-     "views_per_day": 161624.2,
+     "views_per_day": 144107.7,
      "published": "2026-10-11",
      "url": "https://www.youtube.com/watch?v=0y_c_-Ik_GQ"
     },
@@ -1662,7 +1637,7 @@
      "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
      "channel": "보다 BODA",
      "views": 2832900,
-     "views_per_day": 127467.7,
+     "views_per_day": 121980.2,
      "published": "2026-09-27",
      "url": "https://www.youtube.com/watch?v=tlVSuaOykFk"
     },
@@ -1671,7 +1646,7 @@
      "title": "영화 [암살자(들)] VS 실제 문세광의 육영수 피살 사건, 모든 의문점과 의혹을 파헤친다.",
      "channel": "황현필 한국사",
      "views": 2229156,
-     "views_per_day": 99831.0,
+     "views_per_day": 95552.5,
      "published": "2026-09-26",
      "url": "https://www.youtube.com/watch?v=3gZPUwZZ8Zg"
     },
@@ -1680,7 +1655,7 @@
      "title": "성경에 차마 예수의 12세~30세까지 이야기를 담지 못한 이유(종교 대통합..)ㅣ역사를 보다 EP.162",
      "channel": "보다 BODA",
      "views": 2566548,
-     "views_per_day": 99126.6,
+     "views_per_day": 95441.1,
      "published": "2026-09-23",
      "url": "https://www.youtube.com/watch?v=w56IxMajSHY"
     }
@@ -1689,14 +1664,9 @@
   {
    "weeks": 5,
    "label": "최근 5주",
-   "videos": 140,
-   "channels": 104,
+   "videos": 134,
+   "channels": 101,
    "new_this_week": [
-    {
-     "id": "0jpGanPQC-U",
-     "title": "일본땅 오카야마에 '가야국'이 있었다! (임나일본부, 일본열도에서 그 흔적을 찾다 2편)",
-     "published": "2026-09-15"
-    },
     {
      "id": "1bjVlbD1kCY",
      "title": "마지막 황손 이석의 아침 밥상은? 교과서에는 없는 대한제국 황실의 진짜 이야기｜황손 이석의 승광재의 아침",
@@ -1723,14 +1693,19 @@
      "published": "2026-09-20"
     },
     {
-     "id": "MOJF6JpGS3A",
-     "title": "\"악마의 열매\" 커피 때문에 세계 역사가 뒤집어진 이유! 세계사를 바꾼 커피의 역사 ㅣ커피는 어떻게 세계인의 음료가 됐을까?",
-     "published": "2026-09-14"
+     "id": "PE6zM8WI08M",
+     "title": "유대 역사가 요세푸스는 예수를 어떻게 기록했는가 | 성경 밖의 결정적 증언",
+     "published": "2026-09-21"
     },
     {
      "id": "QIVNP9Th_xk",
      "title": "[7화] 공시생, 광해가 되다 : 전라도 Ⅱ",
      "published": "2026-09-18"
+    },
+    {
+     "id": "QftIZGkR9MM",
+     "title": "세계 3분의 1이 왼쪽으로 달리는 이유",
+     "published": "2026-09-21"
     },
     {
      "id": "Tq2dRv5ICiw",
@@ -1758,13 +1733,13 @@
      "published": "2026-09-18"
     },
     {
-     "id": "bcLdcEWs4yw",
-     "title": "독립자금에 전 재산을 쏟아부은 조선 최고 부자 경주 최부잣집 클라스",
-     "published": "2026-09-15"
-    },
-    {
      "id": "bqiOO4J2p4U",
      "title": "궁궐에서 늙은 궁녀는 마지막에 어디로 갔을까",
+     "published": "2026-09-21"
+    },
+    {
+     "id": "g2uoZbHFUrs",
+     "title": "미국에서 계속 완판되는 이순신 만화책, 요즘 미국인들이 이순신에 열광하는 이유 | 해외반응",
      "published": "2026-09-21"
     },
     {
@@ -1773,24 +1748,19 @@
      "published": "2026-09-18"
     },
     {
-     "id": "i0PBLKjg9Kg",
-     "title": "[숨겨진 중국사] 사기(史記): 사람을 읽는 상위 1%의 통찰, 같은 술자리에 앉았던 세 사람, 6년 뒤 운명이 갈린 이유｜사기 유방과 한신  | 역사인물 | 야사 | 비사",
-     "published": "2026-09-15"
-    },
-    {
      "id": "kk5ieUmNeJU",
      "title": "미국에서 계속 완판되는 이순신책 — 400년 전 조선시대 장군이 미국 영웅이 된 진짜 이유",
      "published": "2026-09-21"
     },
     {
-     "id": "kptTG2mAzGE",
-     "title": "발톱도 없는 인간을 왜 사자보다 무서워할까 | 고대문명",
-     "published": "2026-09-14"
-    },
-    {
      "id": "kq8suKRpa7s",
      "title": "이무기가 왕이 된 조선 | ‘찬룡’ 1~6화 완전판 몰아보기",
      "published": "2026-09-17"
+    },
+    {
+     "id": "olrlcl1HoCo",
+     "title": "“누가 이순신을 사?” 미국서 무시당한 청년…결국 25만 부 팔아치웠다",
+     "published": "2026-09-22"
     },
     {
      "id": "pjWYMEW1RNw",
@@ -1808,9 +1778,9 @@
      "published": "2026-09-19"
     },
     {
-     "id": "uezr9s1ffZM",
-     "title": "“아무도 오지 않았다” 16살 단종, 영월에서 홀로 버틴 4개월",
-     "published": "2026-09-14"
+     "id": "uz4NmWXC3Ac",
+     "title": "[숨겨진 중국사]  한번의 전투로 관우와 동급이 된 무명 장수 황충   | 역사인물 | 야사 | 비사",
+     "published": "2026-09-22"
     },
     {
      "id": "wFTPh8YhhLI",
@@ -1818,62 +1788,62 @@
      "published": "2026-09-19"
     }
    ],
-   "views_median": 107400.5,
-   "views_per_day_median": 6360.25,
-   "ratio_median": 30.89,
-   "success": 135,
-   "minutes_median": 19.45,
-   "title_len_avg": 44.7,
+   "views_median": 108390.0,
+   "views_per_day_median": 6098.05,
+   "ratio_median": 27.87,
+   "success": 129,
+   "minutes_median": 19.4,
+   "title_len_avg": 44.2,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 43,
-     "share": 0.307
+     "count": 42,
+     "share": 0.313
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 28,
-     "share": 0.2
+     "count": 26,
+     "share": 0.194
     },
     {
      "name": "이유",
-     "count": 27,
-     "share": 0.193
+     "count": 25,
+     "share": 0.187
     },
     {
      "name": "vs 비교",
      "count": 16,
-     "share": 0.114
+     "share": 0.119
     },
     {
      "name": "느낌표 !",
-     "count": 14,
-     "share": 0.1
+     "count": 12,
+     "share": 0.09
     },
     {
      "name": "과정·벌어진 일·결말·결국",
      "count": 5,
-     "share": 0.036
+     "share": 0.037
     },
     {
      "name": "직접·해보니·N년 기록",
      "count": 4,
-     "share": 0.029
+     "share": 0.03
     },
     {
      "name": "AI",
      "count": 4,
-     "share": 0.029
+     "share": 0.03
     },
     {
      "name": "금액(억·만원)",
      "count": 2,
-     "share": 0.014
+     "share": 0.015
     },
     {
      "name": "사연·오디오북·실화·고백",
      "count": 2,
-     "share": 0.014
+     "share": 0.015
     },
     {
      "name": "공통점",
@@ -1904,11 +1874,11 @@
    "title_words": [
     {
      "word": "이유",
-     "count": 27
+     "count": 25
     },
     {
      "word": "조선",
-     "count": 23
+     "count": 22
     },
     {
      "word": "이순신",
@@ -1916,11 +1886,7 @@
     },
     {
      "word": "역사",
-     "count": 15
-    },
-    {
-     "word": "어떻게",
-     "count": 9
+     "count": 14
     },
     {
      "word": "한국사",
@@ -1931,15 +1897,19 @@
      "count": 8
     },
     {
+     "word": "어떻게",
+     "count": 8
+    },
+    {
      "word": "EP",
      "count": 7
     },
     {
-     "word": "야사",
+     "word": "조선시대",
      "count": 7
     },
     {
-     "word": "조선시대",
+     "word": "조선에",
      "count": 7
     }
    ],
@@ -1947,60 +1917,60 @@
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 136,
+    "설명": 130,
     "없음": 4
    },
    "content_words": [
     {
      "word": "그리고",
-     "count": 70
+     "count": 68
     },
     {
      "word": "조선",
-     "count": 43
+     "count": 42
     },
     {
      "word": "이야기를",
-     "count": 43
+     "count": 40
     },
     {
      "word": "있습니다",
-     "count": 43
+     "count": 40
     },
     {
      "word": "함께",
-     "count": 41
-    },
-    {
-     "word": "역사",
-     "count": 38
-    },
-    {
-     "word": "이야기",
      "count": 37
     },
     {
-     "word": "영상은",
+     "word": "역사",
+     "count": 35
+    },
+    {
+     "word": "이야기",
      "count": 34
     },
     {
-     "word": "어떻게",
-     "count": 32
+     "word": "영상은",
+     "count": 31
     },
     {
      "word": "바탕으로",
-     "count": 32
+     "count": 30
     },
     {
      "word": "우리가",
-     "count": 29
+     "count": 28
+    },
+    {
+     "word": "어떻게",
+     "count": 28
     },
     {
      "word": "조선의",
-     "count": 27
+     "count": 26
     }
    ],
-   "chapters_share": 0.464,
+   "chapters_share": 0.47,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -2022,36 +1992,36 @@
      "hook": "오늘 역사를보다는 '천사의 언어 에녹어'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 📖 [역사를 보다2] 📖 [역사를 보다] 📺강인욱 교수님의 개인채널 [고고한 강교수] 📖 박현도 교수님의 저서"
     }
    ],
-   "comments": 22962,
+   "comments": 22592,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 4541,
+     "count": 4481,
      "share": 0.198
     },
     {
      "name": "칭찬·감사",
-     "count": 1919,
-     "share": 0.084
+     "count": 1875,
+     "share": 0.083
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 1192,
+     "count": 1167,
      "share": 0.052
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 977,
+     "count": 971,
      "share": 0.043
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 853,
+     "count": 835,
      "share": 0.037
     },
     {
      "name": "요청",
-     "count": 336,
+     "count": 330,
      "share": 0.015
     }
    ],
@@ -2075,7 +2045,7 @@
      "title": "인도 정부가 1000년의 역사를 몰래 지우고 있는 이유 (공백의 1000년..?)ㅣ역사를 보다 EP.164",
      "channel": "보다 BODA",
      "views": 2472883,
-     "views_per_day": 162412.9,
+     "views_per_day": 152405.1,
      "published": "2026-10-04",
      "url": "https://www.youtube.com/watch?v=vp1Eet1Rmfk"
     },
@@ -2084,7 +2054,7 @@
      "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
      "channel": "보다 BODA",
      "views": 1329432,
-     "views_per_day": 161624.2,
+     "views_per_day": 144107.7,
      "published": "2026-10-11",
      "url": "https://www.youtube.com/watch?v=0y_c_-Ik_GQ"
     },
@@ -2093,7 +2063,7 @@
      "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
      "channel": "보다 BODA",
      "views": 2832900,
-     "views_per_day": 127467.7,
+     "views_per_day": 121980.2,
      "published": "2026-09-27",
      "url": "https://www.youtube.com/watch?v=tlVSuaOykFk"
     },
@@ -2102,7 +2072,7 @@
      "title": "영화 [암살자(들)] VS 실제 문세광의 육영수 피살 사건, 모든 의문점과 의혹을 파헤친다.",
      "channel": "황현필 한국사",
      "views": 2229156,
-     "views_per_day": 99831.0,
+     "views_per_day": 95552.5,
      "published": "2026-09-26",
      "url": "https://www.youtube.com/watch?v=3gZPUwZZ8Zg"
     },
@@ -2111,7 +2081,7 @@
      "title": "성경에 차마 예수의 12세~30세까지 이야기를 담지 못한 이유(종교 대통합..)ㅣ역사를 보다 EP.162",
      "channel": "보다 BODA",
      "views": 2566548,
-     "views_per_day": 99126.6,
+     "views_per_day": 95441.1,
      "published": "2026-09-23",
      "url": "https://www.youtube.com/watch?v=w56IxMajSHY"
     }
@@ -2120,13 +2090,18 @@
   {
    "weeks": 6,
    "label": "최근 6주",
-   "videos": 171,
-   "channels": 126,
+   "videos": 164,
+   "channels": 122,
    "new_this_week": [
     {
      "id": "0SfgHs91EZc",
      "title": "왜 조선 사람들은 제일 낮고 편한 고개를 두고 험한 길로 돌아갔을까? | 문경새재, 대관령, 옛길의 진짜 공포 | 한국사 조선시대",
      "published": "2026-09-09"
+    },
+    {
+     "id": "0jpGanPQC-U",
+     "title": "일본땅 오카야마에 '가야국'이 있었다! (임나일본부, 일본열도에서 그 흔적을 찾다 2편)",
+     "published": "2026-09-15"
     },
     {
      "id": "2X1IZO4PqFw",
@@ -2179,19 +2154,14 @@
      "published": "2026-09-13"
     },
     {
-     "id": "KeHqBvsJyJ0",
-     "title": "🏛️영화 오디세이 원작, 한국어로 전편 무료 공개 | 🌊 AI고전 오뒷세이아",
-     "published": "2026-09-07"
-    },
-    {
      "id": "KyiRjwyGe0s",
      "title": "[역사한줄] 4K 조선 백성들이 먹은 음식들 총정리 | 역사교육 #한국사 #조선역사 #조선왕조실록 #시니어역사 #수면영상",
      "published": "2026-09-11"
     },
     {
-     "id": "OHbSIq9DNYs",
-     "title": "이순신 임진왜란 몰아보기 | 신임진왜란 1~5 통합본 | 역사 퓨전 AI 드라마",
-     "published": "2026-09-07"
+     "id": "MOJF6JpGS3A",
+     "title": "\"악마의 열매\" 커피 때문에 세계 역사가 뒤집어진 이유! 세계사를 바꾼 커피의 역사 ㅣ커피는 어떻게 세계인의 음료가 됐을까?",
+     "published": "2026-09-14"
     },
     {
      "id": "PKcdNOIwE4o",
@@ -2199,29 +2169,24 @@
      "published": "2026-09-11"
     },
     {
-     "id": "PmKbdO0FcnE",
-     "title": "조선 선비는 과거 보러 400km를 어떻게 걸어갔을까 | 국밥·엿·주막에 숨은 놀라운 이야기|사극은 거짓말? 과거 보러 가는 조선의 길에는 산적도 호랑이도 없었다",
-     "published": "2026-09-07"
-    },
-    {
-     "id": "R2I8J7noq2c",
-     "title": "[숨겨진 중국사]  유방을 황제로 만든 탁월한 전략가 장량이 스스로 권력을 버린 이유 | 역사인물 | 야사 | 비사",
-     "published": "2026-09-08"
-    },
-    {
      "id": "UAw390nt3vQ",
      "title": "국립현충원에서 가장 좋은 자리, 그 무덤의 주인은 조선의 궁녀였다",
      "published": "2026-09-08"
     },
     {
-     "id": "WkSUWR9v6uY",
-     "title": "《무장가문을 사로잡은 아기 복덩이》| [사극 힐링] 거친 무장 가문에 떨어진 복덩이 아기?! 냉혹한 장군 형제들을 전부 사로잡는다🏮🍡",
-     "published": "2026-09-07"
-    },
-    {
      "id": "XTkcF4ZQXnY",
      "title": "대체 무슨 일이 있었던 걸까? 아직도 풀리지 않은 한국사 미스터리 TOP5",
      "published": "2026-09-08"
+    },
+    {
+     "id": "bcLdcEWs4yw",
+     "title": "독립자금에 전 재산을 쏟아부은 조선 최고 부자 경주 최부잣집 클라스",
+     "published": "2026-09-15"
+    },
+    {
+     "id": "i0PBLKjg9Kg",
+     "title": "[숨겨진 중국사] 사기(史記): 사람을 읽는 상위 1%의 통찰, 같은 술자리에 앉았던 세 사람, 6년 뒤 운명이 갈린 이유｜사기 유방과 한신  | 역사인물 | 야사 | 비사",
+     "published": "2026-09-15"
     },
     {
      "id": "i8zHObvItK8",
@@ -2234,11 +2199,6 @@
      "published": "2026-09-11"
     },
     {
-     "id": "j8k7oBCLZps",
-     "title": "100만 만주족은 어떻게 1억 5천만 대륙을 268년간 통치했을까?(소름 돋는 청나라 지배의 비밀)",
-     "published": "2026-09-07"
-    },
-    {
      "id": "jApSZXpwkLE",
      "title": "산에서 쓰러진 사내를 아버지라 부른 7살 딸, 그는 사실 도망 중인 임금이었는데...  옛날이야기 | 민담 | 야담ㅣ수면동화 | 오디오북",
      "published": "2026-09-14"
@@ -2246,6 +2206,11 @@
     {
      "id": "jPD0q56ReZE",
      "title": "정조가 죽고 5개월간 궁궐에 남은 이유! 조선 왕이 죽고 나면 벌어지는 일 [조선왕릉의 비밀]",
+     "published": "2026-09-14"
+    },
+    {
+     "id": "kptTG2mAzGE",
+     "title": "발톱도 없는 인간을 왜 사자보다 무서워할까 | 고대문명",
      "published": "2026-09-14"
     },
     {
@@ -2259,9 +2224,9 @@
      "published": "2026-09-12"
     },
     {
-     "id": "wjntCMcZLgE",
-     "title": "수십조 가치 인도 보물 사원을 고고학계에서 손도 못 대는 이유 (저주의 문..?) ㅣ역사를 보다 EP.160",
-     "published": "2026-09-07"
+     "id": "uezr9s1ffZM",
+     "title": "“아무도 오지 않았다” 16살 단종, 영월에서 홀로 버틴 4개월",
+     "published": "2026-09-14"
     },
     {
      "id": "ymSL8cjjxqU",
@@ -2279,67 +2244,62 @@
      "published": "2026-09-13"
     }
    ],
-   "views_median": 129287,
-   "views_per_day_median": 6547.2,
-   "ratio_median": 26.65,
-   "success": 160,
-   "minutes_median": 21.9,
-   "title_len_avg": 46.4,
+   "views_median": 121019.5,
+   "views_per_day_median": 6098.05,
+   "ratio_median": 29.41,
+   "success": 155,
+   "minutes_median": 20.65,
+   "title_len_avg": 45.8,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 54,
-     "share": 0.316
+     "count": 50,
+     "share": 0.305
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 34,
-     "share": 0.199
+     "count": 32,
+     "share": 0.195
     },
     {
      "name": "이유",
-     "count": 32,
-     "share": 0.187
+     "count": 30,
+     "share": 0.183
     },
     {
      "name": "느낌표 !",
-     "count": 18,
-     "share": 0.105
+     "count": 17,
+     "share": 0.104
     },
     {
      "name": "vs 비교",
      "count": 17,
-     "share": 0.099
-    },
-    {
-     "name": "AI",
-     "count": 7,
-     "share": 0.041
+     "share": 0.104
     },
     {
      "name": "과정·벌어진 일·결말·결국",
      "count": 6,
-     "share": 0.035
+     "share": 0.037
     },
     {
-     "name": "금액(억·만원)",
-     "count": 4,
-     "share": 0.023
+     "name": "AI",
+     "count": 5,
+     "share": 0.03
     },
     {
      "name": "사연·오디오북·실화·고백",
      "count": 4,
-     "share": 0.023
+     "share": 0.024
     },
     {
      "name": "직접·해보니·N년 기록",
      "count": 4,
-     "share": 0.023
+     "share": 0.024
     },
     {
-     "name": "두 금액(반전)",
-     "count": 1,
-     "share": 0.006
+     "name": "금액(억·만원)",
+     "count": 3,
+     "share": 0.018
     },
     {
      "name": "공통점",
@@ -2369,43 +2329,43 @@
    ],
    "title_words": [
     {
-     "word": "이유",
-     "count": 32
+     "word": "조선",
+     "count": 30
     },
     {
-     "word": "조선",
-     "count": 31
+     "word": "이유",
+     "count": 30
     },
     {
      "word": "이순신",
-     "count": 18
+     "count": 17
     },
     {
      "word": "역사",
-     "count": 18
+     "count": 17
     },
     {
      "word": "한국사",
      "count": 13
     },
     {
-     "word": "어떻게",
-     "count": 12
-    },
-    {
      "word": "조선시대",
      "count": 11
     },
     {
-     "word": "EP",
-     "count": 9
+     "word": "어떻게",
+     "count": 10
     },
     {
      "word": "조선에",
      "count": 9
     },
     {
-     "word": "역사를",
+     "word": "EP",
+     "count": 8
+    },
+    {
+     "word": "미국",
      "count": 8
     }
    ],
@@ -2413,7 +2373,7 @@
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 167,
+    "설명": 160,
     "없음": 4
    },
    "content_words": [
@@ -2423,50 +2383,50 @@
     },
     {
      "word": "조선",
-     "count": 60
+     "count": 58
     },
     {
      "word": "있습니다",
-     "count": 55
+     "count": 53
     },
     {
      "word": "이야기를",
-     "count": 52
-    },
-    {
-     "word": "역사",
-     "count": 49
+     "count": 50
     },
     {
      "word": "함께",
-     "count": 47
+     "count": 46
     },
     {
-     "word": "영상은",
-     "count": 44
+     "word": "역사",
+     "count": 46
     },
     {
      "word": "이야기",
-     "count": 43
+     "count": 42
+    },
+    {
+     "word": "영상은",
+     "count": 40
     },
     {
      "word": "어떻게",
-     "count": 38
+     "count": 36
     },
     {
      "word": "바탕으로",
-     "count": 38
+     "count": 36
     },
     {
      "word": "우리가",
-     "count": 35
+     "count": 34
     },
     {
      "word": "조선의",
-     "count": 35
+     "count": 34
     }
    ],
-   "chapters_share": 0.439,
+   "chapters_share": 0.445,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -2488,51 +2448,51 @@
      "hook": "오늘 역사를보다는 '천사의 언어 에녹어'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 📖 [역사를 보다2] 📖 [역사를 보다] 📺강인욱 교수님의 개인채널 [고고한 강교수] 📖 박현도 교수님의 저서"
     }
    ],
-   "comments": 30566,
+   "comments": 29178,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 5845,
-     "share": 0.191
+     "count": 5668,
+     "share": 0.194
     },
     {
      "name": "칭찬·감사",
-     "count": 2595,
-     "share": 0.085
+     "count": 2415,
+     "share": 0.083
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 1527,
-     "share": 0.05
+     "count": 1478,
+     "share": 0.051
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 1302,
-     "share": 0.043
+     "count": 1192,
+     "share": 0.041
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 1094,
+     "count": 1063,
      "share": 0.036
     },
     {
      "name": "요청",
-     "count": 440,
+     "count": 420,
      "share": 0.014
     }
    ],
    "top_comments": [
     {
-     "text": "여수박람회에 700억 쓸 돈을 EBS 제작비로 쓰자. 훨 값어치 하겠다.",
-     "likes": 5067
-    },
-    {
-     "text": "ai 발전으로 AI를 제일 제대로 쓰는 지상파가  EBS ㅋㅋㅋ",
-     "likes": 3783
-    },
-    {
      "text": "근데 이게 북한이 사실인냥 주장하며 만든 영화랑 내용 맥락이 똑같음...",
      "likes": 2779
+    },
+    {
+     "text": "수사한 검사가 조작달인 김기춘 검사였다는게 의문이 더하네",
+     "likes": 2121
+    },
+    {
+     "text": "그리스인들이 고트인 이유\n시민권을 군역에 참여하고 납세의 의무를 하고있는 사람에게만 줌 ㅇㅇㅇ\n투표권은 진짜 이렇게만 줘야한다고 봐야함",
+     "likes": 1934
     }
    ],
    "top_videos": [
@@ -2541,7 +2501,7 @@
      "title": "인도 정부가 1000년의 역사를 몰래 지우고 있는 이유 (공백의 1000년..?)ㅣ역사를 보다 EP.164",
      "channel": "보다 BODA",
      "views": 2472883,
-     "views_per_day": 162412.9,
+     "views_per_day": 152405.1,
      "published": "2026-10-04",
      "url": "https://www.youtube.com/watch?v=vp1Eet1Rmfk"
     },
@@ -2550,7 +2510,7 @@
      "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
      "channel": "보다 BODA",
      "views": 1329432,
-     "views_per_day": 161624.2,
+     "views_per_day": 144107.7,
      "published": "2026-10-11",
      "url": "https://www.youtube.com/watch?v=0y_c_-Ik_GQ"
     },
@@ -2559,7 +2519,7 @@
      "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
      "channel": "보다 BODA",
      "views": 2832900,
-     "views_per_day": 127467.7,
+     "views_per_day": 121980.2,
      "published": "2026-09-27",
      "url": "https://www.youtube.com/watch?v=tlVSuaOykFk"
     },
@@ -2568,7 +2528,7 @@
      "title": "영화 [암살자(들)] VS 실제 문세광의 육영수 피살 사건, 모든 의문점과 의혹을 파헤친다.",
      "channel": "황현필 한국사",
      "views": 2229156,
-     "views_per_day": 99831.0,
+     "views_per_day": 95552.5,
      "published": "2026-09-26",
      "url": "https://www.youtube.com/watch?v=3gZPUwZZ8Zg"
     },
@@ -2577,7 +2537,7 @@
      "title": "성경에 차마 예수의 12세~30세까지 이야기를 담지 못한 이유(종교 대통합..)ㅣ역사를 보다 EP.162",
      "channel": "보다 BODA",
      "views": 2566548,
-     "views_per_day": 99126.6,
+     "views_per_day": 95441.1,
      "published": "2026-09-23",
      "url": "https://www.youtube.com/watch?v=w56IxMajSHY"
     }
@@ -2586,7 +2546,7 @@
   {
    "weeks": 7,
    "label": "최근 7주",
-   "videos": 191,
+   "videos": 190,
    "channels": 138,
    "new_this_week": [
     {
@@ -2615,6 +2575,26 @@
      "published": "2026-09-05"
     },
     {
+     "id": "KeHqBvsJyJ0",
+     "title": "🏛️영화 오디세이 원작, 한국어로 전편 무료 공개 | 🌊 AI고전 오뒷세이아",
+     "published": "2026-09-07"
+    },
+    {
+     "id": "OHbSIq9DNYs",
+     "title": "이순신 임진왜란 몰아보기 | 신임진왜란 1~5 통합본 | 역사 퓨전 AI 드라마",
+     "published": "2026-09-07"
+    },
+    {
+     "id": "PmKbdO0FcnE",
+     "title": "조선 선비는 과거 보러 400km를 어떻게 걸어갔을까 | 국밥·엿·주막에 숨은 놀라운 이야기|사극은 거짓말? 과거 보러 가는 조선의 길에는 산적도 호랑이도 없었다",
+     "published": "2026-09-07"
+    },
+    {
+     "id": "R2I8J7noq2c",
+     "title": "[숨겨진 중국사]  유방을 황제로 만든 탁월한 전략가 장량이 스스로 권력을 버린 이유 | 역사인물 | 야사 | 비사",
+     "published": "2026-09-08"
+    },
+    {
      "id": "RKvtPoSMm6M",
      "title": "피라미드는 명함도 못 내미는 초고대 유적 | 카라한테페의 정체",
      "published": "2026-09-05"
@@ -2623,6 +2603,11 @@
      "id": "T8bS_yX629Y",
      "title": "며느리보다 10살 어린 시어머니, 그녀는 조선을 뒤흔들었다",
      "published": "2026-09-06"
+    },
+    {
+     "id": "WkSUWR9v6uY",
+     "title": "《무장가문을 사로잡은 아기 복덩이》| [사극 힐링] 거친 무장 가문에 떨어진 복덩이 아기?! 냉혹한 장군 형제들을 전부 사로잡는다🏮🍡",
+     "published": "2026-09-07"
     },
     {
      "id": "WyMXnXbuy90",
@@ -2660,6 +2645,11 @@
      "published": "2026-09-03"
     },
     {
+     "id": "j8k7oBCLZps",
+     "title": "100만 만주족은 어떻게 1억 5천만 대륙을 268년간 통치했을까?(소름 돋는 청나라 지배의 비밀)",
+     "published": "2026-09-07"
+    },
+    {
      "id": "lZkbngqXdeg",
      "title": "[숨겨진 중국사] 유방이 두려워한 건 번쾌의 배신이 아니라 충성이었다 | 임종 직전 내려진 참수 명령의 진짜 이유  | 역사인물 | 야사 | 비사",
      "published": "2026-09-06"
@@ -2675,6 +2665,11 @@
      "published": "2026-09-04"
     },
     {
+     "id": "wjntCMcZLgE",
+     "title": "수십조 가치 인도 보물 사원을 고고학계에서 손도 못 대는 이유 (저주의 문..?) ㅣ역사를 보다 EP.160",
+     "published": "2026-09-07"
+    },
+    {
      "id": "xOymiiJiUQ0",
      "title": "와.. 《남벌》 진짜 미쳤다..🔥 '이병헌&고윤정&이도현' 조합으로 돌아오는 대마도 왜구 토벌 사극영화부터 제작비 '300억'이 들어간 KBS 대형 드라마까지..ㄷㄷ",
      "published": "2026-09-05"
@@ -2683,34 +2678,29 @@
      "id": "xxisrZG3d0I",
      "title": "[3부작] 이순신의 실제 얼굴을 찾아서2 #이순신후손",
      "published": "2026-09-01"
-    },
-    {
-     "id": "zEqc-ZEXimo",
-     "title": "83세 급제자와 15세 급제자 | 조선에서 가장 잔혹했던 시험의 500년",
-     "published": "2026-08-31"
     }
    ],
-   "views_median": 118900,
-   "views_per_day_median": 5871.5,
-   "ratio_median": 27.21,
-   "success": 178,
-   "minutes_median": 21.1,
+   "views_median": 119077.5,
+   "views_per_day_median": 5458.35,
+   "ratio_median": 28.15,
+   "success": 177,
+   "minutes_median": 21.05,
    "title_len_avg": 46.7,
    "title_features": [
     {
      "name": "물음표 ?",
      "count": 54,
-     "share": 0.283
+     "share": 0.284
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 36,
-     "share": 0.188
+     "share": 0.189
     },
     {
      "name": "이유",
      "count": 34,
-     "share": 0.178
+     "share": 0.179
     },
     {
      "name": "느낌표 !",
@@ -2720,7 +2710,7 @@
     {
      "name": "vs 비교",
      "count": 18,
-     "share": 0.094
+     "share": 0.095
     },
     {
      "name": "AI",
@@ -2730,7 +2720,7 @@
     {
      "name": "과정·벌어진 일·결말·결국",
      "count": 6,
-     "share": 0.031
+     "share": 0.032
     },
     {
      "name": "금액(억·만원)",
@@ -2750,7 +2740,7 @@
     {
      "name": "손실 낱말(망하·날린·잃은·반토막)",
      "count": 2,
-     "share": 0.01
+     "share": 0.011
     },
     {
      "name": "두 금액(반전)",
@@ -2812,11 +2802,11 @@
      "count": 10
     },
     {
-     "word": "가장",
+     "word": "역사를",
      "count": 9
     },
     {
-     "word": "역사를",
+     "word": "비밀",
      "count": 9
     }
    ],
@@ -2824,17 +2814,17 @@
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 184,
+    "설명": 183,
     "없음": 7
    },
    "content_words": [
     {
      "word": "그리고",
-     "count": 87
+     "count": 86
     },
     {
      "word": "조선",
-     "count": 63
+     "count": 62
     },
     {
      "word": "있습니다",
@@ -2874,10 +2864,10 @@
     },
     {
      "word": "조선의",
-     "count": 38
+     "count": 37
     }
    ],
-   "chapters_share": 0.445,
+   "chapters_share": 0.442,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -2899,16 +2889,16 @@
      "hook": "오늘 역사를보다는 '천사의 언어 에녹어'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 📖 [역사를 보다2] 📖 [역사를 보다] 📺강인욱 교수님의 개인채널 [고고한 강교수] 📖 박현도 교수님의 저서"
     }
    ],
-   "comments": 33281,
+   "comments": 33268,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 6262,
+     "count": 6260,
      "share": 0.188
     },
     {
      "name": "칭찬·감사",
-     "count": 2905,
+     "count": 2900,
      "share": 0.087
     },
     {
@@ -2928,7 +2918,7 @@
     },
     {
      "name": "요청",
-     "count": 475,
+     "count": 474,
      "share": 0.014
     }
    ],
@@ -2952,7 +2942,7 @@
      "title": "인도 정부가 1000년의 역사를 몰래 지우고 있는 이유 (공백의 1000년..?)ㅣ역사를 보다 EP.164",
      "channel": "보다 BODA",
      "views": 2472883,
-     "views_per_day": 162412.9,
+     "views_per_day": 152405.1,
      "published": "2026-10-04",
      "url": "https://www.youtube.com/watch?v=vp1Eet1Rmfk"
     },
@@ -2961,7 +2951,7 @@
      "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
      "channel": "보다 BODA",
      "views": 1329432,
-     "views_per_day": 161624.2,
+     "views_per_day": 144107.7,
      "published": "2026-10-11",
      "url": "https://www.youtube.com/watch?v=0y_c_-Ik_GQ"
     },
@@ -2970,7 +2960,7 @@
      "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
      "channel": "보다 BODA",
      "views": 2832900,
-     "views_per_day": 127467.7,
+     "views_per_day": 121980.2,
      "published": "2026-09-27",
      "url": "https://www.youtube.com/watch?v=tlVSuaOykFk"
     },
@@ -2979,7 +2969,7 @@
      "title": "영화 [암살자(들)] VS 실제 문세광의 육영수 피살 사건, 모든 의문점과 의혹을 파헤친다.",
      "channel": "황현필 한국사",
      "views": 2229156,
-     "views_per_day": 99831.0,
+     "views_per_day": 95552.5,
      "published": "2026-09-26",
      "url": "https://www.youtube.com/watch?v=3gZPUwZZ8Zg"
     },
@@ -2988,7 +2978,7 @@
      "title": "성경에 차마 예수의 12세~30세까지 이야기를 담지 못한 이유(종교 대통합..)ㅣ역사를 보다 EP.162",
      "channel": "보다 BODA",
      "views": 2566548,
-     "views_per_day": 99126.6,
+     "views_per_day": 95441.1,
      "published": "2026-09-23",
      "url": "https://www.youtube.com/watch?v=w56IxMajSHY"
     }
@@ -2997,14 +2987,9 @@
   {
    "weeks": 8,
    "label": "최근 8주",
-   "videos": 221,
-   "channels": 154,
+   "videos": 220,
+   "channels": 153,
    "new_this_week": [
-    {
-     "id": "-f0CsdR5eJE",
-     "title": "이순신이 원수 자격을 의심했던 조선군 총사령관?!",
-     "published": "2026-08-24"
-    },
     {
      "id": "06ORKfm5PHU",
      "title": "조선을 비웃으려던 명나라 사신이 세 가지 난제를 던졌다… 말똥 치우던 10살 종놈이 첫 번째 답을 내놓는 순간, 사신의 웃음이 순식간에 사라졌다 | 야담 | 민담 | 설화 |",
@@ -3149,19 +3134,24 @@
      "id": "ymyvysUivBw",
      "title": "세계를 지배했던 로마제국은 왜 멸망했을까?",
      "published": "2026-08-29"
+    },
+    {
+     "id": "zEqc-ZEXimo",
+     "title": "83세 급제자와 15세 급제자 | 조선에서 가장 잔혹했던 시험의 500년",
+     "published": "2026-08-31"
     }
    ],
-   "views_median": 122784,
-   "views_per_day_median": 5600.5,
-   "ratio_median": 26.58,
-   "success": 205,
+   "views_median": 126035.5,
+   "views_per_day_median": 5363.8,
+   "ratio_median": 26.39,
+   "success": 204,
    "minutes_median": 21.9,
-   "title_len_avg": 47.1,
+   "title_len_avg": 47.2,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 60,
-     "share": 0.271
+     "count": 59,
+     "share": 0.268
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
@@ -3171,17 +3161,17 @@
     {
      "name": "이유",
      "count": 39,
-     "share": 0.176
+     "share": 0.177
     },
     {
      "name": "느낌표 !",
-     "count": 24,
-     "share": 0.109
+     "count": 23,
+     "share": 0.105
     },
     {
      "name": "vs 비교",
      "count": 18,
-     "share": 0.081
+     "share": 0.082
     },
     {
      "name": "AI",
@@ -3285,13 +3275,13 @@
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 212,
+    "설명": 211,
     "없음": 9
    },
    "content_words": [
     {
      "word": "그리고",
-     "count": 104
+     "count": 103
     },
     {
      "word": "조선",
@@ -3310,12 +3300,12 @@
      "count": 57
     },
     {
-     "word": "함께",
+     "word": "영상은",
      "count": 54
     },
     {
-     "word": "영상은",
-     "count": 54
+     "word": "함께",
+     "count": 53
     },
     {
      "word": "이야기",
@@ -3335,10 +3325,10 @@
     },
     {
      "word": "조선의",
-     "count": 43
+     "count": 42
     }
    ],
-   "chapters_share": 0.448,
+   "chapters_share": 0.445,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -3360,36 +3350,36 @@
      "hook": "오늘 역사를보다는 '천사의 언어 에녹어'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 📖 [역사를 보다2] 📖 [역사를 보다] 📺강인욱 교수님의 개인채널 [고고한 강교수] 📖 박현도 교수님의 저서"
     }
    ],
-   "comments": 39254,
+   "comments": 39224,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 7223,
+     "count": 7220,
      "share": 0.184
     },
     {
      "name": "칭찬·감사",
-     "count": 3513,
+     "count": 3503,
      "share": 0.089
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 1903,
+     "count": 1902,
      "share": 0.048
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 1707,
+     "count": 1706,
      "share": 0.043
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 1333,
+     "count": 1331,
      "share": 0.034
     },
     {
      "name": "요청",
-     "count": 607,
+     "count": 606,
      "share": 0.015
     }
    ],
@@ -3413,7 +3403,7 @@
      "title": "인도 정부가 1000년의 역사를 몰래 지우고 있는 이유 (공백의 1000년..?)ㅣ역사를 보다 EP.164",
      "channel": "보다 BODA",
      "views": 2472883,
-     "views_per_day": 162412.9,
+     "views_per_day": 152405.1,
      "published": "2026-10-04",
      "url": "https://www.youtube.com/watch?v=vp1Eet1Rmfk"
     },
@@ -3422,7 +3412,7 @@
      "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
      "channel": "보다 BODA",
      "views": 1329432,
-     "views_per_day": 161624.2,
+     "views_per_day": 144107.7,
      "published": "2026-10-11",
      "url": "https://www.youtube.com/watch?v=0y_c_-Ik_GQ"
     },
@@ -3431,7 +3421,7 @@
      "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
      "channel": "보다 BODA",
      "views": 2832900,
-     "views_per_day": 127467.7,
+     "views_per_day": 121980.2,
      "published": "2026-09-27",
      "url": "https://www.youtube.com/watch?v=tlVSuaOykFk"
     },
@@ -3440,7 +3430,7 @@
      "title": "영화 [암살자(들)] VS 실제 문세광의 육영수 피살 사건, 모든 의문점과 의혹을 파헤친다.",
      "channel": "황현필 한국사",
      "views": 2229156,
-     "views_per_day": 99831.0,
+     "views_per_day": 95552.5,
      "published": "2026-09-26",
      "url": "https://www.youtube.com/watch?v=3gZPUwZZ8Zg"
     },
@@ -3449,7 +3439,7 @@
      "title": "성경에 차마 예수의 12세~30세까지 이야기를 담지 못한 이유(종교 대통합..)ㅣ역사를 보다 EP.162",
      "channel": "보다 BODA",
      "views": 2566548,
-     "views_per_day": 99126.6,
+     "views_per_day": 95441.1,
      "published": "2026-09-23",
      "url": "https://www.youtube.com/watch?v=w56IxMajSHY"
     }
@@ -3458,9 +3448,14 @@
   {
    "weeks": 9,
    "label": "최근 9주",
-   "videos": 249,
-   "channels": 177,
+   "videos": 246,
+   "channels": 174,
    "new_this_week": [
+    {
+     "id": "-f0CsdR5eJE",
+     "title": "이순신이 원수 자격을 의심했던 조선군 총사령관?!",
+     "published": "2026-08-24"
+    },
     {
      "id": "34eZlgvSfDM",
      "title": "제1차 세계대전 최악의 소모전, 베르됭 전투 3D | 완전판",
@@ -3490,11 +3485,6 @@
      "id": "A5p5XCMhzP4",
      "title": "만주에서 잊혀진 216만명 한국인들의 마지막 이야기",
      "published": "2026-08-21"
-    },
-    {
-     "id": "FSUt5VNvoj4",
-     "title": "조선 최고령 사형수 | 88세 영의정은 왜 목이 잘렸나",
-     "published": "2026-08-17"
     },
     {
      "id": "HbaG82CmZF4",
@@ -3542,11 +3532,6 @@
      "published": "2026-08-23"
     },
     {
-     "id": "VU7nOsg3tDw",
-     "title": "최강 일본도를 깨부순 조선의 무기, 그건 농기구였다.",
-     "published": "2026-08-17"
-    },
-    {
      "id": "W10XUliVstQ",
      "title": "광복 직후 떠난 일본인 71만 명의 재산은 어디로 갔는가 | 대한민국의 진짜 출발선",
      "published": "2026-08-21"
@@ -3587,11 +3572,6 @@
      "published": "2026-08-18"
     },
     {
-     "id": "sq8Un9KgH9g",
-     "title": "이거 하나면 그리스 신화 아는 척 가능 ⚡ 신들의 막장 족보 총정리 (제우스부터 오디세우스까지)",
-     "published": "2026-08-17"
-    },
-    {
      "id": "wPyDScq1_Lo",
      "title": "[미인도] 조선시대 브이로그 | 4K 풀버전",
      "published": "2026-08-22"
@@ -3602,47 +3582,47 @@
      "published": "2026-08-20"
     }
    ],
-   "views_median": 132226,
-   "views_per_day_median": 5105.2,
-   "ratio_median": 26.32,
-   "success": 233,
-   "minutes_median": 22.5,
-   "title_len_avg": 46.9,
+   "views_median": 130199.5,
+   "views_per_day_median": 4772.0,
+   "ratio_median": 25.82,
+   "success": 230,
+   "minutes_median": 22.45,
+   "title_len_avg": 47.0,
    "title_features": [
     {
      "name": "물음표 ?",
      "count": 67,
-     "share": 0.269
+     "share": 0.272
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 44,
-     "share": 0.177
+     "share": 0.179
     },
     {
      "name": "이유",
      "count": 42,
-     "share": 0.169
+     "share": 0.171
     },
     {
      "name": "느낌표 !",
      "count": 24,
-     "share": 0.096
+     "share": 0.098
     },
     {
      "name": "vs 비교",
      "count": 22,
-     "share": 0.088
+     "share": 0.089
     },
     {
      "name": "사연·오디오북·실화·고백",
      "count": 10,
-     "share": 0.04
+     "share": 0.041
     },
     {
      "name": "AI",
      "count": 9,
-     "share": 0.036
+     "share": 0.037
     },
     {
      "name": "과정·벌어진 일·결말·결국",
@@ -3692,12 +3672,12 @@
    ],
    "title_words": [
     {
-     "word": "조선",
+     "word": "이유",
      "count": 42
     },
     {
-     "word": "이유",
-     "count": 42
+     "word": "조선",
+     "count": 41
     },
     {
      "word": "역사",
@@ -3736,13 +3716,13 @@
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 239,
+    "설명": 236,
     "없음": 10
    },
    "content_words": [
     {
      "word": "그리고",
-     "count": 121
+     "count": 118
     },
     {
      "word": "조선",
@@ -3750,18 +3730,18 @@
     },
     {
      "word": "있습니다",
-     "count": 71
+     "count": 70
     },
     {
      "word": "이야기를",
-     "count": 66
-    },
-    {
-     "word": "영상은",
-     "count": 62
+     "count": 65
     },
     {
      "word": "함께",
+     "count": 61
+    },
+    {
+     "word": "영상은",
      "count": 61
     },
     {
@@ -3782,14 +3762,14 @@
     },
     {
      "word": "바탕으로",
-     "count": 49
+     "count": 48
     },
     {
      "word": "조선의",
-     "count": 47
+     "count": 45
     }
    ],
-   "chapters_share": 0.454,
+   "chapters_share": 0.451,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -3811,36 +3791,36 @@
      "hook": "오늘 역사를보다는 '천사의 언어 에녹어'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 📖 [역사를 보다2] 📖 [역사를 보다] 📺강인욱 교수님의 개인채널 [고고한 강교수] 📖 박현도 교수님의 저서"
     }
    ],
-   "comments": 45168,
+   "comments": 44483,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 8148,
-     "share": 0.18
+     "count": 8073,
+     "share": 0.181
     },
     {
      "name": "칭찬·감사",
-     "count": 4453,
-     "share": 0.099
+     "count": 4232,
+     "share": 0.095
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 2163,
+     "count": 2131,
      "share": 0.048
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 2111,
+     "count": 2098,
      "share": 0.047
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 1529,
+     "count": 1511,
      "share": 0.034
     },
     {
      "name": "요청",
-     "count": 711,
+     "count": 694,
      "share": 0.016
     }
    ],
@@ -3864,7 +3844,7 @@
      "title": "인도 정부가 1000년의 역사를 몰래 지우고 있는 이유 (공백의 1000년..?)ㅣ역사를 보다 EP.164",
      "channel": "보다 BODA",
      "views": 2472883,
-     "views_per_day": 162412.9,
+     "views_per_day": 152405.1,
      "published": "2026-10-04",
      "url": "https://www.youtube.com/watch?v=vp1Eet1Rmfk"
     },
@@ -3873,7 +3853,7 @@
      "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
      "channel": "보다 BODA",
      "views": 1329432,
-     "views_per_day": 161624.2,
+     "views_per_day": 144107.7,
      "published": "2026-10-11",
      "url": "https://www.youtube.com/watch?v=0y_c_-Ik_GQ"
     },
@@ -3882,7 +3862,7 @@
      "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
      "channel": "보다 BODA",
      "views": 2832900,
-     "views_per_day": 127467.7,
+     "views_per_day": 121980.2,
      "published": "2026-09-27",
      "url": "https://www.youtube.com/watch?v=tlVSuaOykFk"
     },
@@ -3891,7 +3871,7 @@
      "title": "영화 [암살자(들)] VS 실제 문세광의 육영수 피살 사건, 모든 의문점과 의혹을 파헤친다.",
      "channel": "황현필 한국사",
      "views": 2229156,
-     "views_per_day": 99831.0,
+     "views_per_day": 95552.5,
      "published": "2026-09-26",
      "url": "https://www.youtube.com/watch?v=3gZPUwZZ8Zg"
     },
@@ -3900,7 +3880,7 @@
      "title": "성경에 차마 예수의 12세~30세까지 이야기를 담지 못한 이유(종교 대통합..)ㅣ역사를 보다 EP.162",
      "channel": "보다 BODA",
      "views": 2566548,
-     "views_per_day": 99126.6,
+     "views_per_day": 95441.1,
      "published": "2026-09-23",
      "url": "https://www.youtube.com/watch?v=w56IxMajSHY"
     }
@@ -3909,8 +3889,8 @@
   {
    "weeks": 10,
    "label": "최근 10주",
-   "videos": 275,
-   "channels": 194,
+   "videos": 271,
+   "channels": 191,
    "new_this_week": [
     {
      "id": "-H2SXWoldbw",
@@ -3953,6 +3933,11 @@
      "published": "2026-08-12"
     },
     {
+     "id": "FSUt5VNvoj4",
+     "title": "조선 최고령 사형수 | 88세 영의정은 왜 목이 잘렸나",
+     "published": "2026-08-17"
+    },
+    {
      "id": "JGs2ZVj0fNI",
      "title": "💥저작권등록💥 '중국 역사상 최악의 막장 시대, 5호 16국 풀스토리",
      "published": "2026-08-11"
@@ -3978,14 +3963,9 @@
      "published": "2026-08-17"
     },
     {
-     "id": "U2MgGktKryE",
-     "title": "조선시대 유배객들이 실제로 겪은 일 | 교과서가 숨긴 진짜 유배의 실체 | 조선역사 | 조선왕조실록 | 한국사",
-     "published": "2026-08-10"
-    },
-    {
-     "id": "ZjlRMwPi0Ik",
-     "title": "류큐 왕국이 무너진 뒤, 오키나와 왕실은 어떻게 되었을까?",
-     "published": "2026-08-11"
+     "id": "VU7nOsg3tDw",
+     "title": "최강 일본도를 깨부순 조선의 무기, 그건 농기구였다.",
+     "published": "2026-08-17"
     },
     {
      "id": "g9youcD9-z0",
@@ -4018,6 +3998,11 @@
      "published": "2026-08-16"
     },
     {
+     "id": "sq8Un9KgH9g",
+     "title": "이거 하나면 그리스 신화 아는 척 가능 ⚡ 신들의 막장 족보 총정리 (제우스부터 오디세우스까지)",
+     "published": "2026-08-17"
+    },
+    {
      "id": "unr_tLkDEQ0",
      "title": "고구려가 만든 전설의 기마병, 왜 지구에서 사라졌는가 | 개마무사",
      "published": "2026-08-12"
@@ -4031,54 +4016,44 @@
      "id": "wZGHP3F8nu8",
      "title": "일제강점기를 공부한 일본인 아내가 서대문형무소에 가면 생기는 일",
      "published": "2026-08-16"
-    },
-    {
-     "id": "wg9LyGH6fmw",
-     "title": "첩 셋에게 눌려 살던 양반집 시어머니, 열한 살 며느리가 판을 뒤집는데.. | 야담 옛날이야기 민담 전설 설화 달빛잠자리이야기",
-     "published": "2026-08-10"
-    },
-    {
-     "id": "z4-vBeFor6g",
-     "title": "조선 내명부의 서열에 숨겨진 비밀 #조선시대 #역사이야기 #조선역사",
-     "published": "2026-08-10"
     }
    ],
-   "views_median": 129417,
-   "views_per_day_median": 4551.4,
-   "ratio_median": 25.02,
-   "success": 257,
+   "views_median": 130664,
+   "views_per_day_median": 4494.8,
+   "ratio_median": 25.42,
+   "success": 253,
    "minutes_median": 22.5,
    "title_len_avg": 46.7,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 75,
+     "count": 74,
      "share": 0.273
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 47,
-     "share": 0.171
+     "share": 0.173
     },
     {
      "name": "이유",
      "count": 45,
-     "share": 0.164
+     "share": 0.166
     },
     {
      "name": "느낌표 !",
      "count": 27,
-     "share": 0.098
+     "share": 0.1
     },
     {
      "name": "vs 비교",
-     "count": 27,
-     "share": 0.098
+     "count": 25,
+     "share": 0.092
     },
     {
      "name": "사연·오디오북·실화·고백",
      "count": 10,
-     "share": 0.036
+     "share": 0.037
     },
     {
      "name": "AI",
@@ -4138,7 +4113,7 @@
     },
     {
      "word": "조선",
-     "count": 43
+     "count": 42
     },
     {
      "word": "역사",
@@ -4150,60 +4125,60 @@
     },
     {
      "word": "한국사",
-     "count": 18
-    },
-    {
-     "word": "조선시대",
      "count": 17
     },
     {
+     "word": "조선시대",
+     "count": 15
+    },
+    {
      "word": "어떻게",
-     "count": 16
+     "count": 15
     },
     {
      "word": "EP",
      "count": 13
     },
     {
-     "word": "숨겨진",
+     "word": "야사",
      "count": 13
     },
     {
-     "word": "야사",
-     "count": 13
+     "word": "역사를",
+     "count": 12
     }
    ],
    "transcripts": 0,
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 265,
+    "설명": 261,
     "없음": 10
    },
    "content_words": [
     {
      "word": "그리고",
-     "count": 133
+     "count": 129
     },
     {
      "word": "조선",
-     "count": 86
+     "count": 84
     },
     {
      "word": "있습니다",
-     "count": 79
+     "count": 78
     },
     {
      "word": "이야기를",
-     "count": 73
+     "count": 72
     },
     {
      "word": "함께",
-     "count": 68
+     "count": 67
     },
     {
      "word": "영상은",
-     "count": 68
+     "count": 67
     },
     {
      "word": "역사",
@@ -4215,22 +4190,22 @@
     },
     {
      "word": "이야기",
-     "count": 58
+     "count": 57
     },
     {
      "word": "바탕으로",
      "count": 53
     },
     {
-     "word": "실제",
-     "count": 52
+     "word": "우리가",
+     "count": 51
     },
     {
-     "word": "우리가",
+     "word": "조선의",
      "count": 51
     }
    ],
-   "chapters_share": 0.444,
+   "chapters_share": 0.446,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -4252,36 +4227,36 @@
      "hook": "오늘 역사를보다는 '천사의 언어 에녹어'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 📖 [역사를 보다2] 📖 [역사를 보다] 📺강인욱 교수님의 개인채널 [고고한 강교수] 📖 박현도 교수님의 저서"
     }
    ],
-   "comments": 54471,
+   "comments": 54170,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 9573,
+     "count": 9540,
      "share": 0.176
     },
     {
      "name": "칭찬·감사",
-     "count": 6043,
-     "share": 0.111
+     "count": 5939,
+     "share": 0.11
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 2610,
+     "count": 2594,
      "share": 0.048
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 2322,
+     "count": 2315,
      "share": 0.043
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 1821,
-     "share": 0.033
+     "count": 1819,
+     "share": 0.034
     },
     {
      "name": "요청",
-     "count": 816,
+     "count": 812,
      "share": 0.015
     }
    ],
@@ -4305,7 +4280,7 @@
      "title": "인도 정부가 1000년의 역사를 몰래 지우고 있는 이유 (공백의 1000년..?)ㅣ역사를 보다 EP.164",
      "channel": "보다 BODA",
      "views": 2472883,
-     "views_per_day": 162412.9,
+     "views_per_day": 152405.1,
      "published": "2026-10-04",
      "url": "https://www.youtube.com/watch?v=vp1Eet1Rmfk"
     },
@@ -4314,7 +4289,7 @@
      "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
      "channel": "보다 BODA",
      "views": 1329432,
-     "views_per_day": 161624.2,
+     "views_per_day": 144107.7,
      "published": "2026-10-11",
      "url": "https://www.youtube.com/watch?v=0y_c_-Ik_GQ"
     },
@@ -4323,7 +4298,7 @@
      "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
      "channel": "보다 BODA",
      "views": 2832900,
-     "views_per_day": 127467.7,
+     "views_per_day": 121980.2,
      "published": "2026-09-27",
      "url": "https://www.youtube.com/watch?v=tlVSuaOykFk"
     },
@@ -4332,7 +4307,7 @@
      "title": "《오디세이》이걸 알고 보면 완전히 다른 영화가 됩니다｜설민석의 영화 해설",
      "channel": "설민석 Seol Min Seok",
      "views": 8138268,
-     "views_per_day": 123445.2,
+     "views_per_day": 121601.0,
      "published": "2026-08-14",
      "url": "https://www.youtube.com/watch?v=1k_2bervFV8"
     },
@@ -4341,7 +4316,7 @@
      "title": "영화 [암살자(들)] VS 실제 문세광의 육영수 피살 사건, 모든 의문점과 의혹을 파헤친다.",
      "channel": "황현필 한국사",
      "views": 2229156,
-     "views_per_day": 99831.0,
+     "views_per_day": 95552.5,
      "published": "2026-09-26",
      "url": "https://www.youtube.com/watch?v=3gZPUwZZ8Zg"
     }
@@ -4350,14 +4325,9 @@
   {
    "weeks": 11,
    "label": "최근 11주",
-   "videos": 303,
-   "channels": 205,
+   "videos": 298,
+   "channels": 204,
    "new_this_week": [
-    {
-     "id": "0Si50CybDIU",
-     "title": "지는 사람 목을 벤다｜사백 년 전 두만강 군영에서 실제로 벌어진 일 |조선이 감춘 북방 근무 1년의 기록 | 부북일",
-     "published": "2026-08-03"
-    },
     {
      "id": "12EyJuBAyOg",
      "title": "화학 지식도 없던 고대인은 어떻게 철을 만들어냈을까?",
@@ -4424,14 +4394,14 @@
      "published": "2026-08-05"
     },
     {
-     "id": "PmeHs6CH_ro",
-     "title": "청나라 멸망 후, 500만 만주족에게 벌어진 일 | 청나라 감춰진 역사 이야기",
-     "published": "2026-08-04"
-    },
-    {
      "id": "Q9d1dEUVJHI",
      "title": "일본이 이순신보다 두려워 했던 인물? '괴물'이라 부르며 두려워했던 조선의 영웅",
      "published": "2026-08-07"
+    },
+    {
+     "id": "U2MgGktKryE",
+     "title": "조선시대 유배객들이 실제로 겪은 일 | 교과서가 숨긴 진짜 유배의 실체 | 조선역사 | 조선왕조실록 | 한국사",
+     "published": "2026-08-10"
     },
     {
      "id": "Wsm6NMRilPQ",
@@ -4444,6 +4414,11 @@
      "published": "2026-08-07"
     },
     {
+     "id": "ZjlRMwPi0Ik",
+     "title": "류큐 왕국이 무너진 뒤, 오키나와 왕실은 어떻게 되었을까?",
+     "published": "2026-08-11"
+    },
+    {
      "id": "_y66a40gBHg",
      "title": "광개토대왕 무덤이 아직까지도 미스터리인 이유(무덤이 두개..?)ㅣ역사를 보다 EP.152",
      "published": "2026-08-09"
@@ -4454,29 +4429,14 @@
      "published": "2026-08-10"
     },
     {
-     "id": "byuSqASQo_o",
-     "title": "백정이 키운 아이가 조선 최고의 정승이 된 이유 | 최윤덕 장군,조선역사,세종대왕",
-     "published": "2026-08-04"
-    },
-    {
      "id": "cuwkTGyvORY",
      "title": "왕이 되지 못한 조선 왕자들의 충격적인 진짜 삶 #조선시대 #조선역사 #역사이야기",
      "published": "2026-08-08"
     },
     {
-     "id": "e12EIRsz6Xo",
-     "title": "비단옷보다 무거웠던 것 | 조선 중전의 진짜 하루 공개",
-     "published": "2026-08-03"
-    },
-    {
      "id": "gCMN9oeXgRQ",
      "title": "《중국 역사》 손자병법보다 먼저였다! 제갈량도 탐독한 병법서 '육도'의 풀스토리 | 역사인물 | 강태공 | 고전",
      "published": "2026-08-07"
-    },
-    {
-     "id": "jcUvSMjefq8",
-     "title": "《중국 역사》 고대 중국, 남자 첩이 여자 첩보다 더 비극적이었던 이유는? l 역사 인물 l 고전",
-     "published": "2026-08-03"
     },
     {
      "id": "kkwFyuynkKQ",
@@ -4489,42 +4449,52 @@
      "published": "2026-08-09"
     },
     {
+     "id": "wg9LyGH6fmw",
+     "title": "첩 셋에게 눌려 살던 양반집 시어머니, 열한 살 며느리가 판을 뒤집는데.. | 야담 옛날이야기 민담 전설 설화 달빛잠자리이야기",
+     "published": "2026-08-10"
+    },
+    {
      "id": "yz5rgz5s2YE",
      "title": "🌙 [잘 때 듣는] 로마는 왜 300년 동안 박해하던 기독교를 받아들였을까? | 콘스탄티누스 대제의 일생 (100분) | 숙면 세계사 | 오디오북 ASMR",
      "published": "2026-08-06"
+    },
+    {
+     "id": "z4-vBeFor6g",
+     "title": "조선 내명부의 서열에 숨겨진 비밀 #조선시대 #역사이야기 #조선역사",
+     "published": "2026-08-10"
     }
    ],
-   "views_median": 132226,
-   "views_per_day_median": 4206.5,
-   "ratio_median": 24.78,
-   "success": 283,
-   "minutes_median": 23.1,
+   "views_median": 130916.5,
+   "views_per_day_median": 4181.5,
+   "ratio_median": 23.83,
+   "success": 278,
+   "minutes_median": 22.55,
    "title_len_avg": 46.7,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 86,
-     "share": 0.284
+     "count": 85,
+     "share": 0.285
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 52,
-     "share": 0.172
+     "count": 50,
+     "share": 0.168
     },
     {
      "name": "이유",
-     "count": 49,
-     "share": 0.162
+     "count": 47,
+     "share": 0.158
     },
     {
      "name": "vs 비교",
-     "count": 31,
-     "share": 0.102
+     "count": 30,
+     "share": 0.101
     },
     {
      "name": "느낌표 !",
      "count": 28,
-     "share": 0.092
+     "share": 0.094
     },
     {
      "name": "사연·오디오북·실화·고백",
@@ -4534,17 +4504,17 @@
     {
      "name": "AI",
      "count": 10,
-     "share": 0.033
-    },
-    {
-     "name": "과정·벌어진 일·결말·결국",
-     "count": 8,
-     "share": 0.026
+     "share": 0.034
     },
     {
      "name": "직접·해보니·N년 기록",
      "count": 7,
      "share": 0.023
+    },
+    {
+     "name": "과정·벌어진 일·결말·결국",
+     "count": 6,
+     "share": 0.02
     },
     {
      "name": "손실 낱말(망하·날린·잃은·반토막)",
@@ -4585,15 +4555,15 @@
    "title_words": [
     {
      "word": "조선",
-     "count": 50
-    },
-    {
-     "word": "이유",
      "count": 48
     },
     {
+     "word": "이유",
+     "count": 47
+    },
+    {
      "word": "역사",
-     "count": 43
+     "count": 41
     },
     {
      "word": "어떻게",
@@ -4628,17 +4598,17 @@
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 292,
-    "없음": 11
+    "설명": 288,
+    "없음": 10
    },
    "content_words": [
     {
      "word": "그리고",
-     "count": 144
+     "count": 143
     },
     {
      "word": "조선",
-     "count": 94
+     "count": 91
     },
     {
      "word": "있습니다",
@@ -4646,15 +4616,15 @@
     },
     {
      "word": "역사",
-     "count": 77
+     "count": 75
     },
     {
      "word": "이야기를",
-     "count": 76
+     "count": 75
     },
     {
      "word": "영상은",
-     "count": 75
+     "count": 73
     },
     {
      "word": "함께",
@@ -4665,23 +4635,23 @@
      "count": 63
     },
     {
-     "word": "바탕으로",
-     "count": 60
-    },
-    {
      "word": "이야기",
      "count": 58
     },
     {
+     "word": "바탕으로",
+     "count": 58
+    },
+    {
      "word": "조선의",
-     "count": 57
+     "count": 56
     },
     {
      "word": "실제",
      "count": 56
     }
    ],
-   "chapters_share": 0.432,
+   "chapters_share": 0.43,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -4703,36 +4673,36 @@
      "hook": "오늘 역사를보다는 '천사의 언어 에녹어'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 📖 [역사를 보다2] 📖 [역사를 보다] 📺강인욱 교수님의 개인채널 [고고한 강교수] 📖 박현도 교수님의 저서"
     }
    ],
-   "comments": 61822,
+   "comments": 60968,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 10977,
-     "share": 0.178
+     "count": 10808,
+     "share": 0.177
     },
     {
      "name": "칭찬·감사",
-     "count": 6744,
-     "share": 0.109
+     "count": 6565,
+     "share": 0.108
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 3108,
+     "count": 3031,
      "share": 0.05
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 2691,
+     "count": 2655,
      "share": 0.044
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 2211,
+     "count": 2178,
      "share": 0.036
     },
     {
      "name": "요청",
-     "count": 926,
+     "count": 901,
      "share": 0.015
     }
    ],
@@ -4756,7 +4726,7 @@
      "title": "인도 정부가 1000년의 역사를 몰래 지우고 있는 이유 (공백의 1000년..?)ㅣ역사를 보다 EP.164",
      "channel": "보다 BODA",
      "views": 2472883,
-     "views_per_day": 162412.9,
+     "views_per_day": 152405.1,
      "published": "2026-10-04",
      "url": "https://www.youtube.com/watch?v=vp1Eet1Rmfk"
     },
@@ -4765,7 +4735,7 @@
      "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
      "channel": "보다 BODA",
      "views": 1329432,
-     "views_per_day": 161624.2,
+     "views_per_day": 144107.7,
      "published": "2026-10-11",
      "url": "https://www.youtube.com/watch?v=0y_c_-Ik_GQ"
     },
@@ -4774,7 +4744,7 @@
      "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
      "channel": "보다 BODA",
      "views": 2832900,
-     "views_per_day": 127467.7,
+     "views_per_day": 121980.2,
      "published": "2026-09-27",
      "url": "https://www.youtube.com/watch?v=tlVSuaOykFk"
     },
@@ -4783,7 +4753,7 @@
      "title": "《오디세이》이걸 알고 보면 완전히 다른 영화가 됩니다｜설민석의 영화 해설",
      "channel": "설민석 Seol Min Seok",
      "views": 8138268,
-     "views_per_day": 123445.2,
+     "views_per_day": 121601.0,
      "published": "2026-08-14",
      "url": "https://www.youtube.com/watch?v=1k_2bervFV8"
     },
@@ -4792,7 +4762,7 @@
      "title": "영화 [암살자(들)] VS 실제 문세광의 육영수 피살 사건, 모든 의문점과 의혹을 파헤친다.",
      "channel": "황현필 한국사",
      "views": 2229156,
-     "views_per_day": 99831.0,
+     "views_per_day": 95552.5,
      "published": "2026-09-26",
      "url": "https://www.youtube.com/watch?v=3gZPUwZZ8Zg"
     }
@@ -4801,13 +4771,18 @@
   {
    "weeks": 12,
    "label": "최근 12주",
-   "videos": 327,
+   "videos": 325,
    "channels": 214,
    "new_this_week": [
     {
      "id": "0G6JWsVnOdc",
      "title": "\"어떻게 하루 종일 안지치고 싸웠을까?｜세계 최강 로마군의 ‘병력 교대’ 시스템\"",
      "published": "2026-07-28"
+    },
+    {
+     "id": "0Si50CybDIU",
+     "title": "지는 사람 목을 벤다｜사백 년 전 두만강 군영에서 실제로 벌어진 일 |조선이 감춘 북방 근무 1년의 기록 | 부북일",
+     "published": "2026-08-03"
     },
     {
      "id": "2KijxN_U_rs",
@@ -4835,11 +4810,6 @@
      "published": "2026-08-01"
     },
     {
-     "id": "Kp25Hlg6e0M",
-     "title": "3일마다 버리는 신발을 왜 500년이나 신었을까? 알고 보니 이유가 있었습니다",
-     "published": "2026-07-28"
-    },
-    {
      "id": "La_DA95E-Ag",
      "title": "왕의남자 감독이 만들고 주연급 배우만 10명이 나오는 역대급 명작 사극",
      "published": "2026-08-01"
@@ -4853,6 +4823,11 @@
      "id": "PTsYhKaew-o",
      "title": "백제는 정말 거대한 중국 영토를 정벌했을까?(중국 정사에 계속 나옴...) ㅣ역사를 보다 EP.151",
      "published": "2026-08-02"
+    },
+    {
+     "id": "PmeHs6CH_ro",
+     "title": "청나라 멸망 후, 500만 만주족에게 벌어진 일 | 청나라 감춰진 역사 이야기",
+     "published": "2026-08-04"
     },
     {
      "id": "T0XaUdpk_JA",
@@ -4880,6 +4855,11 @@
      "published": "2026-07-31"
     },
     {
+     "id": "byuSqASQo_o",
+     "title": "백정이 키운 아이가 조선 최고의 정승이 된 이유 | 최윤덕 장군,조선역사,세종대왕",
+     "published": "2026-08-04"
+    },
+    {
      "id": "dcwVkFkjIEU",
      "title": "🌙 고려역사 왕 34명 완벽정리 풀버전ㅣ474년, 왕건에서 공양왕까지 이야기로 듣는 고려사",
      "published": "2026-07-31"
@@ -4890,6 +4870,11 @@
      "published": "2026-07-29"
     },
     {
+     "id": "e12EIRsz6Xo",
+     "title": "비단옷보다 무거웠던 것 | 조선 중전의 진짜 하루 공개",
+     "published": "2026-08-03"
+    },
+    {
      "id": "gwmPtcxsmYE",
      "title": "15살에 66세 영조와 결혼한 정순왕후, 그날 밤 영조가 잠을 못 잤다 [조선왕조실록]",
      "published": "2026-07-30"
@@ -4898,6 +4883,11 @@
      "id": "iGUGL0N2TfM",
      "title": "[숨겨진 중국사] 단4명의 제자가 전국시대를 지배할수 있었던 이유 귀곡자 완전해부 | 역사인물 | 야사 | 비사",
      "published": "2026-07-30"
+    },
+    {
+     "id": "jcUvSMjefq8",
+     "title": "《중국 역사》 고대 중국, 남자 첩이 여자 첩보다 더 비극적이었던 이유는? l 역사 인물 l 고전",
+     "published": "2026-08-03"
     },
     {
      "id": "ma9nDAg_3mY",
@@ -4918,39 +4908,34 @@
      "id": "vJF-TCj9BFI",
      "title": "[세계사] \"외계인이 만들었을까?\" 5,000년 전 초고대 이집트 문명이 남긴 미스터리 | 이집트 문명 피라미드 미라 파라오 미스터리",
      "published": "2026-07-29"
-    },
-    {
-     "id": "yJ9x4dJJgwI",
-     "title": "[역사한줄] 교과서에서 가려버린 임진왜란의 참혹한 민낯 | 400년 전 양반의 피란 일기 #한국사 #조선역사 #조선왕조실록",
-     "published": "2026-07-27"
     }
    ],
-   "views_median": 134409,
-   "views_per_day_median": 3898.6,
-   "ratio_median": 22.33,
-   "success": 306,
+   "views_median": 133165,
+   "views_per_day_median": 3860.5,
+   "ratio_median": 21.79,
+   "success": 304,
    "minutes_median": 23.4,
-   "title_len_avg": 46.8,
+   "title_len_avg": 46.7,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 94,
-     "share": 0.287
+     "count": 93,
+     "share": 0.286
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 55,
-     "share": 0.168
+     "count": 54,
+     "share": 0.166
     },
     {
      "name": "이유",
-     "count": 52,
-     "share": 0.159
+     "count": 51,
+     "share": 0.157
     },
     {
      "name": "vs 비교",
      "count": 33,
-     "share": 0.101
+     "share": 0.102
     },
     {
      "name": "느낌표 !",
@@ -4970,12 +4955,12 @@
     {
      "name": "과정·벌어진 일·결말·결국",
      "count": 8,
-     "share": 0.024
+     "share": 0.025
     },
     {
      "name": "직접·해보니·N년 기록",
      "count": 7,
-     "share": 0.021
+     "share": 0.022
     },
     {
      "name": "손실 낱말(망하·날린·잃은·반토막)",
@@ -5040,7 +5025,7 @@
     },
     {
      "word": "한국사",
-     "count": 19
+     "count": 18
     },
     {
      "word": "EP",
@@ -5059,7 +5044,7 @@
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 313,
+    "설명": 311,
     "없음": 14
    },
    "content_words": [
@@ -5069,15 +5054,15 @@
     },
     {
      "word": "조선",
-     "count": 101
+     "count": 100
     },
     {
      "word": "있습니다",
-     "count": 91
+     "count": 90
     },
     {
      "word": "영상은",
-     "count": 85
+     "count": 84
     },
     {
      "word": "역사",
@@ -5089,15 +5074,15 @@
     },
     {
      "word": "함께",
-     "count": 79
+     "count": 78
     },
     {
      "word": "어떻게",
-     "count": 68
+     "count": 67
     },
     {
      "word": "바탕으로",
-     "count": 67
+     "count": 66
     },
     {
      "word": "조선의",
@@ -5112,7 +5097,7 @@
      "count": 59
     }
    ],
-   "chapters_share": 0.428,
+   "chapters_share": 0.431,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -5134,36 +5119,36 @@
      "hook": "오늘 역사를보다는 '천사의 언어 에녹어'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 📖 [역사를 보다2] 📖 [역사를 보다] 📺강인욱 교수님의 개인채널 [고고한 강교수] 📖 박현도 교수님의 저서"
     }
    ],
-   "comments": 72332,
+   "comments": 71554,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 12608,
+     "count": 12475,
      "share": 0.174
     },
     {
      "name": "칭찬·감사",
-     "count": 9226,
+     "count": 9179,
      "share": 0.128
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 3742,
+     "count": 3708,
      "share": 0.052
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 3101,
+     "count": 3063,
      "share": 0.043
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 2573,
+     "count": 2545,
      "share": 0.036
     },
     {
      "name": "요청",
-     "count": 1105,
+     "count": 1100,
      "share": 0.015
     }
    ],
@@ -5187,7 +5172,7 @@
      "title": "인도 정부가 1000년의 역사를 몰래 지우고 있는 이유 (공백의 1000년..?)ㅣ역사를 보다 EP.164",
      "channel": "보다 BODA",
      "views": 2472883,
-     "views_per_day": 162412.9,
+     "views_per_day": 152405.1,
      "published": "2026-10-04",
      "url": "https://www.youtube.com/watch?v=vp1Eet1Rmfk"
     },
@@ -5196,7 +5181,7 @@
      "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
      "channel": "보다 BODA",
      "views": 1329432,
-     "views_per_day": 161624.2,
+     "views_per_day": 144107.7,
      "published": "2026-10-11",
      "url": "https://www.youtube.com/watch?v=0y_c_-Ik_GQ"
     },
@@ -5205,7 +5190,7 @@
      "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
      "channel": "보다 BODA",
      "views": 2832900,
-     "views_per_day": 127467.7,
+     "views_per_day": 121980.2,
      "published": "2026-09-27",
      "url": "https://www.youtube.com/watch?v=tlVSuaOykFk"
     },
@@ -5214,7 +5199,7 @@
      "title": "《오디세이》이걸 알고 보면 완전히 다른 영화가 됩니다｜설민석의 영화 해설",
      "channel": "설민석 Seol Min Seok",
      "views": 8138268,
-     "views_per_day": 123445.2,
+     "views_per_day": 121601.0,
      "published": "2026-08-14",
      "url": "https://www.youtube.com/watch?v=1k_2bervFV8"
     },
@@ -5223,7 +5208,7 @@
      "title": "영화 [암살자(들)] VS 실제 문세광의 육영수 피살 사건, 모든 의문점과 의혹을 파헤친다.",
      "channel": "황현필 한국사",
      "views": 2229156,
-     "views_per_day": 99831.0,
+     "views_per_day": 95552.5,
      "published": "2026-09-26",
      "url": "https://www.youtube.com/watch?v=3gZPUwZZ8Zg"
     }
@@ -5232,18 +5217,13 @@
   {
    "weeks": 13,
    "label": "최근 13주",
-   "videos": 354,
-   "channels": 230,
+   "videos": 353,
+   "channels": 229,
    "new_this_week": [
     {
      "id": "2E5KIxU_k2U",
      "title": "임진왜란을 이긴 건 바다만이 아니었다 | 왜군이 가장 두려워한 육지의 장수 5명",
      "published": "2026-07-26"
-    },
-    {
-     "id": "5ZVR3QCPQb8",
-     "title": "고려는 요녀라 적고 원나라는 총명하다 적었다 — 기황후의 두 얼굴 | 실제 역사 총정리",
-     "published": "2026-07-20"
     },
     {
      "id": "9BiBC6_coiU",
@@ -5279,6 +5259,11 @@
      "id": "IMg_-t4j4Q8",
      "title": "팰월드 1.0 중후반 희귀 자원 쉽게 얻는 방법 (크로마이트,코랄리움,솔라이트,팰키사이트,고대 문명의 코어)",
      "published": "2026-07-22"
+    },
+    {
+     "id": "Kp25Hlg6e0M",
+     "title": "3일마다 버리는 신발을 왜 500년이나 신었을까? 알고 보니 이유가 있었습니다",
+     "published": "2026-07-28"
     },
     {
      "id": "KtGGPFMuyuA",
@@ -5366,27 +5351,32 @@
      "published": "2026-07-22"
     },
     {
+     "id": "yJ9x4dJJgwI",
+     "title": "[역사한줄] 교과서에서 가려버린 임진왜란의 참혹한 민낯 | 400년 전 양반의 피란 일기 #한국사 #조선역사 #조선왕조실록",
+     "published": "2026-07-27"
+    },
+    {
      "id": "zxbn6rtEYqw",
      "title": "[타임슬립] 천벌 통합본 | 드론부대가 임진왜란에 투입되자 왜군은 지옥을 보았다",
      "published": "2026-07-24"
     }
    ],
-   "views_median": 131697.5,
-   "views_per_day_median": 3386.4,
-   "ratio_median": 20.91,
-   "success": 333,
-   "minutes_median": 24.15,
+   "views_median": 132226,
+   "views_per_day_median": 3374.6,
+   "ratio_median": 20.94,
+   "success": 332,
+   "minutes_median": 24.1,
    "title_len_avg": 47.0,
    "title_features": [
     {
      "name": "물음표 ?",
      "count": 101,
-     "share": 0.285
+     "share": 0.286
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 60,
-     "share": 0.169
+     "share": 0.17
     },
     {
      "name": "이유",
@@ -5396,12 +5386,12 @@
     {
      "name": "vs 비교",
      "count": 38,
-     "share": 0.107
+     "share": 0.108
     },
     {
      "name": "느낌표 !",
      "count": 32,
-     "share": 0.09
+     "share": 0.091
     },
     {
      "name": "사연·오디오북·실화·고백",
@@ -5470,7 +5460,7 @@
     },
     {
      "word": "역사",
-     "count": 51
+     "count": 50
     },
     {
      "word": "어떻게",
@@ -5505,13 +5495,13 @@
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 340,
+    "설명": 339,
     "없음": 14
    },
    "content_words": [
     {
      "word": "그리고",
-     "count": 172
+     "count": 171
     },
     {
      "word": "조선",
@@ -5543,7 +5533,7 @@
     },
     {
      "word": "바탕으로",
-     "count": 73
+     "count": 72
     },
     {
      "word": "조선의",
@@ -5551,14 +5541,14 @@
     },
     {
      "word": "실제",
-     "count": 68
+     "count": 67
     },
     {
      "word": "AI",
      "count": 65
     }
    ],
-   "chapters_share": 0.427,
+   "chapters_share": 0.428,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -5580,21 +5570,21 @@
      "hook": "오늘 역사를보다는 '천사의 언어 에녹어'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 📖 [역사를 보다2] 📖 [역사를 보다] 📺강인욱 교수님의 개인채널 [고고한 강교수] 📖 박현도 교수님의 저서"
     }
    ],
-   "comments": 76213,
+   "comments": 76182,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 13299,
+     "count": 13289,
      "share": 0.174
     },
     {
      "name": "칭찬·감사",
-     "count": 9706,
+     "count": 9699,
      "share": 0.127
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 3895,
+     "count": 3893,
      "share": 0.051
     },
     {
@@ -5604,7 +5594,7 @@
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 2699,
+     "count": 2697,
      "share": 0.035
     },
     {
@@ -5633,7 +5623,7 @@
      "title": "인도 정부가 1000년의 역사를 몰래 지우고 있는 이유 (공백의 1000년..?)ㅣ역사를 보다 EP.164",
      "channel": "보다 BODA",
      "views": 2472883,
-     "views_per_day": 162412.9,
+     "views_per_day": 152405.1,
      "published": "2026-10-04",
      "url": "https://www.youtube.com/watch?v=vp1Eet1Rmfk"
     },
@@ -5642,7 +5632,7 @@
      "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
      "channel": "보다 BODA",
      "views": 1329432,
-     "views_per_day": 161624.2,
+     "views_per_day": 144107.7,
      "published": "2026-10-11",
      "url": "https://www.youtube.com/watch?v=0y_c_-Ik_GQ"
     },
@@ -5651,7 +5641,7 @@
      "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
      "channel": "보다 BODA",
      "views": 2832900,
-     "views_per_day": 127467.7,
+     "views_per_day": 121980.2,
      "published": "2026-09-27",
      "url": "https://www.youtube.com/watch?v=tlVSuaOykFk"
     },
@@ -5660,7 +5650,7 @@
      "title": "《오디세이》이걸 알고 보면 완전히 다른 영화가 됩니다｜설민석의 영화 해설",
      "channel": "설민석 Seol Min Seok",
      "views": 8138268,
-     "views_per_day": 123445.2,
+     "views_per_day": 121601.0,
      "published": "2026-08-14",
      "url": "https://www.youtube.com/watch?v=1k_2bervFV8"
     },
@@ -5669,7 +5659,7 @@
      "title": "영화 [암살자(들)] VS 실제 문세광의 육영수 피살 사건, 모든 의문점과 의혹을 파헤친다.",
      "channel": "황현필 한국사",
      "views": 2229156,
-     "views_per_day": 99831.0,
+     "views_per_day": 95552.5,
      "published": "2026-09-26",
      "url": "https://www.youtube.com/watch?v=3gZPUwZZ8Zg"
     }
@@ -5678,8 +5668,8 @@
   {
    "weeks": 14,
    "label": "최근 14주",
-   "videos": 373,
-   "channels": 246,
+   "videos": 369,
+   "channels": 242,
    "new_this_week": [
     {
      "id": "0KjImM4at1o",
@@ -5687,9 +5677,9 @@
      "published": "2026-07-15"
     },
     {
-     "id": "4GVFyzDkyTs",
-     "title": "우리가 배운 역사와 다른 수메르의 지구 기록 여덟 가지… 마지막은 가장 소름 돋는다",
-     "published": "2026-07-13"
+     "id": "5ZVR3QCPQb8",
+     "title": "고려는 요녀라 적고 원나라는 총명하다 적었다 — 기황후의 두 얼굴 | 실제 역사 총정리",
+     "published": "2026-07-20"
     },
     {
      "id": "AJxRn1Vb6u8",
@@ -5720,11 +5710,6 @@
      "id": "RvQFZXKtb6A",
      "title": "평생 낳고 또 낳았던 세종의 아내... '다산 왕비'라는 포장지에 가려진 소헌왕후의 기구한 일생",
      "published": "2026-07-18"
-    },
-    {
-     "id": "TEULswg17Es",
-     "title": "세종대왕릉의 저주, 왕족들이 줄줄이 죽고 예종이 관 뚜껑을 열자 드러난 충격적 광경",
-     "published": "2026-07-13"
     },
     {
      "id": "XBePem4Xz2g",
@@ -5765,49 +5750,39 @@
      "id": "lUI6y2G873w",
      "title": "누만티아 공성전 (기원전 134–133년) — 난공불락의 요새: 로마군 6만 대 수비대 4천",
      "published": "2026-07-19"
-    },
-    {
-     "id": "qKvJfxLs168",
-     "title": "10만 명나라 대군이 닷새 만에 전멸한 이유 (누르하치와 사르후 전투)",
-     "published": "2026-07-13"
-    },
-    {
-     "id": "trFvm6O6UoA",
-     "title": "이 노인 한 명이 조선을 병들게 했다 | 노론의 거두, 송시열의 정체",
-     "published": "2026-07-13"
     }
    ],
-   "views_median": 131169,
-   "views_per_day_median": 3089.5,
-   "ratio_median": 20.87,
-   "success": 351,
+   "views_median": 132226,
+   "views_per_day_median": 3017.2,
+   "ratio_median": 20.94,
+   "success": 347,
    "minutes_median": 24.3,
-   "title_len_avg": 46.9,
+   "title_len_avg": 47.0,
    "title_features": [
     {
      "name": "물음표 ?",
      "count": 102,
-     "share": 0.273
+     "share": 0.276
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 61,
-     "share": 0.164
+     "count": 60,
+     "share": 0.163
     },
     {
      "name": "이유",
-     "count": 58,
-     "share": 0.155
+     "count": 57,
+     "share": 0.154
     },
     {
      "name": "vs 비교",
      "count": 39,
-     "share": 0.105
+     "share": 0.106
     },
     {
      "name": "느낌표 !",
      "count": 32,
-     "share": 0.086
+     "share": 0.087
     },
     {
      "name": "사연·오디오북·실화·고백",
@@ -5817,17 +5792,17 @@
     {
      "name": "AI",
      "count": 12,
-     "share": 0.032
+     "share": 0.033
     },
     {
      "name": "과정·벌어진 일·결말·결국",
      "count": 8,
-     "share": 0.021
+     "share": 0.022
     },
     {
      "name": "직접·해보니·N년 기록",
      "count": 8,
-     "share": 0.021
+     "share": 0.022
     },
     {
      "name": "손실 낱말(망하·날린·잃은·반토막)",
@@ -5837,7 +5812,7 @@
     {
      "name": "금액(억·만원)",
      "count": 5,
-     "share": 0.013
+     "share": 0.014
     },
     {
      "name": "N가지",
@@ -5872,7 +5847,7 @@
     },
     {
      "word": "이유",
-     "count": 55
+     "count": 54
     },
     {
      "word": "역사",
@@ -5911,45 +5886,45 @@
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 359,
+    "설명": 355,
     "없음": 14
    },
    "content_words": [
     {
      "word": "그리고",
-     "count": 182
+     "count": 180
     },
     {
      "word": "조선",
-     "count": 120
+     "count": 119
     },
     {
      "word": "있습니다",
-     "count": 103
+     "count": 102
     },
     {
      "word": "영상은",
      "count": 99
     },
     {
-     "word": "함께",
-     "count": 91
-    },
-    {
      "word": "역사",
      "count": 91
     },
     {
-     "word": "이야기를",
-     "count": 91
+     "word": "함께",
+     "count": 90
     },
     {
-     "word": "어떻게",
-     "count": 80
+     "word": "이야기를",
+     "count": 90
     },
     {
      "word": "바탕으로",
      "count": 79
+    },
+    {
+     "word": "어떻게",
+     "count": 78
     },
     {
      "word": "조선의",
@@ -5964,7 +5939,7 @@
      "count": 69
     }
    ],
-   "chapters_share": 0.424,
+   "chapters_share": 0.425,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -5986,36 +5961,36 @@
      "hook": "오늘 역사를보다는 '천사의 언어 에녹어'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 📖 [역사를 보다2] 📖 [역사를 보다] 📺강인욱 교수님의 개인채널 [고고한 강교수] 📖 박현도 교수님의 저서"
     }
    ],
-   "comments": 81449,
+   "comments": 80069,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 14077,
+     "count": 13857,
      "share": 0.173
     },
     {
      "name": "칭찬·감사",
-     "count": 10361,
-     "share": 0.127
+     "count": 10336,
+     "share": 0.129
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 4094,
-     "share": 0.05
+     "count": 4052,
+     "share": 0.051
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 3441,
-     "share": 0.042
+     "count": 3409,
+     "share": 0.043
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 2847,
+     "count": 2789,
      "share": 0.035
     },
     {
      "name": "요청",
-     "count": 1299,
+     "count": 1295,
      "share": 0.016
     }
    ],
@@ -6039,7 +6014,7 @@
      "title": "인도 정부가 1000년의 역사를 몰래 지우고 있는 이유 (공백의 1000년..?)ㅣ역사를 보다 EP.164",
      "channel": "보다 BODA",
      "views": 2472883,
-     "views_per_day": 162412.9,
+     "views_per_day": 152405.1,
      "published": "2026-10-04",
      "url": "https://www.youtube.com/watch?v=vp1Eet1Rmfk"
     },
@@ -6048,7 +6023,7 @@
      "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
      "channel": "보다 BODA",
      "views": 1329432,
-     "views_per_day": 161624.2,
+     "views_per_day": 144107.7,
      "published": "2026-10-11",
      "url": "https://www.youtube.com/watch?v=0y_c_-Ik_GQ"
     },
@@ -6057,7 +6032,7 @@
      "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
      "channel": "보다 BODA",
      "views": 2832900,
-     "views_per_day": 127467.7,
+     "views_per_day": 121980.2,
      "published": "2026-09-27",
      "url": "https://www.youtube.com/watch?v=tlVSuaOykFk"
     },
@@ -6066,7 +6041,7 @@
      "title": "《오디세이》이걸 알고 보면 완전히 다른 영화가 됩니다｜설민석의 영화 해설",
      "channel": "설민석 Seol Min Seok",
      "views": 8138268,
-     "views_per_day": 123445.2,
+     "views_per_day": 121601.0,
      "published": "2026-08-14",
      "url": "https://www.youtube.com/watch?v=1k_2bervFV8"
     },
@@ -6075,7 +6050,7 @@
      "title": "영화 [암살자(들)] VS 실제 문세광의 육영수 피살 사건, 모든 의문점과 의혹을 파헤친다.",
      "channel": "황현필 한국사",
      "views": 2229156,
-     "views_per_day": 99831.0,
+     "views_per_day": 95552.5,
      "published": "2026-09-26",
      "url": "https://www.youtube.com/watch?v=3gZPUwZZ8Zg"
     }
@@ -6084,13 +6059,18 @@
   {
    "weeks": 15,
    "label": "최근 15주",
-   "videos": 396,
-   "channels": 256,
+   "videos": 393,
+   "channels": 255,
    "new_this_week": [
     {
      "id": "-8cYcLki-GE",
      "title": "야사보다 충격적인 중국 5,000년 유일한 여황제, 측천무후의 진짜 이야기",
      "published": "2026-07-10"
+    },
+    {
+     "id": "4GVFyzDkyTs",
+     "title": "우리가 배운 역사와 다른 수메르의 지구 기록 여덟 가지… 마지막은 가장 소름 돋는다",
+     "published": "2026-07-13"
     },
     {
      "id": "5Rkq7lrGDAo",
@@ -6118,11 +6098,6 @@
      "published": "2026-07-11"
     },
     {
-     "id": "JiMl0jJWRAI",
-     "title": "[타임슬립] 천군강림 완결 | 전투기 6대가 임진왜란 한복판에 떨어지면 벌어지는 일",
-     "published": "2026-07-06"
-    },
-    {
      "id": "K-D-pHlxoFo",
      "title": "겁쟁이라 불리던 6사단은 어떻게 중공군 3개 사단을 호수에 묻었나 | 용문산·파로호 대첩",
      "published": "2026-07-12"
@@ -6143,19 +6118,14 @@
      "published": "2026-07-13"
     },
     {
+     "id": "TEULswg17Es",
+     "title": "세종대왕릉의 저주, 왕족들이 줄줄이 죽고 예종이 관 뚜껑을 열자 드러난 충격적 광경",
+     "published": "2026-07-13"
+    },
+    {
      "id": "URATUnLr9Vk",
      "title": "조선사람들은 에어컨도 없이 무더운 여름을 어떻게 버텼을까?｜한국사｜조선사｜역사｜삼복더위",
      "published": "2026-07-12"
-    },
-    {
-     "id": "VTLLbuIhe4o",
-     "title": "국립 현충원 1등 명당에 왜 조선왕의 후궁이? 조선 왕 14명의 뿌리 창빈 안씨",
-     "published": "2026-07-06"
-    },
-    {
-     "id": "WUtMmYAwaYY",
-     "title": "어찌 저를 살리십니까 저하... | 홍연 EP.5 | AI 사극 드라마",
-     "published": "2026-07-06"
     },
     {
      "id": "WvRd3Ek-jg4",
@@ -6193,6 +6163,16 @@
      "published": "2026-07-11"
     },
     {
+     "id": "qKvJfxLs168",
+     "title": "10만 명나라 대군이 닷새 만에 전멸한 이유 (누르하치와 사르후 전투)",
+     "published": "2026-07-13"
+    },
+    {
+     "id": "trFvm6O6UoA",
+     "title": "이 노인 한 명이 조선을 병들게 했다 | 노론의 거두, 송시열의 정체",
+     "published": "2026-07-13"
+    },
+    {
      "id": "u7yZX1asOJY",
      "title": "조선 왕이 수소문했던 122세 할머니의 정체 | 왕도 쫓아간 장수 밥상 | 조선왕조실록 장수촌",
      "published": "2026-07-09"
@@ -6203,27 +6183,27 @@
      "published": "2026-07-09"
     }
    ],
-   "views_median": 130097.0,
-   "views_per_day_median": 2909.45,
-   "ratio_median": 20.77,
-   "success": 374,
-   "minutes_median": 25.65,
+   "views_median": 130459,
+   "views_per_day_median": 2815.0,
+   "ratio_median": 20.75,
+   "success": 371,
+   "minutes_median": 25.6,
    "title_len_avg": 47.2,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 105,
+     "count": 104,
      "share": 0.265
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 62,
-     "share": 0.157
+     "share": 0.158
     },
     {
      "name": "이유",
      "count": 59,
-     "share": 0.149
+     "share": 0.15
     },
     {
      "name": "vs 비교",
@@ -6233,17 +6213,17 @@
     {
      "name": "느낌표 !",
      "count": 34,
-     "share": 0.086
+     "share": 0.087
     },
     {
      "name": "사연·오디오북·실화·고백",
      "count": 14,
-     "share": 0.035
+     "share": 0.036
     },
     {
      "name": "AI",
-     "count": 13,
-     "share": 0.033
+     "count": 12,
+     "share": 0.031
     },
     {
      "name": "직접·해보니·N년 기록",
@@ -6294,7 +6274,7 @@
    "title_words": [
     {
      "word": "조선",
-     "count": 62
+     "count": 61
     },
     {
      "word": "이유",
@@ -6325,37 +6305,37 @@
      "count": 17
     },
     {
-     "word": "EP",
+     "word": "숨겨진",
      "count": 17
     },
     {
-     "word": "숨겨진",
-     "count": 17
+     "word": "중국",
+     "count": 16
     }
    ],
    "transcripts": 0,
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 381,
+    "설명": 378,
     "없음": 15
    },
    "content_words": [
     {
      "word": "그리고",
-     "count": 192
+     "count": 191
     },
     {
      "word": "조선",
-     "count": 132
+     "count": 129
     },
     {
      "word": "있습니다",
-     "count": 111
+     "count": 110
     },
     {
      "word": "영상은",
-     "count": 106
+     "count": 105
     },
     {
      "word": "역사",
@@ -6363,7 +6343,7 @@
     },
     {
      "word": "이야기를",
-     "count": 99
+     "count": 98
     },
     {
      "word": "함께",
@@ -6371,26 +6351,26 @@
     },
     {
      "word": "어떻게",
-     "count": 85
-    },
-    {
-     "word": "바탕으로",
      "count": 84
     },
     {
+     "word": "바탕으로",
+     "count": 83
+    },
+    {
      "word": "조선의",
-     "count": 82
+     "count": 81
     },
     {
      "word": "타임라인",
-     "count": 75
+     "count": 74
     },
     {
      "word": "AI",
-     "count": 75
+     "count": 74
     }
    ],
-   "chapters_share": 0.429,
+   "chapters_share": 0.43,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -6412,36 +6392,36 @@
      "hook": "오늘 역사를보다는 '천사의 언어 에녹어'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 📖 [역사를 보다2] 📖 [역사를 보다] 📺강인욱 교수님의 개인채널 [고고한 강교수] 📖 박현도 교수님의 저서"
     }
    ],
-   "comments": 85046,
+   "comments": 84579,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 14599,
+     "count": 14537,
      "share": 0.172
     },
     {
      "name": "칭찬·감사",
-     "count": 11189,
+     "count": 11124,
      "share": 0.132
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 4245,
+     "count": 4238,
      "share": 0.05
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 3526,
-     "share": 0.041
+     "count": 3520,
+     "share": 0.042
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 3016,
+     "count": 2989,
      "share": 0.035
     },
     {
      "name": "요청",
-     "count": 1412,
+     "count": 1398,
      "share": 0.017
     }
    ],
@@ -6465,7 +6445,7 @@
      "title": "인도 정부가 1000년의 역사를 몰래 지우고 있는 이유 (공백의 1000년..?)ㅣ역사를 보다 EP.164",
      "channel": "보다 BODA",
      "views": 2472883,
-     "views_per_day": 162412.9,
+     "views_per_day": 152405.1,
      "published": "2026-10-04",
      "url": "https://www.youtube.com/watch?v=vp1Eet1Rmfk"
     },
@@ -6474,7 +6454,7 @@
      "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
      "channel": "보다 BODA",
      "views": 1329432,
-     "views_per_day": 161624.2,
+     "views_per_day": 144107.7,
      "published": "2026-10-11",
      "url": "https://www.youtube.com/watch?v=0y_c_-Ik_GQ"
     },
@@ -6483,7 +6463,7 @@
      "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
      "channel": "보다 BODA",
      "views": 2832900,
-     "views_per_day": 127467.7,
+     "views_per_day": 121980.2,
      "published": "2026-09-27",
      "url": "https://www.youtube.com/watch?v=tlVSuaOykFk"
     },
@@ -6492,7 +6472,7 @@
      "title": "《오디세이》이걸 알고 보면 완전히 다른 영화가 됩니다｜설민석의 영화 해설",
      "channel": "설민석 Seol Min Seok",
      "views": 8138268,
-     "views_per_day": 123445.2,
+     "views_per_day": 121601.0,
      "published": "2026-08-14",
      "url": "https://www.youtube.com/watch?v=1k_2bervFV8"
     },
@@ -6501,7 +6481,7 @@
      "title": "영화 [암살자(들)] VS 실제 문세광의 육영수 피살 사건, 모든 의문점과 의혹을 파헤친다.",
      "channel": "황현필 한국사",
      "views": 2229156,
-     "views_per_day": 99831.0,
+     "views_per_day": 95552.5,
      "published": "2026-09-26",
      "url": "https://www.youtube.com/watch?v=3gZPUwZZ8Zg"
     }
@@ -6510,8 +6490,8 @@
   {
    "weeks": 16,
    "label": "최근 16주",
-   "videos": 420,
-   "channels": 266,
+   "videos": 417,
+   "channels": 265,
    "new_this_week": [
     {
      "id": "1UUDO7-0e6E",
@@ -6539,19 +6519,14 @@
      "published": "2026-07-03"
     },
     {
-     "id": "DcpFycWacCI",
-     "title": "일본군 성노예 피해자 증언 | 북한 피해자들 증언 1부 (뉴스타파)",
-     "published": "2026-06-29"
-    },
-    {
      "id": "E97Cqe4_9G4",
      "title": "1592년, 임진왜란 한복판에 떨어진 대한민국 해병대 소대! 상주의 운명을 바꾸다 | 맹호소대 4화",
      "published": "2026-07-04"
     },
     {
-     "id": "KIpCeI59BK4",
-     "title": "기원전 2333년에 세워졌다는 나라, 진짜였을까?",
-     "published": "2026-06-30"
+     "id": "JiMl0jJWRAI",
+     "title": "[타임슬립] 천군강림 완결 | 전투기 6대가 임진왜란 한복판에 떨어지면 벌어지는 일",
+     "published": "2026-07-06"
     },
     {
      "id": "MGvKBHt5020",
@@ -6589,14 +6564,19 @@
      "published": "2026-07-04"
     },
     {
+     "id": "VTLLbuIhe4o",
+     "title": "국립 현충원 1등 명당에 왜 조선왕의 후궁이? 조선 왕 14명의 뿌리 창빈 안씨",
+     "published": "2026-07-06"
+    },
+    {
+     "id": "WUtMmYAwaYY",
+     "title": "어찌 저를 살리십니까 저하... | 홍연 EP.5 | AI 사극 드라마",
+     "published": "2026-07-06"
+    },
+    {
      "id": "YfPUeVAhmfw",
      "title": "1시간이면 완벽 이해 조선왕조실록 1대부터 27대까지 몰아보기ㅣ건국부터 멸망까지 한번에 자면서 들으세요",
      "published": "2026-06-30"
-    },
-    {
-     "id": "_QrSVpBd6Tg",
-     "title": "조선 왕실 최악의 비극 | 삼대가 죽어야 왕이 될 수 있었던 남자, 철종",
-     "published": "2026-06-29"
     },
     {
      "id": "de9kdpnsnzo",
@@ -6634,32 +6614,32 @@
      "published": "2026-07-04"
     }
    ],
-   "views_median": 130097.0,
-   "views_per_day_median": 2759.1,
-   "ratio_median": 20.77,
-   "success": 397,
-   "minutes_median": 25.65,
-   "title_len_avg": 47.0,
+   "views_median": 129735,
+   "views_per_day_median": 2700.8,
+   "ratio_median": 20.87,
+   "success": 394,
+   "minutes_median": 25.0,
+   "title_len_avg": 47.1,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 111,
+     "count": 110,
      "share": 0.264
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 66,
-     "share": 0.157
+     "share": 0.158
     },
     {
      "name": "이유",
      "count": 63,
-     "share": 0.15
+     "share": 0.151
     },
     {
      "name": "vs 비교",
      "count": 44,
-     "share": 0.105
+     "share": 0.106
     },
     {
      "name": "느낌표 !",
@@ -6674,7 +6654,7 @@
     {
      "name": "AI",
      "count": 14,
-     "share": 0.033
+     "share": 0.034
     },
     {
      "name": "직접·해보니·N년 기록",
@@ -6725,7 +6705,7 @@
    "title_words": [
     {
      "word": "조선",
-     "count": 67
+     "count": 66
     },
     {
      "word": "이유",
@@ -6768,17 +6748,17 @@
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 403,
-    "없음": 17
+    "설명": 401,
+    "없음": 16
    },
    "content_words": [
     {
      "word": "그리고",
-     "count": 204
+     "count": 203
     },
     {
      "word": "조선",
-     "count": 138
+     "count": 137
     },
     {
      "word": "있습니다",
@@ -6786,7 +6766,7 @@
     },
     {
      "word": "영상은",
-     "count": 116
+     "count": 115
     },
     {
      "word": "역사",
@@ -6794,7 +6774,7 @@
     },
     {
      "word": "이야기를",
-     "count": 109
+     "count": 108
     },
     {
      "word": "함께",
@@ -6802,15 +6782,15 @@
     },
     {
      "word": "바탕으로",
-     "count": 93
+     "count": 91
     },
     {
      "word": "어떻게",
-     "count": 90
+     "count": 89
     },
     {
      "word": "조선의",
-     "count": 86
+     "count": 85
     },
     {
      "word": "AI",
@@ -6818,7 +6798,7 @@
     },
     {
      "word": "가장",
-     "count": 80
+     "count": 79
     }
    ],
    "chapters_share": 0.429,
@@ -6843,36 +6823,36 @@
      "hook": "오늘 역사를보다는 '천사의 언어 에녹어'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 📖 [역사를 보다2] 📖 [역사를 보다] 📺강인욱 교수님의 개인채널 [고고한 강교수] 📖 박현도 교수님의 저서"
     }
    ],
-   "comments": 89922,
+   "comments": 88626,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 15260,
-     "share": 0.17
+     "count": 15017,
+     "share": 0.169
     },
     {
      "name": "칭찬·감사",
-     "count": 11914,
-     "share": 0.132
+     "count": 11848,
+     "share": 0.134
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 4445,
+     "count": 4386,
      "share": 0.049
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 3678,
+     "count": 3610,
      "share": 0.041
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 3166,
+     "count": 3098,
      "share": 0.035
     },
     {
      "name": "요청",
-     "count": 1509,
+     "count": 1491,
      "share": 0.017
     }
    ],
@@ -6896,7 +6876,7 @@
      "title": "인도 정부가 1000년의 역사를 몰래 지우고 있는 이유 (공백의 1000년..?)ㅣ역사를 보다 EP.164",
      "channel": "보다 BODA",
      "views": 2472883,
-     "views_per_day": 162412.9,
+     "views_per_day": 152405.1,
      "published": "2026-10-04",
      "url": "https://www.youtube.com/watch?v=vp1Eet1Rmfk"
     },
@@ -6905,7 +6885,7 @@
      "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
      "channel": "보다 BODA",
      "views": 1329432,
-     "views_per_day": 161624.2,
+     "views_per_day": 144107.7,
      "published": "2026-10-11",
      "url": "https://www.youtube.com/watch?v=0y_c_-Ik_GQ"
     },
@@ -6914,7 +6894,7 @@
      "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
      "channel": "보다 BODA",
      "views": 2832900,
-     "views_per_day": 127467.7,
+     "views_per_day": 121980.2,
      "published": "2026-09-27",
      "url": "https://www.youtube.com/watch?v=tlVSuaOykFk"
     },
@@ -6923,7 +6903,7 @@
      "title": "《오디세이》이걸 알고 보면 완전히 다른 영화가 됩니다｜설민석의 영화 해설",
      "channel": "설민석 Seol Min Seok",
      "views": 8138268,
-     "views_per_day": 123445.2,
+     "views_per_day": 121601.0,
      "published": "2026-08-14",
      "url": "https://www.youtube.com/watch?v=1k_2bervFV8"
     },
@@ -6932,7 +6912,7 @@
      "title": "영화 [암살자(들)] VS 실제 문세광의 육영수 피살 사건, 모든 의문점과 의혹을 파헤친다.",
      "channel": "황현필 한국사",
      "views": 2229156,
-     "views_per_day": 99831.0,
+     "views_per_day": 95552.5,
      "published": "2026-09-26",
      "url": "https://www.youtube.com/watch?v=3gZPUwZZ8Zg"
     }
@@ -6941,14 +6921,9 @@
   {
    "weeks": 17,
    "label": "최근 17주",
-   "videos": 443,
-   "channels": 279,
+   "videos": 441,
+   "channels": 277,
    "new_this_week": [
-    {
-     "id": "-FBIBpxt-FY",
-     "title": "지구나이 45억년, 인류 이전 초거대 문명의 소름돋는 증거들",
-     "published": "2026-06-22"
-    },
     {
      "id": "-j9jOJl_ERU",
      "title": "고대 이집트의 잃어버린 도시, 마침내 발견되다",
@@ -6985,6 +6960,11 @@
      "published": "2026-06-28"
     },
     {
+     "id": "DcpFycWacCI",
+     "title": "일본군 성노예 피해자 증언 | 북한 피해자들 증언 1부 (뉴스타파)",
+     "published": "2026-06-29"
+    },
+    {
      "id": "GPAubfc7KdU",
      "title": "《중국 역사》 중국 역사상 가장 위대한 황제 TOP 10! 천년 제국을 지배한 통치자들 l 역사 인물 l 고전",
      "published": "2026-06-26"
@@ -7000,9 +6980,9 @@
      "published": "2026-06-26"
     },
     {
-     "id": "T0Vb2yu89Tc",
-     "title": "이순신 사후 84일의 비밀, 선조가 대첩 승리 당일 저지른 비정한 보복",
-     "published": "2026-06-22"
+     "id": "KIpCeI59BK4",
+     "title": "기원전 2333년에 세워졌다는 나라, 진짜였을까?",
+     "published": "2026-06-30"
     },
     {
      "id": "URXxc2M5IBk",
@@ -7013,6 +6993,11 @@
      "id": "_Il2QJpOgZw",
      "title": "66살 할아버지 영조와 결혼한 15살 소녀 정순왕후의 최후｜한국사｜조선역사｜신유박해",
      "published": "2026-06-23"
+    },
+    {
+     "id": "_QrSVpBd6Tg",
+     "title": "조선 왕실 최악의 비극 | 삼대가 죽어야 왕이 될 수 있었던 남자, 철종",
+     "published": "2026-06-29"
     },
     {
      "id": "gp_BBbaN5Lw",
@@ -7061,31 +7046,31 @@
     }
    ],
    "views_median": 129287,
-   "views_per_day_median": 2496.0,
-   "ratio_median": 20.41,
-   "success": 420,
+   "views_per_day_median": 2444.8,
+   "ratio_median": 20.4,
+   "success": 418,
    "minutes_median": 25.7,
    "title_len_avg": 47.4,
    "title_features": [
     {
      "name": "물음표 ?",
      "count": 115,
-     "share": 0.26
+     "share": 0.261
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 66,
-     "share": 0.149
+     "share": 0.15
     },
     {
      "name": "이유",
      "count": 63,
-     "share": 0.142
+     "share": 0.143
     },
     {
      "name": "vs 비교",
-     "count": 48,
-     "share": 0.108
+     "count": 47,
+     "share": 0.107
     },
     {
      "name": "느낌표 !",
@@ -7095,7 +7080,7 @@
     {
      "name": "사연·오디오북·실화·고백",
      "count": 17,
-     "share": 0.038
+     "share": 0.039
     },
     {
      "name": "AI",
@@ -7114,8 +7099,8 @@
     },
     {
      "name": "금액(억·만원)",
-     "count": 7,
-     "share": 0.016
+     "count": 6,
+     "share": 0.014
     },
     {
      "name": "손실 낱말(망하·날린·잃은·반토막)",
@@ -7179,7 +7164,7 @@
     },
     {
      "word": "이순신",
-     "count": 23
+     "count": 22
     },
     {
      "word": "중국",
@@ -7194,7 +7179,7 @@
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 426,
+    "설명": 424,
     "없음": 17
    },
    "content_words": [
@@ -7204,7 +7189,7 @@
     },
     {
      "word": "조선",
-     "count": 147
+     "count": 146
     },
     {
      "word": "있습니다",
@@ -7212,7 +7197,7 @@
     },
     {
      "word": "영상은",
-     "count": 123
+     "count": 122
     },
     {
      "word": "역사",
@@ -7269,36 +7254,36 @@
      "hook": "오늘 역사를보다는 '천사의 언어 에녹어'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 📖 [역사를 보다2] 📖 [역사를 보다] 📺강인욱 교수님의 개인채널 [고고한 강교수] 📖 박현도 교수님의 저서"
     }
    ],
-   "comments": 93919,
+   "comments": 93134,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 15875,
+     "count": 15734,
      "share": 0.169
     },
     {
      "name": "칭찬·감사",
-     "count": 12494,
-     "share": 0.133
+     "count": 12435,
+     "share": 0.134
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 4624,
+     "count": 4598,
      "share": 0.049
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 3774,
+     "count": 3752,
      "share": 0.04
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 3354,
+     "count": 3325,
      "share": 0.036
     },
     {
      "name": "요청",
-     "count": 1553,
+     "count": 1551,
      "share": 0.017
     }
    ],
@@ -7322,7 +7307,7 @@
      "title": "인도 정부가 1000년의 역사를 몰래 지우고 있는 이유 (공백의 1000년..?)ㅣ역사를 보다 EP.164",
      "channel": "보다 BODA",
      "views": 2472883,
-     "views_per_day": 162412.9,
+     "views_per_day": 152405.1,
      "published": "2026-10-04",
      "url": "https://www.youtube.com/watch?v=vp1Eet1Rmfk"
     },
@@ -7331,7 +7316,7 @@
      "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
      "channel": "보다 BODA",
      "views": 1329432,
-     "views_per_day": 161624.2,
+     "views_per_day": 144107.7,
      "published": "2026-10-11",
      "url": "https://www.youtube.com/watch?v=0y_c_-Ik_GQ"
     },
@@ -7340,7 +7325,7 @@
      "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
      "channel": "보다 BODA",
      "views": 2832900,
-     "views_per_day": 127467.7,
+     "views_per_day": 121980.2,
      "published": "2026-09-27",
      "url": "https://www.youtube.com/watch?v=tlVSuaOykFk"
     },
@@ -7349,7 +7334,7 @@
      "title": "《오디세이》이걸 알고 보면 완전히 다른 영화가 됩니다｜설민석의 영화 해설",
      "channel": "설민석 Seol Min Seok",
      "views": 8138268,
-     "views_per_day": 123445.2,
+     "views_per_day": 121601.0,
      "published": "2026-08-14",
      "url": "https://www.youtube.com/watch?v=1k_2bervFV8"
     },
@@ -7358,7 +7343,7 @@
      "title": "영화 [암살자(들)] VS 실제 문세광의 육영수 피살 사건, 모든 의문점과 의혹을 파헤친다.",
      "channel": "황현필 한국사",
      "views": 2229156,
-     "views_per_day": 99831.0,
+     "views_per_day": 95552.5,
      "published": "2026-09-26",
      "url": "https://www.youtube.com/watch?v=3gZPUwZZ8Zg"
     }
@@ -7367,9 +7352,14 @@
   {
    "weeks": 18,
    "label": "최근 18주",
-   "videos": 471,
-   "channels": 294,
+   "videos": 468,
+   "channels": 293,
    "new_this_week": [
+    {
+     "id": "-FBIBpxt-FY",
+     "title": "지구나이 45억년, 인류 이전 초거대 문명의 소름돋는 증거들",
+     "published": "2026-06-22"
+    },
     {
      "id": "0RMUNVJ5n80",
      "title": "진주성에 현대군이 간다면? | 임진왜란 퓨전 ",
@@ -7401,11 +7391,6 @@
      "published": "2026-06-20"
     },
     {
-     "id": "C4QbgaRMmt0",
-     "title": "조선 최악의 역적이 백범 김구 집안의 검은 역사가 된 이유",
-     "published": "2026-06-15"
-    },
-    {
      "id": "C8zmRWow5a8",
      "title": "사극이 안 보여준 승은 다음날 아침",
      "published": "2026-06-16"
@@ -7431,11 +7416,6 @@
      "published": "2026-06-16"
     },
     {
-     "id": "KHWMK-goPxs",
-     "title": "박정희 정권 최대의 미스터리 | 제3공화국 뒤흔든 정인숙 피살사건 | 50년 만에 다시 보는 아들의 삶",
-     "published": "2026-06-16"
-    },
-    {
      "id": "LBKAaty_D14",
      "title": "[타임슬립] 조선군 전멸 3시간 전, 현대 한국군 1개 중대가 도착했다 [병자호란: 2026]",
      "published": "2026-06-18"
@@ -7451,6 +7431,11 @@
      "published": "2026-06-16"
     },
     {
+     "id": "T0Vb2yu89Tc",
+     "title": "이순신 사후 84일의 비밀, 선조가 대첩 승리 당일 저지른 비정한 보복",
+     "published": "2026-06-22"
+    },
+    {
      "id": "XVqIvyIzZXs",
      "title": "\"세계사적 미스터리예요\" 중국이 수천년간 단 한번도 한국을 흡수 못한 이유 | Ep . 책과사람 106 (이다지 선생님 2부)",
      "published": "2026-06-21"
@@ -7464,11 +7449,6 @@
      "id": "e0W45a_vPy0",
      "title": "임진왜란보다 끔찍했던 2년, 조선을 삼킨 최악의 대기근 | 경신대기근",
      "published": "2026-06-21"
-    },
-    {
-     "id": "e3Aax9sONqQ",
-     "title": "조선이 감춘 엿새의 학살 — 고려 왕족 474년 핏줄은 어떻게 사라졌나",
-     "published": "2026-06-15"
     },
     {
      "id": "hoE9aioaOxY",
@@ -7511,32 +7491,32 @@
      "published": "2026-06-18"
     }
    ],
-   "views_median": 130459,
-   "views_per_day_median": 2375.3,
+   "views_median": 129576.0,
+   "views_per_day_median": 2248.7,
    "ratio_median": 20.39,
-   "success": 447,
-   "minutes_median": 26.1,
+   "success": 444,
+   "minutes_median": 25.85,
    "title_len_avg": 47.4,
    "title_features": [
     {
      "name": "물음표 ?",
      "count": 124,
-     "share": 0.263
+     "share": 0.265
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 74,
-     "share": 0.157
+     "count": 73,
+     "share": 0.156
     },
     {
      "name": "이유",
-     "count": 71,
-     "share": 0.151
+     "count": 70,
+     "share": 0.15
     },
     {
      "name": "vs 비교",
      "count": 55,
-     "share": 0.117
+     "share": 0.118
     },
     {
      "name": "느낌표 !",
@@ -7556,7 +7536,7 @@
     {
      "name": "직접·해보니·N년 기록",
      "count": 12,
-     "share": 0.025
+     "share": 0.026
     },
     {
      "name": "과정·벌어진 일·결말·결국",
@@ -7602,11 +7582,11 @@
    "title_words": [
     {
      "word": "조선",
-     "count": 73
+     "count": 72
     },
     {
      "word": "이유",
-     "count": 67
+     "count": 66
     },
     {
      "word": "역사",
@@ -7618,7 +7598,7 @@
     },
     {
      "word": "어떻게",
-     "count": 29
+     "count": 28
     },
     {
      "word": "충격적인",
@@ -7645,21 +7625,21 @@
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 454,
+    "설명": 451,
     "없음": 17
    },
    "content_words": [
     {
      "word": "그리고",
-     "count": 228
+     "count": 225
     },
     {
      "word": "조선",
-     "count": 160
+     "count": 159
     },
     {
      "word": "영상은",
-     "count": 139
+     "count": 138
     },
     {
      "word": "있습니다",
@@ -7675,11 +7655,11 @@
     },
     {
      "word": "함께",
-     "count": 114
+     "count": 113
     },
     {
      "word": "어떻게",
-     "count": 108
+     "count": 107
     },
     {
      "word": "조선의",
@@ -7691,14 +7671,14 @@
     },
     {
      "word": "가장",
-     "count": 92
+     "count": 90
     },
     {
      "word": "AI",
-     "count": 90
+     "count": 89
     }
    ],
-   "chapters_share": 0.42,
+   "chapters_share": 0.419,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -7720,36 +7700,36 @@
      "hook": "오늘 역사를보다는 '천사의 언어 에녹어'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 📖 [역사를 보다2] 📖 [역사를 보다] 📺강인욱 교수님의 개인채널 [고고한 강교수] 📖 박현도 교수님의 저서"
     }
    ],
-   "comments": 103782,
+   "comments": 101241,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 17550,
+     "count": 17067,
      "share": 0.169
     },
     {
      "name": "칭찬·감사",
-     "count": 13299,
-     "share": 0.128
+     "count": 13200,
+     "share": 0.13
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 5014,
-     "share": 0.048
+     "count": 4948,
+     "share": 0.049
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 4089,
-     "share": 0.039
+     "count": 4021,
+     "share": 0.04
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 3825,
+     "count": 3701,
      "share": 0.037
     },
     {
      "name": "요청",
-     "count": 1678,
+     "count": 1654,
      "share": 0.016
     }
    ],
@@ -7773,7 +7753,7 @@
      "title": "인도 정부가 1000년의 역사를 몰래 지우고 있는 이유 (공백의 1000년..?)ㅣ역사를 보다 EP.164",
      "channel": "보다 BODA",
      "views": 2472883,
-     "views_per_day": 162412.9,
+     "views_per_day": 152405.1,
      "published": "2026-10-04",
      "url": "https://www.youtube.com/watch?v=vp1Eet1Rmfk"
     },
@@ -7782,7 +7762,7 @@
      "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
      "channel": "보다 BODA",
      "views": 1329432,
-     "views_per_day": 161624.2,
+     "views_per_day": 144107.7,
      "published": "2026-10-11",
      "url": "https://www.youtube.com/watch?v=0y_c_-Ik_GQ"
     },
@@ -7791,7 +7771,7 @@
      "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
      "channel": "보다 BODA",
      "views": 2832900,
-     "views_per_day": 127467.7,
+     "views_per_day": 121980.2,
      "published": "2026-09-27",
      "url": "https://www.youtube.com/watch?v=tlVSuaOykFk"
     },
@@ -7800,7 +7780,7 @@
      "title": "《오디세이》이걸 알고 보면 완전히 다른 영화가 됩니다｜설민석의 영화 해설",
      "channel": "설민석 Seol Min Seok",
      "views": 8138268,
-     "views_per_day": 123445.2,
+     "views_per_day": 121601.0,
      "published": "2026-08-14",
      "url": "https://www.youtube.com/watch?v=1k_2bervFV8"
     },
@@ -7809,7 +7789,7 @@
      "title": "영화 [암살자(들)] VS 실제 문세광의 육영수 피살 사건, 모든 의문점과 의혹을 파헤친다.",
      "channel": "황현필 한국사",
      "views": 2229156,
-     "views_per_day": 99831.0,
+     "views_per_day": 95552.5,
      "published": "2026-09-26",
      "url": "https://www.youtube.com/watch?v=3gZPUwZZ8Zg"
     }
@@ -7818,8 +7798,8 @@
   {
    "weeks": 19,
    "label": "최근 19주",
-   "videos": 497,
-   "channels": 307,
+   "videos": 494,
+   "channels": 306,
    "new_this_week": [
     {
      "id": "-Yturcnh4j8",
@@ -7830,6 +7810,11 @@
      "id": "1VORKOftvaM",
      "title": "당신이 중국 황제로 환생하면, 매일마다 겪게될 끔찍한 현실ㅣ환생체험ㅣ역사체험ㅣ자금성여행 ㅣ타임슬립",
      "published": "2026-06-13"
+    },
+    {
+     "id": "C4QbgaRMmt0",
+     "title": "조선 최악의 역적이 백범 김구 집안의 검은 역사가 된 이유",
+     "published": "2026-06-15"
     },
     {
      "id": "DY0tRfuxRhQ",
@@ -7852,9 +7837,9 @@
      "published": "2026-06-10"
     },
     {
-     "id": "Knxr-xtwiKw",
-     "title": "제주도는 원래 우리나라가 아니었다고? |한국사}탐라국}제주도의역사|오디오북",
-     "published": "2026-06-09"
+     "id": "KHWMK-goPxs",
+     "title": "박정희 정권 최대의 미스터리 | 제3공화국 뒤흔든 정인숙 피살사건 | 50년 만에 다시 보는 아들의 삶",
+     "published": "2026-06-16"
     },
     {
      "id": "MKqGAsTkS8w",
@@ -7902,9 +7887,9 @@
      "published": "2026-06-10"
     },
     {
-     "id": "d5BvFzbL0bY",
-     "title": "세조가 감히 넘볼수 없었던넘사벽 왕 문종의 미친능력 | 세종이 문종을 선택한이유 | 조선역사 | 조선왕조실록 | 한국사",
-     "published": "2026-06-09"
+     "id": "e3Aax9sONqQ",
+     "title": "조선이 감춘 엿새의 학살 — 고려 왕족 474년 핏줄은 어떻게 사라졌나",
+     "published": "2026-06-15"
     },
     {
      "id": "g6C-EzvdH2o",
@@ -7932,11 +7917,6 @@
      "published": "2026-06-14"
     },
     {
-     "id": "wX-80QWb2tg",
-     "title": "단종의 친누나 경혜공주, 세조에게 한 조선 역사상 가장 잔인한 복수",
-     "published": "2026-06-08"
-    },
-    {
      "id": "xKylyX8bcik",
      "title": "청백리라 불린 영의정의 두 얼굴 | 정인지, 그가 살았던 80년의 비밀 | 조선왕조실록,정인지",
      "published": "2026-06-12"
@@ -7952,27 +7932,27 @@
      "published": "2026-06-12"
     }
    ],
-   "views_median": 132226,
-   "views_per_day_median": 2354.9,
-   "ratio_median": 20.4,
-   "success": 472,
-   "minutes_median": 26.3,
+   "views_median": 132551.5,
+   "views_per_day_median": 2228.0,
+   "ratio_median": 20.39,
+   "success": 469,
+   "minutes_median": 26.25,
    "title_len_avg": 47.6,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 129,
-     "share": 0.26
+     "count": 128,
+     "share": 0.259
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 82,
-     "share": 0.165
+     "count": 81,
+     "share": 0.164
     },
     {
      "name": "이유",
-     "count": 79,
-     "share": 0.159
+     "count": 78,
+     "share": 0.158
     },
     {
      "name": "vs 비교",
@@ -7982,12 +7962,12 @@
     {
      "name": "느낌표 !",
      "count": 41,
-     "share": 0.082
+     "share": 0.083
     },
     {
      "name": "사연·오디오북·실화·고백",
-     "count": 19,
-     "share": 0.038
+     "count": 18,
+     "share": 0.036
     },
     {
      "name": "AI",
@@ -8043,7 +8023,7 @@
    "title_words": [
     {
      "word": "조선",
-     "count": 81
+     "count": 80
     },
     {
      "word": "이유",
@@ -8055,7 +8035,7 @@
     },
     {
      "word": "한국사",
-     "count": 35
+     "count": 33
     },
     {
      "word": "어떻게",
@@ -8079,36 +8059,36 @@
     },
     {
      "word": "가장",
-     "count": 22
+     "count": 21
     }
    ],
    "transcripts": 0,
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 479,
+    "설명": 476,
     "없음": 18
    },
    "content_words": [
     {
      "word": "그리고",
-     "count": 236
+     "count": 234
     },
     {
      "word": "조선",
-     "count": 172
+     "count": 171
     },
     {
      "word": "영상은",
-     "count": 156
+     "count": 153
     },
     {
      "word": "있습니다",
-     "count": 143
+     "count": 141
     },
     {
      "word": "역사",
-     "count": 135
+     "count": 134
     },
     {
      "word": "이야기를",
@@ -8120,15 +8100,15 @@
     },
     {
      "word": "어떻게",
-     "count": 114
+     "count": 112
     },
     {
      "word": "조선의",
-     "count": 110
+     "count": 109
     },
     {
      "word": "바탕으로",
-     "count": 109
+     "count": 107
     },
     {
      "word": "AI",
@@ -8136,7 +8116,7 @@
     },
     {
      "word": "가장",
-     "count": 99
+     "count": 98
     }
    ],
    "chapters_share": 0.425,
@@ -8161,36 +8141,36 @@
      "hook": "오늘 역사를보다는 '천사의 언어 에녹어'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 📖 [역사를 보다2] 📖 [역사를 보다] 📺강인욱 교수님의 개인채널 [고고한 강교수] 📖 박현도 교수님의 저서"
     }
    ],
-   "comments": 112365,
+   "comments": 111231,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 18798,
-     "share": 0.167
+     "count": 18664,
+     "share": 0.168
     },
     {
      "name": "칭찬·감사",
-     "count": 14771,
-     "share": 0.131
+     "count": 14459,
+     "share": 0.13
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 5388,
+     "count": 5352,
      "share": 0.048
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 4357,
+     "count": 4335,
      "share": 0.039
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 4163,
+     "count": 4132,
      "share": 0.037
     },
     {
      "name": "요청",
-     "count": 1824,
+     "count": 1812,
      "share": 0.016
     }
    ],
@@ -8214,7 +8194,7 @@
      "title": "인도 정부가 1000년의 역사를 몰래 지우고 있는 이유 (공백의 1000년..?)ㅣ역사를 보다 EP.164",
      "channel": "보다 BODA",
      "views": 2472883,
-     "views_per_day": 162412.9,
+     "views_per_day": 152405.1,
      "published": "2026-10-04",
      "url": "https://www.youtube.com/watch?v=vp1Eet1Rmfk"
     },
@@ -8223,7 +8203,7 @@
      "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
      "channel": "보다 BODA",
      "views": 1329432,
-     "views_per_day": 161624.2,
+     "views_per_day": 144107.7,
      "published": "2026-10-11",
      "url": "https://www.youtube.com/watch?v=0y_c_-Ik_GQ"
     },
@@ -8232,7 +8212,7 @@
      "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
      "channel": "보다 BODA",
      "views": 2832900,
-     "views_per_day": 127467.7,
+     "views_per_day": 121980.2,
      "published": "2026-09-27",
      "url": "https://www.youtube.com/watch?v=tlVSuaOykFk"
     },
@@ -8241,7 +8221,7 @@
      "title": "《오디세이》이걸 알고 보면 완전히 다른 영화가 됩니다｜설민석의 영화 해설",
      "channel": "설민석 Seol Min Seok",
      "views": 8138268,
-     "views_per_day": 123445.2,
+     "views_per_day": 121601.0,
      "published": "2026-08-14",
      "url": "https://www.youtube.com/watch?v=1k_2bervFV8"
     },
@@ -8250,7 +8230,7 @@
      "title": "영화 [암살자(들)] VS 실제 문세광의 육영수 피살 사건, 모든 의문점과 의혹을 파헤친다.",
      "channel": "황현필 한국사",
      "views": 2229156,
-     "views_per_day": 99831.0,
+     "views_per_day": 95552.5,
      "published": "2026-09-26",
      "url": "https://www.youtube.com/watch?v=3gZPUwZZ8Zg"
     }
@@ -8259,8 +8239,8 @@
   {
    "weeks": 20,
    "label": "최근 20주",
-   "videos": 524,
-   "channels": 318,
+   "videos": 518,
+   "channels": 316,
    "new_this_week": [
     {
      "id": "246Gb3xy0oM",
@@ -8283,34 +8263,19 @@
      "published": "2026-06-06"
     },
     {
-     "id": "GmB87NExXhQ",
-     "title": "[역사뒷풀이]  조선 꿈의 발령지 TOP5 — 1년만에 3대가 먹고살았습니다",
-     "published": "2026-06-02"
-    },
-    {
-     "id": "HYB6Sx_jzw8",
-     "title": "선조가 이순신을 끝까지 미워할수 밖에 없었던 진짜 이유 | 명량해전에 거북선은 없었다! 이순신은 오직 '이것'하나로 싸웠다",
-     "published": "2026-06-02"
-    },
-    {
      "id": "IbaIAa8VCR8",
      "title": "우리가 몰랐던 조선시대 평민들의 충격적인 삶 | 조선역사 | 한국사 | 조선왕조실록 | 자면서 듣기 좋은 역사 이야기 | 자면서 듣는 역사 이야기",
      "published": "2026-06-04"
     },
     {
-     "id": "JxcyT7cCW2w",
-     "title": "100만 대군을 숲에 가두고 썰어버린 약소국의 미친 전술 (feat. 스탈린의 분노) #세계사 #역사다큐 #스탈린 #모티전",
-     "published": "2026-06-01"
+     "id": "Knxr-xtwiKw",
+     "title": "제주도는 원래 우리나라가 아니었다고? |한국사}탐라국}제주도의역사|오디오북",
+     "published": "2026-06-09"
     },
     {
      "id": "S0fim5zCQbI",
      "title": "왜 11살 꼬마며느리는 망한 집에 웃으며 시집왔을까? 그 정체는? | 야담 | 조선시대 | 오디오북 | 전설 민담",
      "published": "2026-06-03"
-    },
-    {
-     "id": "SiPh04Hz_ps",
-     "title": "사극은 절대 안 보여준 조선 주막의 진실 - 봉놋방·주모·1박의 기록",
-     "published": "2026-06-01"
     },
     {
      "id": "U8mDpoSE4DA",
@@ -8338,6 +8303,11 @@
      "published": "2026-06-06"
     },
     {
+     "id": "d5BvFzbL0bY",
+     "title": "세조가 감히 넘볼수 없었던넘사벽 왕 문종의 미친능력 | 세종이 문종을 선택한이유 | 조선역사 | 조선왕조실록 | 한국사",
+     "published": "2026-06-09"
+    },
+    {
      "id": "h9lGe72Y4NM",
      "title": "조선의 역대급 변절자 신숙주가 성삼문 아내를 노비로 들인 이유 #계유정난 #사육신",
      "published": "2026-06-03"
@@ -8351,11 +8321,6 @@
      "id": "kHamu2oW_1g",
      "title": "\"조선을 병들게 한 장본인\" 조선 역사는 이 사람 이전과 이후로 나뉩니다",
      "published": "2026-06-06"
-    },
-    {
-     "id": "l68ywSAXp5M",
-     "title": "몽골을 무릎 꿇리고 티베트를 평정한 강희제, 왜 조선만은 손대지 않았나 | 청 최강 황제가 한반도 앞에서 멈춘 진짜 이유 | 역사 |한국사 | 조선역사 | 단종 | 강희제 | 중국",
-     "published": "2026-06-01"
     },
     {
      "id": "lRFzNz6LA6c",
@@ -8388,9 +8353,9 @@
      "published": "2026-06-03"
     },
     {
-     "id": "tNn6Ydh7Tdw",
-     "title": "🌙 자면서듣는 역사 | 조선역사 27명의 왕  조선왕조실록 완벽 정리 풀버전｜달빛 역사관",
-     "published": "2026-06-01"
+     "id": "wX-80QWb2tg",
+     "title": "단종의 친누나 경혜공주, 세조에게 한 조선 역사상 가장 잔인한 복수",
+     "published": "2026-06-08"
     },
     {
      "id": "zZfMQjHQFwg",
@@ -8398,42 +8363,42 @@
      "published": "2026-06-02"
     }
    ],
-   "views_median": 133787.0,
-   "views_per_day_median": 2179.4,
+   "views_median": 134539.0,
+   "views_per_day_median": 2155.3,
    "ratio_median": 20.34,
-   "success": 499,
-   "minutes_median": 26.4,
-   "title_len_avg": 47.9,
+   "success": 493,
+   "minutes_median": 26.35,
+   "title_len_avg": 47.8,
    "title_features": [
     {
      "name": "물음표 ?",
      "count": 133,
-     "share": 0.254
+     "share": 0.257
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 87,
-     "share": 0.166
+     "count": 85,
+     "share": 0.164
     },
     {
      "name": "이유",
-     "count": 83,
-     "share": 0.158
+     "count": 81,
+     "share": 0.156
     },
     {
      "name": "vs 비교",
-     "count": 68,
-     "share": 0.13
+     "count": 67,
+     "share": 0.129
     },
     {
      "name": "느낌표 !",
-     "count": 44,
-     "share": 0.084
+     "count": 43,
+     "share": 0.083
     },
     {
      "name": "사연·오디오북·실화·고백",
      "count": 20,
-     "share": 0.038
+     "share": 0.039
     },
     {
      "name": "AI",
@@ -8453,12 +8418,12 @@
     {
      "name": "금액(억·만원)",
      "count": 7,
-     "share": 0.013
+     "share": 0.014
     },
     {
      "name": "손실 낱말(망하·날린·잃은·반토막)",
      "count": 7,
-     "share": 0.013
+     "share": 0.014
     },
     {
      "name": "N가지",
@@ -8489,19 +8454,19 @@
    "title_words": [
     {
      "word": "조선",
-     "count": 88
+     "count": 86
     },
     {
      "word": "이유",
-     "count": 77
+     "count": 75
     },
     {
      "word": "역사",
-     "count": 71
+     "count": 69
     },
     {
      "word": "한국사",
-     "count": 41
+     "count": 40
     },
     {
      "word": "어떻게",
@@ -8517,7 +8482,7 @@
     },
     {
      "word": "조선왕조실록",
-     "count": 27
+     "count": 26
     },
     {
      "word": "이순신",
@@ -8525,28 +8490,28 @@
     },
     {
      "word": "중국",
-     "count": 24
+     "count": 23
     }
    ],
    "transcripts": 0,
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 506,
+    "설명": 500,
     "없음": 18
    },
    "content_words": [
     {
      "word": "그리고",
-     "count": 247
+     "count": 245
     },
     {
      "word": "조선",
-     "count": 187
+     "count": 185
     },
     {
      "word": "영상은",
-     "count": 166
+     "count": 165
     },
     {
      "word": "있습니다",
@@ -8554,7 +8519,7 @@
     },
     {
      "word": "역사",
-     "count": 141
+     "count": 139
     },
     {
      "word": "이야기를",
@@ -8562,7 +8527,7 @@
     },
     {
      "word": "함께",
-     "count": 122
+     "count": 121
     },
     {
      "word": "어떻게",
@@ -8570,22 +8535,22 @@
     },
     {
      "word": "조선의",
-     "count": 118
+     "count": 116
     },
     {
      "word": "바탕으로",
-     "count": 114
+     "count": 113
     },
     {
      "word": "가장",
-     "count": 107
+     "count": 106
     },
     {
      "word": "AI",
      "count": 103
     }
    ],
-   "chapters_share": 0.426,
+   "chapters_share": 0.427,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -8607,36 +8572,36 @@
      "hook": "오늘 역사를보다는 '천사의 언어 에녹어'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 📖 [역사를 보다2] 📖 [역사를 보다] 📺강인욱 교수님의 개인채널 [고고한 강교수] 📖 박현도 교수님의 저서"
     }
    ],
-   "comments": 119176,
+   "comments": 117872,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 19747,
+     "count": 19538,
      "share": 0.166
     },
     {
      "name": "칭찬·감사",
-     "count": 15871,
-     "share": 0.133
+     "count": 15797,
+     "share": 0.134
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 5755,
+     "count": 5670,
      "share": 0.048
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 4529,
+     "count": 4493,
      "share": 0.038
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 4438,
+     "count": 4379,
      "share": 0.037
     },
     {
      "name": "요청",
-     "count": 2011,
+     "count": 2007,
      "share": 0.017
     }
    ],
@@ -8660,7 +8625,7 @@
      "title": "인도 정부가 1000년의 역사를 몰래 지우고 있는 이유 (공백의 1000년..?)ㅣ역사를 보다 EP.164",
      "channel": "보다 BODA",
      "views": 2472883,
-     "views_per_day": 162412.9,
+     "views_per_day": 152405.1,
      "published": "2026-10-04",
      "url": "https://www.youtube.com/watch?v=vp1Eet1Rmfk"
     },
@@ -8669,7 +8634,7 @@
      "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
      "channel": "보다 BODA",
      "views": 1329432,
-     "views_per_day": 161624.2,
+     "views_per_day": 144107.7,
      "published": "2026-10-11",
      "url": "https://www.youtube.com/watch?v=0y_c_-Ik_GQ"
     },
@@ -8678,7 +8643,7 @@
      "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
      "channel": "보다 BODA",
      "views": 2832900,
-     "views_per_day": 127467.7,
+     "views_per_day": 121980.2,
      "published": "2026-09-27",
      "url": "https://www.youtube.com/watch?v=tlVSuaOykFk"
     },
@@ -8687,7 +8652,7 @@
      "title": "《오디세이》이걸 알고 보면 완전히 다른 영화가 됩니다｜설민석의 영화 해설",
      "channel": "설민석 Seol Min Seok",
      "views": 8138268,
-     "views_per_day": 123445.2,
+     "views_per_day": 121601.0,
      "published": "2026-08-14",
      "url": "https://www.youtube.com/watch?v=1k_2bervFV8"
     },
@@ -8696,7 +8661,7 @@
      "title": "영화 [암살자(들)] VS 실제 문세광의 육영수 피살 사건, 모든 의문점과 의혹을 파헤친다.",
      "channel": "황현필 한국사",
      "views": 2229156,
-     "views_per_day": 99831.0,
+     "views_per_day": 95552.5,
      "published": "2026-09-26",
      "url": "https://www.youtube.com/watch?v=3gZPUwZZ8Zg"
     }
@@ -8705,14 +8670,9 @@
   {
    "weeks": 21,
    "label": "최근 21주",
-   "videos": 554,
-   "channels": 331,
+   "videos": 546,
+   "channels": 327,
    "new_this_week": [
-    {
-     "id": "0lfKtPz-4PY",
-     "title": "주고후 – 영락제의 피를 이은 그는 왜 아버지의 ‘반역의 업보’를 그대로 되풀이했나?",
-     "published": "2026-05-25"
-    },
     {
      "id": "212AYS3uovQ",
      "title": "왜 왕은 완벽한 보안시스템이 있는 궁궐을 무섭다고 했을까?ㅣ조선시대 궁궐 보안의 비밀ㅣ왕실 호위 군대",
@@ -8724,19 +8684,9 @@
      "published": "2026-05-28"
     },
     {
-     "id": "5zc-yW_ecN8",
-     "title": "사극에서 알려주지 않은 조선시대 해가 지면 벌어지는 일 | 조선역사,조선의 밤.통행금지",
-     "published": "2026-05-25"
-    },
-    {
      "id": "8Px-YZbdFhg",
      "title": "《삼국지》 제갈량의 후손들이 700년간 숨어 살던 기묘한 마을의 비밀 l 역사 인물 l 고전",
      "published": "2026-05-27"
-    },
-    {
-     "id": "Ch-zCROKRo4",
-     "title": "조선시대 왕비의 식사 — 12첩 반상인데 왜 맛이 없었을까",
-     "published": "2026-05-25"
     },
     {
      "id": "DcJMoVuG9Jw",
@@ -8749,14 +8699,24 @@
      "published": "2026-05-29"
     },
     {
+     "id": "GmB87NExXhQ",
+     "title": "[역사뒷풀이]  조선 꿈의 발령지 TOP5 — 1년만에 3대가 먹고살았습니다",
+     "published": "2026-06-02"
+    },
+    {
+     "id": "HYB6Sx_jzw8",
+     "title": "선조가 이순신을 끝까지 미워할수 밖에 없었던 진짜 이유 | 명량해전에 거북선은 없었다! 이순신은 오직 '이것'하나로 싸웠다",
+     "published": "2026-06-02"
+    },
+    {
      "id": "IOKiWVxwsyM",
      "title": "세조가 발탁한 천민 궁녀… 조선을 뒤에서 움직인 여자 '조두대'",
      "published": "2026-05-31"
     },
     {
-     "id": "IVm9Nrtk7Us",
-     "title": "명나라도 욕한 조선의 최악의 왕!! 실록도 쪽팔려했던 선조의 충격적인 진짜 모습",
-     "published": "2026-05-25"
+     "id": "JxcyT7cCW2w",
+     "title": "100만 대군을 숲에 가두고 썰어버린 약소국의 미친 전술 (feat. 스탈린의 분노) #세계사 #역사다큐 #스탈린 #모티전",
+     "published": "2026-06-01"
     },
     {
      "id": "MbnWhQOwocM",
@@ -8764,9 +8724,9 @@
      "published": "2026-05-27"
     },
     {
-     "id": "NRtLHrlkspU",
-     "title": "조선왕조실록에 3000번 등장하는 단 한 사람ㅣ숙종의 사약을 세 사발이나 마신 노론 영수ㅣ우암 송시열",
-     "published": "2026-05-25"
+     "id": "SiPh04Hz_ps",
+     "title": "사극은 절대 안 보여준 조선 주막의 진실 - 봉놋방·주모·1박의 기록",
+     "published": "2026-06-01"
     },
     {
      "id": "Tq1ADCDu3hQ",
@@ -8809,11 +8769,6 @@
      "published": "2026-05-29"
     },
     {
-     "id": "h49qZxvEQmM",
-     "title": "국악과 EDM의 미친 조합! 조선 주막 타임슬립 시네마틱 MV 🎬",
-     "published": "2026-05-25"
-    },
-    {
      "id": "k_GaCpqR56M",
      "title": "노비 출신으로 정1품 빈에 오른 신빈 김씨: 실록으로 본 세종과 신빈김씨",
      "published": "2026-05-31"
@@ -8822,6 +8777,11 @@
      "id": "kjtOsCP4t5Y",
      "title": "조선시대 한복판에 떨어진 대한민국 최정예 육군, 압도적 화력으로 역사를 다시 쓴다",
      "published": "2026-05-26"
+    },
+    {
+     "id": "l68ywSAXp5M",
+     "title": "몽골을 무릎 꿇리고 티베트를 평정한 강희제, 왜 조선만은 손대지 않았나 | 청 최강 황제가 한반도 앞에서 멈춘 진짜 이유 | 역사 |한국사 | 조선역사 | 단종 | 강희제 | 중국",
+     "published": "2026-06-01"
     },
     {
      "id": "m441159aCfI",
@@ -8839,14 +8799,9 @@
      "published": "2026-05-29"
     },
     {
-     "id": "sqEhpBUi3Vc",
-     "title": "사극에서는 절대 보여주지 않는 조선 평민의 진짜 밥상",
-     "published": "2026-05-25"
-    },
-    {
-     "id": "vKvO8tsueAc",
-     "title": "[1화] 천군  타임슬립 1592 임진왜란에 떨어진 대한민국 이지스함 [AI 단편 영화]",
-     "published": "2026-05-25"
+     "id": "tNn6Ydh7Tdw",
+     "title": "🌙 자면서듣는 역사 | 조선역사 27명의 왕  조선왕조실록 완벽 정리 풀버전｜달빛 역사관",
+     "published": "2026-06-01"
     },
     {
      "id": "w6G1N2fUNQg",
@@ -8859,62 +8814,62 @@
      "published": "2026-05-31"
     }
    ],
-   "views_median": 131697.5,
-   "views_per_day_median": 2051.4,
+   "views_median": 133021.0,
+   "views_per_day_median": 2062.6,
    "ratio_median": 20.22,
-   "success": 529,
+   "success": 521,
    "minutes_median": 26.4,
    "title_len_avg": 47.8,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 138,
-     "share": 0.249
+     "count": 137,
+     "share": 0.251
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 92,
-     "share": 0.166
+     "share": 0.168
     },
     {
      "name": "이유",
      "count": 87,
-     "share": 0.157
+     "share": 0.159
     },
     {
      "name": "vs 비교",
-     "count": 78,
-     "share": 0.141
+     "count": 75,
+     "share": 0.137
     },
     {
      "name": "느낌표 !",
-     "count": 47,
-     "share": 0.085
+     "count": 45,
+     "share": 0.082
     },
     {
      "name": "사연·오디오북·실화·고백",
      "count": 20,
-     "share": 0.036
+     "share": 0.037
     },
     {
      "name": "AI",
-     "count": 19,
-     "share": 0.034
+     "count": 18,
+     "share": 0.033
     },
     {
      "name": "직접·해보니·N년 기록",
      "count": 13,
-     "share": 0.023
+     "share": 0.024
     },
     {
      "name": "과정·벌어진 일·결말·결국",
      "count": 8,
-     "share": 0.014
+     "share": 0.015
     },
     {
      "name": "손실 낱말(망하·날린·잃은·반토막)",
      "count": 8,
-     "share": 0.014
+     "share": 0.015
     },
     {
      "name": "금액(억·만원)",
@@ -8950,7 +8905,7 @@
    "title_words": [
     {
      "word": "조선",
-     "count": 94
+     "count": 92
     },
     {
      "word": "이유",
@@ -8966,7 +8921,7 @@
     },
     {
      "word": "조선시대",
-     "count": 38
+     "count": 36
     },
     {
      "word": "어떻게",
@@ -8974,7 +8929,7 @@
     },
     {
      "word": "충격적인",
-     "count": 32
+     "count": 31
     },
     {
      "word": "조선왕조실록",
@@ -8993,21 +8948,21 @@
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 536,
+    "설명": 528,
     "없음": 18
    },
    "content_words": [
     {
      "word": "그리고",
-     "count": 260
+     "count": 256
     },
     {
      "word": "조선",
-     "count": 200
+     "count": 196
     },
     {
      "word": "영상은",
-     "count": 179
+     "count": 177
     },
     {
      "word": "있습니다",
@@ -9015,11 +8970,11 @@
     },
     {
      "word": "역사",
-     "count": 148
+     "count": 147
     },
     {
      "word": "이야기를",
-     "count": 134
+     "count": 133
     },
     {
      "word": "함께",
@@ -9030,23 +8985,23 @@
      "count": 128
     },
     {
-     "word": "조선의",
-     "count": 122
+     "word": "바탕으로",
+     "count": 119
     },
     {
-     "word": "바탕으로",
-     "count": 121
+     "word": "조선의",
+     "count": 119
     },
     {
      "word": "가장",
-     "count": 114
+     "count": 113
     },
     {
      "word": "AI",
-     "count": 107
+     "count": 106
     }
    ],
-   "chapters_share": 0.424,
+   "chapters_share": 0.425,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -9068,36 +9023,36 @@
      "hook": "오늘 역사를보다는 '천사의 언어 에녹어'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 📖 [역사를 보다2] 📖 [역사를 보다] 📺강인욱 교수님의 개인채널 [고고한 강교수] 📖 박현도 교수님의 저서"
     }
    ],
-   "comments": 127962,
+   "comments": 126266,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 21043,
-     "share": 0.164
+     "count": 20797,
+     "share": 0.165
     },
     {
      "name": "칭찬·감사",
-     "count": 17036,
+     "count": 16790,
      "share": 0.133
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 6112,
+     "count": 6032,
      "share": 0.048
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 4874,
+     "count": 4826,
      "share": 0.038
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 4746,
+     "count": 4686,
      "share": 0.037
     },
     {
      "name": "요청",
-     "count": 2116,
+     "count": 2095,
      "share": 0.017
     }
    ],
@@ -9121,7 +9076,7 @@
      "title": "인도 정부가 1000년의 역사를 몰래 지우고 있는 이유 (공백의 1000년..?)ㅣ역사를 보다 EP.164",
      "channel": "보다 BODA",
      "views": 2472883,
-     "views_per_day": 162412.9,
+     "views_per_day": 152405.1,
      "published": "2026-10-04",
      "url": "https://www.youtube.com/watch?v=vp1Eet1Rmfk"
     },
@@ -9130,7 +9085,7 @@
      "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
      "channel": "보다 BODA",
      "views": 1329432,
-     "views_per_day": 161624.2,
+     "views_per_day": 144107.7,
      "published": "2026-10-11",
      "url": "https://www.youtube.com/watch?v=0y_c_-Ik_GQ"
     },
@@ -9139,7 +9094,7 @@
      "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
      "channel": "보다 BODA",
      "views": 2832900,
-     "views_per_day": 127467.7,
+     "views_per_day": 121980.2,
      "published": "2026-09-27",
      "url": "https://www.youtube.com/watch?v=tlVSuaOykFk"
     },
@@ -9148,7 +9103,7 @@
      "title": "《오디세이》이걸 알고 보면 완전히 다른 영화가 됩니다｜설민석의 영화 해설",
      "channel": "설민석 Seol Min Seok",
      "views": 8138268,
-     "views_per_day": 123445.2,
+     "views_per_day": 121601.0,
      "published": "2026-08-14",
      "url": "https://www.youtube.com/watch?v=1k_2bervFV8"
     },
@@ -9157,7 +9112,7 @@
      "title": "영화 [암살자(들)] VS 실제 문세광의 육영수 피살 사건, 모든 의문점과 의혹을 파헤친다.",
      "channel": "황현필 한국사",
      "views": 2229156,
-     "views_per_day": 99831.0,
+     "views_per_day": 95552.5,
      "published": "2026-09-26",
      "url": "https://www.youtube.com/watch?v=3gZPUwZZ8Zg"
     }
@@ -9166,9 +9121,19 @@
   {
    "weeks": 22,
    "label": "최근 22주",
-   "videos": 576,
-   "channels": 346,
+   "videos": 574,
+   "channels": 345,
    "new_this_week": [
+    {
+     "id": "0lfKtPz-4PY",
+     "title": "주고후 – 영락제의 피를 이은 그는 왜 아버지의 ‘반역의 업보’를 그대로 되풀이했나?",
+     "published": "2026-05-25"
+    },
+    {
+     "id": "5zc-yW_ecN8",
+     "title": "사극에서 알려주지 않은 조선시대 해가 지면 벌어지는 일 | 조선역사,조선의 밤.통행금지",
+     "published": "2026-05-25"
+    },
     {
      "id": "ASsTr0jROpQ",
      "title": "조선 궁녀 500명은 도대체 어떻게 버텼을까?  | 조선시대 | 조선궁녀",
@@ -9178,6 +9143,11 @@
      "id": "AdJgSItMuIE",
      "title": "AI 판타지 드라마 | 고려제일검, 현대에 나타나다 | EP.02 일본편 하",
      "published": "2026-05-23"
+    },
+    {
+     "id": "Ch-zCROKRo4",
+     "title": "조선시대 왕비의 식사 — 12첩 반상인데 왜 맛이 없었을까",
+     "published": "2026-05-25"
     },
     {
      "id": "DrsCsmw1sbc",
@@ -9190,19 +9160,24 @@
      "published": "2026-05-25"
     },
     {
-     "id": "FMHq4YfptwI",
-     "title": "조선왕조실록이 숨긴 3가지 미스터리ㅣ한국사ㅣ472년의 비밀",
-     "published": "2026-05-19"
-    },
-    {
      "id": "GX_Hq2wRnBQ",
      "title": "김창룡 — '대통령의 오른팔', 옛 부하의 손에 최후를 맞은 대한민국 특무부대장.",
      "published": "2026-05-24"
     },
     {
+     "id": "IVm9Nrtk7Us",
+     "title": "명나라도 욕한 조선의 최악의 왕!! 실록도 쪽팔려했던 선조의 충격적인 진짜 모습",
+     "published": "2026-05-25"
+    },
+    {
      "id": "N6THuYELTWU",
      "title": "사극에서 절대 보여주지 않는 조선 노비의 진짜 밥상 | 정사 | 야사",
      "published": "2026-05-21"
+    },
+    {
+     "id": "NRtLHrlkspU",
+     "title": "조선왕조실록에 3000번 등장하는 단 한 사람ㅣ숙종의 사약을 세 사발이나 마신 노론 영수ㅣ우암 송시열",
+     "published": "2026-05-25"
     },
     {
      "id": "NSnNg56q-RY",
@@ -9250,6 +9225,11 @@
      "published": "2026-05-20"
     },
     {
+     "id": "h49qZxvEQmM",
+     "title": "국악과 EDM의 미친 조합! 조선 주막 타임슬립 시네마틱 MV 🎬",
+     "published": "2026-05-25"
+    },
+    {
      "id": "qlAGk8dcK8s",
      "title": "448년간 숨겨진 한글의 비밀. 세종이 아니었다",
      "published": "2026-05-22"
@@ -9265,37 +9245,42 @@
      "published": "2026-05-23"
     },
     {
+     "id": "sqEhpBUi3Vc",
+     "title": "사극에서는 절대 보여주지 않는 조선 평민의 진짜 밥상",
+     "published": "2026-05-25"
+    },
+    {
      "id": "tCn0W7-u_h4",
      "title": "\"나 안 돌아갈래!\" 왕은 요절하고 신하는 90세 장수? 유배지에서 '신선놀음' 즐긴 조선 죄인들의 반전 기록",
      "published": "2026-05-24"
     },
     {
-     "id": "tYhezr6EsTo",
-     "title": "광해군은 성군일까 폭군일까 | 단종보다 비참했던 19년의 생지옥 | 영웅에서 패륜아가 되기까지",
-     "published": "2026-05-18"
-    },
-    {
      "id": "uFLxZ2FVYBg",
      "title": "성균관 수석을 꺾은 일곱 살 거지 아이에게, 임금이 눈물을 쏟으며 무릎을 꿇었습니다 | 야담| 민담| 설화| 옛날이야기| 수면동화| 오디오북",
      "published": "2026-05-19"
+    },
+    {
+     "id": "vKvO8tsueAc",
+     "title": "[1화] 천군  타임슬립 1592 임진왜란에 떨어진 대한민국 이지스함 [AI 단편 영화]",
+     "published": "2026-05-25"
     }
    ],
-   "views_median": 131697.5,
-   "views_per_day_median": 2001.7,
+   "views_median": 131069.0,
+   "views_per_day_median": 1975.65,
    "ratio_median": 20.41,
-   "success": 550,
+   "success": 548,
    "minutes_median": 26.3,
    "title_len_avg": 47.8,
    "title_features": [
     {
      "name": "물음표 ?",
      "count": 141,
-     "share": 0.245
+     "share": 0.246
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 94,
-     "share": 0.163
+     "count": 93,
+     "share": 0.162
     },
     {
      "name": "이유",
@@ -9305,7 +9290,7 @@
     {
      "name": "vs 비교",
      "count": 87,
-     "share": 0.151
+     "share": 0.152
     },
     {
      "name": "느낌표 !",
@@ -9320,7 +9305,7 @@
     {
      "name": "AI",
      "count": 21,
-     "share": 0.036
+     "share": 0.037
     },
     {
      "name": "직접·해보니·N년 기록",
@@ -9344,8 +9329,8 @@
     },
     {
      "name": "N가지",
-     "count": 6,
-     "share": 0.01
+     "count": 5,
+     "share": 0.009
     },
     {
      "name": "두 금액(반전)",
@@ -9383,7 +9368,7 @@
     },
     {
      "word": "한국사",
-     "count": 44
+     "count": 43
     },
     {
      "word": "조선시대",
@@ -9414,13 +9399,13 @@
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 558,
+    "설명": 556,
     "없음": 18
    },
    "content_words": [
     {
      "word": "그리고",
-     "count": 270
+     "count": 269
     },
     {
      "word": "조선",
@@ -9428,22 +9413,22 @@
     },
     {
      "word": "영상은",
-     "count": 190
+     "count": 188
     },
     {
      "word": "있습니다",
-     "count": 169
+     "count": 167
     },
     {
      "word": "역사",
      "count": 153
     },
     {
-     "word": "이야기를",
-     "count": 137
+     "word": "함께",
+     "count": 136
     },
     {
-     "word": "함께",
+     "word": "이야기를",
      "count": 136
     },
     {
@@ -9452,15 +9437,15 @@
     },
     {
      "word": "바탕으로",
-     "count": 127
+     "count": 126
     },
     {
      "word": "조선의",
-     "count": 125
+     "count": 124
     },
     {
      "word": "가장",
-     "count": 116
+     "count": 115
     },
     {
      "word": "AI",
@@ -9489,36 +9474,36 @@
      "hook": "오늘 역사를보다는 '천사의 언어 에녹어'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 📖 [역사를 보다2] 📖 [역사를 보다] 📺강인욱 교수님의 개인채널 [고고한 강교수] 📖 박현도 교수님의 저서"
     }
    ],
-   "comments": 138044,
+   "comments": 137542,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 22809,
+     "count": 22714,
      "share": 0.165
     },
     {
      "name": "칭찬·감사",
-     "count": 17779,
+     "count": 17743,
      "share": 0.129
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 6486,
+     "count": 6456,
      "share": 0.047
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 5186,
+     "count": 5178,
      "share": 0.038
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 5093,
+     "count": 5076,
      "share": 0.037
     },
     {
      "name": "요청",
-     "count": 2186,
+     "count": 2184,
      "share": 0.016
     }
    ],
@@ -9542,7 +9527,7 @@
      "title": "인도 정부가 1000년의 역사를 몰래 지우고 있는 이유 (공백의 1000년..?)ㅣ역사를 보다 EP.164",
      "channel": "보다 BODA",
      "views": 2472883,
-     "views_per_day": 162412.9,
+     "views_per_day": 152405.1,
      "published": "2026-10-04",
      "url": "https://www.youtube.com/watch?v=vp1Eet1Rmfk"
     },
@@ -9551,7 +9536,7 @@
      "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
      "channel": "보다 BODA",
      "views": 1329432,
-     "views_per_day": 161624.2,
+     "views_per_day": 144107.7,
      "published": "2026-10-11",
      "url": "https://www.youtube.com/watch?v=0y_c_-Ik_GQ"
     },
@@ -9560,7 +9545,7 @@
      "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
      "channel": "보다 BODA",
      "views": 2832900,
-     "views_per_day": 127467.7,
+     "views_per_day": 121980.2,
      "published": "2026-09-27",
      "url": "https://www.youtube.com/watch?v=tlVSuaOykFk"
     },
@@ -9569,7 +9554,7 @@
      "title": "《오디세이》이걸 알고 보면 완전히 다른 영화가 됩니다｜설민석의 영화 해설",
      "channel": "설민석 Seol Min Seok",
      "views": 8138268,
-     "views_per_day": 123445.2,
+     "views_per_day": 121601.0,
      "published": "2026-08-14",
      "url": "https://www.youtube.com/watch?v=1k_2bervFV8"
     },
@@ -9578,7 +9563,7 @@
      "title": "영화 [암살자(들)] VS 실제 문세광의 육영수 피살 사건, 모든 의문점과 의혹을 파헤친다.",
      "channel": "황현필 한국사",
      "views": 2229156,
-     "views_per_day": 99831.0,
+     "views_per_day": 95552.5,
      "published": "2026-09-26",
      "url": "https://www.youtube.com/watch?v=3gZPUwZZ8Zg"
     }
@@ -9587,33 +9572,18 @@
   {
    "weeks": 23,
    "label": "최근 23주",
-   "videos": 611,
-   "channels": 366,
+   "videos": 602,
+   "channels": 360,
    "new_this_week": [
-    {
-     "id": "1QpAz5OvJDo",
-     "title": "새벽 3시부터 밤 11시까지, 조선 왕의 하루가 이 정도였습니다 | 한국사",
-     "published": "2026-05-12"
-    },
     {
      "id": "6ddISd5RbWU",
      "title": "💥저작권등록💥 '숙종부터 정조까지, 피로 쓴 조선의 가장 찬란한 기록'",
      "published": "2026-05-14"
     },
     {
-     "id": "7_UjHlAN6-E",
-     "title": "17만 대군도 벌벌 떨게 한 한국사 최강의 인간 병기, '척준경'의 말도 안 되는 실화",
-     "published": "2026-05-11"
-    },
-    {
      "id": "8hxGkzijJTc",
      "title": "400년 전 명군 후손들이 지금도 한국에 살고 있다는 충격적 진실",
      "published": "2026-05-12"
-    },
-    {
-     "id": "APrX4NKOLT0",
-     "title": "고구려·백제·신라 삼국시대 총정리｜고구려가 삼국통일을 못한 진짜 이유",
-     "published": "2026-05-11"
     },
     {
      "id": "BK2lypbQLmI",
@@ -9626,11 +9596,6 @@
      "published": "2026-05-16"
     },
     {
-     "id": "Bp1B0xzl8fY",
-     "title": "⟪한국사⟫ 장희빈을 무너뜨린 진짜 인물 숙안공주  | 역사 인물 | 조선시대 | 야사",
-     "published": "2026-05-11"
-    },
-    {
      "id": "DsN7QyGQfTM",
      "title": "🌙 자면서듣는 역사 | 해동성국 발해 역사 — 잊혀진 고구려의 후예들 풀버전 ｜달빛 역사관",
      "published": "2026-05-12"
@@ -9639,6 +9604,11 @@
      "id": "F708KFpG_5U",
      "title": "충격실화! 조선시대 꿀보직 TOP5 — 일 안 해도 나라에서 월급 줬습니다",
      "published": "2026-05-14"
+    },
+    {
+     "id": "FMHq4YfptwI",
+     "title": "조선왕조실록이 숨긴 3가지 미스터리ㅣ한국사ㅣ472년의 비밀",
+     "published": "2026-05-19"
     },
     {
      "id": "Kj46XmMz4u0",
@@ -9691,16 +9661,6 @@
      "published": "2026-05-13"
     },
     {
-     "id": "iBPuti_K5mk",
-     "title": "하루 3톤의 똥, 경복궁은 어떻게 처리했을까? | 조선판 극한직업의 진실",
-     "published": "2026-05-11"
-    },
-    {
-     "id": "iRByyYtg5uY",
-     "title": "세조를 넘어 한명회 가문까지… 단종의 저주는 계속되었다 (다섯 자식의 끔찍한 운명)",
-     "published": "2026-05-11"
-    },
-    {
      "id": "jav15__Z528",
      "title": "영화보다 더 영화 같은 '임경업 장군'의 파란만장한 일대기!",
      "published": "2026-05-13"
@@ -9709,11 +9669,6 @@
      "id": "l8yHqJy1Ops",
      "title": "썬킴이 들려주는 중국사 1편 (고대사)",
      "published": "2026-05-16"
-    },
-    {
-     "id": "mU85T1GMwSc",
-     "title": "같은 해 두 달 차이로 사라진 두 여인, 인현왕후 vs 장희빈, 진짜 악녀는 누구였나",
-     "published": "2026-05-11"
     },
     {
      "id": "mVSr1ixtdfw",
@@ -9731,14 +9686,9 @@
      "published": "2026-05-12"
     },
     {
-     "id": "rNcjDyncTfI",
-     "title": "세조는 왜 정순왕후를 죽이지 못했나?ㅣ조선왕조실록ㅣ조선역사ㅣ단종ㅣ",
-     "published": "2026-05-11"
-    },
-    {
-     "id": "tK0dcg5wlHQ",
-     "title": "만들면 곤장 80대? 고려·조선 임금들이 약과를 필사적으로 금지했던 진짜 이유",
-     "published": "2026-05-12"
+     "id": "tYhezr6EsTo",
+     "title": "광해군은 성군일까 폭군일까 | 단종보다 비참했던 19년의 생지옥 | 영웅에서 패륜아가 되기까지",
+     "published": "2026-05-18"
     },
     {
      "id": "uQXzbsh67lQ",
@@ -9766,47 +9716,47 @@
      "published": "2026-05-17"
     }
    ],
-   "views_median": 130969,
-   "views_per_day_median": 1868.6,
-   "ratio_median": 20.29,
-   "success": 584,
-   "minutes_median": 26.3,
-   "title_len_avg": 47.4,
+   "views_median": 130950.5,
+   "views_per_day_median": 1846.6,
+   "ratio_median": 20.22,
+   "success": 575,
+   "minutes_median": 26.35,
+   "title_len_avg": 47.5,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 151,
-     "share": 0.247
+     "count": 148,
+     "share": 0.246
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 99,
-     "share": 0.162
+     "count": 97,
+     "share": 0.161
     },
     {
      "name": "vs 비교",
-     "count": 94,
-     "share": 0.154
+     "count": 91,
+     "share": 0.151
     },
     {
      "name": "이유",
-     "count": 92,
-     "share": 0.151
+     "count": 90,
+     "share": 0.15
     },
     {
      "name": "느낌표 !",
      "count": 51,
-     "share": 0.083
+     "share": 0.085
     },
     {
      "name": "사연·오디오북·실화·고백",
-     "count": 25,
-     "share": 0.041
+     "count": 24,
+     "share": 0.04
     },
     {
      "name": "AI",
      "count": 21,
-     "share": 0.034
+     "share": 0.035
     },
     {
      "name": "직접·해보니·N년 기록",
@@ -9826,12 +9776,12 @@
     {
      "name": "금액(억·만원)",
      "count": 7,
-     "share": 0.011
+     "share": 0.012
     },
     {
      "name": "N가지",
      "count": 7,
-     "share": 0.011
+     "share": 0.012
     },
     {
      "name": "두 금액(반전)",
@@ -9857,27 +9807,27 @@
    "title_words": [
     {
      "word": "조선",
-     "count": 102
+     "count": 100
     },
     {
      "word": "이유",
-     "count": 86
+     "count": 84
     },
     {
      "word": "역사",
-     "count": 78
+     "count": 77
     },
     {
      "word": "한국사",
-     "count": 50
+     "count": 47
     },
     {
      "word": "조선시대",
-     "count": 44
+     "count": 43
     },
     {
      "word": "어떻게",
-     "count": 36
+     "count": 35
     },
     {
      "word": "충격적인",
@@ -9885,7 +9835,7 @@
     },
     {
      "word": "조선왕조실록",
-     "count": 31
+     "count": 30
     },
     {
      "word": "숨겨진",
@@ -9900,60 +9850,60 @@
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 592,
+    "설명": 583,
     "없음": 19
    },
    "content_words": [
     {
      "word": "그리고",
-     "count": 284
+     "count": 279
     },
     {
      "word": "조선",
-     "count": 222
+     "count": 217
     },
     {
      "word": "영상은",
-     "count": 201
+     "count": 198
     },
     {
      "word": "있습니다",
-     "count": 176
+     "count": 174
     },
     {
      "word": "역사",
-     "count": 165
-    },
-    {
-     "word": "함께",
-     "count": 142
+     "count": 160
     },
     {
      "word": "이야기를",
-     "count": 142
+     "count": 141
+    },
+    {
+     "word": "함께",
+     "count": 139
     },
     {
      "word": "어떻게",
-     "count": 138
+     "count": 135
     },
     {
      "word": "바탕으로",
-     "count": 132
+     "count": 130
     },
     {
      "word": "조선의",
-     "count": 127
+     "count": 125
     },
     {
      "word": "가장",
-     "count": 124
+     "count": 120
     },
     {
      "word": "AI",
      "count": 119
     }
    ],
-   "chapters_share": 0.419,
+   "chapters_share": 0.422,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -9975,37 +9925,37 @@
      "hook": "오늘 역사를보다는 '천사의 언어 에녹어'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 📖 [역사를 보다2] 📖 [역사를 보다] 📺강인욱 교수님의 개인채널 [고고한 강교수] 📖 박현도 교수님의 저서"
     }
    ],
-   "comments": 145579,
+   "comments": 143338,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 23898,
-     "share": 0.164
+     "count": 23643,
+     "share": 0.165
     },
     {
      "name": "칭찬·감사",
-     "count": 19360,
-     "share": 0.133
+     "count": 18696,
+     "share": 0.13
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 6874,
+     "count": 6765,
      "share": 0.047
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 5399,
+     "count": 5353,
      "share": 0.037
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 5325,
+     "count": 5254,
      "share": 0.037
     },
     {
      "name": "요청",
-     "count": 2484,
-     "share": 0.017
+     "count": 2306,
+     "share": 0.016
     }
    ],
    "top_comments": [
@@ -10028,7 +9978,7 @@
      "title": "인도 정부가 1000년의 역사를 몰래 지우고 있는 이유 (공백의 1000년..?)ㅣ역사를 보다 EP.164",
      "channel": "보다 BODA",
      "views": 2472883,
-     "views_per_day": 162412.9,
+     "views_per_day": 152405.1,
      "published": "2026-10-04",
      "url": "https://www.youtube.com/watch?v=vp1Eet1Rmfk"
     },
@@ -10037,7 +9987,7 @@
      "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
      "channel": "보다 BODA",
      "views": 1329432,
-     "views_per_day": 161624.2,
+     "views_per_day": 144107.7,
      "published": "2026-10-11",
      "url": "https://www.youtube.com/watch?v=0y_c_-Ik_GQ"
     },
@@ -10046,7 +9996,7 @@
      "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
      "channel": "보다 BODA",
      "views": 2832900,
-     "views_per_day": 127467.7,
+     "views_per_day": 121980.2,
      "published": "2026-09-27",
      "url": "https://www.youtube.com/watch?v=tlVSuaOykFk"
     },
@@ -10055,7 +10005,7 @@
      "title": "《오디세이》이걸 알고 보면 완전히 다른 영화가 됩니다｜설민석의 영화 해설",
      "channel": "설민석 Seol Min Seok",
      "views": 8138268,
-     "views_per_day": 123445.2,
+     "views_per_day": 121601.0,
      "published": "2026-08-14",
      "url": "https://www.youtube.com/watch?v=1k_2bervFV8"
     },
@@ -10064,7 +10014,7 @@
      "title": "영화 [암살자(들)] VS 실제 문세광의 육영수 피살 사건, 모든 의문점과 의혹을 파헤친다.",
      "channel": "황현필 한국사",
      "views": 2229156,
-     "views_per_day": 99831.0,
+     "views_per_day": 95552.5,
      "published": "2026-09-26",
      "url": "https://www.youtube.com/watch?v=3gZPUwZZ8Zg"
     }
@@ -10073,13 +10023,18 @@
   {
    "weeks": 24,
    "label": "최근 24주",
-   "videos": 641,
-   "channels": 380,
+   "videos": 640,
+   "channels": 379,
    "new_this_week": [
     {
      "id": "0aRr9dRPf-I",
      "title": "과학도 설명하지 못한 고고학 미스터리 50가지",
      "published": "2026-05-10"
+    },
+    {
+     "id": "1QpAz5OvJDo",
+     "title": "새벽 3시부터 밤 11시까지, 조선 왕의 하루가 이 정도였습니다 | 한국사",
+     "published": "2026-05-12"
     },
     {
      "id": "1RZ8WZKegt8",
@@ -10117,6 +10072,11 @@
      "published": "2026-05-06"
     },
     {
+     "id": "7_UjHlAN6-E",
+     "title": "17만 대군도 벌벌 떨게 한 한국사 최강의 인간 병기, '척준경'의 말도 안 되는 실화",
+     "published": "2026-05-11"
+    },
+    {
      "id": "8AaUMqwdi00",
      "title": "\"사극 국밥은 다 가짜?\" 조선 사람들이 열광한 진짜 K-패스트푸드 l 조선시대주막에서팔던음식 l 국밥역사 l 조선시대음식",
      "published": "2026-05-08"
@@ -10125,6 +10085,16 @@
      "id": "9pevoSr0BEk",
      "title": "종기하나에 왜 조선 왕들은 줄줄이 목숨을 잃었을까? 조선왕조실록 속 숨겨진 비밀",
      "published": "2026-05-10"
+    },
+    {
+     "id": "APrX4NKOLT0",
+     "title": "고구려·백제·신라 삼국시대 총정리｜고구려가 삼국통일을 못한 진짜 이유",
+     "published": "2026-05-11"
+    },
+    {
+     "id": "Bp1B0xzl8fY",
+     "title": "⟪한국사⟫ 장희빈을 무너뜨린 진짜 인물 숙안공주  | 역사 인물 | 조선시대 | 야사",
+     "published": "2026-05-11"
     },
     {
      "id": "Bw0-7LTWfbg",
@@ -10187,6 +10157,16 @@
      "published": "2026-05-05"
     },
     {
+     "id": "iBPuti_K5mk",
+     "title": "하루 3톤의 똥, 경복궁은 어떻게 처리했을까? | 조선판 극한직업의 진실",
+     "published": "2026-05-11"
+    },
+    {
+     "id": "iRByyYtg5uY",
+     "title": "세조를 넘어 한명회 가문까지… 단종의 저주는 계속되었다 (다섯 자식의 끔찍한 운명)",
+     "published": "2026-05-11"
+    },
+    {
      "id": "if6WN6ejRYo",
      "title": "인류 최초의 문명 수메르, 그들은 대체 어디서 왔을까? l 세계사 l 역사 l 메소포타미아",
      "published": "2026-05-11"
@@ -10207,9 +10187,19 @@
      "published": "2026-05-06"
     },
     {
+     "id": "mU85T1GMwSc",
+     "title": "같은 해 두 달 차이로 사라진 두 여인, 인현왕후 vs 장희빈, 진짜 악녀는 누구였나",
+     "published": "2026-05-11"
+    },
+    {
      "id": "p-seGJdExSo",
      "title": "조선을 멸망에서 구한 건 세조였다? 우리가 몰랐던 1453년 계유정난의 충격적 진실 | 역사 선생님도 안알려주는 단종의 무능함",
      "published": "2026-05-09"
+    },
+    {
+     "id": "rNcjDyncTfI",
+     "title": "세조는 왜 정순왕후를 죽이지 못했나?ㅣ조선왕조실록ㅣ조선역사ㅣ단종ㅣ",
+     "published": "2026-05-11"
     },
     {
      "id": "ssq5V-PjPTI",
@@ -10217,21 +10207,21 @@
      "published": "2026-05-09"
     },
     {
+     "id": "tK0dcg5wlHQ",
+     "title": "만들면 곤장 80대? 고려·조선 임금들이 약과를 필사적으로 금지했던 진짜 이유",
+     "published": "2026-05-12"
+    },
+    {
      "id": "u_tS1xBdjn8",
      "title": "고조선 이전_또 다른 문명이 있었다",
      "published": "2026-05-06"
-    },
-    {
-     "id": "wZQ8lD6HGgc",
-     "title": "[4K] 서울을 열광시키는 이순신의 후예들  , 대한민국 해군 의장대 퍼레이드 | Seoul ROK - Navy Honor Guard parade",
-     "published": "2026-05-04"
     }
    ],
-   "views_median": 130969,
-   "views_per_day_median": 1749.6,
-   "ratio_median": 20.24,
-   "success": 614,
-   "minutes_median": 26.3,
+   "views_median": 130983.0,
+   "views_per_day_median": 1725.05,
+   "ratio_median": 20.27,
+   "success": 613,
+   "minutes_median": 26.35,
    "title_len_avg": 47.6,
    "title_features": [
     {
@@ -10246,8 +10236,8 @@
     },
     {
      "name": "vs 비교",
-     "count": 99,
-     "share": 0.154
+     "count": 98,
+     "share": 0.153
     },
     {
      "name": "이유",
@@ -10287,7 +10277,7 @@
     {
      "name": "N가지",
      "count": 8,
-     "share": 0.012
+     "share": 0.013
     },
     {
      "name": "금액(억·만원)",
@@ -10361,7 +10351,7 @@
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 622,
+    "설명": 621,
     "없음": 19
    },
    "content_words": [
@@ -10414,7 +10404,7 @@
      "count": 128
     }
    ],
-   "chapters_share": 0.418,
+   "chapters_share": 0.419,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -10436,21 +10426,21 @@
      "hook": "오늘 역사를보다는 '천사의 언어 에녹어'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 📖 [역사를 보다2] 📖 [역사를 보다] 📺강인욱 교수님의 개인채널 [고고한 강교수] 📖 박현도 교수님의 저서"
     }
    ],
-   "comments": 153258,
+   "comments": 153210,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 25365,
+     "count": 25359,
      "share": 0.166
     },
     {
      "name": "칭찬·감사",
-     "count": 20481,
+     "count": 20473,
      "share": 0.134
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 7269,
+     "count": 7268,
      "share": 0.047
     },
     {
@@ -10465,7 +10455,7 @@
     },
     {
      "name": "요청",
-     "count": 2593,
+     "count": 2592,
      "share": 0.017
     }
    ],
@@ -10489,7 +10479,7 @@
      "title": "인도 정부가 1000년의 역사를 몰래 지우고 있는 이유 (공백의 1000년..?)ㅣ역사를 보다 EP.164",
      "channel": "보다 BODA",
      "views": 2472883,
-     "views_per_day": 162412.9,
+     "views_per_day": 152405.1,
      "published": "2026-10-04",
      "url": "https://www.youtube.com/watch?v=vp1Eet1Rmfk"
     },
@@ -10498,7 +10488,7 @@
      "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
      "channel": "보다 BODA",
      "views": 1329432,
-     "views_per_day": 161624.2,
+     "views_per_day": 144107.7,
      "published": "2026-10-11",
      "url": "https://www.youtube.com/watch?v=0y_c_-Ik_GQ"
     },
@@ -10507,7 +10497,7 @@
      "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
      "channel": "보다 BODA",
      "views": 2832900,
-     "views_per_day": 127467.7,
+     "views_per_day": 121980.2,
      "published": "2026-09-27",
      "url": "https://www.youtube.com/watch?v=tlVSuaOykFk"
     },
@@ -10516,7 +10506,7 @@
      "title": "《오디세이》이걸 알고 보면 완전히 다른 영화가 됩니다｜설민석의 영화 해설",
      "channel": "설민석 Seol Min Seok",
      "views": 8138268,
-     "views_per_day": 123445.2,
+     "views_per_day": 121601.0,
      "published": "2026-08-14",
      "url": "https://www.youtube.com/watch?v=1k_2bervFV8"
     },
@@ -10525,7 +10515,7 @@
      "title": "영화 [암살자(들)] VS 실제 문세광의 육영수 피살 사건, 모든 의문점과 의혹을 파헤친다.",
      "channel": "황현필 한국사",
      "views": 2229156,
-     "views_per_day": 99831.0,
+     "views_per_day": 95552.5,
      "published": "2026-09-26",
      "url": "https://www.youtube.com/watch?v=3gZPUwZZ8Zg"
     }
@@ -10534,8 +10524,8 @@
   {
    "weeks": 25,
    "label": "최근 25주",
-   "videos": 671,
-   "channels": 399,
+   "videos": 666,
+   "channels": 396,
    "new_this_week": [
     {
      "id": "0kHYAVTIdno",
@@ -10558,11 +10548,6 @@
      "published": "2026-04-29"
     },
     {
-     "id": "7S3HBJxmMqY",
-     "title": "《한국사》 마패 한 장 들고 떠난 암행어사의 고독한 여정 l 역사 인물 l 조선시대 l 야사",
-     "published": "2026-04-28"
-    },
-    {
      "id": "7e2VTJTPgf4",
      "title": "\"이순신 장군 앞에 세종대왕함이 나타났더니... 나고야성 일본 함대 700척이 단 하루 만에 사라졌다\"",
      "published": "2026-04-30"
@@ -10576,16 +10561,6 @@
      "id": "BXSMEO_j4SE",
      "title": "100년 전 그녀가 내 눈앞에? AI로 되살린 조선 마지막 기생들의 실제 미모",
      "published": "2026-04-30"
-    },
-    {
-     "id": "HvUByjkM5r4",
-     "title": "이순신 장군님의 마지막은 일본군이 쏜 총알이 아니었다",
-     "published": "2026-04-27"
-    },
-    {
-     "id": "J2GdQ6BT3rk",
-     "title": "현대 기술 뺨치던 거대문명... 고대 인더스문명이 한순간에 증발한 소름돋는 이유 l 인더스 문명 역사",
-     "published": "2026-04-27"
     },
     {
      "id": "M0j4utufB5A",
@@ -10621,11 +10596,6 @@
      "id": "Yg9WfFY9xlc",
      "title": "24년 인내 끝에 왕이 된 정조, 즉위 20일 만에 숙의 문씨를 처형한 역사적 비극",
      "published": "2026-05-03"
-    },
-    {
-     "id": "_6pNuFtoURo",
-     "title": "사극이 절대 안 보여준 조선 주막의 충격적인 진짜 모습",
-     "published": "2026-04-27"
     },
     {
      "id": "c3ED6GNQFLw",
@@ -10678,47 +10648,47 @@
      "published": "2026-05-01"
     },
     {
-     "id": "smRrpCIxycs",
-     "title": "거지가 되어 정혼자를 데리러온 사위에게 본처 딸을 시집보낸 계모 | 야담",
-     "published": "2026-04-27"
-    },
-    {
      "id": "vk4v5mv4VCk",
      "title": "이순신이 원균의 죽음을 듣고 한 행동 | 평생의 라이벌이 죽은 날 난중일기에 적은 단 한 줄, 칠천량 해전 이순신 원균 관계심리",
      "published": "2026-04-29"
+    },
+    {
+     "id": "wZQ8lD6HGgc",
+     "title": "[4K] 서울을 열광시키는 이순신의 후예들  , 대한민국 해군 의장대 퍼레이드 | Seoul ROK - Navy Honor Guard parade",
+     "published": "2026-05-04"
     }
    ],
-   "views_median": 129287,
-   "views_per_day_median": 1655.6,
-   "ratio_median": 20.13,
-   "success": 644,
-   "minutes_median": 26.2,
+   "views_median": 129352.0,
+   "views_per_day_median": 1639.45,
+   "ratio_median": 20.16,
+   "success": 639,
+   "minutes_median": 26.05,
    "title_len_avg": 47.7,
    "title_features": [
     {
      "name": "물음표 ?",
      "count": 168,
-     "share": 0.25
+     "share": 0.252
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 106,
+     "count": 105,
      "share": 0.158
     },
     {
      "name": "vs 비교",
-     "count": 106,
-     "share": 0.158
+     "count": 103,
+     "share": 0.155
     },
     {
      "name": "이유",
-     "count": 98,
+     "count": 97,
      "share": 0.146
     },
     {
      "name": "느낌표 !",
      "count": 55,
-     "share": 0.082
+     "share": 0.083
     },
     {
      "name": "사연·오디오북·실화·고백",
@@ -10738,12 +10708,12 @@
     {
      "name": "손실 낱말(망하·날린·잃은·반토막)",
      "count": 11,
-     "share": 0.016
+     "share": 0.017
     },
     {
      "name": "과정·벌어진 일·결말·결국",
      "count": 9,
-     "share": 0.013
+     "share": 0.014
     },
     {
      "name": "금액(억·만원)",
@@ -10763,47 +10733,47 @@
     {
      "name": "공통점",
      "count": 1,
-     "share": 0.001
+     "share": 0.002
     },
     {
      "name": "빚투·신용·미수·레버리지·대출",
      "count": 1,
-     "share": 0.001
+     "share": 0.002
     },
     {
      "name": "코스피·폭락·급락·하락장",
      "count": 1,
-     "share": 0.001
+     "share": 0.002
     }
    ],
    "title_words": [
     {
      "word": "조선",
-     "count": 115
+     "count": 114
     },
     {
      "word": "이유",
-     "count": 90
+     "count": 89
     },
     {
      "word": "역사",
-     "count": 87
+     "count": 85
     },
     {
      "word": "한국사",
-     "count": 56
+     "count": 55
     },
     {
      "word": "조선시대",
-     "count": 51
-    },
-    {
-     "word": "충격적인",
-     "count": 36
+     "count": 50
     },
     {
      "word": "어떻게",
      "count": 36
+    },
+    {
+     "word": "충격적인",
+     "count": 35
     },
     {
      "word": "조선왕조실록",
@@ -10814,7 +10784,7 @@
      "count": 29
     },
     {
-     "word": "이순신",
+     "word": "숨겨진",
      "count": 29
     }
    ],
@@ -10822,57 +10792,57 @@
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 652,
+    "설명": 647,
     "없음": 19
    },
    "content_words": [
     {
      "word": "그리고",
-     "count": 302
+     "count": 300
     },
     {
      "word": "조선",
-     "count": 239
+     "count": 237
     },
     {
      "word": "영상은",
-     "count": 225
+     "count": 222
     },
     {
      "word": "있습니다",
-     "count": 192
+     "count": 191
     },
     {
      "word": "역사",
-     "count": 188
+     "count": 186
     },
     {
      "word": "이야기를",
-     "count": 150
+     "count": 149
     },
     {
      "word": "함께",
-     "count": 148
+     "count": 147
     },
     {
      "word": "어떻게",
-     "count": 148
+     "count": 147
     },
     {
      "word": "바탕으로",
-     "count": 145
+     "count": 142
     },
     {
      "word": "조선의",
-     "count": 143
+     "count": 142
     },
     {
      "word": "AI",
-     "count": 138
+     "count": 135
     },
     {
      "word": "가장",
-     "count": 136
+     "count": 134
     }
    ],
    "chapters_share": 0.419,
@@ -10897,36 +10867,36 @@
      "hook": "오늘 역사를보다는 '천사의 언어 에녹어'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 📖 [역사를 보다2] 📖 [역사를 보다] 📺강인욱 교수님의 개인채널 [고고한 강교수] 📖 박현도 교수님의 저서"
     }
    ],
-   "comments": 159321,
+   "comments": 158292,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 26313,
+     "count": 26142,
      "share": 0.165
     },
     {
      "name": "칭찬·감사",
-     "count": 21544,
+     "count": 21365,
      "share": 0.135
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 7538,
+     "count": 7481,
      "share": 0.047
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 5992,
+     "count": 5959,
      "share": 0.038
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 5940,
+     "count": 5894,
      "share": 0.037
     },
     {
      "name": "요청",
-     "count": 2758,
+     "count": 2738,
      "share": 0.017
     }
    ],
@@ -10950,7 +10920,7 @@
      "title": "인도 정부가 1000년의 역사를 몰래 지우고 있는 이유 (공백의 1000년..?)ㅣ역사를 보다 EP.164",
      "channel": "보다 BODA",
      "views": 2472883,
-     "views_per_day": 162412.9,
+     "views_per_day": 152405.1,
      "published": "2026-10-04",
      "url": "https://www.youtube.com/watch?v=vp1Eet1Rmfk"
     },
@@ -10959,7 +10929,7 @@
      "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
      "channel": "보다 BODA",
      "views": 1329432,
-     "views_per_day": 161624.2,
+     "views_per_day": 144107.7,
      "published": "2026-10-11",
      "url": "https://www.youtube.com/watch?v=0y_c_-Ik_GQ"
     },
@@ -10968,7 +10938,7 @@
      "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
      "channel": "보다 BODA",
      "views": 2832900,
-     "views_per_day": 127467.7,
+     "views_per_day": 121980.2,
      "published": "2026-09-27",
      "url": "https://www.youtube.com/watch?v=tlVSuaOykFk"
     },
@@ -10977,7 +10947,7 @@
      "title": "《오디세이》이걸 알고 보면 완전히 다른 영화가 됩니다｜설민석의 영화 해설",
      "channel": "설민석 Seol Min Seok",
      "views": 8138268,
-     "views_per_day": 123445.2,
+     "views_per_day": 121601.0,
      "published": "2026-08-14",
      "url": "https://www.youtube.com/watch?v=1k_2bervFV8"
     },
@@ -10986,7 +10956,7 @@
      "title": "영화 [암살자(들)] VS 실제 문세광의 육영수 피살 사건, 모든 의문점과 의혹을 파헤친다.",
      "channel": "황현필 한국사",
      "views": 2229156,
-     "views_per_day": 99831.0,
+     "views_per_day": 95552.5,
      "published": "2026-09-26",
      "url": "https://www.youtube.com/watch?v=3gZPUwZZ8Zg"
     }
@@ -10995,14 +10965,9 @@
   {
    "weeks": 26,
    "label": "최근 26주",
-   "videos": 706,
-   "channels": 417,
+   "videos": 704,
+   "channels": 415,
    "new_this_week": [
-    {
-     "id": "3vAeVWhNxgY",
-     "title": "\"나는 승리하고 있다\" 이순신에게 패한 일본 3장수가 끝내 몰랐던 것 (한산·명량·노량)",
-     "published": "2026-04-20"
-    },
     {
      "id": "5BUUcuUn5yc",
      "title": "비운의 공주' 네네: 황제에게 거절당한 후 그녀가 겪어야 했던 파란만장한 삶",
@@ -11029,6 +10994,11 @@
      "published": "2026-04-23"
     },
     {
+     "id": "7S3HBJxmMqY",
+     "title": "《한국사》 마패 한 장 들고 떠난 암행어사의 고독한 여정 l 역사 인물 l 조선시대 l 야사",
+     "published": "2026-04-28"
+    },
+    {
      "id": "E7EKKWRLPG0",
      "title": "🎬전하! 닦아 드리겠사옵니다ㅣ영화 [광해] 실화 체크!",
      "published": "2026-04-25"
@@ -11042,6 +11012,16 @@
      "id": "FaJ1hyZFG3w",
      "title": "요한계시록의 진짜 역사 | 완전판 다큐멘터리",
      "published": "2026-04-26"
+    },
+    {
+     "id": "HvUByjkM5r4",
+     "title": "이순신 장군님의 마지막은 일본군이 쏜 총알이 아니었다",
+     "published": "2026-04-27"
+    },
+    {
+     "id": "J2GdQ6BT3rk",
+     "title": "현대 기술 뺨치던 거대문명... 고대 인더스문명이 한순간에 증발한 소름돋는 이유 l 인더스 문명 역사",
+     "published": "2026-04-27"
     },
     {
      "id": "JFGbgpYEf3g",
@@ -11104,9 +11084,9 @@
      "published": "2026-04-22"
     },
     {
-     "id": "YjpJgo3xmZ4",
-     "title": "러시아가 몽골 타타르 기병 박살 낸 방법 – 몰로디 전투 1572",
-     "published": "2026-04-20"
+     "id": "_6pNuFtoURo",
+     "title": "사극이 절대 안 보여준 조선 주막의 충격적인 진짜 모습",
+     "published": "2026-04-27"
     },
     {
      "id": "cJrTHxxYL9s",
@@ -11154,6 +11134,11 @@
      "published": "2026-04-26"
     },
     {
+     "id": "smRrpCIxycs",
+     "title": "거지가 되어 정혼자를 데리러온 사위에게 본처 딸을 시집보낸 계모 | 야담",
+     "published": "2026-04-27"
+    },
+    {
      "id": "tM-6sTlq6DU",
      "title": "칭기즈칸이 세계를 정복한 비밀 무기는 말과 칼이 아니라 '이것'이었다. 800년 앞선 시스템 제국",
      "published": "2026-04-25"
@@ -11174,17 +11159,17 @@
      "published": "2026-04-26"
     }
    ],
-   "views_median": 128340.0,
-   "views_per_day_median": 1622.85,
+   "views_median": 129101.5,
+   "views_per_day_median": 1597.1,
    "ratio_median": 19.76,
-   "success": 678,
-   "minutes_median": 26.3,
+   "success": 676,
+   "minutes_median": 26.35,
    "title_len_avg": 47.9,
    "title_features": [
     {
      "name": "물음표 ?",
      "count": 176,
-     "share": 0.249
+     "share": 0.25
     },
     {
      "name": "vs 비교",
@@ -11199,7 +11184,7 @@
     {
      "name": "이유",
      "count": 99,
-     "share": 0.14
+     "share": 0.141
     },
     {
      "name": "느낌표 !",
@@ -11308,7 +11293,7 @@
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 686,
+    "설명": 684,
     "없음": 20
    },
    "content_words": [
@@ -11318,11 +11303,11 @@
     },
     {
      "word": "조선",
-     "count": 248
+     "count": 247
     },
     {
      "word": "영상은",
-     "count": 235
+     "count": 233
     },
     {
      "word": "있습니다",
@@ -11330,7 +11315,7 @@
     },
     {
      "word": "역사",
-     "count": 199
+     "count": 198
     },
     {
      "word": "함께",
@@ -11349,11 +11334,11 @@
      "count": 153
     },
     {
-     "word": "조선의",
-     "count": 147
+     "word": "AI",
+     "count": 146
     },
     {
-     "word": "AI",
+     "word": "조선의",
      "count": 146
     },
     {
@@ -11383,36 +11368,36 @@
      "hook": "오늘 역사를보다는 '천사의 언어 에녹어'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 📖 [역사를 보다2] 📖 [역사를 보다] 📺강인욱 교수님의 개인채널 [고고한 강교수] 📖 박현도 교수님의 저서"
     }
    ],
-   "comments": 167108,
+   "comments": 166778,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 27498,
+     "count": 27459,
      "share": 0.165
     },
     {
      "name": "칭찬·감사",
-     "count": 22492,
+     "count": 22473,
      "share": 0.135
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 7924,
+     "count": 7910,
      "share": 0.047
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 6273,
+     "count": 6258,
      "share": 0.038
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 6221,
+     "count": 6211,
      "share": 0.037
     },
     {
      "name": "요청",
-     "count": 2905,
+     "count": 2902,
      "share": 0.017
     }
    ],
@@ -11436,7 +11421,7 @@
      "title": "인도 정부가 1000년의 역사를 몰래 지우고 있는 이유 (공백의 1000년..?)ㅣ역사를 보다 EP.164",
      "channel": "보다 BODA",
      "views": 2472883,
-     "views_per_day": 162412.9,
+     "views_per_day": 152405.1,
      "published": "2026-10-04",
      "url": "https://www.youtube.com/watch?v=vp1Eet1Rmfk"
     },
@@ -11445,7 +11430,7 @@
      "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
      "channel": "보다 BODA",
      "views": 1329432,
-     "views_per_day": 161624.2,
+     "views_per_day": 144107.7,
      "published": "2026-10-11",
      "url": "https://www.youtube.com/watch?v=0y_c_-Ik_GQ"
     },
@@ -11454,7 +11439,7 @@
      "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
      "channel": "보다 BODA",
      "views": 2832900,
-     "views_per_day": 127467.7,
+     "views_per_day": 121980.2,
      "published": "2026-09-27",
      "url": "https://www.youtube.com/watch?v=tlVSuaOykFk"
     },
@@ -11463,7 +11448,7 @@
      "title": "《오디세이》이걸 알고 보면 완전히 다른 영화가 됩니다｜설민석의 영화 해설",
      "channel": "설민석 Seol Min Seok",
      "views": 8138268,
-     "views_per_day": 123445.2,
+     "views_per_day": 121601.0,
      "published": "2026-08-14",
      "url": "https://www.youtube.com/watch?v=1k_2bervFV8"
     },
@@ -11472,7 +11457,7 @@
      "title": "영화 [암살자(들)] VS 실제 문세광의 육영수 피살 사건, 모든 의문점과 의혹을 파헤친다.",
      "channel": "황현필 한국사",
      "views": 2229156,
-     "views_per_day": 99831.0,
+     "views_per_day": 95552.5,
      "published": "2026-09-26",
      "url": "https://www.youtube.com/watch?v=3gZPUwZZ8Zg"
     }
@@ -11484,6 +11469,11 @@
    "videos": 714,
    "channels": 421,
    "new_this_week": [
+    {
+     "id": "3vAeVWhNxgY",
+     "title": "\"나는 승리하고 있다\" 이순신에게 패한 일본 3장수가 끝내 몰랐던 것 (한산·명량·노량)",
+     "published": "2026-04-20"
+    },
     {
      "id": "CNs8NvWbeOc",
      "title": "몽골이 한국에 열광하는 진짜 이유 / 대한민국의 외교상황과 몽골의 역사",
@@ -11510,6 +11500,11 @@
      "published": "2026-04-20"
     },
     {
+     "id": "YjpJgo3xmZ4",
+     "title": "러시아가 몽골 타타르 기병 박살 낸 방법 – 몰로디 전투 1572",
+     "published": "2026-04-20"
+    },
+    {
      "id": "_Q9IE-9yuLQ",
      "title": "2000년간 쫓겨다닌 민족은 어떻게 세계를 주무르게 되었나",
      "published": "2026-04-20"
@@ -11526,7 +11521,7 @@
     }
    ],
    "views_median": 129576.0,
-   "views_per_day_median": 1626.05,
+   "views_per_day_median": 1597.1,
    "ratio_median": 19.3,
    "success": 685,
    "minutes_median": 26.3,
@@ -11787,7 +11782,7 @@
      "title": "인도 정부가 1000년의 역사를 몰래 지우고 있는 이유 (공백의 1000년..?)ㅣ역사를 보다 EP.164",
      "channel": "보다 BODA",
      "views": 2472883,
-     "views_per_day": 162412.9,
+     "views_per_day": 152405.1,
      "published": "2026-10-04",
      "url": "https://www.youtube.com/watch?v=vp1Eet1Rmfk"
     },
@@ -11796,7 +11791,7 @@
      "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
      "channel": "보다 BODA",
      "views": 1329432,
-     "views_per_day": 161624.2,
+     "views_per_day": 144107.7,
      "published": "2026-10-11",
      "url": "https://www.youtube.com/watch?v=0y_c_-Ik_GQ"
     },
@@ -11805,7 +11800,7 @@
      "title": "최초의 인류가 사용했던 천사들의 언어 미스터리ㅣ역사를 보다 EP.163",
      "channel": "보다 BODA",
      "views": 2832900,
-     "views_per_day": 127467.7,
+     "views_per_day": 121980.2,
      "published": "2026-09-27",
      "url": "https://www.youtube.com/watch?v=tlVSuaOykFk"
     },
@@ -11814,7 +11809,7 @@
      "title": "《오디세이》이걸 알고 보면 완전히 다른 영화가 됩니다｜설민석의 영화 해설",
      "channel": "설민석 Seol Min Seok",
      "views": 8138268,
-     "views_per_day": 123445.2,
+     "views_per_day": 121601.0,
      "published": "2026-08-14",
      "url": "https://www.youtube.com/watch?v=1k_2bervFV8"
     },
@@ -11823,7 +11818,7 @@
      "title": "영화 [암살자(들)] VS 실제 문세광의 육영수 피살 사건, 모든 의문점과 의혹을 파헤친다.",
      "channel": "황현필 한국사",
      "views": 2229156,
-     "views_per_day": 99831.0,
+     "views_per_day": 95552.5,
      "published": "2026-09-26",
      "url": "https://www.youtube.com/watch?v=3gZPUwZZ8Zg"
     }

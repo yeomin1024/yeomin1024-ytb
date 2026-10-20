@@ -1,6 +1,6 @@
 # gungmin-sigi-2026-10-shorts 장면 계획 — AI 클립 7개 + 코드 화면
 
-자동 생성 — `python3 tools/scene_clips.py build` v1.2.1 (2026-10-20 03:06) · 원본 `scenes/plan.json` · 시각 출처: episode EP (audio-synced 2026-10-20T03:05:34Z)
+자동 생성 — `python3 tools/scene_clips.py build` v1.2.2 (2026-10-20 06:39) · 원본 `scenes/plan.json` · 시각 출처: episode EP (audio-synced 2026-10-20T03:05:34Z)
 
 - v1.0 — 2026-10-19 — 쇼츠 v2.0 11문장 중 사연 장면 7개를 세로 AI 클립으로 (1문장 = 썸네일 그림 K.cover, 4·8·11 = 코드 화면: 숫자·계산·롱폼 안내). 인물·그림체는 롱폼 계획을 그대로 (inherit)
 - AI 클립 구간 합계 28.1초 / 영상 51.0초 (55%) · 생성 704x1280 → 합칠 때 1080x1920

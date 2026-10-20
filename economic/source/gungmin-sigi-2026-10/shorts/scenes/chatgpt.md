@@ -1,6 +1,6 @@
 # gungmin-sigi-2026-10-shorts 장면 그림 7장 — ChatGPT용 (읽고 1번부터 차례로 모두 만들기)
 
-자동 생성 — `python3 tools/scene_clips.py build` v1.2.1 (2026-10-20 03:06). 이 파일은 고치지 말고 `economic/source/gungmin-sigi-2026-10/shorts/scenes/plan.json` 을 고친 뒤 다시 만든다.
+자동 생성 — `python3 tools/scene_clips.py build` v1.2.2 (2026-10-20 06:39). 이 파일은 고치지 말고 `economic/source/gungmin-sigi-2026-10/shorts/scenes/plan.json` 을 고친 뒤 다시 만든다.
 
 이 파일 주소(최신): https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/economic/source/gungmin-sigi-2026-10/shorts/scenes/chatgpt.md
 
@@ -51,6 +51,7 @@ Warm, friendly 2D animation still, like a frame from a gentle family animated fi
 Format: 9:16 vertical (864×1536, or the tallest vertical size). Keep faces between 12% and 60% of the height and away from the left and right 10% (the picture will be cropped to 9:16). Keep the bottom 35% simple and calm with no faces or key objects (subtitles and the app's buttons go there).
 Characters (draw them exactly like this, same face, hair and clothes in every picture):
 - Mr. Kim — Korean man, 60 years old but looks youthful like his mid-50s; short neat black hair with gray at the temples; kind round face with thick dark eyebrows; no glasses; navy cotton shirt with the sleeves rolled up over a white T-shirt, beige trousers.
+Only these characters may appear as recognizable people. Any background people must look clearly different from all the other main characters of this story (different faces, hair and clothes).
 Scene: Daytime in front of an office building's glass doors (no signs). Mr. Kim walks out toward the viewer carrying a cardboard box of his belongings — a small potted plant, a mug and a photo frame — and glances back at the building with a bittersweet expression. Vertical full-body shot, his face in the upper-middle of the frame.
 Absolutely no text, letters, numbers, symbols, logos or watermarks anywhere in the picture — papers, forms, bankbooks, calculators, screens and signs show only blank areas or abstract gray lines.
 ```
@@ -66,6 +67,7 @@ Warm, friendly 2D animation still, like a frame from a gentle family animated fi
 Format: 9:16 vertical (864×1536, or the tallest vertical size). Keep faces between 12% and 60% of the height and away from the left and right 10% (the picture will be cropped to 9:16). Keep the bottom 35% simple and calm with no faces or key objects (subtitles and the app's buttons go there).
 Characters (draw them exactly like this, same face, hair and clothes in every picture):
 - Mr. Kim — Korean man, 60 years old but looks youthful like his mid-50s; short neat black hair with gray at the temples; kind round face with thick dark eyebrows; no glasses; navy cotton shirt with the sleeves rolled up over a white T-shirt, beige trousers.
+Only these characters may appear as recognizable people. Any background people must look clearly different from all the other main characters of this story (different faces, hair and clothes).
 Place: A clean, bright public pension office: service counters with clear glass partitions, potted plants, rows of waiting chairs; no signs, no logos, no number displays.
 Scene: At a pension office counter, Mr. Kim signs a blank form with a pen, about to slide it under the glass partition; a clerk's hand reaches out from the other side. Mr. Kim looks calm and a little hurried. Vertical medium shot, his face in the upper-middle of the frame.
 Absolutely no text, letters, numbers, symbols, logos or watermarks anywhere in the picture — papers, forms, bankbooks, calculators, screens and signs show only blank areas or abstract gray lines.
@@ -82,6 +84,7 @@ Warm, friendly 2D animation still, like a frame from a gentle family animated fi
 Format: 9:16 vertical (864×1536, or the tallest vertical size). Keep faces between 12% and 60% of the height and away from the left and right 10% (the picture will be cropped to 9:16). Keep the bottom 35% simple and calm with no faces or key objects (subtitles and the app's buttons go there).
 Characters (draw them exactly like this, same face, hair and clothes in every picture):
 - Mr. Kim — Korean man, 60 years old but looks youthful like his mid-50s; short neat black hair with gray at the temples; kind round face with thick dark eyebrows; no glasses; navy cotton shirt with the sleeves rolled up over a white T-shirt, beige trousers.
+Only these characters may appear as recognizable people. Any background people must look clearly different from all the other main characters of this story (different faces, hair and clothes).
 Place: Mr. Kim's modest Korean apartment: a wooden dining table under a warm pendant lamp, beige walls, a gray fabric sofa in the living room, a wooden cabinet with drawers, framed family photos on a shelf, a window with a city view.
 Scene: Daytime in the living room. Mr. Kim leans back comfortably on the gray sofa holding a warm cup of tea, smiling with relaxed confidence. Soft sunlight through the curtains. Vertical medium shot, his face in the upper-middle of the frame.
 Absolutely no text, letters, numbers, symbols, logos or watermarks anywhere in the picture — papers, forms, bankbooks, calculators, screens and signs show only blank areas or abstract gray lines.
@@ -99,6 +102,7 @@ Format: 9:16 vertical (864×1536, or the tallest vertical size). Keep faces betw
 Characters (draw them exactly like this, same face, hair and clothes in every picture):
 - Mr. Kim — Korean man, 60 years old but looks youthful like his mid-50s; short neat black hair with gray at the temples; kind round face with thick dark eyebrows; no glasses; navy cotton shirt with the sleeves rolled up over a white T-shirt, beige trousers.
 - Mr. Kim's old school friend — Korean man aged 60, round cheerful face, short gray crew cut, olive-green jacket over a red-and-white checked shirt.
+Only these characters may appear as recognizable people. Any background people must look clearly different from all the other main characters of this story (different faces, hair and clothes).
 Place: A cozy Korean restaurant: a wooden table with a bubbling stew pot and small side dishes, warm yellow lights, no menu boards or signs.
 Scene: Evening at the cozy Korean restaurant: Mr. Kim and his friend with the gray crew cut (and two other friends partly visible) laugh and clink glasses over the table with a bubbling stew pot. Vertical medium shot, faces in the upper-middle of the frame.
 Absolutely no text, letters, numbers, symbols, logos or watermarks anywhere in the picture — papers, forms, bankbooks, calculators, screens and signs show only blank areas or abstract gray lines.
@@ -116,6 +120,7 @@ Format: 9:16 vertical (864×1536, or the tallest vertical size). Keep faces betw
 Characters (draw them exactly like this, same face, hair and clothes in every picture):
 - Mr. Kim — Korean man, 60 years old but looks youthful like his mid-50s; short neat black hair with gray at the temples; kind round face with thick dark eyebrows; no glasses; navy cotton shirt with the sleeves rolled up over a white T-shirt, beige trousers.
 - Mr. Kim's old school friend — Korean man aged 60, round cheerful face, short gray crew cut, olive-green jacket over a red-and-white checked shirt.
+Only these characters may appear as recognizable people. Any background people must look clearly different from all the other main characters of this story (different faces, hair and clothes).
 Place: A cozy Korean restaurant: a wooden table with a bubbling stew pot and small side dishes, warm yellow lights, no menu boards or signs.
 Scene: Same restaurant, close two-shot: the friend with the gray crew cut leans in and asks something seriously with his index finger raised; Mr. Kim freezes with his glass halfway to his mouth, eyes wide, smile fading. Vertical shot, both faces in the upper-middle of the frame.
 Absolutely no text, letters, numbers, symbols, logos or watermarks anywhere in the picture — papers, forms, bankbooks, calculators, screens and signs show only blank areas or abstract gray lines.
@@ -132,6 +137,7 @@ Warm, friendly 2D animation still, like a frame from a gentle family animated fi
 Format: 9:16 vertical (864×1536, or the tallest vertical size). Keep faces between 12% and 60% of the height and away from the left and right 10% (the picture will be cropped to 9:16). Keep the bottom 35% simple and calm with no faces or key objects (subtitles and the app's buttons go there).
 Characters (draw them exactly like this, same face, hair and clothes in every picture):
 - Mr. Kim — Korean man, 60 years old but looks youthful like his mid-50s; short neat black hair with gray at the temples; kind round face with thick dark eyebrows; no glasses; navy cotton shirt with the sleeves rolled up over a white T-shirt, beige trousers.
+Only these characters may appear as recognizable people. Any background people must look clearly different from all the other main characters of this story (different faces, hair and clothes).
 Place: Mr. Kim's modest Korean apartment: a wooden dining table under a warm pendant lamp, beige walls, a gray fabric sofa in the living room, a wooden cabinet with drawers, framed family photos on a shelf, a window with a city view.
 Scene: Night at the dining table under a warm lamp. Mr. Kim looks down at a single blank application form, one hand pressed to his forehead, head bowed, brows knitted, shoulders slumped — crushed and regretful. Vertical medium shot, his face in the upper-middle of the frame.
 Absolutely no text, letters, numbers, symbols, logos or watermarks anywhere in the picture — papers, forms, bankbooks, calculators, screens and signs show only blank areas or abstract gray lines.
@@ -148,6 +154,7 @@ Warm, friendly 2D animation still, like a frame from a gentle family animated fi
 Format: 9:16 vertical (864×1536, or the tallest vertical size). Keep faces between 12% and 60% of the height and away from the left and right 10% (the picture will be cropped to 9:16). Keep the bottom 35% simple and calm with no faces or key objects (subtitles and the app's buttons go there).
 Characters (draw them exactly like this, same face, hair and clothes in every picture):
 - Mr. Kim — Korean man, 60 years old but looks youthful like his mid-50s; short neat black hair with gray at the temples; kind round face with thick dark eyebrows; no glasses; navy cotton shirt with the sleeves rolled up over a white T-shirt, beige trousers.
+Only these characters may appear as recognizable people. Any background people must look clearly different from all the other main characters of this story (different faces, hair and clothes).
 Place: Mr. Kim's modest Korean apartment: a wooden dining table under a warm pendant lamp, beige walls, a gray fabric sofa in the living room, a wooden cabinet with drawers, framed family photos on a shelf, a window with a city view.
 Scene: Night at the dining table covered with blank papers and a calculator: Mr. Kim lifts his head and looks straight ahead with a questioning, determined look — he is not giving up. Vertical medium close-up, his face in the upper-middle of the frame.
 Absolutely no text, letters, numbers, symbols, logos or watermarks anywhere in the picture — papers, forms, bankbooks, calculators, screens and signs show only blank areas or abstract gray lines.

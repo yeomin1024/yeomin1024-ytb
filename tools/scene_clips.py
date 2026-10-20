@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.2.1 — 2026-10-20 — ChatGPT 가 장면 PNG 37장을 그대로 올려 모두 깨짐 (이전 주소의 파일을 쓴 듯) → 규칙 0 과 장마다 저장 경로 옆에도
+# VERSION: v1.2.2 — 2026-10-20 — 그림 프롬프트에 '그 장의 인물만 알아볼 수 있게, 배경 인물은 다른 주인공과 다르게' (L19 박 씨 동료 사이에
+#          김 씨·아들·상담 직원이, L06·L24 배경에 친구가 그려짐).
+# 이전 v1.2.1 — 2026-10-20 — ChatGPT 가 장면 PNG 37장을 그대로 올려 모두 깨짐 (이전 주소의 파일을 쓴 듯) → 규칙 0 과 장마다 저장 경로 옆에도
 #          'JPEG 700KB 이하'를 적음.
 # 이전 v1.2 — 2026-10-19 — ChatGPT GitHub 앱이 약 768KB 를 넘는 파일을 잘라 올림 (썸네일 PNG 4장이 786,444바이트에서 깨짐): 규칙 8 =
 #          JPEG(.jpg) 700KB 이하로 바꿔 올리고 올린 크기 확인 · 그림 확장자 기본 .jpg · check 가 끝까지 읽히는지 확인 (깨진 그림 = 문제).
@@ -38,7 +40,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 REPO = "yeomin1024/yeomin1024-ytb"
-VERSION = "v1.2.1"
+VERSION = "v1.2.2"
 # 생성 해상도(5B 는 32 배수) · 최종 해상도 · 비율 — videogen v1.4.0 은 가운데를 잘라 생성 해상도에 맞춤
 SIZES = {"landscape": dict(gen=(1280, 704), final=(1920, 1080), ratio="16:9", chatgpt="1536×864"),
          "portrait": dict(gen=(704, 1280), final=(1080, 1920), ratio="9:16", chatgpt="864×1536")}
@@ -202,6 +204,8 @@ def image_prompt(plan: dict, clip: dict) -> str:
     if people:
         lines.append("Characters (draw them exactly like this, same face, hair and clothes in every picture):")
         lines += [f"- {p['en']}" for p in people]
+        lines.append("Only these characters may appear as recognizable people. Any background people must look clearly "
+                     "different from all the other main characters of this story (different faces, hair and clothes).")
     pl = _place(plan, clip.get("place"))
     if pl:
         lines.append(f"Place: {pl['en']}")

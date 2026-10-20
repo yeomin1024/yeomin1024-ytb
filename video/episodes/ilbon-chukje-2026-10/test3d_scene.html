@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>일본 축제 롱폼 3D 재연 시험</title>
+<!-- VERSION: v0.2 — 2026-10-20 — 태고대를 화면 오른쪽으로(글자와 겹치던 것), 들 때 카메라를 덜 가깝게, 앞쪽 빛을 밝게.
+     (v0.1) — 2026-10-20 — 도입 첫 문장(사이조 마쓰리 사고)만 3D 재연 시험 — 사용자 지시 2026-10-20 "아니 지도 전에 앞부분은 3D로 못 표현해?
+     그 상황 표현 할 수 있잖아 다시 해봐 지도전 앞부분만 테스트로 보여줘봐".
+     렌더: node video/render/render.mjs video test ilbon-chukje-2026-10 --page test3d_scene.html --from 0 --to 13.2
+     장면 (Three.js 0.160 — 모든 움직임이 시각 t 의 함수, K.onSeek):
+       해질녘 강변(하늘 그러데이션 · 먼 산 · 강 · 강가 불빛 · 자갈 바닥) 위에 태고대 모형(긴 멜대 · 금테 붉은 몸통 · 붉은 방석 5단 · 금 장식 · 술 · 등불)과 가마꾼 16명.
+       '들어'(들어 올리던) → 들어 올렸다 내렸다 2번 반 → '떨어졌고' 에 위로 든 채 옆으로 기울어 떨어짐 → 흙먼지 · 가마꾼이 흩어짐 · 카메라가 따라감.
+       사람이 깔리는 모습은 그리지 않는다 — 떨어진 자리에 빨간 고리만 (그 아래 있던 사람 = '현직 부시장(62) 사망' 글자로).
+       오른쪽 위 '※ 3D 재연(연출)'. 실제 태고대 모양을 단순하게 옮긴 것 (높이 약 5.3m — 대본 '무게 3톤').
+     연구·교육용 시험 영상. -->
+<link rel="stylesheet" href="../../render/kit.css">
+<style>
+#gl{position:absolute;left:0;top:0;width:1920px;height:1080px}
+#ov{position:absolute;inset:0;pointer-events:none}
+.vig{position:absolute;inset:0;background:radial-gradient(1300px 800px at 55% 45%,rgba(0,0,0,0) 55%,rgba(0,0,0,.55) 100%),linear-gradient(90deg,rgba(0,0,0,.45),rgba(0,0,0,0) 45%)}
+.ts{text-shadow:0 6px 26px rgba(0,0,0,.9),0 2px 6px rgba(0,0,0,.8)}
+.kin{position:absolute;white-space:nowrap;font-weight:900}
+.kin span{display:inline-block}
+.tag3{position:absolute;font-weight:900;font-size:56px;line-height:1;padding:14px 24px;border-radius:14px;background:rgba(10,16,30,.85);border:3px solid var(--Y);color:var(--Y);white-space:nowrap;transform:translate(-50%,-100%)}
+.src{position:absolute;left:96px;top:820px;font-weight:500;font-size:36px;color:var(--N)}
+.uline{position:absolute;height:12px;border-radius:6px;background:var(--R);transform-origin:0 50%}
+</style>
+</head>
+<body>
+<div id="wrap"><div id="stage"></div></div>
+<div id="ctrl"></div>
+<div id="now"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+<script id="ep-data">/*EP-DATA:BEGIN*/window.EP={"id":"ilbon-chukje-2026-10","topic":"test","duration":363.17,"audio":"../../../test/source/ilbon-chukje-2026-10/narration.mp3","thumb":null,"synced":"2026-10-20T11:16:53Z","tts":"2026-10-20T09:37:53","script_sha1":"6ae5d7d567772fc0","sent":[{"n":1,"part":"도입","text":"2026년 10월 17일, 일본 에히메현의 전통 축제 '사이조 마쓰리' 도중 무게 3톤의 가마를 높이 들어 올리던 순간 가마가 떨어졌고, 그 아래 있던 62세 현직 부시장이 깔려 숨졌습니다.","start":0.3,"end":12.66},{"n":2,"part":"도입","text":"이뿐만이 아닙니다.","start":13.11,"end":14.12},{"n":3,"part":"도입","text":"10월 10일, 오사카 단지리 축제에서 교차로를 빠르게 꺾던 수레가 잇따라 넘어져 2명이 숨지고 16명이 다쳤고, 올해 2월 21일엔 오카야마의 알몸 축제에서도 2명이 숨졌죠.","start":14.57,"end":25.32},{"n":4,"part":"도입","text":"보도된 것만 세어도 일본 축제에선 4개월에 1명꼴로 사람이 숨집니다.","start":25.77,"end":30.59},{"n":5,"part":"도입","text":"그런데도 일본은 이 축제들을 멈추지 않습니다.","start":31.04,"end":33.76},{"n":6,"part":"도입","text":"도대체 왜일까요?","start":34.21,"end":35.17},{"n":7,"part":"도입","text":"네 가지 이유를 알아보겠습니다.","start":35.62,"end":37.33},{"n":8,"part":"첫째, 돈과 관광","text":"가장 단순한 첫 번째 이유는 관광 수입입니다.","start":38.33,"end":41.24},{"n":9,"part":"첫째, 돈과 관광","text":"전통 축제에는 작게는 수만 명, 크게는 수십만 명이 몰립니다.","start":41.69,"end":45.61},{"n":10,"part":"첫째, 돈과 관광","text":"이번 사고가 난 사이조 마쓰리에는 약 8만 명, 오사카 기시와다 단지리 축제에는 50만에서 60만 명이 찾는 것으로 알려져 있습니다.","start":46.06,"end":53.82},{"n":11,"part":"첫째, 돈과 관광","text":"숙박, 음식, 교통까지 지역 경제가 1년 중 가장 크게 살아나는 대목이죠.","start":54.27,"end":59.01},{"n":12,"part":"첫째, 돈과 관광","text":"하지만 이보다 더 중요한 이유는 따로 있습니다.","start":59.46,"end":61.95},{"n":13,"part":"둘째, 동네가 곧 가족","text":"두 번째 이유는 공동체, '동네가 곧 가족'이라는 의식입니다.","start":62.95,"end":66.95},{"n":14,"part":"둘째, 동네가 곧 가족","text":"이런 축제는 동네 단위로 움직입니다.","start":67.4,"end":69.48},{"n":15,"part":"둘째, 동네가 곧 가족","text":"마을마다 가마나 수레를 갖고 1년 내내 축제를 준비하죠.","start":69.93,"end":73.53},{"n":16,"part":"둘째, 동네가 곧 가족","text":"어릴 땐 어린이회에서 줄을 잡고, 커가면서 청년단, 젊은 리더, 그리고 원로인 '세화인'까지 나이에 따라 역할이 올라갑니다.","start":73.98,"end":82.81},{"n":17,"part":"둘째, 동네가 곧 가족","text":"축제에서 맡는 역할이 곧 동네에서의 위치인 셈입니다.","start":83.26,"end":86.38},{"n":18,"part":"둘째, 동네가 곧 가족","text":"한 기시와다 주민은 일본 언론에 \"축제가 지역의 결속과 지역 사랑을 지켜준다\"며 안이한 규제에 반대한다고 말했습니다.","start":86.83,"end":93.96},{"n":19,"part":"둘째, 동네가 곧 가족","text":"이들에게 축제를 멈추라는 건 동네를 해체하라는 말처럼 들리는 겁니다.","start":94.41,"end":98.4},{"n":20,"part":"셋째, 신을 모시는 행사","text":"세 번째 이유는 축제 자체가 신을 모시는 종교 행사라는 점입니다.","start":99.4,"end":103.7},{"n":21,"part":"셋째, 신을 모시는 행사","text":"일본에는 자연 곳곳에 수많은 신이 깃들어 있다고 믿는 고유 신앙 '신토'가 있고, 동네마다 그 지역을 지키는 신을 모신 신사가 있습니다.","start":104.15,"end":112.67},{"n":22,"part":"셋째, 신을 모시는 행사","text":"일본에서 축제는 놀이이기 전에 그 신에게 올리는 의식인 겁니다.","start":113.12,"end":116.78},{"n":23,"part":"셋째, 신을 모시는 행사","text":"축제에서 쓰는 가마와 수레는 단순한 장식이 아닙니다.","start":117.23,"end":120.57},{"n":24,"part":"셋째, 신을 모시는 행사","text":"신에게 바치는 제례 도구이고, 축제 자체가 신사의 종교 행사입니다.","start":121.02,"end":125.04},{"n":25,"part":"셋째, 신을 모시는 행사","text":"그래서 행정도 손대기 어렵습니다.","start":125.49,"end":127.48},{"n":26,"part":"셋째, 신을 모시는 행사","text":"일본 방송 해설에 따르면 종교 행사라서 지자체는 '부탁' 수준의 요청은 할 수 있어도 지도나 중지 명령은 내리기 어렵다고 합니다.","start":127.93,"end":136.25},{"n":27,"part":"넷째, 자기책임 문화","text":"마지막 이유는 '자기책임' 문화입니다.","start":137.25,"end":139.57},{"n":28,"part":"넷째, 자기책임 문화","text":"일본에는 '남에게 폐를 끼치지 말라', '스스로 선택했다면 그 결과도 스스로 감당하라'는 자기책임 문화가 뿌리 깊게 자리 잡고 있습니다.","start":140.02,"end":148.43},{"n":29,"part":"넷째, 자기책임 문화","text":"이런 생각은 축제 현장에서 더 극단적으로 나타납니다.","start":148.88,"end":152.22},{"n":30,"part":"넷째, 자기책임 문화","text":"50년 넘게 기시와다 단지리에 참가해 온 한 원로는 일본 매체 인터뷰에서 이렇게 말했습니다.","start":152.67,"end":158.22},{"n":31,"part":"넷째, 자기책임 문화","text":"\"목숨을 잃는 건 격투기와 같아요. 자기책임입니다.\"","start":158.67,"end":162.1},{"n":32,"part":"넷째, 자기책임 문화","text":"지붕 위에 오르는 역할을 맡을 땐 죽을 위험까지 받아들인다고 했습니다.","start":162.55,"end":166.96},{"n":33,"part":"넷째, 자기책임 문화","text":"동의서 같은 건 쓰지 않는데도요.","start":167.41,"end":169.25},{"n":34,"part":"넷째, 자기책임 문화","text":"더 놀라운 건 그다음입니다.","start":169.7,"end":171.14},{"n":35,"part":"넷째, 자기책임 문화","text":"사고를 낸 집안이 오히려 주변에 사과해야 한다는 분위기가 있느냐는 질문에 그는 \"솔직히, 있다\"고 답하며 이렇게 덧붙였습니다.","start":171.59,"end":179.16},{"n":36,"part":"넷째, 자기책임 문화","text":"\"내가 지붕 위 역할을 하다 죽으면, 부모님은 사과하러 다닐 거라고 생각해요.\"","start":179.61,"end":184.17},{"n":37,"part":"넷째, 자기책임 문화","text":"사망사고를 낸 조는 3년간 축제에 나올 수 없다는 이야기도 전해집니다.","start":184.62,"end":188.98},{"n":38,"part":"넷째, 자기책임 문화","text":"일본의 평론가 마나베 아쓰시는 축제가 원래 죽음의 위험을 감수하며 일상을 깨부수는 장치였다고 분석합니다.","start":189.43,"end":196.63},{"n":39,"part":"넷째, 자기책임 문화","text":"위험이 없으면 축제도 아니라는 거죠.","start":197.08,"end":199.03},{"n":40,"part":"넷째, 자기책임 문화","text":"이런 자기책임론은 현지 반응에서도 그대로 드러납니다.","start":199.48,"end":202.79},{"n":41,"part":"넷째, 자기책임 문화","text":"축제를 옹호하는 사상가 우치다 다쓰루는 \"위험하니까 그만두라는 건, 사고가 많으니 F1을 그만두라는 것과 같다\"며 주변 사람이 말할 일이 아니라고 반박했습니다.","start":203.24,"end":213.19},{"n":42,"part":"넷째, 자기책임 문화","text":"반대로 축제에 비판적인 일본 SNS에선 \"위험한 걸 알고 하는 취미인데 공적 의료보험은 쓰지 마라\", \"치료비는 전액 자비로 내라\"는 말까지 나왔습니다.","start":213.64,"end":223.67},{"n":43,"part":"넷째, 자기책임 문화","text":"지지하는 쪽도, 비판하는 쪽도 결국 '자기책임'이라는 같은 말을 하고 있는 겁니다.","start":224.12,"end":229.38},{"n":44,"part":"다른 목소리","text":"그런데 일본 사람들 모두가 정말 이렇게 생각할까요?","start":230.38,"end":233.3},{"n":45,"part":"다른 목소리","text":"이번 사고 이후 일본에선 전혀 다른 목소리도 터져 나오고 있습니다.","start":233.75,"end":237.43},{"n":46,"part":"다른 목소리","text":"'자기책임'만으로는 설명할 수 없다는 거죠.","start":237.88,"end":240.13},{"n":47,"part":"일본 안에서도 갈린다","text":"지역 안에서도 \"이런 위험한 축제는 중단해야 한다\"는 목소리가 나옵니다.","start":241.13,"end":245.39},{"n":48,"part":"일본 안에서도 갈린다","text":"\"적어도 빠른 속도로 꺾는 방식은 바꿔야 한다\"는 의견도 있죠.","start":245.84,"end":249.13},{"n":49,"part":"일본 안에서도 갈린다","text":"온라인에선 자기책임론 자체를 반박하는 목소리도 나왔습니다.","start":249.58,"end":253.2},{"n":50,"part":"일본 안에서도 갈린다","text":"\"본인이 동의했다고, 자기책임이라고 해서 뭐든 해도 되는 건 아니다.\"","start":253.65,"end":257.75},{"n":51,"part":"일본 안에서도 갈린다","text":"일본 방송 거리 인터뷰에서도 의견이 나왔습니다.","start":258.2,"end":260.91},{"n":52,"part":"일본 안에서도 갈린다","text":"형태를 바꾸는 건 이해하지만, 전통의 의미는 지켜야 한다는 겁니다.","start":261.36,"end":265.44},{"n":53,"part":"일본 안에서도 갈린다","text":"그리고 실제로, 500년 넘게 이어온 전통에 손을 대기로 한 축제까지 나왔습니다.","start":265.89,"end":270.63},{"n":54,"part":"실제로 바뀐 축제","text":"바로 오카야마의 '사이다이지 에요'입니다.","start":271.63,"end":273.94},{"n":55,"part":"실제로 바뀐 축제","text":"500년 넘게 이어온 일본의 대표 알몸 축제입니다.","start":274.39,"end":277.4},{"n":56,"part":"실제로 바뀐 축제","text":"약 1만 명의 남성이 행운의 나무막대 '호기'를 차지하려고 몸싸움을 벌이죠.","start":277.85,"end":282.5},{"n":57,"part":"실제로 바뀐 축제","text":"이게 축제의 하이라이트, '호기 쟁탈전'입니다.","start":282.95,"end":285.82},{"n":58,"part":"실제로 바뀐 축제","text":"올해 2월 21일 밤, 이 몸싸움 도중 3명이 의식을 잃었고 결국 2명이 숨졌습니다.","start":286.27,"end":291.67},{"n":59,"part":"실제로 바뀐 축제","text":"주최 측은 구조 매뉴얼을 만들고 AED도 설치했습니다.","start":292.12,"end":295.33},{"n":60,"part":"실제로 바뀐 축제","text":"음주와 군중 속 다이빙도 금지하는 등 대책을 마련해 왔죠.","start":295.78,"end":299.46},{"n":61,"part":"실제로 바뀐 축제","text":"7월에는 외부 전문가 위원회까지 꾸려 앞으로의 축제 방식을 논의하고 있습니다.","start":299.91,"end":305.04},{"n":62,"part":"실제로 바뀐 축제","text":"그런데도 주최 측은 '재발을 막을 안전 대책이 아직 갖춰지지 않았다'고 판단했습니다.","start":305.49,"end":310.43},{"n":63,"part":"실제로 바뀐 축제","text":"\"전통을 끊어선 안 된다\"는 반대도 있었습니다.","start":310.88,"end":314.09},{"n":64,"part":"실제로 바뀐 축제","text":"결국 9월 29일, 2027년 호기 쟁탈전은 열지 않는 쪽으로 최종 조정에 들어갔습니다.","start":314.54,"end":321.25},{"n":65,"part":"실제로 바뀐 축제","text":"그렇다면 10월에 사망자가 나온 축제들은 어떨까요?","start":321.7,"end":324.43},{"n":66,"part":"실제로 바뀐 축제","text":"오사카 단지리 축제와 사이조 마쓰리는 지금 경찰이 사고 원인을 조사하고 있습니다.","start":324.88,"end":329.3},{"n":67,"part":"실제로 바뀐 축제","text":"아직 운영 방식을 바꾸겠다는 공식 발표는 나오지 않았습니다.","start":329.75,"end":333.18},{"n":68,"part":"실제로 바뀐 축제","text":"사이다이지처럼 변화를 택할지, 지금처럼 이어갈지, 이제 이 축제들의 선택이 남았습니다.","start":333.63,"end":339.39},{"n":69,"part":"정리","text":"정리하면, 일본이 축제를 멈추지 않는 이유는 돈만이 아니었습니다.","start":340.39,"end":344.55},{"n":70,"part":"정리","text":"동네라는 공동체, 신을 모신다는 믿음, 위험까지 자기 몫으로 받아들이는 문화죠.","start":345,"end":350.68},{"n":71,"part":"정리","text":"한 나라의 고유한 문화인 만큼 존중해야 합니다.","start":351.13,"end":354.01},{"n":72,"part":"정리","text":"하지만 사람의 목숨이 걸린 일인 만큼, 인명 피해를 줄이기 위한 변화는 필요해 보입니다.","start":354.46,"end":359.77},{"n":73,"part":"정리","text":"시청해주셔서 감사합니다.","start":360.22,"end":361.77}],"subs":[[0.2,5.634,"2026년 10월 17일,\n일본 에히메현의 전통 축제 '사이조 마쓰리' 도중 무게 3톤의 가마를"],[5.634,13.11,"높이 들어 올리던 순간 가마가 떨어졌고,\n그 아래 있던 62세 현직 부시장이 깔려 숨졌습니다."],[13.11,14.57,"이뿐만이 아닙니다."],[14.57,21.706,"10월 10일, 오사카 단지리 축제에서 교차로를\n빠르게 꺾던 수레가 잇따라 넘어져 2명이 숨지고 16명이 다쳤고,"],[21.706,25.77,"올해 2월 21일엔 오카야마의 알몸 축제에서도 2명이 숨졌죠."],[25.77,31.04,"보도된 것만 세어도 일본 축제에선 4개월에 1명꼴로 사람이 숨집니다."],[31.04,34.21,"그런데도 일본은 이 축제들을 멈추지 않습니다."],[34.21,35.62,"도대체 왜일까요?"],[35.62,38.33,"네 가지 이유를 알아보겠습니다."],[38.33,41.69,"가장 단순한 첫 번째 이유는 관광 수입입니다."],[41.69,46.06,"전통 축제에는 작게는 수만 명, 크게는 수십만 명이 몰립니다."],[46.06,48.931,"이번 사고가 난 사이조 마쓰리에는 약 8만 명,"],[48.931,54.27,"오사카 기시와다 단지리 축제에는\n50만에서 60만 명이 찾는 것으로 알려져 있습니다."],[54.27,59.46,"숙박, 음식, 교통까지 지역 경제가 1년 중 가장 크게 살아나는 대목이죠."],[59.46,62.95,"하지만 이보다 더 중요한 이유는 따로 있습니다."],[62.95,67.4,"두 번째 이유는 공동체, '동네가 곧 가족'이라는 의식입니다."],[67.4,69.93,"이런 축제는 동네 단위로 움직입니다."],[69.93,73.98,"마을마다 가마나 수레를 갖고 1년 내내 축제를 준비하죠."],[73.98,83.26,"어릴 땐 어린이회에서 줄을 잡고, 커가면서 청년단, 젊은 리더,\n그리고 원로인 '세화인'까지 나이에 따라 역할이 올라갑니다."],[83.26,86.83,"축제에서 맡는 역할이 곧 동네에서의 위치인 셈입니다."],[86.83,94.41,"한 기시와다 주민은 일본 언론에 \"축제가 지역의 결속과 지역 사랑을\n지켜준다\"며 안이한 규제에 반대한다고 말했습니다."],[94.41,99.4,"이들에게 축제를 멈추라는 건 동네를 해체하라는 말처럼 들리는 겁니다."],[99.4,104.15,"세 번째 이유는 축제 자체가 신을 모시는 종교 행사라는 점입니다."],[104.15,109.241,"일본에는 자연 곳곳에 수많은 신이 깃들어 있다고\n믿는 고유 신앙 '신토'가 있고,"],[109.241,113.12,"동네마다 그 지역을 지키는 신을 모신 신사가 있습니다."],[113.12,117.23,"일본에서 축제는 놀이이기 전에 그 신에게 올리는 의식인 겁니다."],[117.23,121.02,"축제에서 쓰는 가마와 수레는 단순한 장식이 아닙니다."],[121.02,125.49,"신에게 바치는 제례 도구이고, 축제 자체가 신사의 종교 행사입니다."],[125.49,127.93,"그래서 행정도 손대기 어렵습니다."],[127.93,137.25,"일본 방송 해설에 따르면 종교 행사라서 지자체는 '부탁' 수준의\n요청은 할 수 있어도 지도나 중지 명령은 내리기 어렵다고 합니다."],[137.25,140.02,"마지막 이유는 '자기책임' 문화입니다."],[140.02,148.88,"일본에는 '남에게 폐를 끼치지 말라', '스스로 선택했다면 그 결과도\n스스로 감당하라'는 자기책임 문화가 뿌리 깊게 자리 잡고 있습니다."],[148.88,152.67,"이런 생각은 축제 현장에서 더 극단적으로 나타납니다."],[152.67,158.67,"50년 넘게 기시와다 단지리에 참가해 온 한 원로는\n일본 매체 인터뷰에서 이렇게 말했습니다."],[158.67,162.55,"\"목숨을 잃는 건 격투기와 같아요. 자기책임입니다.\""],[162.55,167.41,"지붕 위에 오르는 역할을 맡을 땐 죽을\n위험까지 받아들인다고 했습니다."],[167.41,169.7,"동의서 같은 건 쓰지 않는데도요."],[169.7,171.59,"더 놀라운 건 그다음입니다."],[171.59,179.61,"사고를 낸 집안이 오히려 주변에 사과해야 한다는 분위기가 있느냐는\n질문에 그는 \"솔직히, 있다\"고 답하며 이렇게 덧붙였습니다."],[179.61,184.62,"\"내가 지붕 위 역할을 하다 죽으면,\n부모님은 사과하러 다닐 거라고 생각해요.\""],[184.62,189.43,"사망사고를 낸 조는 3년간 축제에 나올 수 없다는 이야기도 전해집니다."],[189.43,197.08,"일본의 평론가 마나베 아쓰시는 축제가 원래 죽음의 위험을 감수하며\n일상을 깨부수는 장치였다고 분석합니다."],[197.08,199.48,"위험이 없으면 축제도 아니라는 거죠."],[199.48,203.24,"이런 자기책임론은 현지 반응에서도 그대로 드러납니다."],[203.24,207.504,"축제를 옹호하는 사상가 우치다 다쓰루는 \"위험하니까 그만두라는 건,"],[207.504,213.64,"사고가 많으니 F1을 그만두라는 것과 같다\"며\n주변 사람이 말할 일이 아니라고 반박했습니다."],[213.64,220.586,"반대로 축제에 비판적인 일본 SNS에선 \"위험한 걸 알고\n하는 취미인데 공적 의료보험은 쓰지 마라\","],[220.586,224.12,"\"치료비는 전액 자비로 내라\"는 말까지 나왔습니다."],[224.12,230.38,"지지하는 쪽도,\n비판하는 쪽도 결국 '자기책임'이라는 같은 말을 하고 있는 겁니다."],[230.38,233.75,"그런데 일본 사람들 모두가 정말 이렇게 생각할까요?"],[233.75,237.88,"이번 사고 이후 일본에선 전혀 다른 목소리도 터져 나오고 있습니다."],[237.88,241.13,"'자기책임'만으로는 설명할 수 없다는 거죠."],[241.13,245.84,"지역 안에서도 \"이런 위험한 축제는\n중단해야 한다\"는 목소리가 나옵니다."],[245.84,249.58,"\"적어도 빠른 속도로 꺾는 방식은 바꿔야 한다\"는 의견도 있죠."],[249.58,253.65,"온라인에선 자기책임론 자체를 반박하는 목소리도 나왔습니다."],[253.65,258.2,"\"본인이 동의했다고, 자기책임이라고 해서 뭐든 해도 되는 건 아니다.\""],[258.2,261.36,"일본 방송 거리 인터뷰에서도 의견이 나왔습니다."],[261.36,265.89,"형태를 바꾸는 건 이해하지만, 전통의 의미는 지켜야 한다는 겁니다."],[265.89,271.63,"그리고 실제로,\n500년 넘게 이어온 전통에 손을 대기로 한 축제까지 나왔습니다."],[271.63,274.39,"바로 오카야마의 '사이다이지 에요'입니다."],[274.39,277.85,"500년 넘게 이어온 일본의 대표 알몸 축제입니다."],[277.85,282.95,"약 1만 명의 남성이 행운의 나무막대 '호기'를 차지하려고\n몸싸움을 벌이죠."],[282.95,286.27,"이게 축제의 하이라이트, '호기 쟁탈전'입니다."],[286.27,292.12,"올해 2월 21일 밤,\n이 몸싸움 도중 3명이 의식을 잃었고 결국 2명이 숨졌습니다."],[292.12,295.78,"주최 측은 구조 매뉴얼을 만들고 AED도 설치했습니다."],[295.78,299.91,"음주와 군중 속 다이빙도 금지하는 등 대책을 마련해 왔죠."],[299.91,305.49,"7월에는 외부 전문가 위원회까지\n꾸려 앞으로의 축제 방식을 논의하고 있습니다."],[305.49,310.88,"그런데도 주최 측은 '재발을 막을 안전 대책이\n아직 갖춰지지 않았다'고 판단했습니다."],[310.88,314.54,"\"전통을 끊어선 안 된다\"는 반대도 있었습니다."],[314.54,321.7,"결국 9월 29일,\n2027년 호기 쟁탈전은 열지 않는 쪽으로 최종 조정에 들어갔습니다."],[321.7,324.88,"그렇다면 10월에 사망자가 나온 축제들은 어떨까요?"],[324.88,329.75,"오사카 단지리 축제와 사이조 마쓰리는 지금 경찰이 사고\n원인을 조사하고 있습니다."],[329.75,333.63,"아직 운영 방식을 바꾸겠다는 공식 발표는 나오지 않았습니다."],[333.63,340.39,"사이다이지처럼 변화를 택할지, 지금처럼 이어갈지,\n이제 이 축제들의 선택이 남았습니다."],[340.39,345,"정리하면, 일본이 축제를 멈추지 않는 이유는 돈만이 아니었습니다."],[345,351.13,"동네라는 공동체, 신을 모신다는 믿음,\n위험까지 자기 몫으로 받아들이는 문화죠."],[351.13,354.46,"한 나라의 고유한 문화인 만큼 존중해야 합니다."],[354.46,360.22,"하지만 사람의 목숨이 걸린 일인 만큼,\n인명 피해를 줄이기 위한 변화는 필요해 보입니다."],[360.22,362.17,"시청해주셔서 감사합니다."]]};/*EP-DATA:END*/</script>
+<script src="../../render/kit.js"></script>
+<script>
+(function () {
+"use strict";
+K.init(window.EP);
+const { S, E, W, el, pop } = K;
+const tl = K.tl;
+const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+const sm = x => (x <= 0 ? 0 : x >= 1 ? 1 : x * x * (3 - 2 * x));
+const seg = (t, a, b) => sm((t - a) / (b - a));
+const lerp = (a, b, k) => a + (b - a) * k;
+const V = (x, y, z) => new THREE.Vector3(x, y, z);
+const rnd = (i, k) => { const x = Math.sin(i * 12.9898 + k * 78.233) * 43758.5453; return x - Math.floor(x); };
+K.chapters([{ part: "도입", tag: "도입", title: "사망자가 나와도 멈추지 않는 축제" }]);
+
+// ---------- 시각 (문장·낱말) ----------
+const tW = W(1, "무게"), tUp = W(1, "들어"), tFall = W(1, "떨어졌고"), tImp = tFall + 0.85, t62 = W(1, "62세"), tEnd = E(1) + 0.4;
+
+// ---------- 무대 ----------
+const stage = document.getElementById("stage");
+const canvas = el(`<canvas id="gl" width="1920" height="1080"></canvas>`);
+stage.insertBefore(canvas, stage.firstChild);
+el(`<div class="vig"></div>`);
+const ov = el(`<div id="ov"></div>`);
+const ren = new THREE.WebGLRenderer({ canvas, antialias: true, preserveDrawingBuffer: true });
+ren.setPixelRatio(1); ren.setSize(1920, 1080, false);
+ren.toneMapping = THREE.ACESFilmicToneMapping; ren.toneMappingExposure = 1.15;
+ren.shadowMap.enabled = true; ren.shadowMap.type = THREE.PCFSoftShadowMap;
+const scene = new THREE.Scene();
+scene.fog = new THREE.Fog(0x3A2232, 28, 140);
+const cam = new THREE.PerspectiveCamera(34, 1920 / 1080, 0.1, 500);
+
+const ctex = (w, h, draw, rep) => {
+  const c = document.createElement("canvas"); c.width = w; c.height = h; draw(c.getContext("2d"), w, h);
+  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace;
+  if (rep) { t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(rep[0], rep[1]); }
+  return t;
+};
+const glow = (inner, outer) => ctex(64, 64, (g) => {
+  const r = g.createRadialGradient(32, 32, 0, 32, 32, 32);
+  r.addColorStop(0, inner); r.addColorStop(0.3, inner.replace(/[\d.]+\)$/, ".6)")); r.addColorStop(1, outer);
+  g.fillStyle = r; g.fillRect(0, 0, 64, 64);
+});
+
+// 하늘 (구 안쪽) + 해
+const skyTex = ctex(16, 512, (g, w, h) => {
+  const gr = g.createLinearGradient(0, 0, 0, h);
+  gr.addColorStop(0.00, "#0B1330"); gr.addColorStop(0.28, "#2B2350"); gr.addColorStop(0.40, "#7A3A55");
+  gr.addColorStop(0.47, "#D9663A"); gr.addColorStop(0.50, "#F39A45"); gr.addColorStop(0.53, "#5A2A2E"); gr.addColorStop(1, "#140C12");
+  g.fillStyle = gr; g.fillRect(0, 0, w, h);
+});
+scene.add(new THREE.Mesh(new THREE.SphereGeometry(220, 32, 16), new THREE.MeshBasicMaterial({ map: skyTex, side: THREE.BackSide, fog: false })));
+const sun = new THREE.Sprite(new THREE.SpriteMaterial({ map: glow("rgba(255,230,170,1)", "rgba(255,120,40,0)"), color: 0xFFD08A, fog: false, depthWrite: false, blending: THREE.AdditiveBlending }));
+sun.position.set(30, 6, -160); sun.scale.set(70, 70, 1); scene.add(sun);
+// 먼 산
+for (let i = 0; i < 16; i++) {
+  const r = 14 + rnd(i, 1) * 16, h = 8 + rnd(i, 2) * 16;
+  const m = new THREE.Mesh(new THREE.ConeGeometry(r, h, 5), new THREE.MeshStandardMaterial({ color: 0x241A2C, roughness: 1, flatShading: true }));
+  m.position.set(-120 + i * 16 + rnd(i, 3) * 8, h / 2 - 1, -95 - rnd(i, 4) * 25); m.rotation.y = rnd(i, 5) * 3; scene.add(m);
+}
+// 강 (반사 줄무늬)
+const riverTex = ctex(512, 128, (g, w, h) => {
+  g.fillStyle = "#121A2E"; g.fillRect(0, 0, w, h);
+  for (let i = 0; i < 90; i++) { g.fillStyle = `rgba(255,${140 + (i % 5) * 18},70,${0.15 + rnd(i, 9) * 0.5})`; g.fillRect(rnd(i, 7) * w, rnd(i, 8) * h, 20 + rnd(i, 6) * 120, 2); }
+}, [3, 1]);
+const river = new THREE.Mesh(new THREE.PlaneGeometry(320, 34), new THREE.MeshBasicMaterial({ map: riverTex }));
+river.rotation.x = -Math.PI / 2; river.position.set(0, 0.03, -34); scene.add(river);
+// 자갈 바닥
+const pebTex = ctex(256, 256, (g, w, h) => {
+  g.fillStyle = "#3B302C"; g.fillRect(0, 0, w, h);
+  for (let i = 0; i < 420; i++) { const s = 2 + rnd(i, 2) * 7; g.fillStyle = `hsl(${20 + rnd(i, 3) * 20},${10 + rnd(i, 4) * 12}%,${18 + rnd(i, 5) * 22}%)`; g.beginPath(); g.ellipse(rnd(i, 6) * w, rnd(i, 7) * h, s, s * 0.7, rnd(i, 8) * 3, 0, 6.3); g.fill(); }
+}, [40, 40]);
+const ground = new THREE.Mesh(new THREE.PlaneGeometry(320, 320), new THREE.MeshStandardMaterial({ map: pebTex, roughness: 1 }));
+ground.rotation.x = -Math.PI / 2; ground.receiveShadow = true; scene.add(ground);
+// 강가 불빛 (축제 등불 줄)
+{
+  const N = 160, p = new Float32Array(N * 3);
+  for (let i = 0; i < N; i++) { p[i * 3] = -70 + i * (140 / N) + rnd(i, 1) * 0.6; p[i * 3 + 1] = 1.2 + rnd(i, 2) * 2.6; p[i * 3 + 2] = -17.5 - rnd(i, 3) * 2.5; }
+  const g = new THREE.BufferGeometry(); g.setAttribute("position", new THREE.BufferAttribute(p, 3));
+  scene.add(new THREE.Points(g, new THREE.PointsMaterial({ size: 0.55, map: glow("rgba(255,210,140,1)", "rgba(255,120,40,0)"), color: 0xFFC27A, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending })));
+}
+// 빛
+scene.add(new THREE.HemisphereLight(0xF7B07A, 0x2A2030, 1.1));
+const key = new THREE.DirectionalLight(0xFFB070, 2.4);
+key.position.set(14, 16, -22); key.castShadow = true; key.shadow.mapSize.set(1024, 1024);
+Object.assign(key.shadow.camera, { left: -14, right: 14, top: 14, bottom: -14, near: 1, far: 70 });
+scene.add(key);
+const fill = new THREE.DirectionalLight(0x9FB2FF, 1.15); fill.position.set(-12, 8, 18); scene.add(fill);   // 앞쪽 빛 (가마꾼이 검은 덩어리로만 보이지 않게)
+
+// ---------- 태고대 모형 ----------
+const M = {
+  red: new THREE.MeshStandardMaterial({ color: 0xB0101C, roughness: 0.5, metalness: 0.1 }),
+  cush: new THREE.MeshStandardMaterial({ color: 0xC81624, roughness: 0.42, metalness: 0.15 }),
+  gold: new THREE.MeshStandardMaterial({ color: 0xD9A640, roughness: 0.3, metalness: 0.9, emissive: 0x2A1800 }),
+  black: new THREE.MeshStandardMaterial({ color: 0x141012, roughness: 0.6 }),
+  wood: new THREE.MeshStandardMaterial({ color: 0x5C3E24, roughness: 0.75 }),
+  white: new THREE.MeshStandardMaterial({ color: 0xEDE6DA, roughness: 0.7 }),
+  lamp: new THREE.MeshStandardMaterial({ color: 0xFFE2B0, emissive: 0xFF9A40, emissiveIntensity: 2.2, roughness: 0.6 }),
+};
+const panelTex = ctex(512, 384, (g, w, h) => {
+  g.fillStyle = "#9E0E18"; g.fillRect(0, 0, w, h);
+  g.strokeStyle = "#E8B84A"; g.lineWidth = 14; g.strokeRect(14, 14, w - 28, h - 28);
+  g.lineWidth = 6; g.strokeRect(40, 40, w - 80, h - 80);
+  g.lineWidth = 9; g.lineCap = "round";
+  for (let k = 0; k < 3; k++) {                                  // 용 비늘·구름 같은 금실 곡선 (장식)
+    g.beginPath(); const y0 = 110 + k * 70;
+    g.moveTo(70, y0); for (let x = 70; x <= w - 70; x += 46) g.quadraticCurveTo(x + 23, y0 - 40 + (k % 2) * 80, x + 46, y0);
+    g.stroke();
+  }
+  for (let i = 0; i < 7; i++) { g.beginPath(); g.arc(90 + i * 56, h - 85, 22, Math.PI, 0); g.stroke(); }   // 물결
+});
+const panelMat = new THREE.MeshStandardMaterial({ map: panelTex, roughness: 0.45, metalness: 0.35 });
+const box = (w, h, d, m, x, y, z, cast) => { const o = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), m); o.position.set(x, y, z); o.castShadow = cast !== false; o.receiveShadow = true; return o; };
+
+const F = new THREE.Group();                                    // 원점 = 멜 때 몸통 가운데 바로 아래 땅
+const POLE_Y = 1.5, POLE_X = 0.78;
+[-POLE_X, POLE_X].forEach(x => F.add(box(0.2, 0.22, 8.6, M.wood, x, POLE_Y, 0)));
+[-1.15, 1.15].forEach(z => F.add(box(1.85, 0.18, 0.18, M.wood, 0, POLE_Y + 0.05, z)));
+F.add(new THREE.Mesh(new THREE.BoxGeometry(2.0, 1.3, 2.0), [panelMat, panelMat, M.black, M.black, panelMat, panelMat]));
+F.children[F.children.length - 1].position.set(0, 2.25, 0); F.children[F.children.length - 1].castShadow = true;
+F.add(box(2.35, 0.16, 2.35, M.black, 0, 3.0, 0));
+F.add(box(2.42, 0.06, 2.42, M.gold, 0, 3.09, 0));
+for (let i = 0; i < 5; i++) {                                   // 붉은 방석 5단 (위로 갈수록 넓게)
+  const w = 2.05 + 0.3 * i, y = 3.32 + i * 0.36;
+  F.add(box(w, 0.3, w, M.cush, 0, y, 0));
+  F.add(box(w + 0.03, 0.05, w + 0.03, M.black, 0, y + 0.17, 0));
+}
+F.add(box(3.4, 0.12, 3.4, M.gold, 0, 5.18, 0));
+[[-1, -1], [1, -1], [-1, 1], [1, 1]].forEach(([sx, sz]) => {
+  const orn = new THREE.Mesh(new THREE.ConeGeometry(0.14, 0.42, 8), M.gold); orn.position.set(sx * 1.55, 5.45, sz * 1.55); orn.castShadow = true; F.add(orn);
+  const tas = new THREE.Mesh(new THREE.ConeGeometry(0.17, 0.85, 10), sx > 0 ? M.white : M.gold); tas.rotation.x = Math.PI; tas.position.set(sx * 1.08, 2.55, sz * 1.08); F.add(tas);
+  const lamp = new THREE.Mesh(new THREE.SphereGeometry(0.17, 16, 12), M.lamp); lamp.position.set(sx * 1.3, 3.05, sz * 1.3); F.add(lamp);
+});
+const lampL = new THREE.PointLight(0xFF9A40, 6, 7, 1.6); lampL.position.set(0, 3.0, 1.6); F.add(lampL);
+const lampL2 = new THREE.PointLight(0xFF9A40, 4, 6, 1.6); lampL2.position.set(0, 3.0, -1.6); F.add(lampL2);
+
+const X0 = 3.2;                                                 // 태고대 자리 (화면 오른쪽 — 왼쪽은 글자)
+const P = new THREE.Group(); scene.add(P);                       // 넘어지는 축 = 오른쪽 멜대 끝 (몸통 오른쪽 아래 모서리)
+const PIV = V(1.0, POLE_Y, 0);
+F.position.set(-PIV.x, -PIV.y, 0); P.add(F);
+
+// ---------- 가마꾼 16명 ----------
+const navy = new THREE.MeshStandardMaterial({ color: 0x1B2442, roughness: 0.8 });
+const skin = new THREE.MeshStandardMaterial({ color: 0x5A3E30, roughness: 0.8 });
+const people = [];
+[-1, 1].forEach(sx => [-3.55, -2.85, -2.15, -1.45, 1.45, 2.15, 2.85, 3.55].forEach((z, j) => {
+  const g = new THREE.Group();
+  const legs = box(0.34, 0.8, 0.26, navy, 0, 0.4, 0);
+  const torso = new THREE.Mesh(new THREE.CapsuleGeometry(0.21, 0.42, 4, 10), navy); torso.position.y = 1.08; torso.castShadow = true;
+  const head = new THREE.Mesh(new THREE.SphereGeometry(0.14, 14, 10), skin); head.position.y = 1.55; head.castShadow = true;
+  const band = new THREE.Mesh(new THREE.TorusGeometry(0.14, 0.025, 6, 16), M.white); band.rotation.x = Math.PI / 2; band.position.y = 1.6;
+  const arm = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 1, 8), navy); arm.castShadow = true;
+  g.add(legs, torso, head, band, arm);
+  const x = sx * (POLE_X + (j % 2 ? 0.0 : 0.05)), base = V(X0 + x, 0, z);
+  g.position.copy(base); scene.add(g);
+  people.push({ g, arm, base, sx, z, ph: rnd(j + (sx > 0 ? 8 : 0), 3) * 6.28 });
+}));
+const UP = V(0, 1, 0);
+
+// ---------- 들어 올림 · 넘어짐 ----------
+const P_UP = (tFall - (tUp - 0.4)) / 2.5;                       // 들었다 내렸다 2번 반 → '떨어졌고' 때 맨 위
+const L_MAX = 1.6;
+function liftAt(t) {
+  if (t < tUp - 0.4) return 0;
+  const tt = Math.min(t, tFall);
+  return L_MAX * Math.pow(Math.sin(Math.PI * (tt - (tUp - 0.4)) / P_UP), 2);
+}
+const FALL_D = tImp - tFall;
+function fallK(t) { const x = clamp((t - tFall) / FALL_D, 0, 1); return x * x; }   // 중력처럼 점점 빠르게
+
+// ---------- 흙먼지 · 불씨 ----------
+const ND = 320, dp = new Float32Array(ND * 3);
+const dg = new THREE.BufferGeometry(); dg.setAttribute("position", new THREE.BufferAttribute(dp, 3));
+const dmat = new THREE.PointsMaterial({ size: 1.3, map: glow("rgba(170,150,130,0.9)", "rgba(120,100,90,0)"), color: 0xB8A28E, transparent: true, opacity: 0, depthWrite: false });
+const dust = new THREE.Points(dg, dmat); dust.frustumCulled = false; scene.add(dust);
+const NE = 380, ep = new Float32Array(NE * 3);
+const eg = new THREE.BufferGeometry(); eg.setAttribute("position", new THREE.BufferAttribute(ep, 3));
+const emat = new THREE.PointsMaterial({ size: 0.12, map: glow("rgba(255,255,255,1)", "rgba(255,140,60,0)"), color: 0xFFB36B, transparent: true, opacity: 0.9, depthWrite: false, blending: THREE.AdditiveBlending });
+const embers = new THREE.Points(eg, emat); embers.frustumCulled = false; scene.add(embers);
+const ring = new THREE.Mesh(new THREE.RingGeometry(0.9, 1.15, 64), new THREE.MeshBasicMaterial({ color: 0xFF4D3D, transparent: true, opacity: 0, side: THREE.DoubleSide, depthWrite: false }));
+ring.rotation.x = -Math.PI / 2; ring.position.set(X0 + 2.0, 0.05, 0.6); scene.add(ring);
+
+// ---------- 카메라 (열쇠 장면 사이를 부드럽게) ----------
+const KEYS = [
+  [0, V(-6.0, 2.4, 19.5), V(-0.5, 3.0, 0)],                     // 태고대는 화면 오른쪽 (왼쪽 = 글자)
+  [tW, V(-4.6, 2.2, 16.0), V(0.0, 3.4, 0)],
+  [tFall, V(-3.4, 1.3, 13.6), V(0.5, 4.2, 0)],                    // 낮은 각도로 올려다봄
+  [tImp, V(-2.6, 1.6, 13.4), V(2.4, 2.0, 0.3)],                   // 넘어지는 쪽을 따라감
+  [tEnd, V(-4.2, 3.0, 15.8), V(2.2, 1.5, 0.3)],
+];
+function camAt(t) {
+  let i = 0; while (i < KEYS.length - 2 && t > KEYS[i + 1][0]) i++;
+  const [ta, pa, la] = KEYS[i], [tb, pb, lb] = KEYS[i + 1];
+  const k = seg(t, ta, tb);
+  const pos = pa.clone().lerp(pb, k), look = la.clone().lerp(lb, k);
+  if (t > tImp) { const d = t - tImp, a = 0.09 * Math.exp(-d / 0.3); pos.y += a * Math.sin(d * 31); pos.x += a * 0.6 * Math.sin(d * 23 + 1); }   // 떨어진 순간 한 번 (짧게)
+  return { pos, look };
+}
+
+// ---------- 글자 (CSS 3D) ----------
+{
+  const sc = K.scene(0, K.D, { keep: true });
+  pop(el(`<div class="a w5 N nw ts" style="right:96px;top:72px;font-size:36px">※ 3D 재연(연출)</div>`, sc), 0.2, { from: { y: 0 } });
+  const st = el(`<div class="kin ts Y" style="left:120px;top:200px;font-size:52px;font-weight:700">2026.10.17 · 에히메현 사이조시</div>`, sc);
+  tl.fromTo(st, { opacity: 0, rotationX: -90, transformPerspective: 900, transformOrigin: "50% 0%" }, { opacity: 1, rotationX: 0, duration: 0.7, ease: "back.out(1.6)" }, S(1) + 0.1);
+  const name = el(`<div class="kin ts" style="left:120px;top:290px;font-size:96px">${[..."사이조 마쓰리"].map(c => `<span>${c === " " ? "&nbsp;" : c}</span>`).join("")}</div>`, sc);
+  tl.fromTo(name.children, { opacity: 0, y: 70, rotationY: 90, transformPerspective: 700 }, { opacity: 1, y: 0, rotationY: 0, duration: 0.55, ease: "power3.out", stagger: 0.06 }, W(1, "사이조"));
+  const fall = el(`<div class="kin ts" style="left:120px;top:440px;font-size:96px">가마 <span class="R">낙하</span></div>`, sc);
+  tl.fromTo(fall, { opacity: 0, y: -160, rotation: -6 }, { opacity: 1, y: 0, rotation: 0, duration: 0.8, ease: "bounce.out" }, tFall + 0.1);
+  const dead = el(`<div class="kin ts R" style="left:120px;top:590px;font-size:104px">현직 부시장(62) 사망</div>`, sc);
+  tl.fromTo(dead, { opacity: 0, scale: 1.5, rotationX: 60, transformPerspective: 900, transformOrigin: "0% 50%" }, { opacity: 1, scale: 1, rotationX: 0, duration: 0.6, ease: "power4.out" }, t62);
+  const ul = el(`<div class="uline" style="left:120px;top:725px;width:940px"></div>`, sc);
+  tl.fromTo(ul, { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "power2.out" }, t62 + 0.35);
+  pop(el(`<div class="src ts">출처: 지지통신 · 니혼게이자이신문</div>`, sc), S(1) + 0.6, { from: { y: 0 } });
+  K.cut(2.5, "강변 · 태고대 · 가마꾼");
+  K.cut(tUp + P_UP * 0.5 - 0.4, "들어 올림");
+  K.cut(tFall + 0.45, "넘어지는 중");
+  K.cut(tImp + 0.5, "흙먼지");
+  K.cut(E(1) - 0.2, "부시장 사망");
+}
+
+// ---------- 프레임마다 ----------
+const proj = v => { const p = v.clone().project(cam); return [(p.x + 1) / 2 * 1920, (1 - p.y) / 2 * 1080, p.z]; };
+const tmpA = V(0, 0, 0), tmpB = V(0, 0, 0);
+K.onSeek(t => {
+  const lift = liftAt(t), fk = fallK(t), falling = t >= tFall;
+  const bob = falling ? 0 : 0.05 * Math.sin(t * 3.2) * (1 - lift / L_MAX);
+  const yTop = POLE_Y + L_MAX;
+  P.position.set(X0 + PIV.x, falling ? lerp(yTop, 0.32, fk) : POLE_Y + lift + bob, 0);
+  P.rotation.z = falling ? -1.42 * fk : 0.025 * Math.sin(t * 1.7);
+  P.rotation.x = falling ? 0.12 * fk : 0;
+  // 가마꾼: 들 때 팔을 멜대까지 · 넘어지면 흩어짐
+  const sc = seg(t, tFall + 0.05, tFall + 1.4);
+  for (const p of people) {
+    const away = p.sx > 0 ? 1 : 0.55;
+    p.g.position.set(p.base.x - (p.sx > 0 ? 1.0 : 0.6) * sc + (p.sx > 0 ? 0 : -0.4 * sc), 0.02 * Math.sin(t * 3.2 + p.ph) * (1 - sc), p.base.z + Math.sign(p.z) * 1.6 * sc * away);
+    p.g.rotation.z = p.sx * 0.25 * sc; p.g.rotation.x = -Math.sign(p.z) * 0.18 * sc;
+    const show = !falling && lift > 0.08;
+    p.arm.visible = show;
+    if (show) {
+      tmpA.set(p.g.position.x + p.sx * 0.12, 1.32, p.g.position.z);                      // 어깨
+      tmpB.set(X0 + p.sx * POLE_X, POLE_Y + lift - 0.12, p.base.z);                       // 멜대 아래
+      const d = tmpB.clone().sub(tmpA), L = d.length();
+      p.arm.position.copy(tmpA.clone().add(d.clone().multiplyScalar(0.5))).sub(p.g.position);
+      p.arm.scale.set(1, L, 1); p.arm.quaternion.setFromUnitVectors(UP, d.normalize());
+    }
+  }
+  // 흙먼지
+  const tau = t - tImp;
+  dust.visible = tau > 0 && tau < 3.4;
+  if (dust.visible) {
+    for (let i = 0; i < ND; i++) {
+      const x0 = X0 + 1.0 + rnd(i, 1) * 5.0, z0 = (rnd(i, 2) - 0.5) * 3.2;
+      const vx = (rnd(i, 3) - 0.3) * 2.4, vy = 0.6 + rnd(i, 4) * 1.8, vz = (rnd(i, 5) - 0.5) * 4.0;
+      const k = 1 - Math.exp(-tau / 0.7);
+      dp[i * 3] = x0 + vx * k * 1.2; dp[i * 3 + 1] = Math.max(0.1, 0.3 + vy * k * 1.1); dp[i * 3 + 2] = z0 + vz * k * 1.2;
+    }
+    dg.attributes.position.needsUpdate = true;
+    dmat.opacity = 0.85 * seg(tau, 0, 0.15) * (1 - seg(tau, 1.2, 3.4));
+    dmat.size = 1.0 + 1.6 * clamp(tau / 2.5, 0, 1);
+  }
+  // 불씨 (태고대 둘레에서 떠오름)
+  for (let i = 0; i < NE; i++) {
+    const sp = 0.3 + rnd(i, 4) * 0.7, y = ((rnd(i, 2) * 9 + t * sp) % 9);
+    ep[i * 3] = X0 - 7 + rnd(i, 1) * 16 + Math.sin(t * 0.8 + rnd(i, 5) * 6.3) * 0.3; ep[i * 3 + 1] = 0.3 + y; ep[i * 3 + 2] = -6 + rnd(i, 3) * 13;
+  }
+  eg.attributes.position.needsUpdate = true;
+  // 떨어진 자리 고리 ('62세' 부터)
+  const rk = t - t62;
+  ring.material.opacity = rk > 0 ? 0.75 * seg(rk, 0, 0.4) * (0.65 + 0.35 * Math.sin(rk * 4)) : 0;
+  ring.scale.setScalar(1 + 0.08 * Math.sin(rk * 4));
+  // 카메라
+  const c = camAt(t);
+  cam.position.copy(c.pos); cam.lookAt(c.look); cam.updateMatrixWorld();
+  ren.render(scene, cam);
+  // '무게 3톤' 꼬리표 — 태고대 꼭대기를 따라감 ('무게' ~ '떨어졌고')
+  if (t >= tW && t < tFall + 0.2) {
+    const top = new THREE.Vector3(0, 5.6, 0).applyMatrix4(F.matrixWorld);
+    const [x, y] = proj(top), k = seg(t, tW, tW + 0.35) * (1 - seg(t, tFall, tFall + 0.2));
+    ov.innerHTML = `<div class="tag3" style="left:${x.toFixed(1)}px;top:${Math.max(200, y - 20).toFixed(1)}px;opacity:${k.toFixed(3)}">무게 3톤</div>`;
+  } else ov.innerHTML = "";
+});
+K.done();
+})();
+</script>
+</body>
+</html>

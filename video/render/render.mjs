@@ -1,4 +1,8 @@
-// VERSION: v1.17 — 2026-10-19 — video --base: 코드 화면만 찍은 바탕 영상 <주제>/out/<영상ID>/base_1080p.mp4 (구운 자막·장 이름표 없이 —
+// VERSION: v1.18 — 2026-10-20 — ① 브라우저를 --allow-file-access-from-files 로 실행 — 장면 파일(file://)이 로컬 그림을 WebGL 재질로 쓸 수 있게
+//   (없으면 texSubImage2D SecurityError "cross-origin data" — 3D 배경 그림·지도 시험, 사용자 지시 2026-10-20 "영상 만드는 코드는 3D 활용하는 방법 없어?
+//   한번 테스트로 20초만 만들어봐"). ② --page <파일> : video/episodes/<영상ID>/ 안의 다른 장면 파일 (기본 index.html) — 시험 장면을 따로 렌더,
+//   결과 이름에 파일 이름이 붙음 (preview_<파일>_<from>-<to>.mp4 · <파일>_1080p.mp4) — final_1080p.mp4 를 덮지 않음.
+// v1.17 — 2026-10-19 — video --base: 코드 화면만 찍은 바탕 영상 <주제>/out/<영상ID>/base_1080p.mp4 (구운 자막·장 이름표 없이 —
 //   kit.js v1.9 window.__BASE, 소리·음량 맞춤 없음) · 새 모드 overlay: 구운 자막·장 이름표만 투명 PNG 로 — 자막·이름표가 바뀔 때마다 한 장
 //   (<영상ID>/overlay/NNNN.png + list.ffconcat + overlay.json, 장 이름표 바탕은 밝은 AI 클립 위에서도 읽히게 조금 어둡게).
 //   tools/assemble_video.py 가 바탕 영상에 AI 장면 클립을 얹고 이 PNG 들을 위에 굽고 내레이션을 붙임 — 자막 모양이 코드 화면과 같음.
@@ -62,7 +66,7 @@ import { fileURLToPath } from "node:url";
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, "..", "..");
-const VERSION = "v1.17";                        // 로그 [RENDER] tool= 에 찍힘 (v1.4~v1.6 때 올리지 않았던 것을 맞춤)
+const VERSION = "v1.18";                        // 로그 [RENDER] tool= 에 찍힘 (v1.4~v1.6 때 올리지 않았던 것을 맞춤)
 const log = (stage, kv) => console.log(`[${stage}] [${new Date().toISOString().slice(0, 19)}Z] ` +
   Object.entries(kv).map(([k, v]) => `${k}=${typeof v === "string" && /\s/.test(v) ? JSON.stringify(v) : v}`).join(" "));
 
@@ -78,7 +82,8 @@ if (!MODE || !TOPIC || !ID) {
 const SHORTS = ID.endsWith("-shorts");                           // v1.8 쇼츠: 대본 폴더 = source/<롱폼 영상ID>/shorts
 const SRC = SHORTS ? path.join(ROOT, TOPIC, "source", ID.slice(0, -"-shorts".length), "shorts") : path.join(ROOT, TOPIC, "source", ID);
 const EPDIR = path.join(ROOT, "video", "episodes", ID);
-const PAGE = path.join(EPDIR, "index.html");
+const PAGE = path.join(EPDIR, opt("page", "index.html"));          // v1.18 --page
+const PTAG = path.basename(PAGE, ".html") === "index" ? "" : path.basename(PAGE, ".html");
 const AUDIO = ["mp3", "wav", "m4a"].map(e => path.join(SRC, `narration.${e}`)).find(f => fs.existsSync(f));
 // v1.9 쇼츠 썸네일 이미지 = 첫 문장 그림 (Claude 가 검수해 올린 것 — guides/thumbnail_guide.md 10번)
 const THUMB = SHORTS ? ["png", "jpg", "jpeg", "webp"].map(e => path.join(SRC, "thumbnails", `thumbnail_1.${e}`)).find(f => fs.existsSync(f)) : null;
@@ -191,8 +196,9 @@ async function loadPlaywright() {
 }
 async function openPage(pw, width) {
   let browser;
-  try { browser = await pw.chromium.launch(); }
-  catch { browser = await pw.chromium.launch({ executablePath: "/opt/pw-browsers/chromium" }); }
+  const args = ["--allow-file-access-from-files"];               // v1.18 로컬 그림 → WebGL 재질
+  try { browser = await pw.chromium.launch({ args }); }
+  catch { browser = await pw.chromium.launch({ args, executablePath: "/opt/pw-browsers/chromium" }); }
   const vw = width || W0;
   const page = await browser.newPage({ viewport: { width: vw, height: Math.round(vw * H0 / W0) }, deviceScaleFactor: 1 });
   const GSAP = path.join(HERE, "node_modules", "gsap", "dist", "gsap.min.js");
@@ -403,7 +409,8 @@ async function video() {
   const chunks = Array.from({ length: workers }, (_, k) => [F0 + k * per, Math.min(F1, F0 + (k + 1) * per), path.join(tmp, `chunk_${k}.mp4`)]).filter(c => c[0] < c[1]);
   await Promise.all(chunks.map(([a, b, f], k) => renderChunk(pw, a, b, fps, f, crf, k)));
   fs.writeFileSync(path.join(tmp, "list.txt"), chunks.map(c => `file '${c[2]}'`).join("\n"));
-  const out = path.join(outDir, BASE ? "base_1080p.mp4" : estPreview ? "preview_estimated_silent.mp4" : preview ? `preview_${from}-${Math.round(to)}.mp4` : "final_1080p.mp4");
+  const pt = PTAG ? PTAG + "_" : "";                                 // v1.18 --page 면 결과 이름에 파일 이름
+  const out = path.join(outDir, BASE ? `${pt}base_1080p.mp4` : estPreview ? `${pt}preview_estimated_silent.mp4` : preview ? `preview_${pt}${from}-${Math.round(to)}.mp4` : PTAG ? `${PTAG}_1080p.mp4` : "final_1080p.mp4");
   const args = ["-y", "-v", "error", "-f", "concat", "-safe", "0", "-i", path.join(tmp, "list.txt")];
   if (AUDIO && !estPreview && !BASE) args.push("-ss", String(from), "-t", String(to - from), "-i", AUDIO, "-map", "0:v", "-map", "1:a", "-c:a", "aac", "-b:a", "192k");
   args.push("-c:v", "copy", "-movflags", "+faststart", out);

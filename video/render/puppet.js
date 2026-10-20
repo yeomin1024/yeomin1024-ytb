@@ -1,4 +1,8 @@
-// VERSION: v1.0 — 2026-10-20 — 종이인형극 무대 (Three.js 0.160 + kit.js K.onSeek) — 사용자 지시 2026-10-20 "좋아 저런 방식으로 가자 ... 이제 나머지 부분
+// VERSION: v1.1 — 2026-10-20 — 4개 묶음 그림에서 물건끼리 닿아 빈 열로 넷이 안 나오면, 가장 넓은 덩어리를 세로로 가장 적게 걸친 열에서 자름
+//   (예전: 4등분 — 사람이 잘렸음. ChatGPT 2판 P-PEOPLE·P-ICONS·P-ICONS2 가 닿아 있었음). 나눈 자리는 window.PUPPET[키].segs.
+//   · 프레임마다 인형을 처음 자리·크기·기울기·보임으로 되돌린 뒤 움직임을 적용 (Actor.reset) — 렌더 check 가 시각을 앞뒤로 건너뛸 때
+//     무대 밖으로 빠져나간(exit) 인형이 그 시각 전으로 돌아가도 밖에 남던 문제 (그림 = 시각 t 만의 함수). exit 는 이제 옆으로 더함.
+// (v1.0) — 2026-10-20 — 종이인형극 무대 (Three.js 0.160 + kit.js K.onSeek) — 사용자 지시 2026-10-20 "좋아 저런 방식으로 가자 ... 이제 나머지 부분
 //   영상으로 만들자" (test 일본 축제 롱폼·쇼츠). 시험판 video/episodes/ilbon-chukje-2026-10/test_puppet.html v0.2 의 방식을 장면 파일 여러 개가 같이 쓰게 옮김:
 //   · 그림 = 배경 1장 + 물건마다 투명 그림 1장 (상태 그림 없음) — 움직임(걸음·들썩·기울기·떨어짐·튀어나옴·뒤집기·흔들림)은 모두 코드.
 //   · 4개를 한 줄로 그린 그림(row4)은 투명한 빈 열로 넷을 찾아 자름 (못 찾으면 4등분).
@@ -41,10 +45,10 @@
     return c;
   }
   function rowSegments(A, w, h, n) {                                  // 한 줄 n 개 — 투명한 빈 열로 나눔
-    const occ = new Uint8Array(w);
-    for (let x = 0; x < w; x++) for (let y = 0; y < h; y += 3) if (A(x, y) > 40) { occ[x] = 1; break; }
+    const cnt = new Uint16Array(w);                                   // 열마다 그림이 걸친 줄 수 (3줄 걸러)
+    for (let x = 0; x < w; x++) for (let y = 0; y < h; y += 3) if (A(x, y) > 40) cnt[x]++;
     let segs = [], s0 = -1;
-    for (let x = 0; x <= w; x++) { const o = x < w && occ[x]; if (o && s0 < 0) s0 = x; if (!o && s0 >= 0) { segs.push([s0, x]); s0 = -1; } }
+    for (let x = 0; x <= w; x++) { const o = x < w && cnt[x] > 0; if (o && s0 < 0) s0 = x; if (!o && s0 >= 0) { segs.push([s0, x]); s0 = -1; } }
     segs = segs.filter(([a, b]) => b - a > w * 0.01);                // 부스러기 버림
     while (segs.length > n) {                                         // 가장 가까운 둘을 합침
       let k = 0, best = 1e9;
@@ -52,7 +56,15 @@
       segs.splice(k, 2, [segs[k][0], segs[k + 1][1]]);
     }
     const ok = segs.length === n;
-    if (!ok) segs = Array.from({ length: n }, (_, i) => [Math.round(i * w / n), Math.round((i + 1) * w / n)]);
+    while (segs.length > 0 && segs.length < n) {                      // v1.1 물건끼리 닿음 → 가장 넓은 덩어리를 가장 적게 걸친 열에서 자름 (가장자리 15% 는 빼고)
+      let k = 0;
+      for (let i = 1; i < segs.length; i++) if (segs[i][1] - segs[i][0] > segs[k][1] - segs[k][0]) k = i;
+      const [a, b] = segs[k], m = Math.floor((b - a) * 0.15);
+      let cut = a + m, best = 1e9;
+      for (let x = a + m; x < b - m; x++) { const sc = cnt[x] * 10000 + Math.abs(x - (a + b) / 2); if (sc < best) { best = sc; cut = x; } }
+      segs.splice(k, 1, [a, cut], [cut, b]);
+    }
+    if (segs.length !== n) segs = Array.from({ length: n }, (_, i) => [Math.round(i * w / n), Math.round((i + 1) * w / n)]);
     return { ok, segs: segs.map(([a, b]) => {
       let y0 = h, y1 = -1;
       for (let y = 0; y < h; y += 2) for (let x = a; x < b; x += 2) if (A(x, y) > 40) { if (y < y0) y0 = y; if (y > y1) y1 = y; break; }
@@ -82,7 +94,7 @@
     let x0 = w, y0 = h, x1 = -1, y1 = -1;
     for (let y = 0; y < h; y += 2) for (let x = 0; x < w; x += 2) if (A(x, y) > 40) { if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y; }
     if (x1 > 0) info.bbox = [x0 / w, y0 / h, (x1 + 2) / w, (y1 + 2) / h];
-    if (spec.kind === "row4") { const r = rowSegments(A, w, h, 4); info.segs = r.segs; info.splitOk = r.ok; if (!r.ok && ok) console.warn(`[PUPPET] ${spec.f} 넷으로 못 나눔 — 4등분으로 자름`); }
+    if (spec.kind === "row4") { const r = rowSegments(A, w, h, 4); info.segs = r.segs; info.splitOk = r.ok; if (!r.ok && ok) console.info(`[PUPPET] ${spec.f} 물건끼리 닿음 — 가장 적게 걸친 열에서 자름`); }
     info.A = A;
     return { c, info };
   }
@@ -131,6 +143,7 @@
         if (f <= 0) { if (st.built) st.root.visible = false; continue; }
         if (!st.built) st.doBuild();
         st.root.visible = true; st.fade = f;
+        for (const a of st.actors) if (a.reset) a.reset();          // v1.1 매 프레임 처음 상태에서
         if (st.update) st.update(t, st);
         for (const ps of st.parts) ps.step(t);
         for (const a of st.actors) a.apply(f, st.tint, tmpC);
@@ -204,6 +217,7 @@
       st.root.add(this.g); st.actors.push(this);
     }
     ro(n) { this.m.renderOrder = n; return this; }
+    reset() { if (this.home) this.g.position.copy(this.home); this.g.rotation.set(0, 0, 0); this.g.scale.set(1, 1, 1); this.op = 1; }
     top(dy) {                                                        // 그림 위 가운데의 월드 자리 (+dy) — DOM 이름표를 붙일 때
       this.g.updateMatrixWorld(true);
       const v = this.g.localToWorld(new THREE.Vector3((0.5 - this.anchor[0]) * this.wd, this.anchor[1] * this.ht, 0));
@@ -231,7 +245,7 @@
     }
     exit(t, at, d, dx) {                                             // 옆으로 빠져나감 (점점 빠르게)
       const k = clamp((t - at) / (d || 0.8), 0, 1);
-      if (t >= at) this.g.position.x = this.home.x + dx * k * k; if (k >= 1) this.op = 0; return this;
+      if (t >= at) this.g.position.x += dx * k * k; if (k >= 1) this.op = 0; return this;
     }
     flip(t, at, d) {                                                 // 종이 카드 뒤집듯 가로 폭 0 → 1
       const k = clamp((t - at) / (d || 0.35), 0, 1);

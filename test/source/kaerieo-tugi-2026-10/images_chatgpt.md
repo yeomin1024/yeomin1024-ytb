@@ -1,6 +1,6 @@
 # 깨끗한 일본 길거리에 캐리어가 버려지는 이유 — 이미지 8장 ChatGPT용 (읽고 그대로 만들고 각 저장 경로에 올리기)
 
-작성: 2026-10-20 (Claude, 1판) — 짝 문서 `test/일본_캐리어투기_제작안.txt` (v1.0)
+작성: 2026-10-20 (Claude, v1.1) — 짝 문서 `test/일본_캐리어투기_제작안.txt`
 
 이 파일 주소: https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/test/source/kaerieo-tugi-2026-10/images_chatgpt.md
 
@@ -136,7 +136,7 @@ No text, letters, numbers, signs with writing, logos or watermarks anywhere.
 | 자리 | 문구 | 색 |
 |---|---|---|
 | 그림 꼬리표 | 한 구에서만 1년 290개 | 흰 글자 on 빨강 상자 #FF2A2A — 그림 왼쪽 위 |
-| 그림 말풍선 | 버릴 곳이 없다? | 검정 글자 on 노랑 말풍선 #FFD400 — 그림 오른쪽 위 |
+| 그림 말풍선 | 그냥 버리면 안 돼? | 검정 글자 on 노랑 말풍선 #FFD400 — 그림 오른쪽 위 |
 | 하단 1줄 | 깨끗한 일본 길거리에 | '깨끗한' 노랑 #FFD400 · 나머지 흰색 — 모두 두꺼운 검정 외곽선 |
 | 하단 2줄 | 캐리어가 버려지는 이유 | '버려지는 이유' 빨강 #FF2A2A · '캐리어가' 흰색 · 1줄보다 크게 — 모두 두꺼운 검정 외곽선 |
 
@@ -147,7 +147,7 @@ YouTube thumbnail, 16:9 landscape (1280x720). Cinematic digital painting, semi-r
 Upper 62% of the frame:
 - Center-right: a tourist in his 30s (fictional, not resembling any real person) standing on a clean Tokyo back street at night next to an old suitcase, holding a brand-new suitcase handle, hand on the back of his head, brows knitted, looking around helplessly for somewhere to throw the old one away; behind him a spotless street with no trash bins and a neat garbage collection point. Cool teal night with warm vending-machine light.
 - Upper left: one bold tag, a solid bright red (#FF2A2A) rounded box with the Korean text "한 구에서만 1년 290개" printed in huge flat heavy bold white letters.
-- Upper right: a bright yellow (#FFD400) speech bubble with the Korean text "버릴 곳이 없다?" in heavy bold black letters.
+- Upper right: a bright yellow (#FFD400) speech bubble with the Korean text "그냥 버리면 안 돼?" in heavy bold black letters.
 Bottom title: in the lower third, over a dark band that fades upward from the bottom edge, two lines of huge heavy bold text, left-aligned near the left edge:
 line 1 "깨끗한 일본 길거리에" — '깨끗한' 노랑 #FFD400 ; 나머지 흰색, all with a thick black outline;
 line 2 "캐리어가 버려지는 이유" — '버려지는 이유' 빨강 #FF2A2A ; '캐리어가' 흰색 ; 1줄보다 크게, all with a thick black outline, clearly larger than line 1.
@@ -168,7 +168,7 @@ Render ONLY the Korean text given in quotes, exactly as written with the same le
 |---|---|---|
 | 위 1줄 | 깨끗한 일본 길거리에 | '깨끗한' 노랑 #FFD400 · 나머지 흰색 — 검정 바탕 위 평면 글자 |
 | 위 2줄 | 버려진 캐리어, 왜? | '버려진 캐리어,' 흰색 · '왜?' 빨강 #FF2A2A — 1줄과 같은 크기 |
-| 그림 꼬리표 | 도쿄 경찰 습득 4,600개 | 흰 글자 on 빨강 상자 #FF2A2A |
+| 그림 꼬리표 | 도시마구 1년 290개 | 흰 글자 on 빨강 상자 #FF2A2A |
 
 프롬프트:
 
@@ -180,7 +180,7 @@ Headline: exactly TWO lines of very large heavy bold Korean text, the same lette
 line 1 "깨끗한 일본 길거리에" — '깨끗한' 노랑 #FFD400 ; 나머지 흰색;
 line 2 "버려진 캐리어, 왜?" — '버려진 캐리어,' 흰색 ; '왜?' 빨강 #FF2A2A.
 Painting zone (36–72%): Cinematic digital painting, semi-realistic, night-time Tokyo street light, cool teal shadows with warm sodium-lamp highlights, subtle film grain. One abandoned hard-shell suitcase standing alone in front of a clean garbage collection point on a narrow Tokyo back street at night, a plain yellow warning sticker (no writing) on its side, wet asphalt reflecting vending-machine light. No people.
-On the upper left of the painting (about 5–45% of the width, 39–47% of the height): one bold tag, a solid bright red (#FF2A2A) rounded box with the Korean text "도쿄 경찰 습득 4,600개" printed in large flat heavy bold white letters on its flat front face (flat print, not carved or 3D). Keep the right 16% of the width below 45% of the height free of tags (Shorts buttons).
+On the upper left of the painting (about 5–45% of the width, 39–47% of the height): one bold tag, a solid bright red (#FF2A2A) rounded box with the Korean text "도시마구 1년 290개" printed in large flat heavy bold white letters on its flat front face (flat print, not carved or 3D). Keep the right 16% of the width below 45% of the height free of tags (Shorts buttons).
 If 9:16 is not available, use a 2:3 portrait canvas (1024x1536) with the same three zones and keep the headline between 12% and 88% of the width.
 Render ONLY the Korean text given in quotes, exactly as written with the same letters, spacing, comma and question mark, in a heavy bold sans-serif Korean font. No other text, letters, numbers, watermarks or logos anywhere.
 ```

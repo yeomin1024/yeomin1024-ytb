@@ -42,7 +42,7 @@
 <script>
 (function () {
 "use strict";
-K.init(window.EP);
+K.init(window.EP, { chip: false });              // 왼쪽 위 장 이름표 없음 (사용자 지시 2026-10-20)
 const { S, E, W, el } = K;
 const tl = K.tl;
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));

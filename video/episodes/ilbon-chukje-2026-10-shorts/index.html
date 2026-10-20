@@ -4,15 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>일본 축제 쇼츠</title>
-<!-- VERSION: v1.1 — 2026-10-20 — 각주 '보도 기반 집계' → '언론에 알려진 사고 기준'.
-     (v1.0) — 2026-10-20 — test/ 일본 전통 축제 사망 사고 쇼츠 (사용자 지시 2026-10-20 "오디오 올렸어 영상 만들어봐").
-     꼴 = '세 칸' (사용자 지시 2026-10-20 "영상 시작을 검은 배경에 상단에 썸네일 문구 2줄을 넣고 그 밑에는 이미지, 하단에는 자막 …
-     첫 문장 말할 때만 썸네일 문구, 이미지 보여주면 되고 그다음 진행은 이미지 변경해가면서 진행하면돼"):
-       위 칸 y 0~691 검정 (첫 문장: 그림 속 문구 2줄 / 그다음: 코드 글자) · 가운데 칸 y 691~1382 이미지 · 아래 칸 검정 + 구운 자막.
-     첫 문장 = test/source/ilbon-chukje-2026-10/shorts/thumbnails/thumbnail_1.jpg (= test/SHORTS-OPEN.jpg, 세 칸 그림 그대로 — kit.js K.cover).
-     가운데 칸 이미지 = 롱폼 배경 test/IMG-L1·L2·L4·L5·L6.jpg (ChatGPT — 사용자가 고른 구성이라 video_guide 1-4 '코드로만 그림'의 예외, 제작안 v8.2).
+<!-- VERSION: v2.0 — 2026-10-20 — 가운데 칸을 종이인형 무대로 (video/render/puppet.js v1.0) — 사용자 지시 2026-10-20 "좋아 저런 방식으로 가자 ... 이제 나머지 부분
+     영상으로 만들자". 그림 = 배경 1장 + 물건마다 투명 그림 1장(test/puppet/), 움직임은 모두 코드. 출처·매체 이름·AI 표기 없음.
+     (v1.1 — 2026-10-20 — 각주 '언론에 알려진 사고 기준' · v1.0 — 롱폼 배경 그림 IMG-L* 를 가운데 칸에)
+     꼴 = '세 칸' (사용자 지시 2026-10-20): 위 칸 y 0~691 검정 + 코드 글자 · 가운데 칸 y 691~1382 무대 · 아래 칸 검정 + 구운 자막.
+     첫 문장 = test/source/ilbon-chukje-2026-10/shorts/thumbnails/thumbnail_1.jpg (세 칸 그림 그대로 — kit.js K.cover).
      장면 시각 = 문장 시각(K.S·K.E)·낱말 시각(K.W) — 손으로 적은 초 없음. 숫자는 쇼츠 대본의 숫자만.
-     대본 test/source/ilbon-chukje-2026-10/shorts/ilbon-chukje-2026-10-shorts.txt · 제작안 test/일본축제_사망사고_제작안.txt [2]. -->
+     대본 test/source/ilbon-chukje-2026-10/shorts/ilbon-chukje-2026-10-shorts.txt · 제작안 test/일본축제_사망사고_제작안.txt. 연구·교육용 영상. -->
 <meta name="video-size" content="1080x1920">
 <meta name="video-safe" content="150 60 1384 60">
 <link rel="stylesheet" href="../../render/kit.css">
@@ -23,15 +21,13 @@ body.render #wrap{width:1080px;height:1920px;max-width:none;margin:0}
 #stage{width:1080px;height:1920px;background:#000}
 /* 자막: 아래 칸 (가운데 칸이 y 1382 에서 끝남 — 2줄 자막 위 끝 약 1386) · 가운데 540 */
 #cc{left:540px;bottom:390px;max-width:870px;font-size:46px;padding:12px 16px;text-wrap:balance}
-/* 가운데 칸 이미지 */
-.band{position:absolute;left:0;top:691px;width:1080px;height:691px;overflow:hidden}
-.band img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform-origin:50% 50%}
-/* 위 칸 글자 */
 .lab{font-weight:700;font-size:52px;color:var(--Y)}
 .main{font-weight:900;font-size:96px;line-height:1.1}
 .qcard{position:absolute;left:70px;width:940px;border-radius:28px;background:rgba(255,255,255,.07);border:2px solid rgba(255,255,255,.16);padding:30px 40px;display:grid;gap:14px}
 .qcard .q{font-weight:900;font-size:56px;line-height:1.25;word-break:keep-all}
 .qcard .who{font-weight:500;font-size:36px;color:var(--N)}
+.flash{position:absolute;left:0;top:691px;width:1080px;height:691px;background:#FFE6C8;opacity:0;pointer-events:none}
+.bub{position:absolute;font-weight:900;font-size:64px;width:100px;height:100px;border-radius:50px;display:grid;place-items:center;background:#F2E6CF;color:#1E2A4A;border:5px solid #1E2A4A}
 </style>
 </head>
 <body>
@@ -39,23 +35,20 @@ body.render #wrap{width:1080px;height:1920px;max-width:none;margin:0}
 <div id="ctrl"></div>
 <div id="now"></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
 <script id="ep-data">/*EP-DATA:BEGIN*/window.EP={"id":"ilbon-chukje-2026-10-shorts","topic":"test","duration":42.14,"audio":"../../../test/source/ilbon-chukje-2026-10/shorts/narration.mp3","thumb":"../../../test/source/ilbon-chukje-2026-10/shorts/thumbnails/thumbnail_1.jpg","synced":"2026-10-20T09:47:32Z","tts":"2026-10-20T09:39:24","script_sha1":"c36915fd8161676a","sent":[{"n":1,"part":"사망자가 나와도 안 멈추는 축제","text":"매년 사고 사망자가 나와도 일본은 전통 축제를 멈추지 않습니다.","start":0.3,"end":4.38},{"n":2,"part":"사망자가 나와도 안 멈추는 축제","text":"10월 17일, 에히메 축제에서 3톤 가마를 메던 현직 부시장이 깔려 숨졌습니다.","start":4.83,"end":9.9},{"n":3,"part":"사망자가 나와도 안 멈추는 축제","text":"일주일 전 오사카에서 2명, 2월엔 오카야마에서도 2명이 숨졌죠.","start":10.35,"end":14.75},{"n":4,"part":"사망자가 나와도 안 멈추는 축제","text":"일본 축제 사망사고는 보도된 것만 4개월에 1명꼴입니다.","start":15.2,"end":19.28},{"n":5,"part":"사망자가 나와도 안 멈추는 축제","text":"그런데 현지 반응은 의외입니다.","start":19.73,"end":21.55},{"n":6,"part":"사망자가 나와도 안 멈추는 축제","text":"50년 넘게 참가한 한 원로는 \"목숨을 잃는 건 격투기와 같다, 자기책임\"이라고 했습니다.","start":22,"end":28},{"n":7,"part":"사망자가 나와도 안 멈추는 축제","text":"\"내가 죽으면 부모님이 사과하러 다닐 것\"이라고까지 했죠.","start":28.45,"end":31.86},{"n":8,"part":"사망자가 나와도 안 멈추는 축제","text":"SNS에선 \"치료비는 자비로 내라\"는 말까지 나왔습니다.","start":32.31,"end":35.67},{"n":9,"part":"사망자가 나와도 안 멈추는 축제","text":"일본은 왜 축제를 멈추지 않을까요?","start":36.12,"end":38.13},{"n":10,"part":"사망자가 나와도 안 멈추는 축제","text":"그 이유는 아래 영상에서 확인하세요.","start":38.58,"end":40.74}],"subs":[[0.2,4.83,"매년 사고 사망자가 나와도 일본은\n전통 축제를 멈추지 않습니다."],[4.83,10.35,"10월 17일, 에히메 축제에서 3톤 가마를\n메던 현직 부시장이 깔려 숨졌습니다."],[10.35,15.2,"일주일 전 오사카에서 2명,\n2월엔 오카야마에서도 2명이 숨졌죠."],[15.2,19.73,"일본 축제 사망사고는 보도된 것만\n4개월에 1명꼴입니다."],[19.73,22,"그런데 현지 반응은 의외입니다."],[22,26.552,"50년 넘게 참가한 한 원로는\n\"목숨을 잃는 건 격투기와 같다,"],[26.552,28.45,"자기책임\"이라고 했습니다."],[28.45,32.31,"\"내가 죽으면 부모님이\n사과하러 다닐 것\"이라고까지 했죠."],[32.31,36.12,"SNS에선 \"치료비는 자비로\n내라\"는 말까지 나왔습니다."],[36.12,38.58,"일본은 왜 축제를 멈추지 않을까요?"],[38.58,41.14,"그 이유는 아래 영상에서 확인하세요."]]};/*EP-DATA:END*/</script>
 <script src="../../render/kit.js"></script>
+<script src="../../render/puppet.js"></script>
 <script>
 (function () {
 "use strict";
 K.init(window.EP, { chip: false, w: 1080 });
 const { S, E, W, el, pop, out } = K;
 const tl = K.tl;
+const { clamp, sm, seg, lin, lerp, q12, outC } = Puppet.u;
 const until = n => S(n) - 0.05;
-const IMG = name => `../../../test/${name}.jpg`;
+const V3 = (x, y, z) => new THREE.Vector3(x, y, z);
 
-/* 가운데 칸 이미지 — 장면 동안 천천히 1.06배 (영상화 아님, 정지 그림 확대) */
-function band(sc, name, a, b, css) {
-  const box = el(`<div class="band"><img alt="" src="${IMG(name)}" style="${css || ""}"></div>`, sc);
-  tl.fromTo(box.firstChild, { scale: 1 }, { scale: 1.06, duration: Math.max(0.5, b - a), ease: "none" }, a);
-  return box;
-}
 /* 위 칸: 작은 노란 줄 + 큰 줄 (가운데 540) */
 function head(sc, top, lab, main, color) {
   const g = el(`<div class="a cx c" style="left:540px;top:${top}px;display:grid;gap:18px;justify-items:center"></div>`, sc);
@@ -64,73 +57,131 @@ function head(sc, top, lab, main, color) {
   return g;
 }
 function qcard(sc, top, q, who, color) {
-  return el(`<div class="qcard" style="top:${top}px"><div class="q" style="color:${color || "#F4F6FA"}">${q}</div><div class="who">${who}</div></div>`, sc);
+  return el(`<div class="qcard" style="top:${top}px"><div class="q" style="color:${color || "#F4F6FA"}">${q}</div>${who ? `<div class="who">${who}</div>` : ""}</div>`, sc);
 }
 
-/* S-01 첫 문장 = 세 칸 그림 그대로 (위 문구 2줄 · 가운데 그림 · 보조 문구 '8일 만에 3명 사망' 은 그림 속). 확대 없음 — 문구가 너비 4~96% */
+// ---------- 가운데 칸 = 종이인형 무대 (1080×691) ----------
+const ST = Puppet.stage({ dir: "../../../test/puppet/", w: 1080, h: 691, top: 691, clear: 0x000000, files: {
+  BG: { f: "P-BG.jpg", kind: "bg" }, PAPER: { f: "P-PAPER.jpg", kind: "bg" }, TOWN: { f: "P-TOWN.jpg", kind: "bg" }, TEMPLE: { f: "P-TEMPLE.jpg", kind: "bg" },
+  FLOAT: { f: "P-FLOAT.png" }, LIFT: { f: "P-LIFT.png" }, CARRY: { f: "P-CARRY.png" }, CROWD: { f: "P-CROWD.png" },
+  DANJIRI: { f: "P-DANJIRI.png" }, HADAKA: { f: "P-HADAKA.png" }, PEOPLE2: { f: "P-PEOPLE2.png", kind: "row4" } } });
+// 세로 쇼츠 칸은 가까이서 (인형이 칸 높이의 절반쯤) — 발끝 줄이 칸 82%
+ST.defaultCam = (st, t) => { const k = lin(t, st.a, st.b); return { pos: [lerp(-0.4, 0.4, k), 2.9, lerp(15.5, 14.5, k)], look: [lerp(-0.4, 0.4, k), 2.57, 0] }; };
+const bgOf = (st, key) => st.bg(key, key === "PAPER" ? { v: 0.5, y: 2.6 } : { v: key === "BG" ? 0.62 : 0.70, y: 0.6 });
+const WARM = new THREE.Color(0xffffff), COOL = new THREE.Color(0xb4b9cc);
+
+/* S-01 첫 문장 = 세 칸 그림 그대로 (위 문구 2줄 · 가운데 그림 · 보조 문구 '8일 만에 3명 사망' 은 그림 속). 확대 없음 */
 K.cover(until(2), { zoom: 1 });
 K.cut(0.1, "0초 그림 = 쇼츠 썸네일");
 K.cut(E(1) - 0.2, "첫 문장 + 자막(42px)");
 
-/* S-02a 에히메 (문장 2) */
+/* S-02 에히메 — 메던 가마가 떨어짐 (문장 2) */
 {
-  const a = until(2), b = until(3);
+  const a = until(2), b = until(3), tF = W(2, "깔려") - 0.55, tI = tF + 0.66;
   const sc = K.scene(a, b);
-  band(sc, "IMG-L1", a, b);
+  const flash = el(`<div class="flash"></div>`, sc);
+  let F, men = [], fb, PW, PH;
+  const s2 = ST.set(a, b, st => {
+    bgOf(st, "BG");
+    const fi = ST.get("FLOAT").info, mi = ST.get("LIFT").info;
+    PW = 9.0; PH = PW * fi.h / fi.w; fb = fi.bbox;
+    const cut = fb[3], cu = (mi.bbox[0] + mi.bbox[2]) / 2, fy = mi.bbox[3], split = 0.5;
+    men = [[0, split], [split, 1]].map(([u0, u1]) => st.actor("LIFT", { crop: [u0, cut, u1, 1], w: PW * (u1 - u0), anchor: [0.5, 1], at: [((u0 + u1) / 2 - cu) * PW, (fy - 1) * PH, 0] }).ro(2));
+    F = st.actor("FLOAT", { crop: [0, 0, 1, 1], w: PW, anchor: [fb[2], fb[3]], at: [(fb[2] - cu) * PW, (fy - fb[3]) * PH, 0.05] }).ro(3);
+    st.part(Puppet.dust(tI, () => { F.g.updateMatrixWorld(true); const v = F.g.localToWorld(V3(((fb[0] + fb[2]) / 2 - fb[2]) * PW, 0, 0)); return [v.x, 0, 0]; }, { spread: 3.2 }));
+    st.part(Puppet.floaters({ n: 60, x: [-9, 9], z: [-10, 4] }));
+    st.shake(tI, 0.1);
+  });
+  s2.update = t => {
+    const tq = q12(t), falling = t >= tF;
+    const hv = !falling ? Math.max(0, Math.sin(Math.PI * 2 * (t - a) / 0.9)) : 0;
+    if (!falling) { F.g.rotation.z = 0.012 * Math.sin(tq * 11); F.g.position.set(F.home.x, F.home.y + 0.3 * hv, F.home.z); }
+    else { const k = lin(t, tF, tI), d = k * k; F.g.rotation.z = -0.105 * sm(lin(t, tF, tF + 0.3)) - 0.14 * d + 0.2 * seg(t, tI, tI + 0.22); F.g.position.set(F.home.x, lerp(F.home.y, 0.02, d), F.home.z); }
+    const ks = falling ? outC(lin(t, tF, tF + 0.8)) : 0, off = Math.pow(lin(t, tI + 0.3, tI + 1.4), 2) * 9;
+    men.forEach((m, i) => { const sg = i ? 1 : -1; m.g.position.set(m.home.x + sg * (2.6 * ks + off), m.home.y + (falling ? 0.3 * Math.sin(Math.PI * lin(t, tF, tF + 0.45)) : 0.3 * hv), 0); m.g.rotation.z = -sg * 0.08 * Math.sin(Math.PI * lin(t, tF, tF + 1)); });
+    s2.tint.copy(WARM).lerp(COOL, seg(t, tI, tI + 0.6));
+    flash.style.opacity = t > tI ? (0.5 * Math.exp(-(t - tI) / 0.12)).toFixed(3) : 0;
+  };
   pop(head(sc, 330, "10월 17일 · 에히메 사이조", "현직 부시장 사망", "#FF4D3D"), S(2) + 0.1);
-  K.cut(E(2) - 0.1, "에히메 · 부시장 사망");
+  K.cut(tI + 0.3, "에히메 · 가마 낙하");
 }
-/* S-02b 오사카 → 오카야마 (문장 3 — '2월엔' 에서 그림·글자가 바뀜) */
+
+/* S-03 오사카(골목 · 수레가 넘어짐) → 오카야마(절 · 알몸 축제) (문장 3 — '2월엔' 에서 바뀜) */
 {
   const a = until(3), b = until(4), sw = W(3, "2월엔");
   const sc = K.scene(a, b);
-  band(sc, "IMG-L2", a, b);
-  const l5 = band(sc, "IMG-L5", sw, b);
-  tl.fromTo(l5, { opacity: 0 }, { opacity: 1, duration: 0.35, ease: "none" }, sw - 0.15);
+  let DJ, HD;
+  const s3a = ST.set(a, sw, st => { bgOf(st, "TOWN"); DJ = st.actor("DANJIRI", { h: 5.0, at: [-1.0, 0, 0], anchor: [0.25, 1] }); }, { fadeOut: 0.3 });
+  s3a.update = t => { DJ.slide(t, a + 0.1, 0.6, 8); DJ.g.rotation.z = 0.5 * outC(lin(t, a + 1.1, a + 1.55)) + (t > a + 1.55 ? 0.04 * Math.exp(-(t - a - 1.55) / 0.2) * Math.sin((t - a) * 30) : 0); };
+  s3a.shake(a + 1.55, 0.08);
+  const s3b = ST.set(sw, b, st => { bgOf(st, "TEMPLE"); HD = st.actor("HADAKA", { h: 4.0, at: [0, 0, 0] }); }, { fadeIn: 0.3 });
+  s3b.update = t => { HD.rise(t, sw, 0.5, 4); if (t > sw + 0.5) { HD.jitter(t, 0.012); HD.g.position.y = HD.home.y + 0.1 * Math.abs(Math.sin(q12(t) * Math.PI * 2.4)); } };
   const h1 = head(sc, 330, "10월 10일 · 오사카", "2명 사망", "#FF4D3D");
-  pop(h1, S(3) + 0.1);
-  out(h1, sw - 0.2);
+  pop(h1, S(3) + 0.1); out(h1, sw - 0.2);
   pop(head(sc, 330, "2월 21일 · 오카야마", "2명 사망", "#FF4D3D"), sw + 0.1);
   K.cut(sw - 0.3, "오사카 2명");
   K.cut(E(3) - 0.1, "오카야마 2명");
 }
-/* S-03 4개월에 1명꼴 (문장 4) */
+
+/* S-04 4개월에 1명꼴 (문장 4) — 세 축제 인형 */
 {
   const a = until(4), b = until(5);
   const sc = K.scene(a, b);
-  band(sc, "IMG-L6", a, b);
+  let row = [];
+  const s4 = ST.set(a, b, st => { bgOf(st, "PAPER"); row = [["FLOAT", -3.6, 1.7], ["DANJIRI", 0, 3.0], ["HADAKA", 3.6, 2.0]].map(([k, x, h]) => st.actor(k, { h, at: [x, 0, 0] })); });
+  s4.update = t => { row.forEach((r, i) => r.rise(t, a + 0.2 + 0.15 * i, 0.5, 4)); row[1].sway(t, 0.02, 0.6); };
   pop(el(`<div class="a cx c w7 N nw" style="left:540px;top:250px;font-size:52px">일본 축제 사망 사고</div>`, sc), S(4) + 0.1);
   pop(el(`<div class="a cx c w9 nw" style="left:540px;top:340px;font-size:120px;line-height:1"><span>4개월에 </span><span class="R">1명꼴</span></div>`, sc), W(4, "4개월"));
   pop(el(`<div class="a cx c w5 N nw" style="left:540px;top:510px;font-size:36px">*1989년 이후 21년간 언론에 알려진 사고 기준</div>`, sc), W(4, "4개월") + 0.4);
   K.cut(E(4) - 0.1, "4개월에 1명꼴");
 }
-/* S-04a 현지 반응 — 원로 (문장 5~7) */
+
+/* S-05 현지 반응 — 원로 → 고개 숙인 부모 (문장 5~7) */
 {
   const a = until(5), b = until(8);
   const sc = K.scene(a, b);
-  band(sc, "IMG-L4", a, b);
+  let VT, CP;
+  const s5 = ST.set(a, b, st => {
+    bgOf(st, "BG"); st.tint.set(0xC9C2D0);
+    VT = st.actor("PEOPLE2", { seg: 0, h: 4.0, at: [0, 0, 0.5] }); CP = st.actor("PEOPLE2", { seg: 1, h: 3.2, at: [2.4, 0, 1] });
+    st.part(Puppet.floaters({ n: 40, x: [-9, 9], z: [-10, 4] }));
+  });
+  s5.update = t => {
+    VT.slide(t, S(5) + 0.1, 0.6, -8); VT.g.position.x -= 2.2 * outC(lin(t, S(7), S(7) + 0.5)); VT.bob(t, t > W(6, "목숨") && t < S(7) ? 0.08 : 0, 1.4);
+    CP.slide(t, S(7) + 0.1, 0.6, 8); CP.g.rotation.z = -0.05 * Math.max(0, Math.sin(q12(t) * Math.PI * 0.9));
+  };
   pop(el(`<div class="a cx c w9 Y nw" style="left:540px;top:200px;font-size:84px">현지 반응은 의외</div>`, sc), S(5) + 0.1);
-  const q1 = qcard(sc, 340, "“목숨을 잃는 건 격투기와 같다, 자기책임”", "기시와다 단지리 원로 · 50년 넘게 참가");
-  pop(q1, W(6, "목숨"));
-  out(q1, S(7) - 0.3);
+  const q1 = qcard(sc, 340, "“목숨을 잃는 건 격투기와 같다, 자기책임”", "50년 넘게 참가한 원로");
+  pop(q1, W(6, "목숨")); out(q1, S(7) - 0.3);
   pop(qcard(sc, 340, "“내가 죽으면 부모님이 사과하러 다닐 것”", "같은 원로", "#FF4D3D"), S(7) + 0.05);
   K.cut(E(6) - 0.1, "원로 인용 1");
-  K.cut(E(7) - 0.1, "원로 인용 2");
+  K.cut(E(7) - 0.1, "원로 인용 2 · 부모");
 }
-/* S-04b SNS (문장 8) — 같은 단지리 그림을 흑백으로 */
+
+/* S-06 SNS (문장 8) — 휴대폰을 보는 사람 + 말풍선 */
 {
   const a = until(8), b = until(9);
   const sc = K.scene(a, b);
-  band(sc, "IMG-L2", a, b, "filter:grayscale(1) brightness(.8)");
+  let PH;
+  const s6 = ST.set(a, b, st => { bgOf(st, "PAPER"); PH = st.actor("PEOPLE2", { seg: 3, h: 4.0, at: [0, 0, 0] }); });
+  s6.update = t => { PH.slide(t, a + 0.1, 0.5, 8); PH.bob(t, 0.03, 0.8); };
   pop(el(`<div class="a cx c w7 N nw" style="left:540px;top:290px;font-size:44px">일본 SNS · 번역</div>`, sc), S(8) + 0.1);
   pop(el(`<div class="a cx c w9 nw" style="left:540px;top:380px;font-size:84px">“치료비는 <span class="R">자비로</span> 내라”</div>`, sc), W(8, "치료비"));
+  [[200, 820, "!", 0], [820, 860, "!", 0.25], [300, 1050, "?", 0.5]].forEach(([x, y, s, d]) => pop(el(`<div class="bub" style="left:${x}px;top:${y}px">${s}</div>`, sc), W(8, "치료비") + d, { from: { scale: 0.2, y: 20 } }));
   K.cut(E(8) - 0.1, "SNS 반응");
 }
-/* S-05 왜? → 아래 영상 (문장 9~10) — 첫 그림으로 돌아옴, 어둡게 */
+
+/* S-07 왜? → 아래 영상 (문장 9~10) — 축제는 계속 (메고 지나가는 가마) */
 {
   const a = until(9), b = K.D;
   const sc = K.scene(a, b, { keep: true });
-  band(sc, "IMG-L1", a, b, "filter:brightness(.55)");
+  let CA, CR;
+  const s7 = ST.set(a, b, st => {
+    bgOf(st, "BG"); st.tint.set(0xB8BCCB);
+    CA = st.actor("CARRY", { h: 4.2, at: [0, 0, -1] }); CR = st.actor("CROWD", { h: 2.6, at: [0.5, -1.9, 5] }).ro(6);
+    st.part(Puppet.floaters({ n: 60, x: [-9, 9], z: [-10, 4] }));
+  }, { fadeOut: 0.01 });
+  s7.update = t => { CA.g.position.x = lerp(-10, 10, lin(t, a, b + 1)); CA.bob(t, 0.07, 2.0); CR.bob(t, 0.06, 1.5); };
   pop(el(`<div class="a cx c w9 nw" style="left:540px;top:230px;font-size:76px">일본은 왜 축제를</div>`, sc), S(9) + 0.05);
   pop(el(`<div class="a cx c w9 Y nw" style="left:540px;top:330px;font-size:104px">멈추지 않을까?</div>`, sc), S(9) + 0.35);
   pop(el(`<div class="a cx pill sm" style="left:540px;top:510px;color:#FFD400;border-color:#FFD400">아래 영상에서 확인 ▼</div>`, sc), S(10) + 0.05);

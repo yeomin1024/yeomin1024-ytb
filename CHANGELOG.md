@@ -1,5 +1,13 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-20 (음악 분석) — 넷째 회차: 기준선 끝 · 첫 쇼츠 · 추천 v1.3 · cloud_run v1.4 캐시 나누기
+
+- 예약 작업 `trig_01RR9ppiEXLNHmhFotDPNPzV` (사용자 지시 2026-10-16 "… 사용량 초기화 될때마다 분석을 계속 이어서하면 돼 캐시를 저장소에 남겨서 …").
+- 분석: 채널 기준선 끝(150곳) → 비교 집단 5,810 (한국 18% · 외국 22% — 전에 외국 74%는 검색 치우침) · 첫 쇼츠 탐색(검색 57)·승인 191 → 성공 쇼츠 111 · 7,850단위. 기록 `music/README.md` v1.6.
+- `music/analysis_rules.toml` v1.3 → **v1.4**: `[shorts_exclude]` LABEL '음악 아님' + 갈래 '공식 음원 자동 채널 (- Topic·VEVO)'(채널 이름 끝 `(?: - Topic|VEVO)$` — 구독자 수가 의미 없어 배수 ×52,000 까지, 성공 쇼츠 130 → 111) · `[shorts_exclude_videos]` 151개(눈으로 본 쇼츠 추천 342개 중 음악이 아닌 것, 까닭과 함께). 롱폼 규칙은 그대로.
+- `music/guides/data_insights.md` v1.3 · `music/source/topic_candidates.md` v1.3 (추천 순서 ① 클래식풍 연주 ② 짧은 제목 잔잔한 배경음악 ③ 로파이·칠·그루브 · 재즈 라운지 실험 · 길이 40~90분) · 새 `music/guides/shorts_insights.md` v1.0. 사례 #번호는 영상 ID 로 맞춤.
+- `tools/cloud_run.py` v1.3 → **v1.4** `cache_save`·`cache_load`: 묶음이 `CACHE_PART_BYTES`(45MB)를 넘으면 `cache.tgz.001`·`.002` … 로 나눠 씀(남은 예전 조각·cache.tgz 는 지움), `cache.json` 에 `parts`, 읽기는 조각을 이어 붙여 풂(조각이 없으면 예전처럼 cache.tgz). 까닭: 음악 묶음 56.8MB — GitHub 은 50MB 넘는 파일에 경고, 100MB 넘으면 푸시 거부. 45MB 이하 주제(재테크·주식·역사)는 그대로. 새 시험 `tools/tests/test_cloud_cache_parts.py` (3개 — 하나로 남기·나눠 쓰고 풀기·다시 작아지면 조각 지우기·예전 묶음 읽기) 통과 · 실제 음악 묶음 sha256·파일 54,378개 확인.
+
 ## 2026-10-20 (재테크 국민연금) — 그림 41장 검수 (다시 올린 JPEG — 모두 끝까지 읽힘)
 
 - 사용자 지시: "다시 올렸어 확인해봐"

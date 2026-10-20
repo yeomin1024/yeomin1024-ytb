@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.3 — 2026-10-16 — captions: 승인한 영상 중 대본이 없는 것의 자막만 다시 (할당량 0, 사용자 지시 2026-10-16 "일단 음성인식은 보류하고
+# VERSION: v1.4 — 2026-10-20 — 캐시 묶음 나누기: cache.tgz 가 45MB 를 넘으면 cache.tgz.001·.002 … 로 나눠 씀 (GitHub 은 파일 하나 50MB 넘으면 경고,
+#          100MB 넘으면 푸시 거부 — 음악 캐시가 채널 기준선 1,038곳·쇼츠 탐색 뒤 56.8MB). 45MB 이하면 예전처럼 cache.tgz 하나 (다른 주제는 그대로).
+#          cache-load 는 둘 다 읽음 (cache.json 'parts' 가 있으면 조각을 이어 붙여 풂). 묶음 안 내용·풀 곳은 그대로.
+# (v1.3 — 2026-10-16 — captions: 승인한 영상 중 대본이 없는 것의 자막만 다시 (할당량 0, 사용자 지시 2026-10-16 "일단 음성인식은 보류하고
 #          시간되면 이어서 진행해"). 웹 화면은 승인한 영상을 목록에서 숨겨 자막을 다시 시도할 길이 음성인식뿐인데, 승인 185개 중 78개는 PC 에
 #          자막 도구가 없어(ModuleNotFoundError) 시도조차 못 했고 59개는 연결 실패(유튜브 로봇 확인 → www.google.com/sorry 로 넘김 — 막힌 주소)
 #          였음. 같은 outlier_research.transcript() (요청 사이 1.5~3초·연속 2번 막히면 6시간 쉼)로 받고, 받으면 deep_case 와 같은
 #          파일(transcript.json·transcript.txt)과 metadata 칸(transcript_lang·transcript_status·말 속도 등 speech_stats)만 고침. 자막 서버 차단
-#          (IpBlocked·RequestBlocked·429)은 규칙대로 음성인식 몫이라 다시 요청하지 않음. 쉬기가 시작되면 멈추고 남은 것은 상태를 그대로 둠
+#          (IpBlocked·RequestBlocked·429)은 규칙대로 음성인식 몫이라 다시 요청하지 않음. 쉬기가 시작되면 멈추고 남은 것은 상태를 그대로 둠)
 # (v1.2 — 2026-10-16 — 탐색 캐시를 저장소에 (사용자 지시 2026-10-16 "저장소에 올려"): 클라우드 컨테이너가 새로 뜨면 .cache(검색 결과·영상 정보·
 #          채널 목록 — 주식 탐색 한 바퀴 ≈ 11,000단위)가 사라져 검색을 다시 해야 했음 → <주제>/cloud_cache/cache.tgz (+ cache.json 목록)
 #          · 켤 때 .cache 가 비어 있으면 저절로 풂 · 할당량을 쓰는 명령(explore·approve·baseline·comments·demand·resume·startup·wait-reset)과
@@ -43,6 +46,7 @@
 """
 import argparse
 import hashlib
+import io
 import json
 import logging
 import os
@@ -56,12 +60,13 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import pc_analysis as pc                 # noqa: E402
 import web_ui as w                       # noqa: E402
 
-VERSION = "v1.3"
+VERSION = "v1.4"
 ROOT = pc.ROOT
 LOG = logging.getLogger("cloud")
 _STEP = {"text": None, "at": 0.0}
 CACHE_DIR = "cloud_cache"               # v1.2: <주제>/cloud_cache/cache.tgz — result/ 밖 (PC 올리기가 result/outliers 를 PC 것으로 덮어씀)
 CACHE_SKIP = ("thumbs",)               # .cache/thumbs — 할당량 0 으로 다시 받음
+CACHE_PART_BYTES = 45_000_000           # v1.4: 묶음이 이보다 크면 cache.tgz.001·.002 … 로 나눔 (GitHub 파일 경고 50MB·거부 100MB)
 CACHE_SAVE_AFTER = ("explore", "approve", "baseline", "comments", "demand", "resume", "startup", "wait-reset", "check", "uncheck")
 STEP_EVERY_S = 5.0                       # 진행 줄은 바뀔 때마다가 아니라 5초에 한 번 (검색·댓글 줄이 수백 개라 — 끝 줄은 늘 남김)
 
@@ -169,6 +174,17 @@ def cache_paths(t):
     return d / "cache.tgz", d / "cache.json"
 
 
+def cache_parts(arc):
+    """v1.4: 나눠 쓴 조각 cache.tgz.001, .002 … (이름 순 = 이어 붙일 순서)."""
+    return sorted(arc.parent.glob(arc.name + ".[0-9][0-9][0-9]"))
+
+
+def _write_atomic(path, data):
+    tmp = path.with_name(path.name + f".{os.getpid()}.tmp")
+    tmp.write_bytes(data)
+    os.replace(tmp, path)
+
+
 def cache_save(t, why=""):
     arc, man = cache_paths(t)
     files, kinds = [], {}
@@ -189,35 +205,51 @@ def cache_save(t, why=""):
         for f, name in files:
             tf.add(f, arcname=name, recursive=False)
     data = tmp.read_bytes()
-    os.replace(tmp, arc)
+    old_parts = cache_parts(arc)
+    if len(data) > CACHE_PART_BYTES:            # v1.4: 큰 묶음은 조각으로 (조각마다 새로 쓴 뒤 남은 예전 조각·cache.tgz 를 지움)
+        parts = [arc.with_name(f"{arc.name}.{i + 1:03d}") for i in range((len(data) + CACHE_PART_BYTES - 1) // CACHE_PART_BYTES)]
+        for i, part in enumerate(parts):
+            _write_atomic(part, data[i * CACHE_PART_BYTES:(i + 1) * CACHE_PART_BYTES])
+        tmp.unlink()
+        for old in old_parts + [arc]:
+            if old not in parts and old.exists():
+                old.unlink()
+    else:
+        parts = []
+        os.replace(tmp, arc)
+        for old in old_parts:
+            old.unlink()
     info = {"tool": f"cloud_run.py {VERSION}", "topic": t, "saved": datetime.now(w.KST).isoformat(timespec="seconds"), "why": why,
             "files": len(files), "bytes_raw": sum(f.stat().st_size for f, _ in files), "bytes_tgz": len(data),
-            "sha256": hashlib.sha256(data).hexdigest(), "kinds": dict(sorted(kinds.items()))}
+            "sha256": hashlib.sha256(data).hexdigest(), "parts": [part.name for part in parts], "kinds": dict(sorted(kinds.items()))}
     w._write_json(man, info)
-    log("CACHE", topic=t, saved=arc.relative_to(ROOT).as_posix(), files=len(files), mb_raw=round(info["bytes_raw"] / 1e6, 1),
-        mb_tgz=round(len(data) / 1e6, 2), why=why or "-", note="git 으로 main 에 올리면 새 컨테이너도 이어서 씀")
-    return {"cache_saved": True, "cache_files": len(files), "cache_mb": round(len(data) / 1e6, 2)}
+    saved = arc.relative_to(ROOT).as_posix() + (f" ({len(parts)}조각 .001~.{len(parts):03d})" if parts else "")
+    log("CACHE", topic=t, saved=saved, files=len(files), mb_raw=round(info["bytes_raw"] / 1e6, 1),
+        mb_tgz=round(len(data) / 1e6, 2), parts=len(parts), why=why or "-", note="git 으로 main 에 올리면 새 컨테이너도 이어서 씀")
+    return {"cache_saved": True, "cache_files": len(files), "cache_mb": round(len(data) / 1e6, 2), "cache_parts": len(parts)}
 
 
 def cache_load(t, force=False):
     """새 컨테이너: .cache 가 비어 있으면 저장소의 묶음을 풂 (force 면 덮어씀). 묶음 안 이름은 cache_sources 두 곳만 받음."""
     arc, man = cache_paths(t)
-    if not arc.is_file():
+    parts = cache_parts(arc)
+    if not arc.is_file() and not parts:
         return {"cache_loaded": False, "why": "묶음 없음"}
     have = sum(1 for _ in (w.out_dir(t) / ".cache").glob("*.json")) if (w.out_dir(t) / ".cache").is_dir() else 0
     if have and not force:
         return {"cache_loaded": False, "why": f"이미 캐시 {have}개"}
     info = w._read_json(man, {})
-    data = arc.read_bytes()
+    use_parts = bool(parts) and (bool(info.get("parts")) or not arc.is_file())     # v1.4: 목록이 조각이라 하거나 cache.tgz 가 없으면 조각
+    data = b"".join(part.read_bytes() for part in parts) if use_parts else arc.read_bytes()
     if info.get("sha256") and hashlib.sha256(data).hexdigest() != info["sha256"]:
         log("CACHE", logging.WARNING, topic=t, note="묶음 sha256 이 목록(cache.json)과 다름 — 그래도 풂 (목록이 예전 것일 수 있음)")
     allowed = tuple(name + "/" for _, name in cache_sources(t))
     n = 0
-    with tarfile.open(arc, "r:gz") as tf:
+    with tarfile.open(fileobj=io.BytesIO(data), mode="r:gz") as tf:
         members = [m for m in tf.getmembers() if m.isfile() and m.name.startswith(allowed) and ".." not in m.name.split("/")]
         tf.extractall(ROOT / t, members=members, filter="data")
         n = len(members)
-    log("CACHE", topic=t, loaded=arc.relative_to(ROOT).as_posix(), files=n, saved=info.get("saved") or "-", force=force,
+    log("CACHE", topic=t, loaded=arc.relative_to(ROOT).as_posix() + (f" ({len(parts)}조각)" if use_parts else ""), files=n, saved=info.get("saved") or "-", force=force,
         note="저장소의 탐색 캐시를 풂 — 받은 검색·영상 정보는 할당량 0 으로 다시 씀")
     return {"cache_loaded": True, "cache_files": n, "cache_saved_at": info.get("saved")}
 

@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.12 — 2026-10-19 — 영상 하나를 오디오에서 빼는 표시 파일 NO_TTS.md (대본 폴더 — 롱폼 <영상ID>/ · 쇼츠 <영상ID>/shorts/):
+# VERSION: v1.13 — 2026-10-20 — 목소리 후보마다 읽을 문장을 따로 줄 수 있음: samples.json 후보에 "text": {"ref", "preview"} 가 있으면 그 문장
+#          (없으면 예전처럼 역할 공통 text.<역할>). 사용자 지시 2026-10-20 "오디오 목소리 안 약간 높고 약간 빠른 지루하지 않은 목소리로 대본 몇줄
+#          읽어보는 여러 테스트 안을 만들어봐" — 새 후보(H07~)는 test/ 일본 축제 대본 문장을 읽고, 옛 후보(H01~H06)의 샘플·정체는 그대로.
+# (v1.12) — 2026-10-19 — 영상 하나를 오디오에서 빼는 표시 파일 NO_TTS.md (대본 폴더 — 롱폼 <영상ID>/ · 쇼츠 <영상ID>/shorts/):
 #          있으면 업로드한 영상과 똑같이 all(--force 여도)·build·build_episode·push 모두 만들지도 올리지도 않음, 첫 줄이 까닭(로그·계획에 나옴).
 #          사용자 지시 2026-10-19 "테스트용은 오디오 만들지마" — 기초연금 AI 쇼츠 시험 편(gicho-yeongeum-ai-2026-10)에 둠. 다른 동작은 그대로.
 # (v1.11 — 2026-10-19 — 업로드한 영상(대본 폴더에 youtube.json)은 어느 길로도 오디오를 만들지 않는다 — all 은 예전부터 건너뛰었고(repo_status
@@ -126,7 +129,7 @@ ROOT = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 import srt_tool  # noqa: E402  (문장·카드 판정을 자막 도구와 똑같이 쓰기 위해)
 
-VERSION = "v1.12"
+VERSION = "v1.13"
 CACHE_VERSION = 1            # 생성 방식이 바뀌면 올린다 → 문장 파일을 모두 다시 만든다 (v1.1은 v1.0 캐시와 같은 키)
 DEFAULT_MODEL = "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice"     # 사연자 (화자 + 말투 지시)
 DEFAULT_CLONE_MODEL = "Qwen/Qwen3-TTS-12Hz-1.7B-Base"       # 진행자 (기준 목소리 복제)
@@ -1935,7 +1938,14 @@ def load_samples_cfg(voices):
                 die("SAMPLES", f"{c['id']}: custom_voice 는 speaker·instruct 필요", "samples.json 확인")
             if c["how"] == "design" and not (c.get("instruct") and c.get("f0_range")):
                 die("SAMPLES", f"{c['id']}: design 은 instruct·f0_range 필요", "samples.json 확인")
+            if c.get("text") is not None and not (c["text"].get("ref") and c["text"].get("preview")):   # v1.13
+                die("SAMPLES", f"{c['id']}: 후보 text 에는 ref·preview 가 모두 필요", "samples.json 확인")
     return cfg
+
+
+def stext(cfg, role, c):
+    """v1.13 후보가 읽는 문장 {ref, preview} — 후보에 text 가 있으면 그것, 없으면 역할 공통 text.<역할>."""
+    return c.get("text") or cfg["text"][role]
 
 
 def find_sample(cfg, voices, sid):
@@ -1953,7 +1963,7 @@ def sample_paths(role, sid, base=None):
 
 def sample_ident(role, c, cfg, voices):
     """후보 하나의 정체 — 후보 설정·문장·모델·(current 면 지금 목소리 정체)가 바뀌면 샘플을 다시 만든다."""
-    ident = {"role": role, "c": {k: v for k, v in c.items() if k != "label"}, "text": cfg["text"][role],
+    ident = {"role": role, "c": {k: v for k, v in c.items() if k != "label"}, "text": stext(cfg, role, c),
              "models": engine_ids(None), "cache": CACHE_VERSION}
     if c["how"] == "current":
         ident["current"] = voice_ids({role: voices[role]}, None)[role]
@@ -2013,7 +2023,7 @@ def make_samples(engine, args, cfg, voices, todo):
     for role, c, ident, _ in todo:
         if c["how"] != "design":
             continue
-        text = cfg["text"][role]["ref"]
+        text = stext(cfg, role, c)["ref"]
         log("SAMPLES", role=role, id=c["id"], step="기준 소리", label=c["label"], f0_range=c["f0_range"], tries=int(c.get("tries", 3)))
         best, _ = design_best(engine, text, c["instruct"], int(c.get("seed", 2026)), int(c.get("tries", 3)), c["f0_range"],
                               c.get("f0_target"), c["id"])
@@ -2040,7 +2050,7 @@ def make_samples(engine, args, cfg, voices, todo):
                 hint="python tools/tts_narration.py voice --push 로 기준 소리를 먼저")
             continue
         clips, metas, sr = [], [], None
-        for j, text in enumerate(cfg["text"][role]["preview"], 1):
+        for j, text in enumerate(stext(cfg, role, c)["preview"], 1):
             m = make_sentence(engine, cache, f"{c['id']}/p{j}", tts_text(text, []), spec, srt_tool.syllables(text), args, role=role)
             x, s_ = read_wav(m["wav"])
             sr = sr or s_
@@ -2056,7 +2066,7 @@ def make_samples(engine, args, cfg, voices, todo):
         ref = refs.get(c["id"])
         meta = {"id": c["id"], "role": role, "label": c["label"], "how": c["how"], "ident": ident,
                 "speaker": spec.get("speaker"), "instruct": c.get("instruct") or spec.get("instruct", ""),
-                "seed": spec["seed"], "preview": cfg["text"][role]["preview"], "seconds": round(len(y) / sr, 2),
+                "seed": spec["seed"], "preview": stext(cfg, role, c)["preview"], "seconds": round(len(y) / sr, 2),
                 "f0_hz": round(float(np.median(f0s)), 1) if f0s else 0.0,
                 "rate": round(float(np.mean([m["rate"] for m in metas])), 2), "pace": c.get("pace") or spec.get("pace"),
                 "pace_factors": [m.get("pace_factor", 1.0) for m in metas],
@@ -2097,7 +2107,14 @@ def write_samples_readme(cfg, voices):
              "이미 유튜브에 올린 영상(youtube.json 있음 — 주식 4개)은 그대로 둔다.", ""]
     for role in voices:
         t = cfg["text"][role]
-        lines += [f"## {voices[role]['name']} (`{role}`)", "", f"읽는 문장: " + " / ".join(f"\"{x}\"" for x in t["preview"]), "",
+        own = {}                                                  # v1.13 후보별 문장 → 그 문장을 읽는 후보 ID 들
+        for c in cfg[role]:
+            if c.get("text"):
+                own.setdefault(json.dumps(c["text"]["preview"], ensure_ascii=False), []).append(c["id"])
+        lines += [f"## {voices[role]['name']} (`{role}`)", "", "읽는 문장 (따로 적지 않은 후보): " + " / ".join(f"\"{x}\"" for x in t["preview"]), ""]
+        for k, ids in own.items():
+            lines += [f"읽는 문장 ({'·'.join(ids)}): " + " / ".join(f"\"{x}\"" for x in json.loads(k)), ""]
+        lines += [
                   "| ID | 목소리 | 방식 | 듣기 | 높이(Hz) | 속도(음절/초) | 확인할 점 |", "|---|---|---|---|---|---|---|"]
         for c in cfg[role]:
             P = sample_paths(role, c["id"])

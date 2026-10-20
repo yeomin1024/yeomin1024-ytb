@@ -236,7 +236,6 @@ function camAt(t) {
 // ---------- 글자 (CSS 3D) ----------
 {
   const sc = K.scene(0, K.D, { keep: true });
-  pop(el(`<div class="a w5 N nw ts" style="right:96px;top:72px;font-size:36px">※ 3D 재연(연출)</div>`, sc), 0.2, { from: { y: 0 } });
   const st = el(`<div class="kin ts Y" style="left:120px;top:200px;font-size:52px;font-weight:700">2026.10.17 · 에히메현 사이조시</div>`, sc);
   tl.fromTo(st, { opacity: 0, rotationX: -90, transformPerspective: 900, transformOrigin: "50% 0%" }, { opacity: 1, rotationX: 0, duration: 0.7, ease: "back.out(1.6)" }, S(1) + 0.1);
   const name = el(`<div class="kin ts" style="left:120px;top:290px;font-size:96px">${[..."사이조 마쓰리"].map(c => `<span>${c === " " ? "&nbsp;" : c}</span>`).join("")}</div>`, sc);
@@ -247,7 +246,6 @@ function camAt(t) {
   tl.fromTo(dead, { opacity: 0, scale: 1.5, rotationX: 60, transformPerspective: 900, transformOrigin: "0% 50%" }, { opacity: 1, scale: 1, rotationX: 0, duration: 0.6, ease: "power4.out" }, t62);
   const ul = el(`<div class="uline" style="left:120px;top:725px;width:940px"></div>`, sc);
   tl.fromTo(ul, { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "power2.out" }, t62 + 0.35);
-  pop(el(`<div class="src ts">출처: 지지통신 · 니혼게이자이신문</div>`, sc), S(1) + 0.6, { from: { y: 0 } });
   K.cut(2.5, "강변 · 태고대 · 가마꾼");
   K.cut(tUp + P_UP * 0.5 - 0.4, "들어 올림");
   K.cut(tFall + 0.45, "넘어지는 중");

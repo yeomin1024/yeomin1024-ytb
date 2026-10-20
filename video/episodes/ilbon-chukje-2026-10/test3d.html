@@ -198,7 +198,6 @@ function mapCam(t) {
 // ---------- 글자 (CSS 3D) ----------
 {
   const sc = K.scene(0, tTr + 0.45);
-  pop(el(`<div class="a w5 N nw ts" style="right:96px;top:72px;font-size:36px">※ AI 생성 이미지(연출)</div>`, sc), 0.2, { from: { y: 0 } });
   const st = el(`<div class="kin ts Y" style="left:120px;top:200px;font-size:52px;font-weight:700">2026.10.17 · 에히메현 사이조시</div>`, sc);
   tl.fromTo(st, { opacity: 0, rotationX: -90, transformPerspective: 900, transformOrigin: "50% 0%" }, { opacity: 1, rotationX: 0, duration: 0.7, ease: "back.out(1.6)" }, S(1) + 0.1);
   const name = el(`<div class="kin ts" style="left:120px;top:290px;font-size:96px">${[..."사이조 마쓰리"].map(c => `<span>${c === " " ? "&nbsp;" : c}</span>`).join("")}</div>`, sc);
@@ -214,14 +213,12 @@ function mapCam(t) {
   tl.fromTo(dead, { opacity: 0, scale: 1.5, rotationX: 60, transformPerspective: 900, transformOrigin: "0% 50%" }, { opacity: 1, scale: 1, rotationX: 0, duration: 0.6, ease: "power4.out" }, W(1, "62세"));
   const ul = el(`<div class="uline" style="left:120px;top:735px;width:940px"></div>`, sc);
   tl.fromTo(ul, { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "power2.out" }, W(1, "62세") + 0.35);
-  pop(el(`<div class="src ts">출처: 지지통신 · 니혼게이자이신문</div>`, sc), S(1) + 0.6, { from: { y: 0 } });
   K.cut(3.0, "3D 사진 — 사이조 마쓰리");
   K.cut(tFall + 0.35, "떨어졌고 — 출렁임·불씨");
   K.cut(E(1) - 0.3, "부시장 사망");
 }
 {
   const sc = K.scene(tTr + 0.6, K.D, { keep: true });
-  pop(el(`<div class="src ts">출처: NHK · 지지통신</div>`, sc), S(3) + 0.3, { from: { y: 0 } });
   K.cut(tEhime + 0.9, "3D 지도 — 에히메 핀");
   K.cut(tOsaka + 1.2, "오사카로 다가감");
   K.cut(Math.min(K.D - 0.1, tDead + 0.6), "오사카 사망 2");

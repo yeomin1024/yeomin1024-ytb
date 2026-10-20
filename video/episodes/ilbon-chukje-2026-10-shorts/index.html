@@ -4,7 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>일본 축제 쇼츠</title>
-<!-- VERSION: v1.0 — 2026-10-20 — test/ 일본 전통 축제 사망 사고 쇼츠 (사용자 지시 2026-10-20 "오디오 올렸어 영상 만들어봐").
+<!-- VERSION: v1.1 — 2026-10-20 — 각주 '보도 기반 집계' → '언론에 알려진 사고 기준'.
+     (v1.0) — 2026-10-20 — test/ 일본 전통 축제 사망 사고 쇼츠 (사용자 지시 2026-10-20 "오디오 올렸어 영상 만들어봐").
      꼴 = '세 칸' (사용자 지시 2026-10-20 "영상 시작을 검은 배경에 상단에 썸네일 문구 2줄을 넣고 그 밑에는 이미지, 하단에는 자막 …
      첫 문장 말할 때만 썸네일 문구, 이미지 보여주면 되고 그다음 진행은 이미지 변경해가면서 진행하면돼"):
        위 칸 y 0~691 검정 (첫 문장: 그림 속 문구 2줄 / 그다음: 코드 글자) · 가운데 칸 y 691~1382 이미지 · 아래 칸 검정 + 구운 자막.
@@ -100,7 +101,7 @@ K.cut(E(1) - 0.2, "첫 문장 + 자막(42px)");
   band(sc, "IMG-L6", a, b);
   pop(el(`<div class="a cx c w7 N nw" style="left:540px;top:250px;font-size:52px">일본 축제 사망 사고</div>`, sc), S(4) + 0.1);
   pop(el(`<div class="a cx c w9 nw" style="left:540px;top:340px;font-size:120px;line-height:1"><span>4개월에 </span><span class="R">1명꼴</span></div>`, sc), W(4, "4개월"));
-  pop(el(`<div class="a cx c w5 N nw" style="left:540px;top:510px;font-size:36px">*1989년 이후 21년간 보도 기반 집계</div>`, sc), W(4, "4개월") + 0.4);
+  pop(el(`<div class="a cx c w5 N nw" style="left:540px;top:510px;font-size:36px">*1989년 이후 21년간 언론에 알려진 사고 기준</div>`, sc), W(4, "4개월") + 0.4);
   K.cut(E(4) - 0.1, "4개월에 1명꼴");
 }
 /* S-04a 현지 반응 — 원로 (문장 5~7) */

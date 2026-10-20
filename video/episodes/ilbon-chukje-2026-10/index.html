@@ -4,7 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>일본 축제 롱폼</title>
-<!-- VERSION: v1.1 — 2026-10-20 — 장 끝 문장이 끝까지 선명하게 (장 바뀜 = 다음 장 첫 문장 0.65초 전), 관광객 수 카드 안에 숫자.
+<!-- VERSION: v1.2 — 2026-10-20 — 화면의 출처·'AI 생성 이미지' 문구를 지움, 각주 '보도 기반 집계' → '언론에 알려진 사고 기준' (사용자 지시 2026-10-20 "영상에서는 출처랑 ai로 생성됨 문구 제거").
+     (v1.1) — 2026-10-20 — 장 끝 문장이 끝까지 선명하게 (장 바뀜 = 다음 장 첫 문장 0.65초 전), 관광객 수 카드 안에 숫자.
      (v1.0) — 2026-10-20 — test/ 일본 전통 축제 사망 사고 롱폼 (사용자 지시 2026-10-20 "오디오 올렸어 영상 만들어봐").
      구성 = 장면마다 배경 이미지(정지 그림, 천천히 확대·축소 + 어둡게) 위에 코드 렌더링 (사용자 지시 2026-10-20
      "영상에 사용할 이미지는 최대한 줄여서 하고 코드 렌더링도 사용해 … 코드만으로 만드는 장면은 없도록 하고"):
@@ -88,12 +89,10 @@ K.chapters([
   const a = 0, b = until(2);
   const sc = K.scene(a, b);
   bg(sc, "IMG-L1", a, b);
-  pop(el(`<div class="a w5 N nw ts" style="right:96px;top:72px;font-size:36px">※ AI 생성 이미지(연출)</div>`, sc), 0.2, { from: { y: 0 } });
   pop(el(`<div class="a w7 Y nw ts" style="left:120px;top:220px;font-size:52px">2026.10.17 · 에히메현 사이조시</div>`, sc), S(1) + 0.1);
   pop(el(`<div class="a w9 nw ts" style="left:120px;top:320px;font-size:88px">사이조 마쓰리</div>`, sc), W(1, "사이조"));
   pop(el(`<div class="a w9 nw ts" style="left:120px;top:440px;font-size:88px"><span class="Y">3톤</span> 가마 낙하</div>`, sc), W(1, "무게"));
   pop(el(`<div class="a w9 R nw ts" style="left:120px;top:560px;font-size:100px">현직 부시장(62) 사망</div>`, sc), W(1, "62세"));
-  src(sc, "출처: 지지통신 · 니혼게이자이신문", S(1) + 0.6);
   K.cut(E(1) - 0.3, "L-01 사이조 사고");
 }
 /* L-02 지도 (문장 2~3) */
@@ -115,7 +114,6 @@ K.chapters([
   pin("ehime", a + 0.4, ex - 260, ey + 50, `<span class="Y">10.17</span> 에히메 · <span class="R">사망 1</span>`);
   pin("osaka", W(3, "오사카"), ox - 120, oy + 50, `<span class="Y">10.10</span> 오사카 · <span class="R">사망 2</span> · 부상 16`);
   pin("okayama", W(3, "2월 21일"), kx - 560, ky - 120, `<span class="Y">2.21</span> 오카야마 · <span class="R">사망 2</span>`);
-  src(sc, "출처: NHK · 지지통신 · KSB세토나이카이방송", S(3) + 0.3);
   K.cut(E(3) - 0.2, "L-02 지도 핀 3개");
 }
 /* L-03 4개월에 1명꼴 → 왜? → 이유 4칸 (문장 4~7) */
@@ -125,7 +123,7 @@ K.chapters([
   bg(sc, "IMG-L6", a, b);
   const g1 = [T(sc, 960, 230, "일본 축제 사망 사고", 56, "w7 N"),
               T(sc, 960, 330, `4개월에 <span class="R">1명꼴</span>`, 170),
-              T(sc, 960, 560, "*1989년 이후 21년간 보도 기반 집계", 40, "w5 N")];
+              T(sc, 960, 560, "*1989년 이후 21년간 언론에 알려진 사고 기준", 40, "w5 N")];
   pop(g1[0], S(4) + 0.1); pop(g1[1], W(4, "4개월")); pop(g1[2], W(4, "4개월") + 0.5);
   K.cut(E(4) - 0.1, "L-03 4개월에 1명꼴");
   out(g1, S(5) - 0.2);
@@ -216,7 +214,6 @@ K.chapters([
   const ok = card(sc, 560, 450, 700, `<div class="q" style="text-align:center;color:${G}">‘부탁’ 수준 요청 ✓</div>`);
   const ng = card(sc, 1360, 450, 700, `<div class="q" style="text-align:center;color:${R}">지도 · 중지 명령 ✕</div>`);
   pop(ok, W(26, "부탁")); pop(ng, W(26, "지도나"));
-  src(sc, "출처: 요미우리TV 해설", S(26) + 0.3);
   K.cut(E(26) - 0.1, "L-06 행정 손대기 어려움");
 }
 /* L-07 이유 4 자기책임 문화 (문장 27~43) */

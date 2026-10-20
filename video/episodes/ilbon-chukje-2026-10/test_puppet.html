@@ -4,25 +4,25 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>일본 축제 롱폼 종이인형극 시험</title>
-<!-- VERSION: v0.1 — 2026-10-20 — 도입 첫 문장(지도 전)만 종이인형극 시험 — 사용자 지시 2026-10-20 "3D는 퀄리티가 많이 떨어지네 정말 간단하게
-     표현할 수 있는 요소만 3D로 표현하고 나머지는 이미지로 요소들을 만들고 각 상태 변화에 따른 이미지 요소도 만들어서 변화, 움직임 등 동적 효과를 넣어
-     대본 내용 상황을 표현하도록 해봐 약간 종이인형극 하듯이 생각하면 돼 똑같이 테스트로 지도전 앞부분만 만들어봐". 화면에 출처·AI 표기 없음 (같은 날 지시).
+<!-- VERSION: v0.2 — 2026-10-20 — 단순하게: 그림 4장(배경·가마·가마꾼·구경꾼)에 상태 그림 없이, 움직임은 모두 코드 — 사용자 지시 2026-10-20
+     "아니 너무 디테일하게 상태를 표현하지말고 최대한 간단하게 해 코드로 동적인 부분 표현하면 되니까 ... 이미지 다 사용하지말고 내가 말한대로
+     최대한 간단하게 했을 때 가정하고 만들어". 화면에 출처·AI 표기 없음.
+     (v0.1 — 2026-10-20 — 상태마다 그림 9장을 갈아 끼우던 판)
      렌더: node video/render/render.mjs video test ilbon-chukje-2026-10 --page test_puppet.html --from 0 --to 13.2
-     그림 (ChatGPT — test/puppet/images_chatgpt.md): 배경 P-BG.jpg + 오린 인형 P-CROWD·P-CROWD2·P-CARRY·P-LIFT·P-FLOAT·P-SCATTER·P-DUST·P-FLOWER (.png 투명)
-       · 투명이 아니고 바탕이 순초록이면 여기서 초록을 뺀다 (chroma key) · 그림이 아직 없으면 같은 배치의 임시 그림(회색 상자)으로 움직임만 점검.
-       · CARRY·LIFT·FLOAT·SCATTER 는 같은 캔버스(앞 그림을 편집)라 같은 자리에 겹쳐 갈아 끼운다 — 기준점 = CARRY 의 발끝 줄·가운데.
-     움직임 (모두 시각 t 의 함수, K.onSeek — 인형의 흔들림·걸음은 초당 12장으로 끊어 종이인형 느낌):
-       가마꾼이 왼쪽에서 걸어 들어옴(CARRY) → '높이' 부터 LIFT/CARRY 를 번갈아 끼워 들었다 내렸다 → '떨어졌고' 직전 가마(FLOAT)만 남아 오른쪽 아래 귀퉁이를 축으로
-       기울며 떨어짐 + 가마꾼(SCATTER 를 가운데 빈 곳에서 둘로 잘라)이 양옆으로 흩어짐 → 땅에 닿는 순간 흙먼지(P-DUST)·먼지 알갱이·화면 흔들림·구경꾼 놀람(CROWD2)
-       → '62세' 글자 → '숨졌습니다' 에 흰 국화가 내려앉고 화면이 식음.
-     3D 는 단순한 것만: 겹 무대 깊이(배경 -26 · 구경꾼 -7 · 인형 0 · 앞 구경꾼 +12 → 카메라가 움직이면 시차), 불씨·먼지 알갱이, 종이 그림자.
+     그림 (test/puppet/, ChatGPT): P-BG.jpg 배경 · P-FLOAT.png 가마 · P-LIFT.png 의 멜대 아래(가마꾼 — 가마꾼만 있는 그림 대신) · P-CROWD.png 구경꾼.
+       P-CARRY·P-CROWD2·P-SCATTER·P-DUST·P-FLOWER 는 쓰지 않음 (상태 그림 없이도 되는지 보는 시험).
+       가마와 가마꾼은 같은 캔버스(P-LIFT 를 편집한 P-FLOAT)라 같은 자리에 겹치면 손이 멜대 밑에 맞음 — 자르는 줄 = P-FLOAT 알파 아래 끝.
+     코드가 하는 일 (모두 시각 t 의 함수, K.onSeek — 인형 흔들림·걸음은 초당 12장):
+       걸어 들어옴(위아래 걸음) → '높이' 부터 영차 두 번(들썩) → 가마가 오른쪽 아래 귀퉁이를 축으로 기울며 떨어짐 · 가마꾼은 둘로 갈라져 양옆으로 넘어지며 사라짐
+       → 쾅: 종이 흙먼지 덩어리(코드로 그린 종이 조각)·돌 조각·빛·화면 흔들림·구경꾼이 움찔 물러남 → 글자 '현직 부시장(62) 사망' · 화면이 식음.
+     3D 는 겹 무대 깊이(배경 · 인형 · 앞 구경꾼 — 카메라가 움직이면 시차)·불씨·종이 그림자만.
      연구·교육용 시험 영상. -->
 <link rel="stylesheet" href="../../render/kit.css">
 <style>
 #gl{position:absolute;left:0;top:0;width:1920px;height:1080px}
 #ov{position:absolute;inset:0;pointer-events:none}
 #pimgs{position:absolute;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none}
-.vig{position:absolute;inset:0;background:radial-gradient(1250px 760px at 55% 48%,rgba(0,0,0,0) 52%,rgba(0,0,0,.55) 100%),linear-gradient(90deg,rgba(0,0,0,.42),rgba(0,0,0,0) 42%)}
+.vig{position:absolute;inset:0;background:radial-gradient(1250px 760px at 55% 48%,rgba(0,0,0,0) 52%,rgba(0,0,0,.5) 100%),linear-gradient(90deg,rgba(0,0,0,.4),rgba(0,0,0,0) 40%)}
 .flash{position:absolute;inset:0;background:#FFE6C8;opacity:0}
 .ts{text-shadow:0 6px 26px rgba(0,0,0,.9),0 2px 6px rgba(0,0,0,.8)}
 .kin{position:absolute;white-space:nowrap;font-weight:900}
@@ -51,114 +51,37 @@ const seg = (t, a, b) => sm((t - a) / (b - a));
 const lin = (t, a, b) => clamp((t - a) / (b - a), 0, 1);
 const lerp = (a, b, k) => a + (b - a) * k;
 const rnd = (i, k) => { const x = Math.sin(i * 12.9898 + k * 78.233) * 43758.5453; return x - Math.floor(x); };
-const FPS_PUPPET = 12;                                   // 인형 흔들림·걸음은 초당 12장 (종이인형 느낌) — 카메라는 매끄럽게
-const q12 = t => Math.floor(t * FPS_PUPPET) / FPS_PUPPET;
+const q12 = t => Math.floor(t * 12) / 12;                           // 인형 흔들림·걸음은 초당 12장 (종이인형 느낌)
 K.chapters([{ part: "도입", tag: "도입", title: "사망자가 나와도 멈추지 않는 축제" }]);
 
 // ---------- 시각 (문장·낱말) ----------
 const t0 = S(1), tName = W(1, "사이조"), tW = W(1, "무게"), tUp = W(1, "높이"), tFallW = W(1, "떨어졌고");
 const tI1 = tFallW + 0.2;            // 가마 귀퉁이가 땅에 닿음
-const tI2 = tI1 + 0.24;              // 가마 몸통이 쾅 (큰 충격)
+const tI2 = tI1 + 0.24;              // 가마 몸통이 쾅
 const tDrop = tI1 - 0.42;            // 떨어지기 시작
-const tTilt = tDrop - 0.35;          // 균형을 잃고 기울기 시작 (LIFT → FLOAT + SCATTER)
+const tTilt = tDrop - 0.35;          // 균형을 잃고 기울기 시작
 const t62 = W(1, "62세"), tDie = W(1, "숨졌습니다"), tEnd = E(1) + 0.4;
-const P_UP = 0.45, P_DN = 0.35;      // 들어 올림 / 내림 한 번 길이 (초)
 
-// ---------- 그림 (ChatGPT 가 test/puppet/ 에 올림) ----------
+// ---------- 그림 4장 ----------
 const DIR = "../../../test/puppet/";
-const FILES = { BG: "P-BG.jpg", CROWD: "P-CROWD.png", CROWD2: "P-CROWD2.png", CARRY: "P-CARRY.png", LIFT: "P-LIFT.png",
-                FLOAT: "P-FLOAT.png", SCATTER: "P-SCATTER.png", DUST: "P-DUST.png", FLOWER: "P-FLOWER.png" };
+const FILES = { BG: "P-BG.jpg", FLOAT: "P-FLOAT.png", MEN: "P-LIFT.png", CROWD: "P-CROWD.png" };
 const stage = document.getElementById("stage");
 const imgBox = el(`<div id="pimgs"></div>`);
 const IMG = {};
 for (const k in FILES) IMG[k] = el(`<img alt="" src="${DIR}${FILES[k]}">`, imgBox);
 
-// 임시 그림 — 그림이 아직 없을 때 같은 배치(images_chatgpt.md 의 % 자리)로 움직임만 점검
-function placeholder(key) {
-  const sq = key === "FLOWER", w = sq ? 1024 : 1536, h = 1024;
-  const c = document.createElement("canvas"); c.width = w; c.height = h;
-  const g = c.getContext("2d");
-  const fig = (x, feet, hh, body, pose) => {                        // 종이 인형 하나 (pose: carry·lift·cheer·shock·fleeL·fleeR)
-    const lean = pose === "fleeL" ? -0.35 : pose === "fleeR" ? 0.35 : pose === "shock" ? 0.12 : 0;
-    g.save(); g.translate(x * w, feet * h); g.rotate(lean);
-    g.fillStyle = body; g.fillRect(-hh * 0.13 * h, -hh * 0.78 * h, hh * 0.26 * h, hh * 0.78 * h);
-    g.beginPath(); g.arc(0, -hh * 0.88 * h, hh * 0.11 * h, 0, 7); g.fill();
-    g.strokeStyle = body; g.lineWidth = hh * 0.06 * h; g.beginPath();
-    if (pose === "lift") { g.moveTo(-hh * 0.1 * h, -hh * 0.72 * h); g.lineTo(-hh * 0.06 * h, -hh * 1.32 * h); g.moveTo(hh * 0.1 * h, -hh * 0.72 * h); g.lineTo(hh * 0.06 * h, -hh * 1.32 * h); }
-    else if (pose === "cheer") { g.moveTo(hh * 0.1 * h, -hh * 0.72 * h); g.lineTo(hh * 0.25 * h, -hh * 1.2 * h); }
-    else if (pose === "shock") { g.moveTo(-hh * 0.1 * h, -hh * 0.72 * h); g.lineTo(-hh * 0.05 * h, -hh * 0.98 * h); g.moveTo(hh * 0.1 * h, -hh * 0.72 * h); g.lineTo(hh * 0.05 * h, -hh * 0.98 * h); }
-    else if (pose === "carry") { g.moveTo(hh * 0.1 * h, -hh * 0.72 * h); g.lineTo(hh * 0.14 * h, -hh * 0.98 * h); }
-    else { g.moveTo(0, -hh * 0.7 * h); g.lineTo((pose === "fleeL" ? -1 : 1) * hh * 0.4 * h, -hh * 0.95 * h); }
-    g.stroke(); g.restore();
-  };
-  const float = (top) => {                                           // 가마 + 멜대 (top = 꼭대기 높이 비율)
-    g.fillStyle = "#B3202A"; g.fillRect(0.39 * w, (top + 0.1) * h, 0.22 * w, 0.26 * h);
-    g.strokeStyle = "#D9A441"; g.lineWidth = 10; g.strokeRect(0.41 * w, (top + 0.13) * h, 0.18 * w, 0.2 * h);
-    for (let i = 0; i < 5; i++) { g.fillStyle = i % 2 ? "#8E1820" : "#C8323B"; g.fillRect((0.36 - i * 0.004) * w, (top + 0.1 - (i + 1) * 0.02) * h, (0.28 + i * 0.008) * w, 0.02 * h); }
-    g.fillStyle = "#6B4A2B"; g.fillRect(0.06 * w, (top + 0.36) * h, 0.88 * w, 0.025 * h); g.fillRect(0.06 * w, (top + 0.39) * h, 0.88 * w, 0.02 * h);
-  };
-  if (key === "BG") {
-    const s = g.createLinearGradient(0, 0, 0, 0.68 * h); s.addColorStop(0, "#1E2A4A"); s.addColorStop(1, "#F08A2E");
-    g.fillStyle = s; g.fillRect(0, 0, w, h);
-    g.fillStyle = "#FFD27A"; g.beginPath(); g.arc(0.7 * w, 0.6 * h, 60, 0, 7); g.fill();
-    g.fillStyle = "#2E2A45"; g.beginPath(); g.moveTo(0, 0.62 * h); for (let x = 0; x <= 1.001; x += 0.1) g.lineTo(x * w, (0.5 + 0.06 * Math.sin(x * 9)) * h); g.lineTo(w, 0.68 * h); g.lineTo(0, 0.68 * h); g.fill();
-    for (let i = 0; i < 24; i++) { g.fillStyle = "#F08A2E"; g.beginPath(); g.arc((0.04 + i * 0.04) * w, 0.62 * h, 9, 0, 7); g.fill(); }
-    g.fillStyle = "#B9A98E"; g.fillRect(0, 0.68 * h, w, 0.32 * h);
-  } else if (key === "CROWD" || key === "CROWD2") {
-    for (let i = 0; i < 24; i++) fig(0.04 + i * 0.04, 0.92, 0.3 + 0.04 * rnd(i, 1), ["#1E2A4A", "#2B2B2B", "#5A5A66", "#6E2A30"][i % 4], key === "CROWD" ? (i % 3 ? "cheer" : "x") : "shock");
-  } else if (key === "CARRY" || key === "LIFT") {
-    const top = key === "CARRY" ? 0.3 : 0.14;
-    float(top);
-    for (let i = 0; i < 12; i++) fig(0.1 + i * 0.0727, 0.9, 0.22, "#F2E6CF", key === "CARRY" ? "carry" : "lift");
-  } else if (key === "FLOAT") float(0.14);
-  else if (key === "SCATTER") {
-    for (let i = 0; i < 12; i++) { const x = 0.1 + i * 0.0727, L = x < 0.52; fig(L ? x - 0.06 * (x > 0.3) : x + 0.06 * (x < 0.75), 0.9, 0.22, "#F2E6CF", L ? "fleeL" : "fleeR"); }
-  } else if (key === "DUST") {
-    for (let i = 0; i < 40; i++) { g.fillStyle = ["#C9B79A", "#B0A58F", "#D8CBB0"][i % 3]; g.beginPath(); g.ellipse((0.1 + 0.8 * rnd(i, 2)) * w, (0.62 + 0.25 * rnd(i, 3)) * h, (40 + 90 * rnd(i, 4)), (30 + 50 * rnd(i, 5)), 0, 0, 7); g.fill(); }
-  } else if (key === "FLOWER") {
-    g.fillStyle = "#2F5D3A"; g.save(); g.translate(0.5 * w, 0.5 * h); g.rotate(-0.6); g.fillRect(-0.32 * w, -8, 0.4 * w, 16); g.restore();
-    for (let i = 0; i < 28; i++) { const a = i / 28 * 6.283; g.fillStyle = i % 2 ? "#FFFFFF" : "#F2E6CF"; g.beginPath(); g.ellipse(0.58 * w + Math.cos(a) * 110, 0.42 * h + Math.sin(a) * 110, 90, 26, a, 0, 7); g.fill(); }
-    g.fillStyle = "#E3C66A"; g.beginPath(); g.arc(0.58 * w, 0.42 * h, 48, 0, 7); g.fill();
-  }
-  return c;
-}
-
-// 그림 → 캔버스 (투명이 아니고 순초록 바탕이면 초록을 뺌) + 알파 상자(가로·세로 비율 0~1)
+// 그림 → 캔버스 + 알파 상자 (가로·세로 비율 0~1)
 function prep(key) {
-  const im = IMG[key], ok = im.complete && im.naturalWidth > 0;
-  let c, src = "file", keyed = false;
-  if (ok) { c = document.createElement("canvas"); c.width = im.naturalWidth; c.height = im.naturalHeight; c.getContext("2d").drawImage(im, 0, 0); }
-  else { c = placeholder(key); src = "임시"; }
-  const w = c.width, h = c.height, g = c.getContext("2d", { willReadFrequently: true });
-  const info = { key, src, w, h, keyed, bbox: [0, 0, 1, 1], opaque: false };
+  const im = IMG[key], w = im.naturalWidth, h = im.naturalHeight;
+  const c = document.createElement("canvas"); c.width = w; c.height = h;
+  const g = c.getContext("2d", { willReadFrequently: true }); g.drawImage(im, 0, 0);
+  const info = { key, w, h, bbox: [0, 0, 1, 1] };
   if (key === "BG") return { c, info };
-  const d = g.getImageData(0, 0, w, h), p = d.data;
-  const at = (x, y) => (y * w + x) * 4;
-  const corners = [at(2, 2), at(w - 3, 2), at(2, h - 3), at(w - 3, h - 3)];
-  const green = i => p[i + 1] > 150 && p[i] < 110 && p[i + 2] < 110;
-  if (corners.every(i => p[i + 3] > 250)) {
-    if (corners.every(green)) {                                      // 순초록 바탕 → 초록 빼기 + 가장자리 초록 번짐 줄이기
-      for (let i = 0; i < p.length; i += 4) {
-        const r = p[i], gg = p[i + 1], b = p[i + 2], m = Math.max(r, b), gd = gg - m;
-        const k = clamp((gd - 40) / 50, 0, 1) * clamp((gg - 110) / 60, 0, 1);
-        if (k > 0) p[i + 3] = Math.round(p[i + 3] * (1 - k));
-        if (gd > 12 && gg > 110) p[i + 1] = m + 12;
-      }
-      g.putImageData(d, 0, 0); info.keyed = true;
-    } else { info.opaque = true; console.warn(`[PUPPET] ${FILES[key]} 투명이 아님 — ChatGPT 에 투명 PNG(또는 순초록 바탕)로 다시 요청`); }
-  }
-  let x0 = w, y0 = h, x1 = -1, y1 = -1;                              // 알파 상자 (2px 걸러)
-  for (let y = 0; y < h; y += 2) for (let x = 0; x < w; x += 2) if (p[at(x, y) + 3] > 40) { if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y; }
-  if (x1 > 0) info.bbox = [x0 / w, y0 / h, (x1 + 1) / w, (y1 + 1) / h];
-  if (key === "SCATTER") {                                           // 가운데 빈 곳(25~75% 안 가장 긴 빈 열) — 둘로 자를 자리
-    let best = [0, 0], run = -1;
-    for (let x = Math.round(w * 0.25); x <= Math.round(w * 0.75); x++) {
-      let empty = true;
-      for (let y = 0; y < h; y += 4) if (p[at(x, y) + 3] > 40) { empty = false; break; }
-      if (empty) { if (run < 0) run = x; if (x - run > best[1] - best[0]) best = [run, x]; } else run = -1;
-    }
-    info.split = best[1] > best[0] ? (best[0] + best[1]) / 2 / w : 0.52;
-  }
+  const p = g.getImageData(0, 0, w, h).data, A = (x, y) => p[(y * w + x) * 4 + 3];
+  let x0 = w, y0 = h, x1 = -1, y1 = -1;
+  for (let y = 0; y < h; y += 2) for (let x = 0; x < w; x += 2) if (A(x, y) > 40) { if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y; }
+  if (x1 > 0) info.bbox = [x0 / w, y0 / h, (x1 + 2) / w, (y1 + 2) / h];
+  info.A = A;
   return { c, info };
 }
 
@@ -173,101 +96,87 @@ ren.setPixelRatio(1); ren.setSize(1920, 1080, false); ren.setClearColor(0x0B0F1E
 const scene = new THREE.Scene();
 const cam = new THREE.PerspectiveCamera(30, 1920 / 1080, 0.1, 300);
 const texOf = c => { const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 4; return t; };
-const GRADE = [];                                                    // 색 보정 대상 (종이 인형·배경)
-function plane(tex, wd, ht, u0 = 0, u1 = 1, v0 = 0, v1 = 1, opt = {}) {
+const GRADE = [];                                                    // 색 보정 대상
+function plane(tex, wd, ht, u0 = 0, u1 = 1, v0 = 0, v1 = 1, shadow = false) {
   const geo = new THREE.PlaneGeometry(wd * (u1 - u0), ht * (v1 - v0));
   const uv = geo.attributes.uv;
   for (let i = 0; i < uv.count; i++) uv.setXY(i, u0 + uv.getX(i) * (u1 - u0), (1 - v1) + uv.getY(i) * (v1 - v0));
-  const mat = new THREE.MeshBasicMaterial({ map: tex, transparent: true, depthWrite: false, opacity: 1 });
-  const m = new THREE.Mesh(geo, mat);
-  if (!opt.noGrade) GRADE.push(mat);
-  if (opt.shadow) {                                                  // 종이 그림자 — 같은 그림을 검게, 살짝 뒤·아래
-    const sm2 = new THREE.MeshBasicMaterial({ map: tex, color: 0x000000, transparent: true, depthWrite: false, opacity: 0.34 });
-    const s = new THREE.Mesh(geo, sm2); s.position.set(0.12, -0.1, -0.12); s.renderOrder = -1; m.add(s); m.userData.shadow = s;
+  const mat = new THREE.MeshBasicMaterial({ map: tex, transparent: true, depthWrite: false });
+  const m = new THREE.Mesh(geo, mat); GRADE.push(mat);
+  if (shadow) {                                                      // 종이 그림자 — 같은 그림을 검게, 살짝 뒤·아래
+    const s = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map: tex, color: 0x000000, transparent: true, depthWrite: false, opacity: 0.34 }));
+    s.position.set(0.12, -0.1, -0.12); s.renderOrder = -1; m.add(s); m.userData.shadow = s;
   }
   return m;
 }
 const setOp = (m, o) => { m.material.opacity = o; m.visible = o > 0.002; if (m.userData.shadow) m.userData.shadow.material.opacity = 0.34 * o; };
 
-// 크기 (월드 단위): 인형 캔버스 1536×1024 → 13.5 × 9
-const PW = 13.5, PH = 9.0, X_IN = -7.5, X0 = 2.0, DH = 11 / 1.5;
-let built = false, P = {}, INFO = {};
-const rig = new THREE.Group(), unit = new THREE.Group(), pivot = new THREE.Group();
-scene.add(rig); rig.add(unit); unit.add(pivot);
-const back = new THREE.Group(), front = new THREE.Group();
-scene.add(back); scene.add(front);
+// 종이 조각 (흙먼지·돌) — 코드로 그림, 크림색 테두리
+function paperBlob(fill, edge, seed, n = 128, cloud = true) {     // cloud = 둥근 구름 테두리(흙먼지) · false = 각진 조각(돌)
+  const c = document.createElement("canvas"); c.width = c.height = n; const g = c.getContext("2d");
+  const lobes = 5 + (seed % 3), ph = rnd(seed, 3) * 6.28, N = cloud ? 60 : 7;
+  const path = (r) => { g.beginPath(); for (let i = 0; i <= N; i++) { const a = i / N * 6.2832, rr = cloud ? r * (0.88 + 0.12 * Math.abs(Math.cos(lobes * a / 2 + ph))) : r * (0.7 + 0.3 * rnd(seed * 31 + (i % N), 7)); g.lineTo(n / 2 + Math.cos(a) * rr, n / 2 + Math.sin(a) * rr); } g.closePath(); g.fill(); };
+  g.fillStyle = "#F2E6CF"; path(n * 0.48); g.fillStyle = fill; path(n * 0.43);
+  g.fillStyle = edge; g.save(); g.translate(-n * 0.07, -n * 0.07); g.scale(0.62, 0.62); g.translate(n * 0.33, n * 0.33); path(n * 0.4); g.restore();
+  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return t;
+}
+const PUFF = [0, 1, 2].map(i => paperBlob(["#CDB78E", "#C1AA82", "#D9C59E"][i], ["#E0CDA8", "#D5C19C", "#EBDBB9"][i], i + 1));
+const ROCK = [0, 1].map(i => paperBlob(["#5B5148", "#7A6E62"][i], ["#857A6D", "#9C9182"][i], i + 9, 64, false));
 
-// 불씨 (3D 점) · 먼지 알갱이 (3D 점)
-const glowTex = (inner, outer) => { const c = document.createElement("canvas"); c.width = c.height = 64; const g = c.getContext("2d"), r = g.createRadialGradient(32, 32, 0, 32, 32, 32); r.addColorStop(0, inner); r.addColorStop(1, outer); g.fillStyle = r; g.fillRect(0, 0, 64, 64); return new THREE.CanvasTexture(c); };
+// 크기 (월드 단위): 인형 캔버스 3:2 → 9.9 × 6.6 (발끝 화면 74% · 든 가마 꼭대기 약 25%)
+const PW = 9.9, PH = 6.6, X_IN = -7.0, X0 = 3.0;
+let built = false;
+const P = {}, INFO = {};
+const rig = new THREE.Group(), unit = new THREE.Group(), pivot = new THREE.Group(), front = new THREE.Group();
+scene.add(rig); rig.add(unit); unit.add(pivot); scene.add(front);
+
+// 불씨 (3D 점)
+const glowTex = () => { const c = document.createElement("canvas"); c.width = c.height = 64; const g = c.getContext("2d"), r = g.createRadialGradient(32, 32, 0, 32, 32, 32); r.addColorStop(0, "rgba(255,214,150,1)"); r.addColorStop(1, "rgba(255,120,40,0)"); g.fillStyle = r; g.fillRect(0, 0, 64, 64); return new THREE.CanvasTexture(c); };
 const NE = 110, eg = new THREE.BufferGeometry(), ep = new Float32Array(NE * 3);
 eg.setAttribute("position", new THREE.BufferAttribute(ep, 3));
-const emat = new THREE.PointsMaterial({ map: glowTex("rgba(255,214,150,1)", "rgba(255,120,40,0)"), size: 0.22, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, opacity: 0.9 });
+const emat = new THREE.PointsMaterial({ map: glowTex(), size: 0.22, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, opacity: 0.9 });
 scene.add(new THREE.Points(eg, emat));
-const ND = 170, dg = new THREE.BufferGeometry(), dpos = new Float32Array(ND * 3);
-dg.setAttribute("position", new THREE.BufferAttribute(dpos, 3));
-const dmat = new THREE.PointsMaterial({ map: glowTex("rgba(214,198,170,1)", "rgba(214,198,170,0)"), size: 0.3, transparent: true, depthWrite: false, opacity: 0 });
-const dust3 = new THREE.Points(dg, dmat); scene.add(dust3);
+// 흙먼지 덩어리 26 · 돌 조각 16 (종이 조각 스프라이트)
+const NP = 26, NR = 16, puffs = [], rocks = [];
+for (let i = 0; i < NP; i++) { const m = new THREE.SpriteMaterial({ map: PUFF[i % 3], transparent: true, depthWrite: false }); GRADE.push(m); const s = new THREE.Sprite(m); s.renderOrder = 4; scene.add(s); puffs.push(s); }
+for (let i = 0; i < NR; i++) { const m = new THREE.SpriteMaterial({ map: ROCK[i % 2], transparent: true, depthWrite: false }); GRADE.push(m); const s = new THREE.Sprite(m); s.renderOrder = 4; scene.add(s); rocks.push(s); }
 
 function build() {
   const T = {};
   for (const k in FILES) { const r = prep(k); T[k] = texOf(r.c); INFO[k] = r.info; }
-  window.PUPPET = INFO;                                              // 점검용 (어떤 그림을 썼는지·초록을 뺐는지·알파 상자)
-  console.info("[PUPPET] " + Object.values(INFO).map(i => `${i.key}=${i.src}${i.keyed ? "·초록뺌" : ""}${i.opaque ? "·불투명!" : ""}`).join(" "));
-  // 배경 (z -26) — 바닥이 시작되는 줄(그림 68%)이 인형 뒤 화면 55% 높이쯤
-  const BW = 58, BH = BW * INFO.BG.h / INFO.BG.w;
-  P.bg = plane(T.BG, BW, BH); P.bg.position.set(0, 1.97 + (0.68 - 0.5) * BH, -26); scene.add(P.bg);
-  // 구경꾼 뒷줄 (z -7) · 앞줄 실루엣 (z +12, 거울·어둡게)
-  const crowd = (key, wd, feet, mirror, dark) => {
-    const b = INFO[key].bbox, ht = wd / 1.5, m = plane(T[key], wd, ht, 0, 1, 0, 1, { shadow: !dark, noGrade: dark });
-    m.position.set(0, feet + (b[3] - 0.5) * ht, 0); if (mirror) m.scale.x = -1;
-    if (dark) { m.material.color.set(0x120C16); }
-    return m;
-  };
-  P.crowdB = [crowd("CROWD", 17, 0, false, false), crowd("CROWD2", 17, 0, false, false)]; P.crowdB.forEach(m => back.add(m)); back.position.set(0.5, 0, -9);
-  P.crowdF = [crowd("CROWD", 15, -2.6, true, true), crowd("CROWD2", 15, -2.6, true, true)]; P.crowdF.forEach(m => front.add(m)); front.position.set(1.5, 0, 12);
-  // 가마꾼·가마 — 기준점 = CARRY 알파 상자 아래 가운데 (발끝 줄)
-  const cb = INFO.CARRY.bbox, cu = (cb[0] + cb[2]) / 2, fy = cb[3];
-  INFO.anchor = { cu, fy };
-  const put = (m, u0, u1, v0, v1) => { m.position.set(((u0 + u1) / 2 - cu) * PW, (fy - (v0 + v1) / 2) * PH, 0); return m; };
-  P.carry = put(plane(T.CARRY, PW, PH, 0, 1, 0, 1, { shadow: true }), 0, 1, 0, 1); unit.add(P.carry);
-  P.lift = put(plane(T.LIFT, PW, PH, 0, 1, 0, 1, { shadow: true }), 0, 1, 0, 1); unit.add(P.lift);
-  const sp = INFO.SCATTER.split;
-  P.scL = put(plane(T.SCATTER, PW, PH, 0, sp, 0, 1, { shadow: true }), 0, sp, 0, 1); rig.add(P.scL);
-  P.scR = put(plane(T.SCATTER, PW, PH, sp, 1, 0, 1, { shadow: true }), sp, 1, 0, 1); rig.add(P.scR);
-  P.scL.userData.x = P.scL.position.x; P.scR.userData.x = P.scR.position.x; P.scL.userData.y0 = P.scL.position.y;
-  const fb = INFO.FLOAT.bbox;                                         // 가마 축 = FLOAT 알파 상자 오른쪽 아래 귀퉁이
+  // 배경 (z -24) — 그림 62% 줄(자갈 바닥이 시작) 이 인형 뒤에 오게
+  const BW = 54, BH = BW * INFO.BG.h / INFO.BG.w;
+  P.bg = plane(T.BG, BW, BH); P.bg.position.set(0, 2.6 + (0.62 - 0.5) * BH, -24); P.bg.renderOrder = 0; scene.add(P.bg);
+  // 가마꾼 = P-LIFT 의 멜대 아래 — 기준점 = 그 알파 상자 아래 가운데 (발끝 줄)
+  const fb = INFO.FLOAT.bbox, mb = INFO.MEN.bbox, cut = fb[3];          // 자르는 줄 = 가마(멜대) 아래 끝
+  const cu = (mb[0] + mb[2]) / 2, fy = mb[3];
+  // 가마꾼을 둘로 나눌 열: 가운데 근처에서 사람이 가장 적게 걸치는 열
+  const A = INFO.MEN.A, w = INFO.MEN.w, h = INFO.MEN.h;
+  let best = 0.5, bestN = 1e9;
+  for (let x = Math.round(w * 0.44); x <= Math.round(w * 0.56); x++) { let n = 0; for (let y = Math.round(cut * h); y < h; y += 3) if (A(x, y) > 40) n++; if (n < bestN) { bestN = n; best = x / w; } }
+  Object.assign(INFO, { cut, cu, fy, split: best });
+  const put = (m, u0, u1, v0, v1) => { m.position.set(((u0 + u1) / 2 - cu) * PW, (fy - (v0 + v1) / 2) * PH, 0); m.userData.x = m.position.x; m.userData.y = m.position.y; return m; };
+  P.menL = put(plane(T.MEN, PW, PH, 0, best, cut, 1, true), 0, best, cut, 1);
+  P.menR = put(plane(T.MEN, PW, PH, best, 1, cut, 1, true), best, 1, cut, 1);
+  unit.add(P.menL); unit.add(P.menR);
+  // 가마 — 축 = 알파 상자 오른쪽 아래 귀퉁이 (멜대 끝)
   pivot.position.set((fb[2] - cu) * PW, (fy - fb[3]) * PH, 0.05); pivot.userData.y = pivot.position.y;
-  P.float = plane(T.FLOAT, PW, PH, 0, 1, 0, 1, { shadow: true }); P.float.position.set((0.5 - fb[2]) * PW, (fb[3] - 0.5) * PH, 0); pivot.add(P.float);
-  INFO.floatTop = { u: (fb[0] + fb[2]) / 2, carryTop: INFO.CARRY.bbox[1], liftTop: INFO.LIFT.bbox[1] };
-  // 흙먼지 (종이) · 국화
-  P.dust = plane(T.DUST, 11, DH, 0, 1, 0, 1, {}); scene.add(P.dust);
-  P.flower = plane(T.FLOWER, 2.6, 2.6, 0, 1, 0, 1, { shadow: true }); scene.add(P.flower);
-  // 그리는 차례 (뒤 → 앞)
-  P.bg.renderOrder = 0; P.crowdB.forEach(m => (m.renderOrder = 1)); [P.scL, P.scR, P.carry, P.lift, P.float].forEach(m => (m.renderOrder = 3));
-  P.dust.renderOrder = 4; P.flower.renderOrder = 5; P.crowdF.forEach(m => (m.renderOrder = 6));
+  P.float = plane(T.FLOAT, PW, PH, 0, 1, 0, 1, true); P.float.position.set((0.5 - fb[2]) * PW, (fb[3] - 0.5) * PH, 0); pivot.add(P.float);
+  // 앞 구경꾼 (z +6) — 뒷모습, 화면 아래쪽
+  const cb = INFO.CROWD.bbox, CW = 21, CH = CW * INFO.CROWD.h / INFO.CROWD.w;   // 손·머리만 화면 아래 약 1/4 에
+  P.crowd = plane(T.CROWD, CW, CH, 0, 1, 0, 1, true); P.crowd.position.set(0, -5.0 + (cb[3] - 0.5) * CH, 0); front.add(P.crowd); front.position.set(1.2, 0, 6);
+  P.menL.renderOrder = P.menR.renderOrder = 2; P.float.renderOrder = 3; P.crowd.renderOrder = 6;
+  window.PUPPET = { cut, cu, fy, split: best, files: FILES };        // 점검용
   built = true;
-}
-
-// 가마꾼 상태: '높이' 부터 LIFT/CARRY 번갈아 (마지막은 LIFT 로 버팀) → 기울기 시작하면 FLOAT + SCATTER
-function liftState(t) {
-  if (t < tUp) return { k: "CARRY", ts: -1 };
-  const span = tTilt - tUp, cyc = Math.max(0, Math.floor((span - P_UP) / (P_UP + P_DN)));
-  let a = tUp;
-  for (let i = 0; i < cyc; i++) {
-    if (t < a + P_UP) return { k: "LIFT", ts: a };
-    if (t < a + P_UP + P_DN) return { k: "CARRY", ts: a + P_UP };
-    a += P_UP + P_DN;
-  }
-  return { k: "LIFT", ts: a };
 }
 
 // ---------- 카메라 ----------
 function camAt(t) {
-  const K1 = [{ t: t0, p: [-1.6, 3.4, 26.5], l: [-1.0, 3.1, 0] }, { t: tUp, p: [1.0, 3.6, 23.6], l: [1.4, 3.4, 0] },
-              { t: tTilt, p: [1.5, 3.9, 22.6], l: [1.8, 3.9, 0] }, { t: tI2, p: [2.0, 3.3, 21.4], l: [2.2, 2.6, 0] },
-              { t: tEnd, p: [2.4, 3.0, 19.6], l: [2.4, 2.2, 0] }];
-  let i = 0; while (i < K1.length - 2 && t > K1[i + 1].t) i++;
-  const a = K1[i], b = K1[i + 1], k = seg(t, a.t, b.t);
+  const KF = [{ t: t0, p: [-1.0, 3.2, 26.5], l: [-0.4, 2.9, 0] }, { t: tUp, p: [0.9, 3.3, 23.6], l: [1.3, 3.0, 0] },
+              { t: tTilt, p: [1.3, 3.5, 22.6], l: [1.6, 3.2, 0] }, { t: tI2, p: [1.8, 3.0, 21.2], l: [2.0, 2.4, 0] },
+              { t: tEnd, p: [2.1, 2.9, 19.4], l: [2.2, 2.2, 0] }];
+  let i = 0; while (i < KF.length - 2 && t > KF[i + 1].t) i++;
+  const a = KF[i], b = KF[i + 1], k = seg(t, a.t, b.t);
   const pos = new THREE.Vector3(...a.p.map((v, j) => lerp(v, b.p[j], k))), look = new THREE.Vector3(...a.l.map((v, j) => lerp(v, b.l[j], k)));
   for (const [ti, amp] of [[tI1, 0.05], [tI2, 0.13]]) if (t > ti) { const d = t - ti, s = amp * Math.exp(-d / 0.22); pos.y += s * Math.sin(d * 38); pos.x += s * 0.6 * Math.sin(d * 27 + 1); }
   return { pos, look };
@@ -276,114 +185,103 @@ function camAt(t) {
 // ---------- 글자 (DOM) ----------
 {
   const sc = K.scene(0, K.D, { keep: true });
-  const st = el(`<div class="kin ts Y" style="left:110px;top:118px;font-size:48px;font-weight:700">2026.10.17 · 에히메현 사이조시</div>`, sc);
+  const st = el(`<div class="kin ts Y" style="left:110px;top:128px;font-size:48px;font-weight:700">2026.10.17 · 에히메현 사이조시</div>`, sc);
   tl.fromTo(st, { opacity: 0, rotationX: -90, transformPerspective: 900, transformOrigin: "50% 0%" }, { opacity: 1, rotationX: 0, duration: 0.7, ease: "back.out(1.6)" }, t0 + 0.1);
-  const name = el(`<div class="kin ts" style="left:110px;top:186px;font-size:96px">${[..."사이조 마쓰리"].map(c => `<span>${c === " " ? "&nbsp;" : c}</span>`).join("")}</div>`, sc);
+  const name = el(`<div class="kin ts" style="left:110px;top:196px;font-size:96px">${[..."사이조 마쓰리"].map(c => `<span>${c === " " ? "&nbsp;" : c}</span>`).join("")}</div>`, sc);
   tl.fromTo(name.children, { opacity: 0, y: 70, rotationY: 90, transformPerspective: 700 }, { opacity: 1, y: 0, rotationY: 0, duration: 0.55, ease: "power3.out", stagger: 0.06 }, tName);
   tl.to([st, name], { opacity: 0, y: -40, duration: 0.3, ease: "power2.in" }, tI1 - 0.32);   // 떨어지는 순간 글자 자리를 비움
   const fall = el(`<div class="kin ts" style="left:110px;top:130px;font-size:88px">가마 <span class="R">낙하</span></div>`, sc);
   tl.fromTo(fall, { opacity: 0, y: -160, rotation: -6 }, { opacity: 1, y: 0, rotation: 0, duration: 0.8, ease: "bounce.out" }, tI1);
   const who = el(`<div class="kin ts" style="left:110px;top:250px;font-size:92px">현직 부시장(62) <span class="R" id="pdead">사망</span></div>`, sc);
   tl.fromTo(who, { opacity: 0, scale: 1.4, rotationX: 60, transformPerspective: 900, transformOrigin: "0% 50%" }, { opacity: 1, scale: 1, rotationX: 0, duration: 0.6, ease: "power4.out" }, t62);
-  const dead = who.querySelector("#pdead");
-  tl.fromTo(dead, { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.35, ease: "power4.in" }, tDie);
+  tl.fromTo(who.querySelector("#pdead"), { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.35, ease: "power4.in" }, tDie);
   const ul = el(`<div class="uline" style="left:110px;top:365px;width:860px"></div>`, sc);
   tl.fromTo(ul, { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "power2.out" }, tDie + 0.3);
-  K.cut(t0 + 2.0, "강변 · 가마꾼 걸어 들어옴");
-  K.cut(tUp + P_UP * 0.7, "들어 올림 (LIFT)");
+  K.cut(t0 + 2.0, "강변 · 가마 메고 들어옴");
+  K.cut(tUp + 0.25, "영차 (들썩)");
   K.cut(tDrop + 0.2, "기울며 떨어짐 · 흩어짐");
-  K.cut(tI2 + 0.35, "흙먼지 · 구경꾼 놀람");
+  K.cut(tI2 + 0.3, "쾅 · 흙먼지 · 구경꾼 움찔");
   K.cut(t62 + 0.8, "부시장(62)");
-  K.cut(Math.min(tEnd - 0.1, tDie + 1.0), "국화 · 사망");
+  K.cut(Math.min(tEnd - 0.1, tDie + 1.0), "사망 · 식은 화면");
 }
 
 // ---------- 프레임마다 ----------
 const proj = v => { const p = v.clone().project(cam); return [(p.x + 1) / 2 * 1920, (1 - p.y) / 2 * 1080, p.z]; };
 const gradeCol = new THREE.Color(), WARM = new THREE.Color(0xffffff), COOL = new THREE.Color(0xb4b9cc), DARK = new THREE.Color(0x8a8fa6);
+const land = new THREE.Vector3();
 K.onSeek(t => {
-  if (!built) build();
-  const tq = q12(t);
-  // 걸어 들어옴 (CARRY) — 걸음마다 위아래·좌우 흔들림 (12장/초)
-  const walk = seg(t, t0, tUp - 0.3);
-  rig.position.x = lerp(X_IN, X0, walk);
-  const stepping = t < tUp - 0.3 ? 1 : 0;
-  // 상태 갈아 끼우기
-  const st = liftState(t), dt = t - st.ts, xf = clamp(dt / 0.08, 0, 1), falling = t >= tTilt;
-  let opC = 1, opL = 0;                                              // 갈아 끼울 때 0.08초 겹쳐 바꿈
-  if (falling) opC = opL = 0;
-  else if (st.ts >= 0) { opC = st.k === "CARRY" ? xf : 1 - xf; opL = st.k === "LIFT" ? xf : 1 - xf; }
-  setOp(P.carry, opC); setOp(P.lift, opL);
-  const hop = st.ts < 0 ? 0 : st.k === "LIFT" ? 0.14 * Math.sin(Math.PI * clamp(dt / 0.3, 0, 1)) : -0.07 * Math.sin(Math.PI * clamp(dt / 0.22, 0, 1));
-  unit.position.y = stepping * 0.08 * Math.abs(Math.sin(tq * Math.PI * 2.2)) + (falling ? 0 : hop);
-  unit.rotation.z = falling ? 0 : stepping * 0.012 * Math.sin(tq * Math.PI * 2.2) + (t > tUp ? 0.006 * Math.sin(tq * 9) : 0);
-  // 떨어짐: 기울기(0.35초) → 떨어짐(0.42초, 점점 빠르게) → 귀퉁이 닿음 → 몸통이 쾅 (0.24초) → 살짝 튐
-  setOp(P.float, falling ? 1 : 0);
-  if (falling) {
-    const a1 = -0.105 * sm(lin(t, tTilt, tDrop));
-    const kd = lin(t, tDrop, tI1), drop = kd * kd;
-    const a2 = a1 - 0.14 * drop;
+  if (!built) {                                                      // 그림이 다 풀린 뒤에 무대를 지음 (kit 가 첫 seek 를 먼저 부름)
+    if (!Object.values(IMG).every(i => i.complete && i.naturalWidth > 0)) return;
+    build();
+  }
+  const tq = q12(t), falling = t >= tTilt;
+  // 걸어 들어옴 — 걸음마다 위아래 (12장/초)
+  rig.position.x = lerp(X_IN, X0, seg(t, t0, tUp - 0.3));
+  const walking = t < tUp - 0.3 ? 1 : 0;
+  // '높이' 부터 영차 — 들썩 두 번 (가마꾼 + 가마 함께, 위로 갈 때 살짝 늘어남)
+  const hv = t >= tUp && !falling ? Math.max(0, Math.sin(Math.PI * 2 * (t - tUp) / Math.max(0.5, (tTilt - tUp) / 2))) : 0;
+  unit.position.y = walking * 0.08 * Math.abs(Math.sin(tq * Math.PI * 2.2)) + 0.38 * hv;
+  unit.scale.y = 1 + 0.025 * hv;
+  // 가마 흔들림 → 기울기(0.35초) → 떨어짐(0.42초, 점점 빠르게) → 귀퉁이 닿음 → 몸통이 쾅(0.24초) → 살짝 튐
+  if (!falling) { pivot.rotation.z = 0.012 * Math.sin(tq * (t > tUp ? 11 : 5)); pivot.position.y = pivot.userData.y; }
+  else {
+    const a1 = -0.105 * sm(lin(t, tTilt, tDrop)), kd = lin(t, tDrop, tI1), drop = kd * kd, a2 = a1 - 0.14 * drop;
     const ks = lin(t, tI1, tI2), a3 = lerp(a2, -0.035, ks * ks);
     const bounce = t > tI2 ? -0.03 * Math.exp(-(t - tI2) / 0.18) * Math.sin((t - tI2) * 30) : 0;
-    pivot.rotation.z = (t < tI1 ? a2 : a3) + bounce + (t < tDrop ? 0.012 * Math.sin(tq * 40) : 0);
+    pivot.rotation.z = (t < tI1 ? a2 : a3) + bounce + (t < tDrop ? 0.014 * Math.sin(tq * 40) : 0);
     pivot.position.y = lerp(pivot.userData.y, 0.02, t < tI1 ? drop : 1);
-  } else { pivot.rotation.z = 0; pivot.position.y = pivot.userData.y; }
-  // 가마꾼 흩어짐 (SCATTER 를 둘로 — 양옆으로 밀려나며 한 번 튐)
-  const ks2 = falling ? 1 - Math.pow(1 - lin(t, tTilt, tTilt + 1.1), 3) : 0;
-  setOp(P.scL, falling ? clamp((t - tTilt) / 0.08, 0, 1) : 0); setOp(P.scR, P.scL.material.opacity);
-  const jump = falling ? 0.3 * Math.sin(Math.PI * lin(t, tTilt, tTilt + 0.5)) : 0;
-  P.scL.position.x = P.scL.userData.x - 1.3 * ks2; P.scR.position.x = P.scR.userData.x + 1.3 * ks2;
-  P.scL.position.y = P.scR.position.y = P.scL.userData.y0 + jump;
-  P.scL.rotation.z = 0.05 * ks2; P.scR.rotation.z = -0.05 * ks2;
-  // 구경꾼: 환호(위아래로 들썩) → 쾅에 놀람으로 뒤집기 (종이 카드 뒤집듯 가로 폭 0 → 1)
-  const flipK = lin(t, tI2, tI2 + 0.2), shocked = t >= tI2 + 0.1;
-  for (const [grp, arr, mir] of [[back, P.crowdB, 1], [front, P.crowdF, -1]]) {
-    setOp(arr[0], shocked ? 0 : 1); setOp(arr[1], shocked ? 1 : 0);
-    const sx = t < tI2 ? 1 : Math.abs(Math.cos(Math.PI * flipK));
-    arr.forEach(m => (m.scale.x = mir * Math.max(0.02, sx)));
-    grp.position.y = t < tI2 ? 0.06 * Math.abs(Math.sin(tq * Math.PI * 1.6 + (mir > 0 ? 0 : 1))) : -0.05 * flipK;
   }
-  // 흙먼지 (종이) — 가마가 떨어진 자리
-  const land = new THREE.Vector3(); P.float.updateMatrixWorld(true);
+  // 가마꾼 — 둘로 갈라져 양옆으로 밀려남(한 번 튐) → 쾅 뒤 무대 밖으로 빠져나감 (종이인형을 옆으로 빼듯, 흐려지지 않음)
+  const ks2 = falling ? 1 - Math.pow(1 - lin(t, tTilt, tTilt + 0.9), 3) : 0, jump = falling ? 0.35 * Math.sin(Math.PI * lin(t, tTilt, tTilt + 0.45)) : 0;
+  const off = Math.pow(lin(t, tI2 + 0.3, tI2 + 1.6), 2) * 10;
+  P.menL.position.x = P.menL.userData.x - 2.7 * ks2 - off; P.menR.position.x = P.menR.userData.x + 2.7 * ks2 + off;   // 가마 몸통 폭만큼 비켜남
+  P.menL.position.y = P.menL.userData.y + jump; P.menR.position.y = P.menR.userData.y + jump;
+  const lean = 0.1 * Math.sin(Math.PI * lin(t, tTilt, tTilt + 1.0)) + 0.04 * ks2;
+  P.menL.rotation.z = lean; P.menR.rotation.z = -lean;
+  // 앞 구경꾼 — 환호(들썩) → 쾅에 움찔(아래·뒤로)
+  const rec = t > tI2 ? Math.exp(-(t - tI2) / 0.5) : 0;
+  front.position.y = t < tI2 ? 0.07 * Math.abs(Math.sin(tq * Math.PI * 1.6)) : -0.45 * (1 - Math.exp(-(t - tI2) / 0.12)) + 0.06 * rec * Math.sin((t - tI2) * 35);
+  front.rotation.z = t > tI2 ? 0.01 * rec * Math.sin((t - tI2) * 28) : 0;
+  // 흙먼지·돌 — 가마가 떨어진 자리에서
+  P.float.updateMatrixWorld(true);
   const fb = INFO.FLOAT.bbox;
   land.set(((fb[0] + fb[2]) / 2 - 0.5) * PW, (0.5 - fb[3]) * PH, 0).applyMatrix4(P.float.matrixWorld);
   const tau = t - tI2;
-  setOp(P.dust, tau > 0 ? sm(clamp(tau / 0.12, 0, 1)) * (1 - seg(tau, 1.2, 2.6)) : 0);
-  if (tau > 0) { const s = lerp(0.35, 1.15, 1 - Math.pow(1 - clamp(tau / 0.6, 0, 1), 3)); P.dust.scale.set(s, s, 1); P.dust.position.set(land.x, (0.92 - 0.5) * DH * s - 0.15 + 0.12 * tau, 0.8); }   // 먼지 그림 아래 줄(92%)이 땅
-  // 먼지 알갱이 (3D)
-  dust3.visible = tau > 0 && tau < 3.2;
-  if (dust3.visible) {
-    const k = 1 - Math.exp(-tau / 0.5);
-    for (let i = 0; i < ND; i++) {
-      const vx = (rnd(i, 3) - 0.5) * 7, vy = 0.5 + rnd(i, 4) * 3.2, vz = (rnd(i, 5) - 0.3) * 5;
-      dpos[i * 3] = land.x + vx * k; dpos[i * 3 + 1] = Math.max(0.05, vy * k - 0.6 * tau * tau * 0.3); dpos[i * 3 + 2] = 0.5 + vz * k;
-    }
-    dg.attributes.position.needsUpdate = true;
-    dmat.opacity = 0.8 * seg(tau, 0, 0.1) * (1 - seg(tau, 1.0, 3.2));
+  for (let i = 0; i < NP; i++) {
+    const s = puffs[i], on = tau > 0 && tau < 3.4;
+    s.visible = on; if (!on) continue;
+    const k = 1 - Math.exp(-tau / (0.35 + 0.25 * rnd(i, 1))), dir = rnd(i, 2) * 2 - 1;
+    s.position.set(land.x + dir * (0.6 + 4.0 * k * rnd(i, 3)), 0.2 + 1.3 * k * rnd(i, 4) + 0.2 * tau, 0.6 + 1.2 * rnd(i, 5));
+    const sz = (0.8 + 1.2 * rnd(i, 6)) * (0.45 + 0.9 * k);
+    s.scale.set(sz, sz * 0.85, 1); s.material.rotation = dir * k * 0.6;
+    s.material.opacity = 0.92 * sm(clamp(tau / 0.08, 0, 1)) * (1 - seg(tau, 0.9 + 0.7 * rnd(i, 7), 2.8));
+  }
+  for (let i = 0; i < NR; i++) {
+    const s = rocks[i], on = tau > 0 && tau < 1.4;
+    s.visible = on; if (!on) continue;
+    const vx = (rnd(i, 11) * 2 - 1) * 5.5, vy = 3 + 3 * rnd(i, 12);
+    s.position.set(land.x + vx * tau, Math.max(0.1, 0.4 + vy * tau - 9 * tau * tau), 1.2 + rnd(i, 13));
+    const sz = 0.22 + 0.25 * rnd(i, 14); s.scale.set(sz, sz, 1); s.material.rotation = tau * 9 * (rnd(i, 15) - 0.5);
+    s.material.opacity = 1 - seg(tau, 0.9, 1.4);
   }
   // 불씨 (3D) — 무대 깊이 전체에서 천천히 떠오름
   for (let i = 0; i < NE; i++) {
     const sp = 0.25 + rnd(i, 4) * 0.6, y = (rnd(i, 2) * 10 + t * sp) % 10;
-    ep[i * 3] = -12 + rnd(i, 1) * 26 + Math.sin(t * 0.7 + rnd(i, 5) * 6.3) * 0.4; ep[i * 3 + 1] = y; ep[i * 3 + 2] = -14 + rnd(i, 3) * 22;
+    ep[i * 3] = -12 + rnd(i, 1) * 26 + Math.sin(t * 0.7 + rnd(i, 5) * 6.3) * 0.4; ep[i * 3 + 1] = y; ep[i * 3 + 2] = -14 + rnd(i, 3) * 19;
   }
   eg.attributes.position.needsUpdate = true;
   emat.opacity = 0.9 * (1 - 0.5 * seg(t, tI2, tI2 + 1));
-  // 국화 — '숨졌습니다' 에 위에서 천천히 흔들리며 내려와 가마 앞에 놓임
-  const kf = lin(t, tDie, tDie + 1.1), fe = 1 - Math.pow(1 - kf, 2);
-  setOp(P.flower, t >= tDie ? sm(clamp((t - tDie) / 0.2, 0, 1)) : 0);
-  P.flower.position.set(land.x - 1.6 + 0.5 * Math.sin(kf * 5), lerp(7.5, 0.55, fe), 3.2);
-  P.flower.rotation.z = 0.5 * Math.sin(kf * 6) * (1 - kf) - 0.35;
-  // 색: 따뜻함 → 쾅 뒤 식음 → '숨졌습니다' 에 더 어둡게
+  // 색: 따뜻함 → 쾅 뒤 식음 → '숨졌습니다' 에 더 어둡게 · 쾅 빛
   gradeCol.copy(WARM).lerp(COOL, seg(t, tI2, tI2 + 0.6)).lerp(DARK, seg(t, tDie, tDie + 0.8));
   for (const m of GRADE) m.color.copy(gradeCol);
-  flash.style.opacity = t > tI2 ? (0.5 * Math.exp(-(t - tI2) / 0.12)).toFixed(3) : 0;   // 쾅 — 짧은 빛
+  flash.style.opacity = t > tI2 ? (0.5 * Math.exp(-(t - tI2) / 0.12)).toFixed(3) : 0;
   // 카메라
   const c = camAt(t);
   cam.position.copy(c.pos); cam.lookAt(c.look); cam.updateMatrixWorld();
   ren.render(scene, cam);
   // '무게 3톤' 꼬리표 — 가마 꼭대기를 따라감 ('무게' ~ 기울기 시작)
   if (t >= tW && t < tTilt + 0.15) {
-    const ft = INFO.floatTop, top = st.k === "LIFT" ? ft.liftTop : ft.carryTop;
-    const v = new THREE.Vector3((ft.u - INFO.anchor.cu) * PW, (INFO.anchor.fy - top) * PH + 0.3, 0).applyMatrix4(unit.matrixWorld);
+    const v = new THREE.Vector3(((fb[0] + fb[2]) / 2 - 0.5) * PW, (0.5 - fb[1]) * PH + 0.3, 0).applyMatrix4(P.float.matrixWorld);
     const [x, y] = proj(v), k = seg(t, tW, tW + 0.35) * (1 - seg(t, tTilt, tTilt + 0.15));
     ov.innerHTML = `<div class="tag3" style="left:${x.toFixed(1)}px;top:${Math.max(120, y - 10).toFixed(1)}px;opacity:${k.toFixed(3)}">무게 3톤</div>`;
   } else ov.innerHTML = "";

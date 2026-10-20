@@ -2,7 +2,7 @@
  "tool": "weekly_analysis.py v1.3",
  "topic": "economic",
  "name": "재테크",
- "generated": "2026-10-19T08:05:48+00:00",
+ "generated": "2026-10-20T07:21:43+00:00",
  "cases": 414,
  "dated": 414,
  "older_than_windows": 0,
@@ -18,23 +18,13 @@
   {
    "weeks": 1,
    "label": "최근 1주",
-   "videos": 96,
-   "channels": 85,
+   "videos": 85,
+   "channels": 77,
    "new_this_week": [
-    {
-     "id": "-2R5j7R_DLI",
-     "title": "코스피 6000 붕괴, 지금 팔아야 하나? 이광수가 '단연코 노'라고 답한 이유",
-     "published": "2026-10-13"
-    },
     {
      "id": "-3nc7FXlcBE",
      "title": "어쩌면 입시보다 더 중요한 투자 이야기",
      "published": "2026-10-18"
-    },
-    {
-     "id": "03LsfqTIOYY",
-     "title": "\"이러면, 지옥문 열릴 것\" 지금 하락은 진짜 공포일까? | 염승환 LS증권 이사 [더블 업]",
-     "published": "2026-10-13"
     },
     {
      "id": "0iduiNNIyRA",
@@ -67,11 +57,6 @@
      "published": "2026-10-14"
     },
     {
-     "id": "3aVf1x2D1Z8",
-     "title": "자식에게서 이 3가지는 절대 받지 마세요! 노후가 불행해질 수 있습니다 ㅣ노후지혜ㅣ인생명언ㅣ오디오북",
-     "published": "2026-10-12"
-    },
-    {
      "id": "4IDGOKXL6h4",
      "title": "\"100억 부자들은 이렇게 사요\" 상위 1% 부업으로 1억씩 쓸어담는 돈버는법",
      "published": "2026-10-13"
@@ -95,11 +80,6 @@
      "id": "7hjl_w2aWtA",
      "title": "나스닥은 최고가, 반도체만 반 토막. 지금과 똑같았던 1995년으로 앞으로의 흐름을 찾아봤습니다.",
      "published": "2026-10-14"
-    },
-    {
-     "id": "86r1uUvk2-A",
-     "title": "39살 애 엄마가 노트북 한대로 수다 떨면서 월 4백만 원 버는 부업",
-     "published": "2026-10-12"
     },
     {
      "id": "9YTB1MfKGQ4",
@@ -202,16 +182,6 @@
      "published": "2026-10-13"
     },
     {
-     "id": "PmhYy3u9jxk",
-     "title": "매달 빚이 750만원씩 불어나요… 12억 모텔이 6억으로 반토막ㅣ60대 은퇴부부의 눈물   노후건강   노후자금   노후사연   오디오북   퇴직금   깨달음의노후",
-     "published": "2026-10-13"
-    },
-    {
-     "id": "QhY-znsxiBk",
-     "title": "노후자금사연 태국 푸켓으로 떠났다가 3억 전재산 날리고 고시원 신세 된 65세 부부의 눈물 사연  노후자금  노후의지혜  시니어사연  오디오북",
-     "published": "2026-10-12"
-    },
-    {
      "id": "RBhIQUhBnOY",
      "title": "5년간 유지해온 ISA계좌 수익률 공개 (feat.부캉이)",
      "published": "2026-10-13"
@@ -230,11 +200,6 @@
      "id": "SF1SLHOlcC0",
      "title": "평범한 내가 부자들 사이에서 느낀 것들",
      "published": "2026-10-18"
-    },
-    {
-     "id": "SJEMyQEhJ10",
-     "title": "70대가 되어 뒤늦게 깨달았습니다｜은퇴 후 가장 잘한 일은 일이 아니라 잘 노는 것이었습니다｜노년지혜｜오디오북  노년의 지혜",
-     "published": "2026-10-12"
     },
     {
      "id": "SbEfHnF8DdY",
@@ -322,11 +287,6 @@
      "published": "2026-10-14"
     },
     {
-     "id": "amgqXbScFMY",
-     "title": "삼성전자·하이닉스 왜 급락? 코스피 6000 붕괴, 중국 CXMT 공포가 과도한 이유 3가지",
-     "published": "2026-10-13"
-    },
-    {
      "id": "axzUYMuirTs",
      "title": "월 70만 원으로 자산을 쌓은 사람의 3가지 원칙",
      "published": "2026-10-16"
@@ -392,11 +352,6 @@
      "published": "2026-10-13"
     },
     {
-     "id": "hTRG4ehA6NU",
-     "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
-     "published": "2026-10-12"
-    },
-    {
      "id": "hYveSAnSXN8",
      "title": "급락장에 버티는 비트코인... 돈나무 언니는 '20억 전망' 하는 이유는?",
      "published": "2026-10-16"
@@ -447,16 +402,6 @@
      "published": "2026-10-17"
     },
     {
-     "id": "tEmSSBF3dmI",
-     "title": "카드배송 알바, 차 없이 절대 하면 안된다 | 노후이야기, 노후생활, 노인일자리",
-     "published": "2026-10-13"
-    },
-    {
-     "id": "v3lby9QzpS0",
-     "title": "'코스피 하락 전환' 맞춘 전문가 \"강세장 종료\"…'5천'도 깨지나 #이재만 _261013",
-     "published": "2026-10-13"
-    },
-    {
      "id": "vash2ZD50Cs",
      "title": "앞으로는 모두 혼자 산다… 준비한 사람만 노후에 살아남는다｜새로운 은퇴 생존법 ｜ 노후지혜",
      "published": "2026-10-15"
@@ -502,126 +447,108 @@
      "published": "2026-10-14"
     }
    ],
-   "views_median": 33480.0,
-   "views_per_day_median": 9379.75,
-   "ratio_median": 9.79,
-   "success": 82,
-   "minutes_median": 19.05,
-   "title_len_avg": 51.0,
+   "views_median": 33221,
+   "views_per_day_median": 6139.9,
+   "ratio_median": 9.28,
+   "success": 73,
+   "minutes_median": 18.2,
+   "title_len_avg": 50.5,
    "title_features": [
     {
      "name": "노후·퇴직금·은퇴·50~70대",
-     "count": 32,
-     "share": 0.333
+     "count": 27,
+     "share": 0.318
     },
     {
      "name": "물음표 ?",
-     "count": 27,
-     "share": 0.281
+     "count": 23,
+     "share": 0.271
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 25,
-     "share": 0.26
+     "count": 22,
+     "share": 0.259
     },
     {
      "name": "코스피·폭락·급락·하락장",
-     "count": 21,
-     "share": 0.219
+     "count": 17,
+     "share": 0.2
     },
     {
      "name": "금액(억·만원)",
-     "count": 17,
-     "share": 0.177
+     "count": 14,
+     "share": 0.165
     },
     {
      "name": "이유",
-     "count": 16,
-     "share": 0.167
-    },
-    {
-     "name": "사연·오디오북·실화·고백",
-     "count": 16,
-     "share": 0.167
+     "count": 14,
+     "share": 0.165
     },
     {
      "name": "N가지",
-     "count": 14,
-     "share": 0.146
+     "count": 12,
+     "share": 0.141
     },
     {
-     "name": "vs 비교",
-     "count": 10,
-     "share": 0.104
+     "name": "사연·오디오북·실화·고백",
+     "count": 12,
+     "share": 0.141
     },
     {
      "name": "느낌표 !",
-     "count": 9,
+     "count": 8,
      "share": 0.094
+    },
+    {
+     "name": "vs 비교",
+     "count": 7,
+     "share": 0.082
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
      "count": 7,
-     "share": 0.073
-    },
-    {
-     "name": "두 금액(반전)",
-     "count": 3,
-     "share": 0.031
+     "share": 0.082
     },
     {
      "name": "AI",
      "count": 3,
-     "share": 0.031
+     "share": 0.035
+    },
+    {
+     "name": "두 금액(반전)",
+     "count": 2,
+     "share": 0.024
     },
     {
      "name": "과정·벌어진 일·결말·결국",
      "count": 2,
-     "share": 0.021
-    },
-    {
-     "name": "손실 낱말(망하·날린·잃은·반토막)",
-     "count": 1,
-     "share": 0.01
+     "share": 0.024
     },
     {
      "name": "직접·해보니·N년 기록",
      "count": 1,
-     "share": 0.01
-    },
-    {
-     "name": "빚투·신용·미수·레버리지·대출",
-     "count": 1,
-     "share": 0.01
+     "share": 0.012
     }
    ],
    "title_words": [
     {
-     "word": "오디오북",
-     "count": 15
-    },
-    {
      "word": "이유",
-     "count": 13
+     "count": 11
     },
     {
-     "word": "코스피",
-     "count": 10
+     "word": "오디오북",
+     "count": 11
     },
     {
      "word": "노후",
      "count": 7
     },
     {
+     "word": "코스피",
+     "count": 7
+    },
+    {
      "word": "투자",
-     "count": 6
-    },
-    {
-     "word": "가장",
-     "count": 6
-    },
-    {
-     "word": "버는",
      "count": 6
     },
     {
@@ -633,7 +560,15 @@
      "count": 6
     },
     {
+     "word": "가장",
+     "count": 5
+    },
+    {
      "word": "이렇게",
+     "count": 5
+    },
+    {
+     "word": "버는",
      "count": 5
     }
    ],
@@ -641,36 +576,24 @@
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 89,
-    "없음": 7
+    "설명": 79,
+    "없음": 6
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 32
+     "count": 30
     },
     {
      "word": "그리고",
-     "count": 22
-    },
-    {
-     "word": "함께",
-     "count": 18
-    },
-    {
-     "word": "다시",
-     "count": 16
-    },
-    {
-     "word": "실제",
-     "count": 16
+     "count": 20
     },
     {
      "word": "이번",
      "count": 16
     },
     {
-     "word": "10월",
+     "word": "함께",
      "count": 15
     },
     {
@@ -678,23 +601,35 @@
      "count": 15
     },
     {
-     "word": "투자",
-     "count": 15
-    },
-    {
-     "word": "위해",
+     "word": "실제",
      "count": 14
     },
     {
      "word": "AI",
-     "count": 14
+     "count": 13
     },
     {
-     "word": "이야기를",
+     "word": "다시",
      "count": 13
+    },
+    {
+     "word": "투자",
+     "count": 13
+    },
+    {
+     "word": "위해",
+     "count": 12
+    },
+    {
+     "word": "어떻게",
+     "count": 12
+    },
+    {
+     "word": "어떤",
+     "count": 12
     }
    ],
-   "chapters_share": 0.354,
+   "chapters_share": 0.376,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -710,43 +645,43 @@
      "hook": "◾️ 무료 특강 & PDF 받기"
     },
     {
-     "id": "qBYvNiWwwMM",
-     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
+     "id": "V4mCCBmoCdc",
+     "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
      "src": "설명",
-     "hook": "🚨[👇3달만에 억대 수익만드는 코인 실전공식! 30만 커뮤니티를 보유한 코인 트레이더 ‘돈복남’ '퍼즈'의 2026 비트코인 투자 노하우 무료특강👇]🚨 🤑지금이 코인 시장에서 큰 기회를 잡기 가장 좋은 시기인 거 알고 계셨나요? 지금도 시세 변동 속에서 진짜 수익을 내는 트레이딩 기회들"
+     "hook": "산업을 이끄는 이들의 시각으로 미래를 발견하는 시간 [PLUS LEADERS] EP 25 출연 : 신아영(MC) | 122만 미국 증시 유튜버 오선 본 영상은 2026년 10월 11일에 촬영되었습니다. 미국장이 열리는 날이면 어김없이 8시간 동안 이어지는 생방송. 빠르게 변하는 시장 속"
     }
    ],
-   "comments": 19603,
+   "comments": 17658,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 3284,
-     "share": 0.168
+     "count": 2925,
+     "share": 0.166
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 1518,
-     "share": 0.077
-    },
-    {
-     "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 1405,
+     "count": 1264,
      "share": 0.072
     },
     {
-     "name": "경험(내 얘기·나도 잃음)",
-     "count": 1259,
-     "share": 0.064
+     "name": "칭찬·감사",
+     "count": 1183,
+     "share": 0.067
     },
     {
-     "name": "칭찬·감사",
-     "count": 1249,
-     "share": 0.064
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 1180,
+     "share": 0.067
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 1147,
+     "share": 0.065
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 735,
-     "share": 0.037
+     "count": 690,
+     "share": 0.039
     }
    ],
    "top_comments": [
@@ -769,7 +704,7 @@
      "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
      "channel": "채널A News",
      "views": 762073,
-     "views_per_day": 638378.6,
+     "views_per_day": 352297.3,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
     },
@@ -778,34 +713,34 @@
      "title": "검은월요일, 코스피는 얼마나 떨어질까?(ft.딥시크, 코워위브)",
      "channel": "전인구경제연구소",
      "views": 477513,
-     "views_per_day": 477513.0,
+     "views_per_day": 267009.7,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=ZRcF6P2y9Bo"
-    },
-    {
-     "id": "qBYvNiWwwMM",
-     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
-     "channel": "신사임당",
-     "views": 597481,
-     "views_per_day": 307763.0,
-     "published": "2026-10-17",
-     "url": "https://www.youtube.com/watch?v=qBYvNiWwwMM"
     },
     {
      "id": "V4mCCBmoCdc",
      "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
      "channel": "PLUS TV (플러스 TV)",
      "views": 1196189,
-     "views_per_day": 298772.2,
+     "views_per_day": 240533.2,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=V4mCCBmoCdc"
+    },
+    {
+     "id": "qBYvNiWwwMM",
+     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
+     "channel": "신사임당",
+     "views": 597481,
+     "views_per_day": 205266.5,
+     "published": "2026-10-17",
+     "url": "https://www.youtube.com/watch?v=qBYvNiWwwMM"
     },
     {
      "id": "EQDU2WiYrmc",
      "title": "주식 대폭락, 숨겨진 이유 [김진 앵커]",
      "channel": "꽉TV",
      "views": 487784,
-     "views_per_day": 282038.8,
+     "views_per_day": 180735.6,
      "published": "2026-10-17",
      "url": "https://www.youtube.com/watch?v=EQDU2WiYrmc"
     }
@@ -818,14 +753,34 @@
    "channels": 94,
    "new_this_week": [
     {
+     "id": "-2R5j7R_DLI",
+     "title": "코스피 6000 붕괴, 지금 팔아야 하나? 이광수가 '단연코 노'라고 답한 이유",
+     "published": "2026-10-13"
+    },
+    {
      "id": "-dxUrozfhRQ",
      "title": "[노자] 이렇게 하면 바로 대접 받는다 ㅣ인생명언ㅣ행복한 노후ㅣ삶의지혜ㅣ인간관계",
+     "published": "2026-10-12"
+    },
+    {
+     "id": "03LsfqTIOYY",
+     "title": "\"이러면, 지옥문 열릴 것\" 지금 하락은 진짜 공포일까? | 염승환 LS증권 이사 [더블 업]",
+     "published": "2026-10-13"
+    },
+    {
+     "id": "3aVf1x2D1Z8",
+     "title": "자식에게서 이 3가지는 절대 받지 마세요! 노후가 불행해질 수 있습니다 ㅣ노후지혜ㅣ인생명언ㅣ오디오북",
      "published": "2026-10-12"
     },
     {
      "id": "6-ul49R0nKo",
      "title": "요즘 대세 이선민, 강남 아파트는 77세에?! | 돈쭐청문회 EP.1",
      "published": "2026-10-08"
+    },
+    {
+     "id": "86r1uUvk2-A",
+     "title": "39살 애 엄마가 노트북 한대로 수다 떨면서 월 4백만 원 버는 부업",
+     "published": "2026-10-12"
     },
     {
      "id": "DJHfVSc-DvE",
@@ -843,6 +798,26 @@
      "published": "2026-10-12"
     },
     {
+     "id": "PmhYy3u9jxk",
+     "title": "매달 빚이 750만원씩 불어나요… 12억 모텔이 6억으로 반토막ㅣ60대 은퇴부부의 눈물   노후건강   노후자금   노후사연   오디오북   퇴직금   깨달음의노후",
+     "published": "2026-10-13"
+    },
+    {
+     "id": "QhY-znsxiBk",
+     "title": "노후자금사연 태국 푸켓으로 떠났다가 3억 전재산 날리고 고시원 신세 된 65세 부부의 눈물 사연  노후자금  노후의지혜  시니어사연  오디오북",
+     "published": "2026-10-12"
+    },
+    {
+     "id": "SJEMyQEhJ10",
+     "title": "70대가 되어 뒤늦게 깨달았습니다｜은퇴 후 가장 잘한 일은 일이 아니라 잘 노는 것이었습니다｜노년지혜｜오디오북  노년의 지혜",
+     "published": "2026-10-12"
+    },
+    {
+     "id": "amgqXbScFMY",
+     "title": "삼성전자·하이닉스 왜 급락? 코스피 6000 붕괴, 중국 CXMT 공포가 과도한 이유 3가지",
+     "published": "2026-10-13"
+    },
+    {
      "id": "fUyrCZT0W4E",
      "title": "내 노후 자금 지키는 법 [후회 없는 소비의 기준]",
      "published": "2026-10-12"
@@ -850,6 +825,11 @@
     {
      "id": "gJ4ogy8mpO8",
      "title": "돈 없는 노후는 얼마나 비참할까… 평생 성실하게 살아도 노후가 캄캄해지는 진짜 이유 ｜ 노후자금 사연 ｜ 오디오북 ｜ 노년의 지혜",
+     "published": "2026-10-12"
+    },
+    {
+     "id": "hTRG4ehA6NU",
+     "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
      "published": "2026-10-12"
     },
     {
@@ -868,9 +848,19 @@
      "published": "2026-10-06"
     },
     {
+     "id": "tEmSSBF3dmI",
+     "title": "카드배송 알바, 차 없이 절대 하면 안된다 | 노후이야기, 노후생활, 노인일자리",
+     "published": "2026-10-13"
+    },
+    {
      "id": "un5SAQlJFcY",
      "title": "사상 초유의 이틀 연속 서킷브레이커! 폭락장에서 투자자가 절대 해서는 안 될 행동 | 존리 대표",
      "published": "2026-10-12"
+    },
+    {
+     "id": "v3lby9QzpS0",
+     "title": "'코스피 하락 전환' 맞춘 전문가 \"강세장 종료\"…'5천'도 깨지나 #이재만 _261013",
+     "published": "2026-10-13"
     },
     {
      "id": "w9PVpTLk0Tc",
@@ -884,7 +874,7 @@
     }
    ],
    "views_median": 33739,
-   "views_per_day_median": 7383.5,
+   "views_per_day_median": 6123.7,
    "ratio_median": 10.88,
    "success": 95,
    "minutes_median": 19.3,
@@ -1039,11 +1029,11 @@
      "count": 21
     },
     {
-     "word": "이번",
+     "word": "영상에서는",
      "count": 20
     },
     {
-     "word": "영상에서는",
+     "word": "이번",
      "count": 20
     },
     {
@@ -1091,43 +1081,43 @@
      "hook": "◾️ 무료 특강 & PDF 받기"
     },
     {
-     "id": "qBYvNiWwwMM",
-     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
+     "id": "V4mCCBmoCdc",
+     "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
      "src": "설명",
-     "hook": "🚨[👇3달만에 억대 수익만드는 코인 실전공식! 30만 커뮤니티를 보유한 코인 트레이더 ‘돈복남’ '퍼즈'의 2026 비트코인 투자 노하우 무료특강👇]🚨 🤑지금이 코인 시장에서 큰 기회를 잡기 가장 좋은 시기인 거 알고 계셨나요? 지금도 시세 변동 속에서 진짜 수익을 내는 트레이딩 기회들"
+     "hook": "산업을 이끄는 이들의 시각으로 미래를 발견하는 시간 [PLUS LEADERS] EP 25 출연 : 신아영(MC) | 122만 미국 증시 유튜버 오선 본 영상은 2026년 10월 11일에 촬영되었습니다. 미국장이 열리는 날이면 어김없이 8시간 동안 이어지는 생방송. 빠르게 변하는 시장 속"
     }
    ],
-   "comments": 20325,
+   "comments": 21386,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 3362,
-     "share": 0.165
+     "count": 3625,
+     "share": 0.17
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 1533,
-     "share": 0.075
+     "count": 1670,
+     "share": 0.078
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 1437,
-     "share": 0.071
+     "count": 1547,
+     "share": 0.072
     },
     {
      "name": "칭찬·감사",
-     "count": 1343,
-     "share": 0.066
+     "count": 1389,
+     "share": 0.065
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 1297,
+     "count": 1363,
      "share": 0.064
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 745,
-     "share": 0.037
+     "count": 762,
+     "share": 0.036
     }
    ],
    "top_comments": [
@@ -1150,7 +1140,7 @@
      "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
      "channel": "채널A News",
      "views": 762073,
-     "views_per_day": 638378.6,
+     "views_per_day": 352297.3,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
     },
@@ -1159,36 +1149,36 @@
      "title": "검은월요일, 코스피는 얼마나 떨어질까?(ft.딥시크, 코워위브)",
      "channel": "전인구경제연구소",
      "views": 477513,
-     "views_per_day": 477513.0,
+     "views_per_day": 267009.7,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=ZRcF6P2y9Bo"
-    },
-    {
-     "id": "qBYvNiWwwMM",
-     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
-     "channel": "신사임당",
-     "views": 597481,
-     "views_per_day": 307763.0,
-     "published": "2026-10-17",
-     "url": "https://www.youtube.com/watch?v=qBYvNiWwwMM"
     },
     {
      "id": "V4mCCBmoCdc",
      "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
      "channel": "PLUS TV (플러스 TV)",
      "views": 1196189,
-     "views_per_day": 298772.2,
+     "views_per_day": 240533.2,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=V4mCCBmoCdc"
     },
     {
-     "id": "EQDU2WiYrmc",
-     "title": "주식 대폭락, 숨겨진 이유 [김진 앵커]",
-     "channel": "꽉TV",
-     "views": 487784,
-     "views_per_day": 282038.8,
+     "id": "qBYvNiWwwMM",
+     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
+     "channel": "신사임당",
+     "views": 597481,
+     "views_per_day": 205266.5,
      "published": "2026-10-17",
-     "url": "https://www.youtube.com/watch?v=EQDU2WiYrmc"
+     "url": "https://www.youtube.com/watch?v=qBYvNiWwwMM"
+    },
+    {
+     "id": "hTRG4ehA6NU",
+     "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
+     "channel": "박종훈의 지식한방",
+     "views": 1554272,
+     "views_per_day": 198568.7,
+     "published": "2026-10-12",
+     "url": "https://www.youtube.com/watch?v=hTRG4ehA6NU"
     }
    ]
   },
@@ -1230,7 +1220,7 @@
     }
    ],
    "views_median": 35315,
-   "views_per_day_median": 7949.5,
+   "views_per_day_median": 6623.1,
    "ratio_median": 11.09,
    "success": 98,
    "minutes_median": 19.3,
@@ -1381,11 +1371,11 @@
      "count": 29
     },
     {
-     "word": "이번",
+     "word": "함께",
      "count": 21
     },
     {
-     "word": "함께",
+     "word": "이번",
      "count": 21
     },
     {
@@ -1437,43 +1427,43 @@
      "hook": "◾️ 무료 특강 & PDF 받기"
     },
     {
-     "id": "qBYvNiWwwMM",
-     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
+     "id": "V4mCCBmoCdc",
+     "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
      "src": "설명",
-     "hook": "🚨[👇3달만에 억대 수익만드는 코인 실전공식! 30만 커뮤니티를 보유한 코인 트레이더 ‘돈복남’ '퍼즈'의 2026 비트코인 투자 노하우 무료특강👇]🚨 🤑지금이 코인 시장에서 큰 기회를 잡기 가장 좋은 시기인 거 알고 계셨나요? 지금도 시세 변동 속에서 진짜 수익을 내는 트레이딩 기회들"
+     "hook": "산업을 이끄는 이들의 시각으로 미래를 발견하는 시간 [PLUS LEADERS] EP 25 출연 : 신아영(MC) | 122만 미국 증시 유튜버 오선 본 영상은 2026년 10월 11일에 촬영되었습니다. 미국장이 열리는 날이면 어김없이 8시간 동안 이어지는 생방송. 빠르게 변하는 시장 속"
     }
    ],
-   "comments": 23003,
+   "comments": 24064,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 3823,
-     "share": 0.166
+     "count": 4086,
+     "share": 0.17
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 1743,
-     "share": 0.076
+     "count": 1853,
+     "share": 0.077
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 1619,
-     "share": 0.07
+     "count": 1756,
+     "share": 0.073
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 1478,
+     "count": 1544,
      "share": 0.064
     },
     {
      "name": "칭찬·감사",
-     "count": 1474,
-     "share": 0.064
+     "count": 1520,
+     "share": 0.063
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 817,
-     "share": 0.036
+     "count": 834,
+     "share": 0.035
     }
    ],
    "top_comments": [
@@ -1496,7 +1486,7 @@
      "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
      "channel": "채널A News",
      "views": 762073,
-     "views_per_day": 638378.6,
+     "views_per_day": 352297.3,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
     },
@@ -1505,54 +1495,49 @@
      "title": "검은월요일, 코스피는 얼마나 떨어질까?(ft.딥시크, 코워위브)",
      "channel": "전인구경제연구소",
      "views": 477513,
-     "views_per_day": 477513.0,
+     "views_per_day": 267009.7,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=ZRcF6P2y9Bo"
-    },
-    {
-     "id": "qBYvNiWwwMM",
-     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
-     "channel": "신사임당",
-     "views": 597481,
-     "views_per_day": 307763.0,
-     "published": "2026-10-17",
-     "url": "https://www.youtube.com/watch?v=qBYvNiWwwMM"
     },
     {
      "id": "V4mCCBmoCdc",
      "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
      "channel": "PLUS TV (플러스 TV)",
      "views": 1196189,
-     "views_per_day": 298772.2,
+     "views_per_day": 240533.2,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=V4mCCBmoCdc"
     },
     {
-     "id": "EQDU2WiYrmc",
-     "title": "주식 대폭락, 숨겨진 이유 [김진 앵커]",
-     "channel": "꽉TV",
-     "views": 487784,
-     "views_per_day": 282038.8,
+     "id": "ZlGbs_sIbQg",
+     "title": "계속 떨어지더니 '최저' 찍었다..\"요즘 금값 왜 이래\" 이유 보니 / 친절한 경제 / SBS 모닝와이드 2부",
+     "channel": "SBS 뉴스",
+     "views": 4192694,
+     "views_per_day": 206895.8,
+     "published": "2026-09-30",
+     "url": "https://www.youtube.com/watch?v=ZlGbs_sIbQg"
+    },
+    {
+     "id": "qBYvNiWwwMM",
+     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
+     "channel": "신사임당",
+     "views": 597481,
+     "views_per_day": 205266.5,
      "published": "2026-10-17",
-     "url": "https://www.youtube.com/watch?v=EQDU2WiYrmc"
+     "url": "https://www.youtube.com/watch?v=qBYvNiWwwMM"
     }
    ]
   },
   {
    "weeks": 4,
    "label": "최근 4주",
-   "videos": 126,
+   "videos": 125,
    "channels": 107,
    "new_this_week": [
     {
      "id": "5TF8BKFWERo",
      "title": "650만 원 버는데도 마이너스... 연봉 1억 맞벌이인데도 집 못 사는 부부의 공통점 (구해줘월급)",
      "published": "2026-09-23"
-    },
-    {
-     "id": "6LShuUa4Zt0",
-     "title": "50대에 조기퇴직하면 어떤 삶을 살게 될까? 51세에 경제적 자유와 조기은퇴(FIRE)를 이룬 사람의 실제 이야기…",
-     "published": "2026-09-21"
     },
     {
      "id": "6XD2NySGz7w",
@@ -1600,67 +1585,67 @@
      "published": "2026-09-22"
     }
    ],
-   "views_median": 40329.5,
-   "views_per_day_median": 8302.6,
-   "ratio_median": 12.05,
-   "success": 105,
-   "minutes_median": 19.35,
-   "title_len_avg": 51.4,
+   "views_median": 38549,
+   "views_per_day_median": 6632.7,
+   "ratio_median": 11.31,
+   "success": 104,
+   "minutes_median": 19.4,
+   "title_len_avg": 51.3,
    "title_features": [
     {
      "name": "노후·퇴직금·은퇴·50~70대",
-     "count": 46,
-     "share": 0.365
+     "count": 45,
+     "share": 0.36
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 38,
-     "share": 0.302
+     "share": 0.304
     },
     {
      "name": "물음표 ?",
-     "count": 30,
-     "share": 0.238
+     "count": 29,
+     "share": 0.232
     },
     {
      "name": "이유",
      "count": 22,
-     "share": 0.175
+     "share": 0.176
     },
     {
      "name": "코스피·폭락·급락·하락장",
      "count": 22,
-     "share": 0.175
+     "share": 0.176
     },
     {
      "name": "금액(억·만원)",
      "count": 20,
-     "share": 0.159
+     "share": 0.16
     },
     {
      "name": "N가지",
      "count": 20,
-     "share": 0.159
+     "share": 0.16
     },
     {
      "name": "사연·오디오북·실화·고백",
      "count": 20,
-     "share": 0.159
+     "share": 0.16
     },
     {
      "name": "vs 비교",
      "count": 16,
-     "share": 0.127
+     "share": 0.128
     },
     {
      "name": "느낌표 !",
      "count": 13,
-     "share": 0.103
+     "share": 0.104
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
      "count": 9,
-     "share": 0.071
+     "share": 0.072
     },
     {
      "name": "두 금액(반전)",
@@ -1740,17 +1725,17 @@
      "count": 7
     }
    ],
-   "transcripts": 8,
+   "transcripts": 7,
    "text_sources": {
     "자막": 0,
-    "음성인식": 8,
+    "음성인식": 7,
     "설명": 110,
     "없음": 8
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 47
+     "count": 46
     },
     {
      "word": "그리고",
@@ -1758,26 +1743,14 @@
     },
     {
      "word": "다시",
-     "count": 23
+     "count": 22
     },
     {
      "word": "함께",
      "count": 22
     },
     {
-     "word": "투자",
-     "count": 22
-    },
-    {
      "word": "가장",
-     "count": 21
-    },
-    {
-     "word": "이야기를",
-     "count": 21
-    },
-    {
-     "word": "어떻게",
      "count": 21
     },
     {
@@ -1789,15 +1762,27 @@
      "count": 21
     },
     {
+     "word": "투자",
+     "count": 21
+    },
+    {
      "word": "오늘",
+     "count": 20
+    },
+    {
+     "word": "이야기를",
      "count": 20
     },
     {
      "word": "실제",
      "count": 20
+    },
+    {
+     "word": "어떻게",
+     "count": 20
     }
    ],
-   "chapters_share": 0.333,
+   "chapters_share": 0.336,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -1813,43 +1798,43 @@
      "hook": "◾️ 무료 특강 & PDF 받기"
     },
     {
-     "id": "qBYvNiWwwMM",
-     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
+     "id": "V4mCCBmoCdc",
+     "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
      "src": "설명",
-     "hook": "🚨[👇3달만에 억대 수익만드는 코인 실전공식! 30만 커뮤니티를 보유한 코인 트레이더 ‘돈복남’ '퍼즈'의 2026 비트코인 투자 노하우 무료특강👇]🚨 🤑지금이 코인 시장에서 큰 기회를 잡기 가장 좋은 시기인 거 알고 계셨나요? 지금도 시세 변동 속에서 진짜 수익을 내는 트레이딩 기회들"
+     "hook": "산업을 이끄는 이들의 시각으로 미래를 발견하는 시간 [PLUS LEADERS] EP 25 출연 : 신아영(MC) | 122만 미국 증시 유튜버 오선 본 영상은 2026년 10월 11일에 촬영되었습니다. 미국장이 열리는 날이면 어김없이 8시간 동안 이어지는 생방송. 빠르게 변하는 시장 속"
     }
    ],
-   "comments": 27583,
+   "comments": 28467,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 4608,
-     "share": 0.167
+     "count": 4838,
+     "share": 0.17
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 2179,
-     "share": 0.079
+     "count": 2269,
+     "share": 0.08
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 1828,
+     "count": 1874,
      "share": 0.066
     },
     {
      "name": "칭찬·감사",
-     "count": 1738,
-     "share": 0.063
+     "count": 1772,
+     "share": 0.062
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 1633,
-     "share": 0.059
+     "count": 1770,
+     "share": 0.062
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 910,
-     "share": 0.033
+     "count": 920,
+     "share": 0.032
     }
    ],
    "top_comments": [
@@ -1872,7 +1857,7 @@
      "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
      "channel": "채널A News",
      "views": 762073,
-     "views_per_day": 638378.6,
+     "views_per_day": 352297.3,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
     },
@@ -1881,49 +1866,54 @@
      "title": "검은월요일, 코스피는 얼마나 떨어질까?(ft.딥시크, 코워위브)",
      "channel": "전인구경제연구소",
      "views": 477513,
-     "views_per_day": 477513.0,
+     "views_per_day": 267009.7,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=ZRcF6P2y9Bo"
-    },
-    {
-     "id": "qBYvNiWwwMM",
-     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
-     "channel": "신사임당",
-     "views": 597481,
-     "views_per_day": 307763.0,
-     "published": "2026-10-17",
-     "url": "https://www.youtube.com/watch?v=qBYvNiWwwMM"
     },
     {
      "id": "V4mCCBmoCdc",
      "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
      "channel": "PLUS TV (플러스 TV)",
      "views": 1196189,
-     "views_per_day": 298772.2,
+     "views_per_day": 240533.2,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=V4mCCBmoCdc"
     },
     {
-     "id": "EQDU2WiYrmc",
-     "title": "주식 대폭락, 숨겨진 이유 [김진 앵커]",
-     "channel": "꽉TV",
-     "views": 487784,
-     "views_per_day": 282038.8,
+     "id": "ZlGbs_sIbQg",
+     "title": "계속 떨어지더니 '최저' 찍었다..\"요즘 금값 왜 이래\" 이유 보니 / 친절한 경제 / SBS 모닝와이드 2부",
+     "channel": "SBS 뉴스",
+     "views": 4192694,
+     "views_per_day": 206895.8,
+     "published": "2026-09-30",
+     "url": "https://www.youtube.com/watch?v=ZlGbs_sIbQg"
+    },
+    {
+     "id": "qBYvNiWwwMM",
+     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
+     "channel": "신사임당",
+     "views": 597481,
+     "views_per_day": 205266.5,
      "published": "2026-10-17",
-     "url": "https://www.youtube.com/watch?v=EQDU2WiYrmc"
+     "url": "https://www.youtube.com/watch?v=qBYvNiWwwMM"
     }
    ]
   },
   {
    "weeks": 5,
    "label": "최근 5주",
-   "videos": 136,
-   "channels": 116,
+   "videos": 135,
+   "channels": 115,
    "new_this_week": [
     {
      "id": "5kBEU3V3ZXY",
      "title": "본인도 모르는 사이에 남몰래 부자가 되고 있다는 5가지 신호",
      "published": "2026-09-17"
+    },
+    {
+     "id": "6LShuUa4Zt0",
+     "title": "50대에 조기퇴직하면 어떤 삶을 살게 될까? 51세에 경제적 자유와 조기은퇴(FIRE)를 이룬 사람의 실제 이야기…",
+     "published": "2026-09-21"
     },
     {
      "id": "GCbd8J_BDYc",
@@ -1956,11 +1946,6 @@
      "published": "2026-09-16"
     },
     {
-     "id": "mFV8SJzGDak",
-     "title": "연말정산 연금저축·IRP 무조건 가입하면 후회하는 3가지 이유 (ft. 세액공제 vs 소득공제)",
-     "published": "2026-09-15"
-    },
-    {
      "id": "pMZmS_k_s0U",
      "title": "노후자금사연 월 450만원 연금 받는 전직 은행원 60대 부부도 무너지는 충격적인 현상황!",
      "published": "2026-09-17"
@@ -1971,72 +1956,72 @@
      "published": "2026-09-17"
     }
    ],
-   "views_median": 50024.0,
-   "views_per_day_median": 7666.5,
-   "ratio_median": 13.48,
-   "success": 114,
-   "minutes_median": 19.35,
+   "views_median": 45178,
+   "views_per_day_median": 6632.7,
+   "ratio_median": 13.43,
+   "success": 113,
+   "minutes_median": 19.4,
    "title_len_avg": 50.8,
    "title_features": [
     {
      "name": "노후·퇴직금·은퇴·50~70대",
      "count": 50,
-     "share": 0.368
+     "share": 0.37
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 42,
-     "share": 0.309
+     "count": 41,
+     "share": 0.304
     },
     {
      "name": "물음표 ?",
      "count": 31,
-     "share": 0.228
+     "share": 0.23
     },
     {
      "name": "이유",
-     "count": 24,
-     "share": 0.176
-    },
-    {
-     "name": "N가지",
      "count": 23,
-     "share": 0.169
+     "share": 0.17
     },
     {
      "name": "금액(억·만원)",
      "count": 22,
-     "share": 0.162
+     "share": 0.163
+    },
+    {
+     "name": "N가지",
+     "count": 22,
+     "share": 0.163
     },
     {
      "name": "사연·오디오북·실화·고백",
      "count": 22,
-     "share": 0.162
+     "share": 0.163
     },
     {
      "name": "코스피·폭락·급락·하락장",
      "count": 22,
-     "share": 0.162
+     "share": 0.163
     },
     {
      "name": "vs 비교",
-     "count": 19,
-     "share": 0.14
+     "count": 18,
+     "share": 0.133
     },
     {
      "name": "느낌표 !",
      "count": 14,
-     "share": 0.103
+     "share": 0.104
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
      "count": 9,
-     "share": 0.066
+     "share": 0.067
     },
     {
      "name": "두 금액(반전)",
      "count": 4,
-     "share": 0.029
+     "share": 0.03
     },
     {
      "name": "AI",
@@ -2072,7 +2057,7 @@
    "title_words": [
     {
      "word": "이유",
-     "count": 21
+     "count": 20
     },
     {
      "word": "오디오북",
@@ -2115,7 +2100,7 @@
    "text_sources": {
     "자막": 1,
     "음성인식": 14,
-    "설명": 113,
+    "설명": 112,
     "없음": 8
    },
    "content_words": [
@@ -2152,10 +2137,6 @@
      "count": 25
     },
     {
-     "word": "가장",
-     "count": 24
-    },
-    {
      "word": "함께",
      "count": 24
     },
@@ -2164,11 +2145,15 @@
      "count": 24
     },
     {
+     "word": "가장",
+     "count": 23
+    },
+    {
      "word": "여러분의",
      "count": 23
     }
    ],
-   "chapters_share": 0.331,
+   "chapters_share": 0.326,
    "syl_per_sec_median": 4.8,
    "hooks": [
     {
@@ -2184,43 +2169,43 @@
      "hook": "◾️ 무료 특강 & PDF 받기"
     },
     {
-     "id": "qBYvNiWwwMM",
-     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
+     "id": "V4mCCBmoCdc",
+     "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
      "src": "설명",
-     "hook": "🚨[👇3달만에 억대 수익만드는 코인 실전공식! 30만 커뮤니티를 보유한 코인 트레이더 ‘돈복남’ '퍼즈'의 2026 비트코인 투자 노하우 무료특강👇]🚨 🤑지금이 코인 시장에서 큰 기회를 잡기 가장 좋은 시기인 거 알고 계셨나요? 지금도 시세 변동 속에서 진짜 수익을 내는 트레이딩 기회들"
+     "hook": "산업을 이끄는 이들의 시각으로 미래를 발견하는 시간 [PLUS LEADERS] EP 25 출연 : 신아영(MC) | 122만 미국 증시 유튜버 오선 본 영상은 2026년 10월 11일에 촬영되었습니다. 미국장이 열리는 날이면 어김없이 8시간 동안 이어지는 생방송. 빠르게 변하는 시장 속"
     }
    ],
-   "comments": 28678,
+   "comments": 29738,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 4794,
-     "share": 0.167
+     "count": 5057,
+     "share": 0.17
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 2264,
-     "share": 0.079
+     "count": 2374,
+     "share": 0.08
     },
     {
      "name": "칭찬·감사",
-     "count": 1978,
-     "share": 0.069
+     "count": 2024,
+     "share": 0.068
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 1933,
+     "count": 1998,
      "share": 0.067
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 1651,
-     "share": 0.058
+     "count": 1788,
+     "share": 0.06
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 940,
-     "share": 0.033
+     "count": 957,
+     "share": 0.032
     }
    ],
    "top_comments": [
@@ -2243,7 +2228,7 @@
      "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
      "channel": "채널A News",
      "views": 762073,
-     "views_per_day": 638378.6,
+     "views_per_day": 352297.3,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
     },
@@ -2252,44 +2237,44 @@
      "title": "검은월요일, 코스피는 얼마나 떨어질까?(ft.딥시크, 코워위브)",
      "channel": "전인구경제연구소",
      "views": 477513,
-     "views_per_day": 477513.0,
+     "views_per_day": 267009.7,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=ZRcF6P2y9Bo"
-    },
-    {
-     "id": "qBYvNiWwwMM",
-     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
-     "channel": "신사임당",
-     "views": 597481,
-     "views_per_day": 307763.0,
-     "published": "2026-10-17",
-     "url": "https://www.youtube.com/watch?v=qBYvNiWwwMM"
     },
     {
      "id": "V4mCCBmoCdc",
      "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
      "channel": "PLUS TV (플러스 TV)",
      "views": 1196189,
-     "views_per_day": 298772.2,
+     "views_per_day": 240533.2,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=V4mCCBmoCdc"
     },
     {
-     "id": "EQDU2WiYrmc",
-     "title": "주식 대폭락, 숨겨진 이유 [김진 앵커]",
-     "channel": "꽉TV",
-     "views": 487784,
-     "views_per_day": 282038.8,
+     "id": "ZlGbs_sIbQg",
+     "title": "계속 떨어지더니 '최저' 찍었다..\"요즘 금값 왜 이래\" 이유 보니 / 친절한 경제 / SBS 모닝와이드 2부",
+     "channel": "SBS 뉴스",
+     "views": 4192694,
+     "views_per_day": 206895.8,
+     "published": "2026-09-30",
+     "url": "https://www.youtube.com/watch?v=ZlGbs_sIbQg"
+    },
+    {
+     "id": "qBYvNiWwwMM",
+     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
+     "channel": "신사임당",
+     "views": 597481,
+     "views_per_day": 205266.5,
      "published": "2026-10-17",
-     "url": "https://www.youtube.com/watch?v=EQDU2WiYrmc"
+     "url": "https://www.youtube.com/watch?v=qBYvNiWwwMM"
     }
    ]
   },
   {
    "weeks": 6,
    "label": "최근 6주",
-   "videos": 154,
-   "channels": 127,
+   "videos": 151,
+   "channels": 125,
    "new_this_week": [
     {
      "id": "1qlywudP2oY",
@@ -2300,11 +2285,6 @@
      "id": "2yOps8H0fWs",
      "title": "에어컨이 필요 없는 문쌤의 폐건물 괴담 [문쌤 라디오]",
      "published": "2026-09-11"
-    },
-    {
-     "id": "DeXKTULwhEI",
-     "title": "재고가 쌓일수록 부자가 되는 유일한 장사, 금은방의 기막힌 구조",
-     "published": "2026-09-07"
     },
     {
      "id": "FJq7Cz3CSz8",
@@ -2327,11 +2307,6 @@
      "published": "2026-09-13"
     },
     {
-     "id": "NJtszuRxre8",
-     "title": "\"달러 약세라는데..\" S&P500 계속 사모아도 되는 걸까?ㅣ돈크라테스 EP. 27",
-     "published": "2026-09-07"
-    },
-    {
      "id": "Nro4_Y8yS0o",
      "title": "환율 1,336원 시대, 부자들이 조용히 하고 있는 것",
      "published": "2026-09-13"
@@ -2345,11 +2320,6 @@
      "id": "YPHCeHZbHxc",
      "title": "기준금리 3%시대, 살아남는 투자자들은?",
      "published": "2026-09-12"
-    },
-    {
-     "id": "YdmZDxBcYKE",
-     "title": "ETF는 이 '2개'로 충분합니다. 돈 있으면 무조건 여기부터 넣습니다. 노후 준비 끝납니다 (백승호 단장 3부) #백승호 #ETF #배당금 #커버드콜",
-     "published": "2026-09-07"
     },
     {
      "id": "abPHpPAuZmw",
@@ -2377,82 +2347,87 @@
      "published": "2026-09-09"
     },
     {
+     "id": "mFV8SJzGDak",
+     "title": "연말정산 연금저축·IRP 무조건 가입하면 후회하는 3가지 이유 (ft. 세액공제 vs 소득공제)",
+     "published": "2026-09-15"
+    },
+    {
      "id": "yUOPigEkdzM",
      "title": "연금저축·IRP·ISA 순서 총정리, 뭐부터 얼마씩 넣어야 하나?",
      "published": "2026-09-13"
     }
    ],
-   "views_median": 78561.5,
-   "views_per_day_median": 7912.5,
-   "ratio_median": 12.96,
-   "success": 124,
-   "minutes_median": 19.55,
-   "title_len_avg": 50.0,
+   "views_median": 75562,
+   "views_per_day_median": 6636.8,
+   "ratio_median": 13.13,
+   "success": 122,
+   "minutes_median": 19.4,
+   "title_len_avg": 49.9,
    "title_features": [
     {
      "name": "노후·퇴직금·은퇴·50~70대",
-     "count": 52,
+     "count": 51,
      "share": 0.338
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 44,
-     "share": 0.286
+     "share": 0.291
     },
     {
      "name": "물음표 ?",
-     "count": 36,
-     "share": 0.234
+     "count": 35,
+     "share": 0.232
     },
     {
      "name": "금액(억·만원)",
      "count": 27,
-     "share": 0.175
+     "share": 0.179
     },
     {
      "name": "이유",
      "count": 25,
-     "share": 0.162
+     "share": 0.166
     },
     {
      "name": "N가지",
      "count": 24,
-     "share": 0.156
+     "share": 0.159
     },
     {
      "name": "사연·오디오북·실화·고백",
      "count": 23,
-     "share": 0.149
+     "share": 0.152
     },
     {
      "name": "코스피·폭락·급락·하락장",
      "count": 22,
-     "share": 0.143
+     "share": 0.146
     },
     {
      "name": "vs 비교",
      "count": 20,
-     "share": 0.13
+     "share": 0.132
     },
     {
      "name": "느낌표 !",
      "count": 14,
-     "share": 0.091
+     "share": 0.093
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
-     "count": 13,
-     "share": 0.084
+     "count": 11,
+     "share": 0.073
     },
     {
      "name": "두 금액(반전)",
      "count": 5,
-     "share": 0.032
+     "share": 0.033
     },
     {
      "name": "AI",
      "count": 3,
-     "share": 0.019
+     "share": 0.02
     },
     {
      "name": "과정·벌어진 일·결말·결국",
@@ -2477,7 +2452,7 @@
     {
      "name": "공통점",
      "count": 1,
-     "share": 0.006
+     "share": 0.007
     }
    ],
    "title_words": [
@@ -2491,7 +2466,7 @@
     },
     {
      "word": "노후",
-     "count": 15
+     "count": 14
     },
     {
      "word": "코스피",
@@ -2514,56 +2489,48 @@
      "count": 8
     },
     {
-     "word": "부자가",
+     "word": "버는",
      "count": 8
     },
     {
-     "word": "버는",
-     "count": 8
+     "word": "가장",
+     "count": 7
     }
    ],
-   "transcripts": 19,
+   "transcripts": 18,
    "text_sources": {
     "자막": 1,
-    "음성인식": 18,
-    "설명": 127,
+    "음성인식": 17,
+    "설명": 125,
     "없음": 8
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 63
+     "count": 61
     },
     {
      "word": "그리고",
-     "count": 47
+     "count": 45
     },
     {
      "word": "아니라",
-     "count": 32
+     "count": 31
     },
     {
      "word": "다시",
-     "count": 31
+     "count": 30
     },
     {
      "word": "어떤",
      "count": 30
     },
     {
-     "word": "투자",
-     "count": 29
-    },
-    {
      "word": "어떻게",
      "count": 29
     },
     {
-     "word": "오늘",
-     "count": 28
-    },
-    {
-     "word": "돈을",
+     "word": "투자",
      "count": 28
     },
     {
@@ -2571,11 +2538,19 @@
      "count": 27
     },
     {
-     "word": "같은",
+     "word": "오늘",
+     "count": 27
+    },
+    {
+     "word": "돈을",
      "count": 27
     },
     {
      "word": "이야기를",
+     "count": 26
+    },
+    {
+     "word": "같은",
      "count": 26
     }
    ],
@@ -2595,43 +2570,43 @@
      "hook": "◾️ 무료 특강 & PDF 받기"
     },
     {
-     "id": "qBYvNiWwwMM",
-     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
+     "id": "V4mCCBmoCdc",
+     "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
      "src": "설명",
-     "hook": "🚨[👇3달만에 억대 수익만드는 코인 실전공식! 30만 커뮤니티를 보유한 코인 트레이더 ‘돈복남’ '퍼즈'의 2026 비트코인 투자 노하우 무료특강👇]🚨 🤑지금이 코인 시장에서 큰 기회를 잡기 가장 좋은 시기인 거 알고 계셨나요? 지금도 시세 변동 속에서 진짜 수익을 내는 트레이딩 기회들"
+     "hook": "산업을 이끄는 이들의 시각으로 미래를 발견하는 시간 [PLUS LEADERS] EP 25 출연 : 신아영(MC) | 122만 미국 증시 유튜버 오선 본 영상은 2026년 10월 11일에 촬영되었습니다. 미국장이 열리는 날이면 어김없이 8시간 동안 이어지는 생방송. 빠르게 변하는 시장 속"
     }
    ],
-   "comments": 39129,
+   "comments": 39712,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 7721,
-     "share": 0.197
+     "count": 7879,
+     "share": 0.198
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 4171,
-     "share": 0.107
+     "count": 4206,
+     "share": 0.106
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 2829,
+     "count": 2858,
      "share": 0.072
     },
     {
      "name": "칭찬·감사",
-     "count": 2640,
+     "count": 2673,
      "share": 0.067
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 1754,
-     "share": 0.045
+     "count": 1859,
+     "share": 0.047
     },
     {
      "name": "빚·신용·미수",
-     "count": 1157,
-     "share": 0.03
+     "count": 1225,
+     "share": 0.031
     }
    ],
    "top_comments": [
@@ -2654,7 +2629,7 @@
      "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
      "channel": "채널A News",
      "views": 762073,
-     "views_per_day": 638378.6,
+     "views_per_day": 352297.3,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
     },
@@ -2663,43 +2638,43 @@
      "title": "검은월요일, 코스피는 얼마나 떨어질까?(ft.딥시크, 코워위브)",
      "channel": "전인구경제연구소",
      "views": 477513,
-     "views_per_day": 477513.0,
+     "views_per_day": 267009.7,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=ZRcF6P2y9Bo"
-    },
-    {
-     "id": "qBYvNiWwwMM",
-     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
-     "channel": "신사임당",
-     "views": 597481,
-     "views_per_day": 307763.0,
-     "published": "2026-10-17",
-     "url": "https://www.youtube.com/watch?v=qBYvNiWwwMM"
     },
     {
      "id": "V4mCCBmoCdc",
      "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
      "channel": "PLUS TV (플러스 TV)",
      "views": 1196189,
-     "views_per_day": 298772.2,
+     "views_per_day": 240533.2,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=V4mCCBmoCdc"
     },
     {
-     "id": "EQDU2WiYrmc",
-     "title": "주식 대폭락, 숨겨진 이유 [김진 앵커]",
-     "channel": "꽉TV",
-     "views": 487784,
-     "views_per_day": 282038.8,
+     "id": "ZlGbs_sIbQg",
+     "title": "계속 떨어지더니 '최저' 찍었다..\"요즘 금값 왜 이래\" 이유 보니 / 친절한 경제 / SBS 모닝와이드 2부",
+     "channel": "SBS 뉴스",
+     "views": 4192694,
+     "views_per_day": 206895.8,
+     "published": "2026-09-30",
+     "url": "https://www.youtube.com/watch?v=ZlGbs_sIbQg"
+    },
+    {
+     "id": "qBYvNiWwwMM",
+     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
+     "channel": "신사임당",
+     "views": 597481,
+     "views_per_day": 205266.5,
      "published": "2026-10-17",
-     "url": "https://www.youtube.com/watch?v=EQDU2WiYrmc"
+     "url": "https://www.youtube.com/watch?v=qBYvNiWwwMM"
     }
    ]
   },
   {
    "weeks": 7,
    "label": "최근 7주",
-   "videos": 171,
+   "videos": 168,
    "channels": 136,
    "new_this_week": [
     {
@@ -2708,19 +2683,14 @@
      "published": "2026-09-03"
     },
     {
-     "id": "4u3VzpSKE1g",
-     "title": "강제 장기투자로 들어간 K-개미들",
-     "published": "2026-08-31"
-    },
-    {
-     "id": "9C7_sKVcPiQ",
-     "title": "40대 은퇴 후 월급 대신 배당 받으며 사는 법｜실제 포트폴리오 공개 | 최영민 작가",
-     "published": "2026-08-31"
-    },
-    {
      "id": "BqDfJt2vAHY",
      "title": "1.3억 커버드콜로 은퇴했어요 #배당투자 #배당은퇴 #경제적자유 #파이어족 #월배당 #고배당주 #주식투자 #재테크#노후준비#배당금생활  #SCHD #JEPI #JEPQ",
      "published": "2026-09-02"
+    },
+    {
+     "id": "DeXKTULwhEI",
+     "title": "재고가 쌓일수록 부자가 되는 유일한 장사, 금은방의 기막힌 구조",
+     "published": "2026-09-07"
     },
     {
      "id": "Gwk2gkxpx3I",
@@ -2743,6 +2713,11 @@
      "published": "2026-09-05"
     },
     {
+     "id": "NJtszuRxre8",
+     "title": "\"달러 약세라는데..\" S&P500 계속 사모아도 되는 걸까?ㅣ돈크라테스 EP. 27",
+     "published": "2026-09-07"
+    },
+    {
      "id": "VEq_V5USmRg",
      "title": "'보기만 해도 피가되고 살이된다' EBS 레전드 명작 주식의 시대, 돈의 얼굴, 자본주의 핵심 몰아보기｜다큐프라임｜#골라듄다큐",
      "published": "2026-09-04"
@@ -2753,9 +2728,9 @@
      "published": "2026-09-05"
     },
     {
-     "id": "W8ktTNAzCws",
-     "title": "13개월만에 최저치 찍은 환율. 기업이 돈을 쓰는 곳에 기회가 있습니다.",
-     "published": "2026-08-31"
+     "id": "YdmZDxBcYKE",
+     "title": "ETF는 이 '2개'로 충분합니다. 돈 있으면 무조건 여기부터 넣습니다. 노후 준비 끝납니다 (백승호 단장 3부) #백승호 #ETF #배당금 #커버드콜",
+     "published": "2026-09-07"
     },
     {
      "id": "kXnYK2PiBDc",
@@ -2788,77 +2763,77 @@
      "published": "2026-09-03"
     }
    ],
-   "views_median": 82572,
-   "views_per_day_median": 7949.5,
-   "ratio_median": 11.09,
-   "success": 135,
-   "minutes_median": 20.0,
-   "title_len_avg": 50.1,
+   "views_median": 81648.5,
+   "views_per_day_median": 6760.35,
+   "ratio_median": 11.2,
+   "success": 134,
+   "minutes_median": 19.55,
+   "title_len_avg": 50.4,
    "title_features": [
     {
      "name": "노후·퇴직금·은퇴·50~70대",
-     "count": 59,
+     "count": 58,
      "share": 0.345
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 49,
-     "share": 0.287
+     "share": 0.292
     },
     {
      "name": "물음표 ?",
      "count": 38,
-     "share": 0.222
+     "share": 0.226
     },
     {
      "name": "금액(억·만원)",
      "count": 32,
-     "share": 0.187
+     "share": 0.19
     },
     {
      "name": "N가지",
      "count": 28,
-     "share": 0.164
+     "share": 0.167
     },
     {
      "name": "이유",
      "count": 26,
-     "share": 0.152
+     "share": 0.155
     },
     {
      "name": "사연·오디오북·실화·고백",
      "count": 25,
-     "share": 0.146
+     "share": 0.149
     },
     {
      "name": "코스피·폭락·급락·하락장",
      "count": 22,
-     "share": 0.129
+     "share": 0.131
     },
     {
      "name": "vs 비교",
-     "count": 21,
-     "share": 0.123
+     "count": 20,
+     "share": 0.119
     },
     {
      "name": "느낌표 !",
      "count": 15,
-     "share": 0.088
+     "share": 0.089
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
      "count": 15,
-     "share": 0.088
+     "share": 0.089
     },
     {
      "name": "두 금액(반전)",
      "count": 5,
-     "share": 0.029
+     "share": 0.03
     },
     {
      "name": "AI",
      "count": 4,
-     "share": 0.023
+     "share": 0.024
     },
     {
      "name": "과정·벌어진 일·결말·결국",
@@ -2932,36 +2907,32 @@
    "text_sources": {
     "자막": 1,
     "음성인식": 23,
-    "설명": 137,
-    "없음": 10
+    "설명": 135,
+    "없음": 9
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 72
+     "count": 71
     },
     {
      "word": "그리고",
      "count": 54
     },
     {
-     "word": "아니라",
-     "count": 37
-    },
-    {
      "word": "다시",
      "count": 36
     },
     {
-     "word": "가장",
-     "count": 34
+     "word": "아니라",
+     "count": 36
     },
     {
      "word": "어떻게",
      "count": 34
     },
     {
-     "word": "투자",
+     "word": "가장",
      "count": 33
     },
     {
@@ -2977,15 +2948,19 @@
      "count": 32
     },
     {
+     "word": "투자",
+     "count": 32
+    },
+    {
      "word": "어떤",
      "count": 32
     },
     {
      "word": "그런데",
-     "count": 31
+     "count": 30
     }
    ],
-   "chapters_share": 0.304,
+   "chapters_share": 0.298,
    "syl_per_sec_median": 4.8,
    "hooks": [
     {
@@ -3001,43 +2976,43 @@
      "hook": "◾️ 무료 특강 & PDF 받기"
     },
     {
-     "id": "qBYvNiWwwMM",
-     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
+     "id": "V4mCCBmoCdc",
+     "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
      "src": "설명",
-     "hook": "🚨[👇3달만에 억대 수익만드는 코인 실전공식! 30만 커뮤니티를 보유한 코인 트레이더 ‘돈복남’ '퍼즈'의 2026 비트코인 투자 노하우 무료특강👇]🚨 🤑지금이 코인 시장에서 큰 기회를 잡기 가장 좋은 시기인 거 알고 계셨나요? 지금도 시세 변동 속에서 진짜 수익을 내는 트레이딩 기회들"
+     "hook": "산업을 이끄는 이들의 시각으로 미래를 발견하는 시간 [PLUS LEADERS] EP 25 출연 : 신아영(MC) | 122만 미국 증시 유튜버 오선 본 영상은 2026년 10월 11일에 촬영되었습니다. 미국장이 열리는 날이면 어김없이 8시간 동안 이어지는 생방송. 빠르게 변하는 시장 속"
     }
    ],
-   "comments": 43962,
+   "comments": 43495,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 8477,
-     "share": 0.193
+     "count": 8520,
+     "share": 0.196
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 4674,
-     "share": 0.106
+     "count": 4584,
+     "share": 0.105
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 3229,
-     "share": 0.073
+     "count": 3213,
+     "share": 0.074
     },
     {
      "name": "칭찬·감사",
-     "count": 3113,
-     "share": 0.071
+     "count": 3133,
+     "share": 0.072
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 2005,
-     "share": 0.046
+     "count": 1946,
+     "share": 0.045
     },
     {
      "name": "빚·신용·미수",
-     "count": 1246,
-     "share": 0.028
+     "count": 1287,
+     "share": 0.03
     }
    ],
    "top_comments": [
@@ -3060,7 +3035,7 @@
      "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
      "channel": "채널A News",
      "views": 762073,
-     "views_per_day": 638378.6,
+     "views_per_day": 352297.3,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
     },
@@ -3069,44 +3044,44 @@
      "title": "검은월요일, 코스피는 얼마나 떨어질까?(ft.딥시크, 코워위브)",
      "channel": "전인구경제연구소",
      "views": 477513,
-     "views_per_day": 477513.0,
+     "views_per_day": 267009.7,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=ZRcF6P2y9Bo"
-    },
-    {
-     "id": "qBYvNiWwwMM",
-     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
-     "channel": "신사임당",
-     "views": 597481,
-     "views_per_day": 307763.0,
-     "published": "2026-10-17",
-     "url": "https://www.youtube.com/watch?v=qBYvNiWwwMM"
     },
     {
      "id": "V4mCCBmoCdc",
      "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
      "channel": "PLUS TV (플러스 TV)",
      "views": 1196189,
-     "views_per_day": 298772.2,
+     "views_per_day": 240533.2,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=V4mCCBmoCdc"
     },
     {
-     "id": "EQDU2WiYrmc",
-     "title": "주식 대폭락, 숨겨진 이유 [김진 앵커]",
-     "channel": "꽉TV",
-     "views": 487784,
-     "views_per_day": 282038.8,
+     "id": "ZlGbs_sIbQg",
+     "title": "계속 떨어지더니 '최저' 찍었다..\"요즘 금값 왜 이래\" 이유 보니 / 친절한 경제 / SBS 모닝와이드 2부",
+     "channel": "SBS 뉴스",
+     "views": 4192694,
+     "views_per_day": 206895.8,
+     "published": "2026-09-30",
+     "url": "https://www.youtube.com/watch?v=ZlGbs_sIbQg"
+    },
+    {
+     "id": "qBYvNiWwwMM",
+     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
+     "channel": "신사임당",
+     "views": 597481,
+     "views_per_day": 205266.5,
      "published": "2026-10-17",
-     "url": "https://www.youtube.com/watch?v=EQDU2WiYrmc"
+     "url": "https://www.youtube.com/watch?v=qBYvNiWwwMM"
     }
    ]
   },
   {
    "weeks": 8,
    "label": "최근 8주",
-   "videos": 186,
-   "channels": 147,
+   "videos": 183,
+   "channels": 145,
    "new_this_week": [
     {
      "id": "--yAj5ZJQV8",
@@ -3124,14 +3099,19 @@
      "published": "2026-08-29"
     },
     {
-     "id": "6QkzqMZYrVQ",
-     "title": "생생한 택배기사 최근 6개월치 월급 공개... 이게 '진짜 현실'입니다.",
-     "published": "2026-08-24"
+     "id": "4u3VzpSKE1g",
+     "title": "강제 장기투자로 들어간 K-개미들",
+     "published": "2026-08-31"
     },
     {
      "id": "77exyhGYbro",
      "title": "‘찐 부자’에게는 한 가지 특징이 있습니다｜모건 하우절 『돈의 심리학』",
      "published": "2026-08-28"
+    },
+    {
+     "id": "9C7_sKVcPiQ",
+     "title": "40대 은퇴 후 월급 대신 배당 받으며 사는 법｜실제 포트폴리오 공개 | 최영민 작가",
+     "published": "2026-08-31"
     },
     {
      "id": "FrSslE4xeBA",
@@ -3144,14 +3124,14 @@
      "published": "2026-08-30"
     },
     {
+     "id": "W8ktTNAzCws",
+     "title": "13개월만에 최저치 찍은 환율. 기업이 돈을 쓰는 곳에 기회가 있습니다.",
+     "published": "2026-08-31"
+    },
+    {
      "id": "acPLoAXYROM",
      "title": "국민연금 추납, 1,850만원 내고 월 15만원 더 받으면 이득일까?",
      "published": "2026-08-25"
-    },
-    {
-     "id": "cc4uBxFSiiY",
-     "title": "평생 모은 노후자금 뜯긴 노인들... 조폭 소굴 쳐들어간 아줌마의 100대 참교육 [박여사 6화]",
-     "published": "2026-08-24"
     },
     {
      "id": "dFxarK0MzRc",
@@ -3177,79 +3157,74 @@
      "id": "qT9JE1LTSjU",
      "title": "60세 이후 통장에 딱 이정도 있으면 더 벌지말고 여행다니면서 즐기세요",
      "published": "2026-08-26"
-    },
-    {
-     "id": "s7d7bMEosQ8",
-     "title": "IT 자산관리 전문 기업이 브라더 라벨 프린터를 쓰는 이유 l PT-P900W",
-     "published": "2026-08-25"
     }
    ],
-   "views_median": 96359.5,
-   "views_per_day_median": 7912.5,
-   "ratio_median": 10.98,
-   "success": 146,
-   "minutes_median": 19.35,
-   "title_len_avg": 50.2,
+   "views_median": 92477,
+   "views_per_day_median": 6883.9,
+   "ratio_median": 10.88,
+   "success": 143,
+   "minutes_median": 19.7,
+   "title_len_avg": 50.3,
    "title_features": [
     {
      "name": "노후·퇴직금·은퇴·50~70대",
-     "count": 61,
+     "count": 60,
      "share": 0.328
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 53,
-     "share": 0.285
+     "count": 52,
+     "share": 0.284
     },
     {
      "name": "물음표 ?",
      "count": 42,
-     "share": 0.226
+     "share": 0.23
     },
     {
      "name": "금액(억·만원)",
      "count": 36,
-     "share": 0.194
+     "share": 0.197
     },
     {
      "name": "N가지",
      "count": 29,
-     "share": 0.156
+     "share": 0.158
     },
     {
      "name": "이유",
-     "count": 28,
-     "share": 0.151
+     "count": 27,
+     "share": 0.148
     },
     {
      "name": "사연·오디오북·실화·고백",
      "count": 25,
-     "share": 0.134
+     "share": 0.137
     },
     {
      "name": "vs 비교",
-     "count": 25,
-     "share": 0.134
+     "count": 24,
+     "share": 0.131
     },
     {
      "name": "코스피·폭락·급락·하락장",
      "count": 22,
-     "share": 0.118
+     "share": 0.12
     },
     {
      "name": "느낌표 !",
      "count": 16,
-     "share": 0.086
+     "share": 0.087
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
      "count": 16,
-     "share": 0.086
+     "share": 0.087
     },
     {
      "name": "두 금액(반전)",
      "count": 6,
-     "share": 0.032
+     "share": 0.033
     },
     {
      "name": "AI",
@@ -3285,7 +3260,7 @@
    "title_words": [
     {
      "word": "이유",
-     "count": 25
+     "count": 24
     },
     {
      "word": "오디오북",
@@ -3324,25 +3299,25 @@
      "count": 9
     }
    ],
-   "transcripts": 30,
+   "transcripts": 29,
    "text_sources": {
     "자막": 1,
-    "음성인식": 29,
-    "설명": 146,
+    "음성인식": 28,
+    "설명": 144,
     "없음": 10
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 81
+     "count": 80
     },
     {
      "word": "그리고",
-     "count": 59
+     "count": 57
     },
     {
      "word": "아니라",
-     "count": 43
+     "count": 42
     },
     {
      "word": "다시",
@@ -3353,23 +3328,23 @@
      "count": 39
     },
     {
-     "word": "돈을",
-     "count": 39
-    },
-    {
      "word": "어떻게",
      "count": 38
     },
     {
-     "word": "같은",
+     "word": "돈을",
      "count": 38
     },
     {
-     "word": "그런데",
+     "word": "같은",
      "count": 37
     },
     {
      "word": "투자",
+     "count": 36
+    },
+    {
+     "word": "그런데",
      "count": 36
     },
     {
@@ -3381,7 +3356,7 @@
      "count": 35
     }
    ],
-   "chapters_share": 0.328,
+   "chapters_share": 0.322,
    "syl_per_sec_median": 4.8,
    "hooks": [
     {
@@ -3397,43 +3372,43 @@
      "hook": "◾️ 무료 특강 & PDF 받기"
     },
     {
-     "id": "qBYvNiWwwMM",
-     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
+     "id": "V4mCCBmoCdc",
+     "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
      "src": "설명",
-     "hook": "🚨[👇3달만에 억대 수익만드는 코인 실전공식! 30만 커뮤니티를 보유한 코인 트레이더 ‘돈복남’ '퍼즈'의 2026 비트코인 투자 노하우 무료특강👇]🚨 🤑지금이 코인 시장에서 큰 기회를 잡기 가장 좋은 시기인 거 알고 계셨나요? 지금도 시세 변동 속에서 진짜 수익을 내는 트레이딩 기회들"
+     "hook": "산업을 이끄는 이들의 시각으로 미래를 발견하는 시간 [PLUS LEADERS] EP 25 출연 : 신아영(MC) | 122만 미국 증시 유튜버 오선 본 영상은 2026년 10월 11일에 촬영되었습니다. 미국장이 열리는 날이면 어김없이 8시간 동안 이어지는 생방송. 빠르게 변하는 시장 속"
     }
    ],
-   "comments": 50235,
+   "comments": 49712,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 9468,
-     "share": 0.188
+     "count": 9451,
+     "share": 0.19
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 5183,
+     "count": 5096,
      "share": 0.103
     },
     {
      "name": "칭찬·감사",
-     "count": 3741,
+     "count": 3683,
      "share": 0.074
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 3658,
+     "count": 3619,
      "share": 0.073
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 2057,
-     "share": 0.041
+     "count": 2190,
+     "share": 0.044
     },
     {
      "name": "빚·신용·미수",
-     "count": 1313,
-     "share": 0.026
+     "count": 1367,
+     "share": 0.027
     }
    ],
    "top_comments": [
@@ -3456,7 +3431,7 @@
      "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
      "channel": "채널A News",
      "views": 762073,
-     "views_per_day": 638378.6,
+     "views_per_day": 352297.3,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
     },
@@ -3465,44 +3440,44 @@
      "title": "검은월요일, 코스피는 얼마나 떨어질까?(ft.딥시크, 코워위브)",
      "channel": "전인구경제연구소",
      "views": 477513,
-     "views_per_day": 477513.0,
+     "views_per_day": 267009.7,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=ZRcF6P2y9Bo"
-    },
-    {
-     "id": "qBYvNiWwwMM",
-     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
-     "channel": "신사임당",
-     "views": 597481,
-     "views_per_day": 307763.0,
-     "published": "2026-10-17",
-     "url": "https://www.youtube.com/watch?v=qBYvNiWwwMM"
     },
     {
      "id": "V4mCCBmoCdc",
      "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
      "channel": "PLUS TV (플러스 TV)",
      "views": 1196189,
-     "views_per_day": 298772.2,
+     "views_per_day": 240533.2,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=V4mCCBmoCdc"
     },
     {
-     "id": "EQDU2WiYrmc",
-     "title": "주식 대폭락, 숨겨진 이유 [김진 앵커]",
-     "channel": "꽉TV",
-     "views": 487784,
-     "views_per_day": 282038.8,
+     "id": "ZlGbs_sIbQg",
+     "title": "계속 떨어지더니 '최저' 찍었다..\"요즘 금값 왜 이래\" 이유 보니 / 친절한 경제 / SBS 모닝와이드 2부",
+     "channel": "SBS 뉴스",
+     "views": 4192694,
+     "views_per_day": 206895.8,
+     "published": "2026-09-30",
+     "url": "https://www.youtube.com/watch?v=ZlGbs_sIbQg"
+    },
+    {
+     "id": "qBYvNiWwwMM",
+     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
+     "channel": "신사임당",
+     "views": 597481,
+     "views_per_day": 205266.5,
      "published": "2026-10-17",
-     "url": "https://www.youtube.com/watch?v=EQDU2WiYrmc"
+     "url": "https://www.youtube.com/watch?v=qBYvNiWwwMM"
     }
    ]
   },
   {
    "weeks": 9,
    "label": "최근 9주",
-   "videos": 199,
-   "channels": 156,
+   "videos": 198,
+   "channels": 155,
    "new_this_week": [
     {
      "id": "2nDXlFjGSzQ",
@@ -3513,6 +3488,11 @@
      "id": "5wYVYUrG4Ds",
      "title": "\"순서대로 무너집니다\" 금리 7% 시대, 한국 중산층 자산이 흔들리는 진짜 순서 4단계",
      "published": "2026-08-22"
+    },
+    {
+     "id": "6QkzqMZYrVQ",
+     "title": "생생한 택배기사 최근 6개월치 월급 공개... 이게 '진짜 현실'입니다.",
+     "published": "2026-08-24"
     },
     {
      "id": "IN56QZtXmXw",
@@ -3535,9 +3515,9 @@
      "published": "2026-08-19"
     },
     {
-     "id": "Zor4Zw2SyYI",
-     "title": "노후에 자녀와 같이 살면 안 되는 이유｜데이터가 보여준 부모와 자녀의 적정 거리",
-     "published": "2026-08-18"
+     "id": "cc4uBxFSiiY",
+     "title": "평생 모은 노후자금 뜯긴 노인들... 조폭 소굴 쳐들어간 아줌마의 100대 참교육 [박여사 6화]",
+     "published": "2026-08-24"
     },
     {
      "id": "g45m3De3D-M",
@@ -3560,6 +3540,11 @@
      "published": "2026-08-19"
     },
     {
+     "id": "s7d7bMEosQ8",
+     "title": "IT 자산관리 전문 기업이 브라더 라벨 프린터를 쓰는 이유 l PT-P900W",
+     "published": "2026-08-25"
+    },
+    {
      "id": "t6NrbgrRE_k",
      "title": "반드시 부자되는 신혼부부의 3가지 공통점 (부자되는 방법)",
      "published": "2026-08-23"
@@ -3570,42 +3555,42 @@
      "published": "2026-08-18"
     }
    ],
-   "views_median": 105467,
-   "views_per_day_median": 7150.6,
-   "ratio_median": 10.23,
-   "success": 155,
-   "minutes_median": 19.7,
-   "title_len_avg": 49.4,
+   "views_median": 104429.5,
+   "views_per_day_median": 6456.55,
+   "ratio_median": 10.55,
+   "success": 154,
+   "minutes_median": 19.85,
+   "title_len_avg": 49.5,
    "title_features": [
     {
      "name": "노후·퇴직금·은퇴·50~70대",
-     "count": 66,
-     "share": 0.332
+     "count": 65,
+     "share": 0.328
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 58,
-     "share": 0.291
+     "count": 57,
+     "share": 0.288
     },
     {
      "name": "물음표 ?",
      "count": 42,
-     "share": 0.211
+     "share": 0.212
     },
     {
      "name": "금액(억·만원)",
      "count": 38,
-     "share": 0.191
+     "share": 0.192
     },
     {
      "name": "N가지",
      "count": 32,
-     "share": 0.161
+     "share": 0.162
     },
     {
      "name": "이유",
-     "count": 30,
-     "share": 0.151
+     "count": 29,
+     "share": 0.146
     },
     {
      "name": "vs 비교",
@@ -3625,12 +3610,12 @@
     {
      "name": "느낌표 !",
      "count": 16,
-     "share": 0.08
+     "share": 0.081
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
      "count": 16,
-     "share": 0.08
+     "share": 0.081
     },
     {
      "name": "두 금액(반전)",
@@ -3671,7 +3656,7 @@
    "title_words": [
     {
      "word": "이유",
-     "count": 27
+     "count": 26
     },
     {
      "word": "오디오북",
@@ -3714,17 +3699,17 @@
    "text_sources": {
     "자막": 1,
     "음성인식": 33,
-    "설명": 155,
+    "설명": 154,
     "없음": 10
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 88
+     "count": 87
     },
     {
      "word": "그리고",
-     "count": 67
+     "count": 66
     },
     {
      "word": "아니라",
@@ -3735,11 +3720,11 @@
      "count": 44
     },
     {
-     "word": "돈을",
+     "word": "그런데",
      "count": 44
     },
     {
-     "word": "그런데",
+     "word": "돈을",
      "count": 44
     },
     {
@@ -3767,7 +3752,7 @@
      "count": 37
     }
    ],
-   "chapters_share": 0.322,
+   "chapters_share": 0.323,
    "syl_per_sec_median": 4.8,
    "hooks": [
     {
@@ -3783,43 +3768,43 @@
      "hook": "◾️ 무료 특강 & PDF 받기"
     },
     {
-     "id": "qBYvNiWwwMM",
-     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
+     "id": "V4mCCBmoCdc",
+     "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
      "src": "설명",
-     "hook": "🚨[👇3달만에 억대 수익만드는 코인 실전공식! 30만 커뮤니티를 보유한 코인 트레이더 ‘돈복남’ '퍼즈'의 2026 비트코인 투자 노하우 무료특강👇]🚨 🤑지금이 코인 시장에서 큰 기회를 잡기 가장 좋은 시기인 거 알고 계셨나요? 지금도 시세 변동 속에서 진짜 수익을 내는 트레이딩 기회들"
+     "hook": "산업을 이끄는 이들의 시각으로 미래를 발견하는 시간 [PLUS LEADERS] EP 25 출연 : 신아영(MC) | 122만 미국 증시 유튜버 오선 본 영상은 2026년 10월 11일에 촬영되었습니다. 미국장이 열리는 날이면 어김없이 8시간 동안 이어지는 생방송. 빠르게 변하는 시장 속"
     }
    ],
-   "comments": 54079,
+   "comments": 54899,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 10074,
-     "share": 0.186
+     "count": 10302,
+     "share": 0.188
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 5519,
-     "share": 0.102
+     "count": 5557,
+     "share": 0.101
     },
     {
      "name": "칭찬·감사",
-     "count": 4608,
-     "share": 0.085
+     "count": 4632,
+     "share": 0.084
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 3967,
-     "share": 0.073
+     "count": 4064,
+     "share": 0.074
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 2086,
-     "share": 0.039
+     "count": 2223,
+     "share": 0.04
     },
     {
      "name": "빚·신용·미수",
-     "count": 1412,
-     "share": 0.026
+     "count": 1486,
+     "share": 0.027
     }
    ],
    "top_comments": [
@@ -3842,7 +3827,7 @@
      "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
      "channel": "채널A News",
      "views": 762073,
-     "views_per_day": 638378.6,
+     "views_per_day": 352297.3,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
     },
@@ -3851,43 +3836,43 @@
      "title": "검은월요일, 코스피는 얼마나 떨어질까?(ft.딥시크, 코워위브)",
      "channel": "전인구경제연구소",
      "views": 477513,
-     "views_per_day": 477513.0,
+     "views_per_day": 267009.7,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=ZRcF6P2y9Bo"
-    },
-    {
-     "id": "qBYvNiWwwMM",
-     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
-     "channel": "신사임당",
-     "views": 597481,
-     "views_per_day": 307763.0,
-     "published": "2026-10-17",
-     "url": "https://www.youtube.com/watch?v=qBYvNiWwwMM"
     },
     {
      "id": "V4mCCBmoCdc",
      "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
      "channel": "PLUS TV (플러스 TV)",
      "views": 1196189,
-     "views_per_day": 298772.2,
+     "views_per_day": 240533.2,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=V4mCCBmoCdc"
     },
     {
-     "id": "EQDU2WiYrmc",
-     "title": "주식 대폭락, 숨겨진 이유 [김진 앵커]",
-     "channel": "꽉TV",
-     "views": 487784,
-     "views_per_day": 282038.8,
+     "id": "ZlGbs_sIbQg",
+     "title": "계속 떨어지더니 '최저' 찍었다..\"요즘 금값 왜 이래\" 이유 보니 / 친절한 경제 / SBS 모닝와이드 2부",
+     "channel": "SBS 뉴스",
+     "views": 4192694,
+     "views_per_day": 206895.8,
+     "published": "2026-09-30",
+     "url": "https://www.youtube.com/watch?v=ZlGbs_sIbQg"
+    },
+    {
+     "id": "qBYvNiWwwMM",
+     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
+     "channel": "신사임당",
+     "views": 597481,
+     "views_per_day": 205266.5,
      "published": "2026-10-17",
-     "url": "https://www.youtube.com/watch?v=EQDU2WiYrmc"
+     "url": "https://www.youtube.com/watch?v=qBYvNiWwwMM"
     }
    ]
   },
   {
    "weeks": 10,
    "label": "최근 10주",
-   "videos": 217,
+   "videos": 216,
    "channels": 164,
    "new_this_week": [
     {
@@ -3914,11 +3899,6 @@
      "id": "IBAvE_dF0L4",
      "title": "저는 1년 동안 매달 5만 원을 모아봤습니다. 그리고 돈에 대한 생각이 달라졌습니다",
      "published": "2026-08-13"
-    },
-    {
-     "id": "JREdVuRBv9U",
-     "title": "같은 S&P500인데 세금 970만 vs 3700만원…종목 아니라 '이것' 때문입니다",
-     "published": "2026-08-10"
     },
     {
      "id": "NID7VESSER8",
@@ -3951,6 +3931,11 @@
      "published": "2026-08-11"
     },
     {
+     "id": "Zor4Zw2SyYI",
+     "title": "노후에 자녀와 같이 살면 안 되는 이유｜데이터가 보여준 부모와 자녀의 적정 거리",
+     "published": "2026-08-18"
+    },
+    {
      "id": "_5H7MVsb1Rk",
      "title": "월급 250만원으로 20억 만드는 법 | \"떨어져도 계속 사세요\"",
      "published": "2026-08-16"
@@ -3981,27 +3966,27 @@
      "published": "2026-08-13"
     }
    ],
-   "views_median": 106855,
-   "views_per_day_median": 6966.3,
-   "ratio_median": 9.78,
+   "views_median": 106192.5,
+   "views_per_day_median": 5879.1,
+   "ratio_median": 9.79,
    "success": 165,
-   "minutes_median": 21.0,
+   "minutes_median": 20.9,
    "title_len_avg": 49.0,
    "title_features": [
     {
      "name": "노후·퇴직금·은퇴·50~70대",
      "count": 70,
-     "share": 0.323
+     "share": 0.324
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 64,
-     "share": 0.295
+     "share": 0.296
     },
     {
      "name": "금액(억·만원)",
-     "count": 43,
-     "share": 0.198
+     "count": 42,
+     "share": 0.194
     },
     {
      "name": "물음표 ?",
@@ -4011,7 +3996,7 @@
     {
      "name": "N가지",
      "count": 35,
-     "share": 0.161
+     "share": 0.162
     },
     {
      "name": "이유",
@@ -4020,8 +4005,8 @@
     },
     {
      "name": "vs 비교",
-     "count": 31,
-     "share": 0.143
+     "count": 30,
+     "share": 0.139
     },
     {
      "name": "사연·오디오북·실화·고백",
@@ -4031,12 +4016,12 @@
     {
      "name": "코스피·폭락·급락·하락장",
      "count": 22,
-     "share": 0.101
+     "share": 0.102
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
-     "count": 20,
-     "share": 0.092
+     "count": 19,
+     "share": 0.088
     },
     {
      "name": "느낌표 !",
@@ -4051,12 +4036,12 @@
     {
      "name": "직접·해보니·N년 기록",
      "count": 4,
-     "share": 0.018
+     "share": 0.019
     },
     {
      "name": "AI",
      "count": 4,
-     "share": 0.018
+     "share": 0.019
     },
     {
      "name": "과정·벌어진 일·결말·결국",
@@ -4125,21 +4110,21 @@
    "text_sources": {
     "자막": 1,
     "음성인식": 39,
-    "설명": 166,
+    "설명": 165,
     "없음": 11
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 99
+     "count": 98
     },
     {
      "word": "그리고",
-     "count": 80
+     "count": 79
     },
     {
      "word": "아니라",
-     "count": 57
+     "count": 56
     },
     {
      "word": "그런데",
@@ -4147,7 +4132,7 @@
     },
     {
      "word": "같은",
-     "count": 53
+     "count": 52
     },
     {
      "word": "가장",
@@ -4155,14 +4140,10 @@
     },
     {
      "word": "오늘",
-     "count": 50
+     "count": 49
     },
     {
      "word": "어떤",
-     "count": 47
-    },
-    {
-     "word": "어떻게",
      "count": 47
     },
     {
@@ -4170,15 +4151,19 @@
      "count": 47
     },
     {
+     "word": "어떻게",
+     "count": 47
+    },
+    {
      "word": "다시",
      "count": 44
     },
     {
-     "word": "먼저",
-     "count": 43
+     "word": "아닙니다",
+     "count": 42
     }
    ],
-   "chapters_share": 0.304,
+   "chapters_share": 0.306,
    "syl_per_sec_median": 4.8,
    "hooks": [
     {
@@ -4194,43 +4179,43 @@
      "hook": "◾️ 무료 특강 & PDF 받기"
     },
     {
-     "id": "qBYvNiWwwMM",
-     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
+     "id": "V4mCCBmoCdc",
+     "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
      "src": "설명",
-     "hook": "🚨[👇3달만에 억대 수익만드는 코인 실전공식! 30만 커뮤니티를 보유한 코인 트레이더 ‘돈복남’ '퍼즈'의 2026 비트코인 투자 노하우 무료특강👇]🚨 🤑지금이 코인 시장에서 큰 기회를 잡기 가장 좋은 시기인 거 알고 계셨나요? 지금도 시세 변동 속에서 진짜 수익을 내는 트레이딩 기회들"
+     "hook": "산업을 이끄는 이들의 시각으로 미래를 발견하는 시간 [PLUS LEADERS] EP 25 출연 : 신아영(MC) | 122만 미국 증시 유튜버 오선 본 영상은 2026년 10월 11일에 촬영되었습니다. 미국장이 열리는 날이면 어김없이 8시간 동안 이어지는 생방송. 빠르게 변하는 시장 속"
     }
    ],
-   "comments": 68144,
+   "comments": 68766,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 11632,
+     "count": 11789,
      "share": 0.171
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 6258,
+     "count": 6297,
      "share": 0.092
     },
     {
      "name": "칭찬·감사",
-     "count": 6240,
-     "share": 0.092
+     "count": 6273,
+     "share": 0.091
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 4582,
+     "count": 4613,
      "share": 0.067
     },
     {
      "name": "요청",
-     "count": 4076,
-     "share": 0.06
+     "count": 4078,
+     "share": 0.059
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 2343,
-     "share": 0.034
+     "count": 2446,
+     "share": 0.036
     }
    ],
    "top_comments": [
@@ -4253,7 +4238,7 @@
      "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
      "channel": "채널A News",
      "views": 762073,
-     "views_per_day": 638378.6,
+     "views_per_day": 352297.3,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
     },
@@ -4262,49 +4247,54 @@
      "title": "검은월요일, 코스피는 얼마나 떨어질까?(ft.딥시크, 코워위브)",
      "channel": "전인구경제연구소",
      "views": 477513,
-     "views_per_day": 477513.0,
+     "views_per_day": 267009.7,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=ZRcF6P2y9Bo"
-    },
-    {
-     "id": "qBYvNiWwwMM",
-     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
-     "channel": "신사임당",
-     "views": 597481,
-     "views_per_day": 307763.0,
-     "published": "2026-10-17",
-     "url": "https://www.youtube.com/watch?v=qBYvNiWwwMM"
     },
     {
      "id": "V4mCCBmoCdc",
      "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
      "channel": "PLUS TV (플러스 TV)",
      "views": 1196189,
-     "views_per_day": 298772.2,
+     "views_per_day": 240533.2,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=V4mCCBmoCdc"
     },
     {
-     "id": "EQDU2WiYrmc",
-     "title": "주식 대폭락, 숨겨진 이유 [김진 앵커]",
-     "channel": "꽉TV",
-     "views": 487784,
-     "views_per_day": 282038.8,
+     "id": "ZlGbs_sIbQg",
+     "title": "계속 떨어지더니 '최저' 찍었다..\"요즘 금값 왜 이래\" 이유 보니 / 친절한 경제 / SBS 모닝와이드 2부",
+     "channel": "SBS 뉴스",
+     "views": 4192694,
+     "views_per_day": 206895.8,
+     "published": "2026-09-30",
+     "url": "https://www.youtube.com/watch?v=ZlGbs_sIbQg"
+    },
+    {
+     "id": "qBYvNiWwwMM",
+     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
+     "channel": "신사임당",
+     "views": 597481,
+     "views_per_day": 205266.5,
      "published": "2026-10-17",
-     "url": "https://www.youtube.com/watch?v=EQDU2WiYrmc"
+     "url": "https://www.youtube.com/watch?v=qBYvNiWwwMM"
     }
    ]
   },
   {
    "weeks": 11,
    "label": "최근 11주",
-   "videos": 231,
+   "videos": 230,
    "channels": 171,
    "new_this_week": [
     {
      "id": "4ssDlPoir2M",
      "title": "'부동산 투자 보다 더 중요한 게  있습니다' 3040이 자산을 모을 수 있는 가장 현실적인 방법 | 송희구 작가 2편 | 로컬수다 EP.15",
      "published": "2026-08-06"
+    },
+    {
+     "id": "JREdVuRBv9U",
+     "title": "같은 S&P500인데 세금 970만 vs 3700만원…종목 아니라 '이것' 때문입니다",
+     "published": "2026-08-10"
     },
     {
      "id": "LjHlXKeRH5s",
@@ -4337,11 +4327,6 @@
      "published": "2026-08-10"
     },
     {
-     "id": "TOr7yxkT80M",
-     "title": "개미들이 주식 열심히 해도 \"100만원도 못버는 3가지 이유\"",
-     "published": "2026-08-03"
-    },
-    {
      "id": "Uwfjww9_yKk",
      "title": "반도체 주식 열풍에 예순 살 부부의 은퇴자금 2억이 단 한 달만에 반토막 나기까지!",
      "published": "2026-08-06"
@@ -4372,42 +4357,42 @@
      "published": "2026-08-04"
     }
    ],
-   "views_median": 115876,
-   "views_per_day_median": 6476.8,
+   "views_median": 115127.5,
+   "views_per_day_median": 5452.6,
    "ratio_median": 9.27,
    "success": 173,
-   "minutes_median": 21.3,
-   "title_len_avg": 48.4,
+   "minutes_median": 21.25,
+   "title_len_avg": 48.5,
    "title_features": [
     {
      "name": "노후·퇴직금·은퇴·50~70대",
      "count": 77,
-     "share": 0.333
+     "share": 0.335
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 69,
-     "share": 0.299
+     "count": 68,
+     "share": 0.296
     },
     {
      "name": "금액(억·만원)",
-     "count": 47,
-     "share": 0.203
+     "count": 46,
+     "share": 0.2
     },
     {
      "name": "물음표 ?",
      "count": 42,
-     "share": 0.182
+     "share": 0.183
     },
     {
      "name": "N가지",
-     "count": 38,
-     "share": 0.165
+     "count": 37,
+     "share": 0.161
     },
     {
      "name": "이유",
-     "count": 37,
-     "share": 0.16
+     "count": 36,
+     "share": 0.157
     },
     {
      "name": "vs 비교",
@@ -4422,7 +4407,7 @@
     {
      "name": "코스피·폭락·급락·하락장",
      "count": 22,
-     "share": 0.095
+     "share": 0.096
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
@@ -4473,7 +4458,7 @@
    "title_words": [
     {
      "word": "이유",
-     "count": 34
+     "count": 33
     },
     {
      "word": "오디오북",
@@ -4496,15 +4481,15 @@
      "count": 11
     },
     {
-     "word": "3가지",
-     "count": 11
-    },
-    {
      "word": "노후준비",
      "count": 11
     },
     {
      "word": "코스피",
+     "count": 10
+    },
+    {
+     "word": "3가지",
      "count": 10
     },
     {
@@ -4516,7 +4501,7 @@
    "text_sources": {
     "자막": 1,
     "음성인식": 40,
-    "설명": 179,
+    "설명": 178,
     "없음": 11
    },
    "content_words": [
@@ -4526,15 +4511,15 @@
     },
     {
      "word": "그리고",
-     "count": 87
+     "count": 86
     },
     {
      "word": "아니라",
-     "count": 64
+     "count": 63
     },
     {
      "word": "그런데",
-     "count": 59
+     "count": 58
     },
     {
      "word": "가장",
@@ -4549,12 +4534,12 @@
      "count": 53
     },
     {
-     "word": "어떻게",
-     "count": 49
+     "word": "돈을",
+     "count": 48
     },
     {
-     "word": "돈을",
-     "count": 49
+     "word": "어떻게",
+     "count": 48
     },
     {
      "word": "어떤",
@@ -4565,11 +4550,11 @@
      "count": 46
     },
     {
-     "word": "투자",
+     "word": "아닙니다",
      "count": 45
     }
    ],
-   "chapters_share": 0.307,
+   "chapters_share": 0.309,
    "syl_per_sec_median": 4.8,
    "hooks": [
     {
@@ -4585,43 +4570,43 @@
      "hook": "◾️ 무료 특강 & PDF 받기"
     },
     {
-     "id": "qBYvNiWwwMM",
-     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
+     "id": "V4mCCBmoCdc",
+     "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
      "src": "설명",
-     "hook": "🚨[👇3달만에 억대 수익만드는 코인 실전공식! 30만 커뮤니티를 보유한 코인 트레이더 ‘돈복남’ '퍼즈'의 2026 비트코인 투자 노하우 무료특강👇]🚨 🤑지금이 코인 시장에서 큰 기회를 잡기 가장 좋은 시기인 거 알고 계셨나요? 지금도 시세 변동 속에서 진짜 수익을 내는 트레이딩 기회들"
+     "hook": "산업을 이끄는 이들의 시각으로 미래를 발견하는 시간 [PLUS LEADERS] EP 25 출연 : 신아영(MC) | 122만 미국 증시 유튜버 오선 본 영상은 2026년 10월 11일에 촬영되었습니다. 미국장이 열리는 날이면 어김없이 8시간 동안 이어지는 생방송. 빠르게 변하는 시장 속"
     }
    ],
-   "comments": 71225,
+   "comments": 72167,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 11980,
-     "share": 0.168
+     "count": 12221,
+     "share": 0.169
     },
     {
      "name": "칭찬·감사",
-     "count": 6950,
-     "share": 0.098
+     "count": 6992,
+     "share": 0.097
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 6426,
+     "count": 6481,
      "share": 0.09
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 4899,
+     "count": 4995,
      "share": 0.069
     },
     {
      "name": "요청",
-     "count": 4099,
-     "share": 0.058
+     "count": 4105,
+     "share": 0.057
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 2437,
-     "share": 0.034
+     "count": 2558,
+     "share": 0.035
     }
    ],
    "top_comments": [
@@ -4644,7 +4629,7 @@
      "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
      "channel": "채널A News",
      "views": 762073,
-     "views_per_day": 638378.6,
+     "views_per_day": 352297.3,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
     },
@@ -4653,44 +4638,44 @@
      "title": "검은월요일, 코스피는 얼마나 떨어질까?(ft.딥시크, 코워위브)",
      "channel": "전인구경제연구소",
      "views": 477513,
-     "views_per_day": 477513.0,
+     "views_per_day": 267009.7,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=ZRcF6P2y9Bo"
-    },
-    {
-     "id": "qBYvNiWwwMM",
-     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
-     "channel": "신사임당",
-     "views": 597481,
-     "views_per_day": 307763.0,
-     "published": "2026-10-17",
-     "url": "https://www.youtube.com/watch?v=qBYvNiWwwMM"
     },
     {
      "id": "V4mCCBmoCdc",
      "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
      "channel": "PLUS TV (플러스 TV)",
      "views": 1196189,
-     "views_per_day": 298772.2,
+     "views_per_day": 240533.2,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=V4mCCBmoCdc"
     },
     {
-     "id": "EQDU2WiYrmc",
-     "title": "주식 대폭락, 숨겨진 이유 [김진 앵커]",
-     "channel": "꽉TV",
-     "views": 487784,
-     "views_per_day": 282038.8,
+     "id": "ZlGbs_sIbQg",
+     "title": "계속 떨어지더니 '최저' 찍었다..\"요즘 금값 왜 이래\" 이유 보니 / 친절한 경제 / SBS 모닝와이드 2부",
+     "channel": "SBS 뉴스",
+     "views": 4192694,
+     "views_per_day": 206895.8,
+     "published": "2026-09-30",
+     "url": "https://www.youtube.com/watch?v=ZlGbs_sIbQg"
+    },
+    {
+     "id": "qBYvNiWwwMM",
+     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
+     "channel": "신사임당",
+     "views": 597481,
+     "views_per_day": 205266.5,
      "published": "2026-10-17",
-     "url": "https://www.youtube.com/watch?v=EQDU2WiYrmc"
+     "url": "https://www.youtube.com/watch?v=qBYvNiWwwMM"
     }
    ]
   },
   {
    "weeks": 12,
    "label": "최근 12주",
-   "videos": 244,
-   "channels": 178,
+   "videos": 243,
+   "channels": 177,
    "new_this_week": [
     {
      "id": "7FrJ3wuJDaY",
@@ -4723,6 +4708,11 @@
      "published": "2026-08-01"
     },
     {
+     "id": "TOr7yxkT80M",
+     "title": "개미들이 주식 열심히 해도 \"100만원도 못버는 3가지 이유\"",
+     "published": "2026-08-03"
+    },
+    {
      "id": "XWjW3xiUKxw",
      "title": "🇨🇦 아무도 알려주지 않았던 '은퇴의 잔인한 현실' 8가지! | 브랜든 캐나다",
      "published": "2026-07-28"
@@ -4736,11 +4726,6 @@
      "id": "iIGP8SjSqRE",
      "title": "부모 노후자금 4억 5천만 원 앞에서 드러낸 자식들의 민낯! \"엄마 노후는 우리가 책임질게\" 서로 모시겠다는 아들 딸?",
      "published": "2026-08-01"
-    },
-    {
-     "id": "iMkvDXx86dE",
-     "title": "연금고수들이 연금저축계좌 반드시 담는 ETF 3가지",
-     "published": "2026-07-28"
     },
     {
      "id": "k9be9TSs41s",
@@ -4758,37 +4743,37 @@
      "published": "2026-08-01"
     }
    ],
-   "views_median": 115127.5,
-   "views_per_day_median": 5912.2,
-   "ratio_median": 8.88,
-   "success": 182,
+   "views_median": 115876,
+   "views_per_day_median": 5274.8,
+   "ratio_median": 9.0,
+   "success": 181,
    "minutes_median": 21.7,
-   "title_len_avg": 48.7,
+   "title_len_avg": 48.8,
    "title_features": [
     {
      "name": "노후·퇴직금·은퇴·50~70대",
      "count": 82,
-     "share": 0.336
+     "share": 0.337
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 73,
-     "share": 0.299
+     "count": 72,
+     "share": 0.296
     },
     {
      "name": "금액(억·만원)",
      "count": 51,
-     "share": 0.209
+     "share": 0.21
     },
     {
      "name": "물음표 ?",
      "count": 45,
-     "share": 0.184
+     "share": 0.185
     },
     {
      "name": "N가지",
-     "count": 41,
-     "share": 0.168
+     "count": 40,
+     "share": 0.165
     },
     {
      "name": "이유",
@@ -4798,7 +4783,7 @@
     {
      "name": "vs 비교",
      "count": 33,
-     "share": 0.135
+     "share": 0.136
     },
     {
      "name": "사연·오디오북·실화·고백",
@@ -4806,14 +4791,14 @@
      "share": 0.111
     },
     {
-     "name": "S&P500·ETF·지수·나스닥",
-     "count": 23,
-     "share": 0.094
-    },
-    {
      "name": "코스피·폭락·급락·하락장",
      "count": 23,
-     "share": 0.094
+     "share": 0.095
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 22,
+     "share": 0.091
     },
     {
      "name": "느낌표 !",
@@ -4828,7 +4813,7 @@
     {
      "name": "직접·해보니·N년 기록",
      "count": 5,
-     "share": 0.02
+     "share": 0.021
     },
     {
      "name": "과정·벌어진 일·결말·결국",
@@ -4875,14 +4860,10 @@
     },
     {
      "word": "ETF",
-     "count": 14
+     "count": 13
     },
     {
      "word": "투자",
-     "count": 12
-    },
-    {
-     "word": "3가지",
      "count": 12
     },
     {
@@ -4896,13 +4877,17 @@
     {
      "word": "가장",
      "count": 11
+    },
+    {
+     "word": "3가지",
+     "count": 11
     }
    ],
    "transcripts": 45,
    "text_sources": {
     "자막": 1,
     "음성인식": 44,
-    "설명": 187,
+    "설명": 186,
     "없음": 12
    },
    "content_words": [
@@ -4928,7 +4913,7 @@
     },
     {
      "word": "오늘",
-     "count": 58
+     "count": 57
     },
     {
      "word": "같은",
@@ -4952,10 +4937,10 @@
     },
     {
      "word": "투자",
-     "count": 48
+     "count": 47
     }
    ],
-   "chapters_share": 0.303,
+   "chapters_share": 0.305,
    "syl_per_sec_median": 4.8,
    "hooks": [
     {
@@ -4971,42 +4956,42 @@
      "hook": "◾️ 무료 특강 & PDF 받기"
     },
     {
-     "id": "qBYvNiWwwMM",
-     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
+     "id": "V4mCCBmoCdc",
+     "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
      "src": "설명",
-     "hook": "🚨[👇3달만에 억대 수익만드는 코인 실전공식! 30만 커뮤니티를 보유한 코인 트레이더 ‘돈복남’ '퍼즈'의 2026 비트코인 투자 노하우 무료특강👇]🚨 🤑지금이 코인 시장에서 큰 기회를 잡기 가장 좋은 시기인 거 알고 계셨나요? 지금도 시세 변동 속에서 진짜 수익을 내는 트레이딩 기회들"
+     "hook": "산업을 이끄는 이들의 시각으로 미래를 발견하는 시간 [PLUS LEADERS] EP 25 출연 : 신아영(MC) | 122만 미국 증시 유튜버 오선 본 영상은 2026년 10월 11일에 촬영되었습니다. 미국장이 열리는 날이면 어김없이 8시간 동안 이어지는 생방송. 빠르게 변하는 시장 속"
     }
    ],
-   "comments": 85146,
+   "comments": 86140,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 14902,
-     "share": 0.175
+     "count": 15146,
+     "share": 0.176
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 7622,
-     "share": 0.09
+     "count": 7685,
+     "share": 0.089
     },
     {
      "name": "칭찬·감사",
-     "count": 7338,
+     "count": 7377,
      "share": 0.086
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 6957,
+     "count": 7050,
      "share": 0.082
     },
     {
      "name": "요청",
-     "count": 4177,
+     "count": 4181,
      "share": 0.049
     },
     {
      "name": "빚·신용·미수",
-     "count": 3995,
+     "count": 4069,
      "share": 0.047
     }
    ],
@@ -5030,7 +5015,7 @@
      "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
      "channel": "채널A News",
      "views": 762073,
-     "views_per_day": 638378.6,
+     "views_per_day": 352297.3,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
     },
@@ -5039,44 +5024,44 @@
      "title": "검은월요일, 코스피는 얼마나 떨어질까?(ft.딥시크, 코워위브)",
      "channel": "전인구경제연구소",
      "views": 477513,
-     "views_per_day": 477513.0,
+     "views_per_day": 267009.7,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=ZRcF6P2y9Bo"
-    },
-    {
-     "id": "qBYvNiWwwMM",
-     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
-     "channel": "신사임당",
-     "views": 597481,
-     "views_per_day": 307763.0,
-     "published": "2026-10-17",
-     "url": "https://www.youtube.com/watch?v=qBYvNiWwwMM"
     },
     {
      "id": "V4mCCBmoCdc",
      "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
      "channel": "PLUS TV (플러스 TV)",
      "views": 1196189,
-     "views_per_day": 298772.2,
+     "views_per_day": 240533.2,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=V4mCCBmoCdc"
     },
     {
-     "id": "EQDU2WiYrmc",
-     "title": "주식 대폭락, 숨겨진 이유 [김진 앵커]",
-     "channel": "꽉TV",
-     "views": 487784,
-     "views_per_day": 282038.8,
+     "id": "ZlGbs_sIbQg",
+     "title": "계속 떨어지더니 '최저' 찍었다..\"요즘 금값 왜 이래\" 이유 보니 / 친절한 경제 / SBS 모닝와이드 2부",
+     "channel": "SBS 뉴스",
+     "views": 4192694,
+     "views_per_day": 206895.8,
+     "published": "2026-09-30",
+     "url": "https://www.youtube.com/watch?v=ZlGbs_sIbQg"
+    },
+    {
+     "id": "qBYvNiWwwMM",
+     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
+     "channel": "신사임당",
+     "views": 597481,
+     "views_per_day": 205266.5,
      "published": "2026-10-17",
-     "url": "https://www.youtube.com/watch?v=EQDU2WiYrmc"
+     "url": "https://www.youtube.com/watch?v=qBYvNiWwwMM"
     }
    ]
   },
   {
    "weeks": 13,
    "label": "최근 13주",
-   "videos": 257,
-   "channels": 184,
+   "videos": 253,
+   "channels": 182,
    "new_this_week": [
     {
      "id": "7kHfB06S2NM",
@@ -5099,11 +5084,6 @@
      "published": "2026-07-23"
     },
     {
-     "id": "IT0HJS9WdAg",
-     "title": "\"서울요? 아닙니다\" 노년에 가장 살기 좋은곳 압도적 1위",
-     "published": "2026-07-21"
-    },
-    {
      "id": "JExUQaROk40",
      "title": "복리가 부를 만드는 진짜 시작점｜언제부터 돈이 스스로 일하기 시작할까",
      "published": "2026-07-22"
@@ -5112,11 +5092,6 @@
      "id": "Ly8W-jVvLa0",
      "title": "[스포츠 토토] 재테크 적중률 높이는 확률 계산법 대공개! #토토 #스포츠토토 #토토분석 #프로토분석 #스포츠분석",
      "published": "2026-07-27"
-    },
-    {
-     "id": "T2NAq3jFDQM",
-     "title": "재테크의 기초 상식. 모르면 절대 부자 못 됩니다",
-     "published": "2026-07-20"
     },
     {
      "id": "Znkr5Rwd0bc",
@@ -5129,92 +5104,87 @@
      "published": "2026-07-24"
     },
     {
-     "id": "l4MAizC_l20",
-     "title": "2030 자산성장, 어떻게 시작해야 할까? 「주식투자는 처음이라 EP.1」 #곽범 #슈카",
-     "published": "2026-07-20"
+     "id": "iMkvDXx86dE",
+     "title": "연금고수들이 연금저축계좌 반드시 담는 ETF 3가지",
+     "published": "2026-07-28"
     },
     {
      "id": "lHj-_pcQSX4",
      "title": "\"이건 저희 부모님도 가능해요\" 외국인한테 한국어 읽어주고 달러 버는 역대급 부업",
      "published": "2026-07-22"
-    },
-    {
-     "id": "m-ZkLW7xMvk",
-     "title": "\"연금 저축부터 채워라?\" 연봉 따라 순서 뒤집히는 ISA·연금저축·IRP",
-     "published": "2026-07-20"
     }
    ],
-   "views_median": 124612,
-   "views_per_day_median": 5328.7,
+   "views_median": 121137,
+   "views_per_day_median": 5008.7,
    "ratio_median": 9.0,
-   "success": 190,
+   "success": 188,
    "minutes_median": 21.7,
-   "title_len_avg": 48.4,
+   "title_len_avg": 48.6,
    "title_features": [
     {
      "name": "노후·퇴직금·은퇴·50~70대",
      "count": 85,
-     "share": 0.331
+     "share": 0.336
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 74,
-     "share": 0.288
+     "share": 0.292
     },
     {
      "name": "금액(억·만원)",
      "count": 52,
-     "share": 0.202
+     "share": 0.206
     },
     {
      "name": "물음표 ?",
-     "count": 49,
-     "share": 0.191
+     "count": 46,
+     "share": 0.182
     },
     {
      "name": "N가지",
      "count": 41,
-     "share": 0.16
+     "share": 0.162
     },
     {
      "name": "이유",
      "count": 39,
-     "share": 0.152
+     "share": 0.154
     },
     {
      "name": "vs 비교",
-     "count": 34,
-     "share": 0.132
+     "count": 33,
+     "share": 0.13
     },
     {
      "name": "사연·오디오북·실화·고백",
      "count": 28,
-     "share": 0.109
+     "share": 0.111
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
      "count": 24,
-     "share": 0.093
+     "share": 0.095
     },
     {
      "name": "코스피·폭락·급락·하락장",
      "count": 23,
-     "share": 0.089
+     "share": 0.091
     },
     {
      "name": "느낌표 !",
      "count": 21,
-     "share": 0.082
+     "share": 0.083
     },
     {
      "name": "두 금액(반전)",
      "count": 9,
-     "share": 0.035
+     "share": 0.036
     },
     {
      "name": "직접·해보니·N년 기록",
      "count": 5,
-     "share": 0.019
+     "share": 0.02
     },
     {
      "name": "과정·벌어진 일·결말·결국",
@@ -5268,10 +5238,6 @@
      "count": 12
     },
     {
-     "word": "가장",
-     "count": 12
-    },
-    {
      "word": "3가지",
      "count": 12
     },
@@ -5282,19 +5248,23 @@
     {
      "word": "코스피",
      "count": 11
+    },
+    {
+     "word": "가장",
+     "count": 11
     }
    ],
-   "transcripts": 50,
+   "transcripts": 49,
    "text_sources": {
     "자막": 1,
-    "음성인식": 49,
-    "설명": 194,
+    "음성인식": 48,
+    "설명": 191,
     "없음": 13
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 112
+     "count": 110
     },
     {
      "word": "그리고",
@@ -5305,20 +5275,20 @@
      "count": 72
     },
     {
-     "word": "가장",
-     "count": 65
+     "word": "그런데",
+     "count": 64
     },
     {
-     "word": "그런데",
-     "count": 65
+     "word": "가장",
+     "count": 62
     },
     {
      "word": "오늘",
-     "count": 61
+     "count": 59
     },
     {
      "word": "같은",
-     "count": 60
+     "count": 59
     },
     {
      "word": "어떻게",
@@ -5333,12 +5303,12 @@
      "count": 51
     },
     {
-     "word": "아닙니다",
-     "count": 51
+     "word": "투자",
+     "count": 50
     },
     {
-     "word": "먼저",
-     "count": 51
+     "word": "아닙니다",
+     "count": 50
     }
    ],
    "chapters_share": 0.304,
@@ -5357,42 +5327,42 @@
      "hook": "◾️ 무료 특강 & PDF 받기"
     },
     {
-     "id": "qBYvNiWwwMM",
-     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
+     "id": "V4mCCBmoCdc",
+     "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
      "src": "설명",
-     "hook": "🚨[👇3달만에 억대 수익만드는 코인 실전공식! 30만 커뮤니티를 보유한 코인 트레이더 ‘돈복남’ '퍼즈'의 2026 비트코인 투자 노하우 무료특강👇]🚨 🤑지금이 코인 시장에서 큰 기회를 잡기 가장 좋은 시기인 거 알고 계셨나요? 지금도 시세 변동 속에서 진짜 수익을 내는 트레이딩 기회들"
+     "hook": "산업을 이끄는 이들의 시각으로 미래를 발견하는 시간 [PLUS LEADERS] EP 25 출연 : 신아영(MC) | 122만 미국 증시 유튜버 오선 본 영상은 2026년 10월 11일에 촬영되었습니다. 미국장이 열리는 날이면 어김없이 8시간 동안 이어지는 생방송. 빠르게 변하는 시장 속"
     }
    ],
-   "comments": 92764,
+   "comments": 90420,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 16106,
-     "share": 0.174
-    },
-    {
-     "name": "칭찬·감사",
-     "count": 9160,
-     "share": 0.099
+     "count": 15909,
+     "share": 0.176
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 8845,
-     "share": 0.095
+     "count": 8179,
+     "share": 0.09
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 7772,
+     "share": 0.086
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 8049,
-     "share": 0.087
+     "count": 7421,
+     "share": 0.082
     },
     {
      "name": "요청",
-     "count": 4750,
-     "share": 0.051
+     "count": 4267,
+     "share": 0.047
     },
     {
      "name": "빚·신용·미수",
-     "count": 4131,
+     "count": 4109,
      "share": 0.045
     }
    ],
@@ -5416,7 +5386,7 @@
      "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
      "channel": "채널A News",
      "views": 762073,
-     "views_per_day": 638378.6,
+     "views_per_day": 352297.3,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
     },
@@ -5425,49 +5395,49 @@
      "title": "검은월요일, 코스피는 얼마나 떨어질까?(ft.딥시크, 코워위브)",
      "channel": "전인구경제연구소",
      "views": 477513,
-     "views_per_day": 477513.0,
+     "views_per_day": 267009.7,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=ZRcF6P2y9Bo"
-    },
-    {
-     "id": "qBYvNiWwwMM",
-     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
-     "channel": "신사임당",
-     "views": 597481,
-     "views_per_day": 307763.0,
-     "published": "2026-10-17",
-     "url": "https://www.youtube.com/watch?v=qBYvNiWwwMM"
     },
     {
      "id": "V4mCCBmoCdc",
      "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
      "channel": "PLUS TV (플러스 TV)",
      "views": 1196189,
-     "views_per_day": 298772.2,
+     "views_per_day": 240533.2,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=V4mCCBmoCdc"
     },
     {
-     "id": "EQDU2WiYrmc",
-     "title": "주식 대폭락, 숨겨진 이유 [김진 앵커]",
-     "channel": "꽉TV",
-     "views": 487784,
-     "views_per_day": 282038.8,
+     "id": "ZlGbs_sIbQg",
+     "title": "계속 떨어지더니 '최저' 찍었다..\"요즘 금값 왜 이래\" 이유 보니 / 친절한 경제 / SBS 모닝와이드 2부",
+     "channel": "SBS 뉴스",
+     "views": 4192694,
+     "views_per_day": 206895.8,
+     "published": "2026-09-30",
+     "url": "https://www.youtube.com/watch?v=ZlGbs_sIbQg"
+    },
+    {
+     "id": "qBYvNiWwwMM",
+     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
+     "channel": "신사임당",
+     "views": 597481,
+     "views_per_day": 205266.5,
      "published": "2026-10-17",
-     "url": "https://www.youtube.com/watch?v=EQDU2WiYrmc"
+     "url": "https://www.youtube.com/watch?v=qBYvNiWwwMM"
     }
    ]
   },
   {
    "weeks": 14,
    "label": "최근 14주",
-   "videos": 262,
+   "videos": 261,
    "channels": 187,
    "new_this_week": [
     {
-     "id": "COJaeQaYMJg",
-     "title": "주식 고수도 당하는 '타이밍'의 착각과 폭락·반등의 비밀",
-     "published": "2026-07-13"
+     "id": "IT0HJS9WdAg",
+     "title": "\"서울요? 아닙니다\" 노년에 가장 살기 좋은곳 압도적 1위",
+     "published": "2026-07-21"
     },
     {
      "id": "OwVoLhhr30U",
@@ -5475,9 +5445,24 @@
      "published": "2026-07-17"
     },
     {
+     "id": "T2NAq3jFDQM",
+     "title": "재테크의 기초 상식. 모르면 절대 부자 못 됩니다",
+     "published": "2026-07-20"
+    },
+    {
      "id": "WGCZYnwacuo",
      "title": "S&P500 하나로 채운 ISA 3년 투자 총정리 | 5년 연장 대신 지금 해지한 이유 | 직접 경험한 이전 절차 포함",
      "published": "2026-07-19"
+    },
+    {
+     "id": "l4MAizC_l20",
+     "title": "2030 자산성장, 어떻게 시작해야 할까? 「주식투자는 처음이라 EP.1」 #곽범 #슈카",
+     "published": "2026-07-20"
+    },
+    {
+     "id": "m-ZkLW7xMvk",
+     "title": "\"연금 저축부터 채워라?\" 연봉 따라 순서 뒤집히는 ISA·연금저축·IRP",
+     "published": "2026-07-20"
     },
     {
      "id": "y4ZUoXoQuXA",
@@ -5490,37 +5475,37 @@
      "published": "2026-07-14"
     }
    ],
-   "views_median": 122874.5,
-   "views_per_day_median": 5191.85,
-   "ratio_median": 8.88,
+   "views_median": 121137,
+   "views_per_day_median": 4695.5,
+   "ratio_median": 9.0,
    "success": 193,
    "minutes_median": 21.7,
-   "title_len_avg": 48.3,
+   "title_len_avg": 48.4,
    "title_features": [
     {
      "name": "노후·퇴직금·은퇴·50~70대",
      "count": 85,
-     "share": 0.324
+     "share": 0.326
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 78,
-     "share": 0.298
+     "count": 77,
+     "share": 0.295
     },
     {
      "name": "금액(억·만원)",
      "count": 52,
-     "share": 0.198
+     "share": 0.199
     },
     {
      "name": "물음표 ?",
      "count": 50,
-     "share": 0.191
+     "share": 0.192
     },
     {
      "name": "N가지",
      "count": 43,
-     "share": 0.164
+     "share": 0.165
     },
     {
      "name": "이유",
@@ -5540,12 +5525,12 @@
     {
      "name": "S&P500·ETF·지수·나스닥",
      "count": 26,
-     "share": 0.099
+     "share": 0.1
     },
     {
      "name": "코스피·폭락·급락·하락장",
-     "count": 24,
-     "share": 0.092
+     "count": 23,
+     "share": 0.088
     },
     {
      "name": "느낌표 !",
@@ -5634,7 +5619,7 @@
    "text_sources": {
     "자막": 1,
     "음성인식": 50,
-    "설명": 198,
+    "설명": 197,
     "없음": 13
    },
    "content_words": [
@@ -5660,7 +5645,7 @@
     },
     {
      "word": "오늘",
-     "count": 65
+     "count": 64
     },
     {
      "word": "같은",
@@ -5672,7 +5657,7 @@
     },
     {
      "word": "돈을",
-     "count": 55
+     "count": 54
     },
     {
      "word": "아닙니다",
@@ -5687,7 +5672,7 @@
      "count": 51
     }
    ],
-   "chapters_share": 0.298,
+   "chapters_share": 0.299,
    "syl_per_sec_median": 4.8,
    "hooks": [
     {
@@ -5703,43 +5688,43 @@
      "hook": "◾️ 무료 특강 & PDF 받기"
     },
     {
-     "id": "qBYvNiWwwMM",
-     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
+     "id": "V4mCCBmoCdc",
+     "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
      "src": "설명",
-     "hook": "🚨[👇3달만에 억대 수익만드는 코인 실전공식! 30만 커뮤니티를 보유한 코인 트레이더 ‘돈복남’ '퍼즈'의 2026 비트코인 투자 노하우 무료특강👇]🚨 🤑지금이 코인 시장에서 큰 기회를 잡기 가장 좋은 시기인 거 알고 계셨나요? 지금도 시세 변동 속에서 진짜 수익을 내는 트레이딩 기회들"
+     "hook": "산업을 이끄는 이들의 시각으로 미래를 발견하는 시간 [PLUS LEADERS] EP 25 출연 : 신아영(MC) | 122만 미국 증시 유튜버 오선 본 영상은 2026년 10월 11일에 촬영되었습니다. 미국장이 열리는 날이면 어김없이 8시간 동안 이어지는 생방송. 빠르게 변하는 시장 속"
     }
    ],
-   "comments": 93843,
+   "comments": 94715,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 16378,
+     "count": 16607,
      "share": 0.175
     },
     {
      "name": "칭찬·감사",
-     "count": 9429,
+     "count": 9465,
      "share": 0.1
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 8997,
+     "count": 9052,
      "share": 0.096
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 8193,
+     "count": 8275,
      "share": 0.087
     },
     {
      "name": "요청",
-     "count": 4772,
-     "share": 0.051
+     "count": 4777,
+     "share": 0.05
     },
     {
      "name": "빚·신용·미수",
-     "count": 4147,
-     "share": 0.044
+     "count": 4216,
+     "share": 0.045
     }
    ],
    "top_comments": [
@@ -5762,7 +5747,7 @@
      "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
      "channel": "채널A News",
      "views": 762073,
-     "views_per_day": 638378.6,
+     "views_per_day": 352297.3,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
     },
@@ -5771,43 +5756,43 @@
      "title": "검은월요일, 코스피는 얼마나 떨어질까?(ft.딥시크, 코워위브)",
      "channel": "전인구경제연구소",
      "views": 477513,
-     "views_per_day": 477513.0,
+     "views_per_day": 267009.7,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=ZRcF6P2y9Bo"
-    },
-    {
-     "id": "qBYvNiWwwMM",
-     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
-     "channel": "신사임당",
-     "views": 597481,
-     "views_per_day": 307763.0,
-     "published": "2026-10-17",
-     "url": "https://www.youtube.com/watch?v=qBYvNiWwwMM"
     },
     {
      "id": "V4mCCBmoCdc",
      "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
      "channel": "PLUS TV (플러스 TV)",
      "views": 1196189,
-     "views_per_day": 298772.2,
+     "views_per_day": 240533.2,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=V4mCCBmoCdc"
     },
     {
-     "id": "EQDU2WiYrmc",
-     "title": "주식 대폭락, 숨겨진 이유 [김진 앵커]",
-     "channel": "꽉TV",
-     "views": 487784,
-     "views_per_day": 282038.8,
+     "id": "ZlGbs_sIbQg",
+     "title": "계속 떨어지더니 '최저' 찍었다..\"요즘 금값 왜 이래\" 이유 보니 / 친절한 경제 / SBS 모닝와이드 2부",
+     "channel": "SBS 뉴스",
+     "views": 4192694,
+     "views_per_day": 206895.8,
+     "published": "2026-09-30",
+     "url": "https://www.youtube.com/watch?v=ZlGbs_sIbQg"
+    },
+    {
+     "id": "qBYvNiWwwMM",
+     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
+     "channel": "신사임당",
+     "views": 597481,
+     "views_per_day": 205266.5,
      "published": "2026-10-17",
-     "url": "https://www.youtube.com/watch?v=EQDU2WiYrmc"
+     "url": "https://www.youtube.com/watch?v=qBYvNiWwwMM"
     }
    ]
   },
   {
    "weeks": 15,
    "label": "최근 15주",
-   "videos": 272,
+   "videos": 270,
    "channels": 192,
    "new_this_week": [
     {
@@ -5816,14 +5801,14 @@
      "published": "2026-07-08"
     },
     {
+     "id": "COJaeQaYMJg",
+     "title": "주식 고수도 당하는 '타이밍'의 착각과 폭락·반등의 비밀",
+     "published": "2026-07-13"
+    },
+    {
      "id": "MDITNCGFdNU",
      "title": "\"50세 매달 75만원 넣으면, 10년 뒤 통장에 찍히는 숫자 (연금저축·IRP)\"",
      "published": "2026-07-09"
-    },
-    {
-     "id": "RRnTh3k1Fls",
-     "title": "노년에 이성이 접근한다면, 목적은 딱 4가지입니다… 돈이 있든 없든 반드시 보세요【노후의 진실】",
-     "published": "2026-07-06"
     },
     {
      "id": "RuWOYsSZl_E",
@@ -5846,11 +5831,6 @@
      "published": "2026-07-07"
     },
     {
-     "id": "g5QcZDL9zCA",
-     "title": "\"지금 예적금 하지 마세요\" 현금 안전하게 굴리는 방법",
-     "published": "2026-07-06"
-    },
-    {
      "id": "vUDveBMalNQ",
      "title": "55세, 인생이 갈린다! 미리 대비하지 않으면 노후 파산하는 이유? | 김동엽 | 김경록 | 연금받는형",
      "published": "2026-07-07"
@@ -5861,47 +5841,47 @@
      "published": "2026-07-12"
     }
    ],
-   "views_median": 125838.5,
-   "views_per_day_median": 5150.5,
+   "views_median": 124871.0,
+   "views_per_day_median": 4538.0,
    "ratio_median": 8.68,
-   "success": 201,
-   "minutes_median": 21.75,
-   "title_len_avg": 48.3,
+   "success": 200,
+   "minutes_median": 21.7,
+   "title_len_avg": 48.4,
    "title_features": [
     {
      "name": "노후·퇴직금·은퇴·50~70대",
-     "count": 89,
-     "share": 0.327
+     "count": 88,
+     "share": 0.326
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 81,
-     "share": 0.298
+     "count": 80,
+     "share": 0.296
     },
     {
      "name": "금액(억·만원)",
      "count": 54,
-     "share": 0.199
+     "share": 0.2
     },
     {
      "name": "물음표 ?",
      "count": 52,
-     "share": 0.191
+     "share": 0.193
     },
     {
      "name": "N가지",
-     "count": 44,
-     "share": 0.162
+     "count": 43,
+     "share": 0.159
     },
     {
      "name": "이유",
      "count": 42,
-     "share": 0.154
+     "share": 0.156
     },
     {
      "name": "vs 비교",
      "count": 34,
-     "share": 0.125
+     "share": 0.126
     },
     {
      "name": "사연·오디오북·실화·고백",
@@ -5911,12 +5891,12 @@
     {
      "name": "S&P500·ETF·지수·나스닥",
      "count": 27,
-     "share": 0.099
+     "share": 0.1
     },
     {
      "name": "코스피·폭락·급락·하락장",
      "count": 24,
-     "share": 0.088
+     "share": 0.089
     },
     {
      "name": "느낌표 !",
@@ -6001,21 +5981,21 @@
      "count": 11
     }
    ],
-   "transcripts": 54,
+   "transcripts": 53,
    "text_sources": {
     "자막": 1,
-    "음성인식": 53,
-    "설명": 205,
+    "음성인식": 52,
+    "설명": 204,
     "없음": 13
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 121
+     "count": 119
     },
     {
      "word": "그리고",
-     "count": 107
+     "count": 106
     },
     {
      "word": "아니라",
@@ -6023,7 +6003,7 @@
     },
     {
      "word": "그런데",
-     "count": 71
+     "count": 70
     },
     {
      "word": "가장",
@@ -6031,7 +6011,7 @@
     },
     {
      "word": "오늘",
-     "count": 68
+     "count": 67
     },
     {
      "word": "같은",
@@ -6043,7 +6023,7 @@
     },
     {
      "word": "어떤",
-     "count": 57
+     "count": 56
     },
     {
      "word": "돈을",
@@ -6051,14 +6031,14 @@
     },
     {
      "word": "먼저",
-     "count": 56
+     "count": 55
     },
     {
      "word": "아닙니다",
      "count": 54
     }
    ],
-   "chapters_share": 0.298,
+   "chapters_share": 0.3,
    "syl_per_sec_median": 4.8,
    "hooks": [
     {
@@ -6074,42 +6054,42 @@
      "hook": "◾️ 무료 특강 & PDF 받기"
     },
     {
-     "id": "qBYvNiWwwMM",
-     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
+     "id": "V4mCCBmoCdc",
+     "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
      "src": "설명",
-     "hook": "🚨[👇3달만에 억대 수익만드는 코인 실전공식! 30만 커뮤니티를 보유한 코인 트레이더 ‘돈복남’ '퍼즈'의 2026 비트코인 투자 노하우 무료특강👇]🚨 🤑지금이 코인 시장에서 큰 기회를 잡기 가장 좋은 시기인 거 알고 계셨나요? 지금도 시세 변동 속에서 진짜 수익을 내는 트레이딩 기회들"
+     "hook": "산업을 이끄는 이들의 시각으로 미래를 발견하는 시간 [PLUS LEADERS] EP 25 출연 : 신아영(MC) | 122만 미국 증시 유튜버 오선 본 영상은 2026년 10월 11일에 촬영되었습니다. 미국장이 열리는 날이면 어김없이 8시간 동안 이어지는 생방송. 빠르게 변하는 시장 속"
     }
    ],
-   "comments": 99244,
+   "comments": 99663,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 16724,
-     "share": 0.169
+     "count": 16900,
+     "share": 0.17
     },
     {
      "name": "칭찬·감사",
-     "count": 11838,
+     "count": 11813,
      "share": 0.119
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 9133,
+     "count": 9162,
      "share": 0.092
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 8364,
+     "count": 8410,
      "share": 0.084
     },
     {
      "name": "요청",
-     "count": 4930,
-     "share": 0.05
+     "count": 4933,
+     "share": 0.049
     },
     {
      "name": "빚·신용·미수",
-     "count": 4165,
+     "count": 4234,
      "share": 0.042
     }
    ],
@@ -6133,7 +6113,7 @@
      "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
      "channel": "채널A News",
      "views": 762073,
-     "views_per_day": 638378.6,
+     "views_per_day": 352297.3,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
     },
@@ -6142,43 +6122,43 @@
      "title": "검은월요일, 코스피는 얼마나 떨어질까?(ft.딥시크, 코워위브)",
      "channel": "전인구경제연구소",
      "views": 477513,
-     "views_per_day": 477513.0,
+     "views_per_day": 267009.7,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=ZRcF6P2y9Bo"
-    },
-    {
-     "id": "qBYvNiWwwMM",
-     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
-     "channel": "신사임당",
-     "views": 597481,
-     "views_per_day": 307763.0,
-     "published": "2026-10-17",
-     "url": "https://www.youtube.com/watch?v=qBYvNiWwwMM"
     },
     {
      "id": "V4mCCBmoCdc",
      "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
      "channel": "PLUS TV (플러스 TV)",
      "views": 1196189,
-     "views_per_day": 298772.2,
+     "views_per_day": 240533.2,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=V4mCCBmoCdc"
     },
     {
-     "id": "EQDU2WiYrmc",
-     "title": "주식 대폭락, 숨겨진 이유 [김진 앵커]",
-     "channel": "꽉TV",
-     "views": 487784,
-     "views_per_day": 282038.8,
+     "id": "ZlGbs_sIbQg",
+     "title": "계속 떨어지더니 '최저' 찍었다..\"요즘 금값 왜 이래\" 이유 보니 / 친절한 경제 / SBS 모닝와이드 2부",
+     "channel": "SBS 뉴스",
+     "views": 4192694,
+     "views_per_day": 206895.8,
+     "published": "2026-09-30",
+     "url": "https://www.youtube.com/watch?v=ZlGbs_sIbQg"
+    },
+    {
+     "id": "qBYvNiWwwMM",
+     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
+     "channel": "신사임당",
+     "views": 597481,
+     "views_per_day": 205266.5,
      "published": "2026-10-17",
-     "url": "https://www.youtube.com/watch?v=EQDU2WiYrmc"
+     "url": "https://www.youtube.com/watch?v=qBYvNiWwwMM"
     }
    ]
   },
   {
    "weeks": 16,
    "label": "최근 16주",
-   "videos": 288,
+   "videos": 285,
    "channels": 199,
    "new_this_week": [
     {
@@ -6202,24 +6182,19 @@
      "published": "2026-07-02"
     },
     {
-     "id": "KnQL-_ll6dU",
-     "title": "부자는 돈을 어디에 담을까?",
-     "published": "2026-06-29"
-    },
-    {
      "id": "LC8DvY1DUoA",
      "title": "\"50대 노후 5억, 지금 이렇게 준비하세요 (연금저축·IRP 148만원)\"",
      "published": "2026-07-04"
     },
     {
-     "id": "NGLEPdYvQdQ",
-     "title": "50대 이후, 이런 집에 살면 노후가 무너집니다",
-     "published": "2026-06-30"
-    },
-    {
      "id": "QTrCmMxmAdg",
      "title": "라오어님의 TQQQ, SOXL 무한매수법 정말 좋아합니다(QQQ, QLD, TQQQ, SOXL)",
      "published": "2026-07-01"
+    },
+    {
+     "id": "RRnTh3k1Fls",
+     "title": "노년에 이성이 접근한다면, 목적은 딱 4가지입니다… 돈이 있든 없든 반드시 보세요【노후의 진실】",
+     "published": "2026-07-06"
     },
     {
      "id": "TrpDxPeBbbY",
@@ -6232,9 +6207,9 @@
      "published": "2026-07-04"
     },
     {
-     "id": "_aTLO_yYPAY",
-     "title": "ISA 계좌 하나로 3년 굴리면 얼마 벌까?",
-     "published": "2026-06-29"
+     "id": "g5QcZDL9zCA",
+     "title": "\"지금 예적금 하지 마세요\" 현금 안전하게 굴리는 방법",
+     "published": "2026-07-06"
     },
     {
      "id": "o9wqKcVOwPI",
@@ -6262,77 +6237,77 @@
      "published": "2026-07-02"
     }
    ],
-   "views_median": 133392.0,
-   "views_per_day_median": 4586.5,
-   "ratio_median": 8.52,
-   "success": 213,
+   "views_median": 131847,
+   "views_per_day_median": 4421.2,
+   "ratio_median": 8.6,
+   "success": 212,
    "minutes_median": 21.8,
-   "title_len_avg": 47.8,
+   "title_len_avg": 48.1,
    "title_features": [
     {
      "name": "노후·퇴직금·은퇴·50~70대",
-     "count": 92,
+     "count": 91,
      "share": 0.319
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 84,
-     "share": 0.292
+     "share": 0.295
     },
     {
      "name": "금액(억·만원)",
      "count": 59,
-     "share": 0.205
+     "share": 0.207
     },
     {
      "name": "물음표 ?",
-     "count": 56,
-     "share": 0.194
+     "count": 54,
+     "share": 0.189
     },
     {
      "name": "N가지",
      "count": 45,
-     "share": 0.156
+     "share": 0.158
     },
     {
      "name": "이유",
      "count": 44,
-     "share": 0.153
+     "share": 0.154
     },
     {
      "name": "vs 비교",
-     "count": 37,
-     "share": 0.128
+     "count": 36,
+     "share": 0.126
     },
     {
      "name": "사연·오디오북·실화·고백",
      "count": 29,
-     "share": 0.101
+     "share": 0.102
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
      "count": 28,
-     "share": 0.097
+     "share": 0.098
     },
     {
      "name": "코스피·폭락·급락·하락장",
      "count": 24,
-     "share": 0.083
+     "share": 0.084
     },
     {
      "name": "느낌표 !",
      "count": 23,
-     "share": 0.08
+     "share": 0.081
     },
     {
      "name": "두 금액(반전)",
      "count": 11,
-     "share": 0.038
+     "share": 0.039
     },
     {
      "name": "직접·해보니·N년 기록",
-     "count": 8,
-     "share": 0.028
+     "count": 7,
+     "share": 0.025
     },
     {
      "name": "과정·벌어진 일·결말·결국",
@@ -6352,7 +6327,7 @@
     {
      "name": "빚투·신용·미수·레버리지·대출",
      "count": 3,
-     "share": 0.01
+     "share": 0.011
     },
     {
      "name": "공통점",
@@ -6406,13 +6381,13 @@
    "text_sources": {
     "자막": 2,
     "음성인식": 57,
-    "설명": 216,
+    "설명": 213,
     "없음": 13
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 128
+     "count": 127
     },
     {
      "word": "그리고",
@@ -6424,7 +6399,7 @@
     },
     {
      "word": "오늘",
-     "count": 74
+     "count": 73
     },
     {
      "word": "그런데",
@@ -6440,26 +6415,26 @@
     },
     {
      "word": "어떻게",
-     "count": 67
+     "count": 66
     },
     {
      "word": "어떤",
-     "count": 63
-    },
-    {
-     "word": "돈을",
-     "count": 61
+     "count": 62
     },
     {
      "word": "먼저",
-     "count": 61
+     "count": 60
+    },
+    {
+     "word": "돈을",
+     "count": 60
     },
     {
      "word": "돈이",
      "count": 57
     }
    ],
-   "chapters_share": 0.299,
+   "chapters_share": 0.302,
    "syl_per_sec_median": 5.4,
    "hooks": [
     {
@@ -6475,42 +6450,42 @@
      "hook": "◾️ 무료 특강 & PDF 받기"
     },
     {
-     "id": "qBYvNiWwwMM",
-     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
+     "id": "V4mCCBmoCdc",
+     "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
      "src": "설명",
-     "hook": "🚨[👇3달만에 억대 수익만드는 코인 실전공식! 30만 커뮤니티를 보유한 코인 트레이더 ‘돈복남’ '퍼즈'의 2026 비트코인 투자 노하우 무료특강👇]🚨 🤑지금이 코인 시장에서 큰 기회를 잡기 가장 좋은 시기인 거 알고 계셨나요? 지금도 시세 변동 속에서 진짜 수익을 내는 트레이딩 기회들"
+     "hook": "산업을 이끄는 이들의 시각으로 미래를 발견하는 시간 [PLUS LEADERS] EP 25 출연 : 신아영(MC) | 122만 미국 증시 유튜버 오선 본 영상은 2026년 10월 11일에 촬영되었습니다. 미국장이 열리는 날이면 어김없이 8시간 동안 이어지는 생방송. 빠르게 변하는 시장 속"
     }
    ],
-   "comments": 104322,
+   "comments": 104860,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 17885,
-     "share": 0.171
+     "count": 18054,
+     "share": 0.172
     },
     {
      "name": "칭찬·감사",
-     "count": 12795,
-     "share": 0.123
+     "count": 12771,
+     "share": 0.122
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 10154,
+     "count": 10179,
      "share": 0.097
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 8780,
+     "count": 8836,
      "share": 0.084
     },
     {
      "name": "요청",
-     "count": 5050,
+     "count": 5045,
      "share": 0.048
     },
     {
      "name": "빚·신용·미수",
-     "count": 4246,
+     "count": 4317,
      "share": 0.041
     }
    ],
@@ -6534,7 +6509,7 @@
      "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
      "channel": "채널A News",
      "views": 762073,
-     "views_per_day": 638378.6,
+     "views_per_day": 352297.3,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
     },
@@ -6543,50 +6518,45 @@
      "title": "검은월요일, 코스피는 얼마나 떨어질까?(ft.딥시크, 코워위브)",
      "channel": "전인구경제연구소",
      "views": 477513,
-     "views_per_day": 477513.0,
+     "views_per_day": 267009.7,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=ZRcF6P2y9Bo"
-    },
-    {
-     "id": "qBYvNiWwwMM",
-     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
-     "channel": "신사임당",
-     "views": 597481,
-     "views_per_day": 307763.0,
-     "published": "2026-10-17",
-     "url": "https://www.youtube.com/watch?v=qBYvNiWwwMM"
     },
     {
      "id": "V4mCCBmoCdc",
      "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
      "channel": "PLUS TV (플러스 TV)",
      "views": 1196189,
-     "views_per_day": 298772.2,
+     "views_per_day": 240533.2,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=V4mCCBmoCdc"
     },
     {
-     "id": "EQDU2WiYrmc",
-     "title": "주식 대폭락, 숨겨진 이유 [김진 앵커]",
-     "channel": "꽉TV",
-     "views": 487784,
-     "views_per_day": 282038.8,
+     "id": "ZlGbs_sIbQg",
+     "title": "계속 떨어지더니 '최저' 찍었다..\"요즘 금값 왜 이래\" 이유 보니 / 친절한 경제 / SBS 모닝와이드 2부",
+     "channel": "SBS 뉴스",
+     "views": 4192694,
+     "views_per_day": 206895.8,
+     "published": "2026-09-30",
+     "url": "https://www.youtube.com/watch?v=ZlGbs_sIbQg"
+    },
+    {
+     "id": "qBYvNiWwwMM",
+     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
+     "channel": "신사임당",
+     "views": 597481,
+     "views_per_day": 205266.5,
      "published": "2026-10-17",
-     "url": "https://www.youtube.com/watch?v=EQDU2WiYrmc"
+     "url": "https://www.youtube.com/watch?v=qBYvNiWwwMM"
     }
    ]
   },
   {
    "weeks": 17,
    "label": "최근 17주",
-   "videos": 296,
-   "channels": 205,
+   "videos": 294,
+   "channels": 203,
    "new_this_week": [
-    {
-     "id": "-gcRoQnRARY",
-     "title": "주식계좌에 1억 있으면, 대한민국 상위 몇 % 일까요?",
-     "published": "2026-06-22"
-    },
     {
      "id": "JJG1mtkTN6g",
      "title": "삼성전자 지금 시작인가? 노무라가 목표주가 67만원 제시한 이유가 소름입니다... 여기서 90% 더 오를 수 있다? 상승 전망 전부 분석했습니다 #삼성전자 #삼성전자주가전망",
@@ -6598,9 +6568,19 @@
      "published": "2026-06-23"
     },
     {
+     "id": "KnQL-_ll6dU",
+     "title": "부자는 돈을 어디에 담을까?",
+     "published": "2026-06-29"
+    },
+    {
      "id": "MDxxdf11In8",
      "title": "나이가 들면, 저축은 어디에 두어야합니까? 75세가 있는 여성의 방법이 절묘하면 화제에. 이것은 모든 사람들이 배우고 기억해야 할 이야기입니다. #노후 생활 #시니어 라이프 #종활",
      "published": "2026-06-27"
+    },
+    {
+     "id": "NGLEPdYvQdQ",
+     "title": "50대 이후, 이런 집에 살면 노후가 무너집니다",
+     "published": "2026-06-30"
     },
     {
      "id": "QEgZrrQEQfA",
@@ -6608,9 +6588,9 @@
      "published": "2026-06-23"
     },
     {
-     "id": "bk5ingu3Eb0",
-     "title": "스트레스 없이 돈 모으는 미니멀 소비습관 3가지 ㅣ 미니멀라이프",
-     "published": "2026-06-22"
+     "id": "_aTLO_yYPAY",
+     "title": "ISA 계좌 하나로 3년 굴리면 얼마 벌까?",
+     "published": "2026-06-29"
     },
     {
      "id": "t94bcrWeee0",
@@ -6623,52 +6603,52 @@
      "published": "2026-06-25"
     }
    ],
-   "views_median": 126862.0,
-   "views_per_day_median": 4486.0,
+   "views_median": 129429.0,
+   "views_per_day_median": 4065.0,
    "ratio_median": 8.52,
-   "success": 220,
-   "minutes_median": 21.75,
-   "title_len_avg": 47.9,
+   "success": 218,
+   "minutes_median": 21.8,
+   "title_len_avg": 48.0,
    "title_features": [
     {
      "name": "노후·퇴직금·은퇴·50~70대",
      "count": 95,
-     "share": 0.321
+     "share": 0.323
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 88,
-     "share": 0.297
+     "count": 87,
+     "share": 0.296
     },
     {
      "name": "금액(억·만원)",
-     "count": 62,
-     "share": 0.209
+     "count": 61,
+     "share": 0.207
     },
     {
      "name": "물음표 ?",
-     "count": 61,
-     "share": 0.206
-    },
-    {
-     "name": "N가지",
-     "count": 47,
-     "share": 0.159
+     "count": 60,
+     "share": 0.204
     },
     {
      "name": "이유",
      "count": 46,
-     "share": 0.155
+     "share": 0.156
+    },
+    {
+     "name": "N가지",
+     "count": 46,
+     "share": 0.156
     },
     {
      "name": "vs 비교",
      "count": 38,
-     "share": 0.128
+     "share": 0.129
     },
     {
      "name": "사연·오디오북·실화·고백",
      "count": 29,
-     "share": 0.098
+     "share": 0.099
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
@@ -6678,7 +6658,7 @@
     {
      "name": "코스피·폭락·급락·하락장",
      "count": 24,
-     "share": 0.081
+     "share": 0.082
     },
     {
      "name": "느낌표 !",
@@ -6743,11 +6723,11 @@
      "count": 16
     },
     {
-     "word": "3가지",
-     "count": 14
+     "word": "투자",
+     "count": 13
     },
     {
-     "word": "투자",
+     "word": "3가지",
      "count": 13
     },
     {
@@ -6767,13 +6747,13 @@
    "text_sources": {
     "자막": 2,
     "음성인식": 58,
-    "설명": 223,
+    "설명": 221,
     "없음": 13
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 133
+     "count": 132
     },
     {
      "word": "그리고",
@@ -6781,7 +6761,7 @@
     },
     {
      "word": "아니라",
-     "count": 83
+     "count": 82
     },
     {
      "word": "오늘",
@@ -6792,11 +6772,11 @@
      "count": 72
     },
     {
-     "word": "가장",
-     "count": 71
+     "word": "같은",
+     "count": 70
     },
     {
-     "word": "같은",
+     "word": "가장",
      "count": 70
     },
     {
@@ -6820,7 +6800,7 @@
      "count": 58
     }
    ],
-   "chapters_share": 0.294,
+   "chapters_share": 0.293,
    "syl_per_sec_median": 5.4,
    "hooks": [
     {
@@ -6836,42 +6816,42 @@
      "hook": "◾️ 무료 특강 & PDF 받기"
     },
     {
-     "id": "qBYvNiWwwMM",
-     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
+     "id": "V4mCCBmoCdc",
+     "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
      "src": "설명",
-     "hook": "🚨[👇3달만에 억대 수익만드는 코인 실전공식! 30만 커뮤니티를 보유한 코인 트레이더 ‘돈복남’ '퍼즈'의 2026 비트코인 투자 노하우 무료특강👇]🚨 🤑지금이 코인 시장에서 큰 기회를 잡기 가장 좋은 시기인 거 알고 계셨나요? 지금도 시세 변동 속에서 진짜 수익을 내는 트레이딩 기회들"
+     "hook": "산업을 이끄는 이들의 시각으로 미래를 발견하는 시간 [PLUS LEADERS] EP 25 출연 : 신아영(MC) | 122만 미국 증시 유튜버 오선 본 영상은 2026년 10월 11일에 촬영되었습니다. 미국장이 열리는 날이면 어김없이 8시간 동안 이어지는 생방송. 빠르게 변하는 시장 속"
     }
    ],
-   "comments": 105037,
+   "comments": 105816,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 17989,
-     "share": 0.171
+     "count": 18212,
+     "share": 0.172
     },
     {
      "name": "칭찬·감사",
-     "count": 12920,
-     "share": 0.123
+     "count": 12935,
+     "share": 0.122
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 10222,
+     "count": 10257,
      "share": 0.097
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 8840,
+     "count": 8923,
      "share": 0.084
     },
     {
      "name": "요청",
-     "count": 5054,
+     "count": 5056,
      "share": 0.048
     },
     {
      "name": "빚·신용·미수",
-     "count": 4255,
+     "count": 4321,
      "share": 0.041
     }
    ],
@@ -6895,7 +6875,7 @@
      "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
      "channel": "채널A News",
      "views": 762073,
-     "views_per_day": 638378.6,
+     "views_per_day": 352297.3,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
     },
@@ -6904,49 +6884,49 @@
      "title": "검은월요일, 코스피는 얼마나 떨어질까?(ft.딥시크, 코워위브)",
      "channel": "전인구경제연구소",
      "views": 477513,
-     "views_per_day": 477513.0,
+     "views_per_day": 267009.7,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=ZRcF6P2y9Bo"
-    },
-    {
-     "id": "qBYvNiWwwMM",
-     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
-     "channel": "신사임당",
-     "views": 597481,
-     "views_per_day": 307763.0,
-     "published": "2026-10-17",
-     "url": "https://www.youtube.com/watch?v=qBYvNiWwwMM"
     },
     {
      "id": "V4mCCBmoCdc",
      "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
      "channel": "PLUS TV (플러스 TV)",
      "views": 1196189,
-     "views_per_day": 298772.2,
+     "views_per_day": 240533.2,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=V4mCCBmoCdc"
     },
     {
-     "id": "EQDU2WiYrmc",
-     "title": "주식 대폭락, 숨겨진 이유 [김진 앵커]",
-     "channel": "꽉TV",
-     "views": 487784,
-     "views_per_day": 282038.8,
+     "id": "ZlGbs_sIbQg",
+     "title": "계속 떨어지더니 '최저' 찍었다..\"요즘 금값 왜 이래\" 이유 보니 / 친절한 경제 / SBS 모닝와이드 2부",
+     "channel": "SBS 뉴스",
+     "views": 4192694,
+     "views_per_day": 206895.8,
+     "published": "2026-09-30",
+     "url": "https://www.youtube.com/watch?v=ZlGbs_sIbQg"
+    },
+    {
+     "id": "qBYvNiWwwMM",
+     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
+     "channel": "신사임당",
+     "views": 597481,
+     "views_per_day": 205266.5,
      "published": "2026-10-17",
-     "url": "https://www.youtube.com/watch?v=EQDU2WiYrmc"
+     "url": "https://www.youtube.com/watch?v=qBYvNiWwwMM"
     }
    ]
   },
   {
    "weeks": 18,
    "label": "최근 18주",
-   "videos": 306,
+   "videos": 305,
    "channels": 208,
    "new_this_week": [
     {
-     "id": "-PrN9w6Fu0Y",
-     "title": "미국 주식 10억 투자 직접해보니 믿기 힘든 결과가 생깁니다",
-     "published": "2026-06-15"
+     "id": "-gcRoQnRARY",
+     "title": "주식계좌에 1억 있으면, 대한민국 상위 몇 % 일까요?",
+     "published": "2026-06-22"
     },
     {
      "id": "0ftjA5wsqtQ",
@@ -6966,6 +6946,11 @@
     {
      "id": "X6WyXVU7LZ8",
      "title": "ISA 3년마다 연금저축 이전, 진짜 이득일까? 아니면 놔두는 것이 좋을까? 직접 계산해본 놀라운 결과",
+     "published": "2026-06-22"
+    },
+    {
+     "id": "bk5ingu3Eb0",
+     "title": "스트레스 없이 돈 모으는 미니멀 소비습관 3가지 ㅣ 미니멀라이프",
      "published": "2026-06-22"
     },
     {
@@ -6994,32 +6979,32 @@
      "published": "2026-06-20"
     }
    ],
-   "views_median": 126862.0,
-   "views_per_day_median": 4297.95,
-   "ratio_median": 8.5,
-   "success": 229,
-   "minutes_median": 21.45,
+   "views_median": 127177,
+   "views_per_day_median": 3949.7,
+   "ratio_median": 8.48,
+   "success": 228,
+   "minutes_median": 21.6,
    "title_len_avg": 48.0,
    "title_features": [
     {
      "name": "노후·퇴직금·은퇴·50~70대",
      "count": 98,
-     "share": 0.32
+     "share": 0.321
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 90,
-     "share": 0.294
-    },
-    {
-     "name": "금액(억·만원)",
-     "count": 65,
-     "share": 0.212
+     "share": 0.295
     },
     {
      "name": "물음표 ?",
      "count": 65,
-     "share": 0.212
+     "share": 0.213
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 64,
+     "share": 0.21
     },
     {
      "name": "N가지",
@@ -7034,7 +7019,7 @@
     {
      "name": "vs 비교",
      "count": 39,
-     "share": 0.127
+     "share": 0.128
     },
     {
      "name": "사연·오디오북·실화·고백",
@@ -7049,12 +7034,12 @@
     {
      "name": "느낌표 !",
      "count": 24,
-     "share": 0.078
+     "share": 0.079
     },
     {
      "name": "코스피·폭락·급락·하락장",
      "count": 24,
-     "share": 0.078
+     "share": 0.079
     },
     {
      "name": "두 금액(반전)",
@@ -7063,8 +7048,8 @@
     },
     {
      "name": "직접·해보니·N년 기록",
-     "count": 10,
-     "share": 0.033
+     "count": 9,
+     "share": 0.03
     },
     {
      "name": "AI",
@@ -7119,7 +7104,7 @@
     },
     {
      "word": "투자",
-     "count": 14
+     "count": 13
     },
     {
      "word": "부자가",
@@ -7138,13 +7123,13 @@
    "text_sources": {
     "자막": 2,
     "음성인식": 60,
-    "설명": 231,
+    "설명": 230,
     "없음": 13
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 136
+     "count": 135
     },
     {
      "word": "그리고",
@@ -7156,7 +7141,7 @@
     },
     {
      "word": "오늘",
-     "count": 80
+     "count": 79
     },
     {
      "word": "가장",
@@ -7179,19 +7164,19 @@
      "count": 65
     },
     {
-     "word": "돈을",
-     "count": 64
-    },
-    {
      "word": "먼저",
      "count": 63
     },
     {
+     "word": "돈을",
+     "count": 63
+    },
+    {
      "word": "투자",
-     "count": 61
+     "count": 60
     }
    ],
-   "chapters_share": 0.291,
+   "chapters_share": 0.289,
    "syl_per_sec_median": 5.4,
    "hooks": [
     {
@@ -7207,42 +7192,42 @@
      "hook": "◾️ 무료 특강 & PDF 받기"
     },
     {
-     "id": "qBYvNiWwwMM",
-     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
+     "id": "V4mCCBmoCdc",
+     "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
      "src": "설명",
-     "hook": "🚨[👇3달만에 억대 수익만드는 코인 실전공식! 30만 커뮤니티를 보유한 코인 트레이더 ‘돈복남’ '퍼즈'의 2026 비트코인 투자 노하우 무료특강👇]🚨 🤑지금이 코인 시장에서 큰 기회를 잡기 가장 좋은 시기인 거 알고 계셨나요? 지금도 시세 변동 속에서 진짜 수익을 내는 트레이딩 기회들"
+     "hook": "산업을 이끄는 이들의 시각으로 미래를 발견하는 시간 [PLUS LEADERS] EP 25 출연 : 신아영(MC) | 122만 미국 증시 유튜버 오선 본 영상은 2026년 10월 11일에 촬영되었습니다. 미국장이 열리는 날이면 어김없이 8시간 동안 이어지는 생방송. 빠르게 변하는 시장 속"
     }
    ],
-   "comments": 109862,
+   "comments": 110837,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 18876,
-     "share": 0.172
+     "count": 19125,
+     "share": 0.173
     },
     {
      "name": "칭찬·감사",
-     "count": 13383,
-     "share": 0.122
+     "count": 13411,
+     "share": 0.121
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 10726,
-     "share": 0.098
+     "count": 10777,
+     "share": 0.097
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 9240,
+     "count": 9338,
      "share": 0.084
     },
     {
      "name": "요청",
-     "count": 5121,
-     "share": 0.047
+     "count": 5126,
+     "share": 0.046
     },
     {
      "name": "빚·신용·미수",
-     "count": 4353,
+     "count": 4427,
      "share": 0.04
     }
    ],
@@ -7266,7 +7251,7 @@
      "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
      "channel": "채널A News",
      "views": 762073,
-     "views_per_day": 638378.6,
+     "views_per_day": 352297.3,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
     },
@@ -7275,45 +7260,50 @@
      "title": "검은월요일, 코스피는 얼마나 떨어질까?(ft.딥시크, 코워위브)",
      "channel": "전인구경제연구소",
      "views": 477513,
-     "views_per_day": 477513.0,
+     "views_per_day": 267009.7,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=ZRcF6P2y9Bo"
-    },
-    {
-     "id": "qBYvNiWwwMM",
-     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
-     "channel": "신사임당",
-     "views": 597481,
-     "views_per_day": 307763.0,
-     "published": "2026-10-17",
-     "url": "https://www.youtube.com/watch?v=qBYvNiWwwMM"
     },
     {
      "id": "V4mCCBmoCdc",
      "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
      "channel": "PLUS TV (플러스 TV)",
      "views": 1196189,
-     "views_per_day": 298772.2,
+     "views_per_day": 240533.2,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=V4mCCBmoCdc"
     },
     {
-     "id": "EQDU2WiYrmc",
-     "title": "주식 대폭락, 숨겨진 이유 [김진 앵커]",
-     "channel": "꽉TV",
-     "views": 487784,
-     "views_per_day": 282038.8,
+     "id": "ZlGbs_sIbQg",
+     "title": "계속 떨어지더니 '최저' 찍었다..\"요즘 금값 왜 이래\" 이유 보니 / 친절한 경제 / SBS 모닝와이드 2부",
+     "channel": "SBS 뉴스",
+     "views": 4192694,
+     "views_per_day": 206895.8,
+     "published": "2026-09-30",
+     "url": "https://www.youtube.com/watch?v=ZlGbs_sIbQg"
+    },
+    {
+     "id": "qBYvNiWwwMM",
+     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
+     "channel": "신사임당",
+     "views": 597481,
+     "views_per_day": 205266.5,
      "published": "2026-10-17",
-     "url": "https://www.youtube.com/watch?v=EQDU2WiYrmc"
+     "url": "https://www.youtube.com/watch?v=qBYvNiWwwMM"
     }
    ]
   },
   {
    "weeks": 19,
    "label": "최근 19주",
-   "videos": 318,
+   "videos": 317,
    "channels": 213,
    "new_this_week": [
+    {
+     "id": "-PrN9w6Fu0Y",
+     "title": "미국 주식 10억 투자 직접해보니 믿기 힘든 결과가 생깁니다",
+     "published": "2026-06-15"
+    },
     {
      "id": "2L1Wb-CLf-o",
      "title": "\"배당금으로 먹고 살려면, 얼마를 투자해야 할까?\"",
@@ -7333,11 +7323,6 @@
      "id": "HL1r9P3dHV4",
      "title": "은퇴 5년전,우리는 이렇게 살기로 했다.  ",
      "published": "2026-06-11"
-    },
-    {
-     "id": "SgL_q0Ybdvc",
-     "title": "젠슨 황이 한국에 온 진짜 이유, 소름 돋는 반전",
-     "published": "2026-06-09"
     },
     {
      "id": "USUzkksspmg",
@@ -7375,22 +7360,22 @@
      "published": "2026-06-15"
     }
    ],
-   "views_median": 126862.0,
-   "views_per_day_median": 3916.1,
-   "ratio_median": 8.5,
-   "success": 240,
-   "minutes_median": 21.45,
-   "title_len_avg": 47.7,
+   "views_median": 127177,
+   "views_per_day_median": 3658.3,
+   "ratio_median": 8.52,
+   "success": 239,
+   "minutes_median": 21.6,
+   "title_len_avg": 47.8,
    "title_features": [
     {
      "name": "노후·퇴직금·은퇴·50~70대",
      "count": 100,
-     "share": 0.314
+     "share": 0.315
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 92,
-     "share": 0.289
+     "count": 91,
+     "share": 0.287
     },
     {
      "name": "금액(억·만원)",
@@ -7405,12 +7390,12 @@
     {
      "name": "N가지",
      "count": 49,
-     "share": 0.154
+     "share": 0.155
     },
     {
      "name": "이유",
-     "count": 48,
-     "share": 0.151
+     "count": 47,
+     "share": 0.148
     },
     {
      "name": "vs 비교",
@@ -7420,7 +7405,7 @@
     {
      "name": "사연·오디오북·실화·고백",
      "count": 30,
-     "share": 0.094
+     "share": 0.095
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
@@ -7430,12 +7415,12 @@
     {
      "name": "느낌표 !",
      "count": 24,
-     "share": 0.075
+     "share": 0.076
     },
     {
      "name": "코스피·폭락·급락·하락장",
      "count": 24,
-     "share": 0.075
+     "share": 0.076
     },
     {
      "name": "두 금액(반전)",
@@ -7445,7 +7430,7 @@
     {
      "name": "직접·해보니·N년 기록",
      "count": 10,
-     "share": 0.031
+     "share": 0.032
     },
     {
      "name": "AI",
@@ -7476,7 +7461,7 @@
    "title_words": [
     {
      "word": "이유",
-     "count": 44
+     "count": 43
     },
     {
      "word": "오디오북",
@@ -7519,7 +7504,7 @@
    "text_sources": {
     "자막": 2,
     "음성인식": 65,
-    "설명": 238,
+    "설명": 237,
     "없음": 13
    },
    "content_words": [
@@ -7529,7 +7514,7 @@
     },
     {
      "word": "그리고",
-     "count": 124
+     "count": 123
     },
     {
      "word": "아니라",
@@ -7557,7 +7542,7 @@
     },
     {
      "word": "어떤",
-     "count": 70
+     "count": 69
     },
     {
      "word": "돈을",
@@ -7572,7 +7557,7 @@
      "count": 66
     }
    ],
-   "chapters_share": 0.289,
+   "chapters_share": 0.287,
    "syl_per_sec_median": 5.4,
    "hooks": [
     {
@@ -7588,42 +7573,42 @@
      "hook": "◾️ 무료 특강 & PDF 받기"
     },
     {
-     "id": "qBYvNiWwwMM",
-     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
+     "id": "V4mCCBmoCdc",
+     "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
      "src": "설명",
-     "hook": "🚨[👇3달만에 억대 수익만드는 코인 실전공식! 30만 커뮤니티를 보유한 코인 트레이더 ‘돈복남’ '퍼즈'의 2026 비트코인 투자 노하우 무료특강👇]🚨 🤑지금이 코인 시장에서 큰 기회를 잡기 가장 좋은 시기인 거 알고 계셨나요? 지금도 시세 변동 속에서 진짜 수익을 내는 트레이딩 기회들"
+     "hook": "산업을 이끄는 이들의 시각으로 미래를 발견하는 시간 [PLUS LEADERS] EP 25 출연 : 신아영(MC) | 122만 미국 증시 유튜버 오선 본 영상은 2026년 10월 11일에 촬영되었습니다. 미국장이 열리는 날이면 어김없이 8시간 동안 이어지는 생방송. 빠르게 변하는 시장 속"
     }
    ],
-   "comments": 112083,
+   "comments": 113085,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 19295,
-     "share": 0.172
+     "count": 19555,
+     "share": 0.173
     },
     {
      "name": "칭찬·감사",
-     "count": 13595,
+     "count": 13630,
      "share": 0.121
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 10887,
+     "count": 10947,
      "share": 0.097
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 9461,
-     "share": 0.084
+     "count": 9571,
+     "share": 0.085
     },
     {
      "name": "요청",
-     "count": 5155,
+     "count": 5161,
      "share": 0.046
     },
     {
      "name": "빚·신용·미수",
-     "count": 4448,
+     "count": 4522,
      "share": 0.04
     }
    ],
@@ -7647,7 +7632,7 @@
      "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
      "channel": "채널A News",
      "views": 762073,
-     "views_per_day": 638378.6,
+     "views_per_day": 352297.3,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
     },
@@ -7656,44 +7641,44 @@
      "title": "검은월요일, 코스피는 얼마나 떨어질까?(ft.딥시크, 코워위브)",
      "channel": "전인구경제연구소",
      "views": 477513,
-     "views_per_day": 477513.0,
+     "views_per_day": 267009.7,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=ZRcF6P2y9Bo"
-    },
-    {
-     "id": "qBYvNiWwwMM",
-     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
-     "channel": "신사임당",
-     "views": 597481,
-     "views_per_day": 307763.0,
-     "published": "2026-10-17",
-     "url": "https://www.youtube.com/watch?v=qBYvNiWwwMM"
     },
     {
      "id": "V4mCCBmoCdc",
      "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
      "channel": "PLUS TV (플러스 TV)",
      "views": 1196189,
-     "views_per_day": 298772.2,
+     "views_per_day": 240533.2,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=V4mCCBmoCdc"
     },
     {
-     "id": "EQDU2WiYrmc",
-     "title": "주식 대폭락, 숨겨진 이유 [김진 앵커]",
-     "channel": "꽉TV",
-     "views": 487784,
-     "views_per_day": 282038.8,
+     "id": "ZlGbs_sIbQg",
+     "title": "계속 떨어지더니 '최저' 찍었다..\"요즘 금값 왜 이래\" 이유 보니 / 친절한 경제 / SBS 모닝와이드 2부",
+     "channel": "SBS 뉴스",
+     "views": 4192694,
+     "views_per_day": 206895.8,
+     "published": "2026-09-30",
+     "url": "https://www.youtube.com/watch?v=ZlGbs_sIbQg"
+    },
+    {
+     "id": "qBYvNiWwwMM",
+     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
+     "channel": "신사임당",
+     "views": 597481,
+     "views_per_day": 205266.5,
      "published": "2026-10-17",
-     "url": "https://www.youtube.com/watch?v=EQDU2WiYrmc"
+     "url": "https://www.youtube.com/watch?v=qBYvNiWwwMM"
     }
    ]
   },
   {
    "weeks": 20,
    "label": "최근 20주",
-   "videos": 329,
-   "channels": 222,
+   "videos": 327,
+   "channels": 220,
    "new_this_week": [
     {
      "id": "-gerR5CE8eg",
@@ -7711,14 +7696,9 @@
      "published": "2026-06-05"
     },
     {
-     "id": "TkBt14Q2mnQ",
-     "title": "현명한 부모는 결혼한 자식에게 '이 3가지' 당장 끊어낸다 | 정약용 명언 | 인간관계 조언 | 오디오북 | 인생조언 | 노후준비",
-     "published": "2026-06-01"
-    },
-    {
-     "id": "TozHpX9DmQU",
-     "title": "(긴급)매달 나오던 기초연금 7월부터 바뀝니다!! 받던 분도 꼭 확인하세요",
-     "published": "2026-06-01"
+     "id": "SgL_q0Ybdvc",
+     "title": "젠슨 황이 한국에 온 진짜 이유, 소름 돋는 반전",
+     "published": "2026-06-09"
     },
     {
      "id": "WS4hFxgz01Y",
@@ -7751,42 +7731,42 @@
      "published": "2026-06-05"
     }
    ],
-   "views_median": 127177,
-   "views_per_day_median": 3735.1,
-   "ratio_median": 8.52,
-   "success": 250,
+   "views_median": 126547,
+   "views_per_day_median": 3526.4,
+   "ratio_median": 8.48,
+   "success": 248,
    "minutes_median": 21.2,
-   "title_len_avg": 47.7,
+   "title_len_avg": 47.6,
    "title_features": [
     {
      "name": "노후·퇴직금·은퇴·50~70대",
-     "count": 105,
-     "share": 0.319
+     "count": 104,
+     "share": 0.318
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 94,
-     "share": 0.286
+     "count": 93,
+     "share": 0.284
     },
     {
      "name": "금액(억·만원)",
      "count": 70,
-     "share": 0.213
+     "share": 0.214
     },
     {
      "name": "물음표 ?",
      "count": 69,
-     "share": 0.21
-    },
-    {
-     "name": "N가지",
-     "count": 50,
-     "share": 0.152
+     "share": 0.211
     },
     {
      "name": "이유",
      "count": 49,
-     "share": 0.149
+     "share": 0.15
+    },
+    {
+     "name": "N가지",
+     "count": 49,
+     "share": 0.15
     },
     {
      "name": "vs 비교",
@@ -7794,19 +7774,19 @@
      "share": 0.128
     },
     {
-     "name": "사연·오디오북·실화·고백",
-     "count": 31,
-     "share": 0.094
-    },
-    {
      "name": "S&P500·ETF·지수·나스닥",
      "count": 31,
-     "share": 0.094
+     "share": 0.095
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 30,
+     "share": 0.092
     },
     {
      "name": "느낌표 !",
-     "count": 26,
-     "share": 0.079
+     "count": 25,
+     "share": 0.076
     },
     {
      "name": "코스피·폭락·급락·하락장",
@@ -7821,7 +7801,7 @@
     {
      "name": "직접·해보니·N년 기록",
      "count": 10,
-     "share": 0.03
+     "share": 0.031
     },
     {
      "name": "AI",
@@ -7855,11 +7835,11 @@
      "count": 45
     },
     {
-     "word": "오디오북",
-     "count": 25
+     "word": "노후",
+     "count": 24
     },
     {
-     "word": "노후",
+     "word": "오디오북",
      "count": 24
     },
     {
@@ -7871,16 +7851,12 @@
      "count": 17
     },
     {
-     "word": "3가지",
-     "count": 16
-    },
-    {
      "word": "투자",
      "count": 15
     },
     {
-     "word": "노후준비",
-     "count": 14
+     "word": "3가지",
+     "count": 15
     },
     {
      "word": "부자가",
@@ -7889,47 +7865,51 @@
     {
      "word": "은퇴",
      "count": 13
+    },
+    {
+     "word": "노후준비",
+     "count": 13
     }
    ],
-   "transcripts": 70,
+   "transcripts": 69,
    "text_sources": {
     "자막": 2,
-    "음성인식": 68,
-    "설명": 246,
+    "음성인식": 67,
+    "설명": 245,
     "없음": 13
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 149
+     "count": 147
     },
     {
      "word": "그리고",
-     "count": 131
+     "count": 130
     },
     {
      "word": "아니라",
-     "count": 92
+     "count": 91
     },
     {
      "word": "오늘",
-     "count": 89
+     "count": 87
     },
     {
      "word": "그런데",
-     "count": 81
+     "count": 80
     },
     {
      "word": "가장",
-     "count": 79
+     "count": 78
     },
     {
      "word": "어떻게",
-     "count": 77
+     "count": 76
     },
     {
      "word": "같은",
-     "count": 76
+     "count": 75
     },
     {
      "word": "어떤",
@@ -7945,10 +7925,10 @@
     },
     {
      "word": "먼저",
-     "count": 68
+     "count": 67
     }
    ],
-   "chapters_share": 0.295,
+   "chapters_share": 0.294,
    "syl_per_sec_median": 5.4,
    "hooks": [
     {
@@ -7964,33 +7944,33 @@
      "hook": "◾️ 무료 특강 & PDF 받기"
     },
     {
-     "id": "qBYvNiWwwMM",
-     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
+     "id": "V4mCCBmoCdc",
+     "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
      "src": "설명",
-     "hook": "🚨[👇3달만에 억대 수익만드는 코인 실전공식! 30만 커뮤니티를 보유한 코인 트레이더 ‘돈복남’ '퍼즈'의 2026 비트코인 투자 노하우 무료특강👇]🚨 🤑지금이 코인 시장에서 큰 기회를 잡기 가장 좋은 시기인 거 알고 계셨나요? 지금도 시세 변동 속에서 진짜 수익을 내는 트레이딩 기회들"
+     "hook": "산업을 이끄는 이들의 시각으로 미래를 발견하는 시간 [PLUS LEADERS] EP 25 출연 : 신아영(MC) | 122만 미국 증시 유튜버 오선 본 영상은 2026년 10월 11일에 촬영되었습니다. 미국장이 열리는 날이면 어김없이 8시간 동안 이어지는 생방송. 빠르게 변하는 시장 속"
     }
    ],
-   "comments": 115829,
+   "comments": 116223,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 19828,
-     "share": 0.171
+     "count": 20030,
+     "share": 0.172
     },
     {
      "name": "칭찬·감사",
-     "count": 14252,
-     "share": 0.123
+     "count": 14103,
+     "share": 0.121
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 11277,
+     "count": 11299,
      "share": 0.097
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 9898,
-     "share": 0.085
+     "count": 9965,
+     "share": 0.086
     },
     {
      "name": "요청",
@@ -7999,7 +7979,7 @@
     },
     {
      "name": "빚·신용·미수",
-     "count": 4593,
+     "count": 4665,
      "share": 0.04
     }
    ],
@@ -8023,7 +8003,7 @@
      "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
      "channel": "채널A News",
      "views": 762073,
-     "views_per_day": 638378.6,
+     "views_per_day": 352297.3,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
     },
@@ -8032,36 +8012,36 @@
      "title": "검은월요일, 코스피는 얼마나 떨어질까?(ft.딥시크, 코워위브)",
      "channel": "전인구경제연구소",
      "views": 477513,
-     "views_per_day": 477513.0,
+     "views_per_day": 267009.7,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=ZRcF6P2y9Bo"
-    },
-    {
-     "id": "qBYvNiWwwMM",
-     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
-     "channel": "신사임당",
-     "views": 597481,
-     "views_per_day": 307763.0,
-     "published": "2026-10-17",
-     "url": "https://www.youtube.com/watch?v=qBYvNiWwwMM"
     },
     {
      "id": "V4mCCBmoCdc",
      "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
      "channel": "PLUS TV (플러스 TV)",
      "views": 1196189,
-     "views_per_day": 298772.2,
+     "views_per_day": 240533.2,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=V4mCCBmoCdc"
     },
     {
-     "id": "EQDU2WiYrmc",
-     "title": "주식 대폭락, 숨겨진 이유 [김진 앵커]",
-     "channel": "꽉TV",
-     "views": 487784,
-     "views_per_day": 282038.8,
+     "id": "ZlGbs_sIbQg",
+     "title": "계속 떨어지더니 '최저' 찍었다..\"요즘 금값 왜 이래\" 이유 보니 / 친절한 경제 / SBS 모닝와이드 2부",
+     "channel": "SBS 뉴스",
+     "views": 4192694,
+     "views_per_day": 206895.8,
+     "published": "2026-09-30",
+     "url": "https://www.youtube.com/watch?v=ZlGbs_sIbQg"
+    },
+    {
+     "id": "qBYvNiWwwMM",
+     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
+     "channel": "신사임당",
+     "views": 597481,
+     "views_per_day": 205266.5,
      "published": "2026-10-17",
-     "url": "https://www.youtube.com/watch?v=EQDU2WiYrmc"
+     "url": "https://www.youtube.com/watch?v=qBYvNiWwwMM"
     }
    ]
   },
@@ -8097,6 +8077,16 @@
      "published": "2026-05-26"
     },
     {
+     "id": "TkBt14Q2mnQ",
+     "title": "현명한 부모는 결혼한 자식에게 '이 3가지' 당장 끊어낸다 | 정약용 명언 | 인간관계 조언 | 오디오북 | 인생조언 | 노후준비",
+     "published": "2026-06-01"
+    },
+    {
+     "id": "TozHpX9DmQU",
+     "title": "(긴급)매달 나오던 기초연금 7월부터 바뀝니다!! 받던 분도 꼭 확인하세요",
+     "published": "2026-06-01"
+    },
+    {
      "id": "YNAR4AiiiRU",
      "title": "\"강세장에 취하지 마세요.\" 주식 고수들이 주목하는 시그널ㅣ지식인초대석: 합석 EP.5 (이선엽 X 윤지호)",
      "published": "2026-05-29"
@@ -8118,7 +8108,7 @@
     }
    ],
    "views_median": 132750.5,
-   "views_per_day_median": 3729.25,
+   "views_per_day_median": 3499.2,
    "ratio_median": 8.5,
    "success": 257,
    "minutes_median": 20.7,
@@ -8302,11 +8292,11 @@
      "count": 73
     },
     {
-     "word": "돈을",
+     "word": "먼저",
      "count": 70
     },
     {
-     "word": "먼저",
+     "word": "돈을",
      "count": 70
     },
     {
@@ -8330,42 +8320,42 @@
      "hook": "◾️ 무료 특강 & PDF 받기"
     },
     {
-     "id": "qBYvNiWwwMM",
-     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
+     "id": "V4mCCBmoCdc",
+     "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
      "src": "설명",
-     "hook": "🚨[👇3달만에 억대 수익만드는 코인 실전공식! 30만 커뮤니티를 보유한 코인 트레이더 ‘돈복남’ '퍼즈'의 2026 비트코인 투자 노하우 무료특강👇]🚨 🤑지금이 코인 시장에서 큰 기회를 잡기 가장 좋은 시기인 거 알고 계셨나요? 지금도 시세 변동 속에서 진짜 수익을 내는 트레이딩 기회들"
+     "hook": "산업을 이끄는 이들의 시각으로 미래를 발견하는 시간 [PLUS LEADERS] EP 25 출연 : 신아영(MC) | 122만 미국 증시 유튜버 오선 본 영상은 2026년 10월 11일에 촬영되었습니다. 미국장이 열리는 날이면 어김없이 8시간 동안 이어지는 생방송. 빠르게 변하는 시장 속"
     }
    ],
-   "comments": 119924,
+   "comments": 120985,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 20657,
-     "share": 0.172
+     "count": 20920,
+     "share": 0.173
     },
     {
      "name": "칭찬·감사",
-     "count": 14888,
-     "share": 0.124
+     "count": 14934,
+     "share": 0.123
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 11583,
-     "share": 0.097
+     "count": 11649,
+     "share": 0.096
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 10491,
-     "share": 0.087
+     "count": 10601,
+     "share": 0.088
     },
     {
      "name": "요청",
-     "count": 5349,
-     "share": 0.045
+     "count": 5355,
+     "share": 0.044
     },
     {
      "name": "빚·신용·미수",
-     "count": 4634,
+     "count": 4708,
      "share": 0.039
     }
    ],
@@ -8389,7 +8379,7 @@
      "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
      "channel": "채널A News",
      "views": 762073,
-     "views_per_day": 638378.6,
+     "views_per_day": 352297.3,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
     },
@@ -8398,43 +8388,43 @@
      "title": "검은월요일, 코스피는 얼마나 떨어질까?(ft.딥시크, 코워위브)",
      "channel": "전인구경제연구소",
      "views": 477513,
-     "views_per_day": 477513.0,
+     "views_per_day": 267009.7,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=ZRcF6P2y9Bo"
-    },
-    {
-     "id": "qBYvNiWwwMM",
-     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
-     "channel": "신사임당",
-     "views": 597481,
-     "views_per_day": 307763.0,
-     "published": "2026-10-17",
-     "url": "https://www.youtube.com/watch?v=qBYvNiWwwMM"
     },
     {
      "id": "V4mCCBmoCdc",
      "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
      "channel": "PLUS TV (플러스 TV)",
      "views": 1196189,
-     "views_per_day": 298772.2,
+     "views_per_day": 240533.2,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=V4mCCBmoCdc"
     },
     {
-     "id": "EQDU2WiYrmc",
-     "title": "주식 대폭락, 숨겨진 이유 [김진 앵커]",
-     "channel": "꽉TV",
-     "views": 487784,
-     "views_per_day": 282038.8,
+     "id": "ZlGbs_sIbQg",
+     "title": "계속 떨어지더니 '최저' 찍었다..\"요즘 금값 왜 이래\" 이유 보니 / 친절한 경제 / SBS 모닝와이드 2부",
+     "channel": "SBS 뉴스",
+     "views": 4192694,
+     "views_per_day": 206895.8,
+     "published": "2026-09-30",
+     "url": "https://www.youtube.com/watch?v=ZlGbs_sIbQg"
+    },
+    {
+     "id": "qBYvNiWwwMM",
+     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
+     "channel": "신사임당",
+     "views": 597481,
+     "views_per_day": 205266.5,
      "published": "2026-10-17",
-     "url": "https://www.youtube.com/watch?v=EQDU2WiYrmc"
+     "url": "https://www.youtube.com/watch?v=qBYvNiWwwMM"
     }
    ]
   },
   {
    "weeks": 22,
    "label": "최근 22주",
-   "videos": 350,
+   "videos": 348,
    "channels": 234,
    "new_this_week": [
     {
@@ -8453,11 +8443,6 @@
      "published": "2026-05-25"
     },
     {
-     "id": "AeK-KvdyI-k",
-     "title": "주식으로 돈 잃는 사람들이 겪는 4가지 함정 (ft. 조영구, 장성규) | 뇌과학과 데이터로 분석한 상위 5% 투자법",
-     "published": "2026-05-18"
-    },
-    {
      "id": "L_g1h2oVZv0",
      "title": "\"노후는 완벽하게 해결됩니다\" 월급에서 딱 50만 원만 '이 계좌'에 넣으세요 (박곰희 작가 2부)",
      "published": "2026-05-20"
@@ -8471,11 +8456,6 @@
      "id": "QdtKu0Zfw14",
      "title": "금융자산 10억 생기면 실제로 벌어지는 일 6가지 (세금·심리·현금흐름 전부 말씀드립니다)",
      "published": "2026-05-22"
-    },
-    {
-     "id": "TK4FK8lH1Qs",
-     "title": "50대 자산 7억이 거지라고 진짜 평균은 따로 있습니다",
-     "published": "2026-05-18"
     },
     {
      "id": "_YjqNIK-ONY",
@@ -8499,46 +8479,46 @@
     }
    ],
    "views_median": 132750.5,
-   "views_per_day_median": 3625.6,
-   "ratio_median": 8.45,
-   "success": 266,
-   "minutes_median": 20.45,
+   "views_per_day_median": 3465.8,
+   "ratio_median": 8.38,
+   "success": 264,
+   "minutes_median": 20.55,
    "title_len_avg": 47.9,
    "title_features": [
     {
      "name": "노후·퇴직금·은퇴·50~70대",
-     "count": 113,
-     "share": 0.323
+     "count": 112,
+     "share": 0.322
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 97,
-     "share": 0.277
+     "count": 96,
+     "share": 0.276
     },
     {
      "name": "금액(억·만원)",
-     "count": 80,
-     "share": 0.229
+     "count": 79,
+     "share": 0.227
     },
     {
      "name": "물음표 ?",
      "count": 76,
-     "share": 0.217
+     "share": 0.218
     },
     {
      "name": "N가지",
-     "count": 52,
-     "share": 0.149
+     "count": 51,
+     "share": 0.147
     },
     {
      "name": "이유",
      "count": 50,
-     "share": 0.143
+     "share": 0.144
     },
     {
      "name": "vs 비교",
-     "count": 46,
-     "share": 0.131
+     "count": 45,
+     "share": 0.129
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
@@ -8548,7 +8528,7 @@
     {
      "name": "사연·오디오북·실화·고백",
      "count": 32,
-     "share": 0.091
+     "share": 0.092
     },
     {
      "name": "느낌표 !",
@@ -8563,7 +8543,7 @@
     {
      "name": "두 금액(반전)",
      "count": 19,
-     "share": 0.054
+     "share": 0.055
     },
     {
      "name": "직접·해보니·N년 기록",
@@ -8577,8 +8557,8 @@
     },
     {
      "name": "손실 낱말(망하·날린·잃은·반토막)",
-     "count": 6,
-     "share": 0.017
+     "count": 5,
+     "share": 0.014
     },
     {
      "name": "과정·벌어진 일·결말·결국",
@@ -8638,21 +8618,21 @@
      "count": 14
     }
    ],
-   "transcripts": 75,
+   "transcripts": 73,
    "text_sources": {
     "자막": 2,
-    "음성인식": 73,
+    "음성인식": 71,
     "설명": 261,
     "없음": 14
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 157
+     "count": 156
     },
     {
      "word": "그리고",
-     "count": 139
+     "count": 138
     },
     {
      "word": "아니라",
@@ -8660,42 +8640,42 @@
     },
     {
      "word": "오늘",
-     "count": 95
+     "count": 93
     },
     {
      "word": "그런데",
-     "count": 85
+     "count": 83
     },
     {
      "word": "같은",
-     "count": 82
+     "count": 81
     },
     {
      "word": "가장",
-     "count": 82
+     "count": 81
     },
     {
      "word": "어떻게",
-     "count": 82
-    },
-    {
-     "word": "어떤",
-     "count": 77
+     "count": 80
     },
     {
      "word": "투자",
-     "count": 76
+     "count": 75
+    },
+    {
+     "word": "어떤",
+     "count": 75
     },
     {
      "word": "먼저",
-     "count": 73
+     "count": 72
     },
     {
      "word": "돈을",
      "count": 72
     }
    ],
-   "chapters_share": 0.303,
+   "chapters_share": 0.299,
    "syl_per_sec_median": 5.4,
    "hooks": [
     {
@@ -8711,43 +8691,43 @@
      "hook": "◾️ 무료 특강 & PDF 받기"
     },
     {
-     "id": "qBYvNiWwwMM",
-     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
+     "id": "V4mCCBmoCdc",
+     "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
      "src": "설명",
-     "hook": "🚨[👇3달만에 억대 수익만드는 코인 실전공식! 30만 커뮤니티를 보유한 코인 트레이더 ‘돈복남’ '퍼즈'의 2026 비트코인 투자 노하우 무료특강👇]🚨 🤑지금이 코인 시장에서 큰 기회를 잡기 가장 좋은 시기인 거 알고 계셨나요? 지금도 시세 변동 속에서 진짜 수익을 내는 트레이딩 기회들"
+     "hook": "산업을 이끄는 이들의 시각으로 미래를 발견하는 시간 [PLUS LEADERS] EP 25 출연 : 신아영(MC) | 122만 미국 증시 유튜버 오선 본 영상은 2026년 10월 11일에 촬영되었습니다. 미국장이 열리는 날이면 어김없이 8시간 동안 이어지는 생방송. 빠르게 변하는 시장 속"
     }
    ],
-   "comments": 124945,
+   "comments": 124998,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 21755,
-     "share": 0.174
+     "count": 21858,
+     "share": 0.175
     },
     {
      "name": "칭찬·감사",
-     "count": 15550,
+     "count": 15447,
      "share": 0.124
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 12163,
+     "count": 12099,
      "share": 0.097
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 11247,
+     "count": 11213,
      "share": 0.09
     },
     {
      "name": "요청",
-     "count": 5445,
+     "count": 5444,
      "share": 0.044
     },
     {
      "name": "빚·신용·미수",
-     "count": 4800,
-     "share": 0.038
+     "count": 4838,
+     "share": 0.039
     }
    ],
    "top_comments": [
@@ -8770,7 +8750,7 @@
      "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
      "channel": "채널A News",
      "views": 762073,
-     "views_per_day": 638378.6,
+     "views_per_day": 352297.3,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
     },
@@ -8779,50 +8759,45 @@
      "title": "검은월요일, 코스피는 얼마나 떨어질까?(ft.딥시크, 코워위브)",
      "channel": "전인구경제연구소",
      "views": 477513,
-     "views_per_day": 477513.0,
+     "views_per_day": 267009.7,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=ZRcF6P2y9Bo"
-    },
-    {
-     "id": "qBYvNiWwwMM",
-     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
-     "channel": "신사임당",
-     "views": 597481,
-     "views_per_day": 307763.0,
-     "published": "2026-10-17",
-     "url": "https://www.youtube.com/watch?v=qBYvNiWwwMM"
     },
     {
      "id": "V4mCCBmoCdc",
      "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
      "channel": "PLUS TV (플러스 TV)",
      "views": 1196189,
-     "views_per_day": 298772.2,
+     "views_per_day": 240533.2,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=V4mCCBmoCdc"
     },
     {
-     "id": "EQDU2WiYrmc",
-     "title": "주식 대폭락, 숨겨진 이유 [김진 앵커]",
-     "channel": "꽉TV",
-     "views": 487784,
-     "views_per_day": 282038.8,
+     "id": "ZlGbs_sIbQg",
+     "title": "계속 떨어지더니 '최저' 찍었다..\"요즘 금값 왜 이래\" 이유 보니 / 친절한 경제 / SBS 모닝와이드 2부",
+     "channel": "SBS 뉴스",
+     "views": 4192694,
+     "views_per_day": 206895.8,
+     "published": "2026-09-30",
+     "url": "https://www.youtube.com/watch?v=ZlGbs_sIbQg"
+    },
+    {
+     "id": "qBYvNiWwwMM",
+     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
+     "channel": "신사임당",
+     "views": 597481,
+     "views_per_day": 205266.5,
      "published": "2026-10-17",
-     "url": "https://www.youtube.com/watch?v=EQDU2WiYrmc"
+     "url": "https://www.youtube.com/watch?v=qBYvNiWwwMM"
     }
    ]
   },
   {
    "weeks": 23,
    "label": "최근 23주",
-   "videos": 369,
-   "channels": 248,
+   "videos": 366,
+   "channels": 246,
    "new_this_week": [
-    {
-     "id": "02hqxRMURPs",
-     "title": "주식 AI 비서 4명 만들었더니 공부가 쉬워졌어요 (제미나이 활용법)",
-     "published": "2026-05-11"
-    },
     {
      "id": "3Q3-zlebLjk",
      "title": "상위 1%는 매일 하는 '이것’! 당신의 돈이 일하게 하세요. | 존리 | 연금받는형 |",
@@ -8837,6 +8812,11 @@
      "id": "A5E-2sukBgo",
      "title": "2026 국민성장펀드 가입전 필수 확인! 5060이 반드시 피해야 할 함정 3가지 (소득공제, 분리과세 총정리)",
      "published": "2026-05-15"
+    },
+    {
+     "id": "AeK-KvdyI-k",
+     "title": "주식으로 돈 잃는 사람들이 겪는 4가지 함정 (ft. 조영구, 장성규) | 뇌과학과 데이터로 분석한 상위 5% 투자법",
+     "published": "2026-05-18"
     },
     {
      "id": "EomU4-CfZCw",
@@ -8859,14 +8839,14 @@
      "published": "2026-05-16"
     },
     {
-     "id": "LHUIFXJ3eAs",
-     "title": "# \"같은 ETF도 통장 잘못 고르면 손해\" 직장인 배당 ETF TOP 3 + 1 통장 매칭 가이드, 배당금  TOP3 골라드립니다",
-     "published": "2026-05-11"
-    },
-    {
      "id": "ObUr9qiawmo",
      "title": "62세 은퇴후 아내마저 떠났다. 68세에 월 80만원으로 살아가는 노인의 독백 \"삼십 년을 살았는데, 아내 하루가 어떻게 흘러가는지 한 번도 몰랐습니다\"",
      "published": "2026-05-13"
+    },
+    {
+     "id": "TK4FK8lH1Qs",
+     "title": "50대 자산 7억이 거지라고 진짜 평균은 따로 있습니다",
+     "published": "2026-05-18"
     },
     {
      "id": "ZUz1YwWZ0s8",
@@ -8907,92 +8887,87 @@
      "id": "x26AhOtaVsg",
      "title": "주식 ETF 자산 17억 구독자님의 포트폴리오 분석, 세금 건보료 절세 위한 추가 전략",
      "published": "2026-05-16"
-    },
-    {
-     "id": "yysVN041wz8",
-     "title": "국민성장펀드 vs 반도체 ETF | 같은 3000만원, 5년 뒤 손에 쥐는 돈이 다릅니다.",
-     "published": "2026-05-12"
     }
    ],
-   "views_median": 131445,
-   "views_per_day_median": 3490.5,
-   "ratio_median": 8.41,
-   "success": 282,
-   "minutes_median": 20.0,
-   "title_len_avg": 48.4,
+   "views_median": 131563.0,
+   "views_per_day_median": 3203.1,
+   "ratio_median": 8.38,
+   "success": 280,
+   "minutes_median": 20.15,
+   "title_len_avg": 48.3,
    "title_features": [
     {
      "name": "노후·퇴직금·은퇴·50~70대",
      "count": 116,
-     "share": 0.314
+     "share": 0.317
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 101,
-     "share": 0.274
+     "share": 0.276
     },
     {
      "name": "금액(억·만원)",
-     "count": 85,
+     "count": 84,
      "share": 0.23
     },
     {
      "name": "물음표 ?",
      "count": 79,
-     "share": 0.214
+     "share": 0.216
     },
     {
      "name": "N가지",
      "count": 56,
-     "share": 0.152
+     "share": 0.153
     },
     {
      "name": "이유",
      "count": 50,
-     "share": 0.136
+     "share": 0.137
     },
     {
      "name": "vs 비교",
-     "count": 50,
-     "share": 0.136
+     "count": 49,
+     "share": 0.134
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
-     "count": 42,
-     "share": 0.114
+     "count": 40,
+     "share": 0.109
     },
     {
      "name": "느낌표 !",
      "count": 34,
-     "share": 0.092
+     "share": 0.093
     },
     {
      "name": "사연·오디오북·실화·고백",
      "count": 33,
-     "share": 0.089
+     "share": 0.09
     },
     {
      "name": "코스피·폭락·급락·하락장",
      "count": 24,
-     "share": 0.065
+     "share": 0.066
     },
     {
      "name": "두 금액(반전)",
      "count": 20,
-     "share": 0.054
+     "share": 0.055
     },
     {
      "name": "직접·해보니·N년 기록",
      "count": 13,
-     "share": 0.035
-    },
-    {
-     "name": "AI",
-     "count": 8,
-     "share": 0.022
+     "share": 0.036
     },
     {
      "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 7,
+     "share": 0.019
+    },
+    {
+     "name": "AI",
      "count": 7,
      "share": 0.019
     },
@@ -9018,10 +8993,6 @@
      "count": 46
     },
     {
-     "word": "ETF",
-     "count": 27
-    },
-    {
      "word": "오디오북",
      "count": 27
     },
@@ -9030,16 +9001,20 @@
      "count": 26
     },
     {
+     "word": "ETF",
+     "count": 25
+    },
+    {
      "word": "3가지",
      "count": 18
     },
     {
-     "word": "주식",
+     "word": "이렇게",
      "count": 17
     },
     {
-     "word": "이렇게",
-     "count": 17
+     "word": "주식",
+     "count": 16
     },
     {
      "word": "은퇴",
@@ -9054,11 +9029,11 @@
      "count": 14
     }
    ],
-   "transcripts": 80,
+   "transcripts": 79,
    "text_sources": {
     "자막": 2,
-    "음성인식": 78,
-    "설명": 275,
+    "음성인식": 77,
+    "설명": 273,
     "없음": 14
    },
    "content_words": [
@@ -9068,7 +9043,7 @@
     },
     {
      "word": "그리고",
-     "count": 146
+     "count": 144
     },
     {
      "word": "오늘",
@@ -9079,24 +9054,24 @@
      "count": 100
     },
     {
-     "word": "가장",
-     "count": 91
-    },
-    {
      "word": "그런데",
      "count": 90
     },
     {
+     "word": "가장",
+     "count": 89
+    },
+    {
      "word": "같은",
-     "count": 88
+     "count": 86
     },
     {
      "word": "어떻게",
-     "count": 87
+     "count": 86
     },
     {
      "word": "투자",
-     "count": 84
+     "count": 82
     },
     {
      "word": "어떤",
@@ -9104,14 +9079,14 @@
     },
     {
      "word": "먼저",
-     "count": 79
+     "count": 78
     },
     {
      "word": "돈을",
      "count": 74
     }
    ],
-   "chapters_share": 0.312,
+   "chapters_share": 0.311,
    "syl_per_sec_median": 5.4,
    "hooks": [
     {
@@ -9127,42 +9102,42 @@
      "hook": "◾️ 무료 특강 & PDF 받기"
     },
     {
-     "id": "qBYvNiWwwMM",
-     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
+     "id": "V4mCCBmoCdc",
+     "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
      "src": "설명",
-     "hook": "🚨[👇3달만에 억대 수익만드는 코인 실전공식! 30만 커뮤니티를 보유한 코인 트레이더 ‘돈복남’ '퍼즈'의 2026 비트코인 투자 노하우 무료특강👇]🚨 🤑지금이 코인 시장에서 큰 기회를 잡기 가장 좋은 시기인 거 알고 계셨나요? 지금도 시세 변동 속에서 진짜 수익을 내는 트레이딩 기회들"
+     "hook": "산업을 이끄는 이들의 시각으로 미래를 발견하는 시간 [PLUS LEADERS] EP 25 출연 : 신아영(MC) | 122만 미국 증시 유튜버 오선 본 영상은 2026년 10월 11일에 촬영되었습니다. 미국장이 열리는 날이면 어김없이 8시간 동안 이어지는 생방송. 빠르게 변하는 시장 속"
     }
    ],
-   "comments": 129487,
+   "comments": 130051,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 22530,
+     "count": 22658,
      "share": 0.174
     },
     {
      "name": "칭찬·감사",
-     "count": 16560,
-     "share": 0.128
+     "count": 16575,
+     "share": 0.127
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 12645,
-     "share": 0.098
+     "count": 12675,
+     "share": 0.097
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 11841,
+     "count": 11883,
      "share": 0.091
     },
     {
      "name": "요청",
-     "count": 5536,
+     "count": 5537,
      "share": 0.043
     },
     {
      "name": "빚·신용·미수",
-     "count": 4866,
+     "count": 4932,
      "share": 0.038
     }
    ],
@@ -9186,7 +9161,7 @@
      "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
      "channel": "채널A News",
      "views": 762073,
-     "views_per_day": 638378.6,
+     "views_per_day": 352297.3,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
     },
@@ -9195,49 +9170,49 @@
      "title": "검은월요일, 코스피는 얼마나 떨어질까?(ft.딥시크, 코워위브)",
      "channel": "전인구경제연구소",
      "views": 477513,
-     "views_per_day": 477513.0,
+     "views_per_day": 267009.7,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=ZRcF6P2y9Bo"
-    },
-    {
-     "id": "qBYvNiWwwMM",
-     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
-     "channel": "신사임당",
-     "views": 597481,
-     "views_per_day": 307763.0,
-     "published": "2026-10-17",
-     "url": "https://www.youtube.com/watch?v=qBYvNiWwwMM"
     },
     {
      "id": "V4mCCBmoCdc",
      "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
      "channel": "PLUS TV (플러스 TV)",
      "views": 1196189,
-     "views_per_day": 298772.2,
+     "views_per_day": 240533.2,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=V4mCCBmoCdc"
     },
     {
-     "id": "EQDU2WiYrmc",
-     "title": "주식 대폭락, 숨겨진 이유 [김진 앵커]",
-     "channel": "꽉TV",
-     "views": 487784,
-     "views_per_day": 282038.8,
+     "id": "ZlGbs_sIbQg",
+     "title": "계속 떨어지더니 '최저' 찍었다..\"요즘 금값 왜 이래\" 이유 보니 / 친절한 경제 / SBS 모닝와이드 2부",
+     "channel": "SBS 뉴스",
+     "views": 4192694,
+     "views_per_day": 206895.8,
+     "published": "2026-09-30",
+     "url": "https://www.youtube.com/watch?v=ZlGbs_sIbQg"
+    },
+    {
+     "id": "qBYvNiWwwMM",
+     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
+     "channel": "신사임당",
+     "views": 597481,
+     "views_per_day": 205266.5,
      "published": "2026-10-17",
-     "url": "https://www.youtube.com/watch?v=EQDU2WiYrmc"
+     "url": "https://www.youtube.com/watch?v=qBYvNiWwwMM"
     }
    ]
   },
   {
    "weeks": 24,
    "label": "최근 24주",
-   "videos": 383,
-   "channels": 257,
+   "videos": 381,
+   "channels": 255,
    "new_this_week": [
     {
-     "id": "1AFnKX2-rt0",
-     "title": "20대에 돈 가장 빨리 모으는 현실적인 방법 (ISA, ETF 활용법)",
-     "published": "2026-05-05"
+     "id": "02hqxRMURPs",
+     "title": "주식 AI 비서 4명 만들었더니 공부가 쉬워졌어요 (제미나이 활용법)",
+     "published": "2026-05-11"
     },
     {
      "id": "3Hw87oNMlHI",
@@ -9258,6 +9233,11 @@
      "id": "KGOC_mfphu4",
      "title": "배당 ETF 10억 투자하면 진짜 배당금 얼마? | 공식분배금·실수령 차이 (무료 전자책 제공)",
      "published": "2026-05-08"
+    },
+    {
+     "id": "LHUIFXJ3eAs",
+     "title": "# \"같은 ETF도 통장 잘못 고르면 손해\" 직장인 배당 ETF TOP 3 + 1 통장 매칭 가이드, 배당금  TOP3 골라드립니다",
+     "published": "2026-05-11"
     },
     {
      "id": "NJNjJ8ym8lI",
@@ -9300,47 +9280,47 @@
      "published": "2026-05-10"
     },
     {
-     "id": "mJbPirgzeu0",
-     "title": "은퇴 후 행복한 삶을 누리는 노년층의 4가지 특징  60세 이후 최고의 삶을 누리는 비결은 바로 '이것'을 실천하는 사람들에게 있다 !",
-     "published": "2026-05-05"
+     "id": "yysVN041wz8",
+     "title": "국민성장펀드 vs 반도체 ETF | 같은 3000만원, 5년 뒤 손에 쥐는 돈이 다릅니다.",
+     "published": "2026-05-12"
     }
    ],
-   "views_median": 130846,
-   "views_per_day_median": 3394.7,
+   "views_median": 128570,
+   "views_per_day_median": 2999.3,
    "ratio_median": 8.31,
-   "success": 294,
+   "success": 293,
    "minutes_median": 19.6,
-   "title_len_avg": 48.6,
+   "title_len_avg": 48.5,
    "title_features": [
     {
      "name": "노후·퇴직금·은퇴·50~70대",
-     "count": 120,
-     "share": 0.313
+     "count": 119,
+     "share": 0.312
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 102,
-     "share": 0.266
+     "count": 101,
+     "share": 0.265
     },
     {
      "name": "금액(억·만원)",
      "count": 88,
-     "share": 0.23
+     "share": 0.231
     },
     {
      "name": "물음표 ?",
      "count": 83,
-     "share": 0.217
+     "share": 0.218
     },
     {
      "name": "N가지",
-     "count": 57,
-     "share": 0.149
+     "count": 56,
+     "share": 0.147
     },
     {
      "name": "vs 비교",
      "count": 54,
-     "share": 0.141
+     "share": 0.142
     },
     {
      "name": "이유",
@@ -9349,18 +9329,18 @@
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
-     "count": 46,
-     "share": 0.12
+     "count": 45,
+     "share": 0.118
     },
     {
      "name": "느낌표 !",
-     "count": 36,
-     "share": 0.094
+     "count": 35,
+     "share": 0.092
     },
     {
      "name": "사연·오디오북·실화·고백",
      "count": 33,
-     "share": 0.086
+     "share": 0.087
     },
     {
      "name": "코스피·폭락·급락·하락장",
@@ -9410,7 +9390,7 @@
     },
     {
      "word": "ETF",
-     "count": 30
+     "count": 29
     },
     {
      "word": "오디오북",
@@ -9419,10 +9399,6 @@
     {
      "word": "노후",
      "count": 26
-    },
-    {
-     "word": "은퇴",
-     "count": 18
     },
     {
      "word": "3가지",
@@ -9437,33 +9413,37 @@
      "count": 17
     },
     {
+     "word": "은퇴",
+     "count": 17
+    },
+    {
      "word": "투자",
      "count": 15
     },
     {
-     "word": "가장",
+     "word": "부자",
      "count": 14
     }
    ],
-   "transcripts": 84,
+   "transcripts": 82,
    "text_sources": {
     "자막": 2,
-    "음성인식": 82,
+    "음성인식": 80,
     "설명": 285,
     "없음": 14
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 174
+     "count": 172
     },
     {
      "word": "그리고",
-     "count": 151
+     "count": 150
     },
     {
      "word": "오늘",
-     "count": 105
+     "count": 103
     },
     {
      "word": "아니라",
@@ -9471,38 +9451,38 @@
     },
     {
      "word": "가장",
-     "count": 97
+     "count": 95
     },
     {
      "word": "그런데",
-     "count": 94
+     "count": 92
     },
     {
      "word": "같은",
-     "count": 91
-    },
-    {
-     "word": "어떻게",
      "count": 90
     },
     {
-     "word": "투자",
-     "count": 86
+     "word": "어떻게",
+     "count": 88
     },
     {
-     "word": "어떤",
+     "word": "투자",
      "count": 85
     },
     {
+     "word": "어떤",
+     "count": 84
+    },
+    {
      "word": "먼저",
-     "count": 83
+     "count": 82
     },
     {
      "word": "돈을",
-     "count": 77
+     "count": 76
     }
    ],
-   "chapters_share": 0.316,
+   "chapters_share": 0.315,
    "syl_per_sec_median": 5.4,
    "hooks": [
     {
@@ -9518,43 +9498,43 @@
      "hook": "◾️ 무료 특강 & PDF 받기"
     },
     {
-     "id": "qBYvNiWwwMM",
-     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
+     "id": "V4mCCBmoCdc",
+     "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
      "src": "설명",
-     "hook": "🚨[👇3달만에 억대 수익만드는 코인 실전공식! 30만 커뮤니티를 보유한 코인 트레이더 ‘돈복남’ '퍼즈'의 2026 비트코인 투자 노하우 무료특강👇]🚨 🤑지금이 코인 시장에서 큰 기회를 잡기 가장 좋은 시기인 거 알고 계셨나요? 지금도 시세 변동 속에서 진짜 수익을 내는 트레이딩 기회들"
+     "hook": "산업을 이끄는 이들의 시각으로 미래를 발견하는 시간 [PLUS LEADERS] EP 25 출연 : 신아영(MC) | 122만 미국 증시 유튜버 오선 본 영상은 2026년 10월 11일에 촬영되었습니다. 미국장이 열리는 날이면 어김없이 8시간 동안 이어지는 생방송. 빠르게 변하는 시장 속"
     }
    ],
-   "comments": 134536,
+   "comments": 134473,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 23318,
-     "share": 0.173
+     "count": 23444,
+     "share": 0.174
     },
     {
      "name": "칭찬·감사",
-     "count": 17366,
-     "share": 0.129
+     "count": 17130,
+     "share": 0.127
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 12945,
+     "count": 12935,
      "share": 0.096
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 12254,
+     "count": 12277,
      "share": 0.091
     },
     {
      "name": "요청",
-     "count": 5606,
+     "count": 5595,
      "share": 0.042
     },
     {
      "name": "빚·신용·미수",
-     "count": 5007,
-     "share": 0.037
+     "count": 5056,
+     "share": 0.038
     }
    ],
    "top_comments": [
@@ -9577,7 +9557,7 @@
      "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
      "channel": "채널A News",
      "views": 762073,
-     "views_per_day": 638378.6,
+     "views_per_day": 352297.3,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
     },
@@ -9586,45 +9566,50 @@
      "title": "검은월요일, 코스피는 얼마나 떨어질까?(ft.딥시크, 코워위브)",
      "channel": "전인구경제연구소",
      "views": 477513,
-     "views_per_day": 477513.0,
+     "views_per_day": 267009.7,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=ZRcF6P2y9Bo"
-    },
-    {
-     "id": "qBYvNiWwwMM",
-     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
-     "channel": "신사임당",
-     "views": 597481,
-     "views_per_day": 307763.0,
-     "published": "2026-10-17",
-     "url": "https://www.youtube.com/watch?v=qBYvNiWwwMM"
     },
     {
      "id": "V4mCCBmoCdc",
      "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
      "channel": "PLUS TV (플러스 TV)",
      "views": 1196189,
-     "views_per_day": 298772.2,
+     "views_per_day": 240533.2,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=V4mCCBmoCdc"
     },
     {
-     "id": "EQDU2WiYrmc",
-     "title": "주식 대폭락, 숨겨진 이유 [김진 앵커]",
-     "channel": "꽉TV",
-     "views": 487784,
-     "views_per_day": 282038.8,
+     "id": "ZlGbs_sIbQg",
+     "title": "계속 떨어지더니 '최저' 찍었다..\"요즘 금값 왜 이래\" 이유 보니 / 친절한 경제 / SBS 모닝와이드 2부",
+     "channel": "SBS 뉴스",
+     "views": 4192694,
+     "views_per_day": 206895.8,
+     "published": "2026-09-30",
+     "url": "https://www.youtube.com/watch?v=ZlGbs_sIbQg"
+    },
+    {
+     "id": "qBYvNiWwwMM",
+     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
+     "channel": "신사임당",
+     "views": 597481,
+     "views_per_day": 205266.5,
      "published": "2026-10-17",
-     "url": "https://www.youtube.com/watch?v=EQDU2WiYrmc"
+     "url": "https://www.youtube.com/watch?v=qBYvNiWwwMM"
     }
    ]
   },
   {
    "weeks": 25,
    "label": "최근 25주",
-   "videos": 400,
-   "channels": 261,
+   "videos": 398,
+   "channels": 260,
    "new_this_week": [
+    {
+     "id": "1AFnKX2-rt0",
+     "title": "20대에 돈 가장 빨리 모으는 현실적인 방법 (ISA, ETF 활용법)",
+     "published": "2026-05-05"
+    },
     {
      "id": "7rtO_hfLvF8",
      "title": "국민연금 빈칸 메우는 한국 ETF 3개 — 월 200만 원 평생 월급 만들기",
@@ -9671,9 +9656,9 @@
      "published": "2026-04-30"
     },
     {
-     "id": "h0YsUpiZ04A",
-     "title": "배당 연 1억 받아도 건보료 0원? 피부양자 지키는 2가지 전략 (2026)",
-     "published": "2026-04-27"
+     "id": "mJbPirgzeu0",
+     "title": "은퇴 후 행복한 삶을 누리는 노년층의 4가지 특징  60세 이후 최고의 삶을 누리는 비결은 바로 '이것'을 실천하는 사람들에게 있다 !",
+     "published": "2026-05-05"
     },
     {
      "id": "qOdjXbl2g6Y",
@@ -9696,11 +9681,6 @@
      "published": "2026-04-30"
     },
     {
-     "id": "xsKZGlTvrhw",
-     "title": "레이 달리오 경고: 앞으로 18개월, 반드시 지켜야 할 4가지 투자 자산 | 투자 전략 | 부자 마인드 | 자산 방어",
-     "published": "2026-04-28"
-    },
-    {
      "id": "z7fHe2Og-zE",
      "title": "경제공부 시작하는 법 | 하루 10분이면 됩니다! (해야하는 이유) 🗞️ 📊 💸",
      "published": "2026-05-03"
@@ -9711,37 +9691,37 @@
      "published": "2026-05-03"
     }
    ],
-   "views_median": 132750.5,
-   "views_per_day_median": 3139.4,
-   "ratio_median": 8.34,
-   "success": 307,
-   "minutes_median": 19.4,
+   "views_median": 134295.5,
+   "views_per_day_median": 2916.5,
+   "ratio_median": 8.38,
+   "success": 305,
+   "minutes_median": 19.35,
    "title_len_avg": 48.6,
    "title_features": [
     {
      "name": "노후·퇴직금·은퇴·50~70대",
      "count": 123,
-     "share": 0.307
+     "share": 0.309
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 107,
-     "share": 0.268
+     "count": 105,
+     "share": 0.264
     },
     {
      "name": "금액(억·만원)",
-     "count": 95,
-     "share": 0.237
+     "count": 94,
+     "share": 0.236
     },
     {
      "name": "물음표 ?",
-     "count": 89,
-     "share": 0.223
+     "count": 88,
+     "share": 0.221
     },
     {
      "name": "N가지",
-     "count": 59,
-     "share": 0.147
+     "count": 57,
+     "share": 0.143
     },
     {
      "name": "vs 비교",
@@ -9756,7 +9736,7 @@
     {
      "name": "S&P500·ETF·지수·나스닥",
      "count": 50,
-     "share": 0.125
+     "share": 0.126
     },
     {
      "name": "느낌표 !",
@@ -9771,12 +9751,12 @@
     {
      "name": "코스피·폭락·급락·하락장",
      "count": 25,
-     "share": 0.062
+     "share": 0.063
     },
     {
      "name": "두 금액(반전)",
-     "count": 22,
-     "share": 0.055
+     "count": 21,
+     "share": 0.053
     },
     {
      "name": "직접·해보니·N년 기록",
@@ -9839,12 +9819,12 @@
      "count": 18
     },
     {
-     "word": "투자",
+     "word": "이렇게",
      "count": 17
     },
     {
-     "word": "이렇게",
-     "count": 17
+     "word": "투자",
+     "count": 16
     },
     {
      "word": "가장",
@@ -9855,29 +9835,29 @@
    "text_sources": {
     "자막": 2,
     "음성인식": 86,
-    "설명": 297,
+    "설명": 295,
     "없음": 15
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 181
+     "count": 179
     },
     {
      "word": "그리고",
-     "count": 155
+     "count": 154
     },
     {
      "word": "오늘",
-     "count": 110
+     "count": 109
     },
     {
      "word": "아니라",
-     "count": 110
+     "count": 108
     },
     {
      "word": "가장",
-     "count": 101
+     "count": 99
     },
     {
      "word": "그런데",
@@ -9885,19 +9865,19 @@
     },
     {
      "word": "같은",
-     "count": 96
-    },
-    {
-     "word": "투자",
      "count": 95
     },
     {
      "word": "어떻게",
-     "count": 95
+     "count": 94
+    },
+    {
+     "word": "투자",
+     "count": 93
     },
     {
      "word": "어떤",
-     "count": 89
+     "count": 88
     },
     {
      "word": "먼저",
@@ -9908,7 +9888,7 @@
      "count": 80
     }
    ],
-   "chapters_share": 0.323,
+   "chapters_share": 0.324,
    "syl_per_sec_median": 5.4,
    "hooks": [
     {
@@ -9924,42 +9904,42 @@
      "hook": "◾️ 무료 특강 & PDF 받기"
     },
     {
-     "id": "qBYvNiWwwMM",
-     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
+     "id": "V4mCCBmoCdc",
+     "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
      "src": "설명",
-     "hook": "🚨[👇3달만에 억대 수익만드는 코인 실전공식! 30만 커뮤니티를 보유한 코인 트레이더 ‘돈복남’ '퍼즈'의 2026 비트코인 투자 노하우 무료특강👇]🚨 🤑지금이 코인 시장에서 큰 기회를 잡기 가장 좋은 시기인 거 알고 계셨나요? 지금도 시세 변동 속에서 진짜 수익을 내는 트레이딩 기회들"
+     "hook": "산업을 이끄는 이들의 시각으로 미래를 발견하는 시간 [PLUS LEADERS] EP 25 출연 : 신아영(MC) | 122만 미국 증시 유튜버 오선 본 영상은 2026년 10월 11일에 촬영되었습니다. 미국장이 열리는 날이면 어김없이 8시간 동안 이어지는 생방송. 빠르게 변하는 시장 속"
     }
    ],
-   "comments": 139497,
+   "comments": 140429,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 24312,
-     "share": 0.174
+     "count": 24543,
+     "share": 0.175
     },
     {
      "name": "칭찬·감사",
-     "count": 18303,
-     "share": 0.131
+     "count": 18322,
+     "share": 0.13
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 13394,
+     "count": 13454,
      "share": 0.096
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 13056,
+     "count": 13133,
      "share": 0.094
     },
     {
      "name": "요청",
-     "count": 5725,
+     "count": 5726,
      "share": 0.041
     },
     {
      "name": "빚·신용·미수",
-     "count": 5175,
+     "count": 5249,
      "share": 0.037
     }
    ],
@@ -9983,7 +9963,7 @@
      "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
      "channel": "채널A News",
      "views": 762073,
-     "views_per_day": 638378.6,
+     "views_per_day": 352297.3,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
     },
@@ -9992,59 +9972,49 @@
      "title": "검은월요일, 코스피는 얼마나 떨어질까?(ft.딥시크, 코워위브)",
      "channel": "전인구경제연구소",
      "views": 477513,
-     "views_per_day": 477513.0,
+     "views_per_day": 267009.7,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=ZRcF6P2y9Bo"
-    },
-    {
-     "id": "qBYvNiWwwMM",
-     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
-     "channel": "신사임당",
-     "views": 597481,
-     "views_per_day": 307763.0,
-     "published": "2026-10-17",
-     "url": "https://www.youtube.com/watch?v=qBYvNiWwwMM"
     },
     {
      "id": "V4mCCBmoCdc",
      "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
      "channel": "PLUS TV (플러스 TV)",
      "views": 1196189,
-     "views_per_day": 298772.2,
+     "views_per_day": 240533.2,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=V4mCCBmoCdc"
     },
     {
-     "id": "EQDU2WiYrmc",
-     "title": "주식 대폭락, 숨겨진 이유 [김진 앵커]",
-     "channel": "꽉TV",
-     "views": 487784,
-     "views_per_day": 282038.8,
+     "id": "ZlGbs_sIbQg",
+     "title": "계속 떨어지더니 '최저' 찍었다..\"요즘 금값 왜 이래\" 이유 보니 / 친절한 경제 / SBS 모닝와이드 2부",
+     "channel": "SBS 뉴스",
+     "views": 4192694,
+     "views_per_day": 206895.8,
+     "published": "2026-09-30",
+     "url": "https://www.youtube.com/watch?v=ZlGbs_sIbQg"
+    },
+    {
+     "id": "qBYvNiWwwMM",
+     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
+     "channel": "신사임당",
+     "views": 597481,
+     "views_per_day": 205266.5,
      "published": "2026-10-17",
-     "url": "https://www.youtube.com/watch?v=EQDU2WiYrmc"
+     "url": "https://www.youtube.com/watch?v=qBYvNiWwwMM"
     }
    ]
   },
   {
    "weeks": 26,
    "label": "최근 26주",
-   "videos": 410,
-   "channels": 267,
+   "videos": 407,
+   "channels": 266,
    "new_this_week": [
     {
      "id": "EGF6neqw3hs",
      "title": "2026년 대한민국 자산별 8계급, 여러분은 몇 층에 계신가요?",
      "published": "2026-04-26"
-    },
-    {
-     "id": "EyCVdx8IFyg",
-     "title": "'외국인 프로그램 매매' 원리 모르고 주식 투자하면 호갱되는 이유",
-     "published": "2026-04-20"
-    },
-    {
-     "id": "Lq9aJXT9UiY",
-     "title": "상위 1% 자산가들의 은퇴 시나리오, 30년 동안 마르지 않는 현금 창출의 비밀",
-     "published": "2026-04-20"
     },
     {
      "id": "W6qFqiYnm5o",
@@ -10062,13 +10032,13 @@
      "published": "2026-04-23"
     },
     {
-     "id": "hbBABRmu93Q",
-     "title": "50대 노후준비 1억을 20억으로 만드는 가장 현실적인 3가지 전략 | (ISA 계좌, S&P500)",
-     "published": "2026-04-21"
+     "id": "h0YsUpiZ04A",
+     "title": "배당 연 1억 받아도 건보료 0원? 피부양자 지키는 2가지 전략 (2026)",
+     "published": "2026-04-27"
     },
     {
-     "id": "htyAss8svvI",
-     "title": "【성철스님】부자되려면 화장실에 '이것' 꼭 두세요! 돈복 쏟아지는 화장실 풍수 | 화장실 인테리어 | 금전운 비법",
+     "id": "hbBABRmu93Q",
+     "title": "50대 노후준비 1억을 20억으로 만드는 가장 현실적인 3가지 전략 | (ISA 계좌, S&P500)",
      "published": "2026-04-21"
     },
     {
@@ -10080,64 +10050,69 @@
      "id": "wNCX2CjZUa4",
      "title": "【성철스님】부자되려면 지갑에 ‘이것’ 1개 당장 넣으세요!! | 3일 안에 막힌 돈줄이 터지고 금전운이 폭발합니다 | 돈복 재물운 풍수",
      "published": "2026-04-27"
+    },
+    {
+     "id": "xsKZGlTvrhw",
+     "title": "레이 달리오 경고: 앞으로 18개월, 반드시 지켜야 할 4가지 투자 자산 | 투자 전략 | 부자 마인드 | 자산 방어",
+     "published": "2026-04-28"
     }
    ],
-   "views_median": 134295.5,
-   "views_per_day_median": 2971.95,
-   "ratio_median": 8.38,
-   "success": 317,
-   "minutes_median": 19.5,
+   "views_median": 133654,
+   "views_per_day_median": 2837.8,
+   "ratio_median": 8.32,
+   "success": 314,
+   "minutes_median": 19.6,
    "title_len_avg": 48.7,
    "title_features": [
     {
      "name": "노후·퇴직금·은퇴·50~70대",
-     "count": 127,
+     "count": 126,
      "share": 0.31
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 111,
-     "share": 0.271
+     "count": 110,
+     "share": 0.27
     },
     {
      "name": "금액(억·만원)",
      "count": 97,
-     "share": 0.237
+     "share": 0.238
     },
     {
      "name": "물음표 ?",
      "count": 90,
-     "share": 0.22
+     "share": 0.221
     },
     {
      "name": "N가지",
      "count": 62,
-     "share": 0.151
+     "share": 0.152
     },
     {
      "name": "vs 비교",
      "count": 57,
-     "share": 0.139
+     "share": 0.14
     },
     {
      "name": "이유",
-     "count": 54,
-     "share": 0.132
+     "count": 53,
+     "share": 0.13
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
      "count": 51,
-     "share": 0.124
+     "share": 0.125
     },
     {
      "name": "느낌표 !",
-     "count": 41,
-     "share": 0.1
+     "count": 40,
+     "share": 0.098
     },
     {
      "name": "사연·오디오북·실화·고백",
      "count": 34,
-     "share": 0.083
+     "share": 0.084
     },
     {
      "name": "코스피·폭락·급락·하락장",
@@ -10147,12 +10122,12 @@
     {
      "name": "두 금액(반전)",
      "count": 23,
-     "share": 0.056
+     "share": 0.057
     },
     {
      "name": "직접·해보니·N년 기록",
-     "count": 15,
-     "share": 0.037
+     "count": 14,
+     "share": 0.034
     },
     {
      "name": "손실 낱말(망하·날린·잃은·반토막)",
@@ -10183,7 +10158,7 @@
    "title_words": [
     {
      "word": "이유",
-     "count": 49
+     "count": 48
     },
     {
      "word": "ETF",
@@ -10203,11 +10178,11 @@
     },
     {
      "word": "주식",
-     "count": 19
+     "count": 18
     },
     {
      "word": "은퇴",
-     "count": 19
+     "count": 18
     },
     {
      "word": "투자",
@@ -10226,29 +10201,29 @@
    "text_sources": {
     "자막": 3,
     "음성인식": 86,
-    "설명": 306,
+    "설명": 303,
     "없음": 15
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 185
+     "count": 184
     },
     {
      "word": "그리고",
-     "count": 158
-    },
-    {
-     "word": "오늘",
-     "count": 113
+     "count": 156
     },
     {
      "word": "아니라",
      "count": 113
     },
     {
+     "word": "오늘",
+     "count": 112
+    },
+    {
      "word": "가장",
-     "count": 105
+     "count": 104
     },
     {
      "word": "그런데",
@@ -10256,7 +10231,7 @@
     },
     {
      "word": "같은",
-     "count": 99
+     "count": 98
     },
     {
      "word": "투자",
@@ -10264,7 +10239,7 @@
     },
     {
      "word": "어떻게",
-     "count": 97
+     "count": 96
     },
     {
      "word": "어떤",
@@ -10272,11 +10247,11 @@
     },
     {
      "word": "먼저",
-     "count": 88
+     "count": 87
     },
     {
      "word": "아닙니다",
-     "count": 83
+     "count": 82
     }
    ],
    "chapters_share": 0.324,
@@ -10295,43 +10270,43 @@
      "hook": "◾️ 무료 특강 & PDF 받기"
     },
     {
-     "id": "qBYvNiWwwMM",
-     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
+     "id": "V4mCCBmoCdc",
+     "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
      "src": "설명",
-     "hook": "🚨[👇3달만에 억대 수익만드는 코인 실전공식! 30만 커뮤니티를 보유한 코인 트레이더 ‘돈복남’ '퍼즈'의 2026 비트코인 투자 노하우 무료특강👇]🚨 🤑지금이 코인 시장에서 큰 기회를 잡기 가장 좋은 시기인 거 알고 계셨나요? 지금도 시세 변동 속에서 진짜 수익을 내는 트레이딩 기회들"
+     "hook": "산업을 이끄는 이들의 시각으로 미래를 발견하는 시간 [PLUS LEADERS] EP 25 출연 : 신아영(MC) | 122만 미국 증시 유튜버 오선 본 영상은 2026년 10월 11일에 촬영되었습니다. 미국장이 열리는 날이면 어김없이 8시간 동안 이어지는 생방송. 빠르게 변하는 시장 속"
     }
    ],
-   "comments": 145183,
+   "comments": 143787,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 24709,
-     "share": 0.17
+     "count": 24903,
+     "share": 0.173
     },
     {
      "name": "칭찬·감사",
-     "count": 20616,
-     "share": 0.142
+     "count": 19269,
+     "share": 0.134
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 13633,
-     "share": 0.094
+     "count": 13608,
+     "share": 0.095
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 13263,
-     "share": 0.091
+     "count": 13339,
+     "share": 0.093
     },
     {
      "name": "요청",
-     "count": 5837,
+     "count": 5782,
      "share": 0.04
     },
     {
      "name": "빚·신용·미수",
-     "count": 5237,
-     "share": 0.036
+     "count": 5305,
+     "share": 0.037
     }
    ],
    "top_comments": [
@@ -10354,7 +10329,7 @@
      "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
      "channel": "채널A News",
      "views": 762073,
-     "views_per_day": 638378.6,
+     "views_per_day": 352297.3,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
     },
@@ -10363,36 +10338,36 @@
      "title": "검은월요일, 코스피는 얼마나 떨어질까?(ft.딥시크, 코워위브)",
      "channel": "전인구경제연구소",
      "views": 477513,
-     "views_per_day": 477513.0,
+     "views_per_day": 267009.7,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=ZRcF6P2y9Bo"
-    },
-    {
-     "id": "qBYvNiWwwMM",
-     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
-     "channel": "신사임당",
-     "views": 597481,
-     "views_per_day": 307763.0,
-     "published": "2026-10-17",
-     "url": "https://www.youtube.com/watch?v=qBYvNiWwwMM"
     },
     {
      "id": "V4mCCBmoCdc",
      "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
      "channel": "PLUS TV (플러스 TV)",
      "views": 1196189,
-     "views_per_day": 298772.2,
+     "views_per_day": 240533.2,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=V4mCCBmoCdc"
     },
     {
-     "id": "EQDU2WiYrmc",
-     "title": "주식 대폭락, 숨겨진 이유 [김진 앵커]",
-     "channel": "꽉TV",
-     "views": 487784,
-     "views_per_day": 282038.8,
+     "id": "ZlGbs_sIbQg",
+     "title": "계속 떨어지더니 '최저' 찍었다..\"요즘 금값 왜 이래\" 이유 보니 / 친절한 경제 / SBS 모닝와이드 2부",
+     "channel": "SBS 뉴스",
+     "views": 4192694,
+     "views_per_day": 206895.8,
+     "published": "2026-09-30",
+     "url": "https://www.youtube.com/watch?v=ZlGbs_sIbQg"
+    },
+    {
+     "id": "qBYvNiWwwMM",
+     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
+     "channel": "신사임당",
+     "views": 597481,
+     "views_per_day": 205266.5,
      "published": "2026-10-17",
-     "url": "https://www.youtube.com/watch?v=EQDU2WiYrmc"
+     "url": "https://www.youtube.com/watch?v=qBYvNiWwwMM"
     }
    ]
   },
@@ -10408,9 +10383,24 @@
      "published": "2026-04-20"
     },
     {
+     "id": "EyCVdx8IFyg",
+     "title": "'외국인 프로그램 매매' 원리 모르고 주식 투자하면 호갱되는 이유",
+     "published": "2026-04-20"
+    },
+    {
+     "id": "Lq9aJXT9UiY",
+     "title": "상위 1% 자산가들의 은퇴 시나리오, 30년 동안 마르지 않는 현금 창출의 비밀",
+     "published": "2026-04-20"
+    },
+    {
      "id": "czdswb8iiN4",
      "title": "노후에 무조건 '이런 집'이 최고입니다 | 아파트도 소용없습니다!",
      "published": "2026-04-17"
+    },
+    {
+     "id": "htyAss8svvI",
+     "title": "【성철스님】부자되려면 화장실에 '이것' 꼭 두세요! 돈복 쏟아지는 화장실 풍수 | 화장실 인테리어 | 금전운 비법",
+     "published": "2026-04-21"
     },
     {
      "id": "lm2URqHD1nY",
@@ -10424,7 +10414,7 @@
     }
    ],
    "views_median": 135025.0,
-   "views_per_day_median": 2921.05,
+   "views_per_day_median": 2757.15,
    "ratio_median": 8.45,
    "success": 320,
    "minutes_median": 19.5,
@@ -10616,7 +10606,7 @@
      "count": 89
     },
     {
-     "word": "돈을",
+     "word": "아닙니다",
      "count": 84
     }
    ],
@@ -10636,42 +10626,42 @@
      "hook": "◾️ 무료 특강 & PDF 받기"
     },
     {
-     "id": "qBYvNiWwwMM",
-     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
+     "id": "V4mCCBmoCdc",
+     "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
      "src": "설명",
-     "hook": "🚨[👇3달만에 억대 수익만드는 코인 실전공식! 30만 커뮤니티를 보유한 코인 트레이더 ‘돈복남’ '퍼즈'의 2026 비트코인 투자 노하우 무료특강👇]🚨 🤑지금이 코인 시장에서 큰 기회를 잡기 가장 좋은 시기인 거 알고 계셨나요? 지금도 시세 변동 속에서 진짜 수익을 내는 트레이딩 기회들"
+     "hook": "산업을 이끄는 이들의 시각으로 미래를 발견하는 시간 [PLUS LEADERS] EP 25 출연 : 신아영(MC) | 122만 미국 증시 유튜버 오선 본 영상은 2026년 10월 11일에 촬영되었습니다. 미국장이 열리는 날이면 어김없이 8시간 동안 이어지는 생방송. 빠르게 변하는 시장 속"
     }
    ],
-   "comments": 147683,
+   "comments": 148744,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 25098,
-     "share": 0.17
+     "count": 25361,
+     "share": 0.171
     },
     {
      "name": "칭찬·감사",
-     "count": 21035,
+     "count": 21081,
      "share": 0.142
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 13801,
+     "count": 13867,
      "share": 0.093
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 13416,
+     "count": 13526,
      "share": 0.091
     },
     {
      "name": "요청",
-     "count": 5872,
+     "count": 5878,
      "share": 0.04
     },
     {
      "name": "빚·신용·미수",
-     "count": 5285,
+     "count": 5359,
      "share": 0.036
     }
    ],
@@ -10695,7 +10685,7 @@
      "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
      "channel": "채널A News",
      "views": 762073,
-     "views_per_day": 638378.6,
+     "views_per_day": 352297.3,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
     },
@@ -10704,36 +10694,36 @@
      "title": "검은월요일, 코스피는 얼마나 떨어질까?(ft.딥시크, 코워위브)",
      "channel": "전인구경제연구소",
      "views": 477513,
-     "views_per_day": 477513.0,
+     "views_per_day": 267009.7,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=ZRcF6P2y9Bo"
-    },
-    {
-     "id": "qBYvNiWwwMM",
-     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
-     "channel": "신사임당",
-     "views": 597481,
-     "views_per_day": 307763.0,
-     "published": "2026-10-17",
-     "url": "https://www.youtube.com/watch?v=qBYvNiWwwMM"
     },
     {
      "id": "V4mCCBmoCdc",
      "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
      "channel": "PLUS TV (플러스 TV)",
      "views": 1196189,
-     "views_per_day": 298772.2,
+     "views_per_day": 240533.2,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=V4mCCBmoCdc"
     },
     {
-     "id": "EQDU2WiYrmc",
-     "title": "주식 대폭락, 숨겨진 이유 [김진 앵커]",
-     "channel": "꽉TV",
-     "views": 487784,
-     "views_per_day": 282038.8,
+     "id": "ZlGbs_sIbQg",
+     "title": "계속 떨어지더니 '최저' 찍었다..\"요즘 금값 왜 이래\" 이유 보니 / 친절한 경제 / SBS 모닝와이드 2부",
+     "channel": "SBS 뉴스",
+     "views": 4192694,
+     "views_per_day": 206895.8,
+     "published": "2026-09-30",
+     "url": "https://www.youtube.com/watch?v=ZlGbs_sIbQg"
+    },
+    {
+     "id": "qBYvNiWwwMM",
+     "title": "월요일 아침 코스피 대폭락? 곧 무시무시한 일 터질 겁니다 (차영주 소장 / 1부)",
+     "channel": "신사임당",
+     "views": 597481,
+     "views_per_day": 205266.5,
      "published": "2026-10-17",
-     "url": "https://www.youtube.com/watch?v=EQDU2WiYrmc"
+     "url": "https://www.youtube.com/watch?v=qBYvNiWwwMM"
     }
    ]
   }

@@ -39,11 +39,10 @@
     "es-419": "AUieDaaQDIl6Ri7cSzC1B9FKYThMKuo_VTlv2SpArPDZpF25xpxoPYx8uKvCS9E7A7jXPSeCvyBJSBcIwv7Hew",
     "ja": "AUieDaa_s5d2cYCiO64P2IorouM2_qTgBWRxJ7KJ_R1mANqsY0wmKAnmM6I",
     "de": "AUieDaYZGsG5ZV2kNOpgRvIMTZixaHPAuoiuJBciCrbaRHBDpGxNojQQ",
-    "vi": "AUieDaYMVaQxFdqyyj5HWT-QJNeEih7wrJiKzxUBXAqpPfFqYcP4tE1fmO8PRFvFFg"
+    "vi": "AUieDaYMVaQxFdqyyj5HWT-QJNeEih7wrJiKzxUBXAqpPfFqYcP4tE1fmO8PRFvFFg",
+    "tr": "AUieDaY6n9Ldd2fuPAOTIZHU6GYE4xQAXXZyBTA3YlRJhiNCALWO7YvyKw"
   },
-  "captionsPending": [
-    "tr"
-  ],
+  "captionsPending": [],
   "defaultLanguage": "ko",
   "defaultAudioLanguage": "ko",
   "metaUpdatedAt": "2026-10-19T07:15:51+00:00"

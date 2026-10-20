@@ -33,12 +33,13 @@
   "defaultLanguage": "ko",
   "defaultAudioLanguage": "ko",
   "metaUpdatedAt": "2026-10-19T07:15:54+00:00",
-  "captionTracks": {},
+  "captionTracks": {
+    "ko": "AUieDaaUr5fp_CaI72xs1LcnHgNglqP3nIyCEXXxBsweohEW9NSRAG8E2sE",
+    "en": "AUieDabfbW9j9rC6N8J1aadnA_z86ZEWryt8x8m0ss1NdV3P8tpQ1UZD",
+    "hi": "AUieDaZg-oC69PLc5xkX89vgGV0ShLWYDD7MXZeb8H5xQtkTqIjVJwWXzrMRpGp89mAYrO8",
+    "id": "AUieDaYmVGa3SJC39kbf30eGncz7Rp_w3m5qCoFzFqUPcdHK8oEdW909vk3wxr06wJrR"
+  },
   "captionsPending": [
-    "ko",
-    "en",
-    "hi",
-    "id",
     "pt",
     "es-419",
     "ja",

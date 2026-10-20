@@ -30,19 +30,19 @@
     "공개 전(예약 시각 전) 스튜디오에서 확인: 영상·자막·썸네일, 자동 더빙(언어), 최종 화면",
     "공개된 뒤 '테스트 및 비교'에 썸네일 3개 등록 — 비공개 영상은 테스트 불가"
   ],
-  "captionTracks": {},
-  "captionsPending": [
-    "ko",
-    "en",
-    "hi",
-    "id",
-    "pt",
-    "es-419",
-    "ja",
-    "de",
-    "vi",
-    "tr"
-  ],
+  "captionTracks": {
+    "ko": "AUieDaYHNtA0WkZwzNg35A8OD3t6riYiIvlKY6z_SBvdlo0A77rg9VcZKsU",
+    "en": "AUieDabp0Wkx9qdMEzotQoHg4tpldKgtuKmHJB4ilJ9DOqtXNYJNMAXI",
+    "hi": "AUieDaYjoo-WFVpCyM_WyAfR31ygC6o9NBqaxeKNcwIrRCwqWz5Cs5Rr-K907fk_Wl2C6lI",
+    "id": "AUieDabzuQK-CgvdpWdwG1YlqIrcm9Sq3szUAmZSOyJqHdgDyQlQmQfyXjjk5HCCtbBB",
+    "pt": "AUieDaaKl9CzZuCzRJiIvEECH32JkTRDi6GwklKI52eYR9oJg9RYyHhZetcj",
+    "es-419": "AUieDabPtq90ssNSgiaMmAax_AVrB7LN-2xAAM8OR5cv05tLE7Xv89UhHGv_tAvHNAuV-S82bEmVK4ftLkzPZg",
+    "ja": "AUieDaYtWF06nc3xxF_pKbbzsI1Pg-QWfzxSZTPBAZl5o91mdSJUdCX3dV4",
+    "de": "AUieDaYX4nA9vWrPOMLymE-nN7c4336YjCrizwgjMvRJraSIHn3k8dNo",
+    "vi": "AUieDaba7WgMeuUAd5qyQCm6Uc1q0FejsuLDQeB7ItSZnBMQtLLvLkZHgH2gRln8lA",
+    "tr": "AUieDaa2937N8LX2nK9ikiCbO3MOLqs59yBut9a66wk_nKp3BcZQY2QLyA"
+  },
+  "captionsPending": [],
   "defaultLanguage": "ko",
   "defaultAudioLanguage": "ko",
   "metaUpdatedAt": "2026-10-19T07:15:53+00:00"

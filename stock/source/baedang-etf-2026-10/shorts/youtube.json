@@ -33,17 +33,17 @@
   "defaultLanguage": "ko",
   "defaultAudioLanguage": "ko",
   "metaUpdatedAt": "2026-10-19T07:15:52+00:00",
-  "captionTracks": {},
-  "captionsPending": [
-    "ko",
-    "en",
-    "hi",
-    "id",
-    "pt",
-    "es-419",
-    "ja",
-    "de",
-    "vi",
-    "tr"
-  ]
+  "captionTracks": {
+    "ko": "AUieDaYhSVnEl1E3Gjls9XDCSeXEnjT0FBOv2TPCciVDaUM7mY6WKgIkNM0",
+    "en": "AUieDabgt1LUMnrmKD3PvR2WjV2rosSrkFJyR_tkUatslj_kRsyKH7h-",
+    "hi": "AUieDabY4UBjXCNpsF1gM0sPUuDXXTZ7my4IzMy_qUINzOtwL-jFs_jznCUnvbyDet9C51I",
+    "id": "AUieDaY0MY3NI4xHV-jHtxJe78WSqgvHb3tbUt7Gb5nV_upEcpSe_Lhi-jbuwynrmuKk",
+    "pt": "AUieDaZOodmsvly_sqRQdWm2SwOHawu0msGBnAiZggUxGQZxxx7DPB68JMXn",
+    "es-419": "AUieDabpnQ4Icqsp9hXdmfHvtQADZEwqXKFITgbJoegk0jAu4esBNOuU45L239DcQqc4nF3Xj_gbLtzmVOwu5w",
+    "ja": "AUieDaaakHqXAzn-HbrxzcC34I7JXl8Iqlzwmzme53_oZZAIU2UfKZkoZtI",
+    "de": "AUieDaY2zxCZG5qDeFmVPD9bGfbL1CKJRbVjlV6Ajih2Ogc3cUHq3pss",
+    "vi": "AUieDabjnIjUkvClditZh_7WONPvU27pq_r_J6pTgaGXTaGUjN7ypwnEEdGjl0-TdA",
+    "tr": "AUieDaaV6rZr_TrvhPyOn2H82-azXxb00dNomVY5pK8GzLGxvXmpCOm7bw"
+  },
+  "captionsPending": []
 }

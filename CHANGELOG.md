@@ -1,5 +1,12 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-20 (재테크 국민연금) — 올라온 장면 그림 37장이 모두 깨짐 → 지움 · 쇼츠 오디오 맞춤
+
+- 사용자 지시: "다 확인해봐 올렸는데"
+- 확인: ChatGPT 가 GitHub 앱으로 올린 장면 그림(인물 설정표 + L01~L29 + S02~S10, 모두 `.png`) **37장 전부 끝까지 읽히지 않음** — 원본 PNG 1.8~2.0MB 중 앞 452,435~786,444바이트만 들어감(IDAT 중간에서 잘림, L15 는 caBX 조각까지 깨짐), 남은 건 그림 위쪽 5~15%. 보이는 부분으로는 그림체(따뜻한 2D)·김 씨 얼굴이 계획대로라 **다시 그리지 않고 JPEG 700KB 이하로 다시 올리면 됨**. `.png` 이름 = JPEG 규칙이 없던 옛 주소(`7b6f0758`)의 파일을 쓴 것으로 보임 → 37장 지움(git rm). 썸네일 그림은 올라오지 않음
+- `tools/scene_clips.py` v1.2.1 · `tools/make_summary.py` v1.9.5: 규칙 0 과 **장마다 저장 경로 옆에도** 'JPEG(.jpg) 700KB 이하로 바꿔 올림 (PNG 그대로는 768KB 에서 잘려 깨짐)' — `scenes/chatgpt.md`·`shorts/scenes/chatgpt.md`·`economic/thumbnails_chatgpt.md` 다시 만듦
+- 쇼츠 오디오(51.9초, Kaggle) → `npm run align-audio` (11문장·자막 11, SRT ✅) → `render.mjs sync` → `check` 문제 0 → 장면 클립 구간 다시 (모두 5.04초 클립 안, 늦춤 없음)
+
 ## 2026-10-19 (재테크 국민연금) — ChatGPT 가 올린 썸네일 4장이 잘려 깨짐 → JPEG 700KB 이하 · 깨진 그림 검사 · 쇼츠 제목 S1 확정
 
 - 사용자 지시: "S1으로 하고 영상을 만들기 위해 더 필요한 자료가 있는지 확인해"

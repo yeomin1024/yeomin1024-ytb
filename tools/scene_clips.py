@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.2 — 2026-10-19 — ChatGPT GitHub 앱이 약 768KB 를 넘는 파일을 잘라 올림 (썸네일 PNG 4장이 786,444바이트에서 깨짐): 규칙 8 =
+# VERSION: v1.2.1 — 2026-10-20 — ChatGPT 가 장면 PNG 37장을 그대로 올려 모두 깨짐 (이전 주소의 파일을 쓴 듯) → 규칙 0 과 장마다 저장 경로 옆에도
+#          'JPEG 700KB 이하'를 적음.
+# 이전 v1.2 — 2026-10-19 — ChatGPT GitHub 앱이 약 768KB 를 넘는 파일을 잘라 올림 (썸네일 PNG 4장이 786,444바이트에서 깨짐): 규칙 8 =
 #          JPEG(.jpg) 700KB 이하로 바꿔 올리고 올린 크기 확인 · 그림 확장자 기본 .jpg · check 가 끝까지 읽히는지 확인 (깨진 그림 = 문제).
 # 이전 v1.1 — 2026-10-19 — ChatGPT 가 GitHub 에 바로 올림 (사용자 지시 "chatgpt 깃허브 업로드 가능하다고 다시 수정해서 알려주고"): 규칙 8 =
 #          장마다 저장 경로에 커밋(대화에 붙이기는 실패한 장만) · 그림 확장자 = 올린 그대로 .png (plan image_ext) — videogen.json·check·add-image.
@@ -36,7 +38,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 REPO = "yeomin1024/yeomin1024-ytb"
-VERSION = "v1.2"
+VERSION = "v1.2.1"
 # 생성 해상도(5B 는 32 배수) · 최종 해상도 · 비율 — videogen v1.4.0 은 가운데를 잘라 생성 해상도에 맞춤
 SIZES = {"landscape": dict(gen=(1280, 704), final=(1920, 1080), ratio="16:9", chatgpt="1536×864"),
          "portrait": dict(gen=(704, 1280), final=(1080, 1920), ratio="9:16", chatgpt="864×1536")}
@@ -251,7 +253,8 @@ def chatgpt_md(plan: dict, sents: list[dict], plan_rel: str, stamp: str, shorts:
            "쓰임: 영상에서 **사연 장면**마다 이 그림을 첫 장면으로 짧은 움직이는 클립(약 2~5초)을 만든다 (Kaggle videogen). "
            "숫자·계산 설명은 Claude 가 코드로 그린 화면이라 여기 없다.", "",
            "## ChatGPT에게 — 이 파일을 읽으면 할 일",
-           "0. **이 주소를 지금 새로 열어 그 내용만 쓴다.** 답의 첫 줄에 이 파일 맨 위 '자동 생성' 줄의 시각을 그대로 적는다."
+           "0. **이 주소를 지금 새로 열어 그 내용만 쓴다.** 답의 첫 줄에 이 파일 맨 위 '자동 생성' 줄의 시각을 그대로 적는다. "
+           "**올리는 파일은 모두 JPEG(.jpg) 700KB 이하** — 2026-10-20 PNG 37장을 그대로 올렸다가 모두 768KB 에서 잘려 깨졌다 (8번)."
            + (" 이 파일은 같은 영상 롱폼 그림을 만든 **같은 대화에서 이어서** 만든다 (인물을 같게)." if shorts else ""),
            ("1. 먼저 **0번 인물 설정표** 한 장을 만든다 (영상에는 쓰지 않음 — 모든 장면의 얼굴·머리·옷을 맞추는 기준)."
             if not shorts else "1. 롱폼에서 만든 인물 설정표의 인물과 **똑같은 얼굴·머리·옷**으로 그린다 (설정표는 다시 만들지 않음)."),
@@ -283,12 +286,12 @@ def chatgpt_md(plan: dict, sents: list[dict], plan_rel: str, stamp: str, shorts:
         out += ["", "## 장소", ""] + [f"- **{p['name']}** — {p['en']}" for p in plan["places"]]
     if not shorts:
         out += ["", f"## 0. 인물 설정표 (영상에는 안 씀)", "",
-                f"**저장 경로: `{plan['image_dir']}/characters{image_ext(plan)}`**", "", "```", sheet_prompt(plan), "```"]
+                f"**저장 경로: `{plan['image_dir']}/characters{image_ext(plan)}`** — **JPEG(.jpg) 700KB 이하로 바꿔 올림** (PNG 그대로는 768KB 에서 잘려 깨짐)", "", "```", sheet_prompt(plan), "```"]
     for i, c in enumerate(plan["clips"], 1):
         a, b = c["sentences"]
         rng = f"문장 {a}" if a == b else f"문장 {a}~{b}"
         out += ["", f"## {i}. {c['name']} — {c['ko']}", "",
-                f"**저장 경로: `{plan['image_dir']}/{c['name']}{image_ext(plan)}`**", "",
+                f"**저장 경로: `{plan['image_dir']}/{c['name']}{image_ext(plan)}`** — **JPEG(.jpg) 700KB 이하로 바꿔 올림** (PNG 그대로는 768KB 에서 잘려 깨짐)", "",
                 f"내레이션 ({rng}): 「{_quote(sents, a, b)}」", "", "```", image_prompt(plan, c), "```"]
     return "\n".join(out) + "\n"
 

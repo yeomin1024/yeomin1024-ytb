@@ -1,13 +1,13 @@
 # gungmin-sigi-2026-10-shorts 장면 그림 7장 — ChatGPT용 (읽고 1번부터 차례로 모두 만들기)
 
-자동 생성 — `python3 tools/scene_clips.py build` v1.2 (2026-10-19 15:54). 이 파일은 고치지 말고 `economic/source/gungmin-sigi-2026-10/shorts/scenes/plan.json` 을 고친 뒤 다시 만든다.
+자동 생성 — `python3 tools/scene_clips.py build` v1.2.1 (2026-10-20 03:06). 이 파일은 고치지 말고 `economic/source/gungmin-sigi-2026-10/shorts/scenes/plan.json` 을 고친 뒤 다시 만든다.
 
 이 파일 주소(최신): https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/economic/source/gungmin-sigi-2026-10/shorts/scenes/chatgpt.md
 
 쓰임: 영상에서 **사연 장면**마다 이 그림을 첫 장면으로 짧은 움직이는 클립(약 2~5초)을 만든다 (Kaggle videogen). 숫자·계산 설명은 Claude 가 코드로 그린 화면이라 여기 없다.
 
 ## ChatGPT에게 — 이 파일을 읽으면 할 일
-0. **이 주소를 지금 새로 열어 그 내용만 쓴다.** 답의 첫 줄에 이 파일 맨 위 '자동 생성' 줄의 시각을 그대로 적는다. 이 파일은 같은 영상 롱폼 그림을 만든 **같은 대화에서 이어서** 만든다 (인물을 같게).
+0. **이 주소를 지금 새로 열어 그 내용만 쓴다.** 답의 첫 줄에 이 파일 맨 위 '자동 생성' 줄의 시각을 그대로 적는다. **올리는 파일은 모두 JPEG(.jpg) 700KB 이하** — 2026-10-20 PNG 37장을 그대로 올렸다가 모두 768KB 에서 잘려 깨졌다 (8번). 이 파일은 같은 영상 롱폼 그림을 만든 **같은 대화에서 이어서** 만든다 (인물을 같게).
 1. 롱폼에서 만든 인물 설정표의 인물과 **똑같은 얼굴·머리·옷**으로 그린다 (설정표는 다시 만들지 않음).
 2. 그다음 **1번부터 7번까지 차례로 모두** 만든다. 질문하지 말고, 한 장을 만든 뒤 멈추지 말고 다음 장으로 넘어간다.
    - 이미지 한도 때문에 멈추면 사용자가 `계속`이라고 보낸다 → 아직 안 만든 번호부터 이어서 만든다.
@@ -42,7 +42,7 @@ Warm, friendly 2D animation still, like a frame from a gentle family animated fi
 
 ## 1. S02 — 59세 퇴직 — 짐 상자를 들고 회사를 나서는 김 씨 (세로)
 
-**저장 경로: `economic/source/gungmin-sigi-2026-10/shorts/scenes/S02.jpg`**
+**저장 경로: `economic/source/gungmin-sigi-2026-10/shorts/scenes/S02.jpg`** — **JPEG(.jpg) 700KB 이하로 바꿔 올림** (PNG 그대로는 768KB 에서 잘려 깨짐)
 
 내레이션 (문장 2): 「김 씨는 59세에 퇴직했는데, 연금은 64세부터였어요.」
 
@@ -57,7 +57,7 @@ Absolutely no text, letters, numbers, symbols, logos or watermarks anywhere in t
 
 ## 2. S03 — 퇴직한 다음 달, 공단 창구에서 신청서에 서명하는 김 씨 (세로)
 
-**저장 경로: `economic/source/gungmin-sigi-2026-10/shorts/scenes/S03.jpg`**
+**저장 경로: `economic/source/gungmin-sigi-2026-10/shorts/scenes/S03.jpg`** — **JPEG(.jpg) 700KB 이하로 바꿔 올림** (PNG 그대로는 768KB 에서 잘려 깨짐)
 
 내레이션 (문장 3): 「5년 동안 월급도 연금도 없어서, 퇴직한 다음 달 바로 신청했죠.」
 
@@ -73,7 +73,7 @@ Absolutely no text, letters, numbers, symbols, logos or watermarks anywhere in t
 
 ## 3. S05 — 64세면 돌아올 줄 — 소파에서 차를 마시며 여유로운 김 씨 (세로)
 
-**저장 경로: `economic/source/gungmin-sigi-2026-10/shorts/scenes/S05.jpg`**
+**저장 경로: `economic/source/gungmin-sigi-2026-10/shorts/scenes/S05.jpg`** — **JPEG(.jpg) 700KB 이하로 바꿔 올림** (PNG 그대로는 768KB 에서 잘려 깨짐)
 
 내레이션 (문장 5): 「그래도 64세가 되면, 원래대로 돌아올 줄 알았어요.」
 
@@ -89,7 +89,7 @@ Absolutely no text, letters, numbers, symbols, logos or watermarks anywhere in t
 
 ## 4. S06 — 1년 뒤 동창 모임 — 웃으며 잔을 부딪치는 친구들 (세로)
 
-**저장 경로: `economic/source/gungmin-sigi-2026-10/shorts/scenes/S06.jpg`**
+**저장 경로: `economic/source/gungmin-sigi-2026-10/shorts/scenes/S06.jpg`** — **JPEG(.jpg) 700KB 이하로 바꿔 올림** (PNG 그대로는 768KB 에서 잘려 깨짐)
 
 내레이션 (문장 6): 「그런데 1년쯤 지나, 동창 모임에서 친구가 물었습니다.」
 
@@ -106,7 +106,7 @@ Absolutely no text, letters, numbers, symbols, logos or watermarks anywhere in t
 
 ## 5. S07 — 친구가 진지하게 묻고, 잔을 든 채 굳은 김 씨 (세로)
 
-**저장 경로: `economic/source/gungmin-sigi-2026-10/shorts/scenes/S07.jpg`**
+**저장 경로: `economic/source/gungmin-sigi-2026-10/shorts/scenes/S07.jpg`** — **JPEG(.jpg) 700KB 이하로 바꿔 올림** (PNG 그대로는 768KB 에서 잘려 깨짐)
 
 내레이션 (문장 7): 「너, 그거 평생 30% 깎이는 거 알고 신청했어?」
 
@@ -123,7 +123,7 @@ Absolutely no text, letters, numbers, symbols, logos or watermarks anywhere in t
 
 ## 6. S09 — 밤 식탁, 신청서를 내려다보며 이마를 짚고 좌절한 김 씨 (세로)
 
-**저장 경로: `economic/source/gungmin-sigi-2026-10/shorts/scenes/S09.jpg`**
+**저장 경로: `economic/source/gungmin-sigi-2026-10/shorts/scenes/S09.jpg`** — **JPEG(.jpg) 700KB 이하로 바꿔 올림** (PNG 그대로는 768KB 에서 잘려 깨짐)
 
 내레이션 (문장 9): 「신청서 한 장 때문에, 평생 손해를 봤다는 거예요.」
 
@@ -139,7 +139,7 @@ Absolutely no text, letters, numbers, symbols, logos or watermarks anywhere in t
 
 ## 7. S10 — 서류 더미에서 고개를 들어 결심한 눈빛으로 앞을 보는 김 씨 (세로)
 
-**저장 경로: `economic/source/gungmin-sigi-2026-10/shorts/scenes/S10.jpg`**
+**저장 경로: `economic/source/gungmin-sigi-2026-10/shorts/scenes/S10.jpg`** — **JPEG(.jpg) 700KB 이하로 바꿔 올림** (PNG 그대로는 768KB 에서 잘려 깨짐)
 
 내레이션 (문장 10): 「정말 그만큼 잃은 걸까요, 지금이라도 덜 깎이게 할 수 있을까요?」
 

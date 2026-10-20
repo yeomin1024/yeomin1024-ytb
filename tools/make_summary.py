@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.9.4 — 2026-10-19 — ChatGPT 가 올린 썸네일 PNG 4장이 786,444바이트에서 잘려 열리지 않음 (GitHub 앱이 약 768KB = base64 1MB 를
+# VERSION: v1.9.5 — 2026-10-20 — 장마다 저장 경로 옆에도 'JPEG 700KB 이하' (장면 PNG 37장이 그대로 올라가 모두 깨짐).
+# (v1.9.4) — 2026-10-19 — ChatGPT 가 올린 썸네일 PNG 4장이 786,444바이트에서 잘려 열리지 않음 (GitHub 앱이 약 768KB = base64 1MB 를
 #          넘으면 자름): 규칙 8 = JPEG(.jpg) 700KB 이하로 바꿔 올리고 올린 크기 확인 · 저장 경로 thumbnail_N.jpg · 깨진 그림은 '없음'으로
 #          (find_image — 끝까지 읽히는지 PIL 로 확인, v1.9.3 까지는 깨진 파일도 '이미지_있음'으로 건너뜀).
 # (v1.9.3) — 2026-10-19 — ChatGPT 규칙 8: 이 계정의 ChatGPT 는 GitHub 에 올릴 수 있다 (사용자 지시 "chatgpt 깃허브 업로드 가능하다고 다시 수정해서 알려주고") —
@@ -549,7 +550,7 @@ def chatgpt_all(topic, root=ROOT):
     out.append("")
     for k, (vid, rel, (i, head, prompt, words, _mode)) in enumerate(flat, 1):
         out += [f"## {k}. {vid} · thumbnail_{i} — {head.split('—', 1)[-1].strip()}", "",
-                f"**저장 경로: `{rel}/thumbnail_{i}.jpg`**", "",
+                f"**저장 경로: `{rel}/thumbnail_{i}.jpg`** — **JPEG(.jpg) 700KB 이하로 바꿔 올림** (PNG 그대로는 768KB 에서 잘려 깨짐)", "",
                 ("크기: **세로 9:16 (1080×1920) — 쇼츠 · 세 칸 (위 0~36% 순검정 + 문구 2줄 · 가운데 36~72% 사진 · 아래 72~100% 순검정, 글자·얼굴은 높이 15~85%)**" if vid in bands
                  else "크기: **세로 9:16 (1080×1920) — 쇼츠**" if vid.endswith(SHORTS) else "크기: 가로 16:9 (1280×720) — 롱폼"), ""]
         if words:

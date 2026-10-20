@@ -1,6 +1,6 @@
 # economic 썸네일 4장 — ChatGPT용 (모든 영상 · 읽고 그대로 만들고 각 저장 경로에 올리기)
 
-자동 생성 — `python tools/make_summary.py --chatgpt-all economic` (2026-10-19 15:54). 이 파일은 고치지 말고 영상마다 `thumbnail_N.md`를 고친 뒤 다시 만든다.
+자동 생성 — `python tools/make_summary.py --chatgpt-all economic` (2026-10-20 03:06). 이 파일은 고치지 말고 영상마다 `thumbnail_N.md`를 고친 뒤 다시 만든다.
 
 이 파일 주소: https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/economic/thumbnails_chatgpt.md
 
@@ -35,7 +35,7 @@
 
 ## 1. gungmin-sigi-2026-10 · thumbnail_1 — 본안(클릭률 최대): 밤 거실 소파에서 빈 통장을 들고 이마를 짚은 60세 남성 + '30% 깎임' 낱말
 
-**저장 경로: `economic/source/gungmin-sigi-2026-10/thumbnails/thumbnail_1.jpg`**
+**저장 경로: `economic/source/gungmin-sigi-2026-10/thumbnails/thumbnail_1.jpg`** — **JPEG(.jpg) 700KB 이하로 바꿔 올림** (PNG 그대로는 768KB 에서 잘려 깨짐)
 
 크기: 가로 16:9 (1280×720) — 롱폼
 
@@ -68,7 +68,7 @@ Render ONLY the Korean text given in quotes, exactly as written with the same le
 
 ## 2. gungmin-sigi-2026-10 · thumbnail_2 — 실험안 ①: 본안과 같은 장면, 낱말만 '조기수령'
 
-**저장 경로: `economic/source/gungmin-sigi-2026-10/thumbnails/thumbnail_2.jpg`**
+**저장 경로: `economic/source/gungmin-sigi-2026-10/thumbnails/thumbnail_2.jpg`** — **JPEG(.jpg) 700KB 이하로 바꿔 올림** (PNG 그대로는 768KB 에서 잘려 깨짐)
 
 크기: 가로 16:9 (1280×720) — 롱폼
 
@@ -101,7 +101,7 @@ Render ONLY the Korean text given in quotes, exactly as written with the same le
 
 ## 3. gungmin-sigi-2026-10 · thumbnail_3 — 실험안 ②: 사람 없이, 오른쪽 3분의 1이 잘려 나간 빈 통장 + '30% 깎임' 낱말
 
-**저장 경로: `economic/source/gungmin-sigi-2026-10/thumbnails/thumbnail_3.jpg`**
+**저장 경로: `economic/source/gungmin-sigi-2026-10/thumbnails/thumbnail_3.jpg`** — **JPEG(.jpg) 700KB 이하로 바꿔 올림** (PNG 그대로는 768KB 에서 잘려 깨짐)
 
 크기: 가로 16:9 (1280×720) — 롱폼
 
@@ -134,7 +134,7 @@ Render ONLY the Korean text given in quotes, exactly as written with the same le
 
 ## 4. gungmin-sigi-2026-10-shorts · thumbnail_1 — 본안(쇼츠 썸네일 + 첫 문장 화면): 동창 모임 식당에서 친구의 말을 듣고 두 손으로 머리를 감싸 쥔 60세 김 씨 + '평생 30%' 꼬리표
 
-**저장 경로: `economic/source/gungmin-sigi-2026-10/shorts/thumbnails/thumbnail_1.jpg`**
+**저장 경로: `economic/source/gungmin-sigi-2026-10/shorts/thumbnails/thumbnail_1.jpg`** — **JPEG(.jpg) 700KB 이하로 바꿔 올림** (PNG 그대로는 768KB 에서 잘려 깨짐)
 
 크기: **세로 9:16 (1080×1920) — 쇼츠 · 세 칸 (위 0~36% 순검정 + 문구 2줄 · 가운데 36~72% 사진 · 아래 72~100% 순검정, 글자·얼굴은 높이 15~85%)**
 

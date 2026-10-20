@@ -7,6 +7,8 @@
 - `videogen/queue.json` v1.0 (새): 국민연금 롱폼 29 + 쇼츠 7
 - 시험 `videogen/tests/test_videogen.py` v1.5.0 `test_queue` (2 → 0 → 1개, 같은 seed, force·dry-run, 토큰이 로그에 없음) — 전체 통과. 실제 queue dry-run: 36개 모두 new (Release 없음), 1.5초
 - 문서: `videogen/README.md` 2-5(고정 셀 — 기본) · `videogen/CHANGELOG.md` · `economic/source/gungmin-sigi-2026-10/scenes/kaggle_cell.md` v2.0 · `guides/video_guide.md` v4.15 6-1 · `CLAUDE.md` 영상 줄 · `guides/status.md` v2.17 2-7
+- 고정 셀을 진짜 main(`9fffbc2f`)에 대고 dry-run (토큰 없이): 코드·queue·설정·그림 36장 받기 → Release 없음 → 36개 new, 약 12초
+- 국민연금 L02·L19 새 그림(ChatGPT 가 올림 `b35e4248`·`d68037d1`) 검수 ✅ — L02 신청서와 김 씨 손만(얼굴 없음) · L19 박 씨 퇴직 날(은발·베이지 재킷·갈색 터틀넥, 다른 주인공 없음). 그림 37장 준비 끝
 - 위험 관련 변경 없음 (생성 설정·모델·길이 그대로, 건너뛰기는 다섯 값이 모두 같을 때만)
 
 ## 2026-10-20 (음악 분석) — 넷째 회차: 기준선 끝 · 첫 쇼츠 · 추천 v1.3 · cloud_run v1.4 캐시 나누기

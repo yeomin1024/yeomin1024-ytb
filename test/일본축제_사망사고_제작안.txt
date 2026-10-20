@@ -1,5 +1,5 @@
 ==================================================
-일본 전통 축제 사망 사고 - 롱폼 / 쇼츠 제작안 (v8.2)
+일본 전통 축제 사망 사고 - 롱폼 / 쇼츠 제작안 (v8.3)
 대본 + 화면 구성(배경 이미지 + 코드 렌더링) + ChatGPT 이미지 요청 방법
 ==================================================
 
@@ -16,6 +16,10 @@
     롱폼 test/source/ilbon-chukje-2026-10/ilbon-chukje-2026-10.txt
     쇼츠 test/source/ilbon-chukje-2026-10/shorts/ilbon-chukje-2026-10-shorts.txt
   → Kaggle 오디오 셀의 범위 버튼 'test' 로 narration.mp3 를 만든다. 읽는 소리 사전 test/tts_lexicon.tsv (F1·AED·SNS).
+- 영상 (v8.3 — 2026-10-20, 오디오 뒤): 장면 파일 video/episodes/ilbon-chukje-2026-10/index.html · video/episodes/ilbon-chukje-2026-10-shorts/index.html
+    렌더 node video/render/render.mjs video test <영상ID> → test/out/<영상ID>/final_1080p.mp4 (영상 파일은 git 에 넣지 않음)
+    쇼츠 첫 장면 그림 = test/source/ilbon-chukje-2026-10/shorts/thumbnails/thumbnail_1.jpg (test/SHORTS-OPEN.jpg 복사본, 세 칸 검사 통과)
+    롱폼 지도 = Natural Earth 1:10m(퍼블릭 도메인, world-atlas 2.0.2) 일본 서쪽 윤곽 · 시간 표시는 실제 오디오 기준 (롱폼 6분 3초 · 쇼츠 42초)
 - 시간은 예상치입니다. 내레이션 녹음(TTS) 후 길이에 맞춰 조정하세요.
 
 

@@ -1,0 +1,125 @@
+{
+ "tool": "tts_narration.py v1.14",
+ "created": "2026-10-20T14:47:37",
+ "topic": "test",
+ "id": "myeonse-hwangeup-2026-10-shorts",
+ "script": "test/source/myeonse-hwangeup-2026-10/shorts/myeonse-hwangeup-2026-10-shorts.txt",
+ "script_sha1": "71a673a2f25dd8be",
+ "sentences": 9,
+ "seconds": 37.37,
+ "engine": {
+  "engine": "qwen3-tts-clone",
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "ref": "e36c19a225874205",
+  "mode": "icl",
+  "language": "Korean",
+  "dtype": "float32",
+  "gen": {}
+ },
+ "voices": {
+  "host": {
+   "name": "진행자",
+   "parts": [
+    "*"
+   ],
+   "engine": "clone",
+   "lock": true,
+   "speaker": "Sohee",
+   "instruct": "",
+   "part_instruct": {},
+   "seed": 4301,
+   "gap": 0.45,
+   "generation": {},
+   "ref_audio": "voices/ref/host.wav",
+   "ref_sha": "e36c19a225874205",
+   "ref_f0": 127.7,
+   "files": [
+    "voices/host.json"
+   ]
+  }
+ },
+ "voice_ids": {
+  "host": "ba3d7519a1de4d4c"
+ },
+ "gaps": {
+  "lead_in": 0.3,
+  "part": 1.0,
+  "tail": 0.8,
+  "cards": []
+ },
+ "items": [
+  {
+   "n": 1,
+   "role": "host",
+   "part": "바뀌는 일본 면세",
+   "text": "11월 1일부터 일본 매장에서 바로 면세받던 방식이 사라집니다.",
+   "start": 0.3,
+   "end": 4.1
+  },
+  {
+   "n": 2,
+   "role": "host",
+   "part": "바뀌는 일본 면세",
+   "text": "이제는 세금까지 내고 산 뒤, 출국할 때 세관 확인을 받아야 돌려받습니다.",
+   "start": 4.55,
+   "end": 9.11
+  },
+  {
+   "n": 3,
+   "role": "host",
+   "part": "바뀌는 일본 면세",
+   "text": "이 확인을 받지 못하면 낸 세금은 돌려받을 수 없습니다.",
+   "start": 9.56,
+   "end": 12.84
+  },
+  {
+   "n": 4,
+   "role": "host",
+   "part": "바뀌는 일본 면세",
+   "text": "확인은 공항 출발 로비의 단말기에서 합니다.",
+   "start": 13.29,
+   "end": 16.17
+  },
+  {
+   "n": 5,
+   "role": "host",
+   "part": "바뀌는 일본 면세",
+   "text": "그런데 순서를 놓치면 다시 할 수 없는 경우도 있습니다.",
+   "start": 16.62,
+   "end": 19.59
+  },
+  {
+   "n": 6,
+   "role": "host",
+   "part": "바뀌는 일본 면세",
+   "text": "같은 매장에서 하루에 세금 빼고 5,000엔 이상 사야 한다는 기준은 그대로입니다.",
+   "start": 20.04,
+   "end": 24.58
+  },
+  {
+   "n": 7,
+   "role": "host",
+   "part": "바뀌는 일본 면세",
+   "text": "한 여행 가이드는 공항에 5시간에서 6시간 전에 갈 생각이라고까지 말했습니다.",
+   "start": 25.03,
+   "end": 30.15
+  },
+  {
+   "n": 8,
+   "role": "host",
+   "part": "바뀌는 일본 면세",
+   "text": "그렇다면 놓치면 환급을 못 받는 세 가지는 무엇일까요?",
+   "start": 30.6,
+   "end": 33.89
+  },
+  {
+   "n": 9,
+   "role": "host",
+   "part": "바뀌는 일본 면세",
+   "text": "그 답은 아래 영상에서 확인하세요.",
+   "start": 34.34,
+   "end": 36.57
+  }
+ ],
+ "voice_sha1": "f0d0f801940b36b1"
+}

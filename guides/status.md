@@ -203,7 +203,7 @@
 
 **0-21. 국민연금 편 완성본 (2026-10-21 — 사용자 지시 "클립 돌렸으니 확인해서 영상 만들어봐")**
 - 클립: Release 두 개에서 36개 받음(`scene_clips.py fetch`) → `scene_clips.py ghost` + 그림으로 검수 → 9개 겹침, 깨끗한 구간만 씀 (`scenes/plan.json` v1.2 · `shorts/scenes/plan.json` v1.1 — 클립마다 `qa` 에 까닭). 클립은 다시 만들지 않음 — 더 좋게 하려면 그 클립에 `seed` 를 바꿔 넣고 `videogen/queue.json` 그 작업을 켠 뒤 고정 셀 (그 클립만 새로).
-- 완성본 (컨테이너에만 — git·Drive 아님): 롱폼 `economic/out/gungmin-sigi-2026-10/final_1080p.mp4` · 쇼츠 `economic/out/gungmin-sigi-2026-10-shorts/final_1080p.mp4` (52.47초, -14.07 LUFS, dry-run ✅). 컨테이너가 바뀌면 `fetch` → `render.mjs video --base`·`overlay` → `assemble_video.py` 로 다시 (약 10분).
+- 완성본 (컨테이너에만 — git·Drive 아님): 롱폼 `economic/out/gungmin-sigi-2026-10/final_1080p.mp4` (413.13초, -14.17 LUFS, -1.58 dBTP, dry-run ✅ 챕터 7개) · 쇼츠 `economic/out/gungmin-sigi-2026-10-shorts/final_1080p.mp4` (52.47초, -14.07 LUFS, dry-run ✅). 컨테이너가 바뀌면 `fetch` → `render.mjs video --base`·`overlay` → `assemble_video.py` 로 다시 (약 10분).
 - 다음: 공개 시각(롱폼·쇼츠 같은 시각) → 채널 목록 확인 → `youtube_upload.py economic gungmin-sigi-2026-10 --publish-at …` · `… gungmin-sigi-2026-10-shorts --publish-at … --no-captions`.
 
 **0-20. 재테크 남은 업로드 끝 (2026-10-18 16:10 KST, 예약 작업 `trig_016McC7cifprr4ZuFA7oMEZX`)**

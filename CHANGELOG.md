@@ -11,6 +11,7 @@
 - 처음 시도에서 고친 것: 되감는 구간을 0초부터 쓰면 거기서 멈춘 장면이 바래 보임 (클립 첫 0.25초는 시작 그림에서 넘어오는 프레임) → 0.3초부터
 - 시험: `tools/tests/test_assemble_video.py` v1.1 (구간·pingpong·tail · 진짜 ffmpeg pingpong 프레임 수 24+23) · `test_scene_clips.py` v1.3 (ghost_scan · 진짜 ffmpeg 로 1초부터 흐려지는 클립 → 1.0초) — 13개 통과
 - 쇼츠: 바탕 다시 렌더(오디오 맞춘 장면 파일 v1.2, 52.47초) · 합치기 → `economic/out/gungmin-sigi-2026-10-shorts/final_1080p.mp4` 1080x1920 30fps · -14.07 LUFS · -1.62 dBTP · 업로드 dry-run 문제 없음 (부자백서, 1,650단위)
+- 롱폼: 바탕·자막 그림은 10-19 렌더 그대로(장면 파일·kit 이 그 뒤 안 바뀜) · 합치기 → `economic/out/gungmin-sigi-2026-10/final_1080p.mp4` 1920x1080 30fps 413.13초 · -14.17 LUFS · -1.58 dBTP · 클립 29개 중 늦춤 8·멈춤 5 · 점검용 장면 모음·클립→코드 화면 경계(L03·L10·L22) 직접 봄 · 업로드 dry-run 문제 없음 (챕터 7개 시각 맞음, 2,050단위)
 - `videogen/queue.json` v1.1: 국민연금 두 작업 끔 (받기 끝)
 - 위험 관련 변경 없음 (대본·숫자·자막 그대로, 장면 클립의 쓰는 부분만)
 

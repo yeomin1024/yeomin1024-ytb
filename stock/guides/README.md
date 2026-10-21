@@ -24,6 +24,7 @@
 | 파일 | 내용 |
 |---|---|
 | `concept.md` | 채널 컨셉 — AI가 코드로 가설을 백테스트해 검증, 백테스트 규칙 |
+| `story_script.md` | **이야기형 대본** (2026-10-21) — 개미 주인공 1인칭 · 도입 35초 혼잣말 4박자 · 방법마다 '첫 번째는 ~요' · '정리해볼게요' + 말 없는 정리 카드 · 해요체 · 점검 `tools/story_check.py`. 이 형식에서는 아래 5번 도입·경주 규칙 대신 이 파일 (숫자 말하기 1~10 은 그대로) |
 | `data_insights.md` | 주식 분석 결과의 근거 숫자 (시청자·제목·대본·썸네일) |
 | `viewer_review.md` | 시청자 페르소나 4명(55세·43세·63세·해외 — 해외는 근거 없음)과 대본 피드백 요청 → `tools/review_prompt.py stock` 이 `stock/script_review_chatgpt.md` 로 묶음 (2026-10-17) |
 | `research_2026-10-15.md` | `content_research.py all stock` 전체 표 |

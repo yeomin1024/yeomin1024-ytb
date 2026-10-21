@@ -1,4 +1,9 @@
-// VERSION: v1.9 — 2026-10-19 — window.__BASE(render.mjs v1.17 video --base)면 구운 자막·장 이름표를 끔 — 바탕 영상 위에 AI 장면 클립을 얹고
+// VERSION: v1.10 — 2026-10-21 — K.related(parent, {title, at, arrowAt, …}): 쇼츠 끝 — 유튜브 '관련 동영상' 버튼 가리키기.
+//   ① 그 버튼 모양(회색 알약 + ▶ + 본편 제목 앞부분)을 위 칸에 크게 · ② 진짜 버튼 자리 둘레에 노란 빛 테두리 (유튜브가 버튼을 영상 위에
+//   그리므로 버튼 둘레가 빛나 보임) · ③ 화면 가운데(x 540) 곧은 화살표 — 자막 밑에서 버튼 위 끝까지, 통통 튐. 버튼 자리 K.REL = 사용자가 보낸
+//   PC 쇼츠 화면에서 잰 값 (1080×1920 기준 x 210~704 · y 1781~1863, 왼쪽에 AI 표시 — 가운데 x 540 도 버튼 안).
+//   사용자 지시 2026-10-21 "하단에 관련 동영상을 확실하게 표현하는 방법 알려줘봐" · "화살표를 최대한 중간에 위치해서 어색하지 않도록 해 영상 만들어서 보여줘봐".
+// (v1.9) — 2026-10-19 — window.__BASE(render.mjs v1.17 video --base)면 구운 자막·장 이름표를 끔 — 바탕 영상 위에 AI 장면 클립을 얹고
 //   자막·이름표는 tools/assemble_video.py 가 한 번에 굽는다 (클립 구간에도 같은 모양 — render.mjs overlay 가 이 쪽 #cc·#chip 을 그대로 찍음).
 //   SB.base · K.chapterList() (장 이름표가 바뀌는 시각).
 // v1.8 — 2026-10-17 — K.cover(end, {box, ar, cy}): 그림 안 사진 부분(box = [x0,y0,x1,y1], 그림 가로·세로 비율)만 화면 가로 가득 + 뒤는 같은 부분을
@@ -291,6 +296,27 @@
     return sc;
   };
   K.onSeek = fn => HOOKS.push(fn);           // v1.2
+  // ---------- v1.10 쇼츠 끝: 유튜브 '관련 동영상' 버튼 가리키기 ----------
+  K.REL = { x0: 210, x1: 704, y0: 1781, y1: 1863 };   // 진짜 버튼 자리 (PC 쇼츠 화면에서 잼, 2026-10-21) — 휴대폰 앱은 몇 px 다를 수 있어 빛 테두리를 넉넉히
+  K.related = (parent, o) => {
+    o = Object.assign({ cx: 540, chipTop: 405, hintTop: 560, arrowTop: 1552, hint: `화면 맨 아래 <span class="Y">이 버튼</span>을 누르세요` }, o);
+    const R = K.REL, pad = 16, tip = R.y0 - pad - 6, at = o.at, arrowAt = o.arrowAt == null ? at + 0.3 : o.arrowAt;
+    const chip = K.el(`<div class="a cx relchip" style="left:${o.cx}px;top:${o.chipTop}px"><i></i>${esc(o.title)}</div>`, parent);
+    const hint = K.el(`<div class="a cx c w9 nw" style="left:${o.cx}px;top:${o.hintTop}px;font-size:50px">${o.hint}</div>`, parent);
+    const glow = K.el(`<div class="a relglow" data-below="유튜브 관련 동영상 버튼 둘레 (버튼이 이 위에 그려짐)" style="left:${R.x0 - pad}px;top:${R.y0 - pad}px;width:${R.x1 - R.x0 + 2 * pad}px;height:${R.y1 - R.y0 + 2 * pad}px"></div>`, parent);
+    const ln = (sw, c, op) => `<path d="M${o.cx} ${o.arrowTop} L${o.cx} ${tip - 8}" fill="none" stroke="${c}" stroke-opacity="${op}" stroke-width="${sw}" stroke-linecap="round"/>` +
+      `<path d="M${o.cx - 52} ${tip - 56} L${o.cx} ${tip} L${o.cx + 52} ${tip - 56}" fill="none" stroke="${c}" stroke-opacity="${op}" stroke-width="${sw}" stroke-linecap="round" stroke-linejoin="round"/>`;
+    const arrow = K.el(`<svg class="a" data-below="자막 밑 → 유튜브 관련 동영상 버튼을 가리키는 화살표" viewBox="0 0 1080 1920" width="1080" height="1920" style="left:0;top:0" aria-hidden="true">${ln(40, "#000", 0.55)}${ln(24, "#FFD400", 1)}</svg>`, parent);
+    K.pop(chip, at, { from: { scale: 0.8, y: 0 } });
+    K.pop(hint, at + 0.15);
+    tl.fromTo(glow, { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "none" }, at);
+    const n = Math.max(1, Math.ceil((K.D - at - 0.3) / 0.45));
+    tl.fromTo(glow, { opacity: 1 }, { opacity: 0.45, duration: 0.45, ease: "sine.inOut", repeat: n, yoyo: true }, at + 0.3);
+    K.pop(arrow, arrowAt, { from: { y: -60, scale: 1 } });
+    const m = Math.max(1, Math.ceil((K.D - arrowAt - 0.55) / 0.4));
+    tl.fromTo(arrow, { y: 0 }, { y: 16, duration: 0.4, ease: "sine.inOut", repeat: m, yoyo: true }, arrowAt + 0.55);
+    return { chip, hint, glow, arrow };
+  };
 
   // ---------- 시작·끝 ----------
   K.init = (ep, opts) => {                   // opts: {subtitles: 구운 자막(기본 true), chip: 장 이름표(기본 true), w: 무대 너비(기본 1920 — v1.3)}

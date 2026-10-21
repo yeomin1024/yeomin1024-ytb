@@ -1,4 +1,8 @@
-// VERSION: v1.19 — 2026-10-20 — check: 세로 쇼츠의 '그림이 안전 구역 아래' 검사에서 data-below="<까닭>" 이 붙은 그림은 뺌 (data-small 과 같은 꼴) —
+// VERSION: v1.20 — 2026-10-21 — sync: 장면 파일의 <meta name="end-hold" content="2.5"> 가 있으면 마지막 자막 뒤 그만큼 끝 화면을 둠
+//   (영상 길이 = max(오디오, 마지막 자막 끝 + end-hold) — 없으면 예전대로 1.0초). 쇼츠는 끝나자마자 처음부터 다시 돌아서, 끝 화면(관련 동영상
+//   버튼 가리키기 — kit.js v1.10 K.related)을 볼 틈이 1초로는 모자람. 사용자 지시 2026-10-21 "화살표를 최대한 중간에 위치해서 어색하지 않도록 해
+//   영상 만들어서 보여줘봐". 소리는 그대로 (오디오가 끝난 뒤는 무음 — ffmpeg -shortest 를 쓰지 않음).
+// (v1.19) — 2026-10-20 — check: 세로 쇼츠의 '그림이 안전 구역 아래' 검사에서 data-below="<까닭>" 이 붙은 그림은 뺌 (data-small 과 같은 꼴) —
 //   끝 화면 화살표가 자막 밑 유튜브 '관련 동영상' 링크 자리를 일부러 가리킴 (사용자 지시 2026-10-20 "쇼츠에서 아래 영상에서 확인하라는 표시가 나오는데
 //   유튜브 관련 동영상 버튼 위치를 딱 가리키도록 해"). 다른 검사는 그대로.
 // (v1.18) — 2026-10-20 — ① 브라우저를 --allow-file-access-from-files 로 실행 — 장면 파일(file://)이 로컬 그림을 WebGL 재질로 쓸 수 있게
@@ -69,7 +73,7 @@ import { fileURLToPath } from "node:url";
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, "..", "..");
-const VERSION = "v1.19";                        // 로그 [RENDER] tool= 에 찍힘 (v1.4~v1.6 때 올리지 않았던 것을 맞춤)
+const VERSION = "v1.20";                        // 로그 [RENDER] tool= 에 찍힘 (v1.4~v1.6 때 올리지 않았던 것을 맞춤)
 const log = (stage, kv) => console.log(`[${stage}] [${new Date().toISOString().slice(0, 19)}Z] ` +
   Object.entries(kv).map(([k, v]) => `${k}=${typeof v === "string" && /\s/.test(v) ? JSON.stringify(v) : v}`).join(" "));
 
@@ -182,13 +186,15 @@ function sync() {
   const meta = JSON.parse(fs.readFileSync(path.join(SRC, "tts_narration.json"), "utf-8"));
   const srt = parseSrt(fs.readFileSync(path.join(SRC, `${ID}.srt`), "utf-8"));
   const aDur = probeDuration(AUDIO);
-  const D = +Math.max(aDur, srt.length ? srt[srt.length - 1][1] + 1.0 : 0).toFixed(2);
+  const hm = fs.existsSync(PAGE) && fs.readFileSync(PAGE, "utf-8").match(/<meta name="end-hold" content="([\d.]+)"/);   // v1.20 끝 화면 길이
+  const hold = hm ? Number(hm[1]) : 1.0;
+  const D = +Math.max(aDur, srt.length ? srt[srt.length - 1][1] + hold : 0).toFixed(2);
   const sent = meta.items.map(it => ({ n: it.n, part: it.part, text: it.text, start: it.start, end: it.end }));
   if (Math.abs(meta.seconds - aDur) > 0.5) log("SYNC", { level: "warn", note: "tts_narration.json 길이와 오디오 길이가 다름", meta_s: meta.seconds, audio_s: aDur.toFixed(2) });
   const ep = { id: ID, topic: TOPIC, duration: D, audio: path.relative(EPDIR, AUDIO).split(path.sep).join("/"), thumb: THUMB_REL,
     synced: new Date().toISOString().slice(0, 19) + "Z", tts: meta.created, script_sha1: meta.script_sha1, sent, subs: srt };
   writeEp(ep);
-  log("SYNC", { video: ID, sentences: sent.length, subs: srt.length, audio_s: aDur.toFixed(2), duration_s: D, thumb: THUMB_REL || "없음", file: path.relative(ROOT, PAGE) });
+  log("SYNC", { video: ID, sentences: sent.length, subs: srt.length, audio_s: aDur.toFixed(2), end_hold_s: hold, duration_s: D, thumb: THUMB_REL || "없음", file: path.relative(ROOT, PAGE) });
 }
 
 // ---------- 브라우저 ----------

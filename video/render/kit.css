@@ -1,4 +1,4 @@
-/* VERSION: v1.1 — 2026-10-17 — #cc.cover 42px (쇼츠 첫 자막 — 자막 2줄까지). (v1.0 — 2026-10-15 — 새 스타일 영상 공통 무대·부품 (guides/video_guide.md v4.0 3번).
+/* VERSION: v1.2 — 2026-10-21 — .relchip·.relglow: 쇼츠 끝 '관련 동영상' 버튼 가리키기 (kit.js v1.10 K.related — 사용자 지시 2026-10-21 "화살표를 최대한 중간에 위치해서 어색하지 않도록 해 영상 만들어서 보여줘봐"). (v1.1) — 2026-10-17 — #cc.cover 42px (쇼츠 첫 자막 — 자막 2줄까지). (v1.0 — 2026-10-15 — 새 스타일 영상 공통 무대·부품 (guides/video_guide.md v4.0 3번).
    근거 시안 video/prototypes/storyboard-2026-10-15/storyboard.html 의 무대 CSS 를 옮김 + 자막 띠 52px(3-5) + 미리보기 재생기.
    연구·교육용 영상 — 투자·세무 권유 아님.) */
 @font-face{font-family:"Noto Sans KR";font-weight:500;src:url(../public/fonts/NotoSansKR-500.ttf) format("truetype")}
@@ -78,3 +78,7 @@ body.render #ctrl,body.render #now{display:none}
 .step .k{font-weight:900;font-size:44px;color:var(--Y)}
 .step .t{font-weight:900;font-size:58px;line-height:1.15}
 .step .s{font-weight:700;font-size:40px;color:var(--N);line-height:1.25}
+/* v1.2 — 2026-10-21 쇼츠 끝: 유튜브 '관련 동영상' 버튼 모양(회색 알약 + ▶ + 본편 제목) · 진짜 버튼 자리 둘레 빛 (kit.js v1.10 K.related) */
+.relchip{height:110px;border-radius:55px;background:rgba(255,255,255,.17);display:flex;align-items:center;gap:18px;padding:0 40px 0 32px;font-weight:700;font-size:46px;line-height:1;color:#fff;white-space:nowrap;box-shadow:0 0 0 5px var(--Y),0 0 36px rgba(255,212,0,.5)}
+.relchip i{display:block;width:0;height:0;border-left:28px solid #fff;border-top:18px solid transparent;border-bottom:18px solid transparent}
+.relglow{border-radius:999px;border:9px solid var(--Y);box-shadow:0 0 34px 10px rgba(255,212,0,.75),inset 0 0 24px rgba(255,212,0,.5)}

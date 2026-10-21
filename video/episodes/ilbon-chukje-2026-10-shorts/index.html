@@ -4,7 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>일본 축제 쇼츠</title>
-<!-- VERSION: v2.1 — 2026-10-20 — 끝 화면: 노란 화살표가 유튜브 '관련 동영상' 링크 자리(화면 왼쪽 아래 — 채널 이름 바로 아래, 구글 도움말
+<!-- VERSION: v2.2 — 2026-10-21 — 끝 화면을 kit.js v1.10 K.related 로: 위 칸에 유튜브 '관련 동영상' 버튼 모양(▶ 매년 사망자가 나와도 일본은 …)
+     + '화면 맨 아래 이 버튼을 누르세요' · 아래 칸 화면 가운데(x 540) 곧은 화살표가 자막 밑에서 진짜 버튼 위 끝까지 · 진짜 버튼 자리 둘레 노란 빛.
+     v2.1 화살표는 끝이 y 1672(채널 이름 쪽)라 진짜 버튼(PC 쇼츠 화면에서 잰 y 1781~1863)보다 약 170px 위였음. 끝 화면 2.5초 (end-hold — render.mjs v1.20).
+     사용자 지시 2026-10-21 "하단에 관련 동영상을 확실하게 표현하는 방법 알려줘봐" · "화살표를 최대한 중간에 위치해서 어색하지 않도록 해 영상 만들어서 보여줘봐".
+     (v2.1) — 2026-10-20 — 끝 화면: 노란 화살표가 유튜브 '관련 동영상' 링크 자리(화면 왼쪽 아래 — 채널 이름 바로 아래, 구글 도움말
      "Viewers will see a clickable link below your channel handle")를 가리킴 · 가마꾼 3판(6명씩 P-MEN-L·R)이 있으면 그것 —
      사용자 지시 2026-10-20 "쇼츠에서 아래 영상에서 확인하라는 표시가 나오는데 유튜브 관련 동영상 버튼 위치를 딱 가리키도록 해".
      (v2.0) — 2026-10-20 — 가운데 칸을 종이인형 무대로 (video/render/puppet.js v1.0) — 사용자 지시 2026-10-20 "좋아 저런 방식으로 가자 ... 이제 나머지 부분
@@ -16,6 +20,7 @@
      대본 test/source/ilbon-chukje-2026-10/shorts/ilbon-chukje-2026-10-shorts.txt · 제작안 test/일본축제_사망사고_제작안.txt. 연구·교육용 영상. -->
 <meta name="video-size" content="1080x1920">
 <meta name="video-safe" content="150 60 1384 60">
+<meta name="end-hold" content="2.5">
 <link rel="stylesheet" href="../../render/kit.css">
 <style>
 /* 세로 무대 (kit.css 의 16:9 값을 덮음) — 바탕은 순검정 (세 칸의 위·아래 칸) */
@@ -40,7 +45,7 @@ body.render #wrap{width:1080px;height:1920px;max-width:none;margin:0}
 <div id="now"></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
-<script id="ep-data">/*EP-DATA:BEGIN*/window.EP={"id":"ilbon-chukje-2026-10-shorts","topic":"test","duration":41.96,"audio":"../../../test/source/ilbon-chukje-2026-10/shorts/narration.mp3","thumb":"../../../test/source/ilbon-chukje-2026-10/shorts/thumbnails/thumbnail_1.jpg","synced":"2026-10-21T05:54:24Z","tts":"2026-10-21T05:32:04","script_sha1":"e84658c10da0ce9d","sent":[{"n":1,"part":"사망자가 나와도 안 멈추는 축제","text":"매년 사고 사망자가 나와도 일본은 전통 축제를 멈추지 않습니다.","start":0.3,"end":4.298},{"n":2,"part":"사망자가 나와도 안 멈추는 축제","text":"10월 17일, 에히메 축제에서 3톤 가마를 메던 현직 부시장이 깔려 숨졌습니다.","start":4.678,"end":9.968},{"n":3,"part":"사망자가 나와도 안 멈추는 축제","text":"일주일 전 오사카에서 2명, 2월엔 오카야마에서도 2명이 숨졌죠.","start":10.348,"end":14.768},{"n":4,"part":"사망자가 나와도 안 멈추는 축제","text":"일본 축제 사망사고는 알려진 것만 따져도 4개월에 1명꼴입니다.","start":15.148,"end":19.248},{"n":5,"part":"사망자가 나와도 안 멈추는 축제","text":"그런데 현지 반응은 의외입니다.","start":19.628,"end":21.698},{"n":6,"part":"사망자가 나와도 안 멈추는 축제","text":"50년 넘게 참가한 한 원로는 \"목숨을 잃는 건 격투기와 같다, 자기책임\"이라고 했습니다.","start":22.078,"end":27.912},{"n":7,"part":"사망자가 나와도 안 멈추는 축제","text":"\"내가 죽으면 부모님이 사과하러 다닐 것\"이라고까지 했죠.","start":28.292,"end":31.402},{"n":8,"part":"사망자가 나와도 안 멈추는 축제","text":"SNS에선 \"치료비는 자비로 내라\"는 말까지 나왔습니다.","start":31.782,"end":35.332},{"n":9,"part":"사망자가 나와도 안 멈추는 축제","text":"일본은 왜 축제를 멈추지 않을까요?","start":35.712,"end":37.758},{"n":10,"part":"사망자가 나와도 안 멈추는 축제","text":"그 이유는 아래 영상에서 확인하세요.","start":38.138,"end":40.558}],"subs":[[0.2,4.678,"매년 사고 사망자가 나와도 일본은\n전통 축제를 멈추지 않습니다."],[4.678,10.348,"10월 17일, 에히메 축제에서 3톤 가마를\n메던 현직 부시장이 깔려 숨졌습니다."],[10.348,15.148,"일주일 전 오사카에서 2명,\n2월엔 오카야마에서도 2명이 숨졌죠."],[15.148,19.628,"일본 축제 사망사고는 알려진 것만\n따져도 4개월에 1명꼴입니다."],[19.628,22.078,"그런데 현지 반응은 의외입니다."],[22.078,26.422,"50년 넘게 참가한 한 원로는\n\"목숨을 잃는 건 격투기와 같다,"],[26.422,28.292,"자기책임\"이라고 했습니다."],[28.292,31.782,"\"내가 죽으면 부모님이\n사과하러 다닐 것\"이라고까지 했죠."],[31.782,35.712,"SNS에선 \"치료비는 자비로\n내라\"는 말까지 나왔습니다."],[35.712,38.138,"일본은 왜 축제를 멈추지 않을까요?"],[38.138,40.958,"그 이유는 아래 영상에서 확인하세요."]]};/*EP-DATA:END*/</script>
+<script id="ep-data">/*EP-DATA:BEGIN*/window.EP={"id":"ilbon-chukje-2026-10-shorts","topic":"test","duration":43.46,"audio":"../../../test/source/ilbon-chukje-2026-10/shorts/narration.mp3","thumb":"../../../test/source/ilbon-chukje-2026-10/shorts/thumbnails/thumbnail_1.jpg","synced":"2026-10-21T11:03:39Z","tts":"2026-10-21T05:32:04","script_sha1":"e84658c10da0ce9d","sent":[{"n":1,"part":"사망자가 나와도 안 멈추는 축제","text":"매년 사고 사망자가 나와도 일본은 전통 축제를 멈추지 않습니다.","start":0.3,"end":4.298},{"n":2,"part":"사망자가 나와도 안 멈추는 축제","text":"10월 17일, 에히메 축제에서 3톤 가마를 메던 현직 부시장이 깔려 숨졌습니다.","start":4.678,"end":9.968},{"n":3,"part":"사망자가 나와도 안 멈추는 축제","text":"일주일 전 오사카에서 2명, 2월엔 오카야마에서도 2명이 숨졌죠.","start":10.348,"end":14.768},{"n":4,"part":"사망자가 나와도 안 멈추는 축제","text":"일본 축제 사망사고는 알려진 것만 따져도 4개월에 1명꼴입니다.","start":15.148,"end":19.248},{"n":5,"part":"사망자가 나와도 안 멈추는 축제","text":"그런데 현지 반응은 의외입니다.","start":19.628,"end":21.698},{"n":6,"part":"사망자가 나와도 안 멈추는 축제","text":"50년 넘게 참가한 한 원로는 \"목숨을 잃는 건 격투기와 같다, 자기책임\"이라고 했습니다.","start":22.078,"end":27.912},{"n":7,"part":"사망자가 나와도 안 멈추는 축제","text":"\"내가 죽으면 부모님이 사과하러 다닐 것\"이라고까지 했죠.","start":28.292,"end":31.402},{"n":8,"part":"사망자가 나와도 안 멈추는 축제","text":"SNS에선 \"치료비는 자비로 내라\"는 말까지 나왔습니다.","start":31.782,"end":35.332},{"n":9,"part":"사망자가 나와도 안 멈추는 축제","text":"일본은 왜 축제를 멈추지 않을까요?","start":35.712,"end":37.758},{"n":10,"part":"사망자가 나와도 안 멈추는 축제","text":"그 이유는 아래 영상에서 확인하세요.","start":38.138,"end":40.558}],"subs":[[0.2,4.678,"매년 사고 사망자가 나와도 일본은\n전통 축제를 멈추지 않습니다."],[4.678,10.348,"10월 17일, 에히메 축제에서 3톤 가마를\n메던 현직 부시장이 깔려 숨졌습니다."],[10.348,15.148,"일주일 전 오사카에서 2명,\n2월엔 오카야마에서도 2명이 숨졌죠."],[15.148,19.628,"일본 축제 사망사고는 알려진 것만\n따져도 4개월에 1명꼴입니다."],[19.628,22.078,"그런데 현지 반응은 의외입니다."],[22.078,26.422,"50년 넘게 참가한 한 원로는\n\"목숨을 잃는 건 격투기와 같다,"],[26.422,28.292,"자기책임\"이라고 했습니다."],[28.292,31.782,"\"내가 죽으면 부모님이\n사과하러 다닐 것\"이라고까지 했죠."],[31.782,35.712,"SNS에선 \"치료비는 자비로\n내라\"는 말까지 나왔습니다."],[35.712,38.138,"일본은 왜 축제를 멈추지 않을까요?"],[38.138,40.958,"그 이유는 아래 영상에서 확인하세요."]]};/*EP-DATA:END*/</script>
 <script src="../../render/kit.js"></script>
 <script src="../../render/puppet.js"></script>
 <script>
@@ -191,17 +196,12 @@ K.cut(E(1) - 0.2, "첫 문장 + 자막(42px)");
     st.part(Puppet.floaters({ n: 60, x: [-9, 9], z: [-10, 4] }));
   }, { fadeOut: 0.01 });
   s7.update = t => { CA.g.position.x = lerp(-10, 10, lin(t, a, b + 1)); CA.bob(t, 0.07, 2.0); CR.bob(t, 0.06, 1.5); };
-  pop(el(`<div class="a cx c w9 nw" style="left:540px;top:230px;font-size:76px">일본은 왜 축제를</div>`, sc), S(9) + 0.05);
-  pop(el(`<div class="a cx c w9 Y nw" style="left:540px;top:330px;font-size:104px">멈추지 않을까?</div>`, sc), S(9) + 0.35);
-  pop(el(`<div class="a cx pill sm" style="left:540px;top:510px;color:#FFD400;border-color:#FFD400">왼쪽 아래 ‘관련 동영상’에서 확인</div>`, sc), S(10) + 0.05);
-  // 유튜브 쇼츠 '관련 동영상' 링크 = 화면 왼쪽 아래, 채널 이름 바로 아래 (약 x 40~600, y 1690~1760 — 기기마다 조금 다름)
-  // → 아래 칸(자막 밑 y 1560)에서 왼쪽 아래로 휘어 내려가는 화살표, 끝이 그 자리 바로 위(x 210, y 1672)에서 콕콕
-  const arw = el(`<svg class="rel" data-below="유튜브 관련 동영상 링크 자리를 가리킴 (자막 밑 왼쪽 아래)" viewBox="0 0 1080 1920" width="1080" height="1920" style="left:0;top:0" aria-hidden="true">
-    <path d="M820 1560 C 700 1600 420 1600 236 1660" fill="none" stroke="#FFD400" stroke-width="16" stroke-linecap="round"/>
-    <path d="M262 1618 L210 1672 L282 1690" fill="none" stroke="#FFD400" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/></svg>`, sc);
-  pop(arw, S(10) + 0.2, { from: { y: 0, scale: 1 } });
-  tl.fromTo(arw, { x: 0, y: 0 }, { x: -14, y: 12, duration: 0.4, ease: "sine.inOut", repeat: 5, yoyo: true }, S(10) + 0.7);
-  K.cut(E(10) - 0.1, "왜? · 관련 동영상 ↙");
+  pop(el(`<div class="a cx c w9 nw" style="left:540px;top:165px;font-size:76px">일본은 왜 축제를</div>`, sc), S(9) + 0.05);
+  pop(el(`<div class="a cx c w9 Y nw" style="left:540px;top:258px;font-size:104px">멈추지 않을까?</div>`, sc), S(9) + 0.35);
+  // v2.2 유튜브 '관련 동영상' 버튼 가리키기 (kit.js v1.10) — 버튼 모양·안내는 위 칸, 화살표는 아래 칸 가운데(자막 밑 → 진짜 버튼)
+  K.related(sc, { title: "매년 사망자가 나와도 일본은 …", at: S(10) + 0.05, arrowAt: W(10, "아래") });
+  K.cut(E(10) - 0.1, "왜? · 관련 동영상 ↓");
+  K.cut(K.D - 0.3, "끝 화면 (관련 동영상 버튼 ↓)");
 }
 K.done();
 })();

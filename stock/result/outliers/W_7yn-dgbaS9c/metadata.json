@@ -1,0 +1,78 @@
+{
+ "id": "7yn-dgbaS9c",
+ "title": "\"반도체 폭락해도 안 팔아\" 25년 주식 해보니 이것만 해도 돈 벌어요(부자들의 은밀한 술토크 ㅣ김민수 트레이더)",
+ "channel": "장사건물주 강호동",
+ "channel_id": "UCYigs8o_hgHJtfE0KnqVLeA",
+ "subs": 520000,
+ "views": 743895,
+ "ratio": 1.43,
+ "age_days": 54,
+ "views_per_day": 13775.8,
+ "minutes": 18.0,
+ "likes": 4515,
+ "comments": 1838,
+ "published": "2026-08-27",
+ "queries": "검색:주식",
+ "url": "https://www.youtube.com/watch?v=7yn-dgbaS9c",
+ "flag": "",
+ "published_at": "2026-08-27T11:03:32Z",
+ "rank": "W35",
+ "set": "web",
+ "folder": "W_7yn-dgbaS9c",
+ "sources": [
+  "검색:주식"
+ ],
+ "source": "web",
+ "tags": [
+  "창업오빠",
+  "강호동",
+  "창업",
+  "자영업",
+  "장사의신",
+  "서민갑부",
+  "건물주",
+  "꼬마빌딩",
+  "재테크",
+  "제테크",
+  "장사",
+  "라라브레드",
+  "디저트",
+  "카페",
+  "디저트카페",
+  "브이로그",
+  "대표",
+  "예능",
+  "부동산",
+  "레버리지",
+  "전업투자",
+  "투자성공사례"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "25년 주식 해보니 이것만 해도 돈 벌어요"
+  },
+  {
+   "start": 460,
+   "title": "돈 벌려면 계좌 꼭 3개 만드세요"
+  },
+  {
+   "start": 825,
+   "title": "7000만 원 손실, 계좌 이렇게 복구하세요"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 1838,
+ "comments_top_level": 1629,
+ "comments_replies": 209,
+ "comments_by_creator": 3,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 1838,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:04:16",
+ "approved": "2026-10-21T17:04+09:00"
+}

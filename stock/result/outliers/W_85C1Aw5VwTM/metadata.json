@@ -1,0 +1,143 @@
+{
+ "id": "85C1Aw5VwTM",
+ "title": "리스크는 없애는 게 아니라 관리하는 겁니다",
+ "channel": "머니코믹스 Money Comics",
+ "channel_id": "UCJo6G1u0e_-wS-JQn3T-zEw",
+ "subs": 1440000,
+ "views": 409556,
+ "ratio": 0.28,
+ "age_days": 7,
+ "views_per_day": 58508.0,
+ "minutes": 60.8,
+ "likes": 2202,
+ "comments": 260,
+ "published": "2026-10-13",
+ "queries": "검색:주식 | 검색:주식시장",
+ "url": "https://www.youtube.com/watch?v=85C1Aw5VwTM",
+ "flag": "",
+ "published_at": "2026-10-13T10:11:12Z",
+ "rank": "W136",
+ "set": "web",
+ "folder": "W_85C1Aw5VwTM",
+ "sources": [
+  "검색:주식",
+  "검색:주식시장"
+ ],
+ "source": "web",
+ "tags": [
+  "슈카",
+  "슈가",
+  "수카",
+  "수가",
+  "슈카월드",
+  "수카월드",
+  "니니",
+  "닝닝",
+  "알상무",
+  "알렉스",
+  "새우",
+  "니황",
+  "알플릭스",
+  "알포인트",
+  "알뉴스",
+  "니포터",
+  "국장",
+  "국장은지금",
+  "주식",
+  "주식은지금",
+  "시장",
+  "시장은지금",
+  "곱버스",
+  "곱버스도국장",
+  "조롱",
+  "조롱도롱",
+  "했제",
+  "채권",
+  "선물",
+  "옵션",
+  "만기",
+  "연말정산",
+  "엔비디아",
+  "미장",
+  "폭락",
+  "딥시크",
+  "ai",
+  "트럼프",
+  "테슬라",
+  "젠슨황",
+  "머스크",
+  "팔란티어",
+  "니케이",
+  "유아이패스",
+  "유아이",
+  "라피키",
+  "박종훈",
+  "관세",
+  "티커",
+  "티커좌",
+  "바이킹",
+  "원유",
+  "환율",
+  "구리",
+  "커피",
+  "원자재",
+  "박팀장",
+  "바이킹스",
+  "미국시황",
+  "미국시장",
+  "국내주식",
+  "한국주식"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트"
+  },
+  {
+   "start": 54,
+   "title": "폭락장, 한국만 더 빠진 이유"
+  },
+  {
+   "start": 411,
+   "title": "과거 금리 사이클에서 찾는 힌트"
+  },
+  {
+   "start": 834,
+   "title": "고금리의 배경과 약한 고리"
+  },
+  {
+   "start": 1196,
+   "title": "PER보다 중요한 건 할인율"
+  },
+  {
+   "start": 1543,
+   "title": "2028 성장주와 영업 레버리지"
+  },
+  {
+   "start": 2245,
+   "title": "의심 구간과 28년 이후의 열쇠"
+  },
+  {
+   "start": 2806,
+   "title": "의심이 커질 때 공격적으로 재편"
+  },
+  {
+   "start": 3366,
+   "title": "약한 고리 신호와 재무제표 보는 법"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 260,
+ "comments_top_level": 133,
+ "comments_replies": 127,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 260,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T07:53:16",
+ "approved": "2026-10-21T16:53+09:00"
+}

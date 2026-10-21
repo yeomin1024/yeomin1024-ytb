@@ -1,0 +1,131 @@
+{
+ "id": "HfVRQ_2mxOk",
+ "title": "블랙먼데이 온다더니… 미국 증시가 오히려 반등한 진짜 이유",
+ "channel": "미국 주식 채널 - 에디 Eddie",
+ "channel_id": "UCMupe3fvv1-Hi3SRxZzSsTw",
+ "subs": 268000,
+ "views": 132486,
+ "ratio": 0.49,
+ "age_days": 2,
+ "views_per_day": 66243.0,
+ "minutes": 11.4,
+ "likes": 2267,
+ "comments": 364,
+ "published": "2026-10-19",
+ "queries": "검색:미국증시",
+ "url": "https://www.youtube.com/watch?v=HfVRQ_2mxOk",
+ "flag": "",
+ "published_at": "2026-10-19T07:08:08Z",
+ "rank": "W114",
+ "set": "web",
+ "folder": "W_HfVRQ_2mxOk",
+ "sources": [
+  "검색:미국증시"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "미국 증시 반등｜나스닥·S&P500·비트코인 시황"
+  },
+  {
+   "start": 35,
+   "title": "증시가 악재에도 반등하는 이유｜매도세 소진"
+  },
+  {
+   "start": 92,
+   "title": "미국 중간선거와 국제유가 하락 가능성"
+  },
+  {
+   "start": 130,
+   "title": "푸틴·트럼프·시진핑 3자 정상회담 제안"
+  },
+  {
+   "start": 162,
+   "title": "우크라이나 스타링크 지원 중단과 러시아 공세"
+  },
+  {
+   "start": 211,
+   "title": "젤렌스키 인터뷰｜스타링크 복구 요구"
+  },
+  {
+   "start": 256,
+   "title": "우크라이나 에너지 시설 공격과 전쟁 협상"
+  },
+  {
+   "start": 293,
+   "title": "러시아·우크라이나 전쟁 종식과 유가 전망"
+  },
+  {
+   "start": 307,
+   "title": "호르무즈 해협 원유 공급｜JP모건·골드만삭스 분석"
+  },
+  {
+   "start": 348,
+   "title": "10월 FOMC 금리 동결 확률 87%"
+  },
+  {
+   "start": 386,
+   "title": "유가 하락과 12월 금리 전망"
+  },
+  {
+   "start": 395,
+   "title": "미국 중간선거와 S&P500 계절성 분석"
+  },
+  {
+   "start": 469,
+   "title": "중간선거 이후 S&P500 평균 상승률 13.8%"
+  },
+  {
+   "start": 478,
+   "title": "나스닥 조정 이후 미국 증시 반등 시나리오"
+  },
+  {
+   "start": 507,
+   "title": "S&P500 8000포인트 전망과 상승 조건"
+  },
+  {
+   "start": 531,
+   "title": "전쟁 종식·유가 하락·금리 인하 시나리오"
+  },
+  {
+   "start": 562,
+   "title": "이번 주 미국 기업 실적 발표 일정"
+  },
+  {
+   "start": 591,
+   "title": "AI 에너지·반도체 관련주 실적 전망"
+  },
+  {
+   "start": 604,
+   "title": "블랙먼데이 우려와 미국 증시 반등 정리"
+  },
+  {
+   "start": 628,
+   "title": "중간선거·전쟁 협상·국제유가 핵심 변수"
+  },
+  {
+   "start": 648,
+   "title": "미국 주식 매수·보유에 대한 시장 전망"
+  },
+  {
+   "start": 667,
+   "title": "AI 관련주 실적 발표와 주요 뉴스 체크"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 364,
+ "comments_top_level": 248,
+ "comments_replies": 116,
+ "comments_by_creator": 2,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 364,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T07:51:46",
+ "approved": "2026-10-21T16:51+09:00"
+}

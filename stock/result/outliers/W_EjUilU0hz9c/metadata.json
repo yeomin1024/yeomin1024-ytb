@@ -1,0 +1,83 @@
+{
+ "id": "EjUilU0hz9c",
+ "title": "【NASDAQ100vsFANG+】FANG+一択のハセンがブレ始める…／プロが選ぶ攻めの投資信託／GeoMaxの組み入れ銘柄／インド株・フィリピン株は成長するのか／（マネースキルセット）",
+ "channel": "PIVOT 公式チャンネル",
+ "channel_id": "UC8yHePe_RgUBE-waRWy6olw",
+ "subs": 4090000,
+ "views": 740744,
+ "ratio": 0.18,
+ "age_days": 43,
+ "views_per_day": 17226.6,
+ "minutes": 32.4,
+ "likes": 1697,
+ "comments": 126,
+ "published": "2026-09-07",
+ "queries": "검색:나스닥 | 검색:나스닥100",
+ "url": "https://www.youtube.com/watch?v=EjUilU0hz9c",
+ "flag": "외국 영상",
+ "published_at": "2026-09-07T11:00:03Z",
+ "rank": "W147",
+ "set": "web",
+ "folder": "W_EjUilU0hz9c",
+ "sources": [
+  "검색:나스닥",
+  "검색:나스닥100"
+ ],
+ "source": "web",
+ "tags": [
+  "pivot",
+  "りんたろー",
+  "exit",
+  "国山ハセン",
+  "投資",
+  "資産運用",
+  "日本株",
+  "インド",
+  "フィリピン",
+  "NASDAQ100",
+  "NASDAQ",
+  "FANG+",
+  "マネー",
+  "お金"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "ダイジェスト"
+  },
+  {
+   "start": 76,
+   "title": "攻めの投信「ジオマックス」"
+  },
+  {
+   "start": 331,
+   "title": "FANG+ vs ナスダック100"
+  },
+  {
+   "start": 748,
+   "title": "注目新興国 インドとフィリピン"
+  },
+  {
+   "start": 1226,
+   "title": "何が国の成長を決めるのか？"
+  },
+  {
+   "start": 1616,
+   "title": "日本株の未来と最終結論"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ja",
+ "foreign": true,
+ "comments_fetched": 126,
+ "comments_top_level": 97,
+ "comments_replies": 29,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 126,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:12:24",
+ "approved": "2026-10-21T17:12+09:00"
+}

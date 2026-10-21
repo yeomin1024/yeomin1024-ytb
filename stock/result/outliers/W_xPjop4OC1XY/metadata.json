@@ -1,0 +1,63 @@
+{
+ "id": "xPjop4OC1XY",
+ "title": "WTF Is Happening To The Stock Market?",
+ "channel": "GEN",
+ "channel_id": "UCF9OHrRasw-r4JcnBo4E2cg",
+ "subs": 815000,
+ "views": 1575541,
+ "ratio": 1.93,
+ "age_days": 45,
+ "views_per_day": 35012.0,
+ "minutes": 22.6,
+ "likes": 14656,
+ "comments": 1248,
+ "published": "2026-09-05",
+ "queries": "검색:stock market | 검색:stocks | 검색:stock market investing",
+ "url": "https://www.youtube.com/watch?v=xPjop4OC1XY",
+ "flag": "외국 영상",
+ "published_at": "2026-09-05T17:00:30Z",
+ "rank": "W21",
+ "set": "web",
+ "folder": "W_xPjop4OC1XY",
+ "sources": [
+  "검색:stock market",
+  "검색:stocks",
+  "검색:stock market investing"
+ ],
+ "source": "web",
+ "tags": [
+  "gen"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Intro"
+  },
+  {
+   "start": 90,
+   "title": "How Stocks Became Too Big To Fail"
+  },
+  {
+   "start": 540,
+   "title": "Nobody Has A Reason To Sell"
+  },
+  {
+   "start": 894,
+   "title": "Who Gets The Story First"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en-US",
+ "foreign": true,
+ "comments_fetched": 1248,
+ "comments_top_level": 661,
+ "comments_replies": 587,
+ "comments_by_creator": 48,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 1248,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:02:36",
+ "approved": "2026-10-21T17:02+09:00"
+}

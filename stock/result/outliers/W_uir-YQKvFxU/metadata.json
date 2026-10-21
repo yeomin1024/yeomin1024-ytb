@@ -1,0 +1,101 @@
+{
+ "id": "uir-YQKvFxU",
+ "title": "Why The Stock Market Is Booming — But Your Paycheck Isn't",
+ "channel": "Prof G Markets",
+ "channel_id": "UCp4CBeq4nzeg9smAvdjPrig",
+ "subs": 127000,
+ "views": 197733,
+ "ratio": 1.56,
+ "age_days": 1,
+ "views_per_day": 197733.0,
+ "minutes": 78.3,
+ "likes": 2914,
+ "comments": 577,
+ "published": "2026-10-19",
+ "queries": "검색:stock market | 검색:stocks",
+ "url": "https://www.youtube.com/watch?v=uir-YQKvFxU",
+ "flag": "외국 영상",
+ "published_at": "2026-10-19T11:00:01Z",
+ "rank": "W68",
+ "set": "web",
+ "folder": "W_uir-YQKvFxU",
+ "sources": [
+  "검색:stock market",
+  "검색:stocks"
+ ],
+ "source": "web",
+ "tags": [
+  "business news",
+  "stock market",
+  "financial news",
+  "financial news channel",
+  "financial news today",
+  "stock market news today",
+  "stock market today",
+  "stock market news"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Preview"
+  },
+  {
+   "start": 26,
+   "title": "Today's number"
+  },
+  {
+   "start": 54,
+   "title": "Today's episode"
+  },
+  {
+   "start": 414,
+   "title": "INFLATION CHECK-IN"
+  },
+  {
+   "start": 1522,
+   "title": "Ad break"
+  },
+  {
+   "start": 1748,
+   "title": "A BAD WEEK FOR AI STOCKS"
+  },
+  {
+   "start": 3401,
+   "title": "Ad break"
+  },
+  {
+   "start": 3690,
+   "title": "BUMBLE"
+  },
+  {
+   "start": 4537,
+   "title": "Week ahead"
+  },
+  {
+   "start": 4556,
+   "title": "Scott's prediction"
+  },
+  {
+   "start": 4650,
+   "title": "Ed's prediction"
+  },
+  {
+   "start": 4679,
+   "title": "Credits"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "en-US",
+ "foreign": true,
+ "comments_fetched": 577,
+ "comments_top_level": 412,
+ "comments_replies": 165,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 577,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T07:48:25",
+ "approved": "2026-10-21T16:48+09:00"
+}

@@ -1,0 +1,78 @@
+{
+ "id": "izM605Qavok",
+ "title": "실적이고 뭐고, 멈춰버린 국장 버스",
+ "channel": "슈카월드",
+ "channel_id": "UCsJ6RuBiTVWRX156FVbeaGg",
+ "subs": 3730000,
+ "views": 948542,
+ "ratio": 0.25,
+ "age_days": 14,
+ "views_per_day": 67753.0,
+ "minutes": 33.0,
+ "likes": 3926,
+ "comments": 540,
+ "published": "2026-10-06",
+ "queries": "검색:국장",
+ "url": "https://www.youtube.com/watch?v=izM605Qavok",
+ "flag": "",
+ "published_at": "2026-10-06T12:57:15Z",
+ "rank": "W133",
+ "set": "web",
+ "folder": "W_izM605Qavok",
+ "sources": [
+  "검색:국장"
+ ],
+ "source": "web",
+ "tags": [
+  "슈카",
+  "슈카월드",
+  "경제",
+  "시사",
+  "이슈",
+  "뉴스",
+  "상식",
+  "면접",
+  "논술",
+  "자소서",
+  "취업",
+  "주식",
+  "증시",
+  "주가",
+  "시장",
+  "자산",
+  "투자",
+  "금리"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "9월 수출액 1,209 억 달러"
+  },
+  {
+   "start": 750,
+   "title": "마이크론 \"이제 시작입니다.\""
+  },
+  {
+   "start": 1266,
+   "title": "아픈 손가락"
+  },
+  {
+   "start": 1676,
+   "title": "피지컬 AI 특이점은 온다.."
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 540,
+ "comments_top_level": 370,
+ "comments_replies": 170,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 540,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:11:40",
+ "approved": "2026-10-21T17:11+09:00"
+}

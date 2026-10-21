@@ -1,0 +1,90 @@
+{
+ "id": "_g3WfiDtVmw",
+ "title": "주식 잘하는 사람들은 의외로 아무것도 하지 않습니다 | 존리 존리의부자학교 대표 [얘기좀합시다]",
+ "channel": "머니인더트랩",
+ "channel_id": "UCtjj8T7n2_jS92pfMeWdoWQ",
+ "subs": 110000,
+ "views": 476357,
+ "ratio": 4.33,
+ "age_days": 4,
+ "views_per_day": 119089.2,
+ "minutes": 28.6,
+ "likes": 3324,
+ "comments": 474,
+ "published": "2026-10-17",
+ "queries": "검색:주식투자 | 검색:주식 | 검색:주식강의 | 검색:주식시장",
+ "url": "https://www.youtube.com/watch?v=_g3WfiDtVmw",
+ "flag": "",
+ "published_at": "2026-10-17T00:15:14Z",
+ "rank": "W51",
+ "set": "web",
+ "folder": "W__g3WfiDtVmw",
+ "sources": [
+  "검색:주식투자",
+  "검색:주식",
+  "검색:주식강의",
+  "검색:주식시장"
+ ],
+ "source": "web",
+ "tags": [
+  "머니인더트랩",
+  "머인트",
+  "moneyinthetrap",
+  "MIT",
+  "얘기좀합시다",
+  "쫑알쫑알",
+  "방과후경제"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "한국인은 왜 열심히 일해도 부자가 되지 못할까?"
+  },
+  {
+   "start": 105,
+   "title": "돈이 일하게 만드는 사람과 그렇지 못한 사람"
+  },
+  {
+   "start": 139,
+   "title": "사교육비부터 줄이라고 말하는 이유"
+  },
+  {
+   "start": 286,
+   "title": "좋은 대학과 직장, 사교육은 정말 투자일까?"
+  },
+  {
+   "start": 502,
+   "title": "스타벅스의 주인이 될 것인가, 소비자가 될 것인가"
+  },
+  {
+   "start": 784,
+   "title": "월급 400만 원, 주식에 얼마를 투자해야 할까?"
+  },
+  {
+   "start": 1116,
+   "title": "주식으로 돈 잃는 사람들이 반복하는 행동"
+  },
+  {
+   "start": 1367,
+   "title": "아이에게 가장 좋은 금융교육은 부모의 행동"
+  },
+  {
+   "start": 1699,
+   "title": "머니인더스쿨, 온 가족을 위한 경제교육"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 474,
+ "comments_top_level": 264,
+ "comments_replies": 210,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 474,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T07:47:11",
+ "approved": "2026-10-21T16:47+09:00"
+}

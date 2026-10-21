@@ -1,0 +1,72 @@
+{
+ "id": "rR8NdSlupEs",
+ "title": "【必見】50代60代はこの金額になれば積み立てをやめてOK",
+ "channel": "おーちゃん【元外銀マン】",
+ "channel_id": "UC4Ub-Y_yj43aouqFbA7PwhQ",
+ "subs": 312000,
+ "views": 352930,
+ "ratio": 1.13,
+ "age_days": 9,
+ "views_per_day": 39214.4,
+ "minutes": 27.9,
+ "likes": 2093,
+ "comments": 93,
+ "published": "2026-10-11",
+ "queries": "검색:etf investing",
+ "url": "https://www.youtube.com/watch?v=rR8NdSlupEs",
+ "flag": "외국 영상",
+ "published_at": "2026-10-11T10:00:24Z",
+ "rank": "W47",
+ "set": "web",
+ "folder": "W_rR8NdSlupEs",
+ "sources": [
+  "검색:etf investing"
+ ],
+ "source": "web",
+ "tags": [
+  "投資",
+  "資産運用",
+  "新NISA",
+  "投資信託",
+  "S&P500",
+  "オールカントリー",
+  "オルカン",
+  "配当金"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "イントロ"
+  },
+  {
+   "start": 173,
+   "title": "前回動画の振り返りと債券の解説"
+  },
+  {
+   "start": 348,
+   "title": "老後資産2000万円で足りるのか"
+  },
+  {
+   "start": 825,
+   "title": "年代別必要な資産と運用方針"
+  },
+  {
+   "start": 1400,
+   "title": "目標資産の作り方"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ja",
+ "foreign": true,
+ "comments_fetched": 93,
+ "comments_top_level": 62,
+ "comments_replies": 31,
+ "comments_by_creator": 3,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 93,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:05:33",
+ "approved": "2026-10-21T17:05+09:00"
+}

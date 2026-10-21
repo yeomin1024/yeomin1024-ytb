@@ -1,0 +1,88 @@
+{
+ "id": "gsaN3D7GDYM",
+ "title": "【再放送】【悩む人多数】「円安の今、S＆P500や全世界株への投資は待つべきか？」為替の基本と対処法を分かりやすく解説【株式投資編】：（アニメ動画）第307回",
+ "channel": "両学長 リベラルアーツ大学",
+ "channel_id": "UC67Wr_9pA4I0glIxDt_Cpyw",
+ "subs": 9650000,
+ "views": 663457,
+ "ratio": 0.07,
+ "age_days": 49,
+ "views_per_day": 13539.9,
+ "minutes": 32.3,
+ "likes": 3225,
+ "comments": 91,
+ "published": "2026-09-01",
+ "queries": "검색:S&P500",
+ "url": "https://www.youtube.com/watch?v=gsaN3D7GDYM",
+ "flag": "외국 영상",
+ "published_at": "2026-09-01T22:00:28Z",
+ "rank": "W165",
+ "set": "web",
+ "folder": "W_gsaN3D7GDYM",
+ "sources": [
+  "검색:S&P500"
+ ],
+ "source": "web",
+ "tags": [
+  "両学長",
+  "円安",
+  "S＆P500",
+  "全世界株",
+  "投資",
+  "為替",
+  "株式投資",
+  "インデックス投資"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "intro"
+  },
+  {
+   "start": 129,
+   "title": "今日の話題：「円安の今、S＆P500や全世界株への投資は待つべきか？」為替の基本と対処法について解説"
+  },
+  {
+   "start": 250,
+   "title": "【超基本！】為替相場はナニで決まるのか？"
+  },
+  {
+   "start": 847,
+   "title": "株式投資と為替の関係"
+  },
+  {
+   "start": 1243,
+   "title": "投資のQ＆A3選"
+  },
+  {
+   "start": 1269,
+   "title": "└①「こんなに円安のときに、インデックス投資を始めて大丈夫？」"
+  },
+  {
+   "start": 1356,
+   "title": "└②「今は、毎月の投資額を減らした方が良い？」"
+  },
+  {
+   "start": 1513,
+   "title": "└③「利益確定した方が良いのでは？」"
+  },
+  {
+   "start": 1628,
+   "title": "まとめ：お金の勉強は、やればやるほど人生が良くなる"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ja",
+ "foreign": true,
+ "comments_fetched": 91,
+ "comments_top_level": 81,
+ "comments_replies": 10,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 91,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:13:11",
+ "approved": "2026-10-21T17:13+09:00"
+}

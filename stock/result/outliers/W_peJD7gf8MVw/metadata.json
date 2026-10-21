@@ -1,0 +1,71 @@
+{
+ "id": "peJD7gf8MVw",
+ "title": "삼성·하이닉스 이대로 끝인가?… 지금 시장이 숨기고 있는 진짜 진실",
+ "channel": "잘되라대한민국",
+ "channel_id": "UC1GeuioIW52kCX-v3mlDx9g",
+ "subs": 5960,
+ "views": 106468,
+ "ratio": 17.86,
+ "age_days": 8,
+ "views_per_day": 13308.5,
+ "minutes": 15.1,
+ "likes": 692,
+ "comments": 165,
+ "published": "2026-10-12",
+ "queries": "검색:주식시장",
+ "url": "https://www.youtube.com/watch?v=peJD7gf8MVw",
+ "flag": "",
+ "published_at": "2026-10-12T09:26:51Z",
+ "rank": "W18",
+ "set": "web",
+ "folder": "W_peJD7gf8MVw",
+ "sources": [
+  "검색:주식시장"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝 및 반도체 수출 펀더멘탈과 수급 점검"
+  },
+  {
+   "start": 276,
+   "title": "최태원 SK회장 용인·호남 클러스터 동시 구축 언급 및 관련주 상한가"
+  },
+  {
+   "start": 374,
+   "title": "주요 증권사 반도체 리포트 분석 (삼성전자 '세계 최대 이익', SK하이닉스 실적 서프라이즈 전망)"
+  },
+  {
+   "start": 500,
+   "title": "펀더멘탈은 좋은데 주가가 역주행하는 답답한 시장 상황"
+  },
+  {
+   "start": 614,
+   "title": "'진실은 언젠가 나타난다' : 불확실성에 가려진 본질과 인내의 메시지"
+  },
+  {
+   "start": 709,
+   "title": "한국 증시가 유독 두들겨 맞는 4가지 이유 (자사주 매입 종료, 매크로 불안, 100조 원 매물대, 저평가 고착화 우려)"
+  },
+  {
+   "start": 870,
+   "title": "매물대와 저평가 구간에 대한 부연 및 마무리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 165,
+ "comments_top_level": 149,
+ "comments_replies": 16,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 165,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T07:45:21",
+ "approved": "2026-10-21T16:45+09:00"
+}

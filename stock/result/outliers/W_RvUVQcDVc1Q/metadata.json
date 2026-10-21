@@ -1,0 +1,81 @@
+{
+ "id": "RvUVQcDVc1Q",
+ "title": "If I started investing in Oct 2026, this is what I'd buy",
+ "channel": "Nischa",
+ "channel_id": "UCQpPo9BNwezg54N9hMFQp6Q",
+ "subs": 2270000,
+ "views": 1356358,
+ "ratio": 0.6,
+ "age_days": 100,
+ "views_per_day": 13563.6,
+ "minutes": 14.0,
+ "likes": 16202,
+ "comments": 1035,
+ "published": "2026-07-12",
+ "queries": "검색:how to invest in stocks | 검색:etf investing | 검색:index funds | 검색:stock market investing | 검색:stock market for beginners",
+ "url": "https://www.youtube.com/watch?v=RvUVQcDVc1Q",
+ "flag": "외국 영상",
+ "published_at": "2026-07-12T12:00:36Z",
+ "rank": "W86",
+ "set": "web",
+ "folder": "W_RvUVQcDVc1Q",
+ "sources": [
+  "검색:how to invest in stocks",
+  "검색:etf investing",
+  "검색:index funds",
+  "검색:stock market investing",
+  "검색:stock market for beginners"
+ ],
+ "source": "web",
+ "tags": [
+  "personal finance",
+  "investing",
+  "budgeting",
+  "accountant explains",
+  "money",
+  "nischa",
+  "accounting",
+  "how to make money",
+  "money lessons"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "The options you have"
+  },
+  {
+   "start": 139,
+   "title": "How your money grows when you invest"
+  },
+  {
+   "start": 259,
+   "title": "Two things to do first"
+  },
+  {
+   "start": 361,
+   "title": "What should you invest in?"
+  },
+  {
+   "start": 488,
+   "title": "What I invest in and where to learn more"
+  },
+  {
+   "start": 664,
+   "title": "Investing behaviours to watch out for"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 1035,
+ "comments_top_level": 359,
+ "comments_replies": 676,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 1035,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:08:00",
+ "approved": "2026-10-21T17:08+09:00"
+}

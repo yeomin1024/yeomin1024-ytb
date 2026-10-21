@@ -1,0 +1,75 @@
+{
+ "id": "TLwymKGmanA",
+ "title": "“돈 없이 수조 원 선물 거래?” 외국인에게 유리한 한국증시의 충격적 구조… 미국도 안 하는 제도, 금융당국은 왜 안 바꾸나?ㅣ이지환 대표",
+ "channel": "815머니톡",
+ "channel_id": "UCCG6BEYjfQMGzypJw2EJCDQ",
+ "subs": 1290000,
+ "views": 149234,
+ "ratio": 0.12,
+ "age_days": 4,
+ "views_per_day": 37308.5,
+ "minutes": 21.3,
+ "likes": 1748,
+ "comments": 464,
+ "published": "2026-10-16",
+ "queries": "검색:미국증시 | 검색:how to invest in stocks | 검색:stock market investing",
+ "url": "https://www.youtube.com/watch?v=TLwymKGmanA",
+ "flag": "",
+ "published_at": "2026-10-16T23:30:56Z",
+ "rank": "W74",
+ "set": "web",
+ "folder": "W_TLwymKGmanA",
+ "sources": [
+  "검색:미국증시",
+  "검색:how to invest in stocks",
+  "검색:stock market investing"
+ ],
+ "source": "web",
+ "tags": [
+  "이지환대표",
+  "한국증시",
+  "폭락장",
+  "급등장",
+  "선물",
+  "선물매도",
+  "미국증시",
+  "공매도",
+  "815머니톡"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오로라투자자문 이지환 대표"
+  },
+  {
+   "start": 28,
+   "title": "외국인의 선물매도가 한국 증시를 엉망으로 만들 정도로 직접적인 영향을 주는지?"
+  },
+  {
+   "start": 290,
+   "title": "선물도 공매도처럼 ‘기울어진 운동장’인가?"
+  },
+  {
+   "start": 720,
+   "title": "한국증시와 미국증시의 선물제도의 차이가 무엇인지?"
+  },
+  {
+   "start": 1053,
+   "title": "오늘 선물 1조 가까이 매도한 외국인의 의도를 어떻게 봐야 되나?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 464,
+ "comments_top_level": 398,
+ "comments_replies": 66,
+ "comments_by_creator": 2,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 464,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:26:57",
+ "approved": "2026-10-21T17:27+09:00"
+}

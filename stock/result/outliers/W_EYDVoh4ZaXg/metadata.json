@@ -1,0 +1,84 @@
+{
+ "id": "EYDVoh4ZaXg",
+ "title": "SpaceX Just Made an $8 BILLION Move… Here's the Opportunity",
+ "channel": "Ross Givens",
+ "channel_id": "UCRa7RtGn8UYt5EQodqmIZ3Q",
+ "subs": 190000,
+ "views": 216340,
+ "ratio": 1.14,
+ "age_days": 6,
+ "views_per_day": 36056.7,
+ "minutes": 13.7,
+ "likes": 3137,
+ "comments": 375,
+ "published": "2026-10-14",
+ "queries": "검색:stocks | 검색:stock market investing",
+ "url": "https://www.youtube.com/watch?v=EYDVoh4ZaXg",
+ "flag": "외국 영상",
+ "published_at": "2026-10-14T16:47:20Z",
+ "rank": "W41",
+ "set": "web",
+ "folder": "W_EYDVoh4ZaXg",
+ "sources": [
+  "검색:stocks",
+  "검색:stock market investing"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "SpaceX's $8 Billion Move Shocks Wall Street"
+  },
+  {
+   "start": 72,
+   "title": "How T-Mobile Let a Massive Opportunity Slip Away"
+  },
+  {
+   "start": 180,
+   "title": "Why SpaceX Wants These Airwaves"
+  },
+  {
+   "start": 265,
+   "title": "SpaceX's Plan for 15,000 New Satellites"
+  },
+  {
+   "start": 342,
+   "title": "Why Verizon, AT&T, and T-Mobile Should Be Worried"
+  },
+  {
+   "start": 435,
+   "title": "Starlink's Explosive Growth and Revenue Potential"
+  },
+  {
+   "start": 515,
+   "title": "Is SpaceX Stock Overvalued?"
+  },
+  {
+   "start": 625,
+   "title": "Three Critical Dates Investors Must Watch"
+  },
+  {
+   "start": 695,
+   "title": "Is T-Mobile Stock a Buying Opportunity?"
+  },
+  {
+   "start": 770,
+   "title": "Why SpaceX Could Change Wireless Forever"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en-US",
+ "foreign": true,
+ "comments_fetched": 375,
+ "comments_top_level": 168,
+ "comments_replies": 207,
+ "comments_by_creator": 5,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 375,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:25:52",
+ "approved": "2026-10-21T17:25+09:00"
+}

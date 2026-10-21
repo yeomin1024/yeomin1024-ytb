@@ -1,0 +1,116 @@
+{
+ "id": "fdlfOCtDBqc",
+ "title": "왜 내가 사면 떨어지고 팔면 오를까? 개미가 주식으로 돈 못 버는 4가지 이유",
+ "channel": "오피디의 머니노트",
+ "channel_id": "UCDevts84_zQeE5Ws5B7wOHQ",
+ "subs": 1170,
+ "views": 395338,
+ "ratio": 337.9,
+ "age_days": 5,
+ "views_per_day": 79067.6,
+ "minutes": 13.6,
+ "likes": 1548,
+ "comments": 243,
+ "published": "2026-10-15",
+ "queries": "검색:주식투자 | 검색:주식 | 검색:주가",
+ "url": "https://www.youtube.com/watch?v=fdlfOCtDBqc",
+ "flag": "",
+ "published_at": "2026-10-15T08:26:28Z",
+ "rank": "W2",
+ "set": "web",
+ "folder": "W_fdlfOCtDBqc",
+ "sources": [
+  "검색:주식투자",
+  "검색:주식",
+  "검색:주가"
+ ],
+ "source": "web",
+ "tags": [
+  "주식",
+  "주식 손실",
+  "주식 돈 못 버는 이유",
+  "개미 투자자",
+  "개인 투자자",
+  "주식 심리",
+  "투자 심리",
+  "행동경제학",
+  "대니얼 카너먼",
+  "손실 회피",
+  "포모",
+  "FOMO",
+  "하이닉스",
+  "SK하이닉스",
+  "삼성전자",
+  "반대매매",
+  "신용융자",
+  "ETF",
+  "적립식 투자",
+  "장기 투자",
+  "주식 공부",
+  "주식 초보"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이닉스 꼭대기에서 산 사람들"
+  },
+  {
+   "start": 43,
+   "title": "노벨상 심리학자 대니얼 카너먼의 답"
+  },
+  {
+   "start": 72,
+   "title": "이유 1. 주식을 도박처럼 한다 – 최근 편향"
+  },
+  {
+   "start": 165,
+   "title": "이유 2. 욕심에 몰빵한다 – 레버리지, 신용융자, 과잉 확신"
+  },
+  {
+   "start": 274,
+   "title": "이유 3. 잃는 걸 못 견딘다 – 손실 회피, 처분 효과, 공포 매도"
+  },
+  {
+   "start": 384,
+   "title": "이유 4. 남들 따라 들어간다 – 포모(FOMO), 군중 심리"
+  },
+  {
+   "start": 471,
+   "title": "개인투자자가 주식으로 돈 버는 방법"
+  },
+  {
+   "start": 488,
+   "title": "공부 – PER, 사업보고서, 마음 공부"
+  },
+  {
+   "start": 589,
+   "title": "지수 ETF – 코스피200, S&P500"
+  },
+  {
+   "start": 631,
+   "title": "장기 투자"
+  },
+  {
+   "start": 689,
+   "title": "적립식 투자"
+  },
+  {
+   "start": 757,
+   "title": "정리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 244,
+ "comments_top_level": 174,
+ "comments_replies": 70,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 243,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T07:44:28",
+ "approved": "2026-10-21T16:44+09:00"
+}

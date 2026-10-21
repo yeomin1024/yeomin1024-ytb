@@ -1,0 +1,90 @@
+{
+ "id": "D2xXLuw74zc",
+ "title": "If You Missed Nvidia, This is Even Bigger",
+ "channel": "Fin Tek",
+ "channel_id": "UCxdWHEhEPiYhCADMrn4PdhQ",
+ "subs": 270000,
+ "views": 624866,
+ "ratio": 2.31,
+ "age_days": 29,
+ "views_per_day": 21547.1,
+ "minutes": 18.1,
+ "likes": 4539,
+ "comments": 125,
+ "published": "2026-09-21",
+ "queries": "검색:stocks to buy | 검색:stocks",
+ "url": "https://www.youtube.com/watch?v=D2xXLuw74zc",
+ "flag": "외국 영상",
+ "published_at": "2026-09-21T13:32:17Z",
+ "rank": "W16",
+ "set": "web",
+ "folder": "W_D2xXLuw74zc",
+ "sources": [
+  "검색:stocks to buy",
+  "검색:stocks"
+ ],
+ "source": "web",
+ "tags": [
+  "fintek",
+  "nvda stock",
+  "robotics stocks",
+  "novanta stock",
+  "allegro microsystems stock",
+  "symbotic stock",
+  "sym stock",
+  "regal rexnord stock",
+  "robo stock",
+  "IBOT etf",
+  "KOID etf",
+  "best robotics stocks",
+  "botz etf",
+  "ai stocks",
+  "top robotics stocks",
+  "china robot vs usa",
+  "invest in robotics",
+  "kuran francis",
+  "robot chip stocks",
+  "ai chip stocks",
+  "ai hardware stocks",
+  "nvidia stock",
+  "nvidia robot",
+  "nvidia robotics stocks",
+  "ai robot stock",
+  "top 4 robotics stocks",
+  "best ai stocks to buy now",
+  "nvidia",
+  "tech stocks"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Stock #4"
+  },
+  {
+   "start": 335,
+   "title": "Stock #3"
+  },
+  {
+   "start": 683,
+   "title": "Stock #2"
+  },
+  {
+   "start": 934,
+   "title": "Stock#1"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 125,
+ "comments_top_level": 59,
+ "comments_replies": 66,
+ "comments_by_creator": 3,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 125,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:02:14",
+ "approved": "2026-10-21T17:02+09:00"
+}

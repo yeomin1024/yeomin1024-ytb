@@ -1,0 +1,122 @@
+{
+ "id": "M5zsRm2vG0Y",
+ "title": "코스피·코스닥 양시장 '서킷 브레이커'…20만전자·120만닉스 원인은!?",
+ "channel": "장르만 여의도",
+ "channel_id": "UCsqWTNmoaNPvsfeCgaD7BpQ",
+ "subs": 686000,
+ "views": 544472,
+ "ratio": 0.79,
+ "age_days": 6,
+ "views_per_day": 90745.3,
+ "minutes": 43.4,
+ "likes": 3325,
+ "comments": 839,
+ "published": "2026-10-15",
+ "queries": "검색:코스닥",
+ "url": "https://www.youtube.com/watch?v=M5zsRm2vG0Y",
+ "flag": "",
+ "published_at": "2026-10-15T07:15:31Z",
+ "rank": "W3",
+ "set": "web",
+ "folder": "W_M5zsRm2vG0Y",
+ "sources": [
+  "검색:코스닥"
+ ],
+ "source": "web",
+ "tags": [
+  "장르만여의도",
+  "정영진",
+  "정치",
+  "더불어민주당",
+  "국민의힘",
+  "개혁신당",
+  "조국혁신당",
+  "여당",
+  "야당",
+  "국회",
+  "국회의사당",
+  "정치인",
+  "윤석열",
+  "이재명",
+  "장동혁",
+  "정청래",
+  "이준석",
+  "김용남",
+  "정옥임",
+  "박원석",
+  "오동석",
+  "알상무",
+  "김두언",
+  "빈센트",
+  "주가",
+  "주식",
+  "코스피",
+  "코스닥",
+  "사이드카",
+  "삼성전자",
+  "하이닉스",
+  "반도체",
+  "손수호",
+  "상담",
+  "심리",
+  "임광현",
+  "강훈식",
+  "장관",
+  "국무회의",
+  "김지용",
+  "중수청",
+  "공소청",
+  "김민석",
+  "신천지",
+  "한민수",
+  "조희대",
+  "강선우",
+  "김경한동훈",
+  "국수본배현진",
+  "조국"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트"
+  },
+  {
+   "start": 50,
+   "title": "투자썰전: 오동석(알상무) 금융투자 전문가 · 김두언(빈센트) 하나증권 수석연구위원 · 신혜원 기자"
+  },
+  {
+   "start": 135,
+   "title": "1. 코스피 7거래일 연속 하락…매도사이드카 올해 27번째"
+  },
+  {
+   "start": 370,
+   "title": "1-1. 미 9월 CPI 전년 대비 3.7% 상승…예상치 웃돌아"
+  },
+  {
+   "start": 615,
+   "title": "1-2. 'AI 피크론', 기우인가? 현실인가?"
+  },
+  {
+   "start": 1050,
+   "title": "1-3. 멈추지 않는 외인 대탈주…1~9월 중 순매도 2번"
+  },
+  {
+   "start": 1875,
+   "title": "2. '알래스카 LNG' 밀어붙이는 트럼프 \"한국, 500억달러 투자 합의\""
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 839,
+ "comments_top_level": 699,
+ "comments_replies": 140,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 839,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:21:42",
+ "approved": "2026-10-21T17:21+09:00"
+}

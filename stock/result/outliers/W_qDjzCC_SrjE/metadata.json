@@ -1,0 +1,100 @@
+{
+ "id": "qDjzCC_SrjE",
+ "title": "Neuer Vanguard ETF: Ist er besser als der FTSE All-World?",
+ "channel": "Finanzfluss",
+ "channel_id": "UCeARcCUiZg79SQQ-2_XNlXQ",
+ "subs": 1650000,
+ "views": 382447,
+ "ratio": 0.23,
+ "age_days": 23,
+ "views_per_day": 16628.1,
+ "minutes": 9.2,
+ "likes": 3424,
+ "comments": 390,
+ "published": "2026-09-27",
+ "queries": "검색:ETF | 검색:ETFs",
+ "url": "https://www.youtube.com/watch?v=qDjzCC_SrjE",
+ "flag": "외국 영상",
+ "published_at": "2026-09-27T08:00:34Z",
+ "rank": "W135",
+ "set": "web",
+ "folder": "W_qDjzCC_SrjE",
+ "sources": [
+  "검색:ETF",
+  "검색:ETFs"
+ ],
+ "source": "web",
+ "tags": [
+  "finanzfluss",
+  "etf",
+  "vanguard etf",
+  "neuer vanguard etf",
+  "welt-etf",
+  "ftse global all cap",
+  "ftse all-world",
+  "vanguard all cap etf",
+  "etf vergleich",
+  "etf vergleichen 2026",
+  "msci world alternative",
+  "msci acwi imi",
+  "spdr acwi imi",
+  "amundi prime all country world",
+  "ter kosten etf",
+  "günstiger etf",
+  "small caps etf",
+  "etf wechseln",
+  "etf umschichten",
+  "etf sparplan",
+  "welt etf sparplan",
+  "etf für anfänger",
+  "thesaurierend oder ausschüttend",
+  "tracking difference",
+  "etf diversifikation",
+  "geldanlage",
+  "investieren"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Intro"
+  },
+  {
+   "start": 22,
+   "title": "Das ist der neue Welt-ETF"
+  },
+  {
+   "start": 76,
+   "title": "Das macht den neuen ETF aus"
+  },
+  {
+   "start": 198,
+   "title": "Schlägt der neue ETF die bisherigen Favoriten?"
+  },
+  {
+   "start": 300,
+   "title": "Lohnt sich der Wechsel?"
+  },
+  {
+   "start": 321,
+   "title": "1. Für die Diversifizierung"
+  },
+  {
+   "start": 426,
+   "title": "2. Wegen der Kosten"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "de-DE",
+ "foreign": true,
+ "comments_fetched": 390,
+ "comments_top_level": 144,
+ "comments_replies": 246,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 390,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:11:46",
+ "approved": "2026-10-21T17:11+09:00"
+}

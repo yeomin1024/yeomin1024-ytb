@@ -1,0 +1,141 @@
+{
+ "id": "hvNHRvELnxc",
+ "title": "삼성전자·하이닉스 폭락, 중국 탓 아니다? 외국인이 한국만 3배 판 이유",
+ "channel": "경제야! 놀자~",
+ "channel_id": "UCiyTPjrEIUsc26rwb4_fyfw",
+ "subs": 3510,
+ "views": 18910,
+ "ratio": 5.39,
+ "age_days": 6,
+ "views_per_day": 3151.7,
+ "minutes": 14.4,
+ "likes": 165,
+ "comments": 36,
+ "published": "2026-10-14",
+ "queries": "검색:한국주식",
+ "url": "https://www.youtube.com/watch?v=hvNHRvELnxc",
+ "flag": "",
+ "published_at": "2026-10-14T23:30:07Z",
+ "rank": "W43",
+ "set": "web",
+ "folder": "W_hvNHRvELnxc",
+ "sources": [
+  "검색:한국주식"
+ ],
+ "source": "web",
+ "tags": [
+  "삼성전자",
+  "하이닉스",
+  "SK하이닉스",
+  "코스피",
+  "코스피 폭락",
+  "코스피 전망",
+  "주식",
+  "외국인 매도",
+  "외국인 수급",
+  "CXMT",
+  "창신메모리",
+  "연기금",
+  "반대매매",
+  "대만 증시",
+  "박근형",
+  "매불쇼",
+  "경제야놀자"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트 — 대만 64조 vs 한국 200조"
+  },
+  {
+   "start": 13,
+   "title": "[경제야놀자 해설] 왜 한국만 더 흔들리나"
+  },
+  {
+   "start": 33,
+   "title": "코스피 5.5% 폭락 · 6035 마감"
+  },
+  {
+   "start": 69,
+   "title": "언론은 \"중국 창신메모리 때문\""
+  },
+  {
+   "start": 102,
+   "title": "[경제야놀자 해설] 4F 스퀘어가 뭐길래"
+  },
+  {
+   "start": 131,
+   "title": "\"근거 부족\" — CXMT 주가는 오히려 급락"
+  },
+  {
+   "start": 219,
+   "title": "창신만 하는 기술 아니다 · 양산 · 수율 말 없어"
+  },
+  {
+   "start": 288,
+   "title": "D램 이야기인데 낸드까지 — 반도체 비중 축소"
+  },
+  {
+   "start": 323,
+   "title": "글로벌 펀드 IT 비중, 2020년 이후 꽉 찼다"
+  },
+  {
+   "start": 368,
+   "title": "[경제야놀자 해설] 반도체 비중 줄인 큰손"
+  },
+  {
+   "start": 392,
+   "title": "외국인, 대만 64조 · 한국 200조 매도"
+  },
+  {
+   "start": 465,
+   "title": "\"우리나라에 수급이 없어서\""
+  },
+  {
+   "start": 498,
+   "title": "상반기엔 개인 에너지가 받쳤다"
+  },
+  {
+   "start": 547,
+   "title": "대만 성장률 11.7% · 금리 인상 0번 vs 한국 2번 · 연기금"
+  },
+  {
+   "start": 638,
+   "title": "[경제야놀자 해설] 연기금 · 반대매매"
+  },
+  {
+   "start": 662,
+   "title": "반대매매 · \"한국 시장이 놀이터\""
+  },
+  {
+   "start": 716,
+   "title": "10월 27일 실적 · 주주환원"
+  },
+  {
+   "start": 730,
+   "title": "미국 물가 지표 · ASML 실적"
+  },
+  {
+   "start": 787,
+   "title": "시장은 결국 수급"
+  },
+  {
+   "start": 823,
+   "title": "[경제야놀자 해설] 오늘의 세 줄 정리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 36,
+ "comments_top_level": 21,
+ "comments_replies": 15,
+ "comments_by_creator": 13,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 36,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T07:46:44",
+ "approved": "2026-10-21T16:46+09:00"
+}

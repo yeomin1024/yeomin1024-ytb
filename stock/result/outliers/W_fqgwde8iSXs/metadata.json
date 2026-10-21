@@ -1,0 +1,104 @@
+{
+ "id": "fqgwde8iSXs",
+ "title": "주식 폭락할 때 팔아야 할까, 더 사야 할까? 30개 계좌를 굴려보고 깨달은 투자 원칙 | 포메뽀꼬 김지훈 작가 [얘기좀합시다]",
+ "channel": "머니인더트랩",
+ "channel_id": "UCtjj8T7n2_jS92pfMeWdoWQ",
+ "subs": 110000,
+ "views": 148175,
+ "ratio": 1.35,
+ "age_days": 3,
+ "views_per_day": 49391.7,
+ "minutes": 62.5,
+ "likes": 1206,
+ "comments": 123,
+ "published": "2026-10-18",
+ "queries": "검색:미국ETF | 검색:미국주식 | 검색:한국주식 | 검색:how to invest in stocks | 검색:etf investing | 검색:stock market investing",
+ "url": "https://www.youtube.com/watch?v=fqgwde8iSXs",
+ "flag": "",
+ "published_at": "2026-10-18T00:15:22Z",
+ "rank": "W72",
+ "set": "web",
+ "folder": "W_fqgwde8iSXs",
+ "sources": [
+  "검색:미국ETF",
+  "검색:미국주식",
+  "검색:한국주식",
+  "검색:how to invest in stocks",
+  "검색:etf investing",
+  "검색:stock market investing"
+ ],
+ "source": "web",
+ "tags": [
+  "머니인더트랩",
+  "머인트",
+  "moneyinthetrap",
+  "MIT",
+  "얘기좀합시다",
+  "쫑알쫑알",
+  "방과후경제"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "한국주식보다 미국주식에 투자해야 하는 이유"
+  },
+  {
+   "start": 278,
+   "title": "한국주식이 아무리 올라도 안심할 수 없는 이유"
+  },
+  {
+   "start": 532,
+   "title": "미국주식, 지금이 고점이어도 사도 될까?"
+  },
+  {
+   "start": 724,
+   "title": "30개 계좌를 굴려보고 발견한 의외의 결과"
+  },
+  {
+   "start": 1211,
+   "title": "주식 공부, 많이 할수록 수익률이 좋아질까?"
+  },
+  {
+   "start": 1448,
+   "title": "물린 SK하이닉스, 본전까지 기다려야 할까?"
+  },
+  {
+   "start": 1958,
+   "title": "《단 3개의 미국 ETF로 은퇴하라》 저자가 후회하는 것"
+  },
+  {
+   "start": 2286,
+   "title": "S&P500과 나스닥을 함께 투자하는 이유"
+  },
+  {
+   "start": 2617,
+   "title": "수십억 자산가의 실제 ETF 포트폴리오 공개"
+  },
+  {
+   "start": 3008,
+   "title": "월급이 적어도 투자를 시작해야 하는 이유"
+  },
+  {
+   "start": 3413,
+   "title": "월배당·커버드콜 ETF의 장점과 함정"
+  },
+  {
+   "start": 3684,
+   "title": "오늘부터 하루 2,000원씩 투자해 보세요"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 123,
+ "comments_top_level": 76,
+ "comments_replies": 47,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 123,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T07:48:47",
+ "approved": "2026-10-21T16:48+09:00"
+}

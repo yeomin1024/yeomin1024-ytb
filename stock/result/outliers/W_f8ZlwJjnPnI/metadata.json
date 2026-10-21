@@ -1,0 +1,122 @@
+{
+ "id": "f8ZlwJjnPnI",
+ "title": "Passives Einkommen durch Dividenden-ETFs?",
+ "channel": "Finanztip",
+ "channel_id": "UC-muQylmRx61Mt6U1oDSEVA",
+ "subs": 589000,
+ "views": 83756,
+ "ratio": 0.14,
+ "age_days": 3,
+ "views_per_day": 27918.7,
+ "minutes": 14.9,
+ "likes": 1114,
+ "comments": 169,
+ "published": "2026-10-18",
+ "queries": "검색:ETF | 검색:etf investing | 검색:ETFs | 검색:dividend portfolio",
+ "url": "https://www.youtube.com/watch?v=f8ZlwJjnPnI",
+ "flag": "외국 영상",
+ "published_at": "2026-10-18T07:00:21Z",
+ "rank": "W95",
+ "set": "web",
+ "folder": "W_f8ZlwJjnPnI",
+ "sources": [
+  "검색:ETF",
+  "검색:etf investing",
+  "검색:ETFs",
+  "검색:dividend portfolio"
+ ],
+ "source": "web",
+ "tags": [
+  "finanztipp",
+  "finanz tip",
+  "finanz-tipp",
+  "finanzip",
+  "finanzfluss",
+  "finanztips",
+  "finanztipps",
+  "sayidi",
+  "saidie",
+  "saidy",
+  "seidi",
+  "seydi",
+  "geld anlage",
+  "geldanlagee",
+  "geldanlge",
+  "eft",
+  "efts",
+  "etf fond",
+  "fons",
+  "spar plan",
+  "sparplann",
+  "aktioen",
+  "acktien",
+  "akzien",
+  "investiern",
+  "invstieren",
+  "investement",
+  "inflazion",
+  "inflationn",
+  "inlfation",
+  "zinzen",
+  "zinses zins",
+  "altersvorsroge",
+  "altervorsorge",
+  "rentenlucke",
+  "rentenlüke",
+  "imobilien",
+  "immoblien",
+  "immobillien",
+  "fotowoltaik",
+  "photowoltaik",
+  "photovoltaig",
+  "solaranalge",
+  "steuererklährung",
+  "steuererkärung",
+  "versicherrung",
+  "haftpflich"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Einstieg"
+  },
+  {
+   "start": 42,
+   "title": "Was sind Dividenden?"
+  },
+  {
+   "start": 138,
+   "title": "Was sind Dividenden-ETFs?"
+  },
+  {
+   "start": 212,
+   "title": "Welche Arten von Dividenden-ETFs gibt es?"
+  },
+  {
+   "start": 390,
+   "title": "Was spricht gegen Dividenden-ETFs?"
+  },
+  {
+   "start": 629,
+   "title": "Was spricht für Dividenden-ETFs?"
+  },
+  {
+   "start": 826,
+   "title": "Fazit"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "de",
+ "foreign": true,
+ "comments_fetched": 169,
+ "comments_top_level": 86,
+ "comments_replies": 83,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 169,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:27:39",
+ "approved": "2026-10-21T17:27+09:00"
+}

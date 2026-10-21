@@ -1,0 +1,91 @@
+{
+ "id": "igE-cvzsUJw",
+ "title": "ELON’S STOCK GIVEAWAY: This kind of stuff ‘SAVES FREE MARKETS’",
+ "channel": "Fox Business",
+ "channel_id": "UCCXoCcu9Rp7NPbTzIvogpZg",
+ "subs": 3390000,
+ "views": 278896,
+ "ratio": 0.08,
+ "age_days": 1,
+ "views_per_day": 278896.0,
+ "minutes": 5.2,
+ "likes": 2398,
+ "comments": 897,
+ "published": "2026-10-19",
+ "queries": "검색:stock market | 검색:stocks",
+ "url": "https://www.youtube.com/watch?v=igE-cvzsUJw",
+ "flag": "외국 영상",
+ "published_at": "2026-10-19T16:45:17Z",
+ "rank": "W184",
+ "set": "web",
+ "folder": "W_igE-cvzsUJw",
+ "sources": [
+  "검색:stock market",
+  "검색:stocks"
+ ],
+ "source": "web",
+ "tags": [
+  "Democratic Party",
+  "Democrats",
+  "FOX Business",
+  "Forbes Media",
+  "November elections",
+  "Steve Forbes",
+  "Steve Forbes economy",
+  "Steve Forbes interview",
+  "Steve Forbes my take",
+  "US economy",
+  "US national debt",
+  "US politics",
+  "Varney & Co",
+  "Washington spending",
+  "bond market",
+  "budget deficit",
+  "economic analysis",
+  "federal deficit",
+  "federal spending",
+  "financial news",
+  "fiscal debate",
+  "fiscal policy",
+  "government spending",
+  "midterm elections",
+  "political spending",
+  "socialist spending"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Elon Musk announces SpaceX stock giveaway for American kids"
+  },
+  {
+   "start": 113,
+   "title": "Steve Forbes: Stock ownership can “save free markets and capitalism”"
+  },
+  {
+   "start": 150,
+   "title": "Forbes calls Musk’s plan a new form of philanthropy"
+  },
+  {
+   "start": 190,
+   "title": "Can Washington rein in the $2 trillion federal deficit?"
+  },
+  {
+   "start": 245,
+   "title": "Forbes warns what election results could mean for bond markets"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 897,
+ "comments_top_level": 480,
+ "comments_replies": 417,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 897,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T07:56:13",
+ "approved": "2026-10-21T16:56+09:00"
+}

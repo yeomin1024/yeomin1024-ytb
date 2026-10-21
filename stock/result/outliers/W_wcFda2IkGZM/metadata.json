@@ -1,0 +1,67 @@
+{
+ "id": "wcFda2IkGZM",
+ "title": "서킷 발동 ‘9천 선 희망’ 어디갔나.. 희망잃은 전문가들이 내놓은 이유",
+ "channel": "잘되라대한민국",
+ "channel_id": "UC1GeuioIW52kCX-v3mlDx9g",
+ "subs": 5960,
+ "views": 52723,
+ "ratio": 8.85,
+ "age_days": 5,
+ "views_per_day": 10544.6,
+ "minutes": 16.3,
+ "likes": 370,
+ "comments": 188,
+ "published": "2026-10-15",
+ "queries": "검색:코스닥",
+ "url": "https://www.youtube.com/watch?v=wcFda2IkGZM",
+ "flag": "",
+ "published_at": "2026-10-15T09:31:58Z",
+ "rank": "W30",
+ "set": "web",
+ "folder": "W_wcFda2IkGZM",
+ "sources": [
+  "검색:코스닥"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝 및 코스피·코스닥 서킷브레이커 발동 쇼크"
+  },
+  {
+   "start": 240,
+   "title": "메모리 사이클에 대한 오랜 의심과 펀더멘탈의 괴리"
+  },
+  {
+   "start": 510,
+   "title": "한국 증시가 유독 무너지는 이유: 외국인 이탈과 얼어붙은 국내 수급"
+  },
+  {
+   "start": 720,
+   "title": "부동산에서 증시로의 머니무브 멈춤과 기댈 곳 없는 투자자들"
+  },
+  {
+   "start": 840,
+   "title": "금융위기·IMF와는 다른, 희망이 사라진 공허감에 대한 고찰"
+  },
+  {
+   "start": 930,
+   "title": "하락 속에서 우리가 붙잡아야 할 변수와 대응 전략"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 188,
+ "comments_top_level": 169,
+ "comments_replies": 19,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 188,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T07:46:03",
+ "approved": "2026-10-21T16:46+09:00"
+}

@@ -1,0 +1,25 @@
+한때 인텔을 앞서던 AMD는 2015년 주가 1.62달러까지 무너졌습니다.
+2014년 CEO가 된 리사 수가 그 바닥에서 무엇을 버리고 무엇에 걸었는지, 그 베팅이 AMD를 어떻게 다시 엔비디아와 싸우는 회사로 만들었는지 짚었습니다.
+CNN·블룸버그·스탠퍼드·MIT 인터뷰와 AMD 공식 발표 원음으로 정리했습니다.
+
+[원본]
+(1) 2020.03.31 CNN Business 「She brought AMD back from the brink of bankruptcy | Risk Takers」 https://youtu.be/lHT5MRky9SA
+(2) 2024.12.06 Bloomberg Originals 「AMD's CEO Wants to Chip Away at Nvidia's Lead | The Circuit with Emily Chang」 https://youtu.be/8Ve5SAFPYZ8
+(3) 2025.02.26 Stanford Graduate School of Business 「View From The Top with Lisa Su: Chair and CEO of AMD」 https://youtu.be/C4GM7_Cf0N4
+(4) 2026.05.28 MIT 「Lisa Su Address to MIT Class of 2026」 https://youtu.be/vQMQjHv5pEM
+(5) 2021.10.04 On with Kara Swisher 「AMD President and CEO Lisa Su | Full Interview | Code 2021」 https://youtu.be/g2A6-5_EY7w
+(6) 2015.06.03 goldfries 「AMD Press Conference at Computex 2015 - AMD Focus, Strategy and Innovation by Dr Lisa Su」 https://youtu.be/MqtZx92S6aw
+(7) 2026.07.24 AMD 「Advancing AI 2026 Replay」 https://youtu.be/8B_Gese-bdI
+(8) 2009.12.07 AMD(AMDUnprocessed) 「AMD 40th Anniversary」 https://youtu.be/w3o38VLo7ZM
+(9) 주가 자료: Yahoo Finance 종가(분할 조정)
+
+※ 원본 발언을 한국어로 옮기고 해설한 영상입니다. 특정 종목의 매수·매도 권유가 아니며, 투자 판단과 책임은 투자자 본인에게 있습니다.
+
+[목차]
+0:00 "죽은 것보다 더 죽었다"
+0:30 원래 잘나가던 회사
+0:49 무너진 이유
+1:19 새 CEO
+2:57 바닥에서 내린 결정
+6:47 살아난 AMD
+9:21 이제는 엔비디아에 도전

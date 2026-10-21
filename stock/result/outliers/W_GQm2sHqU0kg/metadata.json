@@ -1,0 +1,99 @@
+{
+ "id": "GQm2sHqU0kg",
+ "title": "This Pullback is a Gift. I'm Buying These Stocks NOW.",
+ "channel": "Ticker Symbol: YOU",
+ "channel_id": "UC7kCeZ53sli_9XwuQeFxLqw",
+ "subs": 666000,
+ "views": 287396,
+ "ratio": 0.43,
+ "age_days": 1,
+ "views_per_day": 287396.0,
+ "minutes": 20.6,
+ "likes": 5227,
+ "comments": 422,
+ "published": "2026-10-19",
+ "queries": "검색:stocks to buy | 검색:stocks",
+ "url": "https://www.youtube.com/watch?v=GQm2sHqU0kg",
+ "flag": "외국 영상",
+ "published_at": "2026-10-19T22:28:14Z",
+ "rank": "W119",
+ "set": "web",
+ "folder": "W_GQm2sHqU0kg",
+ "sources": [
+  "검색:stocks to buy",
+  "검색:stocks"
+ ],
+ "source": "web",
+ "tags": [
+  "nvda",
+  "nvda stock",
+  "nvidia stock",
+  "top stocks",
+  "best stocks",
+  "ai stocks",
+  "growth stocks",
+  "tech stocks",
+  "pltr",
+  "pltr stock",
+  "palantir stock",
+  "amd",
+  "amd stock",
+  "amd vs nvidia",
+  "best ai stocks",
+  "best stocks to buy now",
+  "amd stock news",
+  "nvidia stock news",
+  "nvda stock news",
+  "qualcomm stock",
+  "pltr stock news",
+  "spcx",
+  "spcx stock",
+  "mu",
+  "mu stock",
+  "micron stock",
+  "sk hynix stock",
+  "skhy",
+  "skhy stock",
+  "anthropic ipo",
+  "anthropic stock",
+  "openai stock",
+  "openai",
+  "chatgpt"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "What Wall Street Missed"
+  },
+  {
+   "start": 187,
+   "title": "Top AI Chip Stocks & ETF"
+  },
+  {
+   "start": 439,
+   "title": "Top Memory Stocks & ETF"
+  },
+  {
+   "start": 781,
+   "title": "Top AI Data Center Stocks"
+  },
+  {
+   "start": 971,
+   "title": "How Much I'm Buying"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 422,
+ "comments_top_level": 247,
+ "comments_replies": 175,
+ "comments_by_creator": 19,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 422,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T07:52:06",
+ "approved": "2026-10-21T16:52+09:00"
+}

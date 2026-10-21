@@ -1,0 +1,71 @@
+{
+ "id": "cxI85dsQ6U4",
+ "title": "5000 Investors Lost ₹200 Crore, Adani Settles with SEBI, Jane Street Update | Stock Market Tamasha",
+ "channel": "A Digital Blogger",
+ "channel_id": "UCksVr8lIwOPd1UtJkE3mdJQ",
+ "subs": 1240000,
+ "views": 155359,
+ "ratio": 0.13,
+ "age_days": 6,
+ "views_per_day": 25893.2,
+ "minutes": 17.7,
+ "likes": 1334,
+ "comments": 140,
+ "published": "2026-10-14",
+ "queries": "검색:stock market",
+ "url": "https://www.youtube.com/watch?v=cxI85dsQ6U4",
+ "flag": "외국 영상",
+ "published_at": "2026-10-14T16:09:14Z",
+ "rank": "W92",
+ "set": "web",
+ "folder": "W_cxI85dsQ6U4",
+ "sources": [
+  "검색:stock market"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Introduction"
+  },
+  {
+   "start": 44,
+   "title": "Growpital"
+  },
+  {
+   "start": 215,
+   "title": "Adani MPS Case"
+  },
+  {
+   "start": 422,
+   "title": "Fraud Free"
+  },
+  {
+   "start": 461,
+   "title": "CAS (Closing Auction Session)"
+  },
+  {
+   "start": 642,
+   "title": "Jane Street vs SEBI"
+  },
+  {
+   "start": 849,
+   "title": "SEBI Settlement Regulations"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 140,
+ "comments_top_level": 111,
+ "comments_replies": 29,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 140,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:27:35",
+ "approved": "2026-10-21T17:27+09:00"
+}

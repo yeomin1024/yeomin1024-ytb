@@ -1,0 +1,117 @@
+{
+ "id": "FDNoVCQeGls",
+ "title": "The Last Time THIS Happened the Global Stock Market RESET  | Felix Nikolas Prehn",
+ "channel": "Felix Nikolas Prehn",
+ "channel_id": "UCJtfma0mE_XrBAD9uakcjfA",
+ "subs": 807000,
+ "views": 495677,
+ "ratio": 0.61,
+ "age_days": 3,
+ "views_per_day": 165225.7,
+ "minutes": 24.2,
+ "likes": 7252,
+ "comments": 147,
+ "published": "2026-10-17",
+ "queries": "검색:stock market | 검색:stocks | 검색:stock market investing",
+ "url": "https://www.youtube.com/watch?v=FDNoVCQeGls",
+ "flag": "외국 영상",
+ "published_at": "2026-10-17T13:00:06Z",
+ "rank": "W97",
+ "set": "web",
+ "folder": "W_FDNoVCQeGls",
+ "sources": [
+  "검색:stock market",
+  "검색:stocks",
+  "검색:stock market investing"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Intro"
+  },
+  {
+   "start": 41,
+   "title": "CoreWeave Co-Founders Liquidate Three Point Three Billion Dollars In Equity"
+  },
+  {
+   "start": 78,
+   "title": "Host Outlines Unsponsored Research Mission Alongside Winston"
+  },
+  {
+   "start": 137,
+   "title": "Deconstructing CoreWeave's Business Model: GPU Rental NeoClouds"
+  },
+  {
+   "start": 196,
+   "title": "SEC Form 4 Filings Reveal Multi-Hundred Million Dollar Executive Liquidations"
+  },
+  {
+   "start": 297,
+   "title": "High-Yield Debt Audit: CoreWeave 2032 Bonds Drop To Seventy-Six Cents"
+  },
+  {
+   "start": 338,
+   "title": "Credit Default Swaps Pricing Signals Sixty Percent Default Odds"
+  },
+  {
+   "start": 375,
+   "title": "Deutsche Bank Capital Expenditure Analysis: The Thirty-Five Billion Dollar Funding Gap"
+  },
+  {
+   "start": 515,
+   "title": "Historical Case Study: March 2000 Cisco Plumbing Peak vs Market Reality"
+  },
+  {
+   "start": 578,
+   "title": "How Debt Liquidity Contraction Turns Infrastructure Booms Into Market Swings"
+  },
+  {
+   "start": 761,
+   "title": "Mapping Today's NeoCloud Plumbing Against Historical Fiber & Router Cycles"
+  },
+  {
+   "start": 884,
+   "title": "Historical Rebound Lessons: How High-Quality Cash-Flow Winners Emerge Post-Reset"
+  },
+  {
+   "start": 950,
+   "title": "Valuation Check: Current Nasdaq 100 Multiples (21x) vs 2000 Tech Multiples (200x)"
+  },
+  {
+   "start": 1037,
+   "title": "Goldman Sachs Desk Notes: Forced Hedge Fund De-Leveraging & Capital Squeezes"
+  },
+  {
+   "start": 1100,
+   "title": "The Critical Warning: Violent Dislocation Risks In Power-Ready Compute Capacity"
+  },
+  {
+   "start": 1185,
+   "title": "Nasdaq-Yield Correlation Shift: Growth Concerns Driving Simultaneous Declines"
+  },
+  {
+   "start": 1237,
+   "title": "Technical Levels To Watch: Nasdaq 100-Day Moving Average & Trend Lines"
+  },
+  {
+   "start": 1385,
+   "title": "Outro"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 147,
+ "comments_top_level": 107,
+ "comments_replies": 40,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 147,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T07:50:31",
+ "approved": "2026-10-21T16:50+09:00"
+}

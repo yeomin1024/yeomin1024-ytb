@@ -1,0 +1,91 @@
+{
+ "id": "HA8ohS4IK1w",
+ "title": "코스피 대폭락, 투자는 끝났나 - 김학균 리서치센터장 (신영증권)",
+ "channel": "손에잡히는경제",
+ "channel_id": "UCiYbaVEODktcsh09454Grow",
+ "subs": 501000,
+ "views": 271596,
+ "ratio": 0.54,
+ "age_days": 5,
+ "views_per_day": 54319.2,
+ "minutes": 46.6,
+ "likes": 1573,
+ "comments": 144,
+ "published": "2026-10-15",
+ "queries": "검색:코스피 | 검색:etf investing | 검색:stock market investing",
+ "url": "https://www.youtube.com/watch?v=HA8ohS4IK1w",
+ "flag": "",
+ "published_at": "2026-10-15T11:00:35Z",
+ "rank": "W107",
+ "set": "web",
+ "folder": "W_HA8ohS4IK1w",
+ "sources": [
+  "검색:코스피",
+  "검색:etf investing",
+  "검색:stock market investing"
+ ],
+ "source": "web",
+ "tags": [
+  "A40099G"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "📉 국내 증시 급락의 원인과 반도체 시장 불안"
+  },
+  {
+   "start": 234,
+   "title": "🏢 AI 데이터센터 투자 확대와 기업 부채 위험"
+  },
+  {
+   "start": 548,
+   "title": "💾 삼성전자·SK하이닉스 전망과 AI 투자 지속 가능성"
+  },
+  {
+   "start": 830,
+   "title": "📈 고금리 장기화의 구조적 원인과 금융시장 부담"
+  },
+  {
+   "start": 1152,
+   "title": "🌍 유럽 재정위기 가능성과 중앙은행의 대응"
+  },
+  {
+   "start": 1291,
+   "title": "💰 그림자 금융 확대와 ETF·패시브 투자 위험"
+  },
+  {
+   "start": 1719,
+   "title": "📊 외국인 매도와 개인투자자 이탈에 따른 수급 악화"
+  },
+  {
+   "start": 1913,
+   "title": "💱 환율 변화와 미국 금리가 외국인 투자에 미치는 영향"
+  },
+  {
+   "start": 2133,
+   "title": "🇺🇸 미국의 달러 약세 유도 가능성과 자산시장 영향"
+  },
+  {
+   "start": 2355,
+   "title": "🛡️ 안전자산 선택과 변동성을 견디는 투자 전략"
+  },
+  {
+   "start": 2670,
+   "title": "🇰🇷 투자심리 관리와 한국 경제의 회복 가능성"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 144,
+ "comments_top_level": 110,
+ "comments_replies": 34,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 144,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T07:51:17",
+ "approved": "2026-10-21T16:51+09:00"
+}

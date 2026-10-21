@@ -1,0 +1,75 @@
+{
+ "id": "0aDCWyUcvm4",
+ "title": "\"실시간 초비상, 위기의 한국 경제\" 갈수록 엉망이 되어가는 시장 상황, 유독 한국이 치명타를 입게 될 이유 (주간머니이슈_경제편)",
+ "channel": "월급쟁이부자들TV",
+ "channel_id": "UCDSj40X9FFUAnx1nv7gQhcA",
+ "subs": 2120000,
+ "views": 317201,
+ "ratio": 0.15,
+ "age_days": 5,
+ "views_per_day": 63440.2,
+ "minutes": 18.8,
+ "likes": 2060,
+ "comments": 121,
+ "published": "2026-10-15",
+ "queries": "검색:한국주식 | 검색:주식시장",
+ "url": "https://www.youtube.com/watch?v=0aDCWyUcvm4",
+ "flag": "",
+ "published_at": "2026-10-15T22:00:19Z",
+ "rank": "W162",
+ "set": "web",
+ "folder": "W_0aDCWyUcvm4",
+ "sources": [
+  "검색:한국주식",
+  "검색:주식시장"
+ ],
+ "source": "web",
+ "tags": [
+  "월급쟁이부자들",
+  "너나위",
+  "너바나",
+  "코크드림",
+  "구해줘월부",
+  "월부",
+  "10억달성",
+  "월부닷컴",
+  "재테크",
+  "부동산투자",
+  "부동산강의",
+  "월부리뷰",
+  "월부 강의후기",
+  "월부 강의",
+  "내집마련",
+  "월부후기",
+  "월부 강의팔이",
+  "재테크강의"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오늘 나눌 경제 이야기"
+  },
+  {
+   "start": 82,
+   "title": "미국 CPI 충격에 코스피 급락"
+  },
+  {
+   "start": 951,
+   "title": "나에게 딱 맞는 재테크 찾는 법"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 121,
+ "comments_top_level": 99,
+ "comments_replies": 22,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 121,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T07:55:08",
+ "approved": "2026-10-21T16:55+09:00"
+}

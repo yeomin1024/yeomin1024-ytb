@@ -1,0 +1,76 @@
+{
+ "id": "AzDeLScgm_I",
+ "title": "【残り3か月】S&P500はここから1年が黄金期…！過去チャート検証",
+ "channel": "【投資家】ぽんちよ",
+ "channel_id": "UCgE9lrN1n1dVKoFKSlgortg",
+ "subs": 516000,
+ "views": 137265,
+ "ratio": 0.27,
+ "age_days": 6,
+ "views_per_day": 22877.5,
+ "minutes": 18.4,
+ "likes": 481,
+ "comments": 6,
+ "published": "2026-10-14",
+ "queries": "검색:S&P500",
+ "url": "https://www.youtube.com/watch?v=AzDeLScgm_I",
+ "flag": "외국 영상",
+ "published_at": "2026-10-14T10:00:03Z",
+ "rank": "W32",
+ "set": "web",
+ "folder": "W_AzDeLScgm_I",
+ "sources": [
+  "검색:S&P500"
+ ],
+ "source": "web",
+ "tags": [
+  "米国株",
+  "予想",
+  "中間選挙",
+  "今後",
+  "投資信託",
+  "NISA",
+  "NASDAQ100",
+  "アンソロピック",
+  "投資",
+  "資産形成",
+  "ぽんちょ​",
+  "ポンチョ"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "米国株と中間選挙の影響は？アノマリー"
+  },
+  {
+   "start": 47,
+   "title": "本動画の目次"
+  },
+  {
+   "start": 66,
+   "title": "S&P500・NASDAQ100の状況は？"
+  },
+  {
+   "start": 207,
+   "title": "S&P500のプロの予想を解説"
+  },
+  {
+   "start": 804,
+   "title": "アンソロピックの新規上場とは"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ja",
+ "foreign": true,
+ "comments_fetched": 6,
+ "comments_top_level": 5,
+ "comments_replies": 1,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 6,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:25:32",
+ "approved": "2026-10-21T17:25+09:00"
+}

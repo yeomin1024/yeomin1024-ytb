@@ -1,0 +1,75 @@
+{
+ "id": "kNA-XtYY2eI",
+ "title": "【米国株】これから上昇相場に突入？／S&P500は最高値更新の連続で火遊び状態／今注目すべきは◯◯株【江崎孝彦の投資の秘訣 #54】",
+ "channel": "田村亮&鈴木奈々 自腹で米国株はじめました【Wealth On (ウェルスオン) 提供】",
+ "channel_id": "UC2gq6CEYA3uXaM413nljZ-w",
+ "subs": 160000,
+ "views": 746224,
+ "ratio": 4.66,
+ "age_days": 29,
+ "views_per_day": 25731.9,
+ "minutes": 37.5,
+ "likes": 2404,
+ "comments": 104,
+ "published": "2026-09-21",
+ "queries": "검색:S&P500",
+ "url": "https://www.youtube.com/watch?v=kNA-XtYY2eI",
+ "flag": "외국 영상",
+ "published_at": "2026-09-21T10:00:13Z",
+ "rank": "W7",
+ "set": "web",
+ "folder": "W_kNA-XtYY2eI",
+ "sources": [
+  "검색:S&P500"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "ダイジェスト"
+  },
+  {
+   "start": 33,
+   "title": "江崎の本が転売？"
+  },
+  {
+   "start": 112,
+   "title": "スイートスポットがやってくる"
+  },
+  {
+   "start": 486,
+   "title": "株式市場は割高？"
+  },
+  {
+   "start": 727,
+   "title": "今こそバリュー投資"
+  },
+  {
+   "start": 1305,
+   "title": "サインが点灯する銘柄"
+  },
+  {
+   "start": 1673,
+   "title": "AIが進化する今こそ注目すべき市場"
+  },
+  {
+   "start": 2110,
+   "title": "今回のまとめ"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ja",
+ "foreign": true,
+ "comments_fetched": 104,
+ "comments_top_level": 73,
+ "comments_replies": 31,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 104,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:01:34",
+ "approved": "2026-10-21T17:01+09:00"
+}

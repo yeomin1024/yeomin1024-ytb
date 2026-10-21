@@ -1,0 +1,81 @@
+{
+ "id": "PmvQI4CPnDQ",
+ "title": "Every Bond Market In The World Is Breaking",
+ "channel": "Mark Tilbury Economics",
+ "channel_id": "UCNIoLiHvnuKTKoJuLQUS--A",
+ "subs": 601000,
+ "views": 974281,
+ "ratio": 1.62,
+ "age_days": 38,
+ "views_per_day": 25639.0,
+ "minutes": 23.2,
+ "likes": 6885,
+ "comments": 1035,
+ "published": "2026-09-12",
+ "queries": "검색:index funds | 검색:stock market | 검색:stock market investing",
+ "url": "https://www.youtube.com/watch?v=PmvQI4CPnDQ",
+ "flag": "외국 영상",
+ "published_at": "2026-09-12T17:33:18Z",
+ "rank": "W28",
+ "set": "web",
+ "folder": "W_PmvQI4CPnDQ",
+ "sources": [
+  "검색:index funds",
+  "검색:stock market",
+  "검색:stock market investing"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Intro"
+  },
+  {
+   "start": 47,
+   "title": "Chapter I: The Silent Landlord"
+  },
+  {
+   "start": 198,
+   "title": "Chapter II: The Golden Age"
+  },
+  {
+   "start": 319,
+   "title": "Chapter III: The Turning Tide"
+  },
+  {
+   "start": 485,
+   "title": "Chapter IV: The Sinking Giant"
+  },
+  {
+   "start": 628,
+   "title": "Chapter V: The Fastest Fall"
+  },
+  {
+   "start": 786,
+   "title": "Chapter VI: The Doom Loop"
+  },
+  {
+   "start": 931,
+   "title": "Chapter VII: The Hidden Tax"
+  },
+  {
+   "start": 1051,
+   "title": "What can you do?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en-US",
+ "foreign": true,
+ "comments_fetched": 1035,
+ "comments_top_level": 604,
+ "comments_replies": 431,
+ "comments_by_creator": 19,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 1035,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:03:11",
+ "approved": "2026-10-21T17:03+09:00"
+}

@@ -1,0 +1,84 @@
+{
+ "id": "mYqXcm146_I",
+ "title": "【遂に始まった…】世界中の株式市場で今、何が起きているかを説明します【元ゴールドマンサックスが徹底解説】",
+ "channel": "おーちゃん【元外銀マン】",
+ "channel_id": "UC4Ub-Y_yj43aouqFbA7PwhQ",
+ "subs": 312000,
+ "views": 197269,
+ "ratio": 0.63,
+ "age_days": 4,
+ "views_per_day": 49317.2,
+ "minutes": 38.5,
+ "likes": 1701,
+ "comments": 78,
+ "published": "2026-10-16",
+ "queries": "검색:etf investing",
+ "url": "https://www.youtube.com/watch?v=mYqXcm146_I",
+ "flag": "외국 영상",
+ "published_at": "2026-10-16T10:00:17Z",
+ "rank": "W96",
+ "set": "web",
+ "folder": "W_mYqXcm146_I",
+ "sources": [
+  "검색:etf investing"
+ ],
+ "source": "web",
+ "tags": [
+  "投資",
+  "資産運用",
+  "新NISA",
+  "投資信託",
+  "S&P500",
+  "オールカントリー",
+  "オルカン",
+  "配当金"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "イントロ"
+  },
+  {
+   "start": 171,
+   "title": "プロフィール"
+  },
+  {
+   "start": 236,
+   "title": "政府の財布から現金が流れ出し始めている"
+  },
+  {
+   "start": 440,
+   "title": "政府の「3つの口座」"
+  },
+  {
+   "start": 1022,
+   "title": "3つの口座が示す本当の方向"
+  },
+  {
+   "start": 1436,
+   "title": "隠れ税の徴収経路"
+  },
+  {
+   "start": 1837,
+   "title": "2021年に増えた口座と2022年に減った口座"
+  },
+  {
+   "start": 2160,
+   "title": "おーちゃんの雑談（めっちゃためになる）"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ja",
+ "foreign": true,
+ "comments_fetched": 78,
+ "comments_top_level": 57,
+ "comments_replies": 21,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 78,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T07:50:28",
+ "approved": "2026-10-21T16:50+09:00"
+}

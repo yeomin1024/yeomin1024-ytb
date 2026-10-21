@@ -1,0 +1,64 @@
+In this episode of Stock Market ka Tamasha, we have Five SEBI cases. Five stories every retail investor and trader in Indian stock markets needs to know. 
+
+This month: a ponzi scheme hidden inside an agri-investment platform, an Adani MPS investigation that ran for 6 years and closed for Rs 1.48 crore, a market structure experiment reversed in 40 days, a US algo trading firm challenging SEBI in SAT, and a new settlement regulation that is less a reform and more a published rate card for market violations.
+
+1. GROWPITAL PONZI SCHEME | Rs 192 Crore Agri Investment Fraud
+
+Growpital promised 10 to 18% guaranteed returns on jeera farming investments in Barmer, Rajasthan.
+
+- 5,208 investors put in a total of Rs 192 crore between April 2020 and June 2023
+- SEBI’s investigation team reached Barmer and found fake companies, fake invoices, and zero actual farming activity-
+- Three people arrested - Rituraj Sharma (face of the scheme), Gayatri Rinwa, and Krishna Joshi
+- Rs 50 crore frozen out of Rs 192 crore; accused claimed Rs 130 crore was spent on the business
+- SEBI penalty on a Rs 192 crore fraud: Rs 6 crore
+
+2. ADANI MPS CASE | Rs 1,984 Crore Profit, Rs 1.48 Crore Settlement
+
+SEBI alleged that two FPIs linked to Vinod Adani held shares in Adani Enterprises, Adani Ports, ACC, and Adani Transmission between 2013 and 2018, breaching the 75% promoter shareholding limit:
+
+- The arrangement allegedly generated unlawful profits of Rs 1,984 crore across the four entities
+- After 6 years of investigation, SEBI could not establish a direct communication link between Vinod Adani and the FPIs
+- Rs 1,984 crore was let go - no disgorgement, no recovery order
+- Four Adani companies settled for a combined Rs 1.48 crore - Rs 37.5 lakh per company - without admitting or denying the allegations
+
+3. CAS REVERSAL | SEBI’s Closing Auction Session Rolled Back in 40 Days
+
+SEBI launched the Closing Auction Session (CAS) on August 3, 2026 - a 10-minute auction window before market close to set the closing price:
+- On F&O expiry days, index values swung 2% or more inside the CAS window before recovering - retail traders settled contracts at artificial prices
+- SEBI itself issued manipulation orders against two companies for CAS-related price rigging within weeks of the launch
+- 20,000+ market participants responded to SEBI’s September 12 consultation paper - traders, brokers, and fund houses all demanded a rollback on F&O settlement
+- On October 10, SEBI Chairman Tuhin Kanta Pandey confirmed that F&O contract settlement will return to the 30-minute VWAP model within a week
+
+4. JANE STREET VS SEBI | SAT Hearing, Rs 4,843 Crore at Stake
+
+SEBI alleges that Jane Street - a US algorithmic trading firm - manipulated India’s index options market by moving Nifty and Bank Nifty prices on expiry days through large futures and equity positions, then profiting in options
+- Alleged unlawful profit: Rs 4,843 crore
+- SEBI issued an ex-parte interim order in July 2026, freezing the full amount without giving Jane Street a prior hearing 
+- Jane Street challenged the order in SAT; central argument: SEBI’s detailed investigation report was completed after the order date - the judgment was passed before the analysis was finished
+- SAT final order expected on October 21, 2026
+
+5. SEBI SETTLEMENT REGULATIONS 2026 | Formula-Based Rate Card for Market Violations
+
+SEBI board approved the Settlement Regulations 2026 on September 24, 2026
+
+- Formula-based calculation introduced: Settlement Amount = Base Amount x (Stage Factor + Risk Factor + Gravity Factor + Applicant Factor - Mitigating Factor)
+- Every category of entity now has a pre-calculable settlement range before a case even begins
+- Fast-track route introduced for cases up to Rs 10 lakh
+- New pre-show-cause notice window: 60 days to settle before SEBI formally issues a notice - investigations can close before they are complete
+
+Have you been scammed? File Complaint here - https://aseemjuneja.in/
+
+Check Stock Pathshala for LIVE classes and Webinars now: https://www.stockpathshala.com/pricing
+
+Google Play: 
+https://play.google.com/store/apps/details?id=com.codeclinic.stockpathshala&hl=en_IN&pli=1
+
+Buy Fraud Free Book - https://www.amazon.in/FRAUD-FREE-Outsmart-Scammers-Money/dp/9370032088?s=bazaar
+
+00:00 – Introduction 
+00:44 – Growpital 
+03:35 – Adani MPS Case 
+07:02 – Fraud Free 
+07:41 – CAS (Closing Auction Session) 
+10:42 – Jane Street vs SEBI 
+14:09 – SEBI Settlement Regulations

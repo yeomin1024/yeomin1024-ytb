@@ -1,0 +1,72 @@
+{
+ "id": "V5gTH3N_kL0",
+ "title": "SCHD's Dividend Growth Just Hit Its Lowest Point in Years (Time To Sell?)",
+ "channel": "Tom - Lazy Dividend Investor",
+ "channel_id": "UCUhTFmf6v8Kk2-ofFD2udkg",
+ "subs": 2090,
+ "views": 10448,
+ "ratio": 5.0,
+ "age_days": 1,
+ "views_per_day": 10448.0,
+ "minutes": 34.0,
+ "likes": 102,
+ "comments": 24,
+ "published": "2026-10-20",
+ "queries": "검색:dividend income | 검색:dividend portfolio",
+ "url": "https://www.youtube.com/watch?v=V5gTH3N_kL0",
+ "flag": "외국 영상",
+ "published_at": "2026-10-20T00:00:34Z",
+ "rank": "W47",
+ "set": "web",
+ "folder": "W_V5gTH3N_kL0",
+ "sources": [
+  "검색:dividend income",
+  "검색:dividend portfolio"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "77.59 cents and a raise under 1%"
+  },
+  {
+   "start": 337,
+   "title": "What the slowdown costs your check"
+  },
+  {
+   "start": 625,
+   "title": "Inside SCHD: the March rebuild"
+  },
+  {
+   "start": 908,
+   "title": "What job is your check doing?"
+  },
+  {
+   "start": 1191,
+   "title": "Time to sell? The two exits and the tax bill"
+  },
+  {
+   "start": 1532,
+   "title": "The real risk: a cut, and the floor rule"
+  },
+  {
+   "start": 1814,
+   "title": "The December test and what I actually do"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 24,
+ "comments_top_level": 8,
+ "comments_replies": 16,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 24,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T07:46:57",
+ "approved": "2026-10-21T16:46+09:00"
+}

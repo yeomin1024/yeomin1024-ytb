@@ -1,0 +1,142 @@
+{
+ "id": "6WHRPzqFvYc",
+ "title": "Panic Selling Continues; Trader Dumps Stocks Before Next 20% Drop | Chris Vermeulen",
+ "channel": "David Lin ",
+ "channel_id": "UClBMLpP3UHXLmgEypMmXPuA",
+ "subs": 336000,
+ "views": 203670,
+ "ratio": 0.61,
+ "age_days": 4,
+ "views_per_day": 50917.5,
+ "minutes": 34.9,
+ "likes": 2613,
+ "comments": 563,
+ "published": "2026-10-16",
+ "queries": "검색:how to invest in stocks | 검색:stocks to buy | 검색:stock market | 검색:stocks | 검색:stock market investing",
+ "url": "https://www.youtube.com/watch?v=6WHRPzqFvYc",
+ "flag": "외국 영상",
+ "published_at": "2026-10-16T20:09:19Z",
+ "rank": "W99",
+ "set": "web",
+ "folder": "W_6WHRPzqFvYc",
+ "sources": [
+  "검색:how to invest in stocks",
+  "검색:stocks to buy",
+  "검색:stock market",
+  "검색:stocks",
+  "검색:stock market investing"
+ ],
+ "source": "web",
+ "tags": [
+  "david lin",
+  "the david lin report",
+  "david lin youtube",
+  "david lin finance",
+  "david lin investing",
+  "david lin trading",
+  "david lin economics",
+  "economics",
+  "finance",
+  "business",
+  "macroeconomics",
+  "trading",
+  "investing",
+  "financial news",
+  "finance news",
+  "economics news",
+  "business news",
+  "economy",
+  "chris vermeulen",
+  "The Technical Traders",
+  "stocks",
+  "bitcoin",
+  "gold",
+  "sp500",
+  "stock market",
+  "rally",
+  "bearish",
+  "bullish",
+  "stock trading",
+  "traders",
+  "technical analysis",
+  "technical trading",
+  "trade war",
+  "miners",
+  "tsx",
+  "gold price",
+  "blowoff top",
+  "euphoria"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Market Crash Warning"
+  },
+  {
+   "start": 103,
+   "title": "Have Bond Yields Peaked?"
+  },
+  {
+   "start": 306,
+   "title": "The Great Market Rotation"
+  },
+  {
+   "start": 536,
+   "title": "Why He Sold Tech Stocks"
+  },
+  {
+   "start": 745,
+   "title": "Nasdaq's Critical Support"
+  },
+  {
+   "start": 881,
+   "title": "Buy And Hold Risks"
+  },
+  {
+   "start": 1021,
+   "title": "When To Buy Stocks Again"
+  },
+  {
+   "start": 1074,
+   "title": "Defensive Sector Outlook"
+  },
+  {
+   "start": 1262,
+   "title": "Gold & Silver Price Targets"
+  },
+  {
+   "start": 1349,
+   "title": "Oil To $120?"
+  },
+  {
+   "start": 1451,
+   "title": "Buying The Dip"
+  },
+  {
+   "start": 1591,
+   "title": "Housing Crash Warning"
+  },
+  {
+   "start": 1802,
+   "title": "Vancouver Foreclosures Surge"
+  },
+  {
+   "start": 1934,
+   "title": "When To Buy Real Estate"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "en-US",
+ "foreign": true,
+ "comments_fetched": 563,
+ "comments_top_level": 321,
+ "comments_replies": 242,
+ "comments_by_creator": 4,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 563,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T07:50:37",
+ "approved": "2026-10-21T16:50+09:00"
+}

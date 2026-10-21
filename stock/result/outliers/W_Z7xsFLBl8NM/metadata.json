@@ -1,0 +1,114 @@
+{
+ "id": "Z7xsFLBl8NM",
+ "title": "회사가 돈을 이렇게 많이 버는데 주식은 왜 떨어지나요?! [주식 기초 특강 2탄]",
+ "channel": "우정잉",
+ "channel_id": "UCW945UjEs6Jm3rVNvPEALdg",
+ "subs": 924000,
+ "views": 469868,
+ "ratio": 0.51,
+ "age_days": 4,
+ "views_per_day": 117467.0,
+ "minutes": 38.3,
+ "likes": 2865,
+ "comments": 577,
+ "published": "2026-10-16",
+ "queries": "검색:주식기초 | 검색:주식투자 | 검색:주식 | 검색:주식시장",
+ "url": "https://www.youtube.com/watch?v=Z7xsFLBl8NM",
+ "flag": "",
+ "published_at": "2026-10-16T09:00:28Z",
+ "rank": "W111",
+ "set": "web",
+ "folder": "W_Z7xsFLBl8NM",
+ "sources": [
+  "검색:주식기초",
+  "검색:주식투자",
+  "검색:주식",
+  "검색:주식시장"
+ ],
+ "source": "web",
+ "tags": [
+  "우정잉",
+  "트위치",
+  "예능",
+  "스트리머",
+  "잉혐",
+  "예민하네",
+  "화났네",
+  "잉토바이",
+  "야랄",
+  "무7련",
+  "아프리카",
+  "비제이",
+  "BJ",
+  "인터넷방송",
+  "SOOP",
+  "토크",
+  "삼성전자",
+  "하이닉스",
+  "SK하이닉스",
+  "삼전하닉",
+  "국장",
+  "국내주식",
+  "미장",
+  "미국채권",
+  "채권",
+  "미국주식",
+  "S&P"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트"
+  },
+  {
+   "start": 30,
+   "title": "주식 근황 토크"
+  },
+  {
+   "start": 227,
+   "title": "삼전하닉이 떨어지는 이유"
+  },
+  {
+   "start": 425,
+   "title": "금리의 기초"
+  },
+  {
+   "start": 682,
+   "title": "은행이 돌아가는 원리"
+  },
+  {
+   "start": 1126,
+   "title": "우정잉 주식 근황"
+  },
+  {
+   "start": 1176,
+   "title": "금리와 환율의 관계"
+  },
+  {
+   "start": 1320,
+   "title": "미국 국채 사도 되나요?"
+  },
+  {
+   "start": 1683,
+   "title": "S&P500 지금 들어가도 될까요?"
+  },
+  {
+   "start": 2075,
+   "title": "마무리 소감"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 577,
+ "comments_top_level": 424,
+ "comments_replies": 153,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 577,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T07:51:31",
+ "approved": "2026-10-21T16:51+09:00"
+}

@@ -1,0 +1,102 @@
+{
+ "id": "p-A2qeyYZvg",
+ "title": "“헤지펀드 롱·숏 동시 청산 공포!” 코스피 진짜 바닥은 어디인가? / 삼성전자·SK하이닉스 지금 팔아야 하나, 버텨야 하나?  ㅣ 이주현 대표",
+ "channel": "815머니톡",
+ "channel_id": "UCCG6BEYjfQMGzypJw2EJCDQ",
+ "subs": 1290000,
+ "views": 89987,
+ "ratio": 0.07,
+ "age_days": 3,
+ "views_per_day": 29995.7,
+ "minutes": 29.6,
+ "likes": 710,
+ "comments": 70,
+ "published": "2026-10-18",
+ "queries": "검색:나스닥",
+ "url": "https://www.youtube.com/watch?v=p-A2qeyYZvg",
+ "flag": "",
+ "published_at": "2026-10-18T00:06:13Z",
+ "rank": "W111",
+ "set": "web",
+ "folder": "W_p-A2qeyYZvg",
+ "sources": [
+  "검색:나스닥"
+ ],
+ "source": "web",
+ "tags": [
+  "삼성전자",
+  "이주현",
+  "SK하이닉스",
+  "코스피",
+  "헤지펀드",
+  "반도체주",
+  "한국증시",
+  "AI부채",
+  "신용융자",
+  "엔비디아",
+  "레버리지",
+  "빚투",
+  "현금",
+  "815머니톡"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "블루드림리서치 이주현 대표"
+  },
+  {
+   "start": 7,
+   "title": "미국 나스닥 2% 급락, AI 부채 위기가 다시 시작됐나?"
+  },
+  {
+   "start": 154,
+   "title": "글로벌 헤지펀드 연쇄 청산, AI 주식 매도 폭탄이 터지나?"
+  },
+  {
+   "start": 304,
+   "title": "한국 증시만 유독 폭락하는 이유는 레버리지와 ETF 구조 때문인가?"
+  },
+  {
+   "start": 463,
+   "title": "코스피 전저점 붕괴하면 5,000선, 최악에는 4,000선까지 가나?"
+  },
+  {
+   "start": 633,
+   "title": "주가가 이미 2028~2030년 실적을 반영했다면 추가 하락은 불가피한가?"
+  },
+  {
+   "start": 886,
+   "title": "신용융자 30조 원대, 빚투와 레버리지가 더 큰 폭락을 부르나?"
+  },
+  {
+   "start": 1058,
+   "title": "삼성전자·SK하이닉스는 버티고, 고평가 성장주는 팔아야 하나?"
+  },
+  {
+   "start": 1224,
+   "title": "코스피 고점에서 못 팔았다면 지금이라도 대응해야 하나?"
+  },
+  {
+   "start": 1379,
+   "title": "삼성전자·SK하이닉스는 폭락할수록 매수 기회인가?"
+  },
+  {
+   "start": 1549,
+   "title": "월요일 코스피 또 폭락하나? 결국 현금이 가장 중요한 무기인가?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 70,
+ "comments_top_level": 66,
+ "comments_replies": 4,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 70,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:28:17",
+ "approved": "2026-10-21T17:28+09:00"
+}

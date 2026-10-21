@@ -1,0 +1,147 @@
+{
+ "id": "3I4PkGerclk",
+ "title": "#1851 Market News Analysis",
+ "channel": "DAY TRADER తెలుగు",
+ "channel_id": "UCeEP6GESh2t4-e2132uj3Sg",
+ "subs": 2700000,
+ "views": 215849,
+ "ratio": 0.08,
+ "age_days": 7,
+ "views_per_day": 30835.6,
+ "minutes": 35.7,
+ "likes": 7489,
+ "comments": 308,
+ "published": "2026-10-13",
+ "queries": "검색:stock market",
+ "url": "https://www.youtube.com/watch?v=3I4PkGerclk",
+ "flag": "외국 영상",
+ "published_at": "2026-10-13T14:19:09Z",
+ "rank": "W8",
+ "set": "web",
+ "folder": "W_3I4PkGerclk",
+ "sources": [
+  "검색:stock market"
+ ],
+ "source": "web",
+ "tags": [
+  "stock market latest news",
+  "stock market news",
+  "stock market"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Market Update"
+  },
+  {
+   "start": 137,
+   "title": "BIG NEWS"
+  },
+  {
+   "start": 515,
+   "title": "IT Stocks"
+  },
+  {
+   "start": 954,
+   "title": "UPI New Update"
+  },
+  {
+   "start": 1010,
+   "title": "Market Analysiss"
+  },
+  {
+   "start": 1479,
+   "title": "Gold Silver"
+  },
+  {
+   "start": 1530,
+   "title": "Good Data"
+  },
+  {
+   "start": 1557,
+   "title": "IT Jobs Alert"
+  },
+  {
+   "start": 1680,
+   "title": "TCS 80% Jobs"
+  },
+  {
+   "start": 1733,
+   "title": "Must watch"
+  },
+  {
+   "start": 1796,
+   "title": "Small power stock"
+  },
+  {
+   "start": 1832,
+   "title": "Vikran Engineering"
+  },
+  {
+   "start": 1856,
+   "title": "Bandhan Bank"
+  },
+  {
+   "start": 1899,
+   "title": "HCL"
+  },
+  {
+   "start": 1913,
+   "title": "RBL Bank"
+  },
+  {
+   "start": 1954,
+   "title": "Tata Elxsi"
+  },
+  {
+   "start": 1973,
+   "title": "Sejal Glass"
+  },
+  {
+   "start": 1997,
+   "title": "Transformers and Rectifiers"
+  },
+  {
+   "start": 2027,
+   "title": "Polycab"
+  },
+  {
+   "start": 2069,
+   "title": "Aarti Industries"
+  },
+  {
+   "start": 2094,
+   "title": "Persistent"
+  },
+  {
+   "start": 2119,
+   "title": "Kalpataru"
+  },
+  {
+   "start": 2127,
+   "title": "Airflow Rail Technologies"
+  },
+  {
+   "start": 2144,
+   "title": "Indian Hotels"
+  },
+  {
+   "start": 2164,
+   "title": "Shakti Pumps"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "te",
+ "foreign": true,
+ "comments_fetched": 308,
+ "comments_top_level": 218,
+ "comments_replies": 90,
+ "comments_by_creator": 3,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 308,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:24:43",
+ "approved": "2026-10-21T17:24+09:00"
+}

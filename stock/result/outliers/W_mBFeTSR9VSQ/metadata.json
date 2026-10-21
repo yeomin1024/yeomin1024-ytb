@@ -1,0 +1,110 @@
+{
+ "id": "mBFeTSR9VSQ",
+ "title": "삼성전자 주가 반등, 지금 사도 될까? 배당 7%·PER 3배 '싸도 너무 싸다' 이유",
+ "channel": "경제야! 놀자~",
+ "channel_id": "UCiyTPjrEIUsc26rwb4_fyfw",
+ "subs": 3510,
+ "views": 34471,
+ "ratio": 9.82,
+ "age_days": 5,
+ "views_per_day": 6894.2,
+ "minutes": 11.2,
+ "likes": 297,
+ "comments": 108,
+ "published": "2026-10-16",
+ "queries": "검색:배당 | 검색:주가 | 검색:dividend stocks",
+ "url": "https://www.youtube.com/watch?v=mBFeTSR9VSQ",
+ "flag": "",
+ "published_at": "2026-10-16T05:00:16Z",
+ "rank": "W130",
+ "set": "web",
+ "folder": "W_mBFeTSR9VSQ",
+ "sources": [
+  "검색:배당",
+  "검색:주가",
+  "검색:dividend stocks"
+ ],
+ "source": "web",
+ "tags": [
+  "삼성전자",
+  "삼성전자 주가",
+  "삼성전자 주가 전망",
+  "삼성전자 배당",
+  "배당수익률",
+  "SK하이닉스",
+  "하이닉스",
+  "코스피",
+  "코스피 반등",
+  "PER",
+  "TSMC",
+  "주식",
+  "이광수",
+  "박시동",
+  "12시에 만나요",
+  "경제야놀자"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트 — \"들고만 있어도 1년에 7%\""
+  },
+  {
+   "start": 15,
+   "title": "[경제야놀자 해설] 삼성전자 반등, 지금 사도 될까?"
+  },
+  {
+   "start": 32,
+   "title": "\"내년엔 좋아지겠죠?\" — A일까 B일까"
+  },
+  {
+   "start": 127,
+   "title": "박시동 — 싸도 너무 싸다 · 배당 6.4~8%"
+  },
+  {
+   "start": 199,
+   "title": "[경제야놀자 해설] 배당 7%, 은행 이자 두 배"
+  },
+  {
+   "start": 222,
+   "title": "PER 10배 → 지금 3배"
+  },
+  {
+   "start": 277,
+   "title": "[경제야놀자 해설] PER 3배, 말이 되나"
+  },
+  {
+   "start": 296,
+   "title": "이광수 — TSMC 이익은 절반, 시가총액은 2배"
+  },
+  {
+   "start": 390,
+   "title": "[경제야놀자 해설] TSMC와 삼성전자의 차이"
+  },
+  {
+   "start": 408,
+   "title": "정리 — 무엇을 하지 말아야 할지"
+  },
+  {
+   "start": 553,
+   "title": "코스피 3.9% 반등 · \"어제 샀어야? 이건 아니에요\""
+  },
+  {
+   "start": 626,
+   "title": "[경제야놀자 해설] 오늘의 세 줄 정리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 108,
+ "comments_top_level": 53,
+ "comments_replies": 55,
+ "comments_by_creator": 50,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 108,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:29:01",
+ "approved": "2026-10-21T17:29+09:00"
+}

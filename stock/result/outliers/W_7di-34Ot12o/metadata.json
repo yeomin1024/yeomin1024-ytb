@@ -1,0 +1,124 @@
+{
+ "id": "7di-34Ot12o",
+ "title": "삼성전자 하이닉스 왜 한국만 두 배 빠지나? 전 국민 계좌에서 700조 날아갔다",
+ "channel": "경제야! 놀자~",
+ "channel_id": "UCiyTPjrEIUsc26rwb4_fyfw",
+ "subs": 3510,
+ "views": 45853,
+ "ratio": 13.06,
+ "age_days": 5,
+ "views_per_day": 9170.6,
+ "minutes": 12.1,
+ "likes": 249,
+ "comments": 126,
+ "published": "2026-10-16",
+ "queries": "검색:한국주식",
+ "url": "https://www.youtube.com/watch?v=7di-34Ot12o",
+ "flag": "",
+ "published_at": "2026-10-16T02:30:22Z",
+ "rank": "W129",
+ "set": "web",
+ "folder": "W_7di-34Ot12o",
+ "sources": [
+  "검색:한국주식"
+ ],
+ "source": "web",
+ "tags": [
+  "삼성전자",
+  "하이닉스",
+  "SK하이닉스",
+  "코스피",
+  "외국인 매도",
+  "수급",
+  "반도체",
+  "ETF",
+  "패시브",
+  "거래대금",
+  "주주환원",
+  "배당수익률",
+  "주식",
+  "박시동",
+  "매불쇼",
+  "경제야놀자"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트 — \"700조, 800조가 날아갔어요\""
+  },
+  {
+   "start": 15,
+   "title": "[경제야놀자 해설] 왜 한국만 두 배 빠지나"
+  },
+  {
+   "start": 29,
+   "title": "경제는 멀쩡, 문제는 수급"
+  },
+  {
+   "start": 103,
+   "title": "외국인 232조 매도 · 아직 차익 구간"
+  },
+  {
+   "start": 176,
+   "title": "[경제야놀자 해설] 외국인 232조 매도"
+  },
+  {
+   "start": 197,
+   "title": "반도체가 최선호에서 밀렸다"
+  },
+  {
+   "start": 253,
+   "title": "삼전닉스 60%의 함정"
+  },
+  {
+   "start": 349,
+   "title": "[경제야놀자 해설] 삼전닉스 60%의 함정"
+  },
+  {
+   "start": 372,
+   "title": "개인은 얼음 — 매물대 130조 · 거래대금 -70%"
+  },
+  {
+   "start": 440,
+   "title": "수급의 대꼬임"
+  },
+  {
+   "start": 519,
+   "title": "[경제야놀자 해설] 외국인을 부를 두 가지"
+  },
+  {
+   "start": 536,
+   "title": "외국인은 언제 돌아오나 — 2차 웨이브 · 배당 5%"
+  },
+  {
+   "start": 621,
+   "title": "시장의 신뢰를 회복할 비상 대책"
+  },
+  {
+   "start": 635,
+   "title": "전 국민 재산이 주식에"
+  },
+  {
+   "start": 655,
+   "title": "누구를 믿고"
+  },
+  {
+   "start": 679,
+   "title": "[경제야놀자 해설] 오늘의 세 줄 정리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 126,
+ "comments_top_level": 66,
+ "comments_replies": 60,
+ "comments_by_creator": 44,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 126,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:29:00",
+ "approved": "2026-10-21T17:29+09:00"
+}

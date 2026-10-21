@@ -1,0 +1,96 @@
+{
+ "id": "_-rdF2o1v0c",
+ "title": "POV: Gaji Sama dengan Temanmu, Tapi Kamu Keluar dari Pabrik Lebih Awal Berkat Dividen",
+ "channel": "ncek invest",
+ "channel_id": "UC2WHwO5IpE4TuBTxJzLLvPQ",
+ "subs": 7150,
+ "views": 66053,
+ "ratio": 9.24,
+ "age_days": 6,
+ "views_per_day": 11008.8,
+ "minutes": 8.3,
+ "likes": 441,
+ "comments": 36,
+ "published": "2026-10-14",
+ "queries": "검색:dividend investing",
+ "url": "https://www.youtube.com/watch?v=_-rdF2o1v0c",
+ "flag": "외국 영상",
+ "published_at": "2026-10-14T10:50:09Z",
+ "rank": "W29",
+ "set": "web",
+ "folder": "W__-rdF2o1v0c",
+ "sources": [
+  "검색:dividend investing"
+ ],
+ "source": "web",
+ "tags": [
+  "dividen",
+  "cara dapat dividen",
+  "investasi dividen",
+  "saham dividen untuk pemula",
+  "pensiun dini",
+  "pensiun dini indonesia",
+  "FIRE indonesia",
+  "bebas finansial",
+  "financial independence",
+  "angka kebebasan finansial",
+  "buruh pabrik",
+  "karyawan pabrik",
+  "gaji UMR",
+  "investasi gaji UMR",
+  "investasi untuk pemula",
+  "reksa dana indeks",
+  "autodebet investasi",
+  "dana darurat",
+  "bunga berbunga",
+  "keuangan pribadi",
+  "pov keuangan",
+  "cerita keuangan",
+  "edukasi keuangan",
+  "pov kamu"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Hari terakhir di pabrik"
+  },
+  {
+   "start": 60,
+   "title": "Level 1: Gaji dan Dividen"
+  },
+  {
+   "start": 120,
+   "title": "Level 2: Dividen Pertama"
+  },
+  {
+   "start": 215,
+   "title": "Level 3: Dividen Bisa Turun"
+  },
+  {
+   "start": 305,
+   "title": "Level 4: Angka yang Terlalu Lama"
+  },
+  {
+   "start": 405,
+   "title": "Level 5: Harga Sebuah Bel"
+  },
+  {
+   "start": 465,
+   "title": "Penutup"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "id",
+ "foreign": true,
+ "comments_fetched": 36,
+ "comments_top_level": 20,
+ "comments_replies": 16,
+ "comments_by_creator": 4,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 36,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T07:46:00",
+ "approved": "2026-10-21T16:46+09:00"
+}

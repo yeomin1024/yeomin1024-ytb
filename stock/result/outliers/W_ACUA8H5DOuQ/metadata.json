@@ -1,0 +1,70 @@
+{
+ "id": "ACUA8H5DOuQ",
+ "title": "왜 유독 국장만? 도대체 어떻게 대응해야 할까요? 외인의 심리에 답이 있다? 매크로 귀재 김효진 박사에게 방향성을 물었습니다. I 멤버십 방송 I 최경영TV",
+ "channel": "최경영TV",
+ "channel_id": "UCE-94tymU-LjuglJ_wqzhHA",
+ "subs": 389000,
+ "views": 238024,
+ "ratio": 0.61,
+ "age_days": 3,
+ "views_per_day": 79341.3,
+ "minutes": 26.1,
+ "likes": 2539,
+ "comments": 214,
+ "published": "2026-10-18",
+ "queries": "검색:국장",
+ "url": "https://www.youtube.com/watch?v=ACUA8H5DOuQ",
+ "flag": "",
+ "published_at": "2026-10-18T01:00:35Z",
+ "rank": "W98",
+ "set": "web",
+ "folder": "W_ACUA8H5DOuQ",
+ "sources": [
+  "검색:국장"
+ ],
+ "source": "web",
+ "tags": [
+  "최경영",
+  "최경영TV",
+  "곽상준",
+  "증시 각도기",
+  "윤지호",
+  "김학균",
+  "이효석",
+  "레전드",
+  "채상욱",
+  "이광수"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "7일 만에 20% 급락... 유독 국장이 낙폭 심한 이유"
+  },
+  {
+   "start": 750,
+   "title": "매도세 이어질까? 반등 모멘텀은?"
+  },
+  {
+   "start": 1110,
+   "title": "미 국채 5% 시대, 종목 옥석 가리기 하는 투자자들"
+  },
+  {
+   "start": 1329,
+   "title": "코스피 9300 다시 갈 수 있을까?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 214,
+ "comments_top_level": 156,
+ "comments_replies": 58,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 214,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T07:50:34",
+ "approved": "2026-10-21T16:50+09:00"
+}

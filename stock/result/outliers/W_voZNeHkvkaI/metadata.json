@@ -1,0 +1,102 @@
+{
+ "id": "voZNeHkvkaI",
+ "title": "\"이 원칙만 제발 지키세요\" 내가 사면 떨어지고 팔면 올라가는 진짜 이유",
+ "channel": "정영진의 나쁜질문",
+ "channel_id": "UCmkOpe3VTehtoIVUuHvdhOw",
+ "subs": 146000,
+ "views": 810957,
+ "ratio": 5.55,
+ "age_days": 46,
+ "views_per_day": 17629.5,
+ "minutes": 43.0,
+ "likes": 6319,
+ "comments": 494,
+ "published": "2026-09-04",
+ "queries": "검색:주식강의",
+ "url": "https://www.youtube.com/watch?v=voZNeHkvkaI",
+ "flag": "",
+ "published_at": "2026-09-04T11:05:21Z",
+ "rank": "W4",
+ "set": "web",
+ "folder": "W_voZNeHkvkaI",
+ "sources": [
+  "검색:주식강의"
+ ],
+ "source": "web",
+ "tags": [
+  "한국",
+  "정치",
+  "역사",
+  "보다",
+  "정프로",
+  "삼프로"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트"
+  },
+  {
+   "start": 37,
+   "title": "시작"
+  },
+  {
+   "start": 127,
+   "title": "왜 주식은 내가 팔기만 하면 오를까?"
+  },
+  {
+   "start": 184,
+   "title": "반도체 호황, 이번에만 있는 특별 케이스인지?"
+  },
+  {
+   "start": 238,
+   "title": "정말 잘 나갔던 기업이 반토막난 사례?"
+  },
+  {
+   "start": 448,
+   "title": "지금 물려있거나 사려는 사람들은 어떻게 해야할까?"
+  },
+  {
+   "start": 535,
+   "title": "우리가 환율을 공부해야 하는 이유"
+  },
+  {
+   "start": 1042,
+   "title": "투자하기 전에 금리를 무조건 알아야 하는 이유"
+  },
+  {
+   "start": 1228,
+   "title": "중국 반도체의 성장으로 한국 반도체 시장에 끼칠 영향"
+  },
+  {
+   "start": 1384,
+   "title": "지금 당장 돈을 벌 수 있는 가벼운 주식은 어떤지?"
+  },
+  {
+   "start": 1698,
+   "title": "그렇다면 삼전닉스는 언제 제자리를 찾을까?"
+  },
+  {
+   "start": 1867,
+   "title": "그렇다면 주식은 언제 사고 팔아야 하는지?"
+  },
+  {
+   "start": 2120,
+   "title": "내가 1천만원 있다면 '이 주식'에 무조건 넣을 겁니다"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 494,
+ "comments_top_level": 396,
+ "comments_replies": 98,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 494,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:01:25",
+ "approved": "2026-10-21T17:01+09:00"
+}

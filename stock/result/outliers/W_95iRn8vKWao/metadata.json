@@ -1,0 +1,87 @@
+{
+ "id": "95iRn8vKWao",
+ "title": "The 7 Levels of Investing: What Changes At Every Stage",
+ "channel": "Humphrey Yang",
+ "channel_id": "UCFBpVaKCC0ajGps1vf0AgBg",
+ "subs": 2090000,
+ "views": 192772,
+ "ratio": 0.09,
+ "age_days": 5,
+ "views_per_day": 38554.4,
+ "minutes": 16.3,
+ "likes": 1587,
+ "comments": 394,
+ "published": "2026-10-15",
+ "queries": "검색:how to invest in stocks | 검색:index funds | 검색:dividend investing | 검색:stock market investing",
+ "url": "https://www.youtube.com/watch?v=95iRn8vKWao",
+ "flag": "외국 영상",
+ "published_at": "2026-10-15T18:00:15Z",
+ "rank": "W24",
+ "set": "web",
+ "folder": "W_95iRn8vKWao",
+ "sources": [
+  "검색:how to invest in stocks",
+  "검색:index funds",
+  "검색:dividend investing",
+  "검색:stock market investing"
+ ],
+ "source": "web",
+ "tags": [
+  "humphreytalks",
+  "humphrey yang",
+  "personal finance",
+  "investing",
+  "budgeting",
+  "wealth",
+  "cryptocurrency",
+  "stocks"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Start Here"
+  },
+  {
+   "start": 60,
+   "title": "Level 1"
+  },
+  {
+   "start": 133,
+   "title": "Level 2"
+  },
+  {
+   "start": 225,
+   "title": "Level 3"
+  },
+  {
+   "start": 334,
+   "title": "Level 4"
+  },
+  {
+   "start": 586,
+   "title": "Level 5"
+  },
+  {
+   "start": 734,
+   "title": "Level 6"
+  },
+  {
+   "start": 845,
+   "title": "Level 7"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en-US",
+ "foreign": true,
+ "comments_fetched": 394,
+ "comments_top_level": 115,
+ "comments_replies": 279,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 394,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:25:12",
+ "approved": "2026-10-21T17:25+09:00"
+}

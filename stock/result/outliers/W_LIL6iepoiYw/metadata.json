@@ -1,0 +1,103 @@
+{
+ "id": "LIL6iepoiYw",
+ "title": "\"살려주세요\" 6천피 깨지고 10% 폭락하고...반도체 고수들은 지금 [야식잡썰 EP.282] / 이대호 기자",
+ "channel": "와이스트릿 - 지식과 자산의 복리효과",
+ "channel_id": "UCupslRq5jW95UGzPjOZz0FA",
+ "subs": 1000000,
+ "views": 210443,
+ "ratio": 0.21,
+ "age_days": 7,
+ "views_per_day": 30063.3,
+ "minutes": 31.2,
+ "likes": 1588,
+ "comments": 156,
+ "published": "2026-10-13",
+ "queries": "검색:주식투자",
+ "url": "https://www.youtube.com/watch?v=LIL6iepoiYw",
+ "flag": "",
+ "published_at": "2026-10-13T09:50:22Z",
+ "rank": "W54",
+ "set": "web",
+ "folder": "W_LIL6iepoiYw",
+ "sources": [
+  "검색:주식투자"
+ ],
+ "source": "web",
+ "tags": [
+  "부자",
+  "주식",
+  "부동산",
+  "재테크",
+  "지식",
+  "투자",
+  "와이스트릿",
+  "이대호",
+  "부자되는법",
+  "야식잡썰",
+  "증시",
+  "코스피",
+  "코스닥",
+  "주가",
+  "복리효과",
+  "잡설",
+  "자산",
+  "나스닥",
+  "미장",
+  "etf",
+  "레버리지",
+  "s&p500",
+  "삼성전자",
+  "엔비디아",
+  "SK하이닉스",
+  "반도체",
+  "소부장",
+  "2차전지",
+  "배터리",
+  "바이오",
+  "금융",
+  "은행",
+  "증권",
+  "보험",
+  "아파트",
+  "집값",
+  "내집마련",
+  "공부",
+  "순자산"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하루 만에 200조원 날아갔다"
+  },
+  {
+   "start": 790,
+   "title": "80% 겪고 깨달은 투자의 본질"
+  },
+  {
+   "start": 1068,
+   "title": "중국 CXMT 쇼크 진짜?"
+  },
+  {
+   "start": 1284,
+   "title": "난 이 주식 더 샀어"
+  },
+  {
+   "start": 1456,
+   "title": "결국 부자되는 사람들이 하는 행동"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 156,
+ "comments_top_level": 107,
+ "comments_replies": 49,
+ "comments_by_creator": 5,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 156,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:26:25",
+ "approved": "2026-10-21T17:26+09:00"
+}

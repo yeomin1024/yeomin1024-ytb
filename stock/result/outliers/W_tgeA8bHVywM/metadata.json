@@ -1,0 +1,128 @@
+{
+ "id": "tgeA8bHVywM",
+ "title": "I'm Not Selling — I'm Buying These 4 Stocks After the Selloff",
+ "channel": "Navellier Market Buzz",
+ "channel_id": "UCqm9Z0DfGXZ8oMF70ic3B1A",
+ "subs": 33100,
+ "views": 164995,
+ "ratio": 4.98,
+ "age_days": 6,
+ "views_per_day": 27499.2,
+ "minutes": 13.7,
+ "likes": 2654,
+ "comments": 201,
+ "published": "2026-10-14",
+ "queries": "검색:stocks to buy | 검색:stock market | 검색:stocks | 검색:stock market investing",
+ "url": "https://www.youtube.com/watch?v=tgeA8bHVywM",
+ "flag": "외국 영상",
+ "published_at": "2026-10-14T19:00:36Z",
+ "rank": "W49",
+ "set": "web",
+ "folder": "W_tgeA8bHVywM",
+ "sources": [
+  "검색:stocks to buy",
+  "검색:stock market",
+  "검색:stocks",
+  "검색:stock market investing"
+ ],
+ "source": "web",
+ "tags": [
+  "Louis Navellier",
+  "Navellier Market Buzz",
+  "Micron stock",
+  "MU stock",
+  "Micron Technology",
+  "SNDK stock",
+  "SanDisk stock",
+  "Seagate stock",
+  "STX stock",
+  "Western Digital",
+  "WDC stock",
+  "AI stocks",
+  "AI memory stocks",
+  "memory chip shortage",
+  "stocks to buy now",
+  "buy the dip",
+  "AI data centers",
+  "stock market today",
+  "stock market October 2026",
+  "TSMC stock",
+  "oil tanker stocks",
+  "ECO stock",
+  "INSW stock",
+  "TEN stock",
+  "stock market outlook"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Wall Street Is Panicking Over Memory Stocks"
+  },
+  {
+   "start": 17,
+   "title": "Why Big Tech Is Borrowing Billions for AI"
+  },
+  {
+   "start": 93,
+   "title": "Why Memory Stocks Are So Volatile Right Now"
+  },
+  {
+   "start": 162,
+   "title": "Stock #1: Back Up the Truck"
+  },
+  {
+   "start": 262,
+   "title": "Stock #2: Still Growing or Overhyped?"
+  },
+  {
+   "start": 315,
+   "title": "CPI & PPI Preview: What Louie's Watching"
+  },
+  {
+   "start": 356,
+   "title": "Europe's Contagion Risk"
+  },
+  {
+   "start": 433,
+   "title": "Why Foreign Money Is Pouring Into America"
+  },
+  {
+   "start": 488,
+   "title": "Will the Fed Hike Before the Midterms?"
+  },
+  {
+   "start": 544,
+   "title": "Stock #3: Louie's Longest-Held Pick"
+  },
+  {
+   "start": 573,
+   "title": "Stock #4: Head-to-Head Matchup"
+  },
+  {
+   "start": 605,
+   "title": "Earnings Season Is About to Steamroll the Market"
+  },
+  {
+   "start": 677,
+   "title": "Bonus: 3 Stocks Making Windfall Profits"
+  },
+  {
+   "start": 769,
+   "title": "Final Thoughts"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "en-US",
+ "foreign": true,
+ "comments_fetched": 201,
+ "comments_top_level": 93,
+ "comments_replies": 108,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 201,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T07:47:03",
+ "approved": "2026-10-21T16:47+09:00"
+}

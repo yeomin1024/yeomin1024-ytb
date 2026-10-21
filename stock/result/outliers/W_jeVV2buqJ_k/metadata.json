@@ -1,0 +1,99 @@
+{
+ "id": "jeVV2buqJ_k",
+ "title": "Jeden Monat Miete ohne eigene Immobilie - warum ich jetzt Realty Income kaufe",
+ "channel": "Aktienhai",
+ "channel_id": "UCglu185Fl00tMs1HAXpZAQQ",
+ "subs": 2910,
+ "views": 10082,
+ "ratio": 3.46,
+ "age_days": 5,
+ "views_per_day": 2016.4,
+ "minutes": 11.0,
+ "likes": 124,
+ "comments": 38,
+ "published": "2026-10-15",
+ "queries": "검색:dividend income | 검색:best dividend stocks",
+ "url": "https://www.youtube.com/watch?v=jeVV2buqJ_k",
+ "flag": "외국 영상",
+ "published_at": "2026-10-15T15:00:24Z",
+ "rank": "W60",
+ "set": "web",
+ "folder": "W_jeVV2buqJ_k",
+ "sources": [
+  "검색:dividend income",
+  "검색:best dividend stocks"
+ ],
+ "source": "web",
+ "tags": [
+  "Aktien",
+  "Aktienanalyse",
+  "Börse",
+  "Finanzen",
+  "Investieren",
+  "ETF",
+  "Dividenden",
+  "Elliott Wave",
+  "Fundamentalanalyse",
+  "Portfolio",
+  "Vermögensaufbau",
+  "Reits",
+  "Dividendenportfolio",
+  "Dividendenaktien"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Jeden Monat Miete, trotzdem billiger"
+  },
+  {
+   "start": 52,
+   "title": "Realty Income (ISIN: US7561091049)"
+  },
+  {
+   "start": 113,
+   "title": "Warum die Aktie seit Jahren fällt"
+  },
+  {
+   "start": 202,
+   "title": "Umsatz, FFO und AFFO"
+  },
+  {
+   "start": 306,
+   "title": "Bewertung, Dividende, Schulden"
+  },
+  {
+   "start": 430,
+   "title": "Was bei Realty Income wirklich zählt"
+  },
+  {
+   "start": 515,
+   "title": "NNN REIT und Agree Realty im Vergleich"
+  },
+  {
+   "start": 538,
+   "title": "Der Haken"
+  },
+  {
+   "start": 597,
+   "title": "Score und Fazit"
+  },
+  {
+   "start": 625,
+   "title": "Würde ich kaufen?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "de",
+ "foreign": true,
+ "comments_fetched": 38,
+ "comments_top_level": 7,
+ "comments_replies": 31,
+ "comments_by_creator": 4,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 38,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T07:47:50",
+ "approved": "2026-10-21T16:47+09:00"
+}

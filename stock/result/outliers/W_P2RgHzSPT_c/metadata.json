@@ -1,0 +1,84 @@
+{
+ "id": "P2RgHzSPT_c",
+ "title": "K 비만약 ‘에페’ 출격ㅣ룰루레몬 주가 폭락ㅣ좀비 ETF 등 4가지 🥬경제 이슈🥬",
+ "channel": "14F 일사에프",
+ "channel_id": "UCLKuglhGlMmDteQKoniENIQ",
+ "subs": 2390000,
+ "views": 280815,
+ "ratio": 0.12,
+ "age_days": 3,
+ "views_per_day": 93605.0,
+ "minutes": 14.8,
+ "likes": 728,
+ "comments": 55,
+ "published": "2026-10-18",
+ "queries": "검색:ETF | 검색:주가 | 검색:ETFs",
+ "url": "https://www.youtube.com/watch?v=P2RgHzSPT_c",
+ "flag": "",
+ "published_at": "2026-10-18T04:00:19Z",
+ "rank": "W172",
+ "set": "web",
+ "folder": "W_P2RgHzSPT_c",
+ "sources": [
+  "검색:ETF",
+  "검색:주가",
+  "검색:ETFs"
+ ],
+ "source": "web",
+ "tags": [
+  "14f",
+  "일사에프",
+  "경제",
+  "경제뉴스",
+  "경제이슈",
+  "룰루레몬레깅스",
+  "레깅스",
+  "운동복",
+  "마운자로",
+  "위고비",
+  "비만약",
+  "에페",
+  "한미약품",
+  "다이어트",
+  "주사",
+  "게티",
+  "ETF",
+  "좀비ETF",
+  "상장폐지",
+  "우주",
+  "스페이스X",
+  "주식"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "K 비만약 ‘에페’ 출격"
+  },
+  {
+   "start": 234,
+   "title": "룰루레몬 주가 왜 하락했을까?"
+  },
+  {
+   "start": 449,
+   "title": "※ 거래량 낮은 좀비 ETF 주의 ※"
+  },
+  {
+   "start": 699,
+   "title": "게티이미지 상장폐지"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 55,
+ "comments_top_level": 52,
+ "comments_replies": 3,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 55,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T07:55:36",
+ "approved": "2026-10-21T16:55+09:00"
+}

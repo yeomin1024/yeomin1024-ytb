@@ -1,0 +1,149 @@
+{
+ "id": "LI01h26YrtM",
+ "title": "Stock Market ని పడేసిన Nirmala Sitharaman| మీ SIP పై ఆంక్షలు?",
+ "channel": "Money Purse { మనీ పర్స్ }",
+ "channel_id": "UChBT5TlUeG68PKvJSg6MkqQ",
+ "subs": 2120000,
+ "views": 179204,
+ "ratio": 0.08,
+ "age_days": 1,
+ "views_per_day": 179204.0,
+ "minutes": 19.7,
+ "likes": 3727,
+ "comments": 216,
+ "published": "2026-10-19",
+ "queries": "검색:stock market",
+ "url": "https://www.youtube.com/watch?v=LI01h26YrtM",
+ "flag": "외국 영상",
+ "published_at": "2026-10-19T13:46:55Z",
+ "rank": "W188",
+ "set": "web",
+ "folder": "W_LI01h26YrtM",
+ "sources": [
+  "검색:stock market"
+ ],
+ "source": "web",
+ "tags": [
+  "Stock Market Today",
+  "Market Analysis",
+  "Stock Of The Day",
+  "Jio IPO",
+  "Sugar Stocks",
+  "Solar Stocks",
+  "Hospital Stocks",
+  "CV Stocks",
+  "Zen Technologies",
+  "Natco Pharma",
+  "Powermech Projects",
+  "SpaceX Stock",
+  "HFCL Share News",
+  "Kross Results",
+  "Union Bank Results",
+  "PNB Share News",
+  "ICICI Bank Results",
+  "Axis Bank News",
+  "HDFC Bank Results",
+  "Q2 Results",
+  "Earnings Updates",
+  "Nifty50",
+  "BankNifty",
+  "Stock Market News",
+  "Indian Share Market",
+  "IPO Review",
+  "Best Stocks To Buy",
+  "Multibagger Stocks",
+  "Equity Research"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Concept"
+  },
+  {
+   "start": 45,
+   "title": "Market analysis"
+  },
+  {
+   "start": 387,
+   "title": "50% Discount stock ( Stock of the day)"
+  },
+  {
+   "start": 567,
+   "title": "JIO IPO Response"
+  },
+  {
+   "start": 608,
+   "title": "Sugar stocks"
+  },
+  {
+   "start": 647,
+   "title": "Solar stocks"
+  },
+  {
+   "start": 691,
+   "title": "Hospital stocks"
+  },
+  {
+   "start": 723,
+   "title": "CV Stocks"
+  },
+  {
+   "start": 762,
+   "title": "Zen technologies"
+  },
+  {
+   "start": 802,
+   "title": "Natco Pharma"
+  },
+  {
+   "start": 831,
+   "title": "Powermech projects"
+  },
+  {
+   "start": 846,
+   "title": "Space x stock"
+  },
+  {
+   "start": 877,
+   "title": "HFCL Results"
+  },
+  {
+   "start": 943,
+   "title": "Kross results"
+  },
+  {
+   "start": 982,
+   "title": "Union bank results"
+  },
+  {
+   "start": 1010,
+   "title": "PNB Results"
+  },
+  {
+   "start": 1038,
+   "title": "ICICI Bank results"
+  },
+  {
+   "start": 1084,
+   "title": "Axis bank results"
+  },
+  {
+   "start": 1122,
+   "title": "HDFC Bank results"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "te",
+ "foreign": true,
+ "comments_fetched": 216,
+ "comments_top_level": 185,
+ "comments_replies": 31,
+ "comments_by_creator": 2,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 216,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T07:56:27",
+ "approved": "2026-10-21T16:56+09:00"
+}

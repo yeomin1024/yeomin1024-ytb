@@ -1,19 +1,20 @@
 {
- "tool": "cloud_run.py v1.3",
+ "tool": "cloud_run.py v1.5.1",
  "topic": "stock",
- "saved": "2026-10-20T16:20:41+09:00",
- "why": "resume",
- "files": 13875,
- "bytes_raw": 35071473,
- "bytes_tgz": 18598880,
- "sha256": "019cdc0b3f76b0a0b3be146f82f0740aca576af460535bf644247dafdb9932c2",
+ "saved": "2026-10-21T17:31:09+09:00",
+ "why": "explore",
+ "files": 18201,
+ "bytes_raw": 47570271,
+ "bytes_tgz": 23733125,
+ "sha256": "3085b631a37c0bd17fe17bf8a7996173c5ad3782a850b24c678913b2f1d5cd69",
+ "parts": [],
  "kinds": {
   "autocomplete.json": 1,
   "channels.json": 1,
   "search": 220,
   "shorts": 6000,
-  "uploads": 105,
-  "video": 7544,
-  "web": 4
+  "uploads": 146,
+  "video": 11827,
+  "web": 6
  }
 }

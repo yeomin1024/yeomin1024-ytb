@@ -1,0 +1,85 @@
+{
+ "id": "tdXFaVaJfTo",
+ "title": "CoreWeave Is Imploding — And Taking AI Stocks Down With It",
+ "channel": "Prof G Markets",
+ "channel_id": "UCp4CBeq4nzeg9smAvdjPrig",
+ "subs": 127000,
+ "views": 512847,
+ "ratio": 4.04,
+ "age_days": 5,
+ "views_per_day": 102569.4,
+ "minutes": 34.2,
+ "likes": 6757,
+ "comments": 966,
+ "published": "2026-10-15",
+ "queries": "검색:stocks to buy | 검색:stocks",
+ "url": "https://www.youtube.com/watch?v=tdXFaVaJfTo",
+ "flag": "외국 영상",
+ "published_at": "2026-10-15T11:00:07Z",
+ "rank": "W53",
+ "set": "web",
+ "folder": "W_tdXFaVaJfTo",
+ "sources": [
+  "검색:stocks to buy",
+  "검색:stocks"
+ ],
+ "source": "web",
+ "tags": [
+  "business news",
+  "stock market",
+  "financial news",
+  "financial news channel",
+  "financial news today",
+  "stock market news today",
+  "stock market today",
+  "stock market news"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Intro"
+  },
+  {
+   "start": 25,
+   "title": "Market Vitals"
+  },
+  {
+   "start": 99,
+   "title": "CoreWeave's Emergency (ft. Paul Kedrosky)"
+  },
+  {
+   "start": 965,
+   "title": "Ad Break"
+  },
+  {
+   "start": 1121,
+   "title": "September Inflation (ft. Mark Zandi)"
+  },
+  {
+   "start": 1771,
+   "title": "Ad Break"
+  },
+  {
+   "start": 1862,
+   "title": "CFTC"
+  },
+  {
+   "start": 2036,
+   "title": "Credits"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 966,
+ "comments_top_level": 534,
+ "comments_replies": 432,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 966,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T07:47:20",
+ "approved": "2026-10-21T16:47+09:00"
+}

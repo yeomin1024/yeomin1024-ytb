@@ -1,0 +1,110 @@
+{
+ "id": "UcHK1WoTPtY",
+ "title": "S&P500은 최고인데 내 ETF는 마이너스… 지금 환헤지로 갈아타면 늦는 진짜 이유",
+ "channel": "뒤집는경제",
+ "channel_id": "UC23xjihRXvOSrA_ZqxIld4g",
+ "subs": 421,
+ "views": 59488,
+ "ratio": 141.3,
+ "age_days": 4,
+ "views_per_day": 14872.0,
+ "minutes": 23.2,
+ "likes": 274,
+ "comments": 28,
+ "published": "2026-10-16",
+ "queries": "검색:ETF | 검색:S&P500 | 검색:ETF투자 | 검색:미국ETF | 검색:ETFs",
+ "url": "https://www.youtube.com/watch?v=UcHK1WoTPtY",
+ "flag": "",
+ "published_at": "2026-10-16T18:20:20Z",
+ "rank": "W3",
+ "set": "web",
+ "folder": "W_UcHK1WoTPtY",
+ "sources": [
+  "검색:ETF",
+  "검색:S&P500",
+  "검색:ETF투자",
+  "검색:미국ETF",
+  "검색:ETFs"
+ ],
+ "source": "web",
+ "tags": [
+  "S&P500",
+  "환헤지",
+  "환노출",
+  "환율",
+  "원달러환율",
+  "환율하락",
+  "원화강세",
+  "미국ETF",
+  "S&P500 ETF",
+  "TIGER 미국S&P500",
+  "KODEX 미국S&P500",
+  "환헤지 ETF",
+  "환헤지 비용",
+  "S&P500 환헤지",
+  "S&P500 사상최고",
+  "미국주식",
+  "ETF 투자",
+  "적립식 투자",
+  "연금저축",
+  "ISA",
+  "연금저축 ETF",
+  "한미 금리차",
+  "서학개미",
+  "재테크",
+  "직장인 재테크",
+  "뒤집는경제"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "S&P500 최고인데 내 ETF는 마이너스"
+  },
+  {
+   "start": 107,
+   "title": "수익을 만드는 두 개의 숫자"
+  },
+  {
+   "start": 300,
+   "title": "1,550원에서 1,331원까지, 넉 달의 반전"
+  },
+  {
+   "start": 458,
+   "title": "7개월 만에 뒤집힌 증권가 전망"
+  },
+  {
+   "start": 660,
+   "title": "환헤지는 공짜가 아니다"
+  },
+  {
+   "start": 802,
+   "title": "환노출형에 달린 공짜 에어백"
+  },
+  {
+   "start": 920,
+   "title": "버틴 사람 vs 갈아탄 사람, 숫자 맞대결"
+  },
+  {
+   "start": 1080,
+   "title": "적립식 투자자에게 원화 강세란"
+  },
+  {
+   "start": 1165,
+   "title": "흔들리지 않는 세 가지 기준"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 28,
+ "comments_top_level": 15,
+ "comments_replies": 13,
+ "comments_by_creator": 10,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 28,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T07:44:31",
+ "approved": "2026-10-21T16:44+09:00"
+}

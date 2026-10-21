@@ -1,0 +1,92 @@
+{
+ "id": "6J_YSkA9RAI",
+ "title": "Before You Reach 50, Make Sure You Have These 5 Things",
+ "channel": "Smart Money Bro",
+ "channel_id": "UCMmfUj8CcXeqpqWkund3ELg",
+ "subs": 760000,
+ "views": 65463,
+ "ratio": 0.09,
+ "age_days": 2,
+ "views_per_day": 32731.5,
+ "minutes": 29.1,
+ "likes": 1509,
+ "comments": 184,
+ "published": "2026-10-18",
+ "queries": "검색:index funds",
+ "url": "https://www.youtube.com/watch?v=6J_YSkA9RAI",
+ "flag": "외국 영상",
+ "published_at": "2026-10-18T14:30:11Z",
+ "rank": "W15",
+ "set": "web",
+ "folder": "W_6J_YSkA9RAI",
+ "sources": [
+  "검색:index funds"
+ ],
+ "source": "web",
+ "tags": [
+  "Before You Reach 50 Make Sure You Have These 5 Things",
+  "money before 50",
+  "finances over 50",
+  "retirement planning",
+  "financial planning",
+  "building wealth",
+  "index funds",
+  "ETFs",
+  "brokerage account",
+  "diversified investing",
+  "Eric Bowie",
+  "Smart Money Bro",
+  "financial freedom",
+  "financial literacy",
+  "term life insurance",
+  "life insurance",
+  "estate planning",
+  "living trust",
+  "emergency fund",
+  "emergency savings",
+  "high yield savings account",
+  "buying a car with cash",
+  "paid off car",
+  "personal finance"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Introduction"
+  },
+  {
+   "start": 32,
+   "title": "#1 A Paid-Off Car"
+  },
+  {
+   "start": 238,
+   "title": "#2 Broadly Diversified ETFs and Index Funds"
+  },
+  {
+   "start": 739,
+   "title": "#3 The Right Life Insurance"
+  },
+  {
+   "start": 1086,
+   "title": "#4 A Complete Estate Plan"
+  },
+  {
+   "start": 1366,
+   "title": "#5 Emergency Cash Reserves"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 184,
+ "comments_top_level": 108,
+ "comments_replies": 76,
+ "comments_by_creator": 9,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 184,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:24:55",
+ "approved": "2026-10-21T17:24+09:00"
+}

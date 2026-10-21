@@ -1,0 +1,84 @@
+{
+ "id": "7lWroPQ55EQ",
+ "title": "So würde ich 2027 starten! 500 € im Monat investieren.",
+ "channel": "FINANZFOKUS",
+ "channel_id": "UClAphf8egdRMoPKgZRdv6fw",
+ "subs": 172000,
+ "views": 353300,
+ "ratio": 2.05,
+ "age_days": 24,
+ "views_per_day": 14720.8,
+ "minutes": 15.1,
+ "likes": 2505,
+ "comments": 215,
+ "published": "2026-09-27",
+ "queries": "검색:ETFs",
+ "url": "https://www.youtube.com/watch?v=7lWroPQ55EQ",
+ "flag": "외국 영상",
+ "published_at": "2026-09-27T07:15:04Z",
+ "rank": "W18",
+ "set": "web",
+ "folder": "W_7lWroPQ55EQ",
+ "sources": [
+  "검색:ETFs"
+ ],
+ "source": "web",
+ "tags": [
+  "Aktien",
+  "Aktie",
+  "Börse",
+  "Finanzfokus"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Intro"
+  },
+  {
+   "start": 54,
+   "title": "Entscheidung 1: Der richtige Zeitpunkt"
+  },
+  {
+   "start": 154,
+   "title": "Entscheidung 2: Die optimale Anlageklasse"
+  },
+  {
+   "start": 295,
+   "title": "Entscheidung 3: Der richtige ETF"
+  },
+  {
+   "start": 454,
+   "title": "Entscheidung 4: Die einfache Umsetzung"
+  },
+  {
+   "start": 569,
+   "title": "Sparplan in der App einrichten"
+  },
+  {
+   "start": 629,
+   "title": "Steuern"
+  },
+  {
+   "start": 758,
+   "title": "Entscheidung 5: Deine Sparrate"
+  },
+  {
+   "start": 886,
+   "title": "Diese Fehler solltest du vermeiden"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "de",
+ "foreign": true,
+ "comments_fetched": 215,
+ "comments_top_level": 70,
+ "comments_replies": 145,
+ "comments_by_creator": 3,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 215,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:02:18",
+ "approved": "2026-10-21T17:02+09:00"
+}

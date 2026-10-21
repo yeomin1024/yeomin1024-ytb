@@ -1,0 +1,78 @@
+{
+ "id": "CZSZnrkMW84",
+ "title": "레버리지 ETF 털면 끝난다, 윗선은 두 명 뿐!",
+ "channel": "주진우의 이슈해설",
+ "channel_id": "UC6_I-QpE75cn2iwzSEA9PRw",
+ "subs": 512000,
+ "views": 117304,
+ "ratio": 0.23,
+ "age_days": 1,
+ "views_per_day": 117304.0,
+ "minutes": 22.2,
+ "likes": 12110,
+ "comments": 618,
+ "published": "2026-10-19",
+ "queries": "검색:ETFs",
+ "url": "https://www.youtube.com/watch?v=CZSZnrkMW84",
+ "flag": "",
+ "published_at": "2026-10-19T12:00:03Z",
+ "rank": "W144",
+ "set": "web",
+ "folder": "W_CZSZnrkMW84",
+ "sources": [
+  "검색:ETFs"
+ ],
+ "source": "web",
+ "tags": [
+  "주진우",
+  "이슈해설"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "이재명 고발 사건, 서로 미루는 수사기관"
+  },
+  {
+   "start": 75,
+   "title": "황제 골프, 현금 결제인가 카드 결제인가"
+  },
+  {
+   "start": 135,
+   "title": "시청자 투표: 이재명 고발 사건 누가 맡을까"
+  },
+  {
+   "start": 301,
+   "title": "김지용 중수청장의 국무회의 참석"
+  },
+  {
+   "start": 613,
+   "title": "금감원장 이찬진, 레버리지 ETF 상장 앞당긴 이유"
+  },
+  {
+   "start": 901,
+   "title": "아주대병원 소아응급실 압수수색"
+  },
+  {
+   "start": 1086,
+   "title": "이화영 변호인 김광민 \"목표는 여당 금배지\""
+  },
+  {
+   "start": 1134,
+   "title": "박상용 검사에게 누명 씌운 정용환, 국감 질의"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 618,
+ "comments_top_level": 595,
+ "comments_replies": 23,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 618,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T07:53:58",
+ "approved": "2026-10-21T16:54+09:00"
+}

@@ -1,0 +1,80 @@
+{
+ "id": "EB_-ZGfqX5s",
+ "title": "【NISAおすすめ】オルカン・S＆P500・日本株・FANG＋・NASDAQ100の人気銘柄５つを元銀行員の目線で徹底検証しました！",
+ "channel": "初心者でも分かる40代50代のための資産形成塾 みく",
+ "channel_id": "UCymY-jbohwoFK_K80iwYVig",
+ "subs": 3590,
+ "views": 28701,
+ "ratio": 7.99,
+ "age_days": 2,
+ "views_per_day": 14350.5,
+ "minutes": 37.6,
+ "likes": 100,
+ "comments": 9,
+ "published": "2026-10-18",
+ "queries": "검색:S&P500",
+ "url": "https://www.youtube.com/watch?v=EB_-ZGfqX5s",
+ "flag": "외국 영상",
+ "published_at": "2026-10-18T08:00:18Z",
+ "rank": "W32",
+ "set": "web",
+ "folder": "W_EB_-ZGfqX5s",
+ "sources": [
+  "검색:S&P500"
+ ],
+ "source": "web",
+ "tags": [
+  "資産運用",
+  "NISA",
+  "新NISA",
+  "40代",
+  "50代",
+  "60代",
+  "初心者",
+  "老後"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "オープニング"
+  },
+  {
+   "start": 126,
+   "title": "日経平均とTOPIX、何が違う？"
+  },
+  {
+   "start": 525,
+   "title": "オルカンはなぜ人気なの？"
+  },
+  {
+   "start": 774,
+   "title": "S&P500はオルカンと何が違う？"
+  },
+  {
+   "start": 958,
+   "title": "NASDAQ100とFANG+の注意点は？"
+  },
+  {
+   "start": 1450,
+   "title": "一番増えた銘柄を選べばいい？"
+  },
+  {
+   "start": 1671,
+   "title": "今の組み合わせ、このままでいい？"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ja",
+ "foreign": true,
+ "comments_fetched": 9,
+ "comments_top_level": 5,
+ "comments_replies": 4,
+ "comments_by_creator": 4,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 9,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T07:46:09",
+ "approved": "2026-10-21T16:46+09:00"
+}

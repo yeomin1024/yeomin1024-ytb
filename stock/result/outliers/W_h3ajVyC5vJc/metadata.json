@@ -1,0 +1,76 @@
+{
+ "id": "h3ajVyC5vJc",
+ "title": "Breaking Down My Investment Portfolio",
+ "channel": "Ben Felix",
+ "channel_id": "UCDXTQ8nWmx_EhZ2v-kp7QxA",
+ "subs": 650000,
+ "views": 370922,
+ "ratio": 0.57,
+ "age_days": 2,
+ "views_per_day": 185461.0,
+ "minutes": 18.9,
+ "likes": 6189,
+ "comments": 630,
+ "published": "2026-10-18",
+ "queries": "검색:how to invest in stocks | 검색:stock market investing",
+ "url": "https://www.youtube.com/watch?v=h3ajVyC5vJc",
+ "flag": "외국 영상",
+ "published_at": "2026-10-18T10:00:22Z",
+ "rank": "W105",
+ "set": "web",
+ "folder": "W_h3ajVyC5vJc",
+ "sources": [
+  "검색:how to invest in stocks",
+  "검색:stock market investing"
+ ],
+ "source": "web",
+ "tags": [
+  "benjamin felix",
+  "common sense investing",
+  "ben felix"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Intro"
+  },
+  {
+   "start": 34,
+   "title": "My Upbringing & Views on Wealth"
+  },
+  {
+   "start": 312,
+   "title": "College & Early Career"
+  },
+  {
+   "start": 635,
+   "title": "My Actual Portfolio (pt. 1: DFA607)"
+  },
+  {
+   "start": 757,
+   "title": "My Actual Portfolio (pt. 2: Private Equity??)"
+  },
+  {
+   "start": 910,
+   "title": "My Actual Portfolio (pt. 3: My Home)"
+  },
+  {
+   "start": 1034,
+   "title": "My Actual Portfolio (pt. 4: Cash)"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 631,
+ "comments_top_level": 384,
+ "comments_replies": 247,
+ "comments_by_creator": 64,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 630,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T07:51:09",
+ "approved": "2026-10-21T16:51+09:00"
+}

@@ -1,0 +1,116 @@
+{
+ "id": "yaFVLxGAuQU",
+ "title": "국장은 흔들리는데 미장은 반등 중! 반도체주 다시 올라갈까?",
+ "channel": "미국 주식 채널 - 에디 Eddie",
+ "channel_id": "UCMupe3fvv1-Hi3SRxZzSsTw",
+ "subs": 268000,
+ "views": 111605,
+ "ratio": 0.42,
+ "age_days": 7,
+ "views_per_day": 15943.6,
+ "minutes": 12.2,
+ "likes": 1773,
+ "comments": 269,
+ "published": "2026-10-14",
+ "queries": "검색:미장 | 검색:국장",
+ "url": "https://www.youtube.com/watch?v=yaFVLxGAuQU",
+ "flag": "",
+ "published_at": "2026-10-14T07:07:13Z",
+ "rank": "W105",
+ "set": "web",
+ "folder": "W_yaFVLxGAuQU",
+ "sources": [
+  "검색:미장",
+  "검색:국장"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "삼성전자·SK하이닉스 주가 급락 원인 분석"
+  },
+  {
+   "start": 28,
+   "title": "ASML 실적 발표와 반도체주 하락 이유"
+  },
+  {
+   "start": 69,
+   "title": "EUV 장비 수요 전망과 ASML 생산능력 확대"
+  },
+  {
+   "start": 150,
+   "title": "반도체 장비 공급 부족과 메모리 반도체 성장 제약"
+  },
+  {
+   "start": 220,
+   "title": "미국 반도체주 반등과 엔비디아·브로드컴 주가"
+  },
+  {
+   "start": 268,
+   "title": "반도체 시장 변동성과 블룸버그 뉴스 영향"
+  },
+  {
+   "start": 303,
+   "title": "브로드컴 CEO 발언 논란과 블룸버그 보도 분석"
+  },
+  {
+   "start": 399,
+   "title": "미국 반도체주 반등과 필라델피아 반도체 지수"
+  },
+  {
+   "start": 424,
+   "title": "연준 금리 인상 가능성과 미국 증시 상승 배경"
+  },
+  {
+   "start": 460,
+   "title": "반도체주 하락장 대응과 저가 매수 전략"
+  },
+  {
+   "start": 499,
+   "title": "미국 물가지수 발표와 증시 상승 가능성"
+  },
+  {
+   "start": 536,
+   "title": "일론 머스크의 마이크론 평가와 메모리 가격 전망"
+  },
+  {
+   "start": 563,
+   "title": "마이크론 장기 공급계약과 반도체 수요 분석"
+  },
+  {
+   "start": 622,
+   "title": "반도체 업황 전망과 주가 하락 시 투자 전략"
+  },
+  {
+   "start": 638,
+   "title": "미국 9월 CPI 예상치와 에너지 가격 상승"
+  },
+  {
+   "start": 667,
+   "title": "근원 물가지수 전망과 인플레이션 분석"
+  },
+  {
+   "start": 704,
+   "title": "연준 금리 정책 전망과 CPI 발표 일정"
+  },
+  {
+   "start": 720,
+   "title": "반도체 시황 분석 마무리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 269,
+ "comments_top_level": 204,
+ "comments_replies": 65,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 269,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:10:03",
+ "approved": "2026-10-21T17:10+09:00"
+}

@@ -1,0 +1,107 @@
+{
+ "id": "2s5kkYzTa7M",
+ "title": "코스피 역대급 급락에 물타기 고민? 계좌 지키고 대반격 시작될 '반등 타이밍' 공개! I 김장열 I 이혁진 I ETF아는형",
+ "channel": "ETF 아는 형",
+ "channel_id": "UCIt_hQy30blHrVAS7QLTyTg",
+ "subs": 157000,
+ "views": 104709,
+ "ratio": 0.67,
+ "age_days": 2,
+ "views_per_day": 52354.5,
+ "minutes": 26.9,
+ "likes": 592,
+ "comments": 63,
+ "published": "2026-10-18",
+ "queries": "검색:ETF | 검색:ETFs",
+ "url": "https://www.youtube.com/watch?v=2s5kkYzTa7M",
+ "flag": "",
+ "published_at": "2026-10-18T09:00:35Z",
+ "rank": "W92",
+ "set": "web",
+ "folder": "W_2s5kkYzTa7M",
+ "sources": [
+  "검색:ETF",
+  "검색:ETFs"
+ ],
+ "source": "web",
+ "tags": [
+  "코스피",
+  "주식",
+  "반도체",
+  "삼성전자",
+  "SK하이닉스",
+  "미국주식",
+  "금리",
+  "AI반도체",
+  "HBM",
+  "엔비디아",
+  "주식포트폴리오",
+  "로봇관련주",
+  "ETF아는형",
+  "AI"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트 | 이번 하락의 진짜 병목은 따로 있다?"
+  },
+  {
+   "start": 43,
+   "title": "연말이 얼마 남지 않은 시점, AI 반도체 대응 전략"
+  },
+  {
+   "start": 63,
+   "title": "장부 보니 -30%? 역대급 롤러코스터 장세 진단"
+  },
+  {
+   "start": 136,
+   "title": "하락장 유발한 근본 원인: 자금(금리)과 정책(선거)"
+  },
+  {
+   "start": 262,
+   "title": "미국 10년물 장기금리 고점과 일드갭 '0'의 의미"
+  },
+  {
+   "start": 366,
+   "title": "AI 열기 식으면 반도체주 빠지는 게 정당화될까?"
+  },
+  {
+   "start": 520,
+   "title": "2022~2023년 닮은꼴 장세, 지수보다 '종목 장세'에 주목하라"
+  },
+  {
+   "start": 664,
+   "title": "삼성전자가 PBR 1배 안 가고 증설/Q 싸움에 나서는 이유"
+  },
+  {
+   "start": 907,
+   "title": "NAND 비선호! DRAM과 HBM 중 최선의 선택은?"
+  },
+  {
+   "start": 1057,
+   "title": "메모리 쉬어갈 때 갭 좁힐 '반도체 소재' 포석"
+  },
+  {
+   "start": 1218,
+   "title": "특수목적 로봇(국방/농업) 및 ESS·태양광의 재발견"
+  },
+  {
+   "start": 1423,
+   "title": "연말 대주주 양도세 및 수급 공백 대비 포트폴리오 처방전"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 63,
+ "comments_top_level": 52,
+ "comments_replies": 11,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 63,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T07:50:11",
+ "approved": "2026-10-21T16:50+09:00"
+}

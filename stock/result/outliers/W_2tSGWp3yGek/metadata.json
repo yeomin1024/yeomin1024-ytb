@@ -1,0 +1,118 @@
+{
+ "id": "2tSGWp3yGek",
+ "title": "【2chお金スレ】定年後も収入が途切れない人は何をしてる？今からできる備えを挙げてけ",
+ "channel": "2chお金シニアチャンネル",
+ "channel_id": "UCbPrU8Knpq9DYxVR9U5jNZw",
+ "subs": 2150,
+ "views": 14237,
+ "ratio": 6.62,
+ "age_days": 7,
+ "views_per_day": 2033.9,
+ "minutes": 21.0,
+ "likes": 38,
+ "comments": 0,
+ "published": "2026-10-13",
+ "queries": "검색:dividend income",
+ "url": "https://www.youtube.com/watch?v=2tSGWp3yGek",
+ "flag": "외국 영상",
+ "published_at": "2026-10-13T09:00:12Z",
+ "rank": "W38",
+ "set": "web",
+ "folder": "W_2tSGWp3yGek",
+ "sources": [
+  "검색:dividend income"
+ ],
+ "source": "web",
+ "tags": [
+  "#2ch",
+  "#2chまとめ",
+  "#5chまとめ",
+  "#ゆっくり解説",
+  "#有益スレ",
+  "#お金の勉強",
+  "#資産形成",
+  "#資産運用",
+  "#投資初心者",
+  "#金融リテラシー",
+  "#新NISA",
+  "#NISA",
+  "#非課税投資",
+  "#税金対策",
+  "#制度活用",
+  "#日本の制度",
+  "#FIRE",
+  "#セミリタイア",
+  "#早期リタイア",
+  "#経済的自由",
+  "#老後資金",
+  "#老後不安",
+  "#老後2000万円問題",
+  "#年金不安",
+  "#50代",
+  "#60代",
+  "#中高年",
+  "#人生設計",
+  "#知らないと損する",
+  "#解説動画"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "はじめに"
+  },
+  {
+   "start": 24,
+   "title": "64歳、配当が月3万"
+  },
+  {
+   "start": 147,
+   "title": "きっかけは元上司の一言"
+  },
+  {
+   "start": 294,
+   "title": "順番その1 足りない額を知る"
+  },
+  {
+   "start": 406,
+   "title": "順番その2 現金を先に置く"
+  },
+  {
+   "start": 496,
+   "title": "順番その3 口座とNISA"
+  },
+  {
+   "start": 638,
+   "title": "順番その4 利回りで選ばない"
+  },
+  {
+   "start": 762,
+   "title": "順番その5 一度に買わない"
+  },
+  {
+   "start": 878,
+   "title": "順番その6 使い始める日"
+  },
+  {
+   "start": 1021,
+   "title": "月3万で暮らしは変わるか"
+  },
+  {
+   "start": 1125,
+   "title": "今からでも間に合うか"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ja",
+ "foreign": true,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 0,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T07:46:30",
+ "approved": "2026-10-21T16:46+09:00"
+}

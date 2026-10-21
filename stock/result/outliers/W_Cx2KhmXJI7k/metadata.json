@@ -1,0 +1,89 @@
+{
+ "id": "Cx2KhmXJI7k",
+ "title": "미국주식 너무 올랐다고요? 10년 전에도 고점이었습니다 | 포메뽀꼬 김지훈 작가 [얘기좀합시다]",
+ "channel": "머니인더트랩",
+ "channel_id": "UCtjj8T7n2_jS92pfMeWdoWQ",
+ "subs": 110000,
+ "views": 582173,
+ "ratio": 5.29,
+ "age_days": 10,
+ "views_per_day": 58217.3,
+ "minutes": 33.6,
+ "likes": 2989,
+ "comments": 478,
+ "published": "2026-10-11",
+ "queries": "검색:ETF투자 | 검색:미국ETF | 검색:etf investing",
+ "url": "https://www.youtube.com/watch?v=Cx2KhmXJI7k",
+ "flag": "",
+ "published_at": "2026-10-11T00:15:26Z",
+ "rank": "W5",
+ "set": "web",
+ "folder": "W_Cx2KhmXJI7k",
+ "sources": [
+  "검색:ETF투자",
+  "검색:미국ETF",
+  "검색:etf investing"
+ ],
+ "source": "web",
+ "tags": [
+  "머니인더트랩",
+  "머인트",
+  "moneyinthetrap",
+  "MIT",
+  "얘기좀합시다",
+  "쫑알쫑알",
+  "방과후경제"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "한국주식 대신 미국주식에 투자해야 할까?"
+  },
+  {
+   "start": 77,
+   "title": "포메뽀꼬가 한국주식을 멀리하는 이유"
+  },
+  {
+   "start": 278,
+   "title": "한국주식이 싸도 사지 않는 이유"
+  },
+  {
+   "start": 516,
+   "title": "미국주식 지금 사면 너무 늦었을까?"
+  },
+  {
+   "start": 704,
+   "title": "30개 계좌로 직접 실험한 투자법"
+  },
+  {
+   "start": 793,
+   "title": "하락장에서 레버리지를 활용하는 방법"
+  },
+  {
+   "start": 1085,
+   "title": "30개 계좌를 운용하며 얻은 교훈"
+  },
+  {
+   "start": 1380,
+   "title": "하이닉스가 올라도 미국 ETF를 선택하는 이유"
+  },
+  {
+   "start": 1740,
+   "title": "개별주 폭등에도 흔들리지 않는 투자 원칙"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 478,
+ "comments_top_level": 311,
+ "comments_replies": 167,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 478,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:01:29",
+ "approved": "2026-10-21T17:01+09:00"
+}

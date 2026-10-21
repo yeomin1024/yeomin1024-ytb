@@ -1,0 +1,85 @@
+{
+ "id": "QOnqsPMBl-0",
+ "title": "【50-60代必見】「オルカンとS＆P500は結局どっちがいいの？」→結論、一番は〇〇です。【元ゴールドマンサックスが徹底解説】",
+ "channel": "おーちゃん【元外銀マン】",
+ "channel_id": "UC4Ub-Y_yj43aouqFbA7PwhQ",
+ "subs": 312000,
+ "views": 191067,
+ "ratio": 0.61,
+ "age_days": 8,
+ "views_per_day": 23883.4,
+ "minutes": 36.6,
+ "likes": 1641,
+ "comments": 50,
+ "published": "2026-10-12",
+ "queries": "검색:S&P500 | 검색:etf investing",
+ "url": "https://www.youtube.com/watch?v=QOnqsPMBl-0",
+ "flag": "외국 영상",
+ "published_at": "2026-10-12T10:00:20Z",
+ "rank": "W67",
+ "set": "web",
+ "folder": "W_QOnqsPMBl-0",
+ "sources": [
+  "검색:S&P500",
+  "검색:etf investing"
+ ],
+ "source": "web",
+ "tags": [
+  "投資",
+  "資産運用",
+  "新NISA",
+  "投資信託",
+  "S&P500",
+  "オールカントリー",
+  "オルカン",
+  "配当金"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "イントロ"
+  },
+  {
+   "start": 197,
+   "title": "プロフィール"
+  },
+  {
+   "start": 255,
+   "title": "平均で勝っている指数が取り崩しでは先に尽きる"
+  },
+  {
+   "start": 494,
+   "title": "4％ルールという物差しの2つの欠陥"
+  },
+  {
+   "start": 987,
+   "title": "S&P500一本の生存率と全世界株が逆転する理由"
+  },
+  {
+   "start": 1386,
+   "title": "アメリカは運が良かっただけ"
+  },
+  {
+   "start": 1712,
+   "title": "負けたのはS&P500ではなく、あなたの判断"
+  },
+  {
+   "start": 2126,
+   "title": "おーちゃんの雑談（めっちゃためになる）"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ja",
+ "foreign": true,
+ "comments_fetched": 50,
+ "comments_top_level": 46,
+ "comments_replies": 4,
+ "comments_by_creator": 2,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 50,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:26:47",
+ "approved": "2026-10-21T17:26+09:00"
+}

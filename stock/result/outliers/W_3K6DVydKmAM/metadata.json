@@ -1,0 +1,107 @@
+{
+ "id": "3K6DVydKmAM",
+ "title": "J’ai Investi toutes mes Économies en Bourse…",
+ "channel": "Fuzay²",
+ "channel_id": "UCzTTYntJHARp5YCxakwUepA",
+ "subs": 548000,
+ "views": 504581,
+ "ratio": 0.92,
+ "age_days": 33,
+ "views_per_day": 15290.3,
+ "minutes": 62.2,
+ "likes": 11664,
+ "comments": 695,
+ "published": "2026-09-17",
+ "queries": "검색:how to invest in stocks",
+ "url": "https://www.youtube.com/watch?v=3K6DVydKmAM",
+ "flag": "외국 영상",
+ "published_at": "2026-09-17T16:04:00Z",
+ "rank": "W60",
+ "set": "web",
+ "folder": "W_3K6DVydKmAM",
+ "sources": [
+  "검색:how to invest in stocks"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Intro"
+  },
+  {
+   "start": 40,
+   "title": "C'est quoi la bourse"
+  },
+  {
+   "start": 192,
+   "title": "Ma Stratégie en bourse"
+  },
+  {
+   "start": 666,
+   "title": "Analyse de mon portefeuille"
+  },
+  {
+   "start": 806,
+   "title": "Microsoft"
+  },
+  {
+   "start": 938,
+   "title": "S&P Global"
+  },
+  {
+   "start": 1159,
+   "title": "ASML"
+  },
+  {
+   "start": 1315,
+   "title": "Netflix"
+  },
+  {
+   "start": 1688,
+   "title": "Mastercard"
+  },
+  {
+   "start": 1950,
+   "title": "Meta"
+  },
+  {
+   "start": 2267,
+   "title": "ETF"
+  },
+  {
+   "start": 2397,
+   "title": "Amazon"
+  },
+  {
+   "start": 2698,
+   "title": "Deep Dive: Google"
+  },
+  {
+   "start": 3467,
+   "title": "Bilan de mon portefeuille"
+  },
+  {
+   "start": 3599,
+   "title": "Portefeuille de la Commu"
+  },
+  {
+   "start": 3677,
+   "title": "Conclusion"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "fr",
+ "foreign": true,
+ "comments_fetched": 695,
+ "comments_top_level": 400,
+ "comments_replies": 295,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 695,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:06:15",
+ "approved": "2026-10-21T17:06+09:00"
+}

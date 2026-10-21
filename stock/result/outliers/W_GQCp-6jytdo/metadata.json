@@ -1,0 +1,105 @@
+{
+ "id": "GQCp-6jytdo",
+ "title": "“7월 폭락장과 너무 닮았다!” 삼전·SK하닉 급락의 진실… 상승 직전 외국인의 ‘마지막 털기’일까? ㅣ이권희 대표",
+ "channel": "815머니톡",
+ "channel_id": "UCCG6BEYjfQMGzypJw2EJCDQ",
+ "subs": 1290000,
+ "views": 155797,
+ "ratio": 0.12,
+ "age_days": 7,
+ "views_per_day": 22256.7,
+ "minutes": 28.9,
+ "likes": 1562,
+ "comments": 110,
+ "published": "2026-10-14",
+ "queries": "검색:미국증시",
+ "url": "https://www.youtube.com/watch?v=GQCp-6jytdo",
+ "flag": "",
+ "published_at": "2026-10-14T03:00:28Z",
+ "rank": "W47",
+ "set": "web",
+ "folder": "W_GQCp-6jytdo",
+ "sources": [
+  "검색:미국증시"
+ ],
+ "source": "web",
+ "tags": [
+  "이권희",
+  "폭락장",
+  "삼성전자",
+  "SK하이닉스",
+  "반도체주",
+  "외국인매도",
+  "CXMT",
+  "한미약품",
+  "화장품주",
+  "미국중간선거",
+  "금리인상",
+  "연준",
+  "엔에프씨",
+  "한중엔시에스",
+  "코스피",
+  "815머니톡",
+  "임수열"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "위즈웨이브 이권희 대표"
+  },
+  {
+   "start": 7,
+   "title": "필라델피아 반도체지수 5거래일 연속 하락, 바닥 신호가 나타나고 있을까?"
+  },
+  {
+   "start": 63,
+   "title": "삼성전자 주가가 오르지 못하는 이유는 투자자들의 매수 심리가 무너졌기 때문일까?"
+  },
+  {
+   "start": 294,
+   "title": "미국 중간선거 이후 트럼프 정책의 불확실성이 줄어들 수 있을까?"
+  },
+  {
+   "start": 560,
+   "title": "외국인은 한국 반도체를 팔아 미국 반도체시장까지 흔들고 있을까?"
+  },
+  {
+   "start": 678,
+   "title": "뉴욕 연은 총재의 비둘기파 발언이 금리 하락과 증시 반등의 계기가 될까?"
+  },
+  {
+   "start": 850,
+   "title": "이번 삼성전자·SK하이닉스 폭락은 상승 직전의 마지막 흔들기일까?"
+  },
+  {
+   "start": 967,
+   "title": "중국 CXMT의 반도체 증설은 한국 반도체에 위협일까, 소부장 기업에는 기회일까?"
+  },
+  {
+   "start": 1074,
+   "title": "한미약품 3분기 실적 부진, 4분기부터 회복될 수 있을까?"
+  },
+  {
+   "start": 1361,
+   "title": "화장품 OEM 기업 NFC, 대형 화장품 기업의 호황이 중소형주로 확산되고 있을까?"
+  },
+  {
+   "start": 1534,
+   "title": "코스피 반등 전망과 신용융자 위험은?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 110,
+ "comments_top_level": 98,
+ "comments_replies": 12,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 110,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:26:02",
+ "approved": "2026-10-21T17:26+09:00"
+}

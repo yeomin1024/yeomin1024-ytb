@@ -1,0 +1,90 @@
+{
+ "id": "IOBoaM71MUA",
+ "title": "How to Use Liquidity in Trading? || Masterclass",
+ "channel": "Booming Bulls",
+ "channel_id": "UC2sIhf108S02F0Qlb2a88eQ",
+ "subs": 4130000,
+ "views": 923210,
+ "ratio": 0.22,
+ "age_days": 25,
+ "views_per_day": 36928.4,
+ "minutes": 25.9,
+ "likes": 23962,
+ "comments": 1247,
+ "published": "2026-09-25",
+ "queries": "검색:stock market for beginners",
+ "url": "https://www.youtube.com/watch?v=IOBoaM71MUA",
+ "flag": "외국 영상",
+ "published_at": "2026-09-25T13:26:50Z",
+ "rank": "W139",
+ "set": "web",
+ "folder": "W_IOBoaM71MUA",
+ "sources": [
+  "검색:stock market for beginners"
+ ],
+ "source": "web",
+ "tags": [
+  "booming bulls",
+  "anish singh thakur",
+  "order flow trading",
+  "order flow masterclass",
+  "order flow trading strategy",
+  "order flow for beginners",
+  "footprint chart trading",
+  "footprint chart explained",
+  "volume profile",
+  "market delta",
+  "bid ask imbalance",
+  "delta trading",
+  "cumulative delta",
+  "buyer seller pressure",
+  "ATAS trading",
+  "order flow analysis",
+  "smart money trading",
+  "price action trading",
+  "trading course in Hindi",
+  "stock market trading",
+  "forex trading",
+  "Anish Singh Thakur"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Introduction"
+  },
+  {
+   "start": 89,
+   "title": "What Is Liquidity?"
+  },
+  {
+   "start": 289,
+   "title": "Best Liquidity Levels"
+  },
+  {
+   "start": 491,
+   "title": "Previous Day High & Low"
+  },
+  {
+   "start": 850,
+   "title": "Current Day High & Low"
+  },
+  {
+   "start": 1250,
+   "title": "Higher Timeframe Order Blocks"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "hi",
+ "foreign": true,
+ "comments_fetched": 1247,
+ "comments_top_level": 1146,
+ "comments_replies": 101,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 1247,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:11:56",
+ "approved": "2026-10-21T17:12+09:00"
+}

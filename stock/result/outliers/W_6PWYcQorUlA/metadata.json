@@ -1,0 +1,98 @@
+{
+ "id": "6PWYcQorUlA",
+ "title": "투자 1도 몰라도 주식으로 부자되는 방법 ㅣ김현준 대표, 이대호 기자 (몰아보기)",
+ "channel": "장사건물주 강호동",
+ "channel_id": "UCYigs8o_hgHJtfE0KnqVLeA",
+ "subs": 520000,
+ "views": 477512,
+ "ratio": 0.92,
+ "age_days": 4,
+ "views_per_day": 119378.0,
+ "minutes": 49.5,
+ "likes": 3738,
+ "comments": 170,
+ "published": "2026-10-17",
+ "queries": "검색:가치투자 | 검색:주식투자 | 검색:주식",
+ "url": "https://www.youtube.com/watch?v=6PWYcQorUlA",
+ "flag": "",
+ "published_at": "2026-10-17T03:00:01Z",
+ "rank": "W78",
+ "set": "web",
+ "folder": "W_6PWYcQorUlA",
+ "sources": [
+  "검색:가치투자",
+  "검색:주식투자",
+  "검색:주식"
+ ],
+ "source": "web",
+ "tags": [
+  "창업오빠",
+  "강호동",
+  "창업",
+  "자영업",
+  "장사의신",
+  "서민갑부",
+  "건물주",
+  "꼬마빌딩",
+  "재테크",
+  "제테크",
+  "장사",
+  "라라브레드",
+  "디저트",
+  "카페",
+  "디저트카페",
+  "브이로그",
+  "대표",
+  "예능",
+  "부동산",
+  "레버리지"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트"
+  },
+  {
+   "start": 27,
+   "title": "1000억 굴리면서 절대 안 잃는 방법"
+  },
+  {
+   "start": 519,
+   "title": "가만히 있어도 2배 먹는 법"
+  },
+  {
+   "start": 1191,
+   "title": "50억 벌면 행복할 줄 알았어요"
+  },
+  {
+   "start": 1437,
+   "title": "이대호 기자"
+  },
+  {
+   "start": 1900,
+   "title": "삼성전자 지금 없다면 이렇게 하세요"
+  },
+  {
+   "start": 2235,
+   "title": "사람들이 아직 모르는 큰 돈 버는 주식"
+  },
+  {
+   "start": 2604,
+   "title": "이 신호 보이면 파셔야 합니다"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 170,
+ "comments_top_level": 108,
+ "comments_replies": 62,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 170,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T07:49:13",
+ "approved": "2026-10-21T16:49+09:00"
+}

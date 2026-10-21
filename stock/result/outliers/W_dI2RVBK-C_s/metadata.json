@@ -1,0 +1,67 @@
+{
+ "id": "dI2RVBK-C_s",
+ "title": "【格差拡大】2027年以降、日本の資産格差が爆増するヤバすぎる真実、NISA民がさらに有利になる理由！",
+ "channel": "S&P500ガチホニキ 【24歳 現場職】",
+ "channel_id": "UCvW_R17p0VplJVtvtw9Ka5g",
+ "subs": 91400,
+ "views": 101276,
+ "ratio": 1.11,
+ "age_days": 4,
+ "views_per_day": 25319.0,
+ "minutes": 32.6,
+ "likes": 1243,
+ "comments": 201,
+ "published": "2026-10-16",
+ "queries": "검색:S&P500",
+ "url": "https://www.youtube.com/watch?v=dI2RVBK-C_s",
+ "flag": "외국 영상",
+ "published_at": "2026-10-16T09:12:15Z",
+ "rank": "W93",
+ "set": "web",
+ "folder": "W_dI2RVBK-C_s",
+ "sources": [
+  "검색:S&P500"
+ ],
+ "source": "web",
+ "tags": [
+  "株式投資",
+  "新nisa",
+  "株"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "2027年以降日本の資産格差が爆増するヤバすぎる真実"
+  },
+  {
+   "start": 256,
+   "title": "「バブルが怖い」と現金を寝かせる人がカモられる2つの構造"
+  },
+  {
+   "start": 698,
+   "title": "銀行の100万円が55万円に溶ける「◯◯」の罠と解決策"
+  },
+  {
+   "start": 1232,
+   "title": "2027年の錬金術！DeCo×NISAの無限ループ"
+  },
+  {
+   "start": 1754,
+   "title": "まとめ"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ja",
+ "foreign": true,
+ "comments_fetched": 202,
+ "comments_top_level": 109,
+ "comments_replies": 93,
+ "comments_by_creator": 7,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 201,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:27:37",
+ "approved": "2026-10-21T17:27+09:00"
+}

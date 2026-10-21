@@ -1,0 +1,87 @@
+{
+ "id": "8r5ycvX7Gak",
+ "title": "This Stock is Selling at an Unthinkable Price Right Now ($AVGO)",
+ "channel": "Everything Money",
+ "channel_id": "UChBVf9YnourrEDTsbbwJPRA",
+ "subs": 417000,
+ "views": 39821,
+ "ratio": 0.1,
+ "age_days": 1,
+ "views_per_day": 39821.0,
+ "minutes": 21.9,
+ "likes": 534,
+ "comments": 90,
+ "published": "2026-10-19",
+ "queries": "검색:stocks to buy",
+ "url": "https://www.youtube.com/watch?v=8r5ycvX7Gak",
+ "flag": "외국 영상",
+ "published_at": "2026-10-19T10:55:04Z",
+ "rank": "W23",
+ "set": "web",
+ "folder": "W_8r5ycvX7Gak",
+ "sources": [
+  "검색:stocks to buy"
+ ],
+ "source": "web",
+ "tags": [
+  "everything money",
+  "paul gabrail",
+  "everything money paul",
+  "everything money stocks",
+  "value investing",
+  "avgo stock analysis",
+  "avgo stock prediction",
+  "avgo stock analysis today",
+  "avgo stock earnings",
+  "avgo stock buy or sell",
+  "avgo stock 2026",
+  "broadcom stock analysis",
+  "broadcom stock prediction",
+  "broadcom stock earnings",
+  "broadcom stock analysis today",
+  "broadcom stock price prediction",
+  "broadcom stock price",
+  "broadcom stock 2026",
+  "This Stock is Selling at an Unthinkable Price Right Now"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Broadcom's Recent Stock Performance Analysis"
+  },
+  {
+   "start": 61,
+   "title": "Why the Market is Doubting Broadcom"
+  },
+  {
+   "start": 137,
+   "title": "The Bull Case for Broadcom's Future"
+  },
+  {
+   "start": 344,
+   "title": "The Bear Case You Must Understand"
+  },
+  {
+   "start": 487,
+   "title": "Evaluating Broadcom's Financial Health"
+  },
+  {
+   "start": 1118,
+   "title": "Determining the Right Price to Buy"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 90,
+ "comments_top_level": 35,
+ "comments_replies": 55,
+ "comments_by_creator": 14,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 90,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:25:10",
+ "approved": "2026-10-21T17:25+09:00"
+}

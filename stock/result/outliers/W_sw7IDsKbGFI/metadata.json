@@ -1,0 +1,95 @@
+{
+ "id": "sw7IDsKbGFI",
+ "title": "돈의 법칙이 바뀌었습니다. 주식·금리·환율·코인, 이렇게 보세요",
+ "channel": "월급쟁이부자들TV",
+ "channel_id": "UCDSj40X9FFUAnx1nv7gQhcA",
+ "subs": 2120000,
+ "views": 317151,
+ "ratio": 0.15,
+ "age_days": 7,
+ "views_per_day": 45307.3,
+ "minutes": 16.0,
+ "likes": 1631,
+ "comments": 76,
+ "published": "2026-10-13",
+ "queries": "검색:주식투자 | 검색:주식",
+ "url": "https://www.youtube.com/watch?v=sw7IDsKbGFI",
+ "flag": "",
+ "published_at": "2026-10-13T22:00:18Z",
+ "rank": "W163",
+ "set": "web",
+ "folder": "W_sw7IDsKbGFI",
+ "sources": [
+  "검색:주식투자",
+  "검색:주식"
+ ],
+ "source": "web",
+ "tags": [
+  "월급쟁이부자들",
+  "너나위",
+  "너바나",
+  "코크드림",
+  "구해줘월부",
+  "월부",
+  "10억달성",
+  "월부닷컴",
+  "재테크",
+  "부동산투자",
+  "부동산강의",
+  "월부리뷰",
+  "월부 강의후기",
+  "월부 강의",
+  "내집마련",
+  "월부후기",
+  "월부 강의팔이",
+  "재테크강의"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트"
+  },
+  {
+   "start": 15,
+   "title": "AI 주식, 진짜 버블일까?"
+  },
+  {
+   "start": 105,
+   "title": "반도체는 역대급인데, 내 삶은 왜 그대로일까"
+  },
+  {
+   "start": 206,
+   "title": "원화는 상품권이다 — 환율이 바뀐 진짜 이유"
+  },
+  {
+   "start": 340,
+   "title": "금리, 당분간 계속 오를까요?"
+  },
+  {
+   "start": 416,
+   "title": "지금 대출, 고정으로 받아야 할까요"
+  },
+  {
+   "start": 551,
+   "title": "비트코인, 이제 안전자산 됐나요?"
+  },
+  {
+   "start": 766,
+   "title": "3천만원 있다면, 뭘 사야 할까요"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 76,
+ "comments_top_level": 64,
+ "comments_replies": 12,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 76,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T07:55:09",
+ "approved": "2026-10-21T16:55+09:00"
+}

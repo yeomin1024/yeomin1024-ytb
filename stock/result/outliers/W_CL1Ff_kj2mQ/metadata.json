@@ -1,0 +1,128 @@
+{
+ "id": "CL1Ff_kj2mQ",
+ "title": "The Stock Market Is Flashing Warning Signs + Inflation Is Ramping Up",
+ "channel": "Anthony Scaramucci",
+ "channel_id": "UCRnUO-S4Nh5BgF-Vg43QvBQ",
+ "subs": 287000,
+ "views": 175236,
+ "ratio": 0.61,
+ "age_days": 5,
+ "views_per_day": 35047.2,
+ "minutes": 27.9,
+ "likes": 1824,
+ "comments": 418,
+ "published": "2026-10-15",
+ "queries": "검색:stock market | 검색:stocks",
+ "url": "https://www.youtube.com/watch?v=CL1Ff_kj2mQ",
+ "flag": "외국 영상",
+ "published_at": "2026-10-15T16:00:04Z",
+ "rank": "W35",
+ "set": "web",
+ "folder": "W_CL1Ff_kj2mQ",
+ "sources": [
+  "검색:stock market",
+  "검색:stocks"
+ ],
+ "source": "web",
+ "tags": [
+  "Anthony Scaramucci",
+  "Scaramucci",
+  "the mooch",
+  "Mooch FM",
+  "SALT",
+  "SALT Talks",
+  "SkyBridge Capital",
+  "finance",
+  "investing",
+  "politics",
+  "Donald Trump",
+  "President Donald Trump",
+  "public policy",
+  "media",
+  "business",
+  "bitcoin",
+  "bitcoin news",
+  "crypto",
+  "news",
+  "news & politics",
+  "entertainment",
+  "#TheMooch",
+  "monetary policy",
+  "monetary",
+  "money",
+  "USA",
+  "all things markets",
+  "all the wrong moves",
+  "open book",
+  "open book with anthony scaramucci",
+  "the rest is politics us",
+  "AI",
+  "artificial intelligence",
+  "michael novogratz",
+  "Paul Tudor Jones"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Mooch and Novo are back!"
+  },
+  {
+   "start": 55,
+   "title": "Inflation surges: Will the Fed raise interest rates again?"
+  },
+  {
+   "start": 184,
+   "title": "Paul Tudor Jones is betting against stocks"
+  },
+  {
+   "start": 242,
+   "title": "Meta's new AI and the future of AI assistants"
+  },
+  {
+   "start": 372,
+   "title": "Could an AI catastrophe crash the Nasdaq 30%?"
+  },
+  {
+   "start": 504,
+   "title": "America's growing wealth inequality"
+  },
+  {
+   "start": 683,
+   "title": "Bitcoin, crypto and the future of tokenization post CLARITY"
+  },
+  {
+   "start": 941,
+   "title": "Could an AI data center slowdown trigger a recession?"
+  },
+  {
+   "start": 1023,
+   "title": "Why the Iran war could be Trump's biggest political mistake"
+  },
+  {
+   "start": 1155,
+   "title": "Is the stock market heading for a major correction?"
+  },
+  {
+   "start": 1391,
+   "title": "Bullish or Bearish: Stocks, Texas Tech, James Talarico, and the NY Knicks"
+  },
+  {
+   "start": 1625,
+   "title": "What made you smile this week?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en-US",
+ "foreign": true,
+ "comments_fetched": 418,
+ "comments_top_level": 218,
+ "comments_replies": 200,
+ "comments_by_creator": 13,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 418,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:25:36",
+ "approved": "2026-10-21T17:25+09:00"
+}

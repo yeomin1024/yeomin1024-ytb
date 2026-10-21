@@ -1,0 +1,82 @@
+{
+ "id": "zOC3ARvynOI",
+ "title": "【今はオルカンよりS&P500にすべき】なぜS&P500はスペースXを組み入れないのか？／大型IPOで変わる投資信託の裏側／日経平均より読売333がいい理由（マネースキルセット）",
+ "channel": "PIVOT 公式チャンネル",
+ "channel_id": "UC8yHePe_RgUBE-waRWy6olw",
+ "subs": 4090000,
+ "views": 927798,
+ "ratio": 0.23,
+ "age_days": 50,
+ "views_per_day": 18556.0,
+ "minutes": 40.7,
+ "likes": 2298,
+ "comments": 170,
+ "published": "2026-08-31",
+ "queries": "검색:S&P500",
+ "url": "https://www.youtube.com/watch?v=zOC3ARvynOI",
+ "flag": "외국 영상",
+ "published_at": "2026-08-31T11:00:35Z",
+ "rank": "W134",
+ "set": "web",
+ "folder": "W_zOC3ARvynOI",
+ "sources": [
+  "검색:S&P500"
+ ],
+ "source": "web",
+ "tags": [
+  "pivot",
+  "りんたろー",
+  "exit",
+  "国山ハセン",
+  "投資",
+  "資産運用",
+  "S&P",
+  "S&P500",
+  "IPO",
+  "SpaceX",
+  "投資信託",
+  "インデックス",
+  "マネー",
+  "お金"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "ダイジェスト"
+  },
+  {
+   "start": 65,
+   "title": "投資信託の中身は変わる？"
+  },
+  {
+   "start": 498,
+   "title": "なぜS&P500にSpaceXは入らない？"
+  },
+  {
+   "start": 1151,
+   "title": "オルカン・SP500以外の選択肢"
+  },
+  {
+   "start": 1840,
+   "title": "自分だけのポートフォリオを組む"
+  },
+  {
+   "start": 2344,
+   "title": "次回予告"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ja",
+ "foreign": true,
+ "comments_fetched": 170,
+ "comments_top_level": 128,
+ "comments_replies": 42,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 170,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:11:45",
+ "approved": "2026-10-21T17:11+09:00"
+}

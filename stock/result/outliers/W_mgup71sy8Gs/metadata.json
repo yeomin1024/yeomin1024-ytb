@@ -1,0 +1,79 @@
+{
+ "id": "mgup71sy8Gs",
+ "title": "[#찐시황]  아.. 2018년 주가 폭락과 너무 닮았다!  코스피 마지막 투매인가? / 돈은 채권으로 탈출… 외인 장 막판 선물 1.2조 매수의 진실ㅣ황유현 팀장",
+ "channel": "815머니톡",
+ "channel_id": "UCCG6BEYjfQMGzypJw2EJCDQ",
+ "subs": 1290000,
+ "views": 163507,
+ "ratio": 0.13,
+ "age_days": 5,
+ "views_per_day": 32701.4,
+ "minutes": 27.4,
+ "likes": 2354,
+ "comments": 152,
+ "published": "2026-10-15",
+ "queries": "검색:코스피 | 검색:주가 | 검색:stock market",
+ "url": "https://www.youtube.com/watch?v=mgup71sy8Gs",
+ "flag": "",
+ "published_at": "2026-10-15T11:00:23Z",
+ "rank": "W110",
+ "set": "web",
+ "folder": "W_mgup71sy8Gs",
+ "sources": [
+  "검색:코스피",
+  "검색:주가",
+  "검색:stock market"
+ ],
+ "source": "web",
+ "tags": [
+  "주가폭락",
+  "황유현",
+  "삼성전자",
+  "폭락장",
+  "SK하이닉스",
+  "투매",
+  "서킷브레이커",
+  "반도체",
+  "신용",
+  "반대매매",
+  "찐시황",
+  "815머니톡",
+  "임수열"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "신한투자증권 영업부 황유현 팀장"
+  },
+  {
+   "start": 14,
+   "title": "어제 이어서 오늘 서킷 브레이커가 열렸는데 어떻게 봐야 되나?"
+  },
+  {
+   "start": 276,
+   "title": "반도체 펀더멘탈 훼손에 SK하이닉스가 한 몫했다?"
+  },
+  {
+   "start": 804,
+   "title": "신용과 반대매매 위험이 실제로 해소됐는지?"
+  },
+  {
+   "start": 1231,
+   "title": "2018년 폭락장 사례가 현재와 어떻게 연결되는지?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 152,
+ "comments_top_level": 129,
+ "comments_replies": 23,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 152,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:28:15",
+ "approved": "2026-10-21T17:28+09:00"
+}

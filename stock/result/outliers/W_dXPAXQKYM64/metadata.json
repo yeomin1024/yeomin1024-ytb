@@ -1,0 +1,123 @@
+{
+ "id": "dXPAXQKYM64",
+ "title": "미장 지금 들어간다면 ‘주가’만 보면 안 되는 이유ㅣ지식인초대석 (곽상준 대표 풀버전)",
+ "channel": "지식인사이드",
+ "channel_id": "UCA_hgsFzmynpv1zkvA5A7jA",
+ "subs": 4120000,
+ "views": 875158,
+ "ratio": 0.21,
+ "age_days": 28,
+ "views_per_day": 31255.6,
+ "minutes": 60.3,
+ "likes": 6955,
+ "comments": 210,
+ "published": "2026-09-22",
+ "queries": "검색:미장",
+ "url": "https://www.youtube.com/watch?v=dXPAXQKYM64",
+ "flag": "외국 영상",
+ "published_at": "2026-09-22T10:37:27Z",
+ "rank": "W141",
+ "set": "web",
+ "folder": "W_dXPAXQKYM64",
+ "sources": [
+  "검색:미장"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "구독자 인사"
+  },
+  {
+   "start": 38,
+   "title": "연봉 10억 증권맨이 여의도에서 배운 투자 원칙"
+  },
+  {
+   "start": 132,
+   "title": "2026년 한국 증시의 체급을 바꾼 결정적 변화"
+  },
+  {
+   "start": 374,
+   "title": "‘1년 뒤 장담 못한다’ 한국 노리는 중국 반도체의 역습"
+  },
+  {
+   "start": 540,
+   "title": "데이터센터에 전 세계 돈이 몰린 진짜 이유"
+  },
+  {
+   "start": 796,
+   "title": "막대한 인프라 투자가 불러온 세계 경제 나비효과"
+  },
+  {
+   "start": 911,
+   "title": "반도체 수요는 늘어나는데 주가는 빠지는 이유"
+  },
+  {
+   "start": 1224,
+   "title": "AI 버블은 ‘이 시점’이 올 때 터질 겁니다"
+  },
+  {
+   "start": 1411,
+   "title": "삼전닉스 반등을 결정할 ‘2가지’ 조건"
+  },
+  {
+   "start": 1583,
+   "title": "‘180조 주주환원’ 한 번으로 끝나면 안 됩니다"
+  },
+  {
+   "start": 1716,
+   "title": "같은 시장에서 부자들의 수익률이 더 좋은 이유"
+  },
+  {
+   "start": 1915,
+   "title": "1500원까지 치솟던 환율이 갑자기 꺾인 이유"
+  },
+  {
+   "start": 2115,
+   "title": "“금리 인상 더 남았다” 채권시장이 예고한 한국 미래"
+  },
+  {
+   "start": 2414,
+   "title": "미국이 엔화를 어떻게든 살리려는 진짜 이유"
+  },
+  {
+   "start": 2795,
+   "title": "엔화 850원대, 지금부터 봐야할 ‘수혜주’"
+  },
+  {
+   "start": 2920,
+   "title": "환율 1300원대, 반도체 투자자가 걱정해야 하는 것"
+  },
+  {
+   "start": 3015,
+   "title": "미장 지금 들어간다면 ‘주가’만 보면 안 되는 이유"
+  },
+  {
+   "start": 3229,
+   "title": "S&P500 투자자가 ‘코스피’를 봐야하는 이유"
+  },
+  {
+   "start": 3315,
+   "title": "지금 가장 주목 못받는 업종에 투자해야 하는 이유"
+  },
+  {
+   "start": 3536,
+   "title": "수없이 깨지고도, 결국 투자에서 살아남은 방법"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 210,
+ "comments_top_level": 136,
+ "comments_replies": 74,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 210,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:12:05",
+ "approved": "2026-10-21T17:12+09:00"
+}

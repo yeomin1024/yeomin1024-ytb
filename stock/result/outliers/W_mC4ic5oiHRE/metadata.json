@@ -1,0 +1,75 @@
+{
+ "id": "mC4ic5oiHRE",
+ "title": "[한눈에 경제] 빚내서 주식 샀는데 '강제 처분'…비명도 안 나오는 개미들 / KBS 2026.10.19.",
+ "channel": "KBS News",
+ "channel_id": "UCcQTRi69dsVYHN3exePtZ1A",
+ "subs": 3720000,
+ "views": 523827,
+ "ratio": 0.14,
+ "age_days": 2,
+ "views_per_day": 261913.5,
+ "minutes": 9.0,
+ "likes": 1206,
+ "comments": 1279,
+ "published": "2026-10-19",
+ "queries": "검색:주식 | 검색:증시",
+ "url": "https://www.youtube.com/watch?v=mC4ic5oiHRE",
+ "flag": "",
+ "published_at": "2026-10-19T01:40:38Z",
+ "rank": "W167",
+ "set": "web",
+ "folder": "W_mC4ic5oiHRE",
+ "sources": [
+  "검색:주식",
+  "검색:증시"
+ ],
+ "source": "web",
+ "tags": [
+  "KBS",
+  "KBS NEWS",
+  "KBS뉴스",
+  "NEWS",
+  "kbs뉴스",
+  "kbs 뉴스",
+  "kbs news",
+  "kbs",
+  "뉴스",
+  "한눈에 이슈",
+  "한눈에이슈",
+  "한눈에경제",
+  "한눈에 경제",
+  "경제"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "코스피 급락에 ‘3천억 원’ 강제 청산…국민연금은 182조 증발 [잇슈 머니] / 2026.10.19"
+  },
+  {
+   "start": 253,
+   "title": "국내 증시 폭락에 국민연금 ‘휘청’…3분기 182조 손실 / 2026.10.19 / 전동흔 기자"
+  },
+  {
+   "start": 347,
+   "title": "코스피·코스닥 동반 서킷브레이커…미국발 충격에 ‘검은 목요일’ / 2026.10.15 / 송수진 기자"
+  },
+  {
+   "start": 433,
+   "title": "반도체 영향 받는 건 같은데…코스피만 유독 타격 큰 이유? / 2026.10.13 / 석혜원 기자"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 1280,
+ "comments_top_level": 974,
+ "comments_replies": 306,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 1279,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T07:55:17",
+ "approved": "2026-10-21T16:55+09:00"
+}

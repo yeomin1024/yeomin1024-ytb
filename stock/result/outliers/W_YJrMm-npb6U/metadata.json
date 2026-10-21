@@ -1,0 +1,79 @@
+{
+ "id": "YJrMm-npb6U",
+ "title": "\"금리는 치솟는데 S&P500은 사상 최고\" 고금리 시대 돈 버는 법ㅣ돈크라테스 EP.35",
+ "channel": "지식한상 ",
+ "channel_id": "UCw8hsZYZcasyyLrfOFP8D-w",
+ "subs": 1460000,
+ "views": 100727,
+ "ratio": 0.07,
+ "age_days": 4,
+ "views_per_day": 25181.8,
+ "minutes": 33.5,
+ "likes": 404,
+ "comments": 15,
+ "published": "2026-10-17",
+ "queries": "검색:S&P500",
+ "url": "https://www.youtube.com/watch?v=YJrMm-npb6U",
+ "flag": "",
+ "published_at": "2026-10-17T01:00:24Z",
+ "rank": "W79",
+ "set": "web",
+ "folder": "W_YJrMm-npb6U",
+ "sources": [
+  "검색:S&P500"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 25,
+   "title": "구독자 인사"
+  },
+  {
+   "start": 125,
+   "title": "금리와 환율이 바뀔 때 우리 자산도 이렇게 바뀐다"
+  },
+  {
+   "start": 393,
+   "title": "미국 프랑스의 금리가 치솟는 진짜 이유"
+  },
+  {
+   "start": 676,
+   "title": "금리가 오르는데도 S&P500은 최고점 찍는 이유"
+  },
+  {
+   "start": 926,
+   "title": "지금이 주식을 사도 되는 때인가?"
+  },
+  {
+   "start": 1158,
+   "title": "개미들이 돈 잃기 전에 꼭 하는 생각"
+  },
+  {
+   "start": 1377,
+   "title": "고금리에도 성장하는 기업의 3가지 조건"
+  },
+  {
+   "start": 1559,
+   "title": "고금리 시대, 지금 모아야 할 자산"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 15,
+ "comments_top_level": 9,
+ "comments_replies": 6,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 15,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:27:06",
+ "approved": "2026-10-21T17:27+09:00"
+}

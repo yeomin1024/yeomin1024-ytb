@@ -1,0 +1,80 @@
+{
+ "id": "bIyLia5qhU0",
+ "title": "S$240K a Year in Dividends: AK71 on Banks, REITs and Retirement",
+ "channel": "The Fifth Person",
+ "channel_id": "UCSRCvRgUOrh2bkcYKe4Zbag",
+ "subs": 88500,
+ "views": 139559,
+ "ratio": 1.58,
+ "age_days": 6,
+ "views_per_day": 23259.8,
+ "minutes": 41.2,
+ "likes": 1190,
+ "comments": 150,
+ "published": "2026-10-14",
+ "queries": "검색:dividend portfolio | 검색:dividends",
+ "url": "https://www.youtube.com/watch?v=bIyLia5qhU0",
+ "flag": "외국 영상",
+ "published_at": "2026-10-14T11:00:37Z",
+ "rank": "W29",
+ "set": "web",
+ "folder": "W_bIyLia5qhU0",
+ "sources": [
+  "검색:dividend portfolio",
+  "검색:dividends"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Intro"
+  },
+  {
+   "start": 90,
+   "title": "Hustling"
+  },
+  {
+   "start": 241,
+   "title": "Singapore banks vs REITs"
+  },
+  {
+   "start": 760,
+   "title": "View on Singapore banks now"
+  },
+  {
+   "start": 1000,
+   "title": "Sell Singapore banks?"
+  },
+  {
+   "start": 1292,
+   "title": "Peace of mind"
+  },
+  {
+   "start": 1508,
+   "title": "Retirement"
+  },
+  {
+   "start": 1757,
+   "title": "CPF at 55"
+  },
+  {
+   "start": 2073,
+   "title": "Investing in the age of social media"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 150,
+ "comments_top_level": 111,
+ "comments_replies": 39,
+ "comments_by_creator": 8,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 150,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:03:20",
+ "approved": "2026-10-21T17:03+09:00"
+}

@@ -1,0 +1,114 @@
+{
+ "id": "bMR3jvlYDgo",
+ "title": "\"중장기 투자? 삼전닉스 말고 스페이스X 모으세요” (정의훈 선임연구원)",
+ "channel": "투자360",
+ "channel_id": "UCEJIw_FUvkxK7ZoiejSj7HA",
+ "subs": 15900,
+ "views": 95910,
+ "ratio": 6.03,
+ "age_days": 8,
+ "views_per_day": 11988.8,
+ "minutes": 16.0,
+ "likes": 500,
+ "comments": 62,
+ "published": "2026-10-13",
+ "queries": "검색:etf investing",
+ "url": "https://www.youtube.com/watch?v=bMR3jvlYDgo",
+ "flag": "",
+ "published_at": "2026-10-13T07:30:13Z",
+ "rank": "W41",
+ "set": "web",
+ "folder": "W_bMR3jvlYDgo",
+ "sources": [
+  "검색:etf investing"
+ ],
+ "source": "web",
+ "tags": [
+  "스페이스X",
+  "SpaceX",
+  "스페이스X주가",
+  "스페이스X투자",
+  "스페이스X전망",
+  "스페이스X주식",
+  "정의훈",
+  "정의훈연구원",
+  "유진투자증권",
+  "우주산업",
+  "우주항공",
+  "우주관련주",
+  "우주주식",
+  "스타십",
+  "Starship",
+  "스타링크",
+  "Starlink",
+  "우주데이터센터",
+  "AI데이터센터",
+  "xAI",
+  "일론머스크",
+  "ElonMusk",
+  "미국주식",
+  "미국주식투자",
+  "성장주",
+  "장기투자",
+  "주식투자",
+  "투자전략",
+  "삼성전자",
+  "SK하이닉스",
+  "삼전하닉",
+  "AI투자",
+  "투자360",
+  "yt:cc=on"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "🔥 하이라이트"
+  },
+  {
+   "start": 58,
+   "title": "🚀 스페이스X 70% 급등, 무슨 일이 있었나"
+  },
+  {
+   "start": 232,
+   "title": "⚠️ 삼성전자·하이닉스 중장기 투자를 반대하는 이유!"
+  },
+  {
+   "start": 269,
+   "title": "💰 70% 오른 스페이스X 개별주 살까? ETF 살까?"
+  },
+  {
+   "start": 359,
+   "title": "💰  🌌 우주 데이터센터, 드디어 돈이 되나?"
+  },
+  {
+   "start": 509,
+   "title": "📊 스페이스X, 꼭 봐야 할 4가지 지표"
+  },
+  {
+   "start": 677,
+   "title": "🚨 어떤 신호가 나오면 투자를 멈춰야 하나"
+  },
+  {
+   "start": 775,
+   "title": "🔥 스타십·스타링크·AI, 다음 성장동력은?"
+  },
+  {
+   "start": 855,
+   "title": "🎯 지금 주가는 고점? “아직 다 반영 안 됐다”"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 62,
+ "comments_top_level": 41,
+ "comments_replies": 21,
+ "comments_by_creator": 3,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 62,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T07:46:38",
+ "approved": "2026-10-21T16:46+09:00"
+}

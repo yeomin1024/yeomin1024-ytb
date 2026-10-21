@@ -1,0 +1,93 @@
+{
+ "id": "lDJ3befNmS8",
+ "title": "Three Turn-Around Stocks I’m Buying Today",
+ "channel": "Joseph Carlson After Hours",
+ "channel_id": "UCfCT7SSFEWyG4th9ZmaGYqQ",
+ "subs": 262000,
+ "views": 272310,
+ "ratio": 1.04,
+ "age_days": 15,
+ "views_per_day": 18154.0,
+ "minutes": 35.8,
+ "likes": 4198,
+ "comments": 543,
+ "published": "2026-10-05",
+ "queries": "검색:dividend investing | 검색:dividend portfolio | 검색:stocks to buy",
+ "url": "https://www.youtube.com/watch?v=lDJ3befNmS8",
+ "flag": "외국 영상",
+ "published_at": "2026-10-05T20:45:24Z",
+ "rank": "W49",
+ "set": "web",
+ "folder": "W_lDJ3befNmS8",
+ "sources": [
+  "검색:dividend investing",
+  "검색:dividend portfolio",
+  "검색:stocks to buy"
+ ],
+ "source": "web",
+ "tags": [
+  "The Joseph Carlson Show",
+  "investing",
+  "stocks",
+  "stock market",
+  "dividends",
+  "portfolio update",
+  "m1 finance"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "I Bought 3 Turnaround Stocks"
+  },
+  {
+   "start": 91,
+   "title": "Netflix — Buying More After the Selloff"
+  },
+  {
+   "start": 397,
+   "title": "Netflix’s Growth Is Being Misunderstood"
+  },
+  {
+   "start": 635,
+   "title": "The Netflix “Low-Quality Content” Criticism"
+  },
+  {
+   "start": 1073,
+   "title": "Uber — Buying the 30%+ Drop"
+  },
+  {
+   "start": 1278,
+   "title": "S&P Global — My Third Purchase"
+  },
+  {
+   "start": 1453,
+   "title": "Nike — Why I’m Still Avoiding It"
+  },
+  {
+   "start": 1563,
+   "title": "FICO — Great Business, Major Risk"
+  },
+  {
+   "start": 1662,
+   "title": "Tom Lee Says Investors Are Too Pessimistic"
+  },
+  {
+   "start": 1752,
+   "title": "Fail of the Week: Apple vs. AI Agents"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 543,
+ "comments_top_level": 311,
+ "comments_replies": 232,
+ "comments_by_creator": 4,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 543,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:05:35",
+ "approved": "2026-10-21T17:05+09:00"
+}

@@ -1,0 +1,161 @@
+{
+ "id": "rgEQY8FX6dw",
+ "title": "'Stocks Are Undervalued': 5 Stocks to Own, 5 to Avoid",
+ "channel": "TheStreet",
+ "channel_id": "UCp6aBHRM6ZS_kLeC57HV4kg",
+ "subs": 160000,
+ "views": 84885,
+ "ratio": 0.53,
+ "age_days": 1,
+ "views_per_day": 84885.0,
+ "minutes": 28.7,
+ "likes": 1381,
+ "comments": 247,
+ "published": "2026-10-19",
+ "queries": "검색:stocks to buy",
+ "url": "https://www.youtube.com/watch?v=rgEQY8FX6dw",
+ "flag": "외국 영상",
+ "published_at": "2026-10-19T17:58:12Z",
+ "rank": "W110",
+ "set": "web",
+ "folder": "W_rgEQY8FX6dw",
+ "sources": [
+  "검색:stocks to buy"
+ ],
+ "source": "web",
+ "tags": [
+  "stock market",
+  "investing strategies",
+  "investing news",
+  "TheStreet",
+  "Stocks",
+  "financial news",
+  "business news",
+  "stock market news today",
+  "market volatility",
+  "finance news",
+  "finance stock",
+  "interest rates",
+  "money",
+  "stock market today",
+  "stocks to buy",
+  "stocks for beginners",
+  "growth stocks"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Introduction: Are Stocks Undervalued?"
+  },
+  {
+   "start": 86,
+   "title": "Market Outlook: 80% Stocks, 20% Bonds"
+  },
+  {
+   "start": 128,
+   "title": "Tech Selloff and Sector Rotation"
+  },
+  {
+   "start": 184,
+   "title": "S&P 500: Is It Still a Buy Near Record Highs?"
+  },
+  {
+   "start": 243,
+   "title": "Nvidia ($NVDA): Buy Now or Wait?"
+  },
+  {
+   "start": 328,
+   "title": "Alphabet ($GOOGL): More Upside Than Nvidia?"
+  },
+  {
+   "start": 394,
+   "title": "Meta (META): Buy Before Earnings?"
+  },
+  {
+   "start": 443,
+   "title": "Tesla (TSLA): Can It Deliver?"
+  },
+  {
+   "start": 498,
+   "title": "Netflix (NFLX): Buy Before Earnings?"
+  },
+  {
+   "start": 604,
+   "title": "S&P 500 vs. Individual Stocks: Which Is Better?"
+  },
+  {
+   "start": 645,
+   "title": "How to Spot Stocks to Avoid"
+  },
+  {
+   "start": 715,
+   "title": "Microchip (MCHP): Why He's Bearish"
+  },
+  {
+   "start": 805,
+   "title": "Kimberly-Clark (KMB): Is This Defensive Stock Too Risky?"
+  },
+  {
+   "start": 851,
+   "title": "AIG (AIG): Why His Model Flags It"
+  },
+  {
+   "start": 885,
+   "title": "Dow (DOW): Time to Take Profits?"
+  },
+  {
+   "start": 899,
+   "title": "Skydance (SKYD): Sell or Hold?"
+  },
+  {
+   "start": 940,
+   "title": "Losing Stocks: Sell or Buy More?"
+  },
+  {
+   "start": 987,
+   "title": "Tesla: A Risky Stock or Buying Opportunity?"
+  },
+  {
+   "start": 1054,
+   "title": "AI Bubble: Could Stocks Plunge 40%?"
+  },
+  {
+   "start": 1180,
+   "title": "Apple (AAPL): Buy, Hold or Avoid?"
+  },
+  {
+   "start": 1238,
+   "title": "Market Warning Signs: What Would Make Him Sell?"
+  },
+  {
+   "start": 1336,
+   "title": "How He'd Invest $10,000 Right Now"
+  },
+  {
+   "start": 1450,
+   "title": "S&P 500 vs. Equal-Weight Investing"
+  },
+  {
+   "start": 1505,
+   "title": "Rapid-Fire: This or That"
+  },
+  {
+   "start": 1643,
+   "title": "Tesla (TSLA): Buy, Hold or Avoid?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "en-US",
+ "foreign": true,
+ "comments_fetched": 247,
+ "comments_top_level": 160,
+ "comments_replies": 87,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 247,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T07:51:27",
+ "approved": "2026-10-21T16:51+09:00"
+}

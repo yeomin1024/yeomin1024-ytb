@@ -1,0 +1,93 @@
+{
+ "id": "9NIk_TZKuS0",
+ "title": "[#긴급시황] 검은 목요일 “코스피 8% 폭락장!” 외국인 5조 투매에 장중 5,500선 붕괴… 다음 지지선은 어디인가? | 이권희 대표",
+ "channel": "815머니톡",
+ "channel_id": "UCCG6BEYjfQMGzypJw2EJCDQ",
+ "subs": 1290000,
+ "views": 152769,
+ "ratio": 0.12,
+ "age_days": 6,
+ "views_per_day": 25461.5,
+ "minutes": 29.5,
+ "likes": 1746,
+ "comments": 120,
+ "published": "2026-10-15",
+ "queries": "검색:코스피",
+ "url": "https://www.youtube.com/watch?v=9NIk_TZKuS0",
+ "flag": "",
+ "published_at": "2026-10-15T07:30:22Z",
+ "rank": "W27",
+ "set": "web",
+ "folder": "W_9NIk_TZKuS0",
+ "sources": [
+  "검색:코스피"
+ ],
+ "source": "web",
+ "tags": [
+  "폭락장",
+  "이권희대표",
+  "코스피",
+  "삼성전자",
+  "SK하이닉스",
+  "반도체주",
+  "장기금리",
+  "한국증시",
+  "장기투자",
+  "연기금",
+  "한국경제",
+  "긴급시황",
+  "815머니톡"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "위즈웨이브 이권희 대표"
+  },
+  {
+   "start": 5,
+   "title": "미국 CPI가 예상보다 높게 나온 진짜 이유는 무엇인가?"
+  },
+  {
+   "start": 213,
+   "title": "AI 낙관론이 갑자기 비관론으로 바뀐 이유는 옵션 만기 때문일까?"
+  },
+  {
+   "start": 329,
+   "title": "미국 반도체보다 한국 증시가 훨씬 크게 폭락하는 이유는 무엇인가?"
+  },
+  {
+   "start": 496,
+   "title": "주식이 충분히 싸졌는데도 기관과 개인이 매수하지 못하는 이유는?"
+  },
+  {
+   "start": 724,
+   "title": "미국 장기금리 급반전과 증시 반등 가능성은?"
+  },
+  {
+   "start": 1001,
+   "title": "외국인 매도와 삼성전자·SK하이닉스 저평가 구간?"
+  },
+  {
+   "start": 1389,
+   "title": "서킷브레이커와 개인투자자 저가 매수세가 다시 나타날까?"
+  },
+  {
+   "start": 1562,
+   "title": "외국인 선물 매수와 7월 폭락장 비교는?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 120,
+ "comments_top_level": 98,
+ "comments_replies": 22,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 120,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:25:21",
+ "approved": "2026-10-21T17:25+09:00"
+}

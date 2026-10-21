@@ -1,0 +1,74 @@
+{
+ "id": "34RoU8F6CFM",
+ "title": "Don't Swap Your Dividends for 5% Treasuries Until You See This Math",
+ "channel": "Tom - Lazy Dividend Investor",
+ "channel_id": "UCUhTFmf6v8Kk2-ofFD2udkg",
+ "subs": 2090,
+ "views": 10865,
+ "ratio": 5.2,
+ "age_days": 6,
+ "views_per_day": 1810.8,
+ "minutes": 33.0,
+ "likes": 107,
+ "comments": 5,
+ "published": "2026-10-15",
+ "queries": "검색:dividend investing | 검색:dividend income | 검색:dividend portfolio | 검색:dividends",
+ "url": "https://www.youtube.com/watch?v=34RoU8F6CFM",
+ "flag": "외국 영상",
+ "published_at": "2026-10-15T00:00:08Z",
+ "rank": "W46",
+ "set": "web",
+ "folder": "W_34RoU8F6CFM",
+ "sources": [
+  "검색:dividend investing",
+  "검색:dividend income",
+  "검색:dividend portfolio",
+  "검색:dividends"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Two checks from the same $500,000"
+  },
+  {
+   "start": 289,
+   "title": "Line 2: what the check buys in 20 years"
+  },
+  {
+   "start": 577,
+   "title": "Line 3: what is left of your capital"
+  },
+  {
+   "start": 861,
+   "title": "The morning the note matures"
+  },
+  {
+   "start": 1134,
+   "title": "Taxes, accounts and payment timing"
+  },
+  {
+   "start": 1420,
+   "title": "The matched plan and four stress tests"
+  },
+  {
+   "start": 1708,
+   "title": "When each option makes sense"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 5,
+ "comments_top_level": 5,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 5,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T07:46:53",
+ "approved": "2026-10-21T16:46+09:00"
+}

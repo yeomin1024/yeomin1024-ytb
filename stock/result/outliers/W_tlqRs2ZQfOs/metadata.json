@@ -1,0 +1,147 @@
+{
+ "id": "tlqRs2ZQfOs",
+ "title": "지금 안 사놓으면 후회할까? 삼성전자·SK하이닉스 대반등 신호",
+ "channel": "미국 주식 채널 - 에디 Eddie",
+ "channel_id": "UCMupe3fvv1-Hi3SRxZzSsTw",
+ "subs": 268000,
+ "views": 110598,
+ "ratio": 0.41,
+ "age_days": 5,
+ "views_per_day": 22119.6,
+ "minutes": 22.6,
+ "likes": 1950,
+ "comments": 641,
+ "published": "2026-10-16",
+ "queries": "검색:미국증시",
+ "url": "https://www.youtube.com/watch?v=tlqRs2ZQfOs",
+ "flag": "",
+ "published_at": "2026-10-16T07:16:35Z",
+ "rank": "W122",
+ "set": "web",
+ "folder": "W_tlqRs2ZQfOs",
+ "sources": [
+  "검색:미국증시"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "미국 증시 반등 신호｜나스닥 상승과 생산자물가지수"
+  },
+  {
+   "start": 33,
+   "title": "삼성전자·SK하이닉스 주가 반등과 반도체 전망"
+  },
+  {
+   "start": 73,
+   "title": "미국 증시 섹터별 상승｜경기방어주와 맥도날드"
+  },
+  {
+   "start": 115,
+   "title": "주택건설 레버리지 ETF 급등과 미국 시장금리 하락"
+  },
+  {
+   "start": 142,
+   "title": "젠슨 황의 코어위브 지지 발언과 엔비디아 AI 투자"
+  },
+  {
+   "start": 206,
+   "title": "코어위브·네비우스 급반등과 AI 관련주 회복"
+  },
+  {
+   "start": 246,
+   "title": "삼성전자 주가 전망｜22만원 저항과 24만원 목표 구간"
+  },
+  {
+   "start": 273,
+   "title": "외국인 매도세 분석｜한국·대만 증시 자금 유출"
+  },
+  {
+   "start": 307,
+   "title": "케빈 워시 발언｜AI 투자 확대와 미국 경제 전망"
+  },
+  {
+   "start": 424,
+   "title": "미국 국채금리 하락과 반도체·네오클라우드 반등"
+  },
+  {
+   "start": 454,
+   "title": "코스피 과매도 신호｜주식시장 저점 매수 기회"
+  },
+  {
+   "start": 497,
+   "title": "주식 매수 타이밍｜하락장 매수와 고점 추격매수 비교"
+  },
+  {
+   "start": 566,
+   "title": "주식 폭락장 대응｜공포 매도보다 장기 보유"
+  },
+  {
+   "start": 682,
+   "title": "증시 하락 원인과 주식시장 회복 가능성"
+  },
+  {
+   "start": 763,
+   "title": "장기투자 전략｜메가트렌드와 주식시장 추세 분석"
+  },
+  {
+   "start": 779,
+   "title": "소프트웨어 관련주 반등｜팔란티어·마이크로소프트·오라클"
+  },
+  {
+   "start": 847,
+   "title": "주식 급락장 투자 심리｜공포 매도와 저가 매수"
+  },
+  {
+   "start": 903,
+   "title": "시스템 매수 전략과 주식 분할매수 방법"
+  },
+  {
+   "start": 959,
+   "title": "개별 종목 투자 리스크와 수익률 관리"
+  },
+  {
+   "start": 1033,
+   "title": "미국 증시 시황 분석과 시장 하락 원인 점검"
+  },
+  {
+   "start": 1123,
+   "title": "일론 머스크의 메모리 반도체 가격 관련 발언"
+  },
+  {
+   "start": 1144,
+   "title": "2029년 메모리 공급과잉 우려와 중국 반도체 생산"
+  },
+  {
+   "start": 1199,
+   "title": "마이크론·삼성전자·SK하이닉스 메모리 가격 논란"
+  },
+  {
+   "start": 1295,
+   "title": "주식 폭락장 멘탈 관리와 코스피 반등 가능성"
+  },
+  {
+   "start": 1323,
+   "title": "주식시장 급락 후 반등 전망과 투자 심리 관리"
+  },
+  {
+   "start": 1345,
+   "title": "미국 증시 실시간 방송 안내"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 639,
+ "comments_top_level": 408,
+ "comments_replies": 231,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 641,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:28:45",
+ "approved": "2026-10-21T17:28+09:00"
+}

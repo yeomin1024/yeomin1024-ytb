@@ -1,0 +1,107 @@
+{
+ "id": "4BooxjnAfPY",
+ "title": "This Stock Is Undervalued",
+ "channel": "Joseph Carlson After Hours",
+ "channel_id": "UCfCT7SSFEWyG4th9ZmaGYqQ",
+ "subs": 262000,
+ "views": 193515,
+ "ratio": 0.74,
+ "age_days": 1,
+ "views_per_day": 193515.0,
+ "minutes": 38.5,
+ "likes": 3613,
+ "comments": 339,
+ "published": "2026-10-19",
+ "queries": "검색:stocks to buy",
+ "url": "https://www.youtube.com/watch?v=4BooxjnAfPY",
+ "flag": "외국 영상",
+ "published_at": "2026-10-19T22:14:40Z",
+ "rank": "W83",
+ "set": "web",
+ "folder": "W_4BooxjnAfPY",
+ "sources": [
+  "검색:stocks to buy"
+ ],
+ "source": "web",
+ "tags": [
+  "The Joseph Carlson Show",
+  "investing",
+  "stocks",
+  "stock market",
+  "dividends",
+  "portfolio update",
+  "m1 finance"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Earnings Season Heats Up & AI Bubble Fears"
+  },
+  {
+   "start": 86,
+   "title": "Qualtrim Membership"
+  },
+  {
+   "start": 144,
+   "title": "SpaceX Earnings: Starlink, Space & AI"
+  },
+  {
+   "start": 347,
+   "title": "SpaceX vs. Amazon: The Valuation Problem"
+  },
+  {
+   "start": 564,
+   "title": "Netflix Earnings: A Buying Opportunity?"
+  },
+  {
+   "start": 736,
+   "title": "ASML: When Market Narratives Create Opportunity"
+  },
+  {
+   "start": 873,
+   "title": "Netflix's Engagement Concerns & Layoffs"
+  },
+  {
+   "start": 1097,
+   "title": "Meta Earnings: Advertising Power & AI Spending"
+  },
+  {
+   "start": 1268,
+   "title": "Tesla Earnings: Robotaxis, Competition & Valuation"
+  },
+  {
+   "start": 1484,
+   "title": "Moody's Earnings: A Long-Term Compounder"
+  },
+  {
+   "start": 1547,
+   "title": "Brad Gerstner: Bullish on AI but Selling Stocks?"
+  },
+  {
+   "start": 1900,
+   "title": "The Size of Gerstner's Hedge Fund vs. Long-Only Fund"
+  },
+  {
+   "start": 2047,
+   "title": "Fail of the Week: ESPN Embraces Sports Gambling"
+  },
+  {
+   "start": 2130,
+   "title": "How Gambling Advertising Influences Journalism"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 339,
+ "comments_top_level": 241,
+ "comments_replies": 98,
+ "comments_by_creator": 2,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 339,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T07:49:31",
+ "approved": "2026-10-21T16:49+09:00"
+}

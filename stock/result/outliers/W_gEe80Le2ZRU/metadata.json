@@ -1,0 +1,96 @@
+{
+ "id": "gEe80Le2ZRU",
+ "title": "BREAKING: The FED Just RAISED Interest Rates - Stocks Falling, Housing Market FROZEN!",
+ "channel": "Graham Stephan",
+ "channel_id": "UCV6KDgJskWaEckne5aPA0aQ",
+ "subs": 5180000,
+ "views": 855151,
+ "ratio": 0.17,
+ "age_days": 34,
+ "views_per_day": 25151.5,
+ "minutes": 14.9,
+ "likes": 8480,
+ "comments": 912,
+ "published": "2026-09-16",
+ "queries": "검색:stock market | 검색:stocks | 검색:stock market investing",
+ "url": "https://www.youtube.com/watch?v=gEe80Le2ZRU",
+ "flag": "외국 영상",
+ "published_at": "2026-09-16T20:00:29Z",
+ "rank": "W150",
+ "set": "web",
+ "folder": "W_gEe80Le2ZRU",
+ "sources": [
+  "검색:stock market",
+  "검색:stocks",
+  "검색:stock market investing"
+ ],
+ "source": "web",
+ "tags": [
+  "investing",
+  "investing for beginners",
+  "investing in your 20s",
+  "how to invest",
+  "how to invest in real estate",
+  "how to invest in stocks",
+  "stock market investing",
+  "stock market investing for beginners",
+  "stock options",
+  "robinhood",
+  "robinhood app",
+  "best stock trading app",
+  "how to be a millionaire",
+  "how to be a millionaire in 3 years",
+  "credit score",
+  "credit score explained",
+  "credit card",
+  "credit cards for beginners",
+  "passive income",
+  "how to build wealth",
+  "how to build wealth in your 20s",
+  "real estate 101"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "The 2026 Rate Hike"
+  },
+  {
+   "start": 79,
+   "title": "Rising Inflation"
+  },
+  {
+   "start": 178,
+   "title": "The Stock Market"
+  },
+  {
+   "start": 335,
+   "title": "Protecting Your Information"
+  },
+  {
+   "start": 446,
+   "title": "The Housing Market"
+  },
+  {
+   "start": 647,
+   "title": "Prepare For Higher Interest Rates"
+  },
+  {
+   "start": 752,
+   "title": "How To Prepare"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 912,
+ "comments_top_level": 588,
+ "comments_replies": 324,
+ "comments_by_creator": 32,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 912,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:12:32",
+ "approved": "2026-10-21T17:12+09:00"
+}

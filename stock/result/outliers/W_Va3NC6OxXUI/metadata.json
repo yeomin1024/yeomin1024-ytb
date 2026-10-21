@@ -1,0 +1,93 @@
+{
+ "id": "Va3NC6OxXUI",
+ "title": "주식 고수들은 폭락장에 '이렇게' 행동합니다ㅣ지식인초대석 EP.151 (김효진 박사 1부)",
+ "channel": "지식인사이드",
+ "channel_id": "UCA_hgsFzmynpv1zkvA5A7jA",
+ "subs": 4120000,
+ "views": 1471884,
+ "ratio": 0.36,
+ "age_days": 98,
+ "views_per_day": 15019.2,
+ "minutes": 44.4,
+ "likes": 23906,
+ "comments": 1760,
+ "published": "2026-07-14",
+ "queries": "검색:한국주식 | 검색:주식 | 검색:주가",
+ "url": "https://www.youtube.com/watch?v=Va3NC6OxXUI",
+ "flag": "외국 영상",
+ "published_at": "2026-07-14T11:35:12Z",
+ "rank": "W114",
+ "set": "web",
+ "folder": "W_Va3NC6OxXUI",
+ "sources": [
+  "검색:한국주식",
+  "검색:주식",
+  "검색:주가"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 32,
+   "title": "구독자 인사"
+  },
+  {
+   "start": 122,
+   "title": "SK하이닉스 ADR 상장, 차익 거래가 가능할까?"
+  },
+  {
+   "start": 403,
+   "title": "SK하이닉스 300만 원 ‘하루천하’ 아닙니다"
+  },
+  {
+   "start": 612,
+   "title": "“반도체 지금 팔지 마세요” 아직 고점 아닌 이유"
+  },
+  {
+   "start": 894,
+   "title": "고점 3개월 전 반드시 나타나는 신호 ‘3가지’"
+  },
+  {
+   "start": 1475,
+   "title": "세계 1위 실적에도 삼성전자 주가가 떨어진 이유"
+  },
+  {
+   "start": 1654,
+   "title": "강세장일수록 반대 이야기에 귀기울여야 합니다"
+  },
+  {
+   "start": 1816,
+   "title": "더 커질 변동성장에서 돈 지키는 방법"
+  },
+  {
+   "start": 1957,
+   "title": "외국인들이 삼전닉스 매도하는 진짜 이유"
+  },
+  {
+   "start": 2175,
+   "title": "단일 종목 레버리지 ETF, 정말 상장폐지가 답일까?"
+  },
+  {
+   "start": 2337,
+   "title": "코스피 사상 최대 찍었는데, 한국 증시 저평가된 이유"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 1760,
+ "comments_top_level": 1220,
+ "comments_replies": 540,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 1760,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:10:23",
+ "approved": "2026-10-21T17:10+09:00"
+}

@@ -1,0 +1,98 @@
+{
+ "id": "mm3nI9TZymg",
+ "title": "강세장에도 분산투자 안 하면 결국 돈 잃는 이유ㅣ지식인초대석 EP.160 (오건영 단장 1부)",
+ "channel": "지식인사이드",
+ "channel_id": "UCA_hgsFzmynpv1zkvA5A7jA",
+ "subs": 4120000,
+ "views": 1055072,
+ "ratio": 0.26,
+ "age_days": 67,
+ "views_per_day": 15747.3,
+ "minutes": 45.8,
+ "likes": 14639,
+ "comments": 1535,
+ "published": "2026-08-15",
+ "queries": "검색:장기투자 | 검색:주식투자 | 검색:주식 | 검색:주식시장",
+ "url": "https://www.youtube.com/watch?v=mm3nI9TZymg",
+ "flag": "외국 영상",
+ "published_at": "2026-08-15T01:00:05Z",
+ "rank": "W131",
+ "set": "web",
+ "folder": "W_mm3nI9TZymg",
+ "sources": [
+  "검색:장기투자",
+  "검색:주식투자",
+  "검색:주식",
+  "검색:주식시장"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 29,
+   "title": "구독자 인사"
+  },
+  {
+   "start": 171,
+   "title": "강세장에도 분산투자 안 하면 결국 돈 잃는 이유"
+  },
+  {
+   "start": 406,
+   "title": "주식 시장에 오래 남는 상위 1%가 남기는 기록"
+  },
+  {
+   "start": 587,
+   "title": "같은 악재, 한국 증시만 유독 크게 흔들리는 이유"
+  },
+  {
+   "start": 737,
+   "title": "하반기 투자자가 반드시 봐야 할 경제 지표 ‘3가지’"
+  },
+  {
+   "start": 1077,
+   "title": "하반기 미국 금리의 향방을 가를 핵심 변수"
+  },
+  {
+   "start": 1424,
+   "title": "단기 금리 인상이 오히려 장기 금리를 잡는 원리"
+  },
+  {
+   "start": 1621,
+   "title": "연준이 금리 인상·인하를 두고 갈린 결정적 이유"
+  },
+  {
+   "start": 1976,
+   "title": "장기 투자는 ‘지수 추종’이 압도적으로 유리합니다"
+  },
+  {
+   "start": 2098,
+   "title": "“부자만 더 부자로” K자 양극화 더 심해지는 이유"
+  },
+  {
+   "start": 2368,
+   "title": "K자 양극화에서 개인이 상단의 부를 가져올 방법"
+  },
+  {
+   "start": 2511,
+   "title": "주식에 올인하지 말고 꼭 모아가야 할 자산 ‘3가지’"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 1535,
+ "comments_top_level": 1361,
+ "comments_replies": 174,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 1535,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:11:29",
+ "approved": "2026-10-21T17:11+09:00"
+}

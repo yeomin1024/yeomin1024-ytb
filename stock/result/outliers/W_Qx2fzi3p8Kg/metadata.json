@@ -1,0 +1,85 @@
+{
+ "id": "Qx2fzi3p8Kg",
+ "title": "[#찐시황]  “오늘 주가 폭락 너무 심했다!” 장 막판 선물 7,500억 쓸어담은 외국인… 내일 증시  반등 신호 인가?  ㅣ이권희 대표",
+ "channel": "815머니톡",
+ "channel_id": "UCCG6BEYjfQMGzypJw2EJCDQ",
+ "subs": 1290000,
+ "views": 213881,
+ "ratio": 0.17,
+ "age_days": 8,
+ "views_per_day": 26735.1,
+ "minutes": 27.4,
+ "likes": 2960,
+ "comments": 139,
+ "published": "2026-10-12",
+ "queries": "검색:미국증시 | 검색:코스닥 | 검색:주가",
+ "url": "https://www.youtube.com/watch?v=Qx2fzi3p8Kg",
+ "flag": "",
+ "published_at": "2026-10-12T11:00:25Z",
+ "rank": "W68",
+ "set": "web",
+ "folder": "W_Qx2fzi3p8Kg",
+ "sources": [
+  "검색:미국증시",
+  "검색:코스닥",
+  "검색:주가"
+ ],
+ "source": "web",
+ "tags": [
+  "이권희대표",
+  "주가폭락",
+  "삼성전자",
+  "SK하이닉스",
+  "한국증시",
+  "미국증시",
+  "나스닥",
+  "코스피",
+  "코스닥",
+  "815머니톡",
+  "찐시황"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "위즈웨이브 이권희 대표"
+  },
+  {
+   "start": 20,
+   "title": "오늘 급락의 ‘진짜 악재’가 있었나?"
+  },
+  {
+   "start": 314,
+   "title": "미국 증시 좋은데 왜 국내가 안 오를까?"
+  },
+  {
+   "start": 608,
+   "title": "개별 ‘호재’가 나와도, 왜 시장 분위기는 계속 나빴나?"
+  },
+  {
+   "start": 968,
+   "title": "‘내일’이 진짜 분기점? 반등 나올까?"
+  },
+  {
+   "start": 1297,
+   "title": "삼성전자는 버티고, SK하이닉스가 더 약한 이유는?"
+  },
+  {
+   "start": 1575,
+   "title": "외국인이 선물을 많이 산 건 과매도?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 139,
+ "comments_top_level": 121,
+ "comments_replies": 18,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 139,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:26:48",
+ "approved": "2026-10-21T17:26+09:00"
+}

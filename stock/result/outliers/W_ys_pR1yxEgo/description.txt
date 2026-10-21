@@ -1,0 +1,70 @@
+SCHD ETF analysis: the most complete breakdown of the Schwab US Dividend Equity ETF (NYSE Arca: SCHD), with the 10-year Treasury yield above 5%. On October 5 the 10-year Treasury paid 2.09 percentage points more than SCHD's dividend yield, the biggest gap in the fund's 15-year history. A 3-month T-bill pays more too, and investors still put more than $18 billion into SCHD in 6 months. I go through what SCHD owns, why it beat the S&P 500 in 2026, why the 5% 10-year broke it, SCHD vs Treasuries after tax, how much SCHD you need for $10,000 a month, what dividend stocks did after every yield top since 2006, the bull and bear case, and the SCHD price levels I'm watching. Prices as of the Friday, October 9, 2026 close: SCHD $33.04, trailing yield 3.19%, 10-year Treasury 5.24%, 30-year 5.60%, 3-month T-bill 4.05%.
+
+Whether SCHD turns depends on whether long-term yields are topping. My most complete TLT breakdown, with the yield levels: https://www.youtube.com/watch?v=47kP7vXn9AU&list=PLGHvWglf6T7I
+
+CHAPTERS
+0:00 SCHD ETF analysis: the record yield gap vs the 10-year
+1:13 What SCHD owns: the 4 screens
+2:04 The 4% cap and why Texas Instruments is over it
+2:49 March reconstitution: who got swapped
+3:18 The 2 biggest holdings are chip stocks
+4:07 Why SCHD beat the S&P in 2026: an oil trade
+4:53 The last time SCHD out-yielded the 10-year
+5:34 The 5% break: down 6.9% while the S&P was flat
+6:30 2022: why SCHD held up
+7:03 2023 to 2025: trailing the S&P
+7:49 Every calendar year since launch
+8:29 SCHD's yield vs T-bills, the 10-year and the 30-year
+9:04 SCHD vs TIPS and SGOV
+9:38 The record negative yield gap
+10:19 2023: the last time the gap looked this bad
+10:49 Fewer than 4% of S&P stocks out-yield the 10-year
+11:18 The seesaw: yields up, income stocks down
+12:08 SPHD, DVY, VYM, DGRW: every dividend fund got hit
+12:34 Does SCHD trade like a bond?
+13:18 The dividend stalled: up 0.6%
+14:08 Did SCHD cut its dividend twice?
+15:18 The December dividend to watch
+15:39 SCHD vs Treasuries in an IRA and a taxable account
+16:45 The 0% dividend tax bracket
+17:28 $500,000: SCHD vs T-bills vs Treasuries
+17:56 What if the dividend grows again?
+18:39 How much SCHD for $10,000 a month
+19:26 The growth case
+20:40 3 dates: CPI, the Fed, the Nov 4 refunding
+21:08 Where the money is going: dividend ETFs to TLT
+21:36 CNBC's boomer dividend headline
+22:22 Dividend stocks after every yield top since 2006
+23:09 2018 and 2023: up 13.5% and 28.2%
+24:10 When it doesn't work: 2007
+24:49 Is a recession coming? September payrolls
+25:22 What SCHD owns in a recession
+25:55 The oil bet inside SCHD
+26:55 Is there a better dividend fund? VYM, DGRO, SPYD, JEPI, DIVO
+27:59 Bull case
+28:35 Bear case
+29:42 3 numbers to track
+30:27 SCHD price levels
+31:20 What each level tells me
+31:59 TLT: the 30-year levels
+
+CORRECTIONS
+- At 23:57 I said "S&P 500 is 28.2%." SCHD was up 28.2% while the S&P 500 was up 38.9%.
+- At 24:20 I said the 2007 top came "right after" the financial crisis. It came right before it.
+- At 31:05 I said SCHD's highest yield was "just under 5%" in June 2025. At $26.20 the trailing yield was about 4%.
+
+ABOUT ME
+Former derivatives trader with a decade of experience at Morgan Stanley, UBS and SocGen.
+
+DISCLOSURE
+I do not own SCHD or any other dividend fund directly, long or short. I own TLT (iShares 20+ Year Treasury Bond ETF), some bitcoin, and broad stock index funds. I own no individual stocks. Positions are as of publication and may change afterward without notice. I am not a licensed financial advisor and this is not investment advice or a recommendation to buy or sell any security. This is opinion and commentary for educational purposes. I may be wrong. Numbers and figures may contain errors; verify them yourself against the sources below. Do your own research and consult a licensed professional before making any financial decision. I am not paid by any company mentioned.
+
+SOURCES
+- Schwab US Dividend Equity ETF (SCHD) summary prospectus (SEC 497K, Feb 27, 2026) and Schwab ETF Report Card (data through Oct 9, 2026)
+- Federal Reserve Bank of St. Louis FRED: DGS10, DGS30 (Treasury yields), DTB3 (3-month T-bill), DFII10 (10-year real yield)
+- BLS: September 2026 employment report
+- IRS: 2026 qualified dividend and long-term capital gains brackets (Rev. Proc. 2025-32)
+- 24/7 Wall St (July and October 2026); CNBC (Oct 6, 2026); Ned Davis Research; Yardeni Research
+- Holdings and dividends: stockanalysis.com; prices: Yahoo Finance; the yield-gap, correlation and yield-top studies are my own calculations
+
+#schd #dividendinvesting #dividendstocks

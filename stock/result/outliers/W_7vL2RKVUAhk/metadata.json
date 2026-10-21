@@ -1,0 +1,101 @@
+{
+ "id": "7vL2RKVUAhk",
+ "title": "미국 ETF로 자산을 불린 투자자의 실제 포트폴리오, 지금 가장 많이 담은 종목은? | 포메뽀꼬 김지훈 작가 [얘기좀합시다]",
+ "channel": "머니인더트랩",
+ "channel_id": "UCtjj8T7n2_jS92pfMeWdoWQ",
+ "subs": 110000,
+ "views": 189653,
+ "ratio": 1.72,
+ "age_days": 9,
+ "views_per_day": 21072.6,
+ "minutes": 29.8,
+ "likes": 1241,
+ "comments": 101,
+ "published": "2026-10-12",
+ "queries": "검색:ETF | 검색:ETF투자 | 검색:ETF추천 | 검색:미국ETF | 검색:미국주식 | 검색:주식투자 | 검색:etf investing",
+ "url": "https://www.youtube.com/watch?v=7vL2RKVUAhk",
+ "flag": "",
+ "published_at": "2026-10-12T07:45:01Z",
+ "rank": "W20",
+ "set": "web",
+ "folder": "W_7vL2RKVUAhk",
+ "sources": [
+  "검색:ETF",
+  "검색:ETF투자",
+  "검색:ETF추천",
+  "검색:미국ETF",
+  "검색:미국주식",
+  "검색:주식투자",
+  "검색:etf investing"
+ ],
+ "source": "web",
+ "tags": [
+  "머니인더트랩",
+  "머인트",
+  "moneyinthetrap",
+  "MIT",
+  "얘기좀합시다",
+  "쫑알쫑알",
+  "방과후경제"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "《ETF 3개로 은퇴하라》 저자가 후회하는 이유"
+  },
+  {
+   "start": 112,
+   "title": "2030에게 추천하는 단 2개의 ETF"
+  },
+  {
+   "start": 323,
+   "title": "S&P500·QQQ·SCHD, 각각의 역할"
+  },
+  {
+   "start": 455,
+   "title": "처음부터 다시 투자한다면 이렇게 하겠습니다"
+  },
+  {
+   "start": 582,
+   "title": "천천히 부자가 되는 것이 가장 빠른 이유"
+  },
+  {
+   "start": 665,
+   "title": "수십억 자산가의 실제 ETF 보유 비중"
+  },
+  {
+   "start": 728,
+   "title": "은퇴 후 매달 500만 원을 쓰려면?"
+  },
+  {
+   "start": 1051,
+   "title": "적은 월급으로도 자산을 키우는 방법"
+  },
+  {
+   "start": 1280,
+   "title": "SCHD와 배당 ETF, 지금도 유효할까?"
+  },
+  {
+   "start": 1440,
+   "title": "월배당·커버드콜 ETF의 함정"
+  },
+  {
+   "start": 1670,
+   "title": "50대부터 ETF 투자가 더 중요한 이유"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 101,
+ "comments_top_level": 49,
+ "comments_replies": 52,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 101,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:25:07",
+ "approved": "2026-10-21T17:25+09:00"
+}

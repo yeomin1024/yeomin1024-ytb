@@ -1,0 +1,95 @@
+{
+ "id": "pX5cBcS9r9E",
+ "title": "퇴직금 3억 주식 투자했다가 한 달 만에 토막 난 이유 | 존리 | ETF아는형",
+ "channel": "ETF 아는 형",
+ "channel_id": "UCIt_hQy30blHrVAS7QLTyTg",
+ "subs": 157000,
+ "views": 237950,
+ "ratio": 1.52,
+ "age_days": 8,
+ "views_per_day": 29743.8,
+ "minutes": 19.4,
+ "likes": 1245,
+ "comments": 97,
+ "published": "2026-10-12",
+ "queries": "검색:주식강의",
+ "url": "https://www.youtube.com/watch?v=pX5cBcS9r9E",
+ "flag": "",
+ "published_at": "2026-10-12T08:00:02Z",
+ "rank": "W33",
+ "set": "web",
+ "folder": "W_pX5cBcS9r9E",
+ "sources": [
+  "검색:주식강의"
+ ],
+ "source": "web",
+ "tags": [
+  "퇴직금",
+  "존리",
+  "주식투자",
+  "은퇴자금",
+  "자산배분",
+  "연금저축",
+  "ETF",
+  "재테크",
+  "IRP",
+  "노후준비",
+  "주식초보",
+  "연금저축펀드",
+  "ISA",
+  "연금",
+  "주식"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트"
+  },
+  {
+   "start": 48,
+   "title": "오프닝 및 은퇴자 99%가 실수하는 올바르지 않은 주식 투자 방식"
+  },
+  {
+   "start": 107,
+   "title": "퇴직금 3억 주식 투자의 함정"
+  },
+  {
+   "start": 261,
+   "title": "마켓 타이밍 맞추려다 망하는 이유"
+  },
+  {
+   "start": 535,
+   "title": "단기간 큰 수익을 바라는 사람들의 공통점"
+  },
+  {
+   "start": 628,
+   "title": "은퇴 후 필수! 최적의 주식 비중은?"
+  },
+  {
+   "start": 756,
+   "title": "노후 준비를 위한 4가지 투자 원칙"
+  },
+  {
+   "start": 806,
+   "title": "사례자에게 맞는 존리 대표의 처방"
+  },
+  {
+   "start": 895,
+   "title": "투자할 돈이 진짜 없다고요? 아닙니다."
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 97,
+ "comments_top_level": 52,
+ "comments_replies": 45,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 97,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:04:13",
+ "approved": "2026-10-21T17:04+09:00"
+}

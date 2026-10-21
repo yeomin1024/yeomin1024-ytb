@@ -1,0 +1,135 @@
+{
+ "id": "rwQYUZwBxeU",
+ "title": "#1853 Market News Analysis",
+ "channel": "DAY TRADER తెలుగు",
+ "channel_id": "UCeEP6GESh2t4-e2132uj3Sg",
+ "subs": 2700000,
+ "views": 231388,
+ "ratio": 0.09,
+ "age_days": 5,
+ "views_per_day": 46277.6,
+ "minutes": 31.8,
+ "likes": 7485,
+ "comments": 333,
+ "published": "2026-10-15",
+ "queries": "검색:stock market",
+ "url": "https://www.youtube.com/watch?v=rwQYUZwBxeU",
+ "flag": "외국 영상",
+ "published_at": "2026-10-15T14:04:30Z",
+ "rank": "W182",
+ "set": "web",
+ "folder": "W_rwQYUZwBxeU",
+ "sources": [
+  "검색:stock market"
+ ],
+ "source": "web",
+ "tags": [
+  "stock market latest news",
+  "stock market news",
+  "stock market"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Market Update"
+  },
+  {
+   "start": 122,
+   "title": "Portfolio Stocks fall"
+  },
+  {
+   "start": 415,
+   "title": "Must watch"
+  },
+  {
+   "start": 579,
+   "title": "Gold Silver fall"
+  },
+  {
+   "start": 661,
+   "title": "Global Updates"
+  },
+  {
+   "start": 830,
+   "title": "Market Analysis"
+  },
+  {
+   "start": 1087,
+   "title": "Market Events"
+  },
+  {
+   "start": 1299,
+   "title": "SEBI"
+  },
+  {
+   "start": 1337,
+   "title": "JIO IPO"
+  },
+  {
+   "start": 1385,
+   "title": "Yes Bank in Trouble"
+  },
+  {
+   "start": 1586,
+   "title": "Big Discounts"
+  },
+  {
+   "start": 1624,
+   "title": "Milky Mist"
+  },
+  {
+   "start": 1651,
+   "title": "Bharat Dynamics"
+  },
+  {
+   "start": 1661,
+   "title": "Vikram Solar"
+  },
+  {
+   "start": 1670,
+   "title": "Govt New Rules"
+  },
+  {
+   "start": 1708,
+   "title": "Orient Electric"
+  },
+  {
+   "start": 1733,
+   "title": "IIFL Finance"
+  },
+  {
+   "start": 1759,
+   "title": "Tata Communications"
+  },
+  {
+   "start": 1778,
+   "title": "Tech Mahindra"
+  },
+  {
+   "start": 1811,
+   "title": "Tips"
+  },
+  {
+   "start": 1831,
+   "title": "Nestle"
+  },
+  {
+   "start": 1858,
+   "title": "HDFC AMC"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "te",
+ "foreign": true,
+ "comments_fetched": 333,
+ "comments_top_level": 221,
+ "comments_replies": 112,
+ "comments_by_creator": 3,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 333,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T07:56:09",
+ "approved": "2026-10-21T16:56+09:00"
+}

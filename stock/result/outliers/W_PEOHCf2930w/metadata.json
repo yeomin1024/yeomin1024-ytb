@@ -1,0 +1,75 @@
+{
+ "id": "PEOHCf2930w",
+ "title": "QLD 직투 vs ISA, 잘못 선택했다가는 10년 뒤 수 천만 원 날립니다",
+ "channel": "투자각성",
+ "channel_id": "UC7xXE3BQ28hTeWJsTBuGoyg",
+ "subs": 382,
+ "views": 10953,
+ "ratio": 28.67,
+ "age_days": 6,
+ "views_per_day": 1825.5,
+ "minutes": 8.9,
+ "likes": 75,
+ "comments": 31,
+ "published": "2026-10-14",
+ "queries": "검색:나스닥100",
+ "url": "https://www.youtube.com/watch?v=PEOHCf2930w",
+ "flag": "",
+ "published_at": "2026-10-14T16:08:41Z",
+ "rank": "W12",
+ "set": "web",
+ "folder": "W_PEOHCf2930w",
+ "sources": [
+  "검색:나스닥100"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "ISA 가입자 1,000만 명, 나는 어디에 담을까"
+  },
+  {
+   "start": 111,
+   "title": "1억 넣으면 세금 1,400만 원 차이"
+  },
+  {
+   "start": 361,
+   "title": "ISA 나스닥 2배, 환율도 2배라고?"
+  },
+  {
+   "start": 481,
+   "title": "그래서, 어디에 얼마를 넣을까"
+  },
+  {
+   "start": 551,
+   "title": "10년 전 천만 원, 지금 얼마일까"
+  },
+  {
+   "start": 645,
+   "title": "2배가 3배를 이긴 이유"
+  },
+  {
+   "start": 768,
+   "title": "2008년 같은 폭락이 오면?"
+  },
+  {
+   "start": 839,
+   "title": "정리, 그리고 1만 달러 새 계좌"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 31,
+ "comments_top_level": 8,
+ "comments_replies": 23,
+ "comments_by_creator": 15,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 31,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T07:45:00",
+ "approved": "2026-10-21T16:45+09:00"
+}

@@ -1,0 +1,120 @@
+{
+ "id": "BCG0vPE1Ox0",
+ "title": "The Honest Downside of SCHD Nobody Talks About",
+ "channel": "Drawn Investor",
+ "channel_id": "UCpmZmhg--dnBfRbBWZUpawg",
+ "subs": 2800,
+ "views": 12999,
+ "ratio": 4.64,
+ "age_days": 4,
+ "views_per_day": 3249.8,
+ "minutes": 12.8,
+ "likes": 130,
+ "comments": 16,
+ "published": "2026-10-16",
+ "queries": "검색:dividend portfolio",
+ "url": "https://www.youtube.com/watch?v=BCG0vPE1Ox0",
+ "flag": "외국 영상",
+ "published_at": "2026-10-16T23:15:21Z",
+ "rank": "W50",
+ "set": "web",
+ "folder": "W_BCG0vPE1Ox0",
+ "sources": [
+  "검색:dividend portfolio"
+ ],
+ "source": "web",
+ "tags": [
+  "SCHD",
+  "SCHD downside",
+  "SCHD risk",
+  "dividend investing",
+  "dividend ETF",
+  "SCHD review 2026",
+  "SCHD concentration risk",
+  "SCHD tech exposure",
+  "SCHD yield 2026",
+  "dividend yield trap",
+  "SCHD vs S&P 500",
+  "dividend growth investing",
+  "SCHD holdings",
+  "SCHD sector weights",
+  "interest rate sensitivity dividend stocks",
+  "is SCHD a good investment",
+  "Drawn Investor",
+  "dividend ETF risks",
+  "SCHD expense ratio",
+  "passive income investing"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "The Risk Nobody Puts in a SCHD Thumbnail"
+  },
+  {
+   "start": 65,
+   "title": "Why SCHD Owns Just 103 Stocks"
+  },
+  {
+   "start": 150,
+   "title": "The Hidden Cost of SCHD's Concentration"
+  },
+  {
+   "start": 188,
+   "title": "Why SCHD Holds So Little Tech"
+  },
+  {
+   "start": 244,
+   "title": "When SCHD Can't Keep Up With the S&P 500"
+  },
+  {
+   "start": 300,
+   "title": "Two Investors, $10,000, One Big Difference"
+  },
+  {
+   "start": 373,
+   "title": "The Interest Rate Risk Dividend Investors Overlook"
+  },
+  {
+   "start": 450,
+   "title": "The 3.22% Yield That Isn't Guaranteed"
+  },
+  {
+   "start": 527,
+   "title": "What Happens If Energy and Banks Struggle?"
+  },
+  {
+   "start": 581,
+   "title": "The Screen Tax: SCHD's Hidden Trade-Off"
+  },
+  {
+   "start": 615,
+   "title": "Does SCHD's Long-Term Math Still Hold Up?"
+  },
+  {
+   "start": 678,
+   "title": "Stress-Test Your Dividend Income for Free"
+  },
+  {
+   "start": 704,
+   "title": "Three Questions Every SCHD Investor Should Answer"
+  },
+  {
+   "start": 747,
+   "title": "The Other Side of SCHD's Story"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 16,
+ "comments_top_level": 10,
+ "comments_replies": 6,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 16,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T07:47:07",
+ "approved": "2026-10-21T16:47+09:00"
+}

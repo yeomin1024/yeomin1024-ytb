@@ -1,0 +1,99 @@
+{
+ "id": "6NOUMblSxqY",
+ "title": "The AI Sell-Off Continues (3 Stocks to Buy Now)",
+ "channel": "MarketBeat",
+ "channel_id": "UCDMRj2UMCY4Jp49Waf_2X9g",
+ "subs": 677000,
+ "views": 116538,
+ "ratio": 0.17,
+ "age_days": 5,
+ "views_per_day": 23307.6,
+ "minutes": 24.7,
+ "likes": 1410,
+ "comments": 97,
+ "published": "2026-10-15",
+ "queries": "검색:stocks to buy | 검색:stocks",
+ "url": "https://www.youtube.com/watch?v=6NOUMblSxqY",
+ "flag": "외국 영상",
+ "published_at": "2026-10-15T22:30:01Z",
+ "rank": "W16",
+ "set": "web",
+ "folder": "W_6NOUMblSxqY",
+ "sources": [
+  "검색:stocks to buy",
+  "검색:stocks"
+ ],
+ "source": "web",
+ "tags": [
+  "MarketBeat",
+  "Bridget Bennett",
+  "Investing",
+  "Stock Market",
+  "Stock Ideas",
+  "Stock Market News",
+  "How to Invest",
+  "Stock Analysis",
+  "financial freedom",
+  "best stocks to buy",
+  "stocks to buy now",
+  "stock forecast",
+  "nvda stock",
+  "amd stock",
+  "dividends",
+  "dividend",
+  "market beat",
+  "trading",
+  "investment ideas",
+  "ai crash",
+  "market crash",
+  "stock investing",
+  "stocks",
+  "dividend investing",
+  "live trading",
+  "investing for beginners",
+  "stock market for beginners",
+  "cnbc",
+  "ai",
+  "stock market crash"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Introduction"
+  },
+  {
+   "start": 37,
+   "title": "Why AI Stocks Are Selling Off"
+  },
+  {
+   "start": 199,
+   "title": "What the Fundamentals Show"
+  },
+  {
+   "start": 371,
+   "title": "Stock 1"
+  },
+  {
+   "start": 854,
+   "title": "Stock 2"
+  },
+  {
+   "start": 1178,
+   "title": "Stock 3"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 97,
+ "comments_top_level": 70,
+ "comments_replies": 27,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 97,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:24:57",
+ "approved": "2026-10-21T17:24+09:00"
+}

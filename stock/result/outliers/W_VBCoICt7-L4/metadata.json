@@ -1,0 +1,111 @@
+{
+ "id": "VBCoICt7-L4",
+ "title": "(#이벤트) 또 무너진 공포의 하락장, 반도체 대신 봐야 할 섹터 '3가지' | 금시공 장우진 대표이사 2부🎙️ 증시톡터뷰",
+ "channel": "교보증권 머니텐 Money10",
+ "channel_id": "UCcviJwrVaorhIFL4csgAz1w",
+ "subs": 123000,
+ "views": 220596,
+ "ratio": 1.79,
+ "age_days": 5,
+ "views_per_day": 44119.2,
+ "minutes": 23.9,
+ "likes": 1902,
+ "comments": 244,
+ "published": "2026-10-15",
+ "queries": "검색:코스피 | 검색:주식투자",
+ "url": "https://www.youtube.com/watch?v=VBCoICt7-L4",
+ "flag": "",
+ "published_at": "2026-10-15T08:00:08Z",
+ "rank": "W67",
+ "set": "web",
+ "folder": "W_VBCoICt7-L4",
+ "sources": [
+  "검색:코스피",
+  "검색:주식투자"
+ ],
+ "source": "web",
+ "tags": [
+  "코스피",
+  "코스피폭락",
+  "코스피급락",
+  "코스피전망",
+  "코스피6000",
+  "증시전망",
+  "주식",
+  "주식투자",
+  "삼성전자",
+  "SK하이닉스",
+  "삼성전자주가",
+  "SK하이닉스주가",
+  "반도체",
+  "사이드카",
+  "미국CPI",
+  "하락장",
+  "공매도",
+  "외국인매도",
+  "장기투자",
+  "적립식투자",
+  "미국증시",
+  "S&P500",
+  "나스닥",
+  "태양광",
+  "로봇",
+  "스테이블코인",
+  "주식책",
+  "주식책추천",
+  "전자공시",
+  "도서이벤트"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "2부 시작 코스피, 여기서 무너지면 어디까지?"
+  },
+  {
+   "start": 27,
+   "title": "목표주가는 오르는데, 반도체 다시 오를까?"
+  },
+  {
+   "start": 246,
+   "title": "6천 깨진 코스피, 투매의 신호일까"
+  },
+  {
+   "start": 441,
+   "title": "삼성전자·SK하이닉스 급락, 지금 필요한 대응은?"
+  },
+  {
+   "start": 578,
+   "title": "지금 시장 상황에서 장기투자, 무조건 정답일까?"
+  },
+  {
+   "start": 797,
+   "title": "5년째 오르는 미장 그리고 국장 투자 전략은?"
+  },
+  {
+   "start": 1026,
+   "title": "급락장 이후, 뒤를 이끌 섹터 3가지"
+  },
+  {
+   "start": 1111,
+   "title": "아는 것과 해내는 것, 그 사이에 필요한 것"
+  },
+  {
+   "start": 1323,
+   "title": "도서 ‘주식으로 부자됩시다’ 증정 이벤트"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 244,
+ "comments_top_level": 206,
+ "comments_replies": 38,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 244,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T07:48:22",
+ "approved": "2026-10-21T16:48+09:00"
+}

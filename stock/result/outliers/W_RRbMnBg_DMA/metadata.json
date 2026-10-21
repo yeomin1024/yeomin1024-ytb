@@ -1,0 +1,69 @@
+{
+ "id": "RRbMnBg_DMA",
+ "title": "3 gefährliche ETF-Fehler, die fast jeder Ü50 macht",
+ "channel": "Anna & Eddy • Lazy Investors",
+ "channel_id": "UCZnC8xwQO9DjjGD9HmGdcow",
+ "subs": 75900,
+ "views": 148453,
+ "ratio": 1.96,
+ "age_days": 7,
+ "views_per_day": 21207.6,
+ "minutes": 10.3,
+ "likes": 1353,
+ "comments": 0,
+ "published": "2026-10-14",
+ "queries": "검색:ETF | 검색:ETFs",
+ "url": "https://www.youtube.com/watch?v=RRbMnBg_DMA",
+ "flag": "외국 영상",
+ "published_at": "2026-10-14T07:00:33Z",
+ "rank": "W69",
+ "set": "web",
+ "folder": "W_RRbMnBg_DMA",
+ "sources": [
+  "검색:ETF",
+  "검색:ETFs"
+ ],
+ "source": "web",
+ "tags": [
+  "Martin Eckardt",
+  "Anna Terschüren",
+  "Anna",
+  "Eddy",
+  "Anna & Eddy",
+  "Lazy Investors",
+  "Dr. Anna Terschüren",
+  "LazyInvestors"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Fehler Nummer 1: „Dafür bin ich zu alt“"
+  },
+  {
+   "start": 211,
+   "title": "Fehler Nummer 2: Mit 100 % Aktien in die Rente"
+  },
+  {
+   "start": 469,
+   "title": "Fehler Nummer 3: Ohne Plan entnehmen"
+  },
+  {
+   "start": 565,
+   "title": "Die gemeinsame Wurzel der drei Fehler"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "de",
+ "foreign": true,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": true,
+ "comments_reported": 0,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:26:49",
+ "approved": "2026-10-21T17:26+09:00"
+}

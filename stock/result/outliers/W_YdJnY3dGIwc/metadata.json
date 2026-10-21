@@ -1,0 +1,139 @@
+{
+ "id": "YdJnY3dGIwc",
+ "title": "Geldanlage Auto – besser als ETF? | FYI – Unsere Recherche, Dein Vorteil NDR",
+ "channel": "ARD Marktcheck",
+ "channel_id": "UCxec_VgCE-5DUZ8MocKbEdg",
+ "subs": 825000,
+ "views": 535031,
+ "ratio": 0.65,
+ "age_days": 27,
+ "views_per_day": 19816.0,
+ "minutes": 16.2,
+ "likes": 1351,
+ "comments": 335,
+ "published": "2026-09-23",
+ "queries": "검색:ETF",
+ "url": "https://www.youtube.com/watch?v=YdJnY3dGIwc",
+ "flag": "외국 영상",
+ "published_at": "2026-09-23T15:00:03Z",
+ "rank": "W81",
+ "set": "web",
+ "folder": "W_YdJnY3dGIwc",
+ "sources": [
+  "검색:ETF"
+ ],
+ "source": "web",
+ "tags": [
+  "Auto verkaufen",
+  "Auto als Geldanlage",
+  "Auto als Investition",
+  "Auto als Investment",
+  "Geldanlage",
+  "Geld anlegen",
+  "Geld anlegen in Autos",
+  "Ferrari F50",
+  "1200 Käfer 84",
+  "Wie viel ist mein Auto wert",
+  "ETF",
+  "Anlagestrategie",
+  "NDR",
+  "Verbraucher",
+  "ARD"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Intro mit Ferrari F50"
+  },
+  {
+   "start": 31,
+   "title": "1200er VW Käfer aus Mexiko"
+  },
+  {
+   "start": 90,
+   "title": "Kaufpreis für den Käfer 5.800 €"
+  },
+  {
+   "start": 111,
+   "title": "Was bietet wirkaufendeinauto.de"
+  },
+  {
+   "start": 163,
+   "title": "Future Classic Days Großtankstelle Brandshof in Hamburg"
+  },
+  {
+   "start": 178,
+   "title": "Talk mit den Machern vom Podcast Future Classic"
+  },
+  {
+   "start": 250,
+   "title": "Welche Autos steigen im Wert? Audi TT und Opel Signum"
+  },
+  {
+   "start": 342,
+   "title": "Gewinner der letzten 10 Jahre: Wartburg 311 Camping, Audi 200 2.1 Turbo, Opel Kadett E 2.0 GSI"
+  },
+  {
+   "start": 403,
+   "title": "Bewertung des 1200er VW Käfers durch Future Podcast"
+  },
+  {
+   "start": 432,
+   "title": "7900 € für den VW Käfer"
+  },
+  {
+   "start": 484,
+   "title": "Nationales Automuseum \"The Loh Collection\""
+  },
+  {
+   "start": 504,
+   "title": "Benz Victoria: Vorbesitzer Carl Benz und Henry Ford"
+  },
+  {
+   "start": 575,
+   "title": "Lincoln Continental von 1963 John F. Kennedy"
+  },
+  {
+   "start": 679,
+   "title": "Worauf muss man achten beim Oldtimerkauf"
+  },
+  {
+   "start": 744,
+   "title": "Wie schwer ist es in einen Tourenwagen einzusteigen?"
+  },
+  {
+   "start": 786,
+   "title": "Ferrari F50 in Gelb für 12,5 Millionen Euro versteigert"
+  },
+  {
+   "start": 830,
+   "title": "Goldene Felgen bei Ferrari F50"
+  },
+  {
+   "start": 872,
+   "title": "3ormel 1 Ferrari 2004 von Michael Schumacher"
+  },
+  {
+   "start": 929,
+   "title": "1200er VW Käfer aus Mexiko in die Loh Collection?"
+  },
+  {
+   "start": 959,
+   "title": "Fazit"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "de",
+ "foreign": true,
+ "comments_fetched": 335,
+ "comments_top_level": 130,
+ "comments_replies": 205,
+ "comments_by_creator": 40,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 335,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:07:24",
+ "approved": "2026-10-21T17:07+09:00"
+}

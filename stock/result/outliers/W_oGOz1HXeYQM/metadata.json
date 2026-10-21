@@ -1,0 +1,79 @@
+{
+ "id": "oGOz1HXeYQM",
+ "title": "배당 위주로 투자해 배달 기사 그만 두고 월 200만원 받는 3년 차 파이어족  [싱글파이어]",
+ "channel": "싱글파이어",
+ "channel_id": "UC5CyCSvCdoEP-VgQmFq3iww",
+ "subs": 513000,
+ "views": 953045,
+ "ratio": 1.86,
+ "age_days": 56,
+ "views_per_day": 17018.7,
+ "minutes": 11.5,
+ "likes": 3943,
+ "comments": 452,
+ "published": "2026-08-25",
+ "queries": "검색:배당주 | 검색:배당 | 검색:월배당 | 검색:배당금 | 검색:배당투자",
+ "url": "https://www.youtube.com/watch?v=oGOz1HXeYQM",
+ "flag": "",
+ "published_at": "2026-08-25T09:00:03Z",
+ "rank": "W22",
+ "set": "web",
+ "folder": "W_oGOz1HXeYQM",
+ "sources": [
+  "검색:배당주",
+  "검색:배당",
+  "검색:월배당",
+  "검색:배당금",
+  "검색:배당투자"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트"
+  },
+  {
+   "start": 33,
+   "title": "3년 차 파이어족의 일상"
+  },
+  {
+   "start": 119,
+   "title": "2억으로 파이어 가능한가요?"
+  },
+  {
+   "start": 193,
+   "title": "시드머니 모으는 팁"
+  },
+  {
+   "start": 288,
+   "title": "목표 금액 및 투자 전략"
+  },
+  {
+   "start": 421,
+   "title": "파이어 후 하루 일상"
+  },
+  {
+   "start": 577,
+   "title": "향후 목표 및 계획"
+  },
+  {
+   "start": 617,
+   "title": "응원의 메시지💫"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 452,
+ "comments_top_level": 280,
+ "comments_replies": 172,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 452,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:02:46",
+ "approved": "2026-10-21T17:02+09:00"
+}

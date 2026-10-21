@@ -1,0 +1,92 @@
+{
+ "id": "l2XsNVbqkm0",
+ "title": "주가 1.62달러까지 무너진 AMD, 바닥에서 내린 결정",
+ "channel": "Six Sigma | 식스시그마",
+ "channel_id": "UCb55ivT0IMLtiAcVu3B-vKQ",
+ "subs": 5810,
+ "views": 83120,
+ "ratio": 14.31,
+ "age_days": 3,
+ "views_per_day": 27706.7,
+ "minutes": 11.3,
+ "likes": 258,
+ "comments": 51,
+ "published": "2026-10-17",
+ "queries": "검색:주가",
+ "url": "https://www.youtube.com/watch?v=l2XsNVbqkm0",
+ "flag": "",
+ "published_at": "2026-10-17T11:00:24Z",
+ "rank": "W23",
+ "set": "web",
+ "folder": "W_l2XsNVbqkm0",
+ "sources": [
+  "검색:주가"
+ ],
+ "source": "web",
+ "tags": [
+  "AMD",
+  "리사 수",
+  "Lisa Su",
+  "AMD 리사수",
+  "AMD 주가",
+  "엔비디아",
+  "인텔",
+  "반도체",
+  "반도체 주식",
+  "미국 주식",
+  "AI 반도체",
+  "라이젠",
+  "Ryzen",
+  "젠",
+  "EPYC",
+  "MI500",
+  "CEO 인터뷰",
+  "턴어라운드",
+  "식스시그마",
+  "미국 반도체"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "\"죽은 것보다 더 죽었다\""
+  },
+  {
+   "start": 30,
+   "title": "원래 잘나가던 회사"
+  },
+  {
+   "start": 49,
+   "title": "무너진 이유"
+  },
+  {
+   "start": 79,
+   "title": "새 CEO"
+  },
+  {
+   "start": 177,
+   "title": "바닥에서 내린 결정"
+  },
+  {
+   "start": 407,
+   "title": "살아난 AMD"
+  },
+  {
+   "start": 561,
+   "title": "이제는 엔비디아에 도전"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 51,
+ "comments_top_level": 30,
+ "comments_replies": 21,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 51,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T07:45:35",
+ "approved": "2026-10-21T16:45+09:00"
+}

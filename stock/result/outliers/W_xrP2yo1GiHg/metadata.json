@@ -1,0 +1,84 @@
+{
+ "id": "xrP2yo1GiHg",
+ "title": "テレビは報道しない...史上最大規模のIPOの裏側で何が起きているかを解説します【元ゴールドマンサックスが徹底解説】",
+ "channel": "おーちゃん【元外銀マン】",
+ "channel_id": "UC4Ub-Y_yj43aouqFbA7PwhQ",
+ "subs": 312000,
+ "views": 224810,
+ "ratio": 0.72,
+ "age_days": 2,
+ "views_per_day": 112405.0,
+ "minutes": 42.1,
+ "likes": 1796,
+ "comments": 65,
+ "published": "2026-10-18",
+ "queries": "검색:etf investing",
+ "url": "https://www.youtube.com/watch?v=xrP2yo1GiHg",
+ "flag": "외국 영상",
+ "published_at": "2026-10-18T10:00:15Z",
+ "rank": "W86",
+ "set": "web",
+ "folder": "W_xrP2yo1GiHg",
+ "sources": [
+  "검색:etf investing"
+ ],
+ "source": "web",
+ "tags": [
+  "投資",
+  "資産運用",
+  "新NISA",
+  "投資信託",
+  "S&P500",
+  "オールカントリー",
+  "オルカン",
+  "配当金"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "イントロ"
+  },
+  {
+   "start": 238,
+   "title": "プロフィール"
+  },
+  {
+   "start": 282,
+   "title": "1000ドルが4億円になった席はもう売り切れている"
+  },
+  {
+   "start": 530,
+   "title": "100年で1京4000兆円を生んだのは46社だけ"
+  },
+  {
+   "start": 1026,
+   "title": "会社を上場させていた3つの力"
+  },
+  {
+   "start": 1629,
+   "title": "日本の個人投資家が逆転相場に巻き込まれる時"
+  },
+  {
+   "start": 2036,
+   "title": "あなたの口座が張っている賭けはどちら向きか"
+  },
+  {
+   "start": 2374,
+   "title": "おーちゃんの雑談（めっちゃためになる）"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ja",
+ "foreign": true,
+ "comments_fetched": 65,
+ "comments_top_level": 54,
+ "comments_replies": 11,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 65,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T07:49:46",
+ "approved": "2026-10-21T16:49+09:00"
+}

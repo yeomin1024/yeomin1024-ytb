@@ -1,0 +1,104 @@
+{
+ "id": "8IH_hQaWyQ8",
+ "title": "나스닥 최악의 달 9월, “그런데… 또 놀라서 파실거예요?”",
+ "channel": "PLUS TV (플러스 TV)",
+ "channel_id": "UCuHUaZo43N9PgOCjs3Hg2Uw",
+ "subs": 163000,
+ "views": 762365,
+ "ratio": 4.68,
+ "age_days": 48,
+ "views_per_day": 15882.6,
+ "minutes": 26.0,
+ "likes": 2300,
+ "comments": 180,
+ "published": "2026-09-02",
+ "queries": "검색:나스닥",
+ "url": "https://www.youtube.com/watch?v=8IH_hQaWyQ8",
+ "flag": "",
+ "published_at": "2026-09-02T08:00:01Z",
+ "rank": "W6",
+ "set": "web",
+ "folder": "W_8IH_hQaWyQ8",
+ "sources": [
+  "검색:나스닥"
+ ],
+ "source": "web",
+ "tags": [
+  "슈카",
+  "박세익",
+  "체슬리투자자문",
+  "김단테",
+  "내일은투자왕",
+  "9월약세장",
+  "나스닥",
+  "S&P500",
+  "미국증시",
+  "회계연도",
+  "미국선거",
+  "트럼프",
+  "앤트로픽",
+  "다리오아모데이",
+  "오픈AI",
+  "클로드",
+  "AI코딩",
+  "지식노동자",
+  "생명물리학",
+  "클로드사이언스",
+  "성장호르몬",
+  "키성장",
+  "신체검사",
+  "바이오",
+  "주식투자",
+  "폭락장",
+  "엔비디아",
+  "시가총액",
+  "경제수다",
+  "퇴근길",
+  "ipo",
+  "엔트로픽"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝"
+  },
+  {
+   "start": 197,
+   "title": "미 증시가 9월에 유독 약한 이유"
+  },
+  {
+   "start": 522,
+   "title": "시총 1위 넘보는 앤트로픽과 창업자"
+  },
+  {
+   "start": 740,
+   "title": "코딩 AI 클로드의 폭발적 매출 성장"
+  },
+  {
+   "start": 926,
+   "title": "지식 노동자 대체와 바이오 확장"
+  },
+  {
+   "start": 1113,
+   "title": "청소년 키 상승과 성장 호르몬 열풍"
+  },
+  {
+   "start": 1465,
+   "title": "유쾌한 퇴근길 마무리 인사"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 180,
+ "comments_top_level": 131,
+ "comments_replies": 49,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 180,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:01:32",
+ "approved": "2026-10-21T17:01+09:00"
+}

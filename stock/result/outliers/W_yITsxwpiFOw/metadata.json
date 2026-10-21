@@ -1,0 +1,72 @@
+{
+ "id": "yITsxwpiFOw",
+ "title": "연금저축 IRP 계좌에서 사모을 ETF 3대장 추천! 결국 국내상장 나스닥 S&P500 다우존스 ETF 적립식으로 사모으는 방법이 추천 됩니다",
+ "channel": "소금달 - 소액 금 달러 투자",
+ "channel_id": "UC0-y-O8FIbiAcE4rPPR593Q",
+ "subs": 2770,
+ "views": 10208,
+ "ratio": 3.69,
+ "age_days": 6,
+ "views_per_day": 1701.3,
+ "minutes": 20.0,
+ "likes": 34,
+ "comments": 2,
+ "published": "2026-10-15",
+ "queries": "검색:장기투자 | 검색:ETF투자 | 검색:ETF추천 | 검색:미국ETF | 검색:나스닥100 | 검색:주식 추천",
+ "url": "https://www.youtube.com/watch?v=yITsxwpiFOw",
+ "flag": "",
+ "published_at": "2026-10-15T07:00:28Z",
+ "rank": "W55",
+ "set": "web",
+ "folder": "W_yITsxwpiFOw",
+ "sources": [
+  "검색:장기투자",
+  "검색:ETF투자",
+  "검색:ETF추천",
+  "검색:미국ETF",
+  "검색:나스닥100",
+  "검색:주식 추천"
+ ],
+ "source": "web",
+ "tags": [
+  "etf투자",
+  "미국주식",
+  "지수추종"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "국내상장 미국 ETF 3대장"
+  },
+  {
+   "start": 29,
+   "title": "나스닥 100 ETF 추천"
+  },
+  {
+   "start": 312,
+   "title": "S&P 500 ETF 추천"
+  },
+  {
+   "start": 668,
+   "title": "미국배당 다우존스 ETF 비교"
+  },
+  {
+   "start": 1164,
+   "title": "연금저축 IRP ISA 절세계좌 장기투자"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 2,
+ "comments_top_level": 1,
+ "comments_replies": 1,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 2,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T07:47:32",
+ "approved": "2026-10-21T16:47+09:00"
+}

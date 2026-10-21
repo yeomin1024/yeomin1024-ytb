@@ -1,0 +1,91 @@
+{
+ "id": "oUDSWlsaRiU",
+ "title": "슈카가 떠먹여주는 진짜 쉬운 경제 용어 특강",
+ "channel": "강지영의 동그라미",
+ "channel_id": "UCCXktLc07byaN61hv-Fg6JQ",
+ "subs": 145000,
+ "views": 601143,
+ "ratio": 4.15,
+ "age_days": 21,
+ "views_per_day": 28625.9,
+ "minutes": 26.3,
+ "likes": 3143,
+ "comments": 128,
+ "published": "2026-09-29",
+ "queries": "검색:주식기초",
+ "url": "https://www.youtube.com/watch?v=oUDSWlsaRiU",
+ "flag": "",
+ "published_at": "2026-09-29T09:30:27Z",
+ "rank": "W8",
+ "set": "web",
+ "folder": "W_oUDSWlsaRiU",
+ "sources": [
+  "검색:주식기초"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "미리보기"
+  },
+  {
+   "start": 17,
+   "title": "슈카와 함께 알아보는 경제용어"
+  },
+  {
+   "start": 90,
+   "title": "① 배당"
+  },
+  {
+   "start": 166,
+   "title": "② 코스피, 코스닥"
+  },
+  {
+   "start": 279,
+   "title": "③ 펀드와 ETF"
+  },
+  {
+   "start": 518,
+   "title": "④ 슈카친구들 퇴사자..."
+  },
+  {
+   "start": 570,
+   "title": "⑤ 비주얼로 승부하는 유튜버ㅋㅋ"
+  },
+  {
+   "start": 716,
+   "title": "⑥ 기회비용"
+  },
+  {
+   "start": 898,
+   "title": "⑦ 레버리지"
+  },
+  {
+   "start": 978,
+   "title": "⑧ FED(연방준비제도)의장"
+  },
+  {
+   "start": 1075,
+   "title": "⑨ 선물"
+  },
+  {
+   "start": 1330,
+   "title": "⑩ 자사주 소각"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 128,
+ "comments_top_level": 104,
+ "comments_replies": 24,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 128,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:01:35",
+ "approved": "2026-10-21T17:01+09:00"
+}

@@ -1,0 +1,116 @@
+{
+ "id": "MkRqHSNv7fA",
+ "title": "Tom Lee Says Buy the AI Stock Dip NOW!!!",
+ "channel": "Finance Deep Dive",
+ "channel_id": "UCKjflY8gRC1ojOrs20s_YTg",
+ "subs": 102000,
+ "views": 75366,
+ "ratio": 0.74,
+ "age_days": 3,
+ "views_per_day": 25122.0,
+ "minutes": 8.9,
+ "likes": 441,
+ "comments": 0,
+ "published": "2026-10-17",
+ "queries": "검색:stocks to buy",
+ "url": "https://www.youtube.com/watch?v=MkRqHSNv7fA",
+ "flag": "외국 영상",
+ "published_at": "2026-10-17T12:00:08Z",
+ "rank": "W58",
+ "set": "web",
+ "folder": "W_MkRqHSNv7fA",
+ "sources": [
+  "검색:stocks to buy"
+ ],
+ "source": "web",
+ "tags": [
+  "nvidia",
+  "nvidia ai",
+  "nvidia ceo",
+  "nvidia gtc",
+  "nvidia rtx",
+  "nvidia gpus",
+  "nvidia cuda",
+  "nvidia rise",
+  "nvidia news",
+  "cuda nvidia",
+  "nvidia stock",
+  "nvidia rubin",
+  "nvidia story",
+  "nvidia today",
+  "rise of nvidia",
+  "nvidia update",
+  "nvidia office",
+  "nvidia 596.49",
+  "nvidia keynote",
+  "nvidia history",
+  "nvidia ai chips",
+  "nvidia geforce",
+  "que hace nvidia",
+  "negocio nvidia",
+  "empresa nvidia",
+  "nvidia empresa",
+  "nvidia drivers",
+  "buy nvidia stock",
+  "nvidia tech news",
+  "nvidia robotics",
+  "nvidia earnings",
+  "nvidia analysis"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Why Markets Are Falling"
+  },
+  {
+   "start": 39,
+   "title": "Tom Lee's Market Outlook"
+  },
+  {
+   "start": 64,
+   "title": "AI Stocks to Watch"
+  },
+  {
+   "start": 115,
+   "title": "The AI Funding Risk"
+  },
+  {
+   "start": 185,
+   "title": "Semiconductor Demand"
+  },
+  {
+   "start": 280,
+   "title": "The Capital Problem"
+  },
+  {
+   "start": 317,
+   "title": "Earnings Season Outlook"
+  },
+  {
+   "start": 377,
+   "title": "Nvidia's $250M AI Move"
+  },
+  {
+   "start": 434,
+   "title": "Nvidia's Global Strategy"
+  },
+  {
+   "start": 496,
+   "title": "The Risks Ahead"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en-US",
+ "foreign": true,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": true,
+ "comments_reported": 0,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:26:31",
+ "approved": "2026-10-21T17:26+09:00"
+}

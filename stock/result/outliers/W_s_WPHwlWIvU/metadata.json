@@ -1,0 +1,95 @@
+{
+ "id": "s_WPHwlWIvU",
+ "title": "\"배당금 받아서 생활해요\" 2억으로 은퇴한 40대",
+ "channel": "장사건물주 강호동",
+ "channel_id": "UCYigs8o_hgHJtfE0KnqVLeA",
+ "subs": 520000,
+ "views": 378410,
+ "ratio": 0.73,
+ "age_days": 7,
+ "views_per_day": 54058.6,
+ "minutes": 17.8,
+ "likes": 2423,
+ "comments": 944,
+ "published": "2026-10-13",
+ "queries": "검색:배당주 | 검색:배당 | 검색:월배당 | 검색:배당금",
+ "url": "https://www.youtube.com/watch?v=s_WPHwlWIvU",
+ "flag": "",
+ "published_at": "2026-10-13T11:00:18Z",
+ "rank": "W85",
+ "set": "web",
+ "folder": "W_s_WPHwlWIvU",
+ "sources": [
+  "검색:배당주",
+  "검색:배당",
+  "검색:월배당",
+  "검색:배당금"
+ ],
+ "source": "web",
+ "tags": [
+  "창업오빠",
+  "강호동",
+  "창업",
+  "자영업",
+  "장사의신",
+  "서민갑부",
+  "건물주",
+  "꼬마빌딩",
+  "재테크",
+  "제테크",
+  "장사",
+  "라라브레드",
+  "디저트",
+  "카페",
+  "디저트카페",
+  "브이로그",
+  "대표",
+  "예능",
+  "부동산",
+  "레버리지"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트"
+  },
+  {
+   "start": 51,
+   "title": "2억으로 파이어, 월 배당 200"
+  },
+  {
+   "start": 233,
+   "title": "험난했던 주식 시작"
+  },
+  {
+   "start": 417,
+   "title": "주식 인사이트 공개"
+  },
+  {
+   "start": 475,
+   "title": "다 보여주는 포트폴리오"
+  },
+  {
+   "start": 697,
+   "title": "파이어에서 제일 중요한 건"
+  },
+  {
+   "start": 811,
+   "title": "파이어 이후 달라진 삶"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 944,
+ "comments_top_level": 782,
+ "comments_replies": 162,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 944,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T07:49:40",
+ "approved": "2026-10-21T16:49+09:00"
+}

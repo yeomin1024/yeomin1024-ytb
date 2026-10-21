@@ -1,0 +1,128 @@
+{
+ "id": "277fUUiIUrI",
+ "title": "#1852 Market News Analysis",
+ "channel": "DAY TRADER తెలుగు",
+ "channel_id": "UCeEP6GESh2t4-e2132uj3Sg",
+ "subs": 2700000,
+ "views": 232976,
+ "ratio": 0.09,
+ "age_days": 6,
+ "views_per_day": 38829.3,
+ "minutes": 27.3,
+ "likes": 6934,
+ "comments": 193,
+ "published": "2026-10-14",
+ "queries": "검색:stock market | 검색:stock market for beginners",
+ "url": "https://www.youtube.com/watch?v=277fUUiIUrI",
+ "flag": "외국 영상",
+ "published_at": "2026-10-14T14:03:59Z",
+ "rank": "W6",
+ "set": "web",
+ "folder": "W_277fUUiIUrI",
+ "sources": [
+  "검색:stock market",
+  "검색:stock market for beginners"
+ ],
+ "source": "web",
+ "tags": [
+  "stock market latest news",
+  "stock market news",
+  "stock market"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Market Update"
+  },
+  {
+   "start": 121,
+   "title": "USA ki Shock"
+  },
+  {
+   "start": 391,
+   "title": "Must watch"
+  },
+  {
+   "start": 531,
+   "title": "Gold & Silver FALL"
+  },
+  {
+   "start": 678,
+   "title": "Market Analysis"
+  },
+  {
+   "start": 876,
+   "title": "Alert"
+  },
+  {
+   "start": 1055,
+   "title": "Study"
+  },
+  {
+   "start": 1121,
+   "title": "Jio IPO Details"
+  },
+  {
+   "start": 1160,
+   "title": "Small Railway stock"
+  },
+  {
+   "start": 1213,
+   "title": "₹90 Bank"
+  },
+  {
+   "start": 1255,
+   "title": "Bank in Trouble?"
+  },
+  {
+   "start": 1362,
+   "title": "Polycab"
+  },
+  {
+   "start": 1393,
+   "title": "Transformers and Rectifiers & SEJAL"
+  },
+  {
+   "start": 1402,
+   "title": "Pasupati"
+  },
+  {
+   "start": 1425,
+   "title": "BHEL"
+  },
+  {
+   "start": 1461,
+   "title": "HDB Financial"
+  },
+  {
+   "start": 1487,
+   "title": "Canara Bank"
+  },
+  {
+   "start": 1520,
+   "title": "Groww"
+  },
+  {
+   "start": 1558,
+   "title": "Hero Motors"
+  },
+  {
+   "start": 1611,
+   "title": "Tata Tech"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "te",
+ "foreign": true,
+ "comments_fetched": 193,
+ "comments_top_level": 129,
+ "comments_replies": 64,
+ "comments_by_creator": 2,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 193,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T08:24:40",
+ "approved": "2026-10-21T17:24+09:00"
+}

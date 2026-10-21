@@ -1,0 +1,98 @@
+{
+ "id": "skkKlZ3LrIg",
+ "title": "[지식뉴스] \"결국 AI 빚폭탄 터지나? 신용 불안 최고조\"...당신은 어디에 베팅하시겠습니까, 이제부터 시장에 일어날 일 / 교양이를 부탁해",
+ "channel": "교양이를 부탁해",
+ "channel_id": "UChY8VUjXv0aA7RF9hDQ0ISg",
+ "subs": 497000,
+ "views": 347468,
+ "ratio": 0.7,
+ "age_days": 4,
+ "views_per_day": 86867.0,
+ "minutes": 23.8,
+ "likes": 1258,
+ "comments": 133,
+ "published": "2026-10-17",
+ "queries": "검색:나스닥",
+ "url": "https://www.youtube.com/watch?v=skkKlZ3LrIg",
+ "flag": "",
+ "published_at": "2026-10-17T00:19:56Z",
+ "rank": "W89",
+ "set": "web",
+ "folder": "W_skkKlZ3LrIg",
+ "sources": [
+  "검색:나스닥"
+ ],
+ "source": "web",
+ "tags": [
+  "교양이를부탁해",
+  "지식뉴스",
+  "국제정세",
+  "재테크",
+  "직장인",
+  "생존전략",
+  "첨단산업",
+  "반도체",
+  "패권전쟁",
+  "ai혁명",
+  "긴급점검",
+  "지식콘서트",
+  "컨트리뷰터",
+  "미니강의"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "나스닥 급락, AI 거품이 터진 걸까… 지금 시장이 흔들리는 진짜 이유"
+  },
+  {
+   "start": 204,
+   "title": "미국 53% vs 한국 1%… 외국인이 한국 주식을 먼저 파는 이유"
+  },
+  {
+   "start": 291,
+   "title": "“내년엔 뜨거운 시장, 차가운 경제”… 2027년 투자 전략이 달라져야 하는 이유"
+  },
+  {
+   "start": 384,
+   "title": "2027년 미국 경제를 가를 3가지 변수… 예산·부채·연준의 선택"
+  },
+  {
+   "start": 452,
+   "title": "AI에 돈을 쏟아붓는데 생산성은 그대로… 미국 경제의 이상한 현실"
+  },
+  {
+   "start": 577,
+   "title": "“AI가 경제를 살린다?”… 생산성 혁명이 아직 확인되지 않은 이유"
+  },
+  {
+   "start": 704,
+   "title": "AI 경제의 미래는 세 갈래… 당신은 어떤 시나리오에 베팅하시겠습니까"
+  },
+  {
+   "start": 880,
+   "title": "“AI 투자 효과는 반짝일 수도 있습니다”… 가장 경계해야 할 시나리오"
+  },
+  {
+   "start": 1186,
+   "title": "AI가 아무리 똑똑해도 공장은 멈춘다… 피지컬 AI가 마주한 현실의 벽"
+  },
+  {
+   "start": 1399,
+   "title": "진짜 AI 혁명은 이제부터일까… 시장이 한 단계 더 도약할 결정적 신호"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 133,
+ "comments_top_level": 78,
+ "comments_replies": 55,
+ "comments_by_creator": 6,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 133,
+ "tool": "outlier_research.py v2.6",
+ "collected": "2026-10-21T07:49:59",
+ "approved": "2026-10-21T16:50+09:00"
+}

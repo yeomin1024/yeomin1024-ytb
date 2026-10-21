@@ -1,5 +1,20 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-21 (주식 이야기형 2) — 영상 = 종이인형극 · 주인공 인형 7장 ChatGPT 파일
+
+### 왜 (사용자 지시)
+- "영상을 그 일본 축제 영상처럼 종이인형극 풍으로 만들건데 적합한 주인공 이미지가 맞아 다시 수정해서 알려줘봐"
+- 맞지 않았던 것: v1.0 은 2D 애니메이션 설정표(얼굴·표정 있음, 배경 있는 JPEG, 여러 모습을 한 장에). 종이인형극 무대(`video/render/puppet.js`)는 **얼굴 없는 종이인형 · 한 장에 하나 · 투명 PNG(또는 순초록) · 움직임은 코드**.
+
+### 바꾼 것
+| 파일 (버전) | 내용 |
+|---|---|
+| `stock/story/protagonist_chatgpt.md` (v1.0 → v2.0) | 인형 7장(기본·걷기·휴대폰·주저앉음·다짐·복기·뒷모습) → `stock/story/puppet/P-BONSEOK*.png`. 일본 축제 인형 규칙 그대로(STYLE·CUTOUT·잘림 검사·PNG 700KB 저장 코드) + CHARACTER 문단(얼굴 없음 + 안경 · 색종이 색 고정). 2D 설정표는 옷·머리·안경 참고 주소로만 |
+| `stock/story/protagonist.md` (v1.0 → v1.1) | 8번 그림 = 종이인형극 · 알아보는 표시 3가지 · 인형 7장 표 · 아내·딸 옷 설명 |
+| `stock/guides/story_script.md` (v1.0 → v1.1) | 1-1·5번: 영상 = 종이인형극, 감정은 자세와 대사로, 주인공은 `stock/story/puppet/` 인형만 |
+| `stock/story/puppet/README.md` · `stock/story/images/README.md` | 인형 폴더 · 2D 설정표는 영상에 안 씀 |
+| `CLAUDE.md` · `guides/status.md` (v2.27) | 주식 이야기형 줄에 '영상 = 종이인형극' |
+
 ## 2026-10-21 (주식 이야기형) — 지난 4편 제작물 지움 · 이야기형 대본 지시사항 · 개미 주인공 설정 · 주인공 고정 그림 ChatGPT 파일
 
 ### 왜 (사용자 지시)

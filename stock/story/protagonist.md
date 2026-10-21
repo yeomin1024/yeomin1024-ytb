@@ -1,6 +1,7 @@
 # 주인공 설정 — 개미 투자자 구본석 (가상 인물)
 
-버전: v1.0 — 2026-10-21 — 처음 만듦.
+버전: v1.1 — 2026-10-21 — 8번 그림을 **종이인형극**으로 (사용자 지시 "영상을 그 일본 축제 영상처럼 종이인형극 풍으로 만들건데 …") — 얼굴 없는 인형 + 안경 · 자세 7장 · 투명 PNG `stock/story/puppet/`.
+(v1.0 — 2026-10-21 — 처음 만듦.)
 
 사용자 지시 (2026-10-21): "아래 이야기에 맞는 개미 투자자들의 평균을 조사해서 아래 내용대로 설정해서 요약해서 파일 만들어 / 전재산의 절반 이상을 읽은 개미 투자자가 원금 회복은 물론 파이어족이라는 꿈을 위해 포기하지 않고 올바른 투자 방법을 찾는 고군분투 이야기 / 이름(이야기에 맞고 특색있게), 나이, 가족, 직장, 투자자금, 주식 시작한지 몇년? 등 이야기 진행에 필요한 설정" · "아 그리고 주인공 이미지도 고정으로 설정해야 하니까 chatgpt가 주인공 이미지 생성해서 저장소 경로에 올릴 수 있도록 말할 것도 알려줘" (→ `protagonist_chatgpt.md`)
 
@@ -119,29 +120,42 @@
 | 비상금 없음 | 생활비 6개월 비상금 | 하락장에서 강제로 매도하는 경우 |
 | 파이어 52세 | 25배·4% 규칙 · 연금 전 13년 | 꺼내 쓰기 백테스트 |
 
-## 8. 그림용 고정 설명 (영어 — 장면 계획 `scenes/plan.json` 의 characters 에 그대로)
+## 8. 그림 — 종이인형극 (영어 설명은 그림 프롬프트에 그대로)
 
-그림체 (모든 장면과 같음 — `tools/scene_clips.py` 장면 계획의 style.image):
+사용자 지시 (2026-10-21): "영상을 그 일본 축제 영상처럼 종이인형극 풍으로 만들건데 적합한 주인공 이미지가 맞아 다시 수정해서 알려줘봐"
+
+- 영상은 **종이인형극 무대**로 만든다 — 일본 축제 영상(`video/episodes/ilbon-chukje-2026-10/`, `video/render/puppet.js`)과 같은 방식.
+  - 무대 = 배경 그림 1장 + 인형마다 투명 PNG 1장.
+  - 움직임(걷기·흔들림·기울기·뒤집기·튀어나옴)은 모두 코드로 준다.
+  - 그래서 주인공은 **자세마다 한 장**이다. 표정 그림은 없다 — 인형은 얼굴이 없고, 감정은 자세로 보인다.
+- 그림체 (`protagonist_chatgpt.md` 의 STYLE 문단): 오려 붙인 색종이의 결과 손으로 자른 가장자리, 윤곽선 없음, 얼굴 없는 둥근 머리. 일본 축제 영상과 같은 기법이고, 색만 오늘의 한국 생활에 맞췄다 (남색·크림·숯색·황토 노랑·손해 빨강·청록).
+- 인물 (CHARACTER 문단 — 모든 인형 프롬프트 맨 앞에 그대로):
 
 ```
-Warm, friendly 2D animation still, like a frame from a gentle family animated film: clean hand-drawn line art, soft cel shading, warm pastel colors, rounded friendly shapes, cozy natural light, expressive but natural faces. Everyday Korean setting today. Fictional people who do not resemble any real or famous person.
+Gu Bonseok, a 44-year-old Korean office worker. Average height with a slightly soft build and a small round belly; his head is about one sixth of his height. Round plain head with NO eyes, NO nose and NO mouth, warm beige skin paper #E8C39E. Short neat black hair paper #1F1F1F parted on the left, a few light gray paper strands #A6A6A6 at the temples, and ONE small upturned cowlick sticking up at the crown. Thin black rectangular glasses frames sit on the blank face — the glasses are the only thing on the face. Gray-navy zip-up work jacket #3B4763 with no logo and a slightly lighter collar, over a light blue collared shirt #AFC6E3; dark charcoal-gray slacks #4A4D52; black sneakers #222222 with thin white soles.
 ```
 
-인물:
+- 알아보는 표시 세 가지 — 모든 인형에 넣는다:
+  - **얼굴 없는 머리 위의 검은 각진 안경** (얼굴에 있는 것은 안경뿐)
+  - **회색빛 남색 작업 점퍼**
+  - **정수리의 뻗친 머리 한 가닥**
+- 주인공 인형 7장 (ChatGPT 가 만들어 `stock/story/puppet/` 에 올림 — `protagonist_chatgpt.md` v2.0):
 
-```
-Gu Bonseok — Korean man, 44 years old; average height with a slightly soft build and a small belly; short neat black hair parted on the left with a few gray strands at the temples and one small cowlick at the crown; slightly tired kind eyes with faint dark circles; thin black rectangular-frame glasses; clean-shaven; wears a gray-navy zip-up work jacket with no logo over a light blue collared shirt, dark gray slacks and black sneakers.
-Min Jiyoung (his wife) — Korean woman, 42 years old; slim; shoulder-length dark brown hair tied in a low ponytail; warm but tired eyes; no glasses; cream knit cardigan over a white blouse, navy trousers.
-Gu Seoyun (their daughter) — Korean girl, 10 years old; black hair in two short pigtails with yellow hair ties; round cheeks; pale pink hoodie, denim skirt, white sneakers.
-```
+| 파일 | 자세 | 쓰는 곳 |
+|---|---|---|
+| `P-BONSEOK.png` | 기본 — 서서 말하기 (비스듬히 앞) | 모든 장면의 기본 |
+| `P-BONSEOK-WALK.png` | 걷기 (옆) | 출근·이동 |
+| `P-BONSEOK-PHONE.png` | 휴대폰 계좌를 보고 무너짐 | 도입 ① 상황 |
+| `P-BONSEOK-DESPAIR.png` | 바닥에 주저앉아 무릎에 얼굴을 묻음 | 도입 ② 답답함 |
+| `P-BONSEOK-RESOLVE.png` | 주먹을 쥐고 고개를 듦 | 도입 ③ 다짐 · 마무리 |
+| `P-BONSEOK-STUDY.png` | 낮은 상 앞에서 노트북·공책으로 복기 | 도입 ④ · 방법 찾기 |
+| `P-BONSEOK-BACK.png` | 뒷모습 — 큰 화면을 올려다봄 | 백테스트 결과 (차트는 코드로) |
 
-- 알아보는 표시 세 가지: **검은 각진 얇은 안경 · 회색빛 남색 작업 점퍼 · 정수리의 뻗친 머리 한 가닥**. 모든 그림에 넣는다.
-- 고정 그림 (ChatGPT 가 만들어 올림 — `protagonist_chatgpt.md`):
-  - `stock/story/images/protagonist_sheet.jpg` — 앞·옆·뒤 설정표
-  - `stock/story/images/protagonist_faces.jpg` — 표정 6개
-  - `stock/story/images/protagonist_portrait.jpg` — 기준 얼굴
-- 장면 그림을 그릴 때는 이 그림의 주소를 함께 넘겨 같은 얼굴로 그리게 한다.
-- 아내·딸의 고정 그림은 아직 없다. 영상에 나오게 되면 같은 방식으로 더한다.
+- 왼쪽을 보는 자세는 코드가 좌우로 뒤집어 쓴다 (그림을 따로 만들지 않음).
+- 2D 애니메이션 설정표(`stock/story/images/protagonist_*.jpg`, v1.0)는 **영상에 쓰지 않는다.** 옷·머리·안경·체형을 맞추는 참고 그림으로만 ChatGPT 에 넘긴다.
+- 아내·딸 인형은 아직 없다. 영상에 나오게 되면 같은 방식(얼굴 없는 종이인형, 한 장에 하나)으로 더한다. 옷 설명:
+  - 민지영 (아내, 42세): 마른 편, 어깨 길이 짙은 갈색 머리를 낮게 묶음, 안경 없음, 크림색 니트 카디건 + 흰 블라우스 + 남색 바지.
+  - 구서윤 (딸, 10세): 노란 머리끈으로 짧게 양 갈래, 연분홍 후드티 + 청치마 + 흰 운동화.
 
 ## 9. 근거 — 평균 통계 (모두 언론 보도 = 2차 출처, 영상에 쓰기 전 1차 원문 확인)
 
@@ -175,3 +189,4 @@ Gu Seoyun (their daughter) — Korean girl, 10 years old; black hair in two shor
 | 버전 | 날짜 | 바꾼 것 |
 |---|---|---|
 | v1.0 | 2026-10-21 | 처음 만듦 — 평균 통계 조사(9번) · 기본 설정 · 돈 · 파이어 · 연표 · 습관 · 소재 · 그림 고정 설명 |
+| v1.1 | 2026-10-21 | 8번 그림 = 종이인형극 (일본 축제 영상 방식) — 얼굴 없는 인형 + 안경 · 자세 7장 · 2D 설정표는 참고로만 |

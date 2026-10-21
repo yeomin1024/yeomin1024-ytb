@@ -304,7 +304,7 @@ K.chapters([
   let ic = [], tW11 = [W(11, "숙박"), W(11, "음식"), W(11, "교통")];
   const sF = ST.set(a, b, st => {
     st.bg("PAPER", { v: 0.5, y: 3.34 });
-    ic = [0, 1, 2].map(i => one(st, "ICONS", i, { fit: [4.6, 3.1], at: [-6 + 6 * i, 0, 0] }));
+    ic = [0, 1, 2].map(i => one(st, "ICONS", i, { fit: i === 2 ? [6.2, 3.1] : [4.6, 3.1], at: [i === 2 ? 6.4 : -6 + 6 * i, 0, 0] }));   // 전철은 길어서 상자를 넓게
     st.part(Object.assign(Puppet.floaters({ n: 70, x: [-10, 10], z: [-3, 3], hgt: 9, speed: [0.6, 1.4], size: 0.34, inner: "rgba(255,226,120,1)", outer: "rgba(217,164,65,0)" }), {}));
   });
   sF.update = t => {

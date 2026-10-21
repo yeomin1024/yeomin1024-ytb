@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-10-21 — '하루 조회수 상위' 시험 (사용자 지시 2026-10-21 "주제 탐색 시 구독자, 날짜 상관 없이 업로드 기간 대비 조회수가 높은
+# VERSION: v1.1 — 2026-10-21 — web_ui v2.4.1: 추천 경계 = min(목록 경계, 지난 분석 경계) 시험 2개 (분석 경계 아래 목록 영상도 추천 · 분석 경계가
+#          목록 경계보다 높으면 목록 경계 그대로 · TOP_PCT 가 다르면 지난 분석 경계를 쓰지 않음)
+# (v1.0 — 2026-10-21 — '하루 조회수 상위' 시험 (사용자 지시 2026-10-21 "주제 탐색 시 구독자, 날짜 상관 없이 업로드 기간 대비 조회수가 높은
 #          영상은 모두 분석 대상에 넣어" — 상위 10%·성공 사례와 따로 묶음): outlier_research v2.6 top_pct_threshold · web_ui v2.4 preselect ·
 #          success_analysis v1.5 vpd_top_group·comment_needs. 네트워크·GitHub 요청 없음.
 """python3 -m unittest tools.tests.test_vpd_top -v"""
@@ -60,6 +62,37 @@ class PreselectTest(unittest.TestCase):
         for vid in ("v0000000099", "v0000000098"):                # 쇼츠·주제 밖은 모집단·추천에서 빠짐
             self.assertNotIn(vid, r)
         self.assertNotEqual(r.get("v0000000097"), "하루 조회수 상위")   # 검색이 아닌 채널 영상은 모집단 밖 (그쪽은 '추가한 채널' 규칙)
+
+    def test_analysis_threshold_lowers_cut(self):
+        rows = [row(i, vpd=i) for i in range(1, 101)]
+        info = {}
+        r = web.preselect(rows, 10, info, analysis_thr=70.0)       # 분석(모든 검색) 경계 70 < 목록 경계 91 → 70 이상 모두 추천
+        self.assertEqual(info["list_threshold"], 91.0)
+        self.assertEqual(info["threshold"], 70.0)
+        self.assertTrue(all(rows[i]["id"] in r for i in range(69, 100)))
+        self.assertNotIn(rows[68]["id"], r)                         # 69 는 경계 아래 (조회수 상위 20 도 아님)
+        info = {}
+        web.preselect(rows, 10, info, analysis_thr=95.0)            # 분석 경계가 더 높으면 목록 경계 그대로
+        self.assertEqual(info["threshold"], 91.0)
+        info = {}
+        r = web.preselect(rows, 0, info, analysis_thr=70.0)         # 0 = 끔 — 분석 경계가 있어도 하루 조회수 상위 없음
+        self.assertNotIn("하루 조회수 상위", r.values())
+
+    def test_analysis_threshold_read(self):
+        import json, shutil, tempfile
+        tmp = Path(tempfile.mkdtemp())
+        saved = web.out_dir
+        try:
+            web.out_dir = lambda t: tmp
+            self.assertIsNone(web.vpd_analysis_threshold("tt", 10))                       # 분석 없음
+            (tmp / "analysis.json").write_text(json.dumps({"vpd_top": {"pct": 10, "threshold": 19570.8}}), "utf-8")
+            self.assertEqual(web.vpd_analysis_threshold("tt", 10), 19570.8)
+            self.assertIsNone(web.vpd_analysis_threshold("tt", 20))                       # TOP_PCT 가 다르면 쓰지 않음
+            (tmp / "analysis.json").write_text(json.dumps({"vpd_top": {"pct": 10, "threshold": None}}), "utf-8")
+            self.assertIsNone(web.vpd_analysis_threshold("tt", 10))                       # 모집단이 작아 경계 없음
+        finally:
+            web.out_dir = saved
+            shutil.rmtree(tmp)
 
 
 def case(i, vpd, channel="C1", subs=2_000_000, age=30, minutes=20.0, exclude="", comments=()):

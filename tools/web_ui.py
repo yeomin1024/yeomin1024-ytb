@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v2.4 — 2026-10-21 — '하루 조회수 상위' 추천 (사용자 지시 2026-10-21 "주제 탐색 시 구독자, 날짜 상관 없이 업로드 기간 대비 조회수가 높은
+# VERSION: v2.4.1 — 2026-10-21 — '하루 조회수 상위' 추천 경계 = min(이 목록 상위 TOP_PCT%, 지난 분석 analysis.json vpd_top 경계). 분석 1-3번은 모든 검색
+#          (1주·26주 검색 캐시를 함께)에서 경계를 잡는데 추천은 지금 목록 안에서만 잡아, 1주 목록(경계 하루 43,580회)에서 분석 경계(19,571회)를 넘은
+#          144개가 추천되지 않고 '자료를 받지 않은 후보'로 남았음 (2026-10-21) → 분석 경계를 넘는 목록 영상도 추천. 지난 분석이 없거나 TOP_PCT 가
+#          다르면 예전처럼 목록 경계만. 다른 동작 그대로
+# (v2.4 — 2026-10-21 — '하루 조회수 상위' 추천 (사용자 지시 2026-10-21 "주제 탐색 시 구독자, 날짜 상관 없이 업로드 기간 대비 조회수가 높은
 #          영상은 모두 분석 대상에 넣어" — 상위 10%·분석은 따로 묶음으로 정함): 검색에서 찾은 주제 관련 롱폼 중 하루 조회수(조회수 ÷ 올린 지 날수)가
 #          그 탐색 목록 상위 TOP_PCT%(<주제>/analysis_rules.toml [vpd_top], 기본 10 — 0 이면 끔)인 영상을 구독자·날짜 상관없이 체크.
-#          다시 탐색할 때 예전 목록에 있던 영상은 내 체크 그대로 — 단 예전엔 추천 이유가 없다가 이번에 생긴 영상은 체크 (새 기준이 예전 목록에도 닿게)
+#          다시 탐색할 때 예전 목록에 있던 영상은 내 체크 그대로 — 단 예전엔 추천 이유가 없다가 이번에 생긴 영상은 체크 (새 기준이 예전 목록에도 닿게))
 # (v2.3.1 — 2026-10-15 — Windows 파일 막힘 (사용자 보고 2026-10-15: "PermissionError: [WinError 5] 액세스가 거부되었습니다 … 왜이래"): _read_json·_write_json 이 잠깐 막히면 다시 (pc_analysis v1.18
 #          read_text_retry·replace_retry) — 예전엔 읽기가 막히면 '없음'으로 보고 탐색 목록·체크를 빈 것으로 덮어쓸 수 있었음. 임시 파일 이름은
 #          프로세스·스레드마다 따로 (같은 파일을 두 작업이 동시에 써도 부딪히지 않게)
@@ -151,7 +155,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import pc_analysis as pc                 # noqa: E402  할당량 장부·키 찾기·GitHub 동기화·패키지 준비
 
 ROOT = pc.ROOT
-VERSION = "v2.4"
+VERSION = "v2.4.1"
 LOG = logging.getLogger("web")
 KST = timezone(timedelta(hours=9))
 TOKEN = secrets.token_urlsafe(18)        # 화면이 요청마다 보내는 열쇠 (다른 사이트가 이 PC 의 화면을 조작하지 못하게)
@@ -764,15 +768,27 @@ def vpd_top_pct(t):
     return float(VPD_TOP_PCT)
 
 
-def preselect(rows, vpd_pct=VPD_TOP_PCT, info=None):
+def vpd_analysis_threshold(t, vpd_pct):
+    """v2.4.1: 지난 분석(analysis.json vpd_top)의 하루 조회수 경계 — 모든 검색(기간이 다른 검색 캐시 포함)에서 잡은 상위 TOP_PCT%.
+    지난 분석이 없거나 TOP_PCT 가 지금과 다르면 None (그때는 목록 경계만)."""
+    v = (_read_json(out_dir(t) / "analysis.json", {}) or {}).get("vpd_top") or {}
+    try:
+        return float(v["threshold"]) if v.get("threshold") is not None and float(v.get("pct") or 0) == float(vpd_pct) else None
+    except (TypeError, ValueError):
+        return None
+
+
+def preselect(rows, vpd_pct=VPD_TOP_PCT, info=None, analysis_thr=None):
     """추천 = 체크만 해 둠: 직접 추가한 영상 · 추가한 채널의 최근 N주 롱폼 · 검색 결과 중 성공 사례(작은 채널)·조회수 상위(주제 관련, 최근 N주 롱폼)
-    · v2.4 하루 조회수 상위 vpd_pct% (검색에서 찾은 주제 관련 롱폼 안에서 — 구독자·날짜 상관없이). info(dict)가 있으면 경계값·모집단 수를 적어 줌."""
+    · v2.4 하루 조회수 상위 vpd_pct% (검색에서 찾은 주제 관련 롱폼 안에서 — 구독자·날짜 상관없이). info(dict)가 있으면 경계값·모집단 수를 적어 줌.
+    · v2.4.1 analysis_thr(지난 분석 1-3번 경계)가 있으면 경계 = 둘 중 낮은 것 — 분석이 '자료를 받지 않은 후보'로 꼽을 영상도 추천."""
     reasons = {}
     searched = [r for r in rows if r["in_window"] and not r["short"] and r["relevant"] and any(s.startswith("검색:") for s in r["sources"])]
     searched_ids = {r["id"] for r in searched}
-    thr = orr.top_pct_threshold([r.get("views_per_day") for r in searched], vpd_pct)
+    list_thr = orr.top_pct_threshold([r.get("views_per_day") for r in searched], vpd_pct)
+    thr = min(list_thr, analysis_thr) if list_thr is not None and analysis_thr is not None else list_thr
     if info is not None:
-        info.update(pct=vpd_pct, threshold=thr, pool=len(searched))
+        info.update(pct=vpd_pct, threshold=thr, list_threshold=list_thr, analysis_threshold=analysis_thr, pool=len(searched))
     if thr is not None:
         for r in searched:
             if (r.get("views_per_day") or 0) >= thr:
@@ -878,7 +894,8 @@ def job_explore(t, weeks, use_keywords):
         r["success"] = _is_success(r)
         rows.append(r)
     vinfo = {}
-    reasons = preselect(rows, vpd_top_pct(t), vinfo)                 # v2.4: 하루 조회수 상위 (구독자·날짜 상관없이)
+    vpct = vpd_top_pct(t)
+    reasons = preselect(rows, vpct, vinfo, vpd_analysis_threshold(t, vpct))   # v2.4: 하루 조회수 상위 (구독자·날짜 상관없이) · v2.4.1 분석 경계도
     for r in rows:
         r["reason"] = reasons.get(r["id"], "")
     rows.sort(key=ratio_key)                                         # 배수 높은 순 (v1.1)
@@ -900,6 +917,8 @@ def job_explore(t, weeks, use_keywords):
         excluded=",".join(f"{k}:{v}" for k, v in excluded.items()) or "-", search_stop=api.search_stopped or "-",
         vpd_top=sum(1 for r in rows if r["reason"] == "하루 조회수 상위"), vpd_pct=vinfo.get("pct"),
         vpd_threshold=round(vinfo["threshold"], 1) if vinfo.get("threshold") is not None else "-", vpd_pool=vinfo.get("pool"),
+        vpd_list_threshold=round(vinfo["list_threshold"], 1) if vinfo.get("list_threshold") is not None else "-",
+        vpd_analysis_threshold=round(vinfo["analysis_threshold"], 1) if vinfo.get("analysis_threshold") is not None else "-",
         newly_checked=newly, note="체크만 해 둠 — [승인]을 눌러야 자료를 받음")
     step("끝" + (" — 검색 횟수 한도로 못 한 검색은 초기화 뒤 저절로" if api.search_stopped else ""), total, total)
     return {"videos": len(rows), "checked": len(data["checked"]), "pending": pending, "pending_videos": state["pending_videos"],

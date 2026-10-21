@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.5 — 2026-10-21 — 푼 추천 기억: uncheck 한 영상을 <주제>/result/web/dismissed.json(쇼츠 shorts_dismissed.json — 캐시 묶음에 함께)에 남기고
+# VERSION: v1.5.1 — 2026-10-21 — '-' 로 시작하는 영상 ID(예: -Fl1y9riPs4)를 check·uncheck·approve 에 주면 argparse 가 옵션으로 읽어 멈추던 것
+#          (exit 2 — 132개 승인이 시작도 못 함) → 11자 영상 ID 꼴이면서 아는 옵션이 아닌 낱말은 ID 로 읽음. `--` 를 앞에 둬도 됨. 다른 동작 그대로
+# (v1.5 — 2026-10-21 — 푼 추천 기억: uncheck 한 영상을 <주제>/result/web/dismissed.json(쇼츠 shorts_dismissed.json — 캐시 묶음에 함께)에 남기고
 #          explore 뒤에 다시 풂 (check 하면 목록에서 지움). 웹 화면 탐색은 바로 앞 목록의 체크만 기억해, 1주 ↔ 26주처럼 기간을 바꾸면 예전에 푼
-#          영화·정치 영상이 다시 체크됐음 (2026-10-21 — 사용자 지시 "주제 탐색 시 … 업로드 기간 대비 조회수가 높은 영상은 모두 분석 대상에 넣어" 작업 중)
+#          영화·정치 영상이 다시 체크됐음 (2026-10-21 — 사용자 지시 "주제 탐색 시 … 업로드 기간 대비 조회수가 높은 영상은 모두 분석 대상에 넣어" 작업 중))
 # (v1.4 — 2026-10-20 — 캐시 묶음 나누기: cache.tgz 가 45MB 를 넘으면 cache.tgz.001·.002 … 로 나눠 씀 (GitHub 은 파일 하나 50MB 넘으면 경고,
 #          100MB 넘으면 푸시 거부 — 음악 캐시가 채널 기준선 1,038곳·쇼츠 탐색 뒤 56.8MB). 45MB 이하면 예전처럼 cache.tgz 하나 (다른 주제는 그대로).
 #          cache-load 는 둘 다 읽음 (cache.json 'parts' 가 있으면 조각을 이어 붙여 풂). 묶음 안 내용·풀 곳은 그대로.
@@ -53,6 +55,7 @@ import io
 import json
 import logging
 import os
+import re
 import sys
 import tarfile
 import time
@@ -63,7 +66,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import pc_analysis as pc                 # noqa: E402
 import web_ui as w                       # noqa: E402
 
-VERSION = "v1.5"
+VERSION = "v1.5.1"
+VIDEO_ID_RX = re.compile(r"-[0-9A-Za-z_-]{10}")   # v1.5.1: '-' 로 시작하는 11자 영상 ID (argparse 가 옵션으로 읽지 않게)
 ROOT = pc.ROOT
 LOG = logging.getLogger("cloud")
 _STEP = {"text": None, "at": 0.0}
@@ -440,7 +444,7 @@ def cmd_wait_reset(t, a):
 
 
 # ---------------------------------------------------------------- 명령
-def main(argv=None):
+def parse_args(argv=None):
     ap = argparse.ArgumentParser(description="클라우드 분석 실행기 — 웹 화면(tools/web_ui.py) 작업을 명령으로")
     ap.add_argument("topic", help="주제 폴더 (예: stock)")
     ap.add_argument("cmd", choices=["status", "explore", "list", "check", "uncheck", "approve", "baseline", "comments", "demand",
@@ -458,7 +462,16 @@ def main(argv=None):
     ap.add_argument("--force", action="store_true", help="cache-load: 있는 캐시를 덮어씀")
     ap.add_argument("--no-cache-save", action="store_true", help="명령 뒤에 캐시를 묶지 않음")
     ap.add_argument("--log-level", default="INFO", choices=["DEBUG", "INFO", "WARNING"])
+    argv = list(sys.argv[1:] if argv is None else argv)
+    opts = {o for act in ap._actions for o in act.option_strings}
+    argv = [("\x00" + x if x not in opts and VIDEO_ID_RX.fullmatch(x) else x) for x in argv]   # v1.5.1: '-' 로 시작하는 영상 ID
     a = ap.parse_args(argv)
+    a.ids = [x.lstrip("\x00") for x in a.ids]
+    return a
+
+
+def main(argv=None):
+    a = parse_args(argv)
     t = a.topic
     if not w.TOPIC_RX.match(t) or not (ROOT / t / "analyzer_config.toml").is_file():
         raise SystemExit(f"[START] ❌ 주제 설정 {t}/analyzer_config.toml 이 없음")

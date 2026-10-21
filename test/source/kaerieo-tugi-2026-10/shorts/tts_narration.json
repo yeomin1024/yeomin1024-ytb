@@ -1,20 +1,22 @@
 {
- "tool": "tts_narration.py v1.14",
- "created": "2026-10-20T14:46:02",
+ "tool": "tts_narration.py v1.15",
+ "created": "2026-10-21T05:34:07",
  "topic": "test",
  "id": "kaerieo-tugi-2026-10-shorts",
  "script": "test/source/kaerieo-tugi-2026-10/shorts/kaerieo-tugi-2026-10-shorts.txt",
  "script_sha1": "a62dbdc408e7f188",
  "sentences": 10,
- "seconds": 39.48,
+ "seconds": 39.1,
  "engine": {
   "engine": "qwen3-tts-clone",
   "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
-  "ref": "e36c19a225874205",
+  "ref": "50cadf7c6444f49d",
   "mode": "icl",
   "language": "Korean",
   "dtype": "float32",
-  "gen": {}
+  "gen": {
+   "temperature": 0.55
+  }
  },
  "voices": {
   "host": {
@@ -27,19 +29,21 @@
    "speaker": "Sohee",
    "instruct": "",
    "part_instruct": {},
-   "seed": 4301,
-   "gap": 0.45,
-   "generation": {},
+   "seed": 5701,
+   "gap": 0.38,
+   "generation": {
+    "temperature": 0.55
+   },
    "ref_audio": "voices/ref/host.wav",
-   "ref_sha": "e36c19a225874205",
-   "ref_f0": 127.7,
+   "ref_sha": "50cadf7c6444f49d",
+   "ref_f0": 145.5,
    "files": [
     "voices/host.json"
    ]
   }
  },
  "voice_ids": {
-  "host": "ba3d7519a1de4d4c"
+  "host": "6b2a2800ef56d6f8"
  },
  "gaps": {
   "lead_in": 0.3,
@@ -54,80 +58,80 @@
    "part": "버려진 캐리어",
    "text": "깨끗하기로 유명한 일본 길거리에 주인 없는 캐리어가 버려지고 있습니다.",
    "start": 0.3,
-   "end": 4.13
+   "end": 4.303
   },
   {
    "n": 2,
    "role": "host",
    "part": "버려진 캐리어",
    "text": "도쿄 도시마구에서만 지난해 약 290개가 나왔습니다.",
-   "start": 4.58,
-   "end": 8.18
+   "start": 4.683,
+   "end": 8.039
   },
   {
    "n": 3,
    "role": "host",
    "part": "버려진 캐리어",
    "text": "한 쓰레기 집적소 앞 캐리어는 일주일이 지나도 주인이 나타나지 않았습니다.",
-   "start": 8.63,
-   "end": 13.35
+   "start": 8.419,
+   "end": 13.016
   },
   {
    "n": 4,
    "role": "host",
    "part": "버려진 캐리어",
    "text": "도쿄 경찰에 습득물로 들어온 캐리어도 약 4,600개로, 3년 전의 1.8배입니다.",
-   "start": 13.8,
-   "end": 19.56
+   "start": 13.396,
+   "end": 19.019
   },
   {
    "n": 5,
    "role": "host",
    "part": "버려진 캐리어",
    "text": "주민들 사이에선 \"폭발물인 줄 알았다\"는 말까지 나왔습니다.",
-   "start": 20.01,
-   "end": 23.89
+   "start": 19.399,
+   "end": 23.088
   },
   {
    "n": 6,
    "role": "host",
    "part": "버려진 캐리어",
    "text": "길에 버리는 건 불법입니다.",
-   "start": 24.34,
-   "end": 25.86
+   "start": 23.468,
+   "end": 25.138
   },
   {
    "n": 7,
    "role": "host",
    "part": "버려진 캐리어",
    "text": "5년 이하의 구금형이나 1,000만 엔 이하의 벌금을 받을 수 있습니다.",
-   "start": 26.31,
-   "end": 29.91
+   "start": 25.518,
+   "end": 29.268
   },
   {
    "n": 8,
    "role": "host",
    "part": "버려진 캐리어",
    "text": "그런데도 여행객들은 왜 캐리어를 길에 두고 갈까요?",
-   "start": 30.36,
-   "end": 33.4
+   "start": 29.648,
+   "end": 32.578
   },
   {
    "n": 9,
    "role": "host",
    "part": "버려진 캐리어",
    "text": "그냥 쓰레기로 버리면 되는 것 아닐까요?",
-   "start": 33.85,
-   "end": 36.07
+   "start": 32.958,
+   "end": 35.499
   },
   {
    "n": 10,
    "role": "host",
    "part": "버려진 캐리어",
    "text": "그 이유는 아래 영상에서 확인하세요.",
-   "start": 36.52,
-   "end": 38.68
+   "start": 35.879,
+   "end": 38.299
   }
  ],
- "voice_sha1": "f0d0f801940b36b1"
+ "voice_sha1": "67155a53ae90a91a"
 }

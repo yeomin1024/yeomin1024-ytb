@@ -12,6 +12,7 @@
 | `tools/web_ui.py` (v2.3.1 → v2.4) | `preselect`: 검색에서 찾은 주제 관련 롱폼 중 하루 조회수(조회수 ÷ 올린 지 날수)가 그 목록 상위 `TOP_PCT`% 면 구독자·날짜 상관없이 '하루 조회수 상위' 체크. `job_explore`: 예전 목록에 있던 영상은 체크 그대로 — 예전엔 추천 이유가 없다가 새로 생긴 영상만 체크. explore.json·로그에 경계·모집단·새로 체크한 수 |
 | `tools/success_analysis.py` (v1.4.1 → v1.5) | `analysis.md` **1-3번** '하루 조회수 상위' — 검색에서 찾은 주제 관련 영상 전부 안 상위 10% 경계를 넘은 승인 영상, 채널당 2개 + 자료 없는 후보 + 그 묶음 니즈, 0번 표 한 줄·한계 한 줄. 니즈 계산을 `comment_needs()` 로 떼어 냄 — **같은 해시 시드로 고치기 전과 결과가 모두 같음 확인** (다른 칸 없음). 그 확인 중에 찾은 것: 같은 코드도 실행마다 1-2번 '제목 낱말' 표의 같은 차이 값끼리 순서가 바뀜 (파이썬 해시 무작위 — 예전부터) |
 | `stock/analysis_rules.toml` (v1.3 → v1.4) | `[vpd_top]` TOP_PCT 10·MIN_MINUTES 4·CASES_PER_CHANNEL 2·MIN_POOL 30 (코드 기본값과 같음 — 보이게) |
+| `tools/cloud_run.py` (v1.4 → v1.5) | **푼 추천 기억**: `uncheck` 한 영상을 `result/web/dismissed.json`(쇼츠 `shorts_dismissed.json`)에 남기고 `explore` 뒤에 다시 풂 — 1주 ↔ 26주로 기간을 바꿔 다시 탐색하자 2026-10-16 에 푼 영화·정치 영상 4개가 다시 체크됐음. 지금까지 푼 롱폼 19개·쇼츠 27개를 넣어 둠 |
 | `tools/tests/test_vpd_top.py` (새로) | 경계값·추천(구독자 상관없이·쇼츠/주제 밖/채널 영상 빼기·0 = 끔)·묶음(날짜·구독자 상관없이·채널당 2·뺄 까닭·후보 수)·니즈 6개 통과 |
 | `CLAUDE.md` · `guides/pc_analysis.md` (v3.11) | 규칙 한 줄 · '하루 조회수 상위' 절 |
 

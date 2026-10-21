@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.4 — 2026-10-20 — 캐시 묶음 나누기: cache.tgz 가 45MB 를 넘으면 cache.tgz.001·.002 … 로 나눠 씀 (GitHub 은 파일 하나 50MB 넘으면 경고,
+# VERSION: v1.5 — 2026-10-21 — 푼 추천 기억: uncheck 한 영상을 <주제>/result/web/dismissed.json(쇼츠 shorts_dismissed.json — 캐시 묶음에 함께)에 남기고
+#          explore 뒤에 다시 풂 (check 하면 목록에서 지움). 웹 화면 탐색은 바로 앞 목록의 체크만 기억해, 1주 ↔ 26주처럼 기간을 바꾸면 예전에 푼
+#          영화·정치 영상이 다시 체크됐음 (2026-10-21 — 사용자 지시 "주제 탐색 시 … 업로드 기간 대비 조회수가 높은 영상은 모두 분석 대상에 넣어" 작업 중)
+# (v1.4 — 2026-10-20 — 캐시 묶음 나누기: cache.tgz 가 45MB 를 넘으면 cache.tgz.001·.002 … 로 나눠 씀 (GitHub 은 파일 하나 50MB 넘으면 경고,
 #          100MB 넘으면 푸시 거부 — 음악 캐시가 채널 기준선 1,038곳·쇼츠 탐색 뒤 56.8MB). 45MB 이하면 예전처럼 cache.tgz 하나 (다른 주제는 그대로).
 #          cache-load 는 둘 다 읽음 (cache.json 'parts' 가 있으면 조각을 이어 붙여 풂). 묶음 안 내용·풀 곳은 그대로.
 # (v1.3 — 2026-10-16 — captions: 승인한 영상 중 대본이 없는 것의 자막만 다시 (할당량 0, 사용자 지시 2026-10-16 "일단 음성인식은 보류하고
@@ -60,7 +63,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import pc_analysis as pc                 # noqa: E402
 import web_ui as w                       # noqa: E402
 
-VERSION = "v1.4"
+VERSION = "v1.5"
 ROOT = pc.ROOT
 LOG = logging.getLogger("cloud")
 _STEP = {"text": None, "at": 0.0}
@@ -288,6 +291,27 @@ def cmd_list(t, a):
     return {"rows": len(rows), "used_hidden": hidden, "shown": min(len(sel), a.limit or len(sel)), "checked": len(checked)}
 
 
+def dismissed_path(t, shorts):
+    """v1.5: 내가 푼 추천 (기간을 바꿔 다시 탐색해도 다시 체크되지 않게) — result/web 이라 캐시 묶음에 함께 올라감."""
+    return w.web_dir(t) / ("shorts_dismissed.json" if shorts else "dismissed.json")
+
+
+def apply_dismissed(t, shorts):
+    """v1.5: explore 뒤 — 탐색 목록의 체크에서 내가 예전에 푼 영상을 다시 뺌. → 뺀 수"""
+    dis = set((w._read_json(dismissed_path(t, shorts), {}) or {}).get("ids") or [])
+    fn = explore_file(shorts)
+    ex = w._read_json(w.web_dir(t) / fn, {})
+    if not dis or not ex:
+        return 0
+    before = list(ex.get("checked") or [])
+    ex["checked"] = [i for i in before if i not in dis]
+    n = len(before) - len(ex["checked"])
+    if n:
+        w._write_json(w.web_dir(t) / fn, ex)
+    log("CHECK", topic=t, shorts=shorts, dismissed_known=len(dis), unchecked_again=n, note="예전에 푼 추천은 다시 탐색해도 풂 (dismissed.json)")
+    return n
+
+
 def cmd_check(t, a, on):
     fn = explore_file(a.shorts)
     ex = w._read_json(w.web_dir(t) / fn, {})
@@ -302,6 +326,10 @@ def cmd_check(t, a, on):
         cur = [i for i in cur if i not in set(a.ids)]
     ex["checked"] = [i for i in cur if i in ok_ids]                       # /api/checked 와 같은 규칙 — 목록에 있는 영상만
     w._write_json(w.web_dir(t) / fn, ex)
+    dp = dismissed_path(t, a.shorts)                                      # v1.5: 푼 추천 기억 (check 하면 지움)
+    dis = list(dict.fromkeys((w._read_json(dp, {}) or {}).get("ids") or []))
+    dis = [i for i in dis if i not in set(a.ids)] + ([] if on else [i for i in a.ids if w.re.fullmatch(r"[0-9A-Za-z_-]{11}", i)])   # 지금 목록에 없어도 기억
+    w._write_json(dp, {"ids": dis, "updated": datetime.now(w.KST).isoformat(timespec="seconds")})
     log("CHECK", topic=t, on=on, ids=len(a.ids), not_in_list=",".join(bad) or "-", checked=len(ex["checked"]))
     return {"checked": len(ex["checked"]), "not_in_list": bad}
 
@@ -469,6 +497,7 @@ def main(argv=None):
                 res = w.job_shorts_explore(t, weeks, not a.no_keywords)
             else:
                 res = w.job_explore(t, weeks, not a.no_keywords)
+            res["unchecked_again"] = apply_dismissed(t, a.shorts)          # v1.5
         elif a.cmd == "approve":
             res = cmd_approve(t, a)
         elif a.cmd == "baseline":

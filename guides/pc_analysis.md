@@ -1,6 +1,7 @@
 # PC에서 분석 돌리기 — 재테크(`economic`)·주식(`stock`) 폴더
 
-버전: v3.12 — 2026-10-21 — '하루 조회수 상위' 추천 경계 = min(목록 경계, 지난 분석 경계) (웹 화면 v2.4.1) · `-` 로 시작하는 영상 ID (cloud_run v1.5.1) · 푼 추천 기억 (cloud_run v1.5).
+버전: v3.13 — 2026-10-21 — 제목·썸네일 문구 vs 관심 많은 댓글 (`title_comment_link.py` v1.0).
+이전 v3.12 — 2026-10-21 — '하루 조회수 상위' 추천 경계 = min(목록 경계, 지난 분석 경계) (웹 화면 v2.4.1) · `-` 로 시작하는 영상 ID (cloud_run v1.5.1) · 푼 추천 기억 (cloud_run v1.5).
 이전 v3.11 — 2026-10-21 — 사용자 지시 "주제 탐색 시 구독자, 날짜 상관 없이 업로드 기간 대비 조회수가 높은 영상은 모두 분석 대상에 넣어" (상위 10%·성공 사례와 따로 묶음으로 정함): **'하루 조회수 상위'** 추천·분석 (아래 '하루 조회수 상위' — web_ui v2.4·success_analysis v1.5·outlier_research v2.6)
 
 (v3.10 — 2026-10-16 — 음악 둘째 회차: 같은 지시를 받은 새 세션이 이어 맡음 — 예약 작업을 그 세션 것 하나로(`trig_01RR9ppiEXLNHmhFotDPNPzV`), 키가 바뀜(지문 `5ee89e86`) (아래 '클라우드에서 돌리기')
@@ -208,6 +209,12 @@ bash run_analyzer.sh
 - **추천 경계 = 둘 중 낮은 것 (v2.4.1)**: 그 목록 상위 10% 경계 · 지난 분석 1-3번 경계(`analysis.json` vpd_top — 1주·26주처럼 기간이 다른 검색까지 모두 합쳐 잡음). 2026-10-21 1주 목록 경계는 하루 43,580회, 분석 경계는 19,571회라 1주 검색에서만 나온 144개가 추천되지 않고 '자료를 받지 않은 후보'로 남았음 → 이제 분석 경계를 넘는 목록 영상도 추천. 로그 `[EXPLORE] vpd_list_threshold=·vpd_analysis_threshold=` (지난 분석이 없거나 `TOP_PCT` 가 다르면 목록 경계만).
 - 값: `<주제>/analysis_rules.toml [vpd_top]` — `TOP_PCT`(기본 10, 0 = 끔)·`MIN_MINUTES` 4·`CASES_PER_CHANNEL` 2·`MIN_POOL` 30. 경계 계산은 `outlier_research.top_pct_threshold`(추천·분석 같은 규칙).
 - ⚠️ 할당량: 대부분 큰 채널이라 댓글이 많다 — 주식 26주 목록 기준 약 200개·댓글 약 1,900단위 (2026-10-21 셈). 하루에 다 못 받은 댓글은 다음 초기화 뒤 `resume`/`comments` 가 이어서.
+
+### 제목·썸네일 문구 vs 관심 많은 댓글 — 나라 × 주 (`tools/title_comment_link.py` v1.0 — 2026-10-21)
+사용자 지시: "조회수 잘 나온 영상, 성공 사례 영상의 제목 및 썸네일 문구와 관심 많은 댓글의 상관성 비교해서 국가별(한국, 미국)로와 최신 주별(1주전~4주전)별로 알려줘봐"
+
+- `python3 tools/title_comment_link.py <주제> countries` (채널 나라 — 50곳 1단위) → `targets` (썸네일 문구가 없는 대상 + 9장 모음 그림 `.yt_work/thumb_sheets/`) → 그림을 보고 `<주제>/result/outliers/thumb_text.tsv` 에 옮겨 적음 → `report` → `title_comment.md`·`.json`.
+- 정의·한계는 결과 0번. 미국 사례 낱말 통계로 한국어 규칙을 만들지 않는다.
 
 ### 할당량 아끼기 (검색어는 그대로 — outlier_research v2.2)
 | 무엇 | 예전 | 지금 | 효과 |

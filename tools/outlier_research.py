@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v2.6 — 2026-10-21 — top_pct_threshold(): '하루 조회수 상위 N%' 경계값 (사용자 지시 2026-10-21 "주제 탐색 시 구독자, 날짜 상관 없이
+# VERSION: v2.6.1 — 2026-10-21 — Api.channels(): 채널 나라(snippet.country — 채널이 적어 둔 것만, 없으면 None)도 channel_meta 에 → channels.json "country".
+#          같은 요청·같은 1단위 (예전엔 받고 버림). 제목·썸네일 문구 vs 댓글 비교를 나라(한국·미국)별로 하려고 (사용자 지시 2026-10-21 "… 국가별(한국,
+#          미국)로와 최신 주별(1주전~4주전)별로 알려줘봐"). 다른 동작 그대로
+# (v2.6 — 2026-10-21 — top_pct_threshold(): '하루 조회수 상위 N%' 경계값 (사용자 지시 2026-10-21 "주제 탐색 시 구독자, 날짜 상관 없이
 #          업로드 기간 대비 조회수가 높은 영상은 모두 분석 대상에 넣어" — 상위 10%·따로 묶음으로 정함). 웹 화면 추천(web_ui v2.4)과 분석
-#          (success_analysis v1.5)이 같은 규칙을 쓰게 여기 하나만 둠. 다른 동작은 그대로
+#          (success_analysis v1.5)이 같은 규칙을 쓰게 여기 하나만 둠. 다른 동작은 그대로)
 # (v2.5.2 — 2026-10-19 — 분당 검색 횟수 한도 429 ('Search Queries per minute') — 1분 창이 풀리도록 30초·65초 기다렸다가 다시 (예전엔 2·4초만
 #          쉬고 RuntimeError 로 탐색 전체가 멈춤 — 2026-10-19 클라우드 주식 1주 탐색: 검색 85번을 56초에 하고 86번째에서 멈춰 탐색 목록이 저장되지
 #          않았음. 사용자 지시 "최근 영상도 분석했어? 오늘 1주일 전까지만 분석 결과 알려줘봐"). 다른 429·하루 한도 처리는 그대로
@@ -190,7 +193,7 @@ except ModuleNotFoundError:             # Python 3.10 → tomli (분석기가 �
     import tomli as tomllib
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v2.6"
+VERSION = "v2.6.1"
 LOG = logging.getLogger("outlier")
 HANGUL = re.compile(r"[가-힣]")
 SEARCH_TTL_HOURS = 168
@@ -441,7 +444,8 @@ class Api:
             st, sn = it.get("statistics", {}), it.get("snippet", {})
             out[it["id"]] = None if st.get("hiddenSubscriberCount") else int(st.get("subscriberCount", 0))
             self.channel_meta[it["id"]] = {"title": sn.get("title"), "created": sn.get("publishedAt"),
-                                           "videos": int(st.get("videoCount", 0) or 0), "views": int(st.get("viewCount", 0) or 0)}
+                                           "videos": int(st.get("videoCount", 0) or 0), "views": int(st.get("viewCount", 0) or 0),
+                                           "country": sn.get("country")}                                      # v2.6.1
         return out
 
 

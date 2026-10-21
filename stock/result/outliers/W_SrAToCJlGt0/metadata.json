@@ -1,0 +1,134 @@
+{
+ "id": "SrAToCJlGt0",
+ "title": "(#이벤트) AI 성장에 의심이 시작됐다, 이대로 터지는 걸까 | 금시공 장우진 대표이사 1부🎙️ 증시톡터뷰",
+ "channel": "교보증권 머니텐 Money10",
+ "channel_id": "UCcviJwrVaorhIFL4csgAz1w",
+ "subs": 123000,
+ "views": 128664,
+ "ratio": 1.05,
+ "age_days": 7,
+ "views_per_day": 18380.6,
+ "minutes": 25.4,
+ "likes": 1193,
+ "comments": 115,
+ "published": "2026-10-14",
+ "queries": "검색:주식투자",
+ "url": "https://www.youtube.com/watch?v=SrAToCJlGt0",
+ "flag": "",
+ "published_at": "2026-10-14T08:00:36Z",
+ "rank": "W3",
+ "set": "web",
+ "folder": "W_SrAToCJlGt0",
+ "sources": [
+  "검색:주식투자"
+ ],
+ "source": "web",
+ "tags": [
+  "코스피",
+  "코스피전망",
+  "코스피급락",
+  "주식",
+  "주식투자",
+  "증시",
+  "증시전망",
+  "주식시장",
+  "미국증시",
+  "외국인매도",
+  "환율",
+  "달러",
+  "금리",
+  "미국금리",
+  "국채금리",
+  "AI",
+  "AI버블",
+  "반도체",
+  "삼성전자",
+  "SK하이닉스",
+  "미국중간선거",
+  "이란",
+  "유동성",
+  "스테이블코인",
+  "장우진",
+  "범송공자",
+  "박병창",
+  "증시톡터뷰",
+  "머니텐",
+  "교보증권",
+  "코스피6000",
+  "코스피반등",
+  "삼성전자주가",
+  "SK하이닉스주가",
+  "반도체주",
+  "CXMT",
+  "중국반도체",
+  "사이드카",
+  "AI거품",
+  "엔비디아",
+  "브로드컴",
+  "오픈AI",
+  "마이크론",
+  "나스닥",
+  "유가",
+  "저가매수",
+  "도서이벤트",
+  "책증정이벤트",
+  "주식책",
+  "주식책추천",
+  "전자공시",
+  "전자공시보는법",
+  "주식공부",
+  "경제책"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "12번째 게스트, '범송공자' 장우진 대표"
+  },
+  {
+   "start": 72,
+   "title": "코스피 6,000pt 도 위험, 결국 문제는 '이 것'"
+  },
+  {
+   "start": 215,
+   "title": "코스피 떠난 외국인 자금, 다시 돌아오려면?"
+  },
+  {
+   "start": 378,
+   "title": "위기의 유럽, 왜 이번엔 더 위험할까"
+  },
+  {
+   "start": 500,
+   "title": "\"차라리 미국 빅테크 하고 말지\" 외국인의 속내"
+  },
+  {
+   "start": 762,
+   "title": "미국 중간선거 전과 후, 이란 협상 시나리오"
+  },
+  {
+   "start": 990,
+   "title": "\"어느 순간 터질 가능성\" AI는 금리를 이길까"
+  },
+  {
+   "start": 1202,
+   "title": "\"심지에 불은 붙었다\" 우리에게 남은 시간은?"
+  },
+  {
+   "start": 1459,
+   "title": "도서 ‘전자공시 모르면 주식투자 절대로 하지마라’ 증정 이벤트"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-21 13:53까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 115,
+ "comments_top_level": 113,
+ "comments_replies": 2,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 115,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-21T09:06:03",
+ "approved": "2026-10-21T18:06+09:00"
+}

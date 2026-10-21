@@ -1,10 +1,10 @@
 # 주식 — 성공 사례 분석: 사례별 자세히 #81–#120
 
-`analysis.md` 의 9번 (같은 # 번호). 자동 생성 — `tools/success_analysis.py` v1.5 (2026-10-21 08:30 UTC). ※ 연구·교육용 — 투자 권유가 아님.
+`analysis.md` 의 9번 (같은 # 번호). 자동 생성 — `tools/success_analysis.py` v1.5 (2026-10-21 09:07 UTC). ※ 연구·교육용 — 투자 권유가 아님.
 
 ### 81. How To Start Investing Even If You’re Broke ft. Aristotle Investments ∣ Cannon's Class TV
 
-- https://www.youtube.com/watch?v=nmwjXlRX8eg · Cannons Class TV · 구독자 19,900 · 조회수 234,627 (×11.8, 하루 1,417.2) · 좋아요 5,636 (2.4%) · 15.3분 · 2026-05-08 · 주제 묶음 2. 장기투자·ETF·지수 · 형식 인터뷰·강연·대담 · 폴더 `W_nmwjXlRX8eg` (웹 승인)
+- https://www.youtube.com/watch?v=nmwjXlRX8eg · Cannons Class TV · 구독자 19,900 · 조회수 234,627 (×11.8, 하루 1,416.9) · 좋아요 5,636 (2.4%) · 15.3분 · 2026-05-08 · 주제 묶음 2. 장기투자·ETF·지수 · 형식 인터뷰·강연·대담 · 폴더 `W_nmwjXlRX8eg` (웹 승인)
 - 썸네일: <img src="W_nmwjXlRX8eg/thumbnail.jpg" width="320">
 - 챕터: 0:00 Introduction & Aristotle's Jo… · 1:41 Investing 101: Stocks, Shares… · 3:01 How to Analyze Stocks (Fundam… · 4:28 Understanding the Market: SPY… · 6:13 How to Start Investing (Apps,… · 11:17 Market Hierarchy: Brokers, Al… · 13:49 The Road to a Million: Day Tr…
 - 설명 앞부분: In this episode of Cannon’s Class TV, Nick Cannon sits down with investor and entrepreneur Aristotle Varner Jr. to break down investing, stocks, options trading, and wealth building in a way beginners can actually understand. Aristotle shares how he went from cutting hair in the Army to becoming a …
@@ -14,7 +14,7 @@
 
 ### 82. ISA 계좌, S&P500 하나로 3년 굴리면 얼마 벌까? (ft. 향후 계획 포함)
 
-- https://www.youtube.com/watch?v=3mIsnHTgylg · 원원 - 파이어 준비생 · 구독자 16,900 · 조회수 196,499 (×11.6, 하루 1,311.0) · 좋아요 3,004 (1.5%) · 15.6분 · 2026-05-24 · 주제 묶음 2. 장기투자·ETF·지수 · 형식 오디오북·낭독 (명언·인생조언) · 폴더 `W_3mIsnHTgylg` (웹 승인)
+- https://www.youtube.com/watch?v=3mIsnHTgylg · 원원 - 파이어 준비생 · 구독자 16,900 · 조회수 196,499 (×11.6, 하루 1,310.8) · 좋아요 3,004 (1.5%) · 15.6분 · 2026-05-24 · 주제 묶음 2. 장기투자·ETF·지수 · 형식 오디오북·낭독 (명언·인생조언) · 폴더 `W_3mIsnHTgylg` (웹 승인)
 - 썸네일: <img src="W_3mIsnHTgylg/thumbnail.jpg" width="320">
 - 설명 앞부분: 💫 :: won spirit 적립식 ETF 투자 관리 플랫폼 & 커뮤니티 안녕하세요! 금융권 직장인으로서 파이어(FIRE: Financial Independence, Retire Early)를 준비하며, 미국 S&P500 ETF, 단 하나로 목표를 이루는 여정을 기록하고 있습니다. S&P500을 현재 2.4억 정도 투자중이며, 매월 투명한 투자 내역 공개를 하고 그 밖에 투자 마인드, 투자 공부, 그리고 직장인의 삶을 공유합니다. 특히, 단순하면서도 누구나 실천 가능한 투자 전략으로 재정 독립을 목표로 하고 있습니다.💡 ➡️ 이번…
 - 같은 채널 평소 대비 ×39.8 (채널 최근 롱폼 중앙값 4,936회) · 평소 영상: [1월결산] S&P500 투자자가 코스피 5,000 돌파를 바라보며! (4,850회) / 직장인이 부자 되려면 반드시 거쳐야 할 단계들! (4,849회)
@@ -36,7 +36,7 @@
 
 ### 83. [주식차트보는법] 슈퍼개미들이 절대 말 안해주는 '실전 최고의 단타기법' 제가 욕먹을 각오로 상한가 차트패턴 시원하게 오픈하겠습니다! (차트분석,주식하는법)
 
-- https://www.youtube.com/watch?v=JGzbftUZPXs · 주식차트연구소 · 구독자 1,270 · 조회수 14,298 (×11.3, 하루 265.0) · 좋아요 339 (2.4%) · 33.2분 · 2026-08-28 · 주제 묶음 6. 종목 고르기·분석 · 형식 정보·해설 (그 밖) · 폴더 `W_JGzbftUZPXs` (웹 승인)
+- https://www.youtube.com/watch?v=JGzbftUZPXs · 주식차트연구소 · 구독자 1,270 · 조회수 14,298 (×11.3, 하루 264.9) · 좋아요 339 (2.4%) · 33.2분 · 2026-08-28 · 주제 묶음 6. 종목 고르기·분석 · 형식 정보·해설 (그 밖) · 폴더 `W_JGzbftUZPXs` (웹 승인)
 - 썸네일: <img src="W_JGzbftUZPXs/thumbnail.jpg" width="320">
 - 설명 앞부분: [주식차트보는법] 슈퍼개미들이 절대 말 안해주는 '실전 최고의 단타기법' 제가 욕먹을 각오로 상한가 차트패턴 시원하게 오픈하겠습니다! (차트분석,주식하는법)
 - 같은 채널 평소 대비 ×23.3 (채널 최근 롱폼 중앙값 613회) · 평소 영상: [주식차트보는법] 7년동안 상한가 들어간 종목 전부 차트분석한 결과 발견된 딱 한가지 공… (673회) / [주식차트보는법] 7년동안 상한가 들어간 종목 전부 차트분석한 결과 발견된 딱 한가지 공… (553회)
@@ -48,7 +48,7 @@
 
 ### 84. Gold and Silver Investors Are Getting Caught Out by the ATO
 
-- https://www.youtube.com/watch?v=sY77wNqqiLA · Navexa · 구독자 7,610 · 조회수 84,671 (×11.1, 하루 13,239.0) · 좋아요 870 (1.0%) · 10.2분 · 2026-10-14 · 주제 묶음 기타 · 형식 정보·해설 (그 밖) · 폴더 `W_sY77wNqqiLA` (웹 승인)
+- https://www.youtube.com/watch?v=sY77wNqqiLA · Navexa · 구독자 7,610 · 조회수 84,671 (×11.1, 하루 13,185.7) · 좋아요 870 (1.0%) · 10.2분 · 2026-10-14 · 주제 묶음 기타 · 형식 정보·해설 (그 밖) · 폴더 `W_sY77wNqqiLA` (웹 승인)
 - 썸네일: <img src="W_sY77wNqqiLA/thumbnail.jpg" width="320">
 - 설명 앞부분: Gold and silver get taxed the moment you dispose of them, whether you sell, swap, gift or move them into a trust or SMSF, and that's true whether or not the ATO is watching. The bigger risk is substantiation. Without records you can't prove your cost base, your holding period, the premium you paid …
 - 같은 채널 평소 대비 ×12.5 (채널 최근 롱폼 중앙값 6,800회) · 평소 영상: The Dollar-Cost Averaging Mistake Costing Austral… (6,800회) / How the New CGT Rules Will Actually Hit Your ETF … (7,254회)
@@ -57,7 +57,7 @@
 
 ### 85. 주식 거래시간 밤 8시까지?☑️KRX 애프터마켓 꼭 알아야 할 변화
 
-- https://www.youtube.com/watch?v=xXBHBu6hnCc · 주식캐스터 여니 · 구독자 42,800 · 조회수 473,007 (×11.1, 하루 12,452.8) · 좋아요 1,956 (0.4%) · 9분 · 2026-09-13 · 주제 묶음 기타 · 형식 정보·해설 (그 밖) · 폴더 `W_xXBHBu6hnCc` (웹 승인)
+- https://www.youtube.com/watch?v=xXBHBu6hnCc · 주식캐스터 여니 · 구독자 42,800 · 조회수 473,007 (×11.1, 하루 12,444.4) · 좋아요 1,956 (0.4%) · 9분 · 2026-09-13 · 주제 묶음 기타 · 형식 정보·해설 (그 밖) · 폴더 `W_xXBHBu6hnCc` (웹 승인)
 - 썸네일: <img src="W_xXBHBu6hnCc/thumbnail.jpg" width="320">
 - 같은 채널 평소 대비 ×146.6 (채널 최근 롱폼 중앙값 3,227회) · 평소 영상: 증권사 목표주가만 보고 투자하면 벌어지는 일 (3,227회) / 경린이 탈출 1화. 경제가 좋아진다는 말, 우리는 어디까지 이해하고 있을까? (3,445회)
 - 대본 없음 (없음) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -76,7 +76,7 @@
 
 ### 86. 70배당할머니 배당금으로 자동차 샀어요
 
-- https://www.youtube.com/watch?v=yUIcS9aKUzg · 이수남 · 구독자 1,300 · 조회수 13,155 (×10.1, 하루 1,891.0) · 좋아요 111 (0.8%) · 17.6분 · 2026-10-14 · 주제 묶음 3. 배당 · 형식 정보·해설 (그 밖) · 폴더 `W_yUIcS9aKUzg` (웹 승인)
+- https://www.youtube.com/watch?v=yUIcS9aKUzg · 이수남 · 구독자 1,300 · 조회수 13,155 (×10.1, 하루 1,884.0) · 좋아요 111 (0.8%) · 17.6분 · 2026-10-14 · 주제 묶음 3. 배당 · 형식 정보·해설 (그 밖) · 폴더 `W_yUIcS9aKUzg` (웹 승인)
 - 썸네일: <img src="W_yUIcS9aKUzg/thumbnail.jpg" width="320">
 - 같은 채널 평소 대비 ×108.3 (채널 최근 롱폼 중앙값 122회) · 평소 영상: #숲속유럽성같은양평 더마구 다녀왔습니다 (134회) / #배당금으로대만여행#샤오롱바오와샤브샤브 (109회)
 - 대본 없음 (없음) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -88,7 +88,7 @@
 
 ### 87. [주식차트보는법] 단타말고 이 '차트패턴' 하나로 꾸준히 수익낸 엄청난 비결 지금 딱 한번만 노출하겠습니다. 주식하는법중 이게 최고입니다 (종가베팅 매매기법 및…
 
-- https://www.youtube.com/watch?v=3h7Di1vQHgY · 주식차트연구소 · 구독자 1,270 · 조회수 12,707 (×10.0, 하루 244.2) · 좋아요 134 (1.1%) · 14.6분 · 2026-08-30 · 주제 묶음 6. 종목 고르기·분석 · 형식 정보·해설 (그 밖) · 폴더 `W_3h7Di1vQHgY` (웹 승인)
+- https://www.youtube.com/watch?v=3h7Di1vQHgY · 주식차트연구소 · 구독자 1,270 · 조회수 12,707 (×10.0, 하루 244.1) · 좋아요 134 (1.1%) · 14.6분 · 2026-08-30 · 주제 묶음 6. 종목 고르기·분석 · 형식 정보·해설 (그 밖) · 폴더 `W_3h7Di1vQHgY` (웹 승인)
 - 썸네일: <img src="W_3h7Di1vQHgY/thumbnail.jpg" width="320">
 - 설명 앞부분: [주식차트보는법] 단타말고 이 '차트패턴' 하나로 꾸준히 수익낸 엄청난 비결 지금 딱 한번만 노출하겠습니다. 주식하는법중 이게 최고입니다 (종가베팅 매매기법 및 종목선별)
 - 같은 채널 평소 대비 ×20.7 (채널 최근 롱폼 중앙값 613회) · 평소 영상: [주식차트보는법] 7년동안 상한가 들어간 종목 전부 차트분석한 결과 발견된 딱 한가지 공… (673회) / [주식차트보는법] 7년동안 상한가 들어간 종목 전부 차트분석한 결과 발견된 딱 한가지 공… (553회)
@@ -97,7 +97,7 @@
 
 ### 88. 퇴직금 반토막 나고 깨달은 '상위 2%'의 주식투자자 생존법 6가지! ∣ 노후자금사연 ∣ 오디오북
 
-- https://www.youtube.com/watch?v=r-tcC-ZmMBE · 은빛시나리오 · 구독자 29,300 · 조회수 281,638 (×9.6, 하루 1,744.6) · 좋아요 11,938 (4.2%) · 52.8분 · 2026-05-12 · 주제 묶음 11. 투자 일반 · 형식 사연·드라마 · 폴더 `W_r-tcC-ZmMBE` (웹 승인)
+- https://www.youtube.com/watch?v=r-tcC-ZmMBE · 은빛시나리오 · 구독자 29,300 · 조회수 281,638 (×9.6, 하루 1,744.3) · 좋아요 11,938 (4.2%) · 52.8분 · 2026-05-12 · 주제 묶음 11. 투자 일반 · 형식 사연·드라마 · 폴더 `W_r-tcC-ZmMBE` (웹 승인)
 - 썸네일: <img src="W_r-tcC-ZmMBE/thumbnail.jpg" width="320">
 - 챕터: 0:00 인트로 · 1:20 Chapter 1. 1억이 사라진 날, 나는 안전화 … · 8:40 Chapter 2. 일기예보와 낡은 우산 (예측 대신… · 16:10 Chapter 3. 추락은 1초, 복구는 3년의 가시… · 23:30 Chapter 4. 잔챙이는 놔주고 대물만 기다렸습니… · 31:00 Chapter 5. 15만 원짜리 패딩과 4만 원짜리… · 38:20 Chapter 6. 남겨둔 현금이 진짜 무기가 된 날… · 45:50 Chapter 7. 냉장고 문에 자물쇠를 채운 날 (… · 53:10 Chapter 8. 10년의 인내가 선물한 노후의 평온
 - 설명 앞부분: 여러분은 퇴직 후 노후 자금, 어떻게 지키고 계신가요? 퇴직금 2억 중 1억을 주식으로 날렸습니다. 채 1년도 걸리지 않았습니다.가족들 볼 면목이 없어 예순을 앞둔 나이에 건설 현장 막노동을 나갔습니다. 하루 13만 원짜리 일당으로 버티면서 남은 1억을 지키기 위한 원칙을 하나씩 세워나갔습니다.그렇게 10년이 지났습니다. 제 계좌에는 지금 10억이 넘는 돈이 있습니다.대단한 천재라서가 아닙니다. 운이 좋아서도 아닙니다. 현장에서 땀을 흘리는 동안 단 한 번도 어기지 않은 원칙 6가지를 지켜냈기 때문입니다. 오늘 그 원칙을 남김없이…
@@ -122,7 +122,7 @@
 
 ### 89. The BEST 3 ETF Portfolio for F.I.R.E. (Hold FOREVER!)
 
-- https://www.youtube.com/watch?v=HQoEjtdRI_0 · Jacob Wade (Roadmap Money) · 구독자 25,100 · 조회수 240,723 (×9.6, 하루 1,638.6) · 좋아요 3,829 (1.6%) · 25분 · 2026-05-27 · 주제 묶음 2. 장기투자·ETF·지수 · 형식 정보·해설 (그 밖) · 폴더 `W_HQoEjtdRI_0` (웹 승인)
+- https://www.youtube.com/watch?v=HQoEjtdRI_0 · Jacob Wade (Roadmap Money) · 구독자 25,100 · 조회수 240,723 (×9.6, 하루 1,638.4) · 좋아요 3,829 (1.6%) · 25분 · 2026-05-27 · 주제 묶음 2. 장기투자·ETF·지수 · 형식 정보·해설 (그 밖) · 폴더 `W_HQoEjtdRI_0` (웹 승인)
 - 썸네일: <img src="W_HQoEjtdRI_0/thumbnail.jpg" width="320">
 - 챕터: 0:00 Why your portfolio choice mat… · 3:34 What is an ETF? · 4:24 ETF #1: Core ETF · 9:34 ETF #2: Growth ETF · 13:26 Coinbase sponsor · 15:26 ETF #3: Quality ETF · 18:22 Portfolio # 1 · 19:26 Portfolio # 2 · 19:56 Portfolio # 3 · 21:17 Bonus ETF for cash holdings · 22:48 How to Start Investing in The…
 - 설명 앞부분: In this video, I break down what I believe is one of the best simple ETF portfolios for 2026 using just 3 ETFs. We’ll cover: The best core ETF for long-term wealth building A growth ETF that could boost long-term returns A quality ETF to help smooth out volatility Sample ETF portfolio allocations b…
@@ -133,7 +133,7 @@
 
 ### 90. 월 100만원 ETF 투자하면, 60대에 "진짜 부자"가 됩니다
 
-- https://www.youtube.com/watch?v=WGkQ7wwHHlQ · 농부의 경제학 · 구독자 8,250 · 조회수 77,104 (×9.3, 하루 1,085.3) · 좋아요 1,372 (1.8%) · 13.4분 · 2026-08-11 · 주제 묶음 2. 장기투자·ETF·지수 · 형식 정보·해설 (그 밖) · 폴더 `W_WGkQ7wwHHlQ` (웹 승인)
+- https://www.youtube.com/watch?v=WGkQ7wwHHlQ · 농부의 경제학 · 구독자 8,250 · 조회수 77,104 (×9.3, 하루 1,084.9) · 좋아요 1,372 (1.8%) · 13.4분 · 2026-08-11 · 주제 묶음 2. 장기투자·ETF·지수 · 형식 정보·해설 (그 밖) · 폴더 `W_WGkQ7wwHHlQ` (웹 승인)
 - 썸네일: <img src="W_WGkQ7wwHHlQ/thumbnail.jpg" width="320">
 - 설명 앞부분: 50세 노후 준비, 결코 늦지 않았습니다. 주변에서 스무 살부터 시작해야 복리가 붙는다고 말하지만, 50세부터 매달 100만 원씩 15년 동안 미국 ETF에 투자하면 65세 은퇴 후 세금을 떼고도 매달 236만 원의 마르지 않는 현금흐름을 만들 수 있습니다. 오늘 영상에서는 미국 대표 ETF인 SCHD(40%), SPYM(40%), QQQM(20%) 포트폴리오를 통해 배당 수익과 자산 성장을 동시에 챙기는 가장 현실적인 노후 자금 설계법을 상세히 풀어드립니다. 은퇴 후 원금을 깎아 먹지 않고 죽을 때까지 통장 잔고가 늘어나는 미국…
 - 같은 채널 평소 대비 ×8.9 (채널 최근 롱폼 중앙값 8,619회) · 평소 영상: 내가 사면 떨어지고 팔면 오르는 '진짜 이유' (8,619회) / 상위 1% 투자자들이 주식 창 끄고 매일 하는 '… (8,678회)
@@ -151,7 +151,7 @@
 
 ### 91. POV: Gaji Sama dengan Temanmu, Tapi Kamu Keluar dari Pabrik Lebih Awal Berkat Dividen
 
-- https://www.youtube.com/watch?v=_-rdF2o1v0c · ncek invest · 구독자 7,150 · 조회수 66,053 (×9.2, 하루 9,569.0) · 좋아요 441 (0.7%) · 8.3분 · 2026-10-14 · 주제 묶음 기타 · 형식 정보·해설 (그 밖) · 폴더 `W__-rdF2o1v0c` (웹 승인)
+- https://www.youtube.com/watch?v=_-rdF2o1v0c · ncek invest · 구독자 7,150 · 조회수 66,053 (×9.2, 하루 9,533.3) · 좋아요 441 (0.7%) · 8.3분 · 2026-10-14 · 주제 묶음 기타 · 형식 정보·해설 (그 밖) · 폴더 `W__-rdF2o1v0c` (웹 승인)
 - 썸네일: <img src="W__-rdF2o1v0c/thumbnail.jpg" width="320">
 - 챕터: 0:00 Hari terakhir di pabrik · 1:00 Level 1: Gaji dan Dividen · 2:00 Level 2: Dividen Pertama · 3:35 Level 3: Dividen Bisa Turun · 5:05 Level 4: Angka yang Terlalu L… · 6:45 Level 5: Harga Sebuah Bel · 7:45 Penutup
 - 설명 앞부분: Teman satu lini bilang, "Pensiun dini dari dividen? Ngimpi lo." Dua puluh satu tahun kemudian, kamu melepas ID card pabrikmu untuk terakhir kali. Di video POV ini, kamu akan menjalani 21 tahun hidup seorang buruh pabrik yang gajinya biasa saja, tapi belajar dari seorang mandor tua bahwa gaji adalah…
@@ -161,7 +161,7 @@
 
 ### 92. 【あの投信は今!?】一歩テック・メガ10・インド株・SOX・S&P10・楽天SCHDは今…S&P500・オルカン・NASDAQ100と比較した結果
 
-- https://www.youtube.com/watch?v=nXvljAM2D_8 · ぎゅうぎゅうマネー日記帳 · 구독자 15,700 · 조회수 144,940 (×9.2, 하루 878.9) · 좋아요 2,837 (2.0%) · 44.6분 · 2026-05-09 · 주제 묶음 2. 장기투자·ETF·지수 · 형식 정보·해설 (그 밖) · 폴더 `W_nXvljAM2D_8` (웹 승인)
+- https://www.youtube.com/watch?v=nXvljAM2D_8 · ぎゅうぎゅうマネー日記帳 · 구독자 15,700 · 조회수 144,940 (×9.2, 하루 878.7) · 좋아요 2,837 (2.0%) · 44.6분 · 2026-05-09 · 주제 묶음 2. 장기투자·ETF·지수 · 형식 정보·해설 (그 밖) · 폴더 `W_nXvljAM2D_8` (웹 승인)
 - 썸네일: <img src="W_nXvljAM2D_8/thumbnail.jpg" width="320">
 - 챕터: 0:00 オープニング · 3:33 メガ10 vs FANG+｜低コスト版FANG+なのか？ · 8:13 Tracers S&P500トップ10 vs FANG+｜… · 15:56 一歩先いくUSテック・トップ20 vs NASDAQ100… · 21:52 インド株 vs オルカン｜インドを単体で持つ意味 · 28:28 楽天SCHD vs S&P500｜分配金の安心感 · 36:02 SOX vs NASDAQ100｜AI時代の本丸、半導体 · 39:28 最終結論｜王道ファンドが強い本当の理由
 - 설명 앞부분: 今回は、インド株、楽天SCHD、メガ10、一歩先いくUSテック・トップ20、SOX、Tracers S&P500トップ10この6本を取り上げて、現在どうなっているのかを王道指数と比較しながら解説します。 比較対象は、FANG+、オルカン、S&P500、NASDAQ100。 ・ニッセイ・S米国グロース株式メガ10インデックスファンド・Tracers S&P500トップ10インデックス・一歩先いく US テック・トップ20インデックス・インド株/NIFTY50関連ファンド・楽天・シュワブ・高配当株式・米国ファンド（楽天SCHD）・SOX/半導体関連インデックスファンド・FANG+・オルカン・S&…
@@ -171,7 +171,7 @@
 
 ### 93. [차트 강의] 100조 운용역이 신입 펀드매니저에게 가르쳤던 차트 패턴 8가지 (박재훈)
 
-- https://www.youtube.com/watch?v=0JHEax_R7DE · 박재훈의 투자농장 · 구독자 20,900 · 조회수 190,769 (×9.1, 하루 10,461.0) · 좋아요 1,894 (1.0%) · 16.5분 · 2026-10-03 · 주제 묶음 6. 종목 고르기·분석 · 형식 인터뷰·강연·대담 · 폴더 `W_0JHEax_R7DE` (웹 승인)
+- https://www.youtube.com/watch?v=0JHEax_R7DE · 박재훈의 투자농장 · 구독자 20,900 · 조회수 190,769 (×9.1, 하루 10,446.2) · 좋아요 1,894 (1.0%) · 16.5분 · 2026-10-03 · 주제 묶음 6. 종목 고르기·분석 · 형식 인터뷰·강연·대담 · 폴더 `W_0JHEax_R7DE` (웹 승인)
 - 썸네일: <img src="W_0JHEax_R7DE/thumbnail.jpg" width="320">
 - 설명 앞부분: 10/24(토) 오전 10시, 합정역 인근에서 진행됩니다. 1부는 하반기 투자전략을 점검하고, 2부는 실전 차트강의를 진행합니다. 안녕하세요 이웃님들, 투자 농장지기 박재훈입니다. 저는 투자를 할 때 '손실을 덜 보는 것'이 가장 중요하다고 생각합니다. 그래서 오늘은 차트에서 하락에서 상승, 상승에서 하락으로 추세가 전환되는 신호를 읽는 방법을 알려드렸습니다. 제가 펀드매니저로 일하던 시절, 신입들에게 가르쳤던 내용이기도 합니다. 이웃님들의 투자에 꼭 도움이 되셨기를 바라며.. 하반기 투자전략을 점검하고, 실전 차트 강의를 듣고 …
 - 같은 채널 평소 대비 ×28.2 (채널 최근 롱폼 중앙값 6,774회) · 평소 영상: 100조 펀드매니저가 하락장에서 버틸 수 있었던 이기는 투자 원칙 (박재훈) (6,774회) / 43년 데이터로 본 지금 시장의 진짜 바닥은? (박재훈) (7,881회)
@@ -189,7 +189,7 @@
 
 ### 94. 월급없는 현실, 일하지않고 배당금만 받고 살아가는 미혼남 생존기
 
-- https://www.youtube.com/watch?v=mcd_S953Gno · 배당아저씨 · 구독자 32,400 · 조회수 293,361 (×9.1, 하루 2,684.7) · 좋아요 4,719 (1.6%) · 8.6분 · 2026-07-04 · 주제 묶음 3. 배당 · 형식 정보·해설 (그 밖) · 폴더 `W_mcd_S953Gno` (웹 승인)
+- https://www.youtube.com/watch?v=mcd_S953Gno · 배당아저씨 · 구독자 32,400 · 조회수 293,361 (×9.1, 하루 2,684.1) · 좋아요 4,719 (1.6%) · 8.6분 · 2026-07-04 · 주제 묶음 3. 배당 · 형식 정보·해설 (그 밖) · 폴더 `W_mcd_S953Gno` (웹 승인)
 - 썸네일: <img src="W_mcd_S953Gno/thumbnail.jpg" width="320">
 - 설명 앞부분: 영상 속 배당아저씨의 미니멀라이프 내돈내산 재료&용품들 (쿠팡 파트너스 및 인플루언서 활동의 일환으로 구매시 일정액의 수수료를 제공 받을 수 있습니다) 이 채널은 저의 투자 경험과 생각을 공유하는 공간입니다. 저의 투자 방식을 그대로 따라 하시는 것은 권장드리지 않으며, 충분한 고민과 공부 후 판단하시길 바랍니다.
 - 같은 채널 평소 대비 ×6.1 (채널 최근 롱폼 중앙값 48,471회) · 평소 영상: 배당금으로 혼자사는 미혼남의 현실 (48,471회) / 미국주식 3억, 배당금으로 직장 없이 살고 있어요_배당파이어 장단점 (50,627회)
@@ -214,7 +214,7 @@
 
 ### 95. 와..미친.. 캔들 차트 보는 법 핵심을 공개한다고? (주식 강의 추천, 주식 초보 매매 방법)
 
-- https://www.youtube.com/watch?v=KwvGol5A8m4 · 트트남 | 주식 차트 보는법 · 구독자 1,420 · 조회수 12,794 (×9.0, 하루 245.5) · 좋아요 166 (1.3%) · 15.8분 · 2026-08-30 · 주제 묶음 1. 주식 기초·초보 · 형식 인터뷰·강연·대담 · 폴더 `W_KwvGol5A8m4` (웹 승인)
+- https://www.youtube.com/watch?v=KwvGol5A8m4 · 트트남 | 주식 차트 보는법 · 구독자 1,420 · 조회수 12,794 (×9.0, 하루 245.4) · 좋아요 166 (1.3%) · 15.8분 · 2026-08-30 · 주제 묶음 1. 주식 기초·초보 · 형식 인터뷰·강연·대담 · 폴더 `W_KwvGol5A8m4` (웹 승인)
 - 썸네일: <img src="W_KwvGol5A8m4/thumbnail.jpg" width="320">
 - 설명 앞부분: [수익부터 출금까지 성공시키는 현실적인 방법] [소통방 입장하기] 차트 보는 법, 이 영상 하나로 기준부터 다시 잡아보세요. 주식 공부를 해도 실전 매매가 계속 흔들리는 이유는 기술적 분석을 몰라서만이 아닙니다. 진짜 문제는 이평선, RSI, MACD, 매물대, 지지저항, 피보나치, 추세선, 엘리엇 파동, 하모닉 패턴, 거래량을 따로따로 외우고 실전 차트 앞에서는 무엇을 먼저 봐야 할지 모른다는 것입니다. 이번 영상에서는 차트 보는 법을 기초부터 실전까지 정리합니다. 이평선으로 추세를 보는 법, RSI와 MACD 다이버전스로 반등…
 - 같은 채널 평소 대비 ×24.1 (채널 최근 롱폼 중앙값 532회) · 평소 영상: [주식/단타] 평생 써먹는 차트패턴 보는법, 확률 90%의 필수조건입니다 (601회) / 강제 청산 당하고 집문서 날아가는 선물거래, 97% 투자자가 무조건 털리는 이유 (603회)
@@ -224,7 +224,7 @@
 
 ### 96. 세미파이어 부부가 국내주식 안하는 이유
 
-- https://www.youtube.com/watch?v=DNDC7nT7Hmw · 시골사는 배당부부 · 구독자 1,490 · 조회수 12,743 (×8.6, 하루 4,105.0) · 좋아요 140 (1.1%) · 6.9분 · 2026-10-18 · 주제 묶음 5. 국내주식 · 형식 정보·해설 (그 밖) · 폴더 `W_DNDC7nT7Hmw` (웹 승인)
+- https://www.youtube.com/watch?v=DNDC7nT7Hmw · 시골사는 배당부부 · 구독자 1,490 · 조회수 12,743 (×8.6, 하루 4,071.1) · 좋아요 140 (1.1%) · 6.9분 · 2026-10-18 · 주제 묶음 5. 국내주식 · 형식 정보·해설 (그 밖) · 폴더 `W_DNDC7nT7Hmw` (웹 승인)
 - 썸네일: <img src="W_DNDC7nT7Hmw/thumbnail.jpg" width="320">
 - 설명 앞부분: 안녕하세요 시골사는 배당부부입니다. 오늘은 저희부부가 국내주식을 하지 않는 이유에 대해 얘기 나눠봤습니다
 - 같은 채널 평소 대비 ×0.9 (채널 최근 롱폼 중앙값 14,176회) · 평소 영상: 도시에서 떠나 시골로 귀촌한 이유 (15,439회) / 시골 세미파이어 현실 한달 생활비 (12,914회)
@@ -239,7 +239,7 @@
 
 ### 97. 【NISAおすすめ】オルカン・S＆P500・日本株・FANG＋・NASDAQ100の人気銘柄５つを元銀行員の目線で徹底検証しました！
 
-- https://www.youtube.com/watch?v=EB_-ZGfqX5s · 初心者でも分かる40代50代のための資産形成塾 みく · 구독자 3,590 · 조회수 28,701 (×8.0, 하루 9,501.2) · 좋아요 100 (0.4%) · 37.6분 · 2026-10-18 · 주제 묶음 10. 노후·연금 투자 · 형식 정보·해설 (그 밖) · 폴더 `W_EB_-ZGfqX5s` (웹 승인)
+- https://www.youtube.com/watch?v=EB_-ZGfqX5s · 初心者でも分かる40代50代のための資産形成塾 みく · 구독자 3,590 · 조회수 28,701 (×8.0, 하루 9,420.6) · 좋아요 100 (0.4%) · 37.6분 · 2026-10-18 · 주제 묶음 10. 노후·연금 투자 · 형식 정보·해설 (그 밖) · 폴더 `W_EB_-ZGfqX5s` (웹 승인)
 - 썸네일: <img src="W_EB_-ZGfqX5s/thumbnail.jpg" width="320">
 - 챕터: 0:00 オープニング · 2:06 日経平均とTOPIX、何が違う？ · 8:45 オルカンはなぜ人気なの？ · 12:54 S&P500はオルカンと何が違う？ · 15:58 NASDAQ100とFANG+の注意点は？ · 24:10 一番増えた銘柄を選べばいい？ · 27:51 今の組み合わせ、このままでいい？
 - 설명 앞부분: ▼公式LINE 公式LINEにご登録後、動画内でお伝えしているキーワードを送っていただくと受け取れます🙆‍♀ 元銀行員でFPの資格を持つ私が 新NISAや老後資金など、お金のことを発信していきます🎙
@@ -249,7 +249,7 @@
 
 ### 98. SCHD ETF Analysis: The Most Complete Schwab US Dividend Equity ETF Breakdown
 
-- https://www.youtube.com/watch?v=ys_pR1yxEgo · Goldman Starch · 구독자 1,390 · 조회수 10,907 (×7.8, 하루 1,483.1) · 좋아요 239 (2.2%) · 32.2분 · 2026-10-14 · 주제 묶음 2. 장기투자·ETF·지수 · 형식 정보·해설 (그 밖) · 폴더 `W_ys_pR1yxEgo` (웹 승인)
+- https://www.youtube.com/watch?v=ys_pR1yxEgo · Goldman Starch · 구독자 1,390 · 조회수 10,907 (×7.8, 하루 1,477.9) · 좋아요 239 (2.2%) · 32.2분 · 2026-10-14 · 주제 묶음 2. 장기투자·ETF·지수 · 형식 정보·해설 (그 밖) · 폴더 `W_ys_pR1yxEgo` (웹 승인)
 - 썸네일: <img src="W_ys_pR1yxEgo/thumbnail.jpg" width="320">
 - 챕터: 0:00 SCHD ETF analysis: the record… · 1:13 What SCHD owns: the 4 screens · 2:04 The 4% cap and why Texas Inst… · 2:49 March reconstitution: who got… · 3:18 The 2 biggest holdings are ch… · 4:07 Why SCHD beat the S&P in 2026… · 4:53 The last time SCHD out-yielde… · 5:34 The 5% break: down 6.9% while… · 6:30 2022: why SCHD held up · 7:03 2023 to 2025: trailing the S&P · 7:49 Every calendar year since lau… · 8:29 SCHD's yield vs T-bills, the … · 9:04 SCHD vs TIPS and SGOV · 9:38 The record negative yield gap · 10:19 2023: the last time the gap l… · 10:49 Fewer than 4% of S&P stocks o… · 11:18 The seesaw: yields up, income… · 12:08 SPHD, DVY, VYM, DGRW: every d… · 12:34 Does SCHD trade like a bond? · 13:18 The dividend stalled: up 0.6%
 - 설명 앞부분: SCHD ETF analysis: the most complete breakdown of the Schwab US Dividend Equity ETF (NYSE Arca: SCHD), with the 10-year Treasury yield above 5%. On October 5 the 10-year Treasury paid 2.09 percentage points more than SCHD's dividend yield, the biggest gap in the fund's 15-year history. A 3-month T-…
@@ -259,7 +259,7 @@
 
 ### 99. 50대에 은퇴하려면 QLD 몇 개 모아야 할까?
 
-- https://www.youtube.com/watch?v=91-r5_pdQUw · 미국회계사 샘돌이 투자연구소 · 구독자 1,660 · 조회수 12,678 (×7.6, 하루 3,876.1) · 좋아요 84 (0.7%) · 8.2분 · 2026-10-18 · 주제 묶음 10. 노후·연금 투자 · 형식 브이로그·직접 해본 이야기 · 폴더 `W_91-r5_pdQUw` (웹 승인)
+- https://www.youtube.com/watch?v=91-r5_pdQUw · 미국회계사 샘돌이 투자연구소 · 구독자 1,660 · 조회수 12,678 (×7.6, 하루 3,845.7) · 좋아요 84 (0.7%) · 8.2분 · 2026-10-18 · 주제 묶음 10. 노후·연금 투자 · 형식 브이로그·직접 해본 이야기 · 폴더 `W_91-r5_pdQUw` (웹 승인)
 - 썸네일: <img src="W_91-r5_pdQUw/thumbnail.jpg" width="320">
 - 설명 앞부분: 50대에 은퇴하려면 도대체 얼마가 필요할까요? 그리고 그 돈을 만들기 위해 매달 얼마를 투자해야 할까요? 이번 영상에서는 은퇴 후 월 300만 원의 현금흐름을 목표로 잡고, S&P500 1배수 투자와 QLD 60% + 단기채 40% 포트폴리오를 비교해봤습니다. 단순히 "20년 뒤 10억입니다"라고 이야기하는 것이 아니라, 50대 은퇴를 위한 목표자산은 얼마인지 S&P500에 투자한다면 매월 얼마가 필요한지 QLD + 단기채 조합이라면 월 적립액이 얼마나 줄어드는지 10억 원을 만들었을 때 QLD는 몇 주가 필요한지 은퇴가 가까워졌…
 - 같은 채널 평소 대비 ×3.4 (채널 최근 롱폼 중앙값 3,752회) · 평소 영상: QLD 올인 vs SCHD 적립.. 둘 다 틀렸습니다 (회계사 결산) (3,993회) / QQQ vs QLD+현금40%, 회계사가 끝까지 고민한 이유 (3,512회)
@@ -270,7 +270,7 @@
 
 ### 100. 10 Stocks To Buy Before The Next Bull Run
 
-- https://www.youtube.com/watch?v=9bHb6ccr3Fc · Sana Securities | Investing with Rajat Sharma · 구독자 49,000 · 조회수 374,291 (×7.6, 하루 5,195.0) · 좋아요 7,639 (2.0%) · 32.9분 · 2026-08-10 · 주제 묶음 기타 · 형식 정보·해설 (그 밖) · 폴더 `W_9bHb6ccr3Fc` (웹 승인)
+- https://www.youtube.com/watch?v=9bHb6ccr3Fc · Sana Securities | Investing with Rajat Sharma · 구독자 49,000 · 조회수 374,291 (×7.6, 하루 5,193.1) · 좋아요 7,639 (2.0%) · 32.9분 · 2026-08-10 · 주제 묶음 기타 · 형식 정보·해설 (그 밖) · 폴더 `W_9bHb6ccr3Fc` (웹 승인)
 - 썸네일: <img src="W_9bHb6ccr3Fc/thumbnail.jpg" width="320">
 - 설명 앞부분: In this video, I share 10 stocks that I believe investors should be watching closely before the next potential bull run across large caps, mid caps, small caps and micro caps. I have not selected these stocks simply because they are cheap or because they are popular. Each company has been evaluated…
 - 같은 채널 평소 대비 ×10.0 (채널 최근 롱폼 중앙값 37,276회) · 평소 영상: If I Could Own ONLY ONE Auto Stock, I'd Pick Tata… (56,199회) / Got 10 Years to Invest? Pick These 4 Funds (66,962회)
@@ -279,7 +279,7 @@
 
 ### 101. ETF 이 '2가지'만 사두면 됩니다. '나머지는 필요없어요' 100억 자산 관리자의 꿀팁(백승호 단장 풀버전) #ETF #배당주 #주식 #백승호
 
-- https://www.youtube.com/watch?v=1qlywudP2oY · 자람들 - 자립하는사람들 · 구독자 33,700 · 조회수 256,034 (×7.6, 하루 6,888.7) · 좋아요 2,189 (0.9%) · 69.7분 · 2026-09-14 · 주제 묶음 2. 장기투자·ETF·지수 · 형식 인터뷰·강연·대담 · 폴더 `W_1qlywudP2oY` (웹 승인)
+- https://www.youtube.com/watch?v=1qlywudP2oY · 자람들 - 자립하는사람들 · 구독자 33,700 · 조회수 256,034 (×7.6, 하루 6,883.9) · 좋아요 2,189 (0.9%) · 69.7분 · 2026-09-14 · 주제 묶음 2. 장기투자·ETF·지수 · 형식 인터뷰·강연·대담 · 폴더 `W_1qlywudP2oY` (웹 승인)
 - 썸네일: <img src="W_1qlywudP2oY/thumbnail.jpg" width="320">
 - 설명 앞부분: 👤 오늘의 게스트: 백승호 단장 개인 재무 컨설팅 전문가 & 유튜버·작가로도 활동 20년간 몇백 명의 고객 자산을 관리해온 재무 컨설턴트입니다. 현재 관리하는 총 자산만 100억원이 넘지만, 폭락장에도 노트북에 손 하나 대지 않을 만큼 평온한 태도로 유명합니다. 비결은 단 하나, "투자해도 되는 돈"과 "투자하면 안 되는 돈"을 철저히 구분하는 원칙입니다. 시드머니 없이 매주 조금씩 사 모으는 전략, 차트나 재무제표 대신 "내 지갑"을 믿고 애플·넷플릭스·구글 같은 주식을 고르는 방법, 그리고 레버리지·인버스 상품에 대한 강한 경…
 - 같은 채널 평소 대비 ×10.1 (채널 최근 롱폼 중앙값 25,242회) · 평소 영상: 연 2200 배당금받는, 전직 배달 기사.. 3억으로 은퇴했습니다. (또배당 3부) #배… (25,556회) / 월 500만원 배당 노하우, 시드 5천 '이렇게' 구성하세요. 평범한 직장인이 파이어한 … (24,928회)
@@ -298,7 +298,7 @@
 
 ### 102. 삼성전자 지금 시작인가? 노무라가 목표주가 67만원 제시한 이유가 소름입니다... 여기서 90% 더 오를 수 있다? 상승 전망 전부 분석했습니다 #삼성전자 #삼…
 
-- https://www.youtube.com/watch?v=JJG1mtkTN6g · 코스피 읽는 개미 · 구독자 2,230 · 조회수 16,866 (×7.6, 하루 145.2) · 좋아요 395 (2.3%) · 15.7분 · 2026-06-27 · 주제 묶음 1. 주식 기초·초보 · 형식 정보·해설 (그 밖) · 폴더 `W_JJG1mtkTN6g` (웹 승인)
+- https://www.youtube.com/watch?v=JJG1mtkTN6g · 코스피 읽는 개미 · 구독자 2,230 · 조회수 16,866 (×7.6, 하루 145.1) · 좋아요 395 (2.3%) · 15.7분 · 2026-06-27 · 주제 묶음 1. 주식 기초·초보 · 형식 정보·해설 (그 밖) · 폴더 `W_JJG1mtkTN6g` (웹 승인)
 - 썸네일: <img src="W_JJG1mtkTN6g/thumbnail.jpg" width="320">
 - 설명 앞부분: 삼성전자, 정말 다시 시작일까요? 노무라가 삼성전자 목표주가를 67만원으로 상향하며 시장의 관심이 집중되고 있습니다. AI 반도체 수요 확대, 메모리 실적 개선, 비용 부담 감소까지. 하지만 비메모리 사업 리스크와 시장 변동성도 함께 체크해야 합니다. 이번 영상에서는 목표주가 상향 이유 90% 상승 전망의 근거 앞으로 주목해야 할 핵심 포인트 투자자가 놓치면 안 되는 위험 요소까지 정리했습니다. 여러분은 삼성전자, 아직 기회라고 보시나요?
 - 같은 채널 평소 대비 ×37.4 (채널 최근 롱폼 중앙값 451회) · 평소 영상: [ 삼성전자 ] 대폭발 시작되나? 반도체 수출 150% 급증…주가 대반전 "신호" 떴다! (451회) / 삼성전자 26만원 무너졌다...지금 흔들리는 투자자분들 "이것" 확인하세요 (460회)
@@ -309,10 +309,10 @@
 
 ### 103. 연금고수들이 연금저축계좌 반드시 담는 ETF 3가지
 
-- https://www.youtube.com/watch?v=iMkvDXx86dE · 경제나침반 · 구독자 14,000 · 조회수 105,121 (×7.5, 하루 1,234.5) · 좋아요 2,048 (1.9%) · 25.2분 · 2026-07-28 · 주제 묶음 2. 장기투자·ETF·지수 · 형식 정보·해설 (그 밖) · 폴더 `W_iMkvDXx86dE` (웹 승인)
+- https://www.youtube.com/watch?v=iMkvDXx86dE · 경제나침반 · 구독자 14,000 · 조회수 105,121 (×7.5, 하루 1,234.1) · 좋아요 2,048 (1.9%) · 25.2분 · 2026-07-28 · 주제 묶음 2. 장기투자·ETF·지수 · 형식 정보·해설 (그 밖) · 폴더 `W_iMkvDXx86dE` (웹 승인)
 - 썸네일: <img src="W_iMkvDXx86dE/thumbnail.jpg" width="320">
 - 설명 앞부분: 📈 오늘 시장에서 꼭 알아야 할 경제와 투자 인사이트를 쉽고 명확하게 정리해드립니다. 💡 주식, ETF, 미국주식, 경제 전망, 금리, AI, 반도체, 부동산까지 투자자가 반드시 알아야 할 핵심 정보를 함께 살펴보세요. 이번 영상에서는 최신 경제 뉴스와 금융시장 흐름을 바탕으로 투자에 도움이 되는 핵심 내용을 쉽고 이해하기 편하게 설명해드립니다. 경제나침반은 경제공부, 주식투자, ETF 투자, 미국주식, 한국 증시, 경제 전망, 재테크, 자산관리, 금리와 환율, AI 및 반도체 산업 등 다양한 주제를 객관적인 자료와 시장 흐름을 …
-- 같은 채널 평소 대비 ×1,812.4 (채널 최근 롱폼 중앙값 58회) · 평소 영상: 90가 모르는 운의 법칙 5가지 밑바닥에서 시작됩니다 (58회) / 부자들이 물건을 안 사는 진짜 이유가 따로 있습니다 (57회)
+- 같은 채널 평소 대비 ×1,844.2 (채널 최근 롱폼 중앙값 57회) · 평소 영상: 부자들이 물건을 안 사는 진짜 이유가 따로 있습니다 (57회) / 90가 모르는 부자와 일반인을 가르는 네 가지 능력 (57회)
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
 - 댓글 67/67: 좋은 점 — 영상 3 · 감사·응원 5 · 더 알고 싶은 것 2 · 아쉬운 점 — 영상 1 · 반박·불만 — 의견 다름 1 · 정치·사회 0 · 경험 공유 3 · 구독·다음 기대 0
   - 좋은 점 — 영상 👍3 “좋은 정보 감사합니다~^^ 나스닥과 S&P500, 미국배당다우존스, 미국 10년국채랑 단기채권, 국내 고배당, 금, 국내외 리츠 ETF 갖고 있네요. IRP에서 안전자산 30%는 나스닥미국채혼합이랑 미국배당미국채혼합으로 채우고 있고요~”
@@ -327,7 +327,7 @@
 
 ### 104. $1M Portfolio: SCHD or Dividend Aristocrats for Income?
 
-- https://www.youtube.com/watch?v=qj-O6aFzPic · Simply Safe Dividends · 구독자 15,700 · 조회수 115,407 (×7.3, 하루 2,159.7) · 좋아요 1,265 (1.1%) · 12.4분 · 2026-08-28 · 주제 묶음 2. 장기투자·ETF·지수 · 형식 정보·해설 (그 밖) · 폴더 `W_qj-O6aFzPic` (웹 승인)
+- https://www.youtube.com/watch?v=qj-O6aFzPic · Simply Safe Dividends · 구독자 15,700 · 조회수 115,407 (×7.3, 하루 2,158.7) · 좋아요 1,265 (1.1%) · 12.4분 · 2026-08-28 · 주제 묶음 2. 장기투자·ETF·지수 · 형식 정보·해설 (그 밖) · 폴더 `W_qj-O6aFzPic` (웹 승인)
 - 썸네일: <img src="W_qj-O6aFzPic/thumbnail.jpg" width="320">
 - 챕터: 0:00 SCHD vs. Aristocrats · 0:42 Dividend Aristocrats Overview · 1:50 Current Income · 3:30 Dividend Safety · 5:00 Dividend Growth · 6:35 Total Returns · 8:17 Downside Risk · 9:58 Winner · 11:11 Another Way
 - 설명 앞부분: Dividend aristocrats and SCHD are popular choices in retirement portfolios that prioritize income, growth, and safety. But which strategy is best? In this video, we'll build a $1 million portfolio invested in Schwab's dividend ETF SCHD and another invested in all 69 dividend aristocrats. We'll comp…
@@ -337,7 +337,7 @@
 
 ### 105. S&P500 하나로 채운 ISA 3년 투자 총정리 ∣ 5년 연장 대신 지금 해지한 이유 ∣ 직접 경험한 이전 절차 포함
 
-- https://www.youtube.com/watch?v=WGCZYnwacuo · 원원 - 파이어 준비생 · 구독자 16,900 · 조회수 122,658 (×7.3, 하루 1,306.5) · 좋아요 2,914 (2.4%) · 22.5분 · 2026-07-19 · 주제 묶음 2. 장기투자·ETF·지수 · 형식 오디오북·낭독 (명언·인생조언) · 폴더 `W_WGCZYnwacuo` (웹 승인)
+- https://www.youtube.com/watch?v=WGCZYnwacuo · 원원 - 파이어 준비생 · 구독자 16,900 · 조회수 122,658 (×7.3, 하루 1,306.1) · 좋아요 2,914 (2.4%) · 22.5분 · 2026-07-19 · 주제 묶음 2. 장기투자·ETF·지수 · 형식 오디오북·낭독 (명언·인생조언) · 폴더 `W_WGCZYnwacuo` (웹 승인)
 - 썸네일: <img src="W_WGCZYnwacuo/thumbnail.jpg" width="320">
 - 설명 앞부분: 💫 :: won spirit 적립식 ETF 투자 관리 플랫폼 & 커뮤니티 안녕하세요! 금융권 직장인으로서 파이어(FIRE: Financial Independence, Retire Early)를 준비하며, 미국 S&P500 ETF, 단 하나로 목표를 이루는 여정을 기록하고 있습니다. S&P500을 현재 2.4억 정도 투자중이며, 매월 투명한 투자 내역 공개를 하고 그 밖에 투자 마인드, 투자 공부, 그리고 직장인의 삶을 공유합니다. 특히, 단순하면서도 누구나 실천 가능한 투자 전략으로 재정 독립을 목표로 하고 있습니다.💡 ➡️ 이번…
 - 같은 채널 평소 대비 ×24.8 (채널 최근 롱폼 중앙값 4,936회) · 평소 영상: [1월결산] S&P500 투자자가 코스피 5,000 돌파를 바라보며! (4,850회) / 직장인이 부자 되려면 반드시 거쳐야 할 단계들! (4,849회)
@@ -357,7 +357,7 @@
 
 ### 106. 배당금으로 혼자 사는 미혼남, 3억 파이어 미니멀라이프
 
-- https://www.youtube.com/watch?v=iGI_fzwOyoY · 배당아저씨 · 구독자 32,400 · 조회수 229,388 (×7.1, 하루 7,108.2) · 좋아요 2,118 (0.9%) · 8.6분 · 2026-09-19 · 주제 묶음 3. 배당 · 형식 정보·해설 (그 밖) · 폴더 `W_iGI_fzwOyoY` (웹 승인)
+- https://www.youtube.com/watch?v=iGI_fzwOyoY · 배당아저씨 · 구독자 32,400 · 조회수 229,388 (×7.1, 하루 7,102.5) · 좋아요 2,118 (0.9%) · 8.6분 · 2026-09-19 · 주제 묶음 3. 배당 · 형식 정보·해설 (그 밖) · 폴더 `W_iGI_fzwOyoY` (웹 승인)
 - 썸네일: <img src="W_iGI_fzwOyoY/thumbnail.jpg" width="320">
 - 설명 앞부분: 영상 속 배당아저씨의 미니멀라이프 내돈내산 재료&용품들 (쿠팡 파트너스 및 인플루언서 활동의 일환으로 구매시 일정액의 수수료를 제공 받을 수 있습니다) 이 채널은 저의 투자 경험과 생각을 공유하는 공간입니다. 저의 투자 방식을 그대로 따라 하시는 것은 권장드리지 않으며, 충분한 고민과 공부 후 판단하시길 바랍니다.
 - 같은 채널 평소 대비 ×4.7 (채널 최근 롱폼 중앙값 48,471회) · 평소 영상: 배당금으로 혼자사는 미혼남의 현실 (48,471회) / 미국주식 3억, 배당금으로 직장 없이 살고 있어요_배당파이어 장단점 (50,627회)
@@ -379,7 +379,7 @@
 
 ### 107. 수익 -60%에서 멘탈 관리하는 법..?? 주식 물린 사람들 들어오세요
 
-- https://www.youtube.com/watch?v=BL8sygt6dgw · 룸넘버 ROOM NUMBER · 구독자 9,990 · 조회수 69,370 (×6.9, 하루 684.7) · 좋아요 1,302 (1.9%) · 24.1분 · 2026-07-12 · 주제 묶음 8. 투자 심리·실패 · 형식 사연·드라마 · 폴더 `W_BL8sygt6dgw` (웹 승인)
+- https://www.youtube.com/watch?v=BL8sygt6dgw · 룸넘버 ROOM NUMBER · 구독자 9,990 · 조회수 69,370 (×6.9, 하루 684.5) · 좋아요 1,302 (1.9%) · 24.1분 · 2026-07-12 · 주제 묶음 8. 투자 심리·실패 · 형식 사연·드라마 · 폴더 `W_BL8sygt6dgw` (웹 승인)
 - 썸네일: <img src="W_BL8sygt6dgw/thumbnail.jpg" width="320">
 - 챕터: 0:00 하이라이트 · 0:30 오프닝 · 1:13 사연1 - 대기업 강박증 · 11:51 사연자 선물 골라주기 · 12:24 사연2 - 주식중독 · 22:59 사연자 선물 골라주기 · 22:36 다음 이야기
 - 설명 앞부분: 다음 라이브 7/14(화) 밤 7시 영상에 나온 더현대Hi 살펴보기👇
@@ -398,7 +398,7 @@
 
 ### 108. Before You Buy Covered Call ETFs, You NEED To Watch This
 
-- https://www.youtube.com/watch?v=u83b7LRyQCg · Managing Tech Millions · 구독자 29,700 · 조회수 203,203 (×6.8, 하루 1,155.8) · 좋아요 3,723 (1.8%) · 15.4분 · 2026-04-28 · 주제 묶음 2. 장기투자·ETF·지수 · 형식 정보·해설 (그 밖) · 폴더 `W_u83b7LRyQCg` (웹 승인)
+- https://www.youtube.com/watch?v=u83b7LRyQCg · Managing Tech Millions · 구독자 29,700 · 조회수 203,203 (×6.8, 하루 1,155.6) · 좋아요 3,723 (1.8%) · 15.4분 · 2026-04-28 · 주제 묶음 2. 장기투자·ETF·지수 · 형식 정보·해설 (그 밖) · 폴더 `W_u83b7LRyQCg` (웹 승인)
 - 썸네일: <img src="W_u83b7LRyQCg/thumbnail.jpg" width="320">
 - 설명 앞부분: For the past five years, my portfolio has generated over $200,000 a year in income — and until recently, none of it came from covered call ETFs. That changed. As I went deep into the research — comparing strategies, breaking down tax structures, evaluating funds — I found two things: these are some…
 - 같은 채널 평소 대비 ×29.9 (채널 최근 롱폼 중앙값 6,806회) · 평소 영상: Have $1M–$30M? Here's How to Grow, Protect, and P… (6,938회) / How to Start a Micro Family Office FROM SCRATCH (… (6,674회)
@@ -407,7 +407,7 @@
 
 ### 109. 남들이 걱정하는 삶을 선택했습니다 #배당투자 #배당은퇴 #경제적자유 #파이어족 #월배당 #고배당주 #주식투자 #재테크#노후준비#배당금생활 #SCHD #JEPI …
 
-- https://www.youtube.com/watch?v=SiE0NjI7Fu0 · ttobaedang또배당 · 구독자 6,870 · 조회수 45,680 (×6.7, 하루 6,506.5) · 좋아요 434 (0.9%) · 9.1분 · 2026-10-14 · 주제 묶음 11. 투자 일반 · 형식 정보·해설 (그 밖) · 폴더 `W_SiE0NjI7Fu0` (웹 승인)
+- https://www.youtube.com/watch?v=SiE0NjI7Fu0 · ttobaedang또배당 · 구독자 6,870 · 조회수 45,680 (×6.7, 하루 6,482.6) · 좋아요 434 (0.9%) · 9.1분 · 2026-10-14 · 주제 묶음 11. 투자 일반 · 형식 정보·해설 (그 밖) · 폴더 `W_SiE0NjI7Fu0` (웹 승인)
 - 썸네일: <img src="W_SiE0NjI7Fu0/thumbnail.jpg" width="320">
 - 같은 채널 평소 대비 ×5.9 (채널 최근 롱폼 중앙값 7,719회) · 평소 영상: 3억 배당은퇴 6000만원 증발 그래도 행복한이유 #배당투자 #배당은퇴 #경제적자유 #파… (7,719회) / 5000만원 증발 월급없이도 행복한이유 #배당투자 #배당은퇴 #경제적자유 #파이어족 #월… (8,747회)
 - 대본 없음 (없음) — 음성인식이 끝나면 도입부·흐름이 들어감
@@ -424,7 +424,7 @@
 
 ### 110. 【2chお金スレ】定年後も収入が途切れない人は何をしてる？今からできる備えを挙げてけ
 
-- https://www.youtube.com/watch?v=2tSGWp3yGek · 2chお金シニアチャンネル · 구독자 2,150 · 조회수 14,237 (×6.6, 하루 1,784.3) · 좋아요 38 (0.3%) · 21분 · 2026-10-13 · 주제 묶음 10. 노후·연금 투자 · 형식 정보·해설 (그 밖) · 폴더 `W_2tSGWp3yGek` (웹 승인)
+- https://www.youtube.com/watch?v=2tSGWp3yGek · 2chお金シニアチャンネル · 구독자 2,150 · 조회수 14,237 (×6.6, 하루 1,778.5) · 좋아요 38 (0.3%) · 21분 · 2026-10-13 · 주제 묶음 10. 노후·연금 투자 · 형식 정보·해설 (그 밖) · 폴더 `W_2tSGWp3yGek` (웹 승인)
 - 썸네일: <img src="W_2tSGWp3yGek/thumbnail.jpg" width="320">
 - 챕터: 0:00 はじめに · 0:24 64歳、配当が月3万 · 2:27 きっかけは元上司の一言 · 4:54 順番その1 足りない額を知る · 6:46 順番その2 現金を先に置く · 8:16 順番その3 口座とNISA · 10:38 順番その4 利回りで選ばない · 12:42 順番その5 一度に買わない · 14:38 順番その6 使い始める日 · 17:01 月3万で暮らしは変わるか · 18:45 今からでも間に合うか
 - 같은 채널 평소 대비 ×3.0 (채널 최근 롱폼 중앙값 4,769회) · 평소 영상: 【2chお金スレ】45歳でFIREした勝ち組の末路…想像した人生と違う「●●してから狂い始めた」エ… (4,769회) / 【2chお金スレ】資産カーストは●●で決まる。老後2000万を溶かす人の共通点が衝撃すぎる (4,736회)
@@ -433,7 +433,7 @@
 
 ### 111. Is This the Time to Buy Indian Equities? Pankaj Tibrewal on FII Outflow & Investment Oppo…
 
-- https://www.youtube.com/watch?v=jUrGWhhASXU · Wealth By Motilal Oswal · 구독자 14,700 · 조회수 97,281 (×6.6, 하루 24,439.4) · 좋아요 632 (0.7%) · 64.4분 · 2026-10-17 · 주제 묶음 기타 · 형식 정보·해설 (그 밖) · 폴더 `W_jUrGWhhASXU` (웹 승인)
+- https://www.youtube.com/watch?v=jUrGWhhASXU · Wealth By Motilal Oswal · 구독자 14,700 · 조회수 97,281 (×6.6, 하루 24,281.7) · 좋아요 632 (0.7%) · 64.4분 · 2026-10-17 · 주제 묶음 기타 · 형식 정보·해설 (그 밖) · 폴더 `W_jUrGWhhASXU` (웹 승인)
 - 썸네일: <img src="W_jUrGWhhASXU/thumbnail.jpg" width="320">
 - 챕터: 0:00 Teaser & Highlights · 1:45 Decoding the Current Market P… · 8:25 Cost of Capital, Global Bond … · 12:30 FII Selling vs Domestic Inflo… · 20:30 The "Two Indias" in the Stock… · 23:50 Promoter's Edge: How to Evalu… · 29:40 Gorilla to King Kong Framewor… · 37:45 Valuing New-Age Tech Companie… · 39:25 Big Mega Trends: Manufacturin… · 44:50 Active vs. Passive Investing … · 47:05 Managing Growth vs. Valuation… · 49:15 Asset Allocation Strategy for… · 52:30 Biggest Mistakes Retail Inves… · 55:30 Developing the Right Temperam… · 58:30 Rapid Fire Round
 - 설명 앞부분: In this episode of Wealth by Motilal Oswal, we are joined by Pankaj Tibrewal, Founder of Ikigai Asset Manager and one of India’s most respected fund managers with over two decades of market experience. In a volatile market environment where investors' patience is being tested, Pankaj breaks down hi…
@@ -443,7 +443,7 @@
 
 ### 112. 나스닥100 1배수, 2배수, 3배수 20년 어떤 성과 보여주나(거치식, 적립식, 리벨런싱) ㅣ QQQ, QLD, TQQQ,
 
-- https://www.youtube.com/watch?v=dQdACzI6nKE · 레버리지 하는 미국회계사 장기투자 여정 · 구독자 13,100 · 조회수 86,062 (×6.6, 하루 699.2) · 좋아요 2,126 (2.5%) · 16.3분 · 2026-06-20 · 주제 묶음 2. 장기투자·ETF·지수 · 형식 정보·해설 (그 밖) · 폴더 `W_dQdACzI6nKE` (웹 승인)
+- https://www.youtube.com/watch?v=dQdACzI6nKE · 레버리지 하는 미국회계사 장기투자 여정 · 구독자 13,100 · 조회수 86,062 (×6.6, 하루 699.1) · 좋아요 2,126 (2.5%) · 16.3분 · 2026-06-20 · 주제 묶음 2. 장기투자·ETF·지수 · 형식 정보·해설 (그 밖) · 폴더 `W_dQdACzI6nKE` (웹 승인)
 - 썸네일: <img src="W_dQdACzI6nKE/thumbnail.jpg" width="320">
 - 챕터: 0:00 나스닥100 1배수, 2배수, 3배수 백테스트 시작 · 1:56 QQQ, QLD, TQQQ백테스트 조건 공개 (20년… · 2:48 QQQ, QLD, TQQQ 거치식 결과 — 2천만원,… · 7:46 QQQ, QLD, TQQQ 적립식 매수 결과 · 9:42 QQQ, QLD, TQQQ 리밸런싱 전략 결과 · 14:46 QQQ, QLD, TQQQ 3가지 투자방식 결론
 - 설명 앞부분: QQQ, QLD, TQQQ — 20년 백테스트로 다 보여드립니다 1배, 2배, 3배 중에 도대체 뭘 모아야 하냐는 질문, 정말 많이 받았어요. 어떤 영상은 "1배가 국밥이다", 어떤 영상은 "3배 아니면 의미 없다" — 의견만 난무하고 진짜 데이터는 본 적이 없으실 거예요. 그래서 이번엔 20년치 실제 데이터로 끝까지 파봤습니다. 저는 미국 공인회계사이자 전직 펀드매니저입니다. 법인 계좌로 QLD를 메인으로 매일 매수하고 있고, 2022년 TQQQ -80% 폭락을 직접 겪고 2025년에 2~3배 수익으로 전량 매도한 경험이 있어요…
@@ -465,7 +465,7 @@
 
 ### 113. 코스피, 5,030P까지 큰 거 한방(삼전닉스 타점)
 
-- https://www.youtube.com/watch?v=qSnNyX7IfqY · 차트도령 · 구독자 3,890 · 조회수 25,071 (×6.4, 하루 3,572.5) · 좋아요 126 (0.5%) · 13.6분 · 2026-10-14 · 주제 묶음 5. 국내주식 · 형식 정보·해설 (그 밖) · 폴더 `W_qSnNyX7IfqY` (웹 승인)
+- https://www.youtube.com/watch?v=qSnNyX7IfqY · 차트도령 · 구독자 3,890 · 조회수 25,071 (×6.4, 하루 3,559.4) · 좋아요 126 (0.5%) · 13.6분 · 2026-10-14 · 주제 묶음 5. 국내주식 · 형식 정보·해설 (그 밖) · 폴더 `W_qSnNyX7IfqY` (웹 승인)
 - 썸네일: <img src="W_qSnNyX7IfqY/thumbnail.jpg" width="320">
 - 챕터: 0:00 코스피 · 6:52 코스닥 · 8:49 삼성전자 · 10:01 SK하이닉스
 - 설명 앞부분: 안녕하세요 차트도령입니다. 10월14일 코스피, 코스닥, 삼성전자, sk하이닉스 차트분석 및 시황공유입니다. 오늘도 강한 반등에는 실패한 모습입니다. 현재 아슬아슬하게 6,000포인트를 지키고 있기 때문에 추가적인 급락이 발생할 수 있습니다. 본 채널에서 영상을 통해 소개해드리는 종목은 '정보 공유' 차원일 뿐 '종목 추천'이 아닙니다.
@@ -480,7 +480,7 @@
 
 ### 114. QLD 직투 vs ISA, 잘 못 선택하면 10년 뒤 수천만 원 손해 봅니다.
 
-- https://www.youtube.com/watch?v=vU5AK1FfCqQ · 돈재이 DONJAY · 구독자 19,800 · 조회수 122,635 (×6.2, 하루 957.6) · 좋아요 2,535 (2.1%) · 20.3분 · 2026-06-15 · 주제 묶음 10. 노후·연금 투자 · 형식 오디오북·낭독 (명언·인생조언) · 폴더 `W_vU5AK1FfCqQ` (웹 승인)
+- https://www.youtube.com/watch?v=vU5AK1FfCqQ · 돈재이 DONJAY · 구독자 19,800 · 조회수 122,635 (×6.2, 하루 957.4) · 좋아요 2,535 (2.1%) · 20.3분 · 2026-06-15 · 주제 묶음 10. 노후·연금 투자 · 형식 오디오북·낭독 (명언·인생조언) · 폴더 `W_vU5AK1FfCqQ` (웹 승인)
 - 썸네일: <img src="W_vU5AK1FfCqQ/thumbnail.jpg" width="320">
 - 설명 앞부분: ⭐안녕하세요, 본 채널은 저의 개인적인 투자 여정과 장기 투자 철학을 기록하는 공간입니다. 제가 겪은 시행착오와 시장을 바라보는 관점이 여러분의 투자 공부에 작은 참고가 되기를 희망합니다. 다만, 채널의 모든 콘텐츠는 정보 전달을 목적으로 제작되었습니다. 여러분의 성공적인 투자 여정을 응원합니다.
 - 같은 채널 평소 대비 ×7.2 (채널 최근 롱폼 중앙값 16,981회) · 평소 영상: QLD -12.69%인데도 웃고 있습니다｜월500 적립 7월 투자 계좌 공개 (16,981회) / 환율 계속 떨어지는데 QLD 투자해도 될까? 제 결론입니다 (17,667회)
@@ -506,7 +506,7 @@
 
 ### 115. $250,000 Invested Once: The Fastest Route to $4,000 a Month in Dividends
 
-- https://www.youtube.com/watch?v=k8G_Z4Do2vg · Tom - Lazy Dividend Investor · 구독자 2,090 · 조회수 12,921 (×6.2, 하루 2,413.3) · 좋아요 120 (0.9%) · 32.3분 · 2026-10-16 · 주제 묶음 기타 · 형식 정보·해설 (그 밖) · 폴더 `W_k8G_Z4Do2vg` (웹 승인)
+- https://www.youtube.com/watch?v=k8G_Z4Do2vg · Tom - Lazy Dividend Investor · 구독자 2,090 · 조회수 12,921 (×6.2, 하루 2,401.7) · 좋아요 120 (0.9%) · 32.3분 · 2026-10-16 · 주제 묶음 기타 · 형식 정보·해설 (그 밖) · 폴더 `W_k8G_Z4Do2vg` (웹 승인)
 - 썸네일: <img src="W_k8G_Z4Do2vg/thumbnail.jpg" width="320">
 - 설명 앞부분: $250,000 invested once in a quality dividend fund at 3.21% pays about $669 a month. The same $250,000 in an 11% covered call fund pays about $2,292. Reinvest everything and race to $4,000 a month: in our illustration the covered call route arrives in about 6.5 years, the quality fund needs about 22…
 - 같은 채널 평소 대비 ×3.8 (채널 최근 롱폼 중앙값 3,388회) · 평소 영상: Can You Retire With Just SCHD? ∣ SCHD Expert Expl… (3,799회) / No Pension? No Problem! Create Your Own with SCHD (3,825회)
@@ -515,7 +515,7 @@
 
 ### 116. "S&P500 ETF, 종목보다 '계좌'가 20년 뒤를 바꾸는 진짜 이유 (연금·ISA)"
 
-- https://www.youtube.com/watch?v=fmQLRfIm28Y · 야무진 경제학 · 구독자 22,500 · 조회수 137,303 (×6.1, 하루 1,302.2) · 좋아요 3,514 (2.6%) · 28.4분 · 2026-07-07 · 주제 묶음 2. 장기투자·ETF·지수 · 형식 정보·해설 (그 밖) · 폴더 `W_fmQLRfIm28Y` (웹 승인)
+- https://www.youtube.com/watch?v=fmQLRfIm28Y · 야무진 경제학 · 구독자 22,500 · 조회수 137,303 (×6.1, 하루 1,301.9) · 좋아요 3,514 (2.6%) · 28.4분 · 2026-07-07 · 주제 묶음 2. 장기투자·ETF·지수 · 형식 정보·해설 (그 밖) · 폴더 `W_fmQLRfIm28Y` (웹 승인)
 - 썸네일: <img src="W_fmQLRfIm28Y/thumbnail.jpg" width="320">
 - 챕터: 0:00 종목은 담았는데 왜 내 계좌만 이 모양일까 · 2:19 원칙 ① 짐을 줄여라 — 종목이 많을수록 위험한 이유 · 5:02 원칙 ② 오래 메고 걸어라 — 매달 30만원 20년의… · 8:26 40세 시작 vs 50세 시작, 10년이 만든 격차 · 10:03 목돈 한 번에? 나눠서? 리밸런싱은 언제 · 10:44 우리가 가장 많이 하는 두 가지 오해 · 11:49 달콤한 함정 — 월배당·커버드콜의 진실 (금감원 경보) · 15:25 반전 — 짐이 아니라 '배낭'을 바꾸는 고수들 · 16:42 방수 배낭 ① 연금저축·IRP, 148만원 돌려받는 법 · 19:25 방수 배낭 ② ISA, 3년 유연 + 비과세 · 20:59 같은 상품 김 씨 vs 박 씨, 10년 뒤 잔고 차이 · 22:38 ISA를 연금으로 갈아타 혜택 두 번 챙기는 기술 · 24:04 꼭 알아야 할 주의점 — 중도해지 벌금 & ISA 한… · 25:47 오늘 걸어온 길 정리 — 짐이 아니라 배낭이 결과를 …
 - 설명 앞부분: S&P500 ETF, 좋다는 종목만 열심히 담았는데 왜 내 계좌만 안 불어날까요? 문제는 '무엇을 담느냐'가 아니라 '어떤 계좌에 담느냐'입니다. 오늘은 ETF 투자를 배낭여행에 빗대, 20년 뒤 통장을 바꾸는 절세계좌(연금저축·IRP·ISA) 활용법을 한 번에 정리했습니다. 똑같은 미국 지수 ETF를 일반계좌(비닐봉지)에 담은 사람과 절세계좌(방수 배낭)에 담은 사람의 결과가 왜 갈리는지, 그리고 요즘 인기인 월배당·커버드콜의 숨은 함정(금융감독원 소비자경보)까지 짚습니다. 종목 압축, 복리의 시간, 절세계좌라는 세 가지 뼈대만…
@@ -536,7 +536,7 @@
 
 ### 117. I Bought 1,000 Shares of JEPQ. Here’s What It Pays Me Every Month
 
-- https://www.youtube.com/watch?v=gC-_mODu2gI · Grounded Life Investments · 구독자 5,350 · 조회수 31,572 (×5.9, 하루 4,019.8) · 좋아요 386 (1.2%) · 11.3분 · 2026-10-13 · 주제 묶음 기타 · 형식 정보·해설 (그 밖) · 폴더 `W_gC-_mODu2gI` (웹 승인)
+- https://www.youtube.com/watch?v=gC-_mODu2gI · Grounded Life Investments · 구독자 5,350 · 조회수 31,572 (×5.9, 하루 4,006.6) · 좋아요 386 (1.2%) · 11.3분 · 2026-10-13 · 주제 묶음 기타 · 형식 정보·해설 (그 밖) · 폴더 `W_gC-_mODu2gI` (웹 승인)
 - 썸네일: <img src="W_gC-_mODu2gI/thumbnail.jpg" width="320">
 - 설명 앞부분: I Bought 1,000 Shares of JEPQ. Here’s What It Pays Me Every Month. I also talk about who this fund is for and why it is in our investment portfolio. Want to go deeper? The GLI Dashboard gives you dividend screeners, portfolio analysis, and deep dives of the companies and ETF's you need to know abou…
 - 같은 채널 평소 대비 ×2.8 (채널 최근 롱폼 중앙값 11,317회) · 평소 영상: SCHD New All-Time High: I've Paused My DCA & What… (11,317회) / I Invested $30 Per Day In SCHD - Here What Happen… (12,195회)
@@ -545,7 +545,7 @@
 
 ### 118. 나스닥 2배 QLD 무지성 적립식매수 vs. 공포탐욕지수 활용 매수 I QQQ, QLD, TQQQ, SOXL
 
-- https://www.youtube.com/watch?v=V_RecmLncz4 · 레버리지 하는 미국회계사 장기투자 여정 · 구독자 13,100 · 조회수 74,758 (×5.7, 하루 1,218.0) · 좋아요 1,354 (1.8%) · 16.1분 · 2026-08-20 · 주제 묶음 2. 장기투자·ETF·지수 · 형식 정보·해설 (그 밖) · 폴더 `W_V_RecmLncz4` (웹 승인)
+- https://www.youtube.com/watch?v=V_RecmLncz4 · 레버리지 하는 미국회계사 장기투자 여정 · 구독자 13,100 · 조회수 74,758 (×5.7, 하루 1,217.5) · 좋아요 1,354 (1.8%) · 16.1분 · 2026-08-20 · 주제 묶음 2. 장기투자·ETF·지수 · 형식 정보·해설 (그 밖) · 폴더 `W_V_RecmLncz4` (웹 승인)
 - 썸네일: <img src="W_V_RecmLncz4/thumbnail.jpg" width="320">
 - 챕터: 0:00 공포탐욕지수 활용한 매수 질문 · 1:45 공포탐욕지수란? + 백테스트 가정 · 5:17 공포탐욕지수 활용 전략 결과 · 6:33 레니프 유니백 체어 프로 제품 지원 영상 · 7:10 공포탐욕지수 최대 활용전략? · 10:01 공포탐욕지수 스윙 전략 · 14:08 공포탐욕지수 매수 결론
 - 설명 앞부분: 레니프 유니백 체어 프로 10월 큰 할인 행사 · 10월 10일(토) 23:59까지 349,000원 (공식몰 399,000원) · 구매확정 시 2단 발받침대 증정 공포탐욕지수 보면서 비중 조절해서 매수하는 것과, 그냥 무지성으로 매일 적립식 매수하는 것. 둘 중 뭐가 더 나을까요? ⏱ 타임스탬프 이런 분들께 추천드려요 QLD, TQQQ 같은 레버리지 ETF로 적립식 투자 중이신 분 공포탐욕지수 활용법이 궁금하신 분 법인투자, 세금 효율화에 관심 있으신 분 📖 법인투자 무작정따라하기 (전자책) ⚠️ 저는 미국공인회계사(CPA)이며,…
@@ -577,7 +577,7 @@
 
 ### 120. These 2 NEW Weekly Dividend ETFs Are Beating Monthly Income
 
-- https://www.youtube.com/watch?v=-K8-ccMcIBE · Jake Wealth Hacks · 구독자 6,700 · 조회수 37,271 (×5.6, 하루 216.1) · 좋아요 863 (2.3%) · 10.6분 · 2026-05-01 · 주제 묶음 2. 장기투자·ETF·지수 · 형식 정보·해설 (그 밖) · 폴더 `W_-K8-ccMcIBE` (웹 승인)
+- https://www.youtube.com/watch?v=-K8-ccMcIBE · Jake Wealth Hacks · 구독자 6,700 · 조회수 37,271 (×5.6, 하루 216.0) · 좋아요 863 (2.3%) · 10.6분 · 2026-05-01 · 주제 묶음 2. 장기투자·ETF·지수 · 형식 정보·해설 (그 밖) · 폴더 `W_-K8-ccMcIBE` (웹 승인)
 - 썸네일: <img src="W_-K8-ccMcIBE/thumbnail.jpg" width="320">
 - 설명 앞부분: Two brand-new weekly dividend ETFs from Global X just launched — EDGX and EDGQ — and after 10 weeks of tracking their performance, they're doing something almost no other weekly-paying covered call fund has managed: holding NAV without bleeding your principal. Weekly dividend ETFs are gaining massi…
 - 같은 채널 평소 대비 ×10.8 (채널 최근 롱폼 중앙값 3,463회) · 평소 영상: These New ETFs Yield Up to 45% — Should You Buy T… (3,463회) / This New 34% SpaceX ETF Offers Monthly Cash - But… (3,442회)

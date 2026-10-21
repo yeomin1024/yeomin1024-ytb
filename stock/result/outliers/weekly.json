@@ -2,15 +2,15 @@
  "tool": "weekly_analysis.py v1.3",
  "topic": "stock",
  "name": "주식",
- "generated": "2026-10-21T08:29:05+00:00",
- "cases": 714,
- "dated": 714,
+ "generated": "2026-10-21T09:06:12+00:00",
+ "cases": 720,
+ "dated": 720,
  "older_than_windows": 0,
  "max_weeks": 52,
  "text_sources": {
   "자막": 24,
   "음성인식": 15,
-  "설명": 641,
+  "설명": 647,
   "없음": 34
  },
  "criteria": "성공 사례 = 구독자 50,000 이하 · 조회수 10,000 이상 · 조회수 ≥ 구독자 × 3",
@@ -18,7 +18,7 @@
   {
    "weeks": 1,
    "label": "최근 1주",
-   "videos": 303,
+   "videos": 300,
    "channels": 216,
    "new_this_week": [
     {
@@ -285,11 +285,6 @@
      "id": "9ZTTPyP2lHQ",
      "title": "“반토막 됐다”…코스피 폭락에 개미들 망연자실 [뉴스플레이리스트] / 채널A",
      "published": "2026-10-16"
-    },
-    {
-     "id": "9gbVJYT4wCU",
-     "title": "한국주식 초토화될 법안 또 나왔다. 조만간 상상도 못할 사태 터질 겁니다 \"가진 주식 전부 이렇게 하세요\" | 염승환 이사 1부",
-     "published": "2026-10-14"
     },
     {
      "id": "9rfCwm4PqzI",
@@ -600,11 +595,6 @@
      "id": "MXpngU9Acbc",
      "title": "下がらないS&P500、半導体は7連敗、でもじっと待て！",
      "published": "2026-10-16"
-    },
-    {
-     "id": "Mhp_llhmNrY",
-     "title": "【警告】米国株最大のリスクは高金利＋●●！S&P500投資家が今すぐ備えるべきこと",
-     "published": "2026-10-14"
     },
     {
      "id": "Mi_TEJteTJA",
@@ -1004,11 +994,6 @@
     {
      "id": "dbQ_xk3IiPg",
      "title": "QLD 거치식 투자, 2배까지 얼마나 걸릴까? QQQ와 비교했더니,, 충격!",
-     "published": "2026-10-14"
-    },
-    {
-     "id": "doIdYnKboc0",
-     "title": "[10월 14일 수요일 한국시황] 5거래일동안 총 -13.8% 하락! | 그런데도 아직 안심할 수 없는 이유 | 이와중에 대단한 해운주들 | 신현송 한은 총재의 어마무시한 경고",
      "published": "2026-10-14"
     },
     {
@@ -1537,52 +1522,52 @@
      "published": "2026-10-15"
     }
    ],
-   "views_median": 166099,
-   "views_per_day_median": 36510.8,
-   "ratio_median": 0.39,
+   "views_median": 165967.0,
+   "views_per_day_median": 36314.45,
+   "ratio_median": 0.38,
    "success": 48,
-   "minutes_median": 19.0,
-   "title_len_avg": 56.9,
+   "minutes_median": 18.95,
+   "title_len_avg": 56.7,
    "title_features": [
     {
      "name": "물음표 ?",
      "count": 86,
-     "share": 0.284
+     "share": 0.287
     },
     {
      "name": "코스피·폭락·급락·하락장",
      "count": 67,
-     "share": 0.221
+     "share": 0.223
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
-     "count": 45,
-     "share": 0.149
+     "count": 44,
+     "share": 0.147
     },
     {
      "name": "느낌표 !",
-     "count": 36,
-     "share": 0.119
+     "count": 35,
+     "share": 0.117
     },
     {
      "name": "AI",
      "count": 35,
-     "share": 0.116
+     "share": 0.117
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 31,
-     "share": 0.102
+     "count": 30,
+     "share": 0.1
     },
     {
      "name": "이유",
-     "count": 25,
-     "share": 0.083
+     "count": 24,
+     "share": 0.08
     },
     {
      "name": "금액(억·만원)",
      "count": 8,
-     "share": 0.026
+     "share": 0.027
     },
     {
      "name": "N가지",
@@ -1639,12 +1624,12 @@
      "count": 29
     },
     {
-     "word": "이유",
+     "word": "Stock",
      "count": 25
     },
     {
-     "word": "Stock",
-     "count": 25
+     "word": "이유",
+     "count": 24
     },
     {
      "word": "to",
@@ -1659,11 +1644,11 @@
      "count": 20
     },
     {
-     "word": "주식",
-     "count": 19
+     "word": "ETF",
+     "count": 18
     },
     {
-     "word": "ETF",
+     "word": "주식",
      "count": 18
     }
    ],
@@ -1671,7 +1656,7 @@
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 283,
+    "설명": 280,
     "없음": 20
    },
    "content_words": [
@@ -1684,11 +1669,11 @@
      "count": 96
     },
     {
-     "word": "in",
+     "word": "of",
      "count": 92
     },
     {
-     "word": "of",
+     "word": "in",
      "count": 92
     },
     {
@@ -1724,7 +1709,7 @@
      "count": 64
     }
    ],
-   "chapters_share": 0.356,
+   "chapters_share": 0.357,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -1746,36 +1731,36 @@
      "hook": "18일 에프앤가이드에 따르면, 지난 15일 기준 국민연금이 기분 5% 이상을 보유했다고 공시한 상장사 287곳의 주식 평가액이 333조 5330억 원으로 나타났습니다. 이는 지난 6월 말 기준 515조 9293억 원) 대비 182조 3963억 원(35.3%) 감소한 수치입니다. 사상 최"
     }
    ],
-   "comments": 88187,
+   "comments": 87592,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 13050,
+     "count": 12954,
      "share": 0.148
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 8227,
-     "share": 0.093
+     "count": 8215,
+     "share": 0.094
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 5721,
-     "share": 0.065
+     "count": 5649,
+     "share": 0.064
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 5708,
-     "share": 0.065
+     "count": 5590,
+     "share": 0.064
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 3758,
-     "share": 0.043
+     "count": 3712,
+     "share": 0.042
     },
     {
      "name": "칭찬·감사",
-     "count": 3529,
+     "count": 3487,
      "share": 0.04
     }
    ],
@@ -1799,7 +1784,7 @@
      "title": "개인 투자자도 투자하기 좋은 시대⁉️ AI를 활용한 초특급 투자 전략 공개✨ #유퀴즈",
      "channel": "디글 클래식 :Diggle Classic",
      "views": 2433812,
-     "views_per_day": 390754.8,
+     "views_per_day": 389144.1,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=jk61l5VCSGM"
     },
@@ -1808,7 +1793,7 @@
      "title": "Stocks Have Done THIS After Every Midterm Election Since 1950",
      "channel": "ClearValue Tax",
      "views": 528835,
-     "views_per_day": 313576.4,
+     "views_per_day": 308854.9,
      "published": "2026-10-19",
      "url": "https://www.youtube.com/watch?v=LaBiYw1ZKF4"
     },
@@ -1817,7 +1802,7 @@
      "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
      "channel": "채널A News",
      "views": 891652,
-     "views_per_day": 277778.8,
+     "views_per_day": 275565.5,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
     },
@@ -1826,7 +1811,7 @@
      "title": "AI bubble fears: Could a crash trigger a global financial crisis? | DW News",
      "channel": "DW News",
      "views": 1262899,
-     "views_per_day": 234093.8,
+     "views_per_day": 232980.4,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=tGRB8ECyEJ0"
     },
@@ -1835,7 +1820,7 @@
      "title": "[한눈에 경제] 빚내서 주식 샀는데 '강제 처분'…비명도 안 나오는 개미들 / KBS 2026.10.19.",
      "channel": "KBS News",
      "views": 523827,
-     "views_per_day": 229381.4,
+     "views_per_day": 226820.7,
      "published": "2026-10-19",
      "url": "https://www.youtube.com/watch?v=mC4ic5oiHRE"
     }
@@ -1844,8 +1829,8 @@
   {
    "weeks": 2,
    "label": "최근 2주",
-   "videos": 408,
-   "channels": 251,
+   "videos": 412,
+   "channels": 252,
    "new_this_week": [
     {
      "id": "-2R5j7R_DLI",
@@ -1958,6 +1943,11 @@
      "published": "2026-10-13"
     },
     {
+     "id": "9gbVJYT4wCU",
+     "title": "한국주식 초토화될 법안 또 나왔다. 조만간 상상도 못할 사태 터질 겁니다 \"가진 주식 전부 이렇게 하세요\" | 염승환 이사 1부",
+     "published": "2026-10-14"
+    },
+    {
      "id": "Azoffhprpf8",
      "title": "[하우머니] K-반도체 역대급 실적에도 주가 박스권…앞으로의 변수는?",
      "published": "2026-10-08"
@@ -2028,6 +2018,16 @@
      "published": "2026-10-12"
     },
     {
+     "id": "MJ8LoNpR_nM",
+     "title": "[글로벌증시] 뉴욕증시, 中창신메모리 신기술에 반도체주 '뚝' / 연합뉴스TV (YonhapnewsTV)",
+     "published": "2026-10-12"
+    },
+    {
+     "id": "Mhp_llhmNrY",
+     "title": "【警告】米国株最大のリスクは高金利＋●●！S&P500投資家が今すぐ備えるべきこと",
+     "published": "2026-10-14"
+    },
+    {
      "id": "NF5abNaJIic",
      "title": "반도체 -4.6% 급락, 펠로시도 위기준비 시작했다!",
      "published": "2026-10-10"
@@ -2093,14 +2093,19 @@
      "published": "2026-10-14"
     },
     {
+     "id": "SrAToCJlGt0",
+     "title": "(#이벤트) AI 성장에 의심이 시작됐다, 이대로 터지는 걸까 | 금시공 장우진 대표이사 1부🎙️ 증시톡터뷰",
+     "published": "2026-10-14"
+    },
+    {
      "id": "TERduRgYsGo",
      "title": "삼전닉스 물린 투자자들 '이익의 저점'을 봐야합니다 - 곽상준 대표 (매트릭스투자자문) [성공예감 이대호입니다]｜KBS 261012 방송",
      "published": "2026-10-12"
     },
     {
-     "id": "UKXh9WlW9QA",
-     "title": "47억 자산가 포트폴리오 공개 \"5060은 이것만 죽어라 사 모으세요\" 가격도 싼데 배당까지 퍼줍니다. 전 이걸로 은퇴했어요 | 쭈압 1부",
-     "published": "2026-10-07"
+     "id": "V_ubgqw3CNA",
+     "title": "[홍장원의 불앤베어] 반도체 주가에는 새 도파민이 필요하다",
+     "published": "2026-10-12"
     },
     {
      "id": "Xsj_BipjvVI",
@@ -2168,9 +2173,19 @@
      "published": "2026-10-12"
     },
     {
+     "id": "cKeKSxrxxIY",
+     "title": "난이도 최상 한국 증시…지수보다 더 깨진 내 계좌, 반등에도 순서가 있습니다ㅣ홍선애, 박현상 주머니투자자문 이사 [여의도 인사이트]",
+     "published": "2026-10-12"
+    },
+    {
      "id": "d4gqZGtuUxo",
      "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
      "published": "2026-10-08"
+    },
+    {
+     "id": "doIdYnKboc0",
+     "title": "[10월 14일 수요일 한국시황] 5거래일동안 총 -13.8% 하락! | 그런데도 아직 안심할 수 없는 이유 | 이와중에 대단한 해운주들 | 신현송 한은 총재의 어마무시한 경고",
+     "published": "2026-10-14"
     },
     {
      "id": "eKQsjwdRrhA",
@@ -2213,6 +2228,11 @@
      "published": "2026-10-13"
     },
     {
+     "id": "j1lIF2hOPcg",
+     "title": "외인은 반도체 죄다 파는데, 언제까지 기다려야 하나요ㅣ강관우 더프레미어 대표",
+     "published": "2026-10-12"
+    },
+    {
      "id": "jJu0VhNOH-I",
      "title": "코스닥 다시 반등할까?📈ㅣ원큐로 끝내는 ETF🎯",
      "published": "2026-10-14"
@@ -2246,6 +2266,11 @@
      "id": "mE1KV5LZr54",
      "title": "한 달 새 국민연금 181조 ‘증발’, 섣부른 주가 정책에 대한 경고... \"국민 노후자금으로 불장난\" [✒️뉴스트라다무스]",
      "published": "2026-10-13"
+    },
+    {
+     "id": "myoqLt0jMus",
+     "title": "코스피 6500선 무너졌다? 지금은 '이렇게' 대응하세요 (이영훈 iM증권 서울금융센터 이사, 반종민 Prestige 경영전략연구소 소장)",
+     "published": "2026-10-12"
     },
     {
      "id": "nN0LYbCCAWU",
@@ -2308,11 +2333,6 @@
      "published": "2026-10-08"
     },
     {
-     "id": "u1DEBDpwwMI",
-     "title": "次の暴落でS&P500は半分になる？平均回帰から考える今後の株価について徹底解説！",
-     "published": "2026-10-07"
-    },
-    {
      "id": "v3lby9QzpS0",
      "title": "'코스피 하락 전환' 맞춘 전문가 \"강세장 종료\"…'5천'도 깨지나 #이재만 _261013",
      "published": "2026-10-13"
@@ -2373,42 +2393,42 @@
      "published": "2026-10-12"
     }
    ],
-   "views_median": 187328.5,
-   "views_per_day_median": 33943.75,
-   "ratio_median": 0.43,
+   "views_median": 181769.0,
+   "views_per_day_median": 33650.65,
+   "ratio_median": 0.42,
    "success": 68,
-   "minutes_median": 18.85,
+   "minutes_median": 18.95,
    "title_len_avg": 55.7,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 121,
-     "share": 0.297
+     "count": 122,
+     "share": 0.296
     },
     {
      "name": "코스피·폭락·급락·하락장",
-     "count": 91,
+     "count": 92,
      "share": 0.223
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
      "count": 57,
-     "share": 0.14
+     "share": 0.138
     },
     {
      "name": "느낌표 !",
      "count": 47,
-     "share": 0.115
+     "share": 0.114
+    },
+    {
+     "name": "AI",
+     "count": 41,
+     "share": 0.1
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 40,
-     "share": 0.098
-    },
-    {
-     "name": "AI",
-     "count": 40,
-     "share": 0.098
+     "share": 0.097
     },
     {
      "name": "이유",
@@ -2417,13 +2437,13 @@
     },
     {
      "name": "금액(억·만원)",
-     "count": 17,
-     "share": 0.042
+     "count": 16,
+     "share": 0.039
     },
     {
      "name": "노후·퇴직금·은퇴·50~70대",
-     "count": 11,
-     "share": 0.027
+     "count": 10,
+     "share": 0.024
     },
     {
      "name": "N가지",
@@ -2464,7 +2484,7 @@
    "title_words": [
     {
      "word": "코스피",
-     "count": 45
+     "count": 46
     },
     {
      "word": "Market",
@@ -2496,24 +2516,24 @@
     },
     {
      "word": "대표",
-     "count": 23
+     "count": 24
     },
     {
      "word": "AI",
-     "count": 22
+     "count": 23
     }
    ],
    "transcripts": 1,
    "text_sources": {
     "자막": 1,
     "음성인식": 0,
-    "설명": 379,
+    "설명": 383,
     "없음": 28
    },
    "content_words": [
     {
      "word": "to",
-     "count": 126
+     "count": 127
     },
     {
      "word": "is",
@@ -2556,11 +2576,11 @@
      "count": 82
     },
     {
-     "word": "video",
+     "word": "market",
      "count": 78
     }
    ],
-   "chapters_share": 0.348,
+   "chapters_share": 0.345,
    "syl_per_sec_median": 5.86,
    "hooks": [
     {
@@ -2582,37 +2602,37 @@
      "hook": "18일 에프앤가이드에 따르면, 지난 15일 기준 국민연금이 기분 5% 이상을 보유했다고 공시한 상장사 287곳의 주식 평가액이 333조 5330억 원으로 나타났습니다. 이는 지난 6월 말 기준 515조 9293억 원) 대비 182조 3963억 원(35.3%) 감소한 수치입니다. 사상 최"
     }
    ],
-   "comments": 127406,
+   "comments": 128280,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 18881,
+     "count": 19036,
      "share": 0.148
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 13068,
-     "share": 0.103
+     "count": 13112,
+     "share": 0.102
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 8482,
+     "count": 8636,
      "share": 0.067
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 7946,
-     "share": 0.062
+     "count": 8030,
+     "share": 0.063
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 5277,
-     "share": 0.041
+     "count": 5328,
+     "share": 0.042
     },
     {
      "name": "칭찬·감사",
-     "count": 5140,
-     "share": 0.04
+     "count": 5204,
+     "share": 0.041
     }
    ],
    "top_comments": [
@@ -2635,7 +2655,7 @@
      "title": "개인 투자자도 투자하기 좋은 시대⁉️ AI를 활용한 초특급 투자 전략 공개✨ #유퀴즈",
      "channel": "디글 클래식 :Diggle Classic",
      "views": 2433812,
-     "views_per_day": 390754.8,
+     "views_per_day": 389144.1,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=jk61l5VCSGM"
     },
@@ -2644,7 +2664,7 @@
      "title": "Stocks Have Done THIS After Every Midterm Election Since 1950",
      "channel": "ClearValue Tax",
      "views": 528835,
-     "views_per_day": 313576.4,
+     "views_per_day": 308854.9,
      "published": "2026-10-19",
      "url": "https://www.youtube.com/watch?v=LaBiYw1ZKF4"
     },
@@ -2653,7 +2673,7 @@
      "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
      "channel": "채널A News",
      "views": 891652,
-     "views_per_day": 277778.8,
+     "views_per_day": 275565.5,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
     },
@@ -2662,7 +2682,7 @@
      "title": "AI bubble fears: Could a crash trigger a global financial crisis? | DW News",
      "channel": "DW News",
      "views": 1262899,
-     "views_per_day": 234093.8,
+     "views_per_day": 232980.4,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=tGRB8ECyEJ0"
     },
@@ -2671,7 +2691,7 @@
      "title": "[한눈에 경제] 빚내서 주식 샀는데 '강제 처분'…비명도 안 나오는 개미들 / KBS 2026.10.19.",
      "channel": "KBS News",
      "views": 523827,
-     "views_per_day": 229381.4,
+     "views_per_day": 226820.7,
      "published": "2026-10-19",
      "url": "https://www.youtube.com/watch?v=mC4ic5oiHRE"
     }
@@ -2680,7 +2700,7 @@
   {
    "weeks": 3,
    "label": "최근 3주",
-   "videos": 455,
+   "videos": 460,
    "channels": 273,
    "new_this_week": [
     {
@@ -2789,11 +2809,6 @@
      "published": "2026-10-07"
     },
     {
-     "id": "JFTeh7lZ9Cw",
-     "title": "Why 5.25% is the Bond Market’s Tipping Point",
-     "published": "2026-09-30"
-    },
-    {
      "id": "JUMhkNNkExM",
      "title": "Markets Haven't Crashed Yet, and Here's Why, Gerald Celente Says",
      "published": "2026-10-03"
@@ -2822,6 +2837,11 @@
      "id": "PaN27YpsfIU",
      "title": "2026년 꼭 담아야 할 최고의 배당ETF 조합 ㅣ지식인 클래스 EP.29 (박곰희 작가)",
      "published": "2026-10-01"
+    },
+    {
+     "id": "UKXh9WlW9QA",
+     "title": "47억 자산가 포트폴리오 공개 \"5060은 이것만 죽어라 사 모으세요\" 가격도 싼데 배당까지 퍼줍니다. 전 이걸로 은퇴했어요 | 쭈압 1부",
+     "published": "2026-10-07"
     },
     {
      "id": "Uuw517jwuRQ",
@@ -2904,6 +2924,11 @@
      "published": "2026-10-04"
     },
     {
+     "id": "u1DEBDpwwMI",
+     "title": "次の暴落でS&P500は半分になる？平均回帰から考える今後の株価について徹底解説！",
+     "published": "2026-10-07"
+    },
+    {
      "id": "vEsEXhtGg8w",
      "title": "나스닥100 주식 지금 당장 사세요, '이 방법대로' 하면 10배 수익 난다 (최고민수 박민수 작가)",
      "published": "2026-10-05"
@@ -2919,57 +2944,57 @@
      "published": "2026-10-02"
     }
    ],
-   "views_median": 200988,
-   "views_per_day_median": 33160.7,
-   "ratio_median": 0.46,
+   "views_median": 200141.0,
+   "views_per_day_median": 32051.8,
+   "ratio_median": 0.45,
    "success": 72,
-   "minutes_median": 18.8,
+   "minutes_median": 18.9,
    "title_len_avg": 55.4,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 134,
-     "share": 0.295
+     "count": 135,
+     "share": 0.293
     },
     {
      "name": "코스피·폭락·급락·하락장",
-     "count": 92,
+     "count": 93,
      "share": 0.202
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
-     "count": 66,
-     "share": 0.145
+     "count": 67,
+     "share": 0.146
     },
     {
      "name": "느낌표 !",
      "count": 52,
-     "share": 0.114
+     "share": 0.113
+    },
+    {
+     "name": "AI",
+     "count": 45,
+     "share": 0.098
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 44,
-     "share": 0.097
-    },
-    {
-     "name": "AI",
-     "count": 44,
-     "share": 0.097
+     "share": 0.096
     },
     {
      "name": "이유",
      "count": 37,
-     "share": 0.081
+     "share": 0.08
     },
     {
      "name": "금액(억·만원)",
      "count": 19,
-     "share": 0.042
+     "share": 0.041
     },
     {
      "name": "노후·퇴직금·은퇴·50~70대",
      "count": 13,
-     "share": 0.029
+     "share": 0.028
     },
     {
      "name": "vs 비교",
@@ -2979,7 +3004,7 @@
     {
      "name": "N가지",
      "count": 8,
-     "share": 0.018
+     "share": 0.017
     },
     {
      "name": "손실 낱말(망하·날린·잃은·반토막)",
@@ -3010,11 +3035,11 @@
    "title_words": [
     {
      "word": "코스피",
-     "count": 46
+     "count": 47
     },
     {
      "word": "Market",
-     "count": 42
+     "count": 41
     },
     {
      "word": "Stocks",
@@ -3042,18 +3067,18 @@
     },
     {
      "word": "대표",
-     "count": 25
+     "count": 26
     },
     {
      "word": "AI",
-     "count": 23
+     "count": 24
     }
    ],
    "transcripts": 2,
    "text_sources": {
     "자막": 1,
     "음성인식": 1,
-    "설명": 423,
+    "설명": 428,
     "없음": 30
    },
    "content_words": [
@@ -3063,39 +3088,39 @@
     },
     {
      "word": "is",
-     "count": 135
+     "count": 134
     },
     {
      "word": "in",
-     "count": 132
-    },
-    {
-     "word": "of",
      "count": 131
     },
     {
-     "word": "on",
-     "count": 121
+     "word": "of",
+     "count": 130
     },
     {
-     "word": "this",
+     "word": "on",
      "count": 120
     },
     {
-     "word": "are",
-     "count": 107
+     "word": "this",
+     "count": 119
     },
     {
      "word": "or",
      "count": 107
     },
     {
-     "word": "not",
-     "count": 96
+     "word": "are",
+     "count": 106
     },
     {
      "word": "video",
-     "count": 96
+     "count": 95
+    },
+    {
+     "word": "not",
+     "count": 95
     },
     {
      "word": "investment",
@@ -3106,7 +3131,7 @@
      "count": 92
     }
    ],
-   "chapters_share": 0.349,
+   "chapters_share": 0.348,
    "syl_per_sec_median": 5.86,
    "hooks": [
     {
@@ -3128,36 +3153,36 @@
      "hook": "18일 에프앤가이드에 따르면, 지난 15일 기준 국민연금이 기분 5% 이상을 보유했다고 공시한 상장사 287곳의 주식 평가액이 333조 5330억 원으로 나타났습니다. 이는 지난 6월 말 기준 515조 9293억 원) 대비 182조 3963억 원(35.3%) 감소한 수치입니다. 사상 최"
     }
    ],
-   "comments": 148609,
+   "comments": 148783,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 22034,
+     "count": 22056,
      "share": 0.148
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 15859,
-     "share": 0.107
+     "count": 15726,
+     "share": 0.106
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 9362,
-     "share": 0.063
+     "count": 9448,
+     "share": 0.064
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 9121,
-     "share": 0.061
+     "count": 9275,
+     "share": 0.062
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 6046,
+     "count": 6091,
      "share": 0.041
     },
     {
      "name": "칭찬·감사",
-     "count": 5753,
+     "count": 5818,
      "share": 0.039
     }
    ],
@@ -3181,7 +3206,7 @@
      "title": "개인 투자자도 투자하기 좋은 시대⁉️ AI를 활용한 초특급 투자 전략 공개✨ #유퀴즈",
      "channel": "디글 클래식 :Diggle Classic",
      "views": 2433812,
-     "views_per_day": 390754.8,
+     "views_per_day": 389144.1,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=jk61l5VCSGM"
     },
@@ -3190,7 +3215,7 @@
      "title": "Stocks Have Done THIS After Every Midterm Election Since 1950",
      "channel": "ClearValue Tax",
      "views": 528835,
-     "views_per_day": 313576.4,
+     "views_per_day": 308854.9,
      "published": "2026-10-19",
      "url": "https://www.youtube.com/watch?v=LaBiYw1ZKF4"
     },
@@ -3199,7 +3224,7 @@
      "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
      "channel": "채널A News",
      "views": 891652,
-     "views_per_day": 277778.8,
+     "views_per_day": 275565.5,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
     },
@@ -3208,7 +3233,7 @@
      "title": "AI bubble fears: Could a crash trigger a global financial crisis? | DW News",
      "channel": "DW News",
      "views": 1262899,
-     "views_per_day": 234093.8,
+     "views_per_day": 232980.4,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=tGRB8ECyEJ0"
     },
@@ -3217,7 +3242,7 @@
      "title": "[한눈에 경제] 빚내서 주식 샀는데 '강제 처분'…비명도 안 나오는 개미들 / KBS 2026.10.19.",
      "channel": "KBS News",
      "views": 523827,
-     "views_per_day": 229381.4,
+     "views_per_day": 226820.7,
      "published": "2026-10-19",
      "url": "https://www.youtube.com/watch?v=mC4ic5oiHRE"
     }
@@ -3226,8 +3251,8 @@
   {
    "weeks": 4,
    "label": "최근 4주",
-   "videos": 484,
-   "channels": 288,
+   "videos": 490,
+   "channels": 289,
    "new_this_week": [
     {
      "id": "1_8Z4disq9M",
@@ -3283,6 +3308,11 @@
      "id": "IzKQa_jMpOY",
      "title": "찬 바람 불면 배당주",
      "published": "2026-09-25"
+    },
+    {
+     "id": "JFTeh7lZ9Cw",
+     "title": "Why 5.25% is the Bond Market’s Tipping Point",
+     "published": "2026-09-30"
     },
     {
      "id": "LXTONskO4os",
@@ -3375,47 +3405,47 @@
      "published": "2026-09-23"
     }
    ],
-   "views_median": 210781.5,
-   "views_per_day_median": 30970.3,
-   "ratio_median": 0.47,
+   "views_median": 206536.5,
+   "views_per_day_median": 30630.95,
+   "ratio_median": 0.46,
    "success": 75,
-   "minutes_median": 18.7,
+   "minutes_median": 18.8,
    "title_len_avg": 55.2,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 143,
-     "share": 0.295
+     "count": 144,
+     "share": 0.294
     },
     {
      "name": "코스피·폭락·급락·하락장",
-     "count": 94,
+     "count": 95,
      "share": 0.194
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
-     "count": 76,
+     "count": 77,
      "share": 0.157
     },
     {
      "name": "느낌표 !",
      "count": 55,
-     "share": 0.114
+     "share": 0.112
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 46,
-     "share": 0.095
+     "share": 0.094
     },
     {
      "name": "AI",
-     "count": 45,
-     "share": 0.093
+     "count": 46,
+     "share": 0.094
     },
     {
      "name": "이유",
      "count": 38,
-     "share": 0.079
+     "share": 0.078
     },
     {
      "name": "금액(억·만원)",
@@ -3430,17 +3460,17 @@
     {
      "name": "vs 비교",
      "count": 10,
-     "share": 0.021
+     "share": 0.02
     },
     {
      "name": "N가지",
      "count": 9,
-     "share": 0.019
+     "share": 0.018
     },
     {
      "name": "손실 낱말(망하·날린·잃은·반토막)",
      "count": 8,
-     "share": 0.017
+     "share": 0.016
     },
     {
      "name": "빚투·신용·미수·레버리지·대출",
@@ -3466,7 +3496,7 @@
    "title_words": [
     {
      "word": "코스피",
-     "count": 47
+     "count": 48
     },
     {
      "word": "Market",
@@ -3498,24 +3528,24 @@
     },
     {
      "word": "대표",
-     "count": 27
+     "count": 28
     },
     {
      "word": "AI",
-     "count": 23
+     "count": 24
     }
    ],
    "transcripts": 4,
    "text_sources": {
     "자막": 1,
     "음성인식": 3,
-    "설명": 450,
+    "설명": 456,
     "없음": 30
    },
    "content_words": [
     {
      "word": "to",
-     "count": 154
+     "count": 155
     },
     {
      "word": "in",
@@ -3562,7 +3592,7 @@
      "count": 98
     }
    ],
-   "chapters_share": 0.362,
+   "chapters_share": 0.359,
    "syl_per_sec_median": 5.86,
    "hooks": [
     {
@@ -3584,37 +3614,37 @@
      "hook": "18일 에프앤가이드에 따르면, 지난 15일 기준 국민연금이 기분 5% 이상을 보유했다고 공시한 상장사 287곳의 주식 평가액이 333조 5330억 원으로 나타났습니다. 이는 지난 6월 말 기준 515조 9293억 원) 대비 182조 3963억 원(35.3%) 감소한 수치입니다. 사상 최"
     }
    ],
-   "comments": 158598,
+   "comments": 159568,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 23218,
-     "share": 0.146
+     "count": 23383,
+     "share": 0.147
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 17356,
+     "count": 17402,
      "share": 0.109
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 10056,
-     "share": 0.063
+     "count": 10142,
+     "share": 0.064
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 9388,
-     "share": 0.059
+     "count": 9542,
+     "share": 0.06
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 6360,
+     "count": 6414,
      "share": 0.04
     },
     {
      "name": "칭찬·감사",
-     "count": 6255,
-     "share": 0.039
+     "count": 6320,
+     "share": 0.04
     }
    ],
    "top_comments": [
@@ -3637,7 +3667,7 @@
      "title": "개인 투자자도 투자하기 좋은 시대⁉️ AI를 활용한 초특급 투자 전략 공개✨ #유퀴즈",
      "channel": "디글 클래식 :Diggle Classic",
      "views": 2433812,
-     "views_per_day": 390754.8,
+     "views_per_day": 389144.1,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=jk61l5VCSGM"
     },
@@ -3646,7 +3676,7 @@
      "title": "Stocks Have Done THIS After Every Midterm Election Since 1950",
      "channel": "ClearValue Tax",
      "views": 528835,
-     "views_per_day": 313576.4,
+     "views_per_day": 308854.9,
      "published": "2026-10-19",
      "url": "https://www.youtube.com/watch?v=LaBiYw1ZKF4"
     },
@@ -3655,7 +3685,7 @@
      "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
      "channel": "채널A News",
      "views": 891652,
-     "views_per_day": 277778.8,
+     "views_per_day": 275565.5,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
     },
@@ -3664,7 +3694,7 @@
      "title": "AI bubble fears: Could a crash trigger a global financial crisis? | DW News",
      "channel": "DW News",
      "views": 1262899,
-     "views_per_day": 234093.8,
+     "views_per_day": 232980.4,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=tGRB8ECyEJ0"
     },
@@ -3673,7 +3703,7 @@
      "title": "[한눈에 경제] 빚내서 주식 샀는데 '강제 처분'…비명도 안 나오는 개미들 / KBS 2026.10.19.",
      "channel": "KBS News",
      "views": 523827,
-     "views_per_day": 229381.4,
+     "views_per_day": 226820.7,
      "published": "2026-10-19",
      "url": "https://www.youtube.com/watch?v=mC4ic5oiHRE"
     }
@@ -3682,8 +3712,8 @@
   {
    "weeks": 5,
    "label": "최근 5주",
-   "videos": 509,
-   "channels": 297,
+   "videos": 515,
+   "channels": 298,
    "new_this_week": [
     {
      "id": "3K6DVydKmAM",
@@ -3811,47 +3841,47 @@
      "published": "2026-09-22"
     }
    ],
-   "views_median": 216340,
-   "views_per_day_median": 29938.9,
-   "ratio_median": 0.49,
+   "views_median": 213881,
+   "views_per_day_median": 29509.5,
+   "ratio_median": 0.48,
    "success": 80,
-   "minutes_median": 18.8,
+   "minutes_median": 18.9,
    "title_len_avg": 55.1,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 146,
-     "share": 0.287
+     "count": 147,
+     "share": 0.285
     },
     {
      "name": "코스피·폭락·급락·하락장",
-     "count": 94,
-     "share": 0.185
+     "count": 95,
+     "share": 0.184
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
-     "count": 82,
+     "count": 83,
      "share": 0.161
     },
     {
      "name": "느낌표 !",
      "count": 57,
-     "share": 0.112
+     "share": 0.111
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 50,
-     "share": 0.098
+     "share": 0.097
     },
     {
      "name": "AI",
-     "count": 49,
-     "share": 0.096
+     "count": 50,
+     "share": 0.097
     },
     {
      "name": "이유",
      "count": 42,
-     "share": 0.083
+     "share": 0.082
     },
     {
      "name": "금액(억·만원)",
@@ -3861,22 +3891,22 @@
     {
      "name": "노후·퇴직금·은퇴·50~70대",
      "count": 13,
-     "share": 0.026
+     "share": 0.025
     },
     {
      "name": "vs 비교",
      "count": 10,
-     "share": 0.02
+     "share": 0.019
     },
     {
      "name": "N가지",
      "count": 9,
-     "share": 0.018
+     "share": 0.017
     },
     {
      "name": "손실 낱말(망하·날린·잃은·반토막)",
      "count": 9,
-     "share": 0.018
+     "share": 0.017
     },
     {
      "name": "빚투·신용·미수·레버리지·대출",
@@ -3902,7 +3932,7 @@
    "title_words": [
     {
      "word": "코스피",
-     "count": 47
+     "count": 48
     },
     {
      "word": "Market",
@@ -3934,24 +3964,24 @@
     },
     {
      "word": "대표",
-     "count": 30
+     "count": 31
     },
     {
      "word": "AI",
-     "count": 24
+     "count": 25
     }
    ],
    "transcripts": 6,
    "text_sources": {
     "자막": 2,
     "음성인식": 4,
-    "설명": 473,
+    "설명": 479,
     "없음": 30
    },
    "content_words": [
     {
      "word": "to",
-     "count": 161
+     "count": 162
     },
     {
      "word": "in",
@@ -3998,7 +4028,7 @@
      "count": 102
     }
    ],
-   "chapters_share": 0.367,
+   "chapters_share": 0.365,
    "syl_per_sec_median": 2.93,
    "hooks": [
     {
@@ -4020,36 +4050,36 @@
      "hook": "18일 에프앤가이드에 따르면, 지난 15일 기준 국민연금이 기분 5% 이상을 보유했다고 공시한 상장사 287곳의 주식 평가액이 333조 5330억 원으로 나타났습니다. 이는 지난 6월 말 기준 515조 9293억 원) 대비 182조 3963억 원(35.3%) 감소한 수치입니다. 사상 최"
     }
    ],
-   "comments": 172132,
+   "comments": 173102,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 25824,
+     "count": 25989,
      "share": 0.15
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 19383,
-     "share": 0.113
+     "count": 19429,
+     "share": 0.112
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 10993,
+     "count": 11079,
      "share": 0.064
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 9727,
+     "count": 9881,
      "share": 0.057
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 6962,
-     "share": 0.04
+     "count": 7016,
+     "share": 0.041
     },
     {
      "name": "칭찬·감사",
-     "count": 6538,
+     "count": 6603,
      "share": 0.038
     }
    ],
@@ -4073,7 +4103,7 @@
      "title": "개인 투자자도 투자하기 좋은 시대⁉️ AI를 활용한 초특급 투자 전략 공개✨ #유퀴즈",
      "channel": "디글 클래식 :Diggle Classic",
      "views": 2433812,
-     "views_per_day": 390754.8,
+     "views_per_day": 389144.1,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=jk61l5VCSGM"
     },
@@ -4082,7 +4112,7 @@
      "title": "Stocks Have Done THIS After Every Midterm Election Since 1950",
      "channel": "ClearValue Tax",
      "views": 528835,
-     "views_per_day": 313576.4,
+     "views_per_day": 308854.9,
      "published": "2026-10-19",
      "url": "https://www.youtube.com/watch?v=LaBiYw1ZKF4"
     },
@@ -4091,7 +4121,7 @@
      "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
      "channel": "채널A News",
      "views": 891652,
-     "views_per_day": 277778.8,
+     "views_per_day": 275565.5,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
     },
@@ -4100,7 +4130,7 @@
      "title": "AI bubble fears: Could a crash trigger a global financial crisis? | DW News",
      "channel": "DW News",
      "views": 1262899,
-     "views_per_day": 234093.8,
+     "views_per_day": 232980.4,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=tGRB8ECyEJ0"
     },
@@ -4109,7 +4139,7 @@
      "title": "[한눈에 경제] 빚내서 주식 샀는데 '강제 처분'…비명도 안 나오는 개미들 / KBS 2026.10.19.",
      "channel": "KBS News",
      "views": 523827,
-     "views_per_day": 229381.4,
+     "views_per_day": 226820.7,
      "published": "2026-10-19",
      "url": "https://www.youtube.com/watch?v=mC4ic5oiHRE"
     }
@@ -4118,8 +4148,8 @@
   {
    "weeks": 6,
    "label": "최근 6주",
-   "videos": 531,
-   "channels": 305,
+   "videos": 537,
+   "channels": 306,
    "new_this_week": [
     {
      "id": "-5NhPWk2zF0",
@@ -4232,52 +4262,52 @@
      "published": "2026-09-13"
     }
    ],
-   "views_median": 224810,
-   "views_per_day_median": 29322.9,
-   "ratio_median": 0.51,
+   "views_median": 221842,
+   "views_per_day_median": 28759.7,
+   "ratio_median": 0.5,
    "success": 87,
-   "minutes_median": 18.9,
+   "minutes_median": 19.0,
    "title_len_avg": 54.9,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 150,
-     "share": 0.282
+     "count": 151,
+     "share": 0.281
     },
     {
      "name": "코스피·폭락·급락·하락장",
-     "count": 94,
+     "count": 95,
      "share": 0.177
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
-     "count": 88,
+     "count": 89,
      "share": 0.166
     },
     {
      "name": "느낌표 !",
      "count": 59,
-     "share": 0.111
+     "share": 0.11
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 56,
-     "share": 0.105
+     "share": 0.104
     },
     {
      "name": "AI",
-     "count": 51,
-     "share": 0.096
+     "count": 52,
+     "share": 0.097
     },
     {
      "name": "이유",
      "count": 45,
-     "share": 0.085
+     "share": 0.084
     },
     {
      "name": "금액(억·만원)",
      "count": 26,
-     "share": 0.049
+     "share": 0.048
     },
     {
      "name": "노후·퇴직금·은퇴·50~70대",
@@ -4287,7 +4317,7 @@
     {
      "name": "N가지",
      "count": 11,
-     "share": 0.021
+     "share": 0.02
     },
     {
      "name": "vs 비교",
@@ -4312,7 +4342,7 @@
     {
      "name": "두 금액(반전)",
      "count": 4,
-     "share": 0.008
+     "share": 0.007
     },
     {
      "name": "직접·해보니·N년 기록",
@@ -4327,7 +4357,7 @@
     },
     {
      "word": "코스피",
-     "count": 47
+     "count": 48
     },
     {
      "word": "Stocks",
@@ -4355,24 +4385,24 @@
     },
     {
      "word": "대표",
-     "count": 32
+     "count": 33
     },
     {
-     "word": "S&P500",
-     "count": 24
+     "word": "AI",
+     "count": 25
     }
    ],
    "transcripts": 7,
    "text_sources": {
     "자막": 2,
     "음성인식": 5,
-    "설명": 493,
+    "설명": 499,
     "없음": 31
    },
    "content_words": [
     {
      "word": "to",
-     "count": 168
+     "count": 169
     },
     {
      "word": "in",
@@ -4419,7 +4449,7 @@
      "count": 106
     }
    ],
-   "chapters_share": 0.363,
+   "chapters_share": 0.361,
    "syl_per_sec_median": 2.93,
    "hooks": [
     {
@@ -4441,36 +4471,36 @@
      "hook": "18일 에프앤가이드에 따르면, 지난 15일 기준 국민연금이 기분 5% 이상을 보유했다고 공시한 상장사 287곳의 주식 평가액이 333조 5330억 원으로 나타났습니다. 이는 지난 6월 말 기준 515조 9293억 원) 대비 182조 3963억 원(35.3%) 감소한 수치입니다. 사상 최"
     }
    ],
-   "comments": 181982,
+   "comments": 182952,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 27079,
+     "count": 27244,
      "share": 0.149
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 20464,
+     "count": 20510,
      "share": 0.112
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 11474,
+     "count": 11560,
      "share": 0.063
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 9981,
+     "count": 10135,
      "share": 0.055
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 7308,
+     "count": 7362,
      "share": 0.04
     },
     {
      "name": "칭찬·감사",
-     "count": 6862,
+     "count": 6927,
      "share": 0.038
     }
    ],
@@ -4494,7 +4524,7 @@
      "title": "개인 투자자도 투자하기 좋은 시대⁉️ AI를 활용한 초특급 투자 전략 공개✨ #유퀴즈",
      "channel": "디글 클래식 :Diggle Classic",
      "views": 2433812,
-     "views_per_day": 390754.8,
+     "views_per_day": 389144.1,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=jk61l5VCSGM"
     },
@@ -4503,7 +4533,7 @@
      "title": "Stocks Have Done THIS After Every Midterm Election Since 1950",
      "channel": "ClearValue Tax",
      "views": 528835,
-     "views_per_day": 313576.4,
+     "views_per_day": 308854.9,
      "published": "2026-10-19",
      "url": "https://www.youtube.com/watch?v=LaBiYw1ZKF4"
     },
@@ -4512,7 +4542,7 @@
      "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
      "channel": "채널A News",
      "views": 891652,
-     "views_per_day": 277778.8,
+     "views_per_day": 275565.5,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
     },
@@ -4521,7 +4551,7 @@
      "title": "AI bubble fears: Could a crash trigger a global financial crisis? | DW News",
      "channel": "DW News",
      "views": 1262899,
-     "views_per_day": 234093.8,
+     "views_per_day": 232980.4,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=tGRB8ECyEJ0"
     },
@@ -4530,7 +4560,7 @@
      "title": "[한눈에 경제] 빚내서 주식 샀는데 '강제 처분'…비명도 안 나오는 개미들 / KBS 2026.10.19.",
      "channel": "KBS News",
      "views": 523827,
-     "views_per_day": 229381.4,
+     "views_per_day": 226820.7,
      "published": "2026-10-19",
      "url": "https://www.youtube.com/watch?v=mC4ic5oiHRE"
     }
@@ -4539,7 +4569,7 @@
   {
    "weeks": 7,
    "label": "최근 7주",
-   "videos": 552,
+   "videos": 557,
    "channels": 315,
    "new_this_week": [
     {
@@ -4586,11 +4616,6 @@
      "id": "NW_PJ7iDbQI",
      "title": "208. 국내 커버드콜 액티브 ETF, 최고는 이겁니다",
      "published": "2026-09-04"
-    },
-    {
-     "id": "TAUKmJI5lwE",
-     "title": "【S&P500トップ10企業を追い続ける投資】上位10社に集中投資するとより高いリターンは狙えるのか？｜積立投資/米国株式",
-     "published": "2026-09-02"
     },
     {
      "id": "TU6md1rvon4",
@@ -4648,52 +4673,52 @@
      "published": "2026-09-05"
     }
    ],
-   "views_median": 228646.0,
-   "views_per_day_median": 28186.4,
-   "ratio_median": 0.54,
-   "success": 95,
-   "minutes_median": 18.95,
+   "views_median": 225687,
+   "views_per_day_median": 27734.5,
+   "ratio_median": 0.53,
+   "success": 94,
+   "minutes_median": 19.1,
    "title_len_avg": 55.1,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 155,
-     "share": 0.281
+     "count": 156,
+     "share": 0.28
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
      "count": 96,
-     "share": 0.174
+     "share": 0.172
     },
     {
      "name": "코스피·폭락·급락·하락장",
-     "count": 95,
+     "count": 96,
      "share": 0.172
     },
     {
      "name": "느낌표 !",
      "count": 60,
-     "share": 0.109
+     "share": 0.108
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 60,
-     "share": 0.109
+     "share": 0.108
     },
     {
      "name": "AI",
-     "count": 53,
-     "share": 0.096
+     "count": 54,
+     "share": 0.097
     },
     {
      "name": "이유",
      "count": 48,
-     "share": 0.087
+     "share": 0.086
     },
     {
      "name": "금액(억·만원)",
      "count": 29,
-     "share": 0.053
+     "share": 0.052
     },
     {
      "name": "노후·퇴직금·은퇴·50~70대",
@@ -4743,7 +4768,7 @@
     },
     {
      "word": "코스피",
-     "count": 48
+     "count": 49
     },
     {
      "word": "이유",
@@ -4771,24 +4796,24 @@
     },
     {
      "word": "대표",
-     "count": 33
+     "count": 34
     },
     {
      "word": "S&P500",
-     "count": 26
+     "count": 25
     }
    ],
    "transcripts": 8,
    "text_sources": {
     "자막": 2,
     "음성인식": 6,
-    "설명": 513,
+    "설명": 518,
     "없음": 31
    },
    "content_words": [
     {
      "word": "to",
-     "count": 174
+     "count": 175
     },
     {
      "word": "in",
@@ -4835,7 +4860,7 @@
      "count": 110
     }
    ],
-   "chapters_share": 0.364,
+   "chapters_share": 0.361,
    "syl_per_sec_median": 2.93,
    "hooks": [
     {
@@ -4857,36 +4882,36 @@
      "hook": "18일 에프앤가이드에 따르면, 지난 15일 기준 국민연금이 기분 5% 이상을 보유했다고 공시한 상장사 287곳의 주식 평가액이 333조 5330억 원으로 나타났습니다. 이는 지난 6월 말 기준 515조 9293억 원) 대비 182조 3963억 원(35.3%) 감소한 수치입니다. 사상 최"
     }
    ],
-   "comments": 188246,
+   "comments": 189216,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 28040,
+     "count": 28205,
      "share": 0.149
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 21193,
-     "share": 0.113
+     "count": 21239,
+     "share": 0.112
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 11934,
-     "share": 0.063
+     "count": 12020,
+     "share": 0.064
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 10190,
-     "share": 0.054
+     "count": 10344,
+     "share": 0.055
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 7607,
+     "count": 7661,
      "share": 0.04
     },
     {
      "name": "칭찬·감사",
-     "count": 7060,
+     "count": 7125,
      "share": 0.038
     }
    ],
@@ -4910,7 +4935,7 @@
      "title": "개인 투자자도 투자하기 좋은 시대⁉️ AI를 활용한 초특급 투자 전략 공개✨ #유퀴즈",
      "channel": "디글 클래식 :Diggle Classic",
      "views": 2433812,
-     "views_per_day": 390754.8,
+     "views_per_day": 389144.1,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=jk61l5VCSGM"
     },
@@ -4919,7 +4944,7 @@
      "title": "Stocks Have Done THIS After Every Midterm Election Since 1950",
      "channel": "ClearValue Tax",
      "views": 528835,
-     "views_per_day": 313576.4,
+     "views_per_day": 308854.9,
      "published": "2026-10-19",
      "url": "https://www.youtube.com/watch?v=LaBiYw1ZKF4"
     },
@@ -4928,7 +4953,7 @@
      "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
      "channel": "채널A News",
      "views": 891652,
-     "views_per_day": 277778.8,
+     "views_per_day": 275565.5,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
     },
@@ -4937,7 +4962,7 @@
      "title": "AI bubble fears: Could a crash trigger a global financial crisis? | DW News",
      "channel": "DW News",
      "views": 1262899,
-     "views_per_day": 234093.8,
+     "views_per_day": 232980.4,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=tGRB8ECyEJ0"
     },
@@ -4946,7 +4971,7 @@
      "title": "[한눈에 경제] 빚내서 주식 샀는데 '강제 처분'…비명도 안 나오는 개미들 / KBS 2026.10.19.",
      "channel": "KBS News",
      "views": 523827,
-     "views_per_day": 229381.4,
+     "views_per_day": 226820.7,
      "published": "2026-10-19",
      "url": "https://www.youtube.com/watch?v=mC4ic5oiHRE"
     }
@@ -4955,8 +4980,8 @@
   {
    "weeks": 8,
    "label": "최근 8주",
-   "videos": 573,
-   "channels": 323,
+   "videos": 579,
+   "channels": 324,
    "new_this_week": [
     {
      "id": "35-9KG8v1M8",
@@ -5014,6 +5039,11 @@
      "published": "2026-09-01"
     },
     {
+     "id": "TAUKmJI5lwE",
+     "title": "【S&P500トップ10企業を追い続ける投資】上位10社に集中投資するとより高いリターンは狙えるのか？｜積立投資/米国株式",
+     "published": "2026-09-02"
+    },
+    {
      "id": "Up8IkvTy9GM",
      "title": "『텍사스 촬영』버핏에게 직접 배운 투자 원칙 3가지 | 글로벌초대석 EP.8",
      "published": "2026-09-01"
@@ -5064,67 +5094,67 @@
      "published": "2026-08-31"
     }
    ],
-   "views_median": 229056,
-   "views_per_day_median": 27522.4,
+   "views_median": 227521,
+   "views_per_day_median": 27345.6,
    "ratio_median": 0.55,
    "success": 104,
-   "minutes_median": 19.1,
+   "minutes_median": 19.2,
    "title_len_avg": 55.1,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 158,
-     "share": 0.276
+     "count": 159,
+     "share": 0.275
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
-     "count": 100,
-     "share": 0.175
+     "count": 101,
+     "share": 0.174
     },
     {
      "name": "코스피·폭락·급락·하락장",
-     "count": 96,
+     "count": 97,
      "share": 0.168
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 64,
-     "share": 0.112
+     "share": 0.111
     },
     {
      "name": "느낌표 !",
      "count": 61,
-     "share": 0.106
+     "share": 0.105
     },
     {
      "name": "AI",
-     "count": 54,
-     "share": 0.094
+     "count": 55,
+     "share": 0.095
     },
     {
      "name": "이유",
      "count": 49,
-     "share": 0.086
+     "share": 0.085
     },
     {
      "name": "금액(억·만원)",
      "count": 29,
-     "share": 0.051
+     "share": 0.05
     },
     {
      "name": "노후·퇴직금·은퇴·50~70대",
      "count": 17,
-     "share": 0.03
+     "share": 0.029
     },
     {
      "name": "N가지",
      "count": 13,
-     "share": 0.023
+     "share": 0.022
     },
     {
      "name": "vs 비교",
      "count": 13,
-     "share": 0.023
+     "share": 0.022
     },
     {
      "name": "손실 낱말(망하·날린·잃은·반토막)",
@@ -5159,7 +5189,7 @@
     },
     {
      "word": "코스피",
-     "count": 48
+     "count": 49
     },
     {
      "word": "이유",
@@ -5187,7 +5217,7 @@
     },
     {
      "word": "대표",
-     "count": 34
+     "count": 35
     },
     {
      "word": "S&P500",
@@ -5198,13 +5228,13 @@
    "text_sources": {
     "자막": 2,
     "음성인식": 7,
-    "설명": 531,
+    "설명": 537,
     "없음": 33
    },
    "content_words": [
     {
      "word": "to",
-     "count": 178
+     "count": 179
     },
     {
      "word": "in",
@@ -5251,7 +5281,7 @@
      "count": 112
     }
    ],
-   "chapters_share": 0.373,
+   "chapters_share": 0.371,
    "syl_per_sec_median": 2.93,
    "hooks": [
     {
@@ -5273,36 +5303,36 @@
      "hook": "18일 에프앤가이드에 따르면, 지난 15일 기준 국민연금이 기분 5% 이상을 보유했다고 공시한 상장사 287곳의 주식 평가액이 333조 5330억 원으로 나타났습니다. 이는 지난 6월 말 기준 515조 9293억 원) 대비 182조 3963억 원(35.3%) 감소한 수치입니다. 사상 최"
     }
    ],
-   "comments": 196561,
+   "comments": 197531,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 28982,
-     "share": 0.147
+     "count": 29147,
+     "share": 0.148
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 21697,
+     "count": 21743,
      "share": 0.11
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 12511,
+     "count": 12597,
      "share": 0.064
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 10496,
-     "share": 0.053
+     "count": 10650,
+     "share": 0.054
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 8025,
+     "count": 8079,
      "share": 0.041
     },
     {
      "name": "칭찬·감사",
-     "count": 7930,
+     "count": 7995,
      "share": 0.04
     }
    ],
@@ -5326,7 +5356,7 @@
      "title": "개인 투자자도 투자하기 좋은 시대⁉️ AI를 활용한 초특급 투자 전략 공개✨ #유퀴즈",
      "channel": "디글 클래식 :Diggle Classic",
      "views": 2433812,
-     "views_per_day": 390754.8,
+     "views_per_day": 389144.1,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=jk61l5VCSGM"
     },
@@ -5335,7 +5365,7 @@
      "title": "Stocks Have Done THIS After Every Midterm Election Since 1950",
      "channel": "ClearValue Tax",
      "views": 528835,
-     "views_per_day": 313576.4,
+     "views_per_day": 308854.9,
      "published": "2026-10-19",
      "url": "https://www.youtube.com/watch?v=LaBiYw1ZKF4"
     },
@@ -5344,7 +5374,7 @@
      "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
      "channel": "채널A News",
      "views": 891652,
-     "views_per_day": 277778.8,
+     "views_per_day": 275565.5,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
     },
@@ -5353,7 +5383,7 @@
      "title": "AI bubble fears: Could a crash trigger a global financial crisis? | DW News",
      "channel": "DW News",
      "views": 1262899,
-     "views_per_day": 234093.8,
+     "views_per_day": 232980.4,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=tGRB8ECyEJ0"
     },
@@ -5362,7 +5392,7 @@
      "title": "[한눈에 경제] 빚내서 주식 샀는데 '강제 처분'…비명도 안 나오는 개미들 / KBS 2026.10.19.",
      "channel": "KBS News",
      "views": 523827,
-     "views_per_day": 229381.4,
+     "views_per_day": 226820.7,
      "published": "2026-10-19",
      "url": "https://www.youtube.com/watch?v=mC4ic5oiHRE"
     }
@@ -5371,8 +5401,8 @@
   {
    "weeks": 9,
    "label": "최근 9주",
-   "videos": 587,
-   "channels": 329,
+   "videos": 593,
+   "channels": 330,
    "new_this_week": [
     {
      "id": "2hEQ_7smoy8",
@@ -5445,57 +5475,57 @@
      "published": "2026-08-20"
     }
    ],
-   "views_median": 228283,
-   "views_per_day_median": 26862.6,
+   "views_median": 225687,
+   "views_per_day_median": 26477.3,
    "ratio_median": 0.56,
    "success": 114,
-   "minutes_median": 18.9,
+   "minutes_median": 19.0,
    "title_len_avg": 54.9,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 162,
-     "share": 0.276
+     "count": 163,
+     "share": 0.275
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
-     "count": 103,
+     "count": 104,
      "share": 0.175
     },
     {
      "name": "코스피·폭락·급락·하락장",
-     "count": 96,
+     "count": 97,
      "share": 0.164
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 67,
-     "share": 0.114
+     "share": 0.113
     },
     {
      "name": "느낌표 !",
      "count": 62,
-     "share": 0.106
+     "share": 0.105
     },
     {
      "name": "AI",
-     "count": 56,
-     "share": 0.095
+     "count": 57,
+     "share": 0.096
     },
     {
      "name": "이유",
      "count": 52,
-     "share": 0.089
+     "share": 0.088
     },
     {
      "name": "금액(억·만원)",
      "count": 32,
-     "share": 0.055
+     "share": 0.054
     },
     {
      "name": "노후·퇴직금·은퇴·50~70대",
      "count": 18,
-     "share": 0.031
+     "share": 0.03
     },
     {
      "name": "vs 비교",
@@ -5515,7 +5545,7 @@
     {
      "name": "빚투·신용·미수·레버리지·대출",
      "count": 8,
-     "share": 0.014
+     "share": 0.013
     },
     {
      "name": "직접·해보니·N년 기록",
@@ -5525,7 +5555,7 @@
     {
      "name": "과정·벌어진 일·결말·결국",
      "count": 5,
-     "share": 0.009
+     "share": 0.008
     },
     {
      "name": "두 금액(반전)",
@@ -5544,7 +5574,7 @@
     },
     {
      "word": "코스피",
-     "count": 48
+     "count": 49
     },
     {
      "word": "Stocks",
@@ -5568,7 +5598,7 @@
     },
     {
      "word": "대표",
-     "count": 34
+     "count": 35
     },
     {
      "word": "S&P500",
@@ -5579,13 +5609,13 @@
    "text_sources": {
     "자막": 4,
     "음성인식": 8,
-    "설명": 542,
+    "설명": 548,
     "없음": 33
    },
    "content_words": [
     {
      "word": "to",
-     "count": 182
+     "count": 183
     },
     {
      "word": "in",
@@ -5632,7 +5662,7 @@
      "count": 115
     }
    ],
-   "chapters_share": 0.38,
+   "chapters_share": 0.378,
    "syl_per_sec_median": 2.62,
    "hooks": [
     {
@@ -5654,37 +5684,37 @@
      "hook": "18일 에프앤가이드에 따르면, 지난 15일 기준 국민연금이 기분 5% 이상을 보유했다고 공시한 상장사 287곳의 주식 평가액이 333조 5330억 원으로 나타났습니다. 이는 지난 6월 말 기준 515조 9293억 원) 대비 182조 3963억 원(35.3%) 감소한 수치입니다. 사상 최"
     }
    ],
-   "comments": 202162,
+   "comments": 203132,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 29935,
+     "count": 30100,
      "share": 0.148
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 22538,
+     "count": 22584,
      "share": 0.111
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 12904,
+     "count": 12990,
      "share": 0.064
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 10584,
-     "share": 0.052
+     "count": 10738,
+     "share": 0.053
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 8335,
+     "count": 8389,
      "share": 0.041
     },
     {
      "name": "칭찬·감사",
-     "count": 8173,
-     "share": 0.04
+     "count": 8238,
+     "share": 0.041
     }
    ],
    "top_comments": [
@@ -5707,7 +5737,7 @@
      "title": "개인 투자자도 투자하기 좋은 시대⁉️ AI를 활용한 초특급 투자 전략 공개✨ #유퀴즈",
      "channel": "디글 클래식 :Diggle Classic",
      "views": 2433812,
-     "views_per_day": 390754.8,
+     "views_per_day": 389144.1,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=jk61l5VCSGM"
     },
@@ -5716,7 +5746,7 @@
      "title": "Stocks Have Done THIS After Every Midterm Election Since 1950",
      "channel": "ClearValue Tax",
      "views": 528835,
-     "views_per_day": 313576.4,
+     "views_per_day": 308854.9,
      "published": "2026-10-19",
      "url": "https://www.youtube.com/watch?v=LaBiYw1ZKF4"
     },
@@ -5725,7 +5755,7 @@
      "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
      "channel": "채널A News",
      "views": 891652,
-     "views_per_day": 277778.8,
+     "views_per_day": 275565.5,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
     },
@@ -5734,7 +5764,7 @@
      "title": "AI bubble fears: Could a crash trigger a global financial crisis? | DW News",
      "channel": "DW News",
      "views": 1262899,
-     "views_per_day": 234093.8,
+     "views_per_day": 232980.4,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=tGRB8ECyEJ0"
     },
@@ -5743,7 +5773,7 @@
      "title": "[한눈에 경제] 빚내서 주식 샀는데 '강제 처분'…비명도 안 나오는 개미들 / KBS 2026.10.19.",
      "channel": "KBS News",
      "views": 523827,
-     "views_per_day": 229381.4,
+     "views_per_day": 226820.7,
      "published": "2026-10-19",
      "url": "https://www.youtube.com/watch?v=mC4ic5oiHRE"
     }
@@ -5752,8 +5782,8 @@
   {
    "weeks": 10,
    "label": "최근 10주",
-   "videos": 594,
-   "channels": 331,
+   "videos": 600,
+   "channels": 332,
    "new_this_week": [
     {
      "id": "5HkW_43tZPs",
@@ -5791,52 +5821,52 @@
      "published": "2026-08-16"
     }
    ],
-   "views_median": 228646.0,
-   "views_per_day_median": 26640.0,
-   "ratio_median": 0.57,
+   "views_median": 225809.5,
+   "views_per_day_median": 26403.8,
+   "ratio_median": 0.56,
    "success": 118,
-   "minutes_median": 19.05,
+   "minutes_median": 19.1,
    "title_len_avg": 54.9,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 164,
-     "share": 0.276
+     "count": 165,
+     "share": 0.275
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
-     "count": 103,
+     "count": 104,
      "share": 0.173
     },
     {
      "name": "코스피·폭락·급락·하락장",
-     "count": 96,
+     "count": 97,
      "share": 0.162
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 69,
-     "share": 0.116
+     "share": 0.115
     },
     {
      "name": "느낌표 !",
      "count": 63,
-     "share": 0.106
+     "share": 0.105
     },
     {
      "name": "AI",
-     "count": 57,
-     "share": 0.096
+     "count": 58,
+     "share": 0.097
     },
     {
      "name": "이유",
      "count": 54,
-     "share": 0.091
+     "share": 0.09
     },
     {
      "name": "금액(억·만원)",
      "count": 33,
-     "share": 0.056
+     "share": 0.055
     },
     {
      "name": "노후·퇴직금·은퇴·50~70대",
@@ -5856,7 +5886,7 @@
     {
      "name": "손실 낱말(망하·날린·잃은·반토막)",
      "count": 11,
-     "share": 0.019
+     "share": 0.018
     },
     {
      "name": "직접·해보니·N년 기록",
@@ -5890,7 +5920,7 @@
     },
     {
      "word": "코스피",
-     "count": 48
+     "count": 49
     },
     {
      "word": "Stocks",
@@ -5914,7 +5944,7 @@
     },
     {
      "word": "대표",
-     "count": 34
+     "count": 35
     },
     {
      "word": "S&P500",
@@ -5925,13 +5955,13 @@
    "text_sources": {
     "자막": 5,
     "음성인식": 8,
-    "설명": 548,
+    "설명": 554,
     "없음": 33
    },
    "content_words": [
     {
      "word": "to",
-     "count": 184
+     "count": 185
     },
     {
      "word": "in",
@@ -5978,7 +6008,7 @@
      "count": 116
     }
    ],
-   "chapters_share": 0.382,
+   "chapters_share": 0.38,
    "syl_per_sec_median": 0.0,
    "hooks": [
     {
@@ -6000,36 +6030,36 @@
      "hook": "18일 에프앤가이드에 따르면, 지난 15일 기준 국민연금이 기분 5% 이상을 보유했다고 공시한 상장사 287곳의 주식 평가액이 333조 5330억 원으로 나타났습니다. 이는 지난 6월 말 기준 515조 9293억 원) 대비 182조 3963억 원(35.3%) 감소한 수치입니다. 사상 최"
     }
    ],
-   "comments": 208599,
+   "comments": 209569,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 30562,
+     "count": 30727,
      "share": 0.147
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 22990,
+     "count": 23036,
      "share": 0.11
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 13626,
+     "count": 13712,
      "share": 0.065
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 10840,
+     "count": 10994,
      "share": 0.052
     },
     {
      "name": "칭찬·감사",
-     "count": 9168,
+     "count": 9233,
      "share": 0.044
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 8787,
+     "count": 8841,
      "share": 0.042
     }
    ],
@@ -6053,7 +6083,7 @@
      "title": "개인 투자자도 투자하기 좋은 시대⁉️ AI를 활용한 초특급 투자 전략 공개✨ #유퀴즈",
      "channel": "디글 클래식 :Diggle Classic",
      "views": 2433812,
-     "views_per_day": 390754.8,
+     "views_per_day": 389144.1,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=jk61l5VCSGM"
     },
@@ -6062,7 +6092,7 @@
      "title": "Stocks Have Done THIS After Every Midterm Election Since 1950",
      "channel": "ClearValue Tax",
      "views": 528835,
-     "views_per_day": 313576.4,
+     "views_per_day": 308854.9,
      "published": "2026-10-19",
      "url": "https://www.youtube.com/watch?v=LaBiYw1ZKF4"
     },
@@ -6071,7 +6101,7 @@
      "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
      "channel": "채널A News",
      "views": 891652,
-     "views_per_day": 277778.8,
+     "views_per_day": 275565.5,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
     },
@@ -6080,7 +6110,7 @@
      "title": "AI bubble fears: Could a crash trigger a global financial crisis? | DW News",
      "channel": "DW News",
      "views": 1262899,
-     "views_per_day": 234093.8,
+     "views_per_day": 232980.4,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=tGRB8ECyEJ0"
     },
@@ -6089,7 +6119,7 @@
      "title": "[한눈에 경제] 빚내서 주식 샀는데 '강제 처분'…비명도 안 나오는 개미들 / KBS 2026.10.19.",
      "channel": "KBS News",
      "views": 523827,
-     "views_per_day": 229381.4,
+     "views_per_day": 226820.7,
      "published": "2026-10-19",
      "url": "https://www.youtube.com/watch?v=mC4ic5oiHRE"
     }
@@ -6098,8 +6128,8 @@
   {
    "weeks": 11,
    "label": "최근 11주",
-   "videos": 601,
-   "channels": 337,
+   "videos": 607,
+   "channels": 338,
    "new_this_week": [
     {
      "id": "2BAwO2Ltyf0",
@@ -6137,52 +6167,52 @@
      "published": "2026-08-10"
     }
    ],
-   "views_median": 227521,
-   "views_per_day_median": 26492.3,
-   "ratio_median": 0.58,
+   "views_median": 224810,
+   "views_per_day_median": 26218.0,
+   "ratio_median": 0.57,
    "success": 125,
-   "minutes_median": 18.9,
+   "minutes_median": 19.0,
    "title_len_avg": 54.8,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 164,
-     "share": 0.273
+     "count": 165,
+     "share": 0.272
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
-     "count": 105,
+     "count": 106,
      "share": 0.175
     },
     {
      "name": "코스피·폭락·급락·하락장",
-     "count": 97,
+     "count": 98,
      "share": 0.161
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 71,
-     "share": 0.118
+     "share": 0.117
     },
     {
      "name": "느낌표 !",
      "count": 64,
-     "share": 0.106
+     "share": 0.105
     },
     {
      "name": "AI",
-     "count": 57,
-     "share": 0.095
+     "count": 58,
+     "share": 0.096
     },
     {
      "name": "이유",
      "count": 55,
-     "share": 0.092
+     "share": 0.091
     },
     {
      "name": "금액(억·만원)",
      "count": 34,
-     "share": 0.057
+     "share": 0.056
     },
     {
      "name": "노후·퇴직금·은퇴·50~70대",
@@ -6192,7 +6222,7 @@
     {
      "name": "vs 비교",
      "count": 16,
-     "share": 0.027
+     "share": 0.026
     },
     {
      "name": "N가지",
@@ -6236,7 +6266,7 @@
     },
     {
      "word": "코스피",
-     "count": 49
+     "count": 50
     },
     {
      "word": "Stocks",
@@ -6260,7 +6290,7 @@
     },
     {
      "word": "대표",
-     "count": 34
+     "count": 35
     },
     {
      "word": "S&P500",
@@ -6271,13 +6301,13 @@
    "text_sources": {
     "자막": 7,
     "음성인식": 9,
-    "설명": 552,
+    "설명": 558,
     "없음": 33
    },
    "content_words": [
     {
      "word": "to",
-     "count": 186
+     "count": 187
     },
     {
      "word": "in",
@@ -6324,7 +6354,7 @@
      "count": 119
     }
    ],
-   "chapters_share": 0.383,
+   "chapters_share": 0.381,
    "syl_per_sec_median": 0.0,
    "hooks": [
     {
@@ -6346,36 +6376,36 @@
      "hook": "18일 에프앤가이드에 따르면, 지난 15일 기준 국민연금이 기분 5% 이상을 보유했다고 공시한 상장사 287곳의 주식 평가액이 333조 5330억 원으로 나타났습니다. 이는 지난 6월 말 기준 515조 9293억 원) 대비 182조 3963억 원(35.3%) 감소한 수치입니다. 사상 최"
     }
    ],
-   "comments": 209985,
+   "comments": 210955,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 30744,
-     "share": 0.146
+     "count": 30909,
+     "share": 0.147
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 23180,
+     "count": 23226,
      "share": 0.11
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 13736,
-     "share": 0.065
+     "count": 13822,
+     "share": 0.066
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 10848,
+     "count": 11002,
      "share": 0.052
     },
     {
      "name": "칭찬·감사",
-     "count": 9211,
+     "count": 9276,
      "share": 0.044
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 8843,
+     "count": 8897,
      "share": 0.042
     }
    ],
@@ -6399,7 +6429,7 @@
      "title": "개인 투자자도 투자하기 좋은 시대⁉️ AI를 활용한 초특급 투자 전략 공개✨ #유퀴즈",
      "channel": "디글 클래식 :Diggle Classic",
      "views": 2433812,
-     "views_per_day": 390754.8,
+     "views_per_day": 389144.1,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=jk61l5VCSGM"
     },
@@ -6408,7 +6438,7 @@
      "title": "Stocks Have Done THIS After Every Midterm Election Since 1950",
      "channel": "ClearValue Tax",
      "views": 528835,
-     "views_per_day": 313576.4,
+     "views_per_day": 308854.9,
      "published": "2026-10-19",
      "url": "https://www.youtube.com/watch?v=LaBiYw1ZKF4"
     },
@@ -6417,7 +6447,7 @@
      "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
      "channel": "채널A News",
      "views": 891652,
-     "views_per_day": 277778.8,
+     "views_per_day": 275565.5,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
     },
@@ -6426,7 +6456,7 @@
      "title": "AI bubble fears: Could a crash trigger a global financial crisis? | DW News",
      "channel": "DW News",
      "views": 1262899,
-     "views_per_day": 234093.8,
+     "views_per_day": 232980.4,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=tGRB8ECyEJ0"
     },
@@ -6435,7 +6465,7 @@
      "title": "[한눈에 경제] 빚내서 주식 샀는데 '강제 처분'…비명도 안 나오는 개미들 / KBS 2026.10.19.",
      "channel": "KBS News",
      "views": 523827,
-     "views_per_day": 229381.4,
+     "views_per_day": 226820.7,
      "published": "2026-10-19",
      "url": "https://www.youtube.com/watch?v=mC4ic5oiHRE"
     }
@@ -6444,8 +6474,8 @@
   {
    "weeks": 12,
    "label": "최근 12주",
-   "videos": 610,
-   "channels": 344,
+   "videos": 616,
+   "channels": 345,
    "new_this_week": [
     {
      "id": "7FrJ3wuJDaY",
@@ -6493,37 +6523,42 @@
      "published": "2026-07-30"
     }
    ],
-   "views_median": 227902.0,
-   "views_per_day_median": 26325.55,
+   "views_median": 225248.5,
+   "views_per_day_median": 25844.8,
    "ratio_median": 0.59,
    "success": 131,
-   "minutes_median": 19.05,
+   "minutes_median": 19.1,
    "title_len_avg": 54.7,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 166,
-     "share": 0.272
+     "count": 167,
+     "share": 0.271
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
-     "count": 106,
+     "count": 107,
      "share": 0.174
     },
     {
      "name": "코스피·폭락·급락·하락장",
-     "count": 99,
+     "count": 100,
      "share": 0.162
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 73,
-     "share": 0.12
+     "share": 0.119
     },
     {
      "name": "느낌표 !",
      "count": 65,
-     "share": 0.107
+     "share": 0.106
+    },
+    {
+     "name": "AI",
+     "count": 58,
+     "share": 0.094
     },
     {
      "name": "이유",
@@ -6531,14 +6566,9 @@
      "share": 0.093
     },
     {
-     "name": "AI",
-     "count": 57,
-     "share": 0.093
-    },
-    {
      "name": "금액(억·만원)",
      "count": 36,
-     "share": 0.059
+     "share": 0.058
     },
     {
      "name": "노후·퇴직금·은퇴·50~70대",
@@ -6553,7 +6583,7 @@
     {
      "name": "N가지",
      "count": 15,
-     "share": 0.025
+     "share": 0.024
     },
     {
      "name": "손실 낱말(망하·날린·잃은·반토막)",
@@ -6578,7 +6608,7 @@
     {
      "name": "두 금액(반전)",
      "count": 4,
-     "share": 0.007
+     "share": 0.006
     }
    ],
    "title_words": [
@@ -6587,12 +6617,12 @@
      "count": 54
     },
     {
-     "word": "Market",
+     "word": "코스피",
      "count": 52
     },
     {
-     "word": "코스피",
-     "count": 51
+     "word": "Market",
+     "count": 52
     },
     {
      "word": "Stocks",
@@ -6616,7 +6646,7 @@
     },
     {
      "word": "대표",
-     "count": 34
+     "count": 35
     },
     {
      "word": "S&P500",
@@ -6627,13 +6657,13 @@
    "text_sources": {
     "자막": 7,
     "음성인식": 11,
-    "설명": 559,
+    "설명": 565,
     "없음": 33
    },
    "content_words": [
     {
      "word": "to",
-     "count": 188
+     "count": 189
     },
     {
      "word": "in",
@@ -6680,7 +6710,7 @@
      "count": 119
     }
    ],
-   "chapters_share": 0.382,
+   "chapters_share": 0.38,
    "syl_per_sec_median": 0.0,
    "hooks": [
     {
@@ -6702,36 +6732,36 @@
      "hook": "18일 에프앤가이드에 따르면, 지난 15일 기준 국민연금이 기분 5% 이상을 보유했다고 공시한 상장사 287곳의 주식 평가액이 333조 5330억 원으로 나타났습니다. 이는 지난 6월 말 기준 515조 9293억 원) 대비 182조 3963억 원(35.3%) 감소한 수치입니다. 사상 최"
     }
    ],
-   "comments": 225480,
+   "comments": 226450,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 33754,
+     "count": 33919,
      "share": 0.15
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 23796,
-     "share": 0.106
+     "count": 23842,
+     "share": 0.105
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 15965,
+     "count": 16051,
      "share": 0.071
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 11641,
+     "count": 11795,
      "share": 0.052
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 10169,
+     "count": 10223,
      "share": 0.045
     },
     {
      "name": "칭찬·감사",
-     "count": 9592,
+     "count": 9657,
      "share": 0.043
     }
    ],
@@ -6755,7 +6785,7 @@
      "title": "개인 투자자도 투자하기 좋은 시대⁉️ AI를 활용한 초특급 투자 전략 공개✨ #유퀴즈",
      "channel": "디글 클래식 :Diggle Classic",
      "views": 2433812,
-     "views_per_day": 390754.8,
+     "views_per_day": 389144.1,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=jk61l5VCSGM"
     },
@@ -6764,7 +6794,7 @@
      "title": "Stocks Have Done THIS After Every Midterm Election Since 1950",
      "channel": "ClearValue Tax",
      "views": 528835,
-     "views_per_day": 313576.4,
+     "views_per_day": 308854.9,
      "published": "2026-10-19",
      "url": "https://www.youtube.com/watch?v=LaBiYw1ZKF4"
     },
@@ -6773,7 +6803,7 @@
      "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
      "channel": "채널A News",
      "views": 891652,
-     "views_per_day": 277778.8,
+     "views_per_day": 275565.5,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
     },
@@ -6782,7 +6812,7 @@
      "title": "AI bubble fears: Could a crash trigger a global financial crisis? | DW News",
      "channel": "DW News",
      "views": 1262899,
-     "views_per_day": 234093.8,
+     "views_per_day": 232980.4,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=tGRB8ECyEJ0"
     },
@@ -6791,7 +6821,7 @@
      "title": "[한눈에 경제] 빚내서 주식 샀는데 '강제 처분'…비명도 안 나오는 개미들 / KBS 2026.10.19.",
      "channel": "KBS News",
      "views": 523827,
-     "views_per_day": 229381.4,
+     "views_per_day": 226820.7,
      "published": "2026-10-19",
      "url": "https://www.youtube.com/watch?v=mC4ic5oiHRE"
     }
@@ -6800,8 +6830,8 @@
   {
    "weeks": 13,
    "label": "최근 13주",
-   "videos": 617,
-   "channels": 350,
+   "videos": 623,
+   "channels": 351,
    "new_this_week": [
     {
      "id": "3wDg-1Lso24",
@@ -6839,47 +6869,47 @@
      "published": "2026-07-28"
     }
    ],
-   "views_median": 225932,
-   "views_per_day_median": 25938.0,
+   "views_median": 224338,
+   "views_per_day_median": 25543.4,
    "ratio_median": 0.6,
    "success": 136,
-   "minutes_median": 19.0,
+   "minutes_median": 19.1,
    "title_len_avg": 54.7,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 167,
-     "share": 0.271
+     "count": 168,
+     "share": 0.27
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
-     "count": 107,
+     "count": 108,
      "share": 0.173
     },
     {
      "name": "코스피·폭락·급락·하락장",
-     "count": 100,
+     "count": 101,
      "share": 0.162
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 74,
-     "share": 0.12
+     "share": 0.119
     },
     {
      "name": "느낌표 !",
      "count": 68,
-     "share": 0.11
+     "share": 0.109
     },
     {
      "name": "AI",
-     "count": 58,
-     "share": 0.094
+     "count": 59,
+     "share": 0.095
     },
     {
      "name": "이유",
      "count": 57,
-     "share": 0.092
+     "share": 0.091
     },
     {
      "name": "금액(억·만원)",
@@ -6889,7 +6919,7 @@
     {
      "name": "노후·퇴직금·은퇴·50~70대",
      "count": 22,
-     "share": 0.036
+     "share": 0.035
     },
     {
      "name": "vs 비교",
@@ -6909,7 +6939,7 @@
     {
      "name": "직접·해보니·N년 기록",
      "count": 9,
-     "share": 0.015
+     "share": 0.014
     },
     {
      "name": "빚투·신용·미수·레버리지·대출",
@@ -6934,7 +6964,7 @@
     },
     {
      "word": "코스피",
-     "count": 52
+     "count": 53
     },
     {
      "word": "Market",
@@ -6962,7 +6992,7 @@
     },
     {
      "word": "대표",
-     "count": 34
+     "count": 35
     },
     {
      "word": "S&P500",
@@ -6973,13 +7003,13 @@
    "text_sources": {
     "자막": 7,
     "음성인식": 11,
-    "설명": 566,
+    "설명": 572,
     "없음": 33
    },
    "content_words": [
     {
      "word": "to",
-     "count": 189
+     "count": 190
     },
     {
      "word": "in",
@@ -7026,7 +7056,7 @@
      "count": 120
     }
    ],
-   "chapters_share": 0.381,
+   "chapters_share": 0.379,
    "syl_per_sec_median": 0.0,
    "hooks": [
     {
@@ -7048,36 +7078,36 @@
      "hook": "18일 에프앤가이드에 따르면, 지난 15일 기준 국민연금이 기분 5% 이상을 보유했다고 공시한 상장사 287곳의 주식 평가액이 333조 5330억 원으로 나타났습니다. 이는 지난 6월 말 기준 515조 9293억 원) 대비 182조 3963억 원(35.3%) 감소한 수치입니다. 사상 최"
     }
    ],
-   "comments": 229330,
+   "comments": 230300,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 34274,
-     "share": 0.149
+     "count": 34439,
+     "share": 0.15
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 23865,
+     "count": 23911,
      "share": 0.104
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 16897,
+     "count": 16983,
      "share": 0.074
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 11737,
-     "share": 0.051
+     "count": 11891,
+     "share": 0.052
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 10777,
+     "count": 10831,
      "share": 0.047
     },
     {
      "name": "칭찬·감사",
-     "count": 10522,
+     "count": 10587,
      "share": 0.046
     }
    ],
@@ -7101,7 +7131,7 @@
      "title": "개인 투자자도 투자하기 좋은 시대⁉️ AI를 활용한 초특급 투자 전략 공개✨ #유퀴즈",
      "channel": "디글 클래식 :Diggle Classic",
      "views": 2433812,
-     "views_per_day": 390754.8,
+     "views_per_day": 389144.1,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=jk61l5VCSGM"
     },
@@ -7110,7 +7140,7 @@
      "title": "Stocks Have Done THIS After Every Midterm Election Since 1950",
      "channel": "ClearValue Tax",
      "views": 528835,
-     "views_per_day": 313576.4,
+     "views_per_day": 308854.9,
      "published": "2026-10-19",
      "url": "https://www.youtube.com/watch?v=LaBiYw1ZKF4"
     },
@@ -7119,7 +7149,7 @@
      "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
      "channel": "채널A News",
      "views": 891652,
-     "views_per_day": 277778.8,
+     "views_per_day": 275565.5,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
     },
@@ -7128,7 +7158,7 @@
      "title": "AI bubble fears: Could a crash trigger a global financial crisis? | DW News",
      "channel": "DW News",
      "views": 1262899,
-     "views_per_day": 234093.8,
+     "views_per_day": 232980.4,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=tGRB8ECyEJ0"
     },
@@ -7137,7 +7167,7 @@
      "title": "[한눈에 경제] 빚내서 주식 샀는데 '강제 처분'…비명도 안 나오는 개미들 / KBS 2026.10.19.",
      "channel": "KBS News",
      "views": 523827,
-     "views_per_day": 229381.4,
+     "views_per_day": 226820.7,
      "published": "2026-10-19",
      "url": "https://www.youtube.com/watch?v=mC4ic5oiHRE"
     }
@@ -7146,8 +7176,8 @@
   {
    "weeks": 14,
    "label": "최근 14주",
-   "videos": 628,
-   "channels": 354,
+   "videos": 634,
+   "channels": 355,
    "new_this_week": [
     {
      "id": "3IqzhX-8yhY",
@@ -7205,383 +7235,27 @@
      "published": "2026-07-20"
     }
    ],
-   "views_median": 226726.5,
-   "views_per_day_median": 25605.0,
+   "views_median": 224574.0,
+   "views_per_day_median": 25206.45,
    "ratio_median": 0.61,
    "success": 143,
-   "minutes_median": 19.15,
+   "minutes_median": 19.2,
    "title_len_avg": 54.8,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 169,
-     "share": 0.269
+     "count": 170,
+     "share": 0.268
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
-     "count": 110,
+     "count": 111,
      "share": 0.175
     },
     {
      "name": "코스피·폭락·급락·하락장",
-     "count": 102,
+     "count": 103,
      "share": 0.162
-    },
-    {
-     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 77,
-     "share": 0.123
-    },
-    {
-     "name": "느낌표 !",
-     "count": 68,
-     "share": 0.108
-    },
-    {
-     "name": "이유",
-     "count": 60,
-     "share": 0.096
-    },
-    {
-     "name": "AI",
-     "count": 59,
-     "share": 0.094
-    },
-    {
-     "name": "금액(억·만원)",
-     "count": 37,
-     "share": 0.059
-    },
-    {
-     "name": "노후·퇴직금·은퇴·50~70대",
-     "count": 23,
-     "share": 0.037
-    },
-    {
-     "name": "vs 비교",
-     "count": 19,
-     "share": 0.03
-    },
-    {
-     "name": "N가지",
-     "count": 16,
-     "share": 0.025
-    },
-    {
-     "name": "손실 낱말(망하·날린·잃은·반토막)",
-     "count": 12,
-     "share": 0.019
-    },
-    {
-     "name": "직접·해보니·N년 기록",
-     "count": 10,
-     "share": 0.016
-    },
-    {
-     "name": "빚투·신용·미수·레버리지·대출",
-     "count": 9,
-     "share": 0.014
-    },
-    {
-     "name": "과정·벌어진 일·결말·결국",
-     "count": 7,
-     "share": 0.011
-    },
-    {
-     "name": "두 금액(반전)",
-     "count": 5,
-     "share": 0.008
-    }
-   ],
-   "title_words": [
-    {
-     "word": "이유",
-     "count": 57
-    },
-    {
-     "word": "코스피",
-     "count": 53
-    },
-    {
-     "word": "Market",
-     "count": 52
-    },
-    {
-     "word": "Stocks",
-     "count": 48
-    },
-    {
-     "word": "ETF",
-     "count": 47
-    },
-    {
-     "word": "주식",
-     "count": 45
-    },
-    {
-     "word": "Stock",
-     "count": 42
-    },
-    {
-     "word": "to",
-     "count": 38
-    },
-    {
-     "word": "대표",
-     "count": 34
-    },
-    {
-     "word": "S&P500",
-     "count": 32
-    }
-   ],
-   "transcripts": 20,
-   "text_sources": {
-    "자막": 8,
-    "음성인식": 12,
-    "설명": 575,
-    "없음": 33
-   },
-   "content_words": [
-    {
-     "word": "to",
-     "count": 192
-    },
-    {
-     "word": "in",
-     "count": 182
-    },
-    {
-     "word": "is",
-     "count": 179
-    },
-    {
-     "word": "of",
-     "count": 176
-    },
-    {
-     "word": "this",
-     "count": 160
-    },
-    {
-     "word": "on",
-     "count": 159
-    },
-    {
-     "word": "or",
-     "count": 145
-    },
-    {
-     "word": "are",
-     "count": 141
-    },
-    {
-     "word": "video",
-     "count": 133
-    },
-    {
-     "word": "not",
-     "count": 129
-    },
-    {
-     "word": "investment",
-     "count": 125
-    },
-    {
-     "word": "financial",
-     "count": 123
-    }
-   ],
-   "chapters_share": 0.381,
-   "syl_per_sec_median": 0.0,
-   "hooks": [
-    {
-     "id": "jk61l5VCSGM",
-     "title": "개인 투자자도 투자하기 좋은 시대⁉️ AI를 활용한 초특급 투자 전략 공개✨ #유퀴즈",
-     "src": "설명",
-     "hook": "매주 수요일 저녁 8시 45분 tvN에서! we’re :DIGGLE family"
-    },
-    {
-     "id": "LaBiYw1ZKF4",
-     "title": "Stocks Have Done THIS After Every Midterm Election Since 1950",
-     "src": "설명",
-     "hook": "⭐ See What I'm Investing In ⭐ Trade Alerts ⭐ Get Your Questions Answered ⭐ Join Our Private Chatroom ⭐ Exclusive Content About Markets 📘 My Book on Wealth-Build"
-    },
-    {
-     "id": "xQ8IpN0iQnU",
-     "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
-     "src": "설명",
-     "hook": "18일 에프앤가이드에 따르면, 지난 15일 기준 국민연금이 기분 5% 이상을 보유했다고 공시한 상장사 287곳의 주식 평가액이 333조 5330억 원으로 나타났습니다. 이는 지난 6월 말 기준 515조 9293억 원) 대비 182조 3963억 원(35.3%) 감소한 수치입니다. 사상 최"
-    }
-   ],
-   "comments": 243037,
-   "comment_needs": [
-    {
-     "name": "질문",
-     "count": 36547,
-     "share": 0.15
-    },
-    {
-     "name": "비판(가짜·AI·뻔함)",
-     "count": 25186,
-     "share": 0.104
-    },
-    {
-     "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 18403,
-     "share": 0.076
-    },
-    {
-     "name": "칭찬·감사",
-     "count": 12542,
-     "share": 0.052
-    },
-    {
-     "name": "2026 시장(폭락·불장·서킷)",
-     "count": 12483,
-     "share": 0.051
-    },
-    {
-     "name": "경험(내 얘기·나도 잃음)",
-     "count": 12049,
-     "share": 0.05
-    }
-   ],
-   "top_comments": [
-    {
-     "text": "The AI bubble just K-Popped.",
-     "likes": 16810
-    },
-    {
-     "text": "Thank god I was starting to have my own thoughts and opinions",
-     "likes": 12048
-    },
-    {
-     "text": "엄청 사연있는것처럼 연출하지만 결국 빚내서한 도박",
-     "likes": 7419
-    }
-   ],
-   "top_videos": [
-    {
-     "id": "jk61l5VCSGM",
-     "title": "개인 투자자도 투자하기 좋은 시대⁉️ AI를 활용한 초특급 투자 전략 공개✨ #유퀴즈",
-     "channel": "디글 클래식 :Diggle Classic",
-     "views": 2433812,
-     "views_per_day": 390754.8,
-     "published": "2026-10-15",
-     "url": "https://www.youtube.com/watch?v=jk61l5VCSGM"
-    },
-    {
-     "id": "LaBiYw1ZKF4",
-     "title": "Stocks Have Done THIS After Every Midterm Election Since 1950",
-     "channel": "ClearValue Tax",
-     "views": 528835,
-     "views_per_day": 313576.4,
-     "published": "2026-10-19",
-     "url": "https://www.youtube.com/watch?v=LaBiYw1ZKF4"
-    },
-    {
-     "id": "xQ8IpN0iQnU",
-     "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
-     "channel": "채널A News",
-     "views": 891652,
-     "views_per_day": 277778.8,
-     "published": "2026-10-18",
-     "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
-    },
-    {
-     "id": "tGRB8ECyEJ0",
-     "title": "AI bubble fears: Could a crash trigger a global financial crisis? | DW News",
-     "channel": "DW News",
-     "views": 1262899,
-     "views_per_day": 234093.8,
-     "published": "2026-10-15",
-     "url": "https://www.youtube.com/watch?v=tGRB8ECyEJ0"
-    },
-    {
-     "id": "mC4ic5oiHRE",
-     "title": "[한눈에 경제] 빚내서 주식 샀는데 '강제 처분'…비명도 안 나오는 개미들 / KBS 2026.10.19.",
-     "channel": "KBS News",
-     "views": 523827,
-     "views_per_day": 229381.4,
-     "published": "2026-10-19",
-     "url": "https://www.youtube.com/watch?v=mC4ic5oiHRE"
-    }
-   ]
-  },
-  {
-   "weeks": 15,
-   "label": "최근 15주",
-   "videos": 637,
-   "channels": 359,
-   "new_this_week": [
-    {
-     "id": "0T0eTmqUDBo",
-     "title": "사형수 박정희, 그를 살린 28세 정보국장 백선엽의 위험한 도박 | 1948년 숙군의 비밀",
-     "published": "2026-07-10"
-    },
-    {
-     "id": "6VAsPNYeTRQ",
-     "title": "\"역대급 저평가라던 코스피\" 하루 만에 620조 추락.. 그 뒤에 숨겨진 코스피의 잔혹한 진실",
-     "published": "2026-07-13"
-    },
-    {
-     "id": "BL8sygt6dgw",
-     "title": "수익 -60%에서 멘탈 관리하는 법..?? 주식 물린 사람들 들어오세요",
-     "published": "2026-07-12"
-    },
-    {
-     "id": "PKjvQsEwLIQ",
-     "title": "일 안하고, 배당금으로 살아가는 현실",
-     "published": "2026-07-11"
-    },
-    {
-     "id": "RvUVQcDVc1Q",
-     "title": "If I started investing in Oct 2026, this is what I'd buy",
-     "published": "2026-07-12"
-    },
-    {
-     "id": "Va3NC6OxXUI",
-     "title": "주식 고수들은 폭락장에 '이렇게' 행동합니다ㅣ지식인초대석 EP.151 (김효진 박사 1부)",
-     "published": "2026-07-14"
-    },
-    {
-     "id": "WXgAtzIynMk",
-     "title": "32살 부부 동반 퇴사 후, 배당투자로 세계여행 시작합니다",
-     "published": "2026-07-10"
-    },
-    {
-     "id": "g5v83RNywMQ",
-     "title": "[🚨긴급진단] 코스피 7000 붕괴...충격의 오늘 시장 왜 이러나?ㅣ이권희 대표 전화연결ㅣ경제시그널",
-     "published": "2026-07-13"
-    },
-    {
-     "id": "r6YwLBtCXXQ",
-     "title": "' 코스피 폭락 ‘ 삼성전자 & 하이닉스 하반기 X만원 갑니다 ?! 용한 애동 무당이 신점으로 본 반도체 관련주!/ 삼성전자주가전망 , 하이닉스주가전망 , 코스피전망",
-     "published": "2026-07-14"
-    }
-   ],
-   "views_median": 224810,
-   "views_per_day_median": 25226.0,
-   "ratio_median": 0.63,
-   "success": 150,
-   "minutes_median": 19.1,
-   "title_len_avg": 54.7,
-   "title_features": [
-    {
-     "name": "물음표 ?",
-     "count": 172,
-     "share": 0.27
-    },
-    {
-     "name": "S&P500·ETF·지수·나스닥",
-     "count": 110,
-     "share": 0.173
-    },
-    {
-     "name": "코스피·폭락·급락·하락장",
-     "count": 106,
-     "share": 0.166
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
@@ -7590,18 +7264,18 @@
     },
     {
      "name": "느낌표 !",
-     "count": 69,
-     "share": 0.108
+     "count": 68,
+     "share": 0.107
     },
     {
      "name": "이유",
      "count": 60,
-     "share": 0.094
+     "share": 0.095
     },
     {
      "name": "AI",
-     "count": 59,
-     "share": 0.093
+     "count": 60,
+     "share": 0.095
     },
     {
      "name": "금액(억·만원)",
@@ -7656,7 +7330,363 @@
     },
     {
      "word": "코스피",
-     "count": 56
+     "count": 54
+    },
+    {
+     "word": "Market",
+     "count": 52
+    },
+    {
+     "word": "Stocks",
+     "count": 48
+    },
+    {
+     "word": "ETF",
+     "count": 47
+    },
+    {
+     "word": "주식",
+     "count": 45
+    },
+    {
+     "word": "Stock",
+     "count": 42
+    },
+    {
+     "word": "to",
+     "count": 38
+    },
+    {
+     "word": "대표",
+     "count": 35
+    },
+    {
+     "word": "S&P500",
+     "count": 32
+    }
+   ],
+   "transcripts": 20,
+   "text_sources": {
+    "자막": 8,
+    "음성인식": 12,
+    "설명": 581,
+    "없음": 33
+   },
+   "content_words": [
+    {
+     "word": "to",
+     "count": 193
+    },
+    {
+     "word": "in",
+     "count": 182
+    },
+    {
+     "word": "is",
+     "count": 179
+    },
+    {
+     "word": "of",
+     "count": 176
+    },
+    {
+     "word": "this",
+     "count": 160
+    },
+    {
+     "word": "on",
+     "count": 159
+    },
+    {
+     "word": "or",
+     "count": 145
+    },
+    {
+     "word": "are",
+     "count": 141
+    },
+    {
+     "word": "video",
+     "count": 133
+    },
+    {
+     "word": "not",
+     "count": 129
+    },
+    {
+     "word": "investment",
+     "count": 125
+    },
+    {
+     "word": "financial",
+     "count": 123
+    }
+   ],
+   "chapters_share": 0.379,
+   "syl_per_sec_median": 0.0,
+   "hooks": [
+    {
+     "id": "jk61l5VCSGM",
+     "title": "개인 투자자도 투자하기 좋은 시대⁉️ AI를 활용한 초특급 투자 전략 공개✨ #유퀴즈",
+     "src": "설명",
+     "hook": "매주 수요일 저녁 8시 45분 tvN에서! we’re :DIGGLE family"
+    },
+    {
+     "id": "LaBiYw1ZKF4",
+     "title": "Stocks Have Done THIS After Every Midterm Election Since 1950",
+     "src": "설명",
+     "hook": "⭐ See What I'm Investing In ⭐ Trade Alerts ⭐ Get Your Questions Answered ⭐ Join Our Private Chatroom ⭐ Exclusive Content About Markets 📘 My Book on Wealth-Build"
+    },
+    {
+     "id": "xQ8IpN0iQnU",
+     "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
+     "src": "설명",
+     "hook": "18일 에프앤가이드에 따르면, 지난 15일 기준 국민연금이 기분 5% 이상을 보유했다고 공시한 상장사 287곳의 주식 평가액이 333조 5330억 원으로 나타났습니다. 이는 지난 6월 말 기준 515조 9293억 원) 대비 182조 3963억 원(35.3%) 감소한 수치입니다. 사상 최"
+    }
+   ],
+   "comments": 244007,
+   "comment_needs": [
+    {
+     "name": "질문",
+     "count": 36712,
+     "share": 0.15
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 25232,
+     "share": 0.103
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 18489,
+     "share": 0.076
+    },
+    {
+     "name": "2026 시장(폭락·불장·서킷)",
+     "count": 12637,
+     "share": 0.052
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 12607,
+     "share": 0.052
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 12103,
+     "share": 0.05
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "The AI bubble just K-Popped.",
+     "likes": 16810
+    },
+    {
+     "text": "Thank god I was starting to have my own thoughts and opinions",
+     "likes": 12048
+    },
+    {
+     "text": "엄청 사연있는것처럼 연출하지만 결국 빚내서한 도박",
+     "likes": 7419
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "jk61l5VCSGM",
+     "title": "개인 투자자도 투자하기 좋은 시대⁉️ AI를 활용한 초특급 투자 전략 공개✨ #유퀴즈",
+     "channel": "디글 클래식 :Diggle Classic",
+     "views": 2433812,
+     "views_per_day": 389144.1,
+     "published": "2026-10-15",
+     "url": "https://www.youtube.com/watch?v=jk61l5VCSGM"
+    },
+    {
+     "id": "LaBiYw1ZKF4",
+     "title": "Stocks Have Done THIS After Every Midterm Election Since 1950",
+     "channel": "ClearValue Tax",
+     "views": 528835,
+     "views_per_day": 308854.9,
+     "published": "2026-10-19",
+     "url": "https://www.youtube.com/watch?v=LaBiYw1ZKF4"
+    },
+    {
+     "id": "xQ8IpN0iQnU",
+     "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
+     "channel": "채널A News",
+     "views": 891652,
+     "views_per_day": 275565.5,
+     "published": "2026-10-18",
+     "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
+    },
+    {
+     "id": "tGRB8ECyEJ0",
+     "title": "AI bubble fears: Could a crash trigger a global financial crisis? | DW News",
+     "channel": "DW News",
+     "views": 1262899,
+     "views_per_day": 232980.4,
+     "published": "2026-10-15",
+     "url": "https://www.youtube.com/watch?v=tGRB8ECyEJ0"
+    },
+    {
+     "id": "mC4ic5oiHRE",
+     "title": "[한눈에 경제] 빚내서 주식 샀는데 '강제 처분'…비명도 안 나오는 개미들 / KBS 2026.10.19.",
+     "channel": "KBS News",
+     "views": 523827,
+     "views_per_day": 226820.7,
+     "published": "2026-10-19",
+     "url": "https://www.youtube.com/watch?v=mC4ic5oiHRE"
+    }
+   ]
+  },
+  {
+   "weeks": 15,
+   "label": "최근 15주",
+   "videos": 643,
+   "channels": 360,
+   "new_this_week": [
+    {
+     "id": "0T0eTmqUDBo",
+     "title": "사형수 박정희, 그를 살린 28세 정보국장 백선엽의 위험한 도박 | 1948년 숙군의 비밀",
+     "published": "2026-07-10"
+    },
+    {
+     "id": "6VAsPNYeTRQ",
+     "title": "\"역대급 저평가라던 코스피\" 하루 만에 620조 추락.. 그 뒤에 숨겨진 코스피의 잔혹한 진실",
+     "published": "2026-07-13"
+    },
+    {
+     "id": "BL8sygt6dgw",
+     "title": "수익 -60%에서 멘탈 관리하는 법..?? 주식 물린 사람들 들어오세요",
+     "published": "2026-07-12"
+    },
+    {
+     "id": "PKjvQsEwLIQ",
+     "title": "일 안하고, 배당금으로 살아가는 현실",
+     "published": "2026-07-11"
+    },
+    {
+     "id": "RvUVQcDVc1Q",
+     "title": "If I started investing in Oct 2026, this is what I'd buy",
+     "published": "2026-07-12"
+    },
+    {
+     "id": "Va3NC6OxXUI",
+     "title": "주식 고수들은 폭락장에 '이렇게' 행동합니다ㅣ지식인초대석 EP.151 (김효진 박사 1부)",
+     "published": "2026-07-14"
+    },
+    {
+     "id": "WXgAtzIynMk",
+     "title": "32살 부부 동반 퇴사 후, 배당투자로 세계여행 시작합니다",
+     "published": "2026-07-10"
+    },
+    {
+     "id": "g5v83RNywMQ",
+     "title": "[🚨긴급진단] 코스피 7000 붕괴...충격의 오늘 시장 왜 이러나?ㅣ이권희 대표 전화연결ㅣ경제시그널",
+     "published": "2026-07-13"
+    },
+    {
+     "id": "r6YwLBtCXXQ",
+     "title": "' 코스피 폭락 ‘ 삼성전자 & 하이닉스 하반기 X만원 갑니다 ?! 용한 애동 무당이 신점으로 본 반도체 관련주!/ 삼성전자주가전망 , 하이닉스주가전망 , 코스피전망",
+     "published": "2026-07-14"
+    }
+   ],
+   "views_median": 221842,
+   "views_per_day_median": 24931.1,
+   "ratio_median": 0.61,
+   "success": 150,
+   "minutes_median": 19.2,
+   "title_len_avg": 54.7,
+   "title_features": [
+    {
+     "name": "물음표 ?",
+     "count": 173,
+     "share": 0.269
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 111,
+     "share": 0.173
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 107,
+     "share": 0.166
+    },
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 77,
+     "share": 0.12
+    },
+    {
+     "name": "느낌표 !",
+     "count": 69,
+     "share": 0.107
+    },
+    {
+     "name": "이유",
+     "count": 60,
+     "share": 0.093
+    },
+    {
+     "name": "AI",
+     "count": 60,
+     "share": 0.093
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 37,
+     "share": 0.058
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 23,
+     "share": 0.036
+    },
+    {
+     "name": "vs 비교",
+     "count": 19,
+     "share": 0.03
+    },
+    {
+     "name": "N가지",
+     "count": 16,
+     "share": 0.025
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 12,
+     "share": 0.019
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 10,
+     "share": 0.016
+    },
+    {
+     "name": "빚투·신용·미수·레버리지·대출",
+     "count": 9,
+     "share": 0.014
+    },
+    {
+     "name": "과정·벌어진 일·결말·결국",
+     "count": 7,
+     "share": 0.011
+    },
+    {
+     "name": "두 금액(반전)",
+     "count": 5,
+     "share": 0.008
+    }
+   ],
+   "title_words": [
+    {
+     "word": "코스피",
+     "count": 57
+    },
+    {
+     "word": "이유",
+     "count": 57
     },
     {
      "word": "Market",
@@ -7684,7 +7714,7 @@
     },
     {
      "word": "대표",
-     "count": 35
+     "count": 36
     },
     {
      "word": "S&P500",
@@ -7695,13 +7725,13 @@
    "text_sources": {
     "자막": 9,
     "음성인식": 13,
-    "설명": 582,
+    "설명": 588,
     "없음": 33
    },
    "content_words": [
     {
      "word": "to",
-     "count": 193
+     "count": 194
     },
     {
      "word": "in",
@@ -7748,7 +7778,7 @@
      "count": 124
     }
    ],
-   "chapters_share": 0.383,
+   "chapters_share": 0.381,
    "syl_per_sec_median": 0.0,
    "hooks": [
     {
@@ -7770,36 +7800,36 @@
      "hook": "18일 에프앤가이드에 따르면, 지난 15일 기준 국민연금이 기분 5% 이상을 보유했다고 공시한 상장사 287곳의 주식 평가액이 333조 5330억 원으로 나타났습니다. 이는 지난 6월 말 기준 515조 9293억 원) 대비 182조 3963억 원(35.3%) 감소한 수치입니다. 사상 최"
     }
    ],
-   "comments": 249280,
+   "comments": 250250,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 37722,
+     "count": 37887,
      "share": 0.151
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 25459,
+     "count": 25505,
      "share": 0.102
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 18832,
+     "count": 18918,
      "share": 0.076
     },
     {
      "name": "칭찬·감사",
-     "count": 13130,
+     "count": 13195,
      "share": 0.053
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 12805,
-     "share": 0.051
+     "count": 12959,
+     "share": 0.052
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 12524,
+     "count": 12578,
      "share": 0.05
     }
    ],
@@ -7823,7 +7853,7 @@
      "title": "개인 투자자도 투자하기 좋은 시대⁉️ AI를 활용한 초특급 투자 전략 공개✨ #유퀴즈",
      "channel": "디글 클래식 :Diggle Classic",
      "views": 2433812,
-     "views_per_day": 390754.8,
+     "views_per_day": 389144.1,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=jk61l5VCSGM"
     },
@@ -7832,7 +7862,7 @@
      "title": "Stocks Have Done THIS After Every Midterm Election Since 1950",
      "channel": "ClearValue Tax",
      "views": 528835,
-     "views_per_day": 313576.4,
+     "views_per_day": 308854.9,
      "published": "2026-10-19",
      "url": "https://www.youtube.com/watch?v=LaBiYw1ZKF4"
     },
@@ -7841,7 +7871,7 @@
      "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
      "channel": "채널A News",
      "views": 891652,
-     "views_per_day": 277778.8,
+     "views_per_day": 275565.5,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
     },
@@ -7850,7 +7880,7 @@
      "title": "AI bubble fears: Could a crash trigger a global financial crisis? | DW News",
      "channel": "DW News",
      "views": 1262899,
-     "views_per_day": 234093.8,
+     "views_per_day": 232980.4,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=tGRB8ECyEJ0"
     },
@@ -7859,7 +7889,7 @@
      "title": "[한눈에 경제] 빚내서 주식 샀는데 '강제 처분'…비명도 안 나오는 개미들 / KBS 2026.10.19.",
      "channel": "KBS News",
      "views": 523827,
-     "views_per_day": 229381.4,
+     "views_per_day": 226820.7,
      "published": "2026-10-19",
      "url": "https://www.youtube.com/watch?v=mC4ic5oiHRE"
     }
@@ -7868,8 +7898,8 @@
   {
    "weeks": 16,
    "label": "최근 16주",
-   "videos": 643,
-   "channels": 363,
+   "videos": 649,
+   "channels": 364,
    "new_this_week": [
     {
      "id": "8GzhXhRZsn0",
@@ -7902,353 +7932,12 @@
      "published": "2026-07-05"
     }
    ],
-   "views_median": 225687,
-   "views_per_day_median": 25012.7,
-   "ratio_median": 0.64,
+   "views_median": 224310,
+   "views_per_day_median": 24765.5,
+   "ratio_median": 0.63,
    "success": 155,
    "minutes_median": 19.2,
    "title_len_avg": 54.7,
-   "title_features": [
-    {
-     "name": "물음표 ?",
-     "count": 174,
-     "share": 0.271
-    },
-    {
-     "name": "S&P500·ETF·지수·나스닥",
-     "count": 112,
-     "share": 0.174
-    },
-    {
-     "name": "코스피·폭락·급락·하락장",
-     "count": 106,
-     "share": 0.165
-    },
-    {
-     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 78,
-     "share": 0.121
-    },
-    {
-     "name": "느낌표 !",
-     "count": 69,
-     "share": 0.107
-    },
-    {
-     "name": "이유",
-     "count": 61,
-     "share": 0.095
-    },
-    {
-     "name": "AI",
-     "count": 60,
-     "share": 0.093
-    },
-    {
-     "name": "금액(억·만원)",
-     "count": 38,
-     "share": 0.059
-    },
-    {
-     "name": "노후·퇴직금·은퇴·50~70대",
-     "count": 23,
-     "share": 0.036
-    },
-    {
-     "name": "vs 비교",
-     "count": 19,
-     "share": 0.03
-    },
-    {
-     "name": "N가지",
-     "count": 16,
-     "share": 0.025
-    },
-    {
-     "name": "손실 낱말(망하·날린·잃은·반토막)",
-     "count": 12,
-     "share": 0.019
-    },
-    {
-     "name": "직접·해보니·N년 기록",
-     "count": 10,
-     "share": 0.016
-    },
-    {
-     "name": "빚투·신용·미수·레버리지·대출",
-     "count": 9,
-     "share": 0.014
-    },
-    {
-     "name": "과정·벌어진 일·결말·결국",
-     "count": 7,
-     "share": 0.011
-    },
-    {
-     "name": "두 금액(반전)",
-     "count": 5,
-     "share": 0.008
-    }
-   ],
-   "title_words": [
-    {
-     "word": "이유",
-     "count": 58
-    },
-    {
-     "word": "코스피",
-     "count": 56
-    },
-    {
-     "word": "Market",
-     "count": 53
-    },
-    {
-     "word": "ETF",
-     "count": 49
-    },
-    {
-     "word": "Stocks",
-     "count": 48
-    },
-    {
-     "word": "주식",
-     "count": 47
-    },
-    {
-     "word": "Stock",
-     "count": 43
-    },
-    {
-     "word": "to",
-     "count": 38
-    },
-    {
-     "word": "대표",
-     "count": 35
-    },
-    {
-     "word": "S&P500",
-     "count": 33
-    }
-   ],
-   "transcripts": 23,
-   "text_sources": {
-    "자막": 9,
-    "음성인식": 14,
-    "설명": 587,
-    "없음": 33
-   },
-   "content_words": [
-    {
-     "word": "to",
-     "count": 195
-    },
-    {
-     "word": "in",
-     "count": 183
-    },
-    {
-     "word": "is",
-     "count": 182
-    },
-    {
-     "word": "of",
-     "count": 179
-    },
-    {
-     "word": "this",
-     "count": 163
-    },
-    {
-     "word": "on",
-     "count": 159
-    },
-    {
-     "word": "or",
-     "count": 147
-    },
-    {
-     "word": "are",
-     "count": 142
-    },
-    {
-     "word": "video",
-     "count": 136
-    },
-    {
-     "word": "not",
-     "count": 131
-    },
-    {
-     "word": "investment",
-     "count": 126
-    },
-    {
-     "word": "financial",
-     "count": 125
-    }
-   ],
-   "chapters_share": 0.384,
-   "syl_per_sec_median": 0.0,
-   "hooks": [
-    {
-     "id": "jk61l5VCSGM",
-     "title": "개인 투자자도 투자하기 좋은 시대⁉️ AI를 활용한 초특급 투자 전략 공개✨ #유퀴즈",
-     "src": "설명",
-     "hook": "매주 수요일 저녁 8시 45분 tvN에서! we’re :DIGGLE family"
-    },
-    {
-     "id": "LaBiYw1ZKF4",
-     "title": "Stocks Have Done THIS After Every Midterm Election Since 1950",
-     "src": "설명",
-     "hook": "⭐ See What I'm Investing In ⭐ Trade Alerts ⭐ Get Your Questions Answered ⭐ Join Our Private Chatroom ⭐ Exclusive Content About Markets 📘 My Book on Wealth-Build"
-    },
-    {
-     "id": "xQ8IpN0iQnU",
-     "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
-     "src": "설명",
-     "hook": "18일 에프앤가이드에 따르면, 지난 15일 기준 국민연금이 기분 5% 이상을 보유했다고 공시한 상장사 287곳의 주식 평가액이 333조 5330억 원으로 나타났습니다. 이는 지난 6월 말 기준 515조 9293억 원) 대비 182조 3963억 원(35.3%) 감소한 수치입니다. 사상 최"
-    }
-   ],
-   "comments": 251921,
-   "comment_needs": [
-    {
-     "name": "질문",
-     "count": 38265,
-     "share": 0.152
-    },
-    {
-     "name": "비판(가짜·AI·뻔함)",
-     "count": 25648,
-     "share": 0.102
-    },
-    {
-     "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 19186,
-     "share": 0.076
-    },
-    {
-     "name": "칭찬·감사",
-     "count": 13241,
-     "share": 0.053
-    },
-    {
-     "name": "2026 시장(폭락·불장·서킷)",
-     "count": 12889,
-     "share": 0.051
-    },
-    {
-     "name": "경험(내 얘기·나도 잃음)",
-     "count": 12761,
-     "share": 0.051
-    }
-   ],
-   "top_comments": [
-    {
-     "text": "The AI bubble just K-Popped.",
-     "likes": 16810
-    },
-    {
-     "text": "Thank god I was starting to have my own thoughts and opinions",
-     "likes": 12048
-    },
-    {
-     "text": "엄청 사연있는것처럼 연출하지만 결국 빚내서한 도박",
-     "likes": 7419
-    }
-   ],
-   "top_videos": [
-    {
-     "id": "jk61l5VCSGM",
-     "title": "개인 투자자도 투자하기 좋은 시대⁉️ AI를 활용한 초특급 투자 전략 공개✨ #유퀴즈",
-     "channel": "디글 클래식 :Diggle Classic",
-     "views": 2433812,
-     "views_per_day": 390754.8,
-     "published": "2026-10-15",
-     "url": "https://www.youtube.com/watch?v=jk61l5VCSGM"
-    },
-    {
-     "id": "LaBiYw1ZKF4",
-     "title": "Stocks Have Done THIS After Every Midterm Election Since 1950",
-     "channel": "ClearValue Tax",
-     "views": 528835,
-     "views_per_day": 313576.4,
-     "published": "2026-10-19",
-     "url": "https://www.youtube.com/watch?v=LaBiYw1ZKF4"
-    },
-    {
-     "id": "xQ8IpN0iQnU",
-     "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
-     "channel": "채널A News",
-     "views": 891652,
-     "views_per_day": 277778.8,
-     "published": "2026-10-18",
-     "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
-    },
-    {
-     "id": "tGRB8ECyEJ0",
-     "title": "AI bubble fears: Could a crash trigger a global financial crisis? | DW News",
-     "channel": "DW News",
-     "views": 1262899,
-     "views_per_day": 234093.8,
-     "published": "2026-10-15",
-     "url": "https://www.youtube.com/watch?v=tGRB8ECyEJ0"
-    },
-    {
-     "id": "mC4ic5oiHRE",
-     "title": "[한눈에 경제] 빚내서 주식 샀는데 '강제 처분'…비명도 안 나오는 개미들 / KBS 2026.10.19.",
-     "channel": "KBS News",
-     "views": 523827,
-     "views_per_day": 229381.4,
-     "published": "2026-10-19",
-     "url": "https://www.youtube.com/watch?v=mC4ic5oiHRE"
-    }
-   ]
-  },
-  {
-   "weeks": 17,
-   "label": "최근 17주",
-   "videos": 649,
-   "channels": 367,
-   "new_this_week": [
-    {
-     "id": "2G0epuL2UbI",
-     "title": "원금 손실 우려 없는 최고의 커버드콜 ETF를 드디어 찾았습니다",
-     "published": "2026-06-28"
-    },
-    {
-     "id": "JJG1mtkTN6g",
-     "title": "삼성전자 지금 시작인가? 노무라가 목표주가 67만원 제시한 이유가 소름입니다... 여기서 90% 더 오를 수 있다? 상승 전망 전부 분석했습니다 #삼성전자 #삼성전자주가전망",
-     "published": "2026-06-27"
-    },
-    {
-     "id": "KTtJsYSySo8",
-     "title": "한국 아파트 싹 다 물갈이 된다, 2027년부터 집값 무서울 겁니다 (김진 앵커 풀버전)",
-     "published": "2026-06-28"
-    },
-    {
-     "id": "QTrCmMxmAdg",
-     "title": "라오어님의 TQQQ, SOXL 무한매수법 정말 좋아합니다(QQQ, QLD, TQQQ, SOXL)",
-     "published": "2026-07-01"
-    },
-    {
-     "id": "SKogeS0bYpM",
-     "title": "코스피 9,000에도 웃지 못하는 | 고독한 ITZY(있지) 팬미팅 [ENG]",
-     "published": "2026-06-26"
-    },
-    {
-     "id": "knblsnwXsfg",
-     "title": "단타 천재가 개발한 초간단 매매법(기본 차트 분석법)",
-     "published": "2026-06-26"
-    }
-   ],
-   "views_median": 224810,
-   "views_per_day_median": 24866.6,
-   "ratio_median": 0.65,
-   "success": 160,
-   "minutes_median": 19.2,
-   "title_len_avg": 54.6,
    "title_features": [
     {
      "name": "물음표 ?",
@@ -8267,8 +7956,8 @@
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 79,
-     "share": 0.122
+     "count": 78,
+     "share": 0.12
     },
     {
      "name": "느낌표 !",
@@ -8277,18 +7966,18 @@
     },
     {
      "name": "이유",
-     "count": 62,
-     "share": 0.096
+     "count": 61,
+     "share": 0.094
     },
     {
      "name": "AI",
-     "count": 60,
-     "share": 0.092
+     "count": 61,
+     "share": 0.094
     },
     {
      "name": "금액(억·만원)",
-     "count": 39,
-     "share": 0.06
+     "count": 38,
+     "share": 0.059
     },
     {
      "name": "노후·퇴직금·은퇴·50~70대",
@@ -8366,7 +8055,7 @@
     },
     {
      "word": "대표",
-     "count": 35
+     "count": 36
     },
     {
      "word": "S&P500",
@@ -8377,13 +8066,13 @@
    "text_sources": {
     "자막": 9,
     "음성인식": 14,
-    "설명": 592,
-    "없음": 34
+    "설명": 593,
+    "없음": 33
    },
    "content_words": [
     {
      "word": "to",
-     "count": 195
+     "count": 196
     },
     {
      "word": "in",
@@ -8430,7 +8119,7 @@
      "count": 125
     }
    ],
-   "chapters_share": 0.384,
+   "chapters_share": 0.382,
    "syl_per_sec_median": 0.0,
    "hooks": [
     {
@@ -8452,36 +8141,36 @@
      "hook": "18일 에프앤가이드에 따르면, 지난 15일 기준 국민연금이 기분 5% 이상을 보유했다고 공시한 상장사 287곳의 주식 평가액이 333조 5330억 원으로 나타났습니다. 이는 지난 6월 말 기준 515조 9293억 원) 대비 182조 3963억 원(35.3%) 감소한 수치입니다. 사상 최"
     }
    ],
-   "comments": 255753,
+   "comments": 252891,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 38887,
+     "count": 38430,
      "share": 0.152
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 25763,
-     "share": 0.101
+     "count": 25694,
+     "share": 0.102
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 19466,
+     "count": 19272,
      "share": 0.076
     },
     {
      "name": "칭찬·감사",
-     "count": 13433,
+     "count": 13306,
      "share": 0.053
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 12949,
-     "share": 0.051
+     "count": 13043,
+     "share": 0.052
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 12926,
+     "count": 12815,
      "share": 0.051
     }
    ],
@@ -8505,7 +8194,7 @@
      "title": "개인 투자자도 투자하기 좋은 시대⁉️ AI를 활용한 초특급 투자 전략 공개✨ #유퀴즈",
      "channel": "디글 클래식 :Diggle Classic",
      "views": 2433812,
-     "views_per_day": 390754.8,
+     "views_per_day": 389144.1,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=jk61l5VCSGM"
     },
@@ -8514,7 +8203,7 @@
      "title": "Stocks Have Done THIS After Every Midterm Election Since 1950",
      "channel": "ClearValue Tax",
      "views": 528835,
-     "views_per_day": 313576.4,
+     "views_per_day": 308854.9,
      "published": "2026-10-19",
      "url": "https://www.youtube.com/watch?v=LaBiYw1ZKF4"
     },
@@ -8523,7 +8212,7 @@
      "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
      "channel": "채널A News",
      "views": 891652,
-     "views_per_day": 277778.8,
+     "views_per_day": 275565.5,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
     },
@@ -8532,7 +8221,7 @@
      "title": "AI bubble fears: Could a crash trigger a global financial crisis? | DW News",
      "channel": "DW News",
      "views": 1262899,
-     "views_per_day": 234093.8,
+     "views_per_day": 232980.4,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=tGRB8ECyEJ0"
     },
@@ -8541,7 +8230,348 @@
      "title": "[한눈에 경제] 빚내서 주식 샀는데 '강제 처분'…비명도 안 나오는 개미들 / KBS 2026.10.19.",
      "channel": "KBS News",
      "views": 523827,
-     "views_per_day": 229381.4,
+     "views_per_day": 226820.7,
+     "published": "2026-10-19",
+     "url": "https://www.youtube.com/watch?v=mC4ic5oiHRE"
+    }
+   ]
+  },
+  {
+   "weeks": 17,
+   "label": "최근 17주",
+   "videos": 655,
+   "channels": 368,
+   "new_this_week": [
+    {
+     "id": "2G0epuL2UbI",
+     "title": "원금 손실 우려 없는 최고의 커버드콜 ETF를 드디어 찾았습니다",
+     "published": "2026-06-28"
+    },
+    {
+     "id": "JJG1mtkTN6g",
+     "title": "삼성전자 지금 시작인가? 노무라가 목표주가 67만원 제시한 이유가 소름입니다... 여기서 90% 더 오를 수 있다? 상승 전망 전부 분석했습니다 #삼성전자 #삼성전자주가전망",
+     "published": "2026-06-27"
+    },
+    {
+     "id": "KTtJsYSySo8",
+     "title": "한국 아파트 싹 다 물갈이 된다, 2027년부터 집값 무서울 겁니다 (김진 앵커 풀버전)",
+     "published": "2026-06-28"
+    },
+    {
+     "id": "QTrCmMxmAdg",
+     "title": "라오어님의 TQQQ, SOXL 무한매수법 정말 좋아합니다(QQQ, QLD, TQQQ, SOXL)",
+     "published": "2026-07-01"
+    },
+    {
+     "id": "SKogeS0bYpM",
+     "title": "코스피 9,000에도 웃지 못하는 | 고독한 ITZY(있지) 팬미팅 [ENG]",
+     "published": "2026-06-26"
+    },
+    {
+     "id": "knblsnwXsfg",
+     "title": "단타 천재가 개발한 초간단 매매법(기본 차트 분석법)",
+     "published": "2026-06-26"
+    }
+   ],
+   "views_median": 221842,
+   "views_per_day_median": 24671.8,
+   "ratio_median": 0.64,
+   "success": 160,
+   "minutes_median": 19.2,
+   "title_len_avg": 54.6,
+   "title_features": [
+    {
+     "name": "물음표 ?",
+     "count": 176,
+     "share": 0.269
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 114,
+     "share": 0.174
+    },
+    {
+     "name": "코스피·폭락·급락·하락장",
+     "count": 108,
+     "share": 0.165
+    },
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 79,
+     "share": 0.121
+    },
+    {
+     "name": "느낌표 !",
+     "count": 69,
+     "share": 0.105
+    },
+    {
+     "name": "이유",
+     "count": 62,
+     "share": 0.095
+    },
+    {
+     "name": "AI",
+     "count": 61,
+     "share": 0.093
+    },
+    {
+     "name": "금액(억·만원)",
+     "count": 39,
+     "share": 0.06
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 23,
+     "share": 0.035
+    },
+    {
+     "name": "vs 비교",
+     "count": 19,
+     "share": 0.029
+    },
+    {
+     "name": "N가지",
+     "count": 16,
+     "share": 0.024
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 12,
+     "share": 0.018
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 10,
+     "share": 0.015
+    },
+    {
+     "name": "빚투·신용·미수·레버리지·대출",
+     "count": 9,
+     "share": 0.014
+    },
+    {
+     "name": "과정·벌어진 일·결말·결국",
+     "count": 7,
+     "share": 0.011
+    },
+    {
+     "name": "두 금액(반전)",
+     "count": 5,
+     "share": 0.008
+    }
+   ],
+   "title_words": [
+    {
+     "word": "코스피",
+     "count": 58
+    },
+    {
+     "word": "이유",
+     "count": 58
+    },
+    {
+     "word": "Market",
+     "count": 53
+    },
+    {
+     "word": "ETF",
+     "count": 49
+    },
+    {
+     "word": "Stocks",
+     "count": 48
+    },
+    {
+     "word": "주식",
+     "count": 47
+    },
+    {
+     "word": "Stock",
+     "count": 43
+    },
+    {
+     "word": "to",
+     "count": 38
+    },
+    {
+     "word": "대표",
+     "count": 36
+    },
+    {
+     "word": "S&P500",
+     "count": 33
+    }
+   ],
+   "transcripts": 23,
+   "text_sources": {
+    "자막": 9,
+    "음성인식": 14,
+    "설명": 598,
+    "없음": 34
+   },
+   "content_words": [
+    {
+     "word": "to",
+     "count": 196
+    },
+    {
+     "word": "in",
+     "count": 183
+    },
+    {
+     "word": "is",
+     "count": 182
+    },
+    {
+     "word": "of",
+     "count": 179
+    },
+    {
+     "word": "this",
+     "count": 163
+    },
+    {
+     "word": "on",
+     "count": 159
+    },
+    {
+     "word": "or",
+     "count": 147
+    },
+    {
+     "word": "are",
+     "count": 142
+    },
+    {
+     "word": "video",
+     "count": 136
+    },
+    {
+     "word": "not",
+     "count": 131
+    },
+    {
+     "word": "investment",
+     "count": 126
+    },
+    {
+     "word": "financial",
+     "count": 125
+    }
+   ],
+   "chapters_share": 0.382,
+   "syl_per_sec_median": 0.0,
+   "hooks": [
+    {
+     "id": "jk61l5VCSGM",
+     "title": "개인 투자자도 투자하기 좋은 시대⁉️ AI를 활용한 초특급 투자 전략 공개✨ #유퀴즈",
+     "src": "설명",
+     "hook": "매주 수요일 저녁 8시 45분 tvN에서! we’re :DIGGLE family"
+    },
+    {
+     "id": "LaBiYw1ZKF4",
+     "title": "Stocks Have Done THIS After Every Midterm Election Since 1950",
+     "src": "설명",
+     "hook": "⭐ See What I'm Investing In ⭐ Trade Alerts ⭐ Get Your Questions Answered ⭐ Join Our Private Chatroom ⭐ Exclusive Content About Markets 📘 My Book on Wealth-Build"
+    },
+    {
+     "id": "xQ8IpN0iQnU",
+     "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
+     "src": "설명",
+     "hook": "18일 에프앤가이드에 따르면, 지난 15일 기준 국민연금이 기분 5% 이상을 보유했다고 공시한 상장사 287곳의 주식 평가액이 333조 5330억 원으로 나타났습니다. 이는 지난 6월 말 기준 515조 9293억 원) 대비 182조 3963억 원(35.3%) 감소한 수치입니다. 사상 최"
+    }
+   ],
+   "comments": 256723,
+   "comment_needs": [
+    {
+     "name": "질문",
+     "count": 39052,
+     "share": 0.152
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 25809,
+     "share": 0.101
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 19552,
+     "share": 0.076
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 13498,
+     "share": 0.053
+    },
+    {
+     "name": "2026 시장(폭락·불장·서킷)",
+     "count": 13103,
+     "share": 0.051
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 12980,
+     "share": 0.051
+    }
+   ],
+   "top_comments": [
+    {
+     "text": "The AI bubble just K-Popped.",
+     "likes": 16810
+    },
+    {
+     "text": "Thank god I was starting to have my own thoughts and opinions",
+     "likes": 12048
+    },
+    {
+     "text": "엄청 사연있는것처럼 연출하지만 결국 빚내서한 도박",
+     "likes": 7419
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "jk61l5VCSGM",
+     "title": "개인 투자자도 투자하기 좋은 시대⁉️ AI를 활용한 초특급 투자 전략 공개✨ #유퀴즈",
+     "channel": "디글 클래식 :Diggle Classic",
+     "views": 2433812,
+     "views_per_day": 389144.1,
+     "published": "2026-10-15",
+     "url": "https://www.youtube.com/watch?v=jk61l5VCSGM"
+    },
+    {
+     "id": "LaBiYw1ZKF4",
+     "title": "Stocks Have Done THIS After Every Midterm Election Since 1950",
+     "channel": "ClearValue Tax",
+     "views": 528835,
+     "views_per_day": 308854.9,
+     "published": "2026-10-19",
+     "url": "https://www.youtube.com/watch?v=LaBiYw1ZKF4"
+    },
+    {
+     "id": "xQ8IpN0iQnU",
+     "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
+     "channel": "채널A News",
+     "views": 891652,
+     "views_per_day": 275565.5,
+     "published": "2026-10-18",
+     "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
+    },
+    {
+     "id": "tGRB8ECyEJ0",
+     "title": "AI bubble fears: Could a crash trigger a global financial crisis? | DW News",
+     "channel": "DW News",
+     "views": 1262899,
+     "views_per_day": 232980.4,
+     "published": "2026-10-15",
+     "url": "https://www.youtube.com/watch?v=tGRB8ECyEJ0"
+    },
+    {
+     "id": "mC4ic5oiHRE",
+     "title": "[한눈에 경제] 빚내서 주식 샀는데 '강제 처분'…비명도 안 나오는 개미들 / KBS 2026.10.19.",
+     "channel": "KBS News",
+     "views": 523827,
+     "views_per_day": 226820.7,
      "published": "2026-10-19",
      "url": "https://www.youtube.com/watch?v=mC4ic5oiHRE"
     }
@@ -8550,8 +8580,8 @@
   {
    "weeks": 18,
    "label": "최근 18주",
-   "videos": 656,
-   "channels": 370,
+   "videos": 662,
+   "channels": 371,
    "new_this_week": [
     {
      "id": "0ftjA5wsqtQ",
@@ -8589,52 +8619,52 @@
      "published": "2026-06-20"
     }
    ],
-   "views_median": 225248.5,
-   "views_per_day_median": 24566.05,
+   "views_median": 223076.0,
+   "views_per_day_median": 24210.65,
    "ratio_median": 0.65,
    "success": 165,
-   "minutes_median": 19.1,
+   "minutes_median": 19.15,
    "title_len_avg": 54.7,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 179,
-     "share": 0.273
+     "count": 180,
+     "share": 0.272
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
-     "count": 115,
+     "count": 116,
      "share": 0.175
     },
     {
      "name": "코스피·폭락·급락·하락장",
-     "count": 107,
+     "count": 108,
      "share": 0.163
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 80,
-     "share": 0.122
+     "share": 0.121
     },
     {
      "name": "느낌표 !",
      "count": 71,
-     "share": 0.108
+     "share": 0.107
+    },
+    {
+     "name": "AI",
+     "count": 63,
+     "share": 0.095
     },
     {
      "name": "이유",
      "count": 62,
-     "share": 0.095
-    },
-    {
-     "name": "AI",
-     "count": 62,
-     "share": 0.095
+     "share": 0.094
     },
     {
      "name": "금액(억·만원)",
      "count": 40,
-     "share": 0.061
+     "share": 0.06
     },
     {
      "name": "노후·퇴직금·은퇴·50~70대",
@@ -8679,12 +8709,12 @@
    ],
    "title_words": [
     {
-     "word": "이유",
+     "word": "코스피",
      "count": 58
     },
     {
-     "word": "코스피",
-     "count": 57
+     "word": "이유",
+     "count": 58
     },
     {
      "word": "Market",
@@ -8712,7 +8742,7 @@
     },
     {
      "word": "대표",
-     "count": 36
+     "count": 37
     },
     {
      "word": "S&P500",
@@ -8723,13 +8753,13 @@
    "text_sources": {
     "자막": 11,
     "음성인식": 15,
-    "설명": 596,
+    "설명": 602,
     "없음": 34
    },
    "content_words": [
     {
      "word": "to",
-     "count": 197
+     "count": 198
     },
     {
      "word": "in",
@@ -8776,7 +8806,7 @@
      "count": 127
     }
    ],
-   "chapters_share": 0.384,
+   "chapters_share": 0.382,
    "syl_per_sec_median": 0.0,
    "hooks": [
     {
@@ -8798,36 +8828,36 @@
      "hook": "18일 에프앤가이드에 따르면, 지난 15일 기준 국민연금이 기분 5% 이상을 보유했다고 공시한 상장사 287곳의 주식 평가액이 333조 5330억 원으로 나타났습니다. 이는 지난 6월 말 기준 515조 9293억 원) 대비 182조 3963억 원(35.3%) 감소한 수치입니다. 사상 최"
     }
    ],
-   "comments": 258536,
+   "comments": 259506,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 39475,
+     "count": 39640,
      "share": 0.153
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 26058,
+     "count": 26104,
      "share": 0.101
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 19735,
+     "count": 19821,
      "share": 0.076
     },
     {
      "name": "칭찬·감사",
-     "count": 13734,
+     "count": 13799,
      "share": 0.053
     },
     {
-     "name": "경험(내 얘기·나도 잃음)",
-     "count": 13128,
+     "name": "2026 시장(폭락·불장·서킷)",
+     "count": 13253,
      "share": 0.051
     },
     {
-     "name": "2026 시장(폭락·불장·서킷)",
-     "count": 13099,
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 13182,
      "share": 0.051
     }
    ],
@@ -8851,7 +8881,7 @@
      "title": "개인 투자자도 투자하기 좋은 시대⁉️ AI를 활용한 초특급 투자 전략 공개✨ #유퀴즈",
      "channel": "디글 클래식 :Diggle Classic",
      "views": 2433812,
-     "views_per_day": 390754.8,
+     "views_per_day": 389144.1,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=jk61l5VCSGM"
     },
@@ -8860,7 +8890,7 @@
      "title": "Stocks Have Done THIS After Every Midterm Election Since 1950",
      "channel": "ClearValue Tax",
      "views": 528835,
-     "views_per_day": 313576.4,
+     "views_per_day": 308854.9,
      "published": "2026-10-19",
      "url": "https://www.youtube.com/watch?v=LaBiYw1ZKF4"
     },
@@ -8869,7 +8899,7 @@
      "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
      "channel": "채널A News",
      "views": 891652,
-     "views_per_day": 277778.8,
+     "views_per_day": 275565.5,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
     },
@@ -8878,7 +8908,7 @@
      "title": "AI bubble fears: Could a crash trigger a global financial crisis? | DW News",
      "channel": "DW News",
      "views": 1262899,
-     "views_per_day": 234093.8,
+     "views_per_day": 232980.4,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=tGRB8ECyEJ0"
     },
@@ -8887,7 +8917,7 @@
      "title": "[한눈에 경제] 빚내서 주식 샀는데 '강제 처분'…비명도 안 나오는 개미들 / KBS 2026.10.19.",
      "channel": "KBS News",
      "views": 523827,
-     "views_per_day": 229381.4,
+     "views_per_day": 226820.7,
      "published": "2026-10-19",
      "url": "https://www.youtube.com/watch?v=mC4ic5oiHRE"
     }
@@ -8896,8 +8926,8 @@
   {
    "weeks": 19,
    "label": "최근 19주",
-   "videos": 660,
-   "channels": 371,
+   "videos": 666,
+   "channels": 372,
    "new_this_week": [
     {
      "id": "2hoDeWXy9M8",
@@ -8920,52 +8950,52 @@
      "published": "2026-06-15"
     }
    ],
-   "views_median": 224574.0,
-   "views_per_day_median": 24354.65,
-   "ratio_median": 0.66,
+   "views_median": 221579.5,
+   "views_per_day_median": 24188.05,
+   "ratio_median": 0.65,
    "success": 169,
-   "minutes_median": 19.15,
+   "minutes_median": 19.2,
    "title_len_avg": 54.7,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 179,
-     "share": 0.271
+     "count": 180,
+     "share": 0.27
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
-     "count": 115,
+     "count": 116,
      "share": 0.174
     },
     {
      "name": "코스피·폭락·급락·하락장",
-     "count": 107,
+     "count": 108,
      "share": 0.162
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 81,
-     "share": 0.123
+     "share": 0.122
     },
     {
      "name": "느낌표 !",
      "count": 71,
-     "share": 0.108
+     "share": 0.107
+    },
+    {
+     "name": "AI",
+     "count": 63,
+     "share": 0.095
     },
     {
      "name": "이유",
      "count": 62,
-     "share": 0.094
-    },
-    {
-     "name": "AI",
-     "count": 62,
-     "share": 0.094
+     "share": 0.093
     },
     {
      "name": "금액(억·만원)",
      "count": 40,
-     "share": 0.061
+     "share": 0.06
     },
     {
      "name": "노후·퇴직금·은퇴·50~70대",
@@ -9010,12 +9040,12 @@
    ],
    "title_words": [
     {
-     "word": "이유",
+     "word": "코스피",
      "count": 58
     },
     {
-     "word": "코스피",
-     "count": 57
+     "word": "이유",
+     "count": 58
     },
     {
      "word": "Market",
@@ -9043,7 +9073,7 @@
     },
     {
      "word": "대표",
-     "count": 36
+     "count": 37
     },
     {
      "word": "S&P500",
@@ -9054,13 +9084,13 @@
    "text_sources": {
     "자막": 14,
     "음성인식": 15,
-    "설명": 597,
+    "설명": 603,
     "없음": 34
    },
    "content_words": [
     {
      "word": "to",
-     "count": 198
+     "count": 199
     },
     {
      "word": "in",
@@ -9107,7 +9137,7 @@
      "count": 128
     }
    ],
-   "chapters_share": 0.385,
+   "chapters_share": 0.383,
    "syl_per_sec_median": 2.62,
    "hooks": [
     {
@@ -9129,36 +9159,36 @@
      "hook": "18일 에프앤가이드에 따르면, 지난 15일 기준 국민연금이 기분 5% 이상을 보유했다고 공시한 상장사 287곳의 주식 평가액이 333조 5330억 원으로 나타났습니다. 이는 지난 6월 말 기준 515조 9293억 원) 대비 182조 3963억 원(35.3%) 감소한 수치입니다. 사상 최"
     }
    ],
-   "comments": 259683,
+   "comments": 260653,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 39720,
+     "count": 39885,
      "share": 0.153
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 26132,
-     "share": 0.101
+     "count": 26178,
+     "share": 0.1
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 19853,
+     "count": 19939,
      "share": 0.076
     },
     {
      "name": "칭찬·감사",
-     "count": 13832,
+     "count": 13897,
      "share": 0.053
     },
     {
-     "name": "경험(내 얘기·나도 잃음)",
-     "count": 13184,
+     "name": "2026 시장(폭락·불장·서킷)",
+     "count": 13283,
      "share": 0.051
     },
     {
-     "name": "2026 시장(폭락·불장·서킷)",
-     "count": 13129,
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 13238,
      "share": 0.051
     }
    ],
@@ -9182,7 +9212,7 @@
      "title": "개인 투자자도 투자하기 좋은 시대⁉️ AI를 활용한 초특급 투자 전략 공개✨ #유퀴즈",
      "channel": "디글 클래식 :Diggle Classic",
      "views": 2433812,
-     "views_per_day": 390754.8,
+     "views_per_day": 389144.1,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=jk61l5VCSGM"
     },
@@ -9191,7 +9221,7 @@
      "title": "Stocks Have Done THIS After Every Midterm Election Since 1950",
      "channel": "ClearValue Tax",
      "views": 528835,
-     "views_per_day": 313576.4,
+     "views_per_day": 308854.9,
      "published": "2026-10-19",
      "url": "https://www.youtube.com/watch?v=LaBiYw1ZKF4"
     },
@@ -9200,7 +9230,7 @@
      "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
      "channel": "채널A News",
      "views": 891652,
-     "views_per_day": 277778.8,
+     "views_per_day": 275565.5,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
     },
@@ -9209,7 +9239,7 @@
      "title": "AI bubble fears: Could a crash trigger a global financial crisis? | DW News",
      "channel": "DW News",
      "views": 1262899,
-     "views_per_day": 234093.8,
+     "views_per_day": 232980.4,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=tGRB8ECyEJ0"
     },
@@ -9218,7 +9248,7 @@
      "title": "[한눈에 경제] 빚내서 주식 샀는데 '강제 처분'…비명도 안 나오는 개미들 / KBS 2026.10.19.",
      "channel": "KBS News",
      "views": 523827,
-     "views_per_day": 229381.4,
+     "views_per_day": 226820.7,
      "published": "2026-10-19",
      "url": "https://www.youtube.com/watch?v=mC4ic5oiHRE"
     }
@@ -9227,8 +9257,8 @@
   {
    "weeks": 20,
    "label": "최근 20주",
-   "videos": 664,
-   "channels": 375,
+   "videos": 670,
+   "channels": 376,
    "new_this_week": [
     {
      "id": "3fmFpSlxHIc",
@@ -9251,45 +9281,45 @@
      "published": "2026-06-07"
     }
    ],
-   "views_median": 224574.0,
-   "views_per_day_median": 24264.8,
-   "ratio_median": 0.67,
+   "views_median": 221579.5,
+   "views_per_day_median": 24021.6,
+   "ratio_median": 0.66,
    "success": 171,
-   "minutes_median": 19.15,
+   "minutes_median": 19.2,
    "title_len_avg": 54.6,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 179,
-     "share": 0.27
+     "count": 180,
+     "share": 0.269
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
-     "count": 115,
+     "count": 116,
      "share": 0.173
     },
     {
      "name": "코스피·폭락·급락·하락장",
-     "count": 107,
+     "count": 108,
      "share": 0.161
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 82,
-     "share": 0.123
+     "share": 0.122
     },
     {
      "name": "느낌표 !",
      "count": 71,
-     "share": 0.107
-    },
-    {
-     "name": "이유",
-     "count": 62,
-     "share": 0.093
+     "share": 0.106
     },
     {
      "name": "AI",
+     "count": 63,
+     "share": 0.094
+    },
+    {
+     "name": "이유",
      "count": 62,
      "share": 0.093
     },
@@ -9301,7 +9331,7 @@
     {
      "name": "노후·퇴직금·은퇴·50~70대",
      "count": 23,
-     "share": 0.035
+     "share": 0.034
     },
     {
      "name": "vs 비교",
@@ -9311,7 +9341,7 @@
     {
      "name": "N가지",
      "count": 19,
-     "share": 0.029
+     "share": 0.028
     },
     {
      "name": "손실 낱말(망하·날린·잃은·반토막)",
@@ -9321,37 +9351,37 @@
     {
      "name": "직접·해보니·N년 기록",
      "count": 11,
-     "share": 0.017
+     "share": 0.016
     },
     {
      "name": "빚투·신용·미수·레버리지·대출",
      "count": 9,
-     "share": 0.014
+     "share": 0.013
     },
     {
      "name": "과정·벌어진 일·결말·결국",
      "count": 7,
-     "share": 0.011
+     "share": 0.01
     },
     {
      "name": "두 금액(반전)",
      "count": 5,
-     "share": 0.008
+     "share": 0.007
     },
     {
      "name": "공통점",
      "count": 1,
-     "share": 0.002
+     "share": 0.001
     }
    ],
    "title_words": [
     {
-     "word": "이유",
+     "word": "코스피",
      "count": 58
     },
     {
-     "word": "코스피",
-     "count": 57
+     "word": "이유",
+     "count": 58
     },
     {
      "word": "Market",
@@ -9379,7 +9409,7 @@
     },
     {
      "word": "대표",
-     "count": 36
+     "count": 37
     },
     {
      "word": "S&P500",
@@ -9390,13 +9420,13 @@
    "text_sources": {
     "자막": 14,
     "음성인식": 15,
-    "설명": 601,
+    "설명": 607,
     "없음": 34
    },
    "content_words": [
     {
      "word": "to",
-     "count": 200
+     "count": 201
     },
     {
      "word": "in",
@@ -9443,7 +9473,7 @@
      "count": 129
     }
    ],
-   "chapters_share": 0.386,
+   "chapters_share": 0.384,
    "syl_per_sec_median": 2.62,
    "hooks": [
     {
@@ -9465,36 +9495,36 @@
      "hook": "18일 에프앤가이드에 따르면, 지난 15일 기준 국민연금이 기분 5% 이상을 보유했다고 공시한 상장사 287곳의 주식 평가액이 333조 5330억 원으로 나타났습니다. 이는 지난 6월 말 기준 515조 9293억 원) 대비 182조 3963억 원(35.3%) 감소한 수치입니다. 사상 최"
     }
    ],
-   "comments": 268964,
+   "comments": 269934,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 40333,
+     "count": 40498,
      "share": 0.15
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 29968,
+     "count": 30014,
      "share": 0.111
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 19904,
+     "count": 19990,
      "share": 0.074
     },
     {
      "name": "칭찬·감사",
-     "count": 13843,
-     "share": 0.051
+     "count": 13908,
+     "share": 0.052
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 13275,
+     "count": 13329,
      "share": 0.049
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 13141,
+     "count": 13295,
      "share": 0.049
     }
    ],
@@ -9518,7 +9548,7 @@
      "title": "개인 투자자도 투자하기 좋은 시대⁉️ AI를 활용한 초특급 투자 전략 공개✨ #유퀴즈",
      "channel": "디글 클래식 :Diggle Classic",
      "views": 2433812,
-     "views_per_day": 390754.8,
+     "views_per_day": 389144.1,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=jk61l5VCSGM"
     },
@@ -9527,7 +9557,7 @@
      "title": "Stocks Have Done THIS After Every Midterm Election Since 1950",
      "channel": "ClearValue Tax",
      "views": 528835,
-     "views_per_day": 313576.4,
+     "views_per_day": 308854.9,
      "published": "2026-10-19",
      "url": "https://www.youtube.com/watch?v=LaBiYw1ZKF4"
     },
@@ -9536,7 +9566,7 @@
      "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
      "channel": "채널A News",
      "views": 891652,
-     "views_per_day": 277778.8,
+     "views_per_day": 275565.5,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
     },
@@ -9545,7 +9575,7 @@
      "title": "AI bubble fears: Could a crash trigger a global financial crisis? | DW News",
      "channel": "DW News",
      "views": 1262899,
-     "views_per_day": 234093.8,
+     "views_per_day": 232980.4,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=tGRB8ECyEJ0"
     },
@@ -9554,7 +9584,7 @@
      "title": "[한눈에 경제] 빚내서 주식 샀는데 '강제 처분'…비명도 안 나오는 개미들 / KBS 2026.10.19.",
      "channel": "KBS News",
      "views": 523827,
-     "views_per_day": 229381.4,
+     "views_per_day": 226820.7,
      "published": "2026-10-19",
      "url": "https://www.youtube.com/watch?v=mC4ic5oiHRE"
     }
@@ -9563,8 +9593,8 @@
   {
    "weeks": 21,
    "label": "최근 21주",
-   "videos": 670,
-   "channels": 379,
+   "videos": 676,
+   "channels": 380,
    "new_this_week": [
     {
      "id": "55hFmXD0lh0",
@@ -9597,47 +9627,47 @@
      "published": "2026-05-31"
     }
    ],
-   "views_median": 224574.0,
-   "views_per_day_median": 24139.95,
+   "views_median": 221579.5,
+   "views_per_day_median": 23928.75,
    "ratio_median": 0.67,
    "success": 177,
-   "minutes_median": 19.1,
-   "title_len_avg": 54.5,
+   "minutes_median": 19.15,
+   "title_len_avg": 54.6,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 181,
-     "share": 0.27
+     "count": 182,
+     "share": 0.269
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
-     "count": 118,
+     "count": 119,
      "share": 0.176
     },
     {
      "name": "코스피·폭락·급락·하락장",
-     "count": 107,
+     "count": 108,
      "share": 0.16
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 83,
-     "share": 0.124
+     "share": 0.123
     },
     {
      "name": "느낌표 !",
      "count": 73,
-     "share": 0.109
+     "share": 0.108
+    },
+    {
+     "name": "AI",
+     "count": 64,
+     "share": 0.095
     },
     {
      "name": "이유",
      "count": 63,
-     "share": 0.094
-    },
-    {
-     "name": "AI",
-     "count": 63,
-     "share": 0.094
+     "share": 0.093
     },
     {
      "name": "금액(억·만원)",
@@ -9697,7 +9727,7 @@
     },
     {
      "word": "코스피",
-     "count": 57
+     "count": 58
     },
     {
      "word": "Market",
@@ -9725,7 +9755,7 @@
     },
     {
      "word": "대표",
-     "count": 36
+     "count": 37
     },
     {
      "word": "S&P500",
@@ -9736,20 +9766,20 @@
    "text_sources": {
     "자막": 14,
     "음성인식": 15,
-    "설명": 607,
+    "설명": 613,
     "없음": 34
    },
    "content_words": [
     {
      "word": "to",
-     "count": 201
-    },
-    {
-     "word": "in",
-     "count": 187
+     "count": 202
     },
     {
      "word": "is",
+     "count": 187
+    },
+    {
+     "word": "in",
      "count": 187
     },
     {
@@ -9789,7 +9819,7 @@
      "count": 129
     }
    ],
-   "chapters_share": 0.39,
+   "chapters_share": 0.388,
    "syl_per_sec_median": 2.62,
    "hooks": [
     {
@@ -9811,36 +9841,36 @@
      "hook": "18일 에프앤가이드에 따르면, 지난 15일 기준 국민연금이 기분 5% 이상을 보유했다고 공시한 상장사 287곳의 주식 평가액이 333조 5330억 원으로 나타났습니다. 이는 지난 6월 말 기준 515조 9293억 원) 대비 182조 3963억 원(35.3%) 감소한 수치입니다. 사상 최"
     }
    ],
-   "comments": 272110,
+   "comments": 273080,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 40875,
+     "count": 41040,
      "share": 0.15
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 30062,
+     "count": 30108,
      "share": 0.11
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 20188,
+     "count": 20274,
      "share": 0.074
     },
     {
      "name": "칭찬·감사",
-     "count": 14623,
+     "count": 14688,
      "share": 0.054
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 13416,
+     "count": 13470,
      "share": 0.049
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 13201,
+     "count": 13355,
      "share": 0.049
     }
    ],
@@ -9864,7 +9894,7 @@
      "title": "개인 투자자도 투자하기 좋은 시대⁉️ AI를 활용한 초특급 투자 전략 공개✨ #유퀴즈",
      "channel": "디글 클래식 :Diggle Classic",
      "views": 2433812,
-     "views_per_day": 390754.8,
+     "views_per_day": 389144.1,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=jk61l5VCSGM"
     },
@@ -9873,7 +9903,7 @@
      "title": "Stocks Have Done THIS After Every Midterm Election Since 1950",
      "channel": "ClearValue Tax",
      "views": 528835,
-     "views_per_day": 313576.4,
+     "views_per_day": 308854.9,
      "published": "2026-10-19",
      "url": "https://www.youtube.com/watch?v=LaBiYw1ZKF4"
     },
@@ -9882,7 +9912,7 @@
      "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
      "channel": "채널A News",
      "views": 891652,
-     "views_per_day": 277778.8,
+     "views_per_day": 275565.5,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
     },
@@ -9891,7 +9921,7 @@
      "title": "AI bubble fears: Could a crash trigger a global financial crisis? | DW News",
      "channel": "DW News",
      "views": 1262899,
-     "views_per_day": 234093.8,
+     "views_per_day": 232980.4,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=tGRB8ECyEJ0"
     },
@@ -9900,7 +9930,7 @@
      "title": "[한눈에 경제] 빚내서 주식 샀는데 '강제 처분'…비명도 안 나오는 개미들 / KBS 2026.10.19.",
      "channel": "KBS News",
      "views": 523827,
-     "views_per_day": 229381.4,
+     "views_per_day": 226820.7,
      "published": "2026-10-19",
      "url": "https://www.youtube.com/watch?v=mC4ic5oiHRE"
     }
@@ -9909,8 +9939,8 @@
   {
    "weeks": 22,
    "label": "최근 22주",
-   "videos": 679,
-   "channels": 385,
+   "videos": 685,
+   "channels": 386,
    "new_this_week": [
     {
      "id": "3mIsnHTgylg",
@@ -9958,57 +9988,57 @@
      "published": "2026-05-24"
     }
    ],
-   "views_median": 224338,
-   "views_per_day_median": 23965.4,
-   "ratio_median": 0.7,
+   "views_median": 221317,
+   "views_per_day_median": 23583.7,
+   "ratio_median": 0.68,
    "success": 183,
-   "minutes_median": 19.1,
-   "title_len_avg": 54.5,
+   "minutes_median": 19.2,
+   "title_len_avg": 54.6,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 182,
-     "share": 0.268
+     "count": 183,
+     "share": 0.267
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
-     "count": 122,
+     "count": 123,
      "share": 0.18
     },
     {
      "name": "코스피·폭락·급락·하락장",
-     "count": 107,
+     "count": 108,
      "share": 0.158
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 83,
-     "share": 0.122
+     "share": 0.121
     },
     {
      "name": "느낌표 !",
      "count": 75,
-     "share": 0.11
+     "share": 0.109
+    },
+    {
+     "name": "AI",
+     "count": 64,
+     "share": 0.093
     },
     {
      "name": "이유",
      "count": 63,
-     "share": 0.093
-    },
-    {
-     "name": "AI",
-     "count": 63,
-     "share": 0.093
+     "share": 0.092
     },
     {
      "name": "금액(억·만원)",
      "count": 44,
-     "share": 0.065
+     "share": 0.064
     },
     {
      "name": "노후·퇴직금·은퇴·50~70대",
      "count": 25,
-     "share": 0.037
+     "share": 0.036
     },
     {
      "name": "vs 비교",
@@ -10058,7 +10088,7 @@
     },
     {
      "word": "코스피",
-     "count": 57
+     "count": 58
     },
     {
      "word": "Market",
@@ -10086,7 +10116,7 @@
     },
     {
      "word": "대표",
-     "count": 36
+     "count": 37
     },
     {
      "word": "S&P500",
@@ -10097,20 +10127,20 @@
    "text_sources": {
     "자막": 16,
     "음성인식": 15,
-    "설명": 614,
+    "설명": 620,
     "없음": 34
    },
    "content_words": [
     {
      "word": "to",
-     "count": 204
-    },
-    {
-     "word": "in",
-     "count": 191
+     "count": 205
     },
     {
      "word": "is",
+     "count": 191
+    },
+    {
+     "word": "in",
      "count": 191
     },
     {
@@ -10150,7 +10180,7 @@
      "count": 132
     }
    ],
-   "chapters_share": 0.387,
+   "chapters_share": 0.385,
    "syl_per_sec_median": 5.27,
    "hooks": [
     {
@@ -10172,36 +10202,36 @@
      "hook": "18일 에프앤가이드에 따르면, 지난 15일 기준 국민연금이 기분 5% 이상을 보유했다고 공시한 상장사 287곳의 주식 평가액이 333조 5330억 원으로 나타났습니다. 이는 지난 6월 말 기준 515조 9293억 원) 대비 182조 3963억 원(35.3%) 감소한 수치입니다. 사상 최"
     }
    ],
-   "comments": 282724,
+   "comments": 283694,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 42912,
+     "count": 43077,
      "share": 0.152
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 31380,
+     "count": 31426,
      "share": 0.111
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 20746,
+     "count": 20832,
      "share": 0.073
     },
     {
      "name": "칭찬·감사",
-     "count": 15049,
+     "count": 15114,
      "share": 0.053
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 13832,
+     "count": 13886,
      "share": 0.049
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 13279,
+     "count": 13433,
      "share": 0.047
     }
    ],
@@ -10225,7 +10255,7 @@
      "title": "개인 투자자도 투자하기 좋은 시대⁉️ AI를 활용한 초특급 투자 전략 공개✨ #유퀴즈",
      "channel": "디글 클래식 :Diggle Classic",
      "views": 2433812,
-     "views_per_day": 390754.8,
+     "views_per_day": 389144.1,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=jk61l5VCSGM"
     },
@@ -10234,7 +10264,7 @@
      "title": "Stocks Have Done THIS After Every Midterm Election Since 1950",
      "channel": "ClearValue Tax",
      "views": 528835,
-     "views_per_day": 313576.4,
+     "views_per_day": 308854.9,
      "published": "2026-10-19",
      "url": "https://www.youtube.com/watch?v=LaBiYw1ZKF4"
     },
@@ -10243,7 +10273,7 @@
      "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
      "channel": "채널A News",
      "views": 891652,
-     "views_per_day": 277778.8,
+     "views_per_day": 275565.5,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
     },
@@ -10252,7 +10282,7 @@
      "title": "AI bubble fears: Could a crash trigger a global financial crisis? | DW News",
      "channel": "DW News",
      "views": 1262899,
-     "views_per_day": 234093.8,
+     "views_per_day": 232980.4,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=tGRB8ECyEJ0"
     },
@@ -10261,7 +10291,7 @@
      "title": "[한눈에 경제] 빚내서 주식 샀는데 '강제 처분'…비명도 안 나오는 개미들 / KBS 2026.10.19.",
      "channel": "KBS News",
      "views": 523827,
-     "views_per_day": 229381.4,
+     "views_per_day": 226820.7,
      "published": "2026-10-19",
      "url": "https://www.youtube.com/watch?v=mC4ic5oiHRE"
     }
@@ -10270,8 +10300,8 @@
   {
    "weeks": 23,
    "label": "최근 23주",
-   "videos": 686,
-   "channels": 388,
+   "videos": 692,
+   "channels": 389,
    "new_this_week": [
     {
      "id": "3tIO_BBDMMo",
@@ -10309,52 +10339,52 @@
      "published": "2026-05-19"
     }
    ],
-   "views_median": 221579.5,
-   "views_per_day_median": 23605.55,
+   "views_median": 219611.0,
+   "views_per_day_median": 23213.15,
    "ratio_median": 0.7,
    "success": 189,
-   "minutes_median": 19.15,
-   "title_len_avg": 54.5,
+   "minutes_median": 19.2,
+   "title_len_avg": 54.6,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 183,
-     "share": 0.267
+     "count": 184,
+     "share": 0.266
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
-     "count": 124,
+     "count": 125,
      "share": 0.181
     },
     {
      "name": "코스피·폭락·급락·하락장",
-     "count": 107,
+     "count": 108,
      "share": 0.156
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 84,
-     "share": 0.122
+     "share": 0.121
     },
     {
      "name": "느낌표 !",
      "count": 76,
-     "share": 0.111
+     "share": 0.11
     },
     {
      "name": "이유",
      "count": 64,
-     "share": 0.093
+     "share": 0.092
     },
     {
      "name": "AI",
-     "count": 63,
+     "count": 64,
      "share": 0.092
     },
     {
      "name": "금액(억·만원)",
      "count": 45,
-     "share": 0.066
+     "share": 0.065
     },
     {
      "name": "노후·퇴직금·은퇴·50~70대",
@@ -10369,7 +10399,7 @@
     {
      "name": "N가지",
      "count": 19,
-     "share": 0.028
+     "share": 0.027
     },
     {
      "name": "직접·해보니·N년 기록",
@@ -10384,7 +10414,7 @@
     {
      "name": "빚투·신용·미수·레버리지·대출",
      "count": 10,
-     "share": 0.015
+     "share": 0.014
     },
     {
      "name": "과정·벌어진 일·결말·결국",
@@ -10409,7 +10439,7 @@
     },
     {
      "word": "코스피",
-     "count": 57
+     "count": 58
     },
     {
      "word": "ETF",
@@ -10437,7 +10467,7 @@
     },
     {
      "word": "대표",
-     "count": 36
+     "count": 37
     },
     {
      "word": "S&P500",
@@ -10448,20 +10478,20 @@
    "text_sources": {
     "자막": 16,
     "음성인식": 15,
-    "설명": 621,
+    "설명": 627,
     "없음": 34
    },
    "content_words": [
     {
      "word": "to",
-     "count": 205
-    },
-    {
-     "word": "in",
-     "count": 192
+     "count": 206
     },
     {
      "word": "is",
+     "count": 192
+    },
+    {
+     "word": "in",
      "count": 192
     },
     {
@@ -10493,15 +10523,15 @@
      "count": 139
     },
     {
-     "word": "you",
+     "word": "투자",
      "count": 134
     },
     {
-     "word": "investment",
-     "count": 133
+     "word": "you",
+     "count": 134
     }
    ],
-   "chapters_share": 0.383,
+   "chapters_share": 0.382,
    "syl_per_sec_median": 5.27,
    "hooks": [
     {
@@ -10523,36 +10553,36 @@
      "hook": "18일 에프앤가이드에 따르면, 지난 15일 기준 국민연금이 기분 5% 이상을 보유했다고 공시한 상장사 287곳의 주식 평가액이 333조 5330억 원으로 나타났습니다. 이는 지난 6월 말 기준 515조 9293억 원) 대비 182조 3963억 원(35.3%) 감소한 수치입니다. 사상 최"
     }
    ],
-   "comments": 284088,
+   "comments": 285058,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 43140,
+     "count": 43305,
      "share": 0.152
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 31432,
-     "share": 0.111
+     "count": 31478,
+     "share": 0.11
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 20952,
+     "count": 21038,
      "share": 0.074
     },
     {
      "name": "칭찬·감사",
-     "count": 15448,
+     "count": 15513,
      "share": 0.054
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 13971,
+     "count": 14025,
      "share": 0.049
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 13332,
+     "count": 13486,
      "share": 0.047
     }
    ],
@@ -10576,7 +10606,7 @@
      "title": "개인 투자자도 투자하기 좋은 시대⁉️ AI를 활용한 초특급 투자 전략 공개✨ #유퀴즈",
      "channel": "디글 클래식 :Diggle Classic",
      "views": 2433812,
-     "views_per_day": 390754.8,
+     "views_per_day": 389144.1,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=jk61l5VCSGM"
     },
@@ -10585,7 +10615,7 @@
      "title": "Stocks Have Done THIS After Every Midterm Election Since 1950",
      "channel": "ClearValue Tax",
      "views": 528835,
-     "views_per_day": 313576.4,
+     "views_per_day": 308854.9,
      "published": "2026-10-19",
      "url": "https://www.youtube.com/watch?v=LaBiYw1ZKF4"
     },
@@ -10594,7 +10624,7 @@
      "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
      "channel": "채널A News",
      "views": 891652,
-     "views_per_day": 277778.8,
+     "views_per_day": 275565.5,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
     },
@@ -10603,7 +10633,7 @@
      "title": "AI bubble fears: Could a crash trigger a global financial crisis? | DW News",
      "channel": "DW News",
      "views": 1262899,
-     "views_per_day": 234093.8,
+     "views_per_day": 232980.4,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=tGRB8ECyEJ0"
     },
@@ -10612,7 +10642,7 @@
      "title": "[한눈에 경제] 빚내서 주식 샀는데 '강제 처분'…비명도 안 나오는 개미들 / KBS 2026.10.19.",
      "channel": "KBS News",
      "views": 523827,
-     "views_per_day": 229381.4,
+     "views_per_day": 226820.7,
      "published": "2026-10-19",
      "url": "https://www.youtube.com/watch?v=mC4ic5oiHRE"
     }
@@ -10621,8 +10651,8 @@
   {
    "weeks": 24,
    "label": "최근 24주",
-   "videos": 697,
-   "channels": 396,
+   "videos": 703,
+   "channels": 397,
    "new_this_week": [
     {
      "id": "02hqxRMURPs",
@@ -10680,57 +10710,57 @@
      "published": "2026-05-12"
     }
    ],
-   "views_median": 221317,
-   "views_per_day_median": 23286.4,
-   "ratio_median": 0.73,
+   "views_median": 218626,
+   "views_per_day_median": 22732.4,
+   "ratio_median": 0.71,
    "success": 199,
    "minutes_median": 19.2,
-   "title_len_avg": 54.5,
+   "title_len_avg": 54.6,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 185,
+     "count": 186,
      "share": 0.265
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
-     "count": 128,
-     "share": 0.184
+     "count": 129,
+     "share": 0.183
     },
     {
      "name": "코스피·폭락·급락·하락장",
-     "count": 107,
+     "count": 108,
      "share": 0.154
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 85,
-     "share": 0.122
+     "share": 0.121
     },
     {
      "name": "느낌표 !",
      "count": 78,
-     "share": 0.112
+     "share": 0.111
+    },
+    {
+     "name": "AI",
+     "count": 65,
+     "share": 0.092
     },
     {
      "name": "이유",
      "count": 64,
-     "share": 0.092
-    },
-    {
-     "name": "AI",
-     "count": 64,
-     "share": 0.092
+     "share": 0.091
     },
     {
      "name": "금액(억·만원)",
      "count": 46,
-     "share": 0.066
+     "share": 0.065
     },
     {
      "name": "노후·퇴직금·은퇴·50~70대",
      "count": 27,
-     "share": 0.039
+     "share": 0.038
     },
     {
      "name": "vs 비교",
@@ -10740,17 +10770,17 @@
     {
      "name": "N가지",
      "count": 20,
-     "share": 0.029
+     "share": 0.028
     },
     {
      "name": "손실 낱말(망하·날린·잃은·반토막)",
      "count": 13,
-     "share": 0.019
+     "share": 0.018
     },
     {
      "name": "직접·해보니·N년 기록",
      "count": 13,
-     "share": 0.019
+     "share": 0.018
     },
     {
      "name": "빚투·신용·미수·레버리지·대출",
@@ -10784,12 +10814,12 @@
      "count": 60
     },
     {
-     "word": "ETF",
+     "word": "코스피",
      "count": 58
     },
     {
-     "word": "코스피",
-     "count": 57
+     "word": "ETF",
+     "count": 58
     },
     {
      "word": "Market",
@@ -10813,7 +10843,7 @@
     },
     {
      "word": "대표",
-     "count": 36
+     "count": 37
     },
     {
      "word": "S&P500",
@@ -10824,13 +10854,13 @@
    "text_sources": {
     "자막": 19,
     "음성인식": 15,
-    "설명": 629,
+    "설명": 635,
     "없음": 34
    },
    "content_words": [
     {
      "word": "to",
-     "count": 207
+     "count": 208
     },
     {
      "word": "in",
@@ -10869,15 +10899,15 @@
      "count": 140
     },
     {
-     "word": "you",
-     "count": 136
+     "word": "투자",
+     "count": 137
     },
     {
-     "word": "투자",
-     "count": 135
+     "word": "you",
+     "count": 136
     }
    ],
-   "chapters_share": 0.386,
+   "chapters_share": 0.384,
    "syl_per_sec_median": 5.3,
    "hooks": [
     {
@@ -10899,36 +10929,36 @@
      "hook": "18일 에프앤가이드에 따르면, 지난 15일 기준 국민연금이 기분 5% 이상을 보유했다고 공시한 상장사 287곳의 주식 평가액이 333조 5330억 원으로 나타났습니다. 이는 지난 6월 말 기준 515조 9293억 원) 대비 182조 3963억 원(35.3%) 감소한 수치입니다. 사상 최"
     }
    ],
-   "comments": 298892,
+   "comments": 299862,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 44091,
+     "count": 44256,
      "share": 0.148
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 35586,
+     "count": 35632,
      "share": 0.119
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 21386,
+     "count": 21472,
      "share": 0.072
     },
     {
      "name": "칭찬·감사",
-     "count": 15959,
+     "count": 16024,
      "share": 0.053
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 15091,
-     "share": 0.05
+     "count": 15145,
+     "share": 0.051
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 13481,
+     "count": 13635,
      "share": 0.045
     }
    ],
@@ -10952,7 +10982,7 @@
      "title": "개인 투자자도 투자하기 좋은 시대⁉️ AI를 활용한 초특급 투자 전략 공개✨ #유퀴즈",
      "channel": "디글 클래식 :Diggle Classic",
      "views": 2433812,
-     "views_per_day": 390754.8,
+     "views_per_day": 389144.1,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=jk61l5VCSGM"
     },
@@ -10961,7 +10991,7 @@
      "title": "Stocks Have Done THIS After Every Midterm Election Since 1950",
      "channel": "ClearValue Tax",
      "views": 528835,
-     "views_per_day": 313576.4,
+     "views_per_day": 308854.9,
      "published": "2026-10-19",
      "url": "https://www.youtube.com/watch?v=LaBiYw1ZKF4"
     },
@@ -10970,7 +11000,7 @@
      "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
      "channel": "채널A News",
      "views": 891652,
-     "views_per_day": 277778.8,
+     "views_per_day": 275565.5,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
     },
@@ -10979,7 +11009,7 @@
      "title": "AI bubble fears: Could a crash trigger a global financial crisis? | DW News",
      "channel": "DW News",
      "views": 1262899,
-     "views_per_day": 234093.8,
+     "views_per_day": 232980.4,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=tGRB8ECyEJ0"
     },
@@ -10988,7 +11018,7 @@
      "title": "[한눈에 경제] 빚내서 주식 샀는데 '강제 처분'…비명도 안 나오는 개미들 / KBS 2026.10.19.",
      "channel": "KBS News",
      "views": 523827,
-     "views_per_day": 229381.4,
+     "views_per_day": 226820.7,
      "published": "2026-10-19",
      "url": "https://www.youtube.com/watch?v=mC4ic5oiHRE"
     }
@@ -10997,8 +11027,8 @@
   {
    "weeks": 25,
    "label": "최근 25주",
-   "videos": 702,
-   "channels": 396,
+   "videos": 708,
+   "channels": 397,
    "new_this_week": [
     {
      "id": "-K8-ccMcIBE",
@@ -11026,52 +11056,52 @@
      "published": "2026-05-03"
     }
    ],
-   "views_median": 221579.5,
-   "views_per_day_median": 22918.15,
-   "ratio_median": 0.74,
+   "views_median": 219611.0,
+   "views_per_day_median": 22643.75,
+   "ratio_median": 0.73,
    "success": 204,
-   "minutes_median": 19.1,
+   "minutes_median": 19.15,
    "title_len_avg": 54.5,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 185,
-     "share": 0.264
+     "count": 186,
+     "share": 0.263
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
-     "count": 132,
+     "count": 133,
      "share": 0.188
     },
     {
      "name": "코스피·폭락·급락·하락장",
-     "count": 107,
-     "share": 0.152
+     "count": 108,
+     "share": 0.153
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 86,
-     "share": 0.123
+     "share": 0.121
     },
     {
      "name": "느낌표 !",
      "count": 79,
-     "share": 0.113
+     "share": 0.112
     },
     {
      "name": "이유",
      "count": 65,
-     "share": 0.093
+     "share": 0.092
     },
     {
      "name": "AI",
-     "count": 64,
-     "share": 0.091
+     "count": 65,
+     "share": 0.092
     },
     {
      "name": "금액(억·만원)",
      "count": 47,
-     "share": 0.067
+     "share": 0.066
     },
     {
      "name": "노후·퇴직금·은퇴·50~70대",
@@ -11081,7 +11111,7 @@
     {
      "name": "vs 비교",
      "count": 25,
-     "share": 0.036
+     "share": 0.035
     },
     {
      "name": "N가지",
@@ -11091,12 +11121,12 @@
     {
      "name": "손실 낱말(망하·날린·잃은·반토막)",
      "count": 13,
-     "share": 0.019
+     "share": 0.018
     },
     {
      "name": "직접·해보니·N년 기록",
      "count": 13,
-     "share": 0.019
+     "share": 0.018
     },
     {
      "name": "빚투·신용·미수·레버리지·대출",
@@ -11111,7 +11141,7 @@
     {
      "name": "두 금액(반전)",
      "count": 6,
-     "share": 0.009
+     "share": 0.008
     },
     {
      "name": "공통점",
@@ -11135,7 +11165,7 @@
     },
     {
      "word": "코스피",
-     "count": 57
+     "count": 58
     },
     {
      "word": "Market",
@@ -11159,7 +11189,7 @@
     },
     {
      "word": "대표",
-     "count": 36
+     "count": 37
     },
     {
      "word": "S&P500",
@@ -11170,13 +11200,13 @@
    "text_sources": {
     "자막": 20,
     "음성인식": 15,
-    "설명": 633,
+    "설명": 639,
     "없음": 34
    },
    "content_words": [
     {
      "word": "to",
-     "count": 209
+     "count": 210
     },
     {
      "word": "in",
@@ -11215,15 +11245,15 @@
      "count": 141
     },
     {
-     "word": "you",
-     "count": 138
+     "word": "투자",
+     "count": 139
     },
     {
-     "word": "투자",
-     "count": 137
+     "word": "you",
+     "count": 138
     }
    ],
-   "chapters_share": 0.387,
+   "chapters_share": 0.386,
    "syl_per_sec_median": 5.27,
    "hooks": [
     {
@@ -11245,36 +11275,36 @@
      "hook": "18일 에프앤가이드에 따르면, 지난 15일 기준 국민연금이 기분 5% 이상을 보유했다고 공시한 상장사 287곳의 주식 평가액이 333조 5330억 원으로 나타났습니다. 이는 지난 6월 말 기준 515조 9293억 원) 대비 182조 3963억 원(35.3%) 감소한 수치입니다. 사상 최"
     }
    ],
-   "comments": 300073,
+   "comments": 301043,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 44327,
+     "count": 44492,
      "share": 0.148
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 35688,
+     "count": 35734,
      "share": 0.119
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 21571,
+     "count": 21657,
      "share": 0.072
     },
     {
      "name": "칭찬·감사",
-     "count": 16150,
+     "count": 16215,
      "share": 0.054
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 15148,
+     "count": 15202,
      "share": 0.05
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 13494,
+     "count": 13648,
      "share": 0.045
     }
    ],
@@ -11298,7 +11328,7 @@
      "title": "개인 투자자도 투자하기 좋은 시대⁉️ AI를 활용한 초특급 투자 전략 공개✨ #유퀴즈",
      "channel": "디글 클래식 :Diggle Classic",
      "views": 2433812,
-     "views_per_day": 390754.8,
+     "views_per_day": 389144.1,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=jk61l5VCSGM"
     },
@@ -11307,7 +11337,7 @@
      "title": "Stocks Have Done THIS After Every Midterm Election Since 1950",
      "channel": "ClearValue Tax",
      "views": 528835,
-     "views_per_day": 313576.4,
+     "views_per_day": 308854.9,
      "published": "2026-10-19",
      "url": "https://www.youtube.com/watch?v=LaBiYw1ZKF4"
     },
@@ -11316,7 +11346,7 @@
      "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
      "channel": "채널A News",
      "views": 891652,
-     "views_per_day": 277778.8,
+     "views_per_day": 275565.5,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
     },
@@ -11325,7 +11355,7 @@
      "title": "AI bubble fears: Could a crash trigger a global financial crisis? | DW News",
      "channel": "DW News",
      "views": 1262899,
-     "views_per_day": 234093.8,
+     "views_per_day": 232980.4,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=tGRB8ECyEJ0"
     },
@@ -11334,7 +11364,7 @@
      "title": "[한눈에 경제] 빚내서 주식 샀는데 '강제 처분'…비명도 안 나오는 개미들 / KBS 2026.10.19.",
      "channel": "KBS News",
      "views": 523827,
-     "views_per_day": 229381.4,
+     "views_per_day": 226820.7,
      "published": "2026-10-19",
      "url": "https://www.youtube.com/watch?v=mC4ic5oiHRE"
     }
@@ -11343,8 +11373,8 @@
   {
    "weeks": 26,
    "label": "최근 26주",
-   "videos": 708,
-   "channels": 400,
+   "videos": 714,
+   "channels": 401,
    "new_this_week": [
     {
      "id": "9UMGCbCyz6c",
@@ -11377,57 +11407,57 @@
      "published": "2026-04-28"
     }
    ],
-   "views_median": 220699.5,
-   "views_per_day_median": 22695.45,
-   "ratio_median": 0.75,
+   "views_median": 216597.0,
+   "views_per_day_median": 22225.8,
+   "ratio_median": 0.74,
    "success": 209,
-   "minutes_median": 19.1,
-   "title_len_avg": 54.4,
+   "minutes_median": 19.15,
+   "title_len_avg": 54.5,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 189,
-     "share": 0.267
+     "count": 190,
+     "share": 0.266
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
-     "count": 135,
-     "share": 0.191
+     "count": 136,
+     "share": 0.19
     },
     {
      "name": "코스피·폭락·급락·하락장",
-     "count": 108,
+     "count": 109,
      "share": 0.153
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 87,
-     "share": 0.123
+     "share": 0.122
     },
     {
      "name": "느낌표 !",
      "count": 79,
-     "share": 0.112
+     "share": 0.111
+    },
+    {
+     "name": "AI",
+     "count": 66,
+     "share": 0.092
     },
     {
      "name": "이유",
      "count": 65,
-     "share": 0.092
-    },
-    {
-     "name": "AI",
-     "count": 65,
-     "share": 0.092
+     "share": 0.091
     },
     {
      "name": "금액(억·만원)",
      "count": 48,
-     "share": 0.068
+     "share": 0.067
     },
     {
      "name": "노후·퇴직금·은퇴·50~70대",
      "count": 28,
-     "share": 0.04
+     "share": 0.039
     },
     {
      "name": "vs 비교",
@@ -11437,7 +11467,7 @@
     {
      "name": "N가지",
      "count": 21,
-     "share": 0.03
+     "share": 0.029
     },
     {
      "name": "손실 낱말(망하·날린·잃은·반토막)",
@@ -11486,7 +11516,7 @@
     },
     {
      "word": "코스피",
-     "count": 57
+     "count": 58
     },
     {
      "word": "Market",
@@ -11510,7 +11540,7 @@
     },
     {
      "word": "대표",
-     "count": 36
+     "count": 37
     },
     {
      "word": "S&P500",
@@ -11521,13 +11551,13 @@
    "text_sources": {
     "자막": 22,
     "음성인식": 15,
-    "설명": 637,
+    "설명": 643,
     "없음": 34
    },
    "content_words": [
     {
      "word": "to",
-     "count": 212
+     "count": 213
     },
     {
      "word": "in",
@@ -11571,10 +11601,10 @@
     },
     {
      "word": "투자",
-     "count": 138
+     "count": 140
     }
    ],
-   "chapters_share": 0.387,
+   "chapters_share": 0.385,
    "syl_per_sec_median": 5.08,
    "hooks": [
     {
@@ -11596,36 +11626,36 @@
      "hook": "18일 에프앤가이드에 따르면, 지난 15일 기준 국민연금이 기분 5% 이상을 보유했다고 공시한 상장사 287곳의 주식 평가액이 333조 5330억 원으로 나타났습니다. 이는 지난 6월 말 기준 515조 9293억 원) 대비 182조 3963억 원(35.3%) 감소한 수치입니다. 사상 최"
     }
    ],
-   "comments": 302707,
+   "comments": 303677,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 44797,
+     "count": 44962,
      "share": 0.148
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 36083,
+     "count": 36129,
      "share": 0.119
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 21762,
+     "count": 21848,
      "share": 0.072
     },
     {
      "name": "칭찬·감사",
-     "count": 16175,
+     "count": 16240,
      "share": 0.053
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 15191,
+     "count": 15245,
      "share": 0.05
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 13501,
+     "count": 13655,
      "share": 0.045
     }
    ],
@@ -11649,7 +11679,7 @@
      "title": "개인 투자자도 투자하기 좋은 시대⁉️ AI를 활용한 초특급 투자 전략 공개✨ #유퀴즈",
      "channel": "디글 클래식 :Diggle Classic",
      "views": 2433812,
-     "views_per_day": 390754.8,
+     "views_per_day": 389144.1,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=jk61l5VCSGM"
     },
@@ -11658,7 +11688,7 @@
      "title": "Stocks Have Done THIS After Every Midterm Election Since 1950",
      "channel": "ClearValue Tax",
      "views": 528835,
-     "views_per_day": 313576.4,
+     "views_per_day": 308854.9,
      "published": "2026-10-19",
      "url": "https://www.youtube.com/watch?v=LaBiYw1ZKF4"
     },
@@ -11667,7 +11697,7 @@
      "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
      "channel": "채널A News",
      "views": 891652,
-     "views_per_day": 277778.8,
+     "views_per_day": 275565.5,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
     },
@@ -11676,7 +11706,7 @@
      "title": "AI bubble fears: Could a crash trigger a global financial crisis? | DW News",
      "channel": "DW News",
      "views": 1262899,
-     "views_per_day": 234093.8,
+     "views_per_day": 232980.4,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=tGRB8ECyEJ0"
     },
@@ -11685,7 +11715,7 @@
      "title": "[한눈에 경제] 빚내서 주식 샀는데 '강제 처분'…비명도 안 나오는 개미들 / KBS 2026.10.19.",
      "channel": "KBS News",
      "views": 523827,
-     "views_per_day": 229381.4,
+     "views_per_day": 226820.7,
      "published": "2026-10-19",
      "url": "https://www.youtube.com/watch?v=mC4ic5oiHRE"
     }
@@ -11694,8 +11724,8 @@
   {
    "weeks": 27,
    "label": "최근 27주",
-   "videos": 714,
-   "channels": 405,
+   "videos": 720,
+   "channels": 406,
    "new_this_week": [
     {
      "id": "0mTAjI7LL4Y",
@@ -11728,37 +11758,37 @@
      "published": "2026-04-18"
     }
    ],
-   "views_median": 219611.0,
-   "views_per_day_median": 22245.25,
+   "views_median": 216597.0,
+   "views_per_day_median": 21978.6,
    "ratio_median": 0.75,
    "success": 214,
-   "minutes_median": 19.05,
+   "minutes_median": 19.1,
    "title_len_avg": 54.4,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 189,
-     "share": 0.265
+     "count": 190,
+     "share": 0.264
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
-     "count": 137,
+     "count": 138,
      "share": 0.192
     },
     {
      "name": "코스피·폭락·급락·하락장",
-     "count": 108,
+     "count": 109,
      "share": 0.151
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 89,
-     "share": 0.125
+     "share": 0.124
     },
     {
      "name": "느낌표 !",
      "count": 79,
-     "share": 0.111
+     "share": 0.11
     },
     {
      "name": "이유",
@@ -11767,18 +11797,18 @@
     },
     {
      "name": "AI",
-     "count": 65,
-     "share": 0.091
+     "count": 66,
+     "share": 0.092
     },
     {
      "name": "금액(억·만원)",
      "count": 49,
-     "share": 0.069
+     "share": 0.068
     },
     {
      "name": "노후·퇴직금·은퇴·50~70대",
      "count": 29,
-     "share": 0.041
+     "share": 0.04
     },
     {
      "name": "vs 비교",
@@ -11837,7 +11867,7 @@
     },
     {
      "word": "코스피",
-     "count": 57
+     "count": 58
     },
     {
      "word": "주식",
@@ -11861,7 +11891,7 @@
     },
     {
      "word": "대표",
-     "count": 37
+     "count": 38
     },
     {
      "word": "S&P500",
@@ -11872,13 +11902,13 @@
    "text_sources": {
     "자막": 24,
     "음성인식": 15,
-    "설명": 641,
+    "설명": 647,
     "없음": 34
    },
    "content_words": [
     {
      "word": "to",
-     "count": 212
+     "count": 213
     },
     {
      "word": "in",
@@ -11917,15 +11947,15 @@
      "count": 144
     },
     {
-     "word": "you",
-     "count": 141
+     "word": "투자",
+     "count": 142
     },
     {
-     "word": "투자",
-     "count": 140
+     "word": "you",
+     "count": 141
     }
    ],
-   "chapters_share": 0.389,
+   "chapters_share": 0.388,
    "syl_per_sec_median": 5.08,
    "hooks": [
     {
@@ -11947,36 +11977,36 @@
      "hook": "18일 에프앤가이드에 따르면, 지난 15일 기준 국민연금이 기분 5% 이상을 보유했다고 공시한 상장사 287곳의 주식 평가액이 333조 5330억 원으로 나타났습니다. 이는 지난 6월 말 기준 515조 9293억 원) 대비 182조 3963억 원(35.3%) 감소한 수치입니다. 사상 최"
     }
    ],
-   "comments": 304738,
+   "comments": 305708,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 45112,
+     "count": 45277,
      "share": 0.148
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 36135,
-     "share": 0.119
+     "count": 36181,
+     "share": 0.118
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 21896,
+     "count": 21982,
      "share": 0.072
     },
     {
      "name": "칭찬·감사",
-     "count": 16426,
+     "count": 16491,
      "share": 0.054
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 15338,
+     "count": 15392,
      "share": 0.05
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 13621,
+     "count": 13775,
      "share": 0.045
     }
    ],
@@ -12000,7 +12030,7 @@
      "title": "개인 투자자도 투자하기 좋은 시대⁉️ AI를 활용한 초특급 투자 전략 공개✨ #유퀴즈",
      "channel": "디글 클래식 :Diggle Classic",
      "views": 2433812,
-     "views_per_day": 390754.8,
+     "views_per_day": 389144.1,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=jk61l5VCSGM"
     },
@@ -12009,7 +12039,7 @@
      "title": "Stocks Have Done THIS After Every Midterm Election Since 1950",
      "channel": "ClearValue Tax",
      "views": 528835,
-     "views_per_day": 313576.4,
+     "views_per_day": 308854.9,
      "published": "2026-10-19",
      "url": "https://www.youtube.com/watch?v=LaBiYw1ZKF4"
     },
@@ -12018,7 +12048,7 @@
      "title": "국민연금 182조가 녹았다… 코스피 폭락에 대규모 손실 발생 [뉴스플레이리스트] / 채널A",
      "channel": "채널A News",
      "views": 891652,
-     "views_per_day": 277778.8,
+     "views_per_day": 275565.5,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=xQ8IpN0iQnU"
     },
@@ -12027,7 +12057,7 @@
      "title": "AI bubble fears: Could a crash trigger a global financial crisis? | DW News",
      "channel": "DW News",
      "views": 1262899,
-     "views_per_day": 234093.8,
+     "views_per_day": 232980.4,
      "published": "2026-10-15",
      "url": "https://www.youtube.com/watch?v=tGRB8ECyEJ0"
     },
@@ -12036,7 +12066,7 @@
      "title": "[한눈에 경제] 빚내서 주식 샀는데 '강제 처분'…비명도 안 나오는 개미들 / KBS 2026.10.19.",
      "channel": "KBS News",
      "views": 523827,
-     "views_per_day": 229381.4,
+     "views_per_day": 226820.7,
      "published": "2026-10-19",
      "url": "https://www.youtube.com/watch?v=mC4ic5oiHRE"
     }

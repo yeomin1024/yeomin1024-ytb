@@ -1,0 +1,2221 @@
+{
+ "tool": "title_comment_link.py v1.0",
+ "topic": "stock",
+ "generated": "2026-10-21T09:13+00:00",
+ "rules": {
+  "weeks": 4,
+  "top_pct": 10,
+  "min_cell_pool": 20,
+  "top_comments": 20,
+  "min_comment_likes": 1,
+  "themes": {
+   "폭락·급락·공포": "폭락|급락|하락|붕괴|공포|패닉|투매|반토막|서킷|검은 ?(월|화|수|목|금)요일|crash|dip|sell-?off|panic|fear|plung|collaps|bear market|bloodbath|meltdown|tank",
+   "매수·기회·바닥": "매수|사야|살 ?때|담아|줍줍|저점|바닥|기회|반등|buy|buying|bought|opportunit|bottom|gift|on sale|discount|rebound|bounce",
+   "매도·현금·손절": "매도|팔아|팔까|현금|손절|익절|sell(?!-?off)|selling|sold|cash|exit|take profit",
+   "AI·반도체·빅테크": "(?<![A-Za-z])AI(?![A-Za-z])|인공지능|반도체|삼성전자|삼전|하이닉스|닉스|엔비디아|팔란티어|테슬라|nvidia|nvda|semiconductor|chip|palantir|tesla|big tech|magnificent",
+   "ETF·지수·배당": "ETF|S&P|나스닥|지수|배당|QQQ|SPY|VOO|SCHD|커버드콜|dividend|index|nasdaq|covered call",
+   "정치·정책·정부": "이재명|윤석열|대통령|정부|정권|민주당|국힘|국민의힘|정책|국회|선거|특검|trump|biden|harris|congress|government|election|midterm|tariff|policy|white house|fed\\b|powell",
+   "연금·노후": "국민연금|연금|노후|은퇴|pension|retire|401\\s?k|\\bira\\b|social security",
+   "코스피·국장": "코스피|코스닥|국장|한국 ?증시|국내 ?증시|kospi",
+   "미국 증시·미장": "미국 ?증시|미장|미국 ?주식|뉴욕 ?증시|wall street|dow|s&p 500|us stock|american stock",
+   "질문(?로 끝남)": "\\?\\s*$"
+  }
+ },
+ "unknown_country": {
+  "다른 나라": 459,
+  "나라 모름(채널 나라 없음·다른 나라)": 71
+ },
+ "cells": [
+  {
+   "country": "한국",
+   "week": 1,
+   "group": "조회수 잘 나온 영상",
+   "pool": 809,
+   "threshold": 36326.5,
+   "top": 81,
+   "missing": 3,
+   "overlap_success": 3,
+   "videos": 78,
+   "comments": 1560,
+   "thumb_text": 78,
+   "echo_title": 0.27884615384615385,
+   "base_title": 0.08126430537447488,
+   "echo_thumb": 0.2551282051282051,
+   "base_thumb": 0.07418568013906997,
+   "title_num": 0.5256410256410257,
+   "title_q": 0.08974358974358974
+  },
+  {
+   "country": "한국",
+   "week": 1,
+   "group": "성공 사례",
+   "pool": 809,
+   "threshold": 36326.5,
+   "top": 81,
+   "missing": null,
+   "overlap_success": null,
+   "videos": 19,
+   "comments": 245,
+   "thumb_text": 19,
+   "echo_title": 0.3158981541334483,
+   "base_title": 0.07821668186324218,
+   "echo_thumb": 0.23873087696617107,
+   "base_thumb": 0.07506133005135995,
+   "title_num": 0.7368421052631579,
+   "title_q": 0.05263157894736842
+  },
+  {
+   "country": "한국",
+   "week": 1,
+   "group": "그 밖의 승인 영상",
+   "pool": 809,
+   "threshold": 36326.5,
+   "top": 81,
+   "missing": null,
+   "overlap_success": null,
+   "videos": 57,
+   "comments": 1112,
+   "thumb_text": 0,
+   "echo_title": 0.22303527919464045,
+   "base_title": 0.07988790188562064,
+   "echo_thumb": null,
+   "base_thumb": null,
+   "title_num": 0.5087719298245614,
+   "title_q": 0.05263157894736842
+  },
+  {
+   "country": "한국",
+   "week": 2,
+   "group": "조회수 잘 나온 영상",
+   "pool": 587,
+   "threshold": 17785.3,
+   "top": 59,
+   "missing": 2,
+   "overlap_success": 0,
+   "videos": 57,
+   "comments": 1138,
+   "thumb_text": 57,
+   "echo_title": 0.22128347183748845,
+   "base_title": 0.07060581873953393,
+   "echo_thumb": 0.22054478301015698,
+   "base_thumb": 0.06279479735616174,
+   "title_num": 0.5614035087719298,
+   "title_q": 0.05263157894736842
+  },
+  {
+   "country": "한국",
+   "week": 2,
+   "group": "성공 사례",
+   "pool": 587,
+   "threshold": 17785.3,
+   "top": 59,
+   "missing": null,
+   "overlap_success": null,
+   "videos": 11,
+   "comments": 133,
+   "thumb_text": 11,
+   "echo_title": 0.24636363636363634,
+   "base_title": 0.057375631313131316,
+   "echo_thumb": 0.21873737373737373,
+   "base_thumb": 0.04928535353535353,
+   "title_num": 0.7272727272727273,
+   "title_q": 0.0
+  },
+  {
+   "country": "한국",
+   "week": 2,
+   "group": "그 밖의 승인 영상",
+   "pool": 587,
+   "threshold": 17785.3,
+   "top": 59,
+   "missing": null,
+   "overlap_success": null,
+   "videos": 7,
+   "comments": 120,
+   "thumb_text": 0,
+   "echo_title": 0.16666666666666666,
+   "base_title": 0.08347222222222223,
+   "echo_thumb": null,
+   "base_thumb": null,
+   "title_num": 0.5714285714285714,
+   "title_q": 0.14285714285714285
+  },
+  {
+   "country": "한국",
+   "week": 3,
+   "group": "조회수 잘 나온 영상",
+   "pool": 47,
+   "threshold": 36241.0,
+   "top": 5,
+   "missing": 0,
+   "overlap_success": 0,
+   "videos": 5,
+   "comments": 100,
+   "thumb_text": 5,
+   "echo_title": 0.35,
+   "base_title": 0.0795084745762712,
+   "echo_thumb": 0.33,
+   "base_thumb": 0.07707909604519773,
+   "title_num": 0.8,
+   "title_q": 0.0
+  },
+  {
+   "country": "한국",
+   "week": 3,
+   "group": "성공 사례",
+   "pool": 47,
+   "threshold": 36241.0,
+   "top": 5,
+   "missing": null,
+   "overlap_success": null,
+   "videos": 2,
+   "comments": 37,
+   "thumb_text": 2,
+   "echo_title": 0.5558823529411765,
+   "base_title": 0.10247549019607843,
+   "echo_thumb": 0.5264705882352941,
+   "base_thumb": 0.10651960784313726,
+   "title_num": 1.0,
+   "title_q": 0.0
+  },
+  {
+   "country": "한국",
+   "week": 3,
+   "group": "그 밖의 승인 영상",
+   "pool": 47,
+   "threshold": 36241.0,
+   "top": 5,
+   "missing": null,
+   "overlap_success": null,
+   "videos": 17,
+   "comments": 340,
+   "thumb_text": 0,
+   "echo_title": 0.25588235294117645,
+   "base_title": 0.06622549019607844,
+   "echo_thumb": null,
+   "base_thumb": null,
+   "title_num": 0.5882352941176471,
+   "title_q": 0.058823529411764705
+  },
+  {
+   "country": "한국",
+   "week": 4,
+   "group": "조회수 잘 나온 영상",
+   "pool": 33,
+   "threshold": 17759.0,
+   "top": 4,
+   "missing": 0,
+   "overlap_success": 0,
+   "videos": 4,
+   "comments": 80,
+   "thumb_text": 4,
+   "echo_title": 0.35,
+   "base_title": 0.09541666666666666,
+   "echo_thumb": 0.2125,
+   "base_thumb": 0.07125000000000001,
+   "title_num": 0.5,
+   "title_q": 0.0
+  },
+  {
+   "country": "한국",
+   "week": 4,
+   "group": "성공 사례",
+   "pool": 33,
+   "threshold": 17759.0,
+   "top": 4,
+   "missing": null,
+   "overlap_success": null,
+   "videos": 2,
+   "comments": 40,
+   "thumb_text": 2,
+   "echo_title": 0.30000000000000004,
+   "base_title": 0.0675,
+   "echo_thumb": 0.275,
+   "base_thumb": 0.05583333333333333,
+   "title_num": 1.0,
+   "title_q": 0.0
+  },
+  {
+   "country": "한국",
+   "week": 4,
+   "group": "그 밖의 승인 영상",
+   "pool": 33,
+   "threshold": 17759.0,
+   "top": 4,
+   "missing": null,
+   "overlap_success": null,
+   "videos": 5,
+   "comments": 100,
+   "thumb_text": 0,
+   "echo_title": 0.21000000000000002,
+   "base_title": 0.08516666666666667,
+   "echo_thumb": null,
+   "base_thumb": null,
+   "title_num": 0.8,
+   "title_q": 0.0
+  },
+  {
+   "country": "미국",
+   "week": 1,
+   "group": "조회수 잘 나온 영상",
+   "pool": 132,
+   "threshold": 63648.8,
+   "top": 14,
+   "missing": 0,
+   "overlap_success": 0,
+   "videos": 14,
+   "comments": 280,
+   "thumb_text": 11,
+   "echo_title": 0.2392857142857143,
+   "base_title": 0.13904358353510896,
+   "echo_thumb": 0.09545454545454546,
+   "base_thumb": 0.05641711229946524,
+   "title_num": 0.21428571428571427,
+   "title_q": 0.07142857142857142
+  },
+  {
+   "country": "미국",
+   "week": 1,
+   "group": "성공 사례",
+   "pool": 132,
+   "threshold": 63648.8,
+   "top": 14,
+   "missing": null,
+   "overlap_success": null,
+   "videos": 3,
+   "comments": 32,
+   "thumb_text": 3,
+   "echo_title": 0.24761904761904763,
+   "base_title": 0.15505784234597794,
+   "echo_thumb": 0.3142857142857143,
+   "base_thumb": 0.06593526299408652,
+   "title_num": 0.3333333333333333,
+   "title_q": 0.0
+  },
+  {
+   "country": "미국",
+   "week": 1,
+   "group": "그 밖의 승인 영상",
+   "pool": 132,
+   "threshold": 63648.8,
+   "top": 14,
+   "missing": null,
+   "overlap_success": null,
+   "videos": 23,
+   "comments": 429,
+   "thumb_text": 0,
+   "echo_title": 0.2932966023875115,
+   "base_title": 0.1518906320524194,
+   "echo_thumb": null,
+   "base_thumb": null,
+   "title_num": 0.5652173913043478,
+   "title_q": 0.0
+  },
+  {
+   "country": "미국",
+   "week": 2,
+   "group": "조회수 잘 나온 영상",
+   "pool": 51,
+   "threshold": 34932.0,
+   "top": 6,
+   "missing": 0,
+   "overlap_success": 0,
+   "videos": 6,
+   "comments": 120,
+   "thumb_text": 5,
+   "echo_title": 0.3416666666666666,
+   "base_title": 0.17358757062146893,
+   "echo_thumb": 0.11000000000000001,
+   "base_thumb": 0.07411764705882354,
+   "title_num": 0.5,
+   "title_q": 0.0
+  },
+  {
+   "country": "미국",
+   "week": 2,
+   "group": "성공 사례",
+   "pool": 51,
+   "threshold": 34932.0,
+   "top": 6,
+   "missing": null,
+   "overlap_success": null,
+   "videos": 2,
+   "comments": 31,
+   "thumb_text": 2,
+   "echo_title": 0.7090909090909091,
+   "base_title": 0.13768939393939394,
+   "echo_thumb": 0.6636363636363636,
+   "base_thumb": 0.09747474747474746,
+   "title_num": 0.5,
+   "title_q": 0.0
+  },
+  {
+   "country": "미국",
+   "week": 2,
+   "group": "그 밖의 승인 영상",
+   "pool": 51,
+   "threshold": 34932.0,
+   "top": 6,
+   "missing": null,
+   "overlap_success": null,
+   "videos": 6,
+   "comments": 120,
+   "thumb_text": 0,
+   "echo_title": 0.225,
+   "base_title": 0.1788135593220339,
+   "echo_thumb": null,
+   "base_thumb": null,
+   "title_num": 0.5,
+   "title_q": 0.0
+  },
+  {
+   "country": "미국",
+   "week": 3,
+   "group": "조회수 잘 나온 영상",
+   "pool": 15,
+   "threshold": null,
+   "top": 0,
+   "missing": 0,
+   "overlap_success": 0,
+   "videos": 0,
+   "comments": 0,
+   "thumb_text": 0,
+   "echo_title": null,
+   "base_title": null,
+   "echo_thumb": null,
+   "base_thumb": null,
+   "title_num": null,
+   "title_q": null
+  },
+  {
+   "country": "미국",
+   "week": 3,
+   "group": "성공 사례",
+   "pool": 15,
+   "threshold": null,
+   "top": 0,
+   "missing": null,
+   "overlap_success": null,
+   "videos": 2,
+   "comments": 40,
+   "thumb_text": 2,
+   "echo_title": 0.725,
+   "base_title": 0.09968220338983051,
+   "echo_thumb": 0.725,
+   "base_thumb": 0.1167483660130719,
+   "title_num": 1.0,
+   "title_q": 0.0
+  },
+  {
+   "country": "미국",
+   "week": 3,
+   "group": "그 밖의 승인 영상",
+   "pool": 15,
+   "threshold": null,
+   "top": 0,
+   "missing": null,
+   "overlap_success": null,
+   "videos": 7,
+   "comments": 140,
+   "thumb_text": 0,
+   "echo_title": 0.38571428571428573,
+   "base_title": 0.19031476997578695,
+   "echo_thumb": null,
+   "base_thumb": null,
+   "title_num": 0.14285714285714285,
+   "title_q": 0.14285714285714285
+  },
+  {
+   "country": "미국",
+   "week": 4,
+   "group": "조회수 잘 나온 영상",
+   "pool": 3,
+   "threshold": null,
+   "top": 0,
+   "missing": 0,
+   "overlap_success": 0,
+   "videos": 0,
+   "comments": 0,
+   "thumb_text": 0,
+   "echo_title": null,
+   "base_title": null,
+   "echo_thumb": null,
+   "base_thumb": null,
+   "title_num": null,
+   "title_q": null
+  },
+  {
+   "country": "미국",
+   "week": 4,
+   "group": "성공 사례",
+   "pool": 3,
+   "threshold": null,
+   "top": 0,
+   "missing": null,
+   "overlap_success": null,
+   "videos": 0,
+   "comments": 0,
+   "thumb_text": 0,
+   "echo_title": null,
+   "base_title": null,
+   "echo_thumb": null,
+   "base_thumb": null,
+   "title_num": null,
+   "title_q": null
+  },
+  {
+   "country": "미국",
+   "week": 4,
+   "group": "그 밖의 승인 영상",
+   "pool": 3,
+   "threshold": null,
+   "top": 0,
+   "missing": null,
+   "overlap_success": null,
+   "videos": 2,
+   "comments": 40,
+   "thumb_text": 0,
+   "echo_title": 0.075,
+   "base_title": 0.18686440677966104,
+   "echo_thumb": null,
+   "base_thumb": null,
+   "title_num": 0.5,
+   "title_q": 0.0
+  }
+ ],
+ "themes": {
+  "한국|1": {
+   "폭락·급락·공포": {
+    "with_n": 38,
+    "with_share": 0.08289473684210526,
+    "without_n": 54,
+    "without_share": 0.0638888888888889,
+    "title_share": 0.40425531914893614
+   },
+   "매수·기회·바닥": {
+    "with_n": 17,
+    "with_share": 0.132579185520362,
+    "without_n": 75,
+    "without_share": 0.05980952380952381,
+    "title_share": 0.18085106382978725
+   },
+   "매도·현금·손절": {
+    "with_n": 16,
+    "with_share": 0.05,
+    "without_n": 76,
+    "without_share": 0.047274436090225566,
+    "title_share": 0.1702127659574468
+   },
+   "AI·반도체·빅테크": {
+    "with_n": 22,
+    "with_share": 0.1318181818181818,
+    "without_n": 70,
+    "without_share": 0.06878510378510379,
+    "title_share": 0.23404255319148937
+   },
+   "ETF·지수·배당": {
+    "with_n": 18,
+    "with_share": 0.21481481481481482,
+    "without_n": 74,
+    "without_share": 0.05057915057915058,
+    "title_share": 0.19148936170212766
+   },
+   "정치·정책·정부": {
+    "with_n": 6,
+    "with_share": 0.43333333333333335,
+    "without_n": 86,
+    "without_share": 0.09502583979328166,
+    "title_share": 0.06382978723404255
+   },
+   "연금·노후": {
+    "with_n": 11,
+    "with_share": 0.25,
+    "without_n": 81,
+    "without_share": 0.043209876543209874,
+    "title_share": 0.11702127659574468
+   },
+   "코스피·국장": {
+    "with_n": 29,
+    "with_share": 0.08448275862068966,
+    "without_n": 63,
+    "without_share": 0.05961199294532628,
+    "title_share": 0.30851063829787234
+   },
+   "미국 증시·미장": {
+    "with_n": 7,
+    "with_share": 0.028571428571428574,
+    "without_n": 85,
+    "without_share": 0.017320261437908498,
+    "title_share": 0.07446808510638298
+   }
+  },
+  "한국|2": {
+   "폭락·급락·공포": {
+    "with_n": 23,
+    "with_share": 0.06485507246376812,
+    "without_n": 44,
+    "without_share": 0.04491898651587647,
+    "title_share": 0.3382352941176471
+   },
+   "매수·기회·바닥": {
+    "with_n": 13,
+    "with_share": 0.07435897435897436,
+    "without_n": 54,
+    "without_share": 0.057422298029023176,
+    "title_share": 0.19117647058823528
+   },
+   "매도·현금·손절": {
+    "with_n": 4,
+    "with_share": 0.075,
+    "without_n": 63,
+    "without_share": 0.049845679012345684,
+    "title_share": 0.058823529411764705
+   },
+   "AI·반도체·빅테크": {
+    "with_n": 25,
+    "with_share": 0.1817464114832536,
+    "without_n": 42,
+    "without_share": 0.05952380952380952,
+    "title_share": 0.36764705882352944
+   },
+   "ETF·지수·배당": {
+    "with_n": 15,
+    "with_share": 0.17026936026936026,
+    "without_n": 52,
+    "without_share": 0.05159412955465587,
+    "title_share": 0.22058823529411764
+   },
+   "정치·정책·정부": {
+    "with_n": 4,
+    "with_share": 0.33749999999999997,
+    "without_n": 63,
+    "without_share": 0.05317460317460317,
+    "title_share": 0.058823529411764705
+   },
+   "연금·노후": {
+    "with_n": 6,
+    "with_share": 0.10833333333333334,
+    "without_n": 61,
+    "without_share": 0.02295081967213115,
+    "title_share": 0.08823529411764706
+   },
+   "코스피·국장": {
+    "with_n": 21,
+    "with_share": 0.15595238095238095,
+    "without_n": 46,
+    "without_share": 0.04225088412731433,
+    "title_share": 0.3088235294117647
+   },
+   "미국 증시·미장": {
+    "with_n": 4,
+    "with_share": 0.075,
+    "without_n": 63,
+    "without_share": 0.02424812030075188,
+    "title_share": 0.058823529411764705
+   }
+  },
+  "한국|3": {
+   "폭락·급락·공포": {
+    "with_n": 1,
+    "with_share": 0.1,
+    "without_n": 6,
+    "without_share": 0.008333333333333333,
+    "title_share": 0.14285714285714285
+   },
+   "매수·기회·바닥": {
+    "with_n": 2,
+    "with_share": 0.0,
+    "without_n": 5,
+    "without_share": 0.05,
+    "title_share": 0.2857142857142857
+   },
+   "매도·현금·손절": {
+    "with_n": 0,
+    "with_share": null,
+    "without_n": 7,
+    "without_share": 0.02142857142857143,
+    "title_share": 0.0
+   },
+   "AI·반도체·빅테크": {
+    "with_n": 0,
+    "with_share": null,
+    "without_n": 7,
+    "without_share": 0.021428571428571432,
+    "title_share": 0.0
+   },
+   "ETF·지수·배당": {
+    "with_n": 3,
+    "with_share": 0.26666666666666666,
+    "without_n": 4,
+    "without_share": 0.0875,
+    "title_share": 0.42857142857142855
+   },
+   "정치·정책·정부": {
+    "with_n": 0,
+    "with_share": null,
+    "without_n": 7,
+    "without_share": 0.0071428571428571435,
+    "title_share": 0.0
+   },
+   "연금·노후": {
+    "with_n": 0,
+    "with_share": null,
+    "without_n": 7,
+    "without_share": 0.07857142857142858,
+    "title_share": 0.0
+   },
+   "코스피·국장": {
+    "with_n": 2,
+    "with_share": 0.2,
+    "without_n": 5,
+    "without_share": 0.0,
+    "title_share": 0.2857142857142857
+   },
+   "미국 증시·미장": {
+    "with_n": 0,
+    "with_share": null,
+    "without_n": 7,
+    "without_share": 0.021428571428571432,
+    "title_share": 0.0
+   }
+  },
+  "한국|4": {
+   "폭락·급락·공포": {
+    "with_n": 1,
+    "with_share": 0.6,
+    "without_n": 5,
+    "without_share": 0.09,
+    "title_share": 0.16666666666666666
+   },
+   "매수·기회·바닥": {
+    "with_n": 0,
+    "with_share": null,
+    "without_n": 6,
+    "without_share": 0.08333333333333333,
+    "title_share": 0.0
+   },
+   "매도·현금·손절": {
+    "with_n": 1,
+    "with_share": 0.1,
+    "without_n": 5,
+    "without_share": 0.04,
+    "title_share": 0.16666666666666666
+   },
+   "AI·반도체·빅테크": {
+    "with_n": 0,
+    "with_share": null,
+    "without_n": 6,
+    "without_share": 0.041666666666666664,
+    "title_share": 0.0
+   },
+   "ETF·지수·배당": {
+    "with_n": 3,
+    "with_share": 0.2833333333333333,
+    "without_n": 3,
+    "without_share": 0.05000000000000001,
+    "title_share": 0.5
+   },
+   "정치·정책·정부": {
+    "with_n": 0,
+    "with_share": null,
+    "without_n": 6,
+    "without_share": 0.0,
+    "title_share": 0.0
+   },
+   "연금·노후": {
+    "with_n": 0,
+    "with_share": null,
+    "without_n": 6,
+    "without_share": 0.025000000000000005,
+    "title_share": 0.0
+   },
+   "코스피·국장": {
+    "with_n": 0,
+    "with_share": null,
+    "without_n": 6,
+    "without_share": 0.025000000000000005,
+    "title_share": 0.0
+   },
+   "미국 증시·미장": {
+    "with_n": 0,
+    "with_share": null,
+    "without_n": 6,
+    "without_share": 0.0,
+    "title_share": 0.0
+   }
+  },
+  "한국|0": {
+   "폭락·급락·공포": {
+    "with_n": 63,
+    "with_share": 0.08478835978835979,
+    "without_n": 109,
+    "without_share": 0.05437096703393179,
+    "title_share": 0.36
+   },
+   "매수·기회·바닥": {
+    "with_n": 32,
+    "with_share": 0.10064102564102564,
+    "without_n": 140,
+    "without_share": 0.05954655985201098,
+    "title_share": 0.18285714285714286
+   },
+   "매도·현금·손절": {
+    "with_n": 21,
+    "with_share": 0.05714285714285714,
+    "without_n": 151,
+    "without_share": 0.046908178282350464,
+    "title_share": 0.12
+   },
+   "AI·반도체·빅테크": {
+    "with_n": 47,
+    "with_share": 0.15837575078896468,
+    "without_n": 125,
+    "without_share": 0.06171965811965812,
+    "title_share": 0.26857142857142857
+   },
+   "ETF·지수·배당": {
+    "with_n": 39,
+    "with_share": 0.20694120694120693,
+    "without_n": 133,
+    "without_share": 0.05207332240375375,
+    "title_share": 0.22285714285714286
+   },
+   "정치·정책·정부": {
+    "with_n": 10,
+    "with_share": 0.39499999999999996,
+    "without_n": 162,
+    "without_share": 0.07143347050754459,
+    "title_share": 0.05714285714285714
+   },
+   "연금·노후": {
+    "with_n": 17,
+    "with_share": 0.19999999999999998,
+    "without_n": 155,
+    "without_share": 0.03612903225806451,
+    "title_share": 0.09714285714285714
+   },
+   "코스피·국장": {
+    "with_n": 52,
+    "with_share": 0.11778846153846154,
+    "without_n": 120,
+    "without_share": 0.04874246854510012,
+    "title_share": 0.29714285714285715
+   },
+   "미국 증시·미장": {
+    "with_n": 11,
+    "with_share": 0.045454545454545456,
+    "without_n": 161,
+    "without_share": 0.019564309324034725,
+    "title_share": 0.06285714285714286
+   }
+  },
+  "미국|1": {
+   "폭락·급락·공포": {
+    "with_n": 5,
+    "with_share": 0.14857142857142858,
+    "without_n": 12,
+    "without_share": 0.041666666666666664,
+    "title_share": 0.29411764705882354
+   },
+   "매수·기회·바닥": {
+    "with_n": 6,
+    "with_share": 0.18095238095238095,
+    "without_n": 11,
+    "without_share": 0.06818181818181818,
+    "title_share": 0.35294117647058826
+   },
+   "매도·현금·손절": {
+    "with_n": 3,
+    "with_share": 0.2119047619047619,
+    "without_n": 14,
+    "without_share": 0.03928571428571429,
+    "title_share": 0.17647058823529413
+   },
+   "AI·반도체·빅테크": {
+    "with_n": 4,
+    "with_share": 0.17142857142857143,
+    "without_n": 13,
+    "without_share": 0.057692307692307696,
+    "title_share": 0.23529411764705882
+   },
+   "ETF·지수·배당": {
+    "with_n": 1,
+    "with_share": 0.4,
+    "without_n": 16,
+    "without_share": 0.028125,
+    "title_share": 0.058823529411764705
+   },
+   "정치·정책·정부": {
+    "with_n": 1,
+    "with_share": 0.2,
+    "without_n": 16,
+    "without_share": 0.028125,
+    "title_share": 0.058823529411764705
+   },
+   "연금·노후": {
+    "with_n": 0,
+    "with_share": null,
+    "without_n": 17,
+    "without_share": 0.020168067226890758,
+    "title_share": 0.0
+   },
+   "코스피·국장": {
+    "with_n": 0,
+    "with_share": null,
+    "without_n": 17,
+    "without_share": 0.0,
+    "title_share": 0.0
+   },
+   "미국 증시·미장": {
+    "with_n": 2,
+    "with_share": 0.07500000000000001,
+    "without_n": 15,
+    "without_share": 0.07285714285714287,
+    "title_share": 0.11764705882352941
+   }
+  },
+  "미국|2": {
+   "폭락·급락·공포": {
+    "with_n": 3,
+    "with_share": 0.06666666666666667,
+    "without_n": 5,
+    "without_share": 0.02,
+    "title_share": 0.375
+   },
+   "매수·기회·바닥": {
+    "with_n": 3,
+    "with_share": 0.21666666666666667,
+    "without_n": 5,
+    "without_share": 0.12454545454545454,
+    "title_share": 0.375
+   },
+   "매도·현금·손절": {
+    "with_n": 0,
+    "with_share": null,
+    "without_n": 8,
+    "without_share": 0.08750000000000001,
+    "title_share": 0.0
+   },
+   "AI·반도체·빅테크": {
+    "with_n": 0,
+    "with_share": null,
+    "without_n": 8,
+    "without_share": 0.06875,
+    "title_share": 0.0
+   },
+   "ETF·지수·배당": {
+    "with_n": 2,
+    "with_share": 0.6340909090909091,
+    "without_n": 6,
+    "without_share": 0.025000000000000005,
+    "title_share": 0.25
+   },
+   "정치·정책·정부": {
+    "with_n": 0,
+    "with_share": null,
+    "without_n": 8,
+    "without_share": 0.06647727272727273,
+    "title_share": 0.0
+   },
+   "연금·노후": {
+    "with_n": 0,
+    "with_share": null,
+    "without_n": 8,
+    "without_share": 0.06761363636363636,
+    "title_share": 0.0
+   },
+   "코스피·국장": {
+    "with_n": 0,
+    "with_share": null,
+    "without_n": 8,
+    "without_share": 0.0,
+    "title_share": 0.0
+   },
+   "미국 증시·미장": {
+    "with_n": 2,
+    "with_share": 0.0,
+    "without_n": 6,
+    "without_share": 0.125,
+    "title_share": 0.25
+   }
+  },
+  "미국|3": {
+   "폭락·급락·공포": {
+    "with_n": 0,
+    "with_share": null,
+    "without_n": 2,
+    "without_share": 0.0,
+    "title_share": 0.0
+   },
+   "매수·기회·바닥": {
+    "with_n": 2,
+    "with_share": 0.325,
+    "without_n": 0,
+    "without_share": null,
+    "title_share": 1.0
+   },
+   "매도·현금·손절": {
+    "with_n": 0,
+    "with_share": null,
+    "without_n": 2,
+    "without_share": 0.05,
+    "title_share": 0.0
+   },
+   "AI·반도체·빅테크": {
+    "with_n": 0,
+    "with_share": null,
+    "without_n": 2,
+    "without_share": 0.0,
+    "title_share": 0.0
+   },
+   "ETF·지수·배당": {
+    "with_n": 2,
+    "with_share": 0.675,
+    "without_n": 0,
+    "without_share": null,
+    "title_share": 1.0
+   },
+   "정치·정책·정부": {
+    "with_n": 0,
+    "with_share": null,
+    "without_n": 2,
+    "without_share": 0.025,
+    "title_share": 0.0
+   },
+   "연금·노후": {
+    "with_n": 1,
+    "with_share": 0.1,
+    "without_n": 1,
+    "without_share": 0.2,
+    "title_share": 0.5
+   },
+   "코스피·국장": {
+    "with_n": 0,
+    "with_share": null,
+    "without_n": 2,
+    "without_share": 0.0,
+    "title_share": 0.0
+   },
+   "미국 증시·미장": {
+    "with_n": 0,
+    "with_share": null,
+    "without_n": 2,
+    "without_share": 0.07500000000000001,
+    "title_share": 0.0
+   }
+  },
+  "미국|4": {
+   "폭락·급락·공포": {
+    "with_n": 0,
+    "with_share": null,
+    "without_n": 0,
+    "without_share": null,
+    "title_share": null
+   },
+   "매수·기회·바닥": {
+    "with_n": 0,
+    "with_share": null,
+    "without_n": 0,
+    "without_share": null,
+    "title_share": null
+   },
+   "매도·현금·손절": {
+    "with_n": 0,
+    "with_share": null,
+    "without_n": 0,
+    "without_share": null,
+    "title_share": null
+   },
+   "AI·반도체·빅테크": {
+    "with_n": 0,
+    "with_share": null,
+    "without_n": 0,
+    "without_share": null,
+    "title_share": null
+   },
+   "ETF·지수·배당": {
+    "with_n": 0,
+    "with_share": null,
+    "without_n": 0,
+    "without_share": null,
+    "title_share": null
+   },
+   "정치·정책·정부": {
+    "with_n": 0,
+    "with_share": null,
+    "without_n": 0,
+    "without_share": null,
+    "title_share": null
+   },
+   "연금·노후": {
+    "with_n": 0,
+    "with_share": null,
+    "without_n": 0,
+    "without_share": null,
+    "title_share": null
+   },
+   "코스피·국장": {
+    "with_n": 0,
+    "with_share": null,
+    "without_n": 0,
+    "without_share": null,
+    "title_share": null
+   },
+   "미국 증시·미장": {
+    "with_n": 0,
+    "with_share": null,
+    "without_n": 0,
+    "without_share": null,
+    "title_share": null
+   }
+  },
+  "미국|0": {
+   "폭락·급락·공포": {
+    "with_n": 8,
+    "with_share": 0.11785714285714285,
+    "without_n": 19,
+    "without_share": 0.03157894736842106,
+    "title_share": 0.2962962962962963
+   },
+   "매수·기회·바닥": {
+    "with_n": 11,
+    "with_share": 0.21688311688311687,
+    "without_n": 16,
+    "without_share": 0.08579545454545455,
+    "title_share": 0.4074074074074074
+   },
+   "매도·현금·손절": {
+    "with_n": 3,
+    "with_share": 0.2119047619047619,
+    "without_n": 24,
+    "without_share": 0.05625,
+    "title_share": 0.1111111111111111
+   },
+   "AI·반도체·빅테크": {
+    "with_n": 4,
+    "with_share": 0.17142857142857143,
+    "without_n": 23,
+    "without_share": 0.05652173913043478,
+    "title_share": 0.14814814814814814
+   },
+   "ETF·지수·배당": {
+    "with_n": 5,
+    "with_share": 0.6036363636363636,
+    "without_n": 22,
+    "without_share": 0.02727272727272728,
+    "title_share": 0.18518518518518517
+   },
+   "정치·정책·정부": {
+    "with_n": 1,
+    "with_share": 0.2,
+    "without_n": 26,
+    "without_share": 0.03968531468531468,
+    "title_share": 0.037037037037037035
+   },
+   "연금·노후": {
+    "with_n": 1,
+    "with_share": 0.1,
+    "without_n": 26,
+    "without_share": 0.04168331668331668,
+    "title_share": 0.037037037037037035
+   },
+   "코스피·국장": {
+    "with_n": 0,
+    "with_share": null,
+    "without_n": 27,
+    "without_share": 0.0,
+    "title_share": 0.0
+   },
+   "미국 증시·미장": {
+    "with_n": 4,
+    "with_share": 0.037500000000000006,
+    "without_n": 23,
+    "without_share": 0.08664596273291926,
+    "title_share": 0.14814814814814814
+   }
+  }
+ },
+ "words": {
+  "한국|1": [
+   {
+    "word": "박병창",
+    "videos": 2,
+    "own": 0.35,
+    "base": 0.0003952569169960474,
+    "lift": 0.34960474308300393,
+    "where": "제목·썸네일"
+   },
+   {
+    "word": "존리",
+    "videos": 4,
+    "own": 0.3125,
+    "base": 0.0018,
+    "lift": 0.3107,
+    "where": "제목"
+   },
+   {
+    "word": "현대차",
+    "videos": 2,
+    "own": 0.275,
+    "base": 0.004035433070866142,
+    "lift": 0.2709645669291339,
+    "where": "제목"
+   },
+   {
+    "word": "국민연금",
+    "videos": 8,
+    "own": 0.2625,
+    "base": 0.018421052631578946,
+    "lift": 0.24407894736842106,
+    "where": "제목·썸네일"
+   },
+   {
+    "word": "장우진",
+    "videos": 2,
+    "own": 0.225,
+    "base": 0.0,
+    "lift": 0.225,
+    "where": "제목"
+   },
+   {
+    "word": "문남중",
+    "videos": 3,
+    "own": 0.18333333333333335,
+    "base": 0.0,
+    "lift": 0.18333333333333335,
+    "where": "제목"
+   },
+   {
+    "word": "금리",
+    "videos": 2,
+    "own": 0.175,
+    "base": 0.012666666666666668,
+    "lift": 0.16233333333333333,
+    "where": "제목"
+   },
+   {
+    "word": "투자",
+    "videos": 8,
+    "own": 0.2357142857142857,
+    "base": 0.07770123187499349,
+    "lift": 0.1580130538392922,
+    "where": "제목·썸네일"
+   },
+   {
+    "word": "정부",
+    "videos": 3,
+    "own": 0.18333333333333335,
+    "base": 0.030468601382342374,
+    "lift": 0.15286473195099098,
+    "where": "제목"
+   },
+   {
+    "word": "s&p",
+    "videos": 2,
+    "own": 0.15,
+    "base": 0.006775025799793602,
+    "lift": 0.14322497420020638,
+    "where": "제목·썸네일"
+   }
+  ],
+  "한국|2": [
+   {
+    "word": "qld",
+    "videos": 2,
+    "own": 0.3611111111111111,
+    "base": 0.004154579361790303,
+    "lift": 0.3569565317493208,
+    "where": "제목"
+   },
+   {
+    "word": "중국",
+    "videos": 2,
+    "own": 0.2,
+    "base": 0.00861170762745566,
+    "lift": 0.19138829237254434,
+    "where": "제목·썸네일"
+   },
+   {
+    "word": "국장",
+    "videos": 2,
+    "own": 0.225,
+    "base": 0.037263686311330625,
+    "lift": 0.1877363136886694,
+    "where": "제목·썸네일"
+   },
+   {
+    "word": "서동주",
+    "videos": 2,
+    "own": 0.15,
+    "base": 0.0,
+    "lift": 0.15,
+    "where": "썸네일"
+   },
+   {
+    "word": "정책",
+    "videos": 2,
+    "own": 0.15,
+    "base": 0.0047430830039525695,
+    "lift": 0.14525691699604742,
+    "where": "제목·썸네일"
+   },
+   {
+    "word": "차트도령",
+    "videos": 2,
+    "own": 0.125,
+    "base": 0.0,
+    "lift": 0.125,
+    "where": "썸네일"
+   },
+   {
+    "word": "schd",
+    "videos": 2,
+    "own": 0.125,
+    "base": 0.0014492753623188406,
+    "lift": 0.12355072463768116,
+    "where": "제목"
+   },
+   {
+    "word": "테슬라",
+    "videos": 2,
+    "own": 0.125,
+    "base": 0.0025696594427244584,
+    "lift": 0.12243034055727554,
+    "where": "제목"
+   },
+   {
+    "word": "세무사",
+    "videos": 3,
+    "own": 0.11666666666666665,
+    "base": 0.0,
+    "lift": 0.11666666666666665,
+    "where": "제목·썸네일"
+   },
+   {
+    "word": "이권희",
+    "videos": 2,
+    "own": 0.1,
+    "base": 0.0,
+    "lift": 0.1,
+    "where": "제목"
+   }
+  ],
+  "한국|3": [
+   {
+    "word": "etf",
+    "videos": 2,
+    "own": 0.25,
+    "base": 0.01789360222933343,
+    "lift": 0.23210639777066658,
+    "where": "제목·썸네일"
+   },
+   {
+    "word": "주식",
+    "videos": 3,
+    "own": 0.2833333333333333,
+    "base": 0.10667156305932242,
+    "lift": 0.17666177027401092,
+    "where": "제목·썸네일"
+   }
+  ],
+  "한국|4": [
+   {
+    "word": "사람",
+    "videos": 2,
+    "own": 0.07500000000000001,
+    "base": 0.05454303291715254,
+    "lift": 0.02045696708284747,
+    "where": "제목"
+   },
+   {
+    "word": "주식",
+    "videos": 3,
+    "own": 0.09999999999999999,
+    "base": 0.10667156305932242,
+    "lift": -0.006671563059322427,
+    "where": "제목·썸네일"
+   }
+  ],
+  "미국|1": [
+   {
+    "word": "selling",
+    "videos": 2,
+    "own": 0.09642857142857142,
+    "base": 0.00819672131147541,
+    "lift": 0.08823185011709601,
+    "where": "제목"
+   },
+   {
+    "word": "stock",
+    "videos": 14,
+    "own": 0.10663265306122449,
+    "base": 0.08142292490118577,
+    "lift": 0.02520972816003872,
+    "where": "제목"
+   },
+   {
+    "word": "dip",
+    "videos": 3,
+    "own": 0.03333333333333333,
+    "base": 0.011206896551724138,
+    "lift": 0.022126436781609193,
+    "where": "제목·썸네일"
+   },
+   {
+    "word": "happen",
+    "videos": 2,
+    "own": 0.025,
+    "base": 0.010000000000000002,
+    "lift": 0.015,
+    "where": "제목"
+   },
+   {
+    "word": "market",
+    "videos": 7,
+    "own": 0.13571428571428573,
+    "base": 0.12414035828669975,
+    "lift": 0.011573927427585978,
+    "where": "제목"
+   },
+   {
+    "word": "buy",
+    "videos": 3,
+    "own": 0.06666666666666667,
+    "base": 0.058312520812520814,
+    "lift": 0.008354145854145852,
+    "where": "제목·썸네일"
+   },
+   {
+    "word": "imploding",
+    "videos": 2,
+    "own": 0.0,
+    "base": 0.0,
+    "lift": 0,
+    "where": "제목·썸네일"
+   },
+   {
+    "word": "gift",
+    "videos": 2,
+    "own": 0.0,
+    "base": 0.0,
+    "lift": 0,
+    "where": "제목"
+   },
+   {
+    "word": "unthinkable",
+    "videos": 2,
+    "own": 0.0,
+    "base": 0.0,
+    "lift": 0,
+    "where": "제목"
+   },
+   {
+    "word": "buying",
+    "videos": 3,
+    "own": 0.03333333333333333,
+    "base": 0.039770587228214346,
+    "lift": -0.0064372538948810135,
+    "where": "제목"
+   }
+  ],
+  "미국|2": [
+   {
+    "word": "dividend",
+    "videos": 2,
+    "own": 0.3068181818181818,
+    "base": 0.005681818181818182,
+    "lift": 0.30113636363636365,
+    "where": "제목·썸네일"
+   },
+   {
+    "word": "share",
+    "videos": 2,
+    "own": 0.15,
+    "base": 0.034685841465502486,
+    "lift": 0.1153141585344975,
+    "where": "제목·썸네일"
+   },
+   {
+    "word": "stock",
+    "videos": 5,
+    "own": 0.15,
+    "base": 0.08142292490118577,
+    "lift": 0.06857707509881422,
+    "where": "제목"
+   },
+   {
+    "word": "buy",
+    "videos": 2,
+    "own": 0.125,
+    "base": 0.058312520812520814,
+    "lift": 0.06668747918747919,
+    "where": "제목·썸네일"
+   },
+   {
+    "word": "market",
+    "videos": 3,
+    "own": 0.15,
+    "base": 0.12414035828669975,
+    "lift": 0.02585964171330024,
+    "where": "제목"
+   }
+  ],
+  "미국|3": [
+   {
+    "word": "schd",
+    "videos": 2,
+    "own": 0.475,
+    "base": 0.015000000000000001,
+    "lift": 0.45999999999999996,
+    "where": "제목"
+   },
+   {
+    "word": "share",
+    "videos": 2,
+    "own": 0.35,
+    "base": 0.034685841465502486,
+    "lift": 0.3153141585344975,
+    "where": "제목"
+   }
+  ],
+  "미국|4": []
+ },
+ "examples": {
+  "한국|1": [
+   {
+    "id": "y_mvodyrXhQ",
+    "title": "지난 폭락과는 완전히 다릅니다…코스피가 진짜 위험한 이유 (Feat. 박병창 MP파트너스 대표) [딥플 Deep-ple]",
+    "thumb_text": "이번 폭락, 다르다 6개월 더 간다?",
+    "channel": "핀플 - Finple",
+    "subs": 45900,
+    "views": 193740,
+    "vpd": 39332.5,
+    "success": true,
+    "echo_title": 0.8,
+    "base_title": 0.10083333333333333,
+    "echo_thumb": 0.1,
+    "comments": [
+     {
+      "likes": 377,
+      "text": "반도체 업계 종사자입니다 중국 반도체 신기술(특히 창신메모리 CXMT의 차세대 D램 '4F²' 연내 출시 발표 등) 정치적·시장적 과장(선동에 가까운 쇼맨십)이 99%, 무시 못 할 기술적 우회 시도가 0.1%' 정도로 보시는 것이 가장 냉정한 팩트입니다. 단순히 '거짓말'이라기보다는,"
+     },
+     {
+      "likes": 57,
+      "text": "오.핀플에 박병창님이 신기하네요~~방가방가!"
+     },
+     {
+      "likes": 50,
+      "text": "-300이 -2500되있어요 -300에 다던질걸걸걸"
+     }
+    ]
+   },
+   {
+    "id": "P2RgHzSPT_c",
+    "title": "K 비만약 ‘에페’ 출격ㅣ룰루레몬 주가 폭락ㅣ좀비 ETF 등 4가지 🥬경제 이슈🥬",
+    "thumb_text": "경제 한쌈 \"레깅스 다 비쳐서 민망\" 복잡하고 어려운 경제 이슈 알맹이만 딱 요약함",
+    "channel": "14F 일사에프",
+    "subs": 2390000,
+    "views": 280815,
+    "vpd": 87280.1,
+    "success": false,
+    "echo_title": 0.7,
+    "base_title": 0.027118644067796613,
+    "echo_thumb": 0.0,
+    "comments": [
+     {
+      "likes": 178,
+      "text": "위고비 마운자로 있는데 삭센다급인걸 왜 맞음 ㅋㅋㅋ"
+     },
+     {
+      "likes": 154,
+      "text": "갑자기 마운자로 위고비 위험하다는 기사가 쏟아지고~ 수입하는 마운자로 위고비는 막고~ 갑자기 K 위고비라고하면서 띄워주는데 성능은 떨어지는데 가격은 비슷하고~?ㅋㅋㅋ 그렇게 해봐야 진실을 알고있는 주가는 떨어지고있지 손으로 하늘을 가려라."
+     },
+     {
+      "likes": 123,
+      "text": "에페를 처 밀어주고 있네 ㅋㅋㅋ"
+     }
+    ]
+   },
+   {
+    "id": "PEOHCf2930w",
+    "title": "QLD 직투 vs ISA, 잘못 선택했다가는 10년 뒤 수 천만 원 날립니다",
+    "thumb_text": "10년 후.. ISA vs 직투 QLD 투자, 직투 vs ISA 10년 뒤 승자는 누굴까?",
+    "channel": "투자각성",
+    "subs": 382,
+    "views": 10953,
+    "vpd": 1632.0,
+    "success": true,
+    "echo_title": 0.7142857142857143,
+    "base_title": 0.05,
+    "echo_thumb": 0.8571428571428571,
+    "comments": [
+     {
+      "likes": 2,
+      "text": "아주 유용한 영상입니다 잘 보았습니다 향후 투자에 참고하겠습니다 ^^"
+     },
+     {
+      "likes": 2,
+      "text": "유익한 영상입니다 감사합니다🎉🎉"
+     },
+     {
+      "likes": 2,
+      "text": "환차손도 2배여서 저 같은 케이스는 심합니다 현재 10월 18일 기준 26년 6월 29일 - 3천만원 매수 3천만원 매수 사유 , 여기저기 증권계좌에 kodex 미국나스닥100 매도후 합친 돈이 3천이여서 모은뒤 거치식으로 원큐 투자 tiger 미국나스닥100레버리지(합성) 평단 51,"
+     }
+    ]
+   }
+  ],
+  "한국|2": [
+   {
+    "id": "0cfnnb5kiyA",
+    "title": "20년 차 베테랑 투자자가 이야기하는 초보도 주식 시장에서 승리하는 방법ㅣ주식투자자 깡토",
+    "thumb_text": "(1년차 주린이) 20년 경력 주식 투자자 '이걸' 눈치챈 사람이 주식 시장에서 큰 돈 벌어요",
+    "channel": "Turbo832 TV",
+    "subs": 417000,
+    "views": 225687,
+    "vpd": 20082.1,
+    "success": false,
+    "echo_title": 0.65,
+    "base_title": 0.0325,
+    "echo_thumb": 0.25,
+    "comments": [
+     {
+      "likes": 90,
+      "text": "안녕하세요, 깡토입니다 :) 터보님께서 좋은 기회로 초대해 주셔서 즐겁게 촬영하고 왔습니다. 모두의 성투를 진심으로 응원합니다."
+     },
+     {
+      "likes": 37,
+      "text": "와 어설픈 가치투자, 추세추종하며 주린이 탈출 애쓰는 중인데 드론샷 한 번 제대로 보여주시는 분이시네요. 어디로 가야 하나. 내성향 맞는 투자 찾아가는게 뭔지 생각하게 됩니다. 감사합니다."
+     },
+     {
+      "likes": 23,
+      "text": "깡토님은 찐입니다 ❤"
+     }
+    ]
+   },
+   {
+    "id": "jUv_RnYyNCQ",
+    "title": "\"배당으로 평생 놀고 먹어요\" 월 50만 원씩 3년만 모으세요. 현존하는 가장 완벽한 ETF | 쭈압 1부 #돈쭐남 #김경필",
+    "thumb_text": "\"배당으로 평생 놀고먹어요\" 월 50씩 3년만 모으세요 현존하는 가장 완벽한 ETF",
+    "channel": "부티플 - 부의 배수를 높여라",
+    "subs": 1210000,
+    "views": 239947,
+    "vpd": 19375.6,
+    "success": false,
+    "echo_title": 0.7,
+    "base_title": 0.10166666666666667,
+    "echo_thumb": 0.35,
+    "comments": [
+     {
+      "likes": 71,
+      "text": "정치댓글 달리니까 보태요 이재명은 국가국민살림 걱정에 실핏줄터져 눈이 벌것고 윤석열은 술처먹고 뻘짓하느라 눈이 뻘겠었지요"
+     },
+     {
+      "likes": 63,
+      "text": "이재명이 나라를 말아먹고 국민들 살아가기 힘든데 배당받고 파이어한 사람들 부럽네요"
+     },
+     {
+      "likes": 25,
+      "text": "성격까지 화끈한 쭈압님 여기서 보니 반갑습니다 그새 자산이 쑥 늘었네요 축하드립니다 많이 도움이 되네요"
+     }
+    ]
+   },
+   {
+    "id": "Qx2fzi3p8Kg",
+    "title": "[#찐시황]  “오늘 주가 폭락 너무 심했다!” 장 막판 선물 7,500억 쓸어담은 외국인… 내일 증시  반등 신호 인가?  ㅣ이권희 대표",
+    "thumb_text": "찐시황 이권희 대표 장 막판 외인 돌변 선물 7500억 쓸어담았다 내일 반등에 베팅?",
+    "channel": "815머니톡",
+    "subs": 1290000,
+    "views": 213881,
+    "vpd": 23962.5,
+    "success": false,
+    "echo_title": 0.6,
+    "base_title": 0.04083333333333334,
+    "echo_thumb": 0.55,
+    "comments": [
+     {
+      "likes": 82,
+      "text": "솔리다임 이거 상장 못하게 해냐한다 증말 이런게 바로 코리아 디스카운트다"
+     },
+     {
+      "likes": 66,
+      "text": "하루이틀 막판 선물 매수냐"
+     },
+     {
+      "likes": 62,
+      "text": "쓰벌 맨날 막판에 쓸어 담았데"
+     }
+    ]
+   }
+  ],
+  "한국|3": [
+   {
+    "id": "WfEK5IRkpE4",
+    "title": "(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미스나인 이채영과 함께하는 역대급 ACE ETF 회식 | ACE 투자상담소",
+    "thumb_text": "What's your ACE ETF 이채영 사원",
+    "channel": "ACE ETF",
+    "subs": 148000,
+    "views": 3255124,
+    "vpd": 171058.0,
+    "success": false,
+    "echo_title": 0.7,
+    "base_title": 0.09576271186440678,
+    "echo_thumb": 0.55,
+    "comments": [
+     {
+      "likes": 63,
+      "text": "지헌이에 이어 챙이까지~~ 앞으로 ETF는 ACE거로만 하겠습니당~~"
+     },
+     {
+      "likes": 50,
+      "text": "에 : 에이스(ACE) ETF 투자상담소에 찾아온 반가운 손님! 이 : 이채영의 통통 튀는 매력과 밝은 에너지 덕분에 스 : 스마트한 ETF 자산 관리 꿀팁이 쏙쏙 이해돼요! 채 : 채권, 주식, 월배당까지 똑똑한 Asset 전략 배우고 영 : 영원히 ACE ETF & 채영이만 믿고 성"
+     },
+     {
+      "likes": 44,
+      "text": "에: 에이스는 누군가 했더니 이: 이채영이었네? 스: 스쳐 지나가려했는데 자꾸 생각나고 채: 채영 이름 석 자가 머릿속에 박히더니 영: 영원히 기억될 ETF투자상담소의 에이스 이채영"
+     }
+    ]
+   },
+   {
+    "id": "FRzyTNO9mNI",
+    "title": "50대 옥탑방 부부, \"그 나이에 왜 주식을...\"",
+    "thumb_text": "50대 옥탑방 부부 \"그 나이에 왜 주식을...\"",
+    "channel": "반백살, 옥탑방 이야기",
+    "subs": 601,
+    "views": 42862,
+    "vpd": 2396.7,
+    "success": true,
+    "echo_title": 0.7,
+    "base_title": 0.19416666666666668,
+    "echo_thumb": 0.7,
+    "comments": [
+     {
+      "likes": 26,
+      "text": "목소리가 참 좋으시네요😊 저도 50대 중반이고 주식으로 노후자금 준비를 하고있어요 이제는 근로소득만 가지고 자산을 늘리는 시대는 끝났다고 봅니다 부동산은 목돈이 들어가니 서민들은 주식이 접근하기 쉽죠 저도 처음에 주식.금융공부 많이 하고 시작했는데요, 결국 공부보다 가장 기본만 지키면 "
+     },
+     {
+      "likes": 17,
+      "text": "목소리 좋으시네요 아무것도 안하면 아무것도 될 수 없을 껍니다 화이팅 하시길요"
+     },
+     {
+      "likes": 16,
+      "text": "저도 주식하면 패가 망신한다는 부모님 말씀을 금과옥조로 여기며 살다가, 50세가 넘은 나이에, 금기의 영역으로 생각했던 주식을 시작했어요. 개별주는 하나도 안하고, 미국지수, 국내지수만 투자하는데...진작 시작할걸 싶네요. 3년전부터 했는데 5년전, 10년전 시작할걸 싶습니다. 응원합니"
+     }
+    ]
+   },
+   {
+    "id": "0JHEax_R7DE",
+    "title": "[차트 강의] 100조 운용역이 신입 펀드매니저에게 가르쳤던 차트 패턴 8가지 (박재훈)",
+    "thumb_text": "박재훈의 투자 농장 차트 강의 박재훈 37년 간 100조 원 운용하며 알게 된 차트의 반등 신호",
+    "channel": "박재훈의 투자농장",
+    "subs": 20900,
+    "views": 190769,
+    "vpd": 10443.9,
+    "success": true,
+    "echo_title": 0.4117647058823529,
+    "base_title": 0.010784313725490196,
+    "echo_thumb": 0.35294117647058826,
+    "comments": [
+     {
+      "likes": 9,
+      "text": "당연하겠지만 캔들패턴은 일봉 아래보다 주봉에서 노이즈가 적고 꽤 잘먹힙니다 현재 가격대의 지지저항 그리고 3~4개의 틱으로 추세 분석해서 스윙하기 좋더라구요"
+     },
+     {
+      "likes": 7,
+      "text": "중요한건 거래대금, 흑삼병 ,적삼병 퍼센트에 대한 디테일한 이야기가 없습니다."
+     },
+     {
+      "likes": 7,
+      "text": "20년 전이나 지금이나 전문가들 말씀은 변함이 없군요... 이런 방법으로 돈벌거 같으면 세상에 돈 못벌 사람들이 별로 없을것입니다."
+     }
+    ]
+   }
+  ],
+  "한국|4": [
+   {
+    "id": "yzFcWRov45c",
+    "title": "\"어차피 손절도 못 하면서...\" 주식 투자로 매번 망하는 사람들의 치명적 착각 1가지 | 존리 | ETF아는형",
+    "thumb_text": "월간존리 파산 주식 사놓고 물렸다 통곡할 때 '이 한 가지'만 당장 버리세요",
+    "channel": "ETF 아는 형",
+    "subs": 157000,
+    "views": 622722,
+    "vpd": 22705.8,
+    "success": false,
+    "echo_title": 0.75,
+    "base_title": 0.17416666666666666,
+    "echo_thumb": 0.25,
+    "comments": [
+     {
+      "likes": 123,
+      "text": "15년에 우연히 대표님 영상보고 그전에 겪은 주식 싸악 정리하면서 연금계좌트고 패시브로 오늘까지 지속하고 있습니다..너무 감사드리고, 이번에 지방에 오셔서 만나뵙게 되서 너무 반가웠고 최근 흰머리가 느시는게 별로 안좋았는데 염색도 한번하시고 늘 건강하십시요~~영상 보여서 즉석 리플드립니"
+     },
+     {
+      "likes": 109,
+      "text": "존리 대표님의 말은 매일 매일 듣고 쇄뇌가 될 정도로 듣고 또 듣고 그냥 계속 듣자 !"
+     },
+     {
+      "likes": 93,
+      "text": "결국은 죤리대표님 말씀이 정답!!!"
+     }
+    ]
+   },
+   {
+    "id": "d2_oRUcx5Uo",
+    "title": "같은 TQQQ에 1억, 한 사람은 2만 원 한 사람은 388억 (실제 데이터)",
+    "thumb_text": "2000년 꼭대기에 TQQQ 1억이 2만원",
+    "channel": "머니언박싱",
+    "subs": 2200,
+    "views": 190198,
+    "vpd": 8122.6,
+    "success": true,
+    "echo_title": 0.4,
+    "base_title": 0.05416666666666667,
+    "echo_thumb": 0.35,
+    "comments": [
+     {
+      "likes": 72,
+      "text": "레버리지 투자의 성과는 출발점도 중요하지만 종착점도 중요합니다. 은퇴시기 주식을 팔아야 할 때 금융위기가 닥친다면 출발점이 좋았어도 망한거죠."
+     },
+     {
+      "likes": 38,
+      "text": "영상 퀄리티 미쳤네요 ㄷㄷㄷ 차트를 산맥으로 표현한거 지립니다 ㅎㅎ"
+     },
+     {
+      "likes": 26,
+      "text": "전 그냥 조정때마다 사고 있네요..qld 사고 있고 큰 하락장 오면 tqqq 사려구요..평소는 절세3종계좌에 1배짜리 지수투자중..무리 안하려구요ㅋㅋ현금은 20~30%정도 cma계좌에 항상 보유중.."
+     }
+    ]
+   },
+   {
+    "id": "oUDSWlsaRiU",
+    "title": "슈카가 떠먹여주는 진짜 쉬운 경제 용어 특강",
+    "thumb_text": "주식 시작 전 알아야 할 슈카 경제용어 특강",
+    "channel": "강지영의 동그라미",
+    "subs": 145000,
+    "views": 601143,
+    "vpd": 27339.4,
+    "success": false,
+    "echo_title": 0.35,
+    "base_title": 0.0325,
+    "echo_thumb": 0.3,
+    "comments": [
+     {
+      "likes": 170,
+      "text": "투자를 배운다는 것은 투자와 관련된 명사를 많이 외우는 것이 아니라, 좋은 동사와 형용사를 습관화하는 것이다. 무엇을 살 것인가보다 어떻게 기다릴 것인가, 얼마나 오를 것인가보다 얼마나 감당할 수 있는가, 무엇이 유망한가보다 얼마나 지속 가능한가를 묻는 습관이다. 결국 투자자의 언어가 "
+     },
+     {
+      "likes": 57,
+      "text": "ㅋㅋㅋㅋ 슈카님 점점 화나 ㅋㅋㅋㅋ 그라데이션 분노 ㅋㅋㅋㅋㅋ 하지만 저같은 초보에겐 넘 유용한 편이네용"
+     },
+     {
+      "likes": 32,
+      "text": "25:45저도 슈카님 항상 빚,빛을 빗으로 발음한다 싶었는데 아나운서님이 찍어 주시니 속이 다 시원😂"
+     }
+    ]
+   }
+  ],
+  "미국|1": [
+   {
+    "id": "igE-cvzsUJw",
+    "title": "ELON’S STOCK GIVEAWAY: This kind of stuff ‘SAVES FREE MARKETS’",
+    "thumb_text": "",
+    "channel": "Fox Business",
+    "subs": 3390000,
+    "views": 278896,
+    "vpd": 165401.9,
+    "success": false,
+    "echo_title": 0.55,
+    "base_title": 0.10762711864406779,
+    "echo_thumb": null,
+    "comments": [
+     {
+      "likes": 78,
+      "text": "I hope he means every American child in America..."
+     },
+     {
+      "likes": 54,
+      "text": "The guy is amazing Full stop 👍"
+     },
+     {
+      "likes": 52,
+      "text": "That would be very nice, but then stock giveaways and high-profile corporate incentives can influence investor sentiment, but their broader market impact depend"
+     }
+    ]
+   },
+   {
+    "id": "LgszhYR0rFQ",
+    "title": "This New Fidelity ETF Has CRUSHED Every Dividend ETF",
+    "thumb_text": "THE ETF NOBODY OWNS BEATS SCHD & DGRO SCHD DGRO",
+    "channel": "Jake Wealth Hacks",
+    "subs": 6700,
+    "views": 21526,
+    "vpd": 3863.6,
+    "success": true,
+    "echo_title": 0.4,
+    "base_title": 0.03333333333333333,
+    "echo_thumb": 0.6,
+    "comments": [
+     {
+      "likes": 6,
+      "text": "Good suggestion, I have all you mentioned plus FYEE and FDVV. Fidelity seems like a winner"
+     },
+     {
+      "likes": 2,
+      "text": "It sounds like they changed it because it wasn't doing well. So why would I want it? My AI says to stick with SCHD, DGRO, and VYM."
+     },
+     {
+      "likes": 2,
+      "text": "Sounds like VFLO"
+     }
+    ]
+   },
+   {
+    "id": "KU9v3iPFLow",
+    "title": "CPI Inflation Report Worse Than Expected — Stocks Are Falling",
+    "thumb_text": "",
+    "channel": "ClearValue Tax",
+    "subs": 2900000,
+    "views": 448072,
+    "vpd": 69757.7,
+    "success": false,
+    "echo_title": 0.45,
+    "base_title": 0.11779661016949153,
+    "echo_thumb": null,
+    "comments": [
+     {
+      "likes": 660,
+      "text": "😢Everything is out of control Gas, Diesel, Groceries, Healthcare and my Blood Pressure"
+     },
+     {
+      "likes": 547,
+      "text": "Turns out when you print trillions of dollars you get MORE inflation."
+     },
+     {
+      "likes": 437,
+      "text": "Stocks will forget about it tomorrow 😂😂😂😂"
+     }
+    ]
+   }
+  ],
+  "미국|2": [
+   {
+    "id": "ys_pR1yxEgo",
+    "title": "SCHD ETF Analysis: The Most Complete Schwab US Dividend Equity ETF Breakdown",
+    "thumb_text": "THE MOST COMPLETE SCHD ETF ANALYSIS ON YOUTUBE WALL ST TRADER",
+    "channel": "Goldman Starch",
+    "subs": 1390,
+    "views": 10907,
+    "vpd": 1477.1,
+    "success": true,
+    "echo_title": 0.8181818181818182,
+    "base_title": 0.17121212121212123,
+    "echo_thumb": 0.7272727272727273,
+    "comments": [
+     {
+      "likes": 11,
+      "text": "I’m a retired Canadian teacher 65 years old woman, who now live in Chicago. it’s about a week and half now I started investing. And I started with $7k now I’m o"
+     },
+     {
+      "likes": 10,
+      "text": "Thanks for the video. I like my SCHD. I do own individual companies paying a higher dividend as well. I hold SGOV as a savings account. I also have tech focused"
+     },
+     {
+      "likes": 5,
+      "text": "Put the microphone on your shirt."
+     }
+    ]
+   },
+   {
+    "id": "gC-_mODu2gI",
+    "title": "I Bought 1,000 Shares of JEPQ. Here’s What It Pays Me Every Month",
+    "thumb_text": "JEPQ I JUST BOUGHT 1,000 SHARES THE DIVIDEND PAYOUT",
+    "channel": "Grounded Life Investments",
+    "subs": 5350,
+    "views": 31572,
+    "vpd": 4004.6,
+    "success": true,
+    "echo_title": 0.6,
+    "base_title": 0.10416666666666667,
+    "echo_thumb": 0.6,
+    "comments": [
+     {
+      "likes": 14,
+      "text": "I use the income from JEPQ to cover my monthly food expenses."
+     },
+     {
+      "likes": 12,
+      "text": "I’m a retired Canadian teacher who now live in Chicago. it’s about 2 weeks now I started investing. and I started with $5k now I’m over $17,350 It's a great sta"
+     },
+     {
+      "likes": 7,
+      "text": "I do not get it . Why JEPQ while GPIQ or TDAQ beat it in Total Return? Also JEPQ is not tax friendly in taxable account. I see from Jan 2024 total return for GP"
+     }
+    ]
+   },
+   {
+    "id": "61_ouz8Rr4s",
+    "title": "Stock Market Crash, Gold, US Stocks & Bulletproof Portfolio | Saurabh Mukherjea | FO573 Raj Shamani",
+    "thumb_text": "Where To Put Your Money Now 1M+ VIEWS",
+    "channel": "Raj Shamani",
+    "subs": 19900000,
+    "views": 1255519,
+    "vpd": 116987.4,
+    "success": false,
+    "echo_title": 0.45,
+    "base_title": 0.06440677966101695,
+    "echo_thumb": 0.05,
+    "comments": [
+     {
+      "likes": 219,
+      "text": "His fund has given 2% CAGR over 5 years. Which is commendable."
+     },
+     {
+      "likes": 104,
+      "text": "Talking about sky while giving returns close to ground. That’s Saurabh Mukherjea for you."
+     },
+     {
+      "likes": 88,
+      "text": "He is great story teller and a poor fund manager"
+     }
+    ]
+   }
+  ],
+  "미국|3": [
+   {
+    "id": "qFFwr4zsDKQ",
+    "title": "Buy 1 Share of SCHD Every Week—Here’s the Retirement Math",
+    "thumb_text": "INVEST 1 SHARE A WEEK SCHD START AT 50",
+    "channel": "Mikey Moran",
+    "subs": 11900,
+    "views": 165377,
+    "vpd": 8495.2,
+    "success": true,
+    "echo_title": 0.7,
+    "base_title": 0.06186440677966101,
+    "echo_thumb": 0.7,
+    "comments": [
+     {
+      "likes": 33,
+      "text": "I just started buying SCHD this August when I turned 54 I’m buying $2000 a month from now until January 2028 at that time I have other finances I’ll be able to "
+     },
+     {
+      "likes": 18,
+      "text": "Just bought 2 share today because of this video and I’m 41"
+     },
+     {
+      "likes": 10,
+      "text": "i started a few months ago with investing. $10k into SCHD initially, and then $100 every week."
+     }
+    ]
+   },
+   {
+    "id": "fPU6Gefdad8",
+    "title": "I Just Bought 1,000 Shares Of SCHD: Here's The Dividends It Pays Me",
+    "thumb_text": "SCHD I JUST BOUGHT 1,000 SHARES THE DIVIDEND PAYOUT",
+    "channel": "Grounded Life Investments",
+    "subs": 5350,
+    "views": 91337,
+    "vpd": 5504.8,
+    "success": true,
+    "echo_title": 0.75,
+    "base_title": 0.1375,
+    "echo_thumb": 0.75,
+    "comments": [
+     {
+      "likes": 44,
+      "text": "Really good stuff - thank you! Best wishes"
+     },
+     {
+      "likes": 37,
+      "text": "I never seem to have luck with lump sum investments. I would rather buy 250 shares per quarter and keep the divi's qualified along the way."
+     },
+     {
+      "likes": 20,
+      "text": "I bought some SCHD before the ex dividend date , I keep hoping for a bigger pullback before adding more SCHD. I have been buying MKC recently. I think it’s a gr"
+     }
+    ]
+   }
+  ],
+  "미국|4": []
+ },
+ "kr_needs": {
+  "1|조회수 잘 나온 영상": {
+   "comments": 1560,
+   "좋은 점 — 영상 (도움·설명·정리·공감)": 0.021794871794871794,
+   "감사·응원 (일반)": 0.07756410256410257,
+   "더 알고 싶은 것 (질문·요청)": 0.013461538461538462,
+   "아쉬운 점 — 영상 (제목·광고·길이·정보 오류·목소리)": 0.0038461538461538464,
+   "반박·불만 — 의견 다름 (내용)": 0.013461538461538462,
+   "정치·사회 (영상과 무관한 의견)": 0.11858974358974358,
+   "경험 공유 (내 이야기)": 0.027564102564102563,
+   "구독·다음 기대": 0.000641025641025641
+  },
+  "1|성공 사례": {
+   "comments": 245,
+   "좋은 점 — 영상 (도움·설명·정리·공감)": 0.02857142857142857,
+   "감사·응원 (일반)": 0.10204081632653061,
+   "더 알고 싶은 것 (질문·요청)": 0.0163265306122449,
+   "아쉬운 점 — 영상 (제목·광고·길이·정보 오류·목소리)": 0.004081632653061225,
+   "반박·불만 — 의견 다름 (내용)": 0.02040816326530612,
+   "정치·사회 (영상과 무관한 의견)": 0.11836734693877551,
+   "경험 공유 (내 이야기)": 0.0653061224489796,
+   "구독·다음 기대": 0.024489795918367346
+  },
+  "1|그 밖의 승인 영상": {
+   "comments": 1112,
+   "좋은 점 — 영상 (도움·설명·정리·공감)": 0.011690647482014389,
+   "감사·응원 (일반)": 0.11420863309352518,
+   "더 알고 싶은 것 (질문·요청)": 0.01618705035971223,
+   "아쉬운 점 — 영상 (제목·광고·길이·정보 오류·목소리)": 0.0044964028776978415,
+   "반박·불만 — 의견 다름 (내용)": 0.013489208633093525,
+   "정치·사회 (영상과 무관한 의견)": 0.11330935251798561,
+   "경험 공유 (내 이야기)": 0.0341726618705036,
+   "구독·다음 기대": 0.0017985611510791368
+  },
+  "2|조회수 잘 나온 영상": {
+   "comments": 1138,
+   "좋은 점 — 영상 (도움·설명·정리·공감)": 0.023725834797891036,
+   "감사·응원 (일반)": 0.07205623901581722,
+   "더 알고 싶은 것 (질문·요청)": 0.008787346221441126,
+   "아쉬운 점 — 영상 (제목·광고·길이·정보 오류·목소리)": 0.007908611599297012,
+   "반박·불만 — 의견 다름 (내용)": 0.007908611599297012,
+   "정치·사회 (영상과 무관한 의견)": 0.09666080843585237,
+   "경험 공유 (내 이야기)": 0.025483304042179262,
+   "구독·다음 기대": 0.0026362038664323375
+  },
+  "2|성공 사례": {
+   "comments": 133,
+   "좋은 점 — 영상 (도움·설명·정리·공감)": 0.03007518796992481,
+   "감사·응원 (일반)": 0.14285714285714285,
+   "더 알고 싶은 것 (질문·요청)": 0.06015037593984962,
+   "아쉬운 점 — 영상 (제목·광고·길이·정보 오류·목소리)": 0.0,
+   "반박·불만 — 의견 다름 (내용)": 0.015037593984962405,
+   "정치·사회 (영상과 무관한 의견)": 0.007518796992481203,
+   "경험 공유 (내 이야기)": 0.09774436090225563,
+   "구독·다음 기대": 0.0
+  },
+  "2|그 밖의 승인 영상": {
+   "comments": 120,
+   "좋은 점 — 영상 (도움·설명·정리·공감)": 0.0,
+   "감사·응원 (일반)": 0.008333333333333333,
+   "더 알고 싶은 것 (질문·요청)": 0.0,
+   "아쉬운 점 — 영상 (제목·광고·길이·정보 오류·목소리)": 0.008333333333333333,
+   "반박·불만 — 의견 다름 (내용)": 0.05,
+   "정치·사회 (영상과 무관한 의견)": 0.08333333333333333,
+   "경험 공유 (내 이야기)": 0.008333333333333333,
+   "구독·다음 기대": 0.0
+  },
+  "3|조회수 잘 나온 영상": {
+   "comments": 100,
+   "좋은 점 — 영상 (도움·설명·정리·공감)": 0.06,
+   "감사·응원 (일반)": 0.08,
+   "더 알고 싶은 것 (질문·요청)": 0.01,
+   "아쉬운 점 — 영상 (제목·광고·길이·정보 오류·목소리)": 0.01,
+   "반박·불만 — 의견 다름 (내용)": 0.0,
+   "정치·사회 (영상과 무관한 의견)": 0.0,
+   "경험 공유 (내 이야기)": 0.05,
+   "구독·다음 기대": 0.0
+  },
+  "3|성공 사례": {
+   "comments": 37,
+   "좋은 점 — 영상 (도움·설명·정리·공감)": 0.05405405405405406,
+   "감사·응원 (일반)": 0.21621621621621623,
+   "더 알고 싶은 것 (질문·요청)": 0.02702702702702703,
+   "아쉬운 점 — 영상 (제목·광고·길이·정보 오류·목소리)": 0.0,
+   "반박·불만 — 의견 다름 (내용)": 0.0,
+   "정치·사회 (영상과 무관한 의견)": 0.0,
+   "경험 공유 (내 이야기)": 0.13513513513513514,
+   "구독·다음 기대": 0.0
+  },
+  "3|그 밖의 승인 영상": {
+   "comments": 340,
+   "좋은 점 — 영상 (도움·설명·정리·공감)": 0.052941176470588235,
+   "감사·응원 (일반)": 0.17352941176470588,
+   "더 알고 싶은 것 (질문·요청)": 0.026470588235294117,
+   "아쉬운 점 — 영상 (제목·광고·길이·정보 오류·목소리)": 0.008823529411764706,
+   "반박·불만 — 의견 다름 (내용)": 0.020588235294117647,
+   "정치·사회 (영상과 무관한 의견)": 0.029411764705882353,
+   "경험 공유 (내 이야기)": 0.041176470588235294,
+   "구독·다음 기대": 0.008823529411764706
+  },
+  "4|조회수 잘 나온 영상": {
+   "comments": 80,
+   "좋은 점 — 영상 (도움·설명·정리·공감)": 0.05,
+   "감사·응원 (일반)": 0.1125,
+   "더 알고 싶은 것 (질문·요청)": 0.0,
+   "아쉬운 점 — 영상 (제목·광고·길이·정보 오류·목소리)": 0.05,
+   "반박·불만 — 의견 다름 (내용)": 0.0,
+   "정치·사회 (영상과 무관한 의견)": 0.0,
+   "경험 공유 (내 이야기)": 0.025,
+   "구독·다음 기대": 0.0125
+  },
+  "4|성공 사례": {
+   "comments": 40,
+   "좋은 점 — 영상 (도움·설명·정리·공감)": 0.1,
+   "감사·응원 (일반)": 0.125,
+   "더 알고 싶은 것 (질문·요청)": 0.025,
+   "아쉬운 점 — 영상 (제목·광고·길이·정보 오류·목소리)": 0.0,
+   "반박·불만 — 의견 다름 (내용)": 0.0,
+   "정치·사회 (영상과 무관한 의견)": 0.0,
+   "경험 공유 (내 이야기)": 0.125,
+   "구독·다음 기대": 0.05
+  },
+  "4|그 밖의 승인 영상": {
+   "comments": 100,
+   "좋은 점 — 영상 (도움·설명·정리·공감)": 0.01,
+   "감사·응원 (일반)": 0.28,
+   "더 알고 싶은 것 (질문·요청)": 0.01,
+   "아쉬운 점 — 영상 (제목·광고·길이·정보 오류·목소리)": 0.03,
+   "반박·불만 — 의견 다름 (내용)": 0.0,
+   "정치·사회 (영상과 무관한 의견)": 0.0,
+   "경험 공유 (내 이야기)": 0.08,
+   "구독·다음 기대": 0.01
+  }
+ },
+ "missing": {
+  "한국|1": [
+   {
+    "id": "Ak44iO8HQUY",
+    "title": "'암살자들' 폭망 제작비도 못건졌다 코스닥 상장 무산 이유 (2026.10.18)",
+    "channel": "성창경TV",
+    "subs": 1290000,
+    "vpd": 60079.0
+   },
+   {
+    "id": "HbQ9ftyM3X8",
+    "title": "주식 망한 여자 혼자 아재들과 낮술 하면 생기는 일",
+    "channel": "앙밍망",
+    "subs": 133000,
+    "vpd": 40956.9
+   },
+   {
+    "id": "brqwKbHFOIk",
+    "title": "테슬라 로드스터 공개, 정말로 날았습니다.",
+    "channel": "T3chfeed - 테크피드 미국 주식 인사이트",
+    "subs": 155000,
+    "vpd": 39266.8
+   }
+  ],
+  "한국|2": [
+   {
+    "id": "7JnFP43-qv0",
+    "title": "\"이런 사례 들어본 적 없다!\" 박균택 전 검찰국장의 매서운 폭로에 국감장 술렁",
+    "channel": "안동MBC NEWS",
+    "subs": 151000,
+    "vpd": 31185.2
+   },
+   {
+    "id": "y_UY1d7mivw",
+    "title": "\"여전히 알뜰폰 쓰고 있어요\" 200만원으로 시작해 10억원 달성한 비법 공개 [싱글파이어]",
+    "channel": "싱글파이어",
+    "subs": 513000,
+    "vpd": 17785.3
+   }
+  ],
+  "한국|3": [],
+  "한국|4": [],
+  "미국|1": [],
+  "미국|2": [],
+  "미국|3": [],
+  "미국|4": []
+ }
+}

@@ -1,6 +1,7 @@
 # 지금 상태·다음 할 일 (인수인계)
 
-버전: v2.18 — 2026-10-21 — **국민연금 편 AI 클립 36개 받아 검수 → 롱폼·쇼츠 완성본** (사용자 지시 "클립 돌렸으니 확인해서 영상 만들어봐"): 9개가 중간·끝에 두 겹·녹아내림 → 깨끗한 구간만(`use_from`·`use_to`·pingpong) · 클립 뒤 0.15초 더(카드 번쩍임) · 새 검수 `scene_clips.py ghost` — 2-2 0-21. 다음: 사용자가 공개 시각을 정하면 업로드.
+버전: v2.19 — 2026-10-21 — **진행자 목소리 H04 → H17** (사용자 지시 "H17로 정해서 그걸로 오디오 생성하도록 수정해" · "코드 실행하면 앞으로 만드는 오디오는 전부 H17로 해"): `pick H17` · 일본 축제 H09 own_voice 지움 → 다음 Kaggle 실행이 안 올린 영상 오디오 10개를 H17 로 (국민연금 롱폼·쇼츠 포함 — 완성본은 새 오디오로 다시). H17 은 약 10% 빠름 — `guides/tts_guide.md` 4-0.
+이전 v2.18 — 2026-10-21 — **국민연금 편 AI 클립 36개 받아 검수 → 롱폼·쇼츠 완성본** (사용자 지시 "클립 돌렸으니 확인해서 영상 만들어봐"): 9개가 중간·끝에 두 겹·녹아내림 → 깨끗한 구간만(`use_from`·`use_to`·pingpong) · 클립 뒤 0.15초 더(카드 번쩍임) · 새 검수 `scene_clips.py ghost` — 2-2 0-21. 다음: 사용자가 공개 시각을 정하면 업로드.
 이전 v2.17 — 2026-10-20 — **Kaggle 장면 클립 = 고정 셀** (사용자 지시 "kaggle 영상 클립 코드 내가 실행 셀 변경 안해도 파일 읽어서 처리하게 해줘 셀 코드 알려주고"): videogen v1.5.0 `run_queue` — 셀은 고치지 않고, 할 일은 Claude 가 `videogen/queue.json` 에 (지금 = 국민연금 롱폼 29·쇼츠 7). Release 에 같은 클립이 있으면 건너뜀 (그림을 다시 그리면 같은 셀만 다시). **새 L02·L19 검수 통과 → 그림 37장 모두 준비 — 사용자: 고정 셀 실행** (`videogen/README.md` 2-5 · `scenes/kaggle_cell.md` v2.0) — 2-7.
 이전 v2.16 — 2026-10-20 — **주식 ② 공개 확인**: `0bBHM3EfPng`(새 제목)·`tV2awAsLcLU` 17:00 public·자막 있음 · ① 하루 뒤 롱폼 조회 2 · 쇼츠 173, 댓글 0(고정 댓글 아직) — 2-1b.
 이전 v2.15 — 2026-10-20 — **음악 분석 넷째 회차 (예약 작업)**: 채널 기준선 끝(1,038곳) → 비교 집단 5,810 · 외국 성공 비율 74% → 22% · **추천 v1.3 순서 바뀜** (① 클래식풍 연주 ② 짧은 제목 잔잔한 배경음악 ③ 로파이·칠·그루브 · 재즈 라운지 실험으로 · 길이 40~90분) · **첫 쇼츠 탐색·승인 191 → 성공 쇼츠 111** · `cloud_run.py` v1.4 캐시 묶음 나누기(45MB) — 아래 2-6.
@@ -204,7 +205,8 @@
 **0-21. 국민연금 편 완성본 (2026-10-21 — 사용자 지시 "클립 돌렸으니 확인해서 영상 만들어봐")**
 - 클립: Release 두 개에서 36개 받음(`scene_clips.py fetch`) → `scene_clips.py ghost` + 그림으로 검수 → 9개 겹침, 깨끗한 구간만 씀 (`scenes/plan.json` v1.2 · `shorts/scenes/plan.json` v1.1 — 클립마다 `qa` 에 까닭). 클립은 다시 만들지 않음 — 더 좋게 하려면 그 클립에 `seed` 를 바꿔 넣고 `videogen/queue.json` 그 작업을 켠 뒤 고정 셀 (그 클립만 새로).
 - 완성본 (컨테이너에만 — git·Drive 아님): 롱폼 `economic/out/gungmin-sigi-2026-10/final_1080p.mp4` (413.13초, -14.17 LUFS, -1.58 dBTP, dry-run ✅ 챕터 7개) · 쇼츠 `economic/out/gungmin-sigi-2026-10-shorts/final_1080p.mp4` (52.47초, -14.07 LUFS, dry-run ✅). 컨테이너가 바뀌면 `fetch` → `render.mjs video --base`·`overlay` → `assemble_video.py` 로 다시 (약 10분).
-- 다음: 공개 시각(롱폼·쇼츠 같은 시각) → 채널 목록 확인 → `youtube_upload.py economic gungmin-sigi-2026-10 --publish-at …` · `… gungmin-sigi-2026-10-shorts --publish-at … --no-captions`.
+- **2026-10-21 진행자 H17 로 바뀜 → 이 완성본(H04)은 쓰지 않음.** 다음: 사용자가 Kaggle 내레이션 셀 실행(범위 전체 또는 economic) → H17 `narration.mp3` 가 main 에 → `render.mjs sync economic gungmin-sigi-2026-10`(쇼츠도) → `video --base`·`overlay` → `assemble_video.py` (클립·쓰는 구간은 plan.json 그대로) → 완성본 직접 보기 → 공개 시각.
+- (H04 때 다음 할 일 — 기록) 공개 시각(롱폼·쇼츠 같은 시각) → 채널 목록 확인 → `youtube_upload.py economic gungmin-sigi-2026-10 --publish-at …` · `… gungmin-sigi-2026-10-shorts --publish-at … --no-captions`.
 
 **0-20. 재테크 남은 업로드 끝 (2026-10-18 16:10 KST, 예약 작업 `trig_016McC7cifprr4ZuFA7oMEZX`)**
 - 올리기 전 채널 목록: 기초연금 롱폼 `xVU2cBNrdlM` 공개 · 연금 꺼내기 롱폼 `PTauP66F9_8` 08:00Z · ISA 롱폼 `zrsdf7al2MI` 09:00Z (모두 예약대로) — 두 번 올린 것 없음.

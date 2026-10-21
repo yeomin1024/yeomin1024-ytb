@@ -1,5 +1,16 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-21 (내레이션) — 진행자 목소리 H04 → H17 (앞으로 만드는 오디오 전부)
+
+- 사용자 지시: "H17로 정해서 그걸로 오디오 생성하도록 수정해" · "코드 실행하면 앞으로 만드는 오디오는 전부 H17로 해"
+- `python tools/tts_narration.py pick H17` → `voices/host.json`(picked H17 · 기준 높이 f0_center 151.4Hz · f0_tolerance 0.1 · generation temperature 0.55 · pace speed 1.05 / 6.0~7.8음절/초 · gap 0.38 · seed 5701) · `voices/ref/host.wav`·`host.json`(H17 기준 소리, 145.5Hz) · `voices/samples/README.md` ✅ 표시. `_버전` 에 이전 H04 기록을 남김
+- 일본 축제 시험 영상의 영상 전용 목소리(H09 own_voice — `test/source/ilbon-chukje-2026-10/voices/`·`shorts/voices/`) 지움 → 예외 없이 모두 H17
+- 확인: `tts_narration.py all --dry-run` — 다음 Kaggle 실행이 만드는 것 10개 = 국민연금 롱폼·쇼츠(H04 → 다시) · 일본 축제·캐리어 투기·면세 환급 롱폼·쇼츠(시험, 다시) · 병역 특례 롱폼·쇼츠(시험, 처음). 이미 올린 영상 16개·NO_TTS 3개는 그대로. TTS 시험 16개 통과
+- ⚠️ H17 은 H04 보다 빠름 (샘플 6.32 대 5.73음절/초, 쉼 0.45 → 0.38초): 국민연금 롱폼 6분 52초 → 약 6분 10초, 쇼츠 52초 → 약 47초 추정 — 대본 길이 목표(7~8분·50~55초)보다 짧아질 수 있음. 첫 H17 오디오로 실측
+- 국민연금 편: 어제 만든 완성본(H04)은 쓰지 않음 → H17 오디오가 오면 `render.mjs sync` → 바탕·자막 다시 렌더 → `assemble_video.py` (클립·쓰는 구간은 그대로)
+- 문서: `CLAUDE.md` 내레이션 줄 · `guides/tts_guide.md` v1.14 (4-0 고른 결과) · `guides/README.md` · `guides/video_guide.md` · `guides/pipeline.md` · `guides/shorts_guide.md` · `economic/guides/quick_script.md`·`quick_package.md`·`shorts_insights.md`(H17 속도 주의) · `guides/status.md`
+- 위험 관련 변경 없음 (연금 숫자·대본 그대로, 목소리만)
+
 ## 2026-10-21 (재테크 국민연금) — AI 클립 36개 받아 검수 → 롱폼·쇼츠 완성본 합치기
 
 - 사용자 지시: "클립 돌렸으니 확인해서 영상 만들어봐"

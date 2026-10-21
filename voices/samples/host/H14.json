@@ -1,0 +1,79 @@
+{
+ "id": "H14",
+ "role": "host",
+ "label": "30대 초반 남성 — 차분하고 믿음직한 뉴스 해설, 높낮이 고르게",
+ "how": "design",
+ "ident": "1b16595e40bfe006",
+ "speaker": "-",
+ "instruct": "A Korean man in his early 30s with a clear mid-range voice, like a calm and trustworthy news explainer, slightly brisk pace. Speak with a steady, even pitch: every sentence starts and ends at about the same pitch level, gentle natural intonation, no sudden rises or drops, no dramatic pauses, no exaggerated emphasis. Natural standard Seoul Korean accent.",
+ "seed": 5401,
+ "preview": [
+  "2026년 10월 17일, 일본 에히메현의 전통 축제 '사이조 마쓰리'가 진행되던 도중, 무게 3톤의 가마를 높이 들어 올리던 순간 가마가 떨어졌고, 그 아래 있던 62세 현직 부시장이 깔려 숨졌습니다.",
+  "언론에 알려진 것만 세어도 일본 축제에선 4개월에 1명꼴로 사람이 숨집니다.",
+  "그런데도 일본은 이 축제들을 멈추지 않습니다.",
+  "도대체 왜일까요?",
+  "\"목숨을 잃는 건 격투기와 같아요. 자기책임입니다.\"",
+  "세 번째 이유는 축제 자체가 신을 모시는 종교 행사라는 점입니다.",
+  "정리하면, 일본이 축제를 멈추지 않는 이유는 돈만이 아니었습니다."
+ ],
+ "seconds": 36.75,
+ "f0_hz": 136.4,
+ "rate": 6.46,
+ "pace": {
+  "speed": 1.05,
+  "min": 6.0,
+  "max": 7.8,
+  "max_stretch": 0.15
+ },
+ "f0_each": [
+  145.0,
+  175.2,
+  147.2,
+  130.1,
+  122.1,
+  136.4,
+  114.6
+ ],
+ "f0_spread": 0.445,
+ "f0_center": 136.4,
+ "steady_redo": [
+  2,
+  5,
+  7
+ ],
+ "generation": {
+  "temperature": 0.7
+ },
+ "pace_factors": [
+  1.078,
+  1.05,
+  1.05,
+  1.05,
+  1.146,
+  1.05,
+  1.05
+ ],
+ "issues": [],
+ "models": {
+  "custom_voice": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+  "clone": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "design": "Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign"
+ },
+ "created": "2026-10-21T03:13:36",
+ "tool": "tts_narration.py v1.15",
+ "ref": {
+  "audio": "voices/samples/host/H14_ref.wav",
+  "text": "일본의 전통 축제에서 또 사망 사고가 났습니다. 그런데 일본은 왜 축제를 멈추지 않을까요? 지금부터 하나씩 짚어 보겠습니다.",
+  "sha1": "10d5911fc6c79eb2",
+  "f0_hz": 158.9,
+  "seed": 5406,
+  "dur": 9.28,
+  "rate": 5.39,
+  "in_range": true,
+  "f0_range": [
+   140,
+   180
+  ],
+  "design_model": "Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign"
+ }
+}

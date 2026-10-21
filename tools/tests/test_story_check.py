@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-10-21 — tools/story_check.py v1.0 시험: 맞는 대본은 문제 0, 규칙마다 어긴 대본은 그 문제만 (네트워크·저장소 안 건드림).
+# VERSION: v1.1 — 2026-10-21 — story_check v1.1: 제목 맨 앞 낱말의 끝 조사 · 마무리 다음 화 예고.
+# (v1.0) — 2026-10-21 — tools/story_check.py v1.0 시험: 맞는 대본은 문제 0, 규칙마다 어긴 대본은 그 문제만 (네트워크·저장소 안 건드림).
 """python3 -m unittest test_story_check  (tools/tests 에서)"""
 import os
 import sys
@@ -110,6 +111,18 @@ class Bad(unittest.TestCase):
     def test_buy_sell_word(self):
         _, warns, _ = run(GOOD.replace("저는 한 종목에 전부 넣었거든요.", "저는 한 종목만 샀거든요."))
         self.assertTrue(any("사다·팔다" in w for w in warns), warns)
+
+    def test_title_head_particle(self):
+        probs, _, _ = run(GOOD, title="반토막은 이렇게 다시 시작합니다")      # '반토막은' → '반토막' 으로 찾음
+        self.assertFalse(any("제목 맨 앞 낱말" in p for p in probs), probs)
+        probs, _, _ = run(GOOD, title="계좌보다 무서운 건 포기")                # '계좌'는 첫 문장에 있음
+        self.assertFalse(any("제목 맨 앞 낱말" in p for p in probs), probs)
+        probs, _, _ = run(GOOD, title="손절보다 무서운 건 포기")                # '손절'은 첫 문장에 없음
+        self.assertTrue(any("제목 맨 앞 낱말" in p for p in probs), probs)
+
+    def test_series_preview_ok(self):
+        _, warns, _ = run(GOOD.replace("여러분의 투자도", "다음 이야기에서는 빨리 메우려다 망한 이유를 꺼내 볼게요.\n여러분의 투자도"))
+        self.assertFalse(any("-마무리 문장" in w for w in warns), warns)
 
     def test_no_title(self):
         probs, warns, _ = run(GOOD, title=None)

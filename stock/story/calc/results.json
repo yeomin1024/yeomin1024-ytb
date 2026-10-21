@@ -1,0 +1,214 @@
+{
+ "version": "v1.2",
+ "made": "2026-10-21T14:29:08Z",
+ "dataset_commit": "07b81e6af68239acd65b901a11844d6d95db6ead",
+ "assumptions": "S&P 500 가격만(배당 빼고) · 환율·세금·수수료·현금 이자 없음 · 3배는 일별 맞추기·비용 없음 · 월평균 가격",
+ "persona": {
+  "principal": 24000,
+  "account": 11000,
+  "minus_loan": 4000,
+  "monthly": 100,
+  "net": 7000
+ },
+ "persona_costs": {
+  "reading_room_만원": 720,
+  "trades": 1200,
+  "trades_per_year": 185,
+  "days_per_trade": 1.4,
+  "fee_tax_만원": 630,
+  "assumptions": "리딩방 30만×24개월 · 매매 1,200번·평균 500만 원·수수료 0.015%·거래세 평균 0.18%(매도) · 78개월·한 해 거래일 250"
+ },
+ "recovery_math": {
+  "10": 11.1,
+  "20": 25.0,
+  "30": 42.9,
+  "50": 100.0,
+  "persona_loss_pct": 70.8,
+  "persona_need_pct": 242.9,
+  "persona_need_x": 3.43,
+  "again_half_net_만원": 3500,
+  "again_half_need_pct": 585.7,
+  "again_half_need_x": 6.86
+ },
+ "months_to_recover": {
+  "starts": 141,
+  "first": "2000-01-01",
+  "last_start": "2011-09-01",
+  "recovered": 125,
+  "not_recovered_15y": 16,
+  "median_years": 11.2,
+  "fastest_years": 7.3,
+  "slowest_years": 14.3,
+  "within_5y": 0,
+  "within_10y": 45
+ },
+ "drawdowns": [
+  {
+   "peak": "2000-08",
+   "trough": "2003-02",
+   "drop_pct": -43.7,
+   "quit_value_만원": 5635,
+   "months_trough_to_peak": 51,
+   "stay_5y_after_trough_만원": 9121,
+   "stay_5y_end": "2008-02",
+   "stay_now_만원": 51630,
+   "now": "2026-09"
+  },
+  {
+   "peak": "2007-10",
+   "trough": "2009-03",
+   "drop_pct": -50.8,
+   "quit_value_만원": 4918,
+   "months_trough_to_peak": 48,
+   "stay_5y_after_trough_만원": 12103,
+   "stay_5y_end": "2014-03",
+   "stay_now_만원": 49812,
+   "now": "2026-09"
+  },
+  {
+   "peak": "2020-01",
+   "trough": "2020-03",
+   "drop_pct": -19.1,
+   "quit_value_만원": 8091,
+   "months_trough_to_peak": 5,
+   "stay_5y_after_trough_만원": 17339,
+   "stay_5y_end": "2025-03",
+   "stay_now_만원": 23395,
+   "now": "2026-09"
+  },
+  {
+   "peak": "2021-12",
+   "trough": "2022-10",
+   "drop_pct": -20.3,
+   "quit_value_만원": 7971,
+   "months_trough_to_peak": 14,
+   "stay_5y_after_trough_만원": 16406,
+   "stay_5y_end": "2026-09",
+   "stay_now_만원": 16406,
+   "now": "2026-09"
+  }
+ ],
+ "holding_loss": {
+  "1m": {
+   "windows": 320,
+   "loss_share_pct": 35.3,
+   "worst_pct": -20.4,
+   "best_pct": 12.0
+  },
+  "12m": {
+   "windows": 309,
+   "loss_share_pct": 24.3,
+   "worst_pct": -42.5,
+   "best_pct": 52.2
+  },
+  "36m": {
+   "windows": 285,
+   "loss_share_pct": 19.6,
+   "worst_pct": -41.5,
+   "best_pct": 83.5
+  },
+  "60m": {
+   "windows": 261,
+   "loss_share_pct": 21.8,
+   "worst_pct": -32.6,
+   "best_pct": 146.1
+  },
+  "120m": {
+   "windows": 201,
+   "loss_share_pct": 6.5,
+   "worst_pct": -26.8,
+   "best_pct": 280.6
+  },
+  "180m": {
+   "windows": 141,
+   "loss_share_pct": 0.0,
+   "worst_pct": 32.4,
+   "best_pct": 582.9
+  }
+ },
+ "lev3": {
+  "first": "2016-02-12",
+  "last": "2026-02-11",
+  "trading_days": 2513,
+  "x1_multiple": 3.72,
+  "x3_multiple": 19.04,
+  "x1_max_drawdown_pct": -33.9,
+  "x3_max_drawdown_pct": -76.7,
+  "covid_x1_pct": -33.9,
+  "covid_x3_pct": -76.7,
+  "y2022_x1_pct": -25.4,
+  "y2022_x3_pct": -63.9,
+  "covid_x3_7000만_to": 1631
+ },
+ "margin_call": {
+  "own_만원": 10000,
+  "loan_만원": 10000,
+  "keep_ratio": 1.4,
+  "position_drop_pct": 30.0,
+  "underlying_drop_if_2x_pct": 15.0,
+  "own_left_at_call_만원": 4000
+ },
+ "missing_best_days": {
+  "full_multiple": 3.72,
+  "down_day_share_pct": 45.1,
+  "miss10_multiple": 1.94,
+  "miss20_multiple": 1.4,
+  "best10_within_10days_of_worst20": 8,
+  "best10_dates": [
+   "2025-04-09",
+   "2020-03-24",
+   "2020-03-13",
+   "2020-04-06",
+   "2020-03-26",
+   "2020-03-17",
+   "2022-11-10",
+   "2018-12-26",
+   "2020-03-10",
+   "2020-03-02"
+  ]
+ },
+ "fomo": {
+  "rule": "지난 6개월 +15% 이상",
+  "hold_months": 24,
+  "split_months": 12,
+  "rally_months": 32,
+  "rally": {
+   "n": 28,
+   "lump_avg_만원": 11656,
+   "split_avg_만원": 11024,
+   "lump_worst_만원": 9948,
+   "split_worst_만원": 9088,
+   "lump_loss_share_pct": 7.1,
+   "split_loss_share_pct": 28.6
+  },
+  "all_months": {
+   "n": 291,
+   "lump_avg_만원": 11763,
+   "split_avg_만원": 11385,
+   "lump_worst_만원": 5381,
+   "split_worst_만원": 5175,
+   "lump_loss_share_pct": 17.9,
+   "split_loss_share_pct": 17.5
+  }
+ },
+ "persona_april": {
+  "april_net_만원": 24100,
+  "april_over_put_in_만원": 800,
+  "june_net_만원": 19000,
+  "lost_since_april_만원": 5100,
+  "drop_pct": -21.2,
+  "half_sold_june_만원": 21550,
+  "half_sold_better_만원": 2550
+ },
+ "dca_10y": {
+  "starts": 202,
+  "first_start": "2000-01",
+  "last_start": "2016-10",
+  "put_in_만원": 12000,
+  "loss_share_pct": 4.0,
+  "loss_count": 8,
+  "median_x": 1.63,
+  "worst_x": 0.95,
+  "best_x": 2.12
+ }
+}

@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-10-21 — 새로: 이야기형 주식 대본(개미 주인공 1인칭) 점검 — stock/guides/story_script.md v1.0 의 구성·말투 규칙.
+# VERSION: v1.1 — 2026-10-21 — 제목 맨 앞 낱말은 끝 조사를 떼고도 찾음('손절보다' → '손절') · -마무리 3~5문장(시리즈 '다음 화 예고' 한 문장 —
+#          story_script v1.2 6번, 사용자 지시 "그리고 시리즈물이라는 것도 고려해").
+# (v1.0) — 2026-10-21 — 새로: 이야기형 주식 대본(개미 주인공 1인칭) 점검 — stock/guides/story_script.md v1.0 의 구성·말투 규칙.
 #          사용자 지시 2026-10-21 "아래 내용을 지키도록 대본 내용을 만드는 지시사항 파일을 만들어 … 1. 도입부(35초 이내) … 2. 찾은 방법 이야기
 #          … 첫 번째는 ~ 요. … 3. 정리 및 마무리 ~ 정리해볼게요. (멘트만하고 화면으로 정리) … 시청해주셔서 감사합니다." ·
 #          "한국 시청자 기준이긴 한데 전 세계로 했을 때 큰 문제 없이 넘어갈 수 있도록 해".
@@ -30,7 +32,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import srt_tool  # noqa: E402  (문장·카드·음절 판정을 자막·오디오 도구와 똑같이)
 
-VERSION = "v1.0"
+VERSION = "v1.1"
 ROOT = Path(__file__).resolve().parents[1]
 LOG = logging.getLogger("story_check")
 
@@ -86,10 +88,24 @@ def intro_seconds(sents):
     return syl, round(syl / HOST_SYL_PER_SEC + SENT_GAP * max(0, len(sents) - 1), 1)
 
 
+PARTICLES = ("에서는", "으로는", "보다", "까지", "부터", "에서", "으로", "에게", "한테", "처럼", "만큼",
+             "은", "는", "이", "가", "을", "를", "에", "의", "도", "만", "로", "와", "과")
+
+
 def title_head(title):
     """제목 맨 앞 낱말 (쉼표·물음표 등 뗌). 첫 문장에 이 낱말이 그대로 있어야 한다 (story_script.md 2-1 ①)."""
     w = (title or "").strip().split()
     return re.sub(r"[,.?!·…:'\"“”‘’]+$", "", w[0]) if w else ""
+
+
+def head_in(head, sentence):
+    """맨 앞 낱말이 첫 문장에 있나 — 그대로, 또는 끝 조사 하나를 뗀 말(두 글자 이상)로 (v1.1)."""
+    if head in sentence:
+        return True
+    for pt in PARTICLES:
+        if head.endswith(pt) and len(head) - len(pt) >= 2 and head[: -len(pt)] in sentence:
+            return True
+    return False
 
 
 def check(path, title=None):
@@ -134,7 +150,7 @@ def check(path, title=None):
         head = title_head(title)
         if not title:
             warns.append("제목을 주지 않아 첫 문장 검사를 건너뜀 (--title)")
-        elif head not in intro[0][1]:
+        elif not head_in(head, intro[0][1]):
             probs.append(f"첫 문장에 제목 맨 앞 낱말 '{head}' 없음 — 제목을 보고 들어온 사람이 바로 알아보게 (2-1 ①): {intro[0][1]}")
         if title:
             intro_text = " ".join(s for _, s in intro)
@@ -178,8 +194,8 @@ def check(path, title=None):
     else:
         probs.append("-정리 파트가 없음")
     ending = by_label.get("마무리", [])
-    if "마무리" in by_label and not 3 <= len(ending) <= 4:
-        warns.append(f"-마무리 문장 {len(ending)}개 — 다짐 1~2 + 응원 1 + 끝인사 (2-3 3~5)")
+    if "마무리" in by_label and not 3 <= len(ending) <= 5:
+        warns.append(f"-마무리 문장 {len(ending)}개 — 다짐 1~2 + (시리즈) 다음 화 예고 1 + 응원 1 + 끝인사 (2-3 3~5·6번)")
     if "마무리" not in by_label:
         probs.append("-마무리 파트가 없음 — 카드 뒤 문장이 카드 문구로 먹힘 (srt_tool.parse_txt)")
     if sents[-1] != LAST_SENTENCE:

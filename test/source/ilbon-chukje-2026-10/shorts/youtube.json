@@ -1,19 +1,19 @@
 {
-  "videoId": "kUmvqSJHziI",
-  "url": "https://youtu.be/kUmvqSJHziI",
-  "studio": "https://studio.youtube.com/video/kUmvqSJHziI/edit",
-  "channel": "fozztone ",
+  "videoId": "guPG2DI5YCI",
+  "url": "https://youtu.be/guPG2DI5YCI",
+  "studio": "https://studio.youtube.com/video/guPG2DI5YCI/edit",
+  "channel": "우물 밖 세상살이",
   "channelId": "UCnhsftCgkPTLrYl8eV4ZjNw",
   "privacy": "private",
   "publishAt": "2026-10-28T09:00:00Z",
   "containsSyntheticMedia": true,
-  "uploadedAt": "2026-10-21T08:31:11+00:00",
+  "uploadedAt": "2026-10-21T11:28:35+00:00",
   "title": "일본 축제, 사망자 나와도 안 멈춘다? 현지 반응이 더 충격",
   "localizations": [],
   "videoFile": "final_1080p.mp4",
-  "videoSha256": "c6d3e94f279e8368426e37c5183e88728b716f83975419e3d2022bdcda961bc6",
+  "videoSha256": "de9c59adf75a8872f55bbd8c95004b19a10f6cd8e9160acc8257b94fd99f0cc7",
   "chapters": null,
-  "captions": "AUieDaatyMFvWk0rCNabcCgnPqWZFqrOuHgUhJm4a-HCfSmrZOR8Yph8IiM",
+  "captions": "AUieDaZr3pDC0X4J-ffS6kpVTwyLVnTKmBDYdo5AMNvVvCk-n5RK_i_Yg2g",
   "thumbnail": "thumbnail_1_upload.jpg",
   "warnings": [],
   "studioTodo": [
@@ -21,7 +21,16 @@
     "공개된 뒤 '테스트 및 비교'에 썸네일 3개 등록 — 비공개 영상은 테스트 불가"
   ],
   "captionTracks": {
-    "ko": "AUieDaatyMFvWk0rCNabcCgnPqWZFqrOuHgUhJm4a-HCfSmrZOR8Yph8IiM"
+    "ko": "AUieDaZr3pDC0X4J-ffS6kpVTwyLVnTKmBDYdo5AMNvVvCk-n5RK_i_Yg2g"
   },
-  "captionsPending": []
+  "captionsPending": [],
+  "replaced": [
+    {
+      "videoId": "kUmvqSJHziI",
+      "uploadedAt": "2026-10-21T08:31:11+00:00",
+      "deletedAt": "2026-10-21T11:28:20+00:00",
+      "videoSha256": "c6d3e94f279e8368426e37c5183e88728b716f83975419e3d2022bdcda961bc6",
+      "reason": "끝 화면 바꿈 (쇼츠 v2.1 → v2.3: 화살표를 화면 가운데·관련 동영상 버튼에 맞춤, 안내 '아래 관련 동영상에서 확인할 수 있습니다') — 유튜브는 영상 파일만 바꿀 수 없어 지우고 다시 올림. 사용자 지시 2026-10-21 \"그 쇼츠를 아예 삭제하고 다시 똑같은 자동 예약으로 올려\""
+    }
+  ]
 }

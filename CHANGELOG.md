@@ -1,5 +1,22 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-21 (쇼츠 끝 화면 2) — 안내 글을 '아래 관련 동영상에서 확인할 수 있습니다'로, 버튼 모양 뺌 · 일본 축제 쇼츠 다시 올림
+
+### 왜 (사용자 지시)
+- "멘트를 ~누르세요 로 하지말고 아래 관련 동영상에서 확인할 수 있습니다 로 변경하고 그 위에 버튼 따라 만든것도 없애" · "그 쇼츠를 아예 삭제하고 다시 똑같은 자동 예약으로 올려"
+
+### 바꾼 것
+| 파일 (버전) | 내용 |
+|---|---|
+| `video/render/kit.js` (v1.10 → v1.11) | `K.related`: 버튼 모양(알약)은 `title` 을 줄 때만 (기본 없음) · 안내 기본 글 '아래 <노랑>관련 동영상</노랑>에서 / 확인할 수 있습니다' (두 줄 56px). 빛 테두리·가운데 화살표 그대로 |
+| `video/episodes/ilbon-chukje-2026-10-shorts/index.html` (v2.2 → v2.3) | `K.related` 를 버튼 모양 없이 |
+| `test/source/ilbon-chukje-2026-10/shorts/youtube.json` | 새 쇼츠 guPG2DI5YCI · `replaced` 에 지운 kUmvqSJHziI (까닭·시각·영상 sha256) |
+| `test/youtube_channel.json` | 채널 이름 fozztone → 우물 밖 세상살이 (같은 channel_id) |
+
+### 확인
+- `render.mjs check` problems=0 · 완성 영상 43.47초 · -14.11 LUFS · -1.6 dBTP · 장면 5개 눈으로 확인.
+- 지우기 전 videos.list 로 제목·채널 확인 → videos.delete 204 → 다시 읽으면 0개. 새 쇼츠: 비공개 · publishAt 2026-10-28T09:00:00Z (한국 18:00) · 썸네일·한국어 자막.
+
 ## 2026-10-21 (쇼츠 끝 화면) — 유튜브 '관련 동영상' 버튼을 화면 가운데 화살표로 정확히 가리킴
 
 ### 왜 (사용자 지시)

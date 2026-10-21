@@ -1,9 +1,10 @@
 ==================================================
-개미 재기 일지 4화 — 남들 다 벌었다는데 나만 잃었을 때 · 롱폼 제작안 (v1.0)
+개미 재기 일지 4화 — 남들 다 벌었다는데 나만 잃었을 때 · 롱폼 제작안 (v1.1)
 대본 + 화면 구성(종이인형 무대 + 코드 화면) + 제목·썸네일·설명란
 ==================================================
 
 [이 문서 보는 법]
+- v1.1 (2026-10-21, 사용자 지시 "인물들은 다 표정이 있어야 하는데? …"): 인형은 모두 표정이 있음 (protagonist_chatgpt.md v3.0) — 마지막 응원 문장에서 SMILE 인형 · 그림 목록에 SMILE. 대본은 그대로.
 - 시리즈: 개미 재기 일지 1부 '마음가짐 편' 4화 / 4화 — 1부 마지막 (stock/story/series.md). 영상ID: fomo-2026-10
 - 사용자 주제 (2026-10-21): "남들 수익보고 FOMO 못참았다가 이런 마인드로 생각해보세요."
 - 대본 규칙 stock/guides/story_script.md v1.2 · 주인공 stock/story/protagonist.md v1.2 · 숫자 stock/story/calc/results.json (series_calc.py v1.2)
@@ -23,10 +24,11 @@
   stock/story/puppet/P-BONSEOK-PHONE.png   인형   A-01 · B-02 · C-02
   stock/story/puppet/P-BONSEOK-DESPAIR.png 인형   A-02 · C-04
   stock/story/puppet/P-BONSEOK-RESOLVE.png 인형   A-03 · F-02
+  stock/story/puppet/P-BONSEOK-SMILE.png   인형   F-02 (응원 문장)
   stock/story/puppet/P-BONSEOK-STUDY.png   인형   A-04 · E-03
   stock/story/puppet/P-BONSEOK-WALK.png    인형   D-04
   stock/story/puppet/P-BONSEOK-BACK.png    인형   C-03
-  stock/story/puppet/P-CROWD.png           소품   A-01 · B-02 (얼굴 없는 개미 6명, 휴대폰 들고 환호 — 뒤 무대)
+  stock/story/puppet/P-CROWD.png           소품   A-01 · B-02 (개미 6명, 휴대폰 들고 환호하는 신난 얼굴 — 뒤 무대)
   stock/story/puppet/P-HOME-NIGHT.jpg      배경   A-02~04 · B-01 · E-01 · E-03 · F-02
   stock/story/puppet/P-OFFICE.jpg          배경   A-01 · B-02
   stock/story/puppet/P-BOARD.jpg           배경   C-02 · C-03
@@ -48,7 +50,7 @@ R3. 고점에서 따라 매수한 개미, FOMO를 못 참은 대가  (29자 · �
     · 첫 문장에 제목 맨 앞 낱말 '남들'(R1·R2) · R3 면 '고점'으로 시작하게 바꾼다.
 
 ■ 썸네일 (series.md 5번 틀)
-  - 그림: 뒤쪽에 휴대폰을 들고 환호하는 얼굴 없는 개미 인형들(밝음), 앞쪽에 혼자 휴대폰을 내려다보는 주인공 인형 PHONE(어두움)
+  - 그림: 뒤쪽에 휴대폰을 들고 환호하는 신난 얼굴의 개미 인형들(밝음), 앞쪽에 혼자 휴대폰을 내려다보며 좌절한 얼굴의 주인공 인형 PHONE(어두움)
   - 왼쪽 위 꼬리표: EP.4
   - 큰 숫자: 9,000 ▲ (노랑, 뒤쪽) · 앞쪽 −₩130,000,000 (빨강)
   - 아래 문구 2줄: 남들 다 벌었다는데 / 나만 잃었을 때 (‘나만 잃었을 때’ 빨강)
@@ -279,6 +281,7 @@ SOXL은 5월 말부터 7월 30일까지, 48.9%가 떨어졌고요.
 
 [F-02 | 6:45~7:02 | 무대: P-HOME-NIGHT · 인형 RESOLVE]
 (화면)
+ - 응원 문장('여러분의 투자도 …')에서 인형이 SMILE(환한 웃음, 손을 들어 응원)로 바뀜
  - 끝에 K7 'EP.5 ▶' (2부)
 (내레이션)
 마음가짐 편은 여기까지예요.

@@ -1,5 +1,18 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-21 (주식 이야기형 4) — 인물은 모두 표정이 있는 종이인형
+
+### 왜 (사용자 지시)
+- "인물들은 다 표정이 있어야 하는데? 다시 수정해서 chatgpt한테 말할거 알려줘" — v2.0 은 일본 축제 영상처럼 얼굴 없는 인형이었음.
+
+### 바꾼 것
+| 파일 (버전) | 내용 |
+|---|---|
+| `stock/story/protagonist_chatgpt.md` (v2.0 → v3.0) | STYLE = 오린 색종이 얼굴(눈·눈썹·입·볼)로 표정이 한눈에 · 장마다 EXPRESSION 줄 · 좌절 = 놀란 얼굴 아님 · BACK = 옆얼굴이 보이는 비스듬한 뒷모습 · **SMILE(응원)·CROWD(4화 환호하는 개미 6명)** 더해 9장 |
+| `stock/story/protagonist.md` (v1.3) · `stock/guides/story_script.md` (v1.3) · `stock/story/series.md` (v1.1) | 표정 있는 인형 · 감정 문장 ↔ 표정 맞추기 · 응원 문장 = SMILE · 썸네일 = 좌절한 얼굴 |
+| `stock/story/[1-4]화_*_제작안.txt` (v1.1) | 마지막 응원 문장에서 SMILE · 그림 목록 (대본은 그대로 — plan_tool 문제 0) |
+| `stock/story/puppet/README.md` · `CLAUDE.md` · `guides/status.md` (v2.29) | 표정 있는 인형 · 검수 항목에 표정 |
+
 ## 2026-10-21 (주식 이야기형 3) — 시리즈 '개미 재기 일지' 1부 1~4화 제작안
 
 ### 왜 (사용자 지시)

@@ -1,9 +1,10 @@
 ==================================================
-개미 재기 일지 1화 — 손절보다 무서운 건 포기 · 롱폼 제작안 (v1.0)
+개미 재기 일지 1화 — 손절보다 무서운 건 포기 · 롱폼 제작안 (v1.1)
 대본 + 화면 구성(종이인형 무대 + 코드 화면) + 제목·썸네일·설명란
 ==================================================
 
 [이 문서 보는 법]
+- v1.1 (2026-10-21, 사용자 지시 "인물들은 다 표정이 있어야 하는데? …"): 인형은 모두 표정이 있음 (protagonist_chatgpt.md v3.0) — 마지막 응원 문장에서 SMILE 인형 · 그림 목록에 SMILE. 대본은 그대로.
 - 시리즈: 개미 재기 일지 1부 '마음가짐 편' 1화 / 4화 (stock/story/series.md). 영상ID: pogi-sonjeol-2026-10
 - 사용자 주제 (2026-10-21): "손절할 때 돈 잃는게 아니라 주식 완전히 포기할 때가 정말 돈 잃는 순간이다 문제를 찾아 처음부터 다시 꼼꼼하게 주식 공부해라 (처음 시리즈)"
 - 대본 규칙 stock/guides/story_script.md v1.2 · 주인공 stock/story/protagonist.md v1.2 · 숫자 stock/story/calc/results.json (series_calc.py v1.1)
@@ -23,12 +24,13 @@
   stock/story/puppet/P-BONSEOK-PHONE.png  인형     A-01 · B-02
   stock/story/puppet/P-BONSEOK-DESPAIR.png 인형    A-02
   stock/story/puppet/P-BONSEOK-RESOLVE.png 인형    A-03 · E-02
+  stock/story/puppet/P-BONSEOK-SMILE.png   인형   E-02 (응원 문장)
   stock/story/puppet/P-BONSEOK-STUDY.png  인형     A-04 · C-03 · D-01
   stock/story/puppet/P-BONSEOK-BACK.png   인형     B-07 · D-04
   stock/story/puppet/P-HOME-NIGHT.jpg     배경     A · B-01·02 · C-03 · D-01 · E-02
   stock/story/puppet/P-OFFICE.jpg         배경     C-01 · C-02
   stock/story/puppet/P-PAPER.jpg          배경     B-03~06 · C-04·05 · D-02·03 · E-01
-  (인형 7장은 ChatGPT 요청 중 — protagonist_chatgpt.md v2.0. 배경은 series.md 4번 — 아직 요청 전)
+  (인형 9장은 ChatGPT 요청 중 — protagonist_chatgpt.md v3.0, 모두 표정 있음. 배경은 series.md 4번 — 아직 요청 전)
 
 
 
@@ -308,6 +310,7 @@ R3. 주식 돈은 손절할 때가 아니라 포기할 때 잃습니다  (27자 
 
 [E-02 | 6:45~7:05 | 무대: P-HOME-NIGHT · 인형 RESOLVE]
 (화면)
+ - 응원 문장('여러분의 투자도 …')에서 인형이 SMILE(환한 웃음, 손을 들어 응원)로 바뀜
  - 인형이 고개를 듦 · 창밖이 조금 밝아짐 · 끝에 K7 'EP.2 ▶'
 (내레이션)
 오늘부터 저는 매매 일지를 쓰고, 공부부터 다시 하기로 했어요.

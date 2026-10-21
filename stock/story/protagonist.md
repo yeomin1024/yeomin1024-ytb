@@ -1,6 +1,7 @@
 # 주인공 설정 — 개미 투자자 구본석 (가상 인물)
 
-버전: v1.2 — 2026-10-21 — 시리즈 '개미 재기 일지' 1~4화에 쓴 사건·숫자를 연표에 더함 (5번 표·5-1 일지 · 사용자 지시 "… 그리고 시리즈물이라는 것도 고려해") — 리딩방 720만 · 매매 약 1,200번·수수료와 세금 약 630만(가정) · 7월 29일 반대매매 문자 · 6월 18일 8천만 원.
+버전: v1.3 — 2026-10-21 — 8번 **인물은 모두 표정이 있다** (사용자 지시 "인물들은 다 표정이 있어야 하는데? …") — 오린 색종이 얼굴 · 자세·표정마다 한 장 · 인형 9장(웃는 응원 SMILE · 환호하는 개미 무리 CROWD 더함).
+(v1.2 — 2026-10-21 — 시리즈 '개미 재기 일지' 1~4화에 쓴 사건·숫자를 연표에 더함 (5번 표·5-1 일지 · 사용자 지시 "… 그리고 시리즈물이라는 것도 고려해") — 리딩방 720만 · 매매 약 1,200번·수수료와 세금 약 630만(가정) · 7월 29일 반대매매 문자 · 6월 18일 8천만 원.
 (v1.1 — 2026-10-21 — 8번 그림을 **종이인형극**으로 (사용자 지시 "영상을 그 일본 축제 영상처럼 종이인형극 풍으로 만들건데 …") — 얼굴 없는 인형 + 안경 · 자세 7장 · 투명 PNG `stock/story/puppet/`.
 (v1.0 — 2026-10-21 — 처음 만듦.)
 
@@ -134,40 +135,45 @@
 | 비상금 없음 | 생활비 6개월 비상금 | 하락장에서 강제로 매도하는 경우 |
 | 파이어 52세 | 25배·4% 규칙 · 연금 전 13년 | 꺼내 쓰기 백테스트 |
 
-## 8. 그림 — 종이인형극 (영어 설명은 그림 프롬프트에 그대로)
+## 8. 그림 — 표정 있는 종이인형극 (영어 설명은 그림 프롬프트에 그대로)
 
-사용자 지시 (2026-10-21): "영상을 그 일본 축제 영상처럼 종이인형극 풍으로 만들건데 적합한 주인공 이미지가 맞아 다시 수정해서 알려줘봐"
+사용자 지시 (2026-10-21): "영상을 그 일본 축제 영상처럼 종이인형극 풍으로 만들건데 적합한 주인공 이미지가 맞아 다시 수정해서 알려줘봐" · "인물들은 다 표정이 있어야 하는데? 다시 수정해서 chatgpt한테 말할거 알려줘"
 
 - 영상은 **종이인형극 무대**로 만든다 — 일본 축제 영상(`video/episodes/ilbon-chukje-2026-10/`, `video/render/puppet.js`)과 같은 방식.
   - 무대 = 배경 그림 1장 + 인형마다 투명 PNG 1장.
   - 움직임(걷기·흔들림·기울기·뒤집기·튀어나옴)은 모두 코드로 준다.
-  - 그래서 주인공은 **자세마다 한 장**이다. 표정 그림은 없다 — 인형은 얼굴이 없고, 감정은 자세로 보인다.
-- 그림체 (`protagonist_chatgpt.md` 의 STYLE 문단): 오려 붙인 색종이의 결과 손으로 자른 가장자리, 윤곽선 없음, 얼굴 없는 둥근 머리. 일본 축제 영상과 같은 기법이고, 색만 오늘의 한국 생활에 맞췄다 (남색·크림·숯색·황토 노랑·손해 빨강·청록).
-- 인물 (CHARACTER 문단 — 모든 인형 프롬프트 맨 앞에 그대로):
+- **인물은 모두 표정이 있다** (일본 축제 영상의 얼굴 없는 인형과 다른 점).
+  - 얼굴도 오린 색종이 조각으로 만든다: 아몬드꼴 짙은 눈(작은 흰 반짝임)·가는 눈썹·단순한 입·분홍 볼.
+  - 표정은 코드로 바꿀 수 없다 → **자세·표정마다 한 장**.
+  - 대본의 감정 문장과 그 장면 인형의 표정을 맞춘다 (story_script 1-1).
+- 그림체 (`protagonist_chatgpt.md` v3.0 의 STYLE 문단): 오려 붙인 색종이의 결과 손으로 자른 가장자리, 윤곽선 없음. 일본 축제 영상과 같은 기법이다. 색만 오늘의 한국 생활에 맞췄다 (남색·크림·숯색·황토 노랑·손해 빨강·청록).
+- 인물 (CHARACTER 문단 — 주인공 인형 프롬프트 맨 앞에 그대로):
 
 ```
-Gu Bonseok, a 44-year-old Korean office worker. Average height with a slightly soft build and a small round belly; his head is about one sixth of his height. Round plain head with NO eyes, NO nose and NO mouth, warm beige skin paper #E8C39E. Short neat black hair paper #1F1F1F parted on the left, a few light gray paper strands #A6A6A6 at the temples, and ONE small upturned cowlick sticking up at the crown. Thin black rectangular glasses frames sit on the blank face — the glasses are the only thing on the face. Gray-navy zip-up work jacket #3B4763 with no logo and a slightly lighter collar, over a light blue collared shirt #AFC6E3; dark charcoal-gray slacks #4A4D52; black sneakers #222222 with thin white soles.
+Gu Bonseok, a 44-year-old Korean office worker. Average height with a slightly soft build and a small round belly; his head is about one sixth of his height. Kind round face of warm beige skin paper #E8C39E, with the cut-paper face described in STYLE: dark almond eyes, thick-ish dark-brown eyebrows, a simple mouth, soft pink cheeks, slightly tired faint shadows under the eyes. Thin black rectangular glasses frames sit over his eyes (the eyes stay visible through the frames). Short neat black hair paper #1F1F1F parted on the left, a few light gray paper strands #A6A6A6 at the temples, and ONE small upturned cowlick sticking up at the crown. Gray-navy zip-up work jacket #3B4763 with no logo and a slightly lighter collar, over a light blue collared shirt #AFC6E3; dark charcoal-gray slacks #4A4D52; black sneakers #222222 with thin white soles.
 ```
 
 - 알아보는 표시 세 가지 — 모든 인형에 넣는다:
-  - **얼굴 없는 머리 위의 검은 각진 안경** (얼굴에 있는 것은 안경뿐)
+  - **검은 각진 얇은 안경** (안경 너머로 눈이 보임)
   - **회색빛 남색 작업 점퍼**
   - **정수리의 뻗친 머리 한 가닥**
-- 주인공 인형 7장 (ChatGPT 가 만들어 `stock/story/puppet/` 에 올림 — `protagonist_chatgpt.md` v2.0):
+- 인형 9장 (ChatGPT 가 만들어 `stock/story/puppet/` 에 올림 — `protagonist_chatgpt.md` v3.0):
 
-| 파일 | 자세 | 쓰는 곳 |
-|---|---|---|
-| `P-BONSEOK.png` | 기본 — 서서 말하기 (비스듬히 앞) | 모든 장면의 기본 |
-| `P-BONSEOK-WALK.png` | 걷기 (옆) | 출근·이동 |
-| `P-BONSEOK-PHONE.png` | 휴대폰 계좌를 보고 무너짐 | 도입 ① 상황 |
-| `P-BONSEOK-DESPAIR.png` | 바닥에 주저앉아 무릎에 얼굴을 묻음 | 도입 ② 답답함 |
-| `P-BONSEOK-RESOLVE.png` | 주먹을 쥐고 고개를 듦 | 도입 ③ 다짐 · 마무리 |
-| `P-BONSEOK-STUDY.png` | 낮은 상 앞에서 노트북·공책으로 복기 | 도입 ④ · 방법 찾기 |
-| `P-BONSEOK-BACK.png` | 뒷모습 — 큰 화면을 올려다봄 | 백테스트 결과 (차트는 코드로) |
+| 파일 | 자세 | 표정 | 쓰는 곳 |
+|---|---|---|---|
+| `P-BONSEOK.png` | 서서 말하기 (비스듬히 앞) | 지쳤지만 다정한 옅은 미소, 말하듯 입이 조금 열림 | 모든 장면의 기본 |
+| `P-BONSEOK-WALK.png` | 걷기 (옆) | 담담하고 차분함 | 출근·이동 |
+| `P-BONSEOK-PHONE.png` | 휴대폰 계좌를 보고 무너짐 | **손해를 알고 좌절** — 미간을 찌푸림·처진 입꼬리 (놀란 얼굴 아님) | 도입 ① 상황 · 썸네일 |
+| `P-BONSEOK-DESPAIR.png` | 바닥에 주저앉아 이마를 짚음 | 질끈 감은 눈·꽉 다문 처진 입 — 답답함 | 도입 ② 답답함 · 썸네일 |
+| `P-BONSEOK-RESOLVE.png` | 주먹을 쥐고 고개를 듦 | 곧은 눈썹·빛나는 눈·굳게 다문 작은 미소 — 결심 | 도입 ③ 다짐 · 마무리 다짐 |
+| `P-BONSEOK-STUDY.png` | 낮은 상 앞 노트북·공책 | 살짝 찌푸린 눈썹 — 집중 | 도입 ④ · 방법 찾기 |
+| `P-BONSEOK-BACK.png` | 비스듬한 뒷모습 + 옆얼굴, 큰 화면을 올려다봄 | 올라간 눈썹·벌어진 입 — 깨달음 | 백테스트 결과 (차트는 코드로) |
+| `P-BONSEOK-SMILE.png` | 손을 들어 응원 | 환하고 따뜻한 웃음 | 마무리 응원 문장 |
+| `P-CROWD.png` | 휴대폰을 들고 환호하는 개미 투자자 6명 (주인공 아님) | 모두 신난 얼굴 | 4화 FOMO |
 
 - 왼쪽을 보는 자세는 코드가 좌우로 뒤집어 쓴다 (그림을 따로 만들지 않음).
-- 2D 애니메이션 설정표(`stock/story/images/protagonist_*.jpg`, v1.0)는 **영상에 쓰지 않는다.** 옷·머리·안경·체형을 맞추는 참고 그림으로만 ChatGPT 에 넘긴다.
-- 아내·딸 인형은 아직 없다. 영상에 나오게 되면 같은 방식(얼굴 없는 종이인형, 한 장에 하나)으로 더한다. 옷 설명:
+- 2D 애니메이션 설정표(`stock/story/images/protagonist_*.jpg`, v1.0)는 **영상에 쓰지 않는다.** 얼굴 생김새·옷·머리·안경·체형을 맞추는 참고 그림으로만 ChatGPT 에 넘긴다.
+- 아내·딸 인형은 아직 없다. 영상에 나오게 되면 같은 방식(표정 있는 종이인형, 한 장에 한 자세·표정)으로 더한다. 옷 설명:
   - 민지영 (아내, 42세): 마른 편, 어깨 길이 짙은 갈색 머리를 낮게 묶음, 안경 없음, 크림색 니트 카디건 + 흰 블라우스 + 남색 바지.
   - 구서윤 (딸, 10세): 노란 머리끈으로 짧게 양 갈래, 연분홍 후드티 + 청치마 + 흰 운동화.
 
@@ -203,5 +209,6 @@ Gu Bonseok, a 44-year-old Korean office worker. Average height with a slightly s
 | 버전 | 날짜 | 바꾼 것 |
 |---|---|---|
 | v1.0 | 2026-10-21 | 처음 만듦 — 평균 통계 조사(9번) · 기본 설정 · 돈 · 파이어 · 연표 · 습관 · 소재 · 그림 고정 설명 |
+| v1.3 | 2026-10-21 | 8번 인물 표정 — 얼굴 있는 종이인형 · 9장 표 |
 | v1.2 | 2026-10-21 | 시리즈 1~4화 사건·숫자 → 5번 연표 · 5-1 재기 일지 |
 | v1.1 | 2026-10-21 | 8번 그림 = 종이인형극 (일본 축제 영상 방식) — 얼굴 없는 인형 + 안경 · 자세 7장 · 2D 설정표는 참고로만 |

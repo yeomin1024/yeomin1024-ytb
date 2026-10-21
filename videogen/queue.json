@@ -1,8 +1,8 @@
 {
-  "version": "v1.0 — 2026-10-20 — 국민연금 롱폼 29 + 쇼츠 7 (Release 에 같은 클립이 있으면 건너뛰고, 그림이 바뀐 클립만 다시)",
+  "version": "v1.1 — 2026-10-21 — 국민연금 롱폼·쇼츠 클립 36개 받음(scene_clips fetch) → 두 작업 끔 (다시 만들 클립이 생기면 그 작업만 다시 켬). 이전 v1.0 — 2026-10-20 — 국민연금 롱폼 29 + 쇼츠 7 (Release 에 같은 클립이 있으면 건너뛰고, 그림이 바뀐 클립만 다시)",
   "about": "Kaggle 고정 셀(videogen/README.md 2-5)이 읽는 할 일 목록 — Claude 가 고친다. jobs 를 위에서부터 차례로: settings = 설정 JSON 경로(저장소 기준). 끄려면 \"disabled\": true, 다 다시 만들려면 \"force\": true, 설정 덮어쓰기는 \"overrides\": {...}.",
   "jobs": [
-    {"name": "gungmin-sigi-2026-10 롱폼", "settings": "economic/source/gungmin-sigi-2026-10/scenes/videogen.json"},
-    {"name": "gungmin-sigi-2026-10 쇼츠", "settings": "economic/source/gungmin-sigi-2026-10/shorts/scenes/videogen.json"}
+    {"name": "gungmin-sigi-2026-10 롱폼", "settings": "economic/source/gungmin-sigi-2026-10/scenes/videogen.json", "disabled": true},
+    {"name": "gungmin-sigi-2026-10 쇼츠", "settings": "economic/source/gungmin-sigi-2026-10/shorts/scenes/videogen.json", "disabled": true}
   ]
 }

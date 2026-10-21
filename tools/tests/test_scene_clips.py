@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
-# VERSION: v1.2 — 2026-10-19 — scene_clips v1.2: 그림 .jpg 기본 · JPEG 700KB 규칙 · 깨진 그림 검사 (test_image_ok).
+# VERSION: v1.3 — 2026-10-21 — scene_clips v1.3.0: plan 클립 seed → videogen.json 항목 seed (없으면 키 없음) · ghost (선명도 떨어짐 찾기 —
+#          숫자 시험 + 진짜 ffmpeg 로 1초부터 흐려지는 클립).
+# (v1.2 — 2026-10-19 — scene_clips v1.2: 그림 .jpg 기본 · JPEG 700KB 규칙 · 깨진 그림 검사 (test_image_ok).
 # (v1.1 — 2026-10-19 — scene_clips v1.1: ChatGPT 가 저장소에 올림(규칙 8) · 그림 확장자 .png 기본 (image_ext).
 # (v1.0 — 2026-10-19 — tools/scene_clips.py v1.0 시험 (구간 계산 · 장 시작·겹침·썸네일 자리 검사 · 프롬프트 · videogen 설정)
 # (가짜 계획·시각만 씀 — 파일·네트워크 없음))
@@ -7,6 +9,7 @@ r"""
   python3 -m unittest tools.tests.test_scene_clips -v     (저장소 최상위에서)
 """
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -74,8 +77,32 @@ class TestSceneClips(unittest.TestCase):
         self.assertNotIn("읽기만", md)
         self.assertEqual(sc.videogen_settings(dict(p, image_ext=".png"), sc.windows(p, SENTS))["start_images"][0]["image"],
                          "x/scenes/A1.png")
+        ps = plan([dict(clip("A1", 1, 1), seed="1046")])                               # v1.3 — 그 클립만 다른 seed
+        self.assertEqual(sc.videogen_settings(ps, sc.windows(ps, SENTS))["start_images"][0]["seed"], 1046)
+        self.assertNotIn("seed", v["start_images"][0])
         self.assertIn("「하나.」", md)
         self.assertNotIn("0. 인물 설정표", sc.chatgpt_md(p, SENTS, "x", "t", shorts=True))
+
+    def test_ghost_scan(self):                                       # v1.3 — 쓰는 구간 안 선명도 떨어짐
+        s = [50.0] * 6 + [100.0] * 30 + [70.0] * 12 + [100.0] * 12   # 24fps: 1.5~2.0초 겹침
+        r = sc.ghost_scan(s, 0.0, 2.5)
+        self.assertEqual((r["first_drop_sec"], r["min_rel"]), (1.5, 0.7))
+        self.assertIsNone(sc.ghost_scan(s, 0.0, 1.4)["first_drop_sec"])   # 그 앞만 쓰면 괜찮음
+        self.assertIsNone(sc.ghost_scan(s, 2.0, 2.5)["first_drop_sec"])   # 그 뒤만 써도
+        self.assertIsNone(sc.ghost_scan([10.0] * 5 + [100.0] * 20, 0.0, 1.0)["first_drop_sec"])   # 첫 0.25초(덜 선명)는 안 봄
+
+    def test_sharpness_ffmpeg(self):
+        import shutil
+        import subprocess
+        if not shutil.which("ffmpeg"):
+            self.skipTest("ffmpeg 없음")
+        with tempfile.TemporaryDirectory() as d:
+            f = Path(d) / "c.mp4"
+            subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "lavfi", "-i", "testsrc2=s=320x176:r=24:d=2",
+                            "-vf", "boxblur=6:enable='gte(t,1)'", "-pix_fmt", "yuv420p", str(f)], check=True)
+            r = sc.ghost_scan(sc.sharpness(f, 320, 176), 0.0, 2.0)
+            self.assertAlmostEqual(r["first_drop_sec"], 1.0, delta=0.05)
+            self.assertLess(r["min_rel"], 0.5)
 
     def test_image_ok(self):                                         # v1.2 — 잘려 올라간 PNG 는 깨진 것
         import io, tempfile

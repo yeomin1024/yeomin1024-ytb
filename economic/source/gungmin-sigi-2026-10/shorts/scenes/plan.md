@@ -1,8 +1,8 @@
 # gungmin-sigi-2026-10-shorts 장면 계획 — AI 클립 7개 + 코드 화면
 
-자동 생성 — `python3 tools/scene_clips.py build` v1.2.2 (2026-10-20 06:39) · 원본 `scenes/plan.json` · 시각 출처: episode EP (audio-synced 2026-10-20T03:05:34Z)
+자동 생성 — `python3 tools/scene_clips.py build` v1.3.0 (2026-10-21 03:01) · 원본 `scenes/plan.json` · 시각 출처: episode EP (audio-synced 2026-10-20T06:39:32Z)
 
-- v1.0 — 2026-10-19 — 쇼츠 v2.0 11문장 중 사연 장면 7개를 세로 AI 클립으로 (1문장 = 썸네일 그림 K.cover, 4·8·11 = 코드 화면: 숫자·계산·롱폼 안내). 인물·그림체는 롱폼 계획을 그대로 (inherit)
+- v1.1 — 2026-10-21 — 클립 검수(사용자 지시 "클립 돌렸으니 확인해서 영상 만들어봐"): S09 use_from 0.3·use_to 1.5·loop pingpong · S10 use_from 0.3·use_to 1.0·loop pingpong — 클립 안 겹침·녹아내림 구간을 빼고 씀(tools/assemble_video.py v1.1, 선명도 검사 + 눈으로 확인). 이전 v1.0 — 2026-10-19 — 쇼츠 v2.0 11문장 중 사연 장면 7개를 세로 AI 클립으로 (1문장 = 썸네일 그림 K.cover, 4·8·11 = 코드 화면: 숫자·계산·롱폼 안내). 인물·그림체는 롱폼 계획을 그대로 (inherit)
 - AI 클립 구간 합계 28.1초 / 영상 51.0초 (55%) · 생성 704x1280 → 합칠 때 1080x1920
 - 클립 길이 = 구간 + 0.5초 (최대 5.0초) · 쇼츠는 모두 5.0초 (오디오 전 — 남는 만큼 자름). 클립이 구간보다 짧으면 합칠 때 1.35배까지 늦추고, 그래도 모자라면 마지막 장면을 멈춤.
 - 장 시작 문장(장 카드)·숫자·법·계산·정리는 코드 화면 (`video/episodes/<영상ID>/index.html`).

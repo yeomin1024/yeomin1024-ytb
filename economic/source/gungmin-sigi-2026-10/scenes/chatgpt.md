@@ -1,6 +1,6 @@
 # gungmin-sigi-2026-10 장면 그림 29장 — ChatGPT용 (읽고 1번부터 차례로 모두 만들기)
 
-자동 생성 — `python3 tools/scene_clips.py build` v1.2.2 (2026-10-20 06:39). 이 파일은 고치지 말고 `economic/source/gungmin-sigi-2026-10/scenes/plan.json` 을 고친 뒤 다시 만든다.
+자동 생성 — `python3 tools/scene_clips.py build` v1.3.0 (2026-10-21 03:03). 이 파일은 고치지 말고 `economic/source/gungmin-sigi-2026-10/scenes/plan.json` 을 고친 뒤 다시 만든다.
 
 이 파일 주소(최신): https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/economic/source/gungmin-sigi-2026-10/scenes/chatgpt.md
 

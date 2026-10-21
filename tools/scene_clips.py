@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.2.2 — 2026-10-20 — 그림 프롬프트에 '그 장의 인물만 알아볼 수 있게, 배경 인물은 다른 주인공과 다르게' (L19 박 씨 동료 사이에
+# VERSION: v1.3.0 — 2026-10-21 — 클립 다시 만들기·부분만 쓰기 (사용자 지시 "클립 돌렸으니 확인해서 영상 만들어봐" — L05 가 1.45초부터 깨짐):
+#          plan 클립 "seed" 가 있으면 videogen.json 항목에 넣음 (그 클립만 다른 seed 로 — 고정 셀이 'seed changed' 로 그 하나만 다시) ·
+#          "use_from"·"use_to"·"loop" 은 합치기 옵션 (tools/assemble_video.py v1.1) — build 는 건드리지 않음 · 새 명령 ghost: 받은 클립의
+#          선명도(라플라시안 분산)가 쓰는 구간 안에서 떨어지는 곳(두 겹·녹아내림·반투명 — Wan 5B FastWan 에서 36개 중 9개)을 찾아
+#          숫자 + 그 둘레 6프레임 그림(qa/ghost_<이름>.png)을 남김. 카메라가 다가가거나 사람이 화면 밖으로 나가도 떨어지니 그림은 Claude 가 본다.
+# 이전 v1.2.2 — 2026-10-20 — 그림 프롬프트에 '그 장의 인물만 알아볼 수 있게, 배경 인물은 다른 주인공과 다르게' (L19 박 씨 동료 사이에
 #          김 씨·아들·상담 직원이, L06·L24 배경에 친구가 그려짐).
 # 이전 v1.2.1 — 2026-10-20 — ChatGPT 가 장면 PNG 37장을 그대로 올려 모두 깨짐 (이전 주소의 파일을 쓴 듯) → 규칙 0 과 장마다 저장 경로 옆에도
 #          'JPEG 700KB 이하'를 적음.
@@ -18,6 +23,9 @@ r"""
   python3 tools/scene_clips.py check economic gungmin-sigi-2026-10 [--shorts]     # 문장 범위·장 시작·길이 · 있는 그림·클립
   python3 tools/scene_clips.py add-image economic gungmin-sigi-2026-10 L01 그림.png [--shorts]   # 대화에 붙인 그림 → scenes/L01.jpg
   python3 tools/scene_clips.py fetch economic gungmin-sigi-2026-10 [--shorts]     # Release → <주제>/out/<영상ID>/clips/ (sha256 확인)
+  python3 tools/scene_clips.py ghost economic gungmin-sigi-2026-10 [--shorts]     # 받은 클립의 겹침 찾기 → out/<영상ID>/qa/ghost_*.png
+  (클립 옵션 — 합칠 때: "use_from"·"use_to" = 클립 안 깨끗한 구간(초), "loop": "pingpong" = 그 구간을 앞으로 → 거꾸로 ·
+   "ghost_ok": "<까닭>" = ghost 가 걸렸지만 그림으로 보니 겹침이 아님 (카메라가 다가감 등))
 
 장면 계획 (scenes/plan.json — 사람이 고치는 파일):
   clips[] = {name, sentences:[처음, 끝], chars:[인물 id], place, ko(한 줄 요약), image(그림 프롬프트, 영어), motion(움직임, 영어)}
@@ -40,7 +48,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 REPO = "yeomin1024/yeomin1024-ytb"
-VERSION = "v1.2.2"
+VERSION = "v1.3.0"
 # 생성 해상도(5B 는 32 배수) · 최종 해상도 · 비율 — videogen v1.4.0 은 가운데를 잘라 생성 해상도에 맞춤
 SIZES = {"landscape": dict(gen=(1280, 704), final=(1920, 1080), ratio="16:9", chatgpt="1536×864"),
          "portrait": dict(gen=(704, 1280), final=(1080, 1920), ratio="9:16", chatgpt="864×1536")}
@@ -237,7 +245,8 @@ def videogen_settings(plan: dict, wins: list[dict]) -> dict:
         model=MODEL, width=gw, height=gh, seed=42, concat=False, upscaler="lanczos",
         prompt=plan["style"]["motion"], negative_prompt=NEGATIVE, release_tag=plan["release_tag"],
         start_images=[dict(image=f"{plan['image_dir']}/{c['name']}{image_ext(plan)}", name=c["name"], sec=by[c["name"]]["sec"],
-                           prompt=motion_prompt(plan, c)) for c in plan["clips"]])
+                           prompt=motion_prompt(plan, c), **({"seed": int(c["seed"])} if "seed" in c else {}))
+                      for c in plan["clips"]])
 
 
 def _quote(sents: list[dict], a: int, b: int) -> str:
@@ -508,10 +517,93 @@ def cmd_fetch(a) -> int:
     return 1 if bad or (want - have) else 0
 
 
+GHOST_DROP = 0.85   # 쓰는 구간 안 선명도 / 그때까지 가장 선명했던 값 — 이보다 낮으면 그림으로 확인 (L05·L18·L27·S10 은 0.48~0.72)
+GHOST_SKIP = 0.25   # 첫 0.25초는 시작 그림에서 생성 화면으로 넘어오는 프레임 (원래 덜 선명)
+
+
+def sharpness(path: Path, w: int, h: int) -> list[float]:
+    """프레임마다 라플라시안 분산 (회색 w×h) — 두 겹·녹아내림·반투명이면 선이 흐려져 떨어진다."""
+    import subprocess
+    import numpy as np
+    raw = subprocess.run(["ffmpeg", "-v", "error", "-i", str(path), "-vf", f"scale={w}:{h},format=gray", "-f", "rawvideo", "-"],
+                         capture_output=True, check=True).stdout
+    f = np.frombuffer(raw, np.uint8).reshape(-1, h, w).astype(np.float32)
+    lap = -4 * f[:, 1:-1, 1:-1] + f[:, :-2, 1:-1] + f[:, 2:, 1:-1] + f[:, 1:-1, :-2] + f[:, 1:-1, 2:]
+    return [float(x) for x in lap.reshape(len(f), -1).var(axis=1)]
+
+
+def ghost_scan(s: list[float], a: float, b: float, fps: int = MODEL_FPS) -> dict:
+    """구간 [a, b] (초) 안에서 선명도가 그때까지의 가장 높은 값보다 GHOST_DROP 아래로 떨어지는 첫 시각·가장 낮은 곳."""
+    i0, i1 = max(int(round(a * fps)), int(round(GHOST_SKIP * fps))), min(len(s), int(round(b * fps)) + 1)
+    best, worst, first = 0.0, (1.0, None), None
+    for i in range(i0, i1):
+        best = max(best, s[i])
+        r = s[i] / best if best else 1.0
+        if r < worst[0]:
+            worst = (r, i / fps)
+        if first is None and r < GHOST_DROP:
+            first = i / fps
+    return dict(min_rel=round(worst[0], 3), worst_sec=None if worst[1] is None else round(worst[1], 2),
+                first_drop_sec=None if first is None else round(first, 2))
+
+
+def cmd_ghost(a) -> int:
+    import subprocess
+    from PIL import Image, ImageDraw
+    p = paths(a.topic, a.vid, a.shorts)
+    plan = load_plan(p["plan"])
+    sents, _ = load_timing(p)
+    wins = {w["name"]: w for w in windows(plan, sents)}
+    w_, h_ = (360, 640) if plan["orientation"] == "portrait" else (640, 352)
+    qa = p["out"] / "qa"
+    qa.mkdir(parents=True, exist_ok=True)
+    t0, flagged = time.perf_counter(), []
+    for c in plan["clips"]:
+        f = p["out"] / "clips" / f"{c['name']}.mp4"
+        if not f.exists():
+            log("GHOST", "clip missing", name=c["name"], next_step=f"python3 tools/scene_clips.py fetch {a.topic} {a.vid}")
+            continue
+        s = sharpness(f, w_, h_)
+        lo = float(c.get("use_from", 0.0))
+        hi = min(float(c.get("use_to", len(s) / MODEL_FPS)), lo + wins[c["name"]]["need"] + 0.15)   # 늦춤 없이 쓰는 만큼까지
+        r = ghost_scan(s, lo, hi)
+        span = f"{lo:g}-{hi:.2f}"
+        if r["first_drop_sec"] is None or c.get("ghost_ok"):
+            log("GHOST", c["name"], span=span, min_rel=r["min_rel"],
+                verdict="ok" if r["first_drop_sec"] is None else f"ok (눈으로 확인: {c['ghost_ok']})")
+            continue
+        flagged.append(c["name"])
+        mid = r["worst_sec"]
+        ts = [max(0.0, min(len(s) / MODEL_FPS - 0.05, mid + d)) for d in (-1.2, -0.8, -0.4, 0.0, 0.4, 0.8)]
+        tiles = []
+        for t in ts:
+            out = subprocess.run(["ffmpeg", "-v", "error", "-ss", f"{t:.3f}", "-i", str(f), "-frames:v", "1", "-vf",
+                                  f"scale={w_}:{h_}", "-f", "image2pipe", "-vcodec", "png", "-"], capture_output=True, check=True).stdout
+            import io
+            im = Image.open(io.BytesIO(out)).convert("RGB")
+            d = ImageDraw.Draw(im)
+            d.rectangle((0, 0, 120, 18), fill="black")
+            d.text((4, 3), f"{c['name']} {t:.2f}s", fill="yellow")
+            tiles.append(im)
+        cols = 3 if w_ > h_ else 6
+        sheet = Image.new("RGB", (w_ * cols, h_ * ((len(tiles) + cols - 1) // cols)))
+        for i, im in enumerate(tiles):
+            sheet.paste(im, ((i % cols) * w_, (i // cols) * h_))
+        dst = qa / f"ghost_{c['name']}.png"
+        sheet.save(dst)
+        log("GHOST", c["name"], span=span, min_rel=r["min_rel"], first_drop_sec=r["first_drop_sec"], worst_sec=mid,
+            verdict="LOOK — 두 겹·녹아내림인지 그림으로 확인 (카메라가 다가가거나 화면 밖으로 나가도 떨어짐)",
+            sheet=str(dst.relative_to(ROOT)))
+    log("SUMMARY", "ghost", clips=len(plan["clips"]), flagged=len(flagged), names=",".join(flagged) or "none",
+        threshold=GHOST_DROP, sec=round(time.perf_counter() - t0, 1),
+        next_step="겹침이면 plan.json 그 클립에 use_from·use_to(·loop pingpong) → build → assemble_video.py" if flagged else "-")
+    return 0
+
+
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description="장면 클립 계획·프롬프트·받기 " + VERSION)
     sub = ap.add_subparsers(dest="cmd", required=True)
-    for name in ("build", "check", "fetch", "add-image"):
+    for name in ("build", "check", "fetch", "add-image", "ghost"):
         s = sub.add_parser(name)
         s.add_argument("topic")
         s.add_argument("vid")
@@ -520,7 +612,7 @@ def main(argv=None) -> int:
             s.add_argument("file")
         s.add_argument("--shorts", action="store_true")
     a = ap.parse_args(argv)
-    return {"build": cmd_build, "check": cmd_check, "fetch": cmd_fetch, "add-image": cmd_add_image}[a.cmd](a)
+    return {"build": cmd_build, "check": cmd_check, "fetch": cmd_fetch, "add-image": cmd_add_image, "ghost": cmd_ghost}[a.cmd](a)
 
 
 if __name__ == "__main__":

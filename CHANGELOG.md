@@ -1,5 +1,19 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-21 (재테크 국민연금) — AI 클립 36개 받아 검수 → 롱폼·쇼츠 완성본 합치기
+
+- 사용자 지시: "클립 돌렸으니 확인해서 영상 만들어봐"
+- 받기: Release `clips-gungmin-sigi-2026-10`(29개, 187.5MB)·`-shorts`(7개, 60.5MB) — sha256 맞음, 모든 클립의 `image_sha256` = 지금 그림(새 L02·L19 포함)
+- **검수에서 찾은 것**: 5B FastWan 클립 36개 중 9개가 중간·끝에 두 겹·녹아내림·반투명 (사람·찻잔·종이가 겹쳐 보임) — L02·L04(김 씨 앞에 풀줄기가 돋아남)·L05·L18·L21·L25·L27·S09·S10. 선명도(라플라시안 분산)가 떨어지는 곳을 숫자로 찾고 그림으로 확인 (L03·L08·L13·S02 는 카메라가 다가가거나 화면 밖으로 나가서 떨어진 것 — 겹침 아님)
+- 고침 = 깨끗한 구간만 씀 (`plan.json` 롱폼 v1.2·쇼츠 v1.1 클립 옵션): L02 2.5초~·pingpong · L04 ~1.8 · L05 0.3~1.3·pingpong · L18 ~2.1 · L21 ~1.7 · L25 2.4~·pingpong · L27 1.8~ · S09 0.3~1.5·pingpong · S10 0.3~1.0·pingpong (모자란 길이는 1.35배 늦춤 + 마지막 장면 멈춤 — 가장 긴 멈춤 S10 2.3초·L05 1.2초)
+- `tools/assemble_video.py` v1.1: 클립 옵션 `use_from`·`use_to`·`loop: "pingpong"` · **클립 뒤가 코드 화면이면 0.15초 더** (바탕이 다음 문장 0.15초 전에 장면을 바꾸기 시작해, 클립에 가려 안 보인 카드가 사라지는 4프레임이 번쩍였음 — 쇼츠 S10 → 11번) · [FIT] 로그에 쓴 구간·tail
+- `tools/scene_clips.py` v1.3.0: 새 명령 `ghost` (받은 클립의 쓰는 구간 안 선명도 떨어짐 → `qa/ghost_<이름>.png`) · `ghost_ok`(그림으로 확인한 클립) · plan 클립 `seed` → videogen.json (그 클립만 다시 만들 때)
+- 처음 시도에서 고친 것: 되감는 구간을 0초부터 쓰면 거기서 멈춘 장면이 바래 보임 (클립 첫 0.25초는 시작 그림에서 넘어오는 프레임) → 0.3초부터
+- 시험: `tools/tests/test_assemble_video.py` v1.1 (구간·pingpong·tail · 진짜 ffmpeg pingpong 프레임 수 24+23) · `test_scene_clips.py` v1.3 (ghost_scan · 진짜 ffmpeg 로 1초부터 흐려지는 클립 → 1.0초) — 13개 통과
+- 쇼츠: 바탕 다시 렌더(오디오 맞춘 장면 파일 v1.2, 52.47초) · 합치기 → `economic/out/gungmin-sigi-2026-10-shorts/final_1080p.mp4` 1080x1920 30fps · -14.07 LUFS · -1.62 dBTP · 업로드 dry-run 문제 없음 (부자백서, 1,650단위)
+- `videogen/queue.json` v1.1: 국민연금 두 작업 끔 (받기 끝)
+- 위험 관련 변경 없음 (대본·숫자·자막 그대로, 장면 클립의 쓰는 부분만)
+
 ## 2026-10-20 (videogen v1.5.0) — Kaggle 장면 클립 고정 셀 · 할 일 목록 `videogen/queue.json`
 
 - 사용자 지시: "kaggle 영상 클립 코드 내가 실행 셀 변경 안해도 파일 읽어서 처리하게 해줘 셀 코드 알려주고"

@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-10-19 — 사용자 지시 "영상은 설명이 복잡하고 어려울 때는 클로드 코드로 렌더링 하고 그렇지 않은 부분은 친숙한
+# VERSION: v1.1 — 2026-10-21 — 사용자 지시 "클립 돌렸으니 확인해서 영상 만들어봐": 클립을 직접 보니 L05 가 1.45초부터 사람이 겹쳐
+#          보이며 녹아내림(그 밖에 8개도 중간·끝에 겹침) → 장면 계획(plan.json) 클립 옵션 `use_from`·`use_to`(클립 안 깨끗한 구간만,
+#          초) · `loop: "pingpong"`(그 구간을 앞으로 갔다 되돌아오게 — 작게 움직이는 장면에서 멈춤 대신) · [FIT] 로그에 쓴 구간·pingpong ·
+#          클립 뒤가 코드 화면이면 클립을 TAIL(0.15초) 더 보여 줌 — 바탕은 다음 문장 0.15초 전에 장면을 바꾸기 시작해, 클립에 가려 한 번도
+#          안 보인 카드가 사라지는 4프레임이 번쩍였음 (쇼츠 S10 → 11번 문장).
+# 이전 v1.0 — 2026-10-19 — 사용자 지시 "영상은 설명이 복잡하고 어려울 때는 클로드 코드로 렌더링 하고 그렇지 않은 부분은 친숙한
 #          애니메이션 이미지 … 짧은 영상 만들어주는 프롬프트 … 영상을 이어 붙이는건 그 코드에서 하는게 아니라 너가 하는거야 최종으로
 #          영상에 합치는거니까": 코드 화면 바탕 영상 + AI 장면 클립(videogen v1.4.0) + 구운 자막·장 이름표(코드 화면과 같은 모양) +
 #          각색 안내 + 내레이션 → final_1080p.mp4 → 음량 맞춤(tools/loudnorm.py) → 점검용 장면 모음.
@@ -16,6 +21,8 @@ r"""
 
 클립 맞추기 (scene_clips.windows 구간 [t0, t1] — 첫 문장 시작 - 0.15초 ~ 다음 문장 시작 - 0.15초, 다음이 장 시작이면 장 카드 1초 전):
   클립이 길면 앞에서부터 자름 · 짧으면 1.35배까지 늦춤 · 그래도 짧으면 마지막 장면을 멈춤 · 생성 크기(1280x704) → 1920x1080 은
+  (v1.1) plan.json 클립에 "use_from": 2.3·"use_to": 1.3 = 클립 안 그 구간만 (겹침·녹아내림을 뺌) · "loop": "pingpong" = 그 구간을 앞으로 →
+  거꾸로 이어서 씀 ·
   키운 뒤 가운데 자르기(Lanczos) · 24fps → 30fps.
 로그: [STAGE] [시각] key=value …   ※ 연구·교육용 영상 제작 도구 (연금 상담·투자 권유 아님)
 """
@@ -34,8 +41,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import scene_clips as sc  # noqa: E402
 
 ROOT = sc.ROOT
-VERSION = "v1.0"
+VERSION = "v1.1"
 FPS = 30
+TAIL = 0.15   # 클립 뒤가 코드 화면일 때 더 보여 줄 시간 (바탕의 장면 바꿈이 끝날 때까지)
 FONT = ROOT / "video" / "public" / "fonts" / "NotoSansKR-700.ttf"
 
 
@@ -67,16 +75,32 @@ def run(cmd: list, stage: str, hint: str) -> None:
 
 
 # --------------------------------------------------------------------------------------------------
-def fit_plan(wins: list[dict], clips: dict[str, Path]) -> list[dict]:
-    """클립마다 늦춤 배수·멈춤 길이. 늦춤은 sc.MAX_SLOW 까지."""
+def fit_plan(wins: list[dict], clips: dict[str, Path], opts: dict[str, dict] | None = None, tail: float = TAIL) -> list[dict]:
+    """클립마다 늦춤 배수·멈춤 길이. 늦춤은 sc.MAX_SLOW 까지. opts = plan 클립(이름별) — use_from·use_to·loop.
+    바로 뒤에 다른 클립이 없으면 보이는 끝 t1 을 tail 만큼 늘림 (t1_plan = 원래 끝)."""
     out = []
+    t0s = [w["t0"] for w in wins]
     for w in wins:
-        d = probe(clips[w["name"]])["duration"]
+        ext = 0.0 if any(abs(x - w["t1"]) < 0.02 for x in t0s) else tail
+        w = dict(w, t1=round(w["t1"] + ext, 3), t1_plan=w["t1"], tail=ext)
+        o = (opts or {}).get(w["name"], {})
+        raw = probe(clips[w["name"]])["duration"]
+        a = float(o.get("use_from", 0.0))
+        b = min(raw, float(o.get("use_to", raw)))
+        if not 0 <= a < b:
+            raise SystemExit(f"[FIT] {w['name']}: 쓸 구간이 없음 use_from={a} use_to={b} (클립 {raw:.2f}초)")
+        pingpong = o.get("loop") == "pingpong"
+        if o.get("loop") not in (None, "pingpong"):
+            raise SystemExit(f"[FIT] {w['name']}: loop 는 \"pingpong\" 만 ({o['loop']})")
+        span = (round(a, 3), round(b, 3)) if ("use_from" in o or "use_to" in o) else None
+        d = b - a
+        if pingpong:
+            d = 2 * d - 1 / sc.MODEL_FPS          # 되돌아올 때 맨 끝 장면은 한 번만
         need = w["t1"] - w["t0"]
         slow = 1.0 if d >= need else min(sc.MAX_SLOW, need / d)
         hold = max(0.0, need - d * slow)
-        out.append(dict(w, file=clips[w["name"]], clip_dur=round(d, 3), slow=round(slow, 4), hold=round(hold, 3),
-                        cut=round(max(0.0, d - need), 3)))
+        out.append(dict(w, file=clips[w["name"]], clip_dur=round(raw, 3), span=span, pingpong=pingpong, slow=round(slow, 4),
+                        hold=round(hold, 3), cut=round(max(0.0, d - need), 3)))
     return out
 
 
@@ -120,7 +144,17 @@ def build_graph(fits: list[dict], size: tuple[int, int], notice: dict | None, pr
     lines = [f"[0:v]setpts=PTS-STARTPTS,fps={FPS},format=yuv420p[v0]"]
     for i, f in enumerate(fits, 1):
         need = f["t1"] - f["t0"]
-        chain = (f"[{i}:v]scale={W}:{H}:force_original_aspect_ratio=increase:flags=lanczos,crop={W}:{H},setsar=1,"
+        src = f"[{i}:v]"
+        if f.get("span") or f.get("pingpong"):
+            cut = f"trim=start={f['span'][0]:.3f}:end={f['span'][1]:.3f}," if f.get("span") else ""
+            if f.get("pingpong"):
+                lines.append(f"[{i}:v]{cut}setpts=PTS-STARTPTS,split[pa{i}][pb{i}]")
+                lines.append(f"[pb{i}]reverse,trim=start_frame=1,setpts=PTS-STARTPTS[pr{i}]")
+                lines.append(f"[pa{i}][pr{i}]concat=n=2:v=1:a=0[pp{i}]")
+            else:
+                lines.append(f"[{i}:v]{cut}setpts=PTS-STARTPTS[pp{i}]")
+            src = f"[pp{i}]"
+        chain = (f"{src}scale={W}:{H}:force_original_aspect_ratio=increase:flags=lanczos,crop={W}:{H},setsar=1,"
                  f"setpts=(PTS-STARTPTS)*{f['slow']:.4f},fps={FPS}")
         if f["hold"] > 0:
             chain += f",tpad=stop_mode=clone:stop_duration={f['hold'] + 0.1:.3f}"
@@ -254,10 +288,10 @@ def main(argv=None) -> int:
             log("INPUT", "AI clips missing", names=",".join(absent),
                 next_step=f"python3 tools/scene_clips.py fetch {a.topic} {a.vid}{' --shorts' if a.shorts else ''} (or --placeholders)")
             return 1
-    fits = fit_plan(wins, clips)
+    fits = fit_plan(wins, clips, {c["name"]: c for c in plan["clips"]})
     for f in fits:
-        log("FIT", f["name"], sentences=f"{f['a']}-{f['b']}", t0=f["t0"], t1=f["t1"], need=round(f["t1"] - f["t0"], 3),
-            clip=f["clip_dur"], slow=f["slow"], hold=f["hold"], cut=f["cut"])
+        log("FIT", f["name"], sentences=f"{f['a']}-{f['b']}", t0=f["t0"], t1=f["t1"], tail=f["tail"], need=round(f["t1"] - f["t0"], 3),
+            clip=f["clip_dur"], used=f"{f['span'][0]}-{f['span'][1]}" if f["span"] else "all", pingpong=f["pingpong"], slow=f["slow"], hold=f["hold"], cut=f["cut"])
     held = [f["name"] for f in fits if f["hold"] > 0.05]
     if held:
         log("FIT", "last frame held (clip too short even at max slow-down)", names=",".join(held))

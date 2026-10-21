@@ -1,5 +1,5 @@
 {
-  "version": "v1.0 — 2026-10-19 — 쇼츠 v2.0 11문장 중 사연 장면 7개를 세로 AI 클립으로 (1문장 = 썸네일 그림 K.cover, 4·8·11 = 코드 화면: 숫자·계산·롱폼 안내). 인물·그림체는 롱폼 계획을 그대로 (inherit)",
+  "version": "v1.1 — 2026-10-21 — 클립 검수(사용자 지시 \"클립 돌렸으니 확인해서 영상 만들어봐\"): S09 use_from 0.3·use_to 1.5·loop pingpong · S10 use_from 0.3·use_to 1.0·loop pingpong — 클립 안 겹침·녹아내림 구간을 빼고 씀(tools/assemble_video.py v1.1, 선명도 검사 + 눈으로 확인). 이전 v1.0 — 2026-10-19 — 쇼츠 v2.0 11문장 중 사연 장면 7개를 세로 AI 클립으로 (1문장 = 썸네일 그림 K.cover, 4·8·11 = 코드 화면: 숫자·계산·롱폼 안내). 인물·그림체는 롱폼 계획을 그대로 (inherit)",
   "inherit": "economic/source/gungmin-sigi-2026-10/scenes/plan.json",
   "video": "gungmin-sigi-2026-10-shorts",
   "topic": "economic",
@@ -14,7 +14,8 @@
   "clips": [
     {"name": "S02", "sentences": [2, 2], "chars": ["kim"], "place": null, "ko": "59세 퇴직 — 짐 상자를 들고 회사를 나서는 김 씨 (세로)",
      "image": "Daytime in front of an office building's glass doors (no signs). Mr. Kim walks out toward the viewer carrying a cardboard box of his belongings — a small potted plant, a mug and a photo frame — and glances back at the building with a bittersweet expression. Vertical full-body shot, his face in the upper-middle of the frame.",
-     "motion": "Mr. Kim walks out through the glass door toward the camera carrying the box and glances back over his shoulder at the building; the plant leaves sway in a light breeze; static camera."},
+     "motion": "Mr. Kim walks out through the glass door toward the camera carrying the box and glances back over his shoulder at the building; the plant leaves sway in a light breeze; static camera.",
+     "ghost_ok": "김 씨가 오른쪽 화면 밖으로 걸어 나감 (2026-10-21 그림 확인)"},
     {"name": "S03", "sentences": [3, 3], "chars": ["kim"], "place": "office", "ko": "퇴직한 다음 달, 공단 창구에서 신청서에 서명하는 김 씨 (세로)",
      "image": "At a pension office counter, Mr. Kim signs a blank form with a pen, about to slide it under the glass partition; a clerk's hand reaches out from the other side. Mr. Kim looks calm and a little hurried. Vertical medium shot, his face in the upper-middle of the frame.",
      "motion": "Mr. Kim signs the form and slides it under the glass partition; the clerk's hand takes it; static camera."},
@@ -29,9 +30,11 @@
      "motion": "The friend leans in and asks seriously, raising his index finger; Mr. Kim freezes with his glass halfway up, his eyes widening as his smile fades; static camera."},
     {"name": "S09", "sentences": [9, 9], "chars": ["kim"], "place": "home", "ko": "밤 식탁, 신청서를 내려다보며 이마를 짚고 좌절한 김 씨 (세로)",
      "image": "Night at the dining table under a warm lamp. Mr. Kim looks down at a single blank application form, one hand pressed to his forehead, head bowed, brows knitted, shoulders slumped — crushed and regretful. Vertical medium shot, his face in the upper-middle of the frame.",
-     "motion": "Mr. Kim slowly lowers his head and rubs his forehead, letting out a long sigh as his shoulders sink; the lamp light glows softly; very slow push-in."},
+     "motion": "Mr. Kim slowly lowers his head and rubs his forehead, letting out a long sigh as his shoulders sink; the lamp light glows softly; very slow push-in.",
+     "use_from": 0.3, "use_to": 1.5, "loop": "pingpong", "qa": "2026-10-21 클립 검수: 1.9초부터 종이·팔이 두 겹 → 0.3~1.5초만 앞으로·거꾸로 (첫 0.25초는 시작 그림에서 넘어오는 프레임)"},
     {"name": "S10", "sentences": [10, 10], "chars": ["kim"], "place": "home", "ko": "서류 더미에서 고개를 들어 결심한 눈빛으로 앞을 보는 김 씨 (세로)",
      "image": "Night at the dining table covered with blank papers and a calculator: Mr. Kim lifts his head and looks straight ahead with a questioning, determined look — he is not giving up. Vertical medium close-up, his face in the upper-middle of the frame.",
-     "motion": "Mr. Kim slowly raises his head from the papers and looks straight ahead, his expression changing from worry to determination; slow push-in."}
+     "motion": "Mr. Kim slowly raises his head from the papers and looks straight ahead, his expression changing from worry to determination; slow push-in.",
+     "use_from": 0.3, "use_to": 1.0, "loop": "pingpong", "qa": "2026-10-21 클립 검수: 1.2초부터 팔·종이가 반투명하게 겹치고(턱 괸 자세 → 두 손을 탁자에) 2.2초부터 전등도 두 겹 → 0.3~1.0초만 앞으로·거꾸로 + 1.35배 늦춤, 나머지는 0.3초 장면 멈춤 (첫 0.25초는 색·선명도가 달라 뺌 — 그 프레임에서 멈추면 색이 바래 보였음)"}
   ]
 }

@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v2.5.2 — 2026-10-19 — 분당 검색 횟수 한도 429 ('Search Queries per minute') — 1분 창이 풀리도록 30초·65초 기다렸다가 다시 (예전엔 2·4초만
+# VERSION: v2.6 — 2026-10-21 — top_pct_threshold(): '하루 조회수 상위 N%' 경계값 (사용자 지시 2026-10-21 "주제 탐색 시 구독자, 날짜 상관 없이
+#          업로드 기간 대비 조회수가 높은 영상은 모두 분석 대상에 넣어" — 상위 10%·따로 묶음으로 정함). 웹 화면 추천(web_ui v2.4)과 분석
+#          (success_analysis v1.5)이 같은 규칙을 쓰게 여기 하나만 둠. 다른 동작은 그대로
+# (v2.5.2 — 2026-10-19 — 분당 검색 횟수 한도 429 ('Search Queries per minute') — 1분 창이 풀리도록 30초·65초 기다렸다가 다시 (예전엔 2·4초만
 #          쉬고 RuntimeError 로 탐색 전체가 멈춤 — 2026-10-19 클라우드 주식 1주 탐색: 검색 85번을 56초에 하고 86번째에서 멈춰 탐색 목록이 저장되지
 #          않았음. 사용자 지시 "최근 영상도 분석했어? 오늘 1주일 전까지만 분석 결과 알려줘봐"). 다른 429·하루 한도 처리는 그대로
 # (v2.5.1 — 2026-10-15 — 자동완성 캐시를 바꿔 끼울 때 Windows 에서 잠깐 막히면 다시 (_replace_retry — 사용자 보고 2026-10-15: "PermissionError: [WinError 5] 액세스가 거부되었습니다 … 왜이래")
@@ -167,6 +170,7 @@ import collections
 import csv
 import hashlib
 import json
+import math
 import logging
 import os
 import re
@@ -186,7 +190,7 @@ except ModuleNotFoundError:             # Python 3.10 → tomli (분석기가 �
     import tomli as tomllib
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v2.5.2"
+VERSION = "v2.6"
 LOG = logging.getLogger("outlier")
 HANGUL = re.compile(r"[가-힣]")
 SEARCH_TTL_HOURS = 168
@@ -540,6 +544,16 @@ def _transcript_fetch(vid, any_lang=False):
         elif not is_network_failure(st):
             note_caption_result(False)          # 자막 꺼짐·없음 등 = 서버는 답함
         return [], "-", st
+
+
+def top_pct_threshold(values, pct):
+    """v2.6: 상위 pct% 의 경계값 — 큰 순으로 늘어놓아 ceil(개수 × pct/100) 번째 값 (그 값 이상 = 상위 pct%, 같은 값은 함께 듦).
+    값이 없거나 pct 가 0 이하면 None (= 끔). 하루 조회수 상위 묶음(웹 화면 추천·성공 사례 분석)이 같은 규칙을 씀."""
+    vals = sorted((float(v) for v in values if v is not None), reverse=True)
+    if not vals or not pct or pct <= 0:
+        return None
+    k = max(1, math.ceil(len(vals) * min(float(pct), 100.0) / 100.0))
+    return vals[k - 1]
 
 
 def is_network_failure(status):

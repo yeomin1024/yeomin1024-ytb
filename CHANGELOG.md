@@ -1,5 +1,29 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-21 (주식 이야기형) — 지난 4편 제작물 지움 · 이야기형 대본 지시사항 · 개미 주인공 설정 · 주인공 고정 그림 ChatGPT 파일
+
+### 왜 (사용자 지시)
+- "stock 주제 분석 결과만 남기고 나머지는 다 삭제하자" (범위 답: stock 제작물만) · "분석에 관련된건 지우지 말아야 해"
+- "아래 이야기에 맞는 개미 투자자들의 평균을 조사해서 … 이름(이야기에 맞고 특색있게), 나이, 가족, 직장, 투자자금, 주식 시작한지 몇년? 등"
+- "주인공 이미지도 고정으로 설정해야 하니까 chatgpt가 주인공 이미지 생성해서 저장소 경로에 올릴 수 있도록 말할 것도 알려줘"
+- "아래 내용을 지키도록 대본 내용을 만드는 지시사항 파일을 만들어 …" · "한국 시청자 기준이긴 한데 전 세계로 했을 때 큰 문제 없이 넘어갈 수 있도록 해"
+
+### 바꾼 것
+| 파일 (버전) | 내용 |
+|---|---|
+| `stock/source/<4편>/`·`upload-test-2026-10-16/`·`_old/` · `video/episodes/<4편>(-shorts)/`·`_old/` · `stock/thumbnails_chatgpt.md` · `stock/script_review_chatgpt.md` | 지움 (363개, 약 101MB — 커밋 `9f829bc4`, 되살리기 `git checkout f5d2669f -- …`). 분석 결과·설정·캐시·guides·data·topic_candidates·used_content 는 남김 |
+| `stock/uploaded_videos.md` (v1.0) | 채널에 이미 올린 9개 영상 ID·예약 시각 (유튜브 영상은 건드리지 않음) |
+| `stock/guides/story_script.md` (v1.0) | 이야기형 대본 규칙 — 도입 35초 혼잣말 4박자 · '첫 번째는 ~요' · '정리해볼게요' + 말 없는 `[장면] 정리` 카드 → `-마무리` · 해요체 · 개미 낱말 · 근거 · 전 세계로 넓히기 |
+| `tools/story_check.py` (v1.0) · `tools/tests/test_story_check.py` (v1.0) | 위 규칙 점검 — 문제·경고·확인. 카드 문구가 다음 라벨까지 이어지는 것(srt_tool) 때문에 `-마무리` 필수 |
+| `stock/story/protagonist.md` (v1.0) | 주인공 구본석 설정 — 평균 통계(예탁원·NH·자본시장연구원·가계금융복지조사·국세청·국가데이터처·신한) 근거 표 · 돈 · 연표(2026년 7월 폭락·반대매매) · 파이어 · 그림 고정 설명 |
+| `stock/story/protagonist_chatgpt.md` (v1.0) · `stock/story/images/README.md` | ChatGPT 가 그릴 고정 그림 3장(설정표·표정 6개·기준 얼굴) → `stock/story/images/*.jpg` (JPEG 700KB 이하) |
+| `CLAUDE.md` · `stock/guides/README.md` · `guides/status.md` (v2.26) | 이야기형 한 줄 · 파일 표 · 주식 줄 |
+
+### 확인
+- `story_check.py` 시험 12개 OK · 예시 대본 도입 6문장 101음절 추정 18.3초 · 문제 0.
+- 설정 숫자 코드로 확인: 원금 2억 4,000만 → 순 7,000만(−70.8%) · 전재산 3억 2,000만 → 1억 5,000만(53.1% 잃음) · 원금 회복 3.43배 · 투자 78개월.
+- 지우기 전후 전체 시험: 실패 6개는 지우기 전과 같음 (matplotlib·글꼴 없음 · 예전에 지운 `bittu-2026-10`).
+
 ## 2026-10-21 (쇼츠 끝 화면 2) — 안내 글을 '아래 관련 동영상에서 확인할 수 있습니다'로, 버튼 모양 뺌 · 일본 축제 쇼츠 다시 올림
 
 ### 왜 (사용자 지시)

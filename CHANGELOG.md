@@ -1,5 +1,13 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-21 (재테크 국민연금) — H04 완성본 그대로 쓰기 (H17 로 다시 만들지 않음)
+
+- 사용자 지시: "야 그냥 완성본 사용하는걸로 해 이제 더 필요한 거 없지?"
+- `economic/source/gungmin-sigi-2026-10/NO_TTS.md` · `shorts/NO_TTS.md` (까닭 = H04 완성본 사용) → `tts_narration.py all --dry-run`: 두 편 `skip status=no_tts`, 다음 Kaggle 실행이 만드는 것 = 구찌 시험 롱폼·쇼츠 2개(H17)뿐
+- 먼저 해 본 것: `pick H04 --only-for …`(영상 전용 H04) — 기준 소리는 같지만(sha1 e36c19a2) 샘플 H04 설정이 예전 공통 H04 설정(시드·쉼 등)과 달라 '다시 만듦'으로 잡혀 되돌림
+- 확인: 그 사이 Kaggle 실행(04:33~05:35)은 시험 영상 8개만 H17 로 만들었고 국민연금 `narration.mp3` 는 그대로(10-19·10-20 커밋) · 완성본 두 개 컨테이너에 있음 · 업로드 dry-run 두 편 문제 없음
+- 문서: `guides/tts_guide.md` 4-0 고른 결과 · `guides/status.md` 0-21
+
 ## 2026-10-21 (내레이션) — 진행자 목소리 H04 → H17 (앞으로 만드는 오디오 전부)
 
 - 사용자 지시: "H17로 정해서 그걸로 오디오 생성하도록 수정해" · "코드 실행하면 앞으로 만드는 오디오는 전부 H17로 해"

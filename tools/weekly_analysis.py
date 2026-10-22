@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.3 — 2026-10-14 — 끝날 때 성공 사례 분석(tools/success_analysis.py → analysis.md — AI 가 지시사항을 만들 재료)도 다시 만듦
+# VERSION: v1.3.1 — 2026-10-22 — 주마다 '댓글 N개 니즈' 줄에 '어느 갈래에도 안 듦 x%' (갈래 비율만 보이고 나머지 약 59% 가 안 보였음 — 사용자 지시 2026-10-21
+#          "… 모든 댓글 유형 나눠서 통계내서 분석하고 있는가 맞아? 일부분 밖에 없는거 같은데"). 모든 댓글 유형은 comment_types.md. 갈래 규칙은 그대로
+# (v1.3 — 2026-10-14 — 끝날 때 성공 사례 분석(tools/success_analysis.py → analysis.md — AI 가 지시사항을 만들 재료)도 다시 만듦
 #          (사용자 지시: "… 어떤 주제, 어떤 제목, 어떤 썸네일, 내용을 어떻게 구성해야하는지 … 올바른 분석 결과까지만 내도록 수정해").
-#          weekly.md 머리에 '이 표는 승인 영상 전부의 추세 — 성공 사례 분석은 analysis.md' 안내 (한 채널 쏠림 보정은 analysis.md 에만)
+#          weekly.md 머리에 '이 표는 승인 영상 전부의 추세 — 성공 사례 분석은 analysis.md' 안내 (한 채널 쏠림 보정은 analysis.md 에만))
 # (v1.2.1 — 2026-10-14 — 안내 글만: approved.md 의 '사례 폴더는 비공개일 때만' → 공개 저장소에도 올라감 (사용자 지시 "그냥 공개에서 다 올리도록 해"))
 # (v1.2 — 2026-10-14 — 자막을 못 받은 영상은 영상 설명으로 대신 분석 (사용자 지시: "음성인식이랑 별개로 분석결과 낼 수 있잖아
 #          자막도 다운 시도했는데 안되면 영상 설명으로 대체해서 그냥 분석결과랑 자료 다 올려 그 다음 음성인식하라고 수정해"):
@@ -47,7 +49,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from outlier_stats import COMMENT_CATS, TITLE_FEATURES       # noqa: E402  같은 규칙 (제목 특징·댓글 갈래)
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v1.3"
+VERSION = "v1.3.1"
 LOG = logging.getLogger("weekly")
 WEB_CASE_RX = re.compile(r"^W_([0-9A-Za-z_-]{11})$")
 MAX_SUBS, MIN_RATIO, MIN_VIEWS = 50000, 3.0, 10000
@@ -187,10 +189,14 @@ def window_metrics(cases, prev_ids, now):
         words.update(set(title_tokens(c.get("text") or "")))
     cms = [x for c in cases for x in c["comments"]]
     needs = Counter()
+    none = 0
     for x in cms:
+        hit = False
         for name, rx in COMMENT_CATS.items():
             if re.search(rx, x["text"]):
                 needs[name] += 1
+                hit = True
+        none += 0 if hit else 1                           # v1.3.1: 어느 갈래에도 안 듦
     top = sorted(cases, key=lambda c: -c["meta"]["_vpd"])
     return {
         "videos": n,
@@ -214,6 +220,7 @@ def window_metrics(cases, prev_ids, now):
                   for c in top for h in [case_hook(c)] if h[0]][:3],
         "comments": len(cms),
         "comment_needs": [{"name": k, "count": v, "share": round(v / len(cms), 3)} for k, v in needs.most_common(6)] if cms else [],
+        "comment_uncategorized": round(none / len(cms), 3) if cms else None,
         "top_comments": [{"text": x["text"][:120], "likes": x["likes"]} for x in sorted(cms, key=lambda x: -x["likes"]) if not x["is_reply"]][:3],
         "top_videos": [{"id": c["meta"]["id"], "title": c["meta"].get("title"), "channel": c["meta"].get("channel"),
                         "views": int(c["meta"].get("views") or 0), "views_per_day": c["meta"]["_vpd"],
@@ -373,7 +380,8 @@ def write_report(out_dir, rep, cases=None):
             where = f"첫 {HOOK_SEC}초({h['src']})" if h.get("src") in ("자막", "음성인식") else "설명 앞부분"
             L.append(f"  - {where} — {h['title'][:30]}: “{h['hook']}”")
         if x["comment_needs"]:
-            L.append(f"- 댓글 {x['comments']:,}개 니즈: " + " · ".join(f"{n['name']} {_pct(n['share'])}" for n in x["comment_needs"]))
+            L.append(f"- 댓글 {x['comments']:,}개 니즈: " + " · ".join(f"{n['name']} {_pct(n['share'])}" for n in x["comment_needs"])
+                     + (f" · **어느 갈래에도 안 듦 {_pct(x['comment_uncategorized'])}** (모든 댓글 유형은 `comment_types.md`)" if x.get("comment_uncategorized") is not None else ""))
         for c in x["top_comments"]:
             L.append(f"  - 👍{c['likes']:,} “{c['text']}”")
         L += ["", "| 상위 영상 (하루 조회수 순) | 채널 | 조회수 | 하루 조회수 | 업로드 |", "|---|---|---|---|---|"]

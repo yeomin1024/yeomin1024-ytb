@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.5 — 2026-10-21 — 하루 조회수 상위 묶음 (사용자 지시 2026-10-21 "주제 탐색 시 구독자, 날짜 상관 없이 업로드 기간 대비 조회수가 높은 영상은
+# VERSION: v1.5.1 — 2026-10-22 — 8번·1-3-2 니즈 표에 '어느 갈래에도 안 듦' 줄 (사용자 지시 2026-10-21 "너 분석 영상들의 모든 댓글 유형 나눠서 통계내서
+#          분석하고 있는가 맞아? 일부분 밖에 없는거 같은데" — 갈래 비율 합이 약 13% 뿐인데 나머지 87% 가 표에 안 보였음) + 모든 댓글에 유형 하나는
+#          comment_types.md (tools/comment_types.py) 라는 안내. 갈래 규칙·숫자는 그대로
+# (v1.5 — 2026-10-21 — 하루 조회수 상위 묶음 (사용자 지시 2026-10-21 "주제 탐색 시 구독자, 날짜 상관 없이 업로드 기간 대비 조회수가 높은 영상은
 #          모두 분석 대상에 넣어" — 상위 10%·성공 사례와 따로 묶음으로 정함): analysis.md 1-3번 = 검색에서 찾은 주제 관련 영상 안 하루 조회수 상위
 #          TOP_PCT%(analysis_rules.toml [vpd_top], 기본 10) 경계를 넘은 사례, 구독자·올린 날짜 상관없이, 채널당 2개 + 자료를 받지 않은 후보 +
-#          그 묶음의 시청자 니즈. 0번 표 한 줄·한계 한 줄. 니즈 계산은 comment_needs() 로 떼어 냄 (성공 사례 규칙·숫자는 그대로 — 고치기 전과 결과 같음 확인)
+#          그 묶음의 시청자 니즈. 0번 표 한 줄·한계 한 줄. 니즈 계산은 comment_needs() 로 떼어 냄 (성공 사례 규칙·숫자는 그대로 — 고치기 전과 결과 같음 확인))
 # (v1.4.1 — 2026-10-15 — 켠 주제는 '지금 검색어'에 영어 검색어(keywords_foreign.txt)도 (사용자 지시: "주식은 영어 주식 검색어도 추가해")
 # (v1.4 — 2026-10-15 — 외국 영상 켜고 끄기 (사용자 지시: "주식은 외국 영상도 다 분석할 건데 확인해봐 on/off 기능(default off) 있는지
 #          확인하고 없으면 추가해"): 주제 설정 INCLUDE_FOREIGN (outlier_research v2.4 include_foreign — 기본 꺼짐)을 읽어 켜면 외국 영상을
@@ -90,7 +93,7 @@ from outlier_stats import TITLE_FEATURES                          # noqa: E402  
 from weekly_analysis import _published, _write_atomic, clean_description   # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v1.5"
+VERSION = "v1.5.1"
 LOG = logging.getLogger("success")
 CASE_DIR_RX = re.compile(r"^(W_|P?\d\d_)")
 NON_VIDEO_CACHE = ("search_", "supply_", "uploads_", "channels.json", "autocomplete.json")   # 영상 정보가 아닌 캐시 파일
@@ -505,7 +508,7 @@ def comment_needs(cs, no_of, store=False):
                 seen[k].add(c["id"])
     spam_keys = {k for k, v in seen.items() if len(v) >= SPAM_MIN_VIDEOS}
     cat_count, cat_likes, quotes = Counter(), Counter(), defaultdict(list)
-    requests_q, n_viewer, n_spam = [], 0, 0
+    requests_q, n_viewer, n_spam, n_none, likes_none = [], 0, 0, 0, 0
     for c in cs:
         c_needs, c_quotes = Counter(), defaultdict(list)
         if store:
@@ -517,7 +520,11 @@ def comment_needs(cs, no_of, store=False):
                 n_spam += 1
                 continue
             n_viewer += 1
-            for cat in classify_comment(m["text"]):
+            cats = classify_comment(m["text"])
+            if not cats:                                     # v1.5.1: 어느 갈래에도 안 듦 — 표에 드러냄
+                n_none += 1
+                likes_none += m["likes"]
+            for cat in cats:
                 cat_count[cat] += 1
                 cat_likes[cat] += m["likes"]
                 c_needs[cat] += 1
@@ -528,6 +535,7 @@ def comment_needs(cs, no_of, store=False):
                     requests_q.append(q)
     req_ids = {id(q) for q in requests_q}
     needs = {"viewer_comments": n_viewer, "spam_excluded": n_spam, "requests_total": len(requests_q),
+             "uncategorized": {"count": n_none, "share": round(n_none / n_viewer, 3) if n_viewer else None, "likes": likes_none},
              "requests": top_quotes(requests_q, 40),
              "categories": [{"name": k, "count": cat_count[k], "share": round(cat_count[k] / n_viewer, 3) if n_viewer else None,
                              "likes": cat_likes[k]} for k in NEED_CATS],
@@ -1345,6 +1353,9 @@ def write_md(out, data, success):
             L += ["", f"### 1-3-2. 이 묶음의 시청자 니즈 (시청자 댓글 {vn['viewer_comments']:,}개 — 채널 주인 댓글·도배 {vn.get('spam_excluded', 0):,}개 뺌, 8번과 같은 규칙)", "",
                   "| 갈래 | 댓글 | 비율 | 좋아요 합 |", "|---|---|---|---|"]
             L += [f"| {r['name']} | {r['count']:,} | {_pct(r['share'])} | {r['likes']:,} |" for r in vn["categories"]]
+            if vn.get("uncategorized"):                       # v1.5.1
+                u = vn["uncategorized"]
+                L.append(f"| **어느 갈래에도 안 듦** | {u['count']:,} | {_pct(u['share'])} | {u['likes']:,} |")
             if vn.get("requests"):
                 L += ["", f"요청 — 다뤄 주세요·알려 주세요·궁금해요 ({vn.get('requests_total', 0):,}개 중 좋아요 순 15개, 영상마다 2개까지):", ""] + \
                      [f"- 👍{q['likes']:,} [{q['no']}] “{q['text']}”" for q in vn["requests"][:15]]
@@ -1473,9 +1484,13 @@ def write_md(out, data, success):
     nd = data["needs"]
     L += ["", f"## 8. 시청자 니즈 (성공 사례 {len(success)}개의 시청자 댓글 {nd['viewer_comments']:,}개 — 채널 주인 댓글·도배 댓글 {nd.get('spam_excluded', 0):,}개 뺌)", "",
           "갈래는 낱말 규칙 (한 댓글이 여러 갈래). '더 알고 싶은 것'은 ① **요청**(다뤄 주세요·알려 주세요·궁금해요 — 다음 영상 주제 후보, 아래 8-1) 과 "
-          "② 물음표 질문(반문이 섞임, 8-2) 으로 나눠 인용한다.", "",
+          "② 물음표 질문(반문이 섞임, 8-2) 으로 나눠 인용한다. " + "**어느 갈래에도 안 듦** 줄을 같이 볼 것 — 갈래 비율은 낱말 규칙에 걸린 몫이다. 모든 댓글(승인 영상 전부)에 유형 하나를 붙인 분포는 "
+          "`comment_types.md` (사람이 분류한 표본 1,100개 + 규칙 — 2번이 가장 믿을 숫자).", "",
           "| 갈래 | 댓글 | 비율 | 좋아요 합 |", "|---|---|---|---|"]
     L += [f"| {r['name']} | {r['count']:,} | {_pct(r['share'])} | {r['likes']:,} |" for r in nd["categories"]]
+    if nd.get("uncategorized"):                               # v1.5.1
+        u = nd["uncategorized"]
+        L.append(f"| **어느 갈래에도 안 듦** | {u['count']:,} | {_pct(u['share'])} | {u['likes']:,} |")
     for cat, qs in nd["top"].items():
         if qs:
             L += ["", f"### {cat} — 좋아요 많은 댓글", ""] + [f"- 👍{q['likes']:,} [#{q['no']}] “{q['text']}”" for q in qs]

@@ -1,6 +1,7 @@
 # PC에서 분석 돌리기 — 재테크(`economic`)·주식(`stock`) 폴더
 
-버전: v3.13 — 2026-10-21 — 제목·썸네일 문구 vs 관심 많은 댓글 (`title_comment_link.py` v1.0).
+버전: v3.14 — 2026-10-22 — 댓글 유형 — 모든 댓글에 유형 하나 (`comment_types.py` v1.0) · 니즈 표 '어느 갈래에도 안 듦' 줄.
+이전 v3.13 — 2026-10-21 — 제목·썸네일 문구 vs 관심 많은 댓글 (`title_comment_link.py` v1.0).
 이전 v3.12 — 2026-10-21 — '하루 조회수 상위' 추천 경계 = min(목록 경계, 지난 분석 경계) (웹 화면 v2.4.1) · `-` 로 시작하는 영상 ID (cloud_run v1.5.1) · 푼 추천 기억 (cloud_run v1.5).
 이전 v3.11 — 2026-10-21 — 사용자 지시 "주제 탐색 시 구독자, 날짜 상관 없이 업로드 기간 대비 조회수가 높은 영상은 모두 분석 대상에 넣어" (상위 10%·성공 사례와 따로 묶음으로 정함): **'하루 조회수 상위'** 추천·분석 (아래 '하루 조회수 상위' — web_ui v2.4·success_analysis v1.5·outlier_research v2.6)
 
@@ -215,6 +216,13 @@ bash run_analyzer.sh
 
 - `python3 tools/title_comment_link.py <주제> countries` (채널 나라 — 50곳 1단위) → `targets` (썸네일 문구가 없는 대상 + 9장 모음 그림 `.yt_work/thumb_sheets/`) → 그림을 보고 `<주제>/result/outliers/thumb_text.tsv` 에 옮겨 적음 → `report` → `title_comment.md`·`.json`.
 - 정의·한계는 결과 0번. 미국 사례 낱말 통계로 한국어 규칙을 만들지 않는다.
+
+### 댓글 유형 — 모든 댓글에 유형 하나 (`tools/comment_types.py` v1.0 — 2026-10-22)
+사용자 지시: "너 분석 영상들의 모든 댓글 유형 나눠서 통계내서 분석하고 있는가 맞아? 일부분 밖에 없는거 같은데" → "A+b로 해"
+
+- `sample`(씨앗 고정 표본) → 사람이 `comment_type_labels.tsv` 에 유형 → `evaluate` → `report` → `<주제>/result/outliers/comment_types.md`. 할당량 0.
+- **가장 믿을 숫자 = 2번(사람이 분류한 표본)**. 규칙은 처음 보는 댓글에 45% 정확도라 묶음·주별 표는 보정 어림값 — 보정·규칙 두 숫자가 같은 방향일 때만 차이로 본다.
+- `analysis.md` 8번·`weekly.md` 니즈의 낱말 갈래는 그대로 두고 '어느 갈래에도 안 듦' 줄을 같이 보인다 (성공 사례 82% · 1-3번 88% · 주별 약 60%).
 
 ### 할당량 아끼기 (검색어는 그대로 — outlier_research v2.2)
 | 무엇 | 예전 | 지금 | 효과 |

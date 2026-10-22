@@ -1,0 +1,84 @@
+{
+ "id": "qZ78-_PdbwQ",
+ "title": "𝐀𝐋𝐋 𝐓𝐑𝐄𝐍𝐃𝐈𝐍𝐆 𝐇𝐈𝐍𝐃𝐈 𝐒𝐎𝐍𝐆𝐒 𝟐𝟎𝟐𝟔 | 𝐏𝐋𝐀𝐘𝐋𝐈𝐒𝐓 🎀",
+ "channel": "Aesthetic boomer ",
+ "channel_id": "UCUak5BX-Hm3xOgRY-_NVMBQ",
+ "subs": 87100,
+ "views": 12167144,
+ "ratio": 139.69,
+ "age_days": 118,
+ "views_per_day": 103111.4,
+ "minutes": 11.9,
+ "likes": 110854,
+ "comments": 7607,
+ "published": "2026-06-25",
+ "queries": "검색:study music | 검색:playlist",
+ "url": "https://www.youtube.com/watch?v=qZ78-_PdbwQ",
+ "flag": "외국 영상",
+ "published_at": "2026-06-25T17:16:51Z",
+ "rank": "W4",
+ "set": "web",
+ "folder": "W_qZ78-_PdbwQ",
+ "sources": [
+  "검색:study music",
+  "검색:playlist"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Udi Udi"
+  },
+  {
+   "start": 76,
+   "title": "Maskara"
+  },
+  {
+   "start": 136,
+   "title": "Sheesha"
+  },
+  {
+   "start": 217,
+   "title": "Bairan"
+  },
+  {
+   "start": 293,
+   "title": "Kitaab"
+  },
+  {
+   "start": 336,
+   "title": "Udaariyaan"
+  },
+  {
+   "start": 412,
+   "title": "Majboor"
+  },
+  {
+   "start": 507,
+   "title": "Vachindama"
+  },
+  {
+   "start": 567,
+   "title": "Hawa Hawa"
+  },
+  {
+   "start": 627,
+   "title": "Jaiye Sajna"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 7609,
+ "comments_top_level": 3904,
+ "comments_replies": 3705,
+ "comments_by_creator": 1391,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 7607,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-22T07:31:58",
+ "approved": "2026-10-22T16:32+09:00"
+}

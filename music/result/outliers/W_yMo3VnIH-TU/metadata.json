@@ -1,0 +1,92 @@
+{
+ "id": "yMo3VnIH-TU",
+ "title": "YARA YARA YA PHONK [All Versions] || {NORMAL, SLOWED, SUPER SLOWED, ULTRA SLOWED, EXTREMELY SLOWED} ",
+ "channel": "Funk7Xqueen",
+ "channel_id": "UCyOkt25mx0v7u23WTD--8Sw",
+ "subs": 64600,
+ "views": 5502526,
+ "ratio": 85.18,
+ "age_days": 132,
+ "views_per_day": 41685.8,
+ "minutes": 8.3,
+ "likes": 31996,
+ "comments": 2234,
+ "published": "2026-06-11",
+ "queries": "검색:playlist",
+ "url": "https://www.youtube.com/watch?v=yMo3VnIH-TU",
+ "flag": "외국 영상",
+ "published_at": "2026-06-11T14:31:15Z",
+ "rank": "W14",
+ "set": "web",
+ "folder": "W_yMo3VnIH-TU",
+ "sources": [
+  "검색:playlist"
+ ],
+ "source": "web",
+ "tags": [
+  "YARA YARA YA PHONK [All Versions]",
+  "YARA YARA YA PHONK",
+  "YARA YARA YA FUNK",
+  "YARA YARA PHONK",
+  "YARA YARA FUNK",
+  "YARA YARA YA PHONK (SLOWED)",
+  "YARA YARA YA PHONK (SUPER SLOWED)",
+  "YARA YARA YA PHONK (ULTRA SLOWED)",
+  "YARA YARA YA PHONK (EXTREMELY SLOWED)",
+  "YARA YARA YA PHONK (SPED UP)",
+  "YARA YARA YA PHONK 1 hour",
+  "MC WM",
+  "MC LAN",
+  "phonk",
+  "funk",
+  "phonk music",
+  "funk music",
+  "new Phonk music",
+  "new funk music",
+  "Brazilian phonk",
+  "Brazilian Funk",
+  "new Brazilian phonk",
+  "new Brazilian Funk",
+  "funk7xqueen"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "YARA YARA YA PHONK (NORMAL)"
+  },
+  {
+   "start": 68,
+   "title": "YARA YARA YA PHONK (SLOWED)"
+  },
+  {
+   "start": 143,
+   "title": "YARA YARA YA PHONK (SUPER SLOWED)"
+  },
+  {
+   "start": 230,
+   "title": "YARA YARA YA PHONK (ULTRA SLOWED)"
+  },
+  {
+   "start": 326,
+   "title": "YARA YARA YA PHONK (EXTREMELY SLOWED)"
+  },
+  {
+   "start": 433,
+   "title": "YARA YARA YA PHONK (SPED UP)"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 2234,
+ "comments_top_level": 1849,
+ "comments_replies": 385,
+ "comments_by_creator": 14,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 2234,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-22T07:35:09",
+ "approved": "2026-10-22T16:35+09:00"
+}

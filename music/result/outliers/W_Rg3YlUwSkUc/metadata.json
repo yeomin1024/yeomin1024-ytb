@@ -1,0 +1,130 @@
+{
+ "id": "Rg3YlUwSkUc",
+ "title": "Mood Lifter Playlist (Visualizer) | Feel Good Songs | Nature's Therapy | Happy Bollywood Hits",
+ "channel": "Sony Music India",
+ "channel_id": "UC56gTxNs4f9xZ7Pa2i5xNzg",
+ "subs": 73300000,
+ "views": 3252225,
+ "ratio": 0.04,
+ "age_days": 84,
+ "views_per_day": 38717.0,
+ "minutes": 65.6,
+ "likes": 14858,
+ "comments": 157,
+ "published": "2026-07-29",
+ "queries": "검색:music | 검색:chill music | 검색:soothing music",
+ "url": "https://www.youtube.com/watch?v=Rg3YlUwSkUc",
+ "flag": "외국 영상",
+ "published_at": "2026-07-29T11:30:34Z",
+ "rank": "W69",
+ "set": "web",
+ "folder": "W_Rg3YlUwSkUc",
+ "sources": [
+  "검색:music",
+  "검색:chill music",
+  "검색:soothing music"
+ ],
+ "source": "web",
+ "tags": [
+  "bollywood feel good songs",
+  "hindi feel good songs",
+  "hindi happy songs",
+  "positive vibes song",
+  "happy bollywood songs",
+  "morning bollywood playlist",
+  "energetic hindi songs",
+  "bollywood travel songs",
+  "upbeat bollywood songs",
+  "morning songs",
+  "morning playlist",
+  "morning playlist hindi",
+  "feel good visualizer",
+  "hawayein",
+  "kesariya",
+  "kesariya tera ishq hai piya",
+  "raanjhanaa song",
+  "raatan lambiyan",
+  "love you zindagi song",
+  "pani da rang",
+  "gerua song",
+  "the humma song",
+  "barso re megha megha",
+  "enna sona"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Hawayein"
+  },
+  {
+   "start": 285,
+   "title": "Kesariya"
+  },
+  {
+   "start": 551,
+   "title": "Raanjhanaa"
+  },
+  {
+   "start": 801,
+   "title": "Tere Bina"
+  },
+  {
+   "start": 1103,
+   "title": "Raataan Lambiyan"
+  },
+  {
+   "start": 1332,
+   "title": "Dekhha Tenu"
+  },
+  {
+   "start": 1608,
+   "title": "Love You Zindagi"
+  },
+  {
+   "start": 1841,
+   "title": "Pani Da Rang"
+  },
+  {
+   "start": 2078,
+   "title": "Daryaa"
+  },
+  {
+   "start": 2339,
+   "title": "Dhokha Dhadi"
+  },
+  {
+   "start": 2587,
+   "title": "Aashiq Tera"
+  },
+  {
+   "start": 2880,
+   "title": "Gerua"
+  },
+  {
+   "start": 3222,
+   "title": "Enna Sona"
+  },
+  {
+   "start": 3434,
+   "title": "The Humma Song"
+  },
+  {
+   "start": 3612,
+   "title": "Barso Re"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-22 13:37까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 159,
+ "comments_top_level": 116,
+ "comments_replies": 43,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 157,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-22T07:51:21",
+ "approved": "2026-10-22T16:51+09:00"
+}

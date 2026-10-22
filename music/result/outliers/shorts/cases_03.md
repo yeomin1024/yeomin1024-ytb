@@ -2,41 +2,41 @@
 
 숫자·원문만 (해석 없음). ※ 연구·교육용.
 
-## #31. Nonstop Pinoy Reggae 2026 ∣ Bagong Umaga ☀️ Relaxing Island Vibes ∣ Morning Chill Playlis…
+## #31. 432Hz - Deep Sleep Healing ∣ Alpha Waves for Complete Body and Spirit Healing, Eliminate …
 
-- https://www.youtube.com/shorts/065qRsHIZBw · SoundTrip · 구독자 7,250 · 조회수 1,246,909 (×171.99 · 채널 평소 쇼츠 대비 ×637.8) · 하루 16,799.1회 · 170초 · 올린 때 2026-08-07 11:37 (금) · 좋아요/1천 3.93 · 댓글/1천 0.026
+- https://www.youtube.com/shorts/TIiqFNACNJI · Spiritual Healing Energy · 구독자 3,650 · 조회수 652,958 (×178.89 · 채널 평소 쇼츠 대비 ×311.5) · 하루 27,589.1회 · 165초 · 올린 때 2026-09-29 01:00 (화) · 좋아요/1천 6.31 · 댓글/1천 0.034
+- 주제 1. 수면·명상·힐링 · 형식 그 밖 · 글 출처 설명 · 쇼츠 판별 채널 쇼츠 목록 · 해시태그 #432hz #alphawaves #deepsleep #healingsleep #sleepmusic #relaxingmusic #calmmind #stopoverthinking #stressrelief #meditationmusic
+- 설명: 432Hz - Deep Sleep Healing ∣ Alpha Waves for Complete Body and Spirit Healing, Eliminate Stress Immerse yourself in the soothing combination of 432Hz and Alpha Waves, creating a peaceful atmosphere for deep sleep, relaxation, meditation, and stress relief. Let the gentle soundscape help quiet racing
+
+같은 채널 평소 쇼츠: 528Hz + 432Hz • Fall into Deep Sleep for Healing … (2,096회); 432Hz + 528Hz - Fall Into Deep Healing Sleep - He… (2,300회)
+
+## #32. Nonstop Pinoy Reggae 2026 ∣ Bagong Umaga ☀️ Relaxing Island Vibes ∣ Morning Chill Playlis…
+
+- https://www.youtube.com/shorts/065qRsHIZBw · SoundTrip · 구독자 7,250 · 조회수 1,246,909 (×171.99 · 채널 평소 쇼츠 대비 ×637.8) · 하루 16,358.4회 · 170초 · 올린 때 2026-08-07 11:37 (금) · 좋아요/1천 3.93 · 댓글/1천 0.026
 - 주제 8. 로파이·시티팝·칠 · 형식 추천·모음 (N곡·순위·플리) · 글 출처 설명 · 쇼츠 판별 채널 쇼츠 목록 · 해시태그 #pinoyreggae #bagongumaga #nonstopreggae #reggaemix #morningvibes #islandvibes #opmreggae #chillmusic #relaxingmusic #goodmorning #coffeemusic #roadtripmusic #beachvibes #positivevibes #feelgoodmusic #philippines #reggaeplaylist #morningplaylist #opm #musicmix #rainsounds #rainsoundforsleeping
 - 설명: Welcome to Bagong Umaga, a nonstop Pinoy reggae mix created to brighten your day with positive energy, relaxing island vibes, and feel-good music. Whether you're enjoying your morning coffee, driving to work, studying, working, or simply unwinding, this playlist delivers smooth reggae rhythms that h
 
 같은 채널 평소 쇼츠: Kape At Kapayapaan ∣ Pinoy Relaxing Music #pinoym… (2,141회); Maayong Buntag 🌴🎶∣ Bisaya Chill Reggae #pinoymusi… (1,769회)
 
-## #32. Ibiza Summer Mix 2026 🍓 Best Tropical Deep House & Beach Vibes #tropicalchill #music #dee…
-
-- https://www.youtube.com/shorts/EfQeZ53iXSk · Sea Breeze Music · 구독자 3,840 · 조회수 644,264 (×167.78 · 채널 평소 쇼츠 대비 ×86.5) · 하루 5,420.1회 · 32초 · 올린 때 2026-06-23 20:15 (화) · 좋아요/1천 3.43 · 댓글/1천 0.012
-- 주제 8. 로파이·시티팝·칠 · 형식 추천·모음 (N곡·순위·플리) · 글 출처 없음 · 쇼츠 판별 채널 쇼츠 목록 · 해시태그 #tropicalchill #music #deephouse
-- 설명: (없음)
-
-같은 채널 평소 쇼츠: Ibiza Summer Mix 2026 🌴 Tropical Deep House Mix f… (7,445회); Morning Relaxing Music - Happy and Positive Energ… (8,011회)
-
 ## #33. Rihanna - Work ft. Drake ∣ Lyrics ∣ Edit ∣ Aesthetic ∣#Rihanna #Work #Drake #Lyrics #cat …
 
-- https://www.youtube.com/shorts/Hs3VpEMI-ks · SUKUNA X lyrics · 구독자 5,060 · 조회수 844,511 (×166.9 · 채널 평소 쇼츠 대비 ×167.2) · 하루 35,567.3회 · 12초 · 올린 때 2026-09-26 23:09 (토) · 좋아요/1천 19.31 · 댓글/1천 0.606
+- https://www.youtube.com/shorts/Hs3VpEMI-ks · SUKUNA X lyrics · 구독자 5,060 · 조회수 853,159 (×168.61 · 채널 평소 쇼츠 대비 ×168.9) · 하루 33,140.3회 · 12초 · 올린 때 2026-09-26 23:09 (토) · 좋아요/1천 19.12 · 댓글/1천 0.604
 - 주제 기타 · 형식 한 곡 일부 (음원·뮤비·가사·티저) · 글 출처 설명 · 쇼츠 판별 채널 쇼츠 목록 · 해시태그 #rihanna #work #drake #lyrics #cat #sorts #ytshorts #trending #shorts #darkvibes #songlyrics #darkvibesforever #music #aesthetic #darkovibes #song #whatsappstatus #explore #edit #reels #tiktok #youtubeshorts #youtube #shortvideo #dark #foryou #fyp #vibes #viralvideo #video #viralshorts #ncs #musicproduction
 - 설명: Rihanna - Work ft. Drake Rihanna - Work ft. Drake shorts Rihanna - Work ft. Drake edit Rihanna - Work ft. Drake lyrics Rihanna - Work ft. Drake slowed Rihanna - Work ft. Drake sped up Rihanna - Work ft. Drake nightcore Rihanna - Work ft. Drake WhatsApp Status Rihanna - Work ft. Drake Aesthetic
 
 같은 채널 평소 쇼츠: Rihanna - Work ft. Drake ∣ Lyrics ∣ Edit ∣ WhatsA… (5,051회); Die with a smile - Bruno Mars / Lady Gaga #music … (4,467회)
 
-## #34. 432Hz - Deep Sleep Healing ∣ Alpha Waves for Complete Body and Spirit Healing, Eliminate …
+## #34. Ibiza Summer Mix 2026 🍓 Best Tropical Deep House & Beach Vibes #tropicalchill #music #dee…
 
-- https://www.youtube.com/shorts/TIiqFNACNJI · Spiritual Healing Energy · 구독자 3,650 · 조회수 592,767 (×162.4 · 채널 평소 쇼츠 대비 ×321.6) · 하루 27,357.6회 · 165초 · 올린 때 2026-09-29 01:00 (화) · 좋아요/1천 6.36 · 댓글/1천 0.035
-- 주제 1. 수면·명상·힐링 · 형식 그 밖 · 글 출처 설명 · 쇼츠 판별 채널 쇼츠 목록 · 해시태그 #432hz #alphawaves #deepsleep #healingsleep #sleepmusic #relaxingmusic #calmmind #stopoverthinking #stressrelief #meditationmusic
-- 설명: 432Hz - Deep Sleep Healing ∣ Alpha Waves for Complete Body and Spirit Healing, Eliminate Stress Immerse yourself in the soothing combination of 432Hz and Alpha Waves, creating a peaceful atmosphere for deep sleep, relaxation, meditation, and stress relief. Let the gentle soundscape help quiet racing
+- https://www.youtube.com/shorts/EfQeZ53iXSk · Sea Breeze Music · 구독자 3,840 · 조회수 644,264 (×167.78 · 채널 평소 쇼츠 대비 ×86.5) · 하루 5,330.5회 · 32초 · 올린 때 2026-06-23 20:15 (화) · 좋아요/1천 3.43 · 댓글/1천 0.012
+- 주제 8. 로파이·시티팝·칠 · 형식 추천·모음 (N곡·순위·플리) · 글 출처 없음 · 쇼츠 판별 채널 쇼츠 목록 · 해시태그 #tropicalchill #music #deephouse
+- 설명: (없음)
 
-같은 채널 평소 쇼츠: 432Hz + 528Hz + 741Hz ∣ The DEEPEST healing sleep… (1,843회); 432Hz - Immerse yourself in deep sleep, release m… (1,839회)
+같은 채널 평소 쇼츠: Ibiza Summer Mix 2026 🌴 Tropical Deep House Mix f… (7,445회); Morning Relaxing Music - Happy and Positive Energ… (8,011회)
 
 ## #35. Beautiful Relaxing Piano Music & Water Sounds 💦 Calm Mind, Stress Relief, Deep Sleep & Me…
 
-- https://www.youtube.com/shorts/GMrFw9KD5pA · Soul Soothing Harmony · 구독자 2,120 · 조회수 330,595 (×155.94 · 채널 평소 쇼츠 대비 ×86.4) · 하루 8,421.4회 · 60초 · 올린 때 2026-09-11 10:51 (금) · 좋아요/1천 4.66 · 댓글/1천 0.057
+- https://www.youtube.com/shorts/GMrFw9KD5pA · Soul Soothing Harmony · 구독자 2,120 · 조회수 330,595 (×155.94 · 채널 평소 쇼츠 대비 ×86.4) · 하루 8,013.2회 · 60초 · 올린 때 2026-09-11 10:51 (금) · 좋아요/1천 4.66 · 댓글/1천 0.057
 - 주제 1. 수면·명상·힐링 · 형식 연주 (직접 연주) · 글 출처 설명 · 쇼츠 판별 채널 쇼츠 목록 · 해시태그 #relaxingpianomusic #relaxingmusic #watersounds #naturesounds #stressrelief #deepsleep #meditation #sleepmusic #calmmind
 - 설명: Beautiful Relaxing Piano Music & Water Sounds 💦Calm Mind, Stress Relief, Deep Sleep & Meditation Relax your mind and let go of everyday stress with beautiful relaxing piano music and soothing water sounds. This peaceful combination of gentle piano melodies and calming nature sounds is perfect for st
 
@@ -44,7 +44,7 @@
 
 ## #36. 🎧 KUNG STRESS KA, PAKINGGAN MO ’TO! TANGGAL PAGOD MO DITO. 🎶
 
-- https://www.youtube.com/shorts/9mQXTN8O_yE · ISLANG REGGAE PH  · 구독자 5,980 · 조회수 903,282 (×151.05 · 채널 평소 쇼츠 대비 ×103.9) · 하루 23,908.6회 · 169초 · 올린 때 2026-09-12 22:16 (토) · 좋아요/1천 4.83 · 댓글/1천 0.096
+- https://www.youtube.com/shorts/9mQXTN8O_yE · ISLANG REGGAE PH  · 구독자 5,980 · 조회수 903,282 (×151.05 · 채널 평소 쇼츠 대비 ×103.9) · 하루 22,706.7회 · 169초 · 올린 때 2026-09-12 22:16 (토) · 좋아요/1천 4.83 · 댓글/1천 0.096
 - 주제 기타 · 형식 그 밖 · 글 출처 설명 · 쇼츠 판별 채널 쇼츠 목록 · 해시태그 #islangreggaeph #rapreggaevibes #relaxingmusic #tanggalpagod #pamparelax #goodvibes #pinoyreggae #stressrelief #nonstopreggae
 - 설명: 🎧 KUNG STRESS KA, PAKINGGAN MO ’TO! TANGGAL PAGOD MO DITO. 🎶 Pagod sa trabaho? Stress sa buhay? Maraming iniisip? Huminga ka muna at makinig. ❤ Mga kantang may relaxing na tunog, good vibes at mga linyang puwedeng makatulong para kahit sandali, gumaan ang pakiramdam mo. Perfect pakinggan habang nagp
 
@@ -52,7 +52,7 @@
 
 ## #37. RELAXING MUSIC - STRESS RELIEF🌿Soothing Piano & Water Sounds💧Sleep Music, Calming Music
 
-- https://www.youtube.com/shorts/4qEZq-8ZIfc · Soul Soothing Harmony · 구독자 2,120 · 조회수 318,996 (×150.47 · 채널 평소 쇼츠 대비 ×83.4) · 하루 7,455.9회 · 60초 · 올린 때 2026-09-07 22:11 (월) · 좋아요/1천 5.24 · 댓글/1천 0.103
+- https://www.youtube.com/shorts/4qEZq-8ZIfc · Soul Soothing Harmony · 구독자 2,120 · 조회수 318,996 (×150.47 · 채널 평소 쇼츠 대비 ×83.4) · 하루 7,122.9회 · 60초 · 올린 때 2026-09-07 22:11 (월) · 좋아요/1천 5.24 · 댓글/1천 0.103
 - 주제 1. 수면·명상·힐링 · 형식 연주 (직접 연주) · 글 출처 설명 · 쇼츠 판별 채널 쇼츠 목록 · 해시태그 #relaxingmusic #stressrelief #soothingpiano #watersounds #sleepmusic #calmingmusic #deepsleep #relaxation #meditationmusic #innerpeace
 - 설명: RELAXING MUSIC - STRESS RELIEF🌿Soothing Piano & Water Sounds💧Sleep Music, Calming Music Relax your mind and let go of stress with soothing piano music and gentle water sounds. 🌿💧 This calming music is perfect for stress relief, deep sleep, meditation, relaxation, studying, and creating a peaceful at
 
@@ -60,13 +60,13 @@
 
 ## #38. "Deewana Deewana" song multi singer version ✨🗿∣∣ IndiEcho ∣∣
 
-- https://www.youtube.com/shorts/vqa0ki41KHM · Indi Echo 🌿 · 구독자 3,880 · 조회수 583,655 (×150.43) · 하루 7,099.6회 · 34초 · 올린 때 2026-07-30 11:58 (목) · 좋아요/1천 12.96 · 댓글/1천 0.146
+- https://www.youtube.com/shorts/vqa0ki41KHM · Indi Echo 🌿 · 구독자 3,880 · 조회수 583,655 (×150.43) · 하루 6,931.0회 · 34초 · 올린 때 2026-07-30 11:58 (목) · 좋아요/1천 12.96 · 댓글/1천 0.146
 - 주제 기타 · 형식 그 밖 · 글 출처 설명 · 쇼츠 판별 채널 쇼츠 목록 · 해시태그 #nature #naturelovers #naturebeauty #travel #mountains #waterfall #lake #sunset #music #singing #songcover #coversong #musiclover #beautifulvoice #shorts #ytshorts #viralshorts #trending #explore #relaxingmusic
 - 설명: nature shorts beautiful nature nature video nature lover nature beauty nature status nature views mountains waterfall lake view forest vibes travel shorts india nature beautiful places nature photography nature reels peaceful nature relaxing nature earth beauty sunset view sunrise view rainy weather
 
 ## #39. Ajeeb Dastan Hai Yeh #multiplayer #music #retro #instrumental
 
-- https://www.youtube.com/shorts/dbtBr8IQpt4 · Ashish Mithari · 구독자 37,300 · 조회수 5,273,081 (×141.37 · 채널 평소 쇼츠 대비 ×853.7) · 하루 53,393.0회 · 40초 · 올린 때 2026-07-13 22:47 (월) · 좋아요/1천 21.85 · 댓글/1천 0.558
+- https://www.youtube.com/shorts/dbtBr8IQpt4 · Ashish Mithari · 구독자 37,300 · 조회수 5,273,081 (×141.37 · 채널 평소 쇼츠 대비 ×857.8) · 하루 52,333.3회 · 40초 · 올린 때 2026-07-13 22:47 (월) · 좋아요/1천 21.85 · 댓글/1천 0.558
 - 주제 6. 피아노·클래식·연주곡 · 형식 그 밖 · 글 출처 없음 · 쇼츠 판별 세로·정사각 · 해시태그 #multiplayer #music #retro #instrumental
 - 설명: (없음)
 
@@ -74,7 +74,7 @@
 
 ## #40. 90s Best Romantic Saxophone of All Time 🎷 Soulful Smooth Jazz Love Songs
 
-- https://www.youtube.com/shorts/GFRyA57h8O8 · FREEDOM MUSIC LAB · 구독자 7,080 · 조회수 853,553 (×120.56 · 채널 평소 쇼츠 대비 ×594.8) · 하루 6,527.1회 · 179초 · 올린 때 2026-06-11 22:30 (목) · 좋아요/1천 6.98 · 댓글/1천 0.161
+- https://www.youtube.com/shorts/GFRyA57h8O8 · FREEDOM MUSIC LAB · 구독자 7,080 · 조회수 853,553 (×120.56 · 채널 평소 쇼츠 대비 ×567.5) · 하루 6,428.8회 · 179초 · 올린 때 2026-06-11 22:30 (목) · 좋아요/1천 6.98 · 댓글/1천 0.161
 - 주제 7. 재즈·보사노바 · 형식 그 밖 · 글 출처 설명 · 쇼츠 판별 채널 쇼츠 목록 · 해시태그 #90sbestromanticsaxophone #romanticsax #smoothjazz #soulfulsax #lovesongs #saxophonemusic #romanticjazz #instrumentalmusic #eveningvibes #freedommusiclab
 - 설명: 90s Experience the Best Romantic Saxophone of All Time — a timeless collection of soulful saxophone melodies, elegant jazz harmonies, and unforgettable romantic moods. From candlelit evenings to quiet reflections, this musical journey blends expressive saxophone, warm piano accompaniment, and sophis
 
@@ -82,7 +82,7 @@
 
 ## #41. Top 10 Best Mass BGM Of South Movies 2026. #massbgm #thalapathy #yash #2026movies #dcbgm …
 
-- https://www.youtube.com/shorts/iTelMvTQHFY · Aura Cinefy · 구독자 6,090 · 조회수 706,606 (×116.03 · 채널 평소 쇼츠 대비 ×43.3) · 하루 9,719.4회 · 44초 · 올린 때 2026-08-09 00:11 (일) · 좋아요/1천 28.19 · 댓글/1천 0.26
+- https://www.youtube.com/shorts/iTelMvTQHFY · Aura Cinefy · 구독자 6,090 · 조회수 706,606 (×116.03 · 채널 평소 쇼츠 대비 ×43.3) · 하루 9,459.2회 · 44초 · 올린 때 2026-08-09 00:11 (일) · 좋아요/1천 28.19 · 댓글/1천 0.26
 - 주제 기타 · 형식 추천·모음 (N곡·순위·플리) · 글 출처 없음 · 쇼츠 판별 채널 쇼츠 목록 · 해시태그 #massbgm #thalapathy #yash #2026movies #dcbgm #shorts #bgm #top10massbgm #2026moviesbgm #ragaofrevenge #dc #jananayagan #dcmoviesong #thalapathyvijay #bestbgm #movies2026 #movies2026bgm #massbgms #movie #auracinefy
 - 설명: (없음)
 
@@ -90,7 +90,7 @@
 
 ## #42. 🍁 가을팝송 너무 좋다 ∣ 첫 곡부터 편안한 70&80 올드팝 🎶 #oldpop #올드팝 #song
 
-- https://www.youtube.com/shorts/V1fX11NiQJ0 · ouroldpop · 구독자 1,160 · 조회수 122,014 (×105.18 · 채널 평소 쇼츠 대비 ×153.3) · 하루 2,752.6회 · 57초 · 올린 때 2026-09-06 09:11 (일) · 좋아요/1천 3.12 · 댓글/1천 0.016
+- https://www.youtube.com/shorts/V1fX11NiQJ0 · ouroldpop · 구독자 1,160 · 조회수 122,014 (×105.18 · 채널 평소 쇼츠 대비 ×153.3) · 하루 2,633.8회 · 57초 · 올린 때 2026-09-06 09:11 (일) · 좋아요/1천 3.12 · 댓글/1천 0.016
 - 주제 10. 팝송·K팝·J팝 · 형식 커버·직접 부른 노래 · 글 출처 설명 · 쇼츠 판별 채널 쇼츠 목록 · 해시태그 #oldpop #올드팝 #song #가을팝송 #7080올드팝 #추억의팝송 #감성팝송 #편안한음악 #힐링음악 #가을음악 #vintagepop #autumnmusic #relaxingmusic #ouroldpop
 - 설명: 🍁 가을 풍경과 함께 듣는 편안한 70&80 올드팝 🎶 첫 곡부터 마음이 편안해지는 따뜻하고 감성적인 음악을 담았습니다. 커피 한 잔과 함께 잠시 쉬어가며, 그 시절의 추억과 낭만을 느껴보세요. ☕🍂 오늘도 음악과 함께 편안한 하루 보내세요.
 
@@ -98,7 +98,7 @@
 
 ## #43. 아무도 생각 못한 소리로 서부의 아이콘이 된 음악 #석양의무법자
 
-- https://www.youtube.com/shorts/2ZKxQjF1V0I · 클래식한소절 · 구독자 45,800 · 조회수 4,708,612 (×102.81 · 채널 평소 쇼츠 대비 ×28.4) · 하루 121,087.9회 · 52초 · 올린 때 2026-09-11 19:45 (금) · 좋아요/1천 11.83 · 댓글/1천 0.191
+- https://www.youtube.com/shorts/2ZKxQjF1V0I · 클래식한소절 · 구독자 45,800 · 조회수 4,708,612 (×102.81 · 채널 평소 쇼츠 대비 ×28.4) · 하루 115,165.2회 · 52초 · 올린 때 2026-09-11 19:45 (금) · 좋아요/1천 11.83 · 댓글/1천 0.191
 - 주제 6. 피아노·클래식·연주곡 · 형식 그 밖 · 글 출처 설명 · 쇼츠 판별 채널 쇼츠 목록 · 해시태그 #석양의무법자 #고전영화 #영화ost #엔니오코리코네 #음악추천
 - 설명: 듣는 순간 사막과 황야, 고독한 총잡이가 떠오르는 음악 휘파람, 코요테 울음소리, 오카리나, 시계태엽, 총소리, 채찍 소리까지 기존 서부극 음악에 쓰이지 않던 비전통적 소리들을 섞어 완전히 새로운 ‘미국 서부의 소리’를 창조한 음악 감독 엔니오 모리코네. 그가 개척한 독창적인 소리들은 오늘날까지도 미국 서부 영화의 영원한 상징으로 남아있습니다. 곡명 : Ennio Morricone - The Good, the Bad and the Ugly 연주 : The Danish National Symphony Orchestra 클래식 작품에
 
@@ -117,11 +117,11 @@
 
 ## #44. 힐링
 
-- https://www.youtube.com/shorts/MBibKwN7oLA · +82정 · 구독자 12,300 · 조회수 1,216,562 (×98.91 · 채널 평소 쇼츠 대비 ×24.0) · 하루 9,132.4회 · 60초 · 올린 때 2026-06-09 11:54 (화) · 좋아요/1천 8.38 · 댓글/1천 0.319
+- https://www.youtube.com/shorts/MBibKwN7oLA · +82정 · 구독자 12,300 · 조회수 1,216,562 (×98.91 · 채널 평소 쇼츠 대비 ×26.8) · 하루 8,997.4회 · 60초 · 올린 때 2026-06-09 11:54 (화) · 좋아요/1천 8.38 · 댓글/1천 0.319
 - 주제 1. 수면·명상·힐링 · 형식 연주 (직접 연주) · 글 출처 설명 · 쇼츠 판별 세로·정사각 · 해시태그 #레오로하스 #엘콘도르파사 #leorojas #elcondorpasa #힐링영상 #귀호강 #대자연 #마음정화 #안구정화 #인생온도 #shorts #고막치유
 - 설명: 머리가 복잡하고 지칠 때, 딱 3분만 가만히 들어보세요. 🌿 전 세계 4억 명이 찾아와 위로를 얻은 대자연의 완벽한 힐링 선율. 도시의 소음에서 벗어나 안데스 산맥의 광활한 자연 속으로 빨려 들어가는 듯한 기분... 레오 로하스(Leo Rojas)가 연주하는 전설의 명곡 엘 콘도르 파사(El Condor Pasa)입니다. 어떠한 작본도, 인위적인 연출도 없이 오직 바람의 소리와 악기 하나로 전 세계인의 마음을 치유한 리얼 감동의 순간. 자유롭게 하늘을 가르는 독수리의 날갯짓을 보며 귀호강, 눈정화 제대로 하고 가세요. 😊 이 마법
 
-같은 채널 평소 쇼츠: 노래는 잘했는데 키 작다고 종 침ㅋㅋ (56,097회); 영구 옆에 맹구라니 이 투샷은 귀하다ㅋㅋ (57,605회)
+같은 채널 평소 쇼츠: 입술 얘기 꺼냈다가 누나 표정 굳음ㅋㅋ (44,119회); 심형래·이상해의 능청스러운 고전 개그, (44,046회)
 
 댓글 (받은 388 / 달린 388):
 - 감사·응원: 👍34 “감사드립니다 아름다운 삶의 소리를 듣게해주셨네요” / 👍6 “넘 좋아요 응원합니다”
@@ -135,7 +135,7 @@
 
 ## #45. 한때 라디오만 켜면 흘러나오던 전설의 ‘외로운 양치기’ #팬플루트
 
-- https://www.youtube.com/shorts/QG2blK1FVyg · 클래식한소절 · 구독자 45,800 · 조회수 4,446,688 (×97.09 · 채널 평소 쇼츠 대비 ×26.8) · 하루 57,084.6회 · 38초 · 올린 때 2026-08-03 19:30 (월) · 좋아요/1천 13.65 · 댓글/1천 0.242
+- https://www.youtube.com/shorts/QG2blK1FVyg · 클래식한소절 · 구독자 45,800 · 조회수 4,446,688 (×97.09 · 채널 평소 쇼츠 대비 ×26.8) · 하루 55,655.8회 · 38초 · 올린 때 2026-08-03 19:30 (월) · 좋아요/1천 13.65 · 댓글/1천 0.242
 - 주제 9. 가요·발라드·트로트 · 형식 연주 (직접 연주) · 글 출처 설명 · 쇼츠 판별 채널 쇼츠 목록 · 해시태그 #팬플루트 #외로운양치기 #게오르게잠피르 #8090음악 #추억의음악 #노스텔지어 #힐링음악
 - 설명: 한때 라디오와 심야 방송에서 자주 흘러나오던 전설의 명곡 '외로운 양치기' 넓고 아득한 목장이나 거대한 대자연속에 홀로 서 있는 양치기의 외로움과 고독을 음악으로 완벽하게 표현해 낸 명곡입니다. 🎵 곡명 : 제임스 라스트(James Last) - 외로운 양치기(The Lonely Shepherd) 🎷 연주자 : 게오르그 잠피르 (Gheorghe Zamfir) 클래식 작품에 담긴 이야기와 감상 포인트를 전하기 위해 직접 대본을 작성하고, 해설 자막과 편집 효과를 더해 제작했습니다. CC: English subtitles availab
 

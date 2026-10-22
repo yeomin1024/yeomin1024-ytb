@@ -1,0 +1,84 @@
+{
+ "id": "wNnngvJeuio",
+ "title": "A Chatpati Playlist Only For Chatpata People 😋✨ | Ultimate Vibe Songs Playlist 🎧💖",
+ "channel": "Clumsyy Cizzy",
+ "channel_id": "UCOrmm6-BQ2FhPYS7uXpvVXg",
+ "subs": 54200,
+ "views": 2137853,
+ "ratio": 39.44,
+ "age_days": 35,
+ "views_per_day": 61081.5,
+ "minutes": 7.5,
+ "likes": 13212,
+ "comments": 198,
+ "published": "2026-09-16",
+ "queries": "검색:study music | 검색:playlist",
+ "url": "https://www.youtube.com/watch?v=wNnngvJeuio",
+ "flag": "외국 영상",
+ "published_at": "2026-09-16T12:45:36Z",
+ "rank": "W26",
+ "set": "web",
+ "folder": "W_wNnngvJeuio",
+ "sources": [
+  "검색:study music",
+  "검색:playlist"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Caller Tune"
+  },
+  {
+   "start": 54,
+   "title": "Chittiyan calliyan"
+  },
+  {
+   "start": 89,
+   "title": "Ooh La La"
+  },
+  {
+   "start": 133,
+   "title": "Genda Phool"
+  },
+  {
+   "start": 170,
+   "title": "Afghan Jalebi"
+  },
+  {
+   "start": 218,
+   "title": "Jhalla Wllah"
+  },
+  {
+   "start": 244,
+   "title": "Udi Udi"
+  },
+  {
+   "start": 289,
+   "title": "Pinky"
+  },
+  {
+   "start": 335,
+   "title": "Pink Lips"
+  },
+  {
+   "start": 402,
+   "title": "Love Letter"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 206,
+ "comments_top_level": 103,
+ "comments_replies": 103,
+ "comments_by_creator": 55,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 198,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-22T07:36:18",
+ "approved": "2026-10-22T16:36+09:00"
+}

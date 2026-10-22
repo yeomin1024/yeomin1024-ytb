@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-10-21 — 새로: 개미 재기 일지 제작안(.txt) → 장면 시각 추정·오디오용 대본 뽑기·story_check 검사.
+# VERSION: v1.1 — 2026-10-22 — '대본만' 꼴도 읽음: 장면 머리([A-01 | …])·(화면) 없이 파트 머리 아래 문장만 (사용자 지시 2026-10-22 "화면 내용은 좀 빼고
+#          눈에 잘 안들어와") · '■ 대본' 으로 시작하는 절 · --write 가 '- 길이:' 줄과 도입 끝 시각도 고침.
+# (v1.0) — 2026-10-21 — 새로: 개미 재기 일지 제작안(.txt) → 장면 시각 추정·오디오용 대본 뽑기·story_check 검사.
 #          사용자 지시 2026-10-21 "아래 주제들로 일본 축제 영상 대본 내용 만들 때 처럼 한 파일에 대본 내용, 제목 등 종합해서 넣어 …
 #          그리고 시리즈물이라는 것도 고려해". 제작안이 원본이다 — 사람이 고치면 이 도구를 다시 돌려 시각·검사를 맞춘다.
 #          추정 = 읽는 음절 ÷ 6.3(H17 샘플) + 문장 사이 0.45초 · 파트가 바뀌면 1.0초 · 정리 카드 = srt_tool.parse_cards 와 같은 길이.
@@ -23,7 +25,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 import srt_tool  # noqa: E402
 import story_check  # noqa: E402
 
-VERSION = "v1.0"
+VERSION = "v1.1"
 SYL, GAP, PART_GAP = story_check.HOST_SYL_PER_SEC, story_check.SENT_GAP, 1.0
 PART_RE = re.compile(r"^=+ (\S+)(?: · .*)? =+$")
 SCENE_RE = re.compile(r"^\[([A-Z]-\d+[a-z]?) \| ([^|]*) \| (.*)\]$")
@@ -41,7 +43,7 @@ def parse(lines):
         s = line.strip()
         if title is None and re.match(r"^R1\. ", s):
             title = s[4:].split("  (")[0].strip()
-        if s.startswith("■ 대본 + 화면 구성"):
+        if s.startswith("■ 대본"):
             in_body = True
             continue
         if in_body and (s.startswith("■ ") or s.startswith("####")):
@@ -50,10 +52,15 @@ def parse(lines):
             continue
         m = PART_RE.match(s)
         if m:
-            part, cur, mode = m.group(1), None, None
+            part = m.group(1)
+            cur = dict(i=None, id=part, part=part, sentences=[], card=[])   # v1.1 장면 머리가 없으면 파트 하나 = 장면 하나
+            scenes.append(cur)
+            mode = "auto"
             continue
         m = SCENE_RE.match(s)
         if m:
+            if cur is not None and cur["i"] is None and not cur["sentences"] and not cur["card"]:
+                scenes.remove(cur)                                            # 장면 머리가 있으면 빈 파트 장면은 버림
             cur = dict(i=i, id=m.group(1), part=part, sentences=[], card=[])
             scenes.append(cur)
             mode = None
@@ -70,11 +77,10 @@ def parse(lines):
             mode = None
             continue
         if not s:
-            mode = None if mode == "card" else mode
-            if mode == "nar":
+            if mode in ("nar", "card"):
                 mode = None
             continue
-        if mode == "nar":
+        if mode in ("nar", "auto"):
             cur["sentences"].append(s)
         elif mode == "card":
             cur["card"].append(s)
@@ -135,9 +141,14 @@ def main(argv=None):
         print(f"[PART] {k}: sentences={v['n']} syllables={v['syl']} {mmss(v['t0'])}~{mmss(v['t1'])}")
     if a.write:
         for sc in scenes:
+            if sc["i"] is None:
+                continue
             m = SCENE_RE.match(lines[sc["i"]].strip())
             lines[sc["i"]] = f"[{sc['id']} | {mmss(sc['t0'])}~{mmss(sc['t1'])} | {m.group(3)}]"
-        lines = [re.sub(r"^\[1\] 롱폼 \(.*\)$", f"[1] 롱폼 (추정 {mmss(total)} — 문장 {len(sents)}개 · 읽는 음절 {syl} · plan_tool {VERSION})", l) for l in lines]
+        intro_end = mmss(by_part["도입"]["t1"]) if "도입" in by_part else "-"
+        summary = f"추정 {mmss(total)} — 문장 {len(sents)}개 · 읽는 음절 {syl} · 도입 0:00~{intro_end} · plan_tool {VERSION}"
+        lines = [re.sub(r"^\[1\] 롱폼 \(.*\)$", f"[1] 롱폼 ({summary})", l) for l in lines]
+        lines = [re.sub(r"^- 길이: .*$", f"- 길이: {summary}", l) for l in lines]
         path.write_text("\n".join(lines), "utf-8")
         print(f"[WRITE] {path}")
     text = script_text(scenes)

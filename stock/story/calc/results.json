@@ -1,6 +1,6 @@
 {
- "version": "v1.3",
- "made": "2026-10-22T05:47:43Z",
+ "version": "v1.4",
+ "made": "2026-10-22T07:01:54Z",
  "dataset_commit": "07b81e6af68239acd65b901a11844d6d95db6ead",
  "assumptions": "S&P 500 가격만(배당 빼고) · 환율·세금·수수료·현금 이자 없음 · 3배는 일별 맞추기·비용 없음 · 월평균 가격",
  "persona": {
@@ -262,5 +262,11 @@
    "fastest_years": 14.6,
    "slowest_years": 18.8
   }
+ },
+ "boxpi_sp": {
+  "start": "2010-12",
+  "sp_2010_12": 1241.5,
+  "to_2016-12_pct": 81.0,
+  "to_2017-12_pct": 114.6
  }
 }

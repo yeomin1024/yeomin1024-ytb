@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.3 — 2026-10-22 — 요약본 B(사용자 지시 "올해 반도체 주식 종목에 투자했다가 전재산의 -70%인 2억 5천을 손해봤어요"):
+# VERSION: v1.4 — 2026-10-22 — 테스트 대본 ①(국장 대신 미장): 코스피 '박스피'(2010-12 ~ 2017 무렵 1,900~2,000대) 기간의 S&P 500 가격 변화.
+# (v1.3) — 2026-10-22 — 요약본 B(사용자 지시 "올해 반도체 주식 종목에 투자했다가 전재산의 -70%인 2억 5천을 손해봤어요"):
 #          전재산·남은 돈·되찾을 배수 · 잃은 2억 5천을 '천천히' 되찾는 데 걸린 기간(남은 돈 + 매달 적립 / 매달 적립만, 20년 창).
 # (v1.2) — 2026-10-21 — 3화 원금 회복한 날 절반 매도(설정 숫자) · 4화 매달 같은 금액 10년(여러 시작 달).
 # (v1.1) — 2026-10-21 — 주인공 숫자(리딩방 비용·매매 횟수·수수료와 세금 — 가정 적음)·손실 수학 정확한 값·또 잃으면·하루 하락 비율.
@@ -24,7 +25,7 @@ ROOT = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(ROOT / "tools"))
 from backtest import data  # noqa: E402
 
-VERSION = "v1.3"
+VERSION = "v1.4"
 OUT = Path(__file__).resolve().parent / "results.json"
 LOG = logging.getLogger("series_calc")
 START = "2000-01-01"          # 2000년 이후 (사례는 최근 먼저 — CLAUDE.md)
@@ -256,6 +257,17 @@ def recover_b(price: pd.Series):
     return out
 
 
+def boxpi_sp(price: pd.Series):
+    """코스피가 2,000을 되찾은 2010-12(2010-12-14)부터 '7년여' 박스권(뉴시스 2021-01-07) 동안 S&P 500 월평균 가격 변화 — 2010-12 → 2016-12 · 2017-12."""
+    a = float(price.loc["2010-12-01"])
+    out = dict(start="2010-12", sp_2010_12=round(a, 1))
+    for end in ("2016-12-01", "2017-12-01"):
+        b = float(price.loc[end])
+        out[f"to_{end[:7]}_pct"] = round(100 * (b / a - 1), 1)
+    log("BOXPI_SP", **out)
+    return out
+
+
 def fomo(price: pd.Series, rally=0.15, look=6, hold=24, k=12):
     """급등 판정: 지난 look 개월 가격이 rally 이상 오른 달(그 달까지 가격만). 그 달에 1억 원을 한 번에 vs k 개월 나눠 (기다리는 돈 이자 0),
     hold 개월 뒤 값. 비교로 모든 달도 같은 계산."""
@@ -293,7 +305,7 @@ def main():
                assumptions="S&P 500 가격만(배당 빼고) · 환율·세금·수수료·현금 이자 없음 · 3배는 일별 맞추기·비용 없음 · 월평균 가격",
                persona=P, persona_costs=persona_costs(), recovery_math=recovery_math(), months_to_recover=months_to_recover(price), drawdowns=drawdowns(price),
                holding_loss=holding_loss(price), lev3=lev3(daily), margin_call=margin_call(), missing_best_days=missing_best_days(daily),
-               fomo=fomo(price), persona_april=persona_april(), dca_10y=dca_10y(price), persona_b=persona_b(), recover_b=recover_b(price))
+               fomo=fomo(price), persona_april=persona_april(), dca_10y=dca_10y(price), persona_b=persona_b(), recover_b=recover_b(price), boxpi_sp=boxpi_sp(price))
     OUT.write_text(json.dumps(res, ensure_ascii=False, indent=1), "utf-8")
     log("DONE", out=str(OUT.relative_to(ROOT)), sec=round(time.time() - t0, 1))
 

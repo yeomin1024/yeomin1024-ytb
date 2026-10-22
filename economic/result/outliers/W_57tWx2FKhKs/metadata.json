@@ -1,0 +1,92 @@
+{
+ "id": "57tWx2FKhKs",
+ "title": "대한민국에서 부자가 되는 제일 현실적인 방법(몰아보기)",
+ "channel": "장사건물주 강호동",
+ "channel_id": "UCYigs8o_hgHJtfE0KnqVLeA",
+ "subs": 520000,
+ "views": 617185,
+ "ratio": 1.19,
+ "age_days": 40,
+ "views_per_day": 15429.6,
+ "minutes": 24.6,
+ "likes": 5788,
+ "comments": 216,
+ "published": "2026-09-11",
+ "queries": "검색:부자되는법",
+ "url": "https://www.youtube.com/watch?v=57tWx2FKhKs",
+ "flag": "",
+ "published_at": "2026-09-11T11:00:08Z",
+ "rank": "W40",
+ "set": "web",
+ "folder": "W_57tWx2FKhKs",
+ "sources": [
+  "검색:부자되는법"
+ ],
+ "source": "web",
+ "tags": [
+  "창업오빠",
+  "강호동",
+  "창업",
+  "자영업",
+  "장사의신",
+  "서민갑부",
+  "건물주",
+  "꼬마빌딩",
+  "재테크",
+  "제테크",
+  "장사",
+  "라라브레드",
+  "디저트",
+  "카페",
+  "디저트카페",
+  "브이로그",
+  "대표",
+  "예능",
+  "부동산",
+  "레버리지"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트"
+  },
+  {
+   "start": 25,
+   "title": "대한민국에서 부자되는 방법"
+  },
+  {
+   "start": 104,
+   "title": "부동산"
+  },
+  {
+   "start": 315,
+   "title": "주식"
+  },
+  {
+   "start": 708,
+   "title": "코인"
+  },
+  {
+   "start": 1016,
+   "title": "아는 동생에게 손절당한 강대표"
+  },
+  {
+   "start": 1085,
+   "title": "부자들이 현금거지인 이유"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-22 13:26까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 216,
+ "comments_top_level": 169,
+ "comments_replies": 47,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 216,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-22T07:30:03",
+ "approved": "2026-10-22T16:30+09:00"
+}

@@ -1,0 +1,87 @@
+{
+ "id": "mCwA1tJSU6I",
+ "title": "늦게 받을수록 더 준다는데… 사람들이 손해 보고도 국민연금을 당겨 받는 이유 | 이영주 대표 [얘기좀합시다]",
+ "channel": "머니인더트랩",
+ "channel_id": "UCtjj8T7n2_jS92pfMeWdoWQ",
+ "subs": 110000,
+ "views": 437125,
+ "ratio": 3.97,
+ "age_days": 29,
+ "views_per_day": 15073.3,
+ "minutes": 33.8,
+ "likes": 2250,
+ "comments": 335,
+ "published": "2026-09-22",
+ "queries": "검색:은퇴준비",
+ "url": "https://www.youtube.com/watch?v=mCwA1tJSU6I",
+ "flag": "",
+ "published_at": "2026-09-22T07:50:15Z",
+ "rank": "W24",
+ "set": "web",
+ "folder": "W_mCwA1tJSU6I",
+ "sources": [
+  "검색:은퇴준비"
+ ],
+ "source": "web",
+ "tags": [
+  "머니인더트랩",
+  "머인트",
+  "moneyinthetrap",
+  "MIT",
+  "얘기좀합시다",
+  "쫑알쫑알",
+  "방과후경제"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "나는 노후에 가난하지 않을 거라는 착각"
+  },
+  {
+   "start": 103,
+   "title": "노후 준비, ‘얼마 모을까’부터 잘못됐다?"
+  },
+  {
+   "start": 712,
+   "title": "은퇴 후 가장 위험한 ‘연금 크레바스’"
+  },
+  {
+   "start": 1428,
+   "title": "국민연금, 늦게 받을수록 정말 유리할까?"
+  },
+  {
+   "start": 1530,
+   "title": "손해인데도 국민연금을 미리 받는 이유"
+  },
+  {
+   "start": 1607,
+   "title": "부부라면 국민연금 받는 시기도 달라야 할까?"
+  },
+  {
+   "start": 1728,
+   "title": "50대라면 지금 당장 확인해야 할 것"
+  },
+  {
+   "start": 1902,
+   "title": "국민연금 2배 늘리는 3가지 방법"
+  },
+  {
+   "start": 2000,
+   "title": "국민연금 60만 원→120만 원 만든 실제 사례"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-22 13:26까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 335,
+ "comments_top_level": 248,
+ "comments_replies": 87,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 335,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-22T07:29:06",
+ "approved": "2026-10-22T16:29+09:00"
+}

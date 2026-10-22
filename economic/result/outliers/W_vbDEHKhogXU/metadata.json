@@ -1,0 +1,74 @@
+{
+ "id": "vbDEHKhogXU",
+ "title": "신종 투자리딩방 사기가 판을 치고 있습니다. 천하의 나쁜 놈들!",
+ "channel": "슈카월드",
+ "channel_id": "UCsJ6RuBiTVWRX156FVbeaGg",
+ "subs": 3730000,
+ "views": 1059534,
+ "ratio": 0.28,
+ "age_days": 20,
+ "views_per_day": 52976.7,
+ "minutes": 31.5,
+ "likes": 5121,
+ "comments": 548,
+ "published": "2026-10-01",
+ "queries": "검색:투자",
+ "url": "https://www.youtube.com/watch?v=vbDEHKhogXU",
+ "flag": "",
+ "published_at": "2026-10-01T09:44:51Z",
+ "rank": "W67",
+ "set": "web",
+ "folder": "W_vbDEHKhogXU",
+ "sources": [
+  "검색:투자"
+ ],
+ "source": "web",
+ "tags": [
+  "슈카",
+  "슈카월드",
+  "경제",
+  "시사",
+  "이슈",
+  "뉴스",
+  "상식",
+  "면접",
+  "논술",
+  "자소서",
+  "취업",
+  "주식",
+  "증시",
+  "주가",
+  "시장",
+  "자산",
+  "투자",
+  "금리"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "작년 보이스피싱 피해금액 1조원 돌파"
+  },
+  {
+   "start": 568,
+   "title": "우리나라만의 문제가 아니다. 갈수록 정교해지는 피싱 사기"
+  },
+  {
+   "start": 947,
+   "title": "전기통신금융사기 통합대응단 탐방"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-22 13:26까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 548,
+ "comments_top_level": 341,
+ "comments_replies": 207,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 548,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-22T07:31:24",
+ "approved": "2026-10-22T16:31+09:00"
+}

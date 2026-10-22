@@ -1,0 +1,82 @@
+{
+ "id": "ruJV5WoxV0o",
+ "title": "\"돈부터 모으세요\" 1억 모으고 나면 절대 가난해질 수 없는 이유 (박차장)",
+ "channel": "쩐문가",
+ "channel_id": "UCuE1ykAWttKJZIVS7nMzKvw",
+ "subs": 169000,
+ "views": 671260,
+ "ratio": 3.97,
+ "age_days": 43,
+ "views_per_day": 15610.7,
+ "minutes": 15.8,
+ "likes": 1818,
+ "comments": 423,
+ "published": "2026-09-08",
+ "queries": "검색:재테크 | 검색:돈모으기 | 검색:1억모으기",
+ "url": "https://www.youtube.com/watch?v=ruJV5WoxV0o",
+ "flag": "",
+ "published_at": "2026-09-08T08:30:36Z",
+ "rank": "W23",
+ "set": "web",
+ "folder": "W_ruJV5WoxV0o",
+ "sources": [
+  "검색:재테크",
+  "검색:돈모으기",
+  "검색:1억모으기"
+ ],
+ "source": "web",
+ "tags": [
+  "월급쟁이부자들",
+  "김작가TV",
+  "신사임당",
+  "머니인사이드",
+  "지식인사이드",
+  "표영호tv",
+  "떠먹여주는tv",
+  "경제 읽어주는 남자(김광석TV)",
+  "부읽남TV_내집마련부터건물주까지",
+  "E트렌드",
+  "815머니톡",
+  "웅달책방",
+  "ETF 아는 형",
+  "부티플 - 부의 배수를 높여라",
+  "달란트투자",
+  "교보문고 보라",
+  "머니판다 - 돈에 대한 모든 것을 판다",
+  "하와이대저택",
+  "싱글파이어",
+  "이효석 아카데미",
+  "경제 원탑",
+  "교양이를부탁해",
+  "박성태의 뉴스쇼",
+  "머니인더트랩 MIT"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "순자산 1억 넘어가면 절대 가난해질 수 없는 이유"
+  },
+  {
+   "start": 438,
+   "title": "월100만원으로 13억 만드는 유일한 방법"
+  },
+  {
+   "start": 601,
+   "title": "주식 아무리 싸게 사도 대부분 큰돈 못 버는 이유"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-22 13:26까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 423,
+ "comments_top_level": 218,
+ "comments_replies": 205,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 423,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-22T07:29:02",
+ "approved": "2026-10-22T16:29+09:00"
+}

@@ -1,0 +1,82 @@
+{
+ "id": "MK17G0EqoqQ",
+ "title": "\"나는 상위 몇 %일까?\" 상위 1% 은퇴자들의 월 소득 공개 (은퇴후 삶 몰아보기)",
+ "channel": "누룽지 - 정보를 구수하고 빠삭하게 알려드림",
+ "channel_id": "UCAGsOPVivN4YgJRf6Y89eOA",
+ "subs": 68200,
+ "views": 631001,
+ "ratio": 9.25,
+ "age_days": 46,
+ "views_per_day": 13717.4,
+ "minutes": 41.9,
+ "likes": 2772,
+ "comments": 271,
+ "published": "2026-09-05",
+ "queries": "검색:노후준비 | 검색:은퇴준비 | 검색:노후",
+ "url": "https://www.youtube.com/watch?v=MK17G0EqoqQ",
+ "flag": "",
+ "published_at": "2026-09-05T21:00:15Z",
+ "rank": "W8",
+ "set": "web",
+ "folder": "W_MK17G0EqoqQ",
+ "sources": [
+  "검색:노후준비",
+  "검색:은퇴준비",
+  "검색:노후"
+ ],
+ "source": "web",
+ "tags": [
+  "노후생활",
+  "국민연금",
+  "노후준비",
+  "은퇴생활",
+  "은퇴후 삶",
+  "은퇴 후 생활",
+  "은퇴인터뷰",
+  "은퇴준비",
+  "은퇴후삶",
+  "연금수령액",
+  "노후삶",
+  "노후",
+  "노후생활비",
+  "연금",
+  "노령연금",
+  "노후자금",
+  "상위1%",
+  "50대",
+  "60대",
+  "70대",
+  "은퇴후생활",
+  "노후생활자금",
+  "노후자금관리",
+  "자금관리"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "연금 수입으로 조기 은퇴한 은퇴자"
+  },
+  {
+   "start": 834,
+   "title": "저축만으로 월 1천만원 만든 은퇴자"
+  },
+  {
+   "start": 1609,
+   "title": "새로운 직업으로 제 2의 삶을 시작한 은퇴자"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-22 13:26까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 271,
+ "comments_top_level": 176,
+ "comments_replies": 95,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 271,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-22T07:27:27",
+ "approved": "2026-10-22T16:27+09:00"
+}

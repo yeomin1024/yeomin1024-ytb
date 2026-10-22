@@ -1,0 +1,77 @@
+{
+ "id": "kUhfmmGn3pU",
+ "title": "“개미의 90%는 결국 잃는다” 주식으로 돈 버는 10%의 투자법ㅣ돈크라테스 EP.31",
+ "channel": "지식한상 ",
+ "channel_id": "UCw8hsZYZcasyyLrfOFP8D-w",
+ "subs": 1460000,
+ "views": 818649,
+ "ratio": 0.56,
+ "age_days": 35,
+ "views_per_day": 23390.0,
+ "minutes": 31.5,
+ "likes": 3567,
+ "comments": 239,
+ "published": "2026-09-16",
+ "queries": "검색:돈공부 | 검색:주식초보 | 검색:주식공부",
+ "url": "https://www.youtube.com/watch?v=kUhfmmGn3pU",
+ "flag": "",
+ "published_at": "2026-09-16T10:00:21Z",
+ "rank": "W53",
+ "set": "web",
+ "folder": "W_kUhfmmGn3pU",
+ "sources": [
+  "검색:돈공부",
+  "검색:주식초보",
+  "검색:주식공부"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 27,
+   "title": "구독자 인사"
+  },
+  {
+   "start": 54,
+   "title": "90%의 개미들이 결국 돈을 잃는 이유"
+  },
+  {
+   "start": 488,
+   "title": "자주 투자할수록 돈 벌기 어려운 이유"
+  },
+  {
+   "start": 714,
+   "title": "주식 초보, 투자 공부는 ‘이렇게’ 시작하세요"
+  },
+  {
+   "start": 867,
+   "title": "나는 투자할 준비가 됐을까? 8가지 체크리스트"
+  },
+  {
+   "start": 1379,
+   "title": "1,000만 원 있다면 ‘이만큼’만 투자하세요"
+  },
+  {
+   "start": 1558,
+   "title": "지금 손실 중이라면 가장 먼저 ‘이것’부터 보세요"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-22 13:26까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 242,
+ "comments_top_level": 148,
+ "comments_replies": 94,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 239,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-22T07:30:49",
+ "approved": "2026-10-22T16:30+09:00"
+}

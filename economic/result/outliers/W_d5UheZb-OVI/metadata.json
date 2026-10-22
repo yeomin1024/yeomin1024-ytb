@@ -1,0 +1,83 @@
+{
+ "id": "d5UheZb-OVI",
+ "title": "주식이 오르나 내리나 '결국' 부자 되는 사람들의 유일한 법칙 ㅣ Ep. 책과사람 157 (한정수 대표 1부)",
+ "channel": "책과삶",
+ "channel_id": "UCgUaqrLRGLL-dHislR1e2TA",
+ "subs": 1260000,
+ "views": 612792,
+ "ratio": 0.49,
+ "age_days": 35,
+ "views_per_day": 17508.3,
+ "minutes": 27.6,
+ "likes": 3086,
+ "comments": 85,
+ "published": "2026-09-16",
+ "queries": "검색:부자되는법",
+ "url": "https://www.youtube.com/watch?v=d5UheZb-OVI",
+ "flag": "",
+ "published_at": "2026-09-16T09:00:33Z",
+ "rank": "W55",
+ "set": "web",
+ "folder": "W_d5UheZb-OVI",
+ "sources": [
+  "검색:부자되는법"
+ ],
+ "source": "web",
+ "tags": [
+  "한국",
+  "대한민국",
+  "책추천",
+  "독서법",
+  "자기계발",
+  "교양",
+  "지식"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝"
+  },
+  {
+   "start": 133,
+   "title": "입사 3년만에 35억 번 사람의 투자 비법"
+  },
+  {
+   "start": 328,
+   "title": "대부분이 주식으로 돈을 못 버는 진짜 이유"
+  },
+  {
+   "start": 505,
+   "title": "개미 99%가 결국 다 털릴 수밖에 없는 주식 시장의 구조?"
+  },
+  {
+   "start": 652,
+   "title": "삼전닉스 실적 좋은데도 시장에서 급락하는 진짜 이유"
+  },
+  {
+   "start": 906,
+   "title": "\"이런 주식 고르세요\" 수익률 극대화하는 최적의 투자 전략"
+  },
+  {
+   "start": 1184,
+   "title": "주식이 오르나 내리나 '결국' 부자 되는 사람들의 유일한 법칙"
+  },
+  {
+   "start": 1385,
+   "title": "현금은 수중에 딱 이만큼만 들고 있어야 합니다"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-22 13:26까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 85,
+ "comments_top_level": 46,
+ "comments_replies": 39,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 85,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-22T07:30:57",
+ "approved": "2026-10-22T16:30+09:00"
+}

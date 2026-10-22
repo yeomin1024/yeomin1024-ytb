@@ -1,0 +1,79 @@
+{
+ "id": "KSw7CuSoNy0",
+ "title": "무너진 일본 왕 무덤에서 쏟아진 충격적인 유물들..(출신이..우리쪽?)ㅣ역사를 보다 EP.140",
+ "channel": "보다 BODA",
+ "channel_id": "UCoCvTlU0KpNYwnMIgs7MPrA",
+ "subs": 3220000,
+ "views": 1367296,
+ "ratio": 0.42,
+ "age_days": 151,
+ "views_per_day": 9054.9,
+ "minutes": 43.6,
+ "likes": 15472,
+ "comments": 1737,
+ "published": "2026-05-24",
+ "queries": "검색:역사 | 검색:고대사",
+ "url": "https://www.youtube.com/watch?v=KSw7CuSoNy0",
+ "flag": "",
+ "published_at": "2026-05-24T02:00:31Z",
+ "rank": "W53",
+ "set": "web",
+ "folder": "W_KSw7CuSoNy0",
+ "sources": [
+  "검색:역사",
+  "검색:고대사"
+ ],
+ "source": "web",
+ "tags": [
+  "보다",
+  "boda",
+  "직업",
+  "인터뷰",
+  "전문가",
+  "레전드"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 49,
+   "title": "역사를보다 토크콘서트 일정 발표"
+  },
+  {
+   "start": 165,
+   "title": "일본인들은 정말 천황을 신이라고 생각할까?"
+  },
+  {
+   "start": 503,
+   "title": "일본 천황은 어쩌다 신이 되었을까?"
+  },
+  {
+   "start": 868,
+   "title": "일본이 천황 무덤 발굴을 절대 금지하는 이유"
+  },
+  {
+   "start": 1688,
+   "title": "제주도의 두 마을끼리 절대 결혼하지 않게 된 이유"
+  },
+  {
+   "start": 2300,
+   "title": "서로를 껴안은 연인 무덤의 충격적인 실체"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-22 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 1737,
+ "comments_top_level": 770,
+ "comments_replies": 967,
+ "comments_by_creator": 2,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 1737,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-22T07:28:32",
+ "approved": "2026-10-22T16:28+09:00"
+}

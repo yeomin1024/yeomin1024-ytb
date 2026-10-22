@@ -1,0 +1,98 @@
+{
+ "id": "qbc8clunueY",
+ "title": "🌙성우 이지선 낭독 | 드라마보다 더 재밌는 백제 700년 풀스토리 | 잘듣세",
+ "channel": "잘듣세 - 잘 때 듣는 세계사",
+ "channel_id": "UCgMppGtIOm5KrXqTHcWwjvA",
+ "subs": 168000,
+ "views": 938825,
+ "ratio": 5.59,
+ "age_days": 52,
+ "views_per_day": 18054.3,
+ "minutes": 68.8,
+ "likes": 2849,
+ "comments": 72,
+ "published": "2026-08-30",
+ "queries": "검색:세계사 | 검색:세계사 이야기",
+ "url": "https://www.youtube.com/watch?v=qbc8clunueY",
+ "flag": "",
+ "published_at": "2026-08-30T12:30:01Z",
+ "rank": "W4",
+ "set": "web",
+ "folder": "W_qbc8clunueY",
+ "sources": [
+  "검색:세계사",
+  "검색:세계사 이야기"
+ ],
+ "source": "web",
+ "tags": [
+  "잘듣세",
+  "잘듣게",
+  "잘듣개",
+  "잘듯세",
+  "잘듵세",
+  "잘때듣는세계사",
+  "잘듣고",
+  "이지선성우",
+  "수면다큐역사"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "프롤로그"
+  },
+  {
+   "start": 37,
+   "title": "1. 북방의 패권을 버리고 남쪽으로 향한 모자의 결단"
+  },
+  {
+   "start": 590,
+   "title": "2. 평양성 성벽 아래서 꺾인 북방의 맹주"
+  },
+  {
+   "start": 1075,
+   "title": "3. 도림의 바둑 첩보전과 475년 한성의 비극"
+  },
+  {
+   "start": 1573,
+   "title": "4. 벽돌무덤에 새겨진 부활의 서약과 무령왕의 결단"
+  },
+  {
+   "start": 1932,
+   "title": "5. 무령왕과 성왕의 중흥"
+  },
+  {
+   "start": 2230,
+   "title": "6. 서동의 야망과 익산에 세운 새로운 꿈"
+  },
+  {
+   "start": 2714,
+   "title": "7. 해동증자의 칼끝과 대야성의 비극"
+  },
+  {
+   "start": 3179,
+   "title": "8. 서해를 덮은 당나라 선단과 황산벌의 피어린 결사"
+  },
+  {
+   "start": 3669,
+   "title": "9. 백강구에 타오른 불길과 패국의 뒤안길"
+  },
+  {
+   "start": 3960,
+   "title": "에필로그"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-22 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 73,
+ "comments_top_level": 41,
+ "comments_replies": 32,
+ "comments_by_creator": 26,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 72,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-22T07:26:00",
+ "approved": "2026-10-22T16:26+09:00"
+}

@@ -1,0 +1,82 @@
+{
+ "id": "9uUwV6lLLNs",
+ "title": "같은 민족이지만 절대 붙어서는 안되는 두 나라(자라나는 콧수염..)ㅣ역사를 보다 EP.135",
+ "channel": "보다 BODA",
+ "channel_id": "UCoCvTlU0KpNYwnMIgs7MPrA",
+ "subs": 3220000,
+ "views": 1593209,
+ "ratio": 0.49,
+ "age_days": 179,
+ "views_per_day": 8900.6,
+ "minutes": 35.9,
+ "likes": 12918,
+ "comments": 515,
+ "published": "2026-04-26",
+ "queries": "검색:역사",
+ "url": "https://www.youtube.com/watch?v=9uUwV6lLLNs",
+ "flag": "",
+ "published_at": "2026-04-26T01:59:03Z",
+ "rank": "W43",
+ "set": "web",
+ "folder": "W_9uUwV6lLLNs",
+ "sources": [
+  "검색:역사"
+ ],
+ "source": "web",
+ "tags": [
+  "보다",
+  "boda",
+  "직업",
+  "인터뷰",
+  "전문가",
+  "레전드"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 118,
+   "title": "독일은 경제대국이 된 뒤에도 빚을 안 갚았을까?"
+  },
+  {
+   "start": 299,
+   "title": "한 나라였던 독일과 오스트리아가 두 나라가 된 이유"
+  },
+  {
+   "start": 623,
+   "title": "뿌리가 같지만 다른 나라가 된 국가들"
+  },
+  {
+   "start": 1047,
+   "title": "거대했던 독일과 오스트리아 영토가 작아진 이유"
+  },
+  {
+   "start": 1418,
+   "title": "말실수 때문에 통일되어버린 동독과 서독?"
+  },
+  {
+   "start": 1825,
+   "title": "독일처럼 극적인 통일을 겪은 나라가 또 있을까?"
+  },
+  {
+   "start": 1879,
+   "title": "통일 후 동서독 사람들은 서로 잘 지냈을까?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-22 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 516,
+ "comments_top_level": 334,
+ "comments_replies": 182,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 515,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-22T07:28:02",
+ "approved": "2026-10-22T16:28+09:00"
+}

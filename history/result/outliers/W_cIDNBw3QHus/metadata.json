@@ -1,0 +1,76 @@
+{
+ "id": "cIDNBw3QHus",
+ "title": "중국 역사에서 갑자기 증발해버린 고대 문명의 흔적(의도적으로..?)ㅣ역사를 보다 EP.141",
+ "channel": "보다 BODA",
+ "channel_id": "UCoCvTlU0KpNYwnMIgs7MPrA",
+ "subs": 3220000,
+ "views": 1237358,
+ "ratio": 0.38,
+ "age_days": 144,
+ "views_per_day": 8592.8,
+ "minutes": 41.4,
+ "likes": 10924,
+ "comments": 295,
+ "published": "2026-05-31",
+ "queries": "검색:역사 | 검색:고대사 | 검색:고대문명",
+ "url": "https://www.youtube.com/watch?v=cIDNBw3QHus",
+ "flag": "",
+ "published_at": "2026-05-31T02:01:16Z",
+ "rank": "W58",
+ "set": "web",
+ "folder": "W_cIDNBw3QHus",
+ "sources": [
+  "검색:역사",
+  "검색:고대사",
+  "검색:고대문명"
+ ],
+ "source": "web",
+ "tags": [
+  "보다",
+  "boda",
+  "직업",
+  "인터뷰",
+  "전문가",
+  "레전드"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 95,
+   "title": "만리장성에 들어간 충격적인 건축 재료"
+  },
+  {
+   "start": 639,
+   "title": "최근 피라미드에서 발견된 수상한 빈 공간"
+  },
+  {
+   "start": 915,
+   "title": "고고학자가 발견한 무덤 속 비밀 공간"
+  },
+  {
+   "start": 1151,
+   "title": "중국 역사학계를 뒤집은 기이한 고대 문명"
+  },
+  {
+   "start": 2035,
+   "title": "중국 최고의 대장장이 간장과 막야의 진실"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-22 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 295,
+ "comments_top_level": 213,
+ "comments_replies": 82,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 295,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-22T07:29:04",
+ "approved": "2026-10-22T16:29+09:00"
+}

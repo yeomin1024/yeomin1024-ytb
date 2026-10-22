@@ -1,0 +1,70 @@
+{
+ "id": "Fpgs4eDTKPo",
+ "title": "인류의 마지막 남은 비접촉 지역에 들어가면 벌어지는 일ㅣ역사를 보다 EP.147",
+ "channel": "보다 BODA",
+ "channel_id": "UCoCvTlU0KpNYwnMIgs7MPrA",
+ "subs": 3220000,
+ "views": 926004,
+ "ratio": 0.29,
+ "age_days": 109,
+ "views_per_day": 8495.4,
+ "minutes": 47.5,
+ "likes": 9000,
+ "comments": 241,
+ "published": "2026-07-05",
+ "queries": "검색:역사",
+ "url": "https://www.youtube.com/watch?v=Fpgs4eDTKPo",
+ "flag": "",
+ "published_at": "2026-07-05T02:11:48Z",
+ "rank": "W67",
+ "set": "web",
+ "folder": "W_Fpgs4eDTKPo",
+ "sources": [
+  "검색:역사"
+ ],
+ "source": "web",
+ "tags": [
+  "보다",
+  "boda",
+  "직업",
+  "인터뷰",
+  "전문가",
+  "레전드"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 79,
+   "title": "원시 부족들은 왜 특이한 장식을 하는 걸까?"
+  },
+  {
+   "start": 935,
+   "title": "외계인이 세운 고대 아프리카 부족의 미스터리"
+  },
+  {
+   "start": 1641,
+   "title": "인류와의 접촉이 완벽하게 차단된 원시 부족"
+  },
+  {
+   "start": 1987,
+   "title": "아프리카에 존재하는 흑인은 절대 살 수 없는 도시"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-22 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 240,
+ "comments_top_level": 176,
+ "comments_replies": 64,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 241,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-22T07:29:31",
+ "approved": "2026-10-22T16:29+09:00"
+}

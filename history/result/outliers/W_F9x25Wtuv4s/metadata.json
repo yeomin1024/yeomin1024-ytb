@@ -1,0 +1,69 @@
+{
+ "id": "F9x25Wtuv4s",
+ "title": "수천 년 넘게 풀리지 않고 있는 삼국시대의 기이한 미스터리 모음 [합본]",
+ "channel": "기묘한 밤",
+ "channel_id": "UC_SgaM1zbb1Mibnsp6J0fJA",
+ "subs": 1150000,
+ "views": 608049,
+ "ratio": 0.53,
+ "age_days": 13,
+ "views_per_day": 46773.0,
+ "minutes": 32.2,
+ "likes": 2807,
+ "comments": 279,
+ "published": "2026-10-09",
+ "queries": "검색:역사미스터리",
+ "url": "https://www.youtube.com/watch?v=F9x25Wtuv4s",
+ "flag": "",
+ "published_at": "2026-10-09T04:00:16Z",
+ "rank": "W40",
+ "set": "web",
+ "folder": "W_F9x25Wtuv4s",
+ "sources": [
+  "검색:역사미스터리"
+ ],
+ "source": "web",
+ "tags": [
+  "기묘한밤",
+  "미스테리",
+  "미스터리",
+  "공포",
+  "괴담",
+  "기묘한",
+  "불가사의",
+  "초고대문명",
+  "고대문명",
+  "역사미스터리",
+  "기밤",
+  "UFO",
+  "외계인"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "을지문덕"
+  },
+  {
+   "start": 410,
+   "title": "신라왕자 김태렴"
+  },
+  {
+   "start": 1130,
+   "title": "에밀레종"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-22 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 285,
+ "comments_top_level": 170,
+ "comments_replies": 115,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 279,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-22T07:27:54",
+ "approved": "2026-10-22T16:27+09:00"
+}

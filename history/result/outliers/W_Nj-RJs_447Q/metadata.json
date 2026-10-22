@@ -1,0 +1,68 @@
+{
+ "id": "Nj-RJs_447Q",
+ "title": "2000년 전 한중일 유물들이 쏟아져나오는 한반도 아틀란티스의 정체(동양의 보물섬 ㄷㄷ) ㅣ역사를 보다 EP.150",
+ "channel": "보다 BODA",
+ "channel_id": "UCoCvTlU0KpNYwnMIgs7MPrA",
+ "subs": 3220000,
+ "views": 826876,
+ "ratio": 0.26,
+ "age_days": 88,
+ "views_per_day": 9396.3,
+ "minutes": 40.6,
+ "likes": 8527,
+ "comments": 460,
+ "published": "2026-07-26",
+ "queries": "검색:역사 | 검색:한국역사 | 검색:고대사",
+ "url": "https://www.youtube.com/watch?v=Nj-RJs_447Q",
+ "flag": "",
+ "published_at": "2026-07-26T02:00:51Z",
+ "rank": "W69",
+ "set": "web",
+ "folder": "W_Nj-RJs_447Q",
+ "sources": [
+  "검색:역사",
+  "검색:한국역사",
+  "검색:고대사"
+ ],
+ "source": "web",
+ "tags": [
+  "보다",
+  "boda",
+  "직업",
+  "인터뷰",
+  "전문가",
+  "레전드"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 92,
+   "title": "2000년 전 비밀 속으로 사라진 한국의 아틀란티스"
+  },
+  {
+   "start": 1205,
+   "title": "중국 정사에 등장한 신라 동쪽 거인국의 비밀"
+  },
+  {
+   "start": 1868,
+   "title": "1300년 동안 억울하게 누명 쓴 의자왕의 진실"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-22 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 460,
+ "comments_top_level": 252,
+ "comments_replies": 208,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 460,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-22T07:29:36",
+ "approved": "2026-10-22T16:29+09:00"
+}

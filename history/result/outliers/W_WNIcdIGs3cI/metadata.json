@@ -1,0 +1,102 @@
+{
+ "id": "WNIcdIGs3cI",
+ "title": "🌙성우 이지선 낭독 | 듣다 보면 5분 만에 잠드는 동양 철학 1부 (공자·묵자·노자·장자·맹자) | 잘듣세",
+ "channel": "잘듣세 - 잘 때 듣는 세계사",
+ "channel_id": "UCgMppGtIOm5KrXqTHcWwjvA",
+ "subs": 168000,
+ "views": 955667,
+ "ratio": 5.69,
+ "age_days": 38,
+ "views_per_day": 25149.1,
+ "minutes": 56.8,
+ "likes": 3483,
+ "comments": 82,
+ "published": "2026-09-13",
+ "queries": "검색:세계사 | 검색:세계사 이야기",
+ "url": "https://www.youtube.com/watch?v=WNIcdIGs3cI",
+ "flag": "",
+ "published_at": "2026-09-13T12:30:24Z",
+ "rank": "W3",
+ "set": "web",
+ "folder": "W_WNIcdIGs3cI",
+ "sources": [
+  "검색:세계사",
+  "검색:세계사 이야기"
+ ],
+ "source": "web",
+ "tags": [
+  "잘듣세",
+  "잘듣게",
+  "잘듣개",
+  "잘듯세",
+  "잘듵세",
+  "잘때듣는세계사",
+  "잘듣고",
+  "이지선성우",
+  "수면다큐역사"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "프롤로그"
+  },
+  {
+   "start": 78,
+   "title": "1. 공자 : 인(仁)과 예(禮)"
+  },
+  {
+   "start": 517,
+   "title": "공자의 여정 : 14년의 유랑"
+  },
+  {
+   "start": 927,
+   "title": "2. 묵자 : 겸애(兼愛)"
+  },
+  {
+   "start": 1244,
+   "title": "묵자의 실천 : 수성전(守城戰)"
+  },
+  {
+   "start": 1529,
+   "title": "3. 노자 : 도(道)"
+  },
+  {
+   "start": 1838,
+   "title": "노자의 지혜 : 무위(無爲)"
+  },
+  {
+   "start": 2157,
+   "title": "4. 장자 : 호접몽(胡蝶夢)"
+  },
+  {
+   "start": 2437,
+   "title": "장자의 자유 : 소요유(逍遙遊)"
+  },
+  {
+   "start": 2725,
+   "title": "5. 맹자 : 성선설(性善說)"
+  },
+  {
+   "start": 3019,
+   "title": "맹자의 일침 : 역성혁명(易姓革命)"
+  },
+  {
+   "start": 3277,
+   "title": "에필로그"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "RequestBlocked: \nCould not retrieve a transcript for the video https://www.youtube.com/watch?v=WNIcdIGs3cI! This is most likely caused b",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 82,
+ "comments_top_level": 46,
+ "comments_replies": 36,
+ "comments_by_creator": 10,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 82,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-22T07:25:59",
+ "approved": "2026-10-22T16:25+09:00"
+}

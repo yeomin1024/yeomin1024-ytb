@@ -1,0 +1,115 @@
+{
+ "id": "AZm-sa3KubQ",
+ "title": "소련에서 40년 넘게 금지된 책📖 조지 오웰의 '동물농장' 50분 정리",
+ "channel": "이강민의 잡지사",
+ "channel_id": "UC1PqFAlePcXy419VNXVOqCA",
+ "subs": 373000,
+ "views": 564886,
+ "ratio": 1.51,
+ "age_days": 65,
+ "views_per_day": 8690.6,
+ "minutes": 51.0,
+ "likes": 6342,
+ "comments": 305,
+ "published": "2026-08-17",
+ "queries": "검색:세계사",
+ "url": "https://www.youtube.com/watch?v=AZm-sa3KubQ",
+ "flag": "",
+ "published_at": "2026-08-17T10:30:15Z",
+ "rank": "W15",
+ "set": "web",
+ "folder": "W_AZm-sa3KubQ",
+ "sources": [
+  "검색:세계사"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "1023화. 동물농장"
+  },
+  {
+   "start": 98,
+   "title": "오웰이 학창시절 마주한 불편한 진실"
+  },
+  {
+   "start": 408,
+   "title": "미얀마 경찰을 하며 깨달은 것"
+  },
+  {
+   "start": 580,
+   "title": "가명을 쓴 이유는?"
+  },
+  {
+   "start": 752,
+   "title": "스페인 내전이 발발한 배경"
+  },
+  {
+   "start": 1297,
+   "title": "2차 세계대전의 전초전"
+  },
+  {
+   "start": 1344,
+   "title": "헤밍웨이와 생텍쥐베리"
+  },
+  {
+   "start": 1495,
+   "title": "내전 속의 더 처절한 내전"
+  },
+  {
+   "start": 1618,
+   "title": "숨은 명작 - 카탈로니아 찬가"
+  },
+  {
+   "start": 1746,
+   "title": "조지 오웰은 왜 책을 썼는가..."
+  },
+  {
+   "start": 1828,
+   "title": "동물 이야기를 쓰게 된 이유"
+  },
+  {
+   "start": 1921,
+   "title": "동물농장 속 스탈린과 트로츠키"
+  },
+  {
+   "start": 2233,
+   "title": "다른 동물들의 상징"
+  },
+  {
+   "start": 2342,
+   "title": "이족보행 엔딩..."
+  },
+  {
+   "start": 2448,
+   "title": "출판사들이 거부한 이유?"
+  },
+  {
+   "start": 2520,
+   "title": "1984는 왜 1984일까?"
+  },
+  {
+   "start": 2804,
+   "title": "가장 슬픈 엔딩"
+  },
+  {
+   "start": 2985,
+   "title": "현시점 강연 섭외 1순위의 엔딩력"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-22 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 306,
+ "comments_top_level": 211,
+ "comments_replies": 95,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 305,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-22T07:26:26",
+ "approved": "2026-10-22T16:26+09:00"
+}

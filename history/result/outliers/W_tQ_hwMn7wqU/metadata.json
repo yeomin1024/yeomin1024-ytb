@@ -1,0 +1,70 @@
+{
+ "id": "tQ_hwMn7wqU",
+ "title": "칭기즈칸이 세계를 정복할 수 있었던 진짜 이유(무력의 비밀..)ㅣ역사를 보다 EP.149",
+ "channel": "보다 BODA",
+ "channel_id": "UCoCvTlU0KpNYwnMIgs7MPrA",
+ "subs": 3220000,
+ "views": 1249945,
+ "ratio": 0.39,
+ "age_days": 95,
+ "views_per_day": 13157.3,
+ "minutes": 36.3,
+ "likes": 9134,
+ "comments": 372,
+ "published": "2026-07-19",
+ "queries": "검색:역사",
+ "url": "https://www.youtube.com/watch?v=tQ_hwMn7wqU",
+ "flag": "",
+ "published_at": "2026-07-19T02:00:00Z",
+ "rank": "W55",
+ "set": "web",
+ "folder": "W_tQ_hwMn7wqU",
+ "sources": [
+  "검색:역사"
+ ],
+ "source": "web",
+ "tags": [
+  "보다",
+  "boda",
+  "직업",
+  "인터뷰",
+  "전문가",
+  "레전드"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 98,
+   "title": "중앙아시아 왕이 전부 칭기즈칸의 후예인 이유"
+  },
+  {
+   "start": 576,
+   "title": "딸들을 전쟁에 활용한 칭기즈칸의 묘수"
+  },
+  {
+   "start": 878,
+   "title": "칭기즈칸이 숨겼던 무패의 비밀병기"
+  },
+  {
+   "start": 1870,
+   "title": "만약 몽골군이 회군하지 않았다면 유럽을 정복했을까?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-22 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 372,
+ "comments_top_level": 242,
+ "comments_replies": 130,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 372,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-22T07:28:50",
+ "approved": "2026-10-22T16:28+09:00"
+}

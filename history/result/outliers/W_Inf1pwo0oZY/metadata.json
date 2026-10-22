@@ -1,0 +1,136 @@
+{
+ "id": "Inf1pwo0oZY",
+ "title": "잉글랜드 스코틀랜드 웨일스 북아일랜드, 어떻게 하나의 영국이 됐을까? 🇬🇧",
+ "channel": "이강민의 잡지사",
+ "channel_id": "UC1PqFAlePcXy419VNXVOqCA",
+ "subs": 373000,
+ "views": 710820,
+ "ratio": 1.91,
+ "age_days": 72,
+ "views_per_day": 9872.5,
+ "minutes": 57.9,
+ "likes": 8010,
+ "comments": 174,
+ "published": "2026-08-10",
+ "queries": "검색:역사 이야기 | 검색:세계사",
+ "url": "https://www.youtube.com/watch?v=Inf1pwo0oZY",
+ "flag": "",
+ "published_at": "2026-08-10T10:30:18Z",
+ "rank": "W10",
+ "set": "web",
+ "folder": "W_Inf1pwo0oZY",
+ "sources": [
+  "검색:역사 이야기",
+  "검색:세계사"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "1018화. 유나이티드 킹덤"
+  },
+  {
+   "start": 94,
+   "title": "숀 코너리의 분노버튼"
+  },
+  {
+   "start": 279,
+   "title": "브리튼 섬에 처음 정착한 사람들"
+  },
+  {
+   "start": 376,
+   "title": "섬에 목욕탕 만든 로마"
+  },
+  {
+   "start": 500,
+   "title": "로마가 끝내 정복하지 못한 땅"
+  },
+  {
+   "start": 676,
+   "title": "게르만족의 대이동"
+  },
+  {
+   "start": 842,
+   "title": "앵글로색슨 7왕국 시대"
+  },
+  {
+   "start": 986,
+   "title": "잉글랜드를 지켜낸 대왕"
+  },
+  {
+   "start": 1078,
+   "title": "노르망디 윌리엄과 교황의 유착"
+  },
+  {
+   "start": 1286,
+   "title": "가장 먼저 통합된 웨일스"
+  },
+  {
+   "start": 1580,
+   "title": "왜 영국 왕세자를 '웨일스 공'이라고 할까?"
+  },
+  {
+   "start": 1722,
+   "title": "웨일스가 격렬히 저항하지 않은 이유?"
+  },
+  {
+   "start": 1833,
+   "title": "유니언 잭에서 홀로 빠진 국기"
+  },
+  {
+   "start": 1962,
+   "title": "피를 보면 더 강해지는 민족..."
+  },
+  {
+   "start": 2183,
+   "title": "스토리텔러 인생 최대 고비"
+  },
+  {
+   "start": 2243,
+   "title": "한 군주 두 나라"
+  },
+  {
+   "start": 2314,
+   "title": "종교 갈등을 기회로 삼은 로버트 세실"
+  },
+  {
+   "start": 2521,
+   "title": "가톨릭의 희망이 꺾이는 순간"
+  },
+  {
+   "start": 2713,
+   "title": "스코틀랜드 희대의 투자 실패"
+  },
+  {
+   "start": 2831,
+   "title": "아일랜드 합병, 그리고 대기근"
+  },
+  {
+   "start": 3013,
+   "title": "JFK와 보스턴 셀틱스"
+  },
+  {
+   "start": 3114,
+   "title": "아일랜드 내전과 북아일랜드"
+  },
+  {
+   "start": 3297,
+   "title": "치질방석(?) 된 스코틀랜드 성물"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-22 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 171,
+ "comments_top_level": 143,
+ "comments_replies": 28,
+ "comments_by_creator": 4,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 174,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-22T07:26:10",
+ "approved": "2026-10-22T16:26+09:00"
+}

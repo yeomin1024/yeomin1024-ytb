@@ -1,0 +1,72 @@
+{
+ "id": "7yBPNr3ALpE",
+ "title": "현대 과학으로도 설명이 불가능한 중국 바위산 미스터리 ㅣ역사를 보다 EP. 136",
+ "channel": "보다 BODA",
+ "channel_id": "UCoCvTlU0KpNYwnMIgs7MPrA",
+ "subs": 3220000,
+ "views": 1467527,
+ "ratio": 0.46,
+ "age_days": 177,
+ "views_per_day": 8291.1,
+ "minutes": 45.3,
+ "likes": 13018,
+ "comments": 394,
+ "published": "2026-04-27",
+ "queries": "검색:역사미스터리 | 검색:고대사 | 검색:고대문명",
+ "url": "https://www.youtube.com/watch?v=7yBPNr3ALpE",
+ "flag": "",
+ "published_at": "2026-04-27T10:00:17Z",
+ "rank": "W49",
+ "set": "web",
+ "folder": "W_7yBPNr3ALpE",
+ "sources": [
+  "검색:역사미스터리",
+  "검색:고대사",
+  "검색:고대문명"
+ ],
+ "source": "web",
+ "tags": [
+  "보다",
+  "boda",
+  "직업",
+  "인터뷰",
+  "전문가",
+  "레전드"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 336,
+   "title": "외계인이 남기고 간 중국 고대 문명의 흔적"
+  },
+  {
+   "start": 865,
+   "title": "13살에 왕위에 오른 진시황의 숨겨진 진실"
+  },
+  {
+   "start": 1573,
+   "title": "장수와 젊음을 위한 황제들의 노력"
+  },
+  {
+   "start": 2289,
+   "title": "중국의 전설 속 대장장이들 실체"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-22 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 394,
+ "comments_top_level": 319,
+ "comments_replies": 75,
+ "comments_by_creator": 2,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 394,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-22T07:28:22",
+ "approved": "2026-10-22T16:28+09:00"
+}

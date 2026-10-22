@@ -1,0 +1,109 @@
+{
+ "id": "6s7jPiZgTso",
+ "title": "임금의 대가 끊긴 조선, ‘서자의 서자’ 철종은 어떻게 왕이 됐을까?",
+ "channel": "이강민의 잡지사",
+ "channel_id": "UC1PqFAlePcXy419VNXVOqCA",
+ "subs": 373000,
+ "views": 512123,
+ "ratio": 1.37,
+ "age_days": 22,
+ "views_per_day": 23278.3,
+ "minutes": 42.2,
+ "likes": 2710,
+ "comments": 187,
+ "published": "2026-09-29",
+ "queries": "검색:조선왕조실록 | 검색:조선왕 | 검색:조선왕실",
+ "url": "https://www.youtube.com/watch?v=6s7jPiZgTso",
+ "flag": "",
+ "published_at": "2026-09-29T10:30:10Z",
+ "rank": "W18",
+ "set": "web",
+ "folder": "W_6s7jPiZgTso",
+ "sources": [
+  "검색:조선왕조실록",
+  "검색:조선왕",
+  "검색:조선왕실"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "1054화. 철종"
+  },
+  {
+   "start": 86,
+   "title": "철종 즉위에 대한 오해?"
+  },
+  {
+   "start": 214,
+   "title": "하루 아침에 왕이 된 강화도령"
+  },
+  {
+   "start": 377,
+   "title": "철종은 어떤 왕이었을까?"
+  },
+  {
+   "start": 486,
+   "title": "정치력을 발휘하지 못한 이유"
+  },
+  {
+   "start": 640,
+   "title": "용안을 알고 있는 왕"
+  },
+  {
+   "start": 705,
+   "title": "이원범은 왜 왕이 될 수밖에 없었나"
+  },
+  {
+   "start": 857,
+   "title": "사도세자의 아들들"
+  },
+  {
+   "start": 1308,
+   "title": "천주교 박해 사건의 여파"
+  },
+  {
+   "start": 1390,
+   "title": "왜 형이 아닌 이원범이었을까?"
+  },
+  {
+   "start": 1643,
+   "title": "선왕보다 항렬이 높다?"
+  },
+  {
+   "start": 1809,
+   "title": "역사를 지워버린 세도 정권"
+  },
+  {
+   "start": 1976,
+   "title": "철종보다도 어렵게 찾은 다음 왕"
+  },
+  {
+   "start": 2175,
+   "title": "철종과 고종의 중요한 차이?"
+  },
+  {
+   "start": 2264,
+   "title": "허수아비 왕의 삶은 평민의 삶보다 나을까"
+  },
+  {
+   "start": 2449,
+   "title": "효명이 왕을 이어 받았다면"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-22 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 195,
+ "comments_top_level": 140,
+ "comments_replies": 55,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 187,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-22T07:26:36",
+ "approved": "2026-10-22T16:26+09:00"
+}

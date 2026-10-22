@@ -1,0 +1,96 @@
+{
+ "id": "G8V3NuJGQrQ",
+ "title": "\"조선 최고의 천재\" 세종대왕이 한글을 굳이 28자로 만든 이유ㅣEp. 책과사람 171 (황선엽 교수 2부)",
+ "channel": "책과삶",
+ "channel_id": "UCgUaqrLRGLL-dHislR1e2TA",
+ "subs": 1260000,
+ "views": 1851591,
+ "ratio": 1.47,
+ "age_days": 16,
+ "views_per_day": 115724.4,
+ "minutes": 31.0,
+ "likes": 8489,
+ "comments": 805,
+ "published": "2026-10-05",
+ "queries": "검색:조선 | 검색:세종대왕",
+ "url": "https://www.youtube.com/watch?v=G8V3NuJGQrQ",
+ "flag": "",
+ "published_at": "2026-10-05T09:00:35Z",
+ "rank": "W16",
+ "set": "web",
+ "folder": "W_G8V3NuJGQrQ",
+ "sources": [
+  "검색:조선",
+  "검색:세종대왕"
+ ],
+ "source": "web",
+ "tags": [
+  "한국",
+  "대한민국",
+  "책추천",
+  "독서법",
+  "자기계발",
+  "교양",
+  "지식"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝"
+  },
+  {
+   "start": 77,
+   "title": "\"세계가 극찬했다\" 한글이 압도적인 이유"
+  },
+  {
+   "start": 225,
+   "title": "중국이 갑자기 한글을 탐내는 이유"
+  },
+  {
+   "start": 285,
+   "title": "\"중국, 일본보다 10배 빠르다\" 한국만 자국어로 타자치는 이유"
+  },
+  {
+   "start": 345,
+   "title": "세종대왕은 왜 한글을 만들었을까?"
+  },
+  {
+   "start": 513,
+   "title": "\"한글은 세종대왕 혼자 만들었을까?\" 한글 창제의 진실"
+  },
+  {
+   "start": 1000,
+   "title": "\"사대부가 반대했던 한글\" 대체 언제부터 쓰였을까?"
+  },
+  {
+   "start": 1220,
+   "title": "한글로 모든 발음이 가능한 이유"
+  },
+  {
+   "start": 1304,
+   "title": "\"세종대왕이 지은 이름 아니다\" 한글이 '한글'이 된 이유"
+  },
+  {
+   "start": 1484,
+   "title": "\"한국어는 어디서 왔을까?\" 우리말의 기원과 역사"
+  },
+  {
+   "start": 1778,
+   "title": "\"한글 매력에 푹 빠진다\" 외국인들이 보는 한글"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-22 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 823,
+ "comments_top_level": 574,
+ "comments_replies": 249,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 805,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-22T07:26:29",
+ "approved": "2026-10-22T16:26+09:00"
+}

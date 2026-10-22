@@ -1,0 +1,74 @@
+{
+ "id": "H777lKxm0mQ",
+ "title": "일본인들이 돌려까기 장인이 된 이유(죽여도 합법..?)ㅣ역사를 보다 EP.154",
+ "channel": "보다 BODA",
+ "channel_id": "UCoCvTlU0KpNYwnMIgs7MPrA",
+ "subs": 3220000,
+ "views": 1151818,
+ "ratio": 0.36,
+ "age_days": 60,
+ "views_per_day": 19197.0,
+ "minutes": 39.8,
+ "likes": 10850,
+ "comments": 833,
+ "published": "2026-08-23",
+ "queries": "검색:역사",
+ "url": "https://www.youtube.com/watch?v=H777lKxm0mQ",
+ "flag": "",
+ "published_at": "2026-08-23T01:59:28Z",
+ "rank": "W59",
+ "set": "web",
+ "folder": "W_H777lKxm0mQ",
+ "sources": [
+  "검색:역사"
+ ],
+ "source": "web",
+ "tags": [
+  "보다",
+  "boda",
+  "직업",
+  "인터뷰",
+  "전문가",
+  "레전드"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트"
+  },
+  {
+   "start": 103,
+   "title": "일본인들끼리도 못 알아듣는 일본 사투리"
+  },
+  {
+   "start": 312,
+   "title": "일본 사무라이들은 왜 할복을 했을까?"
+  },
+  {
+   "start": 1113,
+   "title": "일본인은 왜 겉과 속이 다른 말을 할까?"
+  },
+  {
+   "start": 1763,
+   "title": "이유 없이 베도 무죄였던 사무라이의 황당한 특권"
+  },
+  {
+   "start": 2030,
+   "title": "일본에는 왜 다양한 욕이 없을까?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-22 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 835,
+ "comments_top_level": 493,
+ "comments_replies": 342,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 833,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-22T07:29:07",
+ "approved": "2026-10-22T16:29+09:00"
+}

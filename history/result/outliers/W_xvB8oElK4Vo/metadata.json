@@ -1,0 +1,71 @@
+{
+ "id": "xvB8oElK4Vo",
+ "title": "현대 과학으로 도무지 설명이 불가능한 고대 미스터리ㅣ범준에 물리다",
+ "channel": "범준에 물리다",
+ "channel_id": "UC1Yctn_P1sZjx1lMS9dcSSA",
+ "subs": 399000,
+ "views": 541855,
+ "ratio": 1.36,
+ "age_days": 47,
+ "views_per_day": 11528.8,
+ "minutes": 39.6,
+ "likes": 2739,
+ "comments": 113,
+ "published": "2026-09-04",
+ "queries": "검색:역사미스터리",
+ "url": "https://www.youtube.com/watch?v=xvB8oElK4Vo",
+ "flag": "",
+ "published_at": "2026-09-04T11:00:09Z",
+ "rank": "W19",
+ "set": "web",
+ "folder": "W_xvB8oElK4Vo",
+ "sources": [
+  "검색:역사미스터리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "시작!"
+  },
+  {
+   "start": 181,
+   "title": "시대를 앞서간 오파츠 미스터리"
+  },
+  {
+   "start": 722,
+   "title": "인류 문명에서 가장 오래된 아날로그 컴퓨터"
+  },
+  {
+   "start": 1430,
+   "title": "여전히 풀리지 않는 진시황릉 미스터리"
+  },
+  {
+   "start": 1651,
+   "title": "진시황릉에는 정말 수은 바다가 흘렀을까?"
+  },
+  {
+   "start": 1865,
+   "title": "고대에 8,000개 이상의 병마용갱을 어떻게 만들었을까?"
+  },
+  {
+   "start": 2147,
+   "title": "저절로 움직이는 신기한 금속 구체"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-22 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 113,
+ "comments_top_level": 79,
+ "comments_replies": 34,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 113,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-22T07:26:38",
+ "approved": "2026-10-22T16:26+09:00"
+}

@@ -1,0 +1,82 @@
+{
+ "id": "Ml4SV0FTO2w",
+ "title": "세종대왕도 감동할 한글 580년의 기록 | 위대한 자산 한글",
+ "channel": "알파TV - 신한투자증권 [공식 유튜브 채널]",
+ "channel_id": "UCYzZm9_nasRW6npCkjlTjKQ",
+ "subs": 454000,
+ "views": 212710,
+ "ratio": 0.47,
+ "age_days": 14,
+ "views_per_day": 15193.6,
+ "minutes": 12.7,
+ "likes": 518,
+ "comments": 908,
+ "published": "2026-10-08",
+ "queries": "검색:세종대왕",
+ "url": "https://www.youtube.com/watch?v=Ml4SV0FTO2w",
+ "flag": "",
+ "published_at": "2026-10-08T02:51:21Z",
+ "rank": "W48",
+ "set": "web",
+ "folder": "W_Ml4SV0FTO2w",
+ "sources": [
+  "검색:세종대왕"
+ ],
+ "source": "web",
+ "tags": [
+  "신한투자증권",
+  "알파TV"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "INTRO"
+  },
+  {
+   "start": 70,
+   "title": "편지에 담긴 가장 생생한 삶의 이야기"
+  },
+  {
+   "start": 234,
+   "title": "세상과 소통하다, 독립신문 속 한글"
+  },
+  {
+   "start": 267,
+   "title": "독립운동의 뜻을 전한 한글 암호"
+  },
+  {
+   "start": 388,
+   "title": "시대의 마음을 담아낸 한글과 시"
+  },
+  {
+   "start": 480,
+   "title": "새로운 기기에 한글을 담다, 천지인 키보드"
+  },
+  {
+   "start": 604,
+   "title": "디지털 시대, 더 다양해진 한글의 표현"
+  },
+  {
+   "start": 620,
+   "title": "세계를 만나고 즐기는 한글"
+  },
+  {
+   "start": 679,
+   "title": "한글, 새로운 세상을 담아내다"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-22 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 909,
+ "comments_top_level": 898,
+ "comments_replies": 11,
+ "comments_by_creator": 10,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 908,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-22T07:28:18",
+ "approved": "2026-10-22T16:28+09:00"
+}

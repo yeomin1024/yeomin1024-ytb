@@ -1,0 +1,104 @@
+{
+ "id": "xKKVorC9KHQ",
+ "title": "\"이젠 모르면 큰일나요..\" 한국인이 중동역사를 모르면 벌어지는 일 l 국경없는 클래스 EP.11 (박현도 교수)",
+ "channel": "어썸코리아 Awesome Korea",
+ "channel_id": "UC9HNi_aAXBgpI2zhibOAfAA",
+ "subs": 1300000,
+ "views": 1560740,
+ "ratio": 1.2,
+ "age_days": 166,
+ "views_per_day": 9402.0,
+ "minutes": 45.1,
+ "likes": 22638,
+ "comments": 769,
+ "published": "2026-05-08",
+ "queries": "검색:역사 | 검색:한국역사",
+ "url": "https://www.youtube.com/watch?v=xKKVorC9KHQ",
+ "flag": "",
+ "published_at": "2026-05-08T11:33:15Z",
+ "rank": "W21",
+ "set": "web",
+ "folder": "W_xKKVorC9KHQ",
+ "sources": [
+  "검색:역사",
+  "검색:한국역사"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트"
+  },
+  {
+   "start": 76,
+   "title": "한국인이 중동역사를 모르면 생기는 일"
+  },
+  {
+   "start": 349,
+   "title": "한국인이라면 꼭 알아야 할 중동의 나라들"
+  },
+  {
+   "start": 461,
+   "title": "이란이 다른 중동 국가들과 다른 이유"
+  },
+  {
+   "start": 616,
+   "title": "튀르키예가 중동이라고 인정하지 않는 이유"
+  },
+  {
+   "start": 758,
+   "title": "무시받던 사우디아라비아 최대 부자 나라가 된 이유"
+  },
+  {
+   "start": 845,
+   "title": "이집트 역사를 배우기 어려운 이유"
+  },
+  {
+   "start": 990,
+   "title": "중동의 나라들과 한국의 관계"
+  },
+  {
+   "start": 1136,
+   "title": "과거 한국이 이스라엘을 부러워했던 이유"
+  },
+  {
+   "start": 1300,
+   "title": "유대인들이 나라를 버리고 도망갈 수 밖에 없던 이유"
+  },
+  {
+   "start": 1778,
+   "title": "미국을 지배하고 있는 유대인들?"
+  },
+  {
+   "start": 1910,
+   "title": "유대인vs무슬림은 왜 항상 싸울까?"
+  },
+  {
+   "start": 2148,
+   "title": "미국과 중동은 왜 자꾸 싸울까?"
+  },
+  {
+   "start": 2340,
+   "title": "한국과 이스라엘 간의 관계"
+  },
+  {
+   "start": 2445,
+   "title": "중동 뉴스 볼 때 알아야 할 이 것"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-22 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 769,
+ "comments_top_level": 616,
+ "comments_replies": 153,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 769,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-22T07:26:40",
+ "approved": "2026-10-22T16:26+09:00"
+}

@@ -1,0 +1,64 @@
+{
+ "id": "9yxiCzpctmA",
+ "title": "고고학적으로 설명이 불가능한 이집트보다 6,000년이나 앞선 문명ㅣ범준에 물리다",
+ "channel": "범준에 물리다",
+ "channel_id": "UC1Yctn_P1sZjx1lMS9dcSSA",
+ "subs": 399000,
+ "views": 581301,
+ "ratio": 1.46,
+ "age_days": 19,
+ "views_per_day": 30594.8,
+ "minutes": 26.8,
+ "likes": 2676,
+ "comments": 65,
+ "published": "2026-10-02",
+ "queries": "검색:역사미스터리 | 검색:고대문명",
+ "url": "https://www.youtube.com/watch?v=9yxiCzpctmA",
+ "flag": "",
+ "published_at": "2026-10-02T11:00:22Z",
+ "rank": "W17",
+ "set": "web",
+ "folder": "W_9yxiCzpctmA",
+ "sources": [
+  "검색:역사미스터리",
+  "검색:고대문명"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "시작!"
+  },
+  {
+   "start": 67,
+   "title": "2500년간 수수께끼였던 정체불명의 그림들"
+  },
+  {
+   "start": 518,
+   "title": "모아이 석상이 미스터리의 중심에 선 이유"
+  },
+  {
+   "start": 713,
+   "title": "현대 과학이 밝혀낸 모아이 미스터리"
+  },
+  {
+   "start": 1120,
+   "title": "인류의 역사를 송두리째 바꾼 초고대 문명"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-22 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 65,
+ "comments_top_level": 57,
+ "comments_replies": 8,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 65,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-22T07:26:35",
+ "approved": "2026-10-22T16:26+09:00"
+}

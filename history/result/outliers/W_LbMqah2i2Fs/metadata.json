@@ -1,0 +1,107 @@
+{
+ "id": "LbMqah2i2Fs",
+ "title": "러시아는 왜 남쪽으로 내려오려 했을까? 영국과 러시아의 100년 ‘그레이트 게임’",
+ "channel": "이강민의 잡지사",
+ "channel_id": "UC1PqFAlePcXy419VNXVOqCA",
+ "subs": 373000,
+ "views": 700662,
+ "ratio": 1.88,
+ "age_days": 37,
+ "views_per_day": 18936.8,
+ "minutes": 45.3,
+ "likes": 4407,
+ "comments": 88,
+ "published": "2026-09-14",
+ "queries": "검색:세계사",
+ "url": "https://www.youtube.com/watch?v=LbMqah2i2Fs",
+ "flag": "",
+ "published_at": "2026-09-14T10:30:17Z",
+ "rank": "W11",
+ "set": "web",
+ "folder": "W_LbMqah2i2Fs",
+ "sources": [
+  "검색:세계사"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "1045화. 그레이트 게임"
+  },
+  {
+   "start": 35,
+   "title": "아프가니스탄의 독특한 국경"
+  },
+  {
+   "start": 194,
+   "title": "그레이트 게임이란?"
+  },
+  {
+   "start": 290,
+   "title": "썬킴의 추천도서 '킴'"
+  },
+  {
+   "start": 409,
+   "title": "내려오려는 나라와 막는 나라"
+  },
+  {
+   "start": 738,
+   "title": "영국과 러시아가 손을 잡은 순간?"
+  },
+  {
+   "start": 865,
+   "title": "나폴레옹에게 접근한 파벨 1세"
+  },
+  {
+   "start": 985,
+   "title": "구더기 소굴에 빠진 영국인"
+  },
+  {
+   "start": 1313,
+   "title": "아프가니스탄 군주의 밀고당기기"
+  },
+  {
+   "start": 1530,
+   "title": "영국의 1차 아프가니스탄 침공"
+  },
+  {
+   "start": 1628,
+   "title": "큰 코 제대로 다친 영국"
+  },
+  {
+   "start": 1814,
+   "title": "영국이 고용한 위장 정보원"
+  },
+  {
+   "start": 2055,
+   "title": "영국이 거문도에 상륙한 이유"
+  },
+  {
+   "start": 2210,
+   "title": "와칸 회랑이 탄생한 배경은?"
+  },
+  {
+   "start": 2416,
+   "title": "러시아가 알래스카를 헐값에 판 이유"
+  },
+  {
+   "start": 2562,
+   "title": "꺼지지 않은 러시아의 욕망"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-22 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 88,
+ "comments_top_level": 81,
+ "comments_replies": 7,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 88,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-22T07:26:11",
+ "approved": "2026-10-22T16:26+09:00"
+}

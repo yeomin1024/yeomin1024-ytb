@@ -1,0 +1,95 @@
+{
+ "id": "oL_HHgAadmo",
+ "title": "최근 진시황릉 주변에서 나온 미스터리한 관의 정체(16톤짜리 ㄷㄷ)ㅣ역사를 보다 시안 특집 EP.1",
+ "channel": "보다 BODA",
+ "channel_id": "UCoCvTlU0KpNYwnMIgs7MPrA",
+ "subs": 3220000,
+ "views": 1245616,
+ "ratio": 0.39,
+ "age_days": 91,
+ "views_per_day": 13688.1,
+ "minutes": 132.6,
+ "likes": 13111,
+ "comments": 712,
+ "published": "2026-07-22",
+ "queries": "검색:역사 | 검색:역사미스터리",
+ "url": "https://www.youtube.com/watch?v=oL_HHgAadmo",
+ "flag": "",
+ "published_at": "2026-07-22T10:15:44Z",
+ "rank": "W56",
+ "set": "web",
+ "folder": "W_oL_HHgAadmo",
+ "sources": [
+  "검색:역사",
+  "검색:역사미스터리"
+ ],
+ "source": "web",
+ "tags": [
+  "보다",
+  "boda",
+  "직업",
+  "인터뷰",
+  "전문가",
+  "레전드"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 298,
+   "title": "중국이 병마용 4호갱을 공개하지 않는 이유"
+  },
+  {
+   "start": 714,
+   "title": "중국의 미스터리 병마용갱"
+  },
+  {
+   "start": 2521,
+   "title": "진시황릉 지하에서 발견된 댐?"
+  },
+  {
+   "start": 2763,
+   "title": "진시황릉 주변에서 발견된 16톤짜리 목재 관"
+  },
+  {
+   "start": 2943,
+   "title": "중국이 발굴을 멈춘 진시황릉?"
+  },
+  {
+   "start": 4244,
+   "title": "진시황 사후에 남은 사람들은 어떻게 됐을까?"
+  },
+  {
+   "start": 4456,
+   "title": "왕과 가장 가까운 환관이 권력을 잡기 쉬운 이유"
+  },
+  {
+   "start": 5210,
+   "title": "전 세계가 온천을 즐기는 다양한 방법"
+  },
+  {
+   "start": 5557,
+   "title": "현종과 양귀비가 사랑을 나눈 온천 화청지"
+  },
+  {
+   "start": 7670,
+   "title": "능력에도 불구하고 평가절하된 여인들"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-22 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 713,
+ "comments_top_level": 641,
+ "comments_replies": 72,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 712,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-22T07:28:53",
+ "approved": "2026-10-22T16:28+09:00"
+}

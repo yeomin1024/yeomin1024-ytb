@@ -1,0 +1,68 @@
+{
+ "id": "GqmnYQVWyPs",
+ "title": "오디세우스는 어디를 헤매다 10년 만에 집으로 돌아갔을까?｜트로이부터 이타카까지｜영화 오디세이의 실제 장소 찾아가보니｜세계테마기행 ｜#골라듄다큐",
+ "channel": "EBSDocumentary (EBS 다큐)",
+ "channel_id": "UCFCtZJTuJhE18k8IXwmXTYQ",
+ "subs": 5470000,
+ "views": 641185,
+ "ratio": 0.12,
+ "age_days": 57,
+ "views_per_day": 11248.9,
+ "minutes": 71.3,
+ "likes": 1841,
+ "comments": 74,
+ "published": "2026-08-25",
+ "queries": "검색:역사다큐",
+ "url": "https://www.youtube.com/watch?v=GqmnYQVWyPs",
+ "flag": "",
+ "published_at": "2026-08-25T10:00:37Z",
+ "rank": "W82",
+ "set": "web",
+ "folder": "W_GqmnYQVWyPs",
+ "sources": [
+  "검색:역사다큐"
+ ],
+ "source": "web",
+ "tags": [
+  "EBS",
+  "EBS documentary",
+  "EBS 다큐멘터리",
+  "다큐",
+  "docu",
+  "골라듄",
+  "골라듄다큐",
+  "골라둔다큐"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "(1) 트로이 전쟁 실제 장소"
+  },
+  {
+   "start": 343,
+   "title": "(2) 오디세우스의 부하들이 로토스 꽃을 먹은 섬"
+  },
+  {
+   "start": 647,
+   "title": "(3) 외눈박이 거인 키클롭스를 만난 에트나 화산섬"
+  },
+  {
+   "start": 1943,
+   "title": "(4) 난파된 오디세우스가 발견된 코르푸 섬"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-22 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 74,
+ "comments_top_level": 33,
+ "comments_replies": 41,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 74,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-22T07:30:06",
+ "approved": "2026-10-22T16:30+09:00"
+}

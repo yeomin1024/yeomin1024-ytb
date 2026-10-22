@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.2 — 2026-10-21 — 3화 원금 회복한 날 절반 매도(설정 숫자) · 4화 매달 같은 금액 10년(여러 시작 달).
+# VERSION: v1.3 — 2026-10-22 — 요약본 B(사용자 지시 "올해 반도체 주식 종목에 투자했다가 전재산의 -70%인 2억 5천을 손해봤어요"):
+#          전재산·남은 돈·되찾을 배수 · 잃은 2억 5천을 '천천히' 되찾는 데 걸린 기간(남은 돈 + 매달 적립 / 매달 적립만, 20년 창).
+# (v1.2) — 2026-10-21 — 3화 원금 회복한 날 절반 매도(설정 숫자) · 4화 매달 같은 금액 10년(여러 시작 달).
 # (v1.1) — 2026-10-21 — 주인공 숫자(리딩방 비용·매매 횟수·수수료와 세금 — 가정 적음)·손실 수학 정확한 값·또 잃으면·하루 하락 비율.
 # (v1.0) — 2026-10-21 — 새로: 개미 재기 일지 1~4화 대본 숫자 (사용자 지시 2026-10-21 "아래 주제들로 일본 축제 영상 대본 내용 만들 때 처럼
 #          한 파일에 대본 내용, 제목 등 종합해서 넣어 … 그리고 시리즈물이라는 것도 고려해"). 대본의 숫자는 이 코드 출력(results.json)만 쓴다.
@@ -22,7 +24,7 @@ ROOT = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(ROOT / "tools"))
 from backtest import data  # noqa: E402
 
-VERSION = "v1.2"
+VERSION = "v1.3"
 OUT = Path(__file__).resolve().parent / "results.json"
 LOG = logging.getLogger("series_calc")
 START = "2000-01-01"          # 2000년 이후 (사례는 최근 먼저 — CLAUDE.md)
@@ -203,6 +205,57 @@ def dca_10y(price: pd.Series, months=120, amount=100):
     return out
 
 
+B_LOSS, B_SHARE = 25000, 0.70   # 요약본 B (가상): 손실 2억 5천 = 전재산의 70%
+
+
+def persona_b(quiet=False):
+    """요약본 B 숫자 (가상): 손실 2억 5천 = 전재산의 70% → 손실 전 전재산·남은 돈·되찾으려면 몇 배."""
+    loss, share = B_LOSS, B_SHARE
+    before = loss / share
+    left = before - loss
+    out = dict(loss_만원=loss, share_pct=70, before_만원=round(before), left_만원=round(left),
+               need_x=round(before / left, 2), need_pct=round(100 * (before / left - 1), 1))
+    if not quiet:
+        log("PERSONA_B", **out)
+    return out
+
+
+def months_to_gain(price: pd.Series, seed, monthly, target_gain, max_months=240):
+    """시작 달마다: seed 를 넣고 매달 monthly 를 더 넣을 때, 계좌 − 넣은 돈 전체 ≥ target_gain 이 되는 첫 달 (가격만, 그 달 가격으로 매수).
+    max_months 안에 자료가 다 없는 시작 달은 뺌. → 잃은 돈만큼 '번 돈'이 쌓이는 데 걸린 기간."""
+    p = price.to_numpy()
+    res = []
+    for s in range(len(p)):
+        if s + max_months >= len(p):
+            break
+        units = seed / p[s] if seed else 0.0
+        hit = None
+        for m in range(0, max_months + 1):
+            if m > 0 or not seed:
+                units += monthly / p[s + m]
+            paid = seed + monthly * (m + (0 if seed else 1))
+            if m > 0 and units * p[s + m] - paid >= target_gain:
+                hit = m
+                break
+        res.append(hit)
+    got = [m for m in res if m is not None]
+    return dict(seed_만원=round(seed), monthly_만원=monthly, target_gain_만원=target_gain, window_months=max_months, starts=len(res),
+                first_start=str(price.index[0].date())[:7], last_start=str(price.index[len(res) - 1].date())[:7],
+                reached=len(got), not_reached=len(res) - len(got),
+                median_years=round(float(np.median(got)) / 12, 1) if got else None,
+                fastest_years=round(min(got) / 12, 1) if got else None, slowest_years=round(max(got) / 12, 1) if got else None)
+
+
+def recover_b(price: pd.Series):
+    b = persona_b(quiet=True)
+    out = dict(seed_plus_100=months_to_gain(price, b["left_만원"], 100, b["loss_만원"]),
+               seed_plus_200=months_to_gain(price, b["left_만원"], 200, b["loss_만원"]),
+               monthly_100_only=months_to_gain(price, 0, 100, b["loss_만원"]))
+    for k, v in out.items():
+        log("RECOVER_B", case=k, starts=v["starts"], reached=v["reached"], median_y=v["median_years"], fastest_y=v["fastest_years"], slowest_y=v["slowest_years"])
+    return out
+
+
 def fomo(price: pd.Series, rally=0.15, look=6, hold=24, k=12):
     """급등 판정: 지난 look 개월 가격이 rally 이상 오른 달(그 달까지 가격만). 그 달에 1억 원을 한 번에 vs k 개월 나눠 (기다리는 돈 이자 0),
     hold 개월 뒤 값. 비교로 모든 달도 같은 계산."""
@@ -240,7 +293,7 @@ def main():
                assumptions="S&P 500 가격만(배당 빼고) · 환율·세금·수수료·현금 이자 없음 · 3배는 일별 맞추기·비용 없음 · 월평균 가격",
                persona=P, persona_costs=persona_costs(), recovery_math=recovery_math(), months_to_recover=months_to_recover(price), drawdowns=drawdowns(price),
                holding_loss=holding_loss(price), lev3=lev3(daily), margin_call=margin_call(), missing_best_days=missing_best_days(daily),
-               fomo=fomo(price), persona_april=persona_april(), dca_10y=dca_10y(price))
+               fomo=fomo(price), persona_april=persona_april(), dca_10y=dca_10y(price), persona_b=persona_b(), recover_b=recover_b(price))
     OUT.write_text(json.dumps(res, ensure_ascii=False, indent=1), "utf-8")
     log("DONE", out=str(OUT.relative_to(ROOT)), sec=round(time.time() - t0, 1))
 

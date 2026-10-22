@@ -1,6 +1,6 @@
 {
- "version": "v1.2",
- "made": "2026-10-21T14:29:08Z",
+ "version": "v1.3",
+ "made": "2026-10-22T05:47:43Z",
  "dataset_commit": "07b81e6af68239acd65b901a11844d6d95db6ead",
  "assumptions": "S&P 500 가격만(배당 빼고) · 환율·세금·수수료·현금 이자 없음 · 3배는 일별 맞추기·비용 없음 · 월평균 가격",
  "persona": {
@@ -210,5 +210,57 @@
   "median_x": 1.63,
   "worst_x": 0.95,
   "best_x": 2.12
+ },
+ "persona_b": {
+  "loss_만원": 25000,
+  "share_pct": 70,
+  "before_만원": 35714,
+  "left_만원": 10714,
+  "need_x": 3.33,
+  "need_pct": 233.3
+ },
+ "recover_b": {
+  "seed_plus_100": {
+   "seed_만원": 10714,
+   "monthly_만원": 100,
+   "target_gain_만원": 25000,
+   "window_months": 240,
+   "starts": 81,
+   "first_start": "2000-01",
+   "last_start": "2006-09",
+   "reached": 81,
+   "not_reached": 0,
+   "median_years": 13.5,
+   "fastest_years": 11.5,
+   "slowest_years": 17.4
+  },
+  "seed_plus_200": {
+   "seed_만원": 10714,
+   "monthly_만원": 200,
+   "target_gain_만원": 25000,
+   "window_months": 240,
+   "starts": 81,
+   "first_start": "2000-01",
+   "last_start": "2006-09",
+   "reached": 81,
+   "not_reached": 0,
+   "median_years": 11.4,
+   "fastest_years": 10.5,
+   "slowest_years": 14.5
+  },
+  "monthly_100_only": {
+   "seed_만원": 0,
+   "monthly_만원": 100,
+   "target_gain_만원": 25000,
+   "window_months": 240,
+   "starts": 81,
+   "first_start": "2000-01",
+   "last_start": "2006-09",
+   "reached": 81,
+   "not_reached": 0,
+   "median_years": 17.0,
+   "fastest_years": 14.6,
+   "slowest_years": 18.8
+  }
  }
 }

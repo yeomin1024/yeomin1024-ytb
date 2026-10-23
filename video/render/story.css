@@ -1,0 +1,24 @@
+/* VERSION: v1.0 — 2026-10-23 — 새로: video/render/story.js v1.0 의 코드 화면 모양 (개미 재기 일지 — 종이인형극 무대 위 화면).
+   글자는 모두 36px 이상 · 색 = 뜻 (빨강 손해 · 청록 회복 · 노랑 기준). 연구·교육용 영상 도구. */
+.vig{position:absolute;inset:0;pointer-events:none;background:radial-gradient(1250px 760px at 55% 52%,rgba(0,0,0,0) 52%,rgba(0,0,0,.5) 100%)}
+.kp{position:absolute;border-radius:28px;background:rgba(10,16,30,.82);border:3px solid rgba(242,230,207,.38);box-shadow:10px 12px 0 rgba(0,0,0,.35)}
+.k1cap{position:absolute;left:0;right:0;top:64px;text-align:center;font-weight:900;font-size:72px;color:var(--N)}
+.k1n{position:absolute;left:0;right:0;top:190px;text-align:center;font-size:104px;line-height:1}
+.k1d{position:absolute;left:0;right:0;top:360px;text-align:center;font-size:80px;line-height:1}
+.k2l{position:absolute;left:60px;right:60px;top:268px;height:6px;border-radius:3px;background:rgba(255,255,255,.3)}
+.k2d{position:absolute;top:253px;width:36px;height:36px;margin-left:-18px;border-radius:50%;background:#9AA7BF}
+.k2d.on{top:245px;width:52px;height:52px;margin-left:-26px;background:var(--Y);box-shadow:0 0 0 14px rgba(255,212,0,.25)}
+.k2y{position:absolute;top:330px;font-size:40px;color:#C9D1E0;transform:translateX(-50%)}
+.k2y.Y{color:var(--Y);font-size:52px}
+.k3x{position:absolute;bottom:40px;font-size:40px;color:#C9D1E0;transform:translateX(-50%)}
+.k3v{position:absolute;font-size:64px;line-height:1;transform:translateX(-100%)}
+.k4b{position:absolute;bottom:110px;border-radius:12px 12px 0 0;transform-origin:50% 100%}
+.k4v{position:absolute;font-size:56px;line-height:1;transform:translateX(-50%)}
+.k4l{position:absolute;bottom:36px;font-size:44px;line-height:1;color:#C9D1E0;transform:translateX(-50%)}
+.k5r{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:22px}
+.kbig{position:absolute;line-height:1;text-shadow:0 6px 30px rgba(0,0,0,.7);transform:translate(-50%,-50%)}
+.k6in{position:absolute;inset:50px 70px;display:flex;flex-direction:column;justify-content:center;gap:26px}
+.k6r{display:flex;gap:28px;align-items:baseline;line-height:1.25;word-break:keep-all}
+.k6n{min-width:1.1em}
+.k6t{color:#F4F6FA}
+.kep{position:absolute;font-size:40px;line-height:1;padding:10px 22px;border-radius:14px;background:rgba(10,16,30,.8);border:3px solid var(--Y);color:var(--Y)}

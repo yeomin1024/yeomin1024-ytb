@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-10-18 — 최초 작성. 사용자 질문 2026-10-18 "1,3번으로 각각 만들어봐 그리고 하나 만들때 토큰 얼마나 들고 가장 많이
+# VERSION: v1.1 — 2026-10-23 — 단계 이름에 이야기형(개미 재기 일지) 다섯 가지를 더함 (주제 탐색·숫자·근거·요약본·제작안·검사·장면 표 — stock/guides/quick_story.md).
+#          사용자 지시 2026-10-23 "… 토큰을 가장 덜 사용하는 구조로 만들어봐". 세는 법은 그대로.
+# (v1.0) — 2026-10-18 — 최초 작성. 사용자 질문 2026-10-18 "1,3번으로 각각 만들어봐 그리고 하나 만들때 토큰 얼마나 들고 가장 많이
 #          드는 부분이 어딘지 알려줘봐": Claude Code 대화 기록(jsonl)의 API 사용량(usage)으로 영상 하나 만드는 데 든 토큰을 단계별로 나눔.
 r"""
 영상 하나 만드는 데 든 토큰 — 단계별로 나누기
@@ -25,7 +27,7 @@ import re
 import sys
 import time
 
-VERSION = "v1.0"
+VERSION = "v1.1"
 W = {"input": 1.0, "write": 1.25, "read": 0.1, "output": 5.0}
 LOG = logging.getLogger("token_cost")
 
@@ -36,6 +38,12 @@ def log(stage, **kv):
 
 # 단계 이름 — 도구 입력(파일 경로·명령)으로 고름. 위에서부터 처음 맞는 것.
 RULES = [
+    # v1.1 이야기형(개미 재기 일지) 단계 — stock/guides/quick_story.md
+    ("이야기: 주제 탐색", r"story_kit\.py topics"),
+    ("이야기: 숫자·근거", r"story_kit\.py (nums|facts)|stock/story/(facts|card)\.md|story/calc/results\.json"),
+    ("이야기: 요약본", r"요약본|story_kit\.py new"),
+    ("이야기: 제작안·검사", r"_제작안|plan_tool|story_check|story_kit\.py (check|export)"),
+    ("이야기: 장면 표", r"scenes\.txt|story_kit\.py scenes|render/story\.(js|css)"),
     ("법령 확인", r"law_text|legalize|/law|claude-law"),
     ("니즈·분석 자료", r"comments\.csv|content_research|analysis\.(md|json)|result/outliers|data_insights|shorts_insights|topic_candidates|used_content"),
     ("계산 코드", r"/calc/|calc\.py"),

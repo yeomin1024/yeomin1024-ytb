@@ -1,5 +1,29 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-23 (주식 이야기형) — 토큰을 덜 쓰는 제작 순서: quick_story · story_kit · 장면 표 → story.js
+
+### 왜 (사용자 지시)
+- "주제 탐색 -> 요약본 만들기 -> 대본, 썸네일 프롬프트 등 영상 소스 -> 영상 만들기 과정을 토큰을 가장 덜 사용하는 구조로 만들어봐 저번에 그렇게 했었으니 참고해서 설계해봐" — 본보기 재테크 `quick_script.md`·`quick_package.md` (2026-10-18).
+- 측정 (`token_cost.py`): 이야기 시리즈를 한 대화로 만든 기록 173번 호출 = 가중 1,370만 — 쌓인 맥락 다시 읽기 약 45% · 시작 맥락 23% · 계산 코드 12% · 지시사항 읽기 11% · 웹 검색 8%. 이번 설계 구간 74번 호출 = 345만 중 84% 가 이어받은 맥락 다시 읽기 → **단계마다 새 대화 · 읽을 것만 · 짧은 도구 출력 · 생성기**.
+
+### 바꾼 것
+| 파일 (버전) | 내용 |
+|---|---|
+| `stock/guides/quick_story.md` (v1.0 새로) | 0 토큰 규칙 · 1 늘 지킬 것(원본 요약) · A 주제 · B 요약본 · C 영상 소스(제작안 꼴·check·export) · D 영상(장면 표 문법) · 끝 점검 |
+| `tools/story_kit.py` (v1.0 새로) | `topics`(쓴 주제·만드는 중·이야기 낱말 한국 댓글 좋아요 순, 정치 댓글 뺌) · `nums`(results.json 한 줄씩) · `facts`(근거 은행 grep) · `new`(요약본 틀·story.json) · `check`(plan_tool + story_check + title_fit 롱폼·쇼츠 + 쇼츠 길이 — 문제 줄만) · `export`(검사 먼저 → 오디오 대본·쇼츠 대본·썸네일 프롬프트 3+1·장면 표 초안) · `scenes`(장면 표 → index.html, EP-DATA 는 그대로 둠) |
+| `stock/story/card.md` (v1.0 새로) | 주인공 카드 — `protagonist.md` 27KB 에서 대본에 필요한 것만 (숫자 A/B 두 줄 — 사용자 확인 전) |
+| `stock/story/facts.md` (v1.0 새로) | 근거 은행 37줄 — 확인한 사실 한 줄 + 출처 + 확인 정도(2차·코드). 웹 검색 전에 여기부터 |
+| `video/render/story.js`·`story.css` (v1.0 새로) | 장면 표 SPEC → 종이인형극 무대 (puppet.js) + 코드 화면 K1 계좌·K2 연표·K3 차트·K4 막대·K5 아이콘·K6 정리 카드·BIG · K7 EP 배지 · 롱폼 1920×1080 / 쇼츠 1080×1920 · 시각 = 문장 번호 |
+| `video/render/render.mjs` (v1.20 → v1.21) | check: `data-words` 칸은 낱말 검사에서 뺌 · 이야기형(`introPart`)은 경주 시작 대신 도입 끝 30초 |
+| `tools/token_cost.py` (v1.0 → v1.1) | 단계 이름에 이야기형 다섯 가지 |
+| `tools/tests/test_story_kit.py` (v1.0 새로) | 금액 읽기 · 장면 표 문법 · 제작안 절 · 쇼츠 길이 — 8개 |
+| `stock/guides/story_script.md` (v1.5 → v1.6) · `stock/story/series.md` (v1.2 → v1.3) · `CLAUDE.md` 주식 줄 | quick_story 가리킴 · 무대 = 장면 표 → story.js · CLAUDE.md 의 '도입 35초' → 30초 (story_script v1.4 와 맞춤) |
+
+### 확인
+- `python3 -m unittest tools/tests/test_story_kit.py tools/tests/test_story_check.py` → 22개 OK.
+- 시험용 영상ID(커밋 안 함)에 테스트 대본 사본 → `check`(도입 35.8초 ❌ — 사용자가 고친 테스트 대본 그대로) → 사본만 도입 줄여 `export` → 장면 표 초안 42장면 → `scenes` → `render.mjs sync --estimate` · `check` 문제 0 (page_errors 10 = 아직 없는 배경 5장) → still 로 K1~K5·BIG·K6·인형 9장 확인 · 쇼츠(세로) 6장면도 check 문제 0.
+- 생성 장면 파일 약 6KB (데이터 칸 빼고) — 손으로 쓴 일본 축제 롱폼 index.html 106KB.
+
 ## 2026-10-23 (주식 분석 10) — 댓글 묶음 엑셀 v1.1: 나라별 시트 · 48주 · 영어 번역 칸 · 조회수 순 영상 시트
 
 ### 왜 (사용자 지시)

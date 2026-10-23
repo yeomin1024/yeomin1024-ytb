@@ -1,4 +1,8 @@
-// VERSION: v1.20 — 2026-10-21 — sync: 장면 파일의 <meta name="end-hold" content="2.5"> 가 있으면 마지막 자막 뒤 그만큼 끝 화면을 둠
+// VERSION: v1.21 — 2026-10-23 — check: 언어 없는 화면(noWords) 낱말 검사에서 data-words="<까닭>" 이 붙은 칸도 뺌 (.code 와 같은 꼴) —
+//   video/render/story.js v1.0 의 K6 정리 카드(한국어는 이 카드에만 — stock/guides/story_script.md 4-6)와 K7 화 배지 EP.N.
+//   · 주식 시작 검사: 장면 파일 K.init 의 introPart(이야기형 — 경주 없음)가 있으면 경주 시작 대신 그 파트의 끝이 30초 안인지 (story_check 와 같은 기준).
+//   사용자 지시 2026-10-23 "… 영상 만들기 과정을 토큰을 가장 덜 사용하는 구조로 만들어봐". 다른 검사는 그대로.
+// (v1.20) — 2026-10-21 — sync: 장면 파일의 <meta name="end-hold" content="2.5"> 가 있으면 마지막 자막 뒤 그만큼 끝 화면을 둠
 //   (영상 길이 = max(오디오, 마지막 자막 끝 + end-hold) — 없으면 예전대로 1.0초). 쇼츠는 끝나자마자 처음부터 다시 돌아서, 끝 화면(관련 동영상
 //   버튼 가리키기 — kit.js v1.10 K.related)을 볼 틈이 1초로는 모자람. 사용자 지시 2026-10-21 "화살표를 최대한 중간에 위치해서 어색하지 않도록 해
 //   영상 만들어서 보여줘봐". 소리는 그대로 (오디오가 끝난 뒤는 무음 — ffmpeg -shortest 를 쓰지 않음).
@@ -254,7 +258,7 @@ const CHECK_FN = ([W, H, SAFE]) => {           // v1.8 무대 크기 W×H · 안
     const fs = parseFloat(getComputedStyle(el).fontSize);
     const txt = n.textContent.trim().slice(0, 24);
     if (fs < 36 && !el.closest("[data-small]")) out.push({ kind: "글자 36px 미만", txt, fs });   // v1.7: data-small = 사용자가 고른 작은 글자 칸 (이유를 속성 값에)
-    if (NOWORDS && !el.closest(".code") && (/[가-힣ぁ-んァ-ン一-龥]/.test(n.textContent) || /[A-Za-z]{2,}/.test(n.textContent.replace(/S&P|NASDAQ|BUY|SELL|HOLD|RSI|VIX|SPY|TQQQ|QYLD|XYLD|JEPI|SCHD|QQQ|QLD|VYM|NDX/g, ""))))
+    if (NOWORDS && !el.closest(".code,[data-words]") && (/[가-힣ぁ-んァ-ン一-龥]/.test(n.textContent) || /[A-Za-z]{2,}/.test(n.textContent.replace(/S&P|NASDAQ|BUY|SELL|HOLD|RSI|VIX|SPY|TQQQ|QYLD|XYLD|JEPI|SCHD|QQQ|QLD|VYM|NDX/g, ""))))
       out.push({ kind: "낱말(언어 없는 화면)", txt });   // K.init opts.noWords — 숫자·기호·A·B·S&P·NASDAQ 만 (stock/guides/README.md 4번)
     if (b.bottom > LOW && !el.closest("#chip")) out.push({ kind: SAFE ? `안전 구역 아래(y ${LOW} 아래)` : cc0 ? "자막 띠(y 880 아래)와 겹침" : "맨 아래 60px(y 1020 아래)", txt, bottom: Math.round(b.bottom) });
     const [T0, R0, L0] = SAFE ? [SAFE[0], SAFE[1], SAFE[3]] : [30, 40, 40];
@@ -295,11 +299,18 @@ async function check() {
   }
   // v1.11 주식: 테스트(경주) 시작 = 도입 + 규칙 길이 — 20초 안 (늦어도 30초)
   if (TOPIC === "stock" && !SHORTS) {
-    const { from, start, parts } = await page.evaluate(() => {
+    const { from, start, parts, intro } = await page.evaluate(() => {
       const from = window.K && window.K.opt && window.K.opt.testFrom, s = from && window.EP.sent.find(x => x.part === from);
-      return { from: from || null, start: s ? s.start : null, parts: [...new Set(window.EP.sent.map(x => x.part))].slice(0, 4).join("·") };
+      const ip = window.K && window.K.opt && window.K.opt.introPart, is = ip ? window.EP.sent.filter(x => x.part === ip) : [];   // v1.21 이야기형
+      return { from: from || null, start: s ? s.start : null, parts: [...new Set(window.EP.sent.map(x => x.part))].slice(0, 4).join("·"),
+        intro: is.length ? { part: ip, end: is[is.length - 1].end } : null };
     });
-    if (!from || start == null) { bad++; log("CHECK", { kind: "테스트 시작 파트 없음", testFrom: from || "없음", parts, fix: "K.init(EP, { …, testFrom: \"<경주 파트 이름>\" })" }); }
+    if (intro) {                                   // v1.21 이야기형(story.js): 경주가 없음 → 도입 끝이 30초 안 (stock/guides/story_script.md 2-1, story_check 와 같은 기준)
+      const lvl = intro.end > 30 ? "problem" : "ok";
+      if (lvl === "problem") bad++;
+      log("CHECK", { kind: "이야기형 도입 끝", part: intro.part, end_s: intro.end.toFixed(1), limit: "30초", level: lvl, estimated: !!(await page.evaluate(() => window.EP.estimated)) });
+    }
+    else if (!from || start == null) { bad++; log("CHECK", { kind: "테스트 시작 파트 없음", testFrom: from || "없음", parts, fix: "K.init(EP, { …, testFrom: \"<경주 파트 이름>\" })" }); }
     else {
       const lvl = start > 30 ? "problem" : start > 20 ? "warn" : "ok";
       if (lvl === "problem") bad++;

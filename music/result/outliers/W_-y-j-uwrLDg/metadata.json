@@ -1,0 +1,117 @@
+{
+ "id": "-y-j-uwrLDg",
+ "title": "늙크크의 가을 플레이리스트🍂",
+ "channel": "빵또A",
+ "channel_id": "UCs5Wjcy4OQC-6PtLFS_xqWA",
+ "subs": 232000,
+ "views": 1273232,
+ "ratio": 5.49,
+ "age_days": 41,
+ "views_per_day": 31054.4,
+ "minutes": 74.1,
+ "likes": 16253,
+ "comments": 394,
+ "published": "2026-09-11",
+ "queries": "검색:플레이리스트 | 검색:플리",
+ "url": "https://www.youtube.com/watch?v=-y-j-uwrLDg",
+ "flag": "",
+ "published_at": "2026-09-11T15:16:38Z",
+ "rank": "W2",
+ "set": "web",
+ "folder": "W_-y-j-uwrLDg",
+ "sources": [
+  "검색:플레이리스트",
+  "검색:플리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "델리스파이스 - 챠우챠우"
+  },
+  {
+   "start": 259,
+   "title": "바이브 - 가을 타나 봐"
+  },
+  {
+   "start": 487,
+   "title": "자우림 - 스물다섯, 스물하나"
+  },
+  {
+   "start": 765,
+   "title": "리도어 - 영원은 그렇듯"
+  },
+  {
+   "start": 996,
+   "title": "박보람 - 혜화동"
+  },
+  {
+   "start": 1253,
+   "title": "규현 - 광화문에서"
+  },
+  {
+   "start": 1530,
+   "title": "태연 - 11:11"
+  },
+  {
+   "start": 1748,
+   "title": "AKMU (악뮤) - 시간과 낙엽"
+  },
+  {
+   "start": 1989,
+   "title": "태연 - 그대라는 시"
+  },
+  {
+   "start": 2191,
+   "title": "이소라 - 바람이 분다"
+  },
+  {
+   "start": 2419,
+   "title": "잔나비 - 주저하는 연인들을 위해"
+  },
+  {
+   "start": 2682,
+   "title": "뜨거운 감자 - 고백"
+  },
+  {
+   "start": 2909,
+   "title": "스탠딩 에그 - 오래된 노래"
+  },
+  {
+   "start": 3175,
+   "title": "잔나비 - 가을밤에 든 생각"
+  },
+  {
+   "start": 3356,
+   "title": "이문세 - 가로수 그늘 아래 서면"
+  },
+  {
+   "start": 3677,
+   "title": "자전거 탄 풍경 - 너에게 난, 나에게 넌"
+  },
+  {
+   "start": 3895,
+   "title": "먼데이 키즈 - 가을 안부"
+  },
+  {
+   "start": 4191,
+   "title": "아이유 - 밤편지"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 394,
+ "comments_top_level": 323,
+ "comments_replies": 71,
+ "comments_by_creator": 13,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 394,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-23T07:38:27",
+ "approved": "2026-10-23T16:38+09:00",
+ "transcript_retried": "2026-10-23T16:44+09:00"
+}

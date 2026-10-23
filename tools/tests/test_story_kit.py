@@ -75,5 +75,18 @@ class PlanTest(unittest.TestCase):
         self.assertAlmostEqual(t, 42 / 6.3, places=1)
 
 
+class DupTest(unittest.TestCase):                           # v1.2 앞 화와 겹침 검사 도우미
+    def test_nums_in(self):
+        got = sk.nums_in(["전재산의 70%인 2억 5천만 원을 손해 봤어요.", "2021년에 8번 매매했어요.", "매달 100만 원씩 넣어요."])
+        self.assertIn("70%", got)
+        self.assertIn("2억5천만원", got)
+        self.assertIn("100만원", got)
+        self.assertNotIn("2021년", got)                       # 연도는 뺌
+        self.assertNotIn("8번", got)                          # 짧은 것은 뺌
+
+    def test_norm(self):
+        self.assertEqual(sk.norm("여러분의 투자도, 꼭 성공하길 바랄게요."), "여러분의투자도꼭성공하길바랄게요")
+
+
 if __name__ == "__main__":
     unittest.main()

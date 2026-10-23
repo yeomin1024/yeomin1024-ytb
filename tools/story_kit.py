@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.1 — 2026-10-23 — scenes: 제작안의 '- 도입 통과:' 줄 → SPEC.introOk (사용자가 통과시킨 도입 — render check 도입 35초에서 경고로).
+# VERSION: v1.2 — 2026-10-23 — check 에 앞 화와 겹침 검사 (사용자 지시 "70% 잃었다는건 처음 시리즈에서만 말하고 다른데서는 다른 경험으로
+#          이야기해야지 중복되면 안돼 다른 내용도 마찬가지야 이전 시리즈에서 썻던 내용들은 똑같이 사용하면 안돼") — dup_check.
+# (v1.1) — 2026-10-23 — scenes: 제작안의 '- 도입 통과:' 줄 → SPEC.introOk (사용자가 통과시킨 도입 — render check 도입 35초에서 경고로).
 #          사용자 지시 2026-10-23 "도입은 그냥 통과시켜 … 도입 마지노선 35초로해".
 # (v1.0) — 2026-10-23 — 새로: '개미 재기 일지'(주식 이야기형) 단계 도구 하나 — 주제 탐색 → 요약본 → 영상 소스 → 영상을 토큰을 가장 덜 쓰게.
 #          사용자 지시 2026-10-23 "주제 탐색 -> 요약본 만들기 -> 대본, 썸네일 프롬프트 등 영상 소스 -> 영상 만들기 과정을 토큰을 가장 덜 사용하는 구조로
@@ -11,7 +13,7 @@
 
   A 주제   python3 tools/story_kit.py topics [--n 15]
   숫자     python3 tools/story_kit.py nums [키 …]            # stock/story/calc/results.json 한 줄씩 (키 일부로 거름)
-  근거     python3 tools/story_kit.py facts [낱말 …] [--url]  # stock/story/facts.md 에서 모든 낱말이 든 줄
+  근거     python3 tools/story_kit.py facts [낱말 …] [--url] [--unused]  # facts.md — --unused = 아직 안 쓴 근거만
   B 요약본 python3 tools/story_kit.py new <화> <영상ID> "<전달 내용>"
   C 검사   python3 tools/story_kit.py check <영상ID>         # 제작안 길이·story_check·제목 2줄 — 문제 줄만
   C 내보내기 python3 tools/story_kit.py export <영상ID> --thumb "줄1/줄2" --pose PHONE [--big "−70%"] [--bg HOME-NIGHT]
@@ -35,7 +37,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 sys.path.insert(0, str(ROOT / "stock" / "story" / "calc"))
 import srt_tool  # noqa: E402
 
-VERSION = "v1.1"
+VERSION = "v1.2"
 LOG = logging.getLogger("story_kit")
 STORY = ROOT / "stock" / "story"
 SOURCE = ROOT / "stock" / "source"
@@ -185,6 +187,8 @@ def cmd_nums(a):
 def cmd_facts(a):
     lines = [l for l in FACTS.read_text("utf-8").splitlines() if l.startswith("- [")]
     hit = [l for l in lines if all(w.lower() in l.lower() for w in a.words)]
+    if a.unused:                                              # v1.2 아직 어느 화에서도 안 쓴 근거만
+        hit = [l for l in hit if "쓴 화" not in l]
     print(f"[FACTS] facts.md {len(lines)}줄 중 {len(hit)}줄 — {' '.join(a.words) or '(전부)'}")
     for l in hit:
         print("  " + (l if a.url else re.sub(r"\s*https?://\S+", "", l)))
@@ -299,6 +303,73 @@ def title_check(title, shorts=False):
     return r.returncode, out
 
 
+NUM_RX = re.compile(r"\d[\d,.]*\s*(?:억(?:\s*\d+\s*천)?(?:만)?\s*원?|천만\s*원|만\s*원|%|퍼센트|배|조|명|번|개월|년)")
+
+
+def ep_sentences(vid):
+    """→ (화, 도입 문장들, 모든 문장들 — 대본 + 쇼츠). 제작안이 없으면 None."""
+    pp = src(vid) / f"{vid}_제작안.txt"
+    if not pp.exists():
+        return None
+    import plan_tool
+    text = pp.read_text("utf-8")
+    scenes, _ = plan_tool.parse(text.split("\n"))
+    intro = [x for sc in scenes if sc["part"] == "도입" for x in sc["sentences"]]
+    every = [x for sc in scenes for x in sc["sentences"]] + shorts_lines(text)
+    return meta(vid).get("ep"), intro, every
+
+
+def nums_in(sentences):
+    out = {}
+    for x in sentences:
+        for m in NUM_RX.finditer(x):
+            t = re.sub(r"\s+", "", m.group(0))
+            if re.fullmatch(r"(19|20)\d\d년", t) or len(t) < 3:          # 연도·'8번' 같은 짧은 것은 뺌
+                continue
+            out.setdefault(t, x)
+    return out
+
+
+def norm(x):
+    return re.sub(r"[\s,.?!·'\"‘’“”…]", "", x)
+
+
+def dup_check(vid):
+    """v1.2 앞 화와 겹침 (사용자 지시 2026-10-23 "70% 잃었다는건 처음 시리즈에서만 말하고 다른데서는 다른 경험으로 … 이전 시리즈에서
+    썼던 내용들은 똑같이 사용하면 안돼"): 앞 화 도입(그 화의 핵심 경험)의 숫자를 다시 쓰면 문제 · 거의 같은 문장(0.85 이상)이면 문제 ·
+    그 밖의 같은 숫자는 경고(사람이 본다)."""
+    import difflib
+    me = ep_sentences(vid)
+    if not me or not isinstance(me[0], int):
+        return [], []
+    ep, _, mine = me
+    probs, warns = [], []
+    my_nums = nums_in(mine)
+    for p_ in sorted(SOURCE.glob("*/story.json")):
+        other = json.loads(p_.read_text("utf-8"))
+        if not isinstance(other.get("ep"), int) or other["ep"] >= ep or other["id"] == vid:
+            continue
+        got = ep_sentences(other["id"])
+        if not got:
+            continue
+        oep, ointro, oall = got
+        core, rest = nums_in(ointro), nums_in(oall)
+        for t, x in my_nums.items():
+            if t in core:
+                probs.append(f"{oep}화 핵심 경험(도입)의 숫자 '{t}' 를 다시 씀 — 이 화의 경험으로 바꾼다: {x[:50]}")
+            elif t in rest:
+                warns.append(f"{oep}화에 나온 숫자 '{t}' — 같은 사례·근거면 바꾼다: {x[:50]}")
+        on = [norm(y) for y in oall if len(norm(y)) >= 12]
+        for x in mine:
+            nx = norm(x)
+            if len(nx) < 12:
+                continue
+            best = max((difflib.SequenceMatcher(None, nx, y).ratio() for y in on), default=0)
+            if best >= 0.85:
+                probs.append(f"{oep}화와 거의 같은 문장 ({best:.2f}): {x[:50]}")
+    return probs, warns
+
+
 def cmd_check(a):
     plan = plan_path(a.vid)
     code, out = run_plan(plan, ["--write"])
@@ -328,6 +399,13 @@ def cmd_check(a):
         t = est(sl)
         flag = "✅" if 48 <= t <= 58 else "⚠️"
         print(f"[SHORTS] {flag} 문장 {len(sl)} · 추정 {t:.0f}초 (목표 50~55초) · 첫 문장 {len(sl[0])}자")
+    dp, dw = dup_check(a.vid)
+    for x in dp:
+        print(f"❌ {x}")
+    for x in dw:
+        print(f"⚠️ {x}")
+    print(f"[DUP] 앞 화와 겹침 problems={len(dp)} warnings={len(dw)}")
+    bad |= 1 if dp else 0
     log("CHECK", plan=plan.name, problems=bad)
     return 1 if bad else 0
 
@@ -747,7 +825,7 @@ def main(argv=None):
     sub = ap.add_subparsers(dest="cmd", required=True)
     p = sub.add_parser("topics"); p.add_argument("--n", type=int, default=15)
     p = sub.add_parser("nums"); p.add_argument("keys", nargs="*")
-    p = sub.add_parser("facts"); p.add_argument("words", nargs="*"); p.add_argument("--url", action="store_true")
+    p = sub.add_parser("facts"); p.add_argument("words", nargs="*"); p.add_argument("--url", action="store_true"); p.add_argument("--unused", action="store_true")
     p = sub.add_parser("new"); p.add_argument("ep", type=int); p.add_argument("vid"); p.add_argument("message"); p.add_argument("--force", action="store_true")
     p = sub.add_parser("check"); p.add_argument("vid")
     p = sub.add_parser("export"); p.add_argument("vid"); p.add_argument("--thumb", required=True, help='썸네일 문구 2줄 "줄1/줄2"')

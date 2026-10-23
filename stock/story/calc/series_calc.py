@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.5 — 2026-10-23 — 주인공 숫자를 B(손실 2억 5천 = 전재산의 70%)로 통일 (사용자 지시 2026-10-23 "손실은 70%로 하고").
+# VERSION: v1.6 — 2026-10-23 — 화마다 다른 경험 (사용자 지시 "70% 잃었다는건 처음 시리즈에서만 말하고 다른데서는 다른 경험으로 이야기해야지
+#          중복되면 안돼"): 2화 ep2(2022 손실·2024 3배 ETF)·averaging_down(물타기 예시)·ep2_recover(2024 계좌로 넣은 돈 되찾기) ·
+#          3화 ep3(2021 수익 → 2022 손실)·rebalance(주식 60% 비중 맞추기 vs 100% — 닷컴 구간) · 4화 ep4(2023 2차전지 몰빵). 가상 연표 숫자 T = protagonist.md v1.5.
+# (v1.5) — 2026-10-23 — 주인공 숫자를 B(손실 2억 5천 = 전재산의 70%)로 통일 (사용자 지시 2026-10-23 "손실은 70%로 하고").
 #          가상 연표: 2026-06-18 계좌 순 2억 7,714만 + 보증금 8,000만 = 전재산 3억 5,714만(꼭대기) → 지금 계좌 평가 6,714만 − 마통 4,000만
 #          = 순 2,714만 + 보증금 = 1억 714만. recovery_math·persona_april(6월 꼭대기에서 절반 매도했다면)·recover_b(투자할 수 있는 돈 = 순 2,714만)를
 #          이 숫자로 다시 셈 · dca_10y 에 평균(mean_x) · months_to_recover(원금 2억 4천 회복 — 설정 A 기준)는 뺌. 넣은 돈(원금) 2억 4천·4월 원금 회복 +800만은 그대로.
@@ -29,7 +32,7 @@ ROOT = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(ROOT / "tools"))
 from backtest import data  # noqa: E402
 
-VERSION = "v1.5"
+VERSION = "v1.6"
 OUT = Path(__file__).resolve().parent / "results.json"
 LOG = logging.getLogger("series_calc")
 START = "2000-01-01"          # 2000년 이후 (사례는 최근 먼저 — CLAUDE.md)
@@ -139,8 +142,9 @@ def lev3(daily: pd.Series):
 
 
 def margin_call():
-    """신용 담보유지비율 140%(통상 — 증권사·종목마다 다름): 내 돈 1억 + 신용 1억 = 2억 어치 → 평가액 < 1.4억 이면 반대매매."""
-    own, loan, keep = 10000, 10000, 1.40
+    """신용 담보유지비율 140%(통상 — 증권사·종목마다 다름): 내 돈 5천만 + 신용 5천만 = 1억 어치 → 평가액 < 7천만 이면 반대매매.
+    v1.6 예시 금액 1억 → 5천만 (1화 도입의 '1억 원'과 겹치지 않게)."""
+    own, loan, keep = 5000, 5000, 1.40
     drop = 1 - keep * loan / (own + loan)
     out = dict(own_만원=own, loan_만원=loan, keep_ratio=keep, position_drop_pct=round(100 * drop, 1),
                underlying_drop_if_2x_pct=round(100 * drop / 2, 1), own_left_at_call_만원=round((own + loan) * (1 - drop) - loan))
@@ -273,11 +277,112 @@ def fomo(price: pd.Series, rally=0.15, look=6, hold=24, k=12):
         lump, split = np.array(lump), np.array(split)
         return dict(n=len(lump), lump_avg_만원=round(float(lump.mean())), split_avg_만원=round(float(split.mean())),
                     lump_worst_만원=round(float(lump.min())), split_worst_만원=round(float(split.min())),
-                    lump_loss_share_pct=round(100 * float((lump < 10000).mean()), 1), split_loss_share_pct=round(100 * float((split < 10000).mean()), 1))
+                    lump_loss_share_pct=round(100 * float((lump < 10000).mean()), 1), split_loss_share_pct=round(100 * float((split < 10000).mean()), 1),
+                    lump_avg_gain_pct=round(100 * (float(lump.mean()) / 10000 - 1), 1))   # v1.6 '넣은 돈보다 평균 몇 %' (금액 대신)
     rally_starts = [s for s in range(look, len(p)) if p[s] / p[s - look] - 1 >= rally]
     out = dict(rule=f"지난 {look}개월 +{int(rally * 100)}% 이상", hold_months=hold, split_months=k,
                rally_months=len(rally_starts), rally=run(rally_starts), all_months=run(range(look, len(p))))
     log("FOMO", rally_months=len(rally_starts), rally=out["rally"], all=out["all_months"])
+    return out
+
+
+# ---------------------------------------------------------------- v1.6 화마다 다른 경험 (사용자 지시 2026-10-23 "70% 잃었다는건 처음 시리즈에서만
+# 말하고 다른데서는 다른 경험으로 이야기해야지 중복되면 안돼") — 가상 연표 숫자(protagonist.md v1.5 5번)로 셈. 1화 = 2026 손실 70%(persona_b).
+T = dict(put_2021=6200, acct_2021=7600, put_2022=7400, acct_2022=4300, minus_2022=2000, put_2023=8600, acct_2023=6100,
+         theme_in_2023=4500, theme_2024=2400, soxl_in_2024=2000, soxl_out_2024=900, put_2024=9800, acct_2024=4200)
+
+
+def ep2_numbers():
+    """2화 (빨리 메우려다): 2022 말 손실·본전까지 필요한 수익률 · 2024 3배 레버리지 ETF 손실 (가상)."""
+    loss = T["put_2022"] - T["acct_2022"]
+    out = dict(loss_2022_만원=loss, loss_2022_pct=round(100 * loss / T["put_2022"], 1),
+               need_2022_pct=round(100 * (T["put_2022"] / T["acct_2022"] - 1), 1), minus_2022_만원=T["minus_2022"],
+               soxl_in_만원=T["soxl_in_2024"], soxl_out_만원=T["soxl_out_2024"],
+               soxl_pct=round(100 * (T["soxl_out_2024"] / T["soxl_in_2024"] - 1), 1))
+    log("EP2", **out)
+    return out
+
+
+def averaging_down(first=1000, add=1000, drop1=0.5, drop2=0.3):
+    """물타기 예시: 처음 first 만원 매수 → drop1 하락 → add 만원 더 매수(빌린 돈) → 본전까지 필요한 상승 · 그 뒤 drop2 더 떨어지면 손실 (가격 비율만)."""
+    units = first / 1.0 + add / (1 - drop1)              # 처음 가격 1.0
+    cost = first + add
+    avg = cost / units
+    p1 = 1 - drop1
+    p2 = p1 * (1 - drop2)
+    out = dict(first_만원=first, add_만원=add, drop1_pct=round(100 * drop1), avg_price_vs_first=round(avg, 3),
+               need_without_pct=round(100 * (1 / p1 - 1), 1), need_with_pct=round(100 * (avg / p1 - 1), 1),
+               drop2_pct=round(100 * drop2), loss_without_만원=round(first - first * p2), loss_with_만원=round(cost - units * p2))
+    log("AVERAGING_DOWN", **out)
+    return out
+
+
+def months_to_recover(price: pd.Series, seed, principal, monthly, max_months=180):
+    """시작 달마다: seed 를 지수에 넣고 매달 monthly 를 더 넣을 때, 계좌가 '넣은 돈 전체'(principal + 새로 넣은 돈)를 넘는 첫 달.
+    자료가 max_months 안 남은 시작 달은 뺌, 끝까지 못 넘으면 None (가격만)."""
+    p = price.to_numpy()
+    res = []
+    for s in range(len(p)):
+        if s + max_months >= len(p):
+            break
+        units, ok = seed / p[s], None
+        for m in range(1, max_months + 1):
+            units += monthly / p[s + m]
+            if units * p[s + m] >= principal + monthly * m:
+                ok = m
+                break
+        res.append(ok)
+    got = [m for m in res if m is not None]
+    return dict(seed_만원=seed, principal_만원=principal, monthly_만원=monthly, starts=len(res), first_start=str(price.index[0].date())[:7],
+                last_start=str(price.index[len(res) - 1].date())[:7], recovered=len(got), not_recovered=len(res) - len(got),
+                median_years=round(float(np.median(got)) / 12, 1) if got else None,
+                fastest_years=round(min(got) / 12, 1) if got else None, slowest_years=round(max(got) / 12, 1) if got else None,
+                within_5y=sum(m <= 60 for m in got))
+
+
+def ep2_recover(price: pd.Series):
+    """2화: 2024년의 계좌 4,200만(넣은 돈 9,800만)에서 지수 + 매달 100만으로 '넣은 돈'을 되찾기까지 (2000년 이후 아무 달 시작)."""
+    out = months_to_recover(price, T["acct_2024"], T["put_2024"], 100)
+    log("EP2_RECOVER", **out)
+    return out
+
+
+def ep3_numbers():
+    """3화 (욕심): 2021년 초 넣은 돈 6,200만 → 계좌 7,600만(+1,400만)에서 매도하지 않음 → 2022년 계좌 4,300만(넣은 돈 7,400만) (가상)."""
+    gain = T["acct_2021"] - T["put_2021"]
+    loss = T["acct_2022"] - T["put_2022"]
+    out = dict(gain_2021_만원=gain, loss_2022_만원=loss, swing_만원=gain - loss, gain_2021_pct=round(100 * gain / T["put_2021"], 1))
+    log("EP3", **out)
+    return out
+
+
+def rebalance(price: pd.Series, stock=0.6):   # v1.6 60% (70% 는 1화 손실 70% 와 겹침)
+    """주식 stock 비중을 매달 다시 맞춤(나머지 현금 — 이자 0) vs 주식 100%: 2000-01 이후 끝 배수·가장 크게 떨어진 폭 · 닷컴 2000-08 → 2003-02."""
+    p = price.to_numpy()
+    full, mix = [1.0], [1.0]
+    for i in range(1, len(p)):
+        r = p[i] / p[i - 1]
+        full.append(full[-1] * r)
+        mix.append(mix[-1] * (stock * r + (1 - stock)))
+    def mdd(x):
+        x = np.array(x); peak = np.maximum.accumulate(x); return round(float((x / peak - 1).min()) * 100, 1)
+    idx = price.index
+    def between(x, a, b):
+        ia, ib = idx.get_indexer([pd.Timestamp(a)], method="nearest")[0], idx.get_indexer([pd.Timestamp(b)], method="nearest")[0]
+        return round(100 * (x[ib] / x[ia] - 1), 1)
+    out = dict(stock_pct=round(100 * stock), first=str(idx[0].date())[:7], last=str(idx[-1].date())[:7],
+               full_multiple=round(full[-1], 2), mix_multiple=round(mix[-1], 2), full_mdd_pct=mdd(full), mix_mdd_pct=mdd(mix),
+               dotcom_full_pct=between(full, "2000-08-01", "2003-02-01"), dotcom_mix_pct=between(mix, "2000-08-01", "2003-02-01"))   # 닷컴 (1화가 쓴 2007~09 금융위기는 뺌)
+    log("REBALANCE", **out)
+    return out
+
+
+def ep4_numbers():
+    """4화 (포모): 2023년 여름 계좌 6,100만 중 2차전지 4,500만(6종목 중 4종목) → 2024년 8월 2,400만 (가상)."""
+    out = dict(acct_2023_만원=T["acct_2023"], theme_in_만원=T["theme_in_2023"], theme_share_pct=round(100 * T["theme_in_2023"] / T["acct_2023"], 1),
+               theme_2024_만원=T["theme_2024"], theme_pct=round(100 * (T["theme_2024"] / T["theme_in_2023"] - 1), 1),
+               theme_lost_만원=T["theme_in_2023"] - T["theme_2024"])
+    log("EP4", **out)
     return out
 
 
@@ -294,7 +399,9 @@ def main():
                assumptions="S&P 500 가격만(배당 빼고) · 환율·세금·수수료·현금 이자 없음 · 3배는 일별 맞추기·비용 없음 · 월평균 가격",
                persona=P, persona_costs=persona_costs(), recovery_math=recovery_math(), drawdowns=drawdowns(price),
                holding_loss=holding_loss(price), lev3=lev3(daily), margin_call=margin_call(), missing_best_days=missing_best_days(daily),
-               fomo=fomo(price), persona_april=persona_april(), dca_10y=dca_10y(price), persona_b=persona_b(), recover_b=recover_b(price), boxpi_sp=boxpi_sp(price))
+               fomo=fomo(price), persona_april=persona_april(), dca_10y=dca_10y(price), persona_b=persona_b(), recover_b=recover_b(price), boxpi_sp=boxpi_sp(price),
+               ep2=ep2_numbers(), averaging_down=averaging_down(), ep2_recover=ep2_recover(price), ep3=ep3_numbers(),
+               rebalance=rebalance(price), ep4=ep4_numbers())
     OUT.write_text(json.dumps(res, ensure_ascii=False, indent=1), "utf-8")
     log("DONE", out=str(OUT.relative_to(ROOT)), sec=round(time.time() - t0, 1))
 

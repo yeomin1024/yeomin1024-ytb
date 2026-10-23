@@ -1,0 +1,91 @@
+{
+ "id": "UiSDpyl-fxU",
+ "title": "평균 7천만 원은 거짓말입니다. 60대 통장 잔고의 뼈아픈 진짜 현실",
+ "channel": "인생 2막",
+ "channel_id": "UCqpaI6OOQDC7gNsjGfAshKg",
+ "subs": 679,
+ "views": 98036,
+ "ratio": 144.38,
+ "age_days": 48,
+ "views_per_day": 2042.4,
+ "minutes": 24.0,
+ "likes": 871,
+ "comments": 68,
+ "published": "2026-09-05",
+ "queries": "검색:노후자금",
+ "url": "https://www.youtube.com/watch?v=UiSDpyl-fxU",
+ "flag": "",
+ "published_at": "2026-09-05T04:48:00Z",
+ "rank": "W4",
+ "set": "web",
+ "folder": "W_UiSDpyl-fxU",
+ "sources": [
+  "검색:노후자금"
+ ],
+ "source": "web",
+ "tags": [
+  "국민연금",
+  "노후 준비",
+  "은퇴 후 삶",
+  "60대 가장",
+  "정년퇴직",
+  "60대",
+  "60대통장잔고",
+  "노후자금",
+  "은퇴자금",
+  "60대현실",
+  "샌드위치세대",
+  "노후준비",
+  "60대재테크",
+  "기초연금",
+  "노인빈곤",
+  "중장년층",
+  "인생2막",
+  "60대건강",
+  "노후생활비",
+  "은퇴후삶",
+  "은퇴고민",
+  "부부노후",
+  "50대노후준비",
+  "70대현실",
+  "60대인생조언",
+  "힐링",
+  "심리"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "평균 7천만 원이라는 잔인한 거짓말과 60대의 진짜 통장 잔고"
+  },
+  {
+   "start": 150,
+   "title": "[1장] 샌드위치 세대의 청구서: 평생 일했는데 내 돈은 다 어디로 갔을까?"
+  },
+  {
+   "start": 630,
+   "title": "[2장] 2천만 원의 현실과 선술집에서 터져 나온 친구의 오열"
+  },
+  {
+   "start": 1050,
+   "title": "[3장] 60대 이후 인생 재설계: 돈의 쳇바퀴에서 내려와 진짜 부자로 사는 법"
+  },
+  {
+   "start": 1320,
+   "title": "우리 세대에게 바치는 헌사: 당신의 굳은살 박인 손이 가장 위대합니다"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-23 13:28까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 68,
+ "comments_top_level": 46,
+ "comments_replies": 22,
+ "comments_by_creator": 6,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 68,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-23T07:28:44",
+ "approved": "2026-10-23T16:28+09:00"
+}

@@ -1,0 +1,97 @@
+{
+ "id": "7rQLpg5TG-I",
+ "title": "산소에도 만기가 있습니다, 제사를 접은 집에서 선산 다툼이 먼저 생기는 이유",
+ "channel": "경제참견",
+ "channel_id": "UCQ1F8ktUak5ddwIWl9T-IoQ",
+ "subs": 1000,
+ "views": 669154,
+ "ratio": 669.15,
+ "age_days": 47,
+ "views_per_day": 14237.3,
+ "minutes": 9.6,
+ "likes": 2923,
+ "comments": 489,
+ "published": "2026-09-05",
+ "queries": "검색:노후준비",
+ "url": "https://www.youtube.com/watch?v=7rQLpg5TG-I",
+ "flag": "",
+ "published_at": "2026-09-05T09:00:04Z",
+ "rank": "W1",
+ "set": "web",
+ "folder": "W_7rQLpg5TG-I",
+ "sources": [
+  "검색:노후준비"
+ ],
+ "source": "web",
+ "tags": [
+  "상속세",
+  "증여",
+  "재산분할",
+  "유산상속",
+  "상속소송",
+  "기여분",
+  "제사주재자",
+  "분묘",
+  "묘지이장",
+  "명절",
+  "등기부등본",
+  "노후준비",
+  "형제"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "벌초대행 비용은 느는데 제사는 왜 줄어들까요"
+  },
+  {
+   "start": 38,
+   "title": "성균관 차례상 표준안, 그만두자고 먼저 말한 쪽"
+  },
+  {
+   "start": 91,
+   "title": "제사 안 지내는 집, 끝낸 건 며느리가 아니었습니다"
+  },
+  {
+   "start": 166,
+   "title": "분묘 설치기간 15년, 산소에도 만기가 있습니다"
+  },
+  {
+   "start": 183,
+   "title": "봉안당 수목장 사용기간과 관리비"
+  },
+  {
+   "start": 260,
+   "title": "제사주재자 대법원 판결, 장남 우선이 깨졌습니다"
+  },
+  {
+   "start": 336,
+   "title": "종중 재산은 상속이 안 됩니다"
+  },
+  {
+   "start": 421,
+   "title": "제사가 대신 해주던 일"
+  },
+  {
+   "start": 476,
+   "title": "등기부등본, 이번 추석에 확인할 세 가지"
+  },
+  {
+   "start": 543,
+   "title": "접는 것과 비워두는 것은 다릅니다"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "RequestBlocked: \nCould not retrieve a transcript for the video https://www.youtube.com/watch?v=7rQLpg5TG-I! This is most likely caused b",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 489,
+ "comments_top_level": 215,
+ "comments_replies": 274,
+ "comments_by_creator": 84,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 489,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-23T07:28:36",
+ "approved": "2026-10-23T16:28+09:00"
+}

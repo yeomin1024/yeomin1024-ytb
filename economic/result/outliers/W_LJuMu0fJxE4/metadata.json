@@ -1,0 +1,59 @@
+{
+ "id": "LJuMu0fJxE4",
+ "title": "30대, 인생을 결정짓는 10가지 | 부자가 되고 싶다면? 30대에 해야 할 선택",
+ "channel": "부투스쿨 TV",
+ "channel_id": "UCCTOzFObhmZoMkJVQKgAQJQ",
+ "subs": 306000,
+ "views": 93708,
+ "ratio": 0.31,
+ "age_days": 6,
+ "views_per_day": 15618.0,
+ "minutes": 7.9,
+ "likes": 884,
+ "comments": 57,
+ "published": "2026-10-16",
+ "queries": "검색:부자되는법",
+ "url": "https://www.youtube.com/watch?v=LJuMu0fJxE4",
+ "flag": "",
+ "published_at": "2026-10-16T11:00:28Z",
+ "rank": "W28",
+ "set": "web",
+ "folder": "W_LJuMu0fJxE4",
+ "sources": [
+  "검색:부자되는법"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "30대에 돈과 자산 키우는 법"
+  },
+  {
+   "start": 102,
+   "title": "경쟁력과 인간관계 관리하는 방법"
+  },
+  {
+   "start": 273,
+   "title": "결혼·가족·소비, 30대에 정리할 것"
+  },
+  {
+   "start": 395,
+   "title": "40대를 위한 인생 설계"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-23 13:28까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 57,
+ "comments_top_level": 29,
+ "comments_replies": 28,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 57,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-23T07:31:59",
+ "approved": "2026-10-23T16:32+09:00"
+}

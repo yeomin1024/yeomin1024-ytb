@@ -1,0 +1,83 @@
+{
+ "id": "N45-RHBz-ig",
+ "title": "시장 공포 극에 달했을 때에도 잃지 않는 투자하는 법 (홍춘욱 박사)",
+ "channel": "홍춘욱의 경제강의노트",
+ "channel_id": "UCmNbuxmvRVv9OcdAO0cpLnw",
+ "subs": 385000,
+ "views": 54976,
+ "ratio": 0.14,
+ "age_days": 0,
+ "views_per_day": 54976.0,
+ "minutes": 10.7,
+ "likes": 590,
+ "comments": 15,
+ "published": "2026-10-22",
+ "queries": "검색:투자전략",
+ "url": "https://www.youtube.com/watch?v=N45-RHBz-ig",
+ "flag": "",
+ "published_at": "2026-10-22T10:39:42Z",
+ "rank": "W32",
+ "set": "web",
+ "folder": "W_N45-RHBz-ig",
+ "sources": [
+  "검색:투자전략"
+ ],
+ "source": "web",
+ "tags": [
+  "홍춘욱",
+  "홍춘욱 박사",
+  "투자",
+  "홍춘욱박사",
+  "주식투자",
+  "투자전략",
+  "미국주식",
+  "채권",
+  "금투자",
+  "금값",
+  "투자4분법",
+  "투자5분법",
+  "한국주식",
+  "미국주식투자",
+  "ETF투자"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트"
+  },
+  {
+   "start": 59,
+   "title": "공포 탐욕 지수의 의미"
+  },
+  {
+   "start": 256,
+   "title": "공포 탐욕 지수와 VIX의 차이"
+  },
+  {
+   "start": 345,
+   "title": "VIX 지수가 지금 낮은 이유"
+  },
+  {
+   "start": 424,
+   "title": "현 시장에서의 투자 전략"
+  },
+  {
+   "start": 515,
+   "title": "저점매수를 고민하시는 분들께"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-23 13:28까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 15,
+ "comments_top_level": 10,
+ "comments_replies": 5,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 15,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-23T07:32:06",
+ "approved": "2026-10-23T16:32+09:00"
+}

@@ -1,0 +1,76 @@
+{
+ "id": "BUmOSBZA8kE",
+ "title": "은퇴자 포트폴리오, 커버드콜을 이렇게 쓰면 망가집니다",
+ "channel": "여운봉 부자사관학교",
+ "channel_id": "UCH9dsV-DAyvtVG4fF7ScgbQ",
+ "subs": 177000,
+ "views": 113288,
+ "ratio": 0.64,
+ "age_days": 7,
+ "views_per_day": 16184.0,
+ "minutes": 11.6,
+ "likes": 1445,
+ "comments": 247,
+ "published": "2026-10-15",
+ "queries": "검색:포트폴리오",
+ "url": "https://www.youtube.com/watch?v=BUmOSBZA8kE",
+ "flag": "",
+ "published_at": "2026-10-15T21:00:28Z",
+ "rank": "W16",
+ "set": "web",
+ "folder": "W_BUmOSBZA8kE",
+ "sources": [
+  "검색:포트폴리오"
+ ],
+ "source": "web",
+ "tags": [
+  "커버드콜",
+  "리밸런싱",
+  "월배당ETF",
+  "저수지투자법"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "은퇴 후 매월 월급처럼 받는 '커버드콜 ETF'의 치명적 함정"
+  },
+  {
+   "start": 83,
+   "title": "내 노후 자금을 지키고 불리는 마법의 공식, '리밸런싱'이란?"
+  },
+  {
+   "start": 136,
+   "title": "커버드콜 ETF 수익 구조 완벽하게 이해하기 (천장이 낮은 집)"
+  },
+  {
+   "start": 307,
+   "title": "커버드콜이 하락장 이후 원금 회복이 유독 힘든 진짜 이유"
+  },
+  {
+   "start": 406,
+   "title": "하락장에서 커버드콜 ETF를 현명하게 관리하는 3가지 비법"
+  },
+  {
+   "start": 488,
+   "title": "목표 분배율에 따라 달라지는 커버드콜 상품 제대로 고르는 법"
+  },
+  {
+   "start": 577,
+   "title": "주식을 팔지 않고도 수익 내는 은퇴자 포트폴리오 실전 꿀팁 (분배금 리밸런싱)"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-23 13:28까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 247,
+ "comments_top_level": 93,
+ "comments_replies": 154,
+ "comments_by_creator": 97,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 247,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-23T07:31:39",
+ "approved": "2026-10-23T16:31+09:00"
+}

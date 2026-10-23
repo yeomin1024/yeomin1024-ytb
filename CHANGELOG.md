@@ -24,7 +24,10 @@
 - unittest 44개 OK (subs_tool · story_kit · story_check)
 - `render.mjs check stock pogi-sonjeol-2026-10` → cuts=48 problems=0 page_errors=52 (배경 5 + 소품 21 그림 아직 없음 × 2) · 쇼츠 cuts=6 problems=0 page_errors=16
 - still 확인 (임시 그림): 소품이 오른쪽 바닥에 섬 · BIG 숫자가 소품 위 · 소품 둘이 인형 책상과 떨어짐 · 쇼츠 소품이 인형 머리·#1 배지와 닿지 않음 (처음 still 에서 닿아서 크기·높이를 줄임)
-- 남은 것: 정리 부분을 빼서 1~4화 추정 길이가 7분보다 2~7초 짧음 — 실제 오디오로 다시 보고, 모자라면 사용자 확인 뒤 문장을 더함
+- **1화 내레이션(Kaggle, 작업 중 도착)**: 롱폼 `narration.mp3` 에서 문장 93과 카드 쉼(389.758~395.958초, 6.2초)만 표본 단위로 잘라 냄 — 자를 자리 앞 0.15초 RMS 0.0·0.3(무음), 다시 인코딩 뒤에도 새 문장 93 시작 389.758초 그대로 · `tts_narration.json`(96문장·405.97초·카드 없음·대본 해시)·`tts_report.md` · `tts_narration check` ok=True · `srt_tool build` → `align-audio`(boundariesNotSilent=0) → `render.mjs sync` (롱폼 406.57초 · 쇼츠 40.19초)
+- 실제 시각 render check: 롱폼 problems=0 (도입 끝 34.4초 — 35초 안) · 쇼츠 problems=0
+- 언어별 자막 SRT `subs_tool build` (실제 시각 — 9개 언어, 롱폼 107~118개 · 쇼츠 11~12개, 영어 SRT 6:29.758 = 잘라 낸 뒤 새 문장 93 시작과 같음)
+- 남은 것: 1화 롱폼 실제 6:46 · 2~4화 추정 6:53~6:58 — 7분보다 짧음 (자르기 전 1화도 6:52) → 사용자 확인 뒤 문장을 더할지
 - 연구·교육용 영상 도구 — 투자 권유 아님.
 
 ## 2026-10-23 (주식 이야기형 5) — 1화 화면·썸네일에 영어도 없음 · 언어별 자막 9개 언어

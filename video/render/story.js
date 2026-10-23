@@ -1,4 +1,6 @@
-// VERSION: v1.4 — 2026-10-23 — ① 정리 카드(K6) 뺌 (사용자 지시 "그냥 정리 부분은 빼자"). ② 설명 소품 그림 (사용자 지시 "설명에 필요한 이미지 요소들은
+// VERSION: v1.5 — 2026-10-23 — 배경을 화면 아래 끝까지 (ChatGPT 배경 5장이 올라와 still 로 보니 아래 약 10% — 쇼츠 15% — 가 빈 남색 띠, 바닥 줄도
+//   인형 발보다 높았음): bg y 0.35 → −2.8 · w 54 → 56 (쇼츠 y 0.2 → −4.4 · w 40 → 44) — 바닥 줄(그림 높이 80%)이 화면 약 74%(쇼츠 81%).
+// (v1.4) — 2026-10-23 — ① 정리 카드(K6) 뺌 (사용자 지시 "그냥 정리 부분은 빼자"). ② 설명 소품 그림 (사용자 지시 "설명에 필요한 이미지 요소들은
 //   왜 생성안해?"): SPEC.props = {이름: 'props/<이름>.png'} (ChatGPT 종이 소품 — stock/story/puppet/props_chatgpt.md) · 장면의 props 는 무대 위
 //   종이 인형처럼 섬 (롱폼: 오른쪽 바닥 · 쇼츠: 위 가운데에 떠 있음) · 튀어나옴(pop)·솟아오름(rise) · 같은 자리 다음 소품이 나오면 앞 소품은 사라짐 ·
 //   BIG 과 같이 쓰면 숫자는 소품 위로 (그림이 없으면 puppet.js 임시 그림).
@@ -20,7 +22,7 @@
 (function () {
   "use strict";
   const S_ = (window.Story = {});
-  S_.VERSION = "v1.4";
+  S_.VERSION = "v1.5";
   S_.POSES = { BONSEOK: "P-BONSEOK.png", WALK: "P-BONSEOK-WALK.png", PHONE: "P-BONSEOK-PHONE.png", DESPAIR: "P-BONSEOK-DESPAIR.png",
     RESOLVE: "P-BONSEOK-RESOLVE.png", STUDY: "P-BONSEOK-STUDY.png", BACK: "P-BONSEOK-BACK.png", SMILE: "P-BONSEOK-SMILE.png", CROWD: "P-CROWD.png" };
   S_.BGS = { "HOME-NIGHT": "P-HOME-NIGHT.jpg", OFFICE: "P-OFFICE.jpg", "STREET-DAWN": "P-STREET-DAWN.jpg", BOARD: "P-BOARD.jpg", PAPER: "P-PAPER.jpg" };
@@ -234,7 +236,8 @@
       const cool = pz.some(p => p.from == null && COOL_POSE.has(p.pose));
       const actors = [], propActs = [];
       const set = ST.set(a, b, st => {
-        st.bg("BG_" + (s.bg || "PAPER"), { v: 0.8, y: V ? 0.2 : 0.35, w: V ? 40 : 54 });
+        // v1.5 배경이 화면 아래까지 (예전 y 0.35·w 54 는 아래 약 10% — 쇼츠 15% — 가 빈 띠) · 바닥 줄(그림 높이 80%)이 인형 발 높이 근처
+        st.bg("BG_" + (s.bg || "PAPER"), { v: 0.8, y: V ? -4.4 : -2.8, w: V ? 44 : 56 });
         pz.forEach(p => actors.push(addActor(st, p)));
         pr.forEach(p => propActs.push(addProp(st, p, new Set(pr.map(q => q.pos)).size, big)));
         st.part(Puppet.floaters(cool ? { n: 40, inner: "rgba(180,200,255,1)", outer: "rgba(90,110,200,0)", opacity: 0.55, speed: [0.12, 0.35] }

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-10-22 — 새로: 모든 댓글에 유형 하나 (사용자 지시 2026-10-21 "너 분석 영상들의 모든 댓글 유형 나눠서 통계내서 분석하고 있는가
+# VERSION: v1.0.1 — 2026-10-23 — iter_videos 댓글에 published(댓글 단 때) 칸을 더함 (comment_clusters.py --by comment 가 comments.csv 를 두 번 읽지 않게). 그 밖 그대로.
+# v1.0 — 2026-10-22 — 새로: 모든 댓글에 유형 하나 (사용자 지시 2026-10-21 "너 분석 영상들의 모든 댓글 유형 나눠서 통계내서 분석하고 있는가
 #          맞아? 일부분 밖에 없는거 같은데" → 확인해 보니 analysis.md 8번은 성공 사례 댓글(전체의 약 10%)만, 그중 87%는 어느 갈래에도 안 들었고
 #          표에 그 줄이 없었음 · weekly.md 는 59%가 안 듦. 사용자가 고친 방법 "A+b로 해" = A 표본을 사람(Claude)이 직접 분류해 실제 분포 추정
 #          + B 그 표본에 맞춰 규칙을 고쳐 댓글 전부에 적용, 남는 것은 '그 밖'으로 드러냄).
@@ -30,7 +31,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import success_analysis as sa        # noqa: E402  한국어 갈래 낱말(정치·요청·반문·도배)을 이어 씀
 
-VERSION = "v1.0"
+VERSION = "v1.0.1"
 ROOT = Path(__file__).resolve().parent.parent
 LOG = logging.getLogger("ctype")
 SEED = 20261022
@@ -87,7 +88,8 @@ def iter_videos(out):
             with open(d / "comments.csv", encoding="utf-8-sig", newline="") as f:
                 for r in csv.DictReader(f):
                     cms.append({"cid": r.get("id") or "", "text": str(r.get("text") or ""), "likes": int(float(r.get("likes") or 0)),
-                                "reply": str(r.get("is_reply")) in ("1", "True", "true"), "creator": str(r.get("creator")) in ("1", "True", "true")})
+                                "reply": str(r.get("is_reply")) in ("1", "True", "true"), "creator": str(r.get("creator")) in ("1", "True", "true"),
+                                "published": r.get("published") or ""})
         yield d, meta, info, cms
 
 

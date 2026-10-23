@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>일본 면세 쇼츠</title>
+<!-- VERSION: v1.0 — 2026-10-23 — 최초. 쇼츠 대본 v2.0(11문장) 장면. 사용자 지시 2026-10-23 "수정 완료되면 영상 만들 소스도 준비해".
+     꼴 = '세 칸' (축제 쇼츠와 같음): 위 칸 y 0~691 검정 + 코드 글자 · 가운데 칸 y 691~1382 코드 그림(여권·단말기·영수증·동전·시계) · 아래 칸 검정 + 구운 자막.
+     첫 문장 = test/source/myeonse-hwangeup-2026-10/shorts/thumbnails/thumbnail_1.jpg (제작안 SHORTS-OPEN 그림 — kit.js K.cover, 확대 없음).
+     그림이 올라오기 전에는 추정 미리보기만 (render.mjs 가 최종 렌더를 막음).
+     끝 = kit.js K.related (아래 관련 동영상 안내 + 진짜 버튼 자리 화살표·빛, 끝 화면 2.5초).
+     장면 시각 = 문장 시각(K.S·K.E)·낱말 시각(K.W) — 손으로 적은 초 없음. 숫자는 쇼츠 대본의 숫자만.
+     대본 test/source/myeonse-hwangeup-2026-10/shorts/myeonse-hwangeup-2026-10-shorts.txt · 제작안 test/일본면세_사후환급_제작안.txt. 연구·교육용 영상 — 여행·세무 조언 아님. -->
+<meta name="video-size" content="1080x1920">
+<meta name="video-safe" content="150 60 1384 60">
+<meta name="end-hold" content="2.5">
+<link rel="stylesheet" href="../../render/kit.css">
+<style>
+/* 세로 무대 (kit.css 의 16:9 값을 덮음) — 바탕은 순검정 (세 칸의 위·아래 칸) */
+#wrap{max-width:420px;margin:0 auto;aspect-ratio:9/16}
+body.render #wrap{width:1080px;height:1920px;max-width:none;margin:0}
+#stage{width:1080px;height:1920px;background:#000}
+/* 자막: 아래 칸 (가운데 칸이 y 1382 에서 끝남) · 가운데 540 */
+#cc{left:540px;bottom:390px;max-width:870px;font-size:46px;padding:12px 16px;text-wrap:balance}
+.mid{position:absolute;left:0;top:691px;width:1080px;height:691px;background:linear-gradient(180deg,#101A33,#0A1122)}
+.lab{font-weight:700;font-size:52px;color:var(--Y)}
+.main{font-weight:900;font-size:96px;line-height:1.1}
+.qcard{position:absolute;left:70px;width:940px;border-radius:28px;background:rgba(255,255,255,.07);border:2px solid rgba(255,255,255,.16);padding:30px 40px;display:grid;gap:14px}
+.qcard .q{font-weight:900;font-size:60px;line-height:1.25;word-break:keep-all}
+.qcard .who{font-weight:700;font-size:40px;color:var(--N)}
+.box{position:absolute;border-radius:26px;background:rgba(255,255,255,.06);border:4px solid rgba(255,255,255,.18);display:grid;place-items:center;align-content:center;gap:14px;text-align:center}
+.box .k{font-weight:700;font-size:48px;color:var(--N)}
+.box .t{font-weight:900;font-size:62px;line-height:1.15}
+.slot{position:absolute;width:260px;height:260px;border-radius:28px;border:5px dashed rgba(255,214,0,.8);display:grid;place-items:center;font-weight:900;font-size:120px;color:var(--Y);background:rgba(10,16,30,.6)}
+</style>
+</head>
+<body>
+<div id="wrap"><div id="stage"></div></div>
+<div id="ctrl"></div>
+<div id="now"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script id="ep-data">/*EP-DATA:BEGIN*/window.EP={"id":"myeonse-hwangeup-2026-10-shorts","topic":"test","duration":47.9,"audio":null,"thumb":null,"estimated":true,"est_model":{"perSyl":0.151,"comma":0.25,"base":-0.08,"min":0.8,"lead":0.3,"gap":0.45,"part":1,"tail":0.8},"synced":"2026-10-23T09:27:32Z","sent":[{"n":1,"part":"바뀌는 일본 면세","text":"11월 1일부터 일본 매장에서 바로 면세받던 방식이 사라집니다.","start":0.3,"end":4.297},{"n":2,"part":"바뀌는 일본 면세","text":"이제는 세금을 내고 사서, 출국할 때 확인을 받아야 돌려받습니다.","start":4.747,"end":8.843},{"n":3,"part":"바뀌는 일본 면세","text":"이 확인을 받지 못하면 낸 세금은 돌려받을 수 없습니다.","start":9.293,"end":12.535},{"n":4,"part":"바뀌는 일본 면세","text":"확인은 공항 출발 로비의 단말기에서 합니다.","start":12.985,"end":15.623},{"n":5,"part":"바뀌는 일본 면세","text":"댓글에는 환급액을 그냥 챙기겠다는 속셈 아니냐는 말까지 나왔습니다.","start":16.073,"end":20.372},{"n":6,"part":"바뀌는 일본 면세","text":"일본 정부는 면세품을 되파는 부정을 막으려는 것이라고 설명합니다.","start":20.822,"end":24.97},{"n":7,"part":"바뀌는 일본 면세","text":"영국은 관광객 면세 환급을 아예 없앴지만, 일본은 방식만 바꾼 겁니다.","start":25.42,"end":29.818},{"n":8,"part":"바뀌는 일본 면세","text":"우리나라는 한 번에 100만 원 미만이면, 매장에서 바로 세금을 빼 줄 수 있어요.","start":30.268,"end":34.968},{"n":9,"part":"바뀌는 일본 면세","text":"한 여행 가이드는 일본 공항에 5시간에서 6시간 전에 갈 생각이라고까지 말했습니다.","start":35.418,"end":40.925},{"n":10,"part":"바뀌는 일본 면세","text":"그렇다면 놓치면 환급을 못 받는 세 가지는 무엇일까요?","start":41.375,"end":44.617},{"n":11,"part":"바뀌는 일본 면세","text":"그 답은 아래 영상에서 확인하세요.","start":45.067,"end":47.101}],"subs":[[0.3,4.297,"11월 1일부터 일본 매장에서\n바로 면세받던 방식이 사라집니다."],[4.747,8.843,"이제는 세금을 내고 사서,\n출국할 때 확인을 받아야 돌려받습니다."],[9.293,12.535,"이 확인을 받지 못하면 낸 세금은\n돌려받을 수 없습니다."],[12.985,15.623,"확인은 공항 출발 로비의 단말기에서\n합니다."],[16.073,20.372,"댓글에는 환급액을 그냥 챙기겠다는\n속셈 아니냐는 말까지 나왔습니다."],[20.822,24.97,"일본 정부는 면세품을 되파는 부정을\n막으려는 것이라고 설명합니다."],[25.42,29.818,"영국은 관광객 면세 환급을 아예 없앴지만,\n일본은 방식만 바꾼 겁니다."],[30.268,34.968,"우리나라는 한 번에 100만 원 미만이면,\n매장에서 바로 세금을 빼 줄 수 있어요."],[35.418,40.925,"한 여행 가이드는 일본 공항에 5시간에서\n6시간 전에 갈 생각이라고까지 말했습니다."],[41.375,44.617,"그렇다면 놓치면\n환급을 못 받는 세 가지는 무엇일까요?"],[45.067,47.101,"그 답은 아래 영상에서 확인하세요."]],"subs_estimated":true};/*EP-DATA:END*/</script>
+<script src="../../render/kit.js"></script>
+<script>
+(function () {
+"use strict";
+K.init(window.EP, { chip: false, w: 1080 });
+const { S, E, W, el, pop, out } = K;
+const tl = K.tl;
+const R = "#FF4D3D", G = "#22C7B0", Y = "#FFD400";
+const until = n => S(n) - 0.05;
+
+/* 위 칸: 작은 노란 줄 + 큰 줄 (가운데 540) */
+function head(sc, top, lab, main, color, size) {
+  const g = el(`<div class="a cx c" style="left:540px;top:${top}px;display:grid;gap:18px;justify-items:center"></div>`, sc);
+  if (lab) el(`<div class="lab nw">${lab}</div>`, g);
+  el(`<div class="main nw" style="color:${color || "#F4F6FA"}${size ? `;font-size:${size}px` : ""}">${main}</div>`, g);
+  return g;
+}
+/* 가운데 칸 = 코드 그림 (y 691~1382) */
+const midScene = (a, b, opts) => { const sc = K.scene(a, b, opts); el(`<div class="mid"></div>`, sc); return sc; };
+const svg = (parent, cx, top, w, vb, body, h) => el(`<svg class="a" viewBox="${vb}" width="${w}" height="${h || w}" style="left:${cx - w / 2}px;top:${top}px" aria-hidden="true">${body}</svg>`, parent);
+const passport = (p, cx, top, w) => svg(p, cx, top, w, "0 0 140 190", `<rect x="6" y="6" width="128" height="178" rx="14" fill="#2E4470" stroke="#C9D2E2" stroke-width="5"/><circle cx="70" cy="80" r="30" fill="none" stroke="#E8C66A" stroke-width="6"/><rect x="34" y="132" width="72" height="9" rx="4" fill="#E8C66A"/><rect x="44" y="150" width="52" height="8" rx="4" fill="#E8C66A" opacity=".7"/>`, w * 190 / 140);
+const receipt = (p, cx, top, w) => svg(p, cx, top, w, "0 0 160 230", `<path d="M10 6 H150 V214 L136 224 L122 214 L108 224 L94 214 L80 224 L66 214 L52 224 L38 214 L24 224 L10 214 Z" fill="#F2F4F8" stroke="#C9D2E2" stroke-width="5" stroke-linejoin="round"/>${[0, 1, 2, 3, 4].map(i => `<rect x="28" y="${30 + i * 32}" width="${i % 2 ? 80 : 104}" height="10" rx="5" fill="#9AA7BF"/>`).join("")}`, w * 230 / 160);
+const kiosk = (p, cx, top, w, screen) => svg(p, cx, top, w, "0 0 200 360", `<rect x="30" y="6" width="140" height="300" rx="20" fill="#2A3B5E" stroke="#C9D2E2" stroke-width="5"/><rect class="scr" x="46" y="24" width="108" height="130" rx="10" fill="${screen || "#0C1424"}"/><rect x="62" y="186" width="76" height="52" rx="8" fill="#0C1424" stroke="#9AA7BF" stroke-width="4"/><rect x="70" y="250" width="60" height="10" rx="5" fill="#9AA7BF"/><rect x="60" y="306" width="80" height="48" rx="6" fill="#1D2A44"/>`, w * 1.8);
+const coin = (p, cx, top, w) => el(`<div class="a cx" style="left:${cx}px;top:${top}px;width:${w}px;height:${w}px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#9DB4DA,#5B7DB8 60%,#34507F);border:5px solid #C9D2E2;display:grid;place-items:center;font-weight:900;font-size:${Math.round(w * 0.36)}px;color:#0C1424">엔</div>`, p);
+const clock = (p, cx, top, w) => svg(p, cx, top, w, "0 0 200 200", `<circle cx="100" cy="100" r="88" fill="#2A3B5E" stroke="#C9D2E2" stroke-width="8"/><path class="hand" d="M100 100 L100 40 M100 100 L146 124" stroke="#F4F6FA" stroke-width="10" stroke-linecap="round"/><circle cx="100" cy="100" r="9" fill="#F4F6FA"/>`);
+const plane = (p, cx, top, w) => svg(p, cx, top, w, "0 0 240 120", `<rect x="14" y="56" width="218" height="16" rx="8" fill="#C9D2E2"/><path d="M156 58 L104 10 L84 10 L112 58 Z M156 70 L104 118 L84 118 L112 70 Z M44 58 L26 30 L14 30 L24 58 Z M44 70 L26 98 L14 98 L24 70 Z" fill="#C9D2E2"/>`, w / 2);
+const gov = (p, cx, top, w) => svg(p, cx, top, w, "0 0 200 180", `<path d="M10 64 L100 14 L190 64 Z" fill="#9AA7BF"/><rect x="24" y="70" width="152" height="96" rx="6" fill="#2A3B5E" stroke="#C9D2E2" stroke-width="5"/><rect x="46" y="86" width="20" height="64" fill="#9FB6DA"/><rect x="90" y="86" width="20" height="64" fill="#9FB6DA"/><rect x="134" y="86" width="20" height="64" fill="#9FB6DA"/>`, w * 0.9);
+const store = (p, cx, top, w) => svg(p, cx, top, w, "0 0 200 180", `<path d="M14 66 L30 20 H170 L186 66 Z" fill="#3C5788" stroke="#C9D2E2" stroke-width="5" stroke-linejoin="round"/><rect x="26" y="66" width="148" height="100" rx="6" fill="#2A3B5E" stroke="#C9D2E2" stroke-width="5"/><rect x="80" y="104" width="40" height="62" fill="#9FB6DA"/>`, w * 0.9);
+const arrow = (p, left, top) => el(`<div class="a w9 N" style="left:${left}px;top:${top}px;font-size:84px;line-height:1">→</div>`, p);
+
+/* S-01 첫 문장 = 쇼츠 썸네일 그림 그대로 (세 칸) */
+K.cover(until(2), { zoom: 1 });
+K.cut(0.1, "0초 그림 = 쇼츠 썸네일");
+K.cut(E(1) - 0.2, "첫 문장 + 자막(42px)");
+
+/* S-02 세금 내고 사서 → 출국 때 확인 → 환급 (문장 2) */
+{ const sc = midScene(until(2), until(3));
+  pop(head(sc, 300, "11월부터", "세금 내고 사서"), S(2) + 0.05);
+  const r = receipt(sc, 190, 820, 190); pop(r, W(2, "세금을"));
+  const l1 = el(`<div class="a cx c w9 nw" style="left:190px;top:1150px;font-size:44px">세금 포함<br>결제</div>`, sc); pop(l1, W(2, "세금을"));
+  pop(arrow(sc, 300, 950), W(2, "출국할"));
+  const k = kiosk(sc, 540, 790, 170); pop(k, W(2, "출국할"));
+  const l2 = el(`<div class="a cx c w9 Y nw" style="left:540px;top:1150px;font-size:44px">출국 때<br>확인</div>`, sc); pop(l2, W(2, "확인을"));
+  tl.to(k.querySelector(".scr"), { attr: { fill: G }, duration: 0.3 }, W(2, "확인을"));
+  pop(arrow(sc, 700, 950), W(2, "돌려받습니다"));
+  const c = coin(sc, 890, 880, 190); pop(c, W(2, "돌려받습니다"));
+  const l3 = el(`<div class="a cx c w9 G nw" style="left:890px;top:1150px;font-size:44px">환급</div>`, sc); pop(l3, W(2, "돌려받습니다"));
+  K.cut(E(2) - 0.1, "결제 → 출국 때 확인 → 환급");
+}
+/* S-03 확인 못 받으면 환급 X (문장 3) */
+{ const sc = midScene(until(3), until(4));
+  pop(head(sc, 300, "이 확인을 못 받으면", "낸 세금 환급 ✕", R), S(3) + 0.05);
+  const k = kiosk(sc, 330, 780, 180, R); pop(k, S(3) + 0.1);
+  const c = coin(sc, 760, 860, 230); pop(c, W(3, "낸 세금은"));
+  const x = el(`<div class="a cx c w9 R nw" style="left:760px;top:820px;font-size:300px;line-height:1">✕</div>`, sc); pop(x, W(3, "돌려받을"), { from: { scale: 1.6, y: 0 } });
+  K.cut(E(3) - 0.1, "확인 못 받으면 환급 X");
+}
+/* S-04 공항 출발 로비 단말기 (문장 4) */
+{ const sc = midScene(until(4), until(5));
+  pop(head(sc, 300, "확인은 여기서", "공항 출발 로비"), S(4) + 0.05);
+  const k = kiosk(sc, 470, 760, 200); pop(k, W(4, "단말기에서"));
+  const pp = passport(sc, 800, 900, 130); tl.fromTo(pp, { opacity: 0, x: 160 }, { opacity: 1, x: 0, duration: 0.6, ease: "power3.out" }, W(4, "단말기에서") + 0.2);
+  tl.to(k.querySelector(".scr"), { attr: { fill: G }, duration: 0.3 }, W(4, "합니다"));
+  const l = el(`<div class="a cx c w9 Y nw" style="left:540px;top:1240px;font-size:56px">면세 수속 단말기</div>`, sc); pop(l, W(4, "단말기에서"));
+  K.cut(E(4) - 0.1, "공항 출발 로비 단말기");
+}
+/* S-05 댓글 (문장 5) */
+{ const sc = midScene(until(5), until(6));
+  pop(head(sc, 300, "면세 영상 댓글", "속셈 아니냐?", R), S(5) + 0.05);
+  const q = el(`<div class="qcard" style="top:880px"><div class="q" style="color:${R}">“환급액 날먹하겠다는 심산”</div><div class="who">좋아요 365 · 가장 많은 공감</div></div>`, sc);
+  pop(q, W(5, "환급액을"));
+  K.cut(E(5) - 0.1, "댓글: 날먹 심산");
+}
+/* S-06 일본 정부 설명 (문장 6) */
+{ const sc = midScene(until(6), until(7));
+  pop(head(sc, 300, "일본 정부 설명", "되파는 부정 막기"), S(6) + 0.05);
+  const g = gov(sc, 540, 770, 300); pop(g, S(6) + 0.1);
+  const l = el(`<div class="a cx c w9 nw" style="left:540px;top:1080px;font-size:60px">면세품을 <span class="R">되파는 부정</span></div>`, sc); pop(l, W(6, "되파는"));
+  K.cut(E(6) - 0.1, "정부: 되파는 부정 막기");
+}
+/* S-07 영국 없앰 vs 일본 방식만 (문장 7) */
+{ const sc = midScene(until(7), until(8));
+  pop(head(sc, 300, "다른 나라는", "영국 vs 일본"), S(7) + 0.05);
+  const uk = el(`<div class="box" style="left:70px;top:800px;width:450px;height:470px;border-color:${R}"><div class="k">영국</div><div class="t" style="color:${R}">면세 환급<br>아예 없앰</div></div>`, sc); pop(uk, W(7, "영국은"));
+  const jp = el(`<div class="box" style="left:560px;top:800px;width:450px;height:470px;border-color:${G}"><div class="k">일본</div><div class="t" style="color:${G}">방식만<br>바꿈</div></div>`, sc); pop(jp, W(7, "일본은"));
+  K.cut(E(7) - 0.1, "영국 없앰 vs 일본 방식만");
+}
+/* S-08 우리나라: 100만 원 미만이면 매장에서 바로 (문장 8) */
+{ const sc = midScene(until(8), until(9));
+  pop(head(sc, 300, "우리나라는 한 번에", "100만 원 미만"), S(8) + 0.05);
+  const s = store(sc, 540, 760, 300); pop(s, W(8, "매장에서"));
+  const l = el(`<div class="a cx c w9 G nw" style="left:540px;top:1080px;font-size:64px">매장에서 바로 세금 뺌</div>`, sc); pop(l, W(8, "세금을"));
+  K.cut(E(8) - 0.1, "우리나라 100만 원 미만 매장 즉시");
+}
+/* S-09 가이드: 5시간에서 6시간 전 (문장 9) */
+{ const sc = midScene(until(9), until(10));
+  pop(head(sc, 300, "한 여행 가이드", "5시간에서 6시간 전", Y, 88), S(9) + 0.05);
+  const c = clock(sc, 360, 790, 330); pop(c, W(9, "일본"));
+  tl.fromTo(c.querySelector(".hand"), { rotation: 0, svgOrigin: "100 100" }, { rotation: 300, svgOrigin: "100 100", duration: 1.6, ease: "power2.inOut" }, W(9, "5시간에서"));
+  const p = plane(sc, 820, 920, 300); tl.fromTo(p, { opacity: 0, x: -80, y: 30 }, { opacity: 1, x: 40, y: -20, duration: 1.2, ease: "power2.out" }, W(9, "공항에"));
+  const l = el(`<div class="a cx c w9 nw" style="left:540px;top:1200px;font-size:52px">공항에 도착할 생각</div>`, sc); pop(l, W(9, "생각이라고까지"));
+  K.cut(E(9) - 0.1, "가이드 5~6시간 전");
+}
+/* S-10 놓치면 못 받는 세 가지? (문장 10) */
+{ const sc = midScene(until(10), until(11));
+  pop(head(sc, 300, "놓치면 환급 못 받는", "세 가지는?", Y), S(10) + 0.05);
+  [0, 1, 2].forEach(i => pop(el(`<div class="slot" style="left:${70 + i * 345}px;top:900px">?</div>`, sc), W(10, "세 가지는") + 0.15 * i));
+  K.cut(E(10) - 0.1, "세 가지는?");
+}
+/* S-11 답은 아래 영상 → 관련 동영상 버튼 (문장 11) */
+{ const sc = midScene(until(11), K.D, { keep: true });
+  pop(el(`<div class="a cx c w9 nw" style="left:540px;top:200px;font-size:76px">놓치면 못 받는 <span class="Y">세 가지</span></div>`, sc), S(11) + 0.05);
+  [0, 1, 2].forEach(i => el(`<div class="slot" style="left:${70 + i * 345}px;top:900px">?</div>`, sc));
+  K.related(sc, { at: S(11) + 0.05, arrowAt: W(11, "아래") });
+  K.cut(E(11) - 0.1, "답은 아래 영상 · 관련 동영상 ↓");
+  K.cut(K.D - 0.3, "끝 화면 (관련 동영상 버튼 ↓)");
+}
+K.done();
+})();
+</script>
+</body>
+</html>

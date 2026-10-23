@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>일본 면세 롱폼</title>
+<!-- VERSION: v1.1 — 2026-10-23 — still 점검 반영: 장 이름표 중복(도입·정리) · 취소선을 글자에 붙임(.sk) · 편해지는 점 상자 겹침 · 짐 도장 위치 · 시계·인용 겹침 · 입국 한도 막대(800달러 넘는 부분 빨강) · 나라 카드 줄바꿈 · 비교 다섯 칸 안전 영역 · 비행기 그림 방향(기수 = 가는 쪽, 날개 뒤로).
+     v1.0 — 2026-10-23 — 최초. 대본 v2.0(110문장) 장면. 사용자 지시 2026-10-23 "수정 완료되면 영상 만들 소스도 준비해".
+     · 코드 화면(SVG·CSS 도형 + 글자, guides/video_guide.md 3~4번): 여권·영수증·면세 단말기(초록/빨강 화면)·캐리어·컨베이어·환급 방법 아이콘·
+       대기 줄·시계·나라 카드. 색 = 뜻 (빨강 손해·안 됨 · 청록 됨·나음 · 노랑 기준 — 기준은 노란 점선).
+     · 배경 그림(제작안 IMG-L1~L10, ChatGPT)은 선택: 그림이 test/source/myeonse-hwangeup-2026-10/images/ 에 올라오면 아래 IMG_ON 에
+       이름을 넣는다 → 그 장면 뒤에 72% 어둡게 깔림. 없어도 코드 화면만으로 완성 영상이 된다.
+     · 장면 시각 = 문장·낱말 시각(K.S·K.E·K.W) — 손으로 적은 초 없음. 숫자는 대본의 숫자만 (11,000엔 → '1만 1천 엔' 그대로, 새 숫자 없음).
+     · 장 바뀜 카드는 그 장 첫 문장(예: '첫 번째는 무엇이 바뀌는가입니다.') 끝까지 (cardHold) — 장면은 둘째 문장부터.
+     대본 test/source/myeonse-hwangeup-2026-10/myeonse-hwangeup-2026-10.txt · 제작안 test/일본면세_사후환급_제작안.txt ·
+     확인표 test/source/myeonse-hwangeup-2026-10/checklist.md. 연구·교육용 영상 — 여행·세무 조언 아님. -->
+<link rel="stylesheet" href="../../render/kit.css">
+<style>
+.bgimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.bgdim{position:absolute;inset:0}
+.ttl{font-weight:900;font-size:76px;line-height:1.15}
+.lab{font-weight:700;font-size:46px;color:var(--N)}
+.box{position:absolute;border-radius:26px;background:rgba(255,255,255,.06);border:2px solid rgba(255,255,255,.14);display:grid;place-items:center;align-content:center;gap:12px;text-align:center}
+.box .t{font-weight:900;font-size:56px;line-height:1.15}
+.box .s{font-weight:700;font-size:40px;color:var(--N);line-height:1.25}
+.qc{position:absolute;width:1440px;left:240px;border-radius:28px;background:rgba(10,16,30,.86);border:2px solid rgba(255,255,255,.16);padding:30px 48px;display:grid;gap:14px}
+.qc .q{font-weight:900;font-size:58px;line-height:1.25;word-break:keep-all}
+.qc .who{font-weight:700;font-size:38px;color:var(--N)}
+.chipR,.chipG,.chipY{position:absolute;font-weight:900;font-size:54px;line-height:1;padding:22px 34px;border-radius:999px;white-space:nowrap}
+.chipR{background:rgba(255,77,61,.16);border:4px solid var(--R);color:var(--R)}
+.chipG{background:rgba(34,199,176,.14);border:4px solid var(--G);color:var(--G)}
+.chipY{background:rgba(255,212,0,.12);border:4px dashed var(--Y);color:var(--Y)}
+.stampR{position:absolute;font-weight:900;font-size:60px;color:var(--R);border:7px solid var(--R);border-radius:18px;padding:16px 30px;white-space:nowrap;background:rgba(10,16,30,.7)}
+.slot{position:absolute;width:300px;height:170px;border-radius:24px;border:4px dashed rgba(255,214,0,.75);display:grid;place-items:center;text-align:center;font-weight:900;font-size:46px;line-height:1.15;color:var(--Y);background:rgba(10,16,30,.6)}
+.arrow{position:absolute;font-weight:900;font-size:84px;color:var(--N);line-height:1}
+.flowb{position:absolute;width:420px;height:200px;border-radius:26px;background:rgba(255,255,255,.06);border:3px solid rgba(255,255,255,.18);display:grid;place-items:center;align-content:center;gap:8px;text-align:center}
+.flowb .t{font-weight:900;font-size:52px;line-height:1.15}
+.flowb .s{font-weight:700;font-size:38px;color:var(--N)}
+.ctry{position:absolute;width:520px;border-radius:28px;background:rgba(255,255,255,.05);border:2px solid rgba(255,255,255,.14);padding:30px 34px;display:grid;gap:18px;align-content:start}
+.ctry .h{font-weight:900;font-size:64px}
+.ctry .r{font-weight:700;font-size:40px;line-height:1.25}
+.mini{position:absolute;width:300px;height:330px;border-radius:26px;background:rgba(255,255,255,.05);border:2px solid rgba(255,255,255,.14);display:grid;justify-items:center;align-content:start;gap:14px;padding-top:24px;text-align:center}
+.mini .h{font-weight:900;font-size:40px}
+.mini .k{font-weight:700;font-size:36px;color:var(--N)}
+.mini .v{font-weight:900;font-size:64px;line-height:1}
+.sum{position:absolute;left:250px;width:1420px;height:96px;border-radius:22px;background:rgba(255,255,255,.05);border:2px solid rgba(255,255,255,.12);display:flex;align-items:center;gap:30px;padding:0 34px}
+.sum .n{font-weight:900;font-size:54px;color:var(--Y);width:50px;text-align:center}
+.sum .t{font-weight:900;font-size:48px;white-space:nowrap}
+.sk{position:relative;display:inline-block}
+.sk>i{position:absolute;left:-6px;right:-6px;top:50%;height:10px;margin-top:-5px;border-radius:5px;background:var(--R);transform-origin:0 50%;transform:scaleX(0)}
+.ctry .r{word-break:keep-all}
+</style>
+</head>
+<body>
+<div id="wrap"><div id="stage"></div></div>
+<div id="ctrl"></div>
+<div id="now"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script id="ep-data">/*EP-DATA:BEGIN*/window.EP={"id":"myeonse-hwangeup-2026-10","topic":"test","duration":478.53,"audio":null,"thumb":null,"estimated":true,"est_model":{"perSyl":0.151,"comma":0.25,"base":-0.08,"min":0.8,"lead":0.3,"gap":0.45,"part":1,"tail":0.8},"synced":"2026-10-23T09:21:20Z","sent":[{"n":1,"part":"도입","text":"11월 1일부터 일본의 외국인 여행자 면세 방식이 바뀝니다.","start":0.3,"end":3.995},{"n":2,"part":"도입","text":"지금처럼 매장 계산대에서 바로 세금을 빼 주는 방식이 사라집니다.","start":4.445,"end":8.442},{"n":3,"part":"도입","text":"이 소식을 다룬 영상에는 걱정하는 댓글이 많았어요.","start":8.892,"end":11.983},{"n":4,"part":"도입","text":"가장 많은 공감을 받은 댓글은, 환급액을 그냥 챙기겠다는 속셈 아니냐는 말이었습니다.","start":12.433,"end":17.888},{"n":5,"part":"도입","text":"공항에 사람이 몰리면 결국 면세를 안 해 주겠다는 소리라는 댓글도 많은 공감을 받았죠.","start":18.338,"end":23.543},{"n":6,"part":"도입","text":"반대로 우리나라도 이렇게 해야 한다는 댓글도 있었어요.","start":23.993,"end":27.386},{"n":7,"part":"도입","text":"그럼 일본 면세가 없어지는 걸까요?","start":27.836,"end":29.87},{"n":8,"part":"도입","text":"결론부터 말하면, 면세는 그대로입니다.","start":30.32,"end":32.906},{"n":9,"part":"도입","text":"다만 세금을 먼저 내고, 출국할 때 세관 확인을 받아야 돌려받는 방식으로 바뀝니다.","start":33.356,"end":38.509},{"n":10,"part":"도입","text":"이 확인을 받지 못하면 낸 세금은 돌려받을 수 없습니다.","start":38.959,"end":42.201},{"n":11,"part":"도입","text":"무엇이 바뀌는지, 왜 바꾸는지, 정말 효과가 있을지 차례로 보겠습니다.","start":42.651,"end":47.299},{"n":12,"part":"도입","text":"그리고 실제로 벌어질 상황과, 우리나라를 포함한 다른 나라의 방식도 비교하겠습니다.","start":47.749,"end":53.204},{"n":13,"part":"첫째, 무엇이 바뀌나","text":"첫 번째는 무엇이 바뀌는가입니다.","start":54.204,"end":56.238},{"n":14,"part":"첫째, 무엇이 바뀌나","text":"새 방식은 2026년 11월 1일 이후에 산 물건부터 적용됩니다.","start":56.688,"end":60.836},{"n":15,"part":"첫째, 무엇이 바뀌나","text":"기준은 출국하는 날이 아니라 물건을 산 날이에요.","start":61.286,"end":64.226},{"n":16,"part":"첫째, 무엇이 바뀌나","text":"10월 31일까지 산 물건은 지금처럼 매장에서 바로 면세됩니다.","start":64.676,"end":68.673},{"n":17,"part":"첫째, 무엇이 바뀌나","text":"두 방식을 함께 쓰는 기간은 따로 없어요.","start":69.123,"end":71.459},{"n":18,"part":"첫째, 무엇이 바뀌나","text":"11월부터는 매장에서 여권을 보여 주고, 소비세를 포함한 가격으로 결제합니다.","start":71.909,"end":77.062},{"n":19,"part":"첫째, 무엇이 바뀌나","text":"예를 들어 세금 포함 1만 1천 엔짜리를 사면, 그중 1천 엔이 소비세입니다.","start":77.512,"end":82.212},{"n":20,"part":"첫째, 무엇이 바뀌나","text":"매장은 이 구매 기록을 일본 국세청 시스템으로 보냅니다.","start":82.662,"end":86.055},{"n":21,"part":"첫째, 무엇이 바뀌나","text":"출국하는 날에는 공항 출발 로비의 면세 수속 단말기에 여권을 댑니다.","start":86.505,"end":90.653},{"n":22,"part":"첫째, 무엇이 바뀌나","text":"화면에 초록색이 뜨면 확인이 끝나요.","start":91.103,"end":93.288},{"n":23,"part":"첫째, 무엇이 바뀌나","text":"빨간색이 뜨면 세관 검사장에서 산 물건을 직접 보여 줘야 합니다.","start":93.738,"end":97.584},{"n":24,"part":"첫째, 무엇이 바뀌나","text":"나리타, 하네다, 간사이 등 일곱 개 공항에서는 휴대전화로도 수속할 수 있습니다.","start":98.034,"end":103.286},{"n":25,"part":"첫째, 무엇이 바뀌나","text":"공항 안 전용 와이파이 구역에서 비지트 재팬 웹에 접속하는 방식이에요.","start":103.736,"end":108.035},{"n":26,"part":"첫째, 무엇이 바뀌나","text":"세관 확인이 끝나면, 물건을 산 매장이나 매장이 맡긴 환급 업체가 돈을 돌려줍니다.","start":108.485,"end":113.638},{"n":27,"part":"첫째, 무엇이 바뀌나","text":"돌려받는 방법은 카드, 계좌 송금, 앱, 공항 현금 등 매장마다 다릅니다.","start":114.088,"end":118.835},{"n":28,"part":"첫째, 무엇이 바뀌나","text":"일본 정부는 수수료를 받지 않지만, 환급 업체의 수수료는 법으로 정해져 있지 않습니다.","start":119.285,"end":124.74},{"n":29,"part":"첫째, 무엇이 바뀌나","text":"그래서 수수료를 떼고 나면, 돌려받는 돈이 낸 세금보다 적을 수 있습니다.","start":125.19,"end":129.739},{"n":30,"part":"첫째, 무엇이 바뀌나","text":"오히려 편해지는 점도 있습니다.","start":130.189,"end":132.072},{"n":31,"part":"첫째, 무엇이 바뀌나","text":"같은 매장에서 하루에 세금 빼고 5,000엔 이상 사야 한다는 기준은 그대로입니다.","start":132.522,"end":137.524},{"n":32,"part":"첫째, 무엇이 바뀌나","text":"대신 과자나 화장품 같은 소모품과, 옷이나 가전 같은 일반 물품의 구분이 사라집니다.","start":137.974,"end":143.278},{"n":33,"part":"첫째, 무엇이 바뀌나","text":"그래서 둘을 합쳐 5,000엔 이상이면 돼요.","start":143.728,"end":146.314},{"n":34,"part":"첫째, 무엇이 바뀌나","text":"소모품은 50만 엔까지만 면세되던 상한도 없어집니다.","start":146.764,"end":150.157},{"n":35,"part":"첫째, 무엇이 바뀌나","text":"소모품을 밀봉 봉투에 담아 주던 특수 포장도 사라지고요.","start":150.607,"end":154},{"n":36,"part":"첫째, 무엇이 바뀌나","text":"다만 한 개에 세금 빼고 100만 엔 이상인 물건은 따로 기록합니다.","start":154.45,"end":158.145},{"n":37,"part":"첫째, 무엇이 바뀌나","text":"시리얼 번호처럼 그 물건을 알아볼 수 있는 정보를 남기는 거죠.","start":158.595,"end":162.29},{"n":38,"part":"첫째, 무엇이 바뀌나","text":"그렇다면 일본은 왜 이렇게 번거로운 방식으로 바꾸는 걸까요?","start":162.74,"end":166.435},{"n":39,"part":"둘째, 왜 바꾸나","text":"두 번째는 바꾸는 이유입니다.","start":167.435,"end":169.167},{"n":40,"part":"둘째, 왜 바꾸나","text":"일본 재무성은 면세로 산 물건을 일본 안에서 되파는 부정을 막기 위해서라고 설명합니다.","start":169.617,"end":174.973},{"n":41,"part":"둘째, 왜 바꾸나","text":"재무성이 2022년 4월부터 2년 동안의 기록을 정리한 자료가 있습니다.","start":175.423,"end":180.175},{"n":42,"part":"둘째, 왜 바꾸나","text":"그 기간에 한 번 입국해 1억 엔 이상 산 사람이 690명이었습니다.","start":180.625,"end":184.773},{"n":43,"part":"둘째, 왜 바꾸나","text":"이들이 산 금액은 합계 2,332억 엔입니다.","start":185.223,"end":188.564},{"n":44,"part":"둘째, 왜 바꾸나","text":"세관은 이 가운데 9할 가까이를 출국할 때 확인하지 못했습니다.","start":189.014,"end":192.86},{"n":45,"part":"둘째, 왜 바꾸나","text":"확인한 사람들은 거의 모두 물건을 가지고 있지 않아 세금이 매겨졌습니다.","start":193.31,"end":197.76},{"n":46,"part":"둘째, 왜 바꾸나","text":"하지만 거의 전부가 그 세금을 내지 않고 출국했습니다.","start":198.21,"end":201.452},{"n":47,"part":"둘째, 왜 바꾸나","text":"다만 자료에도 이들 모두가 부정이라고 할 수는 없다고 적혀 있습니다.","start":201.902,"end":206.05},{"n":48,"part":"둘째, 왜 바꾸나","text":"지금 방식은 세금을 빼고 먼저 팔기 때문에, 떠난 뒤에는 세금을 받아 내기 어렵습니다.","start":206.5,"end":211.804},{"n":49,"part":"둘째, 왜 바꾸나","text":"새 방식은 세금을 먼저 받아 두고, 물건을 가지고 나가는 게 확인된 사람에게만 돌려줍니다.","start":212.254,"end":217.86},{"n":50,"part":"둘째, 왜 바꾸나","text":"그럼 이 방식으로 정말 부정을 막을 수 있을까요?","start":218.31,"end":221.099},{"n":51,"part":"셋째, 정말 효과가 있을까","text":"세 번째는 효과입니다.","start":222.099,"end":223.378},{"n":52,"part":"셋째, 정말 효과가 있을까","text":"새 방식에서는 물건 없이 출국하면, 처음부터 환급이 되지 않습니다.","start":223.828,"end":228.075},{"n":53,"part":"셋째, 정말 효과가 있을까","text":"세금이 이미 걷혀 있으니, 떠난 사람을 쫓아가 세금을 받아 낼 일이 없어지는 거죠.","start":228.525,"end":233.527},{"n":54,"part":"셋째, 정말 효과가 있을까","text":"구조로만 보면, 자료에 나온 방식의 부정은 하기 어려워집니다.","start":233.977,"end":237.922},{"n":55,"part":"셋째, 정말 효과가 있을까","text":"다만 실제로 얼마나 줄었는지는 11월 이후의 자료가 나와야 알 수 있습니다.","start":238.372,"end":242.973},{"n":56,"part":"셋째, 정말 효과가 있을까","text":"걱정도 있습니다.","start":243.423,"end":244.4},{"n":57,"part":"셋째, 정말 효과가 있을까","text":"댓글처럼, 공항에서 수속하는 사람이 몰리면 줄이 길어질 수 있다는 겁니다.","start":244.85,"end":249.55},{"n":58,"part":"셋째, 정말 효과가 있을까","text":"이런 걱정 끝에 아예 면세를 없앤 나라도 있습니다.","start":250,"end":252.94},{"n":59,"part":"셋째, 정말 효과가 있을까","text":"영국은 2021년 1월, 관광객에게 매장 부가세를 돌려주던 제도를 없앴습니다.","start":253.39,"end":258.694},{"n":60,"part":"셋째, 정말 효과가 있을까","text":"영국 정부는 유지 비용이 크고 경제 효과가 분명하지 않다고 설명했습니다.","start":259.144,"end":263.594},{"n":61,"part":"셋째, 정말 효과가 있을까","text":"출국 지점의 업무 부담도 이유로 들었고요.","start":264.044,"end":266.531},{"n":62,"part":"셋째, 정말 효과가 있을까","text":"반면 소매업계는 씀씀이가 큰 관광객이 유럽 다른 나라로 간다며 반발했습니다.","start":266.981,"end":271.733},{"n":63,"part":"셋째, 정말 효과가 있을까","text":"일본은 면세를 없애지 않고, 돌려주는 방식만 바꾼 쪽입니다.","start":272.183,"end":275.977},{"n":64,"part":"셋째, 정말 효과가 있을까","text":"그럼 11월부터 공항과 매장에서는 실제로 어떤 일이 벌어질까요?","start":276.427,"end":280.424},{"n":65,"part":"넷째, 실제로 벌어질 상황","text":"네 번째는 실제로 벌어질 상황입니다.","start":281.424,"end":283.609},{"n":66,"part":"넷째, 실제로 벌어질 상황","text":"먼저 놓치면 환급을 못 받는 세 가지가 있습니다.","start":284.059,"end":286.848},{"n":67,"part":"넷째, 실제로 벌어질 상황","text":"하나, 짐을 맡기기 전에 세관 확인을 받아야 합니다.","start":287.298,"end":290.488},{"n":68,"part":"넷째, 실제로 벌어질 상황","text":"산 물건을 캐리어에 넣어 먼저 부치면, 세관 확인을 받을 수 없습니다.","start":290.938,"end":295.185},{"n":69,"part":"넷째, 실제로 벌어질 상황","text":"한 번 맡긴 짐은 되찾아 올 수도 없습니다.","start":295.635,"end":297.971},{"n":70,"part":"넷째, 실제로 벌어질 상황","text":"둘, 확인은 영수증 단위로 합니다.","start":298.421,"end":300.554},{"n":71,"part":"넷째, 실제로 벌어질 상황","text":"한 영수증에 든 물건 가운데 하나라도 없으면, 그 영수증 전체가 환급되지 않습니다.","start":301.004,"end":306.157},{"n":72,"part":"넷째, 실제로 벌어질 상황","text":"일본에서 먹거나 써 버린 물건도 환급받을 수 없습니다.","start":306.607,"end":309.849},{"n":73,"part":"넷째, 실제로 벌어질 상황","text":"일부라도 썼다면, 단말기 대신 세관 창구에 신고해야 합니다.","start":310.299,"end":314.093},{"n":74,"part":"넷째, 실제로 벌어질 상황","text":"셋, 산 날부터 90일 안에 출국하면서 확인을 받아야 합니다.","start":314.543,"end":318.337},{"n":75,"part":"넷째, 실제로 벌어질 상황","text":"수속을 하다가 중간에 그만두면, 확인을 받지 않은 것으로 봅니다.","start":318.787,"end":322.883},{"n":76,"part":"넷째, 실제로 벌어질 상황","text":"그럼 공항에는 몇 시간 전에 가야 할까요?","start":323.333,"end":325.669},{"n":77,"part":"넷째, 실제로 벌어질 상황","text":"한 여행 가이드는 5시간에서 6시간 전에 도착할 생각이라고까지 말했습니다.","start":326.119,"end":331.173},{"n":78,"part":"넷째, 실제로 벌어질 상황","text":"하지만 일본 정부가 정한 기준 시간은 없습니다.","start":331.623,"end":334.412},{"n":79,"part":"넷째, 실제로 벌어질 상황","text":"관광청은 시간에 여유를 두고 공항에 도착하라고 안내합니다.","start":334.862,"end":338.557},{"n":80,"part":"넷째, 실제로 벌어질 상황","text":"시간이 모자라 비행기를 놓쳐도, 항공사나 세관은 보상하지 않는다고 밝혔습니다.","start":339.007,"end":344.16},{"n":81,"part":"넷째, 실제로 벌어질 상황","text":"공항들도 준비하고 있습니다.","start":344.61,"end":346.342},{"n":82,"part":"넷째, 실제로 벌어질 상황","text":"업계 보도에 따르면, 하네다·나리타·나하 공항에는 현금 환급 단말기가 생깁니다.","start":346.792,"end":351.794},{"n":83,"part":"넷째, 실제로 벌어질 상황","text":"약 1분이면 엔화 현금으로 받을 수 있다는 설명입니다.","start":352.244,"end":355.486},{"n":84,"part":"넷째, 실제로 벌어질 상황","text":"그리고 우리나라로 돌아올 때의 한도는 그대로라는 점도 기억해야 합니다.","start":355.936,"end":360.386},{"n":85,"part":"넷째, 실제로 벌어질 상황","text":"일본의 50만 엔 상한이 없어져도, 우리나라 입국 면세 한도는 미화 800달러입니다.","start":360.836,"end":366.14},{"n":86,"part":"넷째, 실제로 벌어질 상황","text":"술은 따로 2리터 이하, 400달러 이하까지예요.","start":366.59,"end":369.629},{"n":87,"part":"넷째, 실제로 벌어질 상황","text":"그렇다면 다른 나라들은 어떤 방식으로 세금을 돌려줄까요?","start":370.079,"end":373.623},{"n":88,"part":"다섯째, 우리나라와 다른 나라는","text":"다섯 번째는 다른 나라와의 비교입니다.","start":374.623,"end":376.959},{"n":89,"part":"다섯째, 우리나라와 다른 나라는","text":"먼저 우리나라입니다.","start":377.409,"end":378.688},{"n":90,"part":"다섯째, 우리나라와 다른 나라는","text":"외국인 관광객은 사후면세점에서 한 번에 1만 5천 원 이상 사면 대상입니다.","start":379.138,"end":383.739},{"n":91,"part":"다섯째, 우리나라와 다른 나라는","text":"한 번에 100만 원 미만이면, 매장이 바로 세금을 뺀 값으로 팔 수 있어요.","start":384.189,"end":388.436},{"n":92,"part":"다섯째, 우리나라와 다른 나라는","text":"입국 뒤 이렇게 산 금액은 모두 합쳐 500만 원까지입니다.","start":388.886,"end":392.279},{"n":93,"part":"다섯째, 우리나라와 다른 나라는","text":"그보다 크면, 산 날부터 3개월 안에 출국하면서 세관 확인을 받고 돌려받습니다.","start":392.729,"end":397.731},{"n":94,"part":"다섯째, 우리나라와 다른 나라는","text":"환급 수수료는 국세청장이 승인한 금액만 뗄 수 있습니다.","start":398.181,"end":401.574},{"n":95,"part":"다섯째, 우리나라와 다른 나라는","text":"일본이 없애는 매장 즉시 면세를, 우리나라는 금액 한도를 두고 남겨 둔 셈입니다.","start":402.024,"end":407.026},{"n":96,"part":"다섯째, 우리나라와 다른 나라는","text":"싱가포르는 같은 매장에서 100싱가포르달러 이상 사면 대상입니다.","start":407.476,"end":411.473},{"n":97,"part":"다섯째, 우리나라와 다른 나라는","text":"산 날부터 2개월 안에, 공항 단말기에 여권을 대고 신청합니다.","start":411.923,"end":415.868},{"n":98,"part":"다섯째, 우리나라와 다른 나라는","text":"돌려받는 돈은 수수료를 뺀 금액이라 낸 세금보다 적습니다.","start":416.318,"end":419.862},{"n":99,"part":"다섯째, 우리나라와 다른 나라는","text":"프랑스는 한 매장에서 하루 100유로를 조금 넘게 사면 대상입니다.","start":420.312,"end":424.158},{"n":100,"part":"다섯째, 우리나라와 다른 나라는","text":"공항 단말기에 서류를 읽혀 확인 메시지가 뜨면, 세관 도장을 대신합니다.","start":424.608,"end":429.157},{"n":101,"part":"다섯째, 우리나라와 다른 나라는","text":"세관은 여권과 탑승권, 산 물건을 확인할 수 있습니다.","start":429.607,"end":432.948},{"n":102,"part":"다섯째, 우리나라와 다른 나라는","text":"일본의 새 방식은 싱가포르, 프랑스처럼 떠날 때 확인받는 방식에 가깝습니다.","start":433.398,"end":438.249},{"n":103,"part":"정리","text":"자, 마지막으로 오늘 내용을 정리하겠습니다.","start":439.249,"end":442.137},{"n":104,"part":"정리","text":"11월 1일부터 산 물건은 세금을 포함해 결제하고, 출국할 때 확인을 받아 돌려받습니다.","start":442.587,"end":448.193},{"n":105,"part":"정리","text":"일본은 면세품을 되파는 부정을 막으려고, 세금을 먼저 받는 방식으로 바꿉니다.","start":448.643,"end":453.645},{"n":106,"part":"정리","text":"효과는 11월 이후 자료로 확인해야 하고, 공항 혼잡은 걱정거리로 남아 있습니다.","start":454.095,"end":459.248},{"n":107,"part":"정리","text":"짐을 맡기기 전에, 영수증의 물건을 빠짐없이, 90일 안에 확인을 받으세요.","start":459.698,"end":464.648},{"n":108,"part":"정리","text":"우리나라는 소액이면 매장에서 바로 세금을 빼 주고, 싱가포르와 프랑스는 일본과 비슷합니다.","start":465.098,"end":471.006},{"n":109,"part":"정리","text":"돌려받는 방법과 수수료는 매장마다 다르니, 살 때 먼저 물어보세요.","start":471.456,"end":475.703},{"n":110,"part":"정리","text":"시청해주셔서 감사합니다.","start":476.153,"end":477.734}],"subs":[[0.3,3.995,"11월 1일부터 일본의 외국인 여행자 면세 방식이 바뀝니다."],[4.445,8.442,"지금처럼 매장 계산대에서 바로 세금을 빼 주는 방식이 사라집니다."],[8.892,11.983,"이 소식을 다룬 영상에는 걱정하는 댓글이 많았어요."],[12.433,17.888,"가장 많은 공감을 받은 댓글은,\n환급액을 그냥 챙기겠다는 속셈 아니냐는 말이었습니다."],[18.338,23.543,"공항에 사람이 몰리면\n결국 면세를 안 해 주겠다는 소리라는 댓글도 많은 공감을 받았죠."],[23.993,27.386,"반대로 우리나라도 이렇게 해야 한다는 댓글도 있었어요."],[27.836,29.87,"그럼 일본 면세가 없어지는 걸까요?"],[30.32,32.906,"결론부터 말하면, 면세는 그대로입니다."],[33.356,38.509,"다만 세금을 먼저 내고,\n출국할 때 세관 확인을 받아야 돌려받는 방식으로 바뀝니다."],[38.959,42.201,"이 확인을 받지 못하면 낸 세금은 돌려받을 수 없습니다."],[42.651,47.299,"무엇이 바뀌는지, 왜 바꾸는지, 정말 효과가 있을지 차례로 보겠습니다."],[47.749,53.204,"그리고 실제로 벌어질 상황과,\n우리나라를 포함한 다른 나라의 방식도 비교하겠습니다."],[54.204,56.238,"첫 번째는 무엇이 바뀌는가입니다."],[56.688,60.836,"새 방식은 2026년 11월 1일 이후에 산 물건부터 적용됩니다."],[61.286,64.226,"기준은 출국하는 날이 아니라 물건을 산 날이에요."],[64.676,68.673,"10월 31일까지 산 물건은 지금처럼 매장에서 바로 면세됩니다."],[69.123,71.459,"두 방식을 함께 쓰는 기간은 따로 없어요."],[71.909,77.062,"11월부터는 매장에서 여권을 보여 주고,\n소비세를 포함한 가격으로 결제합니다."],[77.512,82.212,"예를 들어 세금 포함 1만 1천 엔짜리를 사면,\n그중 1천 엔이 소비세입니다."],[82.662,86.055,"매장은 이 구매 기록을 일본 국세청 시스템으로 보냅니다."],[86.505,90.653,"출국하는 날에는 공항 출발 로비의 면세 수속 단말기에 여권을 댑니다."],[91.103,93.288,"화면에 초록색이 뜨면 확인이 끝나요."],[93.738,97.584,"빨간색이 뜨면 세관 검사장에서 산 물건을 직접 보여 줘야 합니다."],[98.034,103.286,"나리타, 하네다,\n간사이 등 일곱 개 공항에서는 휴대전화로도 수속할 수 있습니다."],[103.736,108.035,"공항 안 전용 와이파이 구역에서\n비지트 재팬 웹에 접속하는 방식이에요."],[108.485,113.638,"세관 확인이 끝나면,\n물건을 산 매장이나 매장이 맡긴 환급 업체가 돈을 돌려줍니다."],[114.088,118.835,"돌려받는 방법은 카드, 계좌 송금, 앱, 공항 현금 등 매장마다 다릅니다."],[119.285,124.74,"일본 정부는 수수료를 받지 않지만,\n환급 업체의 수수료는 법으로 정해져 있지 않습니다."],[125.19,129.739,"그래서 수수료를 떼고 나면,\n돌려받는 돈이 낸 세금보다 적을 수 있습니다."],[130.189,132.072,"오히려 편해지는 점도 있습니다."],[132.522,137.524,"같은 매장에서 하루에 세금 빼고\n5,000엔 이상 사야 한다는 기준은 그대로입니다."],[137.974,143.278,"대신 과자나 화장품 같은 소모품과,\n옷이나 가전 같은 일반 물품의 구분이 사라집니다."],[143.728,146.314,"그래서 둘을 합쳐 5,000엔 이상이면 돼요."],[146.764,150.157,"소모품은 50만 엔까지만 면세되던 상한도 없어집니다."],[150.607,154,"소모품을 밀봉 봉투에 담아 주던 특수 포장도 사라지고요."],[154.45,158.145,"다만 한 개에 세금 빼고 100만 엔 이상인 물건은 따로 기록합니다."],[158.595,162.29,"시리얼 번호처럼 그 물건을 알아볼 수 있는 정보를 남기는 거죠."],[162.74,166.435,"그렇다면 일본은 왜 이렇게 번거로운 방식으로 바꾸는 걸까요?"],[167.435,169.167,"두 번째는 바꾸는 이유입니다."],[169.617,174.973,"일본 재무성은 면세로 산 물건을 일본 안에서\n되파는 부정을 막기 위해서라고 설명합니다."],[175.423,180.175,"재무성이 2022년 4월부터 2년 동안의 기록을 정리한 자료가 있습니다."],[180.625,184.773,"그 기간에 한 번 입국해 1억 엔 이상 산 사람이 690명이었습니다."],[185.223,188.564,"이들이 산 금액은 합계 2,332억 엔입니다."],[189.014,192.86,"세관은 이 가운데 9할 가까이를 출국할 때 확인하지 못했습니다."],[193.31,197.76,"확인한 사람들은 거의 모두 물건을\n가지고 있지 않아 세금이 매겨졌습니다."],[198.21,201.452,"하지만 거의 전부가 그 세금을 내지 않고 출국했습니다."],[201.902,206.05,"다만 자료에도 이들 모두가 부정이라고 할 수는 없다고 적혀 있습니다."],[206.5,211.804,"지금 방식은 세금을 빼고 먼저 팔기 때문에,\n떠난 뒤에는 세금을 받아 내기 어렵습니다."],[212.254,217.86,"새 방식은 세금을 먼저 받아 두고,\n물건을 가지고 나가는 게 확인된 사람에게만 돌려줍니다."],[218.31,221.099,"그럼 이 방식으로 정말 부정을 막을 수 있을까요?"],[222.099,223.378,"세 번째는 효과입니다."],[223.828,228.075,"새 방식에서는 물건 없이 출국하면, 처음부터 환급이 되지 않습니다."],[228.525,233.527,"세금이 이미 걷혀 있으니,\n떠난 사람을 쫓아가 세금을 받아 낼 일이 없어지는 거죠."],[233.977,237.922,"구조로만 보면, 자료에 나온 방식의 부정은 하기 어려워집니다."],[238.372,242.973,"다만 실제로 얼마나 줄었는지는\n11월 이후의 자료가 나와야 알 수 있습니다."],[243.423,244.4,"걱정도 있습니다."],[244.85,249.55,"댓글처럼, 공항에서 수속하는 사람이 몰리면\n줄이 길어질 수 있다는 겁니다."],[250,252.94,"이런 걱정 끝에 아예 면세를 없앤 나라도 있습니다."],[253.39,258.694,"영국은 2021년 1월,\n관광객에게 매장 부가세를 돌려주던 제도를 없앴습니다."],[259.144,263.594,"영국 정부는 유지 비용이 크고\n경제 효과가 분명하지 않다고 설명했습니다."],[264.044,266.531,"출국 지점의 업무 부담도 이유로 들었고요."],[266.981,271.733,"반면 소매업계는 씀씀이가 큰 관광객이\n유럽 다른 나라로 간다며 반발했습니다."],[272.183,275.977,"일본은 면세를 없애지 않고, 돌려주는 방식만 바꾼 쪽입니다."],[276.427,280.424,"그럼 11월부터 공항과 매장에서는 실제로 어떤 일이 벌어질까요?"],[281.424,283.609,"네 번째는 실제로 벌어질 상황입니다."],[284.059,286.848,"먼저 놓치면 환급을 못 받는 세 가지가 있습니다."],[287.298,290.488,"하나, 짐을 맡기기 전에 세관 확인을 받아야 합니다."],[290.938,295.185,"산 물건을 캐리어에 넣어 먼저 부치면, 세관 확인을 받을 수 없습니다."],[295.635,297.971,"한 번 맡긴 짐은 되찾아 올 수도 없습니다."],[298.421,300.554,"둘, 확인은 영수증 단위로 합니다."],[301.004,306.157,"한 영수증에 든 물건 가운데 하나라도 없으면,\n그 영수증 전체가 환급되지 않습니다."],[306.607,309.849,"일본에서 먹거나 써 버린 물건도 환급받을 수 없습니다."],[310.299,314.093,"일부라도 썼다면, 단말기 대신 세관 창구에 신고해야 합니다."],[314.543,318.337,"셋, 산 날부터 90일 안에 출국하면서 확인을 받아야 합니다."],[318.787,322.883,"수속을 하다가 중간에 그만두면, 확인을 받지 않은 것으로 봅니다."],[323.333,325.669,"그럼 공항에는 몇 시간 전에 가야 할까요?"],[326.119,331.173,"한 여행 가이드는 5시간에서 6시간 전에\n도착할 생각이라고까지 말했습니다."],[331.623,334.412,"하지만 일본 정부가 정한 기준 시간은 없습니다."],[334.862,338.557,"관광청은 시간에 여유를 두고 공항에 도착하라고 안내합니다."],[339.007,344.16,"시간이 모자라 비행기를 놓쳐도,\n항공사나 세관은 보상하지 않는다고 밝혔습니다."],[344.61,346.342,"공항들도 준비하고 있습니다."],[346.792,351.794,"업계 보도에 따르면,\n하네다·나리타·나하 공항에는 현금 환급 단말기가 생깁니다."],[352.244,355.486,"약 1분이면 엔화 현금으로 받을 수 있다는 설명입니다."],[355.936,360.386,"그리고 우리나라로 돌아올 때의 한도는\n그대로라는 점도 기억해야 합니다."],[360.836,366.14,"일본의 50만 엔 상한이 없어져도,\n우리나라 입국 면세 한도는 미화 800달러입니다."],[366.59,369.629,"술은 따로 2리터 이하, 400달러 이하까지예요."],[370.079,373.623,"그렇다면 다른 나라들은 어떤 방식으로 세금을 돌려줄까요?"],[374.623,376.959,"다섯 번째는 다른 나라와의 비교입니다."],[377.409,378.688,"먼저 우리나라입니다."],[379.138,383.739,"외국인 관광객은 사후면세점에서 한 번에\n1만 5천 원 이상 사면 대상입니다."],[384.189,388.436,"한 번에 100만 원 미만이면,\n매장이 바로 세금을 뺀 값으로 팔 수 있어요."],[388.886,392.279,"입국 뒤 이렇게 산 금액은 모두 합쳐 500만 원까지입니다."],[392.729,397.731,"그보다 크면, 산 날부터 3개월 안에 출국하면서\n세관 확인을 받고 돌려받습니다."],[398.181,401.574,"환급 수수료는 국세청장이 승인한 금액만 뗄 수 있습니다."],[402.024,407.026,"일본이 없애는 매장 즉시 면세를,\n우리나라는 금액 한도를 두고 남겨 둔 셈입니다."],[407.476,411.473,"싱가포르는 같은 매장에서 100싱가포르달러 이상 사면 대상입니다."],[411.923,415.868,"산 날부터 2개월 안에, 공항 단말기에 여권을 대고 신청합니다."],[416.318,419.862,"돌려받는 돈은 수수료를 뺀 금액이라 낸 세금보다 적습니다."],[420.312,424.158,"프랑스는 한 매장에서 하루 100유로를 조금 넘게 사면 대상입니다."],[424.608,429.157,"공항 단말기에 서류를 읽혀 확인 메시지가 뜨면,\n세관 도장을 대신합니다."],[429.607,432.948,"세관은 여권과 탑승권, 산 물건을 확인할 수 있습니다."],[433.398,438.249,"일본의 새 방식은 싱가포르,\n프랑스처럼 떠날 때 확인받는 방식에 가깝습니다."],[439.249,442.137,"자, 마지막으로 오늘 내용을 정리하겠습니다."],[442.587,448.193,"11월 1일부터 산 물건은 세금을 포함해 결제하고,\n출국할 때 확인을 받아 돌려받습니다."],[448.643,453.645,"일본은 면세품을 되파는 부정을 막으려고,\n세금을 먼저 받는 방식으로 바꿉니다."],[454.095,459.248,"효과는 11월 이후 자료로 확인해야 하고,\n공항 혼잡은 걱정거리로 남아 있습니다."],[459.698,464.648,"짐을 맡기기 전에, 영수증의 물건을 빠짐없이,\n90일 안에 확인을 받으세요."],[465.098,471.006,"우리나라는 소액이면 매장에서 바로 세금을 빼 주고,\n싱가포르와 프랑스는 일본과 비슷합니다."],[471.456,475.703,"돌려받는 방법과 수수료는 매장마다 다르니, 살 때 먼저 물어보세요."],[476.153,477.734,"시청해주셔서 감사합니다."]],"subs_estimated":true};/*EP-DATA:END*/</script>
+<script src="../../render/kit.js"></script>
+<script>
+(function () {
+"use strict";
+K.init(window.EP);
+const { S, E, W, el, pop, out, counter, scene, text } = K;
+const tl = K.tl;
+const R = "#FF4D3D", G = "#22C7B0", Y = "#FFD400", N = "#9AA7BF";
+const until = n => S(n) - 0.05;
+
+/* ───────── 배경 그림 (선택) — 올라온 그림 이름만 넣는다 ───────── */
+const IMG_DIR = "../../../test/source/myeonse-hwangeup-2026-10/images/";
+const IMG_ON = new Set([]);          // 예: new Set(["IMG-L1", "IMG-L3"])
+function bg(sc, key, a, b, dim) {
+  if (!IMG_ON.has(key)) return;
+  const im = el(`<img class="bgimg" alt="" src="${IMG_DIR}${key}.jpg">`, sc);
+  el(`<div class="bgdim" style="background:rgba(7,12,23,${dim == null ? 0.72 : dim})"></div>`, sc);
+  tl.fromTo(im, { scale: 1 }, { scale: 1.05, duration: Math.max(1, b - a), ease: "none" }, a);
+}
+function sceneBg(a, b, key, dim) { const sc = scene(a, b); bg(sc, key, a, b, dim); return sc; }
+
+/* ───────── 그림 부품 (이 영상) ───────── */
+const svg = (parent, cx, top, w, vb, body, h) => el(`<svg class="a" viewBox="${vb}" width="${w}" height="${h || w}" style="left:${cx - w / 2}px;top:${top}px" aria-hidden="true">${body}</svg>`, parent);
+const passport = (p, cx, top, w) => svg(p, cx, top, w, "0 0 140 190", `<rect x="6" y="6" width="128" height="178" rx="14" fill="#2E4470" stroke="#C9D2E2" stroke-width="5"/><circle cx="70" cy="80" r="30" fill="none" stroke="#E8C66A" stroke-width="6"/><rect x="34" y="132" width="72" height="9" rx="4" fill="#E8C66A"/><rect x="44" y="150" width="52" height="8" rx="4" fill="#E8C66A" opacity=".7"/>`, w * 190 / 140);
+const receipt = (p, cx, top, w, lines, color) => svg(p, cx, top, w, "0 0 160 230", `<path d="M10 6 H150 V214 L136 224 L122 214 L108 224 L94 214 L80 224 L66 214 L52 224 L38 214 L24 224 L10 214 Z" fill="#F2F4F8" stroke="${color || "#C9D2E2"}" stroke-width="5" stroke-linejoin="round"/>${Array.from({ length: lines || 5 }, (_, i) => `<rect x="28" y="${30 + i * 32}" width="${i % 2 ? 80 : 104}" height="10" rx="5" fill="#9AA7BF"/>`).join("")}`, w * 230 / 160);
+const kiosk = (p, cx, top, w, screen) => svg(p, cx, top, w, "0 0 200 360", `<rect x="30" y="6" width="140" height="300" rx="20" fill="#2A3B5E" stroke="#C9D2E2" stroke-width="5"/><rect class="scr" x="46" y="24" width="108" height="130" rx="10" fill="${screen || "#0C1424"}"/><rect x="62" y="186" width="76" height="52" rx="8" fill="#0C1424" stroke="#9AA7BF" stroke-width="4"/><rect x="70" y="250" width="60" height="10" rx="5" fill="#9AA7BF"/><rect x="60" y="306" width="80" height="48" rx="6" fill="#1D2A44"/>`, w * 1.8);
+const suitcase = (p, cx, top, w, color) => svg(p, cx, top, w, "0 0 160 200", `<rect x="58" y="6" width="44" height="30" rx="10" fill="none" stroke="#C9D2E2" stroke-width="8"/><rect x="14" y="30" width="132" height="150" rx="18" fill="${color || "#5B7DB8"}" stroke="#C9D2E2" stroke-width="5"/><rect x="44" y="30" width="10" height="150" fill="#0C1424" opacity=".35"/><rect x="106" y="30" width="10" height="150" fill="#0C1424" opacity=".35"/><circle cx="40" cy="190" r="9" fill="#C9D2E2"/><circle cx="120" cy="190" r="9" fill="#C9D2E2"/>`, w * 200 / 160);
+const bag = (p, cx, top, w, color) => svg(p, cx, top, w, "0 0 160 180", `<path d="M52 50 C52 14 108 14 108 50" fill="none" stroke="#C9D2E2" stroke-width="9"/><path d="M18 50 H142 L132 172 H28 Z" fill="${color || "#3C5788"}" stroke="#C9D2E2" stroke-width="5" stroke-linejoin="round"/>`, w * 180 / 160);
+const coin = (p, cx, top, w, label) => { const g = el(`<div class="a cx" style="left:${cx}px;top:${top}px;width:${w}px;height:${w}px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#9DB4DA,#5B7DB8 60%,#34507F);border:5px solid #C9D2E2;display:grid;place-items:center;font-weight:900;font-size:${Math.round(w * 0.36)}px;color:#0C1424">${label || "엔"}</div>`, p); return g; };
+const clock = (p, cx, top, w) => svg(p, cx, top, w, "0 0 200 200", `<circle cx="100" cy="100" r="88" fill="#2A3B5E" stroke="#C9D2E2" stroke-width="8"/><path d="M100 100 L100 40 M100 100 L146 124" stroke="#F4F6FA" stroke-width="10" stroke-linecap="round"/><circle cx="100" cy="100" r="9" fill="#F4F6FA"/>`);
+const plane = (p, cx, top, w) => svg(p, cx, top, w, "0 0 240 120", `<rect x="14" y="56" width="218" height="16" rx="8" fill="#C9D2E2"/><path d="M156 58 L104 10 L84 10 L112 58 Z M156 70 L104 118 L84 118 L112 70 Z M44 58 L26 30 L14 30 L24 58 Z M44 70 L26 98 L14 98 L24 70 Z" fill="#C9D2E2"/>`, w / 2);
+const icon = (p, cx, top, w, kind) => {   // 환급 방법 아이콘 (카드 · 계좌 송금 · 앱 · 현금)
+  const body = {
+    card: `<rect x="10" y="30" width="180" height="120" rx="16" fill="#3C5788" stroke="#C9D2E2" stroke-width="5"/><rect x="10" y="58" width="180" height="22" fill="#0C1424"/><rect x="30" y="110" width="60" height="14" rx="7" fill="#C9D2E2"/>`,
+    bank: `<path d="M20 70 L100 20 L180 70 Z" fill="#9AA7BF"/><rect x="30" y="76" width="140" height="80" rx="6" fill="#2A3B5E" stroke="#C9D2E2" stroke-width="5"/><rect x="52" y="90" width="16" height="52" fill="#9FB6DA"/><rect x="92" y="90" width="16" height="52" fill="#9FB6DA"/><rect x="132" y="90" width="16" height="52" fill="#9FB6DA"/>`,
+    app: `<rect x="60" y="10" width="80" height="160" rx="16" fill="#2A3B5E" stroke="#C9D2E2" stroke-width="5"/><rect x="74" y="34" width="22" height="22" rx="5" fill="#22C7B0"/><rect x="104" y="34" width="22" height="22" rx="5" fill="#5B7DB8"/><rect x="74" y="64" width="22" height="22" rx="5" fill="#5B7DB8"/><rect x="104" y="64" width="22" height="22" rx="5" fill="#9FB6DA"/>`,
+    cash: `<rect x="14" y="44" width="172" height="96" rx="12" fill="#2F6E62" stroke="#C9D2E2" stroke-width="5"/><circle cx="100" cy="92" r="28" fill="none" stroke="#C9D2E2" stroke-width="6"/>`,
+    phone: `<rect x="60" y="10" width="80" height="160" rx="16" fill="#2A3B5E" stroke="#C9D2E2" stroke-width="5"/><path d="M76 74 C92 58 108 58 124 74 M84 86 C94 76 106 76 116 86" fill="none" stroke="#FFD400" stroke-width="7" stroke-linecap="round"/><circle cx="100" cy="100" r="7" fill="#FFD400"/>`,
+    snack: `<path d="M40 30 H160 L150 170 H50 Z" fill="#B5553F" stroke="#C9D2E2" stroke-width="5"/><circle cx="100" cy="96" r="30" fill="#E9B872"/>`,
+    cosme: `<rect x="72" y="20" width="56" height="34" rx="6" fill="#C9D2E2"/><rect x="60" y="54" width="80" height="116" rx="14" fill="#C77DAA" stroke="#C9D2E2" stroke-width="5"/>`,
+    shirt: `<path d="M60 22 L100 40 L140 22 L182 60 L158 88 L144 76 L144 172 H56 L56 76 L42 88 L18 60 Z" fill="#5B7DB8" stroke="#C9D2E2" stroke-width="5" stroke-linejoin="round"/>`,
+    tv: `<rect x="16" y="30" width="168" height="110" rx="12" fill="#0C1424" stroke="#C9D2E2" stroke-width="6"/><path d="M70 170 H130 M100 140 V170" stroke="#C9D2E2" stroke-width="8" stroke-linecap="round"/>`,
+    gov: `<path d="M10 64 L100 14 L190 64 Z" fill="#9AA7BF"/><rect x="24" y="70" width="152" height="96" rx="6" fill="#2A3B5E" stroke="#C9D2E2" stroke-width="5"/><rect x="46" y="86" width="20" height="64" fill="#9FB6DA"/><rect x="90" y="86" width="20" height="64" fill="#9FB6DA"/><rect x="134" y="86" width="20" height="64" fill="#9FB6DA"/>`,
+    store: `<path d="M14 66 L30 20 H170 L186 66 Z" fill="#3C5788" stroke="#C9D2E2" stroke-width="5" stroke-linejoin="round"/><rect x="26" y="66" width="148" height="100" rx="6" fill="#2A3B5E" stroke="#C9D2E2" stroke-width="5"/><rect x="80" y="104" width="40" height="62" fill="#9FB6DA"/>`,
+  }[kind];
+  return svg(p, cx, top, w, "0 0 200 180", body, w * 0.9);
+};
+const qcard = (p, top, q, who, color) => el(`<div class="qc" style="top:${top}px"><div class="q" style="color:${color || "#F4F6FA"}">${q}</div>${who ? `<div class="who">${who}</div>` : ""}</div>`, p);
+const chip = (p, cx, top, html, kind) => el(`<div class="a cx chip${kind || "Y"}" style="left:${cx}px;top:${top}px">${html}</div>`, p);
+const flowb = (p, left, top, t, s, color) => el(`<div class="flowb" style="left:${left}px;top:${top}px;border-color:${color || "rgba(255,255,255,.18)"}"><div class="t" style="color:${color || "#F4F6FA"}">${t}</div>${s ? `<div class="s">${s}</div>` : ""}</div>`, p);
+const arrowR = (p, left, top) => el(`<div class="arrow" style="left:${left}px;top:${top}px">→</div>`, p);
+const skAt = (node, at) => tl.to(node.querySelectorAll(".sk>i"), { scaleX: 1, duration: 0.35, ease: "power2.out" }, at);   // 글자에 붙은 취소선
+const people = (p, left, top, n, h, gap, fill) => { const g = el(`<div class="a" style="left:${left}px;top:${top}px;display:flex;align-items:flex-end;gap:${gap || 18}px"></div>`, p); for (let i = 0; i < n; i++) el(K.person(fill || (i % 2 ? "#AEB9CC" : "#DCE3EE"), h * (i % 3 === 1 ? 0.92 : 1)), g); return g; };
+
+K.chapters([
+  { part: "도입", tag: "도입", chip: "11월부터 바뀌는 일본 면세" },
+  { part: "첫째, 무엇이 바뀌나", tag: "①", chip: "무엇이 바뀌나", title: "무엇이 바뀌나", dots: [1, 5], card: true, cardHold: E(13) - S(13) },
+  { part: "둘째, 왜 바꾸나", tag: "②", chip: "왜 바꾸나", title: "왜 바꾸나", dots: [2, 5], card: true, cardHold: E(39) - S(39) },
+  { part: "셋째, 정말 효과가 있을까", tag: "③", chip: "정말 효과가 있을까", title: "정말 효과가 있을까", dots: [3, 5], card: true, cardHold: E(51) - S(51) },
+  { part: "넷째, 실제로 벌어질 상황", tag: "④", chip: "실제로 벌어질 상황", title: "실제로 벌어질 상황", dots: [4, 5], card: true, cardHold: E(65) - S(65) },
+  { part: "다섯째, 우리나라와 다른 나라는", tag: "⑤", chip: "우리나라와 다른 나라", title: "우리나라와<br>다른 나라는", dots: [5, 5], card: true, cardHold: E(88) - S(88) },
+  { part: "정리", tag: "정리", title: "오늘 내용 정리", card: true, cardHold: E(103) - S(103) },
+]);
+
+/* ───────────── 도입 ───────────── */
+// 1. 11월 1일부터 · 계산대 즉시 면세가 사라짐 (s1–s2)
+{ const a = 0, b = until(3), sc = sceneBg(a, b, "IMG-L1");
+  const st = el(`<div class="a cx c w9 nw" style="left:960px;top:180px;font-size:200px;line-height:1;letter-spacing:-4px"><span class="Y">11월 1일</span><span style="font-size:110px">부터</span></div>`, sc); pop(st, 0.3);
+  const sub = text(sc, 960, 420, "일본 외국인 여행자 면세 방식이 바뀝니다", 64, "w9"); pop(sub, W(1, "외국인"));
+  tl.to([st, sub], { y: -60, opacity: 0, duration: 0.45, ease: "power2.in" }, S(2) - 0.15);
+  const store = icon(sc, 760, 260, 300, "store"); pop(store, S(2) + 0.1);
+  const lab = el(`<div class="a cx c w9 nw" style="left:1200px;top:330px;font-size:72px;line-height:1.2"><span class="sk">계산대에서<i></i></span><br><span class="sk">바로 면세<i></i></span></div>`, sc); pop(lab, W(2, "계산대에서"));
+  skAt(lab, W(2, "사라집니다"));
+  const gone = chip(sc, 1200, 600, "사라짐", "R"); pop(gone, W(2, "사라집니다") + 0.15);
+  K.cut(E(2) - 0.1, "계산대 즉시 면세 사라짐");
+}
+// 2. 댓글 세 장 (s3–s6)
+{ const sc = sceneBg(S(3) - 0.3, until(7), "IMG-L1", 0.82);
+  const t = el(`<div class="a w9 nw" style="left:240px;top:150px;font-size:56px">면세 영상 댓글 <span class="N" style="font-size:42px">(유튜브)</span></div>`, sc); pop(t, S(3));
+  const c1 = qcard(sc, 250, "“환급액 날먹하겠다는 심산”", "좋아요 365 · 가장 많은 공감", R); pop(c1, S(4) + 0.2);
+  const c2 = qcard(sc, 470, "“공항에 몰빵으로 몰리면… 면세 안 해 주겠단 소리”", "좋아요 250"); pop(c2, S(5));
+  const c3 = qcard(sc, 690, "“우리나라도 저리 해야 함”", "좋아요 194", G); pop(c3, S(6));
+  K.cut(E(6) - 0.1, "댓글 세 장");
+}
+// 3. 면세가 없어진다? → 그대로 · 순서 · 못 받으면 X (s7–s10)
+{ const sc = sceneBg(S(7) - 0.3, until(11), "IMG-L3");
+  const q = el(`<div class="a cx c w9 nw" style="left:960px;top:200px;font-size:120px">면세가 <span class="R">없어진다?</span></div>`, sc); pop(q, S(7));
+  const ans = chip(sc, 960, 400, "면세는 그대로", "G"); pop(ans, W(8, "면세는"), { from: { scale: 1.3, y: 0 } });
+  tl.to([q, ans], { y: -40, opacity: 0, duration: 0.4 }, S(9) - 0.15);
+  const f1 = flowb(sc, 150, 300, "세금 포함 결제", "먼저 냄"); pop(f1, W(9, "먼저"));
+  const a1 = arrowR(sc, 606, 352); pop(a1, W(9, "출국할"));
+  const f2 = flowb(sc, 750, 300, "출국 때 세관 확인", null, Y); pop(f2, W(9, "출국할"));
+  const a2 = arrowR(sc, 1206, 352); pop(a2, W(9, "돌려받는"));
+  const f3 = flowb(sc, 1350, 300, "환급", "돌려받음", G); pop(f3, W(9, "돌려받는"));
+  const no = chip(sc, 960, 620, "확인 못 받으면 환급 ✕", "R"); pop(no, S(10));
+  K.cut(E(10) - 0.1, "결제 → 확인 → 환급 · 못 받으면 X");
+}
+// 4. 다섯 가지 차례 (s11–s12)
+{ const sc = sceneBg(S(11) - 0.3, until(13) - 1.0, "IMG-L3", 0.85);
+  const items = [["①", "무엇이<br>바뀌나", W(11, "무엇이")], ["②", "왜<br>바꾸나", W(11, "왜")], ["③", "효과가<br>있을까", W(11, "효과가")], ["④", "실제<br>상황", W(12, "실제로")], ["⑤", "다른<br>나라", W(12, "다른 나라")]];
+  items.forEach(([n, t, at], i) => { const s = el(`<div class="slot" style="left:${150 + i * 340}px;top:380px">${n}<br>${t}</div>`, sc); pop(s, at); });
+  const lab = text(sc, 960, 220, "오늘 볼 다섯 가지", 72); pop(lab, S(11));
+  K.cut(E(12) - 0.3, "다섯 가지 차례");
+}
+
+/* ───────────── 첫째, 무엇이 바뀌나 ───────────── */
+// 5. 기준 = 산 날 · 10.31 / 11.01 · 함께 쓰는 기간 없음 (s14–s17)
+{ const sc = sceneBg(S(14) - 0.3, until(18), "IMG-L1", 0.85);
+  const ttl = el(`<div class="a cx c w9 nw" style="left:960px;top:160px;font-size:64px"><span class="Y">2026년 11월 1일</span> 이후에 산 물건부터</div>`, sc); pop(ttl, S(14));
+  const left = el(`<div class="box" style="left:240px;top:300px;width:620px;height:360px"><div class="lab">10월 31일까지 산 물건</div><div class="t G">매장에서<br>바로 면세</div><div class="s">지금 방식</div></div>`, sc);
+  const right = el(`<div class="box" style="left:1060px;top:300px;width:620px;height:360px"><div class="lab">11월 1일부터 산 물건</div><div class="t">세금 내고 사서<br>출국 때 환급</div><div class="s">새 방식</div></div>`, sc);
+  const line = K.thr(sc, 960, 300, 380, "산 날 기준", W(15, "산 날"), 690);
+  pop(right, W(14, "물건부터"));
+  pop(left, S(16));
+  const nb = chip(sc, 960, 760, "함께 쓰는 기간 없음", "R"); pop(nb, S(17));
+  K.cut(E(16) - 0.1, "10.31 / 11.01 — 산 날 기준");
+}
+// 6. 매장에서: 여권 · 세금 포함 결제 · 1만 1천 엔 중 1천 엔 · 국세청 시스템으로 (s18–s20)
+{ const sc = sceneBg(S(18) - 0.3, until(21), "IMG-L2");
+  const pp = passport(sc, 340, 230, 200); pop(pp, W(18, "여권을"));
+  const rc = receipt(sc, 700, 210, 220); pop(rc, W(18, "소비세를"));
+  const tag = el(`<div class="a cx c w9 nw" style="left:700px;top:560px;font-size:52px">세금 포함 결제</div>`, sc); pop(tag, W(18, "소비세를"));
+  const calc = el(`<div class="a c" style="left:1000px;top:230px;width:780px;display:grid;gap:18px;justify-items:center">
+    <div class="w9 nw" style="font-size:96px;line-height:1">1만 1천 엔</div><div class="w7 N nw" style="font-size:44px">세금 포함 가격</div>
+    <div class="w9 nw" style="font-size:72px;line-height:1.1">그중 <span class="Y">1천 엔</span> = 소비세</div></div>`, sc);
+  pop(calc, S(19));
+  tl.to([pp, rc, tag, calc], { opacity: 0.12, duration: 0.4 }, S(20) - 0.1);
+  const gov = icon(sc, 1500, 560, 240, "gov"); pop(gov, W(20, "국세청"));
+  const gl = el(`<div class="a cx c w9 nw" style="left:1500px;top:790px;font-size:48px">일본 국세청 시스템</div>`, sc); pop(gl, W(20, "국세청"));
+  const fly = receipt(sc, 700, 560, 110); tl.fromTo(fly, { x: 0, y: 0, opacity: 0 }, { x: 640, y: 40, opacity: 1, duration: 0.9, ease: "power2.inOut" }, W(20, "구매 기록을"));
+  K.cut(E(19) - 0.1, "여권 · 세금 포함 · 1만 1천 엔 중 1천 엔");
+  K.cut(E(20) - 0.1, "구매 기록 → 국세청");
+}
+// 7. 공항 단말기: 여권 → 초록 = 끝 / 빨강 = 세관 검사장 (s21–s23)
+{ const sc = sceneBg(S(21) - 0.3, until(24), "IMG-L3");
+  const t = el(`<div class="a cx c w9 nw" style="left:960px;top:150px;font-size:60px">출국하는 날 · 공항 출발 로비 <span class="Y">면세 수속 단말기</span></div>`, sc); pop(t, S(21));
+  const k = kiosk(sc, 960, 260, 300); pop(k, W(21, "단말기에"));
+  const pp = passport(sc, 1300, 420, 120); tl.fromTo(pp, { opacity: 0, x: 200 }, { opacity: 1, x: 0, duration: 0.7, ease: "power3.out" }, W(21, "여권을"));
+  const scr = k.querySelector(".scr");
+  tl.to(scr, { attr: { fill: G }, duration: 0.3 }, S(22));
+  const ok = el(`<div class="a cx c w9 G nw" style="left:470px;top:380px;font-size:72px;line-height:1.2">초록<br>확인 끝 ✓</div>`, sc); pop(ok, S(22));
+  tl.to(scr, { attr: { fill: R }, duration: 0.3 }, S(23));
+  const ng = el(`<div class="a cx c w9 R nw" style="left:1480px;top:280px;font-size:72px;line-height:1.2">빨강</div>`, sc); pop(ng, S(23));
+  const ng2 = el(`<div class="a cx c w7 nw" style="left:1480px;top:640px;font-size:46px;line-height:1.3">세관 검사장에서<br>산 물건 보여 주기</div>`, sc); pop(ng2, W(23, "세관"));
+  tl.to(pp, { opacity: 0, duration: 0.3 }, S(23) - 0.1);
+  K.cut(E(22) - 0.1, "단말기 초록");
+  K.cut(E(23) - 0.1, "단말기 빨강 → 세관 검사장");
+}
+// 8. 휴대전화로도: 7개 공항 · 전용 와이파이 · 비지트 재팬 웹 (s24–s25)
+{ const sc = sceneBg(S(24) - 0.3, until(26), "IMG-L3", 0.82);
+  const ph = icon(sc, 500, 250, 360, "phone"); pop(ph, W(24, "휴대전화로도"));
+  const ap = el(`<div class="a c" style="left:860px;top:230px;width:900px;display:grid;gap:22px;justify-items:start;text-align:left">
+    <div class="w9 nw" style="font-size:64px">나리타 · 하네다 · 간사이 등</div>
+    <div class="w9 Y nw" style="font-size:110px;line-height:1">일곱 개 공항</div></div>`, sc); pop(ap, S(24));
+  const wf = el(`<div class="a w7 nw" style="left:860px;top:560px;font-size:50px;line-height:1.4">공항 안 <span class="Y">전용 와이파이 구역</span><br>→ 비지트 재팬 웹 접속</div>`, sc); pop(wf, S(25));
+  K.cut(E(25) - 0.1, "휴대전화 · 7개 공항 · 와이파이");
+}
+// 9. 누가 돌려주나 · 방법 넷 · 수수료 (s26–s29)
+{ const sc = sceneBg(S(26) - 0.3, until(28), "IMG-L3", 0.82);
+  const f1 = flowb(sc, 150, 200, "세관 확인 ✓", null, G); pop(f1, S(26));
+  const a1 = arrowR(sc, 606, 252); pop(a1, W(26, "물건을 산"));
+  const f2 = flowb(sc, 750, 200, "매장 · 환급 업체", "세관이 아님", Y); pop(f2, W(26, "물건을 산"));
+  const a2 = arrowR(sc, 1206, 252); pop(a2, W(26, "돌려줍니다"));
+  const c = coin(sc, 1560, 205, 190); pop(c, W(26, "돌려줍니다"));
+  const ic = [["card", "카드", "카드"], ["bank", "계좌 송금", "계좌"], ["app", "앱", "앱"], ["cash", "공항 현금", "공항 현금"]];
+  ic.forEach(([k, lab, w], i) => { const x = 360 + i * 400; const g = icon(sc, x, 480, 210, k); const l = el(`<div class="a cx c w7 nw" style="left:${x}px;top:680px;font-size:44px">${lab}</div>`, sc); pop(g, W(27, w)); pop(l, W(27, w)); });
+  const diff = el(`<div class="a cx c w9 Y nw" style="left:960px;top:770px;font-size:50px">매장마다 다름</div>`, sc); pop(diff, W(27, "매장마다"));
+  K.cut(E(27) - 0.1, "누가 돌려주나 · 방법 넷");
+}
+{ const sc = sceneBg(S(28) - 0.3, until(30), "IMG-L3", 0.85);
+  const g0 = el(`<div class="a w9 nw" style="left:240px;top:190px;font-size:60px">일본 정부 수수료 <span class="G">없음</span></div>`, sc); pop(g0, S(28));
+  const g1 = el(`<div class="a w9 nw" style="left:240px;top:290px;font-size:60px">환급 업체 수수료 <span class="Y">법으로 안 정해짐</span></div>`, sc); pop(g1, W(28, "환급 업체의"));
+  const lb1 = el(`<div class="a w7 nw" style="left:240px;top:470px;font-size:46px">낸 소비세</div>`, sc); pop(lb1, S(29));
+  const b1 = K.seg(sc, 560, 450, 1100, "#4A69A2", "", S(29) + 0.1, 0.9, 100);
+  const lb2 = el(`<div class="a w7 nw" style="left:240px;top:630px;font-size:46px">돌려받는 돈</div>`, sc); pop(lb2, W(29, "돌려받는"));
+  const b2 = K.seg(sc, 560, 610, 840, G, "", W(29, "돌려받는"), 0.9, 100);
+  const fee = el(`<div class="a" style="left:1400px;top:610px;width:260px;height:100px;border-radius:12px;border:4px dashed ${R};display:grid;place-items:center;font-weight:900;font-size:44px;color:${R}">수수료</div>`, sc); pop(fee, W(29, "적을 수"));
+  K.cut(E(29) - 0.1, "수수료 → 돌려받는 돈이 적을 수");
+}
+// 10. 편해지는 점: 5,000엔 기준 그대로 · 구분 폐지 · 상한·특수 포장 폐지 · 100만 엔 기록 (s30–s37)
+{ const sc = sceneBg(S(30) - 0.3, until(34), "IMG-L1", 0.85);
+  const t = chip(sc, 960, 110, "오히려 편해지는 점", "G"); pop(t, S(30));
+  const ln = K.hthr(sc, 240, 340, 1440, "같은 매장 · 하루 · 세금 빼고 5,000엔 이상", W(31, "같은 매장"), 240, 268);
+  const same = el(`<div class="a w9 G nw" style="left:1460px;top:268px;font-size:50px">그대로</div>`, sc); pop(same, W(31, "그대로"));
+  const boxCss = "top:400px;width:560px;height:340px;align-content:start;padding-top:26px;gap:6px";
+  const boxA = el(`<div class="box" style="left:300px;${boxCss}"><div class="lab">소모품</div><div class="s">과자 · 화장품</div></div>`, sc);
+  const boxB = el(`<div class="box" style="left:1060px;${boxCss}"><div class="lab">일반 물품</div><div class="s">옷 · 가전</div></div>`, sc);
+  pop(boxA, W(32, "소모품과")); pop(boxB, W(32, "일반 물품의"));
+  [[boxA, "snack", 170, W(32, "과자나")], [boxA, "cosme", 390, W(32, "화장품")], [boxB, "shirt", 170, W(32, "옷이나")], [boxB, "tv", 390, W(32, "가전")]].forEach(([b, k, x, at]) => pop(icon(b, x, 175, 140, k), at));
+  tl.to(boxA, { x: 100, duration: 0.6, ease: "power2.inOut" }, W(32, "사라집니다"));
+  tl.to(boxB, { x: -100, duration: 0.6, ease: "power2.inOut" }, W(32, "사라집니다"));
+  const wrap = el(`<div class="a" style="left:380px;top:384px;width:1160px;height:372px;border-radius:30px;border:6px solid ${G}"></div>`, sc); pop(wrap, S(33));
+  const sum = el(`<div class="a cx c w9 G nw" style="left:960px;top:775px;font-size:64px">합쳐서 5,000엔 이상</div>`, sc); pop(sum, S(33));
+  K.cut(E(33) - 0.1, "기준 그대로 · 구분 사라짐 · 합쳐서");
+}
+{ const sc = sceneBg(S(34) - 0.3, until(38), "IMG-L1", 0.85);
+  const r1 = el(`<div class="a w9 nw" style="left:300px;top:200px;font-size:64px">소모품 면세 상한 <span class="sk">50만 엔<i></i></span></div>`, sc); pop(r1, S(34));
+  skAt(r1, W(34, "없어집니다"));
+  const k1 = el(`<div class="a w9 G nw" style="left:1180px;top:200px;font-size:64px">✓ 없어짐</div>`, sc); pop(k1, W(34, "없어집니다"));
+  const r2 = el(`<div class="a w9 nw" style="left:300px;top:340px;font-size:64px"><span class="sk">밀봉 봉투 특수 포장<i></i></span></div>`, sc); pop(r2, S(35));
+  skAt(r2, W(35, "사라지고요"));
+  const k2 = el(`<div class="a w9 G nw" style="left:1180px;top:340px;font-size:64px">✓ 사라짐</div>`, sc); pop(k2, W(35, "사라지고요"));
+  const y1 = el(`<div class="a" style="left:300px;top:520px;width:1320px;height:250px;border-radius:26px;border:5px dashed ${Y};display:grid;align-content:center;gap:16px;padding:0 50px">
+    <div class="w9 nw" style="font-size:60px">한 개에 세금 빼고 <span class="Y">100만 엔 이상</span></div>
+    <div class="w7 nw" style="font-size:48px">→ 따로 기록 (시리얼 번호처럼 알아볼 수 있는 정보)</div></div>`, sc); pop(y1, S(36));
+  K.cut(E(37) - 0.1, "상한·특수 포장 없어짐 · 100만 엔 기록");
+  const q = el(`<div class="a cx c w9 nw" style="left:960px;top:330px;font-size:120px">왜 이렇게 <span class="Y">번거롭게?</span></div>`, sc);
+  tl.to([r1, k1, r2, k2, y1], { opacity: 0, duration: 0.35 }, S(38) - 0.1);
+  pop(q, S(38) + 0.1);
+}
+
+/* ───────────── 둘째, 왜 바꾸나 ───────────── */
+// 11. 재무성: 되파는 부정 (s40)
+{ const sc = sceneBg(S(40) - 0.3, until(41), "IMG-L6");
+  const g = icon(sc, 960, 170, 220, "gov"); pop(g, S(40));
+  const l = text(sc, 960, 380, "일본 재무성", 56, "w7 N"); pop(l, S(40));
+  const qq = qcard(sc, 480, "“면세로 산 물건을 <span class=\"R\">일본 안에서 되파는 부정</span>을 막으려고”", "일본 재무성 설명");
+  pop(qq, W(40, "되파는"));
+  K.cut(E(40) - 0.1, "재무성: 되파는 부정");
+}
+// 12. 2022년 4월부터 2년 · 690명 · 2,332억 엔 (s41–s43)
+{ const sc = sceneBg(S(41) - 0.3, until(44), "IMG-L6", 0.82);
+  const d = el(`<div class="a cx c w9 nw" style="left:960px;top:160px;font-size:60px">재무성 자료 · <span class="Y">2022년 4월부터 2년</span></div>`, sc); pop(d, S(41));
+  const l1 = text(sc, 560, 300, "한 번 입국해 1억 엔 이상 산 사람", 48, "w7"); pop(l1, S(42));
+  const n1 = el(`<div class="a cx c w9 nw" style="left:560px;top:390px;font-size:200px;line-height:1;letter-spacing:-4px"><span>0</span><span style="font-size:100px">명</span></div>`, sc);
+  pop(n1, W(42, "690명") - 0.1); counter(n1.firstChild, 0, 690, W(42, "690명"), 1.2);
+  const l2 = text(sc, 1400, 300, "이들이 산 금액 합계", 48, "w7"); pop(l2, S(43));
+  const n2 = el(`<div class="a cx c w9 R nw" style="left:1400px;top:390px;font-size:180px;line-height:1;letter-spacing:-4px"><span>0</span><span style="font-size:96px">억 엔</span></div>`, sc);
+  pop(n2, W(43, "2,332억") - 0.1); counter(n2.firstChild, 0, 2332, W(43, "2,332억"), 1.4);
+  K.cut(E(43) - 0.1, "690명 · 2,332억 엔");
+}
+// 13. 9할 가까이 확인 못 함 · 물건 없음 → 세금 → 안 내고 출국 · 모두 부정은 아님 (s44–s47)
+{ const sc = sceneBg(S(44) - 0.3, until(48), "IMG-L6", 0.85);
+  const ring = el(`<div class="a" style="left:240px;top:200px;width:460px;height:460px;border-radius:50%;background:conic-gradient(${R} 0 0deg,#2A3B5E 0deg 360deg)"></div>`, sc);
+  const hole = el(`<div class="a" style="left:330px;top:290px;width:280px;height:280px;border-radius:50%;background:#0C1424;display:grid;place-items:center;text-align:center;font-weight:900;font-size:52px;line-height:1.2"><span>9할<br>가까이</span></div>`, sc);
+  pop(ring, S(44)); pop(hole, S(44));
+  const o = { d: 0 }; tl.fromTo(o, { d: 0 }, { d: 320, duration: 1.2, ease: "power2.out", onUpdate: () => { ring.style.background = `conic-gradient(${R} 0 ${o.d}deg,#2A3B5E ${o.d}deg 360deg)`; } }, W(44, "9할"));
+  const l = el(`<div class="a cx c w9 R nw" style="left:470px;top:690px;font-size:52px">출국 때 확인 못 함</div>`, sc); pop(l, W(44, "확인하지"));
+  const s1 = el(`<div class="a w9 nw" style="left:860px;top:230px;font-size:54px">확인한 사람 → <span class="R">거의 모두 물건 없음</span></div>`, sc); pop(s1, S(45));
+  const s2 = el(`<div class="a w9 nw" style="left:860px;top:340px;font-size:54px">→ 세금이 매겨짐</div>`, sc); pop(s2, W(45, "세금이"));
+  const s3 = el(`<div class="a w9 nw" style="left:860px;top:450px;font-size:54px">→ 거의 전부 <span class="R">안 내고 출국</span></div>`, sc); pop(s3, S(46));
+  const pl = plane(sc, 1500, 560, 300); tl.fromTo(pl, { opacity: 0, x: -120, y: 40 }, { opacity: 1, x: 120, y: -40, duration: 1.4, ease: "power2.out" }, W(46, "출국했습니다") - 0.2);
+  const ft = el(`<div class="a w7 N nw" style="left:860px;top:720px;font-size:42px">* 자료: 이들 모두가 부정이라고 할 수는 없음</div>`, sc); pop(ft, S(47));
+  K.cut(E(47) - 0.1, "9할 확인 못 함 · 안 내고 출국");
+}
+// 14. 지금 vs 새 방식 (s48–s50)
+{ const sc = sceneBg(S(48) - 0.3, until(51) - 1.0, "IMG-L6", 0.85);
+  const L = el(`<div class="box" style="left:200px;top:200px;width:700px;height:470px;border-color:${R}"><div class="lab">지금 방식</div><div class="t">세금 빼고<br>먼저 판매</div><div class="s R" style="color:${R}">떠난 뒤에는 세금 받기 어려움</div></div>`, sc); pop(L, S(48));
+  const Rb = el(`<div class="box" style="left:1020px;top:200px;width:700px;height:470px;border-color:${G}"><div class="lab">새 방식</div><div class="t">세금 먼저 받아 둠</div><div class="s" style="color:${G}">가지고 나간 게 확인된<br>사람에게만 환급</div></div>`, sc); pop(Rb, S(49));
+  const q = el(`<div class="a cx c w9 nw" style="left:960px;top:740px;font-size:64px">정말 <span class="Y">부정을 막을 수 있을까?</span></div>`, sc); pop(q, S(50));
+  K.cut(E(49) - 0.1, "지금 vs 새 방식");
+}
+
+/* ───────────── 셋째, 정말 효과가 있을까 ───────────── */
+// 15. 물건 없이 출국 → 환급 X · 세금 이미 걷힘 · 구조로만 보면 · 11월 이후 자료 (s52–s55)
+{ const sc = sceneBg(S(52) - 0.3, until(56), "IMG-L7", 0.82);
+  const f1 = flowb(sc, 150, 200, "물건 없이 출국", null, R); pop(f1, S(52));
+  const a1 = arrowR(sc, 606, 252); pop(a1, W(52, "처음부터"));
+  const f2 = flowb(sc, 750, 200, "처음부터 환급 ✕", null, R); pop(f2, W(52, "처음부터"));
+  const f3 = flowb(sc, 1350, 200, "세금은 이미 걷힘", null, G); pop(f3, S(53));
+  const a2 = arrowR(sc, 1206, 252); pop(a2, S(53));
+  const no = el(`<div class="a cx c w9 nw" style="left:960px;top:470px;font-size:58px">떠난 사람을 쫓아가 받을 일 <span class="G">없음</span></div>`, sc); pop(no, W(53, "쫓아가"));
+  const st = el(`<div class="a cx c w9 nw" style="left:960px;top:580px;font-size:54px"><span class="N">구조로만 보면</span> → 자료 속 방식의 부정은 하기 어려워짐</div>`, sc); pop(st, S(54));
+  const y = chip(sc, 960, 720, "실제 효과 = 11월 이후 자료로 확인", "Y"); pop(y, S(55));
+  K.cut(E(55) - 0.1, "구조 · 효과는 11월 이후");
+}
+// 16. 걱정: 공항 줄 (s56–s57)
+{ const sc = sceneBg(S(56) - 0.3, until(58), "IMG-L7", 0.78);
+  const t = el(`<div class="a cx c w9 R nw" style="left:960px;top:160px;font-size:84px">걱정도 있습니다</div>`, sc); pop(t, S(56));
+  const k = kiosk(sc, 300, 330, 220); pop(k, S(57));
+  const q = people(sc, 470, 470, 9, 230, 14); tl.fromTo(q.children, { opacity: 0, x: 120 }, { opacity: 1, x: 0, duration: 0.4, stagger: 0.12, ease: "power3.out" }, W(57, "몰리면"));
+  const lng = el(`<div class="a w9 R nw" style="left:1180px;top:330px;font-size:60px">줄이 길어질 수</div>`, sc); pop(lng, W(57, "줄이"));
+  K.cut(E(57) - 0.1, "공항 대기 줄 걱정");
+}
+// 17. 영국: 2021년 1월 폐지 · 이유 · 반발 · 일본은 방식만 (s58–s63)
+{ const sc = sceneBg(S(58) - 0.3, until(60), "IMG-L8");
+  const t = el(`<div class="a cx c w9 nw" style="left:960px;top:200px;font-size:76px">아예 <span class="R">면세를 없앤</span> 나라도</div>`, sc); pop(t, S(58));
+  const st = el(`<div class="stampR" style="left:500px;top:420px">영국 · 2021년 1월 · 관광객 부가세 환급 폐지</div>`, sc); pop(st, S(59), { from: { scale: 1.4, y: 0 } });
+  K.cut(E(59) - 0.1, "영국 2021년 1월 폐지");
+}
+{ const sc = sceneBg(S(60) - 0.3, until(64), "IMG-L8", 0.82);
+  const g = el(`<div class="a w9 nw" style="left:240px;top:170px;font-size:56px">영국 정부</div>`, sc); pop(g, S(60));
+  const r1 = el(`<div class="a w9 nw" style="left:240px;top:260px;font-size:60px">· 유지 비용이 큼</div>`, sc); pop(r1, W(60, "유지 비용이"));
+  const r2 = el(`<div class="a w9 nw" style="left:240px;top:350px;font-size:60px">· 경제 효과가 분명하지 않음</div>`, sc); pop(r2, W(60, "경제 효과가"));
+  const r3 = el(`<div class="a w9 nw" style="left:240px;top:440px;font-size:60px">· 출국 지점 업무 부담</div>`, sc); pop(r3, S(61));
+  const r4 = qcard(sc, 560, "“씀씀이가 큰 관광객이 <span class=\"R\">유럽 다른 나라로</span> 간다”", "영국 소매업계 반발");
+  pop(r4, S(62));
+  tl.to([g, r1, r2, r3, r4], { opacity: 0, duration: 0.35 }, S(63) - 0.15);
+  const uk = el(`<div class="box" style="left:240px;top:260px;width:660px;height:380px;border-color:${R}"><div class="lab">영국</div><div class="t R" style="color:${R}">면세 환급<br>없앰</div></div>`, sc); pop(uk, S(63));
+  const jp = el(`<div class="box" style="left:1020px;top:260px;width:660px;height:380px;border-color:${G}"><div class="lab">일본</div><div class="t" style="color:${G}">면세는 그대로<br>돌려주는 방식만 바꿈</div></div>`, sc); pop(jp, W(63, "돌려주는"));
+  K.cut(E(62) - 0.1, "영국 정부 이유 · 업계 반발");
+  K.cut(E(63) - 0.1, "영국 없앰 vs 일본 방식만");
+  const q = el(`<div class="a cx c w9 nw" style="left:960px;top:720px;font-size:56px">11월부터 <span class="Y">공항과 매장에서는?</span></div>`, sc); pop(q, S(64));
+}
+
+/* ───────────── 넷째, 실제로 벌어질 상황 ───────────── */
+// 18. 놓치면 못 받는 세 가지 ① 짐 맡기기 전 (s66–s69)
+{ const sc = sceneBg(S(66) - 0.3, until(70), "IMG-L4", 0.8);
+  const t = el(`<div class="a w9 nw" style="left:200px;top:160px;font-size:60px">놓치면 환급 못 받는 <span class="Y">세 가지</span></div>`, sc); pop(t, S(66));
+  const c1 = el(`<div class="a w9 nw" style="left:200px;top:270px;font-size:72px"><span class="Y">①</span> 짐 맡기기 전에 세관 확인</div>`, sc); pop(c1, S(67));
+  const belt = el(`<div class="a" style="left:520px;top:690px;width:1200px;height:56px;border-radius:28px;background:#1D2A44;border:4px solid #9AA7BF"></div>`, sc); pop(belt, S(68));
+  const sc1 = suitcase(sc, 760, 470, 190); pop(sc1, W(68, "캐리어에"));
+  tl.to(sc1, { x: 900, duration: 1.6, ease: "power1.in" }, W(68, "부치면"));
+  const no = el(`<div class="a w9 R nw" style="left:200px;top:420px;font-size:52px;line-height:1.35">먼저 부치면<br>확인 못 받음</div>`, sc); pop(no, W(68, "받을 수"));
+  const stp = el(`<div class="stampR" style="left:700px;top:400px">맡긴 짐은 되찾기 ✕</div>`, sc); pop(stp, S(69), { from: { scale: 1.4, y: 0 } });
+  K.cut(E(69) - 0.1, "① 짐 맡기기 전");
+}
+// 19. ② 영수증 단위 · 먹거나 쓴 물건 · 세관 창구 (s70–s73)
+{ const sc = sceneBg(S(70) - 0.3, until(74), "IMG-L5", 0.82);
+  const c2 = el(`<div class="a w9 nw" style="left:200px;top:160px;font-size:72px"><span class="Y">②</span> 확인은 영수증 단위</div>`, sc); pop(c2, S(70));
+  const rc = receipt(sc, 420, 290, 260, 6); pop(rc, W(70, "영수증"));
+  const items = [["snack", 820], ["cosme", 1080], ["shirt", 1340]].map(([k, x]) => { const g = icon(sc, x, 330, 210, k); pop(g, W(71, "물건")); return g; });
+  tl.to(items[2], { opacity: 0.12, duration: 0.3 }, W(71, "하나라도"));
+  const big = el(`<div class="a cx c w9 R nw" style="left:420px;top:450px;font-size:220px;line-height:1">✕</div>`, sc); pop(big, W(71, "전체가"), { from: { scale: 1.6, y: 0 } });
+  const all = el(`<div class="a cx c w9 R nw" style="left:1080px;top:600px;font-size:54px">하나라도 없으면 영수증 전체 ✕</div>`, sc); pop(all, W(71, "전체가"));
+  tl.to([all], { opacity: 0, duration: 0.3 }, S(72) - 0.1);
+  const eat = el(`<div class="a cx c w9 nw" style="left:1080px;top:600px;font-size:54px">먹거나 써 버린 물건 <span class="R">✕</span></div>`, sc); pop(eat, S(72));
+  const desk = el(`<div class="a cx c w9 nw" style="left:1080px;top:710px;font-size:50px">일부라도 썼다면 → <span class="Y">세관 창구에 신고</span></div>`, sc); pop(desk, S(73));
+  K.cut(E(71) - 0.1, "② 영수증 하나라도 없으면");
+  K.cut(E(73) - 0.1, "먹거나 쓴 물건 · 세관 창구");
+}
+// 20. ③ 90일 · 중간에 그만두면 (s74–s75)
+{ const sc = sceneBg(S(74) - 0.3, until(76), "IMG-L6", 0.82);
+  const c3 = el(`<div class="a w9 nw" style="left:200px;top:160px;font-size:72px"><span class="Y">③</span> 산 날부터 90일 안에 출국 + 확인</div>`, sc); pop(c3, S(74));
+  const d0 = K.cal(sc, 300, 300, "산 날", "구매", W(74, "산 날부터"));
+  const bar = el(`<div class="a" style="left:760px;top:500px;width:640px;height:20px;border-radius:10px;background:${G};transform-origin:0 50%"></div>`, sc); K.grow(bar, W(74, "90일"), 1.0);
+  const d1 = K.cal(sc, 1420, 300, "90일", "출국 · 확인", W(74, "90일") + 0.6);
+  const q = el(`<div class="a cx c w9 nw" style="left:960px;top:780px;font-size:54px">수속을 중간에 그만두면 = <span class="R">확인 안 받은 것</span></div>`, sc); pop(q, S(75));
+  K.cut(E(75) - 0.1, "③ 90일 · 중간에 그만두면");
+}
+// 21. 몇 시간 전? · 가이드 · 기준 없음 · 관광청 · 보상 X (s76–s80)
+{ const sc = sceneBg(S(76) - 0.3, until(81), "IMG-L7", 0.82);
+  const ck = clock(sc, 360, 170, 220); pop(ck, S(76));
+  const q = el(`<div class="a w9 nw" style="left:560px;top:210px;font-size:84px">공항엔 <span class="Y">몇 시간 전?</span></div>`, sc); pop(q, S(76));
+  const g = qcard(sc, 470, "“5시간에서 6시간 전에 도착할 생각”", "한 여행 가이드 (여행신문)"); pop(g, S(77));
+  tl.to([q, g], { opacity: 0, duration: 0.35 }, S(78) - 0.15);
+  const n0 = chip(sc, 1100, 210, "정부가 정한 기준 시간 없음", "Y"); pop(n0, S(78));
+  const k1 = qcard(sc, 440, "“시간에 여유를 두고 공항에 도착”", "일본 관광청"); pop(k1, S(79));
+  const k2 = el(`<div class="a cx c w9 nw" style="left:960px;top:700px;font-size:56px">비행기를 놓쳐도 항공사·세관 <span class="R">보상 ✕</span></div>`, sc); pop(k2, S(80));
+  K.cut(E(77) - 0.1, "몇 시간 전? 가이드 말");
+  K.cut(E(80) - 0.1, "기준 없음 · 관광청 · 보상 X");
+}
+// 22. 현금 환급 단말기 (s81–s83)
+{ const sc = sceneBg(S(81) - 0.3, until(84), "IMG-L7", 0.82);
+  const t = text(sc, 960, 170, "공항들도 준비 중", 72); pop(t, S(81));
+  const k = kiosk(sc, 520, 280, 260, "#2F6E62"); pop(k, S(82));
+  const ap = el(`<div class="a w9 nw" style="left:820px;top:320px;font-size:72px">하네다 · 나리타 · 나하</div>`, sc); pop(ap, W(82, "하네다"));
+  const cs = el(`<div class="a w9 G nw" style="left:820px;top:430px;font-size:64px">현금 환급 단말기</div>`, sc); pop(cs, W(82, "현금 환급"));
+  const one = el(`<div class="a w9 nw" style="left:820px;top:560px;font-size:64px"><span class="Y">약 1분</span> · 엔화 현금</div>`, sc); pop(one, S(83));
+  const src = el(`<div class="a w7 N nw" style="left:820px;top:680px;font-size:40px">업계 보도 (2026년 10월)</div>`, sc); pop(src, W(82, "업계"));
+  K.cut(E(83) - 0.1, "현금 환급 단말기 약 1분");
+}
+// 23. 우리나라 입국 한도 그대로 (s84–s86)
+{ const sc = sceneBg(S(84) - 0.3, until(87), "IMG-L7", 0.85);
+  const t = el(`<div class="a cx c w9 nw" style="left:960px;top:160px;font-size:64px">우리나라로 돌아올 때 한도는 <span class="Y">그대로</span></div>`, sc); pop(t, S(84));
+  const jp = el(`<div class="a w9 nw" style="left:200px;top:310px;font-size:50px">일본 소모품 50만 엔 상한 <span class="G">없어짐</span></div>`, sc); pop(jp, S(85));
+  const kr = el(`<div class="a w9 nw" style="left:200px;top:430px;font-size:50px">우리나라 입국 면세 한도 <span class="Y">미화 800달러</span></div>`, sc); pop(kr, W(85, "우리나라"));
+  const al = el(`<div class="a w9 nw" style="left:200px;top:580px;font-size:50px;line-height:1.4">술은 따로<br><span class="Y">2리터 이하 · 400달러 이하</span></div>`, sc); pop(al, S(86));
+  const bl = el(`<div class="a cx c w7 nw" style="left:1410px;top:250px;font-size:40px">일본에서 산 물건</div>`, sc); pop(bl, S(85));
+  const b1 = K.vbar(sc, 1300, 830, 220, 270, "#4A69A2", S(85) + 0.2, 0.8);
+  const b2 = K.vbar(sc, 1300, 560, 220, 250, R, W(85, "미화 800달러") + 0.3, 0.8);
+  const ln = K.hthr(sc, 1180, 560, 460, "800달러", W(85, "미화 800달러"), 1660, 528);
+  K.cut(E(86) - 0.1, "입국 800달러 · 술 2리터·400달러");
+  const q = el(`<div class="a cx c w9 nw" style="left:960px;top:360px;font-size:84px">다른 나라는 <span class="Y">어떻게?</span></div>`, sc);
+  tl.to([t, jp, kr, al, bl, b1, b2, ln.line, ln.lab], { opacity: 0, duration: 0.35 }, S(87) - 0.15);
+  pop(q, S(87) + 0.05);
+}
+
+/* ───────────── 다섯째, 우리나라와 다른 나라는 ───────────── */
+// 24. 우리나라 (s89–s95)
+{ const sc = sceneBg(S(89) - 0.3, until(96), "IMG-L9", 0.8);
+  const h = el(`<div class="a w9 nw" style="left:200px;top:160px;font-size:76px">우리나라 <span class="N" style="font-size:44px">(외국인 관광객 · 사후면세점)</span></div>`, sc); pop(h, S(89));
+  const r1 = el(`<div class="a w9 nw" style="left:200px;top:280px;font-size:58px">· 한 번에 <span class="Y">1만 5천 원 이상</span>이면 대상</div>`, sc); pop(r1, S(90));
+  const r2 = el(`<div class="a w9 nw" style="left:200px;top:380px;font-size:58px">· 한 번에 <span class="Y">100만 원 미만</span> → <span class="G">매장이 바로 세금을 뺌</span></div>`, sc); pop(r2, S(91));
+  const r3 = el(`<div class="a w9 nw" style="left:200px;top:480px;font-size:58px">· 그렇게 산 금액 입국 뒤 합계 <span class="Y">500만 원까지</span></div>`, sc); pop(r3, S(92));
+  const r4 = el(`<div class="a w9 nw" style="left:200px;top:580px;font-size:58px">· 그보다 크면 → <span class="Y">3개월 안</span> 출국 + 세관 확인 → 환급</div>`, sc); pop(r4, S(93));
+  const r5 = el(`<div class="a w9 nw" style="left:200px;top:680px;font-size:58px">· 환급 수수료 = <span class="G">국세청장이 승인한 금액만</span></div>`, sc); pop(r5, S(94));
+  K.cut(E(94) - 0.1, "우리나라 다섯 줄");
+  tl.to([r1, r2, r3, r4, r5], { opacity: 0, duration: 0.35 }, S(95) - 0.15);
+  const jp = el(`<div class="box" style="left:240px;top:290px;width:660px;height:400px"><div class="lab">일본 (11월부터)</div><div class="t">매장 즉시 면세 <span class="R">✕</span></div></div>`, sc); pop(jp, W(95, "일본이"));
+  const kr = el(`<div class="box" style="left:1020px;top:290px;width:660px;height:400px;border-color:${G}"><div class="lab">우리나라</div><div class="t">금액 한도 두고<br><span class="G">매장 즉시 면세 ○</span></div></div>`, sc); pop(kr, W(95, "우리나라는"));
+  K.cut(E(95) - 0.1, "일본 X vs 우리나라 한도 두고 O");
+}
+// 25. 싱가포르 · 프랑스 (s96–s101)
+{ const sc = sceneBg(S(96) - 0.3, until(102), "IMG-L10", 0.8);
+  const sg = el(`<div class="ctry" style="left:150px;top:170px;width:790px"><div class="h">싱가포르</div></div>`, sc); pop(sg, S(96));
+  const s1 = el(`<div class="r">같은 매장 <span class="Y">100싱가포르달러 이상</span></div>`, sg); pop(s1, W(96, "100싱가포르달러"));
+  const s2 = el(`<div class="r"><span class="Y">산 날부터 2개월 안</span> · 단말기에 여권</div>`, sg); pop(s2, S(97));
+  const s3 = el(`<div class="r">수수료 빼고 → <span class="R">낸 세금보다 적음</span></div>`, sg); pop(s3, S(98));
+  const fr = el(`<div class="ctry" style="left:980px;top:170px;width:790px"><div class="h">프랑스</div></div>`, sc); pop(fr, S(99));
+  const f1 = el(`<div class="r">한 매장 · 하루 <span class="Y">100유로를 조금 넘게</span></div>`, fr); pop(f1, W(99, "100유로를"));
+  const f2 = el(`<div class="r">단말기 확인 메시지 = <span class="G">세관 도장 대신</span></div>`, fr); pop(f2, S(100));
+  const f3 = el(`<div class="r">세관: 여권 · 탑승권 · 산 물건 확인</div>`, fr); pop(f3, S(101));
+  K.cut(E(101) - 0.1, "싱가포르 · 프랑스");
+}
+// 26. 나라 비교 (s102)
+{ const sc = sceneBg(S(102) - 0.3, until(103) - 1.0, "IMG-L10", 0.86);
+  const rows = [["우리나라", "○", G, "○", G], ["일본 11월~", "✕", R, "○", G], ["싱가포르", "✕", R, "○", G], ["프랑스", "✕", R, "○", G], ["영국", "—", N, "환급 없음", R]];
+  const k1 = el(`<div class="a w7 N nw" style="left:170px;top:400px;font-size:40px;line-height:1.2">매장에서<br>바로</div>`, sc);
+  const k2 = el(`<div class="a w7 N nw" style="left:170px;top:590px;font-size:40px;line-height:1.2">떠날 때<br>확인</div>`, sc);
+  pop(k1, S(102)); pop(k2, S(102));
+  rows.forEach(([n, v1, c1, v2, c2], i) => {
+    const m = el(`<div class="mini" style="left:${400 + i * 285}px;top:220px;width:260px;height:540px"><div class="h nw">${n}</div><div style="height:96px"></div><div class="v" style="color:${c1}">${v1}</div><div style="height:96px"></div><div class="v nw" style="color:${c2};font-size:${v2.length > 2 ? 44 : 64}px">${v2}</div></div>`, sc);
+    pop(m, S(102) + 0.15 * i);
+  });
+  const hl = el(`<div class="a" style="left:670px;top:200px;width:860px;height:580px;border-radius:30px;border:5px dashed ${Y}"></div>`, sc); pop(hl, W(102, "싱가포르"));
+  K.cut(E(102) - 0.6, "나라 비교 — 일본은 싱가포르·프랑스 쪽");
+}
+
+/* ───────────── 정리 ───────────── */
+{ const sc = sceneBg(S(104) - 0.3, K.D, "IMG-L1", 0.86);
+  const items = [
+    [S(104), "11월 1일 산 물건부터 · 세금 포함 결제 → 출국 때 환급"],
+    [S(105), "이유 = 면세품을 되파는 부정 → 세금을 먼저 받음"],
+    [S(106), "효과는 11월 이후 자료로 · 공항 혼잡은 걱정거리"],
+    [S(107), "짐 맡기기 전 · 영수증 물건 빠짐없이 · 90일 안"],
+    [S(108), "우리나라는 소액 즉시 면세 · 싱가포르·프랑스는 일본과 비슷"],
+    [S(109), "환급 방법·수수료는 살 때 매장에 먼저 물어보기"],
+  ];
+  items.forEach(([at, t], i) => pop(el(`<div class="sum" style="top:${160 + i * 112}px"><div class="n">${i + 1}</div><div class="t">${t}</div></div>`, sc), at));
+  K.cut(E(109) - 0.1, "정리 여섯 줄");
+  K.cut(K.D - 0.2, "끝");
+}
+K.done();
+})();
+</script>
+</body>
+</html>

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-# VERSION: v1.1 — 2026-10-23 — story_kit v1.4: K6 그림 줄 · PIE · BIG 여러 낱말 · K4 icon= (화면에 한국어 없음).
+# VERSION: v1.2 — 2026-10-23 — story_kit v1.6: K6 정리 카드 없음 · 소품 '*이름' (자리·때·움직임 · 목록 밖이면 멈춤).
+# (v1.1) — 2026-10-23 — story_kit v1.4: K6 그림 줄 · PIE · BIG 여러 낱말 · K4 icon= (화면에 한국어 없음).
 # (v1.0) — 2026-10-23 — tools/story_kit.py v1.0 시험: 금액 읽기 · 장면 표 문법(인형·화면) · 제작안 절 읽기 · 쇼츠 길이 추정.
 import sys
 import unittest
@@ -39,35 +40,41 @@ class GrammarTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             sk.parse_puppets("ANGRY@L")
 
+    def test_props(self):                                         # v1.2 소품 '*이름' (story_kit v1.6)
+        cat = ["ONE-BASKET", "STAMP"]
+        p = sk.parse_puppets("BACK@L+13:몰빵:*ONE-BASKET@R>rise+*STAMP", cat)
+        self.assertEqual(p[0]["pose"], "BACK")
+        self.assertEqual(p[1], dict(prop="ONE-BASKET", pos="R", move="rise", at=[13, "몰빵"]))
+        self.assertEqual(p[2], dict(prop="STAMP", pos=None, move="pop"))      # 자리는 compile_scenes 가 정함 (롱폼 R · 쇼츠 C)
+        with self.assertRaises(ValueError):
+            sk.parse_puppets("*ROCKET@R", cat)                    # 목록(props_chatgpt.md 표)에 없는 소품
+        self.assertTrue(set(sk.props_catalog()) >= {"ONE-BASKET", "STAMP", "TORTOISE"})   # 실제 목록 파일
+
     def test_screens(self):
-        self.assertEqual(sk.parse_screen("K1 357140000>107140000", {}, None), {"type": "K1", "from": "357140000", "to": "107140000"})
-        k2 = sk.parse_screen("K2 2020,*2024,2026", {}, None)
+        self.assertEqual(sk.parse_screen("K1 357140000>107140000"), {"type": "K1", "from": "357140000", "to": "107140000"})
+        k2 = sk.parse_screen("K2 2020,*2024,2026")
         self.assertEqual(k2["years"], ["2020", "2024", "2026"])
         self.assertEqual(k2["hl"], ["2024"])
-        k3 = sk.parse_screen("K3 100,49,180 base=100 lab=2007,2009,2026 end=+81% @21:S&P", {}, None)
+        k3 = sk.parse_screen("K3 100,49,180 base=100 lab=2007,2009,2026 end=+81% @21:S&P")
         self.assertEqual(k3["values"], [100.0, 49.0, 180.0])
         self.assertEqual(k3["base"], 100.0)
         self.assertEqual(k3["end"], "+81%")
         self.assertEqual(k3["at"], [21, "S&P"])
-        k4 = sk.parse_screen("K4 1Y:24.3%:R 15Y:0%", {}, None)
+        k4 = sk.parse_screen("K4 1Y:24.3%:R 15Y:0%")
         self.assertEqual(k4["items"][0], {"lab": "1Y", "val": "24.3%", "c": "R"})
         self.assertIsNone(k4["items"][1]["c"])
-        k5 = sk.parse_screen("K5 !x3 +basket", {}, None)
+        k5 = sk.parse_screen("K5 !x3 +basket")
         self.assertEqual(k5["icons"], [{"k": "x3", "m": "!"}, {"k": "basket", "m": "+"}])
-        self.assertEqual(sk.parse_screen("BIG −70% R", {}, None), {"type": "BIG", "text": "−70%", "c": "R"})
-        k6 = sk.parse_screen("K6 kr>us pct,fx", {5: {"lines": ["1", "2"]}}, 5)      # v1.4 줄마다 그림 (한국어 없음)
-        self.assertEqual(k6["rows"][0], [{"k": "kr", "m": ""}, {"arrow": True}, {"k": "us", "m": ""}])
-        self.assertEqual(k6["rows"][1], [{"k": "pct", "m": ""}, {"k": "fx", "m": ""}])
-        self.assertEqual(k6["card_lines"], 2)
-        pie = sk.parse_screen("PIE 55 R label=50%+ icon=people", {}, None)
+        self.assertEqual(sk.parse_screen("BIG −70% R"), {"type": "BIG", "text": "−70%", "c": "R"})
+        k5 = sk.parse_screen("K5 kr>us")                          # '>' = 화살표 칸
+        self.assertEqual(k5["icons"], [{"k": "kr", "m": ""}, {"arrow": True}, {"k": "us", "m": ""}])
+        pie = sk.parse_screen("PIE 55 R label=50%+ icon=people")
         self.assertEqual((pie["value"], pie["c"], pie["label"], pie["icon"]), (55.0, "R", "50%+", "people"))
-        self.assertEqual(sk.parse_screen("BIG 3× −76.7% R", {}, None), {"type": "BIG", "text": "3× −76.7%", "c": "R"})
-        self.assertEqual(sk.parse_screen("K4 2000:51:Y icon=hourglass", {}, None)["icon"], "hourglass")
-        with self.assertRaises(ValueError):
-            sk.parse_screen("K6", {5: {"lines": ["가"]}}, 5)                       # 그림 없는 K6 = 한국어 카드 → 안 됨
-        for bad in ("K9 1", "K5 rocket", "K6"):
+        self.assertEqual(sk.parse_screen("BIG 3× −76.7% R"), {"type": "BIG", "text": "3× −76.7%", "c": "R"})
+        self.assertEqual(sk.parse_screen("K4 2000:51:Y icon=hourglass")["icon"], "hourglass")
+        for bad in ("K9 1", "K5 rocket", "K6 kr>us"):              # v1.2 K6 정리 카드 없음 (정리 부분은 뺌)
             with self.assertRaises(ValueError):
-                sk.parse_screen(bad, {}, None)
+                sk.parse_screen(bad)
 
 
 class PlanTest(unittest.TestCase):

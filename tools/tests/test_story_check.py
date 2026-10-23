@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-# VERSION: v1.1 — 2026-10-21 — story_check v1.1: 제목 맨 앞 낱말의 끝 조사 · 마무리 다음 화 예고.
+# VERSION: v1.2 — 2026-10-23 — story_check v1.4: 정리 파트 없음 (-도입 → -방법 → -마무리) · 정리 파트·카드가 있으면 문제.
+# (v1.1) — 2026-10-21 — story_check v1.1: 제목 맨 앞 낱말의 끝 조사 · 마무리 다음 화 예고.
 # (v1.0) — 2026-10-21 — tools/story_check.py v1.0 시험: 맞는 대본은 문제 0, 규칙마다 어긴 대본은 그 문제만 (네트워크·저장소 안 건드림).
 """python3 -m unittest test_story_check  (tools/tests 에서)"""
 import os
@@ -30,12 +31,6 @@ GOOD = """-도입
 -방법3
 마지막 세 번째는 빌린 돈으로 투자하지 않는 거예요.
 빚이 있으면 하락장을 견딜 수가 없더라고요.
--정리
-오늘 찾은 세 가지, 정리해볼게요.
-[장면] 정리
-1 한 종목 10%
-2 매달 같은 금액
-3 빚투 없이
 -마무리
 이 세 가지만큼은 꼭 지켜 볼게요.
 원금 회복, 그리고 파이어까지 포기하지 않을게요.
@@ -95,13 +90,12 @@ class Bad(unittest.TestCase):
         probs, _, _ = run(GOOD.replace("두 번째는 매달", "또 하나는 매달"))
         self.assertTrue(any("-방법2 첫 문장" in p for p in probs), probs)
 
-    def test_card_missing(self):
-        probs, _, _ = run(GOOD.replace("[장면] 정리\n1 한 종목 10%\n2 매달 같은 금액\n3 빚투 없이\n", ""))
-        self.assertTrue(any("정리 카드가 없음" in p for p in probs), probs)
-
-    def test_card_too_long(self):
-        probs, _, _ = run(GOOD.replace("3 빚투 없이", "3 빚투 없이 하락장을 견딜 수 있는 여윳돈으로만 오래오래 꾸준하게 나눠서 투자하고 계좌는 한 달에 한 번만 열어 보기"))
-        self.assertTrue(any("정리 카드" in p and "자 >" in p for p in probs), probs)
+    def test_summary_part_is_problem(self):                  # v1.2 정리 파트는 뺌 (사용자 지시 2026-10-23 "그냥 정리 부분은 빼자")
+        old = GOOD.replace("-마무리", "-정리\n오늘 찾은 세 가지, 정리해볼게요.\n[장면] 정리\n1\n2\n3\n-마무리")
+        probs, _, _ = run(old)
+        self.assertTrue(any("-정리 파트가 있음" in p for p in probs), probs)
+        self.assertTrue(any("[장면] 카드" in p for p in probs), probs)
+        self.assertTrue(any("파트 순서" in p for p in probs), probs)
 
     def test_last_sentence(self):
         probs, _, _ = run(GOOD.replace("시청해주셔서 감사합니다.", "다음에 또 만나요."))

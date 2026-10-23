@@ -1,4 +1,8 @@
-// VERSION: v1.3 — 2026-10-23 — 화면에 영어도 없음 (사용자 지시 "야 영어 문구도 넣지마"): noLatin (render.mjs v1.24 — 라틴 글자 하나도 문제) · 화 배지 '#N' ·
+// VERSION: v1.4 — 2026-10-23 — ① 정리 카드(K6) 뺌 (사용자 지시 "그냥 정리 부분은 빼자"). ② 설명 소품 그림 (사용자 지시 "설명에 필요한 이미지 요소들은
+//   왜 생성안해?"): SPEC.props = {이름: 'props/<이름>.png'} (ChatGPT 종이 소품 — stock/story/puppet/props_chatgpt.md) · 장면의 props 는 무대 위
+//   종이 인형처럼 섬 (롱폼: 오른쪽 바닥 · 쇼츠: 위 가운데에 떠 있음) · 튀어나옴(pop)·솟아오름(rise) · 같은 자리 다음 소품이 나오면 앞 소품은 사라짐 ·
+//   BIG 과 같이 쓰면 숫자는 소품 위로 (그림이 없으면 puppet.js 임시 그림).
+// (v1.3) — 2026-10-23 — 화면에 영어도 없음 (사용자 지시 "야 영어 문구도 넣지마"): noLatin (render.mjs v1.24 — 라틴 글자 하나도 문제) · 화 배지 '#N' ·
 //   BIG icon= (KOSPI·S&P 500·SOXL 같은 이름 대신 국기·×3 그림).
 // (v1.2) — 2026-10-23 — 화면에 한국어 없음 (사용자 지시 "외국인 대상으로도 할거니까 그것도 고려해 영상에 한글 문구 사용하지 말고 최대한
 //   이해 잘되도록"): K6 정리 카드 = 번호 + 그림 줄 · PIE 원그래프 · 그림 kr·us(국기)·pct(금리 %)·fx(₩⇄$)·people·chart · K5 화살표 칸 · K4·PIE 단위 그림(icon=).
@@ -8,7 +12,7 @@
 //   썸네일 프롬프트 등 영상 소스 -> 영상 만들기 과정을 토큰을 가장 덜 사용하는 구조로 만들어봐" — 영상마다 장면 코드를 손으로 쓰지 않는다
 //   (일본 축제 롱폼 index.html 은 손으로 쓴 106KB). 장면 표 한 줄 = 장면 하나.
 //   · 무대 = video/render/puppet.js v1.1 (배경 1장 + 표정 있는 인형 투명 PNG, 움직임은 코드) — 그림이 없으면 임시 그림.
-//   · 코드 화면: K1 계좌(금액이 굴러감) · K2 연표 · K3 차트(선이 그려짐, 기준 = 노란 점선) · K4 막대 · K5 아이콘 · K6 정리 카드 · K7 화 배지 · BIG 큰 숫자.
+//   · 코드 화면: K1 계좌(금액이 굴러감) · K2 연표 · K3 차트(선이 그려짐, 기준 = 노란 점선) · K4 막대 · K5 아이콘 · K7 화 배지 · BIG 큰 숫자 · PIE (v1.4 K6 정리 카드 없음).
 //   · 시각은 모두 문장 번호(K.S·K.E·K.W) — 오디오가 바뀌어도 장면 표를 고치지 않는다.
 //   · 화면 글자는 숫자·기호만 (주식 noWords) — v1.2 부터 K6 정리 카드도 그림 (한국어 없음).
 //   · 롱폼 1920×1080 · 쇼츠 SPEC.vertical (1080×1920 — 화면은 위, 인형은 아래).
@@ -16,7 +20,7 @@
 (function () {
   "use strict";
   const S_ = (window.Story = {});
-  S_.VERSION = "v1.3";
+  S_.VERSION = "v1.4";
   S_.POSES = { BONSEOK: "P-BONSEOK.png", WALK: "P-BONSEOK-WALK.png", PHONE: "P-BONSEOK-PHONE.png", DESPAIR: "P-BONSEOK-DESPAIR.png",
     RESOLVE: "P-BONSEOK-RESOLVE.png", STUDY: "P-BONSEOK-STUDY.png", BACK: "P-BONSEOK-BACK.png", SMILE: "P-BONSEOK-SMILE.png", CROWD: "P-CROWD.png" };
   S_.BGS = { "HOME-NIGHT": "P-HOME-NIGHT.jpg", OFFICE: "P-OFFICE.jpg", "STREET-DAWN": "P-STREET-DAWN.jpg", BOARD: "P-BOARD.jpg", PAPER: "P-PAPER.jpg" };
@@ -68,6 +72,7 @@
     const files = {};
     for (const [k, f] of Object.entries(S_.BGS)) files["BG_" + k] = { f, kind: "bg" };
     for (const [k, f] of Object.entries(S_.POSES)) files[k] = { f };
+    for (const [k, f] of Object.entries(SPEC.props || {})) files["PROP_" + k] = { f, kind: "sq", label: k };   // v1.4 소품 (정사각 투명 PNG)
     const ST = Puppet.stage({ dir: SPEC.dir, files, w: SW, h: V ? 1920 : 1080 });
     el(`<div class="vig"></div>`);
     // 무대 자리 — 롱폼: 인형 L·C·R, 화면은 오른쪽 칸 / 쇼츠: 인형 아래 가운데, 화면은 위 칸
@@ -148,10 +153,12 @@
         p.querySelectorAll(".k5i").forEach((b, i) => pop(b, t0 + 0.3 + i * 0.3, { from: { scale: 0.5, y: 0 } }));
         return t0 + 0.6 + n * 0.3;
       },
-      BIG(sc, s, t0) {                                             // 큰 숫자·기호 하나
-        const c = COL[s.c] || COL.W, size = Math.min(V ? 170 : 190, Math.floor(PANEL.w * 0.9 / (s.text.length * 0.62)));   // v1.2 글자 수에 맞춰 (칸 밖으로 넘지 않게)
-        const ic = s.icon ? `<div class="kbigi">${icon({ k: s.icon }, Math.min(V ? 170 : 180, Math.round(size * 1.05)), "k4i")}</div>` : "";   // v1.3 무엇의 숫자인지 그림으로 (국기·×3 …)
-        const p = el(`<div class="kbig w9 nw" style="left:${PANEL.cx}px;top:${PANEL.top + PANEL.h / 2}px;font-size:${size}px;color:${c}">${ic}<span>${esc(s.text)}</span></div>`, sc);
+      BIG(sc, s, t0, t1, o) {                                      // 큰 숫자·기호 하나 · v1.4 소품이 있으면 소품 위 한 줄 (그림 + 숫자)
+        const withProp = !!(o && o.prop), wMax = withProp ? PANEL.w + 120 : PANEL.w;
+        const c = COL[s.c] || COL.W, size = Math.min(withProp ? (V ? 140 : 150) : (V ? 170 : 190), Math.floor(wMax * 0.9 / (s.text.length * 0.62 + (withProp && s.icon ? 1.2 : 0))));   // v1.2 글자 수에 맞춰 (칸 밖으로 넘지 않게)
+        const ic = s.icon ? `<div class="kbigi">${icon({ k: s.icon }, withProp ? Math.round(size * 1.1) : Math.min(V ? 170 : 180, Math.round(size * 1.05)), "k4i")}</div>` : "";   // v1.3 무엇의 숫자인지 그림으로 (국기·×3 …)
+        const top = withProp ? (V ? 305 : 250) : PANEL.top + PANEL.h / 2;
+        const p = el(`<div class="kbig w9 nw${withProp ? " row" : ""}" style="left:${PANEL.cx}px;top:${top}px;font-size:${size}px;color:${c}">${ic}<span>${esc(s.text)}</span></div>`, sc);
         pop(p, t0, { from: { scale: 0.6, y: 0 } });
         return t0 + 0.6;
       },
@@ -167,16 +174,6 @@
         pop(p.querySelector(".kpiel"), t0 + 1.3, { from: { scale: 0.7, y: 0 } });
         return t0 + 1.6;
       },
-      K6(sc, s, t0, t1) {                                          // 정리 카드 — v1.2 언어 없이: 줄마다 번호 + 그림 (한국어 없음 — 외국인 시청자)
-        const rows = s.rows, n = rows.length, P = V ? { cx: 540, top: 300, w: 980, h: 1000 } : { cx: 960, top: 120, w: 1500, h: 720 };
-        const isz = Math.min(V ? 150 : 110, (P.h - 100) / n - 18), fs = Math.round(isz * 0.62);
-        const h = rows.map((r, i) => `<div class="k6r"><span class="k6n w9 Y" style="font-size:${fs}px">${i + 1}</span><span class="k6i">${r.map(x => icon(x, isz)).join("")}</span></div>`).join("");
-        const p = panel(sc, "k6", `<div class="k6in">${h}</div>`, P);
-        pop(p, t0);
-        const step = Math.max(0.35, Math.min(1.2, (t1 - t0 - 1.0) / Math.max(1, n)));
-        p.querySelectorAll(".k6r").forEach((r, i) => pop(r, t0 + 0.4 + i * step, { from: { y: 20 } }));
-        return t0 + 0.4 + n * step;
-      },
     };
 
     // ---------- 인형 ----------
@@ -184,6 +181,20 @@
       const crowd = pz.pose === "CROWD", x = X[pz.pos || "C"];
       const a = st.actor(pz.pose, { h: crowd ? CH : PH, at: [x, 0, crowd ? -1.2 : 0], flip: !!pz.flip });
       a.pz = pz; return a;
+    }
+    // v1.4 소품 — 롱폼: 오른쪽 바닥에 섬 (BIG 이 있으면 낮게 — 숫자는 위) · 쇼츠: 위 가운데에 떠 있음 (인형은 아래)
+    const PX1 = { L: -5.6, C: 0.2, R: 5.4 }, PX2 = { L: -5.6, C: 1.3, R: 6.5 };   // 소품 하나 · 둘 (둘이면 인형 책상과 닿지 않게 오른쪽으로)
+    function addProp(st, p, n, big) {
+      const fit = V ? (big ? [4.4, 2.1] : [5.2, 3.0]) : n > 1 ? (big ? [4.2, 3.6] : [4.6, 4.6]) : (big ? [6.2, 4.0] : [7.0, 5.6]);
+      const at = V ? [0, big ? 6.2 : 6.8, 0.3] : [(n > 1 ? PX2 : PX1)[p.pos || "R"], 0, 0.3];   // 쇼츠: 인형 머리·#N 배지와 닿지 않게
+      const a = st.actor("PROP_" + p.prop, { fit, at, anchor: V ? [0.5, 0.5] : [0.5, 1] });
+      a.pz = p; return a;
+    }
+    function moveProp(a, t, sa, k) {
+      const pz = a.pz, t0 = pz.from != null ? pz.from : sa + 0.2;
+      if (!pz.cont) { if (pz.move === "rise") a.rise(t, t0, 0.6, 2.5); else a.pop(t, t0, 0.45); }
+      if (pz.until != null) a.hide(t, pz.until, 0.25);
+      a.sway(t, 0.012, 0.45, k + 3);
     }
     function moveActor(a, t, sa, sb, k) {                          // k = 이 장면에서 몇 번째 인형 (흔들림 위상)
       const pz = a.pz, t0 = pz.from != null ? pz.from : sa, side = (a.home.x < 0 ? -1 : 1) || -1;
@@ -210,20 +221,22 @@
     const scenes = SPEC.scenes, ep = SPEC.ep;
     let lastEnd = 0;
     scenes.forEach((s, i) => {
-      // 장면 시각: 문장 a~b (정리 카드는 앞 문장 끝 ~ 다음 문장 시작) — 다음 장면 시작 0.05초 전까지
-      const isCard = s.card != null;
-      const a = i === 0 ? 0 : (isCard ? E(s.card) + 0.1 : S(s.a) - 0.25);
+      // 장면 시각: 문장 a~b — 다음 장면 시작 0.25초 전까지 (v1.4 정리 카드 없음)
+      const a = i === 0 ? 0 : S(s.a) - 0.25;
       const nx = scenes[i + 1];
-      let b = !nx ? K.D : (nx.card != null ? E(nx.card) + 0.1 : S(nx.a) - 0.25);
-      if (isCard) b = Math.max(b, a + 1.0);
-      const pz = (s.puppets || []).map(p => Object.assign({}, p, { from: p.at != null ? at(p.at[0], p.at[1]) : null, until: null }));
-      // 같은 자리에서 자세가 바뀌면 앞 인형은 그 시각에 사라짐
-      pz.forEach((p, k) => { const nxt = pz.slice(k + 1).find(q => q.from != null && (q.pos || "C") === (p.pos || "C")); if (nxt) p.until = nxt.from; });
+      const b = !nx ? K.D : S(nx.a) - 0.25;
+      const timed = list => (list || []).map(p => Object.assign({}, p, { from: p.at != null ? at(p.at[0], p.at[1]) : null, until: null }));
+      // 같은 자리에 다음 것이 나오면 앞 것은 그 시각에 사라짐 (인형은 인형끼리 · 소품은 소품끼리)
+      const handoff = L => L.forEach((p, k) => { const nxt = L.slice(k + 1).find(q => q.from != null && (q.pos || "C") === (p.pos || "C")); if (nxt) p.until = nxt.from; });
+      const pz = timed(s.puppets), pr = timed(s.props);
+      handoff(pz); handoff(pr);
+      const big = !!(s.screen && s.screen.type === "BIG");
       const cool = pz.some(p => p.from == null && COOL_POSE.has(p.pose));
-      const actors = [];
+      const actors = [], propActs = [];
       const set = ST.set(a, b, st => {
         st.bg("BG_" + (s.bg || "PAPER"), { v: 0.8, y: V ? 0.2 : 0.35, w: V ? 40 : 54 });
         pz.forEach(p => actors.push(addActor(st, p)));
+        pr.forEach(p => propActs.push(addProp(st, p, new Set(pr.map(q => q.pos)).size, big)));
         st.part(Puppet.floaters(cool ? { n: 40, inner: "rgba(180,200,255,1)", outer: "rgba(90,110,200,0)", opacity: 0.55, speed: [0.12, 0.35] }
           : { n: 50, opacity: 0.6, speed: [0.15, 0.45] }));
         if (cool) st.tint.copy(COOL); else st.tint.copy(WARM);
@@ -231,14 +244,14 @@
         cam: (t, st) => { const k = lin(t, st.a, st.b), d = i % 2 ? 1 : -1; return { pos: [d * lerp(-0.35, 0.35, k), 3.6, lerp(24, 23.1, k)], look: [d * lerp(-0.35, 0.35, k), LOOK_Y, 0] }; },
         fadeOut: nx ? 0.45 : 0.01,
       });
-      set.update = t => actors.forEach((ac, k) => moveActor(ac, t, a, b, k));
+      set.update = t => { actors.forEach((ac, k) => moveActor(ac, t, a, b, k)); propActs.forEach((ac, k) => moveProp(ac, t, a, k)); };
       // 코드 화면
       if (s.screen && SCREEN[s.screen.type]) {
         const sc = K.scene(a, b, nx ? null : { keep: true });
-        const t0 = s.screen.at ? at(s.screen.at[0], s.screen.at[1]) : (isCard ? a + 0.15 : (i === 0 ? 0.3 : S(s.a) + 0.35));
-        const done = SCREEN[s.screen.type](sc, s.screen, t0, b);
+        const t0 = s.screen.at ? at(s.screen.at[0], s.screen.at[1]) : (i === 0 ? 0.3 : S(s.a) + 0.35);
+        const done = SCREEN[s.screen.type](sc, s.screen, t0, b, { prop: pr.length > 0 });
         K.cut(Math.min(b - 0.2, Math.max(done + 0.2, (a + b) / 2)), `${i + 1} ${s.screen.type}`);
-      } else K.cut(Math.min(b - 0.2, (a + b) / 2 + 0.3), `${i + 1} 무대`);
+      } else K.cut(Math.min(b - 0.2, (a + b) / 2 + 0.3), `${i + 1} ${pr.length ? "소품" : "무대"}`);
       lastEnd = b;
     });
 

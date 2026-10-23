@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.2 — 2026-10-23 — 제작안에 '- 도입 통과: <날짜> 사용자' 줄이 있으면 도입 마지노선(35초)을 넘어도 경고로 (사용자 지시 2026-10-23
+# VERSION: v1.3 — 2026-10-23 — 정리 파트 없음 (사용자 지시 "그냥 정리 부분은 빼자") — 오디오용 대본은 -도입 → -방법 → -마무리 (제작안에
+#          정리 절이 없으면 카드도 없음 · 옛 제작안의 '(정리 카드' 는 그대로 읽지만 story_check v1.4 가 문제로 셈).
+# (v1.2) — 2026-10-23 — 제작안에 '- 도입 통과: <날짜> 사용자' 줄이 있으면 도입 마지노선(35초)을 넘어도 경고로 (사용자 지시 2026-10-23
 #          "도입은 그냥 통과시켜") — story_check v1.3 intro_ok.
 # (v1.1) — 2026-10-22 — '대본만' 꼴도 읽음: 장면 머리([A-01 | …])·(화면) 없이 파트 머리 아래 문장만 (사용자 지시 2026-10-22 "화면 내용은 좀 빼고
 #          눈에 잘 안들어와") · '■ 대본' 으로 시작하는 절 · --write 가 '- 길이:' 줄과 도입 끝 시각도 고침.
@@ -12,7 +14,7 @@
 """
   python3 stock/story/calc/plan_tool.py stock/story/<제작안>.txt [--script-out <대본.txt>] [--write]
     --write       제작안의 장면 시각·길이 줄을 추정값으로 고쳐 씀
-    --script-out  오디오용 대본(-도입 … [장면] 정리 …)을 그 경로에 씀 (승인 뒤 stock/source/<영상ID>/<영상ID>.txt)
+    --script-out  오디오용 대본(-도입 … -마무리)을 그 경로에 씀 (승인 뒤 stock/source/<영상ID>/<영상ID>.txt)
 끝 코드: story_check 문제가 있으면 1.
 """
 import argparse
@@ -27,7 +29,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 import srt_tool  # noqa: E402
 import story_check  # noqa: E402
 
-VERSION = "v1.2"
+VERSION = "v1.3"
 SYL, GAP, PART_GAP = story_check.HOST_SYL_PER_SEC, story_check.SENT_GAP, 1.0
 PART_RE = re.compile(r"^=+ (\S+)(?: · .*)? =+$")
 SCENE_RE = re.compile(r"^\[([A-Z]-\d+[a-z]?) \| ([^|]*) \| (.*)\]$")

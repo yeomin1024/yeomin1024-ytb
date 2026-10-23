@@ -1,48 +1,60 @@
-# 장면 표 — pogi-sonjeol-2026-10 · story_kit v1.4 · 2026-10-23 손으로 다듬음 · 한 줄 = 장면 하나
+# 장면 표 — pogi-sonjeol-2026-10 · story_kit v1.6 · 2026-10-23 손으로 다듬음 · 한 줄 = 장면 하나
 # 화면에 글자 없음 — 숫자·기호·그림만 (영어·한국어 없음 — 외국인 시청자, 사용자 지시 2026-10-23). 말은 언어별 자막(CC).
-# 문장 | 배경 | 인형 | 화면    (문법: stock/guides/quick_story.md D-2 · 고친 뒤 python3 tools/story_kit.py scenes pogi-sonjeol-2026-10)
+# 정리 부분 없음 (사용자 지시 2026-10-23 "그냥 정리 부분은 빼자") · 어려운 말·비유 = 설명 소품 '*이름' (stock/story/puppet/props_chatgpt.md)
+# 문장 | 배경 | 인형(+*소품) | 화면    (문법: stock/guides/quick_story.md D-2 · 고친 뒤 python3 tools/story_kit.py scenes pogi-sonjeol-2026-10)
 
-# 도입 — 70% 손실 · 마흔넷의 걱정 · 떠나지 않기로
-1-2 | HOME-NIGHT | PHONE@L | K1 357140000>107140000 @1:70%
-3-4 | HOME-NIGHT | DESPAIR
-5-8 | HOME-NIGHT | DESPAIR+8:RESOLVE
+# 도입 — 70% 손실 · 반대매매 · 마흔넷의 걱정 · 떠나지 않기로
+1 | HOME-NIGHT | PHONE@L | K1 357140000>107140000 @1:70%
+2 | HOME-NIGHT | PHONE@L+*PHONE-ALERT@R
+3 | HOME-NIGHT | DESPAIR@L
+4 | HOME-NIGHT | DESPAIR@L+*PIGGY@R | BIG ₩100,000,000 Y
+5-8 | HOME-NIGHT | DESPAIR@L+8:RESOLVE@L+8:*NOTEBOOK@R
 # 방법1 — 국장 대신 미장 (쏠림 · 7월 폭락 · 박스피 · 반론)
 9-11 | OFFICE | STUDY@L | K5 kr>us
-12-15 | BOARD | BACK@L | PIE 55 R label=50%+ icon=kr @12:절반
-16 | BOARD | DESPAIR@L | BIG −8.95% R icon=kr
+12 | BOARD | BACK@L | PIE 55 R label=50%+ icon=kr @12:절반
+13-15 | BOARD | BACK@L+*ONE-BASKET@R
+16 | BOARD | DESPAIR@L+*BARRIER@R | BIG −8.95% R icon=kr
 17-18 | BOARD | DESPAIR@L | BIG −34% R icon=kr
-19-22 | PAPER | STUDY@L | K2 *2007,2010,2013,*2016
-23 | PAPER | STUDY@L | BIG +81% G icon=us
+19-21 | PAPER | STUDY@L | K2 *2007,2010,2013,*2016
+22 | PAPER | STUDY@L+*BOX@R
+23 | PAPER | STUDY@L+*BIG-BASKET@R | BIG +81% G icon=us
 24-25 | BOARD | BACK@L | K4 2025:4,000:Y 2026:9,000:G icon=kr
-26 | PAPER | BONSEOK@L | K5 us>down
-27-28 | PAPER | RESOLVE@L | K5 +us +basket
+26 | PAPER | BONSEOK@L | K5 us>down fx
+27-28 | PAPER | RESOLVE@L+*BIG-BASKET@R
 # 방법2 — 떠나지 않고 매매만 멈춤 (큰 하락 4번)
-29-31 | HOME-NIGHT | PHONE
-32-34 | HOME-NIGHT | RESOLVE@L | K5 !phone +lock
+29-30 | HOME-NIGHT | PHONE
+31 | HOME-NIGHT | PHONE@L+*TRASH@R
+32 | HOME-NIGHT | DESPAIR@L+*STAMP@R
+33-34 | HOME-NIGHT | RESOLVE@L | K5 !phone +lock
 35-38 | PAPER | STUDY@L | K3 100,49.2 base=100 lab=2007,2009 end=₩49,180,000
 39-40 | PAPER | BACK@L | K3 100,49.2,100,498 base=100 lab=2007,2009,2013,2026 end=₩498,120,000
 41-43 | PAPER | STUDY@L | K4 2000:51:Y 2007:48:Y 2020:5:G 2022:14:G icon=hourglass
-44-45 | PAPER | STUDY
-# 방법3 — 거시 경제 (7월 폭락 원인 · 금리·환율 · 시장의 빚)
-46-49 | OFFICE | STUDY@L | K5 pct fx chart
-50-52 | BOARD | BACK@L | K5 x3 pct globe
-53-54 | PAPER | STUDY@L | K5 pct>coin fx>down
-55-58 | BOARD | BACK@L | BIG ₩38,600,000,000,000 R icon=debt @56
-59-61 | OFFICE | RESOLVE@L | K5 +pct +chart
-# 방법4 — 본인만의 원칙 (리딩방·단톡방 · SOXL · 62% · 원칙)
-62-65 | HOME-NIGHT | PHONE@L+CROWD@R
+44-45 | PAPER | STUDY@L+*BIG-BASKET@C+45:*RUIN@R
+# 방법3 — 거시 경제 (큰 흐름 · 7월 폭락 원인 · 금리·환율 · 시장의 빚 · 점검)
+46 | OFFICE | STUDY@L | K5 pct fx chart
+47 | OFFICE | STUDY@L+*WAVE@R
+48-49 | OFFICE | STUDY@L+*NEWS@R
+50-51 | BOARD | BACK@L+*ONE-BASKET@R
+52 | BOARD | DESPAIR@L+*STORM@R
+53 | PAPER | STUDY@L+*BANK@R | BIG %↑ Y
+54 | PAPER | STUDY@L | K5 fx>down
+55-58 | BOARD | BACK@L+58:*BALLOON@R | BIG ₩38,600,000,000,000 R icon=debt @56
+59-61 | OFFICE | RESOLVE@L+*GAUGE@R
+# 방법4 — 본인만의 원칙 (리딩방·단톡방 · 3배 ETF · 62% · 원칙 노트)
+62-63 | HOME-NIGHT | PHONE@L+CROWD@R
+64-65 | HOME-NIGHT | PHONE@L+*CHAT@R
 66-68 | BOARD | DESPAIR@L | BIG −48.9% R icon=x3 @68
 69-71 | PAPER | STUDY@L | PIE 62 R icon=people @70
-72-76 | HOME-NIGHT | STUDY@L | K5 !debt +basket +book
-77-78 | HOME-NIGHT | RESOLVE
+72 | HOME-NIGHT | STUDY@L+*NOTEBOOK@R
+73-76 | HOME-NIGHT | STUDY@L | K5 !debt +basket +book
+77-78 | HOME-NIGHT | RESOLVE@L+*ANCHOR@R
 # 방법5 — 천천히 (정해진 금액 · 10년 202번 · 3배 −76.7%)
-79-82 | OFFICE | STUDY@L | K5 +calendar +coin
+79-81 | OFFICE | STUDY@L+*TORTOISE@R
+82 | OFFICE | RESOLVE@L | K5 +calendar +coin
 83-86 | PAPER | STUDY@L | K4 ✕:8:R ✓:194:G @85
-87-88 | PAPER | SMILE@L | BIG ×1.6 G
-89-91 | PAPER | DESPAIR@L | BIG −76.7% R icon=x3 @90
-92 | STREET-DAWN | RESOLVE
-# 정리 (말 없는 카드 — 방법마다 그림 한 줄) · 마무리
-93 | PAPER | STUDY
-정리 | PAPER |  | K6 kr>us +lock pct,fx,chart !debt,book calendar,coin
-94-95 | STREET-DAWN | RESOLVE
-96-97 | STREET-DAWN | SMILE
+87-88 | PAPER | SMILE@L+*TREE@R | BIG ×1.6 G
+89-91 | PAPER | DESPAIR@L+91:*ROCKET@R | BIG −76.7% R icon=x3 @90
+92 | STREET-DAWN | RESOLVE@L+*TORTOISE@R
+# 마무리 (정리 부분 없음)
+93-94 | STREET-DAWN | RESOLVE
+95-96 | STREET-DAWN | SMILE

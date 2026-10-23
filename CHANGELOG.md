@@ -1,5 +1,32 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-23 (주식 이야기형 6) — 정리 부분 뺌 · 설명 소품 그림
+
+### 왜 (사용자 지시)
+- "그냥 정리 부분은 빼자 설명에 필요한 이미지 요소들은 왜 생성안해?" — 말 없는 정리 카드(4초)를 묻자 정리 부분을 빼기로 함. 화면에 글자가 없는데 어려운 말·비유를 보여 줄 그림이 코드 아이콘뿐이었음 (일본 축제 영상은 ChatGPT 종이 소품을 썼음).
+
+### 바꾼 것
+| 파일 (버전) | 내용 |
+|---|---|
+| `tools/story_check.py` (v1.3 → v1.4) · 시험 v1.2 | 파트 순서 -도입 → -방법1…N → -마무리 · `-정리` 라벨·`[장면]` 카드가 있으면 문제 |
+| `stock/story/calc/plan_tool.py` (v1.3) | 설명만 (오디오 대본에 정리 없음) |
+| 1~4화 `<영상ID>_제작안.txt` | 정리 절 삭제 · 길이 줄 다시 (1화 6:55 · 2화 6:58 · 3화 6:54 · 4화 6:53 — 추정) · story_kit check 문제 0 · [DUP] 문제 0 |
+| `stock/source/pogi-sonjeol-2026-10/pogi-sonjeol-2026-10.txt` · `subs/*.txt` 9개 언어 | '오늘 이야기, 정리해볼게요.' 문장과 카드 줄 삭제 (96문장) · subs_tool check 문제 0 |
+| `stock/story/puppet/props_chatgpt.md` (v1.0 새로) · `props/README.md` | 설명 소품 21장 ChatGPT 프롬프트 — 인형 파일과 같은 STYLE·CUTOUT + PROP 문단(글자·숫자·기호 없음) · 정사각 투명 PNG 700KB · 잘림 검사 |
+| `tools/story_kit.py` (v1.5 → v1.6) · 시험 v1.2 | 인형 칸 `*이름[@L|C|R][>rise|pop]` = 소품 (목록 = props_chatgpt.md 표) · 소품은 화면 없는 장면이나 BIG 과만 · 쇼츠는 위 가운데 · 같은 소품이 이어지면 다시 튀어나오지 않음 · SPEC.props · 그림 없는 소품 알림 · K6·`정리` 줄 없앰 |
+| `video/render/story.js` (v1.3 → v1.4) · `story.css` (v1.2 → v1.3) | 소품 = 무대 위 종이 그림 (롱폼 오른쪽 바닥 · 둘이면 가운데·오른쪽 · 쇼츠 위 가운데) · 튀어나옴·솟아오름·흔들림 · 같은 자리 다음 소품이 나오면 앞 소품 사라짐 · BIG 과 같이 쓰면 그림+숫자 한 줄을 소품 위로 · K6 정리 카드 코드·모양 삭제 |
+| `stock/source/pogi-sonjeol-2026-10/scenes.txt`·`shorts/scenes.txt` | 롱폼 48장면 (소품 21종: 반대매매 휴대폰·돼지 저금통·원칙 노트·몰빵 바구니·거래 정지 차단기·박스피 상자·지수 바구니·휴지통·도장·무너진 건물·큰 파도·신문·폭풍·은행·풍선·계기판·말풍선·닻·거북이·동전 나무·부서진 로켓) · 쇼츠 소품 3종 · 문장 번호 96까지 |
+| `video/episodes/pogi-sonjeol-2026-10/`·`-shorts/index.html` (생성) | 위 장면 표로 다시 만듦 (추정 시각) |
+| `stock/guides/story_script.md` (v1.11) · `quick_story.md` (v1.5) · `stock/story/series.md` (v1.8) · `CLAUDE.md` 주식 줄 | 정리 부분 없음 · 설명 소품 그림 규칙·문법 |
+| `guides/status.md` (v2.45) | 버전 줄 · 1번 표 주식 줄 |
+
+### 확인
+- unittest 44개 OK (subs_tool · story_kit · story_check)
+- `render.mjs check stock pogi-sonjeol-2026-10` → cuts=48 problems=0 page_errors=52 (배경 5 + 소품 21 그림 아직 없음 × 2) · 쇼츠 cuts=6 problems=0 page_errors=16
+- still 확인 (임시 그림): 소품이 오른쪽 바닥에 섬 · BIG 숫자가 소품 위 · 소품 둘이 인형 책상과 떨어짐 · 쇼츠 소품이 인형 머리·#1 배지와 닿지 않음 (처음 still 에서 닿아서 크기·높이를 줄임)
+- 남은 것: 정리 부분을 빼서 1~4화 추정 길이가 7분보다 2~7초 짧음 — 실제 오디오로 다시 보고, 모자라면 사용자 확인 뒤 문장을 더함
+- 연구·교육용 영상 도구 — 투자 권유 아님.
+
 ## 2026-10-23 (주식 이야기형 5) — 1화 화면·썸네일에 영어도 없음 · 언어별 자막 9개 언어
 
 ### 왜 (사용자 지시)

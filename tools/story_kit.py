@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.5 — 2026-10-23 — 영어도 없음 (사용자 지시 "야 영어 문구도 넣지마"): 썸네일 문구 = 숫자·기호만(글자면 멈춤 · 1~2줄 · 꼬리표 '#N') · BIG icon=.
+# VERSION: v1.6 — 2026-10-23 — ① 정리 부분 뺌 (사용자 지시 "그냥 정리 부분은 빼자"): 장면 표의 '정리' 줄·K6 정리 카드 없음 (쓰면 문제).
+#          ② 설명 소품 그림 (사용자 지시 "설명에 필요한 이미지 요소들은 왜 생성안해?"): 인형 칸에 '*이름' = 무대 위 종이 소품
+#          (ChatGPT 그림 stock/story/puppet/props/<이름>.png — 목록 = props_chatgpt.md 표). 소품은 화면 없는 장면이나 BIG 과만 (화면 칸과 겹침).
+# (v1.5) — 2026-10-23 — 영어도 없음 (사용자 지시 "야 영어 문구도 넣지마"): 썸네일 문구 = 숫자·기호만(글자면 멈춤 · 1~2줄 · 꼬리표 '#N') · BIG icon=.
 # (v1.4) — 2026-10-23 — 화면·썸네일에 한국어 없음 (사용자 지시 "외국인 대상으로도 할거니까 그것도 고려해 영상에 한글 문구 사용하지 말고
 #          최대한 이해 잘되도록"): K6 = 줄마다 그림(쉼표·화살표) · PIE 원그래프 · K5 화살표 칸 · K4 icon= · BIG 여러 낱말 · 새 그림 6개 ·
 #          썸네일 문구는 쉬운 영어·숫자·기호(한글이면 멈춤) · K6 방법 이름 대체(v1.3)는 뺌.
@@ -42,7 +45,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 sys.path.insert(0, str(ROOT / "stock" / "story" / "calc"))
 import srt_tool  # noqa: E402
 
-VERSION = "v1.5"
+VERSION = "v1.6"
 LOG = logging.getLogger("story_kit")
 STORY = ROOT / "stock" / "story"
 SOURCE = ROOT / "stock" / "source"
@@ -51,6 +54,8 @@ FACTS = STORY / "facts.md"
 SERIES = STORY / "series.md"
 CANDIDATES = ROOT / "stock" / "result" / "outliers" / "comment_title_candidates.tsv"
 CHATGPT = STORY / "protagonist_chatgpt.md"
+PROPS_FILE = STORY / "puppet" / "props_chatgpt.md"             # v1.6 소품 목록 (표의 저장 경로) — ChatGPT 가 그린다
+PROP_RX = re.compile(r"`stock/story/puppet/props/([A-Z0-9]+(?:-[A-Z0-9]+)*)\.png`")
 ID_RE = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*-20\d\d-\d\d$")
 SYL, GAP = 6.3, 0.45                                   # 진행자 H17 (story_check 와 같음)
 
@@ -60,7 +65,7 @@ STORY_WORDS = ["손절", "포기", "원금", "본전", "복구", "회복", "물�
 POLITICS = re.compile(r"특검|의원|대통령|정부|정권|민주당|국힘|국민의힘|좌파|우파|탄핵|윤석열|이재명|문재인|호남|영남|빨갱|수꼴|시장개입")
 POSES = ["BONSEOK", "WALK", "PHONE", "DESPAIR", "RESOLVE", "STUDY", "BACK", "SMILE", "CROWD"]
 BGS = ["HOME-NIGHT", "OFFICE", "STREET-DAWN", "BOARD", "PAPER"]
-SCREENS = ["K1", "K2", "K3", "K4", "K5", "K6", "BIG"]
+SCREENS = ["K1", "K2", "K3", "K4", "K5", "BIG", "PIE"]           # v1.6 K6 정리 카드 없음
 ICONS = ["basket", "drop", "debt", "swap", "x3", "hourglass", "calendar", "phone", "book", "up", "down", "bell", "lock", "globe", "coin", "house",
          "kr", "us", "pct", "fx", "people", "chart"]                   # v1.4 국기·금리 %·환율 ₩⇄$·사람들·막대
 
@@ -546,8 +551,8 @@ def amount(s):
     return f"×{g[0]}"
 
 
-PART_POSE = {"도입": "BONSEOK", "정리": "STUDY", "마무리": "RESOLVE"}
-PART_BG = {"도입": "HOME-NIGHT", "쇼츠": "HOME-NIGHT", "정리": "PAPER", "마무리": "STREET-DAWN"}
+PART_POSE = {"도입": "BONSEOK", "마무리": "RESOLVE"}
+PART_BG = {"도입": "HOME-NIGHT", "쇼츠": "HOME-NIGHT", "마무리": "STREET-DAWN"}
 METHOD_BG = ["OFFICE", "HOME-NIGHT", "STREET-DAWN", "OFFICE", "HOME-NIGHT"]
 
 
@@ -564,10 +569,9 @@ def draft(vid, shorts):
     sp = script_path(vid, shorts)
     if not sp.exists():
         fail("DRAFT", f"대본 없음: {sp.relative_to(ROOT)}", f"python3 tools/story_kit.py export {vid} …")
-    rows, cards = parts_of(sp), srt_tool.parse_cards(sp)
-    card_after = {c["after"] for c in cards}
+    rows = parts_of(sp)
     out = [f"# 장면 표 — {vid}{'-shorts' if shorts else ''} · story_kit {VERSION} 초안 {time.strftime('%Y-%m-%d')} · 한 줄 = 장면 하나",
-           "# 문장 | 배경 | 인형 | 화면    (문법: stock/guides/quick_story.md D-2 · 고친 뒤 python3 tools/story_kit.py scenes " + vid + (" --shorts)" if shorts else ")"),
+           "# 문장 | 배경 | 인형(+*소품) | 화면    (문법: stock/guides/quick_story.md D-2 · 고친 뒤 python3 tools/story_kit.py scenes " + vid + (" --shorts)" if shorts else ")"),
            ""]
     groups, cur, methods = [], None, []
     for part, n, line in rows:
@@ -587,14 +591,7 @@ def draft(vid, shorts):
         cur["n"].append(n)
         cur["text"].append(line)
         cur["big"] = cur["big"] or (big, line) if big else cur["big"]
-        if n in card_after:
-            groups.append(dict(part=part, card=n))
-            cur = None
     for g in groups:
-        if g.get("card") is not None:
-            n_card = len(next(c for c in cards if c["after"] == g["card"])["lines"])
-            out.append("정리 | PAPER |  | K6 " + " ".join(["coin"] * n_card) + "    # 줄마다 그림으로 바꾼다 (한국어 없음)")
-            continue
         txt = " ".join(g["text"])
         bg = part_default(g["part"], PART_BG, METHOD_BG, max(0, g["mi"]))
         if re.search(BG_RULES[0][1], txt) and g["big"]:
@@ -612,7 +609,7 @@ def draft(vid, shorts):
     return "\n".join(out) + "\n"
 
 
-SCREEN_RX = re.compile(r"^(K[1-6]|BIG|PIE)\b\s*(.*)$")
+SCREEN_RX = re.compile(r"^(K[1-5]|BIG|PIE)\b\s*(.*)$")
 
 
 def icon_items(tok):
@@ -629,10 +626,10 @@ def icon_items(tok):
     return out
 
 
-def parse_screen(s, cards_by_after, card_n):
+def parse_screen(s):
     m = SCREEN_RX.match(s.strip())
     if not m:
-        raise ValueError(f"화면 꼴 아님: {s!r} (K1~K6·BIG)")
+        raise ValueError(f"화면 꼴 아님: {s!r} (K1~K5·BIG·PIE — v1.6 K6 정리 카드 없음)")
     typ, rest = m.group(1), m.group(2).strip()
     at_m = re.search(r"\s*@(\d+)(?::(\S+))?\s*$", rest)
     when = None
@@ -665,13 +662,6 @@ def parse_screen(s, cards_by_after, card_n):
         for tok in rest.split():
             icons += icon_items(tok)                             # v1.4 'kr>us' = 국기 → 국기
         o.update(icons=icons)
-    elif typ == "K6":
-        if card_n is None:
-            raise ValueError("K6 은 '정리' 줄에만")
-        rows = [sum((icon_items(x) for x in tok.split(",")), []) for tok in rest.split()]
-        if not rows:
-            raise ValueError("K6 = 줄마다 그림 (예: K6 kr>us lock pct,fx !debt calendar) — 화면에 한국어를 쓰지 않음 (외국인 시청자)")
-        o.update(rows=rows, card_lines=len(cards_by_after[card_n]["lines"]))
     elif typ == "PIE":                                           # v1.4 원그래프: PIE <몫 %> [색] [label=50%+] [icon=people]
         kv = dict(re.findall(r"(\w+)=(\S+)", rest))
         bare = re.sub(r"\s*\w+=\S+", "", rest).split()
@@ -690,14 +680,36 @@ def parse_screen(s, cards_by_after, card_n):
     return o
 
 
-def parse_puppets(s):
+def props_catalog():
+    """→ 소품 이름 목록 (stock/story/puppet/props_chatgpt.md 표의 저장 경로 순서). 파일이 없으면 빈 목록."""
+    if not PROPS_FILE.exists():
+        return []
+    seen = []
+    for name in PROP_RX.findall(PROPS_FILE.read_text("utf-8")):
+        if name not in seen:
+            seen.append(name)
+    return seen
+
+
+def parse_puppets(s, catalog=None):
+    """인형 칸 → [{pose…} | {prop…}] — v1.6 '*이름' = 소품 (예: 13:몰빵:*ONE-BASKET@R>rise)."""
     out = []
     for tok in re.split(r"\s*[+;]\s*", s.strip()):
         if not tok:
             continue
+        pm = re.match(r"^(?:(\d+)(?::(\S+?))?:)?\*([A-Z0-9]+(?:-[A-Z0-9]+)*)(?:@([LCR]))?(?:>(rise|pop))?$", tok)
+        if pm:
+            cat = props_catalog() if catalog is None else catalog
+            if pm.group(3) not in cat:
+                raise ValueError(f"소품 없음: {pm.group(3)} — {PROPS_FILE.relative_to(ROOT)} 표에 먼저 더함 (있는 것: {', '.join(cat) or '없음'})")
+            p = dict(prop=pm.group(3), pos=pm.group(4), move=pm.group(5) or "pop")
+            if pm.group(1):
+                p["at"] = [int(pm.group(1)), pm.group(2)]
+            out.append(p)
+            continue
         m = re.match(r"^(?:(\d+)(?::(\S+?))?:)?([A-Z]+)(?:@([LCR]))?(?:>(in|walk|rise|pop))?(!)?$", tok)
         if not m or m.group(3) not in POSES:
-            raise ValueError(f"인형 꼴 아님: {tok!r} (POSE[@L|C|R][>in|walk|rise|pop][!] · 자세 {', '.join(POSES)} · 장면 안에서 바뀜 = '<문장>:POSE')")
+            raise ValueError(f"인형 꼴 아님: {tok!r} (POSE[@L|C|R][>in|walk|rise|pop][!] · 자세 {', '.join(POSES)} · 장면 안에서 바뀜 = '<문장>:POSE' · 소품 = '*이름[@L|C|R]')")
         p = dict(pose=m.group(3), pos=m.group(4) or "C", move=m.group(5) or "in", flip=bool(m.group(6)))
         if m.group(1):
             p["at"] = [int(m.group(1)), m.group(2)]
@@ -709,8 +721,7 @@ def compile_scenes(vid, shorts):
     sp, scp = scenes_path(vid, shorts), script_path(vid, shorts)
     rows = parts_of(scp)
     nmax = len(rows)
-    cards = srt_tool.parse_cards(scp)
-    by_after = {c["after"]: c for c in cards}
+    catalog = props_catalog()
     scenes, errs, prev = [], [], None
     for i, raw in enumerate(sp.read_text("utf-8").splitlines(), 1):
         line = raw.split("#", 1)[0].strip() if not raw.lstrip().startswith("#") else ""
@@ -719,27 +730,28 @@ def compile_scenes(vid, shorts):
         c = [x.strip() for x in line.split("|")] + ["", "", ""]
         try:
             if c[0] == "정리":
-                if not cards:
-                    raise ValueError("대본에 [장면] 카드가 없음")
-                card_n = (prev or {}).get("b") or cards[0]["after"]
-                card_n = min((x["after"] for x in cards if x["after"] >= card_n), default=cards[0]["after"])
-                sc = dict(card=card_n)
-            else:
-                m = re.match(r"^(\d+)(?:-(\d+))?$", c[0])
-                if not m:
-                    raise ValueError(f"문장 칸 꼴 아님: {c[0]!r} (n · n-m · 정리)")
-                a_, b_ = int(m.group(1)), int(m.group(2) or m.group(1))
-                if not (1 <= a_ <= b_ <= nmax):
-                    raise ValueError(f"문장 번호 범위 밖: {c[0]} (1~{nmax})")
-                sc, card_n = dict(a=a_, b=b_), None
+                raise ValueError("'정리' 줄(정리 카드)은 쓰지 않음 — 정리 부분은 뺌 (v1.6, 사용자 지시 2026-10-23)")
+            m = re.match(r"^(\d+)(?:-(\d+))?$", c[0])
+            if not m:
+                raise ValueError(f"문장 칸 꼴 아님: {c[0]!r} (n · n-m)")
+            a_, b_ = int(m.group(1)), int(m.group(2) or m.group(1))
+            if not (1 <= a_ <= b_ <= nmax):
+                raise ValueError(f"문장 번호 범위 밖: {c[0]} (1~{nmax})")
+            sc = dict(a=a_, b=b_)
             sc["bg"] = c[1] or (prev or {}).get("bg") or "PAPER"
             if sc["bg"] not in BGS:
                 raise ValueError(f"배경 없음: {sc['bg']} ({', '.join(BGS)})")
-            sc["puppets"] = parse_puppets(c[2]) if c[2] else []
+            cast = parse_puppets(c[2], catalog) if c[2] else []
+            sc["puppets"] = [p for p in cast if "pose" in p]
+            props = [p for p in cast if "prop" in p]
+            for p in props:                                    # v1.6 소품 자리: 롱폼 오른쪽(R) · 쇼츠 위 가운데(C)
+                p["pos"] = p["pos"] or ("C" if shorts else "R")
+            if props:
+                sc["props"] = props
             if c[3]:
-                sc["screen"] = parse_screen(c[3], by_after, sc.get("card"))
-                if sc["screen"]["type"] == "K6" and len(sc["screen"]["rows"]) != sc["screen"]["card_lines"]:
-                    print(f"⚠️ {sp.name}:{i}: K6 그림 줄 {len(sc['screen']['rows'])}개 ≠ 대본 카드 줄 {sc['screen']['card_lines']}개")
+                sc["screen"] = parse_screen(c[3])
+                if props and sc["screen"]["type"] != "BIG":
+                    raise ValueError(f"소품은 화면 없는 장면이나 BIG 과만 ({sc['screen']['type']} 칸과 겹침 — 장면을 나눔)")
                 for p in sc["puppets"]:                       # 화면이 있으면 인형은 왼쪽 (롱폼) — 자리를 적었으면 그대로
                     if p["pos"] == "C" and not shorts and "@" not in c[2]:
                         p["pos"] = "L"
@@ -748,10 +760,16 @@ def compile_scenes(vid, shorts):
                 for p in sc["puppets"]:
                     if "at" not in p and (p["pose"], p["pos"]) in same and prev["bg"] == sc["bg"]:
                         p["cont"] = True
+                same_p = {(p["prop"], p["pos"]) for p in prev.get("props", []) if "at" not in p}
+                for p in sc.get("props", []):                 # 같은 소품이 같은 자리에 이어지면 튀어나오지 않음
+                    if "at" not in p and (p["prop"], p["pos"]) in same_p and prev["bg"] == sc["bg"]:
+                        p["cont"] = True
             scenes.append(sc)
             prev = sc
         except (ValueError, KeyError, IndexError) as e:
             errs.append(f"{sp.name}:{i}: {e}")
+    if shorts and any(p.get("pos") != "C" for s in scenes for p in s.get("props", [])):
+        errs.append("쇼츠 소품은 위 가운데(@C)만 — 인형이 아래 가운데")
     covered = sorted({n for s in scenes if "a" in s for n in range(s["a"], s["b"] + 1)})
     missing = [n for n in range(1, nmax + 1) if n not in covered]
     if scenes and scenes[0].get("a") != 1:
@@ -825,8 +843,14 @@ def cmd_scenes(a):
     page_id = a.vid + ("-shorts" if a.shorts else "")
     plan = src(a.vid) / f"{a.vid}_제작안.txt"
     intro_ok = plan.exists() and any(l.strip().startswith("- 도입 통과:") for l in plan.read_text("utf-8").splitlines())
+    used = []
+    for s in scenes:
+        for p in s.get("props", []):
+            if p["prop"] not in used:
+                used.append(p["prop"])
     spec = dict(dir="../../../stock/story/puppet/", ep=ep, introOk=intro_ok, next=(ep + 1) if isinstance(ep, int) and not a.shorts else None,
-                vertical=a.shorts, cover=a.shorts, testFrom=None if a.shorts else test_from, scenes=scenes)
+                vertical=a.shorts, cover=a.shorts, testFrom=None if a.shorts else test_from,
+                props={k: f"props/{k}.png" for k in used}, scenes=scenes)
     out = ROOT / "video" / "episodes" / page_id / "index.html"
     epdata = "/*EP-DATA:BEGIN*//*EP-DATA:END*/"
     if out.exists():
@@ -844,8 +868,12 @@ def cmd_scenes(a):
     for s in scenes:
         k = (s.get("screen") or {}).get("type", "무대")
         kinds[k] = kinds.get(k, 0) + 1
+    have = [k for k in used if (STORY / "puppet" / "props" / f"{k}.png").exists()]
     print(f"[SCENES] {out.relative_to(ROOT)} · 장면 {len(scenes)} (문장 {nmax}) · " + " ".join(f"{k} {v}" for k, v in kinds.items())
-          + f" · testFrom={spec['testFrom']} · {len(html) // 1024}KB")
+          + f" · 소품 {len(used)}종 (그림 있음 {len(have)}) · testFrom={spec['testFrom']} · {len(html) // 1024}KB")
+    if len(have) < len(used):
+        print(f"[PROPS] 그림 아직 없음 {len(used) - len(have)}개 (임시 그림으로 그림): {', '.join(k for k in used if k not in have)} "
+              f"→ ChatGPT {PROPS_FILE.relative_to(ROOT)}")
     synced = "EP=" in epdata and '"estimated":true' not in epdata
     print(f"[NEXT] node video/render/render.mjs sync stock {page_id}{'' if synced else ' --estimate'} && node video/render/render.mjs check stock {page_id}")
     log("SCENES", page=out.relative_to(ROOT), scenes=len(scenes))

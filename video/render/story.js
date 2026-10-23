@@ -1,4 +1,6 @@
-// VERSION: v1.1 — 2026-10-23 — SPEC.introOk(제작안 '- 도입 통과:' 줄) → K.init introOk (render.mjs v1.22 도입 마지노선 35초 검사에서 경고로).
+// VERSION: v1.2 — 2026-10-23 — 화면에 한국어 없음 (사용자 지시 "외국인 대상으로도 할거니까 그것도 고려해 영상에 한글 문구 사용하지 말고 최대한
+//   이해 잘되도록"): K6 정리 카드 = 번호 + 그림 줄 · PIE 원그래프 · 그림 kr·us(국기)·pct(금리 %)·fx(₩⇄$)·people·chart · K5 화살표 칸 · K4·PIE 단위 그림(icon=).
+// (v1.1) — 2026-10-23 — SPEC.introOk(제작안 '- 도입 통과:' 줄) → K.init introOk (render.mjs v1.22 도입 마지노선 35초 검사에서 경고로).
 // (v1.0) — 2026-10-23 — 새로: '개미 재기 일지' 종이인형극 장면 묶음 — 장면 표(stock/source/<영상ID>/scenes.txt)를 tools/story_kit.py scenes 가
 //   SPEC(JSON)으로 바꿔 작은 index.html 에 넣으면, 이 파일이 무대·인형·코드 화면을 만든다. 사용자 지시 2026-10-23 "주제 탐색 -> 요약본 만들기 -> 대본,
 //   썸네일 프롬프트 등 영상 소스 -> 영상 만들기 과정을 토큰을 가장 덜 사용하는 구조로 만들어봐" — 영상마다 장면 코드를 손으로 쓰지 않는다
@@ -6,13 +8,13 @@
 //   · 무대 = video/render/puppet.js v1.1 (배경 1장 + 표정 있는 인형 투명 PNG, 움직임은 코드) — 그림이 없으면 임시 그림.
 //   · 코드 화면: K1 계좌(금액이 굴러감) · K2 연표 · K3 차트(선이 그려짐, 기준 = 노란 점선) · K4 막대 · K5 아이콘 · K6 정리 카드 · K7 화 배지 · BIG 큰 숫자.
 //   · 시각은 모두 문장 번호(K.S·K.E·K.W) — 오디오가 바뀌어도 장면 표를 고치지 않는다.
-//   · 화면 글자는 숫자·기호만 (주식 noWords). 한국어는 K6 정리 카드에만 (data-words — render.mjs v1.21 낱말 검사에서 뺌, story_script 4-6).
+//   · 화면 글자는 숫자·기호만 (주식 noWords) — v1.2 부터 K6 정리 카드도 그림 (한국어 없음).
 //   · 롱폼 1920×1080 · 쇼츠 SPEC.vertical (1080×1920 — 화면은 위, 인형은 아래).
 //   연구·교육용 영상 도구 — 투자 권유 아님.
 (function () {
   "use strict";
   const S_ = (window.Story = {});
-  S_.VERSION = "v1.1";
+  S_.VERSION = "v1.2";
   S_.POSES = { BONSEOK: "P-BONSEOK.png", WALK: "P-BONSEOK-WALK.png", PHONE: "P-BONSEOK-PHONE.png", DESPAIR: "P-BONSEOK-DESPAIR.png",
     RESOLVE: "P-BONSEOK-RESOLVE.png", STUDY: "P-BONSEOK-STUDY.png", BACK: "P-BONSEOK-BACK.png", SMILE: "P-BONSEOK-SMILE.png", CROWD: "P-CROWD.png" };
   S_.BGS = { "HOME-NIGHT": "P-HOME-NIGHT.jpg", OFFICE: "P-OFFICE.jpg", "STREET-DAWN": "P-STREET-DAWN.jpg", BOARD: "P-BOARD.jpg", PAPER: "P-PAPER.jpg" };
@@ -39,7 +41,17 @@
     globe: `<circle cx="24" cy="24" r="17" fill="#3E8E87"/><path d="M7 24h34M24 7c-8 9-8 25 0 34M24 7c8 9 8 25 0 34" fill="none" stroke="#F2E6CF" stroke-width="2.5"/>`,
     coin: `<circle cx="24" cy="24" r="16" fill="#D9A441"/><circle cx="24" cy="24" r="11" fill="none" stroke="#F2E6CF" stroke-width="2.5"/><text x="24" y="30" font-size="15" font-weight="900" text-anchor="middle" fill="#1E2A4A">₩</text>`,
     house: `<path d="M8 24L24 10l16 14v16H8z" fill="#F2E6CF"/><rect x="20" y="29" width="8" height="11" fill="#1E2A4A"/>`,
+    // v1.2 언어 없이 뜻이 보이는 그림 (외국인 시청자 — 사용자 지시 2026-10-23 "외국인 대상으로도 할거니까 … 영상에 한글 문구 사용하지 말고")
+    kr: `<rect x="3" y="9" width="42" height="30" rx="2" fill="#FFFFFF" stroke="#BFB29A" stroke-width="1"/><path d="M17 24a7 7 0 0 1 14 0z" fill="#CD2E3A"/><path d="M17 24a7 7 0 0 0 14 0z" fill="#0047A0"/><g stroke="#111" stroke-width="1.6"><path d="M7 15l4-3M8 16.5l4-3M9 18l4-3M35 34l4-3M36 35.5l4-3M37 37l4-3M37 12l4 3M36 13.5l4 3M35 15l4 3M7 31l4 3M8 32.5l4 3M9 34l4 3"/></g>`,
+    us: `<rect x="3" y="9" width="42" height="30" rx="2" fill="#FFFFFF" stroke="#BFB29A" stroke-width="1"/><g fill="#B22234"><rect x="3" y="9" width="42" height="3"/><rect x="3" y="15" width="42" height="3"/><rect x="3" y="21" width="42" height="3"/><rect x="3" y="27" width="42" height="3"/><rect x="3" y="33" width="42" height="3"/></g><rect x="3" y="9" width="19" height="15" fill="#3C3B6E"/><g fill="#fff"><circle cx="7" cy="13" r="1"/><circle cx="12" cy="13" r="1"/><circle cx="17" cy="13" r="1"/><circle cx="9.5" cy="17" r="1"/><circle cx="14.5" cy="17" r="1"/><circle cx="7" cy="21" r="1"/><circle cx="12" cy="21" r="1"/><circle cx="17" cy="21" r="1"/></g>`,
+    pct: `<circle cx="24" cy="24" r="17" fill="#D9A441"/><text x="24" y="31" font-size="20" font-weight="900" text-anchor="middle" fill="#1E2A4A">%</text>`,
+    fx: `<rect x="3" y="12" width="42" height="24" rx="5" fill="#3E8E87"/><text x="24" y="29" font-size="12" font-weight="900" text-anchor="middle" fill="#fff">₩⇄$</text>`,
+    people: `<g fill="#F2E6CF"><circle cx="14" cy="17" r="5"/><circle cx="34" cy="17" r="5"/><path d="M5 38c0-8 4-13 9-13s9 5 9 13z"/><path d="M25 38c0-8 4-13 9-13s9 5 9 13z"/></g><circle cx="24" cy="14" r="6" fill="#D9A441"/><path d="M13 40c0-10 5-15 11-15s11 5 11 15z" fill="#D9A441"/>`,
+    chart: `<rect x="6" y="28" width="7" height="12" fill="#3E8E87"/><rect x="17" y="20" width="7" height="20" fill="#3E8E87"/><rect x="28" y="12" width="7" height="28" fill="#D9A441"/><path d="M5 41h38" stroke="#F2E6CF" stroke-width="2.5"/>`,
   };
+  const ARROW = `<path d="M6 24h30M28 14l10 10-10 10" fill="none" stroke="#FFD400" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>`;
+  const SMALL = 'data-small="아이콘 안 기호 — viewBox 48 을 크게 늘려 그림 (실제 크기는 큼)"';
+  const icon = (x, sz, cls) => `<svg class="${cls || "k5i"}" ${SMALL} width="${sz}" height="${sz}" viewBox="0 0 48 48" aria-hidden="true">${x.arrow ? ARROW : (ICON[x.k] || ICON.coin) + mark(x.m)}</svg>`;
   S_.ICONS = Object.keys(ICON);
   const mark = (k) => k === "!" ? `<path d="M8 8l32 32M40 8L8 40" stroke="#FF4D3D" stroke-width="5" stroke-linecap="round"/>`
     : k === "+" ? `<path d="M10 26l9 9 19-21" fill="none" stroke="#22C7B0" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>` : "";
@@ -119,6 +131,7 @@
             `<div class="k4v w9 nw" style="left:${left + bw / 2}px;bottom:${110 + hh + 14}px;color:${c}">${esc(x.val)}</div>` +
             `<div class="k4l w9 nw" style="left:${left + bw / 2}px">${esc(x.lab)}</div>`;
         });
+        if (s.icon) h += `<div style="position:absolute;left:24px;top:18px">${icon({ k: s.icon }, 90, "k4i")}</div>`;   // v1.2 단위를 그림으로 (모래시계 = 기간)
         const p = panel(sc, "k4", h);
         pop(p, t0);
         p.querySelectorAll(".k4b").forEach((b, i) => K.grow(b, t0 + 0.4 + i * 0.35, 0.7, "y"));
@@ -127,24 +140,35 @@
       },
       K5(sc, s, t0) {                                              // 아이콘 칸: '!' = 빨간 ×(하지 않음) · '+' = 청록 ✓(할 것)
         const it = s.icons, n = it.length, sz = Math.min(170, (PANEL.w - 60) / n - 20);
-        const h = it.map(x => `<svg class="k5i" data-small="아이콘 안 기호 — viewBox 48 을 크게 늘려 그림 (실제 크기는 큼)" width="${sz}" height="${sz}" viewBox="0 0 48 48" aria-hidden="true">${ICON[x.k] || ICON.coin}${mark(x.m)}</svg>`).join("");
+        const h = it.map(x => icon(x, sz)).join("");                // v1.2 '>' = 화살표 칸
         const p = panel(sc, "k5", `<div class="k5r">${h}</div>`);
         pop(p, t0);
         p.querySelectorAll(".k5i").forEach((b, i) => pop(b, t0 + 0.3 + i * 0.3, { from: { scale: 0.5, y: 0 } }));
         return t0 + 0.6 + n * 0.3;
       },
       BIG(sc, s, t0) {                                             // 큰 숫자·기호 하나
-        const c = COL[s.c] || COL.W, size = s.text.length > 9 ? (V ? 110 : 120) : (V ? 170 : 190);
+        const c = COL[s.c] || COL.W, size = Math.min(V ? 170 : 190, Math.floor(PANEL.w * 0.9 / (s.text.length * 0.62)));   // v1.2 글자 수에 맞춰 (칸 밖으로 넘지 않게)
         const p = el(`<div class="kbig w9 nw" style="left:${PANEL.cx}px;top:${PANEL.top + PANEL.h / 2}px;font-size:${size}px;color:${c}">${esc(s.text)}</div>`, sc);
         pop(p, t0, { from: { scale: 0.6, y: 0 } });
         return t0 + 0.6;
       },
-      K6(sc, s, t0, t1) {                                          // 정리 카드 — 한국어는 이 카드에만 (data-words)
-        const n = s.lines.length, P = V ? { cx: 540, top: 300, w: 980, h: 1000 } : { cx: 960, top: 120, w: 1500, h: 720 };
-        const fs = V ? 54 : 60;
-        const h = s.lines.map((l, i) => `<div class="k6r"><span class="k6n w9 Y">${i + 1}</span><span class="k6t w9">${esc(l)}</span></div>`).join("");
-        const p = panel(sc, "k6", `<div class="k6in" style="font-size:${fs}px">${h}</div>`, P);
-        p.setAttribute("data-words", "정리 카드 — 한국어는 이 카드에만 (story_script 4-6)");
+      PIE(sc, s, t0) {                                             // v1.2 원그래프: 전체 중 몫 (몫 = 색 · 가운데 글자 = 숫자·기호만)
+        const v = Math.max(0, Math.min(100, s.value)), c = COL[s.c] || COL.R, R = V ? 190 : 200, L = 2 * Math.PI * R;
+        const sz = 2 * R + 80, lab = s.label || `${v}%`;
+        const svg = `<svg width="${sz}" height="${sz}" viewBox="0 0 ${sz} ${sz}" aria-hidden="true"><circle cx="${sz / 2}" cy="${sz / 2}" r="${R}" fill="none" stroke="rgba(255,255,255,.16)" stroke-width="70"/>` +
+          `<circle class="kpie" cx="${sz / 2}" cy="${sz / 2}" r="${R}" fill="none" stroke="${c}" stroke-width="70" stroke-dasharray="${L}" stroke-dashoffset="${L}" transform="rotate(-90 ${sz / 2} ${sz / 2})"/></svg>`;
+        const p = panel(sc, "kpiep", `<div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)">${svg}</div>` +
+          `<div class="kpiel w9 nw" style="color:${c}">${esc(lab)}</div>` + (s.icon ? `<div style="position:absolute;left:24px;top:18px">${icon({ k: s.icon }, 90, "k4i")}</div>` : ""));
+        pop(p, t0);
+        tl.fromTo(p.querySelector(".kpie"), { strokeDashoffset: L }, { strokeDashoffset: L * (1 - v / 100), duration: 1.2, ease: "power2.out" }, t0 + 0.3);
+        pop(p.querySelector(".kpiel"), t0 + 1.3, { from: { scale: 0.7, y: 0 } });
+        return t0 + 1.6;
+      },
+      K6(sc, s, t0, t1) {                                          // 정리 카드 — v1.2 언어 없이: 줄마다 번호 + 그림 (한국어 없음 — 외국인 시청자)
+        const rows = s.rows, n = rows.length, P = V ? { cx: 540, top: 300, w: 980, h: 1000 } : { cx: 960, top: 120, w: 1500, h: 720 };
+        const isz = Math.min(V ? 150 : 110, (P.h - 100) / n - 18), fs = Math.round(isz * 0.62);
+        const h = rows.map((r, i) => `<div class="k6r"><span class="k6n w9 Y" style="font-size:${fs}px">${i + 1}</span><span class="k6i">${r.map(x => icon(x, isz)).join("")}</span></div>`).join("");
+        const p = panel(sc, "k6", `<div class="k6in">${h}</div>`, P);
         pop(p, t0);
         const step = Math.max(0.35, Math.min(1.2, (t1 - t0 - 1.0) / Math.max(1, n)));
         p.querySelectorAll(".k6r").forEach((r, i) => pop(r, t0 + 0.4 + i * step, { from: { y: 20 } }));

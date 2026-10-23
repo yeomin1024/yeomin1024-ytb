@@ -1,5 +1,27 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-23 (주식 이야기형 4) — 1화 영상 소스 · 외국인 시청자용 언어 없는 화면
+
+### 왜 (사용자 지시)
+- "일단 1화만 영상 필요 소스 생성해봐" · (렌더 점검 중) "외국인 대상으로도 할거니까 그것도 고려해 영상에 한글 문구 사용하지 말고 최대한 이해 잘되도록"
+
+### 바꾼 것
+| 파일 (버전) | 내용 |
+|---|---|
+| `stock/source/pogi-sonjeol-2026-10/scenes.txt`·`shorts/scenes.txt` | 손으로 다듬은 장면 표 — 롱폼 37장면(K1 계좌 70% · 국기 `kr>us` · 원그래프 50%+·62% · 연표 박스피 · 막대 KOSPI 4,000→9,000 · 차트 1억→4,918만→4억 9,812만 · 모래시계 막대 회복 개월 · 금리 %·환율 ₩⇄$ · 큰 글자 `KOSPI −34%`·`SOXL −48.9%`·`3× −76.7%` · 정리 카드 = 그림 5줄) · 쇼츠 6장면 |
+| `video/episodes/pogi-sonjeol-2026-10/`·`-shorts/index.html` (생성) | story_kit scenes → 추정 시각 sync · render check 문제 0 (page_errors 10 = 배경 5장 아직 없음) · still 로 확인 |
+| `stock/story/puppet/backgrounds_chatgpt.md` (v1.0 새로) | 배경 5장(HOME-NIGHT·OFFICE·STREET-DAWN·BOARD·PAPER) ChatGPT 프롬프트 — 인형 파일과 같은 STYLE · 사람·글자 없음 · 3:2 · 바닥 줄 80% · JPEG 700KB |
+| 1화 썸네일 프롬프트 3+1 · `stock/thumbnails_chatgpt.md` | 문구 = `−70%` / `DON'T QUIT` (쉬운 영어·숫자 — 한국어 없음) · ChatGPT 묶음 4장 |
+| `video/render/story.js` (v1.2) · `story.css` (v1.1) | K6 정리 카드 = 번호 + 그림 줄 (한국어 없음) · PIE 원그래프 · 그림 kr·us·pct·fx·people·chart · K5 화살표 칸 · K4·PIE `icon=` · 큰 글자 크기를 글자 수에 맞춤 |
+| `tools/story_kit.py` (v1.3 → v1.4) | 장면 표 문법(K6 그림 줄·PIE·`>` 화살표·K4 icon=·BIG 여러 낱말) · 썸네일 문구에 한글이면 멈춤 · 영어 문구 프롬프트 · (v1.3 의 K6 방법 이름 대체는 뺌) |
+| `video/render/render.mjs` (v1.23) | 낱말 검사 예외에 SOXL·SOXX·KOSPI |
+| `story_script.md` (v1.9) · `series.md` (v1.6) · `quick_story.md` (v1.3) · `CLAUDE.md` | 화면·썸네일 한국어 없음 · 번역에서 한국에만 있는 말 풀어 쓰기 · D-2 문법 |
+| `tools/tests/test_story_kit.py` (v1.1) | K6 그림 줄·PIE·BIG·K4 icon= 시험 |
+
+### 확인
+- unittest OK · `render.mjs check stock pogi-sonjeol-2026-10` / `-shorts` → problems=0 (page_errors=10 배경) · 도입 끝 35.2초(추정, 사용자 통과 → 경고).
+- still: 국기 화살표·원그래프·막대·차트·정리 카드 그림 줄 — 화면 한국어 없음 확인 (배경은 임시 그림).
+
 ## 2026-10-23 (주식 이야기형 3) — 화마다 다른 경험: 2~4화 v3.0 · 앞 화와 겹침 검사
 
 ### 왜 (사용자 지시)

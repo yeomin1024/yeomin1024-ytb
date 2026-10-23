@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-10-23 — tools/story_kit.py v1.0 시험: 금액 읽기 · 장면 표 문법(인형·화면) · 제작안 절 읽기 · 쇼츠 길이 추정.
+# VERSION: v1.1 — 2026-10-23 — story_kit v1.4: K6 그림 줄 · PIE · BIG 여러 낱말 · K4 icon= (화면에 한국어 없음).
+# (v1.0) — 2026-10-23 — tools/story_kit.py v1.0 시험: 금액 읽기 · 장면 표 문법(인형·화면) · 제작안 절 읽기 · 쇼츠 길이 추정.
 import sys
 import unittest
 from pathlib import Path
@@ -54,7 +55,16 @@ class GrammarTest(unittest.TestCase):
         k5 = sk.parse_screen("K5 !x3 +basket", {}, None)
         self.assertEqual(k5["icons"], [{"k": "x3", "m": "!"}, {"k": "basket", "m": "+"}])
         self.assertEqual(sk.parse_screen("BIG −70% R", {}, None), {"type": "BIG", "text": "−70%", "c": "R"})
-        self.assertEqual(sk.parse_screen("K6", {5: {"lines": ["가", "나"]}}, 5)["lines"], ["가", "나"])
+        k6 = sk.parse_screen("K6 kr>us pct,fx", {5: {"lines": ["1", "2"]}}, 5)      # v1.4 줄마다 그림 (한국어 없음)
+        self.assertEqual(k6["rows"][0], [{"k": "kr", "m": ""}, {"arrow": True}, {"k": "us", "m": ""}])
+        self.assertEqual(k6["rows"][1], [{"k": "pct", "m": ""}, {"k": "fx", "m": ""}])
+        self.assertEqual(k6["card_lines"], 2)
+        pie = sk.parse_screen("PIE 55 R label=50%+ icon=people", {}, None)
+        self.assertEqual((pie["value"], pie["c"], pie["label"], pie["icon"]), (55.0, "R", "50%+", "people"))
+        self.assertEqual(sk.parse_screen("BIG 3× −76.7% R", {}, None), {"type": "BIG", "text": "3× −76.7%", "c": "R"})
+        self.assertEqual(sk.parse_screen("K4 2000:51:Y icon=hourglass", {}, None)["icon"], "hourglass")
+        with self.assertRaises(ValueError):
+            sk.parse_screen("K6", {5: {"lines": ["가"]}}, 5)                       # 그림 없는 K6 = 한국어 카드 → 안 됨
         for bad in ("K9 1", "K5 rocket", "K6"):
             with self.assertRaises(ValueError):
                 sk.parse_screen(bad, {}, None)

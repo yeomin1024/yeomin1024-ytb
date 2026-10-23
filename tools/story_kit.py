@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.2 — 2026-10-23 — check 에 앞 화와 겹침 검사 (사용자 지시 "70% 잃었다는건 처음 시리즈에서만 말하고 다른데서는 다른 경험으로
+# VERSION: v1.4 — 2026-10-23 — 화면·썸네일에 한국어 없음 (사용자 지시 "외국인 대상으로도 할거니까 그것도 고려해 영상에 한글 문구 사용하지 말고
+#          최대한 이해 잘되도록"): K6 = 줄마다 그림(쉼표·화살표) · PIE 원그래프 · K5 화살표 칸 · K4 icon= · BIG 여러 낱말 · 새 그림 6개 ·
+#          썸네일 문구는 쉬운 영어·숫자·기호(한글이면 멈춤) · K6 방법 이름 대체(v1.3)는 뺌.
+# (v1.3) — 2026-10-23 — scenes: 정리 카드 줄이 숫자뿐이면 화면 K6 에 제작안의 '방법N · 이름'을 보여 줌 (1화 — 사용자 지시 "일단 1화만 영상 필요 소스 생성해봐").
+# (v1.2) — 2026-10-23 — check 에 앞 화와 겹침 검사 (사용자 지시 "70% 잃었다는건 처음 시리즈에서만 말하고 다른데서는 다른 경험으로
 #          이야기해야지 중복되면 안돼 다른 내용도 마찬가지야 이전 시리즈에서 썻던 내용들은 똑같이 사용하면 안돼") — dup_check.
 # (v1.1) — 2026-10-23 — scenes: 제작안의 '- 도입 통과:' 줄 → SPEC.introOk (사용자가 통과시킨 도입 — render check 도입 35초에서 경고로).
 #          사용자 지시 2026-10-23 "도입은 그냥 통과시켜 … 도입 마지노선 35초로해".
@@ -37,7 +41,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 sys.path.insert(0, str(ROOT / "stock" / "story" / "calc"))
 import srt_tool  # noqa: E402
 
-VERSION = "v1.2"
+VERSION = "v1.4"
 LOG = logging.getLogger("story_kit")
 STORY = ROOT / "stock" / "story"
 SOURCE = ROOT / "stock" / "source"
@@ -56,7 +60,8 @@ POLITICS = re.compile(r"특검|의원|대통령|정부|정권|민주당|국힘|�
 POSES = ["BONSEOK", "WALK", "PHONE", "DESPAIR", "RESOLVE", "STUDY", "BACK", "SMILE", "CROWD"]
 BGS = ["HOME-NIGHT", "OFFICE", "STREET-DAWN", "BOARD", "PAPER"]
 SCREENS = ["K1", "K2", "K3", "K4", "K5", "K6", "BIG"]
-ICONS = ["basket", "drop", "debt", "swap", "x3", "hourglass", "calendar", "phone", "book", "up", "down", "bell", "lock", "globe", "coin", "house"]
+ICONS = ["basket", "drop", "debt", "swap", "x3", "hourglass", "calendar", "phone", "book", "up", "down", "bell", "lock", "globe", "coin", "house",
+         "kr", "us", "pct", "fx", "people", "chart"]                   # v1.4 국기·금리 %·환율 ₩⇄$·사람들·막대
 
 # 문장 → 표정 (위에서부터 처음 맞는 것) — 장면 표 초안용. 사람이 고친다.
 POSE_RULES = [
@@ -415,24 +420,22 @@ def thumb_prompt(n, ep, lines, pose, big, bg, vertical=False, close=False):
     style = re.search(r"^STYLE: .*$", raw, re.M).group(0)
     style = style.replace(" No text, letters, numbers, logos or watermarks anywhere.", "")
     char = re.search(r"^CHARACTER .*$", raw, re.M).group(0)
-    cols = []
-    for l in lines:
-        cols.append("muted-red #E0302A" if NEG.search(l) else "bright yellow #FFD400")
-    if len(set(cols)) == 1 and len(lines) == 2:              # 두 줄이 같은 색이면: 둘 다 손해 → 윗줄 노랑(중요) · 둘 다 아님 → 윗줄 흰색
-        cols[0] = "white #FFFFFF" if cols[0].startswith("bright") else "bright yellow #FFD400"
+    if any(re.search(r"[가-힣]", l) for l in lines):
+        fail("THUMB", f"썸네일 문구에 한글: {lines}", "쉬운 영어 낱말·숫자·기호만 (외국인 시청자 — 2026-10-23)")
+    cols = ["muted-red #E0302A" if re.search(r"[−-]\s?\d", l) else "bright yellow #FFD400" for l in lines]   # 손해 숫자 빨강 · 그 밖 노랑
     text = " ".join(f'line {i + 1} "{l}" in {c}' for i, (l, c) in enumerate(zip(lines, cols)))
     size = "vertical 9:16 (1080×1920), the picture fills the whole frame to every edge — no empty bands" if vertical else "landscape 16:9 (1280×720)"
     frame = ("a close-up of his head and shoulders filling about 70% of the height" if close
              else "his whole upper body large, about 60% of the picture height")
     place = "in the middle, the text above him in the upper third" if vertical else "on the left half, facing slightly right"
-    num = f' One big number "{big}" in red with a cream paper outline in the upper right, about 22% of the height.' if big and not close else ""
+    num = f' One big number "{big}" in red with a cream paper outline in the upper right, about 22% of the height.' if big and not close and big not in " ".join(lines) else ""
     return "\n".join([
         f"# 썸네일 {n} — {'쇼츠' if vertical else '롱폼'} ({'본안' if n == 1 and not vertical else '실험안' if not vertical else '쇼츠'})",
         f"자세 {pose} · 배경 {bg} · 문구 {' / '.join(lines)}{' · 큰 숫자 ' + big if big and not close else ''} · 만든 도구 story_kit {VERSION}",
         "", "## [A] 완성형 프롬프트 (이미지 AI에 그대로 붙여 넣기)", "```",
         style, char,
         f"SCENE: a paper puppet theater stage; the backdrop is {BG_EN[bg]}. Gu Bonseok puppet {POSE_EN[pose]}, {place}, {frame}.",
-        f"TEXT: Korean thumbnail text, exactly these characters and spacing, very large bold rounded Korean letters with a thick dark navy outline, "
+        f"TEXT: thumbnail text in simple English and numbers only (no Korean letters), exactly these characters and spacing, very large bold rounded letters with a thick dark navy outline, "
         f"{'two lines in the upper part' if vertical else 'two lines across the bottom, each line 80–90% of the width'}: {text}. Nothing else written except the tag.{num}",
         f'TAG: a small rounded navy tag "EP.{ep}" with yellow letters in the top-left corner.',
         f"FORMAT: {size}. Save as JPEG (.jpg) under 700 KB.",
@@ -588,7 +591,8 @@ def draft(vid, shorts):
             cur = None
     for g in groups:
         if g.get("card") is not None:
-            out.append("정리 | PAPER |  | K6")                  # 카드가 가운데 — 인형 없음
+            n_card = len(next(c for c in cards if c["after"] == g["card"])["lines"])
+            out.append("정리 | PAPER |  | K6 " + " ".join(["coin"] * n_card) + "    # 줄마다 그림으로 바꾼다 (한국어 없음)")
             continue
         txt = " ".join(g["text"])
         bg = part_default(g["part"], PART_BG, METHOD_BG, max(0, g["mi"]))
@@ -607,7 +611,21 @@ def draft(vid, shorts):
     return "\n".join(out) + "\n"
 
 
-SCREEN_RX = re.compile(r"^(K[1-6]|BIG)\b\s*(.*)$")
+SCREEN_RX = re.compile(r"^(K[1-6]|BIG|PIE)\b\s*(.*)$")
+
+
+def icon_items(tok):
+    """'!kr>+us' → [{k:kr,m:!},{arrow},{k:us,m:+}] — '>' = 화살표 칸, '!' 빨간 × · '+' 청록 ✓ (v1.4)."""
+    out = []
+    for j, part in enumerate(tok.split(">")):
+        if j:
+            out.append(dict(arrow=True))
+        mk = part[0] if part[:1] in ("!", "+") else ""
+        k = part.lstrip("!+")
+        if k not in ICONS:
+            raise ValueError(f"아이콘 없음: {k} (있는 것: {', '.join(ICONS)})")
+        out.append(dict(k=k, m=mk))
+    return out
 
 
 def parse_screen(s, cards_by_after, card_n):
@@ -635,25 +653,34 @@ def parse_screen(s, cards_by_after, card_n):
     elif typ == "K4":
         items = []
         for tok in rest.split():
+            if tok.startswith("icon="):                          # v1.4 단위를 그림으로 (예: icon=hourglass = 기간)
+                o["icon"] = icon_items(tok[5:])[0]["k"]
+                continue
             p = tok.split(":")
             items.append(dict(lab=p[0], val=p[1], c=p[2] if len(p) > 2 else None))
         o.update(items=items)
     elif typ == "K5":
         icons = []
         for tok in rest.split():
-            mk = tok[0] if tok[0] in "!+" else ""
-            k = tok.lstrip("!+")
-            if k not in ICONS:
-                raise ValueError(f"아이콘 없음: {k} (있는 것: {', '.join(ICONS)})")
-            icons.append(dict(k=k, m=mk))
+            icons += icon_items(tok)                             # v1.4 'kr>us' = 국기 → 국기
         o.update(icons=icons)
     elif typ == "K6":
         if card_n is None:
             raise ValueError("K6 은 '정리' 줄에만")
-        o.update(lines=cards_by_after[card_n]["lines"])
+        rows = [sum((icon_items(x) for x in tok.split(",")), []) for tok in rest.split()]
+        if not rows:
+            raise ValueError("K6 = 줄마다 그림 (예: K6 kr>us lock pct,fx !debt calendar) — 화면에 한국어를 쓰지 않음 (외국인 시청자)")
+        o.update(rows=rows, card_lines=len(cards_by_after[card_n]["lines"]))
+    elif typ == "PIE":                                           # v1.4 원그래프: PIE <몫 %> [색] [label=50%+] [icon=people]
+        kv = dict(re.findall(r"(\w+)=(\S+)", rest))
+        bare = re.sub(r"\s*\w+=\S+", "", rest).split()
+        o.update(value=float(bare[0]), c=bare[1] if len(bare) > 1 else "R", label=kv.get("label"))
+        if "icon" in kv:
+            o["icon"] = icon_items(kv["icon"])[0]["k"]
     elif typ == "BIG":
         p = rest.split()
-        o.update(text=p[0], c=p[1] if len(p) > 1 else "W")
+        c = p.pop() if len(p) > 1 and p[-1] in ("R", "G", "Y", "W") else "W"
+        o.update(text=" ".join(p), c=c)                          # v1.4 여러 낱말 (예: BIG 3× −76.7% R)
     if when:
         o["at"] = when
     return o
@@ -707,6 +734,8 @@ def compile_scenes(vid, shorts):
             sc["puppets"] = parse_puppets(c[2]) if c[2] else []
             if c[3]:
                 sc["screen"] = parse_screen(c[3], by_after, sc.get("card"))
+                if sc["screen"]["type"] == "K6" and len(sc["screen"]["rows"]) != sc["screen"]["card_lines"]:
+                    print(f"⚠️ {sp.name}:{i}: K6 그림 줄 {len(sc['screen']['rows'])}개 ≠ 대본 카드 줄 {sc['screen']['card_lines']}개")
                 for p in sc["puppets"]:                       # 화면이 있으면 인형은 왼쪽 (롱폼) — 자리를 적었으면 그대로
                     if p["pos"] == "C" and not shorts and "@" not in c[2]:
                         p["pos"] = "L"
@@ -828,7 +857,7 @@ def main(argv=None):
     p = sub.add_parser("facts"); p.add_argument("words", nargs="*"); p.add_argument("--url", action="store_true"); p.add_argument("--unused", action="store_true")
     p = sub.add_parser("new"); p.add_argument("ep", type=int); p.add_argument("vid"); p.add_argument("message"); p.add_argument("--force", action="store_true")
     p = sub.add_parser("check"); p.add_argument("vid")
-    p = sub.add_parser("export"); p.add_argument("vid"); p.add_argument("--thumb", required=True, help='썸네일 문구 2줄 "줄1/줄2"')
+    p = sub.add_parser("export"); p.add_argument("vid"); p.add_argument("--thumb", required=True, help='썸네일 문구 2줄 "줄1/줄2" — 쉬운 영어·숫자·기호만')
     p.add_argument("--pose", default="PHONE", choices=[x for x in POSES if x != "CROWD"]); p.add_argument("--big", default="")
     p.add_argument("--bg", default="HOME-NIGHT", choices=BGS)
     p = sub.add_parser("scenes"); p.add_argument("vid"); p.add_argument("--shorts", action="store_true")

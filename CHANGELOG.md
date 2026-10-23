@@ -1,5 +1,31 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-23 (주식 이야기형 5) — 1화 화면·썸네일에 영어도 없음 · 언어별 자막 9개 언어
+
+### 왜 (사용자 지시)
+- "야 영어 문구도 넣지마" — 앞 회차(이야기형 4)에서 한국어만 뺐고 `KOSPI`·`SOXL`·`DON'T QUIT` 같은 영어가 남아 있었음.
+
+### 바꾼 것
+| 파일 (버전) | 내용 |
+|---|---|
+| `video/render/render.mjs` (v1.23 → v1.24) | `K.opt.noLatin` 이면 화면 글자에 영어·한국어·일본어·한자가 있을 때 문제로 셈 (코드 카드 `.code` 는 제외) |
+| `video/render/story.js` (v1.2 → v1.3) · `story.css` (v1.1 → v1.2) | `noLatin` 켬 · 큰 글자 위 그림(`BIG … icon=`) · 배지 `EP 1` → `#1` · 다음 화 `#2 ▶` |
+| `tools/story_kit.py` (v1.4 → v1.5) | 썸네일 문구에 로마자·한글이 있으면 멈춤 · 프롬프트 = "numbers and symbols only — NO words or letters of any language" · 꼬리표 `#N` · BIG `icon=` |
+| `stock/source/pogi-sonjeol-2026-10/scenes.txt`·`shorts/scenes.txt` | `KOSPI −34%` → `−34%` + 한국 국기 · `SOXL −48.9%` → `−48.9%` + ×3 그림 · `3× −76.7%` → `−76.7%` + ×3 그림 · 2025/2026 막대에 한국 국기 등 |
+| 1화 썸네일 프롬프트 3+1 · `stock/thumbnails_chatgpt.md` | 문구 `−70%` 한 줄 (`DON'T QUIT` 뺌) · 꼬리표 `#1` |
+| `video/episodes/pogi-sonjeol-2026-10/`·`-shorts/index.html` (생성) | 위 장면 표로 다시 만듦 (추정 시각) |
+| `stock/source/pogi-sonjeol-2026-10/subs/`·`shorts/subs/` | 언어별 자막 대본 9개 언어 (en·hi·id·pt·es-419·ja·de·vi·tr — 한국어와 문장 1:1) |
+| `tools/subs_tool.py` (v1.1 → v1.2.0) | 검사기 버그 3가지: `[장면]` 정리 카드 줄을 문장으로 세던 것 · 조·천억 단위 없음 · '2억 5천'을 2억 + 5천으로 읽던 것 → 억 뒤 '천'은 천만 · 언어별 million/billion/Milliarden/lakh/crore 등 단위 낱말을 곱해서 셈 |
+| `tools/tests/test_subs_tool.py` (v1.2.0) | 단위·단위 낱말·정리 카드 시험 |
+| `stock/guides/story_script.md` (v1.10) · `stock/story/series.md` (v1.7) · `stock/guides/quick_story.md` (v1.4) · `CLAUDE.md` 주식 줄 | 화면·썸네일 = 숫자·기호·국기·그림만 (영어·한국어 모두 없음), 말은 언어별 CC |
+| `guides/status.md` (v2.44) | 1번 표 주식 줄 · 버전 줄 |
+
+### 확인
+- `python3 -m unittest tools/tests/test_subs_tool.py tools/tests/test_story_kit.py tools/tests/test_story_check.py` → 44개 OK
+- `python3 tools/subs_tool.py check stock pogi-sonjeol-2026-10` / `-shorts` → langs=9 errors=0 warnings=0
+- `node render.mjs check stock pogi-sonjeol-2026-10` → cuts=37 problems=0 page_errors=10 (배경 5장 아직 없음) · 도입 끝 35.2초 = warn(사용자 통과, 추정 시각) · 쇼츠 cuts=6 problems=0
+- 연구·교육용 영상 도구 — 투자 권유 아님.
+
 ## 2026-10-23 (주식 이야기형 4) — 1화 영상 소스 · 외국인 시청자용 언어 없는 화면
 
 ### 왜 (사용자 지시)

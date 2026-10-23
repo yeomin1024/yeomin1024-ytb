@@ -10,7 +10,7 @@ So to win back my principal, I decided to study properly, and I looked into 5 ru
 -방법1
 First, move from Korean stocks to US stocks.
 "Gukjang" means Korean stocks, "mijang" US stocks.
-Many "ants" (retail investors) only buy Korean stocks.
+Many retail "ants" buy only Korean stocks.
 But KOSPI, Korea's main stock index, is now over half Samsung Electronics and SK hynix by market value.
 So buying KOSPI basically means going all-in on one industry: semiconductors.
 And even there, I put money only in semiconductors.
@@ -48,11 +48,11 @@ But this is about an index spread across 500 companies.
 A single stock might never recover.
 -방법3
 Third, don't just follow stock news; study the macroeconomy.
-Macroeconomics means big forces like interest rates moving the whole market.
+Macro means big forces, like interest rates, that move the whole market.
 Many investors only watch stock news and charts.
 I only read good news about chip stocks.
 But the July crash wasn't one company's problem.
-Money was crowding into chips and leveraged (amplified-bet) products.
+Money crowded into chips and leveraged (amplified) products.
 Analysts said worries about US rate hikes, AI profitability and geopolitical tension all hit at once.
 When rates rise, deposits pay better, so money flowing into stocks tends to shrink.
 And when the exchange rate spikes, foreign investors tend to sell Korean stocks and leave.

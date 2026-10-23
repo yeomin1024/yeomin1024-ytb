@@ -1,4 +1,6 @@
-// VERSION: v1.2 — 2026-10-23 — 화면에 한국어 없음 (사용자 지시 "외국인 대상으로도 할거니까 그것도 고려해 영상에 한글 문구 사용하지 말고 최대한
+// VERSION: v1.3 — 2026-10-23 — 화면에 영어도 없음 (사용자 지시 "야 영어 문구도 넣지마"): noLatin (render.mjs v1.24 — 라틴 글자 하나도 문제) · 화 배지 '#N' ·
+//   BIG icon= (KOSPI·S&P 500·SOXL 같은 이름 대신 국기·×3 그림).
+// (v1.2) — 2026-10-23 — 화면에 한국어 없음 (사용자 지시 "외국인 대상으로도 할거니까 그것도 고려해 영상에 한글 문구 사용하지 말고 최대한
 //   이해 잘되도록"): K6 정리 카드 = 번호 + 그림 줄 · PIE 원그래프 · 그림 kr·us(국기)·pct(금리 %)·fx(₩⇄$)·people·chart · K5 화살표 칸 · K4·PIE 단위 그림(icon=).
 // (v1.1) — 2026-10-23 — SPEC.introOk(제작안 '- 도입 통과:' 줄) → K.init introOk (render.mjs v1.22 도입 마지노선 35초 검사에서 경고로).
 // (v1.0) — 2026-10-23 — 새로: '개미 재기 일지' 종이인형극 장면 묶음 — 장면 표(stock/source/<영상ID>/scenes.txt)를 tools/story_kit.py scenes 가
@@ -14,7 +16,7 @@
 (function () {
   "use strict";
   const S_ = (window.Story = {});
-  S_.VERSION = "v1.2";
+  S_.VERSION = "v1.3";
   S_.POSES = { BONSEOK: "P-BONSEOK.png", WALK: "P-BONSEOK-WALK.png", PHONE: "P-BONSEOK-PHONE.png", DESPAIR: "P-BONSEOK-DESPAIR.png",
     RESOLVE: "P-BONSEOK-RESOLVE.png", STUDY: "P-BONSEOK-STUDY.png", BACK: "P-BONSEOK-BACK.png", SMILE: "P-BONSEOK-SMILE.png", CROWD: "P-CROWD.png" };
   S_.BGS = { "HOME-NIGHT": "P-HOME-NIGHT.jpg", OFFICE: "P-OFFICE.jpg", "STREET-DAWN": "P-STREET-DAWN.jpg", BOARD: "P-BOARD.jpg", PAPER: "P-PAPER.jpg" };
@@ -58,7 +60,7 @@
 
   S_.build = function (SPEC) {
     const V = !!SPEC.vertical, SW = V ? 1080 : 1920;
-    K.init(window.EP, { subtitles: false, chip: false, noWords: true, introPart: SPEC.vertical ? undefined : "도입", introOk: !!SPEC.introOk, testFrom: SPEC.testFrom || undefined, w: SW });
+    K.init(window.EP, { subtitles: false, chip: false, noWords: true, noLatin: true, introPart: SPEC.vertical ? undefined : "도입", introOk: !!SPEC.introOk, testFrom: SPEC.testFrom || undefined, w: SW });
     const { S, E, W, el, pop, out } = K, tl = K.tl;
     const { lin, lerp, seg } = Puppet.u;
     const N = window.EP.sent.length;
@@ -148,7 +150,8 @@
       },
       BIG(sc, s, t0) {                                             // 큰 숫자·기호 하나
         const c = COL[s.c] || COL.W, size = Math.min(V ? 170 : 190, Math.floor(PANEL.w * 0.9 / (s.text.length * 0.62)));   // v1.2 글자 수에 맞춰 (칸 밖으로 넘지 않게)
-        const p = el(`<div class="kbig w9 nw" style="left:${PANEL.cx}px;top:${PANEL.top + PANEL.h / 2}px;font-size:${size}px;color:${c}">${esc(s.text)}</div>`, sc);
+        const ic = s.icon ? `<div class="kbigi">${icon({ k: s.icon }, Math.min(V ? 170 : 180, Math.round(size * 1.05)), "k4i")}</div>` : "";   // v1.3 무엇의 숫자인지 그림으로 (국기·×3 …)
+        const p = el(`<div class="kbig w9 nw" style="left:${PANEL.cx}px;top:${PANEL.top + PANEL.h / 2}px;font-size:${size}px;color:${c}">${ic}<span>${esc(s.text)}</span></div>`, sc);
         pop(p, t0, { from: { scale: 0.6, y: 0 } });
         return t0 + 0.6;
       },
@@ -241,10 +244,10 @@
 
     // K7 화 배지 (왼쪽 위) · 끝에 다음 화
     if (ep) {
-      const bd = el(`<div class="kep w9 nw" data-words="화 배지 EP.N (숫자 — 시리즈 표시)" style="${V ? "left:60px;top:170px" : "left:56px;top:44px"}">EP.${esc(ep)}</div>`);
+      const bd = el(`<div class="kep w9 nw" style="${V ? "left:60px;top:170px" : "left:56px;top:44px"}">#${esc(ep)}</div>`);   // v1.3 '#N' (영어 'EP' 없음)
       tl.fromTo(bd, { opacity: 0 }, { opacity: 1, duration: 0.4 }, 0.2);
       if (!V && SPEC.next) {
-        const nb = el(`<div class="kep next w9 nw" data-words="다음 화 배지 (숫자·기호)" style="right:56px;bottom:90px">EP.${esc(SPEC.next)} ▶</div>`);
+        const nb = el(`<div class="kep next w9 nw" style="right:56px;bottom:90px">#${esc(SPEC.next)} ▶</div>`);
         pop(nb, Math.max(0, K.D - 4.5));
       }
     }

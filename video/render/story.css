@@ -1,4 +1,4 @@
-/* VERSION: v1.1 — 2026-10-23 — K6 그림 줄 · PIE (끝에 덧붙임). (v1.0) — 2026-10-23 — 새로: video/render/story.js v1.0 의 코드 화면 모양 (개미 재기 일지 — 종이인형극 무대 위 화면).
+/* VERSION: v1.2 — 2026-10-23 — 큰 글자 위 그림 .kbigi (끝에 덧붙임). v1.1 — 2026-10-23 — K6 그림 줄 · PIE (끝에 덧붙임). (v1.0) — 2026-10-23 — 새로: video/render/story.js v1.0 의 코드 화면 모양 (개미 재기 일지 — 종이인형극 무대 위 화면).
    글자는 모두 36px 이상 · 색 = 뜻 (빨강 손해 · 청록 회복 · 노랑 기준). 연구·교육용 영상 도구. */
 .vig{position:absolute;inset:0;pointer-events:none;background:radial-gradient(1250px 760px at 55% 52%,rgba(0,0,0,0) 52%,rgba(0,0,0,.5) 100%)}
 .kp{position:absolute;border-radius:28px;background:rgba(10,16,30,.82);border:3px solid rgba(242,230,207,.38);box-shadow:10px 12px 0 rgba(0,0,0,.35)}
@@ -26,3 +26,5 @@
 .k6i{display:inline-flex;gap:18px;align-items:center}
 .k6r{align-items:center}
 .kpiel{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:96px;line-height:1;text-shadow:0 4px 18px rgba(0,0,0,.6)}
+/* v1.2 — 2026-10-23 — 큰 글자 위 그림 (영어 이름 대신) */
+.kbig{display:flex;flex-direction:column;align-items:center;gap:12px}

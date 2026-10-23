@@ -1,7 +1,7 @@
 # 장면 표 — pogi-sonjeol-2026-10-shorts · story_kit v1.3 · 2026-10-23 손으로 다듬음 · 세로 (화면 위 · 인형 아래) · 첫 문장 동안 썸네일 그림(K.cover)
 # 문장 | 배경 | 인형 | 화면
 1 | HOME-NIGHT | PHONE | BIG −70% R
-2 | BOARD | CROWD | BIG KOSPI 9,000 Y
+2 | BOARD | CROWD | BIG 9,000 Y icon=kr
 3 | HOME-NIGHT | DESPAIR | BIG ₩100,000,000 Y
 4-5 | HOME-NIGHT | DESPAIR
 6-7 | HOME-NIGHT | PHONE+7:BACK

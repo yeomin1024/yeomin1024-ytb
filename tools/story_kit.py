@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.4 — 2026-10-23 — 화면·썸네일에 한국어 없음 (사용자 지시 "외국인 대상으로도 할거니까 그것도 고려해 영상에 한글 문구 사용하지 말고
+# VERSION: v1.5 — 2026-10-23 — 영어도 없음 (사용자 지시 "야 영어 문구도 넣지마"): 썸네일 문구 = 숫자·기호만(글자면 멈춤 · 1~2줄 · 꼬리표 '#N') · BIG icon=.
+# (v1.4) — 2026-10-23 — 화면·썸네일에 한국어 없음 (사용자 지시 "외국인 대상으로도 할거니까 그것도 고려해 영상에 한글 문구 사용하지 말고
 #          최대한 이해 잘되도록"): K6 = 줄마다 그림(쉼표·화살표) · PIE 원그래프 · K5 화살표 칸 · K4 icon= · BIG 여러 낱말 · 새 그림 6개 ·
 #          썸네일 문구는 쉬운 영어·숫자·기호(한글이면 멈춤) · K6 방법 이름 대체(v1.3)는 뺌.
 # (v1.3) — 2026-10-23 — scenes: 정리 카드 줄이 숫자뿐이면 화면 K6 에 제작안의 '방법N · 이름'을 보여 줌 (1화 — 사용자 지시 "일단 1화만 영상 필요 소스 생성해봐").
@@ -41,7 +42,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 sys.path.insert(0, str(ROOT / "stock" / "story" / "calc"))
 import srt_tool  # noqa: E402
 
-VERSION = "v1.4"
+VERSION = "v1.5"
 LOG = logging.getLogger("story_kit")
 STORY = ROOT / "stock" / "story"
 SOURCE = ROOT / "stock" / "source"
@@ -420,8 +421,8 @@ def thumb_prompt(n, ep, lines, pose, big, bg, vertical=False, close=False):
     style = re.search(r"^STYLE: .*$", raw, re.M).group(0)
     style = style.replace(" No text, letters, numbers, logos or watermarks anywhere.", "")
     char = re.search(r"^CHARACTER .*$", raw, re.M).group(0)
-    if any(re.search(r"[가-힣]", l) for l in lines):
-        fail("THUMB", f"썸네일 문구에 한글: {lines}", "쉬운 영어 낱말·숫자·기호만 (외국인 시청자 — 2026-10-23)")
+    if any(re.search(r"[A-Za-z가-힣]", l) for l in lines):
+        fail("THUMB", f"썸네일 문구에 글자: {lines}", "숫자·기호만 — 영어·한국어 없음 (사용자 지시 2026-10-23 \"영어 문구도 넣지마\")")
     cols = ["muted-red #E0302A" if re.search(r"[−-]\s?\d", l) else "bright yellow #FFD400" for l in lines]   # 손해 숫자 빨강 · 그 밖 노랑
     text = " ".join(f'line {i + 1} "{l}" in {c}' for i, (l, c) in enumerate(zip(lines, cols)))
     size = "vertical 9:16 (1080×1920), the picture fills the whole frame to every edge — no empty bands" if vertical else "landscape 16:9 (1280×720)"
@@ -435,9 +436,9 @@ def thumb_prompt(n, ep, lines, pose, big, bg, vertical=False, close=False):
         "", "## [A] 완성형 프롬프트 (이미지 AI에 그대로 붙여 넣기)", "```",
         style, char,
         f"SCENE: a paper puppet theater stage; the backdrop is {BG_EN[bg]}. Gu Bonseok puppet {POSE_EN[pose]}, {place}, {frame}.",
-        f"TEXT: thumbnail text in simple English and numbers only (no Korean letters), exactly these characters and spacing, very large bold rounded letters with a thick dark navy outline, "
-        f"{'two lines in the upper part' if vertical else 'two lines across the bottom, each line 80–90% of the width'}: {text}. Nothing else written except the tag.{num}",
-        f'TAG: a small rounded navy tag "EP.{ep}" with yellow letters in the top-left corner.',
+        f"TEXT: numbers and symbols only — NO words or letters of any language (no English, no Korean), exactly these characters, very large bold rounded numerals with a thick dark navy outline, "
+        f"{('one line' if len(lines) == 1 else 'two lines') + (' in the upper part' if vertical else ' across the bottom, 60–90% of the width')}: {text}. Nothing else written except the tag.{num}",
+        f'TAG: a small rounded navy tag "#{ep}" with yellow characters in the top-left corner.',
         f"FORMAT: {size}. Save as JPEG (.jpg) under 700 KB.",
         "```", ""])
 
@@ -679,6 +680,9 @@ def parse_screen(s, cards_by_after, card_n):
             o["icon"] = icon_items(kv["icon"])[0]["k"]
     elif typ == "BIG":
         p = rest.split()
+        for tok in [x for x in p if x.startswith("icon=")]:     # v1.5 무엇의 숫자인지 그림 (예: icon=kr — 'KOSPI' 글자 대신)
+            o["icon"] = icon_items(tok[5:])[0]["k"]
+            p.remove(tok)
         c = p.pop() if len(p) > 1 and p[-1] in ("R", "G", "Y", "W") else "W"
         o.update(text=" ".join(p), c=c)                          # v1.4 여러 낱말 (예: BIG 3× −76.7% R)
     if when:
@@ -857,7 +861,7 @@ def main(argv=None):
     p = sub.add_parser("facts"); p.add_argument("words", nargs="*"); p.add_argument("--url", action="store_true"); p.add_argument("--unused", action="store_true")
     p = sub.add_parser("new"); p.add_argument("ep", type=int); p.add_argument("vid"); p.add_argument("message"); p.add_argument("--force", action="store_true")
     p = sub.add_parser("check"); p.add_argument("vid")
-    p = sub.add_parser("export"); p.add_argument("vid"); p.add_argument("--thumb", required=True, help='썸네일 문구 2줄 "줄1/줄2" — 쉬운 영어·숫자·기호만')
+    p = sub.add_parser("export"); p.add_argument("vid"); p.add_argument("--thumb", required=True, help='썸네일 문구 1~2줄 "줄1/줄2" — 숫자·기호만 (영어·한국어 없음)')
     p.add_argument("--pose", default="PHONE", choices=[x for x in POSES if x != "CROWD"]); p.add_argument("--big", default="")
     p.add_argument("--bg", default="HOME-NIGHT", choices=BGS)
     p = sub.add_parser("scenes"); p.add_argument("vid"); p.add_argument("--shorts", action="store_true")

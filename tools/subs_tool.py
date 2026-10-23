@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.1.0 — 2026-10-18 — build 자막 나누기 고침: 덩어리가 문장의 25% 보다 짧게 나뉘지 않음 (일본어 '本当かどうか、' 0.8초짜리) · 일본어 줄바꿈은
+# VERSION: v1.2.0 — 2026-10-23 — ① 대본의 [장면] 카드와 그 줄은 문장으로 세지 않음 (srt_tool.parse_txt 와 같음 — 개미 재기 일지 정리 카드 · 103줄 vs 97문장)
+#          ② 한국어 '조'·'천억' 단위 · '2억 5천'(만 없이) = 2억 5천만 ③ 번역 단위 낱말(trillion·Milliarden·triliun·nghìn tỷ·करोड़ …)과 일본어 붙은 단위
+#          (38兆6千億) — 1화 언어별 자막 번역에서 찾음 (사용자 지시 2026-10-23 "외국인 대상으로도 할거니까 그것도 고려해 …").
+# (v1.1.0) — 2026-10-18 — build 자막 나누기 고침: 덩어리가 문장의 25% 보다 짧게 나뉘지 않음 (일본어 '本当かどうか、' 0.8초짜리) · 일본어 줄바꿈은
 #          조사·구두점 뒤에서, 영문·숫자 낱말(Python·ETF·1,700) 안에서는 끊지 않음 (예전엔 20자마다 '実|際' 처럼 끊음). 첫 실제 오디오 SRT 점검 때 찾음
 #          (사용자 지시 2026-10-18 "채권 표현 수정하고 영상 업로드 할 준비해").
 # v1.0.2 — 2026-10-17 — 한국어 '1'(1년에·1주에)은 번역에 숫자가 없어도 됨 — 'per year' 처럼 자연스럽게.
@@ -36,6 +39,17 @@ LANG_NAME = {"ko": "한국어", "en": "English", "hi": "हिन्दी", "id
              "ja": "日本語", "de": "Deutsch", "vi": "Tiếng Việt", "tr": "Türkçe"}
 DEC_COMMA = {"id", "pt", "de", "vi", "tr"}                                    # 소수점 쉼표 · 천 단위 점 (upload.md 설명란과 같은 표기)
 CJK = {"ja"}
+# v1.2.0 번역의 단위 낱말 (긴 말 먼저) — '38.6 trillion' 처럼 써도 한국어 '38조 6천억' 과 같은 값으로 셈
+SCALE = {
+    "en": [("thousand", 1e3), ("million", 1e6), ("billion", 1e9), ("trillion", 1e12)],
+    "es-419": [("mil millones", 1e9), ("billón", 1e12), ("billones", 1e12), ("millón", 1e6), ("millones", 1e6), ("mil", 1e3)],
+    "pt": [("trilhão", 1e12), ("trilhões", 1e12), ("bilhão", 1e9), ("bilhões", 1e9), ("milhão", 1e6), ("milhões", 1e6), ("mil", 1e3)],
+    "de": [("billionen", 1e12), ("billion", 1e12), ("milliarden", 1e9), ("milliarde", 1e9), ("millionen", 1e6), ("million", 1e6), ("tausend", 1e3), ("bio.", 1e12), ("mrd.", 1e9), ("mio.", 1e6)],
+    "id": [("triliun", 1e12), ("miliar", 1e9), ("juta", 1e6), ("ribu", 1e3)],
+    "vi": [("nghìn tỷ", 1e12), ("ngàn tỷ", 1e12), ("tỷ", 1e9), ("triệu", 1e6), ("nghìn", 1e3), ("ngàn", 1e3)],
+    "tr": [("trilyon", 1e12), ("milyar", 1e9), ("milyon", 1e6), ("bin", 1e3)],
+    "hi": [("ट्रिलियन", 1e12), ("खरब", 1e11), ("अरब", 1e9), ("बिलियन", 1e9), ("करोड़", 1e7), ("मिलियन", 1e6), ("लाख", 1e5), ("हज़ार", 1e3), ("हजार", 1e3)],
+}
 LINE_CHARS = {"ja": 20}                                                        # 자막 한 줄 글자 수 (그 밖 42 — 방송 자막 관행)
 MAX_CPS = {"ja": 13}                                                           # 읽는 속도 경고 (그 밖 21 글자/초)
 EST = {"perSyl": 0.151, "comma": 0.25, "base": -0.08, "min": 0.8}              # render.mjs 추정 모델과 같은 값 (진행자 H04 실측)
@@ -85,17 +99,26 @@ def all_videos(topic):
 
 def structure(path):
     """대본 → [('label', '-도입') | ('s', 문장)] — 빈 줄·'#' 주석 줄 뺌. 한국어·번역 모두 같은 규칙 (srt_tool.is_label)."""
-    out = []
+    out, in_card = [], False
     for raw in Path(path).read_text("utf-8-sig").splitlines():
         line = raw.strip()
         if not line or line.startswith("#"):
             continue
-        out.append(("label", line) if srt_tool.is_label(line) else ("s", line))
+        if srt_tool.is_label(line):
+            in_card = False
+            out.append(("label", line))
+            continue
+        if line.startswith("[장면]"):                                           # v1.2.0 말 없는 카드와 그 줄은 문장이 아님 (srt_tool.parse_txt 와 같음)
+            in_card = True
+            continue
+        if not in_card:
+            out.append(("s", line))
     return out
 
 
 # ----------------------------------------------------------------------------- 숫자
-KO_NUM = re.compile(r"(?<![\d.,])(\d[\d,]*(?:\.\d+)?)\s*(억|천만|만|천)?")
+KO_NUM = re.compile(r"(?<![\d.,])(\d[\d,]*(?:\.\d+)?)\s*(조|천억|억|천만|만|천)?")
+KO_MUL = {"조": 1e12, "천억": 1e11, "억": 1e8, "천만": 1e7, "만": 1e4, "천": 1e3}
 
 
 def ko_values(text):
@@ -106,7 +129,7 @@ def ko_values(text):
         m = toks[i]
         v = float(m.group(1).replace(",", ""))
         unit = m.group(2)
-        mul = {"억": 1e8, "천만": 1e7, "만": 1e4, "천": 1e3, None: 1}[unit]
+        mul = KO_MUL.get(unit, 1)
         v *= mul
         # '7만 5천' · '1억 2천만' — 큰 단위 뒤에 바로 더 작은 단위가 오면 더함
         while unit and i + 1 < len(toks):
@@ -114,7 +137,9 @@ def ko_values(text):
             gap = text[m.end():n.start()]
             if gap.strip() or n.group(2) is None:
                 break
-            nmul = {"억": 1e8, "천만": 1e7, "만": 1e4, "천": 1e3}[n.group(2)]
+            nmul = KO_MUL[n.group(2)]
+            if n.group(2) == "천" and mul == 1e8 and not text[n.end():n.end() + 1] == "만":
+                nmul = 1e7                                                      # v1.2.0 '2억 5천' (만 없이) = 2억 5천만 — 돈 말할 때 흔한 줄임
             if nmul >= mul:
                 break
             v += float(n.group(1).replace(",", "")) * nmul
@@ -131,19 +156,27 @@ def tr_values(text, lang):
     out = set()
     t = text.replace(" ", " ").replace(" ", " ")
     if lang in CJK:
-        for m in re.finditer(r"(\d+)\s*万\s*(\d+)\s*千", t):                    # 7万5千 = 75000 (한 덩어리 — 7万·5千 따로 세지 않음)
-            out.add(round(int(m.group(1)) * 1e4 + int(m.group(2)) * 1e3, 6))
-        t = re.sub(r"(\d+)\s*万\s*(\d+)\s*千", " ", t)
-        for m in re.finditer(r"(\d[\d,]*(?:\.\d+)?)\s*(億|万|千)?", t):
-            v = float(m.group(1).replace(",", "")) * {"億": 1e8, "万": 1e4, "千": 1e3, None: 1}[m.group(2)]
+        JA = {"兆": 1e12, "千億": 1e11, "億": 1e8, "千万": 1e7, "万": 1e4, "千": 1e3}
+        unit = r"(兆|千億|億|千万|万|千)"
+        for m in re.finditer(rf"(?:\d[\d,]*(?:\.\d+)?\s*{unit}\s*)+", t):        # v1.2.0 38兆6千億 · 2億5千万 · 7万5千 — 붙은 단위는 한 덩어리로 더함
+            v = sum(float(a.replace(",", "")) * JA[u] for a, u in re.findall(rf"(\d[\d,]*(?:\.\d+)?)\s*{unit}", m.group(0)))
             out.add(round(v, 6))
+        t = re.sub(rf"(?:\d[\d,]*(?:\.\d+)?\s*{unit}\s*)+", " ", t)
+        for m in re.finditer(r"(\d[\d,]*(?:\.\d+)?)", t):
+            out.add(round(float(m.group(1).replace(",", "")), 6))
         for m in re.finditer(r"(\d+)\s*月", t):
             out.add(f"month:{int(m.group(1))}")
         return out
     num = r"\d{1,3}(?:\.\d{3})+(?:,\d+)?|\d+(?:,\d+)?" if lang in DEC_COMMA else r"\d{1,3}(?:,\d{3})+(?:\.\d+)?|\d+(?:\.\d+)?"
+    low_t = t.lower()
     for m in re.finditer(rf"(?<![\d.,])({num})\s*([KkMm](?![^\W\d_]))?", t):
         s = m.group(1)
         s = s.replace(".", "").replace(",", ".") if lang in DEC_COMMA else s.replace(",", "")
+        rest = low_t[m.end():m.end() + 16].lstrip()                            # v1.2.0 단위 낱말 (38.6 trillion · 2,5 Milliarden · 250 juta …) — 곱한 값만 셈
+        scaled = next((mul for word, mul in SCALE.get(lang, ()) if rest.startswith(word)), None)
+        if scaled and not m.group(2):
+            out.add(round(float(s) * scaled, 6))
+            continue
         v = float(s) * {"k": 1e3, "m": 1e6, None: 1}[(m.group(2) or "").lower() or None]
         out.add(round(v, 6))
         if m.group(2):                                                         # 'K' 가 낱말 일부일 수도 — 줄이지 않은 값도 둠

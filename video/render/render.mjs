@@ -1,4 +1,6 @@
-// VERSION: v1.23 — 2026-10-23 — 낱말 검사 예외에 티커·지수 이름 SOXL·SOXX·KOSPI (개미 재기 일지 1화 화면 — 외국인 시청자용 언어 없는 화면, 사용자 지시 2026-10-23
+// VERSION: v1.24 — 2026-10-23 — check: 장면 파일 K.init 의 noLatin(이야기형)이면 화면 글자에 라틴·한글·가나·한자가 하나라도 있으면 문제 (.code 자리표만 뺌)
+//   — 사용자 지시 "야 영어 문구도 넣지마" (티커·지수 이름 예외도 없음).
+// (v1.23) — 2026-10-23 — 낱말 검사 예외에 티커·지수 이름 SOXL·SOXX·KOSPI (개미 재기 일지 1화 화면 — 외국인 시청자용 언어 없는 화면, 사용자 지시 2026-10-23
 //   "외국인 대상으로도 할거니까 … 영상에 한글 문구 사용하지 말고").
 // (v1.22) — 2026-10-23 — 이야기형 도입 끝 마지노선 35초(목표 30초 — 넘으면 경고) · 장면 파일 K.init 의 introOk(사용자가 통과시킨 도입)면
 //   35초를 넘어도 경고. 사용자 지시 2026-10-23 "도입은 그냥 통과시켜 … 도입 마지노선 35초로해".
@@ -248,6 +250,7 @@ const CHECK_FN = ([W, H, SAFE]) => {           // v1.8 무대 크기 W×H · 안
   const cc0 = document.getElementById("cc");
   const LOW = SAFE ? SAFE[2] : (cc0 ? H - 196 : H - 60);   // 자막 띠 위(1080p: 884) · 자막 없는 영상은 맨 아래 60px(진행 막대·자동 자막) 위 · 쇼츠는 meta
   const NOWORDS = !!(window.K && window.K.opt && window.K.opt.noWords);
+  const NOLATIN = !!(window.K && window.K.opt && window.K.opt.noLatin);   // v1.24 이야기형: 영어·한국어 글자 하나도 없음 (숫자·기호·그림만)
   const op = el => { let o = 1; for (let e = el; e && e !== st; e = e.parentElement) { const cs = getComputedStyle(e); o *= +cs.opacity; if (cs.display === "none" || cs.visibility === "hidden") return 0; } return o; };
   const walker = document.createTreeWalker(st, NodeFilter.SHOW_TEXT);
   for (let n = walker.nextNode(); n; n = walker.nextNode()) {
@@ -262,7 +265,8 @@ const CHECK_FN = ([W, H, SAFE]) => {           // v1.8 무대 크기 W×H · 안
     const fs = parseFloat(getComputedStyle(el).fontSize);
     const txt = n.textContent.trim().slice(0, 24);
     if (fs < 36 && !el.closest("[data-small]")) out.push({ kind: "글자 36px 미만", txt, fs });   // v1.7: data-small = 사용자가 고른 작은 글자 칸 (이유를 속성 값에)
-    if (NOWORDS && !el.closest(".code,[data-words]") && (/[가-힣ぁ-んァ-ン一-龥]/.test(n.textContent) || /[A-Za-z]{2,}/.test(n.textContent.replace(/S&P|NASDAQ|BUY|SELL|HOLD|RSI|VIX|SPY|TQQQ|QYLD|XYLD|JEPI|SCHD|QQQ|QLD|VYM|NDX|SOXL|SOXX|KOSPI/g, ""))))
+    if (NOLATIN && !el.closest(".code") && /[A-Za-z가-힣ぁ-んァ-ン一-龥]/.test(n.textContent)) out.push({ kind: "글자(숫자·기호만 — 영어·한국어 없음)", txt });
+    else if (NOWORDS && !el.closest(".code,[data-words]") && (/[가-힣ぁ-んァ-ン一-龥]/.test(n.textContent) || /[A-Za-z]{2,}/.test(n.textContent.replace(/S&P|NASDAQ|BUY|SELL|HOLD|RSI|VIX|SPY|TQQQ|QYLD|XYLD|JEPI|SCHD|QQQ|QLD|VYM|NDX|SOXL|SOXX|KOSPI/g, ""))))
       out.push({ kind: "낱말(언어 없는 화면)", txt });   // K.init opts.noWords — 숫자·기호·A·B·S&P·NASDAQ 만 (stock/guides/README.md 4번)
     if (b.bottom > LOW && !el.closest("#chip")) out.push({ kind: SAFE ? `안전 구역 아래(y ${LOW} 아래)` : cc0 ? "자막 띠(y 880 아래)와 겹침" : "맨 아래 60px(y 1020 아래)", txt, bottom: Math.round(b.bottom) });
     const [T0, R0, L0] = SAFE ? [SAFE[0], SAFE[1], SAFE[3]] : [30, 40, 40];

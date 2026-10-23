@@ -31,7 +31,6 @@
   python3 tools/comment_clusters.py stock --k 한국어=60,영어=40,그밖=15 --split 0.03
 """
 import argparse
-import csv
 import hashlib
 import json
 import logging
@@ -301,11 +300,26 @@ class Translations:
         self.path = Path(path)
         self.ko, self.en, self.missing, self.used = {}, {}, {}, set()
         if self.path.is_file():
-            with self.path.open(encoding="utf-8", newline="") as f:
-                for r in csv.DictReader(f, delimiter="\t"):
-                    if r.get("key") and (r.get("ko") or "").strip():
-                        self.ko[r["key"]] = r["ko"].strip()
-                        self.en[r["key"]] = r.get("en") or ""
+            for r in self.read_tsv(self.path):
+                if r.get("key") and (r.get("ko") or "").strip():
+                    self.ko[r["key"]] = r["ko"].strip()
+                    self.en[r["key"]] = r.get("en") or ""
+
+    @staticmethod
+    def read_tsv(path):
+        """탭으로만 나눈 TSV (따옴표를 특별히 다루지 않음 — 글에 탭·줄바꿈이 없으므로; csv 모듈은 '"' 로 시작하는 칸을 잘못 읽음)."""
+        lines = Path(path).read_text("utf-8-sig").splitlines()
+        if not lines:
+            return []
+        head = lines[0].split("\t")
+        return [dict(zip(head, ln.split("\t"))) for ln in lines[1:] if ln.strip()]
+
+    @staticmethod
+    def write_tsv(path, head, rows):
+        with Path(path).open("w", encoding="utf-8") as f:
+            f.write("\t".join(head) + "\n")
+            for r in rows:
+                f.write("\t".join(clean(x, 2000) for x in r) + "\n")
 
     @staticmethod
     def key(text):
@@ -325,23 +339,18 @@ class Translations:
     def merge(self, src):
         """번역한 TSV (key·ko, en 칸이 있으면 key 와 글이 맞는지 확인) → 장부. 돌려줌: (더한 수, 건너뛴 key 목록)."""
         added, skipped = 0, []
-        with open(src, encoding="utf-8", newline="") as f:
-            for r in csv.DictReader(f, delimiter="\t"):
-                k, ko, en = (r.get("key") or "").strip(), clean(r.get("ko"), 2000), r.get("en")
-                if not k or not ko or (en and self.key(en) != k):
-                    skipped.append(k)
-                    continue
-                if k not in self.ko:
-                    added += 1
-                self.ko[k], self.en[k] = ko, clean(en) if en else self.en.get(k, "")
+        for r in self.read_tsv(src):
+            k, ko, en = (r.get("key") or "").strip(), clean(r.get("ko"), 2000), r.get("en")
+            if not k or not ko or (en and self.key(en) != k):
+                skipped.append(k)
+                continue
+            if k not in self.ko:
+                added += 1
+            self.ko[k], self.en[k] = ko, clean(en) if en else (self.en.get(k) or self.missing.get(k, ""))
         return added, skipped
 
     def save(self):
-        with self.path.open("w", encoding="utf-8", newline="") as f:
-            w = csv.writer(f, delimiter="\t", lineterminator="\n")
-            w.writerow(["key", "ko", "en"])
-            for k in sorted(self.ko):
-                w.writerow([k, self.ko[k], self.en.get(k, "")])
+        self.write_tsv(self.path, ["key", "ko", "en"], ([k, self.ko[k], self.en.get(k, "")] for k in sorted(self.ko)))
 
     def write_todo(self, path):
         path = Path(path)
@@ -349,11 +358,7 @@ class Translations:
             if path.is_file():
                 path.unlink()
             return 0
-        with path.open("w", encoding="utf-8", newline="") as f:
-            w = csv.writer(f, delimiter="\t", lineterminator="\n")
-            w.writerow(["key", "en", "ko"])
-            for k, t in self.missing.items():              # 처음 나온 순 (묶음 목록 → 기간별 → 영상별)
-                w.writerow([k, t, ""])
+        self.write_tsv(path, ["key", "en", "ko"], ([k, t, ""] for k, t in self.missing.items()))   # 처음 나온 순 (묶음 목록 → 기간별 → 영상별)
         return len(self.missing)
 
 

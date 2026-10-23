@@ -3,14 +3,12 @@
 # v1.0 — 2026-10-23 — tools/comment_clusters.py v1.0 시험: 기간(한 주씩·누적·직접 지정)·묶음 통계(댓글 수·좋아요·몫)·영상 순서(하루 조회수)·
 #          묶기 씨앗 고정·엑셀 시트 (임시 폴더만 — 저장소 결과·네트워크·GitHub 안 건드림).
 """python3 -m unittest test_comment_clusters  (tools/tests 에서)"""
-import json
 import os
 import random
 import shutil
 import sys
 import tempfile
 import unittest
-from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
@@ -165,6 +163,14 @@ class TranslationBook(unittest.TestCase):
         self.assertEqual(again.get("Buy the dip"), "저점 매수")
         self.assertEqual(again.write_todo(self.tmp / "todo.tsv"), 0)
         self.assertFalse((self.tmp / "todo.tsv").exists())          # 할 일이 없으면 파일을 지움
+
+    def test_quotes_kept(self):
+        book = cc.Translations(self.tmp / "tr.tsv")
+        k = book.key('"Buy" the dip')
+        (self.tmp / "q.tsv").write_text(f'key\tko\n{k}\t"저점" 매수 "꼭"\n', "utf-8")    # 따옴표로 시작·끝 — csv 모듈이면 잘못 읽힘
+        self.assertEqual(book.merge(self.tmp / "q.tsv"), (1, []))
+        book.save()
+        self.assertEqual(cc.Translations(self.tmp / "tr.tsv").get('"Buy" the dip'), '"저점" 매수 "꼭"')
 
 
 class ClusterSeed(unittest.TestCase):

@@ -1,0 +1,76 @@
+{
+ "id": "diIdRF7ingQ",
+ "title": "역사학자 임용한 '역사 속 국내 여행지' 특강",
+ "channel": "침착맨",
+ "channel_id": "UCUj6rrhMTR9pipbAWBAMvUQ",
+ "subs": 3290000,
+ "views": 918368,
+ "ratio": 0.28,
+ "age_days": 120,
+ "views_per_day": 7653.1,
+ "minutes": 44.6,
+ "likes": 6675,
+ "comments": 324,
+ "published": "2026-06-24",
+ "queries": "검색:역사 | 검색:역사다큐",
+ "url": "https://www.youtube.com/watch?v=diIdRF7ingQ",
+ "flag": "",
+ "published_at": "2026-06-24T10:00:15Z",
+ "rank": "W6",
+ "set": "web",
+ "folder": "W_diIdRF7ingQ",
+ "sources": [
+  "검색:역사",
+  "검색:역사다큐"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 28,
+   "title": "오프닝"
+  },
+  {
+   "start": 124,
+   "title": "고산자 김정호의 시선을 따라가는 여행"
+  },
+  {
+   "start": 577,
+   "title": "선덕여왕의 이야기를 따라 걷는 여행"
+  },
+  {
+   "start": 1118,
+   "title": "충무공 이순신이 지켜낸 바다를 만나는 여행"
+  },
+  {
+   "start": 2005,
+   "title": "여행가 원천석이 사랑한 동해안 절경 여행"
+  },
+  {
+   "start": 2317,
+   "title": "여기어때 캠페인 & 이벤트 소개"
+  },
+  {
+   "start": 2601,
+   "title": "아웃트로"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-23 13:25까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 324,
+ "comments_top_level": 257,
+ "comments_replies": 67,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 324,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-23T07:25:48",
+ "approved": "2026-10-23T16:25+09:00"
+}

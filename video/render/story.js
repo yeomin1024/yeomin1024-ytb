@@ -1,4 +1,5 @@
-// VERSION: v1.0 — 2026-10-23 — 새로: '개미 재기 일지' 종이인형극 장면 묶음 — 장면 표(stock/source/<영상ID>/scenes.txt)를 tools/story_kit.py scenes 가
+// VERSION: v1.1 — 2026-10-23 — SPEC.introOk(제작안 '- 도입 통과:' 줄) → K.init introOk (render.mjs v1.22 도입 마지노선 35초 검사에서 경고로).
+// (v1.0) — 2026-10-23 — 새로: '개미 재기 일지' 종이인형극 장면 묶음 — 장면 표(stock/source/<영상ID>/scenes.txt)를 tools/story_kit.py scenes 가
 //   SPEC(JSON)으로 바꿔 작은 index.html 에 넣으면, 이 파일이 무대·인형·코드 화면을 만든다. 사용자 지시 2026-10-23 "주제 탐색 -> 요약본 만들기 -> 대본,
 //   썸네일 프롬프트 등 영상 소스 -> 영상 만들기 과정을 토큰을 가장 덜 사용하는 구조로 만들어봐" — 영상마다 장면 코드를 손으로 쓰지 않는다
 //   (일본 축제 롱폼 index.html 은 손으로 쓴 106KB). 장면 표 한 줄 = 장면 하나.
@@ -11,7 +12,7 @@
 (function () {
   "use strict";
   const S_ = (window.Story = {});
-  S_.VERSION = "v1.0";
+  S_.VERSION = "v1.1";
   S_.POSES = { BONSEOK: "P-BONSEOK.png", WALK: "P-BONSEOK-WALK.png", PHONE: "P-BONSEOK-PHONE.png", DESPAIR: "P-BONSEOK-DESPAIR.png",
     RESOLVE: "P-BONSEOK-RESOLVE.png", STUDY: "P-BONSEOK-STUDY.png", BACK: "P-BONSEOK-BACK.png", SMILE: "P-BONSEOK-SMILE.png", CROWD: "P-CROWD.png" };
   S_.BGS = { "HOME-NIGHT": "P-HOME-NIGHT.jpg", OFFICE: "P-OFFICE.jpg", "STREET-DAWN": "P-STREET-DAWN.jpg", BOARD: "P-BOARD.jpg", PAPER: "P-PAPER.jpg" };
@@ -45,7 +46,7 @@
 
   S_.build = function (SPEC) {
     const V = !!SPEC.vertical, SW = V ? 1080 : 1920;
-    K.init(window.EP, { subtitles: false, chip: false, noWords: true, introPart: SPEC.vertical ? undefined : "도입", testFrom: SPEC.testFrom || undefined, w: SW });
+    K.init(window.EP, { subtitles: false, chip: false, noWords: true, introPart: SPEC.vertical ? undefined : "도입", introOk: !!SPEC.introOk, testFrom: SPEC.testFrom || undefined, w: SW });
     const { S, E, W, el, pop, out } = K, tl = K.tl;
     const { lin, lerp, seg } = Puppet.u;
     const N = window.EP.sent.length;

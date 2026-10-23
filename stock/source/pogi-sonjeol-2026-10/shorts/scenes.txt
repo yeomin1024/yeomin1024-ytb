@@ -1,0 +1,9 @@
+# 장면 표 — pogi-sonjeol-2026-10-shorts · story_kit v1.1 초안 2026-10-23 · 한 줄 = 장면 하나
+# 문장 | 배경 | 인형 | 화면    (문법: stock/guides/quick_story.md D-2 · 고친 뒤 python3 tools/story_kit.py scenes pogi-sonjeol-2026-10 --shorts)
+
+1 | HOME-NIGHT | DESPAIR | BIG −70% R
+2 | HOME-NIGHT | PHONE@L+CROWD@R
+3 | HOME-NIGHT | PHONE | BIG ₩100,000,000 R
+4-5 | HOME-NIGHT | DESPAIR
+6 | HOME-NIGHT | PHONE
+7-9 | HOME-NIGHT | DESPAIR

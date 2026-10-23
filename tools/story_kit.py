@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-10-23 — 새로: '개미 재기 일지'(주식 이야기형) 단계 도구 하나 — 주제 탐색 → 요약본 → 영상 소스 → 영상을 토큰을 가장 덜 쓰게.
+# VERSION: v1.1 — 2026-10-23 — scenes: 제작안의 '- 도입 통과:' 줄 → SPEC.introOk (사용자가 통과시킨 도입 — render check 도입 35초에서 경고로).
+#          사용자 지시 2026-10-23 "도입은 그냥 통과시켜 … 도입 마지노선 35초로해".
+# (v1.0) — 2026-10-23 — 새로: '개미 재기 일지'(주식 이야기형) 단계 도구 하나 — 주제 탐색 → 요약본 → 영상 소스 → 영상을 토큰을 가장 덜 쓰게.
 #          사용자 지시 2026-10-23 "주제 탐색 -> 요약본 만들기 -> 대본, 썸네일 프롬프트 등 영상 소스 -> 영상 만들기 과정을 토큰을 가장 덜 사용하는 구조로
 #          만들어봐 저번에 그렇게 했었으니 참고해서 설계해봐" (재테크 quick_script·quick_package 본보기). 지시사항 stock/guides/quick_story.md.
 #          원칙: 긴 파일 대신 이 도구의 짧은 출력을 읽는다 · 썸네일 프롬프트·장면 파일은 손으로 쓰지 않고 만든다 · 출력은 한 화면 안.
@@ -33,7 +35,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 sys.path.insert(0, str(ROOT / "stock" / "story" / "calc"))
 import srt_tool  # noqa: E402
 
-VERSION = "v1.0"
+VERSION = "v1.1"
 LOG = logging.getLogger("story_kit")
 STORY = ROOT / "stock" / "story"
 SOURCE = ROOT / "stock" / "source"
@@ -117,8 +119,8 @@ def cmd_topics(a):
         if re.match(r"^\| \d+ \| `", line):
             c = [x.strip() for x in line.strip().strip("|").split("|")]
             print(f"  {c[0]}화 {c[1]} · 실수: {c[4][:46]} · 다음: {c[5][:34]}")
-    for p in sorted(SOURCE.glob("*/story.json")):
-        m = json.loads(p.read_text("utf-8"))
+    metas = [(json.loads(p.read_text("utf-8")), p) for p in SOURCE.glob("*/story.json")]
+    for m, p in sorted(metas, key=lambda x: (x[0].get("ep") or 0, x[0]["id"])):          # 화 순서
         have = [n for n, f in (("요약본", "요약본.md"), ("제작안", f"{m['id']}_제작안.txt"), ("대본", f"{m['id']}.txt"),
                                ("오디오", "narration.mp3")) if (p.parent / f).exists()]
         print(f"  [만드는 중] {m.get('ep')}화 {m['id']} — {m.get('message', '')[:40]} · 있음: {'·'.join(have) or '없음'}")
@@ -338,8 +340,8 @@ def thumb_prompt(n, ep, lines, pose, big, bg, vertical=False, close=False):
     cols = []
     for l in lines:
         cols.append("muted-red #E0302A" if NEG.search(l) else "bright yellow #FFD400")
-    if len(set(cols)) == 1 and len(lines) == 2:
-        cols[0] = "white #FFFFFF" if cols[0].startswith("bright") else cols[0]
+    if len(set(cols)) == 1 and len(lines) == 2:              # 두 줄이 같은 색이면: 둘 다 손해 → 윗줄 노랑(중요) · 둘 다 아님 → 윗줄 흰색
+        cols[0] = "white #FFFFFF" if cols[0].startswith("bright") else "bright yellow #FFD400"
     text = " ".join(f'line {i + 1} "{l}" in {c}' for i, (l, c) in enumerate(zip(lines, cols)))
     size = "vertical 9:16 (1080×1920), the picture fills the whole frame to every edge — no empty bands" if vertical else "landscape 16:9 (1280×720)"
     frame = ("a close-up of his head and shoulders filling about 70% of the height" if close
@@ -710,7 +712,9 @@ def cmd_scenes(a):
             parts.append(part)
     test_from = next((p for p in parts if p.startswith("방법")), None)
     page_id = a.vid + ("-shorts" if a.shorts else "")
-    spec = dict(dir="../../../stock/story/puppet/", ep=ep, next=(ep + 1) if isinstance(ep, int) and not a.shorts else None,
+    plan = src(a.vid) / f"{a.vid}_제작안.txt"
+    intro_ok = plan.exists() and any(l.strip().startswith("- 도입 통과:") for l in plan.read_text("utf-8").splitlines())
+    spec = dict(dir="../../../stock/story/puppet/", ep=ep, introOk=intro_ok, next=(ep + 1) if isinstance(ep, int) and not a.shorts else None,
                 vertical=a.shorts, cover=a.shorts, testFrom=None if a.shorts else test_from, scenes=scenes)
     out = ROOT / "video" / "episodes" / page_id / "index.html"
     epdata = "/*EP-DATA:BEGIN*//*EP-DATA:END*/"

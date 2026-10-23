@@ -44,11 +44,11 @@ GOOD = """-도입
 """
 
 
-def run(text, title=TITLE):
+def run(text, title=TITLE, intro_ok=False):
     with tempfile.TemporaryDirectory() as d:
         p = Path(d) / "s.txt"
         p.write_text(text, "utf-8")
-        return sc.check(p, title)
+        return sc.check(p, title, intro_ok=intro_ok)
 
 
 class Good(unittest.TestCase):
@@ -81,6 +81,15 @@ class Bad(unittest.TestCase):
                             "아내에게는 아직 말도 못 했어요.\n" + "매일 밤 계좌를 열었다 닫았다 하면서 잠을 제대로 못 잤어요.\n" * 6)
         probs, _, _ = run(long)
         self.assertTrue(any(p.startswith("도입 추정") for p in probs), probs)
+        probs, warns, _ = run(long, intro_ok=True)          # v1.3 사용자가 통과시킨 도입 → 경고
+        self.assertFalse(any(p.startswith("도입 추정") for p in probs), probs)
+        self.assertTrue(any("사용자가 통과시킴" in w for w in warns), warns)
+
+    def test_intro_between_target_and_limit(self):         # v1.3 30~35초 = 경고만 (목표 30 · 마지노선 35)
+        mid = GOOD.replace("아내에게는 아직 말도 못 했어요.\n", "아내에게는 아직 말도 못 했어요.\n" + "밤마다 계좌를 열어 봤어요.\n" * 7)
+        probs, warns, _ = run(mid)                           # 추정 약 33.7초
+        self.assertFalse(any(p.startswith("도입 추정") for p in probs), probs)
+        self.assertTrue(any(w.startswith("도입 추정") and "목표" in w for w in warns), warns)
 
     def test_ordinal(self):
         probs, _, _ = run(GOOD.replace("두 번째는 매달", "또 하나는 매달"))

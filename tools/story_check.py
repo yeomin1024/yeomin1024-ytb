@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.2 — 2026-10-22 — 도입 30초 안 (사용자 지시 2026-10-22 "초반 30초로 하고") — 추정 30초 넘으면 문제, 165음절 넘으면 경고.
+# VERSION: v1.3 — 2026-10-23 — 도입 마지노선 35초 (사용자 지시 2026-10-23 "도입 마지노선 35초로해") — 추정 35초 넘으면 문제, 30초 넘으면 경고(목표),
+#          음절 경고 200 · check(intro_ok=True) = 사용자가 통과시킨 도입(제작안 '- 도입 통과:' 줄 — "도입은 그냥 통과시켜")은 35초를 넘어도 경고로.
+# (v1.2) — 2026-10-22 — 도입 30초 안 (사용자 지시 2026-10-22 "초반 30초로 하고") — 추정 30초 넘으면 문제, 165음절 넘으면 경고.
 # (v1.1) — 2026-10-21 — 제목 맨 앞 낱말은 끝 조사를 떼고도 찾음('손절보다' → '손절') · -마무리 3~5문장(시리즈 '다음 화 예고' 한 문장 —
 #          story_script v1.2 6번, 사용자 지시 "그리고 시리즈물이라는 것도 고려해").
 # (v1.0) — 2026-10-21 — 새로: 이야기형 주식 대본(개미 주인공 1인칭) 점검 — stock/guides/story_script.md v1.0 의 구성·말투 규칙.
@@ -33,14 +35,15 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import srt_tool  # noqa: E402  (문장·카드·음절 판정을 자막·오디오 도구와 똑같이)
 
-VERSION = "v1.2"
+VERSION = "v1.3"
 ROOT = Path(__file__).resolve().parents[1]
 LOG = logging.getLogger("story_check")
 
 HOST_SYL_PER_SEC = 6.3       # 진행자 H17 샘플 속도 (CLAUDE.md 내레이션 — H04 5.7)
 SENT_GAP = 0.45              # 문장 사이 쉼 (tools/tts_narration.py 역할 gap 기본)
-INTRO_MAX_SEC = 30.0
-INTRO_SYL_MAX = 165
+INTRO_MAX_SEC = 35.0          # 마지노선 (v1.3)
+INTRO_TARGET_SEC = 30.0       # 목표 — 넘으면 경고
+INTRO_SYL_MAX = 200
 INTRO_SENTS = (5, 7)
 METHODS = (3, 5)
 CARD_CHARS_MAX = 49          # srt_tool.parse_cards: 글자 ÷ 7 + 1초, 8초에서 잘림 → 49자면 8초
@@ -109,7 +112,7 @@ def head_in(head, sentence):
     return False
 
 
-def check(path, title=None):
+def check(path, title=None, intro_ok=False):
     """→ (problems, warnings, info). 사람이 읽는 문장 목록."""
     path = Path(path)
     probs, warns, info = [], [], []
@@ -141,9 +144,12 @@ def check(path, title=None):
     intro = by_label.get("도입", [])
     if intro:
         syl, sec = intro_seconds(intro)
-        log("INTRO", sentences=len(intro), syllables=syl, est_sec=sec, rule=f"<= {INTRO_MAX_SEC}s, syl <= {INTRO_SYL_MAX}")
+        log("INTRO", sentences=len(intro), syllables=syl, est_sec=sec, rule=f"<= {INTRO_MAX_SEC}s (목표 {INTRO_TARGET_SEC}s), syl <= {INTRO_SYL_MAX}", intro_ok=intro_ok)
         if sec > INTRO_MAX_SEC:
-            probs.append(f"도입 추정 {sec}초 > {INTRO_MAX_SEC}초 (음절 {syl}, 문장 {len(intro)}) — ① 상황을 줄인다 (2-1)")
+            msg = f"도입 추정 {sec}초 > 마지노선 {INTRO_MAX_SEC}초 (음절 {syl}, 문장 {len(intro)}) — ① 상황을 줄인다 (2-1)"
+            (warns if intro_ok else probs).append(msg + (" — 사용자가 통과시킴" if intro_ok else ""))
+        elif sec > INTRO_TARGET_SEC:
+            warns.append(f"도입 추정 {sec}초 > 목표 {INTRO_TARGET_SEC}초 (마지노선 {INTRO_MAX_SEC}초 안)")
         if syl > INTRO_SYL_MAX:
             warns.append(f"도입 {syl}음절 > {INTRO_SYL_MAX}")
         if not INTRO_SENTS[0] <= len(intro) <= INTRO_SENTS[1]:

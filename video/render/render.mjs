@@ -1,4 +1,6 @@
-// VERSION: v1.21 — 2026-10-23 — check: 언어 없는 화면(noWords) 낱말 검사에서 data-words="<까닭>" 이 붙은 칸도 뺌 (.code 와 같은 꼴) —
+// VERSION: v1.22 — 2026-10-23 — 이야기형 도입 끝 마지노선 35초(목표 30초 — 넘으면 경고) · 장면 파일 K.init 의 introOk(사용자가 통과시킨 도입)면
+//   35초를 넘어도 경고. 사용자 지시 2026-10-23 "도입은 그냥 통과시켜 … 도입 마지노선 35초로해".
+// (v1.21) — 2026-10-23 — check: 언어 없는 화면(noWords) 낱말 검사에서 data-words="<까닭>" 이 붙은 칸도 뺌 (.code 와 같은 꼴) —
 //   video/render/story.js v1.0 의 K6 정리 카드(한국어는 이 카드에만 — stock/guides/story_script.md 4-6)와 K7 화 배지 EP.N.
 //   · 주식 시작 검사: 장면 파일 K.init 의 introPart(이야기형 — 경주 없음)가 있으면 경주 시작 대신 그 파트의 끝이 30초 안인지 (story_check 와 같은 기준).
 //   사용자 지시 2026-10-23 "… 영상 만들기 과정을 토큰을 가장 덜 사용하는 구조로 만들어봐". 다른 검사는 그대로.
@@ -303,12 +305,12 @@ async function check() {
       const from = window.K && window.K.opt && window.K.opt.testFrom, s = from && window.EP.sent.find(x => x.part === from);
       const ip = window.K && window.K.opt && window.K.opt.introPart, is = ip ? window.EP.sent.filter(x => x.part === ip) : [];   // v1.21 이야기형
       return { from: from || null, start: s ? s.start : null, parts: [...new Set(window.EP.sent.map(x => x.part))].slice(0, 4).join("·"),
-        intro: is.length ? { part: ip, end: is[is.length - 1].end } : null };
+        intro: is.length ? { part: ip, end: is[is.length - 1].end, ok: !!window.K.opt.introOk } : null };
     });
-    if (intro) {                                   // v1.21 이야기형(story.js): 경주가 없음 → 도입 끝이 30초 안 (stock/guides/story_script.md 2-1, story_check 와 같은 기준)
-      const lvl = intro.end > 30 ? "problem" : "ok";
+    if (intro) {                                   // v1.22 이야기형(story.js): 경주가 없음 → 도입 끝 마지노선 35초 · 목표 30초 (story_check v1.3 과 같은 기준)
+      const lvl = intro.end > 35 ? (intro.ok ? "warn" : "problem") : intro.end > 30 ? "warn" : "ok";   // introOk = 사용자가 통과시킨 도입
       if (lvl === "problem") bad++;
-      log("CHECK", { kind: "이야기형 도입 끝", part: intro.part, end_s: intro.end.toFixed(1), limit: "30초", level: lvl, estimated: !!(await page.evaluate(() => window.EP.estimated)) });
+      log("CHECK", { kind: "이야기형 도입 끝", part: intro.part, end_s: intro.end.toFixed(1), limit: "35초 (목표 30초)", level: lvl, user_ok: intro.ok, estimated: !!(await page.evaluate(() => window.EP.estimated)) });
     }
     else if (!from || start == null) { bad++; log("CHECK", { kind: "테스트 시작 파트 없음", testFrom: from || "없음", parts, fix: "K.init(EP, { …, testFrom: \"<경주 파트 이름>\" })" }); }
     else {

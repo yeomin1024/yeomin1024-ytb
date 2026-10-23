@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.1 — 2026-10-22 — '대본만' 꼴도 읽음: 장면 머리([A-01 | …])·(화면) 없이 파트 머리 아래 문장만 (사용자 지시 2026-10-22 "화면 내용은 좀 빼고
+# VERSION: v1.2 — 2026-10-23 — 제작안에 '- 도입 통과: <날짜> 사용자' 줄이 있으면 도입 마지노선(35초)을 넘어도 경고로 (사용자 지시 2026-10-23
+#          "도입은 그냥 통과시켜") — story_check v1.3 intro_ok.
+# (v1.1) — 2026-10-22 — '대본만' 꼴도 읽음: 장면 머리([A-01 | …])·(화면) 없이 파트 머리 아래 문장만 (사용자 지시 2026-10-22 "화면 내용은 좀 빼고
 #          눈에 잘 안들어와") · '■ 대본' 으로 시작하는 절 · --write 가 '- 길이:' 줄과 도입 끝 시각도 고침.
 # (v1.0) — 2026-10-21 — 새로: 개미 재기 일지 제작안(.txt) → 장면 시각 추정·오디오용 대본 뽑기·story_check 검사.
 #          사용자 지시 2026-10-21 "아래 주제들로 일본 축제 영상 대본 내용 만들 때 처럼 한 파일에 대본 내용, 제목 등 종합해서 넣어 …
@@ -25,7 +27,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 import srt_tool  # noqa: E402
 import story_check  # noqa: E402
 
-VERSION = "v1.1"
+VERSION = "v1.2"
 SYL, GAP, PART_GAP = story_check.HOST_SYL_PER_SEC, story_check.SENT_GAP, 1.0
 PART_RE = re.compile(r"^=+ (\S+)(?: · .*)? =+$")
 SCENE_RE = re.compile(r"^\[([A-Z]-\d+[a-z]?) \| ([^|]*) \| (.*)\]$")
@@ -158,7 +160,8 @@ def main(argv=None):
     with tempfile.TemporaryDirectory() as d:
         p = Path(d) / "s.txt"
         p.write_text(text, "utf-8")
-        probs, warns, info = story_check.check(p, title)
+        intro_ok = any(l.strip().startswith("- 도입 통과:") for l in lines)    # v1.2 사용자가 통과시킨 도입
+        probs, warns, info = story_check.check(p, title, intro_ok=intro_ok)
     for x in probs:
         print(f"❌ {x}")
     for x in warns:

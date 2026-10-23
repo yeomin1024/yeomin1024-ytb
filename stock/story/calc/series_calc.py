@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.4 — 2026-10-22 — 테스트 대본 ①(국장 대신 미장): 코스피 '박스피'(2010-12 ~ 2017 무렵 1,900~2,000대) 기간의 S&P 500 가격 변화.
+# VERSION: v1.5 — 2026-10-23 — 주인공 숫자를 B(손실 2억 5천 = 전재산의 70%)로 통일 (사용자 지시 2026-10-23 "손실은 70%로 하고").
+#          가상 연표: 2026-06-18 계좌 순 2억 7,714만 + 보증금 8,000만 = 전재산 3억 5,714만(꼭대기) → 지금 계좌 평가 6,714만 − 마통 4,000만
+#          = 순 2,714만 + 보증금 = 1억 714만. recovery_math·persona_april(6월 꼭대기에서 절반 매도했다면)·recover_b(투자할 수 있는 돈 = 순 2,714만)를
+#          이 숫자로 다시 셈 · dca_10y 에 평균(mean_x) · months_to_recover(원금 2억 4천 회복 — 설정 A 기준)는 뺌. 넣은 돈(원금) 2억 4천·4월 원금 회복 +800만은 그대로.
+# (v1.4) — 2026-10-22 — 테스트 대본 ①(국장 대신 미장): 코스피 '박스피'(2010-12 ~ 2017 무렵 1,900~2,000대) 기간의 S&P 500 가격 변화.
 # (v1.3) — 2026-10-22 — 요약본 B(사용자 지시 "올해 반도체 주식 종목에 투자했다가 전재산의 -70%인 2억 5천을 손해봤어요"):
 #          전재산·남은 돈·되찾을 배수 · 잃은 2억 5천을 '천천히' 되찾는 데 걸린 기간(남은 돈 + 매달 적립 / 매달 적립만, 20년 창).
 # (v1.2) — 2026-10-21 — 3화 원금 회복한 날 절반 매도(설정 숫자) · 4화 매달 같은 금액 10년(여러 시작 달).
@@ -25,14 +29,19 @@ ROOT = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(ROOT / "tools"))
 from backtest import data  # noqa: E402
 
-VERSION = "v1.4"
+VERSION = "v1.5"
 OUT = Path(__file__).resolve().parent / "results.json"
 LOG = logging.getLogger("series_calc")
 START = "2000-01-01"          # 2000년 이후 (사례는 최근 먼저 — CLAUDE.md)
 
 # 주인공 설정 (stock/story/protagonist.md v1.1 3번 — 만 원)
-P = dict(principal=24000, account=11000, minus_loan=4000, monthly=100)
-P["net"] = P["account"] - P["minus_loan"]
+B_LOSS, B_SHARE = 25000, 0.70   # 손실 2억 5천 = 전재산의 70% (가상 — v1.5 부터 주인공 숫자)
+P = dict(principal=24000, deposit=8000, minus_loan=4000, debt_june=8000, june_put_in=23600, monthly=100)
+P["wealth_peak"] = round(B_LOSS / B_SHARE)                 # 2026-06-18 전재산 3억 5,714만 (꼭대기)
+P["wealth_now"] = P["wealth_peak"] - B_LOSS                # 지금 1억 714만
+P["peak_net"] = P["wealth_peak"] - P["deposit"]            # 6-18 계좌 순 2억 7,714만
+P["net"] = P["wealth_now"] - P["deposit"]                  # 지금 계좌 순 2,714만 (투자할 수 있는 돈)
+P["account"] = P["net"] + P["minus_loan"]                  # 지금 계좌 평가 6,714만
 
 
 def log(stage, **kv):
@@ -40,15 +49,15 @@ def log(stage, **kv):
 
 
 def recovery_math():
-    """손실 → 되찾는 데 필요한 수익률. 주인공은 정확한 비율(7,000만 → 2억 4,000만), '또 반을 잃으면'(3,500만 → 2억 4,000만)."""
-    out = {str(loss): round(100 * (1 / (1 - loss / 100) - 1), 1) for loss in (10, 20, 30, 50)}
-    out["persona_loss_pct"] = round(100 * (1 - P["net"] / P["principal"]), 1)
-    out["persona_need_pct"] = round(100 * (P["principal"] / P["net"] - 1), 1)
-    out["persona_need_x"] = round(P["principal"] / P["net"], 2)
+    """손실 → 되찾는 데 필요한 수익률. 주인공(B): 전재산 1억 714만 → 3억 5,714만 · 원금 2억 4천 대비 계좌 순 · '또 반을 잃으면'."""
+    out = {str(loss): round(100 * (1 / (1 - loss / 100) - 1), 1) for loss in (10, 20, 30, 50, 70)}
+    out["persona_loss_pct"] = round(100 * B_LOSS / P["wealth_peak"], 1)
+    out["persona_need_x"] = round(P["wealth_peak"] / P["wealth_now"], 2)
+    out["persona_need_pct"] = round(100 * (P["wealth_peak"] / P["wealth_now"] - 1), 1)
+    out["principal_vs_net_pct"] = round(100 * (P["net"] / P["principal"] - 1), 1)
     half = P["net"] / 2
-    out["again_half_net_만원"] = round(half)
-    out["again_half_need_pct"] = round(100 * (P["principal"] / half - 1), 1)
-    out["again_half_need_x"] = round(P["principal"] / half, 2)
+    out["again_half_wealth_만원"] = round(P["deposit"] + half)
+    out["again_half_need_x"] = round(P["wealth_peak"] / (P["deposit"] + half), 2)
     log("RECOVERY", table=out)
     return out
 
@@ -64,31 +73,6 @@ def persona_costs():
                days_per_trade=round(months / 12 * 250 / trades, 1), fee_tax_만원=round(cost),
                assumptions="리딩방 30만×24개월 · 매매 1,200번·평균 500만 원·수수료 0.015%·거래세 평균 0.18%(매도) · 78개월·한 해 거래일 250")
     log("PERSONA_COSTS", **out)
-    return out
-
-
-def months_to_recover(price: pd.Series, max_months=180):
-    """시작 달마다: 순 7,000만 원을 지수에 넣고 매달 100만 원씩 더 넣을 때, 계좌가 '넣은 돈 전체'(2억 4천 + 새로 넣은 돈)를 넘는 첫 달.
-    자료가 max_months 안 남은 시작 달은 빼고(검열), 끝까지 못 넘으면 None."""
-    p = price.to_numpy()
-    res = []
-    for s in range(len(p)):
-        if s + max_months >= len(p):
-            break
-        units, ok = P["net"] / p[s], None
-        for m in range(1, max_months + 1):
-            units += P["monthly"] / p[s + m]
-            if units * p[s + m] >= P["principal"] + P["monthly"] * m:
-                ok = m
-                break
-        res.append(ok)
-    got = [m for m in res if m is not None]
-    out = dict(starts=len(res), first=str(price.index[0].date()), last_start=str(price.index[len(res) - 1].date()),
-               recovered=len(got), not_recovered_15y=len(res) - len(got),
-               median_years=round(float(np.median(got)) / 12, 1) if got else None,
-               fastest_years=round(min(got) / 12, 1) if got else None, slowest_years=round(max(got) / 12, 1) if got else None,
-               within_5y=sum(m <= 60 for m in got), within_10y=sum(m <= 120 for m in got))
-    log("MONTHS_TO_RECOVER", **out)
     return out
 
 
@@ -149,7 +133,7 @@ def lev3(daily: pd.Series):
                x1_max_drawdown_pct=dd(i1), x3_max_drawdown_pct=dd(i3),
                covid_x1_pct=between(i1, "2020-02-19", "2020-03-23"), covid_x3_pct=between(i3, "2020-02-19", "2020-03-23"),
                y2022_x1_pct=between(i1, "2022-01-03", "2022-10-12"), y2022_x3_pct=between(i3, "2022-01-03", "2022-10-12"),
-               covid_x3_7000만_to=round(P["net"] * (1 + between(i3, "2020-02-19", "2020-03-23") / 100)))
+               covid_x3_1억_to_만원=round(10000 * (1 + between(i3, "2020-02-19", "2020-03-23") / 100)))   # v1.5 예시 1억 (A 숫자 7,000만 대신)
     log("LEV3", **out)
     return out
 
@@ -181,12 +165,15 @@ def missing_best_days(daily: pd.Series):
 
 
 def persona_april():
-    """설정 연표: 2026-04-27 순 2억 4,100만(넣은 돈 2억 3,300만) → 6-18 순 1억 9,000만. 그날 절반을 매도해 현금으로 뒀다면 (현금 이자 0)."""
-    peak, june, put_in = 24100, 19000, 23300
-    keep = peak / 2 * (june / peak)
-    half = peak / 2 + keep
-    out = dict(april_net_만원=peak, april_over_put_in_만원=peak - put_in, june_net_만원=june, lost_since_april_만원=peak - june,
-               drop_pct=round(100 * (june / peak - 1), 1), half_sold_june_만원=round(half), half_sold_better_만원=round(half - june))
+    """가상 연표: 2026-04-27 순 2억 4,100만(넣은 돈 2억 3,300만 — 처음 원금 회복) → 6-18 순 2억 7,714만(넣은 돈 2억 3,600만, 꼭대기)
+    → 지금 순 2,714만. 6-18 에 빚을 내지 않고 절반을 매도해 현금으로 뒀다면: 현금 절반(이자 0) + 남은 절반은 코스피 7월 하락 −34.01%
+    (머니투데이 2026-07-30 — 실제 값)만큼 떨어졌다고 가정."""
+    april, april_put, june, june_put, kospi_jul = 24100, 23300, P["peak_net"], P["june_put_in"], -0.3401
+    half_cash = june / 2
+    half_kept = june / 2 * (1 + kospi_jul)
+    out = dict(april_net_만원=april, april_over_put_in_만원=april - april_put, june_net_만원=june, june_over_put_in_만원=june - june_put,
+               now_net_만원=P["net"], lost_since_june_만원=june - P["net"], half_sold_june_만원=round(half_cash + half_kept),
+               half_sold_better_만원=round(half_cash + half_kept - P["net"]), kospi_july_pct=round(100 * kospi_jul, 2))
     log("PERSONA_APRIL", **out)
     return out
 
@@ -201,12 +188,12 @@ def dca_10y(price: pd.Series, months=120, amount=100):
     r = np.array(res)
     out = dict(starts=len(r), first_start=str(price.index[0].date())[:7], last_start=str(price.index[len(r) - 1].date())[:7],
                put_in_만원=amount * months, loss_share_pct=round(100 * float((r < 1).mean()), 1), loss_count=int((r < 1).sum()),
-               median_x=round(float(np.median(r)), 2), worst_x=round(float(r.min()), 2), best_x=round(float(r.max()), 2))
+               median_x=round(float(np.median(r)), 2), mean_x=round(float(r.mean()), 2),   # v1.5 평균 (1화 대본 '평균 수익 배수')
+               worst_x=round(float(r.min()), 2), best_x=round(float(r.max()), 2))
     log("DCA_10Y", **out)
     return out
 
 
-B_LOSS, B_SHARE = 25000, 0.70   # 요약본 B (가상): 손실 2억 5천 = 전재산의 70%
 
 
 def persona_b(quiet=False):
@@ -215,7 +202,8 @@ def persona_b(quiet=False):
     before = loss / share
     left = before - loss
     out = dict(loss_만원=loss, share_pct=70, before_만원=round(before), left_만원=round(left),
-               need_x=round(before / left, 2), need_pct=round(100 * (before / left - 1), 1))
+               need_x=round(before / left, 2), need_pct=round(100 * (before / left - 1), 1),
+               deposit_만원=P["deposit"], net_now_만원=P["net"], account_now_만원=P["account"], minus_loan_만원=P["minus_loan"])
     if not quiet:
         log("PERSONA_B", **out)
     return out
@@ -249,8 +237,9 @@ def months_to_gain(price: pd.Series, seed, monthly, target_gain, max_months=240)
 
 def recover_b(price: pd.Series):
     b = persona_b(quiet=True)
-    out = dict(seed_plus_100=months_to_gain(price, b["left_만원"], 100, b["loss_만원"]),
-               seed_plus_200=months_to_gain(price, b["left_만원"], 200, b["loss_만원"]),
+    seed = P["net"]                                        # v1.5 투자할 수 있는 돈 = 계좌 순 2,714만 (보증금 8,000만은 집)
+    out = dict(seed_plus_100=months_to_gain(price, seed, 100, b["loss_만원"]),
+               seed_plus_200=months_to_gain(price, seed, 200, b["loss_만원"]),
                monthly_100_only=months_to_gain(price, 0, 100, b["loss_만원"]))
     for k, v in out.items():
         log("RECOVER_B", case=k, starts=v["starts"], reached=v["reached"], median_y=v["median_years"], fastest_y=v["fastest_years"], slowest_y=v["slowest_years"])
@@ -303,7 +292,7 @@ def main():
         daily_first=str(daily.index[0].date()), daily_last=str(daily.index[-1].date()), days=len(daily), dataset_commit=data.DATASET_COMMIT)
     res = dict(version=VERSION, made=time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), dataset_commit=data.DATASET_COMMIT,
                assumptions="S&P 500 가격만(배당 빼고) · 환율·세금·수수료·현금 이자 없음 · 3배는 일별 맞추기·비용 없음 · 월평균 가격",
-               persona=P, persona_costs=persona_costs(), recovery_math=recovery_math(), months_to_recover=months_to_recover(price), drawdowns=drawdowns(price),
+               persona=P, persona_costs=persona_costs(), recovery_math=recovery_math(), drawdowns=drawdowns(price),
                holding_loss=holding_loss(price), lev3=lev3(daily), margin_call=margin_call(), missing_best_days=missing_best_days(daily),
                fomo=fomo(price), persona_april=persona_april(), dca_10y=dca_10y(price), persona_b=persona_b(), recover_b=recover_b(price), boxpi_sp=boxpi_sp(price))
     OUT.write_text(json.dumps(res, ensure_ascii=False, indent=1), "utf-8")

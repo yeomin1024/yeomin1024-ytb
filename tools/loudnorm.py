@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.2 — 2026-10-18 — 주식 레버리지 롱폼에서 5번 모두 기준 밖(I -14.32·TP -1.45 사이를 오감)으로 실패한 것 고침: ① 리미터가 켜진 채
+# VERSION: v1.3 — 2026-10-23 — 주식 이야기형 1화 롱폼에서 8번 모두 기준 밖(I -15.80 → -14.41, TP -2.2 근처)으로 실패한 것 고침: 첫 시도에서 트루 피크가
+#          크게 넘어(+1.39) 리미터를 -5 dBFS 까지 낮춘 뒤, 피크에 여유(0.7~1.7 dB)가 생겨도 리미터를 다시 올리지 않아 이득을 올려도 리미터가 눌러
+#          음량이 조금씩만 올랐음 → 음량이 모자라고 트루 피크에 여유가 있으면 리미터를 '여유 − 0.15 dB' 만큼 올림 (한도 − 0.5 dB 까지) +
+#          그만큼 오를 음량을 이득에서 미리 뺌. (사용자 지시 2026-10-23 "그냥 정리 부분은 빼자 …" 뒤 1화 영상 렌더 때 찾음)
+# (v1.2) — 2026-10-18 — 주식 레버리지 롱폼에서 5번 모두 기준 밖(I -14.32·TP -1.45 사이를 오감)으로 실패한 것 고침: ① 리미터가 켜진 채
 #          음량만 모자라면 모자란 양의 1.5배를 올림 (리미터가 올린 이득의 일부를 눌러 먹어 -14.31 → -14.19 처럼 조금씩만 오름) ② 트루 피크가
 #          조금 넘으면 리미터를 '넘은 양 + 0.1 dB' 만 낮춤 (예전 + 0.2 — 0.05 넘은 것에 0.25 를 낮춰 음량이 다시 기준 밖으로) ③ 최대 5번 → 8번 ④ 기준 비교는 소수 둘째 자리로 (-14.3 이 소수 오차로 0.3 넘음이 됨).
 #          (사용자 지시 2026-10-18 "채권 표현 수정하고 영상 업로드 할 준비해" — 최종 렌더 때 찾음)
@@ -23,7 +27,8 @@ r"""
   2. 이미 |I - 목표| ≤ 0.5 이고 TP ≤ 한도면 건너뜀 (--force 아니면). 같은 영상에 두 번 돌려도 안전
   3. 이득 = 목표 - I. 이득을 더한 피크가 한도 안이면 단순 증폭만 (음색·다이내믹 그대로)
      넘으면 증폭 + 피크 리미터(alimiter, 미리 보기 5ms, 지연 보정 → 자막·화면 싱크 그대로). 말소리의 짧은 피크만 누름
-  4. 결과 파일을 다시 측정 → 목표에서 0.3 LU 넘게 벗어나거나 TP가 한도를 넘으면 이득·리미터를 고쳐 한 번 더 (최대 3번)
+  4. 결과 파일을 다시 측정 → 목표에서 0.3 LU 넘게 벗어나거나 TP가 한도를 넘으면 이득·리미터를 고쳐 한 번 더 (최대 8번 —
+     v1.3 음량이 모자라고 트루 피크에 여유가 있으면 리미터도 다시 올림)
   5. 통과한 파일로 원본을 바꿈 (임시 파일 → 이름 바꾸기). 실패하면 원본은 그대로 두고 종료 코드 1
 로그: [LOUDNESS] [시각] key=value ... (측정 전·후 값, 쓴 이득, 리미터 사용 여부, 걸린 시간)
 """
@@ -45,6 +50,7 @@ TP_MARGIN = 0.5     # 리미터는 표본 피크 기준이라 트루 피크(표�
 MAX_TRIES = 8       # v1.2 (예전 5)
 LIMITED_GAIN_STEP = 1.5   # v1.2 리미터가 켜져 있으면 음량 부족분의 이 배수만큼 이득을 올림 (리미터가 일부를 눌러 먹음)
 TP_EXTRA_DROP = 0.1       # v1.2 트루 피크가 넘으면 리미터를 '넘은 양 + 이것' 만큼 낮춤 (예전 0.2)
+LIMIT_RAISE_KEEP = 0.15  # v1.3 트루 피크 여유가 있으면 리미터를 '여유 − 이것' 만큼 다시 올림 (dB)
 LIMIT_GAIN_COMP = 0.4   # 리미터를 1 dB 낮추면 음량이 대략 이만큼 줄어듦 → 그만큼 이득을 미리 올림 (v1.1, 2026-10-15 실측 0.45 dB → 0.18 LU)
 
 log = logging.getLogger("loudnorm")
@@ -150,8 +156,15 @@ def normalize(path, target, tp, dry_run=False, force=False):
                         LRA=after["LRA"], ok_I=ok_i, ok_TP=ok_tp))
             if ok_i and ok_tp:
                 break
+            raise_db = 0.0
+            if not ok_i and ok_tp and limit is not None and after["I"] < target:   # v1.3 피크 여유가 있으면 리미터를 다시 올림
+                raise_db = max(0.0, min((tp - TP_MARGIN) - limit, (tp - after["TP"]) - LIMIT_RAISE_KEEP))
+                if raise_db > 0:
+                    limit += raise_db
+                    log.info(kv(stage="limit_up", raise_db=f"{raise_db:.2f}", limit_dbfs=f"{limit:.2f}", tp_room=f"{tp - after['TP']:.2f}"))
             if not ok_i:    # 리미터가 피크를 누른 만큼 음량이 덜 오름 → 차이만큼 이득 보정 (리미터가 켜져 있으면 1.5배 — v1.2)
                 gain += (target - after["I"]) * (LIMITED_GAIN_STEP if limit is not None and after["I"] < target else 1.0)
+                gain -= LIMIT_GAIN_COMP * raise_db       # v1.3 리미터를 올려 오를 음량만큼 미리 뺌
             if not ok_tp:   # 트루 피크가 넘으면 리미터를 넘은 만큼 더 낮춤 + 그 때문에 줄 음량을 미리 보정 (v1.1)
                 drop = (after["TP"] - tp) + TP_EXTRA_DROP
                 limit = (limit if limit is not None else tp - TP_MARGIN) - drop

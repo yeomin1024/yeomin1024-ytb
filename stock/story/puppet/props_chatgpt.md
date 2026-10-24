@@ -77,25 +77,25 @@ PROP: ONE single stage prop for the same paper puppet show (an object, not a per
 |---|---|---|---|---|---|
 | 1 | `stock/story/puppet/props/PHONE-ALERT.png` | 경고 · 강제 매도(반대매매) · 계좌 위험 알림 | 빚낸 돈이 강제로 빠져나감 | 1화 | 있음 |
 | 2 | `stock/story/puppet/props/PIGGY.png` | 줄어든 저축 · 노후 자금 · 비상금이 모자람 | 노후 자금이 조금만 남음 | 1화 | 있음 |
-| 3 | `stock/story/puppet/props/NOTEBOOK.png` | 원칙 · 매매 일지 · 규칙 적기 | 지킬 것을 노트에 적음 | 1화 | 만들 것 |
-| 4 | `stock/story/puppet/props/ONE-BASKET.png` | 몰빵 · 한 종목·한 업종에 집중 | 반도체에만 넣음 | 1화 | 만들 것 |
-| 5 | `stock/story/puppet/props/BARRIER.png` | 거래 정지 · 멈춤 · 매매 중단 | 거래가 20분 멈춤 | 1화 | 만들 것 |
-| 6 | `stock/story/puppet/props/BOX.png` | 박스권 · 오래 제자리인 지수 | 박스피 | 1화 | 만들 것 |
-| 7 | `stock/story/puppet/props/BIG-BASKET.png` | 지수 · 분산 투자 (여러 회사를 나눠 담음) | 500개 회사를 담은 지수 | 1화 | 만들 것 |
-| 8 | `stock/story/puppet/props/TRASH.png` | 앱 삭제 · 시장을 떠남 · 포기 | 주식 앱을 지울 생각 | 1화 | 만들 것 |
-| 9 | `stock/story/puppet/props/STAMP.png` | 손실 확정 · 되돌릴 수 없는 결정 | 떠나는 순간 손실이 확정 | 1화 | 만들 것 |
-| 10 | `stock/story/puppet/props/RUIN.png` | 한 회사가 무너짐 · 회복 못 하는 종목 · 상장 폐지 | 한 종목은 끝내 회복 못 할 수도 | 1화 | 만들 것 |
-| 11 | `stock/story/puppet/props/WAVE.png` | 시장 전체를 움직이는 큰 흐름 (금리·경기) | 거시 경제 | 1화 | 만들 것 |
-| 12 | `stock/story/puppet/props/NEWS.png` | 뉴스 · 호재 기사 · 정보만 쫓음 | 호재 기사만 골라 읽음 | 1화 | 만들 것 |
-| 13 | `stock/story/puppet/props/STORM.png` | 악재가 한꺼번에 · 위기 · 폭락장 | 여러 우려가 한꺼번에 덮침 | 1화 | 만들 것 |
-| 14 | `stock/story/puppet/props/BANK.png` | 금리 · 예금 · 돈이 은행으로 감 | 금리가 오르면 돈이 예금으로 | 1화 | 만들 것 |
-| 15 | `stock/story/puppet/props/BALLOON.png` | 거품 · 과열 · 빚으로 부푼 시장 | 시장 전체가 빚으로 달림 | 1화 | 만들 것 |
-| 16 | `stock/story/puppet/props/GAUGE.png` | 위험 점검 · 과열 · 무리하는지 | 경제 지표로 내가 무리하는지 점검 | 1화 | 만들 것 |
-| 17 | `stock/story/puppet/props/CHAT.png` | 남의 말 · 리딩방 · 단톡방 · 수익 인증 | 들은 종목을 따라 매수 | 1화 | 만들 것 |
-| 18 | `stock/story/puppet/props/ANCHOR.png` | 원칙 · 흔들리지 않음 | 원칙이 있으면 덜 흔들림 | 1화 | 만들 것 |
-| 19 | `stock/story/puppet/props/TORTOISE.png` | 천천히 · 꾸준히 · 장기 투자 | 리스크를 줄이며 천천히 | 1화 | 만들 것 |
-| 20 | `stock/story/puppet/props/TREE.png` | 복리 · 꾸준히 쌓여 자람 | 매달 넣은 돈이 1.6배 | 1화 | 만들 것 |
-| 21 | `stock/story/puppet/props/ROCKET.png` | 빨리 가려다 실패 · 레버리지 · 한 방 | 3배 레버리지로 메우려다 | 1화 | 만들 것 |
+| 3 | `stock/story/puppet/props/NOTEBOOK.png` | 원칙 · 매매 일지 · 규칙 적기 | 지킬 것을 노트에 적음 | 1화 | 있음 |
+| 4 | `stock/story/puppet/props/ONE-BASKET.png` | 몰빵 · 한 종목·한 업종에 집중 | 반도체에만 넣음 | 1화 | 있음 |
+| 5 | `stock/story/puppet/props/BARRIER.png` | 거래 정지 · 멈춤 · 매매 중단 | 거래가 20분 멈춤 | 1화 | 있음 |
+| 6 | `stock/story/puppet/props/BOX.png` | 박스권 · 오래 제자리인 지수 | 박스피 | 1화 | 있음 |
+| 7 | `stock/story/puppet/props/BIG-BASKET.png` | 지수 · 분산 투자 (여러 회사를 나눠 담음) | 500개 회사를 담은 지수 | 1화 | 있음 |
+| 8 | `stock/story/puppet/props/TRASH.png` | 앱 삭제 · 시장을 떠남 · 포기 | 주식 앱을 지울 생각 | 1화 | 있음 |
+| 9 | `stock/story/puppet/props/STAMP.png` | 손실 확정 · 되돌릴 수 없는 결정 | 떠나는 순간 손실이 확정 | 1화 | 있음 |
+| 10 | `stock/story/puppet/props/RUIN.png` | 한 회사가 무너짐 · 회복 못 하는 종목 · 상장 폐지 | 한 종목은 끝내 회복 못 할 수도 | 1화 | 있음 |
+| 11 | `stock/story/puppet/props/WAVE.png` | 시장 전체를 움직이는 큰 흐름 (금리·경기) | 거시 경제 | 1화 | 있음 |
+| 12 | `stock/story/puppet/props/NEWS.png` | 뉴스 · 호재 기사 · 정보만 쫓음 | 호재 기사만 골라 읽음 | 1화 | 있음 |
+| 13 | `stock/story/puppet/props/STORM.png` | 악재가 한꺼번에 · 위기 · 폭락장 | 여러 우려가 한꺼번에 덮침 | 1화 | 있음 |
+| 14 | `stock/story/puppet/props/BANK.png` | 금리 · 예금 · 돈이 은행으로 감 | 금리가 오르면 돈이 예금으로 | 1화 | 있음 |
+| 15 | `stock/story/puppet/props/BALLOON.png` | 거품 · 과열 · 빚으로 부푼 시장 | 시장 전체가 빚으로 달림 | 1화 | 있음 |
+| 16 | `stock/story/puppet/props/GAUGE.png` | 위험 점검 · 과열 · 무리하는지 | 경제 지표로 내가 무리하는지 점검 | 1화 | 있음 |
+| 17 | `stock/story/puppet/props/CHAT.png` | 남의 말 · 리딩방 · 단톡방 · 수익 인증 | 들은 종목을 따라 매수 | 1화 | 있음 |
+| 18 | `stock/story/puppet/props/ANCHOR.png` | 원칙 · 흔들리지 않음 | 원칙이 있으면 덜 흔들림 | 1화 | 있음 |
+| 19 | `stock/story/puppet/props/TORTOISE.png` | 천천히 · 꾸준히 · 장기 투자 | 리스크를 줄이며 천천히 | 1화 | 있음 |
+| 20 | `stock/story/puppet/props/TREE.png` | 복리 · 꾸준히 쌓여 자람 | 매달 넣은 돈이 1.6배 | 1화 | 있음 |
+| 21 | `stock/story/puppet/props/ROCKET.png` | 빨리 가려다 실패 · 레버리지 · 한 방 | 3배 레버리지로 메우려다 | 1화 | 있음 |
 
 ## 3. NOTEBOOK — 원칙 · 매매 일지 · 규칙 적기
 

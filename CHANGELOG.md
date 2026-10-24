@@ -1,5 +1,22 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-24 (주식 이야기형 8) — 1화 소품 21장 도착 → 최종 영상
+
+### 왜 (사용자 지시)
+- "소품 만들었으니 영상 각각 만들어봐"
+
+### 바꾼 것
+| 파일 (버전) | 내용 |
+|---|---|
+| `stock/story/puppet/props/*.png` (ChatGPT) | 21장 검수 통과 — 투명(귀퉁이 알파 0) · 글자·숫자 없음 · 그림 상자 여백 ≥ 7% · 110~693KB |
+| `stock/story/puppet/props_chatgpt.md` | 21장 상태 '있음' |
+| `video/render/story.js` (v1.5 → v1.6) | BIG 숫자와 같이 쓰는 소품 상자 [6.2, 4.0] → [6.6, 4.7] (still 에서 차단기·동전 나무가 작아 보임) |
+
+### 확인
+- `render.mjs check` 롱폼 cuts=48 problems=0 page_errors=0 · 쇼츠 cuts=6 problems=0 page_errors=0
+- still 48장 중 소품 장면 24장을 직접 봄 — 소품이 오른쪽 바닥에 섬 · 숫자와 겹치지 않음
+- 최종 렌더: 쇼츠 → 롱폼 (결과는 다음 기록)
+
 ## 2026-10-24 (주식 이야기형 7) — 설명 소품을 주식 영상 공통 소품으로
 
 ### 왜 (사용자 지시)

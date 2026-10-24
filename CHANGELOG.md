@@ -22,6 +22,7 @@
 - unittest (story_kit·story_check·subs_tool) OK
 - `render.mjs check` 롱폼 cuts=63 problems=0 (page_errors=52 = 소품 26 × 2) · 쇼츠 cuts=6 problems=0 (page_errors=6)
 - still 63장 + 고친 뒤 칩·목록 장면 16장 + 쇼츠 6장 직접 봄
+- 미리보기 16장에서 짧은 문장의 차트 끝 숫자(KOSPI 7월 −34%)가 안 보임 → story.js K3 선 그리는 시간을 문장 길이에 맞춤 (0.9~2.4초) → 다시 보니 보임 · 미리보기 `stock/out/pogi-sonjeol-2026-10/preview_v3.jpg` (컨테이너에만 — 사용자에게 보냄)
 - 연구·교육용 영상 도구 — 투자 권유 아님.
 
 ## 2026-10-24 — 예약 작업 모두 끔

@@ -122,7 +122,7 @@
         p.querySelectorAll(".k2d.on").forEach((d, i) => tl.fromTo(d, { scale: 0.4 }, { scale: 1, duration: 0.5, ease: "back.out(2)" }, t0 + 0.5 + i * 0.3));
         return t0 + 1.2;
       },
-      K3(sc, s, t0) {                                              // 차트: 선이 그려짐 · 기준(base) = 노란 점선 · 아래 x 이름(숫자)
+      K3(sc, s, t0, t1) {                                          // 차트: 선이 그려짐 · 기준(base) = 노란 점선 · 아래 x 이름(숫자)
         const v = s.values, base = s.base, lo = Math.min(...v, base == null ? Infinity : base), hi = Math.max(...v, base == null ? -Infinity : base);
         const VW = PANEL.w - 80, VH = PANEL.h - 170, py = y => 20 + (hi === lo ? VH / 2 : (hi - y) / (hi - lo) * (VH - 40));
         const pts = v.map((y, i) => [20 + i * (VW - 40) / Math.max(1, v.length - 1), py(y)]);
@@ -138,7 +138,7 @@
           `<circle class="k3e" cx="${last[0]}" cy="${last[1]}" r="16" fill="${c}"/></svg>${labs}` +
           (s.end ? `<div class="k3v w9 nw" style="color:${c};left:${Math.min(PANEL.w - 40, 40 + last[0])}px;top:${Math.max(0, 40 + last[1] - 110)}px">${esc(s.end)}</div>` : ""));
         pop(p, t0);
-        const dur = s.dur || 2.4;
+        const dur = s.dur || Math.max(0.9, Math.min(2.4, (t1 || t0 + 4) - t0 - 1.4));   // v1.7 짧은 문장이면 빨리 그려 끝 숫자가 보이게 (KOSPI 7월 −34% 가 안 보였음)
         tl.fromTo(p.querySelector(".k3p"), { strokeDashoffset: len }, { strokeDashoffset: 0, duration: dur, ease: "none" }, t0 + 0.4);
         tl.fromTo(p.querySelector(".k3e"), { opacity: 0 }, { opacity: 1, duration: 0.2 }, t0 + 0.4 + dur);
         const ev = p.querySelector(".k3v"); if (ev) pop(ev, t0 + 0.5 + dur);

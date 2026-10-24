@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-10-24 — 최초. 사용자 지시 "11월 이후 면세 방법 변경되고 가장 빠르게 면세 받기 위한 시뮬레이션을 돌려봐 시간 재서".
+# VERSION: v1.1 — 2026-10-24 — 대본 v4.0 용 '대본 숫자' 표: 사용자 지시 "너가 실제로 면세 받아야 하는 입장에서 출국 시간, 도착 구체적으로 상황 정해서
+#          시뮬레이션 하듯이" — 하네다 3터미널 18:00 출발 · 15:30 도착을 시각으로 바꿔 줌(--arrive/--flight), 초록일 때·빨간색일 때 따로,
+#          단계별 평균(세관 창구·현금)을 혼잡도마다. 대기열 계산·가정 값은 v1.0 그대로.
+# (v1.0) — 2026-10-24 — 최초. 사용자 지시 "11월 이후 면세 방법 변경되고 가장 빠르게 면세 받기 위한 시뮬레이션을 돌려봐 시간 재서".
 r"""
 일본 면세 '사후 환급(리판드 방식)' — 공항에서 면세 확인·환급까지 걸리는 시간 모의실험 (연구·교육용, 여행·세무 조언 아님)
 
@@ -26,6 +29,7 @@ r"""
   python3 test/source/myeonse-hwangeup-2026-10/sim/refund_sim.py --selftest      # 대기열 계산 시험
 
 CHANGELOG
+  v1.1 — 2026-10-24 — '대본 숫자' 표(script_numbers) · 초록일 때 시간 · 단계별 평균을 혼잡도마다 · --arrive/--flight
   v1.0 — 2026-10-24 — 최초 (대기열 모델 · 전략 6 — 줄을 보고 단말기/휴대전화 고르기 포함 · 혼잡도 3 · 빨간색일 때 시간 ·
          민감도: 단말기 대수·빨간색 비율 · 기존 방식과 비교)
 """
@@ -39,7 +43,7 @@ from pathlib import Path
 
 import numpy as np
 
-VERSION = "v1.0"
+VERSION = "v1.1"
 HERE = Path(__file__).resolve().parent
 LOG = logging.getLogger("refund_sim")
 
@@ -173,6 +177,7 @@ def one_rep(rng, lam_per_h, P, probes_per_strategy=10):
     in_win = (t_arr >= 60.0) & (t_arr <= 60.0 + win)
     out = {name: took[(attrs["probe"] == name)] for name in STRATEGIES}
     out.update({name + "|red": took[(attrs["probe"] == name) & red] for name in STRATEGIES})
+    out.update({name + "|green": took[(attrs["probe"] == name) & ~red] for name in STRATEGIES})
     out["_all"] = took[in_win & (attrs["probe"] == "")]
     diag = {"n": int(n), "kiosk_wait_med": float(np.median(wait_k[in_win & at_kiosk])) if (in_win & at_kiosk).any() else 0.0,
             "customs_wait_med": float(np.median(wait_c[in_win & to_c])) if (in_win & to_c).any() else 0.0,
@@ -191,7 +196,7 @@ def run(reps, seed, P=PARAMS, crowds=CROWDS):
     rng = np.random.default_rng(seed)
     res = {}
     for cname, lam in crowds.items():
-        acc = {k: [] for k in list(STRATEGIES) + [s + "|red" for s in STRATEGIES] + ["_all"]}
+        acc = {k: [] for k in list(STRATEGIES) + [s + "|red" for s in STRATEGIES] + [s + "|green" for s in STRATEGIES] + ["_all"]}
         diags, parts_acc = [], {k: [] for k in STRATEGIES}
         t0 = time.perf_counter()
         for _ in range(reps):
@@ -241,7 +246,42 @@ def sensitivity(reps, seed):
     return rows
 
 
-def write_md(res, sens, reps, seed, secs, path):
+def clock(hhmm, plus_min):
+    """'15:30' + 분 → '오후 3시 32분' (반올림한 분)."""
+    h, m = (int(x) for x in hhmm.split(":"))
+    t = h * 60 + m + int(round(plus_min))
+    hh, mm = divmod(t, 60)
+    return f"{'오전' if hh < 12 else '오후'} {hh if hh <= 12 else hh - 12}시" + (f" {mm}분" if mm else "")
+
+
+def script_numbers(res, sens, arrive, flight):
+    """대본 v4.0 이 쓰는 숫자를 한곳에서 (대본의 숫자 = 이 표의 값만). 나쁜 경우 = S1 평균(단계 합과 맞음), 좋은 경우 = S6 초록·빨간색 가운데값."""
+    b, q = res["붐빔"], res["한산"]
+    s1, s1p = b["times"]["S1 준비 없음"], b["parts"]["S1 준비 없음"]
+    g, rd = b["times"]["S6 가장 빠르게|green"], b["times"]["S6 가장 빠르게|red"]
+    cash_gap = np.mean(b["times"]["S3 미리 등록 + 현금"]) - np.mean(b["times"]["S4 미리 등록 + 카드"])
+    k6 = next(x for x in sens if x[0] == 6 and abs(x[1] - 0.10) < 1e-9) if sens else None
+    fh, fm = (int(x) for x in flight.split(":")); ah, am = (int(x) for x in arrive.split(":"))
+    left_after_red = (fh * 60 + fm) - (ah * 60 + am) - float(np.median(rd))
+    rows = [
+        ("나쁜 경우 면세에 쓴 시간 (S1 평균)", f"{np.mean(s1):.1f}분", "S1 준비 없음 · 붐빔 · 평균"),
+        ("  └ 세관 창구 (걷기·줄·신고)", f"{s1p['customs']:.1f}분 → {clock(arrive, s1p['customs'])}", "S1 단계 평균"),
+        ("  └ 현금 환급 단말기 (걷기·줄·받기)", f"{s1p['cash']:.1f}분", "S1 단계 평균 (하네다 3터미널은 출국 후 구역)"),
+        ("같은 실수, 한산한 시간이면 (S1 평균)", f"{np.mean(q['times']['S1 준비 없음']):.1f}분", "S1 · 한산"),
+        ("좋은 경우 초록 (S6 가운데값)", f"{np.median(g):.1f}분 → {clock(arrive, float(np.median(g)))}", "S6 가장 빠르게 · 붐빔 · 빨간색 아님"),
+        ("좋은 경우 빨간색 (S6 가운데값)", f"{np.median(rd):.1f}분 → {clock(arrive, float(np.median(rd)))} · 출발까지 {left_after_red:.0f}분 남음", "S6 · 붐빔 · 빨간색"),
+        ("현금 대신 카드로만 바꿔도 아끼는 시간", f"{cash_gap:.1f}분", "S3 평균 − S4 평균 · 붐빔"),
+        ("실수 하나씩 고치기 ① 과자만 따로 계산 (S2 평균)", f"{np.mean(b['times']['S2 보통']):.1f}분", "S2 = S1 에서 '써 버린 물건'만 뺌 · 붐빔"),
+        ("실수 하나씩 고치기 ② 방법을 다 지킴 (S6 평균, 빨간색 포함)", f"{np.mean(b['times']['S6 가장 빠르게']):.1f}분", "S6 · 붐빔 · 평균"),
+    ]
+    if k6:
+        rows.append(("단말기가 6대뿐일 때: 단말기만 / 줄 보고 휴대전화", f"{k6[3]:.1f}분 / {k6[4]:.1f}분", "민감도 · 붐빔 · 빨간색 10% · 가운데값"))
+    for k, v, w in rows:
+        log("SCRIPT", item=k.strip(" └"), value=v)
+    return {"arrive": arrive, "flight": flight, "rows": rows}
+
+
+def write_md(res, sens, reps, seed, secs, path, script=None):
     o = [f"# 일본 면세 사후 환급 — 공항 시간 모의실험 결과 ({VERSION})", "",
          f"만든 때 {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')} · `refund_sim.py` · 반복 {reps}번 · 난수 씨앗 {seed} · 돌린 시간 {secs:.1f}초", "",
          "> **가정으로 돌린 모의실험이다 — 실제로 잰 시간이 아니다.** 단말기·창구 대수, 한 사람 처리 시간, 빨간색 비율은 공개된 숫자가 없어 가정했다 (아래 '가정' 표).",
@@ -260,14 +300,19 @@ def write_md(res, sens, reps, seed, secs, path):
           "| 혼잡도 | " + " | ".join(STRATEGIES) + " |", "|---|" + "---|" * len(STRATEGIES)]
     for c, r in res.items():
         o.append(f"| {c} | " + " | ".join((f"{np.median(r['times'][k + '|red']):.1f}분" if len(r['times'][k + '|red']) else "—") for k in STRATEGIES) + " |")
-    o += ["", "S1 은 써 버린 물건 때문에 처음부터 세관 창구로 가므로 '빨간색' 경우가 없음(—).", "", "## 어디서 시간이 드나 (보통 혼잡, 평균 분)", "",
-          "| 전략 | 단말기·휴대전화 | 세관 창구 (빨간색·써 버린 물건) | 현금 받기 |", "|---|---|---|---|"]
-    for k, p in res["보통"]["parts"].items():
-        o.append(f"| {k} | {p['kiosk_or_phone']:.1f} | {p['customs']:.1f} | {p['cash']:.1f} |")
+    o += ["", "S1 은 써 버린 물건 때문에 처음부터 세관 창구로 가므로 '빨간색' 경우가 없음(—).", "", "## 어디서 시간이 드나 (평균 분 — 걷기·기다림·처리 포함)", "",
+          "| 혼잡도 | 전략 | 단말기·휴대전화 | 세관 창구 (빨간색·써 버린 물건) | 현금 받기 | 합계 평균 |", "|---|---|---|---|---|---|"]
+    for c, r in res.items():
+        for k, p in r["parts"].items():
+            o.append(f"| {c} | {k} | {p['kiosk_or_phone']:.1f} | {p['customs']:.1f} | {p['cash']:.1f} | {np.mean(r['times'][k]):.1f} |")
     o += ["", "## 민감도 — 붐빌 때, 단말기 대수·빨간색 비율을 바꾸면 (가운데값)", "",
           "| 단말기 | 빨간색 비율 | S2 보통 | S4 미리 등록 + 카드 | S6 가장 빠르게 (평균) | 단말기 줄 | 세관 창구 줄 |", "|---|---|---|---|---|---|---|"]
     o += [f"| {k}대 | {int(p * 100)}% | {a:.1f}분 | {b:.1f}분 | {c:.1f}분 ({cm:.1f}분) | {w:.1f}분 | {cw:.1f}분 |" for k, p, a, b, c, cm, w, cw in sens]
     o += ["", "단말기가 모자라면(6대) 단말기 줄이 길어져 그 뒤 세관·현금 줄로 가는 흐름이 늦춰진다 — 그래서 뒤 줄이 오히려 짧게 나올 수 있다 (가운데값은 빨간색이 아닌 사람이 대부분)."]
+    if script:
+        o += ["", f"## 대본에 쓰는 숫자 (대본 v4.0 — {script['arrive']} 도착 · {script['flight']} 출발 · 붐빔)", "",
+              "| 무엇 | 값 | 어디서 |", "|---|---|---|"]
+        o += [f"| {k} | {v} | {w} |" for k, v, w in script["rows"]]
     o += ["", "## 가정", "", "| 이름 | 값 | 근거·가정 |", "|---|---|---|"]
     o += [f"| {k} | {v['v']} | {v['note']} |" for k, v in PARAMS.items()]
     o += ["", "| 혼잡도 | 면세 여행자/시간 |", "|---|---|"] + [f"| {k} | {v} |" for k, v in CROWDS.items()]
@@ -295,6 +340,8 @@ def main(argv=None):
     ap.add_argument("--seed", type=int, default=20261101)
     ap.add_argument("--out", default=str(HERE / "results.md"))
     ap.add_argument("--no-sens", action="store_true", help="민감도 표 건너뜀")
+    ap.add_argument("--arrive", default="15:30", help="대본 설정: 공항 도착 시각 (기본 15:30)")
+    ap.add_argument("--flight", default="18:00", help="대본 설정: 비행기 출발 시각 (기본 18:00, 하네다 3터미널)")
     ap.add_argument("--selftest", action="store_true")
     ap.add_argument("--log-level", default="INFO", choices=["DEBUG", "INFO", "WARNING"])
     a = ap.parse_args(argv)
@@ -311,7 +358,8 @@ def main(argv=None):
     for c, r in res.items():
         log("SUMMARY", crowd=c, **{k.split()[0]: f"{np.median(r['times'][k]):.1f}/{np.mean(r['times'][k]):.1f}/{np.median(r['times'][k + '|red']) if len(r['times'][k + '|red']) else float('nan'):.1f}" for k in STRATEGIES},
             note="가운데값/평균/빨간색일때 (분)")
-    write_md(res, sens, a.reps, a.seed, secs, Path(a.out))
+    script = script_numbers(res, sens, a.arrive, a.flight)
+    write_md(res, sens, a.reps, a.seed, secs, Path(a.out), script)
     log("DONE", seconds=secs)
     return 0
 

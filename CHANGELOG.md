@@ -1,5 +1,22 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-24 (주식 이야기형 7) — 설명 소품을 주식 영상 공통 소품으로
+
+### 왜 (사용자 지시)
+- "소품 요소를 좀 되도록 다른 주식 관련 영상에서 재사용할 수 있도록 공통된 걸 만들도록 해봐 물론 재사용 불가능해도 꼭 필요하면 만들어도 되고"
+
+### 바꾼 것
+| 파일 (버전) | 내용 |
+|---|---|
+| `stock/story/puppet/props_chatgpt.md` (v1.0 → v2.0) | 표 = 뜻(어느 영상에나)·이야기 예·쓴 화·상태 · PROP 문단에 '여러 주식 이야기에서 다시 쓰는 일반 기호' · 1화만의 묘사 뺌 (ONE-BASKET 반도체 칩 → 달걀 · NEWS 칩 그림 → 빈 사진 칸 · NOTEBOOK 체크칸 5 → 3 · BALLOON 지폐 묶음 → 거품 · BARRIER 초시계) · PHONE-ALERT·PIGGY '있음' (올라와 검수 통과 — 투명·글자 없음·일반적인 모양) → ChatGPT 는 '만들 것' 19장만 · 2~4화 대본에서 뽑은 후보 7개 (DICE·CHAIN·HOLE·SCALE·HOURGLASS·BELL-OFF·UMBRELLA — 아직 안 만듦) |
+| `tools/story_kit.py` (v1.6 → v1.7) · 시험 v1.3 | `props [낱말]` — 공통 소품 목록(✅ 그림 있음 · ⬜ 만들 것 · … 후보)을 뜻·예로 찾음. 후보는 장면 표 목록에 들지 않음 |
+| `stock/guides/quick_story.md` (v1.6) · `stock/story/series.md` (v1.9) · `CLAUDE.md` · `props/README.md` | 새 화는 `props` 로 있는 소품부터 다시 씀 · 새 소품도 일반적인 뜻으로 (꼭 필요하면 '전용') |
+| `guides/status.md` (v2.48) | 버전 줄 · 주식 줄 다음 할 일 |
+
+### 확인
+- unittest (story_kit·story_check·subs_tool) OK · `story_kit props 빚` → PHONE-ALERT ✅ · BALLOON ⬜ · CHAIN 후보 · 1화 장면 다시 생성 (소품 21종, 그림 있음 2)
+- 연구·교육용 영상 도구 — 투자 권유 아님.
+
 ## 2026-10-24 (역사 분석 9) — 검색 캐시가 끝나 롱폼 검색 80번 · 승인 101 (811 → 912) · 성공 사례 471 → 507 · `history/analysis_rules.toml` v1.5
 
 - 예약 작업 '역사 분석 이어서' (`trig_01HMG95DYgQiYDH7NsthAyx9`, 사용자 지시 2026-10-16 "사용량 초기화 될때마다 분석을 계속 이어서하면 돼"). 자세히 `history/README.md` 회차 기록.

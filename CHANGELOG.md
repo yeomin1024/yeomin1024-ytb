@@ -25,7 +25,8 @@
 ### 확인
 - `render.mjs check` 롱폼 cuts=48 problems=0 page_errors=0 · 쇼츠 cuts=6 problems=0 page_errors=0
 - still 48장 중 소품 장면 24장을 직접 봄 — 소품이 오른쪽 바닥에 섬 · 숫자와 겹치지 않음
-- 최종 렌더: 쇼츠 → 롱폼 (결과는 다음 기록)
+- **최종 렌더 끝**: 쇼츠 `stock/out/pogi-sonjeol-2026-10-shorts/final_1080p.mp4` 40.2초 · I -14.15 · TP -1.62 / 롱폼 `stock/out/pogi-sonjeol-2026-10/final_1080p.mp4` 406.6초 · I -14.1 · TP -1.7 (컨테이너에만 — git 에 넣지 않음)
+- 완성 mp4 장면 11개 직접 봄 (롱폼 8 · 쇼츠 3): 소품 그림·숫자·배경 정상, 쇼츠 첫 문장 썸네일 그림
 
 ## 2026-10-24 (주식 이야기형 7) — 설명 소품을 주식 영상 공통 소품으로
 

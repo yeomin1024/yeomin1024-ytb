@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-# VERSION: v1.2 — 2026-10-23 — story_kit v1.6: K6 정리 카드 없음 · 소품 '*이름' (자리·때·움직임 · 목록 밖이면 멈춤).
+# VERSION: v1.3 — 2026-10-24 — props 명령 (공통 소품 목록 · 낱말로 찾기 · 후보).
+# (v1.2) — 2026-10-23 — story_kit v1.6: K6 정리 카드 없음 · 소품 '*이름' (자리·때·움직임 · 목록 밖이면 멈춤).
 # (v1.1) — 2026-10-23 — story_kit v1.4: K6 그림 줄 · PIE · BIG 여러 낱말 · K4 icon= (화면에 한국어 없음).
 # (v1.0) — 2026-10-23 — tools/story_kit.py v1.0 시험: 금액 읽기 · 장면 표 문법(인형·화면) · 제작안 절 읽기 · 쇼츠 길이 추정.
 import sys
@@ -75,6 +76,24 @@ class GrammarTest(unittest.TestCase):
         for bad in ("K9 1", "K5 rocket", "K6 kr>us"):              # v1.2 K6 정리 카드 없음 (정리 부분은 뺌)
             with self.assertRaises(ValueError):
                 sk.parse_screen(bad)
+
+
+class PropsTest(unittest.TestCase):                         # v1.3 공통 소품 목록 (story_kit v1.7)
+    def run_props(self, *words):
+        import argparse, contextlib, io
+        out = io.StringIO()
+        with contextlib.redirect_stdout(out):
+            sk.cmd_props(argparse.Namespace(words=list(words)))
+        return out.getvalue()
+
+    def test_list_and_filter(self):
+        all_ = self.run_props()
+        self.assertIn("*ONE-BASKET", all_)
+        self.assertIn("후보", all_)                               # 후보도 보임 (아직 장면 표엔 못 씀)
+        only = self.run_props("몰빵")
+        self.assertIn("*ONE-BASKET", only)
+        self.assertNotIn("*TORTOISE", only)
+        self.assertNotIn("DICE", sk.props_catalog())              # 후보는 장면 표 목록에 없음
 
 
 class PlanTest(unittest.TestCase):

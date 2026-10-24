@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.6 — 2026-10-23 — ① 정리 부분 뺌 (사용자 지시 "그냥 정리 부분은 빼자"): 장면 표의 '정리' 줄·K6 정리 카드 없음 (쓰면 문제).
+# VERSION: v1.7 — 2026-10-24 — props 명령: 공통 설명 소품 목록(뜻·쓴 화·그림 있음·후보)을 낱말로 찾음 — 새 화는 있는 소품부터 다시 씀
+#          (사용자 지시 "소품 요소를 좀 되도록 다른 주식 관련 영상에서 재사용할 수 있도록 공통된 걸 만들도록 해봐 …").
+# (v1.6) — 2026-10-23 — ① 정리 부분 뺌 (사용자 지시 "그냥 정리 부분은 빼자"): 장면 표의 '정리' 줄·K6 정리 카드 없음 (쓰면 문제).
 #          ② 설명 소품 그림 (사용자 지시 "설명에 필요한 이미지 요소들은 왜 생성안해?"): 인형 칸에 '*이름' = 무대 위 종이 소품
 #          (ChatGPT 그림 stock/story/puppet/props/<이름>.png — 목록 = props_chatgpt.md 표). 소품은 화면 없는 장면이나 BIG 과만 (화면 칸과 겹침).
 # (v1.5) — 2026-10-23 — 영어도 없음 (사용자 지시 "야 영어 문구도 넣지마"): 썸네일 문구 = 숫자·기호만(글자면 멈춤 · 1~2줄 · 꼬리표 '#N') · BIG icon=.
@@ -26,6 +28,7 @@
   C 검사   python3 tools/story_kit.py check <영상ID>         # 제작안 길이·story_check·제목 2줄 — 문제 줄만
   C 내보내기 python3 tools/story_kit.py export <영상ID> --thumb "줄1/줄2" --pose PHONE [--big "−70%"] [--bg HOME-NIGHT]
                                                           # 오디오 대본 · 쇼츠 대본 · 썸네일 프롬프트 3+1장 · 장면 표 초안
+  소품     python3 tools/story_kit.py props [낱말 …]           # 공통 설명 소품 목록 (뜻·쓴 화·그림 있음) — 있는 것부터 다시 씀
   D 장면   python3 tools/story_kit.py scenes <영상ID> [--shorts] [--draft] [--force]   # 장면 표 → video/episodes/<영상ID>/index.html
 """
 import argparse
@@ -45,7 +48,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 sys.path.insert(0, str(ROOT / "stock" / "story" / "calc"))
 import srt_tool  # noqa: E402
 
-VERSION = "v1.6"
+VERSION = "v1.7"
 LOG = logging.getLogger("story_kit")
 STORY = ROOT / "stock" / "story"
 SOURCE = ROOT / "stock" / "source"
@@ -691,6 +694,41 @@ def props_catalog():
     return seen
 
 
+PROP_ROW = re.compile(r"^\| (\d+) \| `stock/story/puppet/props/([A-Z0-9-]+)\.png` \| ([^|]*)\| ([^|]*)\| ([^|]*)\|")
+PROP_CAND = re.compile(r"^- 후보 ([A-Z0-9-]+) — (.*)$")
+
+
+def cmd_props(a):
+    """공통 설명 소품 목록 — 이름 · 뜻 · 쓴 화 · 그림 있음(✅)/만들 것(⬜)/후보(…). 낱말을 주면 뜻·이야기 예에 든 것만."""
+    if not PROPS_FILE.exists():
+        fail("PROPS", f"목록 없음: {PROPS_FILE.relative_to(ROOT)}")
+    rows, cand = [], []
+    for line in PROPS_FILE.read_text("utf-8").splitlines():
+        m = PROP_ROW.match(line)
+        if m:
+            rows.append((m.group(2), m.group(3).strip(), m.group(4).strip(), m.group(5).strip()))
+            continue
+        c = PROP_CAND.match(line)
+        if c:
+            cand.append((c.group(1), c.group(2).strip()))
+    words = [w for w in a.words if w]
+    hit = lambda *txt: not words or any(w in " ".join(txt) for w in words)
+    n = 0
+    for name, mean, ex, ep in rows:
+        if hit(name, mean, ex):
+            have = (STORY / "puppet" / "props" / f"{name}.png").exists()
+            print(f"{'✅' if have else '⬜'} *{name:<12} {mean} — 예: {ex} · {ep}")
+            n += 1
+    for name, mean in cand:
+        if hit(name, mean):
+            print(f"… {name:<13} (후보 — 쓰려면 props_chatgpt.md 표로 옮겨 프롬프트를 씀) {mean}")
+            n += 1
+    if not n:
+        print(f"맞는 소품 없음 — 새로 만들면 {PROPS_FILE.relative_to(ROOT)} 표 끝에 (일반적인 뜻으로, 화 전용이면 '전용')")
+    log("PROPS", shown=n, total=len(rows), candidates=len(cand), words=" ".join(words))
+    return 0
+
+
 def parse_puppets(s, catalog=None):
     """인형 칸 → [{pose…} | {prop…}] — v1.6 '*이름' = 소품 (예: 13:몰빵:*ONE-BASKET@R>rise)."""
     out = []
@@ -892,12 +930,13 @@ def main(argv=None):
     p = sub.add_parser("export"); p.add_argument("vid"); p.add_argument("--thumb", required=True, help='썸네일 문구 1~2줄 "줄1/줄2" — 숫자·기호만 (영어·한국어 없음)')
     p.add_argument("--pose", default="PHONE", choices=[x for x in POSES if x != "CROWD"]); p.add_argument("--big", default="")
     p.add_argument("--bg", default="HOME-NIGHT", choices=BGS)
+    p = sub.add_parser("props"); p.add_argument("words", nargs="*")
     p = sub.add_parser("scenes"); p.add_argument("vid"); p.add_argument("--shorts", action="store_true")
     p.add_argument("--draft", action="store_true"); p.add_argument("--force", action="store_true")
     a = ap.parse_args(argv)
     logging.basicConfig(level=getattr(logging, a.log_level), format="%(message)s", stream=sys.stderr)
     return {"topics": cmd_topics, "nums": cmd_nums, "facts": cmd_facts, "new": cmd_new, "check": cmd_check,
-            "export": cmd_export, "scenes": cmd_scenes}[a.cmd](a)
+            "export": cmd_export, "props": cmd_props, "scenes": cmd_scenes}[a.cmd](a)
 
 
 if __name__ == "__main__":

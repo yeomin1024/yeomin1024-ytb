@@ -1,4 +1,6 @@
-# 설명 소품 (투명 PNG)
+# 공통 설명 소품 (투명 PNG)
+
+2026-10-24 — 주식 영상 공통 (화·종목 전용이 아니라 일반적인 뜻 — 몰빵·분산·손실 확정·거품·천천히 …). 목록 보기: `python3 tools/story_kit.py props [낱말]`.
 
 ChatGPT 가 `stock/story/puppet/props_chatgpt.md` 대로 만들어 이 폴더에 올린다 (PNG 투명, 정사각, 700KB 이하, 이름 = 표의 저장 경로).
 

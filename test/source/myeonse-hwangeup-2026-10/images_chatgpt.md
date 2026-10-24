@@ -1,6 +1,6 @@
 # 일본 면세, 11월 1일부터 '사후 환급'으로 — 이미지 12장 ChatGPT용 (읽고 그대로 만들고 각 저장 경로에 올리기)
 
-작성: 2026-10-23 (Claude, v2.0) — 짝 문서 `test/일본면세_사후환급_제작안.txt`
+작성: 2026-10-24 (Claude, v3.0) — 짝 문서 `test/일본면세_사후환급_제작안.txt`
 
 이 파일 주소: https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/test/source/myeonse-hwangeup-2026-10/images_chatgpt.md
 

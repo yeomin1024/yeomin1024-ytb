@@ -1,11 +1,17 @@
 ==================================================
-일본 면세 11월부터 — 가장 빠르게 면세 받는 방법 - 롱폼 / 쇼츠 제작안 (v5.0)
+일본 면세 11월부터 — 가장 빠르게 면세 받는 방법 - 롱폼 / 쇼츠 제작안 (v6.0)
 대본 + 화면 구성(배경 이미지 + 코드 렌더링) + ChatGPT 이미지 요청 방법
 ==================================================
 
 작성 2026-10-24 (Claude) — 짝 문서: 일본 축제 제작안 test/일본축제_사망사고_제작안.txt (v8.3) 와 같은 꼴
 
 [이 문서 보는 법]
+- v6.0 (2026-10-24, 사용자 지시 "오디오 만들었어 영상은 일본 축제 영상처럼 만들거니까 chatgpt 한테 이미지 요소 만들기 위한 지시사항 알려줘"):
+    영상을 일본 축제 편과 같은 **종이인형극**(video/render/puppet.js — 빈 무대 배경 + 오린 종이 인형 투명 PNG, 움직임·숫자·초록/빨강 신호는 코드)으로 바꿈.
+    그림 요청 v6.0 = test/source/myeonse-hwangeup-2026-10/images_chatgpt.md — 배경 2(M-AIRPORT·M-STORE) + 인형 23(test/puppet/M-*.png) + 썸네일 2.
+    숫자·지도·정리 장면 배경은 축제 편 test/puppet/P-PAPER.jpg 를 다시 씀. 예전 IMG-L1~L9(아직 안 만듦)는 쓰지 않음.
+    아래 '대본 + 화면 구성'의 배경 칸(IMG-L*)은 v5.0 그대로 — 그림이 올라오면 종이인형극 장면을 만들면서 고침.
+    오디오(Kaggle, H17): 롱폼 7:15.9 · 쇼츠 — 귀로 확인할 문장 롱폼 11·31·87번(목소리 높이 129~134Hz, 기준 151Hz ±10% 밖).
 - 모든 장면에 배경 이미지가 깔립니다. 코드만으로 만드는 장면은 없습니다.
 - 쇼츠는 '세 칸' 꼴입니다: 검은 바탕 · 위 칸(0~36%) · 가운데 이미지(36~72%) · 아래 칸 자막(72~100%).
 - 이미지를 동영상으로 바꾸지 않고, 정지 이미지 위에 코드 렌더링을 올립니다. (천천히 줌인/줌아웃, 어두운 오버레이, 텍스트·숫자·그래프·카드 애니메이션)
@@ -25,24 +31,33 @@
   - 숫자: 공항 시간은 모두 sim/refund_sim.py v1.2 '대본 숫자' 표 (실제 측정 아님 — 대본 40~41에서 밝힘; 사용자 수정본에서 빠졌던 안내를 짧게 되살림)
   - 제도 근거: 관광청·국세청·세관 공식 안내(확인표 v5.0) · 현금 환급 단말기 위치는 업계 발표(트래블보이스·에어라인와이어 2026-10-21)
 
-■ 이미지 파일 목록 (사용 11장)
+■ 이미지 파일 목록 (v6.0 종이인형극 — 27장 요청 + P-PAPER 다시 씀)
 
-  파일명                                         비율   내용                                사용 장면
+  파일명                                   비율·종류      내용                                  쓰는 곳 (대본 문장)
   --------------------------------------------------------------------------------------------------------------
-  test/source/myeonse-hwangeup-2026-10/images/IMG-L1.jpg 가로   일본 드러그스토어 계산대 앞 여행객                L-01, L-03, L-06, L-14
-  test/source/myeonse-hwangeup-2026-10/images/IMG-L2.jpg 가로   계산대 결제 — 여권·카드 단말기·영수증             L-04
-  test/source/myeonse-hwangeup-2026-10/images/IMG-L3.jpg 가로   공항 출발 로비의 면세 수속 단말기                L-02, L-04, L-05 · S-02
-  test/source/myeonse-hwangeup-2026-10/images/IMG-L4.jpg 가로   체크인 카운터 컨베이어로 들어가는 캐리어             L-10
-  test/source/myeonse-hwangeup-2026-10/images/IMG-L5.jpg 가로   호텔 방 침대 위에 펼친 과자·화장품               L-10
-  test/source/myeonse-hwangeup-2026-10/images/IMG-L6.jpg 가로   공항 세관 검사장 — 쇼핑백과 세관원 실루엣           L-07, L-10 · S-03
-  test/source/myeonse-hwangeup-2026-10/images/IMG-L7.jpg 가로   출국장 큰 시계와 긴 줄                      L-08, L-11 · S-05
-  test/source/myeonse-hwangeup-2026-10/images/IMG-L8.jpg 가로   출발 로비에서 휴대전화로 면세 수속하는 여행객          L-07
-  test/source/myeonse-hwangeup-2026-10/images/IMG-L9.jpg 가로   공항 현금 환급 단말기 앞 긴 줄                 L-05
-  test/source/myeonse-hwangeup-2026-10/images/THUMB-L.jpg 가로   롱폼 썸네일 (문구까지 ChatGPT 가 그림)  업로드 썸네일
-  test/source/myeonse-hwangeup-2026-10/images/SHORTS-OPEN.jpg 세로   쇼츠 첫 장면 (세 칸 그림, 문구 포함)   S-01 + 쇼츠 썸네일(0초 장면)
+  test/puppet/P-PAPER.jpg (있음)            가로 배경      남색 한지 (축제 편)                     출국 전·차이·정리 (7~16, 80~95)
+  test/puppet/M-AIRPORT.jpg                가로 배경      빈 무대 — 저녁 공항 출발 로비            도입·공항 (1~6, 37~79)
+  test/puppet/M-STORE.jpg                  가로 배경      빈 무대 — 할인 잡화점 매장               쇼핑 (17~36)
+  test/puppet/M-YOU-WALK.png               정사각 투명    주인공 — 캐리어 끌며 걷기                7, 37~38, 65
+  test/puppet/M-YOU-PHONE.png              정사각 투명    주인공 — 휴대전화 봄                    8~16, 60~63, 66
+  test/puppet/M-YOU-EAT.png                정사각 투명    주인공 — 과자 먹음                      18~22
+  test/puppet/M-YOU-TIRED.png              정사각 투명    주인공 — 줄에서 지침                    2~3, 44~50, 59
+  test/puppet/M-QUEUE-A.png · M-QUEUE-B.png 가로 투명      줄 선 여행객 6명씩 (이어 붙여 긴 줄)      세관 창구·현금 단말기·단말기 줄
+  test/puppet/M-KIOSK.png                  정사각 투명    면세 수속 단말기 (빈 화면 — 초록/빨강은 코드)  42, 58~62, 66~68
+  test/puppet/M-CASHKIOSK.png              정사각 투명    현금 환급 단말기                        30~32, 47~48
+  test/puppet/M-CUSTOMS.png                가로 투명      세관 창구 + 세관원                      24, 43~45, 74~75
+  test/puppet/M-CHECKIN.png                가로 투명      체크인 카운터 + 짐 벨트                  46, 52~54, 69
+  test/puppet/M-REGISTER.png               가로 투명      매장 계산대 + 점원                      17, 34
+  test/puppet/M-SUITCASE.png · M-TOTE.png  정사각 투명    캐리어 · 면세품 쇼핑백                   52~57, 69, 91
+  test/puppet/M-SNACK.png · M-COSME.png · M-CLOTHES.png · M-RECEIPT.png   정사각 투명   과자 · 화장품 · 니트 · 영수증   17~28
+  test/puppet/M-PHONE.png · M-WIFI.png · M-PASSPORT.png                   정사각 투명   휴대전화 · 와이파이 기둥 · 여권  8~15, 62
+  test/puppet/M-CARD.png · M-MONEY.png     정사각 투명    카드 · 지폐·동전                         30~36, 70, 90
+  test/puppet/M-PLANE.png                  가로 투명      여객기                                 7, 37, 79
+  test/source/myeonse-hwangeup-2026-10/images/THUMB-L.jpg      가로   롱폼 썸네일 (문구까지 ChatGPT 가 그림)   업로드 썸네일
+  test/source/myeonse-hwangeup-2026-10/images/SHORTS-OPEN.jpg  세로   쇼츠 첫 장면 (세 칸 그림, 문구 포함)      S-01 + 쇼츠 썸네일(0초 장면)
 
   ※ 쇼츠는 따로 썸네일을 넣지 않습니다. 첫 장면(SHORTS-OPEN)이 0초 장면이라 그대로 썸네일이 됩니다.
-  ※ 쇼츠 가운데 칸은 롱폼 가로 이미지를 다시 씁니다 (가운데 칸 1080×691 에 맞게 양옆만 조금 잘림).
+  ※ 쇼츠 가운데 칸(1080×691)도 같은 배경·인형으로 종이인형극 (축제 쇼츠와 같음).
 
 
 ##################################################

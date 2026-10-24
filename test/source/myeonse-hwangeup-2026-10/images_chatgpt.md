@@ -1,6 +1,6 @@
 # 일본 면세 11월부터 — 가장 빠르게 면세 받는 방법 — 이미지 11장 ChatGPT용 (읽고 그대로 만들고 각 저장 경로에 올리기)
 
-작성: 2026-10-24 (Claude, v4.0) — 짝 문서 `test/일본면세_사후환급_제작안.txt`
+작성: 2026-10-24 (Claude, v5.0) — 짝 문서 `test/일본면세_사후환급_제작안.txt`
 
 이 파일 주소: https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/test/source/myeonse-hwangeup-2026-10/images_chatgpt.md
 
@@ -14,7 +14,7 @@
 | 6 | `test/source/myeonse-hwangeup-2026-10/images/IMG-L6.jpg` | 가로 16:9 | 롱폼 배경 — 공항 세관 검사장 — 쇼핑백과 세관원 실루엣 |
 | 7 | `test/source/myeonse-hwangeup-2026-10/images/IMG-L7.jpg` | 가로 16:9 | 롱폼 배경 — 출국장 큰 시계와 긴 줄 |
 | 8 | `test/source/myeonse-hwangeup-2026-10/images/IMG-L8.jpg` | 가로 16:9 | 롱폼 배경 — 출발 로비에서 휴대전화로 면세 수속하는 여행객 |
-| 9 | `test/source/myeonse-hwangeup-2026-10/images/IMG-L9.jpg` | 가로 16:9 | 롱폼 배경 — 출국 후 구역의 현금 환급 단말기 앞 긴 줄 |
+| 9 | `test/source/myeonse-hwangeup-2026-10/images/IMG-L9.jpg` | 가로 16:9 | 롱폼 배경 — 공항 현금 환급 단말기 앞 긴 줄 |
 | 10 | `test/source/myeonse-hwangeup-2026-10/images/THUMB-L.jpg` | 가로 16:9 | 롱폼 썸네일 (한글 문구 포함) |
 | 11 | `test/source/myeonse-hwangeup-2026-10/images/SHORTS-OPEN.jpg` | 세로 9:16 · 세 칸 | 쇼츠 첫 장면 (= 쇼츠 썸네일, 0초 장면) |
 
@@ -158,7 +158,7 @@ Keep the traveler with the smartphone in the central area, at least 8% away from
 No text, letters, numbers, signs with writing, logos or watermarks anywhere.
 ```
 
-## 9. IMG-L9 — 출국 후 구역의 현금 환급 단말기 앞 긴 줄
+## 9. IMG-L9 — 공항 현금 환급 단말기 앞 긴 줄
 
 **저장 경로: `test/source/myeonse-hwangeup-2026-10/images/IMG-L9.jpg`** — JPEG 700KB 이하
 
@@ -168,7 +168,7 @@ No text, letters, numbers, signs with writing, logos or watermarks anywhere.
 
 ```
 Cinematic digital painting, semi-realistic, bright clean modern Japan with cool white fluorescent light and warm accents, subtle film grain. 16:9 landscape.
-An airport airside concourse after passport control, two compact cash-refund machines with glowing blank screens and a long line of travelers with shopping bags waiting in front of them, departure gates and a large window with an airplane outside, slightly tense mood, cool light; everyone seen from behind or far away. No readable signs, letters, logos or text; no recognizable faces.
+A Japanese international airport departure hall, two compact cash-refund machines with glowing blank screens and a long line of travelers with shopping bags waiting in front of them, check-in counters far in the background, slightly tense mood, cool light; everyone seen from behind or far away. No readable signs, letters, logos or text; no recognizable faces.
 Keep the machines and the long line in the central area, at least 8% away from the top and bottom edges. The painting fills the whole frame edge to edge.
 No text, letters, numbers, signs with writing, logos or watermarks anywhere.
 ```

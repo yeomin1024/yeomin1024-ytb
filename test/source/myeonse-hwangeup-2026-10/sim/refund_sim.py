@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.1 — 2026-10-24 — 대본 v4.0 용 '대본 숫자' 표: 사용자 지시 "너가 실제로 면세 받아야 하는 입장에서 출국 시간, 도착 구체적으로 상황 정해서
+# VERSION: v1.2 — 2026-10-24 — 대본 v5.0 용: '최악의 경우'(나쁜 경우 상위 10%, S1 90번째 백분위) 줄 더함 — 사용자 메모 "붐비거나 할 때 최악의 경우 시간 더 늘려도 된다".
+#          도착 공항이 나리타로 바뀜(사용자 수정) — 모의실험은 공항 구조를 따로 넣지 않아 숫자는 그대로, 표 설명만.
+# (v1.1) — 2026-10-24 — 대본 v4.0 용 '대본 숫자' 표: 사용자 지시 "너가 실제로 면세 받아야 하는 입장에서 출국 시간, 도착 구체적으로 상황 정해서
 #          시뮬레이션 하듯이" — 하네다 3터미널 18:00 출발 · 15:30 도착을 시각으로 바꿔 줌(--arrive/--flight), 초록일 때·빨간색일 때 따로,
 #          단계별 평균(세관 창구·현금)을 혼잡도마다. 대기열 계산·가정 값은 v1.0 그대로.
 # (v1.0) — 2026-10-24 — 최초. 사용자 지시 "11월 이후 면세 방법 변경되고 가장 빠르게 면세 받기 위한 시뮬레이션을 돌려봐 시간 재서".
@@ -29,6 +31,7 @@ r"""
   python3 test/source/myeonse-hwangeup-2026-10/sim/refund_sim.py --selftest      # 대기열 계산 시험
 
 CHANGELOG
+  v1.2 — 2026-10-24 — '대본 숫자'에 최악의 경우(S1 상위 10%) 줄
   v1.1 — 2026-10-24 — '대본 숫자' 표(script_numbers) · 초록일 때 시간 · 단계별 평균을 혼잡도마다 · --arrive/--flight
   v1.0 — 2026-10-24 — 최초 (대기열 모델 · 전략 6 — 줄을 보고 단말기/휴대전화 고르기 포함 · 혼잡도 3 · 빨간색일 때 시간 ·
          민감도: 단말기 대수·빨간색 비율 · 기존 방식과 비교)
@@ -43,7 +46,7 @@ from pathlib import Path
 
 import numpy as np
 
-VERSION = "v1.1"
+VERSION = "v1.2"
 HERE = Path(__file__).resolve().parent
 LOG = logging.getLogger("refund_sim")
 
@@ -265,8 +268,9 @@ def script_numbers(res, sens, arrive, flight):
     left_after_red = (fh * 60 + fm) - (ah * 60 + am) - float(np.median(rd))
     rows = [
         ("나쁜 경우 면세에 쓴 시간 (S1 평균)", f"{np.mean(s1):.1f}분", "S1 준비 없음 · 붐빔 · 평균"),
+        ("나쁜 경우 최악 쪽 (S1 상위 10%)", f"{np.percentile(s1, 90):.1f}분", "S1 · 붐빔 · 90번째 백분위 (S1 은 늘 세관 창구로 가서 빨간색 경계 흔들림 없음)"),
         ("  └ 세관 창구 (걷기·줄·신고)", f"{s1p['customs']:.1f}분 → {clock(arrive, s1p['customs'])}", "S1 단계 평균"),
-        ("  └ 현금 환급 단말기 (걷기·줄·받기)", f"{s1p['cash']:.1f}분", "S1 단계 평균 (하네다 3터미널은 출국 후 구역)"),
+        ("  └ 현금 환급 단말기 (걷기·줄·받기)", f"{s1p['cash']:.1f}분", "S1 단계 평균 (나리타는 출국 전 구역, 하네다는 출국 후 구역 — 순서만 다르고 시간은 같게 봄)"),
         ("같은 실수, 한산한 시간이면 (S1 평균)", f"{np.mean(q['times']['S1 준비 없음']):.1f}분", "S1 · 한산"),
         ("좋은 경우 초록 (S6 가운데값)", f"{np.median(g):.1f}분 → {clock(arrive, float(np.median(g)))}", "S6 가장 빠르게 · 붐빔 · 빨간색 아님"),
         ("좋은 경우 빨간색 (S6 가운데값)", f"{np.median(rd):.1f}분 → {clock(arrive, float(np.median(rd)))} · 출발까지 {left_after_red:.0f}분 남음", "S6 · 붐빔 · 빨간색"),
@@ -341,7 +345,7 @@ def main(argv=None):
     ap.add_argument("--out", default=str(HERE / "results.md"))
     ap.add_argument("--no-sens", action="store_true", help="민감도 표 건너뜀")
     ap.add_argument("--arrive", default="15:30", help="대본 설정: 공항 도착 시각 (기본 15:30)")
-    ap.add_argument("--flight", default="18:00", help="대본 설정: 비행기 출발 시각 (기본 18:00, 하네다 3터미널)")
+    ap.add_argument("--flight", default="18:00", help="대본 설정: 비행기 출발 시각 (기본 18:00 — 대본 v5.0 은 나리타)")
     ap.add_argument("--selftest", action="store_true")
     ap.add_argument("--log-level", default="INFO", choices=["DEBUG", "INFO", "WARNING"])
     a = ap.parse_args(argv)

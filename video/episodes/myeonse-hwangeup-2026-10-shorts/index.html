@@ -4,17 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>일본 면세 쇼츠</title>
-<!-- VERSION: v2.2 — 2026-10-24 — 쇼츠 5번 문장 어림수: 약 1시간 38분 → 약 1시간 40분 (롱폼 대본 v5.1 과 같게).
-     v2.1 — 2026-10-24 — S-02 머리글 하네다 → 나리타 (사용자가 대본에서 도착 공항을 나리타로 바꿈, 쇼츠 대본 v4.0 2번 문장).
-     v2.0 — 2026-10-24 — 쇼츠 대본 v4.0(9문장, 쇼츠 제목 '일본 면세 바뀌면 공항 줄 1시간 반, 알면 2분')에 맞춰 장면을 다시:
-     하네다 오후 6시 출발 → 3시 반 도착·과자 먹음 → 화장품 세금까지 X·세관 창구 → 약 1시간 40분(모의실험·붐빔 가정) → 알면 약 2분
-     → 쇼핑할 때 + 공항 첫 1분 → 관련 동영상. 숫자는 롱폼과 같은 sim/refund_sim.py v1.1 출력.
-     v1.1 — 2026-10-24 — 쇼츠 대본 5번을 바꿈(사용자 피드백 "댓글에서 봤다는 걸 언급하지 마" — 롱폼 v3.0 과 같이): 댓글 카드(좋아요 365) → 걱정 카드 "결국 면세를 안 해 주려는 것 아냐?".
-     v1.0 — 2026-10-23 — 최초. 쇼츠 대본 v2.0(11문장) 장면. 사용자 지시 2026-10-23 "수정 완료되면 영상 만들 소스도 준비해".
-     꼴 = '세 칸' (축제 쇼츠와 같음): 위 칸 y 0~691 검정 + 코드 글자 · 가운데 칸 y 691~1382 코드 그림(여권·단말기·영수증·동전·시계) · 아래 칸 검정 + 구운 자막.
-     첫 문장 = test/source/myeonse-hwangeup-2026-10/shorts/thumbnails/thumbnail_1.jpg (제작안 SHORTS-OPEN 그림 — kit.js K.cover, 확대 없음).
-     그림이 올라오기 전에는 추정 미리보기만 (render.mjs 가 최종 렌더를 막음).
-     끝 = kit.js K.related (아래 관련 동영상 안내 + 진짜 버튼 자리 화살표·빛, 끝 화면 2.5초).
+<!-- VERSION: v3.0 — 2026-10-24 — 가운데 칸을 종이인형극으로 (일본 축제 쇼츠와 같은 방식 — video/render/puppet.js, 1080×691 무대) — 사용자 지시 2026-10-24
+     "오디오 만들었어 영상은 일본 축제 영상처럼 만들거니까 …" · "그림 다 올라왔어 영상 만들어봐".
+     · 그림 = 롱폼과 같은 test/puppet/M-*.png (images_chatgpt.md v6.0): 배경 M-AIRPORT·M-STORE·P-PAPER, 주인공 4자세·줄·단말기·현금 단말기·세관 창구·계산대·
+       과자·화장품·영수증·여객기. 초록/빨강 = 단말기 위 신호 원(코드).
+     · 첫 문장 = shorts/thumbnails/thumbnail_1.jpg (images/SHORTS-OPEN.jpg 를 tools/cover_shift.py 로 4:5 안전 구역에 옮긴 것 — kit.js K.cover, 확대 없음).
+     · 끝 = kit.js K.related (아래 관련 동영상 안내 + 진짜 버튼 자리 화살표·빛, 끝 화면 2.5초).
+     (v2.2 — 어림수 '약 1시간 40분' · v2.1 나리타 · v2.0 대본 v4.0 코드 그림 장면 — git 기록)
+     꼴 = '세 칸': 위 칸 y 0~691 검정 + 코드 글자 · 가운데 칸 y 691~1382 종이인형 무대 · 아래 칸 검정 + 구운 자막.
      장면 시각 = 문장 시각(K.S·K.E)·낱말 시각(K.W) — 손으로 적은 초 없음. 숫자는 쇼츠 대본의 숫자만.
      대본 test/source/myeonse-hwangeup-2026-10/shorts/myeonse-hwangeup-2026-10-shorts.txt · 제작안 test/일본면세_사후환급_제작안.txt. 연구·교육용 영상 — 여행·세무 조언 아님. -->
 <meta name="video-size" content="1080x1920">
@@ -28,16 +25,12 @@ body.render #wrap{width:1080px;height:1920px;max-width:none;margin:0}
 #stage{width:1080px;height:1920px;background:#000}
 /* 자막: 아래 칸 (가운데 칸이 y 1382 에서 끝남) · 가운데 540 */
 #cc{left:540px;bottom:390px;max-width:870px;font-size:46px;padding:12px 16px;text-wrap:balance}
-.mid{position:absolute;left:0;top:691px;width:1080px;height:691px;background:linear-gradient(180deg,#101A33,#0A1122)}
 .lab{font-weight:700;font-size:52px;color:var(--Y)}
 .main{font-weight:900;font-size:96px;line-height:1.1}
-.qcard{position:absolute;left:70px;width:940px;border-radius:28px;background:rgba(255,255,255,.07);border:2px solid rgba(255,255,255,.16);padding:30px 40px;display:grid;gap:14px}
-.qcard .q{font-weight:900;font-size:60px;line-height:1.25;word-break:keep-all}
-.qcard .who{font-weight:700;font-size:40px;color:var(--N)}
-.box{position:absolute;border-radius:26px;background:rgba(255,255,255,.06);border:4px solid rgba(255,255,255,.18);display:grid;place-items:center;align-content:center;gap:14px;text-align:center}
-.box .k{font-weight:700;font-size:48px;color:var(--N)}
-.box .t{font-weight:900;font-size:62px;line-height:1.15}
-.slot{position:absolute;width:260px;height:260px;border-radius:28px;border:5px dashed rgba(255,214,0,.8);display:grid;place-items:center;font-weight:900;font-size:120px;color:var(--Y);background:rgba(10,16,30,.6)}
+.sig{position:absolute;width:118px;height:118px;border-radius:50%;display:grid;place-items:center;font-weight:900;font-size:78px;line-height:1;border:6px solid #F2E6CF}
+.sig.ok{background:#22C7B0;color:#06231F;box-shadow:0 0 0 12px rgba(34,199,176,.28),0 0 50px rgba(34,199,176,.7)}
+.sig.no{background:#FF4D3D;color:#fff;box-shadow:0 0 0 12px rgba(255,77,61,.28),0 0 50px rgba(255,77,61,.7)}
+.stampR{position:absolute;font-weight:900;font-size:54px;color:var(--R);border:6px solid var(--R);border-radius:16px;padding:12px 26px;white-space:nowrap;background:rgba(10,16,30,.82)}
 </style>
 </head>
 <body>
@@ -45,16 +38,21 @@ body.render #wrap{width:1080px;height:1920px;max-width:none;margin:0}
 <div id="ctrl"></div>
 <div id="now"></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script id="ep-data">/*EP-DATA:BEGIN*/window.EP={"id":"myeonse-hwangeup-2026-10-shorts","topic":"test","duration":40.46,"audio":null,"thumb":null,"estimated":true,"est_model":{"perSyl":0.151,"comma":0.25,"base":-0.08,"min":0.8,"lead":0.3,"gap":0.45,"part":1,"tail":0.8},"synced":"2026-10-24T06:57:36Z","sent":[{"n":1,"part":"일본 면세, 공항에서 1시간 반","text":"11월부터 일본 면세는, 공항에서 세관 확인을 받아야 세금을 돌려받습니다.","start":0.3,"end":5.151},{"n":2,"part":"일본 면세, 공항에서 1시간 반","text":"나리타 공항에서 오후 6시에 출발하는 비행기라고 해 보겠습니다.","start":5.601,"end":9.598},{"n":3,"part":"일본 면세, 공항에서 1시간 반","text":"오후 3시 반에 도착한 당신은, 호텔에서 과자를 한 봉지 먹었습니다.","start":10.048,"end":14.295},{"n":4,"part":"일본 면세, 공항에서 1시간 반","text":"그래서 같은 영수증의 화장품 세금까지 못 돌려받고, 세관 창구로 가야 합니다.","start":14.745,"end":19.596},{"n":5,"part":"일본 면세, 공항에서 1시간 반","text":"현금 환급까지 고르면, 줄과 창구에서만 약 1시간 40분을 씁니다.","start":20.046,"end":24.293},{"n":6,"part":"일본 면세, 공항에서 1시간 반","text":"붐비는 시간이라고 정하고, 모의실험으로 계산한 시간입니다.","start":24.743,"end":28.688},{"n":7,"part":"일본 면세, 공항에서 1시간 반","text":"같은 날 방법을 알고 간 당신은, 약 2분 만에 끝냈습니다.","start":29.138,"end":32.63},{"n":8,"part":"일본 면세, 공항에서 1시간 반","text":"차이는 쇼핑할 때, 그리고 공항에 도착한 첫 1분에 갈렸습니다.","start":33.08,"end":37.025},{"n":9,"part":"일본 면세, 공항에서 1시간 반","text":"그 방법은 아래 영상에서 확인하세요.","start":37.475,"end":39.66}],"subs":[[0.3,5.151,"11월부터 일본 면세는, 공항에서\n세관 확인을 받아야 세금을 돌려받습니다."],[5.601,9.598,"나리타 공항에서 오후 6시에\n출발하는 비행기라고 해 보겠습니다."],[10.048,14.295,"오후 3시 반에 도착한 당신은,\n호텔에서 과자를 한 봉지 먹었습니다."],[14.745,19.596,"그래서 같은 영수증의 화장품 세금까지\n못 돌려받고, 세관 창구로 가야 합니다."],[20.046,24.293,"현금 환급까지 고르면,\n줄과 창구에서만 약 1시간 40분을 씁니다."],[24.743,28.688,"붐비는 시간이라고 정하고,\n모의실험으로 계산한 시간입니다."],[29.138,32.63,"같은 날 방법을 알고 간 당신은,\n약 2분 만에 끝냈습니다."],[33.08,37.025,"차이는 쇼핑할 때,\n그리고 공항에 도착한 첫 1분에 갈렸습니다."],[37.475,39.66,"그 방법은 아래 영상에서 확인하세요."]],"subs_estimated":true};/*EP-DATA:END*/</script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+<script id="ep-data">/*EP-DATA:BEGIN*/window.EP={"id":"myeonse-hwangeup-2026-10-shorts","topic":"test","duration":42.28,"audio":"../../../test/source/myeonse-hwangeup-2026-10/shorts/narration.mp3","thumb":"../../../test/source/myeonse-hwangeup-2026-10/shorts/thumbnails/thumbnail_1.jpg","synced":"2026-10-24T10:40:07Z","tts":"2026-10-24T07:29:10","script_sha1":"12702fbe56caacb5","sent":[{"n":1,"part":"일본 면세, 공항에서 1시간 반","text":"11월부터 일본 면세는, 공항에서 세관 확인을 받아야 세금을 돌려받습니다.","start":0.3,"end":4.95},{"n":2,"part":"일본 면세, 공항에서 1시간 반","text":"나리타 공항에서 오후 6시에 출발하는 비행기라고 해 보겠습니다.","start":5.33,"end":9.29},{"n":3,"part":"일본 면세, 공항에서 1시간 반","text":"오후 3시 반에 도착한 당신은, 호텔에서 과자를 한 봉지 먹었습니다.","start":9.67,"end":14.174},{"n":4,"part":"일본 면세, 공항에서 1시간 반","text":"그래서 같은 영수증의 화장품 세금까지 못 돌려받고, 세관 창구로 가야 합니다.","start":14.554,"end":19.376},{"n":5,"part":"일본 면세, 공항에서 1시간 반","text":"현금 환급까지 고르면, 줄과 창구에서만 약 1시간 40분을 씁니다.","start":19.756,"end":24.263},{"n":6,"part":"일본 면세, 공항에서 1시간 반","text":"붐비는 시간이라고 정하고, 모의실험으로 계산한 시간입니다.","start":24.643,"end":28.222},{"n":7,"part":"일본 면세, 공항에서 1시간 반","text":"같은 날 방법을 알고 간 당신은, 약 2분 만에 끝냈습니다.","start":28.602,"end":32.282},{"n":8,"part":"일본 면세, 공항에서 1시간 반","text":"차이는 쇼핑할 때, 그리고 공항에 도착한 첫 1분에 갈렸습니다.","start":32.662,"end":36.748},{"n":9,"part":"일본 면세, 공항에서 1시간 반","text":"그 방법은 아래 영상에서 확인하세요.","start":37.128,"end":39.384}],"subs":[[0.2,5.33,"11월부터 일본 면세는, 공항에서\n세관 확인을 받아야 세금을 돌려받습니다."],[5.33,9.67,"나리타 공항에서 오후 6시에\n출발하는 비행기라고 해 보겠습니다."],[9.67,14.554,"오후 3시 반에 도착한 당신은,\n호텔에서 과자를 한 봉지 먹었습니다."],[14.554,19.756,"그래서 같은 영수증의 화장품 세금까지\n못 돌려받고, 세관 창구로 가야 합니다."],[19.756,24.643,"현금 환급까지 고르면,\n줄과 창구에서만 약 1시간 40분을 씁니다."],[24.643,28.602,"붐비는 시간이라고 정하고,\n모의실험으로 계산한 시간입니다."],[28.602,32.662,"같은 날 방법을 알고 간 당신은,\n약 2분 만에 끝냈습니다."],[32.662,37.128,"차이는 쇼핑할 때,\n그리고 공항에 도착한 첫 1분에 갈렸습니다."],[37.128,39.784,"그 방법은 아래 영상에서 확인하세요."]]};/*EP-DATA:END*/</script>
 <script src="../../render/kit.js"></script>
+<script src="../../render/puppet.js"></script>
 <script>
 (function () {
 "use strict";
 K.init(window.EP, { chip: false, w: 1080 });
-const { S, E, W, el, pop, out } = K;
+const { S, E, W, el, pop } = K;
+const out = (n, at) => K.out(n, at, { y: 0 });
 const tl = K.tl;
+const { sm, seg, lin, lerp, q12 } = Puppet.u;
 const R = "#FF4D3D", G = "#22C7B0", Y = "#FFD400";
 const until = n => S(n) - 0.05;
+const V3 = (x, y, z) => new THREE.Vector3(x, y, z);
 
 /* 위 칸: 작은 노란 줄 + 큰 줄 (가운데 540) */
 function head(sc, top, lab, main, color, size) {
@@ -63,84 +61,125 @@ function head(sc, top, lab, main, color, size) {
   el(`<div class="main nw" style="color:${color || "#F4F6FA"}${size ? `;font-size:${size}px` : ""}">${main}</div>`, g);
   return g;
 }
-/* 가운데 칸 = 코드 그림 (y 691~1382) */
-const midScene = (a, b, opts) => { const sc = K.scene(a, b, opts); el(`<div class="mid"></div>`, sc); return sc; };
-const svg = (parent, cx, top, w, vb, body, h) => el(`<svg class="a" viewBox="${vb}" width="${w}" height="${h || w}" style="left:${cx - w / 2}px;top:${top}px" aria-hidden="true">${body}</svg>`, parent);
-const passport = (p, cx, top, w) => svg(p, cx, top, w, "0 0 140 190", `<rect x="6" y="6" width="128" height="178" rx="14" fill="#2E4470" stroke="#C9D2E2" stroke-width="5"/><circle cx="70" cy="80" r="30" fill="none" stroke="#E8C66A" stroke-width="6"/><rect x="34" y="132" width="72" height="9" rx="4" fill="#E8C66A"/><rect x="44" y="150" width="52" height="8" rx="4" fill="#E8C66A" opacity=".7"/>`, w * 190 / 140);
-const receipt = (p, cx, top, w) => svg(p, cx, top, w, "0 0 160 230", `<path d="M10 6 H150 V214 L136 224 L122 214 L108 224 L94 214 L80 224 L66 214 L52 224 L38 214 L24 224 L10 214 Z" fill="#F2F4F8" stroke="#C9D2E2" stroke-width="5" stroke-linejoin="round"/>${[0, 1, 2, 3, 4].map(i => `<rect x="28" y="${30 + i * 32}" width="${i % 2 ? 80 : 104}" height="10" rx="5" fill="#9AA7BF"/>`).join("")}`, w * 230 / 160);
-const kiosk = (p, cx, top, w, screen) => svg(p, cx, top, w, "0 0 200 360", `<rect x="30" y="6" width="140" height="300" rx="20" fill="#2A3B5E" stroke="#C9D2E2" stroke-width="5"/><rect class="scr" x="46" y="24" width="108" height="130" rx="10" fill="${screen || "#0C1424"}"/><rect x="62" y="186" width="76" height="52" rx="8" fill="#0C1424" stroke="#9AA7BF" stroke-width="4"/><rect x="70" y="250" width="60" height="10" rx="5" fill="#9AA7BF"/><rect x="60" y="306" width="80" height="48" rx="6" fill="#1D2A44"/>`, w * 1.8);
-const coin = (p, cx, top, w) => el(`<div class="a cx" style="left:${cx}px;top:${top}px;width:${w}px;height:${w}px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#9DB4DA,#5B7DB8 60%,#34507F);border:5px solid #C9D2E2;display:grid;place-items:center;font-weight:900;font-size:${Math.round(w * 0.36)}px;color:#0C1424">엔</div>`, p);
-const clock = (p, cx, top, w) => svg(p, cx, top, w, "0 0 200 200", `<circle cx="100" cy="100" r="88" fill="#2A3B5E" stroke="#C9D2E2" stroke-width="8"/><path class="hand" d="M100 100 L100 40 M100 100 L146 124" stroke="#F4F6FA" stroke-width="10" stroke-linecap="round"/><circle cx="100" cy="100" r="9" fill="#F4F6FA"/>`);
-const plane = (p, cx, top, w) => svg(p, cx, top, w, "0 0 240 120", `<rect x="14" y="56" width="218" height="16" rx="8" fill="#C9D2E2"/><path d="M156 58 L104 10 L84 10 L112 58 Z M156 70 L104 118 L84 118 L112 70 Z M44 58 L26 30 L14 30 L24 58 Z M44 70 L26 98 L14 98 L24 70 Z" fill="#C9D2E2"/>`, w / 2);
-const gov = (p, cx, top, w) => svg(p, cx, top, w, "0 0 200 180", `<path d="M10 64 L100 14 L190 64 Z" fill="#9AA7BF"/><rect x="24" y="70" width="152" height="96" rx="6" fill="#2A3B5E" stroke="#C9D2E2" stroke-width="5"/><rect x="46" y="86" width="20" height="64" fill="#9FB6DA"/><rect x="90" y="86" width="20" height="64" fill="#9FB6DA"/><rect x="134" y="86" width="20" height="64" fill="#9FB6DA"/>`, w * 0.9);
-const store = (p, cx, top, w) => svg(p, cx, top, w, "0 0 200 180", `<path d="M14 66 L30 20 H170 L186 66 Z" fill="#3C5788" stroke="#C9D2E2" stroke-width="5" stroke-linejoin="round"/><rect x="26" y="66" width="148" height="100" rx="6" fill="#2A3B5E" stroke="#C9D2E2" stroke-width="5"/><rect x="80" y="104" width="40" height="62" fill="#9FB6DA"/>`, w * 0.9);
-const icon = (p, cx, top, w, kind) => svg(p, cx, top, w, "0 0 200 180", {      // 롱폼과 같은 그림
-  snack: `<path d="M40 30 H160 L150 170 H50 Z" fill="#B5553F" stroke="#C9D2E2" stroke-width="5"/><circle cx="100" cy="96" r="30" fill="#E9B872"/>`,
-  cosme: `<rect x="72" y="20" width="56" height="34" rx="6" fill="#C9D2E2"/><rect x="60" y="54" width="80" height="116" rx="14" fill="#C77DAA" stroke="#C9D2E2" stroke-width="5"/>`,
-  phone: `<rect x="60" y="10" width="80" height="160" rx="16" fill="#2A3B5E" stroke="#C9D2E2" stroke-width="5"/><path d="M76 74 C92 58 108 58 124 74 M84 86 C94 76 106 76 116 86" fill="none" stroke="#FFD400" stroke-width="7" stroke-linecap="round"/><circle cx="100" cy="100" r="7" fill="#FFD400"/>`,
-}[kind], w * 0.9);
-const arrow = (p, left, top) => el(`<div class="a w9 N" style="left:${left}px;top:${top}px;font-size:84px;line-height:1">→</div>`, p);
 
-/* S-01 첫 문장 = 쇼츠 썸네일 그림 그대로 (세 칸) */
+// ---------- 가운데 칸 = 종이인형 무대 (1080×691, y 691~) ----------
+const MID = 691;
+const ST = Puppet.stage({ dir: "../../../test/puppet/", w: 1080, h: 691, top: MID, clear: 0x000000, files: {
+  PAPER: { f: "P-PAPER.jpg", kind: "bg" }, AIR: { f: "M-AIRPORT.jpg", kind: "bg" }, STORE: { f: "M-STORE.jpg", kind: "bg" },
+  YOU_W: { f: "M-YOU-WALK.png", kind: "sq" }, YOU_P: { f: "M-YOU-PHONE.png", kind: "sq" }, YOU_E: { f: "M-YOU-EAT.png", kind: "sq" }, YOU_T: { f: "M-YOU-TIRED.png", kind: "sq" },
+  QA: { f: "M-QUEUE-A.png" }, KIOSK: { f: "M-KIOSK.png", kind: "sq" }, CASH: { f: "M-CASHKIOSK.png", kind: "sq" }, CUSTOMS: { f: "M-CUSTOMS.png" }, REG: { f: "M-REGISTER.png" },
+  SNACK: { f: "M-SNACK.png", kind: "sq" }, COSME: { f: "M-COSME.png", kind: "sq" }, RECEIPT: { f: "M-RECEIPT.png", kind: "sq" }, PLANE: { f: "M-PLANE.png" } } });
+// 세로 쇼츠 칸은 가까이서 (인형이 칸 높이의 절반쯤) — 발끝 줄이 칸 82% (축제 쇼츠와 같음)
+ST.defaultCam = (st, t) => { const k = lin(t, st.a, st.b); return { pos: [lerp(-0.4, 0.4, k), 2.9, lerp(15.5, 14.5, k)], look: [lerp(-0.4, 0.4, k), 2.57, 0] }; };
+const BGO = { AIR: { v: 0.64, y: 0.6 }, STORE: { v: 0.72, y: 0.3, w: 60 }, PAPER: { v: 0.5, y: 2.6 } };
+const bgOf = (st, key) => st.bg(key, BGO[key]);
+const DARK = new THREE.Color(0x7d8299), WARM = new THREE.Color(0xffffff);
+const act = (st, key, o) => { const a = st.actor(key, o); a.crop = o.crop || ST.get(key).info.bbox; return a; };
+const uvW = (a, u, v) => { a.g.updateMatrixWorld(true); const c = a.crop; return a.g.localToWorld(V3(((u - c[0]) / (c[2] - c[0]) - a.anchor[0]) * a.wd, (a.anchor[1] - (v - c[1]) / (c[3] - c[1])) * a.ht, 0)); };
+const topV = (key, u) => { const i = ST.get(key).info, x = Math.round(u * i.w); for (let y = 0; y < i.h; y += 2) if (i.A(x, y) > 40) return y / i.h; return 1; };
+const walk = (a, t, t0, t1, dx) => { const k = lin(t, t0, t1); a.op = t < t0 - 0.02 ? 0 : 1; a.g.position.x = a.home.x + dx * (1 - k); if (k > 0 && k < 1) a.g.position.y = a.home.y + 0.08 * Math.abs(Math.sin(q12(t) * Math.PI * 2.2)); return a; };
+const idle = (a, t, ph) => { a.g.rotation.z = 0.012 * Math.sin(q12(t) * Math.PI * 1.3 + (ph || 0)); return a; };
+const showFrom = (a, t, t0, t1) => { if (t < t0 || (t1 != null && t >= t1)) a.op = 0; return a; };
+// DOM 을 인형 자리에 붙임 (무대 칸 위치 MID 만큼 아래로)
+const FOL = [];
+function stick(set, node, at, center) { gsap.set(node, { xPercent: -50, yPercent: center ? -50 : -100 }); FOL.push({ set, node, at }); return node; }
+ST.after(t => {
+  for (const f of FOL) {
+    const v = f.set.built && f.set.fadeAt(t) > 0.001 ? f.at(t) : null;   // fadeAt(t) — 끝난 묶음의 fade 값은 마지막 값으로 남아 있음
+    if (!v) { f.node.style.display = "none"; continue; }
+    const [x, y] = ST.project(v);
+    f.node.style.display = ""; f.node.style.left = x.toFixed(1) + "px"; f.node.style.top = (y + MID).toFixed(1) + "px";
+  }
+});
+const signal = (set, sc, a, ok, at, end) => { const n = stick(set, el(`<div class="sig ${ok ? "ok" : "no"}">${ok ? "✓" : "!"}</div>`, sc), () => { const x = a(); return x && x.op > 0.01 ? x.top(0.35) : null; }); pop(n, at, { from: { scale: 0.3, y: 0 } }); if (end) out(n, end); return n; };
+
+/* S-01 첫 문장 = 세 칸 그림 그대로 (위 문구 2줄 · 가운데 그림 · '알면 2분' 꼬리표는 그림 속). 확대 없음 */
 K.cover(until(2), { zoom: 1 });
 K.cut(0.1, "0초 그림 = 쇼츠 썸네일");
 K.cut(E(1) - 0.2, "첫 문장 + 자막(42px)");
 
 /* S-02 나리타 · 오후 6시 출발 (문장 2) */
-{ const sc = midScene(until(2), until(3));
-  pop(head(sc, 300, "이렇게 해 보면", "나리타 · 오후 6시 출발", "#F4F6FA", 80), S(2) + 0.05);
-  const p = plane(sc, 540, 820, 420); tl.fromTo(p, { opacity: 0, x: -160 }, { opacity: 1, x: 0, duration: 0.9, ease: "power2.out" }, W(2, "비행기라고"));
-  const t = el(`<div class="a cx c w9 Y nw" style="left:540px;top:1110px;font-size:72px">출발 오후 6:00</div>`, sc); pop(t, W(2, "오후 6시"));
+{
+  const a = until(2), b = until(3);
+  const sc = K.scene(a, b);
+  let PL, YOU;
+  const s = ST.set(a, b, st => { bgOf(st, "AIR"); PL = act(st, "PLANE", { h: 1.3, at: [0, 4.7, -2] }); YOU = act(st, "YOU_W", { h: 4.2, at: [-0.6, 0, 0.6] }).ro(4); });
+  s.update = t => { PL.g.position.x = lerp(-9, 9, lin(t, a, b + 0.5)); PL.g.position.y = PL.home.y + 0.15 * Math.sin(t * 2); walk(YOU, t, a + 0.1, a + 1.8, -7); };
+  pop(head(sc, 300, "이렇게 해 보면", "나리타 · 오후 6시 출발", "#F4F6FA", 84), S(2) + 0.05);
   K.cut(E(2) - 0.1, "나리타 오후 6시 출발");
 }
-/* S-03 오후 3시 반 도착 · 과자를 먹음 (문장 3) */
-{ const sc = midScene(until(3), until(4));
-  pop(head(sc, 300, "오후 3시 반 도착", "그런데 호텔에서…"), S(3) + 0.05);
-  const sn = icon(sc, 360, 820, 280, "snack"); pop(sn, W(3, "과자를"));
-  const co = icon(sc, 720, 820, 280, "cosme"); pop(co, W(3, "과자를"));
-  tl.to(sn, { opacity: 0.15, y: 40, duration: 0.5 }, W(3, "먹었습니다") - 0.2);
-  const ate = el(`<div class="a cx c w9 R nw" style="left:360px;top:1130px;font-size:64px">먹음</div>`, sc); pop(ate, W(3, "먹었습니다"));
-  const one = el(`<div class="a cx c w7 nw" style="left:540px;top:1240px;font-size:46px">과자 + 화장품 = 한 영수증</div>`, sc); pop(one, W(3, "한 봉지"));
-  K.cut(E(3) - 0.1, "과자 먹음");
+/* S-03 오후 3시 반 도착 · 호텔에서 과자 한 봉지 (문장 3) */
+{
+  const a = until(3), b = until(4);
+  const sc = K.scene(a, b);
+  let YOU, SN;
+  const s = ST.set(a, b, st => { bgOf(st, "PAPER"); YOU = act(st, "YOU_E", { h: 4.2, at: [-1.2, 0, 0.6] }).ro(4); SN = act(st, "SNACK", { h: 1.9, at: [2.6, 1.0, 0.4] }).ro(5); });
+  s.update = t => { idle(YOU, t); SN.pop(t, W(3, "과자를"), 0.4); SN.hide(t, E(3) - 0.5, 0.4); };
+  pop(head(sc, 300, "오후 3:30 도착 · 호텔에서", "과자 한 봉지", "#F4F6FA"), S(3) + 0.05);
+  K.cut(E(3) - 0.6, "3시 반 · 과자 한 봉지");
 }
-/* S-04 화장품 세금까지 X · 세관 창구 (문장 4) */
-{ const sc = midScene(until(4), until(5));
-  pop(head(sc, 300, "같은 영수증", "화장품 세금까지 ✕", R), S(4) + 0.05);
-  const rc = receipt(sc, 540, 760, 260); pop(rc, S(4) + 0.1);
-  const x = el(`<div class="a cx c w9 R nw" style="left:540px;top:860px;font-size:260px;line-height:1">✕</div>`, sc); pop(x, W(4, "화장품"), { from: { scale: 1.6, y: 0 } });
-  const desk = el(`<div class="a cx c w9 R nw" style="left:540px;top:1200px;font-size:60px">→ 세관 창구로</div>`, sc); pop(desk, W(4, "세관 창구로"));
-  K.cut(E(4) - 0.1, "화장품까지 환급 X → 세관 창구");
+/* S-04 같은 영수증 → 화장품 세금까지 ✕ → 세관 창구 (문장 4) */
+{
+  const a = until(4), b = until(5), sw = W(4, "세관 창구로") - 0.2;
+  const sc = K.scene(a, b);
+  let RC, CO, CU, YOU;
+  const s1 = ST.set(a, sw, st => { bgOf(st, "PAPER"); RC = act(st, "RECEIPT", { h: 4.6, at: [-1.4, 0.2, 0.2] }).ro(3); CO = act(st, "COSME", { h: 1.7, at: [2.8, 0.4, 0.5] }).ro(4); }, { fadeOut: 0.3 });
+  s1.update = t => { RC.pop(t, a + 0.1, 0.45); CO.pop(t, W(4, "화장품"), 0.4); RC.tint.setHex(t > W(4, "못") ? 0xffb4aa : 0xffffff); };
+  const st4 = stick(s1, el(`<div class="stampR">화장품 세금까지 ✕</div>`, sc), () => (RC ? uvW(RC, 0.5, 0.5) : null), true);
+  pop(st4, W(4, "못"), { from: { scale: 1.5, y: 0 } });
+  const s2 = ST.set(sw, b, st => { bgOf(st, "AIR"); CU = act(st, "CUSTOMS", { h: 3.0, at: [2.2, 0, -0.4] }).ro(2); YOU = act(st, "YOU_E", { h: 4.2, at: [-2.6, 0, 0.6] }).ro(4); }, { fadeIn: 0.3 });
+  s2.update = t => { CU.slide(t, sw, 0.6, 10); walk(YOU, t, sw, sw + 1.3, -5); };
+  const h1 = head(sc, 300, "같은 영수증이라", "화장품 세금까지 ✕", R); pop(h1, S(4) + 0.05); out(h1, sw);
+  pop(head(sc, 300, "먹은 물건은 직접 신고", "세관 창구로", R), sw + 0.1);
+  K.cut(sw - 0.15, "화장품 세금까지 ✕");
+  K.cut(E(4) - 0.1, "세관 창구로");
 }
-/* S-05 현금까지 → 약 1시간 40분 · 모의실험 (문장 5–6) */
-{ const sc = midScene(until(5), until(7));
-  pop(head(sc, 300, "현금 환급까지 고르면", "약 1시간 40분", R, 110), S(5) + 0.05);
-  const q = el(`<div class="a" style="left:84px;top:920px;display:flex;gap:12px;align-items:flex-end"></div>`, sc);
-  for (let i = 0; i < 7; i++) el(K.person(i % 2 ? "#AEB9CC" : "#DCE3EE", i % 3 === 1 ? 184 : 200), q);
-  tl.fromTo(q.children, { opacity: 0, x: 80 }, { opacity: 1, x: 0, duration: 0.35, stagger: 0.08 }, W(5, "줄과"));
-  const sim = el(`<div class="a cx c w7 N nw" style="left:540px;top:1210px;font-size:42px">모의실험 · 붐비는 시간 가정</div>`, sc); pop(sim, S(6));
+/* S-05~06 현금까지 → 줄과 창구에서만 약 1시간 40분 · 붐빔 가정 모의실험 (문장 5~6) */
+{
+  const a = until(5), b = until(7);
+  const sc = K.scene(a, b);
+  let CA, QA, YOU;
+  const s = ST.set(a, b, st => { bgOf(st, "AIR"); CA = act(st, "CASH", { h: 3.0, at: [4.4, 0, -0.2] }).ro(2); QA = act(st, "QA", { h: 3.6, at: [-0.6, 0, 0] }).ro(3); YOU = act(st, "YOU_T", { h: 4.0, at: [-5.0, 0, 0.5] }).ro(4); },
+    { cam: (t, st) => { const k = sm(lin(t, a, S(6))); return { pos: [lerp(1.6, -1.4, k), 2.9, 15], look: [lerp(1.6, -1.4, k), 2.57, 0] }; } });
+  s.update = t => { QA.slide(t, a + 0.1, 0.7, 10); idle(QA, t); idle(YOU, t, 1); s.tint.copy(WARM).lerp(DARK, seg(t, S(6) - 0.1, S(6) + 0.3)); };
+  const h5 = head(sc, 300, "현금 환급까지 고르면 · 줄과 창구에서만", "약 1시간 40분", R, 110); pop(h5, S(5) + 0.05); out(h5, S(6) - 0.1);
+  pop(head(sc, 300, "붐비는 시간이라고 정하고", "모의실험으로 계산", Y, 88), S(6) + 0.05);
   K.cut(E(5) - 0.1, "약 1시간 40분");
+  K.cut(E(6) - 0.1, "모의실험 · 붐빔 가정");
 }
-/* S-06 알고 간 당신 = 약 2분 (문장 7) */
-{ const sc = midScene(until(7), until(8));
-  pop(head(sc, 300, "방법을 알고 간 당신", "약 2분", G, 130), S(7) + 0.05);
-  const k = kiosk(sc, 540, 740, 200, G); pop(k, S(7) + 0.1);
-  const ok = el(`<div class="a cx c w9 G nw" style="left:540px;top:1120px;font-size:64px">초록 → 끝 ✓</div>`, sc); pop(ok, W(7, "약 2분"));
+/* S-07 같은 날 알고 간 당신 → 약 2분 (문장 7) */
+{
+  const a = until(7), b = until(8);
+  const sc = K.scene(a, b);
+  let KI, YOU;
+  const s = ST.set(a, b, st => { bgOf(st, "AIR"); KI = act(st, "KIOSK", { h: 4.2, at: [1.8, 0, 0] }).ro(2); YOU = act(st, "YOU_P", { h: 4.2, at: [-0.4, 0, 0.6] }).ro(4); });
+  s.update = t => idle(YOU, t);
+  signal(s, sc, () => KI, true, W(7, "약 2분") - 0.2);
+  pop(head(sc, 300, "같은 날 · 방법을 알고 간 당신", "약 2분", G, 120), S(7) + 0.05);
   K.cut(E(7) - 0.1, "알면 약 2분");
 }
-/* S-07 쇼핑할 때 + 공항 첫 1분 (문장 8) */
-{ const sc = midScene(until(8), until(9));
-  pop(head(sc, 300, "차이가 갈린 곳", "쇼핑할 때 + 첫 1분", Y, 84), S(8) + 0.05);
-  const r1 = receipt(sc, 300, 790, 170); pop(r1, W(8, "쇼핑할"));
-  const r2 = receipt(sc, 500, 790, 170); pop(r2, W(8, "쇼핑할"));
-  const l1 = el(`<div class="a cx c w7 nw" style="left:400px;top:1080px;font-size:44px">영수증 따로</div>`, sc); pop(l1, W(8, "쇼핑할"));
-  const ph = icon(sc, 800, 800, 230, "phone"); pop(ph, W(8, "공항에"));
-  const l2 = el(`<div class="a cx c w7 nw" style="left:800px;top:1080px;font-size:44px">줄 보고 고르기</div>`, sc); pop(l2, W(8, "공항에"));
+/* S-08 차이는 쇼핑할 때 + 공항 첫 1분 (문장 8) */
+{
+  const a = until(8), b = until(9), sw = W(8, "그리고");
+  const sc = K.scene(a, b);
+  let RG, Y1, KI, Y2;
+  const s1 = ST.set(a, sw, st => { bgOf(st, "STORE"); RG = act(st, "REG", { h: 3.0, at: [2.0, 0, 0] }).ro(2); Y1 = act(st, "YOU_P", { h: 4.0, at: [-2.6, 0, 0.6] }).ro(4); }, { fadeOut: 0.3 });
+  s1.update = t => idle(Y1, t);
+  const s2 = ST.set(sw, b, st => { bgOf(st, "AIR"); KI = act(st, "KIOSK", { h: 4.2, at: [1.8, 0, 0] }).ro(2); Y2 = act(st, "YOU_W", { h: 4.2, at: [-0.6, 0, 0.6] }).ro(4); }, { fadeIn: 0.3 });
+  s2.update = t => walk(Y2, t, sw, sw + 1.2, -6);
+  pop(head(sc, 300, "차이는", "쇼핑할 때", Y, 96), S(8) + 0.05);
+  pop(el(`<div class="a cx c w9 nw" style="left:540px;top:530px;font-size:72px">+ 공항 도착 <span class="Y">첫 1분</span></div>`, sc), sw + 0.1);
   K.cut(E(8) - 0.1, "쇼핑할 때 + 첫 1분");
 }
-/* S-08 그 방법은 아래 영상에서 → 관련 동영상 버튼 (문장 9) */
-{ const sc = midScene(until(9), K.D, { keep: true });
+/* S-09 그 방법은 아래 영상에서 → 관련 동영상 버튼 (문장 9) */
+{
+  const a = until(9), b = K.D;
+  const sc = K.scene(a, b, { keep: true });
+  let KI, YOU;
+  const s = ST.set(a, b, st => { bgOf(st, "AIR"); KI = act(st, "KIOSK", { h: 4.2, at: [1.8, 0, 0] }).ro(2); YOU = act(st, "YOU_P", { h: 4.2, at: [-0.4, 0, 0.6] }).ro(4); }, { fadeOut: 0 });
+  s.update = t => idle(YOU, t);
+  signal(s, sc, () => KI, true, S(9) + 0.3);
   pop(el(`<div class="a cx c w9 nw" style="left:540px;top:200px;font-size:76px">가장 빠르게 <span class="Y">면세 받는 방법</span></div>`, sc), S(9) + 0.05);
-  const k = kiosk(sc, 540, 760, 180, G); pop(k, S(9) + 0.1);
   K.related(sc, { at: S(9) + 0.05, arrowAt: W(9, "아래") });
   K.cut(E(9) - 0.1, "그 방법은 아래 영상 · 관련 동영상 ↓");
   K.cut(K.D - 0.3, "끝 화면 (관련 동영상 버튼 ↓)");

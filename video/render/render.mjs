@@ -1,4 +1,7 @@
-// VERSION: v1.24 — 2026-10-23 — check: 장면 파일 K.init 의 noLatin(이야기형)이면 화면 글자에 라틴·한글·가나·한자가 하나라도 있으면 문제 (.code 자리표만 뺌)
+// VERSION: v1.25 — 2026-10-24 — check: K.init opts.allowWords(배열)가 있으면 화면 글자에 한글·가나·한자가 있거나, 그 목록에 없는 영어 낱말이
+//   있으면 문제 (이야기형 — stock/story/screen_words.txt · '%p' 는 빼고 셈). 사용자 지시 2026-10-24 "국기를 할 필요는 없잖아 그냥 KOSPI, S&P500 이거
+//   달면 되는데 … buy, sell 같은것도 그렇고 다 알만한건 넣어도 돼".
+// (v1.24) — 2026-10-23 — check: 장면 파일 K.init 의 noLatin(이야기형)이면 화면 글자에 라틴·한글·가나·한자가 하나라도 있으면 문제 (.code 자리표만 뺌)
 //   — 사용자 지시 "야 영어 문구도 넣지마" (티커·지수 이름 예외도 없음).
 // (v1.23) — 2026-10-23 — 낱말 검사 예외에 티커·지수 이름 SOXL·SOXX·KOSPI (개미 재기 일지 1화 화면 — 외국인 시청자용 언어 없는 화면, 사용자 지시 2026-10-23
 //   "외국인 대상으로도 할거니까 … 영상에 한글 문구 사용하지 말고").
@@ -251,6 +254,7 @@ const CHECK_FN = ([W, H, SAFE]) => {           // v1.8 무대 크기 W×H · 안
   const LOW = SAFE ? SAFE[2] : (cc0 ? H - 196 : H - 60);   // 자막 띠 위(1080p: 884) · 자막 없는 영상은 맨 아래 60px(진행 막대·자동 자막) 위 · 쇼츠는 meta
   const NOWORDS = !!(window.K && window.K.opt && window.K.opt.noWords);
   const NOLATIN = !!(window.K && window.K.opt && window.K.opt.noLatin);   // v1.24 이야기형: 영어·한국어 글자 하나도 없음 (숫자·기호·그림만)
+  const ALLOW = window.K && window.K.opt && Array.isArray(window.K.opt.allowWords) ? new Set(window.K.opt.allowWords.map(w => w.toUpperCase())) : null;   // v1.25
   const op = el => { let o = 1; for (let e = el; e && e !== st; e = e.parentElement) { const cs = getComputedStyle(e); o *= +cs.opacity; if (cs.display === "none" || cs.visibility === "hidden") return 0; } return o; };
   const walker = document.createTreeWalker(st, NodeFilter.SHOW_TEXT);
   for (let n = walker.nextNode(); n; n = walker.nextNode()) {
@@ -265,7 +269,11 @@ const CHECK_FN = ([W, H, SAFE]) => {           // v1.8 무대 크기 W×H · 안
     const fs = parseFloat(getComputedStyle(el).fontSize);
     const txt = n.textContent.trim().slice(0, 24);
     if (fs < 36 && !el.closest("[data-small]")) out.push({ kind: "글자 36px 미만", txt, fs });   // v1.7: data-small = 사용자가 고른 작은 글자 칸 (이유를 속성 값에)
-    if (NOLATIN && !el.closest(".code") && /[A-Za-z가-힣ぁ-んァ-ン一-龥]/.test(n.textContent)) out.push({ kind: "글자(숫자·기호만 — 영어·한국어 없음)", txt });
+    if (ALLOW && !el.closest(".code")) {                      // v1.25 이야기형: 한국어 없음 · 영어는 허용 목록 낱말만
+      const bad = /[가-힣ぁ-んァ-ン一-龥]/.test(n.textContent) ? ["(한국어·일본어·한자)"]
+        : (n.textContent.replace(/%p/g, "%").match(/[A-Za-z][A-Za-z&-]*/g) || []).filter(w => !ALLOW.has(w.toUpperCase()));
+      if (bad.length) out.push({ kind: "허용 목록 밖 글자 (stock/story/screen_words.txt)", txt, words: bad.join(",") });
+    } else if (NOLATIN && !el.closest(".code") && /[A-Za-z가-힣ぁ-んァ-ン一-龥]/.test(n.textContent)) out.push({ kind: "글자(숫자·기호만 — 영어·한국어 없음)", txt });
     else if (NOWORDS && !el.closest(".code,[data-words]") && (/[가-힣ぁ-んァ-ン一-龥]/.test(n.textContent) || /[A-Za-z]{2,}/.test(n.textContent.replace(/S&P|NASDAQ|BUY|SELL|HOLD|RSI|VIX|SPY|TQQQ|QYLD|XYLD|JEPI|SCHD|QQQ|QLD|VYM|NDX|SOXL|SOXX|KOSPI/g, ""))))
       out.push({ kind: "낱말(언어 없는 화면)", txt });   // K.init opts.noWords — 숫자·기호·A·B·S&P·NASDAQ 만 (stock/guides/README.md 4번)
     if (b.bottom > LOW && !el.closest("#chip")) out.push({ kind: SAFE ? `안전 구역 아래(y ${LOW} 아래)` : cc0 ? "자막 띠(y 880 아래)와 겹침" : "맨 아래 60px(y 1020 아래)", txt, bottom: Math.round(b.bottom) });

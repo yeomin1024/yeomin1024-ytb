@@ -1,5 +1,29 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-24 (주식 이야기형 9) — 1화 화면 다시: 투자 영어 · 문장마다 화면 · 주식 소품
+
+### 왜 (사용자 지시)
+- "아니 근데 영상이 너무 미흡한 것 같아 대본 내용에 모든 나라 사람들이 보기에 한번에 이해가 되도록 근데 미흡하지 않도록 전력을 다해 이미지 요소도 뭔가 주식하고 동떨어져 있어 그리고 국기를 할 필요는 없잖아 그냥 KOSPI, S&P500 이거 달면 되는데 저건 영어인데 투자하는 사람이면 다 알잖아 buy, sell 같은것도 그렇고 다 알만한건 넣어도 돼 다시해봐 이미지도 다시 생성하도록 chatgpt 알려주고"
+- 대본·오디오는 승인·완성본 그대로 두고 화면만 다시 짬 (말이 아니라 화면이 '한번에 이해'를 맡음).
+
+### 바꾼 것
+| 파일 (버전) | 내용 |
+|---|---|
+| `stock/story/screen_words.txt` (새로) | 화면에 써도 되는 투자 영어 — 지수·종목 이름(KOSPI·S&P·NASDAQ·SOXL·ETF …)·매매(BUY·SELL·HOLD·MARGIN CALL·LEVERAGE·ALL-IN …)·거시(FED·RATE·USD·KRW·BOND …)·짧은 말(RULE·MY RULES·MAX·PER STOCK·PAST·FUTURE·AVG·WORST …) |
+| `video/render/render.mjs` (v1.24 → v1.25) | K.init allowWords 가 있으면 한국어·목록 밖 영어를 문제로 셈 ('%p' 는 뺌) |
+| `tools/story_kit.py` (v1.7 → v1.8) · 시험 v1.4 | 장면 표 영어가 목록 밖이면 멈춤 · SPEC.allowWords · `title=` · 글자 칩 `'TEXT`(밑줄 = 띄어쓰기, `!` ✗ · `+` ✓) · 띄어 쓴 `>` = 화살표 · `LIST n:+글자; n:!글자` · `PIE cap=` · 그림 chip·briefcase·school · 썸네일 문구도 목록 낱말 허용 |
+| `video/render/story.js` (v1.6 → v1.7) · `story.css` (v1.3 → v1.4) | 이름표 탭 · 글자 칩(칸 너비를 다 쓰는 크기) · LIST · PIE 아래 글 · 롱폼 칸 800 → 960 · 칩·목록 칸 높이를 내용에 맞춤 · 글자 폭 계산(영어 대문자는 숫자보다 넓음 — 'USD/KRW ↑'·'3 REASONS BEFORE BUY' 가 칸 밖으로 나갔던 것) |
+| `stock/source/pogi-sonjeol-2026-10/scenes.txt` | 63장면 — 문장마다 화면: MY ACCOUNT 계좌 · MARGIN CALL · 44/회사?/학원 칩 · SELL ✗ → −70% / HOLD ✓ · 5 RULES · RULE 1~5 큰 글자 + 소품 · KOSPI → S&P 500 · KOSPI 원그래프(SAMSUNG + SK HYNIX) · KOSPI −8.95% + 서킷브레이커 · KOSPI 7월 −34% 차트 · 곰·황소 · 박스권 · S&P 500 +81% · BUY ✗ SELL ✗ HOLD ✓ · S&P 500 차트·회복 막대 · FED·AI·세계 칩 · RATE ↑ · USD/KRW ↑ · 10Y−2Y·BONDS · SOXL = 반도체 3× ETF · BUY→SELL→BUY→SELL · MY RULES 목록 · 3× LEVERAGE ✗ ALL-IN ✗ · ₩1,000,000 × 120 · AVG ×1.6 / WORST ×0.95 · PAST ≠ FUTURE (국기 없음) |
+| `stock/source/pogi-sonjeol-2026-10/shorts/scenes.txt` | KOSPI 9,000 · MARGIN CALL 소품 · 44/회사?/학원 · 앱 삭제 → SELL 바닥 · 5 RULES |
+| `stock/story/puppet/props_chatgpt.md` (v2.0 → v3.0) · `props/README.md` | 주식 그림 26장 (MARGIN-CALL·SAVINGS-DROP·DELETE-APP·RULE-NOTE·INDEX-BASKET·CHIP-ALL-IN·CIRCUIT-BREAKER·BEAR·BOX-RANGE·BULL·PAUSE-TRADING·SELL-BOTTOM·DELISTED·MACRO-DASH·NEWS-HYPE·STORM-CHART·RATE-BANK·FX-OUTFLOW·DEBT-BUBBLE·FEAR-GREED·RULE-SHIELD·TIP-CHAT·LEVERAGE-CRASH·SLOW-CLIMB·DCA-JAR·COMPOUND-STAIRS) — 그림 속 글자는 BUY·SELL·%·$ 만 · 옛 21장은 `props/_old/` |
+| `stock/guides/story_script.md` (v1.12) · `quick_story.md` (v1.7) · `stock/story/series.md` (v1.10) · `CLAUDE.md` | 화면 영어 허용 목록 · 문장마다 화면 · 주식 소품 |
+
+### 확인
+- unittest (story_kit·story_check·subs_tool) OK
+- `render.mjs check` 롱폼 cuts=63 problems=0 (page_errors=52 = 소품 26 × 2) · 쇼츠 cuts=6 problems=0 (page_errors=6)
+- still 63장 + 고친 뒤 칩·목록 장면 16장 + 쇼츠 6장 직접 봄
+- 연구·교육용 영상 도구 — 투자 권유 아님.
+
 ## 2026-10-24 — 예약 작업 모두 끔
 
 - 사용자 지시: "이제 예약작업 그만해"

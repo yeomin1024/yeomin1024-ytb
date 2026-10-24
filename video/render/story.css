@@ -1,4 +1,5 @@
-/* VERSION: v1.3 — 2026-10-23 — 정리 카드(K6) 모양 뺌 (사용자 지시 "그냥 정리 부분은 빼자") · 소품과 같이 쓰는 큰 글자 한 줄 .kbig.row (끝에 덧붙임).
+/* VERSION: v1.4 — 2026-10-24 — 화면 위 이름표 탭 .ktab · K5 글자 칩 .k5t(.no 빨간 ✗ · .yes 청록 ✓) · LIST 줄 .klist (끝에 덧붙임 — 투자 영어 허용).
+   (v1.3) — 2026-10-23 — 정리 카드(K6) 모양 뺌 (사용자 지시 "그냥 정리 부분은 빼자") · 소품과 같이 쓰는 큰 글자 한 줄 .kbig.row (끝에 덧붙임).
    (v1.2) — 2026-10-23 — 큰 글자 위 그림 .kbigi (끝에 덧붙임). v1.1 — 2026-10-23 — K6 그림 줄 · PIE (끝에 덧붙임). (v1.0) — 2026-10-23 — 새로: video/render/story.js v1.0 의 코드 화면 모양 (개미 재기 일지 — 종이인형극 무대 위 화면).
    글자는 모두 36px 이상 · 색 = 뜻 (빨강 손해 · 청록 회복 · 노랑 기준). 연구·교육용 영상 도구. */
 .vig{position:absolute;inset:0;pointer-events:none;background:radial-gradient(1250px 760px at 55% 52%,rgba(0,0,0,0) 52%,rgba(0,0,0,.5) 100%)}
@@ -25,3 +26,13 @@
 .kbig{display:flex;flex-direction:column;align-items:center;gap:12px}
 /* v1.3 — 2026-10-23 — 소품과 같이: 그림 + 숫자 한 줄 (소품 위) */
 .kbig.row{flex-direction:row;gap:24px}
+/* v1.4 — 2026-10-24 — 투자 영어 이름표·칩·목록 (stock/story/screen_words.txt 낱말만) */
+.ktab{position:absolute;font-size:52px;line-height:1;padding:12px 26px;border-radius:16px 16px 0 0;background:rgba(10,16,30,.88);border:3px solid rgba(242,230,207,.38);border-bottom:none;color:#F2E6CF;letter-spacing:.02em}
+.k5t{display:inline-block;line-height:1;padding:.32em .5em;border-radius:.4em;border:5px solid rgba(242,230,207,.55);background:rgba(255,255,255,.06);color:#F4F6FA;position:relative;white-space:nowrap}
+.k5t.no{border-color:var(--R,#FF4D3D);color:#FF8A7E}
+.k5t.no::after{content:"";position:absolute;left:-6%;right:-6%;top:50%;height:7px;margin-top:-3px;background:#FF4D3D;transform:rotate(-12deg);border-radius:4px}
+.k5t.yes{border-color:#22C7B0;color:#22C7B0}
+.klin{position:absolute;inset:40px 50px;display:flex;flex-direction:column;justify-content:center;gap:22px}
+.klr{display:flex;align-items:center;gap:22px;line-height:1.1}
+.klm{flex:none;display:inline-flex}
+.kpiec{position:absolute;left:0;right:0;bottom:22px;text-align:center;font-size:44px;line-height:1;color:#F2E6CF}

@@ -1,0 +1,70 @@
+# 화면에 써도 되는 영어 낱말 — 투자하는 사람이면 나라와 상관없이 다 아는 말만 (한 줄에 하나, 대문자로 비교)
+# 2026-10-24 사용자 지시 "국기를 할 필요는 없잖아 그냥 KOSPI, S&P500 이거 달면 되는데 저건 영어인데 투자하는 사람이면 다 알잖아
+#   buy, sell 같은것도 그렇고 다 알만한건 넣어도 돼". 한국어는 화면에 쓰지 않는다 (말은 언어별 자막).
+# 장면 표에 이 목록 밖 영어가 있으면 story_kit scenes 가 멈추고, render.mjs check 가 문제로 센다. 더할 때는 '다 아는 말'인지 먼저 본다.
+# 지수·시장
+KOSPI
+KOSDAQ
+S&P
+NASDAQ
+DOW
+# 종목·상품 (이름)
+SAMSUNG
+SK
+HYNIX
+SOXL
+SOXX
+TQQQ
+QQQ
+SPY
+ETF
+# 매매
+BUY
+SELL
+HOLD
+ALL-IN
+LEVERAGE
+MARGIN
+CALL
+TRADING
+HALT
+STOP
+LOSS
+CRASH
+BULL
+BEAR
+FOMO
+DCA
+# 거시
+FED
+RATE
+FX
+USD
+KRW
+BOND
+BONDS
+# 채권 만기 표기 (10Y−2Y = 장단기 금리차)
+Y
+AI
+# 짧은 보통 말 (화면 이름표)
+RULE
+RULES
+MY
+ACCOUNT
+NO
+DEBT
+MAX
+PER
+STOCK
+REASONS
+BEFORE
+NEWS
+MARKET
+PAST
+FUTURE
+AVG
+WORST
+YEAR
+MONTH
+STAY
+PAUSE

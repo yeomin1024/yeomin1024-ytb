@@ -1,4 +1,8 @@
-// VERSION: v1.6 — 2026-10-24 — 소품 그림 21장이 올라와 still 로 보니 BIG 숫자와 같이 쓰는 소품(차단기·동전 나무)이 작아 보임 → 상자 [6.2, 4.0] → [6.6, 4.7].
+// VERSION: v1.7 — 2026-10-24 — 화면에 투자 영어 허용 (사용자 지시 "국기를 할 필요는 없잖아 그냥 KOSPI, S&P500 이거 달면 되는데 … buy, sell 같은것도
+//   그렇고 다 알만한건 넣어도 돼" · "모든 나라 사람들이 보기에 한번에 이해가 되도록 근데 미흡하지 않도록 전력을 다해"): SPEC.allowWords (stock/story/screen_words.txt)
+//   → K.init allowWords (render.mjs v1.25 가 목록 밖 영어·한국어를 잡음) · 화면 위 이름표 탭 title= (KOSPI·S&P 500·RULE 1 …) · K5 글자 칩 'TEXT
+//   (! 빨간 ✗ · + 청록 ✓) · LIST 화면 (줄마다 ✓/✗ + 짧은 영어, 문장 번호에 나타남) · 그림 chip(반도체)·briefcase·school.
+// (v1.6) — 2026-10-24 — 소품 그림 21장이 올라와 still 로 보니 BIG 숫자와 같이 쓰는 소품(차단기·동전 나무)이 작아 보임 → 상자 [6.2, 4.0] → [6.6, 4.7].
 // (v1.5) — 2026-10-23 — 배경을 화면 아래 끝까지 (ChatGPT 배경 5장이 올라와 still 로 보니 아래 약 10% — 쇼츠 15% — 가 빈 남색 띠, 바닥 줄도
 //   인형 발보다 높았음): bg y 0.35 → −2.8 · w 54 → 56 (쇼츠 y 0.2 → −4.4 · w 40 → 44) — 바닥 줄(그림 높이 80%)이 화면 약 74%(쇼츠 81%).
 // (v1.4) — 2026-10-23 — ① 정리 카드(K6) 뺌 (사용자 지시 "그냥 정리 부분은 빼자"). ② 설명 소품 그림 (사용자 지시 "설명에 필요한 이미지 요소들은
@@ -23,7 +27,7 @@
 (function () {
   "use strict";
   const S_ = (window.Story = {});
-  S_.VERSION = "v1.6";
+  S_.VERSION = "v1.7";
   S_.POSES = { BONSEOK: "P-BONSEOK.png", WALK: "P-BONSEOK-WALK.png", PHONE: "P-BONSEOK-PHONE.png", DESPAIR: "P-BONSEOK-DESPAIR.png",
     RESOLVE: "P-BONSEOK-RESOLVE.png", STUDY: "P-BONSEOK-STUDY.png", BACK: "P-BONSEOK-BACK.png", SMILE: "P-BONSEOK-SMILE.png", CROWD: "P-CROWD.png" };
   S_.BGS = { "HOME-NIGHT": "P-HOME-NIGHT.jpg", OFFICE: "P-OFFICE.jpg", "STREET-DAWN": "P-STREET-DAWN.jpg", BOARD: "P-BOARD.jpg", PAPER: "P-PAPER.jpg" };
@@ -31,6 +35,8 @@
   const COL = { R: "#FF4D3D", G: "#22C7B0", Y: "#FFD400", W: "#F4F6FA" };
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
   const num = s => parseFloat(String(s).replace(/[^\d.\-−]/g, "").replace("−", "-"));
+  // v1.7 글자 폭 (글자 크기 1 기준) — 영어 대문자·₩ 는 숫자보다 넓다 (BIG 'USD/KRW ↑' 가 칸 밖으로 나갔음)
+  const textW = t => [...String(t)].reduce((w, ch) => w + (/[A-Z₩W&%$]/.test(ch) ? 0.74 : /[0-9]/.test(ch) ? 0.58 : /\s/.test(ch) ? 0.3 : /[a-z]/.test(ch) ? 0.56 : 0.62), 0);
 
   // 아이콘 (K5) — 글자 없는 그림 · 48×48 칸
   const ICON = {
@@ -56,6 +62,10 @@
     pct: `<circle cx="24" cy="24" r="17" fill="#D9A441"/><text x="24" y="31" font-size="20" font-weight="900" text-anchor="middle" fill="#1E2A4A">%</text>`,
     fx: `<rect x="3" y="12" width="42" height="24" rx="5" fill="#3E8E87"/><text x="24" y="29" font-size="12" font-weight="900" text-anchor="middle" fill="#fff">₩⇄$</text>`,
     people: `<g fill="#F2E6CF"><circle cx="14" cy="17" r="5"/><circle cx="34" cy="17" r="5"/><path d="M5 38c0-8 4-13 9-13s9 5 9 13z"/><path d="M25 38c0-8 4-13 9-13s9 5 9 13z"/></g><circle cx="24" cy="14" r="6" fill="#D9A441"/><path d="M13 40c0-10 5-15 11-15s11 5 11 15z" fill="#D9A441"/>`,
+    // v1.7 반도체 칩 · 회사(서류 가방) · 학원(책가방)
+    chip: `<rect x="12" y="12" width="24" height="24" rx="3" fill="#2F6B4F"/><rect x="18" y="18" width="12" height="12" rx="1.5" fill="#D9A441"/><g stroke="#C9D1E0" stroke-width="2.5" stroke-linecap="round"><path d="M17 6v6M24 6v6M31 6v6M17 36v6M24 36v6M31 36v6M6 17h6M6 24h6M6 31h6M36 17h6M36 24h6M36 31h6"/></g>`,
+    briefcase: `<rect x="6" y="16" width="36" height="24" rx="4" fill="#8B5A2B"/><path d="M18 16v-5h12v5" fill="none" stroke="#F2E6CF" stroke-width="3"/><rect x="6" y="25" width="36" height="3" fill="#5C3A1A"/>`,
+    school: `<path d="M12 14c0-5 5-8 12-8s12 3 12 8v26H12z" fill="#3E6FB0"/><rect x="16" y="24" width="16" height="10" rx="2" fill="#F2E6CF"/><path d="M18 8c2-3 10-3 12 0" fill="none" stroke="#1E2A4A" stroke-width="2.5"/>`,
     chart: `<rect x="6" y="28" width="7" height="12" fill="#3E8E87"/><rect x="17" y="20" width="7" height="20" fill="#3E8E87"/><rect x="28" y="12" width="7" height="28" fill="#D9A441"/><path d="M5 41h38" stroke="#F2E6CF" stroke-width="2.5"/>`,
   };
   const ARROW = `<path d="M6 24h30M28 14l10 10-10 10" fill="none" stroke="#FFD400" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>`;
@@ -67,7 +77,8 @@
 
   S_.build = function (SPEC) {
     const V = !!SPEC.vertical, SW = V ? 1080 : 1920;
-    K.init(window.EP, { subtitles: false, chip: false, noWords: true, noLatin: true, introPart: SPEC.vertical ? undefined : "도입", introOk: !!SPEC.introOk, testFrom: SPEC.testFrom || undefined, w: SW });
+    const words = Array.isArray(SPEC.allowWords) ? { allowWords: SPEC.allowWords } : { noWords: true, noLatin: true };   // v1.7 투자 영어 허용 목록
+    K.init(window.EP, Object.assign({ subtitles: false, chip: false }, words, { introPart: SPEC.vertical ? undefined : "도입", introOk: !!SPEC.introOk, testFrom: SPEC.testFrom || undefined, w: SW }));
     const { S, E, W, el, pop, out } = K, tl = K.tl;
     const { lin, lerp, seg } = Puppet.u;
     const N = window.EP.sent.length;
@@ -81,12 +92,14 @@
     // 무대 자리 — 롱폼: 인형 L·C·R, 화면은 오른쪽 칸 / 쇼츠: 인형 아래 가운데, 화면은 위 칸
     const X = V ? { L: -1.7, C: 0, R: 1.7 } : { L: -5.6, C: 0, R: 5.6 };
     const PH = V ? 5.0 : 7.0, CH = V ? 2.4 : 4.8;
-    const PANEL = V ? { cx: 540, top: 250, w: 940, h: 560 } : { cx: 1430, top: 170, w: 800, h: 600 };
+    const PANEL = V ? { cx: 540, top: 250, w: 940, h: 560 } : { cx: 1370, top: 170, w: 960, h: 600 };   // v1.7 롱폼 칸 800 → 960 (글자 칩·목록이 작았음)
     const LOOK_Y = V ? 3.6 : 3.34;
     const WARM = new THREE.Color(0xffffff), COOL = new THREE.Color(0xb4b9cc);
 
     // ---------- 코드 화면 ----------
-    const panel = (sc, cls, inner, P) => el(`<div class="kp ${cls || ""}" style="left:${(P || PANEL).cx - (P || PANEL).w / 2}px;top:${(P || PANEL).top}px;width:${(P || PANEL).w}px;height:${(P || PANEL).h}px">${inner || ""}</div>`, sc);
+    let lastP = PANEL;                                             // v1.7 마지막으로 만든 칸 (이름표 탭 자리)
+    const fitP = hh => ({ cx: PANEL.cx, w: PANEL.w, h: hh, top: Math.round(PANEL.top + (PANEL.h - hh) / 2) });   // 내용 높이에 맞춘 칸 (가운데 그대로)
+    const panel = (sc, cls, inner, P) => (lastP = P || PANEL, el(`<div class="kp ${cls || ""}" style="left:${(P || PANEL).cx - (P || PANEL).w / 2}px;top:${(P || PANEL).top}px;width:${(P || PANEL).w}px;height:${(P || PANEL).h}px">${inner || ""}</div>`, sc));
     const SCREEN = {
       K1(sc, s, t0) {                                              // 계좌: 금액이 from → to 로 굴러감 (빨강 손해 · 청록 회복)
         const from = num(s.from), to = num(s.to), c = to < from ? COL.R : COL.G, pct = from ? (to - from) / from * 100 : 0;
@@ -149,16 +162,23 @@
         return t0 + 1.1 + n * 0.35;
       },
       K5(sc, s, t0) {                                              // 아이콘 칸: '!' = 빨간 ×(하지 않음) · '+' = 청록 ✓(할 것)
-        const it = s.icons, n = it.length, sz = Math.min(170, (PANEL.w - 60) / n - 20);
-        const h = it.map(x => icon(x, sz)).join("");                // v1.2 '>' = 화살표 칸
-        const p = panel(sc, "k5", `<div class="k5r">${h}</div>`);
+        const it = s.icons, n = it.length, gap = 22;
+        // v1.7 칸 너비를 다 쓰는 크기 u: 그림·화살표 = u, 글자 칩 = 0.55u × (글자 폭 + 안쪽 여백 1.0 (+ ✓ 1.0)) + 테두리
+        const den = it.reduce((d, x) => d + (x.t != null ? 0.55 * (textW(x.t) + 1.0 + (x.m === "+" ? 1.0 : 0)) : 1), 0);
+        const sz = Math.min(170, Math.floor((PANEL.w - 80 - gap * (n - 1) - 14 * it.filter(x => x.t != null).length) / den));
+        const chip = x => {                                          // v1.7 글자 칩 (KOSPI·S&P 500·BUY …)
+          const fs = Math.max(40, Math.min(94, Math.floor(sz * 0.55)));
+          return `<span class="k5i k5t w9 nw${x.m === "!" ? " no" : x.m === "+" ? " yes" : ""}" style="font-size:${fs}px">${x.m === "+" ? "✓ " : ""}${esc(x.t)}</span>`;
+        };
+        const h = it.map(x => x.t != null ? chip(x) : icon(x, sz)).join("");   // v1.2 '>' = 화살표 칸
+        const p = panel(sc, "k5", `<div class="k5r">${h}</div>`, fitP(Math.max(240, sz + 160)));   // v1.7 한 줄 높이에 맞춘 칸
         pop(p, t0);
         p.querySelectorAll(".k5i").forEach((b, i) => pop(b, t0 + 0.3 + i * 0.3, { from: { scale: 0.5, y: 0 } }));
         return t0 + 0.6 + n * 0.3;
       },
       BIG(sc, s, t0, t1, o) {                                      // 큰 숫자·기호 하나 · v1.4 소품이 있으면 소품 위 한 줄 (그림 + 숫자)
         const withProp = !!(o && o.prop), wMax = withProp ? PANEL.w + 120 : PANEL.w;
-        const c = COL[s.c] || COL.W, size = Math.min(withProp ? (V ? 140 : 150) : (V ? 170 : 190), Math.floor(wMax * 0.9 / (s.text.length * 0.62 + (withProp && s.icon ? 1.2 : 0))));   // v1.2 글자 수에 맞춰 (칸 밖으로 넘지 않게)
+        const c = COL[s.c] || COL.W, size = Math.min(withProp ? (V ? 140 : 150) : (V ? 170 : 190), Math.floor(wMax * 0.9 / (textW(s.text) + (withProp && s.icon ? 1.2 : 0))));   // v1.2 글자 수에 맞춰 (칸 밖으로 넘지 않게)
         const ic = s.icon ? `<div class="kbigi">${icon({ k: s.icon }, withProp ? Math.round(size * 1.1) : Math.min(V ? 170 : 180, Math.round(size * 1.05)), "k4i")}</div>` : "";   // v1.3 무엇의 숫자인지 그림으로 (국기·×3 …)
         const top = withProp ? (V ? 305 : 250) : PANEL.top + PANEL.h / 2;
         const p = el(`<div class="kbig w9 nw${withProp ? " row" : ""}" style="left:${PANEL.cx}px;top:${top}px;font-size:${size}px;color:${c}">${ic}<span>${esc(s.text)}</span></div>`, sc);
@@ -166,16 +186,28 @@
         return t0 + 0.6;
       },
       PIE(sc, s, t0) {                                             // v1.2 원그래프: 전체 중 몫 (몫 = 색 · 가운데 글자 = 숫자·기호만)
-        const v = Math.max(0, Math.min(100, s.value)), c = COL[s.c] || COL.R, R = V ? 190 : 200, L = 2 * Math.PI * R;
+        const v = Math.max(0, Math.min(100, s.value)), c = COL[s.c] || COL.R, R = (V ? 190 : 200) - (s.cap ? 40 : 0), L = 2 * Math.PI * R;   // v1.7 cap 이 있으면 조금 작게
         const sz = 2 * R + 80, lab = s.label || `${v}%`;
         const svg = `<svg width="${sz}" height="${sz}" viewBox="0 0 ${sz} ${sz}" aria-hidden="true"><circle cx="${sz / 2}" cy="${sz / 2}" r="${R}" fill="none" stroke="rgba(255,255,255,.16)" stroke-width="70"/>` +
           `<circle class="kpie" cx="${sz / 2}" cy="${sz / 2}" r="${R}" fill="none" stroke="${c}" stroke-width="70" stroke-dasharray="${L}" stroke-dashoffset="${L}" transform="rotate(-90 ${sz / 2} ${sz / 2})"/></svg>`;
-        const p = panel(sc, "kpiep", `<div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)">${svg}</div>` +
-          `<div class="kpiel w9 nw" style="color:${c}">${esc(lab)}</div>` + (s.icon ? `<div style="position:absolute;left:24px;top:18px">${icon({ k: s.icon }, 90, "k4i")}</div>` : ""));
+        const p = panel(sc, "kpiep", `<div style="position:absolute;left:50%;top:${s.cap ? 44 : 50}%;transform:translate(-50%,-50%)">${svg}</div>` +
+          `<div class="kpiel w9 nw" style="color:${c}${s.cap ? ";top:44%" : ""}">${esc(lab)}</div>` + (s.cap ? `<div class="kpiec w9 nw">${esc(s.cap)}</div>` : "") + (s.icon ? `<div style="position:absolute;left:24px;top:18px">${icon({ k: s.icon }, 90, "k4i")}</div>` : ""));
         pop(p, t0);
         tl.fromTo(p.querySelector(".kpie"), { strokeDashoffset: L }, { strokeDashoffset: L * (1 - v / 100), duration: 1.2, ease: "power2.out" }, t0 + 0.3);
         pop(p.querySelector(".kpiel"), t0 + 1.3, { from: { scale: 0.7, y: 0 } });
         return t0 + 1.6;
+      },
+      LIST(sc, s, t0, t1) {                                         // v1.7 줄마다 ✓/✗ + 짧은 영어 (원칙 목록 등) — 줄은 그 문장에 나타남
+        const n = s.items.length, longest = Math.max(...s.items.map(x => textW(x.t)));
+        const fs = Math.max(40, Math.min(V ? 64 : 62, Math.floor((PANEL.h - 80) / n / 1.9), Math.floor((PANEL.w - 100) / (longest + 1.5))));   // 가장 긴 줄이 칸 안에
+        const mk = m => m === "!" ? `<svg ${SMALL} width="${fs}" height="${fs}" viewBox="0 0 48 48" aria-hidden="true">${mark("!")}</svg>`
+          : `<svg ${SMALL} width="${fs}" height="${fs}" viewBox="0 0 48 48" aria-hidden="true">${mark("+")}</svg>`;
+        const p = panel(sc, "klist", `<div class="klin">${s.items.map(x => `<div class="klr"><span class="klm">${mk(x.m)}</span><span class="w9 nw" style="font-size:${fs}px;color:${x.m === "!" ? COL.R : COL.W}">${esc(x.t)}</span></div>`).join("")}</div>`, fitP(Math.min(PANEL.h, Math.round(n * fs * 1.9 + 110))));
+        pop(p, t0);
+        const step = Math.max(0.35, Math.min(1.0, (t1 - t0 - 0.6) / Math.max(1, n)));
+        let last = t0;
+        p.querySelectorAll(".klr").forEach((r, i) => { const ti = s.items[i].at ? at(s.items[i].at[0], s.items[i].at[1]) : t0 + 0.4 + i * step; last = Math.max(last, ti); pop(r, ti, { from: { y: 16 } }); });
+        return last + 0.4;
       },
     };
 
@@ -254,6 +286,10 @@
         const sc = K.scene(a, b, nx ? null : { keep: true });
         const t0 = s.screen.at ? at(s.screen.at[0], s.screen.at[1]) : (i === 0 ? 0.3 : S(s.a) + 0.35);
         const done = SCREEN[s.screen.type](sc, s.screen, t0, b, { prop: pr.length > 0 });
+        if (s.screen.title && s.screen.type !== "BIG") {             // v1.7 화면 위 이름표 탭 (KOSPI · S&P 500 · RULE 1 …)
+          const tab = el(`<div class="ktab w9 nw" style="${V ? `left:${lastP.cx}px;transform:translateX(-50%)` : `left:${lastP.cx - lastP.w / 2}px`};top:${lastP.top - 82}px">${esc(s.screen.title)}</div>`, sc);
+          pop(tab, t0 + 0.1, { from: { y: 10 } });
+        }
         K.cut(Math.min(b - 0.2, Math.max(done + 0.2, (a + b) / 2)), `${i + 1} ${s.screen.type}`);
       } else K.cut(Math.min(b - 0.2, (a + b) / 2 + 0.3), `${i + 1} ${pr.length ? "소품" : "무대"}`);
       lastEnd = b;

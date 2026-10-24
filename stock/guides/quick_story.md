@@ -1,6 +1,7 @@
 # 개미 재기 일지 — 토큰을 덜 쓰는 제작 순서 (요약 지시사항)
 
-버전: v1.6 — 2026-10-24 — 설명 소품 = **공통 소품** (사용자 지시 "소품 요소를 좀 되도록 다른 주식 관련 영상에서 재사용할 수 있도록 공통된 걸 만들도록 해봐 …"): `story_kit props [낱말]` 로 있는 것부터 다시 씀 · 새 소품도 일반적인 뜻으로.
+버전: v1.7 — 2026-10-24 — **화면에 투자 영어 허용**(KOSPI·S&P 500·BUY·SELL … `stock/story/screen_words.txt`, 국기 대신 지수 이름) · **문장마다 화면** · 소품 = **주식 그림** v3.0 · D-2 문법 `title=`·글자 칩 `'TEXT`·`LIST`·`PIE cap=` (사용자 지시 2026-10-24 "국기를 할 필요는 없잖아 그냥 KOSPI, S&P500 이거 달면 되는데 저건 영어인데 투자하는 사람이면 다 알잖아 buy, sell 같은것도 그렇고 다 알만한건 넣어도 돼" · "이미지 요소도 뭔가 주식하고 동떨어져 있어").
+(v1.6 — 2026-10-24 — 설명 소품 = **공통 소품** (사용자 지시 "소품 요소를 좀 되도록 다른 주식 관련 영상에서 재사용할 수 있도록 공통된 걸 만들도록 해봐 …"): `story_kit props [낱말]` 로 있는 것부터 다시 씀 · 새 소품도 일반적인 뜻으로.
 (v1.5 — 2026-10-23 — **정리 부분 없음** (사용자 지시 "그냥 정리 부분은 빼자" — '정리해볼게요'·정리 카드·K6 뺌) · **설명 소품 그림** `*이름` (사용자 지시 "설명에 필요한 이미지 요소들은 왜 생성안해?" — ChatGPT `stock/story/puppet/props_chatgpt.md`).
 (v1.4 — 2026-10-23 — 화면·썸네일 **영어도 없음** (BIG icon= · #N · 썸네일 숫자·기호) (사용자 지시 2026-10-23 "야 영어 문구도 넣지마").)
 (v1.3 — 2026-10-23 — 화면·썸네일 한국어 없음 · D-2 문법(K6 그림 줄 · PIE · 화살표 · 국기·%·₩⇄$ · K4 icon= · BIG 여러 낱말) (사용자 지시 2026-10-23 "외국인 대상으로도 할거니까 그것도 고려해 영상에 한글 문구 사용하지 말고 최대한 이해 잘되도록").)
@@ -43,7 +44,7 @@
 - 숫자는 코드 출력(nums)·원문 사실(facts)만. 백테스트 결론은 결과를 본 뒤에. 개별 종목 추천 없음. 사례는 2020년대 먼저.
 - 시리즈: 첫 문장을 '지난 화에서'로 시작하지 않는다. **화마다 다른 경험** — 1화의 70% 손실은 1화에서만, 앞 화에 쓴 경험·근거·숫자·결심·문장은 다시 쓰지 않는다. 근거는 `story_kit facts --unused`, `check` 의 [DUP] 문제 0.
 - 길이: 7~8분 (H17 6.3음절/초 — check 가 잰다). 쇼츠 50~55초: 첫 문장에 핵심(누가·언제·무엇 때문에·얼마) → 경위 → 걸린 것 → 질문 → '아래 영상에서'.
-- **화면·썸네일에 글자 없음 — 영어·한국어 모두** (외국인 시청자 — 2026-10-23): 화면은 숫자·기호·국기·그림만(티커·지수 이름도 그림), 화 배지 `#N`. 어려운 말·비유는 **설명 소품 그림**(종이 소품 — D-2 `*이름`). 썸네일 문구는 숫자·기호 (`export --thumb "−70%"`). 말은 언어별 자막(CC) — 번역에서 한국에만 있는 말을 짧게 풀어 씀.
+- **화면 글자 = 숫자·기호 + 투자자라면 다 아는 영어** (KOSPI·S&P 500·SOXL·BUY·SELL·HOLD·ETF·MARGIN CALL·RULE 1 … — 목록 `stock/story/screen_words.txt`, 밖이면 멈춤) · **한국어 없음**(말은 언어별 CC) · 국기 대신 지수 이름 · 화 배지 `#N`. **문장마다 그 말을 보여 주는 화면**(큰 숫자·차트·칩·목록·주식 소품) — 방법 첫 장면 `BIG RULE N Y` + 소품, 인형만 서 있는 장면은 마무리에만. 썸네일 문구는 숫자·기호 + 같은 목록 영어 (2026-10-24).
 
 ## A. 주제 탐색 (대화 1 — 호출 8번 안)
 
@@ -155,9 +156,9 @@ node video/render/render.mjs video stock <ID>                                   
   - 여럿이면 `+` 로 잇는다. 장면 안에서 바뀌면 `<문장>[:<낱말>]:자세` (종이 카드 뒤집듯 바뀜). `!` = 좌우 뒤집기.
   - 자세: BONSEOK · WALK · PHONE · DESPAIR · RESOLVE · STUDY · BACK · SMILE · CROWD.
   - 앞 장면과 배경·자세·자리가 같으면 이어진다 (들어오는 움직임 없음). 화면이 있으면 롱폼 인형은 왼쪽으로 간다.
-- **소품**(v1.5): 인형 칸에 `*이름[@L|C|R][>rise|pop]` 을 `+` 로 더한다 — 예 `BACK@L+13:몰빵:*ONE-BASKET@R`.
+- **소품**(v1.5): 인형 칸에 `*이름[@L|C|R][>rise|pop]` 을 `+` 로 더한다 — 예 `BACK@L+13:몰빵:*CHIP-ALL-IN@R`.
   - **먼저 `python3 tools/story_kit.py props [낱말]`** (예: `props 빚`) — 공통 소품(뜻·쓴 화·✅ 그림 있음)에서 맞는 것을 다시 쓴다. 없을 때만 `props_chatgpt.md` 표 끝에 새로 (일반적인 뜻으로 — 특정 회사·화 숫자·장면 묘사 금지, 꼭 그 화 전용이면 '전용'), 후보(…)는 표로 옮겨 프롬프트를 쓴다.
-  - 이름 = `stock/story/puppet/props_chatgpt.md` 표에 있는 것만 (`ONE-BASKET` 몰빵 · `BIG-BASKET` 지수 · `BOX` 박스피 · `STAMP` 손실 확정 · `TORTOISE` 천천히 · `GAUGE` 점검 …).
+  - 이름 = `stock/story/puppet/props_chatgpt.md` (v3.0 — **주식 그림**: 차트·캔들·매매 앱·황소·곰·반도체 칩 …) 표에 있는 것만 (`MARGIN-CALL` 반대매매 · `CHIP-ALL-IN` 몰빵 · `INDEX-BASKET` 지수 · `BOX-RANGE` 박스권 · `BULL`·`BEAR` · `FEAR-GREED` 과열 · `RULE-NOTE` 원칙 · `DCA-JAR` 적립 …).
   - 롱폼은 오른쪽 바닥에 선다 (기본 `@R` — 인형은 `@L`) · 쇼츠는 위 가운데에 떠 있다 (`@C` 만). 튀어나옴(pop, 기본)·솟아오름(rise). `<문장>[:<낱말>]:*이름` = 그 말에 나타남 — 같은 자리 앞 소품은 사라짐.
   - 소품은 **화면 없는 장면이나 BIG 과만** (화면 칸과 겹침). BIG 과 같이 쓰면 숫자가 소품 위 한 줄로 올라간다 (`BIG −8.95% R icon=kr` + `*BARRIER`).
   - 같은 소품이 앞 장면과 같은 자리·배경이면 이어진다 (다시 튀어나오지 않음).
@@ -169,11 +170,14 @@ node video/render/render.mjs video stock <ID>                                   
 | `K2 2020,2021,*2024,2026` | 연표 (`*` = 빛나는 해 · 6개 넘으면 처음·끝·빛나는 해만 글자) |
 | `K3 100,49,100,498 base=100 lab=2007,2009,2013,2026 end=+398%` | 차트 (선이 그려짐 · 기준 = 노란 점선) |
 | `K4 1Y:24.3%:R 10Y:6.5%:Y 15Y:0%:G icon=hourglass` | 막대 (이름:값[:색]) · `icon=` 단위 그림 (모래시계 = 기간, kr = 한국 지수) |
-| `K5 !x3 !debt +basket +calendar` | 아이콘 (`!` 하지 않음 · `+` 할 것) — basket drop debt swap x3 hourglass calendar phone book up down bell lock globe coin house **kr us**(국기) **pct**(금리 %) **fx**(₩⇄$) people chart · `kr>us` = 화살표 칸 |
-| `BIG −34% R icon=kr` | 큰 숫자·기호 (끝이 색 — R 손해 · G 회복 · Y 기준 · W) · `icon=` 무엇의 숫자인지 그림 (kr 코스피 · us S&P 500 · x3 3배 ETF · debt 빚). **글자(영어·한국어) 없음** |
-| `PIE 62 R label=50%+ icon=people` | 원그래프 — 전체 중 몫 (가운데 글자는 숫자·기호, `icon=` 무엇의 몫인지) |
+| `K5 !x3 !debt +basket +calendar` | 아이콘 (`!` 하지 않음 · `+` 할 것) — basket drop debt swap x3 hourglass calendar phone book up down bell lock globe coin house kr us pct fx people chart **chip**(반도체) **briefcase**(회사) **school**(학원) · `>` = 화살표 칸 |
+| `K5 'KOSPI > 'S&P_500` · `K5 !'BUY !'SELL +'HOLD` | **글자 칩** (v1.8) — `'` 뒤 글자(밑줄 = 띄어쓰기), `!` 빨간 ✗ · `+` 청록 ✓. 그림과 섞어도 됨. 칸 높이는 한 줄에 맞춰짐 |
+| `LIST 73:!DEBT; 74:+MAX 10% PER STOCK; 75:+3 REASONS BEFORE BUY title=MY_RULES` | **목록** (v1.8) — 줄마다 ✓/✗ + 짧은 영어, `n:` = 문장 n 에 나타남 |
+| `BIG KOSPI −34% R` · `BIG RULE 1 Y` | 큰 숫자·글자 (끝이 색 — R 손해 · G 회복 · Y 기준 · W) · `icon=` 무엇의 숫자인지 그림 (debt 빚 · lock 확정 · calendar 해마다) · 소품과 같이 쓰면 소품 위 한 줄 |
+| `PIE 55 R label=50%+ cap=SAMSUNG_+_SK_HYNIX title=KOSPI` | 원그래프 — 전체 중 몫 (가운데 숫자 · `cap=` 아래 짧은 글 · `icon=` 무엇의 몫) |
+| 모든 칸 화면 뒤 `title=S&P_500` | **이름표 탭** (v1.8) — 칸 위 왼쪽에 지수·종목 이름 (KOSPI · S&P 500 · MY ACCOUNT · RULE 1) |
 
-- 화면 글자는 숫자·기호만 — **영어·한국어 없음** (render check noLatin 이 잰다). 왼쪽 위 `#N`·끝의 `#N+1 ▶` 는 저절로 붙는다.
+- 화면 글자는 숫자·기호 + `stock/story/screen_words.txt` 영어만 — **한국어 없음** (story_kit scenes 와 render check 가 잰다). 왼쪽 위 `#N`·끝의 `#N+1 ▶` 는 저절로 붙는다.
 
 **D-3. 고칠 때**는 scenes.txt 의 그 줄만 Edit → `scenes` 다시. index.html·story.js 는 열지 않는다.
 - 새 부품이 꼭 필요할 때만 story.js 에 더하고, 이 절 표에 한 줄 더한다.

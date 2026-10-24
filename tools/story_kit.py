@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.7 — 2026-10-24 — props 명령: 공통 설명 소품 목록(뜻·쓴 화·그림 있음·후보)을 낱말로 찾음 — 새 화는 있는 소품부터 다시 씀
+# VERSION: v1.8 — 2026-10-24 — 화면에 투자 영어 허용 (사용자 지시 "국기를 할 필요는 없잖아 그냥 KOSPI, S&P500 이거 달면 되는데 … 다 알만한건 넣어도 돼"):
+#          허용 목록 stock/story/screen_words.txt → SPEC.allowWords · 장면 표의 영어가 목록 밖이면 멈춤 · 화면 이름표 title= · K5 글자 칩 'TEXT
+#          (밑줄 = 띄어쓰기) · LIST 화면 ('n:+글자; n:!글자') · PIE cap= · 그림 chip·briefcase·school · 썸네일 문구도 목록 낱말은 됨.
+# (v1.7) — 2026-10-24 — props 명령: 공통 설명 소품 목록(뜻·쓴 화·그림 있음·후보)을 낱말로 찾음 — 새 화는 있는 소품부터 다시 씀
 #          (사용자 지시 "소품 요소를 좀 되도록 다른 주식 관련 영상에서 재사용할 수 있도록 공통된 걸 만들도록 해봐 …").
 # (v1.6) — 2026-10-23 — ① 정리 부분 뺌 (사용자 지시 "그냥 정리 부분은 빼자"): 장면 표의 '정리' 줄·K6 정리 카드 없음 (쓰면 문제).
 #          ② 설명 소품 그림 (사용자 지시 "설명에 필요한 이미지 요소들은 왜 생성안해?"): 인형 칸에 '*이름' = 무대 위 종이 소품
@@ -48,7 +51,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 sys.path.insert(0, str(ROOT / "stock" / "story" / "calc"))
 import srt_tool  # noqa: E402
 
-VERSION = "v1.7"
+VERSION = "v1.8"
 LOG = logging.getLogger("story_kit")
 STORY = ROOT / "stock" / "story"
 SOURCE = ROOT / "stock" / "source"
@@ -58,6 +61,7 @@ SERIES = STORY / "series.md"
 CANDIDATES = ROOT / "stock" / "result" / "outliers" / "comment_title_candidates.tsv"
 CHATGPT = STORY / "protagonist_chatgpt.md"
 PROPS_FILE = STORY / "puppet" / "props_chatgpt.md"             # v1.6 소품 목록 (표의 저장 경로) — ChatGPT 가 그린다
+SCREEN_WORDS = STORY / "screen_words.txt"                      # v1.8 화면에 써도 되는 투자 영어
 PROP_RX = re.compile(r"`stock/story/puppet/props/([A-Z0-9]+(?:-[A-Z0-9]+)*)\.png`")
 ID_RE = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*-20\d\d-\d\d$")
 SYL, GAP = 6.3, 0.45                                   # 진행자 H17 (story_check 와 같음)
@@ -68,9 +72,9 @@ STORY_WORDS = ["손절", "포기", "원금", "본전", "복구", "회복", "물�
 POLITICS = re.compile(r"특검|의원|대통령|정부|정권|민주당|국힘|국민의힘|좌파|우파|탄핵|윤석열|이재명|문재인|호남|영남|빨갱|수꼴|시장개입")
 POSES = ["BONSEOK", "WALK", "PHONE", "DESPAIR", "RESOLVE", "STUDY", "BACK", "SMILE", "CROWD"]
 BGS = ["HOME-NIGHT", "OFFICE", "STREET-DAWN", "BOARD", "PAPER"]
-SCREENS = ["K1", "K2", "K3", "K4", "K5", "BIG", "PIE"]           # v1.6 K6 정리 카드 없음
+SCREENS = ["K1", "K2", "K3", "K4", "K5", "BIG", "PIE", "LIST"]           # v1.6 K6 정리 카드 없음
 ICONS = ["basket", "drop", "debt", "swap", "x3", "hourglass", "calendar", "phone", "book", "up", "down", "bell", "lock", "globe", "coin", "house",
-         "kr", "us", "pct", "fx", "people", "chart"]                   # v1.4 국기·금리 %·환율 ₩⇄$·사람들·막대
+         "kr", "us", "pct", "fx", "people", "chart", "chip", "briefcase", "school"]   # v1.8 반도체·회사·학원                   # v1.4 국기·금리 %·환율 ₩⇄$·사람들·막대
 
 # 문장 → 표정 (위에서부터 처음 맞는 것) — 장면 표 초안용. 사람이 고친다.
 POSE_RULES = [
@@ -429,8 +433,9 @@ def thumb_prompt(n, ep, lines, pose, big, bg, vertical=False, close=False):
     style = re.search(r"^STYLE: .*$", raw, re.M).group(0)
     style = style.replace(" No text, letters, numbers, logos or watermarks anywhere.", "")
     char = re.search(r"^CHARACTER .*$", raw, re.M).group(0)
-    if any(re.search(r"[A-Za-z가-힣]", l) for l in lines):
-        fail("THUMB", f"썸네일 문구에 글자: {lines}", "숫자·기호만 — 영어·한국어 없음 (사용자 지시 2026-10-23 \"영어 문구도 넣지마\")")
+    bad = [w for l in lines for w in bad_words(l)]
+    if bad:                                                  # v1.8 한국어 없음 · 영어는 투자자라면 다 아는 말(screen_words.txt)만
+        fail("THUMB", f"썸네일 문구에 허용 목록 밖 글자: {bad}", f"숫자·기호 + {SCREEN_WORDS.relative_to(ROOT)} 낱말만 (사용자 지시 2026-10-24)")
     cols = ["muted-red #E0302A" if re.search(r"[−-]\s?\d", l) else "bright yellow #FFD400" for l in lines]   # 손해 숫자 빨강 · 그 밖 노랑
     text = " ".join(f'line {i + 1} "{l}" in {c}' for i, (l, c) in enumerate(zip(lines, cols)))
     size = "vertical 9:16 (1080×1920), the picture fills the whole frame to every edge — no empty bands" if vertical else "landscape 16:9 (1280×720)"
@@ -444,7 +449,7 @@ def thumb_prompt(n, ep, lines, pose, big, bg, vertical=False, close=False):
         "", "## [A] 완성형 프롬프트 (이미지 AI에 그대로 붙여 넣기)", "```",
         style, char,
         f"SCENE: a paper puppet theater stage; the backdrop is {BG_EN[bg]}. Gu Bonseok puppet {POSE_EN[pose]}, {place}, {frame}.",
-        f"TEXT: numbers and symbols only — NO words or letters of any language (no English, no Korean), exactly these characters, very large bold rounded numerals with a thick dark navy outline, "
+        f"TEXT: exactly these characters and nothing more — numbers, symbols and well-known stock-market words only (no Korean, no other words), very large bold rounded letters with a thick dark navy outline, "
         f"{('one line' if len(lines) == 1 else 'two lines') + (' in the upper part' if vertical else ' across the bottom, 60–90% of the width')}: {text}. Nothing else written except the tag.{num}",
         f'TAG: a small rounded navy tag "#{ep}" with yellow characters in the top-left corner.',
         f"FORMAT: {size}. Save as JPEG (.jpg) under 700 KB.",
@@ -612,7 +617,7 @@ def draft(vid, shorts):
     return "\n".join(out) + "\n"
 
 
-SCREEN_RX = re.compile(r"^(K[1-5]|BIG|PIE)\b\s*(.*)$")
+SCREEN_RX = re.compile(r"^(K[1-5]|BIG|PIE|LIST)\b\s*(.*)$")
 
 
 def icon_items(tok):
@@ -621,8 +626,13 @@ def icon_items(tok):
     for j, part in enumerate(tok.split(">")):
         if j:
             out.append(dict(arrow=True))
+        if not part:                                             # v1.8 띄어 쓴 '>' 하나 = 화살표만
+            continue
         mk = part[0] if part[:1] in ("!", "+") else ""
         k = part.lstrip("!+")
+        if k.startswith("'"):                                    # v1.8 글자 칩 'S&P_500 (밑줄 = 띄어쓰기) — 허용 목록 낱말만
+            out.append(dict(t=k[1:].replace("_", " "), m=mk))
+            continue
         if k not in ICONS:
             raise ValueError(f"아이콘 없음: {k} (있는 것: {', '.join(ICONS)})")
         out.append(dict(k=k, m=mk))
@@ -640,6 +650,10 @@ def parse_screen(s):
         when = [int(at_m.group(1)), at_m.group(2)]
         rest = rest[:at_m.start()].strip()
     o = dict(type=typ)
+    tm = re.search(r"(?:^|\s)title=(\S+)", rest)                  # v1.8 화면 위 이름표 (밑줄 = 띄어쓰기)
+    if tm:
+        o["title"] = tm.group(1).replace("_", " ")
+        rest = (rest[:tm.start()] + " " + rest[tm.end():]).strip()
     if typ == "K1":
         f, t = rest.split(">")
         o.update({"from": f.strip(), "to": t.strip()})
@@ -669,8 +683,21 @@ def parse_screen(s):
         kv = dict(re.findall(r"(\w+)=(\S+)", rest))
         bare = re.sub(r"\s*\w+=\S+", "", rest).split()
         o.update(value=float(bare[0]), c=bare[1] if len(bare) > 1 else "R", label=kv.get("label"))
+        if "cap" in kv:                                          # v1.8 원그래프 아래 짧은 글 (밑줄 = 띄어쓰기)
+            o["cap"] = kv["cap"].replace("_", " ")
         if "icon" in kv:
             o["icon"] = icon_items(kv["icon"])[0]["k"]
+    elif typ == "LIST":                                          # v1.8 'n:+글자; n:!글자' — 줄마다 ✓/✗, 문장 n 에 나타남
+        items = []
+        for part in [x.strip() for x in rest.split(";") if x.strip()]:
+            im = re.match(r"^(?:(\d+)(?::(\S+?))?:)?([!+])?(.+)$", part)
+            it = dict(t=im.group(4).strip(), m=im.group(3) or "+")
+            if im.group(1):
+                it["at"] = [int(im.group(1)), im.group(2)]
+            items.append(it)
+        if not items:
+            raise ValueError("LIST = 'n:+글자; n:!글자' (줄 하나 이상)")
+        o.update(items=items)
     elif typ == "BIG":
         p = rest.split()
         for tok in [x for x in p if x.startswith("icon=")]:     # v1.5 무엇의 숫자인지 그림 (예: icon=kr — 'KOSPI' 글자 대신)
@@ -681,6 +708,30 @@ def parse_screen(s):
     if when:
         o["at"] = when
     return o
+
+
+def screen_words():
+    """화면에 써도 되는 영어 (대문자 set) — stock/story/screen_words.txt."""
+    if not SCREEN_WORDS.exists():
+        return set()
+    return {l.strip().upper() for l in SCREEN_WORDS.read_text("utf-8").splitlines() if l.strip() and not l.startswith("#")}
+
+
+def bad_words(text, allow=None):
+    """글자 속 한국어(→ '한국어') 또는 허용 목록 밖 영어 낱말 목록 (render.mjs v1.25 와 같은 판정 — '%p' 는 뺌)."""
+    if re.search(r"[가-힣ぁ-んァ-ン一-龥]", text or ""):
+        return ["한국어"]
+    allow = screen_words() if allow is None else allow
+    return [w for w in re.findall(r"[A-Za-z][A-Za-z&-]*", (text or "").replace("%p", "%")) if w.upper() not in allow]
+
+
+def screen_texts(o):
+    """화면 하나의 글자들 (낱말 검사용)."""
+    out = [o.get("title", ""), o.get("text", ""), o.get("label") or "", o.get("cap", ""), o.get("end") or ""]
+    out += [x.get("t", "") for x in o.get("icons", [])] + [x["t"] for x in o.get("items", []) if "t" in x]
+    out += [x.get("lab", "") + " " + x.get("val", "") for x in o.get("items", []) if "lab" in x]
+    out += o.get("labels", []) + o.get("years", [])
+    return [t for t in out if t]
 
 
 def props_catalog():
@@ -760,6 +811,7 @@ def compile_scenes(vid, shorts):
     rows = parts_of(scp)
     nmax = len(rows)
     catalog = props_catalog()
+    allow = screen_words()
     scenes, errs, prev = [], [], None
     for i, raw in enumerate(sp.read_text("utf-8").splitlines(), 1):
         line = raw.split("#", 1)[0].strip() if not raw.lstrip().startswith("#") else ""
@@ -788,6 +840,9 @@ def compile_scenes(vid, shorts):
                 sc["props"] = props
             if c[3]:
                 sc["screen"] = parse_screen(c[3])
+                bad = [w for t in screen_texts(sc["screen"]) for w in bad_words(t, allow)]
+                if bad:
+                    raise ValueError(f"화면 글자가 허용 목록 밖: {', '.join(sorted(set(bad)))} — 한국어는 쓰지 않고, 영어는 {SCREEN_WORDS.relative_to(ROOT)} 낱말만 (투자자라면 다 아는 말)")
                 if props and sc["screen"]["type"] != "BIG":
                     raise ValueError(f"소품은 화면 없는 장면이나 BIG 과만 ({sc['screen']['type']} 칸과 겹침 — 장면을 나눔)")
                 for p in sc["puppets"]:                       # 화면이 있으면 인형은 왼쪽 (롱폼) — 자리를 적었으면 그대로
@@ -888,7 +943,7 @@ def cmd_scenes(a):
                 used.append(p["prop"])
     spec = dict(dir="../../../stock/story/puppet/", ep=ep, introOk=intro_ok, next=(ep + 1) if isinstance(ep, int) and not a.shorts else None,
                 vertical=a.shorts, cover=a.shorts, testFrom=None if a.shorts else test_from,
-                props={k: f"props/{k}.png" for k in used}, scenes=scenes)
+                props={k: f"props/{k}.png" for k in used}, allowWords=sorted(screen_words()), scenes=scenes)
     out = ROOT / "video" / "episodes" / page_id / "index.html"
     epdata = "/*EP-DATA:BEGIN*//*EP-DATA:END*/"
     if out.exists():

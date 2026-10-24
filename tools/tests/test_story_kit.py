@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-# VERSION: v1.3 — 2026-10-24 — props 명령 (공통 소품 목록 · 낱말로 찾기 · 후보).
+# VERSION: v1.4 — 2026-10-24 — story_kit v1.8: 투자 영어 허용 목록 · title= · K5 글자 칩 · LIST · PIE cap=.
+# (v1.3) — 2026-10-24 — props 명령 (공통 소품 목록 · 낱말로 찾기 · 후보).
 # (v1.2) — 2026-10-23 — story_kit v1.6: K6 정리 카드 없음 · 소품 '*이름' (자리·때·움직임 · 목록 밖이면 멈춤).
 # (v1.1) — 2026-10-23 — story_kit v1.4: K6 그림 줄 · PIE · BIG 여러 낱말 · K4 icon= (화면에 한국어 없음).
 # (v1.0) — 2026-10-23 — tools/story_kit.py v1.0 시험: 금액 읽기 · 장면 표 문법(인형·화면) · 제작안 절 읽기 · 쇼츠 길이 추정.
@@ -49,7 +50,7 @@ class GrammarTest(unittest.TestCase):
         self.assertEqual(p[2], dict(prop="STAMP", pos=None, move="pop"))      # 자리는 compile_scenes 가 정함 (롱폼 R · 쇼츠 C)
         with self.assertRaises(ValueError):
             sk.parse_puppets("*ROCKET@R", cat)                    # 목록(props_chatgpt.md 표)에 없는 소품
-        self.assertTrue(set(sk.props_catalog()) >= {"ONE-BASKET", "STAMP", "TORTOISE"})   # 실제 목록 파일
+        self.assertTrue(set(sk.props_catalog()) >= {"CHIP-ALL-IN", "BULL", "BEAR", "MARGIN-CALL"})   # 실제 목록 파일 (v3.0 주식 소품)
 
     def test_screens(self):
         self.assertEqual(sk.parse_screen("K1 357140000>107140000"), {"type": "K1", "from": "357140000", "to": "107140000"})
@@ -78,6 +79,26 @@ class GrammarTest(unittest.TestCase):
                 sk.parse_screen(bad)
 
 
+class WordsTest(unittest.TestCase):                         # v1.4 화면에 투자 영어 (story_kit v1.8)
+    def test_title_chips_list(self):
+        k5 = sk.parse_screen("K5 'KOSPI > 'S&P_500 title=RULE_1")
+        self.assertEqual(k5["title"], "RULE 1")
+        self.assertEqual(k5["icons"], [{"t": "KOSPI", "m": ""}, {"arrow": True}, {"t": "S&P 500", "m": ""}])
+        self.assertEqual(sk.parse_screen("K5 !'BUY +'HOLD")["icons"], [{"t": "BUY", "m": "!"}, {"t": "HOLD", "m": "+"}])
+        ls = sk.parse_screen("LIST 73:!NO DEBT; 74:+MAX 10% PER STOCK; 3 REASONS")
+        self.assertEqual(ls["items"][0], {"t": "NO DEBT", "m": "!", "at": [73, None]})
+        self.assertEqual(ls["items"][2], {"t": "3 REASONS", "m": "+"})
+        self.assertEqual(sk.parse_screen("PIE 55 R label=50%+ cap=SAMSUNG_+_SK_HYNIX title=KOSPI")["cap"], "SAMSUNG + SK HYNIX")
+
+    def test_bad_words(self):
+        allow = sk.screen_words()
+        self.assertEqual(sk.bad_words("KOSPI −8.95%", allow), [])
+        self.assertEqual(sk.bad_words("S&P 500 +81%", allow), [])
+        self.assertEqual(sk.bad_words("−1.2%p", allow), [])
+        self.assertEqual(sk.bad_words("코스피", allow), ["한국어"])
+        self.assertEqual(sk.bad_words("GO HOME", allow), ["GO", "HOME"])
+
+
 class PropsTest(unittest.TestCase):                         # v1.3 공통 소품 목록 (story_kit v1.7)
     def run_props(self, *words):
         import argparse, contextlib, io
@@ -88,11 +109,11 @@ class PropsTest(unittest.TestCase):                         # v1.3 공통 소품
 
     def test_list_and_filter(self):
         all_ = self.run_props()
-        self.assertIn("*ONE-BASKET", all_)
+        self.assertIn("*CHIP-ALL-IN", all_)
         self.assertIn("후보", all_)                               # 후보도 보임 (아직 장면 표엔 못 씀)
         only = self.run_props("몰빵")
-        self.assertIn("*ONE-BASKET", only)
-        self.assertNotIn("*TORTOISE", only)
+        self.assertIn("*CHIP-ALL-IN", only)
+        self.assertNotIn("*BULL", only)
         self.assertNotIn("DICE", sk.props_catalog())              # 후보는 장면 표 목록에 없음
 
 

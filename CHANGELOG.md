@@ -1,5 +1,15 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-24 — 예약 작업 모두 끔
+
+- 사용자 지시: "이제 예약작업 그만해"
+- 켜져 있던 3개를 끔 (enabled=false — 지우지 않아 실행 기록이 남고 다시 켤 수 있음):
+  - 재테크 '재테크 분석 이어서' `trig_01SqSL5wVdzeVt66GZbH4WCB` (태평양 자정 +15분)
+  - 역사 `trig_01HMG95DYgQiYDH7NsthAyx9` (+20분)
+  - 음악 `trig_01RR9ppiEXLNHmhFotDPNPzV` (+25분)
+- 확인: 켜진 예약 작업 목록 0개. 이미 꺼져 있던 옛 2개(`trig_01TEbPHqXpzYY3hj6LhyBb7q`·`trig_01RWWyDUkoWgb2t4MEn6oSUR`)는 그대로.
+- `CLAUDE.md` 분석 줄 · `guides/status.md` 맨 위 줄: 사용자가 다시 말하기 전에는 켜지 않음.
+
 ## 2026-10-24 (주식 이야기형 8) — 1화 소품 21장 도착 → 최종 영상
 
 ### 왜 (사용자 지시)

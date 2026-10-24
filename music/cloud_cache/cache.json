@@ -1,12 +1,12 @@
 {
  "tool": "cloud_run.py v1.5.1",
  "topic": "music",
- "saved": "2026-10-23T16:52:19+09:00",
+ "saved": "2026-10-24T16:44:50+09:00",
  "why": "손으로",
- "files": 54442,
- "bytes_raw": 134976805,
- "bytes_tgz": 59190478,
- "sha256": "5eb4761fe4ad3707a4f8663fcfdb7ba4cfa929437f58391826a4df6dc19b35e8",
+ "files": 54479,
+ "bytes_raw": 135132298,
+ "bytes_tgz": 59242694,
+ "sha256": "f56c36d53155419ff71540fbc1b2efad464a39fdef98c69a6a95884de8a096aa",
  "parts": [
   "cache.tgz.001",
   "cache.tgz.002"
@@ -17,7 +17,7 @@
   "search": 122,
   "shorts": 6192,
   "uploads": 1039,
-  "video": 47082,
+  "video": 47119,
   "web": 5
  }
 }

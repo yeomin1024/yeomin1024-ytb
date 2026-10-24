@@ -4,7 +4,7 @@
 
 ## #1. I know I should sleep, but the voices in my head go… Arirang tour ver. #shorts #kpop #bts…
 
-- https://www.youtube.com/shorts/17UP7J8Ri3E · NOVAE · 구독자 13,600 · 조회수 25,628,478 (×1884.45 · 채널 평소 쇼츠 대비 ×10076.1) · 하루 165,764.3회 · 12초 · 올린 때 2026-05-22 02:15 (금) · 좋아요/1천 3.5 · 댓글/1천 0.01
+- https://www.youtube.com/shorts/17UP7J8Ri3E · NOVAE · 구독자 13,600 · 조회수 25,628,478 (×1884.45 · 채널 평소 쇼츠 대비 ×10076.1) · 하루 164,704.5회 · 12초 · 올린 때 2026-05-22 02:15 (금) · 좋아요/1천 3.5 · 댓글/1천 0.01
 - 주제 1. 수면·명상·힐링 · 형식 그 밖 · 글 출처 없음 · 쇼츠 판별 세로·정사각 · 해시태그 #shorts #kpop #bts #army
 - 설명: (없음)
 
@@ -12,13 +12,13 @@
 
 ## #2. #shorts #lowcortisol #satisfying #chill #fypシ #healing #chillmusic #relaxing #relax
 
-- https://www.youtube.com/shorts/Gcb9eQDRJH4 · slasherbabyboomerYT · 구독자 9,850 · 조회수 13,578,369 (×1378.51) · 하루 90,016.7회 · 20초 · 올린 때 2026-05-25 20:37 (월) · 좋아요/1천 8.34 · 댓글/1천 0.107
+- https://www.youtube.com/shorts/Gcb9eQDRJH4 · slasherbabyboomerYT · 구독자 9,850 · 조회수 13,578,369 (×1378.51) · 하루 89,426.9회 · 20초 · 올린 때 2026-05-25 20:37 (월) · 좋아요/1천 8.34 · 댓글/1천 0.107
 - 주제 1. 수면·명상·힐링 · 형식 그 밖 · 글 출처 없음 · 쇼츠 판별 채널 쇼츠 목록 · 해시태그 #shorts #lowcortisol #satisfying #chill #fyp #healing #chillmusic #relaxing #relax
 - 설명: (없음)
 
 ## #3. Bheema love bgm ...💞💥#lovestatus #bgm #trending #love
 
-- https://www.youtube.com/shorts/XvjJJ625eHM · miracle_mix · 구독자 5,330 · 조회수 6,151,734 (×1154.17 · 채널 평소 쇼츠 대비 ×2580.4) · 하루 42,121.3회 · 35초 · 올린 때 2026-05-30 15:41 (토) · 좋아요/1천 17.86 · 댓글/1천 0.018
+- https://www.youtube.com/shorts/XvjJJ625eHM · miracle_mix · 구독자 5,330 · 조회수 6,151,734 (×1154.17 · 채널 평소 쇼츠 대비 ×2580.4) · 하루 41,836.3회 · 35초 · 올린 때 2026-05-30 15:41 (토) · 좋아요/1천 17.86 · 댓글/1천 0.018
 - 주제 기타 · 형식 그 밖 · 글 출처 없음 · 쇼츠 판별 채널 쇼츠 목록 · 해시태그 #lovestatus #bgm #trending #love
 - 설명: (없음)
 
@@ -26,7 +26,7 @@
 
 ## #4. Turning a Bad Day Into Piano Music 🎹💔 (AI Music Transcription) #piano #pianopractice #mus…
 
-- https://www.youtube.com/shorts/5bC_3ftzlh0 · Deep piano · 구독자 4,550 · 조회수 4,635,526 (×1018.8 · 채널 평소 쇼츠 대비 ×2675.6) · 하루 32,264.9회 · 22초 · 올린 때 2026-06-02 00:45 (화) · 좋아요/1천 13.36 · 댓글/1천 0.276
+- https://www.youtube.com/shorts/5bC_3ftzlh0 · Deep piano · 구독자 4,550 · 조회수 4,635,526 (×1018.8 · 채널 평소 쇼츠 대비 ×2675.6) · 하루 32,043.1회 · 22초 · 올린 때 2026-06-02 00:45 (화) · 좋아요/1천 13.36 · 댓글/1천 0.276
 - 주제 14. AI 음악 · 형식 AI 음악 · 글 출처 설명 · 쇼츠 판별 세로·정사각 · 해시태그 #piano #pianopractice #music
 - 설명: Turning a Bad Day Into Piano Music 🎹💔 (AI Music Transcription) Every pianist knows that some of the best piano music comes from real emotions 🎹💔 A rough day, a quiet room, and a piano can turn feelings into melodies that words could never explain. For music students, pianists, composers, and classic
 
@@ -34,7 +34,7 @@
 
 ## #5. Relaxing Aquarium 4K 🐠 Beautiful Fish Tank Ambience with Sleep Music #aquariumfish
 
-- https://www.youtube.com/shorts/pElnrfPGV1I · Zing Shots · 구독자 170 · 조회수 151,906 (×893.56 · 채널 평소 쇼츠 대비 ×279.5) · 하루 1,019.8회 · 11초 · 올린 때 2026-05-27 18:02 (수) · 좋아요/1천 5.25 · 댓글/1천 0.039
+- https://www.youtube.com/shorts/pElnrfPGV1I · Zing Shots · 구독자 170 · 조회수 151,906 (×893.56 · 채널 평소 쇼츠 대비 ×279.5) · 하루 1,013.1회 · 11초 · 올린 때 2026-05-27 18:02 (수) · 좋아요/1천 5.25 · 댓글/1천 0.039
 - 주제 2. 자연 소리·백색소음 · 형식 그 밖 · 글 출처 설명 · 쇼츠 판별 채널 쇼츠 목록 · 해시태그 #aquariumfish #aquarium #relaxingmusic #4kaquarium #fishtank #underwaterworld #sleepmusic #meditationmusic #stressrelief #calmingvideo #relaxingsounds #peacefulambience #naturerelaxation #tropicalfish #ambientmusic #studymusic #yogamusic #fishvideo #4krelaxation #aquariumambience
 - 설명: 😂 Welcome to Zing Shots 😂 Relax and enjoy this stunning 4K Aquarium Fish Video featuring colorful tropical fish swimming peacefully in a beautiful underwater environment. This calming aquarium ambience with relaxing music is perfect for stress relief, sleep, meditation, study, yoga, and peaceful bac
 
@@ -42,7 +42,7 @@
 
 ## #6. 피아노 단 하나의 음으로 모두를 얼어붙게한 곡 ∣ Kanye West - Runaway (2010)
 
-- https://www.youtube.com/shorts/QOMO1DPI2Mo · 페이브노트 Fave. · 구독자 12,700 · 조회수 9,030,930 (×711.1 · 채널 평소 쇼츠 대비 ×73.0) · 하루 56,860.2회 · 25초 · 올린 때 2026-05-17 21:00 (일) · 좋아요/1천 4.77 · 댓글/1천 0.091
+- https://www.youtube.com/shorts/QOMO1DPI2Mo · 페이브노트 Fave. · 구독자 12,700 · 조회수 9,030,930 (×711.1 · 채널 평소 쇼츠 대비 ×73.0) · 하루 56,506.2회 · 25초 · 올린 때 2026-05-17 21:00 (일) · 좋아요/1천 4.77 · 댓글/1천 0.091
 - 주제 6. 피아노·클래식·연주곡 · 형식 그 밖 · 글 출처 설명 · 쇼츠 판별 채널 쇼츠 목록 · 해시태그 없음
 - 설명: 한 번쯤 쇼츠에서도 들어봤을 이 인트로는 사실 벨 소리에서 시작됐다. 당시 Kanye는 영화 Eyes Wide Shut에 빠져 있었다. 영화 속 반복되는 차갑고 벨 같은 피아노 사운드에 영감을 받았다고 한다. 그는 프로듀서에게 말했다. "벨 소리가 들어가면 좋겠어" "스네어 소리에 맞춰서 말이지" 음을 바꿔가며 작업을 반복했고 지금의 인트로가 완성되었다. 그렇게 탄생한 단 하나의 음은 결국 Runaway의 상징이 되었다.
 
@@ -61,7 +61,7 @@
 
 ## #7. Relaxing Heavy Rain Camping with Dog 🌧️ ∣ Inflatable Tent ASMR Time-Lapse #rainsounds #co…
 
-- https://www.youtube.com/shorts/zGp1ymVBzqs · 90s Aura Cozy Vibe · 구독자 20,800 · 조회수 14,756,551 (×709.45 · 채널 평소 쇼츠 대비 ×439.8) · 하루 258,476.0회 · 23초 · 올린 때 2026-08-27 14:40 (목) · 좋아요/1천 7.34 · 댓글/1천 0.015
+- https://www.youtube.com/shorts/zGp1ymVBzqs · 90s Aura Cozy Vibe · 구독자 20,800 · 조회수 14,756,551 (×709.45 · 채널 평소 쇼츠 대비 ×439.8) · 하루 254,049.2회 · 23초 · 올린 때 2026-08-27 14:40 (목) · 좋아요/1천 7.34 · 댓글/1천 0.015
 - 주제 2. 자연 소리·백색소음 · 형식 그 밖 · 글 출처 설명 · 쇼츠 판별 채널 쇼츠 목록 · 해시태그 #rainsounds #cozy #raincamping #inflatabletent #campingasmr #cozyvibes #heavyraincamping #campingwithdog #solocamping #timelapsecamping #90sauracozyvibe #cozyaura #90scozyvibes #relaxingrain #lofivibes #atmosphericcamping · 설명란에 롱폼 연결
 - 설명: Relaxing Heavy Rain Camping with Dog 🌧️ ∣ Inflatable Tent ASMR Time-Lapse Complete ASMR RELAXING Video:👇 Experience the soothing vibes of camping in heavy rain! Watch the step-by-step fast-motion setup of a spacious 2-room inflatable tent by the foggy river, creating a cozy shelter away from the sto
 
@@ -69,7 +69,7 @@
 
 ## #8. What sound does a piano make? (ft. TCU Choir Camp) #shorts
 
-- https://www.youtube.com/shorts/bWhG1Fq7X8k · Elijah Ong - Musician · 구독자 22,100 · 조회수 15,414,076 (×697.47 · 채널 평소 쇼츠 대비 ×355.3) · 하루 148,933.5회 · 35초 · 올린 때 2026-07-12 04:56 (일) · 좋아요/1천 34.35 · 댓글/1천 0.618
+- https://www.youtube.com/shorts/bWhG1Fq7X8k · Elijah Ong - Musician · 구독자 22,100 · 조회수 15,414,076 (×697.47 · 채널 평소 쇼츠 대비 ×355.3) · 하루 147,515.6회 · 35초 · 올린 때 2026-07-12 04:56 (일) · 좋아요/1천 34.35 · 댓글/1천 0.618
 - 주제 6. 피아노·클래식·연주곡 · 형식 연주 (직접 연주) · 글 출처 없음 · 쇼츠 판별 채널 쇼츠 목록 · 해시태그 #shorts
 - 설명: (없음)
 
@@ -77,7 +77,7 @@
 
 ## #9. 연대별 시대곡 피아노 챌린지
 
-- https://www.youtube.com/shorts/s1hYfDOB5O0 · 패밀리모먼츠 · 구독자 12,700 · 조회수 7,499,203 (×590.49 · 채널 평소 쇼츠 대비 ×293.6) · 하루 95,638.0회 · 53초 · 올린 때 2026-08-06 06:57 (목) · 좋아요/1천 11.89 · 댓글/1천 0.149
+- https://www.youtube.com/shorts/s1hYfDOB5O0 · 패밀리모먼츠 · 구독자 12,700 · 조회수 7,499,203 (×590.49 · 채널 평소 쇼츠 대비 ×293.6) · 하루 94,439.8회 · 53초 · 올린 때 2026-08-06 06:57 (목) · 좋아요/1천 11.89 · 댓글/1천 0.149
 - 주제 6. 피아노·클래식·연주곡 · 형식 연주 (직접 연주) · 글 출처 설명 · 쇼츠 판별 세로·정사각 · 해시태그 #피아노챌린지 #연대맞추기 #시대별음악
 - 설명: 1700년대 클래식부터 2010년대 게임음악까지, 연대만 듣고 바로 피아노로 연주하는 시대곡 챌린지입니다. 모차르트, 캐논, River Flows in You, Sweet Child O’ Mine, Megalovania까지 한 번에 이어집니다. 본 영상은 예능형 연출이 포함된 퍼포먼스 콘텐츠이며, 안전을 고려해 촬영되었습니다. 본 영상은 연출된 퍼포먼스 콘텐츠입니다. 위험한 상황을 모방하거나 무거운 물체를 사람에게 떨어뜨리는 행위는 절대 따라 하지 마세요.
 
@@ -95,7 +95,7 @@
 
 ## #10. 랜덤으로 지목 당해 노래 부르는 Happy
 
-- https://www.youtube.com/shorts/nb6TL41nJpQ · FreshCutFarm · 구독자 35,700 · 조회수 20,431,132 (×572.3 · 채널 평소 쇼츠 대비 ×5181.0) · 하루 128,638.1회 · 50초 · 올린 때 2026-05-17 21:01 (일) · 좋아요/1천 14.3 · 댓글/1천 0.055
+- https://www.youtube.com/shorts/nb6TL41nJpQ · FreshCutFarm · 구독자 35,700 · 조회수 20,431,132 (×572.3 · 채널 평소 쇼츠 대비 ×5181.0) · 하루 127,837.4회 · 50초 · 올린 때 2026-05-17 21:01 (일) · 좋아요/1천 14.3 · 댓글/1천 0.055
 - 주제 기타 · 형식 클립·발췌 (방송·무대·직캠) · 글 출처 설명 · 쇼츠 판별 세로·정사각 · 해시태그 없음
 - 설명: ⚡️ 지목당하는 순간 터져 나오는 '해피 바이러스' 이 영상의 진짜 묘미는 예측 불가능함에 있습니다. 거대한 벽을 가득 채운 100명의 참가자 중 언제, 누가 불려 나갈지 모르는 쫄깃한 긴장감 속에서, 갑작스럽게 마이크를 넘겨받은 싱어들이 저마다의 압도적인 소울과 색깔로 파트를 쟁취해냅니다. 다채로운 음색의 향연: 소름 돋는 소울풀한 보컬부터 어깨를 들썩이게 하는 그루브까지, 서로 다른 목소리들이 퍼즐처럼 맞물리며 무대의 흥을 극한으로 끌어올립니다. 끊기지 않는 전율: 랜덤으로 파트가 급변하는데도 불구하고 흐름이 깨지기는커녕, 오히
 
@@ -113,7 +113,7 @@
 
 ## #11. Premada Oorali ∣ Official Animated Teaser ∣Soothing Title Song
 
-- https://www.youtube.com/shorts/spkM9pTzGnc · Royalediting143 R.C.P · 구독자 1,770 · 조회수 1,004,236 (×567.36 · 채널 평소 쇼츠 대비 ×3188.1) · 하루 58,201.1회 · 23초 · 올린 때 2026-10-06 10:44 (화) · 좋아요/1천 14.15 · 댓글/1천 0.055
+- https://www.youtube.com/shorts/spkM9pTzGnc · Royalediting143 R.C.P · 구독자 1,770 · 조회수 1,004,236 (×567.36 · 채널 평소 쇼츠 대비 ×3188.1) · 하루 55,028.4회 · 23초 · 올린 때 2026-10-06 10:44 (화) · 좋아요/1천 14.15 · 댓글/1천 0.055
 - 주제 기타 · 형식 한 곡 일부 (음원·뮤비·가사·티저) · 글 출처 설명 · 쇼츠 판별 채널 쇼츠 목록 · 해시태그 #kannadanewmoviesupdates #rangayanaraghu #shreeraam #sandalwood #farmerstory #kannadaviralsong #vanillaentertainments #lovestory #lovesong #romantic #viralmusic #viralvideo #trendingvideo #travelkarnataka
 - 설명: Premada Oorali ∣ Official Animated Teaser Soothing Title Song Hashtags:
 
@@ -121,7 +121,7 @@
 
 ## #12. #머무르 #꿈꾸던어른이되었나요 #커버 #장재혁 #보컬리스트장재혁#커버곡 #노래커버 #보컬커버 #cover #songcover #발라드 #감성발라드#유튜브쇼츠 #…
 
-- https://www.youtube.com/shorts/av5KCoUA0K8 · 장재혁 Jang Jae Hyeok · 구독자 230 · 조회수 115,760 (×503.3 · 채널 평소 쇼츠 대비 ×86.6) · 하루 2,982.2회 · 57초 · 올린 때 2026-09-14 21:15 (월) · 좋아요/1천 7.81 · 댓글/1천 1.011
+- https://www.youtube.com/shorts/av5KCoUA0K8 · 장재혁 Jang Jae Hyeok · 구독자 230 · 조회수 115,760 (×503.3 · 채널 평소 쇼츠 대비 ×86.6) · 하루 2,907.7회 · 57초 · 올린 때 2026-09-14 21:15 (월) · 좋아요/1천 7.81 · 댓글/1천 1.011
 - 주제 12. 커버·노래 부르기 · 형식 커버·직접 부른 노래 · 글 출처 없음 · 쇼츠 판별 채널 쇼츠 목록 · 해시태그 #머무르 #꿈꾸던어른이되었나요 #커버 #장재혁 #보컬리스트장재혁 #커버곡 #노래커버 #보컬커버 #cover #songcover #발라드 #감성발라드 #유튜브쇼츠 #shorts
 - 설명: (없음)
 
@@ -136,7 +136,7 @@
 
 ## #13. A Dinosaur’s Love Story #piano #google #game #pianocover #pianotutorial
 
-- https://www.youtube.com/shorts/imH34A_Y-3I · 영펭 yeongpin · 구독자 35,100 · 조회수 17,359,043 (×494.56 · 채널 평소 쇼츠 대비 ×889.0) · 하루 392,847.0회 · 16초 · 올린 때 2026-09-09 12:20 (수) · 좋아요/1천 7.88 · 댓글/1천 0.201
+- https://www.youtube.com/shorts/imH34A_Y-3I · 영펭 yeongpin · 구독자 35,100 · 조회수 17,359,043 (×494.56 · 채널 평소 쇼츠 대비 ×889.0) · 하루 384,197.5회 · 16초 · 올린 때 2026-09-09 12:20 (수) · 좋아요/1천 7.88 · 댓글/1천 0.201
 - 주제 6. 피아노·클래식·연주곡 · 형식 연주 (직접 연주) · 글 출처 없음 · 쇼츠 판별 채널 쇼츠 목록 · 해시태그 #piano #google #game #pianocover #pianotutorial
 - 설명: (없음)
 
@@ -144,7 +144,7 @@
 
 ## #14. 랜덤으로 지목 당해 노래 부르는 보헤미안 랩소디
 
-- https://www.youtube.com/shorts/xotW9olN4TU · FreshCutFarm · 구독자 35,700 · 조회수 16,470,513 (×461.36 · 채널 평소 쇼츠 대비 ×4176.6) · 하루 102,223.6회 · 59초 · 올린 때 2026-05-15 13:55 (금) · 좋아요/1천 7.35 · 댓글/1천 0.159
+- https://www.youtube.com/shorts/xotW9olN4TU · FreshCutFarm · 구독자 35,700 · 조회수 16,470,513 (×461.36 · 채널 평소 쇼츠 대비 ×4176.6) · 하루 101,596.3회 · 59초 · 올린 때 2026-05-15 13:55 (금) · 좋아요/1천 7.35 · 댓글/1천 0.159
 - 주제 기타 · 형식 클립·발췌 (방송·무대·직캠) · 글 출처 설명 · 쇼츠 판별 세로·정사각 · 해시태그 없음
 - 설명: 🎤 100명이 빚어낸 6분간의 기적: 퀸의 명곡이 다시 태어나다 퀸(Queen)의 상징과도 같은 '보헤미안 랩소디'는 록의 거친 에너지와 오페라의 정교한 매력이 공존하는, 그야말로 음악적 한계를 시험하는 곡이죠. 이 불후의 명작이 브라질의 오디션 프로그램 ‘칸타 코미고(Canta Comigo)’에서 전무후무한 방식으로 재해석되었습니다. ⚡️ 지목하는 순간 시작되는 '보컬 릴레이' 이 영상의 묘미는 단순히 노래를 잘 부르는 것에 있지 않습니다. 거대한 벽을 가득 채운 100명의 참가자 중 누가 불려 나갈지 모르는 긴장감 속에서, 마이
 
@@ -163,7 +163,7 @@
 
 ## #15. "Barsaat" song multi singer version 🔥❤️‍🩹 #barsaat #banjaare #spiderman
 
-- https://www.youtube.com/shorts/sfCmfZP514k · Indi Echo 🌿 · 구독자 3,880 · 조회수 1,579,183 (×407.01) · 하루 24,719.0회 · 27초 · 올린 때 2026-08-20 19:36 (목) · 좋아요/1천 13.4 · 댓글/1천 0.28
+- https://www.youtube.com/shorts/sfCmfZP514k · Indi Echo 🌿 · 구독자 3,880 · 조회수 1,579,183 (×407.01) · 하루 24,339.9회 · 27초 · 올린 때 2026-08-20 19:36 (목) · 좋아요/1천 13.4 · 댓글/1천 0.28
 - 주제 기타 · 형식 그 밖 · 글 출처 설명 · 쇼츠 판별 채널 쇼츠 목록 · 해시태그 #barsaat #banjaare #spiderman #nature #naturelovers #naturebeauty #travel #mountains #waterfall #lake #sunset #music #singing #songcover #coversong #musiclover #beautifulvoice #shorts #ytshorts #viralshorts #trending #explore #relaxingmusic
 - 설명: nature shorts beautiful nature nature video nature lover nature beauty nature status nature views mountains waterfall lake view forest vibes travel shorts india nature beautiful places nature photography nature reels peaceful nature relaxing nature earth beauty sunset view sunrise view rainy weather
 

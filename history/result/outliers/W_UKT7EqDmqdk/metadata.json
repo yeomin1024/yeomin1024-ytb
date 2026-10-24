@@ -1,0 +1,75 @@
+{
+ "id": "UKT7EqDmqdk",
+ "title": "조선의 태평성대를 이룬 성종은 왜 그렇게 밤마다 여인을 찾았을까?｜한국사｜역사｜조선사｜경국대전｜폐비윤씨",
+ "channel": "역사콕테일",
+ "channel_id": "UCUzHaKrn61nQcRg333ykJxw",
+ "subs": 8380,
+ "views": 99512,
+ "ratio": 11.87,
+ "age_days": 99,
+ "views_per_day": 1005.2,
+ "minutes": 34.3,
+ "likes": 1644,
+ "comments": 141,
+ "published": "2026-07-16",
+ "queries": "검색:조선사",
+ "url": "https://www.youtube.com/watch?v=UKT7EqDmqdk",
+ "flag": "",
+ "published_at": "2026-07-16T07:47:31Z",
+ "rank": "W49",
+ "set": "web",
+ "folder": "W_UKT7EqDmqdk",
+ "sources": [
+  "검색:조선사"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "서른아홉에 죽어가는 임금, 그의 두 얼굴"
+  },
+  {
+   "start": 109,
+   "title": "원래 왕이 될 사람이 아니었던 소년"
+  },
+  {
+   "start": 242,
+   "title": "낮의 성종 — 하루 세 번 경연, 25년의 공부"
+  },
+  {
+   "start": 343,
+   "title": "밤의 성종 — 스물여덟 명의 자식이 말하는 것"
+  },
+  {
+   "start": 602,
+   "title": "경국대전과 사림 — 진짜 성군이라 불리는 이유"
+  },
+  {
+   "start": 943,
+   "title": "어우동 사건과 이중잣대의 민낯"
+  },
+  {
+   "start": 1195,
+   "title": "왕비 윤씨가 쫓겨나게 된 진짜 사정"
+  },
+  {
+   "start": 1481,
+   "title": "사약의 방아쇠를 당긴 것은 무엇이었나"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-24 13:29까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 141,
+ "comments_top_level": 108,
+ "comments_replies": 33,
+ "comments_by_creator": 16,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 141,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-24T07:30:10",
+ "approved": "2026-10-24T16:30+09:00"
+}

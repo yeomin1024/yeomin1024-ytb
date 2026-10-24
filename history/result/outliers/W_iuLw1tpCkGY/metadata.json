@@ -1,0 +1,78 @@
+{
+ "id": "iuLw1tpCkGY",
+ "title": "중국인들이 자주 씻는 걸 경계하는 이유(오히려 병든다..?)ㅣ역사를 보다 EP.143",
+ "channel": "보다 BODA",
+ "channel_id": "UCoCvTlU0KpNYwnMIgs7MPrA",
+ "subs": 3230000,
+ "views": 1002736,
+ "ratio": 0.31,
+ "age_days": 139,
+ "views_per_day": 7213.9,
+ "minutes": 35.9,
+ "likes": 9758,
+ "comments": 815,
+ "published": "2026-06-07",
+ "queries": "검색:역사",
+ "url": "https://www.youtube.com/watch?v=iuLw1tpCkGY",
+ "flag": "",
+ "published_at": "2026-06-07T02:02:22Z",
+ "rank": "W88",
+ "set": "web",
+ "folder": "W_iuLw1tpCkGY",
+ "sources": [
+  "검색:역사"
+ ],
+ "source": "web",
+ "tags": [
+  "보다",
+  "boda",
+  "직업",
+  "인터뷰",
+  "전문가",
+  "레전드"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 93,
+   "title": "중국은 왜 더럽다는 오명을 얻게 됐을까?"
+  },
+  {
+   "start": 579,
+   "title": "중국 황제들은 수백가지 음식을 어떻게 다 먹었을까?"
+  },
+  {
+   "start": 816,
+   "title": "다른 문화권 왕들의 밥상도 중국처럼 화려했을까?"
+  },
+  {
+   "start": 1079,
+   "title": "우리가 알고 있는 '복날'의 진짜 기원"
+  },
+  {
+   "start": 1427,
+   "title": "중국에서 물을 무조건 끓여마시는 이유"
+  },
+  {
+   "start": 1667,
+   "title": "역사학자가 추천하는 꼭 먹어봐야 하는 음식"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-24 13:29까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 815,
+ "comments_top_level": 448,
+ "comments_replies": 367,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 815,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-24T07:31:21",
+ "approved": "2026-10-24T16:31+09:00"
+}

@@ -1,0 +1,93 @@
+{
+ "id": "3BeGsxgMYCs",
+ "title": "🌙성우 이지선 낭독 | 드라마보다 더 재미있는 신라 1000년 풀스토리 | 잘듣세",
+ "channel": "잘듣세 - 잘 때 듣는 세계사",
+ "channel_id": "UCgMppGtIOm5KrXqTHcWwjvA",
+ "subs": 170000,
+ "views": 301006,
+ "ratio": 1.77,
+ "age_days": 26,
+ "views_per_day": 11577.2,
+ "minutes": 81.8,
+ "likes": 1562,
+ "comments": 48,
+ "published": "2026-09-27",
+ "queries": "검색:세계사 이야기",
+ "url": "https://www.youtube.com/watch?v=3BeGsxgMYCs",
+ "flag": "",
+ "published_at": "2026-09-27T12:30:01Z",
+ "rank": "W74",
+ "set": "web",
+ "folder": "W_3BeGsxgMYCs",
+ "sources": [
+  "검색:세계사 이야기"
+ ],
+ "source": "web",
+ "tags": [
+  "잘듣세",
+  "잘듣게",
+  "잘듣개",
+  "잘듯세",
+  "잘듵세",
+  "잘때듣는세계사",
+  "잘듣고",
+  "이지선성우",
+  "수면다큐역사"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "프롤로그"
+  },
+  {
+   "start": 45,
+   "title": "알에서 태어난 왕, 박혁거세"
+  },
+  {
+   "start": 666,
+   "title": "내물왕과 광개토대왕의 구원"
+  },
+  {
+   "start": 1144,
+   "title": "이차돈의 순교와 화랑도"
+  },
+  {
+   "start": 1746,
+   "title": "대야성 참극과 김춘추의 결단"
+  },
+  {
+   "start": 2450,
+   "title": "황산벌 결전과 백제의 멸망"
+  },
+  {
+   "start": 3091,
+   "title": "매소성 전투와 나당전쟁 승리"
+  },
+  {
+   "start": 3666,
+   "title": "김흠돌의 난과 피의 숙청"
+  },
+  {
+   "start": 4213,
+   "title": "왕위 쟁탈전과 최치원의 좌절"
+  },
+  {
+   "start": 4825,
+   "title": "에필로그"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-24 13:29까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "zxx",
+ "foreign": false,
+ "comments_fetched": 48,
+ "comments_top_level": 40,
+ "comments_replies": 8,
+ "comments_by_creator": 4,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 48,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-24T07:30:42",
+ "approved": "2026-10-24T16:30+09:00"
+}

@@ -1,0 +1,98 @@
+{
+ "id": "myMdhdaPwgQ",
+ "title": "인류 최초 문명 수메르, 5000년 전 사라진 이유",
+ "channel": "인류미터기",
+ "channel_id": "UCGZCmdyCkH7LzWodk02DHVg",
+ "subs": 658,
+ "views": 16056,
+ "ratio": 24.4,
+ "age_days": 39,
+ "views_per_day": 411.7,
+ "minutes": 17.4,
+ "likes": 71,
+ "comments": 10,
+ "published": "2026-09-15",
+ "queries": "검색:고대문명",
+ "url": "https://www.youtube.com/watch?v=myMdhdaPwgQ",
+ "flag": "",
+ "published_at": "2026-09-15T00:31:53Z",
+ "rank": "W39",
+ "set": "web",
+ "folder": "W_myMdhdaPwgQ",
+ "sources": [
+  "검색:고대문명"
+ ],
+ "source": "web",
+ "tags": [
+  "수메르",
+  "수메르 문명",
+  "수메르문명",
+  "쐐기문자",
+  "길가메시",
+  "길가메시 서사시",
+  "수메르인",
+  "수메르 신화",
+  "미스터리",
+  "미스테리",
+  "세계사",
+  "역사",
+  "역사이야기",
+  "아눈나키",
+  "고고학",
+  "고대문명",
+  "역사 미스터리",
+  "인류미터기"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "뒷자리에 오늘 태운 손님"
+  },
+  {
+   "start": 52,
+   "title": "5000년 전 세계 최초의 도시"
+  },
+  {
+   "start": 179,
+   "title": "세금 계산서에서 태어난 글자"
+  },
+  {
+   "start": 306,
+   "title": "오늘도 하루 종일 쓰는 그들의 발명"
+  },
+  {
+   "start": 387,
+   "title": "노아 홍수보다 먼저 적힌 이야기"
+  },
+  {
+   "start": 471,
+   "title": "없는 민족을 그려낸 형사"
+  },
+  {
+   "start": 609,
+   "title": "세상 어디에도 없는 언어의 지문"
+  },
+  {
+   "start": 777,
+   "title": "칼이 아니라 조용히 저문 도시"
+  },
+  {
+   "start": 886,
+   "title": "백지로 남은 진짜 이름"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-24 13:29까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 10,
+ "comments_top_level": 6,
+ "comments_replies": 4,
+ "comments_by_creator": 4,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 10,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-24T07:29:53",
+ "approved": "2026-10-24T16:29+09:00"
+}

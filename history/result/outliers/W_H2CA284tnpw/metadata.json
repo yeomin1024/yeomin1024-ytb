@@ -1,0 +1,79 @@
+{
+ "id": "H2CA284tnpw",
+ "title": "측천무후 무덤을 절대 열지 않는 이유, 입구를 한 번 찾았다가 벌어진 일",
+ "channel": "지식세이렌",
+ "channel_id": "UCXVXUq9akWnE6fA06WjXSvg",
+ "subs": 1890,
+ "views": 261856,
+ "ratio": 138.55,
+ "age_days": 3,
+ "views_per_day": 87285.3,
+ "minutes": 15.3,
+ "likes": 552,
+ "comments": 29,
+ "published": "2026-10-20",
+ "queries": "검색:역사미스터리",
+ "url": "https://www.youtube.com/watch?v=H2CA284tnpw",
+ "flag": "",
+ "published_at": "2026-10-20T21:30:30Z",
+ "rank": "W15",
+ "set": "web",
+ "folder": "W_H2CA284tnpw",
+ "sources": [
+  "검색:역사미스터리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝: 곡괭이 끝에 걸린 쇳물 봉인 돌문"
+  },
+  {
+   "start": 99,
+   "title": "열네 살 소녀가 중국 유일의 여황제가 되기까지"
+  },
+  {
+   "start": 261,
+   "title": "산 하나가 통째로 무덤, 건릉"
+  },
+  {
+   "start": 315,
+   "title": "1,300년 동안 열리지 않은 세 가지 이유"
+  },
+  {
+   "start": 463,
+   "title": "쇳물로 엮은 63미터 돌벽의 정체"
+  },
+  {
+   "start": 551,
+   "title": "털리고 남은 공주의 무덤이 말해 주는 것"
+  },
+  {
+   "start": 655,
+   "title": "입구를 찾고도 다시 덮은 이유"
+  },
+  {
+   "start": 772,
+   "title": "글자 없는 비석과 마지막 유언"
+  },
+  {
+   "start": 890,
+   "title": "마무리: 황제인가, 황후인가"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-24 13:29까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 29,
+ "comments_top_level": 17,
+ "comments_replies": 12,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 29,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-24T07:29:19",
+ "approved": "2026-10-24T16:29+09:00"
+}

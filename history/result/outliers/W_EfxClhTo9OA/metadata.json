@@ -1,0 +1,101 @@
+{
+ "id": "EfxClhTo9OA",
+ "title": "패딩도 보일러도 없던 조선 사람들, 겨울밤엔 대체 어떻게 살아남았을까?",
+ "channel": "히든스토리",
+ "channel_id": "UCCTZZcmAOdJMmqwVHqrZwcA",
+ "subs": 94,
+ "views": 36332,
+ "ratio": 363.32,
+ "age_days": 6,
+ "views_per_day": 6055.3,
+ "minutes": 14.4,
+ "likes": 164,
+ "comments": 10,
+ "published": "2026-10-18",
+ "queries": "검색:역사 이야기",
+ "url": "https://www.youtube.com/watch?v=EfxClhTo9OA",
+ "flag": "",
+ "published_at": "2026-10-18T00:18:10Z",
+ "rank": "W6",
+ "set": "web",
+ "folder": "W_EfxClhTo9OA",
+ "sources": [
+  "검색:역사 이야기"
+ ],
+ "source": "web",
+ "tags": [
+  "역사",
+  "한국사",
+  "역사이야기",
+  "옛날이야기",
+  "조선",
+  "조선시대",
+  "조선 생활사",
+  "조선 겨울",
+  "겨울나기",
+  "방한",
+  "누비옷",
+  "남바위",
+  "온돌",
+  "구들",
+  "아랫목",
+  "소빙기",
+  "경신대기근",
+  "현종",
+  "성호사설",
+  "이익",
+  "열하일기",
+  "박지원",
+  "경복궁 아미산 굴뚝",
+  "땔감",
+  "인왕산"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "영하 23.1도의 날"
+  },
+  {
+   "start": 109,
+   "title": "조선에도 패딩이?"
+  },
+  {
+   "start": 166,
+   "title": "바닥 아래 주인공"
+  },
+  {
+   "start": 298,
+   "title": "학자의 짧은 기록"
+  },
+  {
+   "start": 372,
+   "title": "바닥까지 간 조선"
+  },
+  {
+   "start": 527,
+   "title": "이상한 한 가지"
+  },
+  {
+   "start": 618,
+   "title": "박지원이 본 결점"
+  },
+  {
+   "start": 765,
+   "title": "답이 바뀌셨나요"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-24 13:29까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 10,
+ "comments_top_level": 10,
+ "comments_replies": 0,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 10,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-24T07:29:08",
+ "approved": "2026-10-24T16:29+09:00"
+}

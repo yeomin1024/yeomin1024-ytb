@@ -1,0 +1,68 @@
+{
+ "id": "knVMTvDISxo",
+ "title": "마이클 잭슨이 인천 갯벌에 왔던 진짜 이유 l 청라의 숨겨진 역사",
+ "channel": "끝까지 궁금했던 모든 이야기",
+ "channel_id": "UCYpvG1qZscT9Zo7AeDzxy0w",
+ "subs": 974,
+ "views": 65635,
+ "ratio": 67.39,
+ "age_days": 57,
+ "views_per_day": 1151.5,
+ "minutes": 9.2,
+ "likes": 151,
+ "comments": 23,
+ "published": "2026-08-27",
+ "queries": "검색:숨겨진역사",
+ "url": "https://www.youtube.com/watch?v=knVMTvDISxo",
+ "flag": "",
+ "published_at": "2026-08-27T09:20:22Z",
+ "rank": "W21",
+ "set": "web",
+ "folder": "W_knVMTvDISxo",
+ "sources": [
+  "검색:숨겨진역사"
+ ],
+ "source": "web",
+ "tags": [
+  "#지식쇼츠",
+  "#공학AI",
+  "마이클 잭슨",
+  "인천 청라",
+  "청라국제도시",
+  "매립지",
+  "토지 용도 변경",
+  "인천 개발"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "마이클 잭슨이 인천 매립지를 찾은 이유"
+  },
+  {
+   "start": 74,
+   "title": "왜 하필 그때 바다를 메우기 시작했나"
+  },
+  {
+   "start": 165,
+   "title": "서울의 쓰레기 산이 옮겨간 자리"
+  },
+  {
+   "start": 330,
+   "title": "마이클 잭슨의 방문과 끝나지 않은 계획"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-24 13:29까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 23,
+ "comments_top_level": 14,
+ "comments_replies": 9,
+ "comments_by_creator": 4,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 23,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-24T07:29:25",
+ "approved": "2026-10-24T16:29+09:00"
+}

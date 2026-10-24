@@ -1,0 +1,83 @@
+{
+ "id": "OullzLAZRic",
+ "title": "중국은 코앞에 두고도 못 가진 시베리아, 러시아는 어떻게 60년 만에 차지했을까",
+ "channel": "세계사한줌",
+ "channel_id": "UCCjf4KUP0piHsmo8zRlJSuA",
+ "subs": 2090,
+ "views": 41634,
+ "ratio": 19.92,
+ "age_days": 1,
+ "views_per_day": 41634.0,
+ "minutes": 19.6,
+ "likes": 280,
+ "comments": 24,
+ "published": "2026-10-23",
+ "queries": "검색:역사 이야기",
+ "url": "https://www.youtube.com/watch?v=OullzLAZRic",
+ "flag": "",
+ "published_at": "2026-10-23T00:00:23Z",
+ "rank": "W44",
+ "set": "web",
+ "folder": "W_OullzLAZRic",
+ "sources": [
+  "검색:역사 이야기"
+ ],
+ "source": "web",
+ "tags": [
+  "세계사",
+  "시베리아",
+  "러시아",
+  "러시아 역사",
+  "시베리아 역사",
+  "칭기즈칸",
+  "시비르 칸국",
+  "예르마크",
+  "코사크",
+  "모피",
+  "네르친스크 조약",
+  "나선정벌",
+  "연해주",
+  "알래스카",
+  "세계사한줌"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "1686년 겨울, 흑룡강의 포위된 요새"
+  },
+  {
+   "start": 122,
+   "title": "말 한 마리 값의 털가죽, 담비"
+  },
+  {
+   "start": 287,
+   "title": "수백 명이 산을 넘다"
+  },
+  {
+   "start": 532,
+   "title": "담비를 따라 강을 건너, 태평양까지"
+  },
+  {
+   "start": 736,
+   "title": "흑룡강에서 처음 막히다"
+  },
+  {
+   "start": 984,
+   "title": "그 뒤 200년, 그리고 지금"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-24 13:29까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 24,
+ "comments_top_level": 20,
+ "comments_replies": 4,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 24,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-24T07:29:57",
+ "approved": "2026-10-24T16:29+09:00"
+}

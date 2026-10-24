@@ -1,0 +1,125 @@
+{
+ "id": "DohihpZrvjE",
+ "title": "세키가하라 뒤에도 살아남은 도요토미 가문은 왜 15년 만에 무너졌나? | 지도로 보는 임진왜란 그 후 3편",
+ "channel": "Terra Scripta",
+ "channel_id": "UCe_GWdh5aK3sC4_4rRIccSQ",
+ "subs": 1820,
+ "views": 71127,
+ "ratio": 39.08,
+ "age_days": 7,
+ "views_per_day": 10161.0,
+ "minutes": 15.8,
+ "likes": 163,
+ "comments": 23,
+ "published": "2026-10-16",
+ "queries": "검색:임진왜란",
+ "url": "https://www.youtube.com/watch?v=DohihpZrvjE",
+ "flag": "",
+ "published_at": "2026-10-16T15:53:16Z",
+ "rank": "W28",
+ "set": "web",
+ "folder": "W_DohihpZrvjE",
+ "sources": [
+  "검색:임진왜란"
+ ],
+ "source": "web",
+ "tags": [
+  "오사카 전투",
+  "오사카 겨울 전투",
+  "오사카 여름 전투",
+  "大坂の陣",
+  "사나다 노부시게",
+  "사나다 유키무라",
+  "사나다마루",
+  "도요토미 히데요리",
+  "요도도노",
+  "도쿠가와 이에야스",
+  "도쿠가와 히데타다",
+  "방광사 종명",
+  "해자",
+  "덴노지 전투",
+  "도묘지 전투",
+  "고토 마타베에",
+  "임진왜란 이후",
+  "일본사",
+  "역사",
+  "지도",
+  "테라스크립타"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "질문 — 덴노지의 돌격"
+  },
+  {
+   "start": 39,
+   "title": "오사카성에 남은 도요토미"
+  },
+  {
+   "start": 87,
+   "title": "쇼군 자리는 도쿠가와가 잇는다"
+  },
+  {
+   "start": 131,
+   "title": "니조성 회견과 잇따른 죽음"
+  },
+  {
+   "start": 191,
+   "title": "종에 새긴 여덟 글자"
+  },
+  {
+   "start": 262,
+   "title": "쫓겨난 가로와 모여든 낭인"
+  },
+  {
+   "start": 302,
+   "title": "다시 만난 임진왜란의 장수들"
+  },
+  {
+   "start": 367,
+   "title": "겨울 전투 — 사나다마루와 세 겹 해자"
+  },
+  {
+   "start": 461,
+   "title": "대포와 강화 — 해자를 메우다"
+  },
+  {
+   "start": 547,
+   "title": "여름 전투 — 안개 속 도묘지"
+  },
+  {
+   "start": 647,
+   "title": "같은 날, 야오와 와카에"
+  },
+  {
+   "start": 700,
+   "title": "덴노지 — 이에야스 본진으로"
+  },
+  {
+   "start": 785,
+   "title": "오사카성이 불탄 날"
+  },
+  {
+   "start": 851,
+   "title": "끝난 전쟁, 그리고 조선"
+  },
+  {
+   "start": 924,
+   "title": "엔딩"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-24 13:29까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 23,
+ "comments_top_level": 17,
+ "comments_replies": 6,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 23,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-24T07:29:36",
+ "approved": "2026-10-24T16:29+09:00"
+}

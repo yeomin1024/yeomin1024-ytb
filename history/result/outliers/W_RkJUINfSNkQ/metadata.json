@@ -1,0 +1,72 @@
+{
+ "id": "RkJUINfSNkQ",
+ "title": "진시황릉을 절대 열지 않는 이유, 황제 무덤을 한 번 열었다가 벌어진 일",
+ "channel": "지식세이렌",
+ "channel_id": "UCXVXUq9akWnE6fA06WjXSvg",
+ "subs": 1890,
+ "views": 2235731,
+ "ratio": 1182.93,
+ "age_days": 6,
+ "views_per_day": 372621.8,
+ "minutes": 17.6,
+ "likes": 3283,
+ "comments": 447,
+ "published": "2026-10-17",
+ "queries": "검색:역사미스터리 | 검색:명나라",
+ "url": "https://www.youtube.com/watch?v=RkJUINfSNkQ",
+ "flag": "",
+ "published_at": "2026-10-17T13:15:30Z",
+ "rank": "W1",
+ "set": "web",
+ "folder": "W_RkJUINfSNkQ",
+ "sources": [
+  "검색:역사미스터리",
+  "검색:명나라"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝: 2,200년째 열리지 않은 거대한 무덤"
+  },
+  {
+   "start": 65,
+   "title": "세상을 통일한 황제, 그리고 죽음의 공포"
+  },
+  {
+   "start": 255,
+   "title": "사마천이 기록한 수은의 강과 지하 궁전"
+  },
+  {
+   "start": 402,
+   "title": "우물을 파다 발견된 흙의 군대, 병마용"
+  },
+  {
+   "start": 665,
+   "title": "과학 기술이 있어도 무덤을 열지 않는 진짜 이유"
+  },
+  {
+   "start": 767,
+   "title": "비극으로 끝난 명나라 정릉 발굴의 교훈"
+  },
+  {
+   "start": 1020,
+   "title": "마무리: 평범한 산으로 남은 2,200년의 비밀"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 447,
+ "comments_top_level": 253,
+ "comments_replies": 194,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 447,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-24T07:28:58",
+ "approved": "2026-10-24T16:29+09:00"
+}

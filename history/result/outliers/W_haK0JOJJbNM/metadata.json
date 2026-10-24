@@ -1,0 +1,68 @@
+{
+ "id": "haK0JOJJbNM",
+ "title": "스파르타쿠스 전쟁 대해부",
+ "channel": "Historie Chronicle",
+ "channel_id": "UCX4n_nQNh7JHltFcI2nU9xw",
+ "subs": 12200,
+ "views": 46222,
+ "ratio": 3.79,
+ "age_days": 128,
+ "views_per_day": 361.1,
+ "minutes": 42.9,
+ "likes": 680,
+ "comments": 60,
+ "published": "2026-06-17",
+ "queries": "검색:고대사",
+ "url": "https://www.youtube.com/watch?v=haK0JOJJbNM",
+ "flag": "",
+ "published_at": "2026-06-17T09:15:08Z",
+ "rank": "W69",
+ "set": "web",
+ "folder": "W_haK0JOJJbNM",
+ "sources": [
+  "검색:고대사"
+ ],
+ "source": "web",
+ "tags": [
+  "스파르타쿠스",
+  "전쟁사",
+  "역사",
+  "로마"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 560,
+   "title": "스파르타쿠스 그리고 노예군"
+  },
+  {
+   "start": 1076,
+   "title": "집정관 군대의 등장"
+  },
+  {
+   "start": 1703,
+   "title": "크라수스와의 대결"
+  },
+  {
+   "start": 2490,
+   "title": "스파르타쿠스의 유산"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-24 13:29까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 60,
+ "comments_top_level": 59,
+ "comments_replies": 1,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 60,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-24T07:30:33",
+ "approved": "2026-10-24T16:30+09:00"
+}

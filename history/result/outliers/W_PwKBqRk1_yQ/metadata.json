@@ -1,0 +1,79 @@
+{
+ "id": "PwKBqRk1_yQ",
+ "title": "왜 해모수를 주몽의 아버지로 만들었나? 고구려 건국 신화의 재구성",
+ "channel": "한국사종사관",
+ "channel_id": "UCFZ5u5-SoSgI5132Nee460g",
+ "subs": 3610,
+ "views": 169226,
+ "ratio": 46.88,
+ "age_days": 90,
+ "views_per_day": 1880.3,
+ "minutes": 23.5,
+ "likes": 1258,
+ "comments": 292,
+ "published": "2026-07-26",
+ "queries": "검색:한국사",
+ "url": "https://www.youtube.com/watch?v=PwKBqRk1_yQ",
+ "flag": "",
+ "published_at": "2026-07-26T02:45:25Z",
+ "rank": "W24",
+ "set": "web",
+ "folder": "W_PwKBqRk1_yQ",
+ "sources": [
+  "검색:한국사"
+ ],
+ "source": "web",
+ "tags": [
+  "해모수",
+  "주몽",
+  "광개토대왕릉비",
+  "부여",
+  "삼국사기",
+  "유화",
+  "한국고대사",
+  "역사",
+  "고구려",
+  "역사이야기",
+  "사극"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "비석에 없는 이름, 오늘 열 사건 파일"
+  },
+  {
+   "start": 51,
+   "title": "우발수의 진술로 남은 해모수와 우리가 아는 계보"
+  },
+  {
+   "start": 327,
+   "title": "414년 광개토왕릉비, 아버지 자리에 이름이 없다"
+  },
+  {
+   "start": 638,
+   "title": "사서마다 옮겨 앉는 해모수의 자리와 더 오래된 부여의 이야기"
+  },
+  {
+   "start": 971,
+   "title": "지운 게 아니라 나중에 얹은 이름, 부여 사람들이 고구려로 들어온 기록"
+  },
+  {
+   "start": 1269,
+   "title": "빈칸의 정체와 아직 안 풀린 계보 하나"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-24 13:29까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 292,
+ "comments_top_level": 116,
+ "comments_replies": 176,
+ "comments_by_creator": 116,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 292,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-24T07:29:30",
+ "approved": "2026-10-24T16:29+09:00"
+}

@@ -1,0 +1,120 @@
+{
+ "id": "RXflUwO13U8",
+ "title": "조선에서 돌아온 일본 장수들은 왜 2년 만에 세키가하라에서 싸웠나? | 지도로 보는 임진왜란 그 후 1편",
+ "channel": "Terra Scripta",
+ "channel_id": "UCe_GWdh5aK3sC4_4rRIccSQ",
+ "subs": 1820,
+ "views": 318990,
+ "ratio": 175.27,
+ "age_days": 8,
+ "views_per_day": 39873.8,
+ "minutes": 12.1,
+ "likes": 482,
+ "comments": 48,
+ "published": "2026-10-16",
+ "queries": "검색:임진왜란",
+ "url": "https://www.youtube.com/watch?v=RXflUwO13U8",
+ "flag": "",
+ "published_at": "2026-10-16T01:25:34Z",
+ "rank": "W11",
+ "set": "web",
+ "folder": "W_RXflUwO13U8",
+ "sources": [
+  "검색:임진왜란"
+ ],
+ "source": "web",
+ "tags": [
+  "세키가하라 전투",
+  "세키가하라",
+  "도쿠가와 이에야스",
+  "이시다 미쓰나리",
+  "고바야카와 히데아키",
+  "시마즈 요시히로",
+  "고니시 유키나가",
+  "우키타 히데이에",
+  "오타니 요시쓰구",
+  "구로다 나가마사",
+  "후쿠시마 마사노리",
+  "임진왜란",
+  "임진왜란 이후",
+  "일본사",
+  "전국시대",
+  "에도 막부",
+  "1600",
+  "지도",
+  "역사",
+  "테라스크립타"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "질문 — 같은 편이던 장수들은 왜 서로 칼을 겨눴나"
+  },
+  {
+   "start": 46,
+   "title": "히데요시의 죽음"
+  },
+  {
+   "start": 96,
+   "title": "조선에서 생긴 원한"
+  },
+  {
+   "start": 179,
+   "title": "1600년 여름, 두 편으로 갈라지다"
+  },
+  {
+   "start": 243,
+   "title": "세키가하라 분지"
+  },
+  {
+   "start": 291,
+   "title": "안개 속의 포진"
+  },
+  {
+   "start": 348,
+   "title": "개전"
+  },
+  {
+   "start": 387,
+   "title": "세 갈래의 격전"
+  },
+  {
+   "start": 440,
+   "title": "마쓰오산의 배반"
+  },
+  {
+   "start": 498,
+   "title": "무너지는 서군"
+  },
+  {
+   "start": 539,
+   "title": "시마즈의 퇴각"
+  },
+  {
+   "start": 590,
+   "title": "조선에서 싸운 장수들의 운명"
+  },
+  {
+   "start": 659,
+   "title": "정리"
+  },
+  {
+   "start": 703,
+   "title": "엔딩"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-24 13:29까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 48,
+ "comments_top_level": 27,
+ "comments_replies": 21,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 48,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-24T07:29:15",
+ "approved": "2026-10-24T16:29+09:00"
+}

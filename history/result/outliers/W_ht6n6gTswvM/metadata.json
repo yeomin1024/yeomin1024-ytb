@@ -1,0 +1,91 @@
+{
+ "id": "ht6n6gTswvM",
+ "title": "1900년대초 서울 생활모습 - 전차가 다니던 그시절",
+ "channel": "아카이브 코리아",
+ "channel_id": "UC4FQEWqGArx225OJn5MCEgA",
+ "subs": 3660,
+ "views": 14200,
+ "ratio": 3.88,
+ "age_days": 29,
+ "views_per_day": 489.7,
+ "minutes": 8.7,
+ "likes": 93,
+ "comments": 3,
+ "published": "2026-09-25",
+ "queries": "검색:대한제국",
+ "url": "https://www.youtube.com/watch?v=ht6n6gTswvM",
+ "flag": "",
+ "published_at": "2026-09-25T01:44:37Z",
+ "rank": "W68",
+ "set": "web",
+ "folder": "W_ht6n6gTswvM",
+ "sources": [
+  "검색:대한제국"
+ ],
+ "source": "web",
+ "tags": [
+  "1900년대",
+  "1910년대",
+  "구한말",
+  "대한제국",
+  "서울",
+  "아카이브 코리아",
+  "옛날 사진",
+  "옛날 한국",
+  "옛사진",
+  "전차",
+  "한국 근대사"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인사"
+  },
+  {
+   "start": 41,
+   "title": "전차가 놓이다"
+  },
+  {
+   "start": 143,
+   "title": "황제의 도시"
+  },
+  {
+   "start": 222,
+   "title": "두 개의 독립문"
+  },
+  {
+   "start": 244,
+   "title": "빈 궁궐"
+  },
+  {
+   "start": 310,
+   "title": "길 위의 사람들"
+  },
+  {
+   "start": 400,
+   "title": "장이 서던 자리"
+  },
+  {
+   "start": 441,
+   "title": "성 밖에서"
+  },
+  {
+   "start": 483,
+   "title": "그 뒤"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-24 13:29까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 3,
+ "comments_top_level": 3,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 3,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-24T07:30:32",
+ "approved": "2026-10-24T16:30+09:00"
+}

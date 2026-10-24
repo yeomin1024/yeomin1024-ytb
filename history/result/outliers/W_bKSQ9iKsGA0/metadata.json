@@ -1,0 +1,71 @@
+{
+ "id": "bKSQ9iKsGA0",
+ "title": "중국사ㅣ가족들, 집안에 갇혀 굶어 죽었다. 죽은 지 5개월 후 가문 몰락의 시작ㅣ스승이 죽자 복수를 시작한 만력제ㅣ명나라개혁ㅣ역사인물ㅣ시니어 역사",
+ "channel": "역사답다",
+ "channel_id": "UCX1UhaVB9263XpGfZ_EVRHg",
+ "subs": 3990,
+ "views": 96395,
+ "ratio": 24.16,
+ "age_days": 61,
+ "views_per_day": 1580.2,
+ "minutes": 32.7,
+ "likes": 588,
+ "comments": 85,
+ "published": "2026-08-24",
+ "queries": "검색:명나라",
+ "url": "https://www.youtube.com/watch?v=bKSQ9iKsGA0",
+ "flag": "",
+ "published_at": "2026-08-24T05:00:07Z",
+ "rank": "W40",
+ "set": "web",
+ "folder": "W_bKSQ9iKsGA0",
+ "sources": [
+  "검색:명나라"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "융경제의 죽음, 열 살 황제의 탄생과 권력 암투의 시작"
+  },
+  {
+   "start": 265,
+   "title": "장거정의 권력 장악 — 풍보·이태후와의 삼각동맹, 고공 축출"
+  },
+  {
+   "start": 530,
+   "title": "어린 황제를 옥죄는 통제 — 서예 금지, 반성문, 그리고 공포의 교육"
+  },
+  {
+   "start": 795,
+   "title": "명나라를 뒤흔든 개혁 — 고성법, 전국 토지 측량, 일조편법"
+  },
+  {
+   "start": 1080,
+   "title": "권력의 폭주 — 탈정 강행, 곤장 세례, 서원 폐지, 그리고 위선"
+  },
+  {
+   "start": 1350,
+   "title": "스승의 죽음, 그리고 만력제의 칼 — 시호 박탈과 가문 숙청"
+  },
+  {
+   "start": 1620,
+   "title": "장거정이 남긴 것 — 개혁가인가, 권신인가"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-24 13:29까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 85,
+ "comments_top_level": 34,
+ "comments_replies": 51,
+ "comments_by_creator": 38,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 85,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-24T07:29:54",
+ "approved": "2026-10-24T16:29+09:00"
+}

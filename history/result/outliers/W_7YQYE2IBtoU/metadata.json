@@ -1,0 +1,74 @@
+{
+ "id": "7YQYE2IBtoU",
+ "title": "박물관은 왜 이 두 불상에게만 방 하나를 내줬을까",
+ "channel": "사소한 역사이야기",
+ "channel_id": "UC1Gf0qfGtunF0LNh19h5chg",
+ "subs": 971,
+ "views": 505415,
+ "ratio": 520.51,
+ "age_days": 22,
+ "views_per_day": 22973.4,
+ "minutes": 5.9,
+ "likes": 1805,
+ "comments": 60,
+ "published": "2026-10-01",
+ "queries": "검색:역사 이야기",
+ "url": "https://www.youtube.com/watch?v=7YQYE2IBtoU",
+ "flag": "",
+ "published_at": "2026-10-01T21:30:18Z",
+ "rank": "W3",
+ "set": "web",
+ "folder": "W_7YQYE2IBtoU",
+ "sources": [
+  "검색:역사 이야기"
+ ],
+ "source": "web",
+ "tags": [
+  "반가사유상",
+  "사유의방",
+  "국립중앙박물관",
+  "금동미륵보살반가사유상",
+  "국보",
+  "감마선",
+  "밀랍주조",
+  "불교미술",
+  "한국사",
+  "사소한역사이야기"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "질문"
+  },
+  {
+   "start": 32,
+   "title": "겉을 들여다보다"
+  },
+  {
+   "start": 120,
+   "title": "속을 들여다보다"
+  },
+  {
+   "start": 225,
+   "title": "방이 답하다"
+  },
+  {
+   "start": 326,
+   "title": "에필로그 · 사유의 방에 가면"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "RequestBlocked: \nCould not retrieve a transcript for the video https://www.youtube.com/watch?v=7YQYE2IBtoU! This is most likely caused b",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 60,
+ "comments_top_level": 37,
+ "comments_replies": 23,
+ "comments_by_creator": 4,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 60,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-24T07:29:06",
+ "approved": "2026-10-24T16:29+09:00"
+}

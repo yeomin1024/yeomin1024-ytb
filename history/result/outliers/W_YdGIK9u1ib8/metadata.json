@@ -1,0 +1,119 @@
+{
+ "id": "YdGIK9u1ib8",
+ "title": "명나라는 어떻게 2년 만에 요하 동쪽을 잃었나? 개원·철령·심양·요양 함락 | 지도로 보는 임진왜란 이후 북쪽 4편",
+ "channel": "Terra Scripta",
+ "channel_id": "UCe_GWdh5aK3sC4_4rRIccSQ",
+ "subs": 1820,
+ "views": 11986,
+ "ratio": 6.59,
+ "age_days": 3,
+ "views_per_day": 3995.3,
+ "minutes": 15.9,
+ "likes": 49,
+ "comments": 11,
+ "published": "2026-10-20",
+ "queries": "검색:명나라",
+ "url": "https://www.youtube.com/watch?v=YdGIK9u1ib8",
+ "flag": "",
+ "published_at": "2026-10-20T09:00:07Z",
+ "rank": "W60",
+ "set": "web",
+ "folder": "W_YdGIK9u1ib8",
+ "sources": [
+  "검색:명나라"
+ ],
+ "source": "web",
+ "tags": [
+  "요동 함락",
+  "심양 전투",
+  "요양 전투",
+  "혼하 전투",
+  "개원 전투",
+  "철령 전투",
+  "예허",
+  "누르하치",
+  "후금",
+  "명나라",
+  "웅정필",
+  "원응태",
+  "하세현",
+  "진책",
+  "척금",
+  "진방병",
+  "백간병",
+  "절강병",
+  "홍타이지",
+  "다이샨",
+  "금대석",
+  "재새",
+  "모문룡",
+  "광녕",
+  "강홍립",
+  "광해군",
+  "임진왜란 이후",
+  "조선사",
+  "역사",
+  "지도",
+  "테라스크립타"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "혼하 다리, 1621"
+  },
+  {
+   "start": 47,
+   "title": "사르후 그 뒤"
+  },
+  {
+   "start": 101,
+   "title": "보름밤의 개원"
+  },
+  {
+   "start": 186,
+   "title": "철령, 수수밭의 매복"
+  },
+  {
+   "start": 278,
+   "title": "예허의 두 성"
+  },
+  {
+   "start": 387,
+   "title": "웅정필의 요동"
+  },
+  {
+   "start": 460,
+   "title": "심양 전투"
+  },
+  {
+   "start": 579,
+   "title": "혼하 전투"
+  },
+  {
+   "start": 696,
+   "title": "요양 — 해자의 물"
+  },
+  {
+   "start": 858,
+   "title": "조선이 들은 소식"
+  },
+  {
+   "start": 906,
+   "title": "엔딩"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-24 13:29까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 11,
+ "comments_top_level": 3,
+ "comments_replies": 8,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 11,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-24T07:30:24",
+ "approved": "2026-10-24T16:30+09:00"
+}

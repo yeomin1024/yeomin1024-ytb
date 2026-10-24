@@ -1,0 +1,116 @@
+{
+ "id": "6UEopLVwlag",
+ "title": "조선 주막 방값은 공짜, 대신 목숨을 걸었다 | 승정원일기·실록으로 본 조선 주막",
+ "channel": "조상님 클라쓰",
+ "channel_id": "UC6SPlP_vm-XuU7Ob83LUN0Q",
+ "subs": 5350,
+ "views": 725170,
+ "ratio": 135.55,
+ "age_days": 9,
+ "views_per_day": 80574.4,
+ "minutes": 11.5,
+ "likes": 1826,
+ "comments": 154,
+ "published": "2026-10-14",
+ "queries": "검색:조선역사 | 검색:조선시대 | 검색:조선왕조실록 | 검색:조선왕조 | 검색:조선",
+ "url": "https://www.youtube.com/watch?v=6UEopLVwlag",
+ "flag": "",
+ "published_at": "2026-10-14T22:00:13Z",
+ "rank": "W16",
+ "set": "web",
+ "folder": "W_6UEopLVwlag",
+ "sources": [
+  "검색:조선역사",
+  "검색:조선시대",
+  "검색:조선왕조실록",
+  "검색:조선왕조",
+  "검색:조선"
+ ],
+ "source": "web",
+ "tags": [
+  "조상님클라쓰",
+  "3D",
+  "한국지리",
+  "지구과학",
+  "한국사",
+  "우리땅",
+  "교양",
+  "쇼츠"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "손님만 죽었다"
+  },
+  {
+   "start": 34,
+   "title": "오늘 가져가실 네 가지"
+  },
+  {
+   "start": 61,
+   "title": "해 질 녘, 노상추"
+  },
+  {
+   "start": 100,
+   "title": "장대 끝의 간판, 원에서 주막으로"
+  },
+  {
+   "start": 154,
+   "title": "짐승과 사람이 한데"
+  },
+  {
+   "start": 189,
+   "title": "밥값이 곧 잠값"
+  },
+  {
+   "start": 239,
+   "title": "열 명, 한 방"
+  },
+  {
+   "start": 283,
+   "title": "이 방에서 가장 무서운 것"
+  },
+  {
+   "start": 351,
+   "title": "도적이 머무는 집"
+  },
+  {
+   "start": 429,
+   "title": "나라가 본 주막"
+  },
+  {
+   "start": 495,
+   "title": "40도의 밤"
+  },
+  {
+   "start": 549,
+   "title": "주막이 품은 사람들"
+  },
+  {
+   "start": 581,
+   "title": "새벽, 다시 길로"
+  },
+  {
+   "start": 616,
+   "title": "사라진 불빛"
+  },
+  {
+   "start": 638,
+   "title": "지금도 남은 외상 장부"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-24 13:29까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 154,
+ "comments_top_level": 85,
+ "comments_replies": 69,
+ "comments_by_creator": 32,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 154,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-24T07:29:20",
+ "approved": "2026-10-24T16:29+09:00"
+}

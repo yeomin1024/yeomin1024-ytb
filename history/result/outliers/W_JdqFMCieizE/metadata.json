@@ -1,0 +1,67 @@
+{
+ "id": "JdqFMCieizE",
+ "title": "\"허준도 하지 못했다?\" 실록이 유일하게 신의(神醫)라 적은 남자",
+ "channel": "한국사 다시읽기",
+ "channel_id": "UC-sDvUroCCpUZhzk4I_3UIw",
+ "subs": 28700,
+ "views": 197451,
+ "ratio": 6.88,
+ "age_days": 59,
+ "views_per_day": 3346.6,
+ "minutes": 17.8,
+ "likes": 799,
+ "comments": 36,
+ "published": "2026-08-25",
+ "queries": "검색:조선역사",
+ "url": "https://www.youtube.com/watch?v=JdqFMCieizE",
+ "flag": "",
+ "published_at": "2026-08-25T12:18:45Z",
+ "rank": "W58",
+ "set": "web",
+ "folder": "W_JdqFMCieizE",
+ "sources": [
+  "검색:조선역사"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "신의라 불린 유일한 의원"
+  },
+  {
+   "start": 102,
+   "title": "종기, 조선을 덮친 죽음의 공포"
+  },
+  {
+   "start": 247,
+   "title": "말을 고치던 손, 사람에게 향하다"
+  },
+  {
+   "start": 465,
+   "title": "살을 째는 의술, 치종술의 탄생"
+  },
+  {
+   "start": 614,
+   "title": "두 임금을 살려낸 목숨을 건 침"
+  },
+  {
+   "start": 810,
+   "title": "가장 낮은 곳을 향한 신의의 마음"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-24 13:29까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 36,
+ "comments_top_level": 30,
+ "comments_replies": 6,
+ "comments_by_creator": 5,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 36,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-24T07:30:22",
+ "approved": "2026-10-24T16:30+09:00"
+}

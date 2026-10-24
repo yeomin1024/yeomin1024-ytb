@@ -1,0 +1,73 @@
+{
+ "id": "P0L12YVybLU",
+ "title": "인류사에 기록되어 전해지는 기이하고 섬뜩한 실존 인물들 | 9월의 몰아보기",
+ "channel": "기묘한 밤",
+ "channel_id": "UC_SgaM1zbb1Mibnsp6J0fJA",
+ "subs": 1150000,
+ "views": 664387,
+ "ratio": 0.58,
+ "age_days": 42,
+ "views_per_day": 15818.7,
+ "minutes": 82.7,
+ "likes": 2961,
+ "comments": 148,
+ "published": "2026-09-12",
+ "queries": "검색:역사미스터리",
+ "url": "https://www.youtube.com/watch?v=P0L12YVybLU",
+ "flag": "",
+ "published_at": "2026-09-12T04:00:22Z",
+ "rank": "W81",
+ "set": "web",
+ "folder": "W_P0L12YVybLU",
+ "sources": [
+  "검색:역사미스터리"
+ ],
+ "source": "web",
+ "tags": [
+  "기묘한밤",
+  "미스테리",
+  "미스터리",
+  "공포",
+  "괴담",
+  "기묘한",
+  "불가사의",
+  "초고대문명",
+  "고대문명",
+  "역사미스터리",
+  "기밤",
+  "UFO",
+  "외계인"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "제시카 듀브로프"
+  },
+  {
+   "start": 1015,
+   "title": "익스프레스 705편"
+  },
+  {
+   "start": 2168,
+   "title": "닥터 데스"
+  },
+  {
+   "start": 4284,
+   "title": "울핏의 녹색 아이들"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-24 13:29까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 148,
+ "comments_top_level": 103,
+ "comments_replies": 45,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 148,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-24T07:30:58",
+ "approved": "2026-10-24T16:30+09:00"
+}

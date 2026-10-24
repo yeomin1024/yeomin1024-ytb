@@ -1,0 +1,87 @@
+{
+ "id": "rx7pvJRwaTI",
+ "title": "몽골은 왜 다시 일어서지 못했을까, 명나라 황제를 사로잡은 날도 있었다",
+ "channel": "세계사한줌",
+ "channel_id": "UCCjf4KUP0piHsmo8zRlJSuA",
+ "subs": 2090,
+ "views": 223158,
+ "ratio": 106.77,
+ "age_days": 7,
+ "views_per_day": 31879.7,
+ "minutes": 26.5,
+ "likes": 911,
+ "comments": 63,
+ "published": "2026-10-17",
+ "queries": "검색:명나라",
+ "url": "https://www.youtube.com/watch?v=rx7pvJRwaTI",
+ "flag": "",
+ "published_at": "2026-10-17T00:00:34Z",
+ "rank": "W17",
+ "set": "web",
+ "folder": "W_rx7pvJRwaTI",
+ "sources": [
+  "검색:명나라"
+ ],
+ "source": "web",
+ "tags": [
+  "세계사",
+  "몽골",
+  "몽골제국",
+  "원나라",
+  "북원",
+  "칭기즈칸",
+  "쿠빌라이",
+  "토목의 변",
+  "만두하이",
+  "다얀 칸",
+  "알탄 칸",
+  "링단 칸",
+  "홍타이지",
+  "역사이야기",
+  "세계사한줌"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "1368년, 북쪽 성문이 열린 밤"
+  },
+  {
+   "start": 99,
+   "title": "초원의 나라가 넷으로 갈라지다"
+  },
+  {
+   "start": 293,
+   "title": "원나라 안에서 먼저 무너진 것들"
+  },
+  {
+   "start": 670,
+   "title": "첫 번째 기회, 명나라 황제를 사로잡다"
+  },
+  {
+   "start": 890,
+   "title": "두 번째 기회, 왕비 만두하이와 여덟 살 칸"
+  },
+  {
+   "start": 1180,
+   "title": "세 번째 기회, 마지막 칸 링단"
+  },
+  {
+   "start": 1399,
+   "title": "잘게 나뉜 초원, 그리고 지금"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-24 13:29까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 63,
+ "comments_top_level": 37,
+ "comments_replies": 26,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 63,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-24T07:29:22",
+ "approved": "2026-10-24T16:29+09:00"
+}

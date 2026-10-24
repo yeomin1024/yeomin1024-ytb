@@ -1,0 +1,112 @@
+{
+ "id": "FM5-izJ5M1s",
+ "title": "조선의 유배객은 어떻게 수백 리를 갔을까 | 우리가 알던 귀양길은 틀렸다",
+ "channel": "우리 모두의 역사",
+ "channel_id": "UCYa04jnvh4zbvhpl4U93K9A",
+ "subs": 5560,
+ "views": 183395,
+ "ratio": 32.98,
+ "age_days": 34,
+ "views_per_day": 5394.0,
+ "minutes": 92.0,
+ "likes": 1428,
+ "comments": 15,
+ "published": "2026-09-19",
+ "queries": "검색:역사채널",
+ "url": "https://www.youtube.com/watch?v=FM5-izJ5M1s",
+ "flag": "",
+ "published_at": "2026-09-19T11:00:12Z",
+ "rank": "W32",
+ "set": "web",
+ "folder": "W_FM5-izJ5M1s",
+ "sources": [
+  "검색:역사채널"
+ ],
+ "source": "web",
+ "tags": [
+  "역사",
+  "조선사",
+  "평민역사",
+  "조선시대",
+  "경신대기근",
+  "임진왜란",
+  "일제시대",
+  "친일파"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "한양 성문이 닫히던 새벽"
+  },
+  {
+   "start": 200,
+   "title": "유배란 무엇이었나 - 오형과 유형"
+  },
+  {
+   "start": 580,
+   "title": "삼천 리의 역설, 세종의 거리 조정"
+  },
+  {
+   "start": 910,
+   "title": "판결에서 출발까지의 절차"
+  },
+  {
+   "start": 1290,
+   "title": "목에 차는 나무 칼의 진실"
+  },
+  {
+   "start": 1660,
+   "title": "이문건의 출발과 호송의 그늘"
+  },
+  {
+   "start": 2030,
+   "title": "심노숭의 기록, 유배길의 하루"
+  },
+  {
+   "start": 2420,
+   "title": "비용과 신분, 그리고 동행자들"
+  },
+  {
+   "start": 2790,
+   "title": "길 위의 환대와 냉대"
+  },
+  {
+   "start": 3160,
+   "title": "바다를 건너는 유배길"
+  },
+  {
+   "start": 3530,
+   "title": "도착, 보수주인과 위리안치"
+  },
+  {
+   "start": 3870,
+   "title": "유배지의 생계와 지역 사회"
+  },
+  {
+   "start": 4210,
+   "title": "강진의 정약용, 제주의 김정희"
+  },
+  {
+   "start": 4560,
+   "title": "해배, 그리고 돌아오지 못한 사람들"
+  },
+  {
+   "start": 4890,
+   "title": "흔한 오해 다섯 가지와 마무리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-24 13:29까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 15,
+ "comments_top_level": 12,
+ "comments_replies": 3,
+ "comments_by_creator": 2,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 15,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-24T07:29:44",
+ "approved": "2026-10-24T16:29+09:00"
+}

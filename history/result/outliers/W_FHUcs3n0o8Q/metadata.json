@@ -1,0 +1,98 @@
+{
+ "id": "FHUcs3n0o8Q",
+ "title": "[추석 특집] 대하 드라마 -문무- 방영 전, 삼국통일전쟁 몰아보기(3시간 통합 ver.)",
+ "channel": "황현필 한국사",
+ "channel_id": "UCRPRCmoQrbQ2qef7HpHz6GA",
+ "subs": 1130000,
+ "views": 317921,
+ "ratio": 0.28,
+ "age_days": 30,
+ "views_per_day": 10597.4,
+ "minutes": 181.5,
+ "likes": 2145,
+ "comments": 125,
+ "published": "2026-09-23",
+ "queries": "검색:한국사",
+ "url": "https://www.youtube.com/watch?v=FHUcs3n0o8Q",
+ "flag": "",
+ "published_at": "2026-09-23T23:55:26Z",
+ "rank": "W91",
+ "set": "web",
+ "folder": "W_FHUcs3n0o8Q",
+ "sources": [
+  "검색:한국사"
+ ],
+ "source": "web",
+ "tags": [
+  "황현필",
+  "한국사",
+  "역사",
+  "삼국시대",
+  "고구려",
+  "백제",
+  "신라",
+  "발해",
+  "김춘추",
+  "무열왕",
+  "의자왕",
+  "부여융",
+  "연개소문",
+  "문무",
+  "김유신",
+  "김법민",
+  "통일신라",
+  "살수대첩"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "미실과 선덕여왕, 근친혼의 나라(Feat.김유신의 여동생들)"
+  },
+  {
+   "start": 1370,
+   "title": "조선 4000년 이래 최고의 인물?"
+  },
+  {
+   "start": 2269,
+   "title": "연 개 소 문"
+  },
+  {
+   "start": 3925,
+   "title": "고당전쟁의 시작 (이세민 vs 연개소문)"
+  },
+  {
+   "start": 5152,
+   "title": "당태종의 굴욕, 안시성 전투"
+  },
+  {
+   "start": 6379,
+   "title": "당태종vs연개소문,의자왕vs김춘추 (Feat 백제 멸망)"
+  },
+  {
+   "start": 7705,
+   "title": "열국시대가 맞다(Feat. 백제부흥운동)"
+  },
+  {
+   "start": 8923,
+   "title": "가장 가슴 아픈 멸망"
+  },
+  {
+   "start": 9810,
+   "title": "삼국통일이라고? 그렇다면..."
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-24 13:29까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 125,
+ "comments_top_level": 73,
+ "comments_replies": 52,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 125,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-24T07:31:29",
+ "approved": "2026-10-24T16:31+09:00"
+}

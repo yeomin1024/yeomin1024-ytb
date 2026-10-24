@@ -1,0 +1,95 @@
+{
+ "id": "BMX7OmAc72s",
+ "title": "2차세계대전 소련군을 박살내던 독일군은 왜 모스크바 앞에서 멈췄나",
+ "channel": "온갖역사",
+ "channel_id": "UCZ0sxD0U7MUGQZZgTFjD5yQ",
+ "subs": 48,
+ "views": 14471,
+ "ratio": 144.71,
+ "age_days": 17,
+ "views_per_day": 851.2,
+ "minutes": 10.5,
+ "likes": 40,
+ "comments": 12,
+ "published": "2026-10-06",
+ "queries": "검색:역사다큐",
+ "url": "https://www.youtube.com/watch?v=BMX7OmAc72s",
+ "flag": "",
+ "published_at": "2026-10-06T09:30:25Z",
+ "rank": "W14",
+ "set": "web",
+ "folder": "W_BMX7OmAc72s",
+ "sources": [
+  "검색:역사다큐"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "129년 뒤, 같은 6월의 원정"
+  },
+  {
+   "start": 40,
+   "title": "'짧은 전쟁'이라는 계산"
+  },
+  {
+   "start": 90,
+   "title": "세 갈래 화살표 — 어디에 먼저 힘을 모을 것인가"
+  },
+  {
+   "start": 128,
+   "title": "초반의 대승, 그러나 끝나지 않는 전쟁"
+  },
+  {
+   "start": 165,
+   "title": "승리의 뒤쪽 — 선로 폭과 보급선"
+  },
+  {
+   "start": 219,
+   "title": "스몰렌스크 — 어긋나기 시작한 시간표"
+  },
+  {
+   "start": 261,
+   "title": "모스크바냐, 남쪽이냐 — 키이우 포위전"
+  },
+  {
+   "start": 314,
+   "title": "타이푼 작전과 모스크바의 위기"
+  },
+  {
+   "start": 366,
+   "title": "진창과 추위는 무엇을 바꿨나"
+  },
+  {
+   "start": 416,
+   "title": "그동안 소련은 무엇을 하고 있었나"
+  },
+  {
+   "start": 481,
+   "title": "모스크바 앞 — 멈춘 공세와 12월의 반격"
+  },
+  {
+   "start": 544,
+   "title": "왜 멈췄나 — 세 가지 조건"
+  },
+  {
+   "start": 614,
+   "title": "다음 지도: 1942년 여름, 남쪽으로"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-24 13:29까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 12,
+ "comments_top_level": 4,
+ "comments_replies": 8,
+ "comments_by_creator": 3,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 12,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-24T07:29:18",
+ "approved": "2026-10-24T16:29+09:00"
+}

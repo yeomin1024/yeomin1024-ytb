@@ -1,0 +1,72 @@
+{
+ "id": "f0eYMCDmOyM",
+ "title": "밥값만 내면 하룻밤은 공짜? 조선시대 주막의 놀라운 비밀l사라진 줄 알았던 조선 주막ㅣ마지막 주모가 남긴 이야기, 삼강주막",
+ "channel": "어게인역사",
+ "channel_id": "UCTpc5hLEz8isB3rkTDnY5KA",
+ "subs": 6070,
+ "views": 571500,
+ "ratio": 94.15,
+ "age_days": 97,
+ "views_per_day": 5891.8,
+ "minutes": 20.9,
+ "likes": 1335,
+ "comments": 92,
+ "published": "2026-07-18",
+ "queries": "검색:조선역사 | 검색:조선시대",
+ "url": "https://www.youtube.com/watch?v=f0eYMCDmOyM",
+ "flag": "",
+ "published_at": "2026-07-18T22:30:30Z",
+ "rank": "W19",
+ "set": "web",
+ "folder": "W_f0eYMCDmOyM",
+ "sources": [
+  "검색:조선역사",
+  "검색:조선시대"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "밥값만 내면 잠은 공짜였던 조선 주막"
+  },
+  {
+   "start": 87,
+   "title": "주막의 간판 '용수'와 김홍도가 그린 풍경"
+  },
+  {
+   "start": 193,
+   "title": "국영 숙소 '원' … 이태원·조치원 지명의 비밀"
+  },
+  {
+   "start": 359,
+   "title": "잠은 공짜? 주모의 기막힌 장사 수완"
+  },
+  {
+   "start": 533,
+   "title": "봉놋방, 조선의 뉴스룸이 되다"
+  },
+  {
+   "start": 749,
+   "title": "40도 찜통방에서 낯선 이들과 보낸 하룻밤"
+  },
+  {
+   "start": 996,
+   "title": "사라진 주막, 그리고 오늘의 찜질방·포장마차"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-24 13:29까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 92,
+ "comments_top_level": 69,
+ "comments_replies": 23,
+ "comments_by_creator": 6,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 92,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-24T07:29:24",
+ "approved": "2026-10-24T16:29+09:00"
+}

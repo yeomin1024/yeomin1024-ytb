@@ -1,0 +1,89 @@
+{
+ "id": "lIRtKm_-_Xc",
+ "title": "굼벵이가 떨어지는 지붕 밑에서 살았다? 조선 초가집의 모든 것| 조선시대 서민 주거사",
+ "channel": "진짜역사한잔",
+ "channel_id": "UCJ5Kq7dbwZ8i8kkJUqCwnXw",
+ "subs": 13400,
+ "views": 350620,
+ "ratio": 26.17,
+ "age_days": 112,
+ "views_per_day": 3130.5,
+ "minutes": 83.4,
+ "likes": 4468,
+ "comments": 392,
+ "published": "2026-07-03",
+ "queries": "검색:조선시대 | 검색:조선왕조실록 | 검색:조선왕조",
+ "url": "https://www.youtube.com/watch?v=lIRtKm_-_Xc",
+ "flag": "",
+ "published_at": "2026-07-03T11:00:21Z",
+ "rank": "W38",
+ "set": "web",
+ "folder": "W_lIRtKm_-_Xc",
+ "sources": [
+  "검색:조선시대",
+  "검색:조선왕조실록",
+  "검색:조선왕조"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝 후킹 - 무너져가는 지붕 밑에서"
+  },
+  {
+   "start": 40,
+   "title": "구독 안내"
+  },
+  {
+   "start": 60,
+   "title": "초가집과 기와집, 신분이 가른 주거의 격차"
+  },
+  {
+   "start": 180,
+   "title": "볏짚 지붕과 이엉 갈이 풍습"
+  },
+  {
+   "start": 300,
+   "title": "좁은 방 한 칸, 대가족의 삶"
+  },
+  {
+   "start": 420,
+   "title": "온돌의 원리와 땔감 생존기"
+  },
+  {
+   "start": 540,
+   "title": "부엌과 조명, 그을음의 일상"
+  },
+  {
+   "start": 660,
+   "title": "장마와 지붕 붕괴, 자연재해와의 싸움"
+  },
+  {
+   "start": 780,
+   "title": "장독대, 텃밭, 뒷간의 순환 경제"
+  },
+  {
+   "start": 900,
+   "title": "빈부격차 속 초가집, 움막의 현실"
+  },
+  {
+   "start": 1020,
+   "title": "사계절 순환 노동과 마무리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-24 13:29까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 392,
+ "comments_top_level": 258,
+ "comments_replies": 134,
+ "comments_by_creator": 6,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 392,
+ "tool": "outlier_research.py v2.6.1",
+ "collected": "2026-10-24T07:29:51",
+ "approved": "2026-10-24T16:29+09:00"
+}

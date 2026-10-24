@@ -20,6 +20,7 @@
 - unittest OK · render check 롱폼 cuts=56 problems=0 page_errors=0 · 쇼츠 cuts=7 problems=0 page_errors=0
 - 처음 check 문제 (동전 ₩ 27px · RACE 끝 이름표가 화면 밖 · TRADING HALT 가 칸 밖) → 동전 그림은 data-small · 등장 움직임이 CSS translate 를 덮어써서 자리를 숫자로 · tl.set 을 0초에 → 0
 - still 24장면 + 쇼츠 7장면 직접 봄 → MARGIN CALL 이 머리글과 겹침 · 짧은 문장에서 앱이 휴지통까지 못 감 · NEWS 제목 가림 · FED/AI 붙음 · 62% 그리드 셈이 장면 안에 안 나옴 · 쇼츠 칸이 인형 머리와 겹침 → 모두 고쳐 다시 봄
+- 최종 렌더: 롱폼 `final_1080p.mp4` 406.6초 · −14.1 LUFS · TP −1.7 dBTP / 쇼츠 40.2초 · −14.15 LUFS · TP −1.62 dBTP (컨테이너에만 — git 안 넣음) · 완성 mp4 에서 17컷 뽑아 직접 봄 (MARGIN CALL · 44/가방/?/학교 · TREEMAP · CANDLE −8.95% · GRID 500 · HIT · FLOW · RACE 1×/3× · 쇼츠 3컷) · 두 영상 사용자에게 보냄
 - 연구·교육용 영상 도구 — 투자 권유 아님.
 
 ## 2026-10-24 (주식 이야기형 9) — 1화 화면 다시: 투자 영어 · 문장마다 화면 · 주식 소품

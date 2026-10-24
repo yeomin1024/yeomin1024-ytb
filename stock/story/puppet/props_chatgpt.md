@@ -1,6 +1,10 @@
-# 주식 영상 공통 설명 소품 — 종이 소품 그림 (ChatGPT 에 넘기는 파일)
+# 주식 영상 설명 그림 — 코드로 표현하기 힘들 때만 (ChatGPT 에 넘기는 파일)
 
-이 파일 판: v3.0 — 2026-10-24 — **주식과 바로 이어지는 그림으로 새로** (사용자 지시 2026-10-24 "이미지 요소도 뭔가 주식하고 동떨어져 있어 … 다시해봐 이미지도 다시 생성하도록 chatgpt 알려주고"): 차트·캔들(빨강·초록 막대)·매매 앱·황소·곰·반도체 칩·주식 증서로 뜻을 보인다. 그림 속 글자는 BUY·SELL·%·$ 만 (투자자라면 다 아는 말). v2.0 의 21장(달걀 바구니·거북이·닻·파도 …)은 쓰지 않음 — `props/_old/`. (v2.0 — 2026-10-24 — 공통 소품으로 · v1.0 — 2026-10-23 — 1화 21장)
+이 파일 판: v4.0 — 2026-10-24 — **그림은 꼭 필요할 때만** (사용자 지시 2026-10-24 "비유해서 설명하는 것도 아니고 황소,곰, 바구니 이런건 생성할 필요없어 더 직관적으로 의미 전달 되도록 3D, 모션 그래픽으로 표현할 수 있잖아 표현 힘든데 꼭 필요한 것만 이미지 요소로 하라고 다시 수정해"): 뜻은 코드 모션 그래픽(`video/render/story_mg.js` — 매매 앱 PHONE · 캔들+거래 정지 CANDLE · 시가총액 블록 TREEMAP · 박스권 BOXRANGE · 두 선 경주 RACE · 점 그리드 GRID · 돈의 흐름 FLOW · 악재 충돌 HIT · 계기판 GAUGE · 적립 DCA · 바닥 매도 SELLBOTTOM · 장 카드 RULE) 으로 보여 준다. 아래 26장은 모두 **보류** (만들지 않음 — 1화는 그림 0장). 새 그림은 코드로 표현하기 힘든데 꼭 필요한 것만 표에 '만들 것'으로 더한다 (비유 그림 금지 — 황소·곰·바구니 같은 것).
+
+**ChatGPT 에게: 지금 이 파일에 '만들 것' 상태인 그림이 없으면 아무것도 만들지 말고 "만들 그림 없음"이라고만 답한다.**
+
+(v3.0 — 2026-10-24 — 주식과 바로 이어지는 그림으로 새로 (사용자 지시 2026-10-24 "이미지 요소도 뭔가 주식하고 동떨어져 있어 … 다시해봐 이미지도 다시 생성하도록 chatgpt 알려주고"): 차트·캔들(빨강·초록 막대)·매매 앱·황소·곰·반도체 칩·주식 증서로 뜻을 보인다. 그림 속 글자는 BUY·SELL·%·$ 만 (투자자라면 다 아는 말). v2.0 의 21장(달걀 바구니·거북이·닻·파도 …)은 쓰지 않음 — `props/_old/`. (v2.0 — 2026-10-24 — 공통 소품으로 · v1.0 — 2026-10-23 — 1화 21장)
 
 쓰임: 영상 화면에는 한국어가 없다(말은 언어별 자막) — 어려운 말·비유를 **주식 그림 한 장**으로 보여 주는 무대 위 종이 소품. 숫자·지수 이름(KOSPI·S&P 500)은 코드가 그림 위에 띄운다. 주인공 인형과 같은 그림체라 '개미 재기 일지' 모든 화에서 다시 쓰고, 투명 PNG 라 다른 주식 영상(HTML)에서도 `<img>` 로 쓴다.
 
@@ -73,34 +77,34 @@ PROP: ONE single stage prop for the same paper puppet show (an object or animal,
 
 ## 주식 소품 26장
 
-| 번호 | 저장 경로 | 뜻 (어느 주식 영상에나) | 1화에서 쓰는 곳 | 쓴 화 | 상태 |
+| 번호 | 저장 경로 | 뜻 (어느 주식 영상에나) | (옛 계획) 1화 자리 | 쓴 화 | 상태 |
 |---|---|---|---|---|---|
-| 1 | `stock/story/puppet/props/MARGIN-CALL.png` | 반대매매 · 빚낸 돈이 강제로 매도됨 · 계좌 위험 경고 | 문장 2 · 쇼츠 3 | 1화 | 만들 것 |
-| 2 | `stock/story/puppet/props/SAVINGS-DROP.png` | 노후 자금·저축이 주식 손실로 줄어듦 | 문장 4 | 1화 | 만들 것 |
-| 3 | `stock/story/puppet/props/DELETE-APP.png` | 주식 앱 지우기 · 시장을 떠남 | 문장 5·31 · 쇼츠 6 | 1화 | 만들 것 |
-| 4 | `stock/story/puppet/props/RULE-NOTE.png` | 매매 원칙 · 투자 일지 | 문장 8·72 | 1화 | 만들 것 |
-| 5 | `stock/story/puppet/props/INDEX-BASKET.png` | 지수 · 분산 투자 (여러 회사를 나눠 담음) | 문장 9·23·27~28·44 | 1화 | 만들 것 |
-| 6 | `stock/story/puppet/props/CHIP-ALL-IN.png` | 한 업종·한 종목에 몰빵 (반도체) | 문장 13~15·50~51 | 1화 | 만들 것 |
-| 7 | `stock/story/puppet/props/CIRCUIT-BREAKER.png` | 거래 정지 (서킷브레이커) | 문장 16 | 1화 | 만들 것 |
-| 8 | `stock/story/puppet/props/BEAR.png` | 하락장 · 폭락 | 문장 18·26 | 1화 | 만들 것 |
-| 9 | `stock/story/puppet/props/BOX-RANGE.png` | 박스권 · 오래 제자리인 지수 | 문장 22 | 1화 | 만들 것 |
-| 10 | `stock/story/puppet/props/BULL.png` | 상승장 · 불장 | 문장 24 | 1화 | 만들 것 |
-| 11 | `stock/story/puppet/props/PAUSE-TRADING.png` | 매매를 잠시 멈춤 (계좌는 그대로 둠) | 문장 29·33 | 1화 | 만들 것 |
-| 12 | `stock/story/puppet/props/SELL-BOTTOM.png` | 바닥에서 매도 · 손실 확정 | 문장 32 · 쇼츠 7 | 1화 | 만들 것 |
-| 13 | `stock/story/puppet/props/DELISTED.png` | 한 종목이 무너짐 · 끝내 회복 못 함 | 문장 45 | 1화 | 만들 것 |
-| 14 | `stock/story/puppet/props/MACRO-DASH.png` | 거시 경제 지표 (금리·환율·경기) | 문장 46 | 1화 | 만들 것 |
-| 15 | `stock/story/puppet/props/NEWS-HYPE.png` | 호재 뉴스·차트만 봄 | 문장 48~49 | 1화 | 만들 것 |
-| 16 | `stock/story/puppet/props/STORM-CHART.png` | 악재가 한꺼번에 · 폭락장 | 문장 50 | 1화 | 만들 것 |
-| 17 | `stock/story/puppet/props/RATE-BANK.png` | 금리가 오르면 돈이 주식에서 예금으로 | 문장 53 | 1화 | 만들 것 |
-| 18 | `stock/story/puppet/props/FX-OUTFLOW.png` | 환율 급등 → 외국인 매도 · 돈이 빠져나감 | 문장 54 | 1화 | 만들 것 |
-| 19 | `stock/story/puppet/props/DEBT-BUBBLE.png` | 빚으로 부푼 시장 · 거품 | 문장 58 | 1화 | 만들 것 |
-| 20 | `stock/story/puppet/props/FEAR-GREED.png` | 과열 점검 · 내가 무리하는지 (공포·탐욕 지수) | 문장 60~61 | 1화 | 만들 것 |
-| 21 | `stock/story/puppet/props/RULE-SHIELD.png` | 원칙이 있으면 남의 말에 흔들리지 않음 | 문장 62·77~78 | 1화 | 만들 것 |
-| 22 | `stock/story/puppet/props/TIP-CHAT.png` | 리딩방·단톡방 종목 추천 · 수익 인증 | 문장 63~64 | 1화 | 만들 것 |
-| 23 | `stock/story/puppet/props/LEVERAGE-CRASH.png` | 레버리지로 빨리 메우려다 실패 | 문장 68·90~91 | 1화 | 만들 것 |
-| 24 | `stock/story/puppet/props/SLOW-CLIMB.png` | 천천히 · 꾸준히 · 장기 투자 | 문장 79 | 1화 | 만들 것 |
-| 25 | `stock/story/puppet/props/DCA-JAR.png` | 매달 정해진 금액만 매수 (적립식) | 문장 82 | 1화 | 만들 것 |
-| 26 | `stock/story/puppet/props/COMPOUND-STAIRS.png` | 꾸준히 쌓여 불어남 (복리) | 문장 92 | 1화 | 만들 것 |
+| 1 | `stock/story/puppet/props/MARGIN-CALL.png` | 반대매매 · 빚낸 돈이 강제로 매도됨 · 계좌 위험 경고 | 문장 2 · 쇼츠 3 | — | 보류 (코드로 대신) |
+| 2 | `stock/story/puppet/props/SAVINGS-DROP.png` | 노후 자금·저축이 주식 손실로 줄어듦 | 문장 4 | — | 보류 (코드로 대신) |
+| 3 | `stock/story/puppet/props/DELETE-APP.png` | 주식 앱 지우기 · 시장을 떠남 | 문장 5·31 · 쇼츠 6 | — | 보류 (코드로 대신) |
+| 4 | `stock/story/puppet/props/RULE-NOTE.png` | 매매 원칙 · 투자 일지 | 문장 8·72 | — | 보류 (코드로 대신) |
+| 5 | `stock/story/puppet/props/INDEX-BASKET.png` | 지수 · 분산 투자 (여러 회사를 나눠 담음) | 문장 9·23·27~28·44 | — | 보류 (코드로 대신) |
+| 6 | `stock/story/puppet/props/CHIP-ALL-IN.png` | 한 업종·한 종목에 몰빵 (반도체) | 문장 13~15·50~51 | — | 보류 (코드로 대신) |
+| 7 | `stock/story/puppet/props/CIRCUIT-BREAKER.png` | 거래 정지 (서킷브레이커) | 문장 16 | — | 보류 (코드로 대신) |
+| 8 | `stock/story/puppet/props/BEAR.png` | 하락장 · 폭락 | 문장 18·26 | — | 보류 (코드로 대신) |
+| 9 | `stock/story/puppet/props/BOX-RANGE.png` | 박스권 · 오래 제자리인 지수 | 문장 22 | — | 보류 (코드로 대신) |
+| 10 | `stock/story/puppet/props/BULL.png` | 상승장 · 불장 | 문장 24 | — | 보류 (코드로 대신) |
+| 11 | `stock/story/puppet/props/PAUSE-TRADING.png` | 매매를 잠시 멈춤 (계좌는 그대로 둠) | 문장 29·33 | — | 보류 (코드로 대신) |
+| 12 | `stock/story/puppet/props/SELL-BOTTOM.png` | 바닥에서 매도 · 손실 확정 | 문장 32 · 쇼츠 7 | — | 보류 (코드로 대신) |
+| 13 | `stock/story/puppet/props/DELISTED.png` | 한 종목이 무너짐 · 끝내 회복 못 함 | 문장 45 | — | 보류 (코드로 대신) |
+| 14 | `stock/story/puppet/props/MACRO-DASH.png` | 거시 경제 지표 (금리·환율·경기) | 문장 46 | — | 보류 (코드로 대신) |
+| 15 | `stock/story/puppet/props/NEWS-HYPE.png` | 호재 뉴스·차트만 봄 | 문장 48~49 | — | 보류 (코드로 대신) |
+| 16 | `stock/story/puppet/props/STORM-CHART.png` | 악재가 한꺼번에 · 폭락장 | 문장 50 | — | 보류 (코드로 대신) |
+| 17 | `stock/story/puppet/props/RATE-BANK.png` | 금리가 오르면 돈이 주식에서 예금으로 | 문장 53 | — | 보류 (코드로 대신) |
+| 18 | `stock/story/puppet/props/FX-OUTFLOW.png` | 환율 급등 → 외국인 매도 · 돈이 빠져나감 | 문장 54 | — | 보류 (코드로 대신) |
+| 19 | `stock/story/puppet/props/DEBT-BUBBLE.png` | 빚으로 부푼 시장 · 거품 | 문장 58 | — | 보류 (코드로 대신) |
+| 20 | `stock/story/puppet/props/FEAR-GREED.png` | 과열 점검 · 내가 무리하는지 (공포·탐욕 지수) | 문장 60~61 | — | 보류 (코드로 대신) |
+| 21 | `stock/story/puppet/props/RULE-SHIELD.png` | 원칙이 있으면 남의 말에 흔들리지 않음 | 문장 62·77~78 | — | 보류 (코드로 대신) |
+| 22 | `stock/story/puppet/props/TIP-CHAT.png` | 리딩방·단톡방 종목 추천 · 수익 인증 | 문장 63~64 | — | 보류 (코드로 대신) |
+| 23 | `stock/story/puppet/props/LEVERAGE-CRASH.png` | 레버리지로 빨리 메우려다 실패 | 문장 68·90~91 | — | 보류 (코드로 대신) |
+| 24 | `stock/story/puppet/props/SLOW-CLIMB.png` | 천천히 · 꾸준히 · 장기 투자 | 문장 79 | — | 보류 (코드로 대신) |
+| 25 | `stock/story/puppet/props/DCA-JAR.png` | 매달 정해진 금액만 매수 (적립식) | 문장 82 | — | 보류 (코드로 대신) |
+| 26 | `stock/story/puppet/props/COMPOUND-STAIRS.png` | 꾸준히 쌓여 불어남 (복리) | 문장 92 | — | 보류 (코드로 대신) |
 
 ## 1. MARGIN-CALL — 반대매매 · 빚낸 돈이 강제로 매도됨 · 계좌 위험 경고
 
@@ -350,6 +354,7 @@ Centered, with at least 8% empty transparent margin on every side.
 
 | 판 | 날짜 | 바꾼 것 |
 |---|---|---|
+| v4.0 | 2026-10-24 | 그림은 꼭 필요할 때만 — 26장 모두 보류(코드 모션 그래픽으로 대신) · 1화 그림 0장 |
 | v3.0 | 2026-10-24 | 주식과 바로 이어지는 그림 26장으로 새로 (차트·캔들·매매 앱·황소·곰·반도체 칩·주식 증서 · 그림 속 글자는 BUY·SELL·%·$ 만) · v2.0 21장은 `props/_old/` · 후보 7개도 주식 그림으로 |
 | v2.0 | 2026-10-24 | 공통 소품으로 다시 씀 (뜻 일반화) |
 | v1.0 | 2026-10-23 | 처음 만듦 — 1화 설명 소품 21장 |

@@ -1,4 +1,7 @@
-// VERSION: v1.7 — 2026-10-24 — 화면에 투자 영어 허용 (사용자 지시 "국기를 할 필요는 없잖아 그냥 KOSPI, S&P500 이거 달면 되는데 … buy, sell 같은것도
+// VERSION: v1.8 — 2026-10-24 — 코드 모션 그래픽 화면 (video/render/story_mg.js v1.0 — RULE·PHONE·CANDLE·TREEMAP·BOXRANGE·RACE·GRID·FLOW·HIT·GAUGE·DCA·
+//   SELLBOTTOM) 을 SCREEN 에 더함 · 제 이름표를 스스로 그리는 화면(BIG·RULE·PHONE)은 탭 없음. 사용자 지시 2026-10-24 "비유해서 설명하는 것도 아니고
+//   황소,곰, 바구니 이런건 생성할 필요없어 더 직관적으로 의미 전달 되도록 3D, 모션 그래픽으로 표현할 수 있잖아 표현 힘든데 꼭 필요한 것만 이미지 요소로".
+// (v1.7) — 2026-10-24 — 화면에 투자 영어 허용 (사용자 지시 "국기를 할 필요는 없잖아 그냥 KOSPI, S&P500 이거 달면 되는데 … buy, sell 같은것도
 //   그렇고 다 알만한건 넣어도 돼" · "모든 나라 사람들이 보기에 한번에 이해가 되도록 근데 미흡하지 않도록 전력을 다해"): SPEC.allowWords (stock/story/screen_words.txt)
 //   → K.init allowWords (render.mjs v1.25 가 목록 밖 영어·한국어를 잡음) · 화면 위 이름표 탭 title= (KOSPI·S&P 500·RULE 1 …) · K5 글자 칩 'TEXT
 //   (! 빨간 ✗ · + 청록 ✓) · LIST 화면 (줄마다 ✓/✗ + 짧은 영어, 문장 번호에 나타남) · 그림 chip(반도체)·briefcase·school.
@@ -27,7 +30,7 @@
 (function () {
   "use strict";
   const S_ = (window.Story = {});
-  S_.VERSION = "v1.7";
+  S_.VERSION = "v1.8";
   S_.POSES = { BONSEOK: "P-BONSEOK.png", WALK: "P-BONSEOK-WALK.png", PHONE: "P-BONSEOK-PHONE.png", DESPAIR: "P-BONSEOK-DESPAIR.png",
     RESOLVE: "P-BONSEOK-RESOLVE.png", STUDY: "P-BONSEOK-STUDY.png", BACK: "P-BONSEOK-BACK.png", SMILE: "P-BONSEOK-SMILE.png", CROWD: "P-CROWD.png" };
   S_.BGS = { "HOME-NIGHT": "P-HOME-NIGHT.jpg", OFFICE: "P-OFFICE.jpg", "STREET-DAWN": "P-STREET-DAWN.jpg", BOARD: "P-BOARD.jpg", PAPER: "P-PAPER.jpg" };
@@ -92,7 +95,7 @@
     // 무대 자리 — 롱폼: 인형 L·C·R, 화면은 오른쪽 칸 / 쇼츠: 인형 아래 가운데, 화면은 위 칸
     const X = V ? { L: -1.7, C: 0, R: 1.7 } : { L: -5.6, C: 0, R: 5.6 };
     const PH = V ? 5.0 : 7.0, CH = V ? 2.4 : 4.8;
-    const PANEL = V ? { cx: 540, top: 250, w: 940, h: 560 } : { cx: 1370, top: 170, w: 960, h: 600 };   // v1.7 롱폼 칸 800 → 960 (글자 칩·목록이 작았음)
+    const PANEL = V ? { cx: 540, top: 236, w: 940, h: 500 } : { cx: 1370, top: 170, w: 960, h: 600 };   // v1.8 쇼츠 칸 560 → 500 (서 있는 인형 머리와 겹쳤음)   // v1.7 롱폼 칸 800 → 960 (글자 칩·목록이 작았음)
     const LOOK_Y = V ? 3.6 : 3.34;
     const WARM = new THREE.Color(0xffffff), COOL = new THREE.Color(0xb4b9cc);
 
@@ -211,6 +214,10 @@
       },
     };
 
+    // v1.8 코드 모션 그래픽 화면 (story_mg.js) — 비유 그림 대신 뜻을 바로 보여 줌
+    if (window.StoryMG) Object.assign(SCREEN, window.StoryMG({ V, PANEL, el, pop, tl, at, S, esc, COL, icon, textW, fitP, panel, num, K }));
+    const OWN_TITLE = new Set(["BIG", "RULE", "PHONE"]);              // 이름표를 스스로 그림 → 탭 없음
+
     // ---------- 인형 ----------
     function addActor(st, pz) {
       const crowd = pz.pose === "CROWD", x = X[pz.pos || "C"];
@@ -286,7 +293,7 @@
         const sc = K.scene(a, b, nx ? null : { keep: true });
         const t0 = s.screen.at ? at(s.screen.at[0], s.screen.at[1]) : (i === 0 ? 0.3 : S(s.a) + 0.35);
         const done = SCREEN[s.screen.type](sc, s.screen, t0, b, { prop: pr.length > 0 });
-        if (s.screen.title && s.screen.type !== "BIG") {             // v1.7 화면 위 이름표 탭 (KOSPI · S&P 500 · RULE 1 …)
+        if (s.screen.title && !OWN_TITLE.has(s.screen.type)) {             // v1.7 화면 위 이름표 탭 (KOSPI · S&P 500 · RULE 1 …)
           const tab = el(`<div class="ktab w9 nw" style="${V ? `left:${lastP.cx}px;transform:translateX(-50%)` : `left:${lastP.cx - lastP.w / 2}px`};top:${lastP.top - 82}px">${esc(s.screen.title)}</div>`, sc);
           pop(tab, t0 + 0.1, { from: { y: 10 } });
         }

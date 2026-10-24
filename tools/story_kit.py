@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.8 — 2026-10-24 — 화면에 투자 영어 허용 (사용자 지시 "국기를 할 필요는 없잖아 그냥 KOSPI, S&P500 이거 달면 되는데 … 다 알만한건 넣어도 돼"):
+# VERSION: v1.9 — 2026-10-24 — 코드 모션 그래픽 화면 문법 (story_mg.js): RULE n · PHONE account|margin|delete|lock|chat|news · CANDLE drop= halt= ·
+#          TREEMAP share= label= big= shake= · BOXRANGE lo= hi= lab= · RACE 이름=값,… lab= · GRID n red= fail= · FLOW 왼쪽 > 오른쪽 label= · HIT 칩… ·
+#          GAUGE 값 · DCA 달 amount= · SELLBOTTOM end= (사용자 지시 "황소,곰, 바구니 이런건 생성할 필요없어 … 3D, 모션 그래픽으로 표현할 수 있잖아").
+#          페이지에 story_mg.js 를 넣음.
+# (v1.8) — 2026-10-24 — 화면에 투자 영어 허용 (사용자 지시 "국기를 할 필요는 없잖아 그냥 KOSPI, S&P500 이거 달면 되는데 … 다 알만한건 넣어도 돼"):
 #          허용 목록 stock/story/screen_words.txt → SPEC.allowWords · 장면 표의 영어가 목록 밖이면 멈춤 · 화면 이름표 title= · K5 글자 칩 'TEXT
 #          (밑줄 = 띄어쓰기) · LIST 화면 ('n:+글자; n:!글자') · PIE cap= · 그림 chip·briefcase·school · 썸네일 문구도 목록 낱말은 됨.
 # (v1.7) — 2026-10-24 — props 명령: 공통 설명 소품 목록(뜻·쓴 화·그림 있음·후보)을 낱말로 찾음 — 새 화는 있는 소품부터 다시 씀
@@ -51,7 +55,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 sys.path.insert(0, str(ROOT / "stock" / "story" / "calc"))
 import srt_tool  # noqa: E402
 
-VERSION = "v1.8"
+VERSION = "v1.9"
 LOG = logging.getLogger("story_kit")
 STORY = ROOT / "stock" / "story"
 SOURCE = ROOT / "stock" / "source"
@@ -72,7 +76,7 @@ STORY_WORDS = ["손절", "포기", "원금", "본전", "복구", "회복", "물�
 POLITICS = re.compile(r"특검|의원|대통령|정부|정권|민주당|국힘|국민의힘|좌파|우파|탄핵|윤석열|이재명|문재인|호남|영남|빨갱|수꼴|시장개입")
 POSES = ["BONSEOK", "WALK", "PHONE", "DESPAIR", "RESOLVE", "STUDY", "BACK", "SMILE", "CROWD"]
 BGS = ["HOME-NIGHT", "OFFICE", "STREET-DAWN", "BOARD", "PAPER"]
-SCREENS = ["K1", "K2", "K3", "K4", "K5", "BIG", "PIE", "LIST"]           # v1.6 K6 정리 카드 없음
+SCREENS = ["K1", "K2", "K3", "K4", "K5", "BIG", "PIE", "LIST", "RULE", "PHONE", "CANDLE", "TREEMAP", "BOXRANGE", "RACE", "GRID", "FLOW", "HIT", "GAUGE", "DCA", "SELLBOTTOM"]           # v1.6 K6 정리 카드 없음
 ICONS = ["basket", "drop", "debt", "swap", "x3", "hourglass", "calendar", "phone", "book", "up", "down", "bell", "lock", "globe", "coin", "house",
          "kr", "us", "pct", "fx", "people", "chart", "chip", "briefcase", "school"]   # v1.8 반도체·회사·학원                   # v1.4 국기·금리 %·환율 ₩⇄$·사람들·막대
 
@@ -617,7 +621,8 @@ def draft(vid, shorts):
     return "\n".join(out) + "\n"
 
 
-SCREEN_RX = re.compile(r"^(K[1-5]|BIG|PIE|LIST)\b\s*(.*)$")
+SCREEN_RX = re.compile(r"^(K[1-5]|BIG|PIE|LIST|RULE|PHONE|CANDLE|TREEMAP|BOXRANGE|RACE|GRID|FLOW|HIT|GAUGE|DCA|SELLBOTTOM)\b\s*(.*)$")
+PHONE_MODES = ("account", "margin", "delete", "lock", "chat", "news")
 
 
 def icon_items(tok):
@@ -698,6 +703,8 @@ def parse_screen(s):
         if not items:
             raise ValueError("LIST = 'n:+글자; n:!글자' (줄 하나 이상)")
         o.update(items=items)
+    elif typ in ("RULE", "CANDLE", "TREEMAP", "BOXRANGE", "RACE", "GRID", "GAUGE", "DCA", "SELLBOTTOM", "PHONE", "FLOW", "HIT"):
+        o.update(parse_mg(typ, rest))                            # v1.9 코드 모션 그래픽 (story_mg.js)
     elif typ == "BIG":
         p = rest.split()
         for tok in [x for x in p if x.startswith("icon=")]:     # v1.5 무엇의 숫자인지 그림 (예: icon=kr — 'KOSPI' 글자 대신)
@@ -728,8 +735,10 @@ def bad_words(text, allow=None):
 def screen_texts(o):
     """화면 하나의 글자들 (낱말 검사용)."""
     out = [o.get("title", ""), o.get("text", ""), o.get("label") or "", o.get("cap", ""), o.get("end") or ""]
-    out += [x.get("t", "") for x in o.get("icons", [])] + [x["t"] for x in o.get("items", []) if "t" in x]
-    out += [x.get("lab", "") + " " + x.get("val", "") for x in o.get("items", []) if "lab" in x]
+    out += [o.get("big", ""), o.get("hi", ""), o.get("lo", ""), o.get("amount") or ""] + [x for x in o.get("items", []) if isinstance(x, str)]   # v1.9
+    out += [x["name"] for x in o.get("series", [])] + [x.get("t", "") for x in (o.get("from"), o.get("to")) if isinstance(x, dict)]
+    out += [x.get("t", "") for x in o.get("icons", [])] + [x["t"] for x in o.get("items", []) if isinstance(x, dict) and "t" in x]
+    out += [x.get("lab", "") + " " + x.get("val", "") for x in o.get("items", []) if isinstance(x, dict) and "lab" in x]
     out += o.get("labels", []) + o.get("years", [])
     return [t for t in out if t]
 
@@ -745,7 +754,7 @@ def props_catalog():
     return seen
 
 
-PROP_ROW = re.compile(r"^\| (\d+) \| `stock/story/puppet/props/([A-Z0-9-]+)\.png` \| ([^|]*)\| ([^|]*)\| ([^|]*)\|")
+PROP_ROW = re.compile(r"^\| (\d+) \| `stock/story/puppet/props/([A-Z0-9-]+)\.png` \| ([^|]*)\| ([^|]*)\| ([^|]*)\|(?: ([^|]*)\|)?")
 PROP_CAND = re.compile(r"^- 후보 ([A-Z0-9-]+) — (.*)$")
 
 
@@ -757,7 +766,7 @@ def cmd_props(a):
     for line in PROPS_FILE.read_text("utf-8").splitlines():
         m = PROP_ROW.match(line)
         if m:
-            rows.append((m.group(2), m.group(3).strip(), m.group(4).strip(), m.group(5).strip()))
+            rows.append((m.group(2), m.group(3).strip(), m.group(4).strip(), m.group(5).strip() + (f" · {m.group(6).strip()}" if m.group(6) and "보류" in m.group(6) else "")))
             continue
         c = PROP_CAND.match(line)
         if c:
@@ -778,6 +787,69 @@ def cmd_props(a):
         print(f"맞는 소품 없음 — 새로 만들면 {PROPS_FILE.relative_to(ROOT)} 표 끝에 (일반적인 뜻으로, 화 전용이면 '전용')")
     log("PROPS", shown=n, total=len(rows), candidates=len(cand), words=" ".join(words))
     return 0
+
+
+def _at(v):
+    m = re.match(r"^(\d+)(?::(\S+))?$", v)
+    if not m:
+        raise ValueError(f"문장 번호 꼴 아님: {v!r} (n 또는 n:낱말)")
+    return [int(m.group(1)), m.group(2)]
+
+
+def parse_mg(typ, rest):
+    """코드 모션 그래픽 화면 (story_mg.js v1.0) — 밑줄 = 띄어쓰기. 숫자는 장면 표가 준 실제 값만."""
+    kv = dict(re.findall(r"(\S+?)=(\S+)", rest))
+    bare = re.sub(r"\S+?=\S+", "", rest).split()
+    sp = lambda x: x.replace("_", " ")
+    if typ == "RULE":
+        return dict(n=int(bare[0]), of=int(kv.get("of", 5)))
+    if typ == "PHONE":
+        if not bare or bare[0] not in PHONE_MODES:
+            raise ValueError(f"PHONE 꼴: PHONE {'|'.join(PHONE_MODES)} [금액>금액] ['글자 …]")
+        o = dict(mode=bare[0])
+        for tok in bare[1:]:
+            if tok.startswith("'"):
+                o.setdefault("items", []).append(sp(tok[1:]))
+            elif ">" in tok:
+                o["from"], o["to"] = tok.split(">", 1)
+        return o
+    if typ == "CANDLE":
+        return dict(drop=float(kv["drop"]), halt=int(kv["halt"]) if "halt" in kv else None)
+    if typ == "TREEMAP":
+        o = dict(share=float(kv.get("share", 55)), label=sp(kv.get("label", "")), big=sp(kv.get("big", "")))
+        if "shake" in kv:
+            o["shake"] = _at(kv["shake"])
+        return o
+    if typ == "BOXRANGE":
+        return dict(lo=kv.get("lo", ""), hi=kv.get("hi", ""), labels=kv["lab"].split(",") if "lab" in kv else [])
+    if typ == "RACE":
+        series = [dict(name=sp(k), v=[None if x == "_" else float(x) for x in v.split(",")]) for k, v in re.findall(r"(\S+?)=(\S+)", rest) if k not in ("lab", "title")]
+        if len(series) < 1:
+            raise ValueError("RACE 꼴: RACE 이름=값,값,… [이름2=…] lab=…")
+        return dict(series=series, labels=kv["lab"].split(",") if "lab" in kv else [])
+    if typ == "GRID":
+        o = dict(n=int(bare[0]), red=int(kv.get("red", 0)))
+        if "fail" in kv:
+            o["fail"] = _at(kv["fail"])
+        return o
+    if typ == "GAUGE":
+        return dict(value=float(bare[0]))
+    if typ == "DCA":
+        return dict(months=int(bare[0]), amount=kv.get("amount"))
+    if typ == "SELLBOTTOM":
+        return dict(end=kv.get("end", ""))
+    if typ == "FLOW":
+        toks = " ".join(bare).split(">")
+        if len(toks) != 2:
+            raise ValueError("FLOW 꼴: FLOW 왼쪽 > 오른쪽 [label=…]  (왼쪽·오른쪽 = 'TEXT 또는 그림)")
+        side = lambda t: icon_items(t.strip())[0]
+        return dict(**{"from": side(toks[0]), "to": side(toks[1])}, label=sp(kv["label"]) if "label" in kv else None)
+    if typ == "HIT":
+        icons = []
+        for tok in bare:
+            icons += icon_items(tok)
+        return dict(icons=icons)
+    raise ValueError(typ)
 
 
 def parse_puppets(s, catalog=None):
@@ -893,6 +965,7 @@ PAGE = """<!doctype html>
 <script id="ep-data">{epdata}</script>
 <script src="../../render/kit.js"></script>
 <script src="../../render/puppet.js"></script>
+<script src="../../render/story_mg.js"></script>
 <script src="../../render/story.js"></script>
 <script>
 Story.build({spec});

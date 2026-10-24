@@ -1,9 +1,10 @@
-# 장면 표 — pogi-sonjeol-2026-10-shorts · story_kit v1.8 · 2026-10-24 다시 짬 · 세로 (화면·소품 위 · 인형 아래) · 첫 문장 동안 썸네일 그림(K.cover)
-# 숫자·기호 + 투자 영어(screen_words.txt) + 주식 소품 · 한국어 없음 · 국기 없음
-# 문장 | 배경 | 인형(+*소품) | 화면
+# 장면 표 — pogi-sonjeol-2026-10-shorts · story_kit v1.9 · 2026-10-24 다시 짬 · 세로 (화면 위 · 인형 아래) · 첫 문장 동안 썸네일 그림(K.cover)
+# 소품 그림 없음 — 코드 모션 그래픽 · 숫자·기호 + 투자 영어 · 한국어·국기 없음
+# 문장 | 배경 | 인형 | 화면
 1 | HOME-NIGHT | PHONE | BIG −70% R
 2 | BOARD | CROWD | BIG KOSPI 9,000 Y
-3 | HOME-NIGHT | DESPAIR+*MARGIN-CALL | BIG ₩100,000,000 Y
+3 | HOME-NIGHT | DESPAIR | PHONE margin
 4-5 | HOME-NIGHT | DESPAIR | K5 '44 briefcase '? school>coin
-6-7 | HOME-NIGHT | PHONE+7:BACK+*DELETE-APP+7:*SELL-BOTTOM
+6 | HOME-NIGHT | PHONE | PHONE delete
+7 | HOME-NIGHT | BACK | SELLBOTTOM end=−70%
 8-9 | STREET-DAWN | RESOLVE+9:SMILE | BIG 5 RULES Y @9

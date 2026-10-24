@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-# VERSION: v1.4 — 2026-10-24 — story_kit v1.8: 투자 영어 허용 목록 · title= · K5 글자 칩 · LIST · PIE cap=.
+# VERSION: v1.5 — 2026-10-24 — story_kit v1.9: 코드 모션 그래픽 화면 문법.
+# (v1.4) — 2026-10-24 — story_kit v1.8: 투자 영어 허용 목록 · title= · K5 글자 칩 · LIST · PIE cap=.
 # (v1.3) — 2026-10-24 — props 명령 (공통 소품 목록 · 낱말로 찾기 · 후보).
 # (v1.2) — 2026-10-23 — story_kit v1.6: K6 정리 카드 없음 · 소품 '*이름' (자리·때·움직임 · 목록 밖이면 멈춤).
 # (v1.1) — 2026-10-23 — story_kit v1.4: K6 그림 줄 · PIE · BIG 여러 낱말 · K4 icon= (화면에 한국어 없음).
@@ -97,6 +98,32 @@ class WordsTest(unittest.TestCase):                         # v1.4 화면에 투
         self.assertEqual(sk.bad_words("−1.2%p", allow), [])
         self.assertEqual(sk.bad_words("코스피", allow), ["한국어"])
         self.assertEqual(sk.bad_words("GO HOME", allow), ["GO", "HOME"])
+
+
+class MotionTest(unittest.TestCase):                        # v1.5 코드 모션 그래픽 (story_kit v1.9)
+    def test_grammar(self):
+        self.assertEqual(sk.parse_screen("RULE 3"), {"type": "RULE", "n": 3, "of": 5})
+        ph = sk.parse_screen("PHONE account 357140000>107140000 title=MY_ACCOUNT")
+        self.assertEqual((ph["mode"], ph["from"], ph["to"], ph["title"]), ("account", "357140000", "107140000", "MY ACCOUNT"))
+        self.assertEqual(sk.parse_screen("PHONE chat 'BUY_▲ 'BUY")["items"], ["BUY ▲", "BUY"])
+        self.assertEqual(sk.parse_screen("CANDLE drop=8.95 halt=20 title=KOSPI")["halt"], 20)
+        tm = sk.parse_screen("TREEMAP share=55 label=50%+ big=SAMSUNG_+_SK_HYNIX shake=15")
+        self.assertEqual((tm["big"], tm["shake"]), ("SAMSUNG + SK HYNIX", [15, None]))
+        rc = sk.parse_screen("RACE KOSPI=100,_,100,100 S&P_500=100,49.2,100,181 lab=2007,2009,2013,2016")
+        self.assertEqual(rc["series"][0], {"name": "KOSPI", "v": [100.0, None, 100.0, 100.0]})
+        self.assertEqual(rc["series"][1]["name"], "S&P 500")
+        self.assertEqual(sk.parse_screen("GRID 202 red=8")["red"], 8)
+        self.assertEqual(sk.parse_screen("GRID 500 fail=45")["fail"], [45, None])
+        fl = sk.parse_screen("FLOW 'STOCKS > 'BANK label=RATE_↑")
+        self.assertEqual((fl["from"]["t"], fl["to"]["t"], fl["label"]), ("STOCKS", "BANK", "RATE ↑"))
+        self.assertEqual(sk.parse_screen("DCA 120 amount=₩1,000,000")["amount"], "₩1,000,000")
+        with self.assertRaises(ValueError):
+            sk.parse_screen("PHONE dance")
+
+    def test_words_in_motion(self):
+        allow = sk.screen_words()
+        bad = [w for t in sk.screen_texts(sk.parse_screen("PHONE chat 'GO_HOME")) for w in sk.bad_words(t, allow)]
+        self.assertEqual(bad, ["GO", "HOME"])
 
 
 class PropsTest(unittest.TestCase):                         # v1.3 공통 소품 목록 (story_kit v1.7)

@@ -1,5 +1,27 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-24 (주식 이야기형 10) — 비유 그림 대신 코드 모션 그래픽
+
+### 왜 (사용자 지시)
+- "아니 비유해서 설명하는 것도 아니고 황소,곰, 바구니 이런건 생성할 필요없어 더 직관적으로 의미 전달 되도록 3D, 모션 그래픽으로 표현할 수 있잖아 표현 힘든데 꼭 필요한 것만 이미지 요소로 하라고 다시 수정해"
+
+### 바꾼 것
+| 파일 (버전) | 내용 |
+|---|---|
+| `video/render/story_mg.js` (v1.0 새로) | 코드 모션 그래픽 12종 — RULE(장 카드, 3D 뒤집기) · PHONE(매매 앱: 잔고 하락 · MARGIN CALL + SELL 저절로 눌림 + 돈이 빠져나감 · 앱이 떨다 휴지통 · BUY/SELL 자물쇠 + HOLD · 리딩방 말풍선 · 호재 뉴스) · CANDLE(작은 캔들 뒤 큰 빨간 캔들 + TRADING HALT 시계) · TREEMAP(시가총액 블록, 절반이 흔들리면 전체가 흔들림) · BOXRANGE(2,000 천장에서 튕기는 선) · RACE(두 선 경주 + 끝 %) · GRID(500칸 · 202칸 중 8칸 빨강 · 한 칸이 무너짐) · FLOW(동전이 주식 → 은행 / KOSPI → USD) · HIT(악재 칩이 떨어져 급락) · GAUGE(위험 계기판) · DCA(달력 + 쌓이는 동전) · SELLBOTTOM(바닥에서 SELL → 자물쇠, 그 뒤 회복은 회색 점선). 숫자·이름표는 장면 표의 실제 값만 (선 굴곡·작은 캔들·블록 크기는 모양) |
+| `video/render/story.js` (v1.7 → v1.8) · `story.css` (v1.4 → v1.5) | story_mg 를 SCREEN 에 · 스스로 이름표를 그리는 화면은 탭 없음 · 쇼츠 칸 560 → 500 (인형 머리와 겹침) · 모션 그래픽 모양 |
+| `tools/story_kit.py` (v1.8 → v1.9) · 시험 v1.5 | 새 화면 문법 (RULE·PHONE·CANDLE·TREEMAP·BOXRANGE·RACE·GRID·FLOW·HIT·GAUGE·DCA·SELLBOTTOM) · 낱말 검사 · 페이지에 story_mg.js · props 목록에 '보류' |
+| `stock/story/screen_words.txt` | STOCKS·BANK·RISK·TIPS 더함 |
+| `stock/source/pogi-sonjeol-2026-10/scenes.txt` · `shorts/scenes.txt` | 소품 없이 모션 그래픽 — 롱폼 56장면 (PHONE 7 · RULE 5 · GRID 4 · RACE 2 · FLOW 2 · DCA 3 · TREEMAP · CANDLE · BOXRANGE · HIT · GAUGE · SELLBOTTOM …) · 쇼츠 7장면 |
+| `stock/story/puppet/props_chatgpt.md` (v3.0 → v4.0) · `props/README.md` | 그림은 코드로 표현하기 힘든데 꼭 필요한 것만 — 26장 모두 보류 (1화 0장) |
+| `stock/guides/story_script.md` (v1.13) · `quick_story.md` (v1.8) · `stock/story/series.md` (v1.11) · `CLAUDE.md` | 뜻은 코드 모션 그래픽 · 비유 그림 금지 · D-2 새 화면 표 |
+
+### 확인
+- unittest OK · render check 롱폼 cuts=56 problems=0 page_errors=0 · 쇼츠 cuts=7 problems=0 page_errors=0
+- 처음 check 문제 (동전 ₩ 27px · RACE 끝 이름표가 화면 밖 · TRADING HALT 가 칸 밖) → 동전 그림은 data-small · 등장 움직임이 CSS translate 를 덮어써서 자리를 숫자로 · tl.set 을 0초에 → 0
+- still 24장면 + 쇼츠 7장면 직접 봄 → MARGIN CALL 이 머리글과 겹침 · 짧은 문장에서 앱이 휴지통까지 못 감 · NEWS 제목 가림 · FED/AI 붙음 · 62% 그리드 셈이 장면 안에 안 나옴 · 쇼츠 칸이 인형 머리와 겹침 → 모두 고쳐 다시 봄
+- 연구·교육용 영상 도구 — 투자 권유 아님.
+
 ## 2026-10-24 (주식 이야기형 9) — 1화 화면 다시: 투자 영어 · 문장마다 화면 · 주식 소품
 
 ### 왜 (사용자 지시)

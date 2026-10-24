@@ -1,6 +1,8 @@
 # 내레이션 만들기 — 오픈소스 음성 AI(Qwen3-TTS)를 Kaggle에서 (모든 주제 공통)
 
-버전: v1.14 — 2026-10-21 — **진행자 H17 로 바꿈** (사용자 지시 "H17로 정해서 그걸로 오디오 생성하도록 수정해" · "코드 실행하면 앞으로 만드는 오디오는 전부 H17로 해"): `pick H17` → 공통 `voices/host.json`·`voices/ref/host.wav` · 일본 축제 시험 영상의 H09 own_voice 지움 → 다음 Kaggle 실행이 안 올린 영상 오디오 10개를 H17 로 다시 (4-0 '고른 결과').
+버전: v1.15 — 2026-10-24 — **Kaggle 셀에서 대본도 고름** (사용자 지시 "오디오 코드 경로 선택하면 대본도 선택할 수 있게 수정해"): 주제 버튼을 누르면 그 주제의 대본 체크 상자(상태 표시) — 하나도 안 고르면 주제 전체, 고르면 고른 대본만 `all --ids` (`tools/kaggle_tts_panel.py` v1.1, 시험 `tools/tests/test_kaggle_tts_panel.py` v1.1) — 3번.
+
+이전 v1.14 — 2026-10-21 — **진행자 H17 로 바꿈** (사용자 지시 "H17로 정해서 그걸로 오디오 생성하도록 수정해" · "코드 실행하면 앞으로 만드는 오디오는 전부 H17로 해"): `pick H17` → 공통 `voices/host.json`·`voices/ref/host.wav` · 일본 축제 시험 영상의 H09 own_voice 지움 → 다음 Kaggle 실행이 안 올린 영상 오디오 10개를 H17 로 다시 (4-0 '고른 결과').
 
 (v1.13 — 2026-10-19 — **영상 하나를 오디오에서 빼는 표시 `NO_TTS.md`** (대본 폴더에 두면 업로드한 영상과 똑같이 `all`·`build`·`push` 모두 건너뜀, 첫 줄이 까닭 — tts_narration v1.12, 사용자 지시 "테스트용은 오디오 만들지마")
 
@@ -8,7 +10,7 @@
 
 (v1.11 — 2026-10-16 — 4-2 **쇼츠 대본도** (tts_narration v1.9: `<영상ID>/shorts/<영상ID>-shorts.txt` → 같은 `shorts/` 에 오디오 — 사용자 지시 "좋아 나머지도 세 편도 대본은 같은 방식으로 만들고 일단 이 쇼츠만 영상 만들어봐"). (v1.10 — 2026-10-15 — 사용자 지시 "맨 마지막 대사 … 시청해주셔서 감사합니다. 로 변경 … 음성 … 에 모두 반영": **바뀐 문장만 다시 만들기** (tts_narration v1.8) — 대본 글이 조금 바뀌면 셀이 그 문장만 새로 만들어 저장소 오디오에 끼운다 (3번 1·5번 '일괄 대상') (v1.9 — 2026-10-15 — 사용자 지시 "오디오 코드도 진행자 목소리로만 대본 읽도록 하고 오디오를 생성할 경로를 전체 경로 또는 economic 같은 단일 주제 경로를 버튼으로 선택할수 있게해 디폴트는 전체야": **진행자(H04) 목소리 하나로 모든 문장**(사연자 역할 끔 — `voices/storyteller.json` enabled=false, tts_narration v1.7), 노트북 셀에 **범위 버튼**(전체 · 주제 폴더, 기본 전체 — `tools/kaggle_tts_panel.py`) (v1.8 — 2026-10-13 — 저장소를 비공개로 돌려도 되게: 노트북 셀이 Kaggle Secrets 의 토큰으로 저장소를 받음 (사용자 지시 "비공개로 돌릴테니까") (v1.7 — 2026-10-12 — 사용자 지시: **사연자 S07(말 속도 조금 더 빠르게)·진행자 H04로 고정** — `pace.speed`(모든 문장을 이 배수로) 추가 (v1.6 — 2026-10-12 — 사용자 지시: 사연자 남성 후보(억울·자책 연기 톤) S07·S08, 말 속도 맞추기(pace), 터미널에서 바로 듣기(listen) (v1.5 — 2026-10-12 — 사용자 지시: **사연자·진행자 목소리 샘플을 각각 여러 개 만들고, 사용자가 고르면 그 목소리로 일관되게** (4-0). 고르기 전에는 셀이 오디오 대신 샘플만 만든다 (v1.4 — 2026-10-11 — 사용자 지시: 진행자 목소리는 중저음 남성(귀에 쏙쏙 들어오고 신뢰감 있게), 대본마다 달라지면 안 됨 → 기준 목소리 하나를 저장소에 고정하고 모든 대본이 복제 (1번, 4-1번) (v1.3.1: 셀이 `git pull` 대신 Kaggle 사본을 main과 똑같이 맞춤 (`Your local changes ... would be overwritten by merge` 오류 해결) (v1.3: 사용자 지시: 오디오는 고르지 않고 하나로(말투 시험·선택 단계 삭제, 영상마다 `narration.mp3` 하나), 결과 파일은 GitHub의 대본 폴더마다 자동으로 올린다(`--push`), Kaggle 셀 하나 (v1.2: 사연자·진행자 목소리 설정 파일, 대본 전부 한 번에 `all`; v1.1: 셀에 도구 파일을 붙여 넣지 말 것; v1.0: 사용자 지시: edge-tts는 어색하다 → 오픈소스 음성 AI로, Kaggle에서, 사연은 억울하고 후회하는 톤))))))))))
 
-도구: `tools/tts_narration.py` v1.9 · 범위 버튼 `tools/kaggle_tts_panel.py` v1.0 · 목소리: **진행자 하나** `voices/host.json`(**H17 — 고정**, 2026-10-21 H04 → H17, 기준 목소리 `voices/ref/host.wav`) — 사연자 `voices/storyteller.json`(S07)은 **꺼 둠**(enabled=false, 사용자 지시 2026-10-15) · 목소리 후보: `voices/samples/samples.json`
+도구: `tools/tts_narration.py` v1.9 · 범위·대본 버튼 `tools/kaggle_tts_panel.py` v1.1 · 목소리: **진행자 하나** `voices/host.json`(**H17 — 고정**, 2026-10-21 H04 → H17, 기준 목소리 `voices/ref/host.wav`) — 사연자 `voices/storyteller.json`(S07)은 **꺼 둠**(enabled=false, 사용자 지시 2026-10-15) · 목소리 후보: `voices/samples/samples.json`
 결과: 영상마다 오디오 **하나** — `<주제폴더>/source/<영상ID>/narration.mp3`가 **대본 폴더마다 각각** GitHub main에 자동으로 올라가고, 4단계(`guides/pipeline.md`)가 이어진다.
 ※ 연구·교육용 도구다. 주식 영상 내용은 투자 권유가 아니다.
 
@@ -72,10 +74,11 @@ import kaggle_tts_panel; importlib.reload(kaggle_tts_panel).panel()
 ```
 - 셀을 실행하면 맨 아래에 **범위 버튼**이 나온다 (사용자 지시 2026-10-15):
   - `전체 (대본 N개)` — **기본** (모든 주제 폴더) · `economic (대본 N개)` 처럼 주제 폴더 하나
-  - **[오디오 만들기]**: 고른 범위로 `tools/tts_narration.py all --push` (주제 하나면 `--topics 주제`). 그대로 누르면 전체
+  - **대본 고르기 (v1.15 — 2026-10-24, 사용자 지시 "오디오 코드 경로 선택하면 대본도 선택할 수 있게 수정해")**: 주제 버튼을 누르면 그 주제의 대본(롱폼·쇼츠)이 체크 상자로 나온다. 이름표에 지금 상태와 할 일(`오디오 없음 → 만듦` · `옛 대본으로 만든 오디오 → 다시 만듦` · `오디오 있음`/`업로드함`/`NO_TTS` `→ 건너뜀`). **하나도 안 고르면 그 주제 전체**(예전과 같음), 고르면 고른 대본만 (`--ids`)
+  - **[오디오 만들기]**: 고른 범위로 `tools/tts_narration.py all --push` (주제 하나면 `--topics 주제`, 대본을 골랐으면 `--ids 영상ID,…`). 그대로 누르면 전체
   - **[목록만 보기]**: 같은 범위로 `all --dry-run` — 모델을 불러오지 않고 무엇을 만들지만
   - 로그는 버튼 아래 칸과 `/kaggle/working/tts_panel.log`에 남는다. 실행 중에는 버튼이 잠긴다.
-  - 버튼이 안 보이면(위젯이 없는 환경) 기본 범위(전체)로 바로 실행한다. 터미널: `python tools/kaggle_tts_panel.py --topic economic`
+  - 버튼이 안 보이면(위젯이 없는 환경) 기본 범위(전체)로 바로 실행한다. 터미널: `python tools/kaggle_tts_panel.py --topic economic` · 대본 고르기 `--topic test --ids myeonse-hwangeup-2026-10,myeonse-hwangeup-2026-10-shorts` · 그 주제의 대본과 상태 `--topic test --list`
 - 넷째·다섯째 줄(`GIT_CONFIG_…`)은 **저장소가 비공개여도** `git clone`·`git fetch`가 되게 Secrets 의 토큰을 git 에 머리글로 넘긴다 (2026-10-13). 값은 셀·출력·파일에 나오지 않는다. 공개 저장소에서도 그대로 쓴다.
 - `git fetch … reset --hard origin/main` 줄은 Kaggle의 저장소 사본을 main과 **똑같이** 맞춘다 (`git pull` 대신). 이 사본은 도구를 돌리는 용도라 고쳐 쓰지 않는다. 사본에서 실행 권한만 바뀐 파일이 있으면 `git pull`이 `Your local changes to the following files would be overwritten by merge`로 멈췄다.
 - 올리기가 실패해 사본에만 남은 커밋은 이 줄로 지워져도 괜찮다 — 결과는 `/kaggle/working/tts_out/upload/`에 있어 다음 실행이 다시 올린다.
@@ -217,6 +220,7 @@ import kaggle_tts_panel; importlib.reload(kaggle_tts_panel).panel()
 
 | 버전 | 날짜 | 변경 내용 |
 |---|---|---|
+| v1.15 | 2026-10-24 | 사용자 지시 "오디오 코드 경로 선택하면 대본도 선택할 수 있게 수정해": 3번 셀 — 주제를 고르면 그 주제의 대본 체크 상자(상태 표시), 고른 대본만 `all --ids`, 하나도 안 고르면 주제 전체 (`kaggle_tts_panel.py` v1.1) |
 | v1.14 | 2026-10-21 | 사용자 지시 "H17로 정해서 그걸로 오디오 생성하도록 수정해" · "코드 실행하면 앞으로 만드는 오디오는 전부 H17로 해": 진행자 H04 → H17 (`pick H17`), 일본 축제 H09 own_voice 지움 — 안 올린 영상 오디오 10개 다시 |
 | v1.13 | 2026-10-19 | 사용자 지시 "테스트용은 오디오 만들지마" — `NO_TTS.md` 표시 (tts_narration v1.12) · 기초연금 AI 쇼츠 시험 편과 사연형으로 다시 쓰는 2편(금융소득·국민연금 시기)에 둠 |
 | v1.12 | 2026-10-19 | 사용자 지시 "새로 만든 영상 2개에 대해 오디오 코드로 생성하는지 확인해 그리고 업로드 완료한건 오디오 생성하지 말도록 하고" — 업로드한 영상은 build·push 도 막음 (tts_narration v1.11) |

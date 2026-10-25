@@ -1,6 +1,19 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.15 — 2026-10-20 — 목소리 높이를 고르게: ① 목소리 설정 "f0_center"(Hz) 가 있으면 문장 높이 검사의 기준을 기준 소리 높이 대신 이 값으로
+# VERSION: v1.16 — 2026-10-25 — 목소리·크기를 고르게: 사용자 지시 2026-10-25 "오디오가 자꾸 소리가 갑자기 작아지고 목소리도 아예 달라지는
+#          부분이 있는데 좀 일정하게 되도록 고쳐봐". 기존 오디오 4편을 재 보니 문장 전체 크기는 ±3dB 안인데, 문장 안에서 ① 끝이 9~13dB 작아진
+#          채(속삭이듯) 0.75~2초 이어지는 곳(면세 18번·축제 41번 등)과 ② 1초 창 하나의 스펙트럼 모양이 크게 다른 곳(목소리가 바뀜 — 면세 11·19·44번 등)이 있었음.
+#          ① 목소리 지문(voice_print): 말소리 크기·높이·멜 24칸 스펙트럼 모양(크기 뺀 dB)·1초 창 모양·0.25초 크기.
+#          ② 고르기 검사(consist_pass): 영상의 문장을 다 만든 뒤 같은 목소리 문장들의 가운데값과 비교 — 크기 ±4dB · 끝 흐림(가운데보다 9dB 넘게 작은
+#             말소리 0.75초 넘게) · 문장 모양 차이 > max(3.5, 가운데+5×MAD) · 1초 창 모양 차이 > max(6.5, 가운데+5×MAD) 이면 새 시드로 다시
+#             (시도마다 같은 기준으로 고르고, 다시 만든 것이 더 나쁘면 원래 것을 둠 — 보고서 '귀로 확인할 문장'에 남김).
+#             부분 다시 만들기(patch)도 바뀌지 않은 문장들(저장소 오디오)을 가운데값으로 같은 검사.
+#          ③ 잇기 전 크기 맞춤(level_even): 문장마다 같은 목소리 가운데 크기로(±6dB 한도, 올려도 그 목소리 최고점은 넘지 않음) + 문장 안에서
+#             문장 말소리 크기보다 9dB 넘게 작은 말소리가 0.5초 넘게 이어진 곳만 최대 6dB 천천히 올림(ride — 끝 흐림 보정, 숨소리·무음은 그대로;
+#             음절 사이 작은 곳까지 올리면 기존 243문장 중 241문장이 눌려 압축이 됨 → 이어진 곳만, 기존 오디오에선 영상마다 1~2문장).
+#             그다음 예전처럼 영상 전체 이득 하나. 시험 tools/tests/test_tts_consist.py.
+#          --no-consist 로 ②를 끔. 생성 방식(모델·시드 규칙)은 그대로라 캐시는 그대로 씀.
+# (v1.15) — 2026-10-20 — 목소리 높이를 고르게: ① 목소리 설정 "f0_center"(Hz) 가 있으면 문장 높이 검사의 기준을 기준 소리 높이 대신 이 값으로
 #          (복제한 소리는 기준 소리보다 낮게 나오기도 함 — H09 기준 217Hz · 문장 151~200Hz) · ② 후보 "f0_steady"(비율) — 샘플을 한 번 만든 뒤
 #          문장 높이의 가운데값에서 그만큼 넘게 벗어난 문장은 다시 만듦, 샘플 정보에 문장별 높이·흔들림 · ③ 후보 "generation"(temperature 등)을
 #          샘플에도 씀 · ④ 고르면(pick) f0_steady 후보는 f0_center = 샘플 가운데 높이, f0_tolerance = f0_steady, generation 도 옮김.
@@ -109,7 +122,9 @@ GitHub 올리기 (--push)
   - 문장마다 검사: 말 속도 2.5~8음절/초, 문장 안 무음 1.8초 이하, NaN·빈 소리 없음. 벗어나면 시드를 바꿔 다시(최대 3번).
   - 말 속도 맞추기(pace, 역할·후보 설정): {"min": 음절/초, "max": 음절/초, "max_stretch": 0.15} — 고른 문장의 속도가 범위 밖이면
     가장 가까운 끝으로 ffmpeg atempo(음 높이 그대로)로 늘이거나 줄인다. 한 번에 ±15%까지만(그 이상은 소리가 어색해짐). 보고서에 배율
-  - 볼륨: 영상 전체에 이득 하나만 곱한다(말소리 RMS −18dBFS, 최고점 −1dBFS 이하). 문장·역할마다 따로 바꾸지 않는다.
+  - 고르기(v1.16): 문장을 다 만든 뒤 같은 목소리 문장들과 비교 — 크기 ±4dB · 끝 흐림 · 스펙트럼 모양(목소리가 바뀜)이 벗어나면 새 시드로 다시.
+  - 볼륨(v1.16): 문장마다 같은 목소리 가운데 크기로(±6dB) + 문장 안 작은 곳만 최대 6dB 올림 → 그다음 영상 전체에 이득 하나
+    (말소리 RMS −18dBFS, 최고점 −1dBFS 이하).
   - 문장 파일은 OUT/<영상ID>/cache/ 에 남는다(<키>.wav + <키>.json). 글·말투·화자·설정이 같으면 다시 만들지 않는다.
 ※ 연구·교육용 도구다. 영상 내용은 투자 권유가 아니다(주식 영상 고지 규칙은 stock/guides 를 따른다).
 """
@@ -138,7 +153,7 @@ ROOT = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 import srt_tool  # noqa: E402  (문장·카드 판정을 자막 도구와 똑같이 쓰기 위해)
 
-VERSION = "v1.15"
+VERSION = "v1.16"
 CACHE_VERSION = 1            # 생성 방식이 바뀌면 올린다 → 문장 파일을 모두 다시 만든다 (v1.1은 v1.0 캐시와 같은 키)
 DEFAULT_MODEL = "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice"     # 사연자 (화자 + 말투 지시)
 DEFAULT_CLONE_MODEL = "Qwen/Qwen3-TTS-12Hz-1.7B-Base"       # 진행자 (기준 목소리 복제)
@@ -158,6 +173,18 @@ PEAK_DB = -1.0               # 최고점 한도
 RATE_REF = 4.8               # 검사를 모두 통과한 시도가 없을 때 이 속도에 가까운 것을 고른다
 PATCH_MAX_FRAC = 0.2         # v1.8: 글이 바뀐 문장이 이 비율 이하면 그 문장만 다시 만들어 저장소 오디오에 끼운다 (넘으면 전부 다시)
 MIN_GAP = 0.2                # 역할 설정 gap 하한 — align-audio 가 문장 경계로 보는 무음(0.12초)보다 넉넉하게
+# v1.16 목소리·크기 고르게 — 문턱값은 저장소 오디오 4편(면세·축제·캐리어·주식 1화)의 문장 분포로 정함 (문장마다 1~7개만 걸리게)
+VP_BANDS = 24                # 목소리 지문: 멜 24칸(80~7600Hz) 스펙트럼 모양 — 크기를 뺀 dB
+LEVEL_TOL_DB = 4.0           # 문장 말소리 크기가 같은 목소리 가운데값에서 이만큼 넘게 다르면 다시 (기존 오디오 ±3.6dB 안)
+FADE_DB, FADE_MIN_S = 9.0, 0.75   # 가운데 크기보다 9dB 넘게 작은 말소리가 0.75초 넘게 이어지면(끝이 흐려짐·속삭임) 다시
+SHAPE_TOL_FLOOR = 3.5        # 문장 전체 모양 차이(dB) 한도 하한 — 실제 한도 max(이 값, 가운데 + 5×MAD) (기존 가운데 1.4~1.7)
+WIN_SHAPE_FLOOR = 6.5        # 1초 창 모양 차이 한도 하한 — 실제 한도 max(이 값, 가운데 + 5×MAD) (기존 창 가운데 2.7~2.9, 99% 5.4~6.6)
+CONSIST_MIN = 8              # 한 목소리 문장이 이보다 적으면 고르기 검사를 하지 않음 (가운데값이 흔들림)
+LEVEL_FIX_MAX_DB = 6.0       # 잇기 전 문장 크기 맞춤 한도(±dB)
+RIDE_FLOOR_DB, RIDE_MIN_S = 9.0, 0.5   # 문장 안에서 문장 말소리 크기보다 9dB 넘게 작은 말소리가 0.5초 넘게 이어진 곳만 (끝 흐림) —
+                                       # 음절 사이 작은 곳까지 올리면 기존 내레이션 243문장 중 241문장이 눌림(압축) → 이어진 곳만
+RIDE_TARGET_DB, RIDE_MAX_DB = 6.0, 6.0  # 그곳을 말소리 크기보다 6dB 작은 데까지, 최대 6dB 올림
+CONSIST_PREFIX = ("크기 ", "끝 흐림", "목소리 모양", "문장 중간")   # 고르기 검사의 문제 글 머리 (다른 검사와 구분)
 
 VOICES_DIR = ROOT / "voices"           # 역할별 목소리 설정 (파일 이름 = 역할 = 결과 폴더 이름)
 VOICE_KEYS = {"role", "name", "parts", "engine", "lock", "speaker", "instruct", "part_instruct", "seed", "gap", "generation",
@@ -821,6 +848,168 @@ def f0_median(x, sr, fmin=60.0, fmax=400.0):
     return float(np.median(sr / lag[clear])) if clear.any() else 0.0
 
 
+# ----------------------------------------------------------------------------- v1.16 목소리 지문 · 고르기 검사 · 크기 맞춤
+_MEL = {}
+
+
+def mel_fb(sr, nfft, n=VP_BANDS, fmin=80.0, fmax=7600.0):
+    """멜 필터 묶음 (n × nfft/2+1) — 표본율·창 길이마다 한 번만 만든다."""
+    k = (sr, nfft, n)
+    if k not in _MEL:
+        hz2m, m2hz = (lambda f: 2595 * np.log10(1 + f / 700)), (lambda m: 700 * (10 ** (m / 2595) - 1))
+        pts = m2hz(np.linspace(hz2m(fmin), hz2m(min(fmax, sr / 2 - 100)), n + 2))
+        bins = np.floor((nfft + 1) * pts / sr).astype(int)
+        fb = np.zeros((n, nfft // 2 + 1))
+        for i in range(n):
+            a, b, c = bins[i], bins[i + 1], bins[i + 2]
+            if b > a:
+                fb[i, a:b] = (np.arange(a, b) - a) / (b - a)
+            if c > b:
+                fb[i, b:c] = (c - np.arange(b, c)) / (c - b)
+        _MEL[k] = fb
+    return _MEL[k]
+
+
+def spec_shape(x, sr):
+    """말소리 구간의 멜 스펙트럼 평균(dB)에서 평균을 뺀 모양 — 크기와 상관없이 '어떤 목소리인가'. 못 재면 None."""
+    nfft, hop = 1024, max(1, int(0.01 * sr))
+    m = (len(x) - nfft) // hop
+    if m <= 0:
+        return None
+    fr = x[hop * np.arange(m)[:, None] + np.arange(nfft)[None, :]].astype(np.float64) * np.hanning(nfft)
+    p = np.abs(np.fft.rfft(fr, axis=1)) ** 2
+    e = 10 * np.log10(p.mean(axis=1) + 1e-12)
+    voiced = e > max(SIL_DB, float(np.percentile(e, 30)))
+    if voiced.sum() < 5:
+        return None
+    mel = 10 * np.log10(p[voiced] @ mel_fb(sr, nfft).T + 1e-12).mean(axis=0)
+    return mel - mel.mean()
+
+
+def shape_dist(a, b):
+    """두 모양의 차이 (dB, 칸마다 차이의 RMS)."""
+    return float(np.sqrt(np.mean((np.asarray(a) - np.asarray(b)) ** 2)))
+
+
+def voice_print(x, sr):
+    """문장 하나의 목소리 지문: 말소리 크기(dB)·높이(Hz)·모양·1초 창(반씩 겹침)마다 모양·0.25초 크기."""
+    wins, W = [], sr
+    for i in range(0, max(1, len(x) - W // 2), W // 2):
+        w = x[i:i + W]
+        if len(w) >= W // 2 and voiced_rms_db(w, sr) > SIL_DB + 10:
+            s = spec_shape(w, sr)
+            if s is not None:
+                wins.append(s)
+    n, h = int(0.25 * sr), int(0.125 * sr)
+    k = max(0, (len(x) - n) // h + 1)
+    fl = (10 * np.log10((x[h * np.arange(k)[:, None] + np.arange(n)[None, :]].astype(np.float64) ** 2).mean(axis=1) + 1e-12)
+          if k else np.array([]))
+    return {"level": voiced_rms_db(x, sr), "f0": f0_median(x, sr) if len(x) else 0.0, "shape": spec_shape(x, sr),
+            "wins": wins, "frames": fl}
+
+
+def fade_run(frames, ref_db, drop=FADE_DB, hop=0.125):
+    """0.25초 크기(hop 0.125초)에서 '말소리인데 ref_db 보다 drop 넘게 작은' 곳이 가장 길게 이어진 길이(초)."""
+    low = (np.asarray(frames) > SIL_DB) & (np.asarray(frames) < ref_db - drop)
+    q = np.concatenate([[0], low.astype(np.int8), [0]])
+    d = np.diff(q)
+    runs = np.where(d == -1)[0] - np.where(d == 1)[0]
+    return float(runs.max()) * hop + hop if runs.size and runs.max() > 0 else 0.0
+
+
+def _mad(a):
+    a = np.asarray(a, dtype=float)
+    return float(np.median(np.abs(a - np.median(a)))) if a.size else 0.0
+
+
+def voice_center(prints):
+    """같은 목소리 문장들의 가운데값과 한도 → 고르기 검사 기준."""
+    shapes = [p["shape"] for p in prints if p["shape"] is not None]
+    lv = [p["level"] for p in prints if p["level"] > -100]
+    if len(shapes) < CONSIST_MIN or len(lv) < CONSIST_MIN:
+        return None
+    med = np.median(np.array(shapes), axis=0)
+    d = [shape_dist(s, med) for s in shapes]
+    wd = [shape_dist(w, med) for p in prints for w in p["wins"]]
+    return {"n": len(shapes), "level": float(np.median(lv)), "shape": med,
+            "f0": float(np.median([p["f0"] for p in prints if p["f0"] > 0] or [0.0])),
+            "shape_tol": max(SHAPE_TOL_FLOOR, float(np.median(d)) + 5 * _mad(d)),
+            "win_tol": max(WIN_SHAPE_FLOOR, (float(np.median(wd)) + 5 * _mad(wd)) if wd else WIN_SHAPE_FLOOR)}
+
+
+def consist_issues(p, c):
+    """목소리 지문 p 가 기준 c 에서 벗어난 점 → (문제 목록, 벗어난 정도 점수, 수치)."""
+    lvl = p["level"] - c["level"] if c["level"] is not None else 0.0     # level None = 부분 다시 만들기(저장소 mp3 와 크기 단위가 다름)
+    fade = fade_run(p["frames"], c["level"] if c["level"] is not None else p["level"])
+    sd = shape_dist(p["shape"], c["shape"]) if p["shape"] is not None else 0.0
+    wd = max((shape_dist(w, c["shape"]) for w in p["wins"]), default=0.0)
+    issues, dev = [], 0.0
+    if abs(lvl) > LEVEL_TOL_DB:
+        issues.append(f"크기 {lvl:+.1f}dB (같은 목소리 가운데 ±{LEVEL_TOL_DB:.0f}dB)")
+    if fade >= FADE_MIN_S:
+        issues.append(f"끝 흐림 {fade:.2f}초 (가운데보다 {FADE_DB:.0f}dB 넘게 작음)")
+    if sd > c["shape_tol"]:
+        issues.append(f"목소리 모양 {sd:.1f} (한도 {c['shape_tol']:.1f})")
+    if wd > c["win_tol"]:
+        issues.append(f"문장 중간 목소리 바뀜 {wd:.1f} (한도 {c['win_tol']:.1f})")
+    dev = (max(0.0, abs(lvl) - LEVEL_TOL_DB) / LEVEL_TOL_DB + max(0.0, fade - FADE_MIN_S + 0.125) / FADE_MIN_S
+           + max(0.0, sd - c["shape_tol"]) / c["shape_tol"] + max(0.0, wd - c["win_tol"]) / c["win_tol"])
+    return issues, dev, {"level_dev": lvl, "fade_s": fade, "shape_d": sd, "win_d": wd}
+
+
+def ride(x, sr, floor_db=RIDE_FLOOR_DB, max_db=RIDE_MAX_DB, min_s=RIDE_MIN_S, target_db=RIDE_TARGET_DB):
+    """문장 안에서 '문장 말소리 크기보다 floor_db 넘게 작은 말소리가 min_s 넘게 이어진 곳'(끝 흐림·속삭임)만 천천히 올린다
+    (말소리 크기 − target_db 까지, 최대 max_db). 음절 사이·말끝의 짧은 작은 곳, 무음·숨소리(가운데보다 20dB 넘게 작은 곳)는 그대로.
+    → (소리, 가장 많이 올린 dB)."""
+    if not len(x):
+        return x, 0.0
+    hop = max(1, int(0.05 * sr))
+    lv = frame_db(x, sr, 0.05)
+    ls = 10 * np.log10(np.convolve(10 ** (lv / 10), np.ones(10) / 10, mode="same") + 1e-12)  # 0.5초로 부드럽게 (음절 사이 골은 메움)
+    speech = ls > SIL_DB + 6
+    if speech.sum() < 4:
+        return x, 0.0
+    med = voiced_rms_db(x, sr)                                     # 고르기 검사(끝 흐림)와 같은 기준: 문장 말소리 크기
+    low = speech & (ls > med - 20) & (ls < med - floor_db)
+    q = np.diff(np.concatenate([[0], low.astype(np.int8), [0]]))
+    keep = np.zeros(len(ls), bool)
+    for a, b in zip(np.where(q == 1)[0], np.where(q == -1)[0]):
+        if (b - a) * 0.05 >= min_s:
+            keep[max(0, a - 3): b + 3] = True                                                  # 앞뒤 0.15초 여유 (이음새 없게)
+    if not keep.any():
+        return x, 0.0
+    g = np.where(keep & speech, np.clip((med - target_db) - ls, 0.0, max_db), 0.0)
+    g = np.convolve(g, np.ones(6) / 6, mode="same")                                          # 0.3초로 부드럽게 (펌핑 없게)
+    if g.max() < 0.1:
+        return x, 0.0
+    gs = np.interp(np.arange(len(x)), (np.arange(len(g)) + 0.5) * hop, g)
+    return (x * 10 ** (gs / 20)).astype(np.float32), float(g.max())
+
+
+def level_even(clips, roles, sr):
+    """잇기 전: 문장마다 같은 목소리(역할) 가운데 말소리 크기로(±LEVEL_FIX_MAX_DB) + ride. → (소리들, [(맞춘 dB, ride dB)])."""
+    out, adj = list(clips), [(0.0, 0.0)] * len(clips)
+    for role in dict.fromkeys(roles):
+        idx = [i for i, r in enumerate(roles) if r == role and len(clips[i])]
+        lv = {i: voiced_rms_db(clips[i], sr) for i in idx}
+        ok = [v for v in lv.values() if v > -100]
+        if not ok:
+            continue
+        target = float(np.median(ok))
+        pk = {i: float(np.max(np.abs(clips[i])) or 1e-9) for i in idx}
+        pk_max = max(pk.values())
+        for i in idx:
+            g = float(np.clip(target - lv[i], -LEVEL_FIX_MAX_DB, LEVEL_FIX_MAX_DB)) if lv[i] > -100 else 0.0
+            g = min(g, 20 * math.log10(pk_max / pk[i]))   # 올려도 이 목소리 최고점보다 커지지 않게 (전체 이득이 최고점 한도로 줄지 않게)
+            y, r = ride(clips[i] * 10 ** (g / 20), sr)
+            out[i], adj[i] = y, (g, r)
+        moved = [abs(adj[i][0]) for i in idx]
+        log("LEVEL", role=role, sentences=len(idx), target_db=target, max_fix_db=max(moved, default=0.0),
+            fixed_over_2db=sum(m > 2 for m in moved), ride_max_db=max((adj[i][1] for i in idx), default=0.0),
+            ride_sentences=sum(adj[i][1] > 1 for i in idx))
+    return out, adj
+
+
 # ----------------------------------------------------------------------------- 문장 하나 만들기 (캐시·검사·다시)
 def cache_key(engine, text, spec):
     d = dict(engine.describe(spec), text=text, instruct=spec["instruct"], seed=spec["seed"], cache=CACHE_VERSION)
@@ -829,8 +1018,9 @@ def cache_key(engine, text, spec):
     return hashlib.sha1(json.dumps(d, ensure_ascii=False, sort_keys=True).encode("utf-8")).hexdigest()[:16]
 
 
-def make_sentence(engine, cache_dir, label, text, spec, syl, args, redo=False, role="-"):
-    """캐시에 있으면 그대로, 없으면(또는 redo) 만들고 검사한다. → 메타 dict (wav 경로 포함)."""
+def make_sentence(engine, cache_dir, label, text, spec, syl, args, redo=False, role="-", consist=None):
+    """캐시에 있으면 그대로, 없으면(또는 redo) 만들고 검사한다. → 메타 dict (wav 경로 포함).
+    consist(v1.16): 같은 목소리 기준(voice_center) — 있으면 시도마다 크기·끝 흐림·목소리 모양도 검사해 고른다."""
     key = cache_key(engine, text, spec)
     wav_p, meta_p = cache_dir / f"{key}.wav", cache_dir / f"{key}.json"
     old = json.loads(meta_p.read_text("utf-8")) if meta_p.is_file() else None
@@ -863,10 +1053,19 @@ def make_sentence(engine, cache_dir, label, text, spec, syl, args, redo=False, r
             if f0_dev > spec["f0_tol"]:
                 issues.append(f"목소리 높이 {m['f0']:.0f}Hz (기준 {f0_ref:.0f}Hz ±{spec['f0_tol']:.0%})")
                 ok = False
+        c_dev = 0.0
+        if consist and syl >= SHORT_SYL and x.size:                   # v1.16 같은 목소리 문장들과 크기·끝 흐림·모양 비교
+            c_iss, c_dev, c_m = consist_issues(voice_print(x, sr), consist)
+            m.update(c_m)
+            m["consist_dev"] = c_dev
+            if c_iss:
+                issues += c_iss
+                ok = False
         log("TTS", level=logging.INFO if ok else logging.WARNING, item=label, role=role, attempt=attempt, seed=seed, syl=syl,
             dur=m["dur"], rate=m["rate"], inner_sil=m["inner_sil"], f0=m["f0"], gen_s=gen_s, rtf=gen_s / max(m["dur"], 1e-6),
             ok=ok, issues=";".join(issues) or "-", warns=";".join(warns) or "-")
-        score = (0 if ok else 1, abs(math.log(max(m["rate"], 1e-3) / RATE_REF)) + max(0.0, m["inner_sil"] - MAX_INNER_SIL) + f0_dev)
+        score = (0 if ok else 1, abs(math.log(max(m["rate"], 1e-3) / RATE_REF)) + max(0.0, m["inner_sil"] - MAX_INNER_SIL) + f0_dev
+                 + c_dev)
         if best is None or score < best[0]:
             best = (score, x, sr, attempt, seed, ok, issues, warns, m, gen_s)
         if ok:
@@ -891,8 +1090,8 @@ def make_sentence(engine, cache_dir, label, text, spec, syl, args, redo=False, r
                 before = m["rate"]
                 x, pace_factor = trim(y, sr), f
                 _, issues2, warns2, m2 = check(x, sr, syl, False)
-                m2["f0"] = m["f0"]
-                issues = issues2 + [i for i in issues if i.startswith("목소리 높이")]
+                m2.update({k: m[k] for k in ("f0", "consist_dev", "level_dev", "fade_s", "shape_d", "win_d") if k in m})
+                issues = issues2 + [i for i in issues if i.startswith(("목소리 높이",) + CONSIST_PREFIX)]
                 ok, m = not issues, m2
                 log("PACE", item=label, role=role, rate_before=before, rate_after=m["rate"], factor=round(f, 3), speed=sp,
                     target=f"{lo}-{hi}")
@@ -906,6 +1105,58 @@ def make_sentence(engine, cache_dir, label, text, spec, syl, args, redo=False, r
         log("QA", logging.WARNING, item=label, role=role, chosen_attempt=attempt, issues=";".join(issues),
             note="모든 시도가 검사 탈락 — 가장 나은 것을 씀, 귀로 확인")
     return dict(meta, wav=str(wav_p), cached=False)
+
+
+def consist_pass(engine, cache_dir, items, metas, args, vid, centers=None):
+    """v1.16 고르기 검사: 목소리(역할)마다 문장 지문의 가운데값을 기준으로, 크기·끝 흐림·모양이 벗어난 문장을 새 시드로 다시 만든다.
+    centers: {역할: voice_center} 를 주면 그 기준(부분 다시 만들기 — 바뀌지 않은 문장들), 없으면 metas 의 문장들로 만든다.
+    다시 만든 것이 원래보다 나쁘면 원래 파일을 되돌리고 문제를 메타에 남긴다(보고서 '귀로 확인할 문장'). → metas"""
+    if getattr(args, "no_consist", False):
+        log("CONSIST", video=vid, note="--no-consist: 고르기 검사 건너뜀")
+        return metas
+    for role in dict.fromkeys(it["role"] for it in items if it["n"] in metas):
+        its = [it for it in items if it["role"] == role and it["n"] in metas and it["syl"] >= SHORT_SYL]
+        prints = {it["n"]: voice_print(*read_wav(metas[it["n"]]["wav"])) for it in its}
+        c = (centers or {}).get(role) or voice_center(list(prints.values()))
+        if c is None:
+            log("CONSIST", video=vid, role=role, sentences=len(its), note=f"문장이 {CONSIST_MIN}개보다 적어 건너뜀")
+            continue
+        bad = []
+        for it in its:
+            iss, dev, _ = consist_issues(prints[it["n"]], c)
+            if iss:
+                bad.append((it, iss, dev))
+        log("CONSIST", video=vid, role=role, sentences=len(its), center_level_db=c["level"] if c["level"] is not None else "-",
+            center_from=f"바뀌지 않은 문장 {c['n']}개" if centers else "이 실행의 문장", center_f0=c["f0"],
+            shape_tol=c["shape_tol"], win_tol=c["win_tol"], flagged=ranges([b[0]["n"] for b in bad]) or "-")
+        for it, iss, dev in bad:
+            n = it["n"]
+            wav_p = Path(metas[n]["wav"])
+            meta_p = wav_p.with_suffix(".json")
+            if metas[n].get("consist_kept"):                          # 전 실행에서 이미 다시 해 보고 원래 것을 둔 문장 → 같은 시도를 되풀이하지 않음
+                metas[n] = dict(metas[n], ok=False, issues=list(metas[n].get("issues", [])) + iss)
+                log("CONSIST", logging.WARNING, video=vid, role=role, n=n, issues=";".join(iss), result="원래 것 둠 (전에 다시 해 봄)",
+                    note="귀로 확인 — 또 바꾸려면 --redo " + str(n))
+                continue
+            keep = (wav_p.read_bytes(), json.loads(meta_p.read_text("utf-8")) if meta_p.is_file() else None, dict(metas[n]))
+            log("CONSIST", video=vid, role=role, n=n, issues=";".join(iss), action="새 시드로 다시")
+            m = make_sentence(engine, cache_dir, f"S{n:03d}", it["tts"], it["spec"], it["syl"], args, redo=True, role=role, consist=c)
+            new_dev = float(m.get("consist_dev", 0.0))
+            # 다른 검사(속도·끊김·높이)는 원래보다 나빠지지 않을 때만 받는다
+            other = lambda ms: [i for i in ms.get("issues", []) if not i.startswith(CONSIST_PREFIX)]
+            if m["ok"] or (new_dev < dev and len(other(m)) <= len(other(keep[2]))):
+                metas[n] = m
+                log("CONSIST", video=vid, role=role, n=n, result="고침" if m["ok"] else "나아짐", dev_before=dev, dev_after=new_dev,
+                    issues_left=";".join(m["issues"]) or "-")
+            else:                                                     # 더 나빠짐 → 원래 것 그대로 (문제는 남겨 귀로 확인)
+                wav_p.write_bytes(keep[0])
+                if keep[1] is not None:
+                    keep[1].update({"tried": m.get("tried", keep[1].get("tried", [])), "consist_kept": True})
+                    meta_p.write_text(json.dumps(keep[1], ensure_ascii=False, indent=1), "utf-8")
+                metas[n] = dict(keep[2], ok=False, consist_kept=True, issues=list(keep[2].get("issues", [])) + iss)
+                log("CONSIST", logging.WARNING, video=vid, role=role, n=n, result="원래 것 둠", dev_before=dev, dev_after=new_dev,
+                    note="다시 만든 것이 더 벗어남 — 귀로 확인")
+    return metas
 
 
 def cached_sentence(engine, cache_dir, text, spec):
@@ -1114,6 +1365,30 @@ def patch_report(old_text, vid, items, timing, total, new, base, voices):
     return "\n".join(out[:tail_at] + sec + out[tail_at:]) + "\n"
 
 
+def patch_centers(src, old_items, items, changed, vid, args, sr=24000):
+    """v1.16 부분 다시 만들기의 고르기 기준: 저장소 narration.mp3 에서 바뀌지 않은 문장들(역할별)의 목소리 지문 가운데.
+    mp3 에는 전체 이득이 들어가 있어 크기 단위가 새 문장과 다름 → 크기 검사는 빼고(level None, 크기는 끼울 때 맞춘다)
+    모양·1초 창 모양·끝 흐림(문장 자기 크기 기준)만. 못 읽으면 {} (검사 없이 만든다). → {역할: 기준}"""
+    if getattr(args, "no_consist", False):
+        return {}
+    old = decode_audio(src / "narration.mp3", sr)
+    if old is None:
+        log("CONSIST", logging.WARNING, video=vid, note="저장소 narration.mp3 를 읽지 못해 고르기 기준 없음 — 검사 없이 만든다")
+        return {}
+    out, keep = {}, set(changed)
+    for role in dict.fromkeys(it["role"] for it in items):
+        segs = [old[int(round(o["start"] * sr)): int(round(o["end"] * sr))] for o, it in zip(old_items, items)
+                if it["role"] == role and it["n"] not in keep and it["syl"] >= SHORT_SYL]
+        c = voice_center([voice_print(x, sr) for x in segs if len(x)])
+        if c is None:
+            log("CONSIST", video=vid, role=role, sentences=len(segs), note=f"바뀌지 않은 문장이 {CONSIST_MIN}개보다 적어 고르기 검사 없음")
+            continue
+        out[role] = dict(c, level=None)
+        log("CONSIST", video=vid, role=role, center_from=f"저장소 오디오의 바뀌지 않은 문장 {c['n']}개", center_f0=c["f0"],
+            shape_tol=c["shape_tol"], win_tol=c["win_tol"], note="바뀐 문장을 만들 때 이 기준으로 고른다 (크기는 끼울 때 맞춤)")
+    return out
+
+
 def patch_episode(engine, topic, vid, args, P, rows, cards, items, voices, changed, txt):
     """저장소 narration.mp3 에서 바뀐 문장(changed)만 새로 만든 문장으로 바꿔 넣는다 → build_episode 와 같은 결과 dict.
     못 하면(디코드 실패·길이 불일치) None — 부르는 쪽이 전부 다시 만든다."""
@@ -1123,11 +1398,13 @@ def patch_episode(engine, topic, vid, args, P, rows, cards, items, voices, chang
     t0 = time.time()
     log("PATCH", video=vid, mode="바뀐 문장만", changed=ranges(changed), of=len(items), base_created=base.get("created"),
         base_tool=base.get("tool"), note="나머지 문장은 저장소 오디오 그대로 (--full 이면 전부 다시)")
+    centers = patch_centers(src, old_items, items, changed, vid, args)      # v1.16 바뀌지 않은 문장들의 목소리 지문 가운데
     new = {}
     for n in changed:
         it = items[n - 1]
         log("PATCH", video=vid, n=n, old_text=old_items[n - 1]["text"], new_text=it["text"])
-        m = make_sentence(engine, P["cache"], f"S{n:03d}", it["tts"], it["spec"], it["syl"], args, role=it["role"])
+        m = make_sentence(engine, P["cache"], f"S{n:03d}", it["tts"], it["spec"], it["syl"], args, role=it["role"],
+                          consist=centers.get(it["role"]))
         x, sr = read_wav(m["wav"])
         new[n] = {"meta": m, "x": x, "sr": sr, "old_text": old_items[n - 1]["text"],
                   "old_dur": old_items[n - 1]["end"] - old_items[n - 1]["start"]}
@@ -1155,7 +1432,10 @@ def patch_episode(engine, topic, vid, args, P, rows, cards, items, voices, chang
         peak = float(np.max(np.abs(d["x"])) or 1e-9)
         g_db = min(target - now_db, PEAK_DB - 20 * math.log10(peak))
         d["x"], d["gain_db"] = d["x"] * 10 ** (g_db / 20), g_db
-        log("PATCH", video=vid, n=n, role=role, level_target_db=target, level_before_db=now_db, gain_db=g_db,
+        d["x"], d["ride_db"] = ride(d["x"], sr)                       # v1.16 문장 안 작은 곳 올림 (전부 만들 때와 같게)
+        if np.max(np.abs(d["x"])) > 10 ** (PEAK_DB / 20):
+            d["x"] = d["x"] * (10 ** (PEAK_DB / 20) / float(np.max(np.abs(d["x"]))))
+        log("PATCH", video=vid, n=n, role=role, level_target_db=target, level_before_db=now_db, gain_db=g_db, ride_db=d["ride_db"],
             level_after_db=voiced_rms_db(d["x"], sr), ref_sentences=len(ref_db))
     pieces, t, timing = [old[: se[0][0]]], se[0][0], {}
     for i, it in enumerate(items):
@@ -1193,7 +1473,8 @@ def patch_episode(engine, topic, vid, args, P, rows, cards, items, voices, chang
     meta["patches"] = list(base.get("patches", [])) + [{
         "at": meta["created"], "tool": VERSION, "sentences": changed, "base_created": base.get("created"), "base_tool": base.get("tool"),
         "texts": {str(n): {"old": d["old_text"], "new": items[n - 1]["text"]} for n, d in new.items()},
-        "gain_db": {str(n): round(d["gain_db"], 2) for n, d in new.items()}}]
+        "gain_db": {str(n): round(d["gain_db"], 2) for n, d in new.items()},
+        "ride_db": {str(n): round(d["ride_db"], 2) for n, d in new.items()}}]
     P["meta"].write_text(json.dumps(meta, ensure_ascii=False, indent=1), "utf-8")
     rep_old = src / REPORT_NAME
     rep_txt = rep_old.read_text("utf-8") if rep_old.is_file() else f"# 내레이션 보고 — {vid}\n\n- 도구: -\n"
@@ -1266,6 +1547,7 @@ def build_episode(engine, topic, vid, args, root, txt=None):
         if K > 1:
             log("SHARD", video=vid, shard=args.shard, made=len(targets), note="다른 조각도 끝나면 --assemble-only 로 잇기")
             return {"video": vid, "topic": topic, "status": "shard", "sentences": len(items)}
+        metas = consist_pass(engine, P["cache"], items, metas, args, vid)   # v1.16 크기·끝 흐림·목소리 모양 고르기
     else:   # --assemble-only
         missing = []
         for it in items:
@@ -1277,7 +1559,7 @@ def build_episode(engine, topic, vid, args, root, txt=None):
         if missing:
             die("ASSEMBLE", f"문장 파일 없음: {ranges(missing)}", "--assemble-only 없이 다시 실행(없는 문장만 만든다)", video=vid)
 
-    # 잇기: 볼륨은 영상 전체에 이득 하나 → narration (역할 사이 볼륨 차이도 모델이 낸 그대로)
+    # 잇기: v1.16 문장마다 같은 목소리 가운데 크기로 + 문장 안 작은 곳 보정 → 영상 전체에 이득 하나 → narration
     sr, clips = None, []
     for it in items:
         x, s = read_wav(metas[it["n"]]["wav"])
@@ -1286,6 +1568,9 @@ def build_episode(engine, topic, vid, args, root, txt=None):
         elif s != sr:
             die("ASSEMBLE", f"표본율이 다름 S{it['n']:03d} {s} ≠ {sr}", "같은 모델로 다시 만들기", video=vid)
         clips.append(x)
+    clips, adj = level_even(clips, [it["role"] for it in items], sr)
+    for it, (gf, rd) in zip(items, adj):
+        metas[it["n"]] = dict(metas[it["n"]], level_fix_db=round(gf, 2), ride_db=round(rd, 2))
     g = 10 ** (gain_for(clips, sr) / 20)
     clips = [x * g for x in clips]
     pieces, t, timing, gaps = [silence(args.lead_in, sr)], args.lead_in, {}, {}
@@ -1373,12 +1658,19 @@ def write_report(path, topic, vid, args, items, metas, timing, cards, total_s, v
         if v["engine"] == "clone":
             lines.append(f"- **{v['name']} 기준 목소리**: `{v['ref_audio']}` (높이 {v['ref_f0']:.0f}Hz, 해시 {v['ref_sha']}) — "
                          f"모든 대본에서 같은 파일을 복제. 문장 높이가 ±{v['f0_tolerance']:.0%} 넘게 벗어나면 다시 만듦")
+    lines.append(f"- **고르기 ({VERSION})**: 같은 목소리 문장들의 가운데값과 비교 — 크기 ±{LEVEL_TOL_DB:.0f}dB · 끝 흐림({FADE_DB:.0f}dB 넘게 작은 말소리 "
+                 f"{FADE_MIN_S}초 넘게) · 목소리 모양(문장 전체·1초 구간)이 벗어나면 새 시드로 다시. 잇기 전 문장 크기를 가운데로"
+                 f"(±{LEVEL_FIX_MAX_DB:.0f}dB 안), 문장 안에서 {RIDE_FLOOR_DB:.0f}dB 넘게 작은 말소리가 {RIDE_MIN_S}초 넘게 이어진 곳은 최대 +{RIDE_MAX_DB:.0f}dB 올림")
     lines += ["", "## 문장", "", "| 번호 | 역할 | 파트 | 시작 | 길이(초) | 음절/초 | 높이(Hz) | 시도 | 확인 |", "|---|---|---|---|---|---|---|---|---|"]
     for it in items:
         m = metas[it["n"]]
         flag = "; ".join(m["issues"] + m["warns"]) or "✅"
         if abs(m.get("pace_factor", 1.0) - 1) > 1e-3:
             flag += f" · 속도 맞춤 ×{m['pace_factor']:.2f}"
+        if abs(m.get("level_fix_db", 0.0)) > 2:                         # v1.16
+            flag += f" · 크기 맞춤 {m['level_fix_db']:+.1f}dB"
+        if m.get("ride_db", 0.0) > 2:
+            flag += f" · 작은 곳 올림 +{m['ride_db']:.1f}dB"
         lines.append(f"| {it['n']} | {voices[it['role']]['name']} | {it['part']} | {mmss(timing[it['n']][0])} | {m['dur']:.2f} | "
                      f"{m['rate']:.1f} | {m.get('f0', 0):.0f} | {m['attempt']} | {flag} |")
     bad = [it for it in items if not metas[it["n"]]["ok"] or metas[it["n"]]["warns"]]
@@ -2559,6 +2851,8 @@ def main():
     common.add_argument("--lead-in", type=float, default=0.3, help="첫 문장 앞 쉼(초, 2초 이하)")
     common.add_argument("--out-dir", default=None, help="결과 최상위 폴더 (기본: Kaggle /kaggle/working/tts_out, 그 밖 output/tts)")
     common.add_argument("--keep-wav", action="store_true", help="narration.mp3 옆에 WAV도 남기기")
+    common.add_argument("--no-consist", action="store_true",
+                        help="v1.16 고르기 검사(크기·끝 흐림·목소리 모양 → 새 시드로 다시)를 끄기 — 잇기 전 크기 맞춤·작은 곳 올림은 그대로")
     common.add_argument("--fake", action="store_true", help="테스트: 모델 없이 가짜 소리")
     common.add_argument("--log-level", default="INFO", choices=["DEBUG", "INFO", "WARNING"])
 

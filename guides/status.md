@@ -1,6 +1,7 @@
 # 지금 상태·다음 할 일 (인수인계)
 
-버전: v2.58 — 2026-10-25 — **시험 채널: 면세 썸네일 문구 바꿈 · 캐리어 편 영상 소스(종이인형극)** (사용자 지시 "썸네일 수정해봐 … 그리고 캐리어도 같은 방식으로 다 영상 소스 다 만들어"): 면세 = 말풍선형 문구(`thumbnails/*.art.json`), 쇼츠 다시 렌더 · 캐리어 = 그림 요청 `test/source/kaerieo-tugi-2026-10/images_chatgpt.md` v2.0(22장) + 장면 `video/episodes/kaerieo-tugi-2026-10(-shorts)/index.html` v1.0(임시 그림으로 check 0) + 썸네일 설정 — 그림이 오면 최종 렌더.
+버전: v2.59 — 2026-10-25 — **주식 요약본 v1.1** `stock/source/ppalli-buja-2026-10/요약본.txt` (사용자 피드백 "간단하고 핵심만 … 육하원칙에 따라서 … 한 문제 행동을 말하고 완전히 끝날 때 해설을 붙이도록 하고 그 다음을 궁금하도록 해"): 장면마다 육하원칙 → 문제 행동 한 줄 → 해설 → 다음 궁금증 · 인용·통계는 근거 칸으로 · 사용자가 v1.0 에 단 줄 의견도 반영(달만 쓰기 · 4월 매수를 장면1로 · 낱말을 갑자기 풀지 않고 "흔히 말하는 포모가 온 것이죠"처럼 · 다른 사람 이야기 금지 · "세웠습니다"까지 · 김 과장 생각으로) · 확인 못 한 자본시장연구원 숫자 뺌.
+이전 v2.58 — 2026-10-25 — **시험 채널: 면세 썸네일 문구 바꿈 · 캐리어 편 영상 소스(종이인형극)** (사용자 지시 "썸네일 수정해봐 … 그리고 캐리어도 같은 방식으로 다 영상 소스 다 만들어"): 면세 = 말풍선형 문구(`thumbnails/*.art.json`), 쇼츠 다시 렌더 · 캐리어 = 그림 요청 `test/source/kaerieo-tugi-2026-10/images_chatgpt.md` v2.0(22장) + 장면 `video/episodes/kaerieo-tugi-2026-10(-shorts)/index.html` v1.0(임시 그림으로 check 0) + 썸네일 설정 — 그림이 오면 최종 렌더.
 이전 v2.57 — 2026-10-25 — **주식 새 요약본** `stock/source/ppalli-buja-2026-10/요약본.txt` v1.0 (사용자 지시 — 제목 「주식으로 빨리 부자되고 싶은 사람들이 결국 망하는 과정」, 사용자가 준 칸 형식 그대로, 대본은 한 문장 핵심만, 분석의 주식 사연 영상 대본 참고): 김 과장 3달 일곱 단계 · -50%·-60%·-70% = `calc/calc.py` v1.0 · 쇼츠 제목 3안 — 사용자가 고르면 대본 전체.
 이전 v2.56 — 2026-10-25 — **주식 = 분석만 남김** (사용자 지시 "다시 지금까지 했던거 다 지우자 분석 결과 관련된것만 냅두고 나머지 지시사항이나, 영상 관련 소스 다 삭제해" — 범위 답 '주식(stock)만', 분석 근거 문서는 남김): 주식 제작 지시사항(`stock/guides/README.md`·`concept.md`·`quick_story.md`·`story_script.md`) · 이야기형 시리즈 `stock/story/` · 영상 소스 `stock/source/`(1~4화·topic_candidates·used_content) · 백테스트 자료 `stock/data/`·`tools/backtest/` · `channel.md`·`thumbnails_chatgpt.md`·`tts_lexicon.tsv` · `video/episodes/pogi-sonjeol-2026-10(-shorts)` · 옛 Remotion 주식 4편 `video/src/episodes/` · 시제품 `video/prototypes/stock-entry-2026-10-16` · `story.js`·`story_mg.js`·`story.css`·`story_kit.py`·`story_check.py` + 시험 지움 — 다른 주제가 쓰는 `puppet.js`·`render.mjs`·`kit.js`·`subs_tool.py`·`youtube_upload.py` 는 남김 · CLAUDE.md·지시사항 목록·쇼츠·영상·업로드 지시사항의 주식 줄 정리 · 유튜브 영상은 그대로 · 되살리기 `git checkout 2a0427d0 -- <경로>`.
 이전 v2.55 — 2026-10-25 — **시험 채널 썸네일 = 그림만 ChatGPT, 문구는 코드** (사용자 지시 "그 썸네일은 이제 이미지만 만들고 문구는 너가 만들어서 넣는식으로 하자"): `video/render/thumb.mjs` v1.0 + 썸네일 옆 `thumbnail_N.json` (`guides/thumbnail_guide.md` 13번, CLAUDE.md 썸네일 절 예외 한 줄). 일본 면세 편 영상 다시(대본 v6.1·쇼츠 v6.3 오디오 — 롱폼 6:40 · 쇼츠 0:47, A씨 하늘색 코트 인형 `test/puppet/M-A-*.png`).
@@ -184,7 +185,7 @@
 
 주식은 분석만 남겼다 (위 1번 표). 예전 2-1(첫 영상)·2-1b(2·3·4번) 절은 지운 소스를 가리켜 지움 — 내용은 `git show 2a0427d0:guides/status.md`.
 
-- **2026-10-25 새 요약본** `stock/source/ppalli-buja-2026-10/요약본.txt` v1.0 (+ `calc/calc.py` v1.0) — 「주식으로 빨리 부자되고 싶은 사람들이 결국 망하는 과정」. 다음: ① 사용자가 쇼츠 제목(1~3)·고칠 곳을 정함 → ② 대본 전체(한 줄 한 문장, 자본시장연구원 숫자 2건은 원문 확인 — 요약본 '근거' 2번) → ③ 썸네일 프롬프트. 제작 지시사항은 아직 없음 (`stock/README.md` '새 영상 소스').
+- **2026-10-25 새 요약본** `stock/source/ppalli-buja-2026-10/요약본.txt` v1.1 (장면 꼴 = 육하원칙 → 문제 행동 → 해설 → 다음 궁금증 · + `calc/calc.py` v1.0) — 「주식으로 빨리 부자되고 싶은 사람들이 결국 망하는 과정」. 다음: ① 사용자가 쇼츠 제목(1~3)·고칠 곳을 정함 → ② 대본 전체(한 줄 한 문장, 확인 못 한 자본시장연구원 숫자는 v1.1 에서 뺌) → ③ 썸네일 프롬프트. 제작 지시사항은 아직 없음 (`stock/README.md` '새 영상 소스').
 
 ### 2-2. 재테크 — 남은 것
 

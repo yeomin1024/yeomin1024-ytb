@@ -1,6 +1,6 @@
 # 일본 면세 편 종이인형극 그림 27장 — ChatGPT용 (읽고 그대로 만들고 저장 경로에 올리기)
 
-작성: 2026-10-25 (Claude, v6.2 — 썸네일은 글자 없는 그림만: 26·27번 두 장만 새로) — 짝 문서 `test/일본면세_사후환급_제작안.txt` · 같은 화풍 `test/puppet/images_chatgpt.md` (일본 축제 편)
+작성: 2026-10-25 (Claude, v6.3 — 썸네일은 글자 없는 그림만: 26·27번 두 장만 새로, 말풍선 자리 비움) — 짝 문서 `test/일본면세_사후환급_제작안.txt` · 같은 화풍 `test/puppet/images_chatgpt.md` (일본 축제 편)
 
 이 파일 주소: https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/test/source/myeonse-hwangeup-2026-10/images_chatgpt.md
 
@@ -317,7 +317,7 @@ Landscape 1536x1024, side view facing right, flying level. ONE passenger jet air
 ```
 YouTube thumbnail background art, 16:9 landscape (1280x720). Cinematic digital painting, semi-realistic, very high contrast, dramatic, readable at small size.
 Center-right: a Korean tourist in her 30s (fictional, not resembling any real person) standing at the end of a very long airport queue in a Japanese departure lobby, one hand pressed to her forehead, head lowered, shoulders drooping, visibly frustrated after realizing how long the wait will be, holding a white shopping bag and a passport. Her face is between 52% and 78% of the width and between 12% and 55% of the height. Behind her, a long line of travelers with suitcases snaking toward a customs counter and a row of self-service tax-refund kiosks with plain blank screens. Cool white airport light with warm accents.
-KEEP THESE AREAS CALM AND EMPTY (text will be added later by code — do not put faces or important objects there): the upper-left area (0–58% of the width, 0–24% of the height); the upper-right corner (72–100% of the width, 0–22% of the height); the whole bottom 36% of the image, which should be simple floor and shadow that gets darker toward the bottom edge.
+KEEP THESE AREAS CALM AND EMPTY (text will be added later by code — do not put faces or important objects there): the upper-right area next to her head (70–100% of the width, 0–24% of the height) where a speech bubble from her will be added; the whole bottom 36% of the image, which should be simple floor and shadow that gets darker toward the bottom edge.
 ABSOLUTELY NO TEXT anywhere: no letters, no Korean or English words, no numbers, no signs with readable writing, no logos, no watermarks, no captions, no speech bubbles, no boxes or labels.
 ```
 
@@ -332,6 +332,6 @@ ABSOLUTELY NO TEXT anywhere: no letters, no Korean or English words, no numbers,
 ```
 Landscape 3:2 (1536x1024) cinematic digital painting, semi-realistic, bright clean modern Japan with cool white fluorescent light and warm accents, subtle film grain. The painting fills the whole canvas edge to edge — no borders, no black bands, no frames.
 A Japanese airport departure lobby with a very long queue of travelers holding shopping bags, snaking toward a customs counter in the distance. In the foreground, slightly left of center, a traveler seen from behind checking a smartphone whose screen is plain solid green, standing next to a row of self-service kiosks whose screens are also plain solid green.
-Keep the upper-left area (0–48% of the width, 0–30% of the height) calm and simple (ceiling, windows, distant background) — a label will be added there later by code. Keep the important subjects in the central 70% of the width (the left and right edges may be cropped).
+Keep the area above the foreground traveler's head (about 25–95% of the width, 0–28% of the height) calm and simple (ceiling, windows, distant background) — a speech bubble from that traveler will be added there later by code. Keep the important subjects in the central 70% of the width (the left and right edges may be cropped).
 ABSOLUTELY NO TEXT anywhere: no letters, no Korean or English words, no numbers, no signs with readable writing, no logos, no watermarks, no captions, no labels or boxes.
 ```

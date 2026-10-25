@@ -1,0 +1,72 @@
+{
+ "_설명": "쇼츠 첫 장면(= 쇼츠 썸네일) 본안 — 세 칸(band). 글자 없는 그림(images_chatgpt.md v2.0 22번 → images/SHORTS-ART.jpg, 가로 3:2)을 가운데 칸에 + 위 문구·말풍선은 코드. 그림이 오면: node video/render/thumb.mjs <이 파일> → cover_check --layout band → 쇼츠 sync·렌더",
+ "out": "thumbnail_1.jpg",
+ "size": [
+  1080,
+  1920
+ ],
+ "bg": "#000000",
+ "images": [
+  {
+   "src": "../../images/SHORTS-ART.jpg",
+   "box": [
+    0,
+    680,
+    1080,
+    691
+   ]
+  }
+ ],
+ "blocks": [
+  {
+   "kind": "lines",
+   "box": [
+    43,
+    300,
+    994,
+    340
+   ],
+   "align": "center",
+   "lineHeight": 1.14,
+   "lines": [
+    [
+     [
+      "깨끗한 ",
+      "Y"
+     ],
+     [
+      "일본 길거리에",
+      "W"
+     ]
+    ],
+    [
+     [
+      "버려진 캐리어, ",
+      "W"
+     ],
+     [
+      "왜?",
+      "R"
+     ]
+    ]
+   ]
+  },
+  {
+   "kind": "bubble",
+   "x": 120,
+   "y": 712,
+   "w": 700,
+   "h": 128,
+   "bg": "W",
+   "color": "K",
+   "radius": 64,
+   "fill": [
+    0.86,
+    0.6
+   ],
+   "tail": "left",
+   "text": "이거 누가 두고 간 거야?",
+   "_": "캐리어를 들여다보는 행인(왼쪽)의 말 — Claude 가 지은 말(사용자 확인 전)"
+  }
+ ]
+}

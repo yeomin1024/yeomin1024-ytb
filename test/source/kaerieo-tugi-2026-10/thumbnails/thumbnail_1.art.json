@@ -1,0 +1,94 @@
+{
+ "_설명": "롱폼 썸네일 본안 — 글자 없는 그림(images_chatgpt.md v2.0 21번 → images/THUMB-L-ART.jpg) + 문구·말풍선은 코드. 그림이 오면: node video/render/thumb.mjs <이 파일> → thumbnail_1.jpg (말풍선 자리는 그림의 인물에 맞춰 조정)",
+ "out": "thumbnail_1.jpg",
+ "size": [
+  1280,
+  720
+ ],
+ "shade": [
+  0.56,
+  0.86
+ ],
+ "images": [
+  {
+   "src": "../images/THUMB-L-ART.jpg",
+   "box": [
+    0,
+    0,
+    1280,
+    720
+   ]
+  }
+ ],
+ "blocks": [
+  {
+   "kind": "bubble",
+   "x": 470,
+   "y": 26,
+   "w": 420,
+   "h": 124,
+   "bg": "W",
+   "color": "K",
+   "radius": 62,
+   "fill": [
+    0.86,
+    0.6
+   ],
+   "tail": "right",
+   "text": "그냥 버리면 안 돼?",
+   "_": "버려진 캐리어를 내려다보는 여행객(오른쪽)의 말 — 꼬리가 머리 쪽"
+  },
+  {
+   "kind": "lines",
+   "box": [
+    30,
+    470,
+    1110,
+    92
+   ],
+   "align": "left",
+   "valign": "bottom",
+   "lineHeight": 1.05,
+   "stroke": 16,
+   "lines": [
+    [
+     [
+      "깨끗한 ",
+      "Y"
+     ],
+     [
+      "일본 길거리에",
+      "W"
+     ]
+    ]
+   ],
+   "_": "1줄"
+  },
+  {
+   "kind": "lines",
+   "box": [
+    30,
+    566,
+    990,
+    130
+   ],
+   "align": "left",
+   "valign": "bottom",
+   "lineHeight": 1.05,
+   "stroke": 16,
+   "lines": [
+    [
+     [
+      "캐리어가 ",
+      "W"
+     ],
+     [
+      "버려지는 이유",
+      "R"
+     ]
+    ]
+   ],
+   "_": "2줄 — 1줄보다 크게, 오른쪽 끝 x ≤ 1020 (영상 길이 표시 자리 비움)"
+  }
+ ]
+}

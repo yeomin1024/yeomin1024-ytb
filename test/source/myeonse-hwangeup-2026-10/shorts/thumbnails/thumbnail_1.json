@@ -1,11 +1,78 @@
 {
- "_설명": "쇼츠 첫 장면(= 쇼츠 썸네일) — 세 칸(band). 문구는 코드(video/render/thumb.mjs v1.0), 그림은 ChatGPT. 임시(2026-10-25): 옛 SHORTS-OPEN 의 그림 칸(꼬리표 '알면 2분' 포함)만 잘라 씀 — 글자 없는 새 그림(images/SHORTS-ART.jpg)이 오면 바꿈",
+ "_설명": "쇼츠 첫 장면(= 쇼츠 썸네일) — 세 칸(band). 문구·말풍선은 코드(video/render/thumb.mjs), 그림은 ChatGPT. 임시(2026-10-25 v3): 옛 SHORTS-OPEN 의 그림 칸에서 그림 속 꼬리표('알면 2분', y 630~786) 아래만 잘라 씀 — 글자 없는 새 그림(images/SHORTS-ART.jpg)이 오면 thumbnail_1.art.json",
  "out": "thumbnail_1.jpg",
- "size": [1080, 1920],
+ "size": [
+  1080,
+  1920
+ ],
  "bg": "#000000",
- "images": [ { "src": "../../images/SHORTS-OPEN.jpg", "crop": [0, 577, 1080, 760], "box": [0, 680, 1080, 760] } ],
+ "images": [
+  {
+   "src": "../../images/SHORTS-OPEN.jpg",
+   "crop": [
+    0,
+    800,
+    1080,
+    621
+   ],
+   "box": [
+    0,
+    680,
+    1080,
+    691
+   ]
+  }
+ ],
  "blocks": [
-  { "kind": "lines", "box": [43, 300, 994, 340], "align": "center", "lineHeight": 1.14,
-    "lines": [ [["일본 면세 ", "W"], ["바뀌면", "Y"]], [["공항에서 ", "W"], ["2시간", "R"]] ] }
+  {
+   "kind": "lines",
+   "box": [
+    43,
+    300,
+    994,
+    340
+   ],
+   "align": "center",
+   "lineHeight": 1.14,
+   "lines": [
+    [
+     [
+      "11월 ",
+      "Y"
+     ],
+     [
+      "일본 면세 변경 후",
+      "W"
+     ]
+    ],
+    [
+     [
+      "벌어질 ",
+      "W"
+     ],
+     [
+      "골치 아픈 일",
+      "R"
+     ]
+    ]
+   ]
+  },
+  {
+   "kind": "bubble",
+   "x": 300,
+   "y": 712,
+   "w": 740,
+   "h": 128,
+   "bg": "W",
+   "color": "K",
+   "radius": 64,
+   "fill": [
+    0.86,
+    0.6
+   ],
+   "tail": "left",
+   "text": "면세 줄 안 서는 방법 있나?",
+   "_": "그림 속 휴대전화를 보는 여행객(앞 왼쪽)의 말"
+  }
  ]
 }

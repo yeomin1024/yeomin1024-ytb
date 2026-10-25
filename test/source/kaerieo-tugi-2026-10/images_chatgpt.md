@@ -1,186 +1,285 @@
-# 깨끗한 일본 길거리에 캐리어가 버려지는 이유 — 이미지 8장 ChatGPT용 (읽고 그대로 만들고 각 저장 경로에 올리기)
+# 일본 캐리어 편 종이인형극 그림 22장 — ChatGPT용 (읽고 그대로 만들고 저장 경로에 올리기)
 
-작성: 2026-10-20 (Claude, v1.1) — 짝 문서 `test/일본_캐리어투기_제작안.txt`
+작성: 2026-10-25 (Claude, v2.0 — 종이인형극으로 다시: 배경 4 + 인형 16 + 글자 없는 썸네일 2) — 짝 문서 `test/일본_캐리어투기_제작안.txt` · 같은 화풍 `test/source/myeonse-hwangeup-2026-10/images_chatgpt.md` (일본 면세 편)
 
 이 파일 주소: https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/test/source/kaerieo-tugi-2026-10/images_chatgpt.md
 
-| 번호 | 파일 | 크기 | 쓰는 곳 |
-|---|---|---|---|
-| 1 | `test/source/kaerieo-tugi-2026-10/images/IMG-L1.jpg` | 가로 16:9 | 롱폼 배경 — 이케부쿠로 밤 골목, 집적소 앞 홀로 선 캐리어 |
-| 2 | `test/source/kaerieo-tugi-2026-10/images/IMG-L2.jpg` | 가로 16:9 | 롱폼 배경 — 일본 매장의 새 캐리어 진열대 |
-| 3 | `test/source/kaerieo-tugi-2026-10/images/IMG-L3.jpg` | 가로 16:9 | 롱폼 배경 — 아침의 대형 쓰레기 수거장 |
-| 4 | `test/source/kaerieo-tugi-2026-10/images/IMG-L4.jpg` | 가로 16:9 | 롱폼 배경 — 호텔 창고에 쌓인 캐리어 |
-| 5 | `test/source/kaerieo-tugi-2026-10/images/IMG-L5.jpg` | 가로 16:9 | 롱폼 배경 — 쓰레기통 없는 깨끗한 역 플랫폼 |
-| 6 | `test/source/kaerieo-tugi-2026-10/images/IMG-L6.jpg` | 가로 16:9 | 롱폼 배경 — 공항 출국장 카운터 |
-| 7 | `test/source/kaerieo-tugi-2026-10/images/THUMB-L.jpg` | 가로 16:9 | 롱폼 썸네일 (한글 문구 포함) |
-| 8 | `test/source/kaerieo-tugi-2026-10/images/SHORTS-OPEN.jpg` | 세로 9:16 · 세 칸 | 쇼츠 첫 장면 (= 쇼츠 썸네일, 0초 장면) |
+**무엇을 만드나:** 영상은 일본 면세·축제 편과 같은 **종이인형극**이다 — 빈 무대 배경 1장 위에 **오린 종이 인형(투명 그림)** 을 올리고, 움직임(걷기·수거차·스티커 붙이기·더미 쌓이기)과 숫자·지도·글자는 **영상 코드가 만든다.**
+→ 그림은 **배경 4장 + 인형 16장 + 썸네일 그림 2장.** 인형은 **한 장에 하나, 한 가지 모습만** 그린다 (상태마다 그림을 따로 만들지 않는다).
+→ 공항 로비·잡화점·남색 한지 배경, 여행자 인형(걷기·휴대전화·지침), 새 캐리어·체크인 카운터·여권·여객기·돈은 면세·축제 편 그림(`test/puppet/M-*`·`P-PAPER.jpg`)을 그대로 쓴다 — **다시 만들지 않는다.**
+→ **썸네일 그림(21·22번)에는 글자를 하나도 넣지 않는다** — 문구·말풍선은 Claude 가 코드로 얹는다 (시험 채널 규칙, 2026-10-25 사용자 지시 "썸네일은 이제 이미지만 만들고 문구는 너가 만들어서 넣는식으로").
+
+| 번호 | 파일 | 크기 | 무엇 | 쓰는 곳 (대본 문장) |
+|---|---|---|---|---|
+| 1 | `test/puppet/K-ALLEY.jpg` | 가로 1536×1024 | 빈 무대 — 밤 도쿄 뒷골목 쓰레기 집적소 | 도입·다른 목소리·현지 반응 (1~4, 47~51) |
+| 2 | `test/puppet/K-PLATFORM.jpg` | 가로 1536×1024 | 빈 무대 — 깨끗한 역 승강장 (쓰레기통 없음) | 깨끗한 일본에서 왜? · 넷째 (10~11, 41~46) |
+| 3 | `test/puppet/K-WARD.jpg` | 가로 1536×1024 | 빈 무대 — 구청 민원 창구 홀 | 구청 대형 쓰레기 제도 (12~14, 24~33, 61~63) |
+| 4 | `test/puppet/K-HOTEL.jpg` | 가로 1536×1024 | 빈 무대 — 호텔 뒤쪽 짐 보관 창고 | 셋째 · 삿포로 재판매 (34~40, 64) |
+| 5 | `test/puppet/K-SUIT-OLD.png` | 정사각 1024 · 투명 | 버려진 헌 캐리어 | 거의 모든 장면 |
+| 6 | `test/puppet/K-WARN.png` | 정사각 1024 · 투명 | 경고 스티커 (글자 없음) | 도입 · 쇼츠 (3) |
+| 7 | `test/puppet/K-TICKET.png` | 정사각 1024 · 투명 | 대형 쓰레기 처리권 스티커 (글자 없음) | 둘째 (27~28) |
+| 8 | `test/puppet/K-TRUCK.png` | 가로 1536×1024 · 투명 | 작은 쓰레기 수거차 | 도입 수거 · 세금으로 수거 (4, 54) |
+| 9 | `test/puppet/K-CLERK.png` | 가로 1536×1024 · 투명 | 구청 직원 + 책상 | 구청 장면 (12, 24~31, 61~63) |
+| 10 | `test/puppet/K-POLICE.png` | 정사각 1024 · 투명 | 경찰관 (습득물) | 도쿄 경찰 습득물 (7~9) |
+| 11 | `test/puppet/K-PILE.png` | 가로 1536×1024 · 투명 | 쌓인 캐리어 더미 | 숫자 장면 (6~8, 21~22, 37) |
+| 12 | `test/puppet/K-RESIDENTS.png` | 가로 1536×1024 · 투명 | 화난 동네 주민 두 사람 | 현지 반응 (49~51) |
+| 13 | `test/puppet/K-HOTELIER.png` | 정사각 1024 · 투명 | 곤란한 호텔 지배인 | 셋째 (34~40) |
+| 14 | `test/puppet/K-TRASHCAN.png` | 정사각 1024 · 투명 | 역 쓰레기통 | 넷째 (41~46) |
+| 15 | `test/puppet/K-XRAY.png` | 가로 1536×1024 · 투명 | 공항 X선 검사기 | 주부공항 X선 (53) |
+| 16 | `test/puppet/K-SCREEN.png` | 정사각 1024 · 투명 | 큰 전광판이 붙은 건물 | 이케부쿠로 대형 전광판 (62) |
+| 17 | `test/puppet/K-LEAFLET.png` | 정사각 1024 · 투명 | 경고 전단 묶음 (글자 없음) | 다국어 전단 (62) |
+| 18 | `test/puppet/K-REPAIR.png` | 가로 1536×1024 · 투명 | 캐리어를 고치는 직원 + 작업대 | 삿포로 재판매 (64) |
+| 19 | `test/puppet/K-LAWBOOK.png` | 정사각 1024 · 투명 | 법전 | 불법 · 처벌 (55~57) |
+| 20 | `test/puppet/K-HANDSHAKE.png` | 가로 1536×1024 · 투명 | 협정 — 악수하는 두 사람 | 도시마구 재활용 업체 협정 (61) |
+| 21 | `test/source/kaerieo-tugi-2026-10/images/THUMB-L-ART.jpg` | 가로 16:9 (1280×720) | 롱폼 썸네일 그림 (글자 없음 — 문구는 코드) | 업로드 썸네일 |
+| 22 | `test/source/kaerieo-tugi-2026-10/images/SHORTS-ART.jpg` | 가로 3:2 (1536×1024) | 쇼츠 첫 장면 가운데 칸 그림 (글자 없음 — 위 문구·말풍선은 코드) | 쇼츠 0초 장면 = 쇼츠 썸네일 |
 
 ## ChatGPT에게 — 이 파일을 읽으면 할 일
 0. **이 주소를 지금 새로 열어 그 내용만 쓴다** — 이 대화에서 예전에 읽은 파일·프롬프트가 있어도 쓰지 않는다. 답의 첫 줄에 이 파일 맨 위 '작성' 줄을 그대로 적는다.
-1. 아래 8장을 **1번부터 차례로 모두** 만든다. 질문하지 말고, 한 장을 만든 뒤 멈추지 말고 다음 장으로 넘어간다.
+1. 아래 22장을 **1번부터 차례로 모두** 만든다. 질문하지 말고, 한 장을 만든 뒤 멈추지 말고 다음 장으로 넘어간다. **한 장에 프롬프트에 적힌 것만** 그린다 (다른 사람·물건을 같이 그리지 않는다).
    - 이미지 한도 때문에 멈추면 사용자가 `계속`이라고 보낸다 → 아직 안 만든 번호부터 이어서 만든다.
-2. 각 장은 그 칸의 **프롬프트(``` 안)를 한 글자도 바꾸지 않고 그대로** 쓴다.
-   - 1~6번은 같은 영상의 배경이라 **그림체·색감이 모두 같아야 한다** (프롬프트마다 같은 그림체 문장이 들어 있음).
-3. 크기는 **장마다 '크기' 줄대로**: 가로 = 16:9 (안 되면 가장 넓은 가로형 — 중요한 대상은 위아래 8% 밖에 두지 않음) · 세로 = 9:16 세 칸 (안 되면 세로 2:3). 어느 쪽이든 **그림이 네 가장자리까지 꽉 찬다** — 빈 띠·테두리·여백 없음 (세 칸 그림의 위·아래 순검정 칸은 예외).
-4. **1~6번(배경)에는 글자를 하나도 넣지 않는다** — 간판 글씨·숫자·로고·워터마크도 없음. 7·8번(썸네일)은 프롬프트의 따옴표 안 한글만, 글자·띄어쓰기·물음표·쉼표 그대로 쓴다. 줄 수·줄바꿈·색도 프롬프트대로.
-5. 배경 그림의 사람은 뒷모습·실루엣·먼 거리로만 그리고, 얼굴을 알아볼 수 있게 그리지 않는다. 실존 인물을 닮게 그리지 않는다. 썸네일의 인물은 지어낸 사람이다.
-6. 7·8번은 만들 때마다 그 칸의 '문구' 표와 그림 속 한글을 한 글자씩 맞춰 본다. 크게 확대해서 받침·모음 획·조사가 빠지거나 가려지지 않았는지 본다. 다르면 그림은 그대로 두고 글자만 고쳐 다시 만든다.
-7. **그림마다 바로 위에 그 장의 번호와 저장 경로를 한 줄 적는다** (예: `1. test/source/kaerieo-tugi-2026-10/images/IMG-L1.jpg`). 그림 안에는 쓰지 않는다.
-8. **다 만들면 저장소에 넣는다 — 장마다 적힌 저장 경로 그대로.**
-   - 저장소 `yeomin1024/yeomin1024-ytb` main 브랜치. 파일 이름·폴더는 그 장의 '저장 경로'와 한 글자도 다르지 않게.
-   - **올리기 전에 JPEG(.jpg)로 바꿔 700KB 이하로 만든다** — 파이썬(PIL)으로 RGB·크기 그대로·품질 90부터 5씩 낮춰 700KB 아래가 될 때까지 저장. GitHub 앱은 약 768KB 를 넘는 파일을 **잘라** 올려 그림이 깨진다. 올린 뒤 GitHub 에 있는 그 파일의 크기(바이트)가 내 파일과 같은지 확인하고, 다르면 다시 올린다.
-   - **GitHub 앱으로 장마다 그 경로에 커밋한다.** 커밋 메시지: `[test] kaerieo-tugi-2026-10 <파일 이름> 이미지` (예: `[test] kaerieo-tugi-2026-10 IMG-L1.jpg 이미지`). 다 올리면 올린 파일 경로와 커밋 링크를 목록으로 적는다.
-   - **올리기가 실패한 장만** (권한·연결 오류) 묻지 말고 아래처럼 끝낸다:
-     1. 만든 그림을 번호 순서(1번부터)대로 다시 한 번씩 보여 준다 (그림마다 위에 번호와 저장 경로).
-     2. 마지막에 이 문장을 그대로 쓴다: **"올리지 못한 그림을 이 순서대로 Claude 대화창에 붙여 넣어 주세요. Claude가 검수한 뒤 각 저장 경로에 올립니다."**
-     3. 그 아래에 직접 올리는 길도 적는다: "직접 올리려면: 그림을 저장 경로의 파일 이름으로 내려받아 아래 링크에 끌어다 놓고 Commit changes" + https://github.com/yeomin1024/yeomin1024-ytb/upload/main/test/source/kaerieo-tugi-2026-10/images
+2. 프롬프트(``` 안)를 **한 글자도 바꾸지 않고 그대로** 쓴다.
+   - **1~20번:** 프롬프트 맨 앞에 아래 **공통 화풍** 문단을 그대로 붙인다 (면세·축제 편 인형과 같은 화풍 — 한 무대의 인형처럼).
+   - **5~20번(투명 인형):** 공통 화풍 다음에 **CUTOUT** 문단도 그대로 붙인다.
+   - **21·22번(썸네일 그림):** 공통 화풍·CUTOUT 을 붙이지 않는다 — 그 칸의 프롬프트만.
+3. 사람 인형(9·10·12·13·18·20번)은 실존 인물·실제 회사·관청을 닮게 그리지 않는다.
+4. **잘림 검사 (5~20번 필수, 올리기 전에):** 파이썬으로 아래 코드를 돌려 `OK` 가 나와야 올린다. `잘림`이면 그림을 더 작게(여백을 더 넓게) 다시 만들고 다시 검사한다. 투명이 아니면(귀퉁이 알파가 0 이 아님) 배경을 **순초록 #00FF00 한 색 평면**으로 다시 만든다 (그때는 초록 바탕 기준으로 여백을 본다).
+   ```python
+   from PIL import Image
+   import numpy as np
+   def check(path, margin=0.06):
+       a = np.array(Image.open(path).convert("RGBA"))
+       h, w = a.shape[:2]
+       if a[2, 2, 3] > 0:                       # 투명이 아니면 순초록 바탕을 빈 곳으로 봄
+           g = a[:, :, 1].astype(int) - np.maximum(a[:, :, 0], a[:, :, 2]).astype(int)
+           filled = ~((g > 80) & (a[:, :, 1] > 150))
+       else:
+           filled = a[:, :, 3] > 40
+       ys, xs = np.where(filled)
+       box = (xs.min() / w, ys.min() / h, xs.max() / w, ys.max() / h)
+       ok = box[0] >= margin and box[1] >= margin and box[2] <= 1 - margin and box[3] <= 1 - margin
+       print(path, "OK" if ok else "잘림 — 더 작게 다시", [round(v, 3) for v in box])
+       return ok
+   ```
+5. **1~20번에는 글자·숫자·로고·워터마크를 하나도 넣지 않는다** — 간판·화면·영수증·지폐·카드에도 없음 (빈 칸이나 회색 줄로). 사람은 얼굴 이목구비가 없는 종이 인형으로 그리고, 실존 인물·실제 회사(매장·항공사) 모양을 닮게 그리지 않는다.
+   **21·22번(썸네일 그림)에도 글자를 넣지 않는다.** 만든 뒤 그림을 확대해 글자·숫자·간판 글씨가 하나라도 보이면 다시 만든다.
+6. 그림 바로 위에 번호와 저장 경로를 한 줄 적는다 (`5. test/puppet/K-SUIT-OLD.png`). 그림 안에는 쓰지 않는다.
+7. **다 만들면 저장소에 넣는다 — 저장 경로 그대로.**
+   - 저장소 `yeomin1024/yeomin1024-ytb` main 브랜치, 경로는 표의 파일 이름 그대로 (대소문자·하이픈까지 같게). 1~20번은 `test/puppet/` 폴더, 21·22번은 `test/source/kaerieo-tugi-2026-10/images/` 폴더.
+   - **올리기 전에 700KB 이하로 만든다** — GitHub 앱은 약 768KB 를 넘는 파일을 **잘라** 올려 그림이 깨진다. 올린 뒤 GitHub 에 있는 파일 크기(바이트)가 내 파일과 같은지 확인하고, 다르면 다시 올린다.
+     - 1~4·21·22번(JPEG): RGB·크기 그대로·품질 90부터 5씩 낮춰 700KB 아래가 될 때까지 저장.
+     - 5~20번(PNG, 투명 유지): 아래 코드 그대로.
+       ```python
+       from PIL import Image
+       import os
+       Q = getattr(Image, "Quantize", Image).FASTOCTREE
+       def save_png(src, dst, limit=700_000):
+           im = Image.open(src).convert("RGBA")
+           w, h = im.size
+           s = min(1.0, 1400 / max(w, h))
+           while True:
+               cur = im.resize((round(w * s), round(h * s)), Image.LANCZOS) if s < 1 else im
+               cur.save(dst, optimize=True)
+               if os.path.getsize(dst) > limit:
+                   cur.quantize(colors=256, method=Q).save(dst, optimize=True)   # 256색 (투명 유지)
+               if os.path.getsize(dst) <= limit or max(cur.size) <= 800:
+                   break
+               s *= 0.9
+           print(dst, os.path.getsize(dst), cur.size)
+       ```
+   - **GitHub 앱으로 장마다 커밋한다.** 커밋 메시지: `[test] kaerieo <파일 이름> 이미지` (예: `[test] kaerieo K-ALLEY.jpg 이미지`). 다 올리면 올린 파일 경로와 커밋 링크를 목록으로 적는다.
+   - **올리기가 실패한 장만** (권한·연결 오류) 묻지 말고 그림을 번호 순서대로 한 번 더 보여 준 뒤 이 문장을 그대로 쓴다: **"올리지 못한 그림을 이 순서대로 Claude 대화창에 붙여 넣어 주세요. Claude가 검수한 뒤 각 저장 경로에 올립니다."** 그 아래에 직접 올리는 길도 적는다: "직접 올리려면: 그림을 표의 파일 이름으로 내려받아 https://github.com/yeomin1024/yeomin1024-ytb/upload/main/test/puppet (21·22번은 https://github.com/yeomin1024/yeomin1024-ytb/upload/main/test/source/kaerieo-tugi-2026-10/images) 에 끌어다 놓고 Commit changes"
 
-## 1. IMG-L1 — 이케부쿠로 밤 골목, 집적소 앞 홀로 선 캐리어 (그림체 기준)
-
-**저장 경로: `test/source/kaerieo-tugi-2026-10/images/IMG-L1.jpg`** — JPEG 700KB 이하
-
-크기: 가로 16:9
-
-프롬프트:
-
-```
-Cinematic digital painting, semi-realistic, night-time Tokyo street light, cool teal shadows with warm sodium-lamp highlights, subtle film grain. 16:9 landscape.
-A narrow back street in Ikebukuro, Tokyo, late at night, a clean neighborhood garbage collection point with a folded green net, and one abandoned hard-shell suitcase standing alone in front of it with a plain yellow warning sticker (no writing) on its side, wet asphalt reflecting vending-machine light, quiet and lonely mood. No people. No readable signs.
-Keep the suitcase in the central area, at least 8% away from the top and bottom edges. The painting fills the whole frame edge to edge.
-No text, letters, numbers, signs with writing, logos or watermarks anywhere.
-```
-
-## 2. IMG-L2 — 일본 매장의 새 캐리어 진열대
-
-**저장 경로: `test/source/kaerieo-tugi-2026-10/images/IMG-L2.jpg`** — JPEG 700KB 이하
-
-크기: 가로 16:9
-
-프롬프트:
-
-```
-Cinematic digital painting, semi-realistic, night-time Tokyo street light, cool teal shadows with warm sodium-lamp highlights, subtle film grain. 16:9 landscape.
-A bright Japanese department-store luggage section with rows of shiny new hard-shell suitcases in many colors, a tourist couple with an old worn suitcase and shopping bags looking at the new ones, seen from behind, warm retail lighting. No readable signs, tags or brand logos.
-Keep the suitcases and the couple in the central area, at least 8% away from the top and bottom edges. The painting fills the whole frame edge to edge.
-No text, letters, numbers, signs with writing, logos or watermarks anywhere.
-```
-
-## 3. IMG-L3 — 아침의 대형 쓰레기 수거장
-
-**저장 경로: `test/source/kaerieo-tugi-2026-10/images/IMG-L3.jpg`** — JPEG 700KB 이하
-
-크기: 가로 16:9
-
-프롬프트:
-
-```
-Cinematic digital painting, semi-realistic, night-time Tokyo street light, cool teal shadows with warm sodium-lamp highlights, subtle film grain. 16:9 landscape.
-Early morning at a Japanese residential oversized-garbage pickup spot: an old chair, a small cabinet and a suitcase lined up neatly on the curb, each with a plain colored paper sticker attached (no writing), a small white garbage truck arriving in the distance, soft blue morning light. No people. No readable signs.
-Keep the curb items in the central area, at least 8% away from the top and bottom edges. The painting fills the whole frame edge to edge.
-No text, letters, numbers, signs with writing, logos or watermarks anywhere.
-```
-
-## 4. IMG-L4 — 호텔 창고에 쌓인 캐리어
-
-**저장 경로: `test/source/kaerieo-tugi-2026-10/images/IMG-L4.jpg`** — JPEG 700KB 이하
-
-크기: 가로 16:9
-
-프롬프트:
+## 공통 화풍 (1~20번 프롬프트 맨 앞에 그대로 붙임)
 
 ```
-Cinematic digital painting, semi-realistic, night-time Tokyo street light, cool teal shadows with warm sodium-lamp highlights, subtle film grain. 16:9 landscape.
-A cramped back storage room of a Japanese hotel, a pile of abandoned suitcases of different sizes stacked up to the ceiling next to cleaning carts, a single bare ceiling light, a staff member seen from behind standing with hands on hips; no recognizable face. No readable labels.
-Keep the pile of suitcases in the central area, at least 8% away from the top and bottom edges. The painting fills the whole frame edge to edge.
-No text, letters, numbers, signs with writing, logos or watermarks anywhere.
+STYLE: Japanese paper-cut puppet theater (kiri-e papercraft). Everything is made of flat layered colored paper with a visible fine paper-fiber texture and clean, slightly irregular hand-cut edges; small soft shadows only between stacked paper layers; no outlines, no airbrush gradients, no photorealism. Limited warm dusk palette: deep indigo #1E2A4A, crimson #B3202A, gold ochre #D9A441, warm cream #F2E6CF, charcoal #2B2B2B, lantern orange #F08A2E. Flat side view, like a stage seen from the audience. People are simple paper puppets with round plain heads and NO facial features (no eyes, nose or mouth), not recognizable as any real person. No text, letters, numbers, logos or watermarks anywhere.
 ```
 
-## 5. IMG-L5 — 쓰레기통 없는 깨끗한 역 플랫폼
-
-**저장 경로: `test/source/kaerieo-tugi-2026-10/images/IMG-L5.jpg`** — JPEG 700KB 이하
-
-크기: 가로 16:9
-
-프롬프트:
+## CUTOUT (5~20번 — 공통 화풍 다음에 그대로 붙임)
 
 ```
-Cinematic digital painting, semi-realistic, night-time Tokyo street light, cool teal shadows with warm sodium-lamp highlights, subtle film grain. 16:9 landscape.
-A spotless Japanese train station platform at night, polished floor, neat yellow tactile paving, benches, vending machines, and noticeably no trash bins anywhere, a few commuters far away seen from behind, cool fluorescent light, calm and orderly mood. No readable signs.
-Keep the platform in the central area, at least 8% away from the top and bottom edges. The painting fills the whole frame edge to edge.
-No text, letters, numbers, signs with writing, logos or watermarks anywhere.
+CUTOUT: the described subject only, as an isolated paper puppet cutout on a fully transparent background (PNG with alpha channel) — no ground, no cast shadow on the ground, no scenery, no frame, no other objects or people. A thin cream (#F2E6CF) paper border about 6 px wide runs around the outer silhouette, like a hand-cut puppet. The WHOLE subject must be fully visible with generous empty margin: nothing may touch or cross the canvas edges — keep at least 8% empty transparent space on every side (left, right, top and bottom). If a transparent background is impossible, make the whole background one flat pure chroma green #00FF00 with no shading, and use no green at all on the subject.
 ```
 
-## 6. IMG-L6 — 공항 출국장 카운터
+## 1. K-ALLEY — 빈 무대 — 밤 도쿄 뒷골목 쓰레기 집적소
 
-**저장 경로: `test/source/kaerieo-tugi-2026-10/images/IMG-L6.jpg`** — JPEG 700KB 이하
-
-크기: 가로 16:9
-
-프롬프트:
+**저장 경로: `test/puppet/K-ALLEY.jpg`** — PNG 투명 700KB 이하 · 가로 1536×1024
 
 ```
-Cinematic digital painting, semi-realistic, night-time Tokyo street light, cool teal shadows with warm sodium-lamp highlights, subtle film grain. 16:9 landscape.
-A bright Japanese international airport departure hall, a small service counter where a traveler seen from behind hands over an empty old suitcase to a staff member, large windows with an airplane outside, clean modern interior; no recognizable faces, no readable signs or logos.
-Keep the counter and the traveler in the central area, at least 8% away from the top and bottom edges. The painting fills the whole frame edge to edge.
-No text, letters, numbers, signs with writing, logos or watermarks anywhere.
+bg
 ```
 
-## 7. THUMB-L — 롱폼 썸네일
+## 2. K-PLATFORM — 빈 무대 — 깨끗한 역 승강장 (쓰레기통 없음)
 
-**저장 경로: `test/source/kaerieo-tugi-2026-10/images/THUMB-L.jpg`** — JPEG 700KB 이하
-
-크기: 가로 16:9 (1280×720) — 롱폼
-
-문구 (그림 속 글자는 이것과 한 글자도 다르면 안 됨):
-
-| 자리 | 문구 | 색 |
-|---|---|---|
-| 그림 꼬리표 | 한 구에서만 1년 290개 | 흰 글자 on 빨강 상자 #FF2A2A — 그림 왼쪽 위 |
-| 그림 말풍선 | 그냥 버리면 안 돼? | 검정 글자 on 노랑 말풍선 #FFD400 — 그림 오른쪽 위 |
-| 하단 1줄 | 깨끗한 일본 길거리에 | '깨끗한' 노랑 #FFD400 · 나머지 흰색 — 모두 두꺼운 검정 외곽선 |
-| 하단 2줄 | 캐리어가 버려지는 이유 | '버려지는 이유' 빨강 #FF2A2A · '캐리어가' 흰색 · 1줄보다 크게 — 모두 두꺼운 검정 외곽선 |
-
-프롬프트:
+**저장 경로: `test/puppet/K-PLATFORM.jpg`** — PNG 투명 700KB 이하 · 가로 1536×1024
 
 ```
-YouTube thumbnail, 16:9 landscape (1280x720). Cinematic digital painting, semi-realistic, very high contrast, dramatic, bold and readable at small size.
-Upper 62% of the frame:
-- Center-right: a tourist in his 30s (fictional, not resembling any real person) standing on a clean Tokyo back street at night next to an old suitcase, holding a brand-new suitcase handle, hand on the back of his head, brows knitted, looking around helplessly for somewhere to throw the old one away; behind him a spotless street with no trash bins and a neat garbage collection point. Cool teal night with warm vending-machine light.
-- Upper left: one bold tag, a solid bright red (#FF2A2A) rounded box with the Korean text "한 구에서만 1년 290개" printed in huge flat heavy bold white letters.
-- Upper right: a bright yellow (#FFD400) speech bubble with the Korean text "그냥 버리면 안 돼?" in heavy bold black letters.
-Bottom title: in the lower third, over a dark band that fades upward from the bottom edge, two lines of huge heavy bold text, left-aligned near the left edge:
-line 1 "깨끗한 일본 길거리에" — '깨끗한' 노랑 #FFD400 ; 나머지 흰색, all with a thick black outline;
-line 2 "캐리어가 버려지는 이유" — '버려지는 이유' 빨강 #FF2A2A ; '캐리어가' 흰색 ; 1줄보다 크게, all with a thick black outline, clearly larger than line 1.
-The second line MUST end at or before 80% of the image width (x ≤ 1024 px of 1280): the right 18% of the width in the bottom 15% of the height must contain no text at all, because YouTube's video length badge covers that corner. If the lines do not fit, make both lines a little smaller rather than letting them run into that corner. Keep the person, the tag and the bubble in the upper part so they never cover the bottom title.
-If 16:9 is not available, use the widest landscape canvas; in any case keep all text inside the central 16:9 area, at least 8% away from the top and bottom edges.
-Render ONLY the Korean text given in quotes, exactly as written with the same letters, spacing, comma, apostrophes and question mark, in a heavy bold sans-serif Korean font. No other text, letters, numbers, watermarks or logos anywhere.
+bg
 ```
 
-## 8. SHORTS-OPEN — 쇼츠 첫 장면 (세 칸 · 문구 포함)
+## 3. K-WARD — 빈 무대 — 구청 민원 창구 홀
 
-**저장 경로: `test/source/kaerieo-tugi-2026-10/images/SHORTS-OPEN.jpg`** — JPEG 700KB 이하
-
-크기: **세로 9:16 (1080×1920) — 쇼츠 · 세 칸 (위 0~36% 순검정 + 문구 2줄 · 가운데 36~72% 그림 · 아래 72~100% 순검정, 글자·꼬리표는 높이 15~85%)**
-
-문구 (그림 속 글자는 이것과 한 글자도 다르면 안 됨):
-
-| 자리 | 문구 | 색 |
-|---|---|---|
-| 위 1줄 | 깨끗한 일본 길거리에 | '깨끗한' 노랑 #FFD400 · 나머지 흰색 — 검정 바탕 위 평면 글자 |
-| 위 2줄 | 버려진 캐리어, 왜? | '버려진 캐리어,' 흰색 · '왜?' 빨강 #FF2A2A — 1줄과 같은 크기 |
-| 그림 꼬리표 | 도시마구 1년 290개 | 흰 글자 on 빨강 상자 #FF2A2A |
-
-프롬프트:
+**저장 경로: `test/puppet/K-WARD.jpg`** — PNG 투명 700KB 이하 · 가로 1536×1024
 
 ```
-Vertical YouTube Shorts opening frame, 9:16 portrait (1080x1920), high contrast.
-LAYOUT — three full-width zones: 0–36% of the height flat solid pure black (#000000) with only the headline; 36–72% one cinematic digital painting edge to edge with straight top and bottom edges; 72–100% flat solid pure black, empty (subtitles will be added there later). No gradient, fade or border between the zones.
-SAFE AREA: some feeds crop to about 4:5 — all text and the word tag stay between 15% and 85% of the height.
-Headline: exactly TWO lines of very large heavy bold Korean text, the same letter size, EACH LINE CENTERED on the same axis, the longer line from about 4% to 96% of the width, the block between about 18% and 33% of the height and at least 3% above the painting; flat letters, no outline, no glow, no 3D.
-line 1 "깨끗한 일본 길거리에" — '깨끗한' 노랑 #FFD400 ; 나머지 흰색;
-line 2 "버려진 캐리어, 왜?" — '버려진 캐리어,' 흰색 ; '왜?' 빨강 #FF2A2A.
-Painting zone (36–72%): Cinematic digital painting, semi-realistic, night-time Tokyo street light, cool teal shadows with warm sodium-lamp highlights, subtle film grain. One abandoned hard-shell suitcase standing alone in front of a clean garbage collection point on a narrow Tokyo back street at night, a plain yellow warning sticker (no writing) on its side, wet asphalt reflecting vending-machine light. No people.
-On the upper left of the painting (about 5–45% of the width, 39–47% of the height): one bold tag, a solid bright red (#FF2A2A) rounded box with the Korean text "도시마구 1년 290개" printed in large flat heavy bold white letters on its flat front face (flat print, not carved or 3D). Keep the right 16% of the width below 45% of the height free of tags (Shorts buttons).
-If 9:16 is not available, use a 2:3 portrait canvas (1024x1536) with the same three zones and keep the headline between 12% and 88% of the width.
-Render ONLY the Korean text given in quotes, exactly as written with the same letters, spacing, comma and question mark, in a heavy bold sans-serif Korean font. No other text, letters, numbers, watermarks or logos anywhere.
+bg
+```
+
+## 4. K-HOTEL — 빈 무대 — 호텔 뒤쪽 짐 보관 창고
+
+**저장 경로: `test/puppet/K-HOTEL.jpg`** — PNG 투명 700KB 이하 · 가로 1536×1024
+
+```
+bg
+```
+
+## 5. K-SUIT-OLD — 버려진 헌 캐리어
+
+**저장 경로: `test/puppet/K-SUIT-OLD.png`** — PNG 투명 700KB 이하 · 가로 1536×1024
+
+```
+sq
+```
+
+## 6. K-WARN — 경고 스티커 (글자 없음)
+
+**저장 경로: `test/puppet/K-WARN.png`** — PNG 투명 700KB 이하 · 가로 1536×1024
+
+```
+sq
+```
+
+## 7. K-TICKET — 대형 쓰레기 처리권 스티커 (글자 없음)
+
+**저장 경로: `test/puppet/K-TICKET.png`** — PNG 투명 700KB 이하 · 가로 1536×1024
+
+```
+sq
+```
+
+## 8. K-TRUCK — 작은 쓰레기 수거차
+
+**저장 경로: `test/puppet/K-TRUCK.png`** — PNG 투명 700KB 이하 · 가로 1536×1024
+
+```
+land
+```
+
+## 9. K-CLERK — 구청 직원 + 책상
+
+**저장 경로: `test/puppet/K-CLERK.png`** — PNG 투명 700KB 이하 · 가로 1536×1024
+
+```
+land
+```
+
+## 10. K-POLICE — 경찰관 (습득물)
+
+**저장 경로: `test/puppet/K-POLICE.png`** — PNG 투명 700KB 이하 · 가로 1536×1024
+
+```
+sq
+```
+
+## 11. K-PILE — 쌓인 캐리어 더미
+
+**저장 경로: `test/puppet/K-PILE.png`** — PNG 투명 700KB 이하 · 가로 1536×1024
+
+```
+land
+```
+
+## 12. K-RESIDENTS — 화난 동네 주민 두 사람
+
+**저장 경로: `test/puppet/K-RESIDENTS.png`** — PNG 투명 700KB 이하 · 가로 1536×1024
+
+```
+land
+```
+
+## 13. K-HOTELIER — 곤란한 호텔 지배인
+
+**저장 경로: `test/puppet/K-HOTELIER.png`** — PNG 투명 700KB 이하 · 가로 1536×1024
+
+```
+sq
+```
+
+## 14. K-TRASHCAN — 역 쓰레기통
+
+**저장 경로: `test/puppet/K-TRASHCAN.png`** — PNG 투명 700KB 이하 · 가로 1536×1024
+
+```
+sq
+```
+
+## 15. K-XRAY — 공항 X선 검사기
+
+**저장 경로: `test/puppet/K-XRAY.png`** — PNG 투명 700KB 이하 · 가로 1536×1024
+
+```
+land
+```
+
+## 16. K-SCREEN — 큰 전광판이 붙은 건물
+
+**저장 경로: `test/puppet/K-SCREEN.png`** — PNG 투명 700KB 이하 · 가로 1536×1024
+
+```
+sq
+```
+
+## 17. K-LEAFLET — 경고 전단 묶음 (글자 없음)
+
+**저장 경로: `test/puppet/K-LEAFLET.png`** — PNG 투명 700KB 이하 · 가로 1536×1024
+
+```
+sq
+```
+
+## 18. K-REPAIR — 캐리어를 고치는 직원 + 작업대
+
+**저장 경로: `test/puppet/K-REPAIR.png`** — PNG 투명 700KB 이하 · 가로 1536×1024
+
+```
+land
+```
+
+## 19. K-LAWBOOK — 법전
+
+**저장 경로: `test/puppet/K-LAWBOOK.png`** — PNG 투명 700KB 이하 · 가로 1536×1024
+
+```
+sq
+```
+
+## 20. K-HANDSHAKE — 협정 — 악수하는 두 사람
+
+**저장 경로: `test/puppet/K-HANDSHAKE.png`** — PNG 투명 700KB 이하 · 가로 1536×1024
+
+```
+land
+```
+
+## 21. THUMB-L-ART — 롱폼 썸네일 그림 (글자 없음 — 문구는 코드)
+
+**저장 경로: `test/source/kaerieo-tugi-2026-10/images/THUMB-L-ART.jpg`** — JPEG 700KB 이하 · 가로 16:9 (1280×720). **그림 안에 글자를 하나도 넣지 않는다.**
+
+```
+YouTube thumbnail background art, 16:9 landscape (1280x720). Cinematic digital painting, semi-realistic, very high contrast, dramatic, readable at small size.
+A spotless, quiet Tokyo backstreet at night, wet pavement reflecting warm street lamps. On the left-center, ONE old scuffed deep indigo suitcase stands abandoned next to a small neighborhood garbage collection spot, a plain yellow warning sticker with NO writing stuck on it. On the right, a young Korean traveler in her 20s (fictional, not resembling any real person) with her own new suitcase stops and looks down at the abandoned one, frowning and puzzled, one hand raised in confusion. Her face is between 58% and 82% of the width and between 15% and 50% of the height.
+KEEP THESE AREAS CALM AND EMPTY (text will be added later by code — no faces or important objects there): the area above and left of her head (40–72% of the width, 0–22% of the height) where a speech bubble from her will be added; the whole bottom 36% of the image, which should be simple dark pavement that gets darker toward the bottom edge.
+ABSOLUTELY NO TEXT anywhere: no letters, no Korean, Japanese or English words, no numbers, no signs with readable writing, no logos, no watermarks, no captions, no speech bubbles, no boxes or labels.
+```
+
+## 22. SHORTS-ART — 쇼츠 첫 장면 가운데 칸 그림 (글자 없음 — 위 문구·말풍선은 코드)
+
+**저장 경로: `test/source/kaerieo-tugi-2026-10/images/SHORTS-ART.jpg`** — JPEG 700KB 이하 · 가로 3:2 (1536×1024). **그림 안에 글자를 하나도 넣지 않는다.**
+
+```
+Landscape 3:2 (1536x1024) cinematic digital painting, semi-realistic, high contrast, a clean Tokyo backstreet at night with warm street lamps and wet reflective pavement. The painting fills the whole canvas edge to edge — no borders, no black bands, no frames.
+In the center, ONE old scuffed deep indigo suitcase stands abandoned beside a small neighborhood garbage collection spot with a folded green net, a plain yellow warning sticker with NO writing on it. On the left, a passer-by (fictional, not resembling any real person) has stopped and leans in to look at it with a worried, suspicious posture.
+Keep the area above the passer-by's head (about 15–85% of the width, 0–28% of the height) calm and simple (dark sky, building tops) — a speech bubble from that passer-by will be added there later by code. Keep the important subjects in the central 70% of the width (the left and right edges may be cropped).
+ABSOLUTELY NO TEXT anywhere: no letters, no Korean, Japanese or English words, no numbers, no signs with readable writing, no logos, no watermarks, no captions, no labels or boxes.
 ```

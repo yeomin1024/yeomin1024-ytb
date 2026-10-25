@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>일본 캐리어 롱폼</title>
+<!-- VERSION: v1.0 — 2026-10-25 — 일본 캐리어 편 롱폼을 종이인형극으로 (일본 면세·축제 편과 같은 방식) — 사용자 지시 2026-10-25 "캐리어도 같은 방식으로 다 영상 소스 다 만들어".
+     · 무대 = video/render/puppet.js (빈 무대 배경 1장 + 오린 종이 인형 투명 PNG, 움직임은 모두 코드).
+       새 그림 test/puppet/K-*.png·jpg 20장 (images_chatgpt.md v2.0 — 골목·승강장·구청·호텔 창고 배경 4 + 헌 캐리어·경고 스티커·처리권·수거차·구청 직원·경찰·캐리어 더미·
+       주민·호텔 지배인·쓰레기통·X선 검사기·전광판·전단·수리 직원·법전·악수 16) + 면세·축제 편 그림 다시 씀(M-AIRPORT·M-STORE·P-PAPER·여행자 인형·새 캐리어·체크인·여권·여객기·돈).
+       그림이 아직 없으면 puppet.js 가 같은 자리에 회색 임시 그림(이름)을 그림 → 배치·움직임만 먼저 점검, 그림이 오면 다시 렌더.
+     · 면세 편과 같게: 왼쪽 위 장 이름표 없음 · 장면이 바뀔 때 0.45초 겹침 · 글자는 무대 위쪽(인형 머리 위) · 장마다 '① ~ ④' 이유 칩.
+     · 일본 지도 = world-atlas 2.0.2 countries-50m (Natural Earth, 퍼블릭 도메인) 일본 윤곽 (면세 편과 같은 자료), 도시 점은 경위도로 찍음.
+     장면 시각 = 실제 오디오 문장 시각(K.S·K.E·K.W) — 손으로 적은 초 없음. 숫자는 대본 숫자만.
+     대본 test/source/kaerieo-tugi-2026-10/kaerieo-tugi-2026-10.txt · 제작안 test/일본_캐리어투기_제작안.txt ·
+     확인표 test/source/kaerieo-tugi-2026-10/checklist.md. 연구·교육용 영상 — 법률 조언 아님. -->
+<link rel="stylesheet" href="../../render/kit.css">
+<style>
+.ts{text-shadow:0 4px 22px rgba(0,0,0,.9),0 2px 6px rgba(0,0,0,.8)}
+.vig{position:absolute;inset:0;pointer-events:none;background:radial-gradient(1250px 760px at 55% 52%,rgba(0,0,0,0) 52%,rgba(0,0,0,.5) 100%)}
+.topshade{position:absolute;left:0;top:0;width:1920px;height:470px;pointer-events:none;background:linear-gradient(180deg,rgba(5,9,18,.62),rgba(5,9,18,0))}
+.chipR,.chipG,.chipY{position:absolute;font-weight:900;font-size:52px;line-height:1;padding:20px 34px;border-radius:999px;white-space:nowrap}
+.chipR{background:rgba(40,8,8,.86);border:4px solid var(--R);color:var(--R)}
+.chipG{background:rgba(6,30,28,.86);border:4px solid var(--G);color:var(--G)}
+.chipY{background:rgba(30,26,4,.86);border:4px dashed var(--Y);color:var(--Y)}
+.tip{position:absolute;padding:20px 44px;border-radius:26px;border:5px solid var(--G);background:rgba(6,30,34,.92);font-weight:900;font-size:56px;line-height:1.2;white-space:nowrap}
+.stampR{position:absolute;font-weight:900;font-size:60px;color:var(--R);border:7px solid var(--R);border-radius:18px;padding:16px 30px;white-space:nowrap;background:rgba(10,16,30,.8)}
+.sig{position:absolute;width:132px;height:132px;border-radius:50%;display:grid;place-items:center;font-weight:900;font-size:86px;line-height:1;border:6px solid #F2E6CF}
+.sig.ok{background:#22C7B0;color:#06231F;box-shadow:0 0 0 14px rgba(34,199,176,.28),0 0 60px rgba(34,199,176,.7)}
+.sig.no{background:#FF4D3D;color:#fff;box-shadow:0 0 0 14px rgba(255,77,61,.28),0 0 60px rgba(255,77,61,.7)}
+.tagP{position:absolute;font-weight:900;font-size:44px;line-height:1;padding:12px 22px;border-radius:14px;background:rgba(10,16,30,.86);border:3px solid rgba(255,255,255,.22);white-space:nowrap}
+.nmA,.nmB{position:absolute;font-weight:900;font-size:48px;line-height:1;padding:12px 26px;border-radius:999px;white-space:nowrap}
+.nmA{background:rgba(6,30,28,.9);border:4px solid var(--G);color:var(--G)}
+.nmB{background:rgba(40,8,8,.9);border:4px solid var(--R);color:var(--R)}
+.scr{position:absolute;font-weight:900;font-size:40px;line-height:1.2;color:#1E2A4A;text-align:center;white-space:nowrap}
+.sum{position:absolute;left:230px;width:1250px;height:96px;border-radius:22px;background:rgba(10,16,30,.72);border:2px solid rgba(255,255,255,.14);display:flex;align-items:center;gap:30px;padding:0 34px}
+.sum .n{font-weight:900;font-size:54px;color:var(--Y);width:50px;text-align:center}
+.sum .t{font-weight:900;font-size:48px;white-space:nowrap}
+.mapl{position:absolute;font-weight:900;font-size:38px;line-height:1;white-space:nowrap;color:#F4F6FA;padding:8px 14px;border-radius:12px;background:rgba(10,16,30,.88);border:2px solid rgba(255,212,0,.6)}
+.qc{position:absolute;width:1440px;left:240px;border-radius:28px;background:rgba(10,16,30,.88);border:2px solid rgba(255,255,255,.16);padding:30px 48px;display:grid;gap:14px}
+.qc .q{font-weight:900;font-size:58px;line-height:1.25;word-break:keep-all}
+.qc .who{font-weight:700;font-size:38px;color:var(--N)}
+.say{position:absolute;font-weight:900;font-size:50px;line-height:1.2;padding:18px 30px;border-radius:26px;background:#F4F6FA;color:#111;white-space:nowrap}
+.say::after{content:"";position:absolute;left:36px;bottom:-26px;border-left:16px solid transparent;border-right:16px solid transparent;border-top:28px solid #F4F6FA}
+.step{position:absolute;font-weight:900;font-size:40px;line-height:1;padding:14px 26px;border-radius:999px;white-space:nowrap;background:rgba(10,16,30,.8);border:3px solid rgba(255,255,255,.2);color:#9AA7BF}
+.step.on{border-color:var(--Y);color:var(--Y);background:rgba(30,26,4,.9)}
+</style>
+</head>
+<body>
+<div id="wrap"><div id="stage"></div></div>
+<div id="ctrl"></div>
+<div id="now"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+<script id="ep-data">/*EP-DATA:BEGIN*/window.EP={"id":"kaerieo-tugi-2026-10","topic":"test","duration":314.56,"audio":"../../../test/source/kaerieo-tugi-2026-10/narration.mp3","thumb":null,"synced":"2026-10-25T10:18:38Z","tts":"2026-10-21T05:11:59","script_sha1":"a619166eae3426bd","sent":[{"n":1,"part":"도입","text":"지난 9월 15일, 도쿄 이케부쿠로의 한 쓰레기 집적소 앞.","start":0.3,"end":3.945},{"n":2,"part":"도입","text":"주인 없는 캐리어 하나가 놓여 있었습니다.","start":4.325,"end":6.49},{"n":3,"part":"도입","text":"구청은 경고 스티커를 붙이고 주인을 기다렸습니다.","start":6.87,"end":9.79},{"n":4,"part":"도입","text":"하지만 일주일이 지나도 주인은 나타나지 않았고, 캐리어는 결국 대형 쓰레기로 수거됐습니다.","start":10.17,"end":15.493},{"n":5,"part":"도입","text":"이케부쿠로가 있는 곳은 도쿄 도시마구입니다.","start":15.873,"end":18.623},{"n":6,"part":"도입","text":"이곳에서만 지난해 이렇게 버려진 캐리어가 약 290개 나왔습니다.","start":19.003,"end":23.334},{"n":7,"part":"도입","text":"도쿄 경찰에 습득물로 들어온 캐리어도 지난해 약 4,600개였습니다.","start":23.714,"end":27.961},{"n":8,"part":"도입","text":"3년 전의 1.8배예요.","start":28.341,"end":29.941},{"n":9,"part":"도입","text":"잃어버린 가방도 섞인 숫자지만, 약 70%는 끝내 주인이 찾아가지 않았습니다.","start":30.321,"end":35.644},{"n":10,"part":"도입","text":"깨끗하기로 유명한 일본에서, 왜 이런 일이 벌어지는 걸까요?","start":36.024,"end":39.951},{"n":11,"part":"도입","text":"그냥 쓰레기로 버리면 되는 것 아닐까요?","start":40.331,"end":42.872},{"n":12,"part":"도입","text":"결론부터 말하면, 구청의 대형 쓰레기 제도는 주민을 위한 것입니다.","start":43.252,"end":47.572},{"n":13,"part":"도입","text":"그래서 여행자는 버릴 곳을 따로 찾아야 하죠.","start":47.952,"end":50.382},{"n":14,"part":"도입","text":"왜 그런지 네 가지 이유로 알아보겠습니다.","start":50.762,"end":53.182},{"n":15,"part":"첫째, 일본에서 새로 산 캐리어","text":"첫 번째 이유는 여행객이 일본에서 캐리어를 새로 사기 때문입니다.","start":54.182,"end":57.921},{"n":16,"part":"첫째, 일본에서 새로 산 캐리어","text":"도시마구는 엔화 약세로 싸고 튼튼한 일본산 캐리어를 사는 여행객이 늘었다고 봅니다.","start":58.301,"end":63.44},{"n":17,"part":"첫째, 일본에서 새로 산 캐리어","text":"기념품 때문에 더 큰 가방으로 바꾸는 경우도 있을 것으로 보고 있고요.","start":63.82,"end":67.827},{"n":18,"part":"첫째, 일본에서 새로 산 캐리어","text":"그러면 원래 가져온 가방이 남게 되죠.","start":68.207,"end":70.382},{"n":19,"part":"첫째, 일본에서 새로 산 캐리어","text":"공항에서도 주인 없는 캐리어가 늘고 있습니다.","start":70.762,"end":73.337},{"n":20,"part":"첫째, 일본에서 새로 산 캐리어","text":"나리타공항에서 나온 캐리어는 지난해 1,200개가 넘었습니다.","start":73.717,"end":77.446},{"n":21,"part":"첫째, 일본에서 새로 산 캐리어","text":"도쿄신문은 이 가운데 약 90%가 주인을 찾지 못하고 폐기된다고 전했습니다.","start":77.826,"end":83.036},{"n":22,"part":"첫째, 일본에서 새로 산 캐리어","text":"그렇다면 남은 가방은 왜 제대로 버리지 못하는 걸까요?","start":83.416,"end":86.654},{"n":23,"part":"둘째, 대형 쓰레기는 주민 전용","text":"두 번째 이유는 일본의 대형 쓰레기 제도입니다.","start":87.654,"end":90.488},{"n":24,"part":"둘째, 대형 쓰레기는 주민 전용","text":"도쿄의 구들은 보통 한 변이 30센티미터를 넘는 물건을 대형 쓰레기로 분류합니다.","start":90.868,"end":95.868},{"n":25,"part":"둘째, 대형 쓰레기는 주민 전용","text":"캐리어도 여기에 들어가죠.","start":96.248,"end":97.688},{"n":26,"part":"둘째, 대형 쓰레기는 주민 전용","text":"대형 쓰레기를 버리려면 미리 수거 신청을 하고, 처리권 스티커를 사서 붙여야 합니다.","start":98.068,"end":103.158},{"n":27,"part":"둘째, 대형 쓰레기는 주민 전용","text":"신주쿠구의 경우 캐리어 한 개에 400엔이에요.","start":103.538,"end":106.228},{"n":28,"part":"둘째, 대형 쓰레기는 주민 전용","text":"비싸지 않아 보이지만, 결정적인 조건이 있습니다.","start":106.608,"end":109.63},{"n":29,"part":"둘째, 대형 쓰레기는 주민 전용","text":"이 제도는 그 구에 사는 주민을 위한 제도라는 겁니다.","start":110.01,"end":113.214},{"n":30,"part":"둘째, 대형 쓰레기는 주민 전용","text":"구 담당자도 일본 언론에 외국인 여행자를 위한 제도는 생각하지 않았다고 말했습니다.","start":113.594,"end":118.884},{"n":31,"part":"둘째, 대형 쓰레기는 주민 전용","text":"그래서 여행자는 민간 수거 업체나 공항 서비스 같은 다른 방법을 따로 찾아야 합니다.","start":119.264,"end":124.651},{"n":32,"part":"둘째, 대형 쓰레기는 주민 전용","text":"그럼 묵었던 호텔에 두고 가면 어떨까요?","start":125.031,"end":127.526},{"n":33,"part":"셋째, 호텔도 돈이 든다","text":"세 번째 이유는 호텔도 곤란하다는 점입니다.","start":128.526,"end":131.215},{"n":34,"part":"셋째, 호텔도 돈이 든다","text":"손님이 두고 간 물건은 사업장 쓰레기로 분류됩니다.","start":131.595,"end":134.685},{"n":35,"part":"셋째, 호텔도 돈이 든다","text":"그래서 호텔이 허가받은 업체에 돈을 내고 처리해야 합니다.","start":135.065,"end":138.129},{"n":36,"part":"셋째, 호텔도 돈이 든다","text":"오사카의 한 호텔에는 한 해 200개 넘는 캐리어가 버려집니다.","start":138.509,"end":142.187},{"n":37,"part":"셋째, 호텔도 돈이 든다","text":"처리비로만 1년에 15만 엔이 든다고 했습니다.","start":142.567,"end":145.147},{"n":38,"part":"셋째, 호텔도 돈이 든다","text":"삿포로의 한 호텔 지배인도 보관할 공간이 없고 처리비가 꽤 든다고 말했습니다.","start":145.527,"end":150.346},{"n":39,"part":"셋째, 호텔도 돈이 든다","text":"호텔 입장에서도 비용 부담인 겁니다.","start":150.726,"end":152.93},{"n":40,"part":"넷째, 쓰레기통 없는 나라","text":"네 번째 이유는 일본 길거리에 쓰레기통이 드물다는 점입니다.","start":153.93,"end":157.447},{"n":41,"part":"넷째, 쓰레기통 없는 나라","text":"흔히 꼽히는 이유는 1995년 도쿄 지하철 사린 사건입니다.","start":157.827,"end":161.907},{"n":42,"part":"넷째, 쓰레기통 없는 나라","text":"그 뒤로 역의 쓰레기통이 크게 줄었다는 겁니다.","start":162.287,"end":164.837},{"n":43,"part":"넷째, 쓰레기통 없는 나라","text":"다만 사린 사건이 직접 원인인지는 일본 안에서도 의견이 갈립니다.","start":165.217,"end":169.239},{"n":44,"part":"넷째, 쓰레기통 없는 나라","text":"일본 관광청 조사에서도 외국인 관광객이 꼽은 불편 1위가 '쓰레기통 부족'이었습니다.","start":169.619,"end":175.159},{"n":45,"part":"넷째, 쓰레기통 없는 나라","text":"작은 쓰레기도 버릴 곳이 마땅치 않은데, 캐리어처럼 큰 물건은 더 어렵습니다.","start":175.539,"end":180.489},{"n":46,"part":"다른 목소리","text":"그렇다면 버릴 곳을 찾기 어려우니, 길에 두고 가도 괜찮은 걸까요?","start":181.489,"end":185.539},{"n":47,"part":"다른 목소리","text":"현지에서는 전혀 다른 이야기가 나옵니다.","start":185.919,"end":188.229},{"n":48,"part":"현지 반응","text":"현지 주민들의 반응부터 보겠습니다.","start":189.229,"end":191.169},{"n":49,"part":"현지 반응","text":"\"화가 납니다\", \"몇 년 사이 50개 넘게 봤다\"는 말이 나왔습니다.","start":191.549,"end":195.169},{"n":50,"part":"현지 반응","text":"\"내용물을 몰라 무섭다\", \"폭발물인 줄 알았다\"는 반응도 있었습니다.","start":195.549,"end":199.769},{"n":51,"part":"현지 반응","text":"실제로 주인 없는 가방은 유실물로 일정 기간 보관해야 하거든요.","start":200.149,"end":203.862},{"n":52,"part":"현지 반응","text":"주부공항은 위험물인지 확인하려고 그때마다 X선 검사를 한다고 밝혔습니다.","start":204.242,"end":209.164},{"n":53,"part":"현지 반응","text":"도시마구에선 이렇게 버려진 캐리어를 구청이 세금으로 수거하고 있습니다.","start":209.544,"end":213.522},{"n":54,"part":"현지 반응","text":"게다가 길에 버리는 건 엄연한 불법입니다.","start":213.902,"end":216.392},{"n":55,"part":"현지 반응","text":"일본 폐기물처리법은 쓰레기 무단 투기를 금지합니다.","start":216.772,"end":220.135},{"n":56,"part":"현지 반응","text":"어기면 5년 이하 구금형이나 1,000만 엔 이하 벌금, 또는 둘 다 받을 수 있습니다.","start":220.515,"end":225.525},{"n":57,"part":"현지 반응","text":"다만 이 문제를 외국인 관광객만의 탓으로 단정할 수는 없습니다.","start":225.905,"end":229.81},{"n":58,"part":"현지 반응","text":"주부공항에서 이 혐의로 처음 적발된 사람은 일본인 남성이었습니다.","start":230.19,"end":234.539},{"n":59,"part":"현지 반응","text":"그리고 지금, 일본 지자체들은 실제로 대책을 내놓기 시작했습니다.","start":234.919,"end":239.111},{"n":60,"part":"실제로 바뀐 것","text":"도시마구는 올해 7월, 캐리어 재활용 업체 두 곳과 협정을 맺었습니다.","start":240.111,"end":244.781},{"n":61,"part":"실제로 바뀐 것","text":"여러 나라 말로 된 경고 전단을 만들고, 이케부쿠로의 대형 전광판으로도 경고하고 있습니다.","start":245.161,"end":250.437},{"n":62,"part":"실제로 바뀐 것","text":"캐리어 투기를 막는 조례도 검토하고 있어요.","start":250.817,"end":253.3},{"n":63,"part":"실제로 바뀐 것","text":"삿포로는 올해 6월부터 호텔에 남은 캐리어를 거둬 고친 뒤 다시 파는 방식을 시작했습니다.","start":253.68,"end":259.15},{"n":64,"part":"실제로 바뀐 것","text":"그럼 여행 중에 캐리어를 바꿨다면, 헌 가방은 어떻게 해야 할까요?","start":259.53,"end":263.73},{"n":65,"part":"실제로 바뀐 것","text":"간사이공항은 2018년부터 헌 캐리어를 무료로 받는 재사용 서비스를 운영하고 있습니다.","start":264.11,"end":269.72},{"n":66,"part":"실제로 바뀐 것","text":"항공권과 여권을 보여 주고, 소유권 포기서에 서명하면 돼요.","start":270.1,"end":274.04},{"n":67,"part":"실제로 바뀐 것","text":"주부공항은 1,200엔에 받아 주고, 2,200엔에 수거해 가는 민간 업체도 있습니다.","start":274.42,"end":279.246},{"n":68,"part":"실제로 바뀐 것","text":"떠나기 전에 이용할 공항이나 숙소에 먼저 물어보는 게 가장 확실합니다.","start":279.626,"end":283.743},{"n":69,"part":"정리","text":"자, 마지막으로 오늘 내용을 정리하겠습니다.","start":284.743,"end":287.629},{"n":70,"part":"정리","text":"일본에서 새 캐리어를 사는 여행객은 늘었는데, 구청의 대형 쓰레기 제도는 주민용입니다.","start":288.009,"end":293.448},{"n":71,"part":"정리","text":"호텔은 처리비가 들고, 길거리엔 쓰레기통도 드뭅니다.","start":293.828,"end":297.368},{"n":72,"part":"정리","text":"그렇다고 길에 두고 가면 불법이고, 수거 비용은 세금으로 나갑니다.","start":297.748,"end":301.713},{"n":73,"part":"정리","text":"공항이나 민간 업체처럼 여행자가 쓸 수 있는 방법도 있습니다.","start":302.093,"end":305.873},{"n":74,"part":"정리","text":"일본 여행에서 캐리어를 바꾼다면, 헌 가방을 처리할 방법부터 먼저 확인해 두세요.","start":306.253,"end":311.253},{"n":75,"part":"정리","text":"시청해주셔서 감사합니다.","start":311.633,"end":313.163}],"subs":[[0.2,4.325,"지난 9월 15일, 도쿄 이케부쿠로의 한 쓰레기 집적소 앞."],[4.325,6.87,"주인 없는 캐리어 하나가 놓여 있었습니다."],[6.87,10.17,"구청은 경고 스티커를 붙이고 주인을 기다렸습니다."],[10.17,15.873,"하지만 일주일이 지나도 주인은 나타나지 않았고,\n캐리어는 결국 대형 쓰레기로 수거됐습니다."],[15.873,19.003,"이케부쿠로가 있는 곳은 도쿄 도시마구입니다."],[19.003,23.714,"이곳에서만 지난해 이렇게 버려진 캐리어가 약 290개 나왔습니다."],[23.714,28.341,"도쿄 경찰에 습득물로 들어온 캐리어도 지난해 약 4,600개였습니다."],[28.341,30.321,"3년 전의 1.8배예요."],[30.321,36.024,"잃어버린 가방도 섞인 숫자지만,\n약 70%는 끝내 주인이 찾아가지 않았습니다."],[36.024,40.331,"깨끗하기로 유명한 일본에서, 왜 이런 일이 벌어지는 걸까요?"],[40.331,43.252,"그냥 쓰레기로 버리면 되는 것 아닐까요?"],[43.252,47.952,"결론부터 말하면, 구청의 대형 쓰레기 제도는 주민을 위한 것입니다."],[47.952,50.762,"그래서 여행자는 버릴 곳을 따로 찾아야 하죠."],[50.762,54.182,"왜 그런지 네 가지 이유로 알아보겠습니다."],[54.182,58.301,"첫 번째 이유는 여행객이 일본에서 캐리어를 새로 사기 때문입니다."],[58.301,63.82,"도시마구는 엔화 약세로 싸고\n튼튼한 일본산 캐리어를 사는 여행객이 늘었다고 봅니다."],[63.82,68.207,"기념품 때문에 더 큰 가방으로 바꾸는 경우도 있을 것으로 보고 있고요."],[68.207,70.762,"그러면 원래 가져온 가방이 남게 되죠."],[70.762,73.717,"공항에서도 주인 없는 캐리어가 늘고 있습니다."],[73.717,77.826,"나리타공항에서 나온 캐리어는 지난해 1,200개가 넘었습니다."],[77.826,83.416,"도쿄신문은 이 가운데 약 90%가 주인을 찾지 못하고\n폐기된다고 전했습니다."],[83.416,87.654,"그렇다면 남은 가방은 왜 제대로 버리지 못하는 걸까요?"],[87.654,90.868,"두 번째 이유는 일본의 대형 쓰레기 제도입니다."],[90.868,96.248,"도쿄의 구들은 보통 한 변이 30센티미터를\n넘는 물건을 대형 쓰레기로 분류합니다."],[96.248,98.068,"캐리어도 여기에 들어가죠."],[98.068,103.538,"대형 쓰레기를 버리려면 미리 수거 신청을 하고,\n처리권 스티커를 사서 붙여야 합니다."],[103.538,106.608,"신주쿠구의 경우 캐리어 한 개에 400엔이에요."],[106.608,110.01,"비싸지 않아 보이지만, 결정적인 조건이 있습니다."],[110.01,113.594,"이 제도는 그 구에 사는 주민을 위한 제도라는 겁니다."],[113.594,119.264,"구 담당자도 일본 언론에 외국인 여행자를 위한 제도는\n생각하지 않았다고 말했습니다."],[119.264,125.031,"그래서 여행자는 민간 수거 업체나 공항\n서비스 같은 다른 방법을 따로 찾아야 합니다."],[125.031,128.526,"그럼 묵었던 호텔에 두고 가면 어떨까요?"],[128.526,131.595,"세 번째 이유는 호텔도 곤란하다는 점입니다."],[131.595,135.065,"손님이 두고 간 물건은 사업장 쓰레기로 분류됩니다."],[135.065,138.509,"그래서 호텔이 허가받은 업체에 돈을 내고 처리해야 합니다."],[138.509,142.567,"오사카의 한 호텔에는 한 해 200개 넘는 캐리어가 버려집니다."],[142.567,145.527,"처리비로만 1년에 15만 엔이 든다고 했습니다."],[145.527,150.726,"삿포로의 한 호텔 지배인도 보관할 공간이 없고\n처리비가 꽤 든다고 말했습니다."],[150.726,153.93,"호텔 입장에서도 비용 부담인 겁니다."],[153.93,157.827,"네 번째 이유는 일본 길거리에 쓰레기통이 드물다는 점입니다."],[157.827,162.287,"흔히 꼽히는 이유는 1995년 도쿄 지하철 사린 사건입니다."],[162.287,165.217,"그 뒤로 역의 쓰레기통이 크게 줄었다는 겁니다."],[165.217,169.619,"다만 사린 사건이 직접 원인인지는 일본 안에서도 의견이 갈립니다."],[169.619,175.539,"일본 관광청 조사에서도 외국인 관광객이 꼽은\n불편 1위가 '쓰레기통 부족'이었습니다."],[175.539,181.489,"작은 쓰레기도 버릴 곳이 마땅치 않은데,\n캐리어처럼 큰 물건은 더 어렵습니다."],[181.489,185.919,"그렇다면 버릴 곳을 찾기 어려우니, 길에 두고 가도 괜찮은 걸까요?"],[185.919,189.229,"현지에서는 전혀 다른 이야기가 나옵니다."],[189.229,191.549,"현지 주민들의 반응부터 보겠습니다."],[191.549,195.549,"\"화가 납니다\", \"몇 년 사이 50개 넘게 봤다\"는 말이 나왔습니다."],[195.549,200.149,"\"내용물을 몰라 무섭다\", \"폭발물인 줄 알았다\"는 반응도 있었습니다."],[200.149,204.242,"실제로 주인 없는 가방은 유실물로 일정 기간 보관해야 하거든요."],[204.242,209.544,"주부공항은 위험물인지 확인하려고\n그때마다 X선 검사를 한다고 밝혔습니다."],[209.544,213.902,"도시마구에선 이렇게 버려진 캐리어를\n구청이 세금으로 수거하고 있습니다."],[213.902,216.772,"게다가 길에 버리는 건 엄연한 불법입니다."],[216.772,220.515,"일본 폐기물처리법은 쓰레기 무단 투기를 금지합니다."],[220.515,225.905,"어기면 5년 이하 구금형이나 1,000만 엔 이하 벌금,\n또는 둘 다 받을 수 있습니다."],[225.905,230.19,"다만 이 문제를 외국인 관광객만의 탓으로 단정할 수는 없습니다."],[230.19,234.919,"주부공항에서 이 혐의로 처음 적발된 사람은 일본인 남성이었습니다."],[234.919,240.111,"그리고 지금, 일본 지자체들은 실제로 대책을 내놓기 시작했습니다."],[240.111,245.161,"도시마구는 올해 7월, 캐리어 재활용 업체 두 곳과 협정을 맺었습니다."],[245.161,250.817,"여러 나라 말로 된 경고 전단을 만들고,\n이케부쿠로의 대형 전광판으로도 경고하고 있습니다."],[250.817,253.68,"캐리어 투기를 막는 조례도 검토하고 있어요."],[253.68,259.53,"삿포로는 올해 6월부터 호텔에 남은 캐리어를\n거둬 고친 뒤 다시 파는 방식을 시작했습니다."],[259.53,264.11,"그럼 여행 중에 캐리어를 바꿨다면, 헌 가방은 어떻게 해야 할까요?"],[264.11,270.1,"간사이공항은 2018년부터 헌 캐리어를 무료로\n받는 재사용 서비스를 운영하고 있습니다."],[270.1,274.42,"항공권과 여권을 보여 주고, 소유권 포기서에 서명하면 돼요."],[274.42,279.626,"주부공항은 1,200엔에 받아 주고,\n2,200엔에 수거해 가는 민간 업체도 있습니다."],[279.626,284.743,"떠나기 전에 이용할 공항이나 숙소에\n먼저 물어보는 게 가장 확실합니다."],[284.743,288.009,"자, 마지막으로 오늘 내용을 정리하겠습니다."],[288.009,293.828,"일본에서 새 캐리어를 사는 여행객은 늘었는데,\n구청의 대형 쓰레기 제도는 주민용입니다."],[293.828,297.748,"호텔은 처리비가 들고, 길거리엔 쓰레기통도 드뭅니다."],[297.748,302.093,"그렇다고 길에 두고 가면 불법이고, 수거 비용은 세금으로 나갑니다."],[302.093,306.253,"공항이나 민간 업체처럼 여행자가 쓸 수 있는 방법도 있습니다."],[306.253,311.633,"일본 여행에서 캐리어를 바꾼다면,\n헌 가방을 처리할 방법부터 먼저 확인해 두세요."],[311.633,313.563,"시청해주셔서 감사합니다."]]};/*EP-DATA:END*/</script>
+<script src="../../render/kit.js"></script>
+<script src="../../render/puppet.js"></script>
+<script>
+(function () {
+"use strict";
+K.init(window.EP, { chip: false });              // 축제 편과 같음: 왼쪽 위 장 이름표 없음
+const { S, E, W, el, pop } = K;
+const out = (n, at) => K.out(n, at, { y: 0 });   // 위쪽 글자는 제자리에서 사라짐 (화면 위로 빠지지 않게)
+const { sm, seg, lin, lerp, q12 } = Puppet.u;
+const R = "#FF4D3D", G = "#22C7B0", Y = "#FFD400", N = "#9AA7BF";
+const until = n => S(n) - 0.05;
+const ch = n => S(n) - 0.65;                     // 장이 바뀌는 문장: 앞 장 끝 쉼(1초) 안에서 바뀜
+const V3 = (x, y, z) => new THREE.Vector3(x, y, z);
+const JP = {"w": 1000, "h": 1314, "d": "M325 624L322 627L318 626L315 622L316 618L321 615L325 622L325 624ZM587 519L582 519L580 519L583 517L583 514L585 509L585 508L581 508L582 502L585 497L593 488L595 487L595 491L593 499L592 502L599 503L594 514L587 519ZM407 749L401 754L396 754L394 752L393 749L398 744L402 737L405 734L408 732L411 732L406 742L407 749ZM180 1011L174 1012L171 1011L168 1003L173 998L181 1003L183 1004L180 1011ZM198 1002L193 1003L193 999L197 990L197 984L201 976L202 975L203 974L204 976L203 986L200 993L198 1002ZM152 883L148 885L147 883L145 882L148 879L148 877L146 875L148 867L148 864L156 863L158 866L158 876L152 883ZM109 760L106 762L104 758L106 747L112 749L112 753L109 760ZM115 745L114 748L110 746L109 744L112 734L112 730L112 728L119 723L120 724L120 725L119 728L120 733L115 741L115 745ZM77 847L79 849L82 847L85 847L86 848L88 853L89 855L85 856L84 856L82 860L79 858L77 857L76 855L77 847ZM167 870L163 871L161 870L160 868L167 864L172 864L169 868L167 870ZM730 30L728 35L725 28L725 22L726 22L729 23L730 26L730 30ZM742 44L738 45L734 42L733 39L737 36L740 37L743 40L744 42L742 44ZM646 242L645 242L644 242L643 237L644 234L647 232L650 232L648 241L646 242ZM99 843L97 844L96 838L95 836L97 835L101 824L101 828L103 832L104 833L103 836L101 837L99 843ZM121 818L117 821L114 821L117 818L117 816L119 811L123 809L125 809L122 814L121 818ZM267 771L269 774L275 773L276 773L274 775L272 778L267 776L264 776L263 772L264 771L267 771ZM875 109L882 110L885 110L889 110L910 120L916 122L922 122L926 121L930 118L942 106L955 95L956 96L956 99L955 102L950 112L943 126L942 132L944 139L948 145L951 152L955 163L960 164L962 164L968 161L972 157L976 156L981 157L975 160L970 163L965 170L963 171L958 170L955 171L949 173L943 176L938 180L933 182L927 183L917 186L911 186L900 183L895 184L883 190L872 199L862 208L854 220L851 226L849 233L849 237L848 242L846 245L844 247L837 246L827 240L806 230L784 217L771 210L748 212L726 225L724 224L715 215L711 211L706 210L702 210L699 211L694 215L692 219L691 223L690 225L691 228L696 234L702 239L704 240L710 239L712 240L722 249L732 257L734 260L731 263L726 264L721 264L717 263L708 259L705 262L699 269L696 275L694 279L688 283L681 285L678 284L676 281L674 278L673 275L675 267L678 260L679 253L677 243L675 241L668 235L665 229L664 222L665 218L666 209L668 205L671 204L674 203L680 200L685 196L691 191L696 185L699 179L695 171L694 167L694 162L699 160L704 162L715 168L717 169L724 169L734 170L739 170L742 169L746 164L748 157L747 149L747 140L750 134L758 122L760 116L761 100L764 93L766 86L767 70L764 56L761 49L757 42L758 35L761 29L761 28L761 26L767 25L770 23L773 21L776 19L778 21L780 23L788 31L801 44L816 64L825 74L835 82L847 91L859 99L866 103L871 109L875 109ZM209 794L216 795L219 796L222 795L226 792L231 790L234 791L237 794L238 797L237 800L232 807L228 815L238 816L247 816L245 821L245 825L248 827L250 830L249 832L248 834L253 838L253 840L251 843L238 859L235 867L232 877L230 883L228 890L227 898L224 905L225 912L224 919L218 936L213 936L207 934L204 934L202 938L205 946L195 956L184 962L183 959L184 957L186 955L187 953L189 945L188 938L185 929L184 925L187 924L188 924L189 922L189 919L188 917L185 916L182 916L180 920L177 926L175 933L176 937L177 940L181 945L180 949L178 951L164 946L161 945L158 944L155 936L161 934L163 934L163 931L164 924L162 918L159 915L157 913L159 908L158 901L158 892L159 890L164 888L168 884L172 878L177 868L181 858L177 857L174 855L177 850L176 844L171 836L167 827L162 823L160 821L157 823L154 826L156 832L156 837L157 842L159 843L162 841L165 842L166 845L166 849L165 852L163 854L160 854L158 852L155 849L150 848L145 851L140 857L135 861L137 856L138 851L136 847L131 841L130 837L130 833L130 829L136 834L138 840L142 842L147 842L143 833L142 831L137 827L130 821L125 817L127 810L130 809L132 809L139 812L140 808L139 806L138 804L143 801L151 799L153 798L154 795L156 794L162 794L167 791L170 785L171 781L173 778L183 773L185 772L191 773L198 776L201 782L203 789L209 794ZM377 751L384 754L391 753L391 765L392 769L394 772L393 778L397 779L387 785L378 793L374 798L371 804L369 810L367 817L364 814L356 804L350 801L341 799L339 799L320 809L318 816L313 827L311 831L308 832L306 834L304 843L298 849L295 849L289 847L286 848L290 839L284 838L279 838L279 832L275 829L278 824L278 821L279 819L280 816L280 814L276 813L274 811L274 805L272 804L267 806L257 811L254 811L259 807L268 802L272 799L281 792L286 788L289 781L290 777L292 774L294 768L297 766L302 761L305 762L308 768L312 772L315 772L321 770L324 769L330 769L336 767L338 763L339 759L337 752L340 753L342 752L349 748L355 745L362 744L369 747L377 751ZM738 288L740 289L750 286L748 296L747 306L748 323L749 330L751 338L755 343L760 347L768 358L773 373L776 380L778 387L778 391L778 394L778 399L779 403L778 414L774 428L774 435L771 437L769 440L767 441L765 442L763 443L761 444L760 448L759 451L757 454L755 458L754 466L753 475L751 481L746 483L740 483L732 485L730 487L724 498L723 504L723 511L724 519L727 527L728 542L726 565L725 572L721 577L718 580L715 582L712 590L707 605L706 609L706 612L705 618L704 623L705 628L706 634L714 648L717 652L720 655L707 660L705 661L698 669L695 677L696 685L694 688L692 691L690 693L682 696L677 700L672 706L670 709L666 708L663 705L665 702L665 698L666 687L665 683L669 680L671 675L675 671L678 667L679 665L676 661L673 659L669 659L665 660L663 663L662 667L662 669L661 670L655 676L656 682L658 685L660 686L659 688L657 693L655 693L651 687L646 683L640 683L634 685L630 689L628 693L627 696L627 705L626 713L622 720L620 722L616 727L612 727L610 725L609 722L611 711L611 704L616 701L612 696L606 695L599 697L597 700L595 703L591 708L587 713L582 720L578 729L567 726L561 725L555 726L544 725L533 726L519 730L520 727L531 722L531 720L530 717L528 717L521 718L518 718L516 715L514 713L512 715L513 721L511 722L509 720L510 715L508 708L508 704L510 700L508 699L505 699L502 701L500 704L493 716L491 723L496 729L508 737L509 739L510 743L508 747L505 748L492 751L481 756L477 761L467 782L459 796L447 801L434 797L431 792L429 786L424 780L420 774L417 767L418 756L416 749L418 747L425 743L427 741L431 735L432 732L432 727L429 725L421 725L413 727L407 725L399 719L397 718L389 718L383 719L377 721L371 721L369 722L362 729L356 733L351 735L341 736L336 737L330 740L329 740L323 743L316 745L313 748L306 746L293 751L287 752L281 749L275 745L269 747L265 753L263 766L261 771L260 778L257 777L240 765L239 764L225 766L221 767L217 770L212 771L208 769L204 766L200 767L196 769L194 751L195 748L198 745L200 742L207 741L214 742L219 741L223 737L227 732L232 728L239 724L245 720L251 715L256 709L261 705L266 701L274 692L285 683L289 675L292 673L301 669L313 666L319 666L325 673L328 672L331 670L338 669L344 670L351 670L357 670L369 667L376 665L382 662L404 659L420 654L422 654L425 656L425 660L423 664L425 667L428 668L442 669L446 670L452 667L458 663L464 658L468 653L464 646L464 638L467 630L471 623L477 619L482 614L492 600L500 589L503 576L501 560L508 548L514 546L526 540L533 538L534 541L533 544L524 554L518 558L515 560L512 561L511 565L515 571L517 575L516 579L517 583L522 587L529 589L531 589L534 587L541 577L543 576L564 568L574 563L580 561L585 558L597 547L602 542L606 536L609 529L612 522L615 518L634 507L640 501L642 498L645 490L646 481L648 475L652 468L656 462L660 456L663 450L667 436L669 427L670 425L673 422L674 419L676 416L676 412L677 402L677 394L673 387L671 385L668 385L664 385L660 383L661 380L665 380L667 378L669 376L672 368L674 360L674 357L672 350L670 343L670 338L672 334L675 330L678 329L681 328L684 327L687 325L688 322L691 316L692 312L690 302L692 299L694 297L697 299L700 299L703 299L707 300L707 302L709 319L711 322L713 323L716 323L718 320L720 317L723 316L733 320L736 317L738 313L740 306L739 299L737 296L735 297L732 299L730 300L716 303L716 296L719 285L721 281L723 279L729 281L732 283L738 288ZM56 1246L51 1249L49 1252L44 1253L40 1258L35 1259L35 1263L37 1267L34 1267L31 1271L31 1275L32 1277L32 1278L28 1282L24 1282L24 1278L24 1275L28 1268L28 1260L31 1259L33 1258L38 1252L39 1249L36 1247L36 1244L37 1243L42 1244L44 1246L45 1246L47 1245L48 1242L54 1236L56 1231L60 1235L58 1241L56 1246ZM95 1176L92 1177L90 1176L89 1168L90 1165L92 1164L94 1170L96 1173L95 1176ZM119 1144L114 1150L109 1145L103 1142L106 1141L108 1140L108 1138L112 1135L119 1132L122 1132L124 1130L125 1128L126 1127L131 1124L132 1127L132 1130L129 1131L125 1134L122 1139L119 1140L118 1141L119 1144Z", "ap": {"나리타": [694.4, 652.4], "하네다": [662.1, 666.9], "간사이": [423.4, 739.4], "주부": [505.5, 711.8], "후쿠오카": [171.1, 794.6], "신치토세": [762.7, 196.8], "나하": [23.5, 1275.4]}};
+
+// ---------- 글자 부품 ----------
+const T = (sc, x, y, html, size, cls) => el(`<div class="a cx c nw ts ${cls || "w9"}" style="left:${x}px;top:${y}px;font-size:${size}px">${html}</div>`, sc);
+const chip = (sc, cx, top, html, kind) => el(`<div class="a cx chip${kind || "Y"}" style="left:${cx}px;top:${top}px">${html}</div>`, sc);
+const mistake = (sc, html, at, top) => { const c = chip(sc, 960, top == null ? 40 : top, html, "R"); pop(c, at); return c; };
+const ORD = ["", "첫", "두", "세", "네"];
+const tipCard = (sc, n, html, at, top) => { const c = el(`<div class="a cx tip" style="left:960px;top:${top == null ? 40 : top}px"><span class="G">${ORD[n]} 번째</span> · ${html}</div>`, sc); pop(c, at, { from: { scale: 0.8, y: 0 } }); return c; };
+const show = (n, a, b) => { pop(n, a); if (b != null) out(n, b); return n; };
+// 네 가지 이유 칩 (위쪽 가운데) — on = 지금 이유
+const WHY = ["① 새 캐리어", "② 주민용 제도", "③ 호텔 비용", "④ 쓰레기통 없음"];
+function whys(sc, on, at, top) {
+  const xs = [420, 780, 1140, 1500];
+  WHY.forEach((s, i) => pop(el(`<div class="a cx step${i === on ? " on" : ""}" style="left:${xs[i]}px;top:${top == null ? 34 : top}px">${s}</div>`, sc), at + 0.06 * i));
+}
+const chapCard = (sc, n, html, at, top) => { const c = el(`<div class="a cx tip" style="left:960px;top:${top == null ? 110 : top}px;border-color:var(--Y)"><span class="Y">${ORD[n]} 번째 이유</span> · ${html}</div>`, sc); pop(c, at, { from: { scale: 0.8, y: 0 } }); return c; };
+// 인용 카드
+const quote = (sc, top, q, who) => el(`<div class="qc" style="top:${top}px"><div class="q">${q}</div>${who ? `<div class="who">${who}</div>` : ""}</div>`, sc);
+// 점 10개 (n 개를 색칠) — 비율 그림
+function dots(sc, cx, top, n, color, at, lab) {
+  const g = el(`<div class="a cx" style="left:${cx}px;top:${top}px;display:flex;gap:18px"></div>`, sc);
+  for (let i = 0; i < 10; i++) el(`<div style="width:62px;height:62px;border-radius:50%;background:${i < n ? color : "rgba(255,255,255,.18)"};border:4px solid rgba(255,255,255,.35)"></div>`, g);
+  pop(g, at, { from: { scale: 0.9, y: 0 } });
+  if (lab) pop(el(`<div class="a cx c w9 nw ts" style="left:${cx}px;top:${top + 84}px;font-size:46px">${lab}</div>`, sc), at + 0.3);
+  return g;
+}
+// 막대 두 개 (높이 비율) — 3년 전 vs 지난해
+function bars2(sc, x0, base, h1, h2, at1, at2, l1, l2, c2) {
+  K.vbar(sc, x0, base, 200, h1, N, at1, 0.8);
+  pop(el(`<div class="a cx c w7 nw ts" style="left:${x0 + 100}px;top:${base + 18}px;font-size:40px">${l1}</div>`, sc), at1);
+  K.vbar(sc, x0 + 300, base, 200, h2, c2 || R, at2, 0.9);
+  pop(el(`<div class="a cx c w7 nw ts" style="left:${x0 + 400}px;top:${base + 18}px;font-size:40px">${l2}</div>`, sc), at2);
+}
+// 일본 지도 위 도시 점 (경위도 → 지도 좌표, jpmap.py 와 같은 투영)
+const LL = (lon, lat) => [(lon - 127.2) / 19 * JP.w, (45.8 - lat) / 20.2 * JP.h];
+const bigClock = (sc, cx, top, t, color, at, size) => { const c = el(`<div class="a cx c w9 nw ts" style="left:${cx}px;top:${top}px;font-size:${size || 90}px;line-height:1;color:${color || "#F4F6FA"}">${t}</div>`, sc); pop(c, at, { from: { scale: 1.3, y: 0 } }); return c; };
+
+// ---------- 종이인형 무대 ----------
+const ST = Puppet.stage({ dir: "../../../test/puppet/", files: {
+  PAPER: { f: "P-PAPER.jpg", kind: "bg" }, AIR: { f: "M-AIRPORT.jpg", kind: "bg" }, STORE: { f: "M-STORE.jpg", kind: "bg" },
+  ALLEY: { f: "K-ALLEY.jpg", kind: "bg" }, PLAT: { f: "K-PLATFORM.jpg", kind: "bg" }, WARD: { f: "K-WARD.jpg", kind: "bg" }, HOTEL: { f: "K-HOTEL.jpg", kind: "bg" },
+  YOU_W: { f: "M-YOU-WALK.png", kind: "sq" }, YOU_P: { f: "M-YOU-PHONE.png", kind: "sq" }, YOU_T: { f: "M-YOU-TIRED.png", kind: "sq" },
+  NEW: { f: "M-SUITCASE.png", kind: "sq" }, CHECKIN: { f: "M-CHECKIN.png" }, PASS: { f: "M-PASSPORT.png", kind: "sq" }, PLANE: { f: "M-PLANE.png" }, MONEY: { f: "M-MONEY.png", kind: "sq" },
+  OLD: { f: "K-SUIT-OLD.png", kind: "sq" }, WARN: { f: "K-WARN.png", kind: "sq" }, TICKET: { f: "K-TICKET.png", kind: "sq" }, TRUCK: { f: "K-TRUCK.png" },
+  CLERK: { f: "K-CLERK.png" }, POLICE: { f: "K-POLICE.png", kind: "sq" }, PILE: { f: "K-PILE.png" }, RESID: { f: "K-RESIDENTS.png" },
+  HOTELIER: { f: "K-HOTELIER.png", kind: "sq" }, BIN: { f: "K-TRASHCAN.png", kind: "sq" }, XRAY: { f: "K-XRAY.png" }, SCREEN: { f: "K-SCREEN.png", kind: "sq" },
+  LEAF: { f: "K-LEAFLET.png", kind: "sq" }, REPAIR: { f: "K-REPAIR.png" }, LAW: { f: "K-LAWBOOK.png", kind: "sq" }, SHAKE: { f: "K-HANDSHAKE.png" } } });
+el(`<div class="vig"></div>`);
+el(`<div class="topshade"></div>`);
+const BGO = { AIR: { v: 0.64, y: 1.28 }, STORE: { v: 0.72, y: 0.8, w: 60 }, PAPER: { v: 0.5, y: 3.34 },
+  ALLEY: { v: 0.66, y: 1.2 }, PLAT: { v: 0.66, y: 1.2 }, WARD: { v: 0.66, y: 1.2 }, HOTEL: { v: 0.66, y: 1.2 } };
+const bgOf = (st, key) => st.bg(key, BGO[key]);
+const WARM = new THREE.Color(0xffffff), DARK = new THREE.Color(0x7d8299);
+const act = (st, key, o) => { const a = st.actor(key, o); a.crop = o.crop || ST.get(key).info.bbox; return a; };
+const uvW = (a, u, v) => { a.g.updateMatrixWorld(true); const c = a.crop; return a.g.localToWorld(V3(((u - c[0]) / (c[2] - c[0]) - a.anchor[0]) * a.wd, (a.anchor[1] - (v - c[1]) / (c[3] - c[1])) * a.ht, 0)); };
+const topV = (key, u) => { const i = ST.get(key).info, x = Math.round(u * i.w); for (let y = 0; y < i.h; y += 2) if (i.A(x, y) > 40) return y / i.h; return 1; };
+const walk = (a, t, t0, t1, dx) => { const k = lin(t, t0, t1); a.op = t < t0 - 0.02 ? 0 : 1; a.g.position.x = a.home.x + dx * (1 - k); if (k > 0 && k < 1) a.g.position.y = a.home.y + 0.1 * Math.abs(Math.sin(q12(t) * Math.PI * 2.2)); return a; };
+const idle = (a, t, ph) => { a.g.rotation.z = 0.012 * Math.sin(q12(t) * Math.PI * 1.3 + (ph || 0)); return a; };
+const showFrom = (a, t, t0, t1) => { if (t < t0 || (t1 != null && t >= t1)) a.op = 0; return a; };
+const goTo = (a, t, t0, t1, x) => { const k = sm(lin(t, t0, t1)); a.g.position.x = lerp(a.home.x, x, k); if (k > 0 && k < 1) a.g.position.y = a.home.y + 0.1 * Math.abs(Math.sin(q12(t) * Math.PI * 2.2)); return a; };
+// DOM 을 인형 자리에 붙임 (렌더 뒤 투영)
+const FOL = [];
+function stick(set, node, at, center) { gsap.set(node, { xPercent: -50, yPercent: center ? -50 : -100 }); FOL.push({ set, node, at }); return node; }
+ST.after(t => {
+  for (const f of FOL) {
+    const v = f.set.built && f.set.fadeAt(t) > 0.001 ? f.at(t) : null;
+    if (!v) { f.node.style.display = "none"; continue; }
+    const [x, y] = ST.project(v);
+    f.node.style.display = ""; f.node.style.left = x.toFixed(1) + "px"; f.node.style.top = y.toFixed(1) + "px";
+  }
+});
+const signal = (set, sc, a, ok, at, end) => { const n = stick(set, el(`<div class="sig ${ok ? "ok" : "no"}">${ok ? "✓" : "!"}</div>`, sc), () => { const x = a(); return x && x.op > 0.01 ? x.top(0.45) : null; }); pop(n, at, { from: { scale: 0.3, y: 0 } }); if (end) out(n, end); return n; };
+const tagOn = (set, sc, a, html, at, end, cls, dy) => { const n = stick(set, el(`<div class="tagP ${cls || ""}">${html}</div>`, sc), () => { const x = a(); return x && x.op > 0.01 ? x.top(dy == null ? 0.3 : dy) : null; }); pop(n, at); if (end) out(n, end); return n; };
+// 이름표: 인형 머리 위 'A씨'(청록) · 'B씨'(빨강)
+const nm = (set, sc, a, who, at, end, extra) => { const n = stick(set, el(`<div class="nm${who}">${who}씨${extra || ""}</div>`, sc), () => { const x = a(); return x && x.op > 0.01 ? x.top(0.35) : null; }); pop(n, at); if (end) out(n, end); return n; };
+
+K.chapters([
+  { part: "도입", tag: "도입", title: "버려진 캐리어" },
+  { part: "첫째, 일본에서 새로 산 캐리어", tag: "①", title: "새로 산 캐리어", dots: [1, 4] },
+  { part: "둘째, 대형 쓰레기는 주민 전용", tag: "②", title: "대형 쓰레기 = 주민용", dots: [2, 4] },
+  { part: "셋째, 호텔도 돈이 든다", tag: "③", title: "호텔도 돈이 든다", dots: [3, 4] },
+  { part: "넷째, 쓰레기통 없는 나라", tag: "④", title: "쓰레기통 없는 나라", dots: [4, 4] },
+  { part: "다른 목소리", tag: "?", title: "다른 목소리" },
+  { part: "현지 반응", tag: "반응", title: "현지 반응" },
+  { part: "실제로 바뀐 것", tag: "대책", title: "실제로 바뀐 것" },
+  { part: "정리", tag: "정리", title: "정리" },
+]);
+
+/* ═════════════ 도입 ═════════════ */
+/* A1. 9월 15일 이케부쿠로 집적소 앞 · 주인 없는 캐리어 → 경고 스티커 → 일주일 → 대형 쓰레기로 수거 (문장 1~4) */
+{
+  const a = 0, b = until(5);
+  const sc = K.scene(a, b);
+  let SU, WA, TR;
+  const tTruck = W(4, "대형"), tLift = tTruck + 1.0;
+  const s = ST.set(a, b, st => {
+    bgOf(st, "ALLEY");
+    SU = act(st, "OLD", { h: 2.6, at: [1.6, 0, 0.6] }).ro(4);
+    WA = act(st, "WARN", { h: 1.0, anchor: [0.5, 0.5], at: [1.6, 1.3, 0.9] }).ro(5);
+    TR = act(st, "TRUCK", { h: 3.4, at: [6.4, 0, -0.2] }).ro(3);
+  }, { cam: (t) => { const k = sm(lin(t, 0, S(3))); return { pos: [lerp(0.6, 1.2, k), 3.6, lerp(25, 22, k)], look: [lerp(0.6, 1.2, k), 3.34, 0] }; } });
+  s.update = t => {
+    SU.pop(t, W(2, "캐리어"), 0.45); WA.pop(t, W(3, "경고"), 0.4);
+    TR.op = t < tTruck - 0.05 ? 0 : 1; TR.slide(t, tTruck, 0.9, 12);
+    const k = sm(lin(t, tLift, tLift + 0.9));                                       // 수거차 뒤로 들려 들어감
+    if (k > 0) { [SU, WA].forEach(o => { o.g.position.x = lerp(o.home.x, 4.6, k); o.g.position.y = o.home.y + Math.sin(Math.PI * k) * 1.2; }); SU.hide(t, tLift + 0.7, 0.3); WA.hide(t, tLift + 0.7, 0.3); }
+  };
+  pop(T(sc, 960, 50, `<span class="Y">9월 15일</span> · 도쿄 이케부쿠로`, 84), 0.3);
+  pop(T(sc, 960, 165, `쓰레기 집적소 앞`, 56, "w7"), W(1, "쓰레기"));
+  show(T(sc, 960, 250, `주인 없는 캐리어 하나`, 60), S(2) + 0.05, S(3) - 0.15);
+  show(T(sc, 960, 250, `구청 · <span class="Y">경고 스티커</span> → 주인을 기다림`, 58), S(3) + 0.05, S(4) - 0.15);
+  show(T(sc, 960, 250, `일주일이 지나도 주인 <span class="R">✕</span>`, 60), S(4) + 0.05, tTruck - 0.1);
+  pop(T(sc, 960, 250, `→ <span class="R">대형 쓰레기</span>로 수거`, 64), tTruck);
+  K.cut(E(2) - 0.1, "A1 주인 없는 캐리어");
+  K.cut(E(3) - 0.1, "A1 경고 스티커");
+  K.cut(E(4) - 0.2, "A1 수거차");
+}
+/* A2. 도쿄 도시마구 (지도) → 지난해 약 290개 (문장 5~6) */
+{
+  const a = until(5), b = until(7);
+  const sc = K.scene(a, b);
+  let PI;
+  const s = ST.set(a, b, st => { bgOf(st, "PAPER"); PI = act(st, "PILE", { h: 3.2, at: [-6.6, 0, 0.5] }).ro(4); });
+  s.update = t => { PI.pop(t, W(6, "290"), 0.5); };
+  const MH = 760, MW = MH * JP.w / JP.h, ML = 1880 - MW - 30, MT = 70, k = MH / JP.h;
+  pop(el(`<svg class="a" viewBox="0 0 ${JP.w} ${JP.h}" width="${MW}" height="${MH}" style="left:${ML}px;top:${MT}px" aria-hidden="true"><path d="${JP.d}" fill="#F2E6CF" fill-opacity=".92" stroke="#D9A441" stroke-width="4" stroke-linejoin="round"/></svg>`, sc), S(5), { from: { scale: 0.9, y: 0 } });
+  const [tx_, ty_] = LL(139.71, 35.73);
+  pop(el(`<div class="a" style="left:${ML + tx_ * k - 18}px;top:${MT + ty_ * k - 18}px;width:36px;height:36px;border-radius:50%;background:${R};border:5px solid #F2E6CF;box-shadow:0 0 0 10px rgba(255,77,61,.3)"></div>`, sc), W(5, "도시마구"), { from: { scale: 0.2, y: 0 } });
+  pop(el(`<div class="mapl ts" style="left:${ML + tx_ * k - 330}px;top:${MT + ty_ * k + 30}px;font-size:44px">도쿄 도시마구 (이케부쿠로)</div>`, sc), W(5, "도시마구") + 0.1);
+  pop(T(sc, 560, 70, `이곳에서만 · 지난해`, 60), S(6) + 0.05);
+  pop(T(sc, 560, 160, `약 <span class="R">290개</span>`, 120), W(6, "290"), { from: { scale: 1.3, y: 0 } });
+  pop(T(sc, 560, 320, `버려진 캐리어`, 50, "w7"), W(6, "290") + 0.3);
+  K.cut(E(5) - 0.1, "A2 도시마구");
+  K.cut(E(6) - 0.1, "A2 약 290개");
+}
+/* A3. 도쿄 경찰 습득 캐리어 약 4,600개 · 3년 전의 1.8배 (문장 7~8) */
+{
+  const a = until(7), b = until(9);
+  const sc = K.scene(a, b);
+  let PO, PI;
+  const s = ST.set(a, b, st => { bgOf(st, "PAPER"); PO = act(st, "POLICE", { h: 4.2, at: [-8.2, 0, 0.6] }).ro(4); PI = act(st, "PILE", { h: 2.4, at: [-5.0, 0, 0.3] }).ro(3); });
+  s.update = t => { idle(PO, t); PI.pop(t, S(7) + 0.4, 0.45); };
+  pop(T(sc, 960, 50, `도쿄 경찰 · 습득물로 들어온 캐리어`, 60), S(7) + 0.05);
+  pop(T(sc, 1250, 150, `지난해 약 <span class="Y">4,600개</span>`, 90), W(7, "4,600"), { from: { scale: 1.3, y: 0 } });
+  bars2(sc, 950, 760, 200, 360, S(8) + 0.05, W(8, "1.8"), "3년 전", "지난해", Y);
+  pop(T(sc, 1600, 430, `<span class="R">1.8배</span>`, 96), W(8, "1.8") + 0.4, { from: { scale: 1.4, y: 0 } });
+  K.cut(E(7) - 0.1, "A3 약 4,600개");
+  K.cut(E(8) - 0.1, "A3 1.8배");
+}
+/* A3b. 잃어버린 가방도 섞인 숫자 · 약 70% 주인이 안 찾아감 (문장 9) */
+{
+  const a = until(9), b = until(10);
+  const sc = K.scene(a, b);
+  let PO;
+  const s = ST.set(a, b, st => { bgOf(st, "PAPER"); PO = act(st, "POLICE", { h: 4.2, at: [-8.2, 0, 0.6] }).ro(4); });
+  s.update = t => idle(PO, t);
+  pop(T(sc, 1080, 120, `잃어버린 가방도 섞인 숫자지만`, 54, "w7"), S(9) + 0.05);
+  dots(sc, 1080, 300, 7, N, W(9, "70%") - 0.2, `약 <span class="Y">70%</span> · 끝내 주인이 안 찾아감`);
+  K.cut(E(9) - 0.1, "A3b 약 70%");
+}
+/* A4. 깨끗하기로 유명한 일본에서 왜? → 그냥 버리면? (문장 10~11) */
+{
+  const a = until(10), b = until(12);
+  const sc = K.scene(a, b);
+  let SU, P;
+  const s = ST.set(a, b, st => { bgOf(st, "PLAT"); SU = act(st, "OLD", { h: 2.6, at: [0.6, 0, 0.6] }).ro(4); P = act(st, "YOU_P", { h: 4.3, at: [-3.6, 0, 0.6] }).ro(4); });
+  s.update = t => { SU.pop(t, S(10) + 0.2, 0.45); showFrom(P, t, S(11)); idle(P, t); };
+  pop(T(sc, 960, 50, `깨끗하기로 유명한 일본에서 <span class="Y">왜?</span>`, 76), S(10) + 0.05);
+  const q = el(`<div class="say" style="left:520px;top:230px">그냥 쓰레기로 버리면 되지 않나?</div>`, sc); pop(q, S(11) + 0.05);
+  K.cut(E(10) - 0.1, "A4 깨끗한 일본에서 왜?");
+  K.cut(E(11) - 0.1, "A4 그냥 버리면?");
+}
+/* A5. 결론: 구청 대형 쓰레기 = 주민용 → 여행자는 따로 → 네 가지 이유 (문장 12~14) */
+{
+  const a = until(12), b = ch(15);
+  const sc = K.scene(a, b);
+  let CL, P, SU;
+  const s = ST.set(a, b, st => { bgOf(st, "WARD"); CL = act(st, "CLERK", { h: 3.4, at: [3.2, 0, -0.2] }).ro(2); P = act(st, "YOU_T", { h: 4.3, at: [-3.8, 0, 0.6] }).ro(4); SU = act(st, "OLD", { h: 2.2, at: [-1.8, 0, 0.8] }).ro(5); });
+  s.update = t => { idle(CL, t); showFrom(P, t, S(13)); showFrom(SU, t, S(13)); walk(P, t, S(13), S(13) + 1.2, -6); walk(SU, t, S(13), S(13) + 1.2, -6); };
+  pop(T(sc, 960, 120, `결론부터 · 구청 대형 쓰레기 제도 = <span class="Y">주민용</span>`, 62), S(12) + 0.05);
+  pop(T(sc, 960, 220, `여행자 → 버릴 곳을 <span class="R">따로</span> 찾아야`, 60), S(13) + 0.05);
+  whys(sc, -1, S(14) + 0.05);
+  K.cut(E(12) - 0.1, "A5 결론 주민용");
+  K.cut(E(14) - 0.1, "A5 네 가지 이유");
+}
+
+/* ═════════════ ① 일본에서 새로 산 캐리어 ═════════════ */
+/* B1. 새로 사는 여행객 · 엔화 약세 → 싸고 튼튼한 일본산 · 기념품 → 더 큰 가방 → 헌 가방이 남음 (문장 15~18) */
+{
+  const a = ch(15), b = until(19);
+  const sc = K.scene(a, b);
+  let NW, OL, PP, PW;
+  const tGo = S(18) + 0.2;
+  const s = ST.set(a, b, st => { bgOf(st, "STORE"); NW = act(st, "NEW", { h: 2.6, at: [2.6, 0, 0.4] }).ro(4); OL = act(st, "OLD", { h: 2.2, at: [-2.4, 0, 0.8] }).ro(5); PP = act(st, "YOU_P", { h: 4.3, at: [-0.4, 0, 0.6] }).ro(4); PW = act(st, "YOU_W", { h: 4.3, at: [0.2, 0, 0.6] }).ro(4); });
+  s.update = t => {
+    NW.pop(t, W(15, "새로"), 0.45); idle(PP, t);
+    showFrom(PP, t, -1, tGo); showFrom(NW, t, -1, tGo); showFrom(PW, t, tGo);                 // 새 캐리어를 끌고 나감 → 헌 가방만 남음
+    if (t >= tGo) PW.g.position.x = PW.home.x + 12 * Math.pow(lin(t, tGo, tGo + 1.8), 1.6);
+  };
+  whys(sc, 0, a + 0.1);
+  chapCard(sc, 1, `일본에서 <span class="Y">새로 산 캐리어</span>`, S(15) + 0.05);
+  show(T(sc, 960, 230, `도시마구 판단 · 엔화 약세 → <span class="Y">싸고 튼튼한 일본산</span>`, 54), S(16) + 0.05, S(18) - 0.15);
+  show(T(sc, 960, 320, `기념품 → <span class="Y">더 큰 가방</span>으로 (추정)`, 52), S(17) + 0.05, S(18) - 0.15);
+  tagOn(s, sc, () => OL, `원래 가방 → <span class="R">남음</span>`, S(18) + 0.3, null, "", 0.3);
+  K.cut(E(16) - 0.1, "B1 엔화 약세 일본산");
+  K.cut(E(17) - 0.1, "B1 더 큰 가방");
+  K.cut(E(18) - 0.1, "B1 헌 가방이 남음");
+}
+/* B2. 공항에서도 ↑ · 나리타 지난해 1,200개+ · 약 90% 폐기 · 왜 못 버릴까? (문장 19~22) */
+{
+  const a = until(19), b = ch(23);
+  const sc = K.scene(a, b);
+  let PI, PL;
+  const s = ST.set(a, b, st => { bgOf(st, "AIR"); PI = act(st, "PILE", { h: 3.4, at: [-4.4, 0, 0.4] }).ro(4); PL = act(st, "PLANE", { h: 1.6, at: [5.0, 5.2, -2] }); });
+  s.update = t => { PI.pop(t, S(19) + 0.2, 0.5); PL.g.position.x = lerp(-14, 14, lin(t, S(19), S(20) + 1)); };
+  whys(sc, 0, a + 0.05);
+  show(T(sc, 960, 120, `공항에서도 주인 없는 캐리어 <span class="R">↑</span>`, 62), S(19) + 0.05, S(20) - 0.15);
+  pop(T(sc, 960, 120, `나리타공항 · 지난해 <span class="R">1,200개 넘게</span>`, 68), S(20) + 0.05);
+  dots(sc, 1250, 300, 9, R, S(21) + 0.1, `약 <span class="R">90%</span> · 주인 못 찾고 폐기 <span class="N" style="font-size:36px">(도쿄신문)</span>`);
+  pop(T(sc, 1250, 500, `남은 가방 · <span class="Y">왜 제대로 못 버릴까?</span>`, 56), S(22) + 0.05);
+  K.cut(E(20) - 0.1, "B2 나리타 1,200개+");
+  K.cut(E(22) - 0.1, "B2 약 90% · 왜?");
+}
+
+/* ═════════════ ② 대형 쓰레기는 주민 전용 ═════════════ */
+/* C1. 한 변 30cm 넘으면 대형 쓰레기 · 캐리어도 → 수거 신청 + 처리권 스티커 · 신주쿠구 400엔 (문장 23~27) */
+{
+  const a = ch(23), b = until(28);
+  const sc = K.scene(a, b);
+  let SU, TK, CL;
+  const s = ST.set(a, b, st => { bgOf(st, "WARD"); SU = act(st, "OLD", { h: 3.0, at: [-2.4, 0, 0.6] }).ro(4); TK = act(st, "TICKET", { h: 0.9, anchor: [0.5, 0.5], at: [-2.4, 1.6, 0.9] }).ro(5); CL = act(st, "CLERK", { h: 3.2, at: [4.0, 0, -0.2] }).ro(2); });
+  s.update = t => { SU.pop(t, S(24), 0.45); showFrom(CL, t, S(26)); CL.slide(t, S(26), 0.6, 10); TK.pop(t, W(26, "처리권"), 0.4); };
+  whys(sc, 1, a + 0.05);
+  chapCard(sc, 2, `대형 쓰레기는 <span class="Y">주민 전용</span>`, S(23) + 0.05);
+  const ruler = stick(s, el(`<div style="width:8px;height:260px;border-left:6px dashed ${Y}"></div>`, sc), () => (SU && SU.op > 0.01 ? V3(SU.home.x - 1.6, SU.home.y + 1.5, 0.8) : null), true);
+  pop(ruler, W(24, "30"));
+  tagOn(s, sc, () => SU, `한 변 <span class="Y">30cm</span> 넘으면 = 대형 쓰레기`, W(24, "30"), S(26) - 0.15, "", 0.25);
+  show(T(sc, 960, 230, `캐리어도 <span class="G">대형 쓰레기</span>`, 58), S(25) + 0.05, S(26) - 0.15);
+  pop(T(sc, 960, 230, `미리 <span class="Y">수거 신청</span> → <span class="Y">처리권 스티커</span> 사서 붙이기`, 54), S(26) + 0.05);
+  pop(T(sc, 960, 320, `신주쿠구 · 캐리어 1개 <span class="Y">400엔</span>`, 64), W(27, "400"), { from: { scale: 1.3, y: 0 } });
+  K.cut(E(25) - 0.1, "C1 30cm · 캐리어도");
+  K.cut(E(27) - 0.1, "C1 처리권 400엔");
+}
+/* C2. 결정적 조건 = 그 구에 사는 주민 · 구 담당자 말 → 여행자는 민간 업체 · 공항 서비스를 따로 (문장 28~31) */
+{
+  const a = until(28), b = until(32);
+  const sc = K.scene(a, b);
+  let CL, P, SU;
+  const s = ST.set(a, b, st => { bgOf(st, "WARD"); CL = act(st, "CLERK", { h: 3.2, at: [4.0, 0, -0.2] }).ro(2); P = act(st, "YOU_T", { h: 4.3, at: [-3.4, 0, 0.6] }).ro(4); SU = act(st, "OLD", { h: 2.2, at: [-1.4, 0, 0.8] }).ro(5); });
+  s.update = t => { idle(CL, t); idle(P, t, 1); };
+  whys(sc, 1, a + 0.05);
+  show(T(sc, 960, 130, `비싸지 않아 보여도 · <span class="Y">결정적인 조건</span>`, 62), S(28) + 0.05, S(29) - 0.15);
+  show(T(sc, 960, 130, `<span class="Y">그 구에 사는 주민</span>을 위한 제도`, 72), S(29) + 0.05, S(30) - 0.15);
+  tagOn(s, sc, () => P, `여행자 <span class="R">✕</span>`, S(29) + 0.4, S(31) - 0.15, "", 0.3);
+  const qq = quote(sc, 120, `“외국인 여행자를 위한 제도는 생각하지 않았다”`, `구 담당자 · 일본 언론`); show(qq, S(30) + 0.05, S(31) - 0.15);
+  pop(T(sc, 960, 130, `여행자 → <span class="Y">민간 수거 업체 · 공항 서비스</span>를 따로`, 58), S(31) + 0.05);
+  K.cut(E(29) - 0.1, "C2 그 구 주민용");
+  K.cut(E(30) - 0.1, "C2 구 담당자");
+  K.cut(E(31) - 0.1, "C2 여행자는 따로");
+}
+
+/* ═════════════ ③ 호텔도 돈이 든다 ═════════════ */
+/* D1. 호텔에 두고 가면? → 사업장 쓰레기 → 허가 업체에 돈 내고 처리 (문장 32~35) */
+{
+  const a = until(32), b = until(36);
+  const sc = K.scene(a, b);
+  let HO, SU, TR, MO;
+  const s = ST.set(a, b, st => { bgOf(st, "HOTEL"); HO = act(st, "HOTELIER", { h: 4.3, at: [3.0, 0, 0.6] }).ro(4); SU = act(st, "OLD", { h: 2.4, at: [-1.0, 0, 0.7] }).ro(5); TR = act(st, "TRUCK", { h: 3.0, at: [-6.4, 0, -0.4] }).ro(2); MO = act(st, "MONEY", { h: 1.2, at: [-4.2, 3.1, 0.9] }).ro(6); });
+  s.update = t => { SU.pop(t, S(32) + 0.2, 0.45); showFrom(HO, t, S(33)); idle(HO, t); TR.op = t < S(35) ? 0 : 1; TR.slide(t, S(35), 0.8, -12); MO.pop(t, W(35, "돈을"), 0.4); };
+  show(T(sc, 960, 120, `그럼 <span class="Y">묵었던 호텔</span>에 두고 가면?`, 68), S(32) + 0.05, S(33) - 0.15);
+  whys(sc, 2, S(33) - 0.1);
+  chapCard(sc, 3, `호텔도 <span class="Y">돈이 든다</span>`, S(33) + 0.05);
+  pop(T(sc, 960, 230, `손님이 두고 간 물건 = <span class="Y">사업장 쓰레기</span>`, 56), S(34) + 0.05);
+  pop(T(sc, 960, 320, `허가받은 업체에 <span class="R">돈 내고</span> 처리`, 56), S(35) + 0.05);
+  K.cut(E(32) - 0.1, "D1 호텔에 두고 가면?");
+  K.cut(E(35) - 0.1, "D1 사업장 쓰레기 · 돈");
+}
+/* D2. 오사카 한 호텔 1년 200개+ · 처리비 15만 엔 · 삿포로 지배인 말 · 비용 부담 (문장 36~39) */
+{
+  const a = until(36), b = ch(40);
+  const sc = K.scene(a, b);
+  let HO, PI;
+  const s = ST.set(a, b, st => { bgOf(st, "HOTEL"); PI = act(st, "PILE", { h: 3.4, at: [-3.4, 0, 0.2] }).ro(3); HO = act(st, "HOTELIER", { h: 4.3, at: [3.4, 0, 0.6] }).ro(4); });
+  s.update = t => { PI.pop(t, S(36) + 0.2, 0.5); idle(HO, t); };
+  whys(sc, 2, a + 0.05);
+  show(T(sc, 960, 120, `오사카 한 호텔 · 한 해 <span class="R">200개 넘게</span>`, 70), S(36) + 0.05, S(38) - 0.15);
+  show(T(sc, 960, 230, `처리비만 1년 <span class="R">15만 엔</span>`, 76), W(37, "15만"), S(38) - 0.15);
+  const qq = quote(sc, 120, `“보관할 공간이 없고 처리비가 꽤 든다”`, `삿포로 한 호텔 지배인`); show(qq, S(38) + 0.05, S(39) - 0.15);
+  pop(T(sc, 960, 130, `호텔 입장에서도 <span class="R">비용 부담</span>`, 70), S(39) + 0.05);
+  K.cut(E(37) - 0.1, "D2 200개 · 15만 엔");
+  K.cut(E(38) - 0.1, "D2 삿포로 지배인");
+}
+
+/* ═════════════ ④ 쓰레기통 없는 나라 ═════════════ */
+/* E1. 길거리 쓰레기통 드묾 · 1995년 사린 사건이 흔히 꼽힘 → 역 쓰레기통 줄어듦 · 직접 원인인지 의견 갈림 (문장 40~43) */
+{
+  const a = ch(40), b = until(44);
+  const sc = K.scene(a, b);
+  let BI;
+  const s = ST.set(a, b, st => { bgOf(st, "PLAT"); BI = act(st, "BIN", { h: 3.0, at: [0, 0, 0.5] }).ro(4); });
+  s.update = t => { BI.pop(t, S(40) + 0.3, 0.45); BI.hide(t, W(42, "쓰레기통이"), 0.6); };
+  whys(sc, 3, a + 0.1);
+  chapCard(sc, 4, `일본 길거리엔 <span class="Y">쓰레기통이 드묾</span>`, S(40) + 0.05);
+  show(T(sc, 960, 230, `흔히 꼽는 이유 · <span class="Y">1995년</span> 도쿄 지하철 사린 사건`, 54), S(41) + 0.05, S(43) - 0.15);
+  show(T(sc, 960, 320, `그 뒤 역 쓰레기통이 <span class="R">크게 줄었다</span>`, 56), S(42) + 0.05, S(43) - 0.15);
+  pop(T(sc, 960, 230, `직접 원인인지는 · 일본 안에서도 <span class="Y">의견이 갈림</span>`, 56), S(43) + 0.05);
+  K.cut(E(42) - 0.1, "E1 사린 사건 · 쓰레기통 줄어듦");
+  K.cut(E(43) - 0.1, "E1 의견이 갈림");
+}
+/* E2. 관광청 조사 불편 1위 = 쓰레기통 부족 · 작은 쓰레기도 어려운데 캐리어는 더 (문장 44~45) */
+{
+  const a = until(44), b = ch(46);
+  const sc = K.scene(a, b);
+  let SU, P;
+  const s = ST.set(a, b, st => { bgOf(st, "PLAT"); P = act(st, "YOU_T", { h: 4.3, at: [-3.0, 0, 0.6] }).ro(4); SU = act(st, "OLD", { h: 2.6, at: [-0.6, 0, 0.8] }).ro(5); });
+  s.update = t => { idle(P, t); SU.op = t < W(45, "캐리어처럼") ? 0 : 1; SU.pop(t, W(45, "캐리어처럼"), 0.5); };
+  whys(sc, 3, a + 0.05);
+  show(T(sc, 960, 120, `일본 관광청 조사 · 외국인 관광객 불편`, 56), S(44) + 0.05, S(45) - 0.15);
+  show(T(sc, 960, 210, `<span class="R">1위</span> = 쓰레기통 부족`, 90), W(44, "1위"), S(45) - 0.15);
+  show(T(sc, 960, 130, `작은 쓰레기도 버릴 곳이 마땅치 않은데`, 56), S(45) + 0.05);
+  pop(T(sc, 960, 230, `캐리어처럼 큰 물건은 <span class="R">더 어려움</span>`, 64), W(45, "캐리어처럼"));
+  K.cut(E(44) - 0.1, "E2 불편 1위");
+  K.cut(E(45) - 0.1, "E2 캐리어는 더");
+}
+
+/* ═════════════ 다른 목소리 ═════════════ */
+{
+  const a = ch(46), b = ch(48);
+  const sc = K.scene(a, b);
+  let SU;
+  const s = ST.set(a, b, st => { bgOf(st, "ALLEY"); SU = act(st, "OLD", { h: 2.8, at: [0.4, 0, 0.6] }).ro(4); }, { cam: (t) => { const k = sm(lin(t, a, b)); return { pos: [0.4, 3.4, lerp(24, 18, k)], look: [0.4, 2.6, 0] }; } });
+  s.update = t => { s.tint.copy(WARM).lerp(DARK, 0.6); };
+  pop(T(sc, 960, 120, `그럼 길에 두고 가도 <span class="Y">괜찮을까?</span>`, 76), S(46) + 0.05);
+  pop(T(sc, 960, 240, `현지에선 <span class="R">전혀 다른 이야기</span>`, 64), S(47) + 0.05);
+  K.cut(E(47) - 0.1, "F 다른 이야기");
+}
+
+/* ═════════════ 현지 반응 ═════════════ */
+/* G1. 주민 반응 4개 (문장 48~50) */
+{
+  const a = ch(48), b = until(51);
+  const sc = K.scene(a, b);
+  let RS, SU;
+  const s = ST.set(a, b, st => { bgOf(st, "ALLEY"); RS = act(st, "RESID", { h: 4.2, at: [-3.6, 0, 0.6] }).ro(4); SU = act(st, "OLD", { h: 2.6, at: [3.4, 0, 0.6] }).ro(4); });
+  s.update = t => { idle(RS, t); RS.slide(t, a + 0.1, 0.7, -10); };
+  pop(T(sc, 960, 50, `현지 주민들의 반응`, 64, "w9 Y"), S(48) + 0.05);
+  const q1 = el(`<div class="say" style="left:220px;top:170px">“화가 납니다”</div>`, sc); show(q1, W(49, "화가"), S(50) - 0.1);
+  const q2 = el(`<div class="say" style="left:820px;top:270px">“몇 년 사이 50개 넘게 봤다”</div>`, sc); show(q2, W(49, "몇 년"), S(50) - 0.1);
+  pop(el(`<div class="say" style="left:220px;top:170px">“내용물을 몰라 무섭다”</div>`, sc), W(50, "내용물을"));
+  pop(el(`<div class="say" style="left:820px;top:270px;color:${R}">“폭발물인 줄 알았다”</div>`, sc), W(50, "폭발물인"));
+  K.cut(E(49) - 0.1, "G1 화가 · 50개");
+  K.cut(E(50) - 0.1, "G1 무섭다 · 폭발물");
+}
+/* G2. 주인 없는 가방 = 유실물 보관 · 주부공항 매번 X선 검사 (문장 51~52) */
+{
+  const a = until(51), b = until(53);
+  const sc = K.scene(a, b);
+  let XR, SU;
+  const s = ST.set(a, b, st => { bgOf(st, "AIR"); XR = act(st, "XRAY", { h: 3.4, at: [2.4, 0, -0.2] }).ro(2); SU = act(st, "OLD", { h: 1.9, at: [-3.6, 1.3, 0.4] }).ro(4); });
+  s.update = t => { const k = lin(t, S(52) + 0.3, E(52)); SU.g.position.x = lerp(SU.home.x, 4.4, k); SU.op = k > 0.55 && k < 0.95 ? 0.25 : 1; };
+  pop(T(sc, 960, 120, `주인 없는 가방 = <span class="Y">유실물</span> · 일정 기간 보관`, 60), S(51) + 0.05);
+  pop(T(sc, 960, 230, `주부공항 · 위험물인지 <span class="R">매번 X선 검사</span>`, 60), S(52) + 0.05);
+  K.cut(E(51) - 0.1, "G2 유실물 보관");
+  K.cut(E(52) - 0.1, "G2 X선 검사");
+}
+/* G3. 도시마구 · 구청이 세금으로 수거 (문장 53) */
+{
+  const a = until(53), b = until(54);
+  const sc = K.scene(a, b);
+  let TR, SU, MO;
+  const s = ST.set(a, b, st => { bgOf(st, "ALLEY"); SU = act(st, "OLD", { h: 2.4, at: [-1.4, 0, 0.6] }).ro(4); TR = act(st, "TRUCK", { h: 3.4, at: [3.8, 0, -0.2] }).ro(3); MO = act(st, "MONEY", { h: 1.4, at: [-1.4, 4.4, 0.9] }).ro(5); });
+  s.update = t => { TR.slide(t, a + 0.1, 0.8, 12); MO.pop(t, W(53, "세금으로"), 0.4); };
+  pop(T(sc, 960, 120, `도시마구 · 버려진 캐리어를 구청이 <span class="R">세금으로</span> 수거`, 58), S(53) + 0.05);
+  K.cut(E(53) - 0.1, "G3 세금으로 수거");
+}
+/* G4. 길에 버리기 = 불법 · 폐기물처리법 · 5년 이하 구금형 / 1,000만 엔 이하 벌금 / 둘 다 (문장 54~56) */
+{
+  const a = until(54), b = until(57);
+  const sc = K.scene(a, b);
+  let LW, SU;
+  const s = ST.set(a, b, st => { bgOf(st, "PAPER"); LW = act(st, "LAW", { h: 3.4, at: [-5.6, 0.4, 0.4] }).ro(4); SU = act(st, "OLD", { h: 2.2, at: [-2.4, 0, 0.6] }).ro(4); });
+  s.update = t => { LW.pop(t, S(55) - 0.1, 0.5); SU.tint.setHex(t > S(54) + 0.3 ? 0xffb4aa : 0xffffff); };
+  pop(T(sc, 960, 70, `길에 버리기 = <span class="R">엄연한 불법</span>`, 80), S(54) + 0.05);
+  pop(T(sc, 1150, 210, `일본 폐기물처리법 · 쓰레기 <span class="R">무단 투기 금지</span>`, 54), S(55) + 0.05);
+  [["5년 이하 구금형", W(56, "5년")], ["1,000만 엔 이하 벌금", W(56, "1,000만")], ["또는 둘 다", W(56, "둘 다")]].forEach(([txt, at], i) =>
+    pop(el(`<div class="a cx stampR" style="left:${1150}px;top:${330 + i * 130}px">${txt}</div>`, sc), at, { from: { scale: 1.4, y: 0 } }));
+  K.cut(E(55) - 0.1, "G4 불법 · 폐기물처리법");
+  K.cut(E(56) - 0.1, "G4 처벌");
+}
+/* G5. 외국인 관광객만의 탓? ✕ · 주부공항 첫 적발 = 일본인 남성 · 지자체 대책 시작 (문장 57~59) */
+{
+  const a = until(57), b = ch(60);
+  const sc = K.scene(a, b);
+  let SU;
+  const s = ST.set(a, b, st => { bgOf(st, "AIR"); SU = act(st, "OLD", { h: 2.4, at: [0.2, 0, 0.6] }).ro(4); });
+  s.update = t => {};
+  show(T(sc, 960, 120, `외국인 관광객만의 탓? → <span class="Y">단정할 수 없음</span>`, 62), S(57) + 0.05, S(59) - 0.15);
+  show(T(sc, 960, 230, `주부공항 · 이 혐의 첫 적발 = <span class="Y">일본인 남성</span>`, 60), S(58) + 0.05, S(59) - 0.15);
+  pop(T(sc, 960, 120, `일본 지자체들 · <span class="G">대책을 내놓기 시작</span>`, 66), S(59) + 0.05);
+  K.cut(E(58) - 0.1, "G5 일본인 남성");
+  K.cut(E(59) - 0.1, "G5 대책 시작");
+}
+
+/* ═════════════ 실제로 바뀐 것 ═════════════ */
+/* H1. 도시마구: 7월 재활용 업체 2곳 협정 · 다국어 전단 · 대형 전광판 · 조례 검토 (문장 60~62) */
+{
+  const a = ch(60), b = until(63);
+  const sc = K.scene(a, b);
+  let SH, LF, SC;
+  const tSw = S(61) - 0.1;
+  const s = ST.set(a, b, st => { bgOf(st, "WARD"); SH = act(st, "SHAKE", { h: 4.0, at: [0, 0, 0.4] }).ro(4); LF = act(st, "LEAF", { h: 2.4, at: [-4.2, 0.4, 0.6] }).ro(5); SC = act(st, "SCREEN", { h: 4.6, at: [3.6, 0.2, 0] }).ro(3); });
+  s.update = t => { SH.pop(t, S(60) + 0.1, 0.5); LF.pop(t, W(61, "경고 전단"), 0.45); SC.pop(t, W(61, "전광판"), 0.5); showFrom(SH, t, -1, tSw); showFrom(LF, t, tSw); showFrom(SC, t, tSw); };
+  const scr = stick(s, el(`<div class="a c w9 nw" style="font-size:54px;color:${Y}">⚠ 캐리어 투기 ✕</div>`, sc), () => (SC && SC.op > 0.01 ? uvW(SC, 0.5, 0.42) : null), true);
+  pop(scr, W(61, "전광판") + 0.4);
+  show(T(sc, 960, 120, `도시마구 · 올해 7월 · 재활용 업체 <span class="G">2곳과 협정</span>`, 60), S(60) + 0.05, S(61) - 0.15);
+  show(T(sc, 960, 120, `여러 나라 말 <span class="Y">경고 전단</span> · 이케부쿠로 <span class="Y">대형 전광판</span>`, 56), S(61) + 0.05, S(62) - 0.15);
+  pop(T(sc, 960, 120, `캐리어 투기 막는 조례 · <span class="Y">검토 중</span>`, 62), S(62) + 0.05);
+  K.cut(E(60) - 0.1, "H1 협정");
+  K.cut(E(61) - 0.1, "H1 전단 · 전광판");
+  K.cut(E(62) - 0.1, "H1 조례 검토");
+}
+/* H2. 삿포로: 6월부터 호텔에 남은 캐리어 → 고쳐서 다시 판매 (문장 63) */
+{
+  const a = until(63), b = until(64);
+  const sc = K.scene(a, b);
+  let RP, PI;
+  const s = ST.set(a, b, st => { bgOf(st, "HOTEL"); PI = act(st, "PILE", { h: 2.6, at: [-5.0, 0, 0.2] }).ro(3); RP = act(st, "REPAIR", { h: 3.8, at: [2.0, 0, 0.4] }).ro(4); });
+  s.update = t => { idle(RP, t); RP.pop(t, S(63) + 0.2, 0.5); };
+  pop(T(sc, 960, 120, `삿포로 · 올해 6월부터`, 62), S(63) + 0.05);
+  pop(T(sc, 960, 220, `호텔에 남은 캐리어 → <span class="G">고쳐서 다시 판매</span>`, 60), W(63, "고친"));
+  K.cut(E(63) - 0.1, "H2 삿포로 재판매");
+}
+/* H3. 여행 중 캐리어를 바꿨다면? · 간사이공항 2018~ 무료 · 항공권·여권 + 포기서 · 주부 1,200엔 · 민간 2,200엔 · 먼저 물어보기 (문장 64~68) */
+{
+  const a = until(64), b = ch(69);
+  const sc = K.scene(a, b);
+  let CK, P, SU, PS;
+  const s = ST.set(a, b, st => { bgOf(st, "AIR"); CK = act(st, "CHECKIN", { h: 3.4, at: [3.4, 0, -0.3] }).ro(2); P = act(st, "YOU_P", { h: 4.3, at: [-3.6, 0, 0.6] }).ro(4); SU = act(st, "OLD", { h: 2.2, at: [-1.6, 0, 0.8] }).ro(5); PS = act(st, "PASS", { h: 1.2, at: [-2.4, 4.6, 0.9] }).ro(6); });
+  s.update = t => { idle(P, t); walk(P, t, S(64) - 0.2, S(64) + 1.4, -6); walk(SU, t, S(64) - 0.2, S(64) + 1.4, -6); PS.pop(t, W(66, "여권을"), 0.4); PS.hide(t, S(67) - 0.2, 0.3); };
+  show(T(sc, 960, 120, `여행 중 캐리어를 바꿨다면 · <span class="Y">헌 가방은?</span>`, 64), S(64) + 0.05, S(65) - 0.15);
+  show(T(sc, 960, 120, `간사이공항 · 2018년부터 · 헌 캐리어 <span class="G">무료</span>로 받는 재사용 서비스`, 52), S(65) + 0.05, S(67) - 0.15);
+  show(T(sc, 960, 220, `항공권 · 여권 보여 주고 → <span class="Y">소유권 포기서</span>에 서명`, 54), S(66) + 0.05, S(67) - 0.15);
+  show(T(sc, 960, 120, `주부공항 <span class="G">1,200엔</span> · 민간 수거 업체 <span class="G">2,200엔</span>`, 64), S(67) + 0.05, S(68) - 0.15);
+  pop(T(sc, 960, 120, `떠나기 전 · <span class="Y">공항 · 숙소에 먼저 물어보기</span>`, 64), S(68) + 0.05);
+  K.cut(E(65) - 0.1, "H3 간사이 무료");
+  K.cut(E(67) - 0.1, "H3 1,200엔 · 2,200엔");
+  K.cut(E(68) - 0.1, "H3 먼저 물어보기");
+}
+
+/* ═════════════ 정리 ═════════════ */
+{
+  const a = ch(69), b = K.D;
+  const sc = K.scene(a, b, { keep: true });
+  const ICON = ["NEW", "BIN", "LAW", "PLANE", "OLD"], IH = [0.95, 0.9, 0.85, 0.6, 0.95];
+  const rowY = i => 170 + i * 124;
+  let ic = [];
+  const s = ST.set(a, b, st => { bgOf(st, "PAPER"); ic = ICON.map((k, i) => act(st, k, { h: IH[i], anchor: [0.5, 0.5], at: [(1580 - 960) / 84, 3.34 - (rowY(i) + 48 - 540) / 84, 0.5] }).ro(5)); }, { fadeOut: 0 });
+  const items = [
+    [S(70), "새 캐리어 사는 여행객 ↑ · 대형 쓰레기 = 주민용"],
+    [S(71), "호텔은 처리비 · 길거리엔 쓰레기통 드묾"],
+    [S(72), "길에 두면 불법 · 수거 비용은 세금"],
+    [S(73), "공항 · 민간 업체 = 여행자가 쓸 방법"],
+    [S(74), "캐리어 바꾸면 → 헌 가방 처리부터 확인"],
+  ];
+  s.update = t => ic.forEach((c, i) => c.pop(t, items[i][0] + 0.1, 0.4));
+  pop(T(sc, 960, 50, `오늘 내용 정리`, 64, "w9 Y"), S(69) + 0.05);
+  items.forEach(([at, txt], i) => pop(el(`<div class="sum" style="top:${rowY(i)}px"><div class="n">${i + 1}</div><div class="t">${txt}</div></div>`, sc), at));
+  K.cut(E(74) - 0.1, "정리 다섯 줄");
+  K.cut(K.D - 0.2, "끝");
+}
+K.done();
+})();
+</script>
+</body>
+</html>

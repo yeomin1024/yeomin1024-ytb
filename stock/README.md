@@ -1,6 +1,8 @@
 # 주식 주제 폴더 (`stock/`) — 새로 시작 (2026-10-15)
 
-VERSION: v1.6 — 2026-10-16 — **외국 영상 켬**(사용자 지시: "잠깐 주식 주제는 외국 영상도 포함해") · **클라우드에서 분석**(`tools/cloud_run.py` — 사용자 지시: "이 환경은 이제 저장소에 있는 주식 주제 (stock 경로)를 유튜브 분석 코드 실행해서 분석하는 환경이야") — 아래 '외국 영상'·'클라우드에서 분석'
+VERSION: v1.7 — 2026-10-25 — **분석만 남김** (사용자 지시 "다시 지금까지 했던거 다 지우자 분석 결과 관련된것만 냅두고 나머지 지시사항이나, 영상 관련 소스 다 삭제해" — 범위 답 '주식(stock)만', 분석 근거 문서는 남김): 제작 지시사항·영상 소스를 지우고 아래 '채널 컨셉과 주제' 절을 '지운 것' 절로 바꿈.
+
+(v1.6 — 2026-10-16 — **외국 영상 켬**(사용자 지시: "잠깐 주식 주제는 외국 영상도 포함해") · **클라우드에서 분석**(`tools/cloud_run.py` — 사용자 지시: "이 환경은 이제 저장소에 있는 주식 주제 (stock 경로)를 유튜브 분석 코드 실행해서 분석하는 환경이야") — 아래 '외국 영상'·'클라우드에서 분석')
 
 (v1.5 — 2026-10-15 — **채널 컨셉(AI 코드로 가설 백테스트)·주제 4개·주식 질문 묶음 규칙** (사용자 지시: "다 올렸어 계속하고" · "주식 채널 컨셉은 ai로 코드 만들어서 가설을 백테스트해서 검증해보는거니까 고려해서 주제 4가지 정해봐") — 아래 '채널 컨셉과 주제')
 
@@ -21,13 +23,13 @@ VERSION: v1.6 — 2026-10-16 — **외국 영상 켬**(사용자 지시: "잠깐
 - `economic/`(재테크)와 **검색어가 일부 겹친다** (ETF·ISA·연금저축 등). 주제마다 결과·지시사항은 따로 만든다 — 한 주제 결과를 다른 주제 규칙으로 쓰지 않는다 (`guides/pipeline.md` 1단계 4번).
 - 이 주제의 지시사항(`guides/`)·대본 규칙(`research_rules.toml`)은 **이 주제의 성공 사례 분석 결과가 나온 뒤** 만든다.
 
-## 채널 컨셉과 주제 (2026-10-15)
+## 지운 것 (2026-10-25 — 분석만 남김)
 
-- **컨셉: AI가 코드를 만들어 시청자 가설을 백테스트로 검증한다** (사용자 지시 2026-10-15). 규칙 `guides/concept.md`.
-- 주제 4개와 근거: `source/topic_candidates.md` — ① 떨어지면 사기 vs 매달 사기 vs 한 번에 ② "원금 안 깎여요" 커버드콜 ③ 배당 ETF vs 지수 (세금 떼고) ④ 레버리지 1·2·3배 25년.
-- 질문 묶음·제목 낱말 규칙: `research_rules.toml` v1.0 (`python3 tools/content_research.py needs stock` · `titles stock`).
-- 성공 사례에서 주식이 아닌 영상(영화·시골집 미장·팬미팅·무당)을 빼는 낱말: `analysis_rules.toml` v1.2 `[exclude] OFF_TOPIC` — PC가 다음에 분석할 때 반영.
-- 지금 상태·다음 할 일: `../guides/status.md`.
+- **남김**: 분석 결과 `result/` · 캐시 `cloud_cache/` · 분석 설정(`analyzer_config.toml`·`analysis_rules.toml`·`keywords*`·`tag_rules.toml`·`tag_candidates*`·`research_rules.toml`) · 분석 근거 문서 `guides/`(`data_insights.md`·`shorts_insights.md`·`research_2026-10-15.md`·`viewer_review.md`·`thumbnail_codes_2026-10-15.csv`) · 채널에 이미 올린 영상 기록 `uploaded_videos.md` · 채널 확인 `youtube_channel.json`.
+- **지움**: 제작 지시사항(`guides/README.md`·`concept.md`·`quick_story.md`·`story_script.md`) · 이야기형 시리즈 '개미 재기 일지'(`story/` — 주인공·인형·배경·소품·시리즈·계산) · 영상 소스(`source/` — 1~4화 요약본·제작안·대본·자막·장면 표·오디오, `topic_candidates.md`·`used_content.md`) · 백테스트 가격 자료 `data/` · `channel.md`·`thumbnails_chatgpt.md`·`tts_lexicon.tsv` · 영상 장면 `video/episodes/pogi-sonjeol-2026-10(-shorts)` · 옛 Remotion 영상 `video/src/episodes/`(multagi·bittu·panicsell·molppang) · 시제품 `video/prototypes/stock-entry-2026-10-16` · 주식 전용 도구(`video/render/story.js`·`story_mg.js`·`story.css` · `tools/story_kit.py`·`story_check.py`·`tools/backtest/` · 그 시험).
+- 다른 주제가 같이 쓰는 도구(`video/render/puppet.js`·`render.mjs`·`kit.js` · `tools/subs_tool.py`·`youtube_upload.py`·`tts_narration.py`)는 남김.
+- **유튜브의 영상은 건드리지 않았다.** 되살리기: `git checkout 2a0427d0 -- <경로>` (지우기 바로 전 커밋).
+- 새 제작 방향(컨셉·지시사항)은 사용자가 정할 때 이 분석 결과로 다시 만든다.
 
 ## 클라우드에서 분석 (2026-10-16 — `tools/cloud_run.py`)
 

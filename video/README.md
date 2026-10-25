@@ -14,8 +14,8 @@
 | 미리보기 (브라우저) | `npm run studio` |
 | 타입 검사 | `npm run typecheck` |
 | 점검용 still (저장소 밖 임시 폴더, 커밋하지 않음 — 스토리보드 문서는 만들지 않음, 사용자 지시 2026-10-10) | `node scripts/storyboard.mjs multagi-2026-10 /tmp/qa-multagi` (고친 장면만: `--only S05,S13`) |
-| 내레이션에 SRT 맞추기 | `npm run align-audio -- stock multagi-2026-10` (오디오: `stock/source/<영상ID>/narration.mp3·wav·m4a` 또는 `--audio <파일>`) — 오디오는 고치지 않음 |
-| 완성 영상 렌더 | `npx remotion render multagi-2026-10 ../stock/out/multagi-2026-10/final_1080p.mp4 --codec=h264 --crf=18` |
+| 내레이션에 SRT 맞추기 | `npm run align-audio -- <주제> <영상ID>` (오디오: `stock/source/<영상ID>/narration.mp3·wav·m4a` 또는 `--audio <파일>`) — 오디오는 고치지 않음 |
+| 완성 영상 렌더 | `npx remotion render <영상ID> ../<주제>/out/<영상ID>/final_1080p.mp4 --codec=h264 --crf=18` (2026-10-25 등록된 Remotion 영상 없음 — 옛 주식 4편 지움) |
 
 - 자막·고지 카드 데이터는 대본에서 만든다 (저장소 최상위에서): `python tools/srt_tool.py remotion <TXT> <SRT> video/src/episodes/<영상ID>/subtitles.ts`
 - 번호는 모두 **대본 문장 번호**다 (SRT 번호 아님). 긴 문장은 앞줄·뒷줄 자막 2개 → 뒷줄 내용 그림은 `t.b(n)`.

@@ -12,13 +12,13 @@
 ## 시작·문서
 - 새 대화는 **`guides/status.md`(인수인계)의 '1. 한눈에' 표와 맡은 일의 절만** 읽는다 (전체 약 7만 토큰 — 맨 위 버전 줄들은 이력이라 건너뜀). 일이 끝나면 그 절과 맨 위 버전 줄을 고친다. 지시사항 목록 `guides/README.md` · 전체 순서(분석 → 주제 → 제작 → 요약 문서 → 내레이션 → 렌더·업로드) `guides/pipeline.md`.
 - **재테크 영상 소스는 요약본으로 만든다**: 대본 단계 `economic/guides/quick_script.md` · 제목·썸네일·업로드·쇼츠 단계 `economic/guides/quick_package.md`. 다른 영상 폴더와 긴 지시사항은 요약본이 가리킨 절만 읽는다 (영상 한 편 토큰의 약 40%가 그 읽기였음 — `tools/token_cost.py`).
-- 주제 폴더: `economic/`(재테크 — 경제 뉴스·금리·환율 해설은 뺌) · `stock/`(주식) · `history/`(역사, 분석만) · `music/`(음악, 분석만) · `new/`(새 채널 분야 탐색) · `math/`(수학 퀴즈 채널 탐색 — 쇼츠·영어 시장, 판단 `math/channel_ideas.md`). 주제별 규칙 `<주제>/guides/`. 옛 주제 폴더는 지움(커밋 `2a68307`). 새 주제는 `topics.txt` 에도 더한다.
+- 주제 폴더: `economic/`(재테크 — 경제 뉴스·금리·환율 해설은 뺌) · `stock/`(주식, 분석만) · `history/`(역사, 분석만) · `music/`(음악, 분석만) · `new/`(새 채널 분야 탐색) · `math/`(수학 퀴즈 채널 탐색 — 쇼츠·영어 시장, 판단 `math/channel_ideas.md`). 주제별 규칙 `<주제>/guides/`. 옛 주제 폴더는 지움(커밋 `2a68307`). 새 주제는 `topics.txt` 에도 더한다.
 
 ## 제작 공통
 - 스토리보드는 만들지 않고 요약 문서에도 넣지 않는다. **오디오를 먼저, 그다음 영상** — 오디오가 생기면 승인 없이 바로 영상을 만든다 (영상 코드가 없으면 Claude 가 만들고 still 로 점검).
 - 영상 `guides/video_guide.md`: HTML(SVG + GSAP) → Playwright 프레임 렌더 `video/episodes/<영상ID>/index.html`. 예전 크림 배경 인포그래픽·작은 글자 금지. 한 화면 한 생각·말하는 순간 숫자·색 = 뜻(빨강 손해·청록 아낌·노랑 기준, 기준 = 노란 점선)·어려운 말 = 그림 하나·큰 글자. 세로 쇼츠는 화면 가운데·크게(1.15배, 자막 띠 가운데 540). **렌더 뒤 완성 mp4 장면을 Claude 가 직접 본다** (check 0 이어도).
 - **영상 = 코드 화면 + AI 장면 클립** (롱폼·쇼츠): 숫자·법·계산·장 시작·정리는 코드 화면, 사연 장면은 ChatGPT 그림(따뜻한 2D 애니메이션·글자 없음) → Kaggle `videogen` 짧은 클립(사용자는 고정 셀만 실행 — 할 일은 Claude 가 `videogen/queue.json` 에, `videogen/README.md` 2-5) → Claude 가 합침 (`tools/scene_clips.py` · `render.mjs --base`·`overlay` · `tools/assemble_video.py`, `video_guide.md` 6-1).
-- 자막은 화면에 굽는다 (주식 제외): **한 문장 = 자막 하나**, 띠를 넘으면 같은 자막 안 두 줄, **2줄까지 예외 없음** — 두 줄로도 넘을 때만 쉼표·절 경계에서 나눔, 쇼츠 첫 자막(썸네일 그림 위)은 42px 로 2줄 안 (`tools/srt_tool.py` v1.9).
+- 자막은 화면에 굽는다: **한 문장 = 자막 하나**, 띠를 넘으면 같은 자막 안 두 줄, **2줄까지 예외 없음** — 두 줄로도 넘을 때만 쉼표·절 경계에서 나눔, 쇼츠 첫 자막(썸네일 그림 위)은 42px 로 2줄 안 (`tools/srt_tool.py` v1.9).
 - 음량 -14 LUFS·트루 피크 -1.5 dBTP 이하 (렌더 뒤 `tools/loudnorm.py` 자동).
 - 내레이션 = **진행자 H17 하나로 모든 문장** (2026-10-21 H04 → H17, `voices/host.json`, 사연자 S07 은 꺼 둠 — `voices/storyteller.json` enabled=false) — 예외는 영상 폴더 `voices/host.json` own_voice 로만 (`pick H0? --only-for <주제>/<영상ID>`, 지금 예외 없음). H17 은 H04 보다 빠름(샘플 6.3음절/초 — H04 5.7) → 대본 길이 맞출 때 그 속도로. 모든 대본이 기준 목소리 `voices/ref/host.wav` 를 복제 — 손으로 바꾸지 않고, 바꿀 땐 `host.json` 을 고친 뒤 `tts_narration.py voice --force --push`(모든 오디오 다시). 목소리 다시 고르기: 사용자가 "사연자 S0?, 진행자 H0?" → `python tools/tts_narration.py pick S0? H0?` 후 커밋 (`guides/tts_guide.md` 4-0).
 - 오디오는 사용자가 Kaggle 셀 하나로 (범위 버튼 — 전체 기본·주제 하나, `tools/kaggle_tts_panel.py`) → `tts_narration.py all --push` 가 대본 폴더마다 `narration.mp3` 를 main 에. 바뀐 문장이 20% 이하면 그 문장만 다시 (`--full` = 전부) — `guides/tts_guide.md`.
@@ -40,7 +40,6 @@
 ## 쇼츠 (`guides/shorts_guide.md`)
 - 쇼츠 분석: 조회수 5만 이상인데 좋아요 0.2% 미만('조회수 부풀림 의심')과 주제 밖 쇼츠(연예·운세·명언·정치·다른 뜻)는 뺀다 — `<주제>/analysis_rules.toml [shorts*]`, 새 결과마다 1번 표를 훑어 규칙에 더한다. 쇼츠 지시사항은 그 주제 쇼츠 결과로만.
 - **재테크 쇼츠 = 롱폼으로 보내는 프롤로그형** (롱폼 하나에 쇼츠 하나, 4번): 50~55초. 롱폼 가상 사례로 **첫 문장 하나에 핵심**(누가·언제·무엇 때문에·얼마) → 알게 된 경위(각색 가능 — 숫자·결과는 롱폼 그대로, 설명란에 '가상 사례를 각색') → 걸린 것 → '지금이라도 ○○을 줄일 수 있을까요?'(무엇을 하는지 넣어서) → '아래 영상에서 확인하세요'. 롱폼의 이유·방법은 넣지 않는다. 제목 = **롱폼 제목 짓던 방법·꼴 그대로** (김 씨의 말 1인칭 경험 + 당부 — 예 「…평생 손해봤어요. 꼭 보세요」, 방법은 숨김, 쇼츠 분석 `compare.csv` 꼴별 배수로 여러 안 → 사용자가 고름), 사람 이름 없이 핵심 낱말 맨 앞, `title_fit --shorts` ✅(29자 안팎), '노후·은퇴·퇴직' 대상 낱말은 뺌. 해시태그 2개, 롱폼 끝인사 없음. 관련 동영상 = 그 롱폼 (사용자가 스튜디오에서).
-- 주식 쇼츠는 결과형 (아래 주식).
 
 ## 업로드 (`guides/upload_guide.md`)
 - **재테크는 이 클라우드 환경에서 바로**: 키(`YOUTUBE_CLIENT_ID`·`SECRET`·`REFRESH_TOKEN`) = 부자백서 UCJ1gjiL7VuAhMQSfAhxAefg (`economic/youtube_channel.json`, 도구는 키의 채널이 다르면 멈춤 — 주식 환경 키 = STOCK LAB). 렌더 `node video/render/render.mjs video economic <영상ID>`(새 컨테이너면 글꼴·gsap 먼저 — status 4번) → 썸네일 검수 → `python tools/youtube_upload.py economic <영상ID> --dry-run` → `--publish-at <시각>` (비공개 + 예약 공개, `youtube.json` 을 main 에). **올리기 전에 채널 업로드 목록을 읽어 두 번 올리지 않는다.** 쇼츠 영상ID = `<영상ID>-shorts`.
@@ -48,14 +47,8 @@
 - '변경되거나 합성된 콘텐츠' = **예** (AI 음성) — 업로드 시트에 적고 도구가 등록.
 - PC 업로더 길(`run_uploader.ps1` → `tools/pc_upload.py`, Drive 원본, 예약 기본 +1시간, 하루 최대 4개) — 11번.
 
-## 주식 `stock/` (공통보다 먼저 `stock/guides/README.md`)
-- 컨셉 = AI 가 코드를 만들어 시청자 가설을 백테스트로 검증 (`stock/guides/concept.md`: 결론은 결과를 본 뒤, 숫자는 코드 출력만, 미래 정보 금지·총수익·비용·여러 시작 시점·생존 편향, 개별 종목 추천 안 함). 주제 `stock/source/topic_candidates.md`, 근거 `stock/guides/data_insights.md`. 클라우드는 Yahoo·FRED·KRX·law.go.kr 막힘, GitHub raw 는 됨.
-- 전 세계 시청자: 화면에 자막을 굽지 않고 **언어별 자막(CC)을 올림** — 한국어 + en·hi·id·pt·es-419·ja·de·vi·tr, 대본 `subs/`(롱폼)·`shorts/subs/` 는 한국어와 문장 1:1 (`tools/subs_tool.py check|build`, 업로드 v1.12 — 자막 하나 400단위, 모자라면 `--captions-only` 다음 날). 화면 글자는 언어 없이(숫자·연도·%·기호·A/B·아이콘). 제목·설명 10개 언어(`upload.md` '언어별 제목·설명' — 기본 언어 ko). **설명란 = 첫 설명(아주 간단히) + 챕터(이름 옆 괄호 영어) + 자료 + 알려 드립니다만, 각 아래 영어**, 태그 = 한국어 + 영어, 롱폼 제목도 목록 2줄 안 — 올린 영상은 `youtube_upload.py --update-meta` (README 2번).
-- 썸네일 = 그림 + 쉬운 영어 낱말(BUY·SELL·TAX)·숫자·기호·티커만 (한국어·문장 없음). **시청자 니즈(댓글 질문) + 티커** — 실험 설계를 그리지 않음(`WHEN TO BUY ?` + `SPY`, 레버리지는 티커 + 배수 `TQQQ 3× > QQQ 1× ?`). **부등호 머리글 하나를 크게**(`SCHD > SPY ?`, 굵게·테두리·빛, `>`·`?` 노랑), 이름표는 꼭 필요할 때만, 어려운 말·식은 그림으로. **결말을 가림**(두 선택 같은 크기, 결과는 닫힌 상자, 이기고 진 표정·오른 계단·하락선 없음).
-- 핵심 장면 = 날짜가 흐르며 두 계좌를 실시간 비교하는 애니메이션.
-- **이야기형 제작은 `stock/guides/quick_story.md` 만 읽고 단계마다 새 대화** (주제·요약본 → 영상 소스 → 영상, `tools/story_kit.py`, 화면 = 장면 표 `scenes.txt` → `video/render/story.js` — 장면 HTML 손으로 안 씀 · **화면·썸네일 글자 = 숫자·기호 + 투자자라면 다 아는 영어**(KOSPI·S&P 500·BUY·SELL·ETF … `stock/story/screen_words.txt` — 국기 대신 지수 이름, **한국어 없음**, 말은 언어별 CC) · **문장마다 그 말을 보여 주는 화면**(방법 첫 장면 `RULE N`) · 뜻은 **코드 모션 그래픽**(`video/render/story_mg.js` — 매매 앱·캔들·시가총액 블록·박스권·두 선 경주·점 그리드·돈 흐름·계기판·적립 …, 문법 quick_story D-2)으로 바로 보여 주고, **ChatGPT 그림은 코드로 표현하기 힘든데 꼭 필요한 것만**(비유 그림 금지 — `stock/story/puppet/props_chatgpt.md`)). **이야기형(개미 주인공 1인칭) 대본 = `stock/guides/story_script.md`**: 도입 목표 30초·마지노선 35초 혼잣말(첫 문장에 제목 맨 앞 낱말) → 방법마다 '첫 번째는 ~요.'(방법 → 내 문제 → 해결 → 근거) → **정리 부분 없이** 바로 `-마무리` 다짐·응원·끝인사, 해요체, 한국 시청자 기준이되 번역 1:1. 점검 `python3 tools/story_check.py stock <영상ID> --title …`. 주인공 설정·그림은 `stock/story/` 에서만. **영상 = 종이인형극**(일본 축제 영상 방식 `video/render/puppet.js` — 배경 1장 + **표정 있는** 종이인형 투명 PNG(자세·표정마다 한 장), 움직임은 코드), 주인공 인형 `stock/story/puppet/`. **시리즈 '개미 재기 일지'** `stock/story/series.md` — **화마다 다른 경험**(1화 70% 손실은 1화에서만, 앞 화의 경험·근거·숫자·문장 재사용 금지 — `story_kit check` [DUP]) · 화마다 `stock/source/<영상ID>/`(요약본.md·`<영상ID>_제작안.txt` — 제목은 댓글 문구·대본·근거), 숫자 `stock/story/calc/series_calc.py`, 점검 `plan_tool.py --write`.
-- 제목·대본·설명란·챕터·고정 댓글은 **결말을 말하지 않는다**: 제목 = 맨 앞 니즈 낱말 + 조건 기준점·폭 + 비교 대상·잣대 + 질문으로 끝, 도입 = 니즈·공감 → 질문 → "백테스트로 확인해 보겠습니다", 사다·팔다 → 매수·매도 (README 2·5번).
-- **주식 쇼츠는 결과를 바로 말한다**(60초 안): 시험할 말(왜) → 방법(AI 가 짠 파이썬 코드로 과거 실제 가격 백테스트, 코드 카드) → 시험한 것·비교 상대와 고른 까닭 → 공정한 조건 → 결과(끝 값·차이) → '왜?' → '그 이유와, 다른 달에 시작해도 같은지는 아래 영상에서'. 왜·어떻게·비교 까닭·조건은 빼지 않고, 경주는 끝까지, 제목·쇼츠 썸네일은 결과를 말하지 않음 (README 7번).
+## 주식 `stock/` — 분석만 (2026-10-25)
+- **분석 결과·설정·캐시·근거 문서만 남김** (사용자 지시 2026-10-25 — 범위 '주식만'): `result/`·`cloud_cache/`·분석 설정·`stock/guides/`(`data_insights.md`·`shorts_insights.md`·`research_2026-10-15.md`·`viewer_review.md`)·올린 영상 기록 `uploaded_videos.md`. 제작 지시사항·이야기형 시리즈·영상 소스·주식 전용 도구는 지움 (`stock/README.md` '지운 것', 되살리기 `git checkout 2a0427d0 -- <경로>`). 새 제작 방향은 사용자가 정하기 전에는 만들지 않는다. 분석은 아래 공통 규칙대로.
 
 ## 분석 (`guides/pc_analysis.md`)
 - 검색어 `<주제>/keywords.txt`(한 줄에 하나 — 사용자가 GitHub 에서 고치면 다음 회차에 반영) · 관련어·제외어 `keywords.toml` · 설정 `analyzer_config.toml`. 검색어는 실제 영상 태그로 (`python tools/tag_keywords.py <주제> --write-keywords`, 빼는 말·필수 낱말 `<주제>/tag_rules.toml` — 사용자가 지운 말은 되살아나지 않음, 주식은 모두 '주식' 낱말이 든 말 `TAG_REQUIRE`). 사용자가 새 주제를 말하면 Claude 가 그 세 파일을 만들어 main 에.

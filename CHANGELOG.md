@@ -1,5 +1,35 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-25 (주식 — 분석만 남김) — 제작 지시사항·영상 소스 삭제
+
+### 왜 (사용자 지시)
+- "다시 지금까지 했던거 다 지우자 분석 결과 관련된것만 냅두고 나머지 지시사항이나, 영상 관련 소스 다 삭제해"
+- 범위 답: **주식(stock)만** · 분석으로 만든 근거 문서는 **남김**.
+
+### 지운 것 (되살리기 `git checkout 2a0427d0 -- <경로>`)
+| 무엇 | 경로 |
+|---|---|
+| 주식 제작 지시사항 | `stock/guides/README.md` · `concept.md` · `quick_story.md` · `story_script.md` |
+| 이야기형 시리즈 '개미 재기 일지' | `stock/story/` (주인공·인형·배경·소품·시리즈·`calc/`·`plan_tool.py`·`_old/`) |
+| 영상 소스 | `stock/source/` (1~4화 요약본·제작안·대본·자막·장면 표·오디오 · `topic_candidates.md` · `used_content.md`) · `stock/data/`(백테스트 가격) · `stock/channel.md` · `thumbnails_chatgpt.md` · `tts_lexicon.tsv` |
+| 영상 장면·옛 영상 | `video/episodes/pogi-sonjeol-2026-10(-shorts)` · `video/src/episodes/`(옛 Remotion 주식 4편 — `Root.tsx` 는 빈 등록으로) · `video/prototypes/stock-entry-2026-10-16` |
+| 주식 전용 도구 | `video/render/story.js` · `story_mg.js` · `story.css` · `tools/story_kit.py` · `story_check.py` · `tools/backtest/` · 시험 `test_story_kit` · `test_story_check` · `test_backtest*` · `test_shorts_numcheck` |
+| 컨테이너만 (git 밖) | `stock/out/` (완성 mp4) |
+
+### 남긴 것
+- 분석: `stock/result/` · `cloud_cache/` · `analyzer_config.toml` · `analysis_rules.toml` · `keywords*` · `tag_rules.toml` · `tag_candidates*` · `research_rules.toml` · `stock/README.md` v1.7(분석 부분 + '지운 것')
+- 근거 문서: `stock/guides/data_insights.md` · `shorts_insights.md` · `research_2026-10-15.md` · `viewer_review.md` · `thumbnail_codes_2026-10-15.csv`
+- 기록: `stock/uploaded_videos.md` · `youtube_channel.json` — **유튜브의 영상·예약 공개는 건드리지 않음**
+- 다른 주제가 같이 쓰는 도구: `video/render/puppet.js`(시험 채널 일본 면세·축제) · `render.mjs` · `kit.js` · `tools/subs_tool.py`(업로드 도구가 부름) · `youtube_upload.py` · `tts_narration.py`
+
+### 고친 문서
+- `CLAUDE.md` 주식 절 → 분석만 한 줄 · '(주식 제외)'·'주식 쇼츠는 결과형' 줄 지움
+- `guides/status.md` v2.56 (1번 표 주식 줄 · 2-1/2-1b 절) · `guides/README.md` v1.37 · `shorts_guide.md` v1.17(4번 10항) · `video_guide.md` v4.17 · `upload_guide.md` v1.12 · `README.md` · `video/README.md`
+
+### 확인
+- unittest 모듈 전체: 지우기 전 깨끗한 HEAD 와 **같은 오류 10개만** (comment_clusters·foreign_and_keys·git_ownership·stock_topic·web_tabs·youtube_feedback — 모두 지우기 전부터) · 새 오류 0
+- 남은 코드에서 지운 파일을 부르는 곳 없음 (`git grep`)
+
 ## 2026-10-24 (주식 이야기형 10) — 비유 그림 대신 코드 모션 그래픽
 
 ### 왜 (사용자 지시)

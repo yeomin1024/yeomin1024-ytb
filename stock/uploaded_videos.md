@@ -19,4 +19,4 @@
 | reobeoriji-2026-10-shorts | xiIGemPkLck | 2026-10-18 | 2026-10-22T08:00:00Z | TQQQ 3배 매달 500달러, QQQ보다 훨씬 남을까? |
 | upload-test-2026-10-16 | 3FJPCemQ0fw | 2026-10-16 | 없음 (비공개 시험) | [업로드 테스트] STOCK LAB 데모 — 저점 매수 백테스트 도입 40초 |
 
-어떤 주제를 이미 썼는지(결론·조건)는 `stock/source/used_content.md` 에 그대로 있다.
+어떤 주제를 이미 썼는지(결론·조건)는 `stock/source/used_content.md` 에 있었다 — 2026-10-25 분석만 남기며 지움 (되살리기 `git checkout 2a0427d0 -- stock/source/used_content.md`).

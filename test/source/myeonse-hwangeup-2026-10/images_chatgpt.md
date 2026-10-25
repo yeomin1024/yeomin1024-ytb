@@ -1,6 +1,6 @@
 # 일본 면세 편 종이인형극 그림 27장 — ChatGPT용 (읽고 그대로 만들고 저장 경로에 올리기)
 
-작성: 2026-10-24 (Claude, v6.0 — 종이인형극) — 짝 문서 `test/일본면세_사후환급_제작안.txt` · 같은 화풍 `test/puppet/images_chatgpt.md` (일본 축제 편)
+작성: 2026-10-25 (Claude, v6.1 — 썸네일 문구만 고침: 26·27번 두 장만 다시) — 짝 문서 `test/일본면세_사후환급_제작안.txt` · 같은 화풍 `test/puppet/images_chatgpt.md` (일본 축제 편)
 
 이 파일 주소: https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/test/source/myeonse-hwangeup-2026-10/images_chatgpt.md
 
@@ -40,7 +40,7 @@
 
 ## ChatGPT에게 — 이 파일을 읽으면 할 일
 0. **이 주소를 지금 새로 열어 그 내용만 쓴다** — 이 대화에서 예전에 읽은 파일·프롬프트가 있어도 쓰지 않는다. 답의 첫 줄에 이 파일 맨 위 '작성' 줄을 그대로 적는다.
-1. 아래 27장을 **1번부터 차례로 모두** 만든다. 질문하지 말고, 한 장을 만든 뒤 멈추지 말고 다음 장으로 넘어간다. **한 장에 프롬프트에 적힌 것만** 그린다 (다른 사람·물건을 같이 그리지 않는다).
+1. **이번에는 26번(THUMB-L)·27번(SHORTS-OPEN) 두 장만 만든다** — 1~25번은 이미 저장소에 있으니 다시 만들지 않는다 (v6.1: 대본이 '2시간 넘게'로 바뀌어 썸네일 문구만 고침). 26번 → 27번 차례로, 질문하지 말고, 한 장을 만든 뒤 멈추지 말고 다음 장으로 넘어간다. 같은 경로의 옛 파일은 새 그림으로 덮어쓴다. **한 장에 프롬프트에 적힌 것만** 그린다 (다른 사람·물건을 같이 그리지 않는다).
    - 이미지 한도 때문에 멈추면 사용자가 `계속`이라고 보낸다 → 아직 안 만든 번호부터 이어서 만든다.
 2. 프롬프트(``` 안)를 **한 글자도 바꾸지 않고 그대로** 쓴다.
    - **1~25번:** 프롬프트 맨 앞에 아래 **공통 화풍** 문단을 그대로 붙인다 (일본 축제 편 인형과 같은 화풍 — 한 무대의 인형처럼).
@@ -316,7 +316,7 @@ Landscape 1536x1024, side view facing right, flying level. ONE passenger jet air
 
 | 자리 | 문구 | 색 |
 |---|---|---|
-| 그림 꼬리표 | 모르면 면세 줄 1시간 반 | 흰 글자 on 빨강 상자 #FF2A2A — 그림 왼쪽 위 (줄 쪽) |
+| 그림 꼬리표 | 모르면 면세에만 2시간 넘게 | 흰 글자 on 빨강 상자 #FF2A2A — 그림 왼쪽 위 (줄 쪽) |
 | 그림 말풍선 | 알면 면세 줄 X! | 검정 글자 on 노랑 말풍선 #FFD400 — 그림 오른쪽 위 |
 | 하단 1줄 | 11월 일본 면세 변경되면 골치 아파집니다 | '골치 아파집니다' 빨강 #FF2A2A · '11월' 노랑 #FFD400 · '일본 면세 변경되면' 흰색 — 모두 두꺼운 검정 외곽선 |
 | 하단 2줄 | 가장 빠르게 면세 받는 방법 | '가장 빠르게' 노랑 #FFD400 · '면세 받는 방법' 흰색 · 1줄보다 크게 — 모두 두꺼운 검정 외곽선 |
@@ -327,7 +327,7 @@ Landscape 1536x1024, side view facing right, flying level. ONE passenger jet air
 YouTube thumbnail, 16:9 landscape (1280x720). Cinematic digital painting, semi-realistic, very high contrast, dramatic, bold and readable at small size.
 Upper 62% of the frame:
 - Center-right: a Korean tourist in her 30s (fictional, not resembling any real person) standing at the end of a very long airport queue in a Japanese departure lobby, one hand pressed to her forehead, head lowered, shoulders drooping, visibly frustrated, holding a shopping bag and a passport; ahead of her a long line of travelers snaking toward a customs counter and a row of tax-refund kiosks. Cool white light with warm accents.
-- Upper left: one bold tag, a solid bright red (#FF2A2A) rounded box with the Korean text "모르면 면세 줄 1시간 반" printed in huge flat heavy bold white letters.
+- Upper left: one bold tag, a solid bright red (#FF2A2A) rounded box with the Korean text "모르면 면세에만 2시간 넘게" printed in huge flat heavy bold white letters.
 - Upper right: a bright yellow (#FFD400) speech bubble with the Korean text "알면 면세 줄 X!" in heavy bold black letters.
 Bottom title: in the lower third, over a dark band that fades upward from the bottom edge, two lines of huge heavy bold text, left-aligned near the left edge:
 line 1 "11월 일본 면세 변경되면 골치 아파집니다" — '골치 아파집니다' 빨강 #FF2A2A ; '11월' 노랑 #FFD400 ; '일본 면세 변경되면' 흰색, all with a thick black outline;
@@ -348,7 +348,7 @@ Render ONLY the Korean text given in quotes, exactly as written with the same le
 | 자리 | 문구 | 색 |
 |---|---|---|
 | 위 1줄 | 일본 면세 바뀌면 | '일본 면세' 흰색 · '바뀌면' 노랑 #FFD400 — 검정 바탕 위 평면 글자 |
-| 위 2줄 | 공항 줄 1시간 반 | '1시간 반' 빨강 #FF2A2A · '공항 줄' 흰색 — 1줄과 같은 크기 |
+| 위 2줄 | 공항에서 2시간 | '2시간' 빨강 #FF2A2A · '공항에서' 흰색 — 1줄과 같은 크기 |
 | 그림 꼬리표 | 알면 2분 | 검정 글자 on 노랑 상자 #FFD400 |
 
 프롬프트:
@@ -359,7 +359,7 @@ LAYOUT — three full-width zones: 0–36% of the height flat solid pure black (
 SAFE AREA: some feeds crop to about 4:5 — all text and the word tag stay between 15% and 85% of the height.
 Headline: exactly TWO lines of very large heavy bold Korean text, the same letter size, EACH LINE CENTERED on the same axis, the longer line from about 4% to 96% of the width, the block between about 18% and 33% of the height and at least 3% above the painting; flat letters, no outline, no glow, no 3D.
 line 1 "일본 면세 바뀌면" — '일본 면세' 흰색 ; '바뀌면' 노랑 #FFD400;
-line 2 "공항 줄 1시간 반" — '1시간 반' 빨강 #FF2A2A ; '공항 줄' 흰색.
+line 2 "공항에서 2시간" — '2시간' 빨강 #FF2A2A ; '공항에서' 흰색.
 Painting zone (36–72%): Cinematic digital painting, semi-realistic, bright clean modern Japan with cool white fluorescent light and warm accents, subtle film grain. A Japanese airport departure lobby with a very long queue of travelers holding shopping bags toward a customs counter, and in the foreground a traveler seen from behind checking a smartphone next to a row of self-service kiosks with a plain green screen. No readable signs or logos.
 On the upper left of the painting (about 5–45% of the width, 39–47% of the height): one bold tag, a solid bright yellow (#FFD400) rounded box with the Korean text "알면 2분" printed in large flat heavy bold black letters on its flat front face (flat print, not carved or 3D). Keep the right 16% of the width below 45% of the height free of tags (Shorts buttons).
 If 9:16 is not available, use a 2:3 portrait canvas (1024x1536) with the same three zones and keep the headline between 12% and 88% of the width.

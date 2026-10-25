@@ -1,0 +1,9 @@
+{
+ "_설명": "롱폼 썸네일 — 문구는 코드(video/render/thumb.mjs v1.0), 그림은 ChatGPT. 임시(2026-10-25): 옛 THUMB-L(아래 2줄·말풍선은 지금 대본과 맞음) 위에 빨간 꼬리표만 새 문구로 덮음 — 글자 없는 새 그림(images/THUMB-L-ART.jpg)이 오면 모든 문구를 코드로",
+ "out": "thumbnail_1.jpg",
+ "size": [1280, 720],
+ "images": [ { "src": "../images/THUMB-L.jpg", "box": [0, 0, 1280, 720] } ],
+ "blocks": [
+  { "kind": "tag", "x": 28, "y": 30, "w": 694, "h": 122, "bg": "R", "color": "W", "radius": 26, "fill": [0.94, 0.72], "text": "모르면 면세에만 2시간 넘게" }
+ ]
+}

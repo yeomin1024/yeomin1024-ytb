@@ -1,0 +1,12 @@
+{
+ "_설명": "쇼츠 첫 장면(= 쇼츠 썸네일) 본안 — 세 칸(band). 글자 없는 그림(ChatGPT images_chatgpt.md v6.2 27번 → images/SHORTS-ART.jpg, 가로 3:2)을 가운데 칸에 + 문구·꼬리표는 코드. 그림이 오면: node video/render/thumb.mjs <이 파일> → thumbnail_1.jpg → cover_check --layout band",
+ "out": "thumbnail_1.jpg",
+ "size": [1080, 1920],
+ "bg": "#000000",
+ "images": [ { "src": "../../images/SHORTS-ART.jpg", "box": [0, 680, 1080, 760] } ],
+ "blocks": [
+  { "kind": "lines", "box": [43, 300, 994, 340], "align": "center", "lineHeight": 1.14,
+    "lines": [ [["일본 면세 ", "W"], ["바뀌면", "Y"]], [["공항에서 ", "W"], ["2시간", "R"]] ] },
+  { "kind": "tag", "x": 40, "y": 730, "w": 470, "h": 150, "bg": "Y", "color": "K", "radius": 28, "fill": [0.88, 0.7], "text": "알면 2분" }
+ ]
+}

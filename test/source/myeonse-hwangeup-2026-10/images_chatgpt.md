@@ -1,6 +1,6 @@
 # 일본 면세 편 종이인형극 그림 27장 — ChatGPT용 (읽고 그대로 만들고 저장 경로에 올리기)
 
-작성: 2026-10-25 (Claude, v6.1 — 썸네일 문구만 고침: 26·27번 두 장만 다시) — 짝 문서 `test/일본면세_사후환급_제작안.txt` · 같은 화풍 `test/puppet/images_chatgpt.md` (일본 축제 편)
+작성: 2026-10-25 (Claude, v6.2 — 썸네일은 글자 없는 그림만: 26·27번 두 장만 새로) — 짝 문서 `test/일본면세_사후환급_제작안.txt` · 같은 화풍 `test/puppet/images_chatgpt.md` (일본 축제 편)
 
 이 파일 주소: https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/test/source/myeonse-hwangeup-2026-10/images_chatgpt.md
 
@@ -35,12 +35,12 @@
 | 23 | `test/puppet/M-CARD.png` | 정사각 1024 · 투명 | 신용카드 | 카드로 환급 (34~36, 70, 90) |
 | 24 | `test/puppet/M-MONEY.png` | 정사각 1024 · 투명 | 지폐·동전 | 현금 환급 (30~32) |
 | 25 | `test/puppet/M-PLANE.png` | 가로 1536×1024 · 투명 | 여객기 | 3박 4일·오후 6시 출발 (7, 37, 79) |
-| 26 | `test/source/myeonse-hwangeup-2026-10/images/THUMB-L.jpg` | 가로 16:9 | 롱폼 썸네일 (한글 문구) | 업로드 썸네일 |
-| 27 | `test/source/myeonse-hwangeup-2026-10/images/SHORTS-OPEN.jpg` | 세로 9:16 · 세 칸 | 쇼츠 첫 장면 (한글 문구) | 쇼츠 0초 장면 = 쇼츠 썸네일 |
+| 26 | `test/source/myeonse-hwangeup-2026-10/images/THUMB-L-ART.jpg` | 가로 16:9 | 롱폼 썸네일 그림 (글자 없음 — 문구는 코드) | 업로드 썸네일 |
+| 27 | `test/source/myeonse-hwangeup-2026-10/images/SHORTS-ART.jpg` | 가로 3:2 | 쇼츠 첫 장면 가운데 칸 그림 (글자 없음 — 위 문구·꼬리표는 코드) | 쇼츠 0초 장면 = 쇼츠 썸네일 |
 
 ## ChatGPT에게 — 이 파일을 읽으면 할 일
 0. **이 주소를 지금 새로 열어 그 내용만 쓴다** — 이 대화에서 예전에 읽은 파일·프롬프트가 있어도 쓰지 않는다. 답의 첫 줄에 이 파일 맨 위 '작성' 줄을 그대로 적는다.
-1. **이번에는 26번(THUMB-L)·27번(SHORTS-OPEN) 두 장만 만든다** — 1~25번은 이미 저장소에 있으니 다시 만들지 않는다 (v6.1: 대본이 '2시간 넘게'로 바뀌어 썸네일 문구만 고침). 26번 → 27번 차례로, 질문하지 말고, 한 장을 만든 뒤 멈추지 말고 다음 장으로 넘어간다. 같은 경로의 옛 파일은 새 그림으로 덮어쓴다. **한 장에 프롬프트에 적힌 것만** 그린다 (다른 사람·물건을 같이 그리지 않는다).
+1. **이번에는 26번(THUMB-L-ART)·27번(SHORTS-ART) 두 장만 만든다** — 1~25번은 이미 저장소에 있으니 다시 만들지 않는다. v6.2(2026-10-25, 사용자 지시 "썸네일은 이제 이미지만 만들고 문구는 너가 만들어서 넣는식으로 하자"): **썸네일 그림에 글자를 넣지 않는다** — 문구는 Claude 가 코드로 얹는다. 26번 → 27번 차례로, 질문하지 말고, 한 장을 만든 뒤 멈추지 말고 다음 장으로 넘어간다. **한 장에 프롬프트에 적힌 것만** 그린다 (다른 사람·물건을 같이 그리지 않는다).
    - 이미지 한도 때문에 멈추면 사용자가 `계속`이라고 보낸다 → 아직 안 만든 번호부터 이어서 만든다.
 2. 프롬프트(``` 안)를 **한 글자도 바꾸지 않고 그대로** 쓴다.
    - **1~25번:** 프롬프트 맨 앞에 아래 **공통 화풍** 문단을 그대로 붙인다 (일본 축제 편 인형과 같은 화풍 — 한 무대의 인형처럼).
@@ -66,7 +66,7 @@
        return ok
    ```
 5. **1~25번에는 글자·숫자·로고·워터마크를 하나도 넣지 않는다** — 간판·화면·영수증·지폐·카드에도 없음 (빈 칸이나 회색 줄로). 사람은 얼굴 이목구비가 없는 종이 인형으로 그리고, 실존 인물·실제 회사(매장·항공사) 모양을 닮게 그리지 않는다.
-   **26·27번(썸네일)** 은 프롬프트의 따옴표 안 한글만, 글자·띄어쓰기·느낌표 그대로 쓴다. 만들 때마다 그 칸의 '문구' 표와 그림 속 한글을 크게 확대해 한 글자씩 맞춰 보고(받침·모음 획·조사), 다르면 그림은 그대로 두고 글자만 고쳐 다시 만든다.
+   **26·27번(썸네일 그림)에도 글자를 넣지 않는다** (v6.2). 만든 뒤 그림을 확대해 글자·숫자·간판 글씨가 하나라도 보이면 다시 만든다.
 6. 그림 바로 위에 번호와 저장 경로를 한 줄 적는다 (`3. test/puppet/M-YOU-WALK.png`). 그림 안에는 쓰지 않는다.
 7. **다 만들면 저장소에 넣는다 — 저장 경로 그대로.**
    - 저장소 `yeomin1024/yeomin1024-ytb` main 브랜치, 경로는 표의 파일 이름 그대로 (대소문자·하이픈까지 같게). 1~25번은 `test/puppet/` 폴더, 26·27번은 `test/source/myeonse-hwangeup-2026-10/images/` 폴더.
@@ -306,62 +306,32 @@ Square 1024x1024, front view. ONE small neat pile of paper banknotes (cream and 
 Landscape 1536x1024, side view facing right, flying level. ONE passenger jet airliner in warm cream with a deep indigo stripe along the windows and a crimson tail fin with no symbol, landing gear up. No letters, no numbers, no logos, not resembling any real airline. The whole plane, nose and tail included, spans about 10% to 90% of the width, vertically centered, with at least 8% empty margin on every side.
 ```
 
-## 26. THUMB-L — 롱폼 썸네일
+## 26. THUMB-L-ART — 롱폼 썸네일 그림 (글자 없음)
 
-**저장 경로: `test/source/myeonse-hwangeup-2026-10/images/THUMB-L.jpg`** — JPEG 700KB 이하
+**저장 경로: `test/source/myeonse-hwangeup-2026-10/images/THUMB-L-ART.jpg`** — JPEG 700KB 이하
 
-크기: 가로 16:9 (1280×720) — 롱폼
-
-문구 (그림 속 글자는 이것과 한 글자도 다르면 안 됨):
-
-| 자리 | 문구 | 색 |
-|---|---|---|
-| 그림 꼬리표 | 모르면 면세에만 2시간 넘게 | 흰 글자 on 빨강 상자 #FF2A2A — 그림 왼쪽 위 (줄 쪽) |
-| 그림 말풍선 | 알면 면세 줄 X! | 검정 글자 on 노랑 말풍선 #FFD400 — 그림 오른쪽 위 |
-| 하단 1줄 | 11월 일본 면세 변경되면 골치 아파집니다 | '골치 아파집니다' 빨강 #FF2A2A · '11월' 노랑 #FFD400 · '일본 면세 변경되면' 흰색 — 모두 두꺼운 검정 외곽선 |
-| 하단 2줄 | 가장 빠르게 면세 받는 방법 | '가장 빠르게' 노랑 #FFD400 · '면세 받는 방법' 흰색 · 1줄보다 크게 — 모두 두꺼운 검정 외곽선 |
+크기: 가로 16:9 (1280×720) — 롱폼. **그림 안에 글자를 하나도 넣지 않는다** — 문구(꼬리표·말풍선·아래 2줄)는 Claude 가 코드로 얹는다 (그 자리는 비워 둔다).
 
 프롬프트:
 
 ```
-YouTube thumbnail, 16:9 landscape (1280x720). Cinematic digital painting, semi-realistic, very high contrast, dramatic, bold and readable at small size.
-Upper 62% of the frame:
-- Center-right: a Korean tourist in her 30s (fictional, not resembling any real person) standing at the end of a very long airport queue in a Japanese departure lobby, one hand pressed to her forehead, head lowered, shoulders drooping, visibly frustrated, holding a shopping bag and a passport; ahead of her a long line of travelers snaking toward a customs counter and a row of tax-refund kiosks. Cool white light with warm accents.
-- Upper left: one bold tag, a solid bright red (#FF2A2A) rounded box with the Korean text "모르면 면세에만 2시간 넘게" printed in huge flat heavy bold white letters.
-- Upper right: a bright yellow (#FFD400) speech bubble with the Korean text "알면 면세 줄 X!" in heavy bold black letters.
-Bottom title: in the lower third, over a dark band that fades upward from the bottom edge, two lines of huge heavy bold text, left-aligned near the left edge:
-line 1 "11월 일본 면세 변경되면 골치 아파집니다" — '골치 아파집니다' 빨강 #FF2A2A ; '11월' 노랑 #FFD400 ; '일본 면세 변경되면' 흰색, all with a thick black outline;
-line 2 "가장 빠르게 면세 받는 방법" — '가장 빠르게' 노랑 #FFD400 ; '면세 받는 방법' 흰색 ; 1줄보다 크게, all with a thick black outline, clearly larger than line 1.
-The second line MUST end at or before 80% of the image width (x ≤ 1024 px of 1280): the right 18% of the width in the bottom 15% of the height must contain no text at all, because YouTube's video length badge covers that corner. If the lines do not fit, make both lines a little smaller rather than letting them run into that corner. Keep the person, the tag and the bubble in the upper part so they never cover the bottom title.
-If 16:9 is not available, use the widest landscape canvas; in any case keep all text inside the central 16:9 area, at least 8% away from the top and bottom edges.
-Render ONLY the Korean text given in quotes, exactly as written with the same letters, spacing, comma, apostrophes and question mark, in a heavy bold sans-serif Korean font. No other text, letters, numbers, watermarks or logos anywhere.
+YouTube thumbnail background art, 16:9 landscape (1280x720). Cinematic digital painting, semi-realistic, very high contrast, dramatic, readable at small size.
+Center-right: a Korean tourist in her 30s (fictional, not resembling any real person) standing at the end of a very long airport queue in a Japanese departure lobby, one hand pressed to her forehead, head lowered, shoulders drooping, visibly frustrated after realizing how long the wait will be, holding a white shopping bag and a passport. Her face is between 52% and 78% of the width and between 12% and 55% of the height. Behind her, a long line of travelers with suitcases snaking toward a customs counter and a row of self-service tax-refund kiosks with plain blank screens. Cool white airport light with warm accents.
+KEEP THESE AREAS CALM AND EMPTY (text will be added later by code — do not put faces or important objects there): the upper-left area (0–58% of the width, 0–24% of the height); the upper-right corner (72–100% of the width, 0–22% of the height); the whole bottom 36% of the image, which should be simple floor and shadow that gets darker toward the bottom edge.
+ABSOLUTELY NO TEXT anywhere: no letters, no Korean or English words, no numbers, no signs with readable writing, no logos, no watermarks, no captions, no speech bubbles, no boxes or labels.
 ```
 
-## 27. SHORTS-OPEN — 쇼츠 첫 장면 (세 칸 · 문구 포함)
+## 27. SHORTS-ART — 쇼츠 첫 장면 그림 (글자 없음, 가로)
 
-**저장 경로: `test/source/myeonse-hwangeup-2026-10/images/SHORTS-OPEN.jpg`** — JPEG 700KB 이하
+**저장 경로: `test/source/myeonse-hwangeup-2026-10/images/SHORTS-ART.jpg`** — JPEG 700KB 이하
 
-크기: **세로 9:16 (1080×1920) — 쇼츠 · 세 칸 (위 0~36% 순검정 + 문구 2줄 · 가운데 36~72% 그림 · 아래 72~100% 순검정, 글자·꼬리표는 높이 15~85%)**
-
-문구 (그림 속 글자는 이것과 한 글자도 다르면 안 됨):
-
-| 자리 | 문구 | 색 |
-|---|---|---|
-| 위 1줄 | 일본 면세 바뀌면 | '일본 면세' 흰색 · '바뀌면' 노랑 #FFD400 — 검정 바탕 위 평면 글자 |
-| 위 2줄 | 공항에서 2시간 | '2시간' 빨강 #FF2A2A · '공항에서' 흰색 — 1줄과 같은 크기 |
-| 그림 꼬리표 | 알면 2분 | 검정 글자 on 노랑 상자 #FFD400 |
+크기: **가로 3:2 (1536×1024)** — 쇼츠 세 칸의 가운데 칸에 들어갈 그림만. 위·아래 검정 칸과 문구(위 2줄 · '알면 2분' 꼬리표)는 Claude 가 코드로 만든다. **그림 안에 글자를 하나도 넣지 않는다.**
 
 프롬프트:
 
 ```
-Vertical YouTube Shorts opening frame, 9:16 portrait (1080x1920), high contrast.
-LAYOUT — three full-width zones: 0–36% of the height flat solid pure black (#000000) with only the headline; 36–72% one cinematic digital painting edge to edge with straight top and bottom edges; 72–100% flat solid pure black, empty (subtitles will be added there later). No gradient, fade or border between the zones.
-SAFE AREA: some feeds crop to about 4:5 — all text and the word tag stay between 15% and 85% of the height.
-Headline: exactly TWO lines of very large heavy bold Korean text, the same letter size, EACH LINE CENTERED on the same axis, the longer line from about 4% to 96% of the width, the block between about 18% and 33% of the height and at least 3% above the painting; flat letters, no outline, no glow, no 3D.
-line 1 "일본 면세 바뀌면" — '일본 면세' 흰색 ; '바뀌면' 노랑 #FFD400;
-line 2 "공항에서 2시간" — '2시간' 빨강 #FF2A2A ; '공항에서' 흰색.
-Painting zone (36–72%): Cinematic digital painting, semi-realistic, bright clean modern Japan with cool white fluorescent light and warm accents, subtle film grain. A Japanese airport departure lobby with a very long queue of travelers holding shopping bags toward a customs counter, and in the foreground a traveler seen from behind checking a smartphone next to a row of self-service kiosks with a plain green screen. No readable signs or logos.
-On the upper left of the painting (about 5–45% of the width, 39–47% of the height): one bold tag, a solid bright yellow (#FFD400) rounded box with the Korean text "알면 2분" printed in large flat heavy bold black letters on its flat front face (flat print, not carved or 3D). Keep the right 16% of the width below 45% of the height free of tags (Shorts buttons).
-If 9:16 is not available, use a 2:3 portrait canvas (1024x1536) with the same three zones and keep the headline between 12% and 88% of the width.
-Render ONLY the Korean text given in quotes, exactly as written with the same letters, spacing, comma and question mark, in a heavy bold sans-serif Korean font. No other text, letters, numbers, watermarks or logos anywhere.
+Landscape 3:2 (1536x1024) cinematic digital painting, semi-realistic, bright clean modern Japan with cool white fluorescent light and warm accents, subtle film grain. The painting fills the whole canvas edge to edge — no borders, no black bands, no frames.
+A Japanese airport departure lobby with a very long queue of travelers holding shopping bags, snaking toward a customs counter in the distance. In the foreground, slightly left of center, a traveler seen from behind checking a smartphone whose screen is plain solid green, standing next to a row of self-service kiosks whose screens are also plain solid green.
+Keep the upper-left area (0–48% of the width, 0–30% of the height) calm and simple (ceiling, windows, distant background) — a label will be added there later by code. Keep the important subjects in the central 70% of the width (the left and right edges may be cropped).
+ABSOLUTELY NO TEXT anywhere: no letters, no Korean or English words, no numbers, no signs with readable writing, no logos, no watermarks, no captions, no labels or boxes.
 ```

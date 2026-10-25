@@ -1,0 +1,11 @@
+{
+ "_설명": "쇼츠 첫 장면(= 쇼츠 썸네일) — 세 칸(band). 문구는 코드(video/render/thumb.mjs v1.0), 그림은 ChatGPT. 임시(2026-10-25): 옛 SHORTS-OPEN 의 그림 칸(꼬리표 '알면 2분' 포함)만 잘라 씀 — 글자 없는 새 그림(images/SHORTS-ART.jpg)이 오면 바꿈",
+ "out": "thumbnail_1.jpg",
+ "size": [1080, 1920],
+ "bg": "#000000",
+ "images": [ { "src": "../../images/SHORTS-OPEN.jpg", "crop": [0, 577, 1080, 760], "box": [0, 680, 1080, 760] } ],
+ "blocks": [
+  { "kind": "lines", "box": [43, 300, 994, 340], "align": "center", "lineHeight": 1.14,
+    "lines": [ [["일본 면세 ", "W"], ["바뀌면", "Y"]], [["공항에서 ", "W"], ["2시간", "R"]] ] }
+ ]
+}

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.9 — 2026-10-17 — 자막은 **2줄까지** (사용자 지시 2026-10-17 "그리고 자막은 2줄까지만 표시되도록 해"): 'shorts_cover'(쇼츠 첫 문장 — 썸네일 그림 위)를 3줄 → **글자 42px·2줄**
+# VERSION: v1.10 — 2026-10-25 — 주식(stock/) 대본도 자막을 화면에 굽는다 — 경로로 'line' 을 고르던 규칙을 뺌 (사용자 지시 2026-10-25 "한글 문구는 사용하지 말고 자막만 달도록 해" — 종이인형극 주식 영상, 일본 축제 편처럼).
+# (v1.9 — 2026-10-17 — 자막은 **2줄까지** (사용자 지시 2026-10-17 "그리고 자막은 2줄까지만 표시되도록 해"): 'shorts_cover'(쇼츠 첫 문장 — 썸네일 그림 위)를 3줄 → **글자 42px·2줄**
 #          (kit.css #cc.cover — 나머지 자막은 46px 그대로). 2줄에 들어가면 줄바꿈 점수와 상관없이 자막 하나 ('one') — 그림이 자막 하나 동안만.
 #          3줄 찾기를 지움. check: 쇼츠 첫 문장이 자막 2개면 문제 (그림이 둘째 자막까지 남음).
 # (v1.8 — 2026-10-17 — 쇼츠 첫 문장(썸네일 그림 위 — kit.js K.cover)은 자막 하나에 3줄까지 ('shorts_cover'): 그 문장이 자막 2개로
@@ -143,10 +144,9 @@ _W = {int(k): v for k, v in _WT["widths"].items()}
 
 
 def layout_of(txt):
-    """대본 경로로 자막 모양: stock/ = 'line'(자막을 굽지 않음), <영상ID>-shorts.txt = 'shorts', 그 밖 = 'long'."""
+    """대본 경로로 자막 모양: <영상ID>-shorts.txt = 'shorts', 그 밖 = 'long' (v1.10 — 주식도 자막을 화면에 굽는다;
+    'line'(굽지 않는 한 줄)은 --layout line 으로만)."""
     p = Path(txt).resolve()
-    if "stock" in p.parts:
-        return "line"
     return "shorts" if p.name.endswith("-shorts.txt") else "long"
 
 

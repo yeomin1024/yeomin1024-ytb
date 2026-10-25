@@ -17,7 +17,10 @@
 | `제작안.txt` v1.1 · `stock/README.md` v1.10 · `guides/status.md` v2.62 | 장면 코드·바뀐 점·남은 일(업로드) |
 
 ### 확인
-- 장면 still 확인 ✅ (롱폼 53컷 · 쇼츠 18컷). 최종 렌더 `stock/out/ppalli-buja-2026-10/final_1080p.mp4` · `stock/out/ppalli-buja-2026-10-shorts/final_1080p.mp4` (git 밖) 진행 중 — 끝나면 완성 mp4 장면을 Claude 가 직접 보고 여기에 적음.
+- 장면 still 확인 ✅ (롱폼 53컷 · 쇼츠 18컷).
+- 최종 렌더 (git 밖, 이 컨테이너에만): 롱폼 `stock/out/ppalli-buja-2026-10/final_1080p.mp4` 1920×1080·30fps·7:25.9 · 음량 −21.36 → **−14.25 LUFS**, 트루 피크 −1.78 dBTP (31분) / 쇼츠 `stock/out/ppalli-buja-2026-10-shorts/final_1080p.mp4` 1080×1920·30fps·0:49.0 · −20.36 → **−14.04 LUFS**, −1.76 dBTP (첫 장면 cover_check ✅ 여백 없음).
+- 완성 mp4 장면을 Claude 가 직접 봄 ✅ — 롱폼 34장(문장 셋마다 하나 + 처음·끝) · 쇼츠 18장: 장면·자막·숫자 맞음, 화면 글자는 숫자·영어 투자 낱말만. 작은 점: 롱폼 0:53 'MY' 회색 막대가 밝은 구내식당 배경에서 옅음 (읽힘 — 다시 렌더하지 않음).
+
 
 ## 2026-10-25 (주식 — 첫 종이인형극 영상 소스) — `stock/source/ppalli-buja-2026-10/`
 

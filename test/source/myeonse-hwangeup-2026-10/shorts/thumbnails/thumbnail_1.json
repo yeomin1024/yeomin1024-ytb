@@ -1,5 +1,5 @@
 {
- "_설명": "쇼츠 첫 장면(= 쇼츠 썸네일) — 세 칸(band). 문구·말풍선은 코드(video/render/thumb.mjs), 그림은 ChatGPT. 임시(2026-10-25 v3): 옛 SHORTS-OPEN 의 그림 칸에서 그림 속 꼬리표('알면 2분', y 630~786) 아래만 잘라 씀 — 글자 없는 새 그림(images/SHORTS-ART.jpg)이 오면 thumbnail_1.art.json",
+ "_설명": "쇼츠 첫 장면 본안 — 글자 없는 그림(images_chatgpt.md v6.2 27번 → images/SHORTS-ART.jpg, 가로 3:2) + 문구·말풍선 코드. 그림이 오면: node video/render/thumb.mjs <이 파일> → cover_check --layout band (말풍선 자리는 그림의 인물에 맞춰 조정)",
  "out": "thumbnail_1.jpg",
  "size": [
   1080,
@@ -8,13 +8,7 @@
  "bg": "#000000",
  "images": [
   {
-   "src": "../../images/SHORTS-OPEN.jpg",
-   "crop": [
-    0,
-    800,
-    1080,
-    621
-   ],
+   "src": "../../images/SHORTS-ART.jpg",
    "box": [
     0,
     680,
@@ -59,10 +53,10 @@
   },
   {
    "kind": "bubble",
-   "x": 300,
-   "y": 712,
-   "w": 740,
-   "h": 128,
+   "x": 250,
+   "y": 688,
+   "w": 780,
+   "h": 104,
    "bg": "W",
    "color": "K",
    "radius": 64,
@@ -72,7 +66,9 @@
    ],
    "tail": "left",
    "text": "면세 줄 안 서는 방법 있나?",
-   "_": "그림 속 휴대전화를 보는 여행객(앞 왼쪽)의 말"
+   "_": "그림 속 휴대전화를 보는 여행객(앞 왼쪽)의 말",
+   "tailPos": 0.1,
+   "tailLen": 44
   }
  ]
 }

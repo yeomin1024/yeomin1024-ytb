@@ -1,9 +1,100 @@
 {
- "_설명": "롱폼 썸네일 — 문구는 코드(video/render/thumb.mjs v1.0), 그림은 ChatGPT. 임시(2026-10-25): 옛 THUMB-L(아래 2줄·말풍선은 지금 대본과 맞음) 위에 빨간 꼬리표만 새 문구로 덮음 — 글자 없는 새 그림(images/THUMB-L-ART.jpg)이 오면 모든 문구를 코드로",
+ "_설명": "롱폼 썸네일 본안 — 글자 없는 그림(ChatGPT images_chatgpt.md v6.2 26번 → images/THUMB-L-ART.jpg) + 문구는 코드. 그림이 오면: node video/render/thumb.mjs <이 파일> → thumbnail_1.jpg",
  "out": "thumbnail_1.jpg",
- "size": [1280, 720],
- "images": [ { "src": "../images/THUMB-L.jpg", "box": [0, 0, 1280, 720] } ],
+ "size": [
+  1280,
+  720
+ ],
+ "shade": [
+  0.56,
+  0.86
+ ],
+ "images": [
+  {
+   "src": "../images/THUMB-L-ART.jpg",
+   "box": [
+    0,
+    0,
+    1280,
+    720
+   ]
+  }
+ ],
  "blocks": [
-  { "kind": "tag", "x": 28, "y": 30, "w": 694, "h": 122, "bg": "R", "color": "W", "radius": 26, "fill": [0.94, 0.72], "text": "모르면 면세에만 2시간 넘게" }
+  {
+   "kind": "bubble",
+   "x": 920,
+   "y": 28,
+   "w": 340,
+   "h": 116,
+   "bg": "W",
+   "color": "K",
+   "radius": 62,
+   "fill": [
+    0.86,
+    0.6
+   ],
+   "tail": "left",
+   "text": "이걸 언제 기다려...",
+   "_": "좌절한 여행객(가운데 오른쪽)의 말 — 꼬리가 머리 쪽(왼쪽 아래)",
+   "tailPos": 0.1,
+   "tailLen": 52
+  },
+  {
+   "kind": "lines",
+   "box": [
+    30,
+    470,
+    1110,
+    92
+   ],
+   "align": "left",
+   "valign": "bottom",
+   "lineHeight": 1.05,
+   "stroke": 16,
+   "lines": [
+    [
+     [
+      "11월 ",
+      "Y"
+     ],
+     [
+      "일본 면세 변경되면 ",
+      "W"
+     ],
+     [
+      "골치 아프다",
+      "R"
+     ]
+    ]
+   ],
+   "_": "1줄 — 아래 15% 칸보다 위라 오른쪽으로 더 넓게"
+  },
+  {
+   "kind": "lines",
+   "box": [
+    30,
+    566,
+    990,
+    130
+   ],
+   "align": "left",
+   "valign": "bottom",
+   "lineHeight": 1.05,
+   "stroke": 16,
+   "lines": [
+    [
+     [
+      "가장 빠르게 ",
+      "Y"
+     ],
+     [
+      "면세 받는 방법",
+      "W"
+     ]
+    ]
+   ],
+   "_": "2줄 — 1줄보다 크게, 오른쪽 끝 x ≤ 1020 (영상 길이 표시 자리 비움)"
+  }
  ]
 }

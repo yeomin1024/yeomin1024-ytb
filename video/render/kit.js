@@ -1,4 +1,6 @@
-// VERSION: v1.11 — 2026-10-21 — K.related: 버튼 모양(알약)은 title 을 줄 때만 (기본 없음) · 안내 기본 글 '아래 관련 동영상에서 / 확인할 수 있습니다'
+// VERSION: v1.12 — 2026-10-25 — K.related: 빛 테두리 깜빡임·화살표 출렁임 트윈에 immediateRender:false — 예전엔 fromTo 가 시작값(불투명 1)을 바로 그려
+//   끝 장면이 시작될 때부터(안내 문장 전부터) 빛 테두리가 보였음 (일본 면세·캐리어 쇼츠 still 에서 찾음). 나머지는 그대로.
+// (v1.11) — 2026-10-21 — K.related: 버튼 모양(알약)은 title 을 줄 때만 (기본 없음) · 안내 기본 글 '아래 관련 동영상에서 / 확인할 수 있습니다'
 //   (두 줄, 56px — '누르세요' 말투를 뺌). 사용자 지시 2026-10-21 "멘트를 ~누르세요 로 하지말고 아래 관련 동영상에서 확인할 수 있습니다 로 변경하고
 //   그 위에 버튼 따라 만든것도 없애". 빛 테두리·가운데 화살표는 그대로.
 // (v1.10) — 2026-10-21 — K.related(parent, {title, at, arrowAt, …}): 쇼츠 끝 — 유튜브 '관련 동영상' 버튼 가리키기.
@@ -315,10 +317,10 @@
     K.pop(hint, chip ? at + 0.15 : at);
     tl.fromTo(glow, { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "none" }, at);
     const n = Math.max(1, Math.ceil((K.D - at - 0.3) / 0.45));
-    tl.fromTo(glow, { opacity: 1 }, { opacity: 0.45, duration: 0.45, ease: "sine.inOut", repeat: n, yoyo: true }, at + 0.3);
+    tl.fromTo(glow, { opacity: 1 }, { opacity: 0.45, duration: 0.45, ease: "sine.inOut", repeat: n, yoyo: true, immediateRender: false }, at + 0.3);   // v1.12 미리 보이지 않게
     K.pop(arrow, arrowAt, { from: { y: -60, scale: 1 } });
     const m = Math.max(1, Math.ceil((K.D - arrowAt - 0.55) / 0.4));
-    tl.fromTo(arrow, { y: 0 }, { y: 16, duration: 0.4, ease: "sine.inOut", repeat: m, yoyo: true }, arrowAt + 0.55);
+    tl.fromTo(arrow, { y: 0 }, { y: 16, duration: 0.4, ease: "sine.inOut", repeat: m, yoyo: true, immediateRender: false }, arrowAt + 0.55);
     return { chip, hint, glow, arrow };
   };
 

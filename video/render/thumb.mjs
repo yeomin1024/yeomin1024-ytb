@@ -1,4 +1,6 @@
-// VERSION: v1.0 — 2026-10-25 — 썸네일 문구를 코드로 넣기 (사용자 지시 2026-10-25 "그 썸네일은 이제 이미지만 만들고 문구는 너가 만들어서
+// VERSION: v1.1 — 2026-10-25 — 말풍선 꼬리 자리 tailPos(0~1, 말풍선 왼쪽 끝부터 비율)·꼬리 길이 tailLen(px) — 그림 속 인물 머리를 정확히 가리키게
+//   (글자 없는 썸네일 그림이 와서 말풍선이 얼굴을 덮지 않게 옮기면서).
+// (v1.0) — 2026-10-25 — 썸네일 문구를 코드로 넣기 (사용자 지시 2026-10-25 "그 썸네일은 이제 이미지만 만들고 문구는 너가 만들어서
 //   넣는식으로 하자" — 시험 채널 test/ 부터). 그림(ChatGPT, 글자 없음)은 픽셀 그대로 옮기기만 하고(자르기·크기), 글자·꼬리표·말풍선은 이 도구가
 //   Noto Sans KR 900 으로 그린다 → 그림 속 한글이 틀리는 일이 없고, 제목·숫자가 바뀌면 글만 고쳐 다시 만든다.
 //   설정 = 썸네일 옆 JSON (예: test/source/<영상ID>/shorts/thumbnails/thumbnail_1.json) — 아래 '설정' 참고. 결과 JPEG ≤ 700KB.
@@ -15,7 +17,7 @@
 //         "stroke": 0, "shadow": 0,     // 검정 외곽선 굵기(px, 글자 크기 100 기준) · 그림자
 //         "lines": [ [["일본 면세 ", "W"], ["바뀌면", "Y"]], … ] },   // 줄 = [글, 색] 조각들 — 상자 안에서 가장 크게
 //       { "kind": "tag", "x": 40, "y": 600, "w": 520, "h": 110, "bg": "R", "color": "W", "text": "모르면 …", "radius": 22, "fill": [0.9, 0.68] },  // 상자 안 가장 크게
-//       { "kind": "bubble", "x": …, "y": …, "w": …, "h": …, "bg": "Y", "color": "K", "text": "…", "tail": "left|right" } ] }
+//       { "kind": "bubble", "x": …, "y": …, "w": …, "h": …, "bg": "Y", "color": "K", "text": "…", "tail": "left|right", "tailPos": 0.2, "tailLen": 60 } ] }   // tailPos·tailLen 은 없어도 됨
 //   색 약자: W 흰 #FFFFFF · Y 노랑 #FFD400 · R 빨강 #FF2A2A · K 검정 #111111 · G 청록 #22C7B0 (그 밖은 CSS 색 그대로)
 import fs from "node:fs";
 import path from "node:path";
@@ -48,7 +50,9 @@ function page(spec, dir) {
         style="left:${x}px;top:${y}px;width:${w}px;height:${h}px;text-align:${b.align || "center"};justify-content:${b.valign === "bottom" ? "flex-end" : b.valign === "top" ? "flex-start" : "center"}">${lines}</div>`;
     }
     if (b.kind === "tag" || b.kind === "bubble") {
-      const tail = b.kind === "bubble" ? `<i class="tail ${b.tail || "left"}" style="border-top-color:${col(b.bg)}"></i>` : "";
+      const pos = b.tailPos == null ? "" : `left:${(b.tailPos * 100).toFixed(1)}%;right:auto;`;                 // v1.1 꼬리 자리
+      const len = b.tailLen ? `border-top-width:${b.tailLen}px;bottom:-${b.tailLen - 10}px;` : "";
+      const tail = b.kind === "bubble" ? `<i class="tail ${b.tail || "left"}" style="${pos}${len}border-top-color:${col(b.bg)}"></i>` : "";
       return `<div class="${b.kind}" id="b${i}" data-kind="box" data-fill='${JSON.stringify(b.fill || [0.9, 0.68])}' style="left:${b.x}px;top:${b.y}px;width:${b.w}px;height:${b.h}px;background:${col(b.bg)};color:${col(b.color)};border-radius:${b.radius == null ? 22 : b.radius}px">
         <span class="bt">${esc(b.text)}</span>${tail}</div>`;
     }

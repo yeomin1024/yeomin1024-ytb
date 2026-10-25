@@ -1,5 +1,24 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-25 (주식 — 첫 종이인형극 영상 완성) — `stock/source/ppalli-buja-2026-10/`
+
+### 왜 (사용자 지시)
+- "했는데 확인해서 영상 만드러" — 사용자가 ChatGPT 그림 29장(`stock/puppet/`·`images/TH-ART.jpg`)과 Kaggle 오디오(롱폼·쇼츠)를 올린 뒤.
+
+### 바꾼 것
+| 파일 | 내용 |
+|---|---|
+| `video/episodes/ppalli-buja-2026-10/index.html` v1.0 (새로) | 롱폼 종이인형극 (puppet.js 무대 + GSAP 코드 그래픽) — 97문장 → 컷 53, 화면 글자는 숫자·₩·%·날짜·영어 투자 낱말만(allowWords), 주가 선 = SK하이닉스 실제 종가, 계좌 숫자 = calc.py v1.1. render check 문제 0 · 도입 끝 29.1초 |
+| `video/episodes/ppalli-buja-2026-10-shorts/index.html` v1.0 (새로) | 쇼츠 세 칸(위 숫자 · 가운데 무대 · 아래 자막) — S-01 썸네일 그림 → S-02~08 장면 → S-09 일곱 칸 ? → S-10 롱폼 그림 카드 ▶ + 관련 동영상 화살표 (K.related 안내 글은 한글이라 빼고 카드로). check 문제 0 |
+| `shorts/thumbnails/thumbnail_1.art.json` · `.jpg` | 자름 [540,0,576,1024] → [574,28,509,905] — 그림 아래 무늬 없는 바닥 12% 가 cover_check 빈 띠 기준(8%)을 넘어 렌더가 멈춤 → 3.4% ✅ |
+| `thumbnails/thumbnail_1.jpg` (새로) | 롱폼 썸네일 = TH-ART + 코드 문구·말풍선 (thumb.mjs) |
+| `ppalli-buja-2026-10.srt` · `shorts/…-shorts.srt` | 실제 오디오에 맞춤 (render.mjs sync) |
+| `upload.md` v1.1 | 챕터 9개 (0:00 ~ 6:45, YouTube 챕터 규칙 ✅) · 썸네일 완성 표시 |
+| `제작안.txt` v1.1 · `stock/README.md` v1.10 · `guides/status.md` v2.62 | 장면 코드·바뀐 점·남은 일(업로드) |
+
+### 확인
+- 장면 still 확인 ✅ (롱폼 53컷 · 쇼츠 18컷). 최종 렌더 `stock/out/ppalli-buja-2026-10/final_1080p.mp4` · `stock/out/ppalli-buja-2026-10-shorts/final_1080p.mp4` (git 밖) 진행 중 — 끝나면 완성 mp4 장면을 Claude 가 직접 보고 여기에 적음.
+
 ## 2026-10-25 (주식 — 첫 종이인형극 영상 소스) — `stock/source/ppalli-buja-2026-10/`
 
 ### 왜 (사용자 지시)

@@ -1,7 +1,7 @@
 # ppalli-buja-2026-10 업로드 시트
 
-버전: v1.0 — 2026-10-25 — 새로 만듦 (`guides/upload_guide.md` 꼴 — `tools/youtube_upload.py` 가 읽음). 채널 = STOCK LAB (`stock/youtube_channel.json`).
-기준 파일: 대본 `ppalli-buja-2026-10.txt` (97문장) · SRT (오디오가 생기면 align 으로 맞춤) · 올릴 영상 = `stock/out/ppalli-buja-2026-10/final_1080p.mp4` (렌더 뒤).
+버전: v1.1 — 2026-10-25 — 오디오(7:24.9)에 맞춘 SRT 로 챕터를 채움 · 썸네일 완성 표시. (v1.0 새로 만듦 — `guides/upload_guide.md` 꼴, `tools/youtube_upload.py` 가 읽음.) 채널 = STOCK LAB (`stock/youtube_channel.json`).
+기준 파일: 대본 `ppalli-buja-2026-10.txt` (97문장) · SRT (오디오에 맞춤 — 7:24.9) · 올릴 영상 = `stock/out/ppalli-buja-2026-10/final_1080p.mp4` (렌더 결과, git 에 넣지 않음).
 
 > 업로드: `python tools/youtube_upload.py stock ppalli-buja-2026-10 --dry-run` → `--publish-at <공개 시각>` (비공개로 올리고 그 시각에 공개). **올리기 전에 채널 업로드 목록을 읽어 두 번 올리지 않는다.**
 > 정보 제공용 영상 — 투자 권유가 아님. 내레이션은 AI 음성, 그림은 AI 로 만든 연출.
@@ -12,7 +12,7 @@
 주식으로 빨리 부자되고 싶은 사람들이 결국 망하는 과정
 ```
 
-## 2. 설명란 (그대로 복사 — 챕터는 오디오 뒤 3번으로 채움)
+## 2. 설명란 (그대로 복사)
 
 ```
 마흔둘 직장인 김 과장은 빨리 부자가 되려고 SK하이닉스를 샀습니다. 그런데 1억 원을 다 넣은 지 석 달도 안 돼, 그 돈은 3천만 원도 남지 않았습니다.
@@ -25,7 +25,15 @@
 - 빚이 없었다면 같은 주식으로 얼마가 남았을까
 
 ■ 챕터
-(오디오가 생기면 3번 명령으로 계산해 붙임)
+0:00 1억이 3천만 원이 되기까지
+0:30 포모, 나만 뒤처졌다
+1:18 첫 수익, 주식 별거 아니네
+1:54 몰빵, 통장을 깨다
+2:35 빚, 빌려서 두 배로
+3:34 버티기, 팔지만 않으면
+4:37 반대매매, 내가 판 게 아니라 팔렸다
+5:42 한 방, 레버리지 ETF
+6:45 정리
 
 ■ 자료
 - SK하이닉스·코스피 종가: 한국거래소 시세 (일봉으로 계산)
@@ -41,7 +49,7 @@
 #주식 #빚투
 ```
 
-## 3. 챕터 계산하기 (문장 번호 기준 — 오디오에 맞춘 SRT 로)
+## 3. 챕터 계산하기 (문장 번호 기준 — 오디오에 맞춘 SRT 로, 2026-10-25 계산 ✅ YouTube 챕터 규칙 통과)
 
 ```
 python tools/srt_tool.py upload stock/source/ppalli-buja-2026-10/ppalli-buja-2026-10.txt stock/source/ppalli-buja-2026-10/ppalli-buja-2026-10.srt --chapters "1=1억이 3천만 원이 되기까지;7=포모, 나만 뒤처졌다;18=첫 수익, 주식 별거 아니네;27=몰빵, 통장을 깨다;36=빚, 빌려서 두 배로;49=버티기, 팔지만 않으면;62=반대매매, 내가 판 게 아니라 팔렸다;76=한 방, 레버리지 ETF;89=정리"
@@ -65,7 +73,7 @@ python tools/srt_tool.py upload stock/source/ppalli-buja-2026-10/ppalli-buja-202
 | 항목 | 값 |
 |---|---|
 | 공개 상태 | 비공개로 올리고 **예약 공개** (`--publish-at`) — 시각은 사용자가 정함 · 짝 쇼츠와 같은 시각 |
-| 썸네일 | `thumbnails/thumbnail_1.jpg` = TH-ART + 코드 문구 (`thumbnails/thumbnail_1.art.json` → `node video/render/thumb.mjs`) — 그림이 오면 |
+| 썸네일 | `thumbnails/thumbnail_1.jpg` = TH-ART + 코드 문구 (`thumbnails/thumbnail_1.art.json` → `node video/render/thumb.mjs`) — 만듦 ✅ |
 | 자막 올리기 | 예 (한국어 SRT — 화면에 구운 자막과 같은 글, 검색·자동 번역용) |
 | 기본 언어 | ko |
 | 카테고리 | 교육 (도구 고정값) |
@@ -75,7 +83,7 @@ python tools/srt_tool.py upload stock/source/ppalli-buja-2026-10/ppalli-buja-202
 
 ## 7. 점검
 - 설명란의 숫자는 대본에 있는 것만 썼다 (마흔둘·1억·3천만·석 달·140%·7월 13일·7월 31일).
-- 제목 `title_fit.py` ✅ · 챕터는 오디오 뒤 계산.
+- 제목 `title_fit.py` ✅ · 챕터 9개 ✅ (오디오에 맞춘 SRT).
 
 ## 8. 결과 (업로드 후)
 - 영상 ID·예약 공개 시각: `youtube.json` (업로드 도구가 씀)

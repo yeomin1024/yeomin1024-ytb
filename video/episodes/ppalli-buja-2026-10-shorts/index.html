@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>빨리 부자 쇼츠</title>
+<!-- VERSION: v1.0 — 2026-10-25 — 주식 첫 종이인형극 쇼츠 「주식으로 빨리 부자 되려는 사람들이 결국 망하는 과정」 (사용자 지시 2026-10-25
+     "했는데 확인해서 영상 만드러"). 장면 구성 = stock/source/ppalli-buja-2026-10/제작안.txt [2] (S-01~S-10).
+     · 그림 = 롱폼과 같은 stock/puppet/* (김 과장 = 얼굴 있는 인형 · 나머지 흰 사람 · 소품) + test/puppet/P-PAPER.jpg.
+     · 첫 문장 = shorts/thumbnails/thumbnail_1.jpg (그림 TH-ART 세로 자름 + 제목·말풍선은 코드 — thumb.mjs, thumbnail_1.art.json).
+     · 화면 글자 = 숫자·₩·%·날짜·영어 투자 낱말만 (K.init allowWords). 한글은 구운 자막에만 (사용자 지시 2026-10-25).
+     · 꼴 = 세 칸 (다른 종이인형극 쇼츠와 같음): 위 칸 y 0~691 검정 + 숫자 · 가운데 칸 y 691~1382 종이인형 무대 · 아래 칸 검정 + 구운 자막.
+     · 주가 = SK하이닉스 실제 종가 (calc/prices_2026.csv — PX = [날짜, 종가, 시가]) · 계좌 숫자 = calc/calc.py v1.1 출력 (롱폼과 같음).
+     · 끝 = kit.js K.related (진짜 관련 동영상 버튼 자리 화살표·빛, 끝 화면 2.5초) — 안내 글은 한글이라 빼고 롱폼 그림 카드(▶)로.
+     장면 시각 = 실제 오디오 문장 시각(K.S·K.E·K.W). 연구·교육용 영상 — 투자 권유 아님. -->
+<meta name="video-size" content="1080x1920">
+<meta name="video-safe" content="150 60 1384 60">
+<meta name="end-hold" content="2.5">
+<link rel="stylesheet" href="../../render/kit.css">
+<style>
+#wrap{max-width:420px;margin:0 auto;aspect-ratio:9/16}
+body.render #wrap{width:1080px;height:1920px;max-width:none;margin:0}
+#stage{width:1080px;height:1920px;background:#000}
+#cc{left:540px;bottom:390px;max-width:870px;font-size:46px;padding:12px 16px;text-wrap:balance}
+.ts{text-shadow:0 4px 22px rgba(0,0,0,.9),0 2px 6px rgba(0,0,0,.8)}
+.app{position:absolute;width:600px;border-radius:30px;background:rgba(16,24,42,.96);border:3px solid rgba(255,255,255,.18);padding:22px 32px 26px;display:grid;gap:8px}
+.app .h{display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:42px;color:var(--N)}
+.app .v{font-weight:900;font-size:80px;line-height:1.05;white-space:nowrap}
+.btn{position:absolute;font-weight:900;font-size:60px;line-height:1;padding:22px 52px;border-radius:22px;white-space:nowrap;border:5px solid transparent}
+.btn.buy{background:var(--G);color:#06231F}
+.btn.sell{background:var(--R);color:#fff}
+.btn.off{background:rgba(255,255,255,.12);color:rgba(255,255,255,.45);border-color:rgba(255,255,255,.2)}
+.btn.hold{background:rgba(30,26,4,.92);color:var(--Y);border-color:var(--Y)}
+.stamp{position:absolute;font-weight:900;font-size:110px;line-height:1;padding:18px 40px;border:10px solid currentColor;border-radius:22px;white-space:nowrap;background:rgba(10,16,30,.6)}
+.tag{position:absolute;font-weight:900;font-size:50px;line-height:1;padding:16px 28px;border-radius:16px;background:rgba(16,24,42,.96);border:3px solid rgba(255,255,255,.22);white-space:nowrap}
+.dot7{position:absolute;width:118px;height:118px;border-radius:50%;display:grid;place-items:center;font-weight:900;font-size:64px;background:rgba(16,24,42,.96);border:6px solid var(--Y);color:var(--Y)}
+.card{position:absolute;left:150px;top:190px;width:780px;height:439px;border-radius:26px;overflow:hidden;border:5px solid rgba(255,255,255,.3)}
+.card img{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover}
+.card .play{position:absolute;left:50%;top:50%;width:150px;height:150px;margin:-75px 0 0 -75px;border-radius:50%;background:rgba(0,0,0,.6);border:6px solid #fff;display:grid;place-items:center}
+.card .prog{position:absolute;left:0;bottom:0;height:12px;width:100%;background:rgba(255,255,255,.25)}
+.card .prog i{position:absolute;left:0;top:0;height:100%;width:0;background:var(--R)}
+</style>
+</head>
+<body>
+<div id="wrap"><div id="stage"></div></div>
+<div id="ctrl"></div>
+<div id="now"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+<script id="ep-data">/*EP-DATA:BEGIN*/window.EP={"id":"ppalli-buja-2026-10-shorts","topic":"stock","duration":49.02,"audio":"../../../stock/source/ppalli-buja-2026-10/shorts/narration.mp3","thumb":"../../../stock/source/ppalli-buja-2026-10/shorts/thumbnails/thumbnail_1.jpg","synced":"2026-10-25T16:20:42Z","tts":"2026-10-25T15:50:06","script_sha1":"5294f2747fec7b66","sent":[{"n":1,"part":"빨리 부자 되려던 김 과장","text":"마흔둘 김 과장은 빨리 부자가 되려다, 1억 원이 석 달도 안 돼 3천만 원이 됐습니다.","start":0.3,"end":5.111},{"n":2,"part":"빨리 부자 되려던 김 과장","text":"4월, 동료가 5천만 원을 벌었다는 말에 비상금으로 SK하이닉스를 샀습니다.","start":5.491,"end":10.61},{"n":3,"part":"빨리 부자 되려던 김 과장","text":"한 달 만에 58%를 벌자, 적금까지 깨서 1억 원을 채웠습니다.","start":10.99,"end":15.649},{"n":4,"part":"빨리 부자 되려던 김 과장","text":"코스피가 처음 9,000을 넘은 날엔, 1억 원을 더 빌려 샀습니다.","start":16.029,"end":19.759},{"n":5,"part":"빨리 부자 되려던 김 과장","text":"7월 13일 하루에 15%가 떨어져도, 팔지 않으면 손해가 아니라며 버텼습니다.","start":20.139,"end":25.179},{"n":6,"part":"빨리 부자 되려던 김 과장","text":"7월 29일 아침, 주식은 김 과장이 아니라 증권사가 팔았습니다.","start":25.559,"end":29.989},{"n":7,"part":"빨리 부자 되려던 김 과장","text":"이틀 뒤 상한가가 오자, 남은 돈을 모두 레버리지 ETF에 넣었습니다.","start":30.369,"end":34.774},{"n":8,"part":"빨리 부자 되려던 김 과장","text":"8월 12일, 남은 돈은 2,960만 원이었습니다.","start":35.154,"end":38.734},{"n":9,"part":"빨리 부자 되려던 김 과장","text":"김 과장은 어느 장면에서 멈췄어야 했을까요?","start":39.114,"end":41.894},{"n":10,"part":"빨리 부자 되려던 김 과장","text":"일곱 장면의 문제 행동과 해설, 아래 영상에서 확인하세요.","start":42.274,"end":46.118}],"subs":[[0.2,5.491,"마흔둘 김 과장은 빨리 부자가 되려다,\n1억 원이 석 달도 안 돼 3천만 원이 됐습니다."],[5.491,10.99,"4월, 동료가 5천만 원을 벌었다는 말에\n비상금으로 SK하이닉스를 샀습니다."],[10.99,16.029,"한 달 만에 58%를 벌자,\n적금까지 깨서 1억 원을 채웠습니다."],[16.029,20.139,"코스피가 처음 9,000을 넘은 날엔,\n1억 원을 더 빌려 샀습니다."],[20.139,25.559,"7월 13일 하루에 15%가 떨어져도,\n팔지 않으면 손해가 아니라며 버텼습니다."],[25.559,30.369,"7월 29일 아침, 주식은 김 과장이\n아니라 증권사가 팔았습니다."],[30.369,35.154,"이틀 뒤 상한가가 오자, 남은 돈을\n모두 레버리지 ETF에 넣었습니다."],[35.154,39.114,"8월 12일,\n남은 돈은 2,960만 원이었습니다."],[39.114,42.274,"김 과장은 어느 장면에서\n멈췄어야 했을까요?"],[42.274,46.518,"일곱 장면의 문제 행동과 해설,\n아래 영상에서 확인하세요."]]};/*EP-DATA:END*/</script>
+<script src="../../render/kit.js"></script>
+<script src="../../render/puppet.js"></script>
+<script>
+(function () {
+"use strict";
+const WORDS = ["SK", "HYNIX", "KOSPI", "BUY", "SELL", "HOLD", "LOAN", "MARGIN", "CALL", "LIMIT", "UP", "ETF", "X"];
+K.init(window.EP, { chip: false, w: 1080, allowWords: WORDS });   // 한글은 자막에만 · 영어는 투자 낱말만 (사용자 지시 2026-10-25)
+const { S, E, W, el, pop } = K;
+const tl = K.tl;
+const out = (n, at) => K.out(n, at, { y: 0 });
+const { sm, seg, lin, lerp, q12 } = Puppet.u;
+const R = "#FF4D3D", G = "#22C7B0", Y = "#FFD400", N = "#9AA7BF";
+const until = n => S(n) - 0.05;
+const won = v => "₩" + Math.round(v).toLocaleString("en-US");
+const PX = [["4/21",1224000,1196000],["4/22",1223000,1227000],["4/23",1225000,1220000],["4/24",1222000,1237000],["4/27",1292000,1253000],["4/28",1300000,1313000],["4/29",1293000,1284000],["4/30",1286000,1312000],["5/4",1447000,1339000],["5/6",1601000,1590000],["5/7",1654000,1622000],["5/8",1686000,1591000],["5/11",1880000,1833000],["5/12",1835000,1944000],["5/13",1976000,1781000],["5/14",1970000,1976000],["5/15",1819000,1950000],["5/18",1840000,1780000],["5/19",1745000,1791000],["5/20",1745000,1743000],["5/21",1940000,1801000],["5/22",1941000,1942000],["5/26",2052000,2008000],["5/27",2243000,2279000],["5/28",2289000,2189000],["5/29",2333000,2352000],["6/1",2363000,2299000],["6/2",2360000,2376000],["6/4",2298000,2284000],["6/5",2070000,2142000],["6/8",1911000,1856000],["6/9",2215000,2050000],["6/10",2048000,2137000],["6/11",2101000,1975000],["6/12",2150000,2281000],["6/15",2288000,2283000],["6/16",2382000,2381000],["6/17",2521000,2335000],["6/18",2685000,2556000],["6/19",2764000,2824000],["6/22",2919000,2728000],["6/23",2555000,2898000],["6/24",2621000,2598000],["6/25",2917000,2865000],["6/26",2673000,2850000],["6/29",2628000,2636000],["6/30",2650000,2608000],["7/1",2560000,2665000],["7/2",2187000,2351000],["7/3",2425000,2197000],["7/6",2343000,2450000],["7/7",2201000,2289000],["7/8",2076000,2118000],["7/9",2186000,2228000],["7/10",2180000,2296000],["7/13",1845000,2113000],["7/14",1913000,1825000],["7/15",2082000,2120000],["7/16",1842000,1902000],["7/20",1764000,1745000],["7/21",1836000,1775000],["7/22",1830000,1977000],["7/23",1919000,1910000],["7/24",1759000,1894000],["7/27",1816000,1814000],["7/28",1550000,1662000],["7/29",1401000,1567000],["7/30",1322000,1361000],["7/31",1718000,1697000],["8/3",1567000,1642000],["8/4",1577000,1620000],["8/5",1668000,1693000],["8/6",1495000,1600000],["8/7",1422000,1521000],["8/10",1420000,1443000],["8/11",1425000,1405000],["8/12",1504000,1456000],["8/13",1593000,1582000],["8/14",1645000,1695000],["8/18",1662000,1736000],["8/19",1500000,1545000],["8/20",1691000,1613000],["8/21",1730000,1675000],["8/24",1671000,1775000],["8/25",1678000,1598000],["8/26",1688000,1668000],["8/27",1730000,1776000],["8/28",1653000,1704000],["8/31",1674000,1596000],["9/1",1693000,1666000],["9/2",1613000,1630000],["9/3",1596000,1643000],["9/4",1647000,1620000],["9/7",1783000,1737000],["9/8",1793000,1799000],["9/9",1856000,1795000],["9/10",1853000,1879000],["9/11",1812000,1773000],["9/14",1697000,1707000],["9/15",1690000,1690000],["9/16",1759000,1686000],["9/17",1745000,1770000],["9/18",1857000,1810000],["9/21",1868000,1872000],["9/22",1840000,1909000],["9/23",1862000,1899000],["9/28",1768000,1825000],["9/29",1765000,1755000],["9/30",1776000,1789000]];                                  // [날짜, 종가, 시가] — calc/prices_2026.csv   // [날짜, 종가, 시가] — calc/prices_2026.csv 4/21~9/30 (롱폼과 같음)
+const pIdx = d => PX.findIndex(r => r[0] === d);
+const close = d => PX[pIdx(d)][1];
+const chg = (d0, d1) => (close(d1) / close(d0) - 1) * 100;           // 하루 등락 (종가 → 종가)
+
+// ---------- 위 칸 글자 부품 (가운데 540) ----------
+const T = (sc, top, html, size, cls) => el(`<div class="a cx c nw ts ${cls || "w9"}" style="left:540px;top:${top}px;font-size:${size}px;line-height:1">${html}</div>`, sc);
+const show = (n, a, b, from) => { pop(n, a, from ? { from } : undefined); if (b != null) out(n, b); return n; };
+const tag = (sc, x, y, html, color) => el(`<div class="tag a cx" style="left:${x}px;top:${y}px;${color ? `border-color:${color};color:${color}` : ""}">${html}</div>`, sc);
+const app = (sc, top, head, val, colV) => el(`<div class="app a cx" style="left:540px;top:${top}px"><div class="h"><span>${head[0]}</span><span>${head[1] || ""}</span></div><div class="v" style="color:${colV || "#F4F6FA"}">${val}</div></div>`, sc);
+const btn = (sc, x, y, txt, kind) => el(`<div class="btn a cx ${kind}" style="left:${x}px;top:${y}px">${txt}</div>`, sc);
+const press = (n, at) => { tl.to(n, { scale: 0.86, duration: 0.12, ease: "power2.in" }, at); tl.to(n, { scale: 1, duration: 0.25, ease: "back.out(3)" }, at + 0.12); };
+const stamp = (sc, top, txt, color, at, rot) => { const n = el(`<div class="stamp a cx" style="left:540px;top:${top}px;color:${color};rotate:${rot == null ? -6 : rot}deg">${txt}</div>`, sc); pop(n, at, { from: { scale: 2.2, y: 0, opacity: 0 }, to: { duration: 0.35, ease: "back.out(2)" } }); return n; };
+
+// ---------- 가운데 칸 = 종이인형 무대 (1080×691, y 691~) ----------
+const MID = 691;
+const ST = Puppet.stage({ dir: "../../../stock/puppet/", w: 1080, h: 691, top: MID, clear: 0x000000, files: {
+  PAPER: { f: "../../test/puppet/P-PAPER.jpg", kind: "bg" },
+  CAFE: { f: "S-CAFETERIA.jpg", kind: "bg" }, SUB: { f: "S-SUBWAY.jpg", kind: "bg" }, OFF: { f: "S-OFFICE.jpg", kind: "bg" },
+  HOME: { f: "S-HOME-NIGHT.jpg", kind: "bg" }, WC: { f: "S-RESTROOM.jpg", kind: "bg" },
+  K_LUNCH: { f: "KIM-LUNCH.png", kind: "sq" }, K_GRIN: { f: "KIM-GRIN.png", kind: "sq" }, K_PROUD: { f: "KIM-PROUD.png", kind: "sq" },
+  K_SHOCK: { f: "KIM-SHOCK.png", kind: "sq" }, K_HOLD: { f: "KIM-HOLD.png", kind: "sq" }, K_DESP: { f: "KIM-DESPAIR.png", kind: "sq" }, K_OBS: { f: "KIM-OBSESS.png", kind: "sq" },
+  W_COL: { f: "W-COLLEAGUE.png", kind: "sq" }, W_COM: { f: "W-COMMUTERS.png" }, W_CROWD: { f: "W-CROWD.png" },
+  TABLE: { f: "P-LUNCH-TABLE.png" }, BOOKS: { f: "P-PASSBOOKS.png" }, CHIP: { f: "P-CHIP.png", kind: "sq" }, CASH: { f: "P-CASH.png", kind: "sq" },
+  SAFE: { f: "P-SAFE.png", kind: "sq" }, STOP: { f: "P-STOP.png", kind: "sq" }, GRAB: { f: "P-GRAB.png" } } });
+// 세로 칸은 가까이서 (다른 종이인형극 쇼츠와 같음) — 발끝 줄이 칸 82%
+ST.defaultCam = (st, t) => { const k = lin(t, st.a, st.b); return { pos: [lerp(-0.4, 0.4, k), 2.9, lerp(15.5, 14.5, k)], look: [lerp(-0.4, 0.4, k), 2.57, 0] }; };
+const BGO = { PAPER: { v: 0.5, y: 2.6 }, CAFE: { v: 0.56, y: 0.5 }, SUB: { v: 0.64, y: 0.5 }, OFF: { v: 0.6, y: 0.5 }, HOME: { v: 0.7, y: 0.5 }, WC: { v: 0.74, y: 0.5 } };
+const bgOf = (st, key) => st.bg(key, BGO[key]);
+const WHITE = new THREE.Color(0xffffff), DARK = new THREE.Color(0x5d6279);
+const act = (st, key, o) => { const a = st.actor(key, o); a.crop = o.crop || ST.get(key).info.bbox; return a; };
+const idle = (a, t, ph) => { a.g.rotation.z = 0.012 * Math.sin(q12(t) * Math.PI * 1.3 + (ph || 0)); return a; };
+const showFrom = (a, t, t0, t1) => { if (t < t0 || (t1 != null && t >= t1)) a.op = 0; return a; };
+const goTo = (a, t, t0, t1, x, y) => { const k = sm(lin(t, t0, t1)); a.g.position.x = lerp(a.home.x, x, k); if (y != null) a.g.position.y = lerp(a.home.y, y, k); return a; };
+const tint = (a, dark) => { a.tint.copy(dark ? DARK : WHITE); return a; };
+const FOL = [];
+function stick(set, node, at) { gsap.set(node, { xPercent: -50, yPercent: -100 }); FOL.push({ set, node, at }); return node; }
+ST.after(t => {
+  for (const f of FOL) {
+    const v = f.set.built && f.set.fadeAt(t) > 0.001 ? f.at(t) : null;
+    if (!v) { f.node.style.display = "none"; continue; }
+    const [x, y] = ST.project(v);
+    f.node.style.display = ""; f.node.style.left = x.toFixed(1) + "px"; f.node.style.top = (y + MID).toFixed(1) + "px";
+  }
+});
+const over = (set, sc, a, html, at, end, dy) => { const n = stick(set, el(`<div class="a w9 nw ts" style="font-size:84px;line-height:1">${html}</div>`, sc), () => { const x = a(); return x && x.op > 0.01 ? x.top(dy == null ? 0.4 : dy) : null; }); pop(n, at, { from: { scale: 0.3, y: 0 } }); if (end) out(n, end); return n; };
+
+/* S-01 첫 문장 = 쇼츠 썸네일 그림 (thumbnail_1.jpg — 제목·말풍선은 코드로 넣은 것). 확대 없음 */
+K.cover(until(2), { zoom: 1 });
+K.cut(0.1, "S-01 0초 그림 = 쇼츠 썸네일");
+K.cut(E(1) - 0.2, "S-01 첫 문장 + 자막(42px)");
+
+/* S-02 4월 점심 · 동료 +₩50,000,000 → 4/21 비상금 ₩20,000,000 BUY (문장 2) */
+{
+  const a = until(2), b = until(3), tB = W(2, "비상금");
+  const sc = K.scene(a, b);
+  let CO, KL, TB;
+  const s = ST.set(a, b, st => {
+    bgOf(st, "CAFE");
+    CO = act(st, "W_COL", { h: 3.7, at: [-4.2, -0.3, 0.2] }).ro(3);
+    KL = act(st, "K_LUNCH", { h: 3.8, at: [1.4, -0.3, 0.2] }).ro(3);
+    TB = act(st, "TABLE", { h: 2.0, at: [1.4, -0.9, 1.0] }).ro(6);
+  });
+  s.update = t => {
+    idle(KL, t); goTo(CO, t, S(2), S(2) + 0.6, -3.0);
+    CO.g.rotation.z = -0.05 * sm(lin(t, S(2), S(2) + 0.5));
+    const d = t >= tB - 0.2; tint(CO, d); tint(TB, d);
+  };
+  const c1 = app(sc, 200, ["SK hynix", ""], `+${won(50000000)}`, G);
+  show(c1, W(2, "5천만") - 0.25, tB - 0.15);
+  const c2 = app(sc, 170, ["SK hynix", "4/21"], won(20000000));
+  show(c2, tB);
+  const b1 = btn(sc, 540, 470, "BUY", "buy"); pop(b1, tB + 0.2); press(b1, W(2, "샀습니다"));
+  K.cut(W(2, "비상금") - 0.2, "S-02 동료 +5천만");
+  K.cut(E(2) - 0.1, "S-02 4/21 BUY");
+}
+/* S-03 한 달 +58% → 적금 깸 → ₩100,000,000 한 종목 (문장 3) */
+{
+  const a = until(3), b = until(4), tBk = W(3, "적금"), t1 = W(3, "1억");
+  const sc = K.scene(a, b);
+  let KG, CM, CH; const BK = [];
+  const s = ST.set(a, b, st => {
+    bgOf(st, "SUB");
+    CM = act(st, "W_COM", { h: 3.6, at: [-4.8, -0.3, 0.0] }).ro(3);
+    KG = act(st, "K_GRIN", { h: 3.9, at: [-1.6, -0.3, 0.4] }).ro(4);
+    const BB = ST.get("BOOKS").info.bbox, third = (BB[2] - BB[0]) / 3;
+    for (let i = 0; i < 3; i++) BK.push(act(st, "BOOKS", { h: 1.7, crop: [BB[0] + third * i, BB[1], BB[0] + third * (i + 1), BB[3]], at: [1.6 + i * 1.35, 1.2, 0.8] }).ro(5));
+    CH = act(st, "CHIP", { h: 2.0, anchor: [0.5, 0.5], at: [3.0, 2.6, 0.9] }).ro(6);
+  });
+  s.update = t => {
+    idle(KG, t); idle(CM, t, 2);
+    BK.forEach((bk, i) => { bk.pop(t, tBk - 0.1 + i * 0.1, 0.35); const tb = tBk + 0.3 + i * 0.2, k = sm(lin(t, tb, tb + 0.5)); bk.g.rotation.z = (i - 1) * 0.5 * k; bk.g.position.y -= 1.0 * k; bk.op *= 1 - sm(lin(t, tb + 0.4, tb + 0.7)); });
+    CH.pop(t, t1, 0.45); idle(CH, t, 1);
+  };
+  const h1 = T(sc, 190, `5/21`, 60, "w7 N"); show(h1, S(3) + 0.05, tBk - 0.1);
+  const st1 = stamp(sc, 290, "+58%", G, W(3, "58%")); out(st1, tBk - 0.1);
+  const c = app(sc, 200, ["SK hynix", "5/27"], won(100000000)); show(c, t1 - 0.05);
+  K.cut(tBk - 0.2, "S-03 +58%");
+  K.cut(E(3) - 0.1, "S-03 ₩100,000,000");
+}
+/* S-04 6/18 KOSPI 9,000 → LOAN ₩100,000,000 → 더 BUY (문장 4) */
+{
+  const a = until(4), b = until(5), tL = W(4, "1억");
+  const sc = K.scene(a, b);
+  let KP, SF, CA, CH;
+  const s = ST.set(a, b, st => {
+    bgOf(st, "HOME");
+    KP = act(st, "K_PROUD", { h: 3.9, at: [-3.0, -0.3, 0.6] }).ro(4);
+    SF = act(st, "SAFE", { h: 2.2, at: [1.6, 0, 0.8] }).ro(5);
+    CA = act(st, "CASH", { h: 1.3, anchor: [0.5, 0.5], at: [1.6, 1.8, 1.0] }).ro(6);
+    CH = act(st, "CHIP", { h: 1.6, anchor: [0.5, 0.5], at: [4.4, 2.2, 0.8] }).ro(5);
+  });
+  s.update = t => {
+    KP.bob(t, 0.12, 2.2); SF.pop(t, S(4) + 0.2, 0.45);
+    CA.pop(t, tL, 0.35); const k = sm(lin(t, tL + 0.4, tL + 1.2)); CA.g.position.x = lerp(CA.home.x, -2.6, k); CA.g.position.y = lerp(CA.home.y, 3.0, k) + Math.sin(Math.PI * k) * 1.0; CA.op *= 1 - sm(lin(t, tL + 1.1, tL + 1.4));
+    CH.pop(t, W(4, "샀습니다") - 0.1, 0.4); idle(CH, t, 1);
+  };
+  const h1 = T(sc, 170, `6/18`, 60, "w7 N"); show(h1, S(4) + 0.05, tL - 0.1);
+  const h2 = T(sc, 270, `KOSPI <span class="G">9,000</span>`, 120); show(h2, W(4, "9,000") - 0.1, tL - 0.1, { scale: 1.3, y: 0 });
+  const lo = tag(sc, 540, 170, "LOAN", R); show(lo, tL);
+  const lv = T(sc, 280, won(100000000), 100); show(lv, tL + 0.1);
+  const b1 = btn(sc, 540, 450, "BUY", "buy"); pop(b1, W(4, "샀습니다") - 0.2); press(b1, W(4, "샀습니다") + 0.1);
+  K.cut(tL - 0.2, "S-04 KOSPI 9,000");
+  K.cut(E(4) - 0.1, "S-04 LOAN ₩100,000,000");
+}
+/* S-05 7/13 하루 −15.37% → SELL ✕ · HOLD (문장 5) */
+{
+  const a = until(5), b = until(6), tH = W(5, "팔지");
+  const sc = K.scene(a, b);
+  let SP, KS, KH;
+  const s = ST.set(a, b, st => {
+    bgOf(st, "WC");
+    KS = act(st, "K_SHOCK", { h: 3.9, at: [-1.8, -0.3, 0.6] }).ro(4);
+    KH = act(st, "K_HOLD", { h: 3.9, at: [-1.8, -0.3, 0.6] }).ro(4);
+    SP = act(st, "STOP", { h: 2.0, at: [3.2, 0, 0.8] }).ro(5);
+    st.shake(W(5, "떨어져도"), 0.25);
+  });
+  s.update = t => {
+    showFrom(KS, t, a - 1, tH); showFrom(KH, t, tH); if (t < tH) KS.jitter(t, 0.02); else idle(KH, t);
+    SP.pop(t, W(5, "떨어져도") - 0.15, 0.3);
+  };
+  const h1 = T(sc, 170, `7/13 · SK hynix`, 56, "w7 N"); show(h1, S(5) + 0.05, tH - 0.1);
+  const h2 = T(sc, 260, `<span class="R">${chg("7/10", "7/13").toFixed(2).replace("-", "−")}%</span>`, 150); show(h2, W(5, "15%"), tH - 0.1, { scale: 1.4, y: 0 });
+  const so = btn(sc, 330, 330, "SELL", "off"); show(so, tH);
+  const ho = btn(sc, 750, 330, "HOLD", "hold"); show(ho, tH + 0.15); press(ho, W(5, "버텼습니다"));
+  K.cut(tH - 0.2, "S-05 −15.37%");
+  K.cut(E(5) - 0.1, "S-05 HOLD");
+}
+/* S-06 7/29 아침 MARGIN CALL → 증권사가 SELL (문장 6) */
+{
+  const a = until(6), b = until(7), tG = W(6, "증권사가");
+  const sc = K.scene(a, b);
+  let KS, CH, GR;
+  const s = ST.set(a, b, st => {
+    bgOf(st, "OFF");
+    KS = act(st, "K_SHOCK", { h: 3.9, at: [-3.4, -0.3, 0.6] }).ro(4);
+    CH = act(st, "CHIP", { h: 1.8, anchor: [0.5, 0.5], at: [0.6, 2.2, 0.6] }).ro(5);
+    GR = act(st, "GRAB", { h: 2.6, anchor: [0.5, 0.5], at: [7.5, 2.4, 1.0] }).ro(6);
+  });
+  s.update = t => {
+    idle(KS, t); if (t > tG) KS.jitter(t, 0.015);
+    CH.pop(t, S(6) + 0.1, 0.4);
+    goTo(GR, t, tG - 0.3, tG + 0.3, 1.6);                       // 손이 들어와 칩을 잡음
+    const k = sm(lin(t, tG + 0.5, tG + 1.3));                    // 칩을 쥔 채 오른쪽으로 빠짐
+    if (k > 0) { GR.g.position.x = lerp(1.6, 8.5, k); CH.g.position.x = lerp(CH.home.x, 7.5, k); CH.g.rotation.z = -0.5 * k; }
+  };
+  const h1 = T(sc, 170, `7/29 · 09:00`, 60, "w7 N"); show(h1, S(6) + 0.05, tG - 0.1);
+  const mc = tag(sc, 540, 290, "MARGIN CALL", R); show(mc, S(6) + 0.2, tG - 0.1);
+  stamp(sc, 270, "SELL", R, W(6, "팔았습니다") - 0.1, -8);
+  K.cut(tG - 0.2, "S-06 MARGIN CALL");
+  K.cut(E(6) - 0.1, "S-06 SELL 도장");
+}
+/* S-07 7/31 LIMIT UP +30% → 남은 돈 모두 ETF 2X (문장 7) */
+{
+  const a = until(7), b = until(8), tE = W(7, "레버리지");
+  const sc = K.scene(a, b);
+  let KO, C1, C2;
+  const s = ST.set(a, b, st => {
+    bgOf(st, "OFF");
+    KO = act(st, "K_OBS", { h: 3.9, at: [1.8, -0.3, 0.6] }).ro(4);
+    C1 = act(st, "CHIP", { h: 1.5, anchor: [0.5, 0.5], at: [-2.4, 2.4, 0.6] }).ro(5);
+    C2 = act(st, "CHIP", { h: 1.5, anchor: [0.5, 0.5], at: [-1.8, 2.7, 0.7] }).ro(6);
+  });
+  s.update = t => {
+    if (t < tE) idle(KO, t); else KO.jitter(t, 0.018);
+    C1.pop(t, tE, 0.35); C2.pop(t, tE + 0.2, 0.35); idle(C1, t); idle(C2, t, 1);
+  };
+  const h1 = T(sc, 170, `7/31 · LIMIT UP`, 60, "w9 G"); show(h1, S(7) + 0.05, tE - 0.1);
+  const h2 = T(sc, 270, `<span class="G">+${Math.round(chg("7/30", "7/31"))}%</span>`, 150); show(h2, W(7, "상한가") - 0.1, tE - 0.1, { scale: 1.4, y: 0 });
+  const e1 = T(sc, 190, `ETF <span class="Y">2X</span>`, 120); show(e1, tE);
+  const b1 = btn(sc, 540, 400, "BUY", "buy"); pop(b1, tE + 0.15);
+  [0, 0.4, 0.8].forEach(d => press(b1, W(7, "넣었습니다") - 0.3 + d));
+  K.cut(tE - 0.2, "S-07 LIMIT UP +30%");
+  K.cut(E(7) - 0.1, "S-07 ETF 2X");
+}
+/* S-08 8/12 ₩100,000,000 → ₩29,600,000 (−70%) (문장 8) */
+{
+  const a = until(8), b = until(9), tV = W(8, "2,960만");
+  const sc = K.scene(a, b);
+  let KD;
+  const s = ST.set(a, b, st => { bgOf(st, "OFF"); KD = act(st, "K_DESP", { h: 2.9, at: [-0.4, -0.3, 0.6] }).ro(4); });
+  s.update = t => { KD.pop(t, S(8) + 0.05, 0.45); const k = sm(lin(t, S(8), S(8) + 1.2)); s.tint.setRGB(lerp(1, 0.55, k), lerp(1, 0.58, k), lerp(1, 0.7, k)); };
+  pop(T(sc, 170, `8/12`, 60, "w7 N"), S(8) + 0.05);
+  const v = T(sc, 270, won(100000000), 110); pop(v, S(8) + 0.2);
+  K.counter(v, 100000000, 29600000, tV - 0.3, 1.0, won);
+  tl.to(v, { color: R, duration: 0.4 }, tV - 0.3);
+  pop(T(sc, 430, `<span class="R">−70%</span>`, 110), tV + 0.8, { from: { scale: 1.4, y: 0 } });
+  K.cut(E(8) - 0.1, "S-08 ₩29,600,000 −70%");
+}
+/* S-09~10 일곱 장면 — 어디서 멈췄어야? → 롱폼 카드 ▶ · 관련 동영상 버튼 ↓ (문장 9~10) */
+{
+  const a = until(9), b = K.D;
+  const sc = K.scene(a, until(10));                 // 문장 9 글자 (문장 10 에서 사라짐)
+  const sc2 = K.scene(until(10), b, { keep: true });  // 문장 10 글자·끝 화면 — 관련 동영상 빛이 문장 10 전에 보이지 않게 따로
+  const KEYS = ["W_CROWD", "K_GRIN", "BOOKS", "SAFE", "K_HOLD", "GRAB", "CHIP"], HS = [1.7, 2.4, 1.5, 1.7, 2.4, 1.4, 1.3];
+  let ic = [];
+  const s = ST.set(a, b, st => { bgOf(st, "PAPER"); ic = KEYS.map((k, i) => act(st, k, { h: HS[i], at: [-3.9 + i * 1.5, -0.3 + i * 0.4, 0.6] }).ro(4 + i)); },
+    { fadeOut: 0, cam: () => ({ pos: [0.3, 2.9, 15.0], look: [0.3, 2.57, 0] }) });   // 일곱 개가 다 보이게 카메라 고정
+  s.update = t => {
+    ic.forEach((c, i) => { c.pop(t, S(9) + 0.1 + i * 0.12, 0.3); const tp = S(10) + 0.1 + i * 0.14; if (t > tp) c.g.scale.multiplyScalar(1 + 0.25 * Math.sin(Math.PI * seg(t, tp, tp + 0.35))); });
+  };
+  // 일곱 칸 · 칸마다 ? 가 깜빡
+  const dots = [];
+  for (let i = 0; i < 7; i++) {
+    const n = el(`<div class="dot7" style="left:${60 + i * 140}px;top:330px">${i + 1}</div>`, sc);
+    pop(n, S(9) + 0.1 + i * 0.12, { from: { scale: 0.3, y: 0 } });
+    tl.call(() => { n.textContent = "?"; }, null, W(9, "멈췄어야") + i * 0.08);
+    tl.call(() => { n.textContent = String(i + 1); }, null, W(9, "멈췄어야") - 0.01 + i * 0.08);   // 되감기 때 숫자로
+    tl.fromTo(n, { scale: 1 }, { scale: 1.18, duration: 0.25, yoyo: true, repeat: 1, ease: "sine.inOut" }, W(9, "멈췄어야") + i * 0.08);
+    dots.push(n);
+  }
+  pop(T(sc, 185, `<span class="Y">?</span>`, 120), S(9) + 0.05);
+  // 끝: 롱폼 그림 카드 (▶) + 진짜 관련 동영상 버튼 자리 화살표·빛
+  const card = el(`<div class="card a"><img alt="" src="../../../stock/source/ppalli-buja-2026-10/images/TH-ART.jpg"><div class="play"><svg viewBox="0 0 60 60" width="70" height="70" aria-hidden="true"><path d="M18 10 L50 30 L18 50 Z" fill="#fff"/></svg></div><div class="prog"><i></i></div></div>`, sc2);
+  pop(card, S(10) + 0.05, { from: { scale: 0.85, y: 0 } });
+  tl.fromTo(card.querySelector(".prog i"), { width: "0%" }, { width: "100%", duration: K.D - S(10) - 0.2, ease: "none" }, S(10) + 0.2);
+  K.related(sc2, { at: S(10) + 0.05, arrowAt: W(10, "아래"), hint: "" });
+  K.cut(W(9, "멈췄어야") + 0.7, "S-09 일곱 칸 ?");
+  K.cut(E(10) - 0.1, "S-10 롱폼 카드 ▶");
+  K.cut(K.D - 0.3, "끝 화면 (관련 동영상 버튼 ↓)");
+}
+K.done();
+})();
+</script>
+</body>
+</html>

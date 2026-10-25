@@ -1,6 +1,8 @@
 # 주식 주제 폴더 (`stock/`) — 새로 시작 (2026-10-15)
 
-VERSION: v1.9 — 2026-10-25 — **첫 이야기형 종이인형극 영상 소스** `source/ppalli-buja-2026-10/` (대본·자막·그림 요청 29장·장면 제작안·썸네일 설정·업로드 시트 — 사용자 지시 "수정했으니 대본 쓰고 필요한 요소들 다 생성해봐 … 영상은 일본 축제 영상처럼 종이인형극 형식 … 한글 문구는 사용하지 말고 자막만 … 사연 주인공은 이목구비 다 있는 캐릭터 … 나머지 인물은 이목구비 없는 사람형태 흰둥이" + "Buy, Sell, 티커, KOSPI 등 투자자들이 알만한 영어 문구는 사용해도 돼") · 그림 인형·배경은 `puppet/`(여러 편이 같이 씀) — 아래 '새 영상 소스'.
+VERSION: v1.10 — 2026-10-25 — **첫 종이인형극 영상 완성** `source/ppalli-buja-2026-10/` (사용자 지시 "했는데 확인해서 영상 만드러" — 그림 29장·오디오 검수 뒤): 장면 코드 `video/episodes/ppalli-buja-2026-10/index.html`(롱폼 7:25.9, 컷 53) · `video/episodes/ppalli-buja-2026-10-shorts/index.html`(쇼츠 0:49, 세 칸) · 썸네일 2장 · 렌더 → `stock/out/ppalli-buja-2026-10(-shorts)/final_1080p.mp4`(git 밖) · 업로드 시트 챕터 — 아래 '새 영상 소스'.
+
+(v1.9 — 2026-10-25 — **첫 이야기형 종이인형극 영상 소스** `source/ppalli-buja-2026-10/` (대본·자막·그림 요청 29장·장면 제작안·썸네일 설정·업로드 시트 — 사용자 지시 "수정했으니 대본 쓰고 필요한 요소들 다 생성해봐 … 영상은 일본 축제 영상처럼 종이인형극 형식 … 한글 문구는 사용하지 말고 자막만 … 사연 주인공은 이목구비 다 있는 캐릭터 … 나머지 인물은 이목구비 없는 사람형태 흰둥이" + "Buy, Sell, 티커, KOSPI 등 투자자들이 알만한 영어 문구는 사용해도 돼") · 그림 인형·배경은 `puppet/`(여러 편이 같이 씀) — 아래 '새 영상 소스'.)
 
 (v1.8.1 — 2026-10-25 — 요약본 v1.1 (장면 꼴 = 육하원칙 → 문제 행동 → 해설 → 다음 궁금증, 사용자 피드백).)
 
@@ -33,7 +35,7 @@ VERSION: v1.9 — 2026-10-25 — **첫 이야기형 종이인형극 영상 소�
 
 - **꼴 = 이야기형 종이인형극** (사용자 지시 2026-10-25): 빈 무대 배경 + 투명 인형·소품(ChatGPT, **글자 없음**) 위에 움직임·숫자·그래프·영어 투자 낱말(BUY·SELL·KOSPI·종목 번호)은 코드(`video/render/puppet.js`). 한글은 화면에 굽는 자막에만 (`tools/srt_tool.py` v1.10 — 주식도 자막을 굽는다). 주인공만 얼굴 있는 인형, 나머지 사람은 얼굴 없는 흰 사람. 썸네일 = 글자 없는 그림 하나를 롱폼(16:9)·쇼츠(9:16 화면 끝까지)에 같이, 제목·말풍선은 `video/render/thumb.mjs`.
 - `source/ppalli-buja-2026-10/` — 「주식으로 빨리 부자되고 싶은 사람들이 결국 망하는 과정」: 요약본 v1.2 · 대본 97문장(+쇼츠 10) · SRT · `calc/calc.py` v1.1 (SK하이닉스·코스피 **실제 종가** `calc/prices_2026.csv`) · 그림 요청 `images_chatgpt.md`(29장 → `puppet/`·`images/`) · 장면 `제작안.txt` · 썸네일 설정 `thumbnails/`·`shorts/thumbnails/` · `upload.md`·`shorts/upload.md` · 사실 확인표 `checklist.md` · 읽는 소리 `tts_lexicon.tsv`.
-- 남은 순서: 오디오(사용자 Kaggle, 범위 stock) · 그림(사용자 ChatGPT) → Claude 가 검수·썸네일·장면 코드(`video/episodes/ppalli-buja-2026-10(-shorts)/index.html`)·렌더·확인 → 업로드.
+- 2026-10-25 영상 완성: 그림 29장(`puppet/`)·오디오 검수 → 썸네일 2장(`thumbnails/thumbnail_1.jpg`·`shorts/thumbnails/thumbnail_1.jpg`) → 장면 코드 `video/episodes/ppalli-buja-2026-10(-shorts)/index.html` (render check 문제 0) → 렌더 `stock/out/…/final_1080p.mp4` (git 밖 — 컨테이너에만, 새 컨테이너면 다시 렌더). 남은 것: 업로드(사용자가 시킬 때, `upload.md` — 채널 STOCK LAB, 올리기 전 채널 목록 확인).
 
 ## 지운 것 (2026-10-25 — 분석만 남김)
 

@@ -1,6 +1,6 @@
 # 일본 캐리어 편 종이인형극 그림 22장 — ChatGPT용 (읽고 그대로 만들고 저장 경로에 올리기)
 
-작성: 2026-10-25 (Claude, v2.0 — 종이인형극으로 다시: 배경 4 + 인형 16 + 글자 없는 썸네일 2) — 짝 문서 `test/일본_캐리어투기_제작안.txt` · 같은 화풍 `test/source/myeonse-hwangeup-2026-10/images_chatgpt.md` (일본 면세 편)
+작성: 2026-10-25 (Claude, v2.0 — 종이인형극으로 다시: 배경 4 + 인형 16 + 글자 없는 썸네일 2 · v2.0.1 사린 문장을 빼 '쓰는 곳' 번호만 고침, 그림은 같음) — 짝 문서 `test/일본_캐리어투기_제작안.txt` · 같은 화풍 `test/source/myeonse-hwangeup-2026-10/images_chatgpt.md` (일본 면세 편)
 
 이 파일 주소: https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/test/source/kaerieo-tugi-2026-10/images_chatgpt.md
 
@@ -11,26 +11,26 @@
 
 | 번호 | 파일 | 크기 | 무엇 | 쓰는 곳 (대본 문장) |
 |---|---|---|---|---|
-| 1 | `test/puppet/K-ALLEY.jpg` | 가로 1536×1024 | 빈 무대 — 밤 도쿄 뒷골목 쓰레기 집적소 | 도입·다른 목소리·현지 반응 (1~4, 47~51) |
-| 2 | `test/puppet/K-PLATFORM.jpg` | 가로 1536×1024 | 빈 무대 — 깨끗한 역 승강장 (쓰레기통 없음) | 깨끗한 일본에서 왜? · 넷째 (10~11, 41~46) |
-| 3 | `test/puppet/K-WARD.jpg` | 가로 1536×1024 | 빈 무대 — 구청 민원 창구 홀 | 구청 대형 쓰레기 제도 (12~14, 24~33, 61~63) |
-| 4 | `test/puppet/K-HOTEL.jpg` | 가로 1536×1024 | 빈 무대 — 호텔 뒤쪽 짐 보관 창고 | 셋째 · 삿포로 재판매 (34~40, 64) |
+| 1 | `test/puppet/K-ALLEY.jpg` | 가로 1536×1024 | 빈 무대 — 밤 도쿄 뒷골목 쓰레기 집적소 | 도입·다른 목소리·현지 반응 (1~4, 44~48) |
+| 2 | `test/puppet/K-PLATFORM.jpg` | 가로 1536×1024 | 빈 무대 — 깨끗한 역 승강장 (쓰레기통 없음) | 깨끗한 일본에서 왜? · 넷째 (10~11, 40~42) |
+| 3 | `test/puppet/K-WARD.jpg` | 가로 1536×1024 | 빈 무대 — 구청 민원 창구 홀 | 구청 대형 쓰레기 제도 (12~14, 24~33, 58~60) |
+| 4 | `test/puppet/K-HOTEL.jpg` | 가로 1536×1024 | 빈 무대 — 호텔 뒤쪽 짐 보관 창고 | 셋째 · 삿포로 재판매 (34~40, 61) |
 | 5 | `test/puppet/K-SUIT-OLD.png` | 정사각 1024 · 투명 | 버려진 헌 캐리어 | 거의 모든 장면 |
 | 6 | `test/puppet/K-WARN.png` | 정사각 1024 · 투명 | 경고 스티커 (글자 없음) | 도입 · 쇼츠 (3) |
 | 7 | `test/puppet/K-TICKET.png` | 정사각 1024 · 투명 | 대형 쓰레기 처리권 스티커 (글자 없음) | 둘째 (27~28) |
-| 8 | `test/puppet/K-TRUCK.png` | 가로 1536×1024 · 투명 | 작은 쓰레기 수거차 | 도입 수거 · 세금으로 수거 (4, 54) |
-| 9 | `test/puppet/K-CLERK.png` | 가로 1536×1024 · 투명 | 구청 직원 + 책상 | 구청 장면 (12, 24~31, 61~63) |
+| 8 | `test/puppet/K-TRUCK.png` | 가로 1536×1024 · 투명 | 작은 쓰레기 수거차 | 도입 수거 · 세금으로 수거 (4, 51) |
+| 9 | `test/puppet/K-CLERK.png` | 가로 1536×1024 · 투명 | 구청 직원 + 책상 | 구청 장면 (12, 24~31, 58~60) |
 | 10 | `test/puppet/K-POLICE.png` | 정사각 1024 · 투명 | 경찰관 (습득물) | 도쿄 경찰 습득물 (7~9) |
 | 11 | `test/puppet/K-PILE.png` | 가로 1536×1024 · 투명 | 쌓인 캐리어 더미 | 숫자 장면 (6~8, 21~22, 37) |
-| 12 | `test/puppet/K-RESIDENTS.png` | 가로 1536×1024 · 투명 | 화난 동네 주민 두 사람 | 현지 반응 (49~51) |
+| 12 | `test/puppet/K-RESIDENTS.png` | 가로 1536×1024 · 투명 | 화난 동네 주민 두 사람 | 현지 반응 (46~48) |
 | 13 | `test/puppet/K-HOTELIER.png` | 정사각 1024 · 투명 | 곤란한 호텔 지배인 | 셋째 (34~40) |
-| 14 | `test/puppet/K-TRASHCAN.png` | 정사각 1024 · 투명 | 역 쓰레기통 | 넷째 (41~46) |
-| 15 | `test/puppet/K-XRAY.png` | 가로 1536×1024 · 투명 | 공항 X선 검사기 | 주부공항 X선 (53) |
-| 16 | `test/puppet/K-SCREEN.png` | 정사각 1024 · 투명 | 큰 전광판이 붙은 건물 | 이케부쿠로 대형 전광판 (62) |
-| 17 | `test/puppet/K-LEAFLET.png` | 정사각 1024 · 투명 | 경고 전단 묶음 (글자 없음) | 다국어 전단 (62) |
-| 18 | `test/puppet/K-REPAIR.png` | 가로 1536×1024 · 투명 | 캐리어를 고치는 직원 + 작업대 | 삿포로 재판매 (64) |
-| 19 | `test/puppet/K-LAWBOOK.png` | 정사각 1024 · 투명 | 법전 | 불법 · 처벌 (55~57) |
-| 20 | `test/puppet/K-HANDSHAKE.png` | 가로 1536×1024 · 투명 | 협정 — 악수하는 두 사람 | 도시마구 재활용 업체 협정 (61) |
+| 14 | `test/puppet/K-TRASHCAN.png` | 정사각 1024 · 투명 | 역 쓰레기통 | 넷째 (40~42) |
+| 15 | `test/puppet/K-XRAY.png` | 가로 1536×1024 · 투명 | 공항 X선 검사기 | 주부공항 X선 (50) |
+| 16 | `test/puppet/K-SCREEN.png` | 정사각 1024 · 투명 | 큰 전광판이 붙은 건물 | 이케부쿠로 대형 전광판 (59) |
+| 17 | `test/puppet/K-LEAFLET.png` | 정사각 1024 · 투명 | 경고 전단 묶음 (글자 없음) | 다국어 전단 (59) |
+| 18 | `test/puppet/K-REPAIR.png` | 가로 1536×1024 · 투명 | 캐리어를 고치는 직원 + 작업대 | 삿포로 재판매 (61) |
+| 19 | `test/puppet/K-LAWBOOK.png` | 정사각 1024 · 투명 | 법전 | 불법 · 처벌 (52~54) |
+| 20 | `test/puppet/K-HANDSHAKE.png` | 가로 1536×1024 · 투명 | 협정 — 악수하는 두 사람 | 도시마구 재활용 업체 협정 (58) |
 | 21 | `test/source/kaerieo-tugi-2026-10/images/THUMB-L-ART.jpg` | 가로 16:9 (1280×720) | 롱폼 썸네일 그림 (글자 없음 — 문구는 코드) | 업로드 썸네일 |
 | 22 | `test/source/kaerieo-tugi-2026-10/images/SHORTS-ART.jpg` | 가로 3:2 (1536×1024) | 쇼츠 첫 장면 가운데 칸 그림 (글자 없음 — 위 문구·말풍선은 코드) | 쇼츠 0초 장면 = 쇼츠 썸네일 |
 

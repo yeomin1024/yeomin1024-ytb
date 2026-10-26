@@ -1,4 +1,6 @@
-// VERSION: v1.25 — 2026-10-24 — check: K.init opts.allowWords(배열)가 있으면 화면 글자에 한글·가나·한자가 있거나, 그 목록에 없는 영어 낱말이
+// VERSION: v1.26 — 2026-10-26 — check: allowWords(이야기형·종이인형극) 낱말 검사에서도 data-words="<까닭>" 이 붙은 칸은 뺌 (noWords 와 같은 꼴) —
+//   주식 심리 테스트 편 A·B·C 보기 카드만 한국어 (사용자 지시 2026-10-26 "A,B,C 선택 항목 말고는 자막 외에 한글 문구 쓰지 말고"). 다른 검사는 그대로.
+// (v1.25) — 2026-10-24 — check: K.init opts.allowWords(배열)가 있으면 화면 글자에 한글·가나·한자가 있거나, 그 목록에 없는 영어 낱말이
 //   있으면 문제 (이야기형 — stock/story/screen_words.txt · '%p' 는 빼고 셈). 사용자 지시 2026-10-24 "국기를 할 필요는 없잖아 그냥 KOSPI, S&P500 이거
 //   달면 되는데 … buy, sell 같은것도 그렇고 다 알만한건 넣어도 돼".
 // (v1.24) — 2026-10-23 — check: 장면 파일 K.init 의 noLatin(이야기형)이면 화면 글자에 라틴·한글·가나·한자가 하나라도 있으면 문제 (.code 자리표만 뺌)
@@ -269,7 +271,7 @@ const CHECK_FN = ([W, H, SAFE]) => {           // v1.8 무대 크기 W×H · 안
     const fs = parseFloat(getComputedStyle(el).fontSize);
     const txt = n.textContent.trim().slice(0, 24);
     if (fs < 36 && !el.closest("[data-small]")) out.push({ kind: "글자 36px 미만", txt, fs });   // v1.7: data-small = 사용자가 고른 작은 글자 칸 (이유를 속성 값에)
-    if (ALLOW && !el.closest(".code")) {                      // v1.25 이야기형: 한국어 없음 · 영어는 허용 목록 낱말만
+    if (ALLOW && !el.closest(".code,[data-words]")) {        // v1.25 이야기형: 한국어 없음 · 영어는 허용 목록 낱말만 · v1.26 data-words 칸(보기 카드) 뺌
       const bad = /[가-힣ぁ-んァ-ン一-龥]/.test(n.textContent) ? ["(한국어·일본어·한자)"]
         : (n.textContent.replace(/%p/g, "%").match(/[A-Za-z][A-Za-z&-]*/g) || []).filter(w => !ALLOW.has(w.toUpperCase()));
       if (bad.length) out.push({ kind: "허용 목록 밖 글자 (stock/story/screen_words.txt)", txt, words: bad.join(",") });

@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.4 — 2026-10-26 — 대본 v1.3 (사용자 지시 "대본 보고 다시 simri-test-2026-10.txt 수정해" — 사용자가 대본에 쓴 메모
+# VERSION: v1.5 — 2026-10-26 — 대본 v1.4 (사용자 지시 "2,9,10 빼고 그대로 두고" — 대본 v1.3 뺄 후보 ②⑨⑩): 8번 모닝스타 배분 vs 업종 펀드,
+#          10번 코인베이스 2배 ETF 상품 vs 투자자, 10번 '그 손실의 62%가 40대와 50대' 를 대본에서 뺌 → 그 숫자 출력은 [REF] 로. 계산·점수 규칙은 그대로.
+# (v1.4 — 2026-10-26 — 대본 v1.3 (사용자 지시 "대본 보고 다시 simri-test-2026-10.txt 수정해" — 사용자가 대본에 쓴 메모
 #          70607cc5: 도입 "최근 ~ 등 ~로 인해 … 특히 한국주식시장은 ~ 손실본 사람이 ~ 망한 사람도 속출" · 통과 기준 "통과, 주의, 불통과는 어떤 경우인지
 #          보충 설명" · 해설 "사례만 얘기하고 뭘 얘기하고 싶은지가 없어"): 도입 = 단일 종목 레버리지 상품 개인 손실 6.3조(40·50대 62%)
 #          · 10월 1~16일 반대매매 3,911억 · 3번 해설 = 같은 한 달 한국 지수 +23% · 7번 해설 한국 = 처분 효과 41% vs 22% (REF → Q7)
-#          · 10번 해설 = 도입 손실의 되짚기. NH 54.6%·2배 ETF 40대 보유 34% 는 [REF] 로 (사용자가 도입에서 지움). 보기 → 점수 짝은 그대로.
+#          · 10번 해설 = 도입 손실의 되짚기. NH 54.6%·2배 ETF 40대 보유 34% 는 [REF] 로 (사용자가 도입에서 지움). 보기 → 점수 짝은 그대로.)
 # (v1.3 — 2026-10-26 — 대본 v1.2 (사용자 지시 "분할매수,분할매도 합쳐서 6번으로 넣고 8번은 국면에 따른 현금 비중 섹터 분배 계획
 #          여부 관련을 넣어서 대본 수정해"): 6번 = 분할 매수·매도 계획 — 올해 한국 지수로 한 번에 vs 한 달 간격 나눠 넣기(오를 때·떨어질 때)
 #          · 미국 설문 공포 매도 25% · 8번 = 국면별 현금·업종 배분 계획 — 7/28 반도체 2종목과 지수 · 모닝스타 배분 펀드 vs 업종 펀드 격차.
@@ -23,6 +25,7 @@
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.5 | 2026-10-26 | 대본에서 뺀 8번 모닝스타·10번 코인베이스·10번 40·50대 62% → [REF] (값·계산 그대로) | main (Q8·Q10·REF) |
 # | v1.4 | 2026-10-26 | SRC 9개 더함(단일 종목 ETP 손실 합계·확정·평가·40대·50대·계좌 수, 반대매매 10/1~16·9월·8월) · 도입 = ETP·반대매매 · Q3 지수 한 달 · Q7 한국 처분 효과(REF → Q7) · Q10 도입 되짚기 · NH·40대 보유 → REF | main (INTRO·Q3·Q7·Q10·REF) |
 # | v1.3 | 2026-10-26 | 6번 분할 매수·매도(지수 4/21·5/21·7/22·8/21·9/21 + 계산 split_vs_lump)·8번 현금·업종 배분(7/28·두 종목 낙폭·시총 비중·모닝스타 배분 0.7 vs 업종 1.2) · 옛 6·8번 → [REF] | main (Q6·Q8·REF) · QUESTIONS 이름 · split_vs_lump() |
 # | v1.2 | 2026-10-26 | SRC 5개 더함(인도 SEBI 71%·지수 7/27·7/30·7/31) · 한국 숫자 4개를 REF → Q2·Q4·Q9·Q10 · Q5 인도·Q8 7월 말 반등 | main (Q2·Q4·Q5·Q8·Q9·Q10) |
@@ -39,7 +42,7 @@ import logging
 import sys
 from collections import Counter
 
-VERSION = "v1.4"
+VERSION = "v1.5"
 
 # ---------------------------------------------------------------- 입력 (출처는 요약본 [근거] 2번과 같다)
 SRC = {
@@ -292,11 +295,12 @@ def main():
     for L in s["loss_example_pct"]:
         need = (1 / (1 - L / 100) - 1) * 100
         out("Q7", loss_pct=L, need_gain_pct=f"{need:.1f}")
-    # 8번 — 국면별 현금·업종 배분: 7/28 반도체 두 종목과 지수 · 모닝스타 배분 펀드 vs 업종 펀드
+    # 8번 — 국면별 현금·업종 배분: 7/28 반도체 두 종목과 지수 (v1.5 모닝스타 배분 vs 업종 펀드는 대본에서 뺌 → REF)
     out("Q8", kr_jul28_index_pct=f"{pct(s['kospi_2026_07_28'], s['kospi_2026_07_27']):.2f}", samsung_pct=s["samsung_2026_07_28_pct"],
         hynix_pct=s["hynix_2026_07_28_pct"], two_chip_share_pct=s["two_chip_mcap_share_pct"],
-        ms_allocation_gap_pp=s["ms_allocation_gap_pp"], ms_sector_gap_pp=s["ms_sector_gap_pp"], ms_allocation_capture_pct=s["ms_allocation_capture_pct"],
-        say="두 회사 13%·14% 넘게 ↓ · 지수 10.8% ↓ · 배분 펀드 0.7%p vs 업종 펀드 1.2%p")
+        say="두 회사 13%·14% 넘게 ↓ · 지수 10.8% ↓ · 시가총액 절반쯤")
+    out("REF", ms_allocation_gap_pp=s["ms_allocation_gap_pp"], ms_sector_gap_pp=s["ms_sector_gap_pp"], ms_allocation_capture_pct=s["ms_allocation_capture_pct"],
+        note="v1.4 8번 모닝스타 배분 펀드 0.7%p vs 업종 펀드 1.2%p — 사용자가 뺌(뺄 후보 ⑨)")
     # 8번(REF) — 옛 8번: 같은 10년을 해마다 9.9%와 8.7%로 불리면 (예시 1억 원)
     y, base = s["ms_years"], s["ms_example_won_eok"]
     fund = base * (1 + s["ms_fund_total_return_pct"] / 100) ** y
@@ -331,9 +335,10 @@ def main():
     d1 = s["two_x_day1_pct"] / 100
     d2 = 1 / (1 + d1) - 1
     two_x = (1 + 2 * d1) * (1 + 2 * d2) - 1
-    out("Q10", day1_pct=f"{d1 * 100:.1f}", day2_back_to_start_pct=f"{d2 * 100:.2f}", two_x_after_2days_pct=f"{two_x * 100:.2f}",
-        conl=f"fund {s['conl_fund_pct']}%/yr vs investors {s['conl_investor_pct']}%/yr")
-    out("Q10", callback_etp_loss_jo=f"{etp_jo:.2f}", age40_50_share_pct=f"{etp_4050:.1f}", say="앞에서 말한 6조 원 손실 = 단일 종목 레버리지 상품 · 그 62%가 40대와 50대")
+    out("Q10", day1_pct=f"{d1 * 100:.1f}", day2_back_to_start_pct=f"{d2 * 100:.2f}", two_x_after_2days_pct=f"{two_x * 100:.2f}")
+    out("Q10", callback_etp_loss_jo=f"{etp_jo:.2f}", say="앞에서 말한 6조 원 손실 = 단일 종목 레버리지 상품")
+    out("REF", conl=f"fund {s['conl_fund_pct']}%/yr vs investors {s['conl_investor_pct']}%/yr", age40_50_share_pct=f"{etp_4050:.1f}",
+        note="v1.4 10번 코인베이스 2배 ETF·'그 62%가 40대와 50대' — 사용자가 뺌(뺄 후보 ②·⑩)")
     out("REF", kr_single_2x_40s_pct=f"{s['single_2x_40s_eok'] / s['single_2x_total_eok'] * 100:.1f}",
         total_jo=f"{s['single_2x_total_eok'] / 10000:.2f}", say="한국 단일 종목 2배 ETF — 40대가 가장 많이 보유(34%)", note="v1.3 10번 — 도입 손실 되짚기로 바꿈")
 

@@ -1,5 +1,9 @@
 # video/ 변경 이력 (guides/video_guide.md 2번 규칙)
 
+## 2026-10-26 — render.mjs v1.26: allowWords 낱말 검사에서 data-words 칸 뺌
+- 사용자 지시: "A,B,C 선택 항목 말고는 자막 외에 한글 문구 쓰지 말고" (주식 심리 테스트 편 종이인형극 — `stock/source/simri-test-2026-10/제작안.txt`).
+- `render/render.mjs` v1.26 check: K.init allowWords(이야기형·종이인형극)일 때도 `data-words="<까닭>"` 이 붙은 칸(보기 카드)은 한국어·목록 밖 영어 검사에서 뺌 — noWords 와 같은 꼴. 다른 검사는 그대로.
+
 ## 2026-10-19 — 코드 화면 + AI 장면 클립 합치기 (render.mjs v1.17 · kit.js v1.9) · 국민연금 쇼츠 장면 v1.1
 - 사용자 지시: "영상은 설명이 복잡하고 어려울 때는 클로드 코드로 렌더링 하고 그렇지 않은 부분은 친숙한 애니메이션 이미지 … 짧은 영상 … 영상을 이어 붙이는건 그 코드에서 하는게 아니라 너가 하는거야"
 - `render/render.mjs` v1.17: `video --base` → `<영상ID>/base_1080p.mp4` (구운 자막·장 이름표·소리 없이) · 새 모드 `overlay` → 자막·장 이름표만 투명 PNG (바뀔 때마다 한 장, `list.ffconcat` · `overlay.json`, 장 이름표 바탕은 밝은 클립 위에서도 읽히게 조금 어둡게)

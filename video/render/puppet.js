@@ -1,4 +1,8 @@
-// VERSION: v1.1 — 2026-10-20 — 4개 묶음 그림에서 물건끼리 닿아 빈 열로 넷이 안 나오면, 가장 넓은 덩어리를 세로로 가장 적게 걸친 열에서 자름
+// VERSION: v1.2 — 2026-10-26 — 코드 그림: files 의 spec 에 f(파일)가 없고 draw(g, w, h) 가 있으면 <img> 를 만들지 않고 그 함수가 그린 캔버스를 씀
+//   (spec.cw·ch = 캔버스 크기, 기본 1024×1024) — 알파 상자·초록 빼기 검사는 그림 파일과 같음. 주식 심리 테스트 편: ChatGPT 그림이 아직 없는
+//   주인공 흰둥이·소품을 같은 자리에 코드 그림으로 (사용자 지시 2026-10-26 "썸네일과 영상 만들어봐"). 파일이 생기면 f 만 주면 그 그림으로 바뀜.
+//   없는 파일을 <img> 로 부르면 브라우저 오류(404)가 나 render check 가 실패하므로, 장면 파일이 있는 그림 목록으로 f/draw 를 고른다.
+// (v1.1) — 2026-10-20 — 4개 묶음 그림에서 물건끼리 닿아 빈 열로 넷이 안 나오면, 가장 넓은 덩어리를 세로로 가장 적게 걸친 열에서 자름
 //   (예전: 4등분 — 사람이 잘렸음. ChatGPT 2판 P-PEOPLE·P-ICONS·P-ICONS2 가 닿아 있었음). 나눈 자리는 window.PUPPET[키].segs.
 //   · actor 옵션 fit: [최대 가로, 최대 세로] — 그림 비율 그대로 그 상자 안에 가장 크게 (한 장에 하나씩 그린 소품의 크기가 그림마다 달라서).
 //   · 프레임마다 인형을 처음 자리·크기·기울기·보임으로 되돌린 뒤 움직임을 적용 (Actor.reset) — 렌더 check 가 시각을 앞뒤로 건너뛸 때
@@ -73,11 +77,14 @@
     }) };
   }
   function prep(img, spec) {                                          // → {c 캔버스, info}
-    const ok = img.complete && img.naturalWidth > 0;
+    const ok = !!img && img.complete && img.naturalWidth > 0;
     let c;
     if (ok) { c = document.createElement("canvas"); c.width = img.naturalWidth; c.height = img.naturalHeight; c.getContext("2d").drawImage(img, 0, 0); }
-    else c = placeholder(spec.key, spec.kind, spec.label || spec.key);
-    const w = c.width, h = c.height, info = { key: spec.key, file: spec.f, src: ok ? "file" : "임시", w, h, bbox: [0, 0, 1, 1], keyed: false, opaque: false };
+    else if (spec.draw) {                                             // v1.2 코드 그림
+      c = document.createElement("canvas"); c.width = spec.cw || 1024; c.height = spec.ch || 1024;
+      spec.draw(c.getContext("2d"), c.width, c.height);
+    } else c = placeholder(spec.key, spec.kind, spec.label || spec.key);
+    const w = c.width, h = c.height, info = { key: spec.key, file: spec.f, src: ok ? "file" : spec.draw ? "코드 그림" : "임시", w, h, bbox: [0, 0, 1, 1], keyed: false, opaque: false };
     if (spec.kind === "bg") return { c, info };
     const g = c.getContext("2d", { willReadFrequently: true }), d = g.getImageData(0, 0, w, h), p = d.data;
     const A = (x, y) => p[(y * w + x) * 4 + 3], at = (x, y) => (y * w + x) * 4;
@@ -106,14 +113,17 @@
     const W = opt.w || 1920, H = opt.h || 1080, stageEl = document.getElementById("stage");
     const box = K.el(`<div style="position:absolute;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none"></div>`);
     const IMG = {}, SPEC = {};
-    for (const k in opt.files) { SPEC[k] = Object.assign({ key: k, kind: "cut" }, opt.files[k]); IMG[k] = K.el(`<img alt="" src="${opt.dir}${SPEC[k].f}">`, box); }
+    for (const k in opt.files) {
+      SPEC[k] = Object.assign({ key: k, kind: "cut" }, opt.files[k]);
+      IMG[k] = SPEC[k].f ? K.el(`<img alt="" src="${opt.dir}${SPEC[k].f}">`, box) : null;   // v1.2 f 없음 = 코드 그림 (부르지 않음)
+    }
     const canvas = K.el(`<canvas width="${W}" height="${H}" style="position:absolute;left:${opt.left || 0}px;top:${opt.top || 0}px;width:${W}px;height:${H}px"></canvas>`);
     stageEl.insertBefore(canvas, stageEl.firstChild);
     const ren = new THREE.WebGLRenderer({ canvas, antialias: true, preserveDrawingBuffer: true });
     ren.setPixelRatio(1); ren.setSize(W, H, false); ren.setClearColor(opt.clear == null ? 0x0B0F1E : opt.clear, 1);
     const scene = new THREE.Scene(), cam = new THREE.PerspectiveCamera(opt.fov || 30, W / H, 0.1, 400);
     const S = { W, H, scene, cam, ren, IMG, SPEC, sets: [], tex: {}, info: {}, afters: [] };
-    S.ready = () => Object.values(IMG).every(i => i.complete);        // 실패한 그림도 complete (→ 임시 그림)
+    S.ready = () => Object.values(IMG).every(i => !i || i.complete);  // 실패한 그림도 complete (→ 임시 그림) · v1.2 null = 코드 그림
     S.get = key => {
       if (!S.tex[key]) {
         if (!SPEC[key]) throw new Error(`그림 키 없음: ${key}`);

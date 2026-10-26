@@ -1,5 +1,12 @@
 # video/ 변경 이력 (guides/video_guide.md 2번 규칙)
 
+## 2026-10-26 — 주식 심리 테스트 편 종이인형극 롱폼 (episodes/simri-test-2026-10 v1.0) · puppet.js v1.2 코드 그림
+- 사용자 지시: "썸네일과 영상 만들어봐" (오디오 cdc22c67 뒤 — `stock/source/simri-test-2026-10/제작안.txt` v1.1).
+- `render/puppet.js` v1.2: files spec 에 f 없이 `draw(g, w, h)` 가 있으면 <img> 를 만들지 않고 코드로 그린 캔버스를 씀 (없는 파일을 부르면 404 브라우저 오류 → check 실패). 알파 상자·초록 빼기는 그림 파일과 같음.
+- `episodes/simri-test-2026-10/index.html` v1.0: 도입 5장면 · 항목 10개(번호 카드 → 상황 → 보기 카드 A·B·C(한국어 = data-words) → 점수 동그라미) · 통과 기준 7장면 · 해설 10개(0점 카드 → 왜 → 나라 꼬리표 + 그래프 → 그래서 10점 카드) · 정리·인사. 지수 선 = calc/kospi_2026.csv 실제 종가(10/2 뒤는 점선). 있는 그림 HAVE 목록 · 없는 그림은 `figures.js`.
+- `episodes/simri-test-2026-10/figures.js` v1.0: 주인공 표정 흰둥이 7모습(휴대전화·고민·과신·놀람·절망·계획·인사) · 얼굴 없는 낯선 사람 · 쥐덫·달걀 바구니·새는 양동이 — 종이 겹·크림 테두리·한지 결(같은 씨앗).
+- 자막: `scripts/align-audio.mjs` 로 실제 오디오에 맞춘 SRT → `render.mjs sync`. check 문제 0 · 대표 장면 119개 still 확인.
+
 ## 2026-10-26 — render.mjs v1.26: allowWords 낱말 검사에서 data-words 칸 뺌
 - 사용자 지시: "A,B,C 선택 항목 말고는 자막 외에 한글 문구 쓰지 말고" (주식 심리 테스트 편 종이인형극 — `stock/source/simri-test-2026-10/제작안.txt`).
 - `render/render.mjs` v1.26 check: K.init allowWords(이야기형·종이인형극)일 때도 `data-words="<까닭>"` 이 붙은 칸(보기 카드)은 한국어·목록 밖 영어 검사에서 뺌 — noWords 와 같은 꼴. 다른 검사는 그대로.

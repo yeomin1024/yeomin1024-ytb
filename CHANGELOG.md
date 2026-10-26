@@ -1,5 +1,26 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-26 (주식 — 심리 테스트 편 종이인형극 롱폼 영상 v1.0) — `video/episodes/simri-test-2026-10/` · `stock/source/simri-test-2026-10/`
+
+### 왜 (사용자 지시)
+- "썸네일과 영상 만들어봐" (Kaggle 오디오 cdc22c67 — 12:42.2, 172문장 — 가 올라온 뒤). ChatGPT 그림(images_chatgpt.md)은 아직 올라오지 않음.
+
+### 바꾼 것
+| 경로 | 내용 |
+|---|---|
+| `…/simri-test-2026-10.srt` | `video/scripts/align-audio.mjs` 로 실제 오디오 시각에 맞춤 (tts_narration.json 경계, 끝 12:41.8) — check ✅ |
+| `stock/source/simri-test-2026-10/puppet/` (7장) | 옛 빨리 부자 편 그림을 되살려 다시 씀 (`git show 7de247ff:stock/puppet/…`): W-COLLEAGUE·W-CROWD·P-CASH·P-CHAIN·P-GRAB·S-OFFICE·S-HOME-NIGHT — 같은 흰둥이 종이 화풍, 이름·내용이 그림 요청과 같음 |
+| `video/render/puppet.js` v1.2 | spec 에 f 없이 draw 가 있으면 코드 그림 캔버스 (없는 파일 404 → check 실패를 피함) |
+| `video/episodes/simri-test-2026-10/figures.js` v1.0 (새) | 아직 없는 그림의 코드 그림: 주인공 표정 흰둥이 7모습 · 얼굴 없는 낯선 사람 · 쥐덫 · 달걀 바구니 · 새는 양동이 |
+| `video/episodes/simri-test-2026-10/index.html` v1.0 (새) | 제작안 L-01~L-35 장면 코드 — 항목 = 번호 카드 → 상황 → 보기 카드 A·B·C(한국어, data-words) → 점수 · 해설 = 0점 카드 → 왜 → 나라 꼬리표 + 그래프 → 그래서 10점 카드 · 지수 선 = calc/kospi_2026.csv · 있는 그림 HAVE 목록 |
+| `…/images_chatgpt.md` v1.1 | 만들 그림 13장만 (7장은 '있음') |
+| `…/제작안.txt` v1.1 · `…/요약본.txt` v1.6 · `CLAUDE.md` · `stock/README.md` v1.20 · `guides/status.md` v2.74 · `video/CHANGELOG.md` | 영상·코드 그림·다음 단계 기록 |
+
+### 확인
+- `render.mjs check` 문제 0 · 브라우저 오류 0 · 도입 끝 29.2초 (35초 안) · 대표 장면 119개 still 을 직접 봄 → 겹침 5곳 고침 (해설 1 막대·5번 알림 숫자·9번 LOAN 카드·해설 8 낙폭 글자·해설 6 강조 상자).
+- 썸네일: TH-ART(ChatGPT)가 없어 최종은 대기 — 같은 재료의 임시 그림에 thumbnail_1~3.json 을 찍어 배치만 확인 (임시본은 올리지 않음).
+- 최종 렌더 `node video/render/render.mjs video stock simri-test-2026-10 --workers 3` 진행 중 → 끝나면 결과(길이·음량·장면 확인)를 이 줄에 적음.
+
 ## 2026-10-26 (주식 — 심리 테스트 편: 뺄 후보 ②⑨⑩ 빼고 종이인형극 영상 준비) — `stock/source/simri-test-2026-10/`
 
 ### 왜 (사용자 지시)

@@ -1,6 +1,7 @@
 # 주식 '습관 테스트' 편 종이인형극 그림 20장 — ChatGPT용 (읽고 그대로 만들고 저장 경로에 올리기)
 
-작성: 2026-10-26 (Claude, v1.0 — 인물 기준표 1 + 주인공 흰둥이 7 + 얼굴 없는 흰둥이 3 + 소품 6 + 배경 2 + 썸네일 그림 1 = 20장 · 남색 한지 배경은 다시 씀, 주제 '주식 투자 실패할 사람들은 절대 통과 못하는 습관 테스트') — 짝 문서 `stock/source/simri-test-2026-10/제작안.txt` · 같은 꼴 옛 빨리 부자 편 `git show 7de247ff:stock/source/ppalli-buja-2026-10/images_chatgpt.md`
+작성: 2026-10-26 (Claude, v1.1 — **만들 그림 13장**: 1~8번 주인공 · 11번 낯선 사람 · 13~15번 쥐덫·바구니·새는 양동이 · 20번 썸네일 그림. 9·10·12·16·17·18·19번 7장은 옛 빨리 부자 편 그림을 그대로 다시 씀 — 이미 저장소에 있으니 **만들지 않는다**) 
+(v1.0 — 인물 기준표 1 + 주인공 흰둥이 7 + 얼굴 없는 흰둥이 3 + 소품 6 + 배경 2 + 썸네일 그림 1 = 20장 · 남색 한지 배경은 다시 씀, 주제 '주식 투자 실패할 사람들은 절대 통과 못하는 습관 테스트') — 짝 문서 `stock/source/simri-test-2026-10/제작안.txt` · 같은 꼴 옛 빨리 부자 편 `git show 7de247ff:stock/source/ppalli-buja-2026-10/images_chatgpt.md`
 
 이 파일 주소: https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/stock/source/simri-test-2026-10/images_chatgpt.md
 
@@ -21,17 +22,17 @@
 | 6 | `stock/source/simri-test-2026-10/puppet/HERO-DESPAIR.png` | 정사각 1024 · 투명 | 주인공 — 바닥에 앉아 머리를 감싸 쥠 | 항목 10 · 통과 기준 '불통과' · 해설 9·10 |
 | 7 | `stock/source/simri-test-2026-10/puppet/HERO-PLAN.png` | 정사각 1024 · 투명 | 주인공 — 빈 클립보드와 연필, 차분한 미소 | 해설마다 끝 문장 '그래서 …' (10점 답) · 통과 기준 '통과' · 정리 |
 | 8 | `stock/source/simri-test-2026-10/puppet/HERO-BOW.png` | 정사각 1024 · 투명 | 주인공 — 허리 굽혀 인사 | 마무리 |
-| 9 | `stock/source/simri-test-2026-10/puppet/W-COLLEAGUE.png` | 정사각 1024 · 투명 | 얼굴 없는 흰둥이 — 휴대전화를 내밀어 자랑 | 항목 1·3 · 해설 1 |
-| 10 | `stock/source/simri-test-2026-10/puppet/W-CROWD.png` | 가로 1536×1024 · 투명 | 얼굴 없는 흰둥이 열 명쯤 — 모두 고개 숙여 휴대전화 | 도입 · 항목 1·9 · 통과 기준 · 해설 1 |
+| 9 | **있음 — 만들지 않음 (옛 그림 다시 씀)** `stock/source/simri-test-2026-10/puppet/W-COLLEAGUE.png` | 정사각 1024 · 투명 | 얼굴 없는 흰둥이 — 휴대전화를 내밀어 자랑 | 항목 1·3 · 해설 1 |
+| 10 | **있음 — 만들지 않음 (옛 그림 다시 씀)** `stock/source/simri-test-2026-10/puppet/W-CROWD.png` | 가로 1536×1024 · 투명 | 얼굴 없는 흰둥이 열 명쯤 — 모두 고개 숙여 휴대전화 | 도입 · 항목 1·9 · 통과 기준 · 해설 1 |
 | 11 | `stock/source/simri-test-2026-10/puppet/W-SCAMMER.png` | 정사각 1024 · 투명 | 얼굴 없는 흰둥이 — 검은 긴 코트·챙 넓은 모자, 손짓으로 부름 | 항목 2 · 해설 2 |
-| 12 | `stock/source/simri-test-2026-10/puppet/P-CASH.png` | 정사각 1024 · 투명 | 지폐 다발 (숫자·초상 없음) | 도입 · 항목 6·10 · 해설 9·10 |
+| 12 | **있음 — 만들지 않음 (옛 그림 다시 씀)** `stock/source/simri-test-2026-10/puppet/P-CASH.png` | 정사각 1024 · 투명 | 지폐 다발 (숫자·초상 없음) | 도입 · 항목 6·10 · 해설 9·10 |
 | 13 | `stock/source/simri-test-2026-10/puppet/P-TRAP.png` | 정사각 1024 · 투명 | 금화 미끼를 올린 쥐덫 (사기 단체방의 비유) | 항목 2 · 해설 2 |
 | 14 | `stock/source/simri-test-2026-10/puppet/P-BASKET.png` | 정사각 1024 · 투명 | 달걀이 가득 든 바구니 하나 (한 종목에 몰아 넣기의 비유) | 항목 4 · 해설 4 |
 | 15 | `stock/source/simri-test-2026-10/puppet/P-LEAKBUCKET.png` | 정사각 1024 · 투명 | 구멍 난 양동이에서 금화가 샘 (돈이 새는 곳) | 통과 기준 · 해설 5 |
-| 16 | `stock/source/simri-test-2026-10/puppet/P-CHAIN.png` | 가로 1536×1024 · 투명 | 쇠공·사슬·열린 발목 고리 (빚) | 항목 9 · 통과 기준 · 해설 9 |
-| 17 | `stock/source/simri-test-2026-10/puppet/P-GRAB.png` | 가로 1536×1024 · 투명 | 커다란 흰 종이 손이 주권 더미를 낚아챔 (강제 매도) | 도입 · 해설 9 |
-| 18 | `stock/source/simri-test-2026-10/puppet/S-OFFICE.jpg` | 가로 1536×1024 | 빈 무대 — 낮의 사무실 | 항목 1·3·5 · 해설 1 |
-| 19 | `stock/source/simri-test-2026-10/puppet/S-HOME-NIGHT.jpg` | 가로 1536×1024 | 빈 무대 — 밤 아파트 거실 | 항목 2·4·6~10 |
+| 16 | **있음 — 만들지 않음 (옛 그림 다시 씀)** `stock/source/simri-test-2026-10/puppet/P-CHAIN.png` | 가로 1536×1024 · 투명 | 쇠공·사슬·열린 발목 고리 (빚) | 항목 9 · 통과 기준 · 해설 9 |
+| 17 | **있음 — 만들지 않음 (옛 그림 다시 씀)** `stock/source/simri-test-2026-10/puppet/P-GRAB.png` | 가로 1536×1024 · 투명 | 커다란 흰 종이 손이 주권 더미를 낚아챔 (강제 매도) | 도입 · 해설 9 |
+| 18 | **있음 — 만들지 않음 (옛 그림 다시 씀)** `stock/source/simri-test-2026-10/puppet/S-OFFICE.jpg` | 가로 1536×1024 | 빈 무대 — 낮의 사무실 | 항목 1·3·5 · 해설 1 |
+| 19 | **있음 — 만들지 않음 (옛 그림 다시 씀)** `stock/source/simri-test-2026-10/puppet/S-HOME-NIGHT.jpg` | 가로 1536×1024 | 빈 무대 — 밤 아파트 거실 | 항목 2·4·6~10 |
 | 20 | `stock/source/simri-test-2026-10/images/TH-ART.jpg` | 가로 3:2 (1536×1024) | 썸네일 그림 (글자 없음 — 문구·말풍선은 코드) | 롱폼 썸네일 3안 |
 | 21 | (없음 — 다시 씀) `test/puppet/P-PAPER.jpg` | — | 남색 한지 (숫자·해설 장면 배경) | **만들지 않는다** |
 
@@ -39,7 +40,7 @@
 
 ## ChatGPT에게 — 이 파일을 읽으면 할 일
 0. **이 주소를 지금 새로 열어 그 내용만 쓴다** — 이 대화에서 예전에 읽은 파일·프롬프트가 있어도 쓰지 않는다. 답의 첫 줄에 이 파일 맨 위 '작성' 줄을 그대로 적는다.
-1. 아래 1~20번 20장을 **1번부터 차례로 모두** 만든다. 질문하지 말고, 한 장을 만든 뒤 멈추지 말고 다음 장으로 넘어간다. **한 장에 프롬프트에 적힌 것만** 그린다 (다른 사람·물건을 같이 그리지 않는다).
+1. 아래 1~20번 가운데 **표에 '있음'이라고 적힌 7장(9·10·12·16·17·18·19번)을 뺀 13장**을 **번호 순서대로 모두** 만든다 (1~8·11·13·14·15·20번). 있음 7장은 저장소에 이미 있으니 만들지도 올리지도 않는다. 질문하지 말고, 한 장을 만든 뒤 멈추지 말고 다음 장으로 넘어간다. **한 장에 프롬프트에 적힌 것만** 그린다 (다른 사람·물건을 같이 그리지 않는다).
    - 이미지 한도 때문에 멈추면 사용자가 `계속`이라고 보낸다 → 아직 안 만든 번호부터 이어서 만든다.
 2. 프롬프트(``` 안)를 **한 글자도 바꾸지 않고 그대로** 쓴다.
    - **1~19번:** 프롬프트 맨 앞에 아래 **공통 화풍** 문단을 그대로 붙인다 (한 무대의 인형처럼 — 같은 종이 질감·같은 색). **20번**도 공통 화풍을 붙인다.
@@ -163,13 +164,13 @@ The Investor standing calm and upright, body in three-quarter view facing left, 
 The Investor in side view facing left, bowing politely from the waist at about 45 degrees, both mitten hands together in front of the body, eyes closed in gentle happy arcs, a soft smile — thanking the audience. Full body.
 ```
 
-## 9. W-COLLEAGUE — 휴대전화를 내밀어 자랑하는 동료
+## 9. W-COLLEAGUE — 휴대전화를 내밀어 자랑하는 동료 — **있음 (만들지 않음 · 옛 빨리 부자 편 그림을 다시 씀)**
 **저장 경로: `stock/source/simri-test-2026-10/puppet/W-COLLEAGUE.png`** — PNG 투명 700KB 이하 · 정사각 1024
 ```
 One faceless white figure (a coworker) standing in three-quarter view facing right, proudly stretching the right arm forward and holding up a smartphone with its blank screen facing right, the left hand on the hip, chest puffed out and head tilted back a little — showing off a profit. Full body.
 ```
 
-## 10. W-CROWD — 모두 고개 숙여 휴대전화를 보는 사람들
+## 10. W-CROWD — 모두 고개 숙여 휴대전화를 보는 사람들 — **있음 (만들지 않음 · 옛 빨리 부자 편 그림을 다시 씀)**
 **저장 경로: `stock/source/simri-test-2026-10/puppet/W-CROWD.png`** — PNG 투명 700KB 이하 · 가로 1536×1024
 ```
 About ten faceless white figures standing in a loose cluster with small gaps, slightly overlapping, all bending their heads down to look at smartphones held in their hands (phones blank), varied heights, each with a slightly different light-gray jacket layer. Full bodies, side-by-side like a crowd on a stage.
@@ -181,7 +182,7 @@ About ten faceless white figures standing in a loose cluster with small gaps, sl
 One faceless white figure wearing a long dark charcoal (#2B2B2B) coat with the collar turned up and a wide-brim charcoal hat pulled low (the head under the hat is still plain white with no features), leaning forward slightly in three-quarter view facing left, the left hand holding out a smartphone (blank back toward the viewer), the right hand beckoning with one curled finger — a suspicious stranger inviting someone in. Full body.
 ```
 
-## 12. P-CASH — 지폐 다발
+## 12. P-CASH — 지폐 다발 — **있음 (만들지 않음 · 옛 빨리 부자 편 그림을 다시 씀)**
 **저장 경로: `stock/source/simri-test-2026-10/puppet/P-CASH.png`** — PNG 투명 700KB 이하 · 정사각 1024
 ```
 A thick bundle of paper banknotes held together by a cream paper band, the top notes slightly fanned out; the banknotes are muted sage green-gray with only simple meaningless decorative lines — no numbers, no portraits, no symbols.
@@ -205,25 +206,25 @@ One woven light-brown paper basket with an arched handle, side view, filled to t
 A slate-blue metal bucket seen from the front, filled to the rim with plain gold coins, with three round holes in its side; from each hole a short stream of small plain gold coins is spilling out and falling downward — money leaking away.
 ```
 
-## 16. P-CHAIN — 쇠공과 사슬 (빚)
+## 16. P-CHAIN — 쇠공과 사슬 (빚) — **있음 (만들지 않음 · 옛 빨리 부자 편 그림을 다시 씀)**
 **저장 경로: `stock/source/simri-test-2026-10/puppet/P-CHAIN.png`** — PNG 투명 700KB 이하 · 가로 1536×1024
 ```
 A heavy dark iron ball on the left connected by a short thick chain to an open iron ankle shackle on the right, lying in a horizontal row.
 ```
 
-## 17. P-GRAB — 주권 더미를 낚아채는 커다란 손 (강제 매도)
+## 17. P-GRAB — 주권 더미를 낚아채는 커다란 손 (강제 매도) — **있음 (만들지 않음 · 옛 빨리 부자 편 그림을 다시 씀)**
 **저장 경로: `stock/source/simri-test-2026-10/puppet/P-GRAB.png`** — PNG 투명 700KB 이하 · 가로 1536×1024
 ```
 A giant plain off-white paper hand (mitten-like, no nails, no sleeve details) swooping in from the upper right and grabbing a stack of blank cream stock certificates (only decorative border lines, no text) from below, with three certificates flying loose to the left.
 ```
 
-## 18. S-OFFICE — 빈 무대: 낮의 사무실
+## 18. S-OFFICE — 빈 무대: 낮의 사무실 — **있음 (만들지 않음 · 옛 빨리 부자 편 그림을 다시 씀)**
 **저장 경로: `stock/source/simri-test-2026-10/puppet/S-OFFICE.jpg`** — JPEG 700KB 이하 · 가로 1536×1024
 ```
 Empty stage backdrop: a modern open-plan office in daylight seen straight from the front — two rows of desks with blank dark monitors and office chairs on the left and right sides, a long window with soft daylight and pale city buildings in the back, a few potted plants. The floor begins at about 70% of the picture height. The center of the stage is open and uncluttered (room for puppets). No people. No text on monitors, windows or walls.
 ```
 
-## 19. S-HOME-NIGHT — 빈 무대: 밤 아파트 거실
+## 19. S-HOME-NIGHT — 빈 무대: 밤 아파트 거실 — **있음 (만들지 않음 · 옛 빨리 부자 편 그림을 다시 씀)**
 **저장 경로: `stock/source/simri-test-2026-10/puppet/S-HOME-NIGHT.jpg`** — JPEG 700KB 이하 · 가로 1536×1024
 ```
 Empty stage backdrop: an apartment living room at night seen straight from the front — a low sofa on the left, a small side desk with a warm lamp on the right, a big window in the back showing a dark navy night sky and distant city lights. Warm lamp light mixed with cool night blue. The floor begins at about 70% of the picture height. The center of the stage is open and uncluttered (room for puppets). No people. No text anywhere.

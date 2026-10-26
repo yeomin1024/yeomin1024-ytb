@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.1 — 2026-10-26 — 요약본 v1.1·대본 v1.0 (사용자 피드백 8ceb90be: 도입 = 2026년 ○월부터의 주식 시장, 해설 사례는
+# VERSION: v1.2 — 2026-10-26 — 대본 v1.1 (사용자 지시 "미국주식지수랑 한국주식지수랑 서로 다른데 항목보면 오해할 수도 있잖아 그리고 한국
+#          시청자가 반론할 수 있잖아 그럴일 없게 수정해봐 다른 나라 시청자도 포함해서"): 해설마다 한국·미국(·인도) 자료를 함께 —
+#          [REF] 로 뺐던 한국 숫자 4개(리딩방·종목 82% 하락·빚 34조·2배 ETF 40대)를 다시 쓰고, 인도 SEBI 단타 71%·한국 지수 7월 말 반등 +17.9% 를 더함.
+# (v1.1 — 2026-10-26 — 요약본 v1.1·대본 v1.0 (사용자 피드백 8ceb90be: 도입 = 2026년 ○월부터의 주식 시장, 해설 사례는
 #          되도록 미국 주식)에 맞춤 — 고점 대비 하락·미국 투자 사기(FTC)·S&P 500 지수보다 오른 종목 비율·미국 증권사 빚(FINRA)·
-#          미국 강제 매도 기준 25% → 33%·빚 두 배일 때 주가 20% 하락의 손실·모닝스타 10년 % 차이를 더함. 대본에서 뺀 한국 숫자는 REF 로.
+#          미국 강제 매도 기준 25% → 33%·빚 두 배일 때 주가 20% 하락의 손실·모닝스타 10년 % 차이를 더함. 대본에서 뺀 한국 숫자는 REF 로.)
 # (v1.0 — 2026-10-26 — 최초. 「주식 투자 실패한 사람들은 절대 통과 못하는 심리 테스트」 요약본(요약본.txt v1.0)의
 #          숫자를 모두 이 코드 출력으로만 쓴다 (CLAUDE.md '숫자는 계산 코드 출력만').)
 #          사용자 지시 2026-10-26: "…공신력 있는 테스트가 존재하는지 알아보고 없으면 너가 가상으로 테스트 만들어서 해봐
@@ -11,6 +14,7 @@
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.2 | 2026-10-26 | SRC 5개 더함(인도 SEBI 71%·지수 7/27·7/30·7/31) · 한국 숫자 4개를 REF → Q2·Q4·Q9·Q10 · Q5 인도·Q8 7월 말 반등 | main (Q2·Q4·Q5·Q8·Q9·Q10) |
 # | v1.1 | 2026-10-26 | 새 SRC 8개(코스피 고점·FTC·First Trust·FINRA 빚·미국 유지 증거금 25%·예시 하락 20%) · 도입·2·4·8·9번 계산 바꿈 · 대본에서 뺀 숫자는 [REF] 로그 | main (INTRO·Q2·Q4·Q8·Q9·REF) |
 # | v1.0 | 2026-10-26 | 최초 — 기사·보고서 숫자(SRC) → 대본 숫자, 점수 규칙·등급, 가상 응시 6명, 전체 경우의 수 검사 | 전부 |
 #
@@ -24,7 +28,7 @@ import logging
 import sys
 from collections import Counter
 
-VERSION = "v1.1"
+VERSION = "v1.2"
 
 # ---------------------------------------------------------------- 입력 (출처는 요약본 [근거] 2번과 같다)
 SRC = {
@@ -47,7 +51,7 @@ SRC = {
     # 2번 — 미국 연방거래위원회(FTC) 의회 증언 2026-03-25: 2025년 신고된 사기 피해 (10억 달러)
     "ftc_2025_invest_bn": 7.9,
     "ftc_2025_total_bn": 15.9,
-    # 2번(REF) — 금융감독원 2025-08 (2024년 불법 리딩방 피해액 vs 보이스피싱 피해액, 억 원)
+    # 2번 — 금융감독원 2025-08 (2024년 불법 리딩방 피해액 vs 보이스피싱 피해액, 억 원)
     "leading_room_2024_eok": 7104,
     "voice_phishing_2024_eok": 8545,
     # 2·3번 — FINRA Foundation 연구 요약 2026-04 (2024 NFCS 투자자 조사)
@@ -57,7 +61,7 @@ SRC = {
     "finra_self_rated_high_pct": 63,     # 같은 사람들 중 '내 투자 지식은 높다'고 답한 비율
     # 4번 — First Trust 'The S&P 500 Index 2025 Recap' 2026-01-08: 2025년 지수보다 더 오른 종목 비율
     "ft_2025_outperform_pct": 30.5,
-    # 4번(REF) — 뉴시스 2026-05-28 (한국거래소, 최근 한 달 코스피·코스닥 종목 등락)
+    # 4번 — 뉴시스 2026-05-28 (한국거래소, 최근 한 달 코스피·코스닥 종목 등락)
     "stocks_total": 2764,
     "stocks_down": 2276,
     "kospi_2026_04_28": 6641.02,      # 이전 영상 calc/prices_2026.csv (커밋 7de247ff) 종가
@@ -65,7 +69,9 @@ SRC = {
     # 5번 — 자본시장연구원 '코로나19 국면의 개인투자자' (2020-02 ~ 2021-01, 뉴데일리 2021-02-26) · 2022-03 포커스(김준석)
     "kcmi_trade_profit_jo": 13.0,
     "kcmi_trade_cost_jo": 13.7,       # 거래세 약 9.8조 + 수수료 약 3.9조
-    "kcmi_mts_turnover_x": 1.7,       # 모바일(MTS) 투자자 일간 회전율 = 컴퓨터(HTS)의 약 1.7배
+    "kcmi_mts_turnover_x": 1.7,       # (대본에서 뺌) 모바일(MTS) 투자자 일간 회전율 = 컴퓨터(HTS)의 약 1.7배
+    # 5번 — 인도 증권거래위원회(SEBI) 2024-07-24 '주식 현물 하루 안 매매 개인 손익 분석' (2022-04 ~ 2023-03, 상위 10개 증권사 고객)
+    "sebi_intraday_loss_pct": 71,
     # 6번 — 자본시장연구원 개인투자자 약 20만 명 2020-03~10 거래 (이코노미스트 2021-08-29)
     "kcmi_sell_winner_next_day_pct": 41,
     "kcmi_sell_loser_next_day_pct": 22,
@@ -77,6 +83,10 @@ SRC = {
     "ms_investor_return_pct": 8.7,
     "ms_years": 10,
     "ms_example_won_eok": 1.0,        # 예시 1억 원
+    # 8번 — 한국 지수 2026년 7월 말 (이전 영상 calc/prices_2026.csv — 7/31 +17.91% 는 MTN·아이뉴스24 2026-07-31 과 같음)
+    "kospi_2026_07_27": 6755.75,
+    "kospi_2026_07_30": 5593.56,
+    "kospi_2026_07_31": 6595.45,
     # 9번 — 한국 담보유지비율 통상 140% (헤럴드경제 2026-03-04) · 미국 FINRA Rule 4210 최소 유지 증거금 25% (내 돈 ÷ 주식값)
     "maintenance_ratio_pct": 140,
     "us_maintenance_pct": 25,
@@ -195,7 +205,7 @@ def main():
         finra_fraud_loss=f"{s['finra_fraud_loss_social_pct']}% vs {s['finra_fraud_loss_nonsocial_pct']}%",
         ratio=f"{s['finra_fraud_loss_social_pct'] / s['finra_fraud_loss_nonsocial_pct']:.2f}")
     lr = s["leading_room_2024_eok"] / s["voice_phishing_2024_eok"] * 100
-    out("REF", leading_room_eok=s["leading_room_2024_eok"], vs_phishing_pct=f"{lr:.1f}", note="한국 리딩방 — 대본에서 뺌(미국 사례로)")
+    out("Q2", kr_leading_room_eok=s["leading_room_2024_eok"], vs_phishing_pct=f"{lr:.1f}", say="한국 약 7,100억 원 · 보이스피싱 피해의 83%")
     # 3번
     out("Q3", quiz_correct_pct=s["finra_quiz_correct_pct"], self_rated_high_pct=s["finra_self_rated_high_pct"])
     # 4번 — 한 종목을 아무렇게나 고르면 지수보다 못할 확률 = 1 − 지수보다 오른 비율
@@ -203,11 +213,12 @@ def main():
         per10=f"{(100 - s['ft_2025_outperform_pct']) / 10:.1f}", say="30.5%뿐 → 열 번 중 일곱 번은 지수보다 못한 종목")
     down = s["stocks_down"] / s["stocks_total"] * 100
     k_up = pct(s["kospi_2026_05_28"], s["kospi_2026_04_28"])
-    out("REF", stocks_down_pct=f"{down:.2f}", kospi_month_pct=f"{k_up:.1f}", note="한국 82% 하락 — 대본에서 뺌(미국 사례로)")
+    out("Q4", kr_stocks_down_pct=f"{down:.2f}", kr_index_month_pct=f"{k_up:.1f}", say="한국: 한 달 지수 20% 넘게 오를 때 종목 82% 하락")
     # 5번
     gap = s["kcmi_trade_cost_jo"] - s["kcmi_trade_profit_jo"]
     out("Q5", trade_profit_jo=s["kcmi_trade_profit_jo"], trade_cost_jo=s["kcmi_trade_cost_jo"], cost_minus_profit_eok=f"{gap * 10000:,.0f}",
         mts_turnover_x=s["kcmi_mts_turnover_x"])
+    out("Q5", india_intraday_loss_pct=s["sebi_intraday_loss_pct"], say="인도: 하루 안에 매수·매도한 개인의 71%가 손실")
     # 6번
     out("Q6", sell_winner_pct=s["kcmi_sell_winner_next_day_pct"], sell_loser_pct=s["kcmi_sell_loser_next_day_pct"],
         hold_loser_pct=100 - s["kcmi_sell_loser_next_day_pct"],
@@ -225,6 +236,9 @@ def main():
         fund_10y_eok=f"{fund:.4f}", investor_10y_eok=f"{inv:.4f}", diff_manwon=f"{(fund - inv) * 10000:,.0f}",
         investor_vs_fund_pct=f"{pct(inv, fund):.1f}", say="10년 동안 손에 쥐는 돈이 10% 넘게 줄어듦",
         scenario_day_drop_like=s["kospi_2026_10_15_day"])
+    fall3 = pct(s["kospi_2026_07_30"], s["kospi_2026_07_27"])
+    jump = pct(s["kospi_2026_07_31"], s["kospi_2026_07_30"])
+    out("Q8", kr_jul27_30_pct=f"{fall3:.1f}", kr_jul31_day_pct=f"{jump:.1f}", say="사흘 동안 17% 넘게 ↓ 뒤 7/31 하루 17.9% ↑")
     # 9번 — 내 돈 1 + 빌린 돈 1 → 주식 2. 담보비율 = 주식값 / 빌린 돈
     own, loan = s["own_money"], s["borrowed"]
     stock0 = own + loan
@@ -240,16 +254,17 @@ def main():
     out("Q9", finra_margin_tn=f"{s['finra_margin_2026_06_mn'] / 1e6:.2f}", yoy_pct=s["finra_margin_yoy_pct"],
         say="1조 5천억 달러 · 1년 만에 절반 넘게 늘어 사상 최대")
     eq_after = stock0 * (1 + drop / 100) - loan
-    out("REF", margin_loan_jo=f"{s['margin_loan_oct12_eok'] / 10000:.2f}", forced_sale_eok=s["forced_sale_oct6_15_eok"],
-        oct_drop_pct=f"{drop:.1f}", own_money_change_pct=f"{pct(eq_after, own):.1f}", note="한국 10월 숫자 — 대본에서 뺌")
+    out("Q9", kr_margin_loan_jo=f"{s['margin_loan_oct12_eok'] / 10000:.2f}", say="한국 10/12 34조 원 넘음")
+    out("REF", forced_sale_eok=s["forced_sale_oct6_15_eok"], oct_drop_pct=f"{drop:.1f}",
+        own_money_change_pct=f"{pct(eq_after, own):.1f}", note="한국 10월 반대매매·하락 — 대본에서 뺌")
     # 10번 — 2배 상품: 하루 -10% 뒤 제자리로 돌아오는 상승률, 같은 이틀의 2배 상품
     d1 = s["two_x_day1_pct"] / 100
     d2 = 1 / (1 + d1) - 1
     two_x = (1 + 2 * d1) * (1 + 2 * d2) - 1
     out("Q10", day1_pct=f"{d1 * 100:.1f}", day2_back_to_start_pct=f"{d2 * 100:.2f}", two_x_after_2days_pct=f"{two_x * 100:.2f}",
         conl=f"fund {s['conl_fund_pct']}%/yr vs investors {s['conl_investor_pct']}%/yr")
-    out("REF", share_40s_pct=f"{s['single_2x_40s_eok'] / s['single_2x_total_eok'] * 100:.1f}",
-        total_jo=f"{s['single_2x_total_eok'] / 10000:.2f}", note="한국 2배 상품 40대 — 대본에서 뺌")
+    out("Q10", kr_single_2x_40s_pct=f"{s['single_2x_40s_eok'] / s['single_2x_total_eok'] * 100:.1f}",
+        total_jo=f"{s['single_2x_total_eok'] / 10000:.2f}", say="한국 단일 종목 2배 ETF — 40대가 가장 많이 보유(34%)")
 
     # ------------------------------------------------------------ 테스트 규칙 검사
     out("RULE", questions=len(QUESTIONS), levels=LEVELS, max_total=len(QUESTIONS) * max(LEVELS),

@@ -160,6 +160,7 @@ bash tools/publish.sh          # 오디오가 있고 아직 안 올린 영상 �
   - ① Google에 "YouTube API Services 감사·할당량 확장" 신청 (심사 기간 수 주)
   - ② 비공개 업로드는 검수용으로 쓰고, 공개할 영상은 스튜디오에서 mp4를 직접 올린다
 - 원본 mp4 는 Google Drive `내 드라이브/youtube/<주제>/<영상ID>.mp4` 에 있다 (2026-10-15부터) — 거기서 내려받아 스튜디오에 올리면 된다.
+- **실제 확인 (2026-10-26, API 키로 공개 상태 조회):** 부자백서 API 업로드 8편(10/17~18 예약)·STOCK LAB 4편(10/19~20 예약)은 **모두 예약 시각에 public** — 이 두 채널 키의 API 프로젝트는 잠기지 않음 → 수동 업로드 필요 없음. 다른 환경 키로 올린 채널(시험 채널 '우물 밖 세상살이' 10/28 예약 2편)은 키(프로젝트)가 다를 수 있어 스튜디오에서 '예약됨'인지 '비공개(잠김)'인지 따로 확인한다. 근거: YouTube Data API 문서 videos.insert — "unverified API projects created after 28 July 2020 … restricted to private viewing mode" (그 전 프로젝트는 제외).
 
 ---
 

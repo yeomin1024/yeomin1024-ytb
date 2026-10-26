@@ -1,6 +1,8 @@
 # 주식 주제 폴더 (`stock/`) — 새로 시작 (2026-10-15)
 
-VERSION: v1.11 — 2026-10-26 — **`source/ppalli-buja-2026-10/` 대본 v2.0** (사용자 지시 "도입부는 재미 없으니까 다시쓰고 40~50대가 이해하기 쉽고 정말 재미있다고 느끼도록 … 각 문장별 육하원칙 … 연결이 자연스러워야 하고 계속 궁금하도록 … 가상이라고 언급하지 말고 … 대본만 전력을 다해서"): 롱폼 102문장(추정 7:54, 도입 30초) · 쇼츠 3문장 · calc v1.2 · 요약본 v1.3 · 확인표 v2.0 · 업로드 시트 v1.2. 다음 = 오디오 다시(Kaggle) → 장면을 새 문장에 맞춰 다시 렌더.
+VERSION: v1.12 — 2026-10-26 — **영상 소스 다시 지움 — 분석만 남김** (사용자 지시 "분석 관련 자료 빼고 만든 영상 관련 소스 다시 다 지워봐" → "stock 폴더 내에서만 삭제해"): `source/`(빨리 부자 편 대본·자막·오디오·계산·썸네일·업로드 시트 등 24개) · `puppet/`(종이인형 그림 28장) · `out/`(렌더한 mp4 — git 밖) 지움. 되살리기 `git checkout 7de247ff -- stock/source stock/puppet` — 아래 '지운 것'.
+
+(v1.11 — 2026-10-26 — **`source/ppalli-buja-2026-10/` 대본 v2.0** (사용자 지시 "도입부는 재미 없으니까 다시쓰고 40~50대가 이해하기 쉽고 정말 재미있다고 느끼도록 … 각 문장별 육하원칙 … 연결이 자연스러워야 하고 계속 궁금하도록 … 가상이라고 언급하지 말고 … 대본만 전력을 다해서"): 롱폼 102문장(추정 7:54, 도입 30초) · 쇼츠 3문장 · calc v1.2 · 요약본 v1.3 · 확인표 v2.0 · 업로드 시트 v1.2. 다음 = 오디오 다시(Kaggle) → 장면을 새 문장에 맞춰 다시 렌더.)
 
 (v1.10 — 2026-10-25 — **첫 종이인형극 영상 완성** `source/ppalli-buja-2026-10/` (사용자 지시 "했는데 확인해서 영상 만드러" — 그림 29장·오디오 검수 뒤): 장면 코드 `video/episodes/ppalli-buja-2026-10/index.html`(롱폼 7:25.9, 컷 53) · `video/episodes/ppalli-buja-2026-10-shorts/index.html`(쇼츠 0:49, 세 칸) · 썸네일 2장 · 렌더 → `stock/out/ppalli-buja-2026-10(-shorts)/final_1080p.mp4`(git 밖) · 업로드 시트 챕터 — 아래 '새 영상 소스'.)
 
@@ -33,15 +35,14 @@ VERSION: v1.11 — 2026-10-26 — **`source/ppalli-buja-2026-10/` 대본 v2.0** 
 - `economic/`(재테크)와 **검색어가 일부 겹친다** (ETF·ISA·연금저축 등). 주제마다 결과·지시사항은 따로 만든다 — 한 주제 결과를 다른 주제 규칙으로 쓰지 않는다 (`guides/pipeline.md` 1단계 4번).
 - 이 주제의 지시사항(`guides/`)·대본 규칙(`research_rules.toml`)은 **이 주제의 성공 사례 분석 결과가 나온 뒤** 만든다.
 
-## 새 영상 소스 (2026-10-25 — 사용자가 정한 것만)
+## 새 영상 소스 — 2026-10-26 지움
 
-- **꼴 = 이야기형 종이인형극** (사용자 지시 2026-10-25): 빈 무대 배경 + 투명 인형·소품(ChatGPT, **글자 없음**) 위에 움직임·숫자·그래프·영어 투자 낱말(BUY·SELL·KOSPI·종목 번호)은 코드(`video/render/puppet.js`). 한글은 화면에 굽는 자막에만 (`tools/srt_tool.py` v1.10 — 주식도 자막을 굽는다). 주인공만 얼굴 있는 인형, 나머지 사람은 얼굴 없는 흰 사람. 썸네일 = 글자 없는 그림 하나를 롱폼(16:9)·쇼츠(9:16 화면 끝까지)에 같이, 제목·말풍선은 `video/render/thumb.mjs`.
-- `source/ppalli-buja-2026-10/` — 「주식으로 빨리 부자되고 싶은 사람들이 결국 망하는 과정」: 요약본 v1.2 · 대본 97문장(+쇼츠 10) · SRT · `calc/calc.py` v1.1 (SK하이닉스·코스피 **실제 종가** `calc/prices_2026.csv`) · 그림 요청 `images_chatgpt.md`(29장 → `puppet/`·`images/`) · 장면 `제작안.txt` · 썸네일 설정 `thumbnails/`·`shorts/thumbnails/` · `upload.md`·`shorts/upload.md` · 사실 확인표 `checklist.md` · 읽는 소리 `tts_lexicon.tsv`.
-- 2026-10-25 영상 완성: 그림 29장(`puppet/`)·오디오 검수 → 썸네일 2장(`thumbnails/thumbnail_1.jpg`·`shorts/thumbnails/thumbnail_1.jpg`) → 장면 코드 `video/episodes/ppalli-buja-2026-10(-shorts)/index.html` (render check 문제 0) → 렌더 `stock/out/…/final_1080p.mp4` (git 밖 — 컨테이너에만, 새 컨테이너면 다시 렌더). 남은 것: 업로드(사용자가 시킬 때, `upload.md` — 채널 STOCK LAB, 올리기 전 채널 목록 확인).
-- **2026-10-26 대본 v2.0** (사용자 지시 — 도입 다시 · 40~50대 · 문장마다 육하원칙 · 자연스러운 연결 · 가상이라는 말 빼기): 롱폼 102문장·쇼츠 3문장 바뀜 → 10-25 렌더본은 옛 대본. 다음: ① 사용자 — Kaggle 오디오(범위 stock, 바뀐 문장이 많아 롱폼은 전부) → ② Claude — align · 장면 코드를 새 문장 번호에 맞춤 · 렌더 · 완성 mp4 확인.
+- 첫 이야기형 종이인형극 「주식으로 빨리 부자되고 싶은 사람들이 결국 망하는 과정」(`source/ppalli-buja-2026-10/` · 그림 `puppet/`)은 2026-10-26 사용자 지시로 지웠다 — 아래 '지운 것'. 유튜브에는 올리지 않았던 영상이다.
+- 저장소 밖(`stock/` 밖)의 장면 코드 `video/episodes/ppalli-buja-2026-10(-shorts)/index.html` 은 사용자 지시 범위('stock 폴더 내에서만') 밖이라 남김 — 그림·오디오가 없어 지금은 렌더되지 않는다.
 
 ## 지운 것 (2026-10-25 — 분석만 남김)
 
+- **2026-10-26 다시 지움** (사용자 지시 "분석 관련 자료 빼고 만든 영상 관련 소스 다시 다 지워봐" → "stock 폴더 내에서만 삭제해"): `source/ppalli-buja-2026-10/`(요약본·대본 v2.0·SRT·쇼츠·오디오·`calc/`·`images/TH-ART.jpg`·썸네일·제작안·그림 요청·확인표·업로드 시트·읽는 소리) · `puppet/`(김 과장·흰 사람·소품·배경 28장) · `out/`(렌더 mp4, git 밖). 남긴 것은 아래 10-25 '남김'과 같다. 되살리기: `git checkout 7de247ff -- stock/source stock/puppet` (지우기 바로 전 커밋). 유튜브에는 올린 적 없음.
 - **남김**: 분석 결과 `result/` · 캐시 `cloud_cache/` · 분석 설정(`analyzer_config.toml`·`analysis_rules.toml`·`keywords*`·`tag_rules.toml`·`tag_candidates*`·`research_rules.toml`) · 분석 근거 문서 `guides/`(`data_insights.md`·`shorts_insights.md`·`research_2026-10-15.md`·`viewer_review.md`·`thumbnail_codes_2026-10-15.csv`) · 채널에 이미 올린 영상 기록 `uploaded_videos.md` · 채널 확인 `youtube_channel.json`.
 - **지움**: 제작 지시사항(`guides/README.md`·`concept.md`·`quick_story.md`·`story_script.md`) · 이야기형 시리즈 '개미 재기 일지'(`story/` — 주인공·인형·배경·소품·시리즈·계산) · 영상 소스(`source/` — 1~4화 요약본·제작안·대본·자막·장면 표·오디오, `topic_candidates.md`·`used_content.md`) · 백테스트 가격 자료 `data/` · `channel.md`·`thumbnails_chatgpt.md`·`tts_lexicon.tsv` · 영상 장면 `video/episodes/pogi-sonjeol-2026-10(-shorts)` · 옛 Remotion 영상 `video/src/episodes/`(multagi·bittu·panicsell·molppang) · 시제품 `video/prototypes/stock-entry-2026-10-16` · 주식 전용 도구(`video/render/story.js`·`story_mg.js`·`story.css` · `tools/story_kit.py`·`story_check.py`·`tools/backtest/` · 그 시험).
 - 다른 주제가 같이 쓰는 도구(`video/render/puppet.js`·`render.mjs`·`kit.js` · `tools/subs_tool.py`·`youtube_upload.py`·`tts_narration.py`)는 남김.

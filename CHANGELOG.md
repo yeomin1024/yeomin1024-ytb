@@ -1,5 +1,22 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-26 (주식 — 영상 소스 다시 지움, 분석만 남김) — `stock/`
+
+### 왜 (사용자 지시)
+- "분석 관련 자료 빼고 만든 영상 관련 소스 다시 다 지워봐" → (바로 고침) "stock 폴더 내에서만 삭제해"
+
+### 바꾼 것
+| 경로 | 내용 |
+|---|---|
+| `stock/source/` (지움, 24개) | 빨리 부자 편 — 요약본·대본 v2.0·SRT·쇼츠·오디오(narration.mp3·tts_narration.json)·`calc/`·`images/TH-ART.jpg`·썸네일 2장·제작안·그림 요청·확인표·업로드 시트·읽는 소리 |
+| `stock/puppet/` (지움, 28개) | 종이인형 그림 (김 과장 9·흰 사람 5·소품 8·배경 5·기준표 1) |
+| `stock/out/` (지움, git 밖) | 렌더한 롱폼·쇼츠 mp4 |
+| `stock/README.md` v1.12 · `guides/status.md` v2.65 · `CLAUDE.md` 주식 절 | 지운 것·되살리기(`git checkout 7de247ff -- stock/source stock/puppet`) |
+
+### 남김
+- 분석: `stock/result/` · `cloud_cache/` · 분석 설정(`analyzer_config.toml`·`analysis_rules.toml`·`keywords*`·`tag_*`·`research_rules.toml`) · 근거 문서 `stock/guides/` · 올린 영상 기록 `uploaded_videos.md` · 채널 확인 `youtube_channel.json`.
+- `stock/` 밖은 건드리지 않음 — 장면 코드 `video/episodes/ppalli-buja-2026-10(-shorts)/index.html` 은 남아 있음 (그림·오디오가 없어 렌더 안 됨). 유튜브에는 올린 적 없음.
+
 ## 2026-10-26 (주식 — 빨리 부자 편 대본 v2.0) — `stock/source/ppalli-buja-2026-10/`
 
 ### 왜 (사용자 지시)

@@ -1,4 +1,5 @@
-# VERSION: v1.1 — 2026-10-25 — SK하이닉스 실제 종가로 다시 계산 (사용자가 요약본에 'SK 하이닉스' 종목을 정함)
+# VERSION: v1.2 — 2026-10-26 — 대본 v2.0 도입용 비교 숫자 더함: 같은 날(4/21) 사서 끝날(9/30)까지 팔지 않은 경우 · 반대매매로 잃은 돈 (사용자 지시 "도입부는 재미 없으니까 다시쓰고")
+# v1.1 — 2026-10-25 — SK하이닉스 실제 종가로 다시 계산 (사용자가 요약본에 'SK 하이닉스' 종목을 정함)
 # v1.0 — 2026-10-25 — 처음 만듦: 가정한 주가 하락(25%·30%)으로 김 과장 계좌 계산
 """주식으로 빨리 부자 되려던 김 과장(가상) 계좌 계산 — SK하이닉스 실제 가격.
 
@@ -97,6 +98,7 @@ def main():
     e_sale = sh * o[s] - loan
     log.info("stage=반대매매 date=%s open=%d proceeds=%s repay=%s left=%s chg=%+.1f%%",
              s, o[s], man(sh * o[s]), man(loan), man(e_sale), (e_sale / own - 1) * 100)
+    log.info("stage=반대매매 lost=%s (넣은 돈 %s - 남은 돈 %s)", man(own - e_sale), man(own), man(e_sale))   # v1.2
     sh_own = sh1 + sh2
     lu0, lu1 = a["limit_up"]
     log.info("compare=빚없음 sale_day=%s equity=%s chg=%+.1f%% | limit_up=%s equity=%s chg=%+.1f%% forced_sale=no",
@@ -104,6 +106,9 @@ def main():
     log.info("event=상한가 date=%s price=%d day_chg=%+.2f%%", lu1, c[lu1], (c[lu1] / c[lu0] - 1) * 100)
     end = max(c)
     log.info("compare=빚없음_끝 date=%s equity=%s chg=%+.1f%%", end, man(sh_own * c[end]), (sh_own * c[end] / own - 1) * 100)
+    # v1.2 도입: 김 과장이 처음 산 날(4/21) 같은 값에 사서 끝날까지 팔지 않은 사람 (자기 돈만, 한 번만 삼)
+    log.info("compare=같은날_들고만 buy=%s end=%s price=%d→%d chg=%+.1f%% (2천만 원이면 %s)",
+             d1, end, c[d1], c[end], (c[end] / c[d1] - 1) * 100, man(m1 * c[end] / c[d1]))
 
     days = sorted(d for d in c if a["lev_buy"] <= d <= a["lev_end"])
     v = e_sale
@@ -122,6 +127,7 @@ def main():
         "breach<140%": ratio < a["maint_ratio"],
         "sale~-60%": round((e_sale / own - 1) * 100) == -60,
         "end~-70%": round((v / own - 1) * 100) == -70,
+        "same_day_hold~+45%": round((c[end] / c[d1] - 1) * 100) == 45,   # v1.2 도입 문장
     }
     bad = [name for name, ok in checks.items() if not ok]
     if bad:

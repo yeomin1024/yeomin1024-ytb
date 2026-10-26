@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.2 — 2026-10-26 — 대본 v1.1 (사용자 지시 "미국주식지수랑 한국주식지수랑 서로 다른데 항목보면 오해할 수도 있잖아 그리고 한국
+# VERSION: v1.3 — 2026-10-26 — 대본 v1.2 (사용자 지시 "항목6,항목8은 빼고 좀 개미 투자자들이 가장 많이 실수하는 거 찾아서 대체해 6,8처럼
+#          버티다가 더 손해보는 경우도 있는데? 전문가들 전망도 틀릴 수도 있는데? 반론이 나올 만한 건 안돼"): 6번 = 곧 낼 등록금을 주식에 ·
+#          8번 = 1주 가격이 싸면 싼 주식이라는 착각. 옛 6번(처분 효과)·8번(폭락 날 매도)의 숫자는 [REF] 로. 보기 → 점수 짝은 그대로.
+# (v1.2 — 2026-10-26 — 대본 v1.1 (사용자 지시 "미국주식지수랑 한국주식지수랑 서로 다른데 항목보면 오해할 수도 있잖아 그리고 한국
 #          시청자가 반론할 수 있잖아 그럴일 없게 수정해봐 다른 나라 시청자도 포함해서"): 해설마다 한국·미국(·인도) 자료를 함께 —
-#          [REF] 로 뺐던 한국 숫자 4개(리딩방·종목 82% 하락·빚 34조·2배 ETF 40대)를 다시 쓰고, 인도 SEBI 단타 71%·한국 지수 7월 말 반등 +17.9% 를 더함.
+#          [REF] 로 뺐던 한국 숫자 4개(리딩방·종목 82% 하락·빚 34조·2배 ETF 40대)를 다시 쓰고, 인도 SEBI 단타 71%·한국 지수 7월 말 반등 +17.9% 를 더함.)
 # (v1.1 — 2026-10-26 — 요약본 v1.1·대본 v1.0 (사용자 피드백 8ceb90be: 도입 = 2026년 ○월부터의 주식 시장, 해설 사례는
 #          되도록 미국 주식)에 맞춤 — 고점 대비 하락·미국 투자 사기(FTC)·S&P 500 지수보다 오른 종목 비율·미국 증권사 빚(FINRA)·
 #          미국 강제 매도 기준 25% → 33%·빚 두 배일 때 주가 20% 하락의 손실·모닝스타 10년 % 차이를 더함. 대본에서 뺀 한국 숫자는 REF 로.)
@@ -14,6 +17,7 @@
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.3 | 2026-10-26 | 6·8번 새 항목: SRC 7개(등록금 예시·미국 S&P 500 2025 낙폭·엔비디아 10분할·한국 동전주 기준·미국 1달러 기준·예시 주가) · 옛 6·8번 숫자 → [REF] | main (Q6·Q8·REF) · QUESTIONS 이름 |
 # | v1.2 | 2026-10-26 | SRC 5개 더함(인도 SEBI 71%·지수 7/27·7/30·7/31) · 한국 숫자 4개를 REF → Q2·Q4·Q9·Q10 · Q5 인도·Q8 7월 말 반등 | main (Q2·Q4·Q5·Q8·Q9·Q10) |
 # | v1.1 | 2026-10-26 | 새 SRC 8개(코스피 고점·FTC·First Trust·FINRA 빚·미국 유지 증거금 25%·예시 하락 20%) · 도입·2·4·8·9번 계산 바꿈 · 대본에서 뺀 숫자는 [REF] 로그 | main (INTRO·Q2·Q4·Q8·Q9·REF) |
 # | v1.0 | 2026-10-26 | 최초 — 기사·보고서 숫자(SRC) → 대본 숫자, 점수 규칙·등급, 가상 응시 6명, 전체 경우의 수 검사 | 전부 |
@@ -28,7 +32,7 @@ import logging
 import sys
 from collections import Counter
 
-VERSION = "v1.2"
+VERSION = "v1.3"
 
 # ---------------------------------------------------------------- 입력 (출처는 요약본 [근거] 2번과 같다)
 SRC = {
@@ -72,7 +76,22 @@ SRC = {
     "kcmi_mts_turnover_x": 1.7,       # (대본에서 뺌) 모바일(MTS) 투자자 일간 회전율 = 컴퓨터(HTS)의 약 1.7배
     # 5번 — 인도 증권거래위원회(SEBI) 2024-07-24 '주식 현물 하루 안 매매 개인 손익 분석' (2022-04 ~ 2023-03, 상위 10개 증권사 고객)
     "sebi_intraday_loss_pct": 71,
-    # 6번 — 자본시장연구원 개인투자자 약 20만 명 2020-03~10 거래 (이코노미스트 2021-08-29)
+    # 6번 — 한국 금융감독원 2026-03-13 스탁론 유의사항 ("전세보증금·학자금처럼 단기간 필요한 자금 … 여유자금으로") · 미국 S&P 500 2025
+    "tuition_won": 10000000,          # 예시: 6개월 뒤 낼 등록금 1,000만 원 (상황 숫자)
+    "tuition_months": 6,
+    "sp500_2025_closing_low": 4982.77,       # 2025-04-08 종가 (Dow Jones 자료, Morningstar 게재)
+    "sp500_2025_intraday_drop_over_pct": 20, # 2/19 최고치에서 4/7 장중 20% 넘게 (Cetera 2025-05-01 'April 2025 recap')
+    # 8번 — 엔비디아 10분할 2024-06-10 (분할 전 종가 949.50달러 · Nasdaq) · 한국 동전주 기준 2026-07-01 · 미국 나스닥 1달러 기준
+    "cheap_price_won": 500,           # 상황 숫자
+    "dear_price_won": 500000,
+    "nvda_pre_split_usd": 949.50,
+    "nvda_split_ratio": 10,
+    "kr_penny_won": 1000,
+    "kr_penny_days": 30,
+    "kr_penny_first_designated": 21,  # 2026-08-13 첫 관리종목 지정 (동전주 기준, 시가총액 사유 빼고)
+    "us_min_bid_usd": 1.0,
+    "us_min_bid_days": 30,
+    # 6번(REF) — 자본시장연구원 개인투자자 약 20만 명 2020-03~10 거래 (이코노미스트 2021-08-29)
     "kcmi_sell_winner_next_day_pct": 41,
     "kcmi_sell_loser_next_day_pct": 22,
     # 7번 — Brown·Imai·Vieider·Camerer, Journal of Economic Literature 62(2) 2024 (607개 추정치·150편)
@@ -114,9 +133,9 @@ QUESTIONS = [  # (번호, 짧은 이름, 과락 문항인가, 보기 → 점수)
     (3, "첫 수익 = 내 실력", False, {"A": 10, "B": 5, "C": 0}),
     (4, "한 종목에 몰아 넣기", False, {"A": 5, "B": 0, "C": 10}),
     (5, "자주 사고팔기", False, {"A": 10, "B": 0, "C": 5}),
-    (6, "오른 것부터 팔기 (처분 효과)", False, {"A": 5, "B": 10, "C": 0}),
+    (6, "곧 낼 돈을 주식에", False, {"A": 5, "B": 10, "C": 0}),
     (7, "산 가격만 기다리기 (손실 회피)", False, {"A": 10, "B": 5, "C": 0}),
-    (8, "폭락 날 모두 팔기", False, {"A": 5, "B": 10, "C": 0}),
+    (8, "1주 가격이 싸면 싼 주식", False, {"A": 5, "B": 10, "C": 0}),
     (9, "빌린 돈으로 두 배 사기", True, {"A": 5, "B": 10, "C": 0}),
     (10, "두 배 상품으로 한 번에 되찾기", True, {"A": 0, "B": 5, "C": 10}),
 ]
@@ -219,8 +238,11 @@ def main():
     out("Q5", trade_profit_jo=s["kcmi_trade_profit_jo"], trade_cost_jo=s["kcmi_trade_cost_jo"], cost_minus_profit_eok=f"{gap * 10000:,.0f}",
         mts_turnover_x=s["kcmi_mts_turnover_x"])
     out("Q5", india_intraday_loss_pct=s["sebi_intraday_loss_pct"], say="인도: 하루 안에 매수·매도한 개인의 71%가 손실")
-    # 6번
-    out("Q6", sell_winner_pct=s["kcmi_sell_winner_next_day_pct"], sell_loser_pct=s["kcmi_sell_loser_next_day_pct"],
+    # 6번 — 곧 낼 돈: 도입의 한국 지수 하락(넉 달)과 미국 S&P 500 2025 낙폭(두 달 안)
+    out("Q6", tuition_won=f"{s['tuition_won']:,}", months=s["tuition_months"], kr_4month_drop_pct=f"{from_peak:.1f}",
+        us_2025_intraday_drop_over_pct=s["sp500_2025_intraday_drop_over_pct"], us_2025_closing_low=s["sp500_2025_closing_low"],
+        say="한국 넉 달 만에 40% 가까이 · 미국 두 달도 안 돼 한때 20% 넘게")
+    out("REF", sell_winner_pct=s["kcmi_sell_winner_next_day_pct"], sell_loser_pct=s["kcmi_sell_loser_next_day_pct"],
         hold_loser_pct=100 - s["kcmi_sell_loser_next_day_pct"],
         winner_vs_loser_x=f"{s['kcmi_sell_winner_next_day_pct'] / s['kcmi_sell_loser_next_day_pct']:.2f}")
     # 7번 — 손실 뒤 원래 값으로 돌아오려면 필요한 상승률
@@ -228,17 +250,22 @@ def main():
     for L in s["loss_example_pct"]:
         need = (1 / (1 - L / 100) - 1) * 100
         out("Q7", loss_pct=L, need_gain_pct=f"{need:.1f}")
-    # 8번 — 같은 10년을 해마다 9.9%와 8.7%로 불리면 (예시 1억 원)
+    # 8번 — 1주 가격: 상황 500원 vs 50만 원 = 1,000배 · 엔비디아 10분할
+    out("Q8", price_ratio=f"{s['dear_price_won'] / s['cheap_price_won']:,.0f}", nvda_before=s["nvda_pre_split_usd"],
+        nvda_after=f"{s['nvda_pre_split_usd'] / s['nvda_split_ratio']:.2f}", say="약 950달러 → 약 95달러, 회사 가치는 그대로",
+        kr_rule=f"{s['kr_penny_days']}거래일 연속 {s['kr_penny_won']:,}원 미만 → 관리종목 (첫 지정 {s['kr_penny_first_designated']}곳)",
+        us_rule=f"{s['us_min_bid_days']}영업일 연속 {s['us_min_bid_usd']:.0f}달러 미만 → 기준 미달")
+    # 8번(REF) — 옛 8번: 같은 10년을 해마다 9.9%와 8.7%로 불리면 (예시 1억 원)
     y, base = s["ms_years"], s["ms_example_won_eok"]
     fund = base * (1 + s["ms_fund_total_return_pct"] / 100) ** y
     inv = base * (1 + s["ms_investor_return_pct"] / 100) ** y
-    out("Q8", gap_pp=f"{s['ms_fund_total_return_pct'] - s['ms_investor_return_pct']:.1f}",
+    out("REF", gap_pp=f"{s['ms_fund_total_return_pct'] - s['ms_investor_return_pct']:.1f}",
         fund_10y_eok=f"{fund:.4f}", investor_10y_eok=f"{inv:.4f}", diff_manwon=f"{(fund - inv) * 10000:,.0f}",
         investor_vs_fund_pct=f"{pct(inv, fund):.1f}", say="10년 동안 손에 쥐는 돈이 10% 넘게 줄어듦",
         scenario_day_drop_like=s["kospi_2026_10_15_day"])
     fall3 = pct(s["kospi_2026_07_30"], s["kospi_2026_07_27"])
     jump = pct(s["kospi_2026_07_31"], s["kospi_2026_07_30"])
-    out("Q8", kr_jul27_30_pct=f"{fall3:.1f}", kr_jul31_day_pct=f"{jump:.1f}", say="사흘 동안 17% 넘게 ↓ 뒤 7/31 하루 17.9% ↑")
+    out("REF", kr_jul27_30_pct=f"{fall3:.1f}", kr_jul31_day_pct=f"{jump:.1f}", say="사흘 동안 17% 넘게 ↓ 뒤 7/31 하루 17.9% ↑")
     # 9번 — 내 돈 1 + 빌린 돈 1 → 주식 2. 담보비율 = 주식값 / 빌린 돈
     own, loan = s["own_money"], s["borrowed"]
     stock0 = own + loan

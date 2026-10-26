@@ -50,6 +50,7 @@
 ## 주식 `stock/` — 분석 + 이야기형 종이인형극 (2026-10-25)
 - **분석 결과·설정·캐시·근거 문서만 남김** (사용자 지시 2026-10-25 — 범위 '주식만'): `result/`·`cloud_cache/`·분석 설정·`stock/guides/`(`data_insights.md`·`shorts_insights.md`·`research_2026-10-15.md`·`viewer_review.md`)·올린 영상 기록 `uploaded_videos.md`. 제작 지시사항·이야기형 시리즈·영상 소스·주식 전용 도구는 지움 (`stock/README.md` '지운 것', 되살리기 `git checkout 2a0427d0 -- <경로>`). 새 제작 방향은 사용자가 정하기 전에는 만들지 않는다. 분석은 아래 공통 규칙대로. **2026-10-26 다시 — `stock/` 안의 영상 소스(`source/`·`puppet/`·`out/`)를 지우고 분석만 남김** (사용자 지시 "stock 폴더 내에서만 삭제해").
 - **이야기형 종이인형극** (사용자 지시 2026-10-25 — 첫 편 소스 `stock/source/ppalli-buja-2026-10/`·그림 `stock/puppet/` 은 **2026-10-26 사용자 지시로 지움**, 되살리기 `git checkout 7de247ff -- stock/source stock/puppet`): 주인공만 얼굴 있는 인형·나머지는 얼굴 없는 흰 사람, 그림엔 글자 없음 — 한글은 자막만, 영어 투자 낱말(Buy·Sell·티커·KOSPI)·숫자는 코드, 모션그래픽으로 어려운 물건·비유만 그림 소품(`stock/puppet/`), 종목 이름을 쓰면 숫자는 실제 종가로(`calc/`).
+- **심리 테스트형** (사용자 지시 2026-10-26 — `stock/source/simri-test-2026-10/요약본.txt`): 10문제 × 보기 A·B·C(0·5·10점, 10점 자리 섞음)·통과 70점·과락 문제 · 문항 근거는 최근 통계(출처·나라를 문장에)·점수 규칙은 `calc/` · 외국 시청자도 보므로 은어·줄임말 없이 (요약본 [근거] 5번).
 
 ## 분석 (`guides/pc_analysis.md`)
 - 검색어 `<주제>/keywords.txt`(한 줄에 하나 — 사용자가 GitHub 에서 고치면 다음 회차에 반영) · 관련어·제외어 `keywords.toml` · 설정 `analyzer_config.toml`. 검색어는 실제 영상 태그로 (`python tools/tag_keywords.py <주제> --write-keywords`, 빼는 말·필수 낱말 `<주제>/tag_rules.toml` — 사용자가 지운 말은 되살아나지 않음, 주식은 모두 '주식' 낱말이 든 말 `TAG_REQUIRE`). 사용자가 새 주제를 말하면 Claude 가 그 세 파일을 만들어 main 에.

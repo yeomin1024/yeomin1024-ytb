@@ -1,9 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.3 — 2026-10-26 — 대본 v1.2 (사용자 지시 "분할매수,분할매도 합쳐서 6번으로 넣고 8번은 국면에 따른 현금 비중 섹터 분배 계획
+# VERSION: v1.4 — 2026-10-26 — 대본 v1.3 (사용자 지시 "대본 보고 다시 simri-test-2026-10.txt 수정해" — 사용자가 대본에 쓴 메모
+#          70607cc5: 도입 "최근 ~ 등 ~로 인해 … 특히 한국주식시장은 ~ 손실본 사람이 ~ 망한 사람도 속출" · 통과 기준 "통과, 주의, 불통과는 어떤 경우인지
+#          보충 설명" · 해설 "사례만 얘기하고 뭘 얘기하고 싶은지가 없어"): 도입 = 단일 종목 레버리지 상품 개인 손실 6.3조(40·50대 62%)
+#          · 10월 1~16일 반대매매 3,911억 · 3번 해설 = 같은 한 달 한국 지수 +23% · 7번 해설 한국 = 처분 효과 41% vs 22% (REF → Q7)
+#          · 10번 해설 = 도입 손실의 되짚기. NH 54.6%·2배 ETF 40대 보유 34% 는 [REF] 로 (사용자가 도입에서 지움). 보기 → 점수 짝은 그대로.
+# (v1.3 — 2026-10-26 — 대본 v1.2 (사용자 지시 "분할매수,분할매도 합쳐서 6번으로 넣고 8번은 국면에 따른 현금 비중 섹터 분배 계획
 #          여부 관련을 넣어서 대본 수정해"): 6번 = 분할 매수·매도 계획 — 올해 한국 지수로 한 번에 vs 한 달 간격 나눠 넣기(오를 때·떨어질 때)
 #          · 미국 설문 공포 매도 25% · 8번 = 국면별 현금·업종 배분 계획 — 7/28 반도체 2종목과 지수 · 모닝스타 배분 펀드 vs 업종 펀드 격차.
-#          옛 6번(처분 효과)·8번(폭락 날 매도) 숫자는 [REF] 로. 보기 → 점수 짝은 그대로.
+#          옛 6번(처분 효과)·8번(폭락 날 매도) 숫자는 [REF] 로. 보기 → 점수 짝은 그대로.)
 # (v1.2 — 2026-10-26 — 대본 v1.1 (사용자 지시 "미국주식지수랑 한국주식지수랑 서로 다른데 항목보면 오해할 수도 있잖아 그리고 한국
 #          시청자가 반론할 수 있잖아 그럴일 없게 수정해봐 다른 나라 시청자도 포함해서"): 해설마다 한국·미국(·인도) 자료를 함께 —
 #          [REF] 로 뺐던 한국 숫자 4개(리딩방·종목 82% 하락·빚 34조·2배 ETF 40대)를 다시 쓰고, 인도 SEBI 단타 71%·한국 지수 7월 말 반등 +17.9% 를 더함.)
@@ -18,6 +23,7 @@
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.4 | 2026-10-26 | SRC 9개 더함(단일 종목 ETP 손실 합계·확정·평가·40대·50대·계좌 수, 반대매매 10/1~16·9월·8월) · 도입 = ETP·반대매매 · Q3 지수 한 달 · Q7 한국 처분 효과(REF → Q7) · Q10 도입 되짚기 · NH·40대 보유 → REF | main (INTRO·Q3·Q7·Q10·REF) |
 # | v1.3 | 2026-10-26 | 6번 분할 매수·매도(지수 4/21·5/21·7/22·8/21·9/21 + 계산 split_vs_lump)·8번 현금·업종 배분(7/28·두 종목 낙폭·시총 비중·모닝스타 배분 0.7 vs 업종 1.2) · 옛 6·8번 → [REF] | main (Q6·Q8·REF) · QUESTIONS 이름 · split_vs_lump() |
 # | v1.2 | 2026-10-26 | SRC 5개 더함(인도 SEBI 71%·지수 7/27·7/30·7/31) · 한국 숫자 4개를 REF → Q2·Q4·Q9·Q10 · Q5 인도·Q8 7월 말 반등 | main (Q2·Q4·Q5·Q8·Q9·Q10) |
 # | v1.1 | 2026-10-26 | 새 SRC 8개(코스피 고점·FTC·First Trust·FINRA 빚·미국 유지 증거금 25%·예시 하락 20%) · 도입·2·4·8·9번 계산 바꿈 · 대본에서 뺀 숫자는 [REF] 로그 | main (INTRO·Q2·Q4·Q8·Q9·REF) |
@@ -33,7 +39,7 @@ import logging
 import sys
 from collections import Counter
 
-VERSION = "v1.3"
+VERSION = "v1.4"
 
 # ---------------------------------------------------------------- 입력 (출처는 요약본 [근거] 2번과 같다)
 SRC = {
@@ -45,7 +51,19 @@ SRC = {
     "kospi_2026_10_15": 5554.22,      # 10월 15일 종가 (7거래일 연속 하락 끝, 이날 -7.57%)
     "kospi_2026_10_15_day": -7.57,    # 10월 15일 하루 등락률 %
     "forced_sale_oct6_15_eok": 2981,  # 10월 6~15일 위탁매매 미수금 대비 실제 반대매매 합계 (억 원, 금융투자협회)
-    "margin_loan_oct12_eok": 342886,  # 10월 12일 신용거래융자 잔고 (억 원 — 34조 2,886억, kbc 2026-10-14 '석 달 만에 최대')
+    "margin_loan_oct12_eok": 342886,
+    # 도입 — 10월 1~16일(10영업일) 위탁매매 미수금 대비 실제 반대매매 누적 (억 원, 금융투자협회 — 비즈워치 2026-10-20 · 이코노미스트 2026-10-18)
+    "forced_sale_oct1_16_eok": 3911,
+    "forced_sale_sep_eok": 2191,      # 9월 한 달
+    "forced_sale_aug_eok": 3076,      # 8월 한 달
+    # 도입·10번 — 금융감독원(국회 정무위 의원실 제출, 10개 종합금융투자사업자) 2026-05-27~08-14 단일종목 ETP 개인 계좌 손실 (억 원)
+    #   뉴스핌·뉴스웨이·아주경제 2026-10-21. 확정(매매) + 평가(8/14 보유분) — 평가 손실은 그 뒤 값이 바뀔 수 있음
+    "etp_loss_total_eok": 63130,
+    "etp_realized_eok": 23242,
+    "etp_unrealized_eok": 39888,
+    "etp_40s_eok": 20530,
+    "etp_50s_eok": 18655,
+    "etp_accounts": 546000,  # 10월 12일 신용거래융자 잔고 (억 원 — 34조 2,886억, kbc 2026-10-14 '석 달 만에 최대')
     # 도입 — NH투자증권 고객 240만 명 (2025-10-30 기준, 연합뉴스 의뢰 — 세계일보·헤럴드경제 2025-11-10)
     "nh_holders": 2401502,
     "nh_losers": 1312296,
@@ -95,7 +113,7 @@ SRC = {
     "ms_allocation_gap_pp": 0.7,
     "ms_sector_gap_pp": 1.2,
     "ms_allocation_capture_pct": 92,
-    # 6번(REF) — 자본시장연구원 개인투자자 약 20만 명 2020-03~10 거래 (이코노미스트 2021-08-29)
+    # 7번 — 자본시장연구원 개인투자자 약 20만 명 2020-03~10 거래 (이코노미스트 2021-08-29) — 매수 다음 날 이익·손실 종목 매도 비율
     "kcmi_sell_winner_next_day_pct": 41,
     "kcmi_sell_loser_next_day_pct": 22,
     # 7번 — Brown·Imai·Vieider·Camerer, Journal of Economic Literature 62(2) 2024 (607개 추정치·150편)
@@ -207,7 +225,8 @@ def main():
     bad = [k for k, v in s.items() if isinstance(v, (int, float)) and k.endswith("_pct") and k != "maintenance_ratio_pct"
            and not -100 <= v <= 100]
     bad += [] if 100 < s["maintenance_ratio_pct"] < 300 else ["maintenance_ratio_pct"]
-    bad += [k for k in ("kospi_2026_06_22", "kospi_2026_10_15", "nh_holders", "finra_margin_2026_06_mn") if s[k] <= 0]
+    bad += [k for k in ("kospi_2026_06_22", "kospi_2026_10_15", "nh_holders", "finra_margin_2026_06_mn", "etp_loss_total_eok", "forced_sale_oct1_16_eok") if s[k] <= 0]
+    bad += [] if s["etp_realized_eok"] + s["etp_unrealized_eok"] == s["etp_loss_total_eok"] else ["etp 확정 + 평가 ≠ 합계"]
     bad += [] if s["kospi_2026_06_22"] >= s["kospi_2026_06_18"] else ["kospi_2026_06_22 < 06_18 (고점이 아님)"]
     if bad:
         log.warning(f"input_out_of_range keys={bad} next_step=SRC 값을 출처와 다시 대조", extra={"stage": "CHECK"})
@@ -218,14 +237,22 @@ def main():
     from_peak = pct(s["kospi_2026_10_15"], s["kospi_2026_06_22"])
     from_9000 = pct(s["kospi_2026_10_15"], s["kospi_2026_06_18"])
     out("INTRO", peak_jun22=s["kospi_2026_06_22"], first_9000_jun18=s["kospi_2026_06_18"], oct15=s["kospi_2026_10_15"],
-        from_peak_pct=f"{from_peak:.1f}", from_jun18_pct=f"{from_9000:.1f}", say="고점보다 40% 가까이 (−38.7~−39.1%)")
+        from_peak_pct=f"{from_peak:.1f}", from_jun18_pct=f"{from_9000:.1f}", say="6월 고점보다 40% 가까이 (−39.1%)")
     drop = pct(s["kospi_2026_10_15"], s["kospi_2026_10_02"])
     out("REF", kospi_oct2=s["kospi_2026_10_02"], kospi_oct15=s["kospi_2026_10_15"], drop_pct=f"{drop:.1f}",
         note="v1.0 도입 '2주도 안 돼 20% 넘게' — 대본에서 뺌")
+    etp_jo = s["etp_loss_total_eok"] / 10000
+    etp_4050 = (s["etp_40s_eok"] + s["etp_50s_eok"]) / s["etp_loss_total_eok"] * 100
+    out("INTRO", etp_loss_jo=f"{etp_jo:.2f}", realized_jo=f"{s['etp_realized_eok'] / 10000:.2f}", unrealized_jo=f"{s['etp_unrealized_eok'] / 10000:.2f}",
+        sum_check=s["etp_realized_eok"] + s["etp_unrealized_eok"] == s["etp_loss_total_eok"], age40_50_share_pct=f"{etp_4050:.1f}",
+        per_account_manwon=f"{s['etp_loss_total_eok'] * 1e8 / s['etp_accounts'] / 1e4:,.0f}",
+        say="석 달 새 개인이 6조 원 넘게 잃음 (확정 + 8/14 평가) · 10번 해설: 그 62%가 40대와 50대")
+    out("INTRO", forced_sale_oct1_16_eok=f"{s['forced_sale_oct1_16_eok']:,}", sep_eok=f"{s['forced_sale_sep_eok']:,}", aug_eok=f"{s['forced_sale_aug_eok']:,}",
+        over_aug=s["forced_sale_oct1_16_eok"] > s["forced_sale_aug_eok"], say="이달에만 3,900억 원 넘음 (1~16일 집계 — 그 뒤는 더해질 뿐) · 9번 해설에서 되짚음")
     nh = s["nh_losers"] / s["nh_holders"] * 100
-    out("INTRO", nh_loss_pct=f"{nh:.1f}", nh_40s=s["nh_loss_40s_pct"], nh_50s=s["nh_loss_50s_pct"],
+    out("REF", nh_loss_pct=f"{nh:.1f}", nh_40s=s["nh_loss_40s_pct"], nh_50s=s["nh_loss_50s_pct"],
         say="54.6% · 40대·50대는 10명 중 6명 (59.7%→6.0명, 60.1%→6.0명)",
-        per10_40s=f"{s['nh_loss_40s_pct'] / 10:.1f}", per10_50s=f"{s['nh_loss_50s_pct'] / 10:.1f}")
+        per10_40s=f"{s['nh_loss_40s_pct'] / 10:.1f}", per10_50s=f"{s['nh_loss_50s_pct'] / 10:.1f}", note="v1.3 도입 — 사용자가 지움(70607cc5)")
 
     # 1번
     out("Q1", robinhood_20d_pct=s["robinhood_top_buy_20d_pct"], say="시장보다 평균 4.7% 낮은 성적 (20거래일)")
@@ -239,11 +266,12 @@ def main():
     out("Q2", kr_leading_room_eok=s["leading_room_2024_eok"], vs_phishing_pct=f"{lr:.1f}", say="한국 약 7,100억 원 · 보이스피싱 피해의 83%")
     # 3번
     out("Q3", quiz_correct_pct=s["finra_quiz_correct_pct"], self_rated_high_pct=s["finra_self_rated_high_pct"])
+    k_up = pct(s["kospi_2026_05_28"], s["kospi_2026_04_28"])
+    out("Q3", kr_index_apr28_may28_pct=f"{k_up:.1f}", say="그 한 달 한국 지수 20% 넘게 ↑ → 50% 가운데 20% 넘는 몫은 지수만 따라가도")
     # 4번 — 한 종목을 아무렇게나 고르면 지수보다 못할 확률 = 1 − 지수보다 오른 비율
     out("Q4", outperform_pct=s["ft_2025_outperform_pct"], underperform_pct=f"{100 - s['ft_2025_outperform_pct']:.1f}",
         per10=f"{(100 - s['ft_2025_outperform_pct']) / 10:.1f}", say="30.5%뿐 → 열 번 중 일곱 번은 지수보다 못한 종목")
     down = s["stocks_down"] / s["stocks_total"] * 100
-    k_up = pct(s["kospi_2026_05_28"], s["kospi_2026_04_28"])
     out("Q4", kr_stocks_down_pct=f"{down:.2f}", kr_index_month_pct=f"{k_up:.1f}", say="한국: 한 달 지수 20% 넘게 오를 때 종목 82% 하락")
     # 5번
     gap = s["kcmi_trade_cost_jo"] - s["kcmi_trade_profit_jo"]
@@ -256,9 +284,9 @@ def main():
     out("Q6", rising_lump_pct=f"{up_l:.1f}", rising_split3_pct=f"{up_s:.1f}", falling_lump_pct=f"{dn_l:.1f}", falling_split4_pct=f"{dn_s:.1f}",
         say="오를 때 한 번에 43% vs 세 번 20% · 떨어질 때 한 번에 −39% vs 네 번 −24%")
     out("Q6", example_won=f"{s['example_buy_won']:,}", us_panic_sold_pct=s["marketwise_panic_sold_pct"], say="미국 설문 4명 중 1명")
-    out("REF", sell_winner_pct=s["kcmi_sell_winner_next_day_pct"], sell_loser_pct=s["kcmi_sell_loser_next_day_pct"],
+    out("Q7", sell_winner_pct=s["kcmi_sell_winner_next_day_pct"], sell_loser_pct=s["kcmi_sell_loser_next_day_pct"],
         hold_loser_pct=100 - s["kcmi_sell_loser_next_day_pct"],
-        winner_vs_loser_x=f"{s['kcmi_sell_winner_next_day_pct'] / s['kcmi_sell_loser_next_day_pct']:.2f}")
+        winner_vs_loser_x=f"{s['kcmi_sell_winner_next_day_pct'] / s['kcmi_sell_loser_next_day_pct']:.2f}", say="한국 2020: 이익 난 주식 41% 매도 vs 손실 난 주식 22%")
     # 7번 — 손실 뒤 원래 값으로 돌아오려면 필요한 상승률
     out("Q7", loss_aversion=s["loss_aversion_lambda"], say="약 2배")
     for L in s["loss_example_pct"]:
@@ -296,6 +324,7 @@ def main():
         say="1조 5천억 달러 · 1년 만에 절반 넘게 늘어 사상 최대")
     eq_after = stock0 * (1 + drop / 100) - loan
     out("Q9", kr_margin_loan_jo=f"{s['margin_loan_oct12_eok'] / 10000:.2f}", say="한국 10/12 34조 원 넘음")
+    out("Q9", callback_forced_sale_eok=f"{s['forced_sale_oct1_16_eok']:,}", say="앞에서 말한 3,900억 원 = 빌린 돈 때문에 강제로 매도된 주식")
     out("REF", forced_sale_eok=s["forced_sale_oct6_15_eok"], oct_drop_pct=f"{drop:.1f}",
         own_money_change_pct=f"{pct(eq_after, own):.1f}", note="한국 10월 반대매매·하락 — 대본에서 뺌")
     # 10번 — 2배 상품: 하루 -10% 뒤 제자리로 돌아오는 상승률, 같은 이틀의 2배 상품
@@ -304,8 +333,9 @@ def main():
     two_x = (1 + 2 * d1) * (1 + 2 * d2) - 1
     out("Q10", day1_pct=f"{d1 * 100:.1f}", day2_back_to_start_pct=f"{d2 * 100:.2f}", two_x_after_2days_pct=f"{two_x * 100:.2f}",
         conl=f"fund {s['conl_fund_pct']}%/yr vs investors {s['conl_investor_pct']}%/yr")
-    out("Q10", kr_single_2x_40s_pct=f"{s['single_2x_40s_eok'] / s['single_2x_total_eok'] * 100:.1f}",
-        total_jo=f"{s['single_2x_total_eok'] / 10000:.2f}", say="한국 단일 종목 2배 ETF — 40대가 가장 많이 보유(34%)")
+    out("Q10", callback_etp_loss_jo=f"{etp_jo:.2f}", age40_50_share_pct=f"{etp_4050:.1f}", say="앞에서 말한 6조 원 손실 = 단일 종목 레버리지 상품 · 그 62%가 40대와 50대")
+    out("REF", kr_single_2x_40s_pct=f"{s['single_2x_40s_eok'] / s['single_2x_total_eok'] * 100:.1f}",
+        total_jo=f"{s['single_2x_total_eok'] / 10000:.2f}", say="한국 단일 종목 2배 ETF — 40대가 가장 많이 보유(34%)", note="v1.3 10번 — 도입 손실 되짚기로 바꿈")
 
     # ------------------------------------------------------------ 테스트 규칙 검사
     out("RULE", questions=len(QUESTIONS), levels=LEVELS, max_total=len(QUESTIONS) * max(LEVELS),

@@ -1,5 +1,10 @@
 # video/ 변경 이력 (guides/video_guide.md 2번 규칙)
 
+## 2026-10-27 — 습관 테스트 짝 쇼츠 v2.0 (episodes/simri-test-2026-10-shorts) — 도입 + 10문항 몽타주
+- 사용자 지시: "6번 내용 확장해서 도입부 + 10문항 몽타주 내용으로 쇼츠 관련된 것들 만들어봐" — 장면 구성 `stock/source/simri-test-2026-10/shorts/shorts.md` v2.0 4번 (S-01~S-16).
+- 몽타주 = 문항마다 한 장면(약 3.5초): 위 칸 번호 동그라미·진행 점 10개·짧은 보기 카드 세 장(data-words, 점수 없음) · 가운데 인형 + 머리 위 꼬리표(`+30%`·`LOAN ×2` 등). 렌더 도구는 바꾸지 않음.
+- 추정 시각 check 문제 2 (0초 썸네일 자리 표시뿐) · stills 18장 확인.
+
 ## 2026-10-27 — 주식 심리 테스트 편 짝 쇼츠 (episodes/simri-test-2026-10-shorts v1.0)
 - 사용자 지시: "쇼츠 관련 소스 모두 생성해" — 장면 구성 `stock/source/simri-test-2026-10/shorts/shorts.md` 4번 (S-01~S-12).
 - 세 칸 세로 화면 (옛 `episodes/ppalli-buja-2026-10-shorts/` 와 같음): 위 y 0~691 보기 카드(data-words)·숫자 · 가운데 y 691~1382 종이인형 무대 (`Puppet.stage` w 1080 · h 691 · top 691) · 아래 구운 자막 46px · 끝 `K.related`.

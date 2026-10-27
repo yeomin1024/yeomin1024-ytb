@@ -1,0 +1,169 @@
+{
+ "tool": "tts_narration.py v1.16",
+ "created": "2026-10-27T06:38:48",
+ "topic": "stock",
+ "id": "simri-test-2026-10-shorts",
+ "script": "stock/source/simri-test-2026-10/shorts/simri-test-2026-10-shorts.txt",
+ "script_sha1": "2ea4a8f41700d972",
+ "sentences": 14,
+ "seconds": 48.61,
+ "engine": {
+  "engine": "qwen3-tts-clone",
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "ref": "50cadf7c6444f49d",
+  "mode": "icl",
+  "language": "Korean",
+  "dtype": "float32",
+  "gen": {
+   "temperature": 0.55
+  }
+ },
+ "voices": {
+  "host": {
+   "name": "진행자",
+   "parts": [
+    "*"
+   ],
+   "engine": "clone",
+   "lock": true,
+   "speaker": "Sohee",
+   "instruct": "",
+   "part_instruct": {},
+   "seed": 5701,
+   "gap": 0.38,
+   "generation": {
+    "temperature": 0.55
+   },
+   "ref_audio": "voices/ref/host.wav",
+   "ref_sha": "50cadf7c6444f49d",
+   "ref_f0": 145.5,
+   "files": [
+    "voices/host.json"
+   ]
+  }
+ },
+ "voice_ids": {
+  "host": "6b2a2800ef56d6f8"
+ },
+ "gaps": {
+  "lead_in": 0.3,
+  "part": 1.0,
+  "tail": 0.8,
+  "cards": []
+ },
+ "items": [
+  {
+   "n": 1,
+   "role": "host",
+   "part": "습관 테스트 10문항",
+   "text": "나는 주식으로 손해 볼 수밖에 없는 사람일까?",
+   "start": 0.3,
+   "end": 2.859
+  },
+  {
+   "n": 2,
+   "role": "host",
+   "part": "습관 테스트 10문항",
+   "text": "점검할 수 있는 테스트를 만들어 보았습니다.",
+   "start": 3.239,
+   "end": 5.559
+  },
+  {
+   "n": 3,
+   "role": "host",
+   "part": "습관 테스트 10문항",
+   "text": "본인은 어떻게 투자하는지, 항목마다 답을 골라 보세요.",
+   "start": 5.939,
+   "end": 9.587
+  },
+  {
+   "n": 4,
+   "role": "host",
+   "part": "습관 테스트 10문항",
+   "text": "동료가 좋다고 한 종목을 따라서 매수하시나요?",
+   "start": 9.967,
+   "end": 12.774
+  },
+  {
+   "n": 5,
+   "role": "host",
+   "part": "습관 테스트 10문항",
+   "text": "무조건 오른다는 유료 단체 대화방에 가입하시나요?",
+   "start": 13.154,
+   "end": 16.131
+  },
+  {
+   "n": 6,
+   "role": "host",
+   "part": "습관 테스트 10문항",
+   "text": "한 달 만에 50%를 벌었다면, 어떻게 생각하시나요?",
+   "start": 16.511,
+   "end": 19.953
+  },
+  {
+   "n": 7,
+   "role": "host",
+   "part": "습관 테스트 10문항",
+   "text": "확신이 든 종목이 있다면, 투자금의 얼마를 넣으시나요?",
+   "start": 20.333,
+   "end": 24.002
+  },
+  {
+   "n": 8,
+   "role": "host",
+   "part": "습관 테스트 10문항",
+   "text": "한 달에 몇 번이나 매매하시나요?",
+   "start": 24.381,
+   "end": 26.119
+  },
+  {
+   "n": 9,
+   "role": "host",
+   "part": "습관 테스트 10문항",
+   "text": "모아 둔 1,200만 원, 언제 얼마씩 매수하시나요?",
+   "start": 26.499,
+   "end": 29.668
+  },
+  {
+   "n": 10,
+   "role": "host",
+   "part": "습관 테스트 10문항",
+   "text": "현금과 업종 비중은 어떻게 분배하시나요?",
+   "start": 30.048,
+   "end": 32.572
+  },
+  {
+   "n": 11,
+   "role": "host",
+   "part": "습관 테스트 10문항",
+   "text": "주가와 실적이 모두 나빠진 보유 종목은 어떻게 하시나요?",
+   "start": 32.952,
+   "end": 36.401
+  },
+  {
+   "n": 12,
+   "role": "host",
+   "part": "습관 테스트 10문항",
+   "text": "지수가 폭락할 때, 빚을 내서 물타기 하시나요?",
+   "start": 36.781,
+   "end": 39.88
+  },
+  {
+   "n": 13,
+   "role": "host",
+   "part": "습관 테스트 10문항",
+   "text": "주가가 하락해 큰 손실을 봤을 때, 어떻게 복구하시나요?",
+   "start": 40.26,
+   "end": 43.929
+  },
+  {
+   "n": 14,
+   "role": "host",
+   "part": "습관 테스트 10문항",
+   "text": "선택한 답에 따른 결과는 아래 영상에서 확인하세요.",
+   "start": 44.309,
+   "end": 47.808
+  }
+ ],
+ "voice_sha1": "67155a53ae90a91a"
+}

@@ -1,5 +1,27 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-27 (시험 채널 — 면세·캐리어 4편 예약 업로드, 2026-11-03 공개) — `test/source/myeonse-hwangeup-2026-10/`·`test/source/kaerieo-tugi-2026-10/`
+
+### 왜 (사용자 지시)
+- "다시 면세, 캐리어 투기 영상 자동 예약 일주일후에 공개되도록 업로드해" — 10-26(`invalid_grant`)·10-27 오전(`invalid_client`)은 키 문제로 멈췄던 일.
+
+### 바꾼 것
+| 경로 | 내용 |
+|---|---|
+| `…/myeonse-hwangeup-2026-10/upload.md` · `…/shorts/upload.md` | v1.0 → **v1.1** — 예약 공개 2026-11-02 → **2026-11-03 18:00** (한국, 올리는 날 + 7일). 제목·설명란·태그·설정 그대로 |
+| `…/kaerieo-tugi-2026-10/upload.md` · `…/shorts/upload.md` | v1.0 → **v1.1** — 2026-11-02 → **2026-11-03 19:00** (면세 짝 1시간 뒤) |
+| `…/myeonse-hwangeup-2026-10/youtube.json` | 새 — 롱폼 `0UAbxu9i6nA` (비공개 · publishAt 2026-11-03T09:00:00Z · 챕터 9 · 썸네일 · ko 자막) |
+| `…/myeonse-hwangeup-2026-10/shorts/youtube.json` | 새 — 쇼츠 `lI0-58Zq55c` (publishAt 2026-11-03T09:00:00Z) |
+| `…/kaerieo-tugi-2026-10/youtube.json` | 새 — 롱폼 `pKPXWNwT4uM` (publishAt 2026-11-03T10:00:00Z · 챕터 8) |
+| `…/kaerieo-tugi-2026-10/shorts/youtube.json` | 새 — 쇼츠 `LZIrDGtkfI0` (publishAt 2026-11-03T10:00:00Z) |
+| `guides/status.md` | v2.79 줄 · 1번 표 시험 채널 줄 |
+
+### 확인
+- `youtube_upload.py test x --check-auth` → `status=ok channel=우물 밖 세상살이`.
+- 렌더 `render.mjs video test <영상ID>` 4편 (mp4 는 컨테이너에만): 면세 롱폼 401.27초 −14.13 LUFS TP −1.63 · 캐리어 롱폼 302.40초 −14.22 / −1.61 · 면세 쇼츠 48.9초 −14.14 / −1.68 · 캐리어 쇼츠 41.2초 −14.17 / −1.51. 완성 mp4 장면을 Claude 가 봄 (면세 3:28 제목 겹침 = 0.6초 안 바뀜 효과).
+- 올리기 전 채널 업로드 목록 = 축제 2편뿐 → 올린 뒤 6편 (새 4편 모두 private + publishAt 맞음).
+- `youtube_audit.py test` → 새 롱폼 2편 '해시태그 3개' ❌ (시트 2개 — `guides/upload_guide.md` ⑦ 3개, 10-26 시트부터 · 축제 롱폼도 같음) · 면세 롱폼 '처리 끝' = 막 올려 처리 중. 그 밖 ✅.
+
 ## 2026-10-27 (주식 — 심리 테스트 편 대본 v1.6: 사용자가 직접 고친 대본 다듬기 · 관련 소스) — `stock/source/simri-test-2026-10/`
 
 ### 왜 (사용자 지시)

@@ -1,5 +1,22 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-27 (주식 — 심리 테스트 편 영상을 대본 v1.7 로 다시 만듦 · 짝 쇼츠 영상) — `video/episodes/simri-test-2026-10(-shorts)/` · `stock/source/simri-test-2026-10/`
+
+### 왜 (사용자 지시)
+- "그림 안바꿔도 되니까 영상 만들어봐" — Kaggle 새 오디오(롱폼 8d1a9d39 7:38.8 · 쇼츠 c407ce1f 0:48.6)가 올라온 뒤.
+
+### 바꾼 것
+| 경로 | 내용 |
+|---|---|
+| `…/simri-test-2026-10.srt` · `shorts/…-shorts.srt` | `video/scripts/align-audio.mjs` 로 실제 오디오 시각 (tts_narration.json — 문장 경계 무음 아님 0) · SRT check ✅ |
+| `video/episodes/simri-test-2026-10/index.html` | v1.1 — 제작안 v1.5 L-01~L-29 (도입 +78% · 질문 장면 · 7·8 순서 · 시험지 네 묶음 · 해설 네 묶음) · check 문제 0 |
+| `video/episodes/simri-test-2026-10-shorts/index.html` | v3.1 — TH-ART 전 0초 코드 장면 (`--no-cover`) · check 문제 0 |
+| `…/제작안.txt` · `요약본.txt` · `shorts/shorts.md` · `shorts/upload.md` | v1.5 · v1.11 · v3.1 · v3.1 — 만든 것·다르게 만든 곳·다음 단계 |
+| `stock/README.md` · `guides/status.md` · `video/CHANGELOG.md` | 기록 |
+
+### 확인
+- 완성 mp4 를 Claude 가 장면별로 봄 (롱폼 대표 장면 · 쇼츠 전체). 영상 파일은 git 에 넣지 않음.
+
 ## 2026-10-27 (주식 — 심리 테스트 편: 롱폼 항목에 질문 · 쇼츠 v3.0 그림 없는 문항·보기 · 쇼츠 제목 확정) — `stock/source/simri-test-2026-10/` · `video/episodes/simri-test-2026-10-shorts/`
 
 ### 왜 (사용자 지시)

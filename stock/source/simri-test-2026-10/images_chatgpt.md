@@ -1,6 +1,7 @@
 # 주식 '습관 테스트' 편 종이인형극 그림 20장 — ChatGPT용 (읽고 그대로 만들고 저장 경로에 올리기)
 
-작성: 2026-10-26 (Claude, v1.1 — **만들 그림 13장**: 1~8번 주인공 · 11번 낯선 사람 · 13~15번 쥐덫·바구니·새는 양동이 · 20번 썸네일 그림. 9·10·12·16·17·18·19번 7장은 옛 빨리 부자 편 그림을 그대로 다시 씀 — 이미 저장소에 있으니 **만들지 않는다**) 
+작성: 2026-10-27 (Claude, v1.2 — 20번 썸네일 그림을 **짝 쇼츠 썸네일에도** 씀: 오른쪽 세로 띠(가로 62.5~100%)를 9:16 으로 잘라 씀 → 주인공 머리·두 손·답안지를 그 띠 안에 (사용자 지시 2026-10-27 "쇼츠 관련 소스 모두 생성해" — `shorts/shorts.md` 6번). 만들 그림 수는 그대로 13장.)
+(v1.1 — 2026-10-26 — **만들 그림 13장**: 1~8번 주인공 · 11번 낯선 사람 · 13~15번 쥐덫·바구니·새는 양동이 · 20번 썸네일 그림. 9·10·12·16·17·18·19번 7장은 옛 빨리 부자 편 그림을 그대로 다시 씀 — 이미 저장소에 있으니 **만들지 않는다**) 
 (v1.0 — 인물 기준표 1 + 주인공 흰둥이 7 + 얼굴 없는 흰둥이 3 + 소품 6 + 배경 2 + 썸네일 그림 1 = 20장 · 남색 한지 배경은 다시 씀, 주제 '주식 투자 실패할 사람들은 절대 통과 못하는 습관 테스트') — 짝 문서 `stock/source/simri-test-2026-10/제작안.txt` · 같은 꼴 옛 빨리 부자 편 `git show 7de247ff:stock/source/ppalli-buja-2026-10/images_chatgpt.md`
 
 이 파일 주소: https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/stock/source/simri-test-2026-10/images_chatgpt.md
@@ -33,7 +34,7 @@
 | 17 | **있음 — 만들지 않음 (옛 그림 다시 씀)** `stock/source/simri-test-2026-10/puppet/P-GRAB.png` | 가로 1536×1024 · 투명 | 커다란 흰 종이 손이 주권 더미를 낚아챔 (강제 매도) | 도입 · 해설 9 |
 | 18 | **있음 — 만들지 않음 (옛 그림 다시 씀)** `stock/source/simri-test-2026-10/puppet/S-OFFICE.jpg` | 가로 1536×1024 | 빈 무대 — 낮의 사무실 | 항목 1·3·5 · 해설 1 |
 | 19 | **있음 — 만들지 않음 (옛 그림 다시 씀)** `stock/source/simri-test-2026-10/puppet/S-HOME-NIGHT.jpg` | 가로 1536×1024 | 빈 무대 — 밤 아파트 거실 | 항목 2·4·6~10 |
-| 20 | `stock/source/simri-test-2026-10/images/TH-ART.jpg` | 가로 3:2 (1536×1024) | 썸네일 그림 (글자 없음 — 문구·말풍선은 코드) | 롱폼 썸네일 3안 |
+| 20 | `stock/source/simri-test-2026-10/images/TH-ART.jpg` | 가로 3:2 (1536×1024) | 썸네일 그림 (글자 없음 — 문구·말풍선은 코드) | 롱폼 썸네일 3안 · 쇼츠 썸네일(오른쪽 세로 띠 — v1.2) |
 | 21 | (없음 — 다시 씀) `test/puppet/P-PAPER.jpg` | — | 남색 한지 (숫자·해설 장면 배경) | **만들지 않는다** |
 
 ※ 번호는 만드는 순서다 — **1번(인물 기준표)을 가장 먼저** 만들고, 2~8번과 20번은 1번의 주인공과 머리 모양·눈·눈썹·목수건이 똑같아야 한다. 배경(18~19번)은 소품 다음에 만든다. 21번은 만들지 않는다 (이미 있음).
@@ -231,7 +232,7 @@ Empty stage backdrop: an apartment living room at night seen straight from the f
 ```
 
 ## 20. TH-ART — 썸네일 그림 (글자 없음)
-**저장 경로: `stock/source/simri-test-2026-10/images/TH-ART.jpg`** — JPEG 700KB 이하 · 가로 1536×1024 (코드가 16:9 로 자르고 제목 2줄·말풍선을 얹음 — 위아래 80px 은 잘릴 수 있음)
+**저장 경로: `stock/source/simri-test-2026-10/images/TH-ART.jpg`** — JPEG 700KB 이하 · 가로 1536×1024 (코드가 16:9 로 자르고 제목 2줄·말풍선을 얹음 — 위아래 80px 은 잘릴 수 있음 · v1.2 쇼츠는 오른쪽 세로 띠 x 960~1536 을 9:16 으로 씀)
 ```
-Thumbnail illustration, landscape. Background: a deep navy (#1B2440) hanji paper backdrop with a large bold red (#D92B2B) paper zigzag line crashing down from the upper left to the lower right like a falling stock chart (no axes, no grid labels, no numbers). The Investor puppet with its face is shown from the knees up on the RIGHT third of the picture, the head at about 30–38% from the top of the picture: holding a blank answer sheet low in the left hand (the sheet shows only a column of empty square boxes and three big red X marks — no letters, no numbers) while looking down at it, the right hand covering the mouth; eyebrows tilted up and knit in the middle, worried eyes looking down, head slightly lowered, shoulders drooped — realizing the test is failed and money was lost. Behind on the left, three small faceless white figures in dim shadow looking at their phones. Keep the bottom 35% of the picture and the area to the left of the Investor's head calm, dark and uncluttered navy (title text and speech bubbles will be added there later by code). The Investor's head, hands and the answer sheet stay between 12% and 60% of the picture height; below 60% only the body and legs. ABSOLUTELY NO text, letters, numbers or logos anywhere.
+Thumbnail illustration, landscape. Background: a deep navy (#1B2440) hanji paper backdrop with a large bold red (#D92B2B) paper zigzag line crashing down from the upper left to the lower right like a falling stock chart (no axes, no grid labels, no numbers). The Investor puppet with its face is shown from the knees up on the RIGHT third of the picture, the head at about 30–38% from the top of the picture: holding a blank answer sheet low in the left hand (the sheet shows only a column of empty square boxes and three big red X marks — no letters, no numbers) while looking down at it, the right hand covering the mouth; eyebrows tilted up and knit in the middle, worried eyes looking down, head slightly lowered, shoulders drooped — realizing the test is failed and money was lost. Behind on the left, three small faceless white figures in dim shadow looking at their phones. Keep the bottom 35% of the picture and the area to the left of the Investor's head calm, dark and uncluttered navy (title text and speech bubbles will be added there later by code). The Investor's head, hands and the answer sheet stay between 12% and 60% of the picture height; below 60% only the body and legs. The Investor's head, both hands and the answer sheet must also stay fully inside the right vertical strip from 62.5% to 100% of the picture width, roughly centered in that strip (the strip is cut out for a vertical 9:16 version) — do not let the head or hands cross to the left of 62.5% width. ABSOLUTELY NO text, letters, numbers or logos anywhere.
 ```

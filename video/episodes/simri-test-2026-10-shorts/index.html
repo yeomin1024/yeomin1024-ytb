@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>습관 테스트 쇼츠</title>
+<!-- VERSION: v1.0 — 2026-10-27 — 주식 「주식 투자 실패할 사람들은 절대 통과 못하는 습관 테스트」 짝 쇼츠 (사용자 지시 2026-10-27 "쇼츠 관련 소스 모두 생성해").
+     장면 구성 = stock/source/simri-test-2026-10/shorts/shorts.md 4번 (S-01 ~ S-12) · 대본 shorts/simri-test-2026-10-shorts.txt (14문장).
+     · 꼴 = 결과형 (stock/guides/shorts_insights.md 0-1 3번 — 테스트 질문 → 보기 → 점수를 바로 → '왜?' → 롱폼): 롱폼 항목 9(빌려서 두 배 매수 — 과락) 하나.
+     · 세 칸 (옛 빨리 부자 쇼츠와 같음): 위 칸 y 0~691 검정 + 보기 카드·숫자 · 가운데 칸 y 691~1382 종이인형 무대 · 아래 칸 검정 + 구운 자막.
+     · 그림 = 롱폼과 같은 stock/source/simri-test-2026-10/puppet/ (HAVE 목록) + 없는 그림은 롱폼 figures.js 코드 그림 — ChatGPT 그림이 오면
+       HAVE 에 이름을 더함 (롱폼 index.html 과 같은 목록으로). 남색 한지 = test/puppet/P-PAPER.jpg.
+     · 첫 문장 = shorts/thumbnails/thumbnail_1.jpg (롱폼 썸네일 그림 TH-ART 의 오른쪽 세로 띠 + 제목·말풍선은 코드 — thumb.mjs).
+     · 화면 글자: 한글은 구운 자막 + A·B·C 보기 카드(data-words — render.mjs v1.26)만. 그 밖은 숫자·기호·영어 허용 목록(WORDS) (롱폼과 같은 규칙).
+     · 숫자 = 롱폼 대본·calc/calc.py v1.5 출력 그대로 (shorts.md 3번 표). 색 = 뜻: 빨강 0점·손해 · 노랑 5점·기준 · 청록 10점.
+     · 끝 = kit.js K.related (관련 동영상 버튼 자리 화살표·빛, 끝 화면 2.5초) + 롱폼 카드(▶ — 썸네일이 생기기 전에는 코드 시험지).
+     장면 시각 = 실제 오디오 문장 시각(K.S·K.E·K.W). 연구·교육용 영상 — 투자 권유 아님. -->
+<meta name="video-size" content="1080x1920">
+<meta name="video-safe" content="150 60 1384 60">
+<meta name="end-hold" content="2.5">
+<link rel="stylesheet" href="../../render/kit.css">
+<style>
+#wrap{max-width:420px;margin:0 auto;aspect-ratio:9/16}
+body.render #wrap{width:1080px;height:1920px;max-width:none;margin:0}
+#stage{width:1080px;height:1920px;background:#000}
+#cc{left:540px;bottom:390px;max-width:870px;font-size:46px;padding:12px 16px;text-wrap:balance}
+.ts{text-shadow:0 4px 22px rgba(0,0,0,.9),0 2px 6px rgba(0,0,0,.8)}
+.app{position:absolute;width:620px;border-radius:30px;background:rgba(16,24,42,.96);border:3px solid rgba(255,255,255,.18);padding:22px 32px 26px;display:grid;gap:8px}
+.app .h{display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:44px;color:var(--N)}
+.app .v{font-weight:900;font-size:110px;line-height:1.05;white-space:nowrap}
+.btn{position:absolute;font-weight:900;font-size:64px;line-height:1;padding:22px 52px;border-radius:22px;white-space:nowrap;border:5px solid transparent}
+.btn.buy{background:var(--G);color:#06231F}
+.stamp{position:absolute;font-weight:900;font-size:104px;line-height:1;padding:18px 40px;border:10px solid currentColor;border-radius:22px;white-space:nowrap;background:rgba(10,16,30,.7)}
+.post{position:absolute;font-weight:900;font-size:48px;line-height:1;padding:16px 26px;border-radius:18px;background:rgba(16,24,42,.94);border:4px solid var(--Y);color:var(--Y);white-space:nowrap}
+.opt{position:absolute;left:60px;width:960px;height:160px;border-radius:24px;background:rgba(16,24,42,.96);border:5px solid rgba(255,255,255,.2);display:flex;align-items:center;gap:16px;padding:0 18px}
+.opt .L{flex:0 0 92px;height:92px;border-radius:50%;background:#F4F6FA;color:#0C1424;display:grid;place-items:center;font-weight:900;font-size:58px;line-height:1}
+.opt .I{flex:0 0 112px;height:112px;display:grid;place-items:center}
+.opt .T{flex:1;font-weight:900;font-size:46px;line-height:1.18;word-break:keep-all;color:#F4F6FA}
+.opt .P{flex:0 0 100px;height:100px;border-radius:50%;display:grid;place-items:center;font-weight:900;font-size:56px;line-height:1;opacity:0}
+.sheet{position:absolute;left:70px;top:740px;width:940px;height:470px;border-radius:30px;background:#F2E6CF;border:10px solid #fff;color:#1B2440;box-shadow:0 30px 60px -20px rgba(0,0,0,.85)}
+.cell{position:absolute;width:82px;height:82px;border-radius:50%;border:6px solid #1B2440;display:grid;place-items:center;font-weight:900;font-size:40px;line-height:1}
+.cnt{position:absolute;font-weight:900;font-size:240px;line-height:1;color:var(--Y)}
+.card{position:absolute;left:150px;top:190px;width:780px;height:439px;border-radius:26px;overflow:hidden;border:5px solid rgba(255,255,255,.3);background:#1B2440}
+.card img{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover}
+.card .play{position:absolute;left:50%;top:50%;width:150px;height:150px;margin:-75px 0 0 -75px;border-radius:50%;background:rgba(0,0,0,.6);border:6px solid #fff;display:grid;place-items:center}
+.card .prog{position:absolute;left:0;bottom:0;height:12px;width:100%;background:rgba(255,255,255,.25)}
+.card .prog i{position:absolute;left:0;top:0;height:100%;width:0;background:var(--R)}
+</style>
+</head>
+<body>
+<div id="wrap"><div id="stage"></div></div>
+<div id="ctrl"></div>
+<div id="now"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+<script id="ep-data">/*EP-DATA:BEGIN*/window.EP={"id":"simri-test-2026-10-shorts","topic":"stock","duration":50.1,"audio":null,"thumb":null,"estimated":true,"est_model":{"perSyl":0.151,"comma":0.25,"base":-0.08,"min":0.8,"lead":0.3,"gap":0.45,"part":1,"tail":0.8},"synced":"2026-10-27T03:10:29Z","sent":[{"n":1,"part":"습관 테스트 과락 문제","text":"주식 습관 테스트에서, 이 문제 하나만 0점이어도 바로 불통과입니다.","start":0.3,"end":4.698},{"n":2,"part":"습관 테스트 과락 문제","text":"투자한 나라의 대표 지수가 크게 떨어지자, 바닥이라는 글이 쏟아집니다.","start":5.148,"end":9.697},{"n":3,"part":"습관 테스트 과락 문제","text":"증권사 앱에는 내 돈만큼 빌려서 두 배로 매수할 수 있다는 안내가 뜹니다.","start":10.147,"end":14.446},{"n":4,"part":"습관 테스트 과락 문제","text":"어떻게 하시겠습니까?","start":14.896,"end":16.175},{"n":5,"part":"습관 테스트 과락 문제","text":"A, 조금만 빌려서 매수한다.","start":16.625,"end":18.607},{"n":6,"part":"습관 테스트 과락 문제","text":"B, 빌리지 않고 내 돈으로만 매수한다.","start":19.057,"end":21.492},{"n":7,"part":"습관 테스트 과락 문제","text":"C, 내 돈만큼 빌려서 두 배로 매수한다.","start":21.942,"end":24.377},{"n":8,"part":"습관 테스트 과락 문제","text":"마음속으로 하나를 골라 보세요.","start":24.827,"end":26.71},{"n":9,"part":"습관 테스트 과락 문제","text":"C를 골랐다면 0점이고, 과락입니다.","start":27.16,"end":29.595},{"n":10,"part":"습관 테스트 과락 문제","text":"다른 항목이 모두 10점이어도, 총점과 상관없이 불통과입니다.","start":30.045,"end":33.99},{"n":11,"part":"습관 테스트 과락 문제","text":"A는 5점, B는 10점입니다.","start":34.44,"end":36.422},{"n":12,"part":"습관 테스트 과락 문제","text":"실제로 빚을 못 갚아 강제로 매도된 주식이, 10월에만 3,900억 원을 넘었습니다.","start":36.872,"end":42.275},{"n":13,"part":"습관 테스트 과락 문제","text":"왜 이 문제 하나로 불통과일까요?","start":42.725,"end":44.608},{"n":14,"part":"습관 테스트 과락 문제","text":"이유와 나머지 9개 항목, 통과 기준은 아래 영상에서 확인하세요.","start":45.058,"end":49.305}],"subs":[[0.3,4.698,"주식 습관 테스트에서,\n이 문제 하나만 0점이어도 바로 불통과입니다."],[5.148,9.697,"투자한 나라의 대표 지수가 크게 떨어지자,\n바닥이라는 글이 쏟아집니다."],[10.147,14.446,"증권사 앱에는 내 돈만큼 빌려서\n두 배로 매수할 수 있다는 안내가 뜹니다."],[14.896,16.175,"어떻게 하시겠습니까?"],[16.625,18.607,"A, 조금만 빌려서 매수한다."],[19.057,21.492,"B, 빌리지 않고 내 돈으로만 매수한다."],[21.942,24.377,"C, 내 돈만큼 빌려서 두 배로 매수한다."],[24.827,26.71,"마음속으로 하나를 골라 보세요."],[27.16,29.595,"C를 골랐다면 0점이고, 과락입니다."],[30.045,33.99,"다른 항목이 모두 10점이어도,\n총점과 상관없이 불통과입니다."],[34.44,36.422,"A는 5점, B는 10점입니다."],[36.872,42.275,"실제로 빚을 못 갚아 강제로 매도된 주식이,\n10월에만 3,900억 원을 넘었습니다."],[42.725,44.608,"왜 이 문제 하나로 불통과일까요?"],[45.058,49.305,"이유와 나머지 9개 항목,\n통과 기준은 아래 영상에서 확인하세요."]],"subs_estimated":true};/*EP-DATA:END*/</script>
+<script src="../../render/kit.js"></script>
+<script src="../../render/puppet.js"></script>
+<script src="../simri-test-2026-10/figures.js"></script>
+<script>
+(function () {
+"use strict";
+// 화면 영어 허용 목록 — 한글은 자막과 보기 카드(data-words)만 (롱폼과 같은 규칙)
+const WORDS = ["A", "B", "C", "INDEX", "BOTTOM", "LOAN", "BUY", "MARGIN", "CALL", "FAIL", "TEST", "X", "MY"];
+K.init(window.EP, { chip: false, w: 1080, allowWords: WORDS });
+const { S, E, W, el, pop } = K;
+const tl = K.tl;
+const out = (n, at) => K.out(n, at, { y: 0 });
+const { sm, lin, lerp, q12 } = Puppet.u;
+const R = "#FF4D3D", G = "#22C7B0", Y = "#FFD400", N = "#9AA7BF", WH = "#F4F6FA";
+const until = n => S(n) - 0.05;
+const DW = `data-words="보기 A·B·C — 사용자 지시 2026-10-26"`;
+const txt = n => window.EP.sent[n - 1].text;
+const optText = n => txt(n).replace(/^[ABC],\s*/, "");
+const scoreCol = v => (v === 0 ? R : v === 5 ? Y : G);
+const scoreInk = v => (v === 0 ? "#FFFFFF" : "#0C1424");
+
+// ---------- 가운데 칸 = 종이인형 무대 (1080×691, y 691~) — 그림 목록은 롱폼 index.html 과 같게 ----------
+const MID = 691;
+const HAVE = ["W-COLLEAGUE.png", "W-CROWD.png", "P-CASH.png", "P-CHAIN.png", "P-GRAB.png", "S-OFFICE.jpg", "S-HOME-NIGHT.jpg"];   // 롱폼 HAVE 와 같이 고침
+const F = (file, kind, draw) => (HAVE.includes(file) ? { f: file, kind } : { draw, kind: "sq" });
+const ST = Puppet.stage({ dir: "../../../stock/source/simri-test-2026-10/puppet/", w: 1080, h: 691, top: MID, clear: 0x000000, files: {
+  PAPER: { f: "../../../../test/puppet/P-PAPER.jpg", kind: "bg" }, HOME: F("S-HOME-NIGHT.jpg", "bg"),
+  H_PHONE: F("HERO-PHONE.png", "sq", FIG.HERO.PHONE), H_THINK: F("HERO-THINK.png", "sq", FIG.HERO.THINK), H_SHOCK: F("HERO-SHOCK.png", "sq", FIG.HERO.SHOCK),
+  H_DESP: F("HERO-DESPAIR.png", "sq", FIG.HERO.DESPAIR), H_PLAN: F("HERO-PLAN.png", "sq", FIG.HERO.PLAN),
+  W_CROWD: F("W-CROWD.png", "cut"), CHAIN: F("P-CHAIN.png", "cut"), GRAB: F("P-GRAB.png", "cut") } });
+// 세로 칸은 가까이서 (빨리 부자 쇼츠와 같음) — 발끝 줄이 칸 82%
+ST.defaultCam = (st, t) => { const k = lin(t, st.a, st.b); return { pos: [lerp(-0.3, 0.3, k), 2.9, lerp(15.5, 14.5, k)], look: [lerp(-0.3, 0.3, k), 2.57, 0] }; };
+const BGO = { PAPER: { v: 0.5, y: 2.6 }, HOME: { v: 0.7, y: 0.5 } };
+const DARK = new THREE.Color(0x5d6279), DIM = new THREE.Color(0x3a3f55), WHITE = new THREE.Color(0xffffff);
+const bgOf = (st, key) => (st.BG = st.bg(key, BGO[key]));
+const act = (st, key, o) => { const a = st.actor(key, o); a.crop = o.crop || ST.get(key).info.bbox; return a; };
+const idle = (a, t, ph) => { a.g.rotation.z = 0.012 * Math.sin(q12(t) * Math.PI * 1.3 + (ph || 0)); return a; };
+const tint = (a, c) => { a.tint.copy(c === true ? DARK : c || WHITE); return a; };
+const showFrom = (a, t, t0, t1) => { if (t < t0 || (t1 != null && t >= t1)) a.op = 0; return a; };
+const FOL = [];
+function stick(set, node, at) { gsap.set(node, { xPercent: -50, yPercent: -100 }); FOL.push({ set, node, at }); return node; }
+ST.after(t => {
+  for (const f of FOL) {
+    const v = f.set.built && f.set.fadeAt(t) > 0.001 ? f.at(t) : null;
+    if (!v) { f.node.style.display = "none"; continue; }
+    const [x, y] = ST.project(v);
+    f.node.style.display = ""; f.node.style.left = x.toFixed(1) + "px"; f.node.style.top = (y + MID).toFixed(1) + "px";
+  }
+});
+const over = (set, sc, a, html, at, end, dy) => { const n = stick(set, el(`<div class="a w9 nw ts" style="font-size:96px;line-height:1;color:${Y}">${html}</div>`, sc), () => { const x = a(); return x && x.op > 0.01 ? x.top(dy == null ? 0.35 : dy) : null; }); pop(n, at, { from: { scale: 0.3, y: 0 } }); if (end) out(n, end); return n; };
+
+// ---------- 위 칸 글자 부품 (가운데 540) ----------
+const T = (sc, top, html, size, cls) => el(`<div class="a cx c nw ts ${cls || "w9"}" style="left:540px;top:${top}px;font-size:${size}px;line-height:1">${html}</div>`, sc);
+const stamp = (sc, top, txt2, color, at, rot) => { const n = el(`<div class="stamp a cx" style="left:540px;top:${top}px;color:${color};rotate:${rot == null ? -6 : rot}deg">${txt2}</div>`, sc); pop(n, at, { from: { scale: 2.2, y: 0, opacity: 0 }, to: { duration: 0.35, ease: "back.out(2)" } }); return n; };
+const app = (sc, top, head, val, colV) => el(`<div class="app a cx" style="left:540px;top:${top}px"><div class="h"><span>${head[0]}</span><span>${head[1] || ""}</span></div><div class="v" style="color:${colV || WH}">${val}</div></div>`, sc);
+const press = (n, at) => { tl.to(n, { scale: 0.86, duration: 0.12, ease: "power2.in" }, at); tl.to(n, { scale: 1, duration: 0.25, ease: "back.out(3)" }, at + 0.12); };
+function pathLine(sc, pts, color, at, dur, w, dash) {                 // 위 칸(y 0~691) 안의 선
+  const d = pts.map((p, i) => `${i ? "L" : "M"}${p[0]} ${p[1]}`).join(" ");
+  const s = el(`<svg class="a" viewBox="0 0 1080 ${MID}" width="1080" height="${MID}" style="left:0;top:0" aria-hidden="true"><path d="${d}" fill="none" stroke="${color}" stroke-width="${w || 12}" stroke-linecap="round" stroke-linejoin="round" ${dash ? `stroke-dasharray="${dash}"` : `pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"`}/></svg>`, sc);
+  if (dash) pop(s, at, { from: { y: 0 } }); else tl.to(s.querySelector("path"), { attr: { "stroke-dashoffset": 0 }, duration: dur || 1.2, ease: "power1.inOut" }, at);
+  return s;
+}
+// 보기 카드 그림 — 롱폼 ICON.myLoan 과 같음 (청록 = 내 돈 · 빨강 = 빌린 돈)
+const sv = (inner, s) => `<svg viewBox="0 0 120 120" width="${s || 112}" height="${s || 112}" aria-hidden="true">${inner}</svg>`;
+const myLoan = k => sv(`<rect x="10" y="${k === "my" ? 30 : 40}" width="${k === "my" ? 100 : 54}" height="56" rx="10" fill="${G}"/>${k === "my" ? "" : `<rect x="68" y="${k === "small" ? 58 : 40}" width="42" height="${k === "small" ? 38 : 56}" rx="10" fill="${R}"/>`}`);
+const OPTS = [5, 6, 7], PTS = [5, 10, 0], ICONS = [myLoan("small"), myLoan("my"), myLoan("eq")], LET = ["A", "B", "C"];   // 롱폼 항목 9 (calc QUESTIONS 와 같음)
+function optCard(sc, k, top, at) {
+  const c = el(`<div class="opt" ${DW} style="top:${top}px"><div class="L">${LET[k]}</div><div class="I">${ICONS[k]}</div><div class="T">${optText(OPTS[k])}</div><div class="P"></div></div>`, sc);
+  tl.fromTo(c, { x: -90, opacity: 0 }, { x: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, at);
+  const v = PTS[k], p = c.querySelector(".P");
+  p.textContent = v; p.style.background = scoreCol(v); p.style.color = scoreInk(v);
+  c.reveal = t => { tl.fromTo(p, { opacity: 0, scale: 0.3 }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(2.4)" }, t); tl.to(c, { borderColor: scoreCol(v), duration: 0.3 }, t); };
+  return c;
+}
+
+/* S-01 첫 문장 = 쇼츠 썸네일 그림 (thumbnail_1.jpg — 제목·말풍선은 코드로 넣은 것). 확대 없음 (문장 1) */
+K.cover(until(2), { zoom: 1 });
+K.cut(0.1, "S-01 0초 그림 = 쇼츠 썸네일");
+K.cut(E(1) - 0.2, "S-01 첫 문장 + 자막(42px)");
+
+/* S-02 투자한 나라의 대표 지수 급락 → BOTTOM ✓ 글이 쏟아짐 (문장 2) */
+{
+  const a = until(2), b = until(3), tB = W(2, "바닥");
+  const sc = K.scene(a, b);
+  let CR, HP;
+  const s = ST.set(a, b, st => {
+    bgOf(st, "HOME");
+    CR = act(st, "W_CROWD", { h: 3.7, at: [2.8, -0.3, -0.4] }).ro(3);
+    HP = act(st, "H_PHONE", { h: 4.8, at: [-2.6, -0.3, 0.6] }).ro(4);
+  });
+  s.update = t => { tint(s.BG, DARK); idle(HP, t); CR.rise(t, S(2) + 0.1, 0.6, 4); if (t > tB) CR.jitter(t, 0.012); };
+  pop(T(sc, 170, `INDEX`, 60, "w7 N"), S(2) + 0.05);
+  pathLine(sc, [[110, 300], [970, 300]], Y, S(2) + 0.15, 0, 7, "18 14");                  // 떨어지기 전 자리 (노란 점선 = 기준)
+  pathLine(sc, [[110, 300], [260, 330], [400, 440], [540, 470], [690, 560], [830, 600], [970, 650]], R, S(2) + 0.25, 1.4, 14);
+  ["BOTTOM ✓", "BOTTOM ✓", "BOTTOM ✓", "BOTTOM ✓"].forEach((s2, i) => {                       // 바닥이라는 글 — 무대 위로 쌓임
+    const n = el(`<div class="post a" style="left:${560 + (i % 2) * 150}px;top:${740 + i * 92}px">${s2}</div>`, sc);
+    pop(n, tB + i * 0.18, { from: { scale: 0.4, y: 30 } });
+  });
+  K.cut(tB - 0.2, "S-02 INDEX 급락");
+  K.cut(E(2) - 0.1, "S-02 BOTTOM ✓ 쏟아짐");
+}
+/* S-03 증권사 앱 — LOAN ×2 · BUY ×2 (문장 3) */
+{
+  const a = until(3), b = until(4), tL = W(3, "빌려서");
+  const sc = K.scene(a, b);
+  let HP, CN;
+  const s = ST.set(a, b, st => {
+    bgOf(st, "HOME");
+    HP = act(st, "H_PHONE", { h: 4.8, at: [-2.4, -0.3, 0.6] }).ro(4);
+    CN = act(st, "CHAIN", { h: 1.9, anchor: [0.5, 0.5], at: [2.6, 0.6, 1.0] }).ro(5);
+  });
+  s.update = t => { tint(s.BG, DARK); idle(HP, t); showFrom(CN, t, tL); CN.pop(t, tL, 0.4); };
+  const c = app(sc, 180, ["MY + LOAN", ""], `<span class="G">₩</span> + <span class="R">₩</span> = ×2`); pop(c, tL - 0.1);
+  const bb = el(`<div class="btn buy a cx" style="left:540px;top:480px">BUY ×2</div>`, sc); pop(bb, W(3, "두 배"));
+  tl.fromTo(bb, { boxShadow: "0 0 0 0 rgba(34,199,176,.8)" }, { boxShadow: "0 0 0 28px rgba(34,199,176,0)", duration: 0.7, repeat: 2 }, W(3, "두 배") + 0.2);
+  K.cut(E(3) - 0.1, "S-03 LOAN ×2 · BUY ×2");
+}
+/* S-04 ~ S-09 보기 A·B·C → 3·2·1 → C 0점 FAIL → 다른 항목 모두 10점이어도 FAIL → A 5 · B 10 (문장 4~11) */
+{
+  const a = until(4), b = until(12), t9 = S(9), t10 = S(10), t11 = S(11);
+  const sc = K.scene(a, b);
+  let HT, HS, HL;
+  const s = ST.set(a, b, st => {
+    bgOf(st, "PAPER");
+    HT = act(st, "H_THINK", { h: 4.8, at: [-2.6, -0.3, 0.6] }).ro(4);
+    HS = act(st, "H_SHOCK", { h: 4.8, at: [-2.6, -0.3, 0.6] }).ro(4);
+    HL = act(st, "H_PLAN", { h: 4.8, at: [-2.6, -0.3, 0.6] }).ro(4);
+  });
+  s.update = t => {
+    showFrom(HT, t, a - 1, t9); showFrom(HS, t, t9, t11); showFrom(HL, t, t11);
+    HT.rise(t, S(4) + 0.05, 0.5, 4); idle(HT, t); if (t < t10) HS.jitter(t, 0.014); else idle(HS, t); idle(HL, t, 1);
+    tint(s.BG, t >= t10 && t < t11 ? DIM : WHITE);
+  };
+  over(s, sc, () => HT, "?", S(4) + 0.2, E(4) + 0.3);
+  const q0 = T(sc, 300, `<span class="Y">A · B · C ?</span>`, 120); pop(q0, S(4) + 0.1); out(q0, S(5) - 0.05);   // 보기 전 위 칸
+  over(s, sc, () => HT, "?", S(8) + 0.1, t9 - 0.1);
+  const cards = [0, 1, 2].map(k => optCard(sc, k, 160 + k * 180, S(OPTS[k]) + 0.05));
+  // 문장 8 — 마음속으로 하나를 고름: 3·2·1 + 카드가 차례로 들썩
+  const span = Math.max(1.2, E(8) - S(8));
+  ["3", "2", "1"].forEach((d, i) => {
+    const n = el(`<div class="cnt a cx ts" style="left:810px;top:760px">${d}</div>`, sc), at = S(8) + i * span / 3;
+    tl.fromTo(n, { opacity: 0, scale: 1.6 }, { opacity: 1, scale: 1, duration: 0.2, ease: "power2.out" }, at);
+    tl.to(n, { opacity: 0, duration: 0.15 }, at + span / 3 - 0.1);
+    tl.fromTo(cards[i], { scale: 1 }, { scale: 1.04, duration: 0.18, yoyo: true, repeat: 1, ease: "sine.inOut", immediateRender: false }, at);
+  });
+  // 문장 9 — C 0점 · FAIL
+  cards[2].reveal(W(9, "0점"));
+  const f1 = stamp(sc, 820, `FAIL ✕`, R, W(9, "과락"), -6); out(f1, t10 - 0.05);
+  // 문장 10 — 다른 아홉 항목이 모두 10점이어도: 시험지 9칸 10 · 9번 0 → FAIL
+  const sh = el(`<div class="sheet a"></div>`, sc);
+  tl.fromTo(sh, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, t10);
+  el(`<div class="a w9 nw" style="left:44px;top:30px;font-size:64px">TEST</div>`, sh);
+  const cells = [];
+  for (let i = 0; i < 10; i++) cells.push(el(`<div class="cell" style="left:${24 + i * 88}px;top:150px">${i + 1}</div>`, sh));                    // 10칸 한 줄 — 9번 0점 칸이 도장에 가리지 않게
+  const t10a = W(10, "10점"), others = cells.filter((_, i) => i !== 8);
+  tl.to(others, { backgroundColor: G, borderColor: G, duration: 0.25, stagger: 0.05 }, t10a - 0.2);
+  others.forEach((c2, j) => tl.call(() => { c2.textContent = "10"; }, null, t10a - 0.2 + j * 0.05));
+  others.forEach((c2, j) => tl.call(() => { c2.textContent = String(cells.indexOf(c2) + 1); }, null, t10a - 0.21 + j * 0.05));   // 되감기 때 번호로
+  tl.to(cells[8], { backgroundColor: R, borderColor: R, color: "#fff", duration: 0.3 }, W(10, "총점") - 0.1);
+  tl.call(() => { cells[8].textContent = "0"; }, null, W(10, "총점") - 0.1);
+  tl.call(() => { cells[8].textContent = "9"; }, null, W(10, "총점") - 0.11);
+  const tot = el(`<div class="a w9 nw" style="right:44px;top:24px;font-size:72px;color:#1B8F80">= 90</div>`, sh);
+  pop(tot, W(10, "총점"));
+  const strike = el(`<div class="a" style="right:30px;top:62px;width:240px;height:10px;border-radius:5px;background:${R};transform-origin:0 50%"></div>`, sh);
+  tl.fromTo(strike, { scaleX: 0 }, { scaleX: 1, duration: 0.3 }, W(10, "불통과") - 0.2);
+  const f2 = stamp(sc, 1030, `FAIL ✕`, R, W(10, "불통과"), -6); out(f2, t11 - 0.05);
+  tl.to(sh, { opacity: 0, duration: 0.3 }, t11 - 0.35);
+  // 문장 11 — A 5점 · B 10점
+  cards[0].reveal(W(11, "A는")); cards[1].reveal(W(11, "B는"));
+  tl.to(cards, { x: 120, opacity: 0, duration: 0.35, stagger: 0.05, ease: "power2.in" }, b - 0.45);
+  K.cut(E(4) - 0.1, "S-04 어떻게? ?");
+  K.cut(E(7) - 0.1, "S-05 보기 A·B·C");
+  K.cut(S(8) + span / 3 + 0.1, "S-06 3·2·1");
+  K.cut(E(9) - 0.1, "S-07 C 0점 FAIL");
+  K.cut(E(10) - 0.15, "S-08 9칸 10점이어도 FAIL");
+  K.cut(E(11) - 0.1, "S-09 A 5 · B 10");
+}
+/* S-10 10월 강제 매도 MARGIN CALL ₩391B (문장 12) */
+{
+  const a = until(12), b = until(13), tG = W(12, "강제로");
+  const sc = K.scene(a, b);
+  let GR;
+  const s = ST.set(a, b, st => { bgOf(st, "PAPER"); GR = act(st, "GRAB", { h: 3.6, anchor: [0.5, 0.5], at: [0.2, 2.6, 0.6] }).ro(5); });
+  s.update = t => { const k = sm(lin(t, tG - 0.3, tG + 0.6)); GR.g.position.x = GR.home.x + 6 * (1 - k); GR.g.position.y = GR.home.y + 2 * (1 - k); GR.op = t < tG - 0.3 ? 0 : 1; };
+  if (Puppet.dust) s.part(Puppet.dust(tG + 0.4, [-0.6, 1.4, 0.8], { n: 16, rocks: 6 }));
+  stamp(sc, 200, `MARGIN CALL`, R, tG, -4);
+  pop(T(sc, 360, `<span class="R">₩391B</span>`, 160), W(12, "3,900억") - 0.1, { from: { scale: 1.3, y: 0 } });
+  pop(T(sc, 560, `10/1 – 10/16`, 56, "w7 N"), W(12, "3,900억") + 0.3);
+  K.cut(E(12) - 0.1, "S-10 MARGIN CALL ₩391B");
+}
+/* S-11 왜 이 문제 하나로 불통과? — C 0 = FAIL ? (문장 13) */
+{
+  const a = until(13), b = until(14);
+  const sc = K.scene(a, b);
+  let HT, CN;
+  const s = ST.set(a, b, st => {
+    bgOf(st, "PAPER");
+    HT = act(st, "H_THINK", { h: 4.8, at: [-2.4, -0.3, 0.6] }).ro(4);
+    CN = act(st, "CHAIN", { h: 1.9, anchor: [0.5, 0.5], at: [2.6, 0.7, 0.8] }).ro(5);
+  });
+  s.update = t => { HT.pop(t, S(13) + 0.05, 0.4); idle(HT, t); CN.pop(t, S(13) + 0.2, 0.4); idle(CN, t, 1); };
+  over(s, sc, () => HT, "?", S(13) + 0.3);
+  const c = el(`<div class="opt" ${DW} style="top:200px;border-color:${R}"><div class="L">C</div><div class="I">${ICONS[2]}</div><div class="T">${optText(OPTS[2])}</div><div class="P" style="opacity:1;background:${R};color:#fff">0</div></div>`, sc);
+  pop(c, S(13) + 0.05, { from: { scale: 0.9, y: 0 } });
+  pop(T(sc, 430, `<span class="R">FAIL</span> <span class="Y">?</span>`, 150), W(13, "불통과") - 0.2, { from: { scale: 1.4, y: 0 } });
+  K.cut(E(13) - 0.1, "S-11 FAIL ?");
+}
+/* S-12 이유·나머지 9개 항목·통과 기준 → 롱폼 카드 ▶ · 관련 동영상 버튼 ↓ (문장 14 + 끝 화면) */
+{
+  const a = until(14), b = K.D;
+  const sc2 = K.scene(a, b, { keep: true });
+  let HL;
+  const s = ST.set(a, b, st => { bgOf(st, "PAPER"); HL = act(st, "H_PLAN", { h: 4.8, at: [-2.4, -0.3, 0.6] }).ro(4); }, { fadeOut: 0 });
+  s.update = t => { HL.pop(t, S(14) + 0.05, 0.4); idle(HL, t); };
+  // 롱폼 카드: 롱폼 썸네일(LONG_THUMB)이 생기면 그 그림, 그 전에는 코드 시험지 (그림이 없는 파일을 부르면 점검이 깨짐)
+  const LONG_THUMB = null;   // 롱폼 썸네일이 생기면 "../../../stock/source/simri-test-2026-10/thumbnails/thumbnail_1.jpg"
+  const inner = LONG_THUMB ? `<img alt="" src="${LONG_THUMB}">`
+    : `<div class="a w9 nw" style="left:40px;top:34px;font-size:64px;color:${WH}">TEST</div>` +
+      Array.from({ length: 10 }, (_, i) => `<div class="a w9 c" style="left:${36 + i * 71}px;top:316px;width:64px;height:64px;border-radius:50%;border:5px solid ${i === 8 ? R : "#F2E6CF"};color:${i === 8 ? R : "#F2E6CF"};font-size:36px;line-height:54px">${i + 1}</div>`).join("");   // 10칸 한 줄 — ▶ 아래
+  const card = el(`<div class="card a">${inner}<div class="play"><svg viewBox="0 0 60 60" width="70" height="70" aria-hidden="true"><path d="M18 10 L50 30 L18 50 Z" fill="#fff"/></svg></div><div class="prog"><i></i></div></div>`, sc2);
+  pop(card, S(14) + 0.05, { from: { scale: 0.85, y: 0 } });
+  tl.fromTo(card.querySelector(".prog i"), { width: "0%" }, { width: "100%", duration: K.D - S(14) - 0.2, ease: "none" }, S(14) + 0.2);
+  K.related(sc2, { at: S(14) + 0.05, arrowAt: W(14, "아래"), hint: "" });
+  K.cut(E(14) - 0.1, "S-12 롱폼 카드 ▶");
+  K.cut(K.D - 0.3, "끝 화면 (관련 동영상 버튼 ↓)");
+}
+K.done();
+})();
+</script>
+</body>
+</html>

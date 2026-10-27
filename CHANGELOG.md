@@ -1,5 +1,29 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-27 (주식 — 심리 테스트 편 짝 쇼츠 소스 v1.0) — `stock/source/simri-test-2026-10/shorts/` · `video/episodes/simri-test-2026-10-shorts/`
+
+### 왜 (사용자 지시)
+- "쇼츠 관련 소스 모두 생성해" (롱폼 「주식 투자 실패할 사람들은 절대 통과 못하는 습관 테스트」 영상 v1.0 뒤). 흰둥이 다시 그리기(2026-10-26 "너무 귀엽게 만들지마")는 이 지시로 잠시 멈춤 — 롱폼·쇼츠가 같은 `figures.js` 를 써서 고치면 둘 다 바뀜.
+
+### 바꾼 것
+| 경로 | 내용 |
+|---|---|
+| `…/shorts/simri-test-2026-10-shorts.txt` | 새 대본 14문장 — 결과형 (`stock/guides/shorts_insights.md` 0-1 3번): 갈고리(이 문제 하나만 0점이어도 불통과) → 롱폼 항목 9 상황·보기 그대로 → 3·2·1 → C 0점 = 과락 · 총점과 상관없이 불통과 · A 5 · B 10 → 강제 매도 3,900억 원(롱폼 도입) → 왜? → 롱폼 안내. 275음절 ≈ 48.5초 (롱폼 실측 5.67음절/초) |
+| `…/shorts/simri-test-2026-10-shorts.srt` | 추정 시각 SRT (`srt_tool.py build` — check ✅ 문장 14 = 자막 14, 두 줄 6, 나뉜 문장 0). 오디오 뒤 align |
+| `…/shorts/tts_lexicon.tsv` | 'C를'·'9개'·'10월에만' 읽는 소리 (롱폼 사전도 함께 읽힘) |
+| `…/shorts/thumbnails/thumbnail_1.json` | 쇼츠 첫 장면 = 썸네일: 롱폼 TH-ART 오른쪽 세로 띠(x 960~1536) 9:16 + 제목 R1 2줄·말풍선 2개 (코드 — `thumb.mjs`) |
+| `…/shorts/shorts.md` | 꼴·항목 고른 까닭 · 대본 표 · 숫자 근거(롱폼 문장·calc) · 장면 S-01~S-12 · 제목 3안(compare.csv 다시 셈 — 금액 +15.7%p ⚑ · 괄호 +9.0%p) · 썸네일 · 다음 단계 |
+| `…/shorts/upload.md` | 업로드 시트 (제목 R1 · 설명란 — 까닭 없이 · 해시태그 2 · 고정 댓글 · 롱폼과 같은 시각) — `youtube_upload.read_sheet` 로 읽힘 확인 |
+| `video/episodes/simri-test-2026-10-shorts/index.html` | v1.0 세 칸 장면 (위 보기 카드·숫자 · 가운데 종이인형 무대 · 아래 자막) — 롱폼 그림 목록·`figures.js` 코드 그림을 같이 씀 |
+| `…/images_chatgpt.md` | v1.2 — 20번 TH-ART 를 쇼츠 썸네일에도: 주인공 머리·두 손·답안지를 가로 62.5~100% 띠 안에 |
+| `stock/README.md` v1.21 · `guides/status.md` v2.75 · `…/요약본.txt` v1.7 · `video/CHANGELOG.md` | 기록 |
+
+### 확인 (추정 시각 — 오디오 전)
+- `node video/render/render.mjs sync stock simri-test-2026-10-shorts --estimate` → 14문장 · 자막 14 · 50.1초.
+- `render.mjs check` → cuts 15 · samples 115 · **problems 2** = 0초 '썸네일 이미지 자리' 글자 2개 (TH-ART 전 자리 표시 — 그림이 오면 없어짐) · page_errors 0. 처음 check 문제 4 → 위 칸 선 SVG 를 위 칸 크기로 · MARGIN CALL 도장을 안전 구역 안으로 고쳐 2.
+- `render.mjs stills` 15장을 Claude 가 봄 → 인형 h 3.8 → 4.8 · 시험지 10칸 한 줄(9번 `0` 이 FAIL 도장에 가리지 않게) · 끝 카드 ▶ 아래로 칸 · 보기 전 위 칸 `A · B · C ?`.
+- 오디오·영상(mp4)은 아직 — Kaggle 오디오 뒤 만든다 (CLAUDE.md '오디오를 먼저').
+
 ## 2026-10-26 (주식 — 심리 테스트 편 종이인형극 롱폼 영상 v1.0) — `video/episodes/simri-test-2026-10/` · `stock/source/simri-test-2026-10/`
 
 ### 왜 (사용자 지시)

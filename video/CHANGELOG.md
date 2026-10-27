@@ -1,5 +1,11 @@
 # video/ 변경 이력 (guides/video_guide.md 2번 규칙)
 
+## 2026-10-27 — 주식 심리 테스트 편 짝 쇼츠 (episodes/simri-test-2026-10-shorts v1.0)
+- 사용자 지시: "쇼츠 관련 소스 모두 생성해" — 장면 구성 `stock/source/simri-test-2026-10/shorts/shorts.md` 4번 (S-01~S-12).
+- 세 칸 세로 화면 (옛 `episodes/ppalli-buja-2026-10-shorts/` 와 같음): 위 y 0~691 보기 카드(data-words)·숫자 · 가운데 y 691~1382 종이인형 무대 (`Puppet.stage` w 1080 · h 691 · top 691) · 아래 구운 자막 46px · 끝 `K.related`.
+- 그림 = 롱폼 `stock/source/simri-test-2026-10/puppet/` + `../simri-test-2026-10/figures.js` 코드 그림 (HAVE 목록을 롱폼과 같게 — 그림이 오면 두 파일에 같이 더함). 렌더 도구는 바꾸지 않음.
+- 추정 시각 check 문제 2 (0초 썸네일 자리 표시뿐) · stills 15장 확인.
+
 ## 2026-10-26 — 주식 심리 테스트 편 종이인형극 롱폼 (episodes/simri-test-2026-10 v1.0) · puppet.js v1.2 코드 그림
 - 사용자 지시: "썸네일과 영상 만들어봐" (오디오 cdc22c67 뒤 — `stock/source/simri-test-2026-10/제작안.txt` v1.1).
 - `render/puppet.js` v1.2: files spec 에 f 없이 `draw(g, w, h)` 가 있으면 <img> 를 만들지 않고 코드로 그린 캔버스를 씀 (없는 파일을 부르면 404 브라우저 오류 → check 실패). 알파 상자·초록 빼기는 그림 파일과 같음.

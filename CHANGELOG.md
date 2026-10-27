@@ -1,5 +1,21 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-27 (영상 배치 표 + 배치 점검 도구 · 주식 심리 테스트 편 롱폼 v1.8 오디오로 렌더) — `video/` · `stock/source/simri-test-2026-10/`
+
+### 왜 (사용자 지시)
+- "영상 만들어서 보여줘 그리고 영상에서 모든 오브젝트별로 배치 위치를 딱 정해서 자꾸 뭔가 어긋나잖아".
+
+### 바꾼 것
+| 경로 | 내용 |
+|---|---|
+| `video/scripts/layout-check.mjs` (새 v1.0) | 배치 표대로 놓였는지 대표 장면·N초마다 점검 (칸 없음·칸 밖·겹침·인형 칸 없음) — 문제 있으면 끝 코드 1 |
+| `video/render/puppet.js` (v1.2 → v1.3) | actor key·slot · `S.boxes()` · `Puppet.stages` (점검용, 움직임 그대로) |
+| `video/episodes/simri-test-2026-10/index.html` (v1.2 → v1.3) | 배치 표 LAY(칸 60여 개)·무대 자리 PS · 모든 물건 data-slot · 등장·퇴장 제자리 — 배치 문제 340 → 0 · render check 0 |
+| `stock/source/simri-test-2026-10/simri-test-2026-10.srt` | 새 오디오(Kaggle 3bc2bdb8, 대본 v1.8 — 7:53.8)에 맞춤 |
+| `guides/video_guide.md` (v4.17 → v4.18) · `CLAUDE.md` | 3-1-1 배치 표 규칙 · 검수표 한 줄 |
+| `guides/tts_guide.md` 5-1 | 대본 v1.8 오디오 결과: 표시 18 → 7 · 보기 표시 13 → 3 · 보기 ×1.15 20 → 10 (점수 문장은 아직 느림) |
+| `…/제작안.txt` v1.7 · `요약본.txt` v1.13 · `stock/README.md` · `guides/status.md` · `video/CHANGELOG.md` | 배치 표 · 기록 |
+
 ## 2026-10-27 (주식 — 심리 테스트 편 롱폼 대본 v1.8: TTS 가 익숙하게 읽는 글) — `stock/source/simri-test-2026-10/` · `guides/tts_guide.md` 5-1
 
 ### 왜 (사용자 지시)

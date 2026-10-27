@@ -1,5 +1,13 @@
 # video/ 변경 이력 (guides/video_guide.md 2번 규칙)
 
+## 2026-10-27 — 배치 표 · layout-check.mjs v1.0 · puppet.js v1.3 · 습관 테스트 롱폼 v1.3
+- 사용자 지시: "영상 만들어서 보여줘 그리고 영상에서 모든 오브젝트별로 배치 위치를 딱 정해서 자꾸 뭔가 어긋나잖아".
+- `video/scripts/layout-check.mjs` v1.0 (새 도구): 장면 파일의 `window.LAYOUT`(칸 = [x, y, 가로, 세로])대로 놓였는지 — 대표 장면(+ `--every` 초마다)에서 칸 없음 · 표에 없는 칸 · 칸 밖 · 겹침(허용 짝 `window.LAYOUT_ALLOW`) · 인형 칸 없음. `--shots` 로 칸 상자 그린 화면.
+- `video/render/puppet.js` v1.3: actor 에 key·slot · `S.boxes()` (보이는 인형의 화면 상자) · `Puppet.stages`. 움직임·그림은 그대로 (다른 장면 파일에 영향 없음).
+- `episodes/simri-test-2026-10/index.html` v1.3: 모든 물건을 배치 표 칸에 (`data-slot`) · 인형은 무대 자리 이름으로 · 등장·퇴장은 제자리(`enter` — 솟아오름·밀려 들어옴·넘치는 튀어나옴·카드 옆으로 날기 뺌).
+  배치 점검 대표 장면 88 · 0.5초마다 1,039 곳 문제 0 (v1.2 = 340) · render check 문제 0 · 새 오디오(대본 v1.8)로 sync.
+- `guides/video_guide.md` v4.18 3-1-1 · CLAUDE.md 제작 공통 한 줄.
+
 ## 2026-10-27 — 습관 테스트 롱폼 v1.2 (episodes/simri-test-2026-10) — 대본 v1.8 글에 맞춤
 - 사용자 지시: "그럼 대본을 음성 이상하지 않게 ai 모델이 익숙한 문장으로 변경해봐 롱폼만".
 - `optText` 가 'A번, ' 을 떼고 · 점수 표시 시각 낱말 'A번은' · L-17 9·10칸 낱말 '아홉 번째'·'열 번째'. 장면은 v1.1 그대로. 추정 시각 check 대표 장면 88 · 문제 0 · stills 로 보기 카드 두 줄 안 확인.

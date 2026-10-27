@@ -16,7 +16,7 @@
 
 ## 제작 공통
 - 스토리보드는 만들지 않고 요약 문서에도 넣지 않는다. **오디오를 먼저, 그다음 영상** — 오디오가 생기면 승인 없이 바로 영상을 만든다 (영상 코드가 없으면 Claude 가 만들고 still 로 점검).
-- 영상 `guides/video_guide.md`: HTML(SVG + GSAP) → Playwright 프레임 렌더 `video/episodes/<영상ID>/index.html`. 예전 크림 배경 인포그래픽·작은 글자 금지. 한 화면 한 생각·말하는 순간 숫자·색 = 뜻(빨강 손해·청록 아낌·노랑 기준, 기준 = 노란 점선)·어려운 말 = 그림 하나·큰 글자. 세로 쇼츠는 화면 가운데·크게(1.15배, 자막 띠 가운데 540). **렌더 뒤 완성 mp4 장면을 Claude 가 직접 본다** (check 0 이어도).
+- 영상 `guides/video_guide.md`: HTML(SVG + GSAP) → Playwright 프레임 렌더 `video/episodes/<영상ID>/index.html`. 예전 크림 배경 인포그래픽·작은 글자 금지. 한 화면 한 생각·말하는 순간 숫자·색 = 뜻(빨강 손해·청록 아낌·노랑 기준, 기준 = 노란 점선)·어려운 말 = 그림 하나·큰 글자. 세로 쇼츠는 화면 가운데·크게(1.15배, 자막 띠 가운데 540). **렌더 뒤 완성 mp4 장면을 Claude 가 직접 본다** (check 0 이어도). **물건마다 자리 = 장면 파일의 배치 표 칸**(같은 꼴 장면은 같은 칸 · 같은 순간 칸끼리 안 겹침 · 등장·퇴장은 제자리) — `node video/scripts/layout-check.mjs <영상ID>` 문제 0 뒤 렌더 (`video_guide.md` 3-1-1, 2026-10-27).
 - **영상 = 코드 화면 + AI 장면 클립** (롱폼·쇼츠): 숫자·법·계산·장 시작·정리는 코드 화면, 사연 장면은 ChatGPT 그림(따뜻한 2D 애니메이션·글자 없음) → Kaggle `videogen` 짧은 클립(사용자는 고정 셀만 실행 — 할 일은 Claude 가 `videogen/queue.json` 에, `videogen/README.md` 2-5) → Claude 가 합침 (`tools/scene_clips.py` · `render.mjs --base`·`overlay` · `tools/assemble_video.py`, `video_guide.md` 6-1).
 - 자막은 화면에 굽는다: **한 문장 = 자막 하나**, 띠를 넘으면 같은 자막 안 두 줄, **2줄까지 예외 없음** — 두 줄로도 넘을 때만 쉼표·절 경계에서 나눔, 쇼츠 첫 자막(썸네일 그림 위)은 42px 로 2줄 안 (`tools/srt_tool.py` v1.9).
 - 음량 -14 LUFS·트루 피크 -1.5 dBTP 이하 (렌더 뒤 `tools/loudnorm.py` 자동).

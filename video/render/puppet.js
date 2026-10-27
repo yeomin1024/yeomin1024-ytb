@@ -1,4 +1,7 @@
-// VERSION: v1.2 — 2026-10-26 — 코드 그림: files 의 spec 에 f(파일)가 없고 draw(g, w, h) 가 있으면 <img> 를 만들지 않고 그 함수가 그린 캔버스를 씀
+// VERSION: v1.3 — 2026-10-27 — 배치 점검용 (움직임·그림은 그대로): actor 에 key·slot(옵션 o.slot — 장면 파일의 배치 표 이름)을 남기고,
+//   S.boxes() = 지금 보이는 인형마다 화면 상자 {key, slot, rect:[x0,y0,x1,y1]} (배경 빼고) · 만든 무대는 Puppet.stages 에 — video/scripts/layout-check.mjs 가 읽음
+//   (사용자 지시 2026-10-27 "영상에서 모든 오브젝트별로 배치 위치를 딱 정해서 자꾸 뭔가 어긋나잖아").
+// (v1.2) — 2026-10-26 — 코드 그림: files 의 spec 에 f(파일)가 없고 draw(g, w, h) 가 있으면 <img> 를 만들지 않고 그 함수가 그린 캔버스를 씀
 //   (spec.cw·ch = 캔버스 크기, 기본 1024×1024) — 알파 상자·초록 빼기 검사는 그림 파일과 같음. 주식 심리 테스트 편: ChatGPT 그림이 아직 없는
 //   주인공 흰둥이·소품을 같은 자리에 코드 그림으로 (사용자 지시 2026-10-26 "썸네일과 영상 만들어봐"). 파일이 생기면 f 만 주면 그 그림으로 바뀜.
 //   없는 파일을 <img> 로 부르면 브라우저 오류(404)가 나 render check 가 실패하므로, 장면 파일이 있는 그림 목록으로 f/draw 를 고른다.
@@ -123,6 +126,7 @@
     ren.setPixelRatio(1); ren.setSize(W, H, false); ren.setClearColor(opt.clear == null ? 0x0B0F1E : opt.clear, 1);
     const scene = new THREE.Scene(), cam = new THREE.PerspectiveCamera(opt.fov || 30, W / H, 0.1, 400);
     const S = { W, H, scene, cam, ren, IMG, SPEC, sets: [], tex: {}, info: {}, afters: [] };
+    (PP.stages = PP.stages || []).push(S);                         // v1.3 배치 점검이 찾음
     S.ready = () => Object.values(IMG).every(i => !i || i.complete);  // 실패한 그림도 complete (→ 임시 그림) · v1.2 null = 코드 그림
     S.get = key => {
       if (!S.tex[key]) {
@@ -134,6 +138,20 @@
       return { tex: S.tex[key], info: S.info[key] };
     };
     S.project = v => { const p = v.clone().project(cam); return [(p.x + 1) / 2 * W, (1 - p.y) / 2 * H, p.z]; };
+    S.boxes = (minOp) => {                                         // v1.3 지금 보이는 인형의 화면 상자 (그림 판의 네 귀퉁이를 비춤 — 그림자 빼고)
+      const out = [];
+      for (const st of S.sets) {
+        if (!st.built || !st.root.visible) continue;
+        for (const a of st.actors) {
+          if (a.isBg || !a.g.visible || a.mat.opacity < (minOp == null ? 0.3 : minOp)) continue;
+          a.m.updateMatrixWorld(true);
+          const ps = [[-1, -1], [1, -1], [1, 1], [-1, 1]].map(([sx, sy]) => S.project(new THREE.Vector3(sx * a.wd / 2, sy * a.ht / 2, 0).applyMatrix4(a.m.matrixWorld)));
+          const xs = ps.map(p => p[0]), ys = ps.map(p => p[1]);
+          out.push({ key: a.key || "?", slot: a.slot || null, op: +a.mat.opacity.toFixed(2), rect: [Math.min(...xs), Math.min(...ys), Math.max(...xs), Math.max(...ys)].map(v => Math.round(v)) });
+        }
+      }
+      return out;
+    };
     S.after = fn => S.afters.push(fn);                               // 렌더 뒤 (DOM 이름표 자리 등)
     window.PUPPET = S.info;                                          // 점검용: 어떤 그림을 썼는지(임시?)·초록 뺌·나눔
     S.set = (a, b, build, o) => {
@@ -189,7 +207,7 @@
       o = Object.assign({ z: -24, w: 54, v: 0.62, y: 1.28 }, o);
       const { tex, info } = this.S.get(key), ht = o.w * info.h / info.w;
       const a = new Actor(this, tex, [0, 0, 1, 1], o.w, ht, [0.5, 0.5], { shadow: false });
-      a.g.position.set(o.x || 0, o.y + (o.v - 0.5) * ht, o.z); a.ro(0);
+      a.g.position.set(o.x || 0, o.y + (o.v - 0.5) * ht, o.z); a.ro(0); a.isBg = true;
       return a;
     }
     // 인형: key(+seg 번째 — row4) · h 월드 높이(알파 상자 기준) · at [x, y, z] 기준점(기본 아래 가운데) 자리
@@ -201,7 +219,7 @@
       if (o.fit) { o.h = Math.min(o.fit[1], o.fit[0] * ph / pw); o.w = null; }   // v1.1 상자 안에 비율 그대로
       const ht = o.h, wd = o.w || ht * pw / ph;
       const a = new Actor(this, tex, crop, wd, o.w ? o.w * ph / pw : ht, o.anchor, o);
-      a.g.position.set(...o.at); a.home = a.g.position.clone();
+      a.g.position.set(...o.at); a.home = a.g.position.clone(); a.key = key; a.slot = o.slot || null;   // v1.3
       if (o.flip) a.m.scale.x = -1;
       a.ro(o.ro == null ? 3 : o.ro);
       return a;

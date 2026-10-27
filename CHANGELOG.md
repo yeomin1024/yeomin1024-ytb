@@ -1,5 +1,25 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-27 (주식 — 심리 테스트 편 롱폼 대본 v1.8: TTS 가 익숙하게 읽는 글) — `stock/source/simri-test-2026-10/` · `guides/tts_guide.md` 5-1
+
+### 왜 (사용자 지시)
+- "그럼 대본을 음성 이상하지 않게 ai 모델이 익숙한 문장으로 변경해봐 롱폼만".
+- 근거: v1.7 오디오 보고(`tts_report.md`) — '귀로 확인할 문장' 18개 중 13개가 보기 (C 보기 10개 중 9개 · B 3 · A 1), 보기 30개 중 20개·점수 문장 10개 모두 가장 느리게 읽혀 ×1.15.
+
+### 바꾼 것
+| 경로 | 내용 |
+|---|---|
+| `…/simri-test-2026-10.txt` | v1.8 — 47문장 글 모양만: 보기 'A, …한다.' → 'A번, …합니다.' · 점수 'A는' → 'A번은' · 질문 50·73 · 서수 쉼표 95·102·105 · 항목 번호 86 · '견줘' 29·101. 뜻·숫자·순서·문장 수 그대로, 모두 50자 이하 |
+| `…/tts_lexicon.tsv` | v1.4 — 'A번·B번·C번' → '에이 번·비 번·씨 번' · '4분의 1' → '사분의 일' · 옛 'A,'·'A는' 줄 지움 |
+| `…/simri-test-2026-10.srt` | `srt_tool build --reuse` (새로 계산 47) · check ✅ |
+| `video/episodes/simri-test-2026-10/index.html` | v1.2 — 보기·점수·L-17 낱말 · 추정 시각 check 문제 0 |
+| `guides/tts_guide.md` | v1.17 — 5-1 대본 글 — TTS 가 익숙하게 읽는 꼴 (근거 표) |
+| `CLAUDE.md` | 심리 테스트형 줄에 '보기는 A번, …합니다. · 점수는 A번은 0점' |
+| `…/요약본.txt` · `제작안.txt` · `stock/README.md` · `guides/status.md` · `video/CHANGELOG.md` | v1.12 · v1.6 · 기록 |
+
+### 다음
+- 사용자: Kaggle 오디오 (범위 stock — 롱폼만 다시). 그 뒤 Claude 가 align → 렌더 → 새 보고 표시 수를 18개와 비교.
+
 ## 2026-10-27 (주식 — 심리 테스트 편 영상을 대본 v1.7 로 다시 만듦 · 짝 쇼츠 영상) — `video/episodes/simri-test-2026-10(-shorts)/` · `stock/source/simri-test-2026-10/`
 
 ### 왜 (사용자 지시)

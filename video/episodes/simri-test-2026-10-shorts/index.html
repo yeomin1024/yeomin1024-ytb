@@ -4,16 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>습관 테스트 쇼츠</title>
-<!-- VERSION: v2.0 — 2026-10-27 — 꼴을 '도입 + 10문항 몽타주'로 바꿈 (사용자 지시 2026-10-27 "6번 내용 확장해서 도입부 + 10문항 몽타주 내용으로 쇼츠 관련된 것들 만들어봐"
-     — 쇼츠 10안 중 6번 「"당신은 몇 점?" 10문항 빠른 몽타주 (점수는 숨김)」). 장면 구성 = stock/source/simri-test-2026-10/shorts/shorts.md v2.0 4번 (S-01 ~ S-16)
-     · 대본 shorts/simri-test-2026-10-shorts.txt v2.0 (16문장). v1.0(항목 9 결과형 — 점수를 바로 말함)은 git 이력.
-     · 세 칸 (옛 빨리 부자 쇼츠와 같음): 위 칸 y 0~691 검정 + 문항 번호·진행 점·보기 카드 · 가운데 칸 y 691~1382 종이인형 무대 · 아래 칸 검정 + 구운 자막.
-     · 몽타주 = 문항마다 한 문장(약 3.5초): 번호 + 짧은 보기 A·B·C 카드(롱폼 보기를 줄인 말 — data-words) + 상황 인형 하나. **점수는 보여 주지 않음** (롱폼에만).
-     · 그림 = 롱폼과 같은 stock/source/simri-test-2026-10/puppet/ (HAVE 목록) + 없는 그림은 롱폼 figures.js 코드 그림 — ChatGPT 그림이 오면
-       HAVE 에 이름을 더함 (롱폼 index.html 과 같은 목록으로). 남색 한지 = test/puppet/P-PAPER.jpg.
+<!-- VERSION: v3.0 — 2026-10-27 — 사용자가 고친 쇼츠 대본(e436e9ef → 다듬은 v3.0, 14문장)에 맞춤 · 문항 장면은 그림 없이 문항·보기만 · 보기는 너무 줄이지 않음
+     (사용자 지시 2026-10-27 "쇼츠에 항목 나오는 부분은 이미지 넣지 말고 항목 및 선택지만 나오게 해 그리고 항목 선택지 좀 의미 알아볼 수 없게 너무 축약하지 말고 적당히 해").
+     장면 구성 = stock/source/simri-test-2026-10/shorts/shorts.md v3.0 4번 (S-01 ~ S-14). v2.0(도입 숫자 +78% · 문항마다 인형)·v1.0(항목 9 결과형)은 git 이력.
+     · 도입(문장 1~3)·끝(문장 14)은 세 칸 (위 칸 글자 · 가운데 종이인형 무대 · 아래 구운 자막).
+     · 문항 몽타주(문장 4~13): 그림 없음 — 남색 바탕 + 위 번호·진행 점 + **문항 = 구운 자막을 위 문항 카드 자리로 옮김**(#cc.qmode — 한 문장 = 자막 하나 그대로)
+       + 보기 A·B·C 카드 세 장 (롱폼 보기를 조금만 줄인 말 — data-words, 두 줄까지). 점수는 보여 주지 않음 (롱폼에만).
+     · 그림(도입·끝) = 롱폼과 같은 stock/source/simri-test-2026-10/puppet/ (HAVE 목록) + 없는 그림은 롱폼 figures.js 코드 그림.
      · 첫 문장 = shorts/thumbnails/thumbnail_1.jpg (롱폼 썸네일 그림 TH-ART 의 오른쪽 세로 띠 + 제목·말풍선은 코드 — thumb.mjs).
      · 화면 글자: 한글은 구운 자막 + A·B·C 보기 카드(data-words — render.mjs v1.26)만. 그 밖은 숫자·기호·영어 허용 목록(WORDS).
-     · 숫자 = 롱폼 대본 v1.6·calc/calc.py v1.6 출력 그대로 (강제 매도 ₩219B → ₩391B +78% · 30% · 300% · 50% · ₩12,000,000 · −50% · ×2).
      · 끝 = kit.js K.related (관련 동영상 버튼 자리 화살표·빛, 끝 화면 2.5초) + 롱폼 카드(▶ — 썸네일이 생기기 전에는 코드 시험지).
      장면 시각 = 실제 오디오 문장 시각(K.S·K.E·K.W). 연구·교육용 영상 — 투자 권유 아님. -->
 <meta name="video-size" content="1080x1920">
@@ -25,18 +24,17 @@
 body.render #wrap{width:1080px;height:1920px;max-width:none;margin:0}
 #stage{width:1080px;height:1920px;background:#000}
 #cc{left:540px;bottom:390px;max-width:870px;font-size:46px;padding:12px 16px;text-wrap:balance}
+/* 문항 몽타주 동안 구운 자막 = 위 문항 카드 (K.onSeek 로 켜고 끔) */
+#cc.qmode{top:300px;bottom:auto;max-width:960px;width:960px;font-size:54px;font-weight:900;line-height:1.28;padding:26px 34px;border-radius:26px;background:#F2E6CF;color:#1B2440;border:6px solid #fff;box-shadow:0 24px 50px -18px rgba(0,0,0,.8)}
 .ts{text-shadow:0 4px 22px rgba(0,0,0,.9),0 2px 6px rgba(0,0,0,.8)}
-.stamp{position:absolute;font-weight:900;font-size:96px;line-height:1;padding:16px 36px;border:10px solid currentColor;border-radius:22px;white-space:nowrap;background:rgba(10,16,30,.7)}
-.tag{position:absolute;font-weight:900;font-size:50px;line-height:1;padding:14px 26px;border-radius:16px;background:rgba(16,24,42,.96);border:4px solid rgba(255,255,255,.3);white-space:nowrap}
-.bar{position:absolute;border-radius:18px 18px 4px 4px;transform-origin:50% 100%}
-.bl{position:absolute;font-weight:900;white-space:nowrap;text-align:center}
-.badge{position:absolute;left:70px;top:160px;width:120px;height:120px;border-radius:50%;background:#F2E6CF;color:#1B2440;display:grid;place-items:center;font-weight:900;font-size:72px;line-height:1;border:6px solid #fff}
-.dots{position:absolute;left:236px;top:197px;display:flex;gap:22px}
+.qbg{position:absolute;inset:0;background:radial-gradient(900px 1100px at 50% 45%,#22305A 0%,#141C33 60%,#0A0F1E 100%)}
+.badge{position:absolute;left:70px;top:160px;width:116px;height:116px;border-radius:50%;background:#FFD400;color:#1B2440;display:grid;place-items:center;font-weight:900;font-size:68px;line-height:1}
+.dots{position:absolute;left:230px;top:196px;display:flex;gap:22px}
 .dots i{display:block;width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.16);border:4px solid rgba(255,255,255,.3)}
 .dots i.on{background:#FFD400;border-color:#FFD400}.dots i.done{background:rgba(255,212,0,.35);border-color:rgba(255,212,0,.35)}
-.opt{position:absolute;left:60px;width:960px;height:116px;border-radius:22px;background:rgba(16,24,42,.96);border:4px solid rgba(255,255,255,.22);display:flex;align-items:center;gap:22px;padding:0 22px}
-.opt .L{flex:0 0 80px;height:80px;border-radius:50%;background:#F4F6FA;color:#0C1424;display:grid;place-items:center;font-weight:900;font-size:52px;line-height:1}
-.opt .T{flex:1;font-weight:900;font-size:52px;line-height:1.1;white-space:nowrap;color:#F4F6FA}
+.opt{position:absolute;left:60px;width:960px;min-height:170px;border-radius:24px;background:rgba(10,16,30,.92);border:4px solid rgba(255,255,255,.25);display:flex;align-items:center;gap:24px;padding:16px 26px}
+.opt .L{flex:0 0 92px;height:92px;border-radius:50%;background:#F4F6FA;color:#0C1424;display:grid;place-items:center;font-weight:900;font-size:56px;line-height:1}
+.opt .T{flex:1;font-weight:800;font-size:48px;line-height:1.22;word-break:keep-all;color:#F4F6FA}
 .sheet{position:absolute;left:90px;top:170px;width:900px;height:470px;border-radius:30px;background:#F2E6CF;border:10px solid #fff;color:#1B2440;box-shadow:0 30px 60px -20px rgba(0,0,0,.85)}
 .cell{position:absolute;width:130px;height:130px;border-radius:50%;border:7px solid #1B2440;display:grid;place-items:center;font-weight:900;font-size:60px;line-height:1}
 .card{position:absolute;left:150px;top:190px;width:780px;height:439px;border-radius:26px;overflow:hidden;border:5px solid rgba(255,255,255,.3);background:#1B2440}
@@ -52,7 +50,7 @@ body.render #wrap{width:1080px;height:1920px;max-width:none;margin:0}
 <div id="now"></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
-<script id="ep-data">/*EP-DATA:BEGIN*/window.EP={"id":"simri-test-2026-10-shorts","topic":"stock","duration":51.66,"audio":null,"thumb":null,"estimated":true,"est_model":{"perSyl":0.151,"comma":0.25,"base":-0.08,"min":0.8,"lead":0.3,"gap":0.45,"part":1,"tail":0.8},"synced":"2026-10-27T05:31:25Z","sent":[{"n":1,"part":"습관 테스트 10문항","text":"주식으로 손해 볼 수밖에 없는 사람인지, 10문항으로 점검해 보세요.","start":0.3,"end":4.547},{"n":2,"part":"습관 테스트 10문항","text":"한국은 10월 보름 새 강제 매도가, 9월 한 달보다 78% 많았습니다.","start":4.997,"end":9.697},{"n":3,"part":"습관 테스트 10문항","text":"손해 보는 투자자들의 공통된 습관입니다.","start":10.147,"end":12.634},{"n":4,"part":"습관 테스트 10문항","text":"답을 골라 보세요.","start":13.084,"end":14.061},{"n":5,"part":"습관 테스트 10문항","text":"동료가 일주일 만에 30% 번 종목이라면?","start":14.511,"end":17.3},{"n":6,"part":"습관 테스트 10문항","text":"무조건 오른다는 유료 단체 대화방이라면?","start":17.75,"end":20.237},{"n":7,"part":"습관 테스트 10문항","text":"한 달 만에 50%를 벌었다면?","start":20.687,"end":22.721},{"n":8,"part":"습관 테스트 10문항","text":"확신이 든 종목, 계좌의 얼마를 넣을까요?","start":23.171,"end":25.757},{"n":9,"part":"습관 테스트 10문항","text":"한 달에 몇 번이나 매매하나요?","start":26.207,"end":27.939},{"n":10,"part":"습관 테스트 10문항","text":"모아 둔 1,200만 원, 언제 얼마씩 넣을까요?","start":28.389,"end":31.376},{"n":11,"part":"습관 테스트 10문항","text":"현금 없이 한 업종뿐인 계좌라면?","start":31.826,"end":33.709},{"n":12,"part":"습관 테스트 10문항","text":"반값이 되고 실적도 나빠진 종목이라면?","start":34.159,"end":36.495},{"n":13,"part":"습관 테스트 10문항","text":"지수가 폭락할 때, 빚을 내 두 배로 매수할까요?","start":36.945,"end":39.833},{"n":14,"part":"습관 테스트 10문항","text":"손실을 레버리지 ETF로 되찾았다는 영상을 보면?","start":40.283,"end":43.525},{"n":15,"part":"습관 테스트 10문항","text":"0점이면 바로 불통과인 문항이, 이 중에 두 개 있습니다.","start":43.975,"end":47.467},{"n":16,"part":"습관 테스트 10문항","text":"내 점수와 통과 기준은 아래 영상에서 확인하세요.","start":47.917,"end":50.857}],"subs":[[0.3,4.547,"주식으로 손해 볼 수밖에 없는 사람인지,\n10문항으로 점검해 보세요."],[4.997,9.697,"한국은 10월 보름 새 강제 매도가,\n9월 한 달보다 78% 많았습니다."],[10.147,12.634,"손해 보는 투자자들의 공통된 습관입니다."],[13.084,14.061,"답을 골라 보세요."],[14.511,17.3,"동료가 일주일 만에 30% 번 종목이라면?"],[17.75,20.237,"무조건 오른다는 유료 단체 대화방이라면?"],[20.687,22.721,"한 달 만에 50%를 벌었다면?"],[23.171,25.757,"확신이 든 종목, 계좌의 얼마를 넣을까요?"],[26.207,27.939,"한 달에 몇 번이나 매매하나요?"],[28.389,31.376,"모아 둔 1,200만 원,\n언제 얼마씩 넣을까요?"],[31.826,33.709,"현금 없이 한 업종뿐인 계좌라면?"],[34.159,36.495,"반값이 되고 실적도 나빠진 종목이라면?"],[36.945,39.833,"지수가 폭락할 때,\n빚을 내 두 배로 매수할까요?"],[40.283,43.525,"손실을 레버리지 ETF로\n되찾았다는 영상을 보면?"],[43.975,47.467,"0점이면 바로 불통과인 문항이,\n이 중에 두 개 있습니다."],[47.917,50.857,"내 점수와 통과 기준은 아래 영상에서\n확인하세요."]],"subs_estimated":true};/*EP-DATA:END*/</script>
+<script id="ep-data">/*EP-DATA:BEGIN*/window.EP={"id":"simri-test-2026-10-shorts","topic":"stock","duration":49.26,"audio":null,"thumb":null,"estimated":true,"est_model":{"perSyl":0.151,"comma":0.25,"base":-0.08,"min":0.8,"lead":0.3,"gap":0.45,"part":1,"tail":0.8},"synced":"2026-10-27T06:17:32Z","sent":[{"n":1,"part":"습관 테스트 10문항","text":"나는 주식으로 손해 볼 수밖에 없는 사람일까?","start":0.3,"end":2.938},{"n":2,"part":"습관 테스트 10문항","text":"점검할 수 있는 테스트를 만들어 보았습니다.","start":3.388,"end":6.026},{"n":3,"part":"습관 테스트 10문항","text":"본인은 어떻게 투자하는지, 항목마다 답을 골라 보세요.","start":6.476,"end":9.968},{"n":4,"part":"습관 테스트 10문항","text":"동료가 좋다고 한 종목을 따라서 매수하시나요?","start":10.418,"end":13.207},{"n":5,"part":"습관 테스트 10문항","text":"무조건 오른다는 유료 단체 대화방에 가입하시나요?","start":13.657,"end":16.748},{"n":6,"part":"습관 테스트 10문항","text":"한 달 만에 50%를 벌었다면, 어떻게 생각하시나요?","start":17.198,"end":20.841},{"n":7,"part":"습관 테스트 10문항","text":"확신이 든 종목이 있다면, 투자금의 얼마를 넣으시나요?","start":21.291,"end":24.783},{"n":8,"part":"습관 테스트 10문항","text":"한 달에 몇 번이나 매매하시나요?","start":25.233,"end":27.116},{"n":9,"part":"습관 테스트 10문항","text":"모아 둔 1,200만 원, 언제 얼마씩 매수하시나요?","start":27.566,"end":30.855},{"n":10,"part":"습관 테스트 10문항","text":"현금과 업종 비중은 어떻게 분배하시나요?","start":31.305,"end":33.792},{"n":11,"part":"습관 테스트 10문항","text":"주가와 실적이 모두 나빠진 보유 종목은 어떻게 하시나요?","start":34.242,"end":37.635},{"n":12,"part":"습관 테스트 10문항","text":"지수가 폭락할 때, 빚을 내서 물타기 하시나요?","start":38.085,"end":40.973},{"n":13,"part":"습관 테스트 10문항","text":"주가가 하락해 큰 손실을 봤을 때, 어떻게 복구하시나요?","start":41.423,"end":44.915},{"n":14,"part":"습관 테스트 10문항","text":"선택한 답에 따른 결과는 아래 영상에서 확인하세요.","start":45.365,"end":48.456}],"subs":[[0.3,2.938,"나는 주식으로 손해 볼 수밖에 없는 사람일까?"],[3.388,6.026,"점검할 수 있는 테스트를\n만들어 보았습니다."],[6.476,9.968,"본인은 어떻게 투자하는지,\n항목마다 답을 골라 보세요."],[10.418,13.207,"동료가 좋다고 한 종목을 따라서\n매수하시나요?"],[13.657,16.748,"무조건 오른다는\n유료 단체 대화방에 가입하시나요?"],[17.198,20.841,"한 달 만에 50%를 벌었다면,\n어떻게 생각하시나요?"],[21.291,24.783,"확신이 든 종목이 있다면,\n투자금의 얼마를 넣으시나요?"],[25.233,27.116,"한 달에 몇 번이나 매매하시나요?"],[27.566,30.855,"모아 둔 1,200만 원,\n언제 얼마씩 매수하시나요?"],[31.305,33.792,"현금과 업종 비중은 어떻게 분배하시나요?"],[34.242,37.635,"주가와 실적이 모두 나빠진 보유 종목은\n어떻게 하시나요?"],[38.085,40.973,"지수가 폭락할 때,\n빚을 내서 물타기 하시나요?"],[41.423,44.915,"주가가 하락해 큰 손실을 봤을 때,\n어떻게 복구하시나요?"],[45.365,48.456,"선택한 답에 따른 결과는 아래 영상에서\n확인하세요."]],"subs_estimated":true};/*EP-DATA:END*/</script>
 <script src="../../render/kit.js"></script>
 <script src="../../render/puppet.js"></script>
 <script src="../simri-test-2026-10/figures.js"></script>
@@ -60,36 +58,27 @@ body.render #wrap{width:1080px;height:1920px;max-width:none;margin:0}
 (function () {
 "use strict";
 // 화면 영어 허용 목록 — 한글은 자막과 보기 카드(data-words)만 (롱폼과 같은 규칙)
-const WORDS = ["A", "B", "C", "KOREA", "MARGIN", "CALL", "FAIL", "TEST", "LOAN", "BUY", "SELL", "CASH", "ETF", "X"];
+const WORDS = ["A", "B", "C", "TEST", "ETF", "X"];
 K.init(window.EP, { chip: false, w: 1080, allowWords: WORDS });
 const { S, E, W, el, pop } = K;
 const tl = K.tl;
-const out = (n, at) => K.out(n, at, { y: 0 });
-const { sm, lin, lerp, q12 } = Puppet.u;
-const R = "#FF4D3D", G = "#22C7B0", Y = "#FFD400", N = "#9AA7BF", WH = "#F4F6FA";
+const { lin, lerp, q12 } = Puppet.u;
+const WH = "#F4F6FA";
 const until = n => S(n) - 0.05;
-const DW = `data-words="보기 A·B·C — 사용자 지시 2026-10-26"`;
-const Q0 = 5;                                   // 문항 1 = 문장 5 … 문항 10 = 문장 14
+const DW = `data-words="보기 A·B·C — 사용자 지시 2026-10-26 · 2026-10-27 너무 줄이지 않음"`;
+const Q0 = 4, QN = 10;                          // 문항 1 = 문장 4 … 문항 10 = 문장 13 · 끝 = 문장 14
 
-// ---------- 가운데 칸 = 종이인형 무대 (1080×691, y 691~) — 그림 목록은 롱폼 index.html 과 같게 ----------
+// ---------- 가운데 칸 = 종이인형 무대 (도입·끝만 — 1080×691, y 691~) ----------
 const MID = 691;
 const HAVE = ["W-COLLEAGUE.png", "W-CROWD.png", "P-CASH.png", "P-CHAIN.png", "P-GRAB.png", "S-OFFICE.jpg", "S-HOME-NIGHT.jpg"];   // 롱폼 HAVE 와 같이 고침
 const F = (file, kind, draw) => (HAVE.includes(file) ? { f: file, kind } : { draw, kind: "sq" });
 const ST = Puppet.stage({ dir: "../../../stock/source/simri-test-2026-10/puppet/", w: 1080, h: 691, top: MID, clear: 0x000000, files: {
-  PAPER: { f: "../../../../test/puppet/P-PAPER.jpg", kind: "bg" }, HOME: F("S-HOME-NIGHT.jpg", "bg"), OFF: F("S-OFFICE.jpg", "bg"),
-  H_PHONE: F("HERO-PHONE.png", "sq", FIG.HERO.PHONE), H_THINK: F("HERO-THINK.png", "sq", FIG.HERO.THINK), H_PROUD: F("HERO-PROUD.png", "sq", FIG.HERO.PROUD),
-  H_SHOCK: F("HERO-SHOCK.png", "sq", FIG.HERO.SHOCK), H_DESP: F("HERO-DESPAIR.png", "sq", FIG.HERO.DESPAIR), H_PLAN: F("HERO-PLAN.png", "sq", FIG.HERO.PLAN),
-  W_COL: F("W-COLLEAGUE.png", "sq"), W_CROWD: F("W-CROWD.png", "cut"), W_SCAM: F("W-SCAMMER.png", "sq", FIG.SCAM),
-  CASH: F("P-CASH.png", "sq"), TRAP: F("P-TRAP.png", "sq", FIG.TRAP), BASKET: F("P-BASKET.png", "sq", FIG.BASKET),
-  CHAIN: F("P-CHAIN.png", "cut"), GRAB: F("P-GRAB.png", "cut") } });
-// 세로 칸은 가까이서 (빨리 부자 쇼츠와 같음) — 발끝 줄이 칸 82%
+  PAPER: { f: "../../../../test/puppet/P-PAPER.jpg", kind: "bg" },
+  H_THINK: F("HERO-THINK.png", "sq", FIG.HERO.THINK), H_PLAN: F("HERO-PLAN.png", "sq", FIG.HERO.PLAN), W_CROWD: F("W-CROWD.png", "cut") } });
 ST.defaultCam = (st, t) => { const k = lin(t, st.a, st.b); return { pos: [lerp(-0.3, 0.3, k), 2.9, lerp(15.5, 14.5, k)], look: [lerp(-0.3, 0.3, k), 2.57, 0] }; };
-const BGO = { PAPER: { v: 0.5, y: 2.6 }, HOME: { v: 0.7, y: 0.5 }, OFF: { v: 0.6, y: 0.5 } };
-const DARK = new THREE.Color(0x5d6279), WHITE = new THREE.Color(0xffffff);
-const bgOf = (st, key) => (st.BG = st.bg(key, BGO[key]));
+const bgOf = st => (st.BG = st.bg("PAPER", { v: 0.5, y: 2.6 }));
 const act = (st, key, o) => { const a = st.actor(key, o); a.crop = o.crop || ST.get(key).info.bbox; return a; };
 const idle = (a, t, ph) => { a.g.rotation.z = 0.012 * Math.sin(q12(t) * Math.PI * 1.3 + (ph || 0)); return a; };
-const tint = (a, c) => { a.tint.copy(c === true ? DARK : c || WHITE); return a; };
 const FOL = [];
 function stick(set, node, at) { gsap.set(node, { xPercent: -50, yPercent: -100 }); FOL.push({ set, node, at }); return node; }
 ST.after(t => {
@@ -100,159 +89,87 @@ ST.after(t => {
     f.node.style.display = ""; f.node.style.left = x.toFixed(1) + "px"; f.node.style.top = (y + MID).toFixed(1) + "px";
   }
 });
-// 인형 머리 위 꼬리표 (숫자·기호·영어만)
-const over = (set, sc, a, html, at, cls, dy) => { const n = stick(set, el(`<div class="${cls || "a w9 nw ts"}" style="${cls ? "" : `font-size:96px;line-height:1;color:${Y}`}">${html}</div>`, sc), () => { const x = a(); return x && x.op > 0.01 ? x.top(dy == null ? 0.3 : dy) : null; }); pop(n, at, { from: { scale: 0.3, y: 0 } }); return n; };
-const overTag = (set, sc, a, html, color, at, dy) => over(set, sc, a, `<span style="color:${color}">${html}</span>`, at, "tag", dy);
-
-// ---------- 위 칸 글자 부품 (가운데 540) ----------
-const T = (sc, top, html, size, cls) => el(`<div class="a cx c nw ts ${cls || "w9"}" style="left:540px;top:${top}px;font-size:${size}px;line-height:1">${html}</div>`, sc);
-const stamp = (sc, x, top, txt2, color, at, rot) => { const n = el(`<div class="stamp a cx" style="left:${x}px;top:${top}px;color:${color};rotate:${rot == null ? -6 : rot}deg">${txt2}</div>`, sc); pop(n, at, { from: { scale: 2.2, y: 0, opacity: 0 }, to: { duration: 0.35, ease: "back.out(2)" } }); return n; };
+const over = (set, sc, a, html, at) => { const n = stick(set, el(`<div class="a w9 nw ts" style="font-size:96px;line-height:1;color:#FFD400">${html}</div>`, sc), () => { const x = a(); return x && x.op > 0.01 ? x.top(0.3) : null; }); pop(n, at, { from: { scale: 0.3, y: 0 } }); return n; };
 
 /* S-01 첫 문장 = 쇼츠 썸네일 그림 (thumbnail_1.jpg — 제목·말풍선은 코드로 넣은 것). 확대 없음 (문장 1) */
 K.cover(until(2), { zoom: 1 });
 K.cut(0.1, "S-01 0초 그림 = 쇼츠 썸네일");
 K.cut(E(1) - 0.2, "S-01 첫 문장 + 자막(42px)");
 
-/* S-02 한국 강제 매도: 9월 한 달 ₩219B → 10월 1~16일 ₩391B · +78% (문장 2 — calc v1.6 SCRIPT) */
+/* S-02 · S-03 테스트를 만듦 → 항목마다 답을 고름: 시험지 10칸 · A B C · 사람들 → 주인공 '?' (문장 2~3) */
 {
-  const a = until(2), b = until(3), t78 = W(2, "78%");
-  const sc = K.scene(a, b);
-  let GR;
-  const s = ST.set(a, b, st => { bgOf(st, "PAPER"); GR = act(st, "GRAB", { h: 3.6, anchor: [0.5, 0.5], at: [0.2, 2.6, 0.6] }).ro(5); });
-  s.update = t => { const k = sm(lin(t, S(2) + 0.1, S(2) + 0.9)); GR.g.position.x = GR.home.x + 6 * (1 - k); GR.g.position.y = GR.home.y + 2 * (1 - k); GR.op = t < S(2) + 0.1 ? 0 : 1; };
-  if (Puppet.dust) s.part(Puppet.dust(S(2) + 1.0, [-0.6, 1.4, 0.8], { n: 16, rocks: 6 }));
-  pop(el(`<div class="tag a cx" style="left:220px;top:165px;color:${N}">KOREA</div>`, sc), S(2) + 0.05);
-  const BASE = 630, MAXH = 230, h1 = Math.round(MAXH * 2191 / 3911);
-  const bar = (cx, h, color, at, lab, val) => {
-    const bb = el(`<div class="bar" style="left:${cx - 110}px;top:${BASE - h}px;width:220px;height:${h}px;background:${color}"></div>`, sc);
-    tl.fromTo(bb, { scaleY: 0 }, { scaleY: 1, duration: 0.6, ease: "power2.out" }, at);
-    pop(el(`<div class="bl a cx" style="left:${cx}px;top:${BASE + 14}px;font-size:44px;color:${N}">${lab}</div>`, sc), at);
-    pop(el(`<div class="bl a cx ts" style="left:${cx}px;top:${BASE - h - 70}px;font-size:60px;color:${color === R ? R : WH}">${val}</div>`, sc), at + 0.35);
-  };
-  bar(250, h1, "#6B7488", W(2, "9월") - 0.1, "9/1 – 9/30", "₩219B");
-  bar(590, MAXH, R, W(2, "10월") - 0.1, "10/1 – 10/16", "₩391B");
-  const st78 = stamp(sc, 858, 380, `+78%`, R, t78, -6); st78.style.fontSize = "84px";   // 빨간 막대 옆 (₩391B 글자와 겹치지 않게)
-  K.cut(E(2) - 0.1, "S-02 ₩219B → ₩391B +78%");
-}
-/* S-03 손해 보는 투자자들의 공통된 습관 — 사람들이 같은 박자로 같은 몸짓 · 시험지 10칸 (문장 3) */
-{
-  const a = until(3), b = until(5);
+  const a = until(2), b = until(Q0);
   const sc = K.scene(a, b);
   let CR, HT;
   const s = ST.set(a, b, st => {
-    bgOf(st, "PAPER");
+    bgOf(st);
     CR = act(st, "W_CROWD", { h: 3.7, at: [2.4, -0.3, -0.4] }).ro(3);
     HT = act(st, "H_THINK", { h: 4.8, at: [-2.6, -0.3, 0.6] }).ro(4);
   });
-  s.update = t => {
-    CR.rise(t, S(3) + 0.05, 0.6, 4);
-    const beat = Math.max(0, Math.sin((t - S(3)) * Math.PI * 2.2));       // 모두 같은 박자로 고개를 떨굼 (공통된 행동)
-    CR.g.rotation.z = -0.03 * beat; CR.g.position.y = CR.home.y - 0.08 * beat;
-    HT.op = t < S(4) - 0.1 ? 0 : 1; HT.rise(t, S(4) - 0.1, 0.5, 4); idle(HT, t);
-  };
+  s.update = t => { CR.rise(t, S(2) + 0.05, 0.6, 4); idle(CR, t, 1); HT.op = t < S(3) - 0.1 ? 0 : 1; HT.rise(t, S(3) - 0.1, 0.5, 4); idle(HT, t); };
   const sh = el(`<div class="sheet a"></div>`, sc);
-  tl.fromTo(sh, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, S(3) + 0.1);
+  tl.fromTo(sh, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, S(2) + 0.05);
   el(`<div class="a w9 nw" style="left:44px;top:28px;font-size:64px">TEST</div>`, sh);
   const cells = [];
   for (let i = 0; i < 10; i++) cells.push(el(`<div class="cell" style="left:${42 + (i % 5) * 166}px;top:${120 + Math.floor(i / 5) * 165}px">${i + 1}</div>`, sh));
-  tl.fromTo(cells, { scale: 0.4, opacity: 0 }, { scale: 1, opacity: 1, stagger: 0.06, duration: 0.3, ease: "back.out(2)" }, S(3) + 0.3);
-  // 문장 4 '답을 골라 보세요' — A·B·C
+  tl.fromTo(cells, { scale: 0.4, opacity: 0 }, { scale: 1, opacity: 1, stagger: 0.06, duration: 0.3, ease: "back.out(2)" }, S(2) + 0.25);
   const abc = el(`<div class="a w9 nw" style="right:44px;top:22px;font-size:68px;letter-spacing:6px"><span style="color:#1B8F80">A</span> <span style="color:#B8871B">B</span> <span style="color:#C2382C">C</span></div>`, sh);
-  pop(abc, S(4), { from: { scale: 1.6, y: 0 } });
-  over(s, sc, () => HT, "?", S(4) + 0.2);
-  tl.to(sh, { opacity: 0, duration: 0.3 }, until(5) - 0.3);
-  K.cut(E(3) - 0.1, "S-03 공통된 습관 · TEST 10칸");
-  K.cut(E(4) - 0.1, "S-04 답을 골라 보세요 A·B·C");
+  pop(abc, W(3, "답을") - 0.1, { from: { scale: 1.6, y: 0 } });
+  over(s, sc, () => HT, "?", S(3) + 0.3);
+  K.cut(E(2) - 0.1, "S-02 TEST 10칸");
+  K.cut(E(3) - 0.1, "S-03 항목마다 답을 고름 A B C");
 }
 
-/* S-05 ~ S-14 10문항 몽타주 — 문항마다: 번호 · 진행 점 · 짧은 보기 A·B·C (점수 없음) · 상황 인형 하나 (문장 5~14) */
-const LAB = [   // 롱폼 보기(대본 v1.6 항목 1~10)를 줄인 말 — 순서·뜻 그대로, 점수는 숨김
-  ["오늘 바로 매수", "회사부터 알아봄", "조금만 매수"],
-  ["바로 대화를 끝냄", "회비 내고 들어감", "무료 기간만 들어감"],
-  ["지수와 먼저 견줌", "운이 좋았다", "나는 재능이 있다"],
-  ["4분의 1에서 절반", "절반 넘게", "4분의 1 미만, 나눠 보유"],
-  ["한 달 1~2번 이하", "거의 매일 여러 번", "일주일 1~2번"],
-  ["매수만 나눌 생각", "매수·매도 계획 미리", "느낌 오는 날 한 번에"],
-  ["현금 비중만 대충", "현금·업종 배분 미리", "오르는 업종에 모두"],
-  ["매수 이유 다시 확인", "절반만 매도", "매수 가격까지 보유"],
-  ["조금만 빌려서 매수", "내 돈으로만 매수", "내 돈만큼 빌려 2배"],
-  ["남은 돈 모두 2배 ETF", "일부만 2배 ETF", "나눠서 다시 시작"],
+/* S-04 ~ S-13 10문항 몽타주 — 그림 없음: 번호 · 진행 점 · 문항(구운 자막을 위 카드로) · 보기 A·B·C (점수 없음) (문장 4~13) */
+const LAB = [   // 롱폼 보기(대본 v1.7 항목 1~10)를 조금만 줄인 말 — 순서·뜻 그대로 (사용자 지시 "너무 축약하지 말고 적당히")
+  ["오늘 바로 그 종목을 매수한다", "회사가 무엇으로 돈을 버는지부터 알아본다", "조금만 매수해 본다"],
+  ["'무조건'이라는 말에 바로 대화를 끝낸다", "회비를 내고 들어간다", "무료 체험 기간에만 들어가 본다"],
+  ["같은 기간 대표 지수와 먼저 견줘 본다", "이번에는 운이 좋았다고 생각한다", "나는 주식에 재능이 있다고 확신한다"],
+  ["계좌의 4분의 1에서 절반까지", "다른 종목을 모두 매도하고 절반 넘게", "4분의 1 미만, 나머지는 여러 종목에 나눠"],
+  ["한 달에 한두 번 이하", "거의 매일, 하루에도 여러 번", "일주일에 한두 번"],
+  ["매수는 나누지만, 매도는 그때 가서 정한다", "나눠 매수·매도할 가격과 금액을 미리 정해 둔다", "느낌이 오는 날 한 번에 다 매수한다"],
+  ["현금 비중만 대충 정해 두었다", "오를 때와 떨어질 때의 현금·업종 배분을 미리 정했다", "정해 둔 것 없이, 오르는 업종에 모두 넣는다"],
+  ["처음 매수한 이유를 다시 확인해 보유·매도를 정한다", "이유는 따지지 않고 절반만 매도한다", "매수 가격이 될 때까지 보유하거나 더 매수한다"],
+  ["조금만 빌려서 매수한다", "빌리지 않고 내 돈으로만 매수한다", "내 돈만큼 빌려서 두 배로 매수한다"],
+  ["남은 돈을 모두 2배 레버리지 ETF에 넣는다", "남은 돈의 일부만 2배 레버리지 ETF에 넣는다", "손실을 받아들이고, 나눠서 다시 시작한다"],
 ];
-// 문항마다 무대: [배경, [[인형, 높이, x]…], 꼬리표 html, 꼬리표 색, 꼬리표를 붙일 인형 순번, 어둡게]
-const SCN = [
-  ["OFF", [["W_COL", 4.3, 2.0], ["H_PHONE", 4.6, -2.4]], "+30%", G, 0],
-  ["HOME", [["W_SCAM", 4.8, 2.2], ["TRAP", 1.8, -1.6]], "+300%", G, 0],
-  ["OFF", [["H_PROUD", 4.8, 0]], "+50%", G, 0],
-  ["HOME", [["H_PROUD", 4.8, -2.0], ["BASKET", 2.4, 2.4]], "?", Y, 1],
-  ["OFF", [["H_PHONE", 4.8, -0.4]], "BUY · SELL", Y, 0],
-  ["HOME", [["H_PHONE", 4.8, -2.0], ["CASH", 2.0, 2.2]], "₩12,000,000", WH, 1],
-  ["HOME", [["H_THINK", 4.8, -0.4]], "CASH ₩0", R, 0],
-  ["HOME", [["H_SHOCK", 4.8, -0.4]], "−50%", R, 0],
-  ["HOME", [["H_PHONE", 4.8, -2.0], ["CHAIN", 1.9, 2.4]], "LOAN ×2", R, 0, true],
-  ["HOME", [["H_DESP", 4.0, -0.6]], "2X ETF ▶", G, 0, true],
-];
-const LET = ["A", "B", "C"], LCOL = ["#1B8F80", "#B8871B", "#C2382C"];
-const qa = until(Q0), qb = until(Q0 + 10);
-const qsc = K.scene(qa, qb);                    // 몽타주 내내 남는 위 칸 (번호·진행 점)
+const LET = ["A", "B", "C"];
+const qa = until(Q0), qb = until(Q0 + QN);
+const cc = document.getElementById("cc");
+K.onSeek(t => { if (cc) cc.classList.toggle("qmode", t >= qa + 0.05 && t < qb - 0.05); });   // 문항 동안만 자막 = 위 문항 카드
+const qsc = K.scene(qa, qb);                    // 몽타주 내내: 남색 바탕 · 번호 · 진행 점
+el(`<div class="qbg" data-below="문항 몽타주 남색 바탕 (글자·그림 없음 — 아래 자막 띠까지 덮음)"></div>`, qsc);
 const badge = el(`<div class="badge a">1</div>`, qsc);
-const dots = el(`<div class="dots a">${Array.from({ length: 10 }, () => "<i></i>").join("")}</div>`, qsc);
-for (let k = 0; k < 10; k++) {
+const dots = el(`<div class="dots a">${Array.from({ length: QN }, () => "<i></i>").join("")}</div>`, qsc);
+for (let k = 0; k < QN; k++) {
   const n = Q0 + k, a = until(n), b = until(n + 1);
   tl.call(() => { badge.textContent = String(k + 1); }, null, a + 0.01);
   if (k) tl.call(() => { badge.textContent = String(k); }, null, a);                         // 되감기 때 앞 번호로
   tl.fromTo(badge, { scale: 1.35 }, { scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, a + 0.02);
   tl.set(dots.children, { attr: { class: j => (j < k ? "done" : j === k ? "on" : "") } }, a + 0.01);
   const sc = K.scene(a, b);
-  const cards = LAB[k].map((txt, i) => el(`<div class="opt" ${DW} style="top:${300 + i * 130}px"><div class="L" style="background:${WH}">${LET[i]}</div><div class="T">${txt}</div></div>`, sc));
-  tl.fromTo(cards, { x: -80, opacity: 0 }, { x: 0, opacity: 1, duration: 0.3, stagger: 0.1, ease: "power3.out" }, S(n) + 0.05);
-  const [bg, list, tagHtml, tagCol, tagOn, dark] = SCN[k];
-  const A = [];
-  const s = ST.set(a, b, st => {
-    bgOf(st, bg);
-    list.forEach(([key, h, x], i) => { const o = key === "CASH" ? { h, anchor: [0.5, 0.5], at: [x, 1.4, 0.4 + i * 0.3] } : { h, at: [x, -0.3, 0.4 + i * 0.3] };
-      A.push(act(st, key, o).ro(3 + i)); });
-  });
-  s.update = t => {
-    if (dark) tint(s.BG, true);
-    A.forEach((x, i) => { x.pop(t, S(n) + 0.02 + i * 0.12, 0.35); idle(x, t, i); });
-    if (k === 7 && t > S(n) + 0.4) A[0].jitter(t, 0.015);                               // 8번 반값 — 놀라 떪
-  };
-  overTag(s, sc, () => A[tagOn], tagHtml, tagCol, S(n) + 0.35, tagOn === 0 ? 0.25 : 0.15);
+  const cards = LAB[k].map((txt, i) => el(`<div class="opt" ${DW} style="top:${630 + i * 225}px"><div class="L">${LET[i]}</div><div class="T">${txt}</div></div>`, sc));
+  tl.fromTo(cards, { x: -80, opacity: 0 }, { x: 0, opacity: 1, duration: 0.3, stagger: 0.12, ease: "power3.out" }, S(n) + 0.1);
   K.cut(E(n) - 0.1, `S-${String(n).padStart(2, "0")} 문항 ${k + 1}`);
 }
 
-/* S-15 하나만 0점이어도 불통과인 문항이 두 개 — 10칸 '?' 가 훑어지고 0 → FAIL ✕ · ×2 (문장 15) */
+/* S-14 선택한 답에 따른 결과 → 롱폼 카드 ▶ · 관련 동영상 버튼 ↓ (문장 14 + 끝 화면) */
 {
-  const a = until(15), b = until(16);
-  const sc = K.scene(a, b);
-  let HS;
-  const s = ST.set(a, b, st => { bgOf(st, "PAPER"); HS = act(st, "H_SHOCK", { h: 4.8, at: [-0.4, -0.3, 0.6] }).ro(4); });
-  s.update = t => { HS.pop(t, S(15) + 0.05, 0.35); if (t > W(15, "불통과")) HS.jitter(t, 0.012); else idle(HS, t); };
-  const row = [];
-  for (let i = 0; i < 10; i++) row.push(el(`<div class="a w9 c" style="left:${55 + i * 98}px;top:180px;width:82px;height:82px;border-radius:50%;border:6px solid ${WH};color:${WH};font-size:46px;line-height:70px">?</div>`, sc));
-  tl.fromTo(row, { scale: 0.4, opacity: 0 }, { scale: 1, opacity: 1, stagger: 0.04, duration: 0.25 }, S(15) + 0.05);
-  row.forEach((c, i) => tl.fromTo(c, { borderColor: WH }, { borderColor: R, duration: 0.12, yoyo: true, repeat: 1, immediateRender: false }, W(15, "두") - 0.6 + i * 0.07));   // 어느 두 문항인지는 숨김
-  pop(T(sc, 340, `<span class="R">0</span> → <span class="R">FAIL ✕</span>`, 110), W(15, "불통과") - 0.2, { from: { scale: 1.4, y: 0 } });
-  pop(T(sc, 500, `<span class="Y">× 2 ?</span>`, 110), W(15, "두") - 0.1, { from: { scale: 1.4, y: 0 } });
-  K.cut(E(15) - 0.1, "S-15 0 → FAIL ✕ × 2 ?");
-}
-/* S-16 내 점수·통과 기준 → 롱폼 카드 ▶ · 관련 동영상 버튼 ↓ (문장 16 + 끝 화면) */
-{
-  const a = until(16), b = K.D;
+  const n = Q0 + QN, a = until(n), b = K.D;
   const sc2 = K.scene(a, b, { keep: true });
   let HL;
-  const s = ST.set(a, b, st => { bgOf(st, "PAPER"); HL = act(st, "H_PLAN", { h: 4.8, at: [-2.4, -0.3, 0.6] }).ro(4); }, { fadeOut: 0 });
-  s.update = t => { HL.pop(t, S(16) + 0.05, 0.4); idle(HL, t); };
+  const s = ST.set(a, b, st => { bgOf(st); HL = act(st, "H_PLAN", { h: 4.8, at: [-2.4, -0.3, 0.6] }).ro(4); }, { fadeOut: 0 });
+  s.update = t => { HL.pop(t, S(n) + 0.05, 0.4); idle(HL, t); };
   // 롱폼 카드: 롱폼 썸네일(LONG_THUMB)이 생기면 그 그림, 그 전에는 코드 시험지 (그림이 없는 파일을 부르면 점검이 깨짐)
   const LONG_THUMB = null;   // 롱폼 썸네일이 생기면 "../../../stock/source/simri-test-2026-10/thumbnails/thumbnail_1.jpg"
   const inner = LONG_THUMB ? `<img alt="" src="${LONG_THUMB}">`
     : `<div class="a w9 nw" style="left:40px;top:34px;font-size:64px;color:${WH}">TEST</div>` +
       Array.from({ length: 10 }, (_, i) => `<div class="a w9 c" style="left:${36 + i * 71}px;top:316px;width:64px;height:64px;border-radius:50%;border:5px solid #F2E6CF;color:#F2E6CF;font-size:36px;line-height:54px">${i + 1}</div>`).join("");
   const card = el(`<div class="card a">${inner}<div class="play"><svg viewBox="0 0 60 60" width="56" height="56" aria-hidden="true"><path d="M18 10 L50 30 L18 50 Z" fill="#fff"/></svg></div><div class="prog"><i></i></div></div>`, sc2);
-  pop(card, S(16) + 0.05, { from: { scale: 0.85, y: 0 } });
-  tl.fromTo(card.querySelector(".prog i"), { width: "0%" }, { width: "100%", duration: K.D - S(16) - 0.2, ease: "none" }, S(16) + 0.2);
-  K.related(sc2, { at: S(16) + 0.05, arrowAt: W(16, "아래"), hint: "" });
-  K.cut(E(16) - 0.1, "S-16 롱폼 카드 ▶");
+  pop(card, S(n) + 0.05, { from: { scale: 0.85, y: 0 } });
+  tl.fromTo(card.querySelector(".prog i"), { width: "0%" }, { width: "100%", duration: K.D - S(n) - 0.2, ease: "none" }, S(n) + 0.2);
+  K.related(sc2, { at: S(n) + 0.05, arrowAt: W(n, "아래"), hint: "" });
+  K.cut(E(n) - 0.1, "S-14 롱폼 카드 ▶");
   K.cut(K.D - 0.3, "끝 화면 (관련 동영상 버튼 ↓)");
 }
 K.done();

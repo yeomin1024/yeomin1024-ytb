@@ -1,5 +1,5 @@
 {
- "_설명": "쇼츠 첫 장면(= 쇼츠 썸네일) — 롱폼과 같은 그림 images/TH-ART.jpg(images_chatgpt.md 20번, 1536×1024)의 오른쪽 세로 띠(x 960~1536 = 주인공 자리)를 9:16 으로 화면 끝까지 (주식 쇼츠 = 빈 띠 없음) + 위 제목 2줄·말풍선 2개는 코드 (CLAUDE.md '주식 종이인형극도 같음 — 그림 하나를 롱폼·쇼츠 썸네일에 같이'). 그림이 오면: node video/render/thumb.mjs stock/source/simri-test-2026-10/shorts/thumbnails/thumbnail_1.json → node video/render/render.mjs sync stock simri-test-2026-10-shorts. 문구 = 쇼츠 제목 R1 (v2.0 — 10문항 몽타주 · 사용자가 다른 안을 고르면 lines 를 고침)",
+ "_설명": "쇼츠 첫 장면(= 쇼츠 썸네일) — 롱폼과 같은 그림 images/TH-ART.jpg(images_chatgpt.md 20번, 1536×1024)의 오른쪽 세로 띠(x 960~1536 = 주인공 자리)를 9:16 으로 화면 끝까지 (주식 쇼츠 = 빈 띠 없음) + 위 제목 2줄·말풍선 2개는 코드 (CLAUDE.md '주식 종이인형극도 같음 — 그림 하나를 롱폼·쇼츠 썸네일에 같이'). 그림이 오면: node video/render/thumb.mjs stock/source/simri-test-2026-10/shorts/thumbnails/thumbnail_1.json → node video/render/render.mjs sync stock simri-test-2026-10-shorts. 문구 = 쇼츠 제목 (v3.0 — 사용자가 정함 「주식 실패할 사람은 절대 통과 못하는 테스트」)",
  "out": "thumbnail_1.jpg",
  "size": [
   1080,
@@ -56,16 +56,16 @@
     ],
     [
      [
-      "통과 못하는",
+      "절대 통과 못하는",
       "Y"
      ],
      [
-      " 10문항",
+      " 테스트",
       "W"
      ]
     ]
    ],
-   "_": "v2.0 쇼츠 제목 R1 '주식 실패할 사람은 통과 못하는 10문항 (A·B·C)' 의 앞 두 덩이 — 줄마다 가운데, '실패할' 빨강 · '통과 못하는' 노랑 (롱폼 썸네일과 같은 색). 위 150px 은 비움"
+   "_": "v3.0 쇼츠 제목 「주식 실패할 사람은 절대 통과 못하는 테스트」 (사용자 지시 2026-10-27) 2줄 — 줄마다 가운데, '실패할' 빨강 · '절대 통과 못하는' 노랑 (롱폼 썸네일과 같은 색). 위 150px 은 비움"
   },
   {
    "kind": "bubble",

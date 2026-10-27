@@ -1,12 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-10-27 — 최초. 주식 테스트형 영상(stock/guides/quick_test.md)의 점수 규칙을 편마다 다시 쓰지 않게 공용으로.
+# VERSION: v1.1 — 2026-10-27 — 점수 단계를 편마다 고를 수 있게 (check_rules(levels=…)) — 재무제표 편이 5항목 × 0·10·20점
+#          (사용자 지시 "5개 정도만 찾고 재무지표를 상세하게 분석하는 걸로 해"). 기본값 0·5·10 은 그대로라 10항목 편은 바뀌지 않음.
+# (v1.0 — 2026-10-27 — 최초. 주식 테스트형 영상(stock/guides/quick_test.md)의 점수 규칙을 편마다 다시 쓰지 않게 공용으로.
 #          첫 편 stock/source/simri-test-2026-10/calc/calc.py v1.6 의 grade·letters_for·규칙 검사·가상 응시를 그대로 옮김
-#          (첫 편 코드는 그대로 둠). 사용자 지시 2026-10-27: "토큰은 가장 아낄 수 있도록 구조를 잡고 해".
+#          (첫 편 코드는 그대로 둠). 사용자 지시 2026-10-27: "토큰은 가장 아낄 수 있도록 구조를 잡고 해".)
 #
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.1 | 2026-10-27 | levels 인자 (기본 0·5·10) · 등급 구간 글을 단계 폭으로 | check_rules |
 # | v1.0 | 2026-10-27 | 최초 (첫 편 calc v1.6 에서 옮김) | grade · letters_for · check_rules · run_virtual |
 #
 # 쓰는 법 (편의 calc/calc.py 에서):
@@ -18,7 +21,7 @@
 import itertools
 from collections import Counter
 
-VERSION = "v1.0"
+VERSION = "v1.1"
 LEVELS = (0, 5, 10)
 PASS_MIN = 70       # 통과: 과락 없이 70점 이상
 CAUTION_MIN = 40    # 주의: 40~65점 · 불통과: 35점 이하
@@ -45,18 +48,22 @@ def grade(questions, answers):
     return total, "불통과", fails
 
 
-def check_rules(questions, out, log):
-    """항목마다 0·5·10 이 하나씩인지 · 10점 자리가 섞였는지 · 모든 경우(3^N)의 등급 분포. 문제 수를 돌려준다."""
+def check_rules(questions, out, log, levels=LEVELS):
+    """항목마다 levels(기본 0·5·10) 가 하나씩인지 · 최고점 자리가 섞였는지 · 모든 경우(3^N)의 등급 분포. 문제 수를 돌려준다."""
+    step = levels[1] - levels[0]
     best = "".join(max(k, key=k.get) for *_, k in questions)
-    out("RULE", questions=len(questions), levels=LEVELS, max_total=len(questions) * max(LEVELS),
-        pass_min=PASS_MIN, caution=f"{CAUTION_MIN}~{PASS_MIN - 5}", fail=f"0~{CAUTION_MIN - 5}",
+    out("RULE", questions=len(questions), levels=levels, max_total=len(questions) * max(levels),
+        pass_min=PASS_MIN, caution=f"{CAUTION_MIN}~{PASS_MIN - step}", fail=f"0~{CAUTION_MIN - step}",
         cut_questions=[q for q, _, c, _ in questions if c], best_letter=best,
         zero_letter="".join(min(k, key=k.get) for *_, k in questions))
     problems = 0
+    if len(questions) * max(levels) != 100:
+        problems += 1
+        log.warning(f"max_total={len(questions) * max(levels)} problem=만점이 100 이 아니라 통과 {PASS_MIN}·주의 {CAUTION_MIN} 기준이 맞지 않음", extra={"stage": "RULE"})
     for q, name, _, key in questions:
-        if sorted(key.values()) != list(LEVELS):
+        if sorted(key.values()) != list(levels):
             problems += 1
-            log.warning(f"q={q} name={name} key={key} problem=점수 0·5·10 이 하나씩이 아님", extra={"stage": "RULE"})
+            log.warning(f"q={q} name={name} key={key} problem=점수 {levels} 가 하나씩이 아님", extra={"stage": "RULE"})
     spread = Counter(best)
     if max(spread.values()) > len(questions) // 2:  # 한 글자가 절반을 넘으면 '늘 B' 같은 찍기가 통함
         problems += 1

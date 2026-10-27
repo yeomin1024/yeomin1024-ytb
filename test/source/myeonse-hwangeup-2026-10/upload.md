@@ -1,11 +1,12 @@
 # myeonse-hwangeup-2026-10 업로드 시트
 
-버전: v1.0 — 2026-10-26 — 새로 만듦 (`guides/upload_guide.md` 8번 꼴 — `tools/youtube_upload.py` 가 읽음). 사용자 지시 2026-10-26 "영상 모두 일주일 후 자동 예약으로 업로드해".
+버전: v1.1 — 2026-10-27 — 공개 시각 2026-11-02 → **2026-11-03** (사용자 지시 2026-10-27 "다시 면세, 캐리어 투기 영상 자동 예약 일주일후에 공개되도록 업로드해" — 10-26·10-27 오전은 키 문제로 못 올림, 올리는 날 + 7일). 제목·설명란·태그·설정은 그대로.
+이전 v1.0 — 2026-10-26 — 새로 만듦 (`guides/upload_guide.md` 8번 꼴 — `tools/youtube_upload.py` 가 읽음). 사용자 지시 2026-10-26 "영상 모두 일주일 후 자동 예약으로 업로드해".
   - 제목은 사용자 제목 「일본 면세 방법 변경되면 골치 아파집니다. 가장 빠르게 면세 받는 방법」이 `title_fit.py` 에서 PC 다음 동영상(좁은 화면) 3줄로 잘려 → 썸네일 첫 줄 문구(사용자 지시 2026-10-25 "11월 일본 면세 변경되면 골치 아프다")에 해소 구절을 붙여 34자 (모든 화면 2줄 안).
   - 출처는 화면 대신 설명란에 — 확인표 `checklist.md` v6.3 의 공식 자료·보도에서 옮김.
 기준 파일: 대본 `myeonse-hwangeup-2026-10.txt` (86문장, 파트 5) · SRT (H17 오디오에 `align-audio` 로 맞춤, 6:41) · 올릴 영상 = `test/out/myeonse-hwangeup-2026-10/final_1080p.mp4` (클라우드 컨테이너에만 — git 에 없음, 새 컨테이너면 `node video/render/render.mjs video test myeonse-hwangeup-2026-10` 로 다시 만듦)
 
-> 업로드: `python tools/youtube_upload.py test myeonse-hwangeup-2026-10 --dry-run` → `--publish-at 2026-11-02T18:00:00+09:00` (비공개로 올리고 그 시각에 공개). 키의 채널 = 우물 밖 세상살이 (`test/youtube_channel.json`, 다르면 도구가 멈춤).
+> 업로드: `python tools/youtube_upload.py test myeonse-hwangeup-2026-10 --dry-run` → `--publish-at 2026-11-03T18:00:00+09:00` (비공개로 올리고 그 시각에 공개). 키의 채널 = 우물 밖 세상살이 (`test/youtube_channel.json`, 다르면 도구가 멈춤).
 > 정보 제공용 영상 — 내레이션은 AI 음성, 그림은 AI 로 만든 연출, A씨·B씨는 가상 사례.
 
 ## 1. 제목 (34자 — 모바일·PC 목록 2줄 안)
@@ -77,7 +78,7 @@ python tools/srt_tool.py upload test/source/myeonse-hwangeup-2026-10/myeonse-hwa
 
 | 항목 | 값 |
 |---|---|
-| 공개 상태 | 비공개로 올리고 **예약 공개** (`--publish-at`) — 사용자 지시 2026-10-26 '일주일 후' → 2026-11-02 18:00 (한국) |
+| 공개 상태 | 비공개로 올리고 **예약 공개** (`--publish-at`) — 사용자 지시 2026-10-27 '일주일후' → 2026-11-03 18:00 (한국) |
 | 썸네일 | `thumbnails/thumbnail_1.jpg` (그림 ChatGPT `images/THUMB-L-ART.jpg` + 문구·말풍선 코드 `thumb.mjs` — `thumbnail_1.md` v4.0, 1280×720, 259KB) |
 | 자막 올리기 | 예 (한국어 SRT — 화면에 구운 자막과 같은 글, 검색·자동 번역용) |
 | 기본 언어 | ko |
@@ -90,7 +91,7 @@ python tools/srt_tool.py upload test/source/myeonse-hwangeup-2026-10/myeonse-hwa
 
 - 설명란의 숫자는 대본에 있는 것만 썼다 (11월 1일·2시간 넘게·2분 정도·일곱 개 공항).
 - 제목 34자 `title_fit.py` 모든 화면 2줄 안 ✅ · 챕터 9개 규칙 통과 ✅ · `< >` 없음.
-- ⚠️ 공개(11/2)가 제도 시행(11/1) 뒤 — 제목 '변경되면'은 그대로 둠 (사용자 썸네일 문구와 같은 말). 대본은 '11월 1일부터 … 받아야' 로 시행 뒤에도 맞음.
+- ⚠️ 공개(11/3)가 제도 시행(11/1) 뒤 — 제목 '변경되면'은 그대로 둠 (사용자 썸네일 문구와 같은 말). 대본은 '11월 1일부터 … 받아야' 로 시행 뒤에도 맞음.
 
 ## 8. 결과 (업로드 후)
 - 영상 ID·예약 공개 시각: `youtube.json` (업로드 도구가 씀)

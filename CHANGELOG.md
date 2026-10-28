@@ -1,5 +1,20 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-28 — 시청자 페르소나를 주식만으로 줄임
+
+### 왜 (사용자 지시)
+- "아니 주식 쪽만 하면돼" — 바로 앞 커밋(4e5f0838)이 재테크·역사·음악까지 만들었음.
+
+### 바꾼 것
+| 파일 (버전) | 내용 |
+|---|---|
+| `economic/`·`history/`·`music/` `personas.toml` · `result/outliers/personas.md`·`.json` | 지움 |
+| `economic/guides/quick_script.md` · `economic/guides/viewer_review.md` · `guides/topic_guide.md` · `guides/script_guide.md` | 페르소나 전 판으로 되돌림 (4e5f0838~1) |
+| `tools/personas.py` (v1.0.1) · `tools/persona_review.py` (v1.0.1) | 설정 없는 주제 = '만들지 않음' INFO 로그 (예전 WARNING) · 문서·검사의 '쓰는 곳'을 `stock/guides/quick_test.md` 로 |
+| `tools/weekly_analysis.py` (v1.5.1) | 머리 설명만 (설정이 있는 주제만 = 지금 주식) |
+| `stock/guides/quick_test.md` (v1.4.1) · `guides/pc_analysis.md` (v3.20) · `CLAUDE.md` | 페르소나 = 주식만 · 새 편 주제도 personas.md 에서 · CLAUDE.md 줄을 주식 절로 옮김 |
+| `stock/result/outliers/personas.md`·`.json` | 다시 만듦 (3명 그대로: 3040 직장인 39% · 은퇴 자금 6070 25% · 노후 준비 50대 22%) |
+
 ## 2026-10-28 — 시청자 페르소나: 분석 대상 최근 영상의 댓글에서 (분석마다 자동) + 대본 페르소나 검사
 
 ### 왜 (사용자 지시)

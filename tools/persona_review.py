@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-10-28 — 새로: 대본을 시청자 페르소나(tools/personas.py 결과)로 검사 (사용자 지시 2026-10-28 "페르소나 기반으로 주제 탐색 및
+# VERSION: v1.0.1 — 2026-10-28 — 주식만 (사용자 지시 "아니 주식 쪽만 하면돼") — 고칠 때 안내를 stock/guides/quick_test.md 로. 검사 그대로.
+# (v1.0 — 2026-10-28 — 새로: 대본을 시청자 페르소나(tools/personas.py 결과)로 검사 (사용자 지시 2026-10-28 "페르소나 기반으로 주제 탐색 및
 #          요약본, 최종 대본 피드백에 사용"). 페르소나마다 ① 원하는 것(질문 속 용어·낱말)을 대본이 다루는지 ② 그 페르소나가 모르는 말·고급 용어가
 #          풀이 없이 처음 나오는지(문장 번호) ③ 한 문장에 고급 용어 2개 이상(초급·기초 페르소나) ④ 불만 갈래(길다·반복·광고·겁주기)에 걸리는 곳.
 #          결과: 대본 폴더의 persona_review.md (사람·AI 가 읽고 요약본·대본을 고침). 숫자·법이 맞는지는 보지 않는다 (script_guide 3번이 따로).
-#          ※ 연구·교육용 — 투자 권유가 아님.
+#          ※ 연구·교육용 — 투자 권유가 아님.)
 """대본 × 시청자 페르소나 검사
 
   python3 tools/persona_review.py economic economic/source/isa-mangi-2026-10/isa-mangi-2026-10.txt
@@ -24,7 +25,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import personas as pz                  # noqa: E402  load_cfg (용어 사전) · kw_tokens
 
-VERSION = "v1.0"
+VERSION = "v1.0.1"
 ROOT = Path(__file__).resolve().parent.parent
 LOG = logging.getLogger("preview")
 SENT_MAX = 50                          # srt_tool SENT_MAX 와 같음 (50자 넘으면 나눔)
@@ -175,8 +176,8 @@ def render(R):
     L.append(f"- **겁주기 말** — {len(R['scares'])}문장" + (": " + " · ".join(f"문장 {i} \"{short(s, 30)}\"" for i, s in R["scares"][:8]) if R["scares"] else ""))
     L += ["", "## 3. 고칠 때", "",
           "- 풀이 없이 나온 말: 처음 나오는 문장이나 바로 다음 문장에 '쉽게 말해 …'·'…란 …입니다' 한 마디 (이미 아는 페르소나에게 길지 않게).",
-          "- 원하는 것 안 다룸: 요약본 [페르소나] 칸에 이 영상이 답하는 것만 적고, 다루지 않는 것은 다음 주제 후보로 (`guides/topic_guide.md`).",
-          "- 길다·반복: `guides/script_guide.md` 피드백 19(짧게). 반복은 결론 되짚기면 그대로 둔다 (마무리 요약은 반복이 아님).", ""]
+          "- 원하는 것 안 다룸: 요약본 [페르소나] 칸에 이 영상이 답하는 것만 적고, 다루지 않는 것은 다음 편 후보로 (`stock/guides/quick_test.md` 0번).",
+          "- 길다·반복: 한 문장 50자 이하 (`stock/guides/quick_test.md` 7번). 반복은 결론 되짚기면 그대로 둔다 (마무리 요약은 반복이 아님).", ""]
     return "\n".join(L)
 
 

@@ -1,7 +1,6 @@
 # 재테크 영상 A 단계 — 대본 (요약 지시사항)
 
-버전: v1.2 — 2026-10-28 — 1번에 **대상 페르소나**(`economic/result/outliers/personas.md` — 분석마다 자동) · 6번에 최종 대본 페르소나 검사 `tools/persona_review.py` (사용자 지시 2026-10-28 "페르소나 기반으로 주제 탐색 및 요약본, 최종 대본 피드백에 사용").
-이전 v1.1 — 2026-10-19 — **5-1 사연형 구성** 더함 (사용자 지시 "기사 내용은 그냥 참고이고 현재 기준에 맞게 각색하면 돼 그리고 진행 형식은 도입(25초 이내) -> 챕터1 -> 챕터2 -> ... -> 결론 및 마무리(아주 짧게 어차피 영상 화면으로 정리하면 됨) 이런식으로 하고 각각 넘어갈 때는 자연스럽게 궁금증을 유발하도록 해야해"). 본보기 `economic/source/gungmin-sigi-2026-10/` v2.0. 원본 `guides/script_guide.md` 에는 아직 없음 — 재테크 사연형 전용.
+버전: v1.1 — 2026-10-19 — **5-1 사연형 구성** 더함 (사용자 지시 "기사 내용은 그냥 참고이고 현재 기준에 맞게 각색하면 돼 그리고 진행 형식은 도입(25초 이내) -> 챕터1 -> 챕터2 -> ... -> 결론 및 마무리(아주 짧게 어차피 영상 화면으로 정리하면 됨) 이런식으로 하고 각각 넘어갈 때는 자연스럽게 궁금증을 유발하도록 해야해"). 본보기 `economic/source/gungmin-sigi-2026-10/` v2.0. 원본 `guides/script_guide.md` 에는 아직 없음 — 재테크 사연형 전용.
 이전 v1.0 — 2026-10-18 — 새로 만듦. 새 세션이 긴 지시사항과 다른 영상 폴더를 읽지 않고 대본 단계를 끝내게 한 요약.
 
 이 파일은 아래 원본 지시사항의 요약이다. 원본이 바뀌면 이 파일도 고친다 (원본이 우선).
@@ -25,7 +24,6 @@
    python3 tools/content_research.py needs economic      # 질문 묶음
    ```
    + `economic/result/outliers/analysis.md` 0번 한계 → 3-1(수요/공급)·3-2(검색어)·3-3(자동완성 틈)·2·2-2(성공 비율)·1-2(같은 채널 — 먼저 믿음)·8-1(요청). 표본 15개 미만 = '표본 적음', 규칙으로 안 씀. 후보 5개 표(열: 주제 · 원하는 정보 · 시장 · 결론 후보 · 오래가는 원칙 · 사실 확인 길 · 겹침 · 판단)를 `topic_candidates.md` 에 (날짜·분석 시각·고르지 않은 이유).
-2-1. **대상 페르소나** (2026-10-28): `economic/result/outliers/personas.md` 0번 표에서 P 번호 하나를 고르고 README 1번 맨 위 **[페르소나]** 칸에 적는다 — 'P1 은퇴해 연금 받는 6070 · 지식 기초 · 원하는 것 중 이 영상이 답하는 것: 기초연금·국민연금 · 피할 불만: 광고·낚시·틀림'. 예시 인물 나이·처지는 그 페르소나의 연령·처한 상황에서. (분석이 끝날 때 자동으로 다시 만들어짐 — 손으로 고치지 않음)
 3. 결론 정리 (README 1번): 결론 한 줄 · 증명할 계산 예시(누가 두 방법으로 하면 얼마 차이) · **오래가는 원칙 2~3개**(대본의 중심) · **바뀔 수 있는 것**(금액·비율·운영 → 대본에서 한 번만).
 4. 영상ID = 영문 소문자·하이픈 `<로마자>-<연>-<월>` (예: `gungmin-sigi-2026-10`), 폴더 `economic/source/<영상ID>/`.
 
@@ -116,7 +114,6 @@ python3 tools/law_text.py "국민건강보험법 시행규칙" --source mirror -
 python3 tools/content_research.py measure economic/source/<ID>/<ID>.txt
 python3 tools/srt_tool.py build economic/source/<ID>/<ID>.txt economic/source/<ID>/<ID>.srt
 python3 tools/srt_tool.py check economic/source/<ID>/<ID>.txt economic/source/<ID>/<ID>.srt
-python3 tools/persona_review.py economic economic/source/<ID>/<ID>.txt      # 페르소나 검사 → persona_review.md
 ```
 | 항목 | 목표 |
 |---|---|
@@ -125,7 +122,6 @@ python3 tools/persona_review.py economic economic/source/<ID>/<ID>.txt      # �
 | 말투 | 합니다체 50~65% · 해요체 20~40% · 질문 3~8% |
 | 시점 | 결론 40초 안 · '끝까지' 50초 안 |
 | 장치 | 대상 부르기·숫자 시작·질문·결론 먼저·확인 질문·예상 반론·비유·'한마디로'·끝까지 — 내용에 맞으면 |
-| 페르소나 검사 | [페르소나] P 번호 줄의 '풀이 없이 처음 나온 말' 0 (그 문장이나 다음 문장에 '쉽게 말해 …') · '원하는 것 — 다룸'에 README [페르소나] 칸의 것이 다 있음 |
 | 댓글 불만 대비 | 틀림 → 정확한 기준 이름·금액 · 길다·반복 → 같은 말 두 번 안 함 · AI 목소리 → 말하듯 · 칭찬 많은 '숫자·계산' → 구체 계산 |
 - check 가 **'✅ 이상 없음'**이어야 한다 (문장 수 = 자막 수, SRT–TXT 일치). 고친 뒤 다시 만들 때 `build … --reuse <옛.srt>`. 근거 숫자가 필요하면 `data_insights.md` 3번만.
 

@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-10-28 — 새로: 시청자 페르소나를 분석 대상 최근 영상의 댓글에서 만든다 (사용자 지시 2026-10-28
+# VERSION: v1.0.1 — 2026-10-28 — **주식만** (사용자 지시 2026-10-28 "아니 주식 쪽만 하면돼"): 설정 stock/personas.toml 만 둠 — 다른 주제는
+#          personas.toml 이 없어 분석 끝의 고리가 '만들지 않음'(INFO)만 남김 (예전 WARNING). 문서 3번 '쓰는 곳' = stock/guides/quick_test.md.
+#          그 밖 (언어 나누기·엄격 나이 같은 다른 주제용 설정 칸) 그대로 — 설정만 없으면 쓰이지 않음.
+# (v1.0 — 2026-10-28 — 새로: 시청자 페르소나를 분석 대상 최근 영상의 댓글에서 만든다 (사용자 지시 2026-10-28
 #          "시청자 페르소나 파일 생성하도록 해 — 분석 대상 최근 영상 유튜브 댓글을 보고 시청자 유형 파악, 많이 겹치는 유형 탐색해서 생성,
 #          몇명 생성하여 적절한지 정해야함, 댓글 분석 결과가 곧 페르소나 … 연령, 처한 상황, 지식 수준, 기존 알고 있는 내용, 원하는 내용 등 …
 #          페르소나 기반으로 주제 탐색 및 요약본, 최종 대본 피드백에 사용 … 분석 결과에 따라 업데이트도 돼야함").
@@ -15,7 +18,7 @@
 #          첫 실행 감사(무작위 댓글을 Claude 가 읽음)로 고친 것: 나이는 끝말(입니다·인데…)·앞말(저는·저희 부부는…)이 있을 때만 + 나이 앞에 남을 가리키는
 #          말(아들이·사람이·평균)이 있으면 뺌 (재테크 27/40 → 36/40) · 엄격 모드 AGE_STRICT (역사 — 역사 인물 나이 6/12 → 약 15/20) · 처지는 단서 근처
 #          (앞 40자·뒤 25자)에 자기 말이 있을 때만 · '모르는 말' = 그 말 바로 뒤에 '뭔가요·무슨 뜻' · 강의 미끼 댓글(단톡방·자료 부탁)은 '원하는 것'에서 뺌
-#          · 언어마다 따로 SPLIT_LANG (음악) · '모든 댓글 (참고)' 칸 (칭찬·불만 갈래는 여기서 숫자가 큼) · 용어 사전을 정규식 하나로 (속도).
+#          · 언어마다 따로 SPLIT_LANG (음악) · '모든 댓글 (참고)' 칸 (칭찬·불만 갈래는 여기서 숫자가 큼) · 용어 사전을 정규식 하나로 (속도).)
 """시청자 페르소나 — 분석 대상 최근 영상의 댓글에서
 
   python3 tools/personas.py stock                 # <주제>/result/outliers/personas.md · personas.json
@@ -44,7 +47,7 @@ try:
 except ModuleNotFoundError:           # Python 3.10
     import tomli as tomllib
 
-VERSION = "v1.0"
+VERSION = "v1.0.1"
 ROOT = Path(__file__).resolve().parent.parent
 LOG = logging.getLogger("persona")
 SEED = 20261028
@@ -453,7 +456,7 @@ def build(topic, now=None, root=None, write=True):
         now = now.replace(tzinfo=timezone.utc)
     cfg, cp = load_cfg(topic, root)
     if cfg is None:
-        log("START", logging.WARNING, topic=topic, note="personas.toml 없음 — 페르소나를 만들지 않음", next=f"{topic}/personas.toml 을 만듦")
+        log("START", topic=topic, note="personas.toml 없음 — 이 주제는 페르소나를 만들지 않음 (2026-10-28 사용자 지시: 주식만)")
         return None
     log("START", topic=topic, tool=f"personas.py {VERSION}", config=str(cp.relative_to(Path(root or ROOT))), config_version=cfg["version"],
         recent_days=cfg["RECENT_DAYS"], langs=",".join(cfg["LANGS"]), title_filter=bool(cfg.get("VIDEO_TITLE_RX")))
@@ -666,7 +669,7 @@ def render_md(D):
     O = D["overall"].get("by_lang") or {"": D["overall"]}
     shared = [t for o in O.values() for t in o["shared_wants"][:8]]
     L += ["## 3. 이 문서를 쓰는 곳 (주제 탐색 · 요약본 · 최종 대본 피드백)", "",
-          "- **주제 탐색** (`guides/topic_guide.md`): 후보마다 '대상 페르소나 + 그 페르소나의 원하는 것(위 질문 용어·낱말·좋아요 많은 질문)'을 적는다. "
+          "- **주제 탐색** (`stock/guides/quick_test.md` 0번 — 새 편을 고를 때): 후보마다 '대상 페르소나 + 그 페르소나의 원하는 것(위 질문 용어·낱말·좋아요 많은 질문)'을 적는다. "
           "두 페르소나 이상이 함께 묻는 것 = 넓은 주제" + (f": **{', '.join(shared[:10])}**" if shared else "") + ".",
           "- **요약본**: 맨 위 [페르소나] 칸 — 대상 P 번호 · 그가 원하는 것 중 이 영상이 답하는 것 · 지식 수준에 맞출 것(잘 모르는 말은 풀어 말함) · 불만(길다·광고 등)을 피할 것.",
           f"- **최종 대본 피드백**: `python3 tools/persona_review.py {D['topic']} <대본.txt>` → 페르소나마다 원하는 것을 다뤘는지 · 잘 모르는 말이 설명 없이 나오는지 · 불만 갈래에 걸리는지 → 요약본·대본을 고친다."]

@@ -1,6 +1,8 @@
 # 주식 주제 폴더 (`stock/`) — 새로 시작 (2026-10-15)
 
-VERSION: v1.28 — 2026-10-27 — **심리 테스트 편 롱폼 v1.8 오디오로 렌더 + 배치 표** (사용자 지시 "영상 만들어서 보여줘 그리고 영상에서 모든 오브젝트별로 배치 위치를 딱 정해서 자꾸 뭔가 어긋나잖아"): 장면 코드 v1.3 — 모든 물건을 배치 표 칸에 (제작안 v1.7 [배치 표]) · 배치 점검 `video/scripts/layout-check.mjs` 문제 0 · 새 오디오 표시 18 → 7.
+VERSION: v1.29 — 2026-10-28 — **분석 대상 세 묶음 고침** (사용자 지시 "1은 그렇게하고 최근에 조회수가 높을수록 더 많이 반영되도록 해야해 3은 할당량 남으면 진행하도록 해 나머지는 너가 추천하는 방향으로 하고"): 성공 = 구독자당 하루 조회수 ≥ 0.1 + 점수 가중 · 쇼츠 ② · ③ 기간 없는 검색(할당량 남을 때만) + 조회수 상위 묶음 · `explore --alltime-only` — `analysis_rules.toml` v1.5 · `guides/pc_analysis.md` v3.18.
+
+(v1.28 — 2026-10-27 — **심리 테스트 편 롱폼 v1.8 오디오로 렌더 + 배치 표** (사용자 지시 "영상 만들어서 보여줘 그리고 영상에서 모든 오브젝트별로 배치 위치를 딱 정해서 자꾸 뭔가 어긋나잖아"): 장면 코드 v1.3 — 모든 물건을 배치 표 칸에 (제작안 v1.7 [배치 표]) · 배치 점검 `video/scripts/layout-check.mjs` 문제 0 · 새 오디오 표시 18 → 7.)
 
 (v1.27 — 2026-10-27 — **심리 테스트 편 롱폼 대본 v1.8 — TTS 가 익숙하게 읽는 글** (사용자 지시 "그럼 대본을 음성 이상하지 않게 ai 모델이 익숙한 문장으로 변경해봐 롱폼만"): 보기 'A번, …합니다.' · 점수 'A번은' 등 47문장 글 모양만 (v1.7 오디오 보고 표시 18개 중 13개가 'A,·B,·C, + 해라체' 보기) · 사전 v1.4 · 장면 코드 v1.2 · Kaggle 롱폼 오디오 다시 필요.)
 
@@ -91,6 +93,7 @@ VERSION: v1.28 — 2026-10-27 — **심리 테스트 편 롱폼 v1.8 오디오�
 ```bash
 python3 tools/cloud_run.py stock status                 # 할당량·탐색 목록·승인 수·남은 것
 python3 tools/cloud_run.py stock explore --weeks 26     # [탐색] (PC 결과와 같은 26주)
+python3 tools/cloud_run.py stock explore --alltime-only [--shorts]   # v1.6: 남은 '기간 없는 검색'(③)만 — 할당량 2,000단위 넘게 남을 때만, 일반 검색은 캐시 그대로
 python3 tools/cloud_run.py stock list --checked         # 체크(추천)한 영상 — 이미 분석에 쓴 영상은 숨김
 python3 tools/cloud_run.py stock check ID … / uncheck ID …
 python3 tools/cloud_run.py stock approve                # [승인] 체크한 영상

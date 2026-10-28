@@ -1,0 +1,71 @@
+{
+ "id": "z0zXc4SzB78",
+ "title": "【プロの予想】日経平均・S&P500の今後10年間、どうなる…？",
+ "channel": "【投資家】ぽんちよ",
+ "channel_id": "UCgE9lrN1n1dVKoFKSlgortg",
+ "subs": 516000,
+ "views": 503966,
+ "ratio": 0.98,
+ "age_days": 45,
+ "views_per_day": 10980.4,
+ "minutes": 15.8,
+ "likes": 1053,
+ "comments": 24,
+ "published": "2026-09-12",
+ "queries": "검색:S&P500",
+ "url": "https://www.youtube.com/watch?v=z0zXc4SzB78",
+ "flag": "외국 영상",
+ "published_at": "2026-09-12T10:00:25Z",
+ "rank": "W2",
+ "set": "web",
+ "folder": "W_z0zXc4SzB78",
+ "sources": [
+  "검색:S&P500"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "S&P500・日経平均の今後10年間、どうなる？"
+  },
+  {
+   "start": 71,
+   "title": "本動画の目次"
+  },
+  {
+   "start": 91,
+   "title": "S&P500・日経平均のいままでの振り返り"
+  },
+  {
+   "start": 157,
+   "title": "日本株と米国株の過去10年間は？"
+  },
+  {
+   "start": 279,
+   "title": "米国株・S&P500は今後どうなる？"
+  },
+  {
+   "start": 473,
+   "title": "日本株・日経平均はどうなる？"
+  },
+  {
+   "start": 627,
+   "title": "NISAの資産額はいくらになる？"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-28 13:41까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ja",
+ "foreign": true,
+ "comments_fetched": 24,
+ "comments_top_level": 23,
+ "comments_replies": 1,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 24,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-10-28T07:41:20",
+ "approved": "2026-10-28T16:41+09:00"
+}

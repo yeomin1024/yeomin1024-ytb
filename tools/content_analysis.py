@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-10-28 — 최초. 사용자 지시 "아래처럼 분석하고 있는지 확인하고 아니면 반영해 그리고 내가 확인할 수 있는 엑셀 생성해 —
+# VERSION: v1.0.1 — 2026-10-28 — 썸네일을 지금 묶음 기준으로 (다른 세션이 성공 기준을 고쳐 158 → 114개 — 통계는 지금 성공 사례만, 영상별 시트에 묶음·지금 번호·분류 때 번호).
+# (v1.0 — 2026-10-28 — 최초.) 사용자 지시 "아래처럼 분석하고 있는지 확인하고 아니면 반영해 그리고 내가 확인할 수 있는 엑셀 생성해 —
 #          제목: 문구 유형, 사용 단어 · 썸네일: 이미지, 주요 문구, 보조 문구 유형 · 대본 내용: 제목과 도입부 연결, 전개 방식, 말투, 정보를 알려주는 방식,
 #          흥미 유발 · 댓글: 내용별 유형, 공감 많은 댓글, 어떤 부분이 좋았는지, 아쉬운 피드백".
 #          승인한 영상 폴더(W_·01_·P01_)를 영상마다 네 갈래로 나눠 엑셀 한 권에 — 성공 사례·하루 조회수 상위·그 밖 승인 영상을 칸으로 견줌.
@@ -8,6 +9,7 @@
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.0.1 | 2026-10-28 | 썸네일 통계 = 지금 성공 사례만 · 묶음·지금 번호 칸 | thumb_rows · thumb_stats |
 # | v1.0 | 2026-10-28 | 최초 | load · title_types · thumb_rows · script_rows · comment_rows · write_xlsx · write_md |
 #
 # 실행: python3 tools/content_analysis.py stock            → stock/result/outliers/content_analysis.xlsx · content_analysis.md
@@ -32,7 +34,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
 import comment_types as ct  # noqa: E402
 
-VERSION = "v1.0"
+VERSION = "v1.0.1"
 log = logging.getLogger("content_analysis")
 
 
@@ -294,16 +296,17 @@ def thumb_rows(vids, codes):
         main, sub, title = c["main_text"], c["sub_text"], v["meta"].get("title") or ""
         mw, tw = set(words(main)), set(words(title))
         br, red, yel = color_stats(v["dir"] / "thumbnail.jpg")
-        rows.append({"성공 사례 번호": int(c["no"]), "영상 ID": vid, "제목": title, "이미지 유형": c["image"], "인물 표정": c["face"], "차트·그래프": "있음" if c["chart"] == "1" else "",
+        rows.append({"묶음": v["grp"], "성공 사례 번호(지금)": v["no"], "분류 때 번호": int(c["no"]), "영상 ID": vid, "제목": title, "이미지 유형": c["image"], "인물 표정": c["face"], "차트·그래프": "있음" if c["chart"] == "1" else "",
                      "주요 문구": main, "주요 문구 유형": " · ".join(title_types(main)) or "(없음)", "주요 문구 글자 수": len(main),
                      "보조 문구": sub, "보조 문구 유형": " · ".join(n for n, rx in SUB_RX if rx.search(sub)) or ("(없음)" if not sub else "그 밖"),
                      "제목과 같은 낱말 몫 %": share(len(mw & tw), len(mw)) if mw else None,
                      "밝기(0~255)": br, "빨강 몫 %": red, "노랑 몫 %": yel, "배수": v["meta"].get("ratio")})
-    rows.sort(key=lambda r: r["성공 사례 번호"])
+    rows.sort(key=lambda r: (r["성공 사례 번호(지금)"] is None, r["성공 사례 번호(지금)"] or 0, r["분류 때 번호"]))
     return rows
 
 
 def thumb_stats(trs):
+    trs = [r for r in trs if r["묶음"] == "성공 사례"]  # 통계는 지금 성공 사례만 (분류는 됐지만 기준이 바뀌어 빠진 영상은 영상별 시트에만)
     n = len(trs)
     rows = []
     for col in ("이미지 유형", "인물 표정"):
@@ -477,7 +480,7 @@ GUIDE = [
     ("제목", "문구 유형(13가지 낱말 규칙 — 한 제목에 여러 개) · 사용 낱말(조사를 거칠게 뗌)", "제목_영상별 · 제목_유형통계 · 제목_낱말",
      "한국어 제목만 통계 · 묶음 비교는 '승인한 영상 안'의 비교 (공식 비교 집단은 analysis.md 4번·1-2번)"),
     ("썸네일", "이미지 유형·인물 표정·차트 · 주요 문구(가장 큰 글자)·보조 문구(작은 글자·꼬리표·말풍선)와 그 유형 · 제목과 같은 낱말 몫 · 밝기·빨강·노랑 몫",
-     "썸네일_영상별 · 썸네일_통계", "성공 사례 158장만 (Claude 가 그림을 보고 분류 — thumb_codes.tsv) · 색 몫은 줄인 그림으로 센 대강의 값"),
+     "썸네일_영상별 · 썸네일_통계", "Claude 가 그림을 보고 분류한 영상만 (thumb_codes.tsv — 2026-10-28 성공 사례 167장) · 통계는 지금 성공 사례만 · 색 몫은 줄인 그림으로 센 대강의 값"),
     ("대본", "제목 낱말이 첫 60초에 나오는 몫(연결) · 첫 문장 유형 · 말투(끝맺음) · 정보 방식(숫자·비교·예시·근거) · 흥미 장치(질문·예고)가 4구간에 고루 있는지 · 챕터",
      "대본_영상별 · 대본_통계", "대본이 있는 영상만 (자막·음성인식 — 대부분 없음, 보류 중) · 자동 자막은 문장 부호가 없어 끝맺음·질문 수는 대강"),
     ("댓글", "모든 시청자 댓글에 유형 하나(comment_types 규칙 v1) · 공감(좋아요) 상위 · 좋았던 부분(칭찬·정보 댓글 중 영상의 무엇을 짚었나 — 12갈래) · 아쉬운 부분·요청(비판·요청 중 영상의 부분을 짚은 것만) · 시간 표시(몇 분을 짚었나)",
@@ -548,7 +551,7 @@ def write_md(path, meta, tstat, base, lens, thstat, sstat, cstat):
         "## 1. 제목 (한국어)",
         f"- 제목 수: 성공 사례 {base['성공 사례']} · 하루 조회수 상위 {base['하루 조회수 상위']} · 그 밖 {base['그 밖 승인 영상']} · 글자 수 중앙값 {lens['성공 사례']} · {lens['하루 조회수 상위']} · {lens['그 밖 승인 영상']}",
         f"- 성공 사례에 더 많은 문구 유형: {top(tstat)}", "",
-        "## 2. 썸네일 (성공 사례 158장)",
+        f"## 2. 썸네일 (지금 성공 사례 중 분류된 {sum(1 for r in thstat if r['항목'] == '이미지 유형') and next((r['수'] for r in thstat if r['값'] == '글자 수 중앙값'), '')}장)",
         "- 이미지: " + " · ".join(f"{r['값']} {r['몫 %']}%" for r in img) + " · 표정: " + " · ".join(f"{r['값']} {r['몫 %']}%" for r in face),
         f"- 주요 문구와 제목의 같은 낱말 몫 중앙값 {ov.get('몫 %')}%", "",
         "## 3. 대본 (한국어 대본이 있는 영상만)",
@@ -577,7 +580,8 @@ def main(argv=None):
     out("TITLE", titles=len(trows), types=len(TITLE_TYPES), words_kept=len(wstat), top_type=tstat[0]["문구 유형"] if tstat else "-")
     thr = thumb_rows(vids, codes)
     thstat = thumb_stats(thr) if thr else []
-    out("THUMB", coded=len(thr), missing_codes=sum(1 for v in vids if v["no"] and v["meta"].get("id") not in codes))
+    out("THUMB", coded=len(thr), coded_success_now=sum(1 for r in thr if r["묶음"] == "성공 사례"),
+        missing_codes=sum(1 for v in vids if v["no"] and v["meta"].get("id") not in codes))
     srows = script_rows(vids)
     sstat = script_stats(srows)
     out("SCRIPT", transcripts=len(srows), korean=sum(1 for r in srows if str(r["대본 언어"]).startswith("ko")))

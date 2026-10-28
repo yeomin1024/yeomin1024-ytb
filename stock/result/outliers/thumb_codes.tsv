@@ -1,4 +1,4 @@
-# 성공 사례 썸네일 158장 — Claude 가 analysis_thumbs_01~08.jpg 를 보고 분류 (2026-10-28). 주요 문구 = 가장 큰 글자, 보조 문구 = 작은 글자·꼬리표·말풍선. 작아 안 읽힌 글은 '(작은 글)'.
+# 썸네일 분류 — Claude 가 그림을 보고 분류 (2026-10-28): 처음 158장 = 그날 아침 성공 사례(analysis_thumbs_01~08.jpg) · 끝 9장 = 다른 세션이 성공 기준을 고친 뒤 새로 성공 사례가 된 영상. no = 분류한 때의 성공 사례 번호 (지금 번호는 analysis.json). 주요 문구 = 가장 큰 글자, 보조 문구 = 작은 글자·꼬리표·말풍선. 작아 안 읽힌 글은 '(작은 글)'.
 no	id	image	face	chart	main_text	sub_text
 1	kJx_AzV9w9c	실사 인물	설명·무표정	0	거제야호는 얼마를 만들었을까?	
 2	fdlfOCtDBqc	실사 인물	좌절·걱정	0	개미투자자 99%가 주식으로 돈을 잃는 이유	"원금만 돌려줘.."
@@ -158,3 +158,12 @@ no	id	image	face	chart	main_text	sub_text
 156	LgszhYR0rFQ	그림 인물	웃음·자신	1	THE ETF NOBODY OWNS	BEATS SCHD & DGRO
 157	2G0epuL2UbI	글자만	없음	0	원금 잠식 우려 없는 최고의 커버드콜 ETF	제가 직접 다 계산해봤습니다 · 불꽃 그림
 158	kok2jmce5gw	그림 장면	없음	1	TOP 10 MONTHLY ETF FUNDS	For Income and NO NAV EROSION! · PROTECT YOUR WEALTH
+16	vzGrlaAl0e4	실사 인물	설명·무표정	0	외국인 다시 돌아오고 있다 "코스피 급락 원인 수급공백 끝!"	SAMSUNG · SK hynix · BUYBACK · 출연자 이름표 · YTN FM 94.5
+19	V5gTH3N_kL0	그림 인물	좌절·걱정	0	TIME TO SELL?	SCHD 수표 · SELL 버튼
+28	7di-34Ot12o	실사 인물	설명·무표정	0	왜 한국만 두 배 빠지나? 전 국민 계좌 700조 증발	날아간 계좌 700조 · 외국인 232조 매도·7월 뒤 -30% · 긴급 진단 · "전 세계 꼴등입니다"
+40	peJD7gf8MVw	실사 인물	설명·무표정	0	삼성·하이닉스 이대로 끝인가?… 실적↑인데 주가↓인 이유 3가지	주가 하방을 막아주던 자사주 매입 끝 도래! · Now 뉴스 · 말풍선 여러 개
+60	Sc1XIJGftj8	실사 인물	웃음·자신	1	BUYING WINDOW OPEN	
+66	bMR3jvlYDgo	실사 인물	놀람	0	다음 10년 진짜 대장주 '스페이스X' 죽어라 모아라	"부자될 마지막 기회" · 정의훈 선임연구원 이름표 · 투자360
+87	hasms3By6pA	실사 인물	웃음·자신	1	SCHD LEVELS	34 · 100 · 500 · 1000 · 2499 (막대)
+91	-5NhPWk2zF0	실사 인물	좌절·걱정	0	개미 99%는 무조건 망합니다	"전문가들의 거짓말"
+92	6Xg8Bk1nkto	그림 캐릭터	웃음·자신	1	SCHD 매달 50만원 20년 세후 월 배당 얼마	

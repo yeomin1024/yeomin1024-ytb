@@ -1,6 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v2.6.1 — 2026-10-21 — Api.channels(): 채널 나라(snippet.country — 채널이 적어 둔 것만, 없으면 None)도 channel_meta 에 → channels.json "country".
+# VERSION: v2.7 — 2026-10-28 — 사용자 지시 2026-10-28 "1은 그렇게하고 최근에 조회수가 높을수록 더 많이 반영되도록 해야해 3은 할당량 남으면
+#          진행하도록 해 나머지는 너가 추천하는 방향으로 하고" (target_check.py 확인 결과 ①~④에 대한 답):
+#          · views_per_day(): 하루 조회수 = 받은 때 조회수 ÷ 올린 날부터 **받은 때**까지 날수 (최소 1일) — 예전엔 ÷ 오늘까지 날수라 자료를 받은 지
+#            오래될수록 최근 영상이 낮게 셈 (2026-10-28 주식: 30일 안 영상 중앙값 ×0.47). build_rows(탐색 목록)·분석·웹 화면 쇼츠 목록이 같이 씀.
+#          · success_metric()·success_core(): 성공 판정 한 곳 — 규칙에 MIN_VPD_SUBS(>0)가 있으면 '구독자당 하루 조회수'(하루 조회수 ÷ 구독자) ≥ 그 값,
+#            없으면 예전대로 배수(조회수 ÷ 구독자) ≥ MIN_RATIO. MIN_AGE_DAYS(올린 지 며칠 뒤부터 — 첫 며칠 하루 조회수가 부풀어) 도.
+#          · cached_search(): fallback_days=0 = 기간 없는 검색 (publishedAfter 없이 — '기간 상관없는 조회수 상위' 과거 사례, 캐시 열쇠도 따로).
+# (v2.6.1 — 2026-10-21 — Api.channels(): 채널 나라(snippet.country — 채널이 적어 둔 것만, 없으면 None)도 channel_meta 에 → channels.json "country".
 #          같은 요청·같은 1단위 (예전엔 받고 버림). 제목·썸네일 문구 vs 댓글 비교를 나라(한국·미국)별로 하려고 (사용자 지시 2026-10-21 "… 국가별(한국,
 #          미국)로와 최신 주별(1주전~4주전)별로 알려줘봐"). 다른 동작 그대로
 # (v2.6 — 2026-10-21 — top_pct_threshold(): '하루 조회수 상위 N%' 경계값 (사용자 지시 2026-10-21 "주제 탐색 시 구독자, 날짜 상관 없이
@@ -193,7 +200,7 @@ except ModuleNotFoundError:             # Python 3.10 → tomli (분석기가 �
     import tomli as tomllib
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v2.6.1"
+VERSION = "v2.7"
 LOG = logging.getLogger("outlier")
 HANGUL = re.compile(r"[가-힣]")
 SEARCH_TTL_HOURS = 168
@@ -209,6 +216,8 @@ HASHTAG_RX = re.compile(r"#([0-9A-Za-z가-힣_]+)")
 VIDEO_TTL_HOURS = 24          # 영상 조회수: 하루 지나면 다시 (videos.list 50개 = 1단위)
 VIDEO_TTL_BY_AGE = ((30, 24), (180, 72), (None, 168))   # v2.2: 올린 지 30일 안 = 24시간 · 180일 안 = 3일 · 그보다 오래 = 7일
 CHANNEL_TTL_HOURS = 168       # 구독자 수: 7일
+ALLTIME_TTL_HOURS = 24 * 30     # v2.7: 기간 없는 검색(전체 기간 조회수 순) 캐시 — 30일 (결과가 천천히 바뀜, 늦추면 60·90일)
+ALLTIME_RESERVE = 2000          # v2.7: 기간 없는 검색은 오늘 할당량이 이만큼 넘게 남을 때만 (승인 댓글·영상 정보용으로 남김 — "할당량 남으면")
 SEARCH_RESERVE = 150          # 검색이 한도를 다 쓰지 않게 남기는 단위 (영상 정보·구독자·댓글용)
 OUTLINE_EVERY_SEC = 90
 NETWORK_ERRORS = ("ProxyError", "ConnectionError", "Timeout", "URLError")       # 연결 자체가 안 됨 → 다음 회차에 다시 (v1.9)
@@ -352,23 +361,25 @@ class Api:
         self.calls = collections.Counter()                         # v2.2: 종류별 요청 수 (로그·시험용)
         self.search_stopped = None                                 # v2.5: 하루 검색 횟수 한도 — 검색만 멈춤 (다른 요청은 계속)
 
-    def get(self, kind, **params):
+    def get(self, kind, _keep=None, **params):
+        """_keep (v2.7): 이 요청 뒤에도 남겨 둘 단위 (기본 = 검색 SEARCH_RESERVE · 그 밖 0) — 기간 없는 검색은 '할당량이 남을 때만' 크게."""
+        keep = (SEARCH_RESERVE if kind == "search" else 0) if _keep is None else int(_keep)
         if self.stopped in ("daily", "offline"):
             raise QuotaStop("새 요청 안 함 (" + ("하루 할당량 소진" if self.stopped == "daily" else "--offline") + ")", self.stopped)
         if kind == "search" and not self.search_stopped and self.ledger is not None and self.ledger.search_blocked():
             self.search_stopped = "search_daily"                   # v2.5: 같은 키의 다른 창·주제가 오늘 이미 막힘 → 요청하지 않음
         if kind == "search" and self.search_stopped:
             raise QuotaStop(SEARCH_DAILY_MSG, "search_daily")
-        limit = self.quota - (SEARCH_RESERVE if kind == "search" else 0)
+        limit = self.quota - keep
         if self.used + COST[kind] > limit:
-            self.stopped = self.stopped or "run_budget"
-            raise QuotaStop(f"이번 실행 한도 {self.quota}단위 — 사용 {self.used}" + (f" (검색은 {SEARCH_RESERVE}단위 남김)" if kind == "search" else ""),
-                            "run_budget")
-        if self.ledger is not None and not self.ledger.reserve(COST[kind], self.what or kind, self.topic,
-                                                               keep=SEARCH_RESERVE if kind == "search" else 0):
-            self.stopped = self.stopped or "shared"     # 다른 창·주제가 같은 키로 써서 오늘 남은 양이 없음 (1단위 요청은 남았으면 계속)
+            if _keep is None:                           # v2.7: 남김을 크게 준 요청(기간 없는 검색)이 멈춰도 다른 요청은 그대로
+                self.stopped = self.stopped or "run_budget"
+            raise QuotaStop(f"이번 실행 한도 {self.quota}단위 — 사용 {self.used}" + (f" ({keep}단위 남김)" if keep else ""), "run_budget")
+        if self.ledger is not None and not self.ledger.reserve(COST[kind], self.what or kind, self.topic, keep=keep):
+            if _keep is None:
+                self.stopped = self.stopped or "shared"     # 다른 창·주제가 같은 키로 써서 오늘 남은 양이 없음 (1단위 요청은 남았으면 계속)
             raise QuotaStop(f"같은 키의 오늘 남은 할당량이 모자람 (다른 창·주제 포함, {kind} {COST[kind]}단위"
-                            + (f" + 검색은 {SEARCH_RESERVE}단위 남김" if kind == "search" else "") + ")", "shared")
+                            + (f" + {keep}단위 남김" if keep else "") + ")", "shared")
         url = API + kind + "?" + urllib.parse.urlencode({**params, "key": self.key})
         ok = False
         try:
@@ -420,14 +431,17 @@ class Api:
             if not ok and self.ledger is not None:   # 받지 못한 요청은 장부에서 돌려줌
                 self.ledger.refund(COST[kind], self.what or kind, self.topic)
 
-    def search(self, q, published_after, duration=None, lang="ko"):
-        """lang (v2.4): relevanceLanguage — None 이면 언어 지정 없이 (외국 영상을 넣는 주제, search_lang)."""
-        p = dict(part="snippet", q=q, type="video", order="viewCount", publishedAfter=published_after, regionCode="KR", maxResults=50)
+    def search(self, q, published_after, duration=None, lang="ko", keep=None):
+        """lang (v2.4): relevanceLanguage — None 이면 언어 지정 없이 (외국 영상을 넣는 주제, search_lang).
+        v2.7: published_after 가 비면 기간 없이 (전체 기간 조회수 순) · keep = 이 검색 뒤에도 남길 단위."""
+        p = dict(part="snippet", q=q, type="video", order="viewCount", regionCode="KR", maxResults=50)
+        if published_after:
+            p["publishedAfter"] = published_after
         if lang:
             p["relevanceLanguage"] = lang
         if duration:                                     # None = 길이 상관없이 (search_supply)
             p["videoDuration"] = duration
-        d = self.get("search", **p)
+        d = self.get("search", _keep=keep, **p)
         self.last_total = (d.get("pageInfo") or {}).get("totalResults")
         return [it["id"]["videoId"] for it in d.get("items", []) if it.get("id", {}).get("videoId")]
 
@@ -558,6 +572,56 @@ def top_pct_threshold(values, pct):
         return None
     k = max(1, math.ceil(len(vals) * min(float(pct), 100.0) / 100.0))
     return vals[k - 1]
+
+
+def as_utc(x):
+    """datetime·ISO 글 → 시간대 있는 datetime (시간대 없으면 UTC). 못 읽으면 None."""
+    if isinstance(x, datetime):
+        return x if x.tzinfo else x.replace(tzinfo=timezone.utc)
+    try:
+        d = datetime.fromisoformat(str(x).replace("Z", "+00:00"))
+    except (TypeError, ValueError):
+        return None
+    return d if d.tzinfo else d.replace(tzinfo=timezone.utc)
+
+
+def views_per_day(views, published, fetched=None, now=None):
+    """v2.7: 하루 조회수 = 조회수 ÷ 올린 날부터 그 조회수를 받은 때(fetched)까지 날수 (최소 1일). fetched 가 없으면 now(없으면 지금)까지.
+    올린 날을 모르면 ÷ 1 (예전과 같음). 예전(v2.6.1 까지)은 늘 ÷ 오늘까지 날수 — 자료를 받은 지 오래될수록 최근 영상이 낮게 셈."""
+    pub = as_utc(published)
+    end = as_utc(fetched) or now or datetime.now(timezone.utc)
+    days = (end - pub).total_seconds() / 86400 if pub else 1.0
+    return round((views or 0) / max(days, 1.0), 1)
+
+
+def latest_fetch(*pairs):
+    """(조회수, 받은 때) 여러 쌍 중 조회수가 가장 큰 쌍의 받은 때 — 숫자는 늘기만 하므로 큰 값이 더 새 값 (사례 폴더 metadata vs 캐시)."""
+    best = None
+    for views, when in pairs:
+        if as_utc(when) and (best is None or (views or 0) >= best[0]):
+            best = (views or 0, when)
+    return best[1] if best else None
+
+
+def success_metric(x, S):
+    """v2.7: 성공 점수 — S['MIN_VPD_SUBS'] > 0 이면 구독자당 하루 조회수 (하루 조회수 ÷ 구독자, 구독자 100 미만은 100), 아니면 배수 (조회수 ÷ 구독자).
+    구독자를 모르면 None."""
+    if x.get("subs") is None:
+        return None
+    if float(S.get("MIN_VPD_SUBS") or 0) > 0:
+        return round((x.get("vpd") if x.get("vpd") is not None else x.get("views_per_day") or 0) / max(x["subs"], 100), 4)
+    return x.get("ratio") or 0
+
+
+def success_core(x, S, with_age=True):
+    """v2.7: 성공 판정의 공통 부분 (롱폼·쇼츠·탐색 목록) — 작은 채널(구독자 ≤ MAX_SUBS)·조회수 ≥ MIN_VIEWS·점수(success_metric) ≥ 경계·
+    with_age 면 MIN_AGE_DAYS ≤ 올린 지 ≤ MAX_AGE_DAYS. 길이(롱폼 분·쇼츠 초)는 부르는 쪽에서."""
+    m = success_metric(x, S)
+    if m is None or x["subs"] > S["MAX_SUBS"] or (x.get("views") or 0) < S["MIN_VIEWS"]:
+        return False
+    if m < (float(S["MIN_VPD_SUBS"]) if float(S.get("MIN_VPD_SUBS") or 0) > 0 else float(S["MIN_RATIO"])):
+        return False
+    return not with_age or (x.get("age_days") is not None and float(S.get("MIN_AGE_DAYS") or 0) <= x["age_days"] <= S["MAX_AGE_DAYS"])
 
 
 def is_network_failure(status):
@@ -795,7 +859,7 @@ def _useful_novel(cache_dir, d, window_days, now=None):
         except ValueError:
             age = 0
         sec = i.get("duration") or 0
-        if ((0 < sec <= SHORTS_MAX_SEC) if shorts else sec >= MIN_LONGFORM_SEC) and not exclusion_reason(i, foreign_ok) and age <= window_days:
+        if ((0 < sec <= SHORTS_MAX_SEC) if shorts else sec >= MIN_LONGFORM_SEC) and not exclusion_reason(i, foreign_ok) and (window_days <= 0 or age <= window_days):
             n += 1
     return n
 
@@ -810,7 +874,8 @@ def search_ttl(cache_dir, d, base_h, window_days, now=None):
         return base_h, 0, None
     useful = _useful_novel(cache_dir, d, window_days, now)
     level = min(int(d.get("ttl_level") or 0) + 1, SEARCH_MAX_LEVEL) if useful <= SEARCH_NOVEL_LOW else 0
-    cap = max(base_h, min(SEARCH_TTL_MAX_H, window_days * 24 * SEARCH_TTL_WINDOW_FRAC))
+    cap = (base_h * (1 + SEARCH_MAX_LEVEL) if window_days <= 0 else                # v2.7: 기간 없는 검색 — 기간 비율 상한 없음
+           max(base_h, min(SEARCH_TTL_MAX_H, window_days * 24 * SEARCH_TTL_WINDOW_FRAC)))
     return min(base_h * (1 + level), cap), level, useful
 
 
@@ -841,11 +906,12 @@ def _search_pool(cache_dir, skip):
     return pool
 
 
-def cached_search(api, cache_dir, q, since, dur, fallback_days, ttl_h, refresh, info=None, lang="ko"):
+def cached_search(api, cache_dir, q, since, dur, fallback_days, ttl_h, refresh, info=None, lang="ko", keep=None):
     """검색 캐시: (검색어, 길이, 기간, 검색 언어) 가 같고 적응형 캐시 시간(search_ttl) 안이면 할당량 0. → (영상 ID 목록, 캐시 여부).
     할당량이 없으면 QuotaStop. info(dict) 를 주면 ttl_h·level·useful·age_h 를 채움 (로그용).
     새로 고칠 때 지난 결과와 비교해 '새로 보인 영상'(novel)·늦춤 단계(ttl_level)를 같이 저장 (v2.2).
-    lang (v2.4): search_lang(foreign_ok) — 'ko' 또는 None(언어 지정 없음, 캐시 열쇠 'any')."""
+    lang (v2.4): search_lang(foreign_ok) — 'ko' 또는 None(언어 지정 없음, 캐시 열쇠 'any').
+    v2.7: fallback_days=0·since=None = 기간 없는 검색 (캐시 열쇠가 따로 — 분석은 이것을 '조회수 상위(기간 상관없이)'에만 씀) · keep = Api.search 남김."""
     f = search_cache_file(cache_dir, q, dur, fallback_days, lang)
     old = None
     if f.is_file():
@@ -862,7 +928,7 @@ def cached_search(api, cache_dir, q, since, dur, fallback_days, ttl_h, refresh, 
             info.update(ttl_h=round(eff), level=level, useful=useful, age_h=round(age_h, 1))
         if age_h <= eff and not refresh:
             return old["ids"], True
-    ids = api.search(q, since, dur, lang=lang)
+    ids = api.search(q, since, dur, lang=lang, keep=keep)
     rec = {"q": q, "dur": dur, "fallback_days": fallback_days, "fetched": datetime.now(timezone.utc).isoformat(),
            "since": since, "total": getattr(api, "last_total", None), "ids": ids, "lang": lang or ANY_LANG}
     if old:                                     # v2.2: 이번 새로 고침이 새로 데려온 영상 (지난 결과에도, 다른 검색에도 없던 것)
@@ -1467,7 +1533,7 @@ def build_rows(infos, found, now, keep=(), foreign_ok=False):
         subs, views = i.get("subs"), i.get("view_count") or 0
         ratio = round(views / max(subs, 100), 2) if subs else None
         rows.append({"id": i["id"], "title": i["title"], "channel": i["channel"], "channel_id": i["channel_id"], "subs": subs,
-                     "views": views, "ratio": ratio, "age_days": age, "views_per_day": round(views / max(age or 1, 1), 1),
+                     "views": views, "ratio": ratio, "age_days": age, "views_per_day": views_per_day(views, i.get("published"), i.get("fetched"), now),
                      "minutes": round(i["duration"] / 60, 1), "likes": i.get("like_count"), "comments": i.get("comment_count"),
                      "published": str(i["published"])[:10], "queries": " | ".join(dict.fromkeys(found.get(i["id"], []))),
                      "url": f"https://www.youtube.com/watch?v={i['id']}", "flag": why or ""})

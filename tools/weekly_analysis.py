@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.3.1 — 2026-10-22 — 주마다 '댓글 N개 니즈' 줄에 '어느 갈래에도 안 듦 x%' (갈래 비율만 보이고 나머지 약 59% 가 안 보였음 — 사용자 지시 2026-10-21
+# VERSION: v1.4 — 2026-10-28 — 성공 판정·하루 조회수를 분석(success_analysis v1.6)과 같게: 주제 analysis_rules.toml [success] 를 읽어
+#          orr.success_core (MIN_VPD_SUBS > 0 = 구독자당 하루 조회수, 아니면 배수 — 주별 창은 예전처럼 나이 제한 없이) · 하루 조회수 = 받은 때
+#          (metadata collected)까지 날수로 (orr.views_per_day). 사용자 지시 2026-10-28 "1은 그렇게하고 … 나머지는 너가 추천하는 방향으로 하고".
+# (v1.3.1 — 2026-10-22 — 주마다 '댓글 N개 니즈' 줄에 '어느 갈래에도 안 듦 x%' (갈래 비율만 보이고 나머지 약 59% 가 안 보였음 — 사용자 지시 2026-10-21
 #          "… 모든 댓글 유형 나눠서 통계내서 분석하고 있는가 맞아? 일부분 밖에 없는거 같은데"). 모든 댓글 유형은 comment_types.md. 갈래 규칙은 그대로
 # (v1.3 — 2026-10-14 — 끝날 때 성공 사례 분석(tools/success_analysis.py → analysis.md — AI 가 지시사항을 만들 재료)도 다시 만듦
 #          (사용자 지시: "… 어떤 주제, 어떤 제목, 어떤 썸네일, 내용을 어떻게 구성해야하는지 … 올바른 분석 결과까지만 내도록 수정해").
@@ -47,12 +50,14 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from outlier_stats import COMMENT_CATS, TITLE_FEATURES       # noqa: E402  같은 규칙 (제목 특징·댓글 갈래)
+import outlier_research as orr                                # noqa: E402  v1.4: success_core·views_per_day (분석과 같은 규칙)
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v1.3.1"
+VERSION = "v1.4"
 LOG = logging.getLogger("weekly")
 WEB_CASE_RX = re.compile(r"^W_([0-9A-Za-z_-]{11})$")
 MAX_SUBS, MIN_RATIO, MIN_VIEWS = 50000, 3.0, 10000
+SUCCESS_RULES = {"MAX_AGE_DAYS": 180, "MAX_SUBS": MAX_SUBS, "MIN_RATIO": MIN_RATIO, "MIN_VIEWS": MIN_VIEWS, "MIN_AGE_DAYS": 0, "MIN_VPD_SUBS": 0}   # v1.4: run() 이 주제 [success] 로 덮음
 HOOK_SEC = 20
 STOPWORDS = set("이 그 저 것 수 등 및 더 왜 다 또 안 못 잘 꼭 진짜 정말 지금 이제 그냥 바로 모든 모두 하는 있는 없는 되는 하면 해서 했다 합니다 입니다 "
                 "에서 으로 하고 까지 부터 에게 이런 저런 그런 무조건 반드시 절대 the and for with 영상 채널 구독 라이브".split())
@@ -147,11 +152,17 @@ def _median(xs):
     return round(statistics.median(xs), 2) if xs else None
 
 
+def _vpd(m, now=None):
+    """v1.4: 하루 조회수 = 조회수 ÷ 올린 날부터 받은 때(metadata collected)까지 날수."""
+    return orr.views_per_day(int(m.get("views") or 0), _published(m), m.get("collected"), now)
+
+
 def _is_success(m):
+    """v1.4: 분석과 같은 규칙 (orr.success_core — 주별 창은 나이 제한 없이, 예전과 같음)."""
     subs, views = m.get("subs"), int(m.get("views") or 0)
-    if subs is None or subs > MAX_SUBS or views < MIN_VIEWS:
-        return False
-    return views / max(subs, 100) >= MIN_RATIO
+    x = {"subs": subs, "views": views, "vpd": m.get("_vpd") if m.get("_vpd") is not None else _vpd(m),
+         "ratio": round(views / max(subs, 100), 2) if subs is not None else None, "age_days": m.get("_age")}
+    return orr.success_core(x, SUCCESS_RULES, with_age=False)
 
 
 def _hook(snips, sec=HOOK_SEC):
@@ -173,7 +184,7 @@ def window_metrics(cases, prev_ids, now):
     for m in metas:
         p = _published(m)
         m["_age"] = (now - p).total_seconds() / 86400 if p else None
-        m["_vpd"] = round(int(m.get("views") or 0) / max(m["_age"] or 1, 1), 1)
+        m["_vpd"] = _vpd(m, now)
         m["_ratio"] = round(int(m.get("views") or 0) / max(m["subs"], 100), 2) if m.get("subs") is not None else None
     n = len(metas)
     feats = Counter()
@@ -248,7 +259,9 @@ def build_report(topic, name, cases, now=None, max_weeks=52):
     return {"tool": f"weekly_analysis.py {VERSION}", "topic": topic, "name": name, "generated": now.isoformat(timespec="seconds"),
             "cases": len(cases), "dated": len(dated), "older_than_windows": older, "max_weeks": max_weeks,
             "text_sources": {k: sum(1 for c in cases if c.get("src") == k) for k in TEXT_SOURCES},
-            "criteria": f"성공 사례 = 구독자 {MAX_SUBS:,} 이하 · 조회수 {MIN_VIEWS:,} 이상 · 조회수 ≥ 구독자 × {MIN_RATIO:g}",
+            "criteria": f"성공 사례 = 구독자 {SUCCESS_RULES['MAX_SUBS']:,} 이하 · 조회수 {SUCCESS_RULES['MIN_VIEWS']:,} 이상 · "
+                        + (f"구독자당 하루 조회수 ≥ {SUCCESS_RULES['MIN_VPD_SUBS']:g} (하루 조회수 ÷ 구독자)" if float(SUCCESS_RULES.get("MIN_VPD_SUBS") or 0) > 0
+                           else f"조회수 ≥ 구독자 × {SUCCESS_RULES['MIN_RATIO']:g}"),
             "windows": windows}
 
 
@@ -291,12 +304,11 @@ def approved_rows(cases, now=None):
     for c in cases:
         m = c["meta"]
         p = _published(m)
-        age = (now - p).total_seconds() / 86400 if p else None
         views, subs = int(m.get("views") or 0), m.get("subs")
         out.append({"published": p.date().isoformat() if p else "", "_ts": p.timestamp() if p else 0, "id": m.get("id"),
                     "title": m.get("title") or "", "channel": m.get("channel") or "", "subs": subs, "views": views,
                     "ratio": round(views / max(subs, 100), 2) if subs is not None else None,
-                    "views_per_day": round(views / max(age or 1, 1), 1), "minutes": m.get("minutes"), "src": c.get("src") or "",
+                    "views_per_day": _vpd(m, now), "minutes": m.get("minutes"), "src": c.get("src") or "",
                     "transcript_status": m.get("transcript_status") or "", "comments": len(c["comments"]),
                     "thumbnail": bool(c.get("has_thumb")), "folder": c["folder"], "approved": m.get("approved") or "",
                     "success": _is_success(m), "url": f"https://www.youtube.com/watch?v={m.get('id')}"})
@@ -408,8 +420,14 @@ def run(topic, max_weeks=52, now=None, root=None):
         name = (cfg.get("topic") or {}).get("TOPIC") or cfg.get("TOPIC") or topic
     except (OSError, ValueError):
         pass
+    try:                                       # v1.4: 성공 규칙 = 주제 analysis_rules.toml [success] (분석과 같음)
+        d = tomllib.loads((root / topic / "analysis_rules.toml").read_text("utf-8")) if (root / topic / "analysis_rules.toml").is_file() else {}
+        SUCCESS_RULES.update({k: v for k, v in (d.get("success") or {}).items() if k in SUCCESS_RULES})
+    except (OSError, ValueError) as e:
+        log("START", logging.WARNING, note=f"analysis_rules.toml [success] 못 읽음 — 기본 규칙 — {type(e).__name__}")
     cases = load_cases(out)
-    log("START", topic=topic, cases=len(cases), max_weeks=max_weeks, tool=f"weekly_analysis.py {VERSION}")
+    log("START", topic=topic, cases=len(cases), max_weeks=max_weeks, tool=f"weekly_analysis.py {VERSION}",
+        success_rule="구독자당 하루 조회수" if float(SUCCESS_RULES.get("MIN_VPD_SUBS") or 0) > 0 else "배수")
     rep = build_report(topic, name, cases, now, max_weeks)
     write_report(out, rep, cases)
     try:                                       # v1.3: 성공 사례 분석 (analysis.md) — 실패해도 주별 분석은 저장됨

@@ -1,6 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.2.1 — 2026-10-18 — 뺀 쇼츠 까닭의 앞말을 주제마다 ([shorts_exclude] LABEL, 없으면 예전 그대로 '돈 이야기 아님') — 역사 쇼츠를 빼면
+# VERSION: v1.3 — 2026-10-28 — 사용자 지시 2026-10-28 "1은 그렇게하고 최근에 조회수가 높을수록 더 많이 반영되도록 해야해 3은 할당량 남으면
+#          진행하도록 해 나머지는 너가 추천하는 방향으로 하고" (값은 주제 analysis_rules.toml — 없으면 예전대로, success_analysis v1.6 과 같은 규칙):
+#          · 성공 쇼츠: [shorts] MIN_VPD_SUBS > 0 = 구독자당 하루 조회수 ≥ 그 값 (orr.success_core) · 점수 큰 순 · WEIGHT "score" = 성공 쇼츠 몫(가중)
+#            (쇼츠마다 무게 = 1 + log2(점수 ÷ 기준) — sa.case_weight, 주제·형식·제목 특징의 성공 쇼츠 몫).
+#          · 하루 조회수 = 받은 때 조회수 ÷ 받은 때까지 날수 (orr.views_per_day).
+#          · 1-4번 하루 조회수 상위 쇼츠 ([shorts_vpd_top] — 최근 MAX_AGE_DAYS 안, 롱폼 1-3번과 같은 꼴) · 1-5번 조회수 상위 쇼츠 ([shorts_views_top] —
+#            기간 없는 쇼츠 검색 포함, 올린 날짜 상관없이). 둘 다 채널당 2개 + 그 묶음 니즈. 기간 없는 검색 캐시는 비교 집단·시장에 안 섞음.
+# (v1.2.1 — 2026-10-18 — 뺀 쇼츠 까닭의 앞말을 주제마다 ([shorts_exclude] LABEL, 없으면 예전 그대로 '돈 이야기 아님') — 역사 쇼츠를 빼면
 #          '돈 이야기 아님 — 드라마·영화 장면'으로 적혀 뜻이 틀려서 (history/analysis_rules.toml v1.4 LABEL = '역사 아님'). 빼는 규칙·숫자는 그대로
 # (v1.2 — 2026-10-15 — 외국 영상 켜고 끄기 (사용자 지시: "주식은 외국 영상도 다 분석할 건데 확인해봐 on/off 기능(default off) 있는지
 #          확인하고 없으면 추가해"): 주제 설정 INCLUDE_FOREIGN(기본 꺼짐)을 켜면 외국 쇼츠도 성공·비교·같은 채널 기준선에 넣음 (success_analysis v1.4
@@ -62,7 +69,7 @@ from outlier_stats import TITLE_FEATURES                            # noqa: E402
 from weekly_analysis import _published, _write_atomic, clean_description   # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v1.2.1"
+VERSION = "v1.3"
 LOG = logging.getLogger("shorts")
 KST = timezone(timedelta(hours=9))
 SHORTS_DIR = "shorts"
@@ -75,7 +82,10 @@ DEFAULT_RULES = {
     # 광고로 조회수를 샀거나, 6초짜리 한 장 정보 쇼츠가 반복 재생돼(2025-03-31 부터 다시 재생도 조회수) 사람 수보다 조회수가 훨씬 많은 것 — API 로는 어느 쪽인지 모름.
     # 롱폼 규칙(좋아요 0.25% 미만 '그리고' 댓글 0.005% 미만)은 그중 하나를 댓글 0.0049% 로 겨우 걸렀음 → 쇼츠는 좋아요만으로 (좋아요 0 = 숨김 → 모름)
     "shorts": {"MAX_SECONDS": 180, "MIN_AGE_DAYS": 3, "MAX_AGE_DAYS": 180, "MAX_SUBS": 50000, "MIN_RATIO": 3.0, "MIN_VIEWS": 50000,
-               "CASES_PER_CHANNEL": 2, "AD_SUSPECT_MIN_VIEWS": 50000, "AD_SUSPECT_MAX_LIKE_RATE": 0.002},
+               "CASES_PER_CHANNEL": 2, "AD_SUSPECT_MIN_VIEWS": 50000, "AD_SUSPECT_MAX_LIKE_RATE": 0.002,
+               "MIN_VPD_SUBS": 0, "WEIGHT": ""},          # v1.3: MIN_VPD_SUBS > 0 = 구독자당 하루 조회수 · WEIGHT "vpd" = 가중 성공 비율
+    "shorts_vpd_top": {"TOP_PCT": 0, "MAX_AGE_DAYS": 0, "CASES_PER_CHANNEL": 2, "MIN_POOL": 30},    # v1.3: 1-4번 하루 조회수 상위 (0 = 끔)
+    "shorts_views_top": {"TOP_PCT": 0, "CASES_PER_CHANNEL": 2, "MIN_POOL": 30},                     # v1.3: 1-5번 조회수 상위 (0 = 끔)
     "shorts_compare": {"MIN_AGE_DAYS": 3, "MAX_AGE_DAYS": 180, "MAX_SUBS": 50000, "PER_CHANNEL": 5, "MIN_GROUP": 15, "NOTABLE_DIFF": 0.10,
                        "RECENT_DAYS": 90},
     "shorts_baseline": {"MIN_VIDEOS": 5, "MIN_AGE_DAYS": 3, "MAX_AGE_DAYS": 180, "HIT": 3.0, "NORMAL_LO": 0.5, "NORMAL_HI": 1.5,
@@ -233,7 +243,7 @@ def load_shorts_cache(cache):
             uploads[d.get("channel") or f.stem[len("uploads_"):]] = {"ids": d.get("ids") or [], "total": d.get("total"),
                                                                     "fetched": str(d.get("fetched") or "")[:10]}
         elif f.name.startswith("search_"):
-            if d.get("q"):
+            if d.get("q") and not sa.is_alltime_search(d):      # v1.3: 기간 없는 검색은 1-5번에만 (sa.load_alltime_ids)
                 searches.append(d)
         elif not f.name.startswith(NON_VIDEO_CACHE) and isinstance(d, dict) and d.get("id") and "title" in d:
             infos[d["id"]] = d
@@ -276,7 +286,7 @@ def row_of(info, subs, now, known=()):
             "comments_total": _num(info.get("comments_reported", info.get("comment_count"))),
             "published": pub, "age_days": round(age, 1) if age is not None else None, "seconds": int(sec or 0),
             "minutes": round((sec or 0) / 60, 2), "ratio": round(views / max(subs, 100), 2) if subs is not None else None,
-            "vpd": round(views / max(age or 1, 1), 1), "tags": info.get("tags") or [], "description": desc,
+            "vpd": orr.views_per_day(views, pub, info.get("fetched"), now), "tags": info.get("tags") or [], "description": desc,   # v1.3
             "live": info.get("live"), "was_live": info.get("was_live"), "audio_lang": info.get("audio_lang") or "", "lang": info.get("lang") or "",
             "foreign": orr.is_foreign({"title": info.get("title"), "audio_lang": info.get("audio_lang"), "lang": info.get("lang")}),   # v1.2
             "is_short": sh, "short_basis": basis, "hashtags": orr.hashtags(info.get("title"), desc),
@@ -351,6 +361,7 @@ def load_cases(sdir, infos, subs_map, now, known):
             if k in ci and info.get(k) in (None, ""):
                 info[k] = ci[k]
         info["seconds"] = meta.get("seconds") or ci.get("duration") or round(float(meta.get("minutes") or 0) * 60)
+        info["fetched"] = orr.latest_fetch((_num(meta.get("views")), meta.get("collected")), (_num(ci.get("view_count")), ci.get("fetched")))   # v1.3
         try:
             desc = (d / "description.txt").read_text("utf-8") if (d / "description.txt").is_file() else str(ci.get("description") or "")
         except OSError:
@@ -389,9 +400,8 @@ def load_cases(sdir, infos, subs_map, now, known):
 
 # ---------------------------------------------------------------- 판정·비교
 def is_success(x, S, with_age=True):
-    return (x["is_short"] and x["subs"] is not None and x["subs"] <= S["MAX_SUBS"] and x["views"] >= S["MIN_VIEWS"]
-            and (x["ratio"] or 0) >= S["MIN_RATIO"] and 0 < x["seconds"] <= S["MAX_SECONDS"]
-            and (not with_age or (x["age_days"] is not None and S["MIN_AGE_DAYS"] <= x["age_days"] <= S["MAX_AGE_DAYS"])))
+    """v1.3: orr.success_core (구독자당 하루 조회수 또는 배수 · 작은 채널 · 조회수 · 나이) + 쇼츠 길이."""
+    return x["is_short"] and 0 < x["seconds"] <= S["MAX_SECONDS"] and orr.success_core(x, S, with_age)
 
 
 INFLATED = "조회수 부풀림 의심"          # 광고 또는 반복 재생 — 성공·비교·같은 채널 기준선에서 뺌 (5-2 번에 따로 숫자)
@@ -452,8 +462,62 @@ def channel_type(share):
 
 
 # ---------------------------------------------------------------- 분석
-def analyze(topic, name, cases, infos, uploads, searches, channels, ac, rules, rel, themes, now):
+def top_group(kind, cases, pool, T, success, rules, others=None):
+    """v1.3: 쇼츠 '하루 조회수 상위'(kind='vpd', 1-4번) · '조회수 상위'(kind='views', 1-5번) 묶음 — 모집단(검색에서 찾은 주제 관련 쇼츠, 뺄 까닭 없는 것)
+    안에서 상위 TOP_PCT% 경계(orr.top_pct_threshold) → 자료를 받은 쇼츠 중 넘는 것, 구독자 상관없이, 채널당 CASES_PER_CHANNEL 개 (큰 순).
+    vpd 는 MAX_AGE_DAYS(>0) 안만 ('최근 트렌드'). TOP_PCT 0 = 끔. others = 다른 묶음 번호(1-5번 표의 V# 칸). → (요약 dict, 묶음 목록)"""
+    key = "vpd" if kind == "vpd" else "views"
+    pct, max_age = float(T.get("TOP_PCT") or 0), float(T.get("MAX_AGE_DAYS") or 0)
+    recent = (lambda x: x.get("age_days") is not None and x["age_days"] <= max_age) if max_age > 0 else (lambda x: True)
+    pool = [x for x in pool if x.get(key) is not None and recent(x)]
+    ages = [x["age_days"] for x in pool if x.get("age_days") is not None]
+    res = {"kind": kind, "pct": pct, "threshold": None, "pool": len(pool), "min_pool": T.get("MIN_POOL", 30), "per_channel": T.get("CASES_PER_CHANNEL", 2),
+           "max_age_days": max_age, "oldest_days": round(max(ages)) if ages else None, "older_than_year": sum(1 for a in ages if a > 365),
+           "cases": [], "passed": 0, "excluded": [], "channel_cut": 0, "missing_total": 0, "missing": []}
+    if pct <= 0:
+        return res, []
+    thr = orr.top_pct_threshold([x[key] for x in pool], pct) if len(pool) >= res["min_pool"] else None
+    res["threshold"] = thr
+    if thr is None:
+        log("TOP_GROUP", logging.WARNING, kind=kind, pool=len(pool), min_pool=res["min_pool"], note="묶음 없음 — 검색 쇼츠가 적음")
+        return res, []
+    passed = [c for c in cases if c["is_short"] and (c[key] or 0) >= thr and recent(c)]
+    per_ch, group, cut = Counter(), [], 0
+    for c in sorted((c for c in passed if not c["exclude"]), key=lambda c: -(c[key] or 0)):
+        ck = c["channel_id"] or c["channel"]
+        if per_ch[ck] >= res["per_channel"]:
+            cut += 1
+            continue
+        per_ch[ck] += 1
+        group.append(c)
+    nkey = "vno" if kind == "vpd" else "tno"
+    for i, c in enumerate(group, 1):
+        c[nkey] = i
+    success_no = {c["id"]: c["no"] for c in success}
+    case_ids = {c["id"] for c in cases}
+    miss = sorted((x for x in pool if x[key] >= thr and x["id"] not in case_ids), key=lambda x: -x[key])
+    res.update(passed=len(passed), channel_cut=cut, missing_total=len(miss),
+               excluded=[{"id": c["id"], "title": c["title"], "why": c["exclude"]} for c in passed if c["exclude"]],
+               big_channels=sum(1 for c in group if c["subs"] is None or c["subs"] > rules["shorts"]["MAX_SUBS"]),
+               in_success=sum(1 for c in group if c["id"] in success_no),
+               older_than_year_cases=sum(1 for c in group if c["age_days"] is not None and c["age_days"] > 365),
+               comments_fetched=sum(c["comments_fetched"] for c in group), comments_total=sum(c["comments_total"] for c in group),
+               cases=[{nkey: c[nkey], "id": c["id"], "title": c["title"], "channel": c["channel"], "subs": c["subs"], "views": c["views"],
+                       "views_per_day": c["vpd"], "ratio": c["ratio"], "age_days": c["age_days"], "seconds": c["seconds"],
+                       "published": c["published"].date().isoformat() if c["published"] else "", "theme": c["theme"], "format": c["format"],
+                       "text_source": c["src"], "success_no": success_no.get(c["id"]), "url": f"https://www.youtube.com/shorts/{c['id']}",
+                       **({"vno": (others or {}).get(c["id"])} if kind != "vpd" else {})} for c in group],      # vpd 는 nkey 가 곧 vno — 덮지 않게
+               missing=[{"id": x["id"], "title": x["title"], "channel": x["channel"], "subs": x["subs"], "views": x["views"], "views_per_day": x["vpd"],
+                         "seconds": x["seconds"], "published": x["published"].date().isoformat() if x["published"] else "", "theme": x["theme"]}
+                        for x in miss[:30]])
+    log("TOP_GROUP", kind=kind, pool=len(pool), pct=pct, threshold=round(thr, 1), oldest_days=res["oldest_days"], passed=len(passed),
+        channel_cut=cut, group=len(group), in_success=res["in_success"], missing=len(miss))
+    return res, group
+
+
+def analyze(topic, name, cases, infos, uploads, searches, channels, ac, rules, rel, themes, now, alltime_ids=()):
     S, C = rules["shorts"], rules["shorts_compare"]
+    weighted = str(S.get("WEIGHT") or "") == "score"              # v1.3: 성공 쇼츠 몫(가중)
     formats = rules["shorts_format"]
     subs_map = {k: v.get("subs") for k, v in channels.items()}
     for c in cases:
@@ -463,7 +527,7 @@ def analyze(topic, name, cases, infos, uploads, searches, channels, ac, rules, r
     # 1) 성공 쇼츠 (자료를 받은 것 중) — 채널당 CASES_PER_CHANNEL 개 (배수 큰 순)
     passed = [c for c in cases if is_success(c, S)]
     excluded = [c for c in passed if c["exclude"]]
-    eligible = sorted((c for c in passed if not c["exclude"]), key=lambda c: -(c["ratio"] or 0))
+    eligible = sorted((c for c in passed if not c["exclude"]), key=lambda c: -(orr.success_metric(c, S) or 0))   # v1.3: 점수 큰 순
     per_ch, success, cut = Counter(), [], []
     for c in eligible:
         key = c["channel_id"] or c["channel"]
@@ -474,9 +538,10 @@ def analyze(topic, name, cases, infos, uploads, searches, channels, ac, rules, r
         success.append(c)
     for i, c in enumerate(success, 1):
         c["no"] = i
+        c["weight"] = sa.case_weight(c, S)                        # v1.3
     others = [c for c in cases if not any(c is s for s in success)]
     log("SUCCESS", cases=len(cases), passed=len(passed), excluded=len(excluded), channel_cut=len(cut), success=len(success),
-        rule=f"{S['MIN_AGE_DAYS']}~{S['MAX_AGE_DAYS']}일·구독자≤{S['MAX_SUBS']}·×{S['MIN_RATIO']}·{S['MIN_VIEWS']}회·{S['MAX_SECONDS']}초 이하 세로·채널당{S['CASES_PER_CHANNEL']}")
+        weight="score" if weighted else "-", rule=f"{S['MIN_AGE_DAYS']}~{S['MAX_AGE_DAYS']}일·구독자≤{S['MAX_SUBS']}·" + (f"구독자당 하루 조회수≥{S['MIN_VPD_SUBS']}" if float(S.get('MIN_VPD_SUBS') or 0) > 0 else f"×{S['MIN_RATIO']}") + f"·{S['MIN_VIEWS']}회·{S['MAX_SECONDS']}초 이하 세로·채널당{S['CASES_PER_CHANNEL']}")
     # 2) 비교 집단 — 쇼츠 탐색에서 본 영상 전부 + 사례 (채널당 최근 PER_CHANNEL 개)
     known = {i for u in uploads.values() for i in u["ids"]}
     pool = {}
@@ -524,7 +589,7 @@ def analyze(topic, name, cases, infos, uploads, searches, channels, ac, rules, r
     # 자료를 받지 않은 성공 후보 (채널마다 남은 자리만큼)
     slots = Counter({k: S["CASES_PER_CHANNEL"] - v for k, v in per_ch.items()})
     missing, miss_ch, missing_full = [], Counter(), 0
-    for x in sorted((x for x in rows_all if not x["has_case"] and not x["exclude"] and is_success(x, S)), key=lambda x: -(x["ratio"] or 0)):
+    for x in sorted((x for x in rows_all if not x["has_case"] and not x["exclude"] and is_success(x, S)), key=lambda x: -(orr.success_metric(x, S) or 0)):
         key = x["channel_id"] or x["channel"]
         room = slots[key] if key in per_ch else S["CASES_PER_CHANNEL"]
         if miss_ch[key] >= room:
@@ -532,6 +597,15 @@ def analyze(topic, name, cases, infos, uploads, searches, channels, ac, rules, r
             continue
         miss_ch[key] += 1
         missing.append(x)
+    # 1-4·1-5) 하루 조회수 상위 · 조회수 상위 쇼츠 (v1.3 — 구독자 상관없이, 성공 쇼츠와 따로)
+    sw = set(searched)
+    vtop, vgroup = top_group("vpd", cases, [x for x in rows_all if x["id"] in sw and x["is_short"] and not x["exclude"]], rules["shorts_vpd_top"], success, rules)
+    ttop, tgroup = top_group("views", cases, [x for x in rows_all if x["id"] in (sw | set(alltime_ids)) and x["is_short"] and not x["exclude"]],
+                             rules["shorts_views_top"], success, rules, others={c["id"]: c.get("vno") for c in vgroup})
+    for top_, grp_, pre in ((vtop, vgroup, "V"), (ttop, tgroup, "T")):
+        if grp_:
+            top_["needs"], st_ = sa.comment_needs(grp_, lambda c, pre=pre: f"{pre}{c[pre.lower() + 'no']}")
+            log("COMMENTS", group=pre, cases=len(grp_), viewer_comments=st_["viewer"], spam_excluded=st_["spam"], requests=st_["requests"])
     # 3) 주제 묶음·형식
     def group_rows(keyname, names):
         out_ = []
@@ -543,7 +617,8 @@ def analyze(topic, name, cases, infos, uploads, searches, channels, ac, rules, r
             r = sa._rate(g)
             out_.append({keyname: nm, **r, "small_sample": r["n"] < C["MIN_GROUP"], "views_median": _median([x["views"] for x in g]),
                          "vpd_median": _median([x["vpd"] for x in g]), "success_cases": sc_,
-                         "success_share": round(len(sc_) / len(success), 3) if success else None})
+                         "success_share": round(len(sc_) / len(success), 3) if success else None,
+                         "w_success_share": sa.wshare(success, lambda c, nm=nm: c[keyname] == nm) if weighted else None})     # v1.3
         out_.sort(key=lambda r: (r["small_sample"], -(r["rate"] or 0)))
         return out_
     theme_rows = group_rows("theme", list(themes) + ["기타"])
@@ -554,7 +629,8 @@ def analyze(topic, name, cases, infos, uploads, searches, channels, ac, rules, r
         cmp_ = sa.compare_by(group, lambda x, fn=fn: fn(x["title"]), C)
         share = _share(success, lambda c, fn=fn: fn(c["title"])) if success else None
         if cmp_["with"]["n"] or share:
-            title_rows.append({"feature": k, **cmp_, "success_case_share": share})
+            title_rows.append({"feature": k, **cmp_, "success_case_share": share,
+                               "w_success_case_share": sa.wshare(success, lambda c, fn=fn: fn(c["title"])) if weighted else None})   # v1.3
     title_rows.sort(key=lambda r: (not r["notable"], -(abs(r["diff"]) if r["diff"] is not None else 0)))
     df = Counter()
     for x in group:
@@ -660,7 +736,7 @@ def analyze(topic, name, cases, infos, uploads, searches, channels, ac, rules, r
                "'눈에 띔'은 차이가 크고 표본이 충분하다는 표시일 뿐 원인이 아니다"]
     data = {"tool": f"shorts_analysis.py {VERSION}", "topic": topic, "name": name, "generated": now.isoformat(timespec="seconds"),
             "rules": {k: rules[k] for k in ("shorts", "shorts_compare", "shorts_baseline", "shorts_format", "growth", "version", "file",
-                                            "shorts_defaults")},
+                                            "shorts_defaults", "shorts_vpd_top", "shorts_views_top")},
             "sources": {"case_folders": len(cases), "pool": len(rows_all), "pool_shorts": sum(1 for x in rows_all if x["is_short"]),
                         "not_short": dict(not_short), "excluded_shorts": dict(why_out), "compare_group": len(group), "compare_success": base["success"],
                         "compare_rate": base["rate"], "compare_channel_cut": ch_cut, "compare_from_channel_lists": from_uploads,
@@ -676,6 +752,7 @@ def analyze(topic, name, cases, infos, uploads, searches, channels, ac, rules, r
                                  "ratio": x["ratio"], "seconds": x["seconds"], "published": x["published"].date().isoformat() if x["published"] else "",
                                  "theme": x["theme"]} for x in missing[:40]],
             "missing_success_total": len(missing), "missing_success_channel_full": missing_full,
+            "vpd_top": vtop, "views_top": ttop,
             "themes": theme_rows, "formats": format_rows, "title_features": title_rows,
             "title_words_up": [r for r in word_rows if (r["diff"] or 0) > 0][:15],
             "title_words_down": [r for r in reversed(word_rows) if (r["diff"] or 0) < 0][:10], "title_length": len_rows,
@@ -1111,7 +1188,9 @@ def write_md(out, data, success):
     # 1
     L += [f"## 1. 성공 쇼츠 {len(success)}개", "",
           f"기준: 받은 쇼츠 중 올린 지 {S['MIN_AGE_DAYS']}~{S['MAX_AGE_DAYS']}일 · 구독자 {S['MAX_SUBS']:,} 이하 · 조회수 {S['MIN_VIEWS']:,} 이상 · "
-          f"조회수 ≥ 구독자 × {S['MIN_RATIO']} · {S['MAX_SECONDS']}초 이하 세로·정사각 · 채널당 {S['CASES_PER_CHANNEL']}개 (배수 큰 순). "
+          + (f"**구독자당 하루 조회수 ≥ {S['MIN_VPD_SUBS']:g}** (하루 조회수 = 받은 때 조회수 ÷ 받은 때까지 날수, ÷ 구독자)" if float(S.get("MIN_VPD_SUBS") or 0) > 0
+             else f"조회수 ≥ 구독자 × {S['MIN_RATIO']}") +
+          f" · {S['MAX_SECONDS']}초 이하 세로·정사각 · 채널당 {S['CASES_PER_CHANNEL']}개 ({'구독자당 하루 조회수' if float(S.get('MIN_VPD_SUBS') or 0) > 0 else '배수'} 큰 순). "
           f"통과 {src['success_passed']} − 뺀 것 {len(src['success_excluded'])} − 채널당 제한 {len(src['success_channel_cut'])}", "",
           "| # | 제목 | 채널 | 구독자 | 조회수 | 배수 | 채널 평소 쇼츠 대비 | 하루 조회수 | 길이 | 좋아요/1천 | 올린 때(한국) | 주제 | 형식 | 글 출처 | 첫 줄(첫 3초) |",
           "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|"]
@@ -1143,12 +1222,40 @@ def write_md(out, data, success):
               "| 제목 | 채널 | 구독자 | 조회수 | 배수 | 길이 | 올린 날 | 주제 |", "|---|---|---|---|---|---|---|---|"]
         L += [f"| [{_cell(x['title'], 50)}](https://www.youtube.com/shorts/{x['id']}) | {_cell(x['channel'], 16)} | {_n(x['subs'])} | {_n(x['views'])} | ×{x['ratio']} | "
               f"{x['seconds']}초 | {x['published']} | {_cell(x['theme'], 14)} |" for x in data["missing_success"][:20]]
+    # 1-4·1-5 (v1.3)
+    for top_, title_, pre, kname in ((data.get("vpd_top") or {}, "1-4. 하루 조회수 상위 쇼츠 — 구독자 상관없이 (최근 트렌드)", "V", "하루 조회수"),
+                                     (data.get("views_top") or {}, "1-5. 조회수 상위 쇼츠 — 올린 날짜·구독자 상관없이 (최근 트렌드에 비슷한 과거 사례)", "T", "조회수")):
+        if top_.get("threshold") is None:
+            continue
+        nk = pre.lower() + "no"
+        L += ["", f"## {title_} ({len(top_['cases'])}개, {kname} 큰 순)", "",
+              "경계 = 검색에서 찾은 주제 관련 쇼츠" + (f"(최근 {top_['max_age_days']:g}일 안)" if top_.get("max_age_days") else "(기간 없는 검색 포함)") +
+              f" {top_['pool']:,}개(가장 오래된 {top_['oldest_days']}일) 중 {kname} 상위 {top_['pct']:g}% (**{_n(round(top_['threshold']))}{'회/일' if pre == 'V' else '회'} 이상**). "
+              f"자료를 받은 쇼츠 중 넘은 것, 채널당 {top_['per_channel']}개 ({pre}# 번호) · 큰 채널 {top_['big_channels']}개 · 성공 쇼츠에도 든 것 {top_['in_success']}개 · "
+              f"1년 넘은 것 {top_['older_than_year_cases']}개 · 기준 통과 {top_['passed']} − 뺀 것 {len(top_['excluded'])} − 채널당 제한 {top_['channel_cut']}.", "",
+              f"| {pre}# | 제목 | 채널 | 구독자 | 조회수 | 하루 조회수 | 올린 지 | 길이 | 주제 | 형식 | 글 출처 | 성공 # |" + (" V# |" if pre == "T" else ""),
+              "|---|---|---|---|---|---|---|---|---|---|---|---|" + ("---|" if pre == "T" else "")]
+        for c in top_["cases"]:
+            L.append(f"| {pre}{c[nk]} | [{_cell(c['title'], 50)}]({c['url']}) | {_cell(c['channel'], 16)} | {_n(c['subs'])} | {_n(c['views'])} | "
+                     f"{_n(c['views_per_day'])} | {_n(c['age_days'])}일 | {c['seconds']}초 | {_cell(c['theme'], 12)} | {_cell(c['format'], 12)} | {c['text_source']} | "
+                     f"{('#' + str(c['success_no'])) if c['success_no'] else ''} |" + ((f" {('V' + str(c['vno'])) if c.get('vno') else ''} |") if pre == "T" else ""))
+        if top_["missing"]:
+            L += ["", f"자료를 받지 않은 후보 {top_['missing_total']}개 중 {kname} 큰 {min(len(top_['missing']), 15)}개 (웹 화면 [쇼츠] 목록에서 승인하면 들어감):", ""] + [
+                f"- {_n(x['views'])}회 · 하루 {_n(x['views_per_day'])}회 · {x['seconds']}초 · {x['published']} · {_cell(x['channel'], 16)} — {_cell(x['title'], 60)} "
+                f"(https://www.youtube.com/shorts/{x['id']})" for x in top_["missing"][:15]]
+        nd = top_.get("needs")
+        if nd:
+            L += ["", f"이 묶음의 시청자 니즈 (시청자 댓글 {nd['viewer_comments']:,}개 — 롱폼 8번과 같은 규칙):", "", "| 갈래 | 댓글 | 비율 | 좋아요 합 |", "|---|---|---|---|"]
+            L += [f"| {r['name']} | {r['count']:,} | {_pct(r['share'])} | {r['likes']:,} |" for r in nd["categories"]]
+            if nd.get("uncategorized"):
+                u = nd["uncategorized"]
+                L.append(f"| **어느 갈래에도 안 듦** | {u['count']:,} | {_pct(u['share'])} | {u['likes']:,} |")
     # 2
-    L += ["", "## 2. 주제 묶음 · 형식 (비교 집단 성공 비율 · 성공 쇼츠 몫)", "", "| 주제 묶음 | 비교 집단 (성공 비율) | 조회수 중앙값 | 하루 조회수 중앙값 | 성공 쇼츠 # |", "|---|---|---|---|---|"]
+    L += ["", "## 2. 주제 묶음 · 형식 (비교 집단 성공 비율 · 성공 쇼츠 몫)", "", "| 주제 묶음 | 비교 집단 (성공 비율) | 조회수 중앙값 | 하루 조회수 중앙값 | 성공 쇼츠 몫 | 성공 쇼츠 # |", "|---|---|---|---|---|---|"]
     L += [f"| {r['theme']} | {_rate_txt(r)}{' (표본 적음)' if r['small_sample'] else ''} | {_n(r['views_median'])} | {_n(r['vpd_median'])} | "
-          f"{', '.join(map(str, r['success_cases'][:15])) or '–'} |" for r in data["themes"]]
+          f"{sa._share_txt(r.get('success_share'), r.get('w_success_share'))} | {', '.join(map(str, r['success_cases'][:15])) or '–'} |" for r in data["themes"]]
     L += ["", "| 형식 | 비교 집단 (성공 비율) | 하루 조회수 중앙값 | 성공 쇼츠 몫 | 성공 쇼츠 # |", "|---|---|---|---|---|"]
-    L += [f"| {r['format']} | {_rate_txt(r)}{' (표본 적음)' if r['small_sample'] else ''} | {_n(r['vpd_median'])} | {_pct(r['success_share'])} | "
+    L += [f"| {r['format']} | {_rate_txt(r)}{' (표본 적음)' if r['small_sample'] else ''} | {_n(r['vpd_median'])} | {sa._share_txt(r['success_share'], r.get('w_success_share'))} | "
           f"{', '.join(map(str, r['success_cases'][:15])) or '–'} |" for r in data["formats"]]
     # 3
     mk = data["market"]
@@ -1169,7 +1276,7 @@ def write_md(out, data, success):
           for r in mk["autocomplete"]]
     # 4
     L += ["", "## 4. 제목 · 해시태그 (비교 집단)", "", "| 제목 특징 | 있음 (성공 비율) | 없음 | 차이 | 성공 쇼츠 몫 |", "|---|---|---|---|---|"]
-    L += [f"| {r['feature']} " + _cmp_line(r)[:-1] + f"| {_pct(r['success_case_share'])} |" for r in data["title_features"]]
+    L += [f"| {r['feature']} " + _cmp_line(r)[:-1] + f"| {sa._share_txt(r['success_case_share'], r.get('w_success_case_share'))} |" for r in data["title_features"]]
     if data["title_words_up"]:
         L += ["", "성공 비율이 높은 제목 낱말: " + ", ".join(f"{r['word']} ({_rate_txt(r['with'])} vs {_pct(r['without']['rate'])}{' ⚑' if r['notable'] else ''})"
                                                 for r in data["title_words_up"])]
@@ -1349,7 +1456,8 @@ def run(topic, now=None, root=None, fetch_thumbs=True):
     if not cases and not infos:
         log("DONE", topic=topic, note="쇼츠 자료 없음 — 웹 화면 [쇼츠]에서 탐색·승인한 뒤 다시 (아무것도 쓰지 않음)")
         return None
-    data, success, group, rows_all, cases = analyze(topic, name, cases, infos, uploads, searches, channels, ac, rules, rel, themes, now)
+    alltime = sa.load_alltime_ids(cache, dur="short") - {i for d in searches for i in (d.get("ids") or [])}     # v1.3
+    data, success, group, rows_all, cases = analyze(topic, name, cases, infos, uploads, searches, channels, ac, rules, rel, themes, now, alltime_ids=alltime)
     sdir.mkdir(parents=True, exist_ok=True)
     data["thumb_pages"] = paged_v([(c["no"], sdir / c["thumb"] if c["thumb"] else None) for c in success], sdir, "thumbs")
     if fetch_thumbs and data["baseline"]["pairs"]:

@@ -1,6 +1,16 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v2.4.1 — 2026-10-21 — '하루 조회수 상위' 추천 경계 = min(이 목록 상위 TOP_PCT%, 지난 분석 analysis.json vpd_top 경계). 분석 1-3번은 모든 검색
+# VERSION: v2.5 — 2026-10-28 — 사용자 지시 2026-10-28 "1은 그렇게하고 최근에 조회수가 높을수록 더 많이 반영되도록 해야해 3은 할당량 남으면
+#          진행하도록 해 나머지는 너가 추천하는 방향으로 하고" (값은 주제 analysis_rules.toml — 없으면 예전대로):
+#          · 탐색 목록 '성공' = 분석과 같은 규칙 (orr.success_core — [success] 구독자당 하루 조회수·나이 · 예전은 숫자를 코드에 박아 둠) ·
+#            하루 조회수 = 받은 때까지 날수로 (orr.views_per_day — 쇼츠 목록도).
+#          · ③ [views_top] TOP_PCT > 0: 보통 검색 뒤 **오늘 할당량이 orr.ALLTIME_RESERVE 넘게 남을 때만** 검색어마다 기간 없는 검색(전체 기간 조회수 순,
+#            캐시 30일) — 못 한 것은 pending_alltime 으로 남아 다음 탐색·이어서(resume)가 할당량이 남을 때 이어 함. 추천 '조회수 상위' = 검색(기간 없는 검색
+#            포함) 주제 관련 영상 안 조회수 상위 TOP_PCT% (예전 = 기간 안 상위 20개). 쇼츠도 같음 ([shorts_views_top]).
+#          · ② 쇼츠 '하루 조회수 상위' 추천 ([shorts_vpd_top] TOP_PCT — 기간 안 쇼츠 검색 결과, 롱폼과 같은 꼴).
+#          · job_explore·job_shorts_explore(alltime_only=True): 보통 검색은 캐시가 지났어도 받아 둔 결과 그대로(0단위) 쓰고 기간 없는 검색만 —
+#            보통 탐색을 하지 않는 날 '남는 할당량'으로 ③ 을 하려고 (cloud_run explore --alltime-only).
+# (v2.4.1 — 2026-10-21 — '하루 조회수 상위' 추천 경계 = min(이 목록 상위 TOP_PCT%, 지난 분석 analysis.json vpd_top 경계). 분석 1-3번은 모든 검색
 #          (1주·26주 검색 캐시를 함께)에서 경계를 잡는데 추천은 지금 목록 안에서만 잡아, 1주 목록(경계 하루 43,580회)에서 분석 경계(19,571회)를 넘은
 #          144개가 추천되지 않고 '자료를 받지 않은 후보'로 남았음 (2026-10-21) → 분석 경계를 넘는 목록 영상도 추천. 지난 분석이 없거나 TOP_PCT 가
 #          다르면 예전처럼 목록 경계만. 다른 동작 그대로
@@ -155,7 +165,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import pc_analysis as pc                 # noqa: E402  할당량 장부·키 찾기·GitHub 동기화·패키지 준비
 
 ROOT = pc.ROOT
-VERSION = "v2.4.1"
+VERSION = "v2.5"
 LOG = logging.getLogger("web")
 KST = timezone(timedelta(hours=9))
 TOKEN = secrets.token_urlsafe(18)        # 화면이 요청마다 보내는 열쇠 (다른 사이트가 이 PC 의 화면을 조작하지 못하게)
@@ -750,8 +760,30 @@ def ratio_key(r):
     return (r.get("ratio") is None, -(r.get("ratio") or 0), -(r.get("views") or 0))
 
 
-def _is_success(r):
-    return r["subs"] is not None and r["subs"] <= 50000 and r["views"] >= 10000 and (r["ratio"] or 0) >= 3
+LONG_SUCCESS_DEFAULT = {"MAX_AGE_DAYS": 180, "MAX_SUBS": 50000, "MIN_RATIO": 3.0, "MIN_VIEWS": 10000, "MIN_MINUTES": 4.0,
+                        "MIN_AGE_DAYS": 0, "MIN_VPD_SUBS": 0}          # success_analysis DEFAULT_RULES['success'] 와 같은 값
+
+
+def topic_rules(t, sec, dflt):
+    """v2.5: <주제>/analysis_rules.toml [sec] 를 기본값 dflt 위에 (dflt 에 있는 열쇠만). 파일이 깨지면 기본값."""
+    try:
+        rp = topic_dir(t) / "analysis_rules.toml"
+        d = orr.tomllib.loads(rp.read_text("utf-8")) if rp.is_file() else {}
+    except Exception as e:
+        log("EXPLORE", logging.WARNING, topic=t, note=f"analysis_rules.toml [{sec}] 못 읽음 — 기본값 — {type(e).__name__}")
+        d = {}
+    return {**dflt, **{k: v for k, v in (d.get(sec) or {}).items() if k in dflt}}
+
+
+def views_top_pct(t):
+    """v2.5: ③ 조회수 상위 (기간 상관없이) — [views_top] TOP_PCT (0 = 끔 → 기간 없는 검색도 안 함)."""
+    return float(topic_rules(t, "views_top", {"TOP_PCT": 0})["TOP_PCT"] or 0)
+
+
+def _is_success(r, S=None):
+    """v2.5: 분석(success_analysis.is_success)과 같은 규칙 — 롱폼 길이 + orr.success_core (구독자당 하루 조회수 또는 배수·나이)."""
+    S = S or LONG_SUCCESS_DEFAULT
+    return r["minutes"] >= S["MIN_MINUTES"] and orr.success_core(r, S)
 
 
 VPD_TOP_PCT = 10                         # v2.4: 하루 조회수 상위 몇 % 를 추천할지 (기본 — 주제 analysis_rules.toml [vpd_top] TOP_PCT 로 바꿈, 0 = 끔)
@@ -778,7 +810,7 @@ def vpd_analysis_threshold(t, vpd_pct):
         return None
 
 
-def preselect(rows, vpd_pct=VPD_TOP_PCT, info=None, analysis_thr=None):
+def preselect(rows, vpd_pct=VPD_TOP_PCT, info=None, analysis_thr=None, views_pct=0):
     """추천 = 체크만 해 둠: 직접 추가한 영상 · 추가한 채널의 최근 N주 롱폼 · 검색 결과 중 성공 사례(작은 채널)·조회수 상위(주제 관련, 최근 N주 롱폼)
     · v2.4 하루 조회수 상위 vpd_pct% (검색에서 찾은 주제 관련 롱폼 안에서 — 구독자·날짜 상관없이). info(dict)가 있으면 경계값·모집단 수를 적어 줌.
     · v2.4.1 analysis_thr(지난 분석 1-3번 경계)가 있으면 경계 = 둘 중 낮은 것 — 분석이 '자료를 받지 않은 후보'로 꼽을 영상도 추천."""
@@ -793,19 +825,51 @@ def preselect(rows, vpd_pct=VPD_TOP_PCT, info=None, analysis_thr=None):
         for r in searched:
             if (r.get("views_per_day") or 0) >= thr:
                 reasons[r["id"]] = "하루 조회수 상위"
-    for r in sorted(searched, key=lambda r: -r["views"])[:POPULAR_N]:
-        reasons[r["id"]] = "조회수 상위"
+    if views_pct and views_pct > 0:          # v2.5: ③ 조회수 상위 N% — 기간 상관없이 (기간 없는 검색 결과 포함)
+        pool3 = [r for r in rows if not r["short"] and r["relevant"] and r.get("flag") in ("", orr.FOREIGN)
+                 and any(s.startswith("검색") for s in r["sources"])]
+        thr3 = orr.top_pct_threshold([r["views"] for r in pool3], views_pct)
+        if info is not None:
+            info.update(views_pct=views_pct, views_threshold=thr3, views_pool=len(pool3),
+                        views_pool_alltime_only=sum(1 for r in pool3 if not any(s.startswith("검색:") for s in r["sources"])))
+        for r in pool3:
+            if thr3 is not None and r["views"] >= thr3:
+                reasons[r["id"]] = "조회수 상위"
+    else:
+        for r in sorted(searched, key=lambda r: -r["views"])[:POPULAR_N]:
+            reasons[r["id"]] = "조회수 상위"
     for r in rows:
         if "주소" in r["sources"]:
             reasons[r["id"]] = "추가한 영상"
         elif any(s.startswith("채널:") for s in r["sources"]) and r["in_window"] and not r["short"]:
             reasons[r["id"]] = "추가한 채널"
-        elif r["id"] in searched_ids and _is_success(r):
+        elif r["id"] in searched_ids and r.get("success"):
             reasons[r["id"]] = "성공 사례"
     return reasons
 
 
-def job_explore(t, weeks, use_keywords):
+def alltime_searches(api, cache, kws, durs, lang, found, tag="검색(전체 기간)"):
+    """v2.5: ③ 기간 없는 검색 — 검색어 × 길이마다 publishedAfter 없이 조회수 순 (캐시 orr.ALLTIME_TTL_HOURS). 오늘 할당량이 orr.ALLTIME_RESERVE
+    넘게 남을 때만 (넘지 않으면 QuotaStop → 못 한 것으로 남김, 캐시가 산 것은 0단위로 그대로 씀). → (못 한 검색 목록, 새로 한 검색 수)"""
+    pend, new = [], 0
+    for g, q in kws:
+        for dur in durs:
+            try:
+                ids, hit = orr.cached_search(api, cache, q, None, dur, 0, orr.ALLTIME_TTL_HOURS, False, lang=lang, keep=orr.ALLTIME_RESERVE)
+            except orr.QuotaStop:
+                pend.append(f"{q} ({dur})")
+                continue
+            for vid in ids:
+                found.setdefault(vid, []).append(f"{tag}:{q}")
+            new += not hit
+            if not hit:
+                log("SEARCH", query=q, dur=dur, alltime=True, results=len(ids), cached=hit, quota_used=api.used)
+    log("ALLTIME", searches=len(kws) * len(durs), new=new, pending=len(pend), reserve=orr.ALLTIME_RESERVE, quota_used=api.used,
+        note="기간 없는 검색 — 할당량이 남을 때만 (못 한 것은 다음 탐색·이어서)" if pend else "기간 없는 검색 다 함 (캐시 포함)")
+    return pend, new
+
+
+def job_explore(t, weeks, use_keywords, alltime_only=False):
     api, ledger, src = make_api(t, "web_explore")
     out = out_dir(t)
     cache = out / ".cache"
@@ -820,6 +884,9 @@ def job_explore(t, weeks, use_keywords):
     tg = load_targets(t)
     if not kws and not tg["channels"] and not tg["videos"]:
         raise UserError("탐색할 것이 없습니다 — 검색어를 넣거나 영상·채널을 추가하세요")
+    S_long = topic_rules(t, "success", LONG_SUCCESS_DEFAULT)      # v2.5: 분석과 같은 성공 규칙
+    vt_pct = views_top_pct(t)                                     # v2.5: ③ (0 = 기간 없는 검색 안 함)
+    pending_alltime = []
     found, pending = {}, []
     searched_new = 0
     state = orr.new_state()
@@ -827,7 +894,7 @@ def job_explore(t, weeks, use_keywords):
     total = len(kws) * 2 + len(tg["channels"]) + 2
     n = 0
     log("EXPLORE", topic=t, weeks=weeks, keywords=len(kws), channels=len(tg["channels"]), videos=len(tg["videos"]), key_source=src,
-        quota_left=api.quota, include_foreign=fo, search_lang=lang or orr.ANY_LANG)
+        quota_left=api.quota, include_foreign=fo, search_lang=lang or orr.ANY_LANG, alltime=vt_pct > 0, alltime_only=alltime_only)
     try:
         for g, q in kws:
             for dur in ("medium", "long"):
@@ -835,7 +902,8 @@ def job_explore(t, weeks, use_keywords):
                 step(f"검색 {q} ({'4~20분' if dur == 'medium' else '20분 넘음'})", n, total)
                 ttl = {}
                 try:
-                    ids, hit = orr.cached_search(api, cache, q, since, dur, days, orr.SEARCH_TTL_HOURS, False, info=ttl, lang=lang)
+                    ids, hit = orr.cached_search(api, cache, q, since, dur, days, 10 ** 9 if alltime_only else orr.SEARCH_TTL_HOURS, False,
+                                                 info=ttl, lang=lang)      # v2.5: alltime_only = 받아 둔 결과 그대로
                 except orr.QuotaStop:
                     pending.append(f"{q} ({dur})")
                     continue
@@ -856,6 +924,10 @@ def job_explore(t, weeks, use_keywords):
                 found.setdefault(vid, []).append(f"채널:{ch.get('title') or ch['id']}")
         for v in tg["videos"]:
             found.setdefault(v["id"], []).append("주소")
+        if kws and vt_pct > 0:                    # v2.5: ③ 기간 없는 검색 — 보통 검색 다음, 할당량이 남을 때만
+            step(f"기간 없는 검색 (조회수 상위 — 할당량이 {orr.ALLTIME_RESERVE:,}단위 넘게 남을 때만)", n, total)
+            pending_alltime, new_all = alltime_searches(api, cache, kws, ("medium", "long"), lang, found)
+            searched_new += new_all
         if kws:                                   # v1.3: 수요 — 사람들이 찾는 말 (YouTube 자동완성, 할당량 0, 7일 캐시)
             ac_fail = ac_new = 0
             for k, (g, q) in enumerate(kws, 1):
@@ -891,11 +963,11 @@ def job_explore(t, weeks, use_keywords):
                  relevant=orr.relevant(info_by_id[r["id"]], rel), short=r["minutes"] * 60 < MIN_SEC,
                  in_window=r["age_days"] is not None and r["age_days"] <= days,
                  downloaded=(out / f"W_{r['id']}" / "metadata.json").is_file())
-        r["success"] = _is_success(r)
+        r["success"] = _is_success(r, S_long)
         rows.append(r)
     vinfo = {}
     vpct = vpd_top_pct(t)
-    reasons = preselect(rows, vpct, vinfo, vpd_analysis_threshold(t, vpct))   # v2.4: 하루 조회수 상위 (구독자·날짜 상관없이) · v2.4.1 분석 경계도
+    reasons = preselect(rows, vpct, vinfo, vpd_analysis_threshold(t, vpct), views_pct=vt_pct)   # v2.4: 하루 조회수 상위 (구독자·날짜 상관없이) · v2.4.1 분석 경계도
     for r in rows:
         r["reason"] = reasons.get(r["id"], "")
     rows.sort(key=ratio_key)                                         # 배수 높은 순 (v1.1)
@@ -910,7 +982,7 @@ def job_explore(t, weeks, use_keywords):
             "rows": rows, "checked": checked, "pending": pending, "quota_used": api.used,
             "pending_videos": state["pending_videos"], "pending_channels": state["pending_channels"],
             "searched_new": searched_new, "excluded": dict(excluded), "search_stop": api.search_stopped,   # v2.3: 검색 횟수 한도
-            "vpd_top": vinfo}                                                                               # v2.4: 하루 조회수 상위 경계
+            "vpd_top": vinfo, "pending_alltime": pending_alltime}                                           # v2.4 · v2.5 기간 없는 검색 못 한 것
     _write_json(web_dir(t) / "explore.json", data)
     log("EXPLORE", topic=t, videos=len(rows), checked=len(data["checked"]), kept_checks=len(prev_rows & {r["id"] for r in rows}),
         pending=len(pending), pending_videos=state["pending_videos"], searched_new=searched_new, quota_used=api.used,
@@ -919,7 +991,8 @@ def job_explore(t, weeks, use_keywords):
         vpd_threshold=round(vinfo["threshold"], 1) if vinfo.get("threshold") is not None else "-", vpd_pool=vinfo.get("pool"),
         vpd_list_threshold=round(vinfo["list_threshold"], 1) if vinfo.get("list_threshold") is not None else "-",
         vpd_analysis_threshold=round(vinfo["analysis_threshold"], 1) if vinfo.get("analysis_threshold") is not None else "-",
-        newly_checked=newly, note="체크만 해 둠 — [승인]을 눌러야 자료를 받음")
+        newly_checked=newly, views_top=sum(1 for r in rows if r["reason"] == "조회수 상위"), views_threshold=vinfo.get("views_threshold") or "-",
+        views_pool=vinfo.get("views_pool") or "-", pending_alltime=len(pending_alltime), note="체크만 해 둠 — [승인]을 눌러야 자료를 받음")
     step("끝" + (" — 검색 횟수 한도로 못 한 검색은 초기화 뒤 저절로" if api.search_stopped else ""), total, total)
     return {"videos": len(rows), "checked": len(data["checked"]), "pending": pending, "pending_videos": state["pending_videos"],
             "quota_used": api.used, **({"search_stop": orr.SEARCH_DAILY_MSG} if api.search_stopped else {})}
@@ -1283,17 +1356,20 @@ def resume_plan(t):
         base = 0
     plan = {"explore_searches": len(pend), "explore_videos": pv, "explore_weeks": ex.get("weeks"),
             "explore_keywords": ex.get("use_keywords", True), "comments": comments, "baseline": base,
-            "shorts_explore": s_pend, "shorts_baseline": s_base}
-    plan["any"] = bool(pend or pv or comments or base or s_pend or s_base)
+            "shorts_explore": s_pend, "shorts_baseline": s_base,
+            "explore_alltime": len(ex.get("pending_alltime") or []), "shorts_alltime": len(sx.get("pending_alltime") or [])}   # v2.5
+    plan["any"] = bool(pend or pv or comments or base or s_pend or s_base or plan["explore_alltime"] or plan["shorts_alltime"])
     return plan
 
 
 def _resume_explore(t, why):
     ex = _read_json(web_dir(t) / "explore.json", {})
-    if not (ex.get("pending") or ex.get("pending_videos") or ex.get("pending_channels")):
+    if not (ex.get("pending") or ex.get("pending_videos") or ex.get("pending_channels") or ex.get("pending_alltime")):
         return {}
     kl = key_ledger(t)
     need = 100 + orr.SEARCH_RESERVE if ex.get("pending") else 1
+    if not (ex.get("pending") or ex.get("pending_videos") or ex.get("pending_channels")):     # v2.5: 기간 없는 검색만 남음 — 할당량이 넉넉할 때만
+        need = 100 + orr.ALLTIME_RESERVE
     if not kl or kl.left() < need:
         log("RESUME", topic=t, why=why, note="남은 탐색이 있지만 할당량이 모자람 — 다음 초기화 뒤에", left=kl.left() if kl else "-")
         return {"explore_resume": "할당량 모자람 — 다음 초기화 뒤"}
@@ -1578,17 +1654,39 @@ def estimate_shorts(t, weeks, use_keywords):
 
 
 def _is_success_short(r, S):
-    return (r["subs"] is not None and r["subs"] <= S["MAX_SUBS"] and r["views"] >= S["MIN_VIEWS"] and (r["ratio"] or 0) >= S["MIN_RATIO"]
-            and r["age_days"] is not None and S["MIN_AGE_DAYS"] <= r["age_days"] <= S["MAX_AGE_DAYS"])
+    """v2.5: 분석(shorts_analysis.is_success)과 같은 규칙 — orr.success_core."""
+    return orr.success_core(r, S)
 
 
-def preselect_shorts(rows, S):
-    """쇼츠 추천 = 체크만: 주소로 넣은 쇼츠 · 추가한 채널의 최근 N주 쇼츠 · 쇼츠 검색 결과 중 성공 쇼츠·조회수 상위(주제 관련, 최근 N주)."""
-    reasons = {}
+def preselect_shorts(rows, S, R=None, info=None):
+    """쇼츠 추천 = 체크만: 주소로 넣은 쇼츠 · 추가한 채널의 최근 N주 쇼츠 · 쇼츠 검색 결과 중 성공 쇼츠·조회수 상위(주제 관련, 최근 N주).
+    v2.5 (R = shorts_rules): [shorts_vpd_top] TOP_PCT > 0 → 하루 조회수 상위 N% (기간 안 검색) · [shorts_views_top] TOP_PCT > 0 → 조회수 상위 N%
+    (기간 없는 검색 포함 — 예전 = 기간 안 상위 20개)."""
+    reasons, R = {}, R or {}
     searched = [r for r in rows if r["in_window"] and r["relevant"] and r.get("flag") != "부풀림 의심" and any(s.startswith("검색:") for s in r["sources"])]
     searched_ids = {r["id"] for r in searched}
-    for r in sorted(searched, key=lambda r: -r["views"])[:SHORTS_POPULAR_N]:
-        reasons[r["id"]] = "조회수 상위"
+    v_pct = float((R.get("shorts_vpd_top") or {}).get("TOP_PCT") or 0)
+    t_pct = float((R.get("shorts_views_top") or {}).get("TOP_PCT") or 0)
+    if v_pct > 0:                               # v2.5: ② 하루 조회수 상위 (최근 — 기간 안)
+        max_age = float((R.get("shorts_vpd_top") or {}).get("MAX_AGE_DAYS") or 0)
+        vpool = [r for r in searched if not max_age or (r["age_days"] is not None and r["age_days"] <= max_age)]
+        thr = orr.top_pct_threshold([r.get("views_per_day") for r in vpool], v_pct)
+        for r in vpool:
+            if thr is not None and (r.get("views_per_day") or 0) >= thr:
+                reasons[r["id"]] = "하루 조회수 상위"
+        if info is not None:
+            info.update(vpd_pct=v_pct, vpd_threshold=thr, vpd_pool=len(vpool))
+    if t_pct > 0:                               # v2.5: ③ 조회수 상위 (기간 상관없이)
+        pool3 = [r for r in rows if r["relevant"] and r.get("flag") in ("", orr.FOREIGN) and any(s.startswith("검색") for s in r["sources"])]
+        thr3 = orr.top_pct_threshold([r["views"] for r in pool3], t_pct)
+        for r in pool3:
+            if thr3 is not None and r["views"] >= thr3:
+                reasons[r["id"]] = "조회수 상위"
+        if info is not None:
+            info.update(views_pct=t_pct, views_threshold=thr3, views_pool=len(pool3))
+    else:
+        for r in sorted(searched, key=lambda r: -r["views"])[:SHORTS_POPULAR_N]:
+            reasons[r["id"]] = "조회수 상위"
     for r in rows:
         if "주소" in r["sources"]:
             reasons[r["id"]] = "추가한 영상"
@@ -1599,10 +1697,13 @@ def preselect_shorts(rows, S):
     return reasons
 
 
-def job_shorts_explore(t, weeks, use_keywords):
+def job_shorts_explore(t, weeks, use_keywords, alltime_only=False):
     """쇼츠 탐색 (v1.6): 검색어마다 쇼츠 검색 1번(4분 미만·조회수 순·최근 N주 — 100단위, 적응형 캐시) + 추가한 채널의 쇼츠 목록(UUSH) + 주소로 넣은
     영상 → 영상 정보(화면비 포함, 50개에 1단위)·구독자 → 3분 이하·세로만 (주소로 넣은 것은 남기고 표시) → web/shorts_explore.json. 자료는 안 받음."""
-    S = shorts_rules(t)["shorts"]
+    R = shorts_rules(t)
+    S = R["shorts"]
+    t_pct = float(R["shorts_views_top"]["TOP_PCT"] or 0) if "shorts_views_top" in R else 0      # v2.5: ③ (0 = 기간 없는 검색 안 함)
+    pending_alltime = []
     api, ledger, src = make_api(t, "web_shorts_explore")
     cache, main_cache = shorts_cache(t), out_dir(t) / ".cache"
     main_cache.mkdir(parents=True, exist_ok=True)
@@ -1629,7 +1730,8 @@ def job_shorts_explore(t, weeks, use_keywords):
             step(f"쇼츠 검색 {q} (4분 미만 → 3분 이하·세로만)", n, total)
             ttl = {}
             try:
-                ids, hit = orr.cached_search(api, cache, q, since, "short", days, orr.SEARCH_TTL_HOURS, False, info=ttl, lang=lang)
+                ids, hit = orr.cached_search(api, cache, q, since, "short", days, 10 ** 9 if alltime_only else orr.SEARCH_TTL_HOURS, False,
+                                             info=ttl, lang=lang)          # v2.5: alltime_only = 받아 둔 결과 그대로
             except orr.QuotaStop:
                 pending.append(f"{q} (short)")
                 continue
@@ -1649,6 +1751,10 @@ def job_shorts_explore(t, weeks, use_keywords):
                 found.setdefault(vid, []).append(f"채널:{ch.get('title') or ch['id']}")
         for v in tg["videos"]:
             found.setdefault(v["id"], []).append("주소")
+        if kws and t_pct > 0:                    # v2.5: ③ 기간 없는 쇼츠 검색 — 할당량이 남을 때만
+            step(f"기간 없는 쇼츠 검색 (조회수 상위 — 할당량이 {orr.ALLTIME_RESERVE:,}단위 넘게 남을 때만)", n, total)
+            pending_alltime, new_all = alltime_searches(api, cache, kws, ("short",), lang, found)
+            searched_new += new_all
         for k, (g, q) in enumerate(kws, 1):                 # 수요 — 롱폼과 같은 자동완성 캐시 (할당량 0, 이미 받았으면 그대로)
             step(f"자동완성(사람들이 찾는 말) {k}/{len(kws)} — {q} (할당량 0)", n, total)
             try:
@@ -1685,7 +1791,7 @@ def job_shorts_explore(t, weeks, use_keywords):
         sec, views, sb = int(i.get("duration") or 0), int(i.get("view_count") or 0), i["subs"]
         r = {"id": i["id"], "title": i.get("title") or "", "channel": i.get("channel") or "", "channel_id": i.get("channel_id") or "",
              "subs": sb, "views": views, "ratio": round(views / max(sb, 100), 2) if sb else None, "age_days": age,
-             "views_per_day": round(views / max(age or 1, 1), 1), "minutes": round(sec / 60, 1), "seconds": sec,
+             "views_per_day": orr.views_per_day(views, i.get("published"), i.get("fetched"), now), "minutes": round(sec / 60, 1), "seconds": sec,
              "likes": i.get("like_count"), "comments": i.get("comment_count"), "published": str(i.get("published") or "")[:10],
              "published_at": str(i.get("published") or ""), "queries": " | ".join(srcs), "url": f"https://www.youtube.com/shorts/{i['id']}",
              "flag": why or ("" if ok else "쇼츠 아님?"), "sources": srcs, "relevant": orr.relevant(i, rel), "short": False,
@@ -1699,7 +1805,8 @@ def job_shorts_explore(t, weeks, use_keywords):
             r["flag"] = orr.FOREIGN
         r["success"] = ok and not ad and _is_success_short(r, S)
         rows.append(r)
-    reasons = preselect_shorts(rows, S)
+    sinfo = {}
+    reasons = preselect_shorts(rows, S, R, sinfo)
     for r in rows:
         r["reason"] = reasons.get(r["id"], "")
     rows.sort(key=ratio_key)
@@ -1710,11 +1817,13 @@ def job_shorts_explore(t, weeks, use_keywords):
     data = {"topic": t, "mode": "shorts", "generated": datetime.now(KST).isoformat(timespec="seconds"), "weeks": weeks, "use_keywords": use_keywords,
             "keywords_file": kw_file, "rows": rows, "checked": checked, "pending": pending, "quota_used": api.used,
             "pending_videos": state["pending_videos"], "pending_channels": state["pending_channels"], "searched_new": searched_new,
-            "excluded": {**dict(excluded), **dict(excluded_note)}}
+            "excluded": {**dict(excluded), **dict(excluded_note)}, "top": sinfo, "pending_alltime": pending_alltime}   # v2.5
     _write_json(p, data)
     log("SHORTS", step="explore", topic=t, shorts=len(rows), checked=len(checked), success=sum(1 for r in rows if r["success"]),
         pending=len(pending), pending_videos=state["pending_videos"], searched_new=searched_new, quota_used=api.used,
-        excluded=",".join(f"{k}:{v}" for k, v in (excluded + excluded_note).items()) or "-", note="체크만 해 둠 — [승인]을 눌러야 자료를 받음")
+        excluded=",".join(f"{k}:{v}" for k, v in (excluded + excluded_note).items()) or "-",
+        vpd_top=sum(1 for r in rows if r["reason"] == "하루 조회수 상위"), views_top=sum(1 for r in rows if r["reason"] == "조회수 상위"),
+        pending_alltime=len(pending_alltime), note="체크만 해 둠 — [승인]을 눌러야 자료를 받음")
     step("끝", total, total)
     return {"videos": len(rows), "checked": len(checked), "pending": pending, "pending_videos": state["pending_videos"], "quota_used": api.used,
             **({"search_stop": orr.SEARCH_DAILY_MSG} if api.search_stopped else {})}
@@ -1873,10 +1982,12 @@ def run_shorts_analysis(t):
 
 def _resume_shorts_explore(t, why):
     ex = _read_json(web_dir(t) / "shorts_explore.json", {})
-    if not (ex.get("pending") or ex.get("pending_videos") or ex.get("pending_channels")):
+    if not (ex.get("pending") or ex.get("pending_videos") or ex.get("pending_channels") or ex.get("pending_alltime")):
         return {}
     kl = key_ledger(t)
     need = 100 + orr.SEARCH_RESERVE if ex.get("pending") else 1
+    if not (ex.get("pending") or ex.get("pending_videos") or ex.get("pending_channels")):     # v2.5: 기간 없는 검색만 남음 — 할당량이 넉넉할 때만
+        need = 100 + orr.ALLTIME_RESERVE
     if not kl or kl.left() < need:
         log("RESUME", topic=t, why=why, note="남은 쇼츠 탐색이 있지만 할당량이 모자람 — 다음 초기화 뒤에", left=kl.left() if kl else "-")
         return {"shorts_explore_resume": "할당량 모자람 — 다음 초기화 뒤"}

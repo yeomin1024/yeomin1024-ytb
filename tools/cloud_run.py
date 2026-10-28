@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.5.1 — 2026-10-21 — '-' 로 시작하는 영상 ID(예: -Fl1y9riPs4)를 check·uncheck·approve 에 주면 argparse 가 옵션으로 읽어 멈추던 것
+# VERSION: v1.6 — 2026-10-28 — explore --alltime-only: 보통 검색은 받아 둔 결과 그대로(캐시가 지났어도 0단위) 쓰고 ③ 기간 없는 검색만
+#          (할당량이 orr.ALLTIME_RESERVE 넘게 남을 때만 — web_ui v2.5). 사용자 지시 2026-10-28 "3은 할당량 남으면 진행하도록 해".
+# (v1.5.1 — 2026-10-21 — '-' 로 시작하는 영상 ID(예: -Fl1y9riPs4)를 check·uncheck·approve 에 주면 argparse 가 옵션으로 읽어 멈추던 것
 #          (exit 2 — 132개 승인이 시작도 못 함) → 11자 영상 ID 꼴이면서 아는 옵션이 아닌 낱말은 ID 로 읽음. `--` 를 앞에 둬도 됨. 다른 동작 그대로
 # (v1.5 — 2026-10-21 — 푼 추천 기억: uncheck 한 영상을 <주제>/result/web/dismissed.json(쇼츠 shorts_dismissed.json — 캐시 묶음에 함께)에 남기고
 #          explore 뒤에 다시 풂 (check 하면 목록에서 지움). 웹 화면 탐색은 바로 앞 목록의 체크만 기억해, 1주 ↔ 26주처럼 기간을 바꾸면 예전에 푼
@@ -66,7 +68,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import pc_analysis as pc                 # noqa: E402
 import web_ui as w                       # noqa: E402
 
-VERSION = "v1.5.1"
+VERSION = "v1.6"
 VIDEO_ID_RX = re.compile(r"-[0-9A-Za-z_-]{10}")   # v1.5.1: '-' 로 시작하는 11자 영상 ID (argparse 가 옵션으로 읽지 않게)
 ROOT = pc.ROOT
 LOG = logging.getLogger("cloud")
@@ -452,6 +454,7 @@ def parse_args(argv=None):
     ap.add_argument("ids", nargs="*", help="check·uncheck·approve 할 영상 ID (foreign 은 on|off)")
     ap.add_argument("--weeks", type=int, default=8, help="explore: 최근 몇 주 (웹 화면 기본 8, 1~52)")
     ap.add_argument("--no-keywords", action="store_true", help="explore: 검색어 없이 추가한 채널·영상만")
+    ap.add_argument("--alltime-only", action="store_true", help="explore: 보통 검색은 받아 둔 결과 그대로, 기간 없는 검색(③)만 — 할당량이 남을 때만")
     ap.add_argument("--shorts", action="store_true", help="쇼츠 (explore·list·check·approve)")
     ap.add_argument("--checked", action="store_true", help="list: 체크한 것만")
     ap.add_argument("--unchecked", action="store_true", help="list: 체크 안 한 것만")
@@ -507,9 +510,9 @@ def main(argv=None):
         elif a.cmd == "explore":
             if a.shorts:
                 w.need_sh()
-                res = w.job_shorts_explore(t, weeks, not a.no_keywords)
+                res = w.job_shorts_explore(t, weeks, not a.no_keywords, alltime_only=a.alltime_only)
             else:
-                res = w.job_explore(t, weeks, not a.no_keywords)
+                res = w.job_explore(t, weeks, not a.no_keywords, alltime_only=a.alltime_only)
             res["unchecked_again"] = apply_dismissed(t, a.shorts)          # v1.5
         elif a.cmd == "approve":
             res = cmd_approve(t, a)

@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-10-28 — 새로: 분석 대상 세 묶음 확인 엑셀. 사용자 지시 2026-10-28 "아래 처럼 분석하고 있는지 확인하고 내가 확인할 수 있는
+# VERSION: v1.1 — 2026-10-28 — 분석 고침(success_analysis v1.6·shorts_analysis v1.3 — 사용자 지시 "1은 그렇게하고 최근에 조회수가 높을수록 더 많이
+#          반영되도록 해야해 3은 할당량 남으면 진행하도록 해 나머지는 너가 추천하는 방향으로 하고") 뒤: 분석 결과의 묶음(①# · ②V · ③T)과 경계를 그대로
+#          읽어 판정 · ③ 모집단 = 기간 없는 검색 포함 · '어디서 봄' 에 기간 없는 검색 · 못 한 기간 없는 검색 수. 받은 때 하루 조회수 비교 칸은 뺌
+#          (분석이 이제 받은 때 기준).
+# v1.0 — 2026-10-28 — 새로: 분석 대상 세 묶음 확인 엑셀. 사용자 지시 2026-10-28 "아래 처럼 분석하고 있는지 확인하고 내가 확인할 수 있는
 #          엑셀 파일 생성해 / 분석 대상(롱폼, 쇼츠 종합) — 구독자에 비해 업로드 대비 조회수가 높은 영상 (성공 사례) · 구독자 상관 없이 업로드 대비
 #          조회수가 높은 영상 (최근 트렌드) · 업로드 기간 상관없이 조회수가 높은 영상 (최근 트렌드에 비슷한 과거 사례)".
 #          · 분석 코드(success_analysis·shorts_analysis 의 analyze — 파일을 쓰지 않음)를 그대로 불러 같은 모집단·같은 규칙으로 셈 → 묶음마다
@@ -27,7 +31,7 @@ import outlier_research as orr        # noqa: E402  top_pct_threshold (웹 화�
 import shorts_analysis as sha         # noqa: E402
 import success_analysis as sa         # noqa: E402
 
-VERSION = "v1.0"
+VERSION = "v1.1"
 ROOT = Path(__file__).resolve().parent.parent
 LOG = logging.getLogger("tchk")
 G1, G2, G3 = "① 성공 사례", "② 최근 트렌드", "③ 조회수 상위"
@@ -46,9 +50,11 @@ def load_long(topic, now):
     cache_infos, cache_subs = sa.load_cache(out)
     cases = sa.load_cases(out, cache_infos, cache_subs, now)
     mc = sa.load_market_caches(out)
-    data, success, _group, rows_all, cases = sa.analyze(topic, topic, cases, cache_infos, cache_subs, rules, rel, themes, now, mc, sa.load_uploads(out))
     searched = {i for d in (mc[0] or ()) for i in (d.get("ids") or [])}
-    return {"rules": rules, "data": data, "success": success, "rows": rows_all, "cases": cases, "searched": searched,
+    alltime = sa.load_alltime_ids(out / ".cache") - searched                    # v1.1: 기간 없는 검색으로만 찾은 영상
+    data, success, _group, rows_all, cases = sa.analyze(topic, topic, cases, cache_infos, cache_subs, rules, rel, themes, now, mc,
+                                                        sa.load_uploads(out), alltime_ids=alltime)
+    return {"rules": rules, "data": data, "success": success, "rows": rows_all, "cases": cases, "searched": searched, "alltime": alltime,
             "fetched": {k: v.get("fetched") for k, v in cache_infos.items()}}
 
 
@@ -63,42 +69,29 @@ def load_shorts(topic, now):
     subs_map = {k: v.get("subs") for k, v in channels.items()}
     known = {i for u in uploads.values() for i in u["ids"]}
     cases = sha.load_cases(sdir, infos, subs_map, now, known)
-    data, success, _group, rows_all, cases = sha.analyze(topic, topic, cases, infos, uploads, searches, channels, ac, rules, rel, themes, now)
     searched = {i for d in searches for i in (d.get("ids") or [])}
-    return {"rules": rules, "data": data, "success": success, "rows": rows_all, "cases": cases, "searched": searched,
+    alltime = sa.load_alltime_ids(cache, dur="short") - searched
+    data, success, _group, rows_all, cases = sha.analyze(topic, topic, cases, infos, uploads, searches, channels, ac, rules, rel, themes, now,
+                                                         alltime_ids=alltime)
+    return {"rules": rules, "data": data, "success": success, "rows": rows_all, "cases": cases, "searched": searched, "alltime": alltime,
             "fetched": {k: v.get("fetched") for k, v in infos.items()}}
 
 
-def parse_dt(s):
-    try:
-        d = datetime.fromisoformat(str(s).replace("Z", "+00:00"))
-        return d if d.tzinfo else d.replace(tzinfo=timezone.utc)
-    except (TypeError, ValueError):
-        return None
-
-
-def vpd_at_fetch(x, fetched):
-    """하루 조회수(받은 때) = 받은 때 조회수 ÷ 올린 날부터 받은 때까지 날수 (최소 1일). 분석 코드의 하루 조회수는 ÷ 오늘까지 날수."""
-    f, pub = parse_dt(fetched), x.get("published")
-    if not (f and pub):
-        return None
-    return round(x["views"] / max((f - pub).total_seconds() / 86400, 1.0), 1)
-
-
 def explore_meta(topic):
-    """탐색 목록(웹 화면·cloud_run explore)의 검색 기간·추천 까닭."""
+    """탐색 목록(웹 화면·cloud_run explore)의 검색 기간·추천 까닭·못 한 기간 없는 검색."""
     res = {}
     for fmt, name in ((LONG, "explore.json"), (SHORT, "shorts_explore.json")):
         p = ROOT / topic / "result" / "web" / name
         d = json.loads(p.read_text("utf-8")) if p.is_file() else {}
-        res[fmt] = {"weeks": d.get("weeks"), "generated": d.get("generated"),
+        res[fmt] = {"weeks": d.get("weeks"), "generated": d.get("generated"), "pending_alltime": len(d.get("pending_alltime") or []),
                     "reason": {r["id"]: r.get("reason") or "" for r in d.get("rows") or []}}
     return res
 
 
 # ---------------------------------------------------------------- 묶음
 def build(long, shorts, pct, meta):
-    """두 형식 → 영상 줄 (묶음 표시·분석 상태) + 묶음 요약."""
+    """두 형식 → 영상 줄 (묶음 표시·분석 상태) + 묶음 요약. v1.1: 분석 결과의 묶음(①#·②V·③T)과 경계를 그대로 읽음 —
+    분석에서 꺼진 묶음(TOP_PCT 0)만 여기서 같은 꼴(상위 pct%)로 셈."""
     rows, summary = [], {}
     for fmt, src in ((LONG, long), (SHORT, shorts)):
         if not src:
@@ -107,88 +100,88 @@ def build(long, shorts, pct, meta):
         R, data = src["rules"], src["data"]
         S = R["success"] if fmt == LONG else R["shorts"]
         is_success = sa.is_success if fmt == LONG else sha.is_success
-        min_min = R["vpd_top"]["MIN_MINUTES"] if fmt == LONG else 0
-        # 모집단 = 검색에서 찾은 주제 관련 영상 중 뺄 까닭 없는 것 (롱폼 = 분석 1-3번 vpool 과 같음 · 쇼츠 = 쇼츠인 것)
-        pool = [x for x in src["rows"] if x["id"] in src["searched"] and not x["exclude"] and x.get("vpd") is not None
-                and (x["minutes"] >= min_min if fmt == LONG else x.get("is_short"))]
-        pool_ids = {x["id"] for x in pool}
-        thr_vpd = orr.top_pct_threshold([x["vpd"] for x in pool], pct)
-        thr_views = orr.top_pct_threshold([x["views"] for x in pool], pct)
+        is_fmt = (lambda x: x["minutes"] >= R["vpd_top"]["MIN_MINUTES"]) if fmt == LONG else (lambda x: x.get("is_short"))
+        vt, tt = data.get("vpd_top") or {}, data.get("views_top") or {}
+        max_age = float(vt.get("max_age_days") or 0)
+        recent = (lambda x: x.get("age_days") is not None and x["age_days"] <= max_age) if max_age > 0 else (lambda x: True)
+        base = [x for x in src["rows"] if not x["exclude"] and x.get("vpd") is not None and is_fmt(x)]
+        pool2 = [x for x in base if x["id"] in src["searched"] and recent(x)]                       # ② = 분석 1-3(쇼츠 1-4)번 모집단
+        pool3 = [x for x in base if x["id"] in src["searched"] or x["id"] in src["alltime"]]       # ③ = 1-4(쇼츠 1-5)번 모집단
+        thr2 = vt.get("threshold") if vt.get("threshold") is not None else orr.top_pct_threshold([x["vpd"] for x in pool2], pct)
+        thr3 = tt.get("threshold") if tt.get("threshold") is not None else orr.top_pct_threshold([x["views"] for x in pool3], pct)
+        on2, on3 = vt.get("threshold") is not None, tt.get("threshold") is not None
+        ids2, ids3 = {x["id"] for x in pool2}, {x["id"] for x in pool3}
         success_no = {c["id"]: c["no"] for c in src["success"]}
-        vtop = data.get("vpd_top") or {}
-        vno = {c["id"]: c["vno"] for c in vtop.get("cases") or []} if fmt == LONG else {}
-        if fmt == LONG and vtop.get("threshold") is not None and thr_vpd is not None and abs(vtop["threshold"] - thr_vpd) > 0.5 and pct == R["vpd_top"]["TOP_PCT"]:
-            log("GROUP", logging.WARNING, fmt=fmt, note="② 경계가 분석 결과와 다름", analysis=vtop["threshold"], here=thr_vpd)
+        vno = {c["id"]: c["vno"] for c in vt.get("cases") or []}
+        tno = {c["id"]: c["tno"] for c in tt.get("cases") or []}
         case_ids = {c["id"] for c in src["cases"]}
         reason = meta[fmt]["reason"]
+        url = "https://www.youtube.com/watch?v=" if fmt == LONG else "https://www.youtube.com/shorts/"
+
+        def st(ok, has, num, prefix, on, cap):
+            if not ok:
+                return ""
+            if not on:
+                return "분석 묶음 없음 (규칙 꺼짐) · " + ("자료 받음" if has else "자료 안 받음")
+            return f"분석 {prefix}{num}" if num is not None else (f"자료 받음 · 채널당 {cap}개 넘어 묶음 밖" if has else "자료 안 받음")
         seen = set()
         for x in src["rows"]:
+            if x["id"] in seen:
+                continue
             g1 = (not x["exclude"]) and is_success(x, S)
-            in_pool = x["id"] in pool_ids
-            g2 = in_pool and thr_vpd is not None and x["vpd"] >= thr_vpd
-            g3 = in_pool and thr_views is not None and x["views"] >= thr_views
-            if not (in_pool or g1 or x["id"] in case_ids) or x["id"] in seen:
+            g2 = x["id"] in ids2 and thr2 is not None and x["vpd"] >= thr2
+            g3 = x["id"] in ids3 and thr3 is not None and x["views"] >= thr3
+            has = x["id"] in case_ids
+            if not (g1 or g2 or g3 or has or x["id"] in ids3):
                 continue
             seen.add(x["id"])
-            has = x["id"] in case_ids
-            st1 = (f"분석 #{success_no[x['id']]}" if x["id"] in success_no else ("자료 받음 · 채널당 {}개 넘어 묶음 밖".format(S["CASES_PER_CHANNEL"]) if has else "자료 안 받음")) if g1 else ""
-            if fmt == LONG:
-                st2 = (f"분석 V{vno[x['id']]}" if x["id"] in vno else ("자료 받음 · 채널당 {}개 넘어 묶음 밖".format(R["vpd_top"]["CASES_PER_CHANNEL"]) if has else "자료 안 받음")) if g2 else ""
-            else:
-                st2 = ("분석 묶음 없음 · 자료 받음" if has else "분석 묶음 없음 · 자료 안 받음") if g2 else ""
-            st3 = ("분석 묶음 없음 · 자료 받음" if has else "분석 묶음 없음 · 자료 안 받음") if g3 else ""
-            pub = x.get("published")
-            subs = x.get("subs")
-            fetched = src["fetched"].get(x["id"])
-            vf = vpd_at_fetch(x, fetched)
-            rows.append({"형식": fmt, "제목": x["title"], "링크": f"https://www.youtube.com/watch?v={x['id']}", "채널": x["channel"],
+            pub, subs = x.get("published"), x.get("subs")
+            f = orr.as_utc(src["fetched"].get(x["id"]))
+            rows.append({"형식": fmt, "제목": x["title"], "링크": url + x["id"], "채널": x["channel"],
                          "구독자": subs, "조회수": x["views"], "올린 날": pub.date().isoformat() if pub else "",
                          "지난 날수": round(x["age_days"]) if x.get("age_days") is not None else None,
-                         "하루 조회수": x["vpd"], "하루 조회수(받은 때)": vf, "받은 날": (parse_dt(fetched).date().isoformat() if parse_dt(fetched) else ""),
-                         "배수(조회수÷구독자)": x.get("ratio"),
+                         "하루 조회수": x["vpd"], "받은 날": f.date().isoformat() if f else "",
                          "구독자당 하루 조회수": round(x["vpd"] / max(subs, 100), 3) if subs is not None and x.get("vpd") is not None else None,
+                         "배수(조회수÷구독자)": x.get("ratio"),
                          "길이(분)": round(x["minutes"], 1), "외국": "외국" if x.get("foreign") else "", "주제 묶음": x.get("theme") or "",
-                         "어디서 봄": "검색" if x["id"] in src["searched"] else ("승인 자료" if has else "채널 평소 영상"),
-                         "모집단(검색)": "○" if in_pool else "", "자료 받음": "○" if has else "",
-                         G1: "○" if g1 else "", f"{G1} 분석": st1, G2: "○" if g2 else "", f"{G2} 분석": st2, G3: "○" if g3 else "", f"{G3} 분석": st3,
+                         "어디서 봄": ("검색" if x["id"] in src["searched"] else "기간 없는 검색" if x["id"] in src["alltime"] else
+                                     "승인 자료" if has else "채널 평소 영상"),
+                         "자료 받음": "○" if has else "",
+                         G1: "○" if g1 else "", f"{G1} 분석": st(g1, has, success_no.get(x["id"]), "#", True, S["CASES_PER_CHANNEL"]),
+                         G2: "○" if g2 else "", f"{G2} 분석": st(g2, has, vno.get(x["id"]), "V", on2, vt.get("per_channel", 2)),
+                         G3: "○" if g3 else "", f"{G3} 분석": st(g3, has, tno.get(x["id"]), "T", on3, tt.get("per_channel", 2)),
                          "탐색 추천 까닭": reason.get(x["id"], ""), "뺀 까닭": x.get("exclude") or "", "_id": x["id"]})
         mine = [r for r in rows if r["형식"] == fmt]
-        ages = [x["age_days"] for x in pool if x.get("age_days") is not None]
-        # 하루 조회수를 오늘까지 날수로 나눌 때 얼마나 낮아지나 (올린 지 30일 안 영상 — 받은 뒤 날이 지날수록 낮게 셈)
-        young = [r for r in mine if r["모집단(검색)"] and r["하루 조회수(받은 때)"] and r["지난 날수"] is not None and r["지난 날수"] <= 30]
-        shrink = sorted(r["하루 조회수"] / r["하루 조회수(받은 때)"] for r in young if r["하루 조회수(받은 때)"])
-        thr_fetch = orr.top_pct_threshold([r["하루 조회수(받은 때)"] for r in mine if r["모집단(검색)"] and r["하루 조회수(받은 때)"]], pct)
-        g2_fetch = {r["_id"] for r in mine if r["모집단(검색)"] and thr_fetch is not None and (r["하루 조회수(받은 때)"] or 0) >= thr_fetch}
-        g2_now = {r["_id"] for r in mine if r[G2]}
+        ages3 = [x["age_days"] for x in pool3 if x.get("age_days") is not None]
+        rule1 = (sa.success_rule_text(S).replace("**", "") + (f"·{S['MIN_MINUTES']:g}분 이상" if fmt == LONG else f"·{S['MAX_SECONDS']}초 이하 세로")
+                 + f"·채널당 {S['CASES_PER_CHANNEL']}개 (점수 큰 순)"
+                 + (" · 무게 1+log2(점수÷기준)로 성공 사례 몫(가중)" if str(S.get("WEIGHT") or "") == "score" else ""))
         summary[fmt] = {
-            "weeks": meta[fmt]["weeks"], "generated": meta[fmt]["generated"], "pool": len(pool), "rows": len(src["rows"]),
-            "oldest": round(max(ages)) if ages else None, "older_180": sum(1 for a in ages if a > 180), "older_365": sum(1 for a in ages if a > 365),
-            "thr_vpd": thr_vpd, "thr_views": thr_views, "pct": pct, "cases": len(case_ids),
-            "rule1": (f"{S.get('MIN_AGE_DAYS', 0)}~{S['MAX_AGE_DAYS']}일 · 구독자 ≤ {S['MAX_SUBS']:,} · 조회수 ≥ 구독자 × {S['MIN_RATIO']:g} · 조회수 ≥ {S['MIN_VIEWS']:,}"
-                      + (f" · {S['MIN_MINUTES']:g}분 이상" if fmt == LONG else f" · {S['MAX_SECONDS']}초 이하 세로") + f" · 채널당 {S['CASES_PER_CHANNEL']}개"),
-            **{f"{g}_{k}": v for g, col in ((G1, G1), (G2, G2), (G3, G3)) for k, v in (
-                ("pass", sum(1 for r in mine if r[col])), ("has", sum(1 for r in mine if r[col] and r["자료 받음"])),
-                ("in", sum(1 for r in mine if r[f"{col} 분석"].startswith("분석 #") or r[f"{col} 분석"].startswith("분석 V"))))},
-            "vpd_top_analysis": vtop if fmt == LONG else None,
-            "g1_search": sum(1 for r in mine if r[G1] and r["어디서 봄"] != "채널 평소 영상"), "g1_uploads": sum(1 for r in mine if r[G1] and r["어디서 봄"] == "채널 평소 영상"),
+            "weeks": meta[fmt]["weeks"], "generated": meta[fmt]["generated"], "pending_alltime": meta[fmt]["pending_alltime"],
+            "pool2": len(pool2), "pool3": len(pool3), "alltime": len(src["alltime"]), "rows": len(src["rows"]), "cases": len(case_ids),
+            "oldest3": round(max(ages3)) if ages3 else None, "older_365": sum(1 for a in ages3 if a > 365), "max_age2": max_age,
+            "thr_vpd": thr2, "thr_views": thr3, "on2": on2, "on3": on3, "pct": pct, "rule1": rule1,
+            "per_day": float(S.get("MIN_VPD_SUBS") or 0) > 0, "weighted": str(S.get("WEIGHT") or "") == "score",
+            **{f"{g}_{k}": v for g in (G1, G2, G3) for k, v in (
+                ("pass", sum(1 for r in mine if r[g])), ("has", sum(1 for r in mine if r[g] and r["자료 받음"])),
+                ("in", sum(1 for r in mine if str(r[f"{g} 분석"]).startswith("분석 ") and not str(r[f"{g} 분석"]).startswith("분석 묶음"))))},
+            "g1_uploads": sum(1 for r in mine if r[G1] and r["어디서 봄"] == "채널 평소 영상"),
             "last_fetch": max((r["받은 날"] for r in mine if r["받은 날"]), default=""),
-            "young": len(young), "shrink_median": round(shrink[len(shrink) // 2], 2) if shrink else None,
-            "thr_fetch": thr_fetch, "g2_fetch_only": len(g2_fetch - g2_now), "g2_now_only": len(g2_now - g2_fetch),
         }
-        log("GROUP", fmt=fmt, pool=len(pool), oldest_days=summary[fmt]["oldest"], thr_vpd=thr_vpd, thr_views=thr_views,
-            g1=f"{summary[fmt][G1 + '_pass']}/{summary[fmt][G1 + '_has']}/{summary[fmt][G1 + '_in']}",
-            g2=f"{summary[fmt][G2 + '_pass']}/{summary[fmt][G2 + '_has']}/{summary[fmt][G2 + '_in']}",
-            g3=f"{summary[fmt][G3 + '_pass']}/{summary[fmt][G3 + '_has']}/{summary[fmt][G3 + '_in']}", note="통과/자료 받음/분석 묶음",
-            g1_from_uploads=summary[fmt]["g1_uploads"], last_fetch=summary[fmt]["last_fetch"], young30=summary[fmt]["young"],
-            vpd_now_vs_fetch_median=summary[fmt]["shrink_median"], thr_fetch=thr_fetch,
-            g2_changes=f"+{summary[fmt]['g2_fetch_only']}/-{summary[fmt]['g2_now_only']}")
+        s = summary[fmt]
+        log("GROUP", fmt=fmt, pool2=len(pool2), pool3=len(pool3), alltime=len(src["alltime"]), oldest3=s["oldest3"], older_365=s["older_365"],
+            thr_vpd=thr2, thr_views=thr3, g1=f"{s[G1 + '_pass']}/{s[G1 + '_has']}/{s[G1 + '_in']}",
+            g2=f"{s[G2 + '_pass']}/{s[G2 + '_has']}/{s[G2 + '_in']}", g3=f"{s[G3 + '_pass']}/{s[G3 + '_has']}/{s[G3 + '_in']}",
+            pending_alltime=s["pending_alltime"], note="통과/자료 받음/분석 묶음")
     return rows, summary
 
 
 def check_rows(summary, long_rules):
-    """확인 결과 — 사용자 기준 × 형식 6줄."""
+    """확인 결과 — 사용자 기준 × 형식 6줄 (v1.1: 분석 결과의 묶음을 그대로 판정)."""
     out = []
     want = {G1: "구독자에 비해 업로드 대비 조회수가 높은 영상", G2: "구독자 상관없이 업로드 대비 조회수가 높은 영상", G3: "업로드 기간 상관없이 조회수가 높은 영상"}
+    where = {(G1, LONG): "analysis.md 1번", (G1, SHORT): "shorts/analysis.md 1번", (G2, LONG): "analysis.md 1-3번", (G2, SHORT): "shorts/analysis.md 1-4번",
+             (G3, LONG): "analysis.md 1-4번", (G3, SHORT): "shorts/analysis.md 1-5번"}
     for g in (G1, G2, G3):
         for fmt in (LONG, SHORT):
             s = summary.get(fmt)
@@ -196,37 +189,33 @@ def check_rows(summary, long_rules):
                 out.append({"분석 대상": g, "형식": fmt, "사용자 기준": want[g], "판정": "❌ 자료 없음"})
                 continue
             p, h, i = s[f"{g}_pass"], s[f"{g}_has"], s[f"{g}_in"]
+            miss = f"기준 통과 {p}개 중 자료를 안 받은 {p - h}개는 분석에 없음 (탐색 추천 — 승인하면 들어감)." if p - h else ""
             if g == G1:
-                rule, where = s["rule1"], ("analysis.md 1번" if fmt == LONG else "shorts/analysis.md 1번")
-                verdict = "⚠️ 들어감 · 기준 한 곳 다름"
-                gap = ("'업로드 대비' 를 날수로 나누지 않음 — 지금은 조회수 ÷ 구독자 (180일 안이면 10일 된 영상과 170일 된 영상을 같은 잣대로 봄). "
-                       "말씀대로라면 '구독자당 하루 조회수' (하루 조회수 ÷ 구독자) — 엑셀에 그 칸을 넣어 둠. 기준을 바꾸면 CLAUDE.md 지시사항 근거(성공 사례)도 바뀌어 사용자 결정 필요. "
-                       f"기준 통과 {p}개 = 검색·승인 자료 {s['g1_search']} + 채널 평소 영상(같은 채널 기준선으로만 본 것) {s['g1_uploads']} — 자료를 안 받은 {p - h}개는 분석에 없음.")
-                fix = "기준을 바꿀지 결정 (할당량 0 — 다시 분석만)"
-            elif g == G2 and fmt == LONG:
-                rule = f"검색에서 찾은 주제 관련 롱폼(4분 이상) 안 하루 조회수 상위 {s['pct']:g}% (경계 {s['thr_vpd']:,.0f}회/일) · 채널당 {long_rules['vpd_top']['CASES_PER_CHANNEL']}개"
-                where, verdict = "analysis.md 1-3번 (성공 사례와 따로)", "✅ 들어감"
-                gap = ((f"기준 통과 {p}개 중 자료를 안 받은 {p - h}개는 분석에 없음 (탐색 추천 목록에는 있음 — 승인하면 들어감). " if p - h else "")
-                       + f"⚠️ 하루 조회수 = 받은 때 조회수 ÷ 오늘까지 날수 — 마지막으로 받은 날 {s['last_fetch']}, 올린 지 30일 안 영상은 받은 때 기준보다 "
-                       f"중앙값 ×{s['shrink_median']} 로 낮게 셈 → 받은 때 기준이면 이 묶음에 +{s['g2_fetch_only']}개·-{s['g2_now_only']}개 (탐색을 다시 돌리면 새로 받음).")
-                fix = "남은 추천 승인 (댓글 받기 — 영상당 몇 단위)" if p - h else ""
+                rule = s["rule1"]
+                verdict = "✅ 들어감 (구독자당 하루 조회수)" if s["per_day"] else "⚠️ 들어감 · 날수로 나누지 않음 (배수)"
+                gap = ((f"채널 평소 영상(같은 채널 기준선)으로만 본 것 {s['g1_uploads']}개 포함. " if s["g1_uploads"] else "") + miss
+                       + (" 하루 조회수 = 받은 때 조회수 ÷ 받은 때까지 날수." if s["per_day"] else ""))
+                fix = "" if s["per_day"] else "[success] MIN_VPD_SUBS"
             elif g == G2:
-                rule = f"(분석에는 없음) 여기서 같은 꼴로 셈: 검색에서 찾은 주제 관련 쇼츠 안 하루 조회수 상위 {s['pct']:g}% (경계 {s['thr_vpd']:,.0f}회/일)"
-                where, verdict = "없음 — 탐색 추천도 없음 (쇼츠 추천 = 성공 쇼츠·조회수 상위 20)", "❌ 빠짐"
-                gap = (f"쇼츠에는 하루 조회수 상위 묶음이 없음. 기준 통과 {p}개 중 다른 까닭으로 자료를 받은 것 {h}개. "
-                       f"(쇼츠 자료를 마지막으로 받은 날 {s['last_fetch']} — 오늘까지 날수로 나눠 30일 안 쇼츠는 중앙값 ×{s['shrink_median']})")
-                fix = "쇼츠 추천·분석에 롱폼과 같은 규칙 더하기 (코드 — 할당량 0) + 추천 승인 (댓글 받기)"
+                rule = (f"검색에서 찾은 주제 관련 {'롱폼(4분 이상)' if fmt == LONG else '쇼츠'}"
+                        + (f" 중 최근 {s['max_age2']:g}일 안" if s["max_age2"] else "") + f" {s['pool2']:,}개 안 하루 조회수 상위 {s['pct']:g}% "
+                        f"(경계 {s['thr_vpd'] or 0:,.0f}회/일) · 채널당 2개")
+                verdict = "✅ 들어감" if s["on2"] else "❌ 묶음 꺼짐"
+                gap = miss
+                fix = "남은 추천 승인 (댓글 받기)" if p - h else ""
             else:
-                rule = (f"(분석에는 없음) 여기서 셈: 모집단 안 조회수 상위 {s['pct']:g}% (경계 {s['thr_views']:,.0f}회). "
-                        f"탐색 추천 '조회수 상위' = 조회수 상위 20개만 (분석 묶음은 아님)")
-                where, verdict = "없음 — 승인하면 '그 밖의 승인 영상' 으로만 섞임", "❌ 빠짐 (기간도 막힘)"
-                gap = (f"검색이 최근 {s['weeks']}주로 막혀 있음 (YouTube 검색 publishedAfter) — 모집단에서 가장 오래된 영상 {s['oldest']}일 · "
-                       f"1년 넘은 영상 {s['older_365']}개 → '기간 상관없는 과거 사례' 를 찾지 못함. 따로 묶는 분석도 없음.")
-                fix = ("기간 없는 검색(검색어마다 조회수 순 — 롱폼·쇼츠 검색어 수 × 100단위) + 따로 묶는 분석 (코드). "
-                       "할당량이 하루 10,000 을 넘을 수 있음 — 사용자 결정")
+                rule = (f"검색(기간 있는 + 기간 없는 검색) 주제 관련 {'롱폼' if fmt == LONG else '쇼츠'} {s['pool3']:,}개 안 조회수 상위 {s['pct']:g}% "
+                        f"(경계 {s['thr_views'] or 0:,.0f}회) · 올린 날짜 상관없이 · 채널당 2개")
+                done = s["alltime"] > 0
+                verdict = ("✅ 들어감" if done and not s["pending_alltime"] else
+                           "⚠️ 들어감 · 기간 없는 검색 일부만" if done else "⚠️ 묶음 있음 · 기간 없는 검색 아직") if s["on3"] else "❌ 묶음 꺼짐"
+                gap = (f"기간 없는 검색으로만 찾은 영상 {s['alltime']:,}개 · 모집단에서 가장 오래된 영상 {s['oldest3']}일 · 1년 넘은 {s['older_365']}개"
+                       + (f" · 못 한 기간 없는 검색 {s['pending_alltime']}개 (할당량이 2,000단위 넘게 남을 때 이어서)" if s["pending_alltime"] else "")
+                       + (". " + miss if miss else "."))
+                fix = ("할당량이 남는 날 탐색·이어서 (cloud_run explore/resume)" if s["pending_alltime"] or not done else "") + \
+                      ((" · " if s["pending_alltime"] or not done else "") + "남은 추천 승인" if p - h else "")
             out.append({"분석 대상": g, "형식": fmt, "사용자 기준": want[g], "지금 규칙": rule, "기준 통과 (모집단·자료 안)": p, "자료 받음 (승인)": h,
-                        "분석 묶음에 듦": i if not (g == G2 and fmt == SHORT) and g != G3 else 0, "분석 결과 위치": where, "판정": verdict,
-                        "다른 점·빠진 것": gap, "고치려면": fix})
+                        "분석 묶음에 듦": i, "분석 결과 위치": where[(g, fmt)], "판정": verdict, "다른 점·빠진 것": gap, "고치려면": fix})
     return out
 
 
@@ -236,10 +225,11 @@ def pool_rows(summary):
         s = summary.get(fmt)
         if not s:
             continue
-        out.append({"형식": fmt, "검색 기간(주)": s["weeks"], "탐색 목록 만든 때": s["generated"], "모집단(검색·주제 관련·뺄 까닭 없음)": s["pool"],
-                    "분석에 쓴 영상 전부(채널 평소 영상 포함)": s["rows"], "자료 받은 영상(승인)": s["cases"], "모집단에서 가장 오래된 영상(일)": s["oldest"],
-                    "180일 넘은 영상": s["older_180"], "1년 넘은 영상": s["older_365"], f"② 경계 하루 조회수(상위 {s['pct']:g}%)": s["thr_vpd"],
-                    f"③ 경계 조회수(상위 {s['pct']:g}%)": s["thr_views"]})
+        out.append({"형식": fmt, "검색 기간(주)": s["weeks"], "탐색 목록 만든 때": s["generated"], "② 모집단(최근·검색)": s["pool2"],
+                    "③ 모집단(기간 없는 검색 포함)": s["pool3"], "기간 없는 검색으로만 찾은 영상": s["alltime"],
+                    "못 한 기간 없는 검색": s["pending_alltime"], "분석에 쓴 영상 전부(채널 평소 영상 포함)": s["rows"], "자료 받은 영상(승인)": s["cases"],
+                    "③ 모집단에서 가장 오래된 영상(일)": s["oldest3"], "1년 넘은 영상": s["older_365"],
+                    f"② 경계 하루 조회수(상위 {s['pct']:g}%)": s["thr_vpd"], f"③ 경계 조회수(상위 {s['pct']:g}%)": s["thr_views"]})
     return out
 
 
@@ -258,8 +248,9 @@ def overlap_rows(rows):
 
 
 # ---------------------------------------------------------------- 엑셀
-FMT_INT = ("구독자", "조회수", "하루 조회수", "지난 날수", "기준 통과 (모집단·자료 안)", "자료 받음 (승인)", "분석 묶음에 듦", "영상 수", "180일 넘은 영상",
-           "1년 넘은 영상", "자료 받은 영상(승인)", "모집단(검색·주제 관련·뺄 까닭 없음)", "분석에 쓴 영상 전부(채널 평소 영상 포함)", "모집단에서 가장 오래된 영상(일)")
+FMT_INT = ("구독자", "조회수", "하루 조회수", "지난 날수", "기준 통과 (모집단·자료 안)", "자료 받음 (승인)", "분석 묶음에 듦", "영상 수",
+           "1년 넘은 영상", "자료 받은 영상(승인)", "② 모집단(최근·검색)", "③ 모집단(기간 없는 검색 포함)", "기간 없는 검색으로만 찾은 영상",
+           "못 한 기간 없는 검색", "분석에 쓴 영상 전부(채널 평소 영상 포함)", "③ 모집단에서 가장 오래된 영상(일)")
 
 
 def write_xlsx(path, sheets, guide):
@@ -304,12 +295,13 @@ def write_md(path, checks, pools, now):
     for r in checks:
         L.append(f"| {r['분석 대상']} | {r['형식']} | {r['판정']} | {r.get('기준 통과 (모집단·자료 안)', '-')} / {r.get('자료 받음 (승인)', '-')} / "
                  f"{r.get('분석 묶음에 듦', '-')} | {str(r.get('다른 점·빠진 것', '')).replace('|', '∣')} |")
-    L += ["", "| 형식 | 검색 기간 | 모집단 | 가장 오래된 영상 | ② 경계 하루 조회수 | ③ 경계 조회수 |", "|---|---|---|---|---|---|"]
+    L += ["", "| 형식 | 검색 기간 | ② 모집단 | ③ 모집단 (기간 없는 검색으로만) | ③ 가장 오래된 영상 | 못 한 기간 없는 검색 | ② 경계 하루 조회수 | ③ 경계 조회수 |",
+          "|---|---|---|---|---|---|---|---|"]
     for p in pools:
         k2 = next(k for k in p if k.startswith("② 경계"))
         k3 = next(k for k in p if k.startswith("③ 경계"))
-        L.append(f"| {p['형식']} | {p['검색 기간(주)']}주 | {p['모집단(검색·주제 관련·뺄 까닭 없음)']:,} | {p['모집단에서 가장 오래된 영상(일)']}일 | "
-                 f"{p[k2] or 0:,.0f} | {p[k3] or 0:,.0f} |")
+        L.append(f"| {p['형식']} | {p['검색 기간(주)']}주 | {p['② 모집단(최근·검색)']:,} | {p['③ 모집단(기간 없는 검색 포함)']:,} ({p['기간 없는 검색으로만 찾은 영상']:,}) | "
+                 f"{p['③ 모집단에서 가장 오래된 영상(일)']}일 | {p['못 한 기간 없는 검색']} | {p[k2] or 0:,.0f} | {p[k3] or 0:,.0f} |")
     path.write_text("\n".join(L) + "\n", "utf-8")
 
 
@@ -338,17 +330,17 @@ def run(topic, pct=None, now=None, out_path=None):
         f"자동 생성 — tools/target_check.py {VERSION} ({now.isoformat(timespec='minutes')}). 연구·교육용 — 투자 권유가 아님. 할당량 0 (받아 둔 자료만).",
         "사용자 지시 (2026-10-28): 분석 대상(롱폼·쇼츠 종합) ① 구독자에 비해 업로드 대비 조회수가 높은 영상(성공 사례) ② 구독자 상관없이 업로드 대비 조회수가 높은 영상"
         "(최근 트렌드) ③ 업로드 기간 상관없이 조회수가 높은 영상(최근 트렌드에 비슷한 과거 사례) — 이렇게 분석하고 있는지 확인.",
-        "셈하는 법: 분석 코드(success_analysis·shorts_analysis)를 그대로 불러 같은 모집단·같은 규칙으로 셈 — 분석 결과 파일은 바꾸지 않음.",
-        "모집단 = 탐색 검색에서 찾은 주제 관련 영상 중 뺄 까닭(라이브·주제 밖·광고 의심·쇼츠 부풀림 의심 등)이 없는 것. 롱폼은 4분 이상, 쇼츠는 쇼츠인 것.",
-        "① = 지금 성공 사례 규칙 그대로 (확인 결과 시트 '지금 규칙'). ② = 하루 조회수(조회수 ÷ 올린 지 날수) 상위 N% — 롱폼은 분석 1-3번과 같음, "
-        "쇼츠는 분석에 없어 같은 꼴로 여기서 셈. ③ = 조회수 상위 N% (분석에 없어 여기서 셈).",
-        "'○' = 기준 통과. '… 분석' 칸: '분석 #n' = analysis.md 성공 사례 n번 · '분석 V n' = 1-3번 하루 조회수 상위 n번 · '자료 받음 · 채널당 2개 넘어 묶음 밖' · "
-        "'자료 안 받음' (승인하지 않아 설명·댓글이 없음) · '분석 묶음 없음' (그런 묶음이 분석에 없음).",
-        "구독자당 하루 조회수 = 하루 조회수 ÷ 구독자(100 미만은 100) — ① 의 '업로드 대비' 를 날수로 나눈 잣대 (지금 성공 사례 규칙은 이것이 아니라 조회수 ÷ 구독자).",
-        "하루 조회수 = 분석 코드와 같이 받은 때 조회수 ÷ 오늘까지 날수 (그래서 오늘 다시 세면 analysis.md 를 만든 날과 숫자가 조금 다름). 하루 조회수(받은 때) = ÷ 받은 날까지 날수 — "
-        "자료를 받은 지 오래된 최근 영상은 앞의 값이 낮게 나옴 (확인 결과 ② 롱폼 줄). 어디서 봄 = 검색 · 승인 자료 · 채널 평소 영상(같은 채널 기준선으로 받은 최근 영상).",
-        "탐색 추천 까닭 = 탐색 목록이 체크해 둔 까닭 (성공 사례 · 하루 조회수 상위 · 조회수 상위(상위 20) · 성공 쇼츠).",
-        "한계: 조회수·구독자는 받은 때 값. 검색은 YouTube 검색 결과(조회수 순·검색어마다 최대 50개)라 모든 영상이 아님. 검색 기간 밖(모집단 시트)은 볼 수 없음.",
+        "셈하는 법: 분석 코드(success_analysis·shorts_analysis)를 그대로 불러 같은 모집단·규칙·묶음으로 셈 — 분석 결과 파일은 바꾸지 않음 (오늘 날짜로 다시 셈).",
+        "① = 성공 사례 규칙 그대로 (확인 결과 '지금 규칙' — 2026-10-28 부터 구독자당 하루 조회수 ≥ 0.1). ② = 하루 조회수 상위 N% (롱폼 1-3번·쇼츠 1-4번 — 최근 26주 안). "
+        "③ = 조회수 상위 N% (롱폼 1-4번·쇼츠 1-5번 — 기간 없는 검색 포함, 올린 날짜 상관없이).",
+        "모집단 = 탐색 검색에서 찾은 주제 관련 영상 중 뺄 까닭(라이브·주제 밖·광고 의심·쇼츠 부풀림 의심 등)이 없는 것. 롱폼은 4분 이상, 쇼츠는 쇼츠인 것. "
+        "기간 없는 검색(전체 기간 조회수 순)은 할당량이 2,000단위 넘게 남는 날에만 하므로 처음 며칠은 ③ 의 과거 영상이 적다 ('모집단' 시트의 못 한 기간 없는 검색).",
+        "'○' = 기준 통과. '… 분석' 칸: '분석 #n' = 성공 사례 n번 · '분석 V n' = 하루 조회수 상위 · '분석 T n' = 조회수 상위 · '자료 받음 · 채널당 2개 넘어 묶음 밖' · "
+        "'자료 안 받음' (승인하지 않아 설명·댓글이 없음 — 탐색 추천을 승인하면 들어감).",
+        "하루 조회수 = 받은 때 조회수 ÷ 올린 날부터 받은 때까지 날수 (2026-10-28 부터 — 예전은 ÷ 오늘까지라 자료가 오래되면 낮게 셈). 구독자당 하루 조회수 = 하루 조회수 ÷ 구독자"
+        "(100 미만은 100). 어디서 봄 = 검색 · 기간 없는 검색 · 승인 자료 · 채널 평소 영상(같은 채널 기준선으로 받은 최근 영상).",
+        "탐색 추천 까닭 = 탐색 목록이 체크해 둔 까닭 (성공 사례 · 하루 조회수 상위 · 조회수 상위 · 성공 쇼츠).",
+        "한계: 조회수·구독자는 받은 때 값. 검색은 YouTube 검색 결과(조회수 순·검색어마다 최대 50개)라 모든 영상이 아님.",
         f"다시 만들기: python3 tools/target_check.py {topic}" + (f" --pct {pct:g}" if pct != long["rules"]["vpd_top"]["TOP_PCT"] else ""),
     ]
     write_xlsx(out_path, sheets, guide)

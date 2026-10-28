@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.1 — 2026-10-28 — material.md 맨 위 '0. 채널 설명' = stock/guides/channel.md 의 '한눈에'(표시 줄 channel:start~end) 그대로 · format 칸 풀이에
+# VERSION: v1.2 — 2026-10-28 — 주제마다 이름·칸 설명 (재테크도 — 사용자 지시 2026-10-28 "주식 주제 관련 세션에서 했던것처럼 똑같은 방식으로 진행해서
+#          유튜브 분석부터 요약본까지 만들어봐"): settings.toml [page] NAME · [fields] data·format·market·data_kind 설명 (없으면 주식 글 그대로) ·
+#          겹침 대상에 <주제>/source/used_content.md 표(재테크 '이미 만든 대본') · 문서·평가판의 'stock/' 경로를 주제 경로로. 영향: load_settings()·used_entries()·
+#          cmd_material()·render()·render_page()·MARKS_HEAD.
+# (v1.1) — 2026-10-28 — material.md 맨 위 '0. 채널 설명' = stock/guides/channel.md 의 '한눈에'(표시 줄 channel:start~end) 그대로 · format 칸 풀이에
 #          채널 전달 방식 대응(테스트형 = 테스트·문제 · 실험형 = 비교 시뮬레이션) — 사용자 지시 2026-10-28 "유튜브 채널 설명이니깐 여기에 맞게 영상 만들어야해
 #          이 내용 파일 생성해서 참고할수 있게해" · channel_lines() 는 summary_ideas.py 도 씀. 파일이 없으면 WARNING 한 줄 + 재료에 '못 읽음'.
 #          · 겹침 검사 고침: 새 꼴 요약본(summary_ideas.py v1.0 — 커밋 622f9ca1)의 [방향] '항목 N: …' 줄과 [N안] 제목 줄을 다시 읽고 '#' 주석 줄은 뺌
@@ -45,7 +49,7 @@ try:
 except ModuleNotFoundError:            # Python 3.10
     import tomli as tomllib
 
-VERSION = "v1.1"
+VERSION = "v1.2"
 ROOT = Path(__file__).resolve().parent.parent
 LOG = logging.getLogger("topics")
 FIELDS = ("title", "question", "conclusion", "decide", "data", "format", "persona", "theme", "needs", "market", "data_kind")
@@ -65,7 +69,7 @@ def log(stage, _lvl=logging.INFO, **kv):
 def paths(topic, root=None):
     base = Path(root or ROOT) / topic
     t = base / "topics"
-    return {"base": base, "dir": t, "settings": t / "settings.toml", "json": t / "topics.json", "md": t / "주제탐색.md",
+    return {"topic": topic, "base": base, "dir": t, "settings": t / "settings.toml", "json": t / "topics.json", "md": t / "주제탐색.md",
             "marks": t / "평가.txt", "material": t / "material.md", "page": t / "평가판.html",
             "out": base / "result" / "outliers", "source": base / "source"}
 
@@ -128,8 +132,21 @@ def jacc(a, b):
 
 
 # ---------------------------------------------------------------- 불러오기
+NAMES = {"stock": "주식", "economic": "재테크"}
+NAME = "주식"
+# 후보 칸 설명 (material.md 머리 표) — settings.toml [fields] 가 있으면 그것
+FIELD_HELP = {"data": "자료·기간 (실제 미국 주가·지수·재무제표, 2000년 이후 — 연도 필수)",
+              "format": "테스트형 = 채널 방식 '테스트'·'문제' (항목 5개 — stock/guides/quick_test.md) · 실험형 = '비교 시뮬레이션' (질문 하나) — 0번",
+              "market": "미국 · 한국 · 미국+한국",
+              "data_kind": "주가 백테스트 · 재무제표 · 세금·법 · 환율 · 그 밖"}
+
+
 def load_settings(P):
+    """설정 읽기 + 주제 이름·칸 설명을 모듈 전역에 (문서·평가판 글귀)."""
+    global NAME, FIELD_HELP
     d = tomllib.loads(P["settings"].read_text("utf-8"))
+    NAME = (d.get("page") or {}).get("NAME") or NAMES.get(P["topic"], P["topic"])
+    FIELD_HELP = {**FIELD_HELP, **(d.get("fields") or {})}
     return d
 
 
@@ -180,6 +197,12 @@ def used_entries(P, Z):
             m = re.match(r"\|\s*([a-z0-9\-]+)\s*\|[^|]*\|[^|]*\|[^|]*\|\s*(.+?)\s*\|\s*$", ln)
             if m and re.search(r"[a-z]", m.group(1)) and not m.group(1).endswith("-shorts") and "test" not in m.group(1):
                 ents.append({"src": f"올림:{m.group(1)}", "text": m.group(2)})
+    uc = P["source"] / "used_content.md"                    # 재테크 '이미 만든 대본' 표: | `영상ID` | 날짜 | 주제 | 결론 | 숫자·사례 |
+    if uc.is_file():
+        for ln in uc.read_text("utf-8").splitlines():
+            m = re.match(r"\|\s*`?([a-z0-9\-]+)`?\s*\|[^|]*\|\s*([^|]+?)\s*\|\s*([^|]+?)\s*\|", ln)
+            if m and re.search(r"[a-z]", m.group(1)):
+                ents.append({"src": f"만든 대본:{m.group(1)}", "text": f"{m.group(2)} {m.group(3)}"})
     for d in sorted(P["source"].glob("*/")):
         f = d / "요약본.txt"
         if not f.is_file():
@@ -494,7 +517,7 @@ def cmd_mark(topic, tid, rating, why="", root=None):
     new = not P["marks"].is_file()
     with open(P["marks"], "a", encoding="utf-8") as f:
         if new:
-            f.write(MARKS_HEAD)
+            f.write(MARKS_HEAD.replace("__NAME__", NAME))
         f.write(f"{tid} {v} {why}".rstrip() + "\n")
     log("LEARN", id=tid, rating=v, why=why or "-", title=S["items"][tid]["title"][:40])
     return cmd_status(topic, root)
@@ -550,13 +573,13 @@ def cmd_import(topic, path, root=None):
         new = not P["marks"].is_file()
         with open(P["marks"], "a", encoding="utf-8") as f:
             if new:
-                f.write(MARKS_HEAD)
+                f.write(MARKS_HEAD.replace("__NAME__", NAME))
             f.write("\n".join(lines) + "\n")
     log("LEARN", topic=topic, source=str(path), page_docs=seen, new_lines=len(lines))
     return cmd_status(topic, root)
 
 
-MARKS_HEAD = """# 주식 주제 평가 — 줄마다 '주제ID 좋음|나쁨 까닭(선택)'. 예: T003 좋음 댓글 니즈가 커서 / T007 나쁨 너무 어려움
+MARKS_HEAD = """# __NAME__ 주제 평가 — 줄마다 '주제ID 좋음|나쁨 까닭(선택)'. 예: T003 좋음 댓글 니즈가 커서 / T007 나쁨 너무 어려움
 # GitHub 에서 이 파일 끝에 줄을 더하거나, Claude 에게 'T003 좋아, T007 별로'라고 말하면 됨. 같은 주제는 마지막 줄이 이김.
 # 평가는 다음 묶음의 순위에 반영된다 (tools/topic_ideas.py — 주제탐색.md 3번 '배운 것').
 """
@@ -570,23 +593,23 @@ def cmd_material(topic, root=None):
     W, g, b = score_all(S, Z, A, marks)
     ents = used_entries(P, Z)
     L = [f"# {topic} 주제 후보를 쓰기 전 재료 (자동 — `tools/topic_ideas.py {VERSION}`)", "",
-         f"분석 {A['analysis_made']} · 페르소나 {A['persona_made']} · 댓글 니즈 {A['needs_made']}. 후보는 `stock/topics/pool/<날짜>.json` 에 쓰고 `add`. ※ 연구·교육용.", "",
+         f"분석 {A['analysis_made']} · 페르소나 {A['persona_made']} · 댓글 니즈 {A['needs_made']}. 후보는 `{topic}/topics/pool/<날짜>.json` 에 쓰고 `add`. ※ 연구·교육용.", "",
          *channel_lines(P["base"]),
          "## 후보 한 개의 칸 (모두 필수 — 빠지면 뺌)", "",
          "| 칸 | 내용 |", "|---|---|",
          "| title | 주제 한 줄 (영상 제목 아님) |", "| question | 시청자가 묻는 것 한 문장 |",
          "| conclusion | **예상 결론 한 문장 — 숫자·판정으로** ('…보다 …가 더 남았다', 'N년 이상이면 손실 0%'). 애매한 말 금지: " + Z["clarity"]["VAGUE"].replace("\\s?", " ").replace("|", "·")[:160] + " |",
          "| decide | 판정 규칙 — 자료가 어느 쪽으로 나와도 결론이 하나로 정해지는 기준 ('A가 B보다 높은 구간이 50% 넘으면 A, 아니면 B') |",
-         "| data | 자료·기간 (실제 미국 주가·지수·재무제표, 2000년 이후 — 연도 필수) |",
-         "| format | 테스트형 = 채널 방식 '테스트'·'문제' (항목 5개 — stock/guides/quick_test.md) · 실험형 = '비교 시뮬레이션' (질문 하나) — 0번 |",
+         f"| data | {FIELD_HELP['data']} |",
+         f"| format | {FIELD_HELP['format']} |",
          "| persona | personas.json 키: " + ", ".join(f"`{k}` ({p['name']})" for k, p in A["personas"].items()) + " |",
-         "| theme | 주제 묶음 번호 (아래 3번 표) |", "| needs | 댓글 니즈 ID 목록 (아래 2번 표) |", "| market | 미국 · 한국 · 미국+한국 |",
-         "| data_kind | 주가 백테스트 · 재무제표 · 세금·법 · 환율 · 그 밖 |", "| items | (테스트형) 항목 예 3개 |", "| why | 이 주제를 고른 까닭 한 줄 |", ""]
-    L += ["## 1. 페르소나 (stock/result/outliers/personas.md)", "", "| 키 | 이름 | 몫 | 지식 | 가장 흔한 처지 | 원하는 것 (질문 속 용어) | 좋아요 많은 질문 |", "|---|---|---|---|---|---|---|"]
+         "| theme | 주제 묶음 번호 (아래 3번 표) |", "| needs | 댓글 니즈 ID 목록 (아래 2번 표) |", f"| market | {FIELD_HELP['market']} |",
+         f"| data_kind | {FIELD_HELP['data_kind']} |", "| items | (테스트형) 항목 예 3개 |", "| why | 이 주제를 고른 까닭 한 줄 |", ""]
+    L += [f"## 1. 페르소나 ({topic}/result/outliers/personas.md)", "", "| 키 | 이름 | 몫 | 지식 | 가장 흔한 처지 | 원하는 것 (질문 속 용어) | 좋아요 많은 질문 |", "|---|---|---|---|---|---|---|"]
     for k, p in A["personas"].items():
         L.append(f"| `{k}` | {p['name']} | {p['share']:.0%} | {p['know']['level']} | {p['states'][0]['name'] if p['states'] else '-'} | "
                  + " · ".join(f"{t} {n}" for t, n in p["want_terms"][:6]) + " | " + " / ".join(q["text"][:50].replace("|", "/") for q in p["top_questions"][:2]) + " |")
-    L += ["", "## 2. 댓글 니즈 (stock/result/outliers/comment_titles.md — 같은 내용 최근 제목이 적을수록 틈)", "", "| ID | 나라 | 니즈 | 👍 | 같은 내용 최근 제목 |", "|---|---|---|---|---|"]
+    L += ["", f"## 2. 댓글 니즈 ({topic}/result/outliers/comment_titles.md — 같은 내용 최근 제목이 적을수록 틈)", "", "| ID | 나라 | 니즈 | 👍 | 같은 내용 최근 제목 |", "|---|---|---|---|---|"]
     for k, x in A["needs"].items():
         L.append(f"| {k} | {x['country']} | {x['topic'][:70]} | {x['likes']:,} | {x.get('recent_same_country', '-')} |")
     L += ["", "## 3. 주제 묶음 성공 비율 (analysis.json themes)", "", "| 번호 | 묶음 | 영상 | 성공 | 비율 |", "|---|---|---|---|---|"]
@@ -617,13 +640,14 @@ def cmd_material(topic, root=None):
 # ---------------------------------------------------------------- 문서
 def render(S, Z, A, W, g, b, marks, done):
     B = current_batch(S)
-    L = ["# 주식 주제 탐색 — 분석 결과·페르소나로 20개씩, 평가를 배워 고름 (자동)", "",
+    tp = S.get("topic", "stock")
+    L = [f"# {NAME} 주제 탐색 — 분석 결과·페르소나로 20개씩, 평가를 배워 고름 (자동)", "",
          f"`tools/topic_ideas.py {VERSION}` · 갱신 {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M')} UTC · 분석 {A['analysis_made']} · 페르소나 {A['persona_made']} · "
-         f"댓글 니즈 {A['needs_made']}. 손으로 고치지 않는다 (주제 글은 `stock/topics/pool/`, 평가는 `stock/topics/평가.txt`).",
+         f"댓글 니즈 {A['needs_made']}. 손으로 고치지 않는다 (주제 글은 `{tp}/topics/pool/`, 평가는 `{tp}/topics/평가.txt`).",
          "사용자 지시 2026-10-28 \"분석 결과, 페르소나를 토대로 주제 20개씩 생성 … 좋다고, 나쁘다고 표시 가능하도록 해서 그걸 학습 후 되도록 좋은 주제로 탐색 … 명확하게 결론\".",
          "※ 연구·교육용 — 투자 권유가 아님. 결론은 **예상**이며 계산(`calc/`)으로 확정한다 — 판정 규칙이 있어 어느 쪽으로 나와도 결론은 하나.", "",
          "## 평가하는 법", "",
-         "- `stock/topics/평가.txt` 끝에 한 줄: `T003 좋음 까닭` · `T007 나쁨 까닭` (까닭은 선택 — 배울 때 참고). GitHub 에서 고치거나, Claude 에게 'T003 좋아, T007 별로'.",
+         f"- `{tp}/topics/평가.txt` 끝에 한 줄: `T003 좋음 까닭` · `T007 나쁨 까닭` (까닭은 선택 — 배울 때 참고). GitHub 에서 고치거나, Claude 에게 'T003 좋아, T007 별로'.",
          "- 평가는 순위에 바로 반영되고(3번), 다음 20개를 고를 때 좋은 갈래 쪽으로 뽑는다. **나쁨** 주제는 쓰지 않은 것으로 끝남.",
          "- 쓰기 시작하면 요약본에 `주제 ID: T003` → 작성중. 이번 묶음이 모두 작성중·작성함·나쁨이 되면 **새 20개로 갱신**.", ""]
     if B:
@@ -704,7 +728,7 @@ def render(S, Z, A, W, g, b, marks, done):
 
 
 # ---------------------------------------------------------------- 평가판 (Artifact 페이지 — 좋음·나쁨을 눌러 남김)
-PAGE = r"""<title>주식 주제 평가판</title>
+PAGE = r"""<title>__NAME__ 주제 평가판</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap">
 <style>
@@ -753,7 +777,7 @@ button:disabled,input:disabled{opacity:.55;cursor:not-allowed}
 </style>
 <div class="wrap">
 <header>
-<h1>주식 주제 평가판</h1>
+<h1>__NAME__ 주제 평가판</h1>
 <p class="sub" id="sub"></p>
 <p class="note">좋음·나쁨을 누르면 저장됩니다. 다시 누르면 지워집니다. 까닭은 짧게 (선택). Claude 가 다음에 이 평가를 읽어 배우고, 다음 20개를 고를 때 좋은 쪽으로 뽑습니다. ※ 연구·교육용 — 투자 권유가 아님. 결론은 계산 전 예상입니다.</p>
 <p class="note warn" id="offline" hidden>이 화면에서는 저장할 수 없습니다 (로그인이 필요하거나 보기 전용). 평가는 Claude 에게 'T003 좋아, T007 별로'처럼 말하면 됩니다.</p>
@@ -847,11 +871,11 @@ def render_page(S, A):
                           "score": f"{it['score']:.2f}", "basis": basis or it.get("why", ""), "rating": it.get("rating"), "why": it.get("rating_why", "")})
     data = {"batch": B["no"] if B else 0, "made": (B["made"][:10] if B else "-"), "analysis": str(A["analysis_made"])[:10], "items": items}
     js = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
-    return PAGE.replace("__DATA__", js)
+    return PAGE.replace("__NAME__", NAME).replace("__DATA__", js)
 
 
 def main(argv=None):
-    ap = argparse.ArgumentParser(description="주식 주제 탐색 — 20개씩 · 평가를 배움 · 명확한 결론만")
+    ap = argparse.ArgumentParser(description="주제 탐색 (주식·재테크) — 20개씩 · 평가를 배움 · 명확한 결론만")
     ap.add_argument("topic")
     ap.add_argument("cmd", choices=["material", "add", "mark", "use", "done", "status", "import"])
     ap.add_argument("args", nargs="*")

@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+# VERSION: v1.1 — 2026-10-28 — 주제마다 더할 낱말 <주제>/analysis_rules.toml [comment_titles] WORDS_KO (재테크 — 건보료·기초연금·연말정산 … 투자 낱말에 없는
+#          돈 관리 말. 사용자 지시 2026-10-28 "주식 주제 관련 세션에서 했던것처럼 똑같은 방식으로 진행해서 유튜브 분석부터 요약본까지 만들어봐"). 영향: kind_of()·load().
 # VERSION: v1.0 — 2026-10-21 — 새로: 제목으로 삼을 만한 댓글 (좋아요 순) + 그 내용의 영상 제목이 이미 있는지. 사용자 지시 2026-10-21 "아니 제목으로
 #          삼을 만한 댓글 없냐고 좋아요 수 높은거 찾아보면 나올거 같은데 그리고 그 내용이랑 관련된 내용이 실제 영상 제목으로 있는지도 분석해서 각각 목록
 #          알려줘봐". ① candidates: 승인한 영상의 시청자 댓글(답글·채널 주인·도배 꼴·정치 뺌) 중 투자 낱말이 든 '질문·요청'과 '주장·믿음'(백테스트로
@@ -26,7 +28,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import success_analysis as sa        # noqa: E402
 import title_comment_link as tcl     # noqa: E402
 
-VERSION = "v1.0"
+VERSION = "v1.1"
 ROOT = Path(__file__).resolve().parent.parent
 LOG = logging.getLogger("ctitle")
 PER_KIND = 150               # 나라·갈래마다 후보 몇 개 (좋아요 순)
@@ -59,10 +61,21 @@ def clean(t, n=400):
     return re.sub(r"\s+", " ", str(t or "")).strip()[:n]
 
 
-def kind_of(text, country):
+def topic_words(topic):
+    """한국어 낱말 = INVEST_KO + <주제>/analysis_rules.toml [comment_titles] WORDS_KO (없으면 INVEST_KO 만)."""
+    try:
+        import tomllib
+    except ModuleNotFoundError:          # Python 3.10
+        import tomli as tomllib
+    f = ROOT / topic / "analysis_rules.toml"
+    extra = (tomllib.loads(f.read_text("utf-8")).get("comment_titles") or {}).get("WORDS_KO", "") if f.is_file() else ""
+    return INVEST_KO + (f"|{extra}" if extra else "")
+
+
+def kind_of(text, country, words_ko=INVEST_KO):
     """댓글 → '질문·요청' / '주장·믿음' / None. 정치 댓글·투자 낱말 없는 댓글은 None."""
     if country == "한국":
-        if not re.search(INVEST_KO, text):
+        if not re.search(words_ko, text):
             return None
         cats = sa.classify_comment(text)
         if sa.CAT_POLITICS in cats:
@@ -99,6 +112,7 @@ def cmd_candidates(topic, now):
             seen_text[t] += 1
     rows = defaultdict(list)
     scanned = Counter()
+    words_ko = topic_words(topic)
     for c in cases:
         cc = tcl.country_of(c, ch)
         if cc is None or c.get("exclude"):
@@ -111,7 +125,7 @@ def cmd_candidates(topic, now):
             if len(t) >= 30 and seen_text[re.sub(r"[^가-힣A-Za-z]", "", t)[-50:]] >= sa.SPAM_MIN_VIDEOS:
                 continue
             scanned[cc] += 1
-            k = kind_of(t, cc)
+            k = kind_of(t, cc, words_ko)
             if k:
                 rows[(cc, k)].append({"country": cc, "kind": k, "likes": m["likes"], "video_id": c["id"], "video_title": clean(c["title"], 90),
                                       "channel": clean(c["channel"], 30), "published": c["published"].date().isoformat() if c["published"] else "",

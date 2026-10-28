@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.5.1 — 2026-10-28 — 페르소나는 설정(<주제>/personas.toml)이 있는 주제만 — 지금 주식만 (사용자 지시 "아니 주식 쪽만 하면돼"). 코드 그대로(설정이 없으면 personas.build 가 '만들지 않음'만 남김).
+# VERSION: v1.5.2 — 2026-10-28 — 주석만: 페르소나 설정이 있는 주제 = 주식·재테크 (재테크 되살림 — 사용자 지시 "주식 주제 관련 세션에서 했던것처럼 똑같은 방식으로 진행해서 유튜브 분석부터 요약본까지 만들어봐").
+# (v1.5.1 — 2026-10-28 — 페르소나는 설정(<주제>/personas.toml)이 있는 주제만 — 지금 주식만 (사용자 지시 "아니 주식 쪽만 하면돼"). 코드 그대로(설정이 없으면 personas.build 가 '만들지 않음'만 남김).
 # (v1.5 — 2026-10-28 — 끝날 때 시청자 페르소나(tools/personas.py → personas.md·.json)도 다시 만듦 (사용자 지시 2026-10-28
 #          "시청자 페르소나 … 분석 결과에 따라 업데이트도 돼야함"). 실패해도 주별·성공 사례 분석은 저장됨. 그 밖 그대로.)
 # (v1.4 — 2026-10-28 — 성공 판정·하루 조회수를 분석(success_analysis v1.6)과 같게: 주제 analysis_rules.toml [success] 를 읽어
@@ -56,7 +57,7 @@ from outlier_stats import COMMENT_CATS, TITLE_FEATURES       # noqa: E402  같�
 import outlier_research as orr                                # noqa: E402  v1.4: success_core·views_per_day (분석과 같은 규칙)
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v1.5.1"
+VERSION = "v1.5.2"
 LOG = logging.getLogger("weekly")
 WEB_CASE_RX = re.compile(r"^W_([0-9A-Za-z_-]{11})$")
 MAX_SUBS, MIN_RATIO, MIN_VIEWS = 50000, 3.0, 10000
@@ -438,7 +439,7 @@ def run(topic, max_weeks=52, now=None, root=None):
         success_analysis.run(topic, now=now, root=root)
     except Exception as e:
         log("WEEKLY", logging.WARNING, note="성공 사례 분석(analysis.md) 실패 — 주별 분석은 저장됨", error=f"{type(e).__name__}: {e}"[:300])
-    try:                                       # v1.5: 시청자 페르소나 (personas.md·.json) — 설정이 있는 주제만(지금 주식), 승인 영상 댓글이 바뀌면 같이 바뀜
+    try:                                       # v1.5: 시청자 페르소나 (personas.md·.json) — 설정이 있는 주제만(지금 주식·재테크), 승인 영상 댓글이 바뀌면 같이 바뀜
         import personas
         personas.build(topic, now=now, root=root)
     except Exception as e:

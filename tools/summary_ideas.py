@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.1 — 2026-10-28 — 요약본_material.md 맨 위 '0. 채널 설명' (stock/guides/channel.md '한눈에' — topic_ideas.channel_lines) — 사용자 지시 2026-10-28
+# VERSION: v1.2 — 2026-10-28 — 주제 인자 (재테크도 — 사용자 지시 2026-10-28 "주식 주제 관련 세션에서 했던것처럼 똑같은 방식으로 진행해서 유튜브 분석부터
+#          요약본까지 만들어봐"): 편 목록·쓰지 않는 말·쇼츠 제목에서 뺄 말·평가판 이름 = <주제>/topics/settings.toml [summary] (없으면 주식 기본값 그대로).
+#          제목·썸네일 문구에서 피할 말 TITLE_BANNED · 썸네일 보조 = 꼬리표 낱말(SUB_ITEMS·SUB_ITEM_MAX).
+#          주제를 빼면 stock (옛 명령 그대로 됨). 영향: configure()·paths()·ep_paths()·lint_answer()·PAGE·write_material()·main().
+# (v1.1) — 2026-10-28 — 요약본_material.md 맨 위 '0. 채널 설명' (stock/guides/channel.md '한눈에' — topic_ideas.channel_lines) — 사용자 지시 2026-10-28
 #          "유튜브 채널 설명이니깐 여기에 맞게 영상 만들어야해 이 내용 파일 생성해서 참고할수 있게해".
 # (v1.0) — 2026-10-28 — 새로: 주식 편 요약본 = 핵심 방향 + 안 5개 (롱폼·쇼츠 제목·썸네일 주요·보조 문구·대본 진행), 좋음·나쁨을 배워 다음 안으로
 #          (사용자 지시 2026-10-28 "요약본 파일을 생성해야해 … 주제 탐색 후 어떻게 할건지 핵심 방향만 작성, 그리고 출처는 주석으로 달고 지시사항이나 출처 등
@@ -11,12 +15,13 @@
 #          · 평가 = stock/topics/요약본_평가.txt ('F2-LT 좋음 까닭' · 'F2 나쁨' = 안 전체) ← 요약본 줄 끝 '=> 좋음' · 평가판 페이지(import) · 채팅(mark).
 #          · 배우기 = 칸 종류마다 꼬리표의 log((좋음+1)/(나쁨+1)) + 닮은 좋음/나쁨 글 → 안 점수 · [추천 조합] (칸마다 가장 좋은 글).
 #          ※ 연구·교육용 — 투자 권유가 아님.
-"""주식 편 요약본 — 핵심 방향 + 안 5개 · 좋음·나쁨을 배움
+"""편 요약본 — 핵심 방향 + 안 5개 · 좋음·나쁨을 배움 (주식·재테크)
 
-  python3 tools/summary_ideas.py status                 # 요약본 줄 끝 '=> 좋음' 가져오기 → 점수 → 세 편 요약본.txt · 평가판 · material 다시
-  python3 tools/summary_ideas.py mark F2-LT 좋음 "까닭"   # 칸 하나 (F2 = 안 전체)
-  python3 tools/summary_ideas.py import <marks 파일>      # 평가판(Artifact db 'marks') → 평가 파일
-  python3 tools/summary_ideas.py add <영상ID> <round.json> # 새 안 5개 (다음 회차) — 검사 → 요약본 다시
+  python3 tools/summary_ideas.py [주제] status                 # 요약본 줄 끝 '=> 좋음' 가져오기 → 점수 → 편마다 요약본.txt · 평가판 · material 다시
+  python3 tools/summary_ideas.py [주제] mark F2-LT 좋음 "까닭"   # 칸 하나 (F2 = 안 전체)
+  python3 tools/summary_ideas.py [주제] import <marks 파일>      # 평가판(Artifact db 'marks') → 평가 파일
+  python3 tools/summary_ideas.py [주제] add <영상ID> <round.json> # 새 안 5개 (다음 회차) — 검사 → 요약본 다시
+  주제 = stock(기본) · economic — 편 목록은 <주제>/topics/settings.toml [summary] EPISODES (글자 = 안 ID 머리)
 칸: LT 롱폼 제목 · LM 롱폼 썸네일 주요 · LS 롱폼 썸네일 보조 · LF 롱폼 대본 진행 · ST/SM/SS/SF 쇼츠 같음
 로그: [STAGE] [시각] key=value (START·LOAD·SYNC·CHECK·LEARN·WRITE·DONE)
 """
@@ -35,15 +40,26 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import title_fit                       # noqa: E402  제목이 모든 화면에서 2줄 안인가
 import topic_ideas as ti               # noqa: E402  toks · jacc · GOOD · BAD (같은 낱말 규칙)
 
-VERSION = "v1.1"
+VERSION = "v1.2"
 ROOT = Path(__file__).resolve().parent.parent
 LOG = logging.getLogger("summary")
-EPISODES = {"F": "jaemu-test-2026-10", "P": "portfolio-test-2026-10", "M": "timing-test-2026-10"}   # 대본이 끝난 simri-test 는 뺌 (사용자 지시)
+COMMANDS = ("status", "mark", "import", "add")
+# 주제별 설정 — <주제>/topics/settings.toml [summary] 가 있으면 그것 (configure)
+DEFAULTS = {"stock": {"NAME": "주식",
+                      "EPISODES": {"F": "jaemu-test-2026-10", "P": "portfolio-test-2026-10", "M": "timing-test-2026-10"},   # 대본이 끝난 simri-test 는 뺌 (사용자 지시)
+                      "BANNED": r"물타기|빚투|국장|미장|개미|존버|떡상|떡락|실패한",      # quick_test 7·8번 (외국 시청자 자동 번역 · '실패할')
+                      "TITLE_BANNED": "", "SHORTS_TITLE_BANNED": "", "SUB_ITEMS": 0, "SUB_ITEM_MAX": 0}}
+TOPIC = "stock"
+NAME = DEFAULTS["stock"]["NAME"]
+EPISODES = dict(DEFAULTS["stock"]["EPISODES"])
+SHORTS_TITLE_BANNED = None
+TITLE_BANNED = None
+SUB_ITEMS, SUB_ITEM_MAX = 0, 0
 ELEMS = [("LT", "롱폼", "제목"), ("LM", "롱폼", "썸네일 주요"), ("LS", "롱폼", "썸네일 보조"), ("LF", "롱폼", "대본"),
          ("ST", "쇼츠", "제목"), ("SM", "쇼츠", "썸네일 주요"), ("SS", "쇼츠", "썸네일 보조"), ("SF", "쇼츠", "대본")]
 ENAME = {c: f"{a} {b}" for c, a, b in ELEMS}
-BANNED = re.compile(r"물타기|빚투|국장|미장|개미|존버|떡상|떡락|실패한")      # quick_test 7·8번 (외국 시청자 자동 번역 · '실패할')
-MARKS_HEAD = """# 주식 편 요약본 안 평가 — 줄마다 '안ID 좋음|나쁨 까닭(선택)'. 칸 하나는 'F2-LT 좋음', 안 전체는 'F2 나쁨'. 'F2-LT 지움' = 취소.
+BANNED = re.compile(DEFAULTS["stock"]["BANNED"])
+MARKS_HEAD = """# __NAME__ 편 요약본 안 평가 — 줄마다 '안ID 좋음|나쁨 까닭(선택)'. 칸 하나는 'F2-LT 좋음', 안 전체는 'F2 나쁨'. 'F2-LT 지움' = 취소.
 # 칸: LT 롱폼 제목 · LM 롱폼 썸네일 주요 · LS 롱폼 썸네일 보조 · LF 롱폼 대본 · ST 쇼츠 제목 · SM 쇼츠 썸네일 주요 · SS 쇼츠 썸네일 보조 · SF 쇼츠 대본
 # 요약본.txt 줄 끝에 '=> 좋음' 을 적어도 되고 (다음 status 때 여기로 옮김), Claude 에게 말해도 된다. 같은 칸은 마지막 줄이 이김.
 """
@@ -54,14 +70,34 @@ def log(stage, _lvl=logging.INFO, **kv):
             " ".join(f"{k}={json.dumps(v, ensure_ascii=False) if isinstance(v, str) and (' ' in v or not v) else v}" for k, v in kv.items()))
 
 
+def configure(topic="stock", root=None):
+    """주제 설정 읽기 — <주제>/topics/settings.toml [summary] (없으면 DEFAULTS). 모듈 전역(EPISODES·BANNED·ID_RX …)을 바꿈."""
+    global TOPIC, NAME, EPISODES, BANNED, TITLE_BANNED, SHORTS_TITLE_BANNED, SUB_ITEMS, SUB_ITEM_MAX, ID_RX
+    cfg = dict(DEFAULTS.get(topic) or {})
+    st = Path(root or ROOT) / topic / "topics" / "settings.toml"
+    if st.is_file():
+        cfg.update(ti.tomllib.loads(st.read_text("utf-8")).get("summary") or {})
+    if not cfg.get("EPISODES"):
+        raise SystemExit(f"{topic}: 편 목록 없음 — {st} 에 [summary] EPISODES = {{F = \"<영상ID>\"}}")
+    TOPIC, NAME = topic, cfg.get("NAME") or topic
+    EPISODES = dict(cfg["EPISODES"])
+    BANNED = re.compile(cfg.get("BANNED") or r"(?!x)x")
+    SHORTS_TITLE_BANNED = re.compile(cfg["SHORTS_TITLE_BANNED"]) if cfg.get("SHORTS_TITLE_BANNED") else None
+    TITLE_BANNED = re.compile(cfg["TITLE_BANNED"]) if cfg.get("TITLE_BANNED") else None
+    SUB_ITEMS, SUB_ITEM_MAX = int(cfg.get("SUB_ITEMS") or 0), int(cfg.get("SUB_ITEM_MAX") or 0)
+    letters = "".join(sorted(EPISODES))
+    ID_RX = re.compile(rf"^([{letters}]\d+)(?:-(LT|LM|LS|LF|ST|SM|SS|SF))?$")
+    log("LOAD", topic=topic, episodes=" ".join(f"{k}={v}" for k, v in EPISODES.items()), settings=str(st.relative_to(Path(root or ROOT))) if st.is_file() else "-")
+
+
 def paths(root=None):
-    base = Path(root or ROOT) / "stock"
+    base = Path(root or ROOT) / TOPIC
     return {"base": base, "marks": base / "topics" / "요약본_평가.txt", "page": base / "topics" / "요약본_평가판.html",
             "material": base / "topics" / "요약본_material.md", "settings": base / "topics" / "settings.toml"}
 
 
 def ep_paths(vid, root=None):
-    d = Path(root or ROOT) / "stock" / "source" / vid
+    d = Path(root or ROOT) / TOPIC / "source" / vid
     return d, d / "요약본_안.json", d / "요약본.txt"
 
 
@@ -120,7 +156,7 @@ def append_marks(P, lines):
     new = not P["marks"].is_file()
     with open(P["marks"], "a", encoding="utf-8") as f:
         if new:
-            f.write(MARKS_HEAD)
+            f.write(MARKS_HEAD.replace("__NAME__", NAME))
         f.write("\n".join(lines) + "\n")
 
 
@@ -140,7 +176,8 @@ def sync_file_marks(P, root=None):
             m = re.search(r"=>\s*(좋음|좋아|나쁨|별로|👍|👎)\s*(.*)$", ln)
             if not m:
                 continue
-            idm = re.search(r"\(([FPM]\d+-(?:LT|LM|LS|LF|ST|SM|SS|SF))\)", ln) or re.search(r"\[\d+안 ([FPM]\d+)\]", ln)
+            letters = "".join(sorted(EPISODES))
+            idm = re.search(rf"\(([{letters}]\d+-(?:LT|LM|LS|LF|ST|SM|SS|SF))\)", ln) or re.search(rf"\[\d+안 ([{letters}]\d+)\]", ln)
             if idm:
                 v = "좋음" if m.group(1) in ("좋음", "좋아", "👍") else "나쁨"
                 lines.append(f"{idm.group(1)} {v} {m.group(2).strip()}".rstrip() + "  # 요약본에 적음")
@@ -161,17 +198,26 @@ def lint_answer(a):
         b = BANNED.search(t)
         if b:
             probs.append(f"{code} 쓰지 않는 말 '{b.group(0)}'")
+        tb = TITLE_BANNED.search(t) if TITLE_BANNED and code in ("LT", "ST", "LM", "SM") else None
+        if tb:
+            probs.append(f"{code} 제목·썸네일 문구에서 피할 말 '{tb.group(0)}'")
         if code in ("LT", "ST"):
             ok, _ = title_fit.fit(t, shorts=(code == "ST"))
             if not ok:
                 probs.append(f"{code} 제목이 어떤 화면에서 3줄 (title_fit)")
             if len(t) > 60:
                 probs.append(f"{code} 60자 넘음")
+            if code == "ST" and SHORTS_TITLE_BANNED and SHORTS_TITLE_BANNED.search(t):
+                probs.append(f"{code} 쇼츠 제목에서 빼는 말 '{SHORTS_TITLE_BANNED.search(t).group(0)}'")
         if code in ("LM", "SM"):
             ls = [x.strip() for x in t.split("/")]
             if len(ls) > 2 or any(len(x.replace(" ", "")) > 14 for x in ls):
                 probs.append(f"{code} 썸네일 주요 문구는 2줄 · 줄마다 띄어쓰기 빼고 14자 이하")
-        if code in ("LS", "SS") and len(t.replace(" ", "")) > 16:
+        if code in ("LS", "SS") and SUB_ITEMS:                    # 보조 = 그림 속 꼬리표 낱말 (재테크 — 'A / B', 2개 이하·각 SUB_ITEM_MAX 자)
+            ws = [x.strip() for x in t.split("/") if x.strip()]
+            if len(ws) > SUB_ITEMS or any(len(x.replace(" ", "")) > SUB_ITEM_MAX for x in ws):
+                probs.append(f"{code} 썸네일 보조(꼬리표)는 {SUB_ITEMS}개 이하 · 각 {SUB_ITEM_MAX}자 이하")
+        elif code in ("LS", "SS") and len(t.replace(" ", "")) > 16:
             probs.append(f"{code} 썸네일 보조 문구 16자 넘음")
         if code in ("LF", "SF"):
             steps = el["text"] if isinstance(el.get("text"), list) else []
@@ -291,7 +337,7 @@ def render_summary(E, marks, W, rated):
 
 
 # ---------------------------------------------------------------- 평가판 (Artifact)
-PAGE = r"""<title>주식 요약본 평가판</title>
+PAGE = r"""<title>__NAME__ 요약본 평가판</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap">
 <style>
@@ -333,7 +379,7 @@ button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline
 button:disabled,input:disabled{opacity:.55;cursor:not-allowed}
 </style>
 <div class="wrap">
-<h1>주식 요약본 평가판</h1>
+<h1>__NAME__ 요약본 평가판</h1>
 <p class="note" id="sub"></p>
 <p class="note">안 전체나 칸 하나에 좋음·나쁨을 누르면 저장됩니다. 다시 누르면 지워집니다. Claude 가 다음에 이 평가를 배워 다음 안을 쓰고, 칸마다 좋은 글을 모아 추천 조합을 만듭니다. ※ 연구·교육용 — 투자 권유가 아님.</p>
 <p class="note warn" id="offline" hidden>이 화면에서는 저장할 수 없습니다. 평가는 Claude 에게 'F2 제목 좋아'처럼 말하거나 요약본 줄 끝에 '=> 좋음'을 적으면 됩니다.</p>
@@ -424,7 +470,7 @@ def render_page(eps, marks):
             els = [{"id": f"{a['id']}-{c}", "kind": k, "name": n, "text": a[c]["text"]} for c, k, n in ELEMS if a.get(c)]
             answers.append({"id": a["id"], "label": a["label"], "els": els})
         data["episodes"].append({"code": code, "name": E["name"], "direction": [d["text"] for d in E["direction"]], "answers": answers})
-    return PAGE.replace("__DATA__", json.dumps(data, ensure_ascii=False).replace("</", "<\\/"))
+    return PAGE.replace("__NAME__", NAME).replace("__DATA__", json.dumps(data, ensure_ascii=False).replace("</", "<\\/"))
 
 
 # ---------------------------------------------------------------- 명령
@@ -464,7 +510,7 @@ def cmd_status(root=None):
 
 def write_material(P, eps, marks, W, g, b, rated):
     """다음 회차 안을 쓰기 전에 Claude 가 읽는 한 장 — 배운 꼬리표 · 좋음/나쁨 글 · 칸별 추천."""
-    L = [f"# 주식 편 요약본 안 — 다음 회차를 쓰기 전 재료 (자동 — `tools/summary_ideas.py {VERSION}`)", "",
+    L = [f"# {NAME} 편 요약본 안 — 다음 회차를 쓰기 전 재료 (자동 — `tools/summary_ideas.py {VERSION}`)", "",
          f"평가 {len(marks)}개. 다음 회차 = 좋음 칸은 그대로 두거나 같은 꼬리표로 변주 · 나쁨 꼬리표는 쓰지 않음 · 평가 없는 꼬리표로 1~2안은 새로 시험. ※ 연구·교육용.", "",
          *ti.channel_lines(P["base"]),
          "## 1. 배운 꼬리표 (칸:꼬리표 — 가중치 · 좋음 · 나쁨)", ""]
@@ -491,7 +537,7 @@ def write_material(P, eps, marks, W, g, b, rated):
 
 def cmd_mark(aid, rating, why="", root=None):
     if not ID_RX.match(aid):
-        raise SystemExit("ID 는 F2 · F2-LT 꼴 (F 재무제표 · P 포트폴리오 · M 매수 시기)")
+        raise SystemExit(f"ID 는 F2 · F2-LT 꼴 (편 글자: {' · '.join(f'{k} {v}' for k, v in EPISODES.items())})")
     v = "좋음" if ti.GOOD.match(rating) or rating == "좋아요" else ("나쁨" if ti.BAD.match(rating) else None)
     if not v:
         raise SystemExit("평가는 좋음 · 나쁨")
@@ -541,14 +587,19 @@ def cmd_add(vid, path, root=None):
 
 
 def main(argv=None):
-    ap = argparse.ArgumentParser(description="주식 편 요약본 — 핵심 방향 + 안 5개 · 좋음·나쁨을 배움")
-    ap.add_argument("cmd", choices=["status", "mark", "import", "add"])
+    argv = list(sys.argv[1:] if argv is None else argv)
+    topic = "stock"
+    if argv and argv[0] not in COMMANDS and not argv[0].startswith("-"):      # 첫 인자가 명령이 아니면 주제 (옛 명령 = stock)
+        topic = argv.pop(0)
+    ap = argparse.ArgumentParser(description="편 요약본 — 핵심 방향 + 안 5개 · 좋음·나쁨을 배움 (앞에 주제: stock 기본 · economic)")
+    ap.add_argument("cmd", choices=list(COMMANDS))
     ap.add_argument("args", nargs="*")
     ap.add_argument("--log-level", default="INFO", choices=["DEBUG", "INFO", "WARNING"])
     a = ap.parse_args(argv)
     logging.basicConfig(level=a.log_level, format="%(message)s", stream=sys.stdout)
     t0 = time.monotonic()
-    log("START", cmd=a.cmd, tool=f"summary_ideas.py {VERSION}")
+    log("START", cmd=a.cmd, topic=topic, tool=f"summary_ideas.py {VERSION}")
+    configure(topic)
     if a.cmd == "status":
         cmd_status()
     elif a.cmd == "mark":

@@ -1,0 +1,67 @@
+# 재테크 주제 탐색 설정 — tools/topic_ideas.py · tools/summary_ideas.py 가 읽음
+# VERSION: v1.0 — 2026-10-28 — 새로 (사용자 지시 2026-10-28 "주식 주제 관련 세션에서 했던것처럼 똑같은 방식으로 진행해서 유튜브 분석부터 요약본까지 만들어봐"
+#   — 주식 stock/topics/settings.toml v1.0 과 같은 꼴: 20개씩 · 좋음·나쁨을 배움 · 명확한 결론만). 재테크 = 경제 뉴스·금리·환율 해설은 뺌 (CLAUDE.md).
+# ※ 정보 제공용 — 세무·법률·투자 상담이 아님.
+
+[page]
+NAME = "재테크"
+# 평가판 (Artifact — 좋음·나쁨을 눌러 남김, db 모음 'marks'). 갱신하면 같은 주소로 다시 올림 (다른 대화에서는 Artifact publish 에 url).
+URL = ""
+
+[fields]
+# 후보 칸 설명 (material.md 머리 표 — 주식 글 대신)
+data = "자료·기준 (오늘 시행 중인 법령 원문 조문 — tools/law_text.py · 2026년 기준 금액·요율 · 계산 가정, 연도 필수)"
+format = "사연형 (가상 사례 부부·한 사람 — 도입 25초 → 챕터 → 짧은 마무리, economic/guides/quick_script.md 5-1) · 비교형 (A vs B 계산 하나)"
+market = "한국"
+data_kind = "연금 계산 · 건보료 · 세금·법 · 저축·투자 계산 · 그 밖"
+
+[batch]
+SIZE = 20                 # 한 묶음 주제 수
+MAX_PER_THEME = 4         # 한 묶음 안 같은 주제 묶음(analysis themes) 최대
+MAX_PER_NEED = 2          # 같은 댓글 니즈 최대
+EXPLORE = 3               # 평가가 쌓인 뒤: 아직 평가 없는 갈래에서 뽑는 자리
+
+[score]
+# 처음 점수 = 니즈 크기·주제 묶음 성공 비율·페르소나 몫·공급 틈·성공 사례 닮음의 가중합 (0~1) — 주식과 같은 무게
+W_NEED = 0.30
+W_THEME = 0.20
+W_PERSONA = 0.15
+W_GAP = 0.15
+W_SUCCESS = 0.20
+GAP_FULL = 30
+SUCCESS_FULL = 0.15
+W_LEARN_FEATURE = 0.5
+W_LEARN_SIMILAR = 0.5
+
+[dedupe]
+SIM_MAX = 0.40            # 이미 쓴·쓰는 주제와 낱말 닮음(Jaccard) — 주식에서 맞춘 값 그대로
+OVERLAP_MAX = 0.50
+SIM_MAX_BATCH = 0.50
+OVERLAP_MAX_BATCH = 0.60
+
+[clarity]
+# 결론에 이런 말이 있으면 '애매한 결론'으로 뺌 (주식과 같음)
+VAGUE = '상황에\s?따라|경우에\s?따라|사람마다|개인차|케이스\s?바이|다를\s?수|일\s?수도|할\s?수도|될\s?수도|수도\s?있|신중|적절히|잘\s?판단|고려해야|알\s?수\s?없|정답은\s?없|모른다|애매|장단점|일장일단|나름|본인\s?선택|성향에\s?따라'
+# 결론에 숫자나 판정 말 (재테크: '덜 낸다'·'아낀다'·'줄어든다' 더함)
+DECISIVE = '\d|보다|이겼|졌|남았|더\s?(많|적|크|작|높|낮|받|낸)|덜\s?(낸|받|낼)|아낀|아낄|줄어|늘어|손해|이득|못\s?했|안\s?됐|됐다|이었다|였다|없었다|있었다|0\s?%|절반|배'
+# 판정 규칙에 기준(비교·문턱) — 계산이 어느 쪽으로 나와도 결론이 하나로
+DECIDE = '보다|이상|이하|넘으면|못\s?넘으면|미만|초과|%|비율|배|이면|아니면|까지|부터|더\s?(적|많|크|작|높|낮)'
+
+# 이미 쓴 주제는 economic/source/used_content.md 표('이미 만든 대본')에서 저절로 읽음 — 여기엔 그 표에 없는 것만.
+[[used]]
+id = "gicho-yeongeum-ai-2026-10"
+text = "기초연금 받을 수 있나 소득인정액 AI 장면 시험판 (gicho-yeongeum 과 같은 주제)"
+
+[summary]
+# tools/summary_ideas.py v1.1 — 편 글자 = 안 ID 머리 (A1~A5 …). 요약본은 economic/source/<영상ID>/요약본.txt
+NAME = "재테크"
+EPISODES = {}
+# 쓰지 않는 말 — 모든 칸 (quick_package 0번: '어르신·노인'·과장 '무조건')
+BANNED = '어르신|노인|무조건'
+# 제목·썸네일 문구에서 피할 말 (quick_package 1번: '방법·하는 법'·'이유·때문'·가린 말 '이것·이때')
+TITLE_BANNED = '방법|하는\s?법|이유|때문|이것|이때'
+# 쇼츠 제목에서 빼는 대상 낱말 (quick_package 4번 — '노후·은퇴·퇴직' 4.0% vs 14.4% · 'N가지'·'얼마·비교·차이·vs')
+SHORTS_TITLE_BANNED = '노후|은퇴|퇴직|\d+\s?가지|얼마|비교|차이|vs'
+# 썸네일 보조 = 그림 속 꼬리표 낱말 (니즈 낱말 2개 이하 · 각 4자 안팎 — quick_package 2번)
+SUB_ITEMS = 2
+SUB_ITEM_MAX = 5

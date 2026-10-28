@@ -1,6 +1,6 @@
 {
- "version": "v1.1",
- "made": "2026-10-28T11:30:37+00:00",
+ "version": "v1.2",
+ "made": "2026-10-28T11:50:36+00:00",
  "data_last": "2026-10-27",
  "results": {
   "2y": {
@@ -31,6 +31,10 @@
     "median_gap_when_lump_loses_pct": -0.07141908328276453,
     "worst_gap_pct": -0.2891118692842961,
     "best_gap_pct": 0.3740247327652624,
+    "worst_lump_usd_per_100k": 81037,
+    "worst_dca_usd_per_100k": 113995,
+    "worst_lump_ret_pct": -0.1896258893928684,
+    "worst_dca_ret_pct": 0.13994604156812662,
     "verdict": "한 번에",
     "worst_start": "2008-06-02"
    },
@@ -92,6 +96,10 @@
     "median_gap_when_lump_loses_pct": -0.07098262187382642,
     "worst_gap_pct": -0.289111869284296,
     "best_gap_pct": 0.3740247327652626,
+    "worst_lump_usd_per_100k": 132417,
+    "worst_dca_usd_per_100k": 186270,
+    "worst_lump_ret_pct": 0.3241696399607372,
+    "worst_dca_ret_pct": 0.8626976351786844,
     "verdict": "한 번에",
     "worst_start": "2008-06-02"
    },

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.1 — 2026-10-28 — 점수 항목 2·5 바꿈: v1.0 첫 실행에서 '10% 하락 대기'(q2)·'폭락 때만'(q5)이 5년으로 늘리면 뒤집힘(ROBUST flips)
+# VERSION: v1.2 — 2026-10-28 — q3 에 가장 크게 진 구간의 10만 달러 기준 값 (대본 v1.1 '퍼센트를 달러로' — 페르소나 피드백 2번). 보기 점수·판정 그대로.
+# (v1.1 — 2026-10-28 — 점수 항목 2·5 바꿈: v1.0 첫 실행에서 '10% 하락 대기'(q2)·'폭락 때만'(q5)이 5년으로 늘리면 뒤집힘(ROBUST flips)
 #          → 참고로만 남기고, 항목 2 = q2b(기다리는 동안 하락 없이 먼저 10% 오른 때 — 대본 상황 그대로) · 항목 5 = q6(5~10월 피하기). 판정 규칙·5년 검사는 그대로.
 # (v1.0 — 2026-10-28 — 최초. 매수 시기 테스트 편 M3(목돈 넣을 때) 대본의 숫자 — 미국 S&P 500 배당 포함 지수로 매수 규칙 다섯 쌍을
 #          2000년부터 모든 달(최고가 항목은 모든 날)에 시작해 2년 뒤를 비교 (사용자 지시 2026-10-28 "대본 하나 만들어봐" — 피드백
@@ -9,6 +10,7 @@
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.2 | 2026-10-28 | q3 worst_lump/dca_usd_per_100k · ret_pct (대본 달러 표기) | q3_lump |
 # | v1.1 | 2026-10-28 | 점수 항목 = q1·q2b·q3·q4·q6 (q2·q5 는 5년에서 뒤집혀 참고만) · 보기 점수·가상 응시 다시 · 도입에 가격 지수 하락 확인 · --selftest | q2b_wait_after_rise · q6_calendar · intro · selftest · QUESTIONS · VIRTUAL · main |
 # | v1.0 | 2026-10-28 | 최초 — 받기(--fetch)·검사·항목 5개·도입 숫자·5년 민감도·점수 규칙 | fetch · load · validate · q1~q5 · intro · main |
 #
@@ -38,7 +40,7 @@ ROOT = HERE.parents[3]
 sys.path.insert(0, str(ROOT / "tools"))
 import test_score as ts  # noqa: E402
 
-VERSION = "v1.1"
+VERSION = "v1.2"
 LEVELS = (0, 10, 20)
 START_EVAL = date(2000, 1, 1)     # 평가 시작 (1900년대 자료는 쓰지 않음 — 1988~1999 는 최고가·하락 폭 기준을 위한 앞 자료로만)
 FETCH_FROM = date(1988, 1, 1)
@@ -239,6 +241,9 @@ def q3_lump(p, c, W):
                median_stop_pct=float(np.median(stop - 1)), median_gap_when_lump_loses_pct=float(np.median(lump[lose] / dca[lose] - 1)) if lose.any() else 0.0,
                worst_gap_pct=float(np.min(lump / dca - 1)), worst_start_idx=int(W[int(np.argmin(lump / dca))][0]),
                best_gap_pct=float(np.max(lump / dca - 1)))
+    wi = int(np.argmin(lump / dca))            # 가장 크게 진 구간의 10만 달러 기준 2년 뒤 값 (대본 '달러로 말하기')
+    res["worst_lump_usd_per_100k"], res["worst_dca_usd_per_100k"] = round(100000 * float(lump[wi])), round(100000 * float(dca[wi]))
+    res["worst_lump_ret_pct"], res["worst_dca_ret_pct"] = float(lump[wi] - 1), float(dca[wi] - 1)
     res["verdict"] = "한 번에" if res["lump_wins"] > 0.5 and res["median_stop_pct"] < res["median_dca_pct"] else "다시 볼 것"
     return res
 

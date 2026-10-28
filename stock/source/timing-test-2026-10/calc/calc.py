@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.4 — 2026-10-28 — 반론 검토 1회차(대본_반론_검토.md)에 답함: 점수 항목 = q2b·q3b·q3s·q4b·q6 — 처음 항목 1(최고가인 날)은 q1b(바로 vs 10% 빠지면, ^GSPC)로 재니 2년 53.7%·5년 47.8% 로 뒤집혀 뺌 · 새 항목 3 = q3s · 항목 4 = q4b(멈췄다 첫날 값에 다시) · 최고가 = ^GSPC · 하락기 묶음 · 중간 낙폭 · 진 때 크기 · 5~10월 해마다 · 500달러 금액 · 도입 = 올해 첫 최고가 날.
+# VERSION: v1.5 — 2026-10-28 — 반론 검토 2회차에 답함: 항목 1 = q2c(최고가인 날 시작 — 사연대로) · q3s 까닭(돌아온 경우·다른 재진입) · q6b 격언 원래 꼴(5월 매도) · 현금 이자 연 5% 민감도 · 겹치지 않는 창 수 · 도입 최저 날짜.
+# (v1.4 — 2026-10-28 — 반론 검토 1회차(대본_반론_검토.md)에 답함: 점수 항목 = q2b·q3b·q3s·q4b·q6 — 처음 항목 1(최고가인 날)은 q1b(바로 vs 10% 빠지면, ^GSPC)로 재니 2년 53.7%·5년 47.8% 로 뒤집혀 뺌 · 새 항목 3 = q3s · 항목 4 = q4b(멈췄다 첫날 값에 다시) · 최고가 = ^GSPC · 하락기 묶음 · 중간 낙폭 · 진 때 크기 · 5~10월 해마다 · 500달러 금액 · 도입 = 올해 첫 최고가 날.
 # (v1.3 — 2026-10-28 — 항목 3 = q3b (넣는 속도: 한 번에 · 12개월 · 36개월 — 빠져도 매도 안 하는 사람으로 조건을 못 박음). 사용자 지시 "애매한게 있으면 반론이 들어온다고 명확한걸로" — 위험 성향에 따라 갈리는 '한 번에 vs 나눠 + 손절' 보기를 같은 축 셋으로. q3 는 참고.
 # (v1.2 — 2026-10-28 — q3 에 가장 크게 진 구간의 10만 달러 기준 값 (대본 v1.1 '퍼센트를 달러로' — 페르소나 피드백 2번). 보기 점수·판정 그대로.
 # (v1.1 — 2026-10-28 — 점수 항목 2·5 바꿈: v1.0 첫 실행에서 '10% 하락 대기'(q2)·'폭락 때만'(q5)이 5년으로 늘리면 뒤집힘(ROBUST flips)
@@ -12,6 +13,7 @@
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.5 | 2026-10-28 | 반론 2회차: q2c · q3s_detail · q6b_sell_in_may · sens_cash5 · nonoverlap · intro2 min_after_day · 점수 항목 1 = q2c | q2c_ath_wait_after_rise · q3s_detail · q6b_sell_in_may · nonoverlap · intro2 · main |
 # | v1.4 | 2026-10-28 | 반론 1회차: 점수 항목 = q2b·q3b·q3s·q4b·q6 (q1b 는 5년에서 뒤집혀 참고) · q3s(넣은 뒤 10% 빠지면 매도→산 값에 다시) · q1b · q4b · ath_flags(^GSPC) · episodes · path_drawdown · calendar_years · intro2 · q2b 진 때 크기·다른 날 수 · q6 달러 | q1b_ath_wait · q4b_stop_reenter · ath_flags · episodes · path_drawdown · calendar_years · intro2 · q2b · q6 · main |
 # | v1.3 | 2026-10-28 | 항목 3 = q3b (한 번에·12개월·36개월 · 쌍마다 이긴 구간 > 50% — 처음 쓴 '1등 몫 순서'는 5년에서 뒤집혀 머리 규칙으로 되돌림) · expect · QUESTIONS 3 · VIRTUAL V5 이름 · q3 worst_dca_minus_lump_usd | q3b_speed · q3_lump · main |
 # | v1.2 | 2026-10-28 | q3 worst_lump/dca_usd_per_100k · ret_pct (대본 달러 표기) | q3_lump |
@@ -44,7 +46,7 @@ ROOT = HERE.parents[3]
 sys.path.insert(0, str(ROOT / "tools"))
 import test_score as ts  # noqa: E402
 
-VERSION = "v1.4"
+VERSION = "v1.5"
 LEVELS = (0, 10, 20)
 START_EVAL = date(2000, 1, 1)     # 평가 시작 (1900년대 자료는 쓰지 않음 — 1988~1999 는 최고가·하락 폭 기준을 위한 앞 자료로만)
 FETCH_FROM = date(1988, 1, 1)
@@ -56,7 +58,7 @@ MONTHLY = 24                       # 5번: 24개월 매달 넣기
 
 # 보기 점수 — 대본 [항목] 보기 순서와 같게. expect = 계산이 맞다고 볼 쪽 (아니면 MISMATCH 경고 → 보기 점수를 다시 정함)
 QUESTIONS = [  # v1.4 — 대본 v1.3 항목 순서 (반론 1회차: 처음 항목 1 '최고가인 날'은 q1b 로 재니 5년에서 뒤집혀 뺌 → 그 상황은 항목 1 사연으로)
-    (1, "기다리는데 10% 오름", False, {"A": 0, "B": 10, "C": 20}),   # q2b: A 계속 기다림 · B 절반 지금 · C 지금
+    (1, "기다리는데 10% 오름", False, {"A": 0, "B": 10, "C": 20}),   # v1.5 q2c (최고가인 날 시작 — 사연대로): A 계속 기다림 · B 절반 지금 · C 지금
     (2, "넣는 속도", False, {"A": 20, "B": 10, "C": 0}),             # q3b: A 한 번에 · B 12개월 · C 36개월 (빠져도 매도 안 함)
     (3, "넣은 뒤 10% 빠짐", False, {"A": 0, "B": 20, "C": 10}),      # q3s: A 모두 매도→산 값에 다시 · B 보유 · C 절반 매도
     (4, "나눠 넣다 빠짐", False, {"A": 0, "B": 20, "C": 10}),        # q4b: A 멈췄다 첫날 값에 다시 · B 계속 · C 절반
@@ -525,10 +527,111 @@ def intro2(d, p, c, ath, gpx, year):
     idx = np.flatnonzero(ath & np.array([x.year == year for x in d]))
     i = int(idx[0])
     m = float(np.nanmin(gpx[i:]) / gpx[i] - 1)
+    mi = i + int(np.nanargmin(gpx[i:]))
     up = np.flatnonzero(gpx[i + 1:] >= 1.10 * gpx[i])
-    return {"first_ath_day": d[i].isoformat(), "price_index_min_after_pct": m, "dipped_10": bool(m <= -DIP),
+    return {"first_ath_day": d[i].isoformat(), "price_index_min_after_pct": m, "min_after_day": d[mi].isoformat(), "dipped_10": bool(m <= -DIP),
             "price_index_gain_since_pct": float(gpx[-1] / gpx[i] - 1), "rose_10_first_day": d[i + 1 + up[0]].isoformat() if len(up) else "-",
             "gain_since_pct": float(p[-1] / p[i] - 1), "cash_interest_pct": float(c[-1] / c[i] - 1), "last_date": d[-1].isoformat()}
+
+
+# ---------- v1.5: 반론 검토 2회차에 답하는 계산 ----------
+def q2c_ath_wait_after_rise(d, p, c, ath, gpx, horizon_days, rise=0.10):
+    """v1.5 항목 1 (사연대로): 가격 지수 최고가인 날 '10% 빠지면 넣겠다'고 기다림 → 10% 빠지기 전에 먼저 10% 오른 날(t, 가격 지수로 봄)
+    → 그때 지금 넣기 vs 처음 목표값(최고가 날 값의 90%)까지 계속 기다림. t 뒤 horizon_days 에 비교 (끝까지 안 오면 현금)."""
+    now, wait, back, rise_days = [], [], [], []
+    for s in np.flatnonzero(ath):
+        if d[s] < START_EVAL:
+            continue
+        seg = gpx[s + 1:]
+        up = np.flatnonzero(seg >= (1 + rise) * gpx[s])
+        dn = np.flatnonzero(seg <= (1 - DIP) * gpx[s])
+        if not len(up) or (len(dn) and dn[0] < up[0]):
+            continue
+        t = s + 1 + up[0]
+        e = int(np.searchsorted(d, d[t] + timedelta(days=horizon_days), side="left"))
+        if e >= len(d):
+            continue
+        hit = np.flatnonzero(gpx[t + 1:e + 1] <= (1 - DIP) * gpx[s])
+        now.append(p[e] / p[t])
+        if len(hit):
+            j = t + 1 + hit[0]
+            wait.append(c[j] / c[t] * p[e] / p[j])
+            back.append(True)
+        else:
+            wait.append(c[e] / c[t])
+            back.append(False)
+        rise_days.append(t)
+    now, wait = np.array(now), np.array(wait)
+    g = now / wait - 1
+    res = dict(cases=len(now), distinct_rise_days=len(set(rise_days)), episodes=episodes(d, sorted(set(rise_days)))["count"],
+               now_wins=share(now > wait), came_back_to_target=share(np.array(back)), median_gap_pct=float(np.median(g)),
+               median_gap_when_wait_wins_pct=float(np.median(g[now < wait])) if np.any(now < wait) else 0.0)
+    res["verdict"] = "지금" if res["now_wins"] > 0.5 else "기다림"
+    return res
+
+
+def q3s_detail(d, p, c, W):
+    """v1.5 항목 3 까닭: 넣은 값으로 돌아온 경우와 아닌 경우로 나눔 + 다른 재진입(판 뒤 가장 낮은 값에서 10% 반등한 날 다시)도 확인."""
+    rec, hw_rec, sw_norec, hold2, reb = [], [], [], [], []
+    for s, e, _ in W:
+        hit = np.flatnonzero(p[s + 1:e + 1] <= (1 - DIP) * p[s])
+        if not len(hit):
+            continue
+        j = s + 1 + hit[0]
+        val = p[j] / p[s]
+        hold = p[e] / p[s]
+        bk = np.flatnonzero(p[j + 1:e + 1] >= p[s])
+        if len(bk):
+            k = j + 1 + bk[0]
+            stop = val * c[k] / c[j] * p[e] / p[k]
+            rec.append(True)
+            hw_rec.append(hold > stop)
+        else:
+            stop = val * c[e] / c[j]
+            rec.append(False)
+            sw_norec.append(stop > hold)
+        lows = np.minimum.accumulate(p[j:e + 1])
+        rb = np.flatnonzero(p[j:e + 1] >= 1.10 * lows)
+        if len(rb):
+            k2 = j + rb[0]
+            alt = val * c[k2] / c[j] * p[e] / p[k2]
+        else:
+            alt = val * c[e] / c[j]
+        hold2.append(hold)
+        reb.append(alt)
+    hold2, reb = np.array(hold2), np.array(reb)
+    return {"recovered": share(np.array(rec)), "hold_wins_when_recovered": share(np.array(hw_rec)),
+            "stop_wins_when_not_recovered": share(np.array(sw_norec)), "hold_wins_vs_rebound10": share(hold2 > reb),
+            "median_gap_vs_rebound10_pct": float(np.median(hold2 / reb - 1))}
+
+
+def q6b_sell_in_may(d, p, c, W):
+    """v1.5 항목 5 격언 원래 꼴: 24개월 매달 넣되, 해마다 5월 첫 거래일에 모두 매도해 현금 → 11월 첫 거래일에 모두 다시 넣기 (5~10월 넣을 돈도 현금)
+    vs 매달 넣고 그대로. 5년 창 끝까지 같은 규칙을 이어 감."""
+    mon, may = [], []
+    for s, e, buys in W:
+        b = buys[:MONTHLY]
+        mon.append(sum(p[e] / p[x] for x in b))
+        units, cash_u = 0.0, 0.0
+        for n, x in enumerate(buys):
+            m = d[x].month
+            if n < MONTHLY:
+                cash_u += 1 / c[x]
+            if m == 5 and units > 0:
+                cash_u += units * p[x] / c[x]
+                units = 0.0
+            if not (5 <= m <= 10) and cash_u > 0:
+                units += cash_u * c[x] / p[x]
+                cash_u = 0.0
+        may.append(units * p[e] + cash_u * c[e])
+    mon, may = np.array(mon), np.array(may)
+    return {"monthly_wins": share(mon > may), "median_gap_pct": float(np.median(mon / may - 1))}
+
+
+def nonoverlap(ms, mkey, d, months):
+    """겹치지 않는 창 수 — 2000년 1월부터 months 개월씩 이어 자를 때."""
+    keys = [k for i, k in zip(ms, mkey[ms]) if d[i] >= START_EVAL]
+    return int((keys[-1] - keys[0]) // months)
 
 
 def intro(gd, gp, d, p, year):
@@ -570,7 +673,7 @@ def selftest():
 
 
 def fmt(res):
-    return {k: (pctf(v) if isinstance(v, float) and ("pct" in k or k.startswith(("loss", "now", "lump", "never", "stop", "continue", "monthly", "no_", "triggered_", "median", "came_", "best_", "dca", "dip_", "dd20", "worst_dd", "within", "price_", "gain_", "cash_", "may_oct_m", "nov_", "hold_"))) else v)
+    return {k: (pctf(v) if isinstance(v, float) and ("pct" in k or k.startswith(("loss", "now", "lump", "never", "stop", "continue", "monthly", "no_", "triggered_", "median", "came_", "best_", "dca", "dip_", "dd20", "worst_dd", "within", "price_", "gain_", "cash_", "may_oct_m", "nov_", "hold_", "recovered", "stop_wins", "sell_in_may"))) else v)
             for k, v in res.items()}
 
 
@@ -608,18 +711,31 @@ def main():
         out("SPLIT", horizon=label, windows=len(W), first_start=d[W[0][0]], last_start=d[W[-1][0]], last_end=d[W[-1][1]])
         r = {"q1": q1_ath(d, p, START_EVAL, days), "q2": q2_wait(p, c, W), "q3": q3_lump(p, c, W), "q4": q4_stop(p, c, W), "q5": q5_crash(p, c, W),
              "q2b": q2b_wait_after_rise(d, p, c, days), "q6": q6_calendar(d, p, c, W), "q3b": q3b_speed(p, c, W),
-             "q1b": q1b_ath_wait(d, p, c, ath, gpx, days), "q4b": q4b_stop_reenter(d, p, c, W), "q3s": q3s_stop_rebuy(d, p, c, W)}
+             "q1b": q1b_ath_wait(d, p, c, ath, gpx, days), "q4b": q4b_stop_reenter(d, p, c, W), "q3s": q3s_stop_rebuy(d, p, c, W),
+             "q2c": q2c_ath_wait_after_rise(d, p, c, ath, gpx, days)}
+        r["q3s"].update(q3s_detail(d, p, c, W))
+        r["q6"].update({f"sell_in_may_{k}": v for k, v in q6b_sell_in_may(d, p, c, W).items()})
+        r["q6"]["nonoverlap_windows"] = nonoverlap(ms, mkey, d, months)
+        c5 = np.cumprod(1 + 0.05 * np.array([0] + [(d[i] - d[i - 1]).days for i in range(1, len(d))], dtype=float) / 365)   # 민감도: 현금 이자 연 5% 고정
+        sens = {"q2c": q2c_ath_wait_after_rise(d, p, c5, ath, gpx, days), "q3b": q3b_speed(p, c5, W), "q3s": q3s_stop_rebuy(d, p, c5, W),
+                "q4b": q4b_stop_reenter(d, p, c5, W), "q6": q6_calendar(d, p, c5, W)}
+        r["sens_cash5"] = {"verdicts": {k: v["verdict"] for k, v in sens.items()},
+                           "shares": {"q2c": sens["q2c"]["now_wins"], "q3b_lump_vs_dca12": sens["q3b"]["lump_beats_dca12"],
+                                      "q3b_dca12_vs_dca36": sens["q3b"]["dca12_beats_dca36"], "q3s": sens["q3s"]["hold_wins"],
+                                      "q4b": sens["q4b"]["continue_wins"], "q6": sens["q6"]["monthly_wins"]}}
         for n, key in ((1, "lump"), (SPLIT, "dca12"), (36, "dca36")):
             dd = path_drawdown(p, c, W, n)
             r["q3b"][f"dd20_{key}"], r["q3b"][f"worst_dd_{key}_pct"] = dd["share_dd_over_20"], dd["worst_dd_pct"]
         r["q3"]["worst_start"] = d[r["q3"].pop("worst_start_idx")].isoformat()
         for q, v in r.items():
-            out(f"{q.upper()}", horizon=label, **fmt(v))
+            out(f"{q.upper()}", horizon=label, **(fmt(v) if q != "sens_cash5" else {"verdicts": v["verdicts"], "shares": {k: pctf(x) for k, x in v["shares"].items()}}))
         results[label] = r
 
-    expect = {"q2b": "지금", "q3b": "한 번에>12개월>36개월", "q3s": "보유", "q4b": "계속", "q6": "매달"}   # 점수 항목 1~5 (v1.4: 1 = q2b · 2 = q3b · 3 = q3s · 4 = q4b · 5 = q6 / q1b 는 5년에서 뒤집혀 참고)
+    expect = {"q2c": "지금", "q3b": "한 번에>12개월>36개월", "q3s": "보유", "q4b": "계속", "q6": "매달"}   # 점수 항목 1~5 (v1.4: 1 = q2b · 2 = q3b · 3 = q3s · 4 = q4b · 5 = q6 / q1b 는 5년에서 뒤집혀 참고)
     mism = [q for q, v in expect.items() if results["2y"][q]["verdict"] != v]
-    flips = [q for q in results["2y"] if results["2y"][q]["verdict"] != results["5y"][q]["verdict"]]
+    flips = [q for q in results["2y"] if "verdict" in results["2y"][q] and results["2y"][q]["verdict"] != results["5y"][q]["verdict"]]
+    cash5_mism = {h: [q for q in expect if results[h]["sens_cash5"]["verdicts"].get(q, results[h][q]["verdict"]) != expect[q]] for h in ("2y", "5y")}
+    (warn if any(cash5_mism.values()) else out)("SENS", check="현금 이자 연 5% 고정이어도 같은 쪽인가", mismatches=cash5_mism)
     used_flips = [q for q in flips if q in expect]
     (warn if mism else out)("SIGNAL", rule="쌍마다 이긴 구간 > 50% (2년이 본 결과)", expected=expect, mismatches=mism or "-",
                             note="MISMATCH 면 QUESTIONS 보기 점수를 다시 정할 것" if mism else "보기 점수와 계산이 같은 쪽")

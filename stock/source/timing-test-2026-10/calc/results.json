@@ -1,6 +1,6 @@
 {
- "version": "v1.4",
- "made": "2026-10-28T14:14:24+00:00",
+ "version": "v1.5",
+ "made": "2026-10-28T14:32:38+00:00",
  "data_last": "2026-10-27",
  "results": {
   "2y": {
@@ -72,7 +72,10 @@
     "median_gap_usd_500": 119,
     "median_end_usd_500": 13554,
     "within_3pct": 0.8053691275167785,
-    "verdict": "매달"
+    "verdict": "매달",
+    "sell_in_may_monthly_wins": 0.7248322147651006,
+    "sell_in_may_median_gap_pct": 0.04013308600058696,
+    "nonoverlap_windows": 13
    },
    "q3b": {
     "windows": 298,
@@ -124,7 +127,39 @@
     "median_hold_pct": 0.06551843201998997,
     "median_stop_pct": -0.028053903960776116,
     "episodes": 8,
-    "verdict": "보유"
+    "verdict": "보유",
+    "recovered": 0.6666666666666666,
+    "hold_wins_when_recovered": 1.0,
+    "stop_wins_when_not_recovered": 0.8780487804878049,
+    "hold_wins_vs_rebound10": 0.5853658536585366,
+    "median_gap_vs_rebound10_pct": 0.02536680673791114
+   },
+   "q2c": {
+    "cases": 259,
+    "distinct_rise_days": 153,
+    "episodes": 6,
+    "now_wins": 0.7953667953667953,
+    "came_back_to_target": 0.17374517374517376,
+    "median_gap_pct": 0.1523965459805412,
+    "median_gap_when_wait_wins_pct": -0.1934116787068485,
+    "verdict": "지금"
+   },
+   "sens_cash5": {
+    "verdicts": {
+     "q2c": "지금",
+     "q3b": "한 번에>12개월>36개월",
+     "q3s": "보유",
+     "q4b": "계속",
+     "q6": "매달"
+    },
+    "shares": {
+     "q2c": 0.667953667953668,
+     "q3b_lump_vs_dca12": 0.6510067114093959,
+     "q3b_dca12_vs_dca36": 0.7550335570469798,
+     "q3s": 0.6910569105691057,
+     "q4b": 0.6463414634146342,
+     "q6": 0.6677852348993288
+    }
    }
   },
   "5y": {
@@ -196,7 +231,10 @@
     "median_gap_usd_500": 358,
     "median_end_usd_500": 19261,
     "within_3pct": 0.5305343511450382,
-    "verdict": "매달"
+    "verdict": "매달",
+    "sell_in_may_monthly_wins": 0.7290076335877863,
+    "sell_in_may_median_gap_pct": 0.17594037956950603,
+    "nonoverlap_windows": 5
    },
    "q3b": {
     "windows": 262,
@@ -248,7 +286,39 @@
     "median_hold_pct": 0.27477846108824155,
     "median_stop_pct": 0.135212349771203,
     "episodes": 7,
-    "verdict": "보유"
+    "verdict": "보유",
+    "recovered": 0.8791946308724832,
+    "hold_wins_when_recovered": 1.0,
+    "stop_wins_when_not_recovered": 0.7777777777777778,
+    "hold_wins_vs_rebound10": 0.5838926174496645,
+    "median_gap_vs_rebound10_pct": 0.018755543610473158
+   },
+   "q2c": {
+    "cases": 219,
+    "distinct_rise_days": 131,
+    "episodes": 5,
+    "now_wins": 0.7534246575342466,
+    "came_back_to_target": 0.2465753424657534,
+    "median_gap_pct": 0.5509436869292248,
+    "median_gap_when_wait_wins_pct": -0.19608608129978267,
+    "verdict": "지금"
+   },
+   "sens_cash5": {
+    "verdicts": {
+     "q2c": "지금",
+     "q3b": "한 번에>12개월>36개월",
+     "q3s": "보유",
+     "q4b": "계속",
+     "q6": "매달"
+    },
+    "shares": {
+     "q2c": 0.7534246575342466,
+     "q3b_lump_vs_dca12": 0.6374045801526718,
+     "q3b_dca12_vs_dca36": 0.7519083969465649,
+     "q3s": 0.738255033557047,
+     "q4b": 0.6216216216216216,
+     "q6": 0.7366412213740458
+    }
    }
   }
  },
@@ -266,6 +336,7 @@
   "v14": {
    "first_ath_day": "2026-01-06",
    "price_index_min_after_pct": -0.08655366506740925,
+   "min_after_day": "2026-03-30",
    "dipped_10": false,
    "price_index_gain_since_pct": 0.11199430564233448,
    "rose_10_first_day": "2026-08-04",
@@ -287,7 +358,7 @@
   "q1b"
  ],
  "scored": [
-  "q2b",
+  "q2c",
   "q3b",
   "q3s",
   "q4b",

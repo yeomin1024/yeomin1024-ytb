@@ -2,7 +2,7 @@
  "tool": "weekly_analysis.py v1.4",
  "topic": "stock",
  "name": "주식",
- "generated": "2026-10-28T07:42:39+00:00",
+ "generated": "2026-10-28T07:54:58+00:00",
  "cases": 723,
  "dated": 723,
  "older_than_windows": 0,
@@ -1735,11 +1735,11 @@
      "count": 96
     },
     {
-     "word": "of",
+     "word": "in",
      "count": 92
     },
     {
-     "word": "in",
+     "word": "of",
      "count": 92
     },
     {
@@ -3158,11 +3158,11 @@
      "count": 107
     },
     {
-     "word": "not",
+     "word": "video",
      "count": 96
     },
     {
-     "word": "video",
+     "word": "not",
      "count": 96
     },
     {
@@ -7477,7 +7477,7 @@
      "count": 125
     },
     {
-     "word": "you",
+     "word": "financial",
      "count": 123
     }
    ],
@@ -7741,11 +7741,11 @@
    ],
    "title_words": [
     {
-     "word": "코스피",
+     "word": "이유",
      "count": 57
     },
     {
-     "word": "이유",
+     "word": "코스피",
      "count": 57
     },
     {
@@ -7834,7 +7834,7 @@
      "count": 126
     },
     {
-     "word": "you",
+     "word": "financial",
      "count": 124
     }
    ],
@@ -8176,7 +8176,7 @@
      "count": 126
     },
     {
-     "word": "you",
+     "word": "financial",
      "count": 125
     }
    ],
@@ -8425,11 +8425,11 @@
    ],
    "title_words": [
     {
-     "word": "코스피",
+     "word": "이유",
      "count": 58
     },
     {
-     "word": "이유",
+     "word": "코스피",
      "count": 58
     },
     {
@@ -8518,7 +8518,7 @@
      "count": 126
     },
     {
-     "word": "you",
+     "word": "financial",
      "count": 125
     }
    ],
@@ -8772,11 +8772,11 @@
    ],
    "title_words": [
     {
-     "word": "코스피",
+     "word": "이유",
      "count": 58
     },
     {
-     "word": "이유",
+     "word": "코스피",
      "count": 58
     },
     {
@@ -8865,7 +8865,7 @@
      "count": 128
     },
     {
-     "word": "you",
+     "word": "financial",
      "count": 127
     }
    ],
@@ -9104,11 +9104,11 @@
    ],
    "title_words": [
     {
-     "word": "코스피",
+     "word": "이유",
      "count": 58
     },
     {
-     "word": "이유",
+     "word": "코스피",
      "count": 58
     },
     {
@@ -9441,11 +9441,11 @@
    ],
    "title_words": [
     {
-     "word": "코스피",
+     "word": "이유",
      "count": 58
     },
     {
-     "word": "이유",
+     "word": "코스피",
      "count": 58
     },
     {

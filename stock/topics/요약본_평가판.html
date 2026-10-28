@@ -1,0 +1,121 @@
+<title>주식 요약본 평가판</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* 편 탭 하나씩 — 안 카드 5장, 칸마다 좋음·나쁨 */
+:root{--bg:#f3f5f7;--card:#ffffff;--ink:#17202b;--muted:#5b6876;--line:#d9dfe6;--accent:#1f5f8b;--good:#167a5b;--goodbg:#e3f3ec;--bad:#b4442f;--badbg:#f8e6e1;
+--sans:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#11161c;--card:#19212a;--ink:#e6ebf0;--muted:#9aa7b4;--line:#2b3641;--accent:#7cb4dc;--good:#5cc79f;--goodbg:#173229;--bad:#ef8c76;--badbg:#3a211b;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#11161c;--card:#19212a;--ink:#e6ebf0;--muted:#9aa7b4;--line:#2b3641;--accent:#7cb4dc;--good:#5cc79f;--goodbg:#173229;--bad:#ef8c76;--badbg:#3a211b;color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.55}
+.wrap{max-width:820px;margin:0 auto;padding-block:20px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:14px}
+h1{font-size:1.45rem;margin:0;text-wrap:balance}
+.note{font-size:.85rem;color:var(--muted);border-left:3px solid var(--line);padding-left:10px;margin:0}
+.note.warn{border-color:var(--bad);color:var(--ink)}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tabs button{font:inherit;font-size:.9rem;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:5px 14px;cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.dir{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin:0;display:grid;gap:4px;font-size:.92rem}
+.dir li{margin-left:1em}
+.ans{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:grid;grid-template-columns:minmax(0,1fr);gap:10px;min-width:0}
+.ah{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.ah h2{font-size:1.05rem;margin:0}
+.id{font-family:var(--mono);color:var(--accent);font-size:.85rem}
+.kind{font-size:.78rem;letter-spacing:.06em;color:var(--muted);margin-top:4px}
+.row{display:grid;grid-template-columns:5.5em minmax(0,1fr);gap:4px 10px;align-items:start;border-top:1px solid var(--line);padding-top:8px}
+.row.good{background:linear-gradient(90deg,var(--goodbg),transparent 60%)}
+.row.bad{background:linear-gradient(90deg,var(--badbg),transparent 60%)}
+.lab{font-size:.82rem;color:var(--muted)}
+.val{min-width:0}
+.val ol{margin:0;padding-left:1.2em}
+.mk{display:flex;gap:6px;flex-wrap:wrap;align-items:center;min-width:0}
+.row .mk{grid-column:2}
+.val{overflow-wrap:anywhere}
+button.g,button.b{font:inherit;font-size:.82rem;font-weight:500;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:7px;padding:3px 10px;cursor:pointer}
+button.g[aria-pressed="true"]{background:var(--goodbg);border-color:var(--good);color:var(--good)}
+button.b[aria-pressed="true"]{background:var(--badbg);border-color:var(--bad);color:var(--bad)}
+.mk input{flex:1 1 140px;min-width:0;font:inherit;font-size:.82rem;border:1px solid var(--line);border-radius:7px;padding:3px 8px;background:var(--bg);color:var(--ink)}
+.st{font-size:.75rem;color:var(--muted)}
+button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button:disabled,input:disabled{opacity:.55;cursor:not-allowed}
+</style>
+<div class="wrap">
+<h1>주식 요약본 평가판</h1>
+<p class="note" id="sub"></p>
+<p class="note">안 전체나 칸 하나에 좋음·나쁨을 누르면 저장됩니다. 다시 누르면 지워집니다. Claude 가 다음에 이 평가를 배워 다음 안을 쓰고, 칸마다 좋은 글을 모아 추천 조합을 만듭니다. ※ 연구·교육용 — 투자 권유가 아님.</p>
+<p class="note warn" id="offline" hidden>이 화면에서는 저장할 수 없습니다. 평가는 Claude 에게 'F2 제목 좋아'처럼 말하거나 요약본 줄 끝에 '=> 좋음'을 적으면 됩니다.</p>
+<div class="tabs" id="tabs" role="group" aria-label="편"></div>
+<ul class="dir" id="dir"></ul>
+<div id="list" style="display:grid;gap:12px"></div>
+</div>
+<script id="data" type="application/json">{"made": "2026-10-28", "marks": {}, "episodes": [{"code": "F", "name": "재무제표 테스트", "direction": ["재무제표만 보고 '싸 보이는' 미국 회사 5곳 중 진짜 저평가와 함정을 가려내는 테스트 — 이름은 가리고 그때 공개된 숫자만, 결과는 2년 뒤 주가로 해설에서 공개.", "정답 3곳(싸 보였고 2년 뒤 오름: 2.17배·1.89배·1.69배) + 함정 2곳(싸 보였지만 2년 뒤 0.65배·0.35배).", "5항목 × 0·10·20점, 70점 이상 통과 — 늘 매수하면 60점, 늘 피하면 40점이라 숫자를 읽어야만 통과.", "핵심: PER 이 더 낮은 쪽이 오히려 함정이었다 — 가른 것은 매출·이익률의 방향과 빚을 감당할 힘."], "answers": [{"id": "F1", "label": "함정 강조 (싸 보여서 속는 사람)", "els": [{"id": "F1-LT", "kind": "롱폼", "name": "제목", "text": "싸 보이는 주식에 속을 사람들은 통과 못하는 테스트"}, {"id": "F1-LM", "kind": "롱폼", "name": "썸네일 주요", "text": "싸 보이는 주식에 / 속을 사람 테스트"}, {"id": "F1-LS", "kind": "롱폼", "name": "썸네일 보조", "text": "PER 8 이 함정?"}, {"id": "F1-LF", "kind": "롱폼", "name": "대본", "text": ["도입 — 인기 종목을 쫓다 손실 (미국 마이크론 6월 고점 대비 −25.5%) → 싸 보이는 주식에도 진짜와 함정이 있다 → 숫자만으로 고르는 테스트", "항목 5 — 회사마다 그때 재무제표 숫자 3개(PER·매출 변화·빚) + '매수하시겠습니까?' · 보기 A·B·C (숫자로 판단 20 · 조금 10 · PER 하나로 판단 0)", "통과 기준 — 70점 이상 통과 · 40~60 주의 · 30 이하 불통과", "해설 — 두 묶음: 싸 보여서 산 함정(매출 감소 + 빚) · 평범해 보여서 지나친 정답(매출·이익률이 함께 오름) — 회사 이름과 2년 뒤 결과 공개", "정리 — 회사마다 '2년 주가 = 한 주의 이익 × PER' 한 줄 → 마무리 2문장"]}, {"id": "F1-ST", "kind": "쇼츠", "name": "제목", "text": "싸 보이는 주식에 속을 사람은 통과 못하는 테스트"}, {"id": "F1-SM", "kind": "쇼츠", "name": "썸네일 주요", "text": "PER 8 주식 / 사시겠습니까?"}, {"id": "F1-SS", "kind": "쇼츠", "name": "썸네일 보조", "text": "답은 롱폼에서"}, {"id": "F1-SF", "kind": "쇼츠", "name": "대본", "text": ["갈고리 — '싸 보이는 주식, 진짜일까요 함정일까요?'", "도입 2문장 — 이름을 가린 미국 회사 5곳, 그때 공개된 숫자만 보고 매수할지 고름", "5문항 몽타주 — 회사마다 숫자 하나(PER 8 · PER 25 …) + 보기 A·B·C, 점수·결과는 숨김", "끝 — '선택한 답에 따른 결과는 아래 영상에서 확인하세요.'"]}]}, {"id": "F2", "label": "놓침 강조 (비싸 보여서 지나치는 사람)", "els": [{"id": "F2-LT", "kind": "롱폼", "name": "제목", "text": "2배 오를 주식 놓칠 사람들은 통과 못하는 재무제표 테스트"}, {"id": "F2-LM", "kind": "롱폼", "name": "썸네일 주요", "text": "2배 오를 주식 / 놓칠 사람 테스트"}, {"id": "F2-LS", "kind": "롱폼", "name": "썸네일 보조", "text": "비싸 보여서 지나쳤다면"}, {"id": "F2-LF", "kind": "롱폼", "name": "대본", "text": ["도입 — 'PER 25 는 비싸다'며 지나친 회사가 2년 뒤 1.89배 (이름은 가림) → 비싸 보이는 주식에도 진짜가 있다 → 테스트", "항목 5 — 정답 3곳을 먼저, 함정 2곳을 뒤에 (앞에서 '사는 쪽'에 익숙해진 사람이 함정에 걸리는지)", "통과 기준 — 70점 이상 통과", "해설 — 먼저 지나친 정답: 매출·이익률이 함께 오르고 주식 수가 줄던 회사 → 한 해 PER 이 아니라 추세 · 다음 함정: 짧게", "정리 → 마무리"]}, {"id": "F2-ST", "kind": "쇼츠", "name": "제목", "text": "2배 오를 주식 놓칠 사람은 통과 못하는 테스트"}, {"id": "F2-SM", "kind": "쇼츠", "name": "썸네일 주요", "text": "PER 25 라서 / 패스하셨나요?"}, {"id": "F2-SS", "kind": "쇼츠", "name": "썸네일 보조", "text": "그 회사, 2년 뒤"}, {"id": "F2-SF", "kind": "쇼츠", "name": "대본", "text": ["갈고리 — 'PER 25 회사, 비싸다고 지나치시겠습니까?'", "도입 2문장 — 숫자만 보고 고르는 미국 회사 5곳", "5문항 몽타주 — 정답 3곳 먼저 · 함정 2곳 뒤 · 점수·결과 숨김", "끝 — 롱폼 안내"]}]}, {"id": "F3", "label": "PER 오해 (낮으면 싸다는 믿음)", "els": [{"id": "F3-LT", "kind": "롱폼", "name": "제목", "text": "PER 낮은 주식 샀다가 손해 볼 사람들의 재무제표 테스트"}, {"id": "F3-LM", "kind": "롱폼", "name": "썸네일 주요", "text": "PER 낮으면 싸다? / 손해 볼 사람 테스트"}, {"id": "F3-LS", "kind": "롱폼", "name": "썸네일 보조", "text": "PER 8 vs PER 18"}, {"id": "F3-LF", "kind": "롱폼", "name": "대본", "text": ["도입 — 'PER 이 낮으면 싸다'는 믿음 → PER 8 회사와 PER 18 회사 중 하나만 고른다면? (답은 해설에서)", "항목 5 — 회사마다 PER 를 먼저 보여 주고, 다른 숫자 2개(매출 변화·이익률)를 더함", "통과 기준 — 70점 이상 통과", "해설 — 회사마다 '2년 주가 = 한 주의 이익 × PER' 로 쪼갬: 정답은 이익이 끌어올렸고, 함정은 이익이 줄고 PER 까지 낮아짐 (13.5 → 5.8)", "정리 — PER 은 출발점일 뿐, 방향을 보는 숫자 둘 → 마무리"]}, {"id": "F3-ST", "kind": "쇼츠", "name": "제목", "text": "PER 낮은 주식 샀다가 손해 볼 사람 테스트"}, {"id": "F3-SM", "kind": "쇼츠", "name": "썸네일 주요", "text": "PER 8 이면 / 싼 주식일까?"}, {"id": "F3-SS", "kind": "쇼츠", "name": "썸네일 보조", "text": "숫자 3개만 보세요"}, {"id": "F3-SF", "kind": "쇼츠", "name": "대본", "text": ["갈고리 — 'PER 8 과 PER 18, 어느 회사를 사시겠습니까?'", "도입 2문장 — 이름 없이 숫자만으로 고르는 테스트", "5문항 몽타주 — 문항마다 PER 와 숫자 하나 · 결과 숨김", "끝 — 롱폼 안내"]}]}, {"id": "F4", "label": "이름 가린 유명 브랜드 (반전 공개)", "els": [{"id": "F4-LT", "kind": "롱폼", "name": "제목", "text": "브랜드 보고 샀다가 손해 볼 사람들의 재무제표 테스트"}, {"id": "F4-LM", "kind": "롱폼", "name": "썸네일 주요", "text": "누구나 아는 브랜드 / 2년 뒤 3분의 1"}, {"id": "F4-LS", "kind": "롱폼", "name": "썸네일 보조", "text": "이름은 마지막에 공개"}, {"id": "F4-LF", "kind": "롱폼", "name": "대본", "text": ["도입 — 누구나 아는 미국 브랜드 5곳 → 이름을 들으면 판단이 흔들린다 → 이름을 가리고 숫자만으로 고르는 테스트", "항목 5 — 업종만 알려 줌(의류·여행·백화점·생활용품) + 숫자 3개", "통과 기준 — 70점 이상 통과", "해설 — 한 곳씩 이름 공개 + 2년 뒤 결과 (0.35배 ~ 2.17배) · 함정 두 곳의 공통점, 정답 세 곳의 공통점", "정리 → 마무리"]}, {"id": "F4-ST", "kind": "쇼츠", "name": "제목", "text": "브랜드 이름에 끌려 손해 볼 사람 테스트"}, {"id": "F4-SM", "kind": "쇼츠", "name": "썸네일 주요", "text": "이 회사 / 사시겠습니까?"}, {"id": "F4-SS", "kind": "쇼츠", "name": "썸네일 보조", "text": "이름은 롱폼에서"}, {"id": "F4-SF", "kind": "쇼츠", "name": "대본", "text": ["갈고리 — '이름을 가린 미국 브랜드 5곳, 숫자만 보고 고르세요'", "도입 1문장 — 업종과 숫자만 보여 줌", "5문항 몽타주 — 업종 + 숫자 하나 + 보기 · 이름·결과 숨김", "끝 — '어느 회사였는지는 아래 영상에서 확인하세요.'"]}]}, {"id": "F5", "label": "결과 질문형 제목 (실험 — 테스트 꼴 밖)", "els": [{"id": "F5-LT", "kind": "롱폼", "name": "제목", "text": "PER 8 과 PER 18, 2년 뒤 웃은 쪽은? 재무제표 테스트"}, {"id": "F5-LM", "kind": "롱폼", "name": "썸네일 주요", "text": "PER 8 vs PER 18 / 2년 뒤 웃은 쪽은?"}, {"id": "F5-LS", "kind": "롱폼", "name": "썸네일 보조", "text": "직접 골라 보세요"}, {"id": "F5-LF", "kind": "롱폼", "name": "대본", "text": ["도입 — 결과 하나를 먼저: PER 8 회사는 2년 뒤 0.65배, PER 18 회사는 2.17배 → 왜 그랬는지 남은 숫자로 맞혀 보는 테스트", "항목 4 — 나머지 회사 4곳 (공개한 두 곳은 해설에서 쪼개 봄)", "통과 기준 — 4항목 × 0·10·20점 (80점 만점)", "해설 — 도입의 두 회사를 '이익 × PER' 로 먼저 쪼개고, 나머지 네 곳 공개", "정리 → 마무리"]}, {"id": "F5-ST", "kind": "쇼츠", "name": "제목", "text": "PER 8 과 PER 18, 2년 뒤 웃은 쪽은?"}, {"id": "F5-SM", "kind": "쇼츠", "name": "썸네일 주요", "text": "PER 8 / PER 18"}, {"id": "F5-SS", "kind": "쇼츠", "name": "썸네일 보조", "text": "어느 쪽 사실래요?"}, {"id": "F5-SF", "kind": "쇼츠", "name": "대본", "text": ["갈고리 — 'PER 8 과 PER 18, 어느 쪽을 사시겠습니까?'", "대결 2문항 — 두 회사의 숫자를 나란히 (매출 변화·빚)", "끝 — '2년 뒤 웃은 쪽은 아래 영상에서.'"]}]}]}, {"code": "P", "name": "포트폴리오 테스트", "direction": ["'어떻게 나눠 담느냐'로 손해 볼 사람인지 점검하는 테스트 — 실제 미국 지수·ETF 로, 항목마다 담는 방법 A·B·C → 2년 뒤 수익과 그 사이 가장 크게 빠진 폭을 공개.", "정답은 '가장 많이 번 쪽'이 아니라 2년 수익에 비해 덜 빠지고 끝까지 버틸 수 있는 쪽 — 한 구간의 운이 아니라 2020년 1월부터 매달 시작한 2년 구간 전체에서 이긴 비율로 정함.", "항목 5: 한 종목 몰빵 vs S&P 500 · 기술주(QQQ)만 vs S&P 500 · 배당 ETF(SCHD)만 vs S&P 500 · 레버리지 ETF 비중 0·10·50% · 주식만 vs 채권·해외를 섞고 1년에 한 번 다시 맞추기.", "5항목 × 0·10·20점, 70점 이상 통과 — 20점 = 수익과 낙폭을 함께 본 판단 · 10점 = 한쪽만 · 0점 = 수익률 하나나 '남들이 좋다는 것'만."], "answers": [{"id": "P1", "label": "손해형 기본 (잘못 담아서 손해)", "els": [{"id": "P1-LT", "kind": "롱폼", "name": "제목", "text": "포트폴리오 잘못 짜서 손해 볼 사람들은 통과 못하는 테스트"}, {"id": "P1-LM", "kind": "롱폼", "name": "썸네일 주요", "text": "포트폴리오로 / 손해 볼 사람 테스트"}, {"id": "P1-LS", "kind": "롱폼", "name": "썸네일 보조", "text": "몰빵? 분산?"}, {"id": "P1-LF", "kind": "롱폼", "name": "대본", "text": ["도입 — 2022년 한 업종에만 담았던 미국 투자자가 1년 만에 ○○% 손실 → 손해 보는 사람들의 공통점은 '담는 방법' → 테스트", "항목 5 — 담는 방법 A·B·C 를 고르는 질문 (수익률만 보이게 하지 않고 '이 사람은 어떤 사람인가' 상황을 함께)", "통과 기준 — 70점 이상 통과", "해설 — 두 묶음: 수익만 보고 고른 선택(몰빵·기술주만) · 버틸 수 없는 낙폭(레버리지 50%) → 그래서 '2년 수익 ÷ 가장 크게 빠진 폭'", "정리 → 마무리"]}, {"id": "P1-ST", "kind": "쇼츠", "name": "제목", "text": "포트폴리오로 손해 볼 사람은 통과 못하는 테스트"}, {"id": "P1-SM", "kind": "쇼츠", "name": "썸네일 주요", "text": "A·B·C 중 / 무엇을 담겠습니까?"}, {"id": "P1-SS", "kind": "쇼츠", "name": "썸네일 보조", "text": "답은 롱폼에서"}, {"id": "P1-SF", "kind": "쇼츠", "name": "대본", "text": ["갈고리 — '1억이 있다면, 어떻게 나눠 담으시겠습니까?'", "도입 2문장 — 실제 미국 지수·ETF 로 만든 담기 테스트", "5문항 몽타주 — 문항마다 'A·B·C 중 무엇을 담겠나' · 결과 숨김", "끝 — 롱폼 안내"]}]}, {"id": "P2", "label": "분산의 함정 (섞었는데 같이 빠짐)", "els": [{"id": "P2-LT", "kind": "롱폼", "name": "제목", "text": "분산 투자 잘못해서 손해 볼 사람들은 통과 못하는 테스트"}, {"id": "P2-LM", "kind": "롱폼", "name": "썸네일 주요", "text": "분산했는데 / 왜 같이 빠졌을까"}, {"id": "P2-LS", "kind": "롱폼", "name": "썸네일 보조", "text": "2022년의 함정"}, {"id": "P2-LF", "kind": "롱폼", "name": "대본", "text": ["도입 — 2022년 미국 주식과 채권이 함께 빠진 해 (S&P 500 ○○% · 채권 ○○%) → '섞으면 안전하다'는 믿음 점검", "항목 5 — 다섯 번째(채권·해외 섞기)를 먼저, 몰빵 항목들을 뒤에", "통과 기준 — 70점 이상 통과", "해설 — '많이 섞는 것'보다 '내가 버틸 수 있는 만큼 빠지게 담는 것' · 1년에 한 번 다시 맞춘 사람과 그대로 둔 사람의 2년", "정리 → 마무리"]}, {"id": "P2-ST", "kind": "쇼츠", "name": "제목", "text": "분산 투자 잘못해서 손해 볼 사람 테스트"}, {"id": "P2-SM", "kind": "쇼츠", "name": "썸네일 주요", "text": "주식과 채권 / 같이 빠진다면?"}, {"id": "P2-SS", "kind": "쇼츠", "name": "썸네일 보조", "text": "섞으면 안전할까"}, {"id": "P2-SF", "kind": "쇼츠", "name": "대본", "text": ["갈고리 — '주식과 채권을 섞었는데 둘 다 빠진다면?'", "도입 1문장 — 담는 방법 다섯 가지", "5문항 몽타주 — 결과 숨김", "끝 — 롱폼 안내"]}]}, {"id": "P3", "label": "기술주·레버리지 유혹 (많이 번 쪽의 대가)", "els": [{"id": "P3-LT", "kind": "롱폼", "name": "제목", "text": "기술주에 몰빵할 사람들은 통과 못하는 포트폴리오 테스트"}, {"id": "P3-LM", "kind": "롱폼", "name": "썸네일 주요", "text": "나스닥만 담으면 / 통과 못합니다"}, {"id": "P3-LS", "kind": "롱폼", "name": "썸네일 보조", "text": "QQQ vs S&P 500"}, {"id": "P3-LF", "kind": "롱폼", "name": "대본", "text": ["도입 — 2020~2021년 기술주·레버리지로 크게 번 이야기 → 2022년 같은 사람의 계좌 (○○% 하락) → 테스트", "항목 5 — 기술주만·레버리지 비중 항목을 앞에, 배당·분산을 뒤에", "통과 기준 — 70점 이상 통과", "해설 — '오를 때 더 번 만큼, 빠질 때 더 빠졌다' — 2년 수익 대비 낙폭으로 줄 세우기", "정리 → 마무리"]}, {"id": "P3-ST", "kind": "쇼츠", "name": "제목", "text": "기술주에 몰빵할 사람은 통과 못하는 테스트"}, {"id": "P3-SM", "kind": "쇼츠", "name": "썸네일 주요", "text": "나스닥만? / S&P 500 전체?"}, {"id": "P3-SS", "kind": "쇼츠", "name": "썸네일 보조", "text": "2022년을 버틸까"}, {"id": "P3-SF", "kind": "쇼츠", "name": "대본", "text": ["갈고리 — '나스닥만 담겠습니까, S&P 500 전체를 담겠습니까?'", "도입 1문장 — 2년 뒤와 그 사이 가장 크게 빠진 폭을 같이 보는 테스트", "5문항 몽타주 — 결과 숨김", "끝 — 롱폼 안내"]}]}, {"id": "P4", "label": "배당만 담는 노후 (은퇴 자금)", "els": [{"id": "P4-LT", "kind": "롱폼", "name": "제목", "text": "배당 ETF만 담을 사람들은 통과 못하는 포트폴리오 테스트"}, {"id": "P4-LM", "kind": "롱폼", "name": "썸네일 주요", "text": "배당만 담으면 / 노후가 편할까?"}, {"id": "P4-LS", "kind": "롱폼", "name": "썸네일 보조", "text": "SCHD 하나면 끝?"}, {"id": "P4-LF", "kind": "롱폼", "name": "대본", "text": ["도입 — 은퇴 자금을 배당 ETF 하나에만 담는 사람이 늘었다 (미국 배당 ETF 자금 유입 ○○) → '배당이 답'인지 테스트", "항목 5 — 배당 항목을 먼저, 그다음 몰빵·기술주·레버리지·섞기", "통과 기준 — 70점 이상 통과", "해설 — 배당은 '받는 돈'이 아니라 '총수익'으로 비교 · 꺼내 쓸 때 버틸 비중", "정리 → 마무리"]}, {"id": "P4-ST", "kind": "쇼츠", "name": "제목", "text": "배당 ETF만 담을 사람은 통과 못하는 테스트"}, {"id": "P4-SM", "kind": "쇼츠", "name": "썸네일 주요", "text": "배당 하나로 / 노후 준비?"}, {"id": "P4-SS", "kind": "쇼츠", "name": "썸네일 보조", "text": "총수익으로 보면"}, {"id": "P4-SF", "kind": "쇼츠", "name": "대본", "text": ["갈고리 — '은퇴 자금, 배당 ETF 하나에 다 담으시겠습니까?'", "도입 1문장 — 담는 방법 다섯", "5문항 몽타주 — 결과 숨김", "끝 — 롱폼 안내"]}]}, {"id": "P5", "label": "결과 질문형 제목 (실험 — 테스트 꼴 밖)", "els": [{"id": "P5-LT", "kind": "롱폼", "name": "제목", "text": "하나만 담기 vs 나눠 담기, 2년 뒤 이긴 쪽은? 테스트"}, {"id": "P5-LM", "kind": "롱폼", "name": "썸네일 주요", "text": "하나만 살까 / 나눠 살까"}, {"id": "P5-LS", "kind": "롱폼", "name": "썸네일 보조", "text": "2년 결과 공개"}, {"id": "P5-LF", "kind": "롱폼", "name": "대본", "text": ["도입 — 결과 하나를 먼저: S&P 500 하나만 담은 사람과 다섯으로 나눈 사람의 2년 (○○ vs ○○) → 왜 그랬는지 맞혀 보는 테스트", "항목 4 — 나머지 담는 방법 넷", "통과 기준 — 4항목 × 0·10·20점 (80점 만점)", "해설 — 도입의 두 사람을 수익과 낙폭으로 먼저 쪼개고 나머지 공개", "정리 → 마무리"]}, {"id": "P5-ST", "kind": "쇼츠", "name": "제목", "text": "하나만 담기 vs 나눠 담기, 2년 뒤 이긴 쪽은?"}, {"id": "P5-SM", "kind": "쇼츠", "name": "썸네일 주요", "text": "하나 vs 다섯"}, {"id": "P5-SS", "kind": "쇼츠", "name": "썸네일 보조", "text": "어느 쪽을 고를래요?"}, {"id": "P5-SF", "kind": "쇼츠", "name": "대본", "text": ["갈고리 — '하나만 담기와 나눠 담기, 2년 뒤 이긴 쪽은?'", "대결 2문항 — 두 사람의 담는 방법", "끝 — 롱폼 안내"]}]}]}, {"code": "M", "name": "매수 시기 테스트", "direction": ["'언제 사느냐'에 대한 흔한 믿음을 실제 S&P 500 자료로 맞혀 보는 테스트 — 항목마다 매수 규칙 A·B·C → 같은 돈을 그 규칙대로 넣었을 때 2년 뒤 결과를 공개.", "한 번의 운이 아니라, 2000년부터 모든 달에 그 규칙을 시작했을 때 이긴 비율로 정답을 정함 — 닷컴 폭락·2008·2020·2022 하락이 모두 들어감.", "항목 5: 사상 최고가인 날 매수 vs 아무 날 · 10% 빠질 때까지 기다리기 vs 바로 · 목돈 한 번에 vs 12개월로 나눠 · 크게 빠질 때만 vs 매달 같은 금액 · 10월·5월 피하기 vs 아무 때나.", "정답이 늘 '나눠 사기'가 되지 않게 함 — 한 번에 넣기가 더 자주 이기는 항목은 그대로 정답, 해설은 '미리 알 수 없으니 계획대로'."], "answers": [{"id": "M1", "label": "저점 대기 (기다리다 놓치는 사람)", "els": [{"id": "M1-LT", "kind": "롱폼", "name": "제목", "text": "저점 매수 기다리다 손해 볼 사람들은 통과 못하는 테스트"}, {"id": "M1-LM", "kind": "롱폼", "name": "썸네일 주요", "text": "저점 기다리다 / 놓칠 사람 테스트"}, {"id": "M1-LS", "kind": "롱폼", "name": "썸네일 보조", "text": "10% 빠지면 산다?"}, {"id": "M1-LF", "kind": "롱폼", "name": "대본", "text": ["도입 — 올해 미국 S&P 500 이 최고가를 ○○번 다시 쓰는 동안 '빠지면 사겠다'며 기다린 사람 → 테스트", "항목 5 — 매수 규칙 A·B·C 를 고르는 질문 · 기다림 항목(1·2·4)과 나눠 사기·달력 항목(3·5)을 섞음", "통과 기준 — 70점 이상 통과", "해설 — 두 묶음: 기다리고 피한 규칙(1·2·4·5) · 나눠 사기(3 — 한 번에 넣기가 더 자주 이김) → 그래서 미리 정한 계획대로", "정리 → 마무리"]}, {"id": "M1-ST", "kind": "쇼츠", "name": "제목", "text": "저점 매수 기다리다 손해 볼 사람 테스트"}, {"id": "M1-SM", "kind": "쇼츠", "name": "썸네일 주요", "text": "10% 빠지면 / 사시겠습니까?"}, {"id": "M1-SS", "kind": "쇼츠", "name": "썸네일 보조", "text": "26년 자료로 확인"}, {"id": "M1-SF", "kind": "쇼츠", "name": "대본", "text": ["갈고리 — '10% 빠지면 사겠다고 기다리시나요?'", "도입 2문장 — 미국 S&P 500 26년 자료로 만든 매수 시기 테스트", "5문항 몽타주 — 문항마다 '이럴 때 사시겠습니까?' · 결과 숨김", "끝 — 롱폼 안내"]}]}, {"id": "M2", "label": "고점 공포 (최고가라 못 사는 사람)", "els": [{"id": "M2-LT", "kind": "롱폼", "name": "제목", "text": "최고가가 무서워 못 사는 사람들은 통과 못하는 테스트"}, {"id": "M2-LM", "kind": "롱폼", "name": "썸네일 주요", "text": "최고가에 사면 / 손해일까?"}, {"id": "M2-LS", "kind": "롱폼", "name": "썸네일 보조", "text": "고점 공포 테스트"}, {"id": "M2-LF", "kind": "롱폼", "name": "대본", "text": ["도입 — '지금은 너무 올랐다'는 말이 가장 많을 때 → 사상 최고가인 날 산 사람의 2년 뒤를 맞혀 보는 테스트", "항목 5 — 최고가 항목을 먼저, 기다림 항목을 이어서", "통과 기준 — 70점 이상 통과", "해설 — 최고가인 날 매수와 아무 날 매수의 2년 뒤 차이(○○%p) · 그래서 '최고가'는 매수를 미룰 까닭이 아님", "정리 → 마무리"]}, {"id": "M2-ST", "kind": "쇼츠", "name": "제목", "text": "최고가가 무서워 못 사는 사람 테스트"}, {"id": "M2-SM", "kind": "쇼츠", "name": "썸네일 주요", "text": "사상 최고가 / 지금 사도 될까?"}, {"id": "M2-SS", "kind": "쇼츠", "name": "썸네일 보조", "text": "2년 뒤 결과는"}, {"id": "M2-SF", "kind": "쇼츠", "name": "대본", "text": ["갈고리 — '사상 최고가인 날, 사시겠습니까?'", "도입 1문장 — 26년 자료로 만든 테스트", "5문항 몽타주 — 결과 숨김", "끝 — 롱폼 안내"]}]}, {"id": "M3", "label": "목돈 넣을 때 (퇴직금·목돈)", "els": [{"id": "M3-LT", "kind": "롱폼", "name": "제목", "text": "목돈 넣을 때 손해 볼 사람들은 통과 못하는 매수 시기 테스트"}, {"id": "M3-LM", "kind": "롱폼", "name": "썸네일 주요", "text": "목돈 한 번에? / 나눠서?"}, {"id": "M3-LS", "kind": "롱폼", "name": "썸네일 보조", "text": "넣기 전에 해 보세요"}, {"id": "M3-LF", "kind": "롱폼", "name": "대본", "text": ["도입 — 퇴직금·만기 목돈을 미국 지수에 넣으려는 사람 → '나눠 넣는 게 안전하다'는 말이 맞는지 테스트", "항목 5 — 목돈 항목(3)을 먼저, 기다림·달력 항목을 뒤에", "통과 기준 — 70점 이상 통과", "해설 — 한 번에 넣기가 더 자주 이겼다(○○%) · 그런데 진 때는 얼마나 졌나 → 그래서 나눠 넣을지 미리 정하고 지키기", "정리 → 마무리"]}, {"id": "M3-ST", "kind": "쇼츠", "name": "제목", "text": "목돈 넣을 때 손해 볼 사람 테스트"}, {"id": "M3-SM", "kind": "쇼츠", "name": "썸네일 주요", "text": "목돈 1억 / 언제 넣을까?"}, {"id": "M3-SS", "kind": "쇼츠", "name": "썸네일 보조", "text": "퇴직금 넣기 전에"}, {"id": "M3-SF", "kind": "쇼츠", "name": "대본", "text": ["갈고리 — '목돈 1억, 한 번에 넣으시겠습니까, 나눠 넣으시겠습니까?'", "도입 1문장 — 26년 자료로 만든 매수 시기 테스트", "5문항 몽타주 — 결과 숨김", "끝 — 롱폼 안내"]}]}, {"id": "M4", "label": "달력 믿음 (10월엔 사면 안 된다)", "els": [{"id": "M4-LT", "kind": "롱폼", "name": "제목", "text": "10월엔 사면 안 된다고 믿는 사람들은 통과 못하는 테스트"}, {"id": "M4-LM", "kind": "롱폼", "name": "썸네일 주요", "text": "10월에 사면 / 손해라고?"}, {"id": "M4-LS", "kind": "롱폼", "name": "썸네일 보조", "text": "달력 믿음 테스트"}, {"id": "M4-LF", "kind": "롱폼", "name": "대본", "text": ["도입 — 10월이면 나오는 '10월 폭락' 이야기 (지금이 10월) → 달력·저점·고점 믿음을 모아 맞혀 보는 테스트", "항목 5 — 달력 항목(5)을 먼저, 그다음 최고가·기다림·목돈", "통과 기준 — 70점 이상 통과", "해설 — 10월·5월을 피한 매수와 아무 때나 산 매수의 2년 뒤 차이(○○%p) · 그래서 달력보다 계획", "정리 → 마무리"]}, {"id": "M4-ST", "kind": "쇼츠", "name": "제목", "text": "10월엔 사면 안 된다고 믿는 사람 테스트"}, {"id": "M4-SM", "kind": "쇼츠", "name": "썸네일 주요", "text": "10월에 사면 / 정말 손해?"}, {"id": "M4-SS", "kind": "쇼츠", "name": "썸네일 보조", "text": "26년 자료로 확인"}, {"id": "M4-SF", "kind": "쇼츠", "name": "대본", "text": ["갈고리 — '10월에는 주식을 사면 안 된다고 들으셨나요?'", "도입 1문장 — 26년 자료로 맞혀 보는 테스트", "5문항 몽타주 — 결과 숨김", "끝 — 롱폼 안내"]}]}, {"id": "M5", "label": "결과 질문형 제목 (실험 — 테스트 꼴 밖)", "els": [{"id": "M5-LT", "kind": "롱폼", "name": "제목", "text": "폭락 때만 사기 vs 매달 사기, 이긴 쪽은? 매수 시기 테스트"}, {"id": "M5-LM", "kind": "롱폼", "name": "썸네일 주요", "text": "폭락 때만 산다 / vs 매달 산다"}, {"id": "M5-LS", "kind": "롱폼", "name": "썸네일 보조", "text": "26년 자료로"}, {"id": "M5-LF", "kind": "롱폼", "name": "대본", "text": ["도입 — 결과 하나를 먼저: 크게 빠질 때만 산 사람과 매달 산 사람의 2년·5년 (○○ vs ○○) → 나머지 믿음 넷을 맞혀 보는 테스트", "항목 4 — 나머지 매수 규칙 넷", "통과 기준 — 4항목 × 0·10·20점 (80점 만점)", "해설 — 도입의 두 사람을 먼저 쪼개고(기다린 동안 못 산 돈까지) 나머지 공개", "정리 → 마무리"]}, {"id": "M5-ST", "kind": "쇼츠", "name": "제목", "text": "폭락 때만 사기 vs 매달 사기, 이긴 쪽은?"}, {"id": "M5-SM", "kind": "쇼츠", "name": "썸네일 주요", "text": "폭락 때만 / 매달"}, {"id": "M5-SS", "kind": "쇼츠", "name": "썸네일 보조", "text": "어느 쪽이었을까"}, {"id": "M5-SF", "kind": "쇼츠", "name": "대본", "text": ["갈고리 — '폭락 때만 사는 사람과 매달 사는 사람, 이긴 쪽은?'", "대결 2문항 — 두 사람의 규칙", "끝 — 롱폼 안내"]}]}]}]}</script>
+<script>
+(function(){
+const D=JSON.parse(document.getElementById("data").textContent);
+const marks=Object.assign({},D.marks||{});
+let db=null, canWrite=false, cur=D.episodes[0].code;
+const $=s=>document.querySelector(s);
+function el(tag,attrs,text){const e=document.createElement(tag);for(const k in (attrs||{}))e.setAttribute(k,attrs[k]);if(text!=null)e.textContent=text;return e;}
+$("#sub").textContent=`${D.made} · 편 ${D.episodes.length}개 · 편마다 안 5개`;
+function tabs(){const T=$("#tabs");T.innerHTML="";D.episodes.forEach(e=>{const b=el("button",{type:"button","aria-pressed":String(e.code===cur)},e.name);b.addEventListener("click",()=>{cur=e.code;render();});T.append(b);});}
+function markRow(id,label){
+  const m=marks[id]||{}; const r=m.rating||"";
+  const box=el("div",{class:"mk"});
+  const g=el("button",{type:"button",class:"g","aria-pressed":String(r==="좋음"),id:"g-"+id},"좋음");
+  const b=el("button",{type:"button",class:"b","aria-pressed":String(r==="나쁨"),id:"b-"+id},"나쁨");
+  const w=el("input",{type:"text",id:"w-"+id,placeholder:"까닭 (선택)",maxlength:"120","aria-label":label+" 까닭"}); w.value=m.why||"";
+  const s=el("span",{class:"st",id:"s-"+id});
+  [g,b,w].forEach(x=>{if(!canWrite)x.disabled=true;});
+  g.addEventListener("click",()=>save(id,r==="좋음"?"":"좋음",w.value));
+  b.addEventListener("click",()=>save(id,r==="나쁨"?"":"나쁨",w.value));
+  w.addEventListener("change",()=>{if(marks[id]&&marks[id].rating)save(id,marks[id].rating,w.value);});
+  box.append(g,b,w,s); return box;
+}
+function render(){
+  tabs();
+  const E=D.episodes.find(e=>e.code===cur);
+  const dir=$("#dir"); dir.innerHTML=""; E.direction.forEach(t=>dir.append(el("li",{},t)));
+  const L=$("#list"); L.innerHTML="";
+  E.answers.forEach((a,i)=>{
+    const card=el("section",{class:"ans",id:"a-"+a.id});
+    const h=el("div",{class:"ah"}); h.append(el("h2",{},`${i+1}안 · ${a.label}`),el("span",{class:"id"},a.id)); card.append(h);
+    card.append(markRow(a.id,a.id+" 안 전체"));
+    ["롱폼","쇼츠"].forEach(kind=>{
+      card.append(el("div",{class:"kind"},kind));
+      a.els.filter(x=>x.kind===kind).forEach(x=>{
+        const r=(marks[x.id]||marks[a.id]||{}).rating||"";
+        const row=el("div",{class:"row"+(r==="좋음"?" good":r==="나쁨"?" bad":"")});
+        row.append(el("div",{class:"lab"},x.name));
+        const v=el("div",{class:"val"});
+        if(Array.isArray(x.text)){const ol=el("ol");x.text.forEach(t=>ol.append(el("li",{},t)));v.append(ol);} else v.textContent=x.text;
+        row.append(v, markRow(x.id,x.id)); card.append(row);
+      });
+    });
+    L.append(card);
+  });
+}
+let busy=Promise.resolve();
+function save(id,rating,why){
+  if(!db||!canWrite)return;
+  const st=document.getElementById("s-"+id); if(st) st.textContent="저장 중…";
+  const body={rating:rating,why:(why||"").trim().slice(0,120),at:new Date().toISOString()};
+  busy=busy.then(()=>db.collection("marks").doc(id).set(body)).then(()=>{
+    if(rating) marks[id]={rating:rating,why:body.why}; else delete marks[id];
+    render(); const s2=document.getElementById("s-"+id); if(s2) s2.textContent=rating?"저장됨":"지움";
+  }).catch(e=>{const s3=document.getElementById("s-"+id); if(s3) s3.textContent=(e&&e.code==="invalid_argument")?"저장 못 함 (권한)":"저장 못 함 — 다시 눌러 주세요";});
+}
+render();
+(async()=>{
+  try{ db = window.claude && window.claude.use ? await window.claude.use("db") : null; }catch(e){ db=null; }
+  if(!db){ $("#offline").hidden=false; return; }
+  let user=null; try{ user=await window.claude.use("user"); }catch(e){}
+  let cw=null; try{ cw = user ? await user.can("data.write") : null; }catch(e){ cw=null; }
+  canWrite = cw!==false; if(!canWrite) $("#offline").hidden=false;
+  db.collection("marks").onSnapshot(snap=>{
+    snap.docs.forEach(doc=>{const v=doc.data()||{}; if(v.rating) marks[doc.id]={rating:v.rating,why:v.why||""}; else delete marks[doc.id];});
+    render();
+  },()=>{});
+  render();
+})();
+})();
+</script>

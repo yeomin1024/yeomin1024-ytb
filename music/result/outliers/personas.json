@@ -1,0 +1,3175 @@
+{
+ "topic": "music",
+ "tool": "personas.py v1.0",
+ "config_version": "v1.0",
+ "made": "2026-10-28T08:22:57Z",
+ "rules": {
+  "RECENT_DAYS": 180,
+  "LANGS": [
+   "한국어",
+   "영어"
+  ],
+  "MIN_SHARE": 0.08,
+  "COVER": 0.8,
+  "MIN_PERSONAS": 2,
+  "MAX_PERSONAS": 5,
+  "MIN_N": 30,
+  "NEED_SELF": false,
+  "VIDEO_TITLE_RX": "playlist|플레이리스트|플리|bgm|\\bhours?\\b|시간|lo-?fi|로파이|piano|피아노|jazz|재즈|cafe|café|카페|study|공부|sleep|수면|relax|ambient|앰비언트|노동요|focus|집중|classical|클래식|instrumental|연주|chill|guitar|기타|bossa|보사노바|music for|beats|healing|힐링|매장음악|배경음악",
+  "SPLIT_LANG": true,
+  "AGE_STRICT": false
+ },
+ "data": {
+  "videos": 698,
+  "by_group": {
+   "그 밖의 승인 영상": 109,
+   "성공 사례": 576,
+   "하루 조회수 상위": 13
+  },
+  "by_lang": {
+   "영어": 438,
+   "한국어": 260
+  },
+  "comments": 138298,
+  "any_cue": 18470,
+  "age": 209,
+  "assigned": 13769,
+  "skipped": {
+   "제목 거르기": 368,
+   "180일보다 오래": 196,
+   "언어 그 밖 언어": 243
+  },
+  "questions": 5934,
+  "promo_skipped": 0
+ },
+ "segments": [
+  {
+   "key": "daily@한국어",
+   "n": 799,
+   "share": 0.25421571746738786,
+   "cum": 0.25421571746738786,
+   "chosen": true,
+   "why": "고름",
+   "lang": "한국어",
+   "name": "이동·카페·집안일 하며 듣는 · 한국어"
+  },
+  {
+   "key": "sleep_rest@한국어",
+   "n": 707,
+   "share": 0.22494432071269488,
+   "cum": 0.47916003818008274,
+   "chosen": true,
+   "why": "고름",
+   "lang": "한국어",
+   "name": "잠들기 전·쉬며 듣는 · 한국어"
+  },
+  {
+   "key": "comfort@한국어",
+   "n": 644,
+   "share": 0.20489977728285078,
+   "cum": 0.6840598154629335,
+   "chosen": true,
+   "why": "고름",
+   "lang": "한국어",
+   "name": "마음을 달래려 듣는 · 한국어"
+  },
+  {
+   "key": "memory@한국어",
+   "n": 607,
+   "share": 0.19312758510976774,
+   "cum": 0.8771874005727012,
+   "chosen": true,
+   "why": "고름",
+   "lang": "한국어",
+   "name": "추억에 젖어 듣는 · 한국어"
+  },
+  {
+   "key": "study_work@한국어",
+   "n": 335,
+   "share": 0.10658606426980592,
+   "cum": null,
+   "chosen": false,
+   "why": "앞 묶음들이 이미 88% 덮음 (기준 80%)",
+   "lang": "한국어",
+   "name": "공부·작업하며 듣는 · 한국어"
+  },
+  {
+   "key": "create@한국어",
+   "n": 51,
+   "share": 0.016226535157492842,
+   "cum": null,
+   "chosen": false,
+   "why": "앞 묶음들이 이미 88% 덮음 (기준 80%)",
+   "lang": "한국어",
+   "name": "책·글·그림 하며 듣는 · 한국어"
+  },
+  {
+   "key": "sleep_rest@영어",
+   "n": 3678,
+   "share": 0.3461321287408244,
+   "cum": 0.3461321287408244,
+   "chosen": true,
+   "why": "고름",
+   "lang": "영어",
+   "name": "잠들기 전·쉬며 듣는 · 영어"
+  },
+  {
+   "key": "study_work@영어",
+   "n": 3113,
+   "share": 0.29296066252587993,
+   "cum": 0.6390927912667044,
+   "chosen": true,
+   "why": "고름",
+   "lang": "영어",
+   "name": "공부·작업하며 듣는 · 영어"
+  },
+  {
+   "key": "comfort@영어",
+   "n": 1830,
+   "share": 0.17221908526256352,
+   "cum": 0.811311876529268,
+   "chosen": true,
+   "why": "고름",
+   "lang": "영어",
+   "name": "마음을 달래려 듣는 · 영어"
+  },
+  {
+   "key": "daily@영어",
+   "n": 800,
+   "share": 0.07528703180877094,
+   "cum": null,
+   "chosen": false,
+   "why": "앞 묶음들이 이미 81% 덮음 (기준 80%)",
+   "lang": "영어",
+   "name": "이동·카페·집안일 하며 듣는 · 영어"
+  },
+  {
+   "key": "create@영어",
+   "n": 634,
+   "share": 0.05966497270845097,
+   "cum": null,
+   "chosen": false,
+   "why": "앞 묶음들이 이미 81% 덮음 (기준 80%)",
+   "lang": "영어",
+   "name": "책·글·그림 하며 듣는 · 영어"
+  },
+  {
+   "key": "memory@영어",
+   "n": 571,
+   "share": 0.053736118953510256,
+   "cum": null,
+   "chosen": false,
+   "why": "앞 묶음들이 이미 81% 덮음 (기준 80%)",
+   "lang": "영어",
+   "name": "추억에 젖어 듣는 · 영어"
+  }
+ ],
+ "personas": [
+  {
+   "key": "daily@한국어",
+   "name": "이동·카페·집안일 하며 듣는 · 한국어",
+   "n": 799,
+   "likes": 8240,
+   "age": {
+    "n": 3,
+    "median_decade": 60,
+    "dist": {
+     "30대": 1,
+     "60대": 1,
+     "70대": 1
+    }
+   },
+   "states": [
+    {
+     "key": "rain_season",
+     "name": "비·계절과 함께",
+     "n": 67,
+     "share": 0.0839
+    },
+    {
+     "key": "repeat",
+     "name": "매일·반복해서 듣는",
+     "n": 43,
+     "share": 0.0538
+    },
+    {
+     "key": "ai_note",
+     "name": "AI 곡인지 말함",
+     "n": 7,
+     "share": 0.0088
+    },
+    {
+     "key": "abroad",
+     "name": "다른 나라에서 들음",
+     "n": 3,
+     "share": 0.0038
+    }
+   ],
+   "combos": [
+    {
+     "states": [
+      "비·계절과 함께",
+      "매일·반복해서 듣는"
+     ],
+     "n": 3
+    },
+    {
+     "states": [
+      "다른 나라에서 들음",
+      "AI 곡인지 말함"
+     ],
+     "n": 1
+    },
+    {
+     "states": [
+      "AI 곡인지 말함",
+      "비·계절과 함께"
+     ],
+     "n": 1
+    }
+   ],
+   "know": {
+    "n": 68,
+    "dist": {
+     "기초": 43,
+     "중급": 18,
+     "초급": 7
+    },
+    "level": "기초"
+   },
+   "known_terms": [
+    [
+     "클래식",
+     19
+    ],
+    [
+     "피아노",
+     15
+    ],
+    [
+     "모차르트",
+     6
+    ],
+    [
+     "바이올린",
+     4
+    ],
+    [
+     "재즈",
+     4
+    ],
+    [
+     "바흐",
+     4
+    ],
+    [
+     "편곡",
+     3
+    ],
+    [
+     "왈츠",
+     3
+    ],
+    [
+     "BGM",
+     2
+    ],
+    [
+     "첼로",
+     2
+    ]
+   ],
+   "unknown_terms": [],
+   "want_terms": [
+    [
+     "기타",
+     1
+    ],
+    [
+     "바흐",
+     1
+    ],
+    [
+     "오케스트라",
+     1
+    ],
+    [
+     "OST",
+     1
+    ],
+    [
+     "클래식",
+     1
+    ]
+   ],
+   "want_words": [
+    [
+     "아침",
+     13
+    ],
+    [
+     "카페",
+     6
+    ],
+    [
+     "새벽",
+     5
+    ],
+    [
+     "이렇게",
+     5
+    ],
+    [
+     "기분",
+     4
+    ],
+    [
+     "마음",
+     4
+    ],
+    [
+     "응원",
+     4
+    ],
+    [
+     "출근길",
+     3
+    ],
+    [
+     "시작",
+     3
+    ],
+    [
+     "하루",
+     3
+    ],
+    [
+     "너무너무",
+     2
+    ],
+    [
+     "공유해",
+     2
+    ]
+   ],
+   "top_questions": [
+    {
+     "text": "안녕하세요. 이 글을 읽는 모든 분들께 작은 응원의 말을 전하고 싶어요. 저는 아직 초등학교 6학년이라 어른들처럼 멋있는 말을 잘하지는 못해요. 그래도 제 진심이 조금이라도 전해졌으면 좋겠어서 용기를 내서 글을 써 봐요. 혹시 오늘 …",
+     "likes": 348
+    },
+    {
+     "text": "혹시나 술탄형님들 갑작스러운 활동에 뭐부터 해야하실지 고민하실까봐 예시 몇개 적어드립니다. 1. 부락 섭외전화 먼저하기 ⭐⭐⭐ 2. 이전 앨범들 또는 모든 싱글 앨범 LP로 (재)발매⭐⭐ 3. 핫산님 출퇴근 브이로그 4. 나잠수님 잠…",
+     "likes": 285
+    },
+    {
+     "text": "라흐마니노프를 대학교 첫 입학해서 첫 위클리때 쳐보고 완젼 반했었죠 … 연습 하기는 까다롭지만 연주곡으로 효과도 뛰어나고 그 음색과 섬세함의 남다름에 정말 이런 음색을 어떻게 찾아낼까? 한동안 빠졌었던 ,,, 그 이후 몇곡 더 연주했…",
+     "likes": 12
+    },
+    {
+     "text": "혹시 매장에서 틀어놓으면 문제가 될까욥??",
+     "likes": 10
+    },
+    {
+     "text": "울적할때 이 노래 들으면서 드라이브하면 정말 좋을것 같아요 노래 스타일 너무 좋아요♡♡ 좋은 노래 많이 올려주세요!ㅎ",
+     "likes": 8
+    },
+    {
+     "text": "비 오는 새벽에 들으면 정말 잘 어울릴 것 같은 음악이에요. 여러분은 이 선율을 들으며 어떤 추억을 떠올리고 계신가요? 🌧",
+     "likes": 8
+    }
+   ],
+   "questions": 33,
+   "types": {
+    "칭찬·감사·응원": 284,
+    "그 밖 (규칙에 안 걸림)": 202,
+    "단순 반응·농담": 156,
+    "경험·내 상황": 92,
+    "질문·요청": 33,
+    "투자 의견·전망·원칙": 19,
+    "정치·사회": 6,
+    "정보·요약 보충": 4,
+    "비판·반박·불만": 3
+   },
+   "likes_cat": [
+    {
+     "name": "분위기·감성",
+     "n": 15
+    },
+    {
+     "name": "선곡·흐름",
+     "n": 8
+    },
+    {
+     "name": "그림·영상미",
+     "n": 2
+    }
+   ],
+   "dislikes_cat": [
+    {
+     "name": "광고",
+     "n": 2
+    }
+   ],
+   "groups": {
+    "그 밖의 승인 영상": 110,
+    "하루 조회수 상위": 6,
+    "성공 사례": 683
+   },
+   "quotes": [
+    {
+     "text": "저는 70세입니다. 오늘 딸이 차에서 이 노래를 틀었는데, 집에 와서 다시 찾아 듣고 저녁 내내 들었어요.",
+     "likes": 42,
+     "age": 70,
+     "states": []
+    },
+    {
+     "text": "유치원 아들 아침에 깨울때 밝으면서 요란하지않으면서 상쾌하면서 행복한 느낌이 들면서 그렇다고 너무 정신없거나 시끄럽지않으면서 평화로우면서 그렇다고 너무 조용하거나 생각에 잠기는 음악이 아니면서 우울하지않으면서 하루를 긍정적으로 시작할…",
+     "likes": 26,
+     "age": null,
+     "states": [
+      "매일·반복해서 듣는"
+     ]
+    },
+    {
+     "text": "팬데믹 때 요양병원 1년반 계시고 하늘가신 울 엄니 면회가 안되어 매일 퇴근하며 엄니 요양병원앞에서 창을 올려다보며 엄니 저 여기 있어요.. 엄니의 임종도 폰으로 목소리만 들려드렸던...엄마 고생하셨어요 엄마덕분에 제가 잘 살아왔습니…",
+     "likes": 17,
+     "age": null,
+     "states": [
+      "매일·반복해서 듣는"
+     ]
+    },
+    {
+     "text": "안녕하세요 전 돌발성 난청이 있는 6학년 여학생입니다.다행히 현재 청력이 조금 돌아왔지만 완전히는 아니기에 치료를 여전히 받고있어요.그런데 후유증때문에 이명과 이상하게 들리는 게 너무 힘들더라고요.그래서 밤에 잘때 필요한 백색소음을 …",
+     "likes": 15,
+     "age": null,
+     "states": [
+      "매일·반복해서 듣는"
+     ]
+    }
+   ],
+   "id": "P1",
+   "lang": "한국어",
+   "share": 0.2542
+  },
+  {
+   "key": "sleep_rest@한국어",
+   "name": "잠들기 전·쉬며 듣는 · 한국어",
+   "n": 707,
+   "likes": 5759,
+   "age": {
+    "n": 5,
+    "median_decade": 50,
+    "dist": {
+     "20대": 1,
+     "30대": 1,
+     "50대": 1,
+     "60대": 1,
+     "70대": 1
+    }
+   },
+   "states": [
+    {
+     "key": "rain_season",
+     "name": "비·계절과 함께",
+     "n": 72,
+     "share": 0.1018
+    },
+    {
+     "key": "repeat",
+     "name": "매일·반복해서 듣는",
+     "n": 32,
+     "share": 0.0453
+    },
+    {
+     "key": "ai_note",
+     "name": "AI 곡인지 말함",
+     "n": 7,
+     "share": 0.0099
+    },
+    {
+     "key": "gaming",
+     "name": "게임하며",
+     "n": 2,
+     "share": 0.0028
+    },
+    {
+     "key": "abroad",
+     "name": "다른 나라에서 들음",
+     "n": 2,
+     "share": 0.0028
+    },
+    {
+     "key": "request",
+     "name": "더 길게·다음 편 요청",
+     "n": 1,
+     "share": 0.0014
+    }
+   ],
+   "combos": [
+    {
+     "states": [
+      "비·계절과 함께",
+      "매일·반복해서 듣는"
+     ],
+     "n": 1
+    }
+   ],
+   "know": {
+    "n": 50,
+    "dist": {
+     "기초": 38,
+     "초급": 8,
+     "중급": 3,
+     "상급": 1
+    },
+    "level": "기초"
+   },
+   "known_terms": [
+    [
+     "클래식",
+     13
+    ],
+    [
+     "피아노",
+     12
+    ],
+    [
+     "첼로",
+     5
+    ],
+    [
+     "바흐",
+     4
+    ],
+    [
+     "기타",
+     3
+    ],
+    [
+     "재즈",
+     3
+    ],
+    [
+     "바이올린",
+     1
+    ],
+    [
+     "소나타",
+     1
+    ],
+    [
+     "모차르트",
+     1
+    ],
+    [
+     "드뷔시",
+     1
+    ]
+   ],
+   "unknown_terms": [],
+   "want_terms": [
+    [
+     "클래식",
+     2
+    ],
+    [
+     "재즈",
+     1
+    ],
+    [
+     "BGM",
+     1
+    ]
+   ],
+   "want_words": [
+    [
+     "마음",
+     6
+    ],
+    [
+     "아닌데",
+     4
+    ],
+    [
+     "먹고",
+     3
+    ],
+    [
+     "흡수",
+     3
+    ],
+    [
+     "같이",
+     3
+    ],
+    [
+     "엄청",
+     3
+    ],
+    [
+     "차분해지긴",
+     3
+    ],
+    [
+     "리포좀멜라토닌",
+     3
+    ],
+    [
+     "누우면",
+     3
+    ],
+    [
+     "하더라고",
+     3
+    ],
+    [
+     "가바",
+     3
+    ],
+    [
+     "각성완화제",
+     3
+    ]
+   ],
+   "top_questions": [
+    {
+     "text": "클래식은 뭐랄까 시공간을 넘나드는 타임머신 같은 존재 같다. 전혀 살아보지 않은 시대와 장소, 그리고 한 번도 마주친적 없던 이들의 모습까지 머릿속을 스쳐지나간다. 어떻게 이런 음악들을 만들어냈을까? 그들이 이런 곡들을 작곡하며 머릿…",
+     "likes": 71
+    },
+    {
+     "text": "양육권,친권 모두 뺏기고 뼛속까지 상처입은 사람입니다 누가 양육을 하든지 아이들한테는 면접교섭이 제일 중요하더라구요 시간이 지나가니 면접교섭을하면서아이들도, 아빠도 상처가 조금씩 치유가되어가고 있어요 재판할 당시에는 법원의 판결이 엄…",
+     "likes": 55
+    },
+    {
+     "text": "호르몬제는 무서워서 못 먹고 영양제 알아보던 중이에요. 한 번 깨면 다시 잠드는 게 너무 힘들어요. 흡수 잘 된다는 리포좀멜라토닌에 감태·레몬밤·가바 같이 들어간 각성완화제 먹고 있는데 엄청 센 건 아닌데 누우면 좀 차분해지긴 하더라…",
+     "likes": 32
+    },
+    {
+     "text": "무릎인공관절 수술 두달째 입니다. 잠이오질 않아서 수면제로 버티고 있어요.몆달째 냉담중이고 우연히 그레고리안 성가를 들으면서 울고 있어요 어쩌면 죄많은. 저의 영혼을 후벼파는지요.주님 저는 죄인입니다. 저도 주님께 용서 받을수 있나요…",
+     "likes": 25
+    },
+    {
+     "text": "낮엔 피곤한데 밤엔 또렷해서 멜라토닌 알아봤네요. 요즘 부쩍 잠이 얕아지고 감정 기복에 잠까지 설쳐요. 일반 멜라토닌은 흡수가 별로라길래 리포좀멜라토닌에 가바·테아닌까지 든 각성완화제로 바꿔봤는데 엄청 센 건 아닌데 누우면 좀 차분해…",
+     "likes": 20
+    },
+    {
+     "text": "이거 시간제한 못하나요? 잘때 너무 편안데",
+     "likes": 16
+    }
+   ],
+   "questions": 30,
+   "types": {
+    "칭찬·감사·응원": 213,
+    "그 밖 (규칙에 안 걸림)": 204,
+    "단순 반응·농담": 135,
+    "경험·내 상황": 90,
+    "질문·요청": 30,
+    "투자 의견·전망·원칙": 16,
+    "비판·반박·불만": 16,
+    "정치·사회": 3
+   },
+   "likes_cat": [
+    {
+     "name": "분위기·감성",
+     "n": 31
+    },
+    {
+     "name": "그림·영상미",
+     "n": 5
+    },
+    {
+     "name": "선곡·흐름",
+     "n": 2
+    }
+   ],
+   "dislikes_cat": [
+    {
+     "name": "광고",
+     "n": 14
+    }
+   ],
+   "groups": {
+    "그 밖의 승인 영상": 180,
+    "하루 조회수 상위": 2,
+    "성공 사례": 525
+   },
+   "quotes": [
+    {
+     "text": "이혼후 양육권 다툼을 하는 아들 때문에 법원에 다녀온 날 오후 무거운 마음으로 들판을 걷던중 이렇게 감미로운 비디오를 발견했어요. 힐링이되고 편해졌어요.. 무한한 감사를 드립니다.",
+     "likes": 333,
+     "age": null,
+     "states": [
+      "매일·반복해서 듣는"
+     ]
+    },
+    {
+     "text": "남겨진 시간의 길이나 형태와 상관없이, 지금 이 순간을 살아가는 당신의 존재 자체만으로도 너무나 소중하고 가치 있습니다. 매일 찾아오는 신체적, 정신적 한계를 묵묵히 버텨내고 계신 그 용기와 인내에 깊은 경의를 표합니다. 겉으로는 외…",
+     "likes": 56,
+     "age": null,
+     "states": [
+      "매일·반복해서 듣는"
+     ]
+    },
+    {
+     "text": "저는 오늘 제 인생의 다시는 오지않을 마지막 여름방학을 보내는 아침에 있습니다. 우연일까요.. 오늘만큼은 진짜. 내일이면 바빠서 챙겨주지 못할 아침밥과 멍때리기를 하려던 참이었습니다. 중앙식품점은 오늘 저에게 레몬다섯개와 나이프 하나…",
+     "likes": 31,
+     "age": null,
+     "states": [
+      "비·계절과 함께"
+     ]
+    },
+    {
+     "text": "저는 잠못들어서 듣는 게 아니고 워낙 빗소리를 좋아해서 듣네요! 추운 날씨에도 빗소리 들으려 전기장판 뜨겁게 틀고 창문 열고 잠들거든요😅😅😅😅",
+     "likes": 17,
+     "age": null,
+     "states": [
+      "비·계절과 함께"
+     ]
+    }
+   ],
+   "id": "P2",
+   "lang": "한국어",
+   "share": 0.2249
+  },
+  {
+   "key": "comfort@한국어",
+   "name": "마음을 달래려 듣는 · 한국어",
+   "n": 644,
+   "likes": 7769,
+   "age": {
+    "n": 4,
+    "median_decade": 50,
+    "dist": {
+     "10대": 1,
+     "50대": 3
+    }
+   },
+   "states": [
+    {
+     "key": "repeat",
+     "name": "매일·반복해서 듣는",
+     "n": 20,
+     "share": 0.0311
+    },
+    {
+     "key": "rain_season",
+     "name": "비·계절과 함께",
+     "n": 18,
+     "share": 0.028
+    },
+    {
+     "key": "ai_note",
+     "name": "AI 곡인지 말함",
+     "n": 10,
+     "share": 0.0155
+    },
+    {
+     "key": "gaming",
+     "name": "게임하며",
+     "n": 1,
+     "share": 0.0016
+    },
+    {
+     "key": "abroad",
+     "name": "다른 나라에서 들음",
+     "n": 1,
+     "share": 0.0016
+    }
+   ],
+   "combos": [
+    {
+     "states": [
+      "비·계절과 함께",
+      "매일·반복해서 듣는"
+     ],
+     "n": 1
+    }
+   ],
+   "know": {
+    "n": 47,
+    "dist": {
+     "초급": 27,
+     "기초": 17,
+     "중급": 3
+    },
+    "level": "초급"
+   },
+   "known_terms": [
+    [
+     "첼로",
+     9
+    ],
+    [
+     "피아노",
+     5
+    ],
+    [
+     "클래식",
+     2
+    ],
+    [
+     "바이올린",
+     2
+    ],
+    [
+     "모차르트",
+     1
+    ],
+    [
+     "편곡",
+     1
+    ],
+    [
+     "쇼팽",
+     1
+    ],
+    [
+     "OST",
+     1
+    ]
+   ],
+   "unknown_terms": [],
+   "want_terms": [
+    [
+     "첼로",
+     1
+    ]
+   ],
+   "want_words": [
+    [
+     "눈물",
+     7
+    ],
+    [
+     "마음",
+     6
+    ],
+    [
+     "주님",
+     4
+    ],
+    [
+     "힘들고",
+     3
+    ],
+    [
+     "위로",
+     3
+    ],
+    [
+     "시간",
+     3
+    ],
+    [
+     "힘들어",
+     3
+    ],
+    [
+     "헤어진지",
+     2
+    ],
+    [
+     "납니다",
+     2
+    ],
+    [
+     "목소리",
+     2
+    ],
+    [
+     "갑니다",
+     2
+    ],
+    [
+     "이렇게",
+     2
+    ]
+   ],
+   "top_questions": [
+    {
+     "text": "새로운영상이군요 너무좋은데 왜눈물이나는걸까요",
+     "likes": 42
+    },
+    {
+     "text": "저는 외로움이 많아 사람을 잘 믿고 내가 선택해서 모진고생하고 배신당할것같아 두렵고 힘들어요 빨래방가서 빨래하고 집으로 가는길 버스정류장 간이의자에 앉아 오고가는 사람들 버스에서 내리는 사람들 하릴없이 멍때리며 바라보고 찬양 듣고 있…",
+     "likes": 24
+    },
+    {
+     "text": "이 구절이 왜 이렇게 슬플까요",
+     "likes": 12
+    },
+    {
+     "text": "딸아이를 강에 뿌린지 30년이 된 날이네요.괜찮아진줄 알았는데...슬픔이 이렇게나 가득했었나요??딸아이를 안듯 첼로를 부둥켜안고 울어봐야겠네요",
+     "likes": 9
+    },
+    {
+     "text": "형제들이 있는데 저만 노모를 모시고 있는게 억울한게 왜 일까요? 정말 힘들고 괴로운데 음악이 마음을 안정시켜줍니다 감사합니다",
+     "likes": 9
+    },
+    {
+     "text": "오 주님, 왜 이리 아름답고 가슴을 쥐어 짜게 하시나요? 그 크신 은혜와 그로 인한 감사함이 넘쳐 흘러 감당을 못하는데 이런 노래로 위로를 해주시는건지요?",
+     "likes": 6
+    }
+   ],
+   "questions": 24,
+   "types": {
+    "그 밖 (규칙에 안 걸림)": 202,
+    "칭찬·감사·응원": 140,
+    "경험·내 상황": 131,
+    "단순 반응·농담": 108,
+    "질문·요청": 24,
+    "투자 의견·전망·원칙": 19,
+    "정치·사회": 10,
+    "비판·반박·불만": 6,
+    "정보·요약 보충": 4
+   },
+   "likes_cat": [
+    {
+     "name": "분위기·감성",
+     "n": 9
+    },
+    {
+     "name": "선곡·흐름",
+     "n": 2
+    }
+   ],
+   "dislikes_cat": [
+    {
+     "name": "광고",
+     "n": 2
+    }
+   ],
+   "groups": {
+    "성공 사례": 483,
+    "하루 조회수 상위": 8,
+    "그 밖의 승인 영상": 153
+   },
+   "quotes": [
+    {
+     "text": "첫사랑은 안 이루어진다고 하잖아 난 그래서 너가 내 첫사랑이 아니길 바랬어 너가 날 떠난 후엔 너무 미워서 너가 내 첫사랑이라고 인정하기 싫었어 근데 결국엔 인정할 수 밖에 없더라 그리고 진짜로 첫사랑은 안 이루어지더라 너가 나 때문…",
+     "likes": 232,
+     "age": null,
+     "states": [
+      "비·계절과 함께"
+     ]
+    },
+    {
+     "text": "문득 늙어 버린 나를 인지하는 순간 어두운 밤 한자락에 내 눈물 가려주는 비 내리는 순간 내가 너무 아까워 음악에 한 소리 담아 본다",
+     "likes": 46,
+     "age": null,
+     "states": [
+      "비·계절과 함께"
+     ]
+    },
+    {
+     "text": "하느님 황마리아 저의 어머니 아무 의식없이 누워만 계십니다 박 필립보 저의 아버지 매일 이상한 괴물이 나온다면서 우십니다 저의 부모님을 돌봐주소서 자비를 베풀어주소서ㆍ 손을 잡아주소서 ㆍ 아멘 ㆍ 두분의 영혼에게 자비를 베푸소서ㆍ 저…",
+     "likes": 12,
+     "age": null,
+     "states": [
+      "매일·반복해서 듣는"
+     ]
+    },
+    {
+     "text": "두번째곡 3:10 창문을 열면 하얀 바람이 들어와 어제의 마음도 조용히 불었나 발끝에 닿는 따뜻한 먼지 위로 이름 모를 설렘이 슬쩍 번져 가 자꾸만 멀어지던 내 그림자도 오늘은 가볍게 내 옆을 걷고 손끝에 맺힌 햇살 한번 더 흔들리며…",
+     "likes": 11,
+     "age": null,
+     "states": [
+      "비·계절과 함께"
+     ]
+    }
+   ],
+   "id": "P3",
+   "lang": "한국어",
+   "share": 0.2049
+  },
+  {
+   "key": "memory@한국어",
+   "name": "추억에 젖어 듣는 · 한국어",
+   "n": 607,
+   "likes": 14807,
+   "age": {
+    "n": 26,
+    "median_decade": 50,
+    "dist": {
+     "10대": 1,
+     "20대": 3,
+     "40대": 6,
+     "50대": 12,
+     "60대": 2,
+     "70대": 1,
+     "80대": 1
+    }
+   },
+   "states": [
+    {
+     "key": "rain_season",
+     "name": "비·계절과 함께",
+     "n": 49,
+     "share": 0.0807
+    },
+    {
+     "key": "abroad",
+     "name": "다른 나라에서 들음",
+     "n": 12,
+     "share": 0.0198
+    },
+    {
+     "key": "ai_note",
+     "name": "AI 곡인지 말함",
+     "n": 12,
+     "share": 0.0198
+    },
+    {
+     "key": "repeat",
+     "name": "매일·반복해서 듣는",
+     "n": 11,
+     "share": 0.0181
+    },
+    {
+     "key": "gaming",
+     "name": "게임하며",
+     "n": 1,
+     "share": 0.0016
+    }
+   ],
+   "combos": [
+    {
+     "states": [
+      "다른 나라에서 들음",
+      "비·계절과 함께"
+     ],
+     "n": 7
+    },
+    {
+     "states": [
+      "다른 나라에서 들음",
+      "AI 곡인지 말함"
+     ],
+     "n": 1
+    },
+    {
+     "states": [
+      "게임하며",
+      "비·계절과 함께"
+     ],
+     "n": 1
+    },
+    {
+     "states": [
+      "AI 곡인지 말함",
+      "비·계절과 함께"
+     ],
+     "n": 1
+    }
+   ],
+   "know": {
+    "n": 35,
+    "dist": {
+     "상급": 1,
+     "초급": 16,
+     "기초": 16,
+     "중급": 2
+    },
+    "level": "초급"
+   },
+   "known_terms": [
+    [
+     "재즈",
+     10
+    ],
+    [
+     "클래식",
+     2
+    ],
+    [
+     "기타",
+     2
+    ],
+    [
+     "편곡",
+     1
+    ],
+    [
+     "피아노",
+     1
+    ],
+    [
+     "쇼팽",
+     1
+    ],
+    [
+     "OST",
+     1
+    ],
+    [
+     "소나타",
+     1
+    ]
+   ],
+   "unknown_terms": [],
+   "want_terms": [],
+   "want_words": [
+    [
+     "추억",
+     7
+    ],
+    [
+     "옛날",
+     5
+    ],
+    [
+     "세월",
+     3
+    ],
+    [
+     "아닐",
+     3
+    ],
+    [
+     "시간",
+     3
+    ],
+    [
+     "아름답고",
+     2
+    ],
+    [
+     "이렇게",
+     2
+    ],
+    [
+     "있던",
+     2
+    ],
+    [
+     "갑자기",
+     2
+    ],
+    [
+     "모두",
+     2
+    ],
+    [
+     "살고",
+     2
+    ],
+    [
+     "그때",
+     2
+    ]
+   ],
+   "top_questions": [
+    {
+     "text": "갑자기 오늘 레몬이 생각나서 오늘도 한번 더 듣고있어요 계속 열일 부탁드려요^^",
+     "likes": 13
+    },
+    {
+     "text": "옛날부터 있던 장르였나요? 신기하다.",
+     "likes": 7
+    },
+    {
+     "text": "어떻게 사람들은 아무렇지 않을 수가 있을까? 나는 늘 아프고 힘들고 그리운데.... 그러다가 세월이 지나고 아무렇지 않게 살고 있는 나를... 갑자기 이 음악을 듣고 댓글보며 깨닫습니다. 빈껍데기만 남은 나를.... 아파하던 그때가 …",
+     "likes": 5
+    },
+    {
+     "text": "당신의 추억들, 당신의 취향들이 꼭꼭 눌러 차있는 것 아닐까요?",
+     "likes": 5
+    },
+    {
+     "text": "퀄리티는 요즘 노래가 훨 좋죠 옛날부터 쌓아온 모든 노하우들을 전수 받아서 노래 만드는데 님이 말한 어딘가 저편으로 보내는, 뭔가 꽉 차있는건 추억 아닐까요",
+     "likes": 5
+    },
+    {
+     "text": "옛날추억이 주마등처럼지나갑니다 맘속에서 샘솟는 과거는 왜이리도 아름답고 또 아픈지요 매번 다르게 느껴지는 노래커버가 더 성숙해지는듯 합니다 감상잘하고 좋은노래많이 부탁드립니다",
+     "likes": 4
+    }
+   ],
+   "questions": 19,
+   "types": {
+    "그 밖 (규칙에 안 걸림)": 221,
+    "경험·내 상황": 113,
+    "단순 반응·농담": 101,
+    "칭찬·감사·응원": 100,
+    "투자 의견·전망·원칙": 28,
+    "질문·요청": 19,
+    "정치·사회": 19,
+    "비판·반박·불만": 4,
+    "정보·요약 보충": 1,
+    "광고·도배·무관": 1
+   },
+   "likes_cat": [
+    {
+     "name": "분위기·감성",
+     "n": 11
+    },
+    {
+     "name": "선곡·흐름",
+     "n": 4
+    },
+    {
+     "name": "그림·영상미",
+     "n": 2
+    }
+   ],
+   "dislikes_cat": [
+    {
+     "name": "갑자기 튀는 소리",
+     "n": 1
+    }
+   ],
+   "groups": {
+    "하루 조회수 상위": 7,
+    "성공 사례": 543,
+    "그 밖의 승인 영상": 57
+   },
+   "quotes": [
+    {
+     "text": "아 메이플 관련 브금이랑 영상만 보면 저때로 돌아가고 싶다라는 생각이 계속 든다.. 무더운 여름방학 집에 에어컨도 없어서 방에서 선풍기 하나로 동생과 싸우고 한대 있는 컴퓨터로 너가 몇분을 더했니 어쨌니 그러다가 게임 금지 당하고..…",
+     "likes": 142,
+     "age": null,
+     "states": [
+      "매일·반복해서 듣는",
+      "비·계절과 함께",
+      "게임하며"
+     ]
+    },
+    {
+     "text": "나도 20대가 그립다...그런데...그때의 젊고 아름다웠던 우리 엄마가 그립다...지금 생각하면 우리엄마 너무 어렸는데...악착같이 일만 했네...엄마...ㅠㅠ",
+     "likes": 15,
+     "age": 20,
+     "states": []
+    },
+    {
+     "text": "가을이 오면 이상하게 지나간 시간이 더 많이 생각나는 것 같습니다. 예전에는 친구들과 만나 아무 걱정 없이 웃던 시간이 있었는데, 지금은 각자의 삶을 살아가느라 연락조차 쉽지 않네요. 일과 가족, 미래에 대한 책임까지 하나씩 늘어나면…",
+     "likes": 8,
+     "age": null,
+     "states": [
+      "비·계절과 함께"
+     ]
+    },
+    {
+     "text": "언제부터 좋아졌는지 모르겠어. 그냥 온종일 보고 싶고 너가 웃으면 기뻐. 나만 널 그리워하는 걸까 라는 의구심이 들기도 해. 너도 한번쯤은 날 그리워 해줬으면, 내 생각을 한 번만 해주면 소원이 없겠어. 난 겁쟁이라 너한테 연락같은걸…",
+     "likes": 7,
+     "age": null,
+     "states": [
+      "비·계절과 함께"
+     ]
+    }
+   ],
+   "id": "P4",
+   "lang": "한국어",
+   "share": 0.1931
+  },
+  {
+   "key": "sleep_rest@영어",
+   "name": "잠들기 전·쉬며 듣는 · 영어",
+   "n": 3678,
+   "likes": 21541,
+   "age": {
+    "n": 4,
+    "median_decade": 30,
+    "dist": {
+     "10대": 1,
+     "30대": 2,
+     "40대": 1
+    }
+   },
+   "states": [
+    {
+     "key": "rain_season",
+     "name": "비·계절과 함께",
+     "n": 235,
+     "share": 0.0639
+    },
+    {
+     "key": "repeat",
+     "name": "매일·반복해서 듣는",
+     "n": 103,
+     "share": 0.028
+    },
+    {
+     "key": "ai_note",
+     "name": "AI 곡인지 말함",
+     "n": 25,
+     "share": 0.0068
+    },
+    {
+     "key": "abroad",
+     "name": "다른 나라에서 들음",
+     "n": 25,
+     "share": 0.0068
+    },
+    {
+     "key": "request",
+     "name": "더 길게·다음 편 요청",
+     "n": 21,
+     "share": 0.0057
+    },
+    {
+     "key": "gaming",
+     "name": "게임하며",
+     "n": 7,
+     "share": 0.0019
+    }
+   ],
+   "combos": [
+    {
+     "states": [
+      "비·계절과 함께",
+      "매일·반복해서 듣는"
+     ],
+     "n": 9
+    },
+    {
+     "states": [
+      "비·계절과 함께",
+      "더 길게·다음 편 요청"
+     ],
+     "n": 3
+    },
+    {
+     "states": [
+      "다른 나라에서 들음",
+      "매일·반복해서 듣는"
+     ],
+     "n": 1
+    },
+    {
+     "states": [
+      "다른 나라에서 들음",
+      "AI 곡인지 말함"
+     ],
+     "n": 1
+    }
+   ],
+   "know": {
+    "n": 348,
+    "dist": {
+     "중급": 77,
+     "기초": 248,
+     "초급": 8,
+     "상급": 15
+    },
+    "level": "기초"
+   },
+   "known_terms": [
+    [
+     "piano",
+     106
+    ],
+    [
+     "jazz",
+     105
+    ],
+    [
+     "melody",
+     61
+    ],
+    [
+     "harmony",
+     19
+    ],
+    [
+     "chopin",
+     14
+    ],
+    [
+     "classical",
+     11
+    ],
+    [
+     "soundtrack",
+     9
+    ],
+    [
+     "lofi",
+     9
+    ],
+    [
+     "guitar",
+     6
+    ],
+    [
+     "ambient",
+     6
+    ]
+   ],
+   "unknown_terms": [],
+   "want_terms": [
+    [
+     "piano",
+     8
+    ],
+    [
+     "melody",
+     4
+    ],
+    [
+     "classical",
+     2
+    ],
+    [
+     "jazz",
+     2
+    ],
+    [
+     "guitar",
+     1
+    ],
+    [
+     "cello",
+     1
+    ],
+    [
+     "soundtrack",
+     1
+    ]
+   ],
+   "want_words": [
+    [
+     "peaceful",
+     40
+    ],
+    [
+     "sleep",
+     26
+    ],
+    [
+     "relaxing",
+     24
+    ],
+    [
+     "anyone",
+     15
+    ],
+    [
+     "don",
+     15
+    ],
+    [
+     "else",
+     12
+    ],
+    [
+     "sounds",
+     11
+    ],
+    [
+     "calm",
+     11
+    ],
+    [
+     "soothing",
+     11
+    ],
+    [
+     "mind",
+     10
+    ],
+    [
+     "rest",
+     10
+    ],
+    [
+     "wonderful",
+     10
+    ]
+   ],
+   "top_questions": [
+    {
+     "text": "So Calm. Anyone in September 2026?",
+     "likes": 674
+    },
+    {
+     "text": "This music feels like a peaceful escape from the world 🍃🎶 Who else is listening with their eyes closed? 🙏✨",
+     "likes": 77
+    },
+    {
+     "text": "*If your heart feels a little tired today, please don’t forget that you deserve moments that ask nothing from you. You deserve to …",
+     "likes": 30
+    },
+    {
+     "text": "Who else appreciates being able to fall asleep without a single ad waking them up? 😴",
+     "likes": 23
+    },
+    {
+     "text": "Perfect piano melodies for a quiet morning tea. Who else is relaxing here? ☕",
+     "likes": 18
+    },
+    {
+     "text": "How lovely if only it could be this way those were the days soft relaxing music close your eyes and dream ❤",
+     "likes": 17
+    }
+   ],
+   "questions": 134,
+   "types": {
+    "그 밖 (규칙에 안 걸림)": 1670,
+    "칭찬·감사·응원": 1262,
+    "단순 반응·농담": 329,
+    "경험·내 상황": 225,
+    "질문·요청": 134,
+    "투자 의견·전망·원칙": 23,
+    "비판·반박·불만": 21,
+    "정보·요약 보충": 9,
+    "정치·사회": 3,
+    "광고·도배·무관": 2
+   },
+   "likes_cat": [
+    {
+     "name": "분위기·감성",
+     "n": 71
+    },
+    {
+     "name": "그림·영상미",
+     "n": 21
+    },
+    {
+     "name": "선곡·흐름",
+     "n": 6
+    },
+    {
+     "name": "집중이 잘 됨",
+     "n": 4
+    },
+    {
+     "name": "길이·광고 없음",
+     "n": 3
+    }
+   ],
+   "dislikes_cat": [
+    {
+     "name": "음질·볼륨",
+     "n": 1
+    },
+    {
+     "name": "광고",
+     "n": 1
+    },
+    {
+     "name": "AI 곡 거부감",
+     "n": 1
+    }
+   ],
+   "groups": {
+    "그 밖의 승인 영상": 231,
+    "성공 사례": 3195,
+    "하루 조회수 상위": 252
+   },
+   "quotes": [
+    {
+     "text": "Imagine It's about to midnight ,heavy raining, lights are cut off you are alone on your 2nd floor because whole family is sleeping…",
+     "likes": 580,
+     "age": null,
+     "states": [
+      "비·계절과 함께"
+     ]
+    },
+    {
+     "text": "Wow, I just got here, this amazing music share the good vibes ❤ That sounds incredible messages that you have shared.. Blessed you…",
+     "likes": 11,
+     "age": null,
+     "states": [
+      "매일·반복해서 듣는"
+     ]
+    },
+    {
+     "text": "When I was homeless I lived in my car. On cold nights, the rain was comforting. Didn't know how many times I'd hear the comforting…",
+     "likes": 9,
+     "age": null,
+     "states": [
+      "비·계절과 함께"
+     ]
+    },
+    {
+     "text": "I am from India, i like this soothing and relaxing music , every night i play this music while on the bed , and imagine myself the…",
+     "likes": 6,
+     "age": null,
+     "states": [
+      "매일·반복해서 듣는",
+      "다른 나라에서 들음"
+     ]
+    }
+   ],
+   "id": "P5",
+   "lang": "영어",
+   "share": 0.3461
+  },
+  {
+   "key": "study_work@영어",
+   "name": "공부·작업하며 듣는 · 영어",
+   "n": 3113,
+   "likes": 39605,
+   "age": {
+    "n": 17,
+    "median_decade": 30,
+    "dist": {
+     "10대": 5,
+     "20대": 1,
+     "30대": 7,
+     "50대": 1,
+     "60대": 3
+    }
+   },
+   "states": [
+    {
+     "key": "repeat",
+     "name": "매일·반복해서 듣는",
+     "n": 71,
+     "share": 0.0228
+    },
+    {
+     "key": "ai_note",
+     "name": "AI 곡인지 말함",
+     "n": 68,
+     "share": 0.0218
+    },
+    {
+     "key": "rain_season",
+     "name": "비·계절과 함께",
+     "n": 56,
+     "share": 0.018
+    },
+    {
+     "key": "request",
+     "name": "더 길게·다음 편 요청",
+     "n": 16,
+     "share": 0.0051
+    },
+    {
+     "key": "gaming",
+     "name": "게임하며",
+     "n": 15,
+     "share": 0.0048
+    },
+    {
+     "key": "abroad",
+     "name": "다른 나라에서 들음",
+     "n": 14,
+     "share": 0.0045
+    }
+   ],
+   "combos": [
+    {
+     "states": [
+      "비·계절과 함께",
+      "매일·반복해서 듣는"
+     ],
+     "n": 2
+    },
+    {
+     "states": [
+      "AI 곡인지 말함",
+      "매일·반복해서 듣는"
+     ],
+     "n": 2
+    },
+    {
+     "states": [
+      "다른 나라에서 들음",
+      "매일·반복해서 듣는"
+     ],
+     "n": 2
+    },
+    {
+     "states": [
+      "게임하며",
+      "비·계절과 함께"
+     ],
+     "n": 1
+    }
+   ],
+   "know": {
+    "n": 170,
+    "dist": {
+     "중급": 32,
+     "기초": 102,
+     "초급": 31,
+     "상급": 5
+    },
+    "level": "기초"
+   },
+   "known_terms": [
+    [
+     "jazz",
+     28
+    ],
+    [
+     "piano",
+     26
+    ],
+    [
+     "classical",
+     15
+    ],
+    [
+     "melody",
+     12
+    ],
+    [
+     "soundtrack",
+     11
+    ],
+    [
+     "arrangement",
+     6
+    ],
+    [
+     "ambient",
+     6
+    ],
+    [
+     "guitar",
+     5
+    ],
+    [
+     "mozart",
+     4
+    ],
+    [
+     "violin",
+     4
+    ]
+   ],
+   "unknown_terms": [],
+   "want_terms": [
+    [
+     "jazz",
+     6
+    ],
+    [
+     "lofi",
+     2
+    ],
+    [
+     "piano",
+     2
+    ],
+    [
+     "lo-fi",
+     1
+    ],
+    [
+     "reverb",
+     1
+    ],
+    [
+     "tempo",
+     1
+    ],
+    [
+     "arrangement",
+     1
+    ]
+   ],
+   "want_words": [
+    [
+     "work",
+     57
+    ],
+    [
+     "study",
+     19
+    ],
+    [
+     "don",
+     17
+    ],
+    [
+     "working",
+     17
+    ],
+    [
+     "focus",
+     16
+    ],
+    [
+     "exam",
+     12
+    ],
+    [
+     "hai",
+     12
+    ],
+    [
+     "studying",
+     11
+    ],
+    [
+     "homework",
+     11
+    ],
+    [
+     "way",
+     11
+    ],
+    [
+     "something",
+     11
+    ],
+    [
+     "now",
+     10
+    ]
+   ],
+   "top_questions": [
+    {
+     "text": "I'm studying what I love, drinking the wine I love, in the weather I love, listening to the music I love. How could this be more p…",
+     "likes": 1882
+    },
+    {
+     "text": "Please change the title. Don't exploit the great composer's name. It's misleading. People who want to get acquainted with Tchaikov…",
+     "likes": 191
+    },
+    {
+     "text": "I don't know who needs to hear this today, but if life hasn't gone the way you hoped, please don't mistake a detour for the end of…",
+     "likes": 181
+    },
+    {
+     "text": "Isn't that basically how all modular synths work?",
+     "likes": 90
+    },
+    {
+     "text": "My boyfriend is leaving to abroad next month. That will be the last time im gonna see him. We can't be together...... finally i fo…",
+     "likes": 53
+    },
+    {
+     "text": "Homework karte karte sun liya aur aachanak se meri aatma jag othi😅😂 sab sochne lage ki usko kya ho gaya",
+     "likes": 52
+    }
+   ],
+   "questions": 155,
+   "types": {
+    "그 밖 (규칙에 안 걸림)": 1318,
+    "칭찬·감사·응원": 717,
+    "경험·내 상황": 486,
+    "단순 반응·농담": 333,
+    "질문·요청": 155,
+    "투자 의견·전망·원칙": 37,
+    "비판·반박·불만": 30,
+    "정치·사회": 18,
+    "광고·도배·무관": 11,
+    "정보·요약 보충": 8
+   },
+   "likes_cat": [
+    {
+     "name": "분위기·감성",
+     "n": 53
+    },
+    {
+     "name": "집중이 잘 됨",
+     "n": 29
+    },
+    {
+     "name": "그림·영상미",
+     "n": 18
+    },
+    {
+     "name": "선곡·흐름",
+     "n": 12
+    },
+    {
+     "name": "길이·광고 없음",
+     "n": 4
+    }
+   ],
+   "dislikes_cat": [
+    {
+     "name": "AI 곡 거부감",
+     "n": 5
+    },
+    {
+     "name": "광고",
+     "n": 2
+    },
+    {
+     "name": "음질·볼륨",
+     "n": 1
+    }
+   ],
+   "groups": {
+    "그 밖의 승인 영상": 275,
+    "성공 사례": 2590,
+    "하루 조회수 상위": 248
+   },
+   "quotes": [
+    {
+     "text": "Please change the title. Don't exploit the great composer's name. It's misleading. People who want to get acquainted with Tchaikov…",
+     "likes": 191,
+     "age": null,
+     "states": [
+      "AI 곡인지 말함"
+     ]
+    },
+    {
+     "text": "I don't know who needs to hear this today, but if life hasn't gone the way you hoped, please don't mistake a detour for the end of…",
+     "likes": 181,
+     "age": null,
+     "states": [
+      "더 길게·다음 편 요청"
+     ]
+    },
+    {
+     "text": "This is such a perfect soundscape. I have a small home D&D game, I have plans to enter a pocket dimension paused in time to commun…",
+     "likes": 121,
+     "age": null,
+     "states": [
+      "게임하며"
+     ]
+    },
+    {
+     "text": "I sleep 3 hrs a night health issues I work tirelessly everyday come home exhausted can't sleep. I so far down this hole I can't ge…",
+     "likes": 106,
+     "age": null,
+     "states": [
+      "매일·반복해서 듣는"
+     ]
+    }
+   ],
+   "id": "P6",
+   "lang": "영어",
+   "share": 0.293
+  },
+  {
+   "key": "comfort@영어",
+   "name": "마음을 달래려 듣는 · 영어",
+   "n": 1830,
+   "likes": 25354,
+   "age": {
+    "n": 8,
+    "median_decade": 40,
+    "dist": {
+     "10대": 1,
+     "20대": 3,
+     "60대": 2,
+     "70대": 2
+    }
+   },
+   "states": [
+    {
+     "key": "rain_season",
+     "name": "비·계절과 함께",
+     "n": 36,
+     "share": 0.0197
+    },
+    {
+     "key": "repeat",
+     "name": "매일·반복해서 듣는",
+     "n": 35,
+     "share": 0.0191
+    },
+    {
+     "key": "ai_note",
+     "name": "AI 곡인지 말함",
+     "n": 27,
+     "share": 0.0148
+    },
+    {
+     "key": "request",
+     "name": "더 길게·다음 편 요청",
+     "n": 16,
+     "share": 0.0087
+    },
+    {
+     "key": "gaming",
+     "name": "게임하며",
+     "n": 4,
+     "share": 0.0022
+    },
+    {
+     "key": "abroad",
+     "name": "다른 나라에서 들음",
+     "n": 4,
+     "share": 0.0022
+    }
+   ],
+   "combos": [
+    {
+     "states": [
+      "AI 곡인지 말함",
+      "매일·반복해서 듣는"
+     ],
+     "n": 1
+    },
+    {
+     "states": [
+      "매일·반복해서 듣는",
+      "더 길게·다음 편 요청"
+     ],
+     "n": 1
+    }
+   ],
+   "know": {
+    "n": 122,
+    "dist": {
+     "중급": 28,
+     "초급": 51,
+     "기초": 43
+    },
+    "level": "초급"
+   },
+   "known_terms": [
+    [
+     "melody",
+     18
+    ],
+    [
+     "jazz",
+     15
+    ],
+    [
+     "piano",
+     12
+    ],
+    [
+     "classical",
+     8
+    ],
+    [
+     "cello",
+     5
+    ],
+    [
+     "lofi",
+     4
+    ],
+    [
+     "harmony",
+     4
+    ],
+    [
+     "bach",
+     2
+    ],
+    [
+     "soundtrack",
+     2
+    ],
+    [
+     "ambient",
+     1
+    ]
+   ],
+   "unknown_terms": [],
+   "want_terms": [
+    [
+     "cello",
+     3
+    ],
+    [
+     "piano",
+     2
+    ],
+    [
+     "reverb",
+     1
+    ],
+    [
+     "jazz",
+     1
+    ],
+    [
+     "chord",
+     1
+    ]
+   ],
+   "want_words": [
+    [
+     "sad",
+     22
+    ],
+    [
+     "don",
+     16
+    ],
+    [
+     "life",
+     15
+    ],
+    [
+     "something",
+     10
+    ],
+    [
+     "hai",
+     9
+    ],
+    [
+     "hope",
+     9
+    ],
+    [
+     "god",
+     8
+    ],
+    [
+     "anyone",
+     8
+    ],
+    [
+     "jesus",
+     7
+    ],
+    [
+     "give",
+     7
+    ],
+    [
+     "still",
+     7
+    ],
+    [
+     "moment",
+     7
+    ]
+   ],
+   "top_questions": [
+    {
+     "text": "I am very sad and hurts 😭😭😭😭😭😭😭😭😭😭😭😭😭😭 please pray for my love ham dono kabhi alag na ho please please please please please please…",
+     "likes": 448
+    },
+    {
+     "text": "Kaun kaun single hoke sad song sunta hai single hoke sad song sunane ka alag hi AURA hai😊",
+     "likes": 81
+    },
+    {
+     "text": "This may seem like just another comment, but if it reached you, I hope it brings you comfort, you’ve survived every hard moment up…",
+     "likes": 63
+    },
+    {
+     "text": "Can someone pray for my best friend with a eating disorder and suicidal thoughts? She's not the same anymore. I'm so scared and I …",
+     "likes": 45
+    },
+    {
+     "text": "Please kanhaji make me healthy, 😭",
+     "likes": 36
+    },
+    {
+     "text": "Bhai kya bataun dil me aisha sukoon kabhi nahi aya hai The most comfortable and relaxable playlist ❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤❤",
+     "likes": 30
+    }
+   ],
+   "questions": 83,
+   "types": {
+    "그 밖 (규칙에 안 걸림)": 781,
+    "칭찬·감사·응원": 452,
+    "경험·내 상황": 266,
+    "단순 반응·농담": 158,
+    "질문·요청": 83,
+    "투자 의견·전망·원칙": 33,
+    "광고·도배·무관": 29,
+    "비판·반박·불만": 14,
+    "정보·요약 보충": 8,
+    "정치·사회": 6
+   },
+   "likes_cat": [
+    {
+     "name": "분위기·감성",
+     "n": 7
+    },
+    {
+     "name": "그림·영상미",
+     "n": 4
+    },
+    {
+     "name": "선곡·흐름",
+     "n": 3
+    }
+   ],
+   "dislikes_cat": [
+    {
+     "name": "AI 곡 거부감",
+     "n": 1
+    },
+    {
+     "name": "같은 곡·반복",
+     "n": 1
+    }
+   ],
+   "groups": {
+    "그 밖의 승인 영상": 82,
+    "성공 사례": 1630,
+    "하루 조회수 상위": 118
+   },
+   "quotes": [
+    {
+     "text": "I started listening to this right after an edible and ive slowly gotten higher and higher the longer ive listened and im on like t…",
+     "likes": 25,
+     "age": null,
+     "states": [
+      "더 길게·다음 편 요청"
+     ]
+    },
+    {
+     "text": "My best friend, my dog, my miniature schnauzer Genji just died from cancer. I buried him next to a river. I was listening to this …",
+     "likes": 24,
+     "age": null,
+     "states": [
+      "비·계절과 함께"
+     ]
+    },
+    {
+     "text": "please im begging you make this 10 hours it helps my anxiety so much please please",
+     "likes": 16,
+     "age": null,
+     "states": [
+      "더 길게·다음 편 요청"
+     ]
+    },
+    {
+     "text": "Please make another video on sad songs 💐✨💗",
+     "likes": 15,
+     "age": null,
+     "states": [
+      "더 길게·다음 편 요청"
+     ]
+    }
+   ],
+   "id": "P7",
+   "lang": "영어",
+   "share": 0.1722
+  }
+ ],
+ "baselines": [
+  {
+   "key": "all",
+   "name": "모든 댓글 (참고) · 한국어",
+   "n": 24768,
+   "likes": 339441,
+   "age": {
+    "n": 81,
+    "median_decade": 50,
+    "dist": {
+     "10대": 7,
+     "20대": 8,
+     "30대": 6,
+     "40대": 13,
+     "50대": 25,
+     "60대": 12,
+     "70대": 8,
+     "80대": 2
+    }
+   },
+   "states": [
+    {
+     "key": "ai_note",
+     "name": "AI 곡인지 말함",
+     "n": 991,
+     "share": 0.04
+    },
+    {
+     "key": "rain_season",
+     "name": "비·계절과 함께",
+     "n": 529,
+     "share": 0.0214
+    },
+    {
+     "key": "repeat",
+     "name": "매일·반복해서 듣는",
+     "n": 377,
+     "share": 0.0152
+    },
+    {
+     "key": "abroad",
+     "name": "다른 나라에서 들음",
+     "n": 37,
+     "share": 0.0015
+    },
+    {
+     "key": "request",
+     "name": "더 길게·다음 편 요청",
+     "n": 31,
+     "share": 0.0013
+    },
+    {
+     "key": "gaming",
+     "name": "게임하며",
+     "n": 13,
+     "share": 0.0005
+    }
+   ],
+   "combos": [
+    {
+     "states": [
+      "비·계절과 함께",
+      "매일·반복해서 듣는"
+     ],
+     "n": 11
+    },
+    {
+     "states": [
+      "AI 곡인지 말함",
+      "매일·반복해서 듣는"
+     ],
+     "n": 8
+    },
+    {
+     "states": [
+      "다른 나라에서 들음",
+      "비·계절과 함께"
+     ],
+     "n": 7
+    },
+    {
+     "states": [
+      "게임하며",
+      "매일·반복해서 듣는"
+     ],
+     "n": 2
+    }
+   ],
+   "know": {
+    "n": 820,
+    "dist": {
+     "초급": 253,
+     "중급": 110,
+     "기초": 453,
+     "상급": 4
+    },
+    "level": "초급"
+   },
+   "known_terms": [
+    [
+     "피아노",
+     133
+    ],
+    [
+     "재즈",
+     112
+    ],
+    [
+     "클래식",
+     88
+    ],
+    [
+     "첼로",
+     42
+    ],
+    [
+     "바흐",
+     32
+    ],
+    [
+     "편곡",
+     31
+    ],
+    [
+     "기타",
+     25
+    ],
+    [
+     "모차르트",
+     18
+    ],
+    [
+     "OST",
+     16
+    ],
+    [
+     "BGM",
+     16
+    ]
+   ],
+   "unknown_terms": [],
+   "want_terms": [
+    [
+     "재즈",
+     11
+    ],
+    [
+     "클래식",
+     9
+    ],
+    [
+     "피아노",
+     7
+    ],
+    [
+     "첼로",
+     6
+    ],
+    [
+     "기타",
+     5
+    ],
+    [
+     "BGM",
+     4
+    ],
+    [
+     "바이올린",
+     3
+    ],
+    [
+     "편곡",
+     3
+    ],
+    [
+     "오케스트라",
+     2
+    ],
+    [
+     "템포",
+     2
+    ],
+    [
+     "바흐",
+     2
+    ],
+    [
+     "OST",
+     2
+    ]
+   ],
+   "want_words": [
+    [
+     "가수",
+     52
+    ],
+    [
+     "제목",
+     48
+    ],
+    [
+     "마음",
+     30
+    ],
+    [
+     "듣고",
+     27
+    ],
+    [
+     "이렇게",
+     25
+    ],
+    [
+     "목소리",
+     23
+    ],
+    [
+     "만들어",
+     22
+    ],
+    [
+     "시간",
+     21
+    ],
+    [
+     "인가",
+     21
+    ],
+    [
+     "좋네",
+     20
+    ],
+    [
+     "첫곡",
+     19
+    ],
+    [
+     "이름",
+     19
+    ]
+   ],
+   "top_questions": [
+    {
+     "text": "Why they all speakin in korean",
+     "likes": 1425
+    },
+    {
+     "text": "저오늘생일이에요 축하해주세요😆🍋💛✌️",
+     "likes": 383
+    },
+    {
+     "text": "안녕하세요. 이 글을 읽는 모든 분들께 작은 응원의 말을 전하고 싶어요. 저는 아직 초등학교 6학년이라 어른들처럼 멋있는 말을 잘하지는 못해요. 그래도 제 진심이 조금이라도 전해졌으면 좋겠어서 용기를 내서 글을 써 봐요. 혹시 오늘 …",
+     "likes": 348
+    }
+   ],
+   "questions": 1199,
+   "types": {
+    "단순 반응·농담": 11446,
+    "그 밖 (규칙에 안 걸림)": 4822,
+    "칭찬·감사·응원": 4522,
+    "경험·내 상황": 1812,
+    "질문·요청": 1199,
+    "투자 의견·전망·원칙": 334,
+    "정보·요약 보충": 230,
+    "비판·반박·불만": 221,
+    "정치·사회": 161,
+    "광고·도배·무관": 21
+   },
+   "likes_cat": [
+    {
+     "name": "분위기·감성",
+     "n": 175
+    },
+    {
+     "name": "선곡·흐름",
+     "n": 45
+    },
+    {
+     "name": "그림·영상미",
+     "n": 38
+    },
+    {
+     "name": "집중이 잘 됨",
+     "n": 6
+    }
+   ],
+   "dislikes_cat": [
+    {
+     "name": "광고",
+     "n": 147
+    },
+    {
+     "name": "AI 곡 거부감",
+     "n": 4
+    },
+    {
+     "name": "갑자기 튀는 소리",
+     "n": 4
+    }
+   ],
+   "groups": {
+    "성공 사례": 21197,
+    "그 밖의 승인 영상": 3190,
+    "하루 조회수 상위": 381
+   },
+   "quotes": [],
+   "id": "전체",
+   "lang": "한국어",
+   "share": 1.0
+  },
+  {
+   "key": "all",
+   "name": "모든 댓글 (참고) · 영어",
+   "n": 113530,
+   "likes": 522673,
+   "age": {
+    "n": 128,
+    "median_decade": 30,
+    "dist": {
+     "10대": 53,
+     "20대": 8,
+     "30대": 18,
+     "40대": 8,
+     "50대": 5,
+     "60대": 17,
+     "70대": 15,
+     "80대": 3,
+     "90대": 1
+    }
+   },
+   "states": [
+    {
+     "key": "ai_note",
+     "name": "AI 곡인지 말함",
+     "n": 1781,
+     "share": 0.0157
+    },
+    {
+     "key": "rain_season",
+     "name": "비·계절과 함께",
+     "n": 783,
+     "share": 0.0069
+    },
+    {
+     "key": "repeat",
+     "name": "매일·반복해서 듣는",
+     "n": 643,
+     "share": 0.0057
+    },
+    {
+     "key": "abroad",
+     "name": "다른 나라에서 들음",
+     "n": 407,
+     "share": 0.0036
+    },
+    {
+     "key": "request",
+     "name": "더 길게·다음 편 요청",
+     "n": 269,
+     "share": 0.0024
+    },
+    {
+     "key": "gaming",
+     "name": "게임하며",
+     "n": 206,
+     "share": 0.0018
+    }
+   ],
+   "combos": [
+    {
+     "states": [
+      "비·계절과 함께",
+      "매일·반복해서 듣는"
+     ],
+     "n": 21
+    },
+    {
+     "states": [
+      "AI 곡인지 말함",
+      "비·계절과 함께"
+     ],
+     "n": 14
+    },
+    {
+     "states": [
+      "AI 곡인지 말함",
+      "매일·반복해서 듣는"
+     ],
+     "n": 12
+    },
+    {
+     "states": [
+      "비·계절과 함께",
+      "더 길게·다음 편 요청"
+     ],
+     "n": 8
+    }
+   ],
+   "know": {
+    "n": 2540,
+    "dist": {
+     "중급": 613,
+     "기초": 1625,
+     "상급": 57,
+     "초급": 245
+    },
+    "level": "기초"
+   },
+   "known_terms": [
+    [
+     "jazz",
+     527
+    ],
+    [
+     "piano",
+     493
+    ],
+    [
+     "melody",
+     287
+    ],
+    [
+     "classical",
+     118
+    ],
+    [
+     "soundtrack",
+     102
+    ],
+    [
+     "tempo",
+     51
+    ],
+    [
+     "chopin",
+     48
+    ],
+    [
+     "cello",
+     47
+    ],
+    [
+     "harmony",
+     47
+    ],
+    [
+     "guitar",
+     47
+    ]
+   ],
+   "unknown_terms": [
+    [
+     "key of",
+     1
+    ]
+   ],
+   "want_terms": [
+    [
+     "jazz",
+     47
+    ],
+    [
+     "piano",
+     35
+    ],
+    [
+     "melody",
+     20
+    ],
+    [
+     "classical",
+     11
+    ],
+    [
+     "lofi",
+     10
+    ],
+    [
+     "BGM",
+     9
+    ],
+    [
+     "soundtrack",
+     8
+    ],
+    [
+     "cello",
+     7
+    ],
+    [
+     "guitar",
+     7
+    ],
+    [
+     "arrangement",
+     6
+    ],
+    [
+     "바이올린",
+     6
+    ],
+    [
+     "ambient",
+     5
+    ]
+   ],
+   "want_words": [
+    [
+     "kya",
+     499
+    ],
+    [
+     "hai",
+     349
+    ],
+    [
+     "don",
+     166
+    ],
+    [
+     "anyone",
+     133
+    ],
+    [
+     "name",
+     124
+    ],
+    [
+     "tell",
+     117
+    ],
+    [
+     "spotify",
+     110
+    ],
+    [
+     "use",
+     109
+    ],
+    [
+     "bhi",
+     109
+    ],
+    [
+     "life",
+     105
+    ],
+    [
+     "bhai",
+     102
+    ],
+    [
+     "people",
+     88
+    ]
+   ],
+   "top_questions": [
+    {
+     "text": "I'm studying what I love, drinking the wine I love, in the weather I love, listening to the music I love. How could this be more p…",
+     "likes": 1882
+    },
+    {
+     "text": "Kya gzbb ki playlist hai any GenZ heree😭🫠👍💕",
+     "likes": 1114
+    },
+    {
+     "text": "How humanity has degraded since the time of geniuses like Vivaldi.",
+     "likes": 779
+    }
+   ],
+   "questions": 4735,
+   "types": {
+    "단순 반응·농담": 46670,
+    "그 밖 (규칙에 안 걸림)": 28390,
+    "칭찬·감사·응원": 26108,
+    "경험·내 상황": 5065,
+    "질문·요청": 4735,
+    "정보·요약 보충": 1068,
+    "광고·도배·무관": 458,
+    "투자 의견·전망·원칙": 450,
+    "비판·반박·불만": 350,
+    "정치·사회": 236
+   },
+   "likes_cat": [
+    {
+     "name": "분위기·감성",
+     "n": 431
+    },
+    {
+     "name": "그림·영상미",
+     "n": 117
+    },
+    {
+     "name": "선곡·흐름",
+     "n": 63
+    },
+    {
+     "name": "집중이 잘 됨",
+     "n": 41
+    },
+    {
+     "name": "길이·광고 없음",
+     "n": 14
+    }
+   ],
+   "dislikes_cat": [
+    {
+     "name": "AI 곡 거부감",
+     "n": 33
+    },
+    {
+     "name": "광고",
+     "n": 13
+    },
+    {
+     "name": "음질·볼륨",
+     "n": 5
+    },
+    {
+     "name": "같은 곡·반복",
+     "n": 2
+    },
+    {
+     "name": "갑자기 튀는 소리",
+     "n": 1
+    }
+   ],
+   "groups": {
+    "그 밖의 승인 영상": 3097,
+    "성공 사례": 94822,
+    "하루 조회수 상위": 15611
+   },
+   "quotes": [],
+   "id": "전체",
+   "lang": "영어",
+   "share": 1.0
+  }
+ ],
+ "overall": {
+  "by_lang": {
+   "한국어": {
+    "want_terms": [
+     [
+      "재즈",
+      11
+     ],
+     [
+      "클래식",
+      9
+     ],
+     [
+      "피아노",
+      7
+     ],
+     [
+      "첼로",
+      6
+     ],
+     [
+      "기타",
+      5
+     ],
+     [
+      "BGM",
+      4
+     ],
+     [
+      "바이올린",
+      3
+     ],
+     [
+      "편곡",
+      3
+     ],
+     [
+      "오케스트라",
+      2
+     ],
+     [
+      "템포",
+      2
+     ],
+     [
+      "바흐",
+      2
+     ],
+     [
+      "OST",
+      2
+     ],
+     [
+      "믹싱",
+      1
+     ],
+     [
+      "모차르트",
+      1
+     ]
+    ],
+    "want_words": [
+     [
+      "가수",
+      52
+     ],
+     [
+      "제목",
+      48
+     ],
+     [
+      "마음",
+      30
+     ],
+     [
+      "듣고",
+      27
+     ],
+     [
+      "이렇게",
+      25
+     ],
+     [
+      "목소리",
+      23
+     ],
+     [
+      "만들어",
+      22
+     ],
+     [
+      "시간",
+      21
+     ],
+     [
+      "인가",
+      21
+     ],
+     [
+      "좋네",
+      20
+     ],
+     [
+      "첫곡",
+      19
+     ],
+     [
+      "이름",
+      19
+     ],
+     [
+      "첫번째",
+      18
+     ],
+     [
+      "악보",
+      18
+     ],
+     [
+      "음원",
+      17
+     ]
+    ],
+    "shared_wants": [
+     "마음",
+     "클래식",
+     "이렇게",
+     "시간"
+    ]
+   },
+   "영어": {
+    "want_terms": [
+     [
+      "jazz",
+      47
+     ],
+     [
+      "piano",
+      35
+     ],
+     [
+      "melody",
+      20
+     ],
+     [
+      "classical",
+      11
+     ],
+     [
+      "lofi",
+      10
+     ],
+     [
+      "BGM",
+      9
+     ],
+     [
+      "soundtrack",
+      8
+     ],
+     [
+      "cello",
+      7
+     ],
+     [
+      "guitar",
+      7
+     ],
+     [
+      "arrangement",
+      6
+     ],
+     [
+      "바이올린",
+      6
+     ],
+     [
+      "ambient",
+      5
+     ],
+     [
+      "reverb",
+      5
+     ],
+     [
+      "sonata",
+      4
+     ],
+     [
+      "harmony",
+      4
+     ]
+    ],
+    "want_words": [
+     [
+      "kya",
+      499
+     ],
+     [
+      "hai",
+      349
+     ],
+     [
+      "don",
+      166
+     ],
+     [
+      "anyone",
+      133
+     ],
+     [
+      "name",
+      124
+     ],
+     [
+      "tell",
+      117
+     ],
+     [
+      "spotify",
+      110
+     ],
+     [
+      "use",
+      109
+     ],
+     [
+      "bhi",
+      109
+     ],
+     [
+      "life",
+      105
+     ],
+     [
+      "bhai",
+      102
+     ],
+     [
+      "people",
+      88
+     ],
+     [
+      "find",
+      82
+     ],
+     [
+      "way",
+      81
+     ],
+     [
+      "copyright",
+      80
+     ]
+    ],
+    "shared_wants": [
+     "piano",
+     "jazz",
+     "don",
+     "cello",
+     "anyone",
+     "reverb",
+     "hai"
+    ]
+   }
+  }
+ },
+ "stage_defs": [
+  {
+   "key": "study_work",
+   "name": "공부·작업하며 듣는",
+   "age": null,
+   "strong": true
+  },
+  {
+   "key": "sleep_rest",
+   "name": "잠들기 전·쉬며 듣는",
+   "age": null,
+   "strong": true
+  },
+  {
+   "key": "daily",
+   "name": "이동·카페·집안일 하며 듣는",
+   "age": null,
+   "strong": false
+  },
+  {
+   "key": "memory",
+   "name": "추억에 젖어 듣는",
+   "age": null,
+   "strong": false
+  },
+  {
+   "key": "comfort",
+   "name": "마음을 달래려 듣는",
+   "age": null,
+   "strong": false
+  },
+  {
+   "key": "create",
+   "name": "책·글·그림 하며 듣는",
+   "age": null,
+   "strong": false
+  }
+ ]
+}

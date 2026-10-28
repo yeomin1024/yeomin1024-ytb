@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.4 — 2026-10-28 — 성공 판정·하루 조회수를 분석(success_analysis v1.6)과 같게: 주제 analysis_rules.toml [success] 를 읽어
+# VERSION: v1.5 — 2026-10-28 — 끝날 때 시청자 페르소나(tools/personas.py → personas.md·.json)도 다시 만듦 (사용자 지시 2026-10-28
+#          "시청자 페르소나 … 분석 결과에 따라 업데이트도 돼야함"). 실패해도 주별·성공 사례 분석은 저장됨. 그 밖 그대로.
+# (v1.4 — 2026-10-28 — 성공 판정·하루 조회수를 분석(success_analysis v1.6)과 같게: 주제 analysis_rules.toml [success] 를 읽어
 #          orr.success_core (MIN_VPD_SUBS > 0 = 구독자당 하루 조회수, 아니면 배수 — 주별 창은 예전처럼 나이 제한 없이) · 하루 조회수 = 받은 때
 #          (metadata collected)까지 날수로 (orr.views_per_day). 사용자 지시 2026-10-28 "1은 그렇게하고 … 나머지는 너가 추천하는 방향으로 하고".
 # (v1.3.1 — 2026-10-22 — 주마다 '댓글 N개 니즈' 줄에 '어느 갈래에도 안 듦 x%' (갈래 비율만 보이고 나머지 약 59% 가 안 보였음 — 사용자 지시 2026-10-21
@@ -53,7 +55,7 @@ from outlier_stats import COMMENT_CATS, TITLE_FEATURES       # noqa: E402  같�
 import outlier_research as orr                                # noqa: E402  v1.4: success_core·views_per_day (분석과 같은 규칙)
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v1.4"
+VERSION = "v1.5"
 LOG = logging.getLogger("weekly")
 WEB_CASE_RX = re.compile(r"^W_([0-9A-Za-z_-]{11})$")
 MAX_SUBS, MIN_RATIO, MIN_VIEWS = 50000, 3.0, 10000
@@ -435,6 +437,12 @@ def run(topic, max_weeks=52, now=None, root=None):
         success_analysis.run(topic, now=now, root=root)
     except Exception as e:
         log("WEEKLY", logging.WARNING, note="성공 사례 분석(analysis.md) 실패 — 주별 분석은 저장됨", error=f"{type(e).__name__}: {e}"[:300])
+    try:                                       # v1.5: 시청자 페르소나 (personas.md·.json) — 분석 결과(승인 영상 댓글)가 바뀌면 같이 바뀜
+        import personas
+        personas.build(topic, now=now, root=root)
+    except Exception as e:
+        log("WEEKLY", logging.WARNING, note="시청자 페르소나(personas.md) 실패 — 주별·성공 사례 분석은 저장됨",
+            error=f"{type(e).__name__}: {e}"[:300], next=f"python3 tools/personas.py {topic} 로 다시")
     log("DONE", topic=topic, windows=len(rep["windows"]), success=rep["windows"][-1]["success"] if rep["windows"] else 0,
         text_sources=",".join(f"{k}:{v}" for k, v in rep["text_sources"].items()))
     return rep

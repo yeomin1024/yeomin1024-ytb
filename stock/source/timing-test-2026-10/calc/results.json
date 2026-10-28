@@ -1,0 +1,154 @@
+{
+ "version": "v1.1",
+ "made": "2026-10-28T11:30:37+00:00",
+ "data_last": "2026-10-27",
+ "results": {
+  "2y": {
+   "q1": {
+    "days": 6244,
+    "ath_days": 540,
+    "loss_all": 0.16736066623959,
+    "loss_ath": 0.12222222222222222,
+    "median_all": 0.23633127232902373,
+    "median_ath": 0.22184348694392564,
+    "verdict": "미루지 않음"
+   },
+   "q2": {
+    "windows": 298,
+    "now_wins": 0.5704697986577181,
+    "never_dipped": 0.587248322147651,
+    "median_gap_pct": 0.11871682397496486,
+    "verdict": "지금"
+   },
+   "q3": {
+    "windows": 298,
+    "lump_wins": 0.7248322147651006,
+    "lump_vs_stop_wins": 0.6747967479674797,
+    "stop_triggered": 0.412751677852349,
+    "median_lump_pct": 0.23245529613457305,
+    "median_dca_pct": 0.203476316438699,
+    "median_stop_pct": 0.15449022143485047,
+    "median_gap_when_lump_loses_pct": -0.07141908328276453,
+    "worst_gap_pct": -0.2891118692842961,
+    "best_gap_pct": 0.3740247327652624,
+    "verdict": "한 번에",
+    "worst_start": "2008-06-02"
+   },
+   "q4": {
+    "windows": 298,
+    "triggered": 82,
+    "triggered_share": 0.2751677852348993,
+    "continue_wins": 0.7195121951219512,
+    "median_gap_pct": 0.11333552816401993,
+    "verdict": "계속"
+   },
+   "q5": {
+    "windows": 298,
+    "monthly_wins": 0.5805369127516778,
+    "no_crash_windows": 0.40939597315436244,
+    "median_gap_pct": 0.016460857163152487,
+    "verdict": "매달"
+   },
+   "q2b": {
+    "cases": 199,
+    "required_fall_pct": 0.18181818181818188,
+    "now_wins": 0.7688442211055276,
+    "came_back_to_target": 0.19095477386934673,
+    "median_gap_pct": 0.17596032494868696,
+    "verdict": "지금"
+   },
+   "q6": {
+    "windows": 298,
+    "monthly_wins": 0.7483221476510067,
+    "median_gap_pct": 0.009007477933218655,
+    "verdict": "매달"
+   }
+  },
+  "5y": {
+   "q1": {
+    "days": 5491,
+    "ath_days": 466,
+    "loss_all": 0.10854124931706428,
+    "loss_ath": 0.055793991416309016,
+    "median_all": 0.7198276494589972,
+    "median_ath": 0.8188305587263511,
+    "verdict": "미루지 않음"
+   },
+   "q2": {
+    "windows": 262,
+    "now_wins": 0.4312977099236641,
+    "never_dipped": 0.4312977099236641,
+    "median_gap_pct": -0.10739119452498197,
+    "verdict": "기다림"
+   },
+   "q3": {
+    "windows": 262,
+    "lump_wins": 0.7213740458015268,
+    "lump_vs_stop_wins": 0.8993288590604027,
+    "stop_triggered": 0.5687022900763359,
+    "median_lump_pct": 0.7252629974921875,
+    "median_dca_pct": 0.6917457779971398,
+    "median_stop_pct": -0.00025144918752167955,
+    "median_gap_when_lump_loses_pct": -0.07098262187382642,
+    "worst_gap_pct": -0.289111869284296,
+    "best_gap_pct": 0.3740247327652626,
+    "verdict": "한 번에",
+    "worst_start": "2008-06-02"
+   },
+   "q4": {
+    "windows": 262,
+    "triggered": 74,
+    "triggered_share": 0.2824427480916031,
+    "continue_wins": 0.9054054054054054,
+    "median_gap_pct": 0.22077520360355607,
+    "verdict": "계속"
+   },
+   "q5": {
+    "windows": 262,
+    "monthly_wins": 0.3549618320610687,
+    "no_crash_windows": 0.15648854961832062,
+    "median_gap_pct": -0.014176407734968755,
+    "verdict": "폭락 때만"
+   },
+   "q2b": {
+    "cases": 172,
+    "required_fall_pct": 0.18181818181818188,
+    "now_wins": 0.627906976744186,
+    "came_back_to_target": 0.36627906976744184,
+    "median_gap_pct": 0.5640120051286066,
+    "verdict": "지금"
+   },
+   "q6": {
+    "windows": 262,
+    "monthly_wins": 0.8206106870229007,
+    "median_gap_pct": 0.020545394986209664,
+    "verdict": "매달"
+   }
+  }
+ },
+ "intro": {
+  "year": 2026,
+  "ath_closes": 28,
+  "last_date": "2026-10-27",
+  "first_day": "2026-01-02",
+  "gain_since_first_day_pct": 0.13614861701125625,
+  "dipped": false,
+  "dip_date": "-",
+  "peak_drawdown_ytd_pct": -0.08890563609453495,
+  "price_index_min_vs_first_day_pct": -0.07505318006254547,
+  "price_index_dipped": false
+ },
+ "mismatches": [],
+ "flips_5y": [
+  "q2",
+  "q5"
+ ],
+ "scored": [
+  "q1",
+  "q2b",
+  "q3",
+  "q4",
+  "q6"
+ ],
+ "rule_problems": 0
+}

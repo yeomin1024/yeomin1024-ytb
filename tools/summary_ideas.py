@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-10-28 — 새로: 주식 편 요약본 = 핵심 방향 + 안 5개 (롱폼·쇼츠 제목·썸네일 주요·보조 문구·대본 진행), 좋음·나쁨을 배워 다음 안으로
+# VERSION: v1.1 — 2026-10-28 — 요약본_material.md 맨 위 '0. 채널 설명' (stock/guides/channel.md '한눈에' — topic_ideas.channel_lines) — 사용자 지시 2026-10-28
+#          "유튜브 채널 설명이니깐 여기에 맞게 영상 만들어야해 이 내용 파일 생성해서 참고할수 있게해".
+# (v1.0) — 2026-10-28 — 새로: 주식 편 요약본 = 핵심 방향 + 안 5개 (롱폼·쇼츠 제목·썸네일 주요·보조 문구·대본 진행), 좋음·나쁨을 배워 다음 안으로
 #          (사용자 지시 2026-10-28 "요약본 파일을 생성해야해 … 주제 탐색 후 어떻게 할건지 핵심 방향만 작성, 그리고 출처는 주석으로 달고 지시사항이나 출처 등
 #          영상 외 자료는 쓰지 말것, 또한 각각 5개씩 생성 후 좋다고, 나쁘다고 표시 가능하도록 해서 그걸 학습 후 좋은 안으로 생성하도록 · 1. 롱폼 제목·썸네일
 #          주요 문구, 보조 문구·대본 진행 방식 및 내용 2. 쇼츠 같음" + "대본 완성된 1개 빼고 3개만").
@@ -33,7 +35,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import title_fit                       # noqa: E402  제목이 모든 화면에서 2줄 안인가
 import topic_ideas as ti               # noqa: E402  toks · jacc · GOOD · BAD (같은 낱말 규칙)
 
-VERSION = "v1.0"
+VERSION = "v1.1"
 ROOT = Path(__file__).resolve().parent.parent
 LOG = logging.getLogger("summary")
 EPISODES = {"F": "jaemu-test-2026-10", "P": "portfolio-test-2026-10", "M": "timing-test-2026-10"}   # 대본이 끝난 simri-test 는 뺌 (사용자 지시)
@@ -464,6 +466,7 @@ def write_material(P, eps, marks, W, g, b, rated):
     """다음 회차 안을 쓰기 전에 Claude 가 읽는 한 장 — 배운 꼬리표 · 좋음/나쁨 글 · 칸별 추천."""
     L = [f"# 주식 편 요약본 안 — 다음 회차를 쓰기 전 재료 (자동 — `tools/summary_ideas.py {VERSION}`)", "",
          f"평가 {len(marks)}개. 다음 회차 = 좋음 칸은 그대로 두거나 같은 꼬리표로 변주 · 나쁨 꼬리표는 쓰지 않음 · 평가 없는 꼬리표로 1~2안은 새로 시험. ※ 연구·교육용.", "",
+         *ti.channel_lines(P["base"]),
          "## 1. 배운 꼬리표 (칸:꼬리표 — 가중치 · 좋음 · 나쁨)", ""]
     for f, w in sorted(W.items(), key=lambda x: -x[1]):
         L.append(f"- {f}: {w:+.2f} (좋음 {g[f]} · 나쁨 {b[f]})")

@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-10-28 — 새로: 주식 주제 탐색 — 분석 결과·페르소나로 주제 20개씩, 좋음·나쁨 평가를 배워 순위에 반영 (사용자 지시 2026-10-28
+# VERSION: v1.1 — 2026-10-28 — material.md 맨 위 '0. 채널 설명' = stock/guides/channel.md 의 '한눈에'(표시 줄 channel:start~end) 그대로 · format 칸 풀이에
+#          채널 전달 방식 대응(테스트형 = 테스트·문제 · 실험형 = 비교 시뮬레이션) — 사용자 지시 2026-10-28 "유튜브 채널 설명이니깐 여기에 맞게 영상 만들어야해
+#          이 내용 파일 생성해서 참고할수 있게해" · channel_lines() 는 summary_ideas.py 도 씀. 파일이 없으면 WARNING 한 줄 + 재료에 '못 읽음'.
+#          · 겹침 검사 고침: 새 꼴 요약본(summary_ideas.py v1.0 — 커밋 622f9ca1)의 [방향] '항목 N: …' 줄과 [N안] 제목 줄을 다시 읽고 '#' 주석 줄은 뺌
+#            (그 뒤로 portfolio·timing 편 항목·제목이 겹침 검사에서 빠져 있었음 — material.md 재생성 때 발견).
+# (v1.0) — 2026-10-28 — 새로: 주식 주제 탐색 — 분석 결과·페르소나로 주제 20개씩, 좋음·나쁨 평가를 배워 순위에 반영 (사용자 지시 2026-10-28
 #          "주제 탐색 파일 생성 — 분석 결과, 페르소나를 토대로 주제 20개씩 생성(이미 작성중, 작성한 주제와 똑같으면 안됨, 모두 작성 시 20개씩 갱신) ·
 #          좋다고, 나쁘다고 표시 가능하도록 해서 그걸 학습 후 되도록 좋은 주제로 탐색하도록 · 그리고 애매한 결론이 아닌 명확하게 결론 낼수 있어야 함").
 #          · 주제 글(질문·결론·판정 규칙·자료)은 Claude 가 재료(material)를 읽고 후보 모음(pool JSON)으로 쓴다 — 이 도구는 거르고·점수 매기고·뽑고·배운다.
@@ -40,7 +45,7 @@ try:
 except ModuleNotFoundError:            # Python 3.10
     import tomli as tomllib
 
-VERSION = "v1.0"
+VERSION = "v1.1"
 ROOT = Path(__file__).resolve().parent.parent
 LOG = logging.getLogger("topics")
 FIELDS = ("title", "question", "conclusion", "decide", "data", "format", "persona", "theme", "needs", "market", "data_kind")
@@ -63,6 +68,23 @@ def paths(topic, root=None):
     return {"base": base, "dir": t, "settings": t / "settings.toml", "json": t / "topics.json", "md": t / "주제탐색.md",
             "marks": t / "평가.txt", "material": t / "material.md", "page": t / "평가판.html",
             "out": base / "result" / "outliers", "source": base / "source"}
+
+
+CHANNEL = Path("guides") / "channel.md"                 # 채널 설명 (사용자 지시 2026-10-28) — 재료 맨 위 0번
+CHANNEL_MARK = ("<!-- channel:start -->", "<!-- channel:end -->")
+
+
+def channel_lines(base):
+    """<주제>/guides/channel.md 의 표시 줄 사이('한눈에') → 재료 맨 위 0번 줄들. 없거나 표시 줄이 없으면 WARNING + '못 읽음' 한 줄."""
+    p = Path(base) / CHANNEL
+    rel = f"{Path(base).name}/{CHANNEL.as_posix()}"
+    try:
+        body = p.read_text("utf-8").split(CHANNEL_MARK[0], 1)[1].split(CHANNEL_MARK[1], 1)[0].strip("\n")
+    except (OSError, IndexError) as e:
+        log("LOAD", logging.WARNING, channel=rel, error=type(e).__name__, next=f"{rel} 와 표시 줄 {CHANNEL_MARK[0]} … {CHANNEL_MARK[1]} 를 되살림")
+        return [f"## 0. 채널 설명 — ⚠️ 못 읽음 (`{rel}`)", ""]
+    log("LOAD", channel=rel, lines=len(body.splitlines()))
+    return [f"## 0. 채널 설명 (`{rel}` — 주제·안은 이 목적·전달 방식에 맞게)", "", *body.splitlines(), ""]
 
 
 # 같은 뜻 다른 말 → 하나로 (닮음 비교 전에 — '목돈 한 번에' = '일시금' · '10% 떨어질 때까지 기다렸다가' = '10% 빠질 때까지 기다렸다')
@@ -163,12 +185,18 @@ def used_entries(P, Z):
         if not f.is_file():
             continue
         # 요약본 칸: [방향] 앞 두 줄 · [항목 …]·[사례 …] 줄마다 · [제목 …] 줄마다 · [테스트 내용N] 머리 (첫 편 형식)
+        #          + 새 꼴(summary_ideas.py): '#' 주석 줄은 뺌 · [방향] 안 '항목 N: a · b · c' 줄 하나 · [N안 …] 안 '제목 (P1-LT): …' 줄마다
         for blk in re.finditer(r"^\[([^\]]+)\]([^\n]*)\n(.*?)(?=^\[|\Z)", f.read_text("utf-8"), re.M | re.S):
             name, head, body = blk.group(1).strip(), blk.group(2).strip(), blk.group(3)
-            lines = [re.sub(r"^\s*(?:[-•]|\d{1,2}\.)\s*", "", ln).strip() for ln in body.splitlines()]
+            lines = [re.sub(r"^\s*(?:[-•]|\d{1,2}\.)\s*", "", ln).strip() for ln in body.splitlines() if not ln.lstrip().startswith("#")]
             lines = [ln for ln in lines if len(ln) >= 6 and not ln.startswith(("뺄", "※")) and not re.match(r"^\|[\s\-|#]*\|?$", ln)]
             if name.startswith("방향"):
                 ents.append({"src": f"{d.name}:방향", "text": " ".join(lines[:2])})
+                for m in filter(None, (re.match(r"^항목\s?\d*\s?[:：]\s*(.+)$", ln) for ln in lines)):
+                    ents.append({"src": f"{d.name}:항목", "text": m.group(1)})     # 줄 하나 그대로 — 짧게 나누면 글자 겹침(작은 쪽 기준)이 부풀어 다른 주제도 '같음'
+            elif re.match(r"^\d+안\b", name):
+                for m in filter(None, (re.match(r"^제목\s?\(([A-Z]\d+-[LS]T)\)\s?[:：]\s*(.+)$", ln) for ln in lines)):
+                    ents.append({"src": f"{d.name}:제목 {m.group(1)}", "text": m.group(2)})
             elif name.startswith(("항목", "사례")):
                 ents += [{"src": f"{d.name}:{name.split()[0]}{i}", "text": ln} for i, ln in enumerate(lines, 1)]
             elif name.startswith("제목"):
@@ -543,13 +571,14 @@ def cmd_material(topic, root=None):
     ents = used_entries(P, Z)
     L = [f"# {topic} 주제 후보를 쓰기 전 재료 (자동 — `tools/topic_ideas.py {VERSION}`)", "",
          f"분석 {A['analysis_made']} · 페르소나 {A['persona_made']} · 댓글 니즈 {A['needs_made']}. 후보는 `stock/topics/pool/<날짜>.json` 에 쓰고 `add`. ※ 연구·교육용.", "",
+         *channel_lines(P["base"]),
          "## 후보 한 개의 칸 (모두 필수 — 빠지면 뺌)", "",
          "| 칸 | 내용 |", "|---|---|",
          "| title | 주제 한 줄 (영상 제목 아님) |", "| question | 시청자가 묻는 것 한 문장 |",
          "| conclusion | **예상 결론 한 문장 — 숫자·판정으로** ('…보다 …가 더 남았다', 'N년 이상이면 손실 0%'). 애매한 말 금지: " + Z["clarity"]["VAGUE"].replace("\\s?", " ").replace("|", "·")[:160] + " |",
          "| decide | 판정 규칙 — 자료가 어느 쪽으로 나와도 결론이 하나로 정해지는 기준 ('A가 B보다 높은 구간이 50% 넘으면 A, 아니면 B') |",
          "| data | 자료·기간 (실제 미국 주가·지수·재무제표, 2000년 이후 — 연도 필수) |",
-         "| format | 테스트형 (항목 5개 — stock/guides/quick_test.md) · 실험형 (질문 하나) |",
+         "| format | 테스트형 = 채널 방식 '테스트'·'문제' (항목 5개 — stock/guides/quick_test.md) · 실험형 = '비교 시뮬레이션' (질문 하나) — 0번 |",
          "| persona | personas.json 키: " + ", ".join(f"`{k}` ({p['name']})" for k, p in A["personas"].items()) + " |",
          "| theme | 주제 묶음 번호 (아래 3번 표) |", "| needs | 댓글 니즈 ID 목록 (아래 2번 표) |", "| market | 미국 · 한국 · 미국+한국 |",
          "| data_kind | 주가 백테스트 · 재무제표 · 세금·법 · 환율 · 그 밖 |", "| items | (테스트형) 항목 예 3개 |", "| why | 이 주제를 고른 까닭 한 줄 |", ""]

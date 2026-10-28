@@ -1,6 +1,7 @@
 # 지금 상태·다음 할 일 (인수인계)
 
-버전: v2.96 — 2026-10-28 — **주식 대본만 받기 (PC)** (사용자 지시 "그럼 대본 받아야하는 목록 정해서 pc 실행하면 저장소에 올리는 코드 알려줘"): `tools/pc_transcribe.py` v1.0 — 클라우드 `list stock` → 받을 목록 `stock/result/outliers/transcript_todo.csv`·`.md` (958개 — 한국어 597 먼저: 성공 사례 75 → 성공 쇼츠 59 → 하루 조회수 상위 130 → 조회수 상위 26 → 그 밖 307, 그다음 외국 361) · PC `run_analyzer.ps1 -Transcribe -Folder stock` (실행기 v3.6) → 자막 → 음성인식 앞 5분 → 끝까지, 대본 두 파일만 GitHub API 로 main 에 · selftest 28개 통과 (가짜 GitHub) · **PC 실행은 사용자 몫 — 아직 안 함**.
+버전: v2.97 — 2026-10-28 — **주식 채널 설명 `stock/guides/channel.md`** (사용자 지시 "아래는 유튜브 채널 설명이니깐 여기에 맞게 영상 만들어야해 이 내용 파일 생성해서 참고할수 있게해"): 사용자 원문 그대로 + 한눈에(목적 = 장기적으로 지속적인 수익을 내기 위한 정보·마인드 · 전달 = 호기심 먼저 → 그에 맞는 정보 · 테스트·문제·비교 시뮬레이션·그 밖) · 지금 네 편 대응 · 새 편 점검 다섯 줄 — 주제 탐색·요약본 재료 맨 위 0번에 저절로 (`topic_ideas.py`·`summary_ideas.py` v1.1) · CLAUDE.md · quick_test v1.7 · 덤: 겹침 검사가 새 꼴 요약본의 항목·제목 줄을 다시 읽음 (25 → 57줄, 지금 26개 주제는 겹침 0).
+이전 v2.96 — 2026-10-28 — **주식 대본만 받기 (PC)** (사용자 지시 "그럼 대본 받아야하는 목록 정해서 pc 실행하면 저장소에 올리는 코드 알려줘"): `tools/pc_transcribe.py` v1.0 — 클라우드 `list stock` → 받을 목록 `stock/result/outliers/transcript_todo.csv`·`.md` (958개 — 한국어 597 먼저: 성공 사례 75 → 성공 쇼츠 59 → 하루 조회수 상위 130 → 조회수 상위 26 → 그 밖 307, 그다음 외국 361) · PC `run_analyzer.ps1 -Transcribe -Folder stock` (실행기 v3.6) → 자막 → 음성인식 앞 5분 → 끝까지, 대본 두 파일만 GitHub API 로 main 에 · selftest 28개 통과 (가짜 GitHub) · **PC 실행은 사용자 몫 — 아직 안 함**.
 이전 v2.95 — 2026-10-28 — **주식 세 편 요약본 새 꼴 — 핵심 방향 + 안 5개, 좋음·나쁨을 배움** (사용자 지시 "요약본 파일을 생성해야해 … 핵심 방향만 … 출처는 주석 … 영상 외 자료는 쓰지 말것 … 각각 5개씩 … 학습 후 좋은 안으로" + "대본 완성된 1개 빼고 3개만"): 재무제표·포트폴리오·매수 시기 `요약본.txt` v2.0 (안 F1~F5 · P1~P5 · M1~M5 — 롱폼·쇼츠 제목·썸네일 주요·보조·대본 진행 · 출처는 '#' 주석 · 제목 title_fit 모두 ✅) · `tools/summary_ideas.py` v1.0 · 요약본 평가판 https://claude.ai/artifact/BCvJ17G2sL55aSAviHqTie · quick_test v1.6 · CLAUDE.md.
 이전 v2.94 — 2026-10-28 — **주식 주제 탐색 `stock/topics/`** (사용자 지시 "주제 탐색 파일 생성 — 분석 결과, 페르소나를 토대로 주제 20개씩 … 좋다고, 나쁘다고 표시 … 학습 … 명확하게 결론"): `tools/topic_ideas.py` v1.0 (재료·거르기·점수·묶음·평가 배우기·평가판) · 첫 묶음 20개 (후보 26 → 대기 6) `stock/topics/주제탐색.md` · 평가판 https://claude.ai/artifact/Y5d3kdE2nShVxRgzBBEpV8 · quick_test v1.5 · CLAUDE.md 주식 절 한 줄.
 이전 v2.93 — 2026-10-28 — **시청자 페르소나는 주식만** (사용자 지시 "아니 주식 쪽만 하면돼"): 재테크·역사·음악 `personas.toml`·`personas.md`·`.json` 을 지우고 재테크·공통 지침(quick_script·viewer_review·topic_guide·script_guide)은 페르소나 전으로 되돌림 · 주식 쪽(`stock/personas.toml` · `stock/result/outliers/personas.md` 3명 · quick_test v1.4.1 · CLAUDE.md 주식 절 한 줄 · pc_analysis v3.20)만 남김 · personas.py·persona_review.py v1.0.1 · weekly_analysis v1.5.1 (설정 없는 주제는 '만들지 않음' 로그만).
@@ -224,6 +225,8 @@
 6. 결과가 모이면: 주식 지시사항 재료 `stock/guides/data_insights.md` 다시 (외국 사례 포함 — 외국 사례의 제목·댓글 낱말 통계는 규칙으로 만들지 않음, CLAUDE.md).
 
 ### 2-1. 주식 — 제작 (2026-10-25 지움)
+
+- **2026-10-28 채널 설명** `stock/guides/channel.md` — 새 편(주제·요약본·대본·제목·썸네일·쇼츠)은 이 목적·전달 방식에 맞게. 1번 '한눈에'는 `stock/topics/material.md`·`요약본_material.md` 0번에 저절로 들어감 · 점검은 3번 다섯 줄.
 
 주식은 분석만 남겼다 (위 1번 표). 예전 2-1(첫 영상)·2-1b(2·3·4번) 절은 지운 소스를 가리켜 지움 — 내용은 `git show 2a0427d0:guides/status.md`.
 

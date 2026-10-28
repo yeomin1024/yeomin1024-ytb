@@ -1,5 +1,26 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-28 — 주식 채널 설명 파일 `stock/guides/channel.md` (v1.0) · 재료 맨 위에 저절로 (`topic_ideas.py`·`summary_ideas.py` v1.1)
+
+### 왜 (사용자 지시)
+- "아래는 유튜브 채널 설명이니깐 여기에 맞게 영상 만들어야해 이 내용 파일 생성해서 참고할수 있게해" — 목적: 장기적으로 지속적인 수익을 내기 위한 정보, 마인드 전달 · 전달방식: 시청자의 호기심을 유도 후 그에 맞는 정보전달 (테스트 · 문제 · 비교 시뮬레이션 · 이외 등등).
+- 채널 = STOCK LAB (주식 — 지금 테스트형·문제형·비교형 편들과 같은 갈래라서. 재테크 부자백서가 아님).
+
+### 바꾼 것
+| 파일 (버전) | 내용 |
+|---|---|
+| `stock/guides/channel.md` (v1.0, 새로) | 0번 사용자 원문 그대로 · 1번 한눈에(목적·전달 방식·방식 표 — 표시 줄 `channel:start`~`end`) · 2번 지금 네 편 대응 · 3번 새 편 점검 다섯 줄 · 4번 그 밖 방식은 제안만 / 옛 컨셉(`concept.md`, 지움)을 대신함 |
+| `tools/topic_ideas.py` (v1.0 → v1.1) | `channel_lines()` 새로 — `material.md` 맨 위 '0. 채널 설명' (없으면 WARNING + '못 읽음') · format 칸 풀이에 방식 대응(테스트형 = 테스트·문제 · 실험형 = 비교 시뮬레이션 — 값 이름은 그대로) · **겹침 검사 고침** `used_entries()`: 새 꼴 요약본(커밋 622f9ca1)의 [방향] '항목 N:' 줄과 [N안] 제목 줄을 다시 읽고 '#' 주석 줄은 뺌 |
+| `tools/summary_ideas.py` (v1.0 → v1.1) | `write_material()` — `요약본_material.md` 맨 위 같은 0번 |
+| `stock/topics/material.md` · `요약본_material.md` | 두 도구로 다시 만듦 (0번 · 이미 쓴 주제 25 → 57줄) |
+| `CLAUDE.md` · `stock/guides/quick_test.md` (v1.7) · `stock/README.md` (v1.30) · `stock/topics/README.md` (v1.2) · `guides/status.md` (v2.97) | 채널 설명을 가리키는 줄 |
+
+### 확인
+- `topic_ideas.py stock material` → 로그 `[LOAD] channel=stock/guides/channel.md lines=10` · `[WRITE] … used=57` (고치기 전 25) · `summary_ideas.py status` → 같은 LOAD 줄, 세 편 요약본.txt 는 바뀌지 않음.
+- 파일이 없을 때: `channel_lines('/nonexistent/stock')` → `[LOAD] … error=FileNotFoundError` + '⚠️ 못 읽음' 줄 (멈추지 않음).
+- 겹침 검사: 고치기 전엔 portfolio·timing 편의 항목·제목이 빠져 있었음 (요약본 v2.0 꼴을 못 읽음) — 같은 실험 후보 '목돈 한 번에 vs 12개월로 나눠 …' 닮음 0.67(통과) → 1.79(같음) · '기술주(QQQ)만 vs S&P 500 …' 0.75 → 1.32. 항목을 짧게 나누면 글자 겹침(작은 쪽 기준)이 부풀어 금·국채·연금저축 주제 5개가 거짓 '같음'이 되므로 줄 하나 그대로 — 지금 26개 주제는 겹침 0 (순위·상태 그대로).
+- 실행 시간: material 0.1~0.7초 · status 0.03초.
+
 ## 2026-10-28 — 주식 세 편 요약본 새 꼴: 핵심 방향 + 안 5개 · 좋음·나쁨을 배움 (`tools/summary_ideas.py` v1.0)
 
 ### 왜 (사용자 지시)

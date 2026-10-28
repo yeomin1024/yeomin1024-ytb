@@ -1,6 +1,8 @@
 # 주식 주제 폴더 (`stock/`) — 새로 시작 (2026-10-15)
 
-VERSION: v1.29 — 2026-10-28 — **분석 대상 세 묶음 고침** (사용자 지시 "1은 그렇게하고 최근에 조회수가 높을수록 더 많이 반영되도록 해야해 3은 할당량 남으면 진행하도록 해 나머지는 너가 추천하는 방향으로 하고"): 성공 = 구독자당 하루 조회수 ≥ 0.1 + 점수 가중 · 쇼츠 ② · ③ 기간 없는 검색(할당량 남을 때만) + 조회수 상위 묶음 · `explore --alltime-only` — `analysis_rules.toml` v1.5 · `guides/pc_analysis.md` v3.18.
+VERSION: v1.30 — 2026-10-28 — **채널 설명 `guides/channel.md`** (사용자 지시 "아래는 유튜브 채널 설명이니깐 여기에 맞게 영상 만들어야해 이 내용 파일 생성해서 참고할수 있게해"): 목적 = 장기적으로 지속적인 수익을 내기 위한 정보·마인드 · 전달 = 호기심 먼저 → 그에 맞는 정보 (테스트·문제·비교 시뮬레이션·그 밖) — 주제 탐색·요약본 재료 맨 위 0번 · `guides/quick_test.md` v1.7 0번 · CLAUDE.md.
+
+(v1.29 — 2026-10-28 — **분석 대상 세 묶음 고침** (사용자 지시 "1은 그렇게하고 최근에 조회수가 높을수록 더 많이 반영되도록 해야해 3은 할당량 남으면 진행하도록 해 나머지는 너가 추천하는 방향으로 하고"): 성공 = 구독자당 하루 조회수 ≥ 0.1 + 점수 가중 · 쇼츠 ② · ③ 기간 없는 검색(할당량 남을 때만) + 조회수 상위 묶음 · `explore --alltime-only` — `analysis_rules.toml` v1.5 · `guides/pc_analysis.md` v3.18.)
 
 (v1.28 — 2026-10-27 — **심리 테스트 편 롱폼 v1.8 오디오로 렌더 + 배치 표** (사용자 지시 "영상 만들어서 보여줘 그리고 영상에서 모든 오브젝트별로 배치 위치를 딱 정해서 자꾸 뭔가 어긋나잖아"): 장면 코드 v1.3 — 모든 물건을 배치 표 칸에 (제작안 v1.7 [배치 표]) · 배치 점검 `video/scripts/layout-check.mjs` 문제 0 · 새 오디오 표시 18 → 7.)
 
@@ -84,7 +86,7 @@ VERSION: v1.29 — 2026-10-28 — **분석 대상 세 묶음 고침** (사용자
 - **지움**: 제작 지시사항(`guides/README.md`·`concept.md`·`quick_story.md`·`story_script.md`) · 이야기형 시리즈 '개미 재기 일지'(`story/` — 주인공·인형·배경·소품·시리즈·계산) · 영상 소스(`source/` — 1~4화 요약본·제작안·대본·자막·장면 표·오디오, `topic_candidates.md`·`used_content.md`) · 백테스트 가격 자료 `data/` · `channel.md`·`thumbnails_chatgpt.md`·`tts_lexicon.tsv` · 영상 장면 `video/episodes/pogi-sonjeol-2026-10(-shorts)` · 옛 Remotion 영상 `video/src/episodes/`(multagi·bittu·panicsell·molppang) · 시제품 `video/prototypes/stock-entry-2026-10-16` · 주식 전용 도구(`video/render/story.js`·`story_mg.js`·`story.css` · `tools/story_kit.py`·`story_check.py`·`tools/backtest/` · 그 시험).
 - 다른 주제가 같이 쓰는 도구(`video/render/puppet.js`·`render.mjs`·`kit.js` · `tools/subs_tool.py`·`youtube_upload.py`·`tts_narration.py`)는 남김.
 - **유튜브의 영상은 건드리지 않았다.** 되살리기: `git checkout 2a0427d0 -- <경로>` (지우기 바로 전 커밋).
-- 새 제작 방향(컨셉·지시사항)은 사용자가 정할 때 이 분석 결과로 다시 만든다.
+- 새 제작 방향(컨셉·지시사항)은 사용자가 정할 때 이 분석 결과로 다시 만든다. → **2026-10-28 채널 설명** `guides/channel.md` (옛 `concept.md` 를 대신함).
 
 ## 클라우드에서 분석 (2026-10-16 — `tools/cloud_run.py`)
 

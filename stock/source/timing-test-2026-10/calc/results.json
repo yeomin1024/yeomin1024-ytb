@@ -1,6 +1,6 @@
 {
- "version": "v1.5",
- "made": "2026-10-28T14:32:38+00:00",
+ "version": "v1.6",
+ "made": "2026-10-28T14:53:15+00:00",
  "data_last": "2026-10-27",
  "results": {
   "2y": {
@@ -63,6 +63,8 @@
     "median_gap_when_wait_wins_pct": -0.2142484122409159,
     "distinct_rise_days": 178,
     "episodes": 9,
+    "episode_spans": "2000-03~2000-03(1) 2001-05~2001-05(1) 2001-11~2001-11(1) 2002-11~2004-01(8) 2004-11~2007-10(35) 2008-12~2011-02(21) 2011-10~2018-01(59) 2018-07~2021-12(31) 2022-08~2024-10(21)",
+    "eligible_starts": 298,
     "verdict": "지금"
    },
    "q6": {
@@ -75,6 +77,7 @@
     "verdict": "매달",
     "sell_in_may_monthly_wins": 0.7248322147651006,
     "sell_in_may_median_gap_pct": 0.04013308600058696,
+    "sell_in_may_median_gap_when_may_wins_pct": -0.052266285433766435,
     "nonoverlap_windows": 13
    },
    "q3b": {
@@ -144,21 +147,46 @@
     "median_gap_when_wait_wins_pct": -0.1934116787068485,
     "verdict": "지금"
    },
+   "q10": {
+    "windows": 298,
+    "now_wins": 0.7516778523489933,
+    "median_gap_pct": 0.103418760785699,
+    "median_gap_when_wait_wins_pct": -0.15575048128862629,
+    "verdict": "지금"
+   },
+   "q4c": {
+    "triggered": 82,
+    "continue_wins": 0.47560975609756095,
+    "median_gap_pct": -0.001923565978255437,
+    "verdict": "멈춤"
+   },
+   "q6b": {
+    "monthly_wins": 0.7248322147651006,
+    "median_gap_pct": 0.04013308600058696,
+    "median_gap_when_may_wins_pct": -0.052266285433766435,
+    "verdict": "매달"
+   },
    "sens_cash5": {
     "verdicts": {
+     "q2b": "지금",
      "q2c": "지금",
      "q3b": "한 번에>12개월>36개월",
      "q3s": "보유",
      "q4b": "계속",
-     "q6": "매달"
+     "q6": "매달",
+     "q10": "지금",
+     "q6b": "매달"
     },
     "shares": {
+     "q2b": 0.7286432160804021,
      "q2c": 0.667953667953668,
      "q3b_lump_vs_dca12": 0.6510067114093959,
      "q3b_dca12_vs_dca36": 0.7550335570469798,
      "q3s": 0.6910569105691057,
      "q4b": 0.6463414634146342,
-     "q6": 0.6677852348993288
+     "q6": 0.6677852348993288,
+     "q10": 0.6912751677852349,
+     "q6b": 0.6677852348993288
     }
    }
   },
@@ -222,18 +250,21 @@
     "median_gap_when_wait_wins_pct": -0.2600141067541095,
     "distinct_rise_days": 153,
     "episodes": 8,
+    "episode_spans": "2000-03~2000-03(1) 2001-05~2001-05(1) 2001-11~2001-11(1) 2002-11~2004-01(8) 2004-11~2007-10(35) 2008-12~2011-02(21) 2011-10~2018-01(59) 2018-07~2021-07(27)",
+    "eligible_starts": 262,
     "verdict": "지금"
    },
    "q6": {
     "windows": 262,
-    "monthly_wins": 0.8206106870229007,
-    "median_gap_pct": 0.020545394986209664,
-    "median_gap_usd_500": 358,
+    "monthly_wins": 0.8091603053435115,
+    "median_gap_pct": 0.009468007939736678,
+    "median_gap_usd_500": 176,
     "median_end_usd_500": 19261,
-    "within_3pct": 0.5305343511450382,
+    "within_3pct": 0.7977099236641222,
     "verdict": "매달",
     "sell_in_may_monthly_wins": 0.7290076335877863,
     "sell_in_may_median_gap_pct": 0.17594037956950603,
+    "sell_in_may_median_gap_when_may_wins_pct": -0.16027959821775462,
     "nonoverlap_windows": 5
    },
    "q3b": {
@@ -303,21 +334,46 @@
     "median_gap_when_wait_wins_pct": -0.19608608129978267,
     "verdict": "지금"
    },
+   "q10": {
+    "windows": 262,
+    "now_wins": 0.7442748091603053,
+    "median_gap_pct": 0.10260226211324786,
+    "median_gap_when_wait_wins_pct": -0.160931421541736,
+    "verdict": "지금"
+   },
+   "q4c": {
+    "triggered": 74,
+    "continue_wins": 0.43243243243243246,
+    "median_gap_pct": -0.004677357291387796,
+    "verdict": "멈춤"
+   },
+   "q6b": {
+    "monthly_wins": 0.7290076335877863,
+    "median_gap_pct": 0.17594037956950603,
+    "median_gap_when_may_wins_pct": -0.16027959821775462,
+    "verdict": "매달"
+   },
    "sens_cash5": {
     "verdicts": {
+     "q2b": "지금",
      "q2c": "지금",
      "q3b": "한 번에>12개월>36개월",
      "q3s": "보유",
      "q4b": "계속",
-     "q6": "매달"
+     "q6": "매달",
+     "q10": "지금",
+     "q6b": "매달"
     },
     "shares": {
+     "q2b": 0.627906976744186,
      "q2c": 0.7534246575342466,
      "q3b_lump_vs_dca12": 0.6374045801526718,
      "q3b_dca12_vs_dca36": 0.7519083969465649,
      "q3s": 0.738255033557047,
      "q4b": 0.6216216216216216,
-     "q6": 0.7366412213740458
+     "q6": 0.7213740458015268,
+     "q10": 0.6793893129770993,
+     "q6b": 0.6793893129770993
     }
    }
   }
@@ -348,7 +404,8 @@
    "years": 26,
    "may_oct_up_years": 19,
    "may_oct_mean_pct": 0.03345195394801022,
-   "nov_apr_mean_pct": 0.05947225936591737
+   "nov_apr_mean_pct": 0.05947225936591737,
+   "irx_mean_since_2000": 1.928555423653361
   }
  },
  "mismatches": [],
@@ -358,11 +415,11 @@
   "q1b"
  ],
  "scored": [
-  "q2c",
+  "q2b",
   "q3b",
   "q3s",
-  "q4b",
-  "q6"
+  "q10",
+  "q6b"
  ],
  "rule_problems": 0
 }

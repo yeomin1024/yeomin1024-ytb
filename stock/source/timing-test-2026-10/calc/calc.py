@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.2 — 2026-10-28 — q3 에 가장 크게 진 구간의 10만 달러 기준 값 (대본 v1.1 '퍼센트를 달러로' — 페르소나 피드백 2번). 보기 점수·판정 그대로.
+# VERSION: v1.3 — 2026-10-28 — 항목 3 = q3b (넣는 속도: 한 번에 · 12개월 · 36개월 — 빠져도 매도 안 하는 사람으로 조건을 못 박음). 사용자 지시 "애매한게 있으면 반론이 들어온다고 명확한걸로" — 위험 성향에 따라 갈리는 '한 번에 vs 나눠 + 손절' 보기를 같은 축 셋으로. q3 는 참고.
+# (v1.2 — 2026-10-28 — q3 에 가장 크게 진 구간의 10만 달러 기준 값 (대본 v1.1 '퍼센트를 달러로' — 페르소나 피드백 2번). 보기 점수·판정 그대로.
 # (v1.1 — 2026-10-28 — 점수 항목 2·5 바꿈: v1.0 첫 실행에서 '10% 하락 대기'(q2)·'폭락 때만'(q5)이 5년으로 늘리면 뒤집힘(ROBUST flips)
 #          → 참고로만 남기고, 항목 2 = q2b(기다리는 동안 하락 없이 먼저 10% 오른 때 — 대본 상황 그대로) · 항목 5 = q6(5~10월 피하기). 판정 규칙·5년 검사는 그대로.
 # (v1.0 — 2026-10-28 — 최초. 매수 시기 테스트 편 M3(목돈 넣을 때) 대본의 숫자 — 미국 S&P 500 배당 포함 지수로 매수 규칙 다섯 쌍을
@@ -10,6 +11,7 @@
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.3 | 2026-10-28 | 항목 3 = q3b (한 번에·12개월·36개월 · 쌍마다 이긴 구간 > 50% — 처음 쓴 '1등 몫 순서'는 5년에서 뒤집혀 머리 규칙으로 되돌림) · expect · QUESTIONS 3 · VIRTUAL V5 이름 · q3 worst_dca_minus_lump_usd | q3b_speed · q3_lump · main |
 # | v1.2 | 2026-10-28 | q3 worst_lump/dca_usd_per_100k · ret_pct (대본 달러 표기) | q3_lump |
 # | v1.1 | 2026-10-28 | 점수 항목 = q1·q2b·q3·q4·q6 (q2·q5 는 5년에서 뒤집혀 참고만) · 보기 점수·가상 응시 다시 · 도입에 가격 지수 하락 확인 · --selftest | q2b_wait_after_rise · q6_calendar · intro · selftest · QUESTIONS · VIRTUAL · main |
 # | v1.0 | 2026-10-28 | 최초 — 받기(--fetch)·검사·항목 5개·도입 숫자·5년 민감도·점수 규칙 | fetch · load · validate · q1~q5 · intro · main |
@@ -40,7 +42,7 @@ ROOT = HERE.parents[3]
 sys.path.insert(0, str(ROOT / "tools"))
 import test_score as ts  # noqa: E402
 
-VERSION = "v1.2"
+VERSION = "v1.3"
 LEVELS = (0, 10, 20)
 START_EVAL = date(2000, 1, 1)     # 평가 시작 (1900년대 자료는 쓰지 않음 — 1988~1999 는 최고가·하락 폭 기준을 위한 앞 자료로만)
 FETCH_FROM = date(1988, 1, 1)
@@ -54,7 +56,7 @@ MONTHLY = 24                       # 5번: 24개월 매달 넣기
 QUESTIONS = [
     (1, "최고가인 날", False, {"A": 0, "B": 20, "C": 10}),     # A 기다림 · B 정한 방법대로 · C 절반
     (2, "기다리는데 10% 오름", False, {"A": 0, "B": 10, "C": 20}),   # A 계속 기다림 · B 절반 지금 · C 지금 (q2b)
-    (3, "한 번에 vs 나눠", False, {"A": 20, "B": 10, "C": 0}),  # A 한 번에(버틸 수 있나 따짐) · B 12개월 · C 한 번에 + 10% 빠지면 매도
+    (3, "넣는 속도", False, {"A": 20, "B": 10, "C": 0}),         # v1.3 (q3b): A 한 번에 · B 12개월 · C 36개월 — 모두 빠져도 매도 안 함
     (4, "나눠 넣다 빠짐", False, {"A": 0, "B": 20, "C": 10}),   # A 멈춤 · B 계속 · C 절반
     (5, "5~10월 피하기", False, {"A": 20, "B": 0, "C": 10}),     # A 매달 · B 5~10월 피함 · C 5~10월 절반 (q6)
 ]
@@ -63,7 +65,7 @@ VIRTUAL = [
     ("V2 늘 기다리는 사람", [0, 0, 10, 0, 0]),             # 최고가라 미룸 · 계속 기다림 · 나눠 · 멈춤 · 달 피함
     ("V3 늘 절반씩", [10, 10, 10, 10, 10]),
     ("V4 나눠 넣되 계획을 지키는 사람", [20, 20, 10, 20, 20]),
-    ("V5 한 번에 넣고 빠지면 파는 사람", [20, 20, 0, 0, 20]),
+    ("V5 아주 천천히 넣고 빠지면 멈추는 사람", [20, 20, 0, 0, 20]),
 ]
 
 
@@ -244,7 +246,28 @@ def q3_lump(p, c, W):
     wi = int(np.argmin(lump / dca))            # 가장 크게 진 구간의 10만 달러 기준 2년 뒤 값 (대본 '달러로 말하기')
     res["worst_lump_usd_per_100k"], res["worst_dca_usd_per_100k"] = round(100000 * float(lump[wi])), round(100000 * float(dca[wi]))
     res["worst_lump_ret_pct"], res["worst_dca_ret_pct"] = float(lump[wi] - 1), float(dca[wi] - 1)
+    res["worst_dca_minus_lump_usd_per_100k"] = res["worst_dca_usd_per_100k"] - res["worst_lump_usd_per_100k"]
     res["verdict"] = "한 번에" if res["lump_wins"] > 0.5 and res["median_stop_pct"] < res["median_dca_pct"] else "다시 볼 것"
+    return res
+
+
+def q3b_speed(p, c, W):
+    """v1.3: 빠져도 매도하지 않는 사람 — 넣는 속도만 다름: 한 번에 vs 12개월 vs 36개월로 나눠 (기다리는 돈은 국채 이자, 창 안에 못 넣은 몫은 현금).
+    판정: 이 파일 머리의 규칙 그대로 — 쌍마다 이긴 구간 > 50% (한 번에 > 12개월 · 12개월 > 36개월 · 한 번에 > 36개월 이면 보기 점수 20·10·0).
+    (처음엔 '셋 중 1등 몫 순서'로 했다가 5년에서 12개월·36개월 순서가 뒤집힘 — 머리 규칙과 다른 규칙이라 되돌림. best_* 는 참고로 남김.)"""
+    def spread(s, e, buys, n):
+        b = buys[:n]
+        inv = sum(1 / n * c[x] / c[s] * p[e] / p[x] for x in b)
+        return inv + (n - len(b)) / n * c[e] / c[s]
+    v = np.array([[p[e] / p[s], spread(s, e, buys, SPLIT), spread(s, e, buys, 36)] for s, e, buys in W])
+    best = np.argmax(v, axis=1)
+    res = dict(windows=len(W), best_lump=share(best == 0), best_dca12=share(best == 1), best_dca36=share(best == 2),
+               median_lump_pct=float(np.median(v[:, 0] - 1)), median_dca12_pct=float(np.median(v[:, 1] - 1)),
+               median_dca36_pct=float(np.median(v[:, 2] - 1)), lump_beats_dca36=share(v[:, 0] > v[:, 2]),
+               dca12_beats_dca36=share(v[:, 1] > v[:, 2]))
+    res["lump_beats_dca12"] = share(v[:, 0] > v[:, 1])
+    ok = res["lump_beats_dca12"] > 0.5 and res["dca12_beats_dca36"] > 0.5 and res["lump_beats_dca36"] > 0.5
+    res["verdict"] = "한 번에>12개월>36개월" if ok else "다시 볼 것"
     return res
 
 
@@ -381,7 +404,7 @@ def selftest():
 
 
 def fmt(res):
-    return {k: (pctf(v) if isinstance(v, float) and ("pct" in k or k.startswith(("loss", "now", "lump", "never", "stop", "continue", "monthly", "no_", "triggered_", "median", "came_"))) else v)
+    return {k: (pctf(v) if isinstance(v, float) and ("pct" in k or k.startswith(("loss", "now", "lump", "never", "stop", "continue", "monthly", "no_", "triggered_", "median", "came_", "best_", "dca"))) else v)
             for k, v in res.items()}
 
 
@@ -417,13 +440,13 @@ def main():
         W = windows(ms, mkey, d, months)
         out("SPLIT", horizon=label, windows=len(W), first_start=d[W[0][0]], last_start=d[W[-1][0]], last_end=d[W[-1][1]])
         r = {"q1": q1_ath(d, p, START_EVAL, days), "q2": q2_wait(p, c, W), "q3": q3_lump(p, c, W), "q4": q4_stop(p, c, W), "q5": q5_crash(p, c, W),
-             "q2b": q2b_wait_after_rise(d, p, c, days), "q6": q6_calendar(d, p, c, W)}
+             "q2b": q2b_wait_after_rise(d, p, c, days), "q6": q6_calendar(d, p, c, W), "q3b": q3b_speed(p, c, W)}
         r["q3"]["worst_start"] = d[r["q3"].pop("worst_start_idx")].isoformat()
         for q, v in r.items():
             out(f"{q.upper()}", horizon=label, **fmt(v))
         results[label] = r
 
-    expect = {"q1": "미루지 않음", "q2b": "지금", "q3": "한 번에", "q4": "계속", "q6": "매달"}   # 점수 항목 1~5 (q2·q5 는 참고)
+    expect = {"q1": "미루지 않음", "q2b": "지금", "q3b": "한 번에>12개월>36개월", "q4": "계속", "q6": "매달"}   # 점수 항목 1~5 (v1.3: 항목 3 = q3b · q3·q2·q5 는 참고)
     mism = [q for q, v in expect.items() if results["2y"][q]["verdict"] != v]
     flips = [q for q in results["2y"] if results["2y"][q]["verdict"] != results["5y"][q]["verdict"]]
     used_flips = [q for q in flips if q in expect]

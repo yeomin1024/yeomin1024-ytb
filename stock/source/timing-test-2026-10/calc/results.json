@@ -1,6 +1,6 @@
 {
- "version": "v1.2",
- "made": "2026-10-28T11:50:36+00:00",
+ "version": "v1.3",
+ "made": "2026-10-28T13:52:27+00:00",
  "data_last": "2026-10-27",
  "results": {
   "2y": {
@@ -35,6 +35,7 @@
     "worst_dca_usd_per_100k": 113995,
     "worst_lump_ret_pct": -0.1896258893928684,
     "worst_dca_ret_pct": 0.13994604156812662,
+    "worst_dca_minus_lump_usd_per_100k": 32958,
     "verdict": "한 번에",
     "worst_start": "2008-06-02"
    },
@@ -66,6 +67,19 @@
     "monthly_wins": 0.7483221476510067,
     "median_gap_pct": 0.009007477933218655,
     "verdict": "매달"
+   },
+   "q3b": {
+    "windows": 298,
+    "best_lump": 0.6845637583892618,
+    "best_dca12": 0.15771812080536912,
+    "best_dca36": 0.15771812080536912,
+    "median_lump_pct": 0.23245529613457305,
+    "median_dca12_pct": 0.203476316438699,
+    "median_dca36_pct": 0.10817158158716211,
+    "lump_beats_dca36": 0.785234899328859,
+    "dca12_beats_dca36": 0.8087248322147651,
+    "lump_beats_dca12": 0.7248322147651006,
+    "verdict": "한 번에>12개월>36개월"
    }
   },
   "5y": {
@@ -100,6 +114,7 @@
     "worst_dca_usd_per_100k": 186270,
     "worst_lump_ret_pct": 0.3241696399607372,
     "worst_dca_ret_pct": 0.8626976351786844,
+    "worst_dca_minus_lump_usd_per_100k": 53853,
     "verdict": "한 번에",
     "worst_start": "2008-06-02"
    },
@@ -131,6 +146,19 @@
     "monthly_wins": 0.8206106870229007,
     "median_gap_pct": 0.020545394986209664,
     "verdict": "매달"
+   },
+   "q3b": {
+    "windows": 262,
+    "best_lump": 0.648854961832061,
+    "best_dca12": 0.15648854961832062,
+    "best_dca36": 0.1946564885496183,
+    "median_lump_pct": 0.7252629974921875,
+    "median_dca12_pct": 0.6917457779971398,
+    "median_dca36_pct": 0.5256647514523575,
+    "lump_beats_dca36": 0.7519083969465649,
+    "dca12_beats_dca36": 0.7786259541984732,
+    "lump_beats_dca12": 0.7213740458015268,
+    "verdict": "한 번에>12개월>36개월"
    }
   }
  },
@@ -154,7 +182,7 @@
  "scored": [
   "q1",
   "q2b",
-  "q3",
+  "q3b",
   "q4",
   "q6"
  ],

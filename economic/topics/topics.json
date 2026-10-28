@@ -4,15 +4,13 @@
  "batches": [
   {
    "no": 1,
-   "made": "2026-10-28T10:26:01Z",
+   "made": "2026-10-28T10:37:19Z",
    "ids": [
-    "T003",
     "T025",
-    "T007",
     "T001",
     "T005",
     "T006",
-    "T012",
+    "T002",
     "T008",
     "T016",
     "T013",
@@ -25,7 +23,9 @@
     "T009",
     "T018",
     "T024",
-    "T021"
+    "T023",
+    "T021",
+    "T017"
    ]
   }
  ],
@@ -52,10 +52,10 @@
    "pool": "economic/topics/pool/2026-10-28.json",
    "added": "2026-10-28",
    "nearest_used": {
-    "src": "만든 대본:gicho-yeongeum-2026-10",
-    "sim": 0.19,
-    "words": 0.0,
-    "chars": 0.095
+    "src": "yeonjeo-suryeong-2026-10:제목 S5-ST",
+    "sim": 0.526,
+    "words": 0.071,
+    "chars": 0.263
    },
    "success_match": {
     "title": "연금저축·IRP, 세금 가장 적게 내는 인출 순서 | 황혜린 세무사 | 연금받는형",
@@ -96,14 +96,14 @@
    "id": "T002",
    "items": [],
    "why": "성공 사례 '세금 돌려 받을게 없다면 연금저축 넣지마세요' · 댓글 👍107 · 같은 내용 최근 제목 1개",
-   "status": "대기",
+   "status": "이번 묶음",
    "pool": "economic/topics/pool/2026-10-28.json",
    "added": "2026-10-28",
    "nearest_used": {
-    "src": "만든 대본:gungmin-sigi-2026-10",
-    "sim": 0.143,
-    "words": 0.037,
-    "chars": 0.071
+    "src": "yeonjeo-irp-2026-10:제목 I2-LT",
+    "sim": 0.583,
+    "words": 0.231,
+    "chars": 0.292
    },
    "success_match": {
     "title": "\"연금 저축부터 채워라?\" 연봉 따라 순서 뒤집히는 ISA·연금저축·IRP",
@@ -123,7 +123,9 @@
     "닮은 나쁨": 0.0
    },
    "rating": null,
-   "rating_why": ""
+   "rating_why": "",
+   "picked_why": "점수 순",
+   "batch": 1
   },
   "T003": {
    "title": "연금저축 600만 원 + IRP 300만 원 — 순서를 틀리면 환급이 줄어든다",
@@ -143,15 +145,16 @@
    "id": "T003",
    "items": [],
    "why": "직장인 페르소나가 가장 많이 묻는 말 '연말정산' 12 · ISA·연금저축 다음",
-   "status": "이번 묶음",
+   "status": "작성중",
    "pool": "economic/topics/pool/2026-10-28.json",
    "added": "2026-10-28",
    "nearest_used": {
-    "src": "만든 대본:isa-mangi-2026-10",
-    "sim": 0.235,
-    "words": 0.0,
-    "chars": 0.118
+    "src": "yeonjeo-irp-2026-10:방향",
+    "sim": 0.941,
+    "words": 0.161,
+    "chars": 0.471
    },
+   "folder": "yeonjeo-irp-2026-10",
    "success_match": {
     "title": "\"연금 저축부터 채워라?\" 연봉 따라 순서 뒤집히는 ISA·연금저축·IRP",
     "sim": 0.153
@@ -170,9 +173,7 @@
     "닮은 나쁨": 0.0
    },
    "rating": null,
-   "rating_why": "",
-   "picked_why": "점수 순",
-   "batch": 1
+   "rating_why": ""
   },
   "T004": {
    "title": "연금저축 보험·펀드 — 20년 뒤 수수료 차이",
@@ -195,10 +196,10 @@
    "pool": "economic/topics/pool/2026-10-28.json",
    "added": "2026-10-28",
    "nearest_used": {
-    "src": "gicho-yeongeum-ai-2026-10",
-    "sim": 0.105,
-    "words": 0.0,
-    "chars": 0.053
+    "src": "yeonjeo-irp-2026-10:제목 I5-ST",
+    "sim": 0.556,
+    "words": 0.091,
+    "chars": 0.278
    },
    "success_match": {
     "title": "객실 팔아서 돈 버는 게 아니라고? 우리가 몰랐던 호텔이 진짜 돈을 버는 방법",
@@ -320,11 +321,11 @@
    "batch": 1
   },
   "T007": {
-   "title": "국민연금이 월 52만 원을 넘으면 기초연금이 깎인다 — 그래도 더 받는 쪽이 이긴다",
+   "title": "국민연금 때문에 깎이는 기초연금 — 그래도 국민연금을 더 받는 쪽이 이긴다",
    "question": "국민연금을 많이 받으면 기초연금이 깎인다는데, 그럼 국민연금을 덜 받는 게 낫나?",
-   "conclusion": "국민연금이 기준연금액의 150%(약 52만 원)를 넘으면 기초연금이 깎이지만 감액은 국민연금 일부(A급여)의 3분의 2, 최대 절반까지라 국민연금이 10만 원 늘면 합계는 늘 3만 원 넘게 늘어난다.",
-   "decide": "국민연금 1만 원 증가당 기초연금 감액이 1만 원보다 작으면 '더 받는 쪽이 이득', 크면 '덜 받는 쪽'으로 판정.",
-   "data": "기초연금법 제5조·제7조(국민연금 연계 감액) — 2026년 시행 원문 · 2026년 기준연금액 34만 9,700원",
+   "conclusion": "기초연금은 국민연금 중 소득재분배급여(A급여)의 3분의 2만큼 깎이고 기준연금액의 절반(17만 4,850원) 밑으로는 안 깎여, 국민연금이 1만 원 늘면 합계는 늘 3,334원 넘게 늘어난다.",
+   "decide": "국민연금 1만 원 증가당 기초연금 감액이 1만 원보다 작으면 '더 받는 쪽이 이득', 크면 '덜 받는 쪽'으로 판정 (법 공식상 감액은 증가분의 3분의 2 이하).",
+   "data": "기초연금법 제5조 제5항(국민연금 수급권자 기초연금액 = 기준연금액 − A급여 × 2/3 + 부가연금액)·제8조(부부 20% 감액) — 2025-10-01 시행 원문 (legalize-kr, 2026-10-28 확인) · 2026년 기준연금액 34만 9,700원",
    "format": "사연형",
    "persona": "retired",
    "theme": "4",
@@ -336,36 +337,35 @@
    "id": "T007",
    "items": [],
    "why": "'국민연금 받는다고 기초연금 차감' 불만 댓글 👍522·701 · 같은 내용 최근 제목 2개",
-   "status": "이번 묶음",
+   "status": "작성중",
    "pool": "economic/topics/pool/2026-10-28.json",
    "added": "2026-10-28",
    "nearest_used": {
-    "src": "만든 대본:gungmin-sigi-2026-10",
-    "sim": 0.261,
-    "words": 0.087,
-    "chars": 0.13
+    "src": "gicho-gamaek-2026-10:방향",
+    "sim": 0.87,
+    "words": 0.115,
+    "chars": 0.435
    },
+   "folder": "gicho-gamaek-2026-10",
    "success_match": {
-    "title": "저는 1년 동안 매달 5만 원을 모아봤습니다. 그리고 돈에 대한 생각이 달라졌습니다",
-    "sim": 0.082
+    "title": "국민연금 추납, 1,850만원 내고 월 15만원 더 받으면 이득일까?",
+    "sim": 0.076
    },
-   "score": 0.7901,
+   "score": 0.7819,
    "score_parts": {
-    "처음": 0.79,
+    "처음": 0.782,
     "니즈": 0.87,
     "주제 묶음": 0.647,
     "페르소나": 1.0,
     "공급 틈": 0.933,
-    "성공 사례": 0.549,
+    "성공 사례": 0.508,
     "배운": 0.0,
     "갈래": 0.0,
     "닮은 좋음": 0.0,
     "닮은 나쁨": 0.0
    },
    "rating": null,
-   "rating_why": "",
-   "picked_why": "점수 순",
-   "batch": 1
+   "rating_why": ""
   },
   "T008": {
    "title": "일해도 기초연금 받는다 — 월급 200만 원이 소득인정액에는 얼마로 잡히나",
@@ -388,10 +388,10 @@
    "pool": "economic/topics/pool/2026-10-28.json",
    "added": "2026-10-28",
    "nearest_used": {
-    "src": "gicho-yeongeum-ai-2026-10",
-    "sim": 0.421,
-    "words": 0.111,
-    "chars": 0.211
+    "src": "yeonjeo-suryeong-2026-10:제목 S3-LT",
+    "sim": 0.522,
+    "words": 0.0,
+    "chars": 0.261
    },
    "success_match": {
     "title": "기초연금 개편 진짜였네? 결국 내가 받을 돈 '이렇게' 받는다 [대통령 긴급 발표] 61년생부터 주목",
@@ -434,10 +434,10 @@
    "pool": "economic/topics/pool/2026-10-28.json",
    "added": "2026-10-28",
    "nearest_used": {
-    "src": "만든 대본:eunte-kkeonaeseugi-2026-10",
-    "sim": 0.238,
-    "words": 0.095,
-    "chars": 0.088
+    "src": "gicho-gamaek-2026-10:제목 G1-LT",
+    "sim": 0.381,
+    "words": 0.118,
+    "chars": 0.19
    },
    "success_match": {
     "title": "국민연금 63세에 바로 받은 김 부장 vs 5년 미뤄 36% 더 받은 박 부장… 10년 뒤 통장에 더 많이 남은 사람은? | 노후준비 | 오디오",
@@ -482,10 +482,10 @@
    "pool": "economic/topics/pool/2026-10-28.json",
    "added": "2026-10-28",
    "nearest_used": {
-    "src": "만든 대본:gicho-yeongeum-2026-10",
-    "sim": 0.146,
-    "words": 0.04,
-    "chars": 0.073
+    "src": "yeonjeo-irp-2026-10:제목 I5-ST",
+    "sim": 0.444,
+    "words": 0.0,
+    "chars": 0.222
    },
    "success_match": {
     "title": "올해 68세입니다. 62살에 이 3가지를 시작할걸, 지금은 매일 밤 후회하고 있습니다",
@@ -530,10 +530,10 @@
    "pool": "economic/topics/pool/2026-10-28.json",
    "added": "2026-10-28",
    "nearest_used": {
-    "src": "만든 대본:gicho-yeongeum-2026-10",
-    "sim": 0.217,
-    "words": 0.087,
-    "chars": 0.105
+    "src": "gicho-gamaek-2026-10:방향",
+    "sim": 0.316,
+    "words": 0.034,
+    "chars": 0.158
    },
    "success_match": {
     "title": "국민연금 추납, 1,850만원 내고 월 15만원 더 받으면 이득일까?",
@@ -560,8 +560,8 @@
   "T012": {
    "title": "연금저축 55세부터 받을까 — 연 1,500만 원 선을 넘기지 않는 법",
    "question": "연금저축·IRP를 55세부터 받기 시작하면 세금이 얼마인가?",
-   "conclusion": "1억 원을 10년에 나눠 연 1,000만 원씩 받으면 세금 5.5% 약 550만 원, 5년에 몰아 연 2,000만 원씩 받으면 16.5%가 붙어 약 ○○만 원 — 연 1,500만 원 이하로 나눠 받는 쪽이 덜 낸다.",
-   "decide": "같은 1억을 받을 때 세금 합계가 '연 1,500만 원 이하로 나눔' 쪽이 작으면 그 길, 같으면 '빨리 받기'.",
+   "conclusion": "1억 2천만 원을 5년에 몰아 16.5%를 내면 10년에 나눠 받을 때(660만 원)보다 1,320만 원 더 내고, 국민연금 전이라 다른 소득이 없으면 종합과세가 561만 원으로 가장 적다.",
+   "decide": "같은 돈을 받을 때 세금 합계가 가장 작은 길을 고름 — 연 1,500만 원 이하 5.5% · 16.5% 분리 · 종합과세 셋 중 (계산: calc/calc.py, 2026-10-28 v0.1).",
    "data": "소득세법 제14조·제64조의4(사적연금 분리과세 1,500만 원)·제129조(연금소득 원천징수 세율) — 2026년 시행 원문",
    "format": "비교형",
    "persona": "pre_retire",
@@ -573,16 +573,17 @@
    "data_kind": "세금·법",
    "id": "T012",
    "items": [],
-   "why": "'55세부터 사적연금 수령' 영상 질문 3개 · 꺼내 쓰는 순서 편(eunte)은 순서·부부 나눔이라 받는 나이·한 해 금액은 따로",
-   "status": "이번 묶음",
+   "why": "'55세부터 사적연금 수령' 영상 질문 3개 · 꺼내 쓰는 순서 편(eunte)은 순서·부부 나눔이라 받는 나이·한 해 금액은 따로 · 계산(v0.1) 결과 예상과 달리 '다른 소득이 없으면 종합과세'가 가장 적음 → 결론을 고침",
+   "status": "작성중",
    "pool": "economic/topics/pool/2026-10-28.json",
    "added": "2026-10-28",
    "nearest_used": {
-    "src": "만든 대본:gungmin-sigi-2026-10",
-    "sim": 0.5,
-    "words": 0.038,
-    "chars": 0.25
+    "src": "yeonjeo-suryeong-2026-10:제목 S3-LT",
+    "sim": 0.957,
+    "words": 0.154,
+    "chars": 0.478
    },
+   "folder": "yeonjeo-suryeong-2026-10",
    "success_match": {
     "title": "연금저축·IRP, 세금 가장 적게 내는 인출 순서 | 황혜린 세무사 | 연금받는형",
     "sim": 0.153
@@ -601,9 +602,7 @@
     "닮은 나쁨": 0.0
    },
    "rating": null,
-   "rating_why": "",
-   "picked_why": "점수 순",
-   "batch": 1
+   "rating_why": ""
   },
   "T013": {
    "title": "공무원연금 일시금 vs 연금 — 몇 살을 넘기면 연금이 이기나",
@@ -626,10 +625,10 @@
    "pool": "economic/topics/pool/2026-10-28.json",
    "added": "2026-10-28",
    "nearest_used": {
-    "src": "만든 대본:isa-mangi-2026-10",
-    "sim": 0.216,
-    "words": 0.043,
-    "chars": 0.108
+    "src": "gicho-gamaek-2026-10:제목 G3-ST",
+    "sim": 0.316,
+    "words": 0.062,
+    "chars": 0.158
    },
    "success_match": {
     "title": "\"공무원 연금 받아도 빠듯해\" 대기업·선생님·군인·자영업자, 70대 노후가 가장 든든한 친구는 누구일까?",
@@ -674,10 +673,10 @@
    "pool": "economic/topics/pool/2026-10-28.json",
    "added": "2026-10-28",
    "nearest_used": {
-    "src": "만든 대본:gungmin-sigi-2026-10",
-    "sim": 0.238,
-    "words": 0.0,
-    "chars": 0.119
+    "src": "yeonjeo-suryeong-2026-10:방향",
+    "sim": 0.476,
+    "words": 0.074,
+    "chars": 0.238
    },
    "success_match": {
     "title": "월 70만 원으로 자산을 쌓은 사람의 3가지 원칙",
@@ -770,10 +769,10 @@
    "pool": "economic/topics/pool/2026-10-28.json",
    "added": "2026-10-28",
    "nearest_used": {
-    "src": "만든 대본:gungmin-sigi-2026-10",
-    "sim": 0.419,
-    "words": 0.077,
-    "chars": 0.209
+    "src": "yeonjeo-suryeong-2026-10:제목 S2-LT",
+    "sim": 0.571,
+    "words": 0.067,
+    "chars": 0.286
    },
    "success_match": {
     "title": "저는 1년 동안 매달 5만 원을 모아봤습니다. 그리고 돈에 대한 생각이 달라졌습니다",
@@ -814,14 +813,14 @@
    "id": "T017",
    "items": [],
    "why": "'해외 주식 양도소득세 폭탄 피하는 법' 질문 다수 · 개별 종목 없이 지수 ETF 로 계산",
-   "status": "대기",
+   "status": "이번 묶음",
    "pool": "economic/topics/pool/2026-10-28.json",
    "added": "2026-10-28",
    "nearest_used": {
-    "src": "만든 대본:geumyung-soduk-2026-10",
-    "sim": 0.167,
-    "words": 0.0,
-    "chars": 0.083
+    "src": "yeonjeo-suryeong-2026-10:제목 S4-LT",
+    "sim": 0.571,
+    "words": 0.062,
+    "chars": 0.286
    },
    "success_match": {
     "title": "왜 내가 사면 떨어지고 팔면 오를까? 개미가 주식으로 돈 못 버는 4가지 이유",
@@ -841,7 +840,9 @@
     "닮은 나쁨": 0.0
    },
    "rating": null,
-   "rating_why": ""
+   "rating_why": "",
+   "picked_why": "점수 순",
+   "batch": 1
   },
   "T018": {
    "title": "개인투자용국채 — 만기까지 들면 예금보다 얼마 더, 중간에 빼면 얼마 덜",
@@ -960,10 +961,10 @@
    "pool": "economic/topics/pool/2026-10-28.json",
    "added": "2026-10-28",
    "nearest_used": {
-    "src": "만든 대본:eunte-kkeonaeseugi-2026-10",
-    "sim": 0.109,
-    "words": 0.043,
-    "chars": 0.029
+    "src": "yeonjeo-irp-2026-10:방향",
+    "sim": 0.333,
+    "words": 0.056,
+    "chars": 0.167
    },
    "success_match": {
     "title": "50대 옥탑방 부부, \"그 나이에 왜 주식을...\"",
@@ -1004,10 +1005,10 @@
    "pool": "economic/topics/pool/2026-10-28.json",
    "added": "2026-10-28",
    "nearest_used": {
-    "src": "만든 대본:eunte-kkeonaeseugi-2026-10",
-    "sim": 0.118,
-    "words": 0.0,
-    "chars": 0.059
+    "src": "yeonjeo-irp-2026-10:제목 I4-ST",
+    "sim": 0.4,
+    "words": 0.059,
+    "chars": 0.2
    },
    "success_match": {
     "title": "돈 생기면 제일 먼저 저금부터 하는 사람들, 사실 이런 사람들입니다 (인색함이 아닙니다)",
@@ -1050,10 +1051,10 @@
    "pool": "economic/topics/pool/2026-10-28.json",
    "added": "2026-10-28",
    "nearest_used": {
-    "src": "만든 대본:gicho-yeongeum-2026-10",
-    "sim": 0.195,
-    "words": 0.038,
-    "chars": 0.098
+    "src": "gicho-gamaek-2026-10:제목 G5-LT",
+    "sim": 0.381,
+    "words": 0.067,
+    "chars": 0.19
    },
    "success_match": {
     "title": "국민연금 추납, 1,850만원 내고 월 15만원 더 받으면 이득일까?",
@@ -1090,14 +1091,14 @@
    "id": "T023",
    "items": [],
    "why": "성공 사례 '연금 120만·200만·300만 동창 5년 뒤 통장이 먼저 바닥난 사람은?' · '65세 이후 통장에 이 금액' 성공 4편",
-   "status": "대기",
+   "status": "이번 묶음",
    "pool": "economic/topics/pool/2026-10-28.json",
    "added": "2026-10-28",
    "nearest_used": {
-    "src": "만든 대본:geumyung-soduk-2026-10",
-    "sim": 0.4,
-    "words": 0.087,
-    "chars": 0.2
+    "src": "yeonjeo-suryeong-2026-10:제목 S2-ST",
+    "sim": 0.421,
+    "words": 0.0,
+    "chars": 0.211
    },
    "success_match": {
     "title": "\"둘이 연금 받으면 넉넉하겠지\" 부부 연금 340만 원인데 노후 파산 직전까지 가는 진짜 이유",
@@ -1117,7 +1118,9 @@
     "닮은 나쁨": 0.0
    },
    "rating": null,
-   "rating_why": ""
+   "rating_why": "",
+   "picked_why": "점수 순",
+   "batch": 1
   },
   "T024": {
    "title": "60세에 쉬기 vs 65세까지 일하기 — 5년 뒤 통장 차이",
@@ -1138,10 +1141,10 @@
    "pool": "economic/topics/pool/2026-10-28.json",
    "added": "2026-10-28",
    "nearest_used": {
-    "src": "만든 대본:gungmin-sigi-2026-10",
-    "sim": 0.324,
-    "words": 0.0,
-    "chars": 0.162
+    "src": "yeonjeo-irp-2026-10:제목 I2-LT",
+    "sim": 0.417,
+    "words": 0.167,
+    "chars": 0.083
    },
    "success_match": {
     "title": "국민연금 63세에 바로 받은 김 부장 vs 5년 미뤄 36% 더 받은 박 부장… 10년 뒤 통장에 더 많이 남은 사람은? | 노후준비 | 오디오",
@@ -1187,10 +1190,10 @@
    "pool": "economic/topics/pool/2026-10-28.json",
    "added": "2026-10-28",
    "nearest_used": {
-    "src": "만든 대본:gungmin-sigi-2026-10",
-    "sim": 0.273,
-    "words": 0.034,
-    "chars": 0.136
+    "src": "gicho-gamaek-2026-10:제목 G5-LT",
+    "sim": 0.667,
+    "words": 0.118,
+    "chars": 0.333
    },
    "success_match": {
     "title": "은퇴 후에도 월 300만원 쓰는 사람 실제로 몇 %일까",
@@ -1216,6 +1219,6 @@
   }
  },
  "rejected": [],
- "updated": "2026-10-28T10:26:47Z",
+ "updated": "2026-10-28T10:37:19Z",
  "tool": "topic_ideas.py v1.2"
 }

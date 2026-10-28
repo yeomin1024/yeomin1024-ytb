@@ -57,7 +57,7 @@ text = "기초연금 받을 수 있나 소득인정액 AI 장면 시험판 (gich
 [summary]
 # tools/summary_ideas.py v1.1 — 편 글자 = 안 ID 머리 (A1~A5 …). 요약본은 economic/source/<영상ID>/요약본.txt
 NAME = "재테크"
-EPISODES = {}
+EPISODES = {I = "yeonjeo-irp-2026-10", G = "gicho-gamaek-2026-10", S = "yeonjeo-suryeong-2026-10"}   # 2026-10-28 첫 세 편 — T003 · T007 · T012 (페르소나 P2·P1·P3 하나씩)
 # 쓰지 않는 말 — 모든 칸 (quick_package 0번: '어르신·노인'·과장 '무조건')
 BANNED = '어르신|노인|무조건'
 # 제목·썸네일 문구에서 피할 말 (quick_package 1번: '방법·하는 법'·'이유·때문'·가린 말 '이것·이때')

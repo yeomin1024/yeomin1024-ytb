@@ -1,5 +1,28 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-28 — 재테크도 주식과 같은 길: 분석 → 확인 엑셀 → 페르소나 → 주제 탐색 20개 → 요약본 세 편
+
+### 왜 (사용자 지시)
+- "주식 주제 관련 세션에서 했던것처럼 똑같은 방식으로 진행해서 유튜브 분석부터 요약본까지 만들어봐"
+
+### 바꾼 것
+| 파일 (버전) | 내용 |
+|---|---|
+| `economic/analysis_rules.toml` (v1.8) | 세 묶음 — [success] MIN_VPD_SUBS 0.1·MIN_AGE_DAYS 7·WEIGHT score · [vpd_top]·[views_top]·쇼츠 같은 묶음 · [comment_titles] 돈 관리 낱말 |
+| `tools/summary_ideas.py` (v1.2) | 주제 인자 (`summary_ideas.py economic status`, 빼면 stock) — 편 목록·쓰지 않는 말·제목에서 피할 말·쇼츠 제목에서 빼는 말·꼬리표 길이 = `<주제>/topics/settings.toml [summary]` (`configure`) · 주식 v1.1 채널 설명 위에 |
+| `tools/topic_ideas.py` (v1.2) | 주제 이름·칸 설명 `[page] NAME`·`[fields]` · 겹침 대상에 `<주제>/source/used_content.md` · 문서·평가판 경로를 주제로 — 주식 결과는 그대로(버전 글자만, 시험함) |
+| `tools/comment_title_ideas.py` (v1.1) | 주제마다 더할 낱말 `[comment_titles] WORDS_KO` |
+| `tools/personas.py` (v1.0.2) · `weekly_analysis.py` (v1.5.2) | 주석만 — 페르소나 설정이 있는 주제 = 주식·재테크 (`economic/personas.toml` 되살림, 4e5f0838) |
+| `economic/guides/channel.md` (v1.0, 새로) · `quick_script.md` (v1.3) | 채널 설명 '한눈에' (재료 맨 위 0번) · 페르소나 줄 되살림 + 1번 0단계 '주제 탐색 → 요약본' |
+| `economic/topics/` (새로) | settings v1.1 (MAX_PER_THEME 8 · DECIDE 비교 낱말) · README · pool 25 → 이번 묶음 20 · 평가판 https://claude.ai/artifact/KftXe7GXWXgA8MJ7RJDXZJ · 요약본 평가판 https://claude.ai/artifact/7d9qx5BXr5JxywuWcwPUgM |
+| `economic/source/{yeonjeo-irp,gicho-gamaek,yeonjeo-suryeong}-2026-10/` (새로) | `calc/calc.py` v0.1 (법 원문 legalize-kr 2026-10-28) · `요약본_안.json` · `요약본.txt` (방향 + 안 5개, 검사 ✅) |
+| `economic/result/outliers/` | 분석 다시 (성공 193 · 비교 1,810 · 쇼츠 성공 89) · target_check · content_analysis · thumb_codes (193장) · transcript_todo · personas (3명) · comment_titles (26) |
+
+### 확인
+- 주식으로 `topic_ideas.py stock status`·`summary_ideas.py status` 다시 돌림 → 결과 파일은 버전 글자·시각만 다름 (되돌림).
+- 계산이 예상을 뒤집은 것: 연금저축 1억 2천만 원 — 다른 소득이 없으면 종합과세(561만 원)가 10년 나눠 받기(660만 원)보다 적음 → T012 결론을 고침 (연금수령한도는 대본 단계).
+- 법 원문에서 못 찾은 것: 기초연금 '국민연금 150% 이하면 전액' 문턱 → 주제 글에서 뺌 (제5조 ⑤ 공식만 씀).
+
 ## 2026-10-28 — 주식 채널 설명 파일 `stock/guides/channel.md` (v1.0) · 재료 맨 위에 저절로 (`topic_ideas.py`·`summary_ideas.py` v1.1)
 
 ### 왜 (사용자 지시)

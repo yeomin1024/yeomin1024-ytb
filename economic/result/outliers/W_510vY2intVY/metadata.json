@@ -1,0 +1,87 @@
+{
+ "id": "510vY2intVY",
+ "title": "주식 왕초보를 위한 필수 기초용어 & S전자 1주 매수하기",
+ "channel": "구채희",
+ "channel_id": "UCaGp0UNP_dK4YnTc2XFzW2A",
+ "subs": 303000,
+ "views": 1460151,
+ "ratio": 4.82,
+ "age_days": 2214,
+ "views_per_day": 659.4,
+ "minutes": 11.5,
+ "likes": 33153,
+ "comments": 441,
+ "published": "2020-10-05",
+ "queries": "검색(전체 기간):주식초보",
+ "url": "https://www.youtube.com/watch?v=510vY2intVY",
+ "flag": "",
+ "published_at": "2020-10-05T03:44:43Z",
+ "rank": "W41",
+ "set": "web",
+ "folder": "W_510vY2intVY",
+ "sources": [
+  "검색(전체 기간):주식초보"
+ ],
+ "source": "web",
+ "tags": [
+  "재테크",
+  "신혼부부재테크",
+  "직장인재테크",
+  "사회초년생재테크",
+  "엄마재테크",
+  "종잣돈만들기",
+  "10억모으기",
+  "부동산투자",
+  "절약저축",
+  "가계부쓰기",
+  "구채희",
+  "구채희작가",
+  "부자",
+  "소액투자",
+  "부수입",
+  "갓결혼한여자의재테크",
+  "주식투자",
+  "주식투자기초",
+  "주식기초용어",
+  "신한금융투자",
+  "주식매수",
+  "신한알파",
+  "삼성전자주식"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 25,
+   "title": "주식이란?"
+  },
+  {
+   "start": 103,
+   "title": "주식을 사기 위해 꼭 알아야 할 것들"
+  },
+  {
+   "start": 287,
+   "title": "스마트폰으로 주식 사기 실전"
+  },
+  {
+   "start": 627,
+   "title": "매수/매도 시 계좌 입고와 현금인출 시점"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 441,
+ "comments_top_level": 307,
+ "comments_replies": 134,
+ "comments_by_creator": 24,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 441,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-10-28T09:55:14",
+ "approved": "2026-10-28T18:55+09:00"
+}

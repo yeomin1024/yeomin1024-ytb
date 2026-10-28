@@ -1,0 +1,89 @@
+{
+ "id": "NAr0bkacgN8",
+ "title": "돈 공부 27년만에 알게된 절대 돈 잃지 않는 투자 방법ㅣ지식인초대석 EP.101 (이광수 대표 1부)",
+ "channel": "지식인사이드",
+ "channel_id": "UCA_hgsFzmynpv1zkvA5A7jA",
+ "subs": 4130000,
+ "views": 3907827,
+ "ratio": 0.95,
+ "age_days": 256,
+ "views_per_day": 15243.3,
+ "minutes": 23.9,
+ "likes": 64162,
+ "comments": 4208,
+ "published": "2026-02-14",
+ "queries": "검색(전체 기간):돈공부 | 검색(전체 기간):투자 | 검색(전체 기간):주식투자 | 검색(전체 기간):장기투자 | 검색(전체 기간):주식초보 | 검색(전체 기간):주식공부 | 검색(전체 기간):돈버는법",
+ "url": "https://www.youtube.com/watch?v=NAr0bkacgN8",
+ "flag": "",
+ "published_at": "2026-02-14T01:00:28Z",
+ "rank": "W127",
+ "set": "web",
+ "folder": "W_NAr0bkacgN8",
+ "sources": [
+  "검색(전체 기간):돈공부",
+  "검색(전체 기간):투자",
+  "검색(전체 기간):주식투자",
+  "검색(전체 기간):장기투자",
+  "검색(전체 기간):주식초보",
+  "검색(전체 기간):주식공부",
+  "검색(전체 기간):돈버는법"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 28,
+   "title": "구독자 인사"
+  },
+  {
+   "start": 133,
+   "title": "주식하면 손실만 나는 사람들의 투자 패턴"
+  },
+  {
+   "start": 329,
+   "title": "“종목 추천 의미 없다” 상위 1%의 투자 원칙"
+  },
+  {
+   "start": 503,
+   "title": "올랐을 때 바로 팔면 초보, 딱 ‘이때’ 파세요"
+  },
+  {
+   "start": 717,
+   "title": "‘언젠가 오르겠지..’ 장기 투자의 치명적 허점"
+  },
+  {
+   "start": 843,
+   "title": "부자로 남고 싶다면 예측 말고 ‘이것’ 하세요"
+  },
+  {
+   "start": 949,
+   "title": "주식 종목 살 때는 ‘이것’ 하나만 기억하세요"
+  },
+  {
+   "start": 1195,
+   "title": "주식 고수를 만드는 ‘주식 노트’ 쓰는 방법"
+  },
+  {
+   "start": 1308,
+   "title": "주식으로 돈 버는 ‘주식 프로세스’ 총정리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-28 16:02까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 4208,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-10-28T10:05:44",
+ "approved": "2026-10-28T19:05+09:00"
+}

@@ -1,0 +1,80 @@
+{
+ "id": "KrF3cYdcT1A",
+ "title": "'진정한 복리의 힘' 15억원으로 QQQ, SCHD, S&P500 미국 지수 투자하는 직장인의 실제 계좌 공개 [알찬 을사년 특집]",
+ "channel": "싱글파이어",
+ "channel_id": "UC5CyCSvCdoEP-VgQmFq3iww",
+ "subs": 513000,
+ "views": 3123634,
+ "ratio": 6.09,
+ "age_days": 643,
+ "views_per_day": 4857.7,
+ "minutes": 16.6,
+ "likes": 52949,
+ "comments": 1901,
+ "published": "2025-01-23",
+ "queries": "검색(전체 기간):1억모으기 | 검색(전체 기간):투자 | 검색(전체 기간):미국주식 | 검색(전체 기간):장기투자 | 검색(전체 기간):ETF투자 | 검색(전체 기간):S&P500",
+ "url": "https://www.youtube.com/watch?v=KrF3cYdcT1A",
+ "flag": "",
+ "published_at": "2025-01-23T09:00:18Z",
+ "rank": "W33",
+ "set": "web",
+ "folder": "W_KrF3cYdcT1A",
+ "sources": [
+  "검색(전체 기간):1억모으기",
+  "검색(전체 기간):투자",
+  "검색(전체 기간):미국주식",
+  "검색(전체 기간):장기투자",
+  "검색(전체 기간):ETF투자",
+  "검색(전체 기간):S&P500"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "포메뽀꼬 계좌 공개"
+  },
+  {
+   "start": 116,
+   "title": "당장 투자 시작해야하는 이유"
+  },
+  {
+   "start": 217,
+   "title": "부동산 투자하는 게 낫지 않아요?"
+  },
+  {
+   "start": 312,
+   "title": "주식 매수 매도 기준"
+  },
+  {
+   "start": 405,
+   "title": "하락장 대응 방법"
+  },
+  {
+   "start": 561,
+   "title": "달러 관리 어떻게 하세요?"
+  },
+  {
+   "start": 754,
+   "title": "2025년 시장 예측"
+  },
+  {
+   "start": 882,
+   "title": "2025년 주목하는 주식?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 1901,
+ "comments_top_level": 801,
+ "comments_replies": 1100,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 1901,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-10-28T09:53:48",
+ "approved": "2026-10-28T18:54+09:00"
+}

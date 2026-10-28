@@ -1,0 +1,90 @@
+{
+ "id": "YNFd_h3ah2A",
+ "title": "평생 출근하기 싫다면, 지금 제대로 알아야 할 돈의 원리 | 호주 Ep.7-2",
+ "channel": "희야기 | HeeChan",
+ "channel_id": "UCwwEoblY3HEXs8bs3hoOn0A",
+ "subs": 182000,
+ "views": 1269232,
+ "ratio": 6.97,
+ "age_days": 228,
+ "views_per_day": 5545.3,
+ "minutes": 15.5,
+ "likes": 24547,
+ "comments": 1133,
+ "published": "2026-03-13",
+ "queries": "검색(전체 기간):돈버는법",
+ "url": "https://www.youtube.com/watch?v=YNFd_h3ah2A",
+ "flag": "",
+ "published_at": "2026-03-13T12:30:46Z",
+ "rank": "W28",
+ "set": "web",
+ "folder": "W_YNFd_h3ah2A",
+ "sources": [
+  "검색(전체 기간):돈버는법"
+ ],
+ "source": "web",
+ "tags": [
+  "희야기",
+  "호주",
+  "글로벌마인딩 S3",
+  "성공",
+  "행복",
+  "멜버른",
+  "도전",
+  "골드코스트",
+  "투자",
+  "부동산",
+  "버블",
+  "비트코인",
+  "암호화폐",
+  "사업"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 46,
+   "title": "‘시간 부자’가 되기까지 걸린 시간"
+  },
+  {
+   "start": 49,
+   "title": "① UAE에서의 첫 직장"
+  },
+  {
+   "start": 115,
+   "title": "② 호주에서 아버지와 함께 한 사업"
+  },
+  {
+   "start": 173,
+   "title": "③ 점차 성장해갔던 부업"
+  },
+  {
+   "start": 228,
+   "title": "④ 자산의 규모를 키우고 느낀 것"
+  },
+  {
+   "start": 460,
+   "title": "⑤ 레버리지를 활용하는 방법"
+  },
+  {
+   "start": 785,
+   "title": "⑥ 돈으로 행복을 살 수 있다고 생각하는 이유"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 1133,
+ "comments_top_level": 677,
+ "comments_replies": 456,
+ "comments_by_creator": 3,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 1133,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-10-28T09:52:48",
+ "approved": "2026-10-28T18:53+09:00"
+}

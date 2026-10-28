@@ -1,0 +1,80 @@
+{
+ "id": "hO6hdYvLEig",
+ "title": "S&P500 이렇게 사세요 '평생 놀고 먹는 시스템' 자동수익 만드는 법",
+ "channel": "이로미즘",
+ "channel_id": "UCOZmOXsWpJVoIBhqmVvfjhQ",
+ "subs": 38700,
+ "views": 1199259,
+ "ratio": 30.99,
+ "age_days": 323,
+ "views_per_day": 3701.5,
+ "minutes": 17.8,
+ "likes": 27050,
+ "comments": 918,
+ "published": "2025-12-08",
+ "queries": "검색(전체 기간):S&P500 | 검색(전체 기간):노후준비",
+ "url": "https://www.youtube.com/watch?v=hO6hdYvLEig",
+ "flag": "",
+ "published_at": "2025-12-08T10:00:15Z",
+ "rank": "W13",
+ "set": "web",
+ "folder": "W_hO6hdYvLEig",
+ "sources": [
+  "검색(전체 기간):S&P500",
+  "검색(전체 기간):노후준비"
+ ],
+ "source": "web",
+ "tags": [
+  "독일",
+  "경제",
+  "역사"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "당신이 잠든 사이에도 돈은 일해야 한다"
+  },
+  {
+   "start": 77,
+   "title": "자본주의의 심장을 사다: 왜 하필 S&P 500인가?"
+  },
+  {
+   "start": 303,
+   "title": "시스템의 연료: 복리(Compounding)라는 제8의 불가사의"
+  },
+  {
+   "start": 452,
+   "title": "평생 놀고 먹는 공식: 파이어족의 성경 '4%의 법칙'"
+  },
+  {
+   "start": 611,
+   "title": "한국인을 위한 실전 로드맵: 세금이 수익을 갉아먹게 두지 마라"
+  },
+  {
+   "start": 809,
+   "title": "죽음의 계곡을 건너는 법: 멘탈이 전부다"
+  },
+  {
+   "start": 957,
+   "title": "마침내 도달한 유토피아: 인출 전략과 삶"
+  },
+  {
+   "start": 1061,
+   "title": "오늘 심은 사과나무가 내일의 숲이 된다"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 918,
+ "comments_top_level": 503,
+ "comments_replies": 415,
+ "comments_by_creator": 4,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 918,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-10-28T09:49:56",
+ "approved": "2026-10-28T18:50+09:00"
+}

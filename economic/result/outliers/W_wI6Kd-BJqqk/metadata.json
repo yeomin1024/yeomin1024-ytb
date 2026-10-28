@@ -1,0 +1,172 @@
+{
+ "id": "wI6Kd-BJqqk",
+ "title": "👴👵 연금저축과 IRP의 결정적인 차이",
+ "channel": "박곰희TV",
+ "channel_id": "UCr7XsrSrvAn_WcU4kF99bbQ",
+ "subs": 1280000,
+ "views": 1340938,
+ "ratio": 1.05,
+ "age_days": 1083,
+ "views_per_day": 1237.2,
+ "minutes": 23.6,
+ "likes": 26130,
+ "comments": 750,
+ "published": "2023-11-09",
+ "queries": "검색(전체 기간):저축 | 검색(전체 기간):자산배분 | 검색(전체 기간):연금저축 | 검색(전체 기간):IRP | 검색(전체 기간):연금저축펀드",
+ "url": "https://www.youtube.com/watch?v=wI6Kd-BJqqk",
+ "flag": "",
+ "published_at": "2023-11-09T12:31:48Z",
+ "rank": "W120",
+ "set": "web",
+ "folder": "W_wI6Kd-BJqqk",
+ "sources": [
+  "검색(전체 기간):저축",
+  "검색(전체 기간):자산배분",
+  "검색(전체 기간):연금저축",
+  "검색(전체 기간):IRP",
+  "검색(전체 기간):연금저축펀드"
+ ],
+ "source": "web",
+ "tags": [
+  "재테크",
+  "투자",
+  "박곰희",
+  "빠꼼이",
+  "증권사",
+  "증권",
+  "자산관리사",
+  "금융",
+  "금융인",
+  "주식",
+  "주식투자",
+  "주식초보",
+  "주식입문",
+  "자산관리",
+  "주식강의",
+  "주식공부",
+  "주식계좌",
+  "개미투자",
+  "연금",
+  "연금저축",
+  "연금펀드",
+  "연금저축펀드",
+  "개인연금",
+  "세액공제",
+  "연말정산",
+  "미래에셋대우",
+  "삼성증권",
+  "KB증권",
+  "한국투자증권",
+  "한투",
+  "신한금융투자",
+  "신금투",
+  "키움증권",
+  "NH투자증권",
+  "나무",
+  "ETF",
+  "펀드",
+  "ELS",
+  "발행어음",
+  "채권",
+  "IRP",
+  "ISA",
+  "노후준비",
+  "증권맨",
+  "성투",
+  "성공투자",
+  "워렌버핏",
+  "장기투자",
+  "자산배분",
+  "분산투자",
+  "포트폴리오",
+  "금융 유튜버",
+  "가치투자",
+  "TIGER",
+  "kodex",
+  "kbstar",
+  "kindex",
+  "arirang",
+  "kosef",
+  "증권사비교",
+  "계좌개설 혜택비교",
+  "박곰희 비교",
+  "계좌개설",
+  "초심",
+  "초심시리즈",
+  "박곰희투자법",
+  "자산분배",
+  "알채권",
+  "채권ETF",
+  "미국채권",
+  "연금통계",
+  "연금계좌"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "연금저축 vs IRP"
+  },
+  {
+   "start": 90,
+   "title": "연금계좌"
+  },
+  {
+   "start": 143,
+   "title": "계좌의 탄생"
+  },
+  {
+   "start": 227,
+   "title": "계좌개설할 때"
+  },
+  {
+   "start": 326,
+   "title": "저축금을 넣을 때"
+  },
+  {
+   "start": 434,
+   "title": "세액공제를 받을 때"
+  },
+  {
+   "start": 583,
+   "title": "상품을 선택할 때"
+  },
+  {
+   "start": 884,
+   "title": "수익이 났을 때"
+  },
+  {
+   "start": 945,
+   "title": "중도인출할 때"
+  },
+  {
+   "start": 1071,
+   "title": "대출받을 때"
+  },
+  {
+   "start": 1161,
+   "title": "해지할 때"
+  },
+  {
+   "start": 1316,
+   "title": "연금을 수령할 때"
+  },
+  {
+   "start": 1381,
+   "title": "마무리 인사"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-28 16:02까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 750,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-10-28T10:05:43",
+ "approved": "2026-10-28T19:05+09:00"
+}

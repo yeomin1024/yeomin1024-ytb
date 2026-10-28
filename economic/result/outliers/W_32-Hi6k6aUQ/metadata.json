@@ -1,0 +1,80 @@
+{
+ "id": "32-Hi6k6aUQ",
+ "title": "부자들은 '돈 쓰는 법'부터 다릅니다. 이것부터 하세요ㅣ지식인초대석 EP.74 (오건영 단장 1부)",
+ "channel": "지식인사이드",
+ "channel_id": "UCA_hgsFzmynpv1zkvA5A7jA",
+ "subs": 4130000,
+ "views": 1791595,
+ "ratio": 0.43,
+ "age_days": 361,
+ "views_per_day": 4957.9,
+ "minutes": 27.3,
+ "likes": 25903,
+ "comments": 862,
+ "published": "2025-11-01",
+ "queries": "검색(전체 기간):부자 | 검색(전체 기간):돈모으기",
+ "url": "https://www.youtube.com/watch?v=32-Hi6k6aUQ",
+ "flag": "",
+ "published_at": "2025-11-01T01:00:03Z",
+ "rank": "W164",
+ "set": "web",
+ "folder": "W_32-Hi6k6aUQ",
+ "sources": [
+  "검색(전체 기간):부자",
+  "검색(전체 기간):돈모으기"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 21,
+   "title": "구독자 인사"
+  },
+  {
+   "start": 79,
+   "title": "인플레이션에서 빚을 자산처럼 활용하는 법"
+  },
+  {
+   "start": 380,
+   "title": "요즘같은 인플레이션 시대에 가장 유망한 산업군"
+  },
+  {
+   "start": 632,
+   "title": "초보 투자자들이 흔히 빠지는 함정 ‘2가지’"
+  },
+  {
+   "start": 847,
+   "title": "미국의 위기가 우리 통장에 미치는 영향"
+  },
+  {
+   "start": 1050,
+   "title": "미국 물가도 높다는데 자꾸 금리 낮추는 이유"
+  },
+  {
+   "start": 1239,
+   "title": "한국의 환율이 흔들리는 ‘3가지’ 이유"
+  },
+  {
+   "start": 1478,
+   "title": "경제 위기 전에 점검해야 할 나의 포트폴리오"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-28 16:02까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 862,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-10-28T10:05:50",
+ "approved": "2026-10-28T19:05+09:00"
+}

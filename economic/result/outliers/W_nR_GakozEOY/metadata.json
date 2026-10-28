@@ -1,0 +1,76 @@
+{
+ "id": "nR_GakozEOY",
+ "title": "※요즘 주식한다면 꼭 봐야 할 영상※｜크랩",
+ "channel": "크랩 KLAB",
+ "channel_id": "UCoxT1kQSLq564FwpK473w-g",
+ "subs": 1080000,
+ "views": 1682020,
+ "ratio": 1.56,
+ "age_days": 180,
+ "views_per_day": 9293.8,
+ "minutes": 6.6,
+ "likes": 8986,
+ "comments": 2218,
+ "published": "2026-04-30",
+ "queries": "검색:주식 | 검색:주식투자 | 검색(전체 기간):주식 | 검색(전체 기간):주식투자",
+ "url": "https://www.youtube.com/watch?v=nR_GakozEOY",
+ "flag": "",
+ "published_at": "2026-04-30T10:09:43Z",
+ "rank": "W90",
+ "set": "web",
+ "folder": "W_nR_GakozEOY",
+ "sources": [
+  "검색:주식",
+  "검색:주식투자",
+  "검색(전체 기간):주식",
+  "검색(전체 기간):주식투자"
+ ],
+ "source": "web",
+ "tags": [
+  "크랩"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "시작"
+  },
+  {
+   "start": 34,
+   "title": "배터리 물살 합류한 금양"
+  },
+  {
+   "start": 78,
+   "title": "배터리 아저씨의 등장"
+  },
+  {
+   "start": 145,
+   "title": "1차 불성실공시법인 지정"
+  },
+  {
+   "start": 198,
+   "title": "2차 불성실공시법인 지정"
+  },
+  {
+   "start": 245,
+   "title": "외부 감사인 \"우리도 손절할게\""
+  },
+  {
+   "start": 309,
+   "title": "위험한 요즘 주식 투자 유형"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-28 16:02까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 2218,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-10-28T10:05:38",
+ "approved": "2026-10-28T19:05+09:00"
+}

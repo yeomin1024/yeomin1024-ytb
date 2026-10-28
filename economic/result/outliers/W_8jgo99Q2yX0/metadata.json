@@ -1,0 +1,72 @@
+{
+ "id": "8jgo99Q2yX0",
+ "title": "ETF, 이제는 졸업하세요🫡",
+ "channel": "시골쥐의 도시생활",
+ "channel_id": "UCimq5GQ-7Cg9VmV0q0KOY3A",
+ "subs": 502000,
+ "views": 1335744,
+ "ratio": 2.66,
+ "age_days": 744,
+ "views_per_day": 1793.0,
+ "minutes": 10.1,
+ "likes": 30335,
+ "comments": 845,
+ "published": "2024-10-13",
+ "queries": "검색(전체 기간):주식투자 | 검색(전체 기간):ETF | 검색(전체 기간):ETF투자 | 검색(전체 기간):ISA계좌",
+ "url": "https://www.youtube.com/watch?v=8jgo99Q2yX0",
+ "flag": "",
+ "published_at": "2024-10-13T10:00:13Z",
+ "rank": "W64",
+ "set": "web",
+ "folder": "W_8jgo99Q2yX0",
+ "sources": [
+  "검색(전체 기간):주식투자",
+  "검색(전체 기간):ETF",
+  "검색(전체 기간):ETF투자",
+  "검색(전체 기간):ISA계좌"
+ ],
+ "source": "web",
+ "tags": [
+  "해외etf",
+  "주식투자",
+  "주린이",
+  "SPY",
+  "qqq"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "시작"
+  },
+  {
+   "start": 43,
+   "title": "1. 수수료 (S&P500 기준)"
+  },
+  {
+   "start": 144,
+   "title": "2. 세금"
+  },
+  {
+   "start": 370,
+   "title": "3. 유의사항"
+  },
+  {
+   "start": 497,
+   "title": "4. 오늘 영상 정리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 845,
+ "comments_top_level": 563,
+ "comments_replies": 282,
+ "comments_by_creator": 58,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 845,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-10-28T10:00:17",
+ "approved": "2026-10-28T19:00+09:00"
+}

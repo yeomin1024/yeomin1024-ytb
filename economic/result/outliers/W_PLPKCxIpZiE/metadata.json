@@ -1,0 +1,78 @@
+{
+ "id": "PLPKCxIpZiE",
+ "title": "\"월급 250만원, 저러면 이렇게 1억 모읍니다\" 적은 돈으로 쉽고 빠르게 부자되는 법.  (김경필 머니트레이너 2부)",
+ "channel": "지식인사이드",
+ "channel_id": "UCA_hgsFzmynpv1zkvA5A7jA",
+ "subs": 4130000,
+ "views": 2132686,
+ "ratio": 0.52,
+ "age_days": 1015,
+ "views_per_day": 2099.1,
+ "minutes": 16.1,
+ "likes": 25727,
+ "comments": 1278,
+ "published": "2024-01-16",
+ "queries": "검색(전체 기간):재테크 | 검색(전체 기간):자산관리 | 검색(전체 기간):부자되는법 | 검색(전체 기간):부자 | 검색(전체 기간):돈모으기 | 검색(전체 기간):저축 | 검색(전체 기간):1억모으기 | 검색(전체 기간):돈버는법",
+ "url": "https://www.youtube.com/watch?v=PLPKCxIpZiE",
+ "flag": "",
+ "published_at": "2024-01-16T10:00:28Z",
+ "rank": "W153",
+ "set": "web",
+ "folder": "W_PLPKCxIpZiE",
+ "sources": [
+  "검색(전체 기간):재테크",
+  "검색(전체 기간):자산관리",
+  "검색(전체 기간):부자되는법",
+  "검색(전체 기간):부자",
+  "검색(전체 기간):돈모으기",
+  "검색(전체 기간):저축",
+  "검색(전체 기간):1억모으기",
+  "검색(전체 기간):돈버는법"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 24,
+   "title": "1억만 모으면 인생이 바뀌는 이유"
+  },
+  {
+   "start": 181,
+   "title": "제 월급 250만원이라면 ‘이렇게’ 1억 모읍니다"
+  },
+  {
+   "start": 317,
+   "title": "통장에 현금은 딱 ‘이만큼’만 넣어두세요"
+  },
+  {
+   "start": 544,
+   "title": "5년 안에 최소 1억 모으는 현실적인 방법"
+  },
+  {
+   "start": 623,
+   "title": "노후 1달 최소 생활비는 ‘이정도’ 돈이 필요합니다"
+  },
+  {
+   "start": 892,
+   "title": "투자는 어렵지 않습니다. ‘이것’만 기억하세요"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-28 16:02까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 1278,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-10-28T10:05:48",
+ "approved": "2026-10-28T19:05+09:00"
+}

@@ -1,0 +1,118 @@
+{
+ "id": "2291FQ20494",
+ "title": "큰돈 버는 ‘주식 프로세스’ 총정리해드립니다.ㅣ지식인초대석 (이광수 대표 풀버전)",
+ "channel": "지식인사이드",
+ "channel_id": "UCA_hgsFzmynpv1zkvA5A7jA",
+ "subs": 4130000,
+ "views": 3348071,
+ "ratio": 0.81,
+ "age_days": 235,
+ "views_per_day": 14192.4,
+ "minutes": 48.0,
+ "likes": 51939,
+ "comments": 2425,
+ "published": "2026-03-06",
+ "queries": "검색(전체 기간):재테크 | 검색(전체 기간):주식 | 검색(전체 기간):주식투자 | 검색(전체 기간):장기투자 | 검색(전체 기간):ETF투자 | 검색(전체 기간):주식초보 | 검색(전체 기간):투자전략 | 검색(전체 기간):돈버는법",
+ "url": "https://www.youtube.com/watch?v=2291FQ20494",
+ "flag": "",
+ "published_at": "2026-03-06T12:00:10Z",
+ "rank": "W133",
+ "set": "web",
+ "folder": "W_2291FQ20494",
+ "sources": [
+  "검색(전체 기간):재테크",
+  "검색(전체 기간):주식",
+  "검색(전체 기간):주식투자",
+  "검색(전체 기간):장기투자",
+  "검색(전체 기간):ETF투자",
+  "검색(전체 기간):주식초보",
+  "검색(전체 기간):투자전략",
+  "검색(전체 기간):돈버는법"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "구독자 인사"
+  },
+  {
+   "start": 109,
+   "title": "주식하면 손실만 나는 사람들의 투자 패턴"
+  },
+  {
+   "start": 305,
+   "title": "“종목 추천 의미 없다” 상위 1%의 투자 원칙"
+  },
+  {
+   "start": 479,
+   "title": "올랐을 때 바로 팔면 초보, 딱 ‘이때’ 파세요"
+  },
+  {
+   "start": 693,
+   "title": "‘언젠가 오르겠지..’ 장기 투자의 치명적 허점"
+  },
+  {
+   "start": 819,
+   "title": "부자로 남고 싶다면 예측 말고 ‘이것’ 하세요"
+  },
+  {
+   "start": 925,
+   "title": "주식 종목 살 때는 ‘이것’ 하나만 기억하세요"
+  },
+  {
+   "start": 1171,
+   "title": "주식 고수를 만드는 ‘주식 노트’ 쓰는 방법"
+  },
+  {
+   "start": 1284,
+   "title": "주식으로 돈 버는 ‘주식 프로세스’ 총정리"
+  },
+  {
+   "start": 1399,
+   "title": "코스피 80% 올랐어도 한국 주식 여전히 ‘싼’ 이유"
+  },
+  {
+   "start": 1536,
+   "title": "월스트리트 투자자가 한국 주식을 비웃었던 이유"
+  },
+  {
+   "start": 1759,
+   "title": "‘1000원은 싼 주식?’ 주식 초보들이 흔히 하는 착각"
+  },
+  {
+   "start": 1892,
+   "title": "주식 초보라면 반드시 알아야 하는 ‘2가지’ 지표"
+  },
+  {
+   "start": 2102,
+   "title": "비싼 주식 vs 싼 주식, 고민될 땐 ‘이걸’ 보세요"
+  },
+  {
+   "start": 2300,
+   "title": "개별 종목 vs ETF, 투자 전략 ‘이렇게’ 세우세요"
+  },
+  {
+   "start": 2559,
+   "title": "주식 투자할 때 ‘나만 아는 정보’의 함정"
+  },
+  {
+   "start": 2645,
+   "title": "애널리스트가 확신하는 한국 주식 시장의 미래"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-28 16:02까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 2425,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-10-28T10:05:45",
+ "approved": "2026-10-28T19:05+09:00"
+}

@@ -1,0 +1,73 @@
+{
+ "id": "o--Jfjno7aI",
+ "title": "돈이란 무엇인가?💵경제 원리를 알아야 벌 수 있는 돈의 모든 것｜2024년 최고의 프로그램 '돈의 얼굴' 시청자상, 한국방송대상 수상🏅｜금리와 인플레이션｜주식과 재테크｜#골라듄다큐",
+ "channel": "EBSDocumentary (EBS 다큐)",
+ "channel_id": "UCFCtZJTuJhE18k8IXwmXTYQ",
+ "subs": 5470000,
+ "views": 1844401,
+ "ratio": 0.34,
+ "age_days": 671,
+ "views_per_day": 2744.7,
+ "minutes": 145.1,
+ "likes": 25002,
+ "comments": 526,
+ "published": "2024-12-25",
+ "queries": "검색(전체 기간):재테크 | 검색(전체 기간):돈버는법",
+ "url": "https://www.youtube.com/watch?v=o--Jfjno7aI",
+ "flag": "",
+ "published_at": "2024-12-25T10:00:48Z",
+ "rank": "W171",
+ "set": "web",
+ "folder": "W_o--Jfjno7aI",
+ "sources": [
+  "검색(전체 기간):재테크",
+  "검색(전체 기간):돈버는법"
+ ],
+ "source": "web",
+ "tags": [
+  "EBS",
+  "EBS documentary",
+  "EBS 다큐멘터리",
+  "다큐",
+  "docu",
+  "골라듄",
+  "골라듄다큐",
+  "골라둔다큐"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "다큐프라임 - 돈의 얼굴 1부 돈을 믿습니까 20240415"
+  },
+  {
+   "start": 2329,
+   "title": "다큐프라임 - 돈의 얼굴 2부 이자 굴려드립니다 20240416"
+  },
+  {
+   "start": 3744,
+   "title": "다큐프라임 - 돈의 얼굴 3부 돈이 떨어졌습니다 20240422"
+  },
+  {
+   "start": 5925,
+   "title": "다큐프라임 - 돈의 얼굴 4부 떼인 돈 받아드립니다 20240423"
+  },
+  {
+   "start": 6691,
+   "title": "다큐프라임 - 돈의 얼굴 5부 고급 정보 드립니다 20240429"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-28 16:02까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 526,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-10-28T10:05:51",
+ "approved": "2026-10-28T19:05+09:00"
+}

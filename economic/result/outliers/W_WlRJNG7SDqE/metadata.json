@@ -1,0 +1,83 @@
+{
+ "id": "WlRJNG7SDqE",
+ "title": "부자라는 착각에 빠진 한국, 가난하게 죽기 싫으면 제발 '이걸' 모으셔야 합니다. (강창희 대표 1부)",
+ "channel": "지식인사이드",
+ "channel_id": "UCA_hgsFzmynpv1zkvA5A7jA",
+ "subs": 4130000,
+ "views": 3064971,
+ "ratio": 0.74,
+ "age_days": 1124,
+ "views_per_day": 2726.0,
+ "minutes": 30.7,
+ "likes": 47676,
+ "comments": 1754,
+ "published": "2023-09-30",
+ "queries": "검색(전체 기간):부자",
+ "url": "https://www.youtube.com/watch?v=WlRJNG7SDqE",
+ "flag": "",
+ "published_at": "2023-09-30T01:00:20Z",
+ "rank": "W138",
+ "set": "web",
+ "folder": "W_WlRJNG7SDqE",
+ "sources": [
+  "검색(전체 기간):부자"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 39,
+   "title": "구독자 인사"
+  },
+  {
+   "start": 46,
+   "title": "부자라는 착각에 빠진 한국, 곧 끔찍한 노후 펼쳐진다"
+  },
+  {
+   "start": 297,
+   "title": "일본의 잃어버린 30년, 한국은 더 잔혹하게 터진다"
+  },
+  {
+   "start": 487,
+   "title": "“집 하나만 있으면 되지” 이렇게 나이들면 말라죽는다"
+  },
+  {
+   "start": 862,
+   "title": "주식, 부동산도 소용 없어요. 제발 ‘이걸’ 모으셔야 합니다"
+  },
+  {
+   "start": 1144,
+   "title": "자녀가 부자 되는 것을 부모가 방해하고 있다?"
+  },
+  {
+   "start": 1298,
+   "title": "100명 중 99명이 모르고 있어요. 주식 투자, 제발 ‘이렇게’ 하지 마세요"
+  },
+  {
+   "start": 1430,
+   "title": "끔찍한 노후파산, 연령별로 다르게 대처해야만 한다"
+  },
+  {
+   "start": 1603,
+   "title": "한국인 100명에 99명은 항상 ‘이렇게’ 사기 당한다"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-28 16:02까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 1754,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-10-28T10:05:46",
+ "approved": "2026-10-28T19:05+09:00"
+}

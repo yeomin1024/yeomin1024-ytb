@@ -1,0 +1,77 @@
+{
+ "id": "wCBFOzu5RUs",
+ "title": "신혼집으로 33년된 노후 빌라를 샀어요 | 노후빌라 올수리 인테리어,리모델링 업체 선정부터 공사 시작까지 | 오래된 빌라가 새집이 되어가는 과정 | EP 1",
+ "channel": "초리초리",
+ "channel_id": "UCco6NqQ8K4WCTwoinY1UFgQ",
+ "subs": 9520,
+ "views": 3069065,
+ "ratio": 322.38,
+ "age_days": 1838,
+ "views_per_day": 1669.5,
+ "minutes": 10.7,
+ "likes": 8862,
+ "comments": 605,
+ "published": "2021-10-16",
+ "queries": "검색(전체 기간):노후",
+ "url": "https://www.youtube.com/watch?v=wCBFOzu5RUs",
+ "flag": "",
+ "published_at": "2021-10-16T01:00:09Z",
+ "rank": "W1",
+ "set": "web",
+ "folder": "W_wCBFOzu5RUs",
+ "sources": [
+  "검색(전체 기간):노후"
+ ],
+ "source": "web",
+ "tags": [
+  "노후빌라",
+  "폐가",
+  "올수리",
+  "인테리어",
+  "리모델링",
+  "신혼집",
+  "33년된빌라",
+  "시공업체선정",
+  "오래된집"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 28,
+   "title": "폐가수준의 33년된 집의 상태"
+  },
+  {
+   "start": 123,
+   "title": "수리를 위한 전문가의 상담"
+  },
+  {
+   "start": 270,
+   "title": "모메존칼국수"
+  },
+  {
+   "start": 321,
+   "title": "주변이웃들에게 인사"
+  },
+  {
+   "start": 550,
+   "title": "돼지고기먹방"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 605,
+ "comments_top_level": 424,
+ "comments_replies": 181,
+ "comments_by_creator": 51,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 605,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-10-28T09:48:19",
+ "approved": "2026-10-28T18:48+09:00"
+}

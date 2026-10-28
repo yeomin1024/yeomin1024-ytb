@@ -1,0 +1,75 @@
+{
+ "id": "8_IWCkBVL4Y",
+ "title": "초등학생도 이해하는 퇴직연금 중요성",
+ "channel": "슈카월드",
+ "channel_id": "UCsJ6RuBiTVWRX156FVbeaGg",
+ "subs": 3740000,
+ "views": 1541348,
+ "ratio": 0.41,
+ "age_days": 1076,
+ "views_per_day": 1431.2,
+ "minutes": 15.5,
+ "likes": 25945,
+ "comments": 958,
+ "published": "2023-11-16",
+ "queries": "검색(전체 기간):연금 | 검색(전체 기간):연금저축펀드",
+ "url": "https://www.youtube.com/watch?v=8_IWCkBVL4Y",
+ "flag": "",
+ "published_at": "2023-11-16T10:37:32Z",
+ "rank": "W166",
+ "set": "web",
+ "folder": "W_8_IWCkBVL4Y",
+ "sources": [
+  "검색(전체 기간):연금",
+  "검색(전체 기간):연금저축펀드"
+ ],
+ "source": "web",
+ "tags": [
+  "슈카",
+  "슈카월드",
+  "경제",
+  "시사",
+  "이슈",
+  "뉴스",
+  "상식",
+  "면접",
+  "논술",
+  "자소서",
+  "취업",
+  "주식",
+  "증시",
+  "주가",
+  "시장",
+  "자산",
+  "투자",
+  "금리"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "~ 7:43 퇴직금은 용돈이 아니다?!"
+  },
+  {
+   "start": 463,
+   "title": "~ 9:54 퇴직금 flex의 단점"
+  },
+  {
+   "start": 594,
+   "title": "~ 퇴직연금의 유리한점"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-28 16:02까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 958,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-10-28T10:05:50",
+ "approved": "2026-10-28T19:05+09:00"
+}

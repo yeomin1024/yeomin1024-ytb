@@ -1,0 +1,100 @@
+{
+ "id": "FaXpSwJHEbc",
+ "title": "100만 명이 선택한 국민연금 조기 수령 , 나도 해야 할까? 조기수령과 연기연금의 숨겨진 진실을 알려드립니다",
+ "channel": "누룽지 - 정보를 구수하고 빠삭하게 알려드림",
+ "channel_id": "UCAGsOPVivN4YgJRf6Y89eOA",
+ "subs": 68700,
+ "views": 1528651,
+ "ratio": 22.25,
+ "age_days": 434,
+ "views_per_day": 3517.9,
+ "minutes": 23.2,
+ "likes": 9595,
+ "comments": 1376,
+ "published": "2025-08-19",
+ "queries": "검색(전체 기간):연금",
+ "url": "https://www.youtube.com/watch?v=FaXpSwJHEbc",
+ "flag": "",
+ "published_at": "2025-08-19T21:00:14Z",
+ "rank": "W15",
+ "set": "web",
+ "folder": "W_FaXpSwJHEbc",
+ "sources": [
+  "검색(전체 기간):연금"
+ ],
+ "source": "web",
+ "tags": [
+  "연금",
+  "국민연금",
+  "개인연금",
+  "퇴직연금",
+  "노후",
+  "실수령액",
+  "연금박사",
+  "시니어",
+  "중장년층",
+  "60대",
+  "70대",
+  "노후준비",
+  "노년준비",
+  "이천",
+  "연금전문가",
+  "조기수령",
+  "조기연금",
+  "연기연금",
+  "연금수령",
+  "연금수령시기"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트"
+  },
+  {
+   "start": 30,
+   "title": "자기소개"
+  },
+  {
+   "start": 35,
+   "title": "조기연금이란?"
+  },
+  {
+   "start": 128,
+   "title": "손해인데도 불구하고, 다들 신청하는 이유"
+  },
+  {
+   "start": 430,
+   "title": "조기연금 신청 시 '이것'은 알아야합니다"
+  },
+  {
+   "start": 591,
+   "title": "\"조기연금 신청할까요?\" 조기연금 최종결정 가이드"
+  },
+  {
+   "start": 695,
+   "title": "연기연금이란?"
+  },
+  {
+   "start": 1005,
+   "title": "'이런'분들은 연기연금 꼭 하셔야합니다"
+  },
+  {
+   "start": 1291,
+   "title": "노후를 준비하는 분들께 드리는 조언"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 1376,
+ "comments_top_level": 934,
+ "comments_replies": 442,
+ "comments_by_creator": 4,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 1376,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-10-28T09:50:08",
+ "approved": "2026-10-28T18:50+09:00"
+}

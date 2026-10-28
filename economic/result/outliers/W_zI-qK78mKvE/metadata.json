@@ -1,0 +1,84 @@
+{
+ "id": "zI-qK78mKvE",
+ "title": "돈 때문에 세상이 무너졌다... 사기 당했거나 투자에 실패한 사람들의 이야기 | 추적60분 KBS 방송",
+ "channel": "KBS 추적60분",
+ "channel_id": "UCy-6oZwPwrR_W-zYnqLD8dg",
+ "subs": 807000,
+ "views": 3437864,
+ "ratio": 4.26,
+ "age_days": 737,
+ "views_per_day": 4659.7,
+ "minutes": 55.1,
+ "likes": 18814,
+ "comments": 5458,
+ "published": "2024-10-20",
+ "queries": "검색(전체 기간):투자",
+ "url": "https://www.youtube.com/watch?v=zI-qK78mKvE",
+ "flag": "",
+ "published_at": "2024-10-20T14:48:58Z",
+ "rank": "W45",
+ "set": "web",
+ "folder": "W_zI-qK78mKvE",
+ "sources": [
+  "검색(전체 기간):투자"
+ ],
+ "source": "web",
+ "tags": [
+  "KBS",
+  "다큐",
+  "다큐멘터리",
+  "인터뷰",
+  "레전드",
+  "코인",
+  "투자",
+  "실패",
+  "월세",
+  "전세",
+  "사기",
+  "영끌",
+  "청산",
+  "사례",
+  "빚",
+  "극복",
+  "다시보기",
+  "30대",
+  "우울증",
+  "다단계"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "KOK 코인"
+  },
+  {
+   "start": 558,
+   "title": "레버리지 실패"
+  },
+  {
+   "start": 1172,
+   "title": "MBI 다단계"
+  },
+  {
+   "start": 1850,
+   "title": "P 코인"
+  },
+  {
+   "start": 2649,
+   "title": "부동산 영끌"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 5458,
+ "comments_top_level": 4318,
+ "comments_replies": 1140,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 5458,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-10-28T09:56:40",
+ "approved": "2026-10-28T18:57+09:00"
+}

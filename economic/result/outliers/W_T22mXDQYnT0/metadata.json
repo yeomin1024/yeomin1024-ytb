@@ -1,0 +1,86 @@
+{
+ "id": "T22mXDQYnT0",
+ "title": "'장기투자의 힘' 주식으로 4000만원에서 55억원 만든 직장인의 실제 계좌 공개 [싱글파이어]",
+ "channel": "싱글파이어",
+ "channel_id": "UC5CyCSvCdoEP-VgQmFq3iww",
+ "subs": 513000,
+ "views": 3041363,
+ "ratio": 5.93,
+ "age_days": 476,
+ "views_per_day": 6389.0,
+ "minutes": 12.6,
+ "likes": 36974,
+ "comments": 1690,
+ "published": "2025-07-09",
+ "queries": "검색(전체 기간):재테크 | 검색(전체 기간):투자 | 검색(전체 기간):주식투자 | 검색(전체 기간):장기투자",
+ "url": "https://www.youtube.com/watch?v=T22mXDQYnT0",
+ "flag": "",
+ "published_at": "2025-07-09T09:00:52Z",
+ "rank": "W35",
+ "set": "web",
+ "folder": "W_T22mXDQYnT0",
+ "sources": [
+  "검색(전체 기간):재테크",
+  "검색(전체 기간):투자",
+  "검색(전체 기간):주식투자",
+  "검색(전체 기간):장기투자"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "계좌 공개"
+  },
+  {
+   "start": 127,
+   "title": "시드가 적다면 어떻게 투자해야 할까?"
+  },
+  {
+   "start": 207,
+   "title": "테슬라 뜰 때 배 안 아프세요?"
+  },
+  {
+   "start": 228,
+   "title": "하나금융지주, 뜰 줄 어떻게 아셨어요?"
+  },
+  {
+   "start": 367,
+   "title": "자산이 금방 뛸 수 있었던 방법"
+  },
+  {
+   "start": 420,
+   "title": "저평가 우량주 찾는 법"
+  },
+  {
+   "start": 454,
+   "title": "SCHD는 어떻게 생각하세요?"
+  },
+  {
+   "start": 580,
+   "title": "세금 얼마나 내세요?"
+  },
+  {
+   "start": 638,
+   "title": "2025년 하반기에 주목하는 종목"
+  },
+  {
+   "start": 656,
+   "title": "코스피, '박스피'의 진실"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 1690,
+ "comments_top_level": 1034,
+ "comments_replies": 656,
+ "comments_by_creator": 7,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 1690,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-10-28T09:54:10",
+ "approved": "2026-10-28T18:54+09:00"
+}

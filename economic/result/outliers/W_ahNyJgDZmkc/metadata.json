@@ -1,0 +1,75 @@
+{
+ "id": "ahNyJgDZmkc",
+ "title": "누적 조회수 2500만 이상! 10년 연속 경제 서적 부문 베스트 셀러 1위!┃부자가 되는 법은 이 한편에 모두 담겨있다┃레전드명작 다큐프라임 자본주의 한방에 몰아보기┃#골라듄다큐",
+ "channel": "EBSDocumentary (EBS 다큐)",
+ "channel_id": "UCFCtZJTuJhE18k8IXwmXTYQ",
+ "subs": 5470000,
+ "views": 2470825,
+ "ratio": 0.45,
+ "age_days": 949,
+ "views_per_day": 2603.5,
+ "minutes": 280.1,
+ "likes": 68947,
+ "comments": 1126,
+ "published": "2024-03-23",
+ "queries": "검색(전체 기간):부자되는법 | 검색(전체 기간):부자 | 검색(전체 기간):돈공부 | 검색(전체 기간):돈버는법",
+ "url": "https://www.youtube.com/watch?v=ahNyJgDZmkc",
+ "flag": "",
+ "published_at": "2024-03-23T09:00:04Z",
+ "rank": "W163",
+ "set": "web",
+ "folder": "W_ahNyJgDZmkc",
+ "sources": [
+  "검색(전체 기간):부자되는법",
+  "검색(전체 기간):부자",
+  "검색(전체 기간):돈공부",
+  "검색(전체 기간):돈버는법"
+ ],
+ "source": "web",
+ "tags": [
+  "EBS",
+  "EBS documentary",
+  "EBS 다큐멘터리",
+  "다큐",
+  "docu",
+  "골라듄",
+  "골라듄다큐",
+  "골라둔다큐"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "1부 돈은 빚이다"
+  },
+  {
+   "start": 3534,
+   "title": "2부 소비는 감정이다"
+  },
+  {
+   "start": 6792,
+   "title": "3부 금융지능은 있는가"
+  },
+  {
+   "start": 10180,
+   "title": "4부 세상을 바꾼 위대한 철학자들"
+  },
+  {
+   "start": 13343,
+   "title": "5부 국가는 무엇을 해야 하는가"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-28 16:02까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 1126,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-10-28T10:05:50",
+ "approved": "2026-10-28T19:05+09:00"
+}

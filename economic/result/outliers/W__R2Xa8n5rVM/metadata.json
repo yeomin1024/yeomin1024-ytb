@@ -1,0 +1,85 @@
+{
+ "id": "_R2Xa8n5rVM",
+ "title": "빅데이터로 증명된 최적의 노후 대비법 | 지식인초대석 EP.5 (송길영 작가)",
+ "channel": "지식인사이드",
+ "channel_id": "UCA_hgsFzmynpv1zkvA5A7jA",
+ "subs": 4130000,
+ "views": 1417102,
+ "ratio": 0.34,
+ "age_days": 759,
+ "views_per_day": 1866.2,
+ "minutes": 28.8,
+ "likes": 19839,
+ "comments": 572,
+ "published": "2024-09-29",
+ "queries": "검색(전체 기간):노후준비 | 검색(전체 기간):은퇴준비 | 검색(전체 기간):노후",
+ "url": "https://www.youtube.com/watch?v=_R2Xa8n5rVM",
+ "flag": "",
+ "published_at": "2024-09-29T01:00:31Z",
+ "rank": "W172",
+ "set": "web",
+ "folder": "W__R2Xa8n5rVM",
+ "sources": [
+  "검색(전체 기간):노후준비",
+  "검색(전체 기간):은퇴준비",
+  "검색(전체 기간):노후"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 21,
+   "title": "구독자 인사"
+  },
+  {
+   "start": 37,
+   "title": "데이터로 알아본 한국인 평균 노후 대비 수준"
+  },
+  {
+   "start": 257,
+   "title": "노후에 살기 좋은 지역은 ‘이런 곳’입니다"
+  },
+  {
+   "start": 716,
+   "title": "남은 노년을 행복하게 보내는 취미 생활 찾는 법"
+  },
+  {
+   "start": 1092,
+   "title": "노년을 외롭게 보내는 사람과 아닌 사람의 차이점"
+  },
+  {
+   "start": 1301,
+   "title": "노후에 꼭 갖춰야 할 ‘1가지’ 능력"
+  },
+  {
+   "start": 1361,
+   "title": "변화하는 시대에서의 올바른 가족 간 거리"
+  },
+  {
+   "start": 1460,
+   "title": "은퇴 후 제2의 인생을 꾸리기 위해 가져야 할 마인드"
+  },
+  {
+   "start": 1608,
+   "title": "비참한 노후를 피하고 싶다면 당장 버려야 할 것"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-28 16:02까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 572,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-10-28T10:05:51",
+ "approved": "2026-10-28T19:05+09:00"
+}

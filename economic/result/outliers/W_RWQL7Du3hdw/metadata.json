@@ -1,0 +1,79 @@
+{
+ "id": "RWQL7Du3hdw",
+ "title": "삼x전자 때려치고 재테크 유튜버? 월급 200으로 3년만에 1억 모으는 법 💸💸 (ft.시골쥐) | 주당의 비결 EP.6-1 | 시골쥐의 도시생활 | 남호연 | 손문선 | 이종원",
+ "channel": "스튜디오 상상인",
+ "channel_id": "UCEqaIYcv-1ES142qB8-xAjw",
+ "subs": 213000,
+ "views": 1654411,
+ "ratio": 7.77,
+ "age_days": 670,
+ "views_per_day": 2469.2,
+ "minutes": 25.7,
+ "likes": 1911,
+ "comments": 402,
+ "published": "2024-12-27",
+ "queries": "검색(전체 기간):재테크",
+ "url": "https://www.youtube.com/watch?v=RWQL7Du3hdw",
+ "flag": "",
+ "published_at": "2024-12-27T08:58:42Z",
+ "rank": "W27",
+ "set": "web",
+ "folder": "W_RWQL7Du3hdw",
+ "sources": [
+  "검색(전체 기간):재테크"
+ ],
+ "source": "web",
+ "tags": [
+  "상상인",
+  "상상인금융그룹",
+  "상상인증권",
+  "증권",
+  "상상인저축은행",
+  "주비",
+  "주당에비결",
+  "시골쥐의도시생활",
+  "시골쥐",
+  "재테크",
+  "재태크"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트✨"
+  },
+  {
+   "start": 30,
+   "title": "오프닝"
+  },
+  {
+   "start": 212,
+   "title": "주당 이슈 - 재테크 💰"
+  },
+  {
+   "start": 1103,
+   "title": "사연 소개 -  월급 관리 어떻게 해야 하죠? 😭"
+  },
+  {
+   "start": 1258,
+   "title": "3년차 이하 직장인 재테크 꿀팁 💸"
+  },
+  {
+   "start": 1509,
+   "title": "다음 주당 미리보기👀"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 402,
+ "comments_top_level": 372,
+ "comments_replies": 30,
+ "comments_by_creator": 26,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 402,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-10-28T09:52:39",
+ "approved": "2026-10-28T18:52+09:00"
+}

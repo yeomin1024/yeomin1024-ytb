@@ -1,0 +1,85 @@
+{
+ "id": "Z_EKXos0X8M",
+ "title": "월급이 올라도 2030이 점점 빚더미에 앉는 진짜 이유 ㅣ지식인초대석 EP.53 (박종훈 기자 1부)",
+ "channel": "지식인사이드",
+ "channel_id": "UCA_hgsFzmynpv1zkvA5A7jA",
+ "subs": 4130000,
+ "views": 3308238,
+ "ratio": 0.8,
+ "age_days": 439,
+ "views_per_day": 7529.6,
+ "minutes": 27.1,
+ "likes": 44654,
+ "comments": 4725,
+ "published": "2025-08-15",
+ "queries": "검색(전체 기간):재테크 | 검색(전체 기간):돈모으기 | 검색(전체 기간):1억모으기",
+ "url": "https://www.youtube.com/watch?v=Z_EKXos0X8M",
+ "flag": "",
+ "published_at": "2025-08-15T01:00:38Z",
+ "rank": "W135",
+ "set": "web",
+ "folder": "W_Z_EKXos0X8M",
+ "sources": [
+  "검색(전체 기간):재테크",
+  "검색(전체 기간):돈모으기",
+  "검색(전체 기간):1억모으기"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 28,
+   "title": "구독자 인사"
+  },
+  {
+   "start": 44,
+   "title": "2030세대의 빚이 계속 늘어나는 근본적인 이유"
+  },
+  {
+   "start": 226,
+   "title": "빚잔치에서 벗어나는 2030세대의 현실적 방법"
+  },
+  {
+   "start": 387,
+   "title": "평균 자산 2억 5천? 세상이 나빼고 다 부자인 이유"
+  },
+  {
+   "start": 559,
+   "title": "한국의 부동산 불패 신화는 언제쯤 끝날까"
+  },
+  {
+   "start": 769,
+   "title": "‘1억만 모아봐라 vs 1억 의미없다, 뭐가 맞는걸까?"
+  },
+  {
+   "start": 827,
+   "title": "청년세대가 재테크로 ‘1억’ 모으는 방법"
+  },
+  {
+   "start": 971,
+   "title": "“그냥 쉬었다” 청년들에게 필요한 진짜 대책"
+  },
+  {
+   "start": 1251,
+   "title": "연령대별 인생을 망치는 최악의 투자 습관"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-28 16:02까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 4725,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-10-28T10:05:45",
+ "approved": "2026-10-28T19:05+09:00"
+}

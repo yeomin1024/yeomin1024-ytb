@@ -1,0 +1,85 @@
+{
+ "id": "jhmwz5Uol08",
+ "title": "색칠 부업으로 매월 200만원 버는 방법 공개 (주는사란)",
+ "channel": "주는사란",
+ "channel_id": "UC90sVW-K-jiSVApB7ttnu6g",
+ "subs": 175000,
+ "views": 1833857,
+ "ratio": 10.48,
+ "age_days": 1154,
+ "views_per_day": 1588.8,
+ "minutes": 40.3,
+ "likes": 29301,
+ "comments": 873,
+ "published": "2023-08-31",
+ "queries": "검색(전체 기간):돈버는법",
+ "url": "https://www.youtube.com/watch?v=jhmwz5Uol08",
+ "flag": "",
+ "published_at": "2023-08-31T03:30:12Z",
+ "rank": "W24",
+ "set": "web",
+ "folder": "W_jhmwz5Uol08",
+ "sources": [
+  "검색(전체 기간):돈버는법"
+ ],
+ "source": "web",
+ "tags": [
+  "주는사란",
+  "미드저니",
+  "재택부업",
+  "부라더",
+  "색칠부업",
+  "아마존",
+  "동물색칠",
+  "부라더tv",
+  "요정집 색칠",
+  "챗 gpt",
+  "꽃무늬",
+  "그리기",
+  "전자책"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "이론설명"
+  },
+  {
+   "start": 1001,
+   "title": "파트1 미드저니로 그림 그리는 법"
+  },
+  {
+   "start": 1374,
+   "title": "파트2 미드저니 결제 방법"
+  },
+  {
+   "start": 1470,
+   "title": "파트3 동물 50가지 찾는 법"
+  },
+  {
+   "start": 1551,
+   "title": "파트4 속지 만드는 법"
+  },
+  {
+   "start": 1746,
+   "title": "파트5 책표지 만드는 법"
+  },
+  {
+   "start": 2127,
+   "title": "파트6 아마존 KDP 출판하기"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 873,
+ "comments_top_level": 619,
+ "comments_replies": 254,
+ "comments_by_creator": 47,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 873,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-10-28T09:52:00",
+ "approved": "2026-10-28T18:52+09:00"
+}

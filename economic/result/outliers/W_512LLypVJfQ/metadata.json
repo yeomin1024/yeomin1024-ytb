@@ -1,0 +1,114 @@
+{
+ "id": "512LLypVJfQ",
+ "title": "\"일해서 돈버는 시대 끝났다.\" AI시대 몸값 폭등하는 사람의 특징ㅣ지식인초대석 EP.100 (김대식 X 오건영)",
+ "channel": "지식인사이드",
+ "channel_id": "UCA_hgsFzmynpv1zkvA5A7jA",
+ "subs": 4130000,
+ "views": 7594334,
+ "ratio": 1.84,
+ "age_days": 235,
+ "views_per_day": 32266.3,
+ "minutes": 76.5,
+ "likes": 124872,
+ "comments": 2972,
+ "published": "2026-03-07",
+ "queries": "검색(전체 기간):돈모으기 | 검색(전체 기간):투자 | 검색(전체 기간):주식투자 | 검색(전체 기간):돈버는법",
+ "url": "https://www.youtube.com/watch?v=512LLypVJfQ",
+ "flag": "",
+ "published_at": "2026-03-07T01:00:05Z",
+ "rank": "W84",
+ "set": "web",
+ "folder": "W_512LLypVJfQ",
+ "sources": [
+  "검색(전체 기간):돈모으기",
+  "검색(전체 기간):투자",
+  "검색(전체 기간):주식투자",
+  "검색(전체 기간):돈버는법"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 48,
+   "title": "구독자 인사"
+  },
+  {
+   "start": 129,
+   "title": "[첫 번째 주제] AI시대의 돈의 흐름"
+  },
+  {
+   "start": 295,
+   "title": "AI의 ‘생산성 혁명’이 내 월급에 미치는 영향"
+  },
+  {
+   "start": 394,
+   "title": "에이전틱 AI 현실화되면 가장 먼저 해고당할 사람"
+  },
+  {
+   "start": 744,
+   "title": "AI 시대 주식 고수들이 주목하는 ‘3가지’"
+  },
+  {
+   "start": 1059,
+   "title": "‘무한 지능 시대’ 월급만으로는 먹고 살기 힘든 이유"
+  },
+  {
+   "start": 1421,
+   "title": "‘HBM 다음은 이것’ 삼성, 하이닉스가 주목하는 메모리"
+  },
+  {
+   "start": 1765,
+   "title": "AI가 버블이다? 오히려 ‘투자 기회’ 입니다"
+  },
+  {
+   "start": 1994,
+   "title": "시드머니 500만원으로 할 수 있는 자산 증식 전략"
+  },
+  {
+   "start": 2316,
+   "title": "[두 번째 주제] AI시대 ‘3가지’ 예언"
+  },
+  {
+   "start": 2779,
+   "title": "2026년 전 세계 금리, 환율 뒤흔들 ‘3가지’ 사건"
+  },
+  {
+   "start": 3255,
+   "title": "AI 시대 내 자녀를 상위 1%으로 만드는 진짜 교육"
+  },
+  {
+   "start": 3761,
+   "title": "날카로운 안목을 유지하기 위한 두 대가의 하루 루틴"
+  },
+  {
+   "start": 4134,
+   "title": "[방청객 질문1] 앞으로 10년 뒤를 준비하기 위해 버려야 할 태도"
+  },
+  {
+   "start": 4249,
+   "title": "[방청객 질문2] 20대 대학생이 가장 쉽게 투자를 공부하는 법"
+  },
+  {
+   "start": 4515,
+   "title": "쿠키 영상 - 한석준 아나운서를 위한 제작진의 깜짝 선물!"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-28 16:02까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 2972,
+ "comments_top_level": 2097,
+ "comments_replies": 875,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 2972,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-10-28T10:04:56",
+ "approved": "2026-10-28T19:05+09:00"
+}

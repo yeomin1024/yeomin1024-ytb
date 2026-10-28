@@ -1,0 +1,75 @@
+{
+ "id": "py4LTT_yDVw",
+ "title": "\"50대 이후 급변해요\" 끔찍한 노후를 피하는 유일한 방법은 이것입니다 (이호선 교수 풀버전)",
+ "channel": "머니인사이드",
+ "channel_id": "UCxfko2YOD6DODYRGzeOPhIQ",
+ "subs": 2170000,
+ "views": 1363375,
+ "ratio": 0.63,
+ "age_days": 538,
+ "views_per_day": 2529.5,
+ "minutes": 84.2,
+ "likes": 15777,
+ "comments": 420,
+ "published": "2025-05-07",
+ "queries": "검색(전체 기간):노후준비 | 검색(전체 기간):은퇴준비 | 검색(전체 기간):노후",
+ "url": "https://www.youtube.com/watch?v=py4LTT_yDVw",
+ "flag": "",
+ "published_at": "2025-05-07T10:01:08Z",
+ "rank": "W143",
+ "set": "web",
+ "folder": "W_py4LTT_yDVw",
+ "sources": [
+  "검색(전체 기간):노후준비",
+  "검색(전체 기간):은퇴준비",
+  "검색(전체 기간):노후"
+ ],
+ "source": "web",
+ "tags": [
+  "머니인사이드",
+  "뉴스",
+  "경제",
+  "시사",
+  "부동산",
+  "주식",
+  "주가",
+  "노후",
+  "투자",
+  "재테크",
+  "물가",
+  "집값",
+  "집값이알고싶다"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "\"다들 착각하고 있어요\" 50대 이후 비참한 노후를 피하려면 '이것'이 가장 중요합니다"
+  },
+  {
+   "start": 1126,
+   "title": "노후에 행복하게 살기 위해서는 반드시 '이런 집'을 선택하세요"
+  },
+  {
+   "start": 2329,
+   "title": "\"돈 안 들이고 평생 즐긴다\" 비참한 노후를 피하는 단 1가지 방법"
+  },
+  {
+   "start": 3638,
+   "title": "\"외모에 신경써야 합니다\" 나이 들수록 귀티나는 사람의 3가지 습관"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-28 16:02까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 420,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-10-28T10:05:46",
+ "approved": "2026-10-28T19:05+09:00"
+}

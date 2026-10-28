@@ -1,0 +1,88 @@
+{
+ "id": "8qcQx1FzWZ8",
+ "title": "진짜 부자들은 입 밖으로 꺼내지 않아요. 가난이 평생 대물림 되는 이유 (이하영 원장 ㅣ부자들의 은밀한 술토크)",
+ "channel": "장사건물주 강호동",
+ "channel_id": "UCYigs8o_hgHJtfE0KnqVLeA",
+ "subs": 524000,
+ "views": 1351547,
+ "ratio": 2.58,
+ "age_days": 694,
+ "views_per_day": 1944.8,
+ "minutes": 33.4,
+ "likes": 29835,
+ "comments": 1401,
+ "published": "2024-12-02",
+ "queries": "검색(전체 기간):부자",
+ "url": "https://www.youtube.com/watch?v=8qcQx1FzWZ8",
+ "flag": "",
+ "published_at": "2024-12-02T11:04:09Z",
+ "rank": "W66",
+ "set": "web",
+ "folder": "W_8qcQx1FzWZ8",
+ "sources": [
+  "검색(전체 기간):부자"
+ ],
+ "source": "web",
+ "tags": [
+  "창업오빠",
+  "강호동",
+  "창업",
+  "자영업",
+  "장사의신",
+  "서민갑부",
+  "건물주",
+  "꼬마빌딩",
+  "재테크",
+  "제테크",
+  "장사",
+  "라라브레드",
+  "디저트",
+  "카페",
+  "디저트카페",
+  "브이로그",
+  "대표",
+  "예능",
+  "부동산",
+  "레버리지"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "사회적 계층 사다리의 변화와 인식"
+  },
+  {
+   "start": 120,
+   "title": "부의 인식과 성공의 시간"
+  },
+  {
+   "start": 360,
+   "title": "레버리지와 경험의 중요성"
+  },
+  {
+   "start": 900,
+   "title": "인생 변화와 인간 심리"
+  },
+  {
+   "start": 980,
+   "title": "사회적 계층과 부의 인식 변화"
+  },
+  {
+   "start": 1200,
+   "title": "마음의 변화와 성공의 관계"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 1401,
+ "comments_top_level": 1135,
+ "comments_replies": 266,
+ "comments_by_creator": 142,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 1401,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-10-28T10:00:28",
+ "approved": "2026-10-28T19:00+09:00"
+}

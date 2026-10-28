@@ -1,0 +1,88 @@
+{
+ "id": "ueXQJipAaYs",
+ "title": "[지식뉴스] 은퇴 충격, 이 정도라고? \"나부터 살아야 자식도 삽니다\"..대한민국 50대가 절대 착각하면 안 되는 것 (ft.한창수 고려대병원 정신과 전문의) / 교양이를 부탁해",
+ "channel": "교양이를 부탁해",
+ "channel_id": "UChY8VUjXv0aA7RF9hDQ0ISg",
+ "subs": 504000,
+ "views": 1567073,
+ "ratio": 3.11,
+ "age_days": 187,
+ "views_per_day": 8339.7,
+ "minutes": 23.5,
+ "likes": 8296,
+ "comments": 584,
+ "published": "2026-04-23",
+ "queries": "검색(전체 기간):노후준비 | 검색(전체 기간):은퇴준비 | 검색(전체 기간):노후",
+ "url": "https://www.youtube.com/watch?v=ueXQJipAaYs",
+ "flag": "",
+ "published_at": "2026-04-23T12:00:18Z",
+ "rank": "W55",
+ "set": "web",
+ "folder": "W_ueXQJipAaYs",
+ "sources": [
+  "검색(전체 기간):노후준비",
+  "검색(전체 기간):은퇴준비",
+  "검색(전체 기간):노후"
+ ],
+ "source": "web",
+ "tags": [
+  "교양이를부탁해",
+  "지식뉴스",
+  "국제정세",
+  "재테크",
+  "직장인",
+  "생존전략",
+  "첨단산업",
+  "반도체",
+  "패권전쟁",
+  "ai혁명",
+  "긴급점검",
+  "지식콘서트",
+  "컨트리뷰터",
+  "미니강의"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 45,
+   "title": "독립 못한 자녀와 노후 걱정 사이, 50대의 양가 감정"
+  },
+  {
+   "start": 418,
+   "title": "외로움 느끼는 오십대에게 절대 해서는 안 되는 말?"
+  },
+  {
+   "start": 563,
+   "title": "세상 모든 일이 재미없어질 때 마주하는 존재의 불안"
+  },
+  {
+   "start": 797,
+   "title": "외로움을 나를 위한 고독으로 바꾸는 '솔리튜드'의 시간"
+  },
+  {
+   "start": 916,
+   "title": "감정을 들여다보고 혼자 잘 노는 사람들의 5가지 특징"
+  },
+  {
+   "start": 1062,
+   "title": "사회적 지위 하락을 두려워 않고 새로운 챕터를 여는 용기"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 584,
+ "comments_top_level": 330,
+ "comments_replies": 254,
+ "comments_by_creator": 3,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 584,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-10-28T09:59:02",
+ "approved": "2026-10-28T18:59+09:00"
+}

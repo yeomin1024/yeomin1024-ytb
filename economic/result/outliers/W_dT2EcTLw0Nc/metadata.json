@@ -1,0 +1,90 @@
+{
+ "id": "dT2EcTLw0Nc",
+ "title": "적은 돈 불리고 싶다면 꼭 알아야 할 '포트폴리오 공식'ㅣ지식인초대석 EP.75 (오건영 단장 2부)",
+ "channel": "지식인사이드",
+ "channel_id": "UCA_hgsFzmynpv1zkvA5A7jA",
+ "subs": 4130000,
+ "views": 3700221,
+ "ratio": 0.9,
+ "age_days": 360,
+ "views_per_day": 10268.0,
+ "minutes": 28.5,
+ "likes": 52313,
+ "comments": 1378,
+ "published": "2025-11-02",
+ "queries": "검색(전체 기간):재테크 | 검색(전체 기간):돈공부 | 검색(전체 기간):돈모으기 | 검색(전체 기간):주식 | 검색(전체 기간):투자 | 검색(전체 기간):주식투자 | 검색(전체 기간):ETF투자 | 검색(전체 기간):주식초보 | 검색(전체 기간):포트폴리오 | 검색(전체 기간):분산투자 | 검색(전체 기간):주식공부 | 검색(전체 기간):돈버는법",
+ "url": "https://www.youtube.com/watch?v=dT2EcTLw0Nc",
+ "flag": "",
+ "published_at": "2025-11-02T01:00:45Z",
+ "rank": "W130",
+ "set": "web",
+ "folder": "W_dT2EcTLw0Nc",
+ "sources": [
+  "검색(전체 기간):재테크",
+  "검색(전체 기간):돈공부",
+  "검색(전체 기간):돈모으기",
+  "검색(전체 기간):주식",
+  "검색(전체 기간):투자",
+  "검색(전체 기간):주식투자",
+  "검색(전체 기간):ETF투자",
+  "검색(전체 기간):주식초보",
+  "검색(전체 기간):포트폴리오",
+  "검색(전체 기간):분산투자",
+  "검색(전체 기간):주식공부",
+  "검색(전체 기간):돈버는법"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 22,
+   "title": "구독자 인사"
+  },
+  {
+   "start": 39,
+   "title": "2025년 한국에 다시 부는 주식 투자 열풍"
+  },
+  {
+   "start": 233,
+   "title": "이자율도 낮은데, 채권 사면 무조건 이득일까?"
+  },
+  {
+   "start": 624,
+   "title": "초심자가 채권 투자하고 싶다면 ‘이것’부터 보세요"
+  },
+  {
+   "start": 845,
+   "title": "저라면 1천만원으로 ‘이렇게’ 돈 불립니다"
+  },
+  {
+   "start": 1150,
+   "title": "주식, 채권, 금.. 모든 자산 다 뛰는 ‘애브리싱 랠리’"
+  },
+  {
+   "start": 1364,
+   "title": "1돈에 80만원? 유례없는 금값 폭등의 원인"
+  },
+  {
+   "start": 1579,
+   "title": "‘사상 최고치’ 경신했다는 금값 최신 근황"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-28 16:02까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 1378,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-10-28T10:05:44",
+ "approved": "2026-10-28T19:05+09:00"
+}

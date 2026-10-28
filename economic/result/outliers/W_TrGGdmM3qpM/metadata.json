@@ -1,0 +1,80 @@
+{
+ "id": "TrGGdmM3qpM",
+ "title": "\"5060세대 필수 시청\" 통장에 '이 금액' 이상 있으면 기초연금 절대 못 받습니다. ( 연금박사 이영주 대표 )",
+ "channel": "경제 원탑",
+ "channel_id": "UCDjaj6eENGMvgIXfeRErPmA",
+ "subs": 552000,
+ "views": 1275722,
+ "ratio": 2.31,
+ "age_days": 205,
+ "views_per_day": 6213.3,
+ "minutes": 35.6,
+ "likes": 14967,
+ "comments": 1273,
+ "published": "2026-04-06",
+ "queries": "검색(전체 기간):연금저축 | 검색(전체 기간):연금",
+ "url": "https://www.youtube.com/watch?v=TrGGdmM3qpM",
+ "flag": "",
+ "published_at": "2026-04-06T02:00:49Z",
+ "rank": "W69",
+ "set": "web",
+ "folder": "W_TrGGdmM3qpM",
+ "sources": [
+  "검색(전체 기간):연금저축",
+  "검색(전체 기간):연금"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 61,
+   "title": "기초연금은 '이것'에 맞춰 선택과 집중을 통한 효율적인 개편이 필요합니다."
+  },
+  {
+   "start": 352,
+   "title": "근로소득은 월 '이 정도'까지는 수급에 문제없지만, 근로 의욕을 꺾는 제도의 개선이 필요합니다."
+  },
+  {
+   "start": 604,
+   "title": "기초연금 수급에서 '이분들'은 소득이 없어도 제외되고, 사각지대에 놓여 있습니다."
+  },
+  {
+   "start": 1032,
+   "title": "기초연금은 자녀 재산은 무관하게 수급이 가능하지만, '이런' 행동은 추적돼서 차단됩니다."
+  },
+  {
+   "start": 1170,
+   "title": "기초연금 수급 시 '이 경우'에는 규정에 따라 수령액이 최대 절반까지 깎일 수 있습니다."
+  },
+  {
+   "start": 1647,
+   "title": "고가 아파트 보유자도 '이 기준'에 따라 기초연금 수급이 가능하며, 제도 개편이 필요합니다."
+  },
+  {
+   "start": 1852,
+   "title": "기초연금 탈락 후에도 자산 변동에 따라 수급 여부는 매달 달라집니다. '이건' 꼭 신청하세요"
+  },
+  {
+   "start": 1983,
+   "title": "초고령사회에 현행 유지는 불가합니다. 결국 '이것'에 집중하는 제도 개편이 필수적입니다."
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 1273,
+ "comments_top_level": 898,
+ "comments_replies": 375,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 1273,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-10-28T10:01:21",
+ "approved": "2026-10-28T19:01+09:00"
+}

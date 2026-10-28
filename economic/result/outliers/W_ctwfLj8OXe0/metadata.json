@@ -1,0 +1,75 @@
+{
+ "id": "ctwfLj8OXe0",
+ "title": "\"월배당 200만원도 충분해요\" 현대차 투자해 알바 인생에서 파이어족이 된 30대[싱글파이어]",
+ "channel": "싱글파이어",
+ "channel_id": "UC5CyCSvCdoEP-VgQmFq3iww",
+ "subs": 513000,
+ "views": 1381837,
+ "ratio": 2.69,
+ "age_days": 232,
+ "views_per_day": 5955.4,
+ "minutes": 12.5,
+ "likes": 8841,
+ "comments": 964,
+ "published": "2026-03-10",
+ "queries": "검색(전체 기간):투자",
+ "url": "https://www.youtube.com/watch?v=ctwfLj8OXe0",
+ "flag": "",
+ "published_at": "2026-03-10T09:00:52Z",
+ "rank": "W62",
+ "set": "web",
+ "folder": "W_ctwfLj8OXe0",
+ "sources": [
+  "검색(전체 기간):투자"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트"
+  },
+  {
+   "start": 30,
+   "title": "30대 파이어족의 일상"
+  },
+  {
+   "start": 228,
+   "title": "순자산 및 포트폴리오"
+  },
+  {
+   "start": 294,
+   "title": "배당받는 고슴도치만의 투자법"
+  },
+  {
+   "start": 380,
+   "title": "투자를 시작하게 된 계기"
+  },
+  {
+   "start": 534,
+   "title": "집중 투자를 했을 때 방법은?"
+  },
+  {
+   "start": 567,
+   "title": "주식 레버리지 투자에 대한 생각"
+  },
+  {
+   "start": 652,
+   "title": "현대차 주식 언제 파실 건가요?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 964,
+ "comments_top_level": 527,
+ "comments_replies": 437,
+ "comments_by_creator": 3,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 964,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-10-28T10:00:02",
+ "approved": "2026-10-28T19:00+09:00"
+}

@@ -1,0 +1,94 @@
+{
+ "id": "wwzDZWIpyuY",
+ "title": "부자가 될 20대들이 알아야하는 5가지 (20대 재테크, 젊은자유)",
+ "channel": "뿅글이",
+ "channel_id": "UC_JXWoZ2DQB98xFiKLPrVEQ",
+ "subs": 479000,
+ "views": 1289302,
+ "ratio": 2.69,
+ "age_days": 1585,
+ "views_per_day": 813.3,
+ "minutes": 20.0,
+ "likes": 23866,
+ "comments": 563,
+ "published": "2022-06-26",
+ "queries": "검색(전체 기간):부자되는법",
+ "url": "https://www.youtube.com/watch?v=wwzDZWIpyuY",
+ "flag": "",
+ "published_at": "2022-06-26T03:00:23Z",
+ "rank": "W63",
+ "set": "web",
+ "folder": "W_wwzDZWIpyuY",
+ "sources": [
+  "검색(전체 기간):부자되는법"
+ ],
+ "source": "web",
+ "tags": [
+  "20대재테크",
+  "허세SNS",
+  "허세 인플레이션",
+  "20대 재테크",
+  "20대 부동산",
+  "20대 투자"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "preview"
+  },
+  {
+   "start": 23,
+   "title": "꽤나 비슷한 게 많은 98, 97 둘"
+  },
+  {
+   "start": 75,
+   "title": "부동산 4채 있는 사람의 고민"
+  },
+  {
+   "start": 115,
+   "title": "또래 친구들과의 관계는 어떨까?"
+  },
+  {
+   "start": 241,
+   "title": "재테크 막 시작한 분들께"
+  },
+  {
+   "start": 437,
+   "title": "시드머니 모은 방법"
+  },
+  {
+   "start": 609,
+   "title": "주변에 괜찮은 사람을 늘린 방법"
+  },
+  {
+   "start": 674,
+   "title": "돈 많은 사람들을 만나며 든 생각"
+  },
+  {
+   "start": 871,
+   "title": "돈 모으는 게 어려운 분들께"
+  },
+  {
+   "start": 928,
+   "title": "시드머니 3-4천만원이 있다면?"
+  },
+  {
+   "start": 1138,
+   "title": "closing"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 563,
+ "comments_top_level": 379,
+ "comments_replies": 184,
+ "comments_by_creator": 17,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 563,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-10-28T10:00:11",
+ "approved": "2026-10-28T19:00+09:00"
+}

@@ -1,0 +1,75 @@
+{
+ "id": "zOLKaMiqMzw",
+ "title": "“나 빼고 다 받는다.” 기초연금 억울하게 탈락하는 5가지 경우 (이영주 대표 2부)",
+ "channel": "지식인사이드",
+ "channel_id": "UCA_hgsFzmynpv1zkvA5A7jA",
+ "subs": 4130000,
+ "views": 3136944,
+ "ratio": 0.76,
+ "age_days": 847,
+ "views_per_day": 3703.6,
+ "minutes": 16.4,
+ "likes": 36692,
+ "comments": 1844,
+ "published": "2024-07-03",
+ "queries": "검색(전체 기간):연금",
+ "url": "https://www.youtube.com/watch?v=zOLKaMiqMzw",
+ "flag": "",
+ "published_at": "2024-07-03T09:30:18Z",
+ "rank": "W137",
+ "set": "web",
+ "folder": "W_zOLKaMiqMzw",
+ "sources": [
+  "검색(전체 기간):연금"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 20,
+   "title": "기초연금 받고 싶다면 ‘이것’부터 확인하세요"
+  },
+  {
+   "start": 146,
+   "title": "2024년, 통장잔액 ‘이것’보다 많으면 기초연금 자격 박탈된다"
+  },
+  {
+   "start": 327,
+   "title": "“가진 게 없는 줄 알았는데...” 기초연금 억울하게 탈락하는 경우"
+  },
+  {
+   "start": 428,
+   "title": "자녀가 ‘20억’ 아파트에 살아도 기초연금 받는 법"
+  },
+  {
+   "start": 491,
+   "title": "기초연금, ‘이것’ 모르면 억울하게 삭감당합니다"
+  },
+  {
+   "start": 724,
+   "title": "기초연금 자격 박탈되어도 포기하면 안 되는 이유"
+  },
+  {
+   "start": 887,
+   "title": "기초연금 이렇게 생각해야 마음 편합니다"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-28 16:02까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 1844,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-10-28T10:05:46",
+ "approved": "2026-10-28T19:05+09:00"
+}

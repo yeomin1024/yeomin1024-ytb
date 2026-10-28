@@ -1,0 +1,72 @@
+{
+ "id": "Cvo2ajaMyqY",
+ "title": "가난해지기 싫다면, 지금 제대로 알아야 할 돈의 원리ㅣ지식인초대석 EP.54 (박종훈 기자 2부)",
+ "channel": "지식인사이드",
+ "channel_id": "UCA_hgsFzmynpv1zkvA5A7jA",
+ "subs": 4130000,
+ "views": 4252120,
+ "ratio": 1.03,
+ "age_days": 438,
+ "views_per_day": 9700.0,
+ "minutes": 21.7,
+ "likes": 51771,
+ "comments": 3022,
+ "published": "2025-08-16",
+ "queries": "검색(전체 기간):투자 | 검색(전체 기간):돈버는법",
+ "url": "https://www.youtube.com/watch?v=Cvo2ajaMyqY",
+ "flag": "",
+ "published_at": "2025-08-16T01:00:15Z",
+ "rank": "W121",
+ "set": "web",
+ "folder": "W_Cvo2ajaMyqY",
+ "sources": [
+  "검색(전체 기간):투자",
+  "검색(전체 기간):돈버는법"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 23,
+   "title": "구독자 인사"
+  },
+  {
+   "start": 33,
+   "title": "한국 경제 성장률을 뒤집을 수 없는 진짜 이유"
+  },
+  {
+   "start": 378,
+   "title": "인류 역사상 가장 값싸고 평화로운 시대는 갔다?"
+  },
+  {
+   "start": 510,
+   "title": "월급쟁이들이 인플레이션 속에서 살아남는 방법"
+  },
+  {
+   "start": 778,
+   "title": "인플레이션에 취약한 미국, 그럼에도 승승장구 하는 이유?"
+  },
+  {
+   "start": 969,
+   "title": "한국 경제를 살리는 마지막 희망은 ‘이것’입니다"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-28 16:02까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 3022,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-10-28T10:05:43",
+ "approved": "2026-10-28T19:05+09:00"
+}

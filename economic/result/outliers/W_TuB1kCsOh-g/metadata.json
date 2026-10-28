@@ -1,0 +1,105 @@
+{
+ "id": "TuB1kCsOh-g",
+ "title": "국민연금 60세 이후 계속 납부할까말까?(임의계속가입)",
+ "channel": "연금부자연구소",
+ "channel_id": "UCeu_69OspsdxEgjt4MeQjwg",
+ "subs": 103000,
+ "views": 1253281,
+ "ratio": 12.17,
+ "age_days": 553,
+ "views_per_day": 2266.2,
+ "minutes": 8.9,
+ "likes": 8352,
+ "comments": 600,
+ "published": "2025-04-23",
+ "queries": "검색(전체 기간):연금",
+ "url": "https://www.youtube.com/watch?v=TuB1kCsOh-g",
+ "flag": "",
+ "published_at": "2025-04-23T09:00:43Z",
+ "rank": "W20",
+ "set": "web",
+ "folder": "W_TuB1kCsOh-g",
+ "sources": [
+  "검색(전체 기간):연금"
+ ],
+ "source": "web",
+ "tags": [
+  "연금부자",
+  "연금부자 연구소",
+  "연금박사",
+  "연금닥터",
+  "행복한 인생 2막",
+  "돈 되는 복지채널",
+  "속고 살지마",
+  "연금계획",
+  "노후계획",
+  "연금설계",
+  "연금상담",
+  "돈 파는 가게",
+  "똑똑한 연금교실",
+  "연금",
+  "국민연금",
+  "퇴직연금",
+  "연금저축",
+  "IRP",
+  "연금수령",
+  "노후자금",
+  "연금펀드",
+  "연금계산기",
+  "연금투자",
+  "연금보험",
+  "연금계좌",
+  "개인연금",
+  "사적연금",
+  "사학연금",
+  "공무원연금",
+  "추납",
+  "추후납부",
+  "노후대비",
+  "노후대책",
+  "노후준비",
+  "50대연금",
+  "40대연금",
+  "임의계속가입"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "국민연금 임의계속가입 60세 이후 계속 납부할까말까?"
+  },
+  {
+   "start": 62,
+   "title": "국민연금 임의계속가입이란?"
+  },
+  {
+   "start": 86,
+   "title": "국민연금 임의계속가입 대상 및 납입금액"
+  },
+  {
+   "start": 157,
+   "title": "국민연금 임의계속가입 하는것이 유리할까?"
+  },
+  {
+   "start": 336,
+   "title": "국민연금 임의계속가입의 소득공제와 세금"
+  },
+  {
+   "start": 390,
+   "title": "국민연금 임의계속가입시 주의사항"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 600,
+ "comments_top_level": 236,
+ "comments_replies": 364,
+ "comments_by_creator": 215,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 600,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-10-28T09:51:12",
+ "approved": "2026-10-28T18:51+09:00"
+}

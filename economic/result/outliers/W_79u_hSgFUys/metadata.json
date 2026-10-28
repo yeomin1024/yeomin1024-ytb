@@ -1,0 +1,88 @@
+{
+ "id": "79u_hSgFUys",
+ "title": "이제 막 돈 모으기 시작한 2030을 위한 현실 가이드 (w. 찰스엔터, 이제규, 이재용, 박진영) | 토킹 헤즈",
+ "channel": "머니그라피 Moneygraphy",
+ "channel_id": "UCwXOKS-z1t9u6Axmm3blXug",
+ "subs": 897000,
+ "views": 1723294,
+ "ratio": 1.92,
+ "age_days": 323,
+ "views_per_day": 5334.8,
+ "minutes": 56.1,
+ "likes": 31762,
+ "comments": 794,
+ "published": "2025-12-09",
+ "queries": "검색(전체 기간):재테크 | 검색(전체 기간):돈공부 | 검색(전체 기간):돈모으기 | 검색(전체 기간):1억모으기 | 검색(전체 기간):주식투자 | 검색(전체 기간):주식초보",
+ "url": "https://www.youtube.com/watch?v=79u_hSgFUys",
+ "flag": "",
+ "published_at": "2025-12-09T09:00:15Z",
+ "rank": "W80",
+ "set": "web",
+ "folder": "W_79u_hSgFUys",
+ "sources": [
+  "검색(전체 기간):재테크",
+  "검색(전체 기간):돈공부",
+  "검색(전체 기간):돈모으기",
+  "검색(전체 기간):1억모으기",
+  "검색(전체 기간):주식투자",
+  "검색(전체 기간):주식초보"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝"
+  },
+  {
+   "start": 27,
+   "title": "돈 어떻게 모으고 계세요?"
+  },
+  {
+   "start": 851,
+   "title": "4인의 재무 포트폴리오 공개"
+  },
+  {
+   "start": 1636,
+   "title": "야수의 심장을 가진 K-개미들의 주식 투자"
+  },
+  {
+   "start": 1761,
+   "title": "주식... 지금 들어가도 되나요?"
+  },
+  {
+   "start": 2257,
+   "title": "2026 주식시장 예측"
+  },
+  {
+   "start": 2459,
+   "title": "2030을 위한 재테크 팁"
+  },
+  {
+   "start": 2776,
+   "title": "인생에서 1인분을 한다는 것"
+  },
+  {
+   "start": 3050,
+   "title": "돈의 의미"
+  },
+  {
+   "start": 3261,
+   "title": "토킹 헤즈 제13대 MVT"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-28 16:02까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 794,
+ "comments_top_level": 593,
+ "comments_replies": 201,
+ "comments_by_creator": 9,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 794,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-10-28T10:04:13",
+ "approved": "2026-10-28T19:04+09:00"
+}

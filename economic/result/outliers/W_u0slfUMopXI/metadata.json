@@ -1,0 +1,71 @@
+{
+ "id": "u0slfUMopXI",
+ "title": "\"자식, 배우자 믿지마세요\" 70년 살아보니 비참한 노후 피하려면, 결국 '이것'을 해야합니다 (강창희 대표 2부)",
+ "channel": "지식한상 ",
+ "channel_id": "UCw8hsZYZcasyyLrfOFP8D-w",
+ "subs": 1460000,
+ "views": 1434443,
+ "ratio": 0.98,
+ "age_days": 953,
+ "views_per_day": 1503.6,
+ "minutes": 14.0,
+ "likes": 21414,
+ "comments": 596,
+ "published": "2024-03-18",
+ "queries": "검색(전체 기간):노후",
+ "url": "https://www.youtube.com/watch?v=u0slfUMopXI",
+ "flag": "",
+ "published_at": "2024-03-18T10:00:43Z",
+ "rank": "W123",
+ "set": "web",
+ "folder": "W_u0slfUMopXI",
+ "sources": [
+  "검색(전체 기간):노후"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 29,
+   "title": "100세 인생 노후를 불행하게 하는 3가지 착각"
+  },
+  {
+   "start": 155,
+   "title": "심각한 캥거루족의 나라 부모들이 겪게 될 비참한 노후"
+  },
+  {
+   "start": 235,
+   "title": "끔찍한 노후파산 결국 ‘이것’ 때문입니다"
+  },
+  {
+   "start": 430,
+   "title": "노후대비 집 한채보다 중요한 건 따로 있습니다"
+  },
+  {
+   "start": 473,
+   "title": "노후자금을 갉아먹는 자녀들 ‘이것’부터 가르쳐야 합니다"
+  },
+  {
+   "start": 594,
+   "title": "가장 확실한 노후준비 ‘이걸’ 모으셔야합니다"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-28 16:02까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 596,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-10-28T10:05:43",
+ "approved": "2026-10-28T19:05+09:00"
+}

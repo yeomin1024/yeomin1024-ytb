@@ -1,0 +1,71 @@
+{
+ "id": "4JXmunTzy_c",
+ "title": "\"전원주택, 실버타운 아닙니다\" 노후에 살기 좋은 곳 1위는 바로 '이곳' 입니다 (조관일 대표 3부)",
+ "channel": "지식한상 ",
+ "channel_id": "UCw8hsZYZcasyyLrfOFP8D-w",
+ "subs": 1460000,
+ "views": 1413080,
+ "ratio": 0.97,
+ "age_days": 881,
+ "views_per_day": 1602.2,
+ "minutes": 10.5,
+ "likes": 15407,
+ "comments": 609,
+ "published": "2024-05-29",
+ "queries": "검색(전체 기간):노후",
+ "url": "https://www.youtube.com/watch?v=4JXmunTzy_c",
+ "flag": "",
+ "published_at": "2024-05-29T10:00:04Z",
+ "rank": "W125",
+ "set": "web",
+ "folder": "W_4JXmunTzy_c",
+ "sources": [
+  "검색(전체 기간):노후"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 34,
+   "title": "\"부동산도 소용없다\" 노후를 망치는 7가지 착각"
+  },
+  {
+   "start": 250,
+   "title": "반드시 '이걸' 고려하세요! 노후에 살기 좋은 집을 고르는 5가지 방법"
+  },
+  {
+   "start": 328,
+   "title": "노후에 있는 집 팔고 전원주택을 사면 안되는 이유"
+  },
+  {
+   "start": 384,
+   "title": "꿈의 주거지 '실버타운' 정말 살기 좋을까?"
+  },
+  {
+   "start": 484,
+   "title": "노후 전문가가 선정한 노후에 살기 좋은 도시 1위"
+  },
+  {
+   "start": 550,
+   "title": "행복한 노후를 위해 집만큼 일찍 준비하면 좋은 것 '3가지'"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 10-28 16:02까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 609,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-10-28T10:05:44",
+ "approved": "2026-10-28T19:05+09:00"
+}

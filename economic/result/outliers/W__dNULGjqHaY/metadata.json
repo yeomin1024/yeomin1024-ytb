@@ -1,0 +1,86 @@
+{
+ "id": "_dNULGjqHaY",
+ "title": "20대에 반드시 해야 하는 재테크 습관",
+ "channel": "티벳동생",
+ "channel_id": "UCHjEdCXNYyvgWWcCZVTxWHA",
+ "subs": 509000,
+ "views": 1194731,
+ "ratio": 2.35,
+ "age_days": 385,
+ "views_per_day": 3095.8,
+ "minutes": 8.3,
+ "likes": 47654,
+ "comments": 640,
+ "published": "2025-10-07",
+ "queries": "검색(전체 기간):재테크 | 검색(전체 기간):자산관리 | 검색(전체 기간):돈공부 | 검색(전체 기간):돈모으기 | 검색(전체 기간):저축 | 검색(전체 기간):1억모으기 | 검색(전체 기간):주식투자 | 검색(전체 기간):주식초보 | 검색(전체 기간):주식공부 | 검색(전체 기간):ISA계좌 | 검색(전체 기간):돈버는법",
+ "url": "https://www.youtube.com/watch?v=_dNULGjqHaY",
+ "flag": "",
+ "published_at": "2025-10-07T11:34:18Z",
+ "rank": "W68",
+ "set": "web",
+ "folder": "W__dNULGjqHaY",
+ "sources": [
+  "검색(전체 기간):재테크",
+  "검색(전체 기간):자산관리",
+  "검색(전체 기간):돈공부",
+  "검색(전체 기간):돈모으기",
+  "검색(전체 기간):저축",
+  "검색(전체 기간):1억모으기",
+  "검색(전체 기간):주식투자",
+  "검색(전체 기간):주식초보",
+  "검색(전체 기간):주식공부",
+  "검색(전체 기간):ISA계좌",
+  "검색(전체 기간):돈버는법"
+ ],
+ "source": "web",
+ "tags": [
+  "티벳동생",
+  "남자 뷰티",
+  "남자 메이크업",
+  "남자 화장품",
+  "남자 운동",
+  "남자 관리",
+  "헬린이 식단",
+  "린매스업"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 20,
+   "title": "청년 미래 적금"
+  },
+  {
+   "start": 134,
+   "title": "토스 소액 적금"
+  },
+  {
+   "start": 239,
+   "title": "토스 주식 모으기"
+  },
+  {
+   "start": 383,
+   "title": "기타 방법 1"
+  },
+  {
+   "start": 464,
+   "title": "기타 방법 2"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 640,
+ "comments_top_level": 351,
+ "comments_replies": 289,
+ "comments_by_creator": 24,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 640,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-10-28T10:01:12",
+ "approved": "2026-10-28T19:01+09:00"
+}

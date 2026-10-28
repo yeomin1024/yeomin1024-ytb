@@ -1,6 +1,6 @@
 {
- "version": "v1.3",
- "made": "2026-10-28T13:52:27+00:00",
+ "version": "v1.4",
+ "made": "2026-10-28T14:14:24+00:00",
  "data_last": "2026-10-27",
  "results": {
   "2y": {
@@ -60,12 +60,18 @@
     "now_wins": 0.7688442211055276,
     "came_back_to_target": 0.19095477386934673,
     "median_gap_pct": 0.17596032494868696,
+    "median_gap_when_wait_wins_pct": -0.2142484122409159,
+    "distinct_rise_days": 178,
+    "episodes": 9,
     "verdict": "지금"
    },
    "q6": {
     "windows": 298,
     "monthly_wins": 0.7483221476510067,
     "median_gap_pct": 0.009007477933218655,
+    "median_gap_usd_500": 119,
+    "median_end_usd_500": 13554,
+    "within_3pct": 0.8053691275167785,
     "verdict": "매달"
    },
    "q3b": {
@@ -79,7 +85,46 @@
     "lump_beats_dca36": 0.785234899328859,
     "dca12_beats_dca36": 0.8087248322147651,
     "lump_beats_dca12": 0.7248322147651006,
-    "verdict": "한 번에>12개월>36개월"
+    "verdict": "한 번에>12개월>36개월",
+    "dd20_lump": 0.24496644295302014,
+    "worst_dd_lump_pct": -0.5470249248272845,
+    "dd20_dca12": 0.16778523489932887,
+    "worst_dd_dca12_pct": -0.5122268960859739,
+    "dd20_dca36": 0.03691275167785235,
+    "worst_dd_dca36_pct": -0.26354855868666693
+   },
+   "q1b": {
+    "ath_days": 406,
+    "now_wins": 0.5369458128078818,
+    "dip_came": 0.45320197044334976,
+    "median_gap_pct": 0.07753966170489413,
+    "median_gap_when_wait_wins_pct": -0.10591064076572226,
+    "loss_ath": 0.06403940886699508,
+    "loss_near_same_time": 0.04567194278655657,
+    "loss_all": 0.16736066623959,
+    "episodes": 5,
+    "verdict": "지금"
+   },
+   "q4b": {
+    "windows": 298,
+    "triggered": 82,
+    "continue_wins": 0.6341463414634146,
+    "median_gap_pct": 0.01595553981797293,
+    "median_gap_when_stop_wins_pct": -0.08628483244575125,
+    "episodes": 7,
+    "episode_spans": "2000-04~2002-12(28) 2007-06~2009-02(21) 2010-04~2010-05(2) 2011-01~2011-08(8) 2018-09~2018-10(2) 2019-05~2020-03(10) 2021-08~2022-08(11)",
+    "verdict": "계속"
+   },
+   "q3s": {
+    "windows": 298,
+    "triggered": 123,
+    "hold_wins": 0.7073170731707317,
+    "median_gap_pct": 0.11690931241677127,
+    "median_gap_when_stop_wins_pct": -0.1951769601345671,
+    "median_hold_pct": 0.06551843201998997,
+    "median_stop_pct": -0.028053903960776116,
+    "episodes": 8,
+    "verdict": "보유"
    }
   },
   "5y": {
@@ -139,12 +184,18 @@
     "now_wins": 0.627906976744186,
     "came_back_to_target": 0.36627906976744184,
     "median_gap_pct": 0.5640120051286066,
+    "median_gap_when_wait_wins_pct": -0.2600141067541095,
+    "distinct_rise_days": 153,
+    "episodes": 8,
     "verdict": "지금"
    },
    "q6": {
     "windows": 262,
     "monthly_wins": 0.8206106870229007,
     "median_gap_pct": 0.020545394986209664,
+    "median_gap_usd_500": 358,
+    "median_end_usd_500": 19261,
+    "within_3pct": 0.5305343511450382,
     "verdict": "매달"
    },
    "q3b": {
@@ -158,7 +209,46 @@
     "lump_beats_dca36": 0.7519083969465649,
     "dca12_beats_dca36": 0.7786259541984732,
     "lump_beats_dca12": 0.7213740458015268,
-    "verdict": "한 번에>12개월>36개월"
+    "verdict": "한 번에>12개월>36개월",
+    "dd20_lump": 0.3969465648854962,
+    "worst_dd_lump_pct": -0.5470249248272845,
+    "dd20_dca12": 0.3244274809160305,
+    "worst_dd_dca12_pct": -0.5138682319827539,
+    "dd20_dca36": 0.20610687022900764,
+    "worst_dd_dca36_pct": -0.44698086366731826
+   },
+   "q1b": {
+    "ath_days": 345,
+    "now_wins": 0.4782608695652174,
+    "dip_came": 0.5217391304347826,
+    "median_gap_pct": -0.08298935836506238,
+    "median_gap_when_wait_wins_pct": -0.10654399552725369,
+    "loss_ath": 0.03188405797101449,
+    "loss_near_same_time": 0.018786753701041485,
+    "loss_all": 0.10854124931706428,
+    "episodes": 4,
+    "verdict": "기다림"
+   },
+   "q4b": {
+    "windows": 262,
+    "triggered": 74,
+    "continue_wins": 0.7837837837837838,
+    "median_gap_pct": 0.025059676812180576,
+    "median_gap_when_stop_wins_pct": -0.021432729540968143,
+    "episodes": 7,
+    "episode_spans": "2000-04~2002-12(28) 2007-06~2009-02(21) 2010-04~2010-05(2) 2011-01~2011-08(8) 2018-09~2018-10(2) 2019-05~2020-03(10) 2021-08~2021-10(3)",
+    "verdict": "계속"
+   },
+   "q3s": {
+    "windows": 262,
+    "triggered": 149,
+    "hold_wins": 0.9060402684563759,
+    "median_gap_pct": 0.12252569855280626,
+    "median_gap_when_stop_wins_pct": -0.07694322042175017,
+    "median_hold_pct": 0.27477846108824155,
+    "median_stop_pct": 0.135212349771203,
+    "episodes": 7,
+    "verdict": "보유"
    }
   }
  },
@@ -172,18 +262,35 @@
   "dip_date": "-",
   "peak_drawdown_ytd_pct": -0.08890563609453495,
   "price_index_min_vs_first_day_pct": -0.07505318006254547,
-  "price_index_dipped": false
+  "price_index_dipped": false,
+  "v14": {
+   "first_ath_day": "2026-01-06",
+   "price_index_min_after_pct": -0.08655366506740925,
+   "dipped_10": false,
+   "price_index_gain_since_pct": 0.11199430564233448,
+   "rose_10_first_day": "2026-08-04",
+   "gain_since_pct": 0.12193685993820003,
+   "cash_interest_pct": 0.030202150790899163,
+   "last_date": "2026-10-27"
+  },
+  "calendar": {
+   "years": 26,
+   "may_oct_up_years": 19,
+   "may_oct_mean_pct": 0.03345195394801022,
+   "nov_apr_mean_pct": 0.05947225936591737
+  }
  },
  "mismatches": [],
  "flips_5y": [
   "q2",
-  "q5"
+  "q5",
+  "q1b"
  ],
  "scored": [
-  "q1",
   "q2b",
   "q3b",
-  "q4",
+  "q3s",
+  "q4b",
   "q6"
  ],
  "rule_problems": 0

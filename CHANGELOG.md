@@ -1,5 +1,32 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-28 — 역사도 주식과 같은 길: 분석 → 확인·콘텐츠 엑셀 → 페르소나 → 댓글 니즈 → 채널 설명 → 주제 탐색 20개 → 요약본 세 편
+
+### 왜 (사용자 지시)
+- "주식 주제 관련 세션에서 했던것처럼 똑같은 방식으로 진행해서 유튜브 분석부터 요약본까지 만들어봐" (역사 세션)
+
+### 바꾼 것
+| 파일 (버전) | 내용 |
+|---|---|
+| `history/analysis_rules.toml` (v1.7) | 세 묶음 — [success] MIN_VPD_SUBS 0.1·MIN_AGE_DAYS 7·WEIGHT score · [vpd_top]·[views_top]·쇼츠 같은 묶음 · OFF_TOPIC·쇼츠 빼기 채널 더함 · [comment_titles] 역사 낱말 |
+| `history/result/outliers/` | 분석 다시 (성공 사례 414 · 하루 조회수 상위 139 · 성공 쇼츠 270) · `target_check` · `transcript_todo`(1,456) · `content_analysis` + `thumb_codes.tsv`(Claude 가 본 성공 사례 썸네일 144장) · 페르소나 3명 · 댓글 니즈 K01~K28 |
+| `history/guides/channel.md` (v1.0) | 채널 설명 — ⚠️ 임시 (사용자 채널 설명 전): 목적 '옛날 사람들은 정말 그랬을까?'를 기록·숫자로 · 꼴 셋(생활사 해설형·확인형·지도형) |
+| `history/topics/` | 주제 탐색 20개 · 평가판 https://claude.ai/artifact/M6MvGi7WJmC9wmN5tPvHoB · README · settings v1.1 (연도 꼴·안내 문구·요약본 편 목록) |
+| `history/source/{gyeoul,bapsang,wang-sumyeong}-2026-10/` | 요약본 세 편 (T003 겨울 · T002 밥상 · T001 왕의 수명) — 핵심 방향 + 안 5개, 검사 ✅ · 요약본 평가판 https://claude.ai/artifact/9NXV23m1jNHYuy74rqCirV |
+| `tools/topic_ideas.py` (v1.2.2) | v1.2.1 '자료에 기간' 연도 꼴을 주제마다 (`[clarity] YEAR` — 1653년·18세기·기원전) · v1.2.2 안내 문구를 주제마다 (`[page] NOTE_DOC`·`NOTE_PAGE`) — 없으면 주식 글 그대로 |
+| `tools/summary_ideas.py` (v1.2.1) | 안내 문구를 주제마다 (`[summary] NOTE`) — 없으면 '연구·교육용 — 투자 권유가 아님.' 그대로 |
+| `tools/content_analysis.py` (v1.0.2) | 엑셀 '읽는 법'의 썸네일 장 수 = `thumb_codes.tsv` 줄 수 (주식 167장이 굳어 있었음) · 성공 사례 뜻 = 주제 규칙 |
+| `CLAUDE.md` · `guides/status.md` (v2.99) · `guides/pc_analysis.md` (v3.22) · `history/README.md` (v1.5) | 역사 새 편 줄 · 페르소나 = 주식·재테크·역사 · 인수인계 |
+
+### 확인
+- 주식 `topic_ideas`·`summary_ideas` status 를 다시 돌려 비교 — 버전 표시 말고 문서·평가판이 같음 (되돌림).
+- 요약본 안 15개 `summary_ideas.py history status` 모두 ✅ (제목 2줄 — 'PC 다음 동영상(좁은 화면)' 때문에 30자 안팎으로 줄임).
+- 두 평가판 db 'marks' 비어 있음 (ArtifactData list).
+
+### 한계
+- 요약본·주제의 숫자는 예상 — 사료 사이트(실록·국사편찬위원회)가 이 환경에서 막혀 ○○ 로 둠. 대본 전에 원문 확인.
+- 역사 대본 0개 (자막 막힘·음성인식 보류) → 대본 진행 근거는 채널 설명의 꼴뿐. 썸네일 분류는 성공 사례 414장 중 144장.
+
 ## 2026-10-28 — 재테크도 주식과 같은 길: 분석 → 확인 엑셀 → 페르소나 → 주제 탐색 20개 → 요약본 세 편
 
 ### 왜 (사용자 지시)

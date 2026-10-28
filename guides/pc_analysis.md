@@ -1,6 +1,7 @@
 # PC에서 분석 돌리기 — 재테크(`economic`)·주식(`stock`) 폴더
 
-버전: v3.21 — 2026-10-28 — **대본만 받기** `run_analyzer.ps1 -Transcribe -Folder <주제>` (`tools/pc_transcribe.py` v1.0) — 클라우드 주제의 대본을 PC 가 받아 대본 두 파일만 main 에 (아래 '대본만 받기').
+버전: v3.22 — 2026-10-28 — 시청자 페르소나 = **주식·재테크·역사** (같은 날 사용자 지시 "주식 주제 관련 세션에서 했던것처럼 똑같은 방식으로 …" — `economic/personas.toml` · `history/personas.toml`, 분석 끝에 저절로). 음악은 만들지 않음.
+이전 v3.21 — 2026-10-28 — **대본만 받기** `run_analyzer.ps1 -Transcribe -Folder <주제>` (`tools/pc_transcribe.py` v1.0) — 클라우드 주제의 대본을 PC 가 받아 대본 두 파일만 main 에 (아래 '대본만 받기').
 이전 v3.20 — 2026-10-28 — 시청자 페르소나는 **주식만** (사용자 지시 "아니 주식 쪽만 하면돼" — 재테크·역사·음악 설정·결과를 지움).
 이전 v3.19 — 2026-10-28 — **시청자 페르소나** (`tools/personas.py` v1.0 → `<주제>/result/outliers/personas.md`·`.json`, 분석이 끝날 때 자동 — weekly_analysis v1.5) · 대본 검사 `tools/persona_review.py`.
 이전 v3.18 — 2026-10-28 — 분석 대상 세 묶음 고침: ① 구독자당 하루 조회수 + 점수 가중 · ② 쇼츠도 · ③ 기간 없는 검색(할당량 남을 때만) + 조회수 상위 묶음 · 하루 조회수는 받은 때 기준.
@@ -248,7 +249,7 @@ bash run_analyzer.sh
 - **가장 믿을 숫자 = 2번(사람이 분류한 표본)**. 규칙은 처음 보는 댓글에 45% 정확도라 묶음·주별 표는 보정 어림값 — 보정·규칙 두 숫자가 같은 방향일 때만 차이로 본다.
 - `analysis.md` 8번·`weekly.md` 니즈의 낱말 갈래는 그대로 두고 '어느 갈래에도 안 듦' 줄을 같이 보인다 (성공 사례 82% · 1-3번 88% · 주별 약 60%).
 
-### 시청자 페르소나 — 주식만, 분석 대상 최근 영상의 댓글에서 (`tools/personas.py` v1.0.1 — 2026-10-28)
+### 시청자 페르소나 — 주식·재테크·역사 (설정 `<주제>/personas.toml` — 음악은 없음), 분석 대상 최근 영상의 댓글에서 (`tools/personas.py` v1.0.1 — 2026-10-28)
 사용자 지시: "시청자 페르소나 파일 생성하도록 해 — 분석 대상 최근 영상 유튜브 댓글을 보고 시청자 유형 파악, 많이 겹치는 유형 탐색해서 생성, 몇명 생성하여 적절한지 정해야함 … 연령, 처한 상황, 지식 수준, 기존 알고 있는 내용, 원하는 내용 등 … 주제 탐색 및 요약본, 최종 대본 피드백에 사용 … 분석 결과에 따라 업데이트도 돼야함" → 이어서 **"아니 주식 쪽만 하면돼"** (설정은 `stock/personas.toml` 하나 — 다른 주제는 만들지 않음).
 
 - **저절로**: 주식 분석(`cloud_run.py stock analyze` · 웹 화면 [분석]) → weekly_analysis v1.5 → success_analysis 뒤 `personas.build` → `stock/result/outliers/personas.md`(사람·AI) · `personas.json`(검사 도구). 손으로: `python3 tools/personas.py stock` (할당량 0, 약 40초). 다른 주제는 설정이 없어 '만들지 않음' 로그만.

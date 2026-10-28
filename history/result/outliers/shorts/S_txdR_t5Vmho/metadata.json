@@ -1,0 +1,115 @@
+{
+ "id": "txdR_t5Vmho",
+ "title": "신하들을 세 번이나 통째로 숙청한 왕",
+ "channel": "교과서엔 없는 역사",
+ "channel_id": "UCSzI6kWNoUIg5CYqIpn3nJg",
+ "subs": 38300,
+ "views": 187953,
+ "ratio": 4.91,
+ "age_days": 122,
+ "views_per_day": 1537.0,
+ "minutes": 1.3,
+ "seconds": 80,
+ "likes": 1295,
+ "comments": 57,
+ "published": "2026-06-28",
+ "published_at": "2026-06-28T03:00:18Z",
+ "queries": "검색:한국역사",
+ "url": "https://www.youtube.com/shorts/txdR_t5Vmho",
+ "flag": "",
+ "short_basis": "세로·정사각",
+ "hashtags": [
+  "역사",
+  "한국사",
+  "조선왕조실록",
+  "숙종",
+  "환국",
+  "당쟁",
+  "붕당정치",
+  "장희빈",
+  "인현왕후",
+  "송시열",
+  "조선시대",
+  "왕권강화",
+  "조선정치",
+  "역사이야기",
+  "한국사정리"
+ ],
+ "rank": "S91",
+ "set": "web_shorts",
+ "folder": "S_txdR_t5Vmho",
+ "sources": [
+  "검색:한국역사"
+ ],
+ "source": "web_shorts",
+ "tags": [
+  "숙종",
+  "숙종 환국",
+  "숙종 정치",
+  "숙종 당쟁",
+  "숙종 붕당",
+  "조선왕",
+  "조선왕조",
+  "조선시대",
+  "한국사",
+  "한국사 이야기",
+  "역사 이야기",
+  "역사 콘텐츠",
+  "환국",
+  "갑술환국",
+  "기사환국",
+  "경신환국",
+  "장희빈",
+  "인현왕후",
+  "송시열",
+  "조선 정치사"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "신하 숙청의 왕, 숙종은 누구?"
+  },
+  {
+   "start": 6,
+   "title": "왕권을 위한 숙종의 결심"
+  },
+  {
+   "start": 19,
+   "title": "첫 번째 피바람: 남인 축출"
+  },
+  {
+   "start": 33,
+   "title": "장희빈과 세자 문제, 서인 숙청"
+  },
+  {
+   "start": 49,
+   "title": "인현왕후 폐위와 장희빈의 등극"
+  },
+  {
+   "start": 54,
+   "title": "5년 뒤, 세 번째 환국으로 또 숙청"
+  },
+  {
+   "start": 69,
+   "title": "숙종의 손아귀에 놀아난 인물들"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 57,
+ "comments_top_level": 50,
+ "comments_replies": 7,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 57,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-10-28T10:00:00",
+ "approved": "2026-10-28T19:00+09:00",
+ "kind": "shorts",
+ "embed_w": 4608,
+ "embed_h": 8192,
+ "cover": "oar2.jpg"
+}

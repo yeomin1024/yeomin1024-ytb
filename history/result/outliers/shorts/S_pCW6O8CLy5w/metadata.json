@@ -1,0 +1,118 @@
+{
+ "id": "pCW6O8CLy5w",
+ "title": "장마철 폭우에 기둥이 썩어 나가는데 지붕 끝을 하늘로 번쩍 들려 올린 조선 목수들의 소름 돋는 과학 #역사 #한국사 #한옥",
+ "channel": "지구에 관하여",
+ "channel_id": "UCUsPAZMvkRmNkzsXD0rWnDA",
+ "subs": 3490,
+ "views": 82004,
+ "ratio": 23.5,
+ "age_days": 6,
+ "views_per_day": 11726.1,
+ "minutes": 1.9,
+ "seconds": 117,
+ "likes": 679,
+ "comments": 11,
+ "published": "2026-10-21",
+ "published_at": "2026-10-21T10:00:38Z",
+ "queries": "검색:한국사",
+ "url": "https://www.youtube.com/shorts/pCW6O8CLy5w",
+ "flag": "",
+ "short_basis": "세로·정사각",
+ "hashtags": [
+  "역사",
+  "한국사",
+  "한옥",
+  "처마",
+  "전통과학",
+  "조선시대",
+  "역사쇼츠",
+  "대목장",
+  "고궁",
+  "수면다큐",
+  "지구에관하여"
+ ],
+ "rank": "S56",
+ "set": "web_shorts",
+ "folder": "S_pCW6O8CLy5w",
+ "sources": [
+  "검색:한국사"
+ ],
+ "source": "web_shorts",
+ "tags": [
+  "한옥",
+  "한옥 처마",
+  "처마의 과학",
+  "부연",
+  "겹처마",
+  "안허리곡",
+  "앙곡",
+  "조선 대목장",
+  "조선 건축 과학",
+  "태양 고도각",
+  "500년 고궁",
+  "경복궁",
+  "전통 과학",
+  "온돌",
+  "석빙고",
+  "한국사",
+  "한국사 쇼츠",
+  "역사 쇼츠",
+  "조선시대 생활",
+  "수면 다큐",
+  "수면 다큐멘터리",
+  "잠잘때 듣는 역사",
+  "지구에 관하여"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "장마철 폭우에 궁궐 나무 기둥이 썩으면 벌어지는 일"
+  },
+  {
+   "start": 10,
+   "title": "빗물을 막기는커녕 지붕 끝을 하늘로 치켜올린 이유"
+  },
+  {
+   "start": 20,
+   "title": "『조선왕조실록』과 500년 고궁에 남은 건축 과학"
+  },
+  {
+   "start": 35,
+   "title": "지붕을 낮게 내렸을 때 발생하는 치명적 습기와 결빙"
+  },
+  {
+   "start": 52,
+   "title": "바람으로 나무를 말리는 지붕 끝 풍동(風洞) 과학"
+  },
+  {
+   "start": 68,
+   "title": "여름 76도 태양은 막고 겨울 29도 태양은 끌어들이는 각도"
+  },
+  {
+   "start": 82,
+   "title": "무거운 흙으로 지붕 끝을 들어 올린 지렛대 비밀, ‘처마’와 ‘부연’"
+  },
+  {
+   "start": 90,
+   "title": "수면 다큐 〈지구에 관하여〉"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 11,
+ "comments_top_level": 6,
+ "comments_replies": 5,
+ "comments_by_creator": 6,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 11,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-10-28T09:58:03",
+ "approved": "2026-10-28T18:58+09:00",
+ "kind": "shorts",
+ "embed_w": 4608,
+ "embed_h": 8192,
+ "cover": "oar2.jpg"
+}

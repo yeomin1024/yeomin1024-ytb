@@ -1,0 +1,124 @@
+<title>역사 주제 평가판</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* 한 줄 목록 — 주제 카드 20장, 위는 평가 셈과 거르기 */
+:root{--bg:#f3f5f7;--card:#ffffff;--ink:#17202b;--muted:#5b6876;--line:#d9dfe6;--accent:#1f5f8b;--good:#167a5b;--goodbg:#e3f3ec;--bad:#b4442f;--badbg:#f8e6e1;
+--sans:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#11161c;--card:#19212a;--ink:#e6ebf0;--muted:#9aa7b4;--line:#2b3641;--accent:#7cb4dc;--good:#5cc79f;--goodbg:#173229;--bad:#ef8c76;--badbg:#3a211b;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#11161c;--card:#19212a;--ink:#e6ebf0;--muted:#9aa7b4;--line:#2b3641;--accent:#7cb4dc;--good:#5cc79f;--goodbg:#173229;--bad:#ef8c76;--badbg:#3a211b;color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.55}
+.wrap{max-width:780px;margin:0 auto;padding-block:20px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:14px}
+header{display:grid;gap:6px}
+h1{font-size:1.45rem;margin:0;text-wrap:balance;letter-spacing:-.01em}
+.sub{color:var(--muted);font-size:.9rem;margin:0}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.count{font-size:.85rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.count b{color:var(--ink);font-family:var(--mono)}
+.filt{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
+.filt button{font:inherit;font-size:.85rem;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:4px 12px;cursor:pointer}
+.filt button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.note{font-size:.85rem;color:var(--muted);border-left:3px solid var(--line);padding-left:10px;margin:0}
+.note.warn{border-color:var(--bad);color:var(--ink)}
+ol{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:grid;gap:8px;min-width:0}
+.card.good{border-color:var(--good);box-shadow:inset 4px 0 0 var(--good)}
+.card.bad{border-color:var(--bad);box-shadow:inset 4px 0 0 var(--bad)}
+.meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:.8rem;color:var(--muted)}
+.rank{font-family:var(--mono);color:var(--ink)}
+.id{font-family:var(--mono);color:var(--accent)}
+.chip{border:1px solid var(--line);border-radius:4px;padding:0 6px}
+h2{font-size:1.05rem;margin:0;text-wrap:balance}
+.concl{margin:0}
+.concl span{font-size:.75rem;letter-spacing:.04em;color:var(--muted);margin-right:6px}
+details{font-size:.88rem;color:var(--muted)}
+details summary{cursor:pointer;color:var(--accent)}
+details dl{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;margin:8px 0 0}
+details dt{color:var(--ink);font-weight:500}
+details dd{margin:0;min-width:0}
+.act{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.act button{font:inherit;font-weight:500;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:8px;padding:6px 14px;cursor:pointer;min-width:84px}
+.act button.g[aria-pressed="true"]{background:var(--goodbg);border-color:var(--good);color:var(--good)}
+.act button.b[aria-pressed="true"]{background:var(--badbg);border-color:var(--bad);color:var(--bad)}
+.act input{flex:1 1 180px;min-width:0;font:inherit;font-size:.9rem;border:1px solid var(--line);border-radius:8px;padding:6px 10px;background:var(--bg);color:var(--ink)}
+.state{font-size:.8rem;color:var(--muted);min-width:4em}
+button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button:disabled,input:disabled{opacity:.55;cursor:not-allowed}
+</style>
+<div class="wrap">
+<header>
+<h1>역사 주제 평가판</h1>
+<p class="sub" id="sub"></p>
+<p class="note">좋음·나쁨을 누르면 저장됩니다. 다시 누르면 지워집니다. 까닭은 짧게 (선택). Claude 가 다음에 이 평가를 읽어 배우고, 다음 20개를 고를 때 좋은 쪽으로 뽑습니다. ※ 연구·교육용. 결론은 사료 확인 전 예상입니다.</p>
+<p class="note warn" id="offline" hidden>이 화면에서는 저장할 수 없습니다 (로그인이 필요하거나 보기 전용). 평가는 Claude 에게 'T003 좋아, T007 별로'처럼 말하면 됩니다.</p>
+<div class="bar"><span class="count" id="count"></span>
+<div class="filt" role="group" aria-label="거르기"><button type="button" data-f="all" aria-pressed="true">전체</button><button type="button" data-f="none" aria-pressed="false">평가 안 함</button><button type="button" data-f="good" aria-pressed="false">좋음</button><button type="button" data-f="bad" aria-pressed="false">나쁨</button></div></div>
+</header>
+<ol id="list"></ol>
+</div>
+<script id="data" type="application/json">{"batch": 1, "made": "2026-10-28", "analysis": "2026-10-28", "items": [{"rank": 1, "id": "T001", "title": "조선 왕은 정말 일찍 죽었나 — 왕 27명 vs 같은 궁궐의 내시", "conclusion": "조선 왕 27명의 평균 수명은 47세 안팎으로, 같은 궁궐에서 산 내시(환관) 평균 70세보다 20년 넘게 짧았다", "question": "조선 왕은 왜 일찍 죽었나요? 정말 일찍 죽은 건가요?", "decide": "실록 생몰년으로 왕 27명 평균을 내고 내시 족보 연구의 평균과 비교 — 왕 평균이 10년 넘게 낮으면 '정말 일찍 죽었다', 아니면 '보통이었다'", "data": "조선왕조실록 왕 생몰년 1392~1926 · 내시 족보 『양세계보』 수명 연구(2012) · 『승정원일기』 병 기록", "format": "확인형", "persona": "P1 일·집안일·잠들기 전에 틀어 두고 듣는 사람", "status": "작성중", "score": "0.90", "basis": "K01 조선 왕은 왜 일찍 죽었나 — 왕의 수명과 죽은 까닭(종기) 👍41 · K16 조선 왕비들은 몇 살까지 살았나 — 왕과 왕비 수명 👍5 · 닮은 성공 사례: 조선 왕들이 일찍 죽은 진짜 이유｜매일 먹던 수라상에 충격적인 답이 있었다", "rating": null, "why": ""}, {"rank": 2, "id": "T002", "title": "조선 사람은 정말 밥을 산처럼 먹었나 — 한 끼 곡식 양", "conclusion": "기록 속 조선 성인 남자 한 끼 곡식은 5홉(약 0.9L) 안팎으로 오늘 밥 한 공기의 3배를 넘었고, 평소엔 쌀보다 보리·조 같은 잡곡이 많았다", "question": "조선 사람들은 정말 밥을 그렇게 많이 먹었나요? 쌀밥이었나요?", "decide": "실록·문집·외국인 기록의 한 끼 양을 홉 → g → 열량으로 바꿔 오늘 한 공기(쌀 약 90g)와 비교 — 3배 넘으면 '정말 많이 먹었다', 아니면 '부풀린 말'", "data": "조선왕조실록 진휼 기사(하루 지급 곡식) · 이익 『성호사설』 · 하멜·19세기 서양인 기록 · 농촌진흥청 곡물 열량표", "format": "생활사 해설형", "persona": "P1 일·집안일·잠들기 전에 틀어 두고 듣는 사람", "status": "작성중", "score": "0.82", "basis": "K02 조선 백성은 정말 쌀밥을 먹었나 — 쌀 vs 잡곡 👍148 · 닮은 성공 사례: 사극에서 안 보여준 조선 백성의 진짜 밥상! 매일 밥을 산처럼 먹은 충격적인 이유 [한국사", "rating": null, "why": ""}, {"rank": 3, "id": "T004", "title": "조선 주막은 정말 방값이 공짜였나", "conclusion": "조선 후기 주막은 밥·술값을 내면 잠값을 따로 받지 않았고, 한 방에 여러 길손이 함께 잤다", "question": "주막에서 밥만 사 먹으면 잠은 공짜였나요? 주막은 전국에 있었나요?", "decide": "일기·여행기에서 잠값을 밥값과 따로 낸 기록을 셈 — 따로 낸 기록이 밥값에 포함된 기록보다 적으면 '방값은 공짜가 사실'", "data": "황윤석 『이재난고』 여행 기록(18세기) · 『승정원일기』 · 김홍도 풍속화 · 주막 연구 논문", "format": "확인형", "persona": "P1 일·집안일·잠들기 전에 틀어 두고 듣는 사람", "status": "이번 묶음", "score": "0.78", "basis": "K03 조선 주막은 정말 전국에 있었나 — 주막 수·숙박·신용거래 👍7 · K05 조선 주막은 정말 전국에 있었나 — 주막 수·숙박·신용거래 👍72 · 닮은 성공 사례: 조선 주막 방값은 공짜, 대신 목숨을 걸었다 | 승정원일기·실록으로 본 조선 주막", "rating": null, "why": ""}, {"rank": 4, "id": "T005", "title": "조선 궁궐에는 화장실이 없었나", "conclusion": "'궁궐에 화장실이 없었다'는 사실이 아니다 — 경복궁 도면 『북궐도형』에 측간(화장실) 28곳이 그려져 있다", "question": "궁궐에 화장실이 없었다는 게 사실인가요? 주막에선 어떻게 했나요?", "decide": "궁궐 도면·기록에서 측간 수를 셈 — 1곳 이상이면 '없었다'는 말은 사실 아님, 0곳이면 사실", "data": "『북궐도형』(경복궁 도면, 1907년 무렵) · 『동궐도』(1820년대 창덕궁·창경궁) · 매화틀 기록 · 국가유산청 자료", "format": "확인형", "persona": "P1 일·집안일·잠들기 전에 틀어 두고 듣는 사람", "status": "이번 묶음", "score": "0.73", "basis": "K06 조선 사람들은 화장실을 어떻게 썼나 — 궁궐·주막·민가 👍5 · K07 조선 사람들은 화장실을 어떻게 썼나 — 궁궐·주막·민가 👍48 · 닮은 성공 사례: 조선에는 원래 제사가 없었다? 제사는 언제부터 지냈나?", "rating": null, "why": ""}, {"rank": 5, "id": "T010", "title": "하멜 일행은 조선에서 13년을 어떻게 살았나", "conclusion": "1653년 제주에 닿은 하멜 일행 36명은 13년 동안 한양·전라도에서 살았고, 1666년 배로 도망쳐 나가사키에 닿은 사람은 8명이었다", "question": "하멜은 조선에서 감금당한 건가요, 대우를 받은 건가요?", "decide": "『하멜 표류기』와 실록의 인원·해·장소 3가지를 나란히 — 3개 모두 같으면 '기록대로', 1개 이상 다르면 다른 쪽을 밝힘", "data": "『하멜 표류기』(1668 네덜란드어판 번역) · 조선왕조실록 효종 4년·현종 7년 기사 · 『지봉유설』 서양인 기록", "format": "확인형", "persona": "P1 일·집안일·잠들기 전에 틀어 두고 듣는 사람", "status": "이번 묶음", "score": "0.68", "basis": "K17 하멜은 조선에서 어떻게 살았나 — 하멜 표류기 확인 👍4 · 닮은 성공 사례: 하멜 표류기, 13년간 조선에 체류한 네덜란드인 하멜", "rating": null, "why": ""}, {"rank": 6, "id": "T017", "title": "몽골은 이슬람 세계를 어떻게 바꿨나 — 바그다드 함락과 가잔 칸", "conclusion": "1258년 바그다드 함락으로 508년 이어진 아바스 칼리프 왕조가 끝났지만, 37년 뒤(1295) 일한국의 가잔 칸이 이슬람으로 개종했다", "question": "몽골은 이슬람 세계를 정복했는데 왜 이슬람으로 바뀌었나요?", "decide": "1250·1260·1300년 지도에서 이슬람 군주가 다스린 땅 넓이를 비교 — 1300년이 1250년보다 넓거나 같으면 '정복자가 이슬람이 되었다'", "data": "라시드 앗딘 『집사』 · 아바스 왕조 연대(750~1258) · historical-basemaps 1200·1300년 지도", "format": "지도형", "persona": "P3 역사를 공부하는 학생", "status": "이번 묶음", "score": "0.67", "basis": "K24 몽골은 이슬람 세계를 어떻게 바꿨나 — 바그다드 함락과 일한국 👍25 · 닮은 성공 사례: 세계를 몰락시킨 몽골이 끝내 감추고 싶었던 대몽항쟁의 진짜 역사 | 역사다큐 | 한국사 |", "rating": null, "why": ""}, {"rank": 7, "id": "T006", "title": "노비가 늘면 나라 세금이 줄었나 — 노비 비율과 군역", "conclusion": "17세기 호적에서 노비는 인구의 30% 넘게 잡혔고, 노비는 군역·군포 대상이 아니어서 노비가 줄어든 18~19세기에 군역을 질 양인이 늘었다", "question": "노비는 나라에 세금을 안 냈다는데, 노비가 많으면 나라는 손해였나요?", "decide": "같은 고을 호적의 노비 비율과 군역 대상 수를 시기별로 맞춤 — 노비 비율이 내릴 때 군역 대상이 늘었으면 '사실', 아니면 '사실 아님'", "data": "단성·대구 호적대장 연구(1678~1858) · 실록 군정 기사 · 『속대전』 노비 조항", "format": "확인형", "persona": "P3 역사를 공부하는 학생", "status": "이번 묶음", "score": "0.67", "basis": "K10 노비가 늘면 나라 세금이 줄었나 — 노비 비율과 세금·군역 👍32", "rating": null, "why": ""}, {"rank": 8, "id": "T014", "title": "2000년 전 한반도·중국·일본은 무엇을 사고팔았나", "conclusion": "1~3세기 한반도 남부의 철이 낙랑과 왜로 나갔다 — 『삼국지』 동이전에 '나라에서 철이 나니 한·예·왜가 모두 와서 가져간다'고 적혀 있다", "question": "낙랑과 한반도 남부, 일본은 무엇을 주고받았나요?", "decide": "동이전 원문과 출토 유물(덩이쇠·중국 동전·왜 토기)의 분포를 지도에 — 철 유물이 가장 넓게 퍼졌으면 '철이 주된 거래품', 아니면 다른 품목을 밝힘", "data": "『삼국지』 위서 동이전 변진조(3세기) · 김해 대성동·창원 다호리 출토 보고서 · 낙랑 유적 연구", "format": "지도형", "persona": "P3 역사를 공부하는 학생", "status": "이번 묶음", "score": "0.67", "basis": "K20 2000년 전 한반도·중국·일본은 무엇을 사고팔았나 👍23 · 닮은 성공 사례: 중국도 일본도 아닙니다 단군과 고조선의 기록을 지우려한 정체", "rating": null, "why": ""}, {"rank": 9, "id": "T018", "title": "십자군 200년, 예루살렘은 몇 년이나 지켰나", "conclusion": "1096~1291년 십자군이 예루살렘을 차지한 기간은 모두 합쳐 약 100년이었고, 1291년 아크레 함락으로 마지막 거점까지 잃었다", "question": "200년 동안 싸운 십자군은 결국 무엇을 남겼나요?", "decide": "예루살렘을 라틴 왕국이 다스린 해를 더함 — 원정 기간(195년)의 절반 미만이면 '목표를 지키지 못했다'", "data": "1099 예루살렘 점령 · 1187 하틴 전투 · 1229~1244 · 1291 아크레 함락 · 지중해 연도별 지도", "format": "지도형", "persona": "P3 역사를 공부하는 학생", "status": "이번 묶음", "score": "0.62", "basis": "K25 십자군은 무엇을 남겼나 — 200년 전쟁의 결과 👍143 · 닮은 성공 사례: 3일마다 버리는 신발을 왜 500년이나 신었을까? 알고 보니 이유가 있었습니다", "rating": null, "why": ""}, {"rank": 10, "id": "T030", "title": "진시황릉은 왜 아직 열지 않았나 — 『사기』의 수은 강", "conclusion": "진시황릉 봉분은 1974년 병마용 발견 뒤 50년 넘게 열지 않았고, 『사기』의 '수은으로 강을 만들었다'는 기록대로 봉분 흙의 수은이 주변보다 높게 나왔다", "question": "진시황릉은 왜 지금까지 열지 않나요? 수은 강 이야기는 사실인가요?", "decide": "봉분 흙의 수은 농도 조사값이 주변 흙보다 높으면 '수은 기록은 사실', 아니면 '전설'", "data": "『사기』 진시황본기(기원전 1세기) · 1974년 병마용 발견 · 1980년대·2020년 수은 조사 논문", "format": "확인형", "persona": "P1 일·집안일·잠들기 전에 틀어 두고 듣는 사람", "status": "이번 묶음", "score": "0.61", "basis": "닮은 성공 사례: 진시황릉을 절대 열지 않는 이유, 황제 무덤을 한 번 열었다가 벌어진 일", "rating": null, "why": ""}, {"rank": 11, "id": "T015", "title": "조로아스터교는 어떤 종교였나 — 페르시아의 불의 종교", "conclusion": "조로아스터교는 사산 왕조 페르시아(224~651)의 국교였고, 이슬람 정복 뒤 신자가 줄어 오늘은 약 10~20만 명이다", "question": "조로아스터교는 어떤 종교였고, 왜 거의 사라졌나요?", "decide": "국교였던 기간과 오늘 신자 수를 셈 — 오늘 신자가 이란 인구의 1% 미만이면 '거의 사라졌다'", "data": "사산 왕조 연대 · 이슬람 정복(633~651) · 인구 조사(이란·인도 파르시) · 종교 지도", "format": "지도형", "persona": "P3 역사를 공부하는 학생", "status": "이번 묶음", "score": "0.60", "basis": "K22 조로아스터교는 어떤 종교였나 — 페르시아의 불의 종교 👍38 · 닮은 성공 사례: 조선이 감춘 엿새의 학살 — 고려 왕족 474년 핏줄은 어떻게 사라졌나", "rating": null, "why": ""}, {"rank": 12, "id": "T013", "title": "상복은 언제 흰색에서 검은색이 되었나", "conclusion": "조선의 상복은 삼베로 지은 누런 흰빛 옷이었고, 검은 상복·완장은 일제강점기 1934년 '의례준칙' 뒤에 퍼졌다", "question": "장례 옷은 원래 흰색이었다는데, 검은색은 언제부터인가요?", "decide": "법령·신문에서 검은 상복을 처음 권한 해를 찾음 — 1910년 이후면 '일제강점기부터', 그전이면 '조선 때부터'", "data": "『국조오례의』 상복 규정 · 1934년 조선총독부 의례준칙 · 1930년대 신문 기사 · 1969·1973년 가정의례준칙", "format": "확인형", "persona": "P2 옛일을 기억하는 6070", "status": "이번 묶음", "score": "0.60", "basis": "K13 상복은 언제 흰색에서 검은색이 되었나 👍8 · 닮은 성공 사례: 조선에는 원래 제사가 없었다? 제사는 언제부터 지냈나?", "rating": null, "why": ""}, {"rank": 13, "id": "T011", "title": "명량해전 숫자 확인 — 13척으로 몇 척을 깼나", "conclusion": "『난중일기』에 적힌 숫자는 조선 13척 대 일본 133척, 깨뜨린 일본 배는 31척이었다", "question": "명량해전은 정말 12척 대 133척이었나요? 몇 척을 깨뜨렸나요?", "decide": "『난중일기』·실록·일본 측 기록의 척수를 나란히 — 일본 측 숫자가 더 적으면 그 차이를 밝히고, 같으면 '기록대로'", "data": "『난중일기』 정유년(1597) 9월 16일 · 조선왕조실록 선조 30년(1597) · 일본 측 기록", "format": "확인형", "persona": "P1 일·집안일·잠들기 전에 틀어 두고 듣는 사람", "status": "이번 묶음", "score": "0.59", "basis": "K18 명량해전 숫자 확인 — 13척 vs 133척, 몇 척을 깼나 👍32", "rating": null, "why": ""}, {"rank": 14, "id": "T026", "title": "세계대전에서 가장 많이 죽은 전투는 어디인가", "conclusion": "가장 많은 사람이 죽거나 다친 전투는 스탈린그라드(1942~43, 약 200만 명)로, 1차 대전 베르됭(약 70만 명)의 3배 가까이였다", "question": "1·2차 세계대전 대규모 전투 중 가장 많은 사람이 죽은 전투는요?", "decide": "전투별 사상자 연구값(최솟값 기준)을 줄 세움 — 1위가 2위보다 1.5배 넘게 크면 '압도적 1위'", "data": "전투별 사상자 연구(군사사 문헌) · 1916 베르됭 · 1942~43 스탈린그라드 · 1916 솜 전투", "format": "확인형", "persona": "P3 역사를 공부하는 학생", "status": "이번 묶음", "score": "0.56", "basis": "K26 세계대전 대규모 전투 — 가장 많이 죽은 전투는 👍30 · 닮은 성공 사례: 제1차 세계대전 최악의 소모전, 베르됭 전투 3D | 완전판", "rating": null, "why": ""}, {"rank": 15, "id": "T016", "title": "초원 유목민은 왜 계속 서쪽으로 갔나 — 흉노·훈·돌궐·몽골", "conclusion": "초원 세력은 4·6·13세기 세 번 크게 서쪽으로 움직였고, 세 번 모두 동쪽 초원의 다툼에서 밀린 쪽이 먼저 떠났다", "question": "초원 민족은 왜 계속 서쪽으로 이동했나요?", "decide": "연도별 지도로 세 번의 이동 직전 동쪽 초원 사건(흉노 분열·유연 멸망·몽골 통일)을 맞춤 — 세 번 중 2번 넘게 맞으면 '밀려서 갔다'", "data": "『사기』·『한서』 흉노전(기원전 2세기~) · 로마 기록(훈, 4세기) · 돌궐 비문(8세기) · 『몽골비사』(13세기) · historical-basemaps 연도별 지도", "format": "지도형", "persona": "P3 역사를 공부하는 학생", "status": "이번 묶음", "score": "0.53", "basis": "K23 초원 유목민은 왜 계속 서쪽으로 갔나 — 흉노·훈·돌궐·몽골 👍39", "rating": null, "why": ""}, {"rank": 16, "id": "T027", "title": "고려 사람들은 고기를 먹었나 — 송나라 사신의 기록", "conclusion": "1123년 송나라 사신 서긍은 『고려도경』에 '고려는 짐승을 잡는 솜씨가 서툴다'고 적었고, 고기 먹는 풍습은 13세기 몽골 간섭기 뒤에 널리 퍼졌다", "question": "불교 나라 고려에서는 정말 고기를 안 먹었나요?", "decide": "고려 전기(918~1269)·후기(1270~1392) 기록의 육식 기사 수를 비교 — 후기가 2배 넘게 많으면 '몽골 뒤에 퍼졌다', 아니면 '전부터 먹었다'", "data": "『고려도경』(1123) · 『고려사』(1451 편찬) 식화지·열전 · 고려 음식사 연구", "format": "확인형", "persona": "P1 일·집안일·잠들기 전에 틀어 두고 듣는 사람", "status": "이번 묶음", "score": "0.51", "basis": "닮은 성공 사례: 연산군도 비비지 못하는 고려 최악의 폭군 | 고려 충혜왕의 실제 기록", "rating": null, "why": ""}, {"rank": 17, "id": "T020", "title": "수백 명이 어떻게 아즈텍을 이겼나 — 코르테스의 동맹군", "conclusion": "코르테스 군은 스페인 병사 수백 명이 아니라 틀락스칼라 등 원주민 동맹군 수만 명과 함께 싸웠고, 1520년 천연두가 테노치티틀란을 먼저 덮쳤다", "question": "스페인 군대 수백 명이 어떻게 수백만의 아즈텍을 무너뜨렸나요?", "decide": "기록의 스페인 병사 수와 원주민 동맹군 수를 비교 — 동맹군이 10배 넘으면 '수백 명이 이긴 게 아니다', 아니면 '스페인군이 주력'", "data": "코르테스 편지(1520~1526) · 디아스 『정복기』 · 틀락스칼라 기록 · 천연두 인구 연구", "format": "확인형", "persona": "P3 역사를 공부하는 학생", "status": "이번 묶음", "score": "0.43", "basis": "K27 아즈텍 문명은 어떻게 무너졌나 — 수백 명이 수백만을 이긴 까닭 👍5", "rating": null, "why": ""}, {"rank": 18, "id": "T028", "title": "일제강점기 조선 사람은 쌀을 얼마나 먹었나 — 1인당 쌀 소비 통계", "conclusion": "조선 사람 1인당 쌀 소비는 1912년 약 0.77석에서 1930년대 0.4석 안팎으로 줄었고, 같은 때 일본으로 나간 쌀은 늘었다", "question": "산미증식계획 때 조선 사람들은 정말 쌀을 못 먹었나요?", "decide": "조선총독부 통계의 1인당 쌀 소비와 일본 이출량을 같은 해로 맞춤 — 소비가 줄 때 이출이 늘었으면 '사실', 아니면 '사실 아님'", "data": "조선총독부 통계연보(1912~1940) · 『조선미곡요람』(1930년대) · 경제사 연구", "format": "확인형", "persona": "P2 옛일을 기억하는 6070", "status": "이번 묶음", "score": "0.39", "basis": "6070 페르소나(옛일을 기억하는) · 근현대사 묶음 · 쌀밥 니즈(K02)와 이어지는 다른 시대", "rating": null, "why": ""}, {"rank": 19, "id": "T019", "title": "가장 넓었던 제국은 어디인가 — 로마·몽골·대영제국을 같은 지도에", "conclusion": "땅 넓이만 보면 1920년 대영제국(약 3,400만 km²)이 1279년 몽골 제국(약 2,400만 km²)보다 넓었고, 이어진 땅으로는 몽골이 가장 넓었다", "question": "역사상 가장 넓었던 제국은 몽골인가요, 대영제국인가요?", "decide": "연도별 국경 GeoJSON 으로 넓이를 계산 — '전체 넓이 1위'와 '이어진 땅 1위'를 따로 판정, 문헌값과 10% 넘게 다르면 문헌값을 씀", "data": "historical-basemaps(GPL-3.0) 100·1279·1920년 · 문헌 넓이값(Taagepera 1997 등)", "format": "지도형", "persona": "P3 역사를 공부하는 학생", "status": "이번 묶음", "score": "0.39", "basis": "닮은 성공 사례: 크메르 제국의 앙코르와트는 왜 밀림에 묻혔나?:세계에서 가장 넓었던 신의 도시가 버려진 이", "rating": null, "why": ""}, {"rank": 20, "id": "T029", "title": "피라미드는 노예가 지었나 — 일꾼 마을의 증거", "conclusion": "기자 피라미드 옆 일꾼 마을과 무덤(1990년 발굴)에서 빵·고기 배급 흔적이 나와, 노예가 아니라 배급을 받은 일꾼이 지었다는 증거가 더 많다", "question": "피라미드는 정말 노예들이 채찍 맞으며 지었나요?", "decide": "일꾼 무덤·배급·작업 일지의 증거 수와 '노예 강제 노동' 증거 수를 비교 — 일꾼 쪽이 더 많으면 '노예가 아니었다'", "data": "기자 일꾼 마을 발굴(1990~) · 메레르의 일지(기원전 26세기, 2013년 발견) · 헤로도토스(기원전 5세기)", "format": "확인형", "persona": "P3 역사를 공부하는 학생", "status": "이번 묶음", "score": "0.31", "basis": "닮은 성공 사례: 지구나이 45억년, 인류 이전 초거대 문명의 소름돋는 증거들", "rating": null, "why": ""}]}</script>
+<script>
+(function(){
+const D=JSON.parse(document.getElementById("data").textContent);
+const marks={};            // id -> {rating, why}  (저장소 값 — 처음엔 저장소의 평가.txt 값)
+D.items.forEach(it=>{ if(it.rating) marks[it.id]={rating:it.rating,why:it.why||""}; });
+let db=null, canWrite=false, filter="all";
+const $=s=>document.querySelector(s);
+$("#sub").textContent=`${D.batch}번째 묶음 · ${D.made} · 주제 ${D.items.length}개 · 분석 ${D.analysis}`;
+function el(tag,attrs,text){const e=document.createElement(tag);for(const k in (attrs||{}))e.setAttribute(k,attrs[k]);if(text!=null)e.textContent=text;return e;}
+function counts(){let g=0,b=0;D.items.forEach(it=>{const m=marks[it.id];if(m&&m.rating==="좋음")g++;else if(m&&m.rating==="나쁨")b++;});
+  $("#count").innerHTML="";const c=$("#count");c.append("좋음 ");c.append(el("b",{},String(g)));c.append(" · 나쁨 ");c.append(el("b",{},String(b)));c.append(" · 평가 안 함 ");c.append(el("b",{},String(D.items.length-g-b)));}
+function render(){
+  const L=$("#list"); L.innerHTML="";
+  D.items.forEach(it=>{
+    const m=marks[it.id]||{}; const r=m.rating||"";
+    if(filter==="none"&&r) return; if(filter==="good"&&r!=="좋음") return; if(filter==="bad"&&r!=="나쁨") return;
+    const li=el("li",{class:"card"+(r==="좋음"?" good":r==="나쁨"?" bad":""),id:"c-"+it.id});
+    const meta=el("div",{class:"meta"});
+    meta.append(el("span",{class:"rank"},it.rank+"위"),el("span",{class:"id"},it.id),el("span",{class:"chip"},it.format),el("span",{class:"chip"},it.persona));
+    if(it.status!=="이번 묶음") meta.append(el("span",{class:"chip"},it.status));
+    li.append(meta, el("h2",{},it.title));
+    const c=el("p",{class:"concl"}); c.append(el("span",{},"결론(예상)")); c.append(document.createTextNode(it.conclusion)); li.append(c);
+    const d=el("details"); d.append(el("summary",{},"질문 · 판정 규칙 · 자료 · 근거"));
+    const dl=el("dl"); [["질문",it.question],["판정 규칙",it.decide],["자료",it.data],["근거",it.basis],["점수",it.score]].forEach(([k,v])=>{if(v){dl.append(el("dt",{},k),el("dd",{},String(v)));}});
+    d.append(dl); li.append(d);
+    const act=el("div",{class:"act"});
+    const gb=el("button",{type:"button",class:"g","aria-pressed":String(r==="좋음"),id:"g-"+it.id},"좋음");
+    const bb=el("button",{type:"button",class:"b","aria-pressed":String(r==="나쁨"),id:"b-"+it.id},"나쁨");
+    const why=el("input",{type:"text",id:"w-"+it.id,placeholder:"까닭 (선택)",maxlength:"120","aria-label":it.id+" 까닭"}); why.value=m.why||"";
+    const st=el("span",{class:"state",id:"s-"+it.id});
+    [gb,bb,why].forEach(x=>{ if(!canWrite) x.disabled=true; });
+    gb.addEventListener("click",()=>save(it.id, r==="좋음"?"":"좋음", why.value));
+    bb.addEventListener("click",()=>save(it.id, r==="나쁨"?"":"나쁨", why.value));
+    why.addEventListener("change",()=>{ if(marks[it.id]&&marks[it.id].rating) save(it.id, marks[it.id].rating, why.value); });
+    act.append(gb,bb,why,st); li.append(act); L.append(li);
+  });
+  counts();
+}
+let busy=Promise.resolve();
+function save(id,rating,why){
+  if(!db||!canWrite) return;
+  const st=document.getElementById("s-"+id); if(st) st.textContent="저장 중…";
+  const body={rating:rating,why:(why||"").trim().slice(0,120),at:new Date().toISOString(),batch:D.batch};
+  busy=busy.then(()=>db.collection("marks").doc(id).set(body)).then(()=>{
+    if(rating) marks[id]={rating:rating,why:body.why}; else delete marks[id];
+    render(); const s2=document.getElementById("s-"+id); if(s2) s2.textContent=rating?"저장됨":"지움";
+  }).catch(e=>{ const s3=document.getElementById("s-"+id); if(s3) s3.textContent=(e&&e.code==="invalid_argument")?"저장 못 함 (권한)":"저장 못 함 — 다시 눌러 주세요"; });
+}
+document.querySelectorAll(".filt button").forEach(b=>b.addEventListener("click",()=>{filter=b.dataset.f;document.querySelectorAll(".filt button").forEach(x=>x.setAttribute("aria-pressed",String(x===b)));render();}));
+render();
+(async()=>{
+  try{ db = window.claude && window.claude.use ? await window.claude.use("db") : null; }catch(e){ db=null; }
+  if(!db){ $("#offline").hidden=false; return; }
+  let user=null; try{ user=await window.claude.use("user"); }catch(e){}
+  let cw=null; try{ cw = user ? await user.can("data.write") : null; }catch(e){ cw=null; }
+  canWrite = cw!==false;
+  if(!canWrite) $("#offline").hidden=false;
+  db.collection("marks").onSnapshot(snap=>{
+    snap.docs.forEach(doc=>{ const v=doc.data()||{}; if(v.rating) marks[doc.id]={rating:v.rating,why:v.why||""}; else delete marks[doc.id]; });
+    render();
+  },()=>{});
+  render();
+})();
+})();
+</script>

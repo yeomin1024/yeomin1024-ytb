@@ -1,8 +1,8 @@
 {
- "tool": "weekly_analysis.py v1.5.1",
+ "tool": "weekly_analysis.py v1.5.2",
  "topic": "history",
  "name": "역사",
- "generated": "2026-10-28T10:02:27+00:00",
+ "generated": "2026-10-28T10:13:41+00:00",
  "cases": 914,
  "dated": 914,
  "older_than_windows": 0,
@@ -13,7 +13,7 @@
   "설명": 890,
   "없음": 24
  },
- "criteria": "성공 사례 = 구독자 50,000 이하 · 조회수 10,000 이상 · 조회수 ≥ 구독자 × 3",
+ "criteria": "성공 사례 = 구독자 50,000 이하 · 조회수 10,000 이상 · 구독자당 하루 조회수 ≥ 0.1 (하루 조회수 ÷ 구독자)",
  "windows": [
   {
    "weeks": 1,
@@ -387,7 +387,7 @@
    "views_median": 101152.5,
    "views_per_day_median": 28117.4,
    "ratio_median": 8.38,
-   "success": 25,
+   "success": 27,
    "minutes_median": 16.2,
    "title_len_avg": 47.2,
    "title_features": [
@@ -445,7 +445,7 @@
      "count": 4
     },
     {
-     "word": "보는",
+     "word": "지도로",
      "count": 4
     },
     {
@@ -453,7 +453,7 @@
      "count": 4
     },
     {
-     "word": "지도로",
+     "word": "보는",
      "count": 4
     },
     {
@@ -465,7 +465,7 @@
      "count": 3
     },
     {
-     "word": "벌어진",
+     "word": "이유",
      "count": 3
     }
    ],
@@ -494,11 +494,11 @@
      "count": 12
     },
     {
-     "word": "함께",
+     "word": "조선",
      "count": 11
     },
     {
-     "word": "조선",
+     "word": "함께",
      "count": 11
     },
     {
@@ -506,15 +506,15 @@
      "count": 10
     },
     {
-     "word": "않은",
-     "count": 9
-    },
-    {
      "word": "자료를",
      "count": 9
     },
     {
      "word": "AI",
+     "count": 9
+    },
+    {
+     "word": "않은",
      "count": 9
     },
     {
@@ -884,7 +884,7 @@
    "views_median": 134902.5,
    "views_per_day_median": 21579.1,
    "ratio_median": 15.57,
-   "success": 55,
+   "success": 57,
    "minutes_median": 16.3,
    "title_len_avg": 47.6,
    "title_features": [
@@ -1391,7 +1391,7 @@
    "views_median": 150928,
    "views_per_day_median": 15556.5,
    "ratio_median": 15.62,
-   "success": 87,
+   "success": 89,
    "minutes_median": 17.7,
    "title_len_avg": 46.7,
    "title_features": [
@@ -1993,7 +1993,7 @@
    "views_median": 150928,
    "views_per_day_median": 12694.1,
    "ratio_median": 16.21,
-   "success": 134,
+   "success": 136,
    "minutes_median": 19.3,
    "title_len_avg": 46.0,
    "title_features": [
@@ -2495,7 +2495,7 @@
    "views_median": 165120.0,
    "views_per_day_median": 11115.5,
    "ratio_median": 15.91,
-   "success": 163,
+   "success": 165,
    "minutes_median": 19.55,
    "title_len_avg": 45.7,
    "title_features": [
@@ -2997,7 +2997,7 @@
    "views_median": 173311,
    "views_per_day_median": 10683.2,
    "ratio_median": 16.21,
-   "success": 190,
+   "success": 192,
    "minutes_median": 21.4,
    "title_len_avg": 47.0,
    "title_features": [
@@ -3474,7 +3474,7 @@
    "views_median": 177438,
    "views_per_day_median": 10463.3,
    "ratio_median": 14.11,
-   "success": 213,
+   "success": 211,
    "minutes_median": 21.9,
    "title_len_avg": 47.6,
    "title_features": [
@@ -3976,7 +3976,7 @@
    "views_median": 179098,
    "views_per_day_median": 9788.9,
    "ratio_median": 14.21,
-   "success": 242,
+   "success": 238,
    "minutes_median": 22.5,
    "title_len_avg": 48.1,
    "title_features": [
@@ -4463,7 +4463,7 @@
    "views_median": 183356.5,
    "views_per_day_median": 9175.6,
    "ratio_median": 12.8,
-   "success": 269,
+   "success": 261,
    "minutes_median": 23.55,
    "title_len_avg": 48.0,
    "title_features": [
@@ -4925,7 +4925,7 @@
    "views_median": 183526.0,
    "views_per_day_median": 8864.95,
    "ratio_median": 12.61,
-   "success": 291,
+   "success": 278,
    "minutes_median": 25.2,
    "title_len_avg": 48.0,
    "title_features": [
@@ -5437,7 +5437,7 @@
    "views_median": 180461.0,
    "views_per_day_median": 8178.3,
    "ratio_median": 11.95,
-   "success": 323,
+   "success": 303,
    "minutes_median": 25.25,
    "title_len_avg": 48.0,
    "title_features": [
@@ -5904,7 +5904,7 @@
    "views_median": 179098,
    "views_per_day_median": 7740.0,
    "ratio_median": 11.96,
-   "success": 351,
+   "success": 323,
    "minutes_median": 25.6,
    "title_len_avg": 47.9,
    "title_features": [
@@ -6386,7 +6386,7 @@
    "views_median": 172502,
    "views_per_day_median": 6251.4,
    "ratio_median": 11.96,
-   "success": 382,
+   "success": 346,
    "minutes_median": 25.7,
    "title_len_avg": 48.0,
    "title_features": [
@@ -6813,7 +6813,7 @@
    "views_median": 170309.0,
    "views_per_day_median": 5988.9,
    "ratio_median": 12.21,
-   "success": 403,
+   "success": 360,
    "minutes_median": 26.35,
    "title_len_avg": 48.2,
    "title_features": [
@@ -7275,7 +7275,7 @@
    "views_median": 168571.5,
    "views_per_day_median": 5590.65,
    "ratio_median": 12.21,
-   "success": 429,
+   "success": 375,
    "minutes_median": 26.4,
    "title_len_avg": 48.3,
    "title_features": [
@@ -7697,7 +7697,7 @@
    "views_median": 166737.5,
    "views_per_day_median": 5085.0,
    "ratio_median": 12.47,
-   "success": 450,
+   "success": 392,
    "minutes_median": 26.45,
    "title_len_avg": 48.2,
    "title_features": [
@@ -8139,7 +8139,7 @@
    "views_median": 164061.5,
    "views_per_day_median": 4761.6,
    "ratio_median": 12.95,
-   "success": 474,
+   "success": 408,
    "minutes_median": 26.5,
    "title_len_avg": 48.3,
    "title_features": [
@@ -8586,7 +8586,7 @@
    "views_median": 164122,
    "views_per_day_median": 4431.8,
    "ratio_median": 13.1,
-   "success": 499,
+   "success": 423,
    "minutes_median": 26.8,
    "title_len_avg": 48.4,
    "title_features": [
@@ -9043,7 +9043,7 @@
    "views_median": 166425.0,
    "views_per_day_median": 4101.55,
    "ratio_median": 13.78,
-   "success": 527,
+   "success": 444,
    "minutes_median": 26.9,
    "title_len_avg": 48.4,
    "title_features": [
@@ -9495,7 +9495,7 @@
    "views_median": 166763.5,
    "views_per_day_median": 3685.2,
    "ratio_median": 13.96,
-   "success": 553,
+   "success": 459,
    "minutes_median": 27.1,
    "title_len_avg": 48.6,
    "title_features": [
@@ -9967,7 +9967,7 @@
    "views_median": 165251.0,
    "views_per_day_median": 3304.5,
    "ratio_median": 13.96,
-   "success": 584,
+   "success": 475,
    "minutes_median": 27.15,
    "title_len_avg": 48.7,
    "title_features": [
@@ -10131,11 +10131,11 @@
      "count": 151
     },
     {
-     "word": "이야기를",
+     "word": "조선의",
      "count": 148
     },
     {
-     "word": "조선의",
+     "word": "이야기를",
      "count": 148
     },
     {
@@ -10444,7 +10444,7 @@
    "views_median": 163896,
    "views_per_day_median": 3155.6,
    "ratio_median": 14.66,
-   "success": 615,
+   "success": 497,
    "minutes_median": 27.1,
    "title_len_avg": 48.6,
    "title_features": [
@@ -10866,7 +10866,7 @@
    "views_median": 163896,
    "views_per_day_median": 3018.0,
    "ratio_median": 14.21,
-   "success": 635,
+   "success": 504,
    "minutes_median": 27.5,
    "title_len_avg": 48.5,
    "title_features": [
@@ -11398,7 +11398,7 @@
    "views_median": 162322,
    "views_per_day_median": 2755.1,
    "ratio_median": 14.93,
-   "success": 678,
+   "success": 532,
    "minutes_median": 27.5,
    "title_len_avg": 48.4,
    "title_features": [
@@ -11703,8 +11703,8 @@
   {
    "weeks": 26,
    "label": "최근 26주",
-   "videos": 856,
-   "channels": 467,
+   "videos": 855,
+   "channels": 466,
    "new_this_week": [
     {
      "id": "0kHYAVTIdno",
@@ -11842,21 +11842,16 @@
      "published": "2026-05-01"
     },
     {
-     "id": "vk4v5mv4VCk",
-     "title": "이순신이 원균의 죽음을 듣고 한 행동 | 평생의 라이벌이 죽은 날 난중일기에 적은 단 한 줄, 칠천량 해전 이순신 원균 관계심리",
-     "published": "2026-04-29"
-    },
-    {
      "id": "wZQ8lD6HGgc",
      "title": "[4K] 서울을 열광시키는 이순신의 후예들  , 대한민국 해군 의장대 퍼레이드 | Seoul ROK - Navy Honor Guard parade",
      "published": "2026-05-04"
     }
    ],
-   "views_median": 156960.0,
-   "views_per_day_median": 2576.05,
-   "ratio_median": 14.82,
-   "success": 707,
-   "minutes_median": 27.05,
+   "views_median": 157309,
+   "views_per_day_median": 2581.8,
+   "ratio_median": 14.73,
+   "success": 543,
+   "minutes_median": 27.1,
    "title_len_avg": 48.5,
    "title_features": [
     {
@@ -11877,7 +11872,7 @@
     {
      "name": "이유",
      "count": 121,
-     "share": 0.141
+     "share": 0.142
     },
     {
      "name": "느낌표 !",
@@ -11986,7 +11981,7 @@
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 833,
+    "설명": 832,
     "없음": 23
    },
    "content_words": [
@@ -12008,7 +12003,7 @@
     },
     {
      "word": "역사",
-     "count": 215
+     "count": 214
     },
     {
      "word": "함께",
@@ -12023,11 +12018,11 @@
      "count": 169
     },
     {
-     "word": "이야기를",
-     "count": 166
+     "word": "바탕으로",
+     "count": 165
     },
     {
-     "word": "바탕으로",
+     "word": "이야기를",
      "count": 165
     },
     {
@@ -12061,36 +12056,36 @@
      "hook": "오늘은 '파키스탄의 군사력'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 인더스 고전학자 김용준 교수님 역사를 보다 시리즈의 세계관을 담아낸 2026년 프리미엄 가죽 다이어리 출시!! 하루가 자연"
     }
    ],
-   "comments": 213023,
+   "comments": 212739,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 35695,
+     "count": 35658,
      "share": 0.168
     },
     {
      "name": "칭찬·감사",
-     "count": 26075,
+     "count": 25958,
      "share": 0.122
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 10276,
+     "count": 10240,
      "share": 0.048
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 8275,
+     "count": 8257,
      "share": 0.039
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 7541,
+     "count": 7534,
      "share": 0.035
     },
     {
      "name": "요청",
-     "count": 3421,
+     "count": 3395,
      "share": 0.016
     }
    ],
@@ -12354,6 +12349,11 @@
      "published": "2026-04-26"
     },
     {
+     "id": "vk4v5mv4VCk",
+     "title": "이순신이 원균의 죽음을 듣고 한 행동 | 평생의 라이벌이 죽은 날 난중일기에 적은 단 한 줄, 칠천량 해전 이순신 원균 관계심리",
+     "published": "2026-04-29"
+    },
+    {
      "id": "vrkKEeX65wQ",
      "title": "사극 볼 때 99%가 모르는 사실! | '폐하, 전하, 저하, 합하, 각하'... 호칭에 숨겨진 계급의 진짜 의미",
      "published": "2026-04-25"
@@ -12367,7 +12367,7 @@
    "views_median": 156491.0,
    "views_per_day_median": 2335.9,
    "ratio_median": 14.5,
-   "success": 743,
+   "success": 559,
    "minutes_median": 27.55,
    "title_len_avg": 48.6,
    "title_features": [
@@ -12769,7 +12769,7 @@
    "views_median": 156597.0,
    "views_per_day_median": 2257.0,
    "ratio_median": 14.38,
-   "success": 760,
+   "success": 563,
    "minutes_median": 27.5,
    "title_len_avg": 48.6,
    "title_features": [

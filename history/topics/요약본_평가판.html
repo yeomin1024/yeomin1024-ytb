@@ -1,0 +1,121 @@
+<title>역사 요약본 평가판</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* 편 탭 하나씩 — 안 카드 5장, 칸마다 좋음·나쁨 */
+:root{--bg:#f3f5f7;--card:#ffffff;--ink:#17202b;--muted:#5b6876;--line:#d9dfe6;--accent:#1f5f8b;--good:#167a5b;--goodbg:#e3f3ec;--bad:#b4442f;--badbg:#f8e6e1;
+--sans:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#11161c;--card:#19212a;--ink:#e6ebf0;--muted:#9aa7b4;--line:#2b3641;--accent:#7cb4dc;--good:#5cc79f;--goodbg:#173229;--bad:#ef8c76;--badbg:#3a211b;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#11161c;--card:#19212a;--ink:#e6ebf0;--muted:#9aa7b4;--line:#2b3641;--accent:#7cb4dc;--good:#5cc79f;--goodbg:#173229;--bad:#ef8c76;--badbg:#3a211b;color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.55}
+.wrap{max-width:820px;margin:0 auto;padding-block:20px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:14px}
+h1{font-size:1.45rem;margin:0;text-wrap:balance}
+.note{font-size:.85rem;color:var(--muted);border-left:3px solid var(--line);padding-left:10px;margin:0}
+.note.warn{border-color:var(--bad);color:var(--ink)}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tabs button{font:inherit;font-size:.9rem;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:5px 14px;cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.dir{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin:0;display:grid;gap:4px;font-size:.92rem}
+.dir li{margin-left:1em}
+.ans{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:grid;grid-template-columns:minmax(0,1fr);gap:10px;min-width:0}
+.ah{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.ah h2{font-size:1.05rem;margin:0}
+.id{font-family:var(--mono);color:var(--accent);font-size:.85rem}
+.kind{font-size:.78rem;letter-spacing:.06em;color:var(--muted);margin-top:4px}
+.row{display:grid;grid-template-columns:5.5em minmax(0,1fr);gap:4px 10px;align-items:start;border-top:1px solid var(--line);padding-top:8px}
+.row.good{background:linear-gradient(90deg,var(--goodbg),transparent 60%)}
+.row.bad{background:linear-gradient(90deg,var(--badbg),transparent 60%)}
+.lab{font-size:.82rem;color:var(--muted)}
+.val{min-width:0}
+.val ol{margin:0;padding-left:1.2em}
+.mk{display:flex;gap:6px;flex-wrap:wrap;align-items:center;min-width:0}
+.row .mk{grid-column:2}
+.val{overflow-wrap:anywhere}
+button.g,button.b{font:inherit;font-size:.82rem;font-weight:500;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:7px;padding:3px 10px;cursor:pointer}
+button.g[aria-pressed="true"]{background:var(--goodbg);border-color:var(--good);color:var(--good)}
+button.b[aria-pressed="true"]{background:var(--badbg);border-color:var(--bad);color:var(--bad)}
+.mk input{flex:1 1 140px;min-width:0;font:inherit;font-size:.82rem;border:1px solid var(--line);border-radius:7px;padding:3px 8px;background:var(--bg);color:var(--ink)}
+.st{font-size:.75rem;color:var(--muted)}
+button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button:disabled,input:disabled{opacity:.55;cursor:not-allowed}
+</style>
+<div class="wrap">
+<h1>역사 요약본 평가판</h1>
+<p class="note" id="sub"></p>
+<p class="note">안 전체나 칸 하나에 좋음·나쁨을 누르면 저장됩니다. 다시 누르면 지워집니다. Claude 가 다음에 이 평가를 배워 다음 안을 쓰고, 칸마다 좋은 글을 모아 추천 조합을 만듭니다. ※ 연구·교육용 — 역사 사실은 사료·연구 원문으로 확인한 뒤 대본에 씀 (○○ = 확인·계산 전).</p>
+<p class="note warn" id="offline" hidden>이 화면에서는 저장할 수 없습니다. 평가는 Claude 에게 'F2 제목 좋아'처럼 말하거나 요약본 줄 끝에 '=> 좋음'을 적으면 됩니다.</p>
+<div class="tabs" id="tabs" role="group" aria-label="편"></div>
+<ul class="dir" id="dir"></ul>
+<div id="list" style="display:grid;gap:12px"></div>
+</div>
+<script id="data" type="application/json">{"made": "2026-10-28", "marks": {}, "episodes": [{"code": "G", "name": "조선 백성의 겨울", "direction": ["패딩·보일러 없던 조선 백성이 한겨울을 어떻게 버텼는지 — 흔한 믿음('온돌이 있으니 따뜻했다')에서 시작해 기록 3~4개를 시대 순으로, 끝에 판정 한 문장.", "판정 규칙을 먼저 말한다: 실록의 '얼어 죽었다(凍死)' 기사를 세기마다 세어, 17세기(소빙기)가 16·18세기보다 많으면 '소빙기 겨울이 더 혹독했다', 아니면 '늘 비슷했다'.", "버틴 방법은 숫자로 크기를 보인다 — 온돌 한 칸에 모여 잔 식구 수 · 하루 땔감 · 짚 문과 흙벽, 오늘 보일러·패딩과 견줘.", "궁궐(나인·군사)이 아니라 백성의 집 — 같은 질문 영상과 다른 점은 세기별 기사 수와 백성의 하룻밤.", "짝 쇼츠 = 롱폼으로 보내는 예고형 — 50초 안팎, 갈고리 질문 → 기록·숫자 하나 → 걸린 것(답은 숨김) → '아래 영상에서 확인하세요'."], "answers": [{"id": "G1", "label": "질문형 기본 (어떻게 버텼나)", "els": [{"id": "G1-LT", "kind": "롱폼", "name": "제목", "text": "보일러 없던 조선 백성, 한겨울을 어떻게 버텼을까?"}, {"id": "G1-LM", "kind": "롱폼", "name": "썸네일 주요", "text": "보일러 없던 조선 / 겨울밤 어떻게?"}, {"id": "G1-LS", "kind": "롱폼", "name": "썸네일 보조", "text": "실록 / 온돌"}, {"id": "G1-LF", "kind": "롱폼", "name": "대본", "text": ["도입 — 흔한 믿음 '온돌이 있으니 따뜻했다' → 오늘의 질문 · 판정 규칙을 먼저 (실록 '얼어 죽었다' 세기별 수)", "기록 1~3 (시대 순) — 16세기 → 17세기 소빙기 → 18세기, 실록 원문 한 줄씩 + 그 세기의 기사 수 ○○", "버틴 방법 — 온돌 한 칸에 모여 잔 식구 · 짚 문과 흙벽 · 하루 땔감, 오늘 보일러·패딩과 숫자로 비교", "판정 — '소빙기 겨울이 더 혹독했다' 또는 '늘 비슷했다' 한 문장 + 오늘과 비교 숫자", "정리 → 마무리 ('시청해주셔서 감사합니다.')"]}, {"id": "G1-ST", "kind": "쇼츠", "name": "제목", "text": "조선 백성은 보일러 없이 겨울을 버텼을까?"}, {"id": "G1-SM", "kind": "쇼츠", "name": "썸네일 주요", "text": "보일러 없는 / 조선의 겨울밤"}, {"id": "G1-SS", "kind": "쇼츠", "name": "썸네일 보조", "text": "답은 롱폼에서"}, {"id": "G1-SF", "kind": "쇼츠", "name": "대본", "text": ["갈고리 — '영하의 밤, 보일러도 패딩도 없다면?'", "기록 하나 — 실록 '얼어 죽은 백성' 원문 한 줄 (기사가 가장 많은 세기)", "걸린 것 — 백성은 무엇으로 버텼나 (답은 숨김)", "끝 — '아래 영상에서 확인하세요'"]}]}, {"id": "G2", "label": "기록 숫자형 (실록 '얼어 죽었다' 세기별)", "els": [{"id": "G2-LT", "kind": "롱폼", "name": "제목", "text": "실록에 '얼어 죽었다'가 가장 많은 세기, 백성의 겨울"}, {"id": "G2-LM", "kind": "롱폼", "name": "썸네일 주요", "text": "얼어 죽었다 / 실록에 ○○번"}, {"id": "G2-LS", "kind": "롱폼", "name": "썸네일 보조", "text": "17세기 / 실록"}, {"id": "G2-LF", "kind": "롱폼", "name": "대본", "text": ["도입 — 실록 원문 '얼어 죽은 백성' 한 줄로 시작 → 세기별로 세면 어느 때가 가장 혹독했나 · 판정 규칙", "숫자 — 15·16·17·18·19세기 기사 수 막대 (○○·○○·○○·○○·○○)", "가장 많은 세기의 기록 2개 — 무엇이 달랐나 (소빙기 기후 연구 한 줄)", "백성의 대비 — 온돌 한 칸 · 짚 · 땔감, 오늘과 비교", "판정 한 문장 → 정리 → 마무리 ('시청해주셔서 감사합니다.')"]}, {"id": "G2-ST", "kind": "쇼츠", "name": "제목", "text": "실록에 '얼어 죽었다'가 가장 많은 세기는?"}, {"id": "G2-SM", "kind": "쇼츠", "name": "썸네일 주요", "text": "얼어 죽은 백성 / 가장 많은 세기?"}, {"id": "G2-SS", "kind": "쇼츠", "name": "썸네일 보조", "text": "17세기?"}, {"id": "G2-SF", "kind": "쇼츠", "name": "대본", "text": ["갈고리 — 실록 원문 '얼어 죽은 자가 ○○명' 한 줄", "숫자 하나 — 세기별 막대가 올라가다 멈춤 (가장 높은 막대는 가림)", "걸린 것 — 그때 백성은 어떻게 버텼나", "끝 — '아래 영상에서 확인하세요'"]}]}, {"id": "G3", "label": "사극 비교형 (사극의 겨울 vs 기록)", "els": [{"id": "G3-LT", "kind": "롱폼", "name": "제목", "text": "사극 속 겨울과 달랐다, 기록 속 조선 백성의 겨울"}, {"id": "G3-LM", "kind": "롱폼", "name": "썸네일 주요", "text": "사극 속 겨울 / 기록은 달랐다"}, {"id": "G3-LS", "kind": "롱폼", "name": "썸네일 보조", "text": "사극 / 실록"}, {"id": "G3-LF", "kind": "롱폼", "name": "대본", "text": ["도입 — 사극의 겨울 장면(두꺼운 솜옷·화로) → 기록 속 백성은? · 판정 규칙 먼저", "기록 3개 시대 순 — 실록 · 일기 · 『목민심서』 겨울 진휼", "다른 점 셋 — 옷(솜옷 vs 겹옷) · 방(한 칸에 몇 명) · 땔감(하루 ○○)", "판정 — '사극과 같다 / 절반만 같다 / 다르다' 하나", "정리 → 마무리 ('시청해주셔서 감사합니다.')"]}, {"id": "G3-ST", "kind": "쇼츠", "name": "제목", "text": "사극 속 조선의 겨울, 실제와 얼마나 달랐을까?"}, {"id": "G3-SM", "kind": "쇼츠", "name": "썸네일 주요", "text": "사극 속 겨울 / 실제는?"}, {"id": "G3-SS", "kind": "쇼츠", "name": "썸네일 보조", "text": "사극 / 기록"}, {"id": "G3-SF", "kind": "쇼츠", "name": "대본", "text": ["갈고리 — 사극의 따뜻한 겨울 방 한 장면", "기록 하나 — 같은 해 실록의 겨울 기사 한 줄", "걸린 것 — 무엇이 달랐나 (답은 숨김)", "끝 — '아래 영상에서 확인하세요'"]}]}, {"id": "G4", "label": "소빙기 반전형 (조선에도 작은 빙하기)", "els": [{"id": "G4-LT", "kind": "롱폼", "name": "제목", "text": "조선에도 작은 빙하기가? 17세기 백성의 겨울나기"}, {"id": "G4-LM", "kind": "롱폼", "name": "썸네일 주요", "text": "조선에도 / 작은 빙하기?"}, {"id": "G4-LS", "kind": "롱폼", "name": "썸네일 보조", "text": "17세기 / 실록"}, {"id": "G4-LF", "kind": "롱폼", "name": "대본", "text": ["도입 — '조선에도 빙하기가 있었다'는 말 → 판정 규칙: 17세기 실록 겨울 기사(얼어 죽음·큰 눈)가 다른 세기보다 많으면 사실", "기후 연구 — 소빙기(작은 빙하기)가 무엇인지 그림 하나 · 같은 때 중국·유럽 기록", "실록 기록 3개 — 여름 서리 · 한겨울 얼어 죽음 · 흉년", "백성은 어떻게 — 온돌 한 칸 · 짚 · 이웃과 함께", "판정 → 정리 → 마무리 ('시청해주셔서 감사합니다.')"]}, {"id": "G4-ST", "kind": "쇼츠", "name": "제목", "text": "조선에도 작은 빙하기가 있었다고요?"}, {"id": "G4-SM", "kind": "쇼츠", "name": "썸네일 주요", "text": "조선에도 / 빙하기가?"}, {"id": "G4-SS", "kind": "쇼츠", "name": "썸네일 보조", "text": "17세기"}, {"id": "G4-SF", "kind": "쇼츠", "name": "대본", "text": ["갈고리 — '조선에도 빙하기가 있었다면 믿으시겠어요?'", "기록 하나 — 실록 '여름에 서리' 또는 '얼어 죽음' 한 줄", "걸린 것 — 그 겨울 백성은 어떻게 버텼나", "끝 — '아래 영상에서 확인하세요'"]}]}, {"id": "G5", "label": "오늘 비교형 (보일러 없이 하룻밤)", "els": [{"id": "G5-LT", "kind": "롱폼", "name": "제목", "text": "보일러 없이 조선 초가에서 겨울 하룻밤, 버틸 수 있을까"}, {"id": "G5-LM", "kind": "롱폼", "name": "썸네일 주요", "text": "보일러 없이 / 초가에서 하룻밤"}, {"id": "G5-LS", "kind": "롱폼", "name": "썸네일 보조", "text": "온돌 / 짚"}, {"id": "G5-LF", "kind": "롱폼", "name": "대본", "text": ["도입 — 오늘 우리가 조선 초가에서 겨울 하룻밤을 보낸다면 → 판정 규칙 (실록 '얼어 죽었다' 세기별 수)", "저녁 — 아궁이 불 때기 · 하루 땔감 ○○ · 온돌이 식는 시간", "밤 — 한 칸에 몇 명이 모여 잤나 · 이불과 옷", "새벽 — 실록 속 '얼어 죽었다' 기사가 가장 많은 세기 ○○", "판정 + 오늘과 비교 숫자 → 정리 → 마무리 ('시청해주셔서 감사합니다.')"]}, {"id": "G5-ST", "kind": "쇼츠", "name": "제목", "text": "조선 초가에서 겨울 하룻밤, 버틸 수 있을까?"}, {"id": "G5-SM", "kind": "쇼츠", "name": "썸네일 주요", "text": "초가에서 / 겨울 하룻밤"}, {"id": "G5-SS", "kind": "쇼츠", "name": "썸네일 보조", "text": "온돌 / 짚"}, {"id": "G5-SF", "kind": "쇼츠", "name": "대본", "text": ["갈고리 — '보일러 없는 초가에서 하룻밤, 버틸 수 있을까요?'", "숫자 하나 — 아궁이 불이 꺼진 뒤 온돌이 식는 시간 ○○", "걸린 것 — 새벽을 어떻게 넘겼나", "끝 — '아래 영상에서 확인하세요'"]}]}]}, {"code": "B", "name": "조선 백성의 한 끼", "direction": ["'조선 사람은 밥을 산처럼 먹었다'가 사실인지 — 기록 속 한 끼 곡식 양을 홉 → g → 열량으로 바꿔 오늘 밥 한 공기와 견주는 확인형.", "판정 규칙을 먼저: 기록 3개 이상의 한 끼 양이 오늘 한 공기(쌀 약 90g)의 3배를 넘으면 '정말 많이 먹었다', 아니면 '부풀린 말'.", "두 번째 질문 = 쌀이었나 잡곡이었나 — 같은 질문 영상이 '양'만 말하는 틈, 무엇을 먹었나를 기록으로.", "왜 많이 먹었나까지 한 번에 — 반찬이 적고 몸으로 일해 밥으로 열량을 채움 (하루 열량 ○○kcal 중 밥 몫 ○○%).", "짝 쇼츠 = 롱폼으로 보내는 예고형 — 50초 안팎, 갈고리 질문 → 기록·숫자 하나 → 걸린 것(답은 숨김) → '아래 영상에서 확인하세요'."], "answers": [{"id": "B1", "label": "확인형 기본 (산처럼 먹었나)", "els": [{"id": "B1-LT", "kind": "롱폼", "name": "제목", "text": "조선 사람은 정말 밥을 산처럼 먹었을까? 기록으로 확인"}, {"id": "B1-LM", "kind": "롱폼", "name": "썸네일 주요", "text": "밥을 산처럼? / 한 끼 양을 재 보니"}, {"id": "B1-LS", "kind": "롱폼", "name": "썸네일 보조", "text": "홉 / 한 공기"}, {"id": "B1-LF", "kind": "롱폼", "name": "대본", "text": ["도입 — '조선 사람은 밥을 산처럼 먹었다'는 말 + 고봉밥 그림 → 판정 규칙 먼저 (오늘 한 공기의 3배)", "기록 3~4개 (시대 순) — 실록 진휼 기사 하루 지급량 → 『성호사설』 → 서양인 기록, 한 줄씩", "계산 — 홉 → g → 열량, 오늘 한 공기와 막대로 비교 (○○배)", "판정 — '정말 많이 먹었다' 또는 '부풀린 말' + 쌀이었나 잡곡이었나 한 줄", "정리 → 마무리 ('시청해주셔서 감사합니다.')"]}, {"id": "B1-ST", "kind": "쇼츠", "name": "제목", "text": "조선 사람은 정말 밥을 산처럼 먹었을까?"}, {"id": "B1-SM", "kind": "쇼츠", "name": "썸네일 주요", "text": "밥 한 끼 / 오늘의 몇 배?"}, {"id": "B1-SS", "kind": "쇼츠", "name": "썸네일 보조", "text": "답은 롱폼에서"}, {"id": "B1-SF", "kind": "쇼츠", "name": "대본", "text": ["갈고리 — '조선 사람 한 끼, 오늘 밥 몇 공기였을까요?'", "기록 하나 — 실록·문집의 한 끼 양 원문 한 줄", "걸린 것 — 오늘 한 공기의 몇 배인가 (답은 숨김)", "끝 — '아래 영상에서 확인하세요'"]}]}, {"id": "B2", "label": "숫자형 (오늘 밥 몇 공기)", "els": [{"id": "B2-LT", "kind": "롱폼", "name": "제목", "text": "조선 백성의 한 끼, 오늘 밥으로 몇 공기였을까?"}, {"id": "B2-LM", "kind": "롱폼", "name": "썸네일 주요", "text": "조선의 한 끼 / 오늘 ○공기"}, {"id": "B2-LS", "kind": "롱폼", "name": "썸네일 보조", "text": "한 끼 / 몇 공기"}, {"id": "B2-LF", "kind": "롱폼", "name": "대본", "text": ["도입 — 오늘 한 공기 그림 하나 → '조선의 한 끼는 몇 공기?' · 판정 규칙", "기록 숫자 3개 — 각각 홉으로 적힌 양을 g 로 (계산 화면)", "막대 — 오늘 1공기 vs 조선 ○공기 · 열량 ○○kcal", "왜 그만큼 — 반찬이 적고 몸으로 일함 (하루 열량 중 밥 몫 ○○%)", "판정 → 정리 → 마무리 ('시청해주셔서 감사합니다.')"]}, {"id": "B2-ST", "kind": "쇼츠", "name": "제목", "text": "조선 백성의 한 끼, 오늘 밥 몇 공기였을까?"}, {"id": "B2-SM", "kind": "쇼츠", "name": "썸네일 주요", "text": "조선의 한 끼 / 몇 공기?"}, {"id": "B2-SS", "kind": "쇼츠", "name": "썸네일 보조", "text": "홉 / 공기"}, {"id": "B2-SF", "kind": "쇼츠", "name": "대본", "text": ["갈고리 — 오늘 밥 한 공기가 하나씩 늘어나는 화면", "숫자 하나 — 기록 속 한 끼 '○홉'", "걸린 것 — 몇 공기에서 멈출까 (답은 숨김)", "끝 — '아래 영상에서 확인하세요'"]}]}, {"id": "B3", "label": "쌀 vs 잡곡형 (무엇을 먹었나)", "els": [{"id": "B3-LT", "kind": "롱폼", "name": "제목", "text": "조선 백성은 정말 쌀밥을 먹었을까? 기록 속 밥그릇"}, {"id": "B3-LM", "kind": "롱폼", "name": "썸네일 주요", "text": "쌀밥이었을까 / 잡곡이었을까"}, {"id": "B3-LS", "kind": "롱폼", "name": "썸네일 보조", "text": "보리 / 조"}, {"id": "B3-LF", "kind": "롱폼", "name": "대본", "text": ["도입 — 댓글 한 줄 '주식은 쌀이 아니라 기장·조·수수·보리·콩' → 사실일까 · 판정 규칙 (기록 속 곡식 비율)", "기록 3개 — 진휼 때 나눠 준 곡식 종류 · 세금(전세) 곡식 · 서양인이 본 밥상", "양까지 — 그 곡식으로 한 끼 ○홉, 오늘 한 공기의 ○○배", "판정 — '쌀이 주식이었다 / 잡곡이 더 많았다' 하나", "정리 → 마무리 ('시청해주셔서 감사합니다.')"]}, {"id": "B3-ST", "kind": "쇼츠", "name": "제목", "text": "조선 백성은 정말 쌀밥을 먹었을까?"}, {"id": "B3-SM", "kind": "쇼츠", "name": "썸네일 주요", "text": "쌀밥이었을까 / 잡곡이었을까"}, {"id": "B3-SS", "kind": "쇼츠", "name": "썸네일 보조", "text": "보리 / 조"}, {"id": "B3-SF", "kind": "쇼츠", "name": "대본", "text": ["갈고리 — '사극의 하얀 쌀밥, 진짜였을까요?'", "기록 하나 — 진휼 기사에 적힌 곡식 이름", "걸린 것 — 백성의 밥그릇엔 무엇이 (답은 숨김)", "끝 — '아래 영상에서 확인하세요'"]}]}, {"id": "B4", "label": "사극 비교형 (고봉밥은 진짜였나)", "els": [{"id": "B4-LT", "kind": "롱폼", "name": "제목", "text": "사극 속 고봉밥은 진짜였을까? 조선 백성의 한 끼"}, {"id": "B4-LM", "kind": "롱폼", "name": "썸네일 주요", "text": "사극 속 고봉밥 / 진짜였을까?"}, {"id": "B4-LS", "kind": "롱폼", "name": "썸네일 보조", "text": "사극 / 기록"}, {"id": "B4-LF", "kind": "롱폼", "name": "대본", "text": ["도입 — 사극의 고봉밥 장면 → 기록과 같을까 · 판정 규칙 (오늘 한 공기의 3배)", "기록 3개 시대 순 — 한 끼 양 원문 한 줄씩", "다른 점 — 양(○○배) · 곡식(쌀 vs 잡곡) · 반찬 수", "판정 — '사극과 같다 / 절반만 같다 / 다르다' 하나", "정리 → 마무리 ('시청해주셔서 감사합니다.')"]}, {"id": "B4-ST", "kind": "쇼츠", "name": "제목", "text": "사극 속 고봉밥, 실제로도 그렇게 먹었을까?"}, {"id": "B4-SM", "kind": "쇼츠", "name": "썸네일 주요", "text": "사극 속 고봉밥 / 진짜였을까?"}, {"id": "B4-SS", "kind": "쇼츠", "name": "썸네일 보조", "text": "사극 / 기록"}, {"id": "B4-SF", "kind": "쇼츠", "name": "대본", "text": ["갈고리 — 사극 고봉밥 장면 한 컷", "기록 하나 — 같은 시대 한 끼 양 원문", "걸린 것 — 사극과 얼마나 같을까 (답은 숨김)", "끝 — '아래 영상에서 확인하세요'"]}]}, {"id": "B5", "label": "까닭형 (왜 그렇게 많이)", "els": [{"id": "B5-LT", "kind": "롱폼", "name": "제목", "text": "조선 사람이 밥을 많이 먹은 까닭, 반찬 없는 한 끼"}, {"id": "B5-LM", "kind": "롱폼", "name": "썸네일 주요", "text": "반찬 없는 한 끼 / 밥으로 채웠다"}, {"id": "B5-LS", "kind": "롱폼", "name": "썸네일 보조", "text": "열량 / 한 공기"}, {"id": "B5-LF", "kind": "롱폼", "name": "대본", "text": ["도입 — '조선 사람은 왜 그렇게 많이 먹었나' → 먼저 정말 많았는지 판정 규칙 (오늘 한 공기의 3배)", "기록 3개 — 한 끼 양 원문 → 오늘의 ○○배", "까닭 — 하루 일의 양(농사) · 반찬이 적음 · 하루 두 끼, 열량으로 (하루 ○○kcal 중 밥 몫 ○○%)", "판정 + 오늘과 비교 숫자", "정리 → 마무리 ('시청해주셔서 감사합니다.')"]}, {"id": "B5-ST", "kind": "쇼츠", "name": "제목", "text": "조선 사람들은 왜 밥을 그렇게 많이 먹었을까?"}, {"id": "B5-SM", "kind": "쇼츠", "name": "썸네일 주요", "text": "반찬 없는 한 끼 / 밥으로 채웠다"}, {"id": "B5-SS", "kind": "쇼츠", "name": "썸네일 보조", "text": "열량"}, {"id": "B5-SF", "kind": "쇼츠", "name": "대본", "text": ["갈고리 — '조선 사람들은 왜 밥을 그렇게 많이 먹었을까요?'", "숫자 하나 — 하루 열량 중 밥 몫 ○○%", "걸린 것 — 반찬은 왜 적었나 (답은 숨김)", "끝 — '아래 영상에서 확인하세요'"]}]}]}, {"code": "K", "name": "조선 왕의 수명", "direction": ["'조선 왕은 일찍 죽었다'를 확인 — 왕 27명의 생몰년 평균을 같은 궁궐에서 산 내시(환관)의 평균과 견주는 확인형 (같은 질문 영상은 수라상·종기 까닭만 말하고 견줄 상대가 없음).", "판정 규칙을 먼저: 왕 평균이 내시 평균보다 10년 넘게 낮으면 '정말 일찍 죽었다', 아니면 '그 시대엔 보통이었다' — 같은 때 양반 남자 평균도 함께 보여 공정하게.", "까닭은 기록으로만 — 실록·『승정원일기』의 병 기록(종기 등)이 몇 번 나오나 · 왕의 하루 움직임.", "왕비 수명도 한 줄 — 같은 질문 제목이 하나도 없는 틈.", "짝 쇼츠 = 롱폼으로 보내는 예고형 — 50초 안팎, 갈고리 질문 → 기록·숫자 하나 → 걸린 것(답은 숨김) → '아래 영상에서 확인하세요'."], "answers": [{"id": "K1", "label": "비교 확인형 (왕 vs 내시)", "els": [{"id": "K1-LT", "kind": "롱폼", "name": "제목", "text": "조선 왕은 정말 일찍 죽었을까? 같은 궁궐 내시와 비교"}, {"id": "K1-LM", "kind": "롱폼", "name": "썸네일 주요", "text": "왕 vs 내시 / 누가 오래 살았나"}, {"id": "K1-LS", "kind": "롱폼", "name": "썸네일 보조", "text": "실록 / 족보"}, {"id": "K1-LF", "kind": "롱폼", "name": "대본", "text": ["도입 — '조선 왕은 일찍 죽었다'는 말 + 왕 27명 얼굴 줄 → 판정 규칙 먼저 (내시보다 10년 넘게 짧으면)", "왕 27명 — 실록 생몰년으로 평균 ○○세 (계산 화면, 가장 짧고 긴 왕)", "내시와 양반 — 족보 연구의 내시 평균 ○○세 · 같은 때 양반 ○○세, 같은 궁궐·같은 시대라 공정한 비교", "까닭 — 실록·『승정원일기』 병 기록 수 · 왕의 하루 움직임 · 판정 한 문장", "정리 → 마무리 ('시청해주셔서 감사합니다.')"]}, {"id": "K1-ST", "kind": "쇼츠", "name": "제목", "text": "조선 왕은 정말 일찍 죽었을까? 내시와 비교하면"}, {"id": "K1-SM", "kind": "쇼츠", "name": "썸네일 주요", "text": "왕 vs 내시 / 누가 오래?"}, {"id": "K1-SS", "kind": "쇼츠", "name": "썸네일 보조", "text": "답은 롱폼에서"}, {"id": "K1-SF", "kind": "쇼츠", "name": "대본", "text": ["갈고리 — '조선 왕과 내시, 누가 더 오래 살았을까요?'", "숫자 하나 — 왕 27명 평균 ○○세", "걸린 것 — 같은 궁궐 내시는? (답은 숨김)", "끝 — '아래 영상에서 확인하세요'"]}]}, {"id": "K2", "label": "숫자형 (몇 년 짧았나)", "els": [{"id": "K2-LT", "kind": "롱폼", "name": "제목", "text": "조선 왕 27명의 평균 수명, 같은 궁궐 내시보다 몇 년 짧았을까"}, {"id": "K2-LM", "kind": "롱폼", "name": "썸네일 주요", "text": "왕 27명 평균 / 내시보다 ○○년"}, {"id": "K2-LS", "kind": "롱폼", "name": "썸네일 보조", "text": "27명 / 내시"}, {"id": "K2-LF", "kind": "롱폼", "name": "대본", "text": ["도입 — 왕 27명 생몰년 표가 차오르는 화면 → 평균은? · 판정 규칙", "숫자 — 왕 평균 ○○세 · 내시 ○○세 · 양반 ○○세 막대", "가장 짧고 긴 왕 2명씩 — 실록 한 줄", "까닭 — 병 기록 수 · 하루 움직임", "판정 → 정리 → 마무리 ('시청해주셔서 감사합니다.')"]}, {"id": "K2-ST", "kind": "쇼츠", "name": "제목", "text": "조선 왕 평균 수명, 내시보다 몇 년 짧았을까?"}, {"id": "K2-SM", "kind": "쇼츠", "name": "썸네일 주요", "text": "왕 평균 수명 / 내시보다 ○○년"}, {"id": "K2-SS", "kind": "쇼츠", "name": "썸네일 보조", "text": "27명"}, {"id": "K2-SF", "kind": "쇼츠", "name": "대본", "text": ["갈고리 — 왕 27명 생몰년이 한 줄씩 지나가는 화면", "숫자 하나 — 왕 평균 ○○세", "걸린 것 — 내시와 몇 년 차이 (답은 숨김)", "끝 — '아래 영상에서 확인하세요'"]}]}, {"id": "K3", "label": "까닭형 (병 기록을 세어)", "els": [{"id": "K3-LT", "kind": "롱폼", "name": "제목", "text": "조선 왕이 일찍 죽은 까닭, 실록 속 병 기록을 세어 보니"}, {"id": "K3-LM", "kind": "롱폼", "name": "썸네일 주요", "text": "왕의 병 기록 / 실록에 ○○번"}, {"id": "K3-LS", "kind": "롱폼", "name": "썸네일 보조", "text": "종기 / 실록"}, {"id": "K3-LF", "kind": "롱폼", "name": "대본", "text": ["도입 — '왕은 일찍 죽었다, 종기 때문'이라는 말 → 먼저 정말 일찍 죽었나 (판정 규칙: 내시보다 10년 넘게 짧으면)", "수명 — 왕 평균 ○○세 vs 내시 ○○세", "병 기록 세기 — 실록·『승정원일기』의 병 이름별 기사 수 (종기 ○○번 등)", "하루 움직임 — 걸음·가마, 오늘과 비교", "판정 → 정리 → 마무리 ('시청해주셔서 감사합니다.')"]}, {"id": "K3-ST", "kind": "쇼츠", "name": "제목", "text": "조선 왕이 일찍 죽은 진짜 까닭, 실록 병 기록은?"}, {"id": "K3-SM", "kind": "쇼츠", "name": "썸네일 주요", "text": "왕의 병 기록 / 몇 번?"}, {"id": "K3-SS", "kind": "쇼츠", "name": "썸네일 보조", "text": "종기?"}, {"id": "K3-SF", "kind": "쇼츠", "name": "대본", "text": ["갈고리 — '조선 왕을 가장 많이 괴롭힌 병은?'", "기록 하나 — 실록 병 기사 한 줄", "걸린 것 — 가장 많이 나온 병 이름 (답은 숨김)", "끝 — '아래 영상에서 확인하세요'"]}]}, {"id": "K4", "label": "반전형 (가장 오래 산 건 왕이 아님)", "els": [{"id": "K4-LT", "kind": "롱폼", "name": "제목", "text": "조선 궁궐에서 가장 오래 산 사람은 왕이 아니었다"}, {"id": "K4-LM", "kind": "롱폼", "name": "썸네일 주요", "text": "가장 오래 산 건 / 왕이 아니었다"}, {"id": "K4-LS", "kind": "롱폼", "name": "썸네일 보조", "text": "내시 / 족보"}, {"id": "K4-LF", "kind": "롱폼", "name": "대본", "text": ["도입 — '궁궐에서 가장 오래 산 사람은 누구였을까' → 판정 규칙 (왕이 내시보다 10년 넘게 짧으면 '정말 일찍 죽었다')", "내시의 족보 — 『양세계보』가 무엇인지 그림 하나 · 내시 평균 ○○세", "왕 27명 — 평균 ○○세 · 양반 ○○세와 함께", "왜 달랐나 — 기록으로 확인되는 것만 (병 기록 수 · 하루 움직임)", "판정 → 정리 → 마무리 ('시청해주셔서 감사합니다.')"]}, {"id": "K4-ST", "kind": "쇼츠", "name": "제목", "text": "궁궐에서 가장 오래 산 사람, 왕이 아니었다"}, {"id": "K4-SM", "kind": "쇼츠", "name": "썸네일 주요", "text": "가장 오래 산 건 / 왕이 아니었다"}, {"id": "K4-SS", "kind": "쇼츠", "name": "썸네일 보조", "text": "내시"}, {"id": "K4-SF", "kind": "쇼츠", "name": "대본", "text": ["갈고리 — '조선 궁궐에서 가장 오래 산 사람은?'", "숫자 하나 — 왕 평균 ○○세", "걸린 것 — 누가 더 오래 살았나 (답은 숨김)", "끝 — '아래 영상에서 확인하세요'"]}]}, {"id": "K5", "label": "왕비 포함형 (왕과 왕비는 몇 살까지)", "els": [{"id": "K5-LT", "kind": "롱폼", "name": "제목", "text": "조선 왕과 왕비는 몇 살까지 살았을까? 실록으로 계산"}, {"id": "K5-LM", "kind": "롱폼", "name": "썸네일 주요", "text": "왕과 왕비 / 몇 살까지?"}, {"id": "K5-LS", "kind": "롱폼", "name": "썸네일 보조", "text": "왕비 / 실록"}, {"id": "K5-LF", "kind": "롱폼", "name": "대본", "text": ["도입 — '왕은 일찍 죽었다'는 말, 그럼 왕비는? · 판정 규칙 (내시보다 10년 넘게 짧으면 '정말 일찍 죽었다')", "왕 27명 평균 ○○세 · 왕비 평균 ○○세 (계산 화면)", "비교 상대 — 같은 궁궐 내시 ○○세 · 양반 ○○세", "가장 오래 산 왕비 · 가장 짧은 왕 — 실록 한 줄", "판정 → 정리 → 마무리 ('시청해주셔서 감사합니다.')"]}, {"id": "K5-ST", "kind": "쇼츠", "name": "제목", "text": "조선 왕비는 몇 살까지 살았을까? 왕과 비교하면"}, {"id": "K5-SM", "kind": "쇼츠", "name": "썸네일 주요", "text": "왕비는 / 몇 살까지?"}, {"id": "K5-SS", "kind": "쇼츠", "name": "썸네일 보조", "text": "왕비"}, {"id": "K5-SF", "kind": "쇼츠", "name": "대본", "text": ["갈고리 — '조선 왕비는 왕보다 오래 살았을까요?'", "숫자 하나 — 왕 평균 ○○세", "걸린 것 — 왕비 평균은 (답은 숨김)", "끝 — '아래 영상에서 확인하세요'"]}]}]}]}</script>
+<script>
+(function(){
+const D=JSON.parse(document.getElementById("data").textContent);
+const marks=Object.assign({},D.marks||{});
+let db=null, canWrite=false, cur=D.episodes[0].code;
+const $=s=>document.querySelector(s);
+function el(tag,attrs,text){const e=document.createElement(tag);for(const k in (attrs||{}))e.setAttribute(k,attrs[k]);if(text!=null)e.textContent=text;return e;}
+$("#sub").textContent=`${D.made} · 편 ${D.episodes.length}개 · 편마다 안 5개`;
+function tabs(){const T=$("#tabs");T.innerHTML="";D.episodes.forEach(e=>{const b=el("button",{type:"button","aria-pressed":String(e.code===cur)},e.name);b.addEventListener("click",()=>{cur=e.code;render();});T.append(b);});}
+function markRow(id,label){
+  const m=marks[id]||{}; const r=m.rating||"";
+  const box=el("div",{class:"mk"});
+  const g=el("button",{type:"button",class:"g","aria-pressed":String(r==="좋음"),id:"g-"+id},"좋음");
+  const b=el("button",{type:"button",class:"b","aria-pressed":String(r==="나쁨"),id:"b-"+id},"나쁨");
+  const w=el("input",{type:"text",id:"w-"+id,placeholder:"까닭 (선택)",maxlength:"120","aria-label":label+" 까닭"}); w.value=m.why||"";
+  const s=el("span",{class:"st",id:"s-"+id});
+  [g,b,w].forEach(x=>{if(!canWrite)x.disabled=true;});
+  g.addEventListener("click",()=>save(id,r==="좋음"?"":"좋음",w.value));
+  b.addEventListener("click",()=>save(id,r==="나쁨"?"":"나쁨",w.value));
+  w.addEventListener("change",()=>{if(marks[id]&&marks[id].rating)save(id,marks[id].rating,w.value);});
+  box.append(g,b,w,s); return box;
+}
+function render(){
+  tabs();
+  const E=D.episodes.find(e=>e.code===cur);
+  const dir=$("#dir"); dir.innerHTML=""; E.direction.forEach(t=>dir.append(el("li",{},t)));
+  const L=$("#list"); L.innerHTML="";
+  E.answers.forEach((a,i)=>{
+    const card=el("section",{class:"ans",id:"a-"+a.id});
+    const h=el("div",{class:"ah"}); h.append(el("h2",{},`${i+1}안 · ${a.label}`),el("span",{class:"id"},a.id)); card.append(h);
+    card.append(markRow(a.id,a.id+" 안 전체"));
+    ["롱폼","쇼츠"].forEach(kind=>{
+      card.append(el("div",{class:"kind"},kind));
+      a.els.filter(x=>x.kind===kind).forEach(x=>{
+        const r=(marks[x.id]||marks[a.id]||{}).rating||"";
+        const row=el("div",{class:"row"+(r==="좋음"?" good":r==="나쁨"?" bad":"")});
+        row.append(el("div",{class:"lab"},x.name));
+        const v=el("div",{class:"val"});
+        if(Array.isArray(x.text)){const ol=el("ol");x.text.forEach(t=>ol.append(el("li",{},t)));v.append(ol);} else v.textContent=x.text;
+        row.append(v, markRow(x.id,x.id)); card.append(row);
+      });
+    });
+    L.append(card);
+  });
+}
+let busy=Promise.resolve();
+function save(id,rating,why){
+  if(!db||!canWrite)return;
+  const st=document.getElementById("s-"+id); if(st) st.textContent="저장 중…";
+  const body={rating:rating,why:(why||"").trim().slice(0,120),at:new Date().toISOString()};
+  busy=busy.then(()=>db.collection("marks").doc(id).set(body)).then(()=>{
+    if(rating) marks[id]={rating:rating,why:body.why}; else delete marks[id];
+    render(); const s2=document.getElementById("s-"+id); if(s2) s2.textContent=rating?"저장됨":"지움";
+  }).catch(e=>{const s3=document.getElementById("s-"+id); if(s3) s3.textContent=(e&&e.code==="invalid_argument")?"저장 못 함 (권한)":"저장 못 함 — 다시 눌러 주세요";});
+}
+render();
+(async()=>{
+  try{ db = window.claude && window.claude.use ? await window.claude.use("db") : null; }catch(e){ db=null; }
+  if(!db){ $("#offline").hidden=false; return; }
+  let user=null; try{ user=await window.claude.use("user"); }catch(e){}
+  let cw=null; try{ cw = user ? await user.can("data.write") : null; }catch(e){ cw=null; }
+  canWrite = cw!==false; if(!canWrite) $("#offline").hidden=false;
+  db.collection("marks").onSnapshot(snap=>{
+    snap.docs.forEach(doc=>{const v=doc.data()||{}; if(v.rating) marks[doc.id]={rating:v.rating,why:v.why||""}; else delete marks[doc.id];});
+    render();
+  },()=>{});
+  render();
+})();
+})();
+</script>

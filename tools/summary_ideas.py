@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.2 — 2026-10-28 — 주제 인자 (재테크도 — 사용자 지시 2026-10-28 "주식 주제 관련 세션에서 했던것처럼 똑같은 방식으로 진행해서 유튜브 분석부터
+# VERSION: v1.2.1 — 2026-10-28 — 안내 문구를 주제마다 (settings [summary] NOTE, 없으면 예전 '연구·교육용 — 투자 권유가 아님.') — 역사 요약본·평가판에
+#          투자 문구가 찍혀서. 영향: configure()·render_summary()·render_page().
+# (v1.2 — 2026-10-28 — 주제 인자 (재테크도 — 사용자 지시 2026-10-28 "주식 주제 관련 세션에서 했던것처럼 똑같은 방식으로 진행해서 유튜브 분석부터
 #          요약본까지 만들어봐"): 편 목록·쓰지 않는 말·쇼츠 제목에서 뺄 말·평가판 이름 = <주제>/topics/settings.toml [summary] (없으면 주식 기본값 그대로).
 #          제목·썸네일 문구에서 피할 말 TITLE_BANNED · 썸네일 보조 = 꼬리표 낱말(SUB_ITEMS·SUB_ITEM_MAX).
-#          주제를 빼면 stock (옛 명령 그대로 됨). 영향: configure()·paths()·ep_paths()·lint_answer()·PAGE·write_material()·main().
+#          주제를 빼면 stock (옛 명령 그대로 됨). 영향: configure()·paths()·ep_paths()·lint_answer()·PAGE·write_material()·main().)
 # (v1.1) — 2026-10-28 — 요약본_material.md 맨 위 '0. 채널 설명' (stock/guides/channel.md '한눈에' — topic_ideas.channel_lines) — 사용자 지시 2026-10-28
 #          "유튜브 채널 설명이니깐 여기에 맞게 영상 만들어야해 이 내용 파일 생성해서 참고할수 있게해".
 # (v1.0) — 2026-10-28 — 새로: 주식 편 요약본 = 핵심 방향 + 안 5개 (롱폼·쇼츠 제목·썸네일 주요·보조 문구·대본 진행), 좋음·나쁨을 배워 다음 안으로
@@ -40,7 +42,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import title_fit                       # noqa: E402  제목이 모든 화면에서 2줄 안인가
 import topic_ideas as ti               # noqa: E402  toks · jacc · GOOD · BAD (같은 낱말 규칙)
 
-VERSION = "v1.2"
+VERSION = "v1.2.1"
 ROOT = Path(__file__).resolve().parent.parent
 LOG = logging.getLogger("summary")
 COMMANDS = ("status", "mark", "import", "add")
@@ -48,13 +50,15 @@ COMMANDS = ("status", "mark", "import", "add")
 DEFAULTS = {"stock": {"NAME": "주식",
                       "EPISODES": {"F": "jaemu-test-2026-10", "P": "portfolio-test-2026-10", "M": "timing-test-2026-10"},   # 대본이 끝난 simri-test 는 뺌 (사용자 지시)
                       "BANNED": r"물타기|빚투|국장|미장|개미|존버|떡상|떡락|실패한",      # quick_test 7·8번 (외국 시청자 자동 번역 · '실패할')
-                      "TITLE_BANNED": "", "SHORTS_TITLE_BANNED": "", "SUB_ITEMS": 0, "SUB_ITEM_MAX": 0}}
+                      "TITLE_BANNED": "", "SHORTS_TITLE_BANNED": "", "SUB_ITEMS": 0, "SUB_ITEM_MAX": 0,
+                      "NOTE": "연구·교육용 — 투자 권유가 아님."}}
 TOPIC = "stock"
 NAME = DEFAULTS["stock"]["NAME"]
 EPISODES = dict(DEFAULTS["stock"]["EPISODES"])
 SHORTS_TITLE_BANNED = None
 TITLE_BANNED = None
 SUB_ITEMS, SUB_ITEM_MAX = 0, 0
+NOTE = DEFAULTS["stock"]["NOTE"]   # 요약본 머리·평가판 안내 — settings [summary] NOTE
 ELEMS = [("LT", "롱폼", "제목"), ("LM", "롱폼", "썸네일 주요"), ("LS", "롱폼", "썸네일 보조"), ("LF", "롱폼", "대본"),
          ("ST", "쇼츠", "제목"), ("SM", "쇼츠", "썸네일 주요"), ("SS", "쇼츠", "썸네일 보조"), ("SF", "쇼츠", "대본")]
 ENAME = {c: f"{a} {b}" for c, a, b in ELEMS}
@@ -72,7 +76,7 @@ def log(stage, _lvl=logging.INFO, **kv):
 
 def configure(topic="stock", root=None):
     """주제 설정 읽기 — <주제>/topics/settings.toml [summary] (없으면 DEFAULTS). 모듈 전역(EPISODES·BANNED·ID_RX …)을 바꿈."""
-    global TOPIC, NAME, EPISODES, BANNED, TITLE_BANNED, SHORTS_TITLE_BANNED, SUB_ITEMS, SUB_ITEM_MAX, ID_RX
+    global TOPIC, NAME, EPISODES, BANNED, TITLE_BANNED, SHORTS_TITLE_BANNED, SUB_ITEMS, SUB_ITEM_MAX, ID_RX, NOTE
     cfg = dict(DEFAULTS.get(topic) or {})
     st = Path(root or ROOT) / topic / "topics" / "settings.toml"
     if st.is_file():
@@ -85,6 +89,7 @@ def configure(topic="stock", root=None):
     SHORTS_TITLE_BANNED = re.compile(cfg["SHORTS_TITLE_BANNED"]) if cfg.get("SHORTS_TITLE_BANNED") else None
     TITLE_BANNED = re.compile(cfg["TITLE_BANNED"]) if cfg.get("TITLE_BANNED") else None
     SUB_ITEMS, SUB_ITEM_MAX = int(cfg.get("SUB_ITEMS") or 0), int(cfg.get("SUB_ITEM_MAX") or 0)
+    NOTE = cfg.get("NOTE") or DEFAULTS["stock"]["NOTE"]
     letters = "".join(sorted(EPISODES))
     ID_RX = re.compile(rf"^([{letters}]\d+)(?:-(LT|LM|LS|LF|ST|SM|SS|SF))?$")
     log("LOAD", topic=topic, episodes=" ".join(f"{k}={v}" for k, v in EPISODES.items()), settings=str(st.relative_to(Path(root or ROOT))) if st.is_file() else "-")
@@ -292,7 +297,7 @@ def render_summary(E, marks, W, rated):
     R = E["rounds"][-1]
     L = [f"# VERSION: {E['version']} — {E['version_note']}",
          "# '#' 로 시작하는 줄 = 주석 (출처·평가·검사 — 영상에 안 들어감). 평가: 칸 줄 끝에 '=> 좋음' 또는 '=> 나쁨 까닭' · 안 전체는 [N안] 줄 끝에.",
-         f"# 이 파일은 tools/summary_ideas.py 가 {E['file']} 에서 만든다 (안 글은 그 JSON 에서 고침). ※ 연구·교육용 — 투자 권유가 아님.", "",
+         f"# 이 파일은 tools/summary_ideas.py 가 {E['file']} 에서 만든다 (안 글은 그 JSON 에서 고침). ※ {NOTE}", "",
          "[방향]"]
     for d in E["direction"]:
         L.append(f"- {d['text']}")
@@ -381,7 +386,7 @@ button:disabled,input:disabled{opacity:.55;cursor:not-allowed}
 <div class="wrap">
 <h1>__NAME__ 요약본 평가판</h1>
 <p class="note" id="sub"></p>
-<p class="note">안 전체나 칸 하나에 좋음·나쁨을 누르면 저장됩니다. 다시 누르면 지워집니다. Claude 가 다음에 이 평가를 배워 다음 안을 쓰고, 칸마다 좋은 글을 모아 추천 조합을 만듭니다. ※ 연구·교육용 — 투자 권유가 아님.</p>
+<p class="note">안 전체나 칸 하나에 좋음·나쁨을 누르면 저장됩니다. 다시 누르면 지워집니다. Claude 가 다음에 이 평가를 배워 다음 안을 쓰고, 칸마다 좋은 글을 모아 추천 조합을 만듭니다. ※ __NOTE__</p>
 <p class="note warn" id="offline" hidden>이 화면에서는 저장할 수 없습니다. 평가는 Claude 에게 'F2 제목 좋아'처럼 말하거나 요약본 줄 끝에 '=> 좋음'을 적으면 됩니다.</p>
 <div class="tabs" id="tabs" role="group" aria-label="편"></div>
 <ul class="dir" id="dir"></ul>
@@ -470,7 +475,7 @@ def render_page(eps, marks):
             els = [{"id": f"{a['id']}-{c}", "kind": k, "name": n, "text": a[c]["text"]} for c, k, n in ELEMS if a.get(c)]
             answers.append({"id": a["id"], "label": a["label"], "els": els})
         data["episodes"].append({"code": code, "name": E["name"], "direction": [d["text"] for d in E["direction"]], "answers": answers})
-    return PAGE.replace("__NAME__", NAME).replace("__DATA__", json.dumps(data, ensure_ascii=False).replace("</", "<\\/"))
+    return PAGE.replace("__NAME__", NAME).replace("__NOTE__", NOTE).replace("__DATA__", json.dumps(data, ensure_ascii=False).replace("</", "<\\/"))
 
 
 # ---------------------------------------------------------------- 명령

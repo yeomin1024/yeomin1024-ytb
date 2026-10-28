@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.2 — 2026-10-28 — 주제마다 이름·칸 설명 (재테크도 — 사용자 지시 2026-10-28 "주식 주제 관련 세션에서 했던것처럼 똑같은 방식으로 진행해서
+# VERSION: v1.2.2 — 2026-10-28 — 안내 문구를 주제마다 (settings [page] NOTE_DOC · NOTE_PAGE, 없으면 예전 주식 글 그대로) — 역사 주제탐색.md·평가판에
+#          '투자 권유가 아님 · 계산(calc/)으로 확정'이 찍혀서. 영향: load_settings()·render()·render_page().
+# (v1.2.1 — 2026-10-28 — '자료에 기간(연도)' 검사를 주제마다 (settings [clarity] YEAR, 없으면 예전 그대로 (19|20)\d\d) — 역사 후보의 1653년·18세기·
+#          기원전이 '연도 없음'으로 빠져서 (사용자 지시 2026-10-28 "주식 주제 관련 세션에서 했던것처럼 똑같은 방식으로 … 요약본까지" — history). 영향: lint() 한 줄.)
+# (v1.2 — 2026-10-28 — 주제마다 이름·칸 설명 (재테크도 — 사용자 지시 2026-10-28 "주식 주제 관련 세션에서 했던것처럼 똑같은 방식으로 진행해서
 #          유튜브 분석부터 요약본까지 만들어봐"): settings.toml [page] NAME · [fields] data·format·market·data_kind 설명 (없으면 주식 글 그대로) ·
 #          겹침 대상에 <주제>/source/used_content.md 표(재테크 '이미 만든 대본') · 문서·평가판의 'stock/' 경로를 주제 경로로. 영향: load_settings()·used_entries()·
-#          cmd_material()·render()·render_page()·MARKS_HEAD.
+#          cmd_material()·render()·render_page()·MARKS_HEAD.)
 # (v1.1) — 2026-10-28 — material.md 맨 위 '0. 채널 설명' = stock/guides/channel.md 의 '한눈에'(표시 줄 channel:start~end) 그대로 · format 칸 풀이에
 #          채널 전달 방식 대응(테스트형 = 테스트·문제 · 실험형 = 비교 시뮬레이션) — 사용자 지시 2026-10-28 "유튜브 채널 설명이니깐 여기에 맞게 영상 만들어야해
 #          이 내용 파일 생성해서 참고할수 있게해" · channel_lines() 는 summary_ideas.py 도 씀. 파일이 없으면 WARNING 한 줄 + 재료에 '못 읽음'.
@@ -49,7 +53,7 @@ try:
 except ModuleNotFoundError:            # Python 3.10
     import tomli as tomllib
 
-VERSION = "v1.2"
+VERSION = "v1.2.2"
 ROOT = Path(__file__).resolve().parent.parent
 LOG = logging.getLogger("topics")
 FIELDS = ("title", "question", "conclusion", "decide", "data", "format", "persona", "theme", "needs", "market", "data_kind")
@@ -134,6 +138,9 @@ def jacc(a, b):
 # ---------------------------------------------------------------- 불러오기
 NAMES = {"stock": "주식", "economic": "재테크"}
 NAME = "주식"
+# 안내 문구 (주제탐색.md 머리 · 평가판) — settings.toml [page] NOTE_DOC · NOTE_PAGE 가 있으면 그것
+NOTE_DOC = "※ 연구·교육용 — 투자 권유가 아님. 결론은 **예상**이며 계산(`calc/`)으로 확정한다 — 판정 규칙이 있어 어느 쪽으로 나와도 결론은 하나."
+NOTE_PAGE = "※ 연구·교육용 — 투자 권유가 아님. 결론은 계산 전 예상입니다."
 # 후보 칸 설명 (material.md 머리 표) — settings.toml [fields] 가 있으면 그것
 FIELD_HELP = {"data": "자료·기간 (실제 미국 주가·지수·재무제표, 2000년 이후 — 연도 필수)",
               "format": "테스트형 = 채널 방식 '테스트'·'문제' (항목 5개 — stock/guides/quick_test.md) · 실험형 = '비교 시뮬레이션' (질문 하나) — 0번",
@@ -143,9 +150,11 @@ FIELD_HELP = {"data": "자료·기간 (실제 미국 주가·지수·재무제�
 
 def load_settings(P):
     """설정 읽기 + 주제 이름·칸 설명을 모듈 전역에 (문서·평가판 글귀)."""
-    global NAME, FIELD_HELP
+    global NAME, FIELD_HELP, NOTE_DOC, NOTE_PAGE
     d = tomllib.loads(P["settings"].read_text("utf-8"))
-    NAME = (d.get("page") or {}).get("NAME") or NAMES.get(P["topic"], P["topic"])
+    pg = d.get("page") or {}
+    NAME = pg.get("NAME") or NAMES.get(P["topic"], P["topic"])
+    NOTE_DOC, NOTE_PAGE = pg.get("NOTE_DOC") or NOTE_DOC, pg.get("NOTE_PAGE") or NOTE_PAGE
     FIELD_HELP = {**FIELD_HELP, **(d.get("fields") or {})}
     return d
 
@@ -284,7 +293,7 @@ def lint(c, Z, A):
         bad.append("결론에 숫자·판정 말 없음")
     if c.get("decide") and not re.search(cl["DECIDE"], str(c["decide"])):
         bad.append("판정 규칙에 기준(비교·문턱) 없음")
-    if c.get("data") and not re.search(r"(19|20)\d\d", str(c["data"])):
+    if c.get("data") and not re.search(cl.get("YEAR") or r"(19|20)\d\d", str(c["data"])):     # v1.2.1 주제마다 (역사 = 세기·기원전·세 자리 해)
         bad.append("자료에 기간(연도) 없음")
     if c.get("persona") and c["persona"] not in A["personas"]:
         bad.append(f"페르소나 '{c['persona']}' 없음 (personas.json 키: {', '.join(A['personas'])})")
@@ -645,7 +654,7 @@ def render(S, Z, A, W, g, b, marks, done):
          f"`tools/topic_ideas.py {VERSION}` · 갱신 {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M')} UTC · 분석 {A['analysis_made']} · 페르소나 {A['persona_made']} · "
          f"댓글 니즈 {A['needs_made']}. 손으로 고치지 않는다 (주제 글은 `{tp}/topics/pool/`, 평가는 `{tp}/topics/평가.txt`).",
          "사용자 지시 2026-10-28 \"분석 결과, 페르소나를 토대로 주제 20개씩 생성 … 좋다고, 나쁘다고 표시 가능하도록 해서 그걸 학습 후 되도록 좋은 주제로 탐색 … 명확하게 결론\".",
-         "※ 연구·교육용 — 투자 권유가 아님. 결론은 **예상**이며 계산(`calc/`)으로 확정한다 — 판정 규칙이 있어 어느 쪽으로 나와도 결론은 하나.", "",
+         NOTE_DOC, "",
          "## 평가하는 법", "",
          f"- `{tp}/topics/평가.txt` 끝에 한 줄: `T003 좋음 까닭` · `T007 나쁨 까닭` (까닭은 선택 — 배울 때 참고). GitHub 에서 고치거나, Claude 에게 'T003 좋아, T007 별로'.",
          "- 평가는 순위에 바로 반영되고(3번), 다음 20개를 고를 때 좋은 갈래 쪽으로 뽑는다. **나쁨** 주제는 쓰지 않은 것으로 끝남.",
@@ -779,7 +788,7 @@ button:disabled,input:disabled{opacity:.55;cursor:not-allowed}
 <header>
 <h1>__NAME__ 주제 평가판</h1>
 <p class="sub" id="sub"></p>
-<p class="note">좋음·나쁨을 누르면 저장됩니다. 다시 누르면 지워집니다. 까닭은 짧게 (선택). Claude 가 다음에 이 평가를 읽어 배우고, 다음 20개를 고를 때 좋은 쪽으로 뽑습니다. ※ 연구·교육용 — 투자 권유가 아님. 결론은 계산 전 예상입니다.</p>
+<p class="note">좋음·나쁨을 누르면 저장됩니다. 다시 누르면 지워집니다. 까닭은 짧게 (선택). Claude 가 다음에 이 평가를 읽어 배우고, 다음 20개를 고를 때 좋은 쪽으로 뽑습니다. __NOTE__</p>
 <p class="note warn" id="offline" hidden>이 화면에서는 저장할 수 없습니다 (로그인이 필요하거나 보기 전용). 평가는 Claude 에게 'T003 좋아, T007 별로'처럼 말하면 됩니다.</p>
 <div class="bar"><span class="count" id="count"></span>
 <div class="filt" role="group" aria-label="거르기"><button type="button" data-f="all" aria-pressed="true">전체</button><button type="button" data-f="none" aria-pressed="false">평가 안 함</button><button type="button" data-f="good" aria-pressed="false">좋음</button><button type="button" data-f="bad" aria-pressed="false">나쁨</button></div></div>
@@ -871,7 +880,7 @@ def render_page(S, A):
                           "score": f"{it['score']:.2f}", "basis": basis or it.get("why", ""), "rating": it.get("rating"), "why": it.get("rating_why", "")})
     data = {"batch": B["no"] if B else 0, "made": (B["made"][:10] if B else "-"), "analysis": str(A["analysis_made"])[:10], "items": items}
     js = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
-    return PAGE.replace("__NAME__", NAME).replace("__DATA__", js)
+    return PAGE.replace("__NAME__", NAME).replace("__NOTE__", NOTE_PAGE).replace("__DATA__", js)
 
 
 def main(argv=None):

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0.1 — 2026-10-28 — 썸네일을 지금 묶음 기준으로 (다른 세션이 성공 기준을 고쳐 158 → 114개 — 통계는 지금 성공 사례만, 영상별 시트에 묶음·지금 번호·분류 때 번호).
+# VERSION: v1.0.2 — 2026-10-28 — 엑셀 '읽는 법'의 썸네일 장 수·성공 사례 뜻을 주제 파일에서 (주식 167장이 굳어 있어 역사·재테크에 틀린 수가 찍혔음).
+# (v1.0.1 — 2026-10-28 — 썸네일을 지금 묶음 기준으로 (다른 세션이 성공 기준을 고쳐 158 → 114개 — 통계는 지금 성공 사례만, 영상별 시트에 묶음·지금 번호·분류 때 번호).
 # (v1.0 — 2026-10-28 — 최초.) 사용자 지시 "아래처럼 분석하고 있는지 확인하고 아니면 반영해 그리고 내가 확인할 수 있는 엑셀 생성해 —
 #          제목: 문구 유형, 사용 단어 · 썸네일: 이미지, 주요 문구, 보조 문구 유형 · 대본 내용: 제목과 도입부 연결, 전개 방식, 말투, 정보를 알려주는 방식,
 #          흥미 유발 · 댓글: 내용별 유형, 공감 많은 댓글, 어떤 부분이 좋았는지, 아쉬운 피드백".
@@ -9,6 +10,7 @@
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.0.2 | 2026-10-28 | 읽는 법 — 썸네일 분류 장 수 = thumb_codes.tsv 줄 수 · 성공 사례 뜻 = 주제 규칙 | GUIDE · write_xlsx · main |
 # | v1.0.1 | 2026-10-28 | 썸네일 통계 = 지금 성공 사례만 · 묶음·지금 번호 칸 | thumb_rows · thumb_stats |
 # | v1.0 | 2026-10-28 | 최초 | load · title_types · thumb_rows · script_rows · comment_rows · write_xlsx · write_md |
 #
@@ -34,7 +36,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
 import comment_types as ct  # noqa: E402
 
-VERSION = "v1.0.1"
+VERSION = "v1.0.2"
 log = logging.getLogger("content_analysis")
 
 
@@ -480,7 +482,7 @@ GUIDE = [
     ("제목", "문구 유형(13가지 낱말 규칙 — 한 제목에 여러 개) · 사용 낱말(조사를 거칠게 뗌)", "제목_영상별 · 제목_유형통계 · 제목_낱말",
      "한국어 제목만 통계 · 묶음 비교는 '승인한 영상 안'의 비교 (공식 비교 집단은 analysis.md 4번·1-2번)"),
     ("썸네일", "이미지 유형·인물 표정·차트 · 주요 문구(가장 큰 글자)·보조 문구(작은 글자·꼬리표·말풍선)와 그 유형 · 제목과 같은 낱말 몫 · 밝기·빨강·노랑 몫",
-     "썸네일_영상별 · 썸네일_통계", "Claude 가 그림을 보고 분류한 영상만 (thumb_codes.tsv — 2026-10-28 성공 사례 167장) · 통계는 지금 성공 사례만 · 색 몫은 줄인 그림으로 센 대강의 값"),
+     "썸네일_영상별 · 썸네일_통계", "Claude 가 그림을 보고 분류한 영상만 (thumb_codes.tsv — {thumb_n}장) · 통계는 지금 성공 사례만 · 색 몫은 줄인 그림으로 센 대강의 값"),
     ("대본", "제목 낱말이 첫 60초에 나오는 몫(연결) · 첫 문장 유형 · 말투(끝맺음) · 정보 방식(숫자·비교·예시·근거) · 흥미 장치(질문·예고)가 4구간에 고루 있는지 · 챕터",
      "대본_영상별 · 대본_통계", "대본이 있는 영상만 (자막·음성인식 — 대부분 없음, 보류 중) · 자동 자막은 문장 부호가 없어 끝맺음·질문 수는 대강"),
     ("댓글", "모든 시청자 댓글에 유형 하나(comment_types 규칙 v1) · 공감(좋아요) 상위 · 좋았던 부분(칭찬·정보 댓글 중 영상의 무엇을 짚었나 — 12갈래) · 아쉬운 부분·요청(비판·요청 중 영상의 부분을 짚은 것만) · 시간 표시(몇 분을 짚었나)",
@@ -504,9 +506,9 @@ def write_xlsx(path, sheets, meta):
     ws.append([])
     ws.append(["분석", "무엇을 보나", "시트", "한계"])
     for r in GUIDE:
-        ws.append(list(r))
+        ws.append([x.format(**meta) for x in r])
     ws.append([])
-    ws.append(["묶음 뜻", "성공 사례 = analysis.md 1번 (최근 180일·작은 채널·조회수 ≥ 구독자×3 등) · 하루 조회수 상위 = 1-3번 (구독자·날짜 상관없이 상위 10%) · 그 밖 = 승인했지만 둘 다 아닌 영상"])
+    ws.append(["묶음 뜻", "성공 사례 = analysis.md 1번 (기준은 그 주제 analysis_rules.toml [success]) · 하루 조회수 상위 = 1-3번 (구독자·날짜 상관없이 상위 10%) · 그 밖 = 승인했지만 둘 다 아닌 영상"])
     ws.append(["※", "숫자·원문만 — 규칙을 만들 때는 analysis.md 0번 '한계'를 먼저 읽는다 (표본 적은 차이·대본 없는 사례로 규칙을 만들지 않음). 연구·교육용."])
     bold = Font(bold=True)
     for c in ws[4]:
@@ -589,7 +591,7 @@ def main(argv=None):
     out("COMMENT", videos=len(per), comments=sum(r.get("시청자 댓글 수", 0) for r in per), good=len(good), bad=len(bad))
     meta = dict(topic=topic, generated=time.strftime("%Y-%m-%d %H:%M"), videos=len(vids), S=sum(v["grp"] == "성공 사례" for v in vids),
                 V=sum(v["grp"] == "하루 조회수 상위" for v in vids), O=sum(v["grp"] == "그 밖 승인 영상" for v in vids),
-                tr=len(srows), cm=sum(r.get("시청자 댓글 수", 0) for r in per))
+                tr=len(srows), cm=sum(r.get("시청자 댓글 수", 0) for r in per), thumb_n=len(codes))
     sheets = [("영상", vrows), ("제목_영상별", trows), ("제목_유형통계", tstat), ("제목_낱말", wstat), ("썸네일_영상별", thr), ("썸네일_통계", thstat),
               ("대본_영상별", srows), ("대본_통계", sstat), ("댓글_영상별", per), ("댓글_유형통계", cstat), ("댓글_갈래통계", astat),
               ("댓글_공감상위", liked), ("댓글_좋았던점", good), ("댓글_아쉬운점", bad)]

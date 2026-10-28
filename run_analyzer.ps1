@@ -1,9 +1,12 @@
 ﻿<#
 ================================================================================================
  YouTube 분석 PC 실행기 (Windows PowerShell)
- VERSION: v3.5 — 2026-10-15 — 웹 화면 v2.0 (한 화면·주제 탭 — 사용자 지시: "하나의 사이트에서 그냥 탭 만들어서 다른 주제 볼 수 있게 하자"):
+ VERSION: v3.6 — 2026-10-28 — -Transcribe: 대본만 받기 (사용자 지시: "그럼 대본 받아야하는 목록 정해서 pc 실행하면 저장소에 올리는 코드 알려줘") —
+          tools/pc_transcribe.py run <주제>: GitHub 의 <주제>/result/outliers/transcript_todo.csv 순서대로 자막 → 없으면 음성인식(앞 5분 → 끝까지),
+          대본 두 파일(transcript.json·.txt)만 GitHub API 로 main 에. 웹 화면·분석기는 켜지 않음 (클라우드 주제의 사례 폴더를 덮지 않게)
+ (v3.5 — 2026-10-15 — 웹 화면 v2.0 (한 화면·주제 탭 — 사용자 지시: "하나의 사이트에서 그냥 탭 만들어서 다른 주제 볼 수 있게 하자"):
           -Folder 없이 켜면 저장소의 topics.txt 주제 전부(지금 economic·stock)를 받아 한 화면의 탭으로. -Folder economic,stock 도 창 하나에 탭 둘
-          (예전처럼 주제마다 창이 뜨지 않음 — 예전 창은 닫고 다시). 자동 실행(-Auto·-Once·-RegisterTask)은 그대로 -Folder (기본 economic)
+          (예전처럼 주제마다 창이 뜨지 않음 — 예전 창은 닫고 다시). 자동 실행(-Auto·-Once·-RegisterTask)은 그대로 -Folder (기본 economic))
  (v3.4 — 2026-10-15 — -ResetCache: 이 주제의 탐색 캐시·탐색 목록을 치운 뒤 평소처럼 실행 (지우지 않고 .yt_work/old/ 로 옮김 —
           승인한 자료·분석 결과는 그대로. 사용자 지시: "왜 예전 재테크 캐시가 남아 있어 이거 어떻게해"). tools/pc_analysis.py v1.13)
  (v3.3 — 2026-10-15 — 코드 목록에 tools/shorts_analysis.py (쇼츠 분석 — 사용자 지시: "… 쇼츠 분석 기능도 추가해 … 전력을 다해서
@@ -58,6 +61,8 @@
    powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -UpdateConfig   # 설정·검색어 파일도 GitHub 최신으로 (기존 파일은 .bak)
    powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -ResetCache -Folder stock   # 이 주제 탐색 캐시·탐색 목록 치우고 실행 (.yt_work/old/ 로 옮김)
    powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -AnalyzerOnly   # 예전처럼 분석기만 한 번
+   powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Transcribe -Folder stock            # ★ 대본만 받아 올리기 (목록 순서대로, 멈췄다 다시 하면 이어서)
+   powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Transcribe -Folder stock --limit 5  # 시험 삼아 5개만 (그 밖: --korean-only · --no-whisper · --model medium)
    powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 --port 8800     # 그 밖의 인자는 웹 화면(tools/web_ui.py)으로 (-Auto 면 pc_analysis.py, -AnalyzerOnly 면 분석기로)
 
  동작: ① 코드(youtube_topic_analyzer.py · tools/pc_analysis.py · tools/outlier_research.py · tools/outlier_stats.py · tools/tag_keywords.py)는 매번 최신으로 받음
@@ -77,6 +82,7 @@ param(
     [switch]$Once,
     [switch]$Auto,
     [switch]$AnalyzerOnly,
+    [switch]$Transcribe,
     [switch]$RegisterTask,
     [switch]$UnregisterTask,
     [string]$TaskTime = "17:15",
@@ -93,7 +99,7 @@ $Base = if ($env:RAW_BASE) { $env:RAW_BASE } else { "https://raw.githubuserconte
 $Folder = @($Folder | ForEach-Object { $_ -split "," } | ForEach-Object { $_.Trim() } | Where-Object { $_ })   # -File 로 부르면 "a,b" 한 글자열
 if (-not $Folder) { $Folder = @("economic") }
 $CodeFiles = @("youtube_topic_analyzer.py", "tools/pc_analysis.py", "tools/outlier_research.py", "tools/outlier_stats.py", "tools/tag_keywords.py",
-               "tools/web_ui.py", "tools/weekly_analysis.py", "tools/success_analysis.py", "tools/shorts_analysis.py")
+               "tools/web_ui.py", "tools/weekly_analysis.py", "tools/success_analysis.py", "tools/shorts_analysis.py", "tools/pc_transcribe.py")
 $ConfigFiles = @($Folder | ForEach-Object { "$_/analyzer_config.toml"; "$_/keywords.toml"; "$_/keywords.txt"; "$_/tag_rules.toml"; "$_/analysis_rules.toml" })
 $TaskName = "YouTubeAnalysis_" + ($Folder -join "_")
 
@@ -212,7 +218,11 @@ foreach ($f in $CodeFiles) {
 }
 
 # ①-1 주제 목록 (v3.5) — -Folder 없이 웹 화면을 켜면 저장소 topics.txt 의 주제 전부를 받아 탭으로 (자동 실행은 -Folder 그대로)
-if (-not $FolderGiven -and -not ($Auto -or $Once -or $AnalyzerOnly)) {
+if ($Transcribe -and -not $FolderGiven) {    # v3.6: 대본 받기는 주제를 꼭 정함 (웹 화면 탭 목록을 쓰지 않음)
+    Write-Step "❌ -Transcribe 는 주제를 정해 주세요 → 예: -Transcribe -Folder stock"
+    exit 1
+}
+if (-not $FolderGiven -and -not ($Auto -or $Once -or $AnalyzerOnly -or $Transcribe)) {
     if (Get-Remote "topics.txt" "topics.txt") {
         $list = @(Get-Content -Path "topics.txt" -Encoding UTF8 | ForEach-Object { $_.Trim() } |
                   Where-Object { $_ -and -not $_.StartsWith("#") -and $_ -match '^[a-z][a-z0-9_-]{1,30}$' })
@@ -301,7 +311,13 @@ if ($ResetCache) {
 }
 
 # ④ 실행
-if ($AnalyzerOnly) {    # 예전 방식: 분석기만, 주제마다 차례로
+if ($Transcribe) {      # v3.6: 대본만 받기 — 웹 화면·분석기를 켜지 않고, 대본 두 파일만 GitHub 에 (tools/pc_transcribe.py)
+    $runArgs = @("tools/pc_transcribe.py", "run") + $Folder
+    if ($ExtraArgs) { $runArgs += $ExtraArgs }
+    Write-Step "대본 받기: python $($runArgs -join ' ') — 멈추려면 Ctrl+C (받은 것은 먼저 올리고 끝남, 다시 실행하면 이어서)"
+    & $pyExe @pyPre @runArgs
+    $code = $LASTEXITCODE
+} elseif ($AnalyzerOnly) {    # 예전 방식: 분석기만, 주제마다 차례로
     $code = 0
     foreach ($f in $Folder) {
         $runArgs = @("youtube_topic_analyzer.py", "--config", "$f/analyzer_config.toml")

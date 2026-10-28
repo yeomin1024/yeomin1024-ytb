@@ -1,6 +1,7 @@
 # PC에서 분석 돌리기 — 재테크(`economic`)·주식(`stock`) 폴더
 
-버전: v3.20 — 2026-10-28 — 시청자 페르소나는 **주식만** (사용자 지시 "아니 주식 쪽만 하면돼" — 재테크·역사·음악 설정·결과를 지움).
+버전: v3.21 — 2026-10-28 — **대본만 받기** `run_analyzer.ps1 -Transcribe -Folder <주제>` (`tools/pc_transcribe.py` v1.0) — 클라우드 주제의 대본을 PC 가 받아 대본 두 파일만 main 에 (아래 '대본만 받기').
+이전 v3.20 — 2026-10-28 — 시청자 페르소나는 **주식만** (사용자 지시 "아니 주식 쪽만 하면돼" — 재테크·역사·음악 설정·결과를 지움).
 이전 v3.19 — 2026-10-28 — **시청자 페르소나** (`tools/personas.py` v1.0 → `<주제>/result/outliers/personas.md`·`.json`, 분석이 끝날 때 자동 — weekly_analysis v1.5) · 대본 검사 `tools/persona_review.py`.
 이전 v3.18 — 2026-10-28 — 분석 대상 세 묶음 고침: ① 구독자당 하루 조회수 + 점수 가중 · ② 쇼츠도 · ③ 기간 없는 검색(할당량 남을 때만) + 조회수 상위 묶음 · 하루 조회수는 받은 때 기준.
 이전 v3.17 — 2026-10-28 — 분석 대상 세 묶음 확인 엑셀 (`target_check.py` v1.0).
@@ -114,13 +115,30 @@ bash run_analyzer.sh
 
 - **캐시가 없는 새 컨테이너는 순서가 중요:** `explore`(검색 캐시·영상 정보) → `approve` → `baseline`(채널 평소 영상) → `demand`(자동완성) → `analyze`. 캐시 없이 `analyze` 하면 비교 집단(성공 비율 1.0)·수요와 공급(검색어 0)·같은 채널 기준선(0)이 비어 PC 결과보다 나쁜 `analysis.md` 로 덮어씀 (2026-10-16 복사본에서 확인).
 - **탐색 캐시 묶음 `<주제>/cloud_cache/cache.tgz`** (v1.2 — 사용자 지시 "저장소에 올려"): 할당량을 쓰는 명령 뒤 저절로 묶고, 새 컨테이너에서 `.cache` 가 비었으면 저절로 풂 (썸네일 캐시는 뺌 — 할당량 0). `result/` 밖에 두는 까닭은 아래 ⚠️.
-- ⚠️ **같은 주제를 PC 와 클라우드가 함께 돌리지 않는다**: PC 분석기 올리기(`--push-only`, 웹 화면이 켤 때·승인·음성인식 15분마다)는 저장소의 `<주제>/result/outliers/` 를 **PC 것과 똑같이** 바꿈(`_copy_local_outliers` full — PC 에 없는 사례 폴더는 지움). 2026-10-16 부터 **주식·재테크·역사·음악 모두 클라우드** → PC 웹 화면을 켜지 않는다 (음성인식도 보류).
+- ⚠️ **같은 주제를 PC 와 클라우드가 함께 돌리지 않는다**: PC 분석기 올리기(`--push-only`, 웹 화면이 켤 때·승인·음성인식 15분마다)는 저장소의 `<주제>/result/outliers/` 를 **PC 것과 똑같이** 바꿈(`_copy_local_outliers` full — PC 에 없는 사례 폴더는 지움). 2026-10-16 부터 **주식·재테크·역사·음악 모두 클라우드** → PC 웹 화면을 켜지 않는다 (웹 화면 음성인식도 보류 — 대본은 2026-10-28 부터 '대본만 받기' `-Transcribe` 로).
 - **재테크는 예약 작업이 매일 이어서** (태평양 자정 +15분, 이 세션을 깨움): `resume` → `explore --weeks 26` · `explore --shorts --weeks 26` → 새 추천 `approve` → `analyze` → main. 탐색에 못 한 검색이 남은 날 0번 표(비교 집단·수요공급)가 크게 줄면 그 분석 파일은 되돌린다 — 2026-10-16 쇼츠 탐색 캐시 없이 다시 세니 쇼츠 비교 집단 574 → 97 (성공 비율 75%).
 - **역사(`history/`)도 예약 작업이 매일 이어서** (태평양 자정 +20분 — 재테크와 5분 띄움, 역사 세션을 깨움): `resume` → `explore --weeks 26` (롱폼이 끝나면 `--shorts`) → 새 추천을 훑어 역사가 아닌 것(스포츠 '역사를 써'·게임 등) `uncheck` → `approve` → `captions` → `analyze` → main. 시작은 `new/` 분야 탐색의 역사 검색 캐시를 옮겨 이어 씀 (`history/README.md`). ⚠️ 새 컨테이너는 `youtube-transcript-api` 등이 없을 수 있다 — 2026-10-16 첫 승인 22개는 자막을 시도조차 못 함(`ModuleNotFoundError`, `captions` 로 다시) → 돌리기 전에 `pip install -r requirements.txt` 의 분석 패키지.
 - **음악(`music/`)도 예약 작업이 매일 이어서** (태평양 자정 +25분 — 역사와 5분 띄움, 음악 세션 `session_01KkE3gVZtik1LxawNwFrDZj` 을 깨움 — `trig_01RR9ppiEXLNHmhFotDPNPzV`): `resume`(못 받은 댓글·기준선) → `explore --weeks 26` (롱폼이 끝나 할당량이 남으면 `--shorts`) → 새 추천을 훑어 음악이 아닌 것('수면음악' 태그를 단 낭독·옛날이야기·최면·확언 명상, '노래·피아노'가 든 사연 드라마, 리뷰·분양·강좌·독경·브이로그·리액션, 외국어 영상) `uncheck` → `approve` → `captions` → `analyze` → main. 시작은 `new/` 분야 탐색의 '15. 수면·힐링 듣기' 검색 캐시를 옮겨 이어 씀 (`music/README.md`). 첫 회차 키(지문 `616bf1e8`)는 검색 6번 만에 하루 검색 횟수 한도(429)였고, 둘째 회차(같은 날 21:53)부터 환경 키가 바뀌어(지문 `5ee89e86`) 검색 86번이 막힘 없이 됨. 첫 회차 세션(`session_01LPEQZuhdEvMip9o53nnSrK`)의 예약 작업 `trig_01RWWyDUkoWgb2t4MEn6oSUR` 은 꺼 둠 (예약 작업은 하나만 — 역사와 같은 까닭).
 - 클라우드 자막: 2026-10-16 승인 31개 중 4개만 받음 — 26개는 YouTube 가 `www.google.com/sorry`(봇 확인)로 돌려보내 `ProxyError`, 1개 `RequestBlocked`. 연결 실패라 다음 회차에 다시 시도하지만 대부분 영상 설명으로 대신 분석됨 (글 출처 '설명' — 대본 근거로 쓰지 않음).
 - 할당량은 컨테이너 안의 키 장부(`.yt_work/quota_key_<지문>.json`)로 셈 — 같은 키를 PC 에서도 쓰면 실제보다 많이 남은 것으로 보임 (Google 이 '다 씀'이라고 답하면 멈추고 초기화 뒤 이어서).
 - 초기화 뒤 이어서: `wait-reset --then resume` (태평양 자정 +10분까지 기다렸다가 못 받은 댓글 → 채널 기준선 → 남은 탐색).
+
+## 대본만 받기 — 클라우드 주제 (`run_analyzer.ps1 -Transcribe` · `tools/pc_transcribe.py` v1.0 — 2026-10-28)
+
+사용자 지시 "그럼 대본 받아야하는 목록 정해서 pc 실행하면 저장소에 올리는 코드 알려줘". 클라우드는 자막 서버가 막고 소리를 받을 수 없어 대본이 적음 (주식 723개 중 39개 — `content_analysis.xlsx` 대본 칸이 약함). 웹 화면 음성인식은 PC 결과로 사례 폴더를 통째로 바꾸므로(위 ⚠️) **대본 두 파일만 더하는 따로 도구**.
+
+| 누가 | 명령 | 하는 일 |
+|---|---|---|
+| Claude (클라우드) | `python3 tools/pc_transcribe.py list stock` | 받을 목록 `stock/result/outliers/transcript_todo.csv`(순서)·`.md`(묶음별 수·소리 길이·최대 시간) → main |
+| 사용자 (PC) | `powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Transcribe -Folder stock` | 목록을 GitHub 에서 받아 차례대로: ① 자막 → ② 없거나 막히면 음성인식 앞 5분 → ③ 끝까지. 20개(또는 10분)마다 `W_<id>/`·`shorts/S_<id>/` 의 `transcript.json`·`transcript.txt` **만** 한 커밋 (GitHub API — git·clone 필요 없음) |
+| Claude (클라우드) | `content_analysis.py`·`cloud_run.py stock analyze` 등 | 올라온 대본으로 분석 다시 (분석 도구는 `transcript.json` 이 있으면 그대로 읽음 — metadata 는 안 바꿈) |
+
+- **차례**: 한국어 영상 먼저 — 성공 사례 → 성공 쇼츠 → 하루 조회수 상위 → 조회수 상위 → 그 밖 승인 → 그 밖 쇼츠, 그다음 외국 영상 같은 차례 (외국 사례로 한국어 규칙을 만들지 않으므로). 언어마다 ① 자막을 모든 묶음에 → ② 1차(앞 5분)를 모든 묶음에 → ③ 2차(끝까지) — 도입부가 모든 묶음에서 먼저 모임.
+- **같은 함수**: 자막 = `outlier_research.transcript()` (요청 사이 1.5~3초 · 연속 2번 막히면 6시간 자막 쉼 `.yt_work/caption_block.json`) · 음성인식 = 분석기 `ytdlp_download(audio_only)` + `transcript_via_whisper` (설정 `stock/analyzer_config.toml` 의 `WHISPER_MODEL`, 외국 영상은 언어 자동) · 소리 파일은 바로 지움 · 대본 꼴도 같음 (`lang`·`snippets`, 음성인식은 `source`·앞부분만이면 `partial_sec`).
+- **안전**: 올리는 경로는 코드가 `<주제>/result/outliers/(W_|shorts/S_)<영상ID>/transcript.(json|txt)` 만 허용 · main 이 그 사이 바뀌면 새 main 위에 다시 커밋 (강제 푸시 없음) · PC 의 결과 폴더·웹 화면·분석기는 건드리지 않음 · 토큰은 머리글로만.
+- **이어서**: Ctrl+C 로 멈추면 받은 것부터 올리고 끝남. 다시 실행하면 `.yt_work/transcribe_<주제>.json` 과 GitHub 에 이미 있는 대본을 보고 남은 것만 (못 올린 것은 `.yt_work/transcribe/<주제>/pending/` 에서 먼저 올림). 같은 영상 음성인식은 3번까지.
+- **옵션**: `--limit 5`(시험 삼아) · `--korean-only` · `--groups success,shorts_success` · `--no-whisper`(자막만) · `--model medium`(NVIDIA GPU) · `--no-push`·`--dry-run` · 시험 `python tools/pc_transcribe.py selftest` (가짜 GitHub).
+- **시간**: 자막을 받으면 영상 하나 몇 초. 사용자 PC 는 2026-10-14 에 자막 26/35 가 막혔고 음성인식이 영상 하나 10분 안팎 → 최대(자막 모두 막힘) 한국어 1차 약 35시간 · 전체 약 155시간 (`transcript_todo.md`). 봇 확인이 반복되면 음성인식을 멈추고 알려 줌 → YouTube 에 로그인한 브라우저에서 `cookies.txt` 를 내보내 실행 폴더에 두면 분석기가 저절로 씀 (`YTDLP_COOKIES_FILE` 이 비면 이 폴더의 `cookies*.txt` — 비밀값이라 GitHub 에 올리지 않음).
 
 ## 웹 화면 (실행하면 뜸 — 실행기 v3.0)
 
@@ -427,6 +445,7 @@ macOS/Linux: `bash run_analyzer.sh --folder economic,health`
 
 | 버전 | 날짜 | 내용 |
 |---|---|---|
+| v3.21 | 2026-10-28 | 사용자 지시 "그럼 대본 받아야하는 목록 정해서 pc 실행하면 저장소에 올리는 코드 알려줘": '대본만 받기' — `tools/pc_transcribe.py` v1.0 (list·run·selftest) · 실행기 v3.6 `-Transcribe` |
 | v3.18 | 2026-10-28 | 사용자 지시 "1은 그렇게하고 최근에 조회수가 높을수록 더 많이 반영되도록 해야해 3은 할당량 남으면 진행하도록 해 나머지는 너가 추천하는 방향으로 하고": 구독자당 하루 조회수 성공 기준 + 점수 가중 · 쇼츠 ② · 기간 없는 검색 ③ · 하루 조회수 받은 때 기준 |
 | v3.11 | 2026-10-21 | 사용자 지시 "주제 탐색 시 구독자, 날짜 상관 없이 업로드 기간 대비 조회수가 높은 영상은 모두 분석 대상에 넣어": '하루 조회수 상위'(상위 10% 추천 · analysis.md 1-3번 따로 묶음) |
 | v3.10 | 2026-10-16 | 음악 둘째 회차 (같은 지시를 받은 새 세션): 예약 작업을 이 세션 것 하나로 옮김(`trig_01RR9ppiEXLNHmhFotDPNPzV`, 예전 `trig_01RWWyDUkoWgb2t4MEn6oSUR` 끔) · 키 바뀜(지문 `5ee89e86`) · 추천 훑기 기준(사연 드라마·리뷰·분양·강좌·독경·브이로그·리액션·외국어) |

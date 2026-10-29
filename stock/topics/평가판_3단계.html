@@ -76,6 +76,7 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(-
 <h1 id="h1"></h1>
 <p class="sub" id="sub"></p>
 <p class="note" id="how"></p>
+<p class="note" id="skip" hidden></p>
 <p class="note warn" id="offline" hidden></p>
 <div class="bar" id="bar"><span class="count" id="count"></span>
 <div class="filt" role="group" aria-label="거르기"><button type="button" data-f="all" aria-pressed="true">전체</button><button type="button" data-f="none" aria-pressed="false">평가 안 함</button><button type="button" data-f="good" aria-pressed="false">좋음</button><button type="button" data-f="bad" aria-pressed="false">나쁨</button></div></div>
@@ -84,7 +85,7 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(-
 <section id="topsec" hidden><h2 class="sec" id="toph"></h2><ol class="list" id="list"></ol></section>
 <section id="epsec" hidden><h2 class="sec">기존 편 — 리스크를 줄이며 안정적으로 번 쪽을 정답으로 다시 짠 안</h2><ol class="list" id="eps"></ol></section>
 </div>
-<script id="data" type="application/json">{"stage": 3, "name": "주식", "names": {"1": "제목 · 전달하고자 하는 내용", "2": "썸네일 문구 · 보조 문구 · 도입부", "3": "대본 내용"}, "urls": ["https://claude.ai/artifact/Y5d3kdE2nShVxRgzBBEpV8", "https://claude.ai/artifact/4j6s2o7CAHKx26o7MCZHcB", "https://claude.ai/artifact/XuTyZLGv2sSPEqn6eEzxaL"], "note": "※ 연구·교육용 — 투자 권유가 아님. 숫자는 모두 미리 계산(stock/topics/precheck) 결과이고, 보도에서 가져온 숫자는 대본 전에 원문을 다시 확인합니다. 정답 기준은 '리스크를 줄이면서 안정적으로 번 쪽'(안정 수익 확률)을 따릅니다.", "batch": 3, "made": "2026-10-29", "counts": {"1": 23, "2": 0, "3": 0}, "passed_prev": 0, "waiting": 0, "items": [], "episodes": []}</script>
+<script id="data" type="application/json">{"skipped": [], "stage": 3, "name": "주식", "names": {"1": "제목 · 전달하고자 하는 내용", "2": "썸네일 문구 · 보조 문구 · 도입부", "3": "대본 내용"}, "urls": ["https://claude.ai/artifact/Y5d3kdE2nShVxRgzBBEpV8", "https://claude.ai/artifact/4j6s2o7CAHKx26o7MCZHcB", "https://claude.ai/artifact/XuTyZLGv2sSPEqn6eEzxaL"], "note": "※ 연구·교육용 — 투자 권유가 아님. 숫자는 모두 미리 계산(stock/topics/precheck) 결과이고, 보도에서 가져온 숫자는 대본 전에 원문을 다시 확인합니다. 정답 기준은 '리스크를 줄이면서 안정적으로 번 쪽'(안정 수익 확률)을 따릅니다.", "batch": 3, "made": "2026-10-29", "counts": {"1": 14, "2": 9, "3": 0}, "passed_prev": 0, "waiting": 0, "items": [], "episodes": []}</script>
 <script>
 (function(){
 const D=JSON.parse(document.getElementById("data").textContent);
@@ -105,12 +106,13 @@ const steps=$("#steps");
   steps.append(a);
 });
 $("#h1").textContent=`${D.name} 영상 ${N}단계 평가판`;
-$("#sub").textContent = N===1 ? `${D.batch}번째 묶음 · ${D.made} · 새 주제 ${D.items.length}개 + 기존 편 ${D.episodes.length}개`
+$("#sub").textContent = N===1 ? `${D.batch}번째 묶음 · ${D.made} · 새 주제 ${D.items.length}개`+(D.episodes.length?` + 기존 편 ${D.episodes.length}개`:"")+((D.skipped||[]).length?` · 건너뜀 ${D.skipped.length}개`:"")
   : `${N-1}단계 통과 ${D.passed_prev}개 · 이 단계에 올린 것 ${ALL.length}개${D.waiting?" · 만드는 중 "+D.waiting+"개":""} · ${D.made}`;
 const HOW={1:"주제마다 제목과, 이 영상으로 전달하고자 하는 내용만 보입니다. 좋음 = 2단계(썸네일 문구 · 보조 문구 · 도입부)를 그 제목에 맞춰 다시 만들어 2단계 평가판에 올립니다. 나쁨 = 까닭을 반영해 제목 · 전달 내용을 다시 만들어 여기에 새 판(v2)으로 올립니다.",
  2:"1단계에서 좋음을 받은 주제만 — 회색 칸의 제목 · 전달 내용에 맞춘 썸네일 문구 · 보조 문구 · 대본 도입부(요약)입니다. 좋음 = 3단계(대본 내용)를 만들어 올립니다. 나쁨 = 이 단계 내용만 다시 만듭니다.",
  3:"2단계에서 좋음을 받은 주제만 — 대본 내용(요약: 항목과 정답 · 해설)입니다. 좋음 = 이 내용으로 대본을 씁니다. 나쁨 = 이 단계 내용만 다시 만듭니다."};
 $("#how").textContent=HOW[N]+" 다시 누르면 지워집니다. 까닭은 짧게 (선택). "+D.note;
+if(D.skipped&&D.skipped.length){ const k=$("#skip"); k.hidden=false; k.textContent=`이전 평가판에서 좋음을 준 ${D.skipped.length}개는 1단계를 건너뛰고 2단계로 갔습니다 — `+D.skipped.map(x=>x.label).join(" · ")+". 제목 · 전달 내용은 2단계 카드 위 회색 칸에 함께 보입니다."; }
 function counts(){let g=0,b=0;ALL.forEach(it=>{const m=marks[it.id];if(m&&m.rating==="좋음")g++;else if(m&&m.rating==="나쁨")b++;});
   const c=$("#count"); c.textContent=""; c.append("좋음 ",el("b",{},String(g))," · 나쁨 ",el("b",{},String(b))," · 평가 안 함 ",el("b",{},String(ALL.length-g-b)));}
 function emptyState(){

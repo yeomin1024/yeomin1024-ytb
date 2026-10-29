@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.6 — 2026-10-29 — **단계 평가판 세 장** (사용자 지시 2026-10-29 "1번. 제목, 전달하고자 하는 내용 / 2번. 썸네일 문구, 보조문구, 대본 도입부(요약) /
+# VERSION: v1.6.1 — 2026-10-29 — **이전에 좋음을 준 것은 1단계를 건너뜀** (사용자 지시 2026-10-29 "아니 내가 이전에 좋다고 한것들은 2번에 넣어야지 다시해봐"):
+#          주제 평가(평가.txt — 예전 평가판 'marks')·기존 편 평가(기존편_평가.txt)가 좋음이고 1단계 평가가 아직 하나도 없으면 1단계 통과로 봄 (carried · 1단계 평가판에는 안 보이고
+#          '건너뜀' 줄로만 · 2단계로) — 1단계를 직접 평가하면 그 평가가 이김. 영향: stage_status(carried)·stage_rows()·render_stage_page()·log_stages()·stage_cell()·selftest_stages()·PAGE_STAGE.
+# (v1.6 — 2026-10-29 — **단계 평가판 세 장** (사용자 지시 2026-10-29 "1번. 제목, 전달하고자 하는 내용 / 2번. 썸네일 문구, 보조문구, 대본 도입부(요약) /
 #          3번. 대본 내용(요약) 각각 3가지 평가판을 만들어봐 그럼 평가할게 통과한건 2번부터 다시 만들면 돼 3번은 2번에서 통과된것만 만드는거야"):
 #          기획안 칸을 세 단계로 (STAGE_KEYS 1 = title·message(전달하고자 하는 내용) · 2 = thumb_main·thumb_sub·intro · 3 = items·explain) · 단계마다 판 번호
 #          (package v·base — 그 단계 칸이 바뀌면 +1, base = 만들 때의 앞 단계 판) · 앞 단계를 모두 좋음으로 통과하고 이 단계 내용을 그 판에 맞춰 만든 것만 그 단계 평가판에 ·
@@ -8,7 +11,7 @@
 #          `package` 는 준 칸만 합침 (예전엔 통째로 바꿈) · 기존 편(EP_)도 같은 길 (판 번호는 재구성_안.json 에) · settings [stages] URLS 가 있으면 평가판 세 장
 #          (평가판.html · 평가판_2단계.html · 평가판_3단계.html), 없으면 v1.5 평가판 그대로 (재테크·역사) · `selftest` = 단계 판정 시험.
 #          영향: lint_stage()·lint_package()·stage_update()·pkg_ver()·stage_status()·read_stage_marks()·stage_rows()·read_docs()·cmd_package()·cmd_import()·cmd_import_stage()·
-#          load_episodes()·render_stage_page()·render_plans()·finish()·selftest_stages()·main()·PAGE_STAGE.
+#          load_episodes()·render_stage_page()·render_plans()·finish()·selftest_stages()·main()·PAGE_STAGE.)
 # (v1.5 — 2026-10-29 — **평가판 = 영상 기획안** (사용자 지시 2026-10-29 "저 평가판을 진짜 영상 만든다고 생각하고 제목, 썸네일 문구, 썸네일 보조 문구, 도입부,
 #          내용만(항목 및 정답, 해설 내용 간단하게) 표시되도록 해봐 기존 3건(재무제표, 매수 시기, 포트폴리오)도 … 다시 구성해봐"): `package <기획안.json>`
 #          ({"packages": {ID: {title, thumb_main[2], thumb_sub, intro[], items[{q,a}], explain[]}}} — 검사 lint_package) · 평가판 카드는 기획안만 (썸네일 모양 · 도입부 ·
@@ -87,7 +90,7 @@ try:
 except ModuleNotFoundError:            # Python 3.10
     import tomli as tomllib
 
-VERSION = "v1.6"
+VERSION = "v1.6.1"
 ROOT = Path(__file__).resolve().parent.parent
 LOG = logging.getLogger("topics")
 FIELDS = ("title", "question", "conclusion", "decide", "data", "format", "persona", "theme", "needs", "market", "data_kind")
@@ -808,15 +811,19 @@ def read_stage_marks(P):
     return out
 
 
-def stage_status(pk, sm, iid):
+def stage_status(pk, sm, iid, carried=None):
     """v1.6 단계마다 {v, ready(이 판 내용이 지금 앞 단계 판에 맞춰 있음), open(앞 단계를 모두 좋음 + ready → 이 단계 평가판에), rating·why(이 판 평가),
-    prev(앞 판의 마지막 평가), todo('만들 차례'·'다시 만들 차례'·None)}. 앞 단계 판이 바뀌면 base 가 어긋나 ready=False (= 다시 만들 차례)."""
+    prev(앞 판의 마지막 평가), todo('만들 차례'·'다시 만들 차례'·None), carried}. 앞 단계 판이 바뀌면 base 가 어긋나 ready=False (= 다시 만들 차례).
+    v1.6.1 carried = {"why": …} (이전 주제 평가 좋음) — 1단계 평가가 한 판도 없으면 1단계 좋음으로 봄 (직접 평가가 있으면 그것이 이김)."""
     v, b = pkg_ver(pk)
     out, passed = {}, True
     for s in (1, 2, 3):
         ready = v[s] >= 1 and (s == 1 or b[s] == v[s - 1])
         m = sm.get((s, iid), {})
         cur = m.get(v[s]) if ready else None
+        carry = s == 1 and ready and carried is not None and not m
+        if carry:
+            cur = {"rating": "좋음", "why": carried.get("why", "")}
         pv = max((k for k in m if k < v[s] or not ready), default=None)
         todo = None
         if passed and not ready:
@@ -824,7 +831,7 @@ def stage_status(pk, sm, iid):
         elif passed and cur and cur["rating"] == "나쁨":
             todo = "다시 만들 차례"
         out[s] = {"v": v[s], "ready": ready, "open": passed and ready, "rating": cur["rating"] if cur else None, "why": cur["why"] if cur else "",
-                  "prev": ({"v": pv, "rating": m[pv]["rating"], "why": m[pv]["why"]} if pv is not None else None), "todo": todo}
+                  "prev": ({"v": pv, "rating": m[pv]["rating"], "why": m[pv]["why"]} if pv is not None else None), "todo": todo, "carried": carry}
         passed = passed and ready and bool(cur) and cur["rating"] == "좋음"
     return out
 
@@ -994,10 +1001,11 @@ def stage_rows(S, P, Z):
         for i, it in enumerate(sorted((S["items"][t] for t in B["ids"]), key=lambda it: -it["score"]), 1):
             pk = it.get("package") or {}
             rows.append({"id": it["id"], "rank": i, "kind": "topic", "label": it["id"], "pkg": pk, "cls": (it.get("precheck") or {}).get("class", ""),
-                         "carried": (it.get("picked_why") or "").startswith("좋음"), "status": it["status"], "st": stage_status(pk, sm, it["id"])})
-    for e in load_episodes(P, Z):
+                         "carried": (it.get("picked_why") or "").startswith("좋음"), "status": it["status"],
+                         "st": stage_status(pk, sm, it["id"], {"why": it.get("rating_why", "")} if it.get("rating") == "좋음" else None)})
+    for e in load_episodes(P, Z):                   # v1.6.1 기존 편: 기존편_평가.txt 좋음 → 1단계 건너뜀
         rows.append({"id": e["id"], "rank": None, "kind": "episode", "label": e["label"], "pkg": e["full"], "cls": "", "carried": False,
-                     "status": "", "st": stage_status(e["full"], sm, e["id"])})
+                     "status": "", "st": stage_status(e["full"], sm, e["id"], {"why": e["why"]} if e["rating"] == "좋음" else None)})
     return rows
 
 
@@ -1466,6 +1474,7 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(-
 <h1 id="h1"></h1>
 <p class="sub" id="sub"></p>
 <p class="note" id="how"></p>
+<p class="note" id="skip" hidden></p>
 <p class="note warn" id="offline" hidden></p>
 <div class="bar" id="bar"><span class="count" id="count"></span>
 <div class="filt" role="group" aria-label="거르기"><button type="button" data-f="all" aria-pressed="true">전체</button><button type="button" data-f="none" aria-pressed="false">평가 안 함</button><button type="button" data-f="good" aria-pressed="false">좋음</button><button type="button" data-f="bad" aria-pressed="false">나쁨</button></div></div>
@@ -1495,12 +1504,13 @@ const steps=$("#steps");
   steps.append(a);
 });
 $("#h1").textContent=`${D.name} 영상 ${N}단계 평가판`;
-$("#sub").textContent = N===1 ? `${D.batch}번째 묶음 · ${D.made} · 새 주제 ${D.items.length}개 + 기존 편 ${D.episodes.length}개`
+$("#sub").textContent = N===1 ? `${D.batch}번째 묶음 · ${D.made} · 새 주제 ${D.items.length}개`+(D.episodes.length?` + 기존 편 ${D.episodes.length}개`:"")+((D.skipped||[]).length?` · 건너뜀 ${D.skipped.length}개`:"")
   : `${N-1}단계 통과 ${D.passed_prev}개 · 이 단계에 올린 것 ${ALL.length}개${D.waiting?" · 만드는 중 "+D.waiting+"개":""} · ${D.made}`;
 const HOW={1:"주제마다 제목과, 이 영상으로 전달하고자 하는 내용만 보입니다. 좋음 = 2단계(썸네일 문구 · 보조 문구 · 도입부)를 그 제목에 맞춰 다시 만들어 2단계 평가판에 올립니다. 나쁨 = 까닭을 반영해 제목 · 전달 내용을 다시 만들어 여기에 새 판(v2)으로 올립니다.",
  2:"1단계에서 좋음을 받은 주제만 — 회색 칸의 제목 · 전달 내용에 맞춘 썸네일 문구 · 보조 문구 · 대본 도입부(요약)입니다. 좋음 = 3단계(대본 내용)를 만들어 올립니다. 나쁨 = 이 단계 내용만 다시 만듭니다.",
  3:"2단계에서 좋음을 받은 주제만 — 대본 내용(요약: 항목과 정답 · 해설)입니다. 좋음 = 이 내용으로 대본을 씁니다. 나쁨 = 이 단계 내용만 다시 만듭니다."};
 $("#how").textContent=HOW[N]+" 다시 누르면 지워집니다. 까닭은 짧게 (선택). "+D.note;
+if(D.skipped&&D.skipped.length){ const k=$("#skip"); k.hidden=false; k.textContent=`이전 평가판에서 좋음을 준 ${D.skipped.length}개는 1단계를 건너뛰고 2단계로 갔습니다 — `+D.skipped.map(x=>x.label).join(" · ")+". 제목 · 전달 내용은 2단계 카드 위 회색 칸에 함께 보입니다."; }
 function counts(){let g=0,b=0;ALL.forEach(it=>{const m=marks[it.id];if(m&&m.rating==="좋음")g++;else if(m&&m.rating==="나쁨")b++;});
   const c=$("#count"); c.textContent=""; c.append("좋음 ",el("b",{},String(g))," · 나쁨 ",el("b",{},String(b))," · 평가 안 함 ",el("b",{},String(ALL.length-g-b)));}
 function emptyState(){
@@ -1623,13 +1633,14 @@ def render_stage_page(S, P, Z, n, rows):
     """v1.6 단계 n 평가판 HTML — 앞 단계를 모두 좋음으로 통과하고 이 단계 내용을 그 판에 맞춰 만든 것만 (rows = stage_rows)."""
     B = current_batch(S)
     urls = list((Z.get("stages") or {}).get("URLS") or ["", "", ""]) + ["", "", ""]
-    open_ = [r for r in rows if r["st"][n]["open"]]
-    data = {"stage": n, "name": NAME, "names": STAGE_NAME, "urls": urls[:3], "note": NOTE_PAGE, "batch": B["no"] if B else 0,
+    open_ = [r for r in rows if r["st"][n]["open"] and not (n == 1 and r["st"][1]["carried"])]
+    skipped = [{"id": r["id"], "label": r["label"].split(" (")[0]} for r in rows if r["st"][1]["carried"]] if n == 1 else []
+    data = {"skipped": skipped, "stage": n, "name": NAME, "names": STAGE_NAME, "urls": urls[:3], "note": NOTE_PAGE, "batch": B["no"] if B else 0,
             "made": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
-            "counts": {s: sum(1 for r in rows if r["st"][s]["open"]) for s in (1, 2, 3)},
+            "counts": {s: sum(1 for r in rows if r["st"][s]["open"] and not (s == 1 and r["st"][1]["carried"])) for s in (1, 2, 3)},
             "passed_prev": sum(1 for r in rows if n > 1 and r["st"][n - 1]["open"] and r["st"][n - 1]["rating"] == "좋음"),
             "waiting": sum(1 for r in rows if n > 1 and r["st"][n]["todo"] == "만들 차례"),
-            "items": [stage_page_item(r, n) for r in open_ if r["kind"] == "topic"],
+            "items": [{**stage_page_item(r, n), **({"rank": i} if n == 1 else {})} for i, r in enumerate((r for r in open_ if r["kind"] == "topic"), 1)],
             "episodes": [stage_page_item(r, n) for r in open_ if r["kind"] == "episode"]}
     js = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
     return PAGE_STAGE.replace("__NAME__", NAME).replace("__STAGE__", str(n)).replace("__DATA__", js)
@@ -1641,7 +1652,7 @@ def log_stages(rows):
         op = [r for r in rows if r["st"][s]["open"]]
         todo = [f"{r['id']}" for r in rows if r["st"][s]["todo"] == "만들 차례"]
         redo = [f"{r['id']}" for r in rows if r["st"][s]["todo"] == "다시 만들 차례"]
-        log("STAGE", step=s, shown=len(op), good=sum(1 for r in op if r["st"][s]["rating"] == "좋음"), bad=sum(1 for r in op if r["st"][s]["rating"] == "나쁨"),
+        log("STAGE", step=s, shown=len(op), carried=sum(1 for r in op if r["st"][s]["carried"]), good=sum(1 for r in op if r["st"][s]["rating"] == "좋음"), bad=sum(1 for r in op if r["st"][s]["rating"] == "나쁨"),
             unrated=sum(1 for r in op if not r["st"][s]["rating"]), make=",".join(todo) or "-", remake=",".join(redo) or "-")
 
 
@@ -1658,6 +1669,8 @@ P_PAGE, Z_PAGE = [None], [None]           # v1.5 finish() 가 넣음 (기존 편
 
 def stage_cell(x):
     """v1.6 영상기획안.md 단계 표 한 칸."""
+    if x.get("carried"):
+        return f"v{x['v']} 좋음 (이전 평가)"
     if x["rating"]:
         return f"v{x['v']} {x['rating']}"
     if x["open"]:
@@ -1755,6 +1768,10 @@ def selftest_stages():
     ok.append(("검사 실패면 안 바꿈", bool(pr)))
     _, _, pr = stage_update(base, {"message": []})
     ok.append(("빈 전달 내용은 실패", bool(pr)))
+    st = stage_status(pk, {}, "T2", {"why": "예전 좋음"})
+    ok.append(("v1.6.1 이전 평가 좋음 → 1단계 좋음(carried) · 2단계 '만들 차례'", st[1]["carried"] and st[1]["rating"] == "좋음" and st[2]["todo"] == "만들 차례"))
+    st = stage_status(pk, {(1, "T2"): {1: {"rating": "나쁨", "why": "제목"}}}, "T2", {"why": "예전 좋음"})
+    ok.append(("v1.6.1 1단계를 직접 평가하면 그것이 이김", not st[1]["carried"] and st[1]["todo"] == "다시 만들 차례"))
     for name, good in ok:
         log("TEST", logging.INFO if good else logging.ERROR, check=name, result="통과" if good else "실패")
     bad = sum(1 for _, g in ok if not g)

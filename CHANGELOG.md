@@ -1,5 +1,27 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-29 — 주식 단계 평가판 세 장 (제목·전달 내용 → 썸네일·도입부 → 대본 내용)
+
+### 왜 (사용자 지시)
+- "1번. 제목, 전달하고자 하는 내용 / 2번. 썸네일 문구, 보조문구, 대본 도입부(요약) / 3번. 대본 내용(요약) 각각 3가지 평가판을 만들어봐 그럼 평가할게 통과한건 2번부터 다시 만들면 돼 3번은 2번에서 통과된것만 만드는거야"
+
+### 바뀐 것
+- `tools/topic_ideas.py` v1.5 → v1.6: `STAGE_KEYS`(1 title·message · 2 thumb_main·thumb_sub·intro · 3 items·explain) · `lint_stage` · `stage_update`(준 칸만 합침 · 바뀐 단계 판 +1 · base = 앞 단계 판 · history) · `stage_status`(앞 단계 모두 좋음 + 이 단계가 그 판에 맞춰 만들어짐 → 그 단계 평가판에) · `read_stage_marks`(단계평가.txt) · `cmd_import_stage`(db s1·s2·s3 → 단계평가.txt · 1단계 좋음 → 평가.txt) · `render_stage_page`(PAGE_STAGE — 위 단계 표시 · 앞 단계 칸은 회색 맥락 · 이전 판 평가 · 빈 상태) · `log_stages`([STAGE] make·remake) · `render_plans` 단계 표 · `selftest_stages` 10개 통과 · `read_docs` 로 import 읽기 공통.
+  - `package` 동작이 바뀜: 예전엔 기획안을 통째로 바꿈 → 이제 준 칸만 합침 (같은 칸을 모두 주면 결과는 같음). EP_<편> 도 받아 `재구성_안.json` 에 씀.
+  - settings `[stages]` 가 없으면 v1.5 평가판 그대로 (재테크·역사 영향 없음).
+- `stock/topics/settings.toml` v1.4 `[stages] URLS` (1단계 = 예전 평가판 주소 Y5d3 · 2단계 4j6s · 3단계 XuTy).
+- 1단계 첫 판: `stock/topics/packages/2026-10-29_stage1.json` — 전달하고자 하는 내용 23개 (새 주제 20 + 기존 3편), 숫자는 미리 계산 그대로 (재무제표 편 '70% 넘게' → 배스앤바디웍스 −69.9% 라 '각각 72% · 70%까지'로).
+- 포트폴리오 편 `재구성_안.json` 해설 초안: '수익을 조금 내주고' → '수익은 줄었지만(수익 중앙값 95% → 55%)' (조금이 아님 — 3단계 초안, 판 매기기 전).
+- 문서: `stock/topics/README.md` v1.6 '단계 평가' 절 · CLAUDE.md 주식 주제 탐색 줄 · `guides/status.md` v3.05 · `stock/README.md` v1.36.
+
+### 확인
+- `topic_ideas.py stock selftest` 10/10 통과. package 전후 topics.json 비교 — 바뀐 칸은 package.message·v·base·history·file 뿐 (평가·점수·묶음 그대로) · 평가.txt 그대로.
+- 로그: `[STAGE] step=1 shown=23 … step=2 shown=0 … step=3 shown=0` · 흉내 평가(스크래치 복사본)로 2·3단계 카드·이전 판 평가·나쁨 → remake 확인.
+- 헤드리스 390px·1100px: 가로 넘침 0 · 오류 0 (1단계 23장 · 2·3단계 빈 상태 · 흉내 카드 3장·1장).
+- 평가판 db s1·s2·s3 = 0개 (새 모음).
+- 재테크·역사(`[stages]` 없음): 같은 복사본에서 v1.5 와 v1.6 이 만든 평가판이 바이트까지 같음.
+- 주제탐색.md 의 '배운 것' 표는 무게가 같은 줄의 순서만 바뀜 (예전부터 있던 동점 순서 흔들림 — 값은 같음).
+
 ## 2026-10-29 — 주식 주제 탐색 3회차 · 평가판 = 영상 기획안 · 기존 3편 리스크 기준
 
 ### 왜 (사용자 지시)

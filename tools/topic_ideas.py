@@ -1,10 +1,19 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.5 — 2026-10-29 — **평가판 = 영상 기획안** (사용자 지시 2026-10-29 "저 평가판을 진짜 영상 만든다고 생각하고 제목, 썸네일 문구, 썸네일 보조 문구, 도입부,
+# VERSION: v1.6 — 2026-10-29 — **단계 평가판 세 장** (사용자 지시 2026-10-29 "1번. 제목, 전달하고자 하는 내용 / 2번. 썸네일 문구, 보조문구, 대본 도입부(요약) /
+#          3번. 대본 내용(요약) 각각 3가지 평가판을 만들어봐 그럼 평가할게 통과한건 2번부터 다시 만들면 돼 3번은 2번에서 통과된것만 만드는거야"):
+#          기획안 칸을 세 단계로 (STAGE_KEYS 1 = title·message(전달하고자 하는 내용) · 2 = thumb_main·thumb_sub·intro · 3 = items·explain) · 단계마다 판 번호
+#          (package v·base — 그 단계 칸이 바뀌면 +1, base = 만들 때의 앞 단계 판) · 앞 단계를 모두 좋음으로 통과하고 이 단계 내용을 그 판에 맞춰 만든 것만 그 단계 평가판에 ·
+#          평가 = 단계평가.txt ('1단계 T043 v1 좋음 까닭' — 판마다) · `import-stage <단계> <marks>` (Artifact db 모음 s1·s2·s3) · 1단계 좋음은 평가.txt 에도 좋음 (주제 학습) ·
+#          `package` 는 준 칸만 합침 (예전엔 통째로 바꿈) · 기존 편(EP_)도 같은 길 (판 번호는 재구성_안.json 에) · settings [stages] URLS 가 있으면 평가판 세 장
+#          (평가판.html · 평가판_2단계.html · 평가판_3단계.html), 없으면 v1.5 평가판 그대로 (재테크·역사) · `selftest` = 단계 판정 시험.
+#          영향: lint_stage()·lint_package()·stage_update()·pkg_ver()·stage_status()·read_stage_marks()·stage_rows()·read_docs()·cmd_package()·cmd_import()·cmd_import_stage()·
+#          load_episodes()·render_stage_page()·render_plans()·finish()·selftest_stages()·main()·PAGE_STAGE.
+# (v1.5 — 2026-10-29 — **평가판 = 영상 기획안** (사용자 지시 2026-10-29 "저 평가판을 진짜 영상 만든다고 생각하고 제목, 썸네일 문구, 썸네일 보조 문구, 도입부,
 #          내용만(항목 및 정답, 해설 내용 간단하게) 표시되도록 해봐 기존 3건(재무제표, 매수 시기, 포트폴리오)도 … 다시 구성해봐"): `package <기획안.json>`
 #          ({"packages": {ID: {title, thumb_main[2], thumb_sub, intro[], items[{q,a}], explain[]}}} — 검사 lint_package) · 평가판 카드는 기획안만 (썸네일 모양 · 도입부 ·
 #          항목과 정답 · 해설) · settings [page] EPISODES = 기존 편 폴더 → <편>/재구성_안.json 을 '기존 편' 칸으로 (평가 문서 id EP_<편> → import 가 기존편_평가.txt 에) ·
-#          기획안 모음 문서 영상기획안.md. 영향: lint_package()·cmd_package()·render_page()·render_plans()·cmd_import()·read_ep_marks()·finish()·main()·PAGE.
+#          기획안 모음 문서 영상기획안.md. 영향: lint_package()·cmd_package()·render_page()·render_plans()·cmd_import()·read_ep_marks()·finish()·main()·PAGE.)
 # (v1.4.1 — 2026-10-29 — pick_batch: 주제 묶음·니즈 제한 때문에 20개를 못 채우면 제한을 풀고 점수 순으로 채움 (겹침 검사는 그대로 · 로그 WARNING) —
 #          3회차 묶음이 14개로 끝나서 (좋음이 투자 심리·종목 고르기 묶음에 몰림). 사용자 지시 2026-10-29 "평가판 반영했으니 주제 다시 탐색하고 …".)
 # (v1.4 — 2026-10-29 — 평가를 다 한 묶음 갈기·좋음 주제 다시 짜기 (사용자 지시 2026-10-29 "주식 주제 평가판 평가했는데 다시 주제 탐색해봐"):
@@ -54,6 +63,9 @@
   python3 tools/topic_ideas.py stock revise <고침.json>   # v1.4 주제 칸 고치기 ({ID: {칸: 값, "why": 까닭}}) — 평가 유지 · 미리 계산은 다시
   python3 tools/topic_ideas.py stock refresh             # v1.4 묶음을 모두 평가했으면 새 20개 — 좋음은 이어 감
   python3 tools/topic_ideas.py stock package <기획안.json> # v1.5 주제마다 영상 기획안(제목·썸네일 문구·보조·도입부·항목과 정답·해설) → 평가판 카드
+                                                         #  v1.6 준 칸만 합치고, 바뀐 단계의 판 번호를 올림 ({ID: {칸: 값, "why": 까닭}} · ID 는 T… 또는 EP_<편>)
+  python3 tools/topic_ideas.py stock import-stage 1 <marks.json>   # v1.6 단계 평가판(db 모음 s1·s2·s3)에서 누른 평가 → 단계평가.txt
+  python3 tools/topic_ideas.py stock selftest            # v1.6 단계 판정 시험 (파일을 안 건드림)
 로그: [STAGE] [시각] key=value (START·LOAD·USED·CHECK·SCORE·LEARN·BATCH·WRITE·DONE)
 """
 import argparse
@@ -75,7 +87,7 @@ try:
 except ModuleNotFoundError:            # Python 3.10
     import tomli as tomllib
 
-VERSION = "v1.5"
+VERSION = "v1.6"
 ROOT = Path(__file__).resolve().parent.parent
 LOG = logging.getLogger("topics")
 FIELDS = ("title", "question", "conclusion", "decide", "data", "format", "persona", "theme", "needs", "market", "data_kind")
@@ -546,7 +558,13 @@ def finish(topic, P, Z, S, A, refresh_ok=False):
     save_state(P, S)
     P["md"].write_text(render(S, Z, A, W, g, b, marks, done), "utf-8")
     P_PAGE[0], Z_PAGE[0] = P, Z
-    P["page"].write_text(render_page(S, A), "utf-8")
+    if Z.get("stages"):                             # v1.6 단계 평가판 세 장 (settings [stages])
+        rows = stage_rows(S, P, Z)
+        for n, name in STAGE_PAGES.items():
+            (P["dir"] / name).write_text(render_stage_page(S, P, Z, n, rows), "utf-8")
+        log_stages(rows)
+    else:
+        P["page"].write_text(render_page(S, A), "utf-8")
     (P["md"].parent / "영상기획안.md").write_text(render_plans(S, P, Z), "utf-8")
     b2 = current_batch(S)
     left = [t for t in (b2["ids"] if b2 else []) if S["items"][t]["status"] == "이번 묶음" and S["items"][t].get("rating") != "나쁨" and not pre_out(S["items"][t])]
@@ -686,48 +704,179 @@ def cmd_refresh(topic, root=None):
 
 
 PKG_KEYS = ("title", "thumb_main", "thumb_sub", "intro", "items", "explain")
+# v1.6 단계 — 1 제목·전달하고자 하는 내용 → 2 썸네일 문구·보조 문구·도입부(요약) → 3 대본 내용(요약: 항목과 정답·해설)
+STAGE_KEYS = {1: ("title", "message"), 2: ("thumb_main", "thumb_sub", "intro"), 3: ("items", "explain")}
+STAGE_NAME = {1: "제목 · 전달하고자 하는 내용", 2: "썸네일 문구 · 보조 문구 · 도입부", 3: "대본 내용"}
+
+
+def lint_stage(pk, s):
+    """v1.6 한 단계 칸 검사 (문제 목록, 없으면 통과)."""
+    bad = [f"'{k}' 칸 없음" for k in STAGE_KEYS[s] if not pk.get(k)]
+    if bad:
+        return bad
+    if s == 1:
+        if len(pk["title"]) > 60:
+            bad.append(f"제목 {len(pk['title'])}자 > 60")
+        msg = pk["message"]
+        if not (isinstance(msg, list) and 1 <= len(msg) <= 3 and all(isinstance(x, str) and x.strip() for x in msg)):
+            bad.append("전달하고자 하는 내용은 1~3문장 (목록)")
+        elif sum(len(x) for x in msg) > 240:
+            bad.append(f"전달하고자 하는 내용 {sum(len(x) for x in msg)}자 > 240")
+    elif s == 2:
+        if not (isinstance(pk["thumb_main"], list) and len(pk["thumb_main"]) == 2 and all(pk["thumb_main"])):
+            bad.append("썸네일 문구는 2줄 (목록 2개)")
+        elif max(len(x) for x in pk["thumb_main"]) > 14:
+            bad.append("썸네일 문구 한 줄이 14자 넘음")
+        if len(pk["thumb_sub"]) > 16:
+            bad.append(f"보조 문구 {len(pk['thumb_sub'])}자 > 16")
+        if not 2 <= len(pk["intro"]) <= 6:
+            bad.append(f"도입부 {len(pk['intro'])}문장 (2~6)")
+    else:
+        if not 3 <= len(pk["items"]) <= 6 or not all(x.get("q") and x.get("a") for x in pk["items"]):
+            bad.append("항목 3~6개 · 항목마다 q(질문)·a(정답)")
+        if not 1 <= len(pk["explain"]) <= 3:
+            bad.append("해설 1~3문장")
+    return bad
 
 
 def lint_package(pk):
-    """v1.5 영상 기획안 검사 — 칸이 다 있고 길이가 맞는지 (문제 목록, 없으면 통과)."""
+    """v1.5 영상 기획안 검사 — 칸이 다 있고 길이가 맞는지 (문제 목록, 없으면 통과). v1.6: 단계 검사(2·3)를 그대로 씀 · 전달 내용은 묻지 않음."""
     bad = [f"'{k}' 칸 없음" for k in PKG_KEYS if not pk.get(k)]
     if bad:
         return bad
     if len(pk["title"]) > 60:
         bad.append(f"제목 {len(pk['title'])}자 > 60")
-    if not (isinstance(pk["thumb_main"], list) and len(pk["thumb_main"]) == 2 and all(pk["thumb_main"])):
-        bad.append("썸네일 문구는 2줄 (목록 2개)")
-    elif max(len(x) for x in pk["thumb_main"]) > 14:
-        bad.append("썸네일 문구 한 줄이 14자 넘음")
-    if len(pk["thumb_sub"]) > 16:
-        bad.append(f"보조 문구 {len(pk['thumb_sub'])}자 > 16")
-    if not 2 <= len(pk["intro"]) <= 6:
-        bad.append(f"도입부 {len(pk['intro'])}문장 (2~6)")
-    if not 3 <= len(pk["items"]) <= 6 or not all(x.get("q") and x.get("a") for x in pk["items"]):
-        bad.append("항목 3~6개 · 항목마다 q(질문)·a(정답)")
-    if not 1 <= len(pk["explain"]) <= 3:
-        bad.append("해설 1~3문장")
-    return bad
+    return bad + lint_stage(pk, 2) + lint_stage(pk, 3)
+
+
+def pkg_ver(pk):
+    """v1.6 단계마다 판 번호 (0 = 이 단계 내용을 아직 안 만듦 · 예전 기획안의 칸은 초안) · base = 만들 때의 앞 단계 판."""
+    v, b = (pk or {}).get("v") or {}, (pk or {}).get("base") or {}
+    return {s: int(v.get(str(s), 0)) for s in (1, 2, 3)}, {s: int(b.get(str(s), 0)) for s in (2, 3)}
+
+
+def stage_update(pk, entry, why="", at=None):
+    """v1.6 준 칸만 합침 → (새 기획안, 바뀐 단계 목록, 문제). 한 단계라도 검사를 못 넘으면 아무것도 안 바꿈.
+    그 단계 칸이 바뀌었거나 아직 판이 0 이면 판 +1 · base[s] = 앞 단계의 (새) 판 · 옛 값은 history 에."""
+    at = at or datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    pk = dict(pk or {})
+    v, b = pkg_ver(pk)
+    hist, changed = list(pk.get("history") or []), []
+    for s in (1, 2, 3):
+        keys = [k for k in STAGE_KEYS[s] if k in entry]
+        if not keys:
+            continue
+        new = {**pk, **{k: entry[k] for k in keys}}
+        probs = lint_stage(new, s)
+        if probs:
+            return None, [], [f"{s}단계: {x}" for x in probs]
+        if any(pk.get(k) != entry[k] for k in keys) or v[s] == 0:
+            v[s] += 1
+            if s >= 2:
+                b[s] = v[s - 1]
+            hist.append({"stage": s, "v": v[s], "at": at, "why": why, "old": {k: pk[k] for k in keys if k in pk and pk[k] != entry[k]}})
+            changed.append(s)
+        pk = new
+    pk["v"], pk["base"], pk["history"] = {str(s): v[s] for s in v}, {str(s): b[s] for s in b}, hist
+    return pk, changed, []
+
+
+def stage_marks_path(P):
+    return P["dir"] / "단계평가.txt"
+
+
+STAGE_MARKS_HEAD = """# 단계 평가 — 줄마다 '<단계>단계 <ID> v<판> 좋음|나쁨 까닭(선택)'. 예: 1단계 T043 v1 좋음 / 2단계 EP_timing-test-2026-10 v1 나쁨 도입이 길다
+# 평가판 세 장(1단계 제목·전달 내용 → 2단계 썸네일 문구·보조 문구·도입부 → 3단계 대본 내용)에서 누른 것을 Claude 가 import-stage 로 옮김 — 채팅으로 말해도 됨.
+# 같은 단계·ID·판은 마지막 줄이 이김 · 좋음 = 다음 단계로 · 나쁨 = 그 단계 내용만 까닭을 반영해 새 판(v+1)으로 (tools/topic_ideas.py v1.6).
+"""
+
+
+def read_stage_marks(P):
+    """v1.6 단계평가.txt → {(단계, ID): {판: {rating, why, note}}} (같은 단계·ID·판은 마지막 줄이 이김 · '지움' 은 그 판 평가를 지움)."""
+    out = defaultdict(dict)
+    f = stage_marks_path(P)
+    if f.is_file():
+        for ln in f.read_text("utf-8").splitlines():
+            m = re.match(r"^([123])단계\s+(\S+)\s+v(\d+)\s+(좋음|나쁨|지움)\s*(.*?)(?:\s+#\s*(.*))?$", ln.strip())
+            if not m:
+                continue
+            key, ver = (int(m.group(1)), m.group(2)), int(m.group(3))
+            if m.group(4) == "지움":
+                out[key].pop(ver, None)
+            else:
+                out[key][ver] = {"rating": m.group(4), "why": m.group(5).strip(), "note": (m.group(6) or "").strip()}
+    return out
+
+
+def stage_status(pk, sm, iid):
+    """v1.6 단계마다 {v, ready(이 판 내용이 지금 앞 단계 판에 맞춰 있음), open(앞 단계를 모두 좋음 + ready → 이 단계 평가판에), rating·why(이 판 평가),
+    prev(앞 판의 마지막 평가), todo('만들 차례'·'다시 만들 차례'·None)}. 앞 단계 판이 바뀌면 base 가 어긋나 ready=False (= 다시 만들 차례)."""
+    v, b = pkg_ver(pk)
+    out, passed = {}, True
+    for s in (1, 2, 3):
+        ready = v[s] >= 1 and (s == 1 or b[s] == v[s - 1])
+        m = sm.get((s, iid), {})
+        cur = m.get(v[s]) if ready else None
+        pv = max((k for k in m if k < v[s] or not ready), default=None)
+        todo = None
+        if passed and not ready:
+            todo = "만들 차례"
+        elif passed and cur and cur["rating"] == "나쁨":
+            todo = "다시 만들 차례"
+        out[s] = {"v": v[s], "ready": ready, "open": passed and ready, "rating": cur["rating"] if cur else None, "why": cur["why"] if cur else "",
+                  "prev": ({"v": pv, "rating": m[pv]["rating"], "why": m[pv]["why"]} if pv is not None else None), "todo": todo}
+        passed = passed and ready and bool(cur) and cur["rating"] == "좋음"
+    return out
+
+
+def last_fix(pk, s):
+    """v1.6 이 단계 지금 판을 만든 까닭 (판 2 이상일 때만 — 첫 판은 빈칸)."""
+    v, _ = pkg_ver(pk)
+    for h in reversed((pk or {}).get("history") or []):
+        if h.get("stage") == s and h.get("v") == v[s] and v[s] >= 2:
+            return h.get("why", "")
+    return ""
+
+
+def ep_file(P, ep):
+    return P["base"] / "source" / ep / "재구성_안.json"     # P["base"] = <주제>/
 
 
 def cmd_package(topic, path, root=None):
-    """v1.5 영상 기획안 넣기 — {"packages": {ID: {...}}} · 검사를 못 넘으면 그 주제는 안 바꿈 · 평가는 그대로."""
+    """v1.5 영상 기획안 넣기 — {"packages": {ID: {...}}} · 평가는 그대로.
+    v1.6: 준 칸만 합침 (stage_update — 바뀐 단계의 판 +1 · 검사를 못 넘으면 그 ID 는 안 바꿈) · ID 가 EP_<편> 이면 <편>/재구성_안.json 에."""
     P = paths(topic, root)
     Z, S, A = load_settings(P), load_state(P, topic), load_analysis(P)
     pk = json.loads(Path(path).read_text("utf-8"))
     pk = pk.get("packages", pk)
     ok_n = 0
     for tid, v in pk.items():
-        if tid not in S["items"]:
-            log("CHECK", logging.WARNING, id=tid, result="없는 주제")
-            continue
-        probs = lint_package(v)
-        if probs:
-            log("CHECK", logging.WARNING, id=tid, result="기획안 안 넣음", why="; ".join(probs))
-            continue
-        S["items"][tid]["package"] = {**{k: v[k] for k in PKG_KEYS}, "file": str(path), "made": datetime.now(timezone.utc).strftime("%Y-%m-%d")}
+        why = v.get("why", "")
+        if tid.startswith("EP_"):
+            f = ep_file(P, tid[3:])
+            if not f.is_file():
+                log("CHECK", logging.WARNING, id=tid, result="없는 기존 편", file=str(f))
+                continue
+            d = json.loads(f.read_text("utf-8"))
+            new, changed, probs = stage_update(d, v, why)
+            if probs:
+                log("CHECK", logging.WARNING, id=tid, result="기획안 안 넣음", why="; ".join(probs))
+                continue
+            f.write_text(json.dumps(new, ensure_ascii=False, indent=1) + "\n", "utf-8")
+        else:
+            if tid not in S["items"]:
+                log("CHECK", logging.WARNING, id=tid, result="없는 주제")
+                continue
+            new, changed, probs = stage_update(S["items"][tid].get("package"), v, why)
+            if probs:
+                log("CHECK", logging.WARNING, id=tid, result="기획안 안 넣음", why="; ".join(probs))
+                continue
+            new.update({"file": str(path), "made": datetime.now(timezone.utc).strftime("%Y-%m-%d")})
+            S["items"][tid]["package"] = new
         ok_n += 1
-        log("CHECK", id=tid, result="기획안", title=v["title"][:40], items=len(v["items"]))
+        vv, bb = pkg_ver(new)
+        log("CHECK", id=tid, result="기획안", title=new.get("title", "")[:40], stages_changed=",".join(map(str, changed)) or "-",
+            v=f"{vv[1]}/{vv[2]}/{vv[3]}", base=f"{bb[2]}/{bb[3]}", why=why[:60] or "-")
     log("CHECK", topic=topic, packages=ok_n, asked=len(pk))
     save_state(P, S)
     return finish(topic, P, Z, S, A)
@@ -753,10 +902,10 @@ def read_ep_marks(P):
 
 
 def load_episodes(P, Z):
-    """settings [page] EPISODES — <주제>/source/<편>/재구성_안.json (없으면 건너뜀)."""
+    """settings [page] EPISODES — <주제>/source/<편>/재구성_안.json (없으면 건너뜀). v1.6: full = 파일 전체 (전달 내용·판 번호)."""
     eps, em = [], read_ep_marks(P)
     for ep in (Z.get("page") or {}).get("EPISODES") or []:
-        f = P["base"] / "source" / ep / "재구성_안.json"     # P["base"] = <주제>/
+        f = ep_file(P, ep)
         if not f.is_file():
             log("LOAD", logging.WARNING, episode=ep, note="재구성_안.json 없음")
             continue
@@ -766,18 +915,16 @@ def load_episodes(P, Z):
             log("CHECK", logging.WARNING, episode=ep, why="; ".join(probs))
             continue
         eid = "EP_" + ep
-        eps.append({"id": eid, "label": d.get("label", ep), "pkg": {k: d[k] for k in PKG_KEYS}, "changed": d.get("changed", ""),
+        eps.append({"id": eid, "label": d.get("label", ep), "pkg": {k: d[k] for k in PKG_KEYS}, "changed": d.get("changed", ""), "full": d,
                     "rating": em.get(eid, {}).get("rating"), "why": em.get(eid, {}).get("why", "")})
     return eps
 
 
-def cmd_import(topic, path, root=None):
-    """평가판(Artifact db 'marks' 모음) → 평가.txt. Claude 가 ArtifactData list 결과를 파일로 저장해 넘김.
-    문서마다 id(=T003)·rating(좋음|나쁨|빈칸=지움)·why·at. 지금 평가와 다른 것만 한 줄씩 더함 (빈칸 = '지움' 줄)."""
-    P = paths(topic, root)
+def read_docs(path):
+    """평가판 db 모음을 ArtifactData list 로 받은 결과 → 문서 목록 [{id, data}] (폴더 · JSON · 한 줄에 문서 하나인 글 모두)."""
     src = Path(path)
     docs = []
-    if src.is_dir():                                   # ArtifactData list … out_dir= → <dir>/marks/<id>.json
+    if src.is_dir():                                   # ArtifactData list … out_dir= → <dir>/<모음>/<id>.json
         for f in sorted(src.rglob("*.json")):
             d = json.loads(f.read_text("utf-8"))
             docs.append(d if "data" in d else {"id": f.stem, "data": d})
@@ -788,14 +935,22 @@ def cmd_import(topic, path, root=None):
             docs = raw if isinstance(raw, list) else (raw.get("documents") or raw.get("docs") or raw.get("items") or raw.get("results") or [])
         except json.JSONDecodeError:                   # ArtifactData list 결과를 그대로 붙인 글 — 문서마다 JSON 한 줄
             docs = [json.loads(ln) for ln in txt.splitlines() if ln.strip().startswith("{")]
+    out = []
+    for d in docs:
+        body = d.get("data") if isinstance(d.get("data"), dict) else d
+        out.append((str(d.get("id") or d.get("doc_id") or str(d.get("path", "")).split("/")[-1]), body))
+    return out
+
+
+def cmd_import(topic, path, root=None):
+    """평가판(Artifact db 'marks' 모음) → 평가.txt. Claude 가 ArtifactData list 결과를 파일로 저장해 넘김.
+    문서마다 id(=T003)·rating(좋음|나쁨|빈칸=지움)·why·at. 지금 평가와 다른 것만 한 줄씩 더함 (빈칸 = '지움' 줄)."""
+    P = paths(topic, root)
     cur = read_marks(P)
     S = load_state(P, topic)
     lines, seen, ep_lines = [], 0, []
-    for d in docs:
-        body = d.get("data") if isinstance(d.get("data"), dict) else d
-        tid = str(d.get("id") or d.get("doc_id") or str(d.get("path", "")).split("/")[-1])
+    for tid, body in read_docs(path):
         if tid.startswith("EP_"):                      # v1.5 기존 편 기획안 평가 → 기존편_평가.txt
-            body = d.get("data") if isinstance(d.get("data"), dict) else d
             r = str(body.get("rating") or "")
             why = re.sub(r"\s+", " ", str(body.get("why") or "")).strip()[:120]
             cur_ep = read_ep_marks(P)
@@ -827,6 +982,77 @@ def cmd_import(topic, path, root=None):
                 fh.write("# 기존 편 다시 짠 안(평가판 '기존 편' 칸) 평가 — 'EP_<편> 좋음|나쁨 까닭' · 같은 편은 마지막 줄이 이김 (topic_ideas.py v1.5)\n")
             fh.write("\n".join(ep_lines) + "\n")
     log("LEARN", topic=topic, source=str(path), page_docs=seen, new_lines=len(lines), episode_lines=len(ep_lines))
+    return cmd_status(topic, root)
+
+
+def stage_rows(S, P, Z):
+    """v1.6 이번 묶음(점수 순) + 기존 편 — 단계 상태와 함께 (단계 평가판·영상기획안·로그가 같이 씀)."""
+    sm = read_stage_marks(P)
+    B = current_batch(S)
+    rows = []
+    if B:
+        for i, it in enumerate(sorted((S["items"][t] for t in B["ids"]), key=lambda it: -it["score"]), 1):
+            pk = it.get("package") or {}
+            rows.append({"id": it["id"], "rank": i, "kind": "topic", "label": it["id"], "pkg": pk, "cls": (it.get("precheck") or {}).get("class", ""),
+                         "carried": (it.get("picked_why") or "").startswith("좋음"), "status": it["status"], "st": stage_status(pk, sm, it["id"])})
+    for e in load_episodes(P, Z):
+        rows.append({"id": e["id"], "rank": None, "kind": "episode", "label": e["label"], "pkg": e["full"], "cls": "", "carried": False,
+                     "status": "", "st": stage_status(e["full"], sm, e["id"])})
+    return rows
+
+
+def cmd_import_stage(topic, n, path, root=None):
+    """v1.6 단계 평가판(db 모음 s1·s2·s3) → 단계평가.txt. 문서마다 id·rating·why·v(평가한 판)·at. 지금 기록과 다른 것만 한 줄씩 (빈칸 = '지움').
+    1단계 좋음(T…)은 평가.txt 에도 좋음 (주제 학습 — 이미 좋음이면 안 씀). 나쁨은 옮기지 않음 — 제목·전달 내용을 다시 만들 차례라서
+    (까닭이 주제 자체가 나쁘다는 뜻이면 Claude 가 `mark T… 나쁨`)."""
+    P = paths(topic, root)
+    Z, S = load_settings(P), load_state(P, topic)
+    n = int(n)
+    sm = read_stage_marks(P)
+    rows = {r["id"]: r for r in stage_rows(S, P, Z)}
+    lines, good_topics, seen, skipped = [], [], 0, 0
+    for iid, body in read_docs(path):
+        if iid not in rows:
+            skipped += 1
+            log("LEARN", logging.WARNING, step=n, id=iid, note="이번 묶음·기존 편에 없음 — 건너뜀")
+            continue
+        try:
+            v = int(body.get("v") or 0)
+        except (TypeError, ValueError):
+            v = 0
+        if v < 1:
+            skipped += 1
+            log("LEARN", logging.WARNING, step=n, id=iid, note="판 번호(v) 없음 — 건너뜀")
+            continue
+        seen += 1
+        r = str(body.get("rating") or "")
+        why = re.sub(r"\s+", " ", str(body.get("why") or "")).strip()[:120]
+        at = str(body.get("at") or "")[:16]
+        cur = sm.get((n, iid), {}).get(v)
+        if r in ("좋음", "나쁨") and (not cur or cur["rating"] != r or cur["why"] != why):
+            lines.append(f"{n}단계 {iid} v{v} {r} {why}".rstrip() + f"  # 평가판 {at}")
+        elif not r and cur:
+            lines.append(f"{n}단계 {iid} v{v} 지움  # 평가판 {at}")
+        if v != rows[iid]["st"][n]["v"]:
+            log("LEARN", logging.WARNING, step=n, id=iid, rated_v=v, now_v=rows[iid]["st"][n]["v"], note="앞 판 평가 — 기록만 (지금 판의 통과는 아님)")
+        if n == 1 and r == "좋음" and iid.startswith("T") and v == rows[iid]["st"][1]["v"]:
+            good_topics.append((iid, why))
+    f = stage_marks_path(P)
+    if lines:
+        new = not f.is_file()
+        with open(f, "a", encoding="utf-8") as fh:
+            if new:
+                fh.write(STAGE_MARKS_HEAD)
+            fh.write("\n".join(lines) + "\n")
+    marks = read_marks(P)
+    tl = [f"{t} 좋음 1단계 통과{(' — ' + w) if w else ''}  # 단계 평가판" for t, w in good_topics if marks.get(t, {}).get("rating") != "좋음"]
+    if tl:
+        new = not P["marks"].is_file()
+        with open(P["marks"], "a", encoding="utf-8") as fh:
+            if new:
+                fh.write(MARKS_HEAD.replace("__NAME__", NAME))
+            fh.write("\n".join(tl) + "\n")
+    log("LEARN", topic=topic, step=n, source=str(path), docs=seen, skipped=skipped, new_lines=len(lines), topic_good_lines=len(tl))
     return cmd_status(topic, root)
 
 
@@ -1162,6 +1388,263 @@ render();
 """
 
 
+PAGE_STAGE = r"""<title>__NAME__ 영상 __STAGE__단계 평가판</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* v1.6 단계 평가판 — 위 단계 표시(1·2·3) · 카드 = 이 단계 칸만 (앞 단계 칸은 회색 맥락) · 좋음 = 다음 단계로 */
+:root{--bg:#f3f5f7;--card:#ffffff;--ink:#17202b;--muted:#5b6876;--line:#d9dfe6;--accent:#1f5f8b;--good:#167a5b;--goodbg:#e3f3ec;--bad:#b4442f;--badbg:#f8e6e1;--well:#eef1f4;
+--sans:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#11161c;--card:#19212a;--ink:#e6ebf0;--muted:#9aa7b4;--line:#2b3641;--accent:#7cb4dc;--good:#5cc79f;--goodbg:#173229;--bad:#ef8c76;--badbg:#3a211b;--well:#141b22;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#11161c;--card:#19212a;--ink:#e6ebf0;--muted:#9aa7b4;--line:#2b3641;--accent:#7cb4dc;--good:#5cc79f;--goodbg:#173229;--bad:#ef8c76;--badbg:#3a211b;--well:#141b22;color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.55}
+.wrap{max-width:780px;margin:0 auto;padding-block:20px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:14px}
+header{display:grid;gap:8px}
+nav.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+nav.steps>a,nav.steps>span{display:grid;gap:1px;align-content:start;padding:7px 10px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);text-decoration:none;font-size:.8rem;line-height:1.3;min-width:0}
+nav.steps .n{font-family:var(--mono);font-size:.72rem;color:var(--muted)}
+nav.steps .t{overflow-wrap:anywhere}
+nav.steps>[aria-current="page"]{border-color:var(--accent);box-shadow:inset 0 -3px 0 var(--accent)}
+nav.steps>a:hover{border-color:var(--accent)}
+h1{font-size:1.4rem;margin:4px 0 0;text-wrap:balance;letter-spacing:-.01em}
+.sub{color:var(--muted);font-size:.9rem;margin:0;font-variant-numeric:tabular-nums}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.count{font-size:.85rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.count b{color:var(--ink);font-family:var(--mono)}
+.filt{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
+.filt button{font:inherit;font-size:.85rem;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:4px 12px;cursor:pointer}
+.filt button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.note{font-size:.85rem;color:var(--muted);border-left:3px solid var(--line);padding-left:10px;margin:0}
+.note.warn{border-color:var(--bad);color:var(--ink)}
+ol.list{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:grid;gap:8px;min-width:0}
+.card.good{border-color:var(--good);box-shadow:inset 4px 0 0 var(--good)}
+.card.bad{border-color:var(--bad);box-shadow:inset 4px 0 0 var(--bad)}
+.meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:.8rem;color:var(--muted)}
+.rank{font-family:var(--mono);color:var(--ink)}
+.id{font-family:var(--mono);color:var(--accent)}
+.chip{border:1px solid var(--line);border-radius:4px;padding:0 6px}
+.chip.v{font-family:var(--mono)}
+h2{font-size:1.08rem;margin:0;text-wrap:balance}
+.lab{font-size:.75rem;letter-spacing:.04em;color:var(--muted);margin:2px 0 0}
+.msg{margin:0;font-size:.97rem}
+.ctx{background:var(--well);border-radius:8px;padding:8px 11px;display:grid;gap:3px;font-size:.86rem;color:var(--muted);min-width:0}
+.ctx b{color:var(--ink);font-weight:500}
+.ctx p{margin:0}
+.thumb{position:relative;aspect-ratio:16/9;max-width:420px;width:100%;border-radius:8px;background:#0f141a;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;padding:12px 14px;box-sizing:border-box;overflow:hidden}
+.thumb .l1,.thumb .l2{font-weight:700;line-height:1.15;font-size:clamp(1.15rem,5vw,1.7rem);letter-spacing:-.02em;overflow-wrap:anywhere}
+.thumb .l2{color:#ffd54a}
+.thumb .bub{position:absolute;top:10px;right:10px;max-width:60%;background:#fff;color:#111;border-radius:12px;padding:2px 10px;font-size:.82rem;font-weight:500}
+.thumb .tag{position:absolute;top:10px;left:12px;font-size:.7rem;color:#9fb0c0;letter-spacing:.05em}
+.intro{margin:0;font-size:.95rem}
+.qa{list-style:decimal;padding-left:1.4em;margin:0;display:grid;gap:6px}
+.qa .q{display:block}
+.qa .a{display:block;color:var(--good);font-weight:500}
+.qa .a::before{content:"정답 · ";color:var(--muted);font-weight:400}
+.exp{margin:0;font-size:.92rem;border-left:3px solid var(--accent);padding-left:10px}
+.hist{font-size:.82rem;color:var(--muted);margin:0}
+.hist b{font-weight:500;color:var(--ink)}
+.act{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.act button{font:inherit;font-weight:500;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:8px;padding:6px 14px;cursor:pointer;min-width:84px}
+.act button.g[aria-pressed="true"]{background:var(--goodbg);border-color:var(--good);color:var(--good)}
+.act button.b[aria-pressed="true"]{background:var(--badbg);border-color:var(--bad);color:var(--bad)}
+.act input{flex:1 1 180px;min-width:0;font:inherit;font-size:.9rem;border:1px solid var(--line);border-radius:8px;padding:6px 10px;background:var(--bg);color:var(--ink)}
+.state{font-size:.8rem;color:var(--muted);min-width:4em}
+h2.sec{font-size:1.1rem;margin:14px 0 0}
+.empty{background:var(--card);border:1px dashed var(--line);border-radius:10px;padding:22px 18px;display:grid;gap:8px}
+.empty h2{font-size:1.1rem}
+.empty p{margin:0;color:var(--muted)}
+.empty a{color:var(--accent);font-weight:500}
+.empty .steps{margin:0;padding-left:1.3em;color:var(--muted);font-size:.9rem;display:grid;gap:2px}
+[hidden]{display:none!important}
+button:disabled,input:disabled{opacity:.55;cursor:not-allowed}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+</style>
+<div class="wrap">
+<header>
+<nav class="steps" id="steps" aria-label="평가 단계"></nav>
+<h1 id="h1"></h1>
+<p class="sub" id="sub"></p>
+<p class="note" id="how"></p>
+<p class="note warn" id="offline" hidden></p>
+<div class="bar" id="bar"><span class="count" id="count"></span>
+<div class="filt" role="group" aria-label="거르기"><button type="button" data-f="all" aria-pressed="true">전체</button><button type="button" data-f="none" aria-pressed="false">평가 안 함</button><button type="button" data-f="good" aria-pressed="false">좋음</button><button type="button" data-f="bad" aria-pressed="false">나쁨</button></div></div>
+</header>
+<section id="emptysec" hidden></section>
+<section id="topsec" hidden><h2 class="sec" id="toph"></h2><ol class="list" id="list"></ol></section>
+<section id="epsec" hidden><h2 class="sec">기존 편 — 리스크를 줄이며 안정적으로 번 쪽을 정답으로 다시 짠 안</h2><ol class="list" id="eps"></ol></section>
+</div>
+<script id="data" type="application/json">__DATA__</script>
+<script>
+(function(){
+const D=JSON.parse(document.getElementById("data").textContent);
+const N=D.stage, COL="s"+N;
+const ALL=D.items.concat(D.episodes);
+const byId={}; ALL.forEach(it=>{byId[it.id]=it;});
+const marks={}, prevs={};      // 이 판 평가 · 앞 판의 마지막 평가 (처음엔 저장소의 단계평가.txt 값)
+ALL.forEach(it=>{ if(it.rating) marks[it.id]={rating:it.rating,why:it.why||""}; if(it.prev) prevs[it.id]=it.prev; });
+let db=null, canWrite=false, filter="all";
+const $=s=>document.querySelector(s);
+function el(tag,attrs,text){const e=document.createElement(tag);for(const k in (attrs||{}))e.setAttribute(k,attrs[k]);if(text!=null)e.textContent=text;return e;}
+// 위 단계 표시 — 지금 단계는 aria-current, 다른 단계는 주소가 있으면 링크
+const steps=$("#steps");
+[1,2,3].forEach(s=>{
+  const u=D.urls[s-1]; const cur=s===N;
+  const a=(cur||!u)?el("span",cur?{"aria-current":"page"}:{}):el("a",{href:u,target:"_blank",rel:"noopener"});
+  a.append(el("span",{class:"n"},s+"단계"+(D.counts[s]!=null?" · "+D.counts[s]+"개":"")), el("span",{class:"t"},D.names[s]));
+  steps.append(a);
+});
+$("#h1").textContent=`${D.name} 영상 ${N}단계 평가판`;
+$("#sub").textContent = N===1 ? `${D.batch}번째 묶음 · ${D.made} · 새 주제 ${D.items.length}개 + 기존 편 ${D.episodes.length}개`
+  : `${N-1}단계 통과 ${D.passed_prev}개 · 이 단계에 올린 것 ${ALL.length}개${D.waiting?" · 만드는 중 "+D.waiting+"개":""} · ${D.made}`;
+const HOW={1:"주제마다 제목과, 이 영상으로 전달하고자 하는 내용만 보입니다. 좋음 = 2단계(썸네일 문구 · 보조 문구 · 도입부)를 그 제목에 맞춰 다시 만들어 2단계 평가판에 올립니다. 나쁨 = 까닭을 반영해 제목 · 전달 내용을 다시 만들어 여기에 새 판(v2)으로 올립니다.",
+ 2:"1단계에서 좋음을 받은 주제만 — 회색 칸의 제목 · 전달 내용에 맞춘 썸네일 문구 · 보조 문구 · 대본 도입부(요약)입니다. 좋음 = 3단계(대본 내용)를 만들어 올립니다. 나쁨 = 이 단계 내용만 다시 만듭니다.",
+ 3:"2단계에서 좋음을 받은 주제만 — 대본 내용(요약: 항목과 정답 · 해설)입니다. 좋음 = 이 내용으로 대본을 씁니다. 나쁨 = 이 단계 내용만 다시 만듭니다."};
+$("#how").textContent=HOW[N]+" 다시 누르면 지워집니다. 까닭은 짧게 (선택). "+D.note;
+function counts(){let g=0,b=0;ALL.forEach(it=>{const m=marks[it.id];if(m&&m.rating==="좋음")g++;else if(m&&m.rating==="나쁨")b++;});
+  const c=$("#count"); c.textContent=""; c.append("좋음 ",el("b",{},String(g))," · 나쁨 ",el("b",{},String(b))," · 평가 안 함 ",el("b",{},String(ALL.length-g-b)));}
+function emptyState(){
+  const E=$("#emptysec"); E.hidden=false; E.textContent="";
+  const box=el("div",{class:"empty"});
+  box.append(el("h2",{},"아직 평가할 것이 없습니다"));
+  box.append(el("p",{},`${N-1}단계에서 좋음을 받은 주제만 이 판에 올라옵니다.`+(D.waiting?` 지금 ${D.waiting}개가 통과해 Claude 가 이 단계 내용을 만드는 중입니다.`:` 지금 ${N-1}단계 통과는 ${D.passed_prev}개입니다.`)));
+  const ol=el("ol",{class:"steps"});
+  ol.append(el("li",{},`${N-1}단계 평가판에서 좋음 · 나쁨을 누릅니다.`), el("li",{},"Claude 에게 '평가했어'라고 말하면, 좋음을 받은 주제의 이 단계 내용을 만들어 여기에 올립니다."));
+  box.append(ol);
+  const u=D.urls[N-2]; if(u){ const a=el("a",{href:u,target:"_blank",rel:"noopener"},`${N-1}단계 평가판 열기`); const p=el("p"); p.append(a); box.append(p); }
+  E.append(box); $("#bar").hidden=true;
+}
+function ctx(it){
+  const c=el("div",{class:"ctx"});
+  const t=el("p"); t.append(el("b",{},"제목 "), document.createTextNode(it.title)); c.append(t);
+  const m=el("p"); m.append(el("b",{},"전달 내용 "), document.createTextNode(it.message.join(" "))); c.append(m);
+  if(N===3){ const th=el("p"); th.append(el("b",{},"썸네일 "), document.createTextNode(it.thumb_main.join(" / ")+" · "+it.thumb_sub)); c.append(th); }
+  return c;
+}
+function thumb(it){
+  const t=el("div",{class:"thumb",role:"img","aria-label":"썸네일 문구 "+it.thumb_main.join(" ")+" · 보조 "+it.thumb_sub});
+  t.append(el("span",{class:"tag"},"썸네일"), el("span",{class:"bub"},it.thumb_sub), el("span",{class:"l1"},it.thumb_main[0]), el("span",{class:"l2"},it.thumb_main[1]));
+  return t;
+}
+function card(it){
+  const m=marks[it.id]||{}; const r=m.rating||"";
+  if(filter==="none"&&r) return null; if(filter==="good"&&r!=="좋음") return null; if(filter==="bad"&&r!=="나쁨") return null;
+  const li=el("li",{class:"card"+(r==="좋음"?" good":r==="나쁨"?" bad":""),id:"c-"+it.id});
+  const meta=el("div",{class:"meta"});
+  if(it.rank) meta.append(el("span",{class:"rank"},it.rank+"위"));
+  meta.append(el("span",{class:"id"},it.label), el("span",{class:"chip v"},"v"+it.v));
+  if(it.cls) meta.append(el("span",{class:"chip"},it.cls));
+  if(it.carried) meta.append(el("span",{class:"chip"},"앞 묶음 좋음"));
+  li.append(meta);
+  if(N===1){ li.append(el("h2",{},it.title), el("p",{class:"lab"},"전달하고자 하는 내용"), el("p",{class:"msg"},it.message.join(" "))); }
+  else li.append(ctx(it));
+  if(N===2){ li.append(el("p",{class:"lab"},"썸네일 문구 · 보조 문구"), thumb(it), el("p",{class:"lab"},"대본 도입부 (요약)"), el("p",{class:"intro"},it.intro.join(" "))); }
+  if(N===3){
+    li.append(el("p",{class:"lab"},"대본 내용 (요약) — 항목과 정답"));
+    const ol=el("ol",{class:"qa"}); it.items.forEach(x=>{const q=el("li"); q.append(el("span",{class:"q"},x.q), el("span",{class:"a"},x.a)); ol.append(q);}); li.append(ol);
+    const e=el("p",{class:"exp"}); e.append(el("span",{class:"lab"},"해설  ")); e.append(document.createTextNode(it.explain.join(" "))); li.append(e);
+  }
+  const pv=prevs[it.id];
+  if(pv){ const h=el("p",{class:"hist"}); h.append(el("b",{},`이전 판 v${pv.v} · ${pv.rating}`), document.createTextNode((pv.why?" — "+pv.why:"")+(it.fixed?` → 고친 것: ${it.fixed}`:""))); li.append(h); }
+  else if(it.fixed){ li.append(el("p",{class:"hist"},"고친 것 · "+it.fixed)); }
+  li.append(actions(it, r, m));
+  return li;
+}
+function actions(it, r, m){
+  const act=el("div",{class:"act"});
+  const gb=el("button",{type:"button",class:"g","aria-pressed":String(r==="좋음")},"좋음");
+  const bb=el("button",{type:"button",class:"b","aria-pressed":String(r==="나쁨")},"나쁨");
+  const why=el("input",{type:"text",placeholder:"까닭 (선택)",maxlength:"120","aria-label":it.label+" 까닭"}); why.value=m.why||"";
+  const st=el("span",{class:"state",id:"s-"+it.id});
+  [gb,bb,why].forEach(x=>{ if(!canWrite) x.disabled=true; });
+  gb.addEventListener("click",()=>save(it, r==="좋음"?"":"좋음", why.value));
+  bb.addEventListener("click",()=>save(it, r==="나쁨"?"":"나쁨", why.value));
+  why.addEventListener("change",()=>{ if(marks[it.id]&&marks[it.id].rating) save(it, marks[it.id].rating, why.value); });
+  act.append(gb,bb,why,st);
+  return act;
+}
+function render(){
+  if(!ALL.length){ emptyState(); return; }
+  const tops=D.items, eps=D.episodes;
+  $("#topsec").hidden=!tops.length; $("#epsec").hidden=!eps.length;
+  $("#toph").textContent = N===1 ? `새 주제 ${tops.length}개 (점수 순)` : `새 주제 ${tops.length}개`;
+  const L=$("#list"); L.textContent=""; tops.forEach(it=>{const c=card(it); if(c) L.append(c);});
+  const E=$("#eps"); E.textContent=""; eps.forEach(it=>{const c=card(it); if(c) E.append(c);});
+  counts();
+}
+let busy=Promise.resolve();
+function save(it,rating,why){
+  if(!db||!canWrite) return;
+  const st=document.getElementById("s-"+it.id); if(st) st.textContent="저장 중…";
+  const body={rating:rating,why:(why||"").trim().slice(0,120),at:new Date().toISOString(),v:it.v,batch:D.batch};
+  busy=busy.then(()=>db.collection(COL).doc(it.id).set(body)).then(()=>{
+    if(rating) marks[it.id]={rating:rating,why:body.why}; else delete marks[it.id];
+    render(); const s2=document.getElementById("s-"+it.id); if(s2) s2.textContent=rating?"저장됨":"지움";
+  }).catch(e=>{ const s3=document.getElementById("s-"+it.id); if(s3) s3.textContent=(e&&(e.code==="not_granted"||e.code==="permission_denied"))?"저장 못 함 (권한)":"저장 못 함 — 다시 눌러 주세요"; });
+}
+document.querySelectorAll(".filt button").forEach(b=>b.addEventListener("click",()=>{filter=b.dataset.f;document.querySelectorAll(".filt button").forEach(x=>x.setAttribute("aria-pressed",String(x===b)));render();}));
+$("#offline").textContent=`이 화면에서는 저장할 수 없습니다 (로그인이 필요하거나 보기 전용). 평가는 Claude 에게 '${N}단계 T043 좋아, T047 별로'처럼 말하면 됩니다.`;
+render();
+if(!ALL.length) return;
+(async()=>{
+  try{ db = window.claude && window.claude.use ? await window.claude.use("db") : null; }catch(e){ db=null; }
+  if(!db){ $("#offline").hidden=false; return; }
+  let user=null; try{ user=await window.claude.use("user"); }catch(e){}
+  let cw=null; try{ cw = user ? await user.can("data.write") : null; }catch(e){ cw=null; }
+  canWrite = cw!==false;
+  if(!canWrite) $("#offline").hidden=false;
+  db.collection(COL).onSnapshot(snap=>{
+    snap.docs.forEach(doc=>{
+      const v=doc.data()||{}; const it=byId[doc.id]; if(!it) return; const dv=Number(v.v)||0;
+      if(dv===it.v){ if(v.rating) marks[doc.id]={rating:v.rating,why:v.why||""}; else delete marks[doc.id]; }
+      else if(dv<it.v && v.rating && (!prevs[doc.id]||prevs[doc.id].v<=dv)){ prevs[doc.id]={v:dv,rating:v.rating,why:v.why||""}; }
+    });
+    render();
+  },()=>{});
+  render();
+})();
+})();
+</script>
+"""
+
+
+STAGE_PAGES = {1: "평가판.html", 2: "평가판_2단계.html", 3: "평가판_3단계.html"}
+
+
+def stage_page_item(r, n):
+    """v1.6 단계 평가판 카드 한 장 — 이 단계까지의 칸 (앞 단계 칸은 회색 맥락) · 지금 판 · 이 판 평가 · 앞 판 평가 · 고친 까닭."""
+    pk, x = r["pkg"], r["st"][n]
+    keys = [k for s in range(1, n + 1) for k in STAGE_KEYS[s]]
+    return {"id": r["id"], "rank": r["rank"] if n == 1 else None, "label": r["label"], "cls": r["cls"] if n == 1 else "", "carried": r["carried"] and n == 1,
+            "v": x["v"], "rating": x["rating"], "why": x["why"], "prev": x["prev"], "fixed": last_fix(pk, n), **{k: pk[k] for k in keys}}
+
+
+def render_stage_page(S, P, Z, n, rows):
+    """v1.6 단계 n 평가판 HTML — 앞 단계를 모두 좋음으로 통과하고 이 단계 내용을 그 판에 맞춰 만든 것만 (rows = stage_rows)."""
+    B = current_batch(S)
+    urls = list((Z.get("stages") or {}).get("URLS") or ["", "", ""]) + ["", "", ""]
+    open_ = [r for r in rows if r["st"][n]["open"]]
+    data = {"stage": n, "name": NAME, "names": STAGE_NAME, "urls": urls[:3], "note": NOTE_PAGE, "batch": B["no"] if B else 0,
+            "made": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
+            "counts": {s: sum(1 for r in rows if r["st"][s]["open"]) for s in (1, 2, 3)},
+            "passed_prev": sum(1 for r in rows if n > 1 and r["st"][n - 1]["open"] and r["st"][n - 1]["rating"] == "좋음"),
+            "waiting": sum(1 for r in rows if n > 1 and r["st"][n]["todo"] == "만들 차례"),
+            "items": [stage_page_item(r, n) for r in open_ if r["kind"] == "topic"],
+            "episodes": [stage_page_item(r, n) for r in open_ if r["kind"] == "episode"]}
+    js = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
+    return PAGE_STAGE.replace("__NAME__", NAME).replace("__STAGE__", str(n)).replace("__DATA__", js)
+
+
+def log_stages(rows):
+    """v1.6 단계마다 올린 수·좋음·나쁨 · Claude 가 할 일 (만들 차례 = 앞 단계 통과인데 이 단계 내용이 그 판에 맞춰 없음 · 다시 만들 차례 = 이 판 나쁨)."""
+    for s in (1, 2, 3):
+        op = [r for r in rows if r["st"][s]["open"]]
+        todo = [f"{r['id']}" for r in rows if r["st"][s]["todo"] == "만들 차례"]
+        redo = [f"{r['id']}" for r in rows if r["st"][s]["todo"] == "다시 만들 차례"]
+        log("STAGE", step=s, shown=len(op), good=sum(1 for r in op if r["st"][s]["rating"] == "좋음"), bad=sum(1 for r in op if r["st"][s]["rating"] == "나쁨"),
+            unrated=sum(1 for r in op if not r["st"][s]["rating"]), make=",".join(todo) or "-", remake=",".join(redo) or "-")
+
+
 def revised_why(it):
     """v1.4 뜻이 바뀐 마지막 고침의 까닭 (갈래 이름만 바꾼 것은 뺌) — 문서·평가판에 '다시 짬'."""
     for r in reversed(it.get("revised") or []):
@@ -1173,13 +1656,33 @@ def revised_why(it):
 P_PAGE, Z_PAGE = [None], [None]           # v1.5 finish() 가 넣음 (기존 편 칸을 읽으려고)
 
 
+def stage_cell(x):
+    """v1.6 영상기획안.md 단계 표 한 칸."""
+    if x["rating"]:
+        return f"v{x['v']} {x['rating']}"
+    if x["open"]:
+        return f"v{x['v']} 평가 전"
+    if x["todo"]:
+        return x["todo"]
+    return "—" if not x["v"] else f"v{x['v']} 초안"
+
+
 def render_plans(S, P, Z):
-    """v1.5 영상기획안.md — 이번 묶음 기획안 + 기존 편 다시 짠 안 (사람이 읽는 모음)."""
+    """v1.5 영상기획안.md — 이번 묶음 기획안 + 기존 편 다시 짠 안 (사람이 읽는 모음). v1.6: 맨 위 단계 평가 표 · 전달하고자 하는 내용."""
     B = current_batch(S)
+    st = Z.get("stages") or {}
+    urls = list(st.get("URLS") or [(Z.get("page") or {}).get("URL", "")])
     L = [f"# {NAME} 영상 기획안 — {B['no'] if B else 0}번째 묶음", "",
-         f"(자동 — `tools/topic_ideas.py {VERSION}` · 기획안 `package` · 평가판 {(Z.get('page') or {}).get('URL', '')}) ※ 연구·교육용 — 투자 권유가 아님.", ""]
+         f"(자동 — `tools/topic_ideas.py {VERSION}` · 기획안 `package` · 평가판 {' · '.join(u for u in urls if u)}) ※ 연구·교육용 — 투자 권유가 아님.", ""]
+    if st:
+        rows = stage_rows(S, P, Z)
+        L += ["## 단계 평가", "", "1단계 제목·전달 내용 → 2단계 썸네일 문구·보조 문구·도입부 → 3단계 대본 내용. 앞 단계에서 좋음을 받은 것만 다음 단계로 (`단계평가.txt`). "
+              "'초안' = 예전 기획안의 칸 (앞 단계를 통과하면 다시 만듦).", "",
+              "| ID | 1단계 | 2단계 | 3단계 |", "|---|---|---|---|"]
+        L += [f"| {r['label']} | " + " | ".join(stage_cell(r["st"][s]) for s in (1, 2, 3)) + " |" for r in rows] + [""]
     def block(head, pk, extra=""):
-        out = [f"## {head}", "", f"- **제목**: {pk['title']}", f"- **썸네일 문구**: {' / '.join(pk['thumb_main'])}", f"- **썸네일 보조 문구**: {pk['thumb_sub']}",
+        out = [f"## {head}", "", f"- **제목**: {pk['title']}"] + ([f"- **전달하고자 하는 내용**: {' '.join(pk['message'])}"] if pk.get("message") else []) + [
+               f"- **썸네일 문구**: {' / '.join(pk['thumb_main'])}", f"- **썸네일 보조 문구**: {pk['thumb_sub']}",
                f"- **도입부**: {' '.join(pk['intro'])}", "- **내용**:"]
         out += [f"  {i}. {x['q']} → **{x['a']}**" for i, x in enumerate(pk["items"], 1)]
         out += [f"- **해설**: {' '.join(pk['explain'])}"] + ([f"- {extra}"] if extra else []) + [""]
@@ -1194,7 +1697,7 @@ def render_plans(S, P, Z):
     if eps:
         L += ["# 기존 편 — 리스크 기준으로 다시 짠 안", ""]
         for e in eps:
-            L += block(e["label"], e["pkg"], f"바뀐 것: {e['changed']}")
+            L += block(e["label"], e["full"], f"바뀐 것: {e['changed']}")
     return "\n".join(L) + "\n"
 
 
@@ -1214,7 +1717,7 @@ def render_page(S, A):
                           "conclusion": pc.get("conclusion") or it["conclusion"], "question": it["question"], "decide": it["decide"],
                           "data": it["data"], "format": it["format"], "persona": f"{pp.get('id', '?')} {pp.get('name', it['persona'])}", "status": it["status"],
                           "score": f"{it['score']:.2f}", "basis": basis or it.get("why", ""), "rating": it.get("rating"), "why": it.get("rating_why", ""), "revised": revised_why(it),
-                          "pkg": {k: it["package"][k] for k in PKG_KEYS} if it.get("package") else None,
+                          "pkg": {k: it["package"][k] for k in PKG_KEYS} if all((it.get("package") or {}).get(k) for k in PKG_KEYS) else None,
                           "carried": (it.get("picked_why") or "").startswith("좋음")})
     data = {"batch": B["no"] if B else 0, "made": (B["made"][:10] if B else "-"), "analysis": str(A["analysis_made"])[:10], "items": items,
             "episodes": load_episodes(P_PAGE[0], Z_PAGE[0]) if P_PAGE[0] else []}
@@ -1222,10 +1725,47 @@ def render_page(S, A):
     return PAGE.replace("__NAME__", NAME).replace("__NOTE__", NOTE_PAGE).replace("__DATA__", js)
 
 
+def selftest_stages():
+    """v1.6 단계 판정 시험 — 파일을 안 건드림. 통과하면 0, 아니면 1 (로그 TEST)."""
+    base = {"title": "제목", "thumb_main": ["가", "나"], "thumb_sub": "보조", "intro": ["하나.", "둘."], "items": [{"q": "q", "a": "a"}] * 3, "explain": ["해설."]}
+    ok = []
+    pk, ch, pr = stage_update(base, {"message": ["전달."]}, "첫 판")
+    ok.append(("전달 내용만 넣으면 1단계 v1 · 2·3단계는 초안 v0", not pr and ch == [1] and pkg_ver(pk)[0] == {1: 1, 2: 0, 3: 0}))
+    st = stage_status(pk, {}, "T1")
+    ok.append(("평가 전: 1단계만 보임", st[1]["open"] and not st[2]["open"] and not st[3]["open"] and st[1]["todo"] is None))
+    sm = {(1, "T1"): {1: {"rating": "좋음", "why": ""}}}
+    st = stage_status(pk, sm, "T1")
+    ok.append(("1단계 좋음 → 2단계 '만들 차례' (초안은 안 보임)", st[2]["todo"] == "만들 차례" and not st[2]["open"]))
+    pk2, ch, _ = stage_update(pk, {"thumb_main": ["가", "나"], "thumb_sub": "보조", "intro": ["하나.", "둘."]}, "1단계 통과 뒤")
+    st = stage_status(pk2, sm, "T1")
+    ok.append(("같은 값이라도 판 0 이면 v1 로 만듦 → 2단계 보임 (base = 1단계 v1)", ch == [2] and st[2]["open"] and pkg_ver(pk2)[1][2] == 1))
+    sm[(2, "T1")] = {1: {"rating": "나쁨", "why": "도입이 김"}}
+    st = stage_status(pk2, sm, "T1")
+    ok.append(("2단계 나쁨 → '다시 만들 차례' · 3단계 안 보임", st[2]["todo"] == "다시 만들 차례" and not st[3]["open"]))
+    pk3, ch, _ = stage_update(pk2, {"intro": ["짧게.", "둘."]}, "도입이 김 → 줄임")
+    st = stage_status(pk3, sm, "T1")
+    ok.append(("고치면 2단계 v2 · 앞 판 평가는 prev · 고친 까닭", ch == [2] and st[2]["v"] == 2 and st[2]["prev"]["rating"] == "나쁨" and last_fix(pk3, 2) == "도입이 김 → 줄임"))
+    pk4, ch, _ = stage_update(pk3, {"title": "새 제목"}, "제목 고침")
+    st = stage_status(pk4, sm, "T1")
+    ok.append(("1단계를 고치면 1단계 v2 평가 전 · 2단계는 안 보임", st[1]["v"] == 2 and st[1]["open"] and not st[1]["rating"] and not st[2]["open"]))
+    sm[(1, "T1")][2] = {"rating": "좋음", "why": ""}
+    st = stage_status(pk4, sm, "T1")
+    ok.append(("1단계 v2 좋음 → 2단계는 base 어긋남 = '만들 차례'", st[2]["todo"] == "만들 차례" and not st[2]["ready"]))
+    _, _, pr = stage_update(pk4, {"thumb_main": ["너무너무너무너무 긴 썸네일 한 줄", "나"]})
+    ok.append(("검사 실패면 안 바꿈", bool(pr)))
+    _, _, pr = stage_update(base, {"message": []})
+    ok.append(("빈 전달 내용은 실패", bool(pr)))
+    for name, good in ok:
+        log("TEST", logging.INFO if good else logging.ERROR, check=name, result="통과" if good else "실패")
+    bad = sum(1 for _, g in ok if not g)
+    log("TEST", checks=len(ok), failed=bad)
+    return 1 if bad else 0
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description="주제 탐색 (주식·재테크) — 20개씩 · 평가를 배움 · 명확한 결론만")
     ap.add_argument("topic")
-    ap.add_argument("cmd", choices=["material", "add", "mark", "use", "done", "status", "import", "precheck", "revise", "refresh", "package"])
+    ap.add_argument("cmd", choices=["material", "add", "mark", "use", "done", "status", "import", "precheck", "revise", "refresh", "package", "import-stage", "selftest"])
     ap.add_argument("args", nargs="*")
     ap.add_argument("--log-level", default="INFO", choices=["DEBUG", "INFO", "WARNING"])
     a = ap.parse_args(argv)
@@ -1248,6 +1788,12 @@ def main(argv=None):
         cmd_refresh(a.topic)
     elif a.cmd == "package":
         cmd_package(a.topic, a.args[0])
+    elif a.cmd == "import-stage":
+        cmd_import_stage(a.topic, a.args[0], a.args[1])
+    elif a.cmd == "selftest":
+        rc = selftest_stages()
+        log("DONE", topic=a.topic, cmd=a.cmd, seconds=round(time.monotonic() - t0, 2))
+        return rc
     elif a.cmd in ("use", "done"):
         cmd_use(a.topic, a.args[0], a.args[1] if len(a.args) > 1 else "", done=a.cmd == "done")
     else:

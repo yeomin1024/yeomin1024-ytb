@@ -1,0 +1,217 @@
+<title>주식 영상 2단계 평가판</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* v1.6 단계 평가판 — 위 단계 표시(1·2·3) · 카드 = 이 단계 칸만 (앞 단계 칸은 회색 맥락) · 좋음 = 다음 단계로 */
+:root{--bg:#f3f5f7;--card:#ffffff;--ink:#17202b;--muted:#5b6876;--line:#d9dfe6;--accent:#1f5f8b;--good:#167a5b;--goodbg:#e3f3ec;--bad:#b4442f;--badbg:#f8e6e1;--well:#eef1f4;
+--sans:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#11161c;--card:#19212a;--ink:#e6ebf0;--muted:#9aa7b4;--line:#2b3641;--accent:#7cb4dc;--good:#5cc79f;--goodbg:#173229;--bad:#ef8c76;--badbg:#3a211b;--well:#141b22;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#11161c;--card:#19212a;--ink:#e6ebf0;--muted:#9aa7b4;--line:#2b3641;--accent:#7cb4dc;--good:#5cc79f;--goodbg:#173229;--bad:#ef8c76;--badbg:#3a211b;--well:#141b22;color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.55}
+.wrap{max-width:780px;margin:0 auto;padding-block:20px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:14px}
+header{display:grid;gap:8px}
+nav.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+nav.steps>a,nav.steps>span{display:grid;gap:1px;align-content:start;padding:7px 10px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);text-decoration:none;font-size:.8rem;line-height:1.3;min-width:0}
+nav.steps .n{font-family:var(--mono);font-size:.72rem;color:var(--muted)}
+nav.steps .t{overflow-wrap:anywhere}
+nav.steps>[aria-current="page"]{border-color:var(--accent);box-shadow:inset 0 -3px 0 var(--accent)}
+nav.steps>a:hover{border-color:var(--accent)}
+h1{font-size:1.4rem;margin:4px 0 0;text-wrap:balance;letter-spacing:-.01em}
+.sub{color:var(--muted);font-size:.9rem;margin:0;font-variant-numeric:tabular-nums}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.count{font-size:.85rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.count b{color:var(--ink);font-family:var(--mono)}
+.filt{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
+.filt button{font:inherit;font-size:.85rem;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:4px 12px;cursor:pointer}
+.filt button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.note{font-size:.85rem;color:var(--muted);border-left:3px solid var(--line);padding-left:10px;margin:0}
+.note.warn{border-color:var(--bad);color:var(--ink)}
+ol.list{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:grid;gap:8px;min-width:0}
+.card.good{border-color:var(--good);box-shadow:inset 4px 0 0 var(--good)}
+.card.bad{border-color:var(--bad);box-shadow:inset 4px 0 0 var(--bad)}
+.meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:.8rem;color:var(--muted)}
+.rank{font-family:var(--mono);color:var(--ink)}
+.id{font-family:var(--mono);color:var(--accent)}
+.chip{border:1px solid var(--line);border-radius:4px;padding:0 6px}
+.chip.v{font-family:var(--mono)}
+h2{font-size:1.08rem;margin:0;text-wrap:balance}
+.lab{font-size:.75rem;letter-spacing:.04em;color:var(--muted);margin:2px 0 0}
+.msg{margin:0;font-size:.97rem}
+.ctx{background:var(--well);border-radius:8px;padding:8px 11px;display:grid;gap:3px;font-size:.86rem;color:var(--muted);min-width:0}
+.ctx b{color:var(--ink);font-weight:500}
+.ctx p{margin:0}
+.thumb{position:relative;aspect-ratio:16/9;max-width:420px;width:100%;border-radius:8px;background:#0f141a;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;padding:12px 14px;box-sizing:border-box;overflow:hidden}
+.thumb .l1,.thumb .l2{font-weight:700;line-height:1.15;font-size:clamp(1.15rem,5vw,1.7rem);letter-spacing:-.02em;overflow-wrap:anywhere}
+.thumb .l2{color:#ffd54a}
+.thumb .bub{position:absolute;top:10px;right:10px;max-width:60%;background:#fff;color:#111;border-radius:12px;padding:2px 10px;font-size:.82rem;font-weight:500}
+.thumb .tag{position:absolute;top:10px;left:12px;font-size:.7rem;color:#9fb0c0;letter-spacing:.05em}
+.intro{margin:0;font-size:.95rem}
+.qa{list-style:decimal;padding-left:1.4em;margin:0;display:grid;gap:6px}
+.qa .q{display:block}
+.qa .a{display:block;color:var(--good);font-weight:500}
+.qa .a::before{content:"정답 · ";color:var(--muted);font-weight:400}
+.exp{margin:0;font-size:.92rem;border-left:3px solid var(--accent);padding-left:10px}
+.hist{font-size:.82rem;color:var(--muted);margin:0}
+.hist b{font-weight:500;color:var(--ink)}
+.act{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.act button{font:inherit;font-weight:500;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:8px;padding:6px 14px;cursor:pointer;min-width:84px}
+.act button.g[aria-pressed="true"]{background:var(--goodbg);border-color:var(--good);color:var(--good)}
+.act button.b[aria-pressed="true"]{background:var(--badbg);border-color:var(--bad);color:var(--bad)}
+.act input{flex:1 1 180px;min-width:0;font:inherit;font-size:.9rem;border:1px solid var(--line);border-radius:8px;padding:6px 10px;background:var(--bg);color:var(--ink)}
+.state{font-size:.8rem;color:var(--muted);min-width:4em}
+h2.sec{font-size:1.1rem;margin:14px 0 0}
+.empty{background:var(--card);border:1px dashed var(--line);border-radius:10px;padding:22px 18px;display:grid;gap:8px}
+.empty h2{font-size:1.1rem}
+.empty p{margin:0;color:var(--muted)}
+.empty a{color:var(--accent);font-weight:500}
+.empty .steps{margin:0;padding-left:1.3em;color:var(--muted);font-size:.9rem;display:grid;gap:2px}
+[hidden]{display:none!important}
+button:disabled,input:disabled{opacity:.55;cursor:not-allowed}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+</style>
+<div class="wrap">
+<header>
+<nav class="steps" id="steps" aria-label="평가 단계"></nav>
+<h1 id="h1"></h1>
+<p class="sub" id="sub"></p>
+<p class="note" id="how"></p>
+<p class="note warn" id="offline" hidden></p>
+<div class="bar" id="bar"><span class="count" id="count"></span>
+<div class="filt" role="group" aria-label="거르기"><button type="button" data-f="all" aria-pressed="true">전체</button><button type="button" data-f="none" aria-pressed="false">평가 안 함</button><button type="button" data-f="good" aria-pressed="false">좋음</button><button type="button" data-f="bad" aria-pressed="false">나쁨</button></div></div>
+</header>
+<section id="emptysec" hidden></section>
+<section id="topsec" hidden><h2 class="sec" id="toph"></h2><ol class="list" id="list"></ol></section>
+<section id="epsec" hidden><h2 class="sec">기존 편 — 리스크를 줄이며 안정적으로 번 쪽을 정답으로 다시 짠 안</h2><ol class="list" id="eps"></ol></section>
+</div>
+<script id="data" type="application/json">{"stage": 2, "name": "주식", "names": {"1": "제목 · 전달하고자 하는 내용", "2": "썸네일 문구 · 보조 문구 · 도입부", "3": "대본 내용"}, "urls": ["https://claude.ai/artifact/Y5d3kdE2nShVxRgzBBEpV8", "https://claude.ai/artifact/4j6s2o7CAHKx26o7MCZHcB", "https://claude.ai/artifact/XuTyZLGv2sSPEqn6eEzxaL"], "note": "※ 연구·교육용 — 투자 권유가 아님. 숫자는 모두 미리 계산(stock/topics/precheck) 결과이고, 보도에서 가져온 숫자는 대본 전에 원문을 다시 확인합니다. 정답 기준은 '리스크를 줄이면서 안정적으로 번 쪽'(안정 수익 확률)을 따릅니다.", "batch": 3, "made": "2026-10-29", "counts": {"1": 23, "2": 0, "3": 0}, "passed_prev": 0, "waiting": 0, "items": [], "episodes": []}</script>
+<script>
+(function(){
+const D=JSON.parse(document.getElementById("data").textContent);
+const N=D.stage, COL="s"+N;
+const ALL=D.items.concat(D.episodes);
+const byId={}; ALL.forEach(it=>{byId[it.id]=it;});
+const marks={}, prevs={};      // 이 판 평가 · 앞 판의 마지막 평가 (처음엔 저장소의 단계평가.txt 값)
+ALL.forEach(it=>{ if(it.rating) marks[it.id]={rating:it.rating,why:it.why||""}; if(it.prev) prevs[it.id]=it.prev; });
+let db=null, canWrite=false, filter="all";
+const $=s=>document.querySelector(s);
+function el(tag,attrs,text){const e=document.createElement(tag);for(const k in (attrs||{}))e.setAttribute(k,attrs[k]);if(text!=null)e.textContent=text;return e;}
+// 위 단계 표시 — 지금 단계는 aria-current, 다른 단계는 주소가 있으면 링크
+const steps=$("#steps");
+[1,2,3].forEach(s=>{
+  const u=D.urls[s-1]; const cur=s===N;
+  const a=(cur||!u)?el("span",cur?{"aria-current":"page"}:{}):el("a",{href:u,target:"_blank",rel:"noopener"});
+  a.append(el("span",{class:"n"},s+"단계"+(D.counts[s]!=null?" · "+D.counts[s]+"개":"")), el("span",{class:"t"},D.names[s]));
+  steps.append(a);
+});
+$("#h1").textContent=`${D.name} 영상 ${N}단계 평가판`;
+$("#sub").textContent = N===1 ? `${D.batch}번째 묶음 · ${D.made} · 새 주제 ${D.items.length}개 + 기존 편 ${D.episodes.length}개`
+  : `${N-1}단계 통과 ${D.passed_prev}개 · 이 단계에 올린 것 ${ALL.length}개${D.waiting?" · 만드는 중 "+D.waiting+"개":""} · ${D.made}`;
+const HOW={1:"주제마다 제목과, 이 영상으로 전달하고자 하는 내용만 보입니다. 좋음 = 2단계(썸네일 문구 · 보조 문구 · 도입부)를 그 제목에 맞춰 다시 만들어 2단계 평가판에 올립니다. 나쁨 = 까닭을 반영해 제목 · 전달 내용을 다시 만들어 여기에 새 판(v2)으로 올립니다.",
+ 2:"1단계에서 좋음을 받은 주제만 — 회색 칸의 제목 · 전달 내용에 맞춘 썸네일 문구 · 보조 문구 · 대본 도입부(요약)입니다. 좋음 = 3단계(대본 내용)를 만들어 올립니다. 나쁨 = 이 단계 내용만 다시 만듭니다.",
+ 3:"2단계에서 좋음을 받은 주제만 — 대본 내용(요약: 항목과 정답 · 해설)입니다. 좋음 = 이 내용으로 대본을 씁니다. 나쁨 = 이 단계 내용만 다시 만듭니다."};
+$("#how").textContent=HOW[N]+" 다시 누르면 지워집니다. 까닭은 짧게 (선택). "+D.note;
+function counts(){let g=0,b=0;ALL.forEach(it=>{const m=marks[it.id];if(m&&m.rating==="좋음")g++;else if(m&&m.rating==="나쁨")b++;});
+  const c=$("#count"); c.textContent=""; c.append("좋음 ",el("b",{},String(g))," · 나쁨 ",el("b",{},String(b))," · 평가 안 함 ",el("b",{},String(ALL.length-g-b)));}
+function emptyState(){
+  const E=$("#emptysec"); E.hidden=false; E.textContent="";
+  const box=el("div",{class:"empty"});
+  box.append(el("h2",{},"아직 평가할 것이 없습니다"));
+  box.append(el("p",{},`${N-1}단계에서 좋음을 받은 주제만 이 판에 올라옵니다.`+(D.waiting?` 지금 ${D.waiting}개가 통과해 Claude 가 이 단계 내용을 만드는 중입니다.`:` 지금 ${N-1}단계 통과는 ${D.passed_prev}개입니다.`)));
+  const ol=el("ol",{class:"steps"});
+  ol.append(el("li",{},`${N-1}단계 평가판에서 좋음 · 나쁨을 누릅니다.`), el("li",{},"Claude 에게 '평가했어'라고 말하면, 좋음을 받은 주제의 이 단계 내용을 만들어 여기에 올립니다."));
+  box.append(ol);
+  const u=D.urls[N-2]; if(u){ const a=el("a",{href:u,target:"_blank",rel:"noopener"},`${N-1}단계 평가판 열기`); const p=el("p"); p.append(a); box.append(p); }
+  E.append(box); $("#bar").hidden=true;
+}
+function ctx(it){
+  const c=el("div",{class:"ctx"});
+  const t=el("p"); t.append(el("b",{},"제목 "), document.createTextNode(it.title)); c.append(t);
+  const m=el("p"); m.append(el("b",{},"전달 내용 "), document.createTextNode(it.message.join(" "))); c.append(m);
+  if(N===3){ const th=el("p"); th.append(el("b",{},"썸네일 "), document.createTextNode(it.thumb_main.join(" / ")+" · "+it.thumb_sub)); c.append(th); }
+  return c;
+}
+function thumb(it){
+  const t=el("div",{class:"thumb",role:"img","aria-label":"썸네일 문구 "+it.thumb_main.join(" ")+" · 보조 "+it.thumb_sub});
+  t.append(el("span",{class:"tag"},"썸네일"), el("span",{class:"bub"},it.thumb_sub), el("span",{class:"l1"},it.thumb_main[0]), el("span",{class:"l2"},it.thumb_main[1]));
+  return t;
+}
+function card(it){
+  const m=marks[it.id]||{}; const r=m.rating||"";
+  if(filter==="none"&&r) return null; if(filter==="good"&&r!=="좋음") return null; if(filter==="bad"&&r!=="나쁨") return null;
+  const li=el("li",{class:"card"+(r==="좋음"?" good":r==="나쁨"?" bad":""),id:"c-"+it.id});
+  const meta=el("div",{class:"meta"});
+  if(it.rank) meta.append(el("span",{class:"rank"},it.rank+"위"));
+  meta.append(el("span",{class:"id"},it.label), el("span",{class:"chip v"},"v"+it.v));
+  if(it.cls) meta.append(el("span",{class:"chip"},it.cls));
+  if(it.carried) meta.append(el("span",{class:"chip"},"앞 묶음 좋음"));
+  li.append(meta);
+  if(N===1){ li.append(el("h2",{},it.title), el("p",{class:"lab"},"전달하고자 하는 내용"), el("p",{class:"msg"},it.message.join(" "))); }
+  else li.append(ctx(it));
+  if(N===2){ li.append(el("p",{class:"lab"},"썸네일 문구 · 보조 문구"), thumb(it), el("p",{class:"lab"},"대본 도입부 (요약)"), el("p",{class:"intro"},it.intro.join(" "))); }
+  if(N===3){
+    li.append(el("p",{class:"lab"},"대본 내용 (요약) — 항목과 정답"));
+    const ol=el("ol",{class:"qa"}); it.items.forEach(x=>{const q=el("li"); q.append(el("span",{class:"q"},x.q), el("span",{class:"a"},x.a)); ol.append(q);}); li.append(ol);
+    const e=el("p",{class:"exp"}); e.append(el("span",{class:"lab"},"해설  ")); e.append(document.createTextNode(it.explain.join(" "))); li.append(e);
+  }
+  const pv=prevs[it.id];
+  if(pv){ const h=el("p",{class:"hist"}); h.append(el("b",{},`이전 판 v${pv.v} · ${pv.rating}`), document.createTextNode((pv.why?" — "+pv.why:"")+(it.fixed?` → 고친 것: ${it.fixed}`:""))); li.append(h); }
+  else if(it.fixed){ li.append(el("p",{class:"hist"},"고친 것 · "+it.fixed)); }
+  li.append(actions(it, r, m));
+  return li;
+}
+function actions(it, r, m){
+  const act=el("div",{class:"act"});
+  const gb=el("button",{type:"button",class:"g","aria-pressed":String(r==="좋음")},"좋음");
+  const bb=el("button",{type:"button",class:"b","aria-pressed":String(r==="나쁨")},"나쁨");
+  const why=el("input",{type:"text",placeholder:"까닭 (선택)",maxlength:"120","aria-label":it.label+" 까닭"}); why.value=m.why||"";
+  const st=el("span",{class:"state",id:"s-"+it.id});
+  [gb,bb,why].forEach(x=>{ if(!canWrite) x.disabled=true; });
+  gb.addEventListener("click",()=>save(it, r==="좋음"?"":"좋음", why.value));
+  bb.addEventListener("click",()=>save(it, r==="나쁨"?"":"나쁨", why.value));
+  why.addEventListener("change",()=>{ if(marks[it.id]&&marks[it.id].rating) save(it, marks[it.id].rating, why.value); });
+  act.append(gb,bb,why,st);
+  return act;
+}
+function render(){
+  if(!ALL.length){ emptyState(); return; }
+  const tops=D.items, eps=D.episodes;
+  $("#topsec").hidden=!tops.length; $("#epsec").hidden=!eps.length;
+  $("#toph").textContent = N===1 ? `새 주제 ${tops.length}개 (점수 순)` : `새 주제 ${tops.length}개`;
+  const L=$("#list"); L.textContent=""; tops.forEach(it=>{const c=card(it); if(c) L.append(c);});
+  const E=$("#eps"); E.textContent=""; eps.forEach(it=>{const c=card(it); if(c) E.append(c);});
+  counts();
+}
+let busy=Promise.resolve();
+function save(it,rating,why){
+  if(!db||!canWrite) return;
+  const st=document.getElementById("s-"+it.id); if(st) st.textContent="저장 중…";
+  const body={rating:rating,why:(why||"").trim().slice(0,120),at:new Date().toISOString(),v:it.v,batch:D.batch};
+  busy=busy.then(()=>db.collection(COL).doc(it.id).set(body)).then(()=>{
+    if(rating) marks[it.id]={rating:rating,why:body.why}; else delete marks[it.id];
+    render(); const s2=document.getElementById("s-"+it.id); if(s2) s2.textContent=rating?"저장됨":"지움";
+  }).catch(e=>{ const s3=document.getElementById("s-"+it.id); if(s3) s3.textContent=(e&&(e.code==="not_granted"||e.code==="permission_denied"))?"저장 못 함 (권한)":"저장 못 함 — 다시 눌러 주세요"; });
+}
+document.querySelectorAll(".filt button").forEach(b=>b.addEventListener("click",()=>{filter=b.dataset.f;document.querySelectorAll(".filt button").forEach(x=>x.setAttribute("aria-pressed",String(x===b)));render();}));
+$("#offline").textContent=`이 화면에서는 저장할 수 없습니다 (로그인이 필요하거나 보기 전용). 평가는 Claude 에게 '${N}단계 T043 좋아, T047 별로'처럼 말하면 됩니다.`;
+render();
+if(!ALL.length) return;
+(async()=>{
+  try{ db = window.claude && window.claude.use ? await window.claude.use("db") : null; }catch(e){ db=null; }
+  if(!db){ $("#offline").hidden=false; return; }
+  let user=null; try{ user=await window.claude.use("user"); }catch(e){}
+  let cw=null; try{ cw = user ? await user.can("data.write") : null; }catch(e){ cw=null; }
+  canWrite = cw!==false;
+  if(!canWrite) $("#offline").hidden=false;
+  db.collection(COL).onSnapshot(snap=>{
+    snap.docs.forEach(doc=>{
+      const v=doc.data()||{}; const it=byId[doc.id]; if(!it) return; const dv=Number(v.v)||0;
+      if(dv===it.v){ if(v.rating) marks[doc.id]={rating:v.rating,why:v.why||""}; else delete marks[doc.id]; }
+      else if(dv<it.v && v.rating && (!prevs[doc.id]||prevs[doc.id].v<=dv)){ prevs[doc.id]={v:dv,rating:v.rating,why:v.why||""}; }
+    });
+    render();
+  },()=>{});
+  render();
+})();
+})();
+</script>

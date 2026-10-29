@@ -1,5 +1,21 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-10-29 — 주식 주제 탐색 2회차 (평가를 배워 다시)
+
+### 왜 (사용자 지시)
+- "주식 주제 평가판 평가했는데 다시 주제 탐색해봐" — 평가판 20개: 좋음 4(T003·T011·T012·T022) · 나쁨 16.
+
+### 바뀐 것
+- `tools/topic_ideas.py` v1.3 → **v1.4**: `revise <고침.json>`(주제 칸 고침 — 평가 유지 · 옛 값 `revised` · 뜻이 바뀌면 미리 계산 다시) · `refresh`(묶음을 모두 평가했으면 새 20개 — 좋음 이어 감 · 20개 못 채우면 안 바꿈) · `pick_batch(carry)` · lint 가 `[fields] DATA_KINDS` 검사 · 문서·평가판에 '다시 짬'. 영향 함수: lint · pick_batch · cmd_revise · cmd_refresh · revised_why · render · render_page · main.
+- `stock/topics/settings.toml` v1.1 → v1.2: `[fields]` 자료 갈래에 사건 사례·종목 사례 (지수 전략 백테스트와 나눠 배우게 — 나쁨 14개가 '주가 백테스트'에 몰려 있어서). T002·T010·T017 갈래 이름만 고침(미리 계산은 그대로).
+- 새 `stock/topics/precheck/bulk.py` v1.0 (지금 S&P 500 503곳 일별 주가·배당·분할 + 연간 재무 — 캐시 `precheck/bulk/` 은 .gitignore · 목록 `bulk_manifest.json`) · 새 `stocks.py` v1.0 (사건 사례·종목 사례 계산 17개 + 생존 편향 판정 `_biased`) · `precheck.py` v1.0 → **v1.1** (stocks 연결 · `--tag` · `--selftest-stocks` 6개 통과 · 옛 T003 → T003_r1 · NO_DATA 에서 T011·T012·T022 뺌).
+- 새 후보 `stock/topics/pool/2026-10-29.json`·`_2`·`_3`·`_4` (16개 통과 · 겹침으로 2개 빠졌다가 질문을 바꿔 다시) · 고침 `pool/revise_2026-10-29.json`·`_2`.
+- 결과 `precheck/precheck_2026-10-29_r2.json` · `conclusions_2026-10-29_r2.json` · `stock/topics/정답확인.md` v1.1 B절 · README v1.4 (7번 생존 편향 · 묶음 갈기) · 새 묶음 2번 `주제탐색.md`·`topics.json`·`평가판.html` (같은 주소 https://claude.ai/artifact/Y5d3kdE2nShVxRgzBBEpV8).
+
+### 확인
+- 계산 20개: 사실형 12 · 정답형 1 · 차이없음 1 · 조건부형 1 · 미확인 5. 평가판 20개 그려짐(헤드리스 — 오류 0).
+- 위험 관련 값(손절·비중 등) 바꾼 것 없음. ※ 연구·교육용 — 투자 권유가 아님.
+
 ## 2026-10-29 — 주식 '정답 미리 확인' 절차 + 주제 거르기
 
 ### 왜 (사용자 지시)

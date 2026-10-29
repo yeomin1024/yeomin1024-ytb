@@ -1,9 +1,16 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.3 — 2026-10-29 — **정답 미리 확인** (사용자 지시 2026-10-29 "그렇게 절차정하고 주제 걸러봐 기존 3개도 확인해서"): `precheck <결과.json> [고친 결론.json]` —
+# VERSION: v1.4 — 2026-10-29 — 평가를 다 한 묶음 갈기·좋음 주제 다시 짜기 (사용자 지시 2026-10-29 "주식 주제 평가판 평가했는데 다시 주제 탐색해봐"):
+#          `revise <고침.json>` = 주제 칸을 고침 ({ID: {칸: 새 값, "why": 까닭}} — 평가는 그대로 · 옛 값은 revised 에 · 미리 계산은 지워 다시 계산하게 · lint 통과만) ·
+#          `refresh` = 지금 묶음을 모두 평가(또는 작성·뺌)했으면 새 묶음 — 좋음(미리 계산 통과)은 새 묶음에 이어 가고, 나머지 안 쓴 주제는 대기로 · 20개를 못 채우면 아무것도 안 바꿈 ·
+#          data_kind 검사 (settings [fields] DATA_KINDS 가 있으면 그 안의 값만 — 주식: 사건 사례·종목 사례를 더함, 지수 전략 백테스트와 나눠 배우게).
+#          문서·평가판에 '다시 짬'(뜻이 바뀐 마지막 고침의 까닭 — 좋음을 받은 뒤 다시 짠 주제를 다시 평가할 수 있게).
+#          고침: v1.3 에서 평가판 안내 글 기본값(NOTE_PAGE)을 '[분류]' 글로 바꿔 재테크 평가판을 다시 만들면 주식 글이 찍히던 것 → 기본값 되돌리고 주식 settings [page] NOTE_PAGE 로.
+#          영향: lint()·pick_batch(carry)·cmd_revise()·cmd_refresh()·revised_why()·render()·render_page()·main().
+# (v1.3 — 2026-10-29 — **정답 미리 확인** (사용자 지시 2026-10-29 "그렇게 절차정하고 주제 걸러봐 기존 3개도 확인해서"): `precheck <결과.json> [고친 결론.json]` —
 #          주제마다 미리 계산 분류(정답형·차이없음·사실형·계산형·조건부형·미확인)·고친 결론·까닭을 topics.json 에 · settings [precheck] EXCLUDE(미확인)·NO_TEST(조건부형인데
 #          테스트형) 는 묶음에서 뺌(나쁨처럼 '남은 것'에서 빠짐 · 새 묶음에 안 뽑힘) · 주제탐색.md 표·자세히·평가판에 분류 · use 할 때 미리 계산이 없거나 빠진 주제면 경고.
-#          영향: pre_out()·batch_done()·pick_batch()·finish()·cmd_precheck()·cmd_use()·render()·render_page()·main().
+#          영향: pre_out()·batch_done()·pick_batch()·finish()·cmd_precheck()·cmd_use()·render()·render_page()·main().)
 # (v1.2.2 — 2026-10-28 — 안내 문구를 주제마다 (settings [page] NOTE_DOC · NOTE_PAGE, 없으면 예전 주식 글 그대로) — 역사 주제탐색.md·평가판에
 #          '투자 권유가 아님 · 계산(calc/)으로 확정'이 찍혀서. 영향: load_settings()·render()·render_page().)
 # (v1.2.1 — 2026-10-28 — '자료에 기간(연도)' 검사를 주제마다 (settings [clarity] YEAR, 없으면 예전 그대로 (19|20)\d\d) — 역사 후보의 1653년·18세기·
@@ -37,6 +44,8 @@
   python3 tools/topic_ideas.py stock status              # 평가·소스를 다시 읽고 점수·문서 갱신 → '갱신 필요'면 새 후보 모음을 씀
   python3 tools/topic_ideas.py stock import <marks.json> # 평가판 페이지(Artifact db 'marks')에서 누른 평가 → 평가.txt (Claude 가 ArtifactData list 결과를 저장해 넘김)
   python3 tools/topic_ideas.py stock precheck <결과.json> [고친 결론.json]   # v1.3 정답 미리 확인 (stock/topics/precheck/precheck.py 결과) → 분류·고친 결론 · 미확인·조건부 테스트형은 묶음에서 뺌
+  python3 tools/topic_ideas.py stock revise <고침.json>   # v1.4 주제 칸 고치기 ({ID: {칸: 값, "why": 까닭}}) — 평가 유지 · 미리 계산은 다시
+  python3 tools/topic_ideas.py stock refresh             # v1.4 묶음을 모두 평가했으면 새 20개 — 좋음은 이어 감
 로그: [STAGE] [시각] key=value (START·LOAD·USED·CHECK·SCORE·LEARN·BATCH·WRITE·DONE)
 """
 import argparse
@@ -58,7 +67,7 @@ try:
 except ModuleNotFoundError:            # Python 3.10
     import tomli as tomllib
 
-VERSION = "v1.3"
+VERSION = "v1.4"
 ROOT = Path(__file__).resolve().parent.parent
 LOG = logging.getLogger("topics")
 FIELDS = ("title", "question", "conclusion", "decide", "data", "format", "persona", "theme", "needs", "market", "data_kind")
@@ -145,7 +154,7 @@ NAMES = {"stock": "주식", "economic": "재테크"}
 NAME = "주식"
 # 안내 문구 (주제탐색.md 머리 · 평가판) — settings.toml [page] NOTE_DOC · NOTE_PAGE 가 있으면 그것
 NOTE_DOC = "※ 연구·교육용 — 투자 권유가 아님. 결론은 **예상**이며 계산(`calc/`)으로 확정한다 — 판정 규칙이 있어 어느 쪽으로 나와도 결론은 하나."
-NOTE_PAGE = "※ 연구·교육용 — 투자 권유가 아님. 제목 앞 [분류] = 정답 미리 확인 결과 (⛔ = 묶음에서 뺌) · 분류가 있으면 결론은 계산 숫자, 없으면 계산 전 예상입니다."
+NOTE_PAGE = "※ 연구·교육용 — 투자 권유가 아님. 결론은 계산 전 예상입니다."        # v1.4 되돌림 — 미리 계산 안내는 stock settings [page] NOTE_PAGE (v1.3 에서 기본값을 바꿔 재테크 평가판에도 찍히던 것)
 # 후보 칸 설명 (material.md 머리 표) — settings.toml [fields] 가 있으면 그것
 FIELD_HELP = {"data": "자료·기간 (실제 미국 주가·지수·재무제표, 2000년 이후 — 연도 필수)",
               "format": "테스트형 = 채널 방식 '테스트'·'문제' (항목 5개 — stock/guides/quick_test.md) · 실험형 = '비교 시뮬레이션' (질문 하나) — 0번",
@@ -307,6 +316,9 @@ def lint(c, Z, A):
             bad.append(f"니즈 '{n}' 없음")
     if c.get("theme") and theme_key(c["theme"]) not in A["themes"]:
         bad.append(f"주제 묶음 '{c['theme']}' 없음")
+    kinds = (Z.get("fields") or {}).get("DATA_KINDS")            # v1.4 settings [fields] DATA_KINDS 가 있으면 그 값만
+    if kinds and c.get("data_kind") and c["data_kind"] not in kinds:
+        bad.append(f"자료 갈래 '{c['data_kind']}' 없음 ({' · '.join(kinds)})")
     return bad
 
 
@@ -414,7 +426,8 @@ def batch_done(S):
     return not left
 
 
-def pick_batch(S, Z, W, marks):
+def pick_batch(S, Z, W, marks, carry=()):
+    """carry (v1.4) = 앞 묶음에서 이어 가는 좋음 주제 — 먼저 넣고 나머지를 탐색 자리·점수 순으로."""
     cfg = Z["batch"]
     pool = [it for it in S["items"].values() if it["status"] == "대기" and it.get("rating") != "나쁨" and not pre_out(it)]
     pool.sort(key=lambda it: -it["score"])
@@ -436,13 +449,16 @@ def pick_batch(S, Z, W, marks):
         for n in it.get("needs") or []:
             per_need[n] += 1
 
+    for it in carry:                                # v1.4 좋음 이어 가기 (묶음 제한은 같이 셈)
+        if len(chosen) < cfg["SIZE"] and it not in chosen:
+            take(it, "좋음 — 앞 묶음에서 이어 감")
     explore = cfg["EXPLORE"] if len(marks) >= 5 else 0
     if explore:                                     # 아직 평가 없는 갈래 (페르소나·형식·주제 묶음)
         for it in pool:
-            if len(chosen) >= explore:
+            if len(chosen) >= explore + len(carry):
                 break
             fs = [f for f in features(it)[:3] if f not in W]
-            if fs and ok(it):
+            if fs and it not in chosen and ok(it):
                 take(it, "탐색 자리 (평가 없는 갈래: " + ", ".join(fs) + ")")
     for it in pool:
         if len(chosen) >= cfg["SIZE"]:
@@ -453,7 +469,7 @@ def pick_batch(S, Z, W, marks):
     for it in chosen:
         it["status"], it["batch"] = "이번 묶음", no
     S["batches"].append({"no": no, "made": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"), "ids": [it["id"] for it in chosen]})
-    log("BATCH", no=no, picked=len(chosen), pool=len(pool), explore=explore, themes=json.dumps(dict(per_theme), ensure_ascii=False))
+    log("BATCH", no=no, picked=len(chosen), carried=len(carry), pool=len(pool), explore=explore, themes=json.dumps(dict(per_theme), ensure_ascii=False))
     return chosen
 
 
@@ -586,6 +602,66 @@ def cmd_precheck(topic, path, fixes=None, root=None):
     log("CHECK", topic=topic, precheck=json.dumps(dict(n), ensure_ascii=False), out=sum(1 for it in S["items"].values() if pre_out(it)))
     save_state(P, S)
     return finish(topic, P, Z, S, load_analysis(P), refresh_ok=True)
+
+
+def cmd_revise(topic, path, root=None):
+    """v1.4 주제 칸 고치기 — {ID: {칸: 새 값, ..., "why": 까닭}}. 평가는 그대로 (같은 생각을 더 분명히 다시 짠 것) ·
+    옛 값은 item['revised'] 에 · 뜻이 바뀌면(질문·결론·판정·자료·형식…) 미리 계산은 precheck_old 로 옮겨 다시 계산하게 (갈래 이름만이면 그대로) ·
+    고친 뒤 lint 를 못 넘으면 그 주제는 안 바꿈."""
+    P = paths(topic, root)
+    Z, S, A = load_settings(P), load_state(P, topic), load_analysis(P)
+    fx = json.loads(Path(path).read_text("utf-8"))
+    ok_n = 0
+    for tid, ch in fx.items():
+        if tid not in S["items"]:
+            log("CHECK", logging.WARNING, id=tid, result="없는 주제", next_step="topics.json 의 ID 확인")
+            continue
+        it = S["items"][tid]
+        why = str(ch.get("why", ""))
+        new = {k: v for k, v in ch.items() if k in FIELDS or k == "items"}
+        probs = lint({**{k: it.get(k) for k in FIELDS}, **new}, Z, A)
+        if probs:
+            log("CHECK", logging.WARNING, id=tid, result="안 바꿈", why="; ".join(probs)[:200])
+            continue
+        old = {k: it.get(k) for k in new if it.get(k) != new[k]}
+        it.update(new)
+        it.setdefault("revised", []).append({"at": datetime.now(timezone.utc).strftime("%Y-%m-%d"), "old": old, "why": why, "file": str(path)})
+        redo = bool(set(old) - {"data_kind", "theme", "persona", "needs", "market"})     # 갈래 이름만 바꾼 것은 계산을 다시 안 함
+        if redo and it.get("precheck"):
+            it["precheck_old"] = it.pop("precheck")
+        ok_n += 1
+        log("CHECK", id=tid, result="고침", fields=",".join(old) or "-", why=why[:80], precheck="다시 계산" if redo else "그대로")
+    log("CHECK", topic=topic, revised=ok_n, asked=len(fx))
+    save_state(P, S)
+    return finish(topic, P, Z, S, A)
+
+
+def cmd_refresh(topic, root=None):
+    """v1.4 묶음 갈기 — 지금 묶음의 모든 주제가 평가(좋음·나쁨)·작성·뺌 중 하나면: 좋음(미리 계산 통과)은 새 묶음에 이어 가고,
+    안 쓴 나머지는 대기로 돌린 뒤 점수 순으로 채움. 20개를 못 채우면 아무것도 바꾸지 않고 몇 개가 더 필요한지 적음."""
+    P = paths(topic, root)
+    Z, S, A = load_settings(P), load_state(P, topic), load_analysis(P)
+    scan_sources(P, S)
+    marks = read_marks(P)
+    W, g, b = score_all(S, Z, A, marks)
+    cur = current_batch(S)
+    ids = [t for t in (cur["ids"] if cur else []) if S["items"][t]["status"] == "이번 묶음"]
+    unrated = [t for t in ids if not S["items"][t].get("rating") and not pre_out(S["items"][t])]
+    if unrated:
+        log("BATCH", logging.WARNING, note=f"아직 평가 안 한 주제 {len(unrated)}개 — 묶음을 갈지 않음", ids=",".join(unrated))
+        return finish(topic, P, Z, S, A)
+    carry = [S["items"][t] for t in ids if S["items"][t].get("rating") == "좋음" and not pre_out(S["items"][t])]
+    carry.sort(key=lambda it: -it["score"])
+    ready = len(carry) + sum(1 for it in S["items"].values() if it["status"] == "대기" and it.get("rating") != "나쁨" and not pre_out(it))
+    if ready < Z["batch"]["SIZE"]:
+        log("BATCH", logging.WARNING, note=f"쓸 수 있는 주제 {ready}개 < {Z['batch']['SIZE']}개 — 묶음을 갈지 않음",
+            next=f"후보 {Z['batch']['SIZE'] - ready}개 이상을 더 써서 add")
+        return finish(topic, P, Z, S, A)
+    for t in ids:
+        S["items"][t]["status"] = "대기"
+    log("BATCH", note="묶음 갈기", old=cur["no"] if cur else 0, carried=",".join(it["id"] for it in carry) or "-", ready=ready)
+    pick_batch(S, Z, W, marks, carry=carry)
+    return finish(topic, P, Z, S, A)
 
 
 def cmd_import(topic, path, root=None):
@@ -730,6 +806,8 @@ def render(S, Z, A, W, g, b, marks, done):
                     ["- **미리 계산**: 아직 — 요약본 전에 `stock/topics/precheck/precheck.py`"]),
                   f"- **판정 규칙**: {it['decide']}",
                   f"- **자료**: {it['data']} · {it['data_kind']} · {it['market']}"]
+            if revised_why(it):
+                L.append(f"- **다시 짬 (v1.4 revise)**: {revised_why(it)}")
             if it.get("items"):
                 L.append("- **항목 예**: " + " / ".join(it["items"]))
             L.append(f"- **대상**: {pp.get('id', '?')} {pp.get('name', it['persona'])} ({pp.get('share', 0):.0%} · 지식 {pp.get('know', {}).get('level', '-')}) · "
@@ -867,7 +945,7 @@ function render(){
     li.append(meta, el("h2",{},it.title));
     const c=el("p",{class:"concl"}); c.append(el("span",{},/^\[/.test(it.title)?"결론(계산)":"결론(예상)")); c.append(document.createTextNode(it.conclusion)); li.append(c);
     const d=el("details"); d.append(el("summary",{},"질문 · 판정 규칙 · 자료 · 근거"));
-    const dl=el("dl"); [["질문",it.question],["판정 규칙",it.decide],["자료",it.data],["근거",it.basis],["점수",it.score]].forEach(([k,v])=>{if(v){dl.append(el("dt",{},k),el("dd",{},String(v)));}});
+    const dl=el("dl"); [["다시 짬",it.revised],["질문",it.question],["판정 규칙",it.decide],["자료",it.data],["근거",it.basis],["점수",it.score]].forEach(([k,v])=>{if(v){dl.append(el("dt",{},k),el("dd",{},String(v)));}});
     d.append(dl); li.append(d);
     const act=el("div",{class:"act"});
     const gb=el("button",{type:"button",class:"g","aria-pressed":String(r==="좋음"),id:"g-"+it.id},"좋음");
@@ -912,6 +990,14 @@ render();
 """
 
 
+def revised_why(it):
+    """v1.4 뜻이 바뀐 마지막 고침의 까닭 (갈래 이름만 바꾼 것은 뺌) — 문서·평가판에 '다시 짬'."""
+    for r in reversed(it.get("revised") or []):
+        if set(r.get("old") or {}) - {"data_kind", "theme", "persona", "needs", "market"}:
+            return f"{r['at']} — {r['why']}"
+    return ""
+
+
 def render_page(S, A):
     """평가판 HTML — 이번 묶음 20개 (점수 순). 저장된 평가(평가.txt)를 처음 값으로 넣고, 페이지에서 누른 것은 db 'marks' 에."""
     B = current_batch(S)
@@ -927,7 +1013,7 @@ def render_page(S, A):
             items.append({"rank": i, "id": it["id"], "title": (f"[{'⛔ ' if pc.get('out') else ''}{pc['class']}] " if pc else "") + it["title"],
                           "conclusion": pc.get("conclusion") or it["conclusion"], "question": it["question"], "decide": it["decide"],
                           "data": it["data"], "format": it["format"], "persona": f"{pp.get('id', '?')} {pp.get('name', it['persona'])}", "status": it["status"],
-                          "score": f"{it['score']:.2f}", "basis": basis or it.get("why", ""), "rating": it.get("rating"), "why": it.get("rating_why", "")})
+                          "score": f"{it['score']:.2f}", "basis": basis or it.get("why", ""), "rating": it.get("rating"), "why": it.get("rating_why", ""), "revised": revised_why(it)})
     data = {"batch": B["no"] if B else 0, "made": (B["made"][:10] if B else "-"), "analysis": str(A["analysis_made"])[:10], "items": items}
     js = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
     return PAGE.replace("__NAME__", NAME).replace("__NOTE__", NOTE_PAGE).replace("__DATA__", js)
@@ -936,7 +1022,7 @@ def render_page(S, A):
 def main(argv=None):
     ap = argparse.ArgumentParser(description="주제 탐색 (주식·재테크) — 20개씩 · 평가를 배움 · 명확한 결론만")
     ap.add_argument("topic")
-    ap.add_argument("cmd", choices=["material", "add", "mark", "use", "done", "status", "import", "precheck"])
+    ap.add_argument("cmd", choices=["material", "add", "mark", "use", "done", "status", "import", "precheck", "revise", "refresh"])
     ap.add_argument("args", nargs="*")
     ap.add_argument("--log-level", default="INFO", choices=["DEBUG", "INFO", "WARNING"])
     a = ap.parse_args(argv)
@@ -953,6 +1039,10 @@ def main(argv=None):
         cmd_import(a.topic, a.args[0])
     elif a.cmd == "precheck":
         cmd_precheck(a.topic, a.args[0], a.args[1] if len(a.args) > 1 else None)
+    elif a.cmd == "revise":
+        cmd_revise(a.topic, a.args[0])
+    elif a.cmd == "refresh":
+        cmd_refresh(a.topic)
     elif a.cmd in ("use", "done"):
         cmd_use(a.topic, a.args[0], a.args[1] if len(a.args) > 1 else "", done=a.cmd == "done")
     else:

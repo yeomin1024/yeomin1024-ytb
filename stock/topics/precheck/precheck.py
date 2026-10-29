@@ -1,11 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-10-29 — 최초. 주제 '정답 미리 확인' (사용자 지시 2026-10-29 "그렇게 절차정하고 주제 걸러봐 기존 3개도 확인해서").
-#          요약본을 쓰기 전에 후보마다 실제 자료로 결론이 기간·시작 시기·가정을 바꿔도 같은지 계산한다 (절차: stock/topics/README.md '정답 미리 확인').
+# VERSION: v1.1 — 2026-10-29 — 2회차 (사용자 지시 2026-10-29 "주식 주제 평가판 평가했는데 다시 주제 탐색해봐"): 새 후보 T027~T039 · 다시 짠 좋음 주제
+#          T003·T011·T012·T022 를 stocks.py(지금 S&P 500 구성 종목 일괄 자료 — bulk.py 캐시)로 계산 · --tag (결과 파일 이름 뒤) · --selftest-stocks ·
+#          옛 T003(가장 오른 10일) 은 T003_r1 로 남김 · NO_DATA 에서 T011·T012·T022 뺌 (이제 계산).
+# (v1.0 — 2026-10-29 — 최초. 주제 '정답 미리 확인' (사용자 지시 2026-10-29 "그렇게 절차정하고 주제 걸러봐 기존 3개도 확인해서").
+#          요약본을 쓰기 전에 후보마다 실제 자료로 결론이 기간·시작 시기·가정을 바꿔도 같은지 계산한다 (절차: stock/topics/README.md '정답 미리 확인').)
 #
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.1 | 2026-10-29 | 2회차 — stocks.py 연결(TOPICS2) · --tag · --selftest-stocks · T003_r1 · NO_DATA 줄임 | main · TOPICS · NO_DATA |
 # | v1.0 | 2026-10-29 | 최초 (같은 날 고침: classify_full — 앞 시기 자료가 없으면 정답형 ✗ · T007 JEPI 예외 적음) — 받기(캐시) · 비교 칸(기간 × 시작 시기 × 가정) · 주제 26개 + 기존 2편(포트폴리오 항목) 계산 · JSON | 전부 |
 #
 # 실행: python3 -B stock/topics/precheck/precheck.py            (캐시 CSV 가 없으면 Yahoo 에서 받음 — 있으면 네트워크 안 씀)
@@ -40,8 +44,9 @@ TIMING = ROOT / "stock" / "source" / "timing-test-2026-10" / "calc"
 sys.path.insert(0, str(TIMING))
 sys.path.insert(0, str(ROOT / "tools"))
 import calc as T  # noqa: E402  매수 시기 편 calc (month_starts · windows · cash_index · align_irx · load · big_declines)
+import stocks  # noqa: E402  v1.1 2회차 — 지금 S&P 500 구성 종목 자료로 계산하는 주제 (TOPICS2)
 
-VERSION = "v1.0"
+VERSION = "v1.1"
 EARLY, LATE_FROM = (2000, 2008), 2009
 MAIN_MIN, CELL_MIN = 0.60, 0.55
 
@@ -219,8 +224,8 @@ def t002(B):
             "why": "숫자는 분명 · '나스닥이 더 오래 걸린다'는 2000년에만 맞음 (2007·2021 은 반대이거나 비슷) → 규칙으로 말하면 조건부", "table": out_}
 
 
-def t003(B):
-    """가장 오른 10일 · 가장 빠진 10일을 놓치면 (2006-10-27 ~ 2026-10-27, 배당 포함 · 놓친 날은 수익 0)."""
+def t003_r1(B):
+    """(1회차 T003 — 2회차에서 주제를 다시 짜 stocks.t003 으로 바꿈) 가장 오른 10일 · 가장 빠진 10일을 놓치면 (2006-10-27 ~ 2026-10-27, 배당 포함 · 놓친 날은 수익 0)."""
     i0 = int(np.searchsorted(B.d, date(2006, 10, 27)))
     r = B.tr[i0 + 1:] / B.tr[i0:-1] - 1
     order = np.argsort(r)
@@ -575,24 +580,49 @@ def portfolio(B):
     return out_
 
 
-TOPICS = {"T001": t001, "T002": t002, "T003": t003, "T004": t004, "T005": t005, "T006": t006, "T007": t007, "T008": t008,
+TOPICS = {"T001": t001, "T002": t002, "T003_r1": t003_r1, "T004": t004, "T005": t005, "T006": t006, "T007": t007, "T008": t008,
           "T013": t013, "T014": t014, "T016": t016, "T017": t017, "T020": t020, "T021": t021, "T023": t023, "T024": t024, "T025": t025, "T026": t026}
 NO_DATA = {  # 계산하지 않은 후보 — 까닭 (분류는 README 기준으로 Claude 가 판단)
     "T009": ("계산형", "법(소득세법·건강보험법 시행령·시행규칙)으로 정해지지만 건보료는 재산·다른 소득에 따라 사람마다 크게 갈림 → 한 사람 예시로만 · 재테크(economic) 쪽 주제"),
     "T010": ("미확인", "2019~2023 공모 규모 상위 20곳 목록 원자료가 필요 (이 환경에 없음) · 결과는 그 5년(2021 거품 포함)에 기대 → 다른 해 묶음도 봐야 함"),
-    "T011": ("미확인", "실적 예상치·발표치 원자료(컨센서스)가 이 환경에 없음"),
-    "T012": ("사실형", "6년의 연초 목표치(보도)와 실제 종가 — 숫자는 분명하나 보도 원문 6개를 모아야 함 · '예측을 믿고 사고팔면 안 된다'는 숫자보다 넓은 결론"),
     "T015": ("계산형", "세법 계산 — 공제율(13.2·16.5%) · 수익률(4~10%) · 연금 수령 세율 범위에서 같은 쪽인지 법령 원문과 함께 따로 계산 · 재테크(economic) 쪽과 겹침"),
     "T018": ("계산형", "소득세법 산수(250만 원 공제를 두 해에 두 번) — 결과는 정해짐 · 법령 원문(2026 시행) 확인만 필요"),
     "T019": ("계산형", "총보수 차이 0.5%p × 20년 ≈ 9.5% — 수익률과 상관없이 거의 같음 (수식) · 운용사 공시 보수 확인만 필요"),
-    "T022": ("미확인", "2019-12 S&P 500 구성 종목·배당률·배당 삭감 기록 원자료가 필요 · 한 해 묶음(2020 코로나)이라 다른 해도 봐야 함"),
 }
+
+
+def selftest_stocks(B, I, P, F):
+    """stocks.py 점검 — 자료 크기 · 알려진 분할 · −20% 날 · 1년 비교 함수 · 배당 삭감 판정 (실패하면 1 반환)."""
+    from datetime import date as _d
+    checks = []
+    checks.append(("구성 종목 500개 이상", len(P) >= 500, len(P)))
+    a = P.get("AAPL")
+    k = np.flatnonzero(a.split >= 2) if a else []
+    checks.append(("애플 2020-08-31 4대1 분할", any(_d.fromordinal(int(a.o[i])) == _d(2020, 8, 31) and a.split[i] == 4 for i in k), len(k)))
+    ev = stocks.t003(B, I, P, F)["table"]
+    checks.append(("−20% 첫날에 2020-03 이 있음", any(r["day"].startswith("2020-03") for r in ev), [r["day"] for r in ev]))
+    x = stocks._rel(P["NVDA"], I, I.next_trading(_d(2023, 5, 30).toordinal()))
+    checks.append(("엔비디아 2023-05-30 1년 뒤 비교가 계산됨", bool(x) and x[0] > 0, x))
+    i = stocks.Px()
+    i.o = np.array([_d(2020, m, 1).toordinal() for m in (1, 4, 7, 10)] + [_d(2021, m, 1).toordinal() for m in (1, 4, 7, 10)])
+    i.div = np.array([1, 1, 1, 1, 0.5, 0.5, 0.5, 0.5])
+    checks.append(("배당 1 → 0.5 를 삭감으로 봄", stocks._cut(i, _d(2020, 12, 31).toordinal(), _d(2021, 12, 31).toordinal()) is not None, None))
+    i.div = np.array([1, 1, 1, 1, 1, 1, 1, 1.05])
+    checks.append(("배당 그대로면 삭감 아님", stocks._cut(i, _d(2020, 12, 31).toordinal(), _d(2021, 12, 31).toordinal()) is None, None))
+    bad = 0
+    for name, ok, info in checks:
+        (out if ok else warn)("SELFTEST", check=name.replace(" ", "_"), ok=ok, info=str(info)[:100])
+        bad += not ok
+    out("SELFTEST", passed=len(checks) - bad, failed=bad)
+    return 1 if bad else 0
 
 
 def main():
     ap = argparse.ArgumentParser(description="주제 정답 미리 확인 (연구·교육용)")
     ap.add_argument("--refetch", action="store_true")
     ap.add_argument("--only", nargs="*", default=None, help="T001 T004 … 만")
+    ap.add_argument("--tag", default="", help="결과 파일 이름 뒤 (예: r2 → precheck_<날짜>_r2.json)")
+    ap.add_argument("--selftest-stocks", action="store_true", help="stocks.py 자료·함수 점검만")
     ap.add_argument("--log-level", default="INFO", choices=["DEBUG", "INFO", "WARNING"])
     a = ap.parse_args()
     h = logging.StreamHandler(sys.stdout)
@@ -604,6 +634,20 @@ def main():
     out("START", version=VERSION, rule=f"정답형 = 모든 칸 같은 쪽 · 가장 약한 칸 ≥ {pct(CELL_MIN)} · 기본 ≥ {pct(MAIN_MIN)}", early=EARLY, late_from=LATE_FROM)
     B = Base(a.refetch)
     res = {}
+    need2 = [t for t in stocks.TOPICS2 if not a.only or t in a.only]
+    if need2 or a.selftest_stocks:
+        I, P, F = stocks.Ix(B), stocks.load_bulk(lambda st, **kv: out(st, **kv)), stocks.load_fa()
+        out("LOAD", source="bulk/fa/*.json", symbols=len(F), note="지금 S&P 500 구성 종목 — 생존 편향은 주제마다 bias 칸")
+        if a.selftest_stocks:
+            return selftest_stocks(B, I, P, F)
+    for tid in need2:
+        try:
+            r = stocks.TOPICS2[tid](B, I, P, F)
+        except Exception as e:
+            warn("TOPIC", id=tid, error=repr(e)[:160], next_step="stocks.py 함수·bulk 자료 확인")
+            r = {"class": "미확인", "answer": "-", "why": f"계산 실패: {e!r}"[:200]}
+        res[tid] = r
+        out("TOPIC", id=tid, cls=r["class"], answer=str(r["answer"])[:170])
     for tid, f in TOPICS.items():
         if a.only and tid not in a.only:
             continue
@@ -624,7 +668,7 @@ def main():
         for k, v in pf.items():
             out("PORTFOLIO", item=k.replace(" ", "_"), cls=v["class"], why=v["why"])
         res["portfolio-test-2026-10"] = pf
-    path = HERE / f"precheck_{date.today().isoformat()}.json"
+    path = HERE / f"precheck_{date.today().isoformat()}{'_' + a.tag if a.tag else ''}.json"
     with path.open("w", encoding="utf-8") as f:
         json.dump({"version": VERSION, "made": datetime.now(timezone.utc).isoformat(timespec="seconds"), "data_last": B.d[-1].isoformat(),
                    "rule": {"MAIN_MIN": MAIN_MIN, "CELL_MIN": CELL_MIN, "early": EARLY, "late_from": LATE_FROM}, "results": res},
@@ -632,5 +676,7 @@ def main():
     out("DONE", file=path.relative_to(ROOT), topics=len(res), seconds=f"{time.time() - t0:.1f}", note="연구·교육용 — 투자 권유 아님")
 
 
+stocks.bind(classify=classify, classify_full=classify_full, cells=cells, flat=flat, on=on, fetch=fetch)
+
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

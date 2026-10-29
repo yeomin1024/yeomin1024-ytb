@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.7 — 2026-10-28 — 반론 검토 4회차에 답함 (모두 참고·점수 그대로): q2d(끝을 정한 기다림 vs 바로) · q2e(새 값 기준 다시 10% 기다림) · q3t(매도 뒤 N개월에 다시) · q3b 가운데 값 달러.
+# VERSION: v2.0 — 2026-10-29 — 문제형으로 바꿈 (사용자 지시 "1번으로 해봐" — 반론 5회차 뒤 고른 안 ①: '시기를 맞히는 규칙은 시작 시기로 나누면 뒤집혔다'):
+#          문제 5개 = '2009년 이후 시작한 사람은 다섯 규칙 모두 미루거나 팔지 않은 쪽이 이겼다 — 2000~2008년에 시작했다면?' · 보기 = 규칙 쪽 · 반반 · 미루지 않은 쪽 ·
+#          맞히면 20 · 틀리면 0 (QUIZ · quiz_pairs · quiz_run · big_declines). v1.x 테스트 꼴 점수 항목(q2b·q3b·q3s·q10·q6b)은 참고로 남김.
+# (v1.7 — 2026-10-28 — 반론 검토 4회차에 답함 (모두 참고·점수 그대로): q2d(끝을 정한 기다림 vs 바로) · q2e(새 값 기준 다시 10% 기다림) · q3t(매도 뒤 N개월에 다시) · q3b 가운데 값 달러.)
 # (v1.6 — 2026-10-28 — 반론 검토 3회차에 답함: 점수 항목 = q2b·q3b·q3s·q10·q6b (q4b 는 재진입을 바닥 반등으로 바꾸면(q4c) 뒤집혀 참고 · q2c 는 사례가 2013~2021 상승기뿐이라 참고) · q6 버그(마지막 해 5~10월 몫 미투입) 고침 · q10(1년 뒤 넣기) · q4c · q2b 분모·시기 · 이자 5% 민감도 넓힘.
 # (v1.5 — 2026-10-28 — 반론 검토 2회차에 답함: 항목 1 = q2c(최고가인 날 시작 — 사연대로) · q3s 까닭(돌아온 경우·다른 재진입) · q6b 격언 원래 꼴(5월 매도) · 현금 이자 연 5% 민감도 · 겹치지 않는 창 수 · 도입 최저 날짜.
 # (v1.4 — 2026-10-28 — 반론 검토 1회차(대본_반론_검토.md)에 답함: 점수 항목 = q2b·q3b·q3s·q4b·q6 — 처음 항목 1(최고가인 날)은 q1b(바로 vs 10% 빠지면, ^GSPC)로 재니 2년 53.7%·5년 47.8% 로 뒤집혀 뺌 · 새 항목 3 = q3s · 항목 4 = q4b(멈췄다 첫날 값에 다시) · 최고가 = ^GSPC · 하락기 묶음 · 중간 낙폭 · 진 때 크기 · 5~10월 해마다 · 500달러 금액 · 도입 = 올해 첫 최고가 날.
@@ -15,6 +18,7 @@
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v2.0 | 2026-10-29 | 문제형: QUIZ(5문제·칸 규칙·보기 순서) · quiz_pairs(구간별 두 값 — 기존 함수와 같은 규칙, selftest 로 비율 대조) · quiz_run(앞·뒤 시기 × 2년·5년 · 다른 자르기 · 이자 5%) · big_declines(^GSPC 20% 넘는 하락) · QUESTIONS = 0·0·20 · VIRTUAL 글자로 | quiz_pairs · quiz_cell · band_of · quiz_run · big_declines · selftest · main |
 # | v1.7 | 2026-10-28 | 반론 4회차: q2d_wait_with_end · q2e_rewait · q3t_rebuy_after · q3b median_*_usd_100k (점수 항목·판정 그대로) | q2d_wait_with_end · q2e_rewait · q3t_rebuy_after · main |
 # | v1.6 | 2026-10-28 | 반론 3회차: 점수 항목 q2b·q3b·q3s·q10·q6b · q6 버그 고침 · q10_wait_months · q4c_stop_rebound · q6b_verdict · q2b eligible·spans · sens 넓힘 | q6_calendar · q10_wait_months · q4c_stop_rebound · q6b_verdict · q2b · main |
 # | v1.5 | 2026-10-28 | 반론 2회차: q2c · q3s_detail · q6b_sell_in_may · sens_cash5 · nonoverlap · intro2 min_after_day · 점수 항목 1 = q2c | q2c_ath_wait_after_rise · q3s_detail · q6b_sell_in_may · nonoverlap · intro2 · main |
@@ -50,8 +54,8 @@ ROOT = HERE.parents[3]
 sys.path.insert(0, str(ROOT / "tools"))
 import test_score as ts  # noqa: E402
 
-VERSION = "v1.7"
-LEVELS = (0, 10, 20)
+VERSION = "v2.0"
+LEVELS = (0, 0, 20)                # v2.0 문제형: 맞히면 20 · 틀리면 0 (보기 셋 중 정답 하나)
 START_EVAL = date(2000, 1, 1)     # 평가 시작 (1900년대 자료는 쓰지 않음 — 1988~1999 는 최고가·하락 폭 기준을 위한 앞 자료로만)
 FETCH_FROM = date(1988, 1, 1)
 SERIES = {"sp500tr": "^SP500TR", "gspc": "^GSPC", "irx": "^IRX"}
@@ -60,20 +64,33 @@ CRASH = 0.20                       # 5번 항목: 최고가보다 20% 아래
 SPLIT = 12                         # 3·4번: 12개월로 나눠 넣기
 MONTHLY = 24                       # 5번: 24개월 매달 넣기
 
-# 보기 점수 — 대본 [항목] 보기 순서와 같게. expect = 계산이 맞다고 볼 쪽 (아니면 MISMATCH 경고 → 보기 점수를 다시 정함)
-QUESTIONS = [  # v1.6 — 대본 v1.5 항목 순서 (반론 3회차: 항목 4 '나눠 넣다 멈춤'은 재진입 규칙에 따라 뒤집혀 뺌 · 항목 1 은 사례가 고른 q2b · 새 항목 4·5)
-    (1, "기다리는데 10% 오름", False, {"A": 0, "B": 10, "C": 20}),   # q2b: A 계속 기다림 · B 절반 지금 · C 지금
-    (2, "넣는 속도", False, {"A": 20, "B": 10, "C": 0}),             # q3b: A 한 번에 · B 12개월 · C 36개월 (빠져도 매도 안 함)
-    (3, "넣은 뒤 10% 빠짐", False, {"A": 0, "B": 20, "C": 10}),      # q3s: A 모두 매도→산 값에 다시 · B 보유 · C 절반 매도
-    (4, "1년 뒤에 넣기", False, {"A": 0, "B": 20, "C": 10}),         # q10: A 1년 뒤 · B 지금 · C 절반 지금
-    (5, "5월에 매도", False, {"A": 20, "B": 0, "C": 10}),            # q6b: A 매달 넣고 그대로 · B 격언대로 5월 매도·11월 다시 · C 절반만
+# ---------- v2.0 문제형 (계산 전에 정한 것과 결과를 본 뒤 정한 것을 나눠 적음) ----------
+# 질문: "2009년 이후 시작한 사람은 다섯 규칙 모두 미루거나 팔지 않은 쪽이 이겼다 — 그럼 2000~2008년에 시작한 사람은?"
+# 시기 = 시작한 달: 앞 = 2000-01~2008-12 (큰 하락 두 번 — 2000~02 · 2007~09 를 품은 시기) · 뒤 = 2009-01~ (금융위기 바닥 뒤).
+#   ⚠ 경계는 반론 5회차(split_check.py)에서 결과를 본 뒤 '큰 하락을 품었나'로 정함 → 다른 자르기(시작 달 수로 정확히 반 · 5년 묶음)도 함께 적음 (quiz_run alt).
+# 칸 = 앞 시기에 '미루지 않은 쪽'(지금·바로·한 번에·그대로)이 이긴 몫 — 2년·5년 모두 같은 칸이어야 정답으로 씀:
+#   rule(규칙 쪽이 이김) ≤ 40% · even(반반) 45~55% · now(미루지 않은 쪽이 이김) ≥ 60% · 그 사이(40~45 · 55~60%)면 문제에서 뺌.
+#   ⚠ 칸 경계도 후보 17개 표를 본 뒤 정함 (경계 근처 규칙을 빼려는 것). 전제 검사: 뒤 시기는 2년·5년 모두 미루지 않은 쪽 ≥ 60% (LATE_MIN).
+# 판정(이긴 쪽 = 구간 > 50%)·구간(매달 첫 거래일)·현금 이자(^IRX)는 v1.x 머리 규칙 그대로.
+QUIZ_EARLY = (2000, 2008)
+QUIZ_LATE_FROM = 2009
+QUIZ_BANDS = {"rule": (0.0, 0.40), "even": (0.45, 0.55), "now": (0.60, 1.0)}
+LATE_MIN = 0.60
+QUIZ = [  # (번호, 키, 짧은 이름, 규칙 쪽 말, 미루지 않은 쪽 말, 정답 칸, 보기 A·B·C 의 칸) — 대본 v2.0 문제 순서·보기 순서와 같게
+    (1, "qz_dip", "10% 빠지면 넣기(끝 없음)", "10% 하락을 기다린 쪽", "바로 넣은 쪽", "rule", ("now", "rule", "even")),
+    (2, "qz_end", "10% 빠지거나 오르면 넣기", "기다린 쪽", "바로 넣은 쪽", "even", ("even", "now", "rule")),
+    (3, "qz_split", "12개월로 나눠 넣기", "나눠 넣은 쪽", "한 번에 넣은 쪽", "even", ("rule", "now", "even")),
+    (4, "qz_sell6", "10% 빠진 날 매도·6개월 뒤 다시", "팔았다 다시 넣은 쪽", "그대로 둔 쪽", "rule", ("rule", "even", "now")),
+    (5, "qz_year", "1년 뒤 넣기", "1년 뒤에 넣은 쪽", "지금 넣은 쪽", "even", ("now", "even", "rule")),
 ]
-VIRTUAL = [
-    ("V1 계획대로 넣는 사람", [20, 20, 20, 20, 20]),
-    ("V2 늘 미루고 빠지면 흔들리는 사람", [0, 0, 0, 0, 0]),
-    ("V3 늘 절반씩", [10, 10, 10, 10, 10]),
-    ("V4 나눠 넣되 흔들리지 않는 사람", [20, 10, 20, 20, 20]),
-    ("V5 미루지는 않지만 빠지거나 5월이면 파는 사람", [20, 20, 0, 20, 0]),
+QUESTIONS = [(n, name, False, {L: (20 if band == ans else 0) for L, band in zip("ABC", order)}) for n, _, name, _, _, ans, order in QUIZ]
+VIRTUAL_BANDS = [   # 가상 응시 (실제 사람 아님) — 칸으로 고름 → 글자로 바꿔 채점
+    ("V1 시기를 타는 규칙을 가려내는 사람", [q[5] for q in QUIZ]),
+    ("V2 최근 상승장 상식만 (늘 미루지 않은 쪽)", ["now"] * 5),
+    ("V3 늘 규칙 쪽", ["rule"] * 5),
+    ("V4 늘 반반", ["even"] * 5),
+    ("V5 4번만 틀린 사람 (하락에 파는 규칙을 반반으로 봄)", ["rule", "even", "even", "even", "even"]),
+    ("V6 기다림·매도는 늘 진다고 보는 사람 (1·4번 미루지 않은 쪽 · 나머지 반반)", ["now", "even", "even", "now", "even"]),
 ]
 
 
@@ -757,6 +774,127 @@ def q3t_rebuy_after(d, p, c, W, months=(3, 4, 6, 9, 12)):
     return out_
 
 
+# ---------- v2.0: 문제형 계산 ----------
+def quiz_pairs(key, d, p, c, W):
+    """v2.0 문제마다 구간별 (미루지 않은 쪽 값, 규칙 쪽 값, 시작 인덱스). 규칙은 위 함수와 같음 — selftest 가 비율을 대조:
+    qz_dip = q2_wait · qz_end = q2d_wait_with_end · qz_split = q3b_speed(한 번에 vs 12개월) · qz_sell6 = q3t_rebuy_after m6 · qz_year = q10_wait_months(12)."""
+    now, rule, st = [], [], []
+    for s, e, buys in W:
+        if key in ("qz_dip", "qz_end"):
+            seg = p[s + 1:e + 1]
+            dn = np.flatnonzero(seg <= (1 - DIP) * p[s])
+            up = np.flatnonzero(seg >= (1 + DIP) * p[s]) if key == "qz_end" else np.array([], dtype=int)
+            cand = [x[0] for x in (dn, up) if len(x)]
+            j = s + 1 + min(cand) if cand else None
+            b = c[j] / c[s] * p[e] / p[j] if j is not None else c[e] / c[s]     # 끝까지 안 오면 현금(국채 이자)
+        elif key == "qz_split":
+            bb = buys[:SPLIT]
+            b = sum(1 / SPLIT * c[x] / c[s] * p[e] / p[x] for x in bb) + (SPLIT - len(bb)) / SPLIT * c[e] / c[s]
+        elif key == "qz_sell6":
+            hit = np.flatnonzero(p[s + 1:e + 1] <= (1 - DIP) * p[s])
+            if not len(hit):
+                continue                                                          # 넣은 뒤 10% 빠진 구간만
+            j = s + 1 + hit[0]
+            k = int(np.searchsorted(d, d[j] + timedelta(days=round(30.4 * 6)), side="left"))
+            b = p[j] / p[s] * (c[k] / c[j] * p[e] / p[k] if k < e else c[e] / c[j])
+        elif key == "qz_year":
+            if len(buys) <= 12:
+                continue
+            j = buys[12]
+            b = c[j] / c[s] * p[e] / p[j]
+        else:
+            raise ValueError(key)
+        now.append(p[e] / p[s])
+        rule.append(b)
+        st.append(s)
+    return np.array(now), np.array(rule), np.array(st, dtype=int)
+
+
+def quiz_cell(now, rule):
+    """한 칸 (시기 × 기간): 미루지 않은 쪽이 이긴 몫 · 수 · 가운데 값 차이 · 진 때·이긴 때 가운데 값 · 10만 달러 기준 가운데 값."""
+    if not len(now):
+        return {"n": 0}
+    g = now / rule - 1
+    return {"n": int(len(now)), "now_wins": share(now > rule), "median_gap_pct": float(np.median(g)),
+            "median_gap_when_rule_wins_pct": float(np.median(g[now < rule])) if np.any(now < rule) else 0.0,
+            "median_gap_when_now_wins_pct": float(np.median(g[now > rule])) if np.any(now > rule) else 0.0,
+            "median_now_usd_100k": round(100000 * float(np.median(now))), "median_rule_usd_100k": round(100000 * float(np.median(rule))),
+            "now_count": int(np.sum(now > rule)), "rule_count": int(np.sum(now < rule)),
+            "mean_diff_usd_100k": round(100000 * float(np.mean(now - rule))), "mean_gap_pct": float(np.mean(g))}   # 평균 = 10만 달러당 (미루지 않은 쪽 − 규칙 쪽)
+
+
+def band_of(x):
+    return next((k for k, (lo, hi) in QUIZ_BANDS.items() if lo <= x <= hi), "gap")
+
+
+def quiz_run(d, p, c, ms, mkey):
+    """v2.0 문제 5개 × (2년·5년) × (앞·뒤·전체 + 다른 자르기). 칸 판정 · 정답과 같은지 · 뒤 시기 전제."""
+    yr = np.array([x.year for x in d])
+    out_ = {}
+    for _, key, name, _, _, ans, _ in QUIZ:
+        r = {"name": name, "answer": ans}
+        for label, months in (("2y", 24), ("5y", 60)):
+            Wall = windows(ms, mkey, d, months)
+            now, rule, st = quiz_pairs(key, d, p, c, Wall)
+            y = yr[st]
+            early = (y >= QUIZ_EARLY[0]) & (y <= QUIZ_EARLY[1])
+            late = y >= QUIZ_LATE_FROM
+            hb = Wall[len(Wall) // 2][0]                                      # 다른 자르기: 모든 시작 달을 수로 정확히 반 (문제마다 같은 경계)
+            cells = {"early": quiz_cell(now[early], rule[early]), "late": quiz_cell(now[late], rule[late]), "all": quiz_cell(now, rule),
+                     "half1": quiz_cell(now[st < hb], rule[st < hb]), "half2": quiz_cell(now[st >= hb], rule[st >= hb]),
+                     "half_boundary": d[hb].isoformat()}
+            for a, b in ((2000, 2004), (2005, 2008), (2009, 2013), (2014, 2018), (2019, 2099)):
+                m = (y >= a) & (y <= b)
+                cells[f"y{a}_{min(b, 2026)}"] = quiz_cell(now[m], rule[m])
+            if key == "qz_dip":                                               # 해설: 기다린 사람이 끝까지 못 넣은 몫
+                Wm = windows(ms, mkey, d, months)
+                for per, m in (("early", lambda x: QUIZ_EARLY[0] <= d[x].year <= QUIZ_EARLY[1]), ("late", lambda x: d[x].year >= QUIZ_LATE_FROM)):
+                    cells[per]["never_bought"] = q2_wait(p, c, [w for w in Wm if m(w[0])])["never_dipped"]
+            if key == "qz_sell6":                                             # 해설: 판 뒤 6개월 뒤 다시 넣은 값이 판 값보다 비쌌던 몫
+                Wm = windows(ms, mkey, d, months)
+                for per, m in (("early", lambda x: QUIZ_EARLY[0] <= x <= QUIZ_EARLY[1]), ("late", lambda x: x >= QUIZ_LATE_FROM)):
+                    hi = []
+                    for s_, e_, _ in Wm:
+                        hit = np.flatnonzero(p[s_ + 1:e_ + 1] <= (1 - DIP) * p[s_])
+                        if not m(d[s_].year) or not len(hit):
+                            continue
+                        j = s_ + 1 + hit[0]
+                        k = int(np.searchsorted(d, d[j] + timedelta(days=round(30.4 * 6)), side="left"))
+                        if k < e_:
+                            hi.append(p[k] > p[j])
+                    cells[per]["rebuy_higher"] = share(np.array(hi))
+                    cells[per]["rebuy_n"] = len(hi)
+            r[label] = cells
+        bands = {h: band_of(r[h]["early"]["now_wins"]) for h in ("2y", "5y")}
+        r["early_band"] = bands["5y"] if bands["2y"] == bands["5y"] else "gap"
+        r["late_ok"] = all(r[h]["late"]["now_wins"] >= LATE_MIN for h in ("2y", "5y"))
+        r["matches_answer"] = r["early_band"] == ans and r["late_ok"]
+        out_[key] = r
+    return out_
+
+
+def big_declines(gd, gp, thr=CRASH, since=START_EVAL):
+    """v2.0 해설: ^GSPC(가격 지수) 종가가 그때까지 최고 종가보다 thr 넘게 빠진 하락 — 최고가 날 · 바닥 날 · 깊이 · 최고가를 되찾은 날."""
+    eps, peak, i, n = [], 0, 1, len(gp)
+    while i < n:
+        if gp[i] >= gp[peak]:
+            peak = i
+        elif gp[i] <= (1 - thr) * gp[peak]:
+            rec = np.flatnonzero(gp[i:] >= gp[peak])
+            end = i + int(rec[0]) if len(rec) else n
+            t = peak + int(np.argmin(gp[peak:end]))
+            if gd[peak] >= since:
+                eps.append({"peak": gd[peak].isoformat(), "trough": gd[t].isoformat(), "depth_pct": float(gp[t] / gp[peak] - 1),
+                            "recovered": gd[end].isoformat() if end < n else "-",
+                            "years_peak_to_recover": round((gd[end] - gd[peak]).days / 365.25, 1) if end < n else None,
+                            "months_trough_to_recover": round((gd[end] - gd[t]).days / 30.44, 1) if end < n else None})
+            if end >= n:
+                break
+            peak, i = end, end
+        i += 1
+    return eps
+
+
 def intro(gd, gp, d, p, year):
     """도입: 올해 S&P 500(가격 지수) 사상 최고가 종가 횟수 · 올해 첫 거래일에 '10% 빠지면 넣겠다'고 기다린 사람 vs 그날 넣은 사람 (배당 포함)."""
     cm = np.maximum.accumulate(gp)
@@ -790,6 +928,17 @@ def selftest():
     vshape = np.concatenate([np.linspace(1, 0.8, 300), np.linspace(0.8, 1.5, len(d) - 300)])
     ok.append(q2_wait(vshape, c0, W[:3])["now_wins"] == 0.0)          # 처음 석 달 시작 → 모두 10% 아래를 지남 → 기다림이 늘 이김
     ok.append(q4_stop(rise, c0, W)["triggered"] == 0)                  # 오르기만 하면 멈춤이 안 일어남
+    rng = np.random.default_rng(7)                                     # v2.0 quiz_pairs 가 기존 함수와 같은 규칙인지 (막걸음 가짜 자료 · seed=7)
+    walk = np.exp(np.cumsum(rng.normal(0.0003, 0.012, len(d))))
+    cw = np.cumprod(np.full(len(d), 1 + 0.02 / 365))
+    W5 = windows(ms, mkey, d, 24)
+    same = {"qz_dip": q2_wait(walk, cw, W5)["now_wins"], "qz_end": q2d_wait_with_end(d, walk, cw, W5)["now_wins"],
+            "qz_split": q3b_speed(walk, cw, W5)["lump_beats_dca12"], "qz_sell6": q3t_rebuy_after(d, walk, cw, W5, (6,))["m6"],
+            "qz_year": q10_wait_months(walk, cw, W5, 12)["now_wins"]}
+    for key, v in same.items():
+        a, b, _ = quiz_pairs(key, d, walk, cw, W5)
+        ok.append(len(a) > 0 and abs(share(a > b) - v) < 1e-12)
+    ok.append(QUESTIONS[0][3] == {"A": 0, "B": 20, "C": 0})            # 보기 순서 → 점수 (1번 정답 B)
     out("SELFTEST", checks=len(ok), passed=sum(ok), result="OK" if all(ok) else "FAIL")
     if not all(ok):
         raise SystemExit("[SELFTEST] 실패 — 규칙 코드를 다시 볼 것")
@@ -862,7 +1011,7 @@ def main():
                                                   {k: pctf(x) for k, x in v.items()}))
         results[label] = r
 
-    expect = {"q2b": "지금", "q3b": "한 번에>12개월>36개월", "q3s": "보유", "q10": "지금", "q6b": "매달"}   # v1.6 점수 항목 1~5 (q4b 는 재진입 규칙에 따라 뒤집혀(q4c) 참고 · q2c 는 사례가 2013~2021 뿐이라 참고)   # 점수 항목 1~5 (v1.4: 1 = q2b · 2 = q3b · 3 = q3s · 4 = q4b · 5 = q6 / q1b 는 5년에서 뒤집혀 참고)
+    expect = {"q2b": "지금", "q3b": "한 번에>12개월>36개월", "q3s": "보유", "q10": "지금", "q6b": "매달"}   # v2.0 부터 참고 (v1.x 테스트 꼴 점수 항목 — 대본 v1.6 까지) · v1.6 점수 항목 1~5 (q4b 는 재진입 규칙에 따라 뒤집혀(q4c) 참고 · q2c 는 사례가 2013~2021 뿐이라 참고)   # 점수 항목 1~5 (v1.4: 1 = q2b · 2 = q3b · 3 = q3s · 4 = q4b · 5 = q6 / q1b 는 5년에서 뒤집혀 참고)
     mism = [q for q, v in expect.items() if results["2y"][q]["verdict"] != v]
     flips = [q for q in results["2y"] if "verdict" in results["2y"][q] and results["2y"][q]["verdict"] != results["5y"][q]["verdict"]]
     cash5_mism = {h: [q for q in expect if results[h]["sens_cash5"]["verdicts"].get(q, results[h][q]["verdict"]) != expect[q]] for h in ("2y", "5y")}
@@ -885,13 +1034,54 @@ def main():
     out("NOTE", reference_only="q2 10% 하락 대기 · q5 폭락 때만", why="5년에서 뒤집힘 — 오래 통하는 결론이 아니라 점수에 안 씀 (채널 설명 3-5)",
         q2_2y=pctf(results["2y"]["q2"]["now_wins"]), q2_5y=pctf(results["5y"]["q2"]["now_wins"]),
         q5_2y=pctf(results["2y"]["q5"]["monthly_wins"]), q5_5y=pctf(results["5y"]["q5"]["monthly_wins"]))
+    # ---------- v2.0 문제형 ----------
+    quiz = quiz_run(d, p, c, ms, mkey)
+    c5 = np.cumprod(1 + 0.05 * np.array([0] + [(d[i] - d[i - 1]).days for i in range(1, len(d))], dtype=float) / 365)
+    quiz5 = quiz_run(d, p, c5, ms, mkey)                                      # 민감도: 현금 이자 연 5% 고정
+    for n, key, *_ in QUIZ:
+        q = quiz[key]
+        row = {f"{h}_{per}": f"{pctf(q[h][per]['now_wins'])}({q[h][per]['n']})" for h in ("2y", "5y") for per in ("early", "late")}
+        out("QUIZ", q=n, key=key, name=q["name"].replace(" ", "_"), answer=q["answer"], early_band=q["early_band"], late_ok=q["late_ok"],
+            cash5_band=quiz5[key]["early_band"], **row,
+            early5y_gap=pctf(q["5y"]["early"]["median_gap_pct"]), late5y_gap=pctf(q["5y"]["late"]["median_gap_pct"]))
+        out("QUIZ_ALT", q=n, **{f"{h}_{k}": pctf(q[h][k]["now_wins"]) for h in ("2y", "5y")
+                               for k in ("half1", "half2", "y2000_2004", "y2005_2008", "y2009_2013", "y2014_2018", "y2019_2026")},
+            half_boundary_2y=q["2y"]["half_boundary"], half_boundary_5y=q["5y"]["half_boundary"])
+    qmis = [key for key, q in quiz.items() if not q["matches_answer"]]
+    qmis5 = [key for key, q in quiz5.items() if not q["matches_answer"]]
+    (warn if qmis else out)("QUIZ_CHECK", rule="앞 시기 칸이 2년·5년 같고 정답과 같음 · 뒤 시기 ≥ 60%", mismatches=qmis or "-",
+                            cash5_mismatches=qmis5 or "-", note="MISMATCH 면 문제에서 빼거나 정답 칸을 다시" if qmis else "정답 칸과 계산이 같음")
+    # 결과를 본 뒤 더한 관찰 (해설 '금액' 문단): 앞 시기엔 규칙 쪽이 평균 더 남고 · 뒤 시기엔 미루지 않은 쪽이 더 남으며 · 뒤 시기 차이가 앞 시기의 2배 넘나
+    asym = {}
+    for _, key, *_ in QUIZ:
+        for h in ("2y", "5y"):
+            e_, l_ = quiz[key][h]["early"], quiz[key][h]["late"]
+            asym[f"{key}_{h}"] = {"early_usd": e_["mean_diff_usd_100k"], "late_usd": l_["mean_diff_usd_100k"],
+                                  "x_usd": round(l_["mean_diff_usd_100k"] / -e_["mean_diff_usd_100k"], 2) if e_["mean_diff_usd_100k"] < 0 else None,
+                                  "x_ratio": round(l_["mean_gap_pct"] / -e_["mean_gap_pct"], 2) if e_["mean_gap_pct"] < 0 else None}
+    asym_ok = all(v["x_usd"] is not None and v["x_usd"] >= 2 and v["x_ratio"] is not None and v["x_ratio"] >= 2 for v in asym.values())
+    (out if asym_ok else warn)("QUIZ_ASYM", check="앞 시기 규칙 쪽 평균 우세 · 뒤 시기 미루지 않은 쪽 평균 우세 · 뒤 ≥ 앞 × 2 (달러·비율 모두)", ok=asym_ok,
+                               min_x_usd=min(v["x_usd"] or 0 for v in asym.values()), min_x_ratio=min(v["x_ratio"] or 0 for v in asym.values()),
+                               **{k: f"{v['early_usd']}/{v['late_usd']}" for k, v in asym.items()})
+    declines = big_declines(gd, gp)
+    for e in declines:
+        out("DECLINE", **{k: (pctf(v) if k.endswith("pct") else v) for k, v in e.items()})
     problems = ts.check_rules(QUESTIONS, out, log, levels=LEVELS)
-    ts.run_virtual(QUESTIONS, VIRTUAL, out)
+    virtual = []
+    for name, bands in VIRTUAL_BANDS:
+        ans = "".join("ABC"[order.index(b)] for b, (*_, order) in zip(bands, QUIZ))
+        t, g, _ = ts.grade(QUESTIONS, ans)
+        virtual.append({"name": name, "answers": ans, "total": t, "grade": g})
+        out("VIRTUAL", name=name.replace(" ", "_"), answers=ans, total=t, grade=g)
     with (HERE / "results.json").open("w", encoding="utf-8") as f:
         json.dump({"version": VERSION, "made": datetime.now(timezone.utc).isoformat(timespec="seconds"), "data_last": d[-1].isoformat(),
-                   "results": results, "intro": it, "mismatches": mism, "flips_5y": flips, "scored": list(expect), "rule_problems": problems},
+                   "results": results, "intro": it, "mismatches": mism, "flips_5y": flips, "scored_v1": list(expect), "rule_problems": problems,
+                   "quiz": quiz, "quiz_cash5": {k: {"early_band": v["early_band"], "late_ok": v["late_ok"], "early_5y": v["5y"]["early"], "early_2y": v["2y"]["early"],
+                                                    "late_5y": v["5y"]["late"], "late_2y": v["2y"]["late"]} for k, v in quiz5.items()},
+                   "quiz_mismatches": qmis, "quiz_cash5_mismatches": qmis5, "quiz_asym": asym, "quiz_asym_ok": asym_ok, "declines": declines, "virtual": virtual,
+                   "scored": [q[1] for q in QUIZ]},
                   f, ensure_ascii=False, indent=1, default=str)
-    out("DONE", results="calc/results.json", rule_problems=problems, mismatches=len(mism), seconds=f"{time.time() - t0:.1f}",
+    out("DONE", results="calc/results.json", rule_problems=problems, quiz_mismatches=len(qmis), v1_mismatches=len(mism), seconds=f"{time.time() - t0:.1f}",
         note="연구·교육용 — 투자 권유 아님")
 
 

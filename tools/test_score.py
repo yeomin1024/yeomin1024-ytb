@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.1 — 2026-10-27 — 점수 단계를 편마다 고를 수 있게 (check_rules(levels=…)) — 재무제표 편이 5항목 × 0·10·20점
-#          (사용자 지시 "5개 정도만 찾고 재무지표를 상세하게 분석하는 걸로 해"). 기본값 0·5·10 은 그대로라 10항목 편은 바뀌지 않음.
+# VERSION: v1.2 — 2026-10-29 — 문제형(맞히면 20 · 틀리면 0 — levels=(0, 0, 20))도 되게: 등급 구간 글을 '실제로 나올 수 있는 총점'으로
+#          (예전엔 levels[1]-levels[0] 을 단계 폭으로 써서 0·0·20 이면 폭이 0). 점수·등급 규칙은 그대로 — 매수 시기 편 문제형 (사용자 지시 2026-10-29 "1번으로 해봐").
+# (v1.1 — 2026-10-27 — 점수 단계를 편마다 고를 수 있게 (check_rules(levels=…)) — 재무제표 편이 5항목 × 0·10·20점
+#          (사용자 지시 "5개 정도만 찾고 재무지표를 상세하게 분석하는 걸로 해"). 기본값 0·5·10 은 그대로라 10항목 편은 바뀌지 않음.)
 # (v1.0 — 2026-10-27 — 최초. 주식 테스트형 영상(stock/guides/quick_test.md)의 점수 규칙을 편마다 다시 쓰지 않게 공용으로.
 #          첫 편 stock/source/simri-test-2026-10/calc/calc.py v1.6 의 grade·letters_for·규칙 검사·가상 응시를 그대로 옮김
 #          (첫 편 코드는 그대로 둠). 사용자 지시 2026-10-27: "토큰은 가장 아낄 수 있도록 구조를 잡고 해".)
@@ -9,6 +11,7 @@
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.2 | 2026-10-29 | 등급 구간 글 = 나올 수 있는 총점 중 최대 (levels 에 같은 점수가 둘이어도 됨 — 문제형 0·0·20) | check_rules |
 # | v1.1 | 2026-10-27 | levels 인자 (기본 0·5·10) · 등급 구간 글을 단계 폭으로 | check_rules |
 # | v1.0 | 2026-10-27 | 최초 (첫 편 calc v1.6 에서 옮김) | grade · letters_for · check_rules · run_virtual |
 #
@@ -21,7 +24,7 @@
 import itertools
 from collections import Counter
 
-VERSION = "v1.1"
+VERSION = "v1.2"
 LEVELS = (0, 5, 10)
 PASS_MIN = 70       # 통과: 과락 없이 70점 이상
 CAUTION_MIN = 40    # 주의: 40~65점 · 불통과: 35점 이하
@@ -50,10 +53,10 @@ def grade(questions, answers):
 
 def check_rules(questions, out, log, levels=LEVELS):
     """항목마다 levels(기본 0·5·10) 가 하나씩인지 · 최고점 자리가 섞였는지 · 모든 경우(3^N)의 등급 분포. 문제 수를 돌려준다."""
-    step = levels[1] - levels[0]
+    totals = {sum(c) for c in itertools.product(*(sorted(set(k.values())) for *_, k in questions))}   # v1.2 나올 수 있는 총점
     best = "".join(max(k, key=k.get) for *_, k in questions)
     out("RULE", questions=len(questions), levels=levels, max_total=len(questions) * max(levels),
-        pass_min=PASS_MIN, caution=f"{CAUTION_MIN}~{PASS_MIN - step}", fail=f"0~{CAUTION_MIN - step}",
+        pass_min=PASS_MIN, caution=f"{CAUTION_MIN}~{max(t for t in totals if t < PASS_MIN)}", fail=f"0~{max(t for t in totals if t < CAUTION_MIN)}",
         cut_questions=[q for q, _, c, _ in questions if c], best_letter=best,
         zero_letter="".join(min(k, key=k.get) for *_, k in questions))
     problems = 0

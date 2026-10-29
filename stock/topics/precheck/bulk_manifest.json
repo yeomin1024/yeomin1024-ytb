@@ -16,5 +16,14 @@
   "cached": 0,
   "failed": [],
   "tool": "bulk.py v1.0"
+ },
+ "fundamentals2": {
+  "made": "2026-10-29T08:20:37Z",
+  "list": "https://raw.githubusercontent.com/datasets/s-and-p-500-companies/main/data/constituents.csv",
+  "symbols": 503,
+  "fetched": 503,
+  "cached": 0,
+  "failed": [],
+  "tool": "bulk.py v1.1"
  }
 }

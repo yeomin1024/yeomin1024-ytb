@@ -1,0 +1,980 @@
+{
+ "version": "v1.2",
+ "risk": "v1.0",
+ "made": "2026-10-29T08:27:38+00:00",
+ "data_last": "2026-10-27",
+ "rule": "안정 수익 = 끝에 예금보다 더 + 원금보다 L(15·20·25%) 넘게 안 줄어듦",
+ "episodes": {
+  "portfolio-test-2026-10": {
+   "2 기술주(QQQ)만": {
+    "class": "조건부형",
+    "why": "칸에 따라 뒤집힘 -1.1%p~+5.8%p",
+    "cells": {
+     "2y·앞·L15": "+0.9%p",
+     "2y·뒤·L15": "+3.7%p",
+     "2y·앞·L20": "+0.9%p",
+     "2y·뒤·L20": "+0.5%p",
+     "2y·앞·L25": "+0.9%p",
+     "2y·뒤·L25": "-1.1%p",
+     "5y·앞·L15": "+0.0%p",
+     "5y·뒤·L15": "+5.8%p",
+     "5y·앞·L20": "+0.0%p",
+     "5y·뒤·L20": "+1.9%p",
+     "5y·앞·L25": "+0.0%p",
+     "5y·뒤·L25": "+1.3%p"
+    },
+    "detail": {
+     "2y·앞": {
+      "n": 108,
+      "spx_stable": "44.4%",
+      "alt_stable": "45.4%",
+      "spx_ret_median": "4.5%",
+      "alt_ret_median": "8.1%",
+      "spx_worst_from_start_median": "-24.4%",
+      "alt_worst_from_start_median": "-26.1%",
+      "spx_worst": "-54.7%",
+      "alt_worst": "-79.1%"
+     },
+     "2y·뒤": {
+      "n": 190,
+      "spx_stable": "87.4%",
+      "alt_stable": "87.9%",
+      "spx_ret_median": "31.3%",
+      "alt_ret_median": "43.6%",
+      "spx_worst_from_start_median": "-5.8%",
+      "alt_worst_from_start_median": "-5.9%",
+      "spx_worst": "-31.0%",
+      "alt_worst": "-34.8%"
+     },
+     "5y·앞": {
+      "n": 108,
+      "spx_stable": "15.7%",
+      "alt_stable": "15.7%",
+      "spx_ret_median": "11.1%",
+      "alt_ret_median": "32.6%",
+      "spx_worst_from_start_median": "-39.0%",
+      "alt_worst_from_start_median": "-38.0%",
+      "spx_worst": "-54.7%",
+      "alt_worst": "-81.4%"
+     },
+     "5y·뒤": {
+      "n": 154,
+      "spx_stable": "90.9%",
+      "alt_stable": "92.9%",
+      "spx_ret_median": "94.8%",
+      "alt_ret_median": "131.5%",
+      "spx_worst_from_start_median": "-5.5%",
+      "alt_worst_from_start_median": "-5.6%",
+      "spx_worst": "-31.0%",
+      "alt_worst": "-31.1%"
+     }
+    },
+    "answer": "안정 수익 확률(그 선택 − S&P 500 만): 2y·앞·L20 +0.9%p · 2y·뒤·L20 +0.5%p · 5y·앞·L20 +0.0%p · 5y·뒤·L20 +1.9%p"
+   },
+   "3 배당 ETF(DVY — 2003년 11월부터)": {
+    "class": "정답형",
+    "why": "어느 칸에서도 뒤집히지 않음 · 비교 대상이 더 높음 · 기본 칸 -17.5%p · 범위 -19.5%p~+0.5%p",
+    "cells": {
+     "2y·앞·L15": "-4.9%p",
+     "2y·뒤·L15": "+0.5%p",
+     "2y·앞·L20": "-6.6%p",
+     "2y·뒤·L20": "-7.4%p",
+     "2y·앞·L25": "-6.6%p",
+     "2y·뒤·L25": "-12.1%p",
+     "5y·앞·L15": "+0.0%p",
+     "5y·뒤·L15": "-10.4%p",
+     "5y·앞·L20": "-1.6%p",
+     "5y·뒤·L20": "-17.5%p",
+     "5y·앞·L25": "-1.6%p",
+     "5y·뒤·L25": "-19.5%p"
+    },
+    "detail": {
+     "2y·앞": {
+      "n": 61,
+      "spx_stable": "50.8%",
+      "alt_stable": "44.3%",
+      "spx_ret_median": "12.0%",
+      "alt_ret_median": "3.3%",
+      "spx_worst_from_start_median": "-5.6%",
+      "alt_worst_from_start_median": "-7.2%",
+      "spx_worst": "-54.7%",
+      "alt_worst": "-62.4%"
+     },
+     "2y·뒤": {
+      "n": 190,
+      "spx_stable": "87.4%",
+      "alt_stable": "80.0%",
+      "spx_ret_median": "31.3%",
+      "alt_ret_median": "26.5%",
+      "spx_worst_from_start_median": "-5.8%",
+      "alt_worst_from_start_median": "-4.9%",
+      "spx_worst": "-31.0%",
+      "alt_worst": "-40.5%"
+     },
+     "5y·앞": {
+      "n": 61,
+      "spx_stable": "1.6%",
+      "alt_stable": "0.0%",
+      "spx_ret_median": "4.7%",
+      "alt_ret_median": "-5.8%",
+      "spx_worst_from_start_median": "-43.6%",
+      "alt_worst_from_start_median": "-52.7%",
+      "spx_worst": "-54.7%",
+      "alt_worst": "-62.4%"
+     },
+     "5y·뒤": {
+      "n": 154,
+      "spx_stable": "90.9%",
+      "alt_stable": "73.4%",
+      "spx_ret_median": "94.8%",
+      "alt_ret_median": "67.1%",
+      "spx_worst_from_start_median": "-5.5%",
+      "alt_worst_from_start_median": "-6.1%",
+      "spx_worst": "-31.0%",
+      "alt_worst": "-40.5%"
+     }
+    },
+    "answer": "안정 수익 확률(그 선택 − S&P 500 만): 2y·앞·L20 -6.6%p · 2y·뒤·L20 -7.4%p · 5y·앞·L20 -1.6%p · 5y·뒤·L20 -17.5%p"
+   },
+   "3b 배당 ETF(SCHD — 2011년 10월부터)": {
+    "class": "조건부형",
+    "why": "칸에 따라 뒤집힘 -3.2%p~+1.3%p",
+    "cells": {
+     "2y·뒤·L15": "+1.3%p",
+     "2y·뒤·L20": "-2.6%p",
+     "2y·뒤·L25": "-3.2%p",
+     "5y·뒤·L15": "+0.8%p",
+     "5y·뒤·L20": "-2.5%p",
+     "5y·뒤·L25": "-0.8%p"
+    },
+    "detail": {
+     "2y·뒤": {
+      "n": 156,
+      "spx_stable": "85.3%",
+      "alt_stable": "82.7%",
+      "spx_ret_median": "33.6%",
+      "alt_ret_median": "24.6%",
+      "spx_worst_from_start_median": "-5.1%",
+      "alt_worst_from_start_median": "-5.8%",
+      "spx_worst": "-31.0%",
+      "alt_worst": "-32.0%"
+     },
+     "5y·뒤": {
+      "n": 120,
+      "spx_stable": "89.2%",
+      "alt_stable": "86.7%",
+      "spx_ret_median": "92.1%",
+      "alt_ret_median": "78.4%",
+      "spx_worst_from_start_median": "-5.0%",
+      "alt_worst_from_start_median": "-5.7%",
+      "spx_worst": "-31.0%",
+      "alt_worst": "-32.0%"
+     }
+    },
+    "answer": "안정 수익 확률(그 선택 − S&P 500 만): 2y·뒤·L20 -2.6%p · 5y·뒤·L20 -2.5%p"
+   },
+   "4 레버리지 2배를 10% 섞기": {
+    "class": "차이 작음",
+    "why": "방향은 늘 같음(비교 대상이 더 높음)이지만 기본 칸 -2.6%p — 5%p 미만",
+    "cells": {
+     "2y·앞·L15": "-0.9%p",
+     "2y·뒤·L15": "-2.1%p",
+     "2y·앞·L20": "-0.9%p",
+     "2y·뒤·L20": "-1.6%p",
+     "2y·앞·L25": "-0.9%p",
+     "2y·뒤·L25": "-1.6%p",
+     "5y·앞·L15": "-0.9%p",
+     "5y·뒤·L15": "-3.9%p",
+     "5y·앞·L20": "-0.9%p",
+     "5y·뒤·L20": "-2.6%p",
+     "5y·앞·L25": "-1.9%p",
+     "5y·뒤·L25": "-1.9%p"
+    },
+    "detail": {
+     "2y·앞": {
+      "n": 108,
+      "spx_stable": "44.4%",
+      "alt_stable": "43.5%",
+      "spx_ret_median": "4.5%",
+      "alt_ret_median": "4.1%",
+      "spx_worst_from_start_median": "-24.4%",
+      "alt_worst_from_start_median": "-26.7%",
+      "spx_worst": "-54.7%",
+      "alt_worst": "-58.2%"
+     },
+     "2y·뒤": {
+      "n": 190,
+      "spx_stable": "87.4%",
+      "alt_stable": "85.8%",
+      "spx_ret_median": "31.3%",
+      "alt_ret_median": "34.2%",
+      "spx_worst_from_start_median": "-5.8%",
+      "alt_worst_from_start_median": "-6.5%",
+      "spx_worst": "-31.0%",
+      "alt_worst": "-33.5%"
+     },
+     "5y·앞": {
+      "n": 108,
+      "spx_stable": "15.7%",
+      "alt_stable": "14.8%",
+      "spx_ret_median": "11.1%",
+      "alt_ret_median": "9.4%",
+      "spx_worst_from_start_median": "-39.0%",
+      "alt_worst_from_start_median": "-42.7%",
+      "spx_worst": "-54.7%",
+      "alt_worst": "-58.2%"
+     },
+     "5y·뒤": {
+      "n": 154,
+      "spx_stable": "90.9%",
+      "alt_stable": "88.3%",
+      "spx_ret_median": "94.8%",
+      "alt_ret_median": "104.6%",
+      "spx_worst_from_start_median": "-5.5%",
+      "alt_worst_from_start_median": "-6.5%",
+      "spx_worst": "-31.0%",
+      "alt_worst": "-33.5%"
+     }
+    },
+    "answer": "안정 수익 확률(그 선택 − S&P 500 만): 2y·앞·L20 -0.9%p · 2y·뒤·L20 -1.6%p · 5y·앞·L20 -0.9%p · 5y·뒤·L20 -2.6%p"
+   },
+   "4b 레버리지 2배를 50% 섞기": {
+    "class": "정답형",
+    "why": "어느 칸에서도 뒤집히지 않음 · 비교 대상이 더 높음 · 기본 칸 -18.2%p · 범위 -18.2%p~-2.8%p",
+    "cells": {
+     "2y·앞·L15": "-5.6%p",
+     "2y·뒤·L15": "-13.7%p",
+     "2y·앞·L20": "-3.7%p",
+     "2y·뒤·L20": "-13.2%p",
+     "2y·앞·L25": "-2.8%p",
+     "2y·뒤·L25": "-12.6%p",
+     "5y·앞·L15": "-4.6%p",
+     "5y·뒤·L15": "-16.2%p",
+     "5y·앞·L20": "-2.8%p",
+     "5y·뒤·L20": "-18.2%p",
+     "5y·앞·L25": "-2.8%p",
+     "5y·뒤·L25": "-14.9%p"
+    },
+    "detail": {
+     "2y·앞": {
+      "n": 108,
+      "spx_stable": "44.4%",
+      "alt_stable": "40.7%",
+      "spx_ret_median": "4.5%",
+      "alt_ret_median": "1.1%",
+      "spx_worst_from_start_median": "-24.4%",
+      "alt_worst_from_start_median": "-35.8%",
+      "spx_worst": "-54.7%",
+      "alt_worst": "-71.0%"
+     },
+     "2y·뒤": {
+      "n": 190,
+      "spx_stable": "87.4%",
+      "alt_stable": "74.2%",
+      "spx_ret_median": "31.3%",
+      "alt_ret_median": "44.6%",
+      "spx_worst_from_start_median": "-5.8%",
+      "alt_worst_from_start_median": "-9.6%",
+      "spx_worst": "-31.0%",
+      "alt_worst": "-43.4%"
+     },
+     "5y·앞": {
+      "n": 108,
+      "spx_stable": "15.7%",
+      "alt_stable": "13.0%",
+      "spx_ret_median": "11.1%",
+      "alt_ret_median": "-0.4%",
+      "spx_worst_from_start_median": "-39.0%",
+      "alt_worst_from_start_median": "-57.4%",
+      "spx_worst": "-54.7%",
+      "alt_worst": "-71.0%"
+     },
+     "5y·뒤": {
+      "n": 154,
+      "spx_stable": "90.9%",
+      "alt_stable": "72.7%",
+      "spx_ret_median": "94.8%",
+      "alt_ret_median": "140.2%",
+      "spx_worst_from_start_median": "-5.5%",
+      "alt_worst_from_start_median": "-10.1%",
+      "spx_worst": "-31.0%",
+      "alt_worst": "-43.4%"
+     }
+    },
+    "answer": "안정 수익 확률(그 선택 − S&P 500 만): 2y·앞·L20 -3.7%p · 2y·뒤·L20 -13.2%p · 5y·앞·L20 -2.8%p · 5y·뒤·L20 -18.2%p"
+   },
+   "5 주식60·미국채권20·해외주식20 (1년마다 맞춤)": {
+    "class": "조건부형",
+    "why": "칸에 따라 뒤집힘 -1.1%p~+7.1%p",
+    "cells": {
+     "2y·앞·L15": "+3.2%p",
+     "2y·뒤·L15": "+5.3%p",
+     "2y·앞·L20": "+1.6%p",
+     "2y·뒤·L20": "+2.1%p",
+     "2y·앞·L25": "+3.2%p",
+     "2y·뒤·L25": "-1.1%p",
+     "5y·앞·L15": "+1.6%p",
+     "5y·뒤·L15": "+7.1%p",
+     "5y·앞·L20": "+0.0%p",
+     "5y·뒤·L20": "+4.5%p",
+     "5y·앞·L25": "+4.8%p",
+     "5y·뒤·L25": "+2.6%p"
+    },
+    "detail": {
+     "2y·앞": {
+      "n": 63,
+      "spx_stable": "52.4%",
+      "alt_stable": "54.0%",
+      "spx_ret_median": "12.2%",
+      "alt_ret_median": "14.5%",
+      "spx_worst_from_start_median": "-5.5%",
+      "alt_worst_from_start_median": "-4.6%",
+      "spx_worst": "-54.7%",
+      "alt_worst": "-45.4%"
+     },
+     "2y·뒤": {
+      "n": 190,
+      "spx_stable": "87.4%",
+      "alt_stable": "89.5%",
+      "spx_ret_median": "31.3%",
+      "alt_ret_median": "23.8%",
+      "spx_worst_from_start_median": "-5.8%",
+      "alt_worst_from_start_median": "-5.3%",
+      "spx_worst": "-31.0%",
+      "alt_worst": "-25.3%"
+     },
+     "5y·앞": {
+      "n": 63,
+      "spx_stable": "3.2%",
+      "alt_stable": "3.2%",
+      "spx_ret_median": "4.7%",
+      "alt_ret_median": "12.8%",
+      "spx_worst_from_start_median": "-43.6%",
+      "alt_worst_from_start_median": "-32.6%",
+      "spx_worst": "-54.7%",
+      "alt_worst": "-45.4%"
+     },
+     "5y·뒤": {
+      "n": 154,
+      "spx_stable": "90.9%",
+      "alt_stable": "95.5%",
+      "spx_ret_median": "94.8%",
+      "alt_ret_median": "63.6%",
+      "spx_worst_from_start_median": "-5.5%",
+      "alt_worst_from_start_median": "-5.7%",
+      "spx_worst": "-31.0%",
+      "alt_worst": "-25.3%"
+     }
+    },
+    "answer": "안정 수익 확률(그 선택 − S&P 500 만): 2y·앞·L20 +1.6%p · 2y·뒤·L20 +2.1%p · 5y·앞·L20 +0.0%p · 5y·뒤·L20 +4.5%p"
+   },
+   "5b 주식60·채권40 (1년마다 맞춤)": {
+    "class": "정답형",
+    "why": "어느 칸에서도 뒤집히지 않음 · 그 선택이 더 높음 · 기본 칸 +9.1%p · 범위 +0.5%p~+34.9%p",
+    "cells": {
+     "2y·앞·L15": "+6.3%p",
+     "2y·뒤·L15": "+11.1%p",
+     "2y·앞·L20": "+4.8%p",
+     "2y·뒤·L20": "+5.8%p",
+     "2y·앞·L25": "+6.3%p",
+     "2y·뒤·L25": "+0.5%p",
+     "5y·앞·L15": "+6.3%p",
+     "5y·뒤·L15": "+14.3%p",
+     "5y·앞·L20": "+17.5%p",
+     "5y·뒤·L20": "+9.1%p",
+     "5y·앞·L25": "+34.9%p",
+     "5y·뒤·L25": "+3.9%p"
+    },
+    "detail": {
+     "2y·앞": {
+      "n": 63,
+      "spx_stable": "52.4%",
+      "alt_stable": "57.1%",
+      "spx_ret_median": "12.2%",
+      "alt_ret_median": "12.3%",
+      "spx_worst_from_start_median": "-5.5%",
+      "alt_worst_from_start_median": "-3.2%",
+      "spx_worst": "-54.7%",
+      "alt_worst": "-32.7%"
+     },
+     "2y·뒤": {
+      "n": 190,
+      "spx_stable": "87.4%",
+      "alt_stable": "93.2%",
+      "spx_ret_median": "31.3%",
+      "alt_ret_median": "20.9%",
+      "spx_worst_from_start_median": "-5.8%",
+      "alt_worst_from_start_median": "-3.1%",
+      "spx_worst": "-31.0%",
+      "alt_worst": "-20.7%"
+     },
+     "5y·앞": {
+      "n": 63,
+      "spx_stable": "3.2%",
+      "alt_stable": "20.6%",
+      "spx_ret_median": "4.7%",
+      "alt_ret_median": "19.1%",
+      "spx_worst_from_start_median": "-43.6%",
+      "alt_worst_from_start_median": "-20.5%",
+      "spx_worst": "-54.7%",
+      "alt_worst": "-32.7%"
+     },
+     "5y·뒤": {
+      "n": 154,
+      "spx_stable": "90.9%",
+      "alt_stable": "100.0%",
+      "spx_ret_median": "94.8%",
+      "alt_ret_median": "55.1%",
+      "spx_worst_from_start_median": "-5.5%",
+      "alt_worst_from_start_median": "-2.9%",
+      "spx_worst": "-31.0%",
+      "alt_worst": "-19.1%"
+     }
+    },
+    "answer": "안정 수익 확률(그 선택 − S&P 500 만): 2y·앞·L20 +4.8%p · 2y·뒤·L20 +5.8%p · 5y·앞·L20 +17.5%p · 5y·뒤·L20 +9.1%p"
+   },
+   "1 한 종목만": {
+    "class": "조건부형",
+    "why": "칸에 따라 뒤집힘 -31.4%p~+17.2%p · 빠진 회사가 없어 한 종목 쪽 확률을 크게 보는 쪽 — S&P 500 이 높으면 결론은 더 단단",
+    "cells": {
+     "2y·앞": "+0.8%p",
+     "2y·뒤": "-25.6%p",
+     "5y·앞": "+17.2%p",
+     "5y·뒤": "-31.4%p"
+    },
+    "detail": {
+     "2y·앞": {
+      "n": 108,
+      "spx_stable": "44.4%",
+      "one_stock_stable": "45.3%"
+     },
+     "2y·뒤": {
+      "n": 190,
+      "spx_stable": "87.4%",
+      "one_stock_stable": "61.7%"
+     },
+     "5y·앞": {
+      "n": 108,
+      "spx_stable": "15.7%",
+      "one_stock_stable": "32.9%"
+     },
+     "5y·뒤": {
+      "n": 154,
+      "spx_stable": "90.9%",
+      "one_stock_stable": "59.5%"
+     }
+    },
+    "answer": "안정 수익 확률(한 종목 − S&P 500): 2y·앞 +0.8%p · 2y·뒤 -25.6%p · 5y·앞 +17.2%p · 5y·뒤 -31.4%p"
+   }
+  },
+  "timing-test-2026-10": {
+   "한 번에": {
+    "detail": {
+     "2y·앞": {
+      "n": 108,
+      "stable": "44.4%",
+      "ret_median": "4.5%",
+      "worst_from_start_median": "-24.4%",
+      "worst": "-54.7%",
+      "loss_vs_start_20": "50.9%"
+     },
+     "2y·뒤": {
+      "n": 190,
+      "stable": "87.4%",
+      "ret_median": "31.3%",
+      "worst_from_start_median": "-5.8%",
+      "worst": "-31.0%",
+      "loss_vs_start_20": "9.5%"
+     },
+     "5y·앞": {
+      "n": 108,
+      "stable": "15.7%",
+      "ret_median": "11.1%",
+      "worst_from_start_median": "-39.0%",
+      "worst": "-54.7%",
+      "loss_vs_start_20": "83.3%"
+     },
+     "5y·뒤": {
+      "n": 154,
+      "stable": "90.9%",
+      "ret_median": "94.8%",
+      "worst_from_start_median": "-5.5%",
+      "worst": "-31.0%",
+      "loss_vs_start_20": "9.1%"
+     }
+    },
+    "class": "기준",
+    "answer": "2y·앞·L20 44.4% · 2y·뒤·L20 87.4% · 5y·앞·L20 15.7% · 5y·뒤·L20 90.9%"
+   },
+   "나눠 6개월": {
+    "detail": {
+     "2y·앞": {
+      "n": 108,
+      "stable": "47.2%",
+      "ret_median": "11.5%",
+      "worst_from_start_median": "-16.1%",
+      "worst": "-52.5%",
+      "loss_vs_start_20": "48.1%"
+     },
+     "2y·뒤": {
+      "n": 190,
+      "stable": "88.9%",
+      "ret_median": "29.9%",
+      "worst_from_start_median": "-4.5%",
+      "worst": "-27.5%",
+      "loss_vs_start_20": "5.8%"
+     },
+     "5y·앞": {
+      "n": 108,
+      "stable": "18.5%",
+      "ret_median": "11.3%",
+      "worst_from_start_median": "-37.1%",
+      "worst": "-52.5%",
+      "loss_vs_start_20": "80.6%"
+     },
+     "5y·뒤": {
+      "n": 154,
+      "stable": "93.5%",
+      "ret_median": "87.8%",
+      "worst_from_start_median": "-5.1%",
+      "worst": "-27.5%",
+      "loss_vs_start_20": "6.5%"
+     }
+    },
+    "class": "차이 작음",
+    "why": "방향은 늘 같음(그 선택이 더 높음)이지만 기본 칸 +2.6%p — 5%p 미만",
+    "cells": {
+     "2y·앞·L15": "+2.8%p",
+     "2y·뒤·L15": "+2.1%p",
+     "2y·앞·L20": "+2.8%p",
+     "2y·뒤·L20": "+1.6%p",
+     "2y·앞·L25": "+4.6%p",
+     "2y·뒤·L25": "-0.5%p",
+     "5y·앞·L15": "+2.8%p",
+     "5y·뒤·L15": "+1.3%p",
+     "5y·앞·L20": "+2.8%p",
+     "5y·뒤·L20": "+2.6%p",
+     "5y·앞·L25": "+3.7%p",
+     "5y·뒤·L25": "+1.9%p"
+    },
+    "answer": "안정 수익 확률(이 선택 − 한 번에): 2y·앞·L20 +2.8%p · 2y·뒤·L20 +1.6%p · 5y·앞·L20 +2.8%p · 5y·뒤·L20 +2.6%p"
+   },
+   "나눠 12개월": {
+    "detail": {
+     "2y·앞": {
+      "n": 108,
+      "stable": "51.9%",
+      "ret_median": "14.2%",
+      "worst_from_start_median": "-10.0%",
+      "worst": "-50.2%",
+      "loss_vs_start_20": "41.7%"
+     },
+     "2y·뒤": {
+      "n": 190,
+      "stable": "90.5%",
+      "ret_median": "25.4%",
+      "worst_from_start_median": "-4.7%",
+      "worst": "-23.7%",
+      "loss_vs_start_20": "2.6%"
+     },
+     "5y·앞": {
+      "n": 108,
+      "stable": "24.1%",
+      "ret_median": "11.1%",
+      "worst_from_start_median": "-35.2%",
+      "worst": "-50.2%",
+      "loss_vs_start_20": "74.1%"
+     },
+     "5y·뒤": {
+      "n": 154,
+      "stable": "96.8%",
+      "ret_median": "80.9%",
+      "worst_from_start_median": "-5.0%",
+      "worst": "-23.7%",
+      "loss_vs_start_20": "3.2%"
+     }
+    },
+    "class": "정답형",
+    "why": "어느 칸에서도 뒤집히지 않음 · 그 선택이 더 높음 · 기본 칸 +5.8%p · 범위 +0.5%p~+10.2%p",
+    "cells": {
+     "2y·앞·L15": "+6.5%p",
+     "2y·뒤·L15": "+4.7%p",
+     "2y·앞·L20": "+7.4%p",
+     "2y·뒤·L20": "+3.2%p",
+     "2y·앞·L25": "+9.3%p",
+     "2y·뒤·L25": "+0.5%p",
+     "5y·앞·L15": "+7.4%p",
+     "5y·뒤·L15": "+4.5%p",
+     "5y·앞·L20": "+8.3%p",
+     "5y·뒤·L20": "+5.8%p",
+     "5y·앞·L25": "+10.2%p",
+     "5y·뒤·L25": "+3.9%p"
+    },
+    "answer": "안정 수익 확률(이 선택 − 한 번에): 2y·앞·L20 +7.4%p · 2y·뒤·L20 +3.2%p · 5y·앞·L20 +8.3%p · 5y·뒤·L20 +5.8%p"
+   },
+   "석 달 뒤": {
+    "detail": {
+     "2y·앞": {
+      "n": 108,
+      "stable": "49.1%",
+      "ret_median": "11.2%",
+      "worst_from_start_median": "-14.9%",
+      "worst": "-54.2%",
+      "loss_vs_start_20": "46.3%"
+     },
+     "2y·뒤": {
+      "n": 190,
+      "stable": "87.9%",
+      "ret_median": "29.3%",
+      "worst_from_start_median": "-5.7%",
+      "worst": "-30.7%",
+      "loss_vs_start_20": "7.9%"
+     },
+     "5y·앞": {
+      "n": 108,
+      "stable": "19.4%",
+      "ret_median": "11.8%",
+      "worst_from_start_median": "-37.7%",
+      "worst": "-54.2%",
+      "loss_vs_start_20": "78.7%"
+     },
+     "5y·뒤": {
+      "n": 154,
+      "stable": "91.6%",
+      "ret_median": "84.7%",
+      "worst_from_start_median": "-5.7%",
+      "worst": "-30.7%",
+      "loss_vs_start_20": "8.4%"
+     }
+    },
+    "class": "조건부형",
+    "why": "칸에 따라 뒤집힘 -1.1%p~+4.6%p",
+    "cells": {
+     "2y·앞·L15": "+3.7%p",
+     "2y·뒤·L15": "+2.1%p",
+     "2y·앞·L20": "+4.6%p",
+     "2y·뒤·L20": "+0.5%p",
+     "2y·앞·L25": "+4.6%p",
+     "2y·뒤·L25": "-1.1%p",
+     "5y·앞·L15": "+2.8%p",
+     "5y·뒤·L15": "+1.3%p",
+     "5y·앞·L20": "+3.7%p",
+     "5y·뒤·L20": "+0.6%p",
+     "5y·앞·L25": "+3.7%p",
+     "5y·뒤·L25": "+0.6%p"
+    },
+    "answer": "안정 수익 확률(이 선택 − 한 번에): 2y·앞·L20 +4.6%p · 2y·뒤·L20 +0.5%p · 5y·앞·L20 +3.7%p · 5y·뒤·L20 +0.6%p"
+   },
+   "10% 빠지면 사기(1년까지)": {
+    "detail": {
+     "2y·앞": {
+      "n": 108,
+      "stable": "43.5%",
+      "ret_median": "6.8%",
+      "worst_from_start_median": "-16.0%",
+      "worst": "-49.4%",
+      "loss_vs_start_20": "45.4%"
+     },
+     "2y·뒤": {
+      "n": 190,
+      "stable": "86.8%",
+      "ret_median": "19.6%",
+      "worst_from_start_median": "-4.8%",
+      "worst": "-29.6%",
+      "loss_vs_start_20": "3.7%"
+     },
+     "5y·앞": {
+      "n": 108,
+      "stable": "19.4%",
+      "ret_median": "14.6%",
+      "worst_from_start_median": "-37.6%",
+      "worst": "-52.5%",
+      "loss_vs_start_20": "78.7%"
+     },
+     "5y·뒤": {
+      "n": 154,
+      "stable": "95.5%",
+      "ret_median": "76.2%",
+      "worst_from_start_median": "-7.4%",
+      "worst": "-29.6%",
+      "loss_vs_start_20": "4.5%"
+     }
+    },
+    "class": "조건부형",
+    "why": "칸에 따라 뒤집힘 -5.8%p~+8.3%p",
+    "cells": {
+     "2y·앞·L15": "-2.8%p",
+     "2y·뒤·L15": "+3.2%p",
+     "2y·앞·L20": "-0.9%p",
+     "2y·뒤·L20": "-0.5%p",
+     "2y·앞·L25": "+3.7%p",
+     "2y·뒤·L25": "-5.8%p",
+     "5y·앞·L15": "+1.9%p",
+     "5y·뒤·L15": "+3.2%p",
+     "5y·앞·L20": "+3.7%p",
+     "5y·뒤·L20": "+4.5%p",
+     "5y·앞·L25": "+8.3%p",
+     "5y·뒤·L25": "+1.9%p"
+    },
+    "answer": "안정 수익 확률(이 선택 − 한 번에): 2y·앞·L20 -0.9%p · 2y·뒤·L20 -0.5%p · 5y·앞·L20 +3.7%p · 5y·뒤·L20 +4.5%p"
+   },
+   "10% 빠지면 사기(5년까지)": {
+    "detail": {
+     "2y·앞": {
+      "n": 108,
+      "stable": "11.1%",
+      "ret_median": "4.2%",
+      "worst_from_start_median": "-14.6%",
+      "worst": "-49.4%",
+      "loss_vs_start_20": "44.4%"
+     },
+     "2y·뒤": {
+      "n": 190,
+      "stable": "35.3%",
+      "ret_median": "3.9%",
+      "worst_from_start_median": "0.0%",
+      "worst": "-18.4%",
+      "loss_vs_start_20": "0.0%"
+     },
+     "5y·앞": {
+      "n": 108,
+      "stable": "13.9%",
+      "ret_median": "22.2%",
+      "worst_from_start_median": "-28.7%",
+      "worst": "-49.4%",
+      "loss_vs_start_20": "73.1%"
+     },
+     "5y·뒤": {
+      "n": 154,
+      "stable": "38.3%",
+      "ret_median": "5.6%",
+      "worst_from_start_median": "0.0%",
+      "worst": "-18.4%",
+      "loss_vs_start_20": "0.0%"
+     }
+    },
+    "class": "조건부형",
+    "why": "칸에 따라 뒤집힘 -57.8%p~+6.5%p",
+    "cells": {
+     "2y·앞·L15": "-35.2%p",
+     "2y·뒤·L15": "-46.8%p",
+     "2y·앞·L20": "-33.3%p",
+     "2y·뒤·L20": "-52.1%p",
+     "2y·앞·L25": "-28.7%p",
+     "2y·뒤·L25": "-57.4%p",
+     "5y·앞·L15": "-5.6%p",
+     "5y·뒤·L15": "-44.8%p",
+     "5y·앞·L20": "-1.9%p",
+     "5y·뒤·L20": "-52.6%p",
+     "5y·앞·L25": "+6.5%p",
+     "5y·뒤·L25": "-57.8%p"
+    },
+    "answer": "안정 수익 확률(이 선택 − 한 번에): 2y·앞·L20 -33.3%p · 2y·뒤·L20 -52.1%p · 5y·앞·L20 -1.9%p · 5y·뒤·L20 -52.6%p"
+   },
+   "10% 빠지면 팔고 6개월 뒤": {
+    "detail": {
+     "2y·앞": {
+      "n": 108,
+      "stable": "54.6%",
+      "ret_median": "12.9%",
+      "worst_from_start_median": "-11.8%",
+      "worst": "-51.4%",
+      "loss_vs_start_20": "38.0%"
+     },
+     "2y·뒤": {
+      "n": 190,
+      "stable": "85.8%",
+      "ret_median": "23.0%",
+      "worst_from_start_median": "-5.8%",
+      "worst": "-31.1%",
+      "loss_vs_start_20": "4.7%"
+     },
+     "5y·앞": {
+      "n": 108,
+      "stable": "51.9%",
+      "ret_median": "31.6%",
+      "worst_from_start_median": "-12.4%",
+      "worst": "-51.4%",
+      "loss_vs_start_20": "39.8%"
+     },
+     "5y·뒤": {
+      "n": 154,
+      "stable": "92.2%",
+      "ret_median": "85.0%",
+      "worst_from_start_median": "-5.5%",
+      "worst": "-31.1%",
+      "loss_vs_start_20": "7.8%"
+     }
+    },
+    "class": "조건부형",
+    "why": "칸에 따라 뒤집힘 -6.8%p~+37.0%p",
+    "cells": {
+     "2y·앞·L15": "+4.6%p",
+     "2y·뒤·L15": "+0.0%p",
+     "2y·앞·L20": "+10.2%p",
+     "2y·뒤·L20": "-1.6%p",
+     "2y·앞·L25": "+11.1%p",
+     "2y·뒤·L25": "-6.8%p",
+     "5y·앞·L15": "+30.6%p",
+     "5y·뒤·L15": "+2.6%p",
+     "5y·앞·L20": "+36.1%p",
+     "5y·뒤·L20": "+1.3%p",
+     "5y·앞·L25": "+37.0%p",
+     "5y·뒤·L25": "-3.9%p"
+    },
+    "answer": "안정 수익 확률(이 선택 − 한 번에): 2y·앞·L20 +10.2%p · 2y·뒤·L20 -1.6%p · 5y·앞·L20 +36.1%p · 5y·뒤·L20 +1.3%p"
+   }
+  },
+  "jaemu-test-2026-10": {
+   "n_all": 816,
+   "n_cheap": 138,
+   "싸 보이는 회사(PER 15 미만)": {
+    "class": "정답형",
+    "why": "어느 칸에서도 뒤집히지 않음 · 비교 대상이 더 높음 · 기본 칸 -18.8%p · 범위 -27.9%p~-9.6%p (값 = 깨끗 − 경고, 안정 수익 확률) · 경고 쪽 위험은 빠진 회사가 없어 작게 잡힘",
+    "cells": {
+     "2024": "-27.9%p",
+     "2025": "-9.6%p"
+    },
+    "table": {
+     "2024": {
+      "warn_n": 8,
+      "clean_n": 17,
+      "warn_big_loss": "0.0%",
+      "clean_big_loss": "11.8%",
+      "warn_stable": "75.0%",
+      "clean_stable": "47.1%",
+      "warn_ret_median": "20.4%",
+      "clean_ret_median": "-0.1%"
+     },
+     "2025": {
+      "warn_n": 5,
+      "clean_n": 27,
+      "warn_big_loss": "0.0%",
+      "clean_big_loss": "0.0%",
+      "warn_stable": "80.0%",
+      "clean_stable": "70.4%",
+      "warn_ret_median": "62.1%",
+      "clean_ret_median": "29.8%"
+     }
+    }
+   },
+   "모든 흑자 회사": {
+    "class": "정답형",
+    "why": "어느 칸에서도 뒤집히지 않음 · 비교 대상이 더 높음 · 기본 칸 -10.3%p · 범위 -18.6%p~-2.1%p (값 = 깨끗 − 경고, 안정 수익 확률) · 경고 쪽 위험은 빠진 회사가 없어 작게 잡힘",
+    "cells": {
+     "2024": "-2.1%p",
+     "2025": "-18.6%p"
+    },
+    "table": {
+     "2024": {
+      "warn_n": 48,
+      "clean_n": 194,
+      "warn_big_loss": "18.8%",
+      "clean_big_loss": "12.4%",
+      "warn_stable": "54.2%",
+      "clean_stable": "52.1%",
+      "warn_ret_median": "20.8%",
+      "clean_ret_median": "6.7%"
+     },
+     "2025": {
+      "warn_n": 34,
+      "clean_n": 198,
+      "warn_big_loss": "5.9%",
+      "clean_big_loss": "14.6%",
+      "warn_stable": "70.6%",
+      "clean_stable": "52.0%",
+      "warn_ret_median": "26.0%",
+      "clean_ret_median": "9.1%"
+     }
+    }
+   },
+   "cases": [
+    {
+     "sym": "RL",
+     "name": "랄프로렌",
+     "t0": "2024-07-31",
+     "1y": {
+      "end_10k": 17267,
+      "worst_from_start": "-9.7%",
+      "stable": true,
+      "big_loss_30": false
+     },
+     "2y": {
+      "end_10k": 22220,
+      "worst_from_start": "-9.7%",
+      "stable": true,
+      "big_loss_30": false
+     }
+    },
+    {
+     "sym": "KSS",
+     "name": "콜스",
+     "t0": "2024-06-03",
+     "1y": {
+      "end_10k": 3862,
+      "worst_from_start": "-71.7%",
+      "stable": false,
+      "big_loss_30": true
+     },
+     "2y": {
+      "end_10k": 7426,
+      "worst_from_start": "-71.7%",
+      "stable": false,
+      "big_loss_30": true
+     }
+    },
+    {
+     "sym": "EXPE",
+     "name": "익스피디아",
+     "t0": "2024-05-01",
+     "1y": {
+      "end_10k": 11889,
+      "worst_from_start": "-17.8%",
+      "stable": true,
+      "big_loss_30": false
+     },
+     "2y": {
+      "end_10k": 19109,
+      "worst_from_start": "-17.8%",
+      "stable": true,
+      "big_loss_30": false
+     }
+    },
+    {
+     "sym": "BBWI",
+     "name": "배스앤바디웍스",
+     "t0": "2024-06-03",
+     "1y": {
+      "end_10k": 5355,
+      "worst_from_start": "-49.7%",
+      "stable": false,
+      "big_loss_30": true
+     },
+     "2y": {
+      "end_10k": 3683,
+      "worst_from_start": "-69.9%",
+      "stable": false,
+      "big_loss_30": true
+     }
+    },
+    {
+     "sym": "URBN",
+     "name": "어반아웃피터스",
+     "t0": "2024-06-03",
+     "1y": {
+      "end_10k": 16864,
+      "worst_from_start": "-20.1%",
+      "stable": false,
+      "big_loss_30": false
+     },
+     "2y": {
+      "end_10k": 16881,
+      "worst_from_start": "-20.1%",
+      "stable": false,
+      "big_loss_30": false
+     }
+    }
+   ]
+  }
+ }
+}

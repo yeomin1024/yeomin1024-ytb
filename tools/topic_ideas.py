@@ -1,12 +1,19 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.4 — 2026-10-29 — 평가를 다 한 묶음 갈기·좋음 주제 다시 짜기 (사용자 지시 2026-10-29 "주식 주제 평가판 평가했는데 다시 주제 탐색해봐"):
+# VERSION: v1.5 — 2026-10-29 — **평가판 = 영상 기획안** (사용자 지시 2026-10-29 "저 평가판을 진짜 영상 만든다고 생각하고 제목, 썸네일 문구, 썸네일 보조 문구, 도입부,
+#          내용만(항목 및 정답, 해설 내용 간단하게) 표시되도록 해봐 기존 3건(재무제표, 매수 시기, 포트폴리오)도 … 다시 구성해봐"): `package <기획안.json>`
+#          ({"packages": {ID: {title, thumb_main[2], thumb_sub, intro[], items[{q,a}], explain[]}}} — 검사 lint_package) · 평가판 카드는 기획안만 (썸네일 모양 · 도입부 ·
+#          항목과 정답 · 해설) · settings [page] EPISODES = 기존 편 폴더 → <편>/재구성_안.json 을 '기존 편' 칸으로 (평가 문서 id EP_<편> → import 가 기존편_평가.txt 에) ·
+#          기획안 모음 문서 영상기획안.md. 영향: lint_package()·cmd_package()·render_page()·render_plans()·cmd_import()·read_ep_marks()·finish()·main()·PAGE.
+# (v1.4.1 — 2026-10-29 — pick_batch: 주제 묶음·니즈 제한 때문에 20개를 못 채우면 제한을 풀고 점수 순으로 채움 (겹침 검사는 그대로 · 로그 WARNING) —
+#          3회차 묶음이 14개로 끝나서 (좋음이 투자 심리·종목 고르기 묶음에 몰림). 사용자 지시 2026-10-29 "평가판 반영했으니 주제 다시 탐색하고 …".)
+# (v1.4 — 2026-10-29 — 평가를 다 한 묶음 갈기·좋음 주제 다시 짜기 (사용자 지시 2026-10-29 "주식 주제 평가판 평가했는데 다시 주제 탐색해봐"):
 #          `revise <고침.json>` = 주제 칸을 고침 ({ID: {칸: 새 값, "why": 까닭}} — 평가는 그대로 · 옛 값은 revised 에 · 미리 계산은 지워 다시 계산하게 · lint 통과만) ·
 #          `refresh` = 지금 묶음을 모두 평가(또는 작성·뺌)했으면 새 묶음 — 좋음(미리 계산 통과)은 새 묶음에 이어 가고, 나머지 안 쓴 주제는 대기로 · 20개를 못 채우면 아무것도 안 바꿈 ·
 #          data_kind 검사 (settings [fields] DATA_KINDS 가 있으면 그 안의 값만 — 주식: 사건 사례·종목 사례를 더함, 지수 전략 백테스트와 나눠 배우게).
 #          문서·평가판에 '다시 짬'(뜻이 바뀐 마지막 고침의 까닭 — 좋음을 받은 뒤 다시 짠 주제를 다시 평가할 수 있게).
 #          고침: v1.3 에서 평가판 안내 글 기본값(NOTE_PAGE)을 '[분류]' 글로 바꿔 재테크 평가판을 다시 만들면 주식 글이 찍히던 것 → 기본값 되돌리고 주식 settings [page] NOTE_PAGE 로.
-#          영향: lint()·pick_batch(carry)·cmd_revise()·cmd_refresh()·revised_why()·render()·render_page()·main().
+#          영향: lint()·pick_batch(carry)·cmd_revise()·cmd_refresh()·revised_why()·render()·render_page()·main().)
 # (v1.3 — 2026-10-29 — **정답 미리 확인** (사용자 지시 2026-10-29 "그렇게 절차정하고 주제 걸러봐 기존 3개도 확인해서"): `precheck <결과.json> [고친 결론.json]` —
 #          주제마다 미리 계산 분류(정답형·차이없음·사실형·계산형·조건부형·미확인)·고친 결론·까닭을 topics.json 에 · settings [precheck] EXCLUDE(미확인)·NO_TEST(조건부형인데
 #          테스트형) 는 묶음에서 뺌(나쁨처럼 '남은 것'에서 빠짐 · 새 묶음에 안 뽑힘) · 주제탐색.md 표·자세히·평가판에 분류 · use 할 때 미리 계산이 없거나 빠진 주제면 경고.
@@ -46,6 +53,7 @@
   python3 tools/topic_ideas.py stock precheck <결과.json> [고친 결론.json]   # v1.3 정답 미리 확인 (stock/topics/precheck/precheck.py 결과) → 분류·고친 결론 · 미확인·조건부 테스트형은 묶음에서 뺌
   python3 tools/topic_ideas.py stock revise <고침.json>   # v1.4 주제 칸 고치기 ({ID: {칸: 값, "why": 까닭}}) — 평가 유지 · 미리 계산은 다시
   python3 tools/topic_ideas.py stock refresh             # v1.4 묶음을 모두 평가했으면 새 20개 — 좋음은 이어 감
+  python3 tools/topic_ideas.py stock package <기획안.json> # v1.5 주제마다 영상 기획안(제목·썸네일 문구·보조·도입부·항목과 정답·해설) → 평가판 카드
 로그: [STAGE] [시각] key=value (START·LOAD·USED·CHECK·SCORE·LEARN·BATCH·WRITE·DONE)
 """
 import argparse
@@ -67,7 +75,7 @@ try:
 except ModuleNotFoundError:            # Python 3.10
     import tomli as tomllib
 
-VERSION = "v1.4"
+VERSION = "v1.5"
 ROOT = Path(__file__).resolve().parent.parent
 LOG = logging.getLogger("topics")
 FIELDS = ("title", "question", "conclusion", "decide", "data", "format", "persona", "theme", "needs", "market", "data_kind")
@@ -465,6 +473,17 @@ def pick_batch(S, Z, W, marks, carry=()):
             break
         if it not in chosen and ok(it):
             take(it, "점수 순")
+    filled = 0
+    if len(chosen) < cfg["SIZE"]:                   # v1.4.1 주제 묶음·니즈 제한 때문에 못 채우면 — 제한을 풀고 점수 순 (같은 묶음 안 겹침 검사는 그대로)
+        for it in pool:
+            if len(chosen) >= cfg["SIZE"]:
+                break
+            tk, bg = toks(ctext(it)), bigrams(ctext(it))
+            if it not in chosen and all(jacc(tk, toks(ctext(c))) < Z["dedupe"]["SIM_MAX_BATCH"] and overlap(bg, bigrams(ctext(c))) < Z["dedupe"]["OVERLAP_MAX_BATCH"] for c in chosen):
+                take(it, "점수 순 (주제 묶음·니즈 제한을 풀어 채움)")
+                filled += 1
+        if filled:
+            log("BATCH", logging.WARNING, note=f"제한 안에서 {len(chosen) - filled}개뿐 — 제한을 풀어 {filled}개 더 채움", limits=f"MAX_PER_THEME={cfg['MAX_PER_THEME']} MAX_PER_NEED={cfg['MAX_PER_NEED']}")
     no = len(S["batches"]) + 1
     for it in chosen:
         it["status"], it["batch"] = "이번 묶음", no
@@ -526,7 +545,9 @@ def finish(topic, P, Z, S, A, refresh_ok=False):
     done = batch_done(S)
     save_state(P, S)
     P["md"].write_text(render(S, Z, A, W, g, b, marks, done), "utf-8")
+    P_PAGE[0], Z_PAGE[0] = P, Z
     P["page"].write_text(render_page(S, A), "utf-8")
+    (P["md"].parent / "영상기획안.md").write_text(render_plans(S, P, Z), "utf-8")
     b2 = current_batch(S)
     left = [t for t in (b2["ids"] if b2 else []) if S["items"][t]["status"] == "이번 묶음" and S["items"][t].get("rating") != "나쁨" and not pre_out(S["items"][t])]
     log("WRITE", md=str(P["md"].relative_to(P["base"].parent)), json=str(P["json"].relative_to(P["base"].parent)), page=str(P["page"].relative_to(P["base"].parent)),
@@ -664,6 +685,92 @@ def cmd_refresh(topic, root=None):
     return finish(topic, P, Z, S, A)
 
 
+PKG_KEYS = ("title", "thumb_main", "thumb_sub", "intro", "items", "explain")
+
+
+def lint_package(pk):
+    """v1.5 영상 기획안 검사 — 칸이 다 있고 길이가 맞는지 (문제 목록, 없으면 통과)."""
+    bad = [f"'{k}' 칸 없음" for k in PKG_KEYS if not pk.get(k)]
+    if bad:
+        return bad
+    if len(pk["title"]) > 60:
+        bad.append(f"제목 {len(pk['title'])}자 > 60")
+    if not (isinstance(pk["thumb_main"], list) and len(pk["thumb_main"]) == 2 and all(pk["thumb_main"])):
+        bad.append("썸네일 문구는 2줄 (목록 2개)")
+    elif max(len(x) for x in pk["thumb_main"]) > 14:
+        bad.append("썸네일 문구 한 줄이 14자 넘음")
+    if len(pk["thumb_sub"]) > 16:
+        bad.append(f"보조 문구 {len(pk['thumb_sub'])}자 > 16")
+    if not 2 <= len(pk["intro"]) <= 6:
+        bad.append(f"도입부 {len(pk['intro'])}문장 (2~6)")
+    if not 3 <= len(pk["items"]) <= 6 or not all(x.get("q") and x.get("a") for x in pk["items"]):
+        bad.append("항목 3~6개 · 항목마다 q(질문)·a(정답)")
+    if not 1 <= len(pk["explain"]) <= 3:
+        bad.append("해설 1~3문장")
+    return bad
+
+
+def cmd_package(topic, path, root=None):
+    """v1.5 영상 기획안 넣기 — {"packages": {ID: {...}}} · 검사를 못 넘으면 그 주제는 안 바꿈 · 평가는 그대로."""
+    P = paths(topic, root)
+    Z, S, A = load_settings(P), load_state(P, topic), load_analysis(P)
+    pk = json.loads(Path(path).read_text("utf-8"))
+    pk = pk.get("packages", pk)
+    ok_n = 0
+    for tid, v in pk.items():
+        if tid not in S["items"]:
+            log("CHECK", logging.WARNING, id=tid, result="없는 주제")
+            continue
+        probs = lint_package(v)
+        if probs:
+            log("CHECK", logging.WARNING, id=tid, result="기획안 안 넣음", why="; ".join(probs))
+            continue
+        S["items"][tid]["package"] = {**{k: v[k] for k in PKG_KEYS}, "file": str(path), "made": datetime.now(timezone.utc).strftime("%Y-%m-%d")}
+        ok_n += 1
+        log("CHECK", id=tid, result="기획안", title=v["title"][:40], items=len(v["items"]))
+    log("CHECK", topic=topic, packages=ok_n, asked=len(pk))
+    save_state(P, S)
+    return finish(topic, P, Z, S, A)
+
+
+def ep_marks_path(P):
+    return P["md"].parent / "기존편_평가.txt"            # <주제>/topics/
+
+
+def read_ep_marks(P):
+    """v1.5 기존 편 기획안 평가 — 'EP_<편> 좋음|나쁨 까닭' (마지막 줄이 이김)."""
+    out = {}
+    f = ep_marks_path(P)
+    if f.is_file():
+        for ln in f.read_text("utf-8").splitlines():
+            m = re.match(r"^(EP_\S+)\s+(좋음|나쁨|지움)\s*(.*?)(\s+#.*)?$", ln.strip())
+            if m:
+                if m.group(2) == "지움":
+                    out.pop(m.group(1), None)
+                else:
+                    out[m.group(1)] = {"rating": m.group(2), "why": m.group(3).strip()}
+    return out
+
+
+def load_episodes(P, Z):
+    """settings [page] EPISODES — <주제>/source/<편>/재구성_안.json (없으면 건너뜀)."""
+    eps, em = [], read_ep_marks(P)
+    for ep in (Z.get("page") or {}).get("EPISODES") or []:
+        f = P["base"] / "source" / ep / "재구성_안.json"     # P["base"] = <주제>/
+        if not f.is_file():
+            log("LOAD", logging.WARNING, episode=ep, note="재구성_안.json 없음")
+            continue
+        d = json.loads(f.read_text("utf-8"))
+        probs = lint_package(d)
+        if probs:
+            log("CHECK", logging.WARNING, episode=ep, why="; ".join(probs))
+            continue
+        eid = "EP_" + ep
+        eps.append({"id": eid, "label": d.get("label", ep), "pkg": {k: d[k] for k in PKG_KEYS}, "changed": d.get("changed", ""),
+                    "rating": em.get(eid, {}).get("rating"), "why": em.get(eid, {}).get("why", "")})
+    return eps
+
+
 def cmd_import(topic, path, root=None):
     """평가판(Artifact db 'marks' 모음) → 평가.txt. Claude 가 ArtifactData list 결과를 파일로 저장해 넘김.
     문서마다 id(=T003)·rating(좋음|나쁨|빈칸=지움)·why·at. 지금 평가와 다른 것만 한 줄씩 더함 (빈칸 = '지움' 줄)."""
@@ -683,10 +790,20 @@ def cmd_import(topic, path, root=None):
             docs = [json.loads(ln) for ln in txt.splitlines() if ln.strip().startswith("{")]
     cur = read_marks(P)
     S = load_state(P, topic)
-    lines, seen = [], 0
+    lines, seen, ep_lines = [], 0, []
     for d in docs:
         body = d.get("data") if isinstance(d.get("data"), dict) else d
         tid = str(d.get("id") or d.get("doc_id") or str(d.get("path", "")).split("/")[-1])
+        if tid.startswith("EP_"):                      # v1.5 기존 편 기획안 평가 → 기존편_평가.txt
+            body = d.get("data") if isinstance(d.get("data"), dict) else d
+            r = str(body.get("rating") or "")
+            why = re.sub(r"\s+", " ", str(body.get("why") or "")).strip()[:120]
+            cur_ep = read_ep_marks(P)
+            if r in ("좋음", "나쁨") and (cur_ep.get(tid, {}).get("rating") != r or cur_ep.get(tid, {}).get("why", "") != why):
+                ep_lines.append(f"{tid} {r} {why}".rstrip() + f"  # 평가판 {str(body.get('at') or '')[:16]}")
+            elif not r and tid in cur_ep:
+                ep_lines.append(f"{tid} 지움  # 평가판 {str(body.get('at') or '')[:16]}")
+            continue
         if not re.match(r"^T\d{3,}$", tid) or tid not in S["items"]:
             continue
         seen += 1
@@ -702,7 +819,14 @@ def cmd_import(topic, path, root=None):
             if new:
                 f.write(MARKS_HEAD.replace("__NAME__", NAME))
             f.write("\n".join(lines) + "\n")
-    log("LEARN", topic=topic, source=str(path), page_docs=seen, new_lines=len(lines))
+    if ep_lines:
+        f = ep_marks_path(P)
+        new = not f.is_file()
+        with open(f, "a", encoding="utf-8") as fh:
+            if new:
+                fh.write("# 기존 편 다시 짠 안(평가판 '기존 편' 칸) 평가 — 'EP_<편> 좋음|나쁨 까닭' · 같은 편은 마지막 줄이 이김 (topic_ideas.py v1.5)\n")
+            fh.write("\n".join(ep_lines) + "\n")
+    log("LEARN", topic=topic, source=str(path), page_docs=seen, new_lines=len(lines), episode_lines=len(ep_lines))
     return cmd_status(topic, root)
 
 
@@ -908,18 +1032,35 @@ details dd{margin:0;min-width:0}
 .act input{flex:1 1 180px;min-width:0;font:inherit;font-size:.9rem;border:1px solid var(--line);border-radius:8px;padding:6px 10px;background:var(--bg);color:var(--ink)}
 .state{font-size:.8rem;color:var(--muted);min-width:4em}
 button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+/* v1.5 영상 기획안 카드 — 썸네일 모양(문구 2줄 + 보조 말풍선) · 도입부 · 항목과 정답 · 해설 */
+.thumb{position:relative;aspect-ratio:16/9;max-width:420px;width:100%;border-radius:8px;background:#0f141a;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;padding:12px 14px;box-sizing:border-box;overflow:hidden}
+.thumb .l1,.thumb .l2{font-weight:700;line-height:1.15;font-size:clamp(1.15rem,5vw,1.7rem);letter-spacing:-.02em;overflow-wrap:anywhere}
+.thumb .l2{color:#ffd54a}
+.thumb .bub{position:absolute;top:10px;right:10px;max-width:60%;background:#fff;color:#111;border-radius:12px;padding:2px 10px;font-size:.82rem;font-weight:500}
+.thumb .tag{position:absolute;top:10px;left:12px;font-size:.7rem;color:#9fb0c0;letter-spacing:.05em}
+.lab{font-size:.75rem;letter-spacing:.04em;color:var(--muted);margin:2px 0 0}
+.intro{margin:0;font-size:.95rem}
+.qa{list-style:decimal;padding-left:1.4em;margin:0;display:grid;gap:6px}
+.qa li{padding-left:2px}
+.qa .q{display:block}
+.qa .a{display:block;color:var(--good);font-weight:500}
+.qa .a::before{content:"정답 · ";color:var(--muted);font-weight:400}
+.exp{margin:0;font-size:.92rem;border-left:3px solid var(--accent);padding-left:10px}
+h2.sec{font-size:1.15rem;margin:18px 0 0}
+.chg{font-size:.82rem;color:var(--muted);margin:0}
 button:disabled,input:disabled{opacity:.55;cursor:not-allowed}
 </style>
 <div class="wrap">
 <header>
 <h1>__NAME__ 주제 평가판</h1>
 <p class="sub" id="sub"></p>
-<p class="note">좋음·나쁨을 누르면 저장됩니다. 다시 누르면 지워집니다. 까닭은 짧게 (선택). Claude 가 다음에 이 평가를 읽어 배우고, 다음 20개를 고를 때 좋은 쪽으로 뽑습니다. __NOTE__</p>
+<p class="note">주제마다 실제 영상처럼 제목 · 썸네일 문구 · 보조 문구 · 도입부 · 내용(항목과 정답 · 해설)만 보입니다. 좋음·나쁨을 누르면 저장되고, 다시 누르면 지워집니다. 까닭은 짧게 (선택). Claude 가 다음에 이 평가를 읽어 배우고, 다음 20개를 고를 때 좋은 쪽으로 뽑습니다. __NOTE__</p>
 <p class="note warn" id="offline" hidden>이 화면에서는 저장할 수 없습니다 (로그인이 필요하거나 보기 전용). 평가는 Claude 에게 'T003 좋아, T007 별로'처럼 말하면 됩니다.</p>
 <div class="bar"><span class="count" id="count"></span>
 <div class="filt" role="group" aria-label="거르기"><button type="button" data-f="all" aria-pressed="true">전체</button><button type="button" data-f="none" aria-pressed="false">평가 안 함</button><button type="button" data-f="good" aria-pressed="false">좋음</button><button type="button" data-f="bad" aria-pressed="false">나쁨</button></div></div>
 </header>
 <ol id="list"></ol>
+<section id="epsec" hidden><h2 class="sec">기존 3편 — 리스크를 줄이며 안정적으로 번 쪽을 정답으로 다시 짠 안</h2><ol id="eps"></ol></section>
 </div>
 <script id="data" type="application/json">__DATA__</script>
 <script>
@@ -927,6 +1068,7 @@ button:disabled,input:disabled{opacity:.55;cursor:not-allowed}
 const D=JSON.parse(document.getElementById("data").textContent);
 const marks={};            // id -> {rating, why}  (저장소 값 — 처음엔 저장소의 평가.txt 값)
 D.items.forEach(it=>{ if(it.rating) marks[it.id]={rating:it.rating,why:it.why||""}; });
+(D.episodes||[]).forEach(it=>{ if(it.rating) marks[it.id]={rating:it.rating,why:it.why||""}; });
 let db=null, canWrite=false, filter="all";
 const $=s=>document.querySelector(s);
 $("#sub").textContent=`${D.batch}번째 묶음 · ${D.made} · 주제 ${D.items.length}개 · 분석 ${D.analysis}`;
@@ -940,14 +1082,45 @@ function render(){
     if(filter==="none"&&r) return; if(filter==="good"&&r!=="좋음") return; if(filter==="bad"&&r!=="나쁨") return;
     const li=el("li",{class:"card"+(r==="좋음"?" good":r==="나쁨"?" bad":""),id:"c-"+it.id});
     const meta=el("div",{class:"meta"});
-    meta.append(el("span",{class:"rank"},it.rank+"위"),el("span",{class:"id"},it.id),el("span",{class:"chip"},it.format),el("span",{class:"chip"},it.persona));
+    meta.append(el("span",{class:"rank"},it.rank+"위"),el("span",{class:"id"},it.id));
+    if(!it.pkg){ meta.append(el("span",{class:"chip"},it.format),el("span",{class:"chip"},it.persona)); }
+    if(it.carried) meta.append(el("span",{class:"chip"},"앞 묶음 좋음"));
     if(it.status!=="이번 묶음") meta.append(el("span",{class:"chip"},it.status));
-    li.append(meta, el("h2",{},it.title));
+    if(it.pkg){ plan(li, it.pkg); }
+    else{
+    li.append(el("h2",{},it.title));
     const c=el("p",{class:"concl"}); c.append(el("span",{},/^\[/.test(it.title)?"결론(계산)":"결론(예상)")); c.append(document.createTextNode(it.conclusion)); li.append(c);
     const d=el("details"); d.append(el("summary",{},"질문 · 판정 규칙 · 자료 · 근거"));
     const dl=el("dl"); [["다시 짬",it.revised],["질문",it.question],["판정 규칙",it.decide],["자료",it.data],["근거",it.basis],["점수",it.score]].forEach(([k,v])=>{if(v){dl.append(el("dt",{},k),el("dd",{},String(v)));}});
     d.append(dl); li.append(d);
+    }
+    li.append(actions(it.id, r, m)); L.append(li);
+  });
+  const E=$("#eps"); E.innerHTML=""; const eps=D.episodes||[];
+  $("#epsec").hidden=!eps.length;
+  eps.forEach(ep=>{
+    const m=marks[ep.id]||{}; const r=m.rating||"";
+    const li=el("li",{class:"card"+(r==="좋음"?" good":r==="나쁨"?" bad":""),id:"c-"+ep.id});
+    const meta=el("div",{class:"meta"}); meta.append(el("span",{class:"id"},ep.label)); li.append(meta);
+    plan(li, ep.pkg);
+    if(ep.changed) li.append(el("p",{class:"chg"},"바뀐 것 · "+ep.changed));
+    li.append(actions(ep.id, r, m)); E.append(li);
+  });
+  counts();
+}
+function plan(li, p){
+  li.append(el("h2",{},p.title));
+  const t=el("div",{class:"thumb",role:"img","aria-label":"썸네일 문구 "+p.thumb_main.join(" ")+" · 보조 "+p.thumb_sub});
+  t.append(el("span",{class:"tag"},"썸네일"), el("span",{class:"bub"},p.thumb_sub), el("span",{class:"l1"},p.thumb_main[0]), el("span",{class:"l2"},p.thumb_main[1]));
+  li.append(t);
+  li.append(el("p",{class:"lab"},"도입부"), el("p",{class:"intro"},p.intro.join(" ")));
+  li.append(el("p",{class:"lab"},"내용 — 항목과 정답"));
+  const ol=el("ol",{class:"qa"}); p.items.forEach(x=>{const q=el("li"); q.append(el("span",{class:"q"},x.q), el("span",{class:"a"},x.a)); ol.append(q);}); li.append(ol);
+  const e=el("p",{class:"exp"}); e.append(el("span",{class:"lab"},"해설  ")); e.append(document.createTextNode(p.explain.join(" "))); li.append(e);
+}
+function actions(id, r, m){
     const act=el("div",{class:"act"});
+    const it={id:id};
     const gb=el("button",{type:"button",class:"g","aria-pressed":String(r==="좋음"),id:"g-"+it.id},"좋음");
     const bb=el("button",{type:"button",class:"b","aria-pressed":String(r==="나쁨"),id:"b-"+it.id},"나쁨");
     const why=el("input",{type:"text",id:"w-"+it.id,placeholder:"까닭 (선택)",maxlength:"120","aria-label":it.id+" 까닭"}); why.value=m.why||"";
@@ -956,9 +1129,8 @@ function render(){
     gb.addEventListener("click",()=>save(it.id, r==="좋음"?"":"좋음", why.value));
     bb.addEventListener("click",()=>save(it.id, r==="나쁨"?"":"나쁨", why.value));
     why.addEventListener("change",()=>{ if(marks[it.id]&&marks[it.id].rating) save(it.id, marks[it.id].rating, why.value); });
-    act.append(gb,bb,why,st); li.append(act); L.append(li);
-  });
-  counts();
+    act.append(gb,bb,why,st);
+    return act;
 }
 let busy=Promise.resolve();
 function save(id,rating,why){
@@ -998,6 +1170,34 @@ def revised_why(it):
     return ""
 
 
+P_PAGE, Z_PAGE = [None], [None]           # v1.5 finish() 가 넣음 (기존 편 칸을 읽으려고)
+
+
+def render_plans(S, P, Z):
+    """v1.5 영상기획안.md — 이번 묶음 기획안 + 기존 편 다시 짠 안 (사람이 읽는 모음)."""
+    B = current_batch(S)
+    L = [f"# {NAME} 영상 기획안 — {B['no'] if B else 0}번째 묶음", "",
+         f"(자동 — `tools/topic_ideas.py {VERSION}` · 기획안 `package` · 평가판 {(Z.get('page') or {}).get('URL', '')}) ※ 연구·교육용 — 투자 권유가 아님.", ""]
+    def block(head, pk, extra=""):
+        out = [f"## {head}", "", f"- **제목**: {pk['title']}", f"- **썸네일 문구**: {' / '.join(pk['thumb_main'])}", f"- **썸네일 보조 문구**: {pk['thumb_sub']}",
+               f"- **도입부**: {' '.join(pk['intro'])}", "- **내용**:"]
+        out += [f"  {i}. {x['q']} → **{x['a']}**" for i, x in enumerate(pk["items"], 1)]
+        out += [f"- **해설**: {' '.join(pk['explain'])}"] + ([f"- {extra}"] if extra else []) + [""]
+        return out
+    if B:
+        for t in B["ids"]:
+            it = S["items"][t]
+            if it.get("package"):
+                pc = it.get("precheck") or {}
+                L += block(f"{t} — {it['title']}", it["package"], f"미리 계산: {pc.get('class', '-')} · 평가: {it.get('rating') or '-'}")
+    eps = load_episodes(P, Z)
+    if eps:
+        L += ["# 기존 편 — 리스크 기준으로 다시 짠 안", ""]
+        for e in eps:
+            L += block(e["label"], e["pkg"], f"바뀐 것: {e['changed']}")
+    return "\n".join(L) + "\n"
+
+
 def render_page(S, A):
     """평가판 HTML — 이번 묶음 20개 (점수 순). 저장된 평가(평가.txt)를 처음 값으로 넣고, 페이지에서 누른 것은 db 'marks' 에."""
     B = current_batch(S)
@@ -1013,8 +1213,11 @@ def render_page(S, A):
             items.append({"rank": i, "id": it["id"], "title": (f"[{'⛔ ' if pc.get('out') else ''}{pc['class']}] " if pc else "") + it["title"],
                           "conclusion": pc.get("conclusion") or it["conclusion"], "question": it["question"], "decide": it["decide"],
                           "data": it["data"], "format": it["format"], "persona": f"{pp.get('id', '?')} {pp.get('name', it['persona'])}", "status": it["status"],
-                          "score": f"{it['score']:.2f}", "basis": basis or it.get("why", ""), "rating": it.get("rating"), "why": it.get("rating_why", ""), "revised": revised_why(it)})
-    data = {"batch": B["no"] if B else 0, "made": (B["made"][:10] if B else "-"), "analysis": str(A["analysis_made"])[:10], "items": items}
+                          "score": f"{it['score']:.2f}", "basis": basis or it.get("why", ""), "rating": it.get("rating"), "why": it.get("rating_why", ""), "revised": revised_why(it),
+                          "pkg": {k: it["package"][k] for k in PKG_KEYS} if it.get("package") else None,
+                          "carried": (it.get("picked_why") or "").startswith("좋음")})
+    data = {"batch": B["no"] if B else 0, "made": (B["made"][:10] if B else "-"), "analysis": str(A["analysis_made"])[:10], "items": items,
+            "episodes": load_episodes(P_PAGE[0], Z_PAGE[0]) if P_PAGE[0] else []}
     js = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
     return PAGE.replace("__NAME__", NAME).replace("__NOTE__", NOTE_PAGE).replace("__DATA__", js)
 
@@ -1022,7 +1225,7 @@ def render_page(S, A):
 def main(argv=None):
     ap = argparse.ArgumentParser(description="주제 탐색 (주식·재테크) — 20개씩 · 평가를 배움 · 명확한 결론만")
     ap.add_argument("topic")
-    ap.add_argument("cmd", choices=["material", "add", "mark", "use", "done", "status", "import", "precheck", "revise", "refresh"])
+    ap.add_argument("cmd", choices=["material", "add", "mark", "use", "done", "status", "import", "precheck", "revise", "refresh", "package"])
     ap.add_argument("args", nargs="*")
     ap.add_argument("--log-level", default="INFO", choices=["DEBUG", "INFO", "WARNING"])
     a = ap.parse_args(argv)
@@ -1043,6 +1246,8 @@ def main(argv=None):
         cmd_revise(a.topic, a.args[0])
     elif a.cmd == "refresh":
         cmd_refresh(a.topic)
+    elif a.cmd == "package":
+        cmd_package(a.topic, a.args[0])
     elif a.cmd in ("use", "done"):
         cmd_use(a.topic, a.args[0], a.args[1] if len(a.args) > 1 else "", done=a.cmd == "done")
     else:

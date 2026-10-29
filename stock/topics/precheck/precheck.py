@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.1 — 2026-10-29 — 2회차 (사용자 지시 2026-10-29 "주식 주제 평가판 평가했는데 다시 주제 탐색해봐"): 새 후보 T027~T039 · 다시 짠 좋음 주제
+# VERSION: v1.2 — 2026-10-29 — 3회차 + 기존 3편 다시 (사용자 지시 2026-10-29 "평가판 반영했으니 주제 다시 탐색하고 … 기존 3건(재무제표, 매수 시기, 포트폴리오)도 기준을
+#          리스크를 줄이면서 안정적 수익내는걸 기준으로 해서 다시 구성해봐"): risk.py 연결 — TOPICS3(T022 다시 짬 · T043~T055) · --episodes (기존 3편을 '안정 수익 확률'로 →
+#          precheck/episodes_<날짜>.json) · --selftest-risk.
+# (v1.1 — 2026-10-29 — 2회차 (사용자 지시 2026-10-29 "주식 주제 평가판 평가했는데 다시 주제 탐색해봐"): 새 후보 T027~T039 · 다시 짠 좋음 주제
 #          T003·T011·T012·T022 를 stocks.py(지금 S&P 500 구성 종목 일괄 자료 — bulk.py 캐시)로 계산 · --tag (결과 파일 이름 뒤) · --selftest-stocks ·
 #          옛 T003(가장 오른 10일) 은 T003_r1 로 남김 · NO_DATA 에서 T011·T012·T022 뺌 (이제 계산).
 # (v1.0 — 2026-10-29 — 최초. 주제 '정답 미리 확인' (사용자 지시 2026-10-29 "그렇게 절차정하고 주제 걸러봐 기존 3개도 확인해서").
@@ -9,6 +12,7 @@
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.2 | 2026-10-29 | 3회차 — risk.py (TOPICS3 · EPISODES · --episodes · --selftest-risk) | main |
 # | v1.1 | 2026-10-29 | 2회차 — stocks.py 연결(TOPICS2) · --tag · --selftest-stocks · T003_r1 · NO_DATA 줄임 | main · TOPICS · NO_DATA |
 # | v1.0 | 2026-10-29 | 최초 (같은 날 고침: classify_full — 앞 시기 자료가 없으면 정답형 ✗ · T007 JEPI 예외 적음) — 받기(캐시) · 비교 칸(기간 × 시작 시기 × 가정) · 주제 26개 + 기존 2편(포트폴리오 항목) 계산 · JSON | 전부 |
 #
@@ -45,8 +49,9 @@ sys.path.insert(0, str(TIMING))
 sys.path.insert(0, str(ROOT / "tools"))
 import calc as T  # noqa: E402  매수 시기 편 calc (month_starts · windows · cash_index · align_irx · load · big_declines)
 import stocks  # noqa: E402  v1.1 2회차 — 지금 S&P 500 구성 종목 자료로 계산하는 주제 (TOPICS2)
+import risk  # noqa: E402  v1.2 3회차 — 안정 수익 확률 · 기존 3편 (TOPICS3 · EPISODES)
 
-VERSION = "v1.1"
+VERSION = "v1.2"
 EARLY, LATE_FROM = (2000, 2008), 2009
 MAIN_MIN, CELL_MIN = 0.60, 0.55
 
@@ -617,12 +622,33 @@ def selftest_stocks(B, I, P, F):
     return 1 if bad else 0
 
 
+def selftest_risk():
+    """risk.py — 안정 수익 판정과 분류 (자료 없이)."""
+    c = np.linspace(1, 1.04, 100)
+    checks = [("예금보다 더 남고 덜 빠짐 → 안정", risk.stable(np.linspace(1, 1.2, 100), c), True),
+              ("원금 25% 빠진 적 → 안정 아님 (L 20%)", risk.stable(np.r_[np.linspace(1, 0.75, 50), np.linspace(0.75, 1.3, 50)], c), False),
+              ("같은 길이지만 L 30% 면 안정", risk.stable(np.r_[np.linspace(1, 0.75, 50), np.linspace(0.75, 1.3, 50)], c, 0.30), True),
+              ("예금보다 덜 남음 → 안정 아님", risk.stable(np.linspace(1, 1.02, 100), c), False),
+              ("모든 칸 +5%p → 정답형", risk.classify_diff({"a": 0.05, "b": 0.08})[0], "정답형"),
+              ("+5 와 −5 → 조건부형", risk.classify_diff({"a": 0.05, "b": -0.05})[0], "조건부형"),
+              ("모든 칸 ±2%p → 차이없음", risk.classify_diff({"a": 0.02, "b": -0.01})[0], "차이없음")]
+    bad = 0
+    for name, got, want in checks:
+        ok = got == want
+        (out if ok else warn)("SELFTEST", check=name.replace(" ", "_"), ok=ok, got=got)
+        bad += not ok
+    out("SELFTEST", passed=len(checks) - bad, failed=bad)
+    return 1 if bad else 0
+
+
 def main():
     ap = argparse.ArgumentParser(description="주제 정답 미리 확인 (연구·교육용)")
     ap.add_argument("--refetch", action="store_true")
     ap.add_argument("--only", nargs="*", default=None, help="T001 T004 … 만")
     ap.add_argument("--tag", default="", help="결과 파일 이름 뒤 (예: r2 → precheck_<날짜>_r2.json)")
     ap.add_argument("--selftest-stocks", action="store_true", help="stocks.py 자료·함수 점검만")
+    ap.add_argument("--selftest-risk", action="store_true", help="risk.py 안정 수익 판정 점검만")
+    ap.add_argument("--episodes", action="store_true", help="기존 3편을 '안정 수익 확률'로 다시 계산 → episodes_<날짜>.json")
     ap.add_argument("--log-level", default="INFO", choices=["DEBUG", "INFO", "WARNING"])
     a = ap.parse_args()
     h = logging.StreamHandler(sys.stdout)
@@ -634,12 +660,36 @@ def main():
     out("START", version=VERSION, rule=f"정답형 = 모든 칸 같은 쪽 · 가장 약한 칸 ≥ {pct(CELL_MIN)} · 기본 ≥ {pct(MAIN_MIN)}", early=EARLY, late_from=LATE_FROM)
     B = Base(a.refetch)
     res = {}
-    need2 = [t for t in stocks.TOPICS2 if not a.only or t in a.only]
-    if need2 or a.selftest_stocks:
+    if a.selftest_risk:
+        return selftest_risk()
+    need3 = [t for t in risk.TOPICS3 if not a.only or t in a.only]
+    need2 = [t for t in stocks.TOPICS2 if (not a.only or t in a.only) and t not in risk.TOPICS3]
+    if need2 or need3 or a.selftest_stocks or a.episodes:
         I, P, F = stocks.Ix(B), stocks.load_bulk(lambda st, **kv: out(st, **kv)), stocks.load_fa()
         out("LOAD", source="bulk/fa/*.json", symbols=len(F), note="지금 S&P 500 구성 종목 — 생존 편향은 주제마다 bias 칸")
         if a.selftest_stocks:
             return selftest_stocks(B, I, P, F)
+    if a.episodes:
+        ep = {}
+        for name, f in risk.EPISODES.items():
+            t1 = time.time()
+            ep[name] = f(B, I, P, F)
+            out("EPISODE", name=name, seconds=f"{time.time() - t1:.1f}",
+                classes=json.dumps({k: v.get("class") for k, v in ep[name].items() if isinstance(v, dict) and "class" in v}, ensure_ascii=False)[:300])
+        path = HERE / f"episodes_{date.today().isoformat()}.json"
+        path.write_text(json.dumps({"version": VERSION, "risk": risk.VERSION, "made": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+                                    "data_last": B.d[-1].isoformat(), "rule": "안정 수익 = 끝에 예금보다 더 + 원금보다 L(15·20·25%) 넘게 안 줄어듦", "episodes": ep},
+                                   ensure_ascii=False, indent=1, default=str), "utf-8")
+        out("DONE", file=path.relative_to(ROOT), note="연구·교육용 — 투자 권유 아님")
+        return 0
+    for tid in need3:
+        try:
+            r = risk.TOPICS3[tid](B, I, P, F)
+        except Exception as e:
+            warn("TOPIC", id=tid, error=repr(e)[:160], next_step="risk.py 함수·bulk 자료 확인")
+            r = {"class": "미확인", "answer": "-", "why": f"계산 실패: {e!r}"[:200]}
+        res[tid] = r
+        out("TOPIC", id=tid, cls=r["class"], answer=str(r["answer"])[:220])
     for tid in need2:
         try:
             r = stocks.TOPICS2[tid](B, I, P, F)
@@ -677,6 +727,7 @@ def main():
 
 
 stocks.bind(classify=classify, classify_full=classify_full, cells=cells, flat=flat, on=on, fetch=fetch)
+risk.S.bind(classify=classify, classify_full=classify_full, cells=cells, flat=flat, on=on, fetch=fetch)
 
 if __name__ == "__main__":
     sys.exit(main())

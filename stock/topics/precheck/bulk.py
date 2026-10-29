@@ -1,15 +1,19 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-10-29 — 최초. 정답 미리 확인 2회차 (사용자 지시 2026-10-29 "주식 주제 평가판 평가했는데 다시 주제 탐색해봐") —
+# VERSION: v1.1 — 2026-10-29 — 재무 둘째 묶음 `fundamentals2` → bulk/fa2/ (빚·영업이익·이자 비용·영업현금흐름·잉여현금·현금) — 재무제표 편을 '리스크를 줄이며 안정적 수익' 기준으로
+#          다시 짜며 경고 신호(빚을 감당할 힘·매출 방향)를 503곳으로 확인하려고 (사용자 지시 2026-10-29 "기존 3건 … 리스크를 줄이면서 안정적 수익내는걸 기준으로 해서 다시 구성해봐").
+# (v1.0 — 2026-10-29 — 최초. 정답 미리 확인 2회차 (사용자 지시 2026-10-29 "주식 주제 평가판 평가했는데 다시 주제 탐색해봐") —
 #          실제 종목 주제(편입·분할·작년 1등·10배 종목·배당률 상위·이익과 주가)를 계산하려고 S&P 500 현재 구성 종목을 한꺼번에 받는다.
 #
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.1 | 2026-10-29 | fundamentals2 (FA2_TYPES → bulk/fa2/) | fundamentals · main |
 # | v1.0 | 2026-10-29 | 최초 — 구성 종목 목록 · 종목마다 일별 주가(배당·분할) · 연간 재무(매출·순이익·희석 EPS) 캐시 | 전부 |
 #
 # 실행: python3 -B stock/topics/precheck/bulk.py prices        (bulk/px/<기호>.csv 가 있으면 건너뜀 — 처음 한 번 약 5분)
 #       python3 -B stock/topics/precheck/bulk.py fundamentals  (bulk/fa/<기호>.json)
+#       python3 -B stock/topics/precheck/bulk.py fundamentals2 (bulk/fa2/<기호>.json — 빚·영업이익·이자 비용·현금흐름, v1.1)
 # 자료: 구성 종목 = github.com/datasets/s-and-p-500-companies data/constituents.csv (지금 구성 · 'Date added' 편입일)
 #       주가 = Yahoo Finance chart API v8 (close · adjclose · 배당 · 분할) · 재무 = Yahoo fundamentals-timeseries (연간 약 4년)
 # ⚠ 생존 편향: 지금 S&P 500 에 있는 회사만 — 그사이 빠진·망한 회사는 없음. 주제마다 편향이 결론을 어느 쪽으로 미는지 precheck.py 가 적는다.
@@ -28,7 +32,7 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 BULK = HERE / "bulk"
 LIST_URL = "https://raw.githubusercontent.com/datasets/s-and-p-500-companies/main/data/constituents.csv"
-VERSION = "v1.0"
+VERSION = "v1.1"
 SLEEP = 0.3
 
 logging.basicConfig(level=logging.INFO, format="[%(stage)s] [%(asctime)s] %(message)s", datefmt="%Y-%m-%dT%H:%M:%S")
@@ -102,12 +106,21 @@ FA_TYPES = ["annualTotalRevenue", "annualNetIncome", "annualDilutedEPS", "annual
             "annualRepurchaseOfCapitalStock", "annualCashDividendsPaid"]
 
 
-def fundamentals(sym):
-    path = BULK / "fa" / f"{sym}.json"
+FA2_TYPES = ["annualTotalDebt", "annualOperatingIncome", "annualEBIT", "annualInterestExpense", "annualOperatingCashFlow",
+             "annualFreeCashFlow", "annualCashAndCashEquivalents"]
+
+
+def fundamentals2(sym):
+    return fundamentals(sym, FA2_TYPES, "fa2")
+
+
+def fundamentals(sym, types=None, sub="fa"):
+    types = types or FA_TYPES
+    path = BULK / sub / f"{sym}.json"
     if path.exists():
         return "cached"
     url = (f"https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries/{urllib.parse.quote(ysym(sym))}"
-           f"?type={','.join(FA_TYPES)}&period1=946684800&period2={int(time.time()) + 86400 * 400}")
+           f"?type={','.join(types)}&period1=946684800&period2={int(time.time()) + 86400 * 400}")
     res = json.loads(get(url))["timeseries"]["result"]
     o = {}
     for r in res:
@@ -121,7 +134,7 @@ def fundamentals(sym):
 def main(argv):
     what = argv[1] if len(argv) > 1 else "prices"
     rows = constituents()
-    fn = prices if what == "prices" else fundamentals
+    fn = {"prices": prices, "fundamentals": fundamentals, "fundamentals2": fundamentals2}[what]
     done = fail = cached = 0
     t0 = time.time()
     failed = []

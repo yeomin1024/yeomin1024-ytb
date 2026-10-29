@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v2.1 — 2026-10-29 — 반론 6회차(상 1 · 중 5 · 하 5)에 답함: 정답 칸 = 앞 시기 경계 넷(QUIZ_EARLY_DEFS) × 이자 둘에서 모두 같은 칸 · 칸 빈틈 없앰(<40 · 40~60 · >60) ·
-#          문제 2·3·5 = 1년까지만 기다림 · 6개월 나눠 · 석 달 뒤 (v2.0 의 ±10% 끝 · 12개월 나눠 · 1년 뒤는 경계에 따라 칸이 바뀌어 QUIZ_REF 로) · QUIZ_ASYM 지우고 QUIZ_ALL(두 시기 합침).
+# VERSION: v2.2 — 2026-10-29 — 반론 7회차(상 1 · 중 3 · 하 5)에 답함: quiz_phases — 앞 시기를 '하락 한가운데 시작'(최고가 날~바닥 날)·나머지로, 또 시작한 날 알 수 있는
+#          '최고가보다 5~30% 아래'로 나눔 · QUIZ_PHASE_CHECK. 문제·정답·칸 규칙은 그대로.
+# (v2.1 — 2026-10-29 — 반론 6회차(상 1 · 중 5 · 하 5)에 답함: 정답 칸 = 앞 시기 경계 넷(QUIZ_EARLY_DEFS) × 이자 둘에서 모두 같은 칸 · 칸 빈틈 없앰(<40 · 40~60 · >60) ·
+#          문제 2·3·5 = 1년까지만 기다림 · 6개월 나눠 · 석 달 뒤 (v2.0 의 ±10% 끝 · 12개월 나눠 · 1년 뒤는 경계에 따라 칸이 바뀌어 QUIZ_REF 로) · QUIZ_ASYM 지우고 QUIZ_ALL(두 시기 합침).)
 # (v2.0 — 2026-10-29 — 문제형으로 바꿈 (사용자 지시 "1번으로 해봐" — 반론 5회차 뒤 고른 안 ①: '시기를 맞히는 규칙은 시작 시기로 나누면 뒤집혔다'):
 #          문제 5개 = '2009년 이후 시작한 사람은 다섯 규칙 모두 미루거나 팔지 않은 쪽이 이겼다 — 2000~2008년에 시작했다면?' · 보기 = 규칙 쪽 · 반반 · 미루지 않은 쪽 ·
 #          맞히면 20 · 틀리면 0 (QUIZ · quiz_pairs · quiz_run · big_declines). v1.x 테스트 꼴 점수 항목(q2b·q3b·q3s·q10·q6b)은 참고로 남김.)
@@ -20,6 +22,7 @@
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v2.2 | 2026-10-29 | 반론 7회차: quiz_phases(하락 한가운데 · 나머지 · 최고가보다 5~30% 아래) · QUIZ_PHASE_CHECK | quiz_phases · main |
 # | v2.1 | 2026-10-29 | 반론 6회차: QUIZ_EARLY_DEFS · QZ_SPEC(dip 1년까지 · split n · sell N개월 · delay m) · QUIZ_REF · band_of 빈틈 없음 · quiz_run(경계 넷 · late2010 · two_year · 범위) · QUIZ_CHECK(이자 5% 포함) · QUIZ_ALL · selftest 12 | QZ_SPEC · quiz_pairs · band_of · quiz_run · selftest · main |
 # | v2.0 | 2026-10-29 | 문제형: QUIZ(5문제·칸 규칙·보기 순서) · quiz_pairs(구간별 두 값 — 기존 함수와 같은 규칙, selftest 로 비율 대조) · quiz_run(앞·뒤 시기 × 2년·5년 · 다른 자르기 · 이자 5%) · big_declines(^GSPC 20% 넘는 하락) · QUESTIONS = 0·0·20 · VIRTUAL 글자로 | quiz_pairs · quiz_cell · band_of · quiz_run · big_declines · selftest · main |
 # | v1.7 | 2026-10-28 | 반론 4회차: q2d_wait_with_end · q2e_rewait · q3t_rebuy_after · q3b median_*_usd_100k (점수 항목·판정 그대로) | q2d_wait_with_end · q2e_rewait · q3t_rebuy_after · main |
@@ -57,7 +60,7 @@ ROOT = HERE.parents[3]
 sys.path.insert(0, str(ROOT / "tools"))
 import test_score as ts  # noqa: E402
 
-VERSION = "v2.1"
+VERSION = "v2.2"
 LEVELS = (0, 0, 20)                # v2.0 문제형: 맞히면 20 · 틀리면 0 (보기 셋 중 정답 하나)
 START_EVAL = date(2000, 1, 1)     # 평가 시작 (1900년대 자료는 쓰지 않음 — 1988~1999 는 최고가·하락 폭 기준을 위한 앞 자료로만)
 FETCH_FROM = date(1988, 1, 1)
@@ -902,6 +905,30 @@ def quiz_run(d, p, c, ms, mkey):
     return out_
 
 
+def quiz_phases(d, p, c, ms, mkey, gpx, declines):
+    """v2.2 반론 7회차 #1: 앞 시기를 '하락 한가운데에서 시작'(^GSPC 최고가 날 ~ 바닥 날 — 바닥이 지난 뒤에야 앎)과 나머지로,
+    또 시작한 날 알 수 있는 '^GSPC 가 그때까지 최고 종가보다 thr 넘게 아래'로 나눠 미루지 않은 쪽이 이긴 몫."""
+    gmax = np.fmax.accumulate(np.where(np.isnan(gpx), -np.inf, gpx))
+    dd = gpx / gmax - 1
+    spans = [(date.fromisoformat(e["peak"]), date.fromisoformat(e["trough"])) for e in declines]
+    yr = np.array([x.year for x in d])
+    res = {}
+    for key in [q[1] for q in QUIZ] + QUIZ_REF:
+        res[key] = {}
+        for label, months in (("2y", 24), ("5y", 60)):
+            now, rule, st = quiz_pairs(key, d, p, c, windows(ms, mkey, d, months))
+            y = yr[st]
+            early = (y >= QUIZ_EARLY[0]) & (y <= QUIZ_EARLY[1])
+            dec = np.array([any(a <= d[x] <= b for a, b in spans) for x in st], dtype=bool)
+            cells = {"early_decline": quiz_cell(now[early & dec], rule[early & dec]), "early_rest": quiz_cell(now[early & ~dec], rule[early & ~dec])}
+            for thr in (5, 10, 15, 20, 30):
+                obs = dd[st] <= -thr / 100
+                cells[f"dd{thr}_early"] = quiz_cell(now[early & obs], rule[early & obs])
+                cells[f"dd{thr}_late"] = quiz_cell(now[(y >= QUIZ_LATE_FROM) & obs], rule[(y >= QUIZ_LATE_FROM) & obs])
+            res[key][label] = cells
+    return res
+
+
 def big_declines(gd, gp, thr=CRASH, since=START_EVAL):
     """v2.0 해설: ^GSPC(가격 지수) 종가가 그때까지 최고 종가보다 thr 넘게 빠진 하락 — 최고가 날 · 바닥 날 · 깊이 · 최고가를 되찾은 날."""
     eps, peak, i, n = [], 0, 1, len(gp)
@@ -1101,6 +1128,17 @@ def main():
     declines = big_declines(gd, gp)
     for e in declines:
         out("DECLINE", **{k: (pctf(v) if k.endswith("pct") else v) for k, v in e.items()})
+    phases = quiz_phases(d, p, c, ms, mkey, gpx, declines)                      # v2.2 반론 7회차 #1
+    for key in scored:
+        ph = phases[key]["5y"]
+        out("QUIZ_PHASE", key=key, early_decline=f"{pctf(ph['early_decline']['now_wins'])}({ph['early_decline']['n']})",
+            early_rest=f"{pctf(ph['early_rest']['now_wins'])}({ph['early_rest']['n']})",
+            **{f"dd{t}": f"{pctf(ph[f'dd{t}_early']['now_wins'])}/{pctf(ph[f'dd{t}_late']['now_wins'])}" for t in (5, 10, 15, 20, 30)})
+    evens = [k for k in scored if quiz[k]["answer"] == "even"]
+    ph_ok = all(phases[k][h][f"dd{t}_{per}"]["now_wins"] >= 0.40 for k in evens for h in ("2y", "5y") for t in (5, 10, 15, 20, 30) for per in ("early", "late"))
+    (out if ph_ok else warn)("QUIZ_PHASE_CHECK", check="1년 안에 넣는 규칙: 시작한 날 최고가보다 5~30% 아래였어도 미룬 쪽 ≤ 60% (2년·5년 · 앞·뒤)", ok=ph_ok,
+                             decline_delay_wins={k: pctf(1 - phases[k]["5y"]["early_decline"]["now_wins"]) for k in evens},
+                             rest_now_wins={k: pctf(phases[k]["5y"]["early_rest"]["now_wins"]) for k in evens})
     problems = ts.check_rules(QUESTIONS, out, log, levels=LEVELS)
     virtual = []
     for name, bands in VIRTUAL_BANDS:
@@ -1114,7 +1152,7 @@ def main():
                    "quiz": quiz, "quiz_cash5": {k: {"early_band": v["early_band"], "late_ok": v["late_ok"], "early_range_5y": v["early_range_5y"],
                                                     "early_5y": v["5y"]["early"], "late_5y": v["5y"]["late"], "late_2y": v["2y"]["late"]} for k, v in quiz5.items()},
                    "quiz_mismatches": qmis, "quiz_cash5_mismatches": qmis5, "quiz_combined": combined, "quiz_combined_even_ok": even_ok,
-                   "quiz_combined_rule_side": rule_split, "declines": declines, "virtual": virtual,
+                   "quiz_combined_rule_side": rule_split, "quiz_phases": phases, "quiz_phase_ok": ph_ok, "declines": declines, "virtual": virtual,
                    "scored": scored, "quiz_ref": QUIZ_REF},
                   f, ensure_ascii=False, indent=1, default=str)
     out("DONE", results="calc/results.json", rule_problems=problems, quiz_mismatches=len(qmis), v1_mismatches=len(mism), seconds=f"{time.time() - t0:.1f}",

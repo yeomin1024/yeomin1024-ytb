@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v2.2 — 2026-10-29 — 반론 7회차(상 1 · 중 3 · 하 5)에 답함: quiz_phases — 앞 시기를 '하락 한가운데 시작'(최고가 날~바닥 날)·나머지로, 또 시작한 날 알 수 있는
-#          '최고가보다 5~30% 아래'로 나눔 · QUIZ_PHASE_CHECK. 문제·정답·칸 규칙은 그대로.
+# VERSION: v2.3 — 2026-10-29 — 반론 8회차(상 1 · 중 1 · 하 7)에 답함: quiz_phases 에 시작한 날 보이는 신호 둘(200거래일 평균 아래 · 1년 전보다 낮음) ·
+#          QUIZ_SIGNAL_CHECK(앞 시기엔 미룬 쪽, 뒤 시기엔 바로 넣은 쪽 — 뒤집힘) · QUIZ_ROBUST2(넓힌 경계 · 10% 를 ^GSPC 로) · quiz_pairs(trig=). 문제·정답 그대로.
+# (v2.2 — 2026-10-29 — 반론 7회차(상 1 · 중 3 · 하 5)에 답함: quiz_phases — 앞 시기를 '하락 한가운데 시작'(최고가 날~바닥 날)·나머지로, 또 시작한 날 알 수 있는
+#          '최고가보다 5~30% 아래'로 나눔 · QUIZ_PHASE_CHECK. 문제·정답·칸 규칙은 그대로.)
 # (v2.1 — 2026-10-29 — 반론 6회차(상 1 · 중 5 · 하 5)에 답함: 정답 칸 = 앞 시기 경계 넷(QUIZ_EARLY_DEFS) × 이자 둘에서 모두 같은 칸 · 칸 빈틈 없앰(<40 · 40~60 · >60) ·
 #          문제 2·3·5 = 1년까지만 기다림 · 6개월 나눠 · 석 달 뒤 (v2.0 의 ±10% 끝 · 12개월 나눠 · 1년 뒤는 경계에 따라 칸이 바뀌어 QUIZ_REF 로) · QUIZ_ASYM 지우고 QUIZ_ALL(두 시기 합침).)
 # (v2.0 — 2026-10-29 — 문제형으로 바꿈 (사용자 지시 "1번으로 해봐" — 반론 5회차 뒤 고른 안 ①: '시기를 맞히는 규칙은 시작 시기로 나누면 뒤집혔다'):
@@ -22,6 +24,7 @@
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v2.3 | 2026-10-29 | 반론 8회차: quiz_phases ma200·mom12 · QUIZ_SIGNAL_CHECK · QUIZ_EARLY_WIDE · quiz_pairs(trig=) · QUIZ_ROBUST2 | quiz_pairs · quiz_phases · main |
 # | v2.2 | 2026-10-29 | 반론 7회차: quiz_phases(하락 한가운데 · 나머지 · 최고가보다 5~30% 아래) · QUIZ_PHASE_CHECK | quiz_phases · main |
 # | v2.1 | 2026-10-29 | 반론 6회차: QUIZ_EARLY_DEFS · QZ_SPEC(dip 1년까지 · split n · sell N개월 · delay m) · QUIZ_REF · band_of 빈틈 없음 · quiz_run(경계 넷 · late2010 · two_year · 범위) · QUIZ_CHECK(이자 5% 포함) · QUIZ_ALL · selftest 12 | QZ_SPEC · quiz_pairs · band_of · quiz_run · selftest · main |
 # | v2.0 | 2026-10-29 | 문제형: QUIZ(5문제·칸 규칙·보기 순서) · quiz_pairs(구간별 두 값 — 기존 함수와 같은 규칙, selftest 로 비율 대조) · quiz_run(앞·뒤 시기 × 2년·5년 · 다른 자르기 · 이자 5%) · big_declines(^GSPC 20% 넘는 하락) · QUESTIONS = 0·0·20 · VIRTUAL 글자로 | quiz_pairs · quiz_cell · band_of · quiz_run · big_declines · selftest · main |
@@ -60,7 +63,7 @@ ROOT = HERE.parents[3]
 sys.path.insert(0, str(ROOT / "tools"))
 import test_score as ts  # noqa: E402
 
-VERSION = "v2.2"
+VERSION = "v2.3"
 LEVELS = (0, 0, 20)                # v2.0 문제형: 맞히면 20 · 틀리면 0 (보기 셋 중 정답 하나)
 START_EVAL = date(2000, 1, 1)     # 평가 시작 (1900년대 자료는 쓰지 않음 — 1988~1999 는 최고가·하락 폭 기준을 위한 앞 자료로만)
 FETCH_FROM = date(1988, 1, 1)
@@ -82,6 +85,7 @@ MONTHLY = 24                       # 5번: 24개월 매달 넣기
 #   경계를 옮기면 even ↔ now 로 바뀌어 뺌 (QUIZ_REF 로 같이 계산해 설명란에 적음). 판정·구간(매달 첫 거래일)·현금 이자(^IRX)는 v1.x 머리 규칙 그대로.
 QUIZ_EARLY = (2000, 2008)
 QUIZ_EARLY_DEFS = [(2000, 2008), (2000, 2007), (2001, 2008), (2001, 2007)]
+QUIZ_EARLY_WIDE = [(2000, 2009), (2000, 2010)]   # v2.3 반론 8회차 #5: 넓힌 경계 — 고를 때 쓰지 않은 뒤 검사 (창은 2000년부터라 1999 시작은 없음)
 QUIZ_LATE_FROM = 2009
 LATE_MIN = 0.60
 QZ_SPEC = {  # 키 → (규칙 종류, 값) — quiz_pairs
@@ -793,19 +797,21 @@ def q3t_rebuy_after(d, p, c, W, months=(3, 4, 6, 9, 12)):
 
 
 # ---------- v2.0: 문제형 계산 ----------
-def quiz_pairs(key, d, p, c, W):
+def quiz_pairs(key, d, p, c, W, trig=None):
     """v2.1 문제마다 구간별 (미루지 않은 쪽 값, 규칙 쪽 값, 시작 인덱스) — 규칙은 QZ_SPEC. 위 함수와 같은 규칙은 selftest 가 비율을 대조:
-    qz_dip = q2_wait · qz_end = q2d_wait_with_end · qz_split = q3b_speed(한 번에 vs 12개월) · qz_sell6 = q3t_rebuy_after m6 · qz_year = q10_wait_months(12)."""
+    qz_dip = q2_wait · qz_end = q2d_wait_with_end · qz_split = q3b_speed(한 번에 vs 12개월) · qz_sell6 = q3t_rebuy_after m6 · qz_year = q10_wait_months(12).
+    v2.3 trig: '10% 빠짐'을 잴 값 (기본 = p 배당 포함 지수 · 반론 8회차 #4 검사는 ^GSPC 가격 지수) — 사고파는 값·남은 돈은 늘 p."""
     kind, v = QZ_SPEC[key]
+    t = p if trig is None else trig
     now, rule, st = [], [], []
     for s, e, buys in W:
         if kind in ("dip", "end"):
             lim = e if kind == "end" or v is None else (buys[v] if len(buys) > v else None)   # dip 1년까지: 12개월째 첫 거래일
             if lim is None:
                 continue
-            seg = p[s + 1:lim + 1]
-            dn = np.flatnonzero(seg <= (1 - DIP) * p[s])
-            up = np.flatnonzero(seg >= (1 + v) * p[s]) if kind == "end" else np.array([], dtype=int)
+            seg = t[s + 1:lim + 1]
+            dn = np.flatnonzero(seg <= (1 - DIP) * t[s])
+            up = np.flatnonzero(seg >= (1 + v) * t[s]) if kind == "end" else np.array([], dtype=int)
             cand = [x[0] for x in (dn, up) if len(x)]
             j = s + 1 + min(cand) if cand else (lim if kind == "dip" and v is not None else None)
             b = c[j] / c[s] * p[e] / p[j] if j is not None else c[e] / c[s]     # 끝까지 안 오면 현금(국채 이자)
@@ -813,7 +819,7 @@ def quiz_pairs(key, d, p, c, W):
             bb = buys[:v]
             b = sum(1 / v * c[x] / c[s] * p[e] / p[x] for x in bb) + (v - len(bb)) / v * c[e] / c[s]
         elif kind == "sell":
-            hit = np.flatnonzero(p[s + 1:e + 1] <= (1 - DIP) * p[s])
+            hit = np.flatnonzero(t[s + 1:e + 1] <= (1 - DIP) * t[s])
             if not len(hit):
                 continue                                                          # 넣은 뒤 10% 빠진 구간만
             j = s + 1 + hit[0]
@@ -907,9 +913,16 @@ def quiz_run(d, p, c, ms, mkey):
 
 def quiz_phases(d, p, c, ms, mkey, gpx, declines):
     """v2.2 반론 7회차 #1: 앞 시기를 '하락 한가운데에서 시작'(^GSPC 최고가 날 ~ 바닥 날 — 바닥이 지난 뒤에야 앎)과 나머지로,
-    또 시작한 날 알 수 있는 '^GSPC 가 그때까지 최고 종가보다 thr 넘게 아래'로 나눠 미루지 않은 쪽이 이긴 몫."""
+    또 시작한 날 알 수 있는 '^GSPC 가 그때까지 최고 종가보다 thr 넘게 아래'로 나눠 미루지 않은 쪽이 이긴 몫.
+    v2.3 반론 8회차 #1: 시작한 날 보이는 신호 둘 더 — ^GSPC 가 200거래일 평균 아래(ma200) · 252거래일 전보다 낮음(mom12)."""
     gmax = np.fmax.accumulate(np.where(np.isnan(gpx), -np.inf, gpx))
     dd = gpx / gmax - 1
+    gf = np.where(np.isnan(gpx), np.nan, gpx)                                  # v2.3: 200거래일 평균(그날 포함) · 12개월(≈252거래일) 전보다 낮은가 — 그날 종가까지로만
+    cs = np.concatenate([[0.0], np.nancumsum(gf)])
+    ma = np.full(len(gf), np.nan)
+    ma[199:] = (cs[200:] - cs[:-200]) / 200
+    below_ma = np.nan_to_num(gf < ma, nan=False).astype(bool)
+    down12 = np.concatenate([np.zeros(252, dtype=bool), gf[252:] < gf[:-252]])
     spans = [(date.fromisoformat(e["peak"]), date.fromisoformat(e["trough"])) for e in declines]
     yr = np.array([x.year for x in d])
     res = {}
@@ -921,10 +934,15 @@ def quiz_phases(d, p, c, ms, mkey, gpx, declines):
             early = (y >= QUIZ_EARLY[0]) & (y <= QUIZ_EARLY[1])
             dec = np.array([any(a <= d[x] <= b for a, b in spans) for x in st], dtype=bool)
             cells = {"early_decline": quiz_cell(now[early & dec], rule[early & dec]), "early_rest": quiz_cell(now[early & ~dec], rule[early & ~dec])}
+            late = y >= QUIZ_LATE_FROM
             for thr in (5, 10, 15, 20, 30):
                 obs = dd[st] <= -thr / 100
                 cells[f"dd{thr}_early"] = quiz_cell(now[early & obs], rule[early & obs])
-                cells[f"dd{thr}_late"] = quiz_cell(now[(y >= QUIZ_LATE_FROM) & obs], rule[(y >= QUIZ_LATE_FROM) & obs])
+                cells[f"dd{thr}_late"] = quiz_cell(now[late & obs], rule[late & obs])
+            for sig, obs in (("ma200", below_ma[st]), ("mom12", down12[st])):     # v2.3 반론 8회차 #1: 시작한 날 보이는 다른 신호
+                for per, m in (("early", early), ("late", late), ("all", np.ones(len(st), dtype=bool))):
+                    cells[f"{sig}_below_{per}"] = quiz_cell(now[m & obs], rule[m & obs])
+                    cells[f"{sig}_above_{per}"] = quiz_cell(now[m & ~obs], rule[m & ~obs])
             res[key][label] = cells
     return res
 
@@ -1128,17 +1146,35 @@ def main():
     declines = big_declines(gd, gp)
     for e in declines:
         out("DECLINE", **{k: (pctf(v) if k.endswith("pct") else v) for k, v in e.items()})
+    yr_ = np.array([x.year for x in d])
+    wide, ptrig = {}, {}
+    gpf = np.where(np.isnan(gpx), np.nan, gpx)
+    for key in scored:                                                        # v2.3 반론 8회차 #5 넓힌 경계 · #4 10% 를 가격 지수로
+        now_, rule_, st_ = quiz_pairs(key, d, p, c, windows(ms, mkey, d, 60))
+        wide[key] = {f"e{a}_{b}": share(now_[(yr_[st_] >= a) & (yr_[st_] <= b)] > rule_[(yr_[st_] >= a) & (yr_[st_] <= b)]) for a, b in QUIZ_EARLY_WIDE}
+        nP, rP, sP = quiz_pairs(key, d, p, c, windows(ms, mkey, d, 60), trig=gpf)
+        e_ = (yr_[sP] >= QUIZ_EARLY[0]) & (yr_[sP] <= QUIZ_EARLY[1])
+        ptrig[key] = {"early": quiz_cell(nP[e_], rP[e_]), "late": quiz_cell(nP[yr_[sP] >= QUIZ_LATE_FROM], rP[yr_[sP] >= QUIZ_LATE_FROM])}
+    wide_ok = all(band_of(v) == quiz[k]["answer"] for k in scored for v in wide[k].values())
+    ptrig_ok = all(band_of(ptrig[k]["early"]["now_wins"]) == quiz[k]["answer"] and ptrig[k]["late"]["now_wins"] > LATE_MIN for k in scored)
+    (out if wide_ok and ptrig_ok else warn)("QUIZ_ROBUST2", check="넓힌 경계(2000~09 · 2000~10) 같은 칸 · 10% 를 ^GSPC 로 재도 같은 칸·뒤 시기 > 60%", wide_ok=wide_ok, price_trigger_ok=ptrig_ok,
+                                           **{k: "/".join(pctf(x) for x in v.values()) for k, v in wide.items()},
+                                           price_trigger={k: f"{pctf(v['early']['now_wins'])}({v['early']['rule_count']}/{v['early']['n']})·late {pctf(v['late']['now_wins'])}" for k, v in ptrig.items()})
     phases = quiz_phases(d, p, c, ms, mkey, gpx, declines)                      # v2.2 반론 7회차 #1
     for key in scored:
         ph = phases[key]["5y"]
         out("QUIZ_PHASE", key=key, early_decline=f"{pctf(ph['early_decline']['now_wins'])}({ph['early_decline']['n']})",
             early_rest=f"{pctf(ph['early_rest']['now_wins'])}({ph['early_rest']['n']})",
-            **{f"dd{t}": f"{pctf(ph[f'dd{t}_early']['now_wins'])}/{pctf(ph[f'dd{t}_late']['now_wins'])}" for t in (5, 10, 15, 20, 30)})
+            **{f"dd{t}": f"{pctf(ph[f'dd{t}_early']['now_wins'])}/{pctf(ph[f'dd{t}_late']['now_wins'])}" for t in (5, 10, 15, 20, 30)},
+            **{f"{g}_below": f"{pctf(ph[f'{g}_below_early']['now_wins'])}({ph[f'{g}_below_early']['n']})/{pctf(ph[f'{g}_below_late']['now_wins'])}({ph[f'{g}_below_late']['n']})" for g in ("ma200", "mom12")})
     evens = [k for k in scored if quiz[k]["answer"] == "even"]
     ph_ok = all(phases[k][h][f"dd{t}_{per}"]["now_wins"] >= 0.40 for k in evens for h in ("2y", "5y") for t in (5, 10, 15, 20, 30) for per in ("early", "late"))
     (out if ph_ok else warn)("QUIZ_PHASE_CHECK", check="1년 안에 넣는 규칙: 시작한 날 최고가보다 5~30% 아래였어도 미룬 쪽 ≤ 60% (2년·5년 · 앞·뒤)", ok=ph_ok,
                              decline_delay_wins={k: pctf(1 - phases[k]["5y"]["early_decline"]["now_wins"]) for k in evens},
                              rest_now_wins={k: pctf(phases[k]["5y"]["early_rest"]["now_wins"]) for k in evens})
+    sig_flip = all(phases[k][h][f"{g}_below_early"]["now_wins"] < 0.40 and phases[k][h][f"{g}_below_late"]["now_wins"] > 0.70
+                   for k in evens for h in ("2y", "5y") for g in ("ma200", "mom12"))
+    (out if sig_flip else warn)("QUIZ_SIGNAL_CHECK", check="1년 안에 넣는 규칙: 200거래일 평균 아래 · 1년 전보다 낮은 날 시작 → 앞 시기 미룬 쪽 > 60% · 뒤 시기 바로 넣은 쪽 > 70% (뒤집힘)", ok=sig_flip)
     problems = ts.check_rules(QUESTIONS, out, log, levels=LEVELS)
     virtual = []
     for name, bands in VIRTUAL_BANDS:
@@ -1152,7 +1188,8 @@ def main():
                    "quiz": quiz, "quiz_cash5": {k: {"early_band": v["early_band"], "late_ok": v["late_ok"], "early_range_5y": v["early_range_5y"],
                                                     "early_5y": v["5y"]["early"], "late_5y": v["5y"]["late"], "late_2y": v["2y"]["late"]} for k, v in quiz5.items()},
                    "quiz_mismatches": qmis, "quiz_cash5_mismatches": qmis5, "quiz_combined": combined, "quiz_combined_even_ok": even_ok,
-                   "quiz_combined_rule_side": rule_split, "quiz_phases": phases, "quiz_phase_ok": ph_ok, "declines": declines, "virtual": virtual,
+                   "quiz_combined_rule_side": rule_split, "quiz_phases": phases, "quiz_phase_ok": ph_ok, "quiz_signal_flip": sig_flip,
+                   "quiz_wide": wide, "quiz_wide_ok": wide_ok, "quiz_price_trigger": ptrig, "quiz_price_trigger_ok": ptrig_ok, "declines": declines, "virtual": virtual,
                    "scored": scored, "quiz_ref": QUIZ_REF},
                   f, ensure_ascii=False, indent=1, default=str)
     out("DONE", results="calc/results.json", rule_problems=problems, quiz_mismatches=len(qmis), v1_mismatches=len(mism), seconds=f"{time.time() - t0:.1f}",

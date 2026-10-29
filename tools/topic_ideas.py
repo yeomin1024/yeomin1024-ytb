@@ -145,7 +145,7 @@ NAMES = {"stock": "주식", "economic": "재테크"}
 NAME = "주식"
 # 안내 문구 (주제탐색.md 머리 · 평가판) — settings.toml [page] NOTE_DOC · NOTE_PAGE 가 있으면 그것
 NOTE_DOC = "※ 연구·교육용 — 투자 권유가 아님. 결론은 **예상**이며 계산(`calc/`)으로 확정한다 — 판정 규칙이 있어 어느 쪽으로 나와도 결론은 하나."
-NOTE_PAGE = "※ 연구·교육용 — 투자 권유가 아님. 결론은 계산 전 예상입니다."
+NOTE_PAGE = "※ 연구·교육용 — 투자 권유가 아님. 제목 앞 [분류] = 정답 미리 확인 결과 (⛔ = 묶음에서 뺌) · 분류가 있으면 결론은 계산 숫자, 없으면 계산 전 예상입니다."
 # 후보 칸 설명 (material.md 머리 표) — settings.toml [fields] 가 있으면 그것
 FIELD_HELP = {"data": "자료·기간 (실제 미국 주가·지수·재무제표, 2000년 이후 — 연도 필수)",
               "format": "테스트형 = 채널 방식 '테스트'·'문제' (항목 5개 — stock/guides/quick_test.md) · 실험형 = '비교 시뮬레이션' (질문 하나) — 0번",
@@ -865,7 +865,7 @@ function render(){
     meta.append(el("span",{class:"rank"},it.rank+"위"),el("span",{class:"id"},it.id),el("span",{class:"chip"},it.format),el("span",{class:"chip"},it.persona));
     if(it.status!=="이번 묶음") meta.append(el("span",{class:"chip"},it.status));
     li.append(meta, el("h2",{},it.title));
-    const c=el("p",{class:"concl"}); c.append(el("span",{},"결론(예상)")); c.append(document.createTextNode(it.conclusion)); li.append(c);
+    const c=el("p",{class:"concl"}); c.append(el("span",{},/^\[/.test(it.title)?"결론(계산)":"결론(예상)")); c.append(document.createTextNode(it.conclusion)); li.append(c);
     const d=el("details"); d.append(el("summary",{},"질문 · 판정 규칙 · 자료 · 근거"));
     const dl=el("dl"); [["질문",it.question],["판정 규칙",it.decide],["자료",it.data],["근거",it.basis],["점수",it.score]].forEach(([k,v])=>{if(v){dl.append(el("dt",{},k),el("dd",{},String(v)));}});
     d.append(dl); li.append(d);

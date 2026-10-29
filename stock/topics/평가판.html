@@ -49,7 +49,7 @@ button:disabled,input:disabled{opacity:.55;cursor:not-allowed}
 <header>
 <h1>주식 주제 평가판</h1>
 <p class="sub" id="sub"></p>
-<p class="note">좋음·나쁨을 누르면 저장됩니다. 다시 누르면 지워집니다. 까닭은 짧게 (선택). Claude 가 다음에 이 평가를 읽어 배우고, 다음 20개를 고를 때 좋은 쪽으로 뽑습니다. ※ 연구·교육용 — 투자 권유가 아님. 결론은 계산 전 예상입니다.</p>
+<p class="note">좋음·나쁨을 누르면 저장됩니다. 다시 누르면 지워집니다. 까닭은 짧게 (선택). Claude 가 다음에 이 평가를 읽어 배우고, 다음 20개를 고를 때 좋은 쪽으로 뽑습니다. ※ 연구·교육용 — 투자 권유가 아님. 제목 앞 [분류] = 정답 미리 확인 결과 (⛔ = 묶음에서 뺌) · 분류가 있으면 결론은 계산 숫자, 없으면 계산 전 예상입니다.</p>
 <p class="note warn" id="offline" hidden>이 화면에서는 저장할 수 없습니다 (로그인이 필요하거나 보기 전용). 평가는 Claude 에게 'T003 좋아, T007 별로'처럼 말하면 됩니다.</p>
 <div class="bar"><span class="count" id="count"></span>
 <div class="filt" role="group" aria-label="거르기"><button type="button" data-f="all" aria-pressed="true">전체</button><button type="button" data-f="none" aria-pressed="false">평가 안 함</button><button type="button" data-f="good" aria-pressed="false">좋음</button><button type="button" data-f="bad" aria-pressed="false">나쁨</button></div></div>
@@ -78,7 +78,7 @@ function render(){
     meta.append(el("span",{class:"rank"},it.rank+"위"),el("span",{class:"id"},it.id),el("span",{class:"chip"},it.format),el("span",{class:"chip"},it.persona));
     if(it.status!=="이번 묶음") meta.append(el("span",{class:"chip"},it.status));
     li.append(meta, el("h2",{},it.title));
-    const c=el("p",{class:"concl"}); c.append(el("span",{},"결론(예상)")); c.append(document.createTextNode(it.conclusion)); li.append(c);
+    const c=el("p",{class:"concl"}); c.append(el("span",{},/^\[/.test(it.title)?"결론(계산)":"결론(예상)")); c.append(document.createTextNode(it.conclusion)); li.append(c);
     const d=el("details"); d.append(el("summary",{},"질문 · 판정 규칙 · 자료 · 근거"));
     const dl=el("dl"); [["질문",it.question],["판정 규칙",it.decide],["자료",it.data],["근거",it.basis],["점수",it.score]].forEach(([k,v])=>{if(v){dl.append(el("dt",{},k),el("dd",{},String(v)));}});
     d.append(dl); li.append(d);

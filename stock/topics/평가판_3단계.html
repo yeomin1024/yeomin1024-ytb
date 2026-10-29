@@ -35,6 +35,7 @@ ol.list{list-style:none;margin:0;padding:0;display:grid;gap:12px}
 .id{font-family:var(--mono);color:var(--accent)}
 .chip{border:1px solid var(--line);border-radius:4px;padding:0 6px}
 .chip.v{font-family:var(--mono)}
+.chip.form{border-color:var(--accent);color:var(--accent);font-weight:500}
 h2{font-size:1.08rem;margin:0;text-wrap:balance}
 .lab{font-size:.75rem;letter-spacing:.04em;color:var(--muted);margin:2px 0 0}
 .msg{margin:0;font-size:.97rem}
@@ -145,7 +146,7 @@ function card(it){
   const meta=el("div",{class:"meta"});
   if(it.rank) meta.append(el("span",{class:"rank"},it.rank+"위"));
   meta.append(el("span",{class:"id"},it.label), el("span",{class:"chip v"},"v"+it.v));
-  if(it.cls) meta.append(el("span",{class:"chip"},it.cls));
+  if(it.form) meta.append(el("span",{class:"chip form"},it.form));
   if(it.carried) meta.append(el("span",{class:"chip"},"앞 묶음 좋음"));
   li.append(meta);
   if(N===1){ li.append(el("h2",{},it.title), el("p",{class:"lab"},"전달하고자 하는 내용"), el("p",{class:"msg"},it.message.join(" "))); }

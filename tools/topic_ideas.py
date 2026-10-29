@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.6.1 — 2026-10-29 — **이전에 좋음을 준 것은 1단계를 건너뜀** (사용자 지시 2026-10-29 "아니 내가 이전에 좋다고 한것들은 2번에 넣어야지 다시해봐"):
+# VERSION: v1.6.2 — 2026-10-29 — **카드에 영상 형식(문제형·테스트형)** (사용자 지시 2026-10-29 "1번 평가판은 사실형으로 하지 말고 문제나 테스트형으로 좀 해봐 왜 다 사실형이야"):
+#          평가판 카드의 칩이 정답 미리 확인 분류(사실형 = 정답이 지난 실제 숫자)를 보여 줘 영상 형식으로 읽혔음 → 기획안 `form`(문제·테스트·비교 — 판 번호를 안 올리는 칸,
+#          EXTRA_KEYS)을 카드 칩으로 · 분류는 평가판에서 빼고 영상기획안.md 에만. 영향: EXTRA_KEYS·lint_stage()·stage_update()·stage_page_item()·render_plans()·PAGE_STAGE.
+# (v1.6.1 — 2026-10-29 — **이전에 좋음을 준 것은 1단계를 건너뜀** (사용자 지시 2026-10-29 "아니 내가 이전에 좋다고 한것들은 2번에 넣어야지 다시해봐"):
 #          주제 평가(평가.txt — 예전 평가판 'marks')·기존 편 평가(기존편_평가.txt)가 좋음이고 1단계 평가가 아직 하나도 없으면 1단계 통과로 봄 (carried · 1단계 평가판에는 안 보이고
-#          '건너뜀' 줄로만 · 2단계로) — 1단계를 직접 평가하면 그 평가가 이김. 영향: stage_status(carried)·stage_rows()·render_stage_page()·log_stages()·stage_cell()·selftest_stages()·PAGE_STAGE.
+#          '건너뜀' 줄로만 · 2단계로) — 1단계를 직접 평가하면 그 평가가 이김. 영향: stage_status(carried)·stage_rows()·render_stage_page()·log_stages()·stage_cell()·selftest_stages()·PAGE_STAGE.)
 # (v1.6 — 2026-10-29 — **단계 평가판 세 장** (사용자 지시 2026-10-29 "1번. 제목, 전달하고자 하는 내용 / 2번. 썸네일 문구, 보조문구, 대본 도입부(요약) /
 #          3번. 대본 내용(요약) 각각 3가지 평가판을 만들어봐 그럼 평가할게 통과한건 2번부터 다시 만들면 돼 3번은 2번에서 통과된것만 만드는거야"):
 #          기획안 칸을 세 단계로 (STAGE_KEYS 1 = title·message(전달하고자 하는 내용) · 2 = thumb_main·thumb_sub·intro · 3 = items·explain) · 단계마다 판 번호
@@ -90,7 +93,7 @@ try:
 except ModuleNotFoundError:            # Python 3.10
     import tomli as tomllib
 
-VERSION = "v1.6.1"
+VERSION = "v1.6.2"
 ROOT = Path(__file__).resolve().parent.parent
 LOG = logging.getLogger("topics")
 FIELDS = ("title", "question", "conclusion", "decide", "data", "format", "persona", "theme", "needs", "market", "data_kind")
@@ -710,6 +713,9 @@ PKG_KEYS = ("title", "thumb_main", "thumb_sub", "intro", "items", "explain")
 # v1.6 단계 — 1 제목·전달하고자 하는 내용 → 2 썸네일 문구·보조 문구·도입부(요약) → 3 대본 내용(요약: 항목과 정답·해설)
 STAGE_KEYS = {1: ("title", "message"), 2: ("thumb_main", "thumb_sub", "intro"), 3: ("items", "explain")}
 STAGE_NAME = {1: "제목 · 전달하고자 하는 내용", 2: "썸네일 문구 · 보조 문구 · 도입부", 3: "대본 내용"}
+# v1.6.2 판 번호를 안 올리는 칸 — form = 영상 형식 (채널 설명 stock/guides/channel.md: 문제 '내 실력은' · 테스트 '나는 어떨까' · 비교 시뮬레이션)
+EXTRA_KEYS = ("form",)
+FORMS = {"문제": "문제형", "테스트": "테스트형", "비교": "비교형"}
 
 
 def lint_stage(pk, s):
@@ -758,6 +764,11 @@ def pkg_ver(pk):
     return {s: int(v.get(str(s), 0)) for s in (1, 2, 3)}, {s: int(b.get(str(s), 0)) for s in (2, 3)}
 
 
+def lint_extra(pk):
+    """v1.6.2 판 번호를 안 올리는 칸 검사."""
+    return [f"form '{pk['form']}' — {'·'.join(FORMS)} 중 하나"] if "form" in pk and pk["form"] not in FORMS else []
+
+
 def stage_update(pk, entry, why="", at=None):
     """v1.6 준 칸만 합침 → (새 기획안, 바뀐 단계 목록, 문제). 한 단계라도 검사를 못 넘으면 아무것도 안 바꿈.
     그 단계 칸이 바뀌었거나 아직 판이 0 이면 판 +1 · base[s] = 앞 단계의 (새) 판 · 옛 값은 history 에."""
@@ -780,6 +791,15 @@ def stage_update(pk, entry, why="", at=None):
             hist.append({"stage": s, "v": v[s], "at": at, "why": why, "old": {k: pk[k] for k in keys if k in pk and pk[k] != entry[k]}})
             changed.append(s)
         pk = new
+    ex = {k: entry[k] for k in EXTRA_KEYS if k in entry}       # v1.6.2 형식 — 판 번호는 그대로 (내용이 아니라 꼬리표)
+    if ex:
+        probs = lint_extra({**pk, **ex})
+        if probs:
+            return None, [], probs
+        old = {k: pk[k] for k in ex if k in pk and pk[k] != ex[k]}
+        if old or any(k not in pk for k in ex):
+            hist.append({"stage": 0, "v": 0, "at": at, "why": why, "old": old, "set": ex})
+        pk.update(ex)
     pk["v"], pk["base"], pk["history"] = {str(s): v[s] for s in v}, {str(s): b[s] for s in b}, hist
     return pk, changed, []
 
@@ -1433,6 +1453,7 @@ ol.list{list-style:none;margin:0;padding:0;display:grid;gap:12px}
 .id{font-family:var(--mono);color:var(--accent)}
 .chip{border:1px solid var(--line);border-radius:4px;padding:0 6px}
 .chip.v{font-family:var(--mono)}
+.chip.form{border-color:var(--accent);color:var(--accent);font-weight:500}
 h2{font-size:1.08rem;margin:0;text-wrap:balance}
 .lab{font-size:.75rem;letter-spacing:.04em;color:var(--muted);margin:2px 0 0}
 .msg{margin:0;font-size:.97rem}
@@ -1543,7 +1564,7 @@ function card(it){
   const meta=el("div",{class:"meta"});
   if(it.rank) meta.append(el("span",{class:"rank"},it.rank+"위"));
   meta.append(el("span",{class:"id"},it.label), el("span",{class:"chip v"},"v"+it.v));
-  if(it.cls) meta.append(el("span",{class:"chip"},it.cls));
+  if(it.form) meta.append(el("span",{class:"chip form"},it.form));
   if(it.carried) meta.append(el("span",{class:"chip"},"앞 묶음 좋음"));
   li.append(meta);
   if(N===1){ li.append(el("h2",{},it.title), el("p",{class:"lab"},"전달하고자 하는 내용"), el("p",{class:"msg"},it.message.join(" "))); }
@@ -1625,7 +1646,7 @@ def stage_page_item(r, n):
     """v1.6 단계 평가판 카드 한 장 — 이 단계까지의 칸 (앞 단계 칸은 회색 맥락) · 지금 판 · 이 판 평가 · 앞 판 평가 · 고친 까닭."""
     pk, x = r["pkg"], r["st"][n]
     keys = [k for s in range(1, n + 1) for k in STAGE_KEYS[s]]
-    return {"id": r["id"], "rank": r["rank"] if n == 1 else None, "label": r["label"], "cls": r["cls"] if n == 1 else "", "carried": r["carried"] and n == 1,
+    return {"id": r["id"], "rank": r["rank"] if n == 1 else None, "label": r["label"], "form": FORMS.get(pk.get("form"), ""), "carried": r["carried"] and n == 1,
             "v": x["v"], "rating": x["rating"], "why": x["why"], "prev": x["prev"], "fixed": last_fix(pk, n), **{k: pk[k] for k in keys}}
 
 
@@ -1694,7 +1715,8 @@ def render_plans(S, P, Z):
               "| ID | 1단계 | 2단계 | 3단계 |", "|---|---|---|---|"]
         L += [f"| {r['label']} | " + " | ".join(stage_cell(r["st"][s]) for s in (1, 2, 3)) + " |" for r in rows] + [""]
     def block(head, pk, extra=""):
-        out = [f"## {head}", "", f"- **제목**: {pk['title']}"] + ([f"- **전달하고자 하는 내용**: {' '.join(pk['message'])}"] if pk.get("message") else []) + [
+        out = [f"## {head}", "", f"- **제목**: {pk['title']}"] + ([f"- **형식**: {FORMS[pk['form']]}"] if pk.get("form") in FORMS else []) + (
+               [f"- **전달하고자 하는 내용**: {' '.join(pk['message'])}"] if pk.get("message") else []) + [
                f"- **썸네일 문구**: {' / '.join(pk['thumb_main'])}", f"- **썸네일 보조 문구**: {pk['thumb_sub']}",
                f"- **도입부**: {' '.join(pk['intro'])}", "- **내용**:"]
         out += [f"  {i}. {x['q']} → **{x['a']}**" for i, x in enumerate(pk["items"], 1)]
@@ -1705,7 +1727,7 @@ def render_plans(S, P, Z):
             it = S["items"][t]
             if it.get("package"):
                 pc = it.get("precheck") or {}
-                L += block(f"{t} — {it['title']}", it["package"], f"미리 계산: {pc.get('class', '-')} · 평가: {it.get('rating') or '-'}")
+                L += block(f"{t} — {it['title']}", it["package"], f"정답 미리 확인: {pc.get('class', '-')} (정답의 근거 종류 — 영상 형식이 아님) · 주제 평가: {it.get('rating') or '-'}")
     eps = load_episodes(P, Z)
     if eps:
         L += ["# 기존 편 — 리스크 기준으로 다시 짠 안", ""]
@@ -1768,6 +1790,10 @@ def selftest_stages():
     ok.append(("검사 실패면 안 바꿈", bool(pr)))
     _, _, pr = stage_update(base, {"message": []})
     ok.append(("빈 전달 내용은 실패", bool(pr)))
+    pk5, ch, pr = stage_update(pk2, {"form": "문제"}, "형식")
+    ok.append(("v1.6.2 형식(form)은 판 번호를 안 올림", not pr and ch == [] and pkg_ver(pk5) == pkg_ver(pk2) and pk5["form"] == "문제"))
+    _, _, pr = stage_update(pk2, {"form": "사실"})
+    ok.append(("v1.6.2 형식은 문제·테스트·비교만", bool(pr)))
     st = stage_status(pk, {}, "T2", {"why": "예전 좋음"})
     ok.append(("v1.6.1 이전 평가 좋음 → 1단계 좋음(carried) · 2단계 '만들 차례'", st[1]["carried"] and st[1]["rating"] == "좋음" and st[2]["todo"] == "만들 차례"))
     st = stage_status(pk, {(1, "T2"): {1: {"rating": "나쁨", "why": "제목"}}}, "T2", {"why": "예전 좋음"})

@@ -1,6 +1,6 @@
 {
- "version": "v2.3",
- "made": "2026-10-29T04:07:08+00:00",
+ "version": "v2.4",
+ "made": "2026-10-29T04:19:15+00:00",
  "data_last": "2026-10-27",
  "results": {
   "2y": {
@@ -1718,7 +1718,9 @@
      "mean_diff_usd_100k": -6865,
      "mean_gap_pct": -0.06940265809862399,
      "rebuy_higher": 0.2033898305084746,
-     "rebuy_n": 59
+     "rebuy_n": 59,
+     "rebuy_lower_of_sales": 0.746031746031746,
+     "sales_n": 63
     },
     "late": {
      "n": 60,
@@ -1733,7 +1735,9 @@
      "mean_diff_usd_100k": 18934,
      "mean_gap_pct": 0.17505342885336722,
      "rebuy_higher": 0.9,
-     "rebuy_n": 60
+     "rebuy_n": 60,
+     "rebuy_lower_of_sales": 0.1,
+     "sales_n": 60
     },
     "late2010": {
      "n": 58,
@@ -1920,7 +1924,9 @@
      "mean_diff_usd_100k": -13845,
      "mean_gap_pct": -0.09815555354794277,
      "rebuy_higher": 0.13043478260869565,
-     "rebuy_n": 92
+     "rebuy_n": 92,
+     "rebuy_lower_of_sales": 0.8163265306122449,
+     "sales_n": 98
     },
     "late": {
      "n": 51,
@@ -1935,7 +1941,9 @@
      "mean_diff_usd_100k": 30875,
      "mean_gap_pct": 0.2095042088192616,
      "rebuy_higher": 0.9803921568627451,
-     "rebuy_n": 51
+     "rebuy_n": 51,
+     "rebuy_lower_of_sales": 0.0196078431372549,
+     "sales_n": 51
     },
     "late2010": {
      "n": 49,
@@ -5583,7 +5591,9 @@
     "mean_diff_usd_100k": -16279,
     "mean_gap_pct": -0.11376957757036095,
     "rebuy_higher": 0.13043478260869565,
-    "rebuy_n": 92
+    "rebuy_n": 92,
+    "rebuy_lower_of_sales": 0.8163265306122449,
+    "sales_n": 98
    },
    "late_5y": {
     "n": 51,
@@ -5598,7 +5608,9 @@
     "mean_diff_usd_100k": 27738,
     "mean_gap_pct": 0.18480471304136575,
     "rebuy_higher": 0.9803921568627451,
-    "rebuy_n": 51
+    "rebuy_n": 51,
+    "rebuy_lower_of_sales": 0.0196078431372549,
+    "sales_n": 51
    },
    "late_2y": {
     "n": 60,
@@ -5613,7 +5625,9 @@
     "mean_diff_usd_100k": 16861,
     "mean_gap_pct": 0.152868521597068,
     "rebuy_higher": 0.9,
-    "rebuy_n": 60
+    "rebuy_n": 60,
+    "rebuy_lower_of_sales": 0.1,
+    "sales_n": 60
    }
   },
   "qz_wait3": {
@@ -6058,6 +6072,10 @@
   }
  },
  "quiz_combined_even_ok": true,
+ "quiz_combined_late_weight": {
+  "2y": 0.6375838926174496,
+  "5y": 0.5877862595419847
+ },
  "quiz_combined_rule_side": {
   "qz_dip": {
    "2y": "now",

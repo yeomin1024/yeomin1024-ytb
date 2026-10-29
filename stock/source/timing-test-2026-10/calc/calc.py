@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v2.3 — 2026-10-29 — 반론 8회차(상 1 · 중 1 · 하 7)에 답함: quiz_phases 에 시작한 날 보이는 신호 둘(200거래일 평균 아래 · 1년 전보다 낮음) ·
-#          QUIZ_SIGNAL_CHECK(앞 시기엔 미룬 쪽, 뒤 시기엔 바로 넣은 쪽 — 뒤집힘) · QUIZ_ROBUST2(넓힌 경계 · 10% 를 ^GSPC 로) · quiz_pairs(trig=). 문제·정답 그대로.
+# VERSION: v2.4 — 2026-10-29 — 반론 9회차(상 0 · 중 4 · 하 5)에 답함: qz_sell6 rebuy_lower_of_sales(판 모든 경우 중 더 싸게 다시) · QUIZ_ALL late_weight(합친 시작 달 중 뒤 시기 몫). 계산 규칙 그대로.
+# (v2.3 — 2026-10-29 — 반론 8회차(상 1 · 중 1 · 하 7)에 답함: quiz_phases 에 시작한 날 보이는 신호 둘(200거래일 평균 아래 · 1년 전보다 낮음) ·
+#          QUIZ_SIGNAL_CHECK(앞 시기엔 미룬 쪽, 뒤 시기엔 바로 넣은 쪽 — 뒤집힘) · QUIZ_ROBUST2(넓힌 경계 · 10% 를 ^GSPC 로) · quiz_pairs(trig=). 문제·정답 그대로.)
 # (v2.2 — 2026-10-29 — 반론 7회차(상 1 · 중 3 · 하 5)에 답함: quiz_phases — 앞 시기를 '하락 한가운데 시작'(최고가 날~바닥 날)·나머지로, 또 시작한 날 알 수 있는
 #          '최고가보다 5~30% 아래'로 나눔 · QUIZ_PHASE_CHECK. 문제·정답·칸 규칙은 그대로.)
 # (v2.1 — 2026-10-29 — 반론 6회차(상 1 · 중 5 · 하 5)에 답함: 정답 칸 = 앞 시기 경계 넷(QUIZ_EARLY_DEFS) × 이자 둘에서 모두 같은 칸 · 칸 빈틈 없앰(<40 · 40~60 · >60) ·
@@ -24,6 +25,7 @@
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v2.4 | 2026-10-29 | 반론 9회차: rebuy_lower_of_sales · sales_n · QUIZ_ALL late_weight | quiz_run · main |
 # | v2.3 | 2026-10-29 | 반론 8회차: quiz_phases ma200·mom12 · QUIZ_SIGNAL_CHECK · QUIZ_EARLY_WIDE · quiz_pairs(trig=) · QUIZ_ROBUST2 | quiz_pairs · quiz_phases · main |
 # | v2.2 | 2026-10-29 | 반론 7회차: quiz_phases(하락 한가운데 · 나머지 · 최고가보다 5~30% 아래) · QUIZ_PHASE_CHECK | quiz_phases · main |
 # | v2.1 | 2026-10-29 | 반론 6회차: QUIZ_EARLY_DEFS · QZ_SPEC(dip 1년까지 · split n · sell N개월 · delay m) · QUIZ_REF · band_of 빈틈 없음 · quiz_run(경계 넷 · late2010 · two_year · 범위) · QUIZ_CHECK(이자 5% 포함) · QUIZ_ALL · selftest 12 | QZ_SPEC · quiz_pairs · band_of · quiz_run · selftest · main |
@@ -63,7 +65,7 @@ ROOT = HERE.parents[3]
 sys.path.insert(0, str(ROOT / "tools"))
 import test_score as ts  # noqa: E402
 
-VERSION = "v2.3"
+VERSION = "v2.4"
 LEVELS = (0, 0, 20)                # v2.0 문제형: 맞히면 20 · 틀리면 0 (보기 셋 중 정답 하나)
 START_EVAL = date(2000, 1, 1)     # 평가 시작 (1900년대 자료는 쓰지 않음 — 1988~1999 는 최고가·하락 폭 기준을 위한 앞 자료로만)
 FETCH_FROM = date(1988, 1, 1)
@@ -896,6 +898,8 @@ def quiz_run(d, p, c, ms, mkey):
                             hi.append(p[k] > p[j])
                     cells[per]["rebuy_higher"] = share(np.array(hi))
                     cells[per]["rebuy_n"] = len(hi)
+                    cells[per]["rebuy_lower_of_sales"] = (len(hi) - int(np.sum(hi))) / len(sm) if sm else 0.0   # v2.4 반론 9회차 #5: 판 모든 경우 중 더 싸게 다시 넣은 몫
+                    cells[per]["sales_n"] = len(sm)
             r[label] = cells
         b5 = {band_of(r["5y"][f"e{a}_{b}"]["now_wins"]) for a, b in QUIZ_EARLY_DEFS}
         b2 = {band_of(r["2y"][f"e{a}_{b}"]["now_wins"]) for a, b in QUIZ_EARLY_DEFS}
@@ -1141,7 +1145,8 @@ def main():
                         "median_gap_pct": quiz[k][h]["all"]["median_gap_pct"]} for h in ("2y", "5y")} for k in scored}
     even_ok = all(combined[k][h]["now_wins"] > 0.5 and combined[k][h]["mean_diff_usd_100k"] > 0 for k in scored if quiz[k]["answer"] == "even" for h in ("2y", "5y"))
     rule_split = {k: {h: ("now" if combined[k][h]["now_wins"] > 0.5 else "rule") for h in ("2y", "5y")} for k in scored if quiz[k]["answer"] == "rule"}
-    (out if even_ok else warn)("QUIZ_ALL", check="두 시기 합침(2000~): even 묶음 = 미루지 않은 쪽이 횟수 > 50% · 평균 > 0 (2년·5년)", even_ok=even_ok,
+    late_weight = {h: quiz[scored[0]][h]["late"]["n"] / quiz[scored[0]][h]["all"]["n"] for h in ("2y", "5y")}   # v2.4 반론 9회차 #4: 합친 시작 달 중 뒤 시기 몫
+    (out if even_ok else warn)("QUIZ_ALL", late_weight={h: pctf(v) for h, v in late_weight.items()}, check="두 시기 합침(2000~): even 묶음 = 미루지 않은 쪽이 횟수 > 50% · 평균 > 0 (2년·5년)", even_ok=even_ok,
                                rule_group_count_side=rule_split, **{k: f"{pctf(v['5y']['now_wins'])}/{v['5y']['mean_diff_usd_100k']}" for k, v in combined.items()})
     declines = big_declines(gd, gp)
     for e in declines:
@@ -1187,7 +1192,7 @@ def main():
                    "results": results, "intro": it, "mismatches": mism, "flips_5y": flips, "scored_v1": list(expect), "rule_problems": problems,
                    "quiz": quiz, "quiz_cash5": {k: {"early_band": v["early_band"], "late_ok": v["late_ok"], "early_range_5y": v["early_range_5y"],
                                                     "early_5y": v["5y"]["early"], "late_5y": v["5y"]["late"], "late_2y": v["2y"]["late"]} for k, v in quiz5.items()},
-                   "quiz_mismatches": qmis, "quiz_cash5_mismatches": qmis5, "quiz_combined": combined, "quiz_combined_even_ok": even_ok,
+                   "quiz_mismatches": qmis, "quiz_cash5_mismatches": qmis5, "quiz_combined": combined, "quiz_combined_even_ok": even_ok, "quiz_combined_late_weight": late_weight,
                    "quiz_combined_rule_side": rule_split, "quiz_phases": phases, "quiz_phase_ok": ph_ok, "quiz_signal_flip": sig_flip,
                    "quiz_wide": wide, "quiz_wide_ok": wide_ok, "quiz_price_trigger": ptrig, "quiz_price_trigger_ok": ptrig_ok, "declines": declines, "virtual": virtual,
                    "scored": scored, "quiz_ref": QUIZ_REF},

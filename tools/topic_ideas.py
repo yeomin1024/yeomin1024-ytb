@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.2.2 — 2026-10-28 — 안내 문구를 주제마다 (settings [page] NOTE_DOC · NOTE_PAGE, 없으면 예전 주식 글 그대로) — 역사 주제탐색.md·평가판에
-#          '투자 권유가 아님 · 계산(calc/)으로 확정'이 찍혀서. 영향: load_settings()·render()·render_page().
+# VERSION: v1.3 — 2026-10-29 — **정답 미리 확인** (사용자 지시 2026-10-29 "그렇게 절차정하고 주제 걸러봐 기존 3개도 확인해서"): `precheck <결과.json> [고친 결론.json]` —
+#          주제마다 미리 계산 분류(정답형·차이없음·사실형·계산형·조건부형·미확인)·고친 결론·까닭을 topics.json 에 · settings [precheck] EXCLUDE(미확인)·NO_TEST(조건부형인데
+#          테스트형) 는 묶음에서 뺌(나쁨처럼 '남은 것'에서 빠짐 · 새 묶음에 안 뽑힘) · 주제탐색.md 표·자세히·평가판에 분류 · use 할 때 미리 계산이 없거나 빠진 주제면 경고.
+#          영향: pre_out()·batch_done()·pick_batch()·finish()·cmd_precheck()·cmd_use()·render()·render_page()·main().
+# (v1.2.2 — 2026-10-28 — 안내 문구를 주제마다 (settings [page] NOTE_DOC · NOTE_PAGE, 없으면 예전 주식 글 그대로) — 역사 주제탐색.md·평가판에
+#          '투자 권유가 아님 · 계산(calc/)으로 확정'이 찍혀서. 영향: load_settings()·render()·render_page().)
 # (v1.2.1 — 2026-10-28 — '자료에 기간(연도)' 검사를 주제마다 (settings [clarity] YEAR, 없으면 예전 그대로 (19|20)\d\d) — 역사 후보의 1653년·18세기·
 #          기원전이 '연도 없음'으로 빠져서 (사용자 지시 2026-10-28 "주식 주제 관련 세션에서 했던것처럼 똑같은 방식으로 … 요약본까지" — history). 영향: lint() 한 줄.)
 # (v1.2 — 2026-10-28 — 주제마다 이름·칸 설명 (재테크도 — 사용자 지시 2026-10-28 "주식 주제 관련 세션에서 했던것처럼 똑같은 방식으로 진행해서
@@ -32,6 +36,7 @@
   python3 tools/topic_ideas.py stock done T003           # 다 씀 (작성함)
   python3 tools/topic_ideas.py stock status              # 평가·소스를 다시 읽고 점수·문서 갱신 → '갱신 필요'면 새 후보 모음을 씀
   python3 tools/topic_ideas.py stock import <marks.json> # 평가판 페이지(Artifact db 'marks')에서 누른 평가 → 평가.txt (Claude 가 ArtifactData list 결과를 저장해 넘김)
+  python3 tools/topic_ideas.py stock precheck <결과.json> [고친 결론.json]   # v1.3 정답 미리 확인 (stock/topics/precheck/precheck.py 결과) → 분류·고친 결론 · 미확인·조건부 테스트형은 묶음에서 뺌
 로그: [STAGE] [시각] key=value (START·LOAD·USED·CHECK·SCORE·LEARN·BATCH·WRITE·DONE)
 """
 import argparse
@@ -53,7 +58,7 @@ try:
 except ModuleNotFoundError:            # Python 3.10
     import tomli as tomllib
 
-VERSION = "v1.2.2"
+VERSION = "v1.3"
 ROOT = Path(__file__).resolve().parent.parent
 LOG = logging.getLogger("topics")
 FIELDS = ("title", "question", "conclusion", "decide", "data", "format", "persona", "theme", "needs", "market", "data_kind")
@@ -396,17 +401,22 @@ def current_batch(S):
     return S["batches"][-1] if S["batches"] else None
 
 
+def pre_out(it):
+    """v1.3 미리 계산에서 빠진 주제 (cmd_precheck 가 정함) — 나쁨처럼 '남은 것'·새 묶음에서 뺌."""
+    return bool((it.get("precheck") or {}).get("out"))
+
+
 def batch_done(S):
     b = current_batch(S)
     if not b:
         return True
-    left = [t for t in b["ids"] if S["items"][t]["status"] == "이번 묶음" and S["items"][t].get("rating") != "나쁨"]
+    left = [t for t in b["ids"] if S["items"][t]["status"] == "이번 묶음" and S["items"][t].get("rating") != "나쁨" and not pre_out(S["items"][t])]
     return not left
 
 
 def pick_batch(S, Z, W, marks):
     cfg = Z["batch"]
-    pool = [it for it in S["items"].values() if it["status"] == "대기" and it.get("rating") != "나쁨"]
+    pool = [it for it in S["items"].values() if it["status"] == "대기" and it.get("rating") != "나쁨" and not pre_out(it)]
     pool.sort(key=lambda it: -it["score"])
     chosen, per_theme, per_need = [], Counter(), Counter()
 
@@ -491,7 +501,7 @@ def finish(topic, P, Z, S, A, refresh_ok=False):
     log("LEARN", topic=topic, marks=len(marks), good=sum(1 for m in marks.values() if m["rating"] == "좋음"),
         bad=sum(1 for m in marks.values() if m["rating"] == "나쁨"), features=len(W), from_sources=hit)
     if batch_done(S) and refresh_ok:
-        ready = sum(1 for it in S["items"].values() if it["status"] == "대기" and it.get("rating") != "나쁨")
+        ready = sum(1 for it in S["items"].values() if it["status"] == "대기" and it.get("rating") != "나쁨" and not pre_out(it))
         if ready >= Z["batch"]["SIZE"]:
             pick_batch(S, Z, W, marks)
         else:                                       # 20개를 못 채우면 묶음을 만들지 않음 — 후보를 더 써서 add
@@ -502,7 +512,7 @@ def finish(topic, P, Z, S, A, refresh_ok=False):
     P["md"].write_text(render(S, Z, A, W, g, b, marks, done), "utf-8")
     P["page"].write_text(render_page(S, A), "utf-8")
     b2 = current_batch(S)
-    left = [t for t in (b2["ids"] if b2 else []) if S["items"][t]["status"] == "이번 묶음" and S["items"][t].get("rating") != "나쁨"]
+    left = [t for t in (b2["ids"] if b2 else []) if S["items"][t]["status"] == "이번 묶음" and S["items"][t].get("rating") != "나쁨" and not pre_out(S["items"][t])]
     log("WRITE", md=str(P["md"].relative_to(P["base"].parent)), json=str(P["json"].relative_to(P["base"].parent)), page=str(P["page"].relative_to(P["base"].parent)),
         batch=b2["no"] if b2 else 0, left=len(left), refresh_needed=done)
     if done:
@@ -538,12 +548,44 @@ def cmd_use(topic, tid, folder, root=None, done=False):
     if tid not in S["items"]:
         raise SystemExit(f"{tid} 없음")
     it = S["items"][tid]
+    pc = it.get("precheck")
+    if not done and (not pc or pc.get("out")):                      # v1.3 — 요약본 전에 정답 미리 확인 (stock/topics/README.md)
+        log("CHECK", logging.WARNING, id=tid, precheck=(pc or {}).get("class", "없음"),
+            note="정답 미리 확인이 없거나 빠진 주제 — 요약본 전에 stock/topics/precheck/precheck.py 로 계산 → precheck 명령",
+            next=f"python3 tools/topic_ideas.py {topic} precheck <결과.json>")
     it["status"] = "작성함" if done else "작성중"
     if folder:
         it["folder"] = folder
     save_state(P, S)
     log("BATCH", id=tid, status=it["status"], folder=it.get("folder", "-"))
     return cmd_status(topic, root)
+
+
+def cmd_precheck(topic, path, fixes=None, root=None):
+    """v1.3 정답 미리 확인 결과(precheck.py JSON: results[ID] = {class, answer, why}) + Claude 가 쓴 고친 결론(JSON: {ID: 문장}) → 주제마다 precheck.
+    settings [precheck] EXCLUDE 분류 · NO_TEST 분류인데 형식이 테스트형 → out (묶음에서 뺌)."""
+    P = paths(topic, root)
+    Z, S = load_settings(P), load_state(P, topic)
+    cfg = Z.get("precheck") or {}
+    excl, notest = set(cfg.get("EXCLUDE", ["미확인"])), set(cfg.get("NO_TEST", ["조건부형"]))
+    res = json.loads(Path(path).read_text("utf-8"))
+    rs = res.get("results", res)
+    fx = json.loads(Path(fixes).read_text("utf-8")) if fixes else {}
+    n = Counter()
+    for tid, r in rs.items():
+        if tid not in S["items"]:
+            continue
+        it = S["items"][tid]
+        cls = r.get("class", "미확인")
+        out_ = cls in excl or (cls in notest and it.get("format") == "테스트형")
+        it["precheck"] = {"class": cls, "answer": str(r.get("answer", "")), "why": str(r.get("why", "")), "conclusion": fx.get(tid, ""),
+                          "out": out_, "out_why": ("자료가 없어 확인 못 함" if cls in excl else "조건에 따라 갈리는데 정답을 맞히는 테스트형") if out_ else "",
+                          "file": str(path), "made": res.get("made", ""), "data_last": res.get("data_last", "")}
+        n[cls] += 1
+        log("CHECK", id=tid, precheck=cls, out=out_, conclusion=(fx.get(tid) or "-")[:60])
+    log("CHECK", topic=topic, precheck=json.dumps(dict(n), ensure_ascii=False), out=sum(1 for it in S["items"].values() if pre_out(it)))
+    save_state(P, S)
+    return finish(topic, P, Z, S, load_analysis(P), refresh_ok=True)
 
 
 def cmd_import(topic, path, root=None):
@@ -665,11 +707,14 @@ def render(S, Z, A, W, g, b, marks, done):
         L += [f"## 1. 이번 묶음 — {B['no']}번째 ({B['made'][:10]}) · {len(ids)}개 · 남은 것 "
               f"{sum(1 for t in ids if S['items'][t]['status'] == '이번 묶음' and S['items'][t].get('rating') != '나쁨')}개"
               + (" · ⚠️ **갱신 필요**" if done else ""), "",
-              "| 순위 | ID | 주제 | 명확한 결론 (예상) | 대상 | 형식 | 상태 | 평가 | 점수 |", "|---|---|---|---|---|---|---|---|---|"]
+              "- **미리 계산** (v1.3 — `stock/topics/README.md` '정답 미리 확인'): 정답형 · 차이없음 · 사실형 · 계산형 → 요약본 가능 · 조건부형 → 비교·내기의 크기로만 (테스트형 ✗) · 미확인 → 자료 전엔 안 씀. ⛔ = 묶음에서 뺌.", "",
+              "| 순위 | ID | 주제 | 결론 (미리 계산 뒤 · 없으면 예상) | 미리 계산 | 대상 | 형식 | 상태 | 평가 | 점수 |", "|---|---|---|---|---|---|---|---|---|---|"]
         rows = sorted((S["items"][t] for t in ids), key=lambda it: -it["score"])
         for i, it in enumerate(rows, 1):
             pp = A["personas"].get(it["persona"], {})
-            L.append(f"| {i} | **{it['id']}** | {it['title']} | {it['conclusion']} | {pp.get('id', '?')} {pp.get('name', it['persona'])} | {it['format']} | "
+            pc = it.get("precheck") or {}
+            L.append(f"| {i} | **{it['id']}** | {it['title']} | {pc.get('conclusion') or it['conclusion']} | {('⛔ ' if pc.get('out') else '') + pc.get('class', '전')} | "
+                     f"{pp.get('id', '?')} {pp.get('name', it['persona'])} | {it['format']} | "
                      f"{it['status']}{' (' + it['folder'] + ')' if it.get('folder') else ''} | {('👍' if it.get('rating') == '좋음' else '👎' if it.get('rating') == '나쁨' else '')} | {it['score']:.2f} |")
         L += ["", "## 2. 주제별 자세히", ""]
         for i, it in enumerate(rows, 1):
@@ -680,6 +725,9 @@ def render(S, Z, A, W, g, b, marks, done):
             L += [f"### {i}. {it['id']} {it['title']}", "",
                   f"- **질문**: {it['question']}",
                   f"- **결론 (예상)**: {it['conclusion']}",
+                  *([f"- **미리 계산 ({it['precheck']['class']}{' · ⛔ 뺌 — ' + it['precheck']['out_why'] if it['precheck'].get('out') else ''})**: "
+                     f"{it['precheck'].get('conclusion') or it['precheck']['answer']} — {it['precheck']['why']} (`{it['precheck']['file']}`)"] if it.get("precheck") else
+                    ["- **미리 계산**: 아직 — 요약본 전에 `stock/topics/precheck/precheck.py`"]),
                   f"- **판정 규칙**: {it['decide']}",
                   f"- **자료**: {it['data']} · {it['data_kind']} · {it['market']}"]
             if it.get("items"):
@@ -875,7 +923,9 @@ def render_page(S, A):
             needs = [A["needs"][n] for n in it.get("needs") or [] if n in A["needs"]]
             basis = " · ".join([f"{n['pick']} {n['topic'][:40]} 👍{n['likes']:,}" for n in needs] +
                                ([f"닮은 성공 사례: {it['success_match']['title'][:50]}"] if it.get("success_match") and it["success_match"]["sim"] >= 0.08 else []))
-            items.append({"rank": i, "id": it["id"], "title": it["title"], "conclusion": it["conclusion"], "question": it["question"], "decide": it["decide"],
+            pc = it.get("precheck") or {}
+            items.append({"rank": i, "id": it["id"], "title": (f"[{'⛔ ' if pc.get('out') else ''}{pc['class']}] " if pc else "") + it["title"],
+                          "conclusion": pc.get("conclusion") or it["conclusion"], "question": it["question"], "decide": it["decide"],
                           "data": it["data"], "format": it["format"], "persona": f"{pp.get('id', '?')} {pp.get('name', it['persona'])}", "status": it["status"],
                           "score": f"{it['score']:.2f}", "basis": basis or it.get("why", ""), "rating": it.get("rating"), "why": it.get("rating_why", "")})
     data = {"batch": B["no"] if B else 0, "made": (B["made"][:10] if B else "-"), "analysis": str(A["analysis_made"])[:10], "items": items}
@@ -886,7 +936,7 @@ def render_page(S, A):
 def main(argv=None):
     ap = argparse.ArgumentParser(description="주제 탐색 (주식·재테크) — 20개씩 · 평가를 배움 · 명확한 결론만")
     ap.add_argument("topic")
-    ap.add_argument("cmd", choices=["material", "add", "mark", "use", "done", "status", "import"])
+    ap.add_argument("cmd", choices=["material", "add", "mark", "use", "done", "status", "import", "precheck"])
     ap.add_argument("args", nargs="*")
     ap.add_argument("--log-level", default="INFO", choices=["DEBUG", "INFO", "WARNING"])
     a = ap.parse_args(argv)
@@ -901,6 +951,8 @@ def main(argv=None):
         cmd_mark(a.topic, a.args[0], a.args[1], " ".join(a.args[2:]))
     elif a.cmd == "import":
         cmd_import(a.topic, a.args[0])
+    elif a.cmd == "precheck":
+        cmd_precheck(a.topic, a.args[0], a.args[1] if len(a.args) > 1 else None)
     elif a.cmd in ("use", "done"):
         cmd_use(a.topic, a.args[0], a.args[1] if len(a.args) > 1 else "", done=a.cmd == "done")
     else:

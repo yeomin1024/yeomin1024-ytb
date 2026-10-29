@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-10-28 — 최초. 새 세션이 문서를 읽지 않고 '분석 → 주제 탐색 → 요약본 → 대본' 어디까지 됐고 다음에 무엇을 돌릴지 한 번에 보게
+# VERSION: v1.1 — 2026-10-29 — 단계 10b '정답 미리 확인' (사용자 지시 "그렇게 절차정하고 주제 걸러봐 기존 3개도 확인해서" — stock/topics/README.md). (v1.0 — 2026-10-28 — 최초. 새 세션이 문서를 읽지 않고 '분석 → 주제 탐색 → 요약본 → 대본' 어디까지 됐고 다음에 무엇을 돌릴지 한 번에 보게
 #          (사용자 지시 2026-10-28 "유튜브 분석에서 요약본까지 생성하는 과정을 토큰 가장 아낄 수 있는 구조로 해서 처음 생성한 세션이 똑같이 진행할 수
-#          있도록 지시사항 파일을 만들어" — 지시사항 `stock/guides/quick_flow.md`).
+#          있도록 지시사항 파일을 만들어" — 지시사항 `stock/guides/quick_flow.md`).)
 #
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.1 | 2026-10-29 | 단계 10b 정답 미리 확인 (결과 topics/정답확인.md · 앞 단계 topics/pool/*.json) | STEPS |
 # | v1.0 | 2026-10-28 | 최초 — 단계표(결과 파일·앞 단계)·git 시각 비교·편마다 진행 | stamp · step_rows · episode_rows · main |
 #
 # 실행: python3 tools/flow_status.py stock          (economic · history 도 같은 꼴 — 폴더 구조가 같음)
@@ -25,7 +26,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v1.0"
+VERSION = "v1.1"
 EXPLORE_MAX_DAYS = 7      # 탐색 캐시가 이보다 오래되면 explore 권함 (검색 캐시 7일~ — stock/README.md '클라우드에서 분석')
 
 # (번호, 이름, 결과 파일(주제 폴더 기준 glob), 앞 단계 입력(glob 목록), 다음에 돌릴 것)
@@ -45,6 +46,8 @@ STEPS = [
     (10, "주제 탐색", "topics/주제탐색.md",
      ["result/outliers/personas.md", "result/outliers/comment_titles.md", "guides/channel.md", "topics/평가.txt", "topics/pool/*.json"],
      "python3 tools/topic_ideas.py {t} status  ('갱신 필요'면 material → pool/<날짜>.json → add)"),
+    ("10b", "정답 미리 확인", "topics/정답확인.md", ["topics/pool/*.json"],
+     "python3 -B {t}/topics/precheck/precheck.py (새 주제는 함수 더함) → {t}/topics/precheck/conclusions_<날짜>.json → python3 tools/topic_ideas.py {t} precheck <결과.json> <결론.json> → 정답확인.md"),
     (11, "요약본", "topics/요약본_material.md", ["source/*/요약본_안.json", "topics/요약본_평가.txt", "topics/주제탐색.md"],
      "python3 tools/summary_ideas.py {t} status"),
 ]

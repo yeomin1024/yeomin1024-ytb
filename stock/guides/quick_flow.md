@@ -1,6 +1,6 @@
 # 주식 — 유튜브 분석부터 요약본·대본까지 (새 세션은 이 파일 하나로)
 
-VERSION: v1.1 — 2026-10-28 — 12단계에 반론 검토 반복 (반론 페르소나 `tools/rebuttal_persona.py` · 회차마다 새 검토자). (v1.0 — 2026-10-28 — 최초 (사용자 지시 "지금 있는 주식 주제 관련 세션에서 유튜브 분석에서 요약본까지 생성하는 과정을 토큰 가장 아낄 수 있는 구조로 해서 처음 생성한 세션이 똑같이 진행할 수 있도록 지시사항 파일을 만들어 그리고 대본 하나 만들어봐"). 진행 확인 도구 `tools/flow_status.py` v1.0 · 첫 적용 대본 `stock/source/timing-test-2026-10/`.
+VERSION: v1.2 — 2026-10-29 — **10b 정답 미리 확인** (요약본 전 · 사용자 지시 "왜 이렇게 주제부터 잘못 판단하는거야? … 그렇게 절차정하고 주제 걸러봐") — `stock/topics/README.md` '정답 미리 확인'. (v1.1 — 2026-10-28 — 12단계에 반론 검토 반복 (반론 페르소나 `tools/rebuttal_persona.py` · 회차마다 새 검토자). (v1.0 — 2026-10-28 — 최초 (사용자 지시 "지금 있는 주식 주제 관련 세션에서 유튜브 분석에서 요약본까지 생성하는 과정을 토큰 가장 아낄 수 있는 구조로 해서 처음 생성한 세션이 똑같이 진행할 수 있도록 지시사항 파일을 만들어 그리고 대본 하나 만들어봐"). 진행 확인 도구 `tools/flow_status.py` v1.0 · 첫 적용 대본 `stock/source/timing-test-2026-10/`.)
 ※ 연구·교육용 — 투자 권유가 아님.
 
 **이 파일 + 아래 표가 가리킨 줄만 읽는다.** 규칙의 까닭이 필요할 때만 '근거' 칸의 문서 절. 재테크·역사도 같은 명령에 주제 이름만 바꿔 쓴다 (`<주제>/topics/README.md`).
@@ -38,14 +38,16 @@ python3 tools/cloud_run.py stock status 2>&1 | tail -n 20    # 1~2단계를 할 
 | 8 | 콘텐츠 엑셀 | `python3 tools/content_analysis.py stock` | `content_analysis.md`·`.xlsx` | md (2천 자) | **새 성공 사례만** 그림을 보고 `thumb_codes.tsv` 에 줄 더함 — 묶음 그림 `analysis_thumbs_*.jpg`(여러 장이 한 그림), 한 장씩 열지 않음 |
 | 9 | 대본 받을 목록 | `python3 tools/pc_transcribe.py list stock` | `transcript_todo.md`·`.csv` | 앞 10줄 | 사용자 PC 가 `run_analyzer.ps1 -Transcribe -Folder stock` → 대본 오면 2단계 `analyze` 다시 |
 | 10 | 주제 탐색 | `python3 tools/topic_ideas.py stock status` (평가 가져오기·갱신은 3번) | `stock/topics/주제탐색.md` · 평가판 | **1번 표만** · 새 후보를 쓸 때만 `material.md`(2만 자 — 페르소나·니즈·성공 비율·쓴 주제가 다 모여 있음) | '갱신 필요'면 새 후보 25개 안팎 `pool/<날짜>.json` (칸 = `stock/topics/README.md` '후보 한 개' — 결론 = 숫자·판정 한 문장 + 판정 규칙) → `add` → 평가판 같은 주소로 다시 올림 |
+| 10b | **정답 미리 확인** | `python3 -B stock/topics/precheck/precheck.py` (새 주제는 함수 하나 더함) → Claude 가 `precheck/conclusions_<날짜>.json` → `topic_ideas.py stock precheck <결과.json> <결론.json>` | `precheck_<날짜>.json` · 주제탐색.md '미리 계산' 칸 · `stock/topics/정답확인.md` | 로그 `[TOPIC]` 줄만 | 분류(정답형·차이없음·사실형·계산형·조건부형·미확인) — **조건부형은 테스트형 ✗ · 미확인은 안 씀** · 사용자에게 주제마다 '정답 한 문장 · 미리 계산 결과 · 영상 꼴' 세 줄 → 좋음·나쁨 받은 뒤 11단계 |
 | 11 | 요약본 | 사용자가 주제 ID 를 고름 → 새 편 폴더 + `요약본_안.json` → `python3 tools/summary_ideas.py stock status` | 편 `요약본.txt` · `stock/topics/요약본_평가판.html` | `stock/topics/요약본_material.md`(5천 자) · `quick_test.md` 0번 · `stock/guides/channel.md` 3번(다섯 줄) | 2번 '요약본 쓰기' |
 | 12 | 대본 | 사용자가 안을 고름 (또는 "대본 만들어") → `calc/calc.py` → `<영상ID>.txt` → `persona_review.py` → **반론 검토 반복** | 대본 · `calc/results.json` · `persona_review.md` · `대본_근거.md` · `대본_반론_검토.md` | `quick_test.md` 1~9·12번 + 그 편 요약본 | 2번 '대본 쓰기' |
 
-근거: 1·2 `stock/README.md` '클라우드에서 분석' · `guides/pc_analysis.md` · 5~8 CLAUDE.md '분석' · 10 `stock/topics/README.md` · 11·12 `stock/guides/quick_test.md` · `channel.md`.
+근거: 1·2 `stock/README.md` '클라우드에서 분석' · `guides/pc_analysis.md` · 5~8 CLAUDE.md '분석' · 10·10b `stock/topics/README.md` · 11·12 `stock/guides/quick_test.md` · `channel.md`.
 
 ## 2. Claude 가 글을 쓰는 곳 — 꼴만
 
 ### 요약본 쓰기 (11단계)
+0. **10b 정답 미리 확인을 통과한 주제만** (주제탐색.md '미리 계산' 칸이 비었거나 ⛔ 면 쓰지 않음) — [방향] 첫 줄에 분류와 고친 결론, 꼴은 분류가 허락하는 것만 (`stock/topics/README.md` 표).
 1. 편 폴더 `stock/source/<영상ID>/` (영상ID = 영어 낱말-월, 예 `timing-test-2026-10`) · 머리에 `주제 ID: T0NN` (그 주제는 저절로 '작성중').
 2. `stock/topics/settings.toml` 에 `[summary]` `EPISODES = {F = "jaemu-test-2026-10", P = "portfolio-test-2026-10", M = "timing-test-2026-10", <새 글자> = "<영상ID>"}` (글자 = 안 ID 머리 — 없으면 도구 기본 3편만).
 3. `요약본_안.json` 꼴은 `stock/source/timing-test-2026-10/요약본_안.json` **첫 60줄만** 보고 따라 씀: `direction`(방향 3~5줄 + `notes` 출처) · `rounds[0].answers` 안 5개 × 칸 8개(LT·LM·LS·LF·ST·SM·SS·SF, 칸마다 `text` + `tags`).
